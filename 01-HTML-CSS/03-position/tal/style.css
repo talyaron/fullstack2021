@@ -1,0 +1,19 @@
+.box{
+    width: 100px;
+    height: 100px;
+    border:1px solid gray
+}
+
+.positioned1{
+    background-color: burlywood;
+    position: absolute;
+    top:20px;
+    left:20px;
+}
+
+.wrapper{
+    margin-left: 100px;
+  background-color: aqua;
+  position:relative;
+ 
+}

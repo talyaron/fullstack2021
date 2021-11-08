@@ -1,0 +1,44 @@
+.wrapper{
+    background-color: rgb(212, 248, 248);
+    /* width: 200px; */
+    height: 100px;
+}
+
+.wrapper>img{
+    width:100px;
+    border-radius: 20px;
+    float: right;
+}
+
+
+
+.wrapper>.subText{
+    color:rgb(151, 151, 151);
+    font-style: italic;
+}
+
+.wrapper>p>.link{
+    color:blue;
+    text-decoration: underline;
+    cursor: pointer;    
+}
+.wrapper>p>.bold{
+    font-weight: 600;
+}
+.wrapper span{
+    font-style: italic;
+}
+
+div p{
+    color:rgb(41, 41, 41);
+    font-size: 10px;
+}
+
+.row:nth-child(odd){
+    background-color:blue;
+    color: white;
+}
+
+
+
+
