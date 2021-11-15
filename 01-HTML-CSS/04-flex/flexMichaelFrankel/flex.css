@@ -1,0 +1,13 @@
+.wrapper{
+ background: gray; 
+ display: flex;
+justify-content: center;
+}
+
+.box{
+    background: indigo;
+    min-width: 4vw;
+    min-height: 4vh;
+    border:1px solid yellow;
+
+}

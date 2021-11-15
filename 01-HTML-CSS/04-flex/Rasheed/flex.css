@@ -1,0 +1,16 @@
+.wrapper{
+    background-color: blue;
+    width: 30vw;
+    height: 30vw;
+    padding: 10px;
+}
+.box{
+    background-color: brown;
+    width: 100px;
+    height: 70px;
+    display: flex ;
+    flex-direction: column-reverse;
+    border: chartreuse solid;
+
+    
+}
