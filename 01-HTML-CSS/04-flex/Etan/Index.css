@@ -1,7 +1,7 @@
 .box {
     background-color: purple;
     min-height: 4vh;
-    min-height: 4vw;
+    min-width: 4vw;
     border: 1px solid yellowgreen;
     color: white;
     text-align: center;
