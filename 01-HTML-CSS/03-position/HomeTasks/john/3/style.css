@@ -18,7 +18,7 @@ p{
     width: 500px;
     height: 350px;
     background-color: rgb(51, 121, 153);
-    position: relative;
+    position: fixed;
     left:10px;
     top:10px;
     
@@ -27,7 +27,7 @@ p{
     width: 500px;
     height: 400px;
     background-color: rgb(65, 24, 24);
-    position: absolute;
+    position: sticked;
     left: 700px;
     top: 100px;
     
