@@ -1,14 +1,12 @@
-.box{
-    background: purple;
-    min-height: 4vh;
-    min-width: 4vw;
-    border:1px solid yellow;
-    color: white;
+.box {
+    color: yellow;
+    background-color: blueviolet;
+    min-height: 10vh;
+    min-width: 10vh;
+    border: 1px solid yellow;
     text-align: center;
 }
-.wrapper{
-    background: gray;
-    padding: 20px;
+
+.wrapper {
     display: flex;
-    flex-direction: row-reverse;
 }
