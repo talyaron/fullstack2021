@@ -1,0 +1,56 @@
+.bigbox{ 
+
+    background-color: rgb(55, 85, 168);
+    height: 200px;
+    width: 200px;
+    position: relative;
+    left: 300px;
+    top: 300px;
+    border-radius: 10px;
+    
+}
+
+.box{
+
+    height: 75px;
+    width: 75px;
+    position: relative;
+    border-radius: 10px;
+
+}
+
+.small1{
+
+    background-color: yellow;
+    left: 20px;
+    top: 20px;
+
+}
+
+.small2{
+
+    background-color: rgb(8, 8, 8);
+    left: 20px;
+    top: 30px;
+
+}
+
+.small3{
+
+    background-color: rgb(28, 153, 76);
+    left: 130px;
+    bottom: 10px;
+
+}
+
+.small4{
+
+    background-color: rgb(170, 90, 25);
+    left: 110px;
+    bottom: 205px;    
+
+}
+
+
+
+
