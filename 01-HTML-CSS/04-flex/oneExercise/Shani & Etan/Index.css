@@ -1,7 +1,12 @@
 .box {
     background-color: gray;
+<<<<<<< Updated upstream
     min-height: 10vh;
     width: 25%;
+=======
+    min-height: 30vh;
+    width: 300px;
+>>>>>>> Stashed changes
     border: 1px solid gray;
     color: white;
     display: flex;
@@ -15,4 +20,14 @@
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
+}
+
+.maneatenalive{
+<<<<<<< Updated upstream
+    
+=======
+    min-width: 20vw;
+    min-height: 10vh;
+    margin-top: 2px;
+>>>>>>> Stashed changes
 }
