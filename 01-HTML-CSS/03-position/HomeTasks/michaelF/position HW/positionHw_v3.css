@@ -1,0 +1,141 @@
+body{
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f0f0;
+
+}
+
+.header{
+    border: 2px solid #454a6a;
+    width: 98%;
+    height: 80px;
+    z-index: 1;
+    position: fixed;
+    top: 0;
+}
+
+.wrapper{
+    width: 20vw;
+    height: 20vw;
+}
+
+.far{ /*icons from font awesome*/
+    color: #454a6a;
+    position: absolute;
+    top: 25%;
+    left: 25%;
+}
+
+p, h1 {
+    color: #454a6a;
+    text-align: center;
+ }
+
+/*right side of the screen*/
+
+.right{
+    border-radius: 1.5rem;
+    background-color: #f9d9c9;
+}
+
+.wrapperUpperRight{
+    position: sticky;
+    top:0;
+    left: 70%;
+    direction: rtl;
+}
+
+.wrapperUpperRight>p{
+    text-align: center;
+    padding-top: 1rem;
+}
+
+.wrapperUpperRight>img{
+    position: relative;
+    top: 0;
+    right: 20%;  
+    border-radius: 50%;
+    width: 9rem;
+    height: 9rem; 
+}
+
+.wrapperMiddleRight{
+    position: absolute;
+    top: 20%;
+    left: 45%;
+}
+
+.wrapperMiddleRight>img{
+    border-radius: 50%;
+    width: 9rem;
+    height: 9rem;
+    position: relative;
+    left:20%;
+    top: 0; 
+}
+
+/*left side of the screen*/
+
+.left{
+    background-color: #bed6ed;
+}
+
+.wrapperUpperLeft{
+    position: absolute;
+    top:2rem;
+    left:5rem;
+}
+
+.wrapperUpperLeft>p{
+    position: absolute;
+    top: 100%;
+    left: 65%;
+    font-weight: 700;
+    text-align: center;
+}
+
+.wrapperMiddleLeft{
+    position: relative;
+    top:12rem;
+    left:17rem;
+}
+
+.wrapperMiddleLeft>p{
+    position: absolute;
+    top: 55%;
+    left: 5%;
+    font-weight: 700;
+    text-align: center;
+}
+
+span{ /*inside p in wrapperMiddleLeft*/
+    color: #f0f0f0;  
+  }
+
+.wrapperLowerLeft{
+    position: relative;
+    top:15rem;
+    left:21rem;
+    transform: rotate(-15deg);
+}
+
+.wrapperLowerLeft>p{
+    position: absolute;
+    top: 35%;
+    font-weight: 900;
+    font-size: 5rem;
+    color: #996666;
+}
+
+.fa-smile-wink:hover{
+    color: red;
+}
+
+.arrow{
+    position: relative;
+    top: 7rem;
+    left: 8rem;
+    width: 180px;
+    height: 100px;
+    transform: rotate(18deg);
+}
+
