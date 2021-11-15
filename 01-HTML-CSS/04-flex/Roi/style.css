@@ -5,6 +5,10 @@ min-width: 4vw;
 border:1px solid yellow;
 color:white;
 text-align: center;
+display:flex;
+justify-content: center;
+align-items: center;
+
 }
 
 .wrapper{
@@ -12,4 +16,5 @@ text-align: center;
     padding:20px;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
 }
