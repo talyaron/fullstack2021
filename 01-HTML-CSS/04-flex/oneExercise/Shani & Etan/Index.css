@@ -1,7 +1,7 @@
 .box {
     background-color: gray;
     min-height: 10vh;
-    width: 300px;
+    width: 25%;
     border: 1px solid gray;
     color: white;
     display: flex;
