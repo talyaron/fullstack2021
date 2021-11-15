@@ -8,12 +8,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
 
 }
 
 .wrapper{
-background: gray;
+    
+    background: gray;
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-around;
