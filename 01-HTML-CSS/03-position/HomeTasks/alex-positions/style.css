@@ -1,0 +1,161 @@
+.box {
+
+    height: 250px;
+    width: 300px;
+    margin-left: 10px 5px;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+    height: 250px;
+}
+
+.fingers-touch3 {
+    left: 20px;
+}
+
+.fingers-touch {
+    position: sticky;
+}
+
+ul {
+    font-size: 25px;
+    font-style: oblique;
+    color: rgb(0, 0, 0);
+}
+
+ul.menu :nth-child(2) {
+    position: fixed;
+    border: 3px solid greenyellow;
+    left: 20%px;
+    right: 45vh;
+}
+
+ul.menu :nth-child(1) {
+    border: 3px solid greenyellow;
+    right: 30vh;
+
+}
+
+
+li {
+    display: inline;
+    padding: 20px;
+    position: fixed;
+
+
+}
+
+p {
+    background-color: rgb(218, 252, 0);
+    opacity: 30%;
+    padding: 20px;
+    border: solid;
+}
+
+p:hover {
+    opacity: 100%;
+}
+
+
+
+.new_perspective {
+    position: sticky;
+    background-color: white;
+
+}
+
+p.new_perspective {
+    margin-top: inherit;
+}
+
+p.apollo {
+    opacity: 100%;
+    cursor: pointer;
+}
+
+a {
+    cursor: pointer;
+}
+
+
+
+.box :nth-child(odd) {
+    left: 30%;
+}
+
+.box2 :nth-child(even) {
+    right: 50%;
+}
+
+
+.box1 {
+    background-color: rgb(220, 112, 112);
+    overflow: scroll;
+    scrollbar-width: 50px;
+}
+
+p.box1 {
+    color: lavender;
+}
+
+.box2 {
+    background-color: rgb(25, 250, 5);
+    left: 30vh;
+    position: sticky;
+    top: 0vh;
+
+}
+
+.box3 {
+    background-color: rgb(237, 201, 0);
+
+}
+
+.box3 img {
+    width: 50%;
+    max-height: 100px;
+}
+
+.box4 {
+    background-color: rgb(236, 236, 237);
+}
+
+.box5 {
+    background-color: rgb(212, 212, 213);
+    padding-right: 50%;
+    position: sticky;
+    top: 0vh;
+}
+
+.box5:hover {
+    opacity: 50%;
+}
+
+.box5 img {
+    transform: scale(0.5);
+    position: sticky;
+}
+
+
+
+.box6 {
+    background-color: rgb(181, 181, 181);
+}
+
+.box7 {
+    background-color: rgb(125, 125, 125);
+}
+
+.box8 {
+    background-color: rgb(91, 91, 91);
+}
+
+.box9 {
+    background-color: rgb(208, 55, 55);
+}
+
+.box10 {
+    background-color: rgb(0, 0, 0);
+}
