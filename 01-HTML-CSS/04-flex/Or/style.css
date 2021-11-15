@@ -1,0 +1,15 @@
+.box{
+    background: blue;
+    min-width: 10vw;
+    height: 10vh;
+    border: 2px solid red;
+    color: red;
+    text-align: center;
+}
+.wrapper{
+    background: yellow;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+
+}
