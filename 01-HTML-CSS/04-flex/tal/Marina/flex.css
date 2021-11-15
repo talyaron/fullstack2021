@@ -1,0 +1,16 @@
+.wrapper{
+    background-color: brown;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.box{
+    background-color: white;
+    color: black;
+    text-align: center;
+    border: 1px solid blue;
+    min-width: 10vw;
+    min-height: 10vh;
+}
