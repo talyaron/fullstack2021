@@ -1,0 +1,134 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-size: 28px;
+}
+
+ul {
+  width: 100%;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: rgb(163, 8, 8);
+  position: fixed;
+  top: 0;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+
+.active {
+  background-color: #ff1f018f;
+}
+
+#stickyImg {
+  position: sticky;
+  top: 1rem;
+  width: 200px;
+}
+
+#img {
+  float: left;
+  width: 50%;
+  height: 60vh;
+}
+
+#cover {
+  width: 50%;
+  height: 60vh;
+  object-fit: cover;
+}
+
+img {
+  height: 180px;
+}
+
+.image {
+  height: 170px;
+  object-fit: none;
+}
+
+.image--center {
+  object-position: 50% 50%;
+}
+
+.image--bottom-right {
+  object-position: 100% 100%;
+}
+
+.image--bottom-left {
+  object-position: 0 100%;
+}
+
+.image--top-left {
+  object-position: 0 0;
+}
+
+.image--up {
+  object-position: 50% 120%;
+}
+
+.image--down {
+  object-position: 50% -20%;
+}
+
+.image--left {
+  object-position: 120% 50%;
+}
+
+.image--right {
+  object-position: -20% 50%;
+}
+
+.image--background-image {
+  object-position: 140% 90%;
+  background-image: url("https://picsum.photos/200");
+}
+
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  color: #eee;
+  padding: 30px;
+  font-family: "Source Code Pro", Monaco;
+  background-color: #333;
+}
+
+.container {
+  float: left;
+  margin: 0 20px 20px 0;
+  padding: 0;
+  width: 45%;
+}
+
+p {
+  float: right;
+  font-weight: 600;
+  font-size: 13px;
+  margin-bottom: 10px;
+  margin-top: 0;
+}
+
+img[class] {
+  width: 100%;
+}
+
+.original-image {
+  margin-bottom: 50px;
+}
