@@ -10,5 +10,5 @@
     background: gray;
     padding: 20px;
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction:column;
 }
