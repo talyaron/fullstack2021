@@ -1,0 +1,191 @@
+body{
+    margin: 0 auto;
+    background-color: #F3F0D7;
+}
+
+
+.header{
+    width: 100%;
+    height: 100px;
+}
+h1{
+    background-color: #CEE5D0;
+    position: fixed;
+    width: 100%;
+margin-top: 0%;
+    height: 100px;
+    text-align: center;
+    font-size: 50px;
+    font-family: 'Mochiy Pop P One', sans-serif;
+    
+}
+.subtext{
+    font-family: 'Rubik', sans-serif;
+    font-size: 20px;
+ }
+span{
+    box-shadow: 0 4px 8px 0 rgba(228, 218, 218, 0.274), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-decoration: underline;
+    background-color: azure;
+
+}
+   
+img{
+    width: 400px;
+    height: 400px;
+    filter: drop-shadow(8px 8px 10px #fef9ef0a);
+    padding: 20px;
+    margin:10px;
+}
+/* didnt want to give a backround-color and border because ithink its looking match better and cleaner like that */
+.wrapper-sticky{
+     margin-left:750px;
+    position: sticky;top: 100px;
+    height: 400px;
+    width: 400px;
+    display: block;
+
+
+}
+.wrapper1{
+    width: 400px;
+    height: 400px;
+position: relative;left: 70%;
+}
+.wrapper2{
+    width: 400px;
+    height: 400px;
+position: relative; left: 15%;
+    
+}
+.wrapper3{
+        width: 400px;
+        height: 400px;
+    position: relative;left: 70%;  
+}
+.wrapper4{
+    width: 400px;
+    height: 500px;
+position: relative;left: 13%;
+    
+}
+.wrapper5{
+    width: 550px;
+    height: 400px;
+position: relative;left:65%;
+    
+}
+.wrapper6{
+    width: 400px;
+    height: 550px;
+position: relative; left: 15%;
+}
+.wrapper7{
+    width: 400px;
+    height: 500px;
+position: relative;left:65%;
+    
+}
+.finger{
+    font-size: 100px;
+    transform: rotate(340deg);
+    height: 100px;
+    width: 100px;
+}
+.finger1{
+    font-size: 100px;
+    height: 100px;
+    width: 100px;
+    position: relative;left: 30%;
+    transform: rotate(180deg);
+    padding: 10px;
+
+}
+.finger4{
+    font-size: 100px;
+    height: 100px;
+    width: 100px;
+    position: relative;left: 50%;bottom: 0%;
+    transform: rotate(200deg);
+    padding: 10px;
+
+
+}
+.finger5{
+    font-size: 100px;
+    height: 100px;
+    width: 100px;
+    position: absolute;left: 80%;bottom: 15%;
+    transform: rotate(90deg);
+    padding: 10px;
+
+
+}
+.finger6{
+    font-size: 100px;
+    height: 100px;
+    width: 100px;
+    position: absolute; bottom: 95%;left: 40%;
+    transform: rotate(0);
+    padding: 10px;
+}
+    .finger7{
+        font-size: 100px;
+        height: 100px;
+        width: 100px;
+        position: absolute;top: 90%; left: 40%;
+        transform: rotate(180deg);
+        padding: 10px;
+    
+
+}
+.subtext3{
+    position: absolute;bottom: 40px;
+    font-family: 'Lato', sans-serif;
+    font-size: 25px;
+    color: #F3D5C0;
+    font-weight: 900;
+    
+    
+}
+.subtext4{
+    padding: 20px;
+    transform: rotate(30deg);
+    font-family: 'Rubik', sans-serif;
+    font-size: 20px;
+    position: absolute;top: 100%;
+
+}
+.subtext5{
+    padding: 20px;
+    transform: rotate(40);
+    font-family: 'Rubik', sans-serif;
+    font-size: 20px;
+    position: absolute;top: 50%;left: 90%;
+
+}
+.subtext6{
+    padding: 20px;
+    transform: rotate(40);
+    font-family: 'Rubik', sans-serif;
+    font-size: 20px;
+    position: absolute;bottom: 100%;
+
+}
+.subtext7{
+    padding: 20px;
+    transform: rotate(40);
+    font-family: 'Rubik', sans-serif;
+    font-size: 20px;
+    position: absolute; top: 100%;
+
+}
+
+
+
+ 
+ 
+
+ 
+     
+ 
