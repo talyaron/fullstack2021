@@ -1,21 +1,18 @@
-.box{
-    
-    background: purple;
+.box {
+    background-color: gray;
     min-height: 10vh;
     width: 300px;
-    border:1px solid yellow;
+    border: 1px solid gray;
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
-  
-    
 }
-.wrapper{
-
-    background: gray;
+.wrapper {
+    background-color: white;
     padding: 20px;
     display: flex;
     flex-direction: row;
+    justify-content: center;
     flex-wrap: wrap;
 }
