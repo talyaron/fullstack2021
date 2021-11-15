@@ -1,0 +1,115 @@
+/* Placing a backgound image & font to the body  */
+body {
+    background-image: url('bk.png');
+    background-size: cover;
+    font-family: "Lobster", Regular;
+}
+.grandpa {
+    position: absolute;
+    top: 200px;
+    left: 30%;
+    width: 200px;
+    height: 200px;
+    background-color: rgb(68, 66, 66);
+    border-radius: 50%;
+}
+.grandma {
+    position: absolute;
+    left: 120%;
+    width: 200px;
+    height: 200px;
+    background-color: rgb(68, 66, 66);
+    border-radius: 50%;
+}
+.son {
+    position: absolute;
+    top:120%;
+    width: 200px;
+    height: 200px;
+    background-color:green;
+    border-radius: 50%;
+}
+.daughter {
+    position: absolute;
+    top:120%;
+    left:120%;
+    width: 200px;
+    height: 200px;
+    background-color:green;
+    border-radius: 50%;
+}
+.banner {
+    position: sticky;
+    top:100%;
+    left: 30%;
+    width: 500px;
+    height: 50px;
+    background-color:green;
+    border-radius: 5%;
+    text-align: center;
+    margin:auto
+}
+.grandpa>img {
+    position: absolute;
+    top: 15%;
+    left: 17%;
+    width: 130px;
+    height: 120px;
+    border-radius:50%;
+}
+.text_grandpa {
+    position: absolute;
+    left: 30%;
+    top: 65%;
+    color: ivory;
+}
+.grandma {
+    position: absolute;
+    left: 120%;
+    width: 200px;
+    height: 200px;
+    background-color: rgb(68, 66, 66);
+    border-radius: 50%;
+}
+.grandma>img {
+    position: absolute;
+    top: 15%;
+    left: 17%;
+    width: 130px;
+    height: 120px;
+    border-radius:50%;
+}
+.text_grandma {
+    position: absolute;
+    left: 28%;
+    top: 65%;
+    color: ivory;
+}
+.son>img {
+    position: absolute;
+    top: 15%;
+    left: 17%;
+    width: 130px;
+    height: 120px;
+    border-radius:50%;
+}
+.text_son {
+    position: absolute;
+    left: 28%;
+    top: 65%;
+    color: ivory;
+}
+.daughter>img {
+    position: absolute;
+    top: 15%;
+    left: 17%;
+    width: 130px;
+    height: 120px;
+    border-radius:50%;
+}
+.text_daughter {
+    position: absolute;
+    left: 28%;
+    top: 65%;
+    color: ivory;
+}
