@@ -1,0 +1,57 @@
+
+body{
+    background-color: darkred;
+}
+.wrapper{
+
+    
+    position:relative;
+    width: 100%;
+    height: 100%;
+
+}
+
+h1{
+    font-size: 90px;
+    background-color: darkblue;
+    position: fixed;
+    left: 30%;
+    top: 0px;
+}
+
+.deer{
+    position: absolute;
+    left: 20vh;
+    top: 45vh ;
+}
+
+.roses{
+    position: sticky;
+    margin: 75%;
+    top: 0px;
+}
+ 
+.bird{
+    position: absolute;
+    left:140vh ;
+    top: 75vh;
+}
+
+.sunflowers{
+    position: absolute;
+    right:40vh;
+    top:200vh;
+}
+
+.monkey{
+    position: absolute;
+    top: 150vh;
+    right: 100px;
+}
+
+
+
+
+
+ 
+
