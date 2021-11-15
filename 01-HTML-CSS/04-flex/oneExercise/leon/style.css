@@ -1,0 +1,16 @@
+.wrapper{
+    border: 2px solid black;
+position: relative;
+height: 50vw;
+width: 50vh;
+display: flex;
+}
+.box{
+    border: 1px solid black;
+    height: 20vh;
+    width: 20vw;
+}
+.img{
+    
+  width: 100%
+}
