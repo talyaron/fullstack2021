@@ -1,13 +1,13 @@
-.box {
-    background-color: purple;
+.box{
+    background: purple;
     min-height: 4vh;
     min-width: 4vw;
-    border: 1px solid yellowgreen;
+    border:1px solid yellow;
     color: white;
     text-align: center;
 }
-.wrapper {
-    background-color: red;
+.wrapper{
+    background: gray;
     padding: 20px;
     display: flex;
     flex-direction: row-reverse;
