@@ -1,4 +1,5 @@
 .box{
+    
     background: purple;
     min-height: 10vh;
     width: 300px;
@@ -7,14 +8,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
   
     
 }
 .wrapper{
+
     background: gray;
     padding: 20px;
     display: flex;
     flex-direction: row;
-   
     flex-wrap: wrap;
 }

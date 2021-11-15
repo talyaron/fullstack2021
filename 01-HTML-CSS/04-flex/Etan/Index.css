@@ -1,14 +1,18 @@
 .box {
     background-color: purple;
-    min-height: 4vh;
-    min-width: 4vw;
+    min-height: 10vh;
+    width: 300px;
     border: 1px solid yellowgreen;
     color: white;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .wrapper {
     background-color: red;
     padding: 20px;
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
 }
