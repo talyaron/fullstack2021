@@ -1,0 +1,118 @@
+.box{
+    height: 200px;
+    width: 200px;
+    border: 2px solid rgb(5, 4, 4);
+    background-color: saddlebrown;
+    box-shadow: 5px 10px 8px 10px #2928286b;
+
+}
+.wrapper{
+    position: absolute;
+   
+    width: 100%;
+    height: 100vw;
+    top:70px;
+    left:0px;
+    padding: auto;
+    display: block;
+    text-align: center;
+}
+body{
+    
+    background-image: url('photo/27-4.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    background-size: 100% 100%;
+  
+}
+div{
+    position: absolute;
+}
+img{
+    height: 200px;
+    width: 200px;
+
+}
+
+.box:nth-child(1){
+    background-color:yellow;
+    top: 50px;
+    margin: 60px;
+    right: 80px;
+    
+}
+
+
+.box:nth-child(2){
+    background-color:red;
+    position: absolute;
+    top:0px;
+    left:50%;
+
+}
+
+.box:nth-child(3){
+    background-color:green;
+    position: absolute;
+    top:50%;
+    left:18.5%;
+    
+}
+
+
+.box:nth-child(4){
+    background-color:rgb(0, 47, 255);
+    position: absolute;
+    top: 350px;
+    left:60%;
+}
+.box:nth-child(5){
+    background-color:rgb(255, 0, 0);
+    position: absolute;
+    top: 600px;
+    left:50px;
+}
+.fixed{
+    background-color:rgb(255, 153, 0);
+    position:fixed;
+    left: 15%;
+    text-align: center;
+    display: block;
+    border-radius: 10px;
+    border: 3px solid black;
+
+
+}
+.sticky{
+    position: sticky;
+    top: 200px;
+    left: 80%;
+    width: 200px;
+    height: 200px;
+    border:  solid red;
+    background-color: rgb(18, 230, 230);
+    bottom: px;
+
+}
+.text{
+    position: absolute;
+    top:0px;
+    left: 0%;
+    transform: translate(-50% -50%);
+    font-size: large;
+    
+    padding: 30px;
+    font-size: x-large;
+
+
+}
+div{
+    display: block;
+    width: 70%;
+    height: 50px;
+    
+}
+
+.text:nth-child(2){
+    color: rgb(167, 7, 7);
+}
