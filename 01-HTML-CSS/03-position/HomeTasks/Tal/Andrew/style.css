@@ -1,0 +1,25 @@
+.headline{
+    display: flex;
+    justify-content: space-evenly;
+    background-color: lavender;
+    flex-wrap: wrap;
+}
+.button{
+    background-color: lightblue;
+    padding: 1rem;
+    height: 4rem;
+    align-items: center;
+}
+.news{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+h3{
+    font-size: 30px;
+}
+img{
+    width: 20vw;
+    height: 15vh;
+    border: 0.3rem solid grey;
+}
