@@ -1,0 +1,118 @@
+body { 
+    
+    /* background-color: rgb(68, 122, 223); */
+    background-image: url("img/bg.jpeg");
+    background-repeat: no-repeat;
+    background-size:cover;
+
+   
+}
+
+.titlebar{
+    text-align: center;
+    width: 100%;
+    height: 200px;
+    position: fixed;    
+}
+
+.titlebar .burgertitle{
+    font-style: bold;
+    font-family: "Comic Sans MS";
+    text-decoration: underline;
+    font-size: 50px;
+    color: rgb(31, 27, 19);
+}
+
+p{
+    font-family: "Comic Sans MS";
+}
+
+.bunz img{
+    width: 70%;
+}
+
+.lettuce img{
+    width: 50%;
+    height: 50%;
+}
+
+.onion img{
+    width: 50%;
+    height: 25%;
+}
+
+.tomato img{
+    width: 50%;
+    height: 15%;
+}
+
+.patty img{
+    width:70%;
+    height:30%;
+}
+
+.sauce img{
+    width: 55%;
+}
+
+.box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+}
+
+.buntop{
+    position: sticky;
+    top: 50px;  
+}
+
+.lettuce{
+    position: sticky;
+    top: 120px;
+}
+
+.onion{
+    position: sticky;
+    top: 150px;
+}
+
+.tomato{
+    position: sticky;
+    top: 170px;
+}
+
+.patty{
+    position: sticky;
+    height: 400px;
+    top: 250px;
+    z-index: -1;
+}
+
+.sauce{
+    position: sticky;
+    top: 230px;
+}
+
+.bunbottom{
+    position: sticky;
+    height: 650px;
+    top: 200px;
+    z-index: -2;
+}
+
+
+.left p{
+    position: absolute;
+    right: 710px;
+    font-size: 50px;
+}
+
+.right p{
+    position: absolute;
+    left: 720px;
+    font-size: 50px;
+}
+
+
+
