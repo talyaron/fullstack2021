@@ -1,0 +1,14 @@
+.box{
+    background: purple;
+    min-height: 4vh;
+    min-width: 4vw;
+    border:1px solid yellow;
+    color: white;
+    text-align: center;
+}
+.wrapper{
+    background: gray;
+    padding: 20px;
+    display: flex;
+    flex-direction:column;
+}

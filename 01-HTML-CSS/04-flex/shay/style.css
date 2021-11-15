@@ -1,0 +1,14 @@
+.wrraper{
+    background-color: aqua;
+    display: flex;
+    padding: 20px;
+    flex-direction: column-reverse;
+
+}
+.box{
+    background-color: aquamarine;
+    min-height: 4vh;
+    min-width: 4vw;
+    border: 1px solid yellowgreen;
+    text-align: center;
+}
