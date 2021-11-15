@@ -1,0 +1,93 @@
+body{
+    background: linear-gradient(-50deg,rgb(138, 35, 116),rgb(216, 81, 28),rgb(36, 113, 175),rgb(116, 170, 29));
+    background-size: 1500%,1500%;
+    animation: shimon  ease-in-out ;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-delay: 0;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;  
+}
+
+@keyframes shimon{
+    0% {background-position: 0% 25%;}
+    25% {background-position: 25% 50%;}
+    50% {background-position: 50% 75%;}
+    75% {background-position: 75% 100%;}
+}
+
+
+.web_main{
+    position: fixed;
+    width: 100%;
+    height: fit-content;
+    top: 20px;
+    right: 20px;
+    background-color: crimson;
+    text-align:center ;
+    font: size 100px; ;
+    font-weight: 800;
+
+
+}
+
+img {
+
+    width: 100px;
+    height: fit-content;
+}
+.div{
+
+    width: 100%;
+    height: fit-content;
+}
+
+.box1{
+    position: sticky;
+    top: 50px;
+    left: 1200px;
+    height: fit-content;
+    width: 100px;
+
+}
+
+
+.box2{
+    position: absolute;
+    top:100px;
+    height: fit-content;
+    width: 100px;
+
+}
+
+.box3{
+    position: absolute;
+    top: 180px;
+    left: 700px;
+    background-image:url("כינור.jpg") ;
+    background-size: 200px;
+    height: 100px;
+    width: 200px;
+
+}
+
+
+.box4{
+    position: relative;
+    top: 100px;
+    left: 300px;
+    background-image:url("fullstack.jfif") ;
+    background-size: 200px;
+    height: 200px;
+    width: 200px;
+
+}
+
+.box5{
+    position: relative;
+    top: 80px;
+    left: 500px;
+    height: 200px;
+    width: 200px;
+}
+
