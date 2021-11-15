@@ -1,20 +1,18 @@
 .box {
 background: gray;
-min-height:4vh;
-min-width: 4vw;
+min-height:20vh;
+min-width: 20vw;
 border:1px solid yellow;
 color:white;
 text-align: center;
 display:flex;
 justify-content: center;
 align-items: center;
-
 }
 
 .wrapper{
     background: gray;
     padding:20px;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-wrap: wrap;  
 }
