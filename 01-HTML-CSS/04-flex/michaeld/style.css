@@ -10,7 +10,7 @@
 }
 
 .wrapper{
-
+background: gray;
     display: flex;
     flex-direction: row-reverse;
 
