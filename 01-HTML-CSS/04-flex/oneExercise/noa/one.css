@@ -1,0 +1,24 @@
+.wrapper{
+display: flex;
+justify-content: space-evenly;
+align-items: center;
+
+}
+.box{
+    border: 1px solid black;
+    position: relative;
+}
+.box>img{
+width: 20vw;
+
+}
+
+.box>p{
+    background-color: rgba(128, 128, 128, 0.726);
+    position: absolute;
+    bottom: 0;
+}
+h1{
+    text-align: center;
+    text-decoration: underline;
+}
