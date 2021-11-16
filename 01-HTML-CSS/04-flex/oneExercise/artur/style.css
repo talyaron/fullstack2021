@@ -1,0 +1,17 @@
+.wrapper{
+    background: gray;
+    padding: 20px;
+    display: flex;
+   
+    flex-wrap: wrap;
+}
+.box{
+    background: purple;
+    height: 300px;
+    width: 300px;
+    border:1px solid yellow;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
