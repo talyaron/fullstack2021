@@ -2,13 +2,13 @@
     background-color: rgb(70, 190, 106);
     display: flex;
     padding:30px ;
-    flex-direction: column-reverse;
+
 }
 .box{
     background-color: indigo;
     border:1px solid  maroon;
-    color: rgb(226, 222, 233);
     min-width: 4vw;
     min-height: 4vh;
-    text-align: center;
+  
+    
 }
