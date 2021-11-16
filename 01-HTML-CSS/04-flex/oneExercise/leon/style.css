@@ -1,16 +1,17 @@
 .wrapper{
     border: 2px solid black;
 position: relative;
-height: 50vw;
-width: 50vh;
+height: 20vh;
+width: 90vw;
 display: flex;
+flex-direction: row;
 }
 .box{
     border: 1px solid black;
     height: 20vh;
     width: 20vw;
 }
-.img{
-    
+.box>img{
+    height:100%;
   width: 100%
 }
