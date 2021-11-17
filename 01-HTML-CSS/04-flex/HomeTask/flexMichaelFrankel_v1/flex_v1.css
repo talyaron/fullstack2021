@@ -1,0 +1,186 @@
+body{
+    background: white;
+    font-family: 'Lato', sans-serif;
+}
+
+.container{
+    margin: 4vh 5vw;
+    background: #60c6c4;
+    z-index: -1;
+}
+
+/*header and nav*/
+
+.nav{
+    display: flex;
+    justify-content: space-around;
+}
+
+ul{
+    display: flex;
+    justify-content: start;
+    list-style-type:none;
+    padding-top: 6vh;
+}
+
+li{
+    padding: 2.8vw;
+    font-weight: 400;
+    color: #10288c;
+}
+
+li:first-child{
+    font-weight: 700;
+    font-size: 1.5vw;
+    padding-right: 9vw;
+}
+ 
+.fab{
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    background-color:#f5b09f;
+    color:white;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.52);
+    margin-left:23vw;
+    transition: all .3s;
+}
+
+.fab:hover{
+    background-color:#f5b09f;
+}
+
+.fab:active{
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.52);
+}
+
+.fab>span{
+    position: relative;
+    top: 24%;
+    left: 36%;
+    transform: translate(38%, -50%);
+    font-size: 30px;
+    font-weight: 900;
+}
+
+@media only screen and (max-width: 900px) {
+    .fab {
+        margin-left: 1vw;
+    }
+  }
+
+/*main background*/
+
+.mainBg{
+    position: absolute;
+    left: 22%;
+    bottom: -40%;
+    width: 50%;
+}
+
+.cloud{
+   display: flex;
+   justify-content: flex-start;
+   column-gap: 20vw;
+   padding: 1vw 0 0 12vw; 
+}
+
+.cloud img{
+    width: 14vw;
+}
+
+.cloud2{
+    transform: rotate(20deg);
+}
+
+/*Carousel cards*/
+
+.wrapper{
+    background: #60c6c4; 
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    column-gap: 10px;
+    padding: 0 0 70px 0;
+    z-index: 1;
+    margin-top: 200px;
+}
+
+.box{
+    position: relative;
+    min-width: 10vw;
+    min-height: 20vh;
+    border: 5px solid #f5b09f;
+    color: #10288c;
+    cursor: pointer;
+    transition: transform .2s;
+}
+
+.box:hover{
+    content: '♥';
+    color: rgb(93, 9, 133);
+    font-size: 3vw;
+    transform: scale(1.5);
+    z-index: 1;
+}
+
+.box>img {
+    width: 10vw;
+    height: 100%;
+    object-fit: cover;
+    vertical-align: bottom;
+}
+
+.box>span{
+    position: absolute;
+    font-weight: 900;
+}
+
+.box1>span{
+    right: 12%;
+    top: 80%;
+    font-size: 1.5vw;
+}
+
+.box2>span{
+    right: 28%;
+    top: 80%;
+    font-size: 1.6vw;
+}
+
+.box3>span{
+    color: #f4c771;
+    right: 22%;
+    top: 80%;
+    font-size: 1.6vw;
+}
+
+.box4>span{
+    right: 22%;
+    top: 80%;
+    font-size: 1.6vw;
+}
+
+.box5>span{
+    right: 22%;
+    top: 80%;
+    font-size: 1.6vw;
+}
+
+.box6>span{
+    right: 22%;
+    top: 80%;
+    font-size: 1.6vw;
+}
+
+.far{
+    color: #f4c771;
+    transition: transform .2s;
+}
+
+.far:hover{
+    color: red;
+    transform: scale(1.2);
+}
+
+
