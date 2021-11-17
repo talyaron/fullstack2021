@@ -2,10 +2,10 @@ body{
     background-color: rgba(255, 217, 0, 0.548);
 }
 .menu{
-    width: 70vw;
+    width: 80vw;
     height: 60px;
-    margin-top: 15vh;
-    margin-left: 15vw;
+    margin-top: 10vh;
+    margin-left: 10vw;
     background: cornsilk;
     position: fixed;
     display: flex;
@@ -15,7 +15,6 @@ body{
 .options{
     width: 25%;
     height: 60px;
-    
     text-align: center;
     font-family: 'PT Sans', sans-serif;
     font-weight: 700;
@@ -54,5 +53,50 @@ body{
 .options:nth-child(1)>img{
     width: 17%;
     position: relative;
-    left: 58%;
+    left: 49%;
+}
+
+.socialMedia{
+    width: 80vw;
+    height: 60px;
+    margin-top: 80vh;
+    margin-left: 10vw;
+    background: cornsilk;
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+}
+
+.icon{
+    width: 5%;
+    height: 60px;
+}
+
+.icon>img{
+    width: 50%;
+    position: relative;
+    top: 12px;
+    left: 10px;
+    cursor: pointer;
+}
+
+.wrapper{
+    width: 80vw;
+    height: 600px;
+    margin-top: 150px;
+    margin-left: 10vw;
+    background: cornsilk;
+    position: fixed;
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-evenly;
+}
+
+.category{
+    width: 80%;
+    height: 200px;
+    padding: 0px;
+    border: black solid 1px;
+    position: relative;
+    top: 60%;
 }
