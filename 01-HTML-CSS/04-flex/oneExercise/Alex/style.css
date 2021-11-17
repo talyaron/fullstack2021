@@ -1,0 +1,25 @@
+.box {
+    color: black;
+    min-height: 10vh;
+    min-width: 10vh;
+
+
+
+
+
+
+}
+
+.wrapper {
+    display: flex;
+    color: thistle;
+    background-color: turquoise;
+    justify-content: center;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.box>img {
+    transform: scale(0.8);
+}
