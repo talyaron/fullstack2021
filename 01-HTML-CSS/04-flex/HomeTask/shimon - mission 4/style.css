@@ -7,12 +7,11 @@ body{
 }
 
 .title_style{
-
     position: absolute;
-    top: 28vh;
+    top: 25vh;
     left: 9vw;
-    font-size: 2.5vh;
-    line-height: 1.5vh;
+    font-size: 3vh;
+    line-height: 2vh;
     text-align: left;
     font-weight: bold;
 }
@@ -42,7 +41,7 @@ body{
 .warpper{
 
     position: absolute;
-    top: 40vh;
+    top: 42vh;
     padding: 50px;
     width: 95%;
     display: flex;
@@ -51,7 +50,7 @@ body{
 
 .box5{
 
-    min-height: 17vh;
+    min-height: 16vh;
     min-width: 16vw;
     background: white;
     text-align: center;
