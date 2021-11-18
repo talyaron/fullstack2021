@@ -1,0 +1,65 @@
+
+body{
+    background-image: url("רקע חנות ירקות.jpg");
+    background-size: 1390px ;
+    max-height: 500px;
+    font-family: 'Special Elite', cursive;
+}
+
+.title_style{
+
+    position: absolute;
+    top: 28vh;
+    left: 9vw;
+    font-size: 2.5vh;
+    line-height: 1.5vh;
+    text-align: left;
+    font-weight: bold;
+}
+
+.box{
+
+    min-height: 2vh;
+    min-width: 4vw;
+    background: white;
+    border-radius: 25px;
+    border: 1px solid plum;
+    text-align: center;
+}
+
+.box>img{
+
+    height: 19vh;
+    width: 14vw;
+    border-radius: 25px;
+}
+
+.box>p{
+
+    font-size: xx-large;
+}
+
+.warpper{
+
+    position: absolute;
+    top: 40vh;
+    padding: 50px;
+    width: 95%;
+    display: flex;
+    align-items: center;    justify-content: space-around;
+}
+
+.box5{
+
+    min-height: 17vh;
+    min-width: 16vw;
+    background: white;
+    text-align: center;
+    font-size: xx-large;
+    border-radius: 25px;
+    border: 1px solid plum;
+}
+
+.box5>img{
+    border-radius: 25px;
+}
