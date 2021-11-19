@@ -1,5 +1,5 @@
 .box{
-    
+
     background: purple;
     min-height: 10vh;
     width: 300px;
@@ -19,3 +19,4 @@
     flex-direction: row;
     flex-wrap: wrap;
 }
+
