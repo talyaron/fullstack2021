@@ -1,0 +1,13 @@
+.box{
+
+    background: chartreuse;
+    min-height: 40vh;
+    min-width: 40vw;
+    border: darkblue 1px solid;
+    
+}
+
+.wrapper{
+    color: cadetblue;
+display: flex;
+}

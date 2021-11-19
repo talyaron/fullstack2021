@@ -1,0 +1,8 @@
+.warpper{
+    background-color: blueviolet;
+}
+.box{
+    background-color: brown;
+    padding: auto;
+    flex-direction: column;
+}

@@ -1,0 +1,132 @@
+body{
+    background-image: url(photos/Untitled\ design\ \(9\).png);
+font-family: 'Merriweather Sans',;
+margin: 0;
+}
+.top-conteiner{
+
+
+    display: flex;
+    flex-direction: row ;
+    width: 100%;
+    height: 4vw;
+    justify-content:space-around;
+    margin: auto;
+    position: relative;
+    margin: auto;
+    background-color: #FFE194;
+
+
+    
+
+}    
+
+.box-top{
+    display: flex;
+    justify-content: center;
+    width: 15vw;
+    height: 4vw;
+
+
+}
+h2{
+    font-family: 'Montserrat', sans-serif;
+
+}
+h1{
+    font-family: 'Sacramento', cursive;
+    font-size: 10rem;
+    margin: 50px auto auto;
+    color: #66bfbf;
+    padding-bottom: 10px;
+}
+.img-left-top{
+    position: absolute;
+    width: 13vw;
+    height: 6vw;
+}
+.img-right-top{
+    position: absolute;left: 88vw;
+    width: 13vw;
+    height: 6vw;
+}
+
+p{
+    line-height: 2;
+}
+.subtext{
+    position: absolute;left: 5px;top: 120px;
+    width: 30vw;
+    height: 25vw;
+    margin: 0;
+}
+.subtext-right{
+    position: absolute;top: 125px;right: 430px;
+    width: 60px;
+    height: 30px;
+
+}
+.spantitle{
+    font-family: 'Merriweather Sans', sans-serif;
+        font-size: 5rem;
+        font-weight: 800;
+        padding: 50px;
+  
+
+
+    
+}  
+.span-bar{
+    margin: auto;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    padding: 4px;
+    
+}
+
+  
+
+
+
+
+
+
+.span-subtext-right{
+    font-family: 'Yellowtail', cursive;
+    font-weight: 400;
+    font-size: 2rem;
+
+}
+
+
+    
+
+li{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    color: #63B4B8;
+    font-weight: 700;
+
+}
+.wrapper-bottom{
+    position: absolute;left: 35%;bottom: 2%;
+    display: flex;
+    flex-direction: row;
+    width: 60%;
+    height: 20%;
+    background-color: #63B4B8;
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+
+}
+.box-bottom{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15vw;
+    height: 9.5vw;
+    border: solid;
+    background-color: #F7F7F7;
+}

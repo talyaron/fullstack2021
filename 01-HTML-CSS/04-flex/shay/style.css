@@ -2,12 +2,18 @@
     background-color: aqua;
     display: flex;
     padding: 20px;
-    flex-direction: column-reverse;
+    flex-direction: row;
+    
+    flex-wrap: wrap;  
+
 }
 .box{
     background-color: aquamarine;
-    min-height: 4vh;
-    min-width: 4vw;
+    min-height: 40vh;
+    min-width: 40vw;
     border: 1px solid yellowgreen;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

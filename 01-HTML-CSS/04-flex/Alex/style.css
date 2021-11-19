@@ -1,0 +1,12 @@
+.box {
+    color: yellow;
+    background-color: blueviolet;
+    min-height: 10vh;
+    min-width: 10vh;
+    border: 1px solid yellow;
+    text-align: center;
+}
+
+.wrapper {
+    display: flex;
+}

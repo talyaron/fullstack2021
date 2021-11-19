@@ -1,0 +1,20 @@
+.wrapper{
+    background-color: blue;
+    min-height: 30vw;
+    padding: 30px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+}
+
+.box{
+    background-color: brown;
+    
+    display: flex ;
+    flex-direction: row;
+    border: chartreuse solid;
+    justify-content: space-around;
+    align-items: center;
+    
+}
