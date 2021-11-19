@@ -1,0 +1,98 @@
+.logo{position: absolute;
+    color: rgb(72, 72, 153);
+    top: 0%;
+    left: 45vw;
+    font-size: 100px;
+    font-family: fantasy;
+    font-style: oblique;
+}
+.date{
+  height: 0vh;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: rgb(255, 255, 255);
+}
+.date>img:hover{
+    cursor: pointer;
+}
+
+.wrapper{position: relative;
+    display: flex;
+    left: 0vw;
+    top: 20vh;
+
+}
+.box{text-align: center;
+   width: 10vw;
+    height: 5vh;
+    border: 1px solid black;
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+color: white;
+background-color: rgb(77, 77, 153);
+}
+.box:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.main{
+    width: 37vw;
+    height: 65vh;
+    left: 60vw;
+    top: 10vw;
+    border:3px solid rgb(0, 0, 0);
+    position: relative;
+    color: cornsilk;
+    font-weight: bold;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: xx-large;
+}
+.main>img{
+    width: 100%;
+    height: 80%;
+    object-fit: cover;
+    vertical-align: top;
+}
+.main:hover{
+    cursor: pointer;
+    background-color: cadetblue;
+}
+
+.wrapper1{position: relative;
+    display: flex;
+    flex-direction: column;
+    left: 2vw;
+    top:-40vh;
+}
+.box1{position: relative;
+    width: 40vw;
+    height:20vh;
+    border:2px solid black;
+    color: rgb(43, 41, 40);
+    background-color: rgb(167, 167, 167);
+}
+.box1>p{
+    text-align: right;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.box1>h3{
+    color: brown;
+    font-weight: bold;
+    text-align:right;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+  
+}
+.box1>img{ position: absolute;
+    width: 34%;
+    height: 100%;
+    top: 0;
+    left:0;
+}
+.box1:hover{
+    cursor: pointer;
+    background-color:beige;
+}
+.box1>img:hover{
+    transform:scale(1.2);
+    transition-duration: 1s;
+}
+

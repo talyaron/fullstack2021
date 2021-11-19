@@ -1,0 +1,119 @@
+body {
+  font-family: "Convergence", sans-serif;
+  margin: 0px;
+  background-image: linear-gradient(
+      rgba(233, 155, 155, 0.5),
+      rgba(163, 119, 119, 0.747)
+    ),
+    url(2560x1042-maglia-home-21-22.jpg);
+  color: rgb(153, 6, 6);
+}
+
+.wrapper {
+  height: 100vw;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.navBar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ul {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  gap: 80px;
+}
+
+.li:hover {
+  color: rgb(223, 8, 8);
+}
+
+.logo {
+  margin-top: 10px;
+  font-size: 35px;
+  margin-left: 15px;
+  color: rgb(0, 0, 0);
+}
+
+.iconSearch :hover {
+  color: rgb(223, 8, 8);
+}
+
+.iconSearch {
+  background-color: rgb(196, 40, 71);
+  width: 50px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  padding-left: 25px;
+}
+
+.a1-containerH1 {
+  font-size: 8vw;
+  color: rgb(66, 24, 24);
+  display: inline-block;
+}
+
+.a2-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.box {
+  align-items: center;
+  border: 2px;
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+  height: 150px;
+  transition: all 0.3s ease-in-out;
+}
+
+.box:nth-child(odd) {
+  background-color: rgba(241, 38, 79, 0.486);
+}
+
+.box:nth-child(even) {
+  background-color: rgba(0, 0, 0, 0.801);
+}
+
+.box:hover {
+  transform: scale(1.6);
+}
+
+.boxImg img {
+  width: 75px;
+  height: 75px;
+}
+
+.a1-containerP {
+  margin-top: 60px;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.container i {
+  margin-top: 135px;
+  color: rgb(66, 24, 24);
+  font-size: 65px;
+  padding-right: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.container i:hover {
+  color: rgb(223, 8, 8);
+}
+
+i.far.fa-arrow-alt-circle-left {
+  margin-left: 310px;
+}

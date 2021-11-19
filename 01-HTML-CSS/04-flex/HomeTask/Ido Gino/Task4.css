@@ -1,0 +1,188 @@
+body{
+  background-color: black;
+  margin: 0%;
+display: flex;
+flex-wrap: wrap;
+}
+.navbar{
+width: 100%;
+position: fixed;
+background-color: rgb(88, 107, 124);
+z-index: 10000;
+flex-flow: row wrap;
+justify-content: flex-start;
+
+}
+.main_pic{
+  position: relative;
+  height: 800px;
+  width: 60%;
+  left: 370px;
+  top: 20px;
+  display: flex;
+  flex-flow: wrap;
+}
+.box img{
+  width: 100%;
+  height: 100%;
+}
+.list_one{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  height: 50px;
+  overflow: hidden;
+  background-color: #000000;
+  font-family: 'Mochiy Pop One', sans-serif; ;
+}
+.list_one>li{
+  float: left;
+  text-align: center;
+}
+.list_one li>a{
+  display: block;
+  color: rgb(122, 54, 139);
+  padding: 8px 15px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 25px;
+}
+.list_one li>a:hover{
+  background-color: rgb(71, 71, 71);
+  font-size: 180%;
+  color: rgb(237, 232, 238);
+}
+.btn-li{
+  position: relative;
+  float: right;
+  padding-right: 10px;
+  top: 10px;
+}
+.btn-li button{
+  width: 125px;
+  height: 35px;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 17px;
+  font-family: sans-serif;
+}
+
+.btn-li>button:hover{
+  cursor: pointer;
+  font-size: 115%;
+
+}
+#btn_two{
+background: rgb(35, 197, 106);
+}
+#btn_one{
+background: rgb(0, 190, 190);
+}
+
+.wrapper{
+position: relative;
+width: 1400px;
+height: 250px;
+z-index: 10000;
+bottom: 45px;
+right: 125px;
+display: flex;
+flex-flow: row;
+justify-content: space-between;
+ 
+
+}
+.wrapper>div{
+min-height: 4vh;
+min-width: 11vw;
+color: white;
+display: flex;
+flex-flow: wrap;
+justify-content: center;
+padding: 20px;
+
+}
+.wrapper>div:hover{
+  cursor: pointer;
+  position: relative;
+  top:-25px;
+  height:auto;
+  display:block;
+  z-index:999;
+  
+}
+.wrapper>div>img{
+  position: relative;
+  width: 300px;
+  height: 185px;
+}
+
+.btn{
+  padding: 10px;
+  padding-left: 113px;
+  padding-right: 113px;
+  background-color: black;
+  color: aliceblue;
+}
+.wrapper_two{
+  height: 350px;
+  width: 350px;
+  margin: auto;
+  position: relative;
+  top: 850px;
+  right: 600px;
+  display: flex;
+  flex-flow: column;
+
+  
+}
+#formHead{
+  color: #2190a3;
+  text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  
+}
+ 
+ol li{
+  color: antiquewhite;
+  position: relative;
+  display: flex;
+  font-size: 22px;
+}
+span a{
+  position: relative;
+  left: 10px;
+  color:rgb(211, 149, 68)  ;
+  text-decoration: none;
+  font-weight: bold;
+  display: block;
+
+}
+#getBonus{
+  position: relative;
+  left: 28px;
+  top: 30px;
+  background-color: rgb(240, 128, 37);
+  height: 30px;
+  color: rgb(14, 20, 27);
+  font-weight: bold;
+  font-size: 18px;
+  border-radius: 15px;
+ 
+}
+#getBonus:hover{
+  cursor: pointer;
+  font-size: larger;
+
+}
+
+
+
+
+
+
+
+
+
+
+
