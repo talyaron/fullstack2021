@@ -1,0 +1,22 @@
+.box{
+    background-color: aqua;
+    min-width: 20vh;
+    min-height: 20vh;
+    border: 1px solid brown;
+    color: blue;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.wrapper{
+    background-color: burlywood;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.box{
+    b
