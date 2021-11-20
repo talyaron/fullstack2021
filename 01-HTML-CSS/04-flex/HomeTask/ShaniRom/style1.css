@@ -189,6 +189,14 @@ border-radius:5px;
 
 }
 
+.pagebox> .small{
+    color:grey;
+}
+
+.pagebox> .small:hover{
+    color:rgb(31, 16, 16);
+}
+
 .arrow{
     border-radius: 50%;
     background-color:purple;
