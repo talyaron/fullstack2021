@@ -3,16 +3,18 @@ body{
 }
 .menu{
     width: 80vw;
-    height: 8vh;
+    height: auto;
     margin-left: 10vw;
     margin-top: 10vh;
+    position: relative;
     background: cornsilk;
     display: flex;
     flex-direction: row;
 }
 
 .options{
-    width: 25%;
+    position: relative;
+    width: 300px;
     height: 60px;
     text-align: center;
     font-family: 'PT Sans', sans-serif;
@@ -50,15 +52,15 @@ body{
 }
 
 .options:nth-child(1)>img{
-    width: 17%;
-    position: relative;
-    left: 52%;
+   position: relative;
+    left:160px;
 }
 
 .Text{
     width: 80vw;
-    height: 30vh;
+    height:  auto;
     margin-left: 10vw;
+    position: relative;
     background: cornsilk;
     display: flex;
     flex-direction: row;
@@ -73,14 +75,15 @@ body{
 
 .Text>i{
     position: relative;
-    top: 40%;
+    top: 100px;
     left: 15px;
 }
 
 .Arrow{
     width: 80vw;
-    height: 50px;
+    height: auto;
     margin-left: 10vw;
+    position: relative;
     background: cornsilk;
     display: flex;
     flex-direction: row;
@@ -94,13 +97,15 @@ body{
 
 .chevron>i{
     position: relative;
-    top:50%;
     left: 5px;
     font-size: 55px;
     cursor: pointer;
 }
 .chevron:nth-child(2){
-    left: 548px;
+    position: relative;
+    display: flex;
+    flex-direction: row-reverse;
+    right: 10px;
 }
 
 .chevron>i:hover{
@@ -110,11 +115,11 @@ body{
 
 
 .wrapper{
-    
     width: 80vw;
-    height: 40vh;
+    height: auto;
     margin-left: 10vw;
     background: cornsilk;
+    position: relative;
     display: flex;
     flex-direction: row; 
     justify-content: center;
@@ -170,8 +175,9 @@ body{
 
 .socialMedia{
     width: 80vw;
-    height: 90px;
+    height: auto;
     margin-left: 10vw;
+    position: relative;
     background: cornsilk;
     display: flex;
     flex-direction: row;
@@ -180,12 +186,13 @@ body{
 .icon{
     width: 5%;
     height: 60px;
+    position: relative;
 }
 
 .icon>img{
     width: 50%;
     position: relative;
-    top: 50px;
+    top: 20px;
     left: 10px;
     cursor: pointer;
 }
