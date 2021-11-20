@@ -55,10 +55,64 @@ body{
     left: 52%;
 }
 
+.Text{
+    width: 80vw;
+    height: 30vh;
+    margin-left: 10vw;
+    background: cornsilk;
+    display: flex;
+    flex-direction: row;
+    font-family: 'Fredoka One', cursive;
+    font-size: 100px;
+}
+
+.Text>p{
+    position: relative;
+    bottom: 10%;
+}
+
+.Text>i{
+    position: relative;
+    top: 40%;
+    left: 15px;
+}
+
+.Arrow{
+    width: 80vw;
+    height: 50px;
+    margin-left: 10vw;
+    background: cornsilk;
+    display: flex;
+    flex-direction: row;
+}
+
+.chevron{
+    width:50%;
+    position: relative;
+    transition: 1s;
+}
+
+.chevron>i{
+    position: relative;
+    top:50%;
+    left: 5px;
+    font-size: 55px;
+    cursor: pointer;
+}
+.chevron:nth-child(2){
+    left: 548px;
+}
+
+.chevron>i:hover{
+    transform: scale(0.9);
+}
+
+
+
 .wrapper{
     
     width: 80vw;
-    height: 80vh;
+    height: 40vh;
     margin-left: 10vw;
     background: cornsilk;
     display: flex;
@@ -71,7 +125,7 @@ body{
     height: 250px;
     border-radius: 6px;
     position: relative;
-    top: 55%;
+    top: 15%;
     margin: 10px;
     background: rgba(207, 147, 127, 0.425);
     text-align: center;
@@ -134,6 +188,15 @@ body{
     top: 50px;
     left: 10px;
     cursor: pointer;
+}
+
+.icon:nth-child(6){
+    width: 20%;
+    position: relative;
+    top: 35%;
+    font-family: 'Praise', cursive;
+    font-size: 22px;
+    color: rgb(27, 87, 107);
 }
 
 
