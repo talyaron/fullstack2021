@@ -1,6 +1,4 @@
-* {
-    font-family: bebas;
- }
+
 @font-face {
     font-family:Bebas;
     src: url(Fonts/Bebas-Regular.ttf);
@@ -11,6 +9,7 @@
     width: 80vw;
     border-radius: 80px;
     margin: auto;
+    font-family: bebas;
 }
 .frame>img{
 width: 80vw;
@@ -42,6 +41,7 @@ width: 80px;
 height: 30px;
 display: flex;
 justify-content:center;
+text-align: center;
 }
 
 .img_wrapper {
@@ -58,7 +58,7 @@ justify-content:center;
 width: 120px;
 height: 120px;
 display: flex;
-justify-content:center;
+justify-content: center;
 color: white;
 transition: transform .2s;
 }
