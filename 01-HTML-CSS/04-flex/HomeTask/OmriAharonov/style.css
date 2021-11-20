@@ -97,13 +97,15 @@ body{
 
 .chevron>i{
     position: relative;
-    
     left: 5px;
     font-size: 55px;
     cursor: pointer;
 }
 .chevron:nth-child(2){
-    left: 548px;
+    position: relative;
+    display: flex;
+    flex-direction: row-reverse;
+    right: 10px;
 }
 
 .chevron>i:hover{
