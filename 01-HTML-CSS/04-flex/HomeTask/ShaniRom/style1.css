@@ -34,7 +34,8 @@ body{
 .menu> img{
     width:10vw;
     height:17vh;
-    margin:4px;   
+    margin:4px;
+    
    
 }
 
@@ -51,22 +52,34 @@ body{
     text-shadow: 1px 2px grey;
     border-radius:5px;
     background-color:rgb(224, 152, 252);
-    border: 5px solid rgb(255, 255, 255);
+    transition: .5s;
+    text-align:center;
 
+   
 
 }
 
 
 
 .message{ 
-    background:blue;
+    background:rgb(76, 12, 250);
     color:white;
     top:135px;
     width:100%;
     height:5vh;
     overflow: hidden;
     box-sizing: content-box;
+    text-transform: uppercase;
+    padding-bottom:2px;
 }
+	
+
+
+
+
+
+
+
 
 .front> h2{
     color:rgb(223, 196, 255);
@@ -95,10 +108,14 @@ body{
     position: relative;
     background: transparent;
     flex-wrap: wrap;
+    justify-content: center;
     justify-content: space-around;
-    margin-bottom:200px;
+    margin-left:50px;
+    margin-right:50px;
+    margin-bottom:200px;    
     text-align:center;
-      
+    align-items:center;    
+    
     
     
     
@@ -111,9 +128,9 @@ body{
     border: 5px solid rgb(255, 255, 255);
     background-color:rgb(224, 152, 252);
     width: 200px;
-    height:200px;
-    font-family:papyrus;       
-   
+    height:250px;
+    font-family:papyrus;   
+    transition: ease-out.5s ;       
     
 
 }
@@ -123,11 +140,10 @@ body{
 .pagebox:hover{
     border: 5px solid rgb(160, 6, 147);
     width:300px;
-    height:250px;
+    height:290px;
     cursor:pointer;
-    color:white;
-   
-    
+    color:white;  
+    box-shadow: 0px 0px 8px 5px rgb(243, 74, 215);
 
 
 }
@@ -173,3 +189,100 @@ border-radius:5px;
 
 }
 
+.pagebox> .small{
+    color:grey;
+}
+
+.pagebox> .small:hover{
+    color:rgb(31, 16, 16);
+}
+
+.arrow{
+    border-radius: 50%;
+    background-color:purple;
+    opacity: 0.5;
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    color:white;
+    
+    
+
+    
+}
+
+.arrow.left{
+  right:100%;  
+  
+    
+}
+
+.arrow.right{
+  left:100%;
+  
+
+}
+
+.arrow:hover{
+    opacity:1.0;
+    cursor:pointer;
+}
+
+.bottompart{    
+    display:flex;    
+    justify-content: space-around;
+    position: relative;
+    margin-bottom:30px;
+    
+    
+}
+ 
+    
+
+ .bottom{
+     width:300px;
+     height:300px;
+     border:2px solid rgb(228, 158, 228);
+     background-color: rebeccapurple;
+     border-radius:10px;
+     color:white;
+     font-family:papyrus;
+     padding:0px 3px 10px 10px;
+     text-align:center;
+     
+ }
+
+ 
+
+ .Login:hover{
+     background-color:rgb(243, 74, 215);
+
+ }
+
+ .signupbutton:hover{
+    background-color:rgb(243, 74, 215);
+    cursor:pointer;
+
+ }
+
+ .bottom h3{
+     text-decoration: underline;
+ }
+
+ .bottom.media>.instagram:hover{
+     color:rgb(235, 147, 235);
+     cursor:pointer;
+    
+      }
+ .bottom.media>.twitter:hover{
+     color:rgb(38, 139, 221);
+     cursor:pointer;
+      }
+ .bottom.media>.email:hover{
+     color:greenyellow;
+     cursor:pointer;
+      }
+ .bottom.media>.CustomerService:hover{
+     color:yellow;
+     cursor:pointer;
+      }
