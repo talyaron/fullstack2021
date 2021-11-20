@@ -1,0 +1,33 @@
+.box{
+    background: purple;
+    min-height: 10vh;
+    width: 280px;
+    border:1px solid yellow;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    
+}
+.wrapper{
+    background: gray;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.box>img{
+    height: 100%;
+    width: 100%;
+
+}
+
+.text{
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

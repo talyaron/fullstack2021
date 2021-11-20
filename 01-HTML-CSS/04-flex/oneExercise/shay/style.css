@@ -1,0 +1,27 @@
+.wrraper{
+    background-color: aqua;
+    display: flex;
+    padding: 20px;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;  
+
+}
+.box{
+   
+    min-height: 47vh;
+    min-width: 20vw;
+   
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+p{
+    position: absolute;
+    color: aliceblue;
+    background-color: rgba(0, 0, 0, 0.336);
+    padding: 13px;
+    bottom: 0;
+}

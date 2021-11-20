@@ -1,5 +1,5 @@
 .box{
-    
+
     background: purple;
     min-height: 10vh;
     width: 300px;
@@ -8,6 +8,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
   
     
 }
@@ -17,5 +18,11 @@
     padding: 20px;
     display: flex;
     flex-direction: row;
+<<<<<<< HEAD
     flex-wrap: wrap;
 }
+
+=======
+
+}
+>>>>>>> fa7c3979d96ac128b4b61480faef73325bfbd1cc

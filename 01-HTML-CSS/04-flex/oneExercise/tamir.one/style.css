@@ -1,0 +1,19 @@
+.box{
+    width: 10vw;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    background-color: blue;
+    border: 1px solid black
+
+    
+}
+.wrapper{
+    padding: 20px;
+    background-color: chartreuse;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    flex-wrap: wrap-reverse;
+}
