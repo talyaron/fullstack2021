@@ -1,0 +1,13 @@
+.wrapper{
+
+    display: flex;
+    justify-content: center;
+
+}
+
+.box{
+
+    height: 300px;
+    border: 5px solid black;
+    
+}
