@@ -56,6 +56,9 @@ position: relative;
 }
 .box:hover{
    height: 200px;
+   cursor: pointer;
+   transition: .5s;
+   border: none;
 }
 .bunny{
     width: 170px;
