@@ -38,13 +38,15 @@ height:20vw;
 position: relative;
 top:25vh  ;
 left: 5vw;
-margin-left: 1vw;}
+margin-left: 1vw;
+}
+
+
 
 .tags{display: flex;
 position:relative;
 left: -75vw;
 top: 16vh;}
-
 
 .name{background-color: blueviolet;
 	border: 1px solid black;
@@ -52,8 +54,9 @@ top: 16vh;}
 	height: 4vw;
 	width: 15vw;
 	margin-left: 1vw;
-opacity: 0.5;}
-
-	.name:hover{opacity: 1.0;}
+	opacity: 0.5;
+	
+}
+.name:hover{opacity: 1.0;}
 
 
