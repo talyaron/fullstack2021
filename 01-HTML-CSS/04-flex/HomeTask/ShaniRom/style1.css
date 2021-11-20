@@ -2,7 +2,11 @@ body{
     width:100%;
     height:100%;
     margin:auto;
-    position:relative;
+    background-image: url('background.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+    
     
     }
 
@@ -18,9 +22,11 @@ body{
      flex-direction:row;
      justify-content: space-around;
      display:flex;
-    align-items:center;     
-    position:fixed;       
-    top:0px;
+     align-items:center; 
+     top:0px; 
+
+        
+    
     
 
     }
@@ -33,11 +39,6 @@ body{
    
 }
 
-.menu> .options{
-    
-    
-    
-}
 
 .option.logo> p{
     font-size:35px;
@@ -49,19 +50,231 @@ body{
     color:rgb(236, 14, 225);
     cursor:pointer;
     text-shadow: 1px 2px grey;
+    border-radius:5px;
+    background-color:rgb(224, 152, 252);
+    transition: .5s;
+    text-align:center;
 
+   
 
 }
 
-.message{
-    position:fixed;
-    background:blue;
+
+
+.message{ 
+    background:rgb(76, 12, 250);
     color:white;
     top:135px;
     width:100%;
     height:5vh;
     overflow: hidden;
     box-sizing: content-box;
+    text-transform: uppercase;
+    padding-bottom:2px;
+}
+	
+
+
+
+
+
+
+
+
+.front> h2{
+    color:rgb(223, 196, 255);
+    font: italic 1.2em "Fira Sans", serif;
+     margin-top:10%;
+     margin-left:20%;
+
+   
+    
+
+}
+
+.front> h1{
+   color: rgb(255, 0, 255);
+   text-shadow:2px 5px rgb(228, 158, 228);
+   font-family: papyrus;
+   font-size:70px;
+   margin-left:10%; 
+   margin-top:0%;
+      
+}
+
+.pageboxes{
+    display:flex; 
+    flex-direction: row;
+    position: relative;
+    background: transparent;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-content: space-around;
+    margin-left:50px;
+    margin-right:50px;
+    margin-bottom:200px;    
+    text-align:center;
+    align-items:center;    
+    
+    
+    
+    
+
 }
 
 
+.pagebox{
+    border-radius:10px;
+    border: 5px solid rgb(255, 255, 255);
+    background-color:rgb(224, 152, 252);
+    width: 200px;
+    height:250px;
+    font-family:papyrus;   
+    transition: ease-out.5s ;       
+    
+
+}
+
+
+
+.pagebox:hover{
+    border: 5px solid rgb(160, 6, 147);
+    width:300px;
+    height:290px;
+    cursor:pointer;
+    color:white;  
+    box-shadow: 0px 0px 8px 5px rgb(243, 74, 215);
+
+
+}
+
+
+.pagebox> img{
+border-radius:5px;
+}
+
+.pagebox.one> img{
+
+    width:180px;
+    height:120px;
+
+
+}
+.pagebox.two> img{
+
+    width:180px;
+    height:120px;
+
+
+}
+.pagebox.three> img{
+
+    width:180px;
+    height:120px;
+
+
+}
+.pagebox.four> img{
+
+    width:180px;
+    height:120px;
+
+
+}
+.pagebox.five> img{
+
+    width:180px;
+    height:120px;
+
+
+}
+
+.arrow{
+    border-radius: 50%;
+    background-color:purple;
+    opacity: 0.5;
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    color:white;
+    
+    
+
+    
+}
+
+.arrow.left{
+  right:100%;  
+  
+    
+}
+
+.arrow.right{
+  left:100%;
+  
+
+}
+
+.arrow:hover{
+    opacity:1.0;
+    cursor:pointer;
+}
+
+.bottompart{    
+    display:flex;    
+    justify-content: space-around;
+    position: relative;
+    margin-bottom:30px;
+    
+    
+}
+ 
+    
+
+ .bottom{
+     width:300px;
+     height:300px;
+     border:2px solid rgb(228, 158, 228);
+     background-color: rebeccapurple;
+     border-radius:10px;
+     color:white;
+     font-family:papyrus;
+     padding:0px 3px 10px 10px;
+     text-align:center;
+     
+ }
+
+ 
+
+ .Login:hover{
+     background-color:rgb(243, 74, 215);
+
+ }
+
+ .signupbutton:hover{
+    background-color:rgb(243, 74, 215);
+    cursor:pointer;
+
+ }
+
+ .bottom h3{
+     text-decoration: underline;
+ }
+
+ .bottom.media>.instagram:hover{
+     color:rgb(235, 147, 235);
+     cursor:pointer;
+    
+      }
+ .bottom.media>.twitter:hover{
+     color:rgb(38, 139, 221);
+     cursor:pointer;
+      }
+ .bottom.media>.email:hover{
+     color:greenyellow;
+     cursor:pointer;
+      }
+ .bottom.media>.CustomerService:hover{
+     color:yellow;
+     cursor:pointer;
+      }
