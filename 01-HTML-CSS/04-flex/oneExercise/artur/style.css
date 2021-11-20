@@ -1,0 +1,27 @@
+.wrapper{
+    background-color: white;
+    width:auto;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content:center ;
+}
+    
+
+.box{
+    height: 300px;
+    width: 300px;
+    display: flex;
+background-color: grey;
+justify-content: center;
+border: solid;
+
+    
+}
+img{
+    width: 150px;
+    height: 150px;
+}
+body{
+    text-align: center;
+}

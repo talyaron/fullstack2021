@@ -1,14 +1,33 @@
 .box{
+
     background: purple;
-    min-height: 4vh;
-    min-width: 4vw;
+    min-height: 10vh;
+    width: 300px;
     border:1px solid yellow;
     color: white;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  
+    
 }
 .wrapper{
+
     background: gray;
     padding: 20px;
     display: flex;
+<<<<<<< HEAD
     flex-direction: column;
 }
+=======
+    flex-direction: row;
+<<<<<<< HEAD
+    flex-wrap: wrap;
+}
+
+=======
+
+}
+>>>>>>> fa7c3979d96ac128b4b61480faef73325bfbd1cc
+>>>>>>> d624460f8c05022e32f79e3c11750759d9951851

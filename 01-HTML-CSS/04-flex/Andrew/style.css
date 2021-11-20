@@ -1,0 +1,136 @@
+html{
+    scroll-behavior: smooth;
+}
+body{
+    background-image: url(https://cdn-prod.yt-industries.com/media/image/45/cf/e2/capra_pro_al_gallery_01.jpg); 
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: 'Teko', sans-serif;
+}
+.spacer{
+    height: 8rem;
+}
+.header{
+    width: 95vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 0.5rem;
+    background: linear-gradient(90deg, rgba(96,96,96,1) 0%, rgba(96,107,81,1) 48%, rgba(95,117,66,1) 100%);
+    border-radius: 1rem; 
+    position: fixed;   
+    z-index: 999;
+}
+.button{
+    width: 20rem;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow:  0px 0px 10px rgb(9, 90, 9);
+    border-radius: 3rem 0rem;
+    margin: 1rem;
+    background: radial-gradient(circle, rgba(28,41,8,1) 0%, rgba(113,150,59,1) 100%);
+    transition: backfround-color 2s;
+}
+.button:hover{
+    cursor: pointer;
+    box-shadow:  0px 0px 50px rgb(9, 90, 9);
+}
+a{
+    color: antiquewhite;
+    text-decoration: none;
+    font-size: 2rem;
+
+}
+.about{
+    display: flex;
+    flex-direction: row;
+    padding: 1rem;
+}
+.about > img{
+    width: 40vw;
+}
+.aboutText{
+    background-color: rgba(95,117,66, 0.6);
+    width: 60vw;
+    display: flex;
+    flex-direction: column;    
+    justify-content: space-evenly;
+    align-items: center;
+}
+.aboutText > img{
+    width: 20vw;
+    height: 20vw;
+}
+.aboutText > p{
+    font-size: 2.5rem;
+    color: wheat;
+    text-align: center;
+    padding: 1rem;
+    text-shadow: 0px 0px 10px rgb(0, 0, 0), 0px 0px 7px rgb(0, 0, 0);
+}
+.categoryHeader > img{
+    width: 90vw;
+    margin: 5rem;
+    border-radius: 5rem/20rem;
+    box-shadow: 2rem 2rem 8rem rgb(0, 0, 0);
+}
+.categoryHeader{
+    position: relative;
+    min-height: 20rem;
+    overflow: hidden;
+}
+.categoryHeader > p{
+    position: absolute;
+    color: rgb(255, 255, 255);
+    font-size: 2.5vmin;
+    width: 20vw;
+    top: 10%;
+    right: 15%;
+    text-shadow: 0px 0px 10px rgb(0, 0, 0), 0px 0px 7px rgb(0, 0, 0);
+    text-align: center;
+}
+.category{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.bike{
+    height: 40rem;
+    width: 30rem;
+    background: linear-gradient(0deg, rgba(28,41,8,1) 11%, rgba(113,150,59,1) 96%);
+    border-radius: 1rem;
+    margin: 2rem;
+    transition: ease 300ms;
+    overflow: hidden;
+}
+.bike > img{
+    width: 30rem;
+    overflow: hidden;
+}
+.bike > p:first-of-type{
+    color: white;
+    font-size: 2rem;
+    font-weight: 600;
+    text-shadow: 0px 0px 10px rgb(0, 0, 0), 0px 0px 7px rgb(0, 0, 0);
+    text-align: center;
+}
+.bike > p:last-of-type{
+    color: white;
+    font-size: 1rem;
+    text-align: center;
+    margin: 0.5rem;
+}
+.bike > p{
+    transition: ease 300ms;
+    transform: translateY(170%);
+}
+.bike:hover{
+    transform: scale(1.2);
+    cursor: pointer;
+}
+.bike:hover  p{
+    transform: translateY(0);
+}

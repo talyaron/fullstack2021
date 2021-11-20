@@ -4,14 +4,19 @@
     min-width: 10vw;
     background-color: antiquewhite;
     border: 1px solid grey ;
-    display: flex;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 
 }
 
 .wrapper{
-
+    
+    background: gray;
     display: flex;
     flex-direction: row-reverse;
+    justify-content: space-around;
 
 }
