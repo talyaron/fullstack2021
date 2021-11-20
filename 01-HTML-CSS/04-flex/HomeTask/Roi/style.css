@@ -1,0 +1,67 @@
+* {
+    font-family: bebas;
+ }
+@font-face {
+    font-family:Bebas;
+    src: url(Fonts/Bebas-Regular.ttf);
+}
+.frame {
+    background-color: black;
+    height: 50vh;
+    width: 80vw;
+    border-radius: 80px;
+    margin: auto;
+}
+.frame>img{
+width: 80vw;
+height: 20vh;
+object-fit: fill;
+border-top-left-radius: 80px;
+border-top-right-radius: 80px;
+}
+
+h1 {
+    color: white;
+    position: absolute;
+    left: 200px;
+    top: 50px;
+}
+.text_container {
+width: 330px;
+height: 30px;
+display: flex;
+flex-direction: row;
+flex-wrap:wrap;
+row-gap:10px;
+position: absolute;
+top: 150px;
+left: 190px;
+}
+.text { 
+width: 80px;   
+height: 30px;
+display: flex;
+justify-content:center;
+}
+
+.img_wrapper {
+    position: relative;
+    top:-10px;
+    left: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 45px;
+
+}
+.image_box {
+width: 120px;
+height: 120px;
+display: flex;
+justify-content:center;
+color: white;
+transition: transform .2s;
+}
+.image_box:hover {
+    transform: scale(1.2);
+}

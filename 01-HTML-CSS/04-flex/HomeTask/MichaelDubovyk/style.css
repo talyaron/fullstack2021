@@ -130,6 +130,38 @@ body{
 
 }
 
+.bodright{
+
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-end;
+    
+}
+
+.bodright img{
+
+    margin-inline: 5px;
+    margin-bottom: 15px;
+    height: 60px;
+    width: 60px;
+    border-radius: 120px;
+    box-shadow: 1px 1px 5px black;
+
+}
+
+.bodright img:hover{
+
+    cursor: pointer;
+
+}
+
+.bodright img:active{
+
+    box-shadow: 1px 1px 5px rgb(185, 114, 66);
+}
+
 .bakingbreadbod{
 
     width: 400px;
@@ -193,6 +225,11 @@ body{
 
 }
 
+.arrows img{
+
+    height: 60px;
+
+}
 
 
 
