@@ -32,6 +32,12 @@ margin: 0;
 
 
 }
+.box-top:hover{
+    height: 200px;
+    cursor: pointer;
+    transition: .5s;
+    border: none;
+}
 h2{
     font-family: 'Montserrat', sans-serif;
 
@@ -153,7 +159,10 @@ li{
   .box-bottom:hover { flex: 1 1 50%; }
   .box-bottom:hover > .img-lowbar {
     width: 20vw;
-    height: 20vw;
+    height: 20vw;      
+        cursor: pointer;
+        transition: .5s;
+        border: none;
   }
    
 .img-lowbar{
