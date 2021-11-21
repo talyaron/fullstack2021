@@ -27,12 +27,12 @@ body{
     border-radius: 50%;
     border: 3.5px double grey;
 }  
-.arrow>p{
+.arrow>i{
     font-size: 20px;
     margin: 2px;
     position: relative;
     top: 25%;
-    right: 25%;
+    right: 30%;
 }
 .arrow:hover{
     border: 2px solid gray;
@@ -56,6 +56,9 @@ position: relative;
 }
 .box:hover{
    height: 200px;
+   cursor: pointer;
+   transition: .5s;
+   border: none;
 }
 .bunny{
     width: 170px;
