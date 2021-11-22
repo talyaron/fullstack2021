@@ -1,0 +1,21 @@
+.container{
+    display: grid;
+    grid-gap: 1em;
+    grid-template-rows: 1fr 1fr ;
+    grid-template-columns: 1fr 1fr 1fr;
+
+}
+
+div{
+    height: fit-content;
+    width: fit-content;
+}
+.box{
+    background-color:chartreuse ;
+    padding: 1em;
+}
+
+.box>img{
+    width: 100px;
+    height: 100px;
+}
