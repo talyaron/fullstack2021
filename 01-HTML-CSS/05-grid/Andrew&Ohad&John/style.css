@@ -1,0 +1,42 @@
+.grid4{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    width: 80vw;
+}
+.grid3{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+
+}
+.smallPic{
+    width: 100%;
+    height: 15vw;
+}
+.arcticle{
+    width: 30vw;
+}
+p{
+    box-shadow: -0.1em 0em red;
+}
+h3{
+    font-weight: lighter;
+}
+.topGrid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    color: red;
+    height: 50vh;
+}
+#bigArcticle{
+    width: 45vw;
+    height: 100%;
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    background-color: skyblue;
+}
+.midArcticle{
+    width: 20vw;
+}
