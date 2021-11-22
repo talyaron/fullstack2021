@@ -4,12 +4,18 @@ body{
 
 .container{
     display: grid;
-    grid-template-columns: 50vh 50vh;
-    grid-template-rows:  50vh 50vh 50vh;
+    grid-template-columns: 40vh 40vh 40vh;
+    grid-template-rows:  40vh 40vh;
     gap: 5px;
 }
 
 .box{
     background-color:burlywood;
-    color: burlywood;
+}
+
+.box>img{
+    width: 40vh;
+    height: 20vh;
+    position: relative;
+    left: 0%;
 }
