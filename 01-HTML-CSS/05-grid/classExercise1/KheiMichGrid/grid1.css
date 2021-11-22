@@ -19,7 +19,7 @@
     background-color: pink;
 }
 
-.news p {
+.news>p {
     background-color: yellow;
 }
 
