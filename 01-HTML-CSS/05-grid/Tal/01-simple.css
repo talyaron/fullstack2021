@@ -1,11 +1,31 @@
-.container{
-    display: grid;
-    grid-template-columns: 100px 200px 50px;
-    grid-template-rows: 200px 200px 200px;
-    gap:5px;
-    border:3px solid black;
+body {
+    margin: 0px;
 }
 
-.box{
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 10vh 10vh 50vh 10vh;
+    gap: 0px;
+    border: 3px solid black;
+}
+
+.box {
     background-color: plum;
+}
+
+#aaa {
+    background-color: yellow;
+}
+
+.box:nth-child(even) {
+    background-color: white !important;
+}
+
+.box:hover {
+    background-color: rgb(195, 49, 195);
+}
+
+.box:active {
+    background-color: red;
 }
