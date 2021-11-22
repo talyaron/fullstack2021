@@ -63,5 +63,5 @@ color: white;
 transition: transform .2s;
 }
 .image_box:hover {
-    transform: scale(1.8);
+    transform: scale(1.2);
 }
