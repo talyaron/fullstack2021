@@ -1,0 +1,33 @@
+.container{
+    display:grid;
+    background-color:rgb(255, 255, 255);
+    border: 2px solid black;
+    grid-template-columns: auto auto auto;
+    grid-template-rows:250px 250px 250px;
+    gap:10px;
+    
+}
+
+.news:nth-child(even){
+    background-color:rgb(13, 187, 13);
+}
+
+.news{
+    background-color:rgb(255, 59, 59);
+
+}
+
+.news>img{
+    width:140px;
+    height:100px;
+    margin-left:50px;
+    margin-top:5px;
+}
+
+h3{
+    text-decoration:underline;
+}
+
+ .small{
+     opacity:0.5;
+ }   
