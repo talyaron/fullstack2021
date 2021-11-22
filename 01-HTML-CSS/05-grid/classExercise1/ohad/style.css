@@ -1,0 +1,20 @@
+body {
+    margin: 0px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(6, 33vh);
+    border: 0px solid black;
+    gap:  1px;
+}
+
+.box {
+    background-color: plum;
+}
+
+.box>img{
+    width:100%;
+    height: 100%;
+}
