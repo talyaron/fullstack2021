@@ -1,0 +1,30 @@
+body{
+    background-color: rgb(179, 178, 178);
+}
+.wrapper {
+    display: grid;
+    grid-template-columns: 20vw 20vw 20vw;
+    grid-template-rows: 50vh 50vh 50vh;
+    gap: 10px;
+}
+.box {
+    background-color: white;
+    display: grid;
+    grid-template-columns: 1;
+    grid-template-rows: 55% 30% 10% 5%
+}
+.box:hover{
+    cursor: pointer;
+}
+.box-img img {
+max-width: 20vw;
+height: fit-content;
+}
+.box-info {
+   font-size: 25px; 
+   width: 18vw;
+}
+.box-category {
+color: gray;
+font-size: 15px;
+}
