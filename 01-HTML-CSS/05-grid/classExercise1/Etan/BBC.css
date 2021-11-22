@@ -3,9 +3,10 @@ body{
 }
 .wrapper {
     display: grid;
-    grid-template-columns: 20vw 20vw 20vw;
+    grid-template-columns: 20vw 20vw 20vw 20vw;
     grid-template-rows: 60vh 60vh 60vh;
     gap: 1vw;
+    width: max-content;
 }
 .box {
     background-color: white;
