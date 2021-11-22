@@ -1,0 +1,7 @@
+.container1{
+    height: 75vh;
+    display: grid;
+    grid-template-columns: repeat(3, 30vh);
+    grid-template-rows: repeat();
+    gap: 5px;
+}
