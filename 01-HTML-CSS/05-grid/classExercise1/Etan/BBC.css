@@ -3,9 +3,10 @@ body{
 }
 .wrapper {
     display: grid;
-    grid-template-columns: 20vw 20vw 20vw;
-    grid-template-rows: 50vh 50vh 50vh;
-    gap: 10px;
+    grid-template-columns: 20vw 20vw 20vw 20vw;
+    grid-template-rows: 60vh 60vh 60vh;
+    gap: 1vw;
+    width: max-content;
 }
 .box {
     background-color: white;
@@ -17,14 +18,17 @@ body{
     cursor: pointer;
 }
 .box-img img {
-max-width: 20vw;
+max-width: 18vw;
 height: fit-content;
+padding: 10px;
 }
 .box-info {
-   font-size: 25px; 
+   font-size: 2vw; 
    width: 18vw;
+   padding: 10px;
 }
 .box-category {
 color: gray;
 font-size: 15px;
+padding: 5px;
 }
