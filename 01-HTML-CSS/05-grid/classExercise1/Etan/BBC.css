@@ -17,14 +17,17 @@ body{
     cursor: pointer;
 }
 .box-img img {
-max-width: 20vw;
+max-width: 18vw;
 height: fit-content;
+padding: 10px;
 }
 .box-info {
    font-size: 2vw; 
    width: 18vw;
+   padding: 10px;
 }
 .box-category {
 color: gray;
 font-size: 15px;
+padding: 5px;
 }
