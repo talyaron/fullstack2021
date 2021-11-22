@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    
+    <title>Grid</title>
+
+    <style>
+        .wrapper{
+            position: relative;
+            top: 400px;
+            display: grid;
+            grid-template-columns:repeat(1,1fr 1fr 1fr);
+            grid-gap: 1em;
+            grid-auto-rows: minmax(100px, auto);
+            width: 70%;
+            height: 20%;
+            left: 400px;
+           
+        }
+      .box{
+        display: grid;
+        grid-template-rows:repeat(1,2fr );
+
+      }
+      .box>img{
+          width: 100%;
+      }
+      p{
+          text-align: start;
+          font-size: 20px;
+          width: 60%;
+          font-weight: bold;
+      } 
+      .box a{
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-top: 0.75rem;
+    text-transform: uppercase;
+    font-size: .875rem;
+    color: #767676;
+    
+      }
+    
+
+    </style>
+</head>
+<body>
+   
+
+    <div class="wrapper">
+        <div class="box box1">
+            <img src="https://ichef.bbci.co.uk/news/976/cpsprodpb/173BD/production/_121756159_jensspahnreuters.jpg" alt="">
+            <h1>Germany Covid: Health minister's stark warning to get jabbed</h1>
+            <p>The minister said the highly contagious Delta variant is driving the latest wave and that "anyone who is not vaccinated will, over the next few months, become infected and lack protection".</p><br>
+            <a href="https://www.bbc.com/news/world/europe">Europe</a>
+        </div>
+        <div class="box box2"><img src="https://ichef.bbci.co.uk/news/976/cpsprodpb/173BD/production/_121756159_jensspahnreuters.jpg" alt="">
+            <h1>Germany Covid: Health minister's stark warning to get jabbed</h1>
+            <p>The minister said the highly contagious Delta variant is driving the latest wave and that "anyone who is not vaccinated will, over the next few months, become infected and lack protection".</p>
+        <a href="https://www.bbc.com/news/world/europe">Europe</a>
+        </div>
+        <div class="box box3">
+            <img src="https://ichef.bbci.co.uk/news/976/cpsprodpb/B38C/production/_121746954_2021-11-21-president-featured.jpg" alt="">
+            <h1>Peng Shuai: WTA says concerns remain for Chinese tennis star after IOC call</h1>
+            <p>The minister said the highly contagious Delta variant is driving the latest wave and that "anyone who is not vaccinated will, over the next few months, become infected and lack protection".</p>
+        <a href="https://www.bbc.com/news/world/europe">China</a>
+        </div>
+        <div class="box box4">
+            <img src="https://ichef.bbci.co.uk/onesport/cps/976/cpsprodpb/2EBC/production/_121746911_lewishamiltonwinqatar.jpg" alt="">
+            <h1>Germany Covid: Health minister's stark warning to get jabbed</h1>
+            <p>The minister said the highly contagious Delta variant is driving the latest wave and that "anyone who is not vaccinated will, over the next few months, become infected and lack protection".</p>
+       <a href="https://www.bbc.com/sport/formula1">Formula1</a>
+        </div>
+        <div class="box box3">
+            <img src="https://ichef.bbci.co.uk/onesport/cps/976/cpsprodpb/6923/production/_121751962_whatsubject.jpg" alt="">
+            <h1>Crowd trouble threatens future of French football, says sports minister</h1>
+            <p>Sunday's game between Lyon and Marseille was abandoned after Dimitri Payet was hit by a bottle thrown from the stands five minutes into the game.</p>
+            <a href="https://www.bbc.com/sport/football/european">European Football</a>
+        </div>
+        
+            <div class="box box4">
+            <img src="https://ichef.bbci.co.uk/onesport/cps/976/cpsprodpb/CB9D/production/_121752125_southgate_getty.jpg" alt="">
+            <h1>Gareth Southgate: England manager signs new contract through to December 2024</h1>
+            <p>"England has been a massive part of my life as a supporter, player, under-21 manager and now manager.</p>
+            <a href="https://www.bbc.com/sport/football">Football</a>
+
+        </div>
+    </div>
+   
+
+    
+</body>
+</html>
