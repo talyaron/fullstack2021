@@ -20,12 +20,12 @@
 
 .box1>img {
     object-fit: cover;
+}
 
+.box5 {
+    background-color: white;
+}
 
-    .box5 {
-        background-color: white;
-    }
-
-    p {
-        -webkit-transition-duration: ;
-    }
+p {
+    -webkit-transition-duration: ;
+}
