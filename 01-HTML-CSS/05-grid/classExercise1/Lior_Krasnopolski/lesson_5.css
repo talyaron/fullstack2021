@@ -1,0 +1,50 @@
+body
+{
+    margin: 0;
+}
+
+.container
+{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: 1fr 1fr;
+    border: 3px solid salmon;
+    width: 100vW ;
+    height: 100vh;
+    gap: 2px;
+}
+
+.box
+{
+    background-color: rgb(114, 250, 114);
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+.news
+{
+    height: 20vh;
+    width: 100%;
+    background-color: sandybrown;
+}
+
+.description
+{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    background-color: rgb(210, 255, 45);
+
+
+}
+
+.picture
+{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    background-color: rgb(243, 52, 195);
+    height: 40vh;
+    width: 100%;
+}
