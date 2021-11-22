@@ -30,13 +30,21 @@ h3{
     color: red;
     height: 50vh;
 }
-#bigArcticle{
+.bigArcticle{
     width: 45vw;
     height: 100%;
-    grid-column: 1 / 3;
     grid-row: 1 / 3;
+}
+.bigArcticle.home{
+    grid-column: 1 / 3;
+    background-image: url(https://ichef.bbci.co.uk/news/976/cpsprodpb/FCB5/production/_121739646_gettyimages-81010175.jpg);
+}
+
+.bigArcticle.news{
+    grid-column: 2 / 4;
     background-color: skyblue;
 }
+
 .midArcticle{
     width: 20vw;
 }
