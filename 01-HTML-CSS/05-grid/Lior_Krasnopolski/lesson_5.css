@@ -1,0 +1,30 @@
+body
+{
+    margin: 0;
+}
+
+.container
+{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: 1fr 1fr;
+    border: 3px solid salmon;
+    width: 100vW ;
+    height: 100vh;
+    gap: 2px;
+}
+
+.box
+{
+    background-color: rgb(114, 250, 114);
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+.news
+{
+    height: 20vh;
+    width: 100%;
+    background-color: sandybrown;
+}
