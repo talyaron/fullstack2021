@@ -1,83 +1,93 @@
-body{
+body {
     background-image: url(bunny/23314855.jpg);
     background-size: cover;
     opacity: 0.92;
-} 
- h1{
+}
+
+h1 {
     position: absolute;
     top: 23%;
     right: 25%;
     font-size: 60px;
     background-color: rgba(245, 245, 245, 0.521);
-    border-radius: 10px ;
+    border-radius: 10px;
     margin: 0px;
     text-shadow: 1px 1px 5px;
 }
-.arrow1{
+
+.arrow1 {
     position: absolute;
     top: 40%;
     right: 18%;
     display: flex;
-    gap: 10px;  
+    gap: 10px;
 }
-.arrow{
+
+.arrow {
     background-color: rgb(247, 229, 196);
     width: 45px;
     height: 45px;
     border-radius: 50%;
     border: 3.5px double grey;
-}  
-.arrow>i{
+}
+
+.arrow>i {
     font-size: 20px;
     margin: 2px;
     position: relative;
     top: 25%;
     right: 30%;
 }
-.arrow:hover{
+
+.arrow:hover {
     border: 2px solid gray;
 }
-.wrapper{
-display: flex;
-gap: 10px;  
-flex-wrap: wrap;
-align-items: center;
-position: absolute;
-top: 50%;
-right: 15%;
+
+.wrapper {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    right: 15%;
+    border: 1px solid gray;
 }
-.box{
+
+.box {
     height: 170px;
     width: 170px;
     background-color: white;
-border: 0.3px solid rgba(68, 67, 67, 0.411);
-border-radius: 15px;
-position: relative;
- transition: all .5s;
+    border: 0.3px solid rgba(68, 67, 67, 0.411);
+    border-radius: 15px;
+    position: relative;
+    transition: all .5s;
 }
-.box:hover{
-  transform: scale(1.2);
-   cursor: pointer;
-   z-index: 1;
-   border: none;
+
+.box:hover {
+    transform: scale(1.2);
+    z-index: 1;
 }
-.bunny{
+
+.bunny {
     width: 170px;
     position: absolute;
     right: 0%;
 }
-img{
+
+img {
     height: 130px;
     width: auto;
-position: absolute;
-right: 15%;
-top: 5%;
-border-radius: 15px;
+    position: absolute;
+    right: 15%;
+    top: 5%;
+    border-radius: 15px;
 }
-p{
-position: absolute;
-bottom: 0%;
-right: 25%;
-margin: 7px;
-color: rgb(71, 39, 189);
+
+p {
+    position: absolute;
+    bottom: 0%;
+    right: 25%;
+    margin: 7px;
+    color: rgb(71, 39, 189);
 }
