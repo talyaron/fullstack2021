@@ -1,0 +1,14 @@
+.menuwrapper{
+
+    display: flex;
+    background-color: blanchedalmond;
+    border: 2px solid black;
+    justify-content: space-around;
+
+}
+
+.div{
+
+    border: 2px ;
+
+}
