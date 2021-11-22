@@ -1,9 +1,14 @@
 .container {
     display: grid;
-    grid-template-columns: 25% 25% 25% 50%;
+    grid-template-columns: 25% 25% 25% 25%;
     grid-template-rows: 30vh 20vh 20vh 20vh;
     gap: 5px;
     margin: 20px;
+    background-color: yellowgreen;
+}
+
+body {
+    display: box;
 }
 
 .box {
@@ -12,25 +17,18 @@
     background-color: rgb(0, 60, 113);
 }
 
-.box1 {
-    background-color: rgb(215, 215, 192);
-
-}
-
-.box1>img {
+/* .box1>img {
     object-fit: cover;
     justify-content: center;
     vertical-align: bottom;
-}
+} */
 
-.box5 {
-    background-color: white;
-}
+
 
 p {
     font-size: 50px;
 }
 
 img {
-    size: 50%;
+    size: 30%;
 }
