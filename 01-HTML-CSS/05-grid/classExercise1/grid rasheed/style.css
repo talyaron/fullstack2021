@@ -1,0 +1,19 @@
+.container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    height: 80vh;
+    width: 80vw;
+    position: relative;
+    left: 150px;
+    gap: 15px;
+    padding: 10px;
+    margin: 20px;
+    
+}
+
+
+.box img{
+    width: 100%;
+    border-radius: 30px;
+}
