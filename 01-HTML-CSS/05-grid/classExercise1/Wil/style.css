@@ -1,0 +1,8 @@
+.container{
+    display: grid;
+    grid-template-columns:repeat(3,33vh);
+    grid-template-rows:repeat(2 50vh);
+    gap: 150px;
+
+}
+
