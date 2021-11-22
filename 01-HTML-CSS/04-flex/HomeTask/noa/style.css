@@ -53,11 +53,12 @@ right: 15%;
 border: 0.3px solid rgba(68, 67, 67, 0.411);
 border-radius: 15px;
 position: relative;
+ transition: all .5s;
 }
 .box:hover{
-   height: 200px;
+  transform: scale(1.2);
    cursor: pointer;
-   transition: .5s;
+   z-index: 1;
    border: none;
 }
 .bunny{
