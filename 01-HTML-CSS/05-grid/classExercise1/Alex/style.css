@@ -1,0 +1,31 @@
+.container {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 50%;
+    grid-template-rows: 30vh 20vh 20vh 20vh;
+    gap: 5px;
+    margin: 20px;
+}
+
+.box {
+    display: flex;
+    flex-wrap: ;
+    flex-direction: row;
+    background-color: rgb(0, 60, 113);
+}
+
+.box1 {
+    background-color: rgb(215, 215, 192);
+
+}
+
+.box1>img {
+    object-fit: cover;
+
+
+    .box5 {
+        background-color: white;
+    }
+
+    p {
+        -webkit-transition-duration: ;
+    }
