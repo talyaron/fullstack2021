@@ -3,13 +3,20 @@ body{
 }
 
 .container{
-    display: grid;
-    grid-template-columns: repeat(3, 20vw);
-    grid-template-rows: 50vh 50vh ;
-    gap: 3px;
+    display: inline-grid;
+    grid-template-columns: repeat(3, 25vw);
+    grid-template-rows: 60vh 70vh ;
+    gap: 15px;
+    
 }
 
 .box{
+    display: inline-flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
     background: rgba(197, 197, 58, 0.836);
 }
+
+
 
