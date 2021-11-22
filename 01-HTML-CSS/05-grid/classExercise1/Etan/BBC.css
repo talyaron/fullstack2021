@@ -3,15 +3,16 @@ body{
 }
 .wrapper {
     display: grid;
-    grid-template-columns: 20vw 20vw 20vw;
+    grid-template-columns: 20vw 20vw 20vw 20vw;
     grid-template-rows: 60vh 60vh 60vh;
     gap: 1vw;
+    width: max-content;
 }
 .box {
     background-color: white;
     display: grid;
     grid-template-columns: 1;
-    grid-template-rows: 55% 30% 10% 5%
+    grid-template-rows: 3fr,2fr,.5fr;
 }
 .box:hover{
     cursor: pointer;
@@ -24,10 +25,10 @@ padding: 10px;
 .box-info {
    font-size: 2vw; 
    width: 18vw;
-   padding: 10px;
+   padding: 2vh;
 }
 .box-category {
 color: gray;
-font-size: 15px;
+font-size: 1vw;
 padding: 5px;
 }
