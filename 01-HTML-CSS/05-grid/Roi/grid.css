@@ -1,0 +1,14 @@
+.container{
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 300px 300px 300px;
+    grid-template-rows: 500px 500px 500px;
+    gap:10px;
+}
+.box{
+    background-color: plum;
+    border:5px black
+}
+.img {
+    width: 300px;
+}
