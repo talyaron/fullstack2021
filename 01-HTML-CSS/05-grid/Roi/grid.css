@@ -13,19 +13,13 @@ body {
 .box {
     background-color: plum;
 }
-
-#aaa {
-    background-color: yellow;
+.container >container_in {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: 33vh 33vh 33vh;
+    gap: 0px;
+    border: 3px solid black;
 }
-
-.box:nth-child(even) {
-    background-color: white !important;
-}
-
-.box:hover {
-    background-color: rgb(195, 49, 195);
-}
-
-.box:active {
-    background-color: red;
+.box_in {
+    background-color: gray;
 }
