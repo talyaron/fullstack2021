@@ -8,8 +8,7 @@
 
 .box {
     display: flex;
-    flex-wrap: ;
-    flex-direction: row;
+    flex-direction: column;
     background-color: rgb(0, 60, 113);
 }
 
@@ -20,6 +19,8 @@
 
 .box1>img {
     object-fit: cover;
+    justify-content: center;
+    vertical-align: bottom;
 }
 
 .box5 {
@@ -27,5 +28,9 @@
 }
 
 p {
-    -webkit-transition-duration: ;
+    font-size: 50px;
+}
+
+img {
+    size: 50%;
 }
