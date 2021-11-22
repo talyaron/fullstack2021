@@ -1,0 +1,15 @@
+.wrapper{
+    display: grid;
+grid-template-columns: repeat(3, 200px) ;
+grid-template-rows: 450px 350px ;
+gap: 20px;
+}
+.container>P{
+    font-weight: 600;
+}
+.lorem{
+   font-size: 10px;
+   margin: 0;
+   font-weight: 100;
+}
+
