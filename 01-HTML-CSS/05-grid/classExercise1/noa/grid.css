@@ -1,0 +1,12 @@
+.wrapper{
+    display: grid;
+grid-template-columns: repeat(3, 200px) ;
+grid-template-rows: 450px 350px ;
+gap: 20px;
+}
+
+.lorem{
+   font-size: 10px;
+   margin: 0;
+}
+

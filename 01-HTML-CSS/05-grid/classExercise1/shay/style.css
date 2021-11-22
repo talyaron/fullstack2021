@@ -1,0 +1,23 @@
+.container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 5px;
+    border: 3px solid black;
+    height: 100vh;
+}
+.box{
+    background-color: rgb(188, 128, 245);
+    height: 70vh;
+    padding-bottom: 20px;
+}
+.pic{
+    padding-left: 10px;
+    padding-top: 10px;
+}
+p{
+    padding-left: 10px;
+}
+.head{
+    padding-left: 20px;
+}

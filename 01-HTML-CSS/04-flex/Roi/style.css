@@ -14,5 +14,6 @@ align-items: center;
     background: gray;
     padding:20px;
     display: flex;
-    flex-wrap: wrap;  
+    flex-wrap: wrap; 
+    z-index: index -1; 
 }
