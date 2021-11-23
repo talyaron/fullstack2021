@@ -45,27 +45,27 @@ a {
 }
 
 .signIn:hover{
-    border-bottom: 4px solid blue;
+    border-bottom: 2px solid blue;
     cursor: pointer;
 }
 
 .home:hover{
-    border-bottom: 4px solid rgb(23, 23, 24);
+    border-bottom: 2px solid rgb(23, 23, 24);
     cursor: pointer;
 }
 
 .news:hover{
-    border-bottom: 4px solid rgb(185, 31, 31);
+    border-bottom: 2px solid rgb(185, 31, 31);
     cursor: pointer;
 }
 
 .sport:hover{
-    border-bottom: 4px solid rgb(240, 225, 27);
+    border-bottom: 2px solid rgb(240, 225, 27);
     cursor: pointer;
 }
 
 .reel:hover{
-    border-bottom: 4px solid rgb(43, 57, 180);
+    border-bottom: 2px solid rgb(43, 57, 180);
     cursor: pointer;
 }
 
@@ -108,41 +108,41 @@ a {
 }
 
 .red-strap>.home:hover{
-    border-bottom: 4px solid white;
+    border-bottom: 2px solid white;
     cursor: pointer;
 }
 .red-strap>.coronavirus:hover{
-    border-bottom: 4px solid white;
+    border-bottom: 2px solid white;
     cursor: pointer; 
 } 
 .red-strap>.climate:hover{
-    border-bottom: 4px solid white;
+    border-bottom: 2px solid white;
     cursor: pointer;
 } 
 .red-strap>.video:hover{
-    border-bottom: 4px solid white;
+    border-bottom: 2px solid white;
     cursor: pointer;
 }
 .red-strap>.world:hover{
-    border-bottom: 4px solid white;
+    border-bottom: 2px solid white;
     cursor: pointer;
 } 
 .red-strap>.business:hover{
-    border-bottom: 4px solid white;
+    border-bottom: 2px solid white;
     cursor: pointer;
 }
 .red-strap>.tech:hover{
-    border-bottom: 4px solid white;
+    border-bottom: 2px solid white;
     cursor: pointer;
 } 
 .red-strap>.science:hover{
-    border-bottom: 4px solid white;
+    border-bottom: 2px solid white;
     cursor: pointer;
 }
 
 
 .red-strap>.stories:hover{
-    border-bottom: 4px solid white;
+    border-bottom: 2px solid white;
     cursor: pointer;
 }
 
