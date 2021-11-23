@@ -1,22 +1,25 @@
-body{
+body {
     background: rgb(182, 179, 179);
 }
 
-.container{
-    display: inline-grid;
+.container {
+    display: grid;
     grid-template-columns: repeat(3, 25vw);
-    grid-template-rows: 60vh 70vh ;
+    grid-template-rows: 60vh 70vh;
     gap: 15px;
-    
 }
 
-.box{
-    display: inline-flex;
-    flex-direction: column;
-    justify-content:center;
-    align-items: center;
-    background: rgba(197, 197, 58, 0.836);
+.box {
+    display: grid;
+    
+    background-color: rgb(189, 189, 97);
+    gap: 1px;
 }
+.line{
+    border: black solid 1px;
+}
+
+
 
 
 
