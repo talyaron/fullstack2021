@@ -54,7 +54,7 @@ a {
     cursor: pointer;
 }
 
-.news:hover{
+.menu>.news:hover{
     border-bottom: 2px solid rgb(185, 31, 31);
     cursor: pointer;
 }
@@ -75,7 +75,7 @@ a {
 .red-strap{
     display: grid;
     grid-template-columns: repeat(16, 1fr);
-    grid-template-rows: 60px;
+    grid-template-rows: 70px;
     background-color: rgb(173, 16, 16);
     justify-items: end;
     align-items: center;
