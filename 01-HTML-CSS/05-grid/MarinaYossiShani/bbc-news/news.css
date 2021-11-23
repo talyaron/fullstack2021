@@ -74,7 +74,7 @@ a {
 
 .red-strap{
     display: grid;
-    grid-template-columns: repeat(1fr);
+    grid-template-columns: repeat(16, 1fr);
     grid-template-rows: 60px;
     background-color: rgb(173, 16, 16);
     justify-items: end;
@@ -83,19 +83,20 @@ a {
 }
 
 .red-strap>.news{
-    grid-column: 1/4;
+    grid-column: 1/5;
+    margin-right: 13%;
     color: white;
     font-size: 45px;
     font-family: sans-serif;
 }
 
 .red-strap-empty-space{
-    grid-column: 4/15;
+    grid-column: 5/16;
 }
 
 
 .red-strap>.home{
-    grid-column: 3/4; 
+    grid-column: 1/5; 
 }
 
 
