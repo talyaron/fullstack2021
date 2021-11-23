@@ -4,35 +4,60 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/d13a0d855d.js" crossorigin="anonymous"></script>
     <title>Document</title>
 
     <style>
+      body{
+        margin: 0;
+        font-family: 'Open Sans', sans-serif;
+      }
         .main{
             border: 5px solid black;
             display: grid;
             grid-template-rows: 12% 10% 20% 30%;
             width: 80%;
             margin: auto;
-        }
-        .navBar {
+             margin-top: 15px;      
+              }
+        .topnav {
+          height: 40px;
+          display: flex;
   width: 100%;
-  background-color: rgb(20, 16, 10);
-  flex-flow: row wrap;
+  background-color: rgb(0, 0, 0);
   position: sticky;
   top: 0;
-  justify-content: space-between;
-}
+  padding-bottom: 5px;
+
+        }
 
 ul {
-margin: 0;
-  padding: 0;
-  height: 50px; 
-  gap: 80px;
-  
-  
+  width: 100%;
+  padding: 5px;
+  height: 30px;
+  display:flex;
+  justify-content: start;
+  margin: auto;
+  box-shadow: 0 20px 30px rgb(0, 0, 0);
+border: solid;  
 }
-
-
+li{
+  display: flex;
+  padding: 20px;
+  box-shadow: 0 20px 30px rgba(15, 10, 10, 0.966);
+align-items: center;
+}
+li a{
+  display: flex;
+  color: #FEF5ED;
+  font-size: 20px;
+  padding: 2px;
+  font-weight: 500;
+  text-decoration: none;
+}
 
 .li:hover {
   color: rgb(223, 8, 8);
@@ -173,7 +198,7 @@ margin: 0;
 <body>
     <div class="topnav">
       <ul>
-        <li><a href="">Home</a></li>
+        <li><a href=""><i class="fas fa-home" style="padding: 5px;"></i>Home</a></li>
         <li><a href="">news</a></li>
         <li><a href="">sport</a></li>
         <li><a href="">lifeStyle</a></li>
@@ -184,7 +209,7 @@ margin: 0;
     <div class="wrapper main">
         
         <div class="row one">
-           <img src="https://picsum.photos/200/300" alt="">
+           <img src="https://www.wpkube.com/wp-content/uploads/2021/05/divi-theme-examples.png" alt="">
         </div>
         <div class="row two">
             <div class="div head1"><h1>Welcome to BCC</h1></div>
