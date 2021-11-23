@@ -42,7 +42,7 @@
         .four{
             display: grid;
             grid-template-columns:60% 40%;
-            grid-template-rows: repeat(20);
+            grid-template-rows: 100%;
             border: 5px solid orange;
             /* grid-auto-rows: minmax(200px, auto); */
             margin-top: 30px;
@@ -83,6 +83,34 @@
           grid-column: 20%;
           grid-row: 6/11;
         }
+        .container4{
+            display: grid;
+            grid-template-rows: 50% 50%;
+            grid-template-columns: 30% 30% 30%;
+            gap: 5px
+            ;
+            
+        }
+        .box4{
+            display: grid;
+            background-color: beige;
+             border: solid;
+             grid-template-rows: 50% 30% 15% 15%;
+
+        }
+        .box4 img{
+            width: 100%;
+            border: solid;
+        }
+        .box4-1{
+            display: grid;
+            background-color: rgba(0, 0, 0, 0.308);
+            border: solid;
+            position: relative;
+             grid-auto-rows: minmax(auto,100px);
+             background-image: url("https://picsum.photos/200/300");
+            
+        }
     
 
 
@@ -106,15 +134,20 @@
             <div class="box pic5"></div>
         </div>
         <div class="row four">
-            <div class="container">
-                <div class="triple">
-                
+            <div class="container4">
+                <div class="box4">
+                  <div class="box4-1"></div>
+                  <div class="box4-1"></div>
+                  <div class="box4-1"></div>
+                  <div class="box4-1"></div> 
                 </div>
-                    <div class="triple">
 
-
-                
-                  </div>
+                <div class="box4"></div>
+                <div class="box4"></div>
+                <div class="box4"></div>
+                <div class="box4"></div>
+                <div class="box4"></div>
+            </div>
             <div class="container2"><div class="commercial2"><img src="https://picsum.photos/200/300" alt=""></div>
 
 
