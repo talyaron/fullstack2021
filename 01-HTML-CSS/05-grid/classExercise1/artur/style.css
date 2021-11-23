@@ -1,0 +1,26 @@
+body {
+    margin: 0px;
+    
+}
+.container{
+    display: grid;
+    width: 80vh;
+    height: 80vh;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    margin: auto;
+}
+.box{
+    background-color: aqua;
+    border: solid;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.text{
+    height: 40px;
+    width: 30px;
+    background-color: black;
+}
+
+

@@ -1,0 +1,34 @@
+.container {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: 30vh 20vh 20vh 20vh;
+    gap: 5px;
+    margin: 20px;
+    background-color: seagreen;
+}
+
+body {
+    display: box;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+}
+
+.box1>img {
+    object-fit: cover;
+    justify-content: center;
+    vertical-align: bottom;
+}
+
+
+
+p {
+    font-size: 50px;
+}
+
+img {
+    size: 30%;
+}

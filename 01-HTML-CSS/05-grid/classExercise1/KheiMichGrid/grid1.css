@@ -1,0 +1,30 @@
+.grid1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    width: 80vw;
+    height: 80vh;
+    gap: 10px;
+}
+
+.news {
+    /* background-color: blueviolet; */
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr 1fr;
+    gap: 2px;
+}
+
+.news h1 {
+    background-color: pink;
+}
+
+.news>p {
+    background-color: yellow;
+}
+
+.box2 {
+    padding-top: 20px;
+    background-color: chocolate;
+    gap: 2px;
+}

@@ -1,0 +1,107 @@
+
+.menu{
+    background: #ddd;
+    border-top:  1px solid;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: 50px;
+    justify-items: center;
+    align-items: center;
+}
+
+.logo{
+    grid-column: 3/4;
+}
+
+.logo img{
+    width: 90px;
+    height: auto;
+}
+
+.red-strap-news{
+    display: grid;
+    grid-template-rows: 70px;
+    background-color: red;
+    grid-template-columns: 26.6%;
+    justify-items: end;
+    align-items: center;
+}
+
+
+.search-container button {
+    text-align: left;
+    width: 18%;
+    
+}
+
+.search-container button:hover{
+    cursor: pointer;
+}
+
+.red-strap-news{
+    color: white;
+    font-size: 24px;
+    font-family: sans-serif;
+}
+
+.signIn, .home, .news, .sport{
+    font-family: sans-serif; 
+}
+
+.signIn:hover{
+    border-bottom: 4px solid blue;
+    cursor: pointer;
+}
+
+.home:hover{
+    border-bottom: 4px solid rgb(23, 23, 24);
+    cursor: pointer;
+}
+
+.news:hover{
+    border-bottom: 4px solid rgb(185, 31, 31);
+    cursor: pointer;
+}
+
+.sport:hover{
+    border-bottom: 4px solid yellow;
+    cursor: pointer;
+}
+  
+
+
+.wrapper{
+    width: 70%;
+    display: grid;
+    grid-template-columns: repeat(5, 3fr);
+    grid-template-rows: minmax(100px, auto);
+    grid-gap: 1em;
+   padding-left: 17em;
+    
+    justify-items: start;
+    
+}
+
+.wrapper > div{
+    background: #eee;
+    padding: 1em;
+}
+
+.grid-2{
+    grid-column: 2/4;
+}
+
+img{
+    width: 100%;
+    height: auto;
+}
+
+h1 {
+    font-size: 24px;
+    font-family: sans-serif;
+}
+
+p {
+    font-size: 16px;
+    font-family: sans-serif;
+}
