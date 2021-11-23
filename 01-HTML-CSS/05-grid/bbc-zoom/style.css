@@ -1,0 +1,29 @@
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    background-color: blue;
+    gap: 20px;
+    padding: 10px;
+
+
+}
+
+.topContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    background-color: blue;
+    gap: 5px;
+    padding: 10px;
+
+
+}
+
+
+.box {
+    background-color: antiquewhite;
+    display: flex;
+    width: 25vw;
+    height: 25vh;
+}
