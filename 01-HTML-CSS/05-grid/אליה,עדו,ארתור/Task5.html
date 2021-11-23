@@ -10,17 +10,64 @@
         .main{
             border: 5px solid black;
             display: grid;
-            grid-template-rows: 7% 10% 20% 30%;
+            grid-template-rows: 12% 10% 20% 30%;
             width: 80%;
             margin: auto;
         }
-        .commercial{
-            margin: auto;
-        }
+        .navBar {
+  width: 100%;
+  background-color: rgb(20, 16, 10);
+  flex-flow: row wrap;
+  position: sticky;
+  top: 0;
+  justify-content: space-between;
+}
+
+ul {
+margin: 0;
+  padding: 0;
+  height: 50px; 
+  gap: 80px;
+  
+  
+}
+
+
+
+.li:hover {
+  color: rgb(223, 8, 8);
+}
+
+.logo {
+  margin-top: 10px;
+  font-size: 35px;
+  margin-left: 15px;
+  color: rgb(223, 8, 8);
+}
+
+.iconSearch :hover {
+  color: rgb(223, 8, 8);
+}
+
+.iconSearch {
+  background-color: rgb(196, 40, 71);
+  width: 50px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  padding-left: 25px;
+}
+        
+        
         .commercial2{
             margin: auto;
         }
+        .one img{
+          padding: 20px;
+          margin: auto;
+        }
         .one{
+
             background-color: rgb(238, 238, 238);
             display:flex;
             justify-items: center;
@@ -124,10 +171,20 @@
     </style>
 </head>
 <body>
+    <div class="topnav">
+      <ul>
+        <li><a href="">Home</a></li>
+        <li><a href="">news</a></li>
+        <li><a href="">sport</a></li>
+        <li><a href="">lifeStyle</a></li>
+      </ul>
+        
+    </div>
 
     <div class="wrapper main">
+        
         <div class="row one">
-            <div class="commercial"><img src="https://picsum.photos/200/300" alt=""></div>
+           <img src="https://picsum.photos/200/300" alt="">
         </div>
         <div class="row two">
             <div class="div head1"><h1>Welcome to BCC</h1></div>
