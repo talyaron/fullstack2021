@@ -1,0 +1,145 @@
+#bg {
+    background-size: cover;
+    background: url(images/film.png);
+    /* background-repeat: no-repeat; */
+    background-size: cover;
+    display: flex;
+
+}
+
+/* .film>img {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-end;
+     position: fixed;
+    transform: scale(0.5);
+    padding: 10px;
+    margin-top: 34px;
+    margin-bottom: 100vh;
+    margin-right: 0vh;
+    border-radius: 50px;
+    box-shadow: 15px 25px rgb(39, 163, 230);
+    border: 5px solid orange;
+
+} */
+
+h1 {
+    font-size: 100px;
+    color: rgb(39, 163, 230);
+    position: fixed;
+    top: 15vh;
+    background-color: orange;
+}
+
+
+
+.box img {
+    display: flex;
+    width: 400px;
+    margin: 100px;
+    flex-direction: row;
+    padding: 50px;
+    background-color: rgb(39, 163, 230);
+}
+
+
+
+.box>img:hover {
+    /* opacity: 0.2; */
+    transform: scale(1.1);
+    transition: all .75s;
+    background-color: orange;
+
+
+
+}
+
+
+
+
+.middle {
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    text-align: center;
+    top: 21vh;
+    left: 32vh;
+    bottom: 32vh;
+    background-color: rgb(39, 163, 230);
+    padding: 100px;
+    opacity: 0;
+
+
+}
+
+.middle:hover {
+    opacity: 1;
+}
+
+.text {
+    font-family: monospace;
+    font-size: 15px;
+}
+
+.wrapper {
+    display: flex;
+
+    flex-wrap: nowrap;
+    /* flex-shrink: 1; */
+    /* min-width: none;
+    min-height: fit-content; */
+    margin: 10vh;
+    gap: 30px;
+    /* row-gap: 30px; */
+    /* overflow-x: visible; */
+    /* flex-direction: row; */
+    /* align-items: flex-start; */
+    justify-content: center;
+    /* background-color: lightblue; */
+
+}
+
+/* .box1:hover img {
+    opacity: 0.2;
+
+}
+
+.box:hover text {
+    background-color: rgb(255, 255, 255);
+    opacity: 1;
+
+} */
+
+nav {
+    display: flex;
+    /* flex-wrap: wrap; */
+    flex-direction: row-reverse;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 45px;
+    color: rgb(0, 198, 178);
+    letter-spacing: 2px;
+    position: fixed;
+    top: 0;
+    overflow-x: scroll;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 200px;
+
+}
+
+ul {
+    list-style-type: none;
+
+}
+
+
+a {
+    padding: 25px;
+    color: rgb(39, 163, 230);
+    text-decoration: none;
+
+}
+
+a:hover {
+    color: orange
+}
