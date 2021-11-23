@@ -11,7 +11,7 @@ body {
 }
 
 .navBar {
-  width: 100%;
+  width: 120%;
   background-color: #000000;
   color: #8b8b8b;
   display: flex;
@@ -109,23 +109,27 @@ body {
 
 .contanier-h1 :nth-child(2) {
   color: red;
-  /* position: relative;
-  left: ; */
 }
-.wrapper-04 {
-  display: flex;
-  flex-direction: column;
+.right{
+  background-color: gray;
+position: relative;
+
+}
+ .wrapper-04 {
+display: flex;
+flex-direction: column;
 }
 .contanier-commercial {
-  background-color: rgb(71, 71, 71);
-  border: solid brown;
-  width: 30%;
+background-color: rgb(71, 71, 71);
+border: solid brown;
+width: 30%;
 }
 
 .commercial-02 {
-  background-image: url(https://picsum.photos/200/300);
+background-image: url(https://picsum.photos/200/300);
 }
 
 .contanier-11 {
-  width: 70%;
+width: 70%;
 }
+
