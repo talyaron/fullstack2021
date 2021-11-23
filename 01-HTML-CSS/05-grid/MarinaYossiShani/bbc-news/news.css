@@ -93,8 +93,9 @@ a {
     grid-column: 4/15;
 }
 
+
 .red-strap>.home{
-    grid-column: 1/4; 
+    grid-column: 3/4; 
 }
 
 
