@@ -1,0 +1,14 @@
+.menuwrapper{
+
+    display: flex;
+    background-color: blanchedalmond;
+    border: 2px solid black;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.nav{
+    flex-grow: 2;
+    border: 1px solid black;
+
+}
