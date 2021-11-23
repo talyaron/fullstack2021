@@ -1,13 +1,10 @@
 .wrapper{
     display: grid;
     grid-template-columns: auto auto auto;
- 
-    padding: 10px;
-    gap: 2px;
+    gap: 10px;
 }
 .box{
     background-color: rgba(255, 255, 255, 0.8);
-    border: 1px solid rgba(0, 0, 0, 0.8);
     width: 33vw;
     border: 2px solid black;
 }
