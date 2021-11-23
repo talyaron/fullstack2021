@@ -1,25 +1,20 @@
-body {
-    background: rgb(182, 179, 179);
-}
+
 
 .container {
     display: grid;
     grid-template-columns: repeat(3, 25vw);
-    grid-template-rows: 60vh 70vh;
-    gap: 15px;
+    grid-template-rows: 60vh 60vh;
+    gap: 25px;
 }
 
 .box {
     display: grid;
-    
-    background-color: rgb(189, 189, 97);
-    gap: 1px;
+    grid-template-rows: 2fr 1fr 1fr;
+    gap: 20px;
+    border: green solid 1px;
 }
+
 .line{
-    border: black solid 1px;
+    width: 100%;
+    height: auto;
 }
-
-
-
-
-
