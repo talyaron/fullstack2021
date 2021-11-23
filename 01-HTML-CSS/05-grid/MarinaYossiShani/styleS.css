@@ -6,7 +6,7 @@ body{
 }
 
 .menu{
- background-color:black; 
+ background-color:rgb(155, 145, 145);
  width:100%;
  height:50px;
  position:sticky;
@@ -14,26 +14,76 @@ body{
  display:grid;
  grid-template-columns: 2fr 1fr 1fr 1fr 1fr  ;
  grid-template-rows:20px 20px 20px 20px 20px;
+ justify-self: center;
  gap:100px;
+ 
  
 
 
 }
 
-.nav{
-    margin-top:10px;
+
+.black-home-strip{
+    background-color:black;
+    width:100%;
     color:white;
+    height:8vh;
+    width:100%;
+    padding-left:20%;
+    padding-top:15px;
+    font-size:200%;
     
 }
 
+
+
+.nav{
+    
+    color:rgb(255, 251, 251); 
+    margin:5px;
+    width:3vw;
+    height:3vh;
+    text-align:center;
+    
+   
+    
+}
+.nav.Signin{
+    width:4vw;
+}
+
+.nav.Signin:hover{
+    
+    border-bottom: 4px solid blue;
+
+}
+
+.nav.Home:hover{
+    border-bottom: 4px solid rgb(23, 23, 24);
+
+}
+
+.nav.News:hover{
+    border-bottom: 4px solid rgb(185, 31, 31);
+
+}
+
+.nav.Sport:hover{
+    border-bottom: 4px solid yellow;
+
+}
+  
+
 a{
-    color:white;
+    color:rgb(255, 255, 255);
     text-decoration:None;
     cursor:pointer;
 }
 
-a:active{
-    color:blue;
-    text-decoration:underline;
-
+.content.Home{
+    text-align:center;
+    padding-left:100px;
+    padding-right:100px;
+    padding-top:20px;
+    
 }
