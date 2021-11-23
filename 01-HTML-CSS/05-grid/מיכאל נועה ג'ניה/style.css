@@ -1,0 +1,12 @@
+.menu{
+    display: flex;
+    background-color: gold;
+    font-size: 30px;
+    font-family: 'Rowdies', cursive;
+    border: 3px ridge blue;
+    padding: 2px;
+}
+.menu a{
+    text-decoration: none;
+    padding:10px;
+}
