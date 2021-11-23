@@ -18,9 +18,9 @@ body{
     cursor: pointer;
 }
 .box-img img {
-max-width: 18vw;
-height: fit-content;
-padding: 10px;
+    max-width: 18vw;
+    height: fit-content;
+    padding: 10px;
 }
 .box-info {
    font-size: 2vw; 
@@ -28,7 +28,7 @@ padding: 10px;
    padding: 2vh;
 }
 .box-category {
-color: gray;
-font-size: 1vw;
-padding: 5px;
+   color: gray;
+   font-size: 1vw;
+   padding: 5px;
 }
