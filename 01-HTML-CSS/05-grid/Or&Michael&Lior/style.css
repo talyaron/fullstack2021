@@ -159,13 +159,14 @@ text-decoration: underline;
 
 .homebox{ 
 
-    background-color: blanchedalmond;
+    height: auto;
 
 }
 
 .homebox1{
 
-       background-image: url("https://ichef.bbci.co.uk/news/976/cpsprodpb/58DC/production/_121784722_migrants4.jpg");
+    grid-row: 1/3;
+    background-image: url("https://ichef.bbci.co.uk/news/976/cpsprodpb/58DC/production/_121784722_migrants4.jpg");
 
 }
 
