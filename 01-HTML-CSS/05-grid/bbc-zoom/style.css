@@ -27,3 +27,9 @@
     width: 25vw;
     height: 25vh;
 }
+
+.mainDiv{
+    display: grid;
+    background-color:#777;
+
+}
