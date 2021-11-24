@@ -136,3 +136,7 @@ width: 50%;
 .logo>a:hover{
     background-color: transparent;
 }
+body{
+    font-family: 'Outfit', sans-serif;
+
+}
