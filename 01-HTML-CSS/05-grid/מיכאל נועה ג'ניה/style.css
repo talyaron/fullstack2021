@@ -26,8 +26,9 @@ border: 2px inset gold;
 }
 p{
     font-weight: 600;
+    text-shadow: 2px 2px 7px rgba(0, 0, 0, 0.507);
 }
 p:hover{
-    text-decoration: underline;
+    text-decoration: underline blue;
     cursor: pointer;
 }
