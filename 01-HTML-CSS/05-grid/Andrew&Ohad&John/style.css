@@ -91,9 +91,14 @@ h3{
   background-image: url(https://ichef.bbci.co.uk/news/976/cpsprodpb/2215/production/_121752780_students.jpg);
 }
 
+.midArcticle.home{
+  height: 23vh;
+}
+.midArcticle.news{
+  height: 50vh;
+}
 .midArcticle{
   width: 20vw;
-  height: 23vh;
 }
 
 .Header{
