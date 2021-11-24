@@ -33,6 +33,7 @@ body{
 
 .arcticle.news{
   width: 18vw;
+  height: 50vh;
   
 }
 
@@ -87,7 +88,7 @@ h3{
 }
 
 .bigArcticle.news{
-  grid-column: 1/4;
+  grid-column: 2/4;
   background-image: url(https://ichef.bbci.co.uk/news/976/cpsprodpb/2215/production/_121752780_students.jpg);
 }
 
