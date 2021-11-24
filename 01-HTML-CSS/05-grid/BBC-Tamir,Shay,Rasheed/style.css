@@ -288,7 +288,7 @@ p{
     grid-template-columns: 50vh 50vh;
     grid-template-rows: 50vh 50vh;
 }
-.wrraper_u{
+.wrrapers{
     display: grid;
     grid-template-rows: 1fr ;
     grid-template-columns: 3fr 2fr;
@@ -344,6 +344,7 @@ a:hover{
 body{
     font-family: 'Outfit', sans-serif;
 }
+<<<<<<< HEAD
 
 .wrapper{ 
     display: grid;
@@ -410,3 +411,8 @@ a{
     background-color: transparent;
   }
 
+=======
+.box_d{
+    padding: 10px;
+}
+>>>>>>> 9ffee6903f8472329952cf8973dcb78ddd1897a6
