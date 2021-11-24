@@ -1,0 +1,22 @@
+.wrapper{ 
+    display: grid;
+    grid-template-rows: 1fr 1fr ;
+    grid-template-columns: 2fr 2fr 2fr;
+    gap: 20px;
+}
+.box{
+    height:100%;
+    width: 100%;
+    text-align:left;
+}
+.img{
+   background-color: black;
+    border-radius: 20%;
+}
+.box>p{
+    width: 355px;
+    height: 20px;
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+}
