@@ -9,6 +9,14 @@
     padding-left: 1vw;
 }
 
+.navBar-News{
+    background-color: #bb1919;
+    grid-column: span 3; 
+    height: 13vh;
+    color:black;
+    padding-left: 1vw;
+}
+
 .main-menu{
     display: flex;    
 }
@@ -97,6 +105,13 @@ a{
 
 .box p{
     font-weight: 300;
+}
+
+img{
+    object-fit: cover;
+    vertical-align: bottom;
+    height: 100%;
+    width: 100%;
 }
 
 img:hover{
