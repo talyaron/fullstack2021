@@ -1,0 +1,45 @@
+.container
+{
+    width: 100%;
+    height: 100vh;
+    border: 3px solid black;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    grid-template-rows: repeat(3,1fr);
+    grid-gap: 1em;
+
+}
+
+.box
+{
+    background-color: silver;
+    padding: 1em;
+    border: 3px solid black;
+}
+
+.box1
+{
+    grid-column: 1/4;
+    display: flex;
+
+}
+
+h1
+{
+    font-size: 30px;
+    position: relative;
+    border: 3px solid black;
+    align-items: left;
+    width: 25vw;
+    height: 10vh;
+}
+
+.image1
+{
+    position: relative;
+    width: 25vw;
+    height: 40vh;
+    border: 3px solid black;
+    left: 30px;
+}
