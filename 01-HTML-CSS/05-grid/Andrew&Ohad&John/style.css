@@ -55,7 +55,7 @@ h3{
   margin: 2rem;
 }
 .topGrid.home{
-  word-wrap: break-word;
+  color: white;
 }
 
 .bigArcticle{
@@ -93,7 +93,11 @@ h3{
 }
 
 .midArcticle.home{
+  background-size: cover;
   height: 23vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 .midArcticle.news{
   height: 50vh;
