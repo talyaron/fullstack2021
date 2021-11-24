@@ -65,8 +65,16 @@ cursor: pointer;
 color: blue;
 text-decoration: underline;
 }
-.up-sport2:hover{
-    cursor: pointer;
-    color: blue;
-    text-decoration: underline;
+.up-sport2>h1:hover{
+cursor:pointer;
+color: blue;
+text-decoration: underline;
+}
+.category-sport{
+    color: rgb(0, 212, 0);
+    font-size: 13px;
+}
+.category-sport:hover{
+    color: rgb(0, 212, 0);
+
 }
