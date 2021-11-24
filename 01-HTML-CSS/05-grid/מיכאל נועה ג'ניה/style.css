@@ -10,3 +10,13 @@
     text-decoration: none;
     padding:10px;
 }
+.container{
+    display: grid;
+    grid-template-columns: repeat(4, 300px);
+    grid-template-rows: repeat(4, 300px);
+    gap: 20px;
+}
+img{
+max-height: 200px;
+max-width: 300px;
+}

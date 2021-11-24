@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit&family=Shippori+Antique&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/d13a0d855d.js" crossorigin="anonymous"></script>
     <title>Document</title>
@@ -14,15 +16,17 @@
     
     body{
         margin: 0;
-        font-family: 'Open Sans', sans-serif;
-      }
+        font-family: 'Outfit', sans-serif;
+        font-weight: 1000;
+           }
         .main{
-            /* border: 5px solid black; */
             display: grid;
-            grid-template-rows: 12% 7% 15% 30%;
+            grid-template-rows: 12% 6% 12% 30%;
             width: 70%;
             margin: auto;
-             margin-top: 15px;      
+             margin-top: 15px;  
+             font-weight: 700;
+             /* border: 2px solid black;     */
               }
     .topnav {
     height: 40px;
@@ -87,12 +91,13 @@ li a{
 }
 .three{
     display: grid;
-    grid-template-columns: 50% 22% 22%;
+    grid-template-columns: 55% 25% 25%;
     grid-template-rows:repeat(8,1fr );
     grid-auto-rows: minmax(100px , auto);
   column-gap: 25px;
   row-gap: 15px;
     margin-top: -150px;
+    margin-left: -100px;
     
 
 }
@@ -119,21 +124,28 @@ li a{
     justify-items: center;
 }
 .pic1{
-    background-image: url(https://ichef.bbci.co.uk/live-experience/cps/624/cpsprodpb/vivo/live/images/2021/11/24/4bda2d54-c5c5-412a-a2c0-0177f99dc8cd.jpg);
+    background-image: url(https://ichef.bbci.co.uk/news/976/cpsprodpb/EE64/production/_121782016_coalition.jpg);
   grid-column: 50%;
   grid-row: 1/7;
   background-position: center;
  background-size: cover;
  background-repeat: no-repeat;
+ opacity: 0.9;
+ display: grid;
+ grid-template-rows: repeat(6,1fr);
+ grid-template-columns: repeat(1,1fr);
+
 
 }
 .pic2{
     background-image: url(https://ichef.bbci.co.uk/news/976/cpsprodpb/E9DB/production/_121776895_gettyimages-1236731367-594x594.jpg);
-  grid-column: 20%;
   grid-row: 1/4;
   background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    display: grid;
+    grid-template-rows:repeat(4, 1fr );
+    opacity: 0.9;
   
 }
         .pic3{
@@ -141,27 +153,44 @@ li a{
             background-position: center;
             background-size: cover;
             background-repeat: no-repeat;
-
             grid-row: 1/4;
+            display: grid;
+           grid-template-rows:repeat(4, 1fr );
+           opacity: 0.9;
         }
         .pic4{
             background-image: url(https://ychef.files.bbci.co.uk/1600x900/p0b5xc7h.webp);
-            grid-row: 4/7;
-            grid-column: 20%;  
+            grid-row: 4/7;  
             background-position: center;
             background-size: cover; 
             background-repeat: no-repeat;
+            display: grid;
+          grid-template-rows:repeat(4, 1fr );
+          opacity: 0.9;
 
         }
         .pic5{
             background-image: url(https://ychef.files.bbci.co.uk/1600x900/p0b5yd77.webp);
-          grid-column: 20%;
           grid-row: 4/7;
           background-position: center;
             background-size: cover;
             background-repeat: no-repeat;
+            display: grid;
+           grid-template-rows:repeat(5, 1fr );
+           opacity: 0.9;
+
 
         }
+        .pic1 p{
+          grid-row-start: 5;
+          grid-row-end: 5;
+          color: white;
+        }
+        .box:hover{
+          opacity: 1;
+        }
+
+        
         .lala{
         display: grid;
         grid-template-rows: 35% 14% 17% 25%;
@@ -188,41 +217,40 @@ li a{
     font-size: .875rem;
     color: #080808;
     }
-    .content{
-        box-sizing: inherit;
-        display: grid;
-        grid-template-rows: repeat(4,50px);
-        
-
-
-
-        
-    }
-    .content h3{
-      grid-row-start: 2;
-      grid-row-end: 3;
-
+    .box>h3{
+      grid-row: 4/5;
+      
 
     }
-    .content a{
-      grid-row-start: 3;
-      grid-row-end: 5;
-      color: white;
+    h3>a{
+      
+      color: rgba(250, 250, 250, 0.979);
       padding: 5px;
       text-decoration: none;
+      font-size: 25px;
+      font-weight: 1000;
+
+
+
 
 
     }
     .box>a{
-    display: block;
+    display: inline-block;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    color: #474343;
-    margin: 45px 0 0 20px;
-    font-weight: bold;
+    color: #301212;
+    margin: 45px 0 10px 20px;
+    font-weight: 1000;
     font-size: 20px;
     text-transform: uppercase;
+   grid-row: 6;
+   z-index: +5;
+   font-family: 'Shippori Antique', sans-serif;
+   
+
+
     }
     .logoa{
       height: 5vh;
@@ -233,14 +261,8 @@ li a{
     background-repeat: no-repeat;
     box-shadow: none;
 
+
     }
-    
-
-    
-  
-
-    
-
 
     </style>
 </head>
@@ -266,39 +288,38 @@ li a{
             <div class="div head2"><H1>Tuesday, 23 November</H1></div>
         </div>
         <div class="row three">
-            <div class="box pic1"></div>
+            <div class="box pic1">
+              <h3><a href="https://www.bbc.com/news/world-us-canada-59396999">Germany's Scholz seals deal to end Merkel era</a></h3>
+              <p>Olaf Scholz will head a three-party coalition with broad plans for Germany's transition to a green economy, under a deal to end 16 years of government led by Angela Merkel.</p>
+                <a href="https://www.bbc.com/news/world/europe">europe</a>
+            </div>
+
+            
             <div class="box pic2">
-                <div class="box content">
                 <h3><a href="https://www.bbc.com/news/world-us-canada-59396999">Karim Benzema: French footballer guilty in sex tape blackmail case</a></h3>
                 <a href="https://www.bbc.com/news/world/europe">europe</a>
             </div>
-            </div>
             <div class="box pic3">
-              <div class="box content">
+              
                 <h3><a href="https://www.bbc.com/news/world-us-canada-59396999">Karim Benzema: French footballer guilty in sex tape blackmail case</a></h3>
                 <a href="https://www.bbc.com/news/world/europe">europe</a>
             </div> 
               
 
-            </div>
             <div class="box pic4">
-              <div class="box content">
+              
                 <h3><a href="https://www.bbc.com/news/world-us-canada-59396999">Karim Benzema: French footballer guilty in sex tape blackmail case</a></h3>
                 <a href="https://www.bbc.com/news/world/europe">europe</a>
             </div>
                
-            </div>
             <div class="box pic5">
-              <div class="box content">
                 <h3><a href="https://www.bbc.com/news/world-us-canada-59396999">Karim Benzema: French footballer guilty in sex tape blackmail case</a></h3>
                 <a href="https://www.bbc.com/news/world/europe">europe</a>
-            </div>
             
             </div>
         </div>
         <div class="row four">
             <div class="container">
-              
                 <div class="lala"><img src="https://picsum.photos/200/300" alt="">
                 <h1>Lorem ipsum dolor sit.</h1>
                 <p>lalala</p>
@@ -315,7 +336,7 @@ li a{
 
             </div>
     
-            <div class="container2"><div class="commercial2"><img src="https://picsum.photos/200/300" alt=""></div>
+            <div class="container2"><div class="commercial2"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXISyLm7q5mpIXn-35XmJnGaDiJI3OylMf7A&usqp=CAU" alt=""></div>
 
 
         </div>
