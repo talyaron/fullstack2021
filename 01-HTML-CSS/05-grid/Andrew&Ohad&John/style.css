@@ -54,16 +54,15 @@ h3{
   margin: 2rem;
 }
 .topGrid.home{
-
+  word-wrap: break-word;
 }
 
 .bigArcticle{
   background-size: cover;
   width: 45vw;
-  height: 25vw;
+  height: 50vh;
   grid-row: 1 / 3;
   overflow: auto;
-  word-wrap: break-word;
 
 }
 
@@ -92,10 +91,9 @@ h3{
   background-image: url(https://ichef.bbci.co.uk/news/976/cpsprodpb/2215/production/_121752780_students.jpg);
 }
 
-}
-
 .midArcticle{
   width: 20vw;
+  height: 23vh;
 }
 
 .Header{
