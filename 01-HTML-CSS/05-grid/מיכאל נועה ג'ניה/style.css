@@ -5,6 +5,7 @@
     font-family: 'Rowdies', cursive;
     border: 3px ridge blue;
     padding: 2px;
+    
 }
 .menu a{
     text-decoration: none;
@@ -16,6 +17,7 @@
     grid-template-rows: 300px 300px;
     gap: 30px;
     margin-top: 30px;
+
 }
 img{
 width: 100%;
@@ -30,4 +32,27 @@ p:hover{
     cursor: pointer;
 }
 
-.menu:hover{}
+.menu>a:hover{background-color:cyan}
+
+
+
+.container2{display: grid;
+grid-template-columns: 50vw 50vw  ;
+grid-template-rows: 1fr;
+gap: 30px;
+margin-top: 30px;
+}
+
+.lonebox2{display: grid;
+grid-template-columns: 1fr 1fr 1fr;
+grid-template-rows:1fr 1fr ;
+gap: 10px;
+align-items: baseline;}
+
+
+
+.ad{width: 100%;
+height: auto;}
+
+
+
