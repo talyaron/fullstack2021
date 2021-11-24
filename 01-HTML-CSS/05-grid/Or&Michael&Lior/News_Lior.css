@@ -52,8 +52,9 @@ body{
     grid-column: 2/6;
     grid-row: 1/4;
     width: 90%;
-    height: 25vh;
+    height: 40vh;
     align-items: left;
+    border: 3px solid black;
 }
 
 .text1
@@ -171,4 +172,35 @@ body{
 .navbar ul li:hover ::after
 {
     width: 100%;
+}
+
+.search_box
+{
+    position: relative;
+    left: 70vw;
+    top: 0vh;
+    transform: translate(-50%,-50%);
+    background: red;
+    height: 30px;
+    width: 15vw;
+    border: 3px solid black;
+}
+
+.Search-btn
+{
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: red;
+    height: 40px;
+    width: 40px;
+    border: 3px solid rgb(58, 57, 57);
+    top: 0px;
+}
+
+.search_box:hover >.search_text
+{
+    width: 240px;
+    padding: 0 -5px;
 }

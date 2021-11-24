@@ -150,8 +150,8 @@ text-decoration: underline;
     margin-top: 30px;
     width: 90%;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 2fr repeat(3,1fr);
+    grid-template-rows: 2fr 1fr;
     background-color: silver;
     grid-gap: 1em;
     
@@ -159,18 +159,25 @@ text-decoration: underline;
 
 .homebox{ 
 
-    height: auto;
+    height: 20vh;
+    width: 20vw;
+    border: 3px solid black;
+    
 
 }
 
 .homebox1{
 
     grid-row: 1/3;
+    grid-column: 1/2;
+    
     background-image: url("https://ichef.bbci.co.uk/news/976/cpsprodpb/58DC/production/_121784722_migrants4.jpg");
 
 }
 
 .homebox2{
+    
+
 
     background-image: url("https://ichef.bbci.co.uk/news/976/cpsprodpb/58DC/production/_121784722_migrants4.jpg");
     
@@ -178,17 +185,21 @@ text-decoration: underline;
 
 .homebox3{
 
+    
+
     background-image: url("https://ichef.bbci.co.uk/news/976/cpsprodpb/58DC/production/_121784722_migrants4.jpg");
     
 }
 
 .homebox4{
 
+
     background-image: url("https://ichef.bbci.co.uk/news/976/cpsprodpb/58DC/production/_121784722_migrants4.jpg");
     
 }
 
 .homebox5{
+
 
     background-image: url("https://ichef.bbci.co.uk/news/976/cpsprodpb/58DC/production/_121784722_migrants4.jpg");
     
