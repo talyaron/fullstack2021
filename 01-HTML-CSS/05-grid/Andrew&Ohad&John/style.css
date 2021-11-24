@@ -94,7 +94,11 @@ h3{
 
 .bigArcticle.news{
   grid-column: 2/4;
+<<<<<<< HEAD
   background-image: url("pics/bitcoin.jpg");
+=======
+  background-image:  url(https://ichef.bbci.co.uk/news/976/cpsprodpb/2215/production/_121752780_students.jpg);
+>>>>>>> b25d32c25f16802a428ceaa478305d0291cb0e61
 }
 
 .midArcticle.home{
@@ -212,12 +216,9 @@ h3{
   color: black;
 }
 
-div{
-  border: 3px solid green;
-}
-
-span >.arcticle{
+.arcticle >span{
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: space-between;
+  height: 40vh ;
 }
