@@ -33,7 +33,7 @@ body{
 
 .arcticle.news{
   width: 18vw;
-  height: 50vh;
+  height: 70vh;
   
 }
 
@@ -89,7 +89,7 @@ h3{
 
 .bigArcticle.news{
   grid-column: 2/4;
-  background-image: url(https://ichef.bbci.co.uk/news/976/cpsprodpb/2215/production/_121752780_students.jpg);
+  background-image: url("pics/bitcoin.jpg");
 }
 
 .midArcticle.home{
@@ -208,4 +208,10 @@ h3{
 
 div{
   border: 3px solid green;
+}
+
+span >.arcticle{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
