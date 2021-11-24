@@ -97,7 +97,7 @@ body{
 
 }
 
-p:hover{
+.wrappersport p:hover{
 
 cursor: pointer;
 color: blue;
@@ -147,49 +147,95 @@ text-decoration: underline;
 
 .homecontainer{
 
+    padding: 5px;
     margin-top: 30px;
     width: 90%;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+<<<<<<< HEAD
+    grid-template-columns: 2fr repeat(3,1fr);
+    grid-template-rows: 2fr 1fr;
     background-color: silver;
+=======
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+>>>>>>> 14b29ab106e331da7827021dd06071b6c621a7c4
     grid-gap: 1em;
-    
+    height: 300px;
+    color: white;
 }
 
-.homebox{ 
+.homebox{
 
-    height: auto;
+<<<<<<< HEAD
+    height: 20vh;
+    width: 20vw;
+    border: 3px solid black;
+=======
+>>>>>>> 14b29ab106e331da7827021dd06071b6c621a7c4
+    
 
 }
 
 .homebox1{
 
     grid-row: 1/3;
+<<<<<<< HEAD
+    grid-column: 1/2;
+    
     background-image: url("https://ichef.bbci.co.uk/news/976/cpsprodpb/58DC/production/_121784722_migrants4.jpg");
+=======
+    background-image: url("https://ichef.bbci.co.uk/live-experience/cps/624/cpsprodpb/vivo/live/images/2021/11/24/1720e6d2-d1c6-4687-8b89-bbdfe477e129.jpg");
+    background-size: cover;
+>>>>>>> 14b29ab106e331da7827021dd06071b6c621a7c4
 
 }
 
 .homebox2{
+    
+
 
     background-image: url("https://ichef.bbci.co.uk/news/976/cpsprodpb/58DC/production/_121784722_migrants4.jpg");
-    
+    background-size: cover;
+
 }
 
 .homebox3{
 
+<<<<<<< HEAD
+    
+
     background-image: url("https://ichef.bbci.co.uk/news/976/cpsprodpb/58DC/production/_121784722_migrants4.jpg");
     
+=======
+    background-image: url("https://ichef.bbci.co.uk/live-experience/cps/624/cpsprodpb/vivo/live/images/2021/11/24/f1cc5ab7-b958-4a01-8696-4a292bc8fcbd.jpg");
+    background-size: cover;
+
+>>>>>>> 14b29ab106e331da7827021dd06071b6c621a7c4
 }
 
 .homebox4{
 
+<<<<<<< HEAD
+
     background-image: url("https://ichef.bbci.co.uk/news/976/cpsprodpb/58DC/production/_121784722_migrants4.jpg");
     
+=======
+    background-image: url("https://ychef.files.bbci.co.uk/1600x900/p0b576yw.webp");
+    background-size: cover;
+
+>>>>>>> 14b29ab106e331da7827021dd06071b6c621a7c4
 }
 
 .homebox5{
 
+<<<<<<< HEAD
+
     background-image: url("https://ichef.bbci.co.uk/news/976/cpsprodpb/58DC/production/_121784722_migrants4.jpg");
     
 }
+=======
+    background-image: url("https://ychef.files.bbci.co.uk/1600x900/p0b53rnh.webp");
+    background-size: cover;
+
+}
+>>>>>>> 14b29ab106e331da7827021dd06071b6c621a7c4
