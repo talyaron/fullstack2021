@@ -11,27 +11,27 @@
     <title>Document</title>
 
     <style>
-      body{
+    
+    body{
         margin: 0;
         font-family: 'Open Sans', sans-serif;
       }
         .main{
-            border: 5px solid black;
+            /* border: 5px solid black; */
             display: grid;
-            grid-template-rows: 12% 10% 20% 30%;
-            width: 80%;
+            grid-template-rows: 10% 7% 15% 30%;
+            width: 70%;
             margin: auto;
              margin-top: 15px;      
               }
-        .topnav {
-          height: 40px;
-          display: flex;
-  width: 100%;
-  background-color: rgb(0, 0, 0);
-  position: sticky;
-  top: 0;
-  padding-bottom: 5px;
-
+    .topnav {
+    height: 40px;
+    display: flex;
+    width: 100%;
+    background-color: rgb(0, 0, 0);
+    position: sticky;
+    top: 0;
+    padding-bottom: 5px;
         }
 
 ul {
@@ -49,6 +49,8 @@ li{
   padding: 20px;
   box-shadow: 0 20px 30px rgba(15, 10, 10, 0.966);
 align-items: center;
+border-right: 1px solid rgb(230, 229, 229);
+
 }
 li a{
   display: flex;
@@ -59,113 +61,96 @@ li a{
   text-decoration: none;
 }
 
-.li:hover {
-  color: rgb(223, 8, 8);
+      
+.commercial2{
+    margin: auto;
 }
-
-.logo {
-  margin-top: 10px;
-  font-size: 35px;
-  margin-left: 15px;
-  color: rgb(223, 8, 8);
+.one img{
+    padding: 20px;
+     margin: auto;
+ }
+.one{
+    background-color: rgb(175, 173, 173);
+     display:flex;
+    justify-items: center;
+    height: 100%;           
 }
-
-.iconSearch :hover {
-  color: rgb(223, 8, 8);
+.two{
+    display: grid;
+    grid-template-columns:repeat(1,2fr 1fr);
+   
 }
-
-.iconSearch {
-  background-color: rgb(196, 40, 71);
-  width: 50px;
-  height: 70px;
-  display: flex;
-  align-items: center;
-  padding-left: 25px;
-}
-        
-        
-        .commercial2{
-            margin: auto;
-        }
-        .one img{
-          padding: 20px;
-          margin: auto;
-        }
-        .one{
-
-            background-color: rgb(238, 238, 238);
-            display:flex;
-            justify-items: center;
-            height: 100%;
-            
-        }
-        .two{
-            display: grid;
-            grid-template-columns:repeat(1, 2fr 1fr);
-            align-items: flex-start;
-        }
-        .three{
-            display: grid;
-            grid-template-columns: 45% 25% 25%;
-            grid-template-rows:repeat(10,1fr);
-            grid-auto-rows: minmax(100px , auto);
-            border: 5px solid black;
-            grid-gap: 1.5em; 
-            margin-top: -150px;
-        }
-        .four{
-            display: grid;
-            grid-template-columns:60% 40%;
-            grid-template-rows: repeat(20);
-            border: 5px solid orange;
-            grid-auto-rows: minmax(200px, auto);
-            margin-top: 30px;
-        }
-        .container{
-            display: grid;
-            grid-template-columns:repeat(1,1fr 1fr 1fr);
-            grid-template-rows: repeat(2,1fr 1fr);
-            border: 5px solid black;
-            grid-gap: 1.5em;
-            grid-auto-rows: minmax(200px, auto);
-
-        }
-        .container2{
-            background-color: rgb(184, 184, 179);
-            display: flex;
-            justify-items: center;
-        }
+.three{
+    display: grid;
+    grid-template-columns: 50% 22% 22%;
+    grid-template-rows:repeat(10,1fr );
+    grid-auto-rows: minmax(100px , auto);
+  column-gap: 25px;
+  row-gap: 15px;
+    margin-top: -150px;
     
-        .pic1{
-            background-image: url(https://picsum.photos/200/300);
-          grid-column: 50%;
-          grid-row: 1/11;
-          border: 5px solid black;
-        }
-        .pic2{
-            background-image: url(https://picsum.photos/200/300);
-          grid-column: 20%;
-          grid-row: 1/6;
-          
-        }
+
+}
+.four{
+    display: grid;
+    grid-template-columns:60% 40%;
+    grid-template-rows: repeat(20);
+    border: 5px solid orange;
+    grid-auto-rows: minmax(200px, auto);
+    margin-top: 30px;
+}
+
+.container{
+    display: grid;
+    grid-template-columns:repeat(1,1fr 1fr 1fr);
+    grid-template-rows: repeat(2,1fr 1fr);
+    border: 5px solid black;
+    grid-gap: 1.5em;
+    grid-auto-rows: minmax(200px, auto)
+}
+.container2{
+    background-color: rgb(184, 184, 179);
+    display: flex;
+    justify-items: center;
+}
+.pic1{
+    background-image: url(https://ichef.bbci.co.uk/live-experience/cps/624/cpsprodpb/vivo/live/images/2021/11/24/4bda2d54-c5c5-412a-a2c0-0177f99dc8cd.jpg);
+  grid-column: 50%;
+  grid-row: 1/7;
+  background-position: center;
+ background-size: cover;
+}
+.pic2{
+    background-image: url(https://ichef.bbci.co.uk/news/976/cpsprodpb/E9DB/production/_121776895_gettyimages-1236731367-594x594.jpg);
+  grid-column: 20%;
+  grid-row: 1/4;
+  background-position: center;
+    background-size: cover;
+  
+}
         .pic3{
-            background-image: url(https://picsum.photos/200/300);
-            grid-row: 1/6;
+            background-image: url(https://ichef.bbci.co.uk/news/976/cpsprodpb/0ABB/production/_121774720_screenshot2021-11-23at6.59.22pm.png);
+            background-position: center;
+            background-size: cover;
+            grid-row: 1/4;
         }
         .pic4{
-            background-image: url(https://picsum.photos/200/300);
-            grid-row: 6/11;
-            grid-column: 20%;   
+            background-image: url(https://ychef.files.bbci.co.uk/1600x900/p0b5xc7h.webp);
+            grid-row: 4/7;
+            grid-column: 20%;  
+            background-position: center;
+            background-size: cover; 
         }
         .pic5{
-            background-image: url(https://picsum.photos/200/300);
+            background-image: url(https://ychef.files.bbci.co.uk/1600x900/p0b5yd77.webp);
           grid-column: 20%;
-          grid-row: 6/11;
+          grid-row: 4/7;
+          background-position: center;
+            background-size: cover;
         }
         .lala{
         display: grid;
         grid-template-rows: 35% 14% 17% 25%;
-        /* grid-template-rows: repeat(1 , 1fr 1fr 1fr 1fr); */
         grid-template-columns: repeat(1,1fr);
         border:1px solid black;
         grid-auto-rows: minmax(100px, auto);
@@ -179,7 +164,6 @@ li a{
         font-size: 20px;
         font-weight: bold;
       } 
-     
     .lala a{
     display: block;
     overflow: hidden;
@@ -188,8 +172,28 @@ li a{
     margin-top: 0.75rem;
     text-transform: uppercase;
     font-size: .875rem;
-    color: #767676;
-      }
+    color: #080808;
+    }
+    .content{
+        box-sizing: inherit;
+        
+    }
+    .box>a{
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #474343;
+    margin: 100px 0 0 20px;
+    font-weight: bold;
+    font-size: 20px;
+    text-transform: uppercase;
+    }
+    
+
+    
+  
+
     
 
 
@@ -198,8 +202,9 @@ li a{
 <body>
     <div class="topnav">
       <ul>
-        <li><a href=""><i class="fas fa-home" style="padding: 5px;"></i>Home</a></li>
-        <li><a href="">news</a></li>
+        <li><a href=""><i class="fas fa-home" style="padding: 5px;"></i></a></li>
+        <li><a href="Sign_In.html">Sign In</a></li>
+        <li><a href="">Home</a></li>
         <li><a href="">sport</a></li>
         <li><a href="">lifeStyle</a></li>
       </ul>
@@ -217,10 +222,22 @@ li a{
         </div>
         <div class="row three">
             <div class="box pic1"></div>
-            <div class="box pic2"></div>
-            <div class="box pic3"></div>
-            <div class="box pic4"></div>
-            <div class="box pic5"></div>
+            <div class="box pic2">
+                <div class="box content">
+                <h3><a href="https://www.bbc.com/news/world-us-canada-59396999">Karim Benzema: French footballer guilty in sex tape blackmail case</a></h3>
+                <a href="https://www.bbc.com/news/world/europe">Europe</a>
+            </div>
+            </div>
+            <div class="box pic3"> 
+              
+
+            </div>
+            <div class="box pic4">
+               
+            </div>
+            <div class="box pic5">
+            
+            </div>
         </div>
         <div class="row four">
             <div class="container">
