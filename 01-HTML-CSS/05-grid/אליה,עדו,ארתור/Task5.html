@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/d13a0d855d.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+
+    <style>
+    
+    body{
+        margin: 0;
+        font-family: 'Open Sans', sans-serif;
+      }
+        .main{
+            display: grid;
+            grid-template-rows: 12% 6% 12% 30%;
+            width: 70%;
+            margin: auto;
+             margin-top: 15px;  
+             font-weight: 700;
+             /* border: 2px solid black;     */
+              }
+    .topnav {
+    height: 40px;
+    display: flex;
+    width: 100%;
+    background-color: rgb(0, 0, 0);
+    position: sticky;
+    top: 0;
+    padding-bottom: 5px;
+        }
+
+ul {
+  width: 100%;
+  padding: 5px;
+  height: 30px;
+  display:flex;
+  justify-content: start;
+  margin: auto;
+  box-shadow: 0 20px 30px rgb(0, 0, 0);
+border: solid;  
+}
+li{
+  display: flex;
+  padding: 20px;
+  box-shadow: 0 20px 30px rgba(15, 10, 10, 0.966);
+align-items: center;
+
+border-right: 1px solid rgb(230, 229, 229);
+
+
+border-right: solid 1px whitesmoke;
+
+}
+li a{
+  display: flex;
+  color: #FEF5ED;
+  font-size: 20px;
+  padding: 2px;
+  font-weight: 500;
+  text-decoration: none;
+
+}
+
+      
+.commercial2{
+    margin: auto;
+}
+.one img{
+    padding: 20px;
+     margin: auto;
+ }
+.one{
+    background-color: rgb(175, 173, 173);
+     display:flex;
+    justify-items: center;
+    height: 100%;           
+}
+.two{
+    display: grid;
+    grid-template-columns:repeat(1,2fr 1fr);
+   
+}
+.three{
+    display: grid;
+    grid-template-columns: 55% 25% 25%;
+    grid-template-rows:repeat(8,1fr );
+    grid-auto-rows: minmax(100px , auto);
+  column-gap: 25px;
+  row-gap: 15px;
+    margin-top: -150px;
+    margin-left: -100px;
+    
+
+}
+.four{
+    display: grid;
+    grid-template-columns:60% 40%;
+    grid-template-rows: repeat(20);
+    border: 5px solid orange;
+    grid-auto-rows: minmax(200px, auto);
+    margin-top: 30px;
+}
+
+.container{
+    display: grid;
+    grid-template-columns:repeat(1,1fr 1fr 1fr);
+    grid-template-rows: repeat(2,1fr 1fr);
+    border: 5px solid black;
+    grid-gap: 1.5em;
+    grid-auto-rows: minmax(200px, auto)
+}
+.container2{
+    background-color: rgb(184, 184, 179);
+    display: flex;
+    justify-items: center;
+}
+.pic1{
+    background-image: url(https://ichef.bbci.co.uk/live-experience/cps/624/cpsprodpb/vivo/live/images/2021/11/24/4bda2d54-c5c5-412a-a2c0-0177f99dc8cd.jpg);
+  grid-column: 50%;
+  grid-row: 1/7;
+  background-position: center;
+ background-size: cover;
+ background-repeat: no-repeat;
+
+}
+.pic2{
+    background-image: url(https://ichef.bbci.co.uk/news/976/cpsprodpb/E9DB/production/_121776895_gettyimages-1236731367-594x594.jpg);
+  grid-row: 1/4;
+  background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: grid;
+    grid-template-rows:repeat(4, 1fr );
+  
+}
+        .pic3{
+            background-image: url(https://ichef.bbci.co.uk/news/976/cpsprodpb/0ABB/production/_121774720_screenshot2021-11-23at6.59.22pm.png);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            grid-row: 1/4;
+            display: grid;
+           grid-template-rows:repeat(4, 1fr );
+        }
+        .pic4{
+            background-image: url(https://ychef.files.bbci.co.uk/1600x900/p0b5xc7h.webp);
+            grid-row: 4/7;  
+            background-position: center;
+            background-size: cover; 
+            background-repeat: no-repeat;
+            display: grid;
+          grid-template-rows:repeat(4, 1fr );
+
+        }
+        .pic5{
+            background-image: url(https://ychef.files.bbci.co.uk/1600x900/p0b5yd77.webp);
+          grid-row: 4/7;
+          background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            display: grid;
+           grid-template-rows:repeat(6, 1fr );
+        }
+        .lala{
+        display: grid;
+        grid-template-rows: 35% 14% 17% 25%;
+        grid-template-columns: repeat(1,1fr);
+        border:1px solid black;
+        grid-auto-rows: minmax(100px, auto);
+      }  
+      .lala>img{
+        width: 100%; 
+        height: 100%;  
+      }
+      p{
+        text-align: start;
+        font-size: 20px;
+        font-weight: bold;
+      } 
+    .lala a{
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-top: 0.75rem;
+    text-transform: uppercase;
+    font-size: .875rem;
+    color: #080808;
+    }
+    .box>h3{
+      grid-row: 4/5;
+    }
+    h3>a{
+      
+      color: white;
+      padding: 5px;
+      text-decoration: none;
+
+
+    }
+    .box>a{
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #474343;
+    margin: 45px 0 0 20px;
+    font-weight: bold;
+    font-size: 20px;
+    text-transform: uppercase;
+   grid-row: 6;
+    }
+    .logoa{
+      height: 5vh;
+      width: 15vh;
+      background-image: url(logo.png);
+      background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: none;
+
+
+    }
+
+    </style>
+</head>
+<body>
+    <div class="topnav">
+      <ul>
+        <li><a class="logoa" href=""></a></li>
+        <li><a href="Sign_In.html">Sign In</a></li>
+        <li><a href="">Home</a></li>
+        <li><a href="">sport</a></li>
+        <li><a href="">lifeStyle</a></li>
+      </ul>
+        
+    </div>
+
+    <div class="wrapper main">
+        
+        <div class="row one">
+           <img src="https://www.wpkube.com/wp-content/uploads/2021/05/divi-theme-examples.png" alt="">
+        </div>
+        <div class="row two">
+            <div class="div head1"><h1>Welcome to BCC</h1></div>
+            <div class="div head2"><H1>Tuesday, 23 November</H1></div>
+        </div>
+        <div class="row three">
+            <div class="box pic1"></div>
+            <div class="box pic2">
+                <h3><a href="https://www.bbc.com/news/world-us-canada-59396999">Karim Benzema: French footballer guilty in sex tape blackmail case</a></h3>
+                <a href="https://www.bbc.com/news/world/europe">europe</a>
+            </div>
+            <div class="box pic3">
+              
+                <h3><a href="https://www.bbc.com/news/world-us-canada-59396999">Karim Benzema: French footballer guilty in sex tape blackmail case</a></h3>
+                <a href="https://www.bbc.com/news/world/europe">europe</a>
+            </div> 
+              
+
+            <div class="box pic4">
+              
+                <h3><a href="https://www.bbc.com/news/world-us-canada-59396999">Karim Benzema: French footballer guilty in sex tape blackmail case</a></h3>
+                <a href="https://www.bbc.com/news/world/europe">europe</a>
+            </div>
+               
+            <div class="box pic5">
+                <h3><a href="https://www.bbc.com/news/world-us-canada-59396999">Karim Benzema: French footballer guilty in sex tape blackmail case</a></h3>
+                <a href="https://www.bbc.com/news/world/europe">europe</a>
+            
+            </div>
+        </div>
+        <div class="row four">
+            <div class="container">
+                <div class="lala"><img src="https://picsum.photos/200/300" alt="">
+                <h1>Lorem ipsum dolor sit.</h1>
+                <p>lalala</p>
+                <a href="">lalala</a>
+            
+            
+            </div>
+                <div class="lala Spic2">Lorem ipsum dolor sit amet.</div>
+                <div class="lala Spic3">Lorem ipsum dolor sit amet.</div>
+                <div class="lala Spic4">Lorem ipsum dolor sit amet.</div>
+                <div class="lala Spic5">Lorem ipsum dolor sit amet.</div>
+                <div class="lala Spic6">Lorem ipsum dolor sit amet.</div>
+           
+
+            </div>
+    
+            <div class="container2"><div class="commercial2"><img src="https://picsum.photos/200/300" alt=""></div>
+
+
+        </div>
+
+
+
+
+
+    </div>
+    
+</body>
+</html>

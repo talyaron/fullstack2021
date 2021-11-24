@@ -8,11 +8,13 @@ img {
     grid-template-rows: 25vh 10vh 5vh;
     gap:25vh;
     
+    
 }
 .container1 {
     display: grid;
     grid-template-columns: 35vh;
     grid-template-rows: 25vh 10vh 5vh;
+   
     
 }
 .container2 {
