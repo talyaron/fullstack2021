@@ -27,8 +27,6 @@
     top: 10px;
     width: 50px;
     background-color: red
-    
-
 }
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
 
@@ -87,7 +85,6 @@ header {
     font-size:15px;
     position: relative;
     top: 25px;
-    
   }
   nav a:hover {
     color: #000;
