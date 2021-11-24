@@ -160,6 +160,8 @@ text-decoration: underline;
 
 .homebox{
 
+    padding: 5px;
+    text-align: bottom;
     
 
 }
@@ -197,5 +199,41 @@ text-decoration: underline;
 
     background-image: url("https://ychef.files.bbci.co.uk/1600x900/p0b53rnh.webp");
     background-size: cover;
+
+}
+
+.homebox :nth-child(1){
+
+    font-size: 20px;
+    font-weight: 700;
+
+}
+
+.homebox1 :nth-child(3){
+
+    border-left: 5px solid red;
+
+}
+
+.homebox2 :nth-child(2){
+
+    border-left: 5px solid red;
+}
+
+.homebox3 :nth-child(2){
+
+    border-left: 5px solid red;
+
+}
+
+.homebox4 :nth-child(2){
+
+    border-left: 5px solid red;
+
+}
+
+.homebox5 :nth-child(2){
+
+    border-left: 5px solid red;
 
 }
