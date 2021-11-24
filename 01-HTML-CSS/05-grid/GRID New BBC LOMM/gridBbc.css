@@ -25,7 +25,7 @@
 .nav:hover{
     cursor: pointer;
     border-bottom: 2px solid black;
-
+    
 }
 
 /*main*/
@@ -35,7 +35,7 @@
     grid-template-columns: 400px 320px 320px;
     grid-template-rows: 30vh 30vh;
     justify-content: center;
-    margin: 2vw 5vw 2vw 3vw;
+    margin: 5vw 5vw 2vw 3vw;
     gap: 2vw;
     font-family: 'Roboto Condensed', sans-serif;
     color:cornsilk;
@@ -57,7 +57,7 @@
 
 img{
     object-fit: cover;
-    vertical-align: bottom;
+    vertical-align:bottom;
     height: 100%;
     width: 100%;
 }
