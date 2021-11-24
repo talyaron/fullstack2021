@@ -81,7 +81,7 @@ p{
 }
 .wrraper_u{
     display: grid;
-    grid-template-rows: 1fr 2fr ;
+    grid-template-rows: 1fr ;
     grid-template-columns: 3fr 2fr;
     gap: 20px;
 }
