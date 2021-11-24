@@ -179,158 +179,184 @@ span {
     width: 100%;
     gap: 10px;
 }
-.left{
+
+.left {
     background-image: url(https://picsum.photos/id/237/200/300);
     background-size: 100% 100%;
     background-repeat: no-repeat;
     min-width: 50%;
     position: relative;
 }
-.left:hover{
-    transform: translateY(-10px); 
+.left:hover {
+    transform: translateY(-10px);
 }
-.box_u:nth-child(1){
+.box_u:nth-child(1) {
     background-image: url(https://picsum.photos/id/1003/200/300);
     background-size: 100% 100%;
     background-repeat: no-repeat;
     min-width: 100%;
     position: relative;
 }
-.box_u:nth-child(2){
+
+.box_u:nth-child(2) {
     background-image: url(https://picsum.photos/id/1000/200/300);
     background-size: 100% 100%;
     background-repeat: no-repeat;
     width: 100%;
     position: relative;
 }
-.box_u:nth-child(3){
+
+.box_u:nth-child(3) {
     background-image: url(https://picsum.photos/id/1066/200/300);
     background-size: 100% 100%;
     background-repeat: no-repeat;
     width: 100%;
     position: relative;
 }
-.box_u:nth-child(4){
+
+.box_u:nth-child(4) {
     background-image: url(https://picsum.photos/id/1004/200/300);
     background-size: 100% 100%;
     background-repeat: no-repeat;
     width: 100%;
     position: relative;
 }
-.box_u:hover{
-    transform: translateY(-10px); 
+
+.box_u:hover {
+    transform: translateY(-10px);
 }
-h1{
+
+h1 {
     color: rgb(255, 255, 255);
     background-color: rgb(14, 14, 14, 0.3);
     width: 100%;
     font-family: 'Courgette', cursive;
 }
-h5{
+
+h5 {
     color: rgb(249, 250, 248);
     background-color: rgb(14, 14, 14, 0.3);
     font-size: 24px;
     width: 80%;
     font-family: 'Courgette', cursive;
 }
-h6{
+
+h6 {
     font-size: 24px;
     font-family: 'Courgette', cursive;
 }
-.pergraph{
+
+.pergraph {
     background-color: rgb(14, 14, 14, 0.3);
-    color: rgb(255, 255, 255); 
+    color: rgb(255, 255, 255);
     word-wrap: break-word;
     width: 50%;
 }
-p{
+
+p {
     word-wrap: break-word;
     font-family: 'Ubuntu', sans-serif;
     font-size: 17px;
 }
-.box_r{
+
+.box_r {
     display: grid;
     grid-template-columns: 50vh 50vh;
     grid-template-rows: 50vh 50vh;
 }
-.wrraper_u{
+
+.wrraper_u {
     display: grid;
-    grid-template-rows: 1fr ;
+    grid-template-rows: 1fr;
     grid-template-columns: 3fr 2fr;
     gap: 20px;
 }
-.down{
+
+.down {
     padding: 50px 0 0 60px;
     display: flex;
     justify-content: space-between;
     width: 100%;
     align-items: center;
 }
-.explain{
+
+.explain {
     position: absolute;
     bottom: 0;
     padding-left: 10px;
 }
-a{
+
+a {
     color: black;
     font-family: 'Courgette', cursive;
     text-decoration: none;
 }
-a:hover{
-    color: rgb(202, 163, 238); 
+
+a:hover {
+    color: rgb(202, 163, 238);
     background-color: black;
     padding: 5px;
     border-radius: 5px;
 }
-.bar{
+
+.bar {
     display: flex;
     justify-content: start;
     min-width: 100%;
     padding: 10px;
     gap: 10px;
 }
-.nav{
+
+.nav {
     padding: 0 10px;
 }
-.box_d>p{
+
+.box_d>p {
     width: 50%;
 }
-.nav:hover{
+
+.nav:hover {
     transform: translateY(-3px);
-   
 }
 .logo:hover{
     transform: translateY(-3px);  
 }
-.logo>a:hover{
+
+.logo>a:hover {
     background-color: transparent;
 }
-body{
+
+body {
     font-family: 'Outfit', sans-serif;
 }
-.wrapper{ 
+
+.wrapper {
     display: grid;
-    grid-template-rows: 1fr 2fr ;
+    grid-template-rows: 1fr 2fr;
     grid-template-columns: 2fr 2fr 2fr;
     gap: 20px;
 }
-.box{
-    height:100%;
+
+.box {
+    height: 100%;
     width: 100%;
-    text-align:left;
+    text-align: left;
 }
+
 .imge {
-   background-color: black;
+    background-color: black;
     border-radius: 20%;
 }
-.box>p{
+
+.box>p {
     width: 355px;
     height: 20px;
     color: blue;
     text-decoration: underline;
     cursor: pointer;
 }
-.box>h3{
+
+.box>h3 {
     position: relative;
     text-decoration: underline;
     cursor: pointer;
@@ -338,25 +364,29 @@ body{
     width: 50px;
     background-color: red
 }
-a{
+
+a {
     color: black;
     font-family: 'Courgette', cursive;
     text-decoration: none;
-  }
-  a:hover{
-    color: rgb(202, 163, 238); 
+}
+
+a:hover {
+    color: rgb(202, 163, 238);
     background-color: black;
     padding: 5px;
     border-radius: 5px;
-  }
-  .bar{
-  display: flex;
-  justify-content: start;
-  min-width: 100%;
-  padding: 10px;
-  gap: 10px;
-  }
-  .nav{
+}
+
+.bar {
+    display: flex;
+    justify-content: start;
+    min-width: 100%;
+    padding: 10px;
+    gap: 10px;
+}
+
+.nav {
     padding: 0 10px;
   }
   .nav:hover{
