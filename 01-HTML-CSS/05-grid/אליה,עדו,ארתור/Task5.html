@@ -17,12 +17,13 @@
         font-family: 'Open Sans', sans-serif;
       }
         .main{
-            /* border: 5px solid black; */
             display: grid;
-            grid-template-rows: 12% 7% 15% 30%;
+            grid-template-rows: 12% 6% 12% 30%;
             width: 70%;
             margin: auto;
-             margin-top: 15px;      
+             margin-top: 15px;  
+             font-weight: 700;
+             /* border: 2px solid black;     */
               }
     .topnav {
     height: 40px;
@@ -87,12 +88,13 @@ li a{
 }
 .three{
     display: grid;
-    grid-template-columns: 50% 22% 22%;
+    grid-template-columns: 55% 25% 25%;
     grid-template-rows:repeat(8,1fr );
     grid-auto-rows: minmax(100px , auto);
   column-gap: 25px;
   row-gap: 15px;
     margin-top: -150px;
+    margin-left: -100px;
     
 
 }
@@ -129,11 +131,12 @@ li a{
 }
 .pic2{
     background-image: url(https://ichef.bbci.co.uk/news/976/cpsprodpb/E9DB/production/_121776895_gettyimages-1236731367-594x594.jpg);
-  grid-column: 20%;
   grid-row: 1/4;
   background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    display: grid;
+    grid-template-rows:repeat(4, 1fr );
   
 }
         .pic3{
@@ -141,26 +144,28 @@ li a{
             background-position: center;
             background-size: cover;
             background-repeat: no-repeat;
-
             grid-row: 1/4;
+            display: grid;
+           grid-template-rows:repeat(4, 1fr );
         }
         .pic4{
             background-image: url(https://ychef.files.bbci.co.uk/1600x900/p0b5xc7h.webp);
-            grid-row: 4/7;
-            grid-column: 20%;  
+            grid-row: 4/7;  
             background-position: center;
             background-size: cover; 
             background-repeat: no-repeat;
+            display: grid;
+          grid-template-rows:repeat(4, 1fr );
 
         }
         .pic5{
             background-image: url(https://ychef.files.bbci.co.uk/1600x900/p0b5yd77.webp);
-          grid-column: 20%;
           grid-row: 4/7;
           background-position: center;
             background-size: cover;
             background-repeat: no-repeat;
-
+            display: grid;
+           grid-template-rows:repeat(6, 1fr );
         }
         .lala{
         display: grid;
@@ -188,25 +193,11 @@ li a{
     font-size: .875rem;
     color: #080808;
     }
-    .content{
-        box-sizing: inherit;
-        display: grid;
-        grid-template-rows: repeat(4,50px);
-        
-
-
-
-        
+    .box>h3{
+      grid-row: 4/5;
     }
-    .content h3{
-      grid-row-start: 2;
-      grid-row-end: 3;
-
-
-    }
-    .content a{
-      grid-row-start: 3;
-      grid-row-end: 5;
+    h3>a{
+      
       color: white;
       padding: 5px;
       text-decoration: none;
@@ -223,24 +214,19 @@ li a{
     font-weight: bold;
     font-size: 20px;
     text-transform: uppercase;
+   grid-row: 6;
     }
     .logoa{
       height: 5vh;
       width: 15vh;
-      background-image: url(photos/logo.png);
+      background-image: url(logo.png);
       background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     box-shadow: none;
 
+
     }
-    
-
-    
-  
-
-    
-
 
     </style>
 </head>
@@ -268,37 +254,30 @@ li a{
         <div class="row three">
             <div class="box pic1"></div>
             <div class="box pic2">
-                <div class="box content">
                 <h3><a href="https://www.bbc.com/news/world-us-canada-59396999">Karim Benzema: French footballer guilty in sex tape blackmail case</a></h3>
                 <a href="https://www.bbc.com/news/world/europe">europe</a>
             </div>
-            </div>
             <div class="box pic3">
-              <div class="box content">
+              
                 <h3><a href="https://www.bbc.com/news/world-us-canada-59396999">Karim Benzema: French footballer guilty in sex tape blackmail case</a></h3>
                 <a href="https://www.bbc.com/news/world/europe">europe</a>
             </div> 
               
 
-            </div>
             <div class="box pic4">
-              <div class="box content">
+              
                 <h3><a href="https://www.bbc.com/news/world-us-canada-59396999">Karim Benzema: French footballer guilty in sex tape blackmail case</a></h3>
                 <a href="https://www.bbc.com/news/world/europe">europe</a>
             </div>
                
-            </div>
             <div class="box pic5">
-              <div class="box content">
                 <h3><a href="https://www.bbc.com/news/world-us-canada-59396999">Karim Benzema: French footballer guilty in sex tape blackmail case</a></h3>
                 <a href="https://www.bbc.com/news/world/europe">europe</a>
-            </div>
             
             </div>
         </div>
         <div class="row four">
             <div class="container">
-              
                 <div class="lala"><img src="https://picsum.photos/200/300" alt="">
                 <h1>Lorem ipsum dolor sit.</h1>
                 <p>lalala</p>
