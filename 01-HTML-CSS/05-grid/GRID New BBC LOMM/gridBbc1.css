@@ -1,0 +1,127 @@
+
+/*navBar*/
+
+.navBar{
+    background-color: #ffd230;
+    grid-column: span 3; 
+    height: 13vh;
+    color:black;
+    padding-left: 1vw;
+}
+
+.navBar-News{
+    background-color: #bb1919;
+    grid-column: span 3; 
+    height: 13vh;
+    color:black;
+    padding-left: 1vw;
+}
+
+.main-menu{
+    display: flex;    
+}
+
+.navBar>h1{
+    cursor: pointer;
+    margin: 1vh;    
+}
+
+.nav{
+    border-right: 1px black solid;
+    padding: 0 .5vw;
+}
+
+.nav:hover{
+    cursor: pointer;
+    border-bottom: 2px solid black;
+}
+
+.nav2:hover{
+    border-bottom: 2px solid red;
+}
+
+.nav3:hover{
+    border-bottom: 2px solid rgb(11, 89, 192);
+}
+
+.nav4:hover{
+    border-bottom: 2px solid green;
+}
+
+.nav5:hover{
+    border-bottom: 2px solid purple;
+}
+
+.nav6:hover{
+    border-bottom: 2px solid white;
+}
+
+.nav7:hover{
+    border-bottom: 2px solid rgb(184, 87, 103);
+}
+
+.nav8:hover{
+    border-bottom: 2px solid blue;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+/*main*/
+
+.container{
+    display: grid;
+    grid-template-columns: 400px 320px 320px;
+    grid-template-rows: 10vh 30vh 30vh;
+    justify-content: center;
+    gap: 2vw;
+    font-family: 'Roboto Condensed', sans-serif;
+    color: blanchedalmond;
+}
+
+.box{
+    object-fit: cover;
+    vertical-align: bottom;
+    height: 100%;
+    width: 100%;
+}
+
+.box1{
+    border: 1px solid black;
+    grid-row: span 2;
+}
+
+.line{
+    color: yellow;
+}
+
+.box h1, p{
+    position: relative;
+    bottom: 20vh;
+    left: 0.5vw;
+}
+
+.box p{
+    font-weight: 300;
+}
+
+img{
+    object-fit: cover;
+    vertical-align: bottom;
+    height: 100%;
+    width: 100%;
+}
+
+img:hover{
+    filter: grayscale(40%);
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+
+
+
+
+
