@@ -12,19 +12,16 @@
     grid-column-end: 3;
     grid-row-start: 1;
     grid-row-end: 3;
-   color: brown;
+  border: 1px solid black;
   
 
   }
-    
-  
-
 
 .Container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  background-color: blue;
+ border: 1px solid black;
   gap: 20px;
   padding: 10px;
 }
@@ -36,7 +33,7 @@
 }
 
 .box {
-  background-color: antiquewhite;
+  border: 1px solid black;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr 1fr;
@@ -68,6 +65,14 @@ li a:hover {
   background-color: #111;
 }
 .item1{
+    width: 100%;
+    height:500px ;
+ 
+}
+.item1>img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     width: 100%;
     height: 100%;
 }
