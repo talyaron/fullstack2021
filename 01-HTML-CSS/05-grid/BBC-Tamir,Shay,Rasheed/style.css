@@ -7,43 +7,41 @@
 }
 .left{
     background-image: url(https://picsum.photos/id/237/200/300);
-background-size: 100% 100%;
-background-repeat: no-repeat;
-min-width: 50%;
-position: relative;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    min-width: 50%;
+    position: relative;
 }
 .left:hover{
-    transform: translateY(-10px);
-    
+    transform: translateY(-10px); 
 }
 .box:nth-child(1){
     background-image: url(https://picsum.photos/id/1003/200/300);
-background-size: 100% 100%;
-background-repeat: no-repeat;
-min-width: 100%;
-position: relative;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    min-width: 100%;
+    position: relative;
 }
 .box:nth-child(2){
     background-image: url(https://picsum.photos/id/1000/200/300);
-background-size: 100% 100%;
-background-repeat: no-repeat;
-width: 100%;
-position: relative;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    position: relative;
 }
 .box:nth-child(3){
     background-image: url(https://picsum.photos/id/1066/200/300);
-background-size: 100% 100%;
-background-repeat: no-repeat;
-
-width: 100%;
-position: relative;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    position: relative;
 }
 .box:nth-child(4){
     background-image: url(https://picsum.photos/id/1004/200/300);
-background-size: 100% 100%;
-background-repeat: no-repeat;
-width: 100%;
-position: relative;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    position: relative;
 }
 .box:hover{
     transform: translateY(-10px); 
@@ -67,8 +65,7 @@ h6{
 }
 .pergraph{
     background-color: rgb(14, 14, 14, 0.3);
-    color: rgb(255, 255, 255);
-   
+    color: rgb(255, 255, 255); 
     word-wrap: break-word;
     width: 50%;
 }
@@ -112,17 +109,17 @@ a:hover{
     border-radius: 5px;
 }
 .bar{
-display: flex;
-justify-content: start;
-min-width: 100%;
-padding: 10px;
-gap: 10px;
+    display: flex;
+    justify-content: start;
+    min-width: 100%;
+    padding: 10px;
+    gap: 10px;
 }
 .nav{
     padding: 0 10px;
 }
 .box_d>p{
-width: 50%;
+    width: 50%;
 }
 .nav:hover{
     transform: translateY(-3px);
@@ -130,8 +127,7 @@ width: 50%;
 }
 
 .logo:hover{
-    transform: translateY(-3px);
-   
+    transform: translateY(-3px);  
 }
 .logo>a:hover{
     background-color: transparent;
