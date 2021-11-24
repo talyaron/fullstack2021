@@ -1,0 +1,127 @@
+body {
+    margin: 0;
+    font-size: 16px;
+    background-color: #ffffff;
+    font-family:sans-serif;
+}
+
+.menu.home{
+    display:grid;
+    grid-template-columns: 38% 10% 10%  10% 10% 25%;
+    background-color:black;
+    color:white;
+    font-family:sans-serif;
+    height:45px;
+
+}
+
+.nav{
+    display: flex;
+            height: 40px;
+            width: auto;
+            align-items: center;
+            font-size: 16px;
+            justify-content: center;
+            border-right: 1px solid gray;
+            color:white;
+            text-decoration:none;
+}
+
+.strip{
+    display:grid;
+    grid-template-columns:38% 10% 10%  10% 10% 25%;
+    background-color:rgb(255, 246, 246);
+    color:rgb(0, 0, 0);
+    font-family:sans-serif;
+
+}
+
+.leftstrip{
+    padding-left:225px;
+    opacity:0.7;
+}
+
+.rightstrip{
+    opacity:0.5;
+    font-weight:lighter;
+}
+
+a{
+    color:rgb(255, 255, 255);
+    text-decoration:None;
+    cursor:pointer;
+}
+
+.nav.Signin:hover{
+  border-bottom: 4px solid rgb(7, 119, 122);  
+    
+}
+.nav.Home:hover{
+  border-bottom: 4px solid black;  
+    
+}
+.nav.News:hover{
+    border-bottom: 4px solid red;
+
+}
+.nav.Sport:hover{
+    border-bottom:4px solid yellow;
+
+}
+
+.content.topHome{
+   display: grid;   
+   grid-row-gap:5px;
+   grid-column-gap:10px;
+   grid-template-columns:1fr 2fr 2fr 1fr ;
+   
+}
+.small.tophome{
+   display: grid;   
+   grid-template-columns:1fr 1fr ;
+   grid-template-rows:2;
+   grid-row-gap:8px;
+   grid-column-gap:5px;
+   
+}
+
+p{
+  font-weight:bold;
+}
+
+p.small.news{
+    border-left: 3px solid red;
+}
+ p.small.sport{
+    border-left: 3px solid rgb(239, 243, 26);
+}
+ p.small.future{
+    border-left: 3px solid rgb(0, 0, 0);
+}
+
+
+.big >img{
+    width:600px;
+    height:400px;
+    object-fit:cover;
+}
+.small >img{
+    width:300px;
+    height:200px;
+    object-fit:cover;
+}
+
+
+
+.thirdcontent>h2{
+    opacity:0.6;
+}
+
+.News.thirdcontent{
+    border-left:  3px solid red;
+
+}
+.Sport.thirdcontent{
+    border-left: 4px solid rgb(239, 243, 26);
+
+}
