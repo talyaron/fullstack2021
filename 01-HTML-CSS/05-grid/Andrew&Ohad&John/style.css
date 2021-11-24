@@ -9,13 +9,14 @@ body{
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(2, 1fr);
   width: 80vw;
+  gap: 2rem;
 }
 
 .grid3{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 1fr);
-
+  gap: 2rem;
 }
 
 .smallPic{
@@ -67,22 +68,23 @@ h3{
   flex-direction: column;
   justify-content: flex-end;
 }
-pic1{
-
+.pic1{
+  background-image: url(https://ichef.bbci.co.uk/news/976/cpsprodpb/2215/production/_121752780_students.jpg);
 }
-pic2{
-
+.pic2{
+  background-image: url(https://ichef.bbci.co.uk/news/976/cpsprodpb/FCB5/production/_121739646_gettyimages-81010175.jpg);
 }
-pic3{
-  
+.pic3{
+  background-image: url(https://ichef.bbci.co.uk/news/976/cpsprodpb/FCB5/production/_121739646_gettyimages-81010175.jpg);
+}
+.pic4{
+  background-image: url(https://ichef.bbci.co.uk/news/976/cpsprodpb/FCB5/production/_121739646_gettyimages-81010175.jpg);
 }
 
 .bigArcticle.news{
   grid-column: 1/4;
   background-image: url(https://ichef.bbci.co.uk/news/976/cpsprodpb/FCB5/production/_121739646_gettyimages-81010175.jpg);
-  padding: 2px;
-  margin-left: 69px;
-  margin-top: 15px; 
+
 }
 
 .midArcticle{
@@ -167,6 +169,7 @@ pic3{
 .news_Header > a:hover{
   color: black;
   }
+
 .sport_Header{
   width: 100%;
   height: 50px;
