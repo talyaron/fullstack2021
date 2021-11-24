@@ -3,24 +3,32 @@
     grid-template-columns: 500px 500px 500px;
     grid-gap: 10px;
     padding: 10px;
-  }
-  
-  .grid-container  div {
+}
+
+.grid-container div {
     display: grid;
     background-color: rgba(65, 100, 196, 0.8);
     text-align: center;
     margin: 30px 30px;
     justify-content: center;
     align-items: center;
-  }
-
-.box img{
-    width: 300px;
-    height: 300px;
-    margin: 10px;
 }
 
-.box p{
+.box {
+    padding: 20px;
+}
+
+.box div {
+    height: 200px;
+    background-size: cover;
+}
+
+.box img {
+    width: 100%;
+    max-height: 300px;
+}
+
+.box p {
     margin: 30px 30px;
     font-size: 25px;
 }

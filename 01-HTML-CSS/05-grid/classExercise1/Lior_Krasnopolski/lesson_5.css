@@ -28,3 +28,23 @@ body
     width: 100%;
     background-color: sandybrown;
 }
+
+.description
+{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    background-color: rgb(210, 255, 45);
+    padding: 5px;
+    font-size: 20px;
+}
+
+.picture
+{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    background-color: rgb(243, 52, 195);
+    height: 40vh;
+    width: 100%;
+}

@@ -1,0 +1,185 @@
+
+.menu{
+    border-top:  1px solid;
+    display: grid;
+    grid-template-columns: repeat(11, 1fr);
+    grid-template-rows: 50px;
+    justify-items: center;
+    align-items: center;
+}
+
+.logo{
+    grid-column: 2/4;
+    margin-right: 22%;
+}
+
+.logo img{
+    width: 80px;
+    height: auto;
+    margin-left: 12%;
+}
+
+
+
+.search-container button:hover{
+    cursor: pointer;
+}
+
+
+button{
+    float: right;
+}
+
+
+.empty-space-1{
+    margin-right: 15%;
+}
+
+.signIn, .home, .news, .sport, .reel, .stories{
+    font-family: sans-serif;    
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.signIn:hover{
+    border-bottom: 2px solid blue;
+    cursor: pointer;
+}
+
+.home:hover{
+    border-bottom: 2px solid rgb(23, 23, 24);
+    cursor: pointer;
+}
+
+.menu>.news:hover{
+    border-bottom: 2px solid rgb(185, 31, 31);
+    cursor: pointer;
+}
+
+.sport:hover{
+    border-bottom: 2px solid rgb(240, 225, 27);
+    cursor: pointer;
+}
+
+.reel:hover{
+    border-bottom: 2px solid rgb(43, 57, 180);
+    cursor: pointer;
+}
+
+
+
+
+.red-strap{
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: 70px;
+    background-color: rgb(173, 16, 16);
+    justify-items: end;
+    align-items: center;
+    
+}
+
+.red-strap>.news{
+    grid-column: 1/5;
+    margin-right: 13%;
+    color: white;
+    font-size: 45px;
+    font-family: sans-serif;
+}
+
+.red-strap-empty-space{
+    grid-column: 5/16;
+}
+
+
+.red-strap>.home{
+    grid-column: 1/5; 
+}
+
+
+.red-strap>.home, .red-strap>.coronavirus, .red-strap>.climate,
+.red-strap>.video, .red-strap>.world, .red-strap>.business,
+.red-strap>.tech, .red-strap>.science, .red-strap>.stories{
+    color: white;
+    font-family: sans-serif;
+}
+
+.red-strap>.home:hover{
+    border-bottom: 2px solid white;
+    cursor: pointer;
+}
+.red-strap>.coronavirus:hover{
+    border-bottom: 2px solid white;
+    cursor: pointer; 
+} 
+.red-strap>.climate:hover{
+    border-bottom: 2px solid white;
+    cursor: pointer;
+} 
+.red-strap>.video:hover{
+    border-bottom: 2px solid white;
+    cursor: pointer;
+}
+.red-strap>.world:hover{
+    border-bottom: 2px solid white;
+    cursor: pointer;
+} 
+.red-strap>.business:hover{
+    border-bottom: 2px solid white;
+    cursor: pointer;
+}
+.red-strap>.tech:hover{
+    border-bottom: 2px solid white;
+    cursor: pointer;
+} 
+.red-strap>.science:hover{
+    border-bottom: 2px solid white;
+    cursor: pointer;
+}
+
+
+.red-strap>.stories:hover{
+    border-bottom: 2px solid white;
+    cursor: pointer;
+}
+
+
+
+
+
+
+.wrapper{
+    width: 70%;
+    display: grid;
+    grid-template-columns: repeat(5, 3fr);
+    grid-template-rows: minmax(100px, auto);
+    grid-gap: 1em;
+    padding-left: 17em;
+    justify-items: start;
+}
+
+.wrapper > div{
+    padding: 1em;
+}
+
+.grid-2{
+    grid-column: 2/4;
+}
+
+img{
+    width: 100%;
+    height: auto;
+}
+
+h1 {
+    font-size: 22px;
+    font-family: sans-serif;
+}
+
+p {
+    font-size: 16px;
+    font-family: sans-serif;
+}

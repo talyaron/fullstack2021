@@ -1,0 +1,30 @@
+
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr 1fr;
+    gap: 25px;
+    border: black solid 2px;
+    padding: 10px;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: green solid 1px;
+    gap: 5px;
+}
+
+.img{
+    width: 90%;
+    padding: 20px;
+}
+
+.p{
+    width: 100%;
+}
+
+
