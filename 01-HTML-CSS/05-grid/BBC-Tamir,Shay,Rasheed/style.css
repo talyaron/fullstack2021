@@ -224,35 +224,35 @@ span {
 .left:hover{
     transform: translateY(-10px); 
 }
-.box:nth-child(1){
+.box_u:nth-child(1){
     background-image: url(https://picsum.photos/id/1003/200/300);
     background-size: 100% 100%;
     background-repeat: no-repeat;
     min-width: 100%;
     position: relative;
 }
-.box:nth-child(2){
+.box_u:nth-child(2){
     background-image: url(https://picsum.photos/id/1000/200/300);
     background-size: 100% 100%;
     background-repeat: no-repeat;
     width: 100%;
     position: relative;
 }
-.box:nth-child(3){
+.box_u:nth-child(3){
     background-image: url(https://picsum.photos/id/1066/200/300);
     background-size: 100% 100%;
     background-repeat: no-repeat;
     width: 100%;
     position: relative;
 }
-.box:nth-child(4){
+.box_u:nth-child(4){
     background-image: url(https://picsum.photos/id/1004/200/300);
     background-size: 100% 100%;
     background-repeat: no-repeat;
     width: 100%;
     position: relative;
 }
-.box:hover{
+.box_u:hover{
     transform: translateY(-10px); 
 }
 h1{
