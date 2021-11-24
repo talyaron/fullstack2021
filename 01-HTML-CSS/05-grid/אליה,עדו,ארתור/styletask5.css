@@ -1,0 +1,250 @@
+body{
+    margin: 0;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 1000;
+       }
+    .main{
+        display: grid;
+        grid-template-rows: 12% 6% 12% 30%;
+        width: 70%;
+        margin: auto;
+         margin-top: 15px;  
+         font-weight: 700;
+         /* border: 2px solid black;     */
+          }
+.topnav {
+height: 40px;
+display: flex;
+width: 100%;
+background-color: rgb(0, 0, 0);
+position: sticky;
+top: 0;
+padding-bottom: 5px;
+    }
+
+ul {
+position: relative; right: 18vh;
+width: 100%;
+padding: 5px;
+height: 30px;
+display:flex;
+justify-content: center;
+margin: auto;
+box-shadow: 0 20px 30px rgb(0, 0, 0);
+border: solid;  
+}
+li{
+display: flex;
+padding: 20px;
+box-shadow: 0 20px 30px rgba(15, 10, 10, 0.966);
+align-items: center;
+
+border-right: 1px solid rgb(230, 229, 229);
+
+
+border-right: solid 1px whitesmoke;
+
+}
+li a{
+display: flex;
+color: #FEF5ED;
+font-size: 20px;
+padding: 2px;
+font-weight: 500;
+text-decoration: none;
+
+}
+
+  
+.commercial2{
+margin: auto;
+}
+.one img{
+padding: 20px;
+ margin: auto;
+}
+.one{
+background-color: rgb(175, 173, 173);
+ display:flex;
+justify-items: center;
+height: 100%;           
+}
+.two{
+display: grid;
+grid-template-columns:repeat(1,2fr 1fr);
+
+}
+.three{
+display: grid;
+grid-template-columns: 55% 25% 25%;
+grid-template-rows:repeat(8,1fr );
+grid-auto-rows: minmax(100px , auto);
+column-gap: 25px;
+row-gap: 15px;
+margin-top: -150px;
+margin-left: -100px;
+
+
+}
+.four{
+display: grid;
+grid-template-columns:60% 40%;
+grid-template-rows: repeat(20);
+border: 5px solid orange;
+grid-auto-rows: minmax(200px, auto);
+margin-top: 30px;
+}
+
+.container{
+display: grid;
+grid-template-columns:repeat(1,1fr 1fr 1fr);
+grid-template-rows: repeat(2,1fr 1fr);
+border: 5px solid black;
+grid-gap: 1.5em;
+grid-auto-rows: minmax(200px, auto)
+}
+.container2{
+background-color: rgb(184, 184, 179);
+display: flex;
+justify-items: center;
+}
+.pic1{
+background-image: url(https://ichef.bbci.co.uk/news/976/cpsprodpb/EE64/production/_121782016_coalition.jpg);
+grid-column: 50%;
+grid-row: 1/7;
+background-position: center;
+background-size: cover;
+background-repeat: no-repeat;
+opacity: 0.9;
+display: grid;
+grid-template-rows: repeat(6,1fr);
+grid-template-columns: repeat(1,1fr);
+
+
+}
+.pic2{
+background-image: url(https://ichef.bbci.co.uk/news/976/cpsprodpb/E9DB/production/_121776895_gettyimages-1236731367-594x594.jpg);
+grid-row: 1/4;
+background-position: center;
+background-size: cover;
+background-repeat: no-repeat;
+display: grid;
+grid-template-rows:repeat(4, 1fr );
+opacity: 0.9;
+
+}
+    .pic3{
+        background-image: url(https://ichef.bbci.co.uk/news/976/cpsprodpb/0ABB/production/_121774720_screenshot2021-11-23at6.59.22pm.png);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        grid-row: 1/4;
+        display: grid;
+       grid-template-rows:repeat(4, 1fr );
+       opacity: 0.9;
+    }
+    .pic4{
+        background-image: url(https://ychef.files.bbci.co.uk/1600x900/p0b5xc7h.webp);
+        grid-row: 4/7;  
+        background-position: center;
+        background-size: cover; 
+        background-repeat: no-repeat;
+        display: grid;
+      grid-template-rows:repeat(4, 1fr );
+      opacity: 0.9;
+
+    }
+    .pic5{
+        background-image: url(https://ychef.files.bbci.co.uk/1600x900/p0b5yd77.webp);
+      grid-row: 4/7;
+      background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        display: grid;
+       grid-template-rows:repeat(5, 1fr );
+       opacity: 0.9;
+
+
+    }
+    .pic1 p{
+      grid-row-start: 5;
+      grid-row-end: 5;
+      color: white;
+    }
+    .box:hover{
+      opacity: 1;
+    }
+
+    
+    .lala{
+    display: grid;
+    grid-template-rows: 35% 14% 17% 25%;
+    grid-template-columns: repeat(1,1fr);
+    border:1px solid black;
+    grid-auto-rows: minmax(100px, auto);
+  }  
+  .lala>img{
+    width: 100%; 
+    height: 100%;  
+  }
+  p{
+    text-align: start;
+    font-size: 20px;
+    font-weight: bold;
+  } 
+.lala a{
+display: block;
+overflow: hidden;
+white-space: nowrap;
+text-overflow: ellipsis;
+margin-top: 0.75rem;
+text-transform: uppercase;
+font-size: .875rem;
+color: #080808;
+}
+.box>h3{
+  grid-row: 4/5;
+  
+
+}
+h3>a{
+  
+  color: rgba(250, 250, 250, 0.979);
+  padding: 5px;
+  text-decoration: none;
+  font-size: 25px;
+  font-weight: 1000;
+
+
+
+
+
+}
+.box>a{
+display: inline-block;
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+color: #301212;
+margin: 45px 0 10px 20px;
+font-weight: 1000;
+font-size: 20px;
+text-transform: uppercase;
+grid-row: 6;
+z-index: +5;
+font-family: 'Shippori Antique', sans-serif;
+
+
+
+}
+.logoa{
+  height: 5vh;
+  width: 15vh;
+  background-image: url(photos/logo.png);
+  background-position: center;
+background-size: cover;
+background-repeat: no-repeat;
+box-shadow: none;
+
+
+}
