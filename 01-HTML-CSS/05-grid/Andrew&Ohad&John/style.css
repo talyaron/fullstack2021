@@ -218,3 +218,11 @@ h3{
   justify-content: space-between;
   height: 40vh ;
 }
+
+.midArcticle >span{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 50vh ;
+  font-size: 150%;
+}
