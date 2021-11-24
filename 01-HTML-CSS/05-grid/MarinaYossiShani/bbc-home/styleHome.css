@@ -7,7 +7,7 @@ body {
 
 .menu.home{
     display:grid;
-    grid-template-columns: 38% 10% 10%  10% 10% 25%;
+    grid-template-columns: 25% 10% 10%  10% 10% 25%;
     background-color:black;
     color:white;
     font-family:sans-serif;
@@ -29,7 +29,7 @@ body {
 
 .strip{
     display:grid;
-    grid-template-columns:38% 10% 10%  10% 10% 25%;
+    grid-template-columns:25% 10% 10%  10% 10% 25%;
     background-color:rgb(255, 246, 246);
     color:rgb(0, 0, 0);
     font-family:sans-serif;
@@ -111,19 +111,29 @@ p.small.news{
     object-fit:cover;
 }
 
-
-
-.thirdcontent>h2{
-    opacity:0.6;
-}
-
 .News.thirdcontent{
-    border-left:  3px solid red;
+    
     display:grid;
     grid-column-gap:10px;
-    grid-template-columns:1fr 1fr 1fr 1fr 1fr ;
+    grid-template-columns:15% 23% 23% 23% 15% ;
+    
 
 }
+.newsstrip{
+    
+    display:grid;
+    grid-template-columns:15% 10% 10% 10% 10% 10% 10% 10% 15%;
+    background-color:rgb(255, 246, 246);
+
+}
+.newsstrip>div> h2{
+    border-left: 5px solid red;
+
+}
+div{
+    border:2px solid black;
+}
+
 
 .News>img{
     width:300px;
