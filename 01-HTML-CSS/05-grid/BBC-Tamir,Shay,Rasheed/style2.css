@@ -28,3 +28,37 @@
     width: 50px;
     background-color: red
 }
+a{
+    color: black;
+    font-family: 'Courgette', cursive;
+    text-decoration: none;
+  }
+  a:hover{
+    color: rgb(202, 163, 238); 
+    background-color: black;
+    padding: 5px;
+    border-radius: 5px;
+  }
+  .bar{
+  display: flex;
+  justify-content: start;
+  min-width: 100%;
+  padding: 10px;
+  gap: 10px;
+  }
+  .nav{
+    padding: 0 10px;
+  }
+
+  .nav:hover{
+    transform: translateY(-3px);
+   
+  }
+  
+  .logo:hover{
+    transform: translateY(-3px);
+   
+  }
+  .logo>a:hover{
+    background-color: transparent;
+  }
