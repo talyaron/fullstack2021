@@ -30,9 +30,7 @@ gap: 10px;
 .nav{
   padding: 0 10px;
 }
-.box_d>p{
-width: 50%;
-}
+
 .nav:hover{
   transform: translateY(-3px);
  
