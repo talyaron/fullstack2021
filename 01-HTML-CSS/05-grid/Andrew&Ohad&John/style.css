@@ -1,6 +1,6 @@
 body{
     direction: ltr;
-    margin: 2px;
+    margin: 4px;
 }
 
 .grid4{
@@ -22,6 +22,11 @@ body{
 .arcticle{
     width: 30vw;
 }
+.arcticle.news{
+  width: 20vw;
+  margin-left: 68px;
+  margin-top: 14px;
+}
 p{
     box-shadow: -0.1em 0em red;
 }
@@ -32,7 +37,7 @@ h3{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    color: red;
+    color: black;
     height: 50vh;
 }
 .bigArcticle{
@@ -46,8 +51,12 @@ h3{
 }
 
 .bigArcticle.news{
-    grid-column: 2 / 4;
-    background-color: skyblue;
+    grid-column: 1/4;
+    background-image: url(https://ichef.bbci.co.uk/news/976/cpsprodpb/FCB5/production/_121739646_gettyimages-81010175.jpg);
+    padding: 2px;
+    margin-left: 69px;
+    margin-top: 15px;
+    
 }
 
 .midArcticle{
@@ -91,7 +100,7 @@ h3{
 
   .searchButton {
     width: 50px;
-    height: 58px;
+    height: 57px;
     border: 1px solid #333;
     background: #333;
     text-align: center;
@@ -111,4 +120,24 @@ h3{
     height: 120px; 
     position: relative; 
     bottom:30px;
+  }
+
+  .news_Header  {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    background-color: red;
+    font-size: 18px;
+  }
+  
+  .news_Header > a  {
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    text-align: center;
+  }
+  
+  .news_Header > a:hover {
+    color: black;
   }
