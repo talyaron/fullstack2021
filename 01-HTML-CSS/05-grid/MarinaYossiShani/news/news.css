@@ -1,10 +1,25 @@
 
 .menu{
     display: grid;
-    grid-template-columns: 25% 7% 10% 10% 10% 11% 10%;
-    grid-template-rows: 45px;
-    justify-items: center;
+    grid-template-columns: 25% 9% 10% 9% 10% 10% 10%;
+    height:31px;
+}
+
+
+.nav{
+    display: flex;
+    height: 30px;
+    width: auto;
     align-items: center;
+    justify-content: center;
+    border-right: 1px solid gray;
+    text-decoration:none;
+}
+
+.search{
+    position: relative;
+    top: 13%;
+    left: 10%;
 }
 
 
@@ -13,7 +28,7 @@
     width: 80px;
     height: auto;
     left: 293px;
-    top: -1.5%;   
+    top: -1.9%;   
 }
 
 
@@ -32,27 +47,28 @@ a {
 }
 
 .signIn:hover{
-    text-decoration: underline 2px blue; 
+    border-bottom: 4px solid blue; 
     cursor: pointer; 
+      
 }
 
-.menu>.home:hover{
-    text-decoration: underline 2px  rgb(23, 23, 24);
+.nav.home:hover{
+    border-bottom: 4px solid  rgb(23, 23, 24);
     cursor: pointer;
 }
 
-.menu>.news:hover{
-    text-decoration: underline 2px  rgb(185, 31, 31);
+.nav.news:hover{
+    border-bottom: 4px solid  rgb(185, 31, 31);
     cursor: pointer;
 }
 
 .sport:hover{
-    text-decoration: underline 2px  rgb(240, 225, 27);
+    border-bottom: 4px solid  rgb(240, 225, 27);
     cursor: pointer;
 }
 
 .reel:hover{
-    text-decoration: underline 2px  rgb(7, 29, 226);
+    border-bottom: 4px solid  rgb(7, 29, 226);
     cursor: pointer;
 }
 
@@ -92,41 +108,40 @@ a {
 }
 
 .links>.home:hover{
-    text-decoration: underline 2px white;
+    border-bottom: 4px solid white;
     cursor: pointer;
 }
 .links>.coronavirus:hover{
-    text-decoration: underline 2px white;
+    border-bottom: 4px solid white;
     cursor: pointer; 
 } 
 .links>.climate:hover{
-    text-decoration: underline 2px white;
+    border-bottom: 4px solid white;
     cursor: pointer;
 } 
 .links>.video:hover{
-    text-decoration: underline 2px white;
+    border-bottom: 4px solid white;
     cursor: pointer;
 }
 .links>.world:hover{
-    text-decoration: underline 2px white;
+    border-bottom: 4px solid white;
     cursor: pointer;
 } 
 .links>.business:hover{
-     text-decoration: underline 2px white;
+    border-bottom: 4px solid white;
     cursor: pointer;
 }
 .links>.tech:hover{
-     text-decoration: underline 2px white;
+    border-bottom: 4px solid white;
     cursor: pointer;
 } 
 .links>.science:hover{
-     text-decoration: underline 2px white;
+    border-bottom: 4px solid white;
     cursor: pointer;
 }
 
-
 .links>.stories:hover{
-     text-decoration: underline 2px white;
+    border-bottom: 4px solid white;
     cursor: pointer;
 }
 
