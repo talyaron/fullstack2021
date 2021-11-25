@@ -436,6 +436,18 @@ span a{
 span a:hover{
   cursor: pointer;
 }
+.select{
+    width: 30%;
+    height: 30px;
+    background-color: black;
+    color: burlywood;
+    font-weight: 1000;
+    font-size: 17px;
+}
+.age{
+    font-weight: 1000;
+    font-size: 20px;
+}
   
 
 
