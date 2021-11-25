@@ -1,0 +1,84 @@
+
+/*navBar*/
+
+.navBar{
+    background-color: #ffd230;
+    margin: 0 10px;
+}
+
+.main-menu{
+    position: relative;
+    display: flex;
+    width: 100%;
+    align-items:flex-end; 
+}
+
+.nav{
+    display: flex;
+    border-right: 1px black solid;
+    height: 5vh;
+    width: 12vw;
+    justify-content: center;
+
+}
+
+.nav:hover{
+    cursor: pointer;
+    border-bottom: 2px solid black;
+    
+}
+.navBar-News{
+    background-color:  #bb1919;
+    margin: 0 10px;
+}
+
+/*main*/
+
+.container{
+    display: grid;
+    grid-template-columns: 400px 320px 320px;
+    grid-template-rows: 30vh 30vh;
+    justify-content: center;
+    margin: 5vw 5vw 2vw 3vw;
+    gap: 2vw;
+    font-family: 'Roboto Condensed', sans-serif;
+    color:cornsilk;
+}
+
+
+
+.box{ 
+    border: 1px solid black;
+}
+
+.box1{
+    grid-row: span 2;
+}
+
+
+
+.color{
+    color: yellow;
+}
+
+img{
+    object-fit: cover;
+    vertical-align:bottom;
+    height: 100%;
+    width: 100%;
+}
+
+.box h1, p{
+    position: relative;
+    bottom: 20vh;
+    left: 0.5vw;
+}
+
+.box p{
+    font-weight: 300;
+}
+
+
+
+
+
