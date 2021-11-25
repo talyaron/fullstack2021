@@ -1,0 +1,18 @@
+.box {
+background: gray;
+min-height:20vh;
+min-width: 20vw;
+border:1px solid yellow;
+color:white;
+text-align: center;
+display:flex;
+justify-content: center;
+align-items: center;
+}
+
+.wrapper{
+    background: gray;
+    padding:20px;
+    display: flex;
+    flex-wrap: wrap;  
+}

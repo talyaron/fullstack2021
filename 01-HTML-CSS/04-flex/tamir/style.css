@@ -1,0 +1,15 @@
+.box{
+    background-color: rgb(32, 223, 14);
+    border: 2px solid gold;
+    text-align: center;
+    color:rgb(236, 61, 8);
+    min-height: 4vh;
+    min-width: 4vw;
+}
+
+.wrapper{
+    background: gray;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
