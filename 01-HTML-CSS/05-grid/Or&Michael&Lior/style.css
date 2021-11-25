@@ -156,26 +156,25 @@ text-decoration: underline;
     background-color: silver;
     grid-template-columns: 2fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    grid-gap: 1em;
-    height: 300px;
+    grid-gap: 1em;;
     color: white;
+    grid-auto-flow: column;
 }
 
 .homebox{
 
     padding: 5px;
-    text-align: bottom;
-    height: 20vh;
-    width: 20vw;
     border: 3px solid black;
+    background-size: cover;
+
+
 
 }
 
 .homebox1{
 
     grid-row: 1/3;
-    grid-column: 1/2;
-    background-image: url("https://ichef.bbci.co.uk/news/976/cpsprodpb/58DC/production/_121784722_migrants4.jpg");
+    background-image: url(https://ichef.bbci.co.uk/live-experience/cps/624/cpsprodpb/vivo/live/images/2021/11/25/3157c030-c1e3-4afc-b825-93ad2d5d516c.jpg);
 
 }
 
@@ -183,14 +182,14 @@ text-decoration: underline;
     
 
 
-    background-image: url("https://ichef.bbci.co.uk/news/976/cpsprodpb/58DC/production/_121784722_migrants4.jpg");
+    background-image: url(https://ichef.bbci.co.uk/news/976/cpsprodpb/58DC/production/_121784722_migrants4.jpg);
     background-size: cover;
 
 }
 
 .homebox3{
 
-    background-image: url("https://ichef.bbci.co.uk/live-experience/cps/624/cpsprodpb/vivo/live/images/2021/11/24/f1cc5ab7-b958-4a01-8696-4a292bc8fcbd.jpg");
+    background-image: url(https://ichef.bbci.co.uk/live-experience/cps/624/cpsprodpb/vivo/live/images/2021/11/24/f1cc5ab7-b958-4a01-8696-4a292bc8fcbd.jpg);
     background-size: cover;
 
 }
@@ -198,20 +197,15 @@ text-decoration: underline;
 .homebox4{
 
 
-    background-image: url("https://ichef.bbci.co.uk/news/976/cpsprodpb/58DC/production/_121784722_migrants4.jpg");
+    background-image: url(https://ychef.files.bbci.co.uk/1280x720/p0b576yw.webp);
     
 }
 
-.homebox{
+.homebox5{
 
-    background-image: url("https://ichef.bbci.co.uk/news/976/cpsprodpb/58DC/production/_121784722_migrants4.jpg");
-    
+    background-image: url(https://ichef.bbci.co.uk/images/ic/832xn/p09ydv2w.jpg);
 }
 
-    background-image: url("https://ychef.files.bbci.co.uk/1600x900/p0b53rnh.webp");
-    background-size: cover;
-
-}
 
 .homebox :nth-child(1){
 
