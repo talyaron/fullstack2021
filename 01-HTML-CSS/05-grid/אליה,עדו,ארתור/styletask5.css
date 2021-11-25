@@ -366,3 +366,6 @@ margin: 10px;
     background-size: cover;
     background-repeat: no-repeat;
 }
+.artur-logo-bottom ul{
+    display: flex;
+}
