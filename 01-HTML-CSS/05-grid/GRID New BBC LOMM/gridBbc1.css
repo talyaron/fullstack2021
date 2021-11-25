@@ -1,7 +1,7 @@
 
 /*navBar*/
 
-.navBar, .navBar-News{
+.navBar, .navBar-News, .navBar-home{
     grid-column: span 3; 
     height: 13vh;
     color:black;
@@ -16,11 +16,15 @@
     background-color: #bb1919;
 }
 
+.navBar-home{
+    background-color:darkblue;
+}
+
 .main-menu{
     display: flex;    
 }
 
-.navBar>h1, .navBar-News>h1{
+.navBar>h1, .navBar-News>h1 .navBar-home>{
     cursor: pointer;
     margin: 1vh;    
 }
