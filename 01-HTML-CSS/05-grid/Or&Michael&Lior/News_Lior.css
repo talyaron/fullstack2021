@@ -45,6 +45,13 @@ body{
     height: 10vh;
 }
 
+.Header1:hover
+{
+     cursor: pointer;
+     color: blue;
+    text-decoration: underline;
+}
+
 .image1
 {
     grid-column: 2/6;
@@ -122,15 +129,42 @@ body{
     font-style: italic;
 }
 
+.BBC_logo
+{
+    left: -400px;
+    top: 10px;
+    position: relative;
+    display: flex;
+    text-align: center;
+    justify-content: flex-start;
+    width: 1vw;
+    margin-left: 0px;
+    height: 2vh;
+    background-color: rgb(247, 244, 244);
+    border: 3px solid black;
+    font-family: 'Outfit', sans-serif;
+}
+.firstletter
+{
+    position: relative;
+    left: -10vw;
+}
+.BBC_LOG_2
+{
+    position: relative;
+    left: -450px;
+    top: 5px;
+}
 .banner
 {
     width: 100%;
     height: 4vh;
-    background-color: rgb(245, 23, 23);
+    background-color: rgb(10, 10, 10);
     background-size: cover;
     background-position: center;
     text-align: center;
     font-weight: 200;
+    top: 0px;
 }
 
 .navbar
@@ -181,11 +215,11 @@ body{
 .search_box
 {
     position: relative;
-    left: 70vw;
+    left: 80vw;
     top: 0vh;
     transform: translate(-50%,-50%);
     transition: 10s;
-    background: red;
+    background: rgb(10, 10, 10);
     height: 30px;
     width: 15vw;
 }
@@ -196,7 +230,7 @@ body{
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    background: red;
+    background: rgb(250, 242, 242);
     height: 40px;
     width: 40px;
     top: 0px;
@@ -235,4 +269,11 @@ body{
 .title1
 {
     font-size: 20px;
+}
+
+.title1 :hover
+{
+    cursor: pointer;
+    color: blue;
+   text-decoration: underline;
 }
