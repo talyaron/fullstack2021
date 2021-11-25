@@ -110,7 +110,7 @@ a {
 
 
 .content {
-    padding-top:10px;
+    padding-top:20px;
     display: grid;
     grid-template-columns: 15% 35% 35% 15%;
     height: 31px;
