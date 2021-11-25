@@ -149,10 +149,22 @@ body{
     position: relative;
     left: -10vw;
 }
+
+.secondletter
+{
+    position: relative;
+    left: -19vw;
+}
+
+.thridletter
+{
+    position: relative;
+    left: -21vw;   
+}
 .BBC_LOG_2
 {
     position: relative;
-    left: -450px;
+    left: -490px;
     top: 5px;
 }
 .banner
