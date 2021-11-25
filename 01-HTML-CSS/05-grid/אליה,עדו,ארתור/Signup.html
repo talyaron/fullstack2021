@@ -1,0 +1,128 @@
+!<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="styletask5.css">
+    
+     <title>Sign UP</title>
+</head>
+<body>
+    <style>
+      body{
+        background-image: url(https://media.cntraveler.com/photos/59ef91dd8d4f736d51415c2e/master/w_2667,h_2000,c_limit/7MileBeach-2013-HiRes.jpg);
+        background-position: center;
+         background-size: cover;
+        background-repeat: no-repeat;
+         margin-top: -100px;
+      }
+     
+        .select{
+            width: 30%;
+            height: 30px;
+            background-color: black;
+            color: burlywood;
+            font-weight: 1000;
+            font-size: 17px;
+        }
+        .age{
+            font-weight: 1000;
+            font-size: 20px;
+        }
+        
+
+        
+    </style>
+
+    <div class="topnav">
+        <ul class="ido_list">
+          <li><a class="logoa" href="Task5.html"></a></li>
+          <li><a href="Sign_In.html">Sign In</a></li>
+          <li><a href="Task5.html">Home</a></li>
+          <li><a href="">sport</a></li>
+          <li><a href="">lifeStyle</a></li>
+          <div class="search">
+          <li id="Search"><input type="text" placeholder="Search.."><button type="submit">search</button>
+        </div>
+        </ul>
+        
+          
+      </div>
+
+        <div class="signup">
+            <div class="jumbotron">
+               <ul class="logo_signin">
+               <li><a class="logoa" href="logo.png"></a></li> 
+                </ul><br>
+             <h1>Please Follow a quick survey :</h1><br>
+          
+              </div>
+          
+              <form action="ThankYou.html" mathod='get'>
+
+               
+                <h2>Are you : </h2><br>
+
+                <label class="age" for="age">Over 18</label>
+                <input class="Age" type="radio" name="age" value="over18" >
+                <label class="age" for="age">Under 18</label>
+                <input class="Age" type="radio" name="age" value="under18">
+                
+                <p></p>
+
+                <h3>WWhere are you from ?</h3>
+                <select class="select" name="News">
+                 <option value="asia">Asia</option>
+                 <option value="Europe">Europe</option>
+                 <option value="Africa">Africa</option>
+                 <option value="southAmerica">South America</option>
+                <option value="North America">North America</option>
+                <option value="Australia">Australia</option>
+               </select><br>
+
+                <h3>What Kind of News Do you like?</h3>
+        <select class="select" name="News">
+         <option value="finance">Finance</option>
+         <option value="Economy">Economy</option>
+         <option value="Health">health</option>
+         <option value="politics">Politics</option>
+        <option value="sports">Sports</option>
+       </select><br>
+         <div class="mb-3 form-check ">
+              <input type="checkbox" class="form-check-input" id="Terms">
+              <label class="form-check-label" for="exampleCheck1" aria-required="true">Send me notifications to my email</label><br>
+            </div><br>
+
+
+
+            <label for="firstname" class="form-label">First Name: </label>
+            <input type="text" class="form-control" id="email" placeholder="User Name " required><br>
+            <label for="lastname" class="form-label">Last Name : </label>
+            <input type="email" class="form-control" id="email" placeholder="User Name " required><br>
+            <p></p>
+           
+              <label for="username" class="form-label">Creat User Name: </label>
+              <input type="text" class="form-control" id="email" placeholder="User Name " required><br>
+              <label for="email" class="form-label">Enter Your Email : </label>
+              <input type="email" class="form-control" id="email" placeholder="User Name " required><br>
+              <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div><br>
+              <label for="Password" class="form-label">Creat A Paasword : </label>
+              <input type="password" class="form-control" id="Name" placeholder="Password" required><br>
+              <label for="Password" class="form-label">Reapeat the password  : </label>
+              <input type="password" class="form-control" id="Name" placeholder="Password" required><br>
+
+            <div class="mb-3 form-check ">
+              <input type="checkbox" class="form-check-input" id="Terms">
+              <label class="form-check-label" for="exampleCheck1" aria-required="true">I have read the terms and conditions</label><br>
+            </div>
+            
+            <button type="submit" class="btn_signin">Sign Up</button><br>
+          
+          </form>
+
+        
+          </div>
+    
+</body>
+</html>
