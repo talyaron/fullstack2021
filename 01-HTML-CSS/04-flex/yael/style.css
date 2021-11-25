@@ -5,10 +5,14 @@
     border:1px solid yellow;
     color: white;
     text-align: center;
+    justify-content: center;
+    align-items: center;
 }
 .wrapper{
     background: gray;
     padding: 20px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+   /* justify-content:space-between;*/
+
 }
