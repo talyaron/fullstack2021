@@ -363,10 +363,9 @@ h3>a {
 
 .signin,.signup{
     position: relative;
-    top: 140px;
-    height: 30%;
+    top: 130px;
     background-color: rgb(190, 179, 179);
-    width: 30%;
+    width: 35%;
     border-radius: 20px;
     margin-left: 200px;
     padding: 40px 0 60px 20px;
