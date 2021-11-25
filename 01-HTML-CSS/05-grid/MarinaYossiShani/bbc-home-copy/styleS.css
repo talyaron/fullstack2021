@@ -1,6 +1,6 @@
 body{
     font-family:sans-serif;
-    
+    border: 1px solid ,black; 
 }
 .menu {
     display: grid;
@@ -104,7 +104,7 @@ a {
 
 
 .content {
-    padding-top:10px;
+    /* padding-top:10px; */
     display: grid;
     grid-template-columns: 15% 35% 35% 15%;
     height: 31px;
