@@ -244,7 +244,8 @@ p.small.future{
     display:grid;
     /* grid-template-columns: 25% 20% 46% 10%; */
     background-color:rgb(255, 246, 246);
-    grid-template-columns: 15.3% 20% 46% 10%;
+  
+    grid-template-columns:15% 25% 25% 25% 15%;
 }
 .newsstripred>h2{
     border-left: 5px solid red;
@@ -276,7 +277,7 @@ so i had to make up a space between it with nothing inside*/
 .thirdcontent{
     display:grid;
     /* grid-template-columns:18% 23.3% 23.3% 23.3% 15%; */
-    grid-template-columns:15% 25% 25% 25% 15%;
+    grid-template-columns:15% 24% 22% 24% 15%;
     grid-gap: 5px;
 }
 
