@@ -1,27 +1,30 @@
 
 /*navBar*/
 
-.navBar{
-    background-color: #ffd230;
+.navBar, .navBar-News, .navBar-home{
     grid-column: span 3; 
     height: 13vh;
     color:black;
     padding-left: 1vw;
 }
 
+.navBar{
+    background-color: #ffd230;
+}
+
 .navBar-News{
     background-color: #bb1919;
-    grid-column: span 3; 
-    height: 13vh;
-    color:black;
-    padding-left: 1vw;
+}
+
+.navBar-home{
+    background-color:darkblue;
 }
 
 .main-menu{
     display: flex;    
 }
 
-.navBar>h1{
+.navBar>h1, .navBar-News>h1 .navBar-home>{
     cursor: pointer;
     margin: 1vh;    
 }
@@ -89,7 +92,6 @@ a{
 }
 
 .box1{
-    border: 1px solid black;
     grid-row: span 2;
 }
 
@@ -97,7 +99,7 @@ a{
     color: yellow;
 }
 
-.box h1, p{
+.box h1, h2, p{
     position: relative;
     bottom: 20vh;
     left: 0.5vw;
