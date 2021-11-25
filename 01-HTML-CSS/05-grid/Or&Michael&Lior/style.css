@@ -4,31 +4,10 @@ body{
     flex-direction: column;
     align-items: center;
     font-family: 'outfit', sans-serif;
+
     
 }
 
-.menuwrapper{
-
-    height: 6vh;
-    display: grid;
-    grid-template-columns: 1fr 2fr 2fr 2fr;
-    background-color: rgb(0, 0, 0);
-    text-align: center;
-    color: rgb(255, 255, 255);
-    font-family: 'Outfit', sans-serif;
-    padding: 5px;
-    align-items: center;
-    width: 90%;
-    font-weight: 600;
-
-}
-
-
-.nav{
-
-    border-right: 1px solid rgb(255, 247, 247);
-
-}
 
 .sport-menu{
 
@@ -151,42 +130,41 @@ text-decoration: underline;
     margin-top: 30px;
     width: 90%;
     display: grid;
-<<<<<<< HEAD
     grid-template-columns: 2fr repeat(3,1fr);
     grid-template-rows: 2fr 1fr;
     background-color: silver;
-=======
     grid-template-columns: 2fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
->>>>>>> 14b29ab106e331da7827021dd06071b6c621a7c4
-    grid-gap: 1em;
-    height: 300px;
+    grid-gap: 1em;;
     color: white;
+    grid-auto-flow: column;
+    height: 300px;
 }
 
 .homebox{
 
-<<<<<<< HEAD
-    height: 20vh;
-    width: 20vw;
-    border: 3px solid black;
-=======
->>>>>>> 14b29ab106e331da7827021dd06071b6c621a7c4
-    
 
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    padding: 2px;
+    border: 3px solid black;
+    background-size: cover;
+    text-align: start;
+    text-shadow: 0 0 3px #000000, 0 0 5px #000000;
+}
+
+.homebox :hover{
+
+    cursor: pointer;
+    
 }
 
 .homebox1{
 
     grid-row: 1/3;
-<<<<<<< HEAD
-    grid-column: 1/2;
-    
-    background-image: url("https://ichef.bbci.co.uk/news/976/cpsprodpb/58DC/production/_121784722_migrants4.jpg");
-=======
-    background-image: url("https://ichef.bbci.co.uk/live-experience/cps/624/cpsprodpb/vivo/live/images/2021/11/24/1720e6d2-d1c6-4687-8b89-bbdfe477e129.jpg");
+    background-image: url(https://ichef.bbci.co.uk/live-experience/cps/624/cpsprodpb/vivo/live/images/2021/11/25/3157c030-c1e3-4afc-b825-93ad2d5d516c.jpg);
     background-size: cover;
->>>>>>> 14b29ab106e331da7827021dd06071b6c621a7c4
 
 }
 
@@ -194,48 +172,216 @@ text-decoration: underline;
     
 
 
-    background-image: url("https://ichef.bbci.co.uk/news/976/cpsprodpb/58DC/production/_121784722_migrants4.jpg");
+    background-image: url(https://ichef.bbci.co.uk/news/976/cpsprodpb/58DC/production/_121784722_migrants4.jpg);
     background-size: cover;
 
 }
 
 .homebox3{
 
-<<<<<<< HEAD
-    
-
-    background-image: url("https://ichef.bbci.co.uk/news/976/cpsprodpb/58DC/production/_121784722_migrants4.jpg");
-    
-=======
-    background-image: url("https://ichef.bbci.co.uk/live-experience/cps/624/cpsprodpb/vivo/live/images/2021/11/24/f1cc5ab7-b958-4a01-8696-4a292bc8fcbd.jpg");
+    background-image: url(https://ichef.bbci.co.uk/live-experience/cps/624/cpsprodpb/vivo/live/images/2021/11/24/f1cc5ab7-b958-4a01-8696-4a292bc8fcbd.jpg);
     background-size: cover;
 
->>>>>>> 14b29ab106e331da7827021dd06071b6c621a7c4
 }
 
 .homebox4{
 
-<<<<<<< HEAD
 
-    background-image: url("https://ichef.bbci.co.uk/news/976/cpsprodpb/58DC/production/_121784722_migrants4.jpg");
-    
-=======
-    background-image: url("https://ychef.files.bbci.co.uk/1600x900/p0b576yw.webp");
+    background-image: url(https://ychef.files.bbci.co.uk/1280x720/p0b576yw.webp);
     background-size: cover;
-
->>>>>>> 14b29ab106e331da7827021dd06071b6c621a7c4
+    
 }
 
 .homebox5{
 
-<<<<<<< HEAD
-
-    background-image: url("https://ichef.bbci.co.uk/news/976/cpsprodpb/58DC/production/_121784722_migrants4.jpg");
-    
-}
-=======
-    background-image: url("https://ychef.files.bbci.co.uk/1600x900/p0b53rnh.webp");
+    background-image: url(https://ichef.bbci.co.uk/images/ic/832xn/p09ydv2w.jpg);
     background-size: cover;
+}
+
+
+.homebox :nth-child(1){
+
+    font-size: 20px;
+    font-weight: 700;
 
 }
->>>>>>> 14b29ab106e331da7827021dd06071b6c621a7c4
+
+.homebox1 h1{
+
+  font-size: 60px;
+
+}
+
+.homebox1 :nth-child(3){
+
+
+    border-left: 5px solid red;
+
+}
+
+.homebox2 :nth-child(2){
+
+    border-left: 5px solid red;
+}
+
+.homebox3 :nth-child(2){
+
+    border-left: 5px solid red;
+
+}
+
+.homebox4 :nth-child(2){
+
+    border-left: 5px solid red;
+
+}
+
+.homebox5 :nth-child(2){
+
+    border-left: 5px solid red;
+
+}
+
+.homecontainer p{
+
+    margin-block: 2px;
+}
+
+
+
+
+
+
+.BBC_logo
+{
+    left: -400px;
+    top: 10px;
+    position: relative;
+    display: flex;
+    text-align: center;
+    justify-content: flex-start;
+    width: 1vw;
+    margin-left: 0px;
+    height: 2vh;
+    background-color: rgb(247, 244, 244);
+    border: 3px solid black;
+    font-family: 'Outfit', sans-serif;
+}
+.firstletter
+{
+    position: relative;
+    left: -10vw;
+    top:5px
+}
+
+.secondletter
+{
+    position: relative;
+    left: -19vw;
+    top:5px
+
+}
+
+.thridletter
+{
+    position: relative;
+    left: -21vw;  
+    top:5px
+ 
+}
+.BBC_LOG_2
+{
+    position: relative;
+    left: -490px;
+    top: 2px;
+}
+.banner
+{
+    width: 100%;
+    height: 5vh;
+    background-color: rgb(10, 10, 10);
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    font-weight: 200;
+    top: -10px;
+    position: relative;
+    margin: 0px;
+}
+
+.navbar
+{
+   width: 85%;
+   margin: auto;
+   position: relative;
+   align-items: center; 
+   justify-content: space-between;
+   font-size: 10px;
+   top: 0px;
+}
+
+
+.navbar ul li
+{
+    list-style: none;
+    font-size: 10px;
+    display: inline-block;
+    margin: 0 50px;
+    position: relative;
+}
+
+.navbar ul li a
+{
+    text-decoration: none;
+    color:rgb(247, 245, 240);
+    font-weight: 200;
+    font-size: 2vh;
+    text-transform: uppercase;
+}
+
+.navbar ul li ::after
+{
+    content: '';
+    height: 5px;
+    width: 0;
+    background: rgb(255, 255, 255);
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 0.8s;
+}
+
+.navbar ul li:hover ::after
+{
+    width: 100%;
+}
+
+.search_box
+{
+    position: relative;
+    left: 80vw;
+    top: -1.02vh;
+    transform: translate(-50%,-50%);
+    transition: 10s;
+    background: rgb(10, 10, 10);
+    height: 30px;
+    width: 15vw;
+}
+
+.Search-btn
+{
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: rgb(250, 242, 242);
+    height: 40px;
+    width: 40px;
+    top: -0px;
+}
+
+.search_box:hover >.search_text
+{
+    width: 240px;
+    padding: 0 -5px;
+}
