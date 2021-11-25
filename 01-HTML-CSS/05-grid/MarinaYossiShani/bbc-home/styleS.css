@@ -236,13 +236,61 @@ p.small.future{
     
 }
 
-/*.newsstrip{
-    grid-template-columns:15% 10% 10% 10% 10% 10% 10% 10% 15%;
+.newsstrip{
+    display:grid;
+    grid-template-columns: 25% 20% 46% 10%;
     background-color:rgb(255, 246, 246);
 
 }
-.newsstrip>div> h2{
+.newsstripred>h2{
     border-left: 5px solid red;
-}*/
+}
+/*I couldnt get the news strip to be lower 
+like under my top content gird
+so i had to make up a space between it with nothing inside*/
+.randomspace{
+    width:1000px;
+    height:280px;
+}
+
+
+.thirdcontent.first>img{
+    width:300px;
+    height:200px;
+}
+
+.thirdcontent.second>img{
+    width:300px;
+    height:200px;
+}
+
+.thirdcontent.third>img{
+    width:300px;
+    height:200px;
+}
+
+.thirdcontent{
+    display:grid;
+    grid-template-columns:18% 23.3% 23.3% 23.3% 15%;
+}
+
+.News.thirdcontent.first{
+    display:grid;
+    grid-template-rows:1/2;
+    
+    
+}
+
+
+.sportstrip{
+    display:grid;
+    grid-template-columns: 25% 20% 46% 10%;
+    background-color:rgb(255, 246, 246);
+    margin-bottom:10px;
+
+}
+.sportstripred>h2{
+    border-left: 5px solid rgb(255, 251, 0);
+}
 
 

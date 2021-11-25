@@ -8,7 +8,7 @@ a{
     text-decoration: none;
 }
 
-.main,.artur-wrapper-body  {
+.main {
     display: grid;
     grid-template-rows: 10% 6% 12% 30%;
     width: 70%;
@@ -52,7 +52,7 @@ a{
 ul
 {
     position: relative;
-    right: 18vh;
+    
     width: 100%;
     padding: 5px;
     height: 30px;
@@ -324,12 +324,44 @@ h3>a {
 }
 .artur-wrapper-body {
     display: grid;
-    grid-template-rows: 20vh 20vh 20vh 20vh;
+    grid-template-rows:20% 10% 30% 30%;
+    width: 95%;
+    margin: auto;
+    font-weight: 700;
+    gap: 70px;
+}
+.container-artur-navbar{
+    height: 50px;
 }
 .container-artur-navbar ul{
     display: flex;
     justify-content: right;
     box-shadow: none;
     border: none;
+    width: 100%;
 
+}
+.container-artur-navbar li{
+    box-shadow: none;
+    border-bottom: solid 1px;
+    border-color: black;
+    
+}
+.artur-logo-bottom{
+    height: 5vh;
+    width: 15vh;
+    background-image: url(photos/WorkLife.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;left: 50px;
+margin: 10px;    
+
+}
+.container-artur-bigpic{
+
+    background-image: url(https://ychef.files.bbci.co.uk/1665x965/p0b576yw.webp);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
