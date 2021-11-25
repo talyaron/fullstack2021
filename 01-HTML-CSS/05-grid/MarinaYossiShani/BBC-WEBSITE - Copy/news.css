@@ -63,7 +63,7 @@ a {
 }
 
 .sport:hover{
-    border-bottom: 4px solid  rgb(240, 225, 27);
+    border-bottom: 4px solid  #ffd230;
     cursor: pointer;
 }
 

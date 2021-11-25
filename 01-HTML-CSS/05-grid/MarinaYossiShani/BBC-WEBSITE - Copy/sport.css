@@ -105,7 +105,7 @@ a {
 .links>.home, .links>.coronavirus, .links>.climate,
 .links>.video, .links>.world, .links>.business,
 .links>.tech, .links>.science, .links>.stories {
-    color: white;
+    color: rgb(0, 0, 0);
     font-family: sans-serif;
 }
 
