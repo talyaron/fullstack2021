@@ -325,8 +325,15 @@ h3>a {
 
 }
 .artur-topnav a{
-    font-weight: 500;
+    font-weight: 800;
     color: black;
+    border-top: none;
+
+}
+.artur-topnav ul{
+    border-top: none;
+    border-bottom: none;
+
 }
 .container-artur-navbar{
     height: 50px;
@@ -342,7 +349,7 @@ h3>a {
 
 .container-artur-navbar li{
     box-shadow: none;
-    border-bottom: solid 1px;
+    border-bottom: none;
     border-color: black;
     
 }
@@ -392,7 +399,17 @@ justify-content: center;
 
 .container-ad{
     border-left: solid;
+    display: flex;
+    align-items: center;
 }
+.artur-topnav{
+    position: relative;
+    left: 30px;
+    font-weight: 800;
+
+    
+}
+
 /* ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
 
 .signin,.signup{
