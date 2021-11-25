@@ -321,6 +321,7 @@ h3>a {
 .container-artur-ad img{
     padding: 20px;
     margin: auto;
+    width: 30%;
 }
 .artur-wrapper-body {
     display: grid;
