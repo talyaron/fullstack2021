@@ -132,7 +132,6 @@ text-decoration: underline;
     display: grid;
     grid-template-columns: 2fr repeat(3,1fr);
     grid-template-rows: 2fr 1fr;
-    background-color: silver;
     grid-template-columns: 2fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     grid-gap: 1em;;
