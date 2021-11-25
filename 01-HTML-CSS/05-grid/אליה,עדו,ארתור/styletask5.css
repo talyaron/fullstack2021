@@ -397,9 +397,9 @@ justify-content: center;
 
 .signin,.signup{
     position: relative;
-    top: 140px;
+    top: 130px;
     background-color: rgb(190, 179, 179);
-    width: 30%;
+    width: 35%;
     border-radius: 20px;
     margin-left: 200px;
     padding: 40px 0 60px 20px;
@@ -436,7 +436,7 @@ justify-content: center;
   top:25px;
   left: 100px;
 }
-.btn:hover{
+.btn_signin:hover{
   cursor: pointer;
   background-color: black;
   color: darkgrey;
