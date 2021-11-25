@@ -27,6 +27,11 @@ body{
   margin-left: 68px;
   margin-top: 14px;
 }
+.arcticle.sport{
+  width: 20vw;
+  margin-left: 68px;
+  margin-top: -250px;
+}
 p{
     box-shadow: -0.1em 0em red;
 }
@@ -57,6 +62,15 @@ h3{
     margin-left: 69px;
     margin-top: 15px;
     
+}
+.bigArcticle.sport{
+  grid-column: 1/4;
+  background-image: url(https://ichef.bbci.co.uk/onesport/cps/976/cpsprodpb/11806/production/_121768617_lewishamilton.jpg);
+  padding: 2px;
+  margin-left: 69px;
+  margin-top: 15px;
+ background-repeat: no-repeat;
+  
 }
 
 .midArcticle{
@@ -159,4 +173,12 @@ h3{
   
   .sport_Header > a:hover {
     color: black;
+  }
+  .ranking{
+    padding: 2px;
+    position: relative;
+    font-weight: bold;
+    width: 20vw;
+  margin-left: -288px;
+  margin-top: 14px;
   }
