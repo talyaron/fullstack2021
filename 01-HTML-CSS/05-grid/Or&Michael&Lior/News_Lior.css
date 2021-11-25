@@ -180,6 +180,7 @@ body{
     left: 70vw;
     top: 0vh;
     transform: translate(-50%,-50%);
+    transition: 10s;
     background: red;
     height: 30px;
     width: 15vw;
