@@ -1,0 +1,166 @@
+!<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styletask5.css">
+     
+    
+     <title>Sign In</title>
+</head>
+<body>
+    <style>
+  body{
+    background-image: url(https://media.cntraveler.com/photos/59ef91dd8d4f736d51415c2e/master/w_2667,h_2000,c_limit/7MileBeach-2013-HiRes.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-top: -100px;
+      }
+  
+
+.logoa{
+    height: 4vh;
+    width: 15vh;
+    background-image: url(logo.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: none;
+    }
+        .signin,.signup{
+            position: relative;
+            top: 170px;
+            background-color: rgb(190, 179, 179);
+            width: 22%;
+            border-radius: 20px;
+            margin-left: 200px;
+            padding: 40px 0 60px 20px;
+            font-family:'Oswald', sans-serif;  ;
+            
+        }
+        .jumbotron{
+            background-color: rgb(190, 179, 179);
+        }
+        .form-label{
+            font-size: 20px; 
+            font-weight: 1000;
+        }
+        .form-control{
+          border:2px solid rgb(47, 109, 124);
+          border-radius: 20px;
+          width: 50%;
+          height: 25px;
+          font-weight: bold;
+          background-color: burlywood;
+        }
+      
+        .btn_signin{
+          border-radius: 30px;
+          width: 40%;
+          background-color: rgb(52, 35, 153);
+          height: 45px;
+          font-size: 20px;
+          font-weight: 1000;
+          color: rgb(216, 191, 109);
+          position: relative;
+          top:25px;
+          left: 100px;
+        }
+        .btn:hover{
+          cursor: pointer;
+          background-color: black;
+          color: darkgrey;
+        }
+        .btn_signup{
+          position: relative;
+          left: 90px;
+          height: 50px;
+          width: 50%;
+          border-radius: 50px;
+          background-color: rgb(70, 36, 71);
+          color: rgb(148, 158, 89);
+          font-size: 20px;
+          font-weight: 555;
+          animation: blink 1.5s;
+          animation-iteration-count: 1000000;
+          font-family:'Oswald', sans-serif; 
+        }
+        @keyframes blink { 50% { background-color:rgb(57, 43, 136);}  }
+
+        .btn_signup:hover{
+          cursor: pointer;
+          background-color: darkcyan;
+          animation: blink 2s;
+          animation-iteration-count: 1000000;
+        }
+        span a{
+          text-decoration: none;
+          color: rgb(77, 49, 94);
+        }
+        span a:hover{
+          cursor: pointer;
+        }
+        
+
+        
+        
+    </style>
+    
+    <div class="topnav">
+        <ul class="ido_list">
+          <li><a class="logoa" href="Task5.html"></a></li>
+          <li><a href="Sign_In.html">Sign In</a></li>
+          <li><a href="Task5.html">Home</a></li>
+          <li><a href="">sport</a></li>
+          <li><a href="">lifeStyle</a></li>
+          <div class="search">
+          <li id="Search"><input type="text" placeholder="Search.."><button type="submit">search</button>
+        </div>
+        </ul>
+        
+          
+      </div>
+
+        <div class="signin">
+            <div class="jumbotron">
+               <ul class="logo_Signin" >
+               <li> <a class="logoa" href="home.html"></a></li> 
+                </ul><br>
+          <h1> Sign In </h1>
+          <h2>Please Enter User Name & Password : </h2>
+          
+              </div>
+          
+              <form action="ThankYou.html" mathod='get'>
+           
+              <label for="email" class="form-label">User Name: </label><br>
+              <input type="email" class="form-control" id="email" placeholder=" User Name Or Email" required><br>
+              <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div><br>
+              <label for="Password" class="form-label">And Password: </label><br>
+              <input type="password" class="form-control" id="Name" placeholder=" Password" required><br>
+
+            <!-- <div class="mb-3 form-check ">
+              <input type="checkbox" class="form-check-input" id="Terms">
+              <label class="form-check-label" for="checkbox" aria-required="true">I agree to get notificatios to my mail</label><br>
+            </div> -->
+            
+            <button type="submit" class="btn_signin">Sign In</button>
+          
+          </form><br>
+
+          <form action="Signup.html" mathod="get">
+
+            <h1>Don't Have a BBC Account?</h1><br>
+            <button type="submit" class="btn_signup">Resigster Here!</button>
+           
+
+          </form>
+          </div>
+    
+</body>
+</html>
