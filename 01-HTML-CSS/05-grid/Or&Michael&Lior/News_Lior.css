@@ -19,7 +19,6 @@ body{
 {
     padding: 5px;
     grid-auto-rows: minmax(10px, auto);
-    border: 3px solid black;
 }
 
 .box1
@@ -43,8 +42,7 @@ body{
     grid-row: 1/3;
     align-items: start;
     font-size: 30px;
-
-
+    height: 10vh;
 }
 
 .image1
@@ -54,24 +52,29 @@ body{
     width: 90%;
     height: 40vh;
     align-items: left;
-    border: 3px solid black;
 }
 
 .text1
 {
     grid-column: 1/2;
+    position: relative;
+    top: -150px;
     grid-row: 3/4;
+    height: 7vh;
+    font-style: italic;
+    text-align: left;
+
 }
 
-.box10
+.text19
+
 {
-    display: flex;
-    flex-direction: column;
-    width: 80%;
-    height: 40vh;
-    gap: 0;
-
+    position: relative;
+    top: -200px; 
+ 
 }
+
+
 
 .down_picture
 {
@@ -90,13 +93,14 @@ body{
 .down_text
 {
     width: 60%;
-    height: 13vh;
+    height: 5vh;
     align-items: center;
     position: relative;
     left: 0vw;
     bottom: 5vh;
     align-content: center;
     text-align: left;
+
 }
 
 .down_title:hover
@@ -184,7 +188,6 @@ body{
     background: red;
     height: 30px;
     width: 15vw;
-    border: 3px solid black;
 }
 
 .Search-btn
@@ -196,7 +199,6 @@ body{
     background: red;
     height: 40px;
     width: 40px;
-    border: 3px solid rgb(58, 57, 57);
     top: 0px;
 }
 
@@ -204,4 +206,33 @@ body{
 {
     width: 240px;
     padding: 0 -5px;
+}
+
+.box10
+{
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+}
+
+.inner_box_box10
+{
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    width: 80%;
+    height: 45vh;
+}
+
+.text11
+{
+    position: relative;
+    top: -10px;
+}
+
+.title1
+{
+    font-size: 20px;
 }
