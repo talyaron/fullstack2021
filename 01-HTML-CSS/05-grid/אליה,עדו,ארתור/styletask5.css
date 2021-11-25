@@ -402,7 +402,7 @@ h3>a {
   top:25px;
   left: 100px;
 }
-.btn:hover{
+.btn_signin:hover{
   cursor: pointer;
   background-color: black;
   color: darkgrey;
