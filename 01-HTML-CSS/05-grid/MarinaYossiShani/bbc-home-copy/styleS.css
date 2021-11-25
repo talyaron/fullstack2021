@@ -1,6 +1,11 @@
 body{
     font-family:sans-serif;
+<<<<<<< Updated upstream
     border: 1px solid ,black; 
+=======
+    
+    
+>>>>>>> Stashed changes
 }
 .menu {
     display: grid;
@@ -151,6 +156,8 @@ p{
    grid-row-gap:8px;
    grid-column-gap:5px;
    
+   
+   
 }
 .big.topHome>h1 {
     inline-size:500px;
@@ -299,5 +306,4 @@ so i had to make up a space between it with nothing inside*/
 .sportstripred>h2{
     border-left: 5px solid rgb(255, 251, 0);
 }
-
 
