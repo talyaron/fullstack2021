@@ -1,6 +1,6 @@
 body{
     font-family:sans-serif;
-    border: 1px solid ,black; 
+    min-width: 1900px;
 }
 .menu {
     display: grid;
@@ -33,7 +33,6 @@ body{
 .logo img {
     position: absolute;
     width: 80px;
-    
     height: auto;
     left: 293px;
     /*top: -1.9%;*/
@@ -85,9 +84,10 @@ a {
 
 .red-strap {
     display: grid;
-    /* grid-template-columns: 36%; */
-    grid-template-columns: 29%; 
+    grid-template-columns: 36%;
+    
     justify-items: end;
+    
     
 }
 
@@ -100,6 +100,8 @@ a {
     font-weight:bold;
     padding-top:30px;
     height:50px;
+    
+
 }
 
 
@@ -107,10 +109,9 @@ a {
 .content {
     /* padding-top:10px; */
     display: grid;
-    grid-template-columns: 15% 35% 35% 15%;
+    grid-template-columns: 14.5% 35% 34% 15%;
     height: 31px;
     gap:5px;
-    border: 1px solid ,black; 
 }
 
 p{
@@ -131,17 +132,17 @@ p{
   }
 
 .big >img{
+    /* height:300px;
+    width:500px; */
     width: 100%;
-    /* height:300px; */
-    /* width:500px; */
     height: auto;
 }
 
 .small >img{
-    width: 100%;
-    height: auto;
     /* height:150px;
     width:250px; */
+    width: 100%;
+    height: auto;
 }
 
 .small.topHome{
@@ -242,9 +243,9 @@ p.small.future{
 
 .newsstrip{
     display:grid;
-    /* grid-template-columns: 25% 20% 46% 10%; */
+    grid-template-columns: 25% 20% 46% 10%;
     background-color:rgb(255, 246, 246);
-    grid-template-columns: 15.3% 20% 46% 10%;
+
 }
 .newsstripred>h2{
     border-left: 5px solid red;
@@ -275,9 +276,7 @@ so i had to make up a space between it with nothing inside*/
 
 .thirdcontent{
     display:grid;
-    /* grid-template-columns:18% 23.3% 23.3% 23.3% 15%; */
-    grid-template-columns:15% 25% 25% 25% 15%;
-    grid-gap: 5px;
+    grid-template-columns:18% 23.3% 23.3% 23.3% 15%;
 }
 
 .News.thirdcontent.first{
@@ -290,10 +289,9 @@ so i had to make up a space between it with nothing inside*/
 
 .sportstrip{
     display:grid;
-    /* grid-template-columns: 25% 20% 46% 10%; */
+    grid-template-columns: 25% 20% 46% 10%;
     background-color:rgb(255, 246, 246);
     margin-bottom:10px;
-    grid-template-columns: 15.3% 20% 46% 10%;
 
 }
 .sportstripred>h2{

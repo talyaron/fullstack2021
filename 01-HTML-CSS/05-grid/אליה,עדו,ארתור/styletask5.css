@@ -347,9 +347,20 @@ h3>a {
     background-size: cover;
     background-repeat: no-repeat;
     position: absolute;left: 50px;
-margin: 10px;    
+    margin: 10px;    
 
 }
+.container-artur-bigpic{
+    background-image: url(https://ychef.files.bbci.co.uk/1665x965/p0b576yw.webp);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.artur-logo-bottom ul{
+    display: flex;
+} 
+
+
 .signin,.signup{
     position: relative;
     top: 140px;
@@ -424,14 +435,7 @@ span a:hover{
   cursor: pointer;
 }
   
-/* 
 
-    background-image: url(https://ychef.files.bbci.co.uk/1665x965/p0b576yw.webp);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-.artur-logo-bottom ul{
-    display: flex;
-} */
+
+ 
 
