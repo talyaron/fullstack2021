@@ -109,8 +109,8 @@ a {
 
 
 
-.content {
-    padding-top:10px;
+.contentHome {
+    padding-top:20px;
     display: grid;
     grid-template-columns: 15% 35% 35% 15%;
     height: 31px;
@@ -290,26 +290,37 @@ p.small.future{
     border-left: 5px solid rgb(255, 251, 0);
 }*/
 
-div{
-    border: 2px solid black;
-}
-
 /*I couldnt get the news strip to be lower 
 like under my top content gird
 so i had to make up a space between it with nothing inside*/
 .randomspace{
     width:1000px;
-    height:280px;
+    height:300px;
 }
 
  .News.strip{
      display:grid;
      grid-template-columns: 15% 35% 35% 15%;
+     padding:20px;
+     
+     background-color: #eed8d8;
+     font-size:25px;
+     font-family:sans-serif;
+     font-weight:bolder;
+     opacity:0.7;
+     
  }
 
  .newscontent{
      display:grid;
      grid-template-columns:15% 23.3% 23.3% 23.3% 15%;
+     padding-top:15px;
+     grid-gap:8px;
+ }
+
+ .newsred{
+ border-left:5px solid red;
+ opacity:none;
  }
  .news>img{
      height:auto;
