@@ -1,0 +1,43 @@
+body {
+    margin: 0;
+    font-size: 16px;
+    background-color: #ffffff;
+    min-width: 1900px;
+}
+
+.sub-content {
+    display: grid;
+    grid-template-columns: 10% 20% 20% 20% 20% 10%;
+    min-width: 850px;
+
+    &__img{
+        width: 100%;
+        height: auto; 
+    }
+
+    &__main-text{
+        font-size: 30px;
+        font-weight: bold;
+        color: black;
+
+    }
+    &__sub-text{
+        font-size: 22px;
+    }
+   &__link{
+  text-decoration: none;
+  
+    }
+
+    &__link :hover{
+        color: rgb(150, 40, 40);
+    }
+
+
+}
+
+
+div{
+    border: 1px solid red;
+   
+}
