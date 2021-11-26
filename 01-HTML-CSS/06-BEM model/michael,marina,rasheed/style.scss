@@ -1,8 +1,6 @@
 
- body{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+body{
+
         font-family: 'outfit', sans-serif;
 
  }
@@ -12,21 +10,79 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 5vh;
-    border: 3px solid grey;
     background-color: black;
-    color: white;
-
-    &--div{
-        max-height: 200px;
-    }
-    &--.bbclogo{
-
-        height: 20px;
-
-
-    }
-
-
+    height: 8vh;
+    width: 100%;
 
 }
+    
+.bbclogo{
+
+    display: flex;
+    justify-content: center;
+    height: 7vh;
+    width: 100%;
+
+}
+
+.pages{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    a{
+
+        display: flex;
+        justify-content: center;
+        text-decoration: none;
+        color: white;
+        font-size: 30px;
+        font-weight: 300px;
+        margin-inline-end: 15px;
+        width: 200px;
+
+    }
+
+    .navbox{
+        
+        border-left: 2px solid white;
+
+    }
+
+    .signin:hover{
+
+        cursor: pointer;
+
+    }
+    .home:hover{
+
+        border-bottom: 4px solid rgb(208, 45, 45);
+
+    }
+
+    .news:hover{
+
+        border-bottom: 4px solid rgb(67, 67, 232);
+    }
+
+    .sport:hover{
+
+        border-bottom: 4px solid rgb(168, 191, 51);
+    }
+
+ .searchbox{
+
+    display: flex;
+    justify-content: center;
+
+ }
+
+        
+}
+
+
+
+
+
+    
