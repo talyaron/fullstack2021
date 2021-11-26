@@ -1,0 +1,167 @@
+.NavBar {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: #333;
+  font-size: 20px;
+}
+.NavBar a {
+  color: white;
+  padding: 17.5px 20px;
+  text-decoration: none;
+  text-align: center;
+}
+.NavBar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+.NavBar--news_Header {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  background-color: red;
+  font-size: 18px;
+}
+.NavBar--news_Header a {
+  color: white;
+  padding: 10px;
+  text-decoration: none;
+  text-align: center;
+}
+.NavBar--news_Header a:hover {
+  color: black;
+}
+.NavBar__logo {
+  cursor: pointer;
+  width: 150px;
+  height: 120px;
+  position: relative;
+  bottom: 30px;
+}
+.NavBar__search {
+  width: 50px;
+  height: 57px;
+  border: 1px solid #333;
+  background: #333;
+  text-align: center;
+  color: #fff;
+  cursor: pointer;
+  font-size: 20px;
+}
+.NavBar__search:hover {
+  background: #ddd;
+  color: black;
+}
+.NavBar__sign {
+  background-color: #333;
+  color: white;
+  border: 1px solid #333;
+  font-size: 20px;
+}
+.NavBar__sign:hover {
+  cursor: pointer;
+  background-color: #ddd;
+  color: black;
+}
+
+.main {
+  grid-row: 40% 30%;
+}
+.main__upper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  color: black;
+  height: 70vh;
+  gap: 1.5rem;
+}
+.main__upper__img {
+  display: grid;
+  grid-template-rows: repeat(8, 1fr);
+  background-size: cover;
+  height: 30vh;
+  padding: 1rem;
+}
+.main__upper__img:nth-child(2) {
+  background-image: url("https://e3.365dm.com/20/08/768x432/skynews-sideman-bbc-1extra_5062530.jpg?20200808215407");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.main__upper__img:nth-child(3) {
+  background-image: url("https://e3.365dm.com/20/08/768x432/skynews-sideman-bbc-1extra_5062530.jpg?20200808215407");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.main__upper__img:nth-child(4) {
+  background-image: url("https://e3.365dm.com/20/08/768x432/skynews-sideman-bbc-1extra_5062530.jpg?20200808215407");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.main__upper__img:nth-child(5) {
+  background-image: url("https://e3.365dm.com/20/08/768x432/skynews-sideman-bbc-1extra_5062530.jpg?20200808215407");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.main__upper__img h2 {
+  grid-row: 1;
+}
+.main__upper__img h3 {
+  grid-row: 2;
+}
+.main__upper__img p {
+  grid-row: 3;
+}
+.main__upper__img--big {
+  background-size: cover;
+  width: 45vw;
+  height: 71.5vh;
+  grid-row: 1/3;
+  grid-column: 1/3;
+  overflow: auto;
+  background-image: url("https://e3.365dm.com/20/08/768x432/skynews-sideman-bbc-1extra_5062530.jpg?20200808215407");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.main__upper__img--big--news {
+  border: 5px solid red;
+}
+.main__down {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  background-size: cover;
+  height: 20%;
+  width: 100%;
+  gap: 2em;
+  padding-top: 5%;
+}
+.main__down__box {
+  display: grid;
+  grid-template-rows: 45% 25% 18% 12%;
+  height: 100%;
+  width: 100%;
+}
+.main__down__box h2 {
+  grid-row: 2;
+  text-align: center;
+}
+.main__down__box h3 {
+  grid-row: 3;
+  text-align: center;
+}
+.main__down__box p {
+  grid-row: 4;
+  text-align: center;
+}
+.main__down__box img {
+  height: 100%;
+  width: 100%;
+  grid-row: 1;
+}
