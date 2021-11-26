@@ -1,8 +1,8 @@
 body {
     margin: 0;
-    font-size: 16px;
     background-color: #ffffff;
     min-width: 1900px;
+    font-family: sans-serif;
 }
 
 .sub-content {
@@ -10,34 +10,42 @@ body {
     grid-template-columns: 10% 20% 20% 20% 20% 10%;
     min-width: 850px;
 
-    &__img{
+    &__img {
         width: 100%;
-        height: auto; 
+        height: auto;
     }
 
-    &__main-text{
+    &__main-text {
         font-size: 30px;
         font-weight: bold;
         color: black;
 
     }
-    &__sub-text{
+
+    &__sub-text {
         font-size: 22px;
     }
-   &__link{
-  text-decoration: none;
-  
+
+    &__link {
+        text-decoration: none;
+
     }
 
-    &__link :hover{
-        color: rgb(150, 40, 40);
+    &__link :hover {
+        color: #962828;
+        text-decoration: underline;
+    }
+
+    &__box {
+        padding: 10px;
+
     }
 
 
 }
 
 
-div{
-    border: 1px solid red;
-   
-}
+// div{
+//     border: 1px solid red;
+
+// }
