@@ -1,0 +1,15 @@
+
+.picture
+{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    background-color: rgb(243, 52, 195);
+    height: 40vh;
+    width: 100%;
+
+    &container 
+    {
+        position: relative;
+    }
+}
