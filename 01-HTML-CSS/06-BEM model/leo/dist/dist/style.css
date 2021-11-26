@@ -1,0 +1,9 @@
+.header {
+  width: fit-content;
+  color: beige;
+  display: block;
+}
+.header--search {
+  border: 1px;
+  color: beige;
+}
