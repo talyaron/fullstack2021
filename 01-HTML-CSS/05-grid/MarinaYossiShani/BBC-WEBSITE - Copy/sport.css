@@ -109,47 +109,9 @@ a {
     font-family: sans-serif;
 }
 
-.links>.home:hover {
-    border-bottom: 4px solid white;
-    cursor: pointer;
-}
-
-.links>.coronavirus:hover {
-    border-bottom: 4px solid white;
-    cursor: pointer;
-}
-
-.links>.climate:hover {
-    border-bottom: 4px solid white;
-    cursor: pointer;
-}
-
-.links>.video:hover {
-    border-bottom: 4px solid white;
-    cursor: pointer;
-}
-
-.links>.world:hover {
-    border-bottom: 4px solid white;
-    cursor: pointer;
-}
-
-.links>.business:hover {
-    border-bottom: 4px solid white;
-    cursor: pointer;
-}
-
-.links>.tech:hover {
-    border-bottom: 4px solid white;
-    cursor: pointer;
-}
-
-.links>.science:hover {
-    border-bottom: 4px solid white;
-    cursor: pointer;
-}
-
-.links>.stories:hover {
+.links>.stories:hover, .links>.science:hover, .links>.tech:hover,
+.links>.business:hover, .links>.world:hover, .links>.video:hover,
+.links>.climate:hover, .links>.coronavirus:hover, .links>.home:hover{
     border-bottom: 4px solid white;
     cursor: pointer;
 }
