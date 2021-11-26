@@ -21,7 +21,7 @@ body {
 
 .search {
   position: relative;
-  top: 13%;
+  top: 15%;
   left: 10%;
 }
 
@@ -30,7 +30,7 @@ body {
   width: 80px;
   height: auto;
   left: 293px;
-  top: -1.9%;
+  top: -2.4%;
 }
 
 .logo img:hover {
