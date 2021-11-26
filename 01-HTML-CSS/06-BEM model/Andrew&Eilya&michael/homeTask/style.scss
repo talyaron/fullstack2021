@@ -62,7 +62,7 @@ body{
         padding: 1rem;
         :last-child{
             box-shadow: -0.2em 0 0 rgb(255, 0, 0);
-            padding-left: 0.2em;
+            padding-left: 0.2em; 
         }
     }
 }
@@ -75,7 +75,10 @@ body{
 .home--small{
     .title{
         box-shadow: -0.2em 0 0 rgb(255, 0, 0);
-        margine-left: 0.2em;        
+        margin-left: 0.2em; 
+        :hover{
+            color: gray;
+        }       
     }
 }
 
@@ -83,14 +86,17 @@ body{
     display: flex;
 
     .home--small__row_article{
-                display: flex;
+        display: flex;
         flex-direction: column;
         justify-content: space-between;
         width: 25vw;
+        margin: 1rem;
         img{
             height: 15vh;
-            
         }
+        :last-child{
+            box-shadow: -0.2em 0 0 blue;
+            padding-left: 0.2em;
     }
 }
 
