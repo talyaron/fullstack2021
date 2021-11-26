@@ -87,7 +87,7 @@ li {
     
   }
   .search button{
- height: 25px;
+ height: 35px;
   background-color: black;
   color: ghostwhite;
   }
@@ -304,23 +304,36 @@ h3>a {
 
 .artur-logoa {
     background-image: url(photos/artur-logo.png);
-    height: 40px; 
+    height: 30px; 
 }
-.container-artur{
-    display: grid;
-} 
+
+
 .container-artur-ad img{
-    padding: 20px;
+    
     margin: auto;
     width: 30%;
 }
 .artur-wrapper-body {
     display: grid;
-    grid-template-rows:20% 10% 30% 30%;
+    grid-template-rows:20% 7% 30% 5% 38%;
     width: 95%;
     margin: auto;
     font-weight: 700;
-    gap: 70px;
+    gap: 94px;
+    margin-top: 20px;
+    font-family: 'Outfit', sans-serif;
+
+}
+.artur-topnav a{
+    font-weight: 800;
+    color: black;
+    border-top: none;
+
+}
+.artur-topnav ul{
+    border-top: none;
+    border-bottom: none;
+
 }
 .container-artur-navbar{
     height: 50px;
@@ -333,11 +346,16 @@ h3>a {
     width: 100%;
 
 }
+
 .container-artur-navbar li{
     box-shadow: none;
-    border-bottom: solid 1px;
+    border-bottom: none;
     border-color: black;
     
+}
+.container-artur-navbar a{
+    color: black;
+    font-weight: 700;
 }
 .artur-logo-bottom{
     height: 5vh;
@@ -351,21 +369,54 @@ h3>a {
 
 }
 .container-artur-bigpic{
-    background-image: url(https://ychef.files.bbci.co.uk/1665x965/p0b576yw.webp);
+    background-image: url(photos/Modern\ Minimalist\ Yellow\ Architecture\ Photo\ Presentation.png);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    opacity: 1;
 }
 .artur-logo-bottom ul{
     display: flex;
 } 
+.container-artur-grid-ad{
+    display: grid;
+    grid-template-columns:70% 30%;
+}
+.editor span{
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.container-grid{
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: repeat(3,1fr);
 
+}
+
+
+
+
+.container-ad{
+    border-left: solid;
+    display: flex;
+    align-items: center;
+}
+.artur-topnav{
+    position: relative;
+    left: 30px;
+    font-weight: 800;
+
+    
+}
+
+/* ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
 
 .signin,.signup{
     position: relative;
-    top: 140px;
+    top: 130px;
     background-color: rgb(190, 179, 179);
-    width: 30%;
+    width: 35%;
     border-radius: 20px;
     margin-left: 200px;
     padding: 40px 0 60px 20px;
@@ -402,7 +453,7 @@ h3>a {
   top:25px;
   left: 100px;
 }
-.btn:hover{
+.btn_signin:hover{
   cursor: pointer;
   background-color: black;
   color: darkgrey;
@@ -435,6 +486,18 @@ span a{
 }
 span a:hover{
   cursor: pointer;
+}
+.select{
+    width: 30%;
+    height: 30px;
+    background-color: black;
+    color: burlywood;
+    font-weight: 1000;
+    font-size: 17px;
+}
+.age{
+    font-weight: 1000;
+    font-size: 20px;
 }
   
 
