@@ -27,6 +27,9 @@ body {
   display: flex;
   justify-content: center;
 }
+.pages .signin:hover {
+  cursor: pointer;
+}
 .pages .home:hover {
   border-bottom: 4px solid #d02d2d;
 }
