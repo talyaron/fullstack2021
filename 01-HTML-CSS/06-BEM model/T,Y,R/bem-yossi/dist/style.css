@@ -1,8 +1,8 @@
 body {
   margin: 0;
-  font-size: 16px;
   background-color: #ffffff;
   min-width: 1900px;
+  font-family: sans-serif;
 }
 
 .sub-content {
@@ -27,8 +27,8 @@ body {
 }
 .sub-content__link :hover {
   color: #962828;
+  text-decoration: underline;
 }
-
-div {
-  border: 1px solid red;
+.sub-content__box {
+  padding: 10px;
 }
