@@ -66,3 +66,11 @@ body {
 .home--small__row {
   display: flex;
 }
+.home--small__row .home--small__row_article {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.home--small__row .home--small__row_article img {
+  height: 15vh;
+}
