@@ -8,7 +8,7 @@ body{
 .navbar{
 
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     background-color: black;
     height: 8vh;
@@ -16,33 +16,44 @@ body{
 
 }
     
+.bbclogo{
+
+    display: flex;
+    justify-content: center;
+    height: 7vh;
+    width: 100%;
+
+}
+
 .pages{
 
     display: flex;
     justify-content: center;
+    align-items: center;
 
     a{
 
+        display: flex;
+        justify-content: center;
         text-decoration: none;
         color: white;
         font-size: 30px;
         font-weight: 300px;
-        margin-inline: 6px;
+        margin-inline-end: 15px;
+        width: 200px;
 
     }
 
     .navbox{
         
         border-left: 2px solid white;
-        display: flex;
-        justify-content: center;
 
     }
 
     .signin:hover{
 
         cursor: pointer;
-        
+
     }
     .home:hover{
 
@@ -60,19 +71,17 @@ body{
         border-bottom: 4px solid rgb(168, 191, 51);
     }
 
+ .searchbox{
 
-    
+    display: flex;
+    justify-content: center;
+
+ }
 
         
 }
 
-.bbclogo{
 
-        align-self: flex-start;
-        height: 7vh;
-        width: 100%;
-
-}
 
 
 

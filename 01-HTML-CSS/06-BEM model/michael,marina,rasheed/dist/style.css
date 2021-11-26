@@ -4,28 +4,37 @@ body {
 
 .navbar {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   background-color: black;
   height: 8vh;
   width: 100%;
 }
 
+.bbclogo {
+  display: flex;
+  justify-content: center;
+  height: 7vh;
+  width: 100%;
+}
+
 .pages {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 .pages a {
+  display: flex;
+  justify-content: center;
   text-decoration: none;
   color: white;
   font-size: 30px;
   font-weight: 300px;
-  margin-inline: 6px;
+  margin-inline-end: 15px;
+  width: 200px;
 }
 .pages .navbox {
   border-left: 2px solid white;
-  display: flex;
-  justify-content: center;
 }
 .pages .signin:hover {
   cursor: pointer;
@@ -39,9 +48,7 @@ body {
 .pages .sport:hover {
   border-bottom: 4px solid #a8bf33;
 }
-
-.bbclogo {
-  align-self: flex-start;
-  height: 7vh;
-  width: 100%;
+.pages .searchbox {
+  display: flex;
+  justify-content: center;
 }
