@@ -21,7 +21,7 @@
 .Container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  /*grid-template-rows: 1fr 1fr;*/
   border: 1px solid black;
   gap: 20px;
   padding: 10px;
@@ -71,6 +71,20 @@ li a:hover {
   height: 500px;
 
 }
+<<<<<<< HEAD
+.item1>img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: 100%;
+}
+p{
+  align-items: center;
+  text-align: center;
+  padding: -5px;
+  transform: (-50px 50px);
+=======
 
 .item1>img {
   display: block;
@@ -78,4 +92,5 @@ li a:hover {
   margin-right: auto;
   width: 100%;
   height: 100%;
+>>>>>>> ce597ea05e4f53811a78a8cea905caa52ef92c39
 }
