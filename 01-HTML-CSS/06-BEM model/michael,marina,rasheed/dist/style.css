@@ -1,13 +1,22 @@
-header {
+body {
   display: flex;
-  width: 100%;
-  height: 50px;
-  justify-content: space-around;
+  flex-direction: column;
   align-items: center;
- 
+  font-family: "outfit", sans-serif;
 }
-.header--button {
+
+.navbar {
   display: flex;
-  justify-content: left;
-  justify-items: left;
+  justify-content: center;
+  align-items: center;
+  height: 5vh;
+  border: 3px solid grey;
+  background-color: black;
+  color: white;
+}
+.navbar--div {
+  max-height: 200px;
+}
+.navbar--.bbclogo {
+  height: 20px;
 }
