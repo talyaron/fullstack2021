@@ -1,22 +1,47 @@
 body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   font-family: "outfit", sans-serif;
 }
 
 .navbar {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  height: 5vh;
-  border: 3px solid grey;
   background-color: black;
+  height: 8vh;
+  width: 100%;
+}
+
+.pages {
+  display: flex;
+  justify-content: center;
+}
+.pages a {
+  text-decoration: none;
   color: white;
+  font-size: 30px;
+  font-weight: 300px;
+  margin-inline: 6px;
 }
-.navbar--div {
-  max-height: 200px;
+.pages .navbox {
+  border-left: 2px solid white;
+  display: flex;
+  justify-content: center;
 }
-.navbar--.bbclogo {
-  height: 20px;
+.pages .signin:hover {
+  cursor: pointer;
+}
+.pages .home:hover {
+  border-bottom: 4px solid #d02d2d;
+}
+.pages .news:hover {
+  border-bottom: 4px solid #4343e8;
+}
+.pages .sport:hover {
+  border-bottom: 4px solid #a8bf33;
+}
+
+.bbclogo {
+  align-self: flex-start;
+  height: 7vh;
+  width: 100%;
 }
