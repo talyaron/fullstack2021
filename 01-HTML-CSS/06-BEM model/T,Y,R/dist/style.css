@@ -1,16 +1,20 @@
 .maincontent {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  height: 40vh;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr  1fr;
+  height: 50vh;
   width: 80vw;
   border: solid black;
+  
 }
-img{
-  height: 100%;
-  width: 100%;
-}
-.maintext{
-  text-align: center;
+.mainpic{
+  grid-column-start:1;
+  grid-column-end:2;
+  grid-row-start:1;
+  grid-row-end:3;
   
 }
 
+.subtext{
+  grid-row-start:2 ;
+}
