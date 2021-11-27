@@ -34,6 +34,22 @@
 .NavBar--news_Header a:hover {
   color: black;
 }
+.NavBar--sports_Header {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  font-size: 18px;
+}
+.NavBar--sports_Header a {
+  color: white;
+  padding: 10px;
+  text-decoration: none;
+  text-align: center;
+}
+.NavBar--sports_Header a:hover {
+  color: black;
+}
 .NavBar__logo {
   cursor: pointer;
   width: 150px;

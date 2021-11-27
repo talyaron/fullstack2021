@@ -4,12 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="dist/style-sport.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
     <link rel="stylesheet" href="style1.css">
     <title>BBC &nbsp;|&nbsp; news </title>
 </head>
 <body>
     <div class="Nav">
-        <img src="logo/bbc-Logo.png">
+        <img src="logo/bbc-Logo.png" class="logo" onclick="window.location.href='home.html'">
         <div class="Nav__BTN Nav__BTN--home"><a href="home.html">home</a></div>
         <div class="Nav__BTN Nav__BTN--news"><a href="news.html">news</a></div>
         <div class="Nav__BTN Nav__BTN--sport"><a href="sport.html">sport</a></div>
@@ -22,14 +27,14 @@
     </div>
     
     <div class="stripe">
-        <div class="stripe stripe--home"><b>HOME</b></div>
+        <div class="stripe stripe--news"><b>NEWS</b></div>
     </div>
     <div class="maincontent">
     <div class="mainpic">
         <img class="tam" src="news/OIP (2).jpg" alt="">
     </div>
-    <div class="maintext">
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione sunt corporis praesentium, culpa quibusdam aut soluta cumque velit labore rem doloribus porro repellat quisquam voluptatum voluptatibus dolor saepe accusamus deserunt!</p>
+    <div class="mainpic__main-text ">
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
     </div> 
     <div class="subtext">
         <P>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsa culpa temporibus adipisci atque voluptate sed quos fugit quo nemo quae labore ad, iste enim est eum vitae suscipit fugiat quisquam.</P>
@@ -37,9 +42,11 @@
     <div claas="subpic">
         <img src="news/OIP (2).jpg" alt="">
     </div>
-    <div class="pictext">
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit laboriosam error minima iure rerum porro a exercitationem labore voluptatum eligendi qui accusantium ipsum vel possimus unde, id eius repellat! Quaerat.</p>
-    </div>
+    <p class="sub-content__sub-text">
+        <a class="sub-content__link" href="">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id
+            voluptates cupiditate pariatur rerum error
+            et impedit enim ratione officiis corrupti.</a>
+    </p>
     </div>
     <div class="sub-content">
 
