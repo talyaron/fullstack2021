@@ -157,11 +157,10 @@
                         background-color: transparent;
                         background-image: none;
                         grid-template-columns: 2fr 1fr;
-                        grid-template-rows: repeat(4,1fr);
                         width: 100%;
                         img{
                             grid-column: 1/4;
-                            grid-row: 1/5;
+                            grid-row: 1/4;
                         }
                        h2{
                            grid-row: 1;
@@ -170,13 +169,13 @@
                        } 
                        h3{
                            grid-column: 2;
-                           grid-row: 3/4;
+                           grid-row: 3;
                            padding-left: 10px;
                            
                        }
                        p{
                         grid-column: 2;
-                        grid-row: 4/5;   
+                        grid-row: 4;   
                         padding-left: 10px;
                        }
                        
