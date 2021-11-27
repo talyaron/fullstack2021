@@ -156,11 +156,47 @@ body {
   border-left: 5px solid red;
 }
 
-.homecontainer p {
-  margin-block: 2px;
-}
-
 .middlebar {
   display: flex;
   justify-content: start;
+  width: 75%;
+}
+
+.middlebar > h1 {
+  border-left: 6px solid red;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+.homenews {
+  display: flex;
+  justify-content: center;
+  width: 75%;
+}
+
+.newsbox {
+  border: 2px solid grey;
+  width: 33%;
+  height: 450px;
+  margin: 1em;
+}
+
+.newsboximg {
+  width: 100%;
+}
+
+.newsboxtext {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+
+.newsbox p {
+  margin: 5px;
+}
+
+.newsbox h1 {
+  font-size: 30px;
+  margin: 5px;
 }
