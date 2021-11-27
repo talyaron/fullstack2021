@@ -34,7 +34,22 @@
             color: black;
             }
       }
-
+      &--sports_Header{
+        width: 100%;
+        height: 50px;
+        display: flex;
+        flex-direction: row;
+        font-size: 18px;
+        a{
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+            text-align: center;
+          }
+          a:hover{
+            color: black;
+            }
+      }
     &__logo{
         cursor: pointer; 
         width: 150px; 
