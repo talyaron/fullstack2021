@@ -1,4 +1,4 @@
-.maincontent {
+.maincontent{
   display: grid;
   grid-template-rows: 1fr 1fr;
   grid-template-columns: 1fr 1fr  1fr;
@@ -6,7 +6,7 @@
   width:80%;
  margin-left: auto;
  margin-right: auto;
-  border: solid black;
+ 
   
 }
 .mainpic{
@@ -17,8 +17,9 @@
   
 }
 .tam{
-  height:100%;
-  width: 90%;
+  height:auto;
+  width:100%;
+  background-size: cover;
 }
 
 .subtext{
@@ -94,6 +95,11 @@ a {
 .stripe--sport {
   padding-left: 11%;
   background-color: #e4c205;
+   
+}
+.stripe--news{
+  padding-left: 11%;
+  background-color: #e4058f;
 }
 
 .sub-content {
