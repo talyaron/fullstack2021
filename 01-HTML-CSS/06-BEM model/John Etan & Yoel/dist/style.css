@@ -1,3 +1,7 @@
+body {
+  background-color: #582a2a;
+}
+
 .header {
   background-color: black;
   width: 100%;
@@ -22,7 +26,8 @@
 }
 .navbar--item {
   margin-right: 2vw;
-  height: 1vh;
+  height: 2vh;
+  font-size: 2.5vh;
   display: flex;
   color: white;
 }
@@ -30,16 +35,20 @@
   cursor: pointer;
 }
 
-body {
-  background-color: #582a2a;
-}
-
 .socialmedia {
   position: absolute;
-  right: 20px;
-  top: 300px;
+  display: grid;
+  grid-template-rows: 1fr, 1fr, 1fr, 1fr;
+  top: 30vh;
+  right: 10vw;
+  background-color: transparent;
 }
-.socialmedia__item {
-  height: 5px;
-  width: 5px;
+.socialmedia--item {
+  color: white;
+  height: 2vh;
+  width: 2vw;
+}
+.socialmedia--item img {
+  height: 4vh;
+  width: 3vw;
 }
