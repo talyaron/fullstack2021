@@ -81,6 +81,13 @@
             color: black;
             height: 70vh;
             gap: 1.5rem;
+             &__box{
+                    display: grid;
+                    grid-template-rows: 55% 15% 18% 12%;
+                    height: 100%;
+                    width: 50%;
+            
+                  }
             &__img{
                 display: grid;
                 grid-template-rows:repeat(8, 1fr) ;
@@ -112,8 +119,9 @@
                     background-position: center;
                     background-size: cover;
                     background-repeat: no-repeat;
+                    
                   }
-
+                 
                 h2{
                     grid-row: 1;
                 }
@@ -136,6 +144,11 @@
                     &--news{
                        border:  5px solid red;
                        
+
+                    }
+                    &--sports{
+                        display: grid;
+                        border-color: 2px solid black;
 
                     }
                   }
