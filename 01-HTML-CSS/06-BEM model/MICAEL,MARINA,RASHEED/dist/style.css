@@ -1,11 +1,8 @@
 
-
-body{
+body {
   min-width: 1900px;
   margin: 0px;
-    
 }
-
 
 .menu {
   display: grid;
@@ -89,9 +86,8 @@ a {
   display: grid;
   grid-template-columns: 17.5% 9% 9% 8% 8% 8% 8% 8% 8%;
   background-color: #ad1010;
-  grid-template-rows: 35px;
+  grid-template-rows: 19px;
   justify-items: end;
-  
 }
 
 .links > .home, .links > .coronavirus, .links > .climate,
@@ -108,6 +104,43 @@ a {
   cursor: pointer;
 }
 
+.wrapper {
+  width: 70%;
+  display: grid;
+  grid-template-columns: repeat(5, 3fr);
+  grid-template-rows: minmax(100px, auto);
+  grid-gap: 1em;
+  padding-left: 17em;
+  justify-items: start;
+}
+
+.wrapper > div {
+  padding: 1em;
+}
+
+.grid-2 {
+  grid-column: 2/4;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+h1, p {
+  font-size: 22px;
+  font-family: sans-serif;
+}
+
+p {
+  font-size: 16px;
+}
+
+.title a:hover,
+.country a:hover {
+  text-decoration: underline;
+  color: #3fadec;
+}
 
     
 
@@ -121,7 +154,7 @@ a {
   }
 
 
-  .grid-1{
+  .gridd-1{
     width: 98.5vw;
     height: 100vh;
     display: grid;
@@ -135,7 +168,7 @@ a {
   }
 
 
-  .box1-grid-1 {
+  .box1-gridd-1 {
     
     grid-column: 1/3;
     display: flex;
@@ -149,7 +182,7 @@ a {
 
 
 
-  .box3-grid-1{
+  .box3-gridd-1{
     grid-column: 1/4;
     display: flex;
     flex-wrap: wrap;
@@ -161,7 +194,7 @@ a {
  
 
 
-  .box5-grid-1 {
+  .box5-gridd-1 {
     grid-column: 2/4;
     display: flex;
     flex-wrap: wrap;
@@ -171,7 +204,7 @@ a {
   }
 
 
-  .grid-2 {
+  .gridd-2 {
     width: 98.5vw;
     height: 100vh;
     display: grid;
@@ -184,7 +217,7 @@ a {
     
   }
 
-  .box1-grid-2 {
+  .box1-gridd-2 {
     grid-column: 1/3;
     display: flex;
     flex-wrap: wrap;
@@ -195,7 +228,7 @@ a {
   }
 
 
-  .box3-grid-2 {
+  .box3-gridd-2 {
     grid-row: 2/4;
     
     
@@ -204,7 +237,7 @@ a {
   }
 
 
-  .box4-grid-2 {
+  .box4-gridd-2 {
     grid-column: 2/4;
     display: flex;
     flex-wrap: wrap;
@@ -217,7 +250,7 @@ a {
   }
 
 
-  .box5-grid-2 {
+  .box5-gridd-2 {
     grid-column: 2/4;
     display: flex;
     flex-wrap: wrap;
@@ -229,7 +262,7 @@ a {
     
   }
 
-  .box1-grid-1 .img{
+  .box1-gridd-1 .img{
     width: 50%;
     height: 100%;
     
@@ -237,51 +270,51 @@ a {
   }
 
 
-  .box2-grid-1 .img{
+  .box2-gridd-1 .img{
     
     width: 100%;
     height: 100%;
   }
 
-  .box3-grid-1 .img{
+  .box3-gridd-1 .img{
     width: 50%;
     height: 100%;
     margin-right: -60px;
   
   }
 
-  .box4-grid-1 .img{
+  .box4-gridd-1 .img{
     width: 100%;
     height: 100%;
   }
 
-  .box5-grid-1 .img{
+  .box5-gridd-1 .img{
     width: 50%;
     height: 100%;
   }
 
-  .box1-grid-2 .img{
+  .box1-gridd-2 .img{
     width: 50%;
     height: 100%;
   }
 
-  .box2-grid-2 .img{
+  .box2-gridd-2 .img{
     width: 100%;
     height: 100%;
   }
-  .box3-grid-2 .img{
+  .box3-gridd-2 .img{
     width: 100%;
     height: 60%;
   
   }
 
-  .box4-grid-2 .img{
+  .box4-gridd-2 .img{
     width: 50%;
     height: 100%;
   }
 
 
-  .box5-grid-2 .img{
+  .box5-gridd-2 .img{
     width: 50%;
     height: 100%;
   }
@@ -504,55 +537,14 @@ a {
   justify-content: space-between;
 }
 
+.homebody{
 
-.wrapper {
-  width: 70%;
-  display: grid;
-  grid-template-columns: repeat(5, 3fr);
-  grid-template-rows: minmax(100px, auto);
-  grid-gap: 1em;
-  padding-left: 17em;
-  justify-items: start;
-}
-
-.wrapper > div {
-  padding: 1em;
-}
-
-.grid-2 {
-  grid-column: 2/4;
-}
-
-img {
-  width: 100%;
-  height: auto;
-}
-
-h1, p {
-  font-size: 22px;
-  font-family: sans-serif;
-}
-
-p {
-  font-size: 16px;
-}
-
-.title a:hover,
-.country a:hover {
-  text-decoration: underline;
-  color: #3fadec;
-}
-
-.header {
+  font-family: 'outfit', sans-serif;
   display: flex;
-  width: 100%;
-  height: 100px;
   justify-content: center;
-  justify-items: center;
-  border: 1px solid black;
+  align-items: center;
+  flex-direction: column;
+  background: rgb(252, 252, 252);
 }
-.header__button {
-  display: flex;
-  justify-content: left;
-  justify-items: left;
-}
+
+
