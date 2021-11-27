@@ -1,0 +1,174 @@
+
+body{
+    padding: 0;
+    margin:0;
+    height:100%;
+
+/*===========================================*/
+header{
+    background-color: black;
+    color: white;
+
+&--danger{
+
+}
+
+.website-header{
+    height:100px;
+    display: flex;
+    justify-content: left;
+    flex-wrap:wrap;
+    
+    
+
+.website-header__h1{
+    margin:  auto 0;
+    font-family:'Courier New';
+    font-size: 100px;
+    
+    
+}
+
+.website-header__social-icons{
+    text-align: right;
+    flex-grow: 1;
+    font-size: 30px;
+    
+
+    &--danger{
+
+    }
+    
+.social-icons i{
+    margin: 0 7px;
+    cursor: pointer;
+
+}
+
+}
+}
+}
+/*===========================================*/
+.navbar {
+    background-color: black;
+      
+&--danger{
+
+}
+.navbar__navbar-nav{
+    background-color: black;
+    height: 100px;
+    display:inline-flex;
+    flex-wrap: wrap;
+
+
+
+.navbar__nav-item{
+    margin: 20px 0 0 0 ;
+
+
+.navbar__nav-link{
+    padding: 10px 20px;
+    color:#fff;
+    font-size: 30px;
+    font-family:'Courier New';
+    
+
+
+}
+.navbar__nav-link:hover{
+    color: var(--colorBrown);
+
+}
+}
+    
+}
+}
+
+/*===========================================*/
+
+.copyright{
+    width:100%;
+    background-color: black;
+    color: #fff;
+    padding: 5px;
+    text-align: center;
+
+}
+
+/*=============================================*/
+
+
+.wrapper{
+    background-color: black;
+    height: auto;
+    width: 100%;
+
+&--danger{
+    font-style:italic;
+}
+
+.wrapper__gridwraptop{
+
+    display: inline-grid;
+    grid-template-columns: 1fr 0.8fr;
+    gap: 10px;
+    font-style: italic;
+    .wrapper__box{
+
+        padding: 10px;
+        gap: 5px;
+        border: 2px solid black;
+    }
+    
+    .wrapper__img{
+        width: 100%;
+        padding: 5px;
+    
+    }   
+    
+    .wrapper__header{
+        width: 90%;
+        color: brown;
+        font-size:20px;
+        font-style: italic;
+    }
+     
+
+.wrapper__gridwraptop2{
+
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr;
+
+
+    gap: 10px;
+
+    .wrapper__box{
+
+        padding: 10px;
+        gap: 5px;
+        border: 2px solid black;
+    }
+    
+    .wrapper__img{
+        width: 100%;
+        padding: 5px;
+    
+    }   
+    
+    .wrapper__header{
+        width: 90%;
+        color: brown;
+        font-size:20px;
+        font-style: italic;
+    }
+        
+
+}
+
+
+}
+}
+
+
+}
