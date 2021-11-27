@@ -1,0 +1,160 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.ad--row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.ad--row img {
+  width: 75vw;
+}
+
+.title {
+  font-size: 1.2rem;
+  margin: 1rem 0 1rem 0;
+}
+
+.home--main {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  -ms-grid-rows: (1fr)[2];
+      grid-template-rows: repeat(2, 1fr);
+  gap: 2rem;
+  color: white;
+  height: 50vh;
+  margin: 1rem;
+}
+
+.home--main .home--main__article--big {
+  background-image: -webkit-gradient(linear, left bottom, left top, from(black), to(rgba(255, 255, 255, 0))), url(https://ichef.bbci.co.uk/news/976/cpsprodpb/909F/production/_121832073_sthafricagetty2.jpg);
+  background-image: linear-gradient(0deg, black 0%, rgba(255, 255, 255, 0) 100%), url(https://ichef.bbci.co.uk/news/976/cpsprodpb/909F/production/_121832073_sthafricagetty2.jpg);
+  background-size: cover;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  grid-row: 1 / 3;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1 / 3;
+  height: 50vh;
+  padding: 1rem;
+}
+
+.home--main .home--main__article--big :last-child {
+  -webkit-box-shadow: -0.2em 0 0 yellow;
+          box-shadow: -0.2em 0 0 yellow;
+  padding-left: 0.2em;
+}
+
+.home--main :nth-child(2):not(p) {
+  background-image: -webkit-gradient(linear, left bottom, left top, from(black), to(rgba(255, 255, 255, 0))), url(https://ichef.bbci.co.uk/news/976/cpsprodpb/1964/production/_121800560_gettyimages-1212213050.jpg);
+  background-image: linear-gradient(0deg, black 0%, rgba(255, 255, 255, 0) 100%), url(https://ichef.bbci.co.uk/news/976/cpsprodpb/1964/production/_121800560_gettyimages-1212213050.jpg);
+}
+
+.home--main :nth-child(3):not(p) {
+  background-image: -webkit-gradient(linear, left bottom, left top, from(black), to(rgba(255, 255, 255, 0))), url(https://ichef.bbci.co.uk/news/976/cpsprodpb/167C7/production/_121830129_hi072221422.jpg);
+  background-image: linear-gradient(0deg, black 0%, rgba(255, 255, 255, 0) 100%), url(https://ichef.bbci.co.uk/news/976/cpsprodpb/167C7/production/_121830129_hi072221422.jpg);
+}
+
+.home--main :nth-child(4):not(p) {
+  background-image: -webkit-gradient(linear, left bottom, left top, from(black), to(rgba(255, 255, 255, 0))), url(https://ychef.files.bbci.co.uk/1280x720/p0b63llm.webp);
+  background-image: linear-gradient(0deg, black 0%, rgba(255, 255, 255, 0) 100%), url(https://ychef.files.bbci.co.uk/1280x720/p0b63llm.webp);
+}
+
+.home--main :nth-child(5):not(p) {
+  background-image: -webkit-gradient(linear, left bottom, left top, from(black), to(rgba(255, 255, 255, 0))), url(https://ychef.files.bbci.co.uk/1280x720/p0b698hg.webp);
+  background-image: linear-gradient(0deg, black 0%, rgba(255, 255, 255, 0) 100%), url(https://ychef.files.bbci.co.uk/1280x720/p0b698hg.webp);
+}
+
+.home--main .home--main__article--small {
+  background-size: cover;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  padding: 1rem;
+}
+
+.home--main .home--main__article--small :last-child {
+  -webkit-box-shadow: -0.2em 0 0 red;
+          box-shadow: -0.2em 0 0 red;
+  padding-left: 0.2em;
+}
+
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.home--small .title {
+  -webkit-box-shadow: -0.2em 0 0 red;
+          box-shadow: -0.2em 0 0 red;
+  margin-left: 0.2em;
+}
+
+.home--small .title :hover {
+  color: gray;
+}
+
+.home--small__row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.home--small__row .home--small__row_article {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 25vw;
+  margin: 1rem;
+}
+
+.home--small__row .home--small__row_article img {
+  height: 15vh;
+}
+
+.home--small__row .home--small__row_article :last-child {
+  -webkit-box-shadow: -0.2em 0 0 blue;
+          box-shadow: -0.2em 0 0 blue;
+  padding-left: 0.2em;
+}
+
+.ad--column {
+  height: 30vh;
+}
+/*# sourceMappingURL=style.css.map */

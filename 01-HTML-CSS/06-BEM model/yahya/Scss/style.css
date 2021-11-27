@@ -66,18 +66,23 @@ li a {
 }
 
 .topcontainar {
+  display: -ms-grid;
   display: grid;
   background-color: blanchedalmond;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  -ms-grid-rows: (1fr)[2];
+      grid-template-rows: repeat(2, 1fr);
   grid-row-gap: 20px;
   background-color: white;
   padding: 10px;
 }
 
 .container {
+  display: -ms-grid;
   display: grid;
-  grid-template-columns: auto auto auto;
+  -ms-grid-columns: auto auto auto;
+      grid-template-columns: auto auto auto;
   background-color: white;
   padding: 10px;
   grid-column-gap: 50px;
@@ -91,4 +96,8 @@ li a {
   font-size: 30px;
   text-align: center;
 }
+<<<<<<< HEAD
+/*# sourceMappingURL=style.css.map */
+=======
 
+>>>>>>> 8ed5938d0ae1f528ddb85e7328a3fe6ddcf6d525
