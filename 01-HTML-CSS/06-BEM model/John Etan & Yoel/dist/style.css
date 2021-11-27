@@ -1,0 +1,28 @@
+header {
+  background-color: black;
+  width: 220px;
+}
+headerlogo {
+  width: fit-content;
+  height: 200px;
+}
+headernavbar {
+  width: 100%;
+  height: 20px;
+}
+headernavbar__item {
+  height: 10px;
+}
+
+body {
+  background-color: #582a2a;
+}
+body .socialmedia {
+  position: absolute;
+  right: 20px;
+  top: 300px;
+}
+body .socialmedia__item {
+  height: 5px;
+  width: 5px;
+}
