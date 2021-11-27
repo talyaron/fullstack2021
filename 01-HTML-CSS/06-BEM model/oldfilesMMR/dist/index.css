@@ -111,16 +111,6 @@ body .wrapper__title a:hover, body .wrapper__country a:hover {
   color: #3fadec;
 }
 
-.topbar {
-  width: 75%;
-  height: 50px;
-  display: flex;
-  justify-content: space-between;
-}
-.topbar .date {
-  color: #9a9898;
-}
-
 .homecontainer {
   padding: 5px;
   margin-top: 30px;

@@ -1,7 +1,8 @@
 body{
+
     min-width: 1900px;
     margin: 0px;
-    
+
     .menu{
         display: grid;
         grid-template-columns: 25% 9% 10% 9% 10% 10% 10%;
@@ -162,22 +163,6 @@ body{
         }
     
     }
-}
-
-// **** TOP BAR ****
-
-.topbar {
-
-    width: 75%;
-    height: 50px;
-    display: flex;
-    justify-content: space-between;
-
-    .date {
-
-        color: rgb(154, 152, 152);
-    }
-
 }
 
 // ****  MICHAEL HOME CONTAINER ****
@@ -393,6 +378,7 @@ body{
     }
 
 
+    
 
 
 

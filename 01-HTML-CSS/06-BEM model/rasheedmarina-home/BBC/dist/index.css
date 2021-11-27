@@ -1,0 +1,156 @@
+body {
+  min-width: 1900px;
+  margin: 0px;
+}
+
+.menu {
+  display: grid;
+  grid-template-columns: 25% 9% 10% 9% 10% 10% 10%;
+  height: 31px;
+}
+
+.nav {
+  display: flex;
+  height: 30px;
+  width: auto;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid gray;
+  text-decoration: none;
+}
+
+.search {
+  position: relative;
+  top: 15%;
+  left: 10%;
+}
+
+.logo img {
+  position: absolute;
+  width: 80px;
+  height: auto;
+  left: 293px;
+  top: -2.4%;
+}
+
+.logo img:hover {
+  cursor: pointer;
+}
+
+.signIn, .home, .news, .sport, .reel {
+  font-family: sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.nav.home:hover, .signIn:hover, .nav.news:hover,
+.sport:hover, .reel:hover {
+  border-bottom: 4px solid #171718;
+  cursor: pointer;
+}
+
+.signIn:hover {
+  border-bottom: 4px solid blue;
+}
+
+.nav.news:hover {
+  border-bottom: 4px solid #b91f1f;
+}
+
+.sport:hover {
+  border-bottom: 4px solid #f0e11b;
+}
+
+.reel:hover {
+  border-bottom: 4px solid #071de2;
+}
+
+.red-strap {
+  display: grid;
+  grid-template-columns: 22.2%;
+  background-color: #ad1010;
+  justify-items: end;
+}
+
+.red-strap > .news {
+  color: white;
+  font-size: 45px;
+  font-family: sans-serif;
+}
+
+.links {
+  display: grid;
+  grid-template-columns: 17.5% 9% 9% 8% 8% 8% 8% 8% 8%;
+  background-color: #ad1010;
+  grid-template-rows: 19px;
+  justify-items: end;
+}
+
+.links > .home, .links > .coronavirus, .links > .climate,
+.links > .video, .links > .world, .links > .business,
+.links > .tech, .links > .science, .links > .stories {
+  color: white;
+  font-family: sans-serif;
+}
+
+.links > .stories:hover, .links > .science:hover, .links > .tech:hover,
+.links > .business:hover, .links > .world:hover, .links > .video:hover,
+.links > .climate:hover, .links > .coronavirus:hover, .links > .home:hover {
+  border-bottom: 4px solid white;
+  cursor: pointer;
+}
+
+.wrapper {
+  width: 70%;
+  display: grid;
+  grid-template-columns: repeat(5, 3fr);
+  grid-template-rows: minmax(100px, auto);
+  grid-gap: 1em;
+  padding-left: 17em;
+  justify-items: start;
+}
+
+.wrapper > div {
+  padding: 1em;
+}
+
+.grid-2 {
+  grid-column: 2/4;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+h1, p {
+  font-size: 22px;
+  font-family: sans-serif;
+}
+
+p {
+  font-size: 16px;
+}
+
+.title a:hover,
+.country a:hover {
+  text-decoration: underline;
+  color: #3fadec;
+}
+
+.header {
+  display: flex;
+  width: 100%;
+  height: 100px;
+  justify-content: center;
+  justify-items: center;
+  border: 1px solid black;
+}
+.header__button {
+  display: flex;
+  justify-content: left;
+  justify-items: left;
+}
