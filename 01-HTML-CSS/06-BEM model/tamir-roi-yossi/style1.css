@@ -3,7 +3,6 @@
   grid-template-rows: 1fr 1fr;
   grid-template-columns: 1fr 1fr  1fr;
   height: 50vh;
-  width: 80vw;
   border: solid black;
   
 }
@@ -14,7 +13,12 @@
   grid-row-end:3;
   
 }
+.tam{
+  height:100%;
+  width: 90%;
+}
 
 .subtext{
   grid-row-start:2 ;
 }
+
