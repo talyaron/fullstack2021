@@ -408,6 +408,7 @@ body{
   width: 500px;
 } 
 
+
 .homecontainer {
 
   padding: 5px;
@@ -617,6 +618,18 @@ body{
       align-items: flex-start;
       justify-content: space-between;
   }
+
+
+
+.homebody{
+
+    font-family: 'outfit', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: rgb(252, 252, 252);
+}
 
 
   

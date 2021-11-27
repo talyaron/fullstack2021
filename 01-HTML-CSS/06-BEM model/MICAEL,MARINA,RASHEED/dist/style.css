@@ -537,4 +537,14 @@ p {
   justify-content: space-between;
 }
 
+.homebody{
+
+  font-family: 'outfit', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: rgb(252, 252, 252);
+}
+
 
