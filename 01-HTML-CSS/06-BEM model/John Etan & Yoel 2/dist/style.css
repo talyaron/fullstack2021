@@ -37,9 +37,9 @@ body {
 
 .socialmedia {
   position: absolute;
-  display: grid;
-  grid-template-rows: 1fr, 1fr, 1fr, 1fr;
-  top: 30vh;
+  display: inline-block;
+  direction: rtl;
+  top: 40vh;
   right: 10vw;
   background-color: transparent;
 }
@@ -47,8 +47,10 @@ body {
   color: white;
   height: 2vh;
   width: 2vw;
+  margin-left: 1vw;
+  cursor: pointer;
 }
 .socialmedia--item img {
-  height: 4vh;
-  width: 3vw;
+  height: 4.2vh;
+  width: 2vw;
 }

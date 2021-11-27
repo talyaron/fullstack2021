@@ -3,7 +3,7 @@ body{
 }
 .header{
     background-color: black;
-    width: 100%;
+    width: 100vw;
     position: absolute;
 
     &--logo{
@@ -39,18 +39,21 @@ body{
 .socialmedia{
     
         position: absolute;
-        display: grid;
-        grid-template-rows: 1fr,1fr,1fr,1fr;
-        top: 30vh;
+        display: inline-block;
+        direction: rtl;
+        top: 40vh;
         right: 10vw;
         background-color: transparent;
     &--item{
         color: white;
         height: 2vh;
         width: 2vw;
+        margin-left: 1vw;
+        cursor: pointer;
+
         img{
-            height: 4vh;
-            width: 3vw;
+            height: 4.2vh;
+            width: 2vw;
         }
     }
     }
