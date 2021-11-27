@@ -1,0 +1,57 @@
+.main-menu {
+  position: relative;
+  display: flex;
+  background-color: #ffda79;
+  width: 100%;
+  align-items: stretch;
+}
+.main-menu .nav {
+  display: flex;
+  border-right: 2px solid black;
+  height: 5vh;
+  width: 12vw;
+  justify-content: center;
+  font-family: "Arvo", serif;
+  font-family: "Comforter Brush", cursive;
+  font-family: "M PLUS Code Latin", sans-serif;
+  font-weight: bold;
+}
+.main-menu h1 {
+  color: #1e272e;
+  font-family: "Comforter Brush", cursive;
+  font-family: "M PLUS Code Latin", sans-serif;
+  font-size: 40px;
+  font-stretch: ultra-condensed;
+}
+.main-menu .nav:hover {
+  cursor: pointer;
+  border-bottom: 3px solid black;
+  transition: 0.2s;
+}
+
+.main-articles {
+  display: grid;
+  grid-template-columns: repeat(4, 2fr);
+  grid-template-rows: repeat(2, 1fr);
+  border: 1px solid black;
+}
+
+.mainarticle {
+  width: 25vw;
+  height: 30vh;
+  border: 1px solid black;
+}
+
+img {
+  width: fit-content;
+  height: fit-content;
+}
+
+.mainarticle1 {
+  grid-row: span 2;
+  grid-column: span 2;
+}
+.mainarticle1 img {
+  width: auto;
+  height: auto;
+}

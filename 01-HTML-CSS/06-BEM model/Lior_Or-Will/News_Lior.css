@@ -70,6 +70,7 @@ body{
     height: 7vh;
     font-style: italic;
     text-align: left;
+    padding-top: 100px;
 
 }
 
@@ -78,7 +79,7 @@ body{
 {
     position: relative;
     top: -200px; 
- 
+
 }
 
 
@@ -107,7 +108,7 @@ body{
     bottom: 5vh;
     align-content: center;
     text-align: left;
-
+    padding-top: 35px;
 }
 
 .down_title:hover
