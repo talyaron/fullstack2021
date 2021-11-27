@@ -1,0 +1,34 @@
+body {
+  margin: 0;
+  background-color: #ffffff;
+  min-width: 1900px;
+  font-family: sans-serif;
+}
+
+.sub-content {
+  display: grid;
+  grid-template-columns: 10% 20% 20% 20% 20% 10%;
+  min-width: 850px;
+}
+.sub-content__img {
+  width: 100%;
+  height: auto;
+}
+.sub-content__main-text {
+  font-size: 30px;
+  font-weight: bold;
+  color: black;
+}
+.sub-content__sub-text {
+  font-size: 22px;
+}
+.sub-content__link {
+  text-decoration: none;
+}
+.sub-content__link :hover {
+  color: #962828;
+  text-decoration: underline;
+}
+.sub-content__box {
+  padding: 10px;
+}
