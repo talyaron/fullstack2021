@@ -8,23 +8,6 @@ body{
     
 }
 
-
-.sport-menu{
-
-    width: 100%;
-    height: 50px;
-    background-color:#000000;
-
-}
-
-.sport-menu2{
-    margin-left: 20vw;
-    margin-top: 1px;
-}
-.sport-menu2:hover{
-    cursor: pointer;
-}
-
 .wrappersport{
     max-height: 500px;
     max-width: 900px;
@@ -36,19 +19,14 @@ body{
     gap: 15px;
 }
 
-.up-sport1{
+.boxsport--up1{
 
     grid-column: 1/3;
 
 }
 
-.small-sport{
 
-    grid-column:4/5;
-
-}
-
-.img-up-sport1{
+.imgsport__up1{
 
     object-fit: cover;
     width: 100%;
@@ -56,7 +34,7 @@ body{
 
 }
 
-.img-up-sport1:hover{
+.imgsport__up1:hover{
 
     cursor: pointer;
 
@@ -84,7 +62,7 @@ text-decoration: underline;
 
 }
 
-.up-sport2>h1:hover{
+.boxsport--up2>h1:hover{
 
 cursor:pointer;
 color: blue;
@@ -92,7 +70,7 @@ text-decoration: underline;
 
 }
 
-.category-sport{
+.category--sport{
 
     color: rgb(0, 212, 0);
     font-size: 13px;
@@ -100,7 +78,7 @@ text-decoration: underline;
 }
 
 
-.category-sport:hover{
+.category--sport:hover{
 
     color: rgb(0, 212, 0);
 
