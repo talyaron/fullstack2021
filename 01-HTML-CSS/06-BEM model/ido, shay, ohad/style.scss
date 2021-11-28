@@ -315,7 +315,9 @@
                     grid-template-rows: 45% 25% 24% 12%;
                     
                     width: 100%;
-
+                    a{
+                        text-decoration: none;
+                    }
                 h2{
                     grid-row: 2;
                     text-align: center;

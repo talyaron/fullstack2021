@@ -294,6 +294,9 @@
   grid-template-rows: 45% 25% 24% 12%;
   width: 100%;
 }
+.main__down__box a {
+  text-decoration: none;
+}
 .main__down__box h2 {
   grid-row: 2;
   text-align: center;
