@@ -245,6 +245,7 @@ body {
   flex-direction: row;
 }
 
+<<<<<<< HEAD
 .sider {
   display: flex;
   flex-direction: column;
@@ -265,3 +266,6 @@ body {
 .sider .scores__item span:nth-child(2) {
   background-color: yellow;
 }
+=======
+/*asdasdasd*/
+>>>>>>> 70c6b43479737691f0c74505baef16baba3f6a33

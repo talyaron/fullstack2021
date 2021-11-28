@@ -253,7 +253,16 @@ h3:hover{
   display: flex;
   flex-direction: row;
 }
+/*asdasdasd*/
+.navBar--news{
+  width: 100%;
+  background-color: red;
+  height: 100px;
+  .h2{color: white;
+  }
+}
 
+<<<<<<< HEAD
 .sider{
   display: flex;
   flex-direction: column;
@@ -274,3 +283,40 @@ h3:hover{
     background-color: yellow;
   }
 }
+=======
+.nottitle{display: flex;
+flex-direction: row;
+justify-content: space-between ;
+}
+
+.ad--row2{
+  display: flex;
+flex-direction: row;
+}
+
+.news--main{width: 100vw;
+height: 14vw;
+background-color: rgb(110, 151, 147);
+display: grid;
+grid-template-columns: 2fr 1fr;
+grid-template-rows: 1fr;}
+
+.pic{width:35vw;
+height: 35vh;
+.img
+}
+.pic{display: grid;
+grid-template-columns: 1fr 1fr;
+grid-template-rows: 1fr;}
+
+.pic>p{position: relative;
+bottom:25vh ;
+left: 35vw;}
+
+
+.news--small{
+  margin-top: 3vh; 
+  display: flex;
+justify-content: space-between;
+margin-right: 15vw;}
+>>>>>>> 70c6b43479737691f0c74505baef16baba3f6a33
