@@ -40,17 +40,8 @@
 }
 
 .bigarticle {
-  position: relative;
   grid-row: span 2;
   grid-column: span 2;
-}
-.bigarticle p {
-  position: absolute;
-  top: 330px;
-  left: 200px;
-  font-style: italic;
-  color: #332d25;
-  font-size: 30px;
 }
 
 .bigarticle > img {
@@ -59,20 +50,7 @@
 }
 
 .article {
-  position: relative;
   border: 1px solid black;
-}
-.article p {
-  position: absolute;
-  top: 130px;
-  left: 30px;
-  font-family: "Arvo", serif;
-  font-family: "Comforter Brush", cursive;
-  font-family: "M PLUS Code Latin", sans-serif;
-  font-family: "Montserrat", sans-serif;
-  color: white;
-  font-size: 23px;
-  font-weight: bold;
 }
 
 img {
