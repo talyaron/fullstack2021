@@ -250,6 +250,13 @@ p {
  border-radius: 5px;
   
 }
+
+.mod:hover{
+
+  transition: 0.5s;
+  cursor: pointer;
+  opacity: 0.7;
+}
   
 
 
