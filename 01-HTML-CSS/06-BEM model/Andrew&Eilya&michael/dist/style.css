@@ -1,0 +1,8 @@
+.cardBox {
+  background-color: rgba(75, 75, 75, 0.39);
+  display: flex;
+  flex-direction: column;
+}
+.cardBox .card p {
+  color: orange;
+}

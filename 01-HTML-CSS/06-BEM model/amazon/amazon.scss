@@ -1,0 +1,232 @@
+body {
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+}
+
+.upperHeader {
+    width: 100%;
+    color: white;
+    background-color: #121921;
+    height: 5vh;
+    display: flex;
+    gap: 10vw;
+    padding: 10px 0 0 10px;
+
+    &__logo img {
+        height: 5vh;
+        width: 5vw;
+    }
+
+    &__searchBar {
+        width: 60vw;
+        padding-left: 90px;
+    }
+
+    input {
+        display: inline-block;
+        width: 100%;
+    }
+
+    &__flag {
+        color: red;
+    }
+}
+
+.lowerHeader {
+    display: grid;
+    grid-template-columns: 80px 80px 80px 80px;
+    background-color: #232f3e;
+    width: 100%;
+    height: 5vh;
+    padding: 10px 0 0 15px;
+
+    &__item {
+        padding: 0 1px;
+    }
+
+    a {
+        text-decoration: none;
+        color: blanchedalmond;
+    }
+
+    a:hover {
+        border: white 1px solid;
+    }
+}
+
+/*Gift page*/
+
+.registryGrid {
+    width: 70vw;
+    height: 55vh;
+    margin: 100px 300px 300px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 6fr 16fr;
+    justify-content: center;
+    gap: 2vw;
+
+    &__title {
+        grid-column: span 5;
+        text-align: center;
+    }
+
+    &__gift {
+        text-align: center;
+        background-color: #eee;
+        font-family: "Oswald", sans-serif;
+
+        img {
+            width: 100%;
+        }
+
+        :hover {
+            cursor: pointer;
+        }
+    }
+}
+
+/*Deal page*/
+
+.dealGrid {
+    display: grid;
+    grid-template-columns: repeat(8, 200px);
+    grid-template-rows: 200px 290px;
+    justify-content: center;
+
+    &__runner {
+        grid-column: span 8;
+        border: rgb(190, 69, 32) 2px solid;
+        background-color: rgb(207, 104, 19);
+
+        img {
+            width: 100%;
+            max-height: 100%;
+        }
+    }
+    &__dealbox{       
+        word-wrap: break-word;
+        border: rgba(0, 0, 0, 0.425) 2px solid;
+        border-radius:7px;
+        
+        
+
+        img{
+            width:100%;
+            height:50%;
+            cursor:pointer;
+            
+        }
+
+        p{
+            text-align:start;
+            padding-left:8px;
+        }
+
+        h4{
+            display:flex;
+            position:absolute;
+            justify-items:bottom;
+            font-weight:normal;
+            color:black;
+            padding-left:8px;
+            
+            
+          
+        }
+        h3{
+                        
+            color:red;
+            padding-left:8px;
+            bottom:0;
+         }
+
+    &--dealbox1 {
+        grid-column: span 2;
+        border:black 2px solid;
+
+        img{
+            height: 100%;
+            width: 100%;
+        }
+    }    
+        
+    } 
+
+
+}
+
+
+    
+
+
+
+.dealarrowLeft{
+    background-color:rgb(250, 255, 250);
+    opacity:0.6;
+    width:30px;
+    height:80px;
+    display:flex;
+    position:absolute;
+    top:350px;
+    left:370px;
+    cursor:pointer;
+    align-items: center;
+    
+}
+
+.dealarrowRight{
+    background-color:rgb(250, 255, 250);
+    opacity:0.6;
+    width:30px;
+    height:80px;
+    display:flex;
+    position:absolute;
+    top:350px;
+    right:1px;
+    cursor:pointer;
+    align-items: center;
+    
+}
+
+
+ 
+
+/* Service-Page */
+h1 {
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: -100px;
+    font-size: 35px;
+    font-weight: 500;
+}
+.serviceGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: reapeat(4, 1fr);
+    margin: 150px;
+    gap: 2%;
+    justify-content: center;
+
+    &__option {
+        border: 1px solid rgb(151, 151, 151);
+        width: 50%;
+        height: 50%;
+        padding: 10px;
+        border-radius: 7px;
+    }
+    &__option img {
+        justify-content: center;
+
+        &__option {
+            border: 1px solid rgb(151, 151, 151);
+            width: 50%;
+            height: 50%;
+            padding: 10px;
+            border-radius: 7px;
+        }
+        &__option img {
+            justify-content: center;
+        }
+    }
+}

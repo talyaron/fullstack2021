@@ -113,8 +113,9 @@ a {
     padding-top:20px;
     display: grid;
     grid-template-columns: 15% 35% 35% 15%;
-    height: 31px;
+    height: 310px;
     gap:5px;
+    
 }
 
 p{
@@ -292,11 +293,11 @@ p.small.future{
 
 /*I couldnt get the news strip to be lower 
 like under my top content gird
-so i had to make up a space between it with nothing inside*/
+so i had to make up a space between it with nothing inside
 .randomspace{
     width:1000px;
     height:300px;
-}
+}*/
 
  .News.strip{
      display:grid;
