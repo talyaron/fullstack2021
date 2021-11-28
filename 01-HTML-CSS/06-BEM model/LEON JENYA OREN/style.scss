@@ -30,29 +30,39 @@ h1{
 }
 .main-articles{
     display: grid;
-    grid-template-columns:repeat(4,2fr);
+    grid-template-columns:repeat(4,1fr);
     grid-template-rows: repeat(2,1fr);
-    border: 1px solid black;
+    
+    width: 90vw;
+    height: 70vh;
+    gap: 10px;
+    padding: 3vw;
 }
 
-    .mainarticle{
-    width: 25vw;
-    height: 30vh;
-    border: 1px solid black;}
-    img{
-        width: fit-content;
-        height: fit-content;
-    }
-    .mainarticle1{
-        grid-row: span 2;
+    .bigarticle{grid-row: span 2;
         grid-column: span 2;
         
-        img{
-            width:auto;
-            height:auto;
-        }
-
     }
+    .bigarticle>img{
+        width: 100%;
+        height: 100%;
+    }
+
+    .article{
+        border: 1px solid black;
+    }
+    img{
+        width: 100%;
+        height: 100%;
+    }
+
+
+    
+   
+
+    
+
+    
 
 
 
