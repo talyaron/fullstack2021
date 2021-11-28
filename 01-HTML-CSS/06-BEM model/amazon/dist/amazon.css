@@ -121,7 +121,6 @@ body {
 }
 .dealGrid__dealbox h3 {
   color: red;
-<<<<<<< HEAD
   padding-left: 8px;
   bottom: 0;
 }
@@ -153,7 +152,6 @@ body {
 }
 
 /* Service-Page */
-=======
   font-weight: normal;
 }
 
@@ -184,4 +182,3 @@ h1 {
 .serviceGrid__option img {
   justify-content: center;
 }
->>>>>>> abdde1b0d093792324d816a5aac49e805dff674f
