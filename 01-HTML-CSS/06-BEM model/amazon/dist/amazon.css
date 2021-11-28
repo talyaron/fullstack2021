@@ -47,6 +47,34 @@ body {
   border: white 1px solid;
 }
 
+/*Gift page*/
+.registryGrid {
+  width: 70vw;
+  height: 55vh;
+  margin: 100px 300px 300px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 6fr 16fr;
+  justify-content: center;
+  gap: 2vw;
+}
+.registryGrid__title {
+  grid-column: span 5;
+  text-align: center;
+}
+.registryGrid__gift {
+  text-align: center;
+  background-color: #eee;
+  font-family: "Oswald", sans-serif;
+}
+.registryGrid__gift img {
+  width: 100%;
+}
+.registryGrid__gift :hover {
+  cursor: pointer;
+}
+
+/*Deal page*/
 .dealGrid {
   margin-top: 30px;
   display: grid;
@@ -81,74 +109,22 @@ body {
 }
 .dealGrid__dealbox h3 {
   color: red;
+  font-weight: normal;
 }
 
-
-/*Home page- need to add also to the scss*/
-.box {
+/* Service-Page */
+.serviceGrid {
   display: grid;
-  grid-template-columns: repeat(4, 16vw);
-  grid-template-rows: 30vh 30vh 30vh;
-  margin-top: 4vh;
-  justify-content: center;
-  gap: 30px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: reapeat(4, 1fr);
 }
-
-.box__boxItem--boxItem1{
-  grid-column: span 4;
-  display: grid;
-  grid-template-columns: 0.05fr 0.9fr 0.05fr;
-  background-color: #B1E6EE;
+.serviceGrid__title {
+  background-color: antiquewhite;
+  width: 100px;
+  height: 100px;
 }
-
-.box__boxItem--boxItem1 .arrowRight, .arrowLeft{
-  place-self: center; 
-  position: relative;   
-}
-
-.box__boxItem--boxItem1 .arrowRight{
-  bottom: 18%;
-} 
-
-.box__boxItem--boxItem1 .arrowLeft{
-  bottom: 15%;
-}
-
-.box__boxItem{
-  padding: 5px;
-}
-
-.box__boxItem{
-  font-size: 12px;
-  font-weight: 700;
-  color: rgb(78, 78, 78);
-}
-
-.box__boxItem img{
-  object-fit: cover;
-  padding-top: 3px;
-  width: 100%;
-  height: 75%;
-}
-
-.box__boxItem span{
-  font-size: 10px;
-  font-weight: 700;
-  color: rgb(21, 111, 172);
-}
-
-
-
-
-.box__boxItem--boxItem1 img{
-  object-fit: cover;
-  vertical-align: bottom;
-  width: 100%;
-  height: 100%;
-}
-
-.box .fas {
-  position: relative;
-  top: 32px;
-  color: #a8a8a8;
+.serviceGrid__option {
+  background-color: antiquewhite;
+  width: 100px;
+  height: 100px;
 }
