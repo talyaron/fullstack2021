@@ -1,3 +1,5 @@
+// Marina start//
+
 body{
   min-width: 1900px;
   margin: 0px;
@@ -164,6 +166,10 @@ body{
   
     }
 
+// Marina end
+
+// Rasheed start
+
 
 
     .grid-1-container{
@@ -277,6 +283,11 @@ body{
       
     }
 
+// Rasheed end 
+
+// Michael start
+
+
 .homecontainer {
 
   padding: 5px;
@@ -290,115 +301,102 @@ body{
   grid-auto-flow: column;
   height: 450px;
 
-}
+  &__homebox {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    padding: 10px;
+    background: radial-gradient(white,grey);
+    background-size: cover;
+    text-align: start;
+    text-shadow: 0 0 3px #000000, 0 0 5px #000000;
+
+    &--p {
+      margin: 5px;
+    }
+
+    &__homebox:hover{
+      cursor: pointer;
+      opacity: 0.8;
+      transition: 0.8s;
+    }
+
+    &__homebox :nth-child(1) {
+      font-size: 20px;
+      font-weight: 700;
+    }
+  
+  }
 
 
-.homebox {
+  &__homebox1 {
 
-  display: flex;
-  flex-direction: column;
-  justify-content: end;
-  padding: 10px;
-  background: radial-gradient(white,grey);
-  background-size: cover;
-  text-align: start;
-  text-shadow: 0 0 3px #000000, 0 0 5px #000000;
+    grid-row: 1/3;
+    background-image: url(https://ichef.bbci.co.uk/live-experience/cps/624/cpsprodpb/vivo/live/images/2021/11/25/3157c030-c1e3-4afc-b825-93ad2d5d516c.jpg);
+    background-size: cover;
 
-}
+    &__homebox1 :nth-child(3) {
+     border-left: 5px solid red;
+    }
 
-.homebox p {
-  margin: 5px;
-}
+    &__h1 {
 
-.homebox:hover{
+      font-size: 60px;
+    }
+    
+  }
+  
+  &__homebox2 {
+  
+  
+  
+    background-image: url(https://ichef.bbci.co.uk/news/976/cpsprodpb/58DC/production/_121784722_migrants4.jpg);
+    background-size: cover;
 
-  cursor: pointer;
-  opacity: 0.8;
-  transition: 0.8s;
+    &__homebox2 :nth-child(2) {
 
-}
+      border-left: 5px solid red;
+    }
+  }
+  
+  &__homebox3 {
+  
+    background-image: url(https://ichef.bbci.co.uk/live-experience/cps/624/cpsprodpb/vivo/live/images/2021/11/24/f1cc5ab7-b958-4a01-8696-4a292bc8fcbd.jpg);
+    background-size: cover;
 
-.homebox1 {
+    &__homebox3 :nth-child(2) {
 
-  grid-row: 1/3;
-  background-image: url(https://ichef.bbci.co.uk/live-experience/cps/624/cpsprodpb/vivo/live/images/2021/11/25/3157c030-c1e3-4afc-b825-93ad2d5d516c.jpg);
-  background-size: cover;
+      border-left: 5px solid red;
+    }
+  }
+  
+  &__homebox4 {
+  
+  
+    background-image: url(https://ychef.files.bbci.co.uk/1280x720/p0b576yw.webp);
+    background-size: cover;
 
-}
+    &__homebox4 :nth-child(2) {
 
-.homebox2 {
+      border-left: 5px solid red;
+    }
+  }
+  
+  &__homebox5 {
+  
+    background-image: url(https://ichef.bbci.co.uk/images/ic/832xn/p09ydv2w.jpg);
+    background-size: cover;
 
+    &__homebox5 :nth-child(2) {
 
-
-  background-image: url(https://ichef.bbci.co.uk/news/976/cpsprodpb/58DC/production/_121784722_migrants4.jpg);
-  background-size: cover;
-
-}
-
-.homebox3 {
-
-  background-image: url(https://ichef.bbci.co.uk/live-experience/cps/624/cpsprodpb/vivo/live/images/2021/11/24/f1cc5ab7-b958-4a01-8696-4a292bc8fcbd.jpg);
-  background-size: cover;
-
-}
-
-.homebox4 {
-
-
-  background-image: url(https://ychef.files.bbci.co.uk/1280x720/p0b576yw.webp);
-  background-size: cover;
-
-}
-
-.homebox5 {
-
-  background-image: url(https://ichef.bbci.co.uk/images/ic/832xn/p09ydv2w.jpg);
-  background-size: cover;
-}
-
-
-.homebox :nth-child(1) {
-
-  font-size: 20px;
-  font-weight: 700;
-
-}
-
-.homebox1 h1 {
-
-  font-size: 60px;
-
-}
-
-.homebox1 :nth-child(3) {
-
-
-  border-left: 5px solid red;
-
-}
-
-.homebox2 :nth-child(2) {
-
-  border-left: 5px solid red;
-}
-
-.homebox3 :nth-child(2) {
-
-  border-left: 5px solid red;
+      border-left: 5px solid red;
+    }
+  }
 
 }
 
-.homebox4 :nth-child(2) {
 
-  border-left: 5px solid red;
-
-}
-
-.homebox5 :nth-child(2) {
-
-  border-left: 5px solid red;
-
-}
 
 // **** MIDDLE BAR ****
 
@@ -409,7 +407,7 @@ body{
   width: 75%;
 
 
-  >h1 {
+  &__h1 {
 
   border-left: 6px solid red;
   width: 100px;
@@ -429,31 +427,29 @@ body{
   justify-content: space-between;
   width: 75%;
 
+  &__newsbox {
+
+    display: flex;
+    flex-direction: column;
+    max-width: 32%;
+    height: 450px;
+  
+    h1{
+        font-size: 27px;
+    }
+  
+    h1:hover{
+        cursor: pointer;
+        text-decoration: underline;
+    }
+  
+    .category{
+  
+        border-left: 4px solid red;
+        padding-left: 10px;
+        color: rgb(98, 94, 90);
+    }
 }
-
-.newsbox {
-
-  display: flex;
-  flex-direction: column;
-  max-width: 32%;
-  height: 450px;
-
-  h1{
-      font-size: 27px;
-  }
-
-  h1:hover{
-      cursor: pointer;
-      text-decoration: underline;
-  }
-
-  .category{
-
-      border-left: 4px solid red;
-      padding-left: 10px;
-      color: rgb(98, 94, 90);
-
-  }
 
 }
 
@@ -465,7 +461,6 @@ body{
   
       width: 100%;
       height: 100%;
-
   }
 
   img:hover{
@@ -474,30 +469,29 @@ body{
       cursor: pointer;
       opacity: 0.8;
   }
-  
+
+  &__newsboxtext {
+
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
 }
 
 
-.newsboxtext {
+   &__homebody{
 
-      height: 50%;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: space-between;
+  font-family: 'outfit', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: rgb(252, 252, 252);
   }
 
-
-
-.homebody{
-
-    font-family: 'outfit', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background: rgb(252, 252, 252);
 }
 
+// Michael end
 
   
