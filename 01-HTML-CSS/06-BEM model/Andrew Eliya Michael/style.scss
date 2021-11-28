@@ -190,7 +190,7 @@ body {
 .nav--sport {
   background-color: rgb(255, 208, 0);
   margin-bottom: 20px;
-    padding-bottom: 3px;
+  padding-bottom: 3px;
 
   a {
     height: 100%;
@@ -210,36 +210,17 @@ body {
 .nav--sport--items {
   display: flex;
   flex-direction: row;
-<<<<<<< Updated upstream
-  .text{
+
+  <<<<<<< Updated upstream .text {
     padding-left: 20px;
   }
 }
-.sport--main{
+
+.sport--main {
   justify-content: space-between;
   display: flex;
   flex-direction: row;
   margin-right: 210px;
-.imgA img{
- height: 300px;
- width:500px ;
-}
-.imgB img{
-  height: 150px;
-  width: 250px;
-=======
-  justify-content: space-evenly;
-}
-
-.sport--main__article--big {
-  display: flex;
-  flex-direction: row;
->>>>>>> Stashed changes
-}
-
-.sport--main {
-  display: flex;
-  flex-direction: row;
 
   .imgA img {
     height: 300px;
@@ -249,76 +230,98 @@ body {
   .imgB img {
     height: 150px;
     width: 250px;
+    =======justify-content: space-evenly;
   }
 
-  .text {
-    width: 230px;
-  }
-
-  .list-inline {
+  .sport--main__article--big {
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: row;
+    >>>>>>>Stashed changes
+  }
+
+  .sport--main {
+    display: flex;
+    flex-direction: row;
+
+    .imgA img {
+      height: 300px;
+      width: 500px;
+    }
+
+    .imgB img {
+      height: 150px;
+      width: 250px;
+    }
+
+    .text {
+      width: 230px;
+    }
+
+    .list-inline {
+      display: flex;
+      justify-content: space-evenly;
+      flex-direction: row;
+    }
+
+    h3:hover {
+      color: rgb(42, 19, 255);
+      text-decoration-line: underline;
+      text-decoration-style: solid;
+    }
+
+    .list-inline p:nth-child(2) {
+      color: rgb(101, 216, 34);
+    }
+
+    .list-inline p:nth-child(2):hover {
+      color: rgb(101, 216, 34);
+      text-decoration-line: underline;
+      text-decoration-style: solid;
+    }
+
+  }
+
+  .ad--row {
+    width: 100%;
+    text-align: center;
+    background-color: rgb(221, 216, 216);
+
+    img {
+      width: 80%;
+    }
+  }
+
+  .sport--small {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+
+    img {
+      width: 300px;
+      height: 200x;
+    }
+  }
+
+  .sport--small__articale {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 200x;
+    margin: 10px;
+
+    <<<<<<< Updated upstream h5:hover {
+      color: rgb(42, 19, 255);
+      text-decoration-line: underline;
+      text-decoration-style: solid;
+    }
+  }
+
+  .sport--small__articale__row {
+    display: flex;
     flex-direction: row;
   }
 
-  h3:hover {
-    color: rgb(42, 19, 255);
-    text-decoration-line: underline;
-    text-decoration-style: solid;
-  }
-
-  .list-inline p:nth-child(2) {
-    color: rgb(101, 216, 34);
-  }
-
-  .list-inline p:nth-child(2):hover {
-    color: rgb(101, 216, 34);
-    text-decoration-line: underline;
-    text-decoration-style: solid;
-  }
-
-}
-
-.ad--row {
-  width: 100%;
-  text-align: center;
-  background-color: rgb(221, 216, 216);
-
-  img {
-    width: 80%;
-  }
-}
-
-.sport--small {
-  display: flex;
-  flex-direction: column;
-  margin: 20px;
-
-  img {
-    width: 300px;
-    height: 200x;
-  }
-}
-
-.sport--small__articale {
-  display: flex;
-  flex-direction: column;
-  width: 300px;
-  height: 200x;
-  margin: 10px;
-<<<<<<< Updated upstream
-  h5:hover{
-    color: rgb(42, 19, 255);
-    text-decoration-line: underline;
-    text-decoration-style: solid;
-  }
-} 
-.sport--small__articale__row{
-  display: flex;
-  flex-direction: row;
-}
-<<<<<<< HEAD
-=======
+  <<<<<<< HEAD=======
 }
 
 .sport--small__articale__row {
@@ -326,24 +329,20 @@ body {
   flex-direction: row;
 }
 
->>>>>>> Stashed changes
+>>>>>>>Stashed changes
+
 /*asdasdasd*/
 .navBar--news {
   width: 100%;
   background-color: red;
   height: 100px;
 }
-=======
 
-<<<<<<< Updated upstream
-
+=======<<<<<<< Updated upstream
 /*asdasdasd*/
 
 
->>>>>>> 24b6b0029e7c46780d8b09fa8aa5741d395bc2bc
-
-=======
-.nottitle {
+>>>>>>>24b6b0029e7c46780d8b09fa8aa5741d395bc2bc=======.nottitle {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -411,13 +410,17 @@ body {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: auto;
   margin-right: 35vw;
-  .news--medium_article>img{width: 12vw;
+
+  .news--medium_article>img {
+    width: 12vw;
   }
 }
 
-.news--feed{width: 45vw;
+.news--feed {
+  width: 45vw;
   display: grid;
-grid-template-columns: 1fr 1fr 1fr;
-grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
 }
->>>>>>> Stashed changes
+
+>>>>>>>Stashed changes
