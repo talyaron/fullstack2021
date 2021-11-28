@@ -8,7 +8,7 @@ body {
   /*=============================================*/
 }
 body header {
-  background-color: rgb(0, 0, 0);
+  background-color: black;
   color: white;
 }
 body header .website-header {
@@ -32,11 +32,11 @@ body header .website-header .website-header__social-icons .social-icons i {
   cursor: pointer;
 }
 body .navbar {
-  background-color:red;
+  background-color: black;
 }
 body .navbar .navbar__navbar-nav {
-  background-color:red(0, 0, 0);
-  height: 60px;
+  background-color:red;
+  height: 100px;
   display: inline-flex;
   flex-wrap: wrap;
 }
@@ -46,7 +46,7 @@ body .navbar .navbar__navbar-nav .navbar__nav-item {
 body .navbar .navbar__navbar-nav .navbar__nav-item .navbar__nav-link {
   padding: 10px 20px;
   color: #fff;
-  font-size: 25px;
+  font-size: 30px;
   font-family: "Courier New";
 }
 body .navbar .navbar__navbar-nav .navbar__nav-item .navbar__nav-link:hover {
