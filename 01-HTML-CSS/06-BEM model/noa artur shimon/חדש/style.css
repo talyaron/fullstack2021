@@ -1,0 +1,43 @@
+.header {
+  background-color: #f73959;
+  position: fixed;
+  width: 100%;
+}
+
+.header h1 {
+  background-color: pink;
+}
+
+.header span {
+  color: white;
+  font-weight: 700;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+}
+
+.header i {
+  padding-right: 5px;
+}
+
+.navbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: 100%;
+  height: auto;
+}
+
+body {
+  margin: 0;
+}
+/*# sourceMappingURL=style.css.map */
