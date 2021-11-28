@@ -156,6 +156,8 @@ body {
 
 .nav--sport {
   background-color: #ffd000;
+  margin-bottom: 20px;
+  padding-bottom: 3px;
 }
 .nav--sport a {
   height: 100%;
@@ -178,10 +180,15 @@ body {
   display: flex;
   flex-direction: row;
 }
+.sport--main__article--big .text {
+  padding-left: 20px;
+}
 
 .sport--main {
+  justify-content: space-between;
   display: flex;
   flex-direction: row;
+  margin-right: 210px;
 }
 .sport--main .imgA img {
   height: 300px;
@@ -239,10 +246,27 @@ body {
   height: 200x;
   margin: 10px;
 }
+.sport--small__articale h5:hover {
+  color: #2a13ff;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+}
 
 .sport--small__articale__row {
   display: flex;
   flex-direction: row;
 }
 
+<<<<<<< HEAD
 /*asdasdasd*/
+.navBar--news {
+  width: 100%;
+  background-color: red;
+  height: 100px;
+}
+.navBar--news .h2 {
+  color: white;
+}
+=======
+/*asdasdasd*/
+>>>>>>> 24b6b0029e7c46780d8b09fa8aa5741d395bc2bc
