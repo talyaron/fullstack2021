@@ -89,16 +89,16 @@ body {
 /*Deal page*/
 
 .dealGrid {
-    margin-top: 30px;
     display: grid;
-    border: black 2px solid;
-    grid-template-columns: repeat(12, 130px);
-    grid-template-rows: 160px 200px;
+
+    grid-template-columns: repeat(8, 200px);
+    grid-template-rows: 200px 290px;
     justify-content: center;
 
     &__runner {
-        grid-column: span 12;
-        border: black 2px solid;
+        grid-column: span 8;
+        border: rgb(190, 69, 32) 2px solid;
+        background-color: rgb(207, 104, 19);
 
         img {
             width: 100%;
@@ -140,16 +140,22 @@ body {
             color:red;
             padding-left:8px;
             bottom:0;
-            
+         }
 
-    &__dealbox--dealbox1 {
-        width: auto;
-        border: black 2px solid;
+    &--dealbox1 {
+        grid-column: span 2;
+
+        iframe{
+            height: 100%;
+            width: 100%;
+        }
+        
     }
 
-    
-    
 }
+    
+
+
 
 .dealarrowLeft{
     background-color:rgb(250, 255, 250);
@@ -208,5 +214,16 @@ h1 {
     }
     &__option img {
         justify-content: center;
+
+        &__option {
+            border: 1px solid rgb(151, 151, 151);
+            width: 50%;
+            height: 50%;
+            padding: 10px;
+            border-radius: 7px;
+        }
+        &__option img {
+            justify-content: center;
+        }
     }
 }

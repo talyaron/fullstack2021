@@ -80,6 +80,7 @@ body {
   grid-template-columns: repeat(8, 200px);
   grid-template-rows: 200px 290px;
   justify-content: center;
+  /* Service-Page */
 }
 .dealGrid__runner {
   grid-column: span 8;
@@ -89,13 +90,6 @@ body {
 .dealGrid__runner img {
   width: 100%;
   max-height: 100%;
-}
-.dealGrid__dealbox--dealbox1 {
-  grid-column: span 2;
-}
-.dealGrid__dealbox--dealbox1 iframe {
-  height: 100%;
-  width: 100%;
 }
 .dealGrid__dealbox {
   word-wrap: break-word;
@@ -124,7 +118,13 @@ body {
   padding-left: 8px;
   bottom: 0;
 }
-
+.dealGrid__dealbox--dealbox1 {
+  grid-column: span 2;
+}
+.dealGrid__dealbox--dealbox1 iframe {
+  height: 100%;
+  width: 100%;
+}
 .dealarrowLeft {
   background-color: #fafffa;
   opacity: 0.6;
@@ -137,7 +137,6 @@ body {
   cursor: pointer;
   align-items: center;
 }
-
 .dealarrowRight {
   background-color: #fafffa;
   opacity: 0.6;
@@ -149,10 +148,6 @@ body {
   right: 1px;
   cursor: pointer;
   align-items: center;
-}
-
-/* Service-Page */
-  font-weight: normal;
 }
 
 /* Service-Page */
@@ -180,5 +175,15 @@ h1 {
   border-radius: 7px;
 }
 .serviceGrid__option img {
+  justify-content: center;
+}
+.serviceGrid__option img__option {
+  border: 1px solid #979797;
+  width: 50%;
+  height: 50%;
+  padding: 10px;
+  border-radius: 7px;
+}
+.serviceGrid__option img__option img {
   justify-content: center;
 }
