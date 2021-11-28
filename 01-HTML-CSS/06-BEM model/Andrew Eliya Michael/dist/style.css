@@ -173,14 +173,8 @@ body {
 .nav--sport--items {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
 }
-
-.sport--main__article--big {
-  display: flex;
-  flex-direction: row;
-}
-.sport--main__article--big .text {
+.nav--sport--items .text {
   padding-left: 20px;
 }
 
@@ -197,59 +191,77 @@ body {
 .sport--main .imgB img {
   height: 150px;
   width: 250px;
+  justify-content: space-evenly;
 }
-.sport--main .text {
+.sport--main .sport--main__article--big {
+  display: flex;
+  flex-direction: row;
+}
+.sport--main .sport--main {
+  display: flex;
+  flex-direction: row;
+}
+.sport--main .sport--main .imgA img {
+  height: 300px;
+  width: 500px;
+}
+.sport--main .sport--main .imgB img {
+  height: 150px;
+  width: 250px;
+}
+.sport--main .sport--main .text {
   width: 230px;
 }
-.sport--main .list-inline {
+.sport--main .sport--main .list-inline {
   display: flex;
   justify-content: space-evenly;
   flex-direction: row;
 }
-.sport--main h3:hover {
+.sport--main .sport--main h3:hover {
   color: #2a13ff;
   text-decoration-line: underline;
   text-decoration-style: solid;
 }
-.sport--main .list-inline p:nth-child(2) {
+.sport--main .sport--main .list-inline p:nth-child(2) {
   color: #65d822;
 }
-.sport--main .list-inline p:nth-child(2):hover {
+.sport--main .sport--main .list-inline p:nth-child(2):hover {
   color: #65d822;
   text-decoration-line: underline;
   text-decoration-style: solid;
 }
-
-.ad--row {
+.sport--main .ad--row {
   width: 100%;
   text-align: center;
   background-color: #ddd8d8;
 }
-.ad--row img {
+.sport--main .ad--row img {
   width: 80%;
 }
-
-.sport--small {
+.sport--main .sport--small {
   display: flex;
   flex-direction: column;
   margin: 20px;
 }
-.sport--small img {
+.sport--main .sport--small img {
   width: 300px;
   height: 200x;
 }
-
-.sport--small__articale {
+.sport--main .sport--small__articale {
   display: flex;
   flex-direction: column;
   width: 300px;
   height: 200x;
   margin: 10px;
 }
-.sport--small__articale h5:hover {
+.sport--main .sport--small__articale h5:hover {
   color: #2a13ff;
   text-decoration-line: underline;
   text-decoration-style: solid;
+}
+.sport--main .sport--small__articale__row {
+  display: flex;
+  flex-direction: row;
 }
 
 .sport--small__articale__row {
@@ -257,21 +269,7 @@ body {
   flex-direction: row;
 }
 
-<<<<<<< HEAD
 /*asdasdasd*/
-.navBar--news {
-  width: 100%;
-  background-color: red;
-  height: 100px;
-}
-.navBar--news .h2 {
-  color: white;
-}
-=======
-/*asdasdasd*/
-<<<<<<< Updated upstream
->>>>>>> 24b6b0029e7c46780d8b09fa8aa5741d395bc2bc
-=======
 .navBar--news {
   width: 100%;
   background-color: red;
@@ -350,4 +348,3 @@ body {
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
 }
->>>>>>> Stashed changes
