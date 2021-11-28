@@ -1,30 +1,153 @@
-.header {
-  width: 100%;
-  color: white;
-  background-color: black;
-  height: 5vh;
-  display: flex;
-}
-.header__logo {
-  color: brown;
-}
-.header__item1 {
-  color: aqua;
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
 }
 
-.carousel {
+.upperHeader {
+  width: 100%;
+  color: white;
+  background-color: #121921;
+  height: 5vh;
   display: flex;
-  align-items: center;
-  margin-top: 4vh;
+  gap: 10vw;
+  padding: 10px 0 0 10px;
+}
+.upperHeader__logo img {
+  height: 5vh;
+  width: 5vw;
+}
+.upperHeader__searchBar {
+  width: 60vw;
+  padding-left: 90px;
+}
+.upperHeader input {
+  display: inline-block;
+  width: 100%;
+}
+.upperHeader__flag {
+  color: red;
+}
+
+.lowerHeader {
+  display: grid;
+  grid-template-columns: 80px 80px 80px 80px;
+  background-color: #232f3e;
+  width: 100%;
+  height: 5vh;
+  padding: 10px 0 0 15px;
+}
+.lowerHeader__item {
+  padding: 0 1px;
+}
+.lowerHeader a {
+  text-decoration: none;
+  color: blanchedalmond;
+}
+.lowerHeader a:hover {
+  border: white 1px solid;
+}
+
+.dealGrid {
+  margin-top: 30px;
+  display: grid;
+  border: black 2px solid;
+  grid-template-columns: repeat(12, 130px);
+  grid-template-rows: 160px 200px;
   justify-content: center;
 }
-.carousel__buttonItem {
-  background-color: #93DDE8;
-  height: 95px;
-  width: 25px;
-  padding: 0 5px;
+.dealGrid__runner {
+  grid-column: span 12;
+  border: black 2px solid;
 }
-.carousel .fas {
+.dealGrid__runner img {
+  width: 100%;
+  max-height: 100%;
+}
+.dealGrid__dealbox--dealbox1 {
+  width: auto;
+  border: black 2px solid;
+}
+.dealGrid__dealbox {
+  border: black 2px solid;
+}
+.dealGrid__dealbox img {
+  width: 100%;
+  height: 50%;
+  cursor: pointer;
+}
+.dealGrid__dealbox h4 {
+  font-weight: normal;
+  color: black;
+}
+.dealGrid__dealbox h3 {
+  color: red;
+}
+
+
+/*Home page- need to add also to the scss*/
+.box {
+  display: grid;
+  grid-template-columns: repeat(4, 16vw);
+  grid-template-rows: 30vh 30vh 30vh;
+  margin-top: 4vh;
+  justify-content: center;
+  gap: 30px;
+}
+
+.box__boxItem--boxItem1{
+  grid-column: span 4;
+  display: grid;
+  grid-template-columns: 0.05fr 0.9fr 0.05fr;
+  background-color: #B1E6EE;
+}
+
+.box__boxItem--boxItem1 .arrowRight, .arrowLeft{
+  place-self: center; 
+  position: relative;   
+}
+
+.box__boxItem--boxItem1 .arrowRight{
+  bottom: 18%;
+} 
+
+.box__boxItem--boxItem1 .arrowLeft{
+  bottom: 15%;
+}
+
+.box__boxItem{
+  padding: 5px;
+}
+
+.box__boxItem{
+  font-size: 12px;
+  font-weight: 700;
+  color: rgb(78, 78, 78);
+}
+
+.box__boxItem img{
+  object-fit: cover;
+  padding-top: 3px;
+  width: 100%;
+  height: 75%;
+}
+
+.box__boxItem span{
+  font-size: 10px;
+  font-weight: 700;
+  color: rgb(21, 111, 172);
+}
+
+
+
+
+.box__boxItem--boxItem1 img{
+  object-fit: cover;
+  vertical-align: bottom;
+  width: 100%;
+  height: 100%;
+}
+
+.box .fas {
   position: relative;
   top: 32px;
   color: #a8a8a8;
