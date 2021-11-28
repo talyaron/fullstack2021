@@ -39,8 +39,19 @@ h1{
     padding: 3vw;
 }
 
-    .bigarticle{grid-row: span 2;
+    .bigarticle{position: relative;
+        grid-row: span 2;
         grid-column: span 2;
+        p{
+            position: absolute;
+            top: 330px;
+            left: 200px;
+            
+            font-style: italic;
+            color: rgb(51, 45, 37);
+            font-size: 30px;
+            
+        }
         
     }
     .bigarticle>img{
@@ -48,8 +59,23 @@ h1{
         height: 100%;
     }
 
-    .article{
+    .article{position: relative;
         border: 1px solid black;
+        p{
+            position: absolute;
+            top: 130px;
+            left: 30px;
+            
+            font-family: 'Arvo', serif;
+font-family: 'Comforter Brush', cursive;
+font-family: 'M PLUS Code Latin', sans-serif;
+font-family: 'Montserrat', sans-serif;
+            color: rgb(255, 255, 255);
+            font-size: 23px;
+            font-weight: bold;
+            
+        }
+        
     }
     img{
         width: 100%;
