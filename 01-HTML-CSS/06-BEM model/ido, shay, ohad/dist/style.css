@@ -24,7 +24,7 @@
   flex-direction: row;
   background-color: red;
   font-size: 18px;
-  padding: 10px;
+  padding: 5px;
 }
 .NavBar--news_Header a {
   color: white;
@@ -33,6 +33,24 @@
   text-align: center;
 }
 .NavBar--news_Header a:hover {
+  color: black;
+}
+.NavBar--sport_Header {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  background-color: orange;
+  font-size: 18px;
+  padding: 5px;
+}
+.NavBar--sport_Header a {
+  color: white;
+  padding: 10px;
+  text-decoration: none;
+  text-align: center;
+}
+.NavBar--sport_Header a:hover {
   color: black;
 }
 .NavBar__logo {
@@ -76,6 +94,14 @@
 
 .RedHeader {
   background-color: red;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  padding: 10px;
+  margin-bottom: 50px;
+}
+
+.OrangeHeader {
+  background-color: orange;
   font-family: Arial, Helvetica, sans-serif;
   color: white;
   padding: 10px;
@@ -227,27 +253,6 @@
   background-image: url("https://e3.365dm.com/20/08/768x432/skynews-sideman-bbc-1extra_5062530.jpg?20200808215407");
   background-position: center;
   background-repeat: no-repeat;
-}
-.main__upper__img--big--sports {
-  display: grid;
-  grid-template-columns: repeat(8, 1fr 1fr);
-  width: 100vh;
-}
-.main__upper__img--big--sports img {
-  grid-column: 1/4;
-  grid-row: 1/4;
-}
-.main__upper__img--big--sports h2 {
-  grid-row: 0;
-  grid-column: 6;
-}
-.main__upper__img--big--sports h3 {
-  grid-column: 6;
-  grid-row: 2;
-}
-.main__upper__img--big--sports p {
-  grid-row: 3;
-  grid-column: 6;
 }
 .main__upper__img--big--news {
   border: 5px solid red;
