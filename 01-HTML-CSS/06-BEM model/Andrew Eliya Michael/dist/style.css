@@ -98,7 +98,9 @@ body {
 .ad--column {
   height: 30vh;
   background-color: #ddd8d8;
-  padding-block: 22vh;
+  padding-block: 40vh;
+  position: relative;
+  top: 3.5vh;
 }
 
 .navBar--news {

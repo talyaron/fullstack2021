@@ -185,9 +185,12 @@ grid-template-rows: 1fr;}
 .pic>img{width:35vw;
 height: 35vh
 ;}
+
 .pic{display: grid;
 grid-template-columns: 1fr 1fr;
-grid-template-rows: 1fr;}
+grid-template-rows: 1fr;
+  .img{}
+}
 
 .pic>p{position: relative;
 bottom:25vh ;
