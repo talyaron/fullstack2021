@@ -84,10 +84,11 @@ body {
   flex-direction: column;
   justify-content: space-between;
   width: 25vw;
+  height: 50vh;
   margin: 1rem;
 }
 .home--small__row .home--small__row_article img {
-  height: 15vh;
+  height: 30vh;
 }
 .home--small__row .home--small__row_article :last-child {
   box-shadow: -0.2em 0 0 blue;
@@ -96,6 +97,10 @@ body {
 
 .ad--column {
   height: 30vh;
+  background-color: #ddd8d8;
+  padding-block: 40vh;
+  position: relative;
+  top: 3.5vh;
 }
 
 .navBar--news {
@@ -111,6 +116,7 @@ body {
   flex-direction: row;
   border: 1px solid #ccc;
   justify-content: space-between;
+  align-items: center;
 }
 .header .search {
   border: 1px solid;
@@ -127,27 +133,25 @@ body {
   padding-right: 5px;
   text-decoration: none;
 }
-.header .header--items {
-  height: 40px;
-}
 .header .header__item {
   border: 1px solid #ccc;
   height: 100px;
+  padding-block: 11px;
 }
 .header a:nth-child(1):hover {
-  border-bottom: 3px solid red;
+  box-shadow: inset 0 -2px 0 0 red;
 }
 .header a:nth-child(2):hover {
-  border-bottom: 3px solid #ffd000;
+  box-shadow: inset 0 -2px 0 0 #ffd000;
 }
 .header a:nth-child(3):hover {
-  border-bottom: 3px solid #3b3bfc;
+  box-shadow: inset 0 -2px 0 0 #3b3bfc;
 }
 .header a:nth-child(4):hover {
-  border-bottom: 3px solid #030381;
+  box-shadow: inset 0 -2px 0 0 #030381;
 }
 .header a:nth-child(5):hover {
-  border-bottom: 3px solid black;
+  box-shadow: inset 0 -2px 0 0 black;
 }
 
 .nav--sport {
@@ -240,3 +244,5 @@ body {
   display: flex;
   flex-direction: row;
 }
+
+/*asdasdasd*/
