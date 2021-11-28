@@ -121,14 +121,14 @@ body {
   grid-column: span 2;
   border: black 2px solid;
 }
-.dealGrid__dealbox--dealbox1 img {
+.dealGrid__dealbox--dealbox1 video {
   height: 100%;
   width: 100%;
 }
 
 .dealarrowLeft {
-  background-color: #fafffa;
-  opacity: 0.6;
+  background-color: #ffffe6;
+  opacity: 0.7;
   width: 30px;
   height: 80px;
   display: flex;
@@ -140,7 +140,7 @@ body {
 }
 
 .dealarrowRight {
-  background-color: #fafffa;
+  background-color: #ffffe6;
   opacity: 0.6;
   width: 30px;
   height: 80px;

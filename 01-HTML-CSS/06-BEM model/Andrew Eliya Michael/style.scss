@@ -91,9 +91,10 @@ body{
         flex-direction: column;
         justify-content: space-between;
         width: 25vw;
+        height: 50vh;
         margin: 1rem;
         img{
-            height: 15vh;
+            height: 30vh;
         }
         :last-child{
             box-shadow: -0.2em 0 0 blue;
@@ -101,7 +102,13 @@ body{
         }
     }
 }
-
+.ad--column{
+    height: 30vh;
+    background-color: rgb(221, 216, 216);
+    padding-block: 40vh;
+    position: relative;
+    top: 3.5vh;
+}
 
 .navBar--news{
     width: 100%;
@@ -156,6 +163,8 @@ body{
 
 .nav--sport{
   background-color: rgb(255, 208, 0);
+  margin-bottom: 20px;
+    padding-bottom: 3px;
 
   a{
     height: 100%;
@@ -179,10 +188,15 @@ body{
 .sport--main__article--big{
   display: flex;
   flex-direction: row;
+  .text{
+    padding-left: 20px;
+  }
 }
 .sport--main{
+  justify-content: space-between;
   display: flex;
   flex-direction: row;
+  margin-right: 210px;
 .imgA img{
  height: 300px;
  width:500px ;
@@ -241,9 +255,30 @@ h3:hover{
   width: 300px;
   height: 200x;
   margin: 10px;
+  h5:hover{
+    color: rgb(42, 19, 255);
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+  }
 } 
 .sport--small__articale__row{
   display: flex;
   flex-direction: row;
 }
+<<<<<<< HEAD
+/*asdasdasd*/
+.navBar--news{
+  width: 100%;
+  background-color: red;
+  height: 100px;
+  .h2{color: white;
+  }
+}
+=======
+
+
+/*asdasdasd*/
+
+
+>>>>>>> 24b6b0029e7c46780d8b09fa8aa5741d395bc2bc
 
