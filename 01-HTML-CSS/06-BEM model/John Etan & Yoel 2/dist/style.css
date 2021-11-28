@@ -60,11 +60,12 @@ body {
   position: absolute;
   display: inline-block;
   direction: rtl;
-  top: 40vh;
-  right: 10vw;
+  top: 22vh;
+  right: 9vw;
   background-color: transparent;
 }
 .socialmedia--item {
+  filter: none;
   -webkit-filter: invert(100%);
   font-family: "typewriter";
   height: 2vh;
@@ -73,6 +74,59 @@ body {
   cursor: pointer;
 }
 .socialmedia--item img {
-  height: 4.2vh;
+  height: 4vh;
   width: 2vw;
+}
+
+/*Home page content*/
+.Homeimg {
+  position: absolute;
+  z-index: 1;
+  width: 623px;
+  height: 420px;
+  left: 20vw;
+  top: 33vh;
+}
+
+#Joe {
+  background-image: url("https://www.rollingstone.com/wp-content/uploads/2018/06/rs-213329-R1247_FEA_Rogen_A.jpg?resize=623,420&w=623");
+}
+
+.description {
+  background-color: black;
+  color: #ccc2c2;
+  font-family: typeka;
+  font-size: 2.5vw;
+  position: relative;
+  left: 35vw;
+  top: 5vh;
+  height: 22vh;
+  width: fit-content;
+  overflow-wrap: break-word;
+  padding: 1vw;
+}
+
+.logoimg {
+  left: -2%;
+  top: 0%;
+  width: 104%;
+  height: 100%;
+  position: absolute;
+}
+
+.watch {
+  border: solid 2px #fff;
+  background-color: transparent;
+  -webkit-transition: background-color 0.1s linear;
+  -moz-transition: background-color 0.1s linear;
+  -ms-transition: background-color 0.1s linear;
+  -o-transition: background-color 0.1s linear;
+  transition: background-color 0.1s linear;
+  color: #fff;
+}
+
+.text {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 20px;
+  line-height: 1.75em;
 }
