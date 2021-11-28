@@ -269,4 +269,85 @@ body {
 }
 =======
 /*asdasdasd*/
+<<<<<<< Updated upstream
 >>>>>>> 24b6b0029e7c46780d8b09fa8aa5741d395bc2bc
+=======
+.navBar--news {
+  width: 100%;
+  background-color: red;
+  height: 100px;
+}
+
+.nottitle {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-right: 3vw;
+}
+.nottitle .navBar--news_item > h4 {
+  font-weight: 1000;
+}
+
+.ad--row2 {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 10vw;
+}
+.ad--row2 .box > img {
+  width: 15vw;
+  height: 25vh;
+}
+.ad--row2 .box > p {
+  text-align: center;
+}
+
+.news--main {
+  width: 100%;
+  height: 20vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 2fr 1fr;
+}
+.news--main .pic > img {
+  width: 25vw;
+}
+.news--main .livenews {
+  width: 20vw;
+  display: flex;
+  flex-direction: column;
+}
+.news--main .box > img {
+  width: 15vw;
+  height: 25vh;
+}
+.news--main .box > p {
+  position: relative;
+  left: 8vw;
+}
+
+.news--small {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-right: 45vw;
+}
+
+.news--medium {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  margin-right: 35vw;
+}
+.news--medium .news--medium_article > img {
+  width: 12vw;
+}
+
+.news--feed {
+  width: 45vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+>>>>>>> Stashed changes
