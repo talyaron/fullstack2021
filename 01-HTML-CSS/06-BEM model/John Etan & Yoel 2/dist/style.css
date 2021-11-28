@@ -105,3 +105,26 @@ body {
   overflow-wrap: break-word;
   padding: 1vw;
 }
+
+/*podcast page style*/
+.logoimg {
+  left: 33vw;
+  top: 25vh;
+  width: 104%;
+  height: 100%;
+  position: absolute;
+}
+
+.watch {
+  border: solid 2px #fff;
+  background-color: transparent;
+  color: #fff;
+}
+
+.text {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 20px;
+  line-height: 1.75em;
+  text-align: center;
+  white-space: pre-wrap;
+}
