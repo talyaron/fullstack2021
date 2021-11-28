@@ -80,6 +80,8 @@ body {
   grid-template-columns: repeat(8, 200px);
   grid-template-rows: 200px 290px;
   justify-content: center;
+  /* Service-Page */
+  /* Service-Page */
 }
 .dealGrid__runner {
   grid-column: span 8;
@@ -97,21 +99,29 @@ body {
   height: 100%;
   width: 100%;
 }
-.dealGrid__dealbox {
+.dealGrid__dealbox--dealbox1__runner {
+  grid-column: span 12;
+  border: black 2px solid;
+}
+.dealGrid__dealbox--dealbox1__runner img {
+  width: 100%;
+  max-height: 100%;
+}
+.dealGrid__dealbox--dealbox1__dealbox {
   word-wrap: break-word;
   border: rgba(0, 0, 0, 0.425) 2px solid;
   border-radius: 7px;
 }
-.dealGrid__dealbox img {
+.dealGrid__dealbox--dealbox1__dealbox img {
   width: 100%;
   height: 50%;
   cursor: pointer;
 }
-.dealGrid__dealbox p {
+.dealGrid__dealbox--dealbox1__dealbox p {
   text-align: start;
   padding-left: 8px;
 }
-.dealGrid__dealbox h4 {
+.dealGrid__dealbox--dealbox1__dealbox h4 {
   display: flex;
   position: absolute;
   justify-items: bottom;
@@ -119,14 +129,16 @@ body {
   color: black;
   padding-left: 8px;
 }
-.dealGrid__dealbox h3 {
+.dealGrid__dealbox--dealbox1__dealbox h3 {
   color: red;
-<<<<<<< HEAD
   padding-left: 8px;
   bottom: 0;
 }
-
-.dealarrowLeft {
+.dealGrid__dealbox--dealbox1__dealbox h3 {
+  color: red;
+  font-weight: normal;
+}
+.dealGrid .dealarrowLeft {
   background-color: #fafffa;
   opacity: 0.6;
   width: 30px;
@@ -138,8 +150,7 @@ body {
   cursor: pointer;
   align-items: center;
 }
-
-.dealarrowRight {
+.dealGrid .dealarrowRight {
   background-color: #fafffa;
   opacity: 0.6;
   width: 30px;
@@ -151,22 +162,14 @@ body {
   cursor: pointer;
   align-items: center;
 }
-
-/* Service-Page */
-=======
-  font-weight: normal;
-}
-
-/* Service-Page */
-h1 {
+.dealGrid h1 {
   text-align: center;
   margin-top: 100px;
   margin-bottom: -100px;
   font-size: 35px;
   font-weight: 500;
 }
-
-.serviceGrid {
+.dealGrid .serviceGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: reapeat(4, 1fr);
@@ -174,14 +177,13 @@ h1 {
   gap: 2%;
   justify-content: center;
 }
-.serviceGrid__option {
+.dealGrid .serviceGrid__option {
   border: 1px solid #979797;
   width: 50%;
   height: 50%;
   padding: 10px;
   border-radius: 7px;
 }
-.serviceGrid__option img {
+.dealGrid .serviceGrid__option img {
   justify-content: center;
 }
->>>>>>> abdde1b0d093792324d816a5aac49e805dff674f
