@@ -254,3 +254,23 @@ h3:hover{
   flex-direction: row;
 }
 
+.sider{
+  display: flex;
+  flex-direction: column;
+  ul{
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+  }
+  p{
+    font-weight: bold;
+  }
+  .scores__item:nth-child(3) span{
+    background-color: blue;
+  }
+  .scores__item span:nth-child(2){
+    background-color: yellow;
+  }
+}
