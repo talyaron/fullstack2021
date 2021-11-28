@@ -245,27 +245,4 @@ body {
   flex-direction: row;
 }
 
-<<<<<<< HEAD
-.sider {
-  display: flex;
-  flex-direction: column;
-}
-.sider ul {
-  list-style-type: none;
-  display: flex;
-  flex-direction: row;
-  margin: 0;
-  padding: 0;
-}
-.sider p {
-  font-weight: bold;
-}
-.sider .scores__item:nth-child(3) span {
-  background-color: blue;
-}
-.sider .scores__item span:nth-child(2) {
-  background-color: yellow;
-}
-=======
 /*asdasdasd*/
->>>>>>> 70c6b43479737691f0c74505baef16baba3f6a33
