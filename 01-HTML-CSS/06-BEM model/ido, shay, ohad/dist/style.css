@@ -22,7 +22,6 @@
   height: 50px;
   display: flex;
   flex-direction: row;
-  background-color: red;
   font-size: 18px;
   padding: 10px;
 }
@@ -82,36 +81,59 @@
   margin-bottom: 50px;
 }
 
+.OrangeHeader {
+  background-color: #ffd230;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  padding: 10px;
+  margin-bottom: 50px;
+}
+
+.main {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+}
 .main__upper {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(2, 1fr);
   color: black;
-  width: 90%;
-  grid-auto-columns: minmax(auto, auto);
-  grid-auto-rows: minmax(auto, auto);
+  width: 80%;
   gap: 1em;
+  height: 50vh;
   margin: auto;
+}
+.main__upper--imgSport {
+  background-image: url(https://ichef.bbci.co.uk/live-experience/cps/624/cpsprodpb/vivo/live/images/2021/11/28/2ac89911-c3a0-4b43-b121-15135225ef62.jpg);
+  background-position: center;
+  background-size: cover;
+  grid-column: 1/3;
+  grid-row: 1;
+  height: 40vh;
+}
+.main__upper #SportImgRight {
+  width: 100%;
+  height: 100%;
 }
 .main__upper__news {
   display: grid;
   grid-column: 1/3;
   grid-row: 1/3;
-  grid-template-columns: 50% 70% 50%;
-  grid-template-rows: 50% 50%;
+  grid-template-columns: 60% 80% 40%;
+  grid-template-rows: 50% 4% 20%;
   height: 60vh;
-  column-gap: 2em;
-  margin-left: 150px;
-  padding-top: 100px;
+  column-gap: 0.7em;
+  margin-left: 50px;
+  padding-top: 50px;
 }
 .main__upper__news--block {
   display: grid;
   margin: 50px;
   grid-template-columns: 100%;
-  grid-template-rows: repeat(10, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  row-gap: 20px;
   margin-top: 0;
   margin-bottom: 0;
-  grid-auto-rows: minmax(100px, auto);
 }
 .main__upper__news--block > h1 {
   grid-row: 1;
@@ -129,16 +151,18 @@
   text-decoration: underline;
 }
 .main__upper__news--block > p {
-  font-size: 10px;
+  font-size: 13px;
   font-family: "Lato", sans-serif;
   font-weight: 1000;
   font-weight: bold;
+  text-align: left;
+  grid-row: 2;
 }
 .main__upper__news--block > a {
   text-decoration: none;
-  grid-row: 10;
+  grid-row: 4;
   color: #464242;
-  font-size: 15px;
+  font-size: 12px;
 }
 .main__upper__news--block > a:hover {
   cursor: pointer;
@@ -149,10 +173,10 @@
   display: grid;
   grid-template-rows: repeat(4, 1fr);
   grid-template-columns: 35% 30% 30%;
-  grid-row-start: 2;
+  grid-row-start: 3;
   grid-column: 1/3;
   font-weight: 1000;
-  font-size: 15px;
+  font-size: 10px;
   column-gap: 15px;
 }
 .main__upper__news--BottomLinks > a {
@@ -160,6 +184,8 @@
   text-decoration: none;
   padding-left: 40px;
   color: #333;
+  font-weight: 1000;
+  font-size: 12px;
 }
 .main__upper__news--BottomLinks > a:hover {
   cursor: pointer;
@@ -167,92 +193,191 @@
   text-decoration-line: underline;
 }
 .main__upper__news--ImgNews {
-  background-image: url(https://ichef.bbci.co.uk/news/976/cpsprodpb/1365C/production/_121825497_9d05de58-c5d1-49ac-99e9-920c84103a11.jpg);
+  background-image: url(https://ichef.bbci.co.uk/news/976/cpsprodpb/E29F/production/_121851085_gettyimages-1230027398.jpg);
   background-position: center;
   background-size: cover;
+  margin-right: 20px;
+  margin-left: -30px;
 }
 .main__upper__img {
   display: grid;
-  grid-template-rows: repeat(8, 1fr);
+  grid-template-rows: repeat(5, 1fr);
   background-size: cover;
   background-position: center;
-  height: 30vh;
+  height: 20vh;
+  width: 15vw;
   padding: 1rem;
 }
 .main__upper__img:nth-child(2) {
-  background-image: url("https://e3.365dm.com/20/08/768x432/skynews-sideman-bbc-1extra_5062530.jpg?20200808215407");
+  background-image: url("https://ichef.bbci.co.uk/news/976/cpsprodpb/1F4F/production/_121851080_gettyimages-1263884335.jpg");
   background-position: center;
   background-size: cover;
 }
 .main__upper__img:nth-child(3) {
-  background-image: url("https://e3.365dm.com/20/08/768x432/skynews-sideman-bbc-1extra_5062530.jpg?20200808215407");
+  background-image: url("https://ichef.bbci.co.uk/live-experience/cps/624/cpsprodpb/vivo/live/images/2021/11/28/c7a73b91-5436-4c86-9061-a632f52e6cfe.jpg");
   background-position: center;
   background-size: cover;
 }
 .main__upper__img:nth-child(4) {
-  background-image: url("https://e3.365dm.com/20/08/768x432/skynews-sideman-bbc-1extra_5062530.jpg?20200808215407");
+  background-image: url("https://ichef.bbci.co.uk/news/976/cpsprodpb/EB2D/production/_121850206_f43a35a8-e308-4d56-a9d1-c82e2014f40d.jpg");
   background-position: center;
   background-size: cover;
 }
 .main__upper__img:nth-child(5) {
-  background-image: url("https://e3.365dm.com/20/08/768x432/skynews-sideman-bbc-1extra_5062530.jpg?20200808215407");
+  background-image: url("https://ichef.bbci.co.uk/news/976/cpsprodpb/D66E/production/_121849845_9cb21a48-389b-4db5-9068-1813bad1a4ac.jpg");
   background-position: center;
   background-size: cover;
 }
-.main__upper__img h2 {
-  grid-row: 1;
+.main__upper__img h1 {
+  grid-row: 5;
+  font-size: 17px;
+  font-weight: 1000;
+  color: white;
 }
-.main__upper__img h3 {
-  grid-row: 2;
+.main__upper__img a {
+  grid-row: 6;
+  color: #7e7676;
+  text-decoration: NONE;
+  font-weight: 1000;
 }
-.main__upper__img p {
-  grid-row: 3;
+.main__upper__img a:hover {
+  color: #ccc6c6;
+  text-decoration: underline;
 }
 .main__upper__img--big {
+  display: grid;
+  grid-template-rows: repeat(10, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   background-size: cover;
-  width: 45vw;
-  height: 71.5vh;
+  width: 50vw;
+  height: 53vh;
   grid-row: 1/3;
   grid-column: 1/3;
   overflow: auto;
-  background-image: url("https://e3.365dm.com/20/08/768x432/skynews-sideman-bbc-1extra_5062530.jpg?20200808215407");
+  background-image: url(https://ichef.bbci.co.uk/news/976/cpsprodpb/E29F/production/_121851085_gettyimages-1230027398.jpg);
   background-position: center;
   background-repeat: no-repeat;
+  text-align: center;
 }
-.main__upper__img--big--news {
-  border: 5px solid red;
+.main__upper__img--big h1 {
+  grid-row: 7;
+  grid-column: 1/3;
+  font-size: 25px;
+  color: white;
+}
+.main__upper__img--big p {
+  grid-row: 8/9;
+  grid-column: 1/3;
+  color: white;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+.main__upper__img--big a {
+  grid-row: 10;
+  font-weight: 1000;
+  color: #d1d1d1;
+  text-decoration: none;
+}
+.main__upper__img--big a:hover {
+  color: #fff1e0;
+  text-decoration: underline;
 }
 .main__down {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 1fr);
   background-size: cover;
-  height: 1vh;
+  height: 8vh;
   width: 60%;
-  gap: 2em;
+  gap: 1.5em;
   padding-top: 5%;
   margin: auto;
+  width: 70%;
+}
+.main__down__pics {
+  display: grid;
+  grid-row: 1;
+  grid-column: 1/4;
+  grid-template-columns: 20% 20% 20% 20%;
+  row-gap: 100px;
+  column-gap: 20px;
+  margin-top: -150px;
 }
 .main__down__box {
   display: grid;
-  grid-template-rows: 45% 25% 24% 12%;
+  grid-template-rows: 40% 20% 12% 15%;
   height: 100%;
   width: 100%;
 }
-.main__down__box h2 {
+.main__down__box h1 {
   grid-row: 2;
-  text-align: center;
+  font-size: 15px;
+  font-weight: 1000;
+  margin-top: 0;
 }
-.main__down__box h3 {
-  grid-row: 3;
-  text-align: center;
+.main__down__box h1 a {
+  text-decoration: none;
+  color: #807e7e;
+}
+.main__down__box h1 a:hover {
+  color: #5b7199;
+  font-weight: bold;
+  font-size: 110%;
+  text-decoration: underline;
+}
+.main__down__box a {
+  display: block;
+  overflow: hidden;
+  margin-top: 0.75rem;
+  color: #888888;
+  grid-row: 5;
+  text-decoration: none;
+}
+.main__down__box a:hover {
+  text-decoration: underline;
+  color: #757575;
 }
 .main__down__box p {
-  grid-row: 4;
+  grid-row: 3;
   text-align: center;
+  font-family: "Playfair Display", serif;
+  font-size: 12px;
+  font-weight: 800;
+  text-align: start;
 }
 .main__down__box img {
   height: 100%;
   width: 100%;
   grid-row: 1;
+}
+.main__News__MiddleHeaders {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  height: 10vh;
+  border-top: 2px solid gray;
+  width: 60%;
+  margin-left: 150px;
+  margin-top: 20px;
+  row-gap: 10px;
+  column-gap: 30px;
+}
+.main__News__MiddleHeaders--headLinks {
+  display: block;
+}
+.main__News__MiddleHeaders--headLinks h3 > a {
+  text-decoration: none;
+  color: black;
+  font-size: 12px;
+  font-weight: 1000;
+}
+.main__News__MiddleHeaders--headLinks h3 > a:hover {
+  color: #387fc2;
+}
+.main__News__MiddleHeaders--headLinks > a {
+  text-decoration: none;
+  color: black;
+  font-size: 12px;
+}
+.main__News__MiddleHeaders--headLinks > a:hover {
+  color: #387fc2;
 }

@@ -80,7 +80,6 @@ body {
   grid-template-columns: repeat(8, 200px);
   grid-template-rows: 200px 290px;
   justify-content: center;
-  /* Service-Page */
 }
 .dealGrid__runner {
   grid-column: span 8;
@@ -120,14 +119,16 @@ body {
 }
 .dealGrid__dealbox--dealbox1 {
   grid-column: span 2;
+  border: black 2px solid;
 }
-.dealGrid__dealbox--dealbox1 iframe {
+.dealGrid__dealbox--dealbox1 video {
   height: 100%;
   width: 100%;
 }
+
 .dealarrowLeft {
-  background-color: #fafffa;
-  opacity: 0.6;
+  background-color: #ffffe6;
+  opacity: 0.7;
   width: 30px;
   height: 80px;
   display: flex;
@@ -137,8 +138,9 @@ body {
   cursor: pointer;
   align-items: center;
 }
+
 .dealarrowRight {
-  background-color: #fafffa;
+  background-color: #ffffe6;
   opacity: 0.6;
   width: 30px;
   height: 80px;
