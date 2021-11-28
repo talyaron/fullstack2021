@@ -131,21 +131,21 @@ height: 300px;
 grid-column: 1/2;
 }
 .i2{
-  grid-column: 2/4;
+  grid-column: 2/3;
 }
 .i3{
-  grid-column: 2/1;
+  grid-column: 3/4;
 
 }
 .i4{
-  grid-column: 2/4;
+  grid-column: 1/2;
 }
 .i5{
-  grid-column: 5/4;
+  grid-column: 2/3;
 }
 
 .i6{
   
-  grid-column: 1/1;
+  grid-column: 3/4;
 }
 /*////////////////////////////////////////////////////////*/
