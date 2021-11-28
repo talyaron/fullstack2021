@@ -257,6 +257,7 @@ body {
   flex-direction: row;
 }
 
+<<<<<<< HEAD
 /*asdasdasd*/
 .navBar--news {
   width: 100%;
@@ -266,3 +267,6 @@ body {
 .navBar--news .h2 {
   color: white;
 }
+=======
+/*asdasdasd*/
+>>>>>>> 24b6b0029e7c46780d8b09fa8aa5741d395bc2bc

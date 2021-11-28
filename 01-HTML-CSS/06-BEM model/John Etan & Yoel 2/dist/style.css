@@ -105,3 +105,28 @@ body {
   overflow-wrap: break-word;
   padding: 1vw;
 }
+
+.logoimg {
+  left: -2%;
+  top: 0%;
+  width: 104%;
+  height: 100%;
+  position: absolute;
+}
+
+.watch {
+  border: solid 2px #fff;
+  background-color: transparent;
+  -webkit-transition: background-color 0.1s linear;
+  -moz-transition: background-color 0.1s linear;
+  -ms-transition: background-color 0.1s linear;
+  -o-transition: background-color 0.1s linear;
+  transition: background-color 0.1s linear;
+  color: #fff;
+}
+
+.text {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 20px;
+  line-height: 1.75em;
+}
