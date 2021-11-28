@@ -84,14 +84,21 @@ body {
   flex-direction: column;
   justify-content: space-between;
   width: 25vw;
+  height: 50vh;
   margin: 1rem;
 }
 .home--small__row .home--small__row_article img {
-  height: 15vh;
+  height: 30vh;
 }
 .home--small__row .home--small__row_article :last-child {
   box-shadow: -0.2em 0 0 blue;
   padding-left: 0.2em;
+}
+
+.ad--column {
+  height: 30vh;
+  background-color: #ddd8d8;
+  padding-block: 22vh;
 }
 
 .navBar--news {
