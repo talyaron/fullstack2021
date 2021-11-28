@@ -121,6 +121,7 @@ body {
 .header .search {
   border: 1px solid;
 }
+
 .header .logo img {
   margin: 0;
   height: 100%;
@@ -347,4 +348,9 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
+}
+
+.sport--small__articale img {
+  height: 200px;
+  width: 300px;
 }
