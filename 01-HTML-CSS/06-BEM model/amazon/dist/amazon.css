@@ -121,6 +121,7 @@ body {
 }
 .dealGrid__dealbox h3 {
   color: red;
+<<<<<<< HEAD
   padding-left: 8px;
   bottom: 0;
 }
@@ -152,3 +153,35 @@ body {
 }
 
 /* Service-Page */
+=======
+  font-weight: normal;
+}
+
+/* Service-Page */
+h1 {
+  text-align: center;
+  margin-top: 100px;
+  margin-bottom: -100px;
+  font-size: 35px;
+  font-weight: 500;
+}
+
+.serviceGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: reapeat(4, 1fr);
+  margin: 150px;
+  gap: 2%;
+  justify-content: center;
+}
+.serviceGrid__option {
+  border: 1px solid #979797;
+  width: 50%;
+  height: 50%;
+  padding: 10px;
+  border-radius: 7px;
+}
+.serviceGrid__option img {
+  justify-content: center;
+}
+>>>>>>> abdde1b0d093792324d816a5aac49e805dff674f
