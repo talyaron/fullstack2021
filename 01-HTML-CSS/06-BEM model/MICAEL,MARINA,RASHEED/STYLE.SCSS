@@ -185,6 +185,7 @@ body{
       
       &__grid-1-box{
         display: flex;
+        overflow: hidden;
       }
       
       
@@ -219,6 +220,7 @@ body{
   
       &__grid-2-box {
         display: flex;
+        overflow: hidden;
         contain: layout;
       }
   

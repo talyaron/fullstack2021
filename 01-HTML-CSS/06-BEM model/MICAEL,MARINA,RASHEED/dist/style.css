@@ -142,6 +142,8 @@ p {
   color: #3fadec;
 }
 
+
+
     
 
 .grid-1-container{
@@ -151,22 +153,14 @@ p {
   grid-template-columns: 1fr 1fr 1fr;
   grid-auto-rows: minmax(100px, auto);
   gap: 10px;
-  background-color: rgb(233, 232, 232);
-  margin-top: 100px;
-  
- 
- 
- 
-  
+  background-color: rgb(247, 241, 241);
+  margin-top: 100px; 
 
 }
   
 .grid-1-box{
     display: flex;
-    
-
-    
-  
+    overflow: hidden;
   }
   
   
@@ -186,8 +180,6 @@ p {
 }
 
 
-  
-
 
 .grid-2-container {
   width: auto;
@@ -196,24 +188,17 @@ p {
   grid-template-columns: repeat(3, 1fr);
   grid-auto-rows: minmax(100px, auto);
   gap: 20px;
-  margin-top: 10px;
-  background-color: rgb(194, 190, 190);
-  
- 
+  margin-top: 100px;
+  background-color: rgb(194, 190, 190); 
   contain: layout;
-  
-
 }
 
 .grid-2-box{
     display: flex;
     
     contain: layout;
-  
-   
+    
 }
-
-
 
   .grid-2-box:nth-child(1){
     grid-column: 1/3;
@@ -241,10 +226,6 @@ p {
   margin-top: -2px;
   margin-left: 2px;
   padding: 5px;
- 
-
-
-  
 
 
 }
@@ -252,7 +233,7 @@ p {
 .mod{
  width: 600px;
  height: auto;
- border-radius: 5px;
+ border-radius: 20px;
   
 }
 
@@ -263,21 +244,22 @@ p {
   opacity: 0.7;
 }
   
-
-
 span:hover {
 
   text-decoration: underline;
 }
 
-
 span{
   font-size: x-large;
   
   align-content: center;
+ 
+}
 
-  
-}   
+
+
+
+
 .topbar {
   width: 75%;
   height: 50px;
