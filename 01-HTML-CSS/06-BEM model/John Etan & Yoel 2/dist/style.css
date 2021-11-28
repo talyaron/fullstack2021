@@ -103,4 +103,5 @@ body {
   height: 22vh;
   width: fit-content;
   overflow-wrap: break-word;
+  padding: 1vw;
 }
