@@ -91,9 +91,10 @@ body{
         flex-direction: column;
         justify-content: space-between;
         width: 25vw;
+        height: 50vh;
         margin: 1rem;
         img{
-            height: 15vh;
+            height: 30vh;
         }
         :last-child{
             box-shadow: -0.2em 0 0 blue;
@@ -101,7 +102,13 @@ body{
         }
     }
 }
-
+.ad--column{
+    height: 30vh;
+    background-color: rgb(221, 216, 216);
+    padding-block: 40vh;
+    position: relative;
+    top: 3.5vh;
+}
 
 .navBar--news{
     width: 100%;
