@@ -313,19 +313,18 @@
                 &__box{
                     display: grid;
                     grid-template-rows: 45% 25% 24% 12%;
-                    height: 100%;
+                    
                     width: 100%;
-
+                    a{
+                        text-decoration: none;
+                    }
                 h2{
                     grid-row: 2;
                     text-align: center;
                 }
-                h3{
-                    grid-row: 3;
-                    text-align: center;
-                }
                 p{
-                    grid-row: 4;
+                    padding-top: 5px;
+                    grid-row: 3;
                     text-align: center;
                 }
                 img{

@@ -179,7 +179,6 @@ body{
       grid-template-columns: 1fr 1fr 1fr;
       grid-auto-rows: minmax(100px, auto);
       gap: 80px;
-      background-color: rgb(233, 232, 232);
       margin-top: 100px;
       
       
@@ -216,7 +215,7 @@ body{
       gap: 30px;
       margin-top: 90px;
       contain: layout;
-      background-color: rgb(194, 190, 190)
+      
   
       &__grid-2-box {
         display: flex;

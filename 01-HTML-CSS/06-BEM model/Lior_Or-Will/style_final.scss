@@ -1,3 +1,5 @@
+/* For Sport page only*/
+
 .wrappersport {
     max-height: 500px;
     max-width: 900px;
@@ -7,6 +9,7 @@
     grid-template-columns: repeat(4, 200px);
     grid-template-rows: repeat(4, 250px);
     gap: 15px;
+    font-style: italic;
 
 
     .boxsport--up1 {
@@ -47,6 +50,7 @@
     
         color: rgb(0, 212, 0);
         font-size: 13px;
+        font-style: italic;
     
     }
     
@@ -78,6 +82,7 @@
 
 }
 
+/* For all pages*/
 .banner
 {
     width: 100%;
@@ -131,7 +136,7 @@
             &__thridletter
             {
                 position: relative;
-                left: -21.5vw; 
+                left: -21vw; 
                 top: 5px;  
             }
 
@@ -213,6 +218,193 @@
             }
     
     }
+}
+
+/* For News page only*/
+
+body{
+    align-items: center;
+    font-family: 'Outfit', sans-serif;
+  }
+  
+  .container
+  {
+    width: 100%;
+    height: 100vh;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr repeat(3,2fr) ;
+    grid-template-rows: repeat(3,1fr);
+    grid-gap: 1em;
+  
+  }
+
+  .box
+  {
+    padding: 5px;
+    grid-auto-rows: minmax(10px, auto);
+  
+
+    &--box1
+    {
+      grid-column: 1/4;
+    
+      &__internal_box1
+      {
+        display: grid;
+        width: 100%;
+        margin: 0;
+        height: 30vh;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+    
+        &__Header1
+         {
+         grid-column: 1/2;
+         grid-row: 1/3;
+         align-items: start;
+         font-size: 30px;
+         height: 10vh;
+         
+         &:hover
+         {
+            cursor: pointer;
+            color: blue;
+           text-decoration: underline;
+         }
+        }
+    
+        &__image1
+        {
+          grid-column: 2/6;
+          grid-row: 1/4;
+          width: 90%;
+          height: 40vh;
+          align-items: left;
+        }
+        &_text1
+        {
+          grid-column: 1/2;
+          position: relative;
+          top: -200px;
+          grid-row: 3/4;
+          height: 7vh;
+          font-style: italic;
+          text-align: left;
+        
+        }
+
+        &down_text_text1
+
+        {
+          position: relative;
+          top: -500px; 
+          width:5vw;
+          height: 5vh;
+        }
+    }
+    }
+    
+        &__down_picture__down1
+        {
+          width: 100%;
+          height: 15vh;
+        }
+
+        &__down__title
+        {
+          width: 100%;
+          height: 7vh;
+          text-align: left;
+          font-size: 20px;
+          font-style: italic;
+        
+          
+          &--title2
+          {
+            width: 100%;
+            height: 7vh;
+            text-align: left;
+            font-size: 20px;
+            font-style: italic;
+          
+            &:hover
+            {
+               cursor: pointer;
+               color: blue;
+              text-decoration: underline;
+            }
+        }
+        }
+
+        &__down__text
+        {
+          width: 60%;
+          height: 5vh;
+          align-items: center;
+          position: relative;
+          left: 0vw;
+          bottom: 5vh;
+          align-content: center;
+          text-align: left;
+          font-size: 15px;
+          font-style: italic;
+          align-items: center;
+          flex-direction: column;
+          display: flex;
+        
+        
+            &--text2
+            {
+                position: relative;
+                text-align: left;
+                left: 0vw;
+                font-style: italic;
+            }
+        
+        }
+
+        &__down__title:hover
+        {
+           cursor: pointer;
+           color: blue;
+          text-decoration: underline;
+        }
+
+        &--box2__inner_box--box2__down_text__text3
+        {
+          position: relative;
+          top: -10px;
+        }
+
+        &--box2__inner_box--box2__down_text__text3--title1
+        {
+          font-size: 20px;
+
+          &:hover
+          {
+            cursor: pointer;
+            color: blue;
+           text-decoration: underline;
+          }
+        }
+        
+        &--text_only
+        {
+            position: relative;
+            left: -900px;
+        }
+}
+
+.inner_box--box2
+{
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  width: 80%;
+  height: 45vh;
 }
 
 
