@@ -110,7 +110,7 @@ body .wrapper .wrapper__gridwraptop .wrapper__gridwraptop2 .wrapper__header {
   font-style: italic;
 }
 /*///////////////////////////////////////////////////////*/
-.container {
+.articalcontainer {
  grid-template-columns: repeat(4,200px);
 display: grid; 
 gap: 100px 200px;
