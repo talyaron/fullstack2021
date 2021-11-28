@@ -11,10 +11,6 @@
 body {
   background-color: #100806;
 }
-body a {
-  text-decoration: none;
-  color: white;
-}
 
 /*logo and nav style*/
 .header {
@@ -25,6 +21,10 @@ body a {
   width: 100vw;
   position: absolute;
   color: #FFFFFF;
+}
+.header a {
+  text-decoration: none;
+  color: white;
 }
 .header--logo {
   color: #DED9D5;
