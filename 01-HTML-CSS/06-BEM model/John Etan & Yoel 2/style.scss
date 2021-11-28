@@ -64,10 +64,11 @@ body{
         position: absolute;
         display: inline-block;
         direction: rtl;
-        top: 40vh;
-        right: 10vw;
+        top: 22vh;
+        right: 9vw;
         background-color: transparent;
     &--item{
+        filter: none;
         -webkit-filter: invert(100%);
         font-family: 'typewriter';
         height: 2vh;
@@ -78,8 +79,34 @@ body{
         
 
         img{
-            height: 4.2vh;
+            height: 4vh;
             width: 2vw;
         }
     }
     }
+
+    /*Home page content*/
+.Homeimg{
+    position: absolute;
+    z-index: 1;
+    width: 623px;
+    height: 420px;
+    left: 20vw;
+    top: 33vh;
+}
+#Joe{
+    background-image: url('https://www.rollingstone.com/wp-content/uploads/2018/06/rs-213329-R1247_FEA_Rogen_A.jpg?resize=623,420&w=623');
+}
+.description{
+    background-color: black;
+    color: #ccc2c2;
+    font-family: typeka;
+    font-size: 2.5vw;
+    position: relative;
+    left: 35vw;
+    top: 5vh;
+    height: 22vh;
+    width: fit-content;
+    overflow-wrap: break-word;
+    padding: 1vw;
+}
