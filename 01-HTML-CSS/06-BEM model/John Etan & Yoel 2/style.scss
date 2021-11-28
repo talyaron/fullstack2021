@@ -1,20 +1,38 @@
-body{
-    background-color: rgb(88, 42, 42);
+/*fonts*/
+@font-face {
+    font-family: 'typeka';
+    src: url('fonts/Typeka.otf');
 }
+@font-face {
+    font-family: 'typewriter';
+    src: url('https://www.1001fonts.com/bptypewrite-font.html');
+}
+/*body style*/
+body{
+    background-color: #100806;
+}
+
+/*logo and nav style*/
 .header{
-    background-color: black;
-    width: 100%;
+    a{
+        text-decoration: none;
+        color: white;
+    }
+    margin: 0;
+    padding: 0;
+    background-color: #0A0A0A;
+    font-family: 'typeka';
+    width: 100vw;
     position: absolute;
+    color: #FFFFFF;
 
     &--logo{
-    color: #ffffff;
-    width: 66vw;
+    color: #DED9D5;
     position: relative;
-    font-family: 'Bangers', cursive;
-    font-size: 10vw;
-    align-items: center;
-    padding-left: 30vw;
-    }
+    font-size: 66px;
+    padding-left: 37vw;
+    padding-right: 37vw;
+   }
 }
     .navbar{
     width: 100%;
@@ -22,13 +40,18 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 10px;
+   
+    
     
     &--item{
         margin-right: 2vw;
         height: 2vh;
-        font-size: 2.5vh;
+        font-family: 'typewriter';
+        font-size: 2vw;
         display: flex;
         color: white;
+        margin: 2vw;
     
     }
     &--item:hover{
@@ -36,21 +59,27 @@ body{
     }
     }
 
+    /*social media*/
 .socialmedia{
-    
         position: absolute;
-        display: grid;
-        grid-template-rows: 1fr,1fr,1fr,1fr;
-        top: 30vh;
+        display: inline-block;
+        direction: rtl;
+        top: 40vh;
         right: 10vw;
         background-color: transparent;
     &--item{
-        color: white;
+        -webkit-filter: invert(100%);
+        font-family: 'typewriter';
         height: 2vh;
-        width: 2vw;
+        width: 4vw;
+        margin-left: 1vw;
+        cursor: pointer;
+    
+        
+
         img{
-            height: 4vh;
-            width: 3vw;
+            height: 4.2vh;
+            width: 2vw;
         }
     }
     }
