@@ -254,6 +254,27 @@
   background-position: center;
   background-repeat: no-repeat;
 }
+.main__upper__img--big--sports {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr 1fr);
+  width: 100vh;
+}
+.main__upper__img--big--sports img {
+  grid-column: 1/4;
+  grid-row: 1/4;
+}
+.main__upper__img--big--sports h2 {
+  grid-row: 0;
+  grid-column: 6;
+}
+.main__upper__img--big--sports h3 {
+  grid-column: 6;
+  grid-row: 2;
+}
+.main__upper__img--big--sports p {
+  grid-row: 3;
+  grid-column: 6;
+}
 .main__upper__img--big--news {
   border: 5px solid red;
 }
@@ -278,12 +299,9 @@
   grid-row: 2;
   text-align: center;
 }
-.main__down__box h3 {
-  grid-row: 3;
-  text-align: center;
-}
 .main__down__box p {
-  grid-row: 4;
+  padding-top: 5px;
+  grid-row: 3;
   text-align: center;
 }
 .main__down__box img {
