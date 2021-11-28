@@ -90,7 +90,6 @@ body {
 
 .dealGrid {
     display: grid;
-
     grid-template-columns: repeat(8, 200px);
     grid-template-rows: 200px 290px;
     justify-content: center;
@@ -144,15 +143,20 @@ body {
 
     &--dealbox1 {
         grid-column: span 2;
+        border:black 2px solid;
 
-        iframe{
+        img{
             height: 100%;
             width: 100%;
         }
+    }    
         
-    }
+    } 
+
 
 }
+
+
     
 
 
@@ -186,8 +190,7 @@ body {
 }
 
 
- /* Service-Page */
-}
+ 
 
 /* Service-Page */
 h1 {
