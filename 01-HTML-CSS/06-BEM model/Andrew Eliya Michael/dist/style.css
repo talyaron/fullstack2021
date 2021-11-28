@@ -94,6 +94,144 @@ body {
   padding-left: 0.2em;
 }
 
-.ad--column {
-  height: 30vh;
+.navBar--news {
+  width: 100%;
+  background-color: red;
+  height: 40px;
+}
+
+.header {
+  display: flex;
+  width: 100%;
+  height: 40px;
+  flex-direction: row;
+  border: 1px solid #ccc;
+  justify-content: space-between;
+  align-items: center;
+}
+.header .search {
+  border: 1px solid;
+}
+.header .logo img {
+  margin: 0;
+  height: 100%;
+  width: 80px;
+}
+.header a {
+  height: 100%;
+  color: black;
+  padding-left: 5px;
+  padding-right: 5px;
+  text-decoration: none;
+}
+.header .header__item {
+  border: 1px solid #ccc;
+  height: 100px;
+  padding-block: 11px;
+}
+.header a:nth-child(1):hover {
+  box-shadow: inset 0 -2px 0 0 red;
+}
+.header a:nth-child(2):hover {
+  box-shadow: inset 0 -2px 0 0 #ffd000;
+}
+.header a:nth-child(3):hover {
+  box-shadow: inset 0 -2px 0 0 #3b3bfc;
+}
+.header a:nth-child(4):hover {
+  box-shadow: inset 0 -2px 0 0 #030381;
+}
+.header a:nth-child(5):hover {
+  box-shadow: inset 0 -2px 0 0 black;
+}
+
+.nav--sport {
+  background-color: #ffd000;
+}
+.nav--sport a {
+  height: 100%;
+  color: black;
+  margin: 5px;
+  text-decoration: none;
+  border-left: 0.5px solid black;
+}
+.nav--sport a:hover {
+  border-bottom: 3px solid black;
+}
+
+.nav--sport--items {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.sport--main__article--big {
+  display: flex;
+  flex-direction: row;
+}
+
+.sport--main {
+  display: flex;
+  flex-direction: row;
+}
+.sport--main .imgA img {
+  height: 300px;
+  width: 500px;
+}
+.sport--main .imgB img {
+  height: 150px;
+  width: 250px;
+}
+.sport--main .text {
+  width: 230px;
+}
+.sport--main .list-inline {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+}
+.sport--main h3:hover {
+  color: #2a13ff;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+}
+.sport--main .list-inline p:nth-child(2) {
+  color: #65d822;
+}
+.sport--main .list-inline p:nth-child(2):hover {
+  color: #65d822;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+}
+
+.ad--row {
+  width: 100%;
+  text-align: center;
+  background-color: #ddd8d8;
+}
+.ad--row img {
+  width: 80%;
+}
+
+.sport--small {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
+.sport--small img {
+  width: 300px;
+  height: 200x;
+}
+
+.sport--small__articale {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: 200x;
+  margin: 10px;
+}
+
+.sport--small__articale__row {
+  display: flex;
+  flex-direction: row;
 }

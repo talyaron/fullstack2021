@@ -1,0 +1,497 @@
+// Marina start
+
+body{
+  min-width: 1900px;
+  margin: 0px;
+}
+  .menu{
+      display: grid;
+      grid-template-columns: 25% 9% 10% 9% 10% 10% 10%;
+      height:31px;
+  
+      &__logo{
+          position: absolute;
+          width: 80px;
+          height: auto;
+          left: 293px;
+          top: -2.4%;   
+      }
+  
+      
+      &__logo:hover{
+          cursor: pointer;
+      }
+  
+  
+      &__search{
+          position: relative;
+          top: 15%;
+          left: 10%;
+      }
+  
+  
+      &__signIn, &__home, &__news,
+      &__sport, &__reel{
+         font-family: sans-serif;    
+      }
+  
+      &__signIn:hover{
+          border-bottom: 4px solid blue;   
+      }
+      
+      &__nav.news:hover{
+          border-bottom: 4px solid  rgb(185, 31, 31);
+      }
+      
+      &__sport:hover{
+          border-bottom: 4px solid  rgb(240, 225, 27);
+      }
+      
+      &__reel:hover{
+          border-bottom: 4px solid  rgb(7, 29, 226);
+      }  
+  
+      &__nav.home:hover, &__signIn:hover,
+      &__nav.news:hover, 
+      &__sport:hover, &__reel:hover{
+      border-bottom: 4px solid  rgb(23, 23, 24);
+      cursor: pointer;
+      }
+  
+      &__nav{
+          display: flex;
+          height: 30px;
+          width: auto;
+          align-items: center;
+          justify-content: center;
+          border-right: 1px solid gray;
+          text-decoration:none;
+      
+          a {
+              text-decoration: none;
+              color: black;
+          }
+          
+      }
+      
+  }
+  
+  
+  
+  .red-strap{
+      display: grid;
+      grid-template-columns: 22.2%;
+      background-color: rgb(173, 16, 16);
+      justify-items: end;
+     
+      &__news{
+          color: white;
+          font-size: 45px;
+          font-family: sans-serif;
+      }
+     
+  }
+  
+  
+  
+  .links{
+      display: grid;
+      grid-template-columns: 17.5% 9% 9% 8% 8% 8% 8% 8% 8%;
+      background-color: rgb(173, 16, 16);
+      grid-template-rows: 25px;
+      justify-items: end;
+  
+      &__links>.home, &__links>.coronavirus,
+      &__links>.climate,
+      &__links>.video, &__links>.world, 
+      &__links>.business,
+      &__links>.tech, &__links>.science, 
+      &__links>.stories{
+      color: white;
+      font-family: sans-serif;
+      }
+  
+      &__links>.stories:hover, &__links>.science:hover, 
+      &__links>.tech:hover,
+      &__links>.business:hover, &__links>.world:hover, 
+      &__links>.video:hover,
+      &__links>.climate:hover, &__links>.coronavirus:hover, 
+      &__links>.home:hover{
+      border-bottom: 4px solid white;
+      cursor: pointer;
+      }
+  
+  }
+  
+  
+  
+  .wrapper{
+      width: 70%;
+      display: grid;
+      grid-template-columns: repeat(5, 3fr);
+      grid-template-rows: minmax(100px, auto);
+      grid-gap: 1em;
+      padding-left: 17em;
+      justify-items: start;
+  
+  
+      &__div{
+          padding: 1em;
+      }
+      
+  
+      &__grid-2{
+          grid-column: 2/4;
+      }
+  
+      &__img{
+          width: 100%;
+          height: auto;
+      }
+      
+      &__h1, &__p {
+          font-size: 22px;
+          font-family: sans-serif;
+      }
+      
+      &__p {
+          font-size: 16px;
+      }
+  
+      &__title a:hover,
+      &__country a:hover {
+      text-decoration: underline;
+      color: rgb(63, 173, 236);
+      }
+  
+    }
+
+
+
+    
+
+// Marina end
+
+// Rasheed start
+
+
+
+
+
+
+
+.grid-1-container{
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-auto-rows: minmax(100px, auto);
+  gap: 3px;
+  background-color: gray;
+  margin-top: 100px;
+  
+  
+  &__grid-1-box{
+    display: flex;
+  }
+  
+
+&__grid-1-box:nth-child(1){
+  grid-column: 1/3;
+}
+
+&__grid-1-box:nth-child(3){
+  grid-column: 1/4;
+}
+
+&__grid-1-box:nth-child(5){
+  grid-column: 2/4;
+}
+
+}
+
+  
+
+
+.grid-2-container {
+  width: auto;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(100px, auto);
+  gap: 2px;
+  margin-top: 10px;
+  contain: layout;
+
+  &__grid-2-box{
+    display: flex;
+    contain: layout;
+  }
+
+  &__grid-2-box:nth-child(1){
+    grid-column: 1/3;
+  }
+
+  &__grid-2-box:nth-child(3){
+    grid-column: 2/4;
+  }
+
+  &__grid-2-box:nth-child(4){
+    grid-column: 2/4;
+  }
+
+  &__grid-2-box:nth-child(5){
+    grid-column: 2/4;
+  }
+  
+ 
+  
+}
+
+
+.text {
+  cursor: pointer;
+  width: fit-content;
+  height: 100%;
+  margin-top: -2px;
+  margin-left: 2px;
+  padding: 5px;
+
+  
+  
+}
+
+.mod{
+  width: 600px;
+  height: auto;
+  border-radius: 5px;
+   
+ }
+
+span:hover {
+
+  text-decoration: underline;
+}
+
+
+span{
+  font-size: x-large;
+  
+  align-content: center;
+
+  
+}
+  
+
+// Rasheed end 
+
+// Michael start
+
+
+.homecontainer {
+
+  padding: 5px;
+  margin-top: 30px;
+  width: 75%;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 1em;
+  color: white;
+  grid-auto-flow: column;
+  height: 450px;
+
+  &__homebox {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    padding: 10px;
+    background: radial-gradient(white,grey);
+    background-size: cover;
+    text-align: start;
+    text-shadow: 0 0 3px #000000, 0 0 5px #000000;
+
+    &--p {
+      margin: 5px;
+    }
+
+    &__homebox:hover{
+      cursor: pointer;
+      opacity: 0.8;
+      transition: 0.8s;
+    }
+
+    &__homebox :nth-child(1) {
+      font-size: 20px;
+      font-weight: 700;
+    }
+  
+  }
+
+
+  &__homebox1 {
+
+    grid-row: 1/3;
+    background-image: url(https://ichef.bbci.co.uk/live-experience/cps/624/cpsprodpb/vivo/live/images/2021/11/25/3157c030-c1e3-4afc-b825-93ad2d5d516c.jpg);
+    background-size: cover;
+
+    &__homebox1 :nth-child(3) {
+     border-left: 5px solid red;
+    }
+
+    &__h1 {
+
+      font-size: 60px;
+    }
+    
+  }
+  
+  &__homebox2 {
+  
+  
+  
+    background-image: url(https://ichef.bbci.co.uk/news/976/cpsprodpb/58DC/production/_121784722_migrants4.jpg);
+    background-size: cover;
+
+    &__homebox2 :nth-child(2) {
+
+      border-left: 5px solid red;
+    }
+  }
+  
+  &__homebox3 {
+  
+    background-image: url(https://ichef.bbci.co.uk/live-experience/cps/624/cpsprodpb/vivo/live/images/2021/11/24/f1cc5ab7-b958-4a01-8696-4a292bc8fcbd.jpg);
+    background-size: cover;
+
+    &__homebox3 :nth-child(2) {
+
+      border-left: 5px solid red;
+    }
+  }
+  
+  &__homebox4 {
+  
+  
+    background-image: url(https://ychef.files.bbci.co.uk/1280x720/p0b576yw.webp);
+    background-size: cover;
+
+    &__homebox4 :nth-child(2) {
+
+      border-left: 5px solid red;
+    }
+  }
+  
+  &__homebox5 {
+  
+    background-image: url(https://ichef.bbci.co.uk/images/ic/832xn/p09ydv2w.jpg);
+    background-size: cover;
+
+    &__homebox5 :nth-child(2) {
+
+      border-left: 5px solid red;
+    }
+  }
+
+}
+
+
+
+// **** MIDDLE BAR ****
+
+.middlebar {
+
+  display: flex;
+  justify-content: start;
+  width: 75%;
+
+
+  &__h1 {
+
+  border-left: 6px solid red;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+
+  }
+
+}
+
+
+// **** HOME NEWS CONTAINER ****
+
+.homenews {
+
+  display: flex;
+  justify-content: space-between;
+  width: 75%;
+
+  &__newsbox {
+
+    display: flex;
+    flex-direction: column;
+    max-width: 32%;
+    height: 450px;
+  
+    h1{
+        font-size: 27px;
+    }
+  
+    h1:hover{
+        cursor: pointer;
+        text-decoration: underline;
+    }
+  
+    .category{
+  
+        border-left: 4px solid red;
+        padding-left: 10px;
+        color: rgb(98, 94, 90);
+    }
+}
+
+}
+
+.newsboximg{
+
+  background: radial-gradient(white, gray);
+
+  img{
+  
+      width: 100%;
+      height: 100%;
+  }
+
+  img:hover{
+
+      transition: 0.8s;
+      cursor: pointer;
+      opacity: 0.8;
+  }
+
+  &__newsboxtext {
+
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+
+   &__homebody{
+
+  font-family: 'outfit', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: rgb(252, 252, 252);
+  }
+
+}
+
+// Michael end
+
+  
