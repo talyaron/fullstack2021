@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,12 +10,13 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
     <link rel="manifest" href="favicon/site.webmanifest">
-    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="dist/style-bbc.css">
     <title>BBC &nbsp;|&nbsp; news </title>
 </head>
+
 <body>
     <div class="Nav">
-        <img src="logo/bbc-Logo.png" class="logo" onclick="window.location.href='home.html'">
+        <img src="images/bbc-Logo.png" class="logo" onclick="window.location.href='home.html'">
         <div class="Nav__BTN Nav__BTN--home"><a href="home.html">home</a></div>
         <div class="Nav__BTN Nav__BTN--news"><a href="news.html">news</a></div>
         <div class="Nav__BTN Nav__BTN--sport"><a href="sport.html">sport</a></div>
@@ -25,88 +27,136 @@
         <div class="Nav__BTN Nav__BTN--culture"><a href="#">culture</a></div>
         <div class="Nav__BTN Nav__BTN--more"><a href="#">more</a></div>
     </div>
-    
+
     <div class="stripe">
         <div class="stripe stripe--news"><b>NEWS</b></div>
     </div>
-    <div class="maincontent">
-    <div class="mainpic">
-        <img class="tam" src="news/OIP (2).jpg" alt="">
-    </div>
-    <div class="mainpic__main-text ">
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
-    </div> 
-    <div class="subtext">
-        <P>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsa culpa temporibus adipisci atque voluptate sed quos fugit quo nemo quae labore ad, iste enim est eum vitae suscipit fugiat quisquam.</P>
-    </div>
-    <div claas="subpic">
-        <img src="news/OIP (2).jpg" alt="">
-    </div>
-    <p class="sub-content__sub-text">
-        <a class="sub-content__link" href="">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id
-            voluptates cupiditate pariatur rerum error
-            et impedit enim ratione officiis corrupti.</a>
-    </p>
-    </div>
-    <div class="sub-content">
 
-        <div class="sub-content__box">side empy space</div> <!-- side empy space -->
+    <!-- main-content -->
+    <div class="content">
 
-        <div class="sub-content__box">
-            <a class="sub-content__link" href="">
-                <img class="sub-content__img" src="images/manchester.jpg" alt="">
-                <p class="sub-content__main-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquid
-                    expedita, est quidem minus et quo eligendi molestiae possimus obcaecati culpa.</p>
-            </a>
-            <p class="sub-content__sub-text">
-                <a class="sub-content__link" href="">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id
-                    voluptates cupiditate pariatur rerum error
-                    et impedit enim ratione officiis corrupti.</a>
-            </p>
+        <div class="main-content">
+
+            <div class="main-content__box"></div> <!-- side empy space -->
+
+            <div class="main-content__box">
+                <a class="main-content__link" href="">
+                    <img class="main-content__img" src="images/img-news.jpg" alt="">
+                    <p class="main-content__main-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquid
+                        expedita, est quidem minus et quo eligendi molestiae possimus obcaecati culpa.</p>
+                </a>
+                <p class="main-content__sub-text">
+                    <a class="main-content__link" href="">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id
+                        voluptates cupiditate pariatur rerum error
+                        et impedit enim ratione officiis corrupti.</a>
+                </p>
+            </div>
+
+            <div class="main-content__box">
+                <a class="main-content__link" href="">
+                    <p class="main-content__main-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquid
+                        expedita, est quidem minus et quo eligendi molestiae possimus obcaecati culpa.</p>
+                </a>
+                <p class="main-content__sub-text">
+                    <a class="main-content__link" href="">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id
+                        voluptates cupiditate pariatur rerum error
+                        et impedit enim ratione officiis corrupti.</a>
+                </p>
+                <p class="main-content__sub-text">
+                    <a class="main-content__link" href="">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id
+                        voluptates cupiditate pariatur rerum error
+                        et impedit enim ratione officiis corrupti.</a>
+                </p>
+                <p class="main-content__sub-text">
+                    <a class="main-content__link" href="">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id
+                        voluptates cupiditate pariatur rerum error
+                        et impedit enim ratione officiis corrupti.</a>
+                </p>
+            </div>
+
+            <div class="main-content__box">
+                <a class="main-content__link" href="">
+                    <img class="main-content__img" src="images/plane.jpg" alt="">
+                    <p class="main-content__main-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquid
+                        expedita, est quidem minus et quo eligendi molestiae possimus obcaecati culpa.</p>
+                </a>
+                <p class="main-content__sub-text">
+                    <a class="main-content__link" href="">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id
+                        voluptates cupiditate pariatur rerum error
+                        et impedit enim ratione officiis corrupti.</a>
+                </p>
+            </div>
+
+            <div class="main-content__box"></div> <!-- side empy space -->
+
         </div>
 
-        <div class="sub-content__box">
-            <a class="sub-content__link" href="">
-                <img class="sub-content__img" src="images/lebron.jpg" alt="">
-                <p class="sub-content__main-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquid
-                    expedita, est quidem minus et quo eligendi molestiae possimus obcaecati culpa.</p>
-            </a>
-            <p class="sub-content__sub-text">
-                <a class="sub-content__link" href="">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id
-                    voluptates cupiditate pariatur rerum error
-                    et impedit enim ratione officiis corrupti.</a>
-            </p>
+        <div class="stripe-middle">
+            <div class="stripe-middle stripe-middle--news"><b>On The Web</b></div>
         </div>
 
-        <div class="sub-content__box">
-            <a class="sub-content__link" href="">
-                <img class="sub-content__img" src="images/barcelona.jpg" alt="">
-                <p class="sub-content__main-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquid
-                    expedita, est quidem minus et quo eligendi molestiae possimus obcaecati culpa.</p>
-            </a>
-            <p class="sub-content__sub-text">
-                <a class="sub-content__link" href="">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id
-                    voluptates cupiditate pariatur rerum error
-                    et impedit enim ratione officiis corrupti.</a>
-            </p>
+        <!-- sub-content -->
+        <div class="sub-content">
+
+            <div class="sub-content__box"></div> <!-- side empy space -->
+
+            <div class="sub-content__box">
+                <a class="sub-content__link" href="">
+                    <img class="sub-content__img" src="images/pri4.jpg" alt="">
+                    <p class="sub-content__main-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquid
+                        expedita, est quidem minus et quo eligendi molestiae possimus obcaecati culpa.</p>
+                </a>
+                <p class="sub-content__sub-text">
+                    <a class="sub-content__link" href="">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id
+                        voluptates cupiditate pariatur rerum error
+                        et impedit enim ratione officiis corrupti.</a>
+                </p>
+            </div>
+
+            <div class="sub-content__box">
+                <a class="sub-content__link" href="">
+                    <img class="sub-content__img" src="images/pri2.jpg" alt="">
+                    <p class="sub-content__main-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquid
+                        expedita, est quidem minus et quo eligendi molestiae possimus obcaecati culpa.</p>
+                </a>
+                <p class="sub-content__sub-text">
+                    <a class="sub-content__link" href="">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id
+                        voluptates cupiditate pariatur rerum error
+                        et impedit enim ratione officiis corrupti.</a>
+                </p>
+            </div>
+
+            <div class="sub-content__box">
+                <a class="sub-content__link" href="">
+                    <img class="sub-content__img" src="images/pri.jpg" alt="">
+                    <p class="sub-content__main-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquid
+                        expedita, est quidem minus et quo eligendi molestiae possimus obcaecati culpa.</p>
+                </a>
+                <p class="sub-content__sub-text">
+                    <a class="sub-content__link" href="">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id
+                        voluptates cupiditate pariatur rerum error
+                        et impedit enim ratione officiis corrupti.</a>
+                </p>
+            </div>
+
+            <div class="sub-content__box">
+                <a class="sub-content__link" href="">
+                    <img class="sub-content__img" src="images/pri3.jpg" alt="">
+                    <p class="sub-content__main-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquid
+                        expedita, est quidem minus et quo eligendi molestiae possimus obcaecati culpa.</p>
+                </a>
+                <p class="sub-content__sub-text">
+                    <a class="sub-content__link" href="">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id
+                        voluptates cupiditate pariatur rerum error
+                        et impedit enim ratione officiis corrupti.</a>
+                </p>
+            </div>
+
+            <div class="sub-content__box"></div> <!-- side empy space -->
+
         </div>
-
-        <div class="sub-content__box">
-            <a class="sub-content__link" href="">
-                <img class="sub-content__img" src="images/wta.jpg" alt="">
-                <p class="sub-content__main-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquid
-                    expedita, est quidem minus et quo eligendi molestiae possimus obcaecati culpa.</p>
-            </a>
-            <p class="sub-content__sub-text">
-                <a class="sub-content__link" href="">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id
-                    voluptates cupiditate pariatur rerum error
-                    et impedit enim ratione officiis corrupti.</a>
-            </p>
-        </div>
-
-        <div class="sub-content__box">side empy space</div>
-
     </div>
 
 </body>
+
 </html>
