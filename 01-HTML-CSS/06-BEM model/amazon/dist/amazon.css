@@ -127,8 +127,8 @@ body {
 }
 
 .dealarrowLeft {
-  background-color: #fafffa;
-  opacity: 0.6;
+  background-color: #ffffe6;
+  opacity: 0.7;
   width: 30px;
   height: 80px;
   display: flex;
@@ -140,7 +140,7 @@ body {
 }
 
 .dealarrowRight {
-  background-color: #fafffa;
+  background-color: #ffffe6;
   opacity: 0.6;
   width: 30px;
   height: 80px;
