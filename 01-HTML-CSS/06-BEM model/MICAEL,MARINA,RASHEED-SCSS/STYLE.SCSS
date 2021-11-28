@@ -1,4 +1,4 @@
-// Marina start//
+// Marina start
 
 body{
   min-width: 1900px;
@@ -166,122 +166,122 @@ body{
   
     }
 
+
+
+    
+
 // Marina end
 
 // Rasheed start
 
 
 
-    .grid-1-container{
-      width: 100%;
-      height: 100vh;
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      grid-auto-rows: minmax(100px, auto);
-      gap: 0px;
-      background-color: rgb(233, 232, 232);
-      margin-top: 100px;
-      
-      
-      &__grid-1-box{
-        display: flex;
-      }
-      
-      
-    
-  
-    &__grid-1-box:nth-child(1){
-      grid-column: 1/3;
-    }
-  
-    &__grid-1-box:nth-child(3){
-      grid-column: 1/4;
-    }
-  
-    &__grid-1-box:nth-child(5){
-      grid-column: 2/4;
-    }
-  
-  
-  }   
-    
-  
-    .grid-2-container {
-      width: auto;
-      height: 100vh;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-auto-rows: minmax(100px, auto);
-      gap: 20px;
-      margin-top: 10px;
-      contain: layout;
-      background-color: rgb(194, 190, 190)
-  
-      &__grid-2-box{
-        display: flex;
-        contain: layout;
-      }
-  
-      &__grid-2-box:nth-child(1){
-        grid-column: 1/3;
-      }
-  
-      &__grid-2-box:nth-child(3){
-        grid-column: 2/4;
-      }
-  
-      &__grid-2-box:nth-child(4){
-        grid-column: 2/4;
-      }
-  
-      &__grid-2-box:nth-child(5){
-        grid-column: 2/4;
-      }
-      
-     
-      
-    }
-  
-  
-    .text {
-      cursor: pointer;
-      width: fit-content;
-      height: 100%;
-      margin-top: -2px;
-      margin-left: 2px;
-      padding: 5px;
-    
-      
-      
-    }
-  
-    .mod{
-      width: 600px;
-      height: auto;
-      border-radius: 5px;
-       
-     }
 
-     .mod:hover{
 
-      transition: 0.5s;
-      cursor: pointer;
-      opacity: 0.7;
+
+
+.grid-1-container{
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-auto-rows: minmax(100px, auto);
+  gap: 3px;
+  background-color: gray;
+  margin-top: 100px;
+  
+  
+  &__grid-1-box{
+    display: flex;
   }
   
-    span:hover {
+
+&__grid-1-box:nth-child(1){
+  grid-column: 1/3;
+}
+
+&__grid-1-box:nth-child(3){
+  grid-column: 1/4;
+}
+
+&__grid-1-box:nth-child(5){
+  grid-column: 2/4;
+}
+
+}
+
   
-      text-decoration: underline;
-    }
+
+
+.grid-2-container {
+  width: auto;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(100px, auto);
+  gap: 2px;
+  margin-top: 10px;
+  contain: layout;
+
+  &__grid-2-box{
+    display: flex;
+    contain: layout;
+  }
+
+  &__grid-2-box:nth-child(1){
+    grid-column: 1/3;
+  }
+
+  &__grid-2-box:nth-child(3){
+    grid-column: 2/4;
+  }
+
+  &__grid-2-box:nth-child(4){
+    grid-column: 2/4;
+  }
+
+  &__grid-2-box:nth-child(5){
+    grid-column: 2/4;
+  }
+  
+ 
+  
+}
+
+
+.text {
+  cursor: pointer;
+  width: fit-content;
+  height: 100%;
+  margin-top: -2px;
+  margin-left: 2px;
+  padding: 5px;
+
   
   
-    span{
-      font-size: x-large;
-      
-      align-content: center;
+}
+
+.mod{
+  width: 600px;
+  height: auto;
+  border-radius: 5px;
+   
+ }
+
+span:hover {
+
+  text-decoration: underline;
+}
+
+
+span{
+  font-size: x-large;
   
-      
-    }
+  align-content: center;
+
+  
+}
+  
 
 // Rasheed end 
 

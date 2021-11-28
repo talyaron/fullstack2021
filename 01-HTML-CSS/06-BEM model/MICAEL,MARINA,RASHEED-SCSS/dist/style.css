@@ -86,7 +86,7 @@ a {
   display: grid;
   grid-template-columns: 17.5% 9% 9% 8% 8% 8% 8% 8% 8%;
   background-color: #ad1010;
-  grid-template-rows: 25px;
+  grid-template-rows: 19px;
   justify-items: end;
 }
 
@@ -150,11 +150,9 @@ p {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-auto-rows: minmax(100px, auto);
-  gap: 10px;
-  background-color: rgb(233, 232, 232);
+  gap: 3px;
+  background-color: gray;
   margin-top: 100px;
-  
- 
  
  
   
@@ -164,8 +162,6 @@ p {
 .grid-1-box{
     display: flex;
     
-
-    
   
   }
   
@@ -174,7 +170,6 @@ p {
 
 .grid-1-box:nth-child(1){
   grid-column: 1/3;
-  
 }
 
 .grid-1-box:nth-child(3){
@@ -195,9 +190,9 @@ p {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-auto-rows: minmax(100px, auto);
-  gap: 20px;
+  gap: 2px;
   margin-top: 10px;
-  background-color: rgb(194, 190, 190);
+  background-color: rgb(224, 220, 220);
   
  
   contain: layout;
@@ -255,13 +250,6 @@ p {
  border-radius: 5px;
   
 }
-
-.mod:hover{
-
-  transition: 0.5s;
-  cursor: pointer;
-  opacity: 0.7;
-}
   
 
 
@@ -278,6 +266,11 @@ span{
 
   
 }   
+
+
+
+
+
 .topbar {
   width: 75%;
   height: 50px;
