@@ -292,7 +292,6 @@
 .main__down__box {
   display: grid;
   grid-template-rows: 45% 25% 24% 12%;
-  height: 100%;
   width: 100%;
 }
 .main__down__box h2 {
