@@ -82,3 +82,73 @@ body {
 .dealGrid__dealbox h3 {
   color: red;
 }
+
+
+/*Home page- need to add also to the scss*/
+.box {
+  display: grid;
+  grid-template-columns: repeat(4, 16vw);
+  grid-template-rows: 30vh 30vh 30vh;
+  margin-top: 4vh;
+  justify-content: center;
+  gap: 30px;
+}
+
+.box__boxItem--boxItem1{
+  grid-column: span 4;
+  display: grid;
+  grid-template-columns: 0.05fr 0.9fr 0.05fr;
+  background-color: #B1E6EE;
+}
+
+.box__boxItem--boxItem1 .arrowRight, .arrowLeft{
+  place-self: center; 
+  position: relative;   
+}
+
+.box__boxItem--boxItem1 .arrowRight{
+  bottom: 18%;
+} 
+
+.box__boxItem--boxItem1 .arrowLeft{
+  bottom: 15%;
+}
+
+.box__boxItem{
+  padding: 5px;
+}
+
+.box__boxItem{
+  font-size: 12px;
+  font-weight: 700;
+  color: rgb(78, 78, 78);
+}
+
+.box__boxItem img{
+  object-fit: cover;
+  padding-top: 3px;
+  width: 100%;
+  height: 75%;
+}
+
+.box__boxItem span{
+  font-size: 10px;
+  font-weight: 700;
+  color: rgb(21, 111, 172);
+}
+
+
+
+
+.box__boxItem--boxItem1 img{
+  object-fit: cover;
+  vertical-align: bottom;
+  width: 100%;
+  height: 100%;
+}
+
+.box .fas {
+  position: relative;
+  top: 32px;
+  color: #a8a8a8;
+}
