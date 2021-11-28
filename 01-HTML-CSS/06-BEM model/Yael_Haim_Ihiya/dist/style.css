@@ -109,11 +109,11 @@ body .wrapper .wrapper__gridwraptop .wrapper__gridwraptop2 .wrapper__header {
   font-size: 20px;
   font-style: italic;
 }
-/*////
+/*///////////////////////////////////////////////////////
 .container {
  
   display: grid; 
-  gap:110px;
+  gap:10px;
  
   grid-template-columns: repeat(4,200px);
   grid-template-rows: repeat(8,200px);
@@ -128,4 +128,4 @@ grid-auto-rows:minmax(200px,200px) ;
 width: 300px;
 height: 300px;
 }
-*/
+////////////////////////////////////////////////////////*/
