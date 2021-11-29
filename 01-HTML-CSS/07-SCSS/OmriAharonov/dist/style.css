@@ -22,7 +22,7 @@
 .wrapper .card-column {
   grid-column: span 3;
   text-align: right;
-  border: 1px solid black;
+  
 }
 .wrapper .card {
   text-align: center;
