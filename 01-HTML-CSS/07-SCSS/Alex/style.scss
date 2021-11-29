@@ -1,0 +1,31 @@
+body {
+    background-color: rgb(212, 209, 209);
+
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid black;
+        width: 500px;
+        height: 500px;
+        background-color: white;
+        justify-content: center;
+        gap: 50px;
+
+        & img {
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+
+        }
+
+        & h1 {
+            color: rgb(74, 159, 255);
+        }
+    }
+}
