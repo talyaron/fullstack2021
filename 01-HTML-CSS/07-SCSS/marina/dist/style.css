@@ -1,0 +1,21 @@
+.card {
+  border: 1px solid black;
+  width: 600px;
+  height: 500px;
+  display: block;
+  margin: auto;
+}
+.card img {
+  width: 350px;
+  height: 350px;
+  display: block;
+  margin: auto;
+}
+.card .h1, .card .prise {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.card .prise {
+  color: red;
+}
