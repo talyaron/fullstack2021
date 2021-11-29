@@ -26,16 +26,16 @@
         }
         
         p{
-            grid-row: 8;
+            grid-row: 7;
         }
 
         &_stars{
             height: 10vh;
-            grid-row: 7;
+            grid-row: 6;
 
-            span{
-                color: yellow;
-            }
+            .checked {
+                color: rgb(252, 255, 57);
+              }
 
         }
         
