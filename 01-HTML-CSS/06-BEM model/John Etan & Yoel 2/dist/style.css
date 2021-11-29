@@ -169,10 +169,9 @@ body {
   padding: 1vw;
 }
 
-/*podcast page style*/
 .logoimg {
-  left: 33vw;
-  top: 25vh;
+  left: -2%;
+  top: 0%;
   width: 104%;
   height: 100%;
   position: absolute;
@@ -181,6 +180,11 @@ body {
 .watch {
   border: solid 2px #fff;
   background-color: transparent;
+  -webkit-transition: background-color 0.1s linear;
+  -moz-transition: background-color 0.1s linear;
+  -ms-transition: background-color 0.1s linear;
+  -o-transition: background-color 0.1s linear;
+  transition: background-color 0.1s linear;
   color: #fff;
 }
 
@@ -188,6 +192,4 @@ body {
   color: rgba(255, 255, 255, 0.9);
   font-size: 20px;
   line-height: 1.75em;
-  text-align: center;
-  white-space: pre-wrap;
 }
