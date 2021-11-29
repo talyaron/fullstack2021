@@ -1,0 +1,40 @@
+.wrapper {
+  display: flex;
+  background-color: grey;
+}
+.wrapper .card {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 2rem;
+  padding: 1rem;
+  width: 20vw;
+}
+.wrapper .card_img {
+  width: 20vw;
+}
+.wrapper .card_title {
+  color: #0044ff;
+}
+.wrapper .card_reviews {
+  display: flex;
+  flex-direction: row;
+}
+.wrapper .card_reviews .material-icons {
+  position: relative;
+  top: 0.8rem;
+}
+.wrapper .card_reviews-gray {
+  color: gray;
+}
+.wrapper .card_pricing {
+  display: flex;
+  flex-direction: row;
+}
+.wrapper .card_pricing--discount {
+  color: red;
+}
+.wrapper .card_pricing--price {
+  text-decoration: line-through;
+}
