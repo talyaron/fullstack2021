@@ -52,26 +52,19 @@
             grid-row: 4;
             font-size: 10px;
         }
-        
         p{
             grid-row: 8;
         }
-
         &_stars{
             height: 10vh;
             grid-row: 7;
 
-            span{
-                color: yellow;
-            }
-
         }
-        
-
-
-
-        
-
     }
 }
+
+.checked{
+        color: yellow;
+    }
 }
+
