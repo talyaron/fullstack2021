@@ -1,0 +1,21 @@
+.wrapper {
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 100px;
+  padding: 100px;
+}
+.wrapper__wrapper_box {
+  width: 60%;
+  height: 250px;
+  margin: 50px;
+  padding: 100px;
+}
+.wrapper__wrapper_box__img {
+  display: block;
+  height: 50px;
+  width: 10px;
+  align-items: center;
+  border-radius: 50%;
+  margin-left: 50px;
+}
