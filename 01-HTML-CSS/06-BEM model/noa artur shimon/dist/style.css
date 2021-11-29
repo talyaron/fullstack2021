@@ -21,7 +21,7 @@ body {
   font-size: 20px;
 }
 
-.navbar {
+> .navbar {
   display: flex;
   justify-content: space-evenly;
   width: 100%;
@@ -32,7 +32,7 @@ body {
   position: absolute;
   top: 50px;
 }
-.navbar a {
+> .navbar a {
   text-decoration: none;
 }
 
@@ -77,5 +77,15 @@ body {
   grid-row: span 2;
 }
 .grid-main .box2 {
+  grid-row: span 2;
+}
+.grid-main .box {
+  border: black 2px solid;
+}
+.grid-main .box1 {
+  grid-column: span 4;
+}
+.grid-main .box3 {
+  grid-column: span 3;
   grid-row: span 2;
 }
