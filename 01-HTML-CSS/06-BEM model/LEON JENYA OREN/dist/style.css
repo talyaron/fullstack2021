@@ -5,7 +5,7 @@
   width: 100%;
   align-items: stretch;
 }
-.main-menu .main-menu__nav {
+.main-menu__nav {
   display: flex;
   border-right: 2px solid black;
   height: 5vh;
@@ -16,17 +16,20 @@
   font-family: "M PLUS Code Latin", sans-serif;
   font-weight: bold;
 }
-.main-menu .main-menu__headline {
+.main-menu__nav:hover {
+  cursor: pointer;
+  border-bottom: 3px solid black;
+  transition: 0.2s;
+}
+.main-menu__headline {
   color: #1e272e;
   font-family: "Comforter Brush", cursive;
   font-family: "M PLUS Code Latin", sans-serif;
   font-size: 40px;
   font-stretch: ultra-condensed;
 }
-.main-menu .main-menu__nav:hover {
-  cursor: pointer;
-  border-bottom: 3px solid black;
-  transition: 0.2s;
+.main-menu ul {
+  color: blue;
 }
 
 .main-articles {
