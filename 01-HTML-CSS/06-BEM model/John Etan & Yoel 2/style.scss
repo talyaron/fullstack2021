@@ -64,22 +64,115 @@ body{
         position: absolute;
         display: inline-block;
         direction: rtl;
-        top: 40vh;
-        right: 10vw;
+        top: 22vh;
+        right: 9vw;
         background-color: transparent;
-    &--item{
-        -webkit-filter: invert(100%);
-        font-family: 'typewriter';
-        height: 2vh;
-        width: 4vw;
-        margin-left: 1vw;
-        cursor: pointer;
-    
-        
+        ul {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            position: absolute;
+          }
+          
+          ul li {
+            list-style: none;
+            margin: 0 15px;
+          }
+          
+          ul li a {
+            position: relative; 
+            display: block;
+            width: 60px;
+            height: 60px;
+            text-align: center;
+            line-height: 63px;
+            background: transparent;
+            border-radius: 50%;
+            font-size: 30px;
+            color: #666;
+            transition: .5s;
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+                background:transparent;
+                transition: .5s;
+                transform: scale(.9);
+                z-index: -1;
+              }
+              &:hover::before {
+                transform: scale(1.1);
+                box-shadow: 0 0 15px #ffffff;
+              }
+            &:hover {
+            color: #999999;
+            box-shadow: 0 0 5px #ffffff;
+            text-shadow: 0 0 1px #ffffff;
+            .facebook{
+                color:#3b5998;
+            }
+            .instagram{
+                color:#d62976;
+            }
+            .twitter{
+                color:#00acee;
+            }
+            .youtube{
+                color:#FF0000;
+            }
+            .vimeo{
+                color:#86c9ef;
+            }
+          }
+          }
+    }
 
-        img{
-            height: 4.2vh;
-            width: 2vw;
-        }
-    }
-    }
+    /*Home page content*/
+.Homeimg{
+    position: absolute;
+    z-index: 1;
+    width: 623px;
+    height: 420px;
+    left: 20vw;
+    top: 33vh;
+}
+#Joe{
+    background-image: url('https://www.rollingstone.com/wp-content/uploads/2018/06/rs-213329-R1247_FEA_Rogen_A.jpg?resize=623,420&w=623');
+}
+.description{
+    background-color: black;
+    color: #ccc2c2;
+    font-family: typeka;
+    font-size: 2.5vw;
+    position: relative;
+    left: 35vw;
+    top: 5vh;
+    height: 22vh;
+    width: fit-content;
+    overflow-wrap: break-word;
+    padding: 1vw;
+}
+/*podcast page style*/
+.logoimg{
+    left: 33vw;
+    top: 25vh;
+    width: 104%;
+    height: 100%;
+    position: absolute;
+}
+.watch{
+    border: solid 2px #fff;
+    background-color: transparent;
+    color: #fff;
+}
+.text{
+    color: rgba(255,255,255,.9);
+    font-size: 20px;
+    line-height: 1.75em;
+    text-align: center;
+    white-space: pre-wrap;
+}

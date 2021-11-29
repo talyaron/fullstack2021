@@ -1,253 +1,422 @@
-body{
-    font-family: Arial, Helvetica, sans-serif;
+body {
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-.ad--row{
+.ad--row {
+  display: flex;
+  justify-content: center;
+
+  img {
+    width: 75vw;
+  }
+}
+
+.title {
+  font-size: 1.2rem;
+  margin: 1rem 0 1rem 0;
+}
+
+.home--main {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 2rem;
+  color: white;
+  height: 50vh;
+  margin: 1rem;
+
+  .home--main__article--big {
+    background-image: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgba(255, 255, 255, 0) 100%),
+      url(https://ichef.bbci.co.uk/news/976/cpsprodpb/909F/production/_121832073_sthafricagetty2.jpg);
+    background-size: cover;
     display: flex;
-    justify-content: center;
-    img{
-        width: 75vw;
+    flex-direction: column;
+    justify-content: flex-end;
+    grid-row: 1 / 3;
+    grid-column: 1 / 3;
+    height: 50vh;
+    padding: 1rem;
+
+    :last-child {
+      box-shadow: -0.2em 0 0 yellow;
+      padding-left: 0.2em;
     }
+  }
+
+  :nth-child(2):not(p) {
+    background-image: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgba(255, 255, 255, 0) 100%),
+      url(https://ichef.bbci.co.uk/news/976/cpsprodpb/1964/production/_121800560_gettyimages-1212213050.jpg);
+  }
+
+  :nth-child(3):not(p) {
+    background-image: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgba(255, 255, 255, 0) 100%),
+      url(https://ichef.bbci.co.uk/news/976/cpsprodpb/167C7/production/_121830129_hi072221422.jpg);
+  }
+
+  :nth-child(4):not(p) {
+    background-image: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgba(255, 255, 255, 0) 100%),
+      url(https://ychef.files.bbci.co.uk/1280x720/p0b63llm.webp);
+  }
+
+  :nth-child(5):not(p) {
+    background-image: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgba(255, 255, 255, 0) 100%),
+      url(https://ychef.files.bbci.co.uk/1280x720/p0b698hg.webp);
+  }
+
+  .home--main__article--small {
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1rem;
+
+    :last-child {
+      box-shadow: -0.2em 0 0 rgb(255, 0, 0);
+      padding-left: 0.2em;
+    }
+  }
 }
 
-.title{
-    font-size: 1.2rem;
-    margin: 1rem 0 1rem 0;
+.flex {
+  display: flex;
+  align-items: center;
 }
 
-.home--main{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    gap: 2rem;
-    color: white;
+.home--small {
+  .title {
+    box-shadow: -0.2em 0 0 rgb(255, 0, 0);
+    margin-left: 0.2em;
+
+    :hover {
+      color: gray;
+    }
+  }
+}
+
+.home--small__row {
+  display: flex;
+
+  .home--small__row_article {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25vw;
     height: 50vh;
     margin: 1rem;
-    .home--main__article--big{
-        background-image: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgba(255,255,255,0) 100%),
-        url(https://ichef.bbci.co.uk/news/976/cpsprodpb/909F/production/_121832073_sthafricagetty2.jpg);
-        background-size: cover;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        grid-row: 1 / 3;
-        grid-column: 1 / 3;
-        height: 50vh;
-        padding: 1rem;
-        :last-child{
-            box-shadow: -0.2em 0 0 yellow;
-            padding-left: 0.2em;
-        }
+
+    img {
+      height: 30vh;
     }
-    :nth-child(2):not(p){
-        background-image: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgba(255,255,255,0) 100%),
-        url(https://ichef.bbci.co.uk/news/976/cpsprodpb/1964/production/_121800560_gettyimages-1212213050.jpg);
+
+    :last-child {
+      box-shadow: -0.2em 0 0 blue;
+      padding-left: 0.2em;
     }
-    :nth-child(3):not(p){
-        background-image: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgba(255,255,255,0) 100%),
-        url(https://ichef.bbci.co.uk/news/976/cpsprodpb/167C7/production/_121830129_hi072221422.jpg);
-    }
-    :nth-child(4):not(p){
-        background-image: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgba(255,255,255,0) 100%),
-        url(https://ychef.files.bbci.co.uk/1280x720/p0b63llm.webp);
-    }
-    :nth-child(5):not(p){
-        background-image: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgba(255,255,255,0) 100%),
-        url(https://ychef.files.bbci.co.uk/1280x720/p0b698hg.webp);
-    }
-    .home--main__article--small{
-        background-size: cover;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        padding: 1rem;
-        :last-child{
-            box-shadow: -0.2em 0 0 rgb(255, 0, 0);
-            padding-left: 0.2em; 
-        }
-    }
+  }
 }
 
-.flex{
-    display: flex;
-    align-items: center;
+.ad--column {
+  height: 30vh;
+  background-color: rgb(221, 216, 216);
+  padding-block: 40vh;
+  position: relative;
+  top: 3.5vh;
 }
 
-.home--small{
-    .title{
-        box-shadow: -0.2em 0 0 rgb(255, 0, 0);
-        margin-left: 0.2em; 
-        :hover{
-            color: gray;
-        }       
-    }
-}
-
-.home--small__row{
-    display: flex;
-
-    .home--small__row_article{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        width: 25vw;
-        margin: 1rem;
-        img{
-            height: 15vh;
-        }
-        :last-child{
-            box-shadow: -0.2em 0 0 blue;
-            padding-left: 0.2em;
-        }
-    }
-}
-.ad--column{
-    height: 30vh;
-}
-
-.navBar--news{
-    width: 100%;
-    background-color: red;
-    height: 40px;
+.navBar--news {
+  width: 100%;
+  background-color: red;
+  height: 40px;
 
 }
+
 // sport css elya
-.header{
-    display: flex;
-    width: 100%;
-    height: 40px;
-    flex-direction: row;
-    border: 1px solid #ccc;
-    justify-content: space-between;
-    .search{
-      border: 1px solid;
-    }
-    
-   .logo img{
-       margin: 0;
-      height:100%;
-      width: 80px;
-   }
-  a{
-  height: 100%;
-  color: black;
-  padding-left: 5px;
+.header {
+  display: flex;
+  width: 100%;
+  height: 40px;
+  flex-direction: row;
+  border: 1px solid #ccc;
+  justify-content: space-between;
+  align-items: center;
+
+  .search {
+    border: 1px solid;
+  }
+
+  .logo img {
+    margin: 0;
+    height: 100%;
+    width: 80px;
+  }
+
+  a {
+    height: 100%;
+    color: black;
+    padding-left: 5px;
     padding-right: 5px;
-      text-decoration: none;
+    text-decoration: none;
     // border-left: 0.5px solid black;
 
   }
-  .header--items{
-    height: 40px;
-  }
-  .header__item{
+
+  .header__item {
     border: 1px solid #ccc;
     height: 100px;
+    padding-block: 11px;
+  }
+
+  a:nth-child(1):hover {
+    box-shadow: inset 0 -2px 0 0 red;
+  }
+
+  a:nth-child(2):hover {
+    box-shadow: inset 0 -2px 0 0 rgb(255, 208, 0);
+  }
+
+  a:nth-child(3):hover {
+    box-shadow: inset 0 -2px 0 0 rgb(59, 59, 252);
+  }
+
+  a:nth-child(4):hover {
+    box-shadow: inset 0 -2px 0 0 rgb(3, 3, 129);
+  }
+
+  a:nth-child(5):hover {
+    box-shadow: inset 0 -2px 0 0 black;
+  }
+}
+
+.nav--sport {
+  background-color: rgb(255, 208, 0);
+  margin-bottom: 20px;
+  padding-bottom: 3px;
+
+  a {
+    height: 100%;
+    color: black;
+    margin: 5px;
+    text-decoration: none;
+    border-left: 0.5px solid black;
 
   }
-  a:nth-child(1):hover{
-    border-bottom: 3px solid red;
-  }a:nth-child(2):hover{
-    border-bottom: 3px solid rgb(255, 208, 0);
-  }a:nth-child(3):hover{
-    border-bottom: 3px solid rgb(59, 59, 252);
-  }a:nth-child(4):hover{
-    border-bottom: 3px solid rgb(3, 3, 129);
-  }a:nth-child(5):hover{
+
+
+  a:hover {
     border-bottom: 3px solid black;
   }
 }
 
-.nav--sport{
-  background-color: rgb(255, 208, 0);
-
-  a{
-    height: 100%;
-    color: black;
-    margin: 5px;
-        text-decoration: none;
-      border-left: 0.5px solid black;
-  
-    }
-   
-    
-    a:hover{
-      border-bottom: 3px solid black;
-    }
-}
-.nav--sport--items{
-  display: flex;
-  flex-direction:row ;
-  justify-content:space-evenly ;
-}
-.sport--main__article--big{
+.nav--sport--items {
   display: flex;
   flex-direction: row;
-}
-.sport--main{
-  display: flex;
-  flex-direction: row;
-.imgA img{
- height: 300px;
- width:500px ;
-}
-.imgB img{
-  height: 150px;
-  width: 250px;
-}
 
-.text{
- width: 230px;
-}
-.list-inline{
-  display: flex;
-  justify-content: space-evenly;
-  flex-direction: row;
-}
-
-h3:hover{
-  color: rgb(42, 19, 255);
-  text-decoration-line: underline;
-  text-decoration-style: solid;
-}
-
-.list-inline p:nth-child(2){
-  color: rgb(101, 216, 34);
-}
-.list-inline p:nth-child(2):hover{
-  color: rgb(101, 216, 34);
-  text-decoration-line: underline;
-  text-decoration-style: solid;
-}
-
-}
-.ad--row{
-  width: 100%;
-  text-align: center;
-  background-color: rgb(221, 216, 216);
-
-  img{
-    width: 80%;
+   .text {
+    padding-left: 20px;
   }
 }
-.sport--small{
+
+.sport--main {
+  justify-content: space-between;
   display: flex;
-  flex-direction: column;
-  margin: 20px;
-  img{
+  flex-direction: row;
+  margin-right: 210px;
+
+  .imgA img {
+    height: 300px;
+    width: 500px;
+  }
+
+  .imgB img {
+    height: 150px;
+    width: 250px;
+    justify-content: space-evenly;
+  }
+
+  .sport--main__article--big {
+    display: flex;
+    flex-direction: row;
+    
+  }
+
+  .sport--main {
+    display: flex;
+    flex-direction: row;
+
+    .imgA img {
+      height: 300px;
+      width: 500px;
+    }
+
+    .imgB img {
+      height: 150px;
+      width: 250px;
+    }
+
+    .text {
+      width: 230px;
+    }
+
+    .list-inline {
+      display: flex;
+      justify-content: space-evenly;
+      flex-direction: row;
+    }
+
+    h3:hover {
+      color: rgb(42, 19, 255);
+      text-decoration-line: underline;
+      text-decoration-style: solid;
+    }
+
+    .list-inline p:nth-child(2) {
+      color: rgb(101, 216, 34);
+    }
+
+    .list-inline p:nth-child(2):hover {
+      color: rgb(101, 216, 34);
+      text-decoration-line: underline;
+      text-decoration-style: solid;
+    }
+
+  }
+
+  .ad--row {
+    width: 100%;
+    text-align: center;
+    background-color: rgb(221, 216, 216);
+
+    img {
+      width: 80%;
+    }
+  }
+
+  .sport--small {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+
+    img {
+      width: 300px;
+      height: 200x;
+    }
+  }
+
+  .sport--small__articale {
+    display: flex;
+    flex-direction: column;
     width: 300px;
     height: 200x;
+    margin: 10px;
+
+     h5:hover {
+      color: rgb(42, 19, 255);
+      text-decoration-line: underline;
+      text-decoration-style: solid;
+    }
   }
+
+  .sport--small__articale__row {
+    display: flex;
+    flex-direction: row;
+  }
+
+ 
 }
-.sport--small__articale{
-  display: flex;
-  flex-direction: column;
-  width: 300px;
-  height: 200x;
-  margin: 10px;
-} 
-.sport--small__articale__row{
+
+.sport--small__articale__row {
   display: flex;
   flex-direction: row;
+}
+
+
+
+/*asdasdasd*/
+.navBar--news {
+  width: 100%;
+  background-color: red;
+  height: 100px;
+}
+
+
+.nottitle {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-right: 3vw;
+
+  .navBar--news_item>h4 {
+    font-weight: 1000;
+  }
+}
+
+.ad--row2 {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 10vw;
+
+  .box>img {
+    width: 15vw;
+    height: 25vh;
+  }
+
+  .box>p {
+    text-align: center;
+  }
+}
+
+.news--main {
+  width: 100%;
+  height: 20vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 2fr 1fr;
+
+  .pic>img {
+    width: 25vw;
+  }
+
+  .livenews {
+    width: 20vw;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .box>img {
+    width: 15vw;
+    height: 25vh;
+  }
+
+  .box>p {
+    position: relative;
+    left: 8vw;
+  }
+}
+
+.news--small {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-right: 45vw;
+}
+
+.news--medium {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  margin-right: 35vw;
+
+  .news--medium_article>img {
+    width: 12vw;
+  }
+}
+
+.news--feed {
+  width: 45vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
 }
 
