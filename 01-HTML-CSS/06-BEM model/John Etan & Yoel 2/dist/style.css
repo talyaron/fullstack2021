@@ -56,37 +56,6 @@ body {
 }
 
 /*social media*/
-/*NEW UPDATE!
-
-<ul>
-        <li id="facebook">
-          <a id="facebook" href="https://www.facebook.com/JOEROGAN/" target="_blank">
-            <i class="fab fa-facebook"></i>
-          </a>
-        </li>
-        <li>
-          <a id="instagram" href="https://www.instagram.com/joerogan/" target="_blank">
-            <i class="fab fa-instagram"></i>
-          </a>
-          </li>
-        <li>
-          <a id="twitter" href="https://twitter.com/joerogan" target="_blank">
-            <i class="fab fa-twitter"></i>
-          </a>
-
-        </li>
-        <li>
-          <a id="youtube" href="https://www.youtube.com/channel/UCzQUP1qoWDoEbmsQxvdjxgQ" target="_blank">
-            <i class="fab fa-youtube"></i>
-          </a> 
-        </li>
-        <li>
-            <a id="vimeo" href="https://vimeo.com/joeroganexperience" target="_blank">
-            <i class="fab fa-vimeo"></i>
-        </a>
-        </li>
-      </ul>
-*/
 .socialmedia {
   position: absolute;
   display: inline-block;
@@ -169,9 +138,10 @@ body {
   padding: 1vw;
 }
 
+/*podcast page style*/
 .logoimg {
-  left: -2%;
-  top: 0%;
+  left: 33vw;
+  top: 25vh;
   width: 104%;
   height: 100%;
   position: absolute;
@@ -180,11 +150,6 @@ body {
 .watch {
   border: solid 2px #fff;
   background-color: transparent;
-  -webkit-transition: background-color 0.1s linear;
-  -moz-transition: background-color 0.1s linear;
-  -ms-transition: background-color 0.1s linear;
-  -o-transition: background-color 0.1s linear;
-  transition: background-color 0.1s linear;
   color: #fff;
 }
 
@@ -192,4 +157,6 @@ body {
   color: rgba(255, 255, 255, 0.9);
   font-size: 20px;
   line-height: 1.75em;
+  text-align: center;
+  white-space: pre-wrap;
 }
