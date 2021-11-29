@@ -109,6 +109,21 @@ body {
   box-shadow: 0 0 5px #ffffff;
   text-shadow: 0 0 1px #ffffff;
 }
+.socialmedia ul li a:hover .facebook {
+  color: #3b5998;
+}
+.socialmedia ul li a:hover .instagram {
+  color: #d62976;
+}
+.socialmedia ul li a:hover .twitter {
+  color: #00acee;
+}
+.socialmedia ul li a:hover .youtube {
+  color: #FF0000;
+}
+.socialmedia ul li a:hover .vimeo {
+  color: #86c9ef;
+}
 
 /*Home page content*/
 .Homeimg {

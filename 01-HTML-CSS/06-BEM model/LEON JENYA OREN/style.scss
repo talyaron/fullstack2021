@@ -6,7 +6,7 @@
     align-items: stretch;
 
 
-    .main-menu__nav {
+    &__nav {
         display: flex;
         border-right: 2px solid black;
         height: 5vh;
@@ -16,9 +16,15 @@
         font-family: 'Comforter Brush', cursive;
         font-family: 'M PLUS Code Latin', sans-serif;
         font-weight: bold;
+
+        &:hover {
+            cursor: pointer;
+            border-bottom: 3px solid black;
+            transition: 0.2s;
+        }
     }
 
-    .main-menu__headline {
+    &__headline {
         color: #1e272e;
         font-family: 'Comforter Brush', cursive;
         font-family: 'M PLUS Code Latin', sans-serif;
@@ -26,10 +32,10 @@
         font-stretch: ultra-condensed;
     }
 
-    .main-menu__nav:hover {
-        cursor: pointer;
-        border-bottom: 3px solid black;
-        transition: 0.2s;
+    
+
+    ul{
+        color:blue;
     }
 }
 
