@@ -56,6 +56,37 @@ body {
 }
 
 /*social media*/
+/*NEW UPDATE!
+
+<ul>
+        <li id="facebook">
+          <a id="facebook" href="https://www.facebook.com/JOEROGAN/" target="_blank">
+            <i class="fab fa-facebook"></i>
+          </a>
+        </li>
+        <li>
+          <a id="instagram" href="https://www.instagram.com/joerogan/" target="_blank">
+            <i class="fab fa-instagram"></i>
+          </a>
+          </li>
+        <li>
+          <a id="twitter" href="https://twitter.com/joerogan" target="_blank">
+            <i class="fab fa-twitter"></i>
+          </a>
+
+        </li>
+        <li>
+          <a id="youtube" href="https://www.youtube.com/channel/UCzQUP1qoWDoEbmsQxvdjxgQ" target="_blank">
+            <i class="fab fa-youtube"></i>
+          </a> 
+        </li>
+        <li>
+            <a id="vimeo" href="https://vimeo.com/joeroganexperience" target="_blank">
+            <i class="fab fa-vimeo"></i>
+        </a>
+        </li>
+      </ul>
+*/
 .socialmedia {
   position: absolute;
   display: inline-block;
