@@ -211,7 +211,7 @@ body {
   display: flex;
   flex-direction: row;
 
-   .text {
+  .text {
     padding-left: 20px;
   }
 }
@@ -236,7 +236,7 @@ body {
   .sport--main__article--big {
     display: flex;
     flex-direction: row;
-    
+
   }
 
   .sport--main {
@@ -309,8 +309,7 @@ body {
     height: 200x;
     margin: 10px;
 
-     h5:hover {
-       
+    h5:hover {
       color: rgb(42, 19, 255);
       text-decoration-line: underline;
       text-decoration-style: solid;
@@ -322,7 +321,7 @@ body {
     flex-direction: row;
   }
 
- 
+
 }
 
 .sport--small__articale__row {
@@ -333,6 +332,10 @@ body {
 
 
 /*asdasdasd*/
+.body {
+  margin: 5vw
+}
+
 .navBar--news {
   width: 100%;
   background-color: red;
@@ -419,15 +422,4 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-}
-
-.sport--small__articale{
-  img{
-    height: 200px;
-    width: 300px;
-  }
-}
-.list-inline{
-  display: flex;
-  flex-direction: row;
 }

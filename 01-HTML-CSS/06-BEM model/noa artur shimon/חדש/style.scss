@@ -1,8 +1,7 @@
 body {
     margin: 0%;
     font-family: 'Open Sans', sans-serif;
-     position: relative;
-   
+position: relative;
 }
 
 .header {
@@ -18,15 +17,14 @@ body {
     top: 0px;
 
     i {
-         padding: 5px;
-            font-size: 20px;
+        padding: 5px;
+        font-size: 20px;
 
-        }
-
-
+    }
 }
 
-> .navbar {
+
+.navbar {
     display: flex;
     justify-content: space-evenly;
     width: 100%;
@@ -37,20 +35,20 @@ body {
     position: absolute;
     top: 50px;
 
-
+   
     a {
         text-decoration: none;
     }
 }
 
- .ad {
+.ad {
     width: 100%;
     justify-content: center;
     display: flex;
     height: 200px;
     padding: 30px;
-
-
+    
+    
 }
 
 .grid-main {
@@ -59,7 +57,7 @@ body {
     grid-template-columns: repeat(4, 200px);
     grid-template-rows: repeat(2, 200px);
     gap: 15px;
-
+    
 
     img {
         height: auto;
@@ -69,7 +67,6 @@ body {
         background-size: cover;
         background-repeat: no-repeat;
     }
-
     p {
         position: relative;
         bottom: 20px;
@@ -78,23 +75,16 @@ body {
         background-color: rgba(86, 86, 124, 0.205);
         opacity: 0.6;
     }
-
-    .text {
+    .text{
         color: black;
-        background-color: white;
-        margin: 0;
+       background-color: white;
+       margin: 0;
     }
-
-    .box1 {
-        grid-column: span 3;
-        grid-row: span 2;
-    }
-
-    .box2 {
-        grid-row: span 2;
-    }
-
-        
-
-        
-       
+.box1{
+    grid-column: span 3;
+    grid-row: span 2;
+}
+.box2{
+    grid-row: span 2;
+}
+}
