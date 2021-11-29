@@ -1,0 +1,39 @@
+
+.wrapper{
+    display: flex;
+    background-color: grey;
+    &__card{
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        margin: 2rem;
+        padding: 1rem;
+        &_img{
+            width: 30vw;
+        }
+        &_title{
+            color: rgb(0, 68, 255);
+        }
+        &_reviews{
+            display: flex;
+            flex-direction: row;
+            .material-icons{
+                position: relative;
+                top: 0.8rem
+            }
+            &-gray{
+                color: gray;
+            }
+        }
+        &_pricing{
+            display: flex;
+            flex-direction: row;
+            &--discount{
+                color: red;
+            }
+            &--price{
+                text-decoration: line-through;
+            }
+        }
+    }
+}
