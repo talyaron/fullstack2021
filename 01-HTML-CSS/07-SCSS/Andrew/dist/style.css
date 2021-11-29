@@ -1,0 +1,38 @@
+.wrapper {
+  display: flex;
+  background-color: grey;
+}
+.wrapper__card {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  margin: 2rem;
+  padding: 1rem;
+}
+.wrapper__card_img {
+  width: 30vw;
+}
+.wrapper__card_title {
+  color: #0044ff;
+}
+.wrapper__card_reviews {
+  display: flex;
+  flex-direction: row;
+}
+.wrapper__card_reviews .material-icons {
+  position: relative;
+  top: 0.8rem;
+}
+.wrapper__card_reviews-gray {
+  color: gray;
+}
+.wrapper__card_pricing {
+  display: flex;
+  flex-direction: row;
+}
+.wrapper__card_pricing--discount {
+  color: red;
+}
+.wrapper__card_pricing--price {
+  text-decoration: line-through;
+}
