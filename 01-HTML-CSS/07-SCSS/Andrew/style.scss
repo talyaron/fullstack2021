@@ -2,14 +2,16 @@
 .wrapper{
     display: flex;
     background-color: grey;
-    &__card{
+    .card{
         background-color: white;
         display: flex;
         flex-direction: column;
+        justify-content: space-between;
         margin: 2rem;
         padding: 1rem;
+        width: 20vw;
         &_img{
-            width: 30vw;
+            width: 20vw;
         }
         &_title{
             color: rgb(0, 68, 255);
