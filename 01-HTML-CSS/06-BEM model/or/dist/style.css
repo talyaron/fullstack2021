@@ -1,0 +1,7 @@
+.wrapper {
+  height: 200px;
+}
+.wrapper h1 {
+  background-color: black;
+  color: #0088ff;
+}

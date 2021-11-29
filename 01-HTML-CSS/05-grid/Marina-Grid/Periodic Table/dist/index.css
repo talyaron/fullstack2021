@@ -1,0 +1,146 @@
+body {
+  background: #202e38;
+  font-family: "Poppins", sans-serif;
+  margin: 100px;
+}
+body .periodic-table {
+  display: grid;
+  grid-template-columns: repeat(18, 100px);
+  grid-template-rows: repeat(9, 100px);
+  gap: 10px;
+  margin: auto;
+  max-width: 1200px;
+  justify-content: center;
+}
+body .periodic-table .empty-space-1 {
+  grid-column-start: 2;
+  grid-column-end: 18;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+body .periodic-table .empty-space-2 {
+  grid-column: 3/13;
+  grid-row: 2/4;
+}
+body .periodic-table .empty-space-3 {
+  grid-column: 1/4;
+  grid-row: 8/10;
+}
+body .periodic-table .periodic-element {
+  padding: 4px;
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+body .periodic-table .periodic-element__periodic-element:hover {
+  transform: scale(1.5);
+  z-index: 10;
+}
+body .periodic-table .periodic-element .periodic-element-inner {
+  background: #202e38;
+  padding: 10px 15px;
+  width: calc(100% - 30px);
+  height: calc(100% - 20px);
+  transition: inherit;
+}
+body .periodic-table .periodic-element .title {
+  font: 800 27px "Poppins", sans-serief;
+  margin: 0.3em 0 0;
+  transition: 0.8s ease 600ms;
+}
+body .periodic-table .periodic-element .title .decribtion {
+  margin-top: -0.2em;
+}
+body .periodic-table .periodic-element:hover .periodic-element-inner {
+  background: transparent;
+}
+body .periodic-table .periodic-element:hover .title,
+body .periodic-table .periodic-element:hover .decribtion {
+  -webkit-text-fill-color: #0a0a0a;
+}
+body .periodic-table .periodic-element:hover::after {
+  top: 105%;
+  opacity: 1;
+  transform: scale(1.5s);
+}
+body .periodic-table .one {
+  background: linear-gradient(to bottom right, #f1e044 0%, #806802 100%);
+}
+body .periodic-table .one .title, body .periodic-table .one .decribtion {
+  background: -webkit-linear-gradient(#5e571a, #57490b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+body .periodic-table .two {
+  background: linear-gradient(to bottom right, #6B8E23 0%, #365002 100%);
+}
+body .periodic-table .two .title, body .periodic-table .two .decribtion {
+  background: -webkit-linear-gradient(#6B8E23, #365002);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+body .periodic-table .three {
+  background: linear-gradient(to bottom right, #2dcaa8 0%, #07614d 100%);
+}
+body .periodic-table .three .title, body .periodic-table .three .decribtion {
+  background: -webkit-linear-gradient(#2dcaa8, #07614d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+body .periodic-table .four {
+  background: linear-gradient(to bottom right, #268cc7 0%, #044972 100%);
+}
+body .periodic-table .four .title, body .periodic-table .four .decribtion {
+  background: -webkit-linear-gradient(#268cc7, #ffc171);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+body .periodic-table .five {
+  background: linear-gradient(to bottom right, #0eb10e 0%, #046604 100%);
+}
+body .periodic-table .five .title, body .periodic-table .five .decribtion {
+  background: -webkit-linear-gradient(#095a09, #096109);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+body .periodic-table .six {
+  background: linear-gradient(to bottom right, #7616c5 0%, #3d0669 100%);
+}
+body .periodic-table .six .title, body .periodic-table .six .decribtion {
+  background: -webkit-linear-gradient(#281338, #1e102b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+body .periodic-table .seven {
+  background: linear-gradient(to bottom right, #FF6600 0%, #813808 100%);
+}
+body .periodic-table .seven .title, body .periodic-table .seven .decribtion {
+  background: -webkit-linear-gradient(#9b5421, #994b16);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+body .periodic-table .eight {
+  background: linear-gradient(to bottom right, #2442ec 0%, #0921ac 100%);
+}
+body .periodic-table .eight .title, body .periodic-table .eight .decribtion {
+  background: -webkit-linear-gradient(#0b154d, #030822);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+body .periodic-table .nine {
+  background: linear-gradient(to bottom right, #382612 0%, #2c1d0b 100%);
+}
+body .periodic-table .nine .title, body .periodic-table .nine .decribtion {
+  background: -webkit-linear-gradient(#1d1409, #1b1206);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+body .periodic-table .ten {
+  background: linear-gradient(to bottom right, #694b28 0%, #4b351c 100%);
+}
+body .periodic-table .ten .title, body .periodic-table .ten .decribtion {
+  background: -webkit-linear-gradient(#1a130b, #1d140b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

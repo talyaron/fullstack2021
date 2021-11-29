@@ -1,0 +1,259 @@
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+.upperHeader {
+  width: 100%;
+  color: white;
+  background-color: #232f3e;
+  height: 5vh;
+  display: flex;
+  gap: 10vw;
+  padding: 10px 0 0 10px;
+}
+.upperHeader__logo img {
+  height: 5vh;
+  width: 5vw;
+}
+.upperHeader__searchBar {
+  width: 60vw;
+  padding-left: 90px;
+}
+.upperHeader input {
+  display: inline-block;
+  width: 100%;
+}
+.upperHeader__flag {
+  color: red;
+}
+
+.lowerHeader {
+  display: grid;
+  grid-template-columns: 80px 80px 80px 80px;
+  background-color: #121921;
+  width: 100%;
+  height: 5vh;
+  padding: 10px 0 0 15px;
+}
+.lowerHeader__item {
+  padding: 0 1px;
+}
+.lowerHeader a {
+  text-decoration: none;
+  color: blanchedalmond;
+}
+.lowerHeader a:hover {
+  border: white 1px solid;
+}
+
+/*Gift page*/
+.registryGrid {
+  width: 70vw;
+  height: 55vh;
+  margin: 100px 300px 300px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 6fr 16fr;
+  justify-content: center;
+  gap: 2vw;
+}
+.registryGrid__title {
+  grid-column: span 5;
+  text-align: center;
+}
+.registryGrid__gift {
+  text-align: center;
+  background-color: #eee;
+  font-family: "Oswald", sans-serif;
+}
+.registryGrid__gift img {
+  width: 100%;
+}
+.registryGrid__gift :hover {
+  cursor: pointer;
+}
+
+/*Deal page*/
+.dealGrid {
+  display: grid;
+  grid-template-columns: repeat(8, 200px);
+  grid-template-rows: 200px 290px;
+  justify-content: center;
+}
+.dealGrid__runner {
+  grid-column: span 8;
+  border: #be4520 2px solid;
+  background-color: #cf6813;
+}
+.dealGrid__runner img {
+  width: 100%;
+  max-height: 100%;
+}
+.dealGrid__dealbox {
+  word-wrap: break-word;
+  border: rgba(0, 0, 0, 0.425) 2px solid;
+  border-radius: 7px;
+}
+.dealGrid__dealbox img {
+  width: 100%;
+  height: 50%;
+  cursor: pointer;
+}
+.dealGrid__dealbox p {
+  text-align: start;
+  padding-left: 8px;
+}
+.dealGrid__dealbox h4 {
+  display: flex;
+  position: absolute;
+  justify-items: bottom;
+  font-weight: normal;
+  color: black;
+  padding-left: 8px;
+}
+.dealGrid__dealbox h3 {
+  color: red;
+  padding-left: 8px;
+  bottom: 0;
+}
+.dealGrid__dealbox--dealbox1 {
+  grid-column: span 2;
+  border: black 2px solid;
+}
+.dealGrid__dealbox--dealbox1 video {
+  height: 100%;
+  width: 100%;
+}
+
+.dealarrowLeft {
+  background-color: #ffffe6;
+  opacity: 0.7;
+  width: 30px;
+  height: 80px;
+  display: flex;
+  position: absolute;
+  top: 350px;
+  left: 370px;
+  cursor: pointer;
+  align-items: center;
+}
+
+.dealarrowRight {
+  background-color: #ffffe6;
+  opacity: 0.6;
+  width: 30px;
+  height: 80px;
+  display: flex;
+  position: absolute;
+  top: 350px;
+  right: 1px;
+  cursor: pointer;
+  align-items: center;
+}
+
+/* Home-Page */
+.box {
+  display: grid;
+  grid-template-columns: repeat(4, 16vw);
+  grid-template-rows: 30vh 30vh 30vh;
+  margin-top: 4vh;
+  justify-content: center;
+  gap: 30px;
+}
+.box__boxItem {
+  padding: 5px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #4e4e4e;
+}
+.box__boxItem--boxItem1 {
+  grid-column: span 4;
+  display: grid;
+  grid-template-columns: 0.05fr 0.9fr 0.05fr;
+  background-color: #B1E6EE;
+}
+.box__boxItem img {
+  object-fit: cover;
+  padding-top: 3px;
+  width: 100%;
+  height: 75%;
+}
+.box__boxItem span {
+  font-size: 10px;
+  font-weight: 700;
+  color: #156fac;
+}
+.box__boxItem--boxItem1 img {
+  object-fit: cover;
+  vertical-align: bottom;
+  width: 100%;
+  height: 100%;
+}
+.box__boxItem--boxItem1 img .arrowRight, .box__boxItem--boxItem1 img .arrowLeft {
+  place-self: center;
+  position: relative;
+}
+.box__boxItem--boxItem1 img .arrowRight {
+  bottom: 18%;
+}
+.box__boxItem--boxItem1 img .arrowLeft {
+  bottom: 15%;
+}
+.box .fas {
+  position: relative;
+  top: 32px;
+  color: #a8a8a8;
+}
+
+/* Service-Page */
+h2 {
+  text-align: right;
+  font-weight: 500;
+}
+
+h3 {
+  text-align: right;
+  font-weight: 500;
+  color: #a1a1a1;
+}
+
+.serviceGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  margin: 300px 370px 300px;
+  gap: 10px;
+  width: 50vw;
+  height: 20vh;
+  align-content: center;
+}
+.serviceGrid__title {
+  grid-column: span 3;
+  text-align: center;
+}
+.serviceGrid__title h1 {
+  font-weight: 500;
+}
+.serviceGrid__option {
+  display: flex;
+  flex-direction: row-reverse;
+  border: 1px solid #5a5a5a;
+  padding: 10px;
+  border-radius: 7px;
+  max-width: 300px;
+  max-height: 100px;
+}
+.serviceGrid__option img {
+  justify-content: left;
+  padding-top: -100px;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+.serviceGrid__option:hover {
+  background-image: linear-gradient(to bottom right, white, #9a9a9a);
+}
+.serviceGrid__option:hover h2 {
+  color: orange;
+}

@@ -1,0 +1,166 @@
+/*fonts*/
+@font-face {
+    font-family: 'typeka';
+    src: url('fonts/Typeka.otf');
+}
+@font-face {
+    font-family: 'typewriter';
+    src: url('https://www.1001fonts.com/bptypewrite-font.html');
+}
+/*body style*/
+body{
+    background-color: #100806;
+}
+
+/*logo and nav style*/
+.header{
+    a{
+        text-decoration: none;
+        color: white;
+    }
+    margin: 0;
+    padding: 0;
+    background-color: #0A0A0A;
+    font-family: 'typeka';
+    width: 100vw;
+    position: absolute;
+    color: #FFFFFF;
+
+    &--logo{
+    color: #DED9D5;
+    position: relative;
+    font-size: 66px;
+    padding-left: 37vw;
+    padding-right: 37vw;
+   }
+}
+    .navbar{
+    width: 100%;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+   
+    
+    
+    &--item{
+        margin-right: 2vw;
+        height: 2vh;
+        font-family: 'typewriter';
+        font-size: 2vw;
+        display: flex;
+        color: white;
+        margin: 2vw;
+    
+    }
+    &--item:hover{
+        cursor: pointer;
+    }
+    }
+
+    /*social media*/
+.socialmedia{
+        position: absolute;
+        display: inline-block;
+        direction: rtl;
+        top: 22vh;
+        right: 9vw;
+        background-color: transparent;
+        ul {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            position: absolute;
+          }
+          
+          ul li {
+            list-style: none;
+            margin: 0 15px;
+          }
+          
+          ul li a {
+            position: relative; 
+            display: block;
+            width: 60px;
+            height: 60px;
+            text-align: center;
+            line-height: 63px;
+            background: transparent;
+            border-radius: 50%;
+            font-size: 30px;
+            color: #666;
+            transition: .5s;
+          }
+          
+          ul li a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background:transparent;
+            transition: .5s;
+            transform: scale(.9);
+            z-index: -1;
+          }
+          
+          ul li a:hover::before {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px #ffffff;
+          }
+          
+          ul li a:hover {
+            color: #999999;
+            box-shadow: 0 0 5px #ffffff;
+            text-shadow: 0 0 1px #ffffff;
+          }
+    }
+
+    /*Home page content*/
+.Homeimg{
+    position: absolute;
+    z-index: 1;
+    width: 623px;
+    height: 420px;
+    left: 20vw;
+    top: 33vh;
+}
+#Joe{
+    background-image: url('https://www.rollingstone.com/wp-content/uploads/2018/06/rs-213329-R1247_FEA_Rogen_A.jpg?resize=623,420&w=623');
+}
+.description{
+    background-color: black;
+    color: #ccc2c2;
+    font-family: typeka;
+    font-size: 2.5vw;
+    position: relative;
+    left: 35vw;
+    top: 5vh;
+    height: 22vh;
+    width: fit-content;
+    overflow-wrap: break-word;
+    padding: 1vw;
+}
+/*podcast page style*/
+.logoimg{
+    left: 33vw;
+    top: 25vh;
+    width: 104%;
+    height: 100%;
+    position: absolute;
+}
+.watch{
+    border: solid 2px #fff;
+    background-color: transparent;
+    color: #fff;
+}
+.text{
+    color: rgba(255,255,255,.9);
+    font-size: 20px;
+    line-height: 1.75em;
+    text-align: center;
+    white-space: pre-wrap;
+}
