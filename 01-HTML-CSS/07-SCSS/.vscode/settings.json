@@ -1,7 +1,7 @@
-{
 <<<<<<< HEAD
-    "compile-hero.enable-compile-files-on-did-save-code": true,
+
 =======
->>>>>>> 8dcfed325e0d6c2f9c1fdc541735ce54093a5c3c
+{
     "compile-hero.disable-compile-files-on-did-save-code": false
 }
+>>>>>>> 173dd4fb50588624147b3fc4be0fbc5cd8a93183
