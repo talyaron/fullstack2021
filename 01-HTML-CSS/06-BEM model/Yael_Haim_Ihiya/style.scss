@@ -1,7 +1,40 @@
 body {
     padding: 0;
-    margin: 0;
-    height: 100%;
+    margin:0;
+    height:100%;
+
+/*===========================================*/
+header{
+    background-color: black;
+    color: white;
+
+&--danger{
+
+}
+
+.website-header{
+    height:100px;
+    display: flex;
+    justify-content: left;
+    flex-wrap:wrap;
+    
+    
+
+.website-header__h1{
+    margin:  auto 0;
+    font-family:'Courier New';
+    font-size: 100px;
+    
+    
+}
+
+.website-header__social-icons{
+    text-align: right;
+    flex-grow: 1;
+    font-size: 30px;
+    
+
+    &--danger{
 
     /*===========================================*/
     header {
