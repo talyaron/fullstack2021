@@ -1,0 +1,30 @@
+
+body{
+    background-color: skyblue;
+}
+.wrapper{
+    display: flex;
+    background-color: sandybrown;
+    color: seagreen;
+    width: 400px;
+}
+.card{
+    background-color: aqua;
+    color: seagreen;
+    width: fit-content;
+    height: fit-content;
+     border-radius: 10px;
+}
+img{
+    width: 200px;
+    height: 400px;
+    bottom: 20%;
+    bottom: 100%;
+}
+
+.card{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(10 vh);
+}
+    
