@@ -1,0 +1,25 @@
+.wrapper{
+    display: flex;
+    margin: 50px;
+    padding: 50px;
+    
+    .wrapper_box{
+        width: 100%;
+        height: 50px;
+        margin: 50px;
+        padding: 50px;
+    
+        &__img{
+            display: block;
+            height: 50px;
+            width: 10px;
+            align-items: center;
+            border-radius: 50%;
+            margin-left: 50px;
+        }
+        
+    }
+    
+    
+}
+
