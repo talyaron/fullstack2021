@@ -270,6 +270,10 @@ body {
 }
 
 /*asdasdasd*/
+.body {
+  margin: 5vw;
+}
+
 .navBar--news {
   width: 100%;
   background-color: red;
