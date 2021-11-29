@@ -1,0 +1,35 @@
+.wrapper {
+  display: grid;
+  grid-template-rows: repeat();
+  grid-template-columns: 35% 35% 35%;
+  height: 30vh;
+  width: 50%;
+  column-gap: 3em;
+  margin: auto;
+  margin-top: 100px;
+}
+.wrapper_box {
+  display: grid;
+  grid-template-rows: repeat(8);
+}
+.wrapper_box img {
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  grid-row: 1/3;
+}
+.wrapper_box h1 {
+  grid-row: 4;
+  font-size: 10px;
+}
+.wrapper_box p {
+  grid-row: 8;
+}
+.wrapper_box_stars {
+  height: 10vh;
+  grid-row: 7;
+}
+.wrapper_box_stars span {
+  color: yellow;
+}
