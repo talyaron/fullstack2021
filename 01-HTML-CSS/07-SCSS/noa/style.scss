@@ -1,0 +1,31 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+
+    .card {
+        height: 200px;
+        width: 200px;
+        
+    }
+
+    img {
+        height: 100px;
+        width: 100px;
+        
+    }
+
+    p {
+        font-weight: 700;
+        text-align: center;
+    }
+
+    .price {
+        color: crimson;
+        text-align: right;
+
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+}
