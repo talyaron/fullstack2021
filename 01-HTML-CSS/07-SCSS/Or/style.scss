@@ -1,0 +1,32 @@
+.container {
+    display: flex;
+    min-height: 100vh;
+    min-width: 100vw;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(224, 224, 224);
+
+
+}
+
+.card {
+    height: 250px;
+    width: 200px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+
+    img {
+        object-fit: cover;
+        width: 100%;
+        height: 50%;
+    }
+
+    p{
+        color: blue;
+    }
+
+    .price {
+        color: red;
+    }
+}
