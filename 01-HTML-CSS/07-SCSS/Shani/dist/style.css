@@ -1,0 +1,43 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(9, 150px);
+}
+.wrapper .headergreen {
+  background-color: green;
+  grid-column-start: 1;
+  grid-column-end: 4;
+}
+.wrapper .headeryellow {
+  background-color: yellow;
+  grid-column-start: 1;
+  grid-column-end: 4;
+}
+.wrapper .headerwhite {
+  background-color: #ffe7e7;
+  grid-column-start: 1;
+  grid-column-end: 4;
+}
+.wrapper .card {
+  grid-column-start: 1;
+  grid-column-end: 4;
+}
+.wrapper .card .card1 {
+  border: 2px grey solid;
+}
+.wrapper .card .card1 img {
+  width: 100%;
+  display: block;
+  margin: auto;
+}
+.wrapper .card .card1 p {
+  text-align: center;
+  color: blue;
+  cursor: pointer;
+  padding: 5px;
+}
+.wrapper .card .card1 .price {
+  font-weight: bold;
+  font-size: 20px;
+  color: black;
+}
