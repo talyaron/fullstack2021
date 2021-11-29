@@ -1,0 +1,24 @@
+.wrapper {
+  display: flex;
+  margin: 50px;
+  padding: 50px;
+}
+.wrapper .wrapper_box {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 10px;
+  width: 30%;
+  padding: 10px;
+}
+.wrapper .wrapper_box__img {
+  display: block;
+  align-items: center;
+  border-radius: 50%;
+}
+.wrapper .wrapper_box__wraper__box__text {
+  font-size: small;
+  font-weight: bold;
+  text-align: center;
+}
