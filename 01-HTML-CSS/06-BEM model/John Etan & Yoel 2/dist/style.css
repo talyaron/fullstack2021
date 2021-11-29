@@ -64,18 +64,65 @@ body {
   right: 9vw;
   background-color: transparent;
 }
-.socialmedia--item {
-  filter: none;
-  -webkit-filter: invert(100%);
-  font-family: "typewriter";
-  height: 2vh;
-  width: 4vw;
-  margin-left: 1vw;
-  cursor: pointer;
+.socialmedia ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  position: absolute;
 }
-.socialmedia--item img {
-  height: 4vh;
-  width: 2vw;
+.socialmedia ul li {
+  list-style: none;
+  margin: 0 15px;
+}
+.socialmedia ul li a {
+  position: relative;
+  display: block;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  line-height: 63px;
+  background: transparent;
+  border-radius: 50%;
+  font-size: 30px;
+  color: #666;
+  transition: 0.5s;
+}
+.socialmedia ul li a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: transparent;
+  transition: 0.5s;
+  transform: scale(0.9);
+  z-index: -1;
+}
+.socialmedia ul li a:hover::before {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px #ffffff;
+}
+.socialmedia ul li a:hover {
+  color: #999999;
+  box-shadow: 0 0 5px #ffffff;
+  text-shadow: 0 0 1px #ffffff;
+}
+.socialmedia ul li a:hover .facebook {
+  color: #3b5998;
+}
+.socialmedia ul li a:hover .instagram {
+  color: #d62976;
+}
+.socialmedia ul li a:hover .twitter {
+  color: #00acee;
+}
+.socialmedia ul li a:hover .youtube {
+  color: #FF0000;
+}
+.socialmedia ul li a:hover .vimeo {
+  color: #86c9ef;
 }
 
 /*Home page content*/
@@ -106,9 +153,10 @@ body {
   padding: 1vw;
 }
 
+/*podcast page style*/
 .logoimg {
-  left: -2%;
-  top: 0%;
+  left: 33vw;
+  top: 25vh;
   width: 104%;
   height: 100%;
   position: absolute;
@@ -117,11 +165,6 @@ body {
 .watch {
   border: solid 2px #fff;
   background-color: transparent;
-  -webkit-transition: background-color 0.1s linear;
-  -moz-transition: background-color 0.1s linear;
-  -ms-transition: background-color 0.1s linear;
-  -o-transition: background-color 0.1s linear;
-  transition: background-color 0.1s linear;
   color: #fff;
 }
 
@@ -129,4 +172,6 @@ body {
   color: rgba(255, 255, 255, 0.9);
   font-size: 20px;
   line-height: 1.75em;
+  text-align: center;
+  white-space: pre-wrap;
 }
