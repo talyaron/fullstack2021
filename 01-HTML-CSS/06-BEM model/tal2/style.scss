@@ -1,0 +1,43 @@
+.wrapper {
+    background-color: antiquewhite;
+
+    h1 {
+        color: aquamarine;
+    }
+
+    &__box {
+        width: 100px;
+        height: 100px;
+        background-color: aqua;
+        margin-bottom: 10px;
+
+        &:hover {
+            background-color: blue;
+        }
+    }
+
+    
+    .box {
+        background-color: brown;
+        width: 100px;
+        height: 100px;
+        margin-bottom: 5px;
+    }
+    
+    .big {
+        width: 140px;
+        height: 140px;
+    }
+    
+    .blue {
+        background-color: blue;
+    }
+
+
+
+    img {
+        width: 100px;
+    }
+
+}
+
