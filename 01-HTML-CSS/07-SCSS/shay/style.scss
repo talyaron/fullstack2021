@@ -1,0 +1,67 @@
+.main {
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(8, 50px);
+    gap: 5px;
+
+    .header {
+        background-color: rgb(231, 223, 223) !important;
+        grid-column: 1/5;
+        //grid-column-start: 1;
+        //grid-column-end: 5;
+        //grid-row-start: 1;
+        grid-row: span 1;
+    }
+
+    .menu {
+        background-color: green !important;
+        grid-column: 1/5;
+        grid-row-start: 2;
+        //grid-column-start: 1;
+        //grid-column-end: 5;
+        //grid-row-start: 1;
+        grid-row: span 1;
+    }
+
+    .banner {
+        background-color: beige !important;
+        grid-column: 1/5;
+        grid-row-start: 2;
+        //grid-column-start: 1;
+        //grid-column-end: 5;
+        //grid-row-start: 1;
+        grid-row: span 5;
+        .buton{
+            background-color: rgb(241, 229, 229) !important;
+            
+            grid-column-start: 2;
+            grid-template-columns: 5;
+            //grid-column-start: 1;
+            //grid-column-end: 5;
+            //grid-row-start: 1;
+            grid-row: span 1;
+        }
+    }
+    .see{
+        background-color: rgb(250, 239, 239) !important;
+        grid-column: 1/5;
+        grid-row-start: 8;
+        //grid-column-start: 1;
+        //grid-column-end: 5;
+        //grid-row-start: 1;
+        grid-row: span 3;
+    }
+    .card {
+
+
+        background-color: whitesmoke;
+
+        img {
+            padding-top: 10px;
+            display: block;
+            margin: auto;
+            height: 100px;
+        }
+    }
+}

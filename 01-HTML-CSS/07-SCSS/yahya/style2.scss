@@ -1,0 +1,99 @@
+body{
+   background-color: #999;
+  
+   
+   
+}
+.header{
+   display: block;
+   background-color: coral;
+  justify-content: end;
+  font-size: 40px;
+  height: 80px;
+  
+  
+   a:hover{
+    color: black;
+     text-align: italic;
+   }   
+   ul{
+      color: black;
+   }
+}
+.main{
+
+   display: grid;
+   background: color #999;
+   grid-template-columns:repeat(4,400px);
+   grid-template-rows: repeat(2,400px);
+   gap: 100px 100px;
+   justify-content: center;
+   .box{
+      background-color:blue;
+      border-radius: 15px;
+   }
+ 
+ 
+}
+ 
+.num1{
+   display: grid;
+   background: color #999;
+   grid-template-columns:repeat(4,400px);
+   grid-template-rows: repeat(2,400px);
+   gap: 100px 100px;
+   justify-content: center;
+  
+   
+   .box{
+      background-color:blue;
+      border-radius: 15px;
+   }
+
+}
+.num2{
+   display: grid;
+   background: color #999;
+   grid-template-columns:repeat(4,400px);
+   grid-template-rows: repeat(2,400px);
+   gap: 100px 100px;
+   justify-content: center;
+   
+   .box{
+      background-color:blue;
+      border-radius: 15px;
+   }
+
+}
+.num3{
+   display: grid;
+   background: color #999;
+   grid-template-columns:repeat(4,400px);
+   grid-template-rows: repeat(2,400px);
+   gap: 100px 100px;
+   justify-content: center;
+   
+   .box{
+      background-color:blue;
+      border-radius: 15px;
+   }
+
+}
+.num4{
+   display: grid;
+   background: color #999;
+   grid-template-columns:repeat(4,400px);
+   grid-template-rows: repeat(2,400px);
+   gap: 100px 100px;
+   justify-content: center;
+   
+   .box{
+      background-color:blue;
+      border-radius: 15px;
+   }
+
+}
+h1{
+   justify-content: end;
+   color: brown;
+}
