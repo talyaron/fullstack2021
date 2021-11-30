@@ -3,11 +3,12 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.SideMenu {
+.SideWrapper {
   width: 10vw;
   height: 100vh;
   background-color: #312f2f;
 }
-.SideMenu .Music {
-  color: white;
+.SideWrapper__MainLogo {
+  width: 50px;
+  height: 25px;
 }
