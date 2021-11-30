@@ -1,0 +1,123 @@
+.bar{
+    align-items: center;
+   min-width: 50vw; 
+   display: flex;
+   justify-content: space-between;
+   position: relative;
+   padding-top: 20px;
+   left: 200px;
+   flex-direction: row;
+}
+a{
+    text-decoration: none;
+    color: rgb(74, 0, 143);
+    font-family: 'Ubuntu', sans-serif;
+    
+}
+.bar a:hover {
+    background-color: rgb(207, 197, 205);
+    color: black;
+    border-radius: 5px;
+    padding: 5px;
+    
+  }
+  
+  i.far{
+      color: black;
+      width: 50px;
+      height: 50px;
+      
+  }
+  input{
+    
+    height: 20px;
+  }
+
+  .header{
+      position: relative;
+    display: flex;
+    min-width: 100vw;
+
+    
+  }
+  .icon{
+     padding-top: 20px;
+      width: 20vw;
+      position: absolute;
+      right: 0;
+  }
+  .logo{
+      position: absolute;
+      top: 0;
+      left: 10px;
+  }
+  body{
+    background-image: url("./images/gradient.jpg") ;
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-color: rgba(230,226,217,255);
+    height: 100vh;
+    width: 100vw;
+  }
+  .body{
+    
+   
+    min-width: 100vw;
+    min-height: 50vh;
+    display: flex;
+   justify-content: space-between;
+   flex-wrap: nowrap; 
+    flex-direction: row;
+   
+   align-items: center;
+  }
+ 
+  h1{
+    font-family: 'Courgette', cursive;
+    color: blueviolet;
+    font-size: 72px;
+    padding: 20px 100px;
+  }
+  p{
+    font-family: 'Ubuntu', sans-serif;
+    color: rgb(81, 126, 211);
+    font-size: 36px;
+  }
+ i.fas{
+  color: black;
+  width: 100px;
+  height: 100px;
+ }
+.wrraper{
+  display: flex;
+  min-width: 100vw;
+  flex-direction: row;
+  flex-wrap: nowrap; 
+  justify-content: flex-end;
+  align-items: center;
+  padding-top: 50px;
+}
+.icons{
+  margin-right: 50px;
+  margin-top: 300px;
+}
+img{
+  border: 5px solid palevioletred;
+  border-radius: 5px;
+  
+}
+.box:hover{
+  transform: scale(2);
+}
+.box:nth-child(9):hover{
+  transform: scale(2) translatex(-50px);
+}
+.box{
+  padding: 0 2px;
+}
+.icons>a{
+  color: black;
+}
+.fa-arrow-right{
+  font-size: xx-large;
+}

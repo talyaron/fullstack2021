@@ -1,0 +1,135 @@
+:root{
+    --colorBrown:#e08b6c;
+
+}
+
+body{
+    padding: 0;
+    margin:0;
+    height:100%;
+}
+
+
+
+header{
+    background-color: black;
+    color: white;
+}
+
+
+.website-header{
+    height:80px;
+    display: flex;
+    flex-wrap:wrap;
+    
+}
+
+.website-header img{
+    width:50px;
+    height:50px;
+}
+
+.website-header h1{
+    margin:  auto 0;
+    font-family:'Courier New';
+    
+    
+}
+
+.social-icons{
+    text-align: right;
+    flex-grow: 1;
+}
+
+.social-icons i{
+    margin: 0 7px;
+    cursor: pointer;
+}
+
+nav{
+    background-color: black;
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+nav ul{
+    margin: 20px 0 0 0 ;
+}
+
+.navbar-nav li{
+    padding: 10px 20px;
+}
+
+.navbar-nav li a{
+    color:#fff;
+    font-size: 30px;
+    font-family:'Courier New';
+
+}
+
+.navbar-nav li a:hover{
+    color: var(--colorBrown);
+
+}
+
+
+.copyright{
+    width:100%;
+    background-color: black;
+    color: #fff;
+    padding: 5px;
+    text-align: center;
+
+}
+
+.gridwraptop{
+
+    display: inline-grid;
+    grid-template-columns: 1fr 0.8fr;
+    gap: 10px;
+    
+
+}
+
+.gridwraptop2{
+
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr;
+
+
+    gap: 10px;
+
+    
+
+}
+
+.gridwrapbottom{
+
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 10px;
+
+}
+
+.box{
+
+    padding: 10px;
+    gap: 5px;
+    border: 2px solid black;
+}
+
+img{
+    width: 100%;
+    padding: 5px;
+
+}   
+
+p{
+    width: 90%;
+    color: brown;
+    font-size:20px;
+    font-style: italic;
+}
+.wrapper{
+     padding-top: 50px;
+}

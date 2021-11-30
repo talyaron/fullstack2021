@@ -1,0 +1,218 @@
+/*fonts*/
+@font-face {
+  font-family: "typeka";
+  src: url("fonts/Typeka.otf");
+}
+@font-face {
+  font-family: "typewriter";
+  src: url("https://www.1001fonts.com/bptypewrite-font.html");
+}
+/*body style*/
+body {
+  background-color: #100806;
+}
+
+/*logo and nav style*/
+.header {
+  margin: 0;
+  padding: 0;
+  background-color: #0A0A0A;
+  font-family: "typeka";
+  width: 100vw;
+  position: absolute;
+  color: #FFFFFF;
+}
+.header a {
+  text-decoration: none;
+  color: white;
+}
+.header--logo {
+  color: #DED9D5;
+  position: relative;
+  font-size: 66px;
+  padding-left: 37vw;
+  padding-right: 37vw;
+}
+
+.navbar {
+  width: 100%;
+  height: 5vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+.navbar--item {
+  margin-right: 2vw;
+  height: 2vh;
+  font-family: "typewriter";
+  font-size: 2vw;
+  display: flex;
+  color: white;
+  margin: 2vw;
+}
+.navbar--item:hover {
+  cursor: pointer;
+}
+
+/*social media*/
+.socialmedia {
+  position: absolute;
+  display: inline-block;
+  direction: rtl;
+  top: 22vh;
+  right: 9vw;
+  background-color: transparent;
+}
+.socialmedia ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  position: absolute;
+}
+.socialmedia ul li {
+  list-style: none;
+  margin: 0 15px;
+}
+.socialmedia ul li a {
+  position: relative;
+  display: block;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  line-height: 63px;
+  background: transparent;
+  border-radius: 50%;
+  font-size: 30px;
+  color: #666;
+  transition: 0.5s;
+}
+.socialmedia ul li a::before {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  direction: rtl;
+  top: 22vh;
+  right: 9vw;
+  background-color: transparent;
+}
+.socialmedia ul li a::before ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  position: absolute;
+}
+.socialmedia ul li a::before ul li {
+  list-style: none;
+  margin: 0 15px;
+}
+.socialmedia ul li a::before ul li a {
+  position: relative;
+  display: block;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  line-height: 63px;
+  background: transparent;
+  border-radius: 50%;
+  font-size: 30px;
+  color: #666;
+  transition: 0.5s;
+}
+.socialmedia ul li a::before ul li a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: transparent;
+  transition: 0.5s;
+  transform: scale(0.9);
+  z-index: -1;
+}
+.socialmedia ul li a::before ul li a:hover::before {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px #ffffff;
+}
+.socialmedia ul li a::before ul li a:hover {
+  color: #999999;
+  box-shadow: 0 0 5px #ffffff;
+  text-shadow: 0 0 1px #ffffff;
+}
+.socialmedia ul li a::before ul li a:hover .facebook {
+  color: #3b5998;
+}
+.socialmedia ul li a::before ul li a:hover .instagram {
+  color: #d62976;
+}
+.socialmedia ul li a::before ul li a:hover .twitter {
+  color: #00acee;
+}
+.socialmedia ul li a::before ul li a:hover .youtube {
+  color: #FF0000;
+}
+.socialmedia ul li a::before ul li a:hover .vimeo {
+  color: #86c9ef;
+}
+.socialmedia ul li a:hover {
+  color: #999999;
+  box-shadow: 0 0 5px #ffffff;
+  text-shadow: 0 0 1px #ffffff;
+}
+
+/*Home page content*/
+.Homeimg {
+  position: absolute;
+  z-index: 1;
+  width: 623px;
+  height: 420px;
+  left: 20vw;
+  top: 33vh;
+}
+
+#Joe {
+  background-image: url("https://www.rollingstone.com/wp-content/uploads/2018/06/rs-213329-R1247_FEA_Rogen_A.jpg?resize=623,420&w=623");
+}
+
+.description {
+  background-color: black;
+  color: #ccc2c2;
+  font-family: typeka;
+  font-size: 2.5vw;
+  position: relative;
+  left: 35vw;
+  top: 5vh;
+  height: 22vh;
+  width: fit-content;
+  overflow-wrap: break-word;
+  padding: 1vw;
+}
+
+/*podcast page style*/
+.logoimg {
+  left: 40vw;
+  top: 40vh;
+  width: 10vw;
+  height: 10vh;
+  position: absolute;
+  z-index: -1;
+}
+
+.watch {
+  border: solid 2px #fff;
+  background-color: transparent;
+  color: #fff;
+}
+
+.text {
+  position: relative;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 20px;
+  top: 20vh;
+  line-height: 1.75em;
+  text-align: center;
+  white-space: pre-wrap;
+  z-index: 1;
+}

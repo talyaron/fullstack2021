@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AACA,AAAA,QAAQ,CACR;EACI,OAAO,EAAE,IAAI;EACb,UAAU,EAAE,MAAM;EAClB,eAAe,EAAE,MAAM;EACvB,gBAAgB,EAAE,OAAiB;EACnC,MAAM,EAAE,IAAI;EACZ,KAAK,EAAE,IAAI;CAMd;;AAJI,AAAD,iBAAU,CACV;EACI,QAAQ,EAAE,QAAQ;CACrB",
+    "sources": [
+        "jjj.scss"
+    ],
+    "names": [],
+    "file": "jjj.css"
+}

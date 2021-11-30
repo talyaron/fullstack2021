@@ -1,0 +1,11 @@
+.picture {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  background-color: #f334c3;
+  height: 40vh;
+  width: 100%;
+}
+.picturecontainer {
+  position: relative;
+}

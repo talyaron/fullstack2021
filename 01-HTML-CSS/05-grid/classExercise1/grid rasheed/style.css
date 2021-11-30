@@ -1,0 +1,22 @@
+.container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    position: relative;
+    left: 15px;
+    gap: 50px;
+    padding: 10px;
+    margin: 20px;
+    
+}
+
+
+.box img{
+    width: 100%;
+    border-radius: 30px;
+}
+
+.box p{
+    padding: 20px;
+    font-size: larger;
+}

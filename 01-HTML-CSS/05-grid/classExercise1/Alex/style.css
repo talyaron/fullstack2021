@@ -1,0 +1,15 @@
+.container {
+    display: grid;
+    grid-template-columns: 25vh 25vh 25vh;
+    grid-template-rows: 20vh 20vh 20vh;
+    gap: 10vh;
+    margin: 5px;
+    padding: 1vh;
+    background-color: seagreen;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255, 196, 196);
+}

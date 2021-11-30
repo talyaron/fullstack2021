@@ -1,0 +1,81 @@
+#bg {
+    background-size: cover;
+    background: url(images/film.png);
+    background-size: cover;
+    display: flex;
+
+}
+
+
+h1 {
+    font-size: 100px;
+    color: rgb(39, 163, 230);
+    position: fixed;
+    top: 15vh;
+    background-color: orange;
+}
+
+
+
+.box img {
+    display: flex;
+    width: 400px;
+    margin: 100px;
+    flex-direction: row;
+    padding: 50px;
+    background-color: rgb(39, 163, 230);
+}
+
+
+
+.box>img:hover {
+    transform: scale(1.1);
+    transition: all .75s;
+    background-color: orange;
+
+
+
+}
+
+
+.wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 10vh;
+    gap: 30px;
+    justify-content: center;
+}
+
+
+nav {
+    display: flex;
+    flex-direction: row-reverse;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 45px;
+    color: rgb(0, 198, 178);
+    letter-spacing: 2px;
+    position: fixed;
+    top: 0;
+    overflow-x: scroll;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 200px;
+
+}
+
+ul {
+    list-style-type: none;
+
+}
+
+
+a {
+    padding: 25px;
+    color: rgb(39, 163, 230);
+    text-decoration: none;
+
+}
+
+a:hover {
+    color: orange
+}

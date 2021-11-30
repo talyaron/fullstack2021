@@ -1,0 +1,253 @@
+body{
+  direction: ltr;
+  margin: 4px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.grid4{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  width: 80vw;
+  gap: 2rem;
+  margin: 2rem;
+}
+
+.grid3{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 2rem;
+  margin: 2rem;
+}
+
+.smallPic{
+  width: 100%;
+  height: 15vw;
+}
+
+.arcticle{
+  width: 30vw;
+  background-size: cover;
+}
+
+.arcticle.news{
+  width: 18vw;
+  height: 70vh;
+  
+}
+.arcticle.sport{
+  width: 20vw;
+  margin-left: 68px;
+  margin-top: -250px;
+}
+
+p{
+  box-shadow: -0.1em 0em red;
+}
+
+h3{
+  font-weight: lighter;
+}
+
+.topGrid{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  color: black;
+  height: 50vh;
+  gap: 2rem;
+  margin: 2rem;
+}
+.topGrid.home{
+  color: white;
+}
+
+.bigArcticle{
+  background-size: cover;
+  width: 45vw;
+  height: 45vh;
+  grid-row: 1 / 3;
+  overflow: auto;
+}
+
+.bigArcticle.home{
+  grid-column: 1 / 3;
+  background-image:  linear-gradient(0deg, rgb(0, 0, 0) 0%, rgba(255,255,255,0) 100%),
+  url(https://ichef.bbci.co.uk/news/976/cpsprodpb/FCB5/production/_121739646_gettyimages-81010175.jpg);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1rem;
+}
+.pic1{
+  background-image:  linear-gradient(0deg, rgb(0, 0, 0) 0%, rgba(255,255,255,0) 100%),
+  url(https://ichef.bbci.co.uk/news/976/cpsprodpb/2215/production/_121752780_students.jpg);
+}
+.pic2{
+  background-image:  linear-gradient(0deg, rgb(0, 0, 0) 0%, rgba(255,255,255,0) 100%),
+  url(https://ichef.bbci.co.uk/news/976/cpsprodpb/14AEE/production/_121781748_gettyimages-1233142131.jpg);
+}
+.pic3{
+  background-image:  linear-gradient(0deg, rgb(0, 0, 0) 0%, rgba(255,255,255,0) 100%),
+  url(https://ychef.files.bbci.co.uk/1600x900/p0b4xfrq.webp);
+}
+.pic4{
+  background-image: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgba(255,255,255,0) 100%),
+  url(https://ichef.bbci.co.uk/news/976/cpsprodpb/1088D/production/_121752776_ottoline.jpg);
+}
+
+.bigArcticle.news{
+  grid-column: 2/4;
+  background-image: url("pics/bitcoin.jpg");
+}
+.bigArcticle.sport{
+  grid-column: 1/4;
+  background-image: url(https://ichef.bbci.co.uk/onesport/cps/976/cpsprodpb/11806/production/_121768617_lewishamilton.jpg);
+  padding: 2px;
+  margin-left: 69px;
+  margin-top: 15px;
+ background-repeat: no-repeat;
+  
+}
+
+.midArcticle.home{
+  background-size: cover;
+  height: 20vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1rem;
+}
+.midArcticle.news{
+  height: 50vh;
+}
+.midArcticle{
+  width: 20vw;
+  font-size: 70%;
+}
+
+.Header{
+  width: 100%;
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: #333;
+  font-size: 20px;
+}
+  
+.Header > a{
+  color: white;
+  padding: 17.5px 20px;
+  text-decoration: none;
+  text-align: center;
+}
+  
+.Header > a:hover{
+  background-color: #ddd;
+  color: black;
+}
+
+.signIn{
+  background-color: #333;
+  color: white;
+  border: 1px solid #333;
+  font-size: 20px; 
+}
+
+.signIn:hover{
+  cursor: pointer;
+  background-color: #ddd;
+  color: black;
+}
+
+.searchButton{
+  width: 50px;
+  height: 57px;
+  border: 1px solid #333;
+  background: #333;
+  text-align: center;
+  color: #fff;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.searchButton:hover{
+  background: #ddd;
+  color: black;
+}
+
+.logo{
+  cursor: pointer; 
+  width: 150px; 
+  height: 120px; 
+  position: relative; 
+  bottom:30px;
+}
+
+.news_Header{
+  width: 100%;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  background-color: red;
+  font-size: 18px;
+}
+  
+.news_Header > a{
+  color: white;
+  padding: 10px;
+  text-decoration: none;
+  text-align: center;
+}
+  
+.news_Header > a:hover{
+  color: black;
+  }
+
+.sport_Header{
+  width: 100%;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  background-color: rgb(191, 194, 31);
+  font-size: 18px;
+}
+  
+.sport_Header > a{
+  color: white;
+  padding: 10px;
+  text-decoration: none;
+  text-align: center;
+}
+  
+  .sport_Header > a:hover {
+    color: black;
+  }
+  .ranking{
+    padding: 2px;
+    position: relative;
+    font-weight: bold;
+    width: 20vw;
+  margin-left: -288px;
+  margin-top: 14px;
+  }
+.sport_Header > a:hover{
+  color: black;
+}
+
+.arcticle >span{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 40vh ;
+}
+
+.midArcticle >span{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 50vh ;
+  font-size: 150%;
+}

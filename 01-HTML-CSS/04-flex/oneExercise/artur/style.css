@@ -1,17 +1,27 @@
 .wrapper{
-    background: gray;
-    padding: 20px;
+    background-color: white;
+    width:auto;
+    height: auto;
     display: flex;
-   
-    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content:center ;
 }
+    
+
 .box{
-    background: purple;
     height: 300px;
     width: 300px;
-    border:1px solid yellow;
-    color: white;
     display: flex;
-    justify-content: center;
-    align-items: center;
+background-color: grey;
+justify-content: center;
+border: solid;
+
+    
+}
+img{
+    width: 150px;
+    height: 150px;
+}
+body{
+    text-align: center;
 }

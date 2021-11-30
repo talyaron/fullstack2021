@@ -1,0 +1,338 @@
+.NavBar{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #333;
+    font-size: 20px;
+    a{
+        color: white;
+        padding: 17.5px 20px;
+        text-decoration: none;
+        text-align: center;
+    }
+
+    a:hover{
+        background-color: #ddd;
+        color: black;
+    }
+    &--news_Header{
+        width: 100%;
+        height: 50px;
+        display: flex;
+        flex-direction: row;
+        background-color: red;
+        font-size: 18px;
+        padding: 5px;
+        a{
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+            text-align: center;
+          }
+          a:hover{
+            color: black;
+            }
+      }
+
+      &--sport_Header{
+        width: 100%;
+        height: 50px;
+        display: flex;
+        flex-direction: row;
+        background-color: orange;
+        font-size: 18px;
+        padding: 5px;
+        a{
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+            text-align: center;
+          }
+          a:hover{
+            color: black;
+            }
+      }
+    
+    &__logo{
+        cursor: pointer; 
+        width: 150px; 
+        height: 120px; 
+        position: relative; 
+        bottom:30px;
+    }
+    &__search{
+        width: 50px;
+        height: 57px;
+        border: 1px solid #333;
+        background: #333;
+        text-align: center;
+        color: #fff;
+        cursor: pointer;
+        font-size: 20px;
+        position: relative; bottom: 58px; left:94%;
+    }
+
+    &__search:hover{
+        background: #ddd;
+        color: black;
+    }
+
+    &__sign{
+        background-color: #333;
+        color: white;
+        border: 1px solid #333;
+        font-size: 20px; 
+        position: relative; bottom: 58px; left: 0.5%;
+    }
+
+    &__sign:hover{
+        cursor: pointer;
+        background-color: #ddd;
+        color: black;
+    }
+}
+.RedHeader{
+    background-color: red; font-family: Arial, Helvetica, sans-serif; color: white; padding: 10px;
+    margin-bottom: 50px;
+}
+
+.OrangeHeader{
+    background-color: orange; font-family: Arial, Helvetica, sans-serif; color: white; padding: 10px;
+    margin-bottom: 50px;
+}
+
+.main{
+    
+    &__upper{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2,1fr);
+            color: black;
+            width: 90%;
+            grid-auto-columns: minmax(auto ,auto);
+            grid-auto-rows: minmax(auto, auto);
+            gap: 1em;
+            margin: auto;
+            &--grid{
+                display: grid;
+                grid-template-columns: repeat(8, 1fr 1fr);
+                width: 100vw;
+            }
+            &__box{
+               
+                grid-column: 9;
+                display: grid;
+
+
+            }
+            &__news{
+                display: grid;
+                grid-column: 1/3;
+                grid-row: 1/3;
+                grid-template-columns: 50% 70% 50%;
+                grid-template-rows: 50% 50%;
+                height: 60vh;
+               column-gap: 2em;
+               margin-left: 150px;
+               padding-top: 100px;
+               
+            &--block{
+                display: grid;
+                margin:50px;
+                grid-template-columns: 100%;
+                grid-template-rows:repeat(10,1fr);
+                margin-top: 0;
+                margin-bottom: 0;
+                grid-auto-rows: minmax(100px, auto);
+             
+                &>h1{
+                    grid-row: 1;
+                    font-size: 15px;
+                  font-weight: 1000;
+                  
+                  & a{
+                      text-decoration: none;
+                      color: rgb(128, 126, 126);
+
+                      &:hover{
+                          color: rgb(91, 113, 153);
+                          font-weight: bold;
+                          font-size: 110%;
+                          text-decoration: underline;
+                      }
+                  }
+
+                }
+
+                &>p{
+                    font-size: 10px;
+                    font-family:  'Lato', sans-serif; 
+                    font-weight: 1000;
+                    font-weight: bold;
+                }
+                
+                &>a{
+                    text-decoration: none;
+                    grid-row: 10;
+                    color:rgb(70, 66, 66); ;
+                    font-size: 15px;
+
+                    &:hover{
+                        cursor: pointer;
+                        color: rgb(107, 107, 107);
+                        text-decoration-line: underline;
+
+                    }
+                }
+            }
+
+            &--BottomLinks{
+                display: grid;
+                grid-template-rows: repeat(4,1fr);
+                grid-template-columns: 35% 30% 30%;
+                grid-row-start: 2;
+                grid-column:1/3;
+                font-weight: 1000;
+                font-size: 15px;
+                column-gap: 15px;
+                // border: 2px solid black;
+                
+                &>a{   
+                grid-row: 2;
+                text-decoration: none;
+                padding-left: 40px;
+                color: #333;
+                // border: 2px solid black;
+               
+
+                &:hover{
+                    cursor: pointer;
+                    color: rgb(78, 110, 214);
+                    text-decoration-line: underline;
+                }
+
+                }
+
+            }
+            &--ImgNews{
+                background-image: url(https://ichef.bbci.co.uk/news/976/cpsprodpb/1365C/production/_121825497_9d05de58-c5d1-49ac-99e9-920c84103a11.jpg);
+                background-position: center;
+                background-size: cover;
+            }
+         
+        }
+            &__img{
+                display: grid;
+                grid-template-rows:repeat(8, 1fr) ;
+                background-size: cover;
+                background-position: center;
+                height: 30vh;
+                padding: 1rem;
+
+                &:nth-child(2){
+                    background-image: url("https://e3.365dm.com/20/08/768x432/skynews-sideman-bbc-1extra_5062530.jpg?20200808215407");
+                    background-position: center;
+                    background-size: cover;
+                  }
+                  
+                &:nth-child(3){
+                    background-image: url("https://e3.365dm.com/20/08/768x432/skynews-sideman-bbc-1extra_5062530.jpg?20200808215407");
+                    background-position: center;
+                    background-size: cover;                   
+                  }
+                &:nth-child(4){
+                    background-image: url("https://e3.365dm.com/20/08/768x432/skynews-sideman-bbc-1extra_5062530.jpg?20200808215407");
+                    background-position: center;
+                    background-size: cover;     
+                  }
+                &:nth-child(5){
+                    background-image: url("https://e3.365dm.com/20/08/768x432/skynews-sideman-bbc-1extra_5062530.jpg?20200808215407");
+                    background-position: center;
+                    background-size: cover;
+                  }
+
+                h2{
+                    grid-row: 1;
+                }
+                h3{
+                    grid-row: 2;
+                }
+                p{
+                    grid-row: 3;
+                }
+                &--big{
+                    background-size: cover;
+                    width: 45vw;
+                    height: 71.5vh;
+                    grid-row: 1 / 3;
+                    grid-column: 1/3;
+                    overflow: auto;
+                    background-image: url("https://e3.365dm.com/20/08/768x432/skynews-sideman-bbc-1extra_5062530.jpg?20200808215407");
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    &--sports{
+                        display: grid;
+                        grid-template-columns: repeat(8, 1fr 1fr);
+                        width: 100vh;
+                        img{
+                            grid-column: 1/4;
+                            grid-row: 1/4;
+                        }
+                        h2{
+                            grid-row: 0;
+                            grid-column: 6;
+                        }
+                        h3{
+                            grid-column: 6;
+                            grid-row: 2;
+                        }
+                        p{
+                            grid-row: 3;
+                            grid-column: 6;
+                        }
+                    }
+                    &--news{
+                       border:  5px solid red;
+                    }
+                  }
+            }
+
+          }
+          &__down{
+              display: grid;
+              grid-template-columns: repeat(3,1fr);
+              grid-template-rows:repeat(2, 1fr) ;
+                background-size: cover;
+                height: 1vh;
+                width: 60%;
+                gap: 2em;
+                padding-top: 5%;
+                margin: auto;
+                &__box{
+                    display: grid;
+                    grid-template-rows: 45% 25% 24% 12%;
+                    
+                    width: 100%;
+                    a{
+                        text-decoration: none;
+                    }
+                h2{
+                    grid-row: 2;
+                    text-align: center;
+                }
+                p{
+                    padding-top: 5px;
+                    grid-row: 3;
+                    text-align: center;
+                }
+                img{
+                    height: 100%;
+                    width: 100%;
+                    grid-row: 1;
+
+                }
+            }
+          }
+    }
