@@ -1,0 +1,33 @@
+.wrapper{
+    display: flex;
+    margin: 50px;
+    padding: 50px;
+    
+    .wrapper_box{
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: 10px;
+        width: 30%;
+        padding: 10px;
+    
+        &__img{
+            display: block;
+            align-items: center;
+            border-radius: 50%;
+
+        }   
+        &__wraper__box__text{
+            font-size: small;
+            font-weight: bold;
+            text-align: center;
+           
+            
+        }
+        
+    }
+    
+    
+}
+

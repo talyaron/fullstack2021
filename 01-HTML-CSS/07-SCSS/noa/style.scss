@@ -1,0 +1,43 @@
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(3,1fhr);
+    grid-template-rows: 100px 200px 50px 200px;
+    gap: 5px;
+    margin-top: 100px;
+    justify-content: center;
+}
+ .header{
+    grid-column: 1/4;
+    background-color:rgb(118, 184, 18);
+}
+.bar{
+    grid-column: 1/4;
+    background-color: wheat;
+}
+
+.menu {
+    grid-column: 1/4;
+border: 1px solid grey;
+}
+
+img {
+    height: 100px;
+    width: 100px;
+    margin: auto;
+    display: block;
+}
+
+p {
+    font-weight: 700;
+    text-align: center;
+    margin: 10px;
+}
+
+.price {
+    color: crimson;
+    text-align: right;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
