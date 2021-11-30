@@ -11,6 +11,7 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 350px);
+  border-color: 5px solid black;
   grid-gap: 1em;
   grid-column: 1/3;
 }
