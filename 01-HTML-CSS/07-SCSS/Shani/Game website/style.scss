@@ -1,0 +1,85 @@
+body {
+    margin: 0;
+}
+
+
+.wrapper {
+
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(10, 150px);
+
+    .header {
+        background-color: rgb(47, 168, 209);
+        font-family: 'Architects Daughter', cursive;
+        padding-left:20px;        
+        border: 2px black solid;
+        grid-column-start: 1;
+        grid-column-end: 7;
+
+        input{
+            width:35%;
+            height:20%;
+            border:3px solid blue;
+        }
+        button{
+            border:3px solid blue;
+            background-color:rgb(144, 214, 238);
+           
+        }
+        button:hover{
+            background-color:rgb(8, 53, 68);
+            cursor:pointer;
+            color:white;
+
+
+        }
+
+        
+
+
+
+    }
+
+    .games {
+        grid-column-start: 1;
+        grid-column-end: 7;
+
+
+        &.adventure {
+            background-color: grey;
+            border: 2px black solid;
+            grid-row-start: 2;
+            grid-row-end: 4;
+
+
+
+        }
+
+        &.classic {
+            background-color: rgb(241, 43, 43);
+            border: 2px black solid;
+            grid-row-start: 4;
+            grid-row-end: 6;
+
+
+
+        }
+
+        &.multiplayer {
+            background-color: rgb(65, 236, 73);
+            border: 2px black solid;
+            grid-row-start: 6;
+            grid-row-end: 9;
+
+        }
+    }
+
+    .popular {
+        background-color: rgb(194, 25, 143);
+        border: 2px black solid;
+        grid-row-start: 9;
+        grid-row-end: 11;
+
+    }
+}

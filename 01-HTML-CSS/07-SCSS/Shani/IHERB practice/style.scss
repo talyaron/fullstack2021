@@ -1,0 +1,66 @@
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(9, 150px);
+    
+
+    .headergreen {
+        background-color: green;
+        grid-column-start: 1;
+        grid-column-end: 4;
+
+    }
+
+    .headeryellow {
+        background-color: yellow;
+        grid-column-start: 1;
+        grid-column-end: 4;
+
+    }
+
+    .headerwhite {
+        background-color: rgb(255, 231, 231);
+        grid-column-start: 1;
+        grid-column-end: 4;
+
+    }
+
+   .card{
+    grid-column-start: 1;
+    grid-column-end: 4;
+    
+    
+
+    .card1 {
+        border: 2px grey solid;
+        
+                
+
+
+        img {
+            width: 100%;
+            display: block;
+            margin: auto;
+
+        }
+
+        p {
+            text-align: center;
+            color: blue;
+            cursor: pointer;
+            padding: 5px;
+
+
+
+        }
+
+        .price {
+            font-weight: bold;
+            font-size: 20px;
+            color: black;
+
+        }
+
+    }
+    }   
+}
