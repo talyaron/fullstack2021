@@ -37,7 +37,7 @@ body{
     gap: 15px;
     padding: 15px;
     width: 70vw;
-    height: 50vw;
+    
     color: rgb(235, 235, 235);
     div{
         border-radius: 15px;
@@ -141,8 +141,8 @@ body{
     justify-content: center;
     padding-block: 150px;
     .big{
-        height: 630px;
-        width: 450px;
+        width: 330px;
+        height: 100%;
     }
     &_gridLeft{
         display: grid;
@@ -151,8 +151,8 @@ body{
         transform: perspective(600px) rotateY(10deg);
         gap: 30px;
         img{
-            height: 300px;
-            width: 210px;
+            width: 150px;
+            height: 100%;
         }
         :nth-child(13){
             grid-column: 3 / 5;
@@ -170,8 +170,8 @@ body{
         transform: perspective(600px) rotateY(-10deg);
         gap: 30px;
         img{
-            height: 300px;
-            width: 210px;
+            width: 150px;
+            height: 100%;
         }
         :nth-child(1){
             grid-column: 2 / 4;

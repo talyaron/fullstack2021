@@ -37,7 +37,6 @@ body {
   gap: 15px;
   padding: 15px;
   width: 70vw;
-  height: 50vw;
   color: #ebebeb;
 }
 .mainGrid div {
@@ -143,8 +142,8 @@ body {
   padding-block: 150px;
 }
 .games .big {
-  height: 630px;
-  width: 450px;
+  width: 330px;
+  height: 100%;
 }
 .games_gridLeft {
   display: grid;
@@ -154,8 +153,8 @@ body {
   gap: 30px;
 }
 .games_gridLeft img {
-  height: 300px;
-  width: 210px;
+  width: 150px;
+  height: 100%;
 }
 .games_gridLeft :nth-child(13) {
   grid-column: 3/5;
@@ -173,8 +172,8 @@ body {
   gap: 30px;
 }
 .games_gridRight img {
-  height: 300px;
-  width: 210px;
+  width: 150px;
+  height: 100%;
 }
 .games_gridRight :nth-child(1) {
   grid-column: 2/4;
