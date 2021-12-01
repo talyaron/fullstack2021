@@ -1,0 +1,41 @@
+.wrapper{
+    width:70vw;
+    height: 700px;
+    display: grid;
+    grid-template-columns: repeat(3 60px);
+    grid-template-rows: repeat(5 160px);
+    gap: 2px;
+    margin: 100px 300px 300px;
+
+    .menu-header{
+        grid-column: span 3;
+        background: green;
+    }
+    .menu-sec{
+        grid-column: span 3;
+        background: orange;
+    }
+    .menu-third{
+        grid-column: span 3;
+        background:rgb(112, 140, 172);
+    }
+   
+
+    .card-column{
+        grid-column: span 3;
+        text-align: right;
+        border: 1px solid black;
+    }
+
+    .card{
+       
+        text-align: center;
+       
+
+        .img{
+            height: 10%;
+            display: block;
+            margin: auto;
+        }
+    }
+}

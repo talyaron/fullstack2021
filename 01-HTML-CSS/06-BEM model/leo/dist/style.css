@@ -1,0 +1,13 @@
+.header {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  color: beige;
+  display: block;
+}
+
+.header--search {
+  border: 1px;
+  color: beige;
+}
+/*# sourceMappingURL=style.css.map */

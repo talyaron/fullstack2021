@@ -1,0 +1,23 @@
+.button {
+    border-radius: 40px;
+    height: fit-content;
+    border: 2px solid black;
+    width: fit-content;
+    min-width: 200px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+
+    &--danger { 
+        border: 2px solid red;
+        color: red;
+    }
+    h1{
+        background-color: aliceblue;
+    }
+    img{
+        width:200px;
+    }
+}
