@@ -5,7 +5,7 @@ body {
 
 a {
   font-size: xx-large;
-  background-color: black;
+  /* background-color: black;*/
   margin-top: 0%;
   color: white;
   border-radius: 5px;
@@ -59,7 +59,7 @@ p {
 .menu2 .box {
   border: solid black;
   background-color: #999;
-  width: 500px;
+  width: 100px;
   margin: 10px;
 }
 
@@ -90,7 +90,7 @@ p {
   background-size: 100% 100%;
   background-size: cover;
 }
-.main p {
+.main .box.gmain p {
   margin-top: 900px;
 }
 
@@ -104,7 +104,6 @@ p {
   margin-top: 300px;
 }
 .num1 .box {
-  background-color: blue;
   border-radius: 15px;
 }
 .num1 img {
@@ -123,7 +122,6 @@ p {
   margin-top: 300px;
 }
 .num2 .box {
-  background-color: blue;
   border-radius: 15px;
 }
 .num2 img {
@@ -142,7 +140,6 @@ p {
   margin-top: 300px;
 }
 .num3 .box {
-  background-color: blue;
   border-radius: 15px;
 }
 .num3 img {
@@ -161,7 +158,6 @@ p {
   margin-top: 300px;
 }
 .num4 .box {
-  background-color: blue;
   border-radius: 15px;
 }
 .num4 img {
@@ -173,8 +169,9 @@ p {
 h1 {
   justify-content: end;
   color: #4b0707;
-  font-size: xx-large;
+  font-size: 46px;
   margin-top: 100px;
+  text-decoration: underline;
 }
 
 .copyright {
@@ -183,6 +180,6 @@ h1 {
   color: #fff;
   padding: 5px;
   text-align: end;
-  font-size: large;
+  font-size: xx-large;
   margin-top: 50px;
 }

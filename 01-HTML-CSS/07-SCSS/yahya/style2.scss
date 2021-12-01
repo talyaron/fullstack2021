@@ -6,7 +6,7 @@ body{
 }
 a{
    font-size: xx-large;
-   background-color: black;
+ /* background-color: black;*/
    margin-top: 0%;
    color: white;
    border-radius: 5px;
@@ -44,7 +44,7 @@ p{
    }
    a:hover{
 
-      color: black;
+      color: rgb(0, 0, 0);
       text-align: italic;
       color: white;
       justify-self:center;
@@ -59,9 +59,10 @@ p{
    font-size: xx-large;
 
    .box{
+      
       border: solid black;
       background-color: #999;
-      width: 500px;
+      width: 100px;
       margin: 10px;
    }
 }
@@ -95,11 +96,11 @@ p{
     background-repeat: no-repeat;
     background-size: 100% 100%;
    background-size: cover;
-    
- }
- p{
+    p{
     margin-top: 900px;
  }
+ }
+ 
 }
  
 .num1{
@@ -112,7 +113,7 @@ p{
    margin-top: 300px;
    
    .box{
-      background-color:blue;
+    
       border-radius: 15px;
    }
    img{
@@ -131,7 +132,7 @@ p{
    margin-top: 300px;
    
    .box{
-      background-color:blue;
+      
       border-radius: 15px;
    }
    img{
@@ -149,7 +150,7 @@ p{
    justify-content: center;
    margin-top: 300px;
    .box{
-      background-color:blue;
+      
       border-radius: 15px;
    }
    img{
@@ -167,7 +168,7 @@ p{
    justify-content: center;
    margin-top: 300px;
    .box{
-      background-color:blue;
+   
       border-radius: 15px;
    }
    img{
@@ -179,8 +180,10 @@ p{
 h1{
    justify-content: end;
    color: rgb(75, 7, 7);
-   font-size: xx-large;
+   font-size: 46px;
    margin-top: 100px;
+   text-decoration: underline;
+ 
 }
 .copyright{
    width:100%;
@@ -188,7 +191,7 @@ h1{
    color: #fff;
    padding: 5px;
    text-align: end;
-   font-size: large;
+   font-size: xx-large;
    margin-top: 50px;
 
 }
