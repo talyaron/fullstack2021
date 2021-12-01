@@ -1,0 +1,24 @@
+.bigrid {
+  display: grid;
+  grid-template-columns: repeat(3, 60px);
+  grid-template-rows: repeat(5, 160px);
+  gap: 2px;
+  width: 500px;
+  height: 500px;
+  border: 1px solid black;
+}
+.bigrid .green {
+  grid-column: span 3;
+  background-color: green;
+}
+.bigrid .yellow {
+  grid-column: span 3;
+  background-color: yellow;
+}
+.bigrid .beige {
+  grid-column: span 3;
+  background-color: beige;
+}
+.bigrid .card {
+  background-color: black;
+}

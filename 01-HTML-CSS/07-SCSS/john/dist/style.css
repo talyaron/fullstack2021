@@ -1,0 +1,52 @@
+body {
+  background-color: white;
+}
+
+.wrapper1 {
+  display: grid;
+}
+
+.wrapper {
+  display: grid;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  grid-template-columns: repeat(3, 1fr);
+}
+.wrapper-card {
+  position: relative;
+  background-color: white;
+  color: black;
+  box-sizing: border-box;
+  border: 1px solid gray;
+  width: 20vw;
+  height: 45vh;
+}
+.wrapper-card:hover {
+  cursor: pointer;
+}
+.wrapper-card img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  align-items: center;
+  height: fit-content;
+  width: fit-content;
+}
+.wrapper-card h1 {
+  position: absolute;
+  color: #1900ff;
+  bottom: 10vh;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1vw;
+  font-weight: 100;
+}
+.wrapper-card p {
+  color: red;
+  position: absolute;
+  bottom: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}

@@ -1,0 +1,53 @@
+body{
+    background-color: green;
+    color: rosybrown;
+}
+.wrapper{
+    display: flex;
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    justify-self: start;
+    position: relative;
+    top: 40px;
+
+&__card{
+        color: red;
+    }
+
+&__card{
+    background-color: aqua;
+    color: seagreen;
+    width: 200px;
+    height: 200px;
+     border-radius: 10px;
+}
+img{
+    width: 200px;
+    height: 200px;
+    top: 50px;
+    flex: var(1fr);
+}
+
+
+img:hover{
+    filter: grayscale(40%);
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+
+p{
+    text-align: var(10px);
+    font-size: var(1fr);
+    position: relative;
+    bottom: 30%;
+    right: 130px;
+}
+.card{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(10 vh);
+    gap:var(10px);
+}
+}   
