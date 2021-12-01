@@ -1,0 +1,125 @@
+body {
+  background-color: #222;
+  margin: 0px;
+  font-family: "Poppins", sans-serif;
+  color: whitesmoke;
+}
+
+.header {
+  height: 140px;
+  display: flex;
+  justify-content: space-between;
+  background: #171717;
+  border-bottom: 2px solid black;
+}
+.header__logo {
+  width: 27%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding: 10px;
+}
+.header__logo img {
+  height: 60%;
+  width: 80%;
+  margin-left: 1em;
+}
+.header__searchbar {
+  width: 27%;
+}
+.header__menu {
+  width: 46%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  margin-right: 0.7em;
+}
+.header__menu__box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #575454;
+  border-radius: 10px;
+  height: 50%;
+  width: 22%;
+  margin: 0.7em;
+}
+.header__menu__box img {
+  height: 80%;
+}
+.header__menu__box p {
+  color: white;
+  font-size: 25px;
+}
+.header__menu__box--u {
+  border: 2px solid whitesmoke;
+  border-radius: 10px;
+  padding: 3px;
+}
+.header__menu__box:hover {
+  cursor: pointer;
+  border: 1px solid #a82e2e;
+  transition: border 0.85s;
+}
+.header__menu__account {
+  font-size: 20px;
+  color: whitesmoke;
+  margin-left: 0.7em;
+}
+.header__menu__account .abutton {
+  background: #149214;
+  padding: 5px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header__menu__account .abutton:hover {
+  cursor: pointer;
+  background: #106b10;
+  transition: 1s;
+}
+.header__menu__account .abutton--2 {
+  background-color: #353535;
+}
+.header__menu__account .abutton--2:hover {
+  background-color: #353535;
+  color: #c72929;
+}
+.header__menu__account .login {
+  border-radius: 10px;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menubar {
+  height: 160px;
+  display: flex;
+  justify-content: center;
+}
+.menubar__cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+}
+.menubar__more {
+  width: 10%;
+}
+.menubar .card {
+  background-color: #353535;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.menubar img {
+  height: 100%;
+  width: 40%;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
