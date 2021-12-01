@@ -1,5 +1,6 @@
 body {
     margin: 0;
+    font-family: 'Architects Daughter', cursive;
 }
 
 
@@ -12,30 +13,33 @@ body {
     .header {
         background-color: rgb(47, 168, 209);
         font-family: 'Architects Daughter', cursive;
-        padding-left:20px;        
+        padding-left: 20px;
         border: 2px black solid;
         grid-column-start: 1;
         grid-column-end: 7;
 
-        input{
-            width:35%;
-            height:20%;
-            border:3px solid blue;
+        input {
+            width: 35%;
+            height: 20%;
+            border: 3px solid blue;
+            
         }
-        button{
-            border:3px solid blue;
-            background-color:rgb(144, 214, 238);
-           
+
+        button {
+            border: 3px solid blue;
+            background-color: rgb(144, 214, 238);
+
         }
-        button:hover{
-            background-color:rgb(8, 53, 68);
-            cursor:pointer;
-            color:white;
+
+        button:hover {
+            background-color: rgb(8, 53, 68);
+            cursor: pointer;
+            color: white;
 
 
         }
 
-        
+
 
 
 
@@ -49,59 +53,93 @@ body {
         &.adventure {
             grid-row-start: 2;
             grid-row-end: 4;
-            padding-top:15px;
-            
-            background-color:rgb(31, 85, 10);
-            &.one{
+            background-color: rgb(31, 85, 10);
+
+
+            &.one {
                 grid-column-start: 1;
                 grid-column-end: 3;
 
+                h2 {
+                    padding-left: 100px;
+                    cursor: pointer;
+
+                    &:hover {
+                        text-shadow: rgb(148, 255, 105) 2px 2px;
+                    }
+                }
+
 
             }
-            &.two{
+
+            &.two {
                 grid-column-start: 3;
                 grid-column-end: 5;
+                padding-top: 70px;
 
 
             }
-            &.three{
+
+            &.three {
                 grid-column-start: 5;
                 grid-column-end: 7;
+                padding-top: 70px;
 
 
             }
-            
-            img {
-               
-                width:200px;
-                height:20vh;
-                display: block;
-                margin: auto;
-                border-radius:10px;
-                border:2px solid green;
+            /*this is inorder to have the things change whenever i hover over them so the pic and text will change*/
+            .hover{
                 &:hover{
-                    cursor:pointer;
-                    opacity:0.4;
+                    cursor: pointer;
+                    opacity: 0.7; 
+                 
+                    text-shadow: rgb(148, 255, 105) 2px 2px;
+
 
                 }
-                
+            img {
+
+                width: 200px;
+                height: 20vh;
+                display: block;
+                margin: auto;
+                border-radius: 10px;
+                border: 2px solid green;
+
+                /*&:hover {
+                    cursor: pointer;
+                    opacity: 0.7;
+                    border: 4px solid rgb(147, 253, 112);
+                    box-shadow: 2px 5px 2px rgb(94, 255, 0);
+
+
+                }*/
+
             }
-            
-            
-            
+            p{
+                padding-left:170px;
+                cursor:pointer;
+               /* &:hover{
+                    text-shadow: rgb(148, 255, 105) 2px 2px;
+
+                }*/
+            }
+            }
+
+
         }
-        
 
 
 
-        
+
+
 
         &.classic {
             background-color: rgb(241, 43, 43);
             border: 2px black solid;
             grid-row-start: 4;
             grid-row-end: 6;
-            
+
 
 
 
