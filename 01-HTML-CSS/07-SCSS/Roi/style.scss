@@ -2,12 +2,40 @@ body {
     background-color: black;
     font-family:Arial, Helvetica, sans-serif;
 }
-.SideMenu {
-width: 10vw;
-height: 100vh;
-background-color:rgb(49, 47, 47);
-.Music {
- color: white;
-}
-}
+.MainWrapper {
+    width: 90vw;
+    height: 50vh;
+    border: 1px solid white;
+    position: absolute;
+    right:0;
+    top:0;
+    border-radius: 10px;
 
+}
+.SideWrapper {
+width: 200px;
+height: 100vh;
+border-radius: 10px;
+//border:1px solid white;
+background-color: rgb(39, 37, 37);
+    &__Menu {
+        height: 250px;
+        //border: 1px solid red;
+        display:flex;
+        flex-direction: column;
+        flex: 0 0 10vw;
+        &__item >img {
+            width: 140px;
+            height: 50px;
+        }
+        &__item {
+            height: 50px;
+            display:flex;
+            justify-content: left;
+            padding-left: 25px;
+            align-items: center;
+            //border: 1px solid blue;
+            color: white;
+        }
+    }
+}
