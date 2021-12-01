@@ -1,0 +1,379 @@
+body {
+  background-color: #5f5c5c;
+  margin: 0;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: repeat(20, 1fr);
+  grid-template-rows: repeat(250, 1fr);
+  background-color: #2b2727;
+  height: 200vh;
+  margin-top: 0;
+}
+.main_topHeader {
+  grid-row: 1/13;
+  grid-column: 1/21;
+  background-color: black;
+  display: grid;
+  grid-template-columns: repeat(20, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+}
+.main_topHeader .logo {
+  background-image: url(https://static1.thegamerimages.com/wordpress/wp-content/uploads/2020/04/addicting-games-cover.jpg);
+  grid-column: 1/5;
+  grid-row: 1/9;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.main_topHeader .search {
+  display: flex;
+  grid-column: 8/11;
+  grid-row: 4;
+  column-gap: 0.4em;
+  justify-content: space-evenly;
+}
+.main_topHeader .search input {
+  background-color: black;
+  color: white;
+  width: 100%;
+  height: 90%;
+  border-radius: 5px;
+  font-size: 15px;
+  border-right: none;
+}
+.main_topHeader .search .fas, .main_topHeader .search .fa-search {
+  color: #801d1d;
+  margin: auto;
+}
+.main_topHeader .search:hover {
+  cursor: pointer;
+}
+.main_topHeader .topOptions {
+  grid-column: 13/20;
+  grid-row: 3/8;
+  display: flex;
+  flex-direction: row;
+  column-gap: 10px;
+}
+.main_topHeader .topOptions-button {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  width: 100%;
+  height: 5vh;
+  border-radius: 7px;
+  background-color: black;
+  color: white;
+  flex-direction: row;
+  align-items: center;
+}
+.main_topHeader .topOptions-button:hover {
+  cursor: pointer;
+  border: 1px solid #bd2626;
+}
+.main_topHeader .topOptions-button .buttonImg {
+  grid-column: 1/4;
+  grid-row: 2/5;
+  width: 100%;
+  height: 100%;
+}
+.main_topHeader .topOptions-button p {
+  grid-column: 4/7;
+  grid-row: 2/5;
+  font-weight: 300;
+}
+.main_topHeader .topOptions-button .btnOne {
+  background-image: url(https://imagefinder.co/storage/w1000/images/2019/06/burst_gaming-controller-against-a-black-background.jpg);
+  background-position: center;
+  background-size: cover;
+}
+.main_topHeader .topOptions-button .btnTwo {
+  background-image: url(https://ak.picdn.net/shutterstock/videos/1039666934/thumb/1.jpg);
+  background-position: center;
+  background-size: cover;
+}
+.main_topHeader .topOptions-button .btnThree {
+  background-image: url(https://cdn2.vectorstock.com/i/1000x1000/71/46/people-icon-on-a-black-background-vector-29307146.jpg);
+  background-position: center;
+  background-size: cover;
+}
+.main_topHeader .topOptions-button .btnfour {
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRID2gdoo1bNdMF4TomG7tKLH3ezjCirO9SIw&usqp=CAU);
+  background-position: center;
+  background-size: cover;
+  grid-column: 1/10;
+  grid-row: 2/7;
+}
+.main_topHeader .topOptions .GamePass {
+  border: 1px solid white;
+}
+.main_topHeader .topOptions .GamePass:hover {
+  cursor: pointer;
+  border: 1px solid #bd2626;
+}
+.main_topHeader .sign_btn {
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+  grid-row: 3/7;
+  grid-column: 20/21;
+  text-align: center;
+  margin-left: 7px;
+}
+.main_topHeader .sign {
+  border-radius: 5px;
+  text-align: center;
+  font-size: 9px;
+}
+.main_topHeader .sign:hover {
+  cursor: pointer;
+}
+.main_topHeader .up {
+  background-color: #009f00;
+  color: #f7eeee;
+  font-weight: 500;
+}
+.main_topHeader .up:hover {
+  font-weight: bold;
+}
+.main_topHeader .in {
+  background-color: #2b2727;
+  color: #f7eeee;
+}
+.main_topHeader .in:hover {
+  color: #921414;
+}
+.main_secondHeader {
+  grid-column: 1/21;
+  grid-row: 20/30;
+  display: grid;
+  column-gap: 7px;
+  row-gap: 5px;
+  margin-left: 30px;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+}
+.main_secondHeader .box {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  border-radius: 8px;
+  height: 6vh;
+  width: 10vw;
+  box-shadow: 20px 20px 10px #161616;
+}
+.main_secondHeader .box:hover {
+  cursor: pointer;
+  border: 1px solid #fcd810;
+}
+.main_secondHeader .box-Clicker {
+  border: 1px solid #199782;
+}
+.main_secondHeader .box-Clicker a {
+  color: #199782;
+}
+.main_secondHeader .box-Puzzle {
+  border: 1px solid #169206;
+}
+.main_secondHeader .box-Puzzle a {
+  color: #169206;
+}
+.main_secondHeader .box-Action {
+  border: 1px solid #fcd810;
+}
+.main_secondHeader .box-Action a {
+  color: #fcd810;
+}
+.main_secondHeader .box-Shooting {
+  border: 1px solid #b90a85;
+}
+.main_secondHeader .box-Shooting a {
+  color: #b90a85;
+}
+.main_secondHeader .box-Zombie {
+  border: 1px solid #ca6c00;
+}
+.main_secondHeader .box-Zombie a {
+  color: #ca6c00;
+}
+.main_secondHeader .box-Funny {
+  border: 1px solid #640381;
+}
+.main_secondHeader .box-Funny a {
+  color: #640381;
+}
+.main_secondHeader .box-Car {
+  border: 1px solid #3ec9db;
+}
+.main_secondHeader .box-Car a {
+  color: #3ec9db;
+}
+.main_secondHeader .box-Card {
+  border: 1px solid #b311a5;
+}
+.main_secondHeader .box-Card a {
+  color: #b311a5;
+}
+.main_secondHeader .box-more {
+  width: 170%;
+  display: grid;
+  grid-template-rows: 25% 10%;
+  grid-template-columns: repeat(8, 1fr);
+}
+.main_secondHeader .box-more h4 {
+  grid-row: 1;
+  font-size: 12px;
+  grid-column: 3/6;
+  color: white;
+  margin-top: 0;
+}
+.main_secondHeader .box-more p {
+  grid-row: 2;
+  font-size: 10px;
+  grid-column: 3/6;
+  color: white;
+  font-weight: 1000;
+}
+.main_secondHeader .box-more img {
+  grid-column: 1/2;
+  grid-row: 2;
+  width: 120%;
+}
+.main_secondHeader .box-more:hover {
+  border: none;
+  margin-top: -10px;
+}
+.main_secondHeader .box a {
+  grid-column: 3/4;
+  padding-top: 15px;
+  font-weight: 1000;
+  font-size: 14px;
+  text-decoration: none;
+}
+.main_secondHeader .box img {
+  grid-row: 1/5;
+  height: 100%;
+  border-radius: 10px;
+}
+.main_mostAddictingGames {
+  display: grid;
+  grid-template-columns: repeat(20, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-column: 2/20;
+  grid-row: 40/102;
+  row-gap: 12px;
+  column-gap: 20px;
+}
+.main_mostAddictingGames-headline {
+  grid-row: 1;
+  grid-column: 1/5;
+  font-size: 10px;
+}
+.main_mostAddictingGames-headline h1 {
+  color: white;
+  text-align: center;
+}
+.main_mostAddictingGames-firstLine {
+  display: flex;
+  flex-direction: row;
+  grid-column: 1/21;
+  grid-row: 2/3;
+  column-gap: 10px;
+}
+.main_mostAddictingGames-secondLine {
+  display: flex;
+  flex-direction: row;
+  grid-column: 1/21;
+  grid-row: 3/4;
+  column-gap: 10px;
+}
+.main .animationBox {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 70% 10%;
+  grid-row: 1/2;
+  border-radius: 15px;
+  height: 15vh;
+  width: 9vw;
+  box-shadow: 20px 10px 10px #292525;
+}
+.main .animationBox:hover {
+  cursor: pointer;
+}
+.main video {
+  height: 100%;
+  width: 100%;
+  grid-row: 1;
+  grid-column: 1/4;
+  padding-top: 0;
+  border-radius: 30px;
+  size: cover;
+  position: center;
+}
+.main p {
+  color: white;
+  font-weight: 700;
+  text-align: center;
+  font-size: 12px;
+  grid-column: 1/4;
+  grid-row: 2/3;
+  width: 90%;
+  text-align: center;
+  border-radius: 15px;
+}
+.main-commercial {
+  display: grid;
+  grid-template-columns: repeat(20, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-column: 2/20;
+  grid-row: 104/120;
+  height: 30vh;
+}
+.main-commercial .firstCommercial {
+  grid-row: 1/5;
+  grid-column: 6/16;
+  background-image: url(https://i.ytimg.com/vi/lVDNmkQ63mU/maxresdefault.jpg);
+  background-position: center;
+  background-size: cover;
+}
+.main_newGames {
+  display: grid;
+  grid-template-columns: repeat(20, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-row: 130/190;
+  grid-column: 2/20;
+  row-gap: 12px;
+  column-gap: 20px;
+}
+.main_newGames_AnimationRows {
+  display: grid;
+  grid-row: 2/3;
+  grid-column: 2/20;
+}
+.main_newGames h1 {
+  grid-row: 1;
+  grid-column: 1/7;
+  font-size: 20px;
+  font-display: line;
+  color: white;
+}
+.main_newGames h1 span {
+  color: #534c4c;
+}
+.main_newGames .btn-viewLastWeek {
+  grid-column: 18/21;
+  grid-row: 1;
+  text-align: center;
+  padding-top: 12px;
+  color: white;
+  font-weight: 600;
+  box-shadow: 5px 5px 5px #161616;
+  border-radius: 10px;
+}
+.main_newGames .btn-viewLastWeek:hover {
+  position: relative;
+  cursor: pointer;
+  top: -5px;
+}

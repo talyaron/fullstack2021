@@ -1,0 +1,31 @@
+.bigrid{
+    display: grid;
+    grid-template-columns: repeat(3 ,60px);
+    grid-template-rows: repeat(5 ,160px);
+    gap: 2px;
+    width: 500px;
+    height: 500px;
+    border: 1px solid black;
+    
+    .green{
+        grid-column: span 3;
+        background-color: green;
+    }
+
+    .yellow{
+        grid-column: span 3;
+        background-color: yellow;}
+      
+      
+       
+    .beige{
+        grid-column: span 3;
+        background-color: beige;
+    }
+
+    .card{
+        background-color: black;
+
+        
+    }
+}

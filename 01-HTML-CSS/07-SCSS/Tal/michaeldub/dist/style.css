@@ -1,0 +1,48 @@
+body {
+  display: flex;
+  justify-content: center;
+}
+
+.gridwrap {
+  width: 100%;
+  display: grid;
+  grid-template-rows: 1fr 2fr 1fr 7fr 8fr;
+}
+.gridwrap .header2 {
+  background: #146a14;
+}
+.gridwrap .header3 {
+  background: #8e6216;
+}
+.gridwrap .banner {
+  background: papayawhip;
+}
+.gridwrap .wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-content: center;
+  width: 200px;
+  height: 400px;
+  margin: 20px;
+}
+.card__image img {
+  width: 80%;
+  height: 100%;
+}
+.card__desc {
+  width: 80%;
+  height: 25%;
+}
+.card__price {
+  width: 80%;
+  height: 25%;
+}
+.card div {
+  margin: 1em;
+}

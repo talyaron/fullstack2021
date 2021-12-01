@@ -1,0 +1,523 @@
+/* For Home page only*/
+.homebox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  padding: 2px;
+  border: 3px solid black;
+  background-size: cover;
+  text-align: start;
+  text-shadow: 0 0 3px #000000, 0 0 5px #000000;
+}
+
+.homebox :nth-child(1) {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.homebox :hover {
+  cursor: pointer;
+}
+
+.homebox__homebox1 {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  grid-row: 1/3;
+  background-image: url(https://ichef.bbci.co.uk/live-experience/cps/624/cpsprodpb/vivo/live/images/2021/11/25/3157c030-c1e3-4afc-b825-93ad2d5d516c.jpg);
+  background-size: cover;
+}
+
+.homebox__homebox1 h1 {
+  font-size: 40px;
+}
+
+.homebox__homebox1 :nth-child(3) {
+  border-left: 5px solid red;
+}
+
+.homebox__homebox2 {
+  background-image: url(https://ichef.bbci.co.uk/news/976/cpsprodpb/58DC/production/_121784722_migrants4.jpg);
+  background-size: cover;
+}
+
+.homebox__homebox2 :nth-child(2) {
+  border-left: 5px solid red;
+}
+
+.homebox__homebox3 {
+  background-image: url(https://ichef.bbci.co.uk/live-experience/cps/624/cpsprodpb/vivo/live/images/2021/11/24/f1cc5ab7-b958-4a01-8696-4a292bc8fcbd.jpg);
+  background-size: cover;
+}
+
+.homebox__homebox3 :nth-child(2) {
+  border-left: 5px solid red;
+}
+
+.homebox__homebox4 {
+  background-image: url(https://ychef.files.bbci.co.uk/1280x720/p0b576yw.webp);
+  background-size: cover;
+}
+
+.homebox__homebox4 :nth-child(2) {
+  border-left: 5px solid red;
+}
+
+.homebox__homebox5 {
+  background-image: url(https://ichef.bbci.co.uk/images/ic/832xn/p09ydv2w.jpg);
+  background-size: cover;
+}
+
+.homebox__homebox5 :nth-child(2) {
+  border-left: 5px solid red;
+}
+
+.bbclogo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  border-right: 1px solid white;
+}
+
+.logobox {
+  font-family: 'Outfit',sans-serif;
+  height: 20px;
+  width: 20px;
+  background-color: white;
+  color: black;
+}
+
+.homecontainer {
+  padding: 5px;
+  margin-top: 30px;
+  width: 90%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 2fr (1fr)[3];
+      grid-template-columns: 2fr repeat(3, 1fr);
+  -ms-grid-rows: 2fr 1fr;
+      grid-template-rows: 2fr 1fr;
+  -ms-grid-columns: 2fr 1fr 1fr;
+      grid-template-columns: 2fr 1fr 1fr;
+  -ms-grid-rows: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+  grid-gap: 1em;
+  color: white;
+  grid-auto-flow: column;
+  height: 300px;
+}
+
+.homecontainer p {
+  margin-block: 2px;
+  font-size: 20px;
+}
+
+/* For Sport page only*/
+.wrappersport {
+  max-height: 500px;
+  max-width: 900px;
+  margin: auto;
+  margin-top: 3vw;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (200px)[4];
+      grid-template-columns: repeat(4, 200px);
+  -ms-grid-rows: (250px)[4];
+      grid-template-rows: repeat(4, 250px);
+  gap: 15px;
+  font-style: italic;
+}
+
+.wrappersport .imgsport {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 50%;
+}
+
+.wrappersport .imgsport:hover {
+  cursor: pointer;
+}
+
+.wrappersport p:hover {
+  cursor: pointer;
+  color: blue;
+  text-decoration: underline;
+}
+
+.wrappersport .category--sport {
+  color: #00d400;
+  font-size: 13px;
+  font-style: italic;
+}
+
+.wrappersport .category--sport:hover {
+  color: #00d400;
+}
+
+.boxsport--up1 {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1/3;
+}
+
+.boxsport--up2 > h1:hover {
+  cursor: pointer;
+  color: blue;
+  text-decoration: underline;
+}
+
+.imgsport__up1 {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.imgsport__up1:hover {
+  cursor: pointer;
+}
+
+/* For all pages*/
+.banner {
+  width: 100%;
+  height: 4vh;
+  background-color: #d40808;
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  font-weight: 200;
+  top: 0px;
+}
+
+.banner__navbar {
+  width: 85%;
+  margin: auto;
+  position: relative;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.banner__navbar__BBC_logo {
+  left: -400px;
+  top: 10px;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  width: 1vw;
+  margin-left: 0px;
+  height: 2vh;
+  background-color: #f7f4f4;
+  border: 3px solid black;
+  font-family: 'Outfit', sans-serif;
+}
+
+.banner__navbar__BBC_logo__firstletter {
+  position: relative;
+  left: -10vw;
+  color: solid white;
+  top: 5px;
+}
+
+.banner__navbar__BBC_logo__secondletter {
+  position: relative;
+  left: -17vw;
+  top: 5px;
+}
+
+.banner__navbar__BBC_logo__thridletter {
+  position: relative;
+  left: -21vw;
+  top: 5px;
+}
+
+.banner__navbar__BBC_logo__BBC_LOG_2 {
+  position: relative;
+  left: -510px;
+  top: 5px;
+}
+
+.banner__navbar ul li {
+  list-style: none;
+  font-size: 10px;
+  display: inline-block;
+  margin: 0 50px;
+  position: relative;
+}
+
+.banner__navbar ul li a {
+  text-decoration: none;
+  color: #f7f5f0;
+  font-weight: 200;
+  font-size: 2vh;
+  text-transform: uppercase;
+}
+
+.banner__navbar ul li ::after {
+  content: '';
+  height: 5px;
+  width: 0;
+  background: white;
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  -webkit-transition: 0.8s;
+  transition: 0.8s;
+}
+
+.banner__navbar ul li:hover ::after {
+  width: 100%;
+}
+
+.banner__navbar__search_box {
+  position: relative;
+  left: 80vw;
+  top: 0vh;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-transition: 10s;
+  transition: 10s;
+  background: #d40808;
+  height: 30px;
+  width: 15vw;
+}
+
+.banner__navbar__search_box :hover > .navbar__search_box__search_text {
+  width: 240px;
+  padding: 0 -5px;
+}
+
+.banner__navbar__search_box__Search-btn {
+  position: relative;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 50%;
+  background: #faf2f2;
+  height: 40px;
+  width: 40px;
+  top: -0px;
+}
+
+/* For News page only*/
+body {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: 'Outfit', sans-serif;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 2fr (2fr)[3];
+      grid-template-columns: 2fr repeat(3, 2fr);
+  -ms-grid-rows: (1fr)[3];
+      grid-template-rows: repeat(3, 1fr);
+  grid-gap: 1em;
+}
+
+.box {
+  padding: 5px;
+  grid-auto-rows: minmax(10px, auto);
+}
+
+.box--box1 {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-column: 1/4;
+}
+
+.box--box1__internal_box1 {
+  display: -ms-grid;
+  display: grid;
+  width: 100%;
+  margin: 0;
+  height: 30vh;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  -ms-grid-rows: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
+}
+
+.box--box1__internal_box1__Header1 {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1/2;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  grid-row: 1/3;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+  font-size: 30px;
+  height: 10vh;
+}
+
+.box--box1__internal_box1__Header1:hover {
+  cursor: pointer;
+  color: blue;
+  text-decoration: underline;
+}
+
+.box--box1__internal_box1__image1 {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 4;
+  grid-column: 2/6;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 3;
+  grid-row: 1/4;
+  width: 90%;
+  height: 40vh;
+  -webkit-box-align: left;
+      -ms-flex-align: left;
+          align-items: left;
+}
+
+.box--box1__internal_box1_text1 {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1/2;
+  position: relative;
+  top: -200px;
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
+  grid-row: 3/4;
+  height: 7vh;
+  font-style: italic;
+  text-align: left;
+}
+
+.box--box1__internal_box1down_text_text1 {
+  position: relative;
+  top: -500px;
+  width: 5vw;
+  height: 5vh;
+}
+
+.box__down_picture__down1 {
+  width: 100%;
+  height: 15vh;
+}
+
+.box__down__title {
+  width: 100%;
+  height: 7vh;
+  text-align: left;
+  font-size: 20px;
+  font-style: italic;
+}
+
+.box__down__title--title2 {
+  width: 100%;
+  height: 7vh;
+  text-align: left;
+  font-size: 20px;
+  font-style: italic;
+}
+
+.box__down__title--title2:hover {
+  cursor: pointer;
+  color: blue;
+  text-decoration: underline;
+}
+
+.box__down__text {
+  width: 60%;
+  height: 5vh;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  left: 0vw;
+  bottom: 5vh;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  text-align: left;
+  font-size: 15px;
+  font-style: italic;
+  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.box__down__text--text2 {
+  position: relative;
+  text-align: left;
+  left: 0vw;
+  font-style: italic;
+}
+
+.box__down__title:hover {
+  cursor: pointer;
+  color: blue;
+  text-decoration: underline;
+}
+
+.box--box2__inner_box--box2__down_text__text3 {
+  position: relative;
+  top: -10px;
+}
+
+.box--box2__inner_box--box2__down_text__text3--title1 {
+  font-size: 20px;
+}
+
+.box--box2__inner_box--box2__down_text__text3--title1:hover {
+  cursor: pointer;
+  color: blue;
+  text-decoration: underline;
+}
+
+.box--text_only {
+  position: relative;
+  left: -900px;
+}
+
+.inner_box--box2 {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  width: 80%;
+  height: 45vh;
+}
+/*# sourceMappingURL=style_final.css.map */

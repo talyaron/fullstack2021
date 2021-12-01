@@ -1,0 +1,165 @@
+html {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(63, 62, 62);
+    font-weight: bold;
+}
+
+body {
+    background-color: rgb(143, 138, 138);
+    margin: 30px 50px;
+    line-height: 1.4;
+}
+
+.btn {
+    background: rgb(158, 157, 157);
+    color: rgb(209, 202, 202);
+    padding: 0.6rem 1.3rem;
+    border: 0;
+    border-radius: 6px;
+}
+
+img {
+    max-width: 100%;
+    border-radius: 20px;
+}
+
+
+.wrapper {
+    display: grid;
+    grid-gap: 20px;
+}
+
+// <!-- Nav-bar -->
+
+.nav-bar {
+    &__list {
+
+        display: grid;
+        grid-gap: 20px;
+        padding: 0;
+        list-style: none;
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    a {
+        background: rgb(177, 171, 171);
+        display: block;
+        text-decoration: none;
+        padding: 0.8rem;
+        text-align: center;
+        color: rgb(88, 87, 87);
+        text-transform: uppercase;
+        font-size: 1.1rem;
+        box-shadow: 0 1px 5px rgb(104, 104, 104, 0.8);
+
+        &:hover {
+            background: rgb(88, 87, 87);
+            color: rgb(209, 208, 208);
+        }
+
+    }
+
+}
+
+// <!-- top container -->
+
+.top-container {
+
+    display: grid;
+    grid-gap: 20px;
+    grid-template-areas: 'header header top-box-a''header header top-box-b';
+}
+
+.header {
+    grid-area: header;
+    min-height: 400px;
+    background: url(https://wallpapercave.com/wp/wp4850012.jpg);
+    background-size: cover;
+    background-position: center;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    box-shadow: 0 1px 5px rgba(54, 54, 54, 0.8);
+
+    &__h1 {
+        font-size: 4rem;
+        margin-bottom: 0px;
+        color: rgb(209, 208, 208);
+    }
+
+    &__p {
+        font-size: 1.3rem;
+        margin-top: 0px;
+        color: rgb(209, 208, 208);
+
+    }
+}
+
+.top-box {
+    color: white;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    box-shadow: 0 1px 5px rgba(54, 54, 54, 0.8);
+    padding: 1.5rem;
+
+    &__h4 {
+        font-size: 2rem;
+    }
+
+    &__price {
+        font-size: 2.5rem;
+    }
+}
+
+// <!-- Devices section -->
+
+.devices {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
+    &__box {
+        color: rgb(252, 236, 236);
+        text-align: center;
+        padding: 1.5rem 2rem;
+        box-shadow: 0 1px 5px rgba(54, 54, 54, 0.8);
+    }
+}
+
+.cs-go {
+    background: rgb(177, 171, 171);
+    box-shadow: 0 1px 5px rgba(54, 54, 54, 0.8);
+    display: grid;
+    grid-gap: 30px;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 3rem;
+}
+
+// <!-- Related-Games -->
+
+
+.related-games {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+
+    &__img {
+        width: 100%;
+        box-shadow: 0 1px 5px rgba(54, 54, 54, 0.8);
+        border-radius: 20px;
+    }
+}
+
+// <!-- FOOTER -->
+
+footer {
+    margin-top: 2rem;
+    background: rgb(88, 87, 87);
+    color: rgb(209, 208, 208);
+    text-align: center;
+    padding: 1rem;
+}
