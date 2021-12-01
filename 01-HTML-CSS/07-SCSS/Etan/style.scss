@@ -15,10 +15,12 @@ body {
     background-color: rgb(202, 202, 202);
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(20, 1fr);
-h1{
-    position: absolute;
-    font-size: 5vh;
-}
+
+    h1 {
+        position: absolute;
+        font-size: 5vh;
+    }
+
     .card {
         position: relative;
         background-color: rgb(252, 255, 56);
@@ -27,15 +29,18 @@ h1{
         border-radius: 3vw;
         height: calc(33vh - 7.5vh);
         width: calc(30vw - 3vw);
+        margin: 1vw;
         float: left;
 
         &:hover {
             cursor: pointer;
         }
-        video{
+
+        video {
             border-radius: 3vw;
             width: 100%;
         }
+
         img {
             position: absolute;
             top: 5vh;

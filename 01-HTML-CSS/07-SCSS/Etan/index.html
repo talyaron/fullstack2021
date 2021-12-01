@@ -10,8 +10,9 @@
 <body>
     <div class="wrapper"> 
         <h1>Nostalgic games</h1>
+        <script src="script.js"></script>
         <div class="card">
-            <video src=file:///Users/tamirr/Downloads/kuala_lumpur_timelapse.mp4 loop></video>
+            <video src=01-HTML-CSS/07-SCSS/Etan/videos/kuala_lumpur_timelapse.mp4 loop></video>
     </div>
         <div class="card"></div>
         <div class="card"></div>
@@ -59,7 +60,7 @@
 </body>
 <footer>
     <script>
-    const video = document.querySelectorAll("video")
+    const videos = document.querySelectorAll("video")
 
 videos.forEach(video => {
     video.addEvenetListener("mouseover", function (){
