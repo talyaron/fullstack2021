@@ -1,0 +1,88 @@
+body{
+    margin: 0;
+}
+
+.navbar{
+    width:auto;
+    height: 50px;
+    background-color: rgba(26,26,26,0.9);
+    position: relative;
+
+    .nav_option{
+        position: relative;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 750px;
+        height: 50px;
+        margin-left: 350px;
+        color: white;
+        font-family: 'Nunito', sans-serif;
+
+        .option{
+            width: 110px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.753);
+        }
+        
+        .option>img{
+            width:40px ;
+            margin-top: 5px;
+        }
+        .option:hover{
+            cursor: pointer;
+            color:#fff;
+        }
+        .option:nth-child(6){
+            color: rgb(204, 157, 204);
+
+            :hover{
+               color: rgb(212, 141, 212);
+            }
+        }
+    }
+
+    .navRight{
+        position: relative;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-evenly;
+        width: 200px;
+        height: 50px;
+        margin-left: 1300px;
+        margin-top: -50px;
+        color: rgba(255, 255, 255, 0.753);
+        align-items: center;
+
+        :hover{
+            cursor: pointer;
+            color:#fff;
+        }
+    }
+}
+
+.highlight{
+    position: relative;
+    width: 1100px;
+    height: 800px;
+    margin-left: 400px ;
+    display: grid;
+    grid-template-columns: repeat(4 1fr);
+    grid-template-rows: 50px 490px 200px;
+    justify-content: center;
+    text-align: start;
+    gap: 5px;
+
+    .highlight_head{
+        grid-column: span 4;
+        border-bottom: rgba(177, 174, 174, 0.76) solid 1px;
+    }
+    .highlight_banner{
+        grid-column: span 4;
+    }
+    .highlight_games{
+       display: grid;
+    }
+  
+}
