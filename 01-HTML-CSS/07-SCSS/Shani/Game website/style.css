@@ -1,0 +1,78 @@
+body {
+  margin: 0;
+}
+
+.wrapper {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[6];
+      grid-template-columns: repeat(6, 1fr);
+  -ms-grid-rows: (150px)[10];
+      grid-template-rows: repeat(10, 150px);
+}
+
+.wrapper .header {
+  background-color: #2fa8d1;
+  font-family: 'Architects Daughter', cursive;
+  padding-left: 20px;
+  border: 2px black solid;
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  grid-column-end: 7;
+}
+
+.wrapper .header input {
+  width: 35%;
+  height: 20%;
+  border: 3px solid blue;
+}
+
+.wrapper .header button {
+  border: 3px solid blue;
+  background-color: #90d6ee;
+}
+
+.wrapper .header button:hover {
+  background-color: #083544;
+  cursor: pointer;
+  color: white;
+}
+
+.wrapper .games {
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  grid-column-end: 7;
+}
+
+.wrapper .games.adventure {
+  background-color: grey;
+  border: 2px black solid;
+  -ms-grid-row: 2;
+      grid-row-start: 2;
+  grid-row-end: 4;
+}
+
+.wrapper .games.classic {
+  background-color: #f12b2b;
+  border: 2px black solid;
+  -ms-grid-row: 4;
+      grid-row-start: 4;
+  grid-row-end: 6;
+}
+
+.wrapper .games.multiplayer {
+  background-color: #41ec49;
+  border: 2px black solid;
+  -ms-grid-row: 6;
+      grid-row-start: 6;
+  grid-row-end: 9;
+}
+
+.wrapper .popular {
+  background-color: #c2198f;
+  border: 2px black solid;
+  -ms-grid-row: 9;
+      grid-row-start: 9;
+  grid-row-end: 11;
+}
+/*# sourceMappingURL=style.css.map */
