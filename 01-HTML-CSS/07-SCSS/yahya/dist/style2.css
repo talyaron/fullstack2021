@@ -90,6 +90,9 @@ p {
   background-size: 100% 100%;
   background-size: cover;
 }
+.main p {
+  margin-top: 900px;
+}
 
 .num1 {
   display: grid;
@@ -169,7 +172,7 @@ p {
 
 h1 {
   justify-content: end;
-  color: brown;
+  color: #4b0707;
   font-size: xx-large;
   margin-top: 100px;
 }
