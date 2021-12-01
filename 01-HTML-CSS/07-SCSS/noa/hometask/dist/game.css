@@ -2,6 +2,11 @@ body {
   background-color: #363535;
 }
 
+h1{
+  color: red;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
 .classic-games {
   display: grid;
   grid-template-columns: repeat(4, 20%);
