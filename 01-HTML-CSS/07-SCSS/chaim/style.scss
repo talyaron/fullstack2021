@@ -1,0 +1,57 @@
+body{
+    background-color: green;
+    color: rosybrown;
+}
+.wrapper{
+    display: grid;
+    justify-content: center;
+     font-family: 'Roboto Condensed', sans-serif;
+     color: blanchedalmond;
+    width: 200px;
+    height: 200px;
+    grid-template-columns: 220px  150px 150px 150px 150px 150px 150px 150px;
+    grid-template-rows: 15vh 30vh 15vh 15vh;
+    row-gap: 1fh;
+    column-gap: 1vh;
+    position: relative;
+    left: 600px;
+
+&__card{
+        color: red;
+    }
+
+
+
+&__card{
+    background-color: aqua;
+    color: seagreen;
+    width: 100px;
+    height: 100px;
+     border-radius: 10px;
+     }
+
+img{
+    width: 100%;
+    height: fit-content;
+    position: relative;
+    top: 100px;
+    left: 80px;
+    display: grid;
+}
+
+
+img:hover{
+    filter: grayscale(40%);
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+p{
+    text-align: var(10px);
+    font-size: var(1fr);
+    position: relative;
+    top: 70px;
+    left: 90px;
+
+}
+}   

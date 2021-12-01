@@ -1,63 +1,235 @@
 body {
-  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background: #1d1f29;
   height: 150vh;
+  margin: 50px;
+  padding-right: 10em;
 }
 
-.large_box {
-  min-height: 150vh;
-  background-image: url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/4bdd888b-fe5c-4358-8c46-5362c7ce3154/dehn7hz-56d75669-c27f-4d2b-8e30-91dc2c542e4c.jpg/v1/fill/w_1192,h_670,q_70,strp/cool_gaming_background_4k_by_skullbreaker000_dehn7hz-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NzIwIiwicGF0aCI6IlwvZlwvNGJkZDg4OGItZmU1Yy00MzU4LThjNDYtNTM2MmM3Y2UzMTU0XC9kZWhuN2h6LTU2ZDc1NjY5LWMyN2YtNGQyYi04ZTMwLTkxZGMyYzU0MmU0Yy5qcGciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.oV9fk5Nb0ps6-6_Omk6AfhkNvdqDyQRvV_hLyys1S6Q);
-  background-size: cover;
-  align-items: center;
-  background-repeat: no-repeat;
+.container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(4, 350px);
-  border: 4px solid white;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 300px);
+  height: 150vh;
+  gap: 30px;
+}
+.container__box {
+  border: 3px solid black;
+  border-radius: 50px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  transition: 1.2s;
+  font-family: sans-serif;
+  color: salmon;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  overflow: hidden;
+}
+.container__box:hover {
+  transform: scale(1.3);
+  z-index: 2;
+}
+.container__box:hover .box__title {
+  transform: scaleX(1);
+}
+.container__box__content {
+  transform: translateY(115%);
+  transition: 1.2s;
+}
+.container__box__button {
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  color: #050300;
+  background-color: greenyellow;
+  padding: 0.5em 1.25em;
+  border-radius: 10px;
+  transition: 1.2s;
+  opacity: 0.8;
+}
+.container__box__button:hover {
+  transform: scale(1.3);
+}
+.container__box__button:focus {
+  background-color: #e1e4de;
+}
+.container__box__title {
+  position: relative;
+  transition: 1.2s;
+}
+.container__box__title::after {
+  content: "";
+  position: absolute;
+  height: 5px;
+  left: 0;
+  bottom: 0;
   width: 100%;
-  gap: 51px;
+  background: greenyellow;
 }
-.large_box__small_box {
-  position: relative;
-  left: 50px;
-  width: 60%;
-  height: 30vh;
-  border: 4px solid white;
-  align-content: center;
+.container__box--header {
+  border: 3px solid #fc5d1f;
+  background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpDr_WJQxJr3hG2-91FwQUDVZcWK2F9QjwBQ&usqp=CAU);
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url();
-}
-.large_box__small_box__2 {
-  width: 60%;
-  height: 30vh;
-  position: relative;
-  left: 50px;
-  border: 4px solid white;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-image: url(https://images.alphacoders.com/117/thumbbig-1173124.webp);
-}
-.large_box__small_box__banner {
-  position: relative;
-  border: 4px solid white;
-  align-content: center;
   grid-column-start: 1;
-  grid-column-end: 4;
-  width: 88%;
-  height: 30vh;
-  left: 50px;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-image: url();
+  grid-column-end: 5;
+  border-radius: 50px;
+  opacity: 0.8;
 }
-.large_box__small_box__banner__site {
+.container__box--header__content {
+  text-align: center;
+  margin-top: 160px;
+}
+.container__box--header__content__btn {
+  background: greenyellow;
+  font-size: 20px;
+  border: 3px solid black;
+  padding: 10px 20px;
+  font-family: "monsterrat";
+  margin: 30px;
+  cursor: pointer;
+  transition: 0.8s;
   position: relative;
-  border: 4px solid white;
-  left: 50px;
-  width: 285%;
-  height: 30vh;
-  align-content: center;
+  width: 15vw;
+  height: 10vh;
+  bottom: 14vh;
+  overflow: hidden;
+  border-radius: 10px;
+  transition: 1.2s;
+}
+.container__box--header__content__btn:hover {
+  transform: scale(1.2);
+}
+.container__box--header__content__btn::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  background: greenyellow;
+  z-index: -1;
+  transition: 0.8s;
+}
+
+h4 {
+  color: yellowgreen;
+  position: relative;
+  border: 3px solid #f8f8f8;
+  bottom: 100px;
+  width: 20%;
+  height: 6vh;
+  text-align: center;
+  left: 32vw;
+  font-size: 30px;
+  transition: 1.2s;
+}
+h4:hover {
+  transform: scale(1.5);
+}
+
+.container__box:hover .container__box__content {
+  transform: translateY(0%);
+  transition: transformY(0);
+}
+
+.banner {
+  width: 100%;
+  height: 4vh;
+  background-color: #1d1f29;
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  font-weight: 200;
+  top: 0px;
+}
+.banner__navbar {
+  width: 85%;
+  margin: auto;
+  position: relative;
+  align-items: center;
+  justify-content: space-between;
+}
+.banner__navbar ul li {
+  list-style: none;
+  font-size: 10px;
+  display: inline-block;
+  margin: 0 50px;
+  position: relative;
+}
+.banner__navbar ul li a {
+  text-decoration: none;
+  color: greenyellow;
+  font-weight: 200;
+  font-size: 2vh;
+  text-transform: uppercase;
+}
+.banner__navbar ul li ::after {
+  content: "";
+  height: 5px;
+  width: 0;
+  background: greenyellow;
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  transition: 0.8s;
+}
+.banner__navbar ul li:hover ::after {
+  width: 100%;
+}
+.banner__navbar__search_box {
+  position: relative;
+  left: 57vw;
+  top: -1vh;
+  transform: translate(-50%, -50%);
+  transition: 10s;
+  background: #1d1f29;
+  height: 30px;
+  width: 15vw;
+}
+.banner__navbar__search_box :hover > .navbar__search_box__search_text {
+  width: 240px;
+  padding: 0 -5px;
+}
+.banner__navbar__search_box__Search-btn {
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: greenyellow;
+  height: 40px;
+  width: 40px;
+  top: 0px;
+}
+
+.game {
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url();
+}
+.game_1 {
+  background: url(https://wallpapercave.com/dwp1x/AIVAsqC.jpg);
+}
+.game_2 {
+  background: url(https://images3.alphacoders.com/843/thumbbig-843016.webp);
+}
+.game_3 {
+  background: url(https://c4.wallpaperflare.com/wallpaper/374/201/282/soldiers-call-of-duty-call-of-duty-modern-warfare-ghost-cod6-2560x1440-architecture-modern-hd-art-wallpaper-preview.jpg);
+}
+.game_4 {
+  background: url(https://images.unsplash.com/photo-1623476408624-721c9185d569?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fHN0YXIlMjB3YXJzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60);
+}
+.game_5 {
+  background: url(https://wallpapercave.com/dwp1x/AIVAsqC.jpg);
+}
+.game_6 {
+  background: url(https://wallpapercave.com/dwp1x/AIVAsqC.jpg);
+}
+.game_7 {
+  background: url(https://wallpapercave.com/dwp1x/AIVAsqC.jpg);
+}
+.game_8 {
+  background: url(https://wallpapercave.com/dwp1x/AIVAsqC.jpg);
+}
+.game_5 {
+  background: url(https://wallpapercave.com/dwp1x/AIVAsqC.jpg);
 }

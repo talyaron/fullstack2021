@@ -50,6 +50,7 @@ img {
   text-transform: uppercase;
   font-size: 1.1rem;
   box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+  cursor: pointer;
 }
 .nav-bar a:hover {
   background: black;
@@ -65,7 +66,7 @@ img {
 .header {
   grid-area: header;
   min-height: 400px;
-  background: url(https://wallpapercave.com/wp/wp4850012.jpg);
+  background: url(https://media2.giphy.com/media/W05iUdqyFujrRFgnn1/giphy.gif?cid=ecf05e474tadshy6zl4kjhl8w9eji5omjcf5ud46ub7rosv3&rid=giphy.gif&ct=g);
   background-size: cover;
   background-position: center;
   padding: 3rem;
@@ -79,17 +80,19 @@ img {
   font-size: 4rem;
   margin-bottom: 0px;
   color: #fff9f9;
+  cursor: pointer;
 }
 .header__h1:hover {
-  color: red;
+  color: gray;
 }
 .header__p {
   font-size: 1.3rem;
   margin-top: 0px;
   color: #fff9f9;
+  cursor: pointer;
 }
 .header__p:hover {
-  color: red;
+  color: gray;
 }
 
 .top-box {
@@ -99,6 +102,9 @@ img {
   justify-items: center;
   box-shadow: 0 1px 5px rgba(54, 54, 54, 0.8);
   padding: 1.5rem;
+}
+.top-box:hover {
+  transform: scale(0.9);
 }
 .top-box__h4 {
   font-size: 2rem;
@@ -117,6 +123,11 @@ img {
   text-align: center;
   padding: 1.5rem 2rem;
   box-shadow: 0 1px 5px rgba(54, 54, 54, 0.8);
+  cursor: pointer;
+}
+.devices__box:hover {
+  transition: 0.8s;
+  opacity: 0.5;
 }
 
 .cs-go {

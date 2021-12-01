@@ -1,39 +1,53 @@
 body {
   background-color: white;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
 }
 
 .wrapper {
   display: grid;
-  position: absolute;
+  position: relative;
   top: 0;
   right: 0;
   width: 100vw;
-  height: 100%;
-  background-color: white;
+  height: 100vh;
+  background-color: #cacaca;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(20, 1fr);
 }
-.wrapper-card {
-  position: relative;
-  background-color: white;
-  color: black;
-  box-sizing: border-box;
-  border: 1px solid gray;
-  height: 25vh;
-  margin: 1vh;
+.wrapper h1 {
+  position: absolute;
+  font-size: 5vh;
 }
-.wrapper-card:hover {
+.wrapper .card {
+  position: relative;
+  background-color: #fcff38;
+  color: black;
+  border: 1px solid gray;
+  border-radius: 3vw;
+  height: calc(33vh - 7.5vh);
+  width: calc(30vw - 3vw);
+  margin: 1vw;
+  float: left;
+}
+.wrapper .card:hover {
   cursor: pointer;
 }
-.wrapper-card img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  align-items: center;
-  height: fit-content;
-  width: fit-content;
+.wrapper .card video {
+  border-radius: 3vw;
+  width: 100%;
 }
-.wrapper-card h1 {
+.wrapper .card img {
+  position: absolute;
+  top: 5vh;
+  left: 0;
+  border-radius: 3vw;
+  align-items: center;
+  height: 20vh;
+  width: 20vw;
+}
+.wrapper .card h1 {
   position: absolute;
   color: #1900ff;
   bottom: 10vh;
@@ -41,24 +55,10 @@ body {
   font-size: 1vw;
   font-weight: 100;
 }
-.wrapper-card p {
+.wrapper .card p {
   color: red;
   position: absolute;
-  bottom: 0;
+  top: 0;
   font-family: Arial, Helvetica, sans-serif;
-}
-.wrapper .header1 {
-  background-color: green;
-  grid-column: span 4;
-  grid-row: span 2;
-}
-.wrapper .header2 {
-  background-color: #ffbb00;
-  grid-column: span 4;
-  grid-row-start: 3;
-  grid-row-end: 6;
-}
-.wrapper .header3 {
-  background-color: #d3c36a;
-  grid-column: span 4;
+  font-size: 2vh;
 }
