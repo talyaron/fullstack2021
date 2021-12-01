@@ -1,0 +1,75 @@
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.gridwrap {
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 1fr 2fr 1fr 7fr 8fr;
+      grid-template-rows: 1fr 2fr 1fr 7fr 8fr;
+}
+
+.gridwrap .header2 {
+  background: #146a14;
+}
+
+.gridwrap .header3 {
+  background: #8e6216;
+}
+
+.gridwrap .banner {
+  background: papayawhip;
+}
+
+.gridwrap .wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  width: 200px;
+  height: 400px;
+  margin: 20px;
+}
+
+.card__image img {
+  width: 80%;
+  height: 100%;
+}
+
+.card__desc {
+  width: 80%;
+  height: 25%;
+}
+
+.card__price {
+  width: 80%;
+  height: 25%;
+}
+
+.card div {
+  margin: 1em;
+}
+/*# sourceMappingURL=style.css.map */
