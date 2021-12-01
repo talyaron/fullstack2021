@@ -1,0 +1,191 @@
+body{
+
+    background-color: #222; 
+    margin: 0px;
+    font-family: 'Poppins', sans-serif;
+    color: whitesmoke;
+
+}
+
+.header{
+
+    height: 140px;
+    display: flex;
+    justify-content: space-between;
+    background: #171717;
+    border-bottom: 2px solid black;
+
+    &__logo{
+
+        width: 27%;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        padding: 10px;
+
+        img{
+
+            height: 60%;
+            width: 80%;
+            margin-left: 1em;
+
+        }
+
+    }
+
+    &__searchbar{
+
+        width: 27%;
+
+    }
+
+    &__menu{
+
+        width: 46%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        margin-right: 0.7em;
+
+        &__box{
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid rgb(87, 84, 84);
+            border-radius: 10px;
+            height: 50%;
+            width: 22%;
+            margin: 0.7em;
+            
+
+            img{
+
+                height: 80%;
+            }
+
+            p{
+                color: white;
+                font-size: 25px;
+            }
+
+            &--u{
+
+                border: 2px solid whitesmoke;
+                border-radius: 10px;
+                padding: 3px;
+    
+            }
+
+            &:hover{
+
+                cursor: pointer;
+                border: 1px solid rgb(168, 46, 46);
+                transition: border 0.85s;
+
+            }
+
+        }
+
+        &__account{
+
+            font-size: 20px;
+            color: whitesmoke;
+            margin-left: 0.7em;
+
+            .abutton{
+                
+                background: rgb(20, 146, 20);
+                padding: 5px;
+                border-radius: 10px;
+                margin-bottom: 10px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                &:hover{
+
+                    cursor: pointer;
+                    background: rgb(16, 107, 16);
+                    transition: 1s;
+
+                }
+
+                &--2{
+
+                    background-color: rgb(53, 53, 53);
+
+                    &:hover{
+                        
+                        background-color: rgb(53, 53, 53);
+                        color: rgb(199, 41, 41);
+
+                    }
+
+                }
+
+
+            }
+
+            .login{
+                 
+                border-radius: 10px;
+                padding: 5px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+            }
+
+        }
+
+        
+
+
+
+    }
+
+}
+
+.menubar{
+
+    height: 160px;
+    display: flex;
+    justify-content: center;
+
+        &__cards{
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+        
+        }
+
+        &__more{
+        
+        width: 10%;
+        
+        }
+
+        .card{
+
+        background-color: rgb(53, 53, 53);
+        border-radius: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        }
+
+        img{
+
+            height: 100%;
+            width: 40%;
+            border-top-left-radius: 20px;
+            border-bottom-left-radius: 20px;
+
+        }
+
+}

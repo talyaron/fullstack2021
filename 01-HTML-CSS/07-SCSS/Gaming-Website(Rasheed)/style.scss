@@ -17,6 +17,11 @@ body {
     padding: 0.6rem 1.3rem;
     border: 0;
     border-radius: 6px;
+    box-shadow: 0 1px 5px rgb(104, 104, 104, 0.8);
+
+    &:hover {
+        color: black;
+    }
 }
 
 img {
@@ -52,9 +57,10 @@ img {
         text-transform: uppercase;
         font-size: 1.1rem;
         box-shadow: 0 1px 5px rgb(104, 104, 104, 0.8);
+        cursor: pointer;
 
         &:hover {
-            background: rgb(88, 87, 87);
+            background: rgb(0, 0, 0);
             color: rgb(209, 208, 208);
         }
 
@@ -69,12 +75,13 @@ img {
     display: grid;
     grid-gap: 20px;
     grid-template-areas: 'header header top-box-a''header header top-box-b';
+
 }
 
 .header {
     grid-area: header;
     min-height: 400px;
-    background: url(https://wallpapercave.com/wp/wp4850012.jpg);
+    background: url(https://media2.giphy.com/media/W05iUdqyFujrRFgnn1/giphy.gif?cid=ecf05e474tadshy6zl4kjhl8w9eji5omjcf5ud46ub7rosv3&rid=giphy.gif&ct=g);
     background-size: cover;
     background-position: center;
     padding: 3rem;
@@ -87,14 +94,25 @@ img {
     &__h1 {
         font-size: 4rem;
         margin-bottom: 0px;
-        color: rgb(209, 208, 208);
+        color: rgb(255, 249, 249);
+        cursor: pointer;
+
+
+        &:hover {
+            color: gray;
+        }
+
     }
 
     &__p {
         font-size: 1.3rem;
         margin-top: 0px;
-        color: rgb(209, 208, 208);
+        color: rgb(255, 249, 249);
+        cursor: pointer;
 
+        &:hover {
+            color: gray;
+        }
     }
 }
 
@@ -105,6 +123,10 @@ img {
     justify-items: center;
     box-shadow: 0 1px 5px rgba(54, 54, 54, 0.8);
     padding: 1.5rem;
+
+    &:hover{
+        transform: scale(0.9);
+    }
 
     &__h4 {
         font-size: 2rem;
@@ -127,6 +149,11 @@ img {
         text-align: center;
         padding: 1.5rem 2rem;
         box-shadow: 0 1px 5px rgba(54, 54, 54, 0.8);
+        cursor: pointer;
+
+    &:hover{
+        transition: 0.8s;
+        opacity: 0.5;}
     }
 }
 
@@ -151,6 +178,12 @@ img {
         width: 100%;
         box-shadow: 0 1px 5px rgba(54, 54, 54, 0.8);
         border-radius: 20px;
+        cursor: pointer;
+        transition: transform .2s ease-in;
+
+        &:hover {
+            transform: scale(0.9);
+        }
     }
 }
 
