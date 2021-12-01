@@ -18,6 +18,7 @@ body {
   flex-direction: column;
 }
 .SideWrapperMenu__item {
+  display: flex;
   justify-content: center;
   align-items: center;
 }
