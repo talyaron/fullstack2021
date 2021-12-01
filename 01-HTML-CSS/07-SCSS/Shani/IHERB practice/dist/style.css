@@ -18,12 +18,10 @@
   grid-column-start: 1;
   grid-column-end: 4;
 }
-.wrapper .card {
-  grid-column-start: 1;
-  grid-column-end: 4;
-}
 .wrapper .card .card1 {
   border: 2px grey solid;
+  grid-column-start: 1;
+  grid-column-end: 4;
 }
 .wrapper .card .card1 img {
   width: 100%;

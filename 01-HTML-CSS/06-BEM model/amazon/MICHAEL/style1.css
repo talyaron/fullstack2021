@@ -1,0 +1,132 @@
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #bdb8b8;
+}
+
+.upperHeader {
+  width: 100%;
+  color: white;
+  background-color: black;
+  height: 5vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 10vw;
+  padding: 10px 0 0 10px;
+}
+
+.upperHeader__logo img {
+  height: 5vh;
+  width: 5vw;
+}
+
+.upperHeader__searchBar {
+  width: 60vw;
+  padding-left: 90px;
+}
+
+.upperHeader input {
+  display: inline-block;
+  width: 100%;
+}
+
+.upperHeader__flag {
+  color: red;
+}
+
+.lowerHeader {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 80px 80px 80px 80px;
+      grid-template-columns: 80px 80px 80px 80px;
+  background-color: black;
+  width: 100%;
+  height: 5vh;
+  padding: 10px 0 0 15px;
+}
+
+.lowerHeader__item {
+  padding: 0 1px;
+}
+
+.lowerHeader a {
+  text-decoration: none;
+  color: blanchedalmond;
+}
+
+.lowerHeader a:hover {
+  border: white 1px solid;
+}
+
+.box {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (16vw)[4];
+      grid-template-columns: repeat(4, 16vw);
+  -ms-grid-rows: 30vh 30vh 30vh;
+      grid-template-rows: 30vh 30vh 30vh;
+  margin-top: 4vh;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 30px;
+}
+
+.box__boxItem {
+  padding: 5px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #4e4e4e;
+}
+
+.box__boxItem--boxItem1 {
+  grid-column: span 4;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 0.05fr 0.9fr 0.05fr;
+      grid-template-columns: 0.05fr 0.9fr 0.05fr;
+  background-color: #B1E6EE;
+}
+
+.box__boxItem img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  padding-top: 3px;
+  width: 100%;
+  height: 75%;
+}
+
+.box__boxItem span {
+  font-size: 10px;
+  font-weight: 700;
+  color: #156fac;
+}
+
+.box__boxItem--boxItem1 img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  vertical-align: bottom;
+  width: 100%;
+  height: 100%;
+}
+
+.box__boxItem--boxItem1 img .arrowRight, .box__boxItem--boxItem1 img .arrowLeft {
+  place-self: center;
+  position: relative;
+}
+
+.box__boxItem--boxItem1 img .arrowRight {
+  bottom: 18%;
+}
+
+.box__boxItem--boxItem1 img .arrowLeft {
+  bottom: 15%;
+}
+
+.box .fas {
+  position: relative;
+  top: 32px;
+  color: #a8a8a8;
+}
+/*# sourceMappingURL=style1.css.map */

@@ -1,20 +1,66 @@
 body {
-  background-color: #999;
+  background-color: #504A4B;
+  padding: 5px;
+}
+
+a {
+  font-size: xx-large;
+  /* background-color: black;*/
+  margin-top: 0%;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  width: 200px;
+  justify-content: center;
+  align-items: center;
+  grid-auto-rows: minmax(100px, auto);
+}
+
+p {
+  font-size: xx-large;
+  background-color: black;
+  margin-top: 0%;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  width: 200px;
+  justify-content: center;
+  align-items: center;
 }
 
 .header {
   display: block;
-  background-color: coral;
+  background-color: #0C090A;
   justify-content: end;
   font-size: 40px;
   height: 80px;
+  margin: 10px;
+  border-radius: 10px;
+  border: 2px white solid;
+}
+.header ul {
+  text-align: italic;
 }
 .header a:hover {
   color: black;
   text-align: italic;
+  color: white;
+  justify-self: center;
 }
-.header ul {
-  color: black;
+
+.menu2 {
+  display: flex;
+  flex-wrap: wrap;
+  height: 50px;
+  text-align: end;
+  justify-content: end;
+  font-size: xx-large;
+}
+.menu2 .box {
+  border: solid black;
+  background-color: #999;
+  width: 100px;
+  margin: 10px;
 }
 
 .main {
@@ -29,6 +75,24 @@ body {
   background-color: blue;
   border-radius: 15px;
 }
+.main img {
+  height: 400px;
+  width: 400px;
+  border-radius: 15px;
+}
+.main .box.gmain {
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9txMzQEEp96WevaMNZW-IK_31_E-wmZY6CQ&usqp=CAU");
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-size: cover;
+}
+.main .box.gmain p {
+  margin-top: 900px;
+}
 
 .num1 {
   display: grid;
@@ -37,9 +101,14 @@ body {
   grid-template-rows: repeat(2, 400px);
   gap: 100px 100px;
   justify-content: center;
+  margin-top: 300px;
 }
 .num1 .box {
-  background-color: blue;
+  border-radius: 15px;
+}
+.num1 img {
+  height: 400px;
+  width: 400px;
   border-radius: 15px;
 }
 
@@ -50,9 +119,14 @@ body {
   grid-template-rows: repeat(2, 400px);
   gap: 100px 100px;
   justify-content: center;
+  margin-top: 300px;
 }
 .num2 .box {
-  background-color: blue;
+  border-radius: 15px;
+}
+.num2 img {
+  height: 400px;
+  width: 400px;
   border-radius: 15px;
 }
 
@@ -63,9 +137,14 @@ body {
   grid-template-rows: repeat(2, 400px);
   gap: 100px 100px;
   justify-content: center;
+  margin-top: 300px;
 }
 .num3 .box {
-  background-color: blue;
+  border-radius: 15px;
+}
+.num3 img {
+  height: 400px;
+  width: 400px;
   border-radius: 15px;
 }
 
@@ -76,13 +155,31 @@ body {
   grid-template-rows: repeat(2, 400px);
   gap: 100px 100px;
   justify-content: center;
+  margin-top: 300px;
 }
 .num4 .box {
-  background-color: blue;
+  border-radius: 15px;
+}
+.num4 img {
+  height: 400px;
+  width: 400px;
   border-radius: 15px;
 }
 
 h1 {
   justify-content: end;
-  color: brown;
+  color: #4b0707;
+  font-size: 46px;
+  margin-top: 100px;
+  text-decoration: underline;
+}
+
+.copyright {
+  width: 100%;
+  background-color: black;
+  color: #fff;
+  padding: 5px;
+  text-align: end;
+  font-size: xx-large;
+  margin-top: 50px;
 }
