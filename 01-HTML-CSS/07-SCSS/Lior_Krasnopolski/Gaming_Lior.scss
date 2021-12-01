@@ -26,7 +26,6 @@ body
         transition: 1.2s;
         font-family: sans-serif;
         color: salmon;
-        background-image: ur("https://images.igdb.com/igdb/image/upload/t_720p/co1zj6.jpg");
         background-repeat: no-repeat;
         background-size: cover;
         text-align: center;
@@ -49,12 +48,7 @@ body
             transform: translateY(115%);
             transition: 1.2s;
             
-            &--game_1
-            {
-                background-image: ur("https://wallpapercave.com/wp/wp8426269.jpg");
-                background-repeat: no-repeat;
-                background-size: cover;
-            }
+
         }
 
         &__button
@@ -156,7 +150,7 @@ body
         } 
         }
         }
-    }
+    }}
     
 
 // Title of each gaming type
@@ -274,6 +268,13 @@ h4
     }
   }
 
+
+  .game_1
+  {
+      background: chartreuse;
+      background-repeat: no-repeat;
+      background-size: cover;
+  }
 
 
  
