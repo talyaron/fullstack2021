@@ -17,6 +17,10 @@ body {
   padding: 0.6rem 1.3rem;
   border: 0;
   border-radius: 6px;
+  box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+}
+.btn:hover {
+  color: black;
 }
 
 img {
@@ -48,7 +52,7 @@ img {
   box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
 }
 .nav-bar a:hover {
-  background: #585757;
+  background: black;
   color: #d1d0d0;
 }
 
@@ -74,12 +78,18 @@ img {
 .header__h1 {
   font-size: 4rem;
   margin-bottom: 0px;
-  color: #d1d0d0;
+  color: #fff9f9;
+}
+.header__h1:hover {
+  color: red;
 }
 .header__p {
   font-size: 1.3rem;
   margin-top: 0px;
-  color: #d1d0d0;
+  color: #fff9f9;
+}
+.header__p:hover {
+  color: red;
 }
 
 .top-box {
@@ -127,6 +137,11 @@ img {
   width: 100%;
   box-shadow: 0 1px 5px rgba(54, 54, 54, 0.8);
   border-radius: 20px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in;
+}
+.related-games__img:hover {
+  transform: scale(0.9);
 }
 
 footer {

@@ -17,6 +17,11 @@ body {
     padding: 0.6rem 1.3rem;
     border: 0;
     border-radius: 6px;
+    box-shadow: 0 1px 5px rgb(104, 104, 104, 0.8);
+
+    &:hover {
+        color: black;
+    }
 }
 
 img {
@@ -54,7 +59,7 @@ img {
         box-shadow: 0 1px 5px rgb(104, 104, 104, 0.8);
 
         &:hover {
-            background: rgb(88, 87, 87);
+            background: rgb(0, 0, 0);
             color: rgb(209, 208, 208);
         }
 
@@ -87,14 +92,23 @@ img {
     &__h1 {
         font-size: 4rem;
         margin-bottom: 0px;
-        color: rgb(209, 208, 208);
+        color: rgb(255, 249, 249);
+
+
+        &:hover {
+            color: red;
+        }
+
     }
 
     &__p {
         font-size: 1.3rem;
         margin-top: 0px;
-        color: rgb(209, 208, 208);
+        color: rgb(255, 249, 249);
 
+        &:hover {
+            color: red;
+        }
     }
 }
 
@@ -151,6 +165,12 @@ img {
         width: 100%;
         box-shadow: 0 1px 5px rgba(54, 54, 54, 0.8);
         border-radius: 20px;
+        cursor: pointer;
+        transition: transform .2s ease-in;
+
+        &:hover {
+            transform: scale(0.9);
+        }
     }
 }
 
