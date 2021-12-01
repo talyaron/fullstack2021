@@ -28,6 +28,7 @@ body {
   border-radius: 3vw;
   height: calc(33vh - 7.5vh);
   width: calc(30vw - 3vw);
+  margin: 1vw;
   float: left;
 }
 .wrapper .card:hover {
