@@ -34,10 +34,34 @@ body {
   grid-column-end: 7;
 }
 .wrapper .games.adventure {
-  background-color: grey;
-  border: 2px black solid;
   grid-row-start: 2;
   grid-row-end: 4;
+  padding-top: 15px;
+  background-color: #1f550a;
+}
+.wrapper .games.adventure.one {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+.wrapper .games.adventure.two {
+  grid-column-start: 3;
+  grid-column-end: 5;
+}
+.wrapper .games.adventure.three {
+  grid-column-start: 5;
+  grid-column-end: 7;
+}
+.wrapper .games.adventure img {
+  width: 200px;
+  height: 20vh;
+  display: block;
+  margin: auto;
+  border-radius: 10px;
+  border: 2px solid green;
+}
+.wrapper .games.adventure img:hover {
+  cursor: pointer;
+  opacity: 0.4;
 }
 .wrapper .games.classic {
   background-color: #f12b2b;

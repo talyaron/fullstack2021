@@ -47,20 +47,61 @@ body {
 
 
         &.adventure {
-            background-color: grey;
-            border: 2px black solid;
             grid-row-start: 2;
             grid-row-end: 4;
+            padding-top:15px;
+            
+            background-color:rgb(31, 85, 10);
+            &.one{
+                grid-column-start: 1;
+                grid-column-end: 3;
 
 
+            }
+            &.two{
+                grid-column-start: 3;
+                grid-column-end: 5;
 
+
+            }
+            &.three{
+                grid-column-start: 5;
+                grid-column-end: 7;
+
+
+            }
+            
+            img {
+               
+                width:200px;
+                height:20vh;
+                display: block;
+                margin: auto;
+                border-radius:10px;
+                border:2px solid green;
+                &:hover{
+                    cursor:pointer;
+                    opacity:0.4;
+
+                }
+                
+            }
+            
+            
+            
         }
+        
+
+
+
+        
 
         &.classic {
             background-color: rgb(241, 43, 43);
             border: 2px black solid;
             grid-row-start: 4;
             grid-row-end: 6;
+            
 
 
 
