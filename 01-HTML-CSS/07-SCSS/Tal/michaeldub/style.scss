@@ -1,0 +1,84 @@
+body{
+
+    display: flex;
+    justify-content: center;
+
+}
+
+.gridwrap{
+
+    width: 100%;
+    display: grid;
+    grid-template-rows: 1fr 2fr 1fr 7fr 8fr;
+
+    .header2{
+
+        background: rgb(20, 106, 20);
+    }
+
+    .header3{
+
+        background: rgb(142, 98, 22);
+    }
+
+    .banner{
+
+        background: papayawhip;
+
+    }
+
+    .wrapper{
+
+            display: flex;
+            justify-content: center;
+
+    }
+
+
+}
+
+
+
+.card{
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-content: center;
+    width: 200px;
+    height: 400px;
+    margin: 20px;
+
+    &__image{
+
+        img{
+
+        width: 80%;
+        height: 100%;
+
+        }
+
+    }
+
+    &__desc{
+
+        width: 80%;
+        height: 25%;
+
+    }
+
+    &__price{
+
+        width: 80%;
+        height: 25%;
+
+    }
+
+    div{
+
+        margin: 1em;
+
+    }
+
+}
+
