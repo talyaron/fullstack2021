@@ -9,49 +9,68 @@
 </head>
 <body>
     <div class="wrapper"> 
-        <div class="wrapper-card header1"></div>
-        <div class="wrapper-card header2"></div>
-        <div class="wrapper-card header3"></div>
-        <div class="wrapper-card">
+        <h1>Nostalgic games</h1>
+        <script src="script.js"></script>
+        <div class="card">
+            <video src=01-HTML-CSS/07-SCSS/Etan/videos/kuala_lumpur_timelapse.mp4 loop></video>
+    </div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card">
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBrX1VGeJqGsBu8m6Q_dQO9MBs2XcHRcttgQ&usqp=CAU" alt="Asorted">
             <h1>Asorted drugs</h1>
             <p>78.90</p>
         </div>
-        <div class="wrapper-card">
+        <div class="card">
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBrX1VGeJqGsBu8m6Q_dQO9MBs2XcHRcttgQ&usqp=CAU" alt="Asorted">
             <h1>Asorted drugs</h1>
             <p>78.90</p>
         </div>
-        <div class="wrapper-card">
+        <div class="card">
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBrX1VGeJqGsBu8m6Q_dQO9MBs2XcHRcttgQ&usqp=CAU" alt="Asorted">
             <h1>Asorted drugs</h1>
             <p>78.90</p>
         </div>
-        <div class="wrapper-card">
+        <div class="card">
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBrX1VGeJqGsBu8m6Q_dQO9MBs2XcHRcttgQ&usqp=CAU" alt="Asorted">
             <h1>Asorted drugs</h1>
             <p>78.90</p>
         </div>
-        <div class="wrapper-card">
+        <div class="card">
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBrX1VGeJqGsBu8m6Q_dQO9MBs2XcHRcttgQ&usqp=CAU" alt="Asorted">
             <h1>Asorted drugs</h1>
             <p>78.90</p>
         </div>
-        <div class="wrapper-card">
+        <div class="card">
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBrX1VGeJqGsBu8m6Q_dQO9MBs2XcHRcttgQ&usqp=CAU" alt="Asorted">
             <h1>Asorted drugs</h1>
             <p>78.90</p>
         </div>
-        <div class="wrapper-card">
+        <div class="card">
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBrX1VGeJqGsBu8m6Q_dQO9MBs2XcHRcttgQ&usqp=CAU" alt="Asorted">
             <h1>Asorted drugs</h1>
             <p>78.90</p>
         </div>
-        <div class="wrapper-card">
+        <div class="card">
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBrX1VGeJqGsBu8m6Q_dQO9MBs2XcHRcttgQ&usqp=CAU" alt="Asorted">
             <h1>Asorted drugs</h1>
             <p>78.90</p>
         </div>
     </div>
 </body>
+<footer>
+    <script>
+    const videos = document.querySelectorAll("video")
+
+videos.forEach(video => {
+    video.addEvenetListener("mouseover", function (){
+         this.play()
+    })
+
+video.addEvenetListener("mouseout", function() {
+    this.pause()
+})
+})
+</script>
+</footer>
 </html>
