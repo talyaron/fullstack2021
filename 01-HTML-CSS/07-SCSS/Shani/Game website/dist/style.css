@@ -14,6 +14,10 @@ body {
   grid-column-start: 1;
   grid-column-end: 7;
 }
+.wrapper .header:hover {
+  background-color: #042c3a;
+  transition: 1s;
+}
 .wrapper .header h1 {
   display: block;
   padding-left: 20px;
@@ -85,6 +89,9 @@ body {
   background-color: #1f550a;
   /*this is inorder to have the things change whenever i hover over them so the pic and text will change*/
 }
+.wrapper .games.adventure:hover {
+  background-color: #112e05;
+}
 .wrapper .games.adventure.one {
   grid-column-start: 1;
   grid-column-end: 3;
@@ -128,7 +135,6 @@ body {
   border: 2px solid green;
 }
 .wrapper .games.classic {
-  background-color: red;
   grid-row-start: 4;
   grid-row-end: 8;
   margin: 20px;
@@ -136,13 +142,13 @@ body {
 .wrapper .games.classic.one {
   grid-column-start: 1;
   grid-column-end: 4;
-  background-image: linear-gradient(red, yellow);
+  /*background-image: linear-gradient(red, yellow);*/
 }
 .wrapper .games.classic.one h2 {
   padding-left: 100px;
 }
 .wrapper .games.classic.one h2:hover {
-  text-shadow: #ebdcdc 2px 2px;
+  text-shadow: #ff1313 2px 2px;
   cursor: pointer;
 }
 .wrapper .games.classic.one img {
@@ -181,6 +187,9 @@ body {
   margin: auto;
   border-radius: 10px;
 }
+.wrapper .games.classic.three p {
+  padding-left: 10%;
+}
 .wrapper .games.classic.four {
   grid-column-start: 4;
   grid-column-end: 4;
@@ -207,19 +216,25 @@ body {
   margin: auto;
   border-radius: 10px;
 }
+.wrapper .games.classic.five p {
+  padding-left: 10%;
+}
 .wrapper .games.classic .hover:hover {
   cursor: pointer;
   opacity: 0.7;
-  text-shadow: #ff0909 2px 2px;
+  text-shadow: #ff1313 2px 2px;
 }
 .wrapper .games.classic .hover img {
-  border: 2px solid #ff0303;
+  border: 4px solid #ff0303;
 }
 .wrapper .games.multiplayer {
   background-color: #c2198f;
   grid-row-start: 8;
   grid-row-end: 10;
   /*this is inorder to have the things change whenever i hover over them so the pic and text will change*/
+}
+.wrapper .games.multiplayer:hover {
+  background-color: #851062;
 }
 .wrapper .games.multiplayer.one {
   grid-column-start: 1;
