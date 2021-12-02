@@ -33,17 +33,17 @@ p{
   justify-content: end;
   font-size: 40px;
   height: 80px;
-  margin: 10px;
+  margin: 100px;
   border-radius: 10px ;
   border: 2px white solid;
   
    
    ul{
-      
+     
       text-align: italic;
    }
    a:hover{
-
+        
       color: rgb(0, 0, 0);
       text-align: italic;
       color: white;
@@ -88,7 +88,7 @@ p{
     border-radius: 15px;
  }
  .box.gmain{
-    background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9txMzQEEp96WevaMNZW-IK_31_E-wmZY6CQ&usqp=CAU');
+    background-image:url('https://image.winudf.com/v2/image/Y29tLndGb3J0bml0ZTRLXzczMjYzNjBfc2NyZWVuXzBfMTUyOTA1MTIyNl8wMTU/screen-0.jpg?fakeurl=1&type=.jpg');
     grid-column-start: 1;
     grid-column-end:3 ;
     grid-row-start: 1;
@@ -192,6 +192,6 @@ h1{
    padding: 5px;
    text-align: end;
    font-size: xx-large;
-   margin-top: 50px;
+   margin-top: 200px;
 
 }

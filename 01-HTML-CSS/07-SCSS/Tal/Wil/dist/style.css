@@ -1,0 +1,27 @@
+.wrapper {
+  background-color: #bba420;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 50px, 80px, 100px, 50%;
+}
+.wrapper .box {
+  background-color: blue;
+  height: 300px;
+  text-align: center;
+  margin-left: 10px;
+  grid-column-start: 1;
+  grid-column-end: 5;
+}
+.wrapper .box img {
+  width: 100px;
+  height: 100px;
+  margin-left: 50px;
+  margin-top: 100px;
+}
+
+.header {
+  background-color: white;
+  grid-column-start: span 5;
+}
