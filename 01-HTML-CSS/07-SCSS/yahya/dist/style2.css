@@ -76,7 +76,6 @@ p {
   justify-content: center;
 }
 .main .box {
-  background-color: blue;
   border-radius: 15px;
 }
 .main img {
@@ -190,7 +189,7 @@ h1 {
   background-color: black;
   color: #fff;
   padding: 5px;
-  text-align: end;
+  text-align: center;
   font-size: xx-large;
   margin-top: 200px;
 }
