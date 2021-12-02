@@ -26,6 +26,196 @@ body {
 }
 .header__searchbar {
   width: 27%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header__searchbar label {
+  width: 90%;
+  max-width: 300px;
+}
+.header__searchbar input {
+  width: 50%;
+  display: flex;
+  padding: 15px;
+  background-color: #353535;
+  border: 2px solid #b6b6b6;
+  color: white;
+  font-size: 15px;
+  box-shadow: 1px 1px 5px 1px grey;
+  height: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.header__searchbar input:focus, .header__searchbar input:valid {
+  outline: none;
+}
+.header__searchbar input:focus ~ ul li:nth-child(1)::before, .header__searchbar input:valid ~ ul li:nth-child(1)::before {
+  filter: blur(20px);
+  transform: translate(0, -35px) rotate(-210deg);
+}
+.header__searchbar input:focus ~ ul li:nth-child(1)::after, .header__searchbar input:valid ~ ul li:nth-child(1)::after {
+  filter: blur(0);
+  transform: scale(1) rotate(0);
+}
+.header__searchbar input:focus ~ ul li:nth-child(2)::before, .header__searchbar input:valid ~ ul li:nth-child(2)::before {
+  filter: blur(20px);
+  transform: translate(0, -35px) rotate(-210deg);
+}
+.header__searchbar input:focus ~ ul li:nth-child(2)::after, .header__searchbar input:valid ~ ul li:nth-child(2)::after {
+  filter: blur(0);
+  transform: scale(1) rotate(0);
+}
+.header__searchbar input:focus ~ ul li:nth-child(3)::before, .header__searchbar input:valid ~ ul li:nth-child(3)::before {
+  filter: blur(20px);
+  transform: translate(0, -35px) rotate(-210deg);
+}
+.header__searchbar input:focus ~ ul li:nth-child(3)::after, .header__searchbar input:valid ~ ul li:nth-child(3)::after {
+  filter: blur(0);
+  transform: scale(1) rotate(0);
+}
+.header__searchbar input:focus ~ ul li:nth-child(4)::before, .header__searchbar input:valid ~ ul li:nth-child(4)::before {
+  filter: blur(20px);
+  transform: translate(0, -35px) rotate(-210deg);
+}
+.header__searchbar input:focus ~ ul li:nth-child(4)::after, .header__searchbar input:valid ~ ul li:nth-child(4)::after {
+  filter: blur(0);
+  transform: scale(1) rotate(0);
+}
+.header__searchbar input:focus ~ ul li:nth-child(5)::before, .header__searchbar input:valid ~ ul li:nth-child(5)::before {
+  filter: blur(20px);
+  transform: translate(0, -35px) rotate(-210deg);
+}
+.header__searchbar input:focus ~ ul li:nth-child(5)::after, .header__searchbar input:valid ~ ul li:nth-child(5)::after {
+  filter: blur(0);
+  transform: scale(1) rotate(0);
+}
+.header__searchbar input:focus ~ ul li:nth-child(6)::before, .header__searchbar input:valid ~ ul li:nth-child(6)::before {
+  filter: blur(20px);
+  transform: translate(0, -35px) rotate(-210deg);
+}
+.header__searchbar input:focus ~ ul li:nth-child(6)::after, .header__searchbar input:valid ~ ul li:nth-child(6)::after {
+  filter: blur(0);
+  transform: scale(1) rotate(0);
+}
+.header__searchbar input:focus ~ ul li:nth-child(1)::after, .header__searchbar input:valid ~ ul li:nth-child(1)::after {
+  transition-delay: 400ms;
+}
+.header__searchbar input:focus ~ ul li:nth-child(2)::after, .header__searchbar input:valid ~ ul li:nth-child(2)::after {
+  transition-delay: 600ms;
+}
+.header__searchbar input:focus ~ ul li:nth-child(3)::after, .header__searchbar input:valid ~ ul li:nth-child(3)::after {
+  transition-delay: 800ms;
+}
+.header__searchbar input:focus ~ ul li:nth-child(4)::after, .header__searchbar input:valid ~ ul li:nth-child(4)::after {
+  transition-delay: 1000ms;
+}
+.header__searchbar input:focus ~ ul li:nth-child(5)::after, .header__searchbar input:valid ~ ul li:nth-child(5)::after {
+  transition-delay: 1200ms;
+}
+.header__searchbar input:focus ~ ul li:nth-child(6)::after, .header__searchbar input:valid ~ ul li:nth-child(6)::after {
+  transition-delay: 1400ms;
+}
+.header__searchbar label {
+  position: relative;
+}
+.header__searchbar ul {
+  position: absolute;
+  top: 38px;
+  left: -4px;
+  margin: 0;
+  list-style: none;
+  padding-left: 22px;
+  position: absolute;
+  display: flex;
+  pointer-events: none;
+  transition: 200ms;
+}
+.header__searchbar ul li {
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: transparent;
+  pointer-events: none;
+  transition: 500ms ease-in-out;
+}
+.header__searchbar ul li ::selection {
+  color: transparent;
+}
+.header__searchbar ul li::after, .header__searchbar ul li::before {
+  color: #e0dcdc;
+  position: absolute;
+  transition: 500ms ease-in-out;
+}
+.header__searchbar ul li::before {
+  top: -20px;
+}
+.header__searchbar ul li::after {
+  top: -63px;
+  transform: scale(0) rotate(210deg);
+  filter: blur(20px);
+}
+.header__searchbar ul li[s]::before {
+  content: attr(s) "s";
+  transition-delay: 200ms;
+}
+.header__searchbar ul li[s]::after {
+  content: attr(s) "s";
+  left: 12px;
+  color: #666;
+}
+.header__searchbar ul li[e]::before {
+  content: attr(e) "e";
+  transition-delay: 400ms;
+}
+.header__searchbar ul li[e]::after {
+  content: attr(e) "e";
+  left: 24px;
+  color: #666;
+}
+.header__searchbar ul li[a]::before {
+  content: attr(a) "a";
+  transition-delay: 600ms;
+}
+.header__searchbar ul li[a]::after {
+  content: attr(a) "a";
+  left: 36px;
+  color: #666;
+}
+.header__searchbar ul li[r]::before {
+  content: attr(r) "r";
+  transition-delay: 800ms;
+}
+.header__searchbar ul li[r]::after {
+  content: attr(r) "r";
+  left: 48px;
+  color: #666;
+}
+.header__searchbar ul li[c]::before {
+  content: attr(c) "c";
+  transition-delay: 1000ms;
+}
+.header__searchbar ul li[c]::after {
+  content: attr(c) "c";
+  left: 60px;
+  color: #666;
+}
+.header__searchbar ul li[h]::before {
+  content: attr(h) "h";
+  transition-delay: 1200ms;
+}
+.header__searchbar ul li[h]::after {
+  content: attr(h) "h";
+  left: 72px;
+  color: #666;
+}
+.header__searchbar .magni {
+  position: relative;
+  right: 100px;
+  height: 20%;
+}
+.header__searchbar .magni img {
+  width: 70%;
+  height: 100%;
 }
 .header__menu {
   width: 46%;
