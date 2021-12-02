@@ -1,0 +1,36 @@
+body {
+    background-color: rgb(68, 9, 145);
+    display: grid;
+    gap: 5px;
+    border-radius: 5px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+}
+
+@media only screen and (max-width:1200px) {
+    body {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+    }
+}
+
+@media only screen and (max-width:900px) {
+    body {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+    }
+}
+
+@media only screen and (max-width:600px) {
+    body {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, 1fr);
+    }
+}
+.box{
+    background-color: red;
+    
+}
