@@ -1,0 +1,52 @@
+body{
+    margin: auto;
+   
+
+}
+.wrapper{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    gap: 10px;
+    .box{
+        
+        width: 300px;
+        height: 300px;
+        background-color: whitesmoke;
+        display: flex;
+        position: relative;
+        justify-content: center;
+        opacity: 0.7;
+        
+        
+        
+        
+        img{
+           
+            width: 150px;
+            height: 150px;
+          
+            margin-left: auto;
+            margin-right: auto;
+            
+         
+            
+        }
+        .subtext{
+            display: flex;
+            position: absolute;
+            bottom: 40px;
+            
+        }
+        .price{
+            display: flex;
+            position: absolute;
+            bottom: 10px;
+            
+
+        }
+        
+    }
+    
+}

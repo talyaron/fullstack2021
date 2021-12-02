@@ -3,8 +3,12 @@
     border: 2px solid black;
     grid-template-rows: 10vh 35vh 35vh;
     grid-template-columns: repeat(4, 1fr);
-    
 
+    .h1 {
+        font-size: 100px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+
+    }
 
     .title {
         grid-column: 1/6;
@@ -30,7 +34,8 @@
             width: 100%;
         }
     }
-    .box1:hover{
+
+    .box1:hover {
         background: red;
         cursor: pointer;
         border-radius: 40px;
@@ -46,7 +51,7 @@
         border: solid black;
         border-radius: 40px;
         box-shadow: black (10px 10px 30px);
-        
+
         &--img {
             display: flex;
             justify-content: center;
@@ -55,15 +60,16 @@
             width: 100%;
         }
     }
-    
-    .box2:hover{
+
+    .box2:hover {
         background: red;
         cursor: pointer;
         border-radius: 40px;
         transition-duration: 1s;
         transform: scale(1.1);
-    
+
     }
+
     .box3 {
         grid-column: 3/4;
         grid-row: 3/4;
@@ -79,7 +85,8 @@
             width: 100%;
         }
     }
-    .box3:hover{
+
+    .box3:hover {
         background: red;
         cursor: pointer;
         border-radius: 40px;
@@ -102,7 +109,8 @@
             width: 100%;
         }
     }
-    .box4:hover{
+
+    .box4:hover {
         background: red;
         cursor: pointer;
         border-radius: 40px;
@@ -125,7 +133,8 @@
             width: 100%;
         }
     }
-    .box5:hover{
+
+    .box5:hover {
         background: red;
         cursor: pointer;
         border-radius: 40px;
@@ -148,7 +157,7 @@
         text-align: center;
         font-size: 30px;
         font-style: italic;
-        background-color:red;
+        background-color: red;
     }
 
     .box1 {
@@ -165,9 +174,10 @@
             height: 100%;
             width: 100%;
         }
-        
+
     }
-    .box1:hover{
+
+    .box1:hover {
         background: red;
         cursor: pointer;
         border-radius: 40px;
@@ -192,7 +202,8 @@
             width: 100%;
         }
     }
-    .box2:hover{
+
+    .box2:hover {
         background: red;
         cursor: pointer;
         border-radius: 40px;
@@ -214,7 +225,8 @@
             width: 100%;
         }
     }
-    .box3:hover{
+
+    .box3:hover {
         background: red;
         cursor: pointer;
         border-radius: 40px;
@@ -237,7 +249,8 @@
             width: 100%;
         }
     }
-    .box4:hover{
+
+    .box4:hover {
         background: red;
         cursor: pointer;
         border-radius: 40px;
@@ -260,7 +273,8 @@
             width: 100%;
         }
     }
-    .box5:hover{
+
+    .box5:hover {
         background: red;
         cursor: pointer;
         border-radius: 40px;
