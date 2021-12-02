@@ -267,14 +267,97 @@ body{
             border-radius: 15px;
             display: grid;
             grid-template-rows: 80% 20%;
+            background-repeat: no-repeat;
+            background-size: 100% 72%;
+            
+            &--ro{
+                background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/ro.jpeg);
+            }
+
+            &--qk{
+                background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/quake.jpeg);
+            }
+
+            &--fifa{
+                background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/fifa.jpeg);
+            }
+
+            &--cs{
+                background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/counter.jpeg);
+            }
+
+            &--ts{
+                background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/sims.png);
+            }
+
+            &--rl{
+                background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/rl.jpeg);
+            }
+
+            &--th{
+                background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/tony.png);
+            }
+
+            &--sc{
+                background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/star.jpeg);
+            }
+
+            &--chess{
+                background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/chess.jpeg);
+            }
+
+            &--poker{
+                background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/texas.jpeg);
+            }
+
+            &--oni{
+                background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/oni.jpg);
+            }
+
+            &--doom{
+                background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/doom.jpeg);
+            }
+
+            &--gta{
+                background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/gta.jpeg);
+            }
+
+            &--mp{
+                background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/max.webp);
+            }
+
+            &--lou{
+                background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/last.jpeg);
+            }
+
+            &--pos{
+                background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/postal.png);
+            }
+
+            &--sm{
+                background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/spider.webp);
+            }
+
+            &--rdr{
+                background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/rdr.jpeg);
+            }
+
+            &--ac{
+                background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/ass.jpeg);
+            }
+
+            &--por{
+                background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/port.jpeg);
+            }
 
             img{
-
+                
+                
                 width: 100%;
                 height: 90%;
                 border-top-left-radius: 15px;
                 border-top-right-radius: 15px;
-                opacity: 0.2;
+                opacity: 0;
 
                 &:hover{
                     opacity: 1;

@@ -194,13 +194,75 @@ body {
   border-radius: 15px;
   display: grid;
   grid-template-rows: 80% 20%;
+  background-repeat: no-repeat;
+  background-size: 100% 72%;
+}
+.wrapper__container .gamebox--ro {
+  background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/ro.jpeg);
+}
+.wrapper__container .gamebox--qk {
+  background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/quake.jpeg);
+}
+.wrapper__container .gamebox--fifa {
+  background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/fifa.jpeg);
+}
+.wrapper__container .gamebox--cs {
+  background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/counter.jpeg);
+}
+.wrapper__container .gamebox--ts {
+  background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/sims.png);
+}
+.wrapper__container .gamebox--rl {
+  background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/rl.jpeg);
+}
+.wrapper__container .gamebox--th {
+  background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/tony.png);
+}
+.wrapper__container .gamebox--sc {
+  background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/star.jpeg);
+}
+.wrapper__container .gamebox--chess {
+  background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/chess.jpeg);
+}
+.wrapper__container .gamebox--poker {
+  background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/texas.jpeg);
+}
+.wrapper__container .gamebox--oni {
+  background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/oni.jpg);
+}
+.wrapper__container .gamebox--doom {
+  background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/doom.jpeg);
+}
+.wrapper__container .gamebox--gta {
+  background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/gta.jpeg);
+}
+.wrapper__container .gamebox--mp {
+  background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/max.webp);
+}
+.wrapper__container .gamebox--lou {
+  background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/last.jpeg);
+}
+.wrapper__container .gamebox--pos {
+  background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/postal.png);
+}
+.wrapper__container .gamebox--sm {
+  background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/spider.webp);
+}
+.wrapper__container .gamebox--rdr {
+  background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/rdr.jpeg);
+}
+.wrapper__container .gamebox--ac {
+  background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/ass.jpeg);
+}
+.wrapper__container .gamebox--por {
+  background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/port.jpeg);
 }
 .wrapper__container .gamebox img {
   width: 100%;
   height: 90%;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
-  opacity: 0.2;
+  opacity: 0;
 }
 .wrapper__container .gamebox img:hover {
   opacity: 1;
