@@ -125,6 +125,11 @@ body {
   transition: 0.8s;
 }
 
+.price {
+  font-size: 30px;
+  color: greenyellow;
+}
+
 h4 {
   color: #93be3d;
   position: relative;
