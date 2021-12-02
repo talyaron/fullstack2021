@@ -13,7 +13,7 @@ body {
   position: relative;
   width: 20vw;
   height: 20vh;
-  border: 1px solid red;
+  border: 1px solid #825a8a;
 }
 
 /* media quary starts here*/
@@ -29,7 +29,7 @@ body {
   .wrapper {
     background-color: #00ff0d;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(6, 1fr);
   }
 }
@@ -37,7 +37,7 @@ body {
   .wrapper {
     background-color: red;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     grid-template-rows: repeat(8, 1fr);
   }
 }
