@@ -1,0 +1,197 @@
+body{
+   background-color: #504A4B;
+   padding: 5px;
+   
+   
+}
+a{
+   font-size: xx-large;
+ /* background-color: black;*/
+   margin-top: 0%;
+   color: white;
+   border-radius: 5px;
+   text-decoration: none;
+   width: 200px;
+   justify-content: center;
+   align-items: center;
+   grid-auto-rows: minmax(100px,auto);
+}
+p{
+   font-size: xx-large;
+   background-color: black;
+   margin-top: 0%;
+   color: white;
+   border-radius: 5px;
+   text-decoration: none;
+   width: 200px;
+   justify-content: center;
+   align-items: center;  
+}
+.header{
+   display: block;
+   background-color: #0C090A;
+  justify-content: end;
+  font-size: 40px;
+  height: 80px;
+  margin: 100px;
+  border-radius: 10px ;
+  border: 2px white solid;
+  
+   
+   ul{
+     
+      text-align: italic;
+   }
+   a:hover{
+        
+      color: rgb(0, 0, 0);
+      text-align: italic;
+      color: white;
+      justify-self:center;
+    }   
+   }
+.menu2{
+   display: flex;
+   flex-wrap: wrap;
+   height: 50px;
+   text-align: end;
+   justify-content: end;
+   font-size: xx-large;
+
+   .box{
+      
+      border: solid black;
+      background-color: #999;
+      width: 100px;
+      margin: 10px;
+   }
+}
+.main{
+
+   display: grid;
+   background: color #999;
+   grid-template-columns:repeat(4,400px);
+   grid-template-rows: repeat(2,400px);
+   gap: 100px 100px;
+   justify-content: center;
+   
+   .box{
+      background-color:blue;
+      border-radius: 15px;
+   
+   }
+
+
+  img{
+    height: 400px;
+    width: 400px;
+    border-radius: 15px;
+ }
+ .box.gmain{
+    background-image:url('https://image.winudf.com/v2/image/Y29tLndGb3J0bml0ZTRLXzczMjYzNjBfc2NyZWVuXzBfMTUyOTA1MTIyNl8wMTU/screen-0.jpg?fakeurl=1&type=.jpg');
+    grid-column-start: 1;
+    grid-column-end:3 ;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+   background-size: cover;
+    p{
+    margin-top: 900px;
+ }
+ }
+ 
+}
+ 
+.num1{
+   display: grid;
+   background: color #999;
+   grid-template-columns:repeat(4,400px);
+   grid-template-rows: repeat(2,400px);
+   gap: 100px 100px;
+   justify-content: center;
+   margin-top: 300px;
+   
+   .box{
+    
+      border-radius: 15px;
+   }
+   img{
+      height: 400px;
+      width: 400px;
+      border-radius: 15px;
+   }
+}
+.num2{
+   display: grid;
+   background: color #999;
+   grid-template-columns:repeat(4,400px);
+   grid-template-rows: repeat(2,400px);
+   gap: 100px 100px;
+   justify-content: center;
+   margin-top: 300px;
+   
+   .box{
+      
+      border-radius: 15px;
+   }
+   img{
+      height: 400px;
+      width: 400px;
+      border-radius: 15px;
+   }
+}
+.num3{
+   display: grid;
+   background: color #999;
+   grid-template-columns:repeat(4,400px);
+   grid-template-rows: repeat(2,400px);
+   gap: 100px 100px;
+   justify-content: center;
+   margin-top: 300px;
+   .box{
+      
+      border-radius: 15px;
+   }
+   img{
+      height: 400px;
+      width: 400px;
+      border-radius: 15px;
+   }
+}
+.num4{
+   display: grid;
+   background: color #999;
+   grid-template-columns:repeat(4,400px);
+   grid-template-rows: repeat(2,400px);
+   gap: 100px 100px;
+   justify-content: center;
+   margin-top: 300px;
+   .box{
+   
+      border-radius: 15px;
+   }
+   img{
+      height: 400px;
+      width: 400px;
+      border-radius: 15px;
+   }
+}
+h1{
+   justify-content: end;
+   color: rgb(75, 7, 7);
+   font-size: 46px;
+   margin-top: 100px;
+   text-decoration: underline;
+ 
+}
+.copyright{
+   width:100%;
+   background-color: black;
+   color: #fff;
+   padding: 5px;
+   text-align: end;
+   font-size: xx-large;
+   margin-top: 200px;
+
+}

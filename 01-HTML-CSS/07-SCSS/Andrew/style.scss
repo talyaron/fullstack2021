@@ -1,0 +1,97 @@
+    body{
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .card{
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: 2rem;
+        padding: 1rem;
+        width: 20vw;
+        &_img{
+            width: 20vw;
+        }
+        &_button{
+            position: relative;
+            left: 6vw;
+            width: 8vw;
+            height: 2rem;
+            background-color: yellow;
+            visibility: hidden;  
+        }
+        &_title{
+            color: rgb(0, 68, 255);
+        }
+        &_reviews{
+            display: flex;
+            flex-direction: row;
+            .material-icons{
+                position: relative;
+                top: 0.8rem
+            }
+            &-gray{
+                color: gray;
+            }
+        }
+        &_pricing{
+            display: flex;
+            flex-direction: row;
+            &-discount{
+                color: red;
+            }
+            &-price{
+                text-decoration: line-through;
+            }
+        }
+    }
+.mainGrid{
+    display: grid;
+    grid-template-columns: repeat(4, fr1);
+    grid-template-rows: repeat(4, fr1 fr1 fr6 fr6);
+}
+.header{
+    grid-column: 1/5;
+    background-color: rgb(25, 119, 25);
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    color: white;
+    &_logo{
+        height: 3rem;
+    }
+    *{
+        margin-left: 1rem;
+    }
+}
+.ad{
+    grid-column: 1/5;
+    background-color: rgb(255, 208, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 4rem;
+    &-orange{
+        color: rgb(255, 94, 0);
+    }
+    &-black{
+        font-size: 2rem;
+    }
+    &_button{
+        font-size: 2rem;
+        height: 3rem;
+        border-radius: 0.75rem;
+        background-color: rgb(255, 145, 0);
+        color: white;
+    }
+    *{
+        margin-left: 1rem;
+    }
+}
+.slider{
+    grid-column: 1/5;
+    width: 100vw;
+    &_img{
+        width: 100vw;
+    }
+}

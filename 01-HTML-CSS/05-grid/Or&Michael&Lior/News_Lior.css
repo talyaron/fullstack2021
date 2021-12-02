@@ -15,10 +15,16 @@ body{
 
 }
 
+.header
+{
+    grid-column: span();
+}
+
 .box
 {
     padding: 5px;
     grid-auto-rows: minmax(10px, auto);
+    border: 4px solid    black;
 }
 
 .box1

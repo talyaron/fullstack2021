@@ -1,0 +1,102 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.card {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 2rem;
+  padding: 1rem;
+  width: 20vw;
+}
+.card_img {
+  width: 20vw;
+}
+.card_button {
+  position: relative;
+  left: 6vw;
+  width: 8vw;
+  height: 2rem;
+  background-color: yellow;
+  visibility: hidden;
+}
+.card_title {
+  color: #0044ff;
+}
+.card_reviews {
+  display: flex;
+  flex-direction: row;
+}
+.card_reviews .material-icons {
+  position: relative;
+  top: 0.8rem;
+}
+.card_reviews-gray {
+  color: gray;
+}
+.card_pricing {
+  display: flex;
+  flex-direction: row;
+}
+.card_pricing-discount {
+  color: red;
+}
+.card_pricing-price {
+  text-decoration: line-through;
+}
+
+.mainGrid {
+  display: grid;
+  grid-template-columns: repeat(4, fr1);
+  grid-template-rows: repeat(4, fr1 fr1 fr6 fr6);
+}
+
+.header {
+  grid-column: 1/5;
+  background-color: #197719;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  color: white;
+}
+.header_logo {
+  height: 3rem;
+}
+.header * {
+  margin-left: 1rem;
+}
+
+.ad {
+  grid-column: 1/5;
+  background-color: #ffd000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 4rem;
+}
+.ad-orange {
+  color: #ff5e00;
+}
+.ad-black {
+  font-size: 2rem;
+}
+.ad_button {
+  font-size: 2rem;
+  height: 3rem;
+  border-radius: 0.75rem;
+  background-color: #ff9100;
+  color: white;
+}
+.ad * {
+  margin-left: 1rem;
+}
+
+.slider {
+  grid-column: 1/5;
+  width: 100vw;
+}
+.slider_img {
+  width: 100vw;
+}
