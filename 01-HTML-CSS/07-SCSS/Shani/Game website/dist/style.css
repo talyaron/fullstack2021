@@ -97,13 +97,63 @@ body {
   grid-row-end: 6;
 }
 .wrapper .games.multiplayer {
-  background-color: #41ec49;
-  border: 2px black solid;
+  background-color: #c2198f;
   grid-row-start: 6;
   grid-row-end: 9;
+  /*this is inorder to have the things change whenever i hover over them so the pic and text will change*/
+}
+.wrapper .games.multiplayer.one {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+.wrapper .games.multiplayer.one h2 {
+  padding-left: 100px;
+  cursor: pointer;
+}
+.wrapper .games.multiplayer.one h2:hover {
+  text-shadow: #f369ff 2px 2px;
+}
+.wrapper .games.multiplayer.two {
+  grid-column-start: 3;
+  grid-column-end: 5;
+  padding-top: 70px;
+}
+.wrapper .games.multiplayer.three {
+  grid-column-start: 5;
+  grid-column-end: 7;
+  padding-top: 70px;
+}
+.wrapper .games.multiplayer .hover:hover {
+  cursor: pointer;
+  opacity: 0.7;
+  text-shadow: #ff7bd7 2px 2px;
+}
+.wrapper .games.multiplayer .hover img {
+  width: 200px;
+  height: 20vh;
+  display: block;
+  margin: auto;
+  border-radius: 10px;
+  border: 2px solid #f76ece;
+  /*&:hover {
+      cursor: pointer;
+      opacity: 0.7;
+      border: 4px solid rgb(147, 253, 112);
+      box-shadow: 2px 5px 2px rgb(94, 255, 0);
+
+
+  }*/
+}
+.wrapper .games.multiplayer .hover p {
+  padding-left: 170px;
+  cursor: pointer;
+  /* &:hover{
+       text-shadow: rgb(148, 255, 105) 2px 2px;
+
+   }*/
 }
 .wrapper .popular {
-  background-color: #c2198f;
+  background-color: #ff85db;
   border: 2px black solid;
   grid-row-start: 9;
   grid-row-end: 11;
