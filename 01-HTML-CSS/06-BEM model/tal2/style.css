@@ -1,0 +1,39 @@
+.wrapper {
+  background-color: antiquewhite;
+}
+
+.wrapper h1 {
+  color: aquamarine;
+}
+
+.wrapper__box {
+  width: 100px;
+  height: 100px;
+  background-color: aqua;
+  margin-bottom: 10px;
+}
+
+.wrapper__box:hover {
+  background-color: blue;
+}
+
+.wrapper .box {
+  background-color: brown;
+  width: 100px;
+  height: 100px;
+  margin-bottom: 5px;
+}
+
+.wrapper .big {
+  width: 140px;
+  height: 140px;
+}
+
+.wrapper .blue {
+  background-color: blue;
+}
+
+.wrapper img {
+  width: 100px;
+}
+/*# sourceMappingURL=style.css.map */

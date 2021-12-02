@@ -211,7 +211,7 @@ body {
   display: flex;
   flex-direction: row;
 
-   .text {
+  .text {
     padding-left: 20px;
   }
 }
@@ -236,7 +236,7 @@ body {
   .sport--main__article--big {
     display: flex;
     flex-direction: row;
-    
+
   }
 
   .sport--main {
@@ -309,7 +309,7 @@ body {
     height: 200x;
     margin: 10px;
 
-     h5:hover {
+    h5:hover {
       color: rgb(42, 19, 255);
       text-decoration-line: underline;
       text-decoration-style: solid;
@@ -321,17 +321,24 @@ body {
     flex-direction: row;
   }
 
- 
+
 }
 
 .sport--small__articale__row {
   display: flex;
   flex-direction: row;
 }
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> parent of 93d6507 (xxx)
 /*asdasdasd*/
+.body {
+  margin: 5vw
+}
+
 .navBar--news {
   width: 100%;
   background-color: red;
@@ -349,6 +356,7 @@ body {
     font-weight: 1000;
   }
 }
+<<<<<<< HEAD
 
 .ad--row2 {
   width: 100%;
@@ -388,6 +396,8 @@ body {
     width: 15vw;
     height: 25vh;
   }
+=======
+>>>>>>> parent of 93d6507 (xxx)
 
   .box>p {
     position: relative;
@@ -419,4 +429,3 @@ body {
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
 }
-
