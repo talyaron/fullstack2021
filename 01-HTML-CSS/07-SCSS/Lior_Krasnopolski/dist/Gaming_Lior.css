@@ -7,6 +7,19 @@ body {
   padding-right: 10em;
 }
 
+.logo {
+  position: relative;
+  left: 270px;
+  border-radius: 100px;
+  width: 4.3vw;
+  height: 100px;
+  transition: 0.8s;
+}
+.logo:hover {
+  transform: scale(1.3);
+  border: 3px solid white;
+}
+
 .container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -42,7 +55,7 @@ body {
   display: inline-block;
   text-decoration: none;
   color: #050300;
-  background-color: greenyellow;
+  background-color: #9dc54e;
   padding: 0.5em 1.25em;
   border-radius: 10px;
   transition: 1.2s;
@@ -65,7 +78,7 @@ body {
   left: 0;
   bottom: 0;
   width: 100%;
-  background: greenyellow;
+  background: #9dc54e;
 }
 .container__box--header {
   border: 3px solid #fc5d1f;
@@ -112,8 +125,13 @@ body {
   transition: 0.8s;
 }
 
+.price {
+  font-size: 30px;
+  color: greenyellow;
+}
+
 h4 {
-  color: yellowgreen;
+  color: #93be3d;
   position: relative;
   border: 3px solid #f8f8f8;
   bottom: 100px;
@@ -134,14 +152,16 @@ h4:hover {
 }
 
 .banner {
-  width: 100%;
+  width: 70%;
   height: 4vh;
   background-color: #1d1f29;
   background-size: cover;
   background-position: center;
   text-align: center;
   font-weight: 200;
-  top: 0px;
+  top: -80px;
+  left: 19vw;
+  position: relative;
 }
 .banner__navbar {
   width: 85%;
@@ -179,7 +199,7 @@ h4:hover {
 }
 .banner__navbar__search_box {
   position: relative;
-  left: 57vw;
+  left: 50vw;
   top: -1vh;
   transform: translate(-50%, -50%);
   transition: 10s;
@@ -202,12 +222,24 @@ h4:hover {
   top: 0px;
 }
 
+.sport {
+  position: relative;
+  bottom: 35vh;
+}
+
+.online {
+  position: relative;
+  bottom: 75vh;
+}
+
 .game {
   background-repeat: no-repeat;
   background-size: cover;
 }
 .game_1 {
   background: url(https://wallpapercave.com/dwp1x/AIVAsqC.jpg);
+  grid-row-start: 2;
+  grid-row-end: 3;
 }
 .game_2 {
   background: url(https://images3.alphacoders.com/843/thumbbig-843016.webp);
@@ -219,17 +251,102 @@ h4:hover {
   background: url(https://images.unsplash.com/photo-1623476408624-721c9185d569?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fHN0YXIlMjB3YXJzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60);
 }
 .game_5 {
-  background: url(https://wallpapercave.com/dwp1x/AIVAsqC.jpg);
+  background: url(https://wallpapercave.com/dwp1x/wp1897912.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .game_6 {
-  background: url(https://wallpapercave.com/dwp1x/AIVAsqC.jpg);
+  background: url(https://wallpapercave.com/wp/wp7246634.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .game_7 {
-  background: url(https://wallpapercave.com/dwp1x/AIVAsqC.jpg);
+  background: url(https://wallpapercave.com/wp/wp4346842.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .game_8 {
-  background: url(https://wallpapercave.com/dwp1x/AIVAsqC.jpg);
+  background: url(https://wallpapercave.com/wp/wp3277470.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
-.game_5 {
-  background: url(https://wallpapercave.com/dwp1x/AIVAsqC.jpg);
+.game_9 {
+  background: url(https://wallpapercave.com/wp/wp6710684.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.game_10 {
+  background: url(https://wallpapercave.com/wp/wp9657826.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.game_11 {
+  background: url(https://thumbs.dreamstime.com/b/johan-gustafsson-ice-hockey-goalie-25087868.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.game_12 {
+  background: url(https://wallpapercave.com/wp/wp3533995.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.game_13 {
+  background: url(https://wallpapercave.com/wp/wp2454514.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.game_14 {
+  background: url(https://wallpapercave.com/wp/wp5281392.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.game_15 {
+  background: url(https://wallpapercave.com/wp/wp6369579.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.game_16 {
+  background: url(https://wallpapercave.com/wp/wp3596465.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.game_17 {
+  background: url(https://c4.wallpaperflare.com/wallpaper/32/804/961/spirit-blossom-yasuo-yasuo-league-of-legends-league-of-legends-riot-games-hd-wallpaper-preview.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.game_18 {
+  background: url(https://wallpapercave.com/wp/wp1810702.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.game_19 {
+  background: url(https://wallpapercave.com/wp/wp4779599.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.game_20 {
+  background: url(https://wallpapercave.com/wp/wp8386786.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.game_21 {
+  background: url(https://wallpapercave.com/dwp1x/wp6311484.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.game_22 {
+  background: url(https://wallpapercave.com/fuwp/uwp465651.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.game_23 {
+  background: url(https://wallpapercave.com/wp/wp1840268.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.game_24 {
+  background: url(https://wallpapercave.com/wp/wp5795005.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }

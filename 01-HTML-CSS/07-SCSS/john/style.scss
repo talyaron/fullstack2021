@@ -1,52 +1,52 @@
-body{
-    background-color: white;
+body {
+	background-color: black;
+	margin: 0;
 }
-.wrapper1{
-    display: grid;
-    
+.header {
+	background-color: rgb(88, 88, 145);
+	width: 100vw;
+	height: 10vh;
+	text-align: center;
+	font-family: fantasy;
 }
-.wrapper {
-    display: grid;
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgb(255, 255, 255);
-    grid-template-columns: repeat(3,1fr);
-
-    &-card{
-    position: relative;
-    background-color: rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
-    box-sizing: border-box;
-    border: 1px solid gray;
-    width: 20vw;
-    height: 45vh;
-    &:hover{
-        cursor: pointer;
-    }
-    img{
-        position: absolute;
-        top: 0;
-        left: 0;
-        align-items: center;
-        height: fit-content;
-        width: fit-content;
-    }
-    h1{
-        position: absolute;
-        color: rgb(25, 0, 255);
-        bottom: 10vh;
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 1vw;
-        font-weight: 100;
-    }
-    p{
-        color: red;
-        position: absolute;
-        bottom: 0;
-        font-family: Arial, Helvetica, sans-serif;
-    }
-    }
-    }
+.title1 {
+	background-color: rgb(88, 88, 145);
+	width: 100vw;
+	height: 10vh;
+	text-align: center;
+	font-family: fantasy;
+}
+.title2 {
+	background-color: rgb(88, 88, 145);
+	width: 100vw;
+	height: 10vh;
+	text-align: center;
+	font-family: fantasy;
+}
+.actualgames {
+	display: flex;
+	justify-content: space-around;
+}
+.gamesbox {
+	background-color: rgb(88, 88, 145);
+	border: 5px solid rgb(88, 88, 145);
+	width: 10vw;
+	height: 10vh;
+	font-weight: bold;
+	font-family: monospace;
+	text-align: center;
+	color: blueviolet;
+	>img {
+		width: 15vw;
+		height: 20vh;
+	}
+	&:hover {
+		cursor: pointer;
+		transition-duration: 1s;
+		transform: scale(1.2);
+	}
+}
+.classicgames {
+	display: flex;
+	justify-content: space-around;
+}
