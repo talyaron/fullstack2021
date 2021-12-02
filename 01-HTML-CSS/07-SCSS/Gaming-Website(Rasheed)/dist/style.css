@@ -1,31 +1,31 @@
-:root {
-  --primary: #ddd;
-  --dark: #333
-  --light: #fff
-  --shadow: 0 1px 5px rgb(104, 104 ,104 ,0.8);
-}
-
 html {
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
-  color: var(--dark);
+  color: #3f3e3e;
+  font-weight: bold;
 }
 
 body {
-  background-color: #ccc;
+  background-color: #8f8a8a;
   margin: 30px 50px;
   line-height: 1.4;
 }
 
 .btn {
-  background: var(--dark);
-  color: var(--light);
+  background: #9e9d9d;
+  color: #d1caca;
   padding: 0.6rem 1.3rem;
   border: 0;
+  border-radius: 6px;
+  box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+}
+.btn:hover {
+  color: black;
 }
 
 img {
   max-width: 100%;
+  border-radius: 20px;
 }
 
 .wrapper {
@@ -33,38 +33,40 @@ img {
   grid-gap: 20px;
 }
 
-.nav-bar ul {
+.nav-bar__list {
   display: grid;
   grid-gap: 20px;
   padding: 0;
   list-style: none;
   grid-template-columns: repeat(4, 1fr);
 }
-
 .nav-bar a {
-  background: var(--primary);
+  background: #b1abab;
   display: block;
   text-decoration: none;
   padding: 0.8rem;
   text-align: center;
-  color: var(--dark);
+  color: #585757;
   text-transform: uppercase;
   font-size: 1.1rem;
-  box-shadow: var(--shadow);
+  box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+  cursor: pointer;
 }
 .nav-bar a:hover {
-  background: var(--dark);
-  color: var(--light);
+  background: black;
+  color: #d1d0d0;
 }
+
 .top-container {
   display: grid;
   grid-gap: 20px;
-  grid-template-areas: 'header header top-box-a' 'header header top-box-b';
+  grid-template-areas: "header header top-box-a" "header header top-box-b";
 }
+
 .header {
   grid-area: header;
   min-height: 400px;
-  background: url(https://mcdn.wallpapersafari.com/medium/47/20/FKDxr4.jpg);
+  background: url(https://media2.giphy.com/media/W05iUdqyFujrRFgnn1/giphy.gif?cid=ecf05e474tadshy6zl4kjhl8w9eji5omjcf5ud46ub7rosv3&rid=giphy.gif&ct=g);
   background-size: cover;
   background-position: center;
   padding: 3rem;
@@ -72,15 +74,91 @@ img {
   flex-direction: column;
   align-items: start;
   justify-content: center;
-  box-shadow: var(--shadow);
+  box-shadow: 0 1px 5px rgba(54, 54, 54, 0.8);
 }
-.header h1 {
+.header__h1 {
   font-size: 4rem;
   margin-bottom: 0px;
-  color: var(--light);
+  color: #fff9f9;
+  cursor: pointer;
 }
-.header p {
+.header__h1:hover {
+  color: gray;
+}
+.header__p {
   font-size: 1.3rem;
   margin-top: 0px;
-  color: var(--light);
+  color: #fff9f9;
+  cursor: pointer;
+}
+.header__p:hover {
+  color: gray;
+}
+
+.top-box {
+  color: white;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  box-shadow: 0 1px 5px rgba(54, 54, 54, 0.8);
+  padding: 1.5rem;
+}
+.top-box:hover {
+  transform: scale(0.9);
+}
+.top-box__h4 {
+  font-size: 2rem;
+}
+.top-box__price {
+  font-size: 2.5rem;
+}
+
+.devices {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+.devices__box {
+  color: #fcecec;
+  text-align: center;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 1px 5px rgba(54, 54, 54, 0.8);
+  cursor: pointer;
+}
+.devices__box:hover {
+  transition: 0.8s;
+  opacity: 0.5;
+}
+
+.cs-go {
+  background: #b1abab;
+  box-shadow: 0 1px 5px rgba(54, 54, 54, 0.8);
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 3rem;
+}
+
+.related-games {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+}
+.related-games__img {
+  width: 100%;
+  box-shadow: 0 1px 5px rgba(54, 54, 54, 0.8);
+  border-radius: 20px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in;
+}
+.related-games__img:hover {
+  transform: scale(0.9);
+}
+
+footer {
+  margin-top: 2rem;
+  background: #585757;
+  color: #d1d0d0;
+  text-align: center;
+  padding: 1rem;
 }
