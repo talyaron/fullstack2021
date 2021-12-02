@@ -1,0 +1,20 @@
+.bookmarks {
+  width: 90%;
+  height: 40vh;
+  background-color: gray;
+}
+.bookmarks.bookmark img {
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+}
+.bookmarks.bookmark p {
+  background-color: gray;
+  text-align: center;
+  font-size: 20px;
+  height: 100%;
+  width: 20vw;
+}
+.bookmarks.bookmark h1 {
+  color: red;
+}
