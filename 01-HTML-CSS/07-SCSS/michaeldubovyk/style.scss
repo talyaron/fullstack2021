@@ -1,0 +1,501 @@
+body{
+
+    background-color: #222; 
+    margin: 0px;
+    font-family: 'Bebas Neue', cursive;
+    color: whitesmoke;
+    
+}
+
+.header{
+
+    height: 140px;
+    display: flex;
+    justify-content: space-between;
+    background: #171717;
+    border-bottom: 2px solid black;
+
+    &__logo{
+
+        width: 27%;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        padding: 10px;
+
+        img{
+
+            height: 60%;
+            width: 80%;
+            margin-left: 1em;
+
+        }
+    }
+
+    &__searchbar{
+
+        width: 27%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        label{
+            width: 90%;
+            max-width: 300px;
+            // margin-right: -80px;
+          }
+          input{
+            width: 50%;
+            display: flex;
+            padding: 15px;
+            background-color: rgb(53, 53, 53);
+            border: 2px solid rgb(182, 182, 182);
+            color: rgb(255, 255, 255);
+            font-size: 15px;
+            box-shadow: 1px 1px 5px 1px grey;
+            height: 10px;    
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            &:focus,
+            &:valid{
+              outline: none;
+              ~ ul li{
+                @for $i from 1 through 6 {
+                  &:nth-child(#{$i}){
+                    &::before{
+                      filter: blur(20px);
+                      transform: translate(0, -35px) rotate(-210deg);
+                    }
+                    &::after{
+                      filter: blur(0);
+                      transform: scale(1) rotate(0);
+                    }
+                  }
+                }
+                @for $i from 1 through 6{
+                  &:nth-child(#{$i}){
+                    &::after{
+                      transition-delay: 200ms + ($i * 200ms);
+                    }
+                  }
+                }
+              }
+            }
+          }
+          label{
+            position: relative;
+          }
+          ul{
+            position: absolute;
+            top: 38px;
+            left: -4px;
+            margin: 0;
+            list-style: none;
+            padding-left: 22px;
+            position: absolute;
+            display: flex;
+            pointer-events: none;
+            transition: 200ms;
+            li{
+              letter-spacing: 3px;
+              text-transform: uppercase;
+              color: transparent;
+              pointer-events: none;
+              transition: 500ms ease-in-out;
+              ::selection{
+                color: transparent;
+              }
+              &::after,
+              &::before{
+                color: rgb(224, 220, 220);
+                position: absolute;
+                transition: 500ms ease-in-out;
+              }
+              &::before{
+                top: -20px;
+              }
+              &::after{
+                top: -63px;
+                transform: scale(0) rotate(210deg);
+                filter: blur(20px);
+              }
+              $chars: s,e,a,r,c,h;
+              @each $char in $chars {
+                $i: index($chars, $char);
+                $x: index($chars, $char);
+                $i: $i * 200;
+                $y: $x * 12;
+                &[#{$char}]::before{
+                  content: attr($char) quote($char);
+                  transition-delay: $i+ms;
+                }
+                &[#{$char}]::after{
+                  content: attr($char) quote($char);
+                  left: unquote($y+'px');
+                  color: #666;
+                }
+              }
+            }
+        }
+
+        .magni{
+
+            position: relative;
+            right: 100px;
+            height: 20%;
+            img{
+                width: 70%;
+                height: 100%;
+            }
+        }
+
+    }
+
+    &__menu{
+
+        width: 46%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        margin-right: 0.7em;
+
+        &__box{
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid rgb(87, 84, 84);
+            border-radius: 10px;
+            height: 50%;
+            width: 22%;
+            margin: 0.7em;
+            
+            img{
+
+                height: 80%;
+            }
+
+            p{
+                color: white;
+                font-size: 25px;
+            }
+
+            &--u{
+
+                border: 1px solid whitesmoke;
+                border-radius: 10px;
+                padding: 3px;
+    
+            }
+
+            &:hover{
+
+                cursor: pointer;
+                border: 1px solid rgb(168, 46, 46);
+                transition: border 0.85s;
+            }
+        }
+
+        &__account{
+
+            font-size: 20px;
+            color: whitesmoke;
+            margin-left: 0.7em;
+
+            .abutton{
+                
+                background: rgb(20, 146, 20);
+                padding: 5px;
+                border-radius: 10px;
+                margin-bottom: 10px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                &:hover{
+
+                    cursor: pointer;
+                    background: rgb(16, 107, 16);
+                    transition: 1s;
+
+                }
+
+                &--2{
+
+                    background-color: rgb(53, 53, 53);
+
+                    &:hover{
+                        
+                        background-color: rgb(53, 53, 53);
+                        color: rgb(199, 41, 41);
+
+                    }
+                }
+            }
+
+            .login{
+                 
+                border-radius: 10px;
+                padding: 5px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+            }
+        }
+    }
+}
+
+.menubar{
+
+    height: 180px;
+    display: flex;
+    justify-content: center;
+
+    &__cards{
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+        
+    }
+
+    .card{
+
+        background-color: rgb(53, 53, 53);
+        border: 2px solid #222;
+        box-shadow: 8px 8px 3px rgb(26, 26, 26);
+        border-radius: 15px;
+        width: 13%;
+        height: 60%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 5px;
+    
+        &:hover{
+    
+            cursor: pointer;
+            border: 2px solid rgb(192, 150, 36);
+            transition: border 0.8s;
+    
+        }
+    
+        img{
+    
+            height: 100%;
+            width: 40%;
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+    
+        }
+    
+        p{
+    
+            width: 60%;
+            font-size: 20px;
+            display: flex;
+            justify-content: center;
+            padding: 3px;
+    
+        }  
+    
+    }
+
+    &__more{
+
+        width: 12%;
+        display: flex;
+        align-items: center;
+        font-size: 20px;
+
+       .morecard{
+
+            background-color: rgb(53, 53, 53);
+            border: 2px solid #222;
+            box-shadow: 8px 8px 3px rgb(26, 26, 26);
+            border-radius: 15px;
+            width: 100%;
+            height: 60%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin: 5px;
+
+            &:hover{
+
+                cursor: pointer;
+                transition: all 0.8s;
+                position: relative;
+                bottom: 20px;
+            
+            }
+
+            .moreicon{
+
+                width: 30%;
+
+                img{
+                height: 80%;
+                width: 60%;
+                }
+            }
+
+            .moretext{
+
+                h1 , p{
+                    margin: 0;
+                }
+            } 
+        }
+    }
+}
+
+.wrapper{
+
+    display: flex;
+    justify-content: center;
+    &__container{
+
+    margin-bottom: 20px;
+    width: 93%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 0.8fr 2fr 2fr;
+    gap: 1.5em;
+
+        .title{
+
+            font-size: 40px;
+            grid-column: 1/6;
+            grid-gap: 5px;
+
+        }
+
+        .gamebox{
+
+            background-color: rgb(53, 53, 53);
+            border-radius: 15px;
+            display: grid;
+            grid-template-rows: 80% 20%;
+            background-repeat: no-repeat;
+            background-size: 100% 71%;
+            
+            &--ro{
+                background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/ro.jpeg);
+            }
+
+            &--qk{
+                background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/quake.jpeg);
+            }
+
+            &--fifa{
+                background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/fifa.jpeg);
+            }
+
+            &--cs{
+                background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/counter.jpeg);
+            }
+
+            &--ts{
+                background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/sims.png);
+            }
+
+            &--rl{
+                background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/rl.jpeg);
+            }
+
+            &--th{
+                background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/tony.png);
+            }
+
+            &--sc{
+                background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/star.jpeg);
+            }
+
+            &--chess{
+                background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/chess.jpeg);
+            }
+
+            &--poker{
+                background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/texas.jpeg);
+            }
+
+            &--oni{
+                background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/oni.jpg);
+            }
+
+            &--doom{
+                background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/doom.jpeg);
+            }
+
+            &--gta{
+                background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/gta.jpeg);
+            }
+
+            &--mp{
+                background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/max.webp);
+            }
+
+            &--lou{
+                background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/last.jpeg);
+            }
+
+            &--pos{
+                background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/postal.png);
+            }
+
+            &--sm{
+                background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/spider.webp);
+            }
+
+            &--rdr{
+                background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/rdr.jpeg);
+            }
+
+            &--ac{
+                background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/ass.jpeg);
+            }
+
+            &--por{
+                background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/port.jpeg);
+            }
+
+            img{
+                
+                
+                width: 100%;
+                height: 90%;
+                border-top-left-radius: 15px;
+                border-top-right-radius: 15px;
+                opacity: 0;
+
+                &:hover{
+                    opacity: 1;
+                    transition: 0.7s;
+                }
+
+            }
+
+            &:hover{
+                
+                cursor: pointer;
+
+            }
+
+
+            p{
+                
+                font-size: 25px;
+                font-weight: 500;
+                text-align: center;
+            }
+            
+        }
+
+    }
+
+}
+

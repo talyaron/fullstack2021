@@ -1,0 +1,41 @@
+body {
+  background-color: #19d32b;
+  height: 100vh;
+  width: 100%;
+  border-color: 5px solid black;
+}
+
+.warrper {
+  width: 100%;
+  height: 150vh;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 350px);
+  border-color: 5px solid black;
+  grid-gap: 1em;
+  grid-column: 1/3;
+}
+
+.card {
+  padding: 5px;
+  width: 100%;
+  height: 100%;
+  align-content: center;
+  border: 5px solid black;
+  gap: 10px;
+}
+.card__picture {
+  height: 30%;
+  align-content: center;
+  background-size: contain;
+}
+.card__description {
+  font-size: 10px;
+  text-align: center;
+  font-style: italic;
+}
+.card__price {
+  font-size: 10px;
+  text-align: center;
+  font-style: italic;
+}
