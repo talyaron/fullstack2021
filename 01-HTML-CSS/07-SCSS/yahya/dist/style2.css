@@ -28,6 +28,7 @@ p {
   align-items: center;
 }
 
+/*////////////////////////////(header)////////////////////////////////////////*/
 .header {
   display: block;
   background-color: #0C090A;
@@ -48,6 +49,8 @@ p {
   justify-self: center;
 }
 
+/*/////////////////////////////////////////////////////////////////////*/
+/*////////////////////////////(Menu/flex)////////////////////////////////////////*/
 .menu2 {
   display: flex;
   flex-wrap: wrap;
@@ -63,6 +66,7 @@ p {
   margin: 10px;
 }
 
+/*////////////////////////////(Main has main articil/grid)////////////////////////////////////////*/
 .main {
   display: grid;
   background: color #999;
@@ -72,7 +76,6 @@ p {
   justify-content: center;
 }
 .main .box {
-  background-color: blue;
   border-radius: 15px;
 }
 .main img {
@@ -94,6 +97,7 @@ p {
   margin-top: 900px;
 }
 
+/*////////////////////////////(small artical grid)////////////////////////////////////////*/
 .num1 {
   display: grid;
   background: color #999;
@@ -112,6 +116,7 @@ p {
   border-radius: 15px;
 }
 
+/*////////////////////////////(small artical grid)////////////////////////////////////////*/
 .num2 {
   display: grid;
   background: color #999;
@@ -130,6 +135,7 @@ p {
   border-radius: 15px;
 }
 
+/*////////////////////////////(small artical grid)////////////////////////////////////////*/
 .num3 {
   display: grid;
   background: color #999;
@@ -148,6 +154,7 @@ p {
   border-radius: 15px;
 }
 
+/*////////////////////////////(small artical grid)////////////////////////////////////////*/
 .num4 {
   display: grid;
   background: color #999;
@@ -166,6 +173,8 @@ p {
   border-radius: 15px;
 }
 
+/*/////////////////////////////////////////////////////////////////////////////////*/
+/*////////////////////////////(h1 css)////////////////////////////////////////*/
 h1 {
   justify-content: end;
   color: #4b0707;
@@ -174,12 +183,17 @@ h1 {
   text-decoration: underline;
 }
 
+/*////////////////////////////(footer copyright)////////////////////////////////////////*/
 .copyright {
   width: 100%;
   background-color: black;
   color: #fff;
   padding: 5px;
-  text-align: end;
+  text-align: center;
   font-size: xx-large;
   margin-top: 200px;
+}
+
+img:hover {
+  transform: scale(1.2);
 }
