@@ -1,0 +1,33 @@
+// .wrapper{
+//     display: flex;
+//     width: 500px;
+//     height: 500px;
+//     border: 1px solid grey;
+//     padding: 15px;
+//     justify-content: center;
+//     align-items: center;
+// }
+
+.card{
+    border: 1px solid black;
+    width: 600px;
+    height: 500px;
+    display: block;
+    margin: auto;
+    img{
+        width: 350px;
+        height: 350px;
+        display: block;
+        margin: auto;
+
+    }
+    .h1, .prise{
+        font-size: 24px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .prise{   
+        color: red;
+    }
+}
+
