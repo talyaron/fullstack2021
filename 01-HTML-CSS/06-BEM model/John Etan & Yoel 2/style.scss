@@ -152,21 +152,6 @@ body {
             color: #999999;
             box-shadow: 0 0 5px #ffffff;
             text-shadow: 0 0 1px #ffffff;
-            .facebook{
-                color:#3b5998;
-            }
-            .instagram{
-                color:#d62976;
-            }
-            .twitter{
-                color:#00acee;
-            }
-            .youtube{
-                color:#FF0000;
-            }
-            .vimeo{
-                color:#86c9ef;
-            }
           }
           }
     }
@@ -175,6 +160,21 @@ body {
         color: #999999;
         box-shadow: 0 0 5px #ffffff;
         text-shadow: 0 0 1px #ffffff;
+        .facebook{
+            color:#3b5998;
+        }
+        .instagram{
+            color:#d62976;
+        }
+        .twitter{
+            color:#00acee;
+        }
+        .youtube{
+            color:#FF0000;
+        }
+        .vimeo{
+            color:#86c9ef;
+        }
     }
 }
 
@@ -204,6 +204,7 @@ body {
     width: fit-content;
     overflow-wrap: break-word;
     padding: 1vw;
+<<<<<<< HEAD
 }
 
 /*podcast page style*/
@@ -231,4 +232,6 @@ body {
     text-align: center;
     white-space: pre-wrap;
     z-index: 1;
+=======
+>>>>>>> parent of 93d6507 (xxx)
 }

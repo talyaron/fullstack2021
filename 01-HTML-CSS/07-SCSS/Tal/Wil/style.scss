@@ -1,0 +1,28 @@
+.wrapper{
+    background-color: rgb(187, 164, 32);
+    height:100%;
+    width: 100%;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    grid-template-rows: 10vh 20vh 30vh 40vh;
+ 
+.box{
+    background-color: blue;
+    height: 300px;
+    text-align: center;
+    margin-left: 10px;
+    grid-column-start: 1;
+    grid-column-end: 5;
+
+img{
+    width: 100px;
+    height: 100px;
+    margin-left: 50px;
+    margin-top: 100px; 
+
+}
+}
+}
+
+.header{
+

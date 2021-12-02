@@ -1,0 +1,82 @@
+.wrappersport {
+    max-height: 500px;
+    max-width: 900px;
+    margin: auto;
+    margin-top: 3vw;
+    display: grid;
+    grid-template-columns: repeat(4, 200px);
+    grid-template-rows: repeat(4, 250px);
+    gap: 15px;
+
+
+    .boxsport--up1 {
+        grid-column: 1/3;
+
+    }
+
+    .imgsport {
+
+        object-fit: cover;
+        width: 100%;
+        height: 50%;
+
+    }
+
+    .imgsport:hover {
+
+        cursor: pointer;
+
+    }
+
+     p:hover {
+
+        cursor: pointer;
+        color: blue;
+        text-decoration: underline;
+
+    }
+    .boxsport--up2>h1:hover {
+
+        cursor: pointer;
+        color: blue;
+        text-decoration: underline;
+    
+    }
+    
+    .category--sport {
+    
+        color: rgb(0, 212, 0);
+        font-size: 13px;
+    
+    }
+    
+    
+    .category--sport:hover {
+    
+        color: rgb(0, 212, 0);
+    
+    }
+
+
+}
+
+.boxsport--up1 {
+
+    .imgsport__up1 {
+
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+
+    }
+
+    .imgsport__up1:hover {
+
+        cursor: pointer;
+
+    }
+
+}
+
+
+

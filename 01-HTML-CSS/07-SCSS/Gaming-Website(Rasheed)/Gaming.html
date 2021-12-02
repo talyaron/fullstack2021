@@ -1,105 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <script src="https://kit.fontawesome.com/3ae94d6aa8.js" crossorigin="anonymous"></script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="dist/style.css">
+    <link href="IMG/favicon.ico" rel="icon" type="icon" />
     <title>Gaming</title>
 </head>
+
 <body>
     <div class="wrapper">
+
         <!-- Nav-bar -->
-        <nav class="Nav-bar">
-            <ul>
+
+        <nav class="nav-bar">
+            <ul class="nav-bar__list">
                 <li>
-                    <a herf="#">Home</a></li>
+                    <a herf="#top-container"><i class="fas fa-dice-d6"></i>Home</a>
+                </li>
                 <li>
-                    <a href="#">Devices</a></li>
+                    <a href="#devices"><i class="fas fa-dice-d6"></i>Devices</a>
+                </li>
                 <li>
-                    <a href="#">CS-GO</a></li>
+                    <a href="#cs-go"><i class="fas fa-dice-d6"></i>CS-GO</a>
+                </li>
                 <li>
-                    <a href="#">Related</a></li>       
+                    <a href="#related-games"><i class="fas fa-dice-d6"></i>Related</a>
+                </li>
             </ul>
         </nav>
 
         <!-- top container -->
 
-        <section class="top-container">
+        <section class="top-container" id="top-container">
             <header class="header">
-                <h1>Republic of Gamers</h1>
-                <p>Check Out The Classic Warld of Gaming With THE Best Games COllection OF All Time .</p>
-                <a href="#" class="btn">Read more</a>
+                <h1 class="header__h1">Republic of Games</h1>
+                <p class="header__p">Check Out The Warld of Gaming With THE Best Games COllection OF All Time .
+                </p>
+                <a href="#related-games" class="btn">Read more</a>
             </header>
 
-            <div class="top box top-box-a">
-                <h4>Halo CE</h4>
-                <p class="price">$99</p>
+            <div class="top-box"
+                style="background-image: url(https://media2.giphy.com/media/JIraK0THaC0ymqkS7W/giphy.gif?cid=ecf05e47lwzo7orjw6rqjj4lnfxejps39vohpeocr0vvdvk1&rid=giphy.gif&ct=g); background-repeat: no-repeat; background-size: 469px 450px;">
+                <h4 class="top-box__h4">Halo </h4>
+                <p class="top-box__price">$99</p>
                 <a href="#" class="btn">Buy Now</a>
-            </div> 
+            </div>
 
-            <div class="top box top-box-b">
-                <h4>Halo CE + Halo 2</h4>
-                <p class="price">$149</p>
+            <div class="top-box"
+                style="background-image: url(https://media3.giphy.com/media/fxfmMuGbh5aPtZ9T6j/giphy.gif?cid=ecf05e47x6a2cal7gv5st93hecwdmvy67cxift012yf12lrh&rid=giphy.gif&ct=g); background-repeat: no-repeat; background-size: 469px 450px;">
+                <h4 class="top-box__h4">Counter-Strike </h4>
+                <p class="top-box__price">$149</p>
                 <a href="#" class="btn">Buy Now</a>
             </div>
         </section>
 
-        <!-- boxes section -->
+        <!-- Devices section -->
 
-        <section class="Devices">
-            <div class="Devices__box">
+        <section class="devices" id="devices">
+            <div class="devices__box"
+                style="background-image: url(https://images.unsplash.com/photo-1560369457-fb1181a7ac4c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80);">
                 <i class="fab fa-playstation fa-4x"></i>
                 <h3>Playstaion</h3>
-                <p>The PlayStation is a home video game console developed and marketed 
+                <p>The PlayStation is a home video game console developed and marketed
                     by Sony Computer Entertainment. It was first released on 3 December 1994 in Japan.</p>
             </div>
 
-            <div class="Devices__box">
+            <div class="devices__box"
+                style="background-image: url(https://www.colourbox.com/preview/8885137-dark-green-hexagon-steel-texture-background.jpg);">
                 <i class="fab fa-xbox fa-4x"></i>
                 <h3>XboX</h3>
                 <p>Xbox is a video gaming brand created and owned by Microsoft. The brand consists of five
-                     video game consoles, as well as applications (games), streaming services, an online service by the name of Xbox network.</p>
+                    video game consoles, as well as applications (games), streaming services, an online service by the
+                    name of Xbox network.</p>
             </div>
 
-            <div class="Devices__box">
+            <div class="devices__box"
+                style="background-image: url(https://cdn.statically.io/img/i.pinimg.com/originals/aa/8b/f0/aa8bf05a42cd4ca84bd1e2855be41ddf.jpg);">
                 <i class="fab fa-windows fa-4x"></i>
                 <h3>PC Gaming</h3>
                 <p>There are two main editions of PC Gamer, a British version and an American version,
-                    both are published by Future plc. Founded in the United Kingdom in November 1993, the American sister version was launched a year later in June 1994.</p>
+                    both are published by Future plc. Founded in the United Kingdom in November 1993, the American
+                    sister version was launched a year later in June 1994.</p>
             </div>
 
-            <div class="Devices__box">
+            <div class="devices__box"
+                style="background-image: url(https://i.pinimg.com/originals/25/7c/14/257c140b0522932d0abc53896c3bcbf3.png);">
                 <i class="fas fa-mobile-alt fa-4x"></i>
                 <h3>Mobile Gaming</h3>
-                <p>Mobile platform is simply the software platform on top of the programs which can run an application 
-                    or a game on a mobile device such as a phone, PDs and handheld computers. The mobile games are played using the technologies present on the device itself.</p>
+                <p>Mobile platform is simply the software platform on top of the programs which can run an application
+                    or a game on a mobile device such as a phone, PDs and handheld computers. The mobile games are
+                    played using the technologies present on the device itself.</p>
             </div>
         </section>
 
-        <section class="CS-GO">
-            <img src="IMG/CS-GO.jpg" alt="cs">
+        <section class="cs-go" id="cs-go">
+            <img class="cs-go__img" src="IMG/CS-GO.jpg" alt="cs">
             <div>
-                <h2>Counter Strike Global Offensive</h2>
-                <p>Counter-Strike: Global Offensive is a multiplayer first-person shooter developed by Valve and Hidden Path Entertainment. It is the fourth game in the
-                     Counter-Strike series. Developed for over two years, Global Offensive was released for Windows, macOS, Xbox 360, and PlayStation 3 in August 2012, and for Linux in 2014.</p>
-                     <a href="#" class="btn">BUY NOW</a>
+                <h2 class="cs-go__h2">Counter Strike Global Offensive</h2>
+                <p class="cs-go__p">Counter-Strike: Global Offensive is a multiplayer first-person shooter developed by
+                    Valve and Hidden Path Entertainment. It is the fourth game in the
+                    Counter-Strike series. Developed for over two years, Global Offensive was released for Windows,
+                    macOS, Xbox 360, and PlayStation 3 in August 2012, and for Linux in 2014.</p>
+                <a href="#" class="btn">BUY NOW</a>
             </div>
         </section>
 
         <!-- Related-Games -->
 
-        <section class="related-games">
-            <img src="IMG/cs-cz.jpg" alt="cs-cz">
-            <img src="IMG/cs-s.jpg" alt="cs-s">
-            <img src="IMG/farcry3.jpg" alt="farcry3">
-            <img src="IMG/farcry4.jpg" alt="farcry4">
-            <img src="IMG/farcry5.jpg" alt="farcry5">
-            <img src="IMG/halo mc.jpg" alt="halo-mc">
-            <img src="IMG/halo-sa.jpg" alt="halo-sa">
-            <img src="IMG/halo-w.jpg" alt="halo-w">
-            <img src="IMG/hl-2.jpg" alt="hl-2">
-            <img src="IMG/hl.jpg" alt="hl-1">
+        <section class="related-games" id="related-games">
+            <img class="related-games__img" src="IMG/cs-cz.jpg" alt="cs-cz">
+            <img class="related-games__img" src="IMG/cs-s.jpg" alt="cs-s">
+            <img class="related-games__img" src="IMG/farcry3.jpg" alt="farcry3">
+            <img class="related-games__img" src="IMG/farcry4.jpg" alt="farcry4">
+            <img class="related-games__img" src="IMG/farcry5.jpg" alt="farcry5">
+            <img class="related-games__img" src="IMG/halo mc.jpg" alt="halo-mc">
+            <img class="related-games__img" src="IMG/hl-2.jpg" alt="hl-2">
+            <img class="related-games__img" src="IMG/hl.jpg" alt="hl-1">
         </section>
 
         <!-- FOOTER -->
@@ -107,6 +127,7 @@
             <P>Video Gaming &copy; 2010-2021</P>
         </footer>
     </div>
-    
+
 </body>
+
 </html>
