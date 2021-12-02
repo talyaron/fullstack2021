@@ -36,7 +36,7 @@ body {
   grid-template-rows: repeat(1, 2fr 1fr 1fr);
   gap: 15px;
   padding: 15px;
-  width: 70vw;
+  width: 50vw;
   color: #ebebeb;
 }
 .mainGrid div {
