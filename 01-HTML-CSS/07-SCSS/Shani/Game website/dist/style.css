@@ -6,29 +6,78 @@ body {
 .wrapper {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(10, 150px);
+  grid-template-rows: repeat(9, 150px);
 }
 .wrapper .header {
   background-color: #2fa8d1;
-  font-family: "Architects Daughter", cursive;
-  padding-left: 20px;
   border: 2px black solid;
   grid-column-start: 1;
   grid-column-end: 7;
 }
+.wrapper .header:hover {
+  background-color: #042c3a;
+  transition: 1s;
+}
+.wrapper .header h1 {
+  display: block;
+  padding-left: 20px;
+  font-size: 300%;
+  text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #00fff2, 0 0 82px #00fff2, 0 0 92px #00fff2, 0 0 102px #00fff2, 0 0 151px #00fff2;
+}
 .wrapper .header input {
+  display: flex;
+  position: relative;
+  left: 29%;
+  bottom: 45%;
   width: 35%;
   height: 20%;
   border: 3px solid blue;
 }
-.wrapper .header button {
+.wrapper .header button[type=submit] {
   border: 3px solid blue;
   background-color: #90d6ee;
+  display: flex;
+  position: relative;
+  left: 65%;
+  bottom: 65%;
 }
-.wrapper .header button:hover {
+.wrapper .header button[type=submit]:hover {
   background-color: #083544;
   cursor: pointer;
   color: white;
+  font-weight: bold;
+}
+.wrapper .header button[type=register] {
+  border-radius: 10px;
+  border: 2px solid blue;
+  font-weight: bold;
+  color: #0c720c;
+  display: flex;
+  position: relative;
+  left: 75%;
+  bottom: 85%;
+}
+.wrapper .header button[type=register]:hover {
+  color: white;
+  cursor: pointer;
+  background-color: #0c720c;
+  transition: 1s;
+}
+.wrapper .header button[type=login] {
+  border-radius: 10px;
+  border: 2px solid blue;
+  font-weight: bold;
+  color: red;
+  display: flex;
+  position: relative;
+  left: 85%;
+  bottom: 99%;
+}
+.wrapper .header button[type=login]:hover {
+  color: white;
+  cursor: pointer;
+  background-color: red;
+  transition: 1s;
 }
 .wrapper .games {
   grid-column-start: 1;
@@ -39,6 +88,9 @@ body {
   grid-row-end: 4;
   background-color: #1f550a;
   /*this is inorder to have the things change whenever i hover over them so the pic and text will change*/
+}
+.wrapper .games.adventure:hover {
+  background-color: #112e05;
 }
 .wrapper .games.adventure.one {
   grid-column-start: 1;
@@ -51,6 +103,9 @@ body {
 .wrapper .games.adventure.one h2:hover {
   text-shadow: #94ff69 2px 2px;
 }
+.wrapper .games.adventure.one p {
+  margin-left: -50px;
+}
 .wrapper .games.adventure.two {
   grid-column-start: 3;
   grid-column-end: 5;
@@ -60,6 +115,11 @@ body {
   grid-column-start: 5;
   grid-column-end: 7;
   padding-top: 70px;
+}
+.wrapper .games.adventure p {
+  padding-left: 170px;
+  cursor: pointer;
+  text-align: start;
 }
 .wrapper .games.adventure .hover:hover {
   cursor: pointer;
@@ -73,38 +133,148 @@ body {
   margin: auto;
   border-radius: 10px;
   border: 2px solid green;
-  /*&:hover {
-      cursor: pointer;
-      opacity: 0.7;
-      border: 4px solid rgb(147, 253, 112);
-      box-shadow: 2px 5px 2px rgb(94, 255, 0);
-
-
-  }*/
-}
-.wrapper .games.adventure .hover p {
-  padding-left: 170px;
-  cursor: pointer;
-  /* &:hover{
-       text-shadow: rgb(148, 255, 105) 2px 2px;
-
-   }*/
 }
 .wrapper .games.classic {
-  background-color: #f12b2b;
-  border: 2px black solid;
+  grid-row-start: 4;
+  grid-row-end: 8;
+  margin: 20px;
+}
+.wrapper .games.classic.one {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  /*background-image: linear-gradient(red, yellow);*/
+}
+.wrapper .games.classic.one h2 {
+  padding-left: 100px;
+}
+.wrapper .games.classic.one h2:hover {
+  text-shadow: #ff1313 2px 2px;
+  cursor: pointer;
+}
+.wrapper .games.classic.one img {
+  width: 30vw;
+  height: 40vh;
+  display: block;
+  margin: auto;
+  border-radius: 10px;
+}
+.wrapper .games.classic.one p {
+  margin-left: 10%;
+}
+.wrapper .games.classic.two {
+  grid-column-start: 4;
+  grid-column-end: 4;
   grid-row-start: 4;
   grid-row-end: 6;
 }
-.wrapper .games.multiplayer {
-  background-color: #41ec49;
-  border: 2px black solid;
-  grid-row-start: 6;
-  grid-row-end: 9;
+.wrapper .games.classic.two img {
+  width: 20vw;
+  height: 30vh;
+  display: block;
+  margin: auto;
+  border-radius: 10px;
 }
-.wrapper .popular {
+.wrapper .games.classic.three {
+  grid-column-start: 5;
+  grid-column-end: 7;
+  grid-row-start: 4;
+  grid-row-end: 6;
+}
+.wrapper .games.classic.three img {
+  width: 20vw;
+  height: 30vh;
+  display: block;
+  margin: auto;
+  border-radius: 10px;
+}
+.wrapper .games.classic.three p {
+  padding-left: 10%;
+}
+.wrapper .games.classic.four {
+  grid-column-start: 4;
+  grid-column-end: 4;
+  grid-row-start: 6;
+  grid-row-end: 8;
+}
+.wrapper .games.classic.four img {
+  width: 20vw;
+  height: 30vh;
+  display: block;
+  margin: auto;
+  border-radius: 10px;
+}
+.wrapper .games.classic.five {
+  grid-column-start: 5;
+  grid-column-end: 7;
+  grid-row-start: 6;
+  grid-row-end: 8;
+}
+.wrapper .games.classic.five img {
+  width: 20vw;
+  height: 30vh;
+  display: block;
+  margin: auto;
+  border-radius: 10px;
+}
+.wrapper .games.classic.five p {
+  padding-left: 10%;
+}
+.wrapper .games.classic .hover:hover {
+  cursor: pointer;
+  opacity: 0.7;
+  text-shadow: #ff1313 2px 2px;
+}
+.wrapper .games.classic .hover img {
+  border: 10px solid #ff0303;
+}
+.wrapper .games.multiplayer {
   background-color: #c2198f;
-  border: 2px black solid;
-  grid-row-start: 9;
-  grid-row-end: 11;
+  grid-row-start: 8;
+  grid-row-end: 10;
+  /*this is inorder to have the things change whenever i hover over them so the pic and text will change*/
+}
+.wrapper .games.multiplayer:hover {
+  background-color: #851062;
+}
+.wrapper .games.multiplayer.one {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+.wrapper .games.multiplayer.one h2 {
+  padding-left: 100px;
+  cursor: pointer;
+}
+.wrapper .games.multiplayer.one h2:hover {
+  text-shadow: #f369ff 2px 2px;
+}
+.wrapper .games.multiplayer.one p {
+  margin-left: -50px;
+}
+.wrapper .games.multiplayer.two {
+  grid-column-start: 3;
+  grid-column-end: 5;
+  padding-top: 70px;
+}
+.wrapper .games.multiplayer.three {
+  grid-column-start: 5;
+  grid-column-end: 7;
+  padding-top: 70px;
+}
+.wrapper .games.multiplayer p {
+  padding-left: 170px;
+  cursor: pointer;
+  text-align: start;
+}
+.wrapper .games.multiplayer .hover:hover {
+  cursor: pointer;
+  opacity: 0.7;
+  text-shadow: #ff7bd7 2px 2px;
+}
+.wrapper .games.multiplayer .hover img {
+  width: 200px;
+  height: 20vh;
+  display: block;
+  margin: auto;
+  border-radius: 10px;
+  border: 2px solid #f76eb9;
 }
