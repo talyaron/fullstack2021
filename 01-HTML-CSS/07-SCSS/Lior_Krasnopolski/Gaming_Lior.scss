@@ -166,6 +166,12 @@ body
         }
         }
     }}
+
+    .price
+    {
+      font-size: 30px;
+      color: greenyellow;
+    }
     
 
 // Title of each gaming type
@@ -202,7 +208,7 @@ h4
 // the navbar
 
 .banner {
-    width: 30%;
+    width: 70%;
     height: 4vh;
     background-color: rgb(29, 31, 41);
     background-size: cover;
@@ -256,7 +262,7 @@ h4
   
       &__search_box {
         position: relative;
-        left: 26vw;
+        left: 50vw;
         top: -1vh;
         transform: translate(-50%, -50%);
         transition: 10s;

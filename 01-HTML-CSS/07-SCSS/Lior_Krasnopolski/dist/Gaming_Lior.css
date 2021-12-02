@@ -125,6 +125,11 @@ body {
   transition: 0.8s;
 }
 
+.price {
+  font-size: 30px;
+  color: greenyellow;
+}
+
 h4 {
   color: #93be3d;
   position: relative;
@@ -147,7 +152,7 @@ h4:hover {
 }
 
 .banner {
-  width: 30%;
+  width: 70%;
   height: 4vh;
   background-color: #1d1f29;
   background-size: cover;
@@ -194,7 +199,7 @@ h4:hover {
 }
 .banner__navbar__search_box {
   position: relative;
-  left: 26vw;
+  left: 50vw;
   top: -1vh;
   transform: translate(-50%, -50%);
   transition: 10s;
