@@ -1,52 +1,58 @@
 body {
-  background-color: white;
+  background-color: black;
+  margin: 0;
 }
 
-.wrapper1 {
-  display: grid;
-}
-
-.wrapper {
-  display: grid;
-  position: absolute;
-  top: 0;
-  right: 0;
+.header {
+  background-color: #585891;
   width: 100vw;
-  height: 100vh;
-  background-color: white;
-  grid-template-columns: repeat(3, 1fr);
+  height: 10vh;
+  text-align: center;
+  font-family: fantasy;
 }
-.wrapper-card {
-  position: relative;
-  background-color: white;
-  color: black;
-  box-sizing: border-box;
-  border: 1px solid gray;
-  width: 20vw;
-  height: 45vh;
+
+.title1 {
+  background-color: #585891;
+  width: 100vw;
+  height: 10vh;
+  text-align: center;
+  font-family: fantasy;
 }
-.wrapper-card:hover {
+
+.title2 {
+  background-color: #585891;
+  width: 100vw;
+  height: 10vh;
+  text-align: center;
+  font-family: fantasy;
+}
+
+.actualgames {
+  display: flex;
+  justify-content: space-around;
+}
+
+.gamesbox {
+  background-color: #585891;
+  border: 5px solid #585891;
+  width: 10vw;
+  height: 10vh;
+  font-weight: bold;
+  font-family: monospace;
+  text-align: center;
+  color: blueviolet;
+}
+.gamesbox > img {
+  width: 15vw;
+  height: 20vh;
+}
+.gamesbox:hover {
   cursor: pointer;
+  transition-duration: 1s;
+  transform: scale(1.2);
 }
-.wrapper-card img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  align-items: center;
-  height: fit-content;
-  width: fit-content;
-}
-.wrapper-card h1 {
-  position: absolute;
-  color: #1900ff;
-  bottom: 10vh;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 1vw;
-  font-weight: 100;
-}
-.wrapper-card p {
-  color: red;
-  position: absolute;
-  bottom: 0;
-  font-family: Arial, Helvetica, sans-serif;
+
+.classicgames {
+  display: flex;
+  justify-content: space-around;
 }

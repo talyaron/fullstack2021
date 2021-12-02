@@ -1,0 +1,39 @@
+
+.wrapper{
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 100px);
+
+    .box {
+        border: 2px solid gray;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img{
+            width: 100px;
+            height: 100px;
+        }
+        
+        
+    }
+
+    .header{
+        grid-column: 1/4;
+        grid-row: 1/2;
+        background-color: rgb(240, 240, 120);
+    }
+
+    .blue{
+        grid-column: 1/4;
+        grid-row: 2/3;
+        background-color: rgb(14, 112, 177);
+    }
+
+    .red{
+        grid-column: 1/4;
+        grid-row: 3/4;
+        background-color: rgb(177, 139, 14);
+    }
+}
