@@ -1,0 +1,93 @@
+.upperHeader {
+  display: flex;
+  width: 100%;
+  height: 5vh;
+  gap: 1vw;
+  padding: 10px;
+  box-shadow: 0px 0px 25px grey;
+}
+.upperHeader__logo img {
+  width: 350px;
+  height: 300px;
+  object-fit: cover;
+}
+.upperHeader__searchBar {
+  width: 20vw;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+}
+.upperHeader__searchBar input {
+  display: inline-block;
+  width: 100%;
+  background-color: #ececec;
+  color: #585858;
+}
+.upperHeader i {
+  color: #c5c5c5;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(6, 250px);
+  grid-template-rows: repeat(3, 250px);
+  margin: 250px;
+  font-family: "Roboto Mono", monospace;
+  justify-content: space-evenly;
+}
+.container img {
+  padding: 5%;
+  height: 150px;
+}
+.container__box {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  padding: 15px;
+}
+.container__box.__item2 {
+  grid-row: span 2;
+  grid-column: 1/3;
+  align-content: center;
+}
+.container__box.__item2 img {
+  width: 200%;
+  height: 100%;
+}
+.container__box p {
+  grid-row: 2/4;
+  grid-column: 1/2;
+  color: #444444;
+  font-size: 15px;
+  grid-column: span 2/3;
+}
+.container__box p.__price {
+  padding: 2.5px;
+  color: #272727;
+  grid-row: 2;
+  grid-column: 3/4;
+  text-align: center;
+  background-color: #cbcbcb;
+  font-family: "M PLUS 1 Code", sans-serif;
+  font-size: 15px;
+  height: 20px;
+}
+.container__box img {
+  display: block;
+  width: 225%;
+  transition: transform 250ms;
+  cursor: pointer;
+}
+.container__box img:hover {
+  transform: translateY(-10px);
+}
+.container__box__header {
+  grid-column: span 6;
+  background-color: white;
+  padding-top: 150px;
+  font-family: "M PLUS 1 Code", sans-serif;
+  text-decoration-line: underline;
+}
+.container__box__header p {
+  text-align: left;
+}
