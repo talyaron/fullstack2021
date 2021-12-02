@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  background: rgba(224, 215, 215, 0.89);
 }
 
 .navbar {
@@ -46,7 +47,7 @@ body {
   justify-content: space-evenly;
   width: 200px;
   height: 50px;
-  margin-left: 1300px;
+  margin-left: 1350px;
   margin-top: -50px;
   color: rgba(255, 255, 255, 0.753);
   align-items: center;
@@ -67,6 +68,8 @@ body {
   justify-content: center;
   text-align: start;
   gap: 5px;
+  font-family: "Nunito", sans-serif;
+  font-style: italic;
 }
 .highlight .highlight_head {
   grid-column: span 4;
@@ -75,6 +78,39 @@ body {
 .highlight .highlight_banner {
   grid-column: span 4;
 }
+.highlight .highlight_banner :hover {
+  cursor: pointer;
+}
 .highlight .highlight_games {
   display: grid;
+}
+.highlight .highlight_games :hover {
+  cursor: pointer;
+}
+
+.whats_good {
+  position: relative;
+  width: 1100px;
+  height: 500px;
+  margin-left: 400px;
+  display: grid;
+  grid-template-columns: repeat(4 1fr);
+  grid-template-rows: 50px 200px 200px;
+  gap: 5px;
+  font-family: "Nunito", sans-serif;
+  font-style: italic;
+}
+.whats_good .games_head {
+  grid-column: span 4;
+  border-bottom: rgba(177, 174, 174, 0.76) solid 1px;
+}
+.whats_good .games :hover {
+  cursor: pointer;
+}
+.whats_good :nth-child(2) {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+.whats_good :nth-child(5) .text, .whats_good :nth-child(6) .text {
+  margin-top: 40px;
 }
