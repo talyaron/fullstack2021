@@ -1,3 +1,4 @@
+<<<<<<< HEAD:01-HTML-CSS/06-BEM model/Lior_Or-Will/dist/style_final.css
 /* For Home page only*/
 .homebox {
   display: flex;
@@ -95,25 +96,56 @@
   max-width: 900px;
   margin: auto;
   margin-top: 3vw;
-  display: grid;
-  grid-template-columns: repeat(4, 200px);
-  grid-template-rows: repeat(4, 250px);
-  gap: 15px;
-  font-style: italic;
+=======
+body {
+  align-items: center;
+  font-family: "Outfit", sans-serif;
 }
+
+.container {
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+>>>>>>> parent of 93d6507 (xxx):01-HTML-CSS/06-BEM model/Lior_Or-Will/dist/News.css
+  display: grid;
+  grid-template-columns: 2fr repeat(3, 2fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-gap: 1em;
+}
+<<<<<<< HEAD:01-HTML-CSS/06-BEM model/Lior_Or-Will/dist/style_final.css
 .wrappersport .imgsport {
   object-fit: cover;
   width: 100%;
   height: 50%;
+=======
+
+.box {
+  padding: 5px;
+  grid-auto-rows: minmax(10px, auto);
 }
-.wrappersport .imgsport:hover {
-  cursor: pointer;
+
+.box1 {
+  grid-column: 1/4;
+>>>>>>> parent of 93d6507 (xxx):01-HTML-CSS/06-BEM model/Lior_Or-Will/dist/News.css
 }
-.wrappersport p:hover {
-  cursor: pointer;
-  color: blue;
-  text-decoration: underline;
+
+.internal_box1 {
+  display: grid;
+  width: 100%;
+  margin: 0;
+  height: 30vh;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
 }
+
+.Header1 {
+  grid-column: 1/2;
+  grid-row: 1/3;
+  align-items: start;
+  font-size: 30px;
+  height: 10vh;
+}
+<<<<<<< HEAD:01-HTML-CSS/06-BEM model/Lior_Or-Will/dist/style_final.css
 .wrappersport .category--sport {
   color: #00d400;
   font-size: 13px;
@@ -134,32 +166,72 @@
 
 .imgsport__up1 {
   object-fit: cover;
-  width: 100%;
-  height: 100%;
-}
-.imgsport__up1:hover {
+=======
+.Header1 :hover {
   cursor: pointer;
+  color: blue;
+  text-decoration: underline;
 }
 
-/* For all pages*/
-.banner {
+.image1 {
+  grid-column: 2/6;
+  grid-row: 1/4;
+  width: 90%;
+  height: 40vh;
+  align-items: left;
+}
+
+.down_ picture {
   width: 100%;
-  height: 4vh;
-  background-color: #d40808;
-  background-size: cover;
-  background-position: center;
-  text-align: center;
-  font-weight: 200;
-  top: 0px;
+  height: 15vh;
 }
-.banner__navbar {
-  width: 85%;
-  margin: auto;
-  position: relative;
+.down_ title {
+>>>>>>> parent of 93d6507 (xxx):01-HTML-CSS/06-BEM model/Lior_Or-Will/dist/News.css
+  width: 100%;
+  height: 7vh;
+  text-align: left;
+  font-size: 20px;
+  font-style: italic;
+}
+<<<<<<< HEAD:01-HTML-CSS/06-BEM model/Lior_Or-Will/dist/style_final.css
+.imgsport__up1:hover {
+=======
+.down_ text {
+  width: 60%;
+  height: 5vh;
   align-items: center;
-  justify-content: space-between;
+  position: relative;
+  left: 0vw;
+  bottom: 5vh;
+  align-content: center;
+  text-align: left;
+  font-size: 15px;
+  font-style: italic;
+  padding-top: 35px;
 }
-.banner__navbar__BBC_logo {
+.down_ title:hover {
+>>>>>>> parent of 93d6507 (xxx):01-HTML-CSS/06-BEM model/Lior_Or-Will/dist/News.css
+  cursor: pointer;
+  color: blue;
+  text-decoration: underline;
+}
+
+.text1 {
+  grid-column: 1/2;
+  position: relative;
+  top: -150px;
+  grid-row: 3/4;
+  height: 7vh;
+  font-style: italic;
+  text-align: left;
+}
+
+.text19 {
+  position: relative;
+  top: -200px;
+}
+
+.BBC_logo {
   left: -400px;
   top: 10px;
   position: relative;
@@ -173,42 +245,61 @@
   border: 3px solid black;
   font-family: "Outfit", sans-serif;
 }
-.banner__navbar__BBC_logo__firstletter {
+
+.firstletter {
   position: relative;
   left: -10vw;
-  color: solid white;
-  top: 5px;
 }
-.banner__navbar__BBC_logo__secondletter {
+
+.secondletter {
   position: relative;
-  left: -17vw;
-  top: 5px;
+  left: -19vw;
 }
-.banner__navbar__BBC_logo__thridletter {
+
+.thridletter {
   position: relative;
   left: -21vw;
-  top: 5px;
 }
-.banner__navbar__BBC_logo__BBC_LOG_2 {
+
+.BBC_LOG_2 {
   position: relative;
-  left: -510px;
+  left: -490px;
   top: 5px;
 }
-.banner__navbar ul li {
+
+.banner {
+  width: 100%;
+  height: 4vh;
+  background-color: #0a0a0a;
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  font-weight: 200;
+  top: 0px;
+}
+
+.navbar {
+  width: 85%;
+  margin: auto;
+  position: relative;
+  align-items: center;
+  justify-content: space-between;
+}
+.navbar ul li {
   list-style: none;
   font-size: 10px;
   display: inline-block;
   margin: 0 50px;
   position: relative;
 }
-.banner__navbar ul li a {
+.navbar a {
   text-decoration: none;
   color: #f7f5f0;
   font-weight: 200;
   font-size: 2vh;
   text-transform: uppercase;
 }
-.banner__navbar ul li ::after {
+.navbar :after {
   content: "";
   height: 5px;
   width: 0;
@@ -218,24 +309,26 @@
   bottom: -10px;
   transition: 0.8s;
 }
-.banner__navbar ul li:hover ::after {
+.navbar :hover ::after {
   width: 100%;
 }
-.banner__navbar__search_box {
+
+.search_box {
   position: relative;
   left: 80vw;
-  top: 0vh;
+  top: -1.02vh;
   transform: translate(-50%, -50%);
   transition: 10s;
-  background: #d40808;
+  background: #0a0a0a;
   height: 30px;
   width: 15vw;
 }
-.banner__navbar__search_box :hover > .navbar__search_box__search_text {
+.search_box :hover > .search_text {
   width: 240px;
   padding: 0 -5px;
 }
-.banner__navbar__search_box__Search-btn {
+
+.Search-btn {
   position: relative;
   justify-content: center;
   align-items: center;
@@ -246,138 +339,13 @@
   top: 0px;
 }
 
-/* For News page only*/
-body {
-  align-items: center;
-  font-family: "Outfit", sans-serif;
-}
-
-.container {
-  width: 100%;
-  height: 100vh;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 2fr repeat(3, 2fr);
-  grid-template-rows: repeat(3, 1fr);
-  grid-gap: 1em;
-}
-
-.box {
-  padding: 5px;
-  grid-auto-rows: minmax(10px, auto);
-}
-.box--box1 {
-  grid-column: 1/4;
-}
-.box--box1__internal_box1 {
-  display: grid;
-  width: 100%;
-  margin: 0;
-  height: 30vh;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-}
-.box--box1__internal_box1__Header1 {
-  grid-column: 1/2;
-  grid-row: 1/3;
-  align-items: start;
-  font-size: 30px;
-  height: 10vh;
-}
-.box--box1__internal_box1__Header1:hover {
-  cursor: pointer;
-  color: blue;
-  text-decoration: underline;
-}
-.box--box1__internal_box1__image1 {
-  grid-column: 2/6;
-  grid-row: 1/4;
-  width: 90%;
-  height: 40vh;
-  align-items: left;
-}
-.box--box1__internal_box1_text1 {
-  grid-column: 1/2;
-  position: relative;
-  top: -200px;
-  grid-row: 3/4;
-  height: 7vh;
-  font-style: italic;
-  text-align: left;
-}
-.box--box1__internal_box1down_text_text1 {
-  position: relative;
-  top: -500px;
-  width: 5vw;
-  height: 5vh;
-}
-.box__down_picture__down1 {
-  width: 100%;
-  height: 15vh;
-}
-.box__down__title {
-  width: 100%;
-  height: 7vh;
-  text-align: left;
-  font-size: 20px;
-  font-style: italic;
-}
-.box__down__title--title2 {
-  width: 100%;
-  height: 7vh;
-  text-align: left;
-  font-size: 20px;
-  font-style: italic;
-}
-.box__down__title--title2:hover {
-  cursor: pointer;
-  color: blue;
-  text-decoration: underline;
-}
-.box__down__text {
-  width: 60%;
-  height: 5vh;
-  align-items: center;
-  position: relative;
-  left: 0vw;
-  bottom: 5vh;
-  align-content: center;
-  text-align: left;
-  font-size: 15px;
-  font-style: italic;
+.box10 {
   align-items: center;
   flex-direction: column;
   display: flex;
 }
-.box__down__text--text2 {
-  position: relative;
-  text-align: left;
-  left: 0vw;
-  font-style: italic;
-}
-.box__down__title:hover {
-  cursor: pointer;
-  color: blue;
-  text-decoration: underline;
-}
-.box--box2__inner_box--box2__down_text__text3 {
-  position: relative;
-  top: -10px;
-}
-.box--box2__inner_box--box2__down_text__text3--title1 {
-  font-size: 20px;
-}
-.box--box2__inner_box--box2__down_text__text3--title1:hover {
-  cursor: pointer;
-  color: blue;
-  text-decoration: underline;
-}
-.box--text_only {
-  position: relative;
-  left: -900px;
-}
 
-.inner_box--box2 {
+.inner_box_box10 {
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -385,4 +353,18 @@ body {
   align-items: center;
   width: 80%;
   height: 45vh;
+}
+
+.text11 {
+  position: relative;
+  top: -10px;
+}
+
+.title1 {
+  font-size: 20px;
+}
+.title1 :hover {
+  cursor: pointer;
+  color: blue;
+  text-decoration: underline;
 }
