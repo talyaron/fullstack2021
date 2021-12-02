@@ -1,0 +1,396 @@
+.main {
+  width: 100vh;
+  height: 100vh;
+}
+.main .header {
+  display: grid;
+  grid-template-columns: repeat(20, 120px);
+  grid-template-rows: repeat(4, 20px);
+  gap: 5px;
+  background-color: black;
+  height: 130px;
+  width: 100vw;
+}
+.main .header .button {
+  border-radius: 10px;
+  border: 2px solid white;
+  width: 200px;
+  height: 60px;
+  display: grid;
+  grid-template-columns: repeat(4, 20px);
+  grid-template-rows: repeat(3, 10px);
+}
+.main .header .button:hover {
+  border: 2px solid red;
+  width: 200px;
+  height: 60px;
+  border-radius: 10px;
+}
+.main .header .logo {
+  grid-column: 1/1;
+  grid-row: 1;
+  width: 500px;
+  height: 37px;
+  display: grid;
+  grid-template-rows: repeat(3, 16px);
+}
+.main .header .logo h1 {
+  grid-row: 2;
+  font-size: xx-large;
+  padding-left: 10px;
+  align-items: center;
+  color: red;
+  font-family: "Luckiest Guy", cursive;
+}
+.main .header .search {
+  background-color: #363232;
+  width: 200px;
+  height: 50px;
+  border-radius: 10px;
+  grid-column: 5/11;
+  grid-row: 2;
+  display: grid;
+  grid-template-columns: repeat(8, 25px);
+  grid-template-rows: repeat(3, 16px);
+}
+.main .header .search i {
+  grid-row: 2;
+  grid-column: 8;
+  color: red;
+}
+.main .header .games {
+  grid-column: 7/11;
+}
+.main .header h5 {
+  grid-column: 8;
+  grid-row: 1;
+  color: white;
+  font-family: "Ubuntu", sans-serif;
+}
+.main .header i {
+  grid-column: 2;
+  grid-row: 2;
+  color: white;
+}
+.main .header .hot {
+  grid-column: 9/11;
+  grid-row: 2;
+}
+.main .header .multy {
+  grid-column: 11;
+  grid-row: 2;
+}
+.main .header a {
+  grid-row: 2;
+  text-decoration: none;
+}
+.main .header .gamepass {
+  grid-column: 13/13;
+  grid-row: 2;
+}
+.main .header .gamepass p {
+  grid-column: 4;
+  grid-row: 1;
+  color: white;
+  font-family: "Ubuntu", sans-serif;
+}
+.main .header .gamepass p span {
+  font-family: "Luckiest Guy", cursive;
+}
+.main .header .log {
+  grid-column: 15/15;
+  grid-row: 1;
+  display: grid;
+  grid-template-rows: repeat(5, 20px);
+}
+.main .header .log p {
+  color: white;
+  text-align: center;
+  width: 80px;
+  height: 20px;
+  border-radius: 5px;
+  font-family: "Orbitron", sans-serif;
+  font-size: 14px;
+}
+.main .header .log p a {
+  color: white;
+}
+.main .header .log .register {
+  background-color: green;
+  grid-row: 2;
+  grid-column: 1;
+}
+.main .header .log .register:hover {
+  background-color: #095009;
+  color: #acb4ac;
+}
+.main .header .log .login {
+  background-color: #404140;
+  grid-row: 4;
+  grid-column: 1;
+}
+.main .header .log .login:hover {
+  background-color: #2c2a2a;
+  color: #acb4ac;
+}
+.main .menu {
+  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(15, 100px);
+  grid-template-rows: repeat(8, 60px);
+  gap: 5px;
+  background-color: #2b2929;
+  height: 100vh;
+  width: 100vW;
+}
+.main .menu h3 {
+  color: white;
+  width: 200px;
+  grid-row: 1;
+  grid-column: 1;
+  font-family: "Orbitron", sans-serif;
+}
+.main .menu .box {
+  border-radius: 10px;
+  width: 200px;
+  height: 200px;
+  display: grid;
+  grid-template-columns: repeat(3, 80px);
+  grid-template-rows: repeat(9, 29px);
+  gap: 5px;
+}
+.main .menu .big {
+  background-image: url("https://img.redbull.com/images/c_fill,w_1200,h_630,g_auto,f_auto,q_auto/redbullcom/2015/09/10/1331746896846_2/mario-slipping-up-in-super-smash-bros.-for-wii-u.jpg");
+  grid-column: 2/4;
+  grid-row: 2/4;
+  width: 450px;
+  height: 450px;
+  background-size: cover;
+  display: grid;
+  grid-template-columns: repeat(3, 80px);
+  grid-template-rows: repeat(8, 50px);
+  gap: 5px;
+}
+.main .menu .big:hover {
+  background-image: url("https://www.icegif.com/wp-content/uploads/mario-icegif.gif");
+}
+.main .menu .bigback {
+  background-color: #202020;
+  width: 450px;
+  height: 50px;
+  grid-column: 1;
+  grid-row: 9;
+  text-align: center;
+  border-radius: 0 0 10px 10px;
+}
+.main .menu .back {
+  background-color: #202020;
+  width: 200px;
+  height: 30px;
+  grid-column: 1;
+  grid-row: 6;
+  text-align: center;
+  border-radius: 0 0 10px 10px;
+}
+.main .menu h6 {
+  margin-top: 5px;
+  text-align: center;
+  color: white;
+  font-family: "ubuntu", sans-serif;
+  font-size: 14px;
+}
+.main .menu .chicken {
+  background-image: url("https://images-na.ssl-images-amazon.com/images/I/81Wz8NjXn2L.png");
+  grid-column: 7;
+  grid-row: 2;
+  background-size: cover;
+}
+.main .menu .chicken:hover {
+  background-image: url("http://1.bp.blogspot.com/-YAlqr9D2nZI/TZr7YZGQ5cI/AAAAAAAACX8/uUpll-ULDJY/s1600/game+chicken+invadersr+red+eggs+happy+easter+edition+free+e-card+3d-gif-animation.blogspot.com++.gif");
+}
+.main .menu .sonic {
+  background-image: url("https://play-lh.googleusercontent.com/pXly8kVcgfUumyUeMuMqQbmUhZPl29U8deW-clBzowtvU6qDMvvOFTCvIu4y5Q9rYw");
+  grid-column: 7;
+  grid-row: 6;
+  background-size: cover;
+}
+.main .menu .sonic:hover {
+  background-image: url("https://i.gifer.com/fxXl.gif");
+}
+.main .menu .snake {
+  background-image: url("https://penoff.files.wordpress.com/2018/11/lv_snakegame_pic1.jpg");
+  grid-column: 9;
+  grid-row: 2;
+  background-size: cover;
+}
+.main .menu .snake:hover {
+  background-image: url("https://c.tenor.com/1LdvUxoO-MEAAAAC/snake-game.gif");
+}
+.main .menu .soliter {
+  background-image: url("https://image.winudf.com/v2/image1/Y29tLm1ldGFmdW4uc29saXRhaXJlLmZyZWUuaGRfc2NyZWVuXzBfMTU1NTQ5NzAzNF8wMDc/screen-0.jpg?fakeurl=1&type=.jpg");
+  grid-column: 9;
+  grid-row: 6;
+  background-size: cover;
+}
+.main .menu .soliter:hover {
+  background-image: url("https://media1.giphy.com/media/Ceq96LjQ9Wmpq/giphy.gif");
+}
+.main .menu .mine {
+  background-image: url("https://minesweeper.online/img/homepage/intermediate.png");
+  grid-column: 11;
+  grid-row: 2;
+  background-size: cover;
+}
+.main .menu .mine:hover {
+  background-image: url("https://i.gifer.com/8FUh.gif");
+}
+.main .menu .gold {
+  background-image: url("https://images.sftcdn.net/images/t_app-cover-l,f_auto/p/1470df30-6003-11e8-84a5-659daf40e04e/4194924781/gold-miner-tycoon-screenshot.jpg");
+  grid-column: 11;
+  grid-row: 6;
+  background-size: cover;
+}
+.main .menu .gold:hover {
+  background-image: url("https://thumbs.gfycat.com/EmotionalUncomfortableIntermediateegret-size_restricted.gif");
+}
+.main .menu .trouble {
+  background-image: url("https://tcf.admeen.org/game/2500/2101/320x160/bubble-trouble.jpg");
+  grid-column: 13;
+  grid-row: 2;
+  background-size: cover;
+}
+.main .menu .trouble:hover {
+  background-image: url("https://i2.wp.com/cliqist.com/wp-content/uploads/2014/09/bubblestruggle1.gif");
+}
+.main .menu .pacman {
+  background-image: url("http://cdn.cnn.com/cnnnext/dam/assets/200518114838-05-pac-man-40.jpg");
+  grid-column: 13;
+  grid-row: 6;
+  background-size: cover;
+}
+.main .menu .pacman:hover {
+  background-image: url("https://i.gifer.com/T7n.gif");
+}
+.main .menu .mahjong {
+  background-image: url("https://images.crazygames.com/mahjongclassic.png?auto=format,compress&q=75&cs=strip&ch=DPR&w=1200&h=630&fit=crop");
+  grid-column: 15;
+  grid-row: 2;
+  background-size: cover;
+}
+.main .menu .mahjong:hover {
+  background-image: url("https://home.halden.net/vkp/vkp/mahjongg_pocketpc_top321.gif");
+}
+.main .menu .bubbles {
+  background-image: url("https://tcf.admeen.org/game/500/307/400x246/bubble-shooter.jpg");
+  grid-column: 15;
+  grid-row: 6;
+  background-size: cover;
+}
+.main .menu .bubbles:hover {
+  background-image: url("https://thumbs.gfycat.com/HappygoluckyMeatyArmadillo-size_restricted.gif");
+}
+.main .menu .fortnite {
+  background-image: url("https://blog.playstation.com/uploads/2021/09/9a38099960fc9a8aacc65667fcf4adff897fefa8.jpg");
+  width: 450px;
+  height: 450px;
+  grid-row: 2;
+  grid-column: 2;
+  background-size: cover;
+  display: grid;
+  grid-template-columns: repeat(3, 80px);
+  grid-template-rows: repeat(8, 50px);
+  gap: 5px;
+}
+.main .menu .fortnite:hover {
+  background-image: url("https://c.tenor.com/ebq17apWjzAAAAAd/fortnite-game.gif");
+}
+.main .menu .roblox {
+  background-image: url("https://play-lh.googleusercontent.com/3QAgSY5a64aDHgXNRYJJCB5vpg3E3b74741VfSUlDxY2dcENKM1lmbWsu5jazYdo_kY");
+  grid-column: 7;
+  grid-row: 2;
+  background-size: cover;
+}
+.main .menu .roblox:hover {
+  background-image: url("https://c.tenor.com/k-tMDS6LtogAAAAd/roblox-video-game.gif");
+}
+.main .menu .ninja {
+  background-image: url("https://global-uploads.webflow.com/5fa23905123118739c5e21e2/5fa35757cd1ee8e0782115b1_GoldenEmber_2208x1242_English.png");
+  grid-column: 7;
+  grid-row: 6;
+  background-size: cover;
+}
+.main .menu .ninja:hover {
+  background-image: url("https://i.gifer.com/Jqfc.gif");
+}
+.main .menu .kings {
+  background-image: url("https://play-lh.googleusercontent.com/ydhJHwyI45Ttxgs9MPv-vKhz0St4hMSm5-OF4j4wXnfuJsuSe6WCUc8RlMLFJf-b8w");
+  grid-column: 9;
+  grid-row: 2;
+  background-size: cover;
+}
+.main .menu .kings:hover {
+  background-image: url("https://ludocious.com/pics/boardkings/bk_spoiler_small.gif");
+}
+.main .menu .angry {
+  background-image: url("https://store-images.s-microsoft.com/image/apps.21535.13744440662592274.122321b0-7d72-42e1-9e1f-5a59e44ad1f1.459a16fe-1dde-4f14-bf95-e48f0140b1bc");
+  grid-column: 9;
+  grid-row: 6;
+  background-size: cover;
+}
+.main .menu .angry:hover {
+  background-image: url("https://hips.hearstapps.com/digitalspyuk.cdnds.net/15/31/angry-birds-2-3.gif?resize=480:*");
+}
+.main .menu .jetpack {
+  background-image: url("https://play-lh.googleusercontent.com/C6yUHZ8TEnQAnO2RohIhj2jGTkViYA85nugC-RTyvM-gpTa7B1LFtnt8o3T7WZHXnw=w412-h220-rw");
+  grid-column: 11;
+  grid-row: 2;
+  background-size: cover;
+}
+.main .menu .jetpack:hover {
+  background-image: url("https://i.makeagif.com/media/4-28-2016/x3WFSt.gif");
+}
+.main .menu .run {
+  background-image: url("https://i.pinimg.com/originals/c4/bd/5a/c4bd5a495584cff579d5a0cb39127f28.jpg");
+  grid-column: 11;
+  grid-row: 6;
+  background-size: cover;
+}
+.main .menu .run:hover {
+  background-image: url("https://64.media.tumblr.com/48d5b73f3bf44e16b6c499df5329ea93/tumblr_mqwxa7eUOf1rvn2ylo1_250.gifv");
+}
+.main .menu .bus {
+  background-image: url("https://img.poki.com/cdn-cgi/image/quality=78,width=600,height=600,fit=cover,g=0.5x0.5,f=auto/d3356dfa9e6845d4e26f779fa405bb4e.jpeg");
+  grid-column: 13;
+  grid-row: 2;
+  background-size: cover;
+}
+.main .menu .bus:hover {
+  background-image: url("https://i.pinimg.com/originals/82/29/af/8229afc87f2ec0e057d4c2da50c7f6d5.gif");
+}
+.main .menu .candy {
+  background-image: url("https://play-lh.googleusercontent.com/TLUeelx8wcpEzf3hoqeLxPs3ai1tdGtAZTIFkNqy3gbDp1NPpNFTOzSFJDvZ9narFS0");
+  grid-column: 13;
+  grid-row: 6;
+  background-size: cover;
+}
+.main .menu .candy:hover {
+  background-image: url("https://thumbs.gfycat.com/CostlyFrighteningHorseshoebat-size_restricted.gif");
+}
+.main .menu .witch {
+  background-image: url("http://thetrendingtimes.com/wp-content/uploads/2020/10/bubblewitch3.png");
+  grid-column: 15;
+  grid-row: 2;
+  background-size: cover;
+}
+.main .menu .witch:hover {
+  background-image: url("https://i.gifer.com/TPrj.gif");
+}
+.main .menu .water {
+  background-image: url("https://imgs2.dab3games.com/tangle-master-3d-game.png");
+  grid-column: 15;
+  grid-row: 6;
+  background-size: cover;
+}
+.main .menu .water:hover {
+  background-image: url("https://lunalabs.io/wp-content/uploads/2020/08/ezgif.com-video-to-gif.gif");
+}
