@@ -50,6 +50,7 @@ img {
   text-transform: uppercase;
   font-size: 1.1rem;
   box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+  cursor: pointer;
 }
 .nav-bar a:hover {
   background: black;
@@ -79,6 +80,7 @@ img {
   font-size: 4rem;
   margin-bottom: 0px;
   color: #fff9f9;
+  cursor: pointer;
 }
 .header__h1:hover {
   color: gray;
@@ -87,6 +89,7 @@ img {
   font-size: 1.3rem;
   margin-top: 0px;
   color: #fff9f9;
+  cursor: pointer;
 }
 .header__p:hover {
   color: gray;
@@ -120,6 +123,7 @@ img {
   text-align: center;
   padding: 1.5rem 2rem;
   box-shadow: 0 1px 5px rgba(54, 54, 54, 0.8);
+  cursor: pointer;
 }
 .devices__box:hover {
   transition: 0.8s;
