@@ -241,17 +241,44 @@ h4:hover {
   grid-row-start: 2;
   grid-row-end: 3;
 }
+.game_1 :active {
+  background: url(https://c.tenor.com/X_5vdWJEBYcAAAAC/assassins-creed-unity.gif);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .game_2 {
   background: url(https://images3.alphacoders.com/843/thumbbig-843016.webp);
 }
+.game_2 :active {
+  background: url(https://c.tenor.com/7xiGei5WC1AAAAAM/anger-rage.gif);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .game_3 {
   background: url(https://c4.wallpaperflare.com/wallpaper/374/201/282/soldiers-call-of-duty-call-of-duty-modern-warfare-ghost-cod6-2560x1440-architecture-modern-hd-art-wallpaper-preview.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.game_3 :active {
+  background: url(https://c.tenor.com/mSygXLnH7cUAAAAS/dogearmy-dogecoin.gif);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .game_4 {
   background: url(https://images.unsplash.com/photo-1623476408624-721c9185d569?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fHN0YXIlMjB3YXJzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60);
 }
+.game_4 :active {
+  background: url(https://c.tenor.com/6YFcZ8rEag0AAAAM/star-wars-jedi-fallen-order.gif);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .game_5 {
   background: url(https://wallpapercave.com/dwp1x/wp1897912.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.game_5 :active {
+  background: url(https://c.tenor.com/Ir65B6UgLvoAAAAM/aloy-horizon-zero-dawn.gif);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -260,8 +287,18 @@ h4:hover {
   background-repeat: no-repeat;
   background-size: cover;
 }
+.game_6 :active {
+  background: url(https://c.tenor.com/X_5vdWJEBYcAAAAC/assassins-creed-unity.gif);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .game_7 {
   background: url(https://wallpapercave.com/wp/wp4346842.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.game_7 :active {
+  background: url(https://c.tenor.com/X_5vdWJEBYcAAAAC/assassins-creed-unity.gif);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -270,8 +307,18 @@ h4:hover {
   background-repeat: no-repeat;
   background-size: cover;
 }
+.game_8 :active {
+  background: url(https://c.tenor.com/X_5vdWJEBYcAAAAC/assassins-creed-unity.gif);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .game_9 {
   background: url(https://wallpapercave.com/wp/wp6710684.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.game_9 :active {
+  background: url(https://c.tenor.com/X_5vdWJEBYcAAAAC/assassins-creed-unity.gif);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -280,8 +327,18 @@ h4:hover {
   background-repeat: no-repeat;
   background-size: cover;
 }
+.game_10 :active {
+  background: url(https://c.tenor.com/X_5vdWJEBYcAAAAC/assassins-creed-unity.gif);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .game_11 {
   background: url(https://thumbs.dreamstime.com/b/johan-gustafsson-ice-hockey-goalie-25087868.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.game_11 :active {
+  background: url(https://c.tenor.com/X_5vdWJEBYcAAAAC/assassins-creed-unity.gif);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -290,63 +347,116 @@ h4:hover {
   background-repeat: no-repeat;
   background-size: cover;
 }
+.game_12 :active {
+  background: url(https://c.tenor.com/X_5vdWJEBYcAAAAC/assassins-creed-unity.gif);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .game_13 {
   background: url(https://wallpapercave.com/wp/wp2454514.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+}
+.game_13 :active {
+  background: url(https://c.tenor.com/X_5vdWJEBYcAAAAC/assassins-creed-unity.gif);
+  background-repeat: no-repeat;
 }
 .game_14 {
   background: url(https://wallpapercave.com/wp/wp5281392.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
+.game_14 :active {
+  background: url(https://c.tenor.com/X_5vdWJEBYcAAAAC/assassins-creed-unity.gif);
+  background-repeat: no-repeat;
+}
 .game_15 {
   background: url(https://wallpapercave.com/wp/wp6369579.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+}
+.game_15 :active {
+  background: url(https://c.tenor.com/X_5vdWJEBYcAAAAC/assassins-creed-unity.gif);
+  background-repeat: no-repeat;
 }
 .game_16 {
   background: url(https://wallpapercave.com/wp/wp3596465.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
+.game_16 :active {
+  background: url(https://c.tenor.com/X_5vdWJEBYcAAAAC/assassins-creed-unity.gif);
+  background-repeat: no-repeat;
+}
 .game_17 {
   background: url(https://c4.wallpaperflare.com/wallpaper/32/804/961/spirit-blossom-yasuo-yasuo-league-of-legends-league-of-legends-riot-games-hd-wallpaper-preview.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+}
+.game_17 :active {
+  background: url(https://c.tenor.com/X_5vdWJEBYcAAAAC/assassins-creed-unity.gif);
+  background-repeat: no-repeat;
 }
 .game_18 {
   background: url(https://wallpapercave.com/wp/wp1810702.png);
   background-repeat: no-repeat;
   background-size: cover;
 }
+.game_18 :active {
+  background: url(https://c.tenor.com/X_5vdWJEBYcAAAAC/assassins-creed-unity.gif);
+  background-repeat: no-repeat;
+}
 .game_19 {
   background: url(https://wallpapercave.com/wp/wp4779599.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+}
+.game_19 :active {
+  background: url(https://c.tenor.com/X_5vdWJEBYcAAAAC/assassins-creed-unity.gif);
+  background-repeat: no-repeat;
 }
 .game_20 {
   background: url(https://wallpapercave.com/wp/wp8386786.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
+.game_20 :active {
+  background: url(https://c.tenor.com/X_5vdWJEBYcAAAAC/assassins-creed-unity.gif);
+  background-repeat: no-repeat;
+}
 .game_21 {
   background: url(https://wallpapercave.com/dwp1x/wp6311484.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+}
+.game_21 :active {
+  background: url(https://c.tenor.com/X_5vdWJEBYcAAAAC/assassins-creed-unity.gif);
+  background-repeat: no-repeat;
 }
 .game_22 {
   background: url(https://wallpapercave.com/fuwp/uwp465651.jpeg);
   background-repeat: no-repeat;
   background-size: cover;
 }
+.game_22 :active {
+  background: url(https://c.tenor.com/X_5vdWJEBYcAAAAC/assassins-creed-unity.gif);
+  background-repeat: no-repeat;
+}
 .game_23 {
   background: url(https://wallpapercave.com/wp/wp1840268.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
+.game_23 :active {
+  background: url(https://c.tenor.com/X_5vdWJEBYcAAAAC/assassins-creed-unity.gif);
+  background-repeat: no-repeat;
+}
 .game_24 {
   background: url(https://wallpapercave.com/wp/wp5795005.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+}
+.game_24 :active {
+  background: url(https://c.tenor.com/X_5vdWJEBYcAAAAC/assassins-creed-unity.gif);
+  background-repeat: no-repeat;
 }
