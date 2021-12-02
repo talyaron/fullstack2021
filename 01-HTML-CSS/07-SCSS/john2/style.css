@@ -1,0 +1,58 @@
+body {
+  background-color: black;
+  margin: 0;
+}
+
+.header {
+  background-color: #585891;
+  width: 100vw;
+  height: 10vh;
+  text-align: center;
+  font-family: fantasy;
+}
+
+.title1 {
+  background-color: #585891;
+  width: 100vw;
+  height: 10vh;
+  text-align: center;
+  font-family: fantasy;
+}
+
+.title2 {
+  background-color: #585891;
+  width: 100vw;
+  height: 10vh;
+  text-align: center;
+  font-family: fantasy;
+}
+
+.actualgames {
+  display: flex;
+  justify-content: space-around;
+}
+
+.gamesbox {
+  background-color: #585891;
+  border: 5px solid #585891;
+  width: 10vw;
+  height: 10vh;
+  font-weight: bold;
+  font-family: monospace;
+  text-align: center;
+  color: blueviolet;
+}
+.gamesbox > img {
+  width: 15vw;
+  height: 20vh;
+}
+.gamesbox:hover {
+  cursor: pointer;
+  transition-duration: 1s;
+  transform: scale(1.2);
+}
+
+.classicgames {
+  display: flex;
+  justify-content: space-around;
+}

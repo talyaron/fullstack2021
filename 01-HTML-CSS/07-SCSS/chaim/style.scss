@@ -9,8 +9,8 @@ body{
      color: blanchedalmond;
     width: 200px;
     height: 200px;
-    grid-template-columns: 220px  150px 150px 150px 150px 150px 150px 150px;
-    grid-template-rows: 15vh 30vh 15vh 15vh;
+    grid-template-columns: 320px 150px 150px 150px 150px 150px 150px 150px;
+    grid-template-rows: 15vh 30vh 15vh;
     row-gap: 1fh;
     column-gap: 1vh;
     position: relative;
@@ -20,7 +20,10 @@ body{
         color: red;
     }
 
-
+&__card{
+    grid :nth-child(1);
+width: 300px;
+}
 
 &__card{
     background-color: aqua;
@@ -31,12 +34,13 @@ body{
      }
 
 img{
+    display: grid;
     width: 100%;
     height: fit-content;
     position: relative;
     top: 100px;
     left: 80px;
-    display: grid;
+
 }
 
 

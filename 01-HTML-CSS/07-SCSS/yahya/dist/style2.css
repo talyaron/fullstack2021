@@ -193,3 +193,7 @@ h1 {
   font-size: xx-large;
   margin-top: 200px;
 }
+
+img:hover {
+  transform: scale(1.2);
+}
