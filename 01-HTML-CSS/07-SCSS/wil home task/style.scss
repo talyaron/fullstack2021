@@ -1,0 +1,20 @@
+.wrapper{
+    background-color: black;
+    height: 100%;
+    width: 100%;
+display: grid;
+grid-template-columns: repeat(5,1fr);
+grid-template-rows: 10vh 10vh 40vh 40vh;
+ 
+.header{
+    background-color: black;
+
+}
+.box_games{
+    height: 150px;
+    width: 150px;
+}
+.h1{
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+}
