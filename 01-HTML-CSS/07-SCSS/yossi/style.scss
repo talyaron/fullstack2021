@@ -1,0 +1,36 @@
+.wrapper{
+    display: grid;
+    grid-template-columns:repeat (3, 200px);
+    grid-template-rows:repeat (3, 200px);
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    background-color: rgb(188, 187, 143);
+}
+
+.card {
+    background-color: rosybrown;
+ 
+
+    &__img {
+    width: 100%;
+    height: auto;
+    }
+
+    &__description {
+        background: white;
+        background-color: rgb(156, 143, 188);
+       
+    }
+
+    &__price {
+        background-color: rgb(188, 165, 143);
+       
+    }
+
+}
+
+
+div{
+    border: 1px solid red;
+}
