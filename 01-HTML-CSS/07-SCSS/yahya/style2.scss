@@ -16,6 +16,7 @@ a{
    align-items: center;
    grid-auto-rows: minmax(100px,auto);
 }
+
 p{
    font-size: xx-large;
    background-color: black;
@@ -27,6 +28,7 @@ p{
    justify-content: center;
    align-items: center;  
 }
+/*////////////////////////////(header)////////////////////////////////////////*/
 .header{
    display: block;
    background-color: #0C090A;
@@ -36,7 +38,7 @@ p{
   margin: 100px;
   border-radius: 10px ;
   border: 2px white solid;
-  
+ 
    
    ul{
      
@@ -50,6 +52,9 @@ p{
       justify-self:center;
     }   
    }
+/*/////////////////////////////////////////////////////////////////////*/ 
+
+/*////////////////////////////(Menu/flex)////////////////////////////////////////*/
 .menu2{
    display: flex;
    flex-wrap: wrap;
@@ -66,6 +71,7 @@ p{
       margin: 10px;
    }
 }
+/*////////////////////////////(Main has main articil/grid)////////////////////////////////////////*/
 .main{
 
    display: grid;
@@ -102,7 +108,8 @@ p{
  }
  
 }
- 
+/*////////////////////////////(small artical grid)////////////////////////////////////////*/
+
 .num1{
    display: grid;
    background: color #999;
@@ -122,6 +129,8 @@ p{
       border-radius: 15px;
    }
 }
+/*////////////////////////////(small artical grid)////////////////////////////////////////*/
+
 .num2{
    display: grid;
    background: color #999;
@@ -141,6 +150,7 @@ p{
       border-radius: 15px;
    }
 }
+/*////////////////////////////(small artical grid)////////////////////////////////////////*/
 .num3{
    display: grid;
    background: color #999;
@@ -159,6 +169,8 @@ p{
       border-radius: 15px;
    }
 }
+/*////////////////////////////(small artical grid)////////////////////////////////////////*/
+
 .num4{
    display: grid;
    background: color #999;
@@ -177,6 +189,12 @@ p{
       border-radius: 15px;
    }
 }
+
+
+
+/*/////////////////////////////////////////////////////////////////////////////////*/
+
+/*////////////////////////////(h1 css)////////////////////////////////////////*/
 h1{
    justify-content: end;
    color: rgb(75, 7, 7);
@@ -185,6 +203,7 @@ h1{
    text-decoration: underline;
  
 }
+/*////////////////////////////(footer copyright)////////////////////////////////////////*/
 .copyright{
    width:100%;
    background-color: black;
