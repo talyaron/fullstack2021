@@ -1,0 +1,48 @@
+body{
+    background-color: #999;
+}
+@media only screen and(max-width:1200px) {
+    .wrapper{
+        display: grid;
+        background-color: yellowgreen;
+        grid-template-columns: repeat(4,200px);
+        grid-template-rows: repeat(8,200px);
+     gap: 200px ;
+
+        
+
+        .box{
+            background-color: rgb(119, 0, 255);
+            border: solid white;
+               
+        }
+    }
+}
+@media only screen and(max-width:900px) {
+    .wrapper2{
+     
+        display: grid;
+        background-color: yellowgreen;
+        grid-template-columns: repeat(3,200px);
+        grid-template-rows: repeat(6,200px);
+        gap: 200px ;
+
+        .box{
+            background-color: rgb(72, 255, 0);
+            border: solid white;
+        }
+    }
+}
+@media only screen and(max-width:600px) {
+    .wrapper3{
+        display: grid;
+        background-color: yellowgreen;
+        grid-template-columns: repeat(1,200px);
+        grid-template-rows: repeat(4,200px);
+        gap: 200px ;
+        .box{
+            background-color: rgb(98, 0, 255);
+            border: solid white;
+        }
+    }
+}
