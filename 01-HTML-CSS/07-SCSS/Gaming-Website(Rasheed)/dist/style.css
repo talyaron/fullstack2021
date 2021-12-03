@@ -24,7 +24,7 @@ body {
 }
 
 img {
-  width: 100%;
+  max-width: 100%;
   border-radius: 20px;
 }
 
@@ -214,6 +214,11 @@ footer {
   }
 }
 @media only screen and (max-width: 600px) {
+  body {
+    margin: 0;
+    border: solid transparent 2px;
+  }
+
   .top-container {
     grid-template-areas: "header" "top-box-a" "top-box-b";
   }
