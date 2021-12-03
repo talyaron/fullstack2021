@@ -182,6 +182,7 @@ footer {
 
 @media only screen and (max-width: 1200px) {
   .top-container {
+    background-size: cover;
     grid-template-areas: "header" "top-box-a" "top-box-b";
   }
 

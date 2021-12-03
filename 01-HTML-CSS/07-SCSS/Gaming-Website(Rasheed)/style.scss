@@ -3,12 +3,15 @@ html {
     font-family: Arial, Helvetica, sans-serif;
     color: rgb(63, 62, 62);
     font-weight: bold;
+    
+    
 }
 
 body {
     background-color: rgb(143, 138, 138);
     margin: 30px 50px;
     line-height: 1.4;
+    
 }
 
 .btn {
@@ -228,6 +231,7 @@ footer {
 
 @media only screen and (max-width: 1200px) {
     .top-container {
+        background-size: cover;
         grid-template-areas:
             'header'
             'top-box-a'
@@ -271,7 +275,7 @@ footer {
 }
 
 @media only screen and (max-width: 600px) {
-
+    
     .top-container {
         grid-template-areas:
             'header'
