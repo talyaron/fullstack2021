@@ -100,7 +100,6 @@ body {
 @media only screen and (max-width: 768px) {
   .mainGrid {
     grid-template-rows: repeat(1, 7fr 3fr 3fr 1fr 3fr 1.5fr);
-    border: 5px solid red;
     gap: 25px;
   }
 }
