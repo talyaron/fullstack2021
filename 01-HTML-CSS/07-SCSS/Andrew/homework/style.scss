@@ -88,7 +88,10 @@ body{
             cursor: pointer;
             transform: scale(1.05);
             animation: pulse 0.6s infinite;
-            box-shadow: 0 0 0 2em rgba(#fff,0);
+            box-shadow: 0 0 0 30px rgba(#fff,0);
+            @media only screen and (max-width: 768px) {
+                box-shadow: 0 0 0 5px rgba(#fff,0); 
+            }
         }
     }
     &_largeText{
