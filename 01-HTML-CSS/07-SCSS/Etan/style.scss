@@ -6,7 +6,7 @@ body {
     width: 1440px;
     height: 100%;
     top: 0;
-    background: #2a2438;
+    background: #363434;
     h1 {
         align-items: center;
          font-size: 5vh;
@@ -50,7 +50,7 @@ body {
 
     &__card {
         position: relative;
-        background: #352f44;
+        background: #5c5757;
         color: rgb(0, 0, 0);
         border: 1px solid gray;
         border-radius: 3em;
@@ -95,7 +95,7 @@ body {
 
         h1 {
             position: absolute;
-            color: #5c5470;
+            color: #62929a;
             font-family: Arial, Helvetica, sans-serif;
             font-size: 2vh;
             font-weight: 100;
@@ -105,7 +105,7 @@ body {
         }
 
         p {
-            color: #dbd8e3;
+            color: #efecec;
             position: absolute;
             bottom: 0;
             right: 0;
