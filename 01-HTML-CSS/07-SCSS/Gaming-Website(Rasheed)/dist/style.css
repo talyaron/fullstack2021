@@ -160,19 +160,19 @@ img {
   padding: 3rem;
 }
 
-.related-games {
+.more-games {
   display: grid;
   grid-gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 }
-.related-games__img {
+.more-games__img {
   width: 100%;
   box-shadow: 0 1px 5px rgba(54, 54, 54, 0.8);
   border-radius: 20px;
   cursor: pointer;
   transition: transform 0.2s ease-in;
 }
-.related-games__img:hover {
+.more-games__img:hover {
   transform: scale(0.9);
 }
 
