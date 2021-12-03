@@ -6,7 +6,8 @@ body {
 .wrapper {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(9, 150px);
+  grid-template-rows: repeat(14, 150px);
+  /*the screen changes*/
 }
 .wrapper .header {
   background-color: #2fa8d1;
@@ -277,4 +278,294 @@ body {
   margin: auto;
   border-radius: 10px;
   border: 2px solid #f76eb9;
+}
+@media only screen and (max-width: 1200px) {
+  .wrapper .header {
+    background-color: #042c3a;
+    border: 2px black solid;
+    grid-column-start: 1;
+    grid-column-end: 7;
+  }
+  .wrapper .header input {
+    display: flex;
+    position: relative;
+    left: 45%;
+    bottom: 55%;
+    width: 35%;
+    height: 20%;
+    border: 3px solid blue;
+  }
+  .wrapper .header button[type=submit] {
+    border: 3px solid blue;
+    background-color: #90d6ee;
+    display: flex;
+    position: relative;
+    left: 82%;
+    bottom: 75%;
+  }
+  .wrapper .header button[type=submit]:hover {
+    background-color: #083544;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+  }
+  .wrapper .header button[type=register] {
+    border-radius: 10px;
+    border: 2px solid blue;
+    font-weight: bold;
+    color: #0c720c;
+    display: flex;
+    position: relative;
+    left: 50%;
+    bottom: 60%;
+  }
+  .wrapper .header button[type=register]:hover {
+    color: white;
+    cursor: pointer;
+    background-color: #0c720c;
+    transition: 1s;
+  }
+  .wrapper .header button[type=login] {
+    border-radius: 10px;
+    border: 2px solid blue;
+    font-weight: bold;
+    color: red;
+    display: flex;
+    position: relative;
+    left: 70%;
+    bottom: 75%;
+  }
+  .wrapper .header button[type=login]:hover {
+    color: white;
+    cursor: pointer;
+    background-color: red;
+    transition: 1s;
+  }
+  .wrapper .games {
+    grid-column-start: 1;
+    grid-column-end: 7;
+  }
+  .wrapper .games.adventure {
+    grid-row-start: 2;
+    grid-row-end: 6;
+    background-color: #1f550a;
+    /*this is inorder to have the things change whenever i hover over them so the pic and text will change*/
+  }
+  .wrapper .games.adventure:hover {
+    background-color: #112e05;
+  }
+  .wrapper .games.adventure.one {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 6;
+    padding-left: 10px;
+  }
+  .wrapper .games.adventure.one h2 {
+    padding-left: 100px;
+    cursor: pointer;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  .wrapper .games.adventure.one h2:hover {
+    text-shadow: #94ff69 2px 2px;
+  }
+  .wrapper .games.adventure.one p {
+    margin-left: -50px;
+  }
+  .wrapper .games.adventure.one img {
+    width: 40vw;
+    height: 40vh;
+  }
+  .wrapper .games.adventure.two {
+    grid-column-start: 4;
+    grid-column-end: 7;
+    grid-row-start: 2;
+    grid-row-end: 4;
+    padding-top: 70px;
+  }
+  .wrapper .games.adventure.three {
+    grid-row-start: 4;
+    grid-row-end: 6;
+    grid-column-start: 4;
+    grid-column-end: 7;
+    padding-top: 70px;
+  }
+  .wrapper .games.adventure p {
+    padding-left: 200px;
+    cursor: pointer;
+    text-align: start;
+  }
+  .wrapper .games.adventure .hover:hover {
+    cursor: pointer;
+    opacity: 0.7;
+    text-shadow: #94ff69 2px 2px;
+  }
+  .wrapper .games.adventure .hover img {
+    /*width: 200px;
+    height: 20vh;*/
+    display: block;
+    margin: auto;
+    border-radius: 10px;
+    border: 2px solid green;
+  }
+  .wrapper .games.classic {
+    grid-row-start: 7;
+    grid-row-end: 10;
+    margin: 20px;
+  }
+  .wrapper .games.classic.one {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 6;
+    grid-row-end: 10;
+    /*background-image: linear-gradient(red, yellow);*/
+  }
+  .wrapper .games.classic.one h2 {
+    padding-left: 100px;
+    padding-bottom: 30px;
+  }
+  .wrapper .games.classic.one h2:hover {
+    text-shadow: #ff1313 2px 2px;
+    cursor: pointer;
+  }
+  .wrapper .games.classic.one img {
+    width: 40vw;
+    height: 40vh;
+    display: block;
+    margin: auto;
+    border-radius: 10px;
+  }
+  .wrapper .games.classic.one p {
+    margin-left: 10%;
+  }
+  .wrapper .games.classic.two {
+    grid-column-start: 4;
+    grid-column-end: 4;
+    grid-row-start: 6;
+    grid-row-end: 8;
+  }
+  .wrapper .games.classic.two img {
+    width: 20vw;
+    height: 30vh;
+    display: block;
+    margin: auto;
+    border-radius: 10px;
+  }
+  .wrapper .games.classic.three {
+    grid-column-start: 5;
+    grid-column-end: 7;
+    grid-row-start: 6;
+    grid-row-end: 8;
+  }
+  .wrapper .games.classic.three img {
+    width: 20vw;
+    height: 30vh;
+    display: block;
+    margin: auto;
+    border-radius: 10px;
+  }
+  .wrapper .games.classic.three p {
+    padding-left: 10%;
+  }
+  .wrapper .games.classic.four {
+    grid-column-start: 4;
+    grid-column-end: 4;
+    grid-row-start: 8;
+    grid-row-end: 10;
+  }
+  .wrapper .games.classic.four img {
+    width: 20vw;
+    height: 30vh;
+    display: block;
+    margin: auto;
+    border-radius: 10px;
+  }
+  .wrapper .games.classic.five {
+    grid-column-start: 5;
+    grid-column-end: 7;
+    grid-row-start: 8;
+    grid-row-end: 10;
+  }
+  .wrapper .games.classic.five img {
+    width: 20vw;
+    height: 30vh;
+    display: block;
+    margin: auto;
+    border-radius: 10px;
+  }
+  .wrapper .games.classic.five p {
+    padding-left: 10%;
+  }
+  .wrapper .games.classic .hover:hover {
+    cursor: pointer;
+    opacity: 0.7;
+    text-shadow: #ff1313 2px 2px;
+  }
+  .wrapper .games.classic .hover img {
+    border: 10px solid #ff0303;
+  }
+  .wrapper .games.multiplayer {
+    background-color: #c2198f;
+    grid-row-start: 10;
+    grid-row-end: 14;
+    /*this is inorder to have the things change whenever i hover over them so the pic and text will change*/
+  }
+  .wrapper .games.multiplayer:hover {
+    background-color: #851062;
+  }
+  .wrapper .games.multiplayer.one {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 10;
+    grid-row-end: 14;
+  }
+  .wrapper .games.multiplayer.one h2 {
+    padding-left: 100px;
+    cursor: pointer;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  .wrapper .games.multiplayer.one h2:hover {
+    text-shadow: #f369ff 2px 2px;
+  }
+  .wrapper .games.multiplayer.one p {
+    margin-left: -50px;
+  }
+  .wrapper .games.multiplayer.one img {
+    width: 40vw;
+    height: 40vh;
+  }
+  .wrapper .games.multiplayer.two {
+    grid-column-start: 4;
+    grid-column-end: 7;
+    grid-row-start: 10;
+    grid-row-end: 12;
+    padding-top: 70px;
+  }
+  .wrapper .games.multiplayer.three {
+    grid-column-start: 4;
+    grid-column-end: 7;
+    grid-row-start: 12;
+    grid-row-end: 14;
+    padding-top: 70px;
+  }
+  .wrapper .games.multiplayer p {
+    padding-left: 170px;
+    cursor: pointer;
+    text-align: start;
+  }
+  .wrapper .games.multiplayer .hover:hover {
+    cursor: pointer;
+    opacity: 0.7;
+    text-shadow: #ff7bd7 2px 2px;
+  }
+  .wrapper .games.multiplayer .hover img {
+    /*width: 200px;
+    height: 20vh;*/
+    display: block;
+    margin: auto;
+    border-radius: 10px;
+    border: 2px solid #f76eb9;
+  }
 }
