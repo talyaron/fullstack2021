@@ -3,12 +3,18 @@ html {
     font-family: Arial, Helvetica, sans-serif;
     color: rgb(63, 62, 62);
     font-weight: bold;
+    
+    
 }
 
 body {
     background-color: rgb(143, 138, 138);
     margin: 30px 50px;
     line-height: 1.4;
+   
+    
+    
+    
 }
 
 .btn {
@@ -33,6 +39,8 @@ img {
 .wrapper {
     display: grid;
     grid-gap: 20px;
+    
+
 }
 
 // <!-- Nav-bar -->
@@ -47,7 +55,7 @@ img {
         grid-template-columns: repeat(4, 1fr);
     }
 
-    a {
+    &__link {
         background: rgb(177, 171, 171);
         display: block;
         text-decoration: none;
@@ -76,65 +84,91 @@ img {
     grid-gap: 20px;
     grid-template-areas: 'header header top-box-a''header header top-box-b';
 
-}
+    &__header {
+        grid-area: header;
+        min-height: 400px;
+        background: url(https://media2.giphy.com/media/W05iUdqyFujrRFgnn1/giphy.gif?cid=ecf05e474tadshy6zl4kjhl8w9eji5omjcf5ud46ub7rosv3&rid=giphy.gif&ct=g);
+        background-size: cover;
+        background-position: center;
+        padding: 3rem;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: center;
+        box-shadow: 0 1px 5px rgba(54, 54, 54, 0.8);
 
-.header {
-    grid-area: header;
-    min-height: 400px;
-    background: url(https://media2.giphy.com/media/W05iUdqyFujrRFgnn1/giphy.gif?cid=ecf05e474tadshy6zl4kjhl8w9eji5omjcf5ud46ub7rosv3&rid=giphy.gif&ct=g);
-    background-size: cover;
-    background-position: center;
-    padding: 3rem;
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: center;
-    box-shadow: 0 1px 5px rgba(54, 54, 54, 0.8);
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 0px;
+            color: rgb(255, 249, 249);
+            cursor: pointer;
 
-    &__h1 {
-        font-size: 4rem;
-        margin-bottom: 0px;
-        color: rgb(255, 249, 249);
-        cursor: pointer;
+
+            &:hover {
+                color: gray;
+            }
+
+        }
+
+        p {
+            font-size: 1.3rem;
+            margin-top: 0px;
+            color: rgb(255, 249, 249);
+            cursor: pointer;
+
+            &:hover {
+                color: gray;
+            }
+        }
+    }
+
+
+    &__top-box {
+        color: white;
+        display: grid;
+        align-items: center;
+        justify-items: center;
+        box-shadow: 0 1px 5px rgba(54, 54, 54, 0.8);
+        padding: 1.5rem;
+        grid-template-areas: 'top-box';
 
 
         &:hover {
-            color: gray;
+            transform: scale(0.9);
+        }
+
+        h4 {
+            font-size: 2rem;
+        }
+
+        &__price {
+            font-size: 2.5rem;
         }
 
     }
 
-    &__p {
-        font-size: 1.3rem;
-        margin-top: 0px;
-        color: rgb(255, 249, 249);
-        cursor: pointer;
+    .top-box-a {
+        background-image: url(https://c4.wallpaperflare.com/wallpaper/429/544/56/halo-4-master-chief-wallpaper-preview.jpg);
+        background-repeat: no-repeat;
+        grid-area: 'top-box-a';
+        background-size: cover;
 
         &:hover {
-            color: gray;
+            background-image: url(https://media1.giphy.com/media/UIxpCHRDOFlZKl6HQg/giphy.gif?cid=ecf05e47fwocgwhwrnxiiqc0q1zmqbr89uejgwaf6nd6fo4r&rid=giphy.gif&ct=g);
         }
     }
-}
 
-.top-box {
-    color: white;
-    display: grid;
-    align-items: center;
-    justify-items: center;
-    box-shadow: 0 1px 5px rgba(54, 54, 54, 0.8);
-    padding: 1.5rem;
+    .top-box-b {
+        grid-area: 'top-box-b';
+        background-image: url(https://wallpapercave.com/wp/wp2619593.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
 
-    &:hover{
-        transform: scale(0.9);
+        &:hover {
+            background-image: url(https://media4.giphy.com/media/igylhrJ6n15flClKE3/giphy.gif?cid=ecf05e47mfzpkabegme32v72i70d7wpdk2o6mjwpduj0p90h&rid=giphy.gif&ct=g);
+        }
     }
 
-    &__h4 {
-        font-size: 2rem;
-    }
-
-    &__price {
-        font-size: 2.5rem;
-    }
 }
 
 // <!-- Devices section -->
@@ -151,9 +185,10 @@ img {
         box-shadow: 0 1px 5px rgba(54, 54, 54, 0.8);
         cursor: pointer;
 
-    &:hover{
-        transition: 0.8s;
-        opacity: 0.5;}
+        &:hover {
+            transition: 0.8s;
+            opacity: 0.5;
+        }
     }
 }
 
@@ -164,6 +199,8 @@ img {
     grid-gap: 30px;
     grid-template-columns: repeat(2, 1fr);
     padding: 3rem;
+
+    
 }
 
 // <!-- Related-Games -->
@@ -195,4 +232,91 @@ footer {
     color: rgb(209, 208, 208);
     text-align: center;
     padding: 1rem;
+}
+
+
+@media only screen and (max-width: 1200px) {
+    .top-container {
+        background-size: cover;
+        grid-template-areas:
+            'header'
+            'top-box-a'
+            'top-box-b';
+    }
+    .devices{
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media only screen and (max-width: 900px) {
+
+    .top-container {
+        grid-template-areas:
+            'header'
+            'top-box-a'
+            'top-box-b';
+    }
+
+    .nav-bar__list {
+        grid-template-columns: 1fr;
+    }
+
+
+
+    .cs-go {
+        grid-template-columns: 1fr;
+    }
+
+    .cs-go .btn {
+        display: block;
+        text-align: center;
+        margin: auto;
+    }
+
+    .devices{
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media only screen and (max-width: 600px) {
+    
+    body{
+        margin: 0;
+       
+
+    }
+    
+    
+    .top-container {
+        grid-template-areas:
+            'header'
+            'top-box-a'
+            'top-box-b';
+    }
+
+    .header h1 {
+        font-size: 2.5rem;
+    }
+
+    .nav-bar__list {
+        grid-template-columns: 1fr;
+    }
+
+    .cs-go {
+        grid-template-columns: 1fr;
+    }
+
+    .cs-go .btn {
+        display: block;
+        text-align: center;
+        margin: auto;
+    }
+    
+    .devices{
+        grid-template-columns: 1fr;
+    }
+
+
 }

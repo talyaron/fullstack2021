@@ -173,6 +173,21 @@ p {
   border-radius: 15px;
 }
 
+.text {
+  top: 20px;
+  left: 0%;
+  width: 85%;
+  transform: translate(-50% -50%);
+  font-size: large;
+  background-color: #999;
+  border-radius: 10px;
+  padding: 20px;
+  font-size: xx-large;
+  text-align: center;
+  color: brown;
+  font-size: xx-large;
+}
+
 /*/////////////////////////////////////////////////////////////////////////////////*/
 /*////////////////////////////(h1 css)////////////////////////////////////////*/
 h1 {
