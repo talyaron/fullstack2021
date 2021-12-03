@@ -1,22 +1,47 @@
 body {
     background-color: white;
     font-family: sans-serif;
+    margin: 0;
 }
-.container{
+.wrapper{
+    
     width: 1440px;
     height: 100%;
-    top: 0;
     background: #363434;
+    margin: 0 auto;
     h1 {
-        align-items: center;
-         font-size: 5vh;
+       line-height: 3em;
+        text-align: center;
+        width: 100%;
+         font-size: 2em;
          margin: auto;
-         padding-bottom: 3em;
          color: #dbd8e3;
      }
+     /*media quary*/
+     @media only screen and(max-width: 1300px){
+        
+        max-width: 1300px;
+            width: 100%;
+    }
+     @media only screen and(max-width: 1200px){
+        
+        max-width: 1200px;
+            width: 100%;
+    }
+    
+    @media only screen and(max-width: 950px){
+            
+            max-width: 950px;
+            width: 100%;
+    }
+    @media only screen and(max-width: 600px){
+           
+            max-width: 600px;
+            width: 100%;
+    }
 }
-.wrapper {
-    top: 0;
+.container {
+    background-color: #363434;
     display: grid;
     position: relative;
     width: 1440px;
