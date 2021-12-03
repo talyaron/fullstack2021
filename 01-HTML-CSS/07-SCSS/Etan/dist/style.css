@@ -1,53 +1,63 @@
 body {
-  background-color: white;
-  margin: 0;
-  padding: 0;
   font-family: sans-serif;
 }
 
 .wrapper {
+  max-width: 225ch;
+  margin: auto;
   display: grid;
-  position: relative;
-  top: 0;
-  right: 0;
-  width: 100vw;
-  height: 100vh;
+  gap: 30px;
   background-color: #cacaca;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(4, 1fr);
+  /*media quary*/
+}
+@media only screen and (max-width: 225ch) {
+  .wrapper {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media only screen and (max-width: 150ch) {
+  .wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media only screen and (max-width: 75ch) {
+  .wrapper {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 .wrapper h1 {
-  position: relative;
   font-size: 5vh;
-  grid-column: span 4;
-  padding-left: 50%;
+  margin: auto;
 }
 .wrapper__card {
-  position: relative;
   background-color: #fcff38;
   color: black;
   border: 1px solid gray;
   border-radius: 3vw;
-  height: 20vh;
-  width: 15vw;
-  margin: 0.5vw;
-  float: left;
+  width: 450px;
+  height: 600px;
+  background-color: white;
+  margin-bottom: 40px;
 }
 .wrapper__card:hover {
   cursor: pointer;
 }
-.wrapper__card video {
-  border-radius: 3vw;
-  width: 100%;
-}
 .wrapper__card img {
-  position: absolute;
-  top: 5vh;
-  left: 0;
-  border-radius: 3vw;
-  align-items: center;
-  height: 20vh;
-  width: 20vw;
+  width: 100%;
+  margin-bottom: 0px;
+}
+.wrapper__card #cover {
+  height: 100%;
+  opacity: 1;
+  background-color: #2c2c2c;
+  z-index: 2;
+}
+.wrapper__card #cover:hover {
+  display: none;
+}
+.wrapper__card #gif {
+  z-index: 1;
 }
 .wrapper__card h1 {
   position: absolute;
@@ -56,6 +66,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1vw;
   font-weight: 100;
+  z-index: 1;
 }
 .wrapper__card p {
   color: red;
@@ -64,4 +75,25 @@ body {
   left: 1vw;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 2vh;
+  z-index: 1;
+}
+@media only screen and (max-width: 1533px) {
+  .wrapper {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media only screen and (max-width: 1200px) {
+  .wrapper {
+    grid-template-rows: repeat(3, 1fr);
+  }
+}
+@media only screen and (max-width: 800px) {
+  .wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media only screen and (max-width: 600px) {
+  .wrapper {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
