@@ -2,6 +2,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background: #1d1f29;
+  align-items: center;
   height: 150vh;
   margin: 50px;
   padding-right: 10em;
@@ -9,10 +10,11 @@ body {
 
 .logo {
   position: relative;
-  left: 270px;
+  left: 170px;
   border-radius: 100px;
   width: 4.3vw;
   height: 100px;
+  bottom: 30px;
   transition: 0.8s;
 }
 .logo:hover {
@@ -25,7 +27,9 @@ body {
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(4, 300px);
   height: 150vh;
-  gap: 30px;
+  align-items: center;
+  gap: 40px;
+  margin-top: 40px;
 }
 .container__box {
   border: 3px solid black;
@@ -81,6 +85,8 @@ body {
   background: #9dc54e;
 }
 .container__box--header {
+  position: relative;
+  bottom: 50px;
   border: 3px solid #fc5d1f;
   background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpDr_WJQxJr3hG2-91FwQUDVZcWK2F9QjwBQ&usqp=CAU);
   background-repeat: no-repeat;
@@ -134,7 +140,7 @@ h4 {
   color: #93be3d;
   position: relative;
   border: 3px solid #f8f8f8;
-  bottom: 100px;
+  bottom: 120px;
   width: 20%;
   height: 6vh;
   text-align: center;

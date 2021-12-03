@@ -1,8 +1,11 @@
+
+
 body
 {
     background-size: cover;
     background-repeat: no-repeat;
     background: rgb(29, 31, 41);
+    align-items: center;
     height: 150vh;
     margin:50px;
     padding-right: 10em;
@@ -11,10 +14,11 @@ body
 .logo
 {
   position: relative;
-  left: 270px;
+  left: 170px;
   border-radius: 100px;
   width: 4.3vw;
   height: 100px;
+  bottom: 30px;;
   transition: 0.8s;
 
   &:hover
@@ -25,14 +29,15 @@ body
   }
 }
 
-
 .container
 {
     display: grid;
     grid-template-columns: repeat(4,1fr);
     grid-template-rows: repeat(4,300px);
     height: 150vh;
-    gap: 30px;
+    align-items: center;
+    gap: 40px;
+    margin-top: 40px;
 
     
     &__box
@@ -113,6 +118,8 @@ body
 
         &--header
         {
+        position: relative;
+        bottom: 50px;
         border: 3px solid rgb(252, 93, 31);
         background:url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpDr_WJQxJr3hG2-91FwQUDVZcWK2F9QjwBQ&usqp=CAU) ;
         background-repeat: no-repeat;
@@ -121,11 +128,12 @@ body
         grid-column-end: 5;
         border-radius: 50px;
         opacity: 0.8;
+
         
         &__content
         {
           text-align: center;
-          margin-top: 160px; 
+          margin-top: 160px;
         
         &__btn
         {
@@ -182,7 +190,7 @@ h4
         color: rgb(147, 190, 61);
         position: relative;
         border: 3px solid rgb(248, 248, 248);
-        bottom: 100px;
+        bottom: 120px;
         width: 20%;
         height: 6vh;
         text-align: center;
