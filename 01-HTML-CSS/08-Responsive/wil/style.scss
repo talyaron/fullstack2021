@@ -1,0 +1,40 @@
+body {
+    background-color: rgb(209, 183, 241);
+    display: grid;
+    gap: 40px;
+    border-radius: 5px;
+    grid-template-columns: repeat(4, 1fr);
+    margin: auto;
+  img{
+      width: 100%;
+  }
+}
+
+@media only screen and (max-width:1200px) {
+    body {
+      
+        grid-template-columns: repeat(3, 1fr);
+ 
+    }
+}
+
+@media only screen and (max-width:900px) {
+    body {
+       
+        grid-template-columns: repeat(2, 1fr);
+  
+    }
+}
+
+@media only screen and (max-width:600px) {
+    body {
+      
+        grid-template-columns: 1fr;
+     
+    }
+}
+.box{
+    background-color: rgb(231, 225, 225);
+    border-radius: 5px;
+    
+}

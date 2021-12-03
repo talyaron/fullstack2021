@@ -188,8 +188,23 @@ p{
       width: 400px;
       border-radius: 15px;
    }
+   
 }
-
+.text{
+      
+      top:20px;
+      left: 0%;
+      width: 85%;
+      transform: translate(-50% -50%);
+      font-size: large;
+      background-color: #999;
+      border-radius: 10px;
+      padding: 20px;
+      font-size: xx-large;
+      text-align: center;
+      color: brown;
+      font-size: xx-large;
+  }
 
 
 /*/////////////////////////////////////////////////////////////////////////////////*/
@@ -215,5 +230,5 @@ h1{
 
 }
 img:hover{
-   transform: scale(1.2);
+    transform: scale(1.2);
 }

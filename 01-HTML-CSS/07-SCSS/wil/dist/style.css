@@ -1,0 +1,19 @@
+body {
+  background-color: black;
+}
+
+.wrapper {
+  display: inline-flex;
+  background-color: #414141;
+}
+.wrapper img {
+  border: 1px solid black;
+  border-radius: 4px;
+  padding: 10px;
+  width: 150px;
+}
+
+.wrapper2 {
+  display: inline-flex;
+  background-color: #414141;
+}
