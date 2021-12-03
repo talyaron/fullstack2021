@@ -180,9 +180,13 @@ footer {
   padding: 1rem;
 }
 
-@media only screen and (max-width: 1400px) {
+@media only screen and (max-width: 1200px) {
   .top-container {
     grid-template-areas: "header" "top-box-a" "top-box-b";
+  }
+
+  .devices {
+    grid-template-columns: 1fr;
   }
 }
 @media only screen and (max-width: 900px) {
@@ -202,6 +206,10 @@ footer {
     display: block;
     text-align: center;
     margin: auto;
+  }
+
+  .devices {
+    grid-template-columns: 1fr;
   }
 }
 @media only screen and (max-width: 600px) {
@@ -225,5 +233,9 @@ footer {
     display: block;
     text-align: center;
     margin: auto;
+  }
+
+  .devices {
+    grid-template-columns: 1fr;
   }
 }
