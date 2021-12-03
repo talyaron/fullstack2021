@@ -1,50 +1,55 @@
 body {
-    background-color: white;
     font-family: sans-serif;
 }
 
 .wrapper {
-    top: 0;
+    max-width: 225ch;
+    margin: auto;
     display: grid;
-    position: relative;
-    width: 100vw;
+    gap: 30px;
     background-color: rgb(202, 202, 202);
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+
+    @media only screen and (max-width: 225ch) {
+        grid-template-columns: repeat(3,1fr);
+        
+    }
+    @media only screen and (max-width: 150ch) {
+        grid-template-columns: repeat(2,1fr);
+        
+    }
+    @media only screen and (max-width: 75ch) {
+        grid-template-columns: repeat(1,1fr);
+        
+    }
     
     h1 {
-
-        position: relative;
         font-size: 5vh;
-        grid-column: span 5;
         margin: auto;
     }
 
     &__card {
-        position: relative;
         background-color: rgb(252, 255, 56);
         color: rgb(0, 0, 0);
         border: 1px solid gray;
         border-radius: 3vw;
-        height: 200px;
-        width: 200px;
-        size-adjust: inherit;
-        margin: 30px;
-        z-index: 0;
+        width: 450px;
+        height: 600px;
+        background-color: white;
+        margin-bottom: 40px;
 
         &:hover {
             cursor: pointer;
         }
 
-        video {
-            border-radius: 3vw;
-            width: 100%;
-        }
+        // video {
+        //     border-radius: 3vw;
+        //     width: 100%;
+        // }
 
         img {
-            position: absolute;
-            border-radius: 3vw;
-            align-items: center;
             width: 100%;
+            margin-bottom: 0px;
         }
 
 
