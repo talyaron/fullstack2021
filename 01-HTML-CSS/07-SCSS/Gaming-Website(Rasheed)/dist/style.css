@@ -24,7 +24,7 @@ body {
 }
 
 img {
-  max-width: 100%;
+  width: 100%;
   border-radius: 20px;
 }
 
@@ -62,8 +62,7 @@ img {
   grid-gap: 20px;
   grid-template-areas: "header header top-box-a" "header header top-box-b";
 }
-
-.header {
+.top-container__header {
   grid-area: header;
   min-height: 400px;
   background: url(https://media2.giphy.com/media/W05iUdqyFujrRFgnn1/giphy.gif?cid=ecf05e474tadshy6zl4kjhl8w9eji5omjcf5ud46ub7rosv3&rid=giphy.gif&ct=g);
@@ -76,41 +75,59 @@ img {
   justify-content: center;
   box-shadow: 0 1px 5px rgba(54, 54, 54, 0.8);
 }
-.header__h1 {
+.top-container__header h1 {
   font-size: 4rem;
   margin-bottom: 0px;
   color: #fff9f9;
   cursor: pointer;
 }
-.header__h1:hover {
+.top-container__header h1:hover {
   color: gray;
 }
-.header__p {
+.top-container__header p {
   font-size: 1.3rem;
   margin-top: 0px;
   color: #fff9f9;
   cursor: pointer;
 }
-.header__p:hover {
+.top-container__header p:hover {
   color: gray;
 }
-
-.top-box {
+.top-container__top-box {
   color: white;
   display: grid;
   align-items: center;
   justify-items: center;
   box-shadow: 0 1px 5px rgba(54, 54, 54, 0.8);
   padding: 1.5rem;
+  grid-template-areas: "top-box";
 }
-.top-box:hover {
+.top-container__top-box:hover {
   transform: scale(0.9);
 }
-.top-box__h4 {
+.top-container__top-box h4 {
   font-size: 2rem;
 }
-.top-box__price {
+.top-container__top-box .price {
   font-size: 2.5rem;
+}
+.top-container .top-box-a {
+  background-image: url(https://c4.wallpaperflare.com/wallpaper/429/544/56/halo-4-master-chief-wallpaper-preview.jpg);
+  background-repeat: no-repeat;
+  grid-area: "top-box-a";
+  background-size: cover;
+}
+.top-container .top-box-a:hover {
+  background-image: url(https://media1.giphy.com/media/UIxpCHRDOFlZKl6HQg/giphy.gif?cid=ecf05e47fwocgwhwrnxiiqc0q1zmqbr89uejgwaf6nd6fo4r&rid=giphy.gif&ct=g);
+}
+.top-container .top-box-b {
+  grid-area: "top-box-b";
+  background-image: url(https://wallpapercave.com/wp/wp2619593.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.top-container .top-box-b:hover {
+  background-image: url(https://media4.giphy.com/media/igylhrJ6n15flClKE3/giphy.gif?cid=ecf05e47mfzpkabegme32v72i70d7wpdk2o6mjwpduj0p90h&rid=giphy.gif&ct=g);
 }
 
 .devices {
@@ -161,4 +178,64 @@ footer {
   color: #d1d0d0;
   text-align: center;
   padding: 1rem;
+}
+
+@media only screen and (max-width: 1200px) {
+  .top-container {
+    grid-template-areas: "header" "top-box-a" "top-box-b";
+  }
+
+  .devices {
+    grid-template-columns: 1fr;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .top-container {
+    grid-template-areas: "header" "top-box-a" "top-box-b";
+  }
+
+  .nav-bar__list {
+    grid-template-columns: 1fr;
+  }
+
+  .cs-go {
+    grid-template-columns: 1fr;
+  }
+
+  .cs-go .btn {
+    display: block;
+    text-align: center;
+    margin: auto;
+  }
+
+  .devices {
+    grid-template-columns: 1fr;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .top-container {
+    grid-template-areas: "header" "top-box-a" "top-box-b";
+  }
+
+  .header h1 {
+    font-size: 2.5rem;
+  }
+
+  .nav-bar__list {
+    grid-template-columns: 1fr;
+  }
+
+  .cs-go {
+    grid-template-columns: 1fr;
+  }
+
+  .cs-go .btn {
+    display: block;
+    text-align: center;
+    margin: auto;
+  }
+
+  .devices {
+    grid-template-columns: 1fr;
+  }
 }
