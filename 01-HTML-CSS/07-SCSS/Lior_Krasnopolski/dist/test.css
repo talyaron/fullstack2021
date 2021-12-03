@@ -1,0 +1,29 @@
+@media only screen and (max-width: 2900px) {
+  body {
+    background: #062df3;
+  }
+
+  .container__box--header {
+    background: #48d443;
+    width: 100%;
+    align-items: center;
+    align-content: center;
+  }
+}
+@media only screen and (max-width: 1840px) {
+  body {
+    background: #48d443;
+  }
+
+  .container {
+    background: #d46c43;
+    width: 100%;
+    align-items: center;
+    align-content: center;
+  }
+}
+@media only screen and (max-width: 1340px) {
+  body {
+    background: #f30606;
+  }
+}

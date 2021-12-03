@@ -1,6 +1,6 @@
 body {
+  max-width: 2900px;
   background-size: cover;
-  background-repeat: no-repeat;
   background: #1d1f29;
   align-items: center;
   height: 150vh;
