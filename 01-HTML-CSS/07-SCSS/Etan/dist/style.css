@@ -13,6 +13,7 @@ body {
   align-items: center;
   font-size: 5vh;
   margin: auto;
+  padding-bottom: 3em;
   color: #dbd8e3;
 }
 
@@ -58,22 +59,22 @@ body {
   background: #352f44;
   color: black;
   border: 1px solid gray;
-  border-radius: 3vw;
+  border-radius: 3em;
   height: 200px;
   width: 200px;
-  margin: 5px;
+  margin-bottom: 2em;
   z-index: 0;
 }
 .wrapper__card:hover {
   cursor: pointer;
 }
 .wrapper__card video {
-  border-radius: 3vw;
+  border-radius: 3em;
   width: 100%;
 }
 .wrapper__card img {
   position: absolute;
-  border-radius: 3vw;
+  border-radius: 3em;
   align-items: center;
   width: 100%;
 }
@@ -97,7 +98,7 @@ body {
   font-weight: 100;
   z-index: 1;
   bottom: 0;
-  margin: 10%;
+  margin: 1em;
 }
 .wrapper__card p {
   color: #dbd8e3;
