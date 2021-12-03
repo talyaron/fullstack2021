@@ -55,7 +55,7 @@ img {
         grid-template-columns: repeat(4, 1fr);
     }
 
-    a {
+    &__link {
         background: rgb(177, 171, 171);
         display: block;
         text-decoration: none;
@@ -141,7 +141,7 @@ img {
             font-size: 2rem;
         }
 
-        .price {
+        &__price {
             font-size: 2.5rem;
         }
 

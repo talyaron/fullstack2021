@@ -40,7 +40,7 @@ img {
   list-style: none;
   grid-template-columns: repeat(4, 1fr);
 }
-.nav-bar a {
+.nav-bar__link {
   background: #b1abab;
   display: block;
   text-decoration: none;
@@ -52,7 +52,7 @@ img {
   box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
   cursor: pointer;
 }
-.nav-bar a:hover {
+.nav-bar__link:hover {
   background: black;
   color: #d1d0d0;
 }
@@ -108,7 +108,7 @@ img {
 .top-container__top-box h4 {
   font-size: 2rem;
 }
-.top-container__top-box .price {
+.top-container__top-box__price {
   font-size: 2.5rem;
 }
 .top-container .top-box-a {
