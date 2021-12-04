@@ -1,55 +1,103 @@
 body {
+    background-color: white;
     font-family: sans-serif;
+    margin: 0;
 }
-
-.wrapper {
-    max-width: 225ch;
-    margin: auto;
-    display: grid;
-    gap: 30px;
-    background-color: rgb(202, 202, 202);
-    grid-template-columns: repeat(4, 1fr);
-
-    @media only screen and (max-width: 225ch) {
-        grid-template-columns: repeat(3,1fr);
+.wrapper{
+    
+    width: 1440px;
+    height: 100%;
+    background: #363434;
+    margin: 0 auto;
+    h1 {
+       line-height: 3em;
+        text-align: center;
+        width: 100%;
+         font-size: 2em;
+         margin: auto;
+         color: #dbd8e3;
+     }
+     /*media quary*/
+     @media only screen and(max-width: 1300px){
         
+        max-width: 1300px;
+            width: 100%;
     }
-    @media only screen and (max-width: 150ch) {
-        grid-template-columns: repeat(2,1fr);
+     @media only screen and(max-width: 1200px){
         
-    }
-    @media only screen and (max-width: 75ch) {
-        grid-template-columns: repeat(1,1fr);
-        
+        max-width: 1200px;
+            width: 100%;
     }
     
-    h1 {
-        font-size: 5vh;
-        margin: auto;
+    @media only screen and(max-width: 950px){
+            
+            max-width: 950px;
+            width: 100%;
     }
+    @media only screen and(max-width: 600px){
+           
+            max-width: 600px;
+            width: 100%;
+    }
+}
+.container {
+    background-color: #363434;
+    display: grid;
+    position: relative;
+    width: 1440px;
+    max-width: 1440px;
+    grid-template-columns: repeat(5,1fr);
+
+     /*media quary*/
+     @media only screen and(max-width: 1300px){
+        grid-template-columns: repeat(4,1fr);
+        max-width: 1300px;
+            width: 100%;
+    }
+     @media only screen and(max-width: 1200px){
+        grid-template-columns: repeat(3,1fr);
+        max-width: 1200px;
+            width: 100%;
+    }
+    
+    @media only screen and(max-width: 950px){
+            grid-template-columns: repeat(2,1fr);
+            max-width: 950px;
+            width: 100%;
+    }
+    @media only screen and(max-width: 600px){
+            grid-template-columns: repeat(1,1fr);
+            max-width: 600px;
+            width: 100%;
+    }
+    
+    
 
     &__card {
-        background-color: rgb(252, 255, 56);
+        position: relative;
+        background: #5c5757;
         color: rgb(0, 0, 0);
         border: 1px solid gray;
-        border-radius: 3vw;
-        width: 450px;
-        height: 600px;
-        background-color: white;
-        margin-bottom: 40px;
+        border-radius: 3em;
+        height: 200px;
+        width: 200px;
+        margin-bottom: 2em;
+        z-index: 0;
 
         &:hover {
             cursor: pointer;
         }
 
-        // video {
-        //     border-radius: 3vw;
-        //     width: 100%;
-        // }
+        video {
+            border-radius: 3em;
+            width: 100%;
+        }
 
         img {
+            position: absolute;
+            border-radius: 3em;
+            align-items: center;
             width: 100%;
-            margin-bottom: 0px;
         }
 
 
@@ -72,37 +120,25 @@ body {
 
         h1 {
             position: absolute;
-            color: rgb(25, 0, 255);
-            bottom: 0;
+            color: #62929a;
             font-family: Arial, Helvetica, sans-serif;
-            font-size: 1vw;
+            font-size: 2vh;
             font-weight: 100;
             z-index: 1;
+            bottom: 3em;
+            line-height: 1rem;
         }
 
         p {
-            color: red;
+            color: #efecec;
             position: absolute;
             bottom: 0;
-            left: 1vw;
+            right: 0;
             font-family: Arial, Helvetica, sans-serif;
             font-size: 2vh;
             z-index: 1;
+            margin: 10%;
         }
     }
-    /*media quary*/
-        
-    @media only screen and (max-width: 1533px){
-        grid-template-columns: repeat(4,1fr);
-    }
-    @media only screen and (max-width: 1200px){
-            grid-template-rows: repeat(3,1fr);
-            
-    }
-    @media only screen and (max-width: 800px){
-            grid-template-columns: repeat(2,1fr);
-    }
-    @media only screen and (max-width: 600px){
-            grid-template-columns: repeat(1,1fr);
-    }
+    
 }

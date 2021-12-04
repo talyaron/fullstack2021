@@ -40,7 +40,7 @@ img {
   list-style: none;
   grid-template-columns: repeat(4, 1fr);
 }
-.nav-bar a {
+.nav-bar__link {
   background: #b1abab;
   display: block;
   text-decoration: none;
@@ -51,8 +51,9 @@ img {
   font-size: 1.1rem;
   box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
   cursor: pointer;
+  border-radius: 10px;
 }
-.nav-bar a:hover {
+.nav-bar__link:hover {
   background: black;
   color: #d1d0d0;
 }
@@ -74,6 +75,7 @@ img {
   align-items: start;
   justify-content: center;
   box-shadow: 0 1px 5px rgba(54, 54, 54, 0.8);
+  border-radius: 15px;
 }
 .top-container__header h1 {
   font-size: 4rem;
@@ -101,6 +103,7 @@ img {
   box-shadow: 0 1px 5px rgba(54, 54, 54, 0.8);
   padding: 1.5rem;
   grid-template-areas: "top-box";
+  border-radius: 15px;
 }
 .top-container__top-box:hover {
   transform: scale(0.9);
@@ -108,26 +111,26 @@ img {
 .top-container__top-box h4 {
   font-size: 2rem;
 }
-.top-container__top-box .price {
+.top-container__top-box__price {
   font-size: 2.5rem;
 }
 .top-container .top-box-a {
   background-image: url(https://c4.wallpaperflare.com/wallpaper/429/544/56/halo-4-master-chief-wallpaper-preview.jpg);
   background-repeat: no-repeat;
   grid-area: "top-box-a";
-  background-size: cover;
+  background-size: 100% 100%;
 }
 .top-container .top-box-a:hover {
   background-image: url(https://media1.giphy.com/media/UIxpCHRDOFlZKl6HQg/giphy.gif?cid=ecf05e47fwocgwhwrnxiiqc0q1zmqbr89uejgwaf6nd6fo4r&rid=giphy.gif&ct=g);
 }
 .top-container .top-box-b {
   grid-area: "top-box-b";
-  background-image: url(https://wallpapercave.com/wp/wp2619593.jpg);
+  background-image: url(https://vistapointe.net/images/counter-strike-3.jpg);
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100% 100%;
 }
 .top-container .top-box-b:hover {
-  background-image: url(https://media4.giphy.com/media/igylhrJ6n15flClKE3/giphy.gif?cid=ecf05e47mfzpkabegme32v72i70d7wpdk2o6mjwpduj0p90h&rid=giphy.gif&ct=g);
+  background-image: url(https://media2.giphy.com/media/l4FGq6m2f2jMwgMkE/giphy.gif?cid=ecf05e47oi7i0z7d4wirx3d3opdx6499dx7r2olk7rxdfpyg&rid=giphy.gif&ct=g);
 }
 
 .devices {
@@ -141,6 +144,7 @@ img {
   padding: 1.5rem 2rem;
   box-shadow: 0 1px 5px rgba(54, 54, 54, 0.8);
   cursor: pointer;
+  border-radius: 10px;
 }
 .devices__box:hover {
   transition: 0.8s;
@@ -156,19 +160,19 @@ img {
   padding: 3rem;
 }
 
-.related-games {
+.more-games {
   display: grid;
   grid-gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 }
-.related-games__img {
+.more-games__img {
   width: 100%;
   box-shadow: 0 1px 5px rgba(54, 54, 54, 0.8);
   border-radius: 20px;
   cursor: pointer;
   transition: transform 0.2s ease-in;
 }
-.related-games__img:hover {
+.more-games__img:hover {
   transform: scale(0.9);
 }
 

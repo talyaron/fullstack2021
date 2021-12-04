@@ -4,6 +4,7 @@ body{
    
    
 }
+
 a{
    font-size: xx-large;
  /* background-color: black;*/
@@ -29,9 +30,10 @@ p{
    align-items: center;  
 }
 /*////////////////////////////(header)////////////////////////////////////////*/
+
 .header{
-   display: block;
-   background-color: #0C090A;
+  display: block;
+  background-color: #0C090A;
   justify-content: end;
   font-size: 40px;
   height: 80px;
@@ -50,11 +52,13 @@ p{
       text-align: italic;
       color: white;
       justify-self:center;
-    }   
+    } 
+     
    }
-/*/////////////////////////////////////////////////////////////////////*/ 
+/*///////////////////////////////////////////////////////////////////////////////*/ 
 
 /*////////////////////////////(Menu/flex)////////////////////////////////////////*/
+
 .menu2{
    display: flex;
    flex-wrap: wrap;
@@ -65,13 +69,19 @@ p{
 
    .box{
       
-      border: solid black;
-      background-color: #999;
+     
+     
       width: 100px;
-      margin: 10px;
+      margin: 35px;
    }
+   a:hover{
+      border: solid black; 
+   }
+ 
 }
+
 /*////////////////////////////(Main has main articil/grid)////////////////////////////////////////*/
+
 .main{
 
    display: grid;
@@ -86,15 +96,13 @@ p{
       border-radius: 15px;
    
    }
-
-
   img{
     height: 400px;
     width: 400px;
     border-radius: 15px;
  }
  .box.gmain{
-    background-image:url('https://image.winudf.com/v2/image/Y29tLndGb3J0bml0ZTRLXzczMjYzNjBfc2NyZWVuXzBfMTUyOTA1MTIyNl8wMTU/screen-0.jpg?fakeurl=1&type=.jpg');
+    
     grid-column-start: 1;
     grid-column-end:3 ;
     grid-row-start: 1;
@@ -102,11 +110,13 @@ p{
     background-repeat: no-repeat;
     background-size: 100% 100%;
    background-size: cover;
+   width: 100% ;
+   height: 100%;
     p{
     margin-top: 900px;
  }
  }
- 
+
 }
 /*////////////////////////////(small artical grid)////////////////////////////////////////*/
 
@@ -120,7 +130,7 @@ p{
    margin-top: 300px;
    
    .box{
-    
+      
       border-radius: 15px;
    }
    img{
@@ -128,6 +138,7 @@ p{
       width: 400px;
       border-radius: 15px;
    }
+  
 }
 /*////////////////////////////(small artical grid)////////////////////////////////////////*/
 
@@ -149,8 +160,10 @@ p{
       width: 400px;
       border-radius: 15px;
    }
+  
 }
-/*////////////////////////////(small artical grid)////////////////////////////////////////*/
+    /*////////////////////////////(small artical grid)////////////////////////////////////////*/
+
 .num3{
    display: grid;
    background: color #999;
@@ -168,6 +181,7 @@ p{
       width: 400px;
       border-radius: 15px;
    }
+   
 }
 /*////////////////////////////(small artical grid)////////////////////////////////////////*/
 
@@ -232,3 +246,90 @@ h1{
 img:hover{
     transform: scale(1.2);
 }
+
+
+
+@media only screen and(max-width:1200px) {
+   .menu2{
+      display: flex;
+     flex-wrap: wrap;
+   }
+   .header{
+      width: auto;
+   } 
+   .main{
+
+      display: grid;
+      grid-template-columns:repeat(1, 1fr) ;
+   }
+   .num2{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+   }
+   .num3{
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+   }
+   .num4{
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+   }
+}
+@media only screen and(max-width:900px) {
+   .menu2{
+      display: flex;
+     flex-wrap: wrap;
+
+    }
+    .header{
+      width: auto;
+   }
+   .main{
+
+      display: grid;
+      grid-template-columns:repeat(1, 1fr) ;
+   }
+   .num2{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+   }
+   .num3{
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+   }
+   .num4{
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+   }
+}
+
+@media only screen and(max-width:600px) {
+   .menu2{
+      display: flex;
+     flex-wrap: wrap;
+   }
+   .header{
+      width: auto;
+   }
+   .main{
+
+      display: grid;
+      grid-template-columns:repeat(1, 1fr) ;
+   }
+   .num2{
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+
+   }
+   .num3{
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+   }
+   .num4{
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+   }
+}
+
+
+   
