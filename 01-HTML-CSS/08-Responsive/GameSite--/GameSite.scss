@@ -5,540 +5,386 @@ body{
 .MainGrid{
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: repeat(6, 1fr);
+    grid-template-rows: repeat(6, 1fr 1fr 1fr 1fr 1fr 1fr);
     grid-gap: 10px;
     height: 700px;
 
-    grid-area: 'header''addictingGames''content1''emptySeparator''newGames''content1''footer';
-
-    @media only screen and (max-width: 1200px){
-        grid-template-columns: repeat(4, 1fr);
-        background-color: rgb(163, 219, 163);
-        margin: 20px;
-        // grid-area: 'header''addictingGames''content1''emptySeparator''newGames''content1''footer';
-
-    }
-
-
-    @media only screen and (max-width: 900px){
-        grid-template-columns: repeat(2, 1fr);
-        background-color: rgb(98, 90, 112);
-        margin: 20px;
-        // grid-area: 'header''addictingGames''content1''emptySeparator''newGames''content1''footer';
-    }
-
-    @media only screen and (max-width: 600px){
-        grid-template-columns: repeat(1, 1fr);
-        background-color: rgb(194, 141, 81);
-        margin: 20px;
-        // grid-area: 'header''addictingGames''content1''emptySeparator''newGames''content1''footer';
-    }
-
-    
-}
-
-
-
-
-
-.header{
-
-    @media only screen and (max-width: 1200px){
-        grid-template-columns: repeat(4, 1fr);
-        background-color: rgb(163, 219, 163);
-        margin: 20px;
-        // grid-area: 'header''addictingGames''content1''emptySeparator''newGames''content1''footer';
-
-    }
-    grid-area: header;
-    grid-column: 1/8;
-    color: white;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    height: 70px;
-
-    
-
-    &__logo{
-        height: 320px;
-           
-    }
-        
-
-
-    &__search{
-        display: flex;
-        margin-left: 20%;
-    
-        input{
-            box-shadow: 2px 2px 6px rgb(17, 16, 16);
-            background-color: #2e3030;
-            color: rgba(85, 82, 82, 0.945);
-            height: 45px;
-            border-radius: 8px;
-            font-size: 18px;
-            border: none;
-            width: 350px;
-
-            @media only screen and (max-width: 600px) {
-                width: 8ch;           
-            }
-        }   
-    }
-
-    .material-icons{
-        position: relative;
-        top: 10px;
-        right: 13%;
-        color: red;
-       
-    }
-
-    .material-icons:hover, &__logo:hover{
-        cursor: pointer;
-    }
-
-    
-    .games, .hot, .gamePass{
-        display: inline-block;
-        position: relative;
-        height: 45px;
-        border: 1px solid rgb(68, 67, 67);
-        left: 14%;
-        width: 140px;
-        font-size: 16px;
-        border-radius: 7px;
-        background-color: #242525;
+    .header{
+        grid-column: 1/8;
         color: white;
-        transition: all .3s ease;  
-        margin-left: 5px; 
-        box-shadow: 2px 2px 6px rgb(17, 16, 16);
-    }
-
-
-    .games>img, .hot>img{
-        position: absolute;
-        left: 5%;
-        top: 7%;
-    }
-
-    .hot>img{
-        left: 9%;
-       
-    }
-
-    .gamePass {     
-       color: rgba(253, 57, 57, 0.911);
-       border: 1px solid rgb(196, 187, 187);
-
-        span{
-           color: white;
-        }
-    }
-
-
-    .games:hover, .hot:hover,
-    .gamePass:hover{
-        border: 1px solid red;
-        cursor: pointer;
-    }
-
-    &__button2{
         display: flex;
-        flex-direction: column;
-        position: relative; 
-        top: -16%;
-        height: 20px;
-        left: 15%;
-        gap: 5px;
+        flex-direction: row;
+        align-items: center;
+        height: 70px;
+    
+        &__logo{
+            height: 320px;
+        }
+    
+        &__search{
+            display: flex;
+            margin-left: 20%;
         
-       
-
-        .register{
-            border: none;
-            color: rgb(247, 241, 241);
-            background-color: rgb(7, 131, 44);
-            border-radius: 10px;
-            transition: all .3s ease-in-out;
-
-            
+            input{
+                box-shadow: 2px 2px 6px rgb(17, 16, 16);
+                background-color: #2e3030;
+                color: rgba(85, 82, 82, 0.945);
+                height: 45px;
+                border-radius: 8px;
+                font-size: 18px;
+                border: none;
+                width: 350px;
+            }   
         }
-
-        .register:hover, .login:hover{
-            cursor: pointer;
-        }
-
-        .login{
-            border: none;
-            box-shadow: 2px 2px 6px rgb(17, 16, 16);
-            background-color: #2e3030;
-            border-radius: 10px;
-            color: rgb(247, 241, 241);
-            transition: all .3s ease-in-out;
-        }
-
-        .register:hover{
-            background-color: rgb(8, 104, 8);
-        }
-
-        .login:hover{
-           color: red;
-        }
-    }
-
-
-
-}
-.addictingGames{
-
-    @media only screen and (max-width: 1200px){
-        grid-template-columns: repeat(4, 1fr);
-        background-color: rgb(163, 219, 163);
-        margin: 20px;
-        // grid-area: 'header''addictingGames''content1''emptySeparator''newGames''content1''footer';
-
-    }
-
-
-    @media only screen and (max-width: 900px){
-        grid-template-columns: repeat(2, 1fr);
-        background-color: rgb(98, 90, 112);
-        margin: 20px;
-        // grid-area: 'header''addictingGames''content1''emptySeparator''newGames''content1''footer';
-    }
-
-    @media only screen and (max-width: 600px){
-        grid-template-columns: repeat(1, 1fr);
-        background-color: rgb(194, 141, 81);
-        margin: 20px;
-        // grid-area: 'header''addictingGames''content1''emptySeparator''newGames''content1''footer';
-    }
-    grid-area: addictingGames;
     
-    grid-column: 1/8;
-    display: flex;
-    flex-direction: row;
-    color: white;
-    margin-left: 100px;
-    margin-right: 100px;
-    align-items: center;
-    
-
-    &__title{       
-        font-family: 'Source Sans Pro', sans-serif;
-        font-size: 26px;
-        pointer-events: none;
-    }
-
-}
-
-
-.content1{
-    
-    grid-area: content1;
-    grid-column: 1/8;
-    color: white;
-    margin-left: 100px;
-    display: grid;
-    
-    
-    grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    height: 750px;
-    margin-left: 90px;
-    margin-right: 100px;
-    text-align: center;
-
-    @media only screen and (max-width: 1200px){
-        grid-template-columns: repeat(4, 1fr);
-        background-color: rgb(163, 219, 163);
-        margin: 20px;
-        // grid-area: 'header''addictingGames''content1''emptySeparator''newGames''content1''footer';
-
-    }
-
-
-    @media only screen and (max-width: 900px){
-        grid-template-columns: repeat(2, 1fr);
-        background-color: rgb(98, 90, 112);
-        margin: 20px;
-        // grid-area: 'header''addictingGames''content1''emptySeparator''newGames''content1''footer';
-    }
-
-    @media only screen and (max-width: 600px){
-        grid-template-columns: repeat(1, 1fr);
-        background-color: rgb(194, 141, 81);
-        margin: 20px;
-        // grid-area: 'header''addictingGames''content1''emptySeparator''newGames''content1''footer';
-    }
-
-
-    &__game1, &__game2, &__game3, &__game4, &__game5,
-    &__game6, &__game7, &__game8, &__game9, &__game10,
-    &__game11, &__game12, &__game13, &__game14{
-        height: 300px;
-        margin: 10px 10px 90px;
-        box-shadow: 
-        2px 2px 2px #0a0a0a,
-        4px 6px 12px rgba(16, 16, 16, 0.2),
-        6px 6px 18px rgba(3, 3, 3, 0.4);
-        
-    }
-
-    .img {
-       width: 220px;
-       height: 260px;
-       display: block;
-       border-radius: 20px;
-       transition: all .6s ease;
-       
-       
-        :hover{
-           cursor: pointer;
-           opacity: 0.7;
-           transform: scale(1.1);
+        .material-icons{
+            position: relative;
+            top: 10px;
+            right: 13%;
+            color: red;
            
         }
-         
-    }
-
-
-
-    p {
-     font-family: 'Source Sans Pro', sans-serif;
-      font-size: 18px;
-      pointer-events: none;
-
-    }
-
-     
-}  
-
-
-.emptySeparator{
-    grid-area: emptySeparator;
-    grid-column: 1/8;
-    color: white;
-    height: 50px;
-}
-
-
-.newGames{
-    grid-area: newGames;
-    grid-column: 1/8;
-    display: flex;
-    flex-direction: row;
-    color: white;
-    margin-left: 100px;
-    margin-right: 100px;
-    align-items: center;
-
-
-    @media only screen and (max-width: 1200px){
-        grid-template-columns: repeat(4, 1fr);
-        background-color: rgb(163, 219, 163);
-        margin: 20px;
-        // grid-area: 'header''addictingGames''content1''emptySeparator''newGames''content1''footer';
-
-    }
-
-
-    @media only screen and (max-width: 900px){
-        grid-template-columns: repeat(2, 1fr);
-        background-color: rgb(98, 90, 112);
-        margin: 20px;
-        // grid-area: 'header''addictingGames''content1''emptySeparator''newGames''content1''footer';
-    }
-
-    @media only screen and (max-width: 600px){
-        grid-template-columns: repeat(1, 1fr);
-        background-color: rgb(194, 141, 81);
-        margin: 20px;
-        // grid-area: 'header''addictingGames''content1''emptySeparator''newGames''content1''footer';
-    }
-
     
-    &__title{
-        font-family: 'Source Sans Pro', sans-serif;
-        font-size: 26px;
-        pointer-events: none;
-
-        span{
-            color: grey;
-        }
-  
-    }
-
-
-    .button {
-        display: inline-block;
-        position: relative;
-        left: 61%;
-        border-radius: 8px;
-        background-color: #2e3030;
-        border: none;
-        color: #FFFFFF;
-        text-align: center;
-        font-size: 24px;
-        height: 60px;
-        width: 320px;
-        box-shadow: 2px 2px 6px rgb(17, 16, 16);
-        transition: all 0.5s;
-        cursor: pointer;
-        margin: 5px;
-
-        span {
+        .material-icons:hover, &__logo:hover{
             cursor: pointer;
+        }
+    
+        
+        .games, .hot, .gamePass{
             display: inline-block;
             position: relative;
-            transition: 0.5s;
+            height: 45px;
+            border: 1px solid rgb(68, 67, 67);
+            left: 14%;
+            width: 140px;
+            font-size: 16px;
+            border-radius: 7px;
+            background-color: #242525;
+            color: white;
+            transition: all .3s ease;  
+            margin-left: 5px; 
+            box-shadow: 2px 2px 6px rgb(17, 16, 16);
         }
-
-        :after {
-            content: '\00bb';
+    
+    
+        .games>img, .hot>img{
             position: absolute;
-            opacity: 0;
-            top: 0;
-            right: -20px;
-            transition: 0.5s;
+            left: 5%;
+            top: 7%;
         }
+    
+        .hot>img{
+            left: 9%;
+           
+        }
+    
+        .gamePass {     
+           color: rgba(253, 57, 57, 0.911);
+           border: 1px solid rgb(196, 187, 187);
+    
+            span{
+               color: white;
+            }
+        }
+    
+    
+        .games:hover, .hot:hover,
+        .gamePass:hover{
+            border: 1px solid red;
+            cursor: pointer;
+        }
+    
+        &__button2{
+            display: flex;
+            flex-direction: column;
+            position: relative; 
+            top: -16%;
+            height: 20px;
+            left: 15%;
+            gap: 5px;
+            
+           
+    
+            .register{
+                border: none;
+                color: rgb(247, 241, 241);
+                background-color: rgb(7, 131, 44);
+                border-radius: 10px;
+                transition: all .3s ease-in-out;
+    
+                
+            }
+    
+            .register:hover, .login:hover{
+                cursor: pointer;
+            }
+    
+            .login{
+                border: none;
+                box-shadow: 2px 2px 6px rgb(17, 16, 16);
+                background-color: #2e3030;
+                border-radius: 10px;
+                color: rgb(247, 241, 241);
+                transition: all .3s ease-in-out;
+            }
+    
+            .register:hover{
+                background-color: rgb(8, 104, 8);
+            }
+    
+            .login:hover{
+               color: red;
+            }
+        }
+    
+    }  
 
-    }
 
-    :hover span {
-        padding-right: 25px;
-   
-    }
-
-    :hover span:after {
-        opacity: 1;
-        right: 0;
-    }
-   
-}
-
-
-
-.content2{
-    grid-area: content2;
-    grid-column: 1/8;
-    color: white;
-    margin-left: 100px;
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: repeat(2, 1fr 1fr 1fr 1fr 1fr 1fr);
-    height: 750px;
-    margin-left: 80px;
-    margin-right: 100px;
-    text-align: center;
-
-
-    @media only screen and (max-width: 1200px){
-        grid-template-columns: repeat(4, 1fr);
-        background-color: rgb(163, 219, 163);
-        margin: 20px;
-        // grid-area: 'header''addictingGames''content1''emptySeparator''newGames''content1''footer';
-
-    }
-
-
-    @media only screen and (max-width: 900px){
-        grid-template-columns: repeat(2, 1fr);
-        background-color: rgb(98, 90, 112);
-        margin: 20px;
-        // grid-area: 'header''addictingGames''content1''emptySeparator''newGames''content1''footer';
-    }
-
-    @media only screen and (max-width: 600px){
-        grid-template-columns: repeat(1, 1fr);
-        background-color: rgb(194, 141, 81);
-        margin: 20px;
-        // grid-area: 'header''addictingGames''content1''emptySeparator''newGames''content1''footer';
-    }
-
-   
-   
-
-    &__game1{
-        margin: 10px 10px 5px;
-        grid-column: 1/4;
-        grid-row: 1/3;
-
+    .addictingGames{
+        grid-column: 1/8;
+        display: flex;
+        flex-direction: row;
+        color: white;
+        margin-left: 100px;
+        margin-right: 100px;
+        align-items: center;
         
-
-        
-        
-        
+    
+        &__title{       
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 26px;
+            pointer-events: none;
+        }
+    
     }
 
-    .img1{
-        
-        display: block;
-        width: 690px;
-        height: 615px;
-        border-radius: 20px;
-        transition: all .6s ease-in-out;
-        margin-bottom: 15px;
-        box-shadow: 
-        2px 2px 2px #0a0a0a,
-        4px 6px 12px rgba(16, 16, 16, 0.2),
-        6px 6px 18px rgba(3, 3, 3, 0.4);
 
-    }
+    .content1{
+        grid-column: 1/8;
+        color: white;
+        margin-left: 100px;
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        grid-template-rows: repeat(2, 1fr 1fr 1fr 1fr 1fr 1fr);
+        height: 750px;
+        margin-left: 90px;
+        margin-right: 100px;
+        text-align: center;
+    
+    
+        &__game1, &__game2, &__game3, &__game4, &__game5,
+        &__game6, &__game7, &__game8, &__game9, &__game10,
+        &__game11, &__game12, &__game13, &__game14{
+            height: 300px;
+            margin: 10px 10px 90px;
+            box-shadow: 
+            2px 2px 2px #0a0a0a,
+            4px 6px 12px rgba(16, 16, 16, 0.2),
+            6px 6px 18px rgba(3, 3, 3, 0.4);
+            
+        }
+    
+        .img {
+           width: 220px;
+           height: 260px;
+           display: block;
+           border-radius: 20px;
+           transition: all .6s ease;
+           
+           
+            :hover{
+               cursor: pointer;
+               opacity: 0.7;
+               transform: scale(1.1);
+               
+            }
+             
+        }
+    
 
     
-    .img1:hover{
-        cursor: pointer;
-        opacity: 0.7;
-        transform: scale(1.04);
+        p {
+         font-family: 'Source Sans Pro', sans-serif;
+          font-size: 18px;
+          pointer-events: none;
+    
+        }
+    
+         
+    }  
+
+
+    .emptySeparator1{
+        grid-column: 1/8;
+        color: white;
+        height: 50px;
     }
 
-       
-    &__game2, &__game3, &__game4, &__game5,
-    &__game6, &__game7, &__game8, &__game9{
-        height: 300px;
-        margin: 10px 10px 90px;
-        box-shadow: 
-        2px 2px 2px #0a0a0a,
-        4px 6px 12px rgba(16, 16, 16, 0.2),
-        6px 6px 18px rgba(3, 3, 3, 0.4);
-    }
 
-
-    .img {
-        width: 220px;
-        height: 260px;
-        display: block;
-        text-align: center;
-        border-radius: 20px;
-        transition: all .6s ease;
+    .newGames{
+        grid-column: 1/8;
+        display: flex;
+        flex-direction: row;
+        color: white;
+        margin-left: 100px;
+        margin-right: 100px;
+        align-items: center;
+    
         
-        :hover{
+        &__title{
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 26px;
+            pointer-events: none;
+    
+            span{
+                color: grey;
+            }
+      
+        }
+    
+    
+        .button {
+            display: inline-block;
+            position: relative;
+            left: 61%;
+            border-radius: 8px;
+            background-color: #2e3030;
+            border: none;
+            color: #FFFFFF;
+            text-align: center;
+            font-size: 24px;
+            height: 60px;
+            width: 320px;
+            box-shadow: 2px 2px 6px rgb(17, 16, 16);
+            transition: all 0.5s;
+            cursor: pointer;
+            margin: 5px;
+    
+            span {
+                cursor: pointer;
+                display: inline-block;
+                position: relative;
+                transition: 0.5s;
+            }
+    
+            :after {
+                content: '\00bb';
+                position: absolute;
+                opacity: 0;
+                top: 0;
+                right: -20px;
+                transition: 0.5s;
+            }
+    
+            
+       
+    
+        }
+    
+        :hover span {
+            padding-right: 25px;
+       
+        }
+    
+        :hover span:after {
+            opacity: 1;
+            right: 0;
+        }
+       
+    }
+
+
+
+    .content2{
+        grid-column: 1/8;
+        color: white;
+        margin-left: 100px;
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        grid-template-rows: repeat(2, 1fr 1fr 1fr 1fr 1fr 1fr);
+        height: 750px;
+        margin-left: 80px;
+        margin-right: 100px;
+        text-align: center;
+       
+    
+        &__game1{
+            margin: 10px 10px 5px;
+            grid-column: 1/4;
+            grid-row: 1/3;
+            
+        }
+    
+        .img1{
+            
+            display: block;
+            width: 690px;
+            height: 615px;
+            border-radius: 20px;
+            transition: all .6s ease-in-out;
+            margin-bottom: 15px;
+            box-shadow: 
+            2px 2px 2px #0a0a0a,
+            4px 6px 12px rgba(16, 16, 16, 0.2),
+            6px 6px 18px rgba(3, 3, 3, 0.4);
+    
+        }
+    
+        
+        .img1:hover{
             cursor: pointer;
             opacity: 0.7;
-            transform: scale(1.1);  
+            transform: scale(1.04);
         }
-    }
-
-   
- 
-    p {
-      font-family: 'Source Sans Pro', sans-serif;
-      font-size: 18px;
-      pointer-events: none;
+    
+           
+        &__game2, &__game3, &__game4, &__game5,
+        &__game6, &__game7, &__game8, &__game9{
+            height: 300px;
+            margin: 10px 10px 90px;
+            box-shadow: 
+            2px 2px 2px #0a0a0a,
+            4px 6px 12px rgba(16, 16, 16, 0.2),
+            6px 6px 18px rgba(3, 3, 3, 0.4);
+        }
+    
+    
+        .img {
+            width: 220px;
+            height: 260px;
+            display: block;
+            text-align: center;
+            border-radius: 20px;
+            transition: all .6s ease;
+            
+            :hover{
+                cursor: pointer;
+                opacity: 0.7;
+                transform: scale(1.1);  
+            }
+        }
+    
+       
+     
+        p {
+          font-family: 'Source Sans Pro', sans-serif;
+          font-size: 18px;
+          pointer-events: none;
+          
+        }
       
     }
+
+
+    .footer{
+        grid-column: 1/8;
+        color: white;
+        height: 100px;
+        text-align: center;
+    }
+    
+    
   
-}
-
-
-.footer{
-    grid-area: footer;
-    grid-column: 1/8;
-    color: white;
-    height: 100px;
-    text-align: center;
 }
 
 

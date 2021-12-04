@@ -6,35 +6,11 @@ body {
 .MainGrid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: repeat(6, 1fr);
+  grid-template-rows: repeat(6, 1fr 1fr 1fr 1fr 1fr 1fr);
   grid-gap: 10px;
   height: 700px;
-  grid-area: "header" "addictingGames" "content1" "emptySeparator" "newGames" "content1" "footer";
 }
-@media only screen and (max-width: 1200px) {
-  .MainGrid {
-    grid-template-columns: repeat(4, 1fr);
-    background-color: #a3dba3;
-    margin: 20px;
-  }
-}
-@media only screen and (max-width: 900px) {
-  .MainGrid {
-    grid-template-columns: repeat(2, 1fr);
-    background-color: #625a70;
-    margin: 20px;
-  }
-}
-@media only screen and (max-width: 600px) {
-  .MainGrid {
-    grid-template-columns: repeat(1, 1fr);
-    background-color: #c28d51;
-    margin: 20px;
-  }
-}
-
-.header {
-  grid-area: header;
+.MainGrid .header {
   grid-column: 1/8;
   color: white;
   display: flex;
@@ -42,21 +18,14 @@ body {
   align-items: center;
   height: 70px;
 }
-@media only screen and (max-width: 1200px) {
-  .header {
-    grid-template-columns: repeat(4, 1fr);
-    background-color: #a3dba3;
-    margin: 20px;
-  }
-}
-.header__logo {
+.MainGrid .header__logo {
   height: 320px;
 }
-.header__search {
+.MainGrid .header__search {
   display: flex;
   margin-left: 20%;
 }
-.header__search input {
+.MainGrid .header__search input {
   box-shadow: 2px 2px 6px #111010;
   background-color: #2e3030;
   color: rgba(85, 82, 82, 0.945);
@@ -66,21 +35,16 @@ body {
   border: none;
   width: 350px;
 }
-@media only screen and (max-width: 600px) {
-  .header__search input {
-    width: 8ch;
-  }
-}
-.header .material-icons {
+.MainGrid .header .material-icons {
   position: relative;
   top: 10px;
   right: 13%;
   color: red;
 }
-.header .material-icons:hover, .header__logo:hover {
+.MainGrid .header .material-icons:hover, .MainGrid .header__logo:hover {
   cursor: pointer;
 }
-.header .games, .header .hot, .header .gamePass {
+.MainGrid .header .games, .MainGrid .header .hot, .MainGrid .header .gamePass {
   display: inline-block;
   position: relative;
   height: 45px;
@@ -95,27 +59,27 @@ body {
   margin-left: 5px;
   box-shadow: 2px 2px 6px #111010;
 }
-.header .games > img, .header .hot > img {
+.MainGrid .header .games > img, .MainGrid .header .hot > img {
   position: absolute;
   left: 5%;
   top: 7%;
 }
-.header .hot > img {
+.MainGrid .header .hot > img {
   left: 9%;
 }
-.header .gamePass {
+.MainGrid .header .gamePass {
   color: rgba(253, 57, 57, 0.911);
   border: 1px solid #c4bbbb;
 }
-.header .gamePass span {
+.MainGrid .header .gamePass span {
   color: white;
 }
-.header .games:hover, .header .hot:hover,
-.header .gamePass:hover {
+.MainGrid .header .games:hover, .MainGrid .header .hot:hover,
+.MainGrid .header .gamePass:hover {
   border: 1px solid red;
   cursor: pointer;
 }
-.header__button2 {
+.MainGrid .header__button2 {
   display: flex;
   flex-direction: column;
   position: relative;
@@ -124,17 +88,17 @@ body {
   left: 15%;
   gap: 5px;
 }
-.header__button2 .register {
+.MainGrid .header__button2 .register {
   border: none;
   color: #f7f1f1;
   background-color: #07832c;
   border-radius: 10px;
   transition: all 0.3s ease-in-out;
 }
-.header__button2 .register:hover, .header__button2 .login:hover {
+.MainGrid .header__button2 .register:hover, .MainGrid .header__button2 .login:hover {
   cursor: pointer;
 }
-.header__button2 .login {
+.MainGrid .header__button2 .login {
   border: none;
   box-shadow: 2px 2px 6px #111010;
   background-color: #2e3030;
@@ -142,15 +106,13 @@ body {
   color: #f7f1f1;
   transition: all 0.3s ease-in-out;
 }
-.header__button2 .register:hover {
+.MainGrid .header__button2 .register:hover {
   background-color: #086808;
 }
-.header__button2 .login:hover {
+.MainGrid .header__button2 .login:hover {
   color: red;
 }
-
-.addictingGames {
-  grid-area: addictingGames;
+.MainGrid .addictingGames {
   grid-column: 1/8;
   display: flex;
   flex-direction: row;
@@ -159,99 +121,51 @@ body {
   margin-right: 100px;
   align-items: center;
 }
-@media only screen and (max-width: 1200px) {
-  .addictingGames {
-    grid-template-columns: repeat(4, 1fr);
-    background-color: #a3dba3;
-    margin: 20px;
-  }
-}
-@media only screen and (max-width: 900px) {
-  .addictingGames {
-    grid-template-columns: repeat(2, 1fr);
-    background-color: #625a70;
-    margin: 20px;
-  }
-}
-@media only screen and (max-width: 600px) {
-  .addictingGames {
-    grid-template-columns: repeat(1, 1fr);
-    background-color: #c28d51;
-    margin: 20px;
-  }
-}
-.addictingGames__title {
+.MainGrid .addictingGames__title {
   font-family: "Source Sans Pro", sans-serif;
   font-size: 26px;
   pointer-events: none;
 }
-
-.content1 {
-  grid-area: content1;
+.MainGrid .content1 {
   grid-column: 1/8;
   color: white;
   margin-left: 100px;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr 1fr 1fr 1fr 1fr 1fr);
   height: 750px;
   margin-left: 90px;
   margin-right: 100px;
   text-align: center;
 }
-@media only screen and (max-width: 1200px) {
-  .content1 {
-    grid-template-columns: repeat(4, 1fr);
-    background-color: #a3dba3;
-    margin: 20px;
-  }
-}
-@media only screen and (max-width: 900px) {
-  .content1 {
-    grid-template-columns: repeat(2, 1fr);
-    background-color: #625a70;
-    margin: 20px;
-  }
-}
-@media only screen and (max-width: 600px) {
-  .content1 {
-    grid-template-columns: repeat(1, 1fr);
-    background-color: #c28d51;
-    margin: 20px;
-  }
-}
-.content1__game1, .content1__game2, .content1__game3, .content1__game4, .content1__game5, .content1__game6, .content1__game7, .content1__game8, .content1__game9, .content1__game10, .content1__game11, .content1__game12, .content1__game13, .content1__game14 {
+.MainGrid .content1__game1, .MainGrid .content1__game2, .MainGrid .content1__game3, .MainGrid .content1__game4, .MainGrid .content1__game5, .MainGrid .content1__game6, .MainGrid .content1__game7, .MainGrid .content1__game8, .MainGrid .content1__game9, .MainGrid .content1__game10, .MainGrid .content1__game11, .MainGrid .content1__game12, .MainGrid .content1__game13, .MainGrid .content1__game14 {
   height: 300px;
   margin: 10px 10px 90px;
   box-shadow: 2px 2px 2px #0a0a0a, 4px 6px 12px rgba(16, 16, 16, 0.2), 6px 6px 18px rgba(3, 3, 3, 0.4);
 }
-.content1 .img {
+.MainGrid .content1 .img {
   width: 220px;
   height: 260px;
   display: block;
   border-radius: 20px;
   transition: all 0.6s ease;
 }
-.content1 .img :hover {
+.MainGrid .content1 .img :hover {
   cursor: pointer;
   opacity: 0.7;
   transform: scale(1.1);
 }
-.content1 p {
+.MainGrid .content1 p {
   font-family: "Source Sans Pro", sans-serif;
   font-size: 18px;
   pointer-events: none;
 }
-
-.emptySeparator {
-  grid-area: emptySeparator;
+.MainGrid .emptySeparator1 {
   grid-column: 1/8;
   color: white;
   height: 50px;
 }
-
-.newGames {
-  grid-area: newGames;
+.MainGrid .newGames {
   grid-column: 1/8;
   display: flex;
   flex-direction: row;
@@ -260,36 +174,15 @@ body {
   margin-right: 100px;
   align-items: center;
 }
-@media only screen and (max-width: 1200px) {
-  .newGames {
-    grid-template-columns: repeat(4, 1fr);
-    background-color: #a3dba3;
-    margin: 20px;
-  }
-}
-@media only screen and (max-width: 900px) {
-  .newGames {
-    grid-template-columns: repeat(2, 1fr);
-    background-color: #625a70;
-    margin: 20px;
-  }
-}
-@media only screen and (max-width: 600px) {
-  .newGames {
-    grid-template-columns: repeat(1, 1fr);
-    background-color: #c28d51;
-    margin: 20px;
-  }
-}
-.newGames__title {
+.MainGrid .newGames__title {
   font-family: "Source Sans Pro", sans-serif;
   font-size: 26px;
   pointer-events: none;
 }
-.newGames__title span {
+.MainGrid .newGames__title span {
   color: grey;
 }
-.newGames .button {
+.MainGrid .newGames .button {
   display: inline-block;
   position: relative;
   left: 61%;
@@ -306,13 +199,13 @@ body {
   cursor: pointer;
   margin: 5px;
 }
-.newGames .button span {
+.MainGrid .newGames .button span {
   cursor: pointer;
   display: inline-block;
   position: relative;
   transition: 0.5s;
 }
-.newGames .button :after {
+.MainGrid .newGames .button :after {
   content: "»";
   position: absolute;
   opacity: 0;
@@ -320,16 +213,14 @@ body {
   right: -20px;
   transition: 0.5s;
 }
-.newGames :hover span {
+.MainGrid .newGames :hover span {
   padding-right: 25px;
 }
-.newGames :hover span:after {
+.MainGrid .newGames :hover span:after {
   opacity: 1;
   right: 0;
 }
-
-.content2 {
-  grid-area: content2;
+.MainGrid .content2 {
   grid-column: 1/8;
   color: white;
   margin-left: 100px;
@@ -341,33 +232,12 @@ body {
   margin-right: 100px;
   text-align: center;
 }
-@media only screen and (max-width: 1200px) {
-  .content2 {
-    grid-template-columns: repeat(4, 1fr);
-    background-color: #a3dba3;
-    margin: 20px;
-  }
-}
-@media only screen and (max-width: 900px) {
-  .content2 {
-    grid-template-columns: repeat(2, 1fr);
-    background-color: #625a70;
-    margin: 20px;
-  }
-}
-@media only screen and (max-width: 600px) {
-  .content2 {
-    grid-template-columns: repeat(1, 1fr);
-    background-color: #c28d51;
-    margin: 20px;
-  }
-}
-.content2__game1 {
+.MainGrid .content2__game1 {
   margin: 10px 10px 5px;
   grid-column: 1/4;
   grid-row: 1/3;
 }
-.content2 .img1 {
+.MainGrid .content2 .img1 {
   display: block;
   width: 690px;
   height: 615px;
@@ -376,17 +246,17 @@ body {
   margin-bottom: 15px;
   box-shadow: 2px 2px 2px #0a0a0a, 4px 6px 12px rgba(16, 16, 16, 0.2), 6px 6px 18px rgba(3, 3, 3, 0.4);
 }
-.content2 .img1:hover {
+.MainGrid .content2 .img1:hover {
   cursor: pointer;
   opacity: 0.7;
   transform: scale(1.04);
 }
-.content2__game2, .content2__game3, .content2__game4, .content2__game5, .content2__game6, .content2__game7, .content2__game8, .content2__game9 {
+.MainGrid .content2__game2, .MainGrid .content2__game3, .MainGrid .content2__game4, .MainGrid .content2__game5, .MainGrid .content2__game6, .MainGrid .content2__game7, .MainGrid .content2__game8, .MainGrid .content2__game9 {
   height: 300px;
   margin: 10px 10px 90px;
   box-shadow: 2px 2px 2px #0a0a0a, 4px 6px 12px rgba(16, 16, 16, 0.2), 6px 6px 18px rgba(3, 3, 3, 0.4);
 }
-.content2 .img {
+.MainGrid .content2 .img {
   width: 220px;
   height: 260px;
   display: block;
@@ -394,19 +264,17 @@ body {
   border-radius: 20px;
   transition: all 0.6s ease;
 }
-.content2 .img :hover {
+.MainGrid .content2 .img :hover {
   cursor: pointer;
   opacity: 0.7;
   transform: scale(1.1);
 }
-.content2 p {
+.MainGrid .content2 p {
   font-family: "Source Sans Pro", sans-serif;
   font-size: 18px;
   pointer-events: none;
 }
-
-.footer {
-  grid-area: footer;
+.MainGrid .footer {
   grid-column: 1/8;
   color: white;
   height: 100px;
