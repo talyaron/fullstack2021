@@ -67,15 +67,32 @@ h3 {
 }
 .bottomwrapper img .box {
   border: 3px solid #c4c4c4;
-  border-radius: 5px;
 }
-
-.bigbox {
+.bottomwrapper .bigbox {
   grid-column-start: 1;
   grid-column-end: 3;
   grid-row-start: 1;
   grid-row-end: 3;
 }
-.bigbox p {
+.bottomwrapper .bigbox p {
   color: white;
+}
+@media only screen and (min-width: 400px) {
+  .bottomwrapper .topnav {
+    display: none;
+  }
+  .bottomwrapper .wrapper .box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .bottomwrapper .wrapper .bigbox {
+    display: flex;
+    justify-content: center;
+  }
+}
+.bottomwrapper .bottomwrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
