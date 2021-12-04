@@ -9,7 +9,7 @@ body{
 
 .header{
 
-    height: 140px;
+    height: auto;
     display: flex;
     justify-content: space-between;
     background: #171717;
@@ -40,12 +40,12 @@ body{
         align-items: center;
 
         label{
-            width: 90%;
+            width: 50%;
             max-width: 300px;
             // margin-right: -80px;
           }
           input{
-            width: 50%;
+            width: 70%;
             display: flex;
             padding: 15px;
             background-color: rgb(53, 53, 53);
@@ -86,9 +86,7 @@ body{
             position: relative;
           }
           ul{
-            position: absolute;
-            top: 38px;
-            left: -4px;
+
             margin: 0;
             list-style: none;
             padding-left: 22px;
@@ -140,9 +138,10 @@ body{
 
         .magni{
 
-            position: relative;
-            right: 100px;
+            // position: relative;
+            // right: 100px;
             height: 20%;
+
             img{
                 width: 70%;
                 height: 100%;
@@ -227,7 +226,7 @@ body{
 
                     &:hover{
                         
-                        background-color: rgb(53, 53, 53);
+                        background: rgb(53, 53, 53);
                         color: rgb(199, 41, 41);
 
                     }
@@ -251,15 +250,43 @@ body{
 
     height: 180px;
     display: flex;
-    justify-content: center;
+    align-items: center;
+    width: 90%;
+    margin: auto;
 
     &__cards{
         
-        display: flex;
-        justify-content: center;
+        display: grid;
+        grid-template-columns: repeat(8,1fr);
+        grid-template-rows: repeat(1,1fr);
+        width: 100%;
         align-items: center;
-        width: 80%;
+
+    }
+    @media only screen and (max-width:1200px) {
+
+        &__cards{
+        grid-template-columns: repeat(4, 1fr);
+        height: 360px;
+        }
+    }
+
+    @media only screen and (max-width:900px) {
+
+        &__cards{
+        grid-template-columns: repeat(3, 1fr);
+        }
+        height: 720px;
+    
+}
+
+    @media only screen and (max-width:600px) {
         
+        &__cards{
+     grid-template-columns: repeat(2, 1fr);
+         }
+    height: 1440px;
+    
     }
 
     .card{
@@ -268,8 +295,8 @@ body{
         border: 2px solid #222;
         box-shadow: 8px 8px 3px rgb(26, 26, 26);
         border-radius: 15px;
-        width: 13%;
-        height: 60%;
+        width: 80%;
+        height: 50%;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -307,6 +334,7 @@ body{
     &__more{
 
         width: 12%;
+        height: 65%;
         display: flex;
         align-items: center;
         font-size: 20px;
@@ -357,21 +385,42 @@ body{
 
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
     &__container{
 
-    margin-bottom: 20px;
-    width: 93%;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: 0.8fr 2fr 2fr;
-    gap: 1.5em;
+        margin-bottom: 20px;
+        width: 93%;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: 0.8fr 2fr 2fr;
+        gap: 1.5em;
+
+        @media only screen and (max-width:1200px) {
+
+            grid-template-columns: repeat(4, 1fr);
+
+        }
+
+        @media only screen and (max-width:900px) {
+
+            grid-template-columns: repeat(3, 1fr);
+
+        }
+
+        @media only screen and (max-width:600px) {
+
+         grid-template-columns: repeat(2, 1fr);
+
+        }
+
+
+
 
         .title{
-
             font-size: 40px;
             grid-column: 1/6;
-            grid-gap: 5px;
-
         }
 
         .gamebox{
