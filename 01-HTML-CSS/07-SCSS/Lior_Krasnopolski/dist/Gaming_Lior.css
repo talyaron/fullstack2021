@@ -2,6 +2,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background: #1d1f29;
+  align-items: center;
   height: 150vh;
   margin: 50px;
   padding-right: 10em;
@@ -9,10 +10,11 @@ body {
 
 .logo {
   position: relative;
-  left: 270px;
+  left: 170px;
   border-radius: 100px;
   width: 4.3vw;
   height: 100px;
+  bottom: 30px;
   transition: 0.8s;
 }
 .logo:hover {
@@ -25,7 +27,9 @@ body {
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(4, 300px);
   height: 150vh;
-  gap: 30px;
+  align-items: center;
+  gap: 40px;
+  margin-top: 40px;
 }
 .container__box {
   border: 3px solid black;
@@ -81,6 +85,8 @@ body {
   background: #9dc54e;
 }
 .container__box--header {
+  position: relative;
+  bottom: 50px;
   border: 3px solid #fc5d1f;
   background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpDr_WJQxJr3hG2-91FwQUDVZcWK2F9QjwBQ&usqp=CAU);
   background-repeat: no-repeat;
@@ -134,7 +140,7 @@ h4 {
   color: #93be3d;
   position: relative;
   border: 3px solid #f8f8f8;
-  bottom: 100px;
+  bottom: 120px;
   width: 20%;
   height: 6vh;
   text-align: center;
@@ -241,17 +247,44 @@ h4:hover {
   grid-row-start: 2;
   grid-row-end: 3;
 }
+.game_1 :active {
+  background: url(https://c.tenor.com/X_5vdWJEBYcAAAAC/assassins-creed-unity.gif);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .game_2 {
   background: url(https://images3.alphacoders.com/843/thumbbig-843016.webp);
 }
+.game_2 :active {
+  background: url(https://c.tenor.com/7xiGei5WC1AAAAAM/anger-rage.gif);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .game_3 {
   background: url(https://c4.wallpaperflare.com/wallpaper/374/201/282/soldiers-call-of-duty-call-of-duty-modern-warfare-ghost-cod6-2560x1440-architecture-modern-hd-art-wallpaper-preview.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.game_3 :active {
+  background: url(https://c.tenor.com/mSygXLnH7cUAAAAS/dogearmy-dogecoin.gif);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .game_4 {
   background: url(https://images.unsplash.com/photo-1623476408624-721c9185d569?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fHN0YXIlMjB3YXJzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60);
 }
+.game_4 :active {
+  background: url(https://c.tenor.com/6YFcZ8rEag0AAAAM/star-wars-jedi-fallen-order.gif);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .game_5 {
   background: url(https://wallpapercave.com/dwp1x/wp1897912.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.game_5 :active {
+  background: url(https://c.tenor.com/Ir65B6UgLvoAAAAM/aloy-horizon-zero-dawn.gif);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -260,8 +293,18 @@ h4:hover {
   background-repeat: no-repeat;
   background-size: cover;
 }
+.game_6 :active {
+  background: url(https://media3.giphy.com/media/H7Ne5EbNqqdGeIIEWd/100.webp?cid=ecf05e47kkey2acipjj6km7klb3wria6xyjrtfauy0uzad4y&rid=100.webp&ct=g);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .game_7 {
   background: url(https://wallpapercave.com/wp/wp4346842.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.game_7 :active {
+  background: url(https://media2.giphy.com/media/8AgHUG7c2OTmYp7Oyx/200w.webp?cid=ecf05e479tlu8fpfkzb04wi4nu78t4rmlxnw21cx04cd2o2e&rid=200w.webp&ct=g);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -270,8 +313,18 @@ h4:hover {
   background-repeat: no-repeat;
   background-size: cover;
 }
+.game_8 :active {
+  background: url(https://c.tenor.com/OBzcMBeR5xcAAAAd/scared-skydive.gif);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .game_9 {
   background: url(https://wallpapercave.com/wp/wp6710684.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.game_9 :active {
+  background: url(https://media2.giphy.com/media/2zbmIjWXTCGeOz8JDn/200w.webp?cid=ecf05e47ncvoewdupw9cgi70c3oh0xpoc6wry74w1a9f6a3w&rid=200w.webp&ct=g);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -280,8 +333,18 @@ h4:hover {
   background-repeat: no-repeat;
   background-size: cover;
 }
+.game_10 :active {
+  background: url(https://media0.giphy.com/media/c01p98wQAmfX0v68Z2/200w.webp?cid=ecf05e47c7xj2bia1su3dxt49db8r09oo06gpqnprafhrdo7&rid=200w.webp&ct=g);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .game_11 {
   background: url(https://thumbs.dreamstime.com/b/johan-gustafsson-ice-hockey-goalie-25087868.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.game_11 :active {
+  background: url(https://media4.giphy.com/media/52jAXM8tC1uTEqTWQy/200w.webp?cid=ecf05e473nbvocfh19ifhivyhe0tygmaoz9cdqzyuuw7kgtz&rid=200w.webp&ct=g);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -290,8 +353,18 @@ h4:hover {
   background-repeat: no-repeat;
   background-size: cover;
 }
+.game_12 :active {
+  background: url(hhttps://c.tenor.com/wE2f0w-h6-EAAAAM/princess-peach-mario-sports-superstars.gif);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .game_13 {
   background: url(https://wallpapercave.com/wp/wp2454514.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.game_13 :active {
+  background: url(https://c.tenor.com/RiJVnma5zrUAAAAM/the-masters-rory-mcilroy.gif);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -300,8 +373,18 @@ h4:hover {
   background-repeat: no-repeat;
   background-size: cover;
 }
+.game_14 :active {
+  background: url(https://c.tenor.com/cIVRP8-42jUAAAAM/nomar-mazara-texas-rangers.gif);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .game_15 {
   background: url(https://wallpapercave.com/wp/wp6369579.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.game_15 :active {
+  background: url(https://media1.giphy.com/media/dB5s4Qbr3j59WOmRRd/200w.webp?cid=ecf05e47s2pa5d2556mtdfoaed66axt1tfby6mnpedu5c8zj&rid=200w.webp&ct=g);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -310,8 +393,18 @@ h4:hover {
   background-repeat: no-repeat;
   background-size: cover;
 }
+.game_16 :active {
+  background: url(https://media3.giphy.com/media/H1bKt3Vv6aZaXFLedo/200w.webp?cid=ecf05e47u5h5lbide0bo1b4ag6pkedw89w6eu01ajsw4gjcy&rid=200w.webp&ct=g);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .game_17 {
   background: url(https://c4.wallpaperflare.com/wallpaper/32/804/961/spirit-blossom-yasuo-yasuo-league-of-legends-league-of-legends-riot-games-hd-wallpaper-preview.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.game_17 :active {
+  background: url(https://c.tenor.com/4V2-UCVfPbIAAAAM/jinx-jinx-arcane.gif);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -320,8 +413,18 @@ h4:hover {
   background-repeat: no-repeat;
   background-size: cover;
 }
+.game_18 :active {
+  background: url(https://c.tenor.com/Q9c3vS96jjIAAAAS/one-tap-headshot.gif);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .game_19 {
   background: url(https://wallpapercave.com/wp/wp4779599.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.game_19 :active {
+  background: url(https://c.tenor.com/giqgLv8HlEMAAAAM/fortnite-high-five.gif);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -330,8 +433,18 @@ h4:hover {
   background-repeat: no-repeat;
   background-size: cover;
 }
+.game_20 :active {
+  background: url(https://c.tenor.com/Yu3s9sNqxSMAAAAS/fuse-apex-apex-fuse.gif);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .game_21 {
   background: url(https://wallpapercave.com/dwp1x/wp6311484.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.game_21 :active {
+  background: url(https://c.tenor.com/EK0I5RFnbt0AAAAM/pubg.gif);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -340,13 +453,28 @@ h4:hover {
   background-repeat: no-repeat;
   background-size: cover;
 }
+.game_22 :active {
+  background: url(https://c.tenor.com/uyJM-N1mHDMAAAAM/minecraft-ruse-minecraft.gif);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .game_23 {
   background: url(https://wallpapercave.com/wp/wp1840268.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
+.game_23 :active {
+  background: url(https://c.tenor.com/3psJFFIAI70AAAAM/kripp-kripparian.gif);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .game_24 {
   background: url(https://wallpapercave.com/wp/wp5795005.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.game_24 :active {
+  background: url(https://c.tenor.com/R8ARuOIxLmoAAAAM/creative-dota2.gif);
   background-repeat: no-repeat;
   background-size: cover;
 }
