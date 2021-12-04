@@ -1,0 +1,903 @@
+body {
+
+    background-color: #222;
+    margin: 0px;
+    font-family: 'Bebas Neue', cursive;
+    color: whitesmoke;
+
+}
+
+.header {
+
+    background: #171717;
+    border-bottom: 2px solid black;
+    height: 10vh;
+    display: grid;
+    grid-template-columns: 2fr 2fr 4fr;
+    grid-template-rows: 1fr;
+
+    img:hover {
+        cursor: pointer;
+    }
+
+    .logosmall{
+        display: none;
+    }
+
+    &__element {
+
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding-inline-start: 1em;
+
+        .searchbox {
+
+            border-radius: 20px;
+            height: 50%;
+            background: rgb(53, 53, 53);
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            width: 80%;
+
+            &__txt {
+
+                width: 70%;
+                border: none;
+                background: none;
+                outline: none;
+                float: left;
+                padding-left: 10px;
+                font-size: 16px;
+                color: whitesmoke;
+            }
+
+            &__btn {
+
+                color: rgb(187, 37, 37);
+                width: 30%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+            }
+
+        }
+    }
+
+    &__menu {
+
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr)) 0.6fr;
+        gap: 1em;
+        align-items: center;
+        margin-inline-end: 2em;
+
+        &__box {
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid rgb(87, 84, 84);
+            border-radius: 10px;
+            padding: 3px;
+            font-size: 20px;
+            height: 50%;
+
+            img {
+                height: 90%;
+            }
+
+            &:hover {
+                cursor: pointer;
+                border: 1px solid rgb(223, 19, 19);
+                transition: border 0.8s;
+            }
+
+
+            &--u {
+
+                border: 2px solid rgb(255, 255, 255);
+
+                &:hover {
+                    border: 2px solid rgb(223, 19, 19);
+                }
+
+                img {
+
+                    height: 80%;
+                    width: auto;
+
+                }
+            }
+
+        }
+
+        &__account {
+
+            height: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-start;
+
+            .abutton {
+
+                background: rgb(20, 146, 20);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 10px;
+                width: 90%;
+                height: 45%;
+
+                &:hover {
+
+                    cursor: pointer;
+                    background: rgb(16, 107, 16);
+                    transition: 1s;
+
+                }
+
+                &--2 {
+
+                    background: rgb(53, 53, 53);
+
+                    &:hover {
+
+                        background: rgb(53, 53, 53);
+                        color: rgb(199, 41, 41);
+
+                    }
+
+                }
+
+            }
+
+            a{
+                display: none;
+            }
+
+        }
+
+    }
+
+}
+
+.menubar {
+
+    height: 12vh;
+    display: flex;
+    justify-content: space-between;
+    width: 93%;
+    margin: auto;
+    margin-top: 2em;
+    margin-bottom: 30px;
+
+    .scroll{
+        margin-right: 10px;
+        color: red;
+        font-size: 17px;
+        text-shadow: 0.2px 0.2px 30px rgb(161, 161, 161);
+    }
+
+    &__cards {
+
+        display: flex;
+        justify-content: space-between;
+        overflow: scroll;
+        margin-right: 10px;
+        border-radius: 20px;
+
+        &::-webkit-slider-track{
+
+            width: 100%;
+            height: 20px;
+            background: #171717;
+        }
+
+        &::-webkit-slider-thumb{
+            background: rgb(53, 53, 53);
+        }
+
+    }
+
+    .card {
+
+        background-color: rgb(53, 53, 53);
+        border: 2px solid #222;
+        box-shadow: 8px 8px 3px rgb(26, 26, 26);
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        transition: all 0.8s;
+        min-width: 210px;
+        height: 69%;
+        margin-right: 10px;
+
+        &:hover {
+
+            cursor: pointer;
+            border: 2px solid rgb(192, 150, 36);
+
+        }
+
+        &:active {
+
+            box-shadow: 8px 8px 3px rgb(49, 49, 49);
+            transition: 0.1s;
+
+        }
+
+        img {
+
+            height: 100%;
+            width: 40%;
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+
+        }
+
+        p {
+
+            width: 60%;
+            font-size: 20px;
+            display: flex;
+            justify-content: center;
+            padding: 3px;
+
+        }
+
+    }
+
+    .morecard {
+
+        display: flex;
+        justify-content: space-around;
+        height: 70%;
+
+        &:hover {
+
+            cursor: pointer;
+            transition: all 0.8s;
+            position: relative;
+            bottom: 20px;
+
+        }
+
+        &__txt {
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+
+            h1 {
+                margin-bottom: 0px;
+
+            }
+
+            p {
+                margin-top: 0px;
+            }
+
+        }
+
+    }
+
+}
+
+.wrapper {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__title{
+        font-size: 40px;
+        width: 93.5%;
+    }
+
+    &__container {
+
+        width: 93.5%;
+        height: 600px;
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        grid-template-rows: repeat(2, 1fr);
+        gap: 1.5em;
+
+        .gamebox {
+
+            background-color: rgb(53, 53, 53);
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            background-repeat: no-repeat;
+            background-size: 100% 85%;
+            transition: all 0.8s;
+
+            &:hover {
+
+                cursor: pointer;
+
+            }
+
+            p {
+                height: 2%;
+                font-size: 24px;
+                font-weight: 500;
+            }
+
+            &--ro {
+                background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/ro.jpeg);
+
+                &:hover {
+                    background-image: url(https://thumbs.gfycat.com/GroundedCanineGrub.webp);
+                }
+            }
+
+            &--qk {
+                background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/quake.jpeg);
+
+                &:hover {
+                    background-image: url(https://64.media.tumblr.com/4e0ab2667265d2a60caeac3750e2a079/tumblr_prtlu0TjgI1xfbjjmo1_540.gifv);
+                }
+            }
+
+            &--fifa {
+                background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/fifa.jpeg);
+
+                &:hover {
+                    background-image: url(https://media1.giphy.com/media/2zbmIjWXTCGeOz8JDn/giphy.gif);
+                }
+            }
+
+            &--cs {
+                background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/counter.jpeg);
+
+                &:hover {
+                    background-image: url(https://c.tenor.com/Q9c3vS96jjIAAAAd/one-tap-headshot.gif);
+                }
+            }
+
+            &--ts {
+                background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/sims.png);
+
+                &:hover {
+                    background-image: url(https://i.gifer.com/1T4E.gif);
+                }
+            }
+
+            &--rl {
+                background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/rl.jpeg);
+
+                &:hover {
+                    background-image: url(https://c.tenor.com/ty2PXuyTIOIAAAAd/rocket-league.gif);
+                }
+            }
+
+            &--th {
+                background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/tony.png);
+
+                &:hover {
+                    background-image: url(https://c.tenor.com/Chn9S2Esj3AAAAAM/tony-hawk-pro-skater.gif);
+                }
+            }
+
+
+            &--chess {
+                background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/chess.jpeg);
+
+                &:hover {
+                    background-image: url(https://images.chesscomfiles.com/uploads/v1/images_users/tiny_mce/SamCopeland/phpuTejFE.gif);
+                }
+            }
+
+            &--sc {
+                background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/star.jpeg);
+
+                &:hover {
+                    background-image: url(https://i.gifer.com/FMDV.gif);
+                }
+            }
+
+            &--poker {
+                background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/texas.jpeg);
+
+                &:hover {
+                    background-image: url(https://i.pinimg.com/originals/1c/6b/37/1c6b37a644f5beec09501f109ada8d0f.gif);
+                }
+            }
+
+            // *** SECTION III ***
+
+            &--oni {
+                background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/oni.jpg);
+
+                &:hover {
+                    background-image: url(https://i.gifer.com/DiOL.gif);
+                }
+            }
+
+            &--doom {
+                background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/doom.jpeg);
+
+                &:hover {
+                    background-image: url(https://www.retrogames.cz/games/414/DOS-gameplay.gif);
+                }
+            }
+
+            &--gta {
+                background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/gta.jpeg);
+
+                &:hover {
+                    background-image: url(https://media0.giphy.com/media/cpUAhGbH5UhyJggGmC/giphy.gif);
+                }
+            }
+
+            &--mp {
+                background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/max.webp);
+
+                &:hover {
+                    background-image: url(https://c.tenor.com/K6lC3Col4eoAAAAC/max-payne.gif);
+                }
+            }
+
+            &--lou {
+                background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/last.jpeg);
+
+                &:hover {
+                    background-image: url(https://i.gifer.com/3wsQ.gif);
+                }
+            }
+
+            &--pos {
+                background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/postal.png);
+
+                &:hover {
+                    background-image: url(https://c.tenor.com/fiarhIxtD74AAAAd/postal-petition.gif);
+                }
+            }
+
+            &--sm {
+                background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/spider.webp);
+
+                &:hover {
+                    background-image: url(https://i.gifer.com/6ppd.gif);
+                }
+            }
+
+            &--rdr {
+                background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/rdr.jpeg);
+
+                &:hover {
+                    background-image: url(https://i.gifer.com/XIN7.gif);
+                }
+            }
+
+            &--ac {
+                background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/ass.jpeg);
+
+                &:hover {
+                    background-image: url(https://media.giphy.com/media/MsXiYRKmJVwSA/giphy.gif);
+                }
+            }
+
+
+            &--por {
+                background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/port.jpeg);
+
+                &:hover {
+                    background-image: url(https://i.gifer.com/3mfH.gif);
+                }
+            }
+
+        }
+
+    }
+
+}
+
+@media only screen and (max-width:1400px) {
+
+    .header {
+
+        &__menu {
+
+            &__box {
+
+                font-size: 15px;
+
+
+                &>img {
+                    height: 75%;
+                    width: 40%;
+                }
+
+                &--u {
+                    img {
+                        height: 60%;
+                        width: auto;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+@media only screen and (max-width:1200px) {
+
+    .header {
+
+        grid-template-columns: 1fr 1fr 1.3fr;
+        img{
+            width: 100%;
+        }
+
+        &__menu {
+
+            &__box {
+
+                img {
+                    width: 60%;
+                }
+                &--u {
+                    display: none;
+                }
+
+                p {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .wrapper {
+
+        .wrapper__title {
+            font-size: 35px;
+            width: 85%;
+        }
+
+        .wrapper__container {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            grid-template-rows: repeat(3, 1fr);
+            width: 85%;
+
+            .gamebox {
+                p {
+                    font-size: 20px;
+                }
+            }
+
+        }
+
+    }
+
+}
+
+@media only screen and (max-width:900px) {
+
+    
+    .header {
+
+        img{
+            width: 100%;
+        }
+
+        grid-template-columns: 3fr 0.3fr 3fr;
+
+        &__menu {
+
+            grid-template-columns: 1fr 1fr 1fr 2fr;
+
+            &__box {
+
+                img {
+                    width: 50%;
+                    height: 70%;
+                }
+            }
+        }
+
+        &__element {
+
+            .searchbox {
+                width: 0%;
+            }
+
+        }
+    }
+    
+    .menubar {
+
+        flex-wrap: wrap;
+        height: 15vh;
+
+        &__cards {
+
+            .card {
+                height: 75%;
+                min-width: 170px;
+            }
+        }
+
+        &__more {
+
+            .morecard {
+
+                height: 55%;
+                width: 190px;
+
+            }
+        }
+    }
+
+    .wrapper {
+
+        .wrapper__title {
+            font-size: 30px;
+            width: 75%;
+        }
+
+        .wrapper__container {
+
+            height: 700px;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            grid-template-rows: repeat(4, 1fr);
+            width: 75%;
+
+            .gamebox {
+                background-size: 100% 80%;
+                background-position: center top;
+
+                p {
+                    font-size: 15px;
+                }
+            }
+
+        }
+
+    }
+
+
+
+
+}
+
+@media only screen and (max-width:600px) {
+
+    .header{
+        
+        img{
+            width: 100%
+        }
+
+        grid-template-columns: 5fr repeat(2, minmax(0,1fr));
+
+        &__menu{
+            &__box{
+                display: none;
+            }
+
+            &__account{
+                a.button{
+                    height: 35%;
+                }
+            }
+        }
+    }
+
+    .menubar {
+
+        &__cards {
+
+            .card {
+                height: 60%;
+                min-width: 120px;
+            }
+        }
+
+        &__more {
+
+            .morecard {
+
+                height: 70%;
+                min-width: 120px;
+
+                h1, p {
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+
+    .wrapper {
+
+        .wrapper__title {
+            font-size: 27px;
+            width: 65%;
+        }
+
+        .wrapper__container {
+            height: 900px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            grid-template-rows: repeat(5, 1fr);
+            width: 65%;
+
+            .gamebox {
+                background-size: 100% 80%;
+                background-position: center top;
+
+                p {
+                    font-size: 18px;
+                }
+            }
+
+        }
+
+    }
+
+}
+
+@media only screen and (max-width:300px) {
+
+    .header{
+
+        display: flex;
+
+        img{
+            width: 100px;
+        }
+        .logobig{
+            display: none;
+        }
+
+        .logosmall{
+            display: block;
+        }
+
+    }
+    .menubar{
+
+        &__cards {
+
+            .card {
+                height: 50%;
+                min-width: 110px;
+            }
+        }
+
+        &__more {
+
+            .morecard {
+
+                height: 50%;
+                width: 60px;
+
+                h1, p {
+                    font-size: 15px;
+                }
+            }
+        }
+
+        &__account{
+
+            .abutton{
+                display: none;
+            }
+        }
+
+    }
+    .wrapper {
+
+        .wrapper__title {
+
+            width: 50%;
+            font-size: 20px;
+        }
+
+        .wrapper__container {
+            height: 100vh;
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+            grid-template-rows: repeat(10, minmax(0, 1fr));
+            width: 50%;
+        }
+
+        .gamebox {
+
+            background-size: 75% 70%;
+            background-position: center top;
+
+            p {
+                font-size: 15px;
+            }
+        }
+    }
+   
+}
+
+@media only screen and (max-width:200px) {
+
+    .header{
+        
+       grid-template-columns: 30%, 10%, 10%;
+
+       .logo{
+           margin-right: -30px;
+           margin-left: -10px;
+        
+       }
+       .srch{
+           margin-right: 10px;
+       }
+
+       &__menu{
+           margin-left: -15px;
+       }
+    }
+    .menubar{
+
+        margin-top: 10px;
+        margin-bottom: 10px;
+
+        &__cards {
+
+            height: 40%;
+
+            .card {
+                height: 100%;
+                min-width: 110px;
+                margin-left: 20px;
+            }
+
+        }
+
+        &__more {
+
+            .morecard {
+
+                height: 50%;
+                width: 110px;
+                margin-left: 20px;
+
+                h1, p {
+                    font-size: 15px;
+                }
+            }
+        }
+
+    }
+    .wrapper {
+
+
+        .wrapper__title {
+
+            font-size: 15px;
+            width: 50%;
+        }
+
+        .wrapper__container {
+            height: 1000px;
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+            grid-template-rows: repeat(10, 1fr);
+            width: 50%;
+            margin-bottom: 3em;
+
+            .gamebox {
+                background-size: 100% 80%;
+                background-position: center top;
+
+                p {
+                    font-size: 9px;
+                }
+            }
+        }
+    }
+
+}
