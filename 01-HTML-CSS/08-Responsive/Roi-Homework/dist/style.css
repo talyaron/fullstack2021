@@ -1,0 +1,251 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.MainGrid {
+  display: grid;
+  grid-template-columns: 200px auto;
+  grid-template-rows: 100vh;
+}
+.MainGrid__CG {
+  background-color: #121216;
+  display: grid;
+  grid-template-rows: 50px auto;
+  grid-template-columns: 100%;
+}
+.MainGrid__CG__SearchBar {
+  position: sticky;
+  top: 0%;
+  background-color: #121216;
+  padding: 20px;
+  color: #756e6e;
+  border-bottom: 1px solid #756e6e;
+}
+.MainGrid__CG__MainContentArea {
+  display: grid;
+  grid-template-rows: 70px 250px 40px 70px 250px 40px 70px 250px 40px;
+  grid-template-columns: 2000px;
+  justify-content: center;
+}
+.MainGrid__CG__MainContentArea .MusicTitle {
+  color: white;
+  display: grid;
+  align-items: center;
+}
+.MainGrid__CG__MainContentArea__Music1 {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 100%;
+  gap: 30px;
+}
+.MainGrid__CG__MainContentArea__Music1 .MusicBox1 {
+  background-image: url("../images/flow.jpg");
+  background-size: cover;
+}
+.MainGrid__CG__MainContentArea__Music1 .MusicBox2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+.MainGrid__CG__MainContentArea__Music1 .MusicBox2--IMG1 {
+  background-image: url("../images/judas.jpg");
+  background-size: cover;
+}
+.MainGrid__CG__MainContentArea__Music1 .MusicBox2--IMG2 {
+  background-image: url("../images/iron.jpg");
+  background-size: cover;
+}
+.MainGrid__CG__MainContentArea__Music1 .MusicBox2--IMG3 {
+  background-image: url("../images/metallica.jpeg");
+  background-size: cover;
+}
+.MainGrid__CG__MainContentArea__Music1 .MusicBox2--IMG4 {
+  background-image: url("../images/kansas.jpg");
+  background-size: cover;
+}
+.MainGrid__CG__MainContentArea__Music1 .MusicBox2--SubText {
+  color: white;
+}
+.MainGrid__CG__MainContentArea__Music1 .MusicBox3 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+.MainGrid__CG__MainContentArea__Music1 .MusicBox3--IMG1 {
+  background-image: url("../images/sehel.jpg");
+  background-size: cover;
+}
+.MainGrid__CG__MainContentArea__Music1 .MusicBox3--IMG2 {
+  background-image: url("../images/Aviv.jpg");
+  background-size: cover;
+}
+.MainGrid__CG__MainContentArea__Music1 .MusicBox3--IMG3 {
+  background-image: url("../images/poliker.jpg");
+  background-size: cover;
+}
+.MainGrid__CG__MainContentArea__Music1 .MusicBox3--IMG4 {
+  background-image: url("../images/Hayehudim.jpeg");
+  background-size: cover;
+}
+.MainGrid__CG__MainContentArea__Music1 .MusicBox4 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+.MainGrid__CG__MainContentArea__Music1 .MusicBox4--IMG1 {
+  background-image: url("../images/motley.jpg");
+  background-size: cover;
+}
+.MainGrid__CG__MainContentArea__Music1 .MusicBox4--IMG2 {
+  background-image: url("../images/singer.jpg");
+  background-size: cover;
+}
+.MainGrid__CG__MainContentArea__Music1 .MusicBox4--IMG3 {
+  background-image: url("../images/reckless.jpg");
+  background-size: cover;
+}
+.MainGrid__CG__MainContentArea__Music1 .MusicBox4--IMG4 {
+  background-image: url("../images/Guns.jpg");
+  background-size: cover;
+}
+.MainGrid__CG__MainContentArea__Music1 .MusicBox5 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+.MainGrid__CG__MainContentArea__Music1 .MusicBox5--IMG1 {
+  background-image: url("../images/cure.jpg");
+  background-size: cover;
+}
+.MainGrid__CG__MainContentArea__Music1 .MusicBox5--IMG2 {
+  background-image: url("../images/cult.jpg");
+  background-size: cover;
+}
+.MainGrid__CG__MainContentArea__Music1 .MusicBox5--IMG3 {
+  background-image: url("../images/mission.jpg");
+  background-size: cover;
+}
+.MainGrid__CG__MainContentArea__Music1 .MusicBox5--IMG4 {
+  background-image: url("../images/echo.jpg");
+  background-size: cover;
+}
+.MainGrid__CG__MainContentArea .SubTitle1 {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 100%;
+  gap: 30px;
+}
+.MainGrid__CG__MainContentArea .SubTitle1--Box {
+  display: grid;
+  padding-top: 10px;
+  color: white;
+  font-size: 15px;
+}
+.MainGrid__CG__MainContentArea__Music2 {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 100%;
+  gap: 30px;
+}
+.MainGrid__CG__MainContentArea__Music2 .MusicBox1 {
+  background-image: url("../images/U2.jpg");
+  background-size: cover;
+}
+.MainGrid__CG__MainContentArea__Music2 .MusicBox2 {
+  background-image: url("../images/90s Rock.jpg");
+  background-size: cover;
+}
+.MainGrid__CG__MainContentArea__Music2 .MusicBox3 {
+  background-image: url("../images/Mark.jpg");
+  background-size: cover;
+}
+.MainGrid__CG__MainContentArea__Music2 .MusicBox4 {
+  background-image: url("../images/smiths.jpg");
+  background-size: cover;
+}
+.MainGrid__CG__MainContentArea__Music2 .MusicBox5 {
+  background-image: url("../images/college rock.jpg");
+  background-size: cover;
+}
+.MainGrid__CG__MainContentArea .SubTitle2 {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 100%;
+  gap: 30px;
+}
+.MainGrid__CG__MainContentArea .SubTitle2--Box {
+  display: grid;
+  padding-top: 10px;
+  color: white;
+  font-size: 15px;
+}
+.MainGrid__CG__MainContentArea__Music3 {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 100%;
+  gap: 30px;
+}
+.MainGrid__CG__MainContentArea__Music3 .MusicBox1 {
+  background-image: url("../images/aha.jpg");
+  background-size: cover;
+}
+.MainGrid__CG__MainContentArea__Music3 .MusicBox2 {
+  background-image: url("../images/U218.jpg");
+  background-size: cover;
+}
+.MainGrid__CG__MainContentArea__Music3 .MusicBox3 {
+  background-image: url("../images/violator.jpg");
+  background-size: cover;
+}
+.MainGrid__CG__MainContentArea__Music3 .MusicBox4 {
+  background-image: url("../images/bruce.jpg");
+  background-size: cover;
+}
+.MainGrid__CG__MainContentArea__Music3 .MusicBox5 {
+  background-image: url("../images/paradise.jpg");
+  background-size: cover;
+}
+.MainGrid__CG__MainContentArea .SubTitle3 {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 100%;
+  gap: 30px;
+}
+.MainGrid__CG__MainContentArea .SubTitle3--Box {
+  display: grid;
+  padding-top: 10px;
+  color: white;
+  font-size: 15px;
+}
+.MainGrid__SG {
+  background-color: #191922;
+}
+.MainGrid__SG__Menu {
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+}
+.MainGrid__SG__Menu__SubMenu {
+  position: absolute;
+  top: 260px;
+  height: 200px;
+  width: 150px;
+  padding-top: 20px;
+  padding-left: 50px;
+  font-size: 15px;
+  color: #756e6e;
+}
+.MainGrid__SG__Menu__item {
+  height: 50px;
+  font-size: 18px;
+  color: white;
+  display: flex;
+  justify-content: left;
+  padding-left: 20px;
+  align-items: center;
+}
+.MainGrid__SG__Menu__item img {
+  padding-top: 10px;
+  width: 120px;
+  height: 45px;
+}
