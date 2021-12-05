@@ -5,17 +5,20 @@ body {
 }
 
 .wrapper {
-
+display: grid;
     width: 1440px;
     height: 100%;
     background: #363434;
     margin: 0 auto;
+    grid-template-rows: auto auto;
+    grid-gap: 5em;
+    padding: 5em;
 
     h1 {
-        line-height: 3em;
+        
         text-align: center;
         width: 100%;
-        font-size: 2em;
+        font-size: 3em;
         margin: auto;
         color: #dbd8e3;
     }
