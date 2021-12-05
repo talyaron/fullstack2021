@@ -3,6 +3,7 @@
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(11, 1fr);
   row-gap: 15px;
+  margin: auto;
 }
 
 .TopHeader {
@@ -141,7 +142,6 @@
 }
 .sportgames .box:hover {
   cursor: pointer;
-  opacity: 0.7;
   transition: 0.7s;
   transform: scale(1.2);
 }
@@ -238,8 +238,8 @@
 
 .logo {
   position: absolute;
-  left: 40%;
-  bottom: -195%;
+  left: 38%;
+  bottom: -110%;
 }
 
 .bottom-nav {
@@ -248,8 +248,8 @@
   align-items: flex-end;
   flex-direction: row;
   width: 100%;
-  bottom: -40%;
-  left: 60%;
+  bottom: 0%;
+  left: 70%;
 }
 .bottom-nav .box {
   font-family: monospace;
