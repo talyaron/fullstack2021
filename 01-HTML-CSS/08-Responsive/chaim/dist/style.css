@@ -1,0 +1,32 @@
+img {
+  width: 200px;
+  height: 200px;
+}
+
+.wrapper {
+  max-width: 225ch;
+  margin: 3px;
+  background-color: indianred;
+  display: grid;
+  grid-template-columns: 100px 100px 100px;
+  gap: 30px;
+}
+@media only screen and (max-width: 225ch) {
+  .wrapper {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media only screen and (max-width: 150ch) {
+  .wrapper {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media only screen and (max-width: 75ch) {
+  .wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .wrapper article {
+    background-color: yellow;
+    margin: 30px;
+  }
+}
