@@ -1,0 +1,898 @@
+body{
+    background-color: rgb(43, 39, 39);
+    margin: 0;
+}
+.main{
+    display: grid;
+    grid-template-columns: repeat(20,1fr);
+    grid-template-rows: repeat(250,1fr);
+    background-color: rgb(43, 39, 39);
+    height: 300vh;
+    margin-top: 0;
+
+    @media only screen and(max-width:950px){
+        grid-template-rows: repeat(350,1fr);
+    }
+    @media only screen and(max-width:550px){
+        grid-template-rows: repeat(400,1fr);
+    }
+    @media only screen and(max-width:470px){
+        grid-template-rows: repeat(550,1fr);
+        height: 350vh;
+    }
+
+
+    &_topHeader{
+        grid-row: 1/10;
+        grid-column: 1/21;
+        background-color: rgb(0, 0, 0);
+        display: grid;
+        grid-template-columns: repeat(20,1fr);
+        grid-template-rows: repeat(8,1fr);
+        
+        @media only screen and(max-width:800px){
+            grid-column: 1/21;
+            grid-row: 1/15;
+        }
+        @media only screen and(max-width:470px){
+            grid-column: 1/21;
+            grid-row: 1/18;
+        }
+       
+
+        .logo{
+        background-image: url(https://static1.thegamerimages.com/wordpress/wp-content/uploads/2020/04/addicting-games-cover.jpg);
+        grid-column:1/5;
+        grid-row: 1/9;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+
+        @media only screen and(max-width:500px){
+            grid-column: 1/7;
+            grid-row: 1/10;
+            row-gap: 10px;
+         }
+         @media only screen and(max-width:300px){
+            grid-column: 1/8;
+            grid-row: 1/8;
+            row-gap: 10px;
+         }
+        
+        }
+        .search{
+            display: flex;
+            grid-column : 8/11;
+            grid-row: 4/5;
+            column-gap: 0.4em;
+            justify-content: space-evenly;
+            direction: ltr;
+
+            @media only screen and(max-width:1200px){
+                grid-column: 6/10 ;
+            }
+
+            @media only screen and(max-width:900px){
+                grid-column: 5/10;
+            }
+            @media only screen and(max-width:650px){
+                grid-column: 5/11;
+                grid-row: 4/5;
+                row-gap: 10px;
+             }
+             @media only screen and(max-width:550px){
+                grid-column: 8/20;
+                grid-row: 1/4;
+                row-gap: 10px;
+             }
+             @media only screen and (max-width:300px){
+                grid-row: 2/4;
+             }
+
+            input{
+                background-color: rgb(0, 0, 0);
+                color: white;
+                width: 100%;
+                height: 90%;
+                border-radius: 5px;
+                font-size: 15px;
+                border-right: none;
+
+                @media only screen and (max-width:730px){
+                    font-size: 12px;
+                    
+                 }
+                 @media only screen and (max-width:500px){
+                    font-size: 10px;
+                 }
+                 @media only screen and (max-width:300px){
+                    font-size: 9px;
+                 }
+               
+                   
+            }
+            .fas,.fa-search{
+                color: rgb(128, 29, 29);
+                margin: auto;
+                position:relative;
+                right: 25px;
+
+                @media only screen and (max-width:300px){
+                    display: none;
+                                 }
+            }
+            &:hover{
+                cursor: pointer;
+            }
+        }
+        .topOptions{
+            grid-column: 13/20;
+            grid-row: 3/8;
+            display: flex;
+            flex-direction: row;
+            column-gap: 10px;
+
+            @media only screen and(max-width:1200px){
+                grid-column:11/20 ;
+            }
+            
+            @media only screen and(max-width:800px){
+               display: grid;
+               grid-template-columns: repeat(2,1fr);
+               grid-template-rows: repeat(2,1fr);
+               grid-column: 11/20;
+               grid-row: 1/5;
+               row-gap: 10px;
+            }
+            @media only screen and(max-width:550px){
+                display: grid;
+                grid-template-columns: repeat(2,1fr);
+                grid-template-rows: repeat(2,1fr);
+                grid-column: 8/19;
+                grid-row: 1/5;
+                row-gap: 10px;
+             }
+          
+            &-button{
+                display: grid;
+                grid-template-columns: repeat(10,1fr);
+                grid-template-rows: repeat(8,1fr);
+                width: 100%;
+                height: 5vh;
+                border-radius: 7px;
+                background-color: rgb(0, 0, 0);
+                color: white;
+                flex-direction: row;
+                align-items: center;
+
+                &:hover{
+                    cursor: pointer;
+                    border: 1px solid rgb(189, 38, 38);
+                }
+
+                .buttonImg{
+                    grid-column: 1/4;
+                    grid-row: 3/6;
+                    width: 100%;
+                    height: 100%;
+                    
+                    @media only screen and(max-width:950px){
+                        grid-column: 1/3;
+                    }
+                }
+                & p{
+                    grid-column: 4/11;
+                    grid-row: 3/5;
+                    font-weight: 1000;
+                    font-size: 12px;
+
+                    @media only screen and(max-width:950px){
+                        font-size: 10px;
+                        grid-column: 3/10;
+                    }
+                    @media only screen and(max-width:830px){
+                        font-size: 9px;
+                        grid-column: 3/10;
+                    }
+                    
+                }
+                .btnOne{
+                    background-image: url(https://imagefinder.co/storage/w1000/images/2019/06/burst_gaming-controller-against-a-black-background.jpg);
+                    background-position: center;
+                    background-size: cover;
+                }
+                .btnTwo{
+                    background-image: url(https://ak.picdn.net/shutterstock/videos/1039666934/thumb/1.jpg);
+                    background-position: center;
+                    background-size: cover;
+                }
+                .btnThree{
+                    background-image: url(https://cdn2.vectorstock.com/i/1000x1000/71/46/people-icon-on-a-black-background-vector-29307146.jpg);
+                    background-position: center;
+                    background-size: cover;
+                }
+                .btnfour{
+                    background-image: url(https://www.upcomer.com/wp-content/uploads/2021/05/PROJECT-Bastion-is-the-next-League-of-Legends-battle-pass-event.jpg);
+                    background-position: center;
+                    background-size: cover;
+
+                    &>p{
+                        text-align-last: right;
+                    }
+                }
+            }
+            .moreOptions{
+                display: none;
+
+                @media only screen and(max-width:550px){
+                    display: grid;
+                    grid-row: 5/8;
+                    grid-column: 1/3;
+                    background-color: rgb(80, 77, 77);
+
+                    p{
+                        font-size: 14px;
+                        font-weight: 1000;
+                    }
+                    i{
+                        margin: 7px 0 0 0 ;
+                    }
+                    &:hover{
+                        color: rgb(83, 21, 21);
+                    }
+                }
+            }
+            .GamePass{
+                border:1px solid white;
+                
+                &:hover{
+                    cursor: pointer;
+                    border: 1px solid rgb(189, 38, 38);
+                }
+                @media only screen and(max-width:550px){
+                    display: none;
+                }
+            }
+            .games{
+                @media only screen and(max-width:550px){
+                    display: none;
+                }
+            }
+            .hot{
+                @media only screen and(max-width:550px){
+                    display: none;
+                }
+            }
+            .multiplayer{
+                @media only screen and(max-width:550px){
+                    display: none;
+                }
+            }
+        }
+        .sign_btn{
+            display: flex;
+            flex-direction: column;
+            row-gap: 8px;
+            grid-row: 3/7;
+            grid-column: 20/21;
+            text-align: center;
+            margin-left: 7px;
+           
+        }
+        .sign{
+           border-radius: 5px;
+           text-align: center;
+           font-size: 9px;
+
+           &:hover{
+               cursor: pointer;
+           }
+        }
+        .up{
+            background-color:#009f00;
+            color: rgb(247, 238, 238);
+            font-weight: 500;
+
+            &:hover{
+                font-weight: bold;
+            }
+        }
+        .in{
+            background-color: rgb(43, 39, 39);
+            color: rgb(247, 238, 238);
+
+            &:hover{
+                color:rgb(146, 20, 20);
+            }
+        }
+    }  
+    &_secondHeader{
+        grid-column: 1/21;
+        grid-row: 15/20;
+        display: grid;
+        column-gap: 7px;
+        row-gap: 5px;
+        margin-left: 30px;
+        grid-template-columns: repeat(10,1fr);
+        grid-template-rows: repeat(8,1fr);
+
+        @media only screen and (max-width: 1200px ){
+            grid-template-columns: repeat(5,1fr);
+            column-gap: 3px;
+    }
+         @media only screen and (max-width: 950px ){
+             grid-template-columns: repeat(3,1fr);
+            column-gap: 0;
+        }
+        @media only screen and(max-width:800px){
+        grid-column: 1/21;
+        grid-row: 20/35;
+        } 
+        @media only screen and (max-width: 550px ){
+            grid-template-columns: repeat(2,20fr);
+           column-gap: 5px;
+           margin-left: 15px;;
+       }
+       @media only screen and (max-width: 350px ){
+        column-gap: 3px;
+        row-gap: 5px;
+}
+
+        .box{
+            display: grid;
+            grid-template-columns: repeat(5,1fr);
+            grid-template-rows: repeat(4,1fr);
+            border-radius: 8px;
+            height: 6vh;
+            width: 10vw;
+            box-shadow:20px 20px 10px rgb(22, 22, 22);  
+
+            @media only screen and (max-width: 970px ){
+                width: 60%;
+        }
+            
+            @media only screen and (max-width: 550px ){
+                width: 75%;
+        }
+        @media only screen and (max-width: 330px ){
+            width: 80%;
+    }
+            &:hover{
+                cursor: pointer;
+                border: 1px solid rgb(252, 216, 16); 
+        }
+            &-Clicker{
+                border: 1px solid rgb(25, 151, 130);
+
+                a{
+                    color:rgb(25, 151, 130);
+                }
+            }
+            &-Puzzle{
+                border: 1px solid rgb(22, 146, 6);
+
+                a{
+                    color:rgb(22, 146, 6);
+                }
+            }
+            &-Action{
+                border: 1px solid rgb(252, 216, 16);
+
+                a{
+                    color:rgb(252, 216, 16) ;
+                }
+            }
+            &-Shooting{
+                border: 1px solid rgb(185, 10, 133);
+
+                a{
+                    color:rgb(185, 10, 133) ;
+                }
+            }
+            &-Zombie{
+                border: 1px solid rgb(202, 108, 0);
+
+                a{
+                    color:rgb(202, 108, 0) ;
+                }
+            }
+            &-Funny{
+                border: 1px solid rgb(100, 3, 129);
+
+                a{
+                    color:rgb(100, 3, 129);
+                }
+            }
+            &-Car{
+                border: 1px solid rgb(62, 201, 219);
+
+                a{
+                    color:rgb(62, 201, 219);
+                }
+            }
+            &-Card{
+                border: 1px solid rgb(179, 17, 165);
+
+                a{
+                    color:rgb(179, 17, 165);
+                }
+            }
+            &-more{
+                margin-bottom: 15px;
+                display: grid;
+                grid-template-rows: repeat(4,1fr);
+                grid-template-columns: repeat(8,1fr);
+
+                @media only screen and (max-width: 1200px ){
+                    width: 150%;
+            }
+                @media only screen and (max-width: 950px ){
+                width: 90%;
+           }
+           @media only screen and (max-width: 550px ){
+            width: 150%;    
+        }
+               
+                h3{
+                    grid-row: 1;
+                    font-size: 10px;
+                    grid-column: 3/8;
+                    color: rgb(26, 207, 168);  
+                  
+                    @media only screen and (max-width: 1200px ){
+                        font-size: 13px;
+                }
+  
+                }
+                .humburger{
+                    grid-column: 1/2;
+                    grid-row: 1;
+                    width: 35px;
+                    height: 30px;
+                    margin: 10px 0 20px 20px;
+                   
+                    .bar{
+                        display: block;
+                        width: 25px;
+                        height: 3px;
+                        margin: 5px auto;
+                        background-color: rgb(26, 207, 168);
+                        border-radius: 10px;
+                    }  
+                }
+                &:hover{
+                    border: none;
+                    margin-top: -10px;
+                }
+            }
+            a{
+                grid-column: 3/4;
+                padding-top: 15px;   
+                font-weight: 500;
+                font-size: 14px;
+                text-decoration: none;
+                font-family: 'Lobster', cursive;
+
+                @media only screen and (max-width: 300px ){
+                    font-size: 10px;
+            }
+            }
+            img{
+                grid-row: 1/5;
+                height: 100%;
+                border-radius: 10px;
+        }
+    }
+}
+    &_mostAddictingGames{
+        display: grid;
+        grid-template-columns: repeat(20,1fr);
+        grid-template-rows: repeat(3,minmax(1fr , auto));
+        grid-column: 2/20;
+        grid-row: 30/80;
+
+        @media only screen and (max-width: 950px ){
+            grid-row: 50/135;
+            grid-template-rows: repeat(20,1fr);
+            grid-template-rows: repeat(5,1fr);
+            row-gap: 8px;
+        }
+       
+        @media only screen and (max-width: 550px ){
+            grid-row: 70/190;
+        }
+        @media only screen and(max-width:470px){
+            grid-row: 75/210;
+        }
+        
+        &-headline{
+            grid-row: 1/2;
+            grid-column: 1/7;
+            font-size: 9px;
+
+            @media only screen and (max-width: 1050px ){
+                grid-column: 1/9;
+                font-size: 8px;
+            }
+            @media only screen and (max-width: 900px ){
+                grid-column: 1/10;
+                font-size: 7px;
+            }
+            @media only screen and (max-width: 650px ){
+                grid-column: 1/12;
+            }
+            h1{
+                color: white;
+                text-align: center;   
+            }
+        }
+        &-firstLine{
+           display: flex;
+           flex-direction: row;
+            grid-column: 1/21;
+            grid-row: 2/3;
+            column-gap: 10px;
+            align-items: center;
+            
+            @media only screen and (max-width: 950px ){
+                display: grid;
+                grid-template-columns: repeat(4,1fr);
+                grid-template-rows: repeat(2,1fr);
+                row-gap: 10px;
+                grid-row: 2/3;
+                grid-column: 1/20;
+            }
+            @media only screen and (max-width: 550px ){
+                display: grid;
+                grid-template-columns: repeat(3,1fr);
+                grid-template-rows: repeat(3,1fr);
+                grid-row: 2/3;
+                grid-column: 1/20;
+            }
+            @media only screen and (max-width: 450px ){
+                display: grid;
+                grid-template-columns: repeat(2,1fr);
+                grid-template-rows: repeat(4,1fr);
+                grid-row: 2/3;
+                grid-column: 1/20;
+            }   
+        }
+        &-secondLine{
+            display: flex;
+            flex-direction: row;
+            grid-column: 1/21;
+            grid-row: 3/4;
+            column-gap: 20px;
+            align-items: center;
+
+            @media only screen and (max-width: 950px ){
+                display: grid;
+                grid-template-columns: repeat(4,1fr);
+                grid-template-rows: repeat(2,1fr);
+                row-gap: 10px;
+                grid-row: 3;
+                grid-column: 1/20;
+            }
+            @media only screen and (max-width: 550px ){
+                display: grid;
+                grid-template-columns: repeat(3,1fr);
+                grid-template-rows: repeat(3,1fr);
+                grid-row: 3;
+                grid-column: 1/20;
+
+            }
+            @media only screen and (max-width: 450px ){
+                display: grid;
+                grid-template-columns: repeat(2,1fr);
+                grid-template-rows: repeat(4,1fr);
+                grid-row: 3;
+                grid-column: 1/20;
+            }
+        }   
+    }
+     
+    .animationBox{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        border-radius: 15px;
+        height: 15vh;
+        box-shadow:20px 10px 10px rgb(41, 37, 37);  
+        width: 90%;
+
+        &:hover{
+            cursor: pointer;
+        }
+        @media only screen and (max-width: 950px ){
+            width: 80%;
+        }
+        @media only screen and (max-width: 550px ){
+            width: 70%;
+            row-gap: 0;
+        }
+        @media only screen and (max-width: 450px ){
+            width: 55%;
+            row-gap: 0;
+            grid-template-rows:70% 10% ;
+
+        }
+    }
+    video{
+        height:100%;
+        width: 100%;
+        grid-row: 1;
+        grid-column: 1/4;
+        padding-top: 0;
+        border-radius: 30px;
+        size: cover;
+        position: center;
+    }
+    p{
+        color: white;
+        font-weight: 1000;
+        text-align: center;
+        font-size: 12px;
+        grid-column: 1/5;
+        grid-row: 2/3;
+        border-radius: 5px;
+        font-family: 'Rajdhani', sans-serif;
+        
+    }
+    &-commercial{
+        display: grid;
+        grid-template-columns: repeat(20,1fr);
+        grid-template-rows: repeat(10,1fr);
+        grid-column: 2/20;
+        grid-row: 80/100;
+        
+        @media only screen and (max-width: 950px ){
+            grid-row: 140/170;
+            grid-template-rows: repeat(20,1fr);
+            row-gap: 8px;
+        }
+        @media only screen and (max-width: 550px ){
+            grid-row: 200/215;
+            row-gap: 8px;
+        }
+        @media only screen and (max-width: 550px ){
+            grid-row: 200/215;
+            row-gap: 8px;
+            display: none;
+        }
+        .firstCommercial{
+            grid-row: 3/7;
+            grid-column: 6/14;
+            background-image: url(https://i.ytimg.com/vi/lVDNmkQ63mU/maxresdefault.jpg);
+            background-position: center;
+            background-size: cover;
+            @media only screen and (max-width: 950px ){
+                grid-row: 3/10;
+                grid-template-rows: repeat(20,1fr);
+                row-gap: 8px;
+            }
+            @media only screen and (max-width: 550px ){
+                grid-row: 3/10;
+                grid-template-rows: repeat(20,1fr);
+                row-gap: 8px;
+            }
+        }
+        h1{
+            grid-row: 2;
+            grid-column: 12;
+            font-size: 12px;
+            color: white;
+            font-weight: 0;     
+        }
+    }
+    &_newGames{
+        display: grid;
+        grid-template-columns: repeat(20,1fr);
+        grid-template-rows: repeat(7,1fr);
+        grid-row: 105/175;
+        grid-column: 2/20;
+        row-gap: 50px;
+        column-gap: 20px;
+
+        @media only screen and (max-width: 950px ){
+            grid-row: 165/200;
+            grid-template-rows: repeat(20,1fr);
+            grid-template-rows: repeat(7,1fr);
+            row-gap: 8px;
+        }
+
+        @media only screen and (max-width: 550px ){
+            grid-template-rows: repeat(7,1fr);
+            grid-row: 220/300;
+        }
+        @media only screen and (max-width: 470px ){
+            grid-template-rows: repeat(7,1fr);
+            grid-row: 290/405;
+        }
+        &_AnimationRows{
+            display: grid;
+            grid-row: 6/7;
+            grid-column: 2/20;
+        }
+        h1{
+            grid-row:1;
+            grid-column: 1/7;
+            font-size: 15px;
+            font-display: line;
+            color: white;
+            span{
+                color: rgb(83, 76, 76);
+            }
+            @media only screen and (max-width: 950px ){
+                grid-column: 1/9;
+                font-size: 15px;
+                grid-row:1;
+            }
+            @media only screen and (max-width: 950px ){
+                grid-column: 1/9;
+                font-size: 10px;
+                grid-row:1;
+
+            }
+        }
+        .btn-viewLastWeek{
+            grid-column: 16/20;
+            grid-row: 1;
+            text-align: center;
+            padding-top: 12px;
+            color: white;
+            box-shadow:5px 5px 5px rgb(22, 22, 22);
+            border-radius: 10px;
+            padding-top: 20px;
+            margin-top: -10px;
+
+            &:hover{
+                position: relative;
+                cursor: pointer;
+                top: -5px;
+            }
+            @media only screen and (max-width: 950px ){
+                grid-column: 14/20;
+                margin-top: -10px;
+            }
+            @media only screen and (max-width: 720px ){
+                grid-column: 11/20;
+                margin-top: -10px;
+            }
+        }  
+}
+        &_freeGames{
+            display: flex;
+            grid-row: 195/210;
+            grid-column: 1/21;
+            background-image: url(https://static8.depositphotos.com/1397034/1041/i/950/depositphotos_10417474-stock-photo-fade-blue-abstract-background-over.jpg);
+            border: 1px solid rgb(192, 188, 188);
+            border-radius: 7px;
+
+            @media only screen and (max-width: 950px ){
+                grid-column: 1/21;
+                grid-row: 265/280;
+            }
+            @media only screen and (max-width: 550px ){
+                grid-column: 1/21;
+                grid-row: 360/375;
+            }
+            @media only screen and (max-width: 470px ){
+                grid-column: 1/21;
+                grid-row: 510/520;
+            }
+            h1{
+                color: rgb(99, 117, 57);
+                text-align: center;
+                margin: auto;
+                font-weight: 1000;
+                font-family: cursive;
+
+                @media only screen and (max-width: 950px ){
+                    font-size: 17px;
+                }
+            }
+            &:hover{
+                cursor: pointer;
+            }
+        }
+        & h1{
+            font-family: cursive;
+        }
+        &_BottomRow{
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(20,1fr);
+            grid-template-rows: repeat(10,1fr);
+            background-color:rgb(0, 0, 0);
+            grid-row: 235/251;
+            grid-column: 1/21;
+            
+            @media only screen and (max-width: 950px ){
+                grid-column: 1/21;
+                grid-row: 330/350;
+                bottom: 0;
+            }
+            @media only screen and (max-width: 550px ){
+                grid-column: 1/21;
+                grid-row: 380/405;
+            }
+            @media only screen and (max-width: 470px ){
+                grid-row: 530/550;
+                grid-column: 1/21;
+            }
+            &-logo{
+                background-image: url(https://static1.thegamerimages.com/wordpress/wp-content/uploads/2020/04/addicting-games-cover.jpg);
+                background-position: center;
+                background-size: cover;
+                grid-column: 8/13;
+                grid-row: 1/5;
+                @media only screen and (max-width: 720px ){
+                    grid-column: 8/14;
+                    grid-row: 1/6;
+                }
+                @media only screen and (max-width: 470px ){
+                    grid-row: 1/7;
+                    grid-column: 6/15;
+                }
+            }
+            &-BottomList{
+            grid-row: 7/8;
+            display: flex;
+            flex-direction: row;
+            grid-column: 7/14;
+
+            @media only screen and (max-width: 650px ){
+                grid-column: 5/12;
+                grid-row: 7/8;
+            }
+            @media only screen and (max-width: 470px ){
+                grid-row: 7/8;
+                grid-column: 4/8;
+            }
+            a{
+                display: block;
+                color: rgb(153, 0, 224);
+                text-decoration: none;
+                text-align: center;
+                font-size: 13px;
+                width: 100%;
+                margin-right: 12px;
+
+                &:hover{
+                    font-size: 14px;
+                }
+                @media only screen and (max-width: 470px ){
+                    grid-row: 7/8;
+                    grid-column: 4/14;
+                    color: orange;
+                } 
+            }
+            }
+
+        }
+    }
+
+
+    
+
+
+    
+
+   
+
+    
+
+  
+
+
+
+
+
+
+
+ 
+
+    
+
+    
+
+

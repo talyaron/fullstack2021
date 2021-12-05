@@ -1,0 +1,25 @@
+body{
+    background-color: yellow;
+    //4 columns
+}
+@media only screen and (max-width: 1200px){
+    //three columns
+    body{
+        background-color: rgb(21, 156, 55);
+    }
+}
+
+@media only screen and (max-width: 900px){
+    //two columns
+    body{
+        background-color: rgb(32, 158, 148);
+    }
+}
+
+@media only screen and (max-width: 600px){
+
+    //one column
+    body{
+        background-color: rgb(29, 29, 182);
+    }
+}
