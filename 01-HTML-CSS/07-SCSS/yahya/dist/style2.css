@@ -49,7 +49,7 @@ p {
   justify-self: center;
 }
 
-/*/////////////////////////////////////////////////////////////////////*/
+/*///////////////////////////////////////////////////////////////////////////////*/
 /*////////////////////////////(Menu/flex)////////////////////////////////////////*/
 .menu2 {
   display: flex;
@@ -60,10 +60,11 @@ p {
   font-size: xx-large;
 }
 .menu2 .box {
-  border: solid black;
-  background-color: #999;
   width: 100px;
-  margin: 10px;
+  margin: 35px;
+}
+.menu2 a:hover {
+  border: solid black;
 }
 
 /*////////////////////////////(Main has main articil/grid)////////////////////////////////////////*/
@@ -84,7 +85,6 @@ p {
   border-radius: 15px;
 }
 .main .box.gmain {
-  background-image: url("https://image.winudf.com/v2/image/Y29tLndGb3J0bml0ZTRLXzczMjYzNjBfc2NyZWVuXzBfMTUyOTA1MTIyNl8wMTU/screen-0.jpg?fakeurl=1&type=.jpg");
   grid-column-start: 1;
   grid-column-end: 3;
   grid-row-start: 1;
@@ -92,6 +92,8 @@ p {
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-size: cover;
+  width: 100%;
+  height: 100%;
 }
 .main .box.gmain p {
   margin-top: 900px;
@@ -173,6 +175,21 @@ p {
   border-radius: 15px;
 }
 
+.text {
+  top: 20px;
+  left: 0%;
+  width: 85%;
+  transform: translate(-50% -50%);
+  font-size: large;
+  background-color: #999;
+  border-radius: 10px;
+  padding: 20px;
+  font-size: xx-large;
+  text-align: center;
+  color: brown;
+  font-size: xx-large;
+}
+
 /*/////////////////////////////////////////////////////////////////////////////////*/
 /*////////////////////////////(h1 css)////////////////////////////////////////*/
 h1 {
@@ -196,4 +213,95 @@ h1 {
 
 img:hover {
   transform: scale(1.2);
+}
+
+@media only screen and (max-width: 1200px) {
+  .menu2 {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .header {
+    width: auto;
+  }
+
+  .main {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .num2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .num3 {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .num4 {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+@media only screen and (max-width: 900px) {
+  .menu2 {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .header {
+    width: auto;
+  }
+
+  .main {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .num2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .num3 {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .num4 {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+@media only screen and (max-width: 600px) {
+  .menu2 {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .header {
+    width: auto;
+  }
+
+  .main {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .num2 {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .num3 {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .num4 {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
