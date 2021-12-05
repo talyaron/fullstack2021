@@ -95,8 +95,8 @@ display: grid;
         width: 200px;
         
         
-            grid-template-columns:15% 70% 15%;
-            grid-template-rows: 55% 20% 25%;
+            grid-template-columns:3fr 14fr 3fr;
+            grid-template-rows: 60% 1fr 1fr;
             grid-template-areas: "gif gif gif"
             "h1 h1 h1"
             ". p .";
@@ -142,10 +142,7 @@ display: grid;
             color: #62929a;
             font-family: Arial, Helvetica, sans-serif;
             font-size: 2vh;
-            font-weight: 100;
             z-index: 1;
-            
-            line-height: 1rem;
             grid-area: h1;
         }
 
@@ -153,9 +150,8 @@ display: grid;
             color: #efecec;
             
             font-family: Arial, Helvetica, sans-serif;
-            font-size: 2vh;
+            font-size: 1.5vh;
             z-index: 1;
-        
             grid-area: p;
         }
     }
