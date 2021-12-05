@@ -1,0 +1,133 @@
+.box_1{
+            height:50px;
+            width:span 4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+      
+            border: 3px solid green;
+            background-color: darkslategrey;
+    
+                
+             
+            h1{
+                font-family: 'Montserrat';
+                color:wheat;
+                font-size: 30px;
+                padding: 1rem;
+                
+    
+                 }
+         }
+
+h1{
+    text-align: center;
+}
+
+.card-grid {
+    max-width: 225ch;
+    margin: auto;
+
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap:20px;
+    padding-top:1rem;
+    padding-bottom: 1rem;
+
+    
+
+&__card{
+    // max-width: 300px;
+--padding:1rem;    
+background: white;
+// padding: 1rem;
+/*border: 1px solid #777;
+border-radius: .25rem;*/
+border:none;
+box-shadow: 0 2px 5px 0 rgba(0,0,0,.2);
+overflow: hidden;
+
+.card-header{
+     font-size: 1.5rem;
+     margin-bottom:0.5rem;
+     padding: var(--padding);
+     padding-bottom: 0;
+ }
+
+.card-img{
+    overflow: hidden;/* the image no longer overflows the card*/
+    padding: 0;
+}
+
+.card-img>img{
+    display:block; /*allows to cange width and height*/
+    max-height: 200px; /*to fit to every screen size*/
+    width:100%;/*100 width of the container*/
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    /*thats how the aspect ratio always maintains*/
+    object-position: center;
+    transition: 200ms transform ease-in-out;
+
+}
+
+.card-img:hover>img{
+    
+    transform: scale(1.15);
+    
+}
+
+&__card-body{
+    font-size: .9rem;
+    padding: 0 var(--padding);
+}
+&__card-footer{
+    margin-top:1rem;
+    padding: var(--padding);
+    padding-top: 0;
+}
+.btn{
+    --color:hsl(200,50%,60%);
+    background: var(--color);
+    color: white;
+    border: none;
+    font-size:1rem;
+    padding:.5em,.75em;
+    border-radius: .25em;
+    cursor: pointer;
+
+}
+.btn:hover, .btn:focus{
+    background:var(--color);
+}
+.btn.btn-outline{
+    background: none;
+    border:1px solid var(--color) ;
+    color: var(--color);
+}
+.btn.btn-outline:hover,.btn.btn-outline:focus{
+    background:hsl(200,50%,90%); ;
+}
+.btn + .btn{
+    margin-left: .25rem;
+}
+
+}
+
+    
+    @media only screen and (max-width: 768px) {
+
+     
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+    @media only screen and (max-width: 600px) {
+
+        margin: 30px;
+        grid-template-columns: repeat(1, 1fr);
+
+    }
+}
+

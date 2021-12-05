@@ -177,8 +177,9 @@ body {
     margin-bottom: 30px;
 
     .scroll{
+
         margin-right: 10px;
-        color: red;
+        color: rgba(211, 14, 14, 0.966);
         font-size: 17px;
         text-shadow: 0.2px 0.2px 30px rgb(161, 161, 161);
     }
@@ -187,13 +188,27 @@ body {
 
         display: flex;
         justify-content: space-between;
-        overflow: scroll;
+        overflow-x: auto;
         margin-right: 10px;
         border-radius: 20px;
+        white-space: nowrap;
+        max-width: 100%;
 
-        &::-webkit-scrollbar {
-            width: 0px;
+        &::-webkit-scroollbar{
+            height: 10px;
+
         }
+        &::-webkit-scrollbar-track {
+            background:rgb(53, 53, 53);
+        }
+
+        &::-webkit-scrollbar-thumb {
+
+            background: #222;
+            border-radius: 20px;
+
+        }
+        
 
     }
 

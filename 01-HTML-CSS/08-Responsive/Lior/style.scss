@@ -2,6 +2,14 @@ body
 {
     background: rgb(110, 92, 212);
     background-size: cover;
+
+    @media only screen and (max-width: 1140px)
+    {
+        body 
+        {
+            background: rgb(23, 240, 3);
+ 
+        }
 }
 
 .container
@@ -13,10 +21,25 @@ body
     gap: 40px;
     background: rgb(110, 92, 212);
     background-size: cover;
-
-
-    @media only screen and (max-width: 1440px)
+}
+    @media only screen and (max-width: 1140px)
     {
+        body 
+        {
+            background: rgb(23, 240, 3);
+ 
+        }
+        grid-template-columns: repeat(6,1fr);
+
+    }
+
+    @media only screen and (max-width: 1140px)
+    {
+        body 
+        {
+            background: rgb(23, 240, 3);
+ 
+        }
         grid-template-columns: repeat(6,1fr);
 
     }
@@ -52,5 +75,5 @@ body
 
 
 }
-}
 
+}
