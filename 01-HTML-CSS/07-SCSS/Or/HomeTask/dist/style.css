@@ -3,6 +3,16 @@ body {
   background-color: black;
   font-family: "Outfit", sans-serif;
 }
+body h1 {
+  background-image: linear-gradient(60deg, #E21143, #FFB03A);
+  -webkit-background-clip: text;
+  color: transparent;
+  position: relative;
+  top: 25px;
+}
+body h1:hover {
+  cursor: pointer;
+}
 body .menu {
   display: flex;
   justify-content: space-evenly;
@@ -33,13 +43,13 @@ body .menu .logo:hover {
   text-decoration: none;
 }
 
-.home__h1 {
+.home h1 {
   font-size: 10vw;
   background-image: linear-gradient(60deg, #E21143, #FFB03A);
   -webkit-background-clip: text;
   color: transparent;
 }
-.home__p {
+.home p {
   font-size: 30px;
   background-image: linear-gradient(60deg, #E21143, #FFB03A);
   -webkit-background-clip: text;
@@ -47,17 +57,29 @@ body .menu .logo:hover {
 }
 
 .wrapper {
+  width: 60vw;
   margin-top: 50px;
-  margin-left: 25%;
+  margin-right: auto;
+  margin-left: auto;
   display: grid;
   gap: 30px;
   grid-template-columns: repeat(5, 150px);
-  grid-template-rows: 80px 150px 150px 80px 150px 150px;
+  grid-template-rows: repeat(4, 150px);
+}
+.wrapper .header {
+  margin-right: 450px;
+  background-image: linear-gradient(60deg, #E21143, #FFB03A);
+  -webkit-background-clip: text;
+  color: transparent;
 }
 .wrapper .box {
   border-radius: 10px;
   transition: all 0.5s;
   text-align: center;
+}
+.wrapper .box:hover {
+  cursor: pointer;
+  transform: scale(1.2);
 }
 .wrapper .box__big1 {
   grid-column: span 2;
@@ -80,50 +102,43 @@ body .menu .logo:hover {
   position: relative;
   bottom: 35px;
 }
-.wrapper .box__h1 {
-  margin-right: 450px;
-  background-image: linear-gradient(60deg, #E21143, #FFB03A);
-  -webkit-background-clip: text;
-  color: transparent;
-}
-.wrapper .box:hover {
-  transform: scale(1.2);
-  cursor: pointer;
-}
-.wrapper .box__header {
-  grid-column-end: span 4;
-}
-.wrapper .box__header:hover {
-  transform: scale(1);
-}
-.wrapper .box__second-header {
-  grid-column-end: span 4;
-}
-.wrapper .box__second-header:hover {
-  transform: scale(1);
-}
 
 @media only screen and (max-width: 1200px) {
   .wrapper {
     grid-template-columns: repeat(4, 150px);
-    grid-template-rows: 80px 150px 150px 150px 80px 150px 150px 150px;
+    grid-template-rows: repeat(6, 150px);
   }
 }
 @media only screen and (max-width: 950px) {
   .wrapper {
-    grid-template-columns: 150px 150px 150px;
-    grid-template-rows: 80px 150px 150px 150px 80px 150px 150px 150px 150px;
+    grid-template-columns: repeat(3, 150px);
+    grid-template-rows: repeat(6, 150px);
   }
 }
 @media only screen and (max-width: 600px) {
+  body .menu {
+    font-size: 20px;
+  }
+  body .menu .logo {
+    font-size: 25px;
+  }
+
   .wrapper {
     grid-template-columns: repeat(2, 150px);
+    grid-template-rows: repeat(10, 150px);
   }
 }
 @media only screen and (max-width: 300px) {
+  body .menu {
+    font-size: 15px;
+  }
+  body .menu .logo {
+    font-size: 20px;
+  }
+
   .wrapper {
-    grid-template-columns: repeat(1, 150);
-    grid-template-rows: 80px 150px 150px 80px 150px 150px 150px 150px;
+    grid-template-columns: repeat(1, 150px);
+    grid-template-rows: repeat(16, 150px);
   }
   .wrapper .box__big1 {
     grid-column: span 1;
