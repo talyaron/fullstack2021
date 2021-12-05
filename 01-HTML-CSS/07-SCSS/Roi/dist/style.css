@@ -1,0 +1,74 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.MainGrid {
+  display: grid;
+  grid-template-columns: 200px auto;
+  grid-template-rows: 100vh;
+}
+.MainGrid__CG {
+  background-color: black;
+  display: grid;
+  grid-template-rows: 50px auto;
+  grid-template-columns: 100vw;
+}
+.MainGrid__CG__SearchBar {
+  background-color: #2c2727;
+  padding: 20px;
+  color: #756e6e;
+}
+.MainGrid__CG__MainContentArea {
+  display: grid;
+  grid-template-rows: 300px 300px 300px;
+  grid-template-columns: 2000px;
+  justify-content: center;
+  gap: 100px;
+}
+.MainGrid__CG__MainContentArea__Music {
+  border: 1px solid gold;
+  display: grid;
+  grid-template-columns: 400px 400px 400px 400px 400px;
+  grid-template-rows: 100%;
+  gap: 20px;
+}
+.MainGrid__CG__MainContentArea__Music .MusicBox1 {
+  border: 1px solid green;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+.MainGrid__CG__MainContentArea__Music .MusicBox1__IMG {
+  border: 1px solid red;
+}
+.MainGrid__SG {
+  background-color: #2c2727;
+}
+.MainGrid__SG__Menu {
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+}
+.MainGrid__SG__Menu__SubMenu {
+  position: absolute;
+  top: 260px;
+  height: 200px;
+  width: 200px;
+  padding-top: 20px;
+  padding-left: 50px;
+  font-size: 15px;
+  color: #756e6e;
+}
+.MainGrid__SG__Menu__item {
+  height: 50px;
+  font-size: 20px;
+  color: white;
+  display: flex;
+  justify-content: left;
+  padding-left: 20px;
+  align-items: center;
+}
+.MainGrid__SG__Menu__item img {
+  width: 150px;
+  height: 60px;
+}

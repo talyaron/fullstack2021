@@ -1,0 +1,611 @@
+body {
+  background-color: #5f5c5c;
+  margin: 0;
+}
+
+.main {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[20];
+      grid-template-columns: repeat(20, 1fr);
+  -ms-grid-rows: (1fr)[250];
+      grid-template-rows: repeat(250, 1fr);
+  background-color: #2b2727;
+  height: 200vh;
+  margin-top: 0;
+}
+
+.main_topHeader {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 12;
+  grid-row: 1/13;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 20;
+  grid-column: 1/21;
+  background-color: black;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[20];
+      grid-template-columns: repeat(20, 1fr);
+  -ms-grid-rows: (1fr)[8];
+      grid-template-rows: repeat(8, 1fr);
+}
+
+.main_topHeader .logo {
+  background-image: url(https://static1.thegamerimages.com/wordpress/wp-content/uploads/2020/04/addicting-games-cover.jpg);
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 4;
+  grid-column: 1/5;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 8;
+  grid-row: 1/9;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.main_topHeader .search {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-grid-column: 8;
+  -ms-grid-column-span: 3;
+  grid-column: 8/11;
+  -ms-grid-row: 4;
+  grid-row: 4;
+  -webkit-column-gap: 0.4em;
+          column-gap: 0.4em;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.main_topHeader .search input {
+  background-color: black;
+  color: white;
+  width: 100%;
+  height: 90%;
+  border-radius: 5px;
+  font-size: 15px;
+  border-right: none;
+}
+
+.main_topHeader .search .fas, .main_topHeader .search .fa-search {
+  color: #801d1d;
+  margin: auto;
+}
+
+.main_topHeader .search:hover {
+  cursor: pointer;
+}
+
+.main_topHeader .topOptions {
+  -ms-grid-column: 13;
+  -ms-grid-column-span: 7;
+  grid-column: 13/20;
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 5;
+  grid-row: 3/8;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-column-gap: 10px;
+          column-gap: 10px;
+}
+
+.main_topHeader .topOptions-button {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[10];
+      grid-template-columns: repeat(10, 1fr);
+  -ms-grid-rows: (1fr)[8];
+      grid-template-rows: repeat(8, 1fr);
+  width: 100%;
+  height: 5vh;
+  border-radius: 7px;
+  background-color: black;
+  color: white;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main_topHeader .topOptions-button:hover {
+  cursor: pointer;
+  border: 1px solid #bd2626;
+}
+
+.main_topHeader .topOptions-button .buttonImg {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-column: 1/4;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 3;
+  grid-row: 2/5;
+  width: 100%;
+  height: 100%;
+}
+
+.main_topHeader .topOptions-button p {
+  -ms-grid-column: 4;
+  -ms-grid-column-span: 3;
+  grid-column: 4/7;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 3;
+  grid-row: 2/5;
+  font-weight: 300;
+}
+
+.main_topHeader .topOptions-button .btnOne {
+  background-image: url(https://imagefinder.co/storage/w1000/images/2019/06/burst_gaming-controller-against-a-black-background.jpg);
+  background-position: center;
+  background-size: cover;
+}
+
+.main_topHeader .topOptions-button .btnTwo {
+  background-image: url(https://ak.picdn.net/shutterstock/videos/1039666934/thumb/1.jpg);
+  background-position: center;
+  background-size: cover;
+}
+
+.main_topHeader .topOptions-button .btnThree {
+  background-image: url(https://cdn2.vectorstock.com/i/1000x1000/71/46/people-icon-on-a-black-background-vector-29307146.jpg);
+  background-position: center;
+  background-size: cover;
+}
+
+.main_topHeader .topOptions-button .btnfour {
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRID2gdoo1bNdMF4TomG7tKLH3ezjCirO9SIw&usqp=CAU);
+  background-position: center;
+  background-size: cover;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 9;
+  grid-column: 1/10;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 5;
+  grid-row: 2/7;
+}
+
+.main_topHeader .topOptions .GamePass {
+  border: 1px solid white;
+}
+
+.main_topHeader .topOptions .GamePass:hover {
+  cursor: pointer;
+  border: 1px solid #bd2626;
+}
+
+.main_topHeader .sign_btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  row-gap: 8px;
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 4;
+  grid-row: 3/7;
+  -ms-grid-column: 20;
+  -ms-grid-column-span: 1;
+  grid-column: 20/21;
+  text-align: center;
+  margin-left: 7px;
+}
+
+.main_topHeader .sign {
+  border-radius: 5px;
+  text-align: center;
+  font-size: 9px;
+}
+
+.main_topHeader .sign:hover {
+  cursor: pointer;
+}
+
+.main_topHeader .up {
+  background-color: #009f00;
+  color: #f7eeee;
+  font-weight: 500;
+}
+
+.main_topHeader .up:hover {
+  font-weight: bold;
+}
+
+.main_topHeader .in {
+  background-color: #2b2727;
+  color: #f7eeee;
+}
+
+.main_topHeader .in:hover {
+  color: #921414;
+}
+
+.main_secondHeader {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 20;
+  grid-column: 1/21;
+  -ms-grid-row: 20;
+  -ms-grid-row-span: 10;
+  grid-row: 20/30;
+  display: -ms-grid;
+  display: grid;
+  -webkit-column-gap: 7px;
+          column-gap: 7px;
+  row-gap: 5px;
+  margin-left: 30px;
+  -ms-grid-columns: (1fr)[10];
+      grid-template-columns: repeat(10, 1fr);
+  -ms-grid-rows: (1fr)[8];
+      grid-template-rows: repeat(8, 1fr);
+}
+
+.main_secondHeader .box {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[5];
+      grid-template-columns: repeat(5, 1fr);
+  -ms-grid-rows: (1fr)[4];
+      grid-template-rows: repeat(4, 1fr);
+  border-radius: 8px;
+  height: 6vh;
+  width: 10vw;
+  -webkit-box-shadow: 20px 20px 10px #161616;
+          box-shadow: 20px 20px 10px #161616;
+}
+
+.main_secondHeader .box:hover {
+  cursor: pointer;
+  border: 1px solid #fcd810;
+}
+
+.main_secondHeader .box-Clicker {
+  border: 1px solid #199782;
+}
+
+.main_secondHeader .box-Clicker a {
+  color: #199782;
+}
+
+.main_secondHeader .box-Puzzle {
+  border: 1px solid #169206;
+}
+
+.main_secondHeader .box-Puzzle a {
+  color: #169206;
+}
+
+.main_secondHeader .box-Action {
+  border: 1px solid #fcd810;
+}
+
+.main_secondHeader .box-Action a {
+  color: #fcd810;
+}
+
+.main_secondHeader .box-Shooting {
+  border: 1px solid #b90a85;
+}
+
+.main_secondHeader .box-Shooting a {
+  color: #b90a85;
+}
+
+.main_secondHeader .box-Zombie {
+  border: 1px solid #ca6c00;
+}
+
+.main_secondHeader .box-Zombie a {
+  color: #ca6c00;
+}
+
+.main_secondHeader .box-Funny {
+  border: 1px solid #640381;
+}
+
+.main_secondHeader .box-Funny a {
+  color: #640381;
+}
+
+.main_secondHeader .box-Car {
+  border: 1px solid #3ec9db;
+}
+
+.main_secondHeader .box-Car a {
+  color: #3ec9db;
+}
+
+.main_secondHeader .box-Card {
+  border: 1px solid #b311a5;
+}
+
+.main_secondHeader .box-Card a {
+  color: #b311a5;
+}
+
+.main_secondHeader .box-more {
+  width: 170%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 25% 10%;
+      grid-template-rows: 25% 10%;
+  -ms-grid-columns: (1fr)[8];
+      grid-template-columns: repeat(8, 1fr);
+}
+
+.main_secondHeader .box-more h4 {
+  -ms-grid-row: 1;
+  grid-row: 1;
+  font-size: 12px;
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 3;
+  grid-column: 3/6;
+  color: white;
+  margin-top: 0;
+}
+
+.main_secondHeader .box-more p {
+  -ms-grid-row: 2;
+  grid-row: 2;
+  font-size: 10px;
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 3;
+  grid-column: 3/6;
+  color: white;
+  font-weight: 1000;
+}
+
+.main_secondHeader .box-more img {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1/2;
+  -ms-grid-row: 2;
+  grid-row: 2;
+  width: 120%;
+}
+
+.main_secondHeader .box-more:hover {
+  border: none;
+  margin-top: -10px;
+}
+
+.main_secondHeader .box a {
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 1;
+  grid-column: 3/4;
+  padding-top: 15px;
+  font-weight: 1000;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.main_secondHeader .box img {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 4;
+  grid-row: 1/5;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.main_mostAddictingGames {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[20];
+      grid-template-columns: repeat(20, 1fr);
+  -ms-grid-rows: (1fr)[5];
+      grid-template-rows: repeat(5, 1fr);
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 18;
+  grid-column: 2/20;
+  -ms-grid-row: 40;
+  -ms-grid-row-span: 62;
+  grid-row: 40/102;
+  row-gap: 12px;
+  -webkit-column-gap: 20px;
+          column-gap: 20px;
+}
+
+.main_mostAddictingGames-headline {
+  -ms-grid-row: 1;
+  grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 4;
+  grid-column: 1/5;
+  font-size: 10px;
+}
+
+.main_mostAddictingGames-headline h1 {
+  color: white;
+  text-align: center;
+}
+
+.main_mostAddictingGames-firstLine {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 20;
+  grid-column: 1/21;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2/3;
+  -webkit-column-gap: 10px;
+          column-gap: 10px;
+}
+
+.main_mostAddictingGames-secondLine {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 20;
+  grid-column: 1/21;
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
+  grid-row: 3/4;
+  -webkit-column-gap: 10px;
+          column-gap: 10px;
+}
+
+.main .animationBox {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  -ms-grid-rows: 70% 10%;
+      grid-template-rows: 70% 10%;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1/2;
+  border-radius: 15px;
+  height: 15vh;
+  width: 9vw;
+  -webkit-box-shadow: 20px 10px 10px #292525;
+          box-shadow: 20px 10px 10px #292525;
+}
+
+.main .animationBox:hover {
+  cursor: pointer;
+}
+
+.main video {
+  height: 100%;
+  width: 100%;
+  -ms-grid-row: 1;
+  grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-column: 1/4;
+  padding-top: 0;
+  border-radius: 30px;
+  size: cover;
+  position: center;
+}
+
+.main p {
+  color: white;
+  font-weight: 700;
+  text-align: center;
+  font-size: 12px;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-column: 1/4;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2/3;
+  width: 90%;
+  text-align: center;
+  border-radius: 15px;
+}
+
+.main-commercial {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[20];
+      grid-template-columns: repeat(20, 1fr);
+  -ms-grid-rows: (1fr)[4];
+      grid-template-rows: repeat(4, 1fr);
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 18;
+  grid-column: 2/20;
+  -ms-grid-row: 104;
+  -ms-grid-row-span: 16;
+  grid-row: 104/120;
+  height: 30vh;
+}
+
+.main-commercial .firstCommercial {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 4;
+  grid-row: 1/5;
+  -ms-grid-column: 6;
+  -ms-grid-column-span: 10;
+  grid-column: 6/16;
+  background-image: url(https://i.ytimg.com/vi/lVDNmkQ63mU/maxresdefault.jpg);
+  background-position: center;
+  background-size: cover;
+}
+
+.main_newGames {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[20];
+      grid-template-columns: repeat(20, 1fr);
+  -ms-grid-rows: (1fr)[5];
+      grid-template-rows: repeat(5, 1fr);
+  -ms-grid-row: 130;
+  -ms-grid-row-span: 60;
+  grid-row: 130/190;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 18;
+  grid-column: 2/20;
+  row-gap: 12px;
+  -webkit-column-gap: 20px;
+          column-gap: 20px;
+}
+
+.main_newGames_AnimationRows {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2/3;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 18;
+  grid-column: 2/20;
+}
+
+.main_newGames h1 {
+  -ms-grid-row: 1;
+  grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 6;
+  grid-column: 1/7;
+  font-size: 20px;
+  font-display: line;
+  color: white;
+}
+
+.main_newGames h1 span {
+  color: #534c4c;
+}
+
+.main_newGames .btn-viewLastWeek {
+  -ms-grid-column: 18;
+  -ms-grid-column-span: 3;
+  grid-column: 18/21;
+  -ms-grid-row: 1;
+  grid-row: 1;
+  text-align: center;
+  padding-top: 12px;
+  color: white;
+  font-weight: 600;
+  -webkit-box-shadow: 5px 5px 5px #161616;
+          box-shadow: 5px 5px 5px #161616;
+  border-radius: 10px;
+}
+
+.main_newGames .btn-viewLastWeek:hover {
+  position: relative;
+  cursor: pointer;
+  top: -5px;
+}
+/*# sourceMappingURL=Task6.css.map */

@@ -1,0 +1,132 @@
+
+// body{
+//     background-color: rgb(184, 178, 178);
+    
+// }
+
+// html{
+//     font-family: Arial, Helvetica, sans-serif;
+// }
+
+
+// .grid{
+//     display: grid;
+//     grid-template-columns: repeat(4, 1fr);
+//     gap: 10px;
+    
+
+//     @media only screen and (max-width: 1200px) {
+//         grid-template-columns: repeat(3, 1fr);
+//         margin: auto;
+//         background-color: white;
+        
+//     }
+
+//     @media only screen and (max-width: 900px) {
+//         grid-template-columns: repeat(2, 1fr);
+//         margin: auto;
+//         background-color: rgb(241, 145, 145);
+        
+//     }
+
+//     @media only screen and (max-width: 600px){
+//         grid-template-columns: repeat(1, 1fr);
+//         margin: auto;
+//         background-color: rgb(218, 236, 136);
+        
+//     }
+
+//     &__card{
+//         border: 1px solid grey;
+//         width: 400px;
+//         height: 500px;
+//     }
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+body{
+    background-color: rgb(186, 192, 197);
+    
+    
+}
+
+html{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    // border: 1px solid grey;
+    gap: 20px;
+    padding: 20px;
+
+
+    @media only screen and (max-width: 1200px){
+        grid-template-columns: repeat(3, 1fr);
+        background-color: rgb(163, 219, 163);
+        margin: 20px;
+
+    }
+
+
+    @media only screen and (max-width: 900px){
+        grid-template-columns: repeat(2, 1fr);
+        background-color: rgb(98, 90, 112);
+        margin: 20px;
+    }
+
+    @media only screen and (max-width: 600px){
+        grid-template-columns: repeat(1, 1fr);
+        background-color: rgb(194, 141, 81);
+        margin: 20px;
+    }
+        
+
+
+    &__card{
+        
+        background-color: honeydew;
+        // border: 1px solid grey;
+        border-radius: 20px;
+        margin: auto;
+        text-align: center;
+        padding: 20px;
+    
+    
+        
+    }
+
+    
+    
+}  
+
+
+

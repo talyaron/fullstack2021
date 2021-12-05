@@ -1,0 +1,30 @@
+body {
+  direction: rtl;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  width: 25%;
+  margin: 50px;
+  text-align: center;
+}
+.card .price {
+  color: red;
+  font-size: x-large;
+}
+.card .text {
+  color: royalblue;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: xx-large;
+}
+.card img {
+  width: 50vh;
+  height: 40vh;
+}

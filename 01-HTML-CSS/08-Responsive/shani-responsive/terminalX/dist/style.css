@@ -1,0 +1,36 @@
+h1 {
+  text-align: center;
+}
+
+.wrapper {
+  max-width: 225ch;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 4;
+  gap: 10px;
+  margin: 5%;
+}
+.wrapper .box {
+  width: 30vw;
+  height: 40vh;
+  border: 2px solid black;
+}
+.wrapper .box img {
+  width: 100%;
+  height: auto;
+}
+@media only screen and (max-width: 900px) {
+  .wrapper {
+    margin: 10%;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 2;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .wrapper {
+    margin-left: 30%;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: 1;
+  }
+}
