@@ -9,12 +9,12 @@ body .menu {
   align-items: center;
   position: fixed;
   background-image: linear-gradient(60deg, #E21143, #FFB03A);
-  width: 100vw;
+  width: 100%;
   height: 5vh;
   top: 0px;
   left: 0;
   z-index: 1;
-  font-size: x-large;
+  font-size: 3vh;
   color: black;
 }
 body .menu a {
@@ -34,7 +34,7 @@ body .menu .logo:hover {
 }
 
 .home__h1 {
-  font-size: 150px;
+  font-size: 10vw;
   background-image: linear-gradient(60deg, #E21143, #FFB03A);
   -webkit-background-clip: text;
   color: transparent;
@@ -49,11 +49,9 @@ body .menu .logo:hover {
 .wrapper {
   margin-top: 50px;
   margin-left: 25%;
-  width: 50vw;
-  height: 150vh;
   display: grid;
   gap: 30px;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(5, 150px);
   grid-template-rows: 80px 150px 150px 80px 150px 150px;
 }
 .wrapper .box {
@@ -103,4 +101,36 @@ body .menu .logo:hover {
 }
 .wrapper .box__second-header:hover {
   transform: scale(1);
+}
+
+@media only screen and (max-width: 1200px) {
+  .wrapper {
+    grid-template-columns: repeat(4, 150px);
+    grid-template-rows: 80px 150px 150px 150px 80px 150px 150px 150px;
+  }
+}
+@media only screen and (max-width: 950px) {
+  .wrapper {
+    grid-template-columns: 150px 150px 150px;
+    grid-template-rows: 80px 150px 150px 150px 80px 150px 150px 150px 150px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .wrapper {
+    grid-template-columns: repeat(2, 150px);
+  }
+}
+@media only screen and (max-width: 300px) {
+  .wrapper {
+    grid-template-columns: repeat(1, 150);
+    grid-template-rows: 80px 150px 150px 80px 150px 150px 150px 150px;
+  }
+  .wrapper .box__big1 {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+  .wrapper .box__big2 {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
 }
