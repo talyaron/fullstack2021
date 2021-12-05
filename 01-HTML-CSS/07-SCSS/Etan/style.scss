@@ -6,13 +6,13 @@ body {
 
 .wrapper {
 display: grid;
-    width: 1440px;
+    width: fit-content;
     height: 100%;
     background: #363434;
     margin: 0 auto;
-    grid-template-rows: auto auto;
+    grid-template-rows: auto;
     grid-gap: 5em;
-    padding: 5em;
+    padding: 2em;
 
     h1 {
         
@@ -52,7 +52,7 @@ display: grid;
 .container {
     background-color: #363434;
     display: grid;
-    grid-gap: 2em;
+    grid-gap: 1em;
     width: 1440px;
     max-width: 1440px;
     grid-template-columns: repeat(5,1fr);
