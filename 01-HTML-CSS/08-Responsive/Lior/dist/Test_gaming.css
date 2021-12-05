@@ -208,7 +208,6 @@ body {
   width: 70%;
   height: 4vh;
   background-color: #1d1f29;
-  border: 3px solid white;
   background-size: cover;
   background-position: center;
   text-align: center;
@@ -250,28 +249,4 @@ body {
 }
 .banner__navbar ul li:hover ::after {
   width: 100%;
-}
-.banner__navbar__search_box {
-  position: relative;
-  left: 50vw;
-  top: -1vh;
-  transform: translate(-50%, -50%);
-  transition: 10s;
-  background: #1d1f29;
-  height: 30px;
-  width: 15vw;
-}
-.banner__navbar__search_box :hover > .navbar__search_box__search_text {
-  width: 240px;
-  padding: 0 -5px;
-}
-.banner__navbar__search_box__Search-btn {
-  position: relative;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  background: greenyellow;
-  height: 40px;
-  width: 40px;
-  top: 0px;
 }

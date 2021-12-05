@@ -295,7 +295,6 @@ body
     width: 70%;
     height: 4vh;
     background-color: rgb(29, 31, 41);
-    border: 3px solid white;
     background-size: cover;
     background-position: center;
     text-align: center;
@@ -345,34 +344,7 @@ body
         }
       }
   
-      &__search_box {
-        position: relative;
-        left: 50vw;
-        top: -1vh;
-        transform: translate(-50%, -50%);
-        transition: 10s;
-        background: rgb(29, 31, 41);
-        height: 30px;
-        width: 15vw;
-  
-  
-        & :hover>.navbar__search_box__search_text {
-          width: 240px;
-          padding: 0 -5px;
-        }
-  
-        &__Search-btn {
-          position: relative;
-          justify-content: center;
-          align-items: center;
-          border-radius: 50%;
-          background: greenyellow;
-          height: 40px;
-          width: 40px;
-          top: -0px;
-        }
-  
       }
   
-    }
+    
   }

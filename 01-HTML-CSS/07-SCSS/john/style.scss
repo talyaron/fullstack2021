@@ -2,6 +2,7 @@ body {
 	background-color: black;
 	margin: 0;
 }
+
 .header {
 	background-color: rgb(88, 88, 145);
 	width: 100vw;
@@ -9,6 +10,7 @@ body {
 	text-align: center;
 	font-family: fantasy;
 }
+
 .title1 {
 	background-color: rgb(88, 88, 145);
 	width: 100vw;
@@ -16,6 +18,7 @@ body {
 	text-align: center;
 	font-family: fantasy;
 }
+
 .title2 {
 	background-color: rgb(88, 88, 145);
 	width: 100vw;
@@ -23,10 +26,12 @@ body {
 	text-align: center;
 	font-family: fantasy;
 }
+
 .actualgames {
 	display: flex;
 	justify-content: space-around;
 }
+
 .gamesbox {
 	background-color: rgb(88, 88, 145);
 	border: 5px solid rgb(88, 88, 145);
@@ -36,16 +41,19 @@ body {
 	font-family: monospace;
 	text-align: center;
 	color: blueviolet;
+
 	>img {
 		width: 15vw;
 		height: 20vh;
 	}
+
 	&:hover {
 		cursor: pointer;
 		transition-duration: 1s;
 		transform: scale(1.2);
 	}
 }
+
 .classicgames {
 	display: flex;
 	justify-content: space-around;
