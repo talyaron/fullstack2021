@@ -41,11 +41,10 @@
   }
 
 }
-
   
 }
 
-@media only screen and (max-width: 720px)
+@media only screen and (max-width: 677px)
 {
   body
   {
@@ -107,6 +106,19 @@ body
   bottom: 30px;;
   transition: 0.8s;
 
+  @media only screen and (max-width: 1866px)
+
+  {
+    left: 200px;
+  }
+
+  @media only screen and (max-width: 1538px)
+
+  {
+    left: 180px;
+  }
+  
+
   &:hover
   {
     transform: scale(1.3);
@@ -128,7 +140,39 @@ body
     gap: 20px;
     margin-top: 40px;
 
-    
+    @media  only screen and (max-width:2420px) 
+    {
+      grid-template-columns: repeat(5,1fr);
+      grid-template-rows: repeat(6,300px);
+    }
+
+    @media  only screen and (max-width:2300px) 
+    {
+      grid-template-columns: repeat(4,1fr);
+      grid-template-rows: repeat(7,300px);
+    }
+
+    @media  only screen and (max-width:1850px) 
+    {
+      grid-template-columns: repeat(3,1fr);
+      grid-template-rows: repeat(9,300px);
+    }
+
+    @media  only screen and (max-width:1440px) 
+    {
+      grid-template-columns: repeat(2,1fr);
+      grid-template-rows: repeat(14,300px);
+    }
+
+     @media  only screen and (max-width:677px) 
+    {
+      grid-template-columns: repeat(1,1fr);
+      grid-template-rows: repeat(24,300px);
+      display: flex;
+      flex-direction: column;
+      height: 837vh;
+    }
+
     &__box
     {
         border: 3px solid black;
@@ -145,12 +189,32 @@ body
         text-align: center;
         overflow: hidden;
 
+        
+      @media  only screen and (max-width:2420px) 
+    {
+      width: 90%;
+      height: auto;
+
+    }
+
+    @media  only screen and (max-width:2300px) 
+    {
+
+    }
+
+    @media  only screen and (max-width:677px) 
+    {
+      width: 90%;
+      height: 35vh;
+    }
+
+
         &__content
         {
           display: flex;
           flex-direction: column;
           position: relative;
-          top: -10px;
+          top: 40px;
           transform: translateY(105%);
           transition: 1.2s;
         }
@@ -226,11 +290,23 @@ body
         grid-column-start: 1;
         grid-column-end: 5;
         border-radius: 50px;
-        left: 300px;
+        left: 200px;
         width: 80%;
+        top: -70px;
         margin-right: 60px;
         border: 3px solid white;
         opacity: 0.8;
+        
+        @media  only screen and (max-width:2420px) 
+
+        {
+          height: auto;
+          width: auto;
+          align-items: center;
+          align-content: center;
+        }
+
+
 
         
         &__content
@@ -244,7 +320,7 @@ body
         &__btn
         {
             background:  greenyellow;
-            font-size: 20px;
+            font-size: 30px;
             border: 3px solid black;
             padding: 10px 20px;
             font-family: "monsterrat";
@@ -258,7 +334,16 @@ body
             overflow: hidden;
             border-radius: 10px;
             transition: 1.2s;
+       
+            @media  only screen and (max-width:1039px) 
 
+            {
+              height: auto;
+              width: auto;
+              align-items: center;
+              align-content: center;
+            }
+    
             &:hover
             {
                 transform: scale(1.2);
@@ -296,13 +381,12 @@ h4
     
         color: rgb(147, 190, 61);
         position: relative;
-        border: 3px solid rgb(248, 248, 248);
         bottom: 120px;
         width: 20%;
         height: 6vh;
         text-align: center;
         left: 32vw;
-        font-size: 30px;
+        font-size: 50px;
         transition: 1.2s;
 
         &:hover
@@ -360,6 +444,8 @@ h4
 .box_2
     {
         background: url(https://images3.alphacoders.com/843/thumbbig-843016.webp);
+        background-repeat: no-repeat;
+        background-size: cover;
         
         :active
         {
@@ -711,6 +797,34 @@ h4
     top: -150px;
     left: 19vw;
     position: relative;
+
+    @media  only screen and (max-width:2420px) 
+    {
+
+    }
+
+    @media  only screen and (max-width:2300px) 
+    {
+    }
+
+    @media  only screen and (max-width:2030px) 
+    {
+      width: 90%;
+      text-align: center;
+
+    }
+
+    @media  only screen and (max-width:1566px) 
+    {
+      
+      text-align: left;
+    }
+    @media  only screen and (max-width:1478px) 
+    {
+      
+      text-align: start;
+    }
+
   
 
     &__navbar {
@@ -719,6 +833,21 @@ h4
       position: relative;
       align-items: center;
       justify-content: space-between;
+
+      @media  only screen and (max-width:1506px) 
+      {
+        margin: -10px;
+
+      }
+
+      @media  only screen and (max-width:1303px) 
+      {
+        margin: 20px;
+        width: 75%;
+        font-size: 25px;
+
+      }
+
   
       & ul li {
         list-style: none;
@@ -755,13 +884,47 @@ h4
   
       &__search_box {
         position: relative;
-        left: 50vw;
+        border: 3px solid white;
+        left: 60vw;
         top: -1vh;
         transform: translate(-50%, -50%);
         transition: 10s;
         background: rgb(29, 31, 41);
         height: 30px;
         width: 15vw;
+
+        @media  only screen and (max-width:2354px) 
+        {
+          left: 63vw;
+
+        }
+    
+        @media  only screen and (max-width:2300px) 
+        {
+        }
+    
+        @media  only screen and (max-width:2030px) 
+        {
+          left: 73vw;
+          width: 16vw;
+
+        }
+    
+        @media  only screen and (max-width:1566px) 
+        {
+          left: 74vw;
+          width: 18vw;
+          
+        }
+        
+
+        @media  only screen and (max-width:1170px) 
+        {
+          left: 77vw;
+          width: 20vw;
+          
+        }
+  
   
   
         & :hover>.navbar__search_box__search_text {
@@ -776,8 +939,9 @@ h4
           border-radius: 50%;
           background: greenyellow;
           height: 40px;
-          width: 40px;
+          width: 20px;
           top: -0px;
+
         }
   
       }
