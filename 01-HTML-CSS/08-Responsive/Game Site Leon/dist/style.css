@@ -64,6 +64,21 @@
   font-family: cursive;
   color: black;
 }
+@media only screen and (max-width: 1200px) {
+  .actiongames {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media only screen and (max-width: 900px) {
+  .actiongames {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media only screen and (max-width: 600px) {
+  .actiongames {
+    grid-template-columns: 1fr 1fr;
+  }
+}
 .actiongames h1 {
   color: #0a2bc0;
 }
@@ -92,6 +107,23 @@
   grid-template-rows: repeat(2, 1fr);
   row-gap: 24px;
   font-family: monospace;
+}
+@media only screen and (max-width: 1200px) {
+  .sportgames {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+}
+@media only screen and (max-width: 900px) {
+  .sportgames {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media only screen and (max-width: 600px) {
+  .sportgames {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(2, 1fr);
+  }
 }
 .sportgames h1 {
   color: lavender;
@@ -124,6 +156,23 @@
   row-gap: 24px;
   font-family: monospace;
 }
+@media only screen and (max-width: 1200px) {
+  .shooting {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+}
+@media only screen and (max-width: 900px) {
+  .shooting {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media only screen and (max-width: 600px) {
+  .shooting {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(2, 1fr);
+  }
+}
 .shooting .box {
   border: 2px solid #636e72;
   background-size: cover;
@@ -151,6 +200,23 @@
   grid-template-rows: repeat(2, 1fr);
   row-gap: 24px;
   font-family: monospace;
+}
+@media only screen and (max-width: 1200px) {
+  .zombies {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+}
+@media only screen and (max-width: 900px) {
+  .zombies {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media only screen and (max-width: 600px) {
+  .zombies {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(2, 1fr);
+  }
 }
 .zombies .box {
   border: 2px solid #636e72;
