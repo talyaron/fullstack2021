@@ -130,24 +130,35 @@ body {
 }
 .menubar .scroll {
   margin-right: 10px;
-  color: red;
+  color: rgba(211, 14, 14, 0.966);
   font-size: 17px;
   text-shadow: 0.2px 0.2px 30px #a1a1a1;
 }
 .menubar__cards {
   display: flex;
   justify-content: space-between;
-  overflow: scroll;
+  overflow-x: auto;
   margin-right: 10px;
   border-radius: 20px;
+  white-space: nowrap;
+  max-width: 100%;
 }
+<<<<<<< HEAD
 .menubar__cards::-webkit-slider-track {
   width: 100%;
   height: 20px;
   background: #c5c2c2;
+=======
+.menubar__cards::-webkit-scroollbar {
+  height: 10px;
+>>>>>>> fe92fad5628d6ed154e002da28e3641bbddb30e3
 }
-.menubar__cards::-webkit-slider-thumb {
+.menubar__cards::-webkit-scrollbar-track {
   background: #353535;
+}
+.menubar__cards::-webkit-scrollbar-thumb {
+  background: #222;
+  border-radius: 20px;
 }
 .menubar .card {
   background-color: #353535;
@@ -158,7 +169,7 @@ body {
   align-items: center;
   transition: all 0.8s;
   min-width: 210px;
-  height: 69%;
+  height: 79%;
   margin-right: 10px;
 }
 .menubar .card:hover {

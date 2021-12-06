@@ -4,7 +4,14 @@ body{
    
    
 }
-
+input{
+   float: right;
+   font-size: xx-large;
+}
+button{
+   float: right;
+   font-size: xx-large;
+}
 a{
    font-size: xx-large;
  /* background-color: black;*/
@@ -40,17 +47,19 @@ p{
   margin: 100px;
   border-radius: 10px ;
   border: 2px white solid;
+  width: 700px;
  
    
-   ul{
-     
+    a{
+      font-size: 45px;
       text-align: italic;
+      margin: 10px;
    }
    a:hover{
-        
-      color: rgb(0, 0, 0);
-      text-align: italic;
-      color: white;
+     
+      color:red ;
+    
+       text-align: italic;
       justify-self:center;
     } 
      
@@ -59,7 +68,7 @@ p{
 
 /*////////////////////////////(Menu/flex)////////////////////////////////////////*/
 
-.menu2{
+.navmenu2{
    display: flex;
    flex-wrap: wrap;
    height: 50px;
@@ -116,11 +125,14 @@ p{
     margin-top: 900px;
  }
  }
+ p:hover{
+color: white;
+ }
 
 }
 /*////////////////////////////(small artical grid)////////////////////////////////////////*/
 
-.num1{
+.articil1{
    display: grid;
    background: color #999;
    grid-template-columns:repeat(4,400px);
@@ -138,11 +150,13 @@ p{
       width: 400px;
       border-radius: 15px;
    }
-  
+   p:hover{
+      color: white;
+       }
 }
 /*////////////////////////////(small artical grid)////////////////////////////////////////*/
 
-.num2{
+.articil2{
    display: grid;
    background: color #999;
    grid-template-columns:repeat(4,400px);
@@ -160,11 +174,13 @@ p{
       width: 400px;
       border-radius: 15px;
    }
-  
+   p:hover{
+      color: white;
+       }
 }
     /*////////////////////////////(small artical grid)////////////////////////////////////////*/
 
-.num3{
+.articil3{
    display: grid;
    background: color #999;
    grid-template-columns:repeat(4,400px);
@@ -181,11 +197,13 @@ p{
       width: 400px;
       border-radius: 15px;
    }
-   
+   p:hover{
+      color: white;
+       }  
 }
 /*////////////////////////////(small artical grid)////////////////////////////////////////*/
 
-.num4{
+.articil4{
    display: grid;
    background: color #999;
    grid-template-columns:repeat(4,400px);
@@ -202,7 +220,9 @@ p{
       width: 400px;
       border-radius: 15px;
    }
-   
+   p:hover{
+      color: white;
+       }  
 }
 .text{
       
@@ -262,15 +282,15 @@ img:hover{
       display: grid;
       grid-template-columns:repeat(1, 1fr) ;
    }
-   .num2{
+   .articil2{
       display: grid;
       grid-template-columns: repeat(2, 1fr);
    }
-   .num3{
+   .articil3{
       display: grid;
       grid-template-columns: repeat(1, 1fr);
    }
-   .num4{
+   .articil4{
       display: grid;
       grid-template-columns: repeat(1, 1fr);
    }
@@ -289,15 +309,15 @@ img:hover{
       display: grid;
       grid-template-columns:repeat(1, 1fr) ;
    }
-   .num2{
+   .articil2{
       display: grid;
       grid-template-columns: repeat(2, 1fr);
    }
-   .num3{
+   .articil3{
       display: grid;
       grid-template-columns: repeat(1, 1fr);
    }
-   .num4{
+   .articil4{
       display: grid;
       grid-template-columns: repeat(1, 1fr);
    }
@@ -316,16 +336,16 @@ img:hover{
       display: grid;
       grid-template-columns:repeat(1, 1fr) ;
    }
-   .num2{
+   .articil2{
       display: grid;
       grid-template-columns: repeat(1, 1fr);
 
    }
-   .num3{
+   .articil3{
       display: grid;
       grid-template-columns: repeat(1, 1fr);
    }
-   .num4{
+   .articil4{
       display: grid;
       grid-template-columns: repeat(1, 1fr);
    }

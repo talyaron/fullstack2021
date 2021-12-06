@@ -1,7 +1,6 @@
 @media only screen and (max-width: 1940px)
 {
 
-
   .container
 
   {
@@ -41,11 +40,10 @@
   }
 
 }
-
   
 }
 
-@media only screen and (max-width: 720px)
+@media only screen and (max-width: 677px)
 {
   body
   {
@@ -100,17 +98,44 @@ body
 {
   position: relative;
   border-radius: 100px;
-  border: 3px solid white;
   width: 4.3vw;
   height: 100px;
   left: 250px;
   bottom: 30px;;
   transition: 0.8s;
 
+  @media only screen and (max-width: 1866px)
+
+  {
+    left: 200px;
+  }
+
+  @media only screen and (max-width: 1538px)
+
+  {
+    left: 180px;
+  }
+
+
+  
+  @media only screen and (max-width: 1538px)
+
+  {
+    left: 180px;
+  }
+
+  @media only screen and (max-width: 1246px)
+
+  {
+    left: 180px;
+    top: 20px;
+  }
+  
+  
+
   &:hover
   {
     transform: scale(1.3);
-    border: 3px solid white;
 
   }
 }
@@ -119,7 +144,6 @@ body
 {
     position: absolute;
     display: grid;
-    border: 3px solid white;
     grid-template-columns: repeat(5,1fr);
     grid-template-rows: repeat(6,300px);
     height: 217vh;
@@ -128,7 +152,39 @@ body
     gap: 20px;
     margin-top: 40px;
 
-    
+    @media  only screen and (max-width:2420px) 
+    {
+      grid-template-columns: repeat(5,1fr);
+      grid-template-rows: repeat(6,300px);
+    }
+
+    @media  only screen and (max-width:2300px) 
+    {
+      grid-template-columns: repeat(4,1fr);
+      grid-template-rows: repeat(7,300px);
+    }
+
+    @media  only screen and (max-width:1850px) 
+    {
+      grid-template-columns: repeat(3,1fr);
+      grid-template-rows: repeat(9,300px);
+    }
+
+    @media  only screen and (max-width:1440px) 
+    {
+      grid-template-columns: repeat(2,1fr);
+      grid-template-rows: repeat(14,300px);
+    }
+
+     @media  only screen and (max-width:677px) 
+    {
+      grid-template-columns: repeat(1,1fr);
+      grid-template-rows: repeat(24,300px);
+      display: flex;
+      flex-direction: column;
+      height: 837vh;
+    }
+
     &__box
     {
         border: 3px solid black;
@@ -145,12 +201,32 @@ body
         text-align: center;
         overflow: hidden;
 
+        
+      @media  only screen and (max-width:2420px) 
+    {
+      width: 90%;
+      height: auto;
+
+    }
+
+    @media  only screen and (max-width:2300px) 
+    {
+
+    }
+
+    @media  only screen and (max-width:677px) 
+    {
+      width: 90%;
+      height: 35vh;
+    }
+
+
         &__content
         {
           display: flex;
           flex-direction: column;
           position: relative;
-          top: -10px;
+          top: 21px;
           transform: translateY(105%);
           transition: 1.2s;
         }
@@ -226,11 +302,23 @@ body
         grid-column-start: 1;
         grid-column-end: 5;
         border-radius: 50px;
-        left: 300px;
+        left: 200px;
         width: 80%;
+        top: -70px;
         margin-right: 60px;
         border: 3px solid white;
         opacity: 0.8;
+        
+        @media  only screen and (max-width:2420px) 
+
+        {
+          height: auto;
+          width: auto;
+          align-items: center;
+          align-content: center;
+        }
+
+
 
         
         &__content
@@ -244,7 +332,7 @@ body
         &__btn
         {
             background:  greenyellow;
-            font-size: 20px;
+            font-size: 30px;
             border: 3px solid black;
             padding: 10px 20px;
             font-family: "monsterrat";
@@ -258,7 +346,16 @@ body
             overflow: hidden;
             border-radius: 10px;
             transition: 1.2s;
+       
+            @media  only screen and (max-width:1039px) 
 
+            {
+              height: auto;
+              width: auto;
+              align-items: center;
+              align-content: center;
+            }
+    
             &:hover
             {
                 transform: scale(1.2);
@@ -294,15 +391,14 @@ body
 h4
 {
     
-        color: rgb(147, 190, 61);
+        color: rgb(205, 226, 14);
         position: relative;
-        border: 3px solid rgb(248, 248, 248);
         bottom: 120px;
         width: 20%;
         height: 6vh;
         text-align: center;
         left: 32vw;
-        font-size: 30px;
+        font-size: 47px;
         transition: 1.2s;
 
         &:hover
@@ -336,13 +432,15 @@ h4
         background: url(https://wallpapercave.com/dwp1x/AIVAsqC.jpg);
         background-repeat: no-repeat;
         background-size: cover;
-          
+        
         :active
         {
-          background: url(https://c.tenor.com/X_5vdWJEBYcAAAAC/assassins-creed-unity.gif);
-          background-repeat: no-repeat;
-          background-size: cover;        
-        }
+
+            background: url(https://c.tenor.com/X_5vdWJEBYcAAAAC/assassins-creed-unity.gif);
+            background-repeat: no-repeat;
+            background-size: cover;        
+        }  
+
     }
     .large
         {
@@ -352,14 +450,15 @@ h4
           top: 170px;
           transform: translateY(195%);
           transition: 1.2s;
-
-
+ 
         }
 
 /*Pictures*/
 .box_2
     {
         background: url(https://images3.alphacoders.com/843/thumbbig-843016.webp);
+        background-repeat: no-repeat;
+        background-size: cover;
         
         :active
         {
@@ -698,12 +797,10 @@ h4
 
 
 // the navbar
-
-.banner {
-    width: 80%;
-    height: 5vh;
+  .banner {
+    width: 70%;
+    height: 4vh;
     background-color: rgb(29, 31, 41);
-    border: 3px solid white;
     background-size: cover;
     background-position: center;
     text-align: center;
@@ -719,6 +816,52 @@ h4
       position: relative;
       align-items: center;
       justify-content: space-between;
+
+      @media  only screen and (max-width:1506px) 
+      {
+        margin: -10px;
+
+      }
+
+      @media  only screen and (max-width:1303px) 
+      {
+        margin: 20px;
+        width: 75%;
+        font-size: 25px;
+      }
+
+      @media  only screen and (max-width:1207px) 
+      {
+        margin: 20px;
+        width: 85%;
+        font-size: 25px;
+      }
+
+      @media  only screen and (max-width:1046px) 
+      {
+        margin: -10px;
+        width: 95%;
+        font-size: 25px;
+      }
+      @media  only screen and (max-width:942px) 
+      {
+        margin: -10px;
+        width: 105%;
+        font-size: 15px;
+      }
+      @media  only screen and (max-width:837px) 
+      {
+        margin: -20px;
+        width: 135%;
+        font-size: 15px;
+      }
+
+      @media  only screen and (max-width:630px) 
+      {
+        margin: -10px;
+        width: 155%;
+        font-size: 15px;
+      }
   
       & ul li {
         list-style: none;
@@ -733,6 +876,27 @@ h4
           font-weight: 200;
           font-size: 2vh;
           text-transform: uppercase;
+        
+          @media  only screen and (max-width:1505px) 
+          {
+            font-size: 2vh;
+          }
+  
+          @media  only screen and (max-width:1311px) 
+          {
+            font-size: 1.5vh;
+          }
+          @media  only screen and (max-width:610px) 
+          {
+            font-size: 1.1vh;
+          }
+          @media  only screen and (max-width:532px) 
+          {
+            font-size: 1vh;
+            margin: -30px;
+          }
+        
+        
         }
   
   
@@ -753,34 +917,8 @@ h4
         }
       }
   
-      &__search_box {
-        position: relative;
-        left: 50vw;
-        top: -1vh;
-        transform: translate(-50%, -50%);
-        transition: 10s;
-        background: rgb(29, 31, 41);
-        height: 30px;
-        width: 15vw;
-  
-  
-        & :hover>.navbar__search_box__search_text {
-          width: 240px;
-          padding: 0 -5px;
-        }
-  
-        &__Search-btn {
-          position: relative;
-          justify-content: center;
-          align-items: center;
-          border-radius: 50%;
-          background: greenyellow;
-          height: 40px;
-          width: 40px;
-          top: -0px;
-        }
-  
       }
   
-    }
+    
   }
+  
