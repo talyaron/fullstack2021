@@ -1,0 +1,34 @@
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+  animation-name: moveRight;
+  animation-duration: 2s;
+  position: relative;
+}
+
+@keyframes moveRight {
+  0% {
+    background-color: blue;
+    top: 0;
+    left: 0;
+  }
+  25% {
+    background-color: blueviolet;
+    top: 50px;
+    left: 50px;
+    transform: rotate(20deg);
+  }
+  50% {
+    background-color: purple;
+    top: 100px;
+    left: 100px;
+    transform: rotate(50deg);
+  }
+  100% {
+    background-color: plum;
+    top: 150px;
+    left: 150px;
+    transform: rotate(100deg);
+  }
+}
