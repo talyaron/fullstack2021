@@ -1,21 +1,24 @@
 body {
-  background-color: white;
+  background-color: #2c2b2b;
   font-family: sans-serif;
   margin: 0;
 }
 
 .wrapper {
-  width: 1440px;
+  display: grid;
+  width: fit-content;
   height: 100%;
   background: #363434;
   margin: 0 auto;
+  grid-template-rows: auto;
+  grid-gap: 5em;
+  padding: 2em;
   /*media quary*/
 }
 .wrapper h1 {
-  line-height: 3em;
   text-align: center;
   width: 100%;
-  font-size: 2em;
+  font-size: 3em;
   margin: auto;
   color: #dbd8e3;
 }
@@ -47,7 +50,7 @@ body {
 .container {
   background-color: #363434;
   display: grid;
-  position: relative;
+  grid-gap: 1em;
   width: 1440px;
   max-width: 1440px;
   grid-template-columns: repeat(5, 1fr);
@@ -84,20 +87,22 @@ body {
 .container__card {
   position: relative;
   background: #5c5757;
+  display: grid;
   color: black;
   border: 1px solid gray;
   border-radius: 3em;
   height: 200px;
   width: 200px;
-  margin-bottom: 2em;
+  grid-template-columns: 3fr 14fr 3fr;
+  grid-template-rows: 60% 1fr 1fr;
+  grid-template-areas: "gif gif gif" "h1 h1 h1" ". p .";
   z-index: 0;
 }
 .container__card:hover {
   cursor: pointer;
 }
-.container__card video {
-  border-radius: 3em;
-  width: 100%;
+.container__card:hover #cover {
+  opacity: 0;
 }
 .container__card img {
   position: absolute;
@@ -111,29 +116,21 @@ body {
   background-color: #2c2c2c;
   z-index: 2;
 }
-.container__card #cover:hover {
-  display: none;
-}
 .container__card #gif {
   z-index: 1;
+  grid-area: gif;
 }
 .container__card h1 {
-  position: absolute;
   color: #62929a;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 2vh;
-  font-weight: 100;
   z-index: 1;
-  bottom: 3em;
-  line-height: 1rem;
+  grid-area: h1;
 }
 .container__card p {
   color: #efecec;
-  position: absolute;
-  bottom: 0;
-  right: 0;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 2vh;
+  font-size: 1.5vh;
   z-index: 1;
-  margin: 10%;
+  grid-area: p;
 }
