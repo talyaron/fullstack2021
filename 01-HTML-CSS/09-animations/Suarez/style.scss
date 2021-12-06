@@ -1,0 +1,42 @@
+
+    body{
+        background-color:  #0000005e;
+    }
+    .circle {
+        height: 50px;
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        margin-left: 50%;
+        top: 50%;
+        border-radius: 100%;
+        background-color: rgb(177, 12, 12);
+        animation: move-the-circle 1s infinite;
+        transform-origin: center center;
+      }
+      
+      @for $num from 1 through 8 {
+        .circle:nth-child(#{$num}) {
+          left: ($num - 1) * 30px;
+          animation-delay: $num * .1s;
+        }
+      }
+      
+      @keyframes move-the-circle {
+        0% {
+          transform: translate(0, 0) scale(1);
+          opacity: 1;
+          background-color: rgb(177, 12, 12);
+        }
+        50% {
+          transform: translate(0, 50px) scale(.4);
+          opacity: .5;
+          background-color: black;
+        }
+        100% {
+          transform: translate(0, 0) scale(1);
+          opacity: 1;
+          background-color: rgb(177, 12, 12);
+        }
+      }
+

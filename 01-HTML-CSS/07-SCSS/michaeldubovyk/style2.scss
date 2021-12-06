@@ -197,16 +197,14 @@ body {
         &::-webkit-scroollbar{
             height: 10px;
 
+            width: 100%;
+            height: 20px;
+            background: #c5c2c2;
         }
-        &::-webkit-scrollbar-track {
-            background:rgb(53, 53, 53);
-        }
 
-        &::-webkit-scrollbar-thumb {
-
-            background: #222;
-            border-radius: 20px;
-
+        &::-webkit-slider-thumb{
+            
+            background: rgb(53, 53, 53);
         }
         
 
