@@ -1,0 +1,42 @@
+h4 {
+  text-align: center;
+}
+
+.container {
+  margin-top: 100px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 25px;
+  max-width: 1200px;
+}
+@media only screen and (max-width: 950px) {
+  .container {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+  }
+}
+@media only screen and (max-width: 700px) {
+  .container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+  }
+}
+@media only screen and (max-width: 500px) {
+  .container {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+  }
+}
+.container .box {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+  border: 2px solid red;
+}
+.container .box:hover {
+  cursor: pointer;
+}
+.container .box video {
+  width: 100%;
+}

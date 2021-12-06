@@ -1,0 +1,37 @@
+
+
+.element {
+    margin-top: 40vh;
+    margin-left: 40vw;
+    width: 250px;
+    height: 250px;
+    background-color: red;
+    animation-name: stretch;
+    animation-duration: 3s;
+    animation-delay: 0;
+    animation-duration: alternate;
+    animation-iteration-count: infinite;
+    animation-play-state: running;
+}
+
+
+
+
+
+@keyframes stretch {
+    0% {
+        transform: rotate(180deg) scale(3);
+        background-color: red;
+        border-radius: 100%;
+    }
+
+    50% {
+        background-color: rgb(80, 44, 207);
+    }
+
+    100% {
+        transform: scale(1.5);
+        background-color: rgb(21, 110, 36);
+    }
+
+}
