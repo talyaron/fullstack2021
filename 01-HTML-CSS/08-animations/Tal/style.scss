@@ -1,0 +1,16 @@
+.box{
+    width: 100px;
+    height: 100px;
+    background-color: purple;
+    animation-name: moveRight;
+    animation-duration: 1s;
+}
+
+@keyframes moveRight {
+    from{
+        left:0vw;
+    }
+    to{
+        left:50vw;
+    }
+}
