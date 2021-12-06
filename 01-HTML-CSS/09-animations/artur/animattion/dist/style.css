@@ -1,0 +1,33 @@
+.wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  top: 8vw;
+  animation-name: bullet;
+  animation-duration: 2s;
+  animation-direction: normal;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+}
+.box img {
+  width: 100px;
+  height: 100px;
+}
+
+@keyframes bullet {
+  0% {
+    left: 0;
+  }
+  50% {
+    left: 70%;
+  }
+  100% {
+    left: 70%;
+  }
+}
