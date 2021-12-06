@@ -1,16 +1,46 @@
 .box{
-    width: 100px;
-    height: 100px;
-    border: 3px;
+    width: 120px;
+    height: 120px;
+    border-radius: 22px;
     background-color: rgb(119, 128, 0);
     position: relative;
     top:50vw;
+    left: 30vw;
     animation-name:moveRight;
-    animation-duration: 2s;
+    animation-duration: 4s;
     animation-delay:1s;
     animation-iteration-count:3;
-    animation-direction:alternate-reverse ;
+    animation-direction:normal;
     animation-timing-function:linear;
     animation-fill-mode: forwards;
   
+}
+@keyframes moveRight {
+    from{
+        left:160vw;
+        top: 10;
+    }
+    to{top: 0;
+        left:100vw;
+        transform:scale(1.8);
+        transform: rotate(360deg);
+    }
+    
+    0%   {background-color:red; left:150px; top:0px;}
+    25%  {background-color:yellow; left:200px; top:0px;}
+    50%  {background-color:blue; left:200px; top:200px;}
+    75%  {background-color:green; left:0px; top:200px;}
+    100% {background-color:red; left:0px; top:0px;}
+    
+    
+     
+}
+
+@keyframes moveUp {
+    from{
+        top:100vw;
+    }
+    to{
+        top:0vw;
+    }
 }

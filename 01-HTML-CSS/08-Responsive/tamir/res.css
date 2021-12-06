@@ -1,0 +1,44 @@
+.header {
+    padding: 60px;
+    text-align: center;
+    background: #1abc9c;
+    color: white;
+    font-size: 30px;
+  }
+.manu{
+    display: flex;
+    justify-content: space-evenly;
+}
+.store1:hover{
+   background-color: yellow; 
+}
+.store2:hover{
+    background-color: green; 
+ }
+ .store3:hover{
+    background-color: purple; 
+ }
+.wrapper{
+    display: grid;
+    grid-template-columns:33% 33% 33%;
+    grid-template-rows:10vh 45vh 45vh;
+    align-items: center;
+    gap:20px;
+   
+    
+}
+.box{
+   
+    box-shadow: 10px 10px 30px rgb(0 0 0 / 57%);
+}
+.box1>h1{
+    text-align: center;
+    background-color: brown;
+} 
+@media screen and (min-width: 800px) {
+    wrapper{
+        display: flex;
+    } 
+
+}
+
