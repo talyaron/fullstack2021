@@ -39,11 +39,6 @@ body {
   color: white;
 }
 
-img {
-  width: 100%;
-  height: 100%;
-}
-
 h1 {
   height: 45px;
   border: 3px solid #c4c4c4;
@@ -61,38 +56,16 @@ h3 {
   grid-template-rows: repeat(4, 25%);
   gap: 50px;
 }
-.bottomwrapper img {
-  width: 100%;
-  height: 100%;
-}
-.bottomwrapper img .box {
+.bottomwrapper .box {
   border: 3px solid #c4c4c4;
 }
-.bottomwrapper .bigbox {
+
+.bigbox {
   grid-column-start: 1;
   grid-column-end: 3;
   grid-row-start: 1;
   grid-row-end: 3;
 }
-.bottomwrapper .bigbox p {
+.bigbox p {
   color: white;
-}
-@media only screen and (min-width: 400px) {
-  .bottomwrapper .topnav {
-    display: none;
-  }
-  .bottomwrapper .wrapper .box {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .bottomwrapper .wrapper .bigbox {
-    display: flex;
-    justify-content: center;
-  }
-}
-.bottomwrapper .bottomwrapper {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
 }
