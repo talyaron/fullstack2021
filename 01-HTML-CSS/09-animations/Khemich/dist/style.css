@@ -24,5 +24,6 @@
   100% {
     transform: scale(1.5);
     background-color: #156e24;
+    background-image: image();
   }
 }
