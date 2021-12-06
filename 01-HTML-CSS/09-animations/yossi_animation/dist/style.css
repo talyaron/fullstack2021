@@ -1,0 +1,56 @@
+.cont {
+  width: 300px;
+  height: 300px;
+  border: 10px solid red;
+  margin: auto;
+  margin-top: 200px;
+  animation: contmove 2s ease-in-out normal infinite;
+}
+
+@keyframes contmove {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    border: 40px solid #e5ff00;
+  }
+  75% {
+    transform: rotate(360deg) scale(2);
+  }
+}
+.box {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  background-color: burlywood;
+  animation: boxmove 4s ease-in-out normal infinite;
+}
+
+@keyframes boxmove {
+  0% {
+    background-color: chartreuse;
+    left: 0px;
+    top: 0px;
+  }
+  25% {
+    background-color: chocolate;
+    left: 200px;
+    top: 0px;
+  }
+  50% {
+    background-color: #1e30d2;
+    left: 200px;
+    top: 200px;
+    border-radius: 50%;
+  }
+  75% {
+    background-color: #d21ea5;
+    left: 0px;
+    top: 200px;
+  }
+  100% {
+    background-color: #d21ea5;
+    left: 0px;
+    top: 0px;
+  }
+}

@@ -1,0 +1,38 @@
+
+body{
+    perspective: 800px;
+    perspective-origin: 50% 30% ;
+}
+.conteiner{
+    position: relative;
+    left: 500px;
+    top: 200px;
+    width: 200px;
+    height: 200px;
+    animation: rotate 5s infinite linear; 
+    transform-style: preserve-3d ;
+}
+.pic{
+    position: absolute;
+    background-image: url(https://www.planetware.com/wpimages/2020/02/france-in-pictures-beautiful-places-to-photograph-eiffel-tower.jpg);
+    background-size: cover;
+    width: 200px;
+    height: 200px;
+}
+.a{
+    transform:  rotateY(90deg) translateZ(100px); 
+}
+.b{
+    transform:  rotateY(180deg) translateZ(100px); 
+}
+.c{
+    transform:  rotateY(270deg) translateZ(100px); 
+}
+.d{
+    transform:  rotateY(0deg) translateZ(100px);
+}
+
+@keyframes rotate {
+    0% {transform: rotateY(0deg);}
+    100% {transform: rotateY(360deg);}
+}

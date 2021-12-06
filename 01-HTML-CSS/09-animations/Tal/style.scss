@@ -17,9 +17,13 @@
 @keyframes moveRight {
     from{
         left:0vw;
+        transform: rotate(0deg);
+        background-color: teal;
     }
     to{
-        left:50vw;
+        left:80vw;
+        transform: rotate(-720deg);
+        background-color: orange;
     }
 }
 
