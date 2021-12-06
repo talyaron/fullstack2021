@@ -11,6 +11,7 @@
 
 .box {
     animation-name: grow;
+    position: relative;
     animation-iteration-count: 2;
     animation-fill-mode: forwards;
 }
@@ -20,9 +21,14 @@
 
 @keyframes grow {
     0% {
+        transform: scale(3);
+        background-color: red;
+
+    }
+
+    25% {
         transform: scale(5);
         background-color: orange;
-
     }
 
     50% {
