@@ -1,10 +1,123 @@
 body {
   background-color: #2c2b2b;
   font-family: sans-serif;
+  width: 100vw;
   margin: 0;
+  display: grid;
+  grid-template-areas: "side nav" "side main" "side foot";
+  grid-template-columns: 1fr 5fr;
+  grid-template-rows: 1fr 12fr 0.8fr;
 }
 
-.wrapper {
+aside {
+  background-color: gray;
+  grid-area: side;
+}
+
+nav {
+  background-color: black;
+  grid-area: nav;
+  display: grid;
+  grid-template-columns: 25% 20% 9% 6% 12% 10% 10%;
+  grid-template-rows: 35% 15% 15% 35%;
+  justify-content: space-around;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 3rem;
+  grid-template-areas: ". . . . . . ." "logo inpt games hot mlt gmps reg" "logo inpt games hot mlt gmps log" ". . . . . . .";
+}
+nav .logo {
+  background-image: url(https://www.addictinggames.com/sites/default/files/logo.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  grid-area: logo;
+  cursor: pointer;
+}
+nav input {
+  border-radius: 1em;
+  grid-area: inpt;
+  font-size: 0.7em;
+  background-color: gray;
+  color: black;
+}
+nav input::placeholder {
+  color: red;
+}
+nav .games {
+  border: 2px outset gray;
+  border-radius: 1em;
+  font-size: 0.5em;
+  color: gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-area: games;
+  cursor: pointer;
+}
+nav .hot {
+  border: 1px solid firebrick;
+  border-radius: 1em;
+  font-size: 0.5em;
+  color: goldenrod;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-area: hot;
+  cursor: pointer;
+}
+nav .multiplayer {
+  border: 1px solid rgba(138, 138, 138, 0.445);
+  border-radius: 1em;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  grid-area: mlt;
+  cursor: pointer;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.5em;
+}
+nav .gamepass {
+  border: 1px solid rgba(138, 138, 138, 0.445);
+  border-radius: 1em;
+  background-image: url(https://www.addictinggames.com/sites/all/themes/starkish/images/game-pass-tablet.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  grid-area: gmps;
+}
+nav .register {
+  background-color: green;
+  border-radius: 1em;
+  color: white;
+  display: flex;
+  font-size: 0.3em;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  grid-area: reg;
+}
+nav .login {
+  border: 1px solid rgba(138, 138, 138, 0.445);
+  border-radius: 1em;
+  font-size: 0.3em;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  grid-area: log;
+}
+
+footer {
+  background-color: indianred;
+  grid-area: foot;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+main {
   display: grid;
   width: fit-content;
   height: 100%;
@@ -13,35 +126,35 @@ body {
   grid-template-rows: auto;
   grid-gap: 5em;
   padding: 2em;
+  grid-area: main;
   /*media quary*/
 }
-.wrapper h1 {
-  text-align: center;
-  width: 100%;
+main h1 {
+  justify-self: start;
   font-size: 3em;
   margin: auto;
   color: #dbd8e3;
 }
 @media only screen and (max-width: 1300px) {
-  .wrapper {
+  main {
     max-width: 1300px;
     width: 100%;
   }
 }
 @media only screen and (max-width: 1200px) {
-  .wrapper {
+  main {
     max-width: 1200px;
     width: 100%;
   }
 }
 @media only screen and (max-width: 950px) {
-  .wrapper {
+  main {
     max-width: 950px;
     width: 100%;
   }
 }
 @media only screen and (max-width: 600px) {
-  .wrapper {
+  main {
     max-width: 600px;
     width: 100%;
   }
@@ -51,9 +164,10 @@ body {
   background-color: #363434;
   display: grid;
   grid-gap: 1em;
-  width: 1440px;
+  width: 1340px;
   max-width: 1440px;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  padding: 3em;
   /*media quary*/
 }
 @media only screen and (max-width: 1300px) {
