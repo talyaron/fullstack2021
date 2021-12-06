@@ -1,0 +1,41 @@
+body {
+    position: relative;
+}
+
+.box {
+    height: 100px;
+    width: 100px;
+    background-color: yellow;
+    position: absolute;
+    top: 50px;
+    right: 20%;
+    animation-name: yellow;
+    animation-duration: 2s;
+
+
+    &:nth-child(2) {
+        background-color: blue;
+        position: relative;
+        top: 50px;
+        left: 20%;
+        animation-name: blue;
+    }
+}
+
+@keyframes yellow{
+    from{
+        right: 20%;
+    }
+    to{
+        right: 50%;
+    }
+}
+
+@keyframes blue{
+    from{
+        left: 20%;
+    }
+    to{
+        left: 50%;
+    }
+}

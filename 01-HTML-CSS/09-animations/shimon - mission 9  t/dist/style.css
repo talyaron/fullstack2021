@@ -1,0 +1,51 @@
+body .container {
+  height: 80vh;
+  width: 100%;
+  background-color: grey;
+}
+body .container .boxup {
+  width: 100px;
+  height: 100px;
+  background-color: #0f8000;
+  border-radius: 50%;
+  position: relative;
+  top: 50vw;
+  animation-name: moveUp;
+  animation-duration: 3s;
+  animation-delay: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+@keyframes moveUp {
+  from {
+    top: 60vh;
+  }
+  to {
+    top: 10vw;
+  }
+}
+body .container .boxdown {
+  width: 100px;
+  height: 100px;
+  background-color: #2d0080;
+  border-radius: 50%;
+  position: relative;
+  top: 50vw;
+  animation-name: moveDown;
+  animation-duration: 3s;
+  animation-delay: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+@keyframes moveDown {
+  from {
+    top: 10vh;
+  }
+  to {
+    top: 60vw;
+  }
+}
