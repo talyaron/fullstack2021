@@ -70,48 +70,81 @@
     animation-direction:normal ;
     animation-timing-function:ease-in-out;
     animation-fill-mode: forwards;
-    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVXvjUZXc801Z6rCcXXotSvPHBXQQ8WPJ3v-blc0ifcOq6r-cLaeNfqT3ak8HoSEC4Zgk&usqp=CAU);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+ 
 }
 
 @keyframes moverunning {
     0%{
         top: 15vw;
         left: 0vw;
+        background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVXvjUZXc801Z6rCcXXotSvPHBXQQ8WPJ3v-blc0ifcOq6r-cLaeNfqT3ak8HoSEC4Zgk&usqp=CAU);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
     }
     10%{
         top: 15vw;
-        left: 10vw;      
+        left: 10vw;     
+        background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVXvjUZXc801Z6rCcXXotSvPHBXQQ8WPJ3v-blc0ifcOq6r-cLaeNfqT3ak8HoSEC4Zgk&usqp=CAU);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat; 
     }
     25%{
         top: 15vw;
         left: 15vw;
+        background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVXvjUZXc801Z6rCcXXotSvPHBXQQ8WPJ3v-blc0ifcOq6r-cLaeNfqT3ak8HoSEC4Zgk&usqp=CAU);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
     }
     35%{
         top:15vw;
         left: 30vw;
+        background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVXvjUZXc801Z6rCcXXotSvPHBXQQ8WPJ3v-blc0ifcOq6r-cLaeNfqT3ak8HoSEC4Zgk&usqp=CAU);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
     }
     50%{
         left: 45vw;
         top: 15vw;
+        background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVXvjUZXc801Z6rCcXXotSvPHBXQQ8WPJ3v-blc0ifcOq6r-cLaeNfqT3ak8HoSEC4Zgk&usqp=CAU);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
     }
     70%{
         top:15vw;
-        left: 75vw
+        left: 75vw;
+        background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVXvjUZXc801Z6rCcXXotSvPHBXQQ8WPJ3v-blc0ifcOq6r-cLaeNfqT3ak8HoSEC4Zgk&usqp=CAU);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
     }
     85%{
         left: 80vw;
         top: 15vw;
+        background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVXvjUZXc801Z6rCcXXotSvPHBXQQ8WPJ3v-blc0ifcOq6r-cLaeNfqT3ak8HoSEC4Zgk&usqp=CAU);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
     }
     95%{
         top:20vw;
-        left:85vw
+        left:85vw;
+        background-image: url(https://www.crushpixel.com/big-static18/preview4/running-winner-illustration-vector-on-2955694.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
     }
     100%{
         top:10vw;
         left:90vw;
+        background-image: url(https://www.crushpixel.com/big-static18/preview4/running-winner-illustration-vector-on-2955694.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
     } 
 }
 
