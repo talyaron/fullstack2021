@@ -4,6 +4,18 @@
     grid-template-rows: repeat(11, 1fr);
     row-gap: 15px;
     margin: auto;
+    
+    @media only screen and(max-width:1200px) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    @media only screen and(max-width:900px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media only screen and(max-width:600px) {
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
 .TopHeader {
@@ -118,7 +130,6 @@
 
     @media only screen and(max-width:1200px) {
         grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(2, 1fr);
     }
 
     @media only screen and(max-width:900px) {
@@ -127,7 +138,6 @@
 
     @media only screen and(max-width:600px) {
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: repeat(2, 1fr);
     }
 
     h1 {
@@ -170,7 +180,6 @@
 
     @media only screen and(max-width:1200px) {
         grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(2, 1fr);
     }
 
     @media only screen and(max-width:900px) {
@@ -179,7 +188,7 @@
 
     @media only screen and(max-width:600px) {
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: repeat(2, 1fr);
+        
     }
 
     .box {
@@ -214,7 +223,7 @@
 
     @media only screen and(max-width:1200px) {
         grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(2, 1fr);
+        
     }
 
     @media only screen and(max-width:900px) {
@@ -223,7 +232,7 @@
 
     @media only screen and(max-width:600px) {
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: repeat(2, 1fr);
+        
     }
 
     .box {
