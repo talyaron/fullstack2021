@@ -176,7 +176,7 @@ display: grid;
     grid-gap: 1em;
     width: 1340px;
     max-width: 1440px;
-    grid-template-columns: repeat(auto-fill,minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill,minmax(200px, 200px));
     padding: 3em;
 /*media quary*/
 @media only screen and(max-width: 1300px) {
@@ -212,17 +212,19 @@ display: grid;
         color: rgb(0, 0, 0);
         border: 1px solid gray;
         border-radius: 3em;
-        height: 200px;
-        width: 200px;
-        
-        
-        
+        min-height: 25ch;
+        grid-column: span 2;
+        grid-row: span 2;
             grid-template-columns:3fr 14fr 3fr;
             grid-template-rows: 60% 1fr 1fr;
             grid-template-areas: "gif gif gif"
             "h1 h1 h1"
             ". p .";
         z-index: 0;
+        & + &{
+            grid-column: span 1;
+            grid-row: span 1 ;
+        }
 
         &:hover {
             cursor: pointer;
@@ -256,6 +258,7 @@ display: grid;
 
             z-index: 1;
             grid-area: gif;
+            height: 100%;
         }
 
 
