@@ -11,6 +11,17 @@ grid-template-rows: 100vh;
     display: grid;
     grid-template-rows: 50px auto;
     grid-template-columns: 100%;
+    
+    @media only screen and (max-width: 1200px){
+        .CG{
+            grid-template-columns: 100%;
+        }
+    }
+    @media only screen and (max-width: 900px){
+        .CG{
+            grid-template-columns: 20%;
+        }
+    }
 
     &__SearchBar {
         position: sticky;
@@ -25,11 +36,6 @@ grid-template-rows: 100vh;
         grid-template-rows: 70px 250px 40px 70px 250px 40px 70px 250px 40px;
         grid-template-columns: 2000px;
         justify-content: center;
-
-        @media only screen and (max-width: 1786px) {
-            grid-template-columns:500px;
-        }
-
 
         .MusicTitle {
             color:white;

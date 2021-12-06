@@ -5,7 +5,7 @@
   top: 30vw;
   left: 50vw;
   animation-name: moveup;
-  animation-duration: 2s;
+  animation-duration: 10s;
   animation: iteration count 10px;
   animation-direction: alternate;
   animation-fill-mode: forwards;
