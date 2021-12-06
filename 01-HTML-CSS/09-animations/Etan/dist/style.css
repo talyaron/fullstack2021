@@ -1,0 +1,55 @@
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: purple;
+  position: relative;
+  top: 0vw;
+  animation-name: fade, shrink;
+  animation-duration: 0.5s, 0.53s;
+  animation-iteration-count: infinite, infinite;
+  animation-direction: alternate, alternate;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes moveRight {
+  from {
+    left: 0vw;
+  }
+  to {
+    left: 50vw;
+  }
+}
+@keyframes pulse {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(0.75);
+    opacity: 0.25;
+  }
+}
+@keyframes fade {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.25;
+  }
+}
+@keyframes shrink {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0.75);
+  }
+}
+@keyframes moveUp {
+  from {
+    top: 50vw;
+  }
+  to {
+    top: 0vw;
+  }
+}
