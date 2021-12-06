@@ -1,0 +1,33 @@
+body {
+  background-color: #e67307;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+}
+@media only screen and (max-width: 225ch) {
+  .wrapper {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media only screen and (max-width: 150ch) {
+  .wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media only screen and (max-width: 75ch) {
+  .wrapper {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.box {
+  margin-bottom: 30px;
+  border: solid black;
+  border-radius: 15px;
+}
+.box img {
+  width: 100%;
+}
