@@ -1,0 +1,174 @@
+.box{
+    width: 100px;
+    height: 100px;
+    background-color: purple;
+    position: relative;
+    top: 5vw;
+    animation-name: moveright;
+    animation-duration: 10s;
+    animation-delay:1s;
+    animation-iteration-count:10000;
+    animation-direction:normal ;
+    animation-timing-function:ease-in-out;
+    animation-fill-mode: forwards;
+    background-image: url(https://media.istockphoto.com/photos/female-athlete-running-picture-id524452919?k=20&m=524452919&s=612x612&w=0&h=ZQJnB6ZGpvTavDzEFHIQRRs4HVZwt0OVSD4yEzcTUuA=);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+
+@keyframes moveright {
+    0%{
+        top: 5vw;
+        left: 0vw;
+    }
+    10%{
+        top: 5vw;
+        left: 10vw;      
+        background-color: red;
+    }
+    25%{
+        top: 5vw;
+        left: 25vw;
+        background-color: sandybrown;
+    }
+    35%{
+        top:5vw;
+        left: 35vw;
+        background-color: seagreen;
+    }
+    50%{
+        left: 55vw;
+        top: 5vw;
+        background-color: sienna;
+    }
+    70%{
+        top:5vw;
+        left:70vw
+    }
+    85%{
+        left: 80vw;
+        top: 5vw;
+        background-color: sienna;
+    }
+    95%{
+        top:5vw;
+        left:88vw
+    }
+}
+.three{
+    width: 100px;
+    height: 150px;
+    position: relative;
+    top: 15vw;
+    animation-name: moverunning;
+    animation-duration: 10s;
+    animation-delay:1s;
+    animation-iteration-count:10000;
+    animation-direction:normal ;
+    animation-timing-function:ease-in-out;
+    animation-fill-mode: forwards;
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVXvjUZXc801Z6rCcXXotSvPHBXQQ8WPJ3v-blc0ifcOq6r-cLaeNfqT3ak8HoSEC4Zgk&usqp=CAU);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+@keyframes moverunning {
+    0%{
+        top: 15vw;
+        left: 0vw;
+    }
+    10%{
+        top: 15vw;
+        left: 10vw;      
+    }
+    25%{
+        top: 15vw;
+        left: 15vw;
+    }
+    35%{
+        top:15vw;
+        left: 30vw;
+    }
+    50%{
+        left: 45vw;
+        top: 15vw;
+    }
+    70%{
+        top:15vw;
+        left: 75vw
+    }
+    85%{
+        left: 80vw;
+        top: 15vw;
+    }
+    95%{
+        top:20vw;
+        left:85vw
+    }
+    100%{
+        top:10vw;
+        left:90vw;
+    } 
+}
+
+    @keyframes moverun {
+        0%{
+            top: 10vw;
+            left: 0vw;
+        }
+        10%{
+            top: 10vw;
+            left: 15vw;      
+            background-color: red;
+        }
+        25%{
+            top: 10vw;
+            left: 20vw;
+            background-color: sandybrown;
+        }
+        35%{
+            top:10vw;
+            left: 40vw;
+            background-color: seagreen;
+        }
+        50%{
+            left: 60vw;
+            top: 10vw;
+            background-color: sienna;
+        }
+        70%{
+            top:10vw;
+            left:70vw
+        }
+        85%{
+            left: 80vw;
+            top: 10vw;
+            background-color: sienna;
+        }
+        95%{
+            top:10vw;
+            left:90vw
+        } 
+        
+}
+.circle{
+    width: 100px;
+    height: 150px;
+    position: relative;
+    top: 10vw;
+    animation-name: moverun;
+    animation-duration: 10s;
+    animation-delay:1s;
+    animation-iteration-count:10000;
+    animation-direction:normal ;
+    animation-timing-function:ease-in-out;
+    animation-fill-mode: forwards;
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOxcgCyWfjuDFd1ZQRoIBiQMSgQuBEPnlQyPbHkXO1U3hn95djmfifpUuLU72DBY0LuDU&usqp=CAU);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}

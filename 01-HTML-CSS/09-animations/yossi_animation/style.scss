@@ -4,7 +4,7 @@
     border: 10px solid red;
     margin: auto;
     margin-top: 200px;
-    animation: contmove 2s ease-in-out normal 1;
+    animation: contmove 2s ease-in-out normal infinite;
 }
 
 @keyframes contmove {
@@ -28,7 +28,7 @@
     width: 100px;
     height: 100px;
     background-color: burlywood;
-    animation: boxmove 4s ease-in-out normal 1;
+    animation: boxmove 4s ease-in-out normal infinite;
 }
 
 @keyframes boxmove {
