@@ -12,23 +12,15 @@
     0% {
         transform: rotate(0deg) scale(1);
     }
-
     25% {
-        
     }
-
     50% {
-
         border: 40px solid rgb(229, 255, 0);
     }
-
     75% {
         transform: rotate(360deg) scale(2);
-
     }
-
     100% {}
-
 }
 
 .box {
