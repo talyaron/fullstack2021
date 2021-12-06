@@ -6,12 +6,11 @@ body {
   height: 100px;
   width: 100px;
   background-color: yellow;
-  position: relative;
+  position: absolute;
   top: 50px;
   right: 20%;
 }
-
-.box :nth-child(2) {
+.box:nth-child(2) {
   background-color: blue;
   position: relative;
   top: 50px;
