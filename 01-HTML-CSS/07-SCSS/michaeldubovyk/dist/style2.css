@@ -130,19 +130,28 @@ body {
 }
 .menubar .scroll {
   margin-right: 10px;
-  color: red;
+  color: rgba(211, 14, 14, 0.966);
   font-size: 17px;
   text-shadow: 0.2px 0.2px 30px #a1a1a1;
 }
 .menubar__cards {
   display: flex;
   justify-content: space-between;
-  overflow: scroll;
+  overflow-x: auto;
   margin-right: 10px;
   border-radius: 20px;
+  white-space: nowrap;
+  max-width: 100%;
 }
-.menubar__cards::-webkit-scrollbar {
-  width: 0px;
+.menubar__cards::-webkit-scroollbar {
+  height: 10px;
+}
+.menubar__cards::-webkit-scrollbar-track {
+  background: #353535;
+}
+.menubar__cards::-webkit-scrollbar-thumb {
+  background: #222;
+  border-radius: 20px;
 }
 .menubar .card {
   background-color: #353535;
