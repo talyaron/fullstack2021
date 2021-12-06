@@ -1,0 +1,168 @@
+.flexy {
+  display: flex;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 100px 100px 100px;
+  gap: 5px;
+}
+
+.box {
+  border: 1px solid black;
+  width: 100px;
+  height: 100px;
+  background-color: #800900;
+  position: relative;
+  animation-name: moveRight;
+  animation-duration: 10s;
+  animation-delay: 1.2s;
+  animation-iteration-count: 2;
+  animation-direction: normal;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: backwards;
+}
+
+.box2 {
+  border: 1px solid black;
+  width: 100px;
+  height: 100px;
+  background-color: #001780;
+  position: relative;
+  animation-name: moveRight;
+  animation-duration: 10s;
+  animation-delay: 1.2s;
+  animation-iteration-count: 4;
+  animation-direction: normal;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: backwards;
+}
+
+.box3 {
+  border: 1px solid black;
+  width: 100px;
+  height: 100px;
+  background-color: #80006b;
+  position: relative;
+  left: 50vw;
+  animation-name: moveLeft;
+  animation-duration: 10s;
+  animation-delay: 1.2s;
+  animation-iteration-count: 2;
+  animation-direction: normal;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: backwards;
+}
+
+.box4 {
+  border: 1px solid black;
+  width: 100px;
+  height: 100px;
+  left: 50vw;
+  background-color: #1dad0a;
+  position: relative;
+  animation-name: moveLeft;
+  animation-duration: 10s;
+  animation-delay: 1.2s;
+  animation-iteration-count: 4;
+  animation-direction: normal;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: backwards;
+}
+
+@keyframes moveRight {
+  0% {
+    left: 0vw;
+    top: 0vw;
+    transform: rotate(0deg);
+  }
+  10% {
+    left: 25vw;
+    top: 0vw;
+    transform: rotate(90deg);
+    background-color: blueviolet;
+  }
+  20% {
+    left: 25vw;
+    top: 10vw;
+    transform: rotate(180deg);
+    background-color: burlywood;
+  }
+  30% {
+    left: 45vw;
+    top: 10vw;
+    transform: rotate(270deg);
+    background-color: coral;
+  }
+  40% {
+    left: 45vw;
+    top: 20vw;
+    transform: rotate(360deg);
+    background-color: cyan;
+  }
+  50% {
+    left: 50vw;
+    top: 20vw;
+    transform: rotate(270deg);
+    background-color: #d1f508;
+  }
+  60% {
+    left: 50vw;
+    top: 0vw;
+    transform: rotate(180deg);
+    background-color: deepskyblue;
+  }
+  100% {
+    left: 0vw;
+    top: 0vw;
+    transform: rotate(0deg);
+  }
+}
+@keyframes moveLeft {
+  0% {
+    left: 50vw;
+    top: 0vw;
+    transform: rotate(0deg);
+  }
+  10% {
+    left: 35vw;
+    top: 0vw;
+    transform: rotate(-90deg);
+    background-color: firebrick;
+  }
+  20% {
+    left: 35vw;
+    top: 10vw;
+    transform: rotate(-180deg);
+    background-color: floralwhite;
+  }
+  30% {
+    left: 10vw;
+    top: 10vw;
+    transform: rotate(-270deg);
+    background-color: fuchsia;
+  }
+  40% {
+    left: 10vw;
+    top: 20vw;
+    transform: rotate(-360deg);
+    background-color: gold;
+  }
+  50% {
+    left: 0vw;
+    top: 20vw;
+    transform: rotate(-270deg);
+    background-color: greenyellow;
+  }
+  60% {
+    left: 0vw;
+    top: 0vw;
+    transform: rotate(-180deg);
+    background-color: honeydew;
+  }
+  100% {
+    left: 50vw;
+    top: 0vw;
+    transform: rotate(0deg);
+  }
+}
