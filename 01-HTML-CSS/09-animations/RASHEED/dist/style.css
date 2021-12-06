@@ -1,0 +1,21 @@
+.box {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  top: 20vw;
+  background-color: green;
+  animation-name: moveup;
+  animation-duration: 2s;
+  animation: iteration count 10px;
+  animation-direction: normal;
+  animation-fill-mode: backwards;
+}
+
+@keyframes moveup {
+  from {
+    top: 20vw;
+  }
+  to {
+    top: 0vw;
+  }
+}
