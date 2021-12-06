@@ -1,28 +1,21 @@
 .wrapper {
   display: grid;
-  gap: 5px;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(4, 200px);
+  grid-template-rows: repeat(4, 150px);
+  gap: 5px;
 }
 .wrapper .box {
-  background-color: green;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 80px;
+  background-color: palevioletred;
 }
 .wrapper .header {
-  grid-column-start: 1;
-  grid-column-end: 5;
-  grid-row-start: 1;
-  grid-row-end: 2;
+  grid-column: 2/5;
   background-color: yellow;
+  grid-row: span 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .wrapper .menu {
+  grid-row: 2/5;
   background-color: orange;
-  grid-column-start: 1;
-  grid-column-end: span 3;
-  grid-row-start: 2;
-  grid-row-end: span 2;
 }
