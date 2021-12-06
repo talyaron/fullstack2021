@@ -1,0 +1,80 @@
+body {
+  background: black;
+}
+
+.second {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  animation-name: second;
+  animation-iteration-count: infinite;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  animation-direction: alternate;
+}
+
+.box {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  animation-name: circle;
+  animation-iteration-count: infinite;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  animation-direction: alternate;
+}
+
+@keyframes second {
+  0% {
+    top: 0;
+    left: 80vw;
+    background: green;
+    border: solid 10px black;
+  }
+  20% {
+    top: 80vh;
+    left: 80vw;
+    background: red;
+    border: solid 10px #d9ff00;
+  }
+  50% {
+    left: 0;
+    top: 80vh;
+    background: #0051ff;
+    border: solid 10px #b700ff;
+  }
+  100% {
+    top: 0;
+    left: 80vw;
+    background: #a5a5a5;
+    border: solid 10px #008a35;
+  }
+}
+@keyframes circle {
+  0% {
+    top: 0;
+    left: 0vw;
+    background: green;
+    border: solid 10px black;
+  }
+  20% {
+    top: 80vh;
+    left: 0vw;
+    background: red;
+    border: solid 10px #d9ff00;
+  }
+  50% {
+    left: 90vw;
+    top: 80vh;
+    background: #0051ff;
+    border: solid 10px #b700ff;
+  }
+  100% {
+    top: 0;
+    left: 0vw;
+    background: #a5a5a5;
+    border: solid 10px #008a35;
+  }
+}
