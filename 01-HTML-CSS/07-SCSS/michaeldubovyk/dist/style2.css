@@ -143,22 +143,14 @@ body {
   white-space: nowrap;
   max-width: 100%;
 }
-<<<<<<< HEAD
-.menubar__cards::-webkit-slider-track {
+.menubar__cards::-webkit-scroollbar {
+  height: 10px;
   width: 100%;
   height: 20px;
   background: #c5c2c2;
-=======
-.menubar__cards::-webkit-scroollbar {
-  height: 10px;
->>>>>>> fe92fad5628d6ed154e002da28e3641bbddb30e3
 }
-.menubar__cards::-webkit-scrollbar-track {
+.menubar__cards::-webkit-slider-thumb {
   background: #353535;
-}
-.menubar__cards::-webkit-scrollbar-thumb {
-  background: #222;
-  border-radius: 20px;
 }
 .menubar .card {
   background-color: #353535;
