@@ -53,7 +53,7 @@ p {
 
 /*///////////////////////////////////////////////////////////////////////////////*/
 /*////////////////////////////(Menu/flex)////////////////////////////////////////*/
-.menu2 {
+.navmenu2 {
   display: flex;
   flex-wrap: wrap;
   height: 50px;
@@ -61,11 +61,11 @@ p {
   justify-content: end;
   font-size: xx-large;
 }
-.menu2 .box {
+.navmenu2 .box {
   width: 100px;
   margin: 35px;
 }
-.menu2 a:hover {
+.navmenu2 a:hover {
   border: solid black;
 }
 
