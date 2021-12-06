@@ -1,0 +1,79 @@
+body
+{
+    background: rgb(110, 92, 212);
+    background-size: cover;
+
+    @media only screen and (max-width: 1140px)
+    {
+        body 
+        {
+            background: rgb(23, 240, 3);
+ 
+        }
+}
+
+.container
+{
+    max-width: 1440px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    gap: 40px;
+    background: rgb(110, 92, 212);
+    background-size: cover;
+}
+    @media only screen and (max-width: 1140px)
+    {
+        body 
+        {
+            background: rgb(23, 240, 3);
+ 
+        }
+        grid-template-columns: repeat(6,1fr);
+
+    }
+
+    @media only screen and (max-width: 1140px)
+    {
+        body 
+        {
+            background: rgb(23, 240, 3);
+ 
+        }
+        grid-template-columns: repeat(6,1fr);
+
+    }
+
+    
+    @media only screen and (max-width: 960px)
+    {
+        grid-template-columns: repeat(4,1fr);
+
+    }
+
+    
+    @media only screen and (max-width: 480px)
+    {
+        grid-template-columns: repeat(2,1fr);
+
+    }
+
+    
+    @media only screen and (max-width: 240px)
+    {
+        grid-template-columns: repeat(1,1fr);
+
+    }
+
+
+    img
+{
+    width: 100%;
+    height: 100%;
+    border-radius: 50px;
+    border: 4px solid sandybrown
+
+
+}
+
+}

@@ -1,5 +1,6 @@
 body {
     margin: 0;
+    font-family: 'Architects Daughter', cursive;
 }
 
 
@@ -7,35 +8,115 @@ body {
 
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(10, 150px);
+    grid-template-rows: repeat(14, 150px);
 
     .header {
         background-color: rgb(47, 168, 209);
-        font-family: 'Architects Daughter', cursive;
-        padding-left:20px;        
         border: 2px black solid;
         grid-column-start: 1;
         grid-column-end: 7;
 
-        input{
-            width:35%;
-            height:20%;
-            border:3px solid blue;
+        &:hover {
+            background-color: rgb(4, 44, 58);
+            transition: 1s;
+
         }
-        button{
-            border:3px solid blue;
-            background-color:rgb(144, 214, 238);
-           
-        }
-        button:hover{
-            background-color:rgb(8, 53, 68);
-            cursor:pointer;
-            color:white;
+
+
+        h1 {
+            display: block;
+            padding-left: 20px;
+            font-size: 300%;
+            text-shadow:
+                0 0 7px #fff,
+                0 0 10px #fff,
+                0 0 21px #fff,
+                0 0 42px rgb(0, 255, 242),
+                0 0 82px rgb(0, 255, 242),
+                0 0 92px rgb(0, 255, 242),
+                0 0 102px rgb(0, 255, 242),
+                0 0 151px rgb(0, 255, 242);
 
 
         }
 
-        
+        input {
+            display: flex;
+            position: relative;
+            left: 29%;
+            bottom: 45%;
+            width: 35%;
+            height: 20%;
+            border: 3px solid blue;
+
+        }
+
+        button[type=submit] {
+            border: 3px solid blue;
+            background-color: rgb(144, 214, 238);
+            display: flex;
+            position: relative;
+            left: 65%;
+            bottom: 65%;
+
+
+
+            &:hover {
+                background-color: rgb(8, 53, 68);
+                cursor: pointer;
+                color: white;
+                font-weight: bold;
+
+
+            }
+
+
+
+
+        }
+
+
+
+        button[type=register] {
+            border-radius: 10px;
+            border: 2px solid blue;
+            font-weight: bold;
+            color: rgb(12, 114, 12);
+            display: flex;
+            position: relative;
+            left: 75%;
+            bottom: 85%;
+
+            &:hover {
+                color: white;
+                cursor: pointer;
+                background-color: rgb(12, 114, 12);
+                transition: 1s;
+            }
+        }
+
+        button[type=login] {
+            border-radius: 10px;
+            border: 2px solid blue;
+            font-weight: bold;
+            color: red;
+            display: flex;
+            position: relative;
+            left: 85%;
+            bottom: 99%;
+
+            &:hover {
+                color: white;
+                cursor: pointer;
+                background-color: red;
+                transition: 1s;
+            }
+        }
+
+
+
+
+
 
 
 
@@ -47,39 +128,1444 @@ body {
 
 
         &.adventure {
-            background-color: grey;
-            border: 2px black solid;
             grid-row-start: 2;
             grid-row-end: 4;
+            background-color: rgb(31, 85, 10);
+
+            &:hover {
+                background-color: rgb(17, 46, 5);
+
+            }
 
 
+            &.one {
+                grid-column-start: 1;
+                grid-column-end: 3;
+
+                h2 {
+                    padding-left: 100px;
+                    cursor: pointer;
+
+                    &:hover {
+                        text-shadow: rgb(148, 255, 105) 2px 2px;
+                    }
+                }
+
+                p {
+                    margin-left: -50px;
+                }
+
+
+            }
+
+            &.two {
+                grid-column-start: 3;
+                grid-column-end: 5;
+                padding-top: 70px;
+
+
+            }
+
+            &.three {
+                grid-column-start: 5;
+                grid-column-end: 7;
+                padding-top: 70px;
+
+
+            }
+
+            p {
+                padding-left: 170px;
+                cursor: pointer;
+                text-align: start;
+            }
+
+            /*this is inorder to have the things change whenever i hover over them so the pic and text will change*/
+            .hover {
+                &:hover {
+                    cursor: pointer;
+                    opacity: 0.7;
+
+                    text-shadow: rgb(148, 255, 105) 2px 2px;
+
+
+                }
+
+                img {
+
+                    width: 200px;
+                    height: 20vh;
+                    display: block;
+                    margin: auto;
+                    border-radius: 10px;
+                    border: 2px solid green;
+
+
+                }
+
+
+                &.imgeffect {
+
+                    position: relative;
+
+
+                    img {
+                        position: absolute;
+                        transition: opacity 1s ease-in-out;
+                        left: 100px;
+
+                        &.img-back:hover {
+                            opacity: 0;
+                            cursor: pointer;
+                        }
+                    }
+
+                    p {
+                        position: absolute;
+                        top: 150px;
+
+                    }
+
+
+                }
+
+
+            }
 
         }
+
+
+
+
+
 
         &.classic {
-            background-color: rgb(241, 43, 43);
-            border: 2px black solid;
+
             grid-row-start: 4;
-            grid-row-end: 6;
+            grid-row-end: 8;
+            margin: 20px;
+
+
+
+            &.one {
+                grid-column-start: 1;
+                grid-column-end: 4;
+                /*background-image: linear-gradient(red, yellow);*/
+
+
+
+
+                h2 {
+                    padding-left: 100px;
+
+                }
+
+                h2:hover {
+                    text-shadow: rgb(255, 19, 19)2px 2px;
+                    cursor: pointer;
+
+                }
+
+                img {
+                    width: 30vw;
+                    height: 40vh;
+                    display: block;
+                    margin: auto;
+                    border-radius: 10px;
+
+
+                }
+
+                p {
+                    margin-left: 10%;
+                }
+            }
+
+            &.two {
+                grid-column-start: 4;
+                grid-column-end: 4;
+                grid-row-start: 4;
+                grid-row-end: 6;
+
+
+                img {
+                    width: 20vw;
+                    height: 30vh;
+                    display: block;
+                    margin: auto;
+                    border-radius: 10px;
+                }
+
+            }
+
+            &.three {
+                grid-column-start: 5;
+                grid-column-end: 7;
+                grid-row-start: 4;
+                grid-row-end: 6;
+
+                img {
+                    width: 20vw;
+                    height: 30vh;
+                    display: block;
+                    margin: auto;
+                    border-radius: 10px;
+                }
+
+                p {
+                    padding-left: 10%;
+                }
+
+            }
+
+            &.four {
+
+                grid-column-start: 4;
+                grid-column-end: 4;
+                grid-row-start: 6;
+                grid-row-end: 8;
+
+                img {
+                    width: 20vw;
+                    height: 30vh;
+                    display: block;
+                    margin: auto;
+                    border-radius: 10px;
+                }
+
+            }
+
+            &.five {
+                grid-column-start: 5;
+                grid-column-end: 7;
+                grid-row-start: 6;
+                grid-row-end: 8;
+
+                img {
+                    width: 20vw;
+                    height: 30vh;
+                    display: block;
+                    margin: auto;
+                    border-radius: 10px;
+                }
+
+                p {
+                    padding-left: 10%;
+                }
+
+            }
+
+            .hover {
+
+                &:hover {
+                    cursor: pointer;
+                    opacity: 0.7;
+                    text-shadow: rgb(255, 19, 19) 2px 2px;
+
+
+
+                }
+
+                img {
+                    border: 10px solid rgb(255, 3, 3);
+                }
+
+            }
+
+
 
 
 
         }
+
+
+
+
 
         &.multiplayer {
-            background-color: rgb(65, 236, 73);
-            border: 2px black solid;
-            grid-row-start: 6;
-            grid-row-end: 9;
+            background-color: rgb(194, 25, 143);
+            grid-row-start: 8;
+            grid-row-end: 10;
+
+            &:hover {
+                background-color: rgb(133, 16, 98);
+
+            }
+
+
+            &.one {
+                grid-column-start: 1;
+                grid-column-end: 3;
+
+                h2 {
+                    padding-left: 100px;
+                    cursor: pointer;
+
+
+                    &:hover {
+                        text-shadow: rgb(243, 105, 255) 2px 2px;
+
+                    }
+                }
+
+                p {
+                    margin-left: -50px;
+                }
+
+
+
+            }
+
+            &.two {
+                grid-column-start: 3;
+                grid-column-end: 5;
+                padding-top: 70px;
+
+
+            }
+
+            &.three {
+                grid-column-start: 5;
+                grid-column-end: 7;
+                padding-top: 70px;
+
+
+            }
+
+            p {
+                padding-left: 170px;
+                cursor: pointer;
+                text-align: start;
+
+            }
+
+            /*this is inorder to have the things change whenever i hover over them so the pic and text will change*/
+            .hover {
+                &:hover {
+                    cursor: pointer;
+                    opacity: 0.7;
+                    text-shadow: rgb(255, 123, 215) 2px 2px;
+
+
+                }
+
+                img {
+
+                    width: 200px;
+                    height: 20vh;
+                    display: block;
+                    margin: auto;
+                    border-radius: 10px;
+                    border: 2px solid rgb(247, 110, 185);
+
+
+
+                }
+
+            }
+
+
+
 
         }
     }
 
-    .popular {
-        background-color: rgb(194, 25, 143);
-        border: 2px black solid;
-        grid-row-start: 9;
-        grid-row-end: 11;
+    /*the screen changes*/
+    @media only screen and (max-width:1200px) {
+
+
+
+        .header {
+            background-color: rgb(4, 44, 58);
+            border: 2px black solid;
+            grid-column-start: 1;
+            grid-column-end: 7;
+
+
+            input {
+                display: flex;
+                position: relative;
+                left: 45%;
+                bottom: 55%;
+                width: 35%;
+                height: 20%;
+                border: 3px solid blue;
+
+            }
+
+            button[type=submit] {
+                border: 3px solid blue;
+                background-color: rgb(144, 214, 238);
+                display: flex;
+                position: relative;
+                left: 82%;
+                bottom: 75%;
+
+
+
+                &:hover {
+                    background-color: rgb(8, 53, 68);
+                    cursor: pointer;
+                    color: white;
+                    font-weight: bold;
+
+
+                }
+
+
+
+
+            }
+
+
+
+            button[type=register] {
+                border-radius: 10px;
+                border: 2px solid blue;
+                font-weight: bold;
+                color: rgb(12, 114, 12);
+                display: flex;
+                position: relative;
+                left: 50%;
+                bottom: 60%;
+
+                &:hover {
+                    color: white;
+                    cursor: pointer;
+                    background-color: rgb(12, 114, 12);
+                    transition: 1s;
+                }
+            }
+
+            button[type=login] {
+                border-radius: 10px;
+                border: 2px solid blue;
+                font-weight: bold;
+                color: red;
+                display: flex;
+                position: relative;
+                left: 70%;
+                bottom: 75%;
+
+                &:hover {
+                    color: white;
+                    cursor: pointer;
+                    background-color: red;
+                    transition: 1s;
+                }
+            }
+
+
+        }
+
+        .games {
+            grid-column-start: 1;
+            grid-column-end: 7;
+
+
+            &.adventure {
+                grid-row-start: 2;
+                grid-row-end: 6;
+                background-color: rgb(31, 85, 10);
+
+                &:hover {
+                    background-color: rgb(17, 46, 5);
+
+                }
+
+
+                &.one {
+                    grid-column-start: 1;
+                    grid-column-end: 4;
+                    grid-row-start: 2;
+                    grid-row-end: 6;
+                    padding-left: 10px;
+
+
+
+                    h2 {
+                        padding-left: 100px;
+                        cursor: pointer;
+                        padding-top: 30px;
+                        padding-bottom: 30px;
+
+
+                        &:hover {
+                            text-shadow: rgb(148, 255, 105) 2px 2px;
+                        }
+                    }
+
+                    p {
+                        margin-left: -50px;
+                    }
+
+                    img {
+
+                        width: 40vw;
+                        height: 40vh;
+
+
+
+
+
+                    }
+
+
+                }
+
+                &.two {
+                    grid-column-start: 4;
+                    grid-column-end: 7;
+                    grid-row-start: 2;
+                    grid-row-end: 4;
+                    padding-top: 70px;
+
+
+                }
+
+                &.three {
+                    grid-row-start: 4;
+                    grid-row-end: 6;
+                    grid-column-start: 4;
+                    grid-column-end: 7;
+                    padding-top: 70px;
+
+
+                }
+
+
+
+                p {
+                    padding-left: 200px;
+                    cursor: pointer;
+                    text-align: start;
+                }
+
+                /*this is inorder to have the things change whenever i hover over them so the pic and text will change*/
+                .hover {
+                    &:hover {
+                        cursor: pointer;
+                        opacity: 0.7;
+
+                        text-shadow: rgb(148, 255, 105) 2px 2px;
+
+
+                    }
+
+                    img {
+
+                        /*width: 200px;
+                        height: 20vh;*/
+                        display: block;
+                        margin: auto;
+                        border-radius: 10px;
+                        border: 2px solid green;
+
+
+                    }
+
+
+                    &.imgeffect {
+                        right: 75px;
+
+                        position: relative;
+
+
+
+                        img {
+                            position: absolute;
+                            transition: opacity 1s ease-in-out;
+                            left: 80px;
+                            width: 40vw;
+                            height: 40vh;
+
+
+                            &.img-back:hover {
+                                opacity: 0;
+                                cursor: pointer;
+
+                            }
+                        }
+
+                        p {
+                            position: absolute;
+                            top: 280px;
+
+
+                        }
+
+
+                    }
+
+
+
+
+
+
+
+
+                }
+
+            }
+
+            &.classic {
+
+                grid-row-start: 7;
+                grid-row-end: 10;
+                margin: 20px;
+
+
+
+                &.one {
+                    grid-column-start: 1;
+                    grid-column-end: 4;
+                    grid-row-start: 6;
+                    grid-row-end: 10;
+                    /*background-image: linear-gradient(red, yellow);*/
+
+
+
+
+                    h2 {
+                        padding-left: 100px;
+                        padding-bottom: 30px;
+
+                    }
+
+                    h2:hover {
+                        text-shadow: rgb(255, 19, 19)2px 2px;
+                        cursor: pointer;
+
+                    }
+
+                    img {
+                        width: 40vw;
+                        height: 40vh;
+                        display: block;
+                        margin: auto;
+                        border-radius: 10px;
+
+
+                    }
+
+                    p {
+                        margin-left: 10%;
+                    }
+                }
+
+                &.two {
+                    grid-column-start: 4;
+                    grid-column-end: 4;
+                    grid-row-start: 6;
+                    grid-row-end: 8;
+
+
+                    img {
+                        width: 20vw;
+                        height: 30vh;
+                        display: block;
+                        margin: auto;
+                        border-radius: 10px;
+                    }
+
+                }
+
+                &.three {
+                    grid-column-start: 5;
+                    grid-column-end: 7;
+                    grid-row-start: 6;
+                    grid-row-end: 8;
+
+                    img {
+                        width: 20vw;
+                        height: 30vh;
+                        display: block;
+                        margin: auto;
+                        border-radius: 10px;
+                    }
+
+                    p {
+                        padding-left: 10%;
+                    }
+
+                }
+
+                &.four {
+
+                    grid-column-start: 4;
+                    grid-column-end: 4;
+                    grid-row-start: 8;
+                    grid-row-end: 10;
+
+                    img {
+                        width: 20vw;
+                        height: 30vh;
+                        display: block;
+                        margin: auto;
+                        border-radius: 10px;
+                    }
+
+                }
+
+                &.five {
+                    grid-column-start: 5;
+                    grid-column-end: 7;
+                    grid-row-start: 8;
+                    grid-row-end: 10;
+
+                    img {
+                        width: 20vw;
+                        height: 30vh;
+                        display: block;
+                        margin: auto;
+                        border-radius: 10px;
+                    }
+
+                    p {
+                        padding-left: 10%;
+                    }
+
+                }
+
+                .hover {
+
+                    &:hover {
+                        cursor: pointer;
+                        opacity: 0.7;
+                        text-shadow: rgb(255, 19, 19) 2px 2px;
+
+
+
+                    }
+
+                    img {
+                        border: 10px solid rgb(255, 3, 3);
+                    }
+
+
+
+
+
+                }
+
+
+
+
+
+            }
+
+            &.multiplayer {
+                background-color: rgb(194, 25, 143);
+                grid-row-start: 10;
+                grid-row-end: 14;
+
+                &:hover {
+                    background-color: rgb(133, 16, 98);
+
+                }
+
+
+                &.one {
+                    grid-column-start: 1;
+                    grid-column-end: 4;
+                    grid-row-start: 10;
+                    grid-row-end: 14;
+
+                    h2 {
+                        padding-left: 100px;
+                        cursor: pointer;
+                        padding-top: 30px;
+                        padding-bottom: 30px;
+
+
+                        &:hover {
+                            text-shadow: rgb(243, 105, 255) 2px 2px;
+
+                        }
+                    }
+
+                    p {
+                        margin-left: -50px;
+                    }
+
+
+                    img {
+
+                        width: 40vw;
+                        height: 40vh;
+
+
+                    }
+
+
+                }
+
+                &.two {
+                    grid-column-start: 4;
+                    grid-column-end: 7;
+                    grid-row-start: 10;
+                    grid-row-end: 12;
+                    padding-top: 70px;
+
+
+                }
+
+                &.three {
+                    grid-column-start: 4;
+                    grid-column-end: 7;
+                    grid-row-start: 12;
+                    grid-row-end: 14;
+                    padding-top: 70px;
+
+
+                }
+
+                p {
+                    padding-left: 170px;
+                    cursor: pointer;
+                    text-align: start;
+
+                }
+
+                /*this is inorder to have the things change whenever i hover over them so the pic and text will change*/
+                .hover {
+                    &:hover {
+                        cursor: pointer;
+                        opacity: 0.7;
+                        text-shadow: rgb(255, 123, 215) 2px 2px;
+
+
+                    }
+
+                    img {
+                        /*width: 200px;
+                        height: 20vh;*/
+                        display: block;
+                        margin: auto;
+                        border-radius: 10px;
+                        border: 2px solid rgb(247, 110, 185);
+
+
+
+                    }
+
+                }
+            }
+
+
+
+
+        }
+
 
     }
+
+
+    /*the screen changes for phone*/
+    @media only screen and (max-width:700px) {
+
+
+        .header {
+            background-color: rgb(106, 183, 211);
+            /*rgb(4, 44, 58);*/
+            border: 2px black solid;
+            grid-column-start: 1;
+            grid-column-end: 7;
+
+            &:hover {
+                
+                background-color: rgb(106, 183, 211);
+                transition: 1s;
+    
+            }
+
+            h1 {
+                display: inline-block;
+                padding-left: 18%;
+                font-size: 300%;
+                text-shadow:
+                    0 0 7px #fff,
+                    0 0 10px #fff,
+                    0 0 21px #fff,
+                    0 0 42px rgb(0, 255, 242),
+                    0 0 82px rgb(0, 255, 242),
+                    0 0 92px rgb(0, 255, 242),
+                    0 0 102px rgb(0, 255, 242),
+                    0 0 151px rgb(0, 255, 242);
+
+
+            }
+
+
+
+            input {
+                display: flex;
+                position: relative;
+                left: 5%;
+                bottom: 20%;
+                width: 35%;
+                height: 20%;
+                border: 3px solid blue;
+
+            }
+
+            button[type=submit] {
+                border: 3px solid blue;
+                background-color: rgb(144, 214, 238);
+                display: flex;
+                position: relative;
+                left: 42%;
+                bottom: 40%;
+
+
+
+                &:hover {
+                    background-color: rgb(8, 53, 68);
+                    cursor: pointer;
+                    color: white;
+                    font-weight: bold;
+
+
+                }
+
+
+
+
+            }
+
+
+
+            button[type=register] {
+                border-radius: 10px;
+                border: 2px solid blue;
+                font-weight: bold;
+                color: rgb(12, 114, 12);
+                display: flex;
+                position: relative;
+                left: 58%;
+                bottom: 60%;
+
+                &:hover {
+                    color: white;
+                    cursor: pointer;
+                    background-color: rgb(12, 114, 12);
+                    transition: 1s;
+                }
+            }
+
+            button[type=login] {
+                border-radius: 10px;
+                border: 2px solid blue;
+                font-weight: bold;
+                color: red;
+                display: flex;
+                position: relative;
+                left: 77%;
+                bottom: 75%;
+
+                &:hover {
+                    color: white;
+                    cursor: pointer;
+                    background-color: red;
+                    transition: 1s;
+                }
+            }
+
+
+        }
+
+        .games {
+            grid-column-start: 1;
+            grid-column-end: 7;
+
+
+            &.adventure {
+                grid-row-start: 2;
+                grid-row-end: 6;
+                background-color: rgb(31, 85, 10);
+
+                &:hover {
+                    background-color: rgb(17, 46, 5);
+
+                }
+
+
+                &.one {
+                    grid-column-start: 1;
+                    grid-column-end: 7;
+                    grid-row-start: 2;
+                    grid-row-end: 4;
+                    padding-left: 200px;
+                    padding-top: 0px;
+
+
+
+                    h2 {
+                        padding-left: 40px;
+                        cursor: pointer;
+                        padding-top: 3px;
+                        padding-bottom: 70px;
+                        padding-left: 10px;
+                        font-size: 150%;
+
+
+                        &:hover {
+                            text-shadow: rgb(148, 255, 105) 2px 2px;
+                        }
+                    }
+
+
+
+                }
+
+                &.two {
+                    grid-row-start: 4;
+                    grid-row-end: 5;
+                    grid-column-start: 1;
+                    grid-column-end: 7;
+                    padding-top: 0px;
+
+                    p {
+                        position: absolute;
+                        padding-left: 430px;
+                        bottom: 0px;
+                        padding-bottom: 150px;
+
+                        cursor: pointer;
+
+
+
+
+                    }
+
+
+
+                }
+
+                &.three {
+                    grid-row-start: 5;
+                    grid-row-end: 6;
+                    grid-column-start: 1;
+                    grid-column-end: 7;
+                    padding-top: 0px;
+
+                    p {
+                        position: absolute;
+                        padding-left: 430px;
+                        bottom: 0px;
+                        cursor: pointer;
+
+
+
+
+                    }
+
+
+                }
+
+
+
+
+                /*this is inorder to have the things change whenever i hover over them so the pic and text will change*/
+                .hover {
+                    &:hover {
+                        cursor: pointer;
+                        opacity: 0.7;
+
+                        text-shadow: rgb(148, 255, 105) 2px 2px;
+
+
+                    }
+
+                    img {
+
+                        /*width: 200px;
+                    height: 20vh;*/
+                        display: block;
+                        margin: auto;
+                        border-radius: 10px;
+                        border: 2px solid green;
+
+
+
+                    }
+
+
+                    &.imgeffect {
+                        right: 65px;
+
+                        position: relative;
+
+
+
+                        img {
+                            position: absolute;
+                            transition: opacity 1s ease-in-out;
+                            left: 80px;
+                            width: 200px;
+                            height: 20vh;
+
+
+                            &.img-back:hover {
+                                opacity: 0;
+                                cursor: pointer;
+
+                            }
+                        }
+
+                        p {
+                            position: absolute;
+                            top: 50px;
+                            padding-left: 350px;
+
+
+                        }
+
+
+                    }
+
+
+
+
+
+
+
+
+                }
+
+            }
+
+            &.classic {
+
+                grid-row-start:6;
+                grid-row-end: 12;
+                margin: 20px;
+
+
+
+                &.one {
+                    
+                    grid-column-start: 1;
+                    grid-column-end: 7;
+                    grid-row-start: 6;
+                    grid-row-end: 8;  
+                    padding-right: 310px;
+                    padding-top:0px;
+                                 
+
+                    h2 {
+                        padding-left: 250px;
+                        padding-bottom: 0px;
+
+                    }
+
+                    h2:hover {
+                        text-shadow: rgb(255, 19, 19)2px 2px;
+                        cursor: pointer;
+
+                    }
+
+                    img {
+                        width: 200px;
+                        height: 20vh;
+                        display: block;
+                        margin: auto;
+                        border-radius: 10px;
+
+
+                    }
+
+                    p {
+                        position: absolute;
+                        left:40%;
+                        top:130%;    
+                        cursor: pointer;
+
+
+
+
+                    }
+
+                }
+
+                &.two {
+                    grid-column-start: 1;
+                    grid-column-end: 7;
+                    grid-row-start: 8;
+                    grid-row-end: 9;
+                    padding-top:0px;
+                    
+                    padding-left:240px;
+
+
+                    img {
+                        width: 200px;
+                        height: 20vh;
+                        display: block;
+                        margin: auto;
+                        border-radius: 10px;
+                    }
+                    p {
+                        position: absolute;
+                        left:30%;
+                        top:160%;    
+                        cursor: pointer;
+
+
+
+
+                    }
+
+
+                }
+
+                &.three {
+                    grid-column-start: 1;
+                    grid-column-end: 7;
+                    grid-row-start: 9;
+                    grid-row-end: 10;                    
+                    padding-right:310px;
+
+                    img {
+                        width: 200px;
+                        height: 20vh;
+                        display: block;
+                        margin: auto;
+                        border-radius: 10px;
+                    }
+                    p {
+                        position: absolute;
+                        left:40%;
+                        top:180%;  
+                        cursor: pointer;
+
+                    }
+
+                }
+
+                &.four {
+
+                    grid-column-start: 1;
+                    grid-column-end: 7;
+                    grid-row-start: 10;
+                    grid-row-end: 11;
+                    padding-left:240px;
+
+                    img {
+                        width: 200px;
+                        height: 20vh;
+                        display: block;
+                        margin: auto;
+                        border-radius: 10px;
+                    }
+                    p {
+                        position: absolute;
+                        left:30%;
+                        top:200%;    
+                        cursor: pointer;
+
+                    }
+
+                    
+                }
+
+                &.five {
+                    grid-column-start: 1;
+                    grid-column-end: 7;
+                    grid-row-start: 11;
+                    grid-row-end: 12;
+                    padding-right:310px;
+                    
+
+
+                    img {
+                        width: 200px;
+                        height: 20vh;
+                        display: block;
+                        margin: auto;
+                        border-radius: 10px;
+                        
+                    }
+
+                    p {
+                        position: absolute;
+                        left:40%;
+                        top:220%;  
+                        cursor: pointer;
+
+                    }
+
+                }
+
+                .hover {
+
+                    &:hover {
+                        cursor: pointer;
+                        opacity: 0.7;
+                        text-shadow: rgb(255, 19, 19) 2px 2px;
+
+
+
+                    }
+
+                    img {
+                        border: 10px solid rgb(255, 3, 3);
+                    }
+
+
+
+
+
+                }
+
+
+
+
+
+            }
+
+            &.multiplayer {
+                background-color: rgb(194, 25, 143);
+                grid-row-start: 12;
+                grid-row-end: 16;
+
+                &:hover {
+                    background-color: rgb(133, 16, 98);
+
+                }
+
+
+                &.one {
+                    grid-column-start: 1;
+                    grid-column-end: 7;
+                    grid-row-start: 12;
+                    grid-row-end: 14;
+
+                    h2 {
+                        padding-left: 100px;
+                        cursor: pointer;
+                        padding-top: 30px;
+                        padding-bottom: 30px;
+                        padding-left: 200px;
+
+
+                        &:hover {
+                            text-shadow: rgb(243, 105, 255) 2px 2px;
+
+                        }
+                    }
+
+
+                    p {
+
+                        padding-left: 480px;
+                        cursor: pointer;
+                        text-align: start;
+                        position: absolute;
+                        top: 260%;
+
+
+
+
+
+                    }
+
+
+
+                    img {
+                        width: 200px;
+                        height: 20vh;
+
+                    }
+
+
+                }
+
+                &.two {
+                    grid-column-start: 1;
+                    grid-column-end: 7;
+                    grid-row-start: 14;
+                    grid-row-end: 15;
+                    padding-top: 0px;
+
+                    p {
+
+                        padding-left: 480px;
+                        cursor: pointer;
+                        text-align: start;
+                        position: absolute;
+                        top: 285%;
+
+
+
+
+
+                    }
+
+
+                }
+
+                &.three {
+                    grid-column-start: 1;
+                    grid-column-end: 7;
+                    grid-row-start: 15;
+                    grid-row-end: 16;
+                    padding-top: 0px;
+
+                    p {
+
+                        padding-left: 480px;
+                        cursor: pointer;
+                        text-align: start;
+                        position: absolute;
+                        top: 305%;
+                        padding-bottom: 20%;
+
+
+
+
+
+                    }
+
+
+                }
+
+
+                /*this is inorder to have the things change whenever i hover over them so the pic and text will change*/
+                .hover {
+                    &:hover {
+                        cursor: pointer;
+                        opacity: 0.7;
+                        text-shadow: rgb(255, 123, 215) 2px 2px;
+
+
+                    }
+
+                    img {
+                        /*width: 200px;
+                    height: 20vh;*/
+                        display: block;
+                        margin: auto;
+                        border-radius: 10px;
+                        border: 2px solid rgb(247, 110, 185);
+
+
+
+                    }
+
+                }
+            }
+
+        }
+
+
+    }
+
+
+
+
+
+
+
+
 }

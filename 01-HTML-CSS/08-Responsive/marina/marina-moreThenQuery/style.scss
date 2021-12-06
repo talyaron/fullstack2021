@@ -1,0 +1,43 @@
+
+h1{
+    text-align: center;
+}
+
+.wrapper{
+    max-width: 225ch;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+
+    @media only screen and (max-width: 225ch){
+        grid-template-columns: repeat(3, 1fr);
+        margin: 30px;
+        
+    }
+
+    @media only screen and (max-width: 150ch){
+        grid-template-columns: repeat(2, 1fr);
+        margin: 30px;
+        
+    }
+
+    @media only screen and (max-width: 75ch){
+        grid-template-columns: repeat(1, 1fr);
+        margin: 30px;
+        
+    }
+}
+
+
+
+
+
+article{
+    margin-bottom: 30px;
+
+    img{
+        width: 100%;
+    }
+}

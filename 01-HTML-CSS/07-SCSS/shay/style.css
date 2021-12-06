@@ -1,0 +1,68 @@
+.main {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  -ms-grid-rows: (50px)[8];
+      grid-template-rows: repeat(8, 50px);
+  gap: 5px;
+}
+
+.main .header {
+  background-color: #e7dfdf !important;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 4;
+  grid-column: 1/5;
+  grid-row: span 1;
+}
+
+.main .menu {
+  background-color: green !important;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 4;
+  grid-column: 1/5;
+  -ms-grid-row: 2;
+      grid-row-start: 2;
+  grid-row: span 1;
+}
+
+.main .banner {
+  background-color: beige !important;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 4;
+  grid-column: 1/5;
+  -ms-grid-row: 2;
+      grid-row-start: 2;
+  grid-row: span 5;
+}
+
+.main .banner .buton {
+  background-color: #f1e5e5 !important;
+  -ms-grid-column: 2;
+      grid-column-start: 2;
+  -ms-grid-columns: 5;
+      grid-template-columns: 5;
+  grid-row: span 1;
+}
+
+.main .see {
+  background-color: #faefef !important;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 4;
+  grid-column: 1/5;
+  -ms-grid-row: 8;
+      grid-row-start: 8;
+  grid-row: span 3;
+}
+
+.main .card {
+  background-color: whitesmoke;
+}
+
+.main .card img {
+  padding-top: 10px;
+  display: block;
+  margin: auto;
+  height: 100px;
+}
+/*# sourceMappingURL=style.css.map */

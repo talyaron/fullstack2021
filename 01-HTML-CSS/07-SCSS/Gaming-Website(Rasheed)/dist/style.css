@@ -1,0 +1,261 @@
+html {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #3f3e3e;
+  font-weight: bold;
+}
+
+body {
+  background-color: #8f8a8a;
+  margin: 30px 50px;
+  line-height: 1.4;
+}
+
+.btn {
+  background: #9e9d9d;
+  color: #d1caca;
+  padding: 0.6rem 1.3rem;
+  border: 0;
+  border-radius: 6px;
+  box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+}
+.btn:hover {
+  color: black;
+}
+
+img {
+  max-width: 100%;
+  border-radius: 20px;
+}
+
+.wrapper {
+  display: grid;
+  grid-gap: 20px;
+}
+
+.nav-bar__list {
+  display: grid;
+  grid-gap: 20px;
+  padding: 0;
+  list-style: none;
+  grid-template-columns: repeat(4, 1fr);
+}
+.nav-bar__link {
+  background: #b1abab;
+  display: block;
+  text-decoration: none;
+  padding: 0.8rem;
+  text-align: center;
+  color: #585757;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+  cursor: pointer;
+  border-radius: 10px;
+}
+.nav-bar__link:hover {
+  background: black;
+  color: #d1d0d0;
+}
+
+.top-container {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-areas: "header header top-box-a" "header header top-box-b";
+}
+.top-container__header {
+  grid-area: header;
+  min-height: 400px;
+  background: url(https://media2.giphy.com/media/W05iUdqyFujrRFgnn1/giphy.gif?cid=ecf05e474tadshy6zl4kjhl8w9eji5omjcf5ud46ub7rosv3&rid=giphy.gif&ct=g);
+  background-size: cover;
+  background-position: center;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  box-shadow: 0 1px 5px rgba(54, 54, 54, 0.8);
+  border-radius: 15px;
+}
+.top-container__header h1 {
+  font-size: 4rem;
+  margin-bottom: 0px;
+  color: #fff9f9;
+  cursor: pointer;
+}
+.top-container__header h1:hover {
+  color: gray;
+}
+.top-container__header p {
+  font-size: 1.3rem;
+  margin-top: 0px;
+  color: #fff9f9;
+  cursor: pointer;
+}
+.top-container__header p:hover {
+  color: gray;
+}
+.top-container__top-box {
+  color: white;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  box-shadow: 0 1px 5px rgba(54, 54, 54, 0.8);
+  padding: 1.5rem;
+  grid-template-areas: "top-box";
+  border-radius: 15px;
+}
+.top-container__top-box:hover {
+  transform: scale(0.9);
+}
+.top-container__top-box h4 {
+  font-size: 2rem;
+}
+.top-container__top-box__price {
+  font-size: 2.5rem;
+}
+.top-container .top-box-a {
+  background-image: url(https://c4.wallpaperflare.com/wallpaper/429/544/56/halo-4-master-chief-wallpaper-preview.jpg);
+  background-repeat: no-repeat;
+  grid-area: "top-box-a";
+  background-size: 100% 100%;
+}
+.top-container .top-box-a:hover {
+  background-image: url(https://media1.giphy.com/media/UIxpCHRDOFlZKl6HQg/giphy.gif?cid=ecf05e47fwocgwhwrnxiiqc0q1zmqbr89uejgwaf6nd6fo4r&rid=giphy.gif&ct=g);
+}
+.top-container .top-box-b {
+  grid-area: "top-box-b";
+  background-image: url(https://vistapointe.net/images/counter-strike-3.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.top-container .top-box-b:hover {
+  background-image: url(https://media2.giphy.com/media/l4FGq6m2f2jMwgMkE/giphy.gif?cid=ecf05e47oi7i0z7d4wirx3d3opdx6499dx7r2olk7rxdfpyg&rid=giphy.gif&ct=g);
+}
+
+.devices {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+.devices__box {
+  color: #fcecec;
+  text-align: center;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 1px 5px rgba(54, 54, 54, 0.8);
+  cursor: pointer;
+  border-radius: 10px;
+}
+.devices__box:hover {
+  transition: 0.8s;
+  opacity: 0.5;
+}
+
+.cs-go {
+  background: #b1abab;
+  box-shadow: 0 1px 5px rgba(54, 54, 54, 0.8);
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 3rem;
+}
+
+.more-games {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+}
+.more-games__img {
+  width: 100%;
+  box-shadow: 0 1px 5px rgba(54, 54, 54, 0.8);
+  border-radius: 20px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in;
+}
+.more-games__img:hover {
+  transform: scale(0.9);
+}
+
+footer {
+  margin-top: 2rem;
+  background: #585757;
+  color: #d1d0d0;
+  text-align: center;
+  padding: 1rem;
+}
+
+@media only screen and (max-width: 1200px) {
+  .top-container {
+    background-size: cover;
+    grid-template-areas: "header" "top-box-a" "top-box-b";
+  }
+
+  .devices {
+    grid-template-columns: 1fr;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .top-container {
+    grid-template-areas: "header" "top-box-a" "top-box-b";
+  }
+
+  .nav-bar__list {
+    grid-template-columns: 1fr;
+  }
+
+  .cs-go {
+    grid-template-columns: 1fr;
+  }
+
+  .cs-go .btn {
+    display: block;
+    text-align: center;
+    margin: auto;
+  }
+
+  .devices {
+    grid-template-columns: 1fr;
+  }
+}
+@media only screen and (max-width: 600px) {
+  body {
+    margin: 0;
+  }
+
+  .top-container {
+    grid-template-areas: "header" "top-box-a" "top-box-b";
+    margin: 15px;
+  }
+
+  .header {
+    margin: 15px;
+  }
+  .header h1 {
+    font-size: 2.5rem;
+  }
+
+  .nav-bar__list {
+    grid-template-columns: 1fr;
+    margin: 15px;
+  }
+
+  .cs-go {
+    margin: 15px;
+    grid-template-columns: 1fr;
+  }
+
+  .cs-go .btn {
+    display: block;
+    text-align: center;
+    margin: auto;
+  }
+
+  .devices {
+    grid-template-columns: 1fr;
+    margin: 15px;
+  }
+
+  .more-games {
+    margin: 15px;
+  }
+}
