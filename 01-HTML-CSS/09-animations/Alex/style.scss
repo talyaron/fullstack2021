@@ -1,0 +1,61 @@
+.box {
+    background-color: red;
+    width: 50px;
+    height: 50px;
+    position: relative;
+    animation-name: example;
+    animation-duration: 4s;
+    animation-direction: alternate;
+}
+
+
+.box {
+    animation-name: grow;
+    animation-iteration-count: 2;
+    animation-fill-mode: forwards;
+}
+
+
+
+
+@keyframes grow {
+    0% {
+        transform: scale(5);
+        background-color: orange;
+
+    }
+
+    50% {
+        transform: scale(15);
+        background-color: rgb(255, 0, 102);
+    }
+
+    0% {
+        left: 0px;
+        top: 0px;
+    }
+
+    25% {
+        background-color: yellow;
+        left: 200px;
+        top: 0px;
+    }
+
+    50% {
+        background-color: blue;
+        left: 200px;
+        top: 200px;
+    }
+
+    75% {
+        background-color: green;
+        left: 0px;
+        top: 200px;
+    }
+
+    100% {
+        background-color: red;
+        left: 0px;
+        top: 0px;
+    }
+}
