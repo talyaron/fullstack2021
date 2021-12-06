@@ -41,10 +41,10 @@ body {
     grid-row: 1/15;
   }
 }
-@media only screen and (max-width: 470px) {
+@media only screen and (max-width: 550px) {
   .main_topHeader {
     grid-column: 1/21;
-    grid-row: 1/18;
+    grid-row: 1/19;
   }
 }
 .main_topHeader .logo {
@@ -97,7 +97,7 @@ body {
 @media only screen and (max-width: 550px) {
   .main_topHeader .search {
     grid-column: 8/20;
-    grid-row: 1/4;
+    grid-row: 2/4;
     row-gap: 10px;
   }
 }
@@ -840,7 +840,7 @@ body {
 @media only screen and (max-width: 550px) {
   .main_freeGames {
     grid-column: 1/21;
-    grid-row: 360/375;
+    grid-row: 360/370;
   }
 }
 @media only screen and (max-width: 470px) {
@@ -900,7 +900,7 @@ body {
   background-position: center;
   background-size: cover;
   grid-column: 8/13;
-  grid-row: 1/5;
+  grid-row: 1/7;
 }
 @media only screen and (max-width: 720px) {
   .main_BottomRow-logo {
@@ -915,7 +915,7 @@ body {
   }
 }
 .main_BottomRow-BottomList {
-  grid-row: 7/8;
+  grid-row: 8/9;
   display: flex;
   flex-direction: row;
   grid-column: 7/14;
