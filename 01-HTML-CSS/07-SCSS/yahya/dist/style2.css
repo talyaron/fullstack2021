@@ -3,6 +3,16 @@ body {
   padding: 5px;
 }
 
+input {
+  float: right;
+  font-size: xx-large;
+}
+
+button {
+  float: right;
+  font-size: xx-large;
+}
+
 a {
   font-size: xx-large;
   /* background-color: black;*/
