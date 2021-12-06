@@ -1,0 +1,54 @@
+body {
+  background-color: burlywood;
+}
+
+.box {
+  background-color: aqua;
+  width: 100px;
+  height: 100px;
+  position: relative;
+  animation-name: move1;
+  animation-duration: 3s;
+  animation-delay: 1s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes move1 {
+  0% {
+    background-color: chartreuse;
+    transform: rotate(0deg) sacle(1);
+  }
+  25% {
+    background-color: burlywood;
+    transform: rotate(180deg) scale(1.3);
+  }
+  50% {
+    background-color: crimson;
+    transform: rotate(360deg) scale(1.3);
+  }
+  100% {
+    background-color: darkgreen;
+    transform: rotate(360deg) scale(1);
+  }
+  0% {
+    left: 0vw;
+    top: 0vw;
+    background-color: black;
+    transform: rotate(0deg) scale(1);
+  }
+  20% {
+    left: 50vw;
+    top: 10vw;
+    background-color: #2be262;
+    transform: rotate(360deg) scale(2);
+  }
+  50% {
+    left: 50vw;
+    top: 0vw;
+    background-color: #2b4ce2;
+    transform: rotate(0deg) scale(1);
+  }
+}
