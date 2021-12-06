@@ -3,6 +3,16 @@ body {
   padding: 5px;
 }
 
+input {
+  float: right;
+  font-size: xx-large;
+}
+
+button {
+  float: right;
+  font-size: xx-large;
+}
+
 a {
   font-size: xx-large;
   /* background-color: black;*/
@@ -38,20 +48,22 @@ p {
   margin: 100px;
   border-radius: 10px;
   border: 2px white solid;
+  width: 700px;
 }
-.header ul {
+.header a {
+  font-size: 45px;
   text-align: italic;
+  margin: 10px;
 }
 .header a:hover {
-  color: black;
+  color: red;
   text-align: italic;
-  color: white;
   justify-self: center;
 }
 
 /*///////////////////////////////////////////////////////////////////////////////*/
 /*////////////////////////////(Menu/flex)////////////////////////////////////////*/
-.menu2 {
+.navmenu2 {
   display: flex;
   flex-wrap: wrap;
   height: 50px;
@@ -59,11 +71,11 @@ p {
   justify-content: end;
   font-size: xx-large;
 }
-.menu2 .box {
+.navmenu2 .box {
   width: 100px;
   margin: 35px;
 }
-.menu2 a:hover {
+.navmenu2 a:hover {
   border: solid black;
 }
 
@@ -85,7 +97,6 @@ p {
   border-radius: 15px;
 }
 .main .box.gmain {
-  background-image: url("https://image.winudf.com/v2/image/Y29tLndGb3J0bml0ZTRLXzczMjYzNjBfc2NyZWVuXzBfMTUyOTA1MTIyNl8wMTU/screen-0.jpg?fakeurl=1&type=.jpg");
   grid-column-start: 1;
   grid-column-end: 3;
   grid-row-start: 1;
@@ -99,9 +110,12 @@ p {
 .main .box.gmain p {
   margin-top: 900px;
 }
+.main p:hover {
+  color: white;
+}
 
 /*////////////////////////////(small artical grid)////////////////////////////////////////*/
-.num1 {
+.articil1 {
   display: grid;
   background: color #999;
   grid-template-columns: repeat(4, 400px);
@@ -110,17 +124,20 @@ p {
   justify-content: center;
   margin-top: 300px;
 }
-.num1 .box {
+.articil1 .box {
   border-radius: 15px;
 }
-.num1 img {
+.articil1 img {
   height: 400px;
   width: 400px;
   border-radius: 15px;
 }
+.articil1 p:hover {
+  color: white;
+}
 
 /*////////////////////////////(small artical grid)////////////////////////////////////////*/
-.num2 {
+.articil2 {
   display: grid;
   background: color #999;
   grid-template-columns: repeat(4, 400px);
@@ -129,17 +146,20 @@ p {
   justify-content: center;
   margin-top: 300px;
 }
-.num2 .box {
+.articil2 .box {
   border-radius: 15px;
 }
-.num2 img {
+.articil2 img {
   height: 400px;
   width: 400px;
   border-radius: 15px;
 }
+.articil2 p:hover {
+  color: white;
+}
 
 /*////////////////////////////(small artical grid)////////////////////////////////////////*/
-.num3 {
+.articil3 {
   display: grid;
   background: color #999;
   grid-template-columns: repeat(4, 400px);
@@ -148,17 +168,20 @@ p {
   justify-content: center;
   margin-top: 300px;
 }
-.num3 .box {
+.articil3 .box {
   border-radius: 15px;
 }
-.num3 img {
+.articil3 img {
   height: 400px;
   width: 400px;
   border-radius: 15px;
 }
+.articil3 p:hover {
+  color: white;
+}
 
 /*////////////////////////////(small artical grid)////////////////////////////////////////*/
-.num4 {
+.articil4 {
   display: grid;
   background: color #999;
   grid-template-columns: repeat(4, 400px);
@@ -167,13 +190,16 @@ p {
   justify-content: center;
   margin-top: 300px;
 }
-.num4 .box {
+.articil4 .box {
   border-radius: 15px;
 }
-.num4 img {
+.articil4 img {
   height: 400px;
   width: 400px;
   border-radius: 15px;
+}
+.articil4 p:hover {
+  color: white;
 }
 
 .text {
@@ -216,15 +242,93 @@ img:hover {
   transform: scale(1.2);
 }
 
-@media (max-width: 780px) {
-  .box.gmain {
-    float: none;
-    background-size: 200px;
-    margin-left: auto;
-    margin-right: auto;
+@media only screen and (max-width: 1200px) {
+  .menu2 {
+    display: flex;
+    flex-wrap: wrap;
   }
-  .box.gmain .box {
-    width: 50px;
-    height: 50px;
+
+  .header {
+    width: auto;
+  }
+
+  .main {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .articil2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .articil3 {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .articil4 {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+@media only screen and (max-width: 900px) {
+  .menu2 {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .header {
+    width: auto;
+  }
+
+  .main {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .articil2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .articil3 {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .articil4 {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+@media only screen and (max-width: 600px) {
+  .menu2 {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .header {
+    width: auto;
+  }
+
+  .main {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .articil2 {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .articil3 {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .articil4 {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
   }
 }

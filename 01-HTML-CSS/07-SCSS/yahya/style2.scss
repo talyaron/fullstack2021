@@ -4,7 +4,14 @@ body{
    
    
 }
-
+input{
+   float: right;
+   font-size: xx-large;
+}
+button{
+   float: right;
+   font-size: xx-large;
+}
 a{
    font-size: xx-large;
  /* background-color: black;*/
@@ -40,25 +47,28 @@ p{
   margin: 100px;
   border-radius: 10px ;
   border: 2px white solid;
+  width: 700px;
  
    
-   ul{
-     
+    a{
+      font-size: 45px;
       text-align: italic;
+      margin: 10px;
    }
    a:hover{
-        
-      color: rgb(0, 0, 0);
-      text-align: italic;
-      color: white;
+     
+      color:red ;
+    
+       text-align: italic;
       justify-self:center;
-    }   
+    } 
+     
    }
 /*///////////////////////////////////////////////////////////////////////////////*/ 
 
 /*////////////////////////////(Menu/flex)////////////////////////////////////////*/
 
-.menu2{
+.navmenu2{
    display: flex;
    flex-wrap: wrap;
    height: 50px;
@@ -76,6 +86,7 @@ p{
    a:hover{
       border: solid black; 
    }
+ 
 }
 
 /*////////////////////////////(Main has main articil/grid)////////////////////////////////////////*/
@@ -100,7 +111,7 @@ p{
     border-radius: 15px;
  }
  .box.gmain{
-    background-image:url('https://image.winudf.com/v2/image/Y29tLndGb3J0bml0ZTRLXzczMjYzNjBfc2NyZWVuXzBfMTUyOTA1MTIyNl8wMTU/screen-0.jpg?fakeurl=1&type=.jpg');
+    
     grid-column-start: 1;
     grid-column-end:3 ;
     grid-row-start: 1;
@@ -114,11 +125,14 @@ p{
     margin-top: 900px;
  }
  }
- 
+ p:hover{
+color: white;
+ }
+
 }
 /*////////////////////////////(small artical grid)////////////////////////////////////////*/
 
-.num1{
+.articil1{
    display: grid;
    background: color #999;
    grid-template-columns:repeat(4,400px);
@@ -136,10 +150,13 @@ p{
       width: 400px;
       border-radius: 15px;
    }
+   p:hover{
+      color: white;
+       }
 }
 /*////////////////////////////(small artical grid)////////////////////////////////////////*/
 
-.num2{
+.articil2{
    display: grid;
    background: color #999;
    grid-template-columns:repeat(4,400px);
@@ -157,10 +174,13 @@ p{
       width: 400px;
       border-radius: 15px;
    }
+   p:hover{
+      color: white;
+       }
 }
     /*////////////////////////////(small artical grid)////////////////////////////////////////*/
 
-.num3{
+.articil3{
    display: grid;
    background: color #999;
    grid-template-columns:repeat(4,400px);
@@ -177,10 +197,13 @@ p{
       width: 400px;
       border-radius: 15px;
    }
+   p:hover{
+      color: white;
+       }  
 }
 /*////////////////////////////(small artical grid)////////////////////////////////////////*/
 
-.num4{
+.articil4{
    display: grid;
    background: color #999;
    grid-template-columns:repeat(4,400px);
@@ -197,7 +220,9 @@ p{
       width: 400px;
       border-radius: 15px;
    }
-   
+   p:hover{
+      color: white;
+       }  
 }
 .text{
       
@@ -241,18 +266,90 @@ h1{
 img:hover{
     transform: scale(1.2);
 }
-@media (max-width:780px) {
-   .box.gmain{
-      float: none;
-      background-size: 200px;
 
-      margin-left: auto;
-      margin-right: auto;
-      .box{
-         width: 50px;
-         height: 50px;
-      }
+
+
+@media only screen and(max-width:1200px) {
+   .menu2{
+      display: flex;
+     flex-wrap: wrap;
    }
-   
+   .header{
+      width: auto;
+   } 
+   .main{
+
+      display: grid;
+      grid-template-columns:repeat(1, 1fr) ;
+   }
+   .articil2{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+   }
+   .articil3{
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+   }
+   .articil4{
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+   }
 }
+@media only screen and(max-width:900px) {
+   .menu2{
+      display: flex;
+     flex-wrap: wrap;
+
+    }
+    .header{
+      width: auto;
+   }
+   .main{
+
+      display: grid;
+      grid-template-columns:repeat(1, 1fr) ;
+   }
+   .articil2{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+   }
+   .articil3{
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+   }
+   .articil4{
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+   }
+}
+
+@media only screen and(max-width:600px) {
+   .menu2{
+      display: flex;
+     flex-wrap: wrap;
+   }
+   .header{
+      width: auto;
+   }
+   .main{
+
+      display: grid;
+      grid-template-columns:repeat(1, 1fr) ;
+   }
+   .articil2{
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+
+   }
+   .articil3{
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+   }
+   .articil4{
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+   }
+}
+
+
    
