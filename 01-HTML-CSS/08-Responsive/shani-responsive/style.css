@@ -1,0 +1,32 @@
+body {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  background-color: yellow;
+}
+
+@media only screen and (max-width: 1200px) {
+  body {
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
+    background-color: #0d5f02;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  body {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+    background-color: #15a3e6;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    -ms-grid-columns: (1fr)[1];
+        grid-template-columns: repeat(1, 1fr);
+    background-color: #021b5f;
+  }
+}
+/*# sourceMappingURL=style.css.map */

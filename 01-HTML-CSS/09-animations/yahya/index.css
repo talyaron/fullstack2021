@@ -1,0 +1,163 @@
+body {
+  background-color: burlywood;
+}
+
+.box {
+  background-color: aqua;
+  width: 500px;
+  height: 500px;
+  position: relative;
+  -webkit-animation-name: move1;
+          animation-name: move1;
+  -webkit-animation-duration: 5s;
+          animation-duration: 5s;
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-direction: normal;
+          animation-direction: normal;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.b1 {
+  background-color: rgba(0, 255, 115, 0.432);
+  width: 500px;
+  height: 500px;
+  position: relative;
+  -webkit-animation-name: move1;
+          animation-name: move1;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-direction: normal;
+          animation-direction: normal;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.b2 {
+  background-color: rgba(255, 0, 0, 0.349);
+  width: 500px;
+  height: 500px;
+  position: relative;
+  -webkit-animation-name: move1;
+          animation-name: move1;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-direction: normal;
+          animation-direction: normal;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes move1 {
+  0% {
+    background-color: chartreuse;
+    -webkit-transform: rotate(0deg) sacle(1);
+            transform: rotate(0deg) sacle(1);
+  }
+  25% {
+    width: 10px;
+    height: 10px;
+    background-color: burlywood;
+    -webkit-transform: rotate(180deg) scale(1.3);
+            transform: rotate(180deg) scale(1.3);
+  }
+  50% {
+    background-color: crimson;
+    -webkit-transform: rotate(360deg) scale(1.3);
+            transform: rotate(360deg) scale(1.3);
+  }
+  100% {
+    background-color: darkgreen;
+    -webkit-transform: rotate(360deg) scale(1);
+            transform: rotate(360deg) scale(1);
+  }
+  0% {
+    left: 0vw;
+    top: 0vw;
+    background-color: black;
+    -webkit-transform: rotate(0deg) scale(1);
+            transform: rotate(0deg) scale(1);
+  }
+  20% {
+    width: 200px;
+    height: 200px;
+    left: 50vw;
+    top: 10vw;
+    background-color: #2be262;
+    -webkit-transform: rotate(360deg) scale(2);
+            transform: rotate(360deg) scale(2);
+  }
+  50% {
+    left: 50vw;
+    top: 0vw;
+    background-color: #2b4ce2;
+    -webkit-transform: rotate(0deg) scale(1);
+            transform: rotate(0deg) scale(1);
+  }
+}
+
+@keyframes move1 {
+  0% {
+    background-color: chartreuse;
+    -webkit-transform: rotate(0deg) sacle(1);
+            transform: rotate(0deg) sacle(1);
+  }
+  25% {
+    width: 10px;
+    height: 10px;
+    background-color: burlywood;
+    -webkit-transform: rotate(180deg) scale(1.3);
+            transform: rotate(180deg) scale(1.3);
+  }
+  50% {
+    background-color: crimson;
+    -webkit-transform: rotate(360deg) scale(1.3);
+            transform: rotate(360deg) scale(1.3);
+  }
+  100% {
+    background-color: darkgreen;
+    -webkit-transform: rotate(360deg) scale(1);
+            transform: rotate(360deg) scale(1);
+  }
+  0% {
+    left: 0vw;
+    top: 0vw;
+    background-color: black;
+    -webkit-transform: rotate(0deg) scale(1);
+            transform: rotate(0deg) scale(1);
+  }
+  20% {
+    width: 200px;
+    height: 200px;
+    left: 50vw;
+    top: 10vw;
+    background-color: #2be262;
+    -webkit-transform: rotate(360deg) scale(2);
+            transform: rotate(360deg) scale(2);
+  }
+  50% {
+    left: 50vw;
+    top: 0vw;
+    background-color: #2b4ce2;
+    -webkit-transform: rotate(0deg) scale(1);
+            transform: rotate(0deg) scale(1);
+  }
+}
+/*# sourceMappingURL=index.css.map */

@@ -1,0 +1,5 @@
+.main {
+  font-size: 3rem;
+  display: flex;
+  flex-direction: row;
+}
