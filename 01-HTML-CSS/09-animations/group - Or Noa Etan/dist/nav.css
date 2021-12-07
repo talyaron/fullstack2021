@@ -11,23 +11,25 @@ nav {
 }
 
 nav ul {
-  background: #444;
+  background: black;
   list-style-type: none;
   display: flex;
+  align-items: center;
   flex-direction: row;
   justify-content: space-around;
+  padding: 1rem;
 }
 nav ul li a {
   color: #f9f9f9;
   display: block;
   padding: 0.8rem 1rem;
   text-decoration: none;
-  text-transform: capitalize;
 }
 
 nav ul li a:hover {
-  background: rgba(0, 0, 0, 0.6);
+  background: #444444;
   text-underline-position: below;
+  border-radius: 3rem;
 }
 
 @media only screen and (min-width: 900px) {
@@ -42,12 +44,8 @@ nav ul li a:hover {
     text-align: center;
   }
 
-  #monthly-tasks:hover {
-    animation-name: fade, shrink;
-    animation-duration: 0.5s, 0.53s;
-    animation-iteration-count: infinite, infinite;
-    animation-direction: alternate, alternate;
-    animation-timing-function: ease-in-out;
+  #monthly-tasks:hover .material-icons {
+    animation: pulse 0.5s infinite alternate;
   }
 }
 @keyframes fade {
@@ -65,4 +63,49 @@ nav ul li a:hover {
   to {
     transform: scale(0.75);
   }
+}
+@keyframes moveRight {
+  from {
+    left: 0vw;
+  }
+  to {
+    left: 50vw;
+  }
+}
+@keyframes moveUp {
+  from {
+    top: 50vw;
+  }
+  to {
+    top: 0vw;
+  }
+}
+@keyframes pulse {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(0.75);
+    opacity: 0.25;
+  }
+}
+.material-icons.md-18 {
+  font-size: 18px;
+}
+
+.material-icons.md-24 {
+  font-size: 24px;
+}
+
+.material-icons.md-30 {
+  font-size: 30px;
+}
+
+.material-icons.md-36 {
+  font-size: 36px;
+}
+
+.material-icons.md-40 {
+  font-size: 40px;
 }
