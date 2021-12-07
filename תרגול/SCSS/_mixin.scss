@@ -1,0 +1,11 @@
+@mixin flex () {
+    display: flex;
+    flex-direction: row;
+}
+
+@mixin font ($aling : left, $fontSize: 2rem) {
+    font-size: $fontSize;
+    font-weight: bold;
+    color: white;
+    text-align: $aling;
+}

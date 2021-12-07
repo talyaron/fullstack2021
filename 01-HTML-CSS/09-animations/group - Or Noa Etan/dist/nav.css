@@ -1,0 +1,68 @@
+#landing, nav, ul, li, a {
+  padding: 0;
+  margin: 0;
+}
+
+nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  min-width: 100%;
+}
+
+nav ul {
+  background: #444;
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+nav ul li a {
+  color: #f9f9f9;
+  display: block;
+  padding: 0.8rem 1rem;
+  text-decoration: none;
+  text-transform: capitalize;
+}
+
+nav ul li a:hover {
+  background: rgba(0, 0, 0, 0.6);
+  text-underline-position: below;
+}
+
+@media only screen and (min-width: 900px) {
+  nav {
+    top: 0;
+  }
+  nav ul {
+    top: 0;
+  }
+  nav ul li {
+    flex: 1 2 auto;
+    text-align: center;
+  }
+
+  #monthly-tasks:hover {
+    animation-name: fade, shrink;
+    animation-duration: 0.5s, 0.53s;
+    animation-iteration-count: infinite, infinite;
+    animation-direction: alternate, alternate;
+    animation-timing-function: ease-in-out;
+  }
+}
+@keyframes fade {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.25;
+  }
+}
+@keyframes shrink {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0.75);
+  }
+}

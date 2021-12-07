@@ -7,13 +7,16 @@ body {
     background-color: #159c37;
   }
 }
+
 @media only screen and (max-width: 900px) {
   body {
     background-color: #209e94;
   }
 }
+
 @media only screen and (max-width: 600px) {
   body {
     background-color: #1d1db6;
   }
 }
+/*# sourceMappingURL=style.css.map */

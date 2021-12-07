@@ -1,0 +1,15 @@
+body {
+  background-color: #222;
+  margin: 0px;
+  font-family: 'Bebas Neue', cursive;
+  color: whitesmoke;
+}
+
+.header {
+  height: 10vh;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 2fr 2fr 3fr;
+      grid-template-columns: 2fr 2fr 3fr;
+}
+/*# sourceMappingURL=style2.css.map */

@@ -1,54 +1,75 @@
 body .text {
-    text-align: center;
-    text-decoration: underline;
-  }
-  
-  .header {
-    display: flex;
-    background-color: #352a2a;
-    justify-content: space-evenly;
-  }
-  .header__item {
-    background: #8d7878;
-    width: 100px;
-    height: 50px;
-    border: 1px solid #080101;
-  }
-  .header__item:hover {
-    transform: scale(1.2);
-    border: 1px solid red;
-  }
-  
-  .menu {
-    display: flex;
-    background-color: #3a0909;
-    justify-content: center;
-    height: 100px;
-  }
-  .menu__item {
-    background: green;
-    width: 150px;
-    height: 70px;
-    border: 1px solid #080101;
-  }
-  .menu__item:hover {
-    transform: scale(1.2);
-    border: 1px solid red;
-  }
-  
-  .game {
-    display: grid;
-    background-color: gray;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(2, 150px);
-  }
-  .game__item {
-    background-color: hotpink;
-    width: 200px;
-    height: 200px;
-    border: 1px solid firebrick;
-  }
-  .game__item:hover {
-    transform: scale(1.2);
-    border: 1px solid red;
-  }
+  text-align: center;
+  text-decoration: underline;
+}
+
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #352a2a;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.header__item {
+  background: #8d7878;
+  width: 100px;
+  height: 50px;
+  border: 1px solid #080101;
+}
+
+.header__item:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  border: 1px solid red;
+}
+
+.menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #3a0909;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100px;
+}
+
+.menu__item {
+  background: green;
+  width: 150px;
+  height: 70px;
+  border: 1px solid #080101;
+}
+
+.menu__item:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  border: 1px solid red;
+}
+
+.game {
+  display: -ms-grid;
+  display: grid;
+  background-color: gray;
+  -ms-grid-columns: (1fr)[6];
+      grid-template-columns: repeat(6, 1fr);
+  -ms-grid-rows: (150px)[2];
+      grid-template-rows: repeat(2, 150px);
+}
+
+.game__item {
+  background-color: hotpink;
+  width: 200px;
+  height: 200px;
+  border: 1px solid firebrick;
+}
+
+.game__item:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  border: 1px solid red;
+}
+/*# sourceMappingURL=style.css.map */

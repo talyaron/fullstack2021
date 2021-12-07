@@ -1,0 +1,69 @@
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+  -webkit-animation-name: moveRight;
+          animation-name: moveRight;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  position: relative;
+}
+
+@-webkit-keyframes moveRight {
+  0% {
+    background-color: blue;
+    top: 0;
+    left: 0;
+  }
+  25% {
+    background-color: blueviolet;
+    top: 50px;
+    left: 50px;
+    -webkit-transform: rotate(20deg);
+            transform: rotate(20deg);
+  }
+  50% {
+    background-color: purple;
+    top: 100px;
+    left: 100px;
+    -webkit-transform: rotate(50deg);
+            transform: rotate(50deg);
+  }
+  100% {
+    background-color: plum;
+    top: 150px;
+    left: 150px;
+    -webkit-transform: rotate(100deg);
+            transform: rotate(100deg);
+  }
+}
+
+@keyframes moveRight {
+  0% {
+    background-color: blue;
+    top: 0;
+    left: 0;
+  }
+  25% {
+    background-color: blueviolet;
+    top: 50px;
+    left: 50px;
+    -webkit-transform: rotate(20deg);
+            transform: rotate(20deg);
+  }
+  50% {
+    background-color: purple;
+    top: 100px;
+    left: 100px;
+    -webkit-transform: rotate(50deg);
+            transform: rotate(50deg);
+  }
+  100% {
+    background-color: plum;
+    top: 150px;
+    left: 150px;
+    -webkit-transform: rotate(100deg);
+            transform: rotate(100deg);
+  }
+}
+/*# sourceMappingURL=style.css.map */

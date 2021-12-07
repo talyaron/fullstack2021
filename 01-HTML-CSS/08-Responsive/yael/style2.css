@@ -1,0 +1,143 @@
+.box_1 {
+  height: 50px;
+  width: span 4;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1rem;
+  border: 3px solid green;
+  background-color: darkslategrey;
+}
+
+.box_1 h1 {
+  font-family: 'Montserrat';
+  color: wheat;
+  font-size: 30px;
+  padding: 1rem;
+}
+
+h1 {
+  text-align: center;
+}
+
+.card-grid {
+  max-width: 225ch;
+  margin: auto;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.card-grid__card {
+  --padding:1rem;
+  background: white;
+  /*border: 1px solid #777;
+border-radius: .25rem;*/
+  border: none;
+  -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.card-grid__card .card-header {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  padding: var(--padding);
+  padding-bottom: 0;
+}
+
+.card-grid__card .card-img {
+  overflow: hidden;
+  /* the image no longer overflows the card*/
+  padding: 0;
+}
+
+.card-grid__card .card-img > img {
+  display: block;
+  /*allows to cange width and height*/
+  max-height: 200px;
+  /*to fit to every screen size*/
+  width: 100%;
+  /*100 width of the container*/
+  aspect-ratio: 16/9;
+  -o-object-fit: cover;
+     object-fit: cover;
+  /*thats how the aspect ratio always maintains*/
+  -o-object-position: center;
+     object-position: center;
+  -webkit-transition: 200ms -webkit-transform ease-in-out;
+  transition: 200ms -webkit-transform ease-in-out;
+  transition: 200ms transform ease-in-out;
+  transition: 200ms transform ease-in-out, 200ms -webkit-transform ease-in-out;
+}
+
+.card-grid__card .card-img:hover > img {
+  -webkit-transform: scale(1.15);
+          transform: scale(1.15);
+}
+
+.card-grid__card__card-body {
+  font-size: .9rem;
+  padding: 0 var(--padding);
+}
+
+.card-grid__card__card-footer {
+  margin-top: 1rem;
+  padding: var(--padding);
+  padding-top: 0;
+}
+
+.card-grid__card .btn {
+  --color:hsl(200,50%,60%);
+  background: var(--color);
+  color: white;
+  border: none;
+  font-size: 1rem;
+  padding: .5em,.75em;
+  border-radius: .25em;
+  cursor: pointer;
+}
+
+.card-grid__card .btn:hover, .card-grid__card .btn:focus {
+  background: var(--color);
+}
+
+.card-grid__card .btn.btn-outline {
+  background: none;
+  border: 1px solid var(--color);
+  color: var(--color);
+}
+
+.card-grid__card .btn.btn-outline:hover, .card-grid__card .btn.btn-outline:focus {
+  background: #d9eaf2;
+}
+
+.card-grid__card .btn + .btn {
+  margin-left: .25rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .card-grid {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .card-grid {
+    margin: 30px;
+    -ms-grid-columns: (1fr)[1];
+        grid-template-columns: repeat(1, 1fr);
+  }
+}
+/*# sourceMappingURL=style2.css.map */
