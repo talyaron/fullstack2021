@@ -27,7 +27,8 @@ nav ul {
 }
 
 nav ul li a:hover {
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.6);
+    text-underline-position: below;
 }
 
 @media only screen and (min-width: 900px) {
@@ -42,6 +43,40 @@ nav ul li a:hover {
                 flex: 1 2 auto;
                 text-align: center;
             }
+            
         }
+    }
+    #monthly-tasks {
+        &:hover {
+            //animation: pulse 0.5s 3s infinite alternate;
+    
+            animation-name: fade, shrink;
+            animation-duration: 0.5s, 0.53s;
+            animation-iteration-count: infinite, infinite;
+            animation-direction: alternate, alternate;
+            animation-timing-function: ease-in-out;
+        }
+    }
+}
+
+
+
+@keyframes fade {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0.25;
+    }
+}
+
+@keyframes shrink {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(0.75);
     }
 }
