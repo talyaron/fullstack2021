@@ -1,0 +1,58 @@
+.wrapper {
+  display: -ms-grid;
+  display: grid;
+  gap: 10px;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  -ms-grid-rows: (100px)[4];
+      grid-template-rows: repeat(4, 100px);
+}
+
+.wrapper .box {
+  border: 2px solid gray;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.wrapper .box img {
+  width: 100px;
+  height: 100px;
+}
+
+.wrapper .header {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-column: 1/4;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1/2;
+  background-color: #f0f078;
+}
+
+.wrapper .blue {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-column: 1/4;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2/3;
+  background-color: #0e70b1;
+}
+
+.wrapper .red {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-column: 1/4;
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
+  grid-row: 3/4;
+  background-color: #b18b0e;
+}
+/*# sourceMappingURL=style.css.map */

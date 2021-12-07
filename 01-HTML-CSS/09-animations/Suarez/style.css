@@ -1,0 +1,109 @@
+body {
+  background-color: #0000005e;
+}
+
+.circle {
+  height: 50px;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  margin-left: 50%;
+  top: 50%;
+  border-radius: 100%;
+  background-color: #b10c0c;
+  -webkit-animation: move-the-circle 1s infinite;
+          animation: move-the-circle 1s infinite;
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+}
+
+.circle:nth-child(1) {
+  left: 0px;
+  -webkit-animation-delay: 0.1s;
+          animation-delay: 0.1s;
+}
+
+.circle:nth-child(2) {
+  left: 30px;
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
+}
+
+.circle:nth-child(3) {
+  left: 60px;
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s;
+}
+
+.circle:nth-child(4) {
+  left: 90px;
+  -webkit-animation-delay: 0.4s;
+          animation-delay: 0.4s;
+}
+
+.circle:nth-child(5) {
+  left: 120px;
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
+}
+
+.circle:nth-child(6) {
+  left: 150px;
+  -webkit-animation-delay: 0.6s;
+          animation-delay: 0.6s;
+}
+
+.circle:nth-child(7) {
+  left: 180px;
+  -webkit-animation-delay: 0.7s;
+          animation-delay: 0.7s;
+}
+
+.circle:nth-child(8) {
+  left: 210px;
+  -webkit-animation-delay: 0.8s;
+          animation-delay: 0.8s;
+}
+
+@-webkit-keyframes move-the-circle {
+  0% {
+    -webkit-transform: translate(0, 0) scale(1);
+            transform: translate(0, 0) scale(1);
+    opacity: 1;
+    background-color: #b10c0c;
+  }
+  50% {
+    -webkit-transform: translate(0, 50px) scale(0.4);
+            transform: translate(0, 50px) scale(0.4);
+    opacity: .5;
+    background-color: black;
+  }
+  100% {
+    -webkit-transform: translate(0, 0) scale(1);
+            transform: translate(0, 0) scale(1);
+    opacity: 1;
+    background-color: #b10c0c;
+  }
+}
+
+@keyframes move-the-circle {
+  0% {
+    -webkit-transform: translate(0, 0) scale(1);
+            transform: translate(0, 0) scale(1);
+    opacity: 1;
+    background-color: #b10c0c;
+  }
+  50% {
+    -webkit-transform: translate(0, 50px) scale(0.4);
+            transform: translate(0, 50px) scale(0.4);
+    opacity: .5;
+    background-color: black;
+  }
+  100% {
+    -webkit-transform: translate(0, 0) scale(1);
+            transform: translate(0, 0) scale(1);
+    opacity: 1;
+    background-color: #b10c0c;
+  }
+}
+/*# sourceMappingURL=style.css.map */

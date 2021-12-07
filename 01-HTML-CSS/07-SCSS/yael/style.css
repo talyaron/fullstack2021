@@ -1,0 +1,209 @@
+*, *::before, *::after {
+  font-family: 'open-sans', sans-serif;
+}
+
+.page-grid {
+  display: -ms-grid;
+  display: grid;
+  grid-auto-columns: auto;
+  grid-auto-rows: auto auto auto auto;
+}
+
+.page-grid__header {
+  width: 100%;
+  height: 100px;
+  display: block;
+  background-color: darkslategray;
+  margin-bottom: 0.5rem;
+  padding: var(--padding);
+  padding-bottom: 1rem;
+}
+
+.page-grid__header__inner-header {
+  width: 1000px;
+  height: 100%;
+  display: block;
+  margin: 0 auto;
+  background-color: #63a1a1;
+}
+
+.page-grid__header__inner-header__logo-container {
+  height: 100px;
+  display: table;
+  float: left;
+}
+
+.page-grid__header__inner-header__logo-container h1 {
+  color: white;
+  height: 100%;
+  display: table-cell;
+  vertical-align: middle;
+  font-family: 'Montserrat';
+  font-size: 40px;
+  font-weight: 100;
+  padding-left: 0.5rem;
+}
+
+.page-grid__header__inner-header__logo-container h1 span {
+  font-weight: 1000px;
+  font: bolder;
+  font-family: 'Montserrat';
+}
+
+.page-grid__header__inner-header__navigation {
+  float: right;
+  height: 100%;
+}
+
+.page-grid__header__inner-header__navigation a {
+  height: 100%;
+  display: table;
+  float: left;
+  padding: 0px 20px;
+}
+
+.page-grid__header__inner-header__navigation a li {
+  display: table-cell;
+  vertical-align: middle;
+  height: 100%;
+  color: white;
+  font-family: 'Montserrat';
+  font-size: 20px;
+  padding-bottom: 1rem;
+}
+
+.page-grid__box_1, .page-grid__box_2 {
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 3px solid green;
+  background-color: darkslategrey;
+}
+
+.page-grid__box_1 h1, .page-grid__box_2 h1 {
+  font-family: 'Montserrat';
+  color: white;
+  font-size: 25px;
+  padding-bottom: 1rem;
+}
+
+.page-grid .card-grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(auto, 1fr))[4];
+      grid-template-columns: repeat(4, minmax(auto, 1fr));
+  -ms-grid-rows: (minmax(auto, 1fr))[1];
+      grid-template-rows: repeat(1, minmax(auto, 1fr));
+  grid-gap: 1rem;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  /*justify-items: stretch;/*the default is stretch
+    justify-items: start; start/ end/center - alighn items to the start*/
+  /*align-items: center;*/
+}
+
+.page-grid .card-grid .card {
+  --padding:1rem;
+  background: white;
+  /*border: 1px solid #777;
+    border-radius: .25rem;*/
+  border: none;
+  -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.page-grid .card-grid .card .card-body {
+  font-size: .9rem;
+  padding: 0 var(--padding);
+}
+
+.page-grid .card-grid .card .card-header {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  padding: var(--padding);
+  padding-bottom: 0;
+}
+
+.page-grid .card-grid .card .card-header.card-img {
+  overflow: hidden;
+  /* the image no longer overflows the card*/
+  padding: 0;
+}
+
+.page-grid .card-grid .card .card-header.card-img > img {
+  display: block;
+  /*allows to cange width and height*/
+  max-height: 200px;
+  /*to fit to every screen size*/
+  width: 100%;
+  /*100 width of the container*/
+  aspect-ratio: 16/9;
+  -o-object-fit: cover;
+     object-fit: cover;
+  /*thats how the aspect ratio always maintains*/
+  -o-object-position: center;
+     object-position: center;
+  -webkit-transition: 200ms -webkit-transform ease-in-out;
+  transition: 200ms -webkit-transform ease-in-out;
+  transition: 200ms transform ease-in-out;
+  transition: 200ms transform ease-in-out, 200ms -webkit-transform ease-in-out;
+}
+
+.page-grid .card-grid .card .card-header.card-img:hover > img {
+  -webkit-transform: scale(1.15);
+          transform: scale(1.15);
+}
+
+.page-grid .card-grid .card .card-footer {
+  margin-top: 1rem;
+  padding: var(--padding);
+  padding-top: 0;
+}
+
+.page-grid .card-grid .card .btn {
+  --color:hsl(200,50%,60%);
+  background: var(--color);
+  color: white;
+  border: none;
+  font-size: 1rem;
+  padding: .5em,.75em;
+  border-radius: .25em;
+  cursor: pointer;
+}
+
+.page-grid .card-grid .card .btn:hover, .page-grid .card-grid .card .btn:focus {
+  background: var(--color);
+}
+
+.page-grid .card-grid .card .btn.btn-outline {
+  background: none;
+  border: 1px solid var(--color);
+  color: var(--color);
+}
+
+.page-grid .card-grid .card .btn.btn-outline:hover, .page-grid .card-grid .card .btn.btn-outline:focus {
+  background: #d9eaf2;
+}
+
+.page-grid .card-grid .card .btn + .btn {
+  margin-left: .25rem;
+}
+
+.card-grid > div {
+  background: #eee;
+  padding: 1em;
+}
+
+.card-grid > div:nth-child(odd) {
+  background: #ddd;
+}
+/*# sourceMappingURL=style.css.map */

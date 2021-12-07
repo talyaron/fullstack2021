@@ -1,0 +1,58 @@
+.wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  top: 8vw;
+  -webkit-animation-name: bullet;
+          animation-name: bullet;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-direction: normal;
+          animation-direction: normal;
+  -webkit-animation-timing-function: ease-in;
+          animation-timing-function: ease-in;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.box img {
+  width: 100px;
+  height: 100px;
+}
+
+@-webkit-keyframes bullet {
+  0% {
+    left: 0;
+  }
+  50% {
+    left: 70%;
+  }
+  100% {
+    left: 70%;
+  }
+}
+
+@keyframes bullet {
+  0% {
+    left: 0;
+  }
+  50% {
+    left: 70%;
+  }
+  100% {
+    left: 70%;
+  }
+}
+/*# sourceMappingURL=style.css.map */

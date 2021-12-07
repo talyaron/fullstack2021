@@ -1,0 +1,34 @@
+.main {
+    background-color: blue;
+
+    &>p {
+        font-size: 1.2rem;
+    }
+
+    &__header {
+        color: white;
+    }
+
+    &__paragpaf {
+        font-weight: bolder;
+        font-size: 3rem;
+
+        &:hover {
+            color: yellow
+        }
+
+        &--buttonLeft {
+            background-color: yellowgreen;
+        }
+
+        &--buttonRight {
+            background-color: yellow;
+        }
+
+        &--image {
+            &:hover {
+                width: 80%;
+            }
+        }
+    }
+}

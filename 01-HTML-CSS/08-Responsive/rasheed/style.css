@@ -1,0 +1,42 @@
+.container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  -ms-grid-rows: (500px)[4];
+      grid-template-rows: repeat(4, 500px);
+  gap: 15px;
+  border: 3px solid black;
+}
+
+.box {
+  border: black solid 3px;
+}
+
+@media only screen and (max-width: 1200px) {
+  .container {
+    -ms-grid-columns: (1fr)[4];
+        grid-template-columns: repeat(4, 1fr);
+    -ms-grid-rows: (500px)[3];
+        grid-template-rows: repeat(3, 500px);
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .container {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+    -ms-grid-rows: (500px)[2];
+        grid-template-rows: repeat(2, 500px);
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    -ms-grid-columns: (1fr)[1];
+        grid-template-columns: repeat(1, 1fr);
+    -ms-grid-rows: (500px)[1];
+        grid-template-rows: repeat(1, 500px);
+  }
+}
+/*# sourceMappingURL=style.css.map */

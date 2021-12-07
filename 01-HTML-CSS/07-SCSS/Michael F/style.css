@@ -1,0 +1,132 @@
+/*General Containers*/
+.container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (10vw)[5];
+      grid-template-columns: repeat(5, 10vw);
+  -ms-grid-rows: (25vh)[3];
+      grid-template-rows: repeat(3, 25vh);
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 1.5vw;
+}
+
+.container .card {
+  background-image: url(https://picsum.photos/200/300);
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.container .card h2 {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  color: blanchedalmond;
+  background-color: rgba(87, 86, 86, 0.692);
+  width: 100%;
+  height: 15%;
+  margin-bottom: 0;
+  border-radius: 0 0 10px 10px;
+  padding: 5% 0 5% 27%;
+}
+
+.container .card:hover {
+  -webkit-box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.52);
+          box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.52);
+  -webkit-transition: all 3s;
+  transition: all 3s;
+}
+
+.container .card0 {
+  grid-column: span 5;
+  -ms-flex-item-align: end;
+      -ms-grid-row-align: end;
+      align-self: end;
+}
+
+.container .card0 h1 {
+  margin-bottom: 0;
+  font-weight: 700;
+  color: #616060;
+  padding-left: 1vw;
+}
+
+/*Container 1*/
+.container1 {
+  /*san-serif-fonts for more clasical games*/
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.container1 .card:hover {
+  opacity: 80%;
+  -webkit-transform: scale(1.32);
+          transform: scale(1.32);
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+.container1 .card1 {
+  /*Here, I used 2 different lines of code just for fun*/
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row: span 2;
+}
+
+.container1 .card1 h2 {
+  padding: 5% 0 0 25%;
+}
+
+.container1 .card1:hover {
+  -webkit-box-shadow: 0px 0px 30px rgba(236, 76, 215, 0.67);
+          box-shadow: 0px 0px 30px rgba(236, 76, 215, 0.67);
+}
+
+/*Container 2*/
+.container2 {
+  font-family: 'Lora', serif;
+  /*serif-fonts for more clasical games*/
+  margin: 15vh 0 20vh 0;
+}
+
+.container2 .card:hover {
+  -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+}
+
+.container2 .card3 {
+  grid-row: span 2;
+  background-position-x: 43%;
+}
+
+.container2 .card3:hover {
+  -webkit-transform: rotateY(360deg);
+          transform: rotateY(360deg);
+}
+
+.container2 .card3 h2 {
+  text-align: center;
+  padding: 5% 0 2% 2%;
+}
+
+.container2 .card8 {
+  -ms-grid-column: 4;
+      grid-column-start: 4;
+  grid-column-end: 6;
+  background-position-y: 45%;
+}
+
+.container2 .card8:hover {
+  -webkit-transform: scale(1.32);
+          transform: scale(1.32);
+  -webkit-transition: all 1s;
+  transition: all 1s;
+  -webkit-box-shadow: 0px 0px 30px #ffbb00;
+          box-shadow: 0px 0px 30px #ffbb00;
+}
+/*# sourceMappingURL=style.css.map */
