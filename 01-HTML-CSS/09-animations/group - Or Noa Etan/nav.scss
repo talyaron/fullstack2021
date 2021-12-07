@@ -1,0 +1,47 @@
+#landing, nav,ul, li,a{
+    padding: 0;
+    margin: 0;
+}
+
+nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    min-width: 100%;
+}
+
+nav ul {
+    background: #444;
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    li a {
+        color: #f9f9f9;
+        display: block;
+        padding: 0.8rem 1rem;
+        text-decoration: none;
+        text-transform: capitalize;
+    }
+}
+
+nav ul li a:hover {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+@media only screen and (min-width: 900px) {
+    nav {
+        top: 0;
+        
+
+        ul {
+            top: 0;
+
+            li {
+                flex: 1 2 auto;
+                text-align: center;
+            }
+        }
+    }
+}
