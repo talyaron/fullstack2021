@@ -214,8 +214,9 @@
 
         &__title {
             margin-top: 5%;
-            background-color: aqua;
+            color:rgba(0, 0, 0, 0.774);
             border-radius: 3%;
+            
             
         }
 
@@ -223,6 +224,7 @@
         &__box {
             background-color: red;
             border-radius: 3%;
+            box-shadow:2px 2px 10px rgb(70, 70, 70);
             
         }
     }
