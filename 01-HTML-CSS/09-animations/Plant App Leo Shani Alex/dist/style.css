@@ -42,6 +42,7 @@
 .Nav_top_box:hover {
   cursor: pointer;
   background-color: #ffeaa7;
+  transform: scale(1.2);
 }
 
 .plantsGrid {
@@ -51,6 +52,7 @@
   height: 150vh;
   border: 1px solid black;
   display: grid;
+  gap: 8px;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(3, 1fr);
 }
@@ -63,6 +65,10 @@
   position: relative;
   border: 1px solid silver;
   background-size: cover;
+}
+.plantsGrid_boxitem:hover {
+  cursor: pointer;
+  opacity: 0.5;
 }
 .plantsGrid_boxitem h1 {
   position: relative;

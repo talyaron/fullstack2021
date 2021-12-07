@@ -40,6 +40,7 @@
         &:hover{
             cursor: pointer;
             background-color: #ffeaa7;
+            transform: scale(1.2);
         }
     }
 }
@@ -50,6 +51,7 @@
     height: 150vh;
     border: 1px solid black;
     display: grid;
+    gap: 8px;
     grid-template-columns: repeat(2,1fr);
     grid-template-rows: repeat(3,1fr);
     @media only screen and(max-width:75ch) {
@@ -60,6 +62,10 @@
     &_boxitem{position: relative;
               border: 1px solid silver;
               background-size: cover;
+              &:hover{
+                  cursor: pointer;
+                  opacity: 0.5;
+              }
 
              h1{ position: relative;
                  left: 15px;
