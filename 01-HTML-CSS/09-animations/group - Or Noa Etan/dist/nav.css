@@ -1,4 +1,8 @@
-#landing, nav, ul, li, a {
+#control__nav,
+nav,
+ul,
+li,
+a {
   padding: 0;
   margin: 0;
 }
@@ -8,6 +12,7 @@ nav {
   bottom: 0;
   left: 0;
   min-width: 100%;
+  z-index: 999;
 }
 
 nav ul {
@@ -25,14 +30,32 @@ nav ul li a {
   padding: 0.8rem 1rem;
   text-decoration: none;
 }
-
 nav ul li a:hover {
   background: #444444;
   text-underline-position: below;
   border-radius: 3rem;
 }
 
-@media only screen and (min-width: 900px) {
+#hidden {
+  display: none;
+  top: 10%;
+}
+
+#control {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#control__nav {
+  align-self: center;
+}
+#control__nav__toggle {
+  display: none;
+}
+#control__nav__toggle:checked ~ nav {
+  display: block;
+}
+@media only screen and (min-width: 600px) {
   nav {
     top: 0;
   }
@@ -46,6 +69,11 @@ nav ul li a:hover {
 
   #monthly-tasks:hover .material-icons {
     animation: pulse 0.5s infinite alternate;
+  }
+
+  #hidden {
+    top: 0;
+    display: inline;
   }
 }
 @keyframes fade {

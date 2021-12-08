@@ -8,23 +8,28 @@
     <link rel="stylesheet" href="dist/style.css">
     <link rel="stylesheet" href="dist/nav.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <title>home</title>
+    <title>Monthly Tasks</title>
 </head>
 
 <body>
-    <div class="landing">
+    <div id="landing">
         <div id="control">
             <div id="control__nav">
-                <nav>
+                <label for="control__nav__toggle" class="control__nav__toggle__label">
+                    <span class="material-icons">menu</span>
+                </label>
+                <input type="checkbox" id="control__nav__toggle">
+                <nav id="hidden">
                     <ul>
-                        <li><a href="or.html"><i class="material-icons white-color">home</i></a></li>
-                        <li><a href="#"><i class="material-icons white-color">email</i></a></li>
+                        <li><a href="home.html"><i class="material-icons white-color">home</i></a></li>
+                        <li><a href="info.html"><i class="material-icons white-color">email</i></a></li>
                         <li><a href="#"><i class="material-icons white-color">pie_chart</i></a></li>
-                        <li id="monthly-tasks"><a href="Etan.html"><i class="material-icons white-color">grid_view</i></a></li>
+                        <li id="monthly-tasks"><a href="monthly-tasks.html"><i
+                                    class="material-icons white-color">grid_view</i></a></li>
                     </ul>
                 </nav>
             </div>
-            <div id="control__mysasks"></div>
+            <h1 id="control__mytasks">my tasks</h1>
         </div>
         <div id="task__count"></div>
         <div id="task__descr"></div>
