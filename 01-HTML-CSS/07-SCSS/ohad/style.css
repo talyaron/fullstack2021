@@ -1,0 +1,42 @@
+body {
+  direction: rtl;
+}
+
+.wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.card {
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  width: 25%;
+  margin: 50px;
+  text-align: center;
+}
+
+.card .price {
+  color: red;
+  font-size: x-large;
+}
+
+.card .text {
+  color: royalblue;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: xx-large;
+}
+
+.card img {
+  width: 50vh;
+  height: 40vh;
+}
+/*# sourceMappingURL=style.css.map */

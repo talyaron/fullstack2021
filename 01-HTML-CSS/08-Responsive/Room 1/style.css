@@ -1,0 +1,59 @@
+body {
+  background-color: green;
+}
+
+.wrapper {
+  width: 100vw;
+  background-color: brown;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  -ms-grid-rows: (1fr)[4];
+      grid-template-rows: repeat(4, 1fr);
+}
+
+.wrapper__box {
+  position: relative;
+  width: 20vw;
+  height: 20vh;
+  border: 1px solid #825a8a;
+}
+
+/* media quary starts here*/
+@media only screen and (max-width: 1200px) {
+  .wrapper {
+    background-color: blue;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
+    -ms-grid-rows: (1fr)[5];
+        grid-template-rows: repeat(5, 1fr);
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .wrapper {
+    background-color: #00ff0d;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+    -ms-grid-rows: (1fr)[6];
+        grid-template-rows: repeat(6, 1fr);
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .wrapper {
+    background-color: red;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[1];
+        grid-template-columns: repeat(1, 1fr);
+    -ms-grid-rows: (1fr)[16];
+        grid-template-rows: repeat(16, 1fr);
+  }
+}
+/*# sourceMappingURL=style.css.map */

@@ -1,26 +1,105 @@
 body {
-  background-color: #999;
+  background-color: #504A4B;
+  padding: 5px;
 }
 
+input {
+  float: right;
+  font-size: xx-large;
+}
+
+button {
+  float: right;
+  font-size: xx-large;
+}
+
+a {
+  font-size: xx-large;
+  /* background-color: black;*/
+  margin-top: 0%;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  width: 200px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-auto-rows: minmax(100px, auto);
+}
+
+p {
+  font-size: xx-large;
+  background-color: black;
+  margin-top: 0%;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  width: 200px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+/*////////////////////////////(header)////////////////////////////////////////*/
 .header {
   display: block;
-  background-color: coral;
+  background-color: #0C090A;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: end;
   font-size: 40px;
   height: 80px;
+  margin: 100px;
+  border-radius: 10px;
+  border: 2px white solid;
+  width: 700px;
+}
+
+.header a {
+  font-size: 45px;
+  text-align: italic;
+  margin: 10px;
 }
 
 .header a:hover {
-  color: black;
+  color: red;
   text-align: italic;
+  -ms-grid-column-align: center;
+      justify-self: center;
 }
 
-.header ul {
-  color: black;
+/*///////////////////////////////////////////////////////////////////////////////*/
+/*////////////////////////////(Menu/flex)////////////////////////////////////////*/
+.navmenu2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  height: 50px;
+  text-align: end;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  font-size: xx-large;
 }
 
+.navmenu2 .box {
+  width: 100px;
+  margin: 35px;
+}
+
+.navmenu2 a:hover {
+  border: solid black;
+}
+
+/*////////////////////////////(Main has main articil/grid)////////////////////////////////////////*/
 .main {
   display: -ms-grid;
   display: grid;
@@ -36,11 +115,39 @@ body {
 }
 
 .main .box {
-  background-color: blue;
   border-radius: 15px;
 }
 
-.num1 {
+.main img {
+  height: 400px;
+  width: 400px;
+  border-radius: 15px;
+}
+
+.main .box.gmain {
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  grid-column-end: 3;
+  -ms-grid-row: 1;
+      grid-row-start: 1;
+  grid-row-end: 3;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.main .box.gmain p {
+  margin-top: 900px;
+}
+
+.main p:hover {
+  color: white;
+}
+
+/*////////////////////////////(small artical grid)////////////////////////////////////////*/
+.articil1 {
   display: -ms-grid;
   display: grid;
   background: color #999;
@@ -52,14 +159,25 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  margin-top: 300px;
 }
 
-.num1 .box {
-  background-color: blue;
+.articil1 .box {
   border-radius: 15px;
 }
 
-.num2 {
+.articil1 img {
+  height: 400px;
+  width: 400px;
+  border-radius: 15px;
+}
+
+.articil1 p:hover {
+  color: white;
+}
+
+/*////////////////////////////(small artical grid)////////////////////////////////////////*/
+.articil2 {
   display: -ms-grid;
   display: grid;
   background: color #999;
@@ -71,14 +189,25 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  margin-top: 300px;
 }
 
-.num2 .box {
-  background-color: blue;
+.articil2 .box {
   border-radius: 15px;
 }
 
-.num3 {
+.articil2 img {
+  height: 400px;
+  width: 400px;
+  border-radius: 15px;
+}
+
+.articil2 p:hover {
+  color: white;
+}
+
+/*////////////////////////////(small artical grid)////////////////////////////////////////*/
+.articil3 {
   display: -ms-grid;
   display: grid;
   background: color #999;
@@ -90,14 +219,25 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  margin-top: 300px;
 }
 
-.num3 .box {
-  background-color: blue;
+.articil3 .box {
   border-radius: 15px;
 }
 
-.num4 {
+.articil3 img {
+  height: 400px;
+  width: 400px;
+  border-radius: 15px;
+}
+
+.articil3 p:hover {
+  color: white;
+}
+
+/*////////////////////////////(small artical grid)////////////////////////////////////////*/
+.articil4 {
   display: -ms-grid;
   display: grid;
   background: color #999;
@@ -109,17 +249,175 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  margin-top: 300px;
 }
 
-.num4 .box {
-  background-color: blue;
+.articil4 .box {
   border-radius: 15px;
 }
 
+.articil4 img {
+  height: 400px;
+  width: 400px;
+  border-radius: 15px;
+}
+
+.articil4 p:hover {
+  color: white;
+}
+
+.text {
+  top: 20px;
+  left: 0%;
+  width: 85%;
+  -webkit-transform: translate(-50% -50%);
+          transform: translate(-50% -50%);
+  font-size: large;
+  background-color: #999;
+  border-radius: 10px;
+  padding: 20px;
+  font-size: xx-large;
+  text-align: center;
+  color: brown;
+  font-size: xx-large;
+}
+
+/*/////////////////////////////////////////////////////////////////////////////////*/
+/*////////////////////////////(h1 css)////////////////////////////////////////*/
 h1 {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: end;
-  color: brown;
+  color: #4b0707;
+  font-size: 46px;
+  margin-top: 100px;
+  text-decoration: underline;
+}
+
+/*////////////////////////////(footer copyright)////////////////////////////////////////*/
+.copyright {
+  width: 100%;
+  background-color: black;
+  color: #fff;
+  padding: 5px;
+  text-align: center;
+  font-size: xx-large;
+  margin-top: 200px;
+}
+
+img:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+@media only screen and (max-width: 1200px) {
+  .menu2 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .header {
+    width: auto;
+  }
+  .main {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[1];
+        grid-template-columns: repeat(1, 1fr);
+  }
+  .articil2 {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+  }
+  .articil3 {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[1];
+        grid-template-columns: repeat(1, 1fr);
+  }
+  .articil4 {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[1];
+        grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .menu2 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .header {
+    width: auto;
+  }
+  .main {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[1];
+        grid-template-columns: repeat(1, 1fr);
+  }
+  .articil2 {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+  }
+  .articil3 {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[1];
+        grid-template-columns: repeat(1, 1fr);
+  }
+  .articil4 {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[1];
+        grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .menu2 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .header {
+    width: auto;
+  }
+  .main {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[1];
+        grid-template-columns: repeat(1, 1fr);
+  }
+  .articil2 {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[1];
+        grid-template-columns: repeat(1, 1fr);
+  }
+  .articil3 {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[1];
+        grid-template-columns: repeat(1, 1fr);
+  }
+  .articil4 {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[1];
+        grid-template-columns: repeat(1, 1fr);
+  }
 }
 /*# sourceMappingURL=style2.css.map */

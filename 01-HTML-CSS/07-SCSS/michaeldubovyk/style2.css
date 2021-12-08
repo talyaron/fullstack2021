@@ -1,0 +1,796 @@
+body {
+  background-color: #222;
+  margin: 0px;
+  font-family: 'Bebas Neue', cursive;
+  color: whitesmoke;
+}
+
+.header {
+  background: #171717;
+  border-bottom: 2px solid black;
+  height: 10vh;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 2fr 2fr 4fr;
+      grid-template-columns: 2fr 2fr 4fr;
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+}
+
+.header img:hover {
+  cursor: pointer;
+}
+
+.header .logosmall {
+  display: none;
+}
+
+.header__element {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-padding-start: 1em;
+          padding-inline-start: 1em;
+}
+
+.header__element .searchbox {
+  border-radius: 20px;
+  height: 50%;
+  background: #353535;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 80%;
+}
+
+.header__element .searchbox__txt {
+  width: 70%;
+  border: none;
+  background: none;
+  outline: none;
+  float: left;
+  padding-left: 10px;
+  font-size: 16px;
+  color: whitesmoke;
+}
+
+.header__element .searchbox__btn {
+  color: #bb2525;
+  width: 30%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header__menu {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(0, 1fr))[4] 0.6fr;
+      grid-template-columns: repeat(4, minmax(0, 1fr)) 0.6fr;
+  gap: 1em;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-margin-end: 2em;
+          margin-inline-end: 2em;
+}
+
+.header__menu__box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid #575454;
+  border-radius: 10px;
+  padding: 3px;
+  font-size: 20px;
+  height: 50%;
+}
+
+.header__menu__box img {
+  height: 90%;
+}
+
+.header__menu__box:hover {
+  cursor: pointer;
+  border: 1px solid #df1313;
+  -webkit-transition: border 0.8s;
+  transition: border 0.8s;
+}
+
+.header__menu__box--u {
+  border: 2px solid white;
+}
+
+.header__menu__box--u:hover {
+  border: 2px solid #df1313;
+}
+
+.header__menu__box--u img {
+  height: 80%;
+  width: auto;
+}
+
+.header__menu__account {
+  height: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.header__menu__account .abutton {
+  background: #149214;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 10px;
+  width: 90%;
+  height: 45%;
+}
+
+.header__menu__account .abutton:hover {
+  cursor: pointer;
+  background: #106b10;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+.header__menu__account .abutton--2 {
+  background: #353535;
+}
+
+.header__menu__account .abutton--2:hover {
+  background: #353535;
+  color: #c72929;
+}
+
+.header__menu__account a {
+  display: none;
+}
+
+.menubar {
+  height: 12vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 93%;
+  margin: auto;
+  margin-top: 2em;
+  margin-bottom: 30px;
+}
+
+.menubar .scroll {
+  margin-right: 10px;
+  color: rgba(211, 14, 14, 0.966);
+  font-size: 17px;
+  text-shadow: 0.2px 0.2px 30px #a1a1a1;
+}
+
+.menubar__cards {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  overflow-x: auto;
+  margin-right: 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+.menubar__cards::-webkit-scroollbar {
+  height: 10px;
+  width: 100%;
+  height: 20px;
+  background: #c5c2c2;
+}
+
+.menubar__cards::-webkit-slider-thumb {
+  background: #353535;
+}
+
+.menubar .card {
+  background-color: #353535;
+  border: 2px solid #222;
+  -webkit-box-shadow: 8px 8px 3px #1a1a1a;
+          box-shadow: 8px 8px 3px #1a1a1a;
+  border-radius: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: all 0.8s;
+  transition: all 0.8s;
+  min-width: 210px;
+  height: 79%;
+  margin-right: 10px;
+}
+
+.menubar .card:hover {
+  cursor: pointer;
+  border: 2px solid #c09624;
+}
+
+.menubar .card:active {
+  -webkit-box-shadow: 8px 8px 3px #313131;
+          box-shadow: 8px 8px 3px #313131;
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
+}
+
+.menubar .card img {
+  height: 100%;
+  width: 40%;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
+.menubar .card p {
+  width: 60%;
+  font-size: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 3px;
+}
+
+.menubar .morecard {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  height: 70%;
+}
+
+.menubar .morecard:hover {
+  cursor: pointer;
+  -webkit-transition: all 0.8s;
+  transition: all 0.8s;
+  position: relative;
+  bottom: 20px;
+}
+
+.menubar .morecard__txt {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+.menubar .morecard__txt h1 {
+  margin-bottom: 0px;
+}
+
+.menubar .morecard__txt p {
+  margin-top: 0px;
+}
+
+.wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.wrapper__title {
+  font-size: 40px;
+  width: 93.5%;
+}
+
+.wrapper__container {
+  width: 93.5%;
+  height: 600px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(0, 1fr))[5];
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+  -ms-grid-rows: (1fr)[2];
+      grid-template-rows: repeat(2, 1fr);
+  gap: 1.5em;
+}
+
+.wrapper__container .gamebox {
+  background-color: #353535;
+  border-radius: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  background-repeat: no-repeat;
+  background-size: 100% 85%;
+  -webkit-transition: all 0.8s;
+  transition: all 0.8s;
+}
+
+.wrapper__container .gamebox:hover {
+  cursor: pointer;
+}
+
+.wrapper__container .gamebox p {
+  height: 2%;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.wrapper__container .gamebox--ro {
+  background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/ro.jpeg);
+}
+
+.wrapper__container .gamebox--ro:hover {
+  background-image: url(https://thumbs.gfycat.com/GroundedCanineGrub.webp);
+}
+
+.wrapper__container .gamebox--qk {
+  background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/quake.jpeg);
+}
+
+.wrapper__container .gamebox--qk:hover {
+  background-image: url(https://64.media.tumblr.com/4e0ab2667265d2a60caeac3750e2a079/tumblr_prtlu0TjgI1xfbjjmo1_540.gifv);
+}
+
+.wrapper__container .gamebox--fifa {
+  background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/fifa.jpeg);
+}
+
+.wrapper__container .gamebox--fifa:hover {
+  background-image: url(https://media1.giphy.com/media/2zbmIjWXTCGeOz8JDn/giphy.gif);
+}
+
+.wrapper__container .gamebox--cs {
+  background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/counter.jpeg);
+}
+
+.wrapper__container .gamebox--cs:hover {
+  background-image: url(https://c.tenor.com/Q9c3vS96jjIAAAAd/one-tap-headshot.gif);
+}
+
+.wrapper__container .gamebox--ts {
+  background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/sims.png);
+}
+
+.wrapper__container .gamebox--ts:hover {
+  background-image: url(https://i.gifer.com/1T4E.gif);
+}
+
+.wrapper__container .gamebox--rl {
+  background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/rl.jpeg);
+}
+
+.wrapper__container .gamebox--rl:hover {
+  background-image: url(https://c.tenor.com/ty2PXuyTIOIAAAAd/rocket-league.gif);
+}
+
+.wrapper__container .gamebox--th {
+  background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/tony.png);
+}
+
+.wrapper__container .gamebox--th:hover {
+  background-image: url(https://c.tenor.com/Chn9S2Esj3AAAAAM/tony-hawk-pro-skater.gif);
+}
+
+.wrapper__container .gamebox--chess {
+  background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/chess.jpeg);
+}
+
+.wrapper__container .gamebox--chess:hover {
+  background-image: url(https://images.chesscomfiles.com/uploads/v1/images_users/tiny_mce/SamCopeland/phpuTejFE.gif);
+}
+
+.wrapper__container .gamebox--sc {
+  background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/star.jpeg);
+}
+
+.wrapper__container .gamebox--sc:hover {
+  background-image: url(https://i.gifer.com/FMDV.gif);
+}
+
+.wrapper__container .gamebox--poker {
+  background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/texas.jpeg);
+}
+
+.wrapper__container .gamebox--poker:hover {
+  background-image: url(https://i.pinimg.com/originals/1c/6b/37/1c6b37a644f5beec09501f109ada8d0f.gif);
+}
+
+.wrapper__container .gamebox--oni {
+  background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/oni.jpg);
+}
+
+.wrapper__container .gamebox--oni:hover {
+  background-image: url(https://i.gifer.com/DiOL.gif);
+}
+
+.wrapper__container .gamebox--doom {
+  background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/doom.jpeg);
+}
+
+.wrapper__container .gamebox--doom:hover {
+  background-image: url(https://www.retrogames.cz/games/414/DOS-gameplay.gif);
+}
+
+.wrapper__container .gamebox--gta {
+  background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/gta.jpeg);
+}
+
+.wrapper__container .gamebox--gta:hover {
+  background-image: url(https://media0.giphy.com/media/cpUAhGbH5UhyJggGmC/giphy.gif);
+}
+
+.wrapper__container .gamebox--mp {
+  background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/max.webp);
+}
+
+.wrapper__container .gamebox--mp:hover {
+  background-image: url(https://c.tenor.com/K6lC3Col4eoAAAAC/max-payne.gif);
+}
+
+.wrapper__container .gamebox--lou {
+  background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/last.jpeg);
+}
+
+.wrapper__container .gamebox--lou:hover {
+  background-image: url(https://i.gifer.com/3wsQ.gif);
+}
+
+.wrapper__container .gamebox--pos {
+  background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/postal.png);
+}
+
+.wrapper__container .gamebox--pos:hover {
+  background-image: url(https://c.tenor.com/fiarhIxtD74AAAAd/postal-petition.gif);
+}
+
+.wrapper__container .gamebox--sm {
+  background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/spider.webp);
+}
+
+.wrapper__container .gamebox--sm:hover {
+  background-image: url(https://i.gifer.com/6ppd.gif);
+}
+
+.wrapper__container .gamebox--rdr {
+  background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/rdr.jpeg);
+}
+
+.wrapper__container .gamebox--rdr:hover {
+  background-image: url(https://i.gifer.com/XIN7.gif);
+}
+
+.wrapper__container .gamebox--ac {
+  background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/ass.jpeg);
+}
+
+.wrapper__container .gamebox--ac:hover {
+  background-image: url(https://media.giphy.com/media/MsXiYRKmJVwSA/giphy.gif);
+}
+
+.wrapper__container .gamebox--por {
+  background-image: url(/01-HTML-CSS/07-SCSS/michaeldubovyk/img/port.jpeg);
+}
+
+.wrapper__container .gamebox--por:hover {
+  background-image: url(https://i.gifer.com/3mfH.gif);
+}
+
+@media only screen and (max-width: 1400px) {
+  .header__menu__box {
+    font-size: 15px;
+  }
+  .header__menu__box > img {
+    height: 75%;
+    width: 40%;
+  }
+  .header__menu__box--u img {
+    height: 60%;
+    width: auto;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .header {
+    -ms-grid-columns: 1fr 1fr 1.3fr;
+        grid-template-columns: 1fr 1fr 1.3fr;
+  }
+  .header img {
+    width: 100%;
+  }
+  .header__menu__box img {
+    width: 60%;
+  }
+  .header__menu__box--u {
+    display: none;
+  }
+  .header__menu__box p {
+    display: none;
+  }
+  .wrapper .wrapper__title {
+    font-size: 35px;
+    width: 85%;
+  }
+  .wrapper .wrapper__container {
+    -ms-grid-columns: (minmax(0, 1fr))[4];
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    -ms-grid-rows: (1fr)[3];
+        grid-template-rows: repeat(3, 1fr);
+    width: 85%;
+  }
+  .wrapper .wrapper__container .gamebox p {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .header {
+    -ms-grid-columns: 3fr 0.3fr 3fr;
+        grid-template-columns: 3fr 0.3fr 3fr;
+  }
+  .header img {
+    width: 100%;
+  }
+  .header__menu {
+    -ms-grid-columns: 1fr 1fr 1fr 2fr;
+        grid-template-columns: 1fr 1fr 1fr 2fr;
+  }
+  .header__menu__box img {
+    width: 50%;
+    height: 70%;
+  }
+  .header__element .searchbox {
+    width: 0%;
+  }
+  .menubar {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    height: 15vh;
+  }
+  .menubar__cards .card {
+    height: 75%;
+    min-width: 170px;
+  }
+  .menubar__more .morecard {
+    height: 55%;
+    width: 190px;
+  }
+  .wrapper .wrapper__title {
+    font-size: 30px;
+    width: 75%;
+  }
+  .wrapper .wrapper__container {
+    height: 700px;
+    -ms-grid-columns: (minmax(0, 1fr))[3];
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    -ms-grid-rows: (1fr)[4];
+        grid-template-rows: repeat(4, 1fr);
+    width: 75%;
+  }
+  .wrapper .wrapper__container .gamebox {
+    background-size: 100% 80%;
+    background-position: center top;
+  }
+  .wrapper .wrapper__container .gamebox p {
+    font-size: 15px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .header {
+    -ms-grid-columns: 5fr (minmax(0, 1fr))[2];
+        grid-template-columns: 5fr repeat(2, minmax(0, 1fr));
+  }
+  .header img {
+    width: 100%;
+  }
+  .header__menu__box {
+    display: none;
+  }
+  .header__menu__account a.button {
+    height: 35%;
+  }
+  .menubar__cards .card {
+    height: 60%;
+    min-width: 120px;
+  }
+  .menubar__more .morecard {
+    height: 70%;
+    min-width: 120px;
+  }
+  .menubar__more .morecard h1, .menubar__more .morecard p {
+    font-size: 15px;
+  }
+  .wrapper .wrapper__title {
+    font-size: 27px;
+    width: 65%;
+  }
+  .wrapper .wrapper__container {
+    height: 900px;
+    -ms-grid-columns: (minmax(0, 1fr))[2];
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    -ms-grid-rows: (1fr)[5];
+        grid-template-rows: repeat(5, 1fr);
+    width: 65%;
+  }
+  .wrapper .wrapper__container .gamebox {
+    background-size: 100% 80%;
+    background-position: center top;
+  }
+  .wrapper .wrapper__container .gamebox p {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  .header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .header img {
+    width: 100px;
+  }
+  .header .logobig {
+    display: none;
+  }
+  .header .logosmall {
+    display: block;
+  }
+  .menubar__cards .card {
+    height: 50%;
+    min-width: 110px;
+  }
+  .menubar__more .morecard {
+    height: 50%;
+    width: 60px;
+  }
+  .menubar__more .morecard h1, .menubar__more .morecard p {
+    font-size: 15px;
+  }
+  .menubar__account .abutton {
+    display: none;
+  }
+  .wrapper .wrapper__title {
+    width: 50%;
+    font-size: 20px;
+  }
+  .wrapper .wrapper__container {
+    height: 100vh;
+    -ms-grid-columns: (minmax(0, 1fr))[1];
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    -ms-grid-rows: (minmax(0, 1fr))[10];
+        grid-template-rows: repeat(10, minmax(0, 1fr));
+    width: 50%;
+  }
+  .wrapper .gamebox {
+    background-size: 75% 70%;
+    background-position: center top;
+  }
+  .wrapper .gamebox p {
+    font-size: 15px;
+  }
+}
+
+@media only screen and (max-width: 200px) {
+  .header {
+    -ms-grid-columns: 30%, 10%, 10%;
+        grid-template-columns: 30%, 10%, 10%;
+  }
+  .header .logo {
+    margin-right: -30px;
+    margin-left: -10px;
+  }
+  .header .srch {
+    margin-right: 10px;
+  }
+  .header__menu {
+    margin-left: -15px;
+  }
+  .menubar {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .menubar__cards {
+    height: 40%;
+  }
+  .menubar__cards .card {
+    height: 100%;
+    min-width: 110px;
+    margin-left: 20px;
+  }
+  .menubar__more .morecard {
+    height: 50%;
+    width: 110px;
+    margin-left: 20px;
+  }
+  .menubar__more .morecard h1, .menubar__more .morecard p {
+    font-size: 15px;
+  }
+  .wrapper .wrapper__title {
+    font-size: 15px;
+    width: 50%;
+  }
+  .wrapper .wrapper__container {
+    height: 1000px;
+    -ms-grid-columns: (minmax(0, 1fr))[1];
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    -ms-grid-rows: (1fr)[10];
+        grid-template-rows: repeat(10, 1fr);
+    width: 50%;
+    margin-bottom: 3em;
+  }
+  .wrapper .wrapper__container .gamebox {
+    background-size: 100% 80%;
+    background-position: center top;
+  }
+  .wrapper .wrapper__container .gamebox p {
+    font-size: 9px;
+  }
+}
+/*# sourceMappingURL=style2.css.map */

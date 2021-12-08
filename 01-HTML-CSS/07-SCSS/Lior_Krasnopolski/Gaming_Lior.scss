@@ -1,8 +1,12 @@
 body
 {
+    max-width: 1920px;
+    max-height: 1080px;
+    align-items: center;
+    align-content: center;
     background-size: cover;
-    background-repeat: no-repeat;
     background: rgb(29, 31, 41);
+    align-items: center;
     height: 150vh;
     margin:50px;
     padding-right: 10em;
@@ -11,10 +15,12 @@ body
 .logo
 {
   position: relative;
-  left: 270px;
+  left: 170px;
   border-radius: 100px;
+  border: 3px solid white;
   width: 4.3vw;
   height: 100px;
+  bottom: 30px;;
   transition: 0.8s;
 
   &:hover
@@ -25,19 +31,34 @@ body
   }
 }
 
+.test
+{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 650px;
+  gap: 250px;
+  align-items: center;
+  align-content: center;
+  position: relative;
+}
 
 .container
 {
     display: grid;
+    border: 3px solid white;
+    left: 250px;
     grid-template-columns: repeat(4,1fr);
     grid-template-rows: repeat(4,300px);
-    height: 150vh;
-    gap: 30px;
+    height: 120vh;
+    gap: 40px;
+    margin-top: 40px;
 
     
     &__box
     {
         border: 3px solid black;
+        border: 3px solid white;
         border-radius: 50px;
         box-shadow:  0 0 20px rgba(0,0,0,.1);
         transition: 1.2s;
@@ -47,6 +68,16 @@ body
         background-size: cover;
         text-align: center;
         overflow: hidden;
+
+        &__content
+        {
+          display: flex;
+          flex-direction: column;
+          position: relative;
+          top: 40px;
+          transform: translateY(95%);
+          transition: 1.2s;
+        }
 
         &:hover
         {
@@ -60,13 +91,6 @@ body
             }
         }
 
-        &__content
-        {
-            transform: translateY(115%);
-            transition: 1.2s;
-            
-
-        }
 
         &__button
         {
@@ -113,6 +137,8 @@ body
 
         &--header
         {
+        position: relative;
+        bottom: 50px;
         border: 3px solid rgb(252, 93, 31);
         background:url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpDr_WJQxJr3hG2-91FwQUDVZcWK2F9QjwBQ&usqp=CAU) ;
         background-repeat: no-repeat;
@@ -120,12 +146,15 @@ body
         grid-column-start: 1;
         grid-column-end: 5;
         border-radius: 50px;
+        border: 3px solid white;
         opacity: 0.8;
+
         
         &__content
         {
           text-align: center;
-          margin-top: 160px; 
+          margin-top: 160px;
+          
         
         &__btn
         {
@@ -182,7 +211,7 @@ h4
         color: rgb(147, 190, 61);
         position: relative;
         border: 3px solid rgb(248, 248, 248);
-        bottom: 100px;
+        bottom: 120px;
         width: 20%;
         height: 6vh;
         text-align: center;
@@ -211,11 +240,12 @@ h4
     width: 70%;
     height: 4vh;
     background-color: rgb(29, 31, 41);
+    border: 3px solid white;
     background-size: cover;
     background-position: center;
     text-align: center;
     font-weight: 200;
-    top: -80px;
+    top: -150px;
     left: 19vw;
     position: relative;
   
@@ -292,6 +322,11 @@ h4
     }
   }
 
+  .Action-Adventure
+  {
+    position: relative;
+    bottom: 35vh;
+  }
   .sport
   {
     position: relative;
@@ -303,10 +338,10 @@ h4
     position: relative;
     bottom: 75vh;
   }
+
   .game
   {
-    background-repeat: no-repeat;
-    background-size: cover;
+ 
     
     &_1
     {
@@ -383,7 +418,7 @@ h4
         
         :active
         {
-          background: url(https://c.tenor.com/X_5vdWJEBYcAAAAC/assassins-creed-unity.gif);
+          background: url(https://media3.giphy.com/media/H7Ne5EbNqqdGeIIEWd/100.webp?cid=ecf05e47kkey2acipjj6km7klb3wria6xyjrtfauy0uzad4y&rid=100.webp&ct=g);
           background-repeat: no-repeat;
           background-size: cover;        }
     }
@@ -397,7 +432,7 @@ h4
         
         :active
         {
-          background: url(https://c.tenor.com/X_5vdWJEBYcAAAAC/assassins-creed-unity.gif);
+          background: url(https://media2.giphy.com/media/8AgHUG7c2OTmYp7Oyx/200w.webp?cid=ecf05e479tlu8fpfkzb04wi4nu78t4rmlxnw21cx04cd2o2e&rid=200w.webp&ct=g);
           background-repeat: no-repeat;
           background-size: cover;        }
     }
@@ -411,7 +446,7 @@ h4
         
         :active
         {
-          background: url(https://c.tenor.com/X_5vdWJEBYcAAAAC/assassins-creed-unity.gif);
+          background: url(https://c.tenor.com/OBzcMBeR5xcAAAAd/scared-skydive.gif);
           background-repeat: no-repeat;
           background-size: cover;        }
     }
@@ -427,7 +462,7 @@ h4
       
       :active
       {
-        background: url(https://c.tenor.com/X_5vdWJEBYcAAAAC/assassins-creed-unity.gif);
+        background: url(https://media2.giphy.com/media/2zbmIjWXTCGeOz8JDn/200w.webp?cid=ecf05e47ncvoewdupw9cgi70c3oh0xpoc6wry74w1a9f6a3w&rid=200w.webp&ct=g);
         background-repeat: no-repeat;
         background-size: cover;      }
   }
@@ -441,7 +476,7 @@ h4
       
       :active
       {
-        background: url(https://c.tenor.com/X_5vdWJEBYcAAAAC/assassins-creed-unity.gif);
+        background: url(https://media0.giphy.com/media/c01p98wQAmfX0v68Z2/200w.webp?cid=ecf05e47c7xj2bia1su3dxt49db8r09oo06gpqnprafhrdo7&rid=200w.webp&ct=g);
         background-repeat: no-repeat;
         background-size: cover;      }
   }
@@ -455,7 +490,7 @@ h4
       
       :active
       {
-        background: url(https://c.tenor.com/X_5vdWJEBYcAAAAC/assassins-creed-unity.gif);
+        background: url(https://media4.giphy.com/media/52jAXM8tC1uTEqTWQy/200w.webp?cid=ecf05e473nbvocfh19ifhivyhe0tygmaoz9cdqzyuuw7kgtz&rid=200w.webp&ct=g);
         background-repeat: no-repeat;
         background-size: cover;
             }
@@ -470,7 +505,7 @@ h4
       
       :active
       {
-        background: url(https://c.tenor.com/X_5vdWJEBYcAAAAC/assassins-creed-unity.gif);
+        background: url(hhttps://c.tenor.com/wE2f0w-h6-EAAAAM/princess-peach-mario-sports-superstars.gif);
         background-repeat: no-repeat;
         background-size: cover;      }
     }
@@ -483,9 +518,9 @@ h4
       
       :active
       {
-        background: url(https://c.tenor.com/X_5vdWJEBYcAAAAC/assassins-creed-unity.gif);
+        background: url(https://c.tenor.com/RiJVnma5zrUAAAAM/the-masters-rory-mcilroy.gif);
         background-repeat: no-repeat;
-      }
+        background-size: cover;      }
   }
   &_14
   {
@@ -496,9 +531,9 @@ h4
       
       :active
       {
-        background: url(https://c.tenor.com/X_5vdWJEBYcAAAAC/assassins-creed-unity.gif);
+        background: url(https://c.tenor.com/cIVRP8-42jUAAAAM/nomar-mazara-texas-rangers.gif);
         background-repeat: no-repeat;
-      }
+        background-size: cover;      }
   }
   &_15
   {
@@ -509,9 +544,9 @@ h4
       
       :active
       {
-        background: url(https://c.tenor.com/X_5vdWJEBYcAAAAC/assassins-creed-unity.gif);
+        background: url(https://media1.giphy.com/media/dB5s4Qbr3j59WOmRRd/200w.webp?cid=ecf05e47s2pa5d2556mtdfoaed66axt1tfby6mnpedu5c8zj&rid=200w.webp&ct=g);
         background-repeat: no-repeat;
-      }
+        background-size: cover;      }
   }
 
   &_16
@@ -523,8 +558,9 @@ h4
       
       :active
       {
-        background: url(https://c.tenor.com/X_5vdWJEBYcAAAAC/assassins-creed-unity.gif);
+        background: url(https://media3.giphy.com/media/H1bKt3Vv6aZaXFLedo/200w.webp?cid=ecf05e47u5h5lbide0bo1b4ag6pkedw89w6eu01ajsw4gjcy&rid=200w.webp&ct=g);
         background-repeat: no-repeat;
+        background-size: cover;
       }
 
   }
@@ -538,8 +574,9 @@ h4
       
       :active
       {
-        background: url(https://c.tenor.com/X_5vdWJEBYcAAAAC/assassins-creed-unity.gif);
+        background: url(https://c.tenor.com/4V2-UCVfPbIAAAAM/jinx-jinx-arcane.gif);
         background-repeat: no-repeat;
+        background-size: cover;
       }
   }
 
@@ -554,8 +591,10 @@ h4
     
     :active
     {
-      background: url(https://c.tenor.com/X_5vdWJEBYcAAAAC/assassins-creed-unity.gif);
+      background: url(https://c.tenor.com/Q9c3vS96jjIAAAAS/one-tap-headshot.gif);
       background-repeat: no-repeat;
+      background-size: cover;
+
     }
 }
 
@@ -568,8 +607,9 @@ h4
     
     :active
     {
-      background: url(https://c.tenor.com/X_5vdWJEBYcAAAAC/assassins-creed-unity.gif);
+      background: url(https://c.tenor.com/giqgLv8HlEMAAAAM/fortnite-high-five.gif);
       background-repeat: no-repeat;
+      background-size: cover;
     }
 }
 
@@ -582,8 +622,9 @@ h4
     
     :active
     {
-      background: url(https://c.tenor.com/X_5vdWJEBYcAAAAC/assassins-creed-unity.gif);
+      background: url(https://c.tenor.com/Yu3s9sNqxSMAAAAS/fuse-apex-apex-fuse.gif);
       background-repeat: no-repeat;
+      background-size: cover;
     }
   }
 
@@ -596,8 +637,9 @@ h4
     
     :active
     {
-      background: url(https://c.tenor.com/X_5vdWJEBYcAAAAC/assassins-creed-unity.gif);
+      background: url(https://c.tenor.com/EK0I5RFnbt0AAAAM/pubg.gif);
       background-repeat: no-repeat;
+      background-size: cover;
     }
 
   }
@@ -610,8 +652,9 @@ h4
     
     :active
     {
-      background: url(https://c.tenor.com/X_5vdWJEBYcAAAAC/assassins-creed-unity.gif);
+      background: url(https://c.tenor.com/uyJM-N1mHDMAAAAM/minecraft-ruse-minecraft.gif);
       background-repeat: no-repeat;
+      background-size: cover;
     }
 }
 &_23
@@ -623,8 +666,9 @@ h4
     
     :active
     {
-      background: url(https://c.tenor.com/X_5vdWJEBYcAAAAC/assassins-creed-unity.gif);
+      background: url(https://c.tenor.com/3psJFFIAI70AAAAM/kripp-kripparian.gif);
       background-repeat: no-repeat;
+      background-size: cover;
     }
 }
 &_24
@@ -636,8 +680,9 @@ h4
     
     :active
     {
-      background: url(https://c.tenor.com/X_5vdWJEBYcAAAAC/assassins-creed-unity.gif);
+      background: url(https://c.tenor.com/R8ARuOIxLmoAAAAM/creative-dota2.gif);
       background-repeat: no-repeat;
+      background-size: cover;
     }
 }
 

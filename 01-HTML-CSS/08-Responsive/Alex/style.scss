@@ -1,0 +1,131 @@
+h1 {
+    text-align: center;
+    padding: 35px;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.upperHeader {
+    display: flex;
+    gap: 1vw;
+    padding: 10px;
+    box-shadow: 0px 0px 5px grey;
+    margin: auto;
+
+    &__logo img {
+        width: 25%;
+    }
+
+    &__searchBar {
+        margin: auto;
+        max-width: 15vw;
+
+        input {
+            display: inline-block;
+            width: 200%;
+            background-color: rgb(236, 236, 236);
+            color: rgb(88, 88, 88);
+        }
+    }
+
+    i {
+        color: rgb(197, 197, 197);
+    }
+}
+
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    margin: auto;
+    max-width: 75vw;
+    font-family: 'Roboto Mono', monospace;
+
+    @media only screen and(max-width:225ch) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    @media only screen and(max-width:150ch) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media only screen and(max-width:75ch) {
+        grid-template-columns: 1fr 1fr;
+    }
+
+
+
+    &Box {
+        display: grid;
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
+        padding: 40px;
+
+
+        &__header {
+            font-family: 'M PLUS 1 Code', sans-serif;
+            text-decoration-line: underline;
+
+        }
+
+        img {
+            width: 100%;
+            grid-column: span 3;
+
+            &:hover {
+                opacity: 0.5;
+                transition: .8s ease;
+
+            }
+        }
+
+        &.__item2 {
+            grid-row: span 2;
+            grid-column: 1 / 3;
+
+            & img {
+                align-items: center;
+                justify-content: center;
+                grid-row: 1 / 2;
+            }
+        }
+    }
+
+    p {
+        grid-row: 2 / 4;
+        grid-column: span 2;
+        color: rgb(68, 68, 68);
+        font-size: 15px;
+        grid-column: span 2 /3;
+        padding-bottom: 15px;
+
+
+        &.__price {
+            padding: 2.5px;
+            color: rgb(39, 39, 39);
+            grid-row: 2;
+            grid-column: span 2;
+            text-align: center;
+            background-color: rgb(203, 203, 203);
+            font-family: 'M PLUS 1 Code', sans-serif;
+            font-size: 15px;
+            height: 20px;
+
+            &:hover {
+                transition: .5s ease;
+
+                background-color: rgb(255, 179, 0);
+            }
+        }
+    }
+
+    & img {
+        display: block;
+        width: 100%;
+        transition: transform 250ms;
+        cursor: pointer;
+
+        &:hover {
+            transform: translateY(-10px);
+        }
+    }
+}

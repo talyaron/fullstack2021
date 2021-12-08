@@ -188,7 +188,6 @@ body {
   width: fit-content;
   overflow-wrap: break-word;
   padding: 1vw;
-<<<<<<< HEAD
 }
 
 /*podcast page style*/
@@ -216,6 +215,4 @@ body {
   text-align: center;
   white-space: pre-wrap;
   z-index: 1;
-=======
->>>>>>> parent of 93d6507 (xxx)
 }

@@ -1,0 +1,82 @@
+body{
+background-color:yellowgreen;
+    color: rosybrown;
+position: relative;
+    
+
+}
+
+.wrapper{
+    display: grid;
+    justify-content: center;
+     font-family: 'Roboto Condensed', sans-serif;
+    grid-template-columns:repeat(8, 160px);
+    grid-template-rows: 15vh 30vh 15vh;
+    row-gap: 2vh;
+    column-gap: 1vh;
+    position: relative;
+    background-color: yellowgreen;
+
+    
+    
+    
+
+@media only screen and (max-width: 225ch) {
+
+grid-template-columns: repeat(8 ,180px);
+background-color:yellowgreen; 
+position: absolute;
+}
+
+@media only screen and (max-width:180ch) {
+    grid-template-columns: repeat(7, 120px);
+    grid-template-rows: repeat(6, 130px);
+    background-color: brown;
+    position: relative;
+    right: 140px;
+    bottom: 90px;
+      width: 120%;
+    height: 120%;
+    }
+
+    @media only screen and (max-width: 75ch) {
+        grid-template-columns: repeat(5, 80px);
+        grid-template-rows: repeat(7, 80px); 
+        background-color: aqua; 
+        position: relative;
+        right: 60px;
+    width: 900px;
+        height: 900px;
+        
+
+        
+        }
+
+
+     
+img{
+    display: grid;
+    width: 100%;
+    height: fit-content;
+    position: relative;
+    top: 100px;
+    left: 80px;
+
+}
+
+
+img:hover{
+    filter: grayscale(40%);
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+p{
+    text-align: var(10px);
+    font-size: var(1fr);
+    position: relative;
+    top: 60px;
+    left: 90px;
+
+}
+}   

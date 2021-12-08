@@ -1,0 +1,56 @@
+.element {
+  margin-top: 40vh;
+  margin-left: 40vw;
+  width: 250px;
+  height: 250px;
+  background-color: red;
+  -webkit-animation-name: stretch;
+          animation-name: stretch;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+  -webkit-animation-delay: 0;
+          animation-delay: 0;
+  -webkit-animation-duration: alternate;
+          animation-duration: alternate;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-play-state: running;
+          animation-play-state: running;
+}
+
+@-webkit-keyframes stretch {
+  0% {
+    -webkit-transform: rotate(180deg) scale(3);
+            transform: rotate(180deg) scale(3);
+    background-color: red;
+    border-radius: 100%;
+  }
+  50% {
+    background-color: #502ccf;
+  }
+  100% {
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+    background-color: #156e24;
+    background-image: image();
+  }
+}
+
+@keyframes stretch {
+  0% {
+    -webkit-transform: rotate(180deg) scale(3);
+            transform: rotate(180deg) scale(3);
+    background-color: red;
+    border-radius: 100%;
+  }
+  50% {
+    background-color: #502ccf;
+  }
+  100% {
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+    background-color: #156e24;
+    background-image: image();
+  }
+}
+/*# sourceMappingURL=style.css.map */

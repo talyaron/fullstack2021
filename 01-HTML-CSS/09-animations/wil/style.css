@@ -1,0 +1,33 @@
+.sailing {
+  position: relative;
+  -webkit-animation-name: move;
+          animation-name: move;
+  -webkit-animation-duration: 8s;
+          animation-duration: 8s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+}
+
+@-webkit-keyframes move {
+  from {
+    left: 0vw;
+  }
+  to {
+    left: 120vw;
+  }
+}
+
+@keyframes move {
+  from {
+    left: 0vw;
+  }
+  to {
+    left: 120vw;
+  }
+}
+/*# sourceMappingURL=style.css.map */

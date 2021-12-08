@@ -1,0 +1,163 @@
+#landing {
+  background: #F0F0F2;
+  height: 100vh;
+}
+
+body,
+#control__nav,
+nav,
+ul,
+li,
+a {
+  font-family: "varela round", sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  min-width: 100%;
+  z-index: 999;
+}
+nav :not(.hidden) {
+  background-color: #141414;
+  color: #F0F0F2;
+}
+
+nav ul {
+  color: #141414;
+  background: #F0F0F2;
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 1rem;
+  border-radius: 0 0 1em 1em;
+}
+nav ul li a i {
+  background-color: #F0F0F2;
+  color: #141414;
+  display: block;
+  padding: 0.8rem 1rem;
+  text-decoration: none;
+}
+nav ul li a i:hover {
+  background: #757474;
+  text-underline-position: below;
+  border-radius: 3rem;
+}
+
+.hidden {
+  display: none;
+  top: 10%;
+}
+
+#control {
+  color: #141414;
+  background: #F0F0F2;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-inline: 2rem;
+}
+#control__nav {
+  align-self: center;
+}
+#control__nav__toggle {
+  display: none;
+}
+#control__nav__toggle:checked ~ nav {
+  display: block;
+}
+#control h1 + h3 {
+  color: #F0F0F2;
+  background: #141414;
+  padding: 0.7rem 1rem;
+  border-radius: 7px;
+}
+
+@media only screen and (min-width: 600px) {
+  nav {
+    top: 0;
+  }
+  nav ul {
+    top: 0;
+  }
+  nav ul li {
+    flex: 1 2 auto;
+    text-align: center;
+  }
+
+  #monthly-tasks:hover .material-icons {
+    animation: pulse 0.5s infinite alternate;
+  }
+
+  .hidden {
+    top: 0;
+    display: inline;
+  }
+}
+@keyframes fade {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.25;
+  }
+}
+@keyframes shrink {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0.75);
+  }
+}
+@keyframes moveRight {
+  from {
+    left: 0vw;
+  }
+  to {
+    left: 50vw;
+  }
+}
+@keyframes moveUp {
+  from {
+    top: 50vw;
+  }
+  to {
+    top: 0vw;
+  }
+}
+@keyframes pulse {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(0.75);
+    opacity: 0.25;
+  }
+}
+.material-icons.md-18 {
+  font-size: 18px;
+}
+
+.material-icons.md-24 {
+  font-size: 24px;
+}
+
+.material-icons.md-30 {
+  font-size: 30px;
+}
+
+.material-icons.md-36 {
+  font-size: 36px;
+}
+
+.material-icons.md-40 {
+  font-size: 40px;
+}

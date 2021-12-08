@@ -1,0 +1,275 @@
+
+body {
+    font-family:Arial, Helvetica, sans-serif;
+}
+.MainGrid {
+display: grid;
+grid-template-columns:200px auto;
+grid-template-rows: 100vw;
+
+&__CG {
+    background-color:rgb(18, 18, 22);
+    display: grid;
+    grid-template-rows: 50px auto;
+    grid-template-columns: 100%;
+
+    &__SearchBar {
+        position: sticky;
+        top:0%;
+        background-color: rgb(18, 18, 22);
+        padding: 20px;
+        color:rgb(117, 110, 110);
+        border-bottom: 1px solid rgb(117, 110, 110);
+    }
+    &__MainContentArea {
+        display:grid;
+        grid-template-rows: 70px 250px 40px 70px 250px 40px 70px 250px 40px;
+        grid-template-columns:100%;
+        justify-content: center;
+
+        .MusicTitle {
+            color:white;
+            display: grid;
+            align-items: center;
+        
+        }
+
+        &__Music1 {
+            //border:1px solid gold;
+            display:grid;
+            grid-template-columns: repeat(5,1fr);
+            grid-template-rows: 100%;
+            gap:30px;
+        
+            .MusicBox1 {
+                background-image:url("../images/flow.jpg");
+                background-size: cover;
+                }
+
+            .MusicBox2 {
+                display: grid;
+                grid-template-columns: repeat(2,1fr);
+                grid-template-rows: repeat(2,1fr);
+                
+                &--IMG1 {
+                    background-image:url("../images/judas.jpg");
+                    background-size: cover;
+                }
+                &--IMG2 {
+                    background-image:url("../images/iron.jpg");
+                    background-size: cover;
+                }
+                &--IMG3 {
+                    background-image:url("../images/metallica.jpeg");
+                    background-size: cover;
+                }
+                &--IMG4 {
+                    background-image:url("../images/kansas.jpg");
+                    background-size: cover;
+                }
+                &--SubText {
+                   color: white;
+                }
+            }
+            .MusicBox3 {
+                display: grid;
+                grid-template-columns: repeat(2,1fr);
+                grid-template-rows: repeat(2,1fr);
+                
+                &--IMG1 {
+                    background-image:url("../images/sehel.jpg");
+                    background-size: cover;
+                }
+                &--IMG2 {
+                    background-image:url("../images/Aviv.jpg");
+                    background-size: cover;
+                }
+                &--IMG3 {
+                    background-image:url("../images/poliker.jpg");
+                    background-size: cover;
+                }
+                &--IMG4 {
+                    background-image:url("../images/Hayehudim.jpeg");
+                    background-size: cover;
+                }
+            }
+            .MusicBox4 {
+                display: grid;
+                grid-template-columns: repeat(2,1fr);
+                grid-template-rows: repeat(2,1fr);
+                
+                &--IMG1 {
+                    background-image:url("../images/motley.jpg");
+                    background-size: cover;
+                }
+                &--IMG2 {
+                    background-image:url("../images/singer.jpg");
+                    background-size: cover;
+                }
+                &--IMG3 {
+                    background-image:url("../images/reckless.jpg");
+                    background-size: cover;
+                }
+                &--IMG4 {
+                    background-image:url("../images/Guns.jpg");
+                    background-size: cover;
+                }
+            }
+            .MusicBox5 {
+                display: grid;
+                grid-template-columns: repeat(2,1fr);
+                grid-template-rows: repeat(2,1fr);
+                
+                &--IMG1 {
+                    background-image:url("../images/cure.jpg");
+                    background-size: cover;
+                }
+                &--IMG2 {
+                    background-image:url("../images/cult.jpg");
+                    background-size: cover;
+                }
+                &--IMG3 {
+                    background-image:url("../images/mission.jpg");
+                    background-size: cover;
+                }
+                &--IMG4 {
+                    background-image:url("../images/echo.jpg");
+                    background-size: cover;
+                }
+            }
+        }
+        .SubTitle1 {
+            display: grid;
+            grid-template-columns: repeat(5,1fr);
+            grid-template-rows: 100%;
+            gap:30px;
+                
+            &--Box {
+                display:grid;
+                padding-top: 10px;
+                color:white;
+                font-size: 15px;
+            }
+        }
+        &__Music2 {
+            //border:1px solid gold;
+            display:grid;
+            grid-template-columns: repeat(5,1fr);
+            grid-template-rows: 100%;
+            gap:30px;
+                
+            .MusicBox1 {
+                background-image:url("../images/U2.jpg");
+                background-size: cover;
+                }
+            .MusicBox2 {
+                background-image:url("../images/90s Rock.jpg");
+                background-size: cover;
+                }
+            .MusicBox3 {
+                 background-image:url("../images/Mark.jpg");
+                 background-size: cover;
+                }
+            .MusicBox4 {
+                background-image:url("../images/smiths.jpg");
+                background-size: cover;
+                }
+            .MusicBox5 {
+                background-image:url("../images/college rock.jpg");
+                background-size: cover;
+                }
+
+            }  
+        .SubTitle2 {
+            display: grid;
+            grid-template-columns: repeat(5,1fr);
+            grid-template-rows: 100%;
+            gap:30px;
+                    
+            &--Box {
+                //border: 1px solid gold;
+                display:grid;
+                padding-top: 10px;
+                color:white;
+                font-size: 15px;
+            }     
+        }
+        &__Music3 {
+            //border:1px solid gold;
+            display:grid;
+            grid-template-columns: repeat(5,1fr);
+            grid-template-rows: 100%;
+            gap:30px;
+           
+            .MusicBox1 {
+                background-image:url("../images/aha.jpg");
+                background-size: cover;
+                }
+            .MusicBox2 {
+                background-image:url("../images/U218.jpg");
+                background-size: cover;
+                }
+            .MusicBox3 {
+                 background-image:url("../images/violator.jpg");
+                 background-size: cover;
+                }
+            .MusicBox4 {
+                background-image:url("../images/bruce.jpg");
+                background-size: cover;
+                }
+            .MusicBox5 {
+                background-image:url("../images/paradise.jpg");
+                background-size: cover;
+                }
+        }  
+        
+        .SubTitle3 {
+            display: grid;
+            grid-template-columns: repeat(5,1fr);
+            grid-template-rows: 100%;
+            gap:30px;
+                
+            &--Box {
+                display:grid;
+                padding-top: 10px;
+                color:white;
+                font-size: 15px;
+            }
+        }  
+    }                    
+}
+    &__SG {
+        background-color: rgb(25, 25, 34);
+        &__Menu {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            //border: 1px solid white;
+            &__SubMenu {
+                position: absolute;
+                top:260px;
+                height: 200px;
+                width: 150px;
+                padding-top: 20px;
+                padding-left: 50px;
+                font-size: 15px;
+                //border: 1px solid white;
+                color:rgb(117, 110, 110);
+            }
+            &__item {
+                height: 50px;
+                font-size: 18px;
+                color: white;
+                display: flex;
+                justify-content: left;
+                padding-left: 20px;
+                align-items: center;
+                img {
+                    padding-top: 10px;
+                    width: 120px;
+                    height: 45px;
+                    }   
+                }
+            }
+        }
+    }

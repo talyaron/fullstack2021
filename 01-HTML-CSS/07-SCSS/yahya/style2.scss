@@ -4,6 +4,14 @@ body{
    
    
 }
+input{
+   float: right;
+   font-size: xx-large;
+}
+button{
+   float: right;
+   font-size: xx-large;
+}
 a{
    font-size: xx-large;
  /* background-color: black;*/
@@ -29,33 +37,38 @@ p{
    align-items: center;  
 }
 /*////////////////////////////(header)////////////////////////////////////////*/
+
 .header{
-   display: block;
-   background-color: #0C090A;
+  display: block;
+  background-color: #0C090A;
   justify-content: end;
   font-size: 40px;
   height: 80px;
   margin: 100px;
   border-radius: 10px ;
   border: 2px white solid;
+  width: 700px;
  
    
-   ul{
-     
+    a{
+      font-size: 45px;
       text-align: italic;
+      margin: 10px;
    }
    a:hover{
-        
-      color: rgb(0, 0, 0);
-      text-align: italic;
-      color: white;
+     
+      color:red ;
+    
+       text-align: italic;
       justify-self:center;
-    }   
+    } 
+     
    }
-/*/////////////////////////////////////////////////////////////////////*/ 
+/*///////////////////////////////////////////////////////////////////////////////*/ 
 
 /*////////////////////////////(Menu/flex)////////////////////////////////////////*/
-.menu2{
+
+.navmenu2{
    display: flex;
    flex-wrap: wrap;
    height: 50px;
@@ -65,13 +78,19 @@ p{
 
    .box{
       
-      border: solid black;
-      background-color: #999;
+     
+     
       width: 100px;
-      margin: 10px;
+      margin: 35px;
    }
+   a:hover{
+      border: solid black; 
+   }
+ 
 }
+
 /*////////////////////////////(Main has main articil/grid)////////////////////////////////////////*/
+
 .main{
 
    display: grid;
@@ -86,15 +105,13 @@ p{
       border-radius: 15px;
    
    }
-
-
   img{
     height: 400px;
     width: 400px;
     border-radius: 15px;
  }
  .box.gmain{
-    background-image:url('https://image.winudf.com/v2/image/Y29tLndGb3J0bml0ZTRLXzczMjYzNjBfc2NyZWVuXzBfMTUyOTA1MTIyNl8wMTU/screen-0.jpg?fakeurl=1&type=.jpg');
+    
     grid-column-start: 1;
     grid-column-end:3 ;
     grid-row-start: 1;
@@ -102,36 +119,20 @@ p{
     background-repeat: no-repeat;
     background-size: 100% 100%;
    background-size: cover;
+   width: 100% ;
+   height: 100%;
     p{
     margin-top: 900px;
  }
  }
- 
+ p:hover{
+color: white;
+ }
+
 }
 /*////////////////////////////(small artical grid)////////////////////////////////////////*/
 
-.num1{
-   display: grid;
-   background: color #999;
-   grid-template-columns:repeat(4,400px);
-   grid-template-rows: repeat(2,400px);
-   gap: 100px 100px;
-   justify-content: center;
-   margin-top: 300px;
-   
-   .box{
-    
-      border-radius: 15px;
-   }
-   img{
-      height: 400px;
-      width: 400px;
-      border-radius: 15px;
-   }
-}
-/*////////////////////////////(small artical grid)////////////////////////////////////////*/
-
-.num2{
+.articil1{
    display: grid;
    background: color #999;
    grid-template-columns:repeat(4,400px);
@@ -149,9 +150,37 @@ p{
       width: 400px;
       border-radius: 15px;
    }
+   p:hover{
+      color: white;
+       }
 }
 /*////////////////////////////(small artical grid)////////////////////////////////////////*/
-.num3{
+
+.articil2{
+   display: grid;
+   background: color #999;
+   grid-template-columns:repeat(4,400px);
+   grid-template-rows: repeat(2,400px);
+   gap: 100px 100px;
+   justify-content: center;
+   margin-top: 300px;
+   
+   .box{
+      
+      border-radius: 15px;
+   }
+   img{
+      height: 400px;
+      width: 400px;
+      border-radius: 15px;
+   }
+   p:hover{
+      color: white;
+       }
+}
+    /*////////////////////////////(small artical grid)////////////////////////////////////////*/
+
+.articil3{
    display: grid;
    background: color #999;
    grid-template-columns:repeat(4,400px);
@@ -168,10 +197,13 @@ p{
       width: 400px;
       border-radius: 15px;
    }
+   p:hover{
+      color: white;
+       }  
 }
 /*////////////////////////////(small artical grid)////////////////////////////////////////*/
 
-.num4{
+.articil4{
    display: grid;
    background: color #999;
    grid-template-columns:repeat(4,400px);
@@ -188,8 +220,25 @@ p{
       width: 400px;
       border-radius: 15px;
    }
+   p:hover{
+      color: white;
+       }  
 }
-
+.text{
+      
+      top:20px;
+      left: 0%;
+      width: 85%;
+      transform: translate(-50% -50%);
+      font-size: large;
+      background-color: #999;
+      border-radius: 10px;
+      padding: 20px;
+      font-size: xx-large;
+      text-align: center;
+      color: brown;
+      font-size: xx-large;
+  }
 
 
 /*/////////////////////////////////////////////////////////////////////////////////*/
@@ -215,5 +264,92 @@ h1{
 
 }
 img:hover{
-   transform: scale(1.2);
+    transform: scale(1.2);
 }
+
+
+
+@media only screen and(max-width:1200px) {
+   .menu2{
+      display: flex;
+     flex-wrap: wrap;
+   }
+   .header{
+      width: auto;
+   } 
+   .main{
+
+      display: grid;
+      grid-template-columns:repeat(1, 1fr) ;
+   }
+   .articil2{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+   }
+   .articil3{
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+   }
+   .articil4{
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+   }
+}
+@media only screen and(max-width:900px) {
+   .menu2{
+      display: flex;
+     flex-wrap: wrap;
+
+    }
+    .header{
+      width: auto;
+   }
+   .main{
+
+      display: grid;
+      grid-template-columns:repeat(1, 1fr) ;
+   }
+   .articil2{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+   }
+   .articil3{
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+   }
+   .articil4{
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+   }
+}
+
+@media only screen and(max-width:600px) {
+   .menu2{
+      display: flex;
+     flex-wrap: wrap;
+   }
+   .header{
+      width: auto;
+   }
+   .main{
+
+      display: grid;
+      grid-template-columns:repeat(1, 1fr) ;
+   }
+   .articil2{
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+
+   }
+   .articil3{
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+   }
+   .articil4{
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+   }
+}
+
+
+   

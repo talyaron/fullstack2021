@@ -1,0 +1,34 @@
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: purple;
+  position: relative;
+  animation-name: moveLeft;
+  animation-duration: 3s;
+  animation-delay: 1s;
+  animation-iteration-count: 3;
+  animation-direction: reverse;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: backwards;
+}
+
+@keyframes moveRight {
+  from {
+    left: 0vw;
+    transform: rotate(0deg);
+    background-color: teal;
+  }
+  to {
+    left: 80vw;
+    transform: rotate(-720deg);
+    background-color: orange;
+  }
+}
+@keyframes moveLeft {
+  from {
+    left: 50vw;
+  }
+  to {
+    left: 0vw;
+  }
+}

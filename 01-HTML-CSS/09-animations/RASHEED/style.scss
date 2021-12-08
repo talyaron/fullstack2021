@@ -1,0 +1,55 @@
+.box{
+    width: 300px;
+    height: 200px;
+    position: relative;
+    top:30vw;
+    left: 50vw;
+    
+    animation-name: moveup;
+    animation-duration: 10s;
+    animation: iteration count 10px;;
+    animation-direction:alternate ;
+    animation-fill-mode: forwards;
+    
+
+}
+
+@keyframes moveup {
+    0%{
+        left: 0vw;
+        top: 500px;
+        border: solid black 2px;
+        transform: rotate(0deg) scale(3);
+        text-align: center;
+        font-weight: 900;
+        color: black;
+        background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/2048px-User_icon_2.svg.png);
+        background-size: 100% 100%;
+    }
+
+    20%{
+        left: 50vw;
+        top: 500px;
+        border: blue solid 3px;
+        border-radius: 20%;
+        transform: rotate(180deg) scale(2);
+        text-align: center;
+        font-weight: 900;
+        color: black;
+        background-image: url(https://c4.wallpaperflare.com/wallpaper/429/544/56/halo-4-master-chief-wallpaper-preview.jpg);
+        background-size: 100% 100%;
+    }
+
+    100%{
+        left: 50vw;
+        top: 0px;
+        border: purple solid 10px;
+        border-radius: 80%;
+        transform: rotate(0deg) scale(1);
+        text-align: center;
+        font-weight: 900;
+        color: black;
+        background-image: url(https://media1.giphy.com/media/UIxpCHRDOFlZKl6HQg/giphy.gif?cid=ecf05e47fwocgwhwrnxiiqc0q1zmqbr89uejgwaf6nd6fo4r&rid=giphy.gif&ct=g);
+        background-size: 100% 100%;
+    }
+}

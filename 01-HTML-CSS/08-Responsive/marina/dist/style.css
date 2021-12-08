@@ -1,32 +1,39 @@
 body {
-  background-color: grey;
+  background-color: #e6e6b2;
 }
 
-.main {
-  display: grid;
-  grid-gap: 10px;
-  grid-template-columns: repeat(4, 1fr);
-}
 @media only screen and (max-width: 1200px) {
-  .main {
+  body {
+    background-color: #15ff00;
     grid-template-columns: repeat(3, 1fr);
-    background-color: #c3ff00;
   }
 }
 @media only screen and (max-width: 900px) {
-  .main {
-    grid-template-columns: repeat(2, 1fr);
+  body {
     background-color: #ff000d;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 @media only screen and (max-width: 600px) {
-  .main {
-    grid-template-columns: repeat(1, 1fr);
+  body {
     background-color: blue;
+    grid-template-columns: repeat(1, 1fr);
   }
 }
-.main__box {
-  border: 1px solid black;
+.main {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2.1fr);
+  border: 1px solid grey;
+  grid-gap: 15px;
+}
+
+.box {
+  background-size: cover;
+  background-repeat: no-repeat;
   width: 300px;
-  height: 300px;
+  border: 1px solid grey;
+}
+.box img {
+  width: 100%;
 }

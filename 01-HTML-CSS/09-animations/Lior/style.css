@@ -1,0 +1,189 @@
+.container {
+  width: 100%;
+  height: 150vh;
+  background: lemonchiffon;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  -ms-grid-rows: (1fr)[3];
+      grid-template-rows: repeat(3, 1fr);
+  margin: 10px;
+  display: -ms-grid;
+  display: grid;
+  position: relative;
+}
+
+.container__box {
+  width: 25%;
+  left: 10vw;
+  position: relative;
+  height: 17vh;
+  gap: 10px;
+  border: 3px solid black;
+  background: lightcoral;
+  -webkit-animation-iteration-count: 5;
+          animation-iteration-count: 5;
+  -webkit-animation-name: BoxDown;
+          animation-name: BoxDown;
+  -webkit-animation-duration: 7s;
+          animation-duration: 7s;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+}
+
+.container__star {
+  width: 25%;
+  left: 10vw;
+  position: relative;
+  height: 17vh;
+  gap: 10px;
+  border: 3px solid #98d606;
+  -webkit-animation-name: BoxLeft;
+          animation-name: BoxLeft;
+  -webkit-animation-duration: 7s;
+          animation-duration: 7s;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+  -webkit-animation-iteration-count: 5;
+          animation-iteration-count: 5;
+}
+
+@-webkit-keyframes BoxDown {
+  0% {
+    top: 0vh;
+    -webkit-transform: rotate(0deg) scale(1);
+            transform: rotate(0deg) scale(1);
+    border-radius: 100px;
+  }
+  25% {
+    top: 10vh;
+    -webkit-transform: rotate(180deg) scale(2);
+            transform: rotate(180deg) scale(2);
+    background: #df850f;
+    border-radius: 100px;
+    z-index: 1;
+  }
+  75% {
+    top: 20vh;
+    -webkit-transform: rotate(360deg) scale(1.5);
+            transform: rotate(360deg) scale(1.5);
+    background: antiquewhite;
+    border-radius: 100px;
+    z-index: 2;
+  }
+  100% {
+    top: 30vh;
+    -webkit-transform: rotate(0deg) scale(1);
+            transform: rotate(0deg) scale(1);
+  }
+}
+
+@keyframes BoxDown {
+  0% {
+    top: 0vh;
+    -webkit-transform: rotate(0deg) scale(1);
+            transform: rotate(0deg) scale(1);
+    border-radius: 100px;
+  }
+  25% {
+    top: 10vh;
+    -webkit-transform: rotate(180deg) scale(2);
+            transform: rotate(180deg) scale(2);
+    background: #df850f;
+    border-radius: 100px;
+    z-index: 1;
+  }
+  75% {
+    top: 20vh;
+    -webkit-transform: rotate(360deg) scale(1.5);
+            transform: rotate(360deg) scale(1.5);
+    background: antiquewhite;
+    border-radius: 100px;
+    z-index: 2;
+  }
+  100% {
+    top: 30vh;
+    -webkit-transform: rotate(0deg) scale(1);
+            transform: rotate(0deg) scale(1);
+  }
+}
+
+@-webkit-keyframes BoxLeft {
+  0% {
+    top: 0vh;
+    -webkit-transform: rotate(0deg) scale(1);
+            transform: rotate(0deg) scale(1);
+  }
+  25% {
+    top: 10vh;
+    left: 25vw;
+    background: url(https://images.pexels.com/photos/1525041/pexels-photo-1525041.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 100px;
+    -webkit-transform: rotate(180deg) scale(2);
+            transform: rotate(180deg) scale(2);
+    background: #27df0f;
+    z-index: 1;
+  }
+  75% {
+    top: 0vh;
+    -webkit-transform: rotate(360deg) scale(1.5);
+            transform: rotate(360deg) scale(1.5);
+    background: url(https://images.pexels.com/photos/1525041/pexels-photo-1525041.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
+    left: 25vw;
+    border-radius: 100px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 2;
+  }
+  100% {
+    top: -22vh;
+    left: 25vw;
+    -webkit-transform: rotate(0deg) scale(1);
+            transform: rotate(0deg) scale(1);
+    background: url(https://images.pexels.com/photos/1525041/pexels-photo-1525041.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+
+@keyframes BoxLeft {
+  0% {
+    top: 0vh;
+    -webkit-transform: rotate(0deg) scale(1);
+            transform: rotate(0deg) scale(1);
+  }
+  25% {
+    top: 10vh;
+    left: 25vw;
+    background: url(https://images.pexels.com/photos/1525041/pexels-photo-1525041.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 100px;
+    -webkit-transform: rotate(180deg) scale(2);
+            transform: rotate(180deg) scale(2);
+    background: #27df0f;
+    z-index: 1;
+  }
+  75% {
+    top: 0vh;
+    -webkit-transform: rotate(360deg) scale(1.5);
+            transform: rotate(360deg) scale(1.5);
+    background: url(https://images.pexels.com/photos/1525041/pexels-photo-1525041.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
+    left: 25vw;
+    border-radius: 100px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 2;
+  }
+  100% {
+    top: -22vh;
+    left: 25vw;
+    -webkit-transform: rotate(0deg) scale(1);
+            transform: rotate(0deg) scale(1);
+    background: url(https://images.pexels.com/photos/1525041/pexels-photo-1525041.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+/*# sourceMappingURL=style.css.map */
