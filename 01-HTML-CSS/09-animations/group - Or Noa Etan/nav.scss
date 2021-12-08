@@ -1,5 +1,9 @@
+#landing {
+    background: #F0F0F2;
+    height: 100vh;
+}
 
-
+body,
 #control__nav,
 nav,
 ul,
@@ -16,25 +20,33 @@ nav {
     left: 0;
     min-width: 100%;
     z-index: 999;
+    :not(.hidden){
+        background-color: #141414;
+        color: #F0F0F2; 
+     }
 }
 
 nav ul {
-    background: rgb(0, 0, 0);
+    color: #141414;
+    background: #F0F0F2;
     list-style-type: none;
     display: flex;
     align-items: center;
     flex-direction: row;
     justify-content: space-around;
     padding: 1rem;
+    border-radius: 0 0 1em 1em;
 
-    li a {
-        color: #f9f9f9;
+
+    li a i {
+        background-color: #F0F0F2;
+        color: #141414;
         display: block;
         padding: .8rem 1rem;
         text-decoration: none;
 
         &:hover {
-            background: rgba(68, 68, 68, );
+            background: rgb(117, 116, 116);
             text-underline-position: below;
             border-radius: 3rem;
         }
@@ -43,29 +55,35 @@ nav ul {
 
 
 
-#hidden {
+.hidden {
     display: none;
     top: 10%;
 }
 
 #control {
+    color: #141414;
+    background: #F0F0F2;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    padding-inline: 2rem;
 
-&__nav{
-    align-self: center;
 
-    &__toggle {
-        display: none;
-        &:checked~nav {
-            display: block;
+
+    &__nav {
+
+        align-self: center;
+
+
+        &__toggle {
+            display: none;
+
+            &:checked~nav {
+                display: block;
+            }
         }
     }
-}
-    &__mytasks {
-       
-    }
+
 }
 
 @media only screen and (min-width: 600px) {
@@ -100,7 +118,7 @@ nav ul {
         }
     }
 
-    #hidden {
+    .hidden {
         top: 0;
         display: inline;
     }

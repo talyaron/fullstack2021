@@ -1,3 +1,9 @@
+#landing {
+  background: #F0F0F2;
+  height: 100vh;
+}
+
+body,
 #control__nav,
 nav,
 ul,
@@ -14,37 +20,47 @@ nav {
   min-width: 100%;
   z-index: 999;
 }
+nav :not(.hidden) {
+  background-color: #141414;
+  color: #F0F0F2;
+}
 
 nav ul {
-  background: black;
+  color: #141414;
+  background: #F0F0F2;
   list-style-type: none;
   display: flex;
   align-items: center;
   flex-direction: row;
   justify-content: space-around;
   padding: 1rem;
+  border-radius: 0 0 1em 1em;
 }
-nav ul li a {
-  color: #f9f9f9;
+nav ul li a i {
+  background-color: #F0F0F2;
+  color: #141414;
   display: block;
   padding: 0.8rem 1rem;
   text-decoration: none;
 }
-nav ul li a:hover {
-  background: #444444;
+nav ul li a i:hover {
+  background: #757474;
   text-underline-position: below;
   border-radius: 3rem;
 }
 
-#hidden {
+.hidden {
   display: none;
   top: 10%;
 }
 
 #control {
+  color: #141414;
+  background: #F0F0F2;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  padding-inline: 2rem;
 }
 #control__nav {
   align-self: center;
@@ -55,6 +71,7 @@ nav ul li a:hover {
 #control__nav__toggle:checked ~ nav {
   display: block;
 }
+
 @media only screen and (min-width: 600px) {
   nav {
     top: 0;
@@ -71,7 +88,7 @@ nav ul li a:hover {
     animation: pulse 0.5s infinite alternate;
   }
 
-  #hidden {
+  .hidden {
     top: 0;
     display: inline;
   }
