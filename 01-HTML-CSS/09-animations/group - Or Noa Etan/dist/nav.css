@@ -9,6 +9,7 @@ nav,
 ul,
 li,
 a {
+  font-family: "varela round", sans-serif;
   padding: 0;
   margin: 0;
 }
@@ -70,6 +71,12 @@ nav ul li a i:hover {
 }
 #control__nav__toggle:checked ~ nav {
   display: block;
+}
+#control h1 + h3 {
+  color: #F0F0F2;
+  background: #141414;
+  padding: 0.7rem 1rem;
+  border-radius: 7px;
 }
 
 @media only screen and (min-width: 600px) {

@@ -9,6 +9,7 @@ nav,
 ul,
 li,
 a {
+    font-family: 'varela round', sans-serif;
     padding: 0;
     margin: 0;
 }
@@ -83,6 +84,12 @@ nav ul {
             }
         }
     }
+    h1 + h3 {
+        color: #F0F0F2;
+        background: #141414 ;
+padding: .7rem 1rem;   
+border-radius: 7px; }
+
 
 }
 
