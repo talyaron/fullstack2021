@@ -267,7 +267,7 @@
     display: flex;
     justify-content: space-between;
   }
-  .checkout .button {
+  .checkout .buttons {
     display: flex;
     justify-content: center;
     gap: 2rem;
