@@ -1,23 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-     <link rel="stylesheet" href="dist/style.css">
+    <link rel="stylesheet" href="dist/style.css">
 </head>
+
 <body>
     <h1>Exchang</h1>
-    <div class="wrapperexchange">
+    <div class="wrapperEx">
         <select name="coins" id="coin">
-            <option value ="co">$</option>
-            <option value ="co">EUR-€</option>
-            <option value ="co">GBP-₤</option>
-            <option value ="co">ILS-₪</option>
-            <option value ="co">SSP-£</option>
-            <option value ="co">SYP-£</option>
+        <option value ="co">select coin</option>
+        <option value="co">END=$</option>
+        <option value="co">EUR-€</option>
+        <option value="co">GBP-₤</option>
+        <option value="co">ILS-₪</option>
+        <option value="co">SSP-£</option>
+        <option value="co">SYP-£</option>
         </select>
+        
+        <div class="container">
+            <div class="card">
+                <p></p>
+                <button onclick="decrement()">-</button>
+                <h2 id="root"></h2>
+                <button onclick="increment()">+</button>
+            </div>
+        </div>
+        <script>
+            var data = 0;
+            document.getElementById("root").innerText=data;
+
+            function decrement() {
+                data = data - 1;
+                document.getElementById("root").innerText=data;
+            }
+
+            function increment() {
+                data = data + 1;
+                document.getElementById("root").innerText=data;
+            }
+        </script>
+        <hr style=" color: #dddddd77;width: 300px; "/>
+        <a href="" style="justify-content: center; text-decoration:none;color:white;border: 3px solid;">تحويل</a>
+        <hr style=" color: #dddddd77; width: 300px;"/>
     </div>
 </body>
+
 </html>
