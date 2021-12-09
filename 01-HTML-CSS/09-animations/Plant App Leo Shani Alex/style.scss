@@ -23,7 +23,7 @@
             position: relative;
             top: 6vh;
             text-align: center;
-            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
             font-size: 25px;
         }
     }
@@ -41,7 +41,7 @@
         &_box {
             position: relative;
             left: 2%;
-            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
             font-size: 14px;
             width: 19%;
             text-align: center;
@@ -208,6 +208,7 @@
         padding: 0;
         background-color: rgba(160, 156, 152, 0.192);
 
+
     }
 
 
@@ -216,7 +217,7 @@
         grid-template-columns: repeat(1, 1fr);
         grid-template-rows: repeat(4, 20%);
         position: relative;
-        left: 8%;
+        left: 6%;
         width: 90%;
         height: 100vh;
         gap: 10px;
@@ -239,9 +240,9 @@
             font-family: sans-serif;
             color: rgba(0, 0, 0, 0.774);
 
-            &:hover{
-                background-color:rgba(235, 222, 222, 0.76);
-                cursor:pointer;
+            &:hover {
+                background-color: rgba(235, 222, 222, 0.76);
+                cursor: pointer;
             }
 
         }
@@ -289,24 +290,26 @@
 
     }
 
-    .rightside{
-        i{
-            position:absolute;
-            left:23rem;
-            margin-top:1rem;
-            opacity:0.5;
-            &:hover{
-                opacity:1;
+    .rightside {
+        i {
+            position: absolute;
+            left: 23rem;
+            margin-top: 1rem;
+            opacity: 0.5;
+
+            &:hover {
+                opacity: 1;
             }
-            
+
 
         }
-        h3{
-            color:rgb(10, 156, 156);
-            position:absolute;
-            left:20rem;
-            margin-top:100px;
-           
+
+        h3 {
+            color: rgb(10, 156, 156);
+            position: absolute;
+            left: 20rem;
+            margin-top: 90px;
+
         }
     }
 
@@ -315,8 +318,49 @@
 
     .checkout {
         background-color: rgb(255, 255, 255);
-        width: 100%;
+        width: 90%;
         height: 70vh;
+        padding: 2rem;
+        font-family: sans-serif;
+        color: rgba(0, 0, 0, 0.774);
+
+        .h3 {
+            display: flex;
+            justify-content: space-between;
+
+        }
+
+
+
+
+        .p {
+            font-weight: bold;
+            margin-top: 2%;
+            color: rgba(0, 0, 0, 0.774);
+            opacity: 0.6;
+            display: flex;
+            justify-content: space-between;
+
+
+        }
+
+        .h2 {
+            display: flex;
+            justify-content: space-between;
+
+        }
+
+        .button{
+            display:flex;
+            justify-content:center;
+            gap:2rem;
+            border-radius:3%;
+
+         &.button__add{
+
+         }
+        }
+
 
     }
 

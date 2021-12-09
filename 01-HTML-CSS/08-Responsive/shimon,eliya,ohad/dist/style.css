@@ -1,0 +1,41 @@
+.grid {
+  background-color: yellow;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(1);
+  gap: 5px;
+  width: 100%;
+  height: 500px;
+  border: black solid 5px;
+}
+
+@media only screen and (max-width: 1200px) {
+  .grid {
+    background-color: #24b330;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(1);
+    border: black solid 5px;
+    gap: 5px;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .grid {
+    background-color: #25c0b3;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(1);
+    border: black solid 5px;
+    gap: 5px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .grid {
+    background-color: #1a2e8a;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1);
+    border: black solid 5px;
+    gap: 5px;
+  }
+}

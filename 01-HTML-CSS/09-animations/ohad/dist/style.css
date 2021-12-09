@@ -1,0 +1,61 @@
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: purple;
+  position: relative;
+  animation-name: moveUp;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-direction: alternate;
+}
+
+@keyframes moveUp {
+  0% {
+    top: 30vw;
+  }
+  33% {
+    top: 0vw;
+  }
+  24% {
+    top: 0vw;
+    left: 0vw;
+  }
+  66% {
+    top: 0vw;
+    left: 70vw;
+  }
+  67% {
+    top: 0vw;
+    left: 70vw;
+  }
+  100% {
+    top: 30vw;
+    left: 70vw;
+  }
+}
+.bigbox {
+  width: 300px;
+  height: 100px;
+  border-radius: 10px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  animation-name: my-animation;
+  animation-duration: 2s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+@keyframes my-animation {
+  from {
+    background-color: #ff7a59;
+    width: 300px;
+    top: 10px;
+  }
+  to {
+    background-color: #33475b;
+    width: 50px;
+    top: 100px;
+  }
+}
