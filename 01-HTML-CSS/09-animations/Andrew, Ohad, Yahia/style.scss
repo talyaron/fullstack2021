@@ -36,13 +36,65 @@
     }
 }
 
+.footer{
+    position: fixed;
+    bottom: 20px;
+    height: 120px;
+    background-color: var(--color-light-grey);
+    width: 90vw;
+    border-radius: 20px;
+    margin: 4vw;
+    &-container{
+        width: 640px;
+        display: flex;
+        justify-content: space-around;
+        color: var(--color-lighter-grey);
+        font-size: 1.2rem;
+        *{
+            padding: 10px;
+        }
+        &__market{
+            position: relative;
+            svg{
+                height: 50px;
+                fill: var(--color-lighter-grey);
+            }
+            &::after{
+                content: 'Market';
+                position: absolute;
+                bottom: -0.5em;
+                left: 16px;
+            }
+        }
+        &__exchange{
+            &::after{
+                content: 'Exchange';
+            }
+        }
+        &__wallet{
+            position: relative;
+            svg{
+                height: 50px;
+                fill: var(--color-lighter-grey);
+            }
+            &::after{
+                content: 'Wallet';
+                position: absolute;
+                bottom: -0.5em;
+                left: 23px;
+            }
+        }
+    }
+}
+
 .wallet {
     width: 640px;
     margin: 15px;
     &-banner {
         display: flex;
         height: 70px;
-        width: 800px;
+        width: 600px;
+        overflow: hidden;
         &__item {
             border-radius: 5px;
             background-color: var(--color-light-grey);
@@ -170,16 +222,22 @@
                 }
 
                 &__graph{
-                    width: 200px;
+                    width: 250px;
+                    border: 1px solid var(--color-light-grey);
+                    img{
+                        width: 190px;
+                    }
                 }
 
                 &__price{
+                    margin: 1rem;
                     text-align: end;
                     line-height: 0em;
+                    font-weight: 600;
                     :first-child{
                         font-size: 1.5em;
                     }
-                    .red{
+                    .--red{
                         color: var(--color-red);
                     }
                     .green{
