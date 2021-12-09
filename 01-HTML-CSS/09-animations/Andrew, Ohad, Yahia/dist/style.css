@@ -2,6 +2,7 @@
   --color-dark-grey: #22282c;
   --color-mid-grey: #2E3137;
   --color-light-grey: #383C3F;
+  --color-lighter-grey: #7E8082;
   --color-white: #DDDDDD;
   --color-orange: #EFAA79;
   --color-brown: #3D2f31;
@@ -58,7 +59,7 @@
   top: 1.7em;
   right: 0px;
   font-weight: 100;
-  color: var(--color-light-grey);
+  color: var(--color-lighter-grey);
 }
 .wallet-value__graph {
   display: flex;
