@@ -8,4 +8,15 @@
   --color-dark-green: #303A37;
   --color-light-green: #89A290;
   --color-red: #BB615D;
+  background-color: var(--color-dark-grey);
+}
+
+.header__icon {
+  border: 1px solid var(--color-light-grey);
+  border-radius: 5px;
+  width: 30px;
+  height: 30px;
+}
+.header__item {
+  border-radius: 5px;
 }
