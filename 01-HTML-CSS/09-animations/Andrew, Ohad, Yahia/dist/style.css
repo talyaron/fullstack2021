@@ -1,4 +1,8 @@
 :root {
+  opacity: 1;
+}
+
+:root {
   --color-dark-grey: #22282c;
   --color-mid-grey: #2E3137;
   --color-light-grey: #383C3F;
@@ -77,4 +81,53 @@
 }
 .wallet-value__graph:nth-child(3) {
   color: var(--color-light-green);
+.wrapperEx {
+  background-color: #2e3137;
+  border-radius: 15px;
+  padding: 5px;
+  width: 600px;
+}
+.wrapperEx select {
+  font-size: x-large;
+}
+.wrapperEx .container {
+  padding: -100px;
+  margin-top: 10px;
+  margin: 2px;
+}
+.wrapperEx .card {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: 50px;
+  padding: 100px;
+  margin: 5px;
+  position: relative;
+  margin-top: 0px;
+}
+.wrapperEx h2 {
+  margin: 0 50px;
+  font-size: 50px;
+  color: white;
+}
+.wrapperEx button {
+  border-radius: 50%;
+  width: 4rem;
+  height: 4rem;
+  outline: none;
+  border-style: none;
+  font-size: 50px;
+  background-color: #bababa;
+  box-shadow: 8px 8px 20px #00000027, -8px -8px -20px #969393;
+}
+.wrapperEx button:hover {
+  background-color: aqua;
+  color: red;
+  border-color: #000;
+}
+
+@media only screen and (max-width: 350px) {
+  .wrapperEx {
+    width: 300px;
+  }
 }
