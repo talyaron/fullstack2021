@@ -1,7 +1,4 @@
-#landing {
-    background: #F0F0F2;
-    height: 100vh;
-}
+
 
 body,
 #control__nav,
@@ -20,11 +17,15 @@ nav {
     bottom: 0;
     left: 0;
     min-width: 100%;
-    z-index: 999;
-    :not(.hidden){
+    max-height: fit-content;
+    
+    
+    
+
+    :not(.hidden) {
         background-color: #141414;
-        color: #F0F0F2; 
-     }
+        color: #F0F0F2;
+    }
 }
 
 nav ul {
@@ -36,6 +37,7 @@ nav ul {
     flex-direction: row;
     justify-content: space-around;
     padding: 1rem;
+    
     border-radius: 0 0 1em 1em;
 
 
@@ -60,7 +62,6 @@ nav ul {
     display: none;
     top: 10%;
 }
-
 #control {
     color: #141414;
     background: #F0F0F2;
@@ -68,7 +69,12 @@ nav ul {
     flex-direction: row;
     justify-content: space-between;
     padding-inline: 2rem;
-
+    max-width: 90vw;
+    &__mytasks {
+        display: flex;
+        flex-direction: row;
+    
+    }
 
 
     &__nav {
@@ -84,18 +90,24 @@ nav ul {
             }
         }
     }
-    h1 + h3 {
+
+    h3 {
         color: #F0F0F2;
-        background: #141414 ;
-padding: .7rem 1rem;   
-border-radius: 7px; }
+        background: #141414;
+        padding: 1rem;
+        align-self: flex-start;
+        margin-left: 1rem;
+        border-radius: 7px;
+    }
 
 
 }
 
+
 @media only screen and (min-width: 600px) {
     nav {
         top: 0;
+        
 
 
         ul {
@@ -130,6 +142,9 @@ border-radius: 7px; }
         display: inline;
     }
 
+    #control__mytasks {
+        display: none;
+    }
 
 }
 
@@ -187,23 +202,23 @@ border-radius: 7px; }
 }
 
 
-//icon styles
-.material-icons.md-18 {
+//icon styles, use as
+.md-18 {
     font-size: 18px;
 }
 
-.material-icons.md-24 {
+.md-24 {
     font-size: 24px;
 }
 
-.material-icons.md-30 {
+.md-30 {
     font-size: 30px;
 }
 
-.material-icons.md-36 {
+.md-36 {
     font-size: 36px;
 }
 
-.material-icons.md-40 {
+.md-40 {
     font-size: 40px;
 }
