@@ -1,5 +1,8 @@
 for(let n = 1; n<=14; n--){
     
-    let x = n*;
-    console.log (x)
 }
+for(let z = 1; n<=14; z--){
+
+}
+
+console.log (x)
