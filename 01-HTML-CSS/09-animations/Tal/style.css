@@ -1,0 +1,68 @@
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: purple;
+  position: relative;
+  -webkit-animation-name: moveLeft;
+          animation-name: moveLeft;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+  -webkit-animation-iteration-count: 3;
+          animation-iteration-count: 3;
+  animation-direction: reverse;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+  -webkit-animation-fill-mode: backwards;
+          animation-fill-mode: backwards;
+}
+
+@-webkit-keyframes moveRight {
+  from {
+    left: 0vw;
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    background-color: teal;
+  }
+  to {
+    left: 80vw;
+    -webkit-transform: rotate(-720deg);
+            transform: rotate(-720deg);
+    background-color: orange;
+  }
+}
+
+@keyframes moveRight {
+  from {
+    left: 0vw;
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    background-color: teal;
+  }
+  to {
+    left: 80vw;
+    -webkit-transform: rotate(-720deg);
+            transform: rotate(-720deg);
+    background-color: orange;
+  }
+}
+
+@-webkit-keyframes moveLeft {
+  from {
+    left: 50vw;
+  }
+  to {
+    left: 0vw;
+  }
+}
+
+@keyframes moveLeft {
+  from {
+    left: 50vw;
+  }
+  to {
+    left: 0vw;
+  }
+}
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,88 @@
+body .container {
+  height: 80vh;
+  width: 100%;
+  background-color: grey;
+}
+
+body .container .boxup {
+  width: 100px;
+  height: 100px;
+  background-color: #0f8000;
+  border-radius: 50%;
+  position: relative;
+  top: 50vw;
+  -webkit-animation-name: moveUp;
+          animation-name: moveUp;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes moveUp {
+  from {
+    top: 60vh;
+  }
+  to {
+    top: 10vw;
+  }
+}
+
+@keyframes moveUp {
+  from {
+    top: 60vh;
+  }
+  to {
+    top: 10vw;
+  }
+}
+
+body .container .boxdown {
+  width: 100px;
+  height: 100px;
+  background-color: #2d0080;
+  border-radius: 50%;
+  position: relative;
+  top: 50vw;
+  -webkit-animation-name: moveDown;
+          animation-name: moveDown;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes moveDown {
+  from {
+    top: 10vh;
+  }
+  to {
+    top: 60vw;
+  }
+}
+
+@keyframes moveDown {
+  from {
+    top: 10vh;
+  }
+  to {
+    top: 60vw;
+  }
+}
+/*# sourceMappingURL=style.css.map */

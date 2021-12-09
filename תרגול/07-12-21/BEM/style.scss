@@ -1,0 +1,21 @@
+@import "./styleMain";
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+}
+
+.img {
+    width: 50%;
+}
+
+.grid {
+    &__card {
+        width: 10%;
+    }
+
+    // .card { --not to do!!!
+
+    // }
+}

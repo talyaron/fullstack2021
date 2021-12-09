@@ -1,0 +1,12 @@
+@import './var';
+@import './mixin';
+
+.main {
+    font-size: $fontSize;
+    @include flex;
+}
+
+html {
+    background-color: black;
+    @include font ($aling:center, $fontSize:5rem);
+}

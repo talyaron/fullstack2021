@@ -1,0 +1,54 @@
+body {
+  background-color: #bac0c5;
+}
+
+html {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  -ms-grid-rows: (1fr)[4];
+      grid-template-rows: repeat(4, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
+
+@media only screen and (max-width: 1200px) {
+  .grid {
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
+    background-color: #a3dba3;
+    margin: 20px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .grid {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+    background-color: #625a70;
+    margin: 20px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .grid {
+    -ms-grid-columns: (1fr)[1];
+        grid-template-columns: repeat(1, 1fr);
+    background-color: #c28d51;
+    margin: 20px;
+  }
+}
+
+.grid__card {
+  background-color: honeydew;
+  border-radius: 20px;
+  margin: auto;
+  text-align: center;
+  padding: 20px;
+}
+/*# sourceMappingURL=style.css.map */

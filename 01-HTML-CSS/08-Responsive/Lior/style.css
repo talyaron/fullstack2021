@@ -1,0 +1,71 @@
+body {
+  background: #6e5cd4;
+  background-size: cover;
+}
+
+@media only screen and (max-width: 1140px) {
+  body body {
+    background: #17f003;
+  }
+}
+
+body .container {
+  max-width: 1440px;
+  margin: auto;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[6];
+      grid-template-columns: repeat(6, 1fr);
+  gap: 40px;
+  background: #6e5cd4;
+  background-size: cover;
+}
+
+@media only screen and (max-width: 1140px) {
+  body {
+    -ms-grid-columns: (1fr)[6];
+        grid-template-columns: repeat(6, 1fr);
+  }
+  body body {
+    background: #17f003;
+  }
+}
+
+@media only screen and (max-width: 1140px) {
+  body {
+    -ms-grid-columns: (1fr)[6];
+        grid-template-columns: repeat(6, 1fr);
+  }
+  body body {
+    background: #17f003;
+  }
+}
+
+@media only screen and (max-width: 960px) {
+  body {
+    -ms-grid-columns: (1fr)[4];
+        grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  body {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media only screen and (max-width: 240px) {
+  body {
+    -ms-grid-columns: (1fr)[1];
+        grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+body img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50px;
+  border: 4px solid sandybrown;
+}
+/*# sourceMappingURL=style.css.map */

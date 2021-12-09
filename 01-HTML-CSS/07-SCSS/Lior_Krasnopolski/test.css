@@ -1,0 +1,42 @@
+/*@media only screen and (max-width: 2800px){
+    body{
+        background: rgb(6, 45, 243);
+    }
+
+    .container__box--header
+    {
+        background: rgb(72, 212, 67);
+        width: 100%;
+        align-items: center;
+        align-content: center;
+    }
+
+
+}
+@media only screen and (max-width: 1840px){
+    body{
+        background: rgb(72, 212, 67);
+    }
+    .container
+    {
+        background: rgb(212, 108, 67);
+        width: 100%;
+        align-items: center;
+        align-content: center;
+
+    }
+
+    .container__box
+    {
+        background: rgb(202, 36, 119);
+
+    }
+
+}
+@media only screen and (max-width: 1340px){
+    body{
+        background: rgb(243, 6, 6);
+    }
+}
+*/
+/*# sourceMappingURL=test.css.map */

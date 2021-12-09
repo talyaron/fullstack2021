@@ -1,0 +1,122 @@
+.box {
+  width: 120px;
+  height: 120px;
+  border-radius: 22px;
+  background-color: #778000;
+  position: relative;
+  top: 50vw;
+  left: 30vw;
+  -webkit-animation-name: moveRight;
+          animation-name: moveRight;
+  -webkit-animation-duration: 4s;
+          animation-duration: 4s;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+  -webkit-animation-iteration-count: 3;
+          animation-iteration-count: 3;
+  -webkit-animation-direction: normal;
+          animation-direction: normal;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes moveRight {
+  from {
+    left: 160vw;
+    top: 10;
+  }
+  to {
+    top: 0;
+    left: 100vw;
+    -webkit-transform: scale(1.8);
+            transform: scale(1.8);
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+  0% {
+    background-color: red;
+    left: 150px;
+    top: 0px;
+  }
+  25% {
+    background-color: yellow;
+    left: 200px;
+    top: 0px;
+  }
+  50% {
+    background-color: blue;
+    left: 200px;
+    top: 200px;
+  }
+  75% {
+    background-color: green;
+    left: 0px;
+    top: 200px;
+  }
+  100% {
+    background-color: red;
+    left: 0px;
+    top: 0px;
+  }
+}
+
+@keyframes moveRight {
+  from {
+    left: 160vw;
+    top: 10;
+  }
+  to {
+    top: 0;
+    left: 100vw;
+    -webkit-transform: scale(1.8);
+            transform: scale(1.8);
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+  0% {
+    background-color: red;
+    left: 150px;
+    top: 0px;
+  }
+  25% {
+    background-color: yellow;
+    left: 200px;
+    top: 0px;
+  }
+  50% {
+    background-color: blue;
+    left: 200px;
+    top: 200px;
+  }
+  75% {
+    background-color: green;
+    left: 0px;
+    top: 200px;
+  }
+  100% {
+    background-color: red;
+    left: 0px;
+    top: 0px;
+  }
+}
+
+@-webkit-keyframes moveUp {
+  from {
+    top: 100vw;
+  }
+  to {
+    top: 0vw;
+  }
+}
+
+@keyframes moveUp {
+  from {
+    top: 100vw;
+  }
+  to {
+    top: 0vw;
+  }
+}
+/*# sourceMappingURL=style.css.map */

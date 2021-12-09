@@ -1,0 +1,156 @@
+body {
+  background-color: #c3195d;
+}
+
+.container {
+  background: #f0f0f0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  border-radius: 2rem;
+  background: #680747;
+  top: 0vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.box #W3 {
+  color: #f70776;
+}
+
+.box:hover {
+  -webkit-animation-name: fade, shrink;
+          animation-name: fade, shrink;
+  -webkit-animation-duration: 0.5s, 0.53s;
+          animation-duration: 0.5s, 0.53s;
+  -webkit-animation-iteration-count: infinite, infinite;
+          animation-iteration-count: infinite, infinite;
+  -webkit-animation-direction: alternate, alternate;
+          animation-direction: alternate, alternate;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+}
+
+@-webkit-keyframes moveRight {
+  from {
+    left: 0vw;
+  }
+  to {
+    left: 50vw;
+  }
+}
+
+@keyframes moveRight {
+  from {
+    left: 0vw;
+  }
+  to {
+    left: 50vw;
+  }
+}
+
+@-webkit-keyframes pulse {
+  from {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    -webkit-transform: scale(0.75);
+            transform: scale(0.75);
+    opacity: 0.25;
+  }
+}
+
+@keyframes pulse {
+  from {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    -webkit-transform: scale(0.75);
+            transform: scale(0.75);
+    opacity: 0.25;
+  }
+}
+
+@-webkit-keyframes fade {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.25;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.25;
+  }
+}
+
+@-webkit-keyframes shrink {
+  from {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  to {
+    -webkit-transform: scale(0.75);
+            transform: scale(0.75);
+  }
+}
+
+@keyframes shrink {
+  from {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  to {
+    -webkit-transform: scale(0.75);
+            transform: scale(0.75);
+  }
+}
+
+@-webkit-keyframes moveUp {
+  from {
+    top: 50vw;
+  }
+  to {
+    top: 0vw;
+  }
+}
+
+@keyframes moveUp {
+  from {
+    top: 50vw;
+  }
+  to {
+    top: 0vw;
+  }
+}
+/*# sourceMappingURL=style.css.map */

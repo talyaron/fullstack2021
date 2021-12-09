@@ -1,0 +1,224 @@
+
+
+body,
+#control__nav,
+nav,
+ul,
+li,
+a {
+    font-family: 'varela round', sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+
+nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    min-width: 100%;
+    max-height: fit-content;
+    
+    
+    
+
+    :not(.hidden) {
+        background-color: #141414;
+        color: #F0F0F2;
+    }
+}
+
+nav ul {
+    color: #141414;
+    background: #F0F0F2;
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 1rem;
+    
+    border-radius: 0 0 1em 1em;
+
+
+    li a i {
+        background-color: #F0F0F2;
+        color: #141414;
+        display: block;
+        padding: .8rem 1rem;
+        text-decoration: none;
+
+        &:hover {
+            background: rgb(117, 116, 116);
+            text-underline-position: below;
+            border-radius: 3rem;
+        }
+    }
+}
+
+
+
+.hidden {
+    display: none;
+    top: 10%;
+}
+#control {
+    color: #141414;
+    background: #F0F0F2;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-inline: 2rem;
+    max-width: 90vw;
+    &__mytasks {
+        display: flex;
+        flex-direction: row;
+    
+    }
+
+
+    &__nav {
+
+        align-self: center;
+
+
+        &__toggle {
+            display: none;
+
+            &:checked~nav {
+                display: block;
+            }
+        }
+    }
+
+    h3 {
+        color: #F0F0F2;
+        background: #141414;
+        padding: 1rem;
+        align-self: flex-start;
+        margin-left: 1rem;
+        border-radius: 7px;
+    }
+
+
+}
+
+
+@media only screen and (min-width: 600px) {
+    nav {
+        top: 0;
+        
+
+
+        ul {
+            top: 0;
+
+            li {
+                flex: 1 2 auto;
+                text-align: center;
+
+            }
+
+        }
+    }
+
+    #monthly-tasks {
+        &:hover {
+            .material-icons {
+
+                animation: pulse .5s infinite alternate;
+
+                // animation-name: fade, shrink;
+                // animation-duration: 0.5s, 0.53s;
+                // animation-iteration-count: infinite, infinite;
+                // animation-direction: alternate, alternate;
+                // animation-timing-function: ease-in-out;
+            }
+        }
+    }
+
+    .hidden {
+        top: 0;
+        display: inline;
+    }
+
+    #control__mytasks {
+        display: none;
+    }
+
+}
+
+// KEYFRAMES 
+@keyframes fade {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0.25;
+    }
+}
+
+@keyframes shrink {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(0.75);
+    }
+}
+
+@keyframes moveRight {
+    from {
+        left: 0vw;
+    }
+
+    to {
+        left: 50vw;
+    }
+}
+
+@keyframes moveUp {
+    from {
+        top: 50vw;
+    }
+
+    to {
+        top: 0vw;
+    }
+}
+
+@keyframes pulse {
+    from {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    to {
+        transform: scale(0.75);
+        opacity: 0.25;
+    }
+}
+
+
+//icon styles, use as
+.md-18 {
+    font-size: 18px;
+}
+
+.md-24 {
+    font-size: 24px;
+}
+
+.md-30 {
+    font-size: 30px;
+}
+
+.md-36 {
+    font-size: 36px;
+}
+
+.md-40 {
+    font-size: 40px;
+}
