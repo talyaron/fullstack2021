@@ -3,7 +3,7 @@ var x=4;
 var y=5;
 var c=6;
 var d;
-var l='hi';
+var l='hi ';
 
 y=y+x
 c=y+x+c
