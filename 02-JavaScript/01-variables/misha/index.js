@@ -1,11 +1,15 @@
-var x = 5;
-var y = 2;
 
-x = (x/y)*4;
+// var x = 10;
+let y;
+w=0;
 
-for(x; x<100; x *= 2){
+for( let x=10; x>=1; x--){
 
-console.log(x);
+    
+    y=x*(x-1);
+    w=w+y;
 
 }
+
+console.log(w);
 
