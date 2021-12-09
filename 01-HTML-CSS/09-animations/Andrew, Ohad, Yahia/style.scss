@@ -1,13 +1,9 @@
-:root {
-    opacity: 1;
-}
-
-
 //Andrew Start
 :root{
     --color-dark-grey: #22282c;
     --color-mid-grey: #2E3137;
     --color-light-grey: #383C3F;
+    --color-lighter-grey: #7E8082;
     --color-white: #DDDDDD;
     --color-orange: #EFAA79;
     --color-brown: #3D2f31;
@@ -18,9 +14,6 @@
     background-color: var(--color-dark-grey);
     color: var(--color-white);
     font-family: Arial, Helvetica, sans-serif;
-}
-div{
-  //  border: 1px solid red;
 }
 .header{
     display: flex;
@@ -63,10 +56,11 @@ div{
             top: 1.7em;
             right: 0px;
             font-weight: 100;
-            color: var(--color-light-grey);
+            color: var(--color-lighter-grey);
         }
     }
     &__graph{
+        
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -74,16 +68,32 @@ div{
         border: 3px solid var(--color-red);
         border-radius: 50%;
         height: 600px;
-        &:nth-child(){
-            color: var(--color-light-grey);
+        h1{
+            position: relative;
+            &::before{
+                content: 'WALLET VALUE';
+                width: 22ch;
+                position: absolute;
+                color: var(--color-lighter-grey);
+                bottom: 3em;
+                text-align: center;
+                font-size: 0.5em;
+            }
+            &::after{
+                content: '▲ € 31.800,52 (21,1%)';
+                width: 20ch;
+                position: absolute;
+                font-size: 0.5em;
+                color: var(--color-light-green);
+                top: 3em;
+                text-align: center;
+            }
         }
-        &:nth-child(2){
-            font-size: 2.5rem;
-        }
-        &:nth-child(3){
-            color: var(--color-light-green);
-        }
+        
     }
+}
+//andrew end
+
 
 //yahya alhawjra-->page exchange
 .wrapperEx{
