@@ -33,18 +33,19 @@
 }
 
 .footer {
+  display: flex;
+  justify-content: center;
   position: fixed;
   bottom: 20px;
   height: 120px;
   background-color: var(--color-light-grey);
-  width: 90vw;
   border-radius: 20px;
   margin: 4vw;
 }
 .footer-container {
   width: 640px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   color: var(--color-lighter-grey);
   font-size: 1.2rem;
 }
@@ -61,11 +62,32 @@
 .footer-container__market::after {
   content: "Market";
   position: absolute;
-  bottom: -0.5em;
+  bottom: 15px;
   left: 16px;
+}
+.footer-container__exchange {
+  position: relative;
+  width: 90px;
+}
+.footer-container__exchange svg {
+  position: absolute;
+  top: -45px;
+  right: 0px;
+  width: 90px;
+  fill: var(--color-lighter-grey);
+}
+.footer-container__exchange svg .st1 {
+  fill: #bababa;
+}
+.footer-container__exchange svg .st2 {
+  fill: var(--color-white);
+  filter: drop-shadow(2px 0px #7E8082);
 }
 .footer-container__exchange::after {
   content: "Exchange";
+  position: absolute;
+  bottom: 15px;
+  left: 12px;
 }
 .footer-container__wallet {
   position: relative;
@@ -77,12 +99,13 @@
 .footer-container__wallet::after {
   content: "Wallet";
   position: absolute;
-  bottom: -0.5em;
+  bottom: 15px;
   left: 23px;
 }
 
 .wallet {
   width: 640px;
+  border: 1px solid red;
   margin: 15px;
 }
 .wallet-banner {
