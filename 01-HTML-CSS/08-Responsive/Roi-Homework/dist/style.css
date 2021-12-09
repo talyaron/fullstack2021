@@ -5,7 +5,7 @@ body {
 .MainGrid {
   display: grid;
   grid-template-columns: 200px auto;
-  grid-template-rows: 100vh;
+  grid-template-rows: 100vw;
 }
 .MainGrid__CG {
   background-color: #121216;
@@ -24,13 +24,8 @@ body {
 .MainGrid__CG__MainContentArea {
   display: grid;
   grid-template-rows: 70px 250px 40px 70px 250px 40px 70px 250px 40px;
-  grid-template-columns: 2000px;
+  grid-template-columns: 100%;
   justify-content: center;
-}
-@media only screen and (max-width: 1786px) {
-  .MainGrid__CG__MainContentArea {
-    grid-template-columns: 500px;
-  }
 }
 .MainGrid__CG__MainContentArea .MusicTitle {
   color: white;
@@ -226,7 +221,7 @@ body {
   background-color: #191922;
 }
 .MainGrid__SG__Menu {
-  height: 250px;
+  height: 100vh;
   display: flex;
   flex-direction: column;
 }

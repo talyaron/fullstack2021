@@ -1,0 +1,89 @@
+body {
+  background-color: white;
+}
+
+h1 {
+  text-align: center;
+}
+
+.wrapper {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  max-width: 225ch;
+  margin: auto;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+@media only screen and (max-width: 300ch) {
+  .wrapper {
+    -ms-grid-columns: (1fr)[4];
+        grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media only screen and (max-width: 225ch) {
+  .wrapper {
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media only screen and (max-width: 150ch) {
+  .wrapper {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media only screen and (max-width: 75ch) {
+  .wrapper {
+    -ms-grid-columns: (1fr)[1];
+        grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+article {
+  margin-bottom: 5vh;
+  max-width: 75ch;
+}
+
+article:hover {
+  cursor: pointer;
+}
+
+article img {
+  width: 100%;
+}
+
+article h1 {
+  float: right;
+}
+
+@media only screen and (max-width: 300ch) {
+  article {
+    margin-bottom: 3vh;
+  }
+}
+
+@media only screen and (max-width: 225ch) {
+  article {
+    margin-bottom: 3vh;
+  }
+}
+
+@media only screen and (max-width: 150ch) {
+  article {
+    margin-bottom: 3vh;
+  }
+}
+
+@media only screen and (max-width: 75ch) {
+  article {
+    margin-bottom: 3vh;
+  }
+}
+/*# sourceMappingURL=style.css.map */

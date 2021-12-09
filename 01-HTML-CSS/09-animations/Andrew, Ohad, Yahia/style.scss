@@ -1,0 +1,82 @@
+//Andrew Start
+:root{
+    --color-dark-grey: #22282c;
+    --color-mid-grey: #2E3137;
+    --color-light-grey: #383C3F;
+    --color-white: #DDDDDD;
+    --color-orange: #EFAA79;
+    --color-brown: #3D2f31;
+    --color-dark-green: #303A37;
+    --color-light-green: #89A290;
+    --color-red: #BB615D;
+
+    background-color: var(--color-dark-grey);
+    color: var(--color-white);
+    font-family: Arial, Helvetica, sans-serif;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    &__icon{
+        border: 1px solid var(--color-light-grey);
+        border-radius: 5px;
+        width: 30px;
+        height: 30px;
+    }
+    &__item{
+        border-radius: 5px;
+    }
+}
+//////////////////////////////////////////////////////////////////////////////////////////////
+.wallet-banner{
+    display: flex;
+    height: 25px;
+    &__item{
+        border-radius: 5px;
+        background-color: var(--color-light-grey);
+    }
+}
+.wallet-value{
+    width: 600px;
+    height: 600px;
+    position: relative;
+    &__avrage{
+        position: absolute;
+        top: 0px;
+        left: 0px;
+    }
+    &__max{
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        font-weight: 900;
+        &::after{
+            position: absolute;
+            content: 'MAX 24H';
+            top: 1.7em;
+            right: 0px;
+            font-weight: 100;
+            color: var(--color-light-grey);
+        }
+    }
+    &__graph{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: 3px solid var(--color-red);
+        border-radius: 50%;
+        height: 600px;
+        
+        
+    }
+}
+//andrew end
+
+
+//yahya alhawjra-->page exchange
+
+
+    
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

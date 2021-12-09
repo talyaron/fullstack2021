@@ -1,0 +1,150 @@
+body {
+  font-family: 'Merriweather', serif;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0%;
+  padding: 3px;
+}
+
+.header {
+  background-color: black;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 70px;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header i {
+  color: white;
+  font-size: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header__item,
+.header__item-right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  width: 300px;
+  height: 70px;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.header__item-right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+}
+
+.title {
+  background-color: black;
+  width: 100%;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  color: white;
+  font-weight: 700;
+  font-size: 30px;
+  margin: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.title i {
+  margin: 5px;
+}
+
+.navbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 70px;
+  background-color: #344CB7;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 30px;
+}
+
+.navbar .navbar__item {
+  font-family: 'Fuzzy Bubbles', cursive;
+  text-decoration: none;
+  font-size: 30px;
+}
+
+.navbar .navbar__item a {
+  color: azure;
+  text-decoration: none;
+  margin: 10px;
+}
+
+.navbar .navbar__item a:hover {
+  color: bisque;
+}
+
+.gameing,
+.gameing-2 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (220px)[7];
+      grid-template-columns: repeat(7, 220px);
+  -ms-grid-rows: 400px;
+      grid-template-rows: 400px;
+  gap: 3px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.gameing .box,
+.gameing-2 .box {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  opacity: 0.8;
+  border-radius: 10%;
+}
+
+.gameing .box img,
+.gameing-2 .box img {
+  -o-object-fit: fill;
+     object-fit: fill;
+  width: 220px;
+  height: 400px;
+}
+
+.box:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+/*# sourceMappingURL=style.css.map */

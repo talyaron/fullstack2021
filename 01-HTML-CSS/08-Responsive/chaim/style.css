@@ -1,0 +1,90 @@
+body {
+  background-color: yellowgreen;
+  color: rosybrown;
+  position: relative;
+}
+
+.wrapper {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-family: 'Roboto Condensed', sans-serif;
+  -ms-grid-columns: (160px)[8];
+      grid-template-columns: repeat(8, 160px);
+  -ms-grid-rows: 15vh 30vh 15vh;
+      grid-template-rows: 15vh 30vh 15vh;
+  row-gap: 2vh;
+  -webkit-column-gap: 1vh;
+          column-gap: 1vh;
+  position: relative;
+  background-color: yellowgreen;
+}
+
+@media only screen and (max-width: 225ch) {
+  .wrapper {
+    -ms-grid-columns: (180px)[8];
+        grid-template-columns: repeat(8, 180px);
+    background-color: yellowgreen;
+    position: absolute;
+  }
+}
+
+@media only screen and (max-width: 180ch) {
+  .wrapper {
+    -ms-grid-columns: (120px)[7];
+        grid-template-columns: repeat(7, 120px);
+    -ms-grid-rows: (130px)[6];
+        grid-template-rows: repeat(6, 130px);
+    background-color: brown;
+    position: relative;
+    right: 140px;
+    bottom: 90px;
+    width: 120%;
+    height: 120%;
+  }
+}
+
+@media only screen and (max-width: 75ch) {
+  .wrapper {
+    -ms-grid-columns: (80px)[5];
+        grid-template-columns: repeat(5, 80px);
+    -ms-grid-rows: (80px)[7];
+        grid-template-rows: repeat(7, 80px);
+    background-color: aqua;
+    position: relative;
+    right: 60px;
+    width: 900px;
+    height: 900px;
+  }
+}
+
+.wrapper img {
+  display: -ms-grid;
+  display: grid;
+  width: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  position: relative;
+  top: 100px;
+  left: 80px;
+}
+
+.wrapper img:hover {
+  -webkit-filter: grayscale(40%);
+          filter: grayscale(40%);
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.wrapper p {
+  text-align: var(10px);
+  font-size: var(1fr);
+  position: relative;
+  top: 60px;
+  left: 90px;
+}
+/*# sourceMappingURL=style.css.map */

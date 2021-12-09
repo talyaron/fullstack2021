@@ -1,0 +1,49 @@
+.Bar1 {
+  height:50px;
+  position: absolute;
+  top:0vw;
+  background: #0716ec;
+  animation: Bar1 5s ease-in-out;
+  animation-iteration-count: infinite;
+  animation-fill-mode:both;
+}
+
+@keyframes Bar1 {
+  0% { left:0;width: 0; }
+  50% { left:0;width: 100%; }
+  100% {left:100%;width: 0}
+}
+
+.Bar2 {
+  height:50px;
+  position: absolute;
+  top:50px;
+  background: #ec0707;
+  animation: Bar2 5s ease-in-out;
+  animation-iteration-count: infinite;
+  animation-fill-mode:both;
+  animation-delay: 0.2s;
+}
+
+@keyframes Bar2 {
+  0% { left:0;width: 0; }
+  50% { left:0;width: 100%; }
+  100% {left:100%;width: 0}
+}
+
+.Bar3 {
+  height:50px;
+  position: absolute;
+  top:100px;
+  background: #07ec53;
+  animation: Bar3 5s ease-in-out;
+  animation-iteration-count: infinite;
+  animation-fill-mode:both;
+  animation-delay: 0.3s;
+}
+
+@keyframes Bar3 {
+  0% { left:0;width: 0; }
+  50% { left:0;width: 100%; }
+  100% {left:100%;width: 0}
+}

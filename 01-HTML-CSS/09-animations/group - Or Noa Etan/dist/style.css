@@ -1,0 +1,134 @@
+body {
+  display: flex;
+  background: #eee;
+  margin: 0;
+  height: auto;
+}
+
+#landing {
+  max-width: 576px;
+  height: 1224px;
+  margin: auto;
+  background-color: red;
+}
+
+#landing-home {
+  height: 100vh;
+  background: white;
+  padding: 30px;
+}
+#landing-home__logo {
+  display: flex;
+}
+#landing-home__logo img {
+  height: 60px;
+  width: 60px;
+  border-radius: 10px;
+  margin-left: 50px;
+  margin-top: 20px;
+}
+#landing-home__logo h1 {
+  font-weight: 700;
+}
+#landing-home__logo span {
+  font-size: 1rem;
+  font-weight: normal;
+}
+#landing-home__search {
+  text-align: center;
+}
+#landing-home__search input {
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 25px;
+  border-radius: 10px;
+  height: 50px;
+}
+#landing-home__task {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+}
+#landing-home__task .task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#landing-home__task .icon {
+  margin-top: 15px;
+  height: 50px;
+  width: 50px;
+  border-radius: 5px;
+}
+#landing-home__task .icon__1 {
+  background-color: #ffc898;
+}
+#landing-home__task .icon__2 {
+  background-color: #aaeffa;
+}
+#landing-home__task .icon__3 {
+  background-color: #f4ff7f;
+}
+#landing-home__task .icon i {
+  margin-left: 13px;
+  margin-top: 13px;
+}
+#landing-home__recent .recent__title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+main {
+  padding-top: 6vh;
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  flex-direction: row;
+  align-self: center;
+}
+
+#landing__task-count {
+  display: flex;
+  flex-direction: row;
+  min-width: 100%;
+  background: #aaeffa;
+  height: fit-content;
+  overflow-y: scroll;
+}
+#landing__task-count .box {
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+  text-transform: capitalize;
+  background: white;
+  border-radius: 0.5rem;
+  padding: 0rem 1rem 1rem 2rem;
+  min-width: 30vw;
+  margin: 1rem;
+  height: auto;
+}
+#landing__task-count .box__flex {
+  box-sizing: content-box;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+}
+#landing__task-count .box__header {
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
+}
+#landing__task-count .box__title {
+  display: grid;
+  grid-gap: 0;
+  height: min-content;
+}
+#landing__task-count .box__logo {
+  font-weight: bolder 700;
+  font-size: 1.5rem;
+  margin-right: 1rem;
+  background-color: powderblue;
+  padding: 0.7rem;
+  border-radius: 0.5rem;
+}

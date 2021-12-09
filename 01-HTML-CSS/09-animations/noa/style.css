@@ -1,0 +1,62 @@
+body {
+  position: relative;
+}
+
+.box {
+  height: 100px;
+  width: 100px;
+  background-color: yellow;
+  position: absolute;
+  top: 50px;
+  right: 20%;
+  -webkit-animation-name: yellow;
+          animation-name: yellow;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+}
+
+.box:nth-child(2) {
+  background-color: blue;
+  position: relative;
+  top: 50px;
+  left: 20%;
+  -webkit-animation-name: blue;
+          animation-name: blue;
+}
+
+@-webkit-keyframes yellow {
+  from {
+    right: 20%;
+  }
+  to {
+    right: 50%;
+  }
+}
+
+@keyframes yellow {
+  from {
+    right: 20%;
+  }
+  to {
+    right: 50%;
+  }
+}
+
+@-webkit-keyframes blue {
+  from {
+    left: 20%;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes blue {
+  from {
+    left: 20%;
+  }
+  to {
+    left: 50%;
+  }
+}
+/*# sourceMappingURL=style.css.map */
