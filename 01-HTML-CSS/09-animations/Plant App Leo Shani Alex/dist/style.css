@@ -273,4 +273,34 @@
     gap: 2rem;
     border-radius: 3%;
   }
+  .checkout .button__add {
+    background-color: white;
+    color: #0a9c9c;
+    font-weight: bold;
+    border: 2px solid #0a9c9c;
+    border-radius: 10%;
+    padding-left: 4%;
+    padding-right: 4%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+  }
+  .checkout .button__add:hover {
+    background-color: rgba(235, 222, 222, 0.76);
+    cursor: pointer;
+  }
+  .checkout .button__checkout {
+    background-color: #0a9c9c;
+    color: white;
+    font-weight: bold;
+    border: 2px solid #0a9c9c;
+    border-radius: 10%;
+    padding-left: 4%;
+    padding-right: 4%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+  }
+  .checkout .button__checkout:hover {
+    background-color: rgba(10, 156, 156, 0.637);
+    cursor: pointer;
+  }
 }
