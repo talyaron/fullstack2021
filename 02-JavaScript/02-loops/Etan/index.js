@@ -4,3 +4,4 @@ const sequenceSum = (begin, end, step) => {
     return sum
   };
   console.log(sequenceSum(2, 6, 2))
+  
