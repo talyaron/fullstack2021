@@ -9,8 +9,14 @@
   --color-light-green: #89A290;
   --color-red: #BB615D;
   background-color: var(--color-dark-grey);
+  color: var(--color-white);
+  font-family: Arial, Helvetica, sans-serif;
 }
 
+.header {
+  display: flex;
+  justify-content: space-between;
+}
 .header__icon {
   border: 1px solid var(--color-light-grey);
   border-radius: 5px;
@@ -19,4 +25,56 @@
 }
 .header__item {
   border-radius: 5px;
+}
+
+.wallet-banner {
+  display: flex;
+  height: 25px;
+}
+.wallet-banner__item {
+  border-radius: 5px;
+  background-color: var(--color-light-grey);
+}
+
+.wallet-value {
+  width: 600px;
+  height: 600px;
+  position: relative;
+}
+.wallet-value__avrage {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+.wallet-value__max {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  font-weight: 900;
+}
+.wallet-value__max::after {
+  position: absolute;
+  content: "MAX 24H";
+  top: 1.7em;
+  right: 0px;
+  font-weight: 100;
+  color: var(--color-light-grey);
+}
+.wallet-value__graph {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid var(--color-red);
+  border-radius: 50%;
+  height: 600px;
+}
+.wallet-value__graph:nt {
+  color: var(--color-light-grey);
+}
+.wallet-value__graph:nth-child(2) {
+  font-size: 2.5rem;
+}
+.wallet-value__graph:nth-child(3) {
+  color: var(--color-light-green);
 }
