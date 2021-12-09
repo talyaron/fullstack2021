@@ -26,6 +26,8 @@
 }
 .header__item {
   border-radius: 5px;
+}
+
 .wallet-banner {
   display: flex;
   height: 25px;
