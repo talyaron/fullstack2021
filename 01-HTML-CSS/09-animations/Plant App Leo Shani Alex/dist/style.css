@@ -180,7 +180,7 @@
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: repeat(4, 20%);
     position: relative;
-    left: 8%;
+    left: 6%;
     width: 90%;
     height: 100vh;
     gap: 10px;
@@ -240,12 +240,37 @@
     color: #0a9c9c;
     position: absolute;
     left: 20rem;
-    margin-top: 100px;
+    margin-top: 90px;
   }
 
   .checkout {
     background-color: white;
-    width: 100%;
+    width: 90%;
     height: 70vh;
+    padding: 2rem;
+    font-family: sans-serif;
+    color: rgba(0, 0, 0, 0.774);
+  }
+  .checkout .h3 {
+    display: flex;
+    justify-content: space-between;
+  }
+  .checkout .p {
+    font-weight: bold;
+    margin-top: 2%;
+    color: rgba(0, 0, 0, 0.774);
+    opacity: 0.6;
+    display: flex;
+    justify-content: space-between;
+  }
+  .checkout .h2 {
+    display: flex;
+    justify-content: space-between;
+  }
+  .checkout .button {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    border-radius: 3%;
   }
 }
