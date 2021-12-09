@@ -24,20 +24,31 @@
   border-radius: 5px;
   width: 30px;
   height: 30px;
+  background-color: var(--color-dark-grey);
 }
 .header__item {
+  color: var(--color-white);
   border-radius: 5px;
+  background-color: var(--color-dark-grey);
 }
 
+.wallet {
+  width: 640px;
+  margin: 15px;
+}
 .wallet-banner {
   display: flex;
-  height: 25px;
+  height: 70px;
+  width: 800px;
 }
 .wallet-banner__item {
   border-radius: 5px;
   background-color: var(--color-light-grey);
+  margin: 1rem;
+  width: 50ch;
+  text-align: center;
+  padding-block: 0.6em;
 }
-
 .wallet-value {
   width: 600px;
   height: 600px;
@@ -47,6 +58,10 @@
   position: absolute;
   top: 0px;
   left: 0px;
+  word-spacing: 0.7em;
+}
+.wallet-value__avrage span {
+  color: var(--color-lighter-grey);
 }
 .wallet-value__max {
   position: absolute;
@@ -72,25 +87,83 @@
   height: 600px;
 }
 .wallet-value__graph h1 {
+  font-size: 3rem;
   position: relative;
 }
 .wallet-value__graph h1::before {
   content: "WALLET VALUE";
-  width: 22ch;
+  width: 26ch;
   position: absolute;
+  font-size: 0.4em;
   color: var(--color-lighter-grey);
-  bottom: 3em;
+  bottom: 5rem;
   text-align: center;
-  font-size: 0.5em;
 }
 .wallet-value__graph h1::after {
   content: "▲ € 31.800,52 (21,1%)";
   width: 20ch;
   position: absolute;
-  font-size: 0.5em;
+  font-size: 0.4em;
   color: var(--color-light-green);
-  top: 3em;
-  text-align: center;
+  top: 5rem;
+  left: 4ch;
+}
+.wallet-portfolio__title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.wallet-portfolio__title h2 {
+  font-weight: 100;
+}
+.wallet-portfolio__title__indicators {
+  color: var(--color-lighter-grey);
+  font-size: 0.8rem;
+  word-spacing: 1em;
+}
+.wallet-portfolio__list {
+  display: flex;
+  flex-direction: column;
+}
+.wallet-portfolio__list__item {
+  display: flex;
+  justify-content: space-between;
+}
+.wallet-portfolio__list__item__icon {
+  background-color: var(--color-mid-grey);
+  border-radius: 25%;
+  width: 75px;
+  height: 75px;
+  margin: 10px;
+}
+.wallet-portfolio__list__item__icon svg {
+  margin: 12.5px;
+  width: 50px;
+  fill: var(--color-white);
+}
+.wallet-portfolio__list__item__name {
+  margin: 1rem;
+  font-size: 1.5rem;
+  line-height: 0rem;
+}
+.wallet-portfolio__list__item__name :last-child {
+  font-size: 0.7em;
+}
+.wallet-portfolio__list__item__graph {
+  width: 200px;
+}
+.wallet-portfolio__list__item__price {
+  text-align: end;
+  line-height: 0em;
+}
+.wallet-portfolio__list__item__price :first-child {
+  font-size: 1.5em;
+}
+.wallet-portfolio__list__item__price .red {
+  color: var(--color-red);
+}
+.wallet-portfolio__list__item__price .green {
+  color: var(--color-light-green);
 }
 
 .wrapperEx {
