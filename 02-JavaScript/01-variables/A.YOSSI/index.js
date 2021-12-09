@@ -1,5 +1,3 @@
-var x=1
-var y=2
-var z=3
-
-console.log((x+y+z)*10)
+for(let x=0; x<=10; x++){
+    console.log("number:"+x);
+}

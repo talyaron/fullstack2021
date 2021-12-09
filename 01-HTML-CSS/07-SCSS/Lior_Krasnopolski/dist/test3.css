@@ -1,0 +1,163 @@
+body {
+  align-items: center;
+  align-content: center;
+  background-size: cover;
+  background: #1d1f29;
+}
+
+.banner {
+  width: 70%;
+  height: 4vh;
+  background-color: #1d1f29;
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  font-weight: 200;
+  top: -150px;
+  left: 19vw;
+  position: relative;
+}
+.banner__navbar {
+  width: 85%;
+  margin: auto;
+  position: relative;
+  align-items: center;
+  justify-content: space-between;
+}
+@media only screen and (max-width: 1506px) {
+  .banner__navbar {
+    margin: -10px;
+  }
+}
+@media only screen and (max-width: 1303px) {
+  .banner__navbar {
+    margin: 20px;
+    width: 75%;
+    font-size: 25px;
+  }
+}
+@media only screen and (max-width: 1207px) {
+  .banner__navbar {
+    margin: 20px;
+    width: 85%;
+    font-size: 25px;
+  }
+}
+@media only screen and (max-width: 1046px) {
+  .banner__navbar {
+    margin: -10px;
+    width: 95%;
+    font-size: 25px;
+  }
+}
+@media only screen and (max-width: 942px) {
+  .banner__navbar {
+    margin: -10px;
+    width: 105%;
+    font-size: 15px;
+  }
+}
+@media only screen and (max-width: 837px) {
+  .banner__navbar {
+    margin: -20px;
+    width: 135%;
+    font-size: 15px;
+  }
+}
+@media only screen and (max-width: 630px) {
+  .banner__navbar {
+    margin: -10px;
+    width: 155%;
+    font-size: 15px;
+  }
+}
+.banner__navbar ul li {
+  list-style: none;
+  font-size: 10px;
+  display: inline-block;
+  margin: 0 50px;
+  position: relative;
+}
+.banner__navbar ul li a {
+  text-decoration: none;
+  color: greenyellow;
+  font-weight: 200;
+  font-size: 2vh;
+  text-transform: uppercase;
+}
+@media only screen and (max-width: 1505px) {
+  .banner__navbar ul li a {
+    font-size: 2vh;
+  }
+}
+@media only screen and (max-width: 1311px) {
+  .banner__navbar ul li a {
+    font-size: 1.5vh;
+  }
+}
+@media only screen and (max-width: 610px) {
+  .banner__navbar ul li a {
+    font-size: 1.1vh;
+  }
+}
+@media only screen and (max-width: 532px) {
+  .banner__navbar ul li a {
+    font-size: 1vh;
+    margin: -30px;
+  }
+}
+.banner__navbar ul li ::after {
+  content: "";
+  height: 5px;
+  width: 0;
+  background: greenyellow;
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  transition: 0.8s;
+}
+.banner__navbar ul li:hover ::after {
+  width: 100%;
+}
+
+.games {
+  display: flex;
+  justify-content: center;
+  padding-block: 250px;
+}
+.games__left {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  border: 3px solid black;
+  transform: perspective(700px) rotateY(30deg);
+  gap: 20px;
+}
+.games__left_image {
+  width: 150px;
+  box-shadow: 0px 0px 10px 5px blueviolet;
+  height: 150px;
+  transition: 0.2s ease;
+}
+.games__left_image:hover {
+  transform: perspective(400px) rotateX(5deg) rotateY(0deg) scale(2);
+  z-index: 5;
+}
+.games__right {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  border: 3px solid black;
+  transform: perspective(700px) rotateY(-30deg);
+  gap: 20px;
+}
+.games__right_image {
+  width: 150px;
+  box-shadow: 0px 0px 10px 5px blueviolet;
+  height: 150px;
+  transition: 0.2s ease;
+}
+.games__right_image:hover {
+  transform: perspective(400px) rotateX(5deg) rotateY(0deg) scale(2);
+  z-index: 5;
+}
