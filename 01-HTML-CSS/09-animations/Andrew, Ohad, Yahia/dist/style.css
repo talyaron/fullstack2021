@@ -1,3 +1,4 @@
+@charset "UTF-8";
 :root {
   --color-dark-grey: #22282c;
   --color-mid-grey: #2E3137;
@@ -69,6 +70,27 @@
   border: 3px solid var(--color-red);
   border-radius: 50%;
   height: 600px;
+}
+.wallet-value__graph h1 {
+  position: relative;
+}
+.wallet-value__graph h1::before {
+  content: "WALLET VALUE";
+  width: 22ch;
+  position: absolute;
+  color: var(--color-lighter-grey);
+  bottom: 3em;
+  text-align: center;
+  font-size: 0.5em;
+}
+.wallet-value__graph h1::after {
+  content: "▲ € 31.800,52 (21,1%)";
+  width: 20ch;
+  position: absolute;
+  font-size: 0.5em;
+  color: var(--color-light-green);
+  top: 3em;
+  text-align: center;
 }
 
 .wrapperEx {

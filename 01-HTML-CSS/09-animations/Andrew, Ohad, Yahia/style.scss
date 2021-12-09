@@ -60,6 +60,7 @@
         }
     }
     &__graph{
+        
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -67,7 +68,27 @@
         border: 3px solid var(--color-red);
         border-radius: 50%;
         height: 600px;
-        
+        h1{
+            position: relative;
+            &::before{
+                content: 'WALLET VALUE';
+                width: 22ch;
+                position: absolute;
+                color: var(--color-lighter-grey);
+                bottom: 3em;
+                text-align: center;
+                font-size: 0.5em;
+            }
+            &::after{
+                content: '▲ € 31.800,52 (21,1%)';
+                width: 20ch;
+                position: absolute;
+                font-size: 0.5em;
+                color: var(--color-light-green);
+                top: 3em;
+                text-align: center;
+            }
+        }
         
     }
 }
