@@ -1,8 +1,4 @@
 :root {
-  opacity: 1;
-}
-
-:root {
   --color-dark-grey: #22282c;
   --color-mid-grey: #2E3137;
   --color-light-grey: #383C3F;
@@ -29,8 +25,6 @@
 }
 .header__item {
   border-radius: 5px;
-}
-
 .wallet-banner {
   display: flex;
   height: 25px;
@@ -73,14 +67,7 @@
   border-radius: 50%;
   height: 600px;
 }
-.wallet-value__graph:nt {
-  color: var(--color-light-grey);
-}
-.wallet-value__graph:nth-child(2) {
-  font-size: 2.5rem;
-}
-.wallet-value__graph:nth-child(3) {
-  color: var(--color-light-green);
+
 .wrapperEx {
   background-color: #2e3137;
   border-radius: 15px;

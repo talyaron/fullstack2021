@@ -1,0 +1,52 @@
+.box{
+    width: 40px;
+    background-color: blue;
+    height: 40px;
+    position: relative;
+    top:50vw;
+    animation-name: moveRightUp;
+    animation-duration: 3s;
+    animation-delay:1s;
+    animation-iteration-count:1;
+    animation-direction:normal ;
+    animation-timing-function:ease-in-out;
+    animation-fill-mode: forwards;
+  
+}
+.box2{
+    width: 40px;
+    background-color: red;
+    height: 40px;
+    position: relative;
+    top:50vw;
+    animation-name: Up;
+    animation-duration: 3s;
+    animation-delay:1s;
+    animation-iteration-count:1;
+    animation-direction:normal ;
+    animation-timing-function:ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes moveRightUp {
+    
+    from{
+        left:0vw;
+    }
+    to{
+        left:50vw;
+    }
+    75%{
+        opacity: 0;
+        
+    }
+}
+
+@keyframes moveUp {
+    from{
+        top:50vw;
+    }
+    to{
+        top:0vw;
+    }
+}
