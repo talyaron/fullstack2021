@@ -1,3 +1,24 @@
 body {
-  border: 0px;
+  padding: 0.7em;
+  font-family: "Neue Haas Grotesk Display Pro", sans-serif;
+  background-color: #eef3f7;
+}
+
+.schetop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 5vh;
+  border: 0.5px solid black;
+  padding-inline: 0.2em;
+  color: #3e3c3c;
+}
+.schetop .schetop__back {
+  font-size: 24px;
+}
+
+.schetitle h1, .schetitle h2, .schetitle p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
