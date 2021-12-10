@@ -319,7 +319,7 @@
     .checkout {
         background-color: rgb(255, 255, 255);
         width: 90%;
-        height: 70vh;
+        height: 50vh;
         padding: 2rem;
         font-family: sans-serif;
         color: rgba(0, 0, 0, 0.774);
@@ -350,16 +350,51 @@
 
         }
 
-        .button{
+        .buttons{
             display:flex;
             justify-content:center;
             gap:2rem;
             border-radius:3%;
 
-         &.button__add{
-
-         }
+        
         }
+        
+        .button__add{
+            background-color:white;
+            color:rgb(10, 156, 156);
+            font-weight:bold;
+            border:2px solid rgb(10, 156, 156);
+            border-radius:10%;
+            padding-left:4%;
+            padding-right:4%;
+            padding-top:1%;
+            padding-bottom:1%;
+
+            &:hover{
+                background-color: rgba(235, 222, 222, 0.76);
+                cursor: pointer;
+
+            }
+            
+          }
+        .button__checkout{
+            background-color:rgb(10, 156, 156);
+            color:white;
+            font-weight:bold;
+            border:2px solid rgb(10, 156, 156);
+            border-radius:10%;
+            padding-left:4%;
+            padding-right:4%;
+            padding-top:1%;
+            padding-bottom:1%;
+
+            &:hover{
+                background-color: rgba(10, 156, 156, 0.637);
+                cursor: pointer;
+
+            }
+            
+          }
 
 
     }
