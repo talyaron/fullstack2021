@@ -128,12 +128,6 @@ body {
   margin-top: 2em;
   margin-bottom: 30px;
 }
-.menubar .scroll {
-  margin-right: 10px;
-  color: rgba(211, 14, 14, 0.966);
-  font-size: 17px;
-  text-shadow: 0.2px 0.2px 30px #a1a1a1;
-}
 .menubar__cards {
   display: flex;
   justify-content: space-between;

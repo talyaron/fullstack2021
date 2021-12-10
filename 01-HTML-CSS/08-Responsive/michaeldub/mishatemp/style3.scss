@@ -15,13 +15,13 @@
 
 $iconscolor: rgb(62, 60, 60);
 $fontcolor: rgb(133, 122, 150);
-$primarycolor1: rgb(82, 6, 97);
-$primarycolor2: rgb(169, 38, 164);
+$primarycolor1: #66529A;
+$primarycolor2: #E052B6;
 $mainFontFamily: 'Neue Haas Grotesk Display Pro',
 sans-serif;
 $shadow: 1px 1px 1px #a8a7a7,
 1px 13px 26px rgba(99, 91, 105, 0.4);
-$bgcolor: #F0F1F6;
+$bgcolor: #f0f1f6;
 
 
 body {
@@ -35,7 +35,7 @@ body {
 
 
     @include flexCenter(space-between, row);
-    @include border();
+    // @include border();
 
     height: 5vh;
     padding-inline: 0.2em;
@@ -50,16 +50,19 @@ body {
 .schetitle {
 
     @include flexCenter(center, column);
-    @include border();
+    // @include border();
 
     height: 17vh;
 
     div{
-        padding: 0px;
         height: 20%;
         font-size: 80%;
         margin-bottom: 0.4em;
         @include flexCenter(center, row);
+    }
+
+    h1, h2, p{
+        margin: 0px;
     }
 
 }
@@ -67,13 +70,18 @@ body {
 .schedatebox{
 
     @include flexCenter(space-between, row);
-    @include border();
+    // @include border();
     height: 7vh;
-    padding-inline: 0.5em;
+    padding-inline: 0.3em;
 
-    h3,p{
+    div{
+        height: 100%;
         @include flexCenter(center, row);
-        height: 40%;
+    }
+
+    h3, p{
+        margin: 0px;
+        @include flexCenter(center, row);
     }
 
     p{
@@ -85,13 +93,85 @@ body {
 
 .schecards{
 
-    @include border();
-    height: 17vh;
+    @include flexCenter(flex-start, row);
+    align-items: flex-start;
+    // @include border();
+    height: 13vh;
+    padding-top: 0px;
+    overflow-x: auto;
 
-    &__cards{
-        width: 20%;
-        height: 20%;
-        background: green;
+    &__card{ 
+
+        div{
+            min-height: 30%;
+            @include flexCenter(center, row)
+        }
+
+        p{
+
+            width: 80%;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .date{
+            p{
+                font-weight: 700;
+            }
+        }
+
+        .day{
+            p{
+                font-weight: 200;
+            }
+        }
+
+        .bell{
+            color: rgb(255, 255, 255);
+            display: none;
+            &:active{
+                color: rgb(254, 229, 146)
+            }
+        }
+
+        @include flexCenter(space-around,column);
+        // @include border();
+        border-radius: 10px;
+        min-width: 3.2em;
+        height: 60%;
+        background: #D8CAE1;
+        margin-inline: 0.5em;
+        overflow-y: auto;
+
+        &:hover{
+
+            transition: all 0.8s;
+            height: 80%;
+            background: linear-gradient(110deg, $primarycolor1 60%, $primarycolor2);
+            color: white;
+            .div{
+                margin-block: 0px;
+            }
+            .bell{
+                display:block;
+            }
+        }
+    }
+}
+
+.progress{
+    
+    // @include border();
+    height: 12vh;
+    
+}
+
+.image{
+
+
+    img{
+        width: 100%;
+        height: 80%;
     }
 }
 
