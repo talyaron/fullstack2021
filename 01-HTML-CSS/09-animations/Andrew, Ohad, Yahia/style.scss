@@ -275,11 +275,11 @@
 //yahya alhawjra-->page exchange
 //yahya start
 .wrapper-main{
-
+background-color: var(--color-light-grey);
+border-radius:15px ;
 }
 .sub-wrapper1{
-  background-color: var(--color-light-grey);
-  border-radius:15px ;
+  
   display: flex;
   flex-wrap: wrap;
   &__select{
@@ -323,74 +323,10 @@
 
 
 
-<<<<<<< HEAD
-=======
-//yahya alhawjra-->page exchange
-.wrapperEx {
-    background-color: #2e3137;
-    border-radius: 15px;
-    padding: 5px;
-    width: 600px;
->>>>>>> 678e47e2a8c1d25c0bbf1ad75bba586e23341e10
-
-    select {
-        font-size: x-large;
-    }
-
-<<<<<<< HEAD
-=======
-    .container {
-        padding: -100px;
-        margin-top: 10px;
-        margin: 2px;
-    }
-
-    .card {
-
-        display: flex;
-        justify-content: center;
-        text-align: center;
-        width: 50px;
-        padding: 100px;
-        margin: 5px;
-        position: relative;
-        margin-top: 0px;
 
 
-    }
-
-    h2 {
-        margin: 0 50px;
-        font-size: 50px;
-        color: white;
-    }
-
-    button {
-        border-radius: 50%;
-        width: 4rem;
-        height: 4rem;
-        outline: none;
-        border-style: none;
-        font-size: 50px;
-        background-color: #bababa;
-        box-shadow: 8px 8px 20px #00000027, -8px -8px -20px #969393;
-    }
-
-    button:hover {
-        background-color: aqua;
-        color: red;
-        border-color: #000;
-    }
-}
-
-@media only screen and(max-width:350px) {
-    .wrapperEx {
-        width: 300px;
-    }
 
 
-}
->>>>>>> 678e47e2a8c1d25c0bbf1ad75bba586e23341e10
 
 
 
