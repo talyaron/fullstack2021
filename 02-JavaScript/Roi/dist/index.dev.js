@@ -1,5 +1,8 @@
 "use strict";
 
-for (var x = 14; x < 14; x * x--) {
-  console.log(x);
+var x;
+var y;
+
+for (var _x = 14; _x < 14; _x * _x--) {
+  console.log(_x);
 }
