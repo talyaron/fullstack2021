@@ -24,20 +24,104 @@
   border-radius: 5px;
   width: 30px;
   height: 30px;
+  background-color: var(--color-dark-grey);
 }
 .header__item {
+  color: var(--color-white);
   border-radius: 5px;
+  background-color: var(--color-dark-grey);
 }
 
+.footer {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  bottom: 20px;
+  height: 120px;
+  background-color: var(--color-light-grey);
+  border-radius: 20px;
+  margin: 4vw;
+}
+.footer-container {
+  width: 640px;
+  display: flex;
+  justify-content: space-evenly;
+  color: var(--color-lighter-grey);
+  font-size: 1.2rem;
+}
+.footer-container * {
+  padding: 10px;
+}
+.footer-container__market {
+  position: relative;
+}
+.footer-container__market svg {
+  height: 50px;
+  fill: var(--color-lighter-grey);
+}
+.footer-container__market::after {
+  content: "Market";
+  position: absolute;
+  bottom: 15px;
+  left: 16px;
+}
+.footer-container__exchange {
+  position: relative;
+  width: 90px;
+}
+.footer-container__exchange svg {
+  position: absolute;
+  top: -45px;
+  right: 0px;
+  width: 90px;
+  fill: var(--color-lighter-grey);
+}
+.footer-container__exchange svg .st1 {
+  fill: #bababa;
+}
+.footer-container__exchange svg .st2 {
+  fill: var(--color-white);
+  filter: drop-shadow(2px 0px #7E8082);
+}
+.footer-container__exchange::after {
+  content: "Exchange";
+  position: absolute;
+  bottom: 15px;
+  left: 12px;
+}
+.footer-container__wallet {
+  position: relative;
+}
+.footer-container__wallet svg {
+  height: 50px;
+  fill: var(--color-lighter-grey);
+}
+.footer-container__wallet::after {
+  content: "Wallet";
+  position: absolute;
+  bottom: 15px;
+  left: 23px;
+}
+
+.wallet {
+  width: 640px;
+  border: 1px solid red;
+  margin: 15px;
+}
 .wallet-banner {
   display: flex;
-  height: 25px;
+  height: 70px;
+  width: 600px;
+  overflow: hidden;
 }
 .wallet-banner__item {
   border-radius: 5px;
   background-color: var(--color-light-grey);
+  margin: 1rem;
+  width: 50ch;
+  text-align: center;
+  padding-block: 0.6em;
 }
-
 .wallet-value {
   width: 600px;
   height: 600px;
@@ -47,6 +131,10 @@
   position: absolute;
   top: 0px;
   left: 0px;
+  word-spacing: 0.7em;
+}
+.wallet-value__avrage span {
+  color: var(--color-lighter-grey);
 }
 .wallet-value__max {
   position: absolute;
@@ -72,74 +160,121 @@
   height: 600px;
 }
 .wallet-value__graph h1 {
+  font-size: 3rem;
   position: relative;
 }
 .wallet-value__graph h1::before {
   content: "WALLET VALUE";
-  width: 22ch;
+  width: 26ch;
   position: absolute;
+  font-size: 0.4em;
   color: var(--color-lighter-grey);
-  bottom: 3em;
+  bottom: 5rem;
   text-align: center;
-  font-size: 0.5em;
 }
 .wallet-value__graph h1::after {
   content: "▲ € 31.800,52 (21,1%)";
   width: 20ch;
   position: absolute;
-  font-size: 0.5em;
+  font-size: 0.4em;
   color: var(--color-light-green);
-  top: 3em;
-  text-align: center;
+  top: 5rem;
+  left: 4ch;
+}
+.wallet-portfolio__title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.wallet-portfolio__title h2 {
+  font-weight: 100;
+}
+.wallet-portfolio__title__indicators {
+  color: var(--color-lighter-grey);
+  font-size: 0.8rem;
+  word-spacing: 1em;
+}
+.wallet-portfolio__list {
+  display: flex;
+  flex-direction: column;
+}
+.wallet-portfolio__list__item {
+  display: flex;
+  justify-content: space-between;
+}
+.wallet-portfolio__list__item__icon {
+  background-color: var(--color-mid-grey);
+  border-radius: 25%;
+  width: 75px;
+  height: 75px;
+  margin: 10px;
+}
+.wallet-portfolio__list__item__icon svg {
+  margin: 12.5px;
+  width: 50px;
+  fill: var(--color-white);
+}
+.wallet-portfolio__list__item__name {
+  margin: 1rem;
+  font-size: 1.5rem;
+  line-height: 0rem;
+}
+.wallet-portfolio__list__item__name :last-child {
+  font-size: 0.7em;
+}
+.wallet-portfolio__list__item__graph {
+  width: 250px;
+  border: 1px solid var(--color-light-grey);
+}
+.wallet-portfolio__list__item__graph img {
+  width: 190px;
+}
+.wallet-portfolio__list__item__price {
+  margin: 1rem;
+  text-align: end;
+  line-height: 0em;
+  font-weight: 600;
+}
+.wallet-portfolio__list__item__price :first-child {
+  font-size: 1.5em;
+}
+.wallet-portfolio__list__item__price .--red {
+  color: var(--color-red);
+}
+.wallet-portfolio__list__item__price .green {
+  color: var(--color-light-green);
 }
 
-.wrapperEx {
-  background-color: #2e3137;
+.wrapper-main {
+  background-color: var(--color-light-grey);
   border-radius: 15px;
-  padding: 5px;
-  width: 600px;
 }
-.wrapperEx select {
+
+.sub-wrapper1 {
+  display: flex;
+  flex-wrap: wrap;
+}
+.sub-wrapper1__select select {
   font-size: x-large;
 }
-.wrapperEx .container {
-  padding: -100px;
-  margin-top: 10px;
-  margin: 2px;
-}
-.wrapperEx .card {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  width: 50px;
-  padding: 100px;
-  margin: 5px;
-  position: relative;
-  margin-top: 0px;
-}
-.wrapperEx h2 {
+.sub-wrapper1__counter h2 {
   margin: 0 50px;
   font-size: 50px;
   color: white;
 }
-.wrapperEx button {
+.sub-wrapper1__counter button {
+  margin-top: 0%;
   border-radius: 50%;
-  width: 4rem;
-  height: 4rem;
+  width: 1rem;
+  height: 1rem;
   outline: none;
   border-style: none;
-  font-size: 50px;
+  font-size: 25px;
   background-color: #bababa;
   box-shadow: 8px 8px 20px #00000027, -8px -8px -20px #969393;
 }
-.wrapperEx button:hover {
+.sub-wrapper1__counter button:hover {
   background-color: aqua;
   color: red;
   border-color: #000;
-}
-
-@media only screen and (max-width: 350px) {
-  .wrapperEx {
-    width: 300px;
-  }
 }
