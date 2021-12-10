@@ -72,11 +72,79 @@
     }
 }
 //andrew end
-
-
 //yahya alhawjra-->page exchange
+//yahya start
+.wrapper-main{
+
+}
+.sub-wrapper1{
+  background-color: var(--color-light-grey);
+  border-radius:15px ;
+  display: flex;
+  flex-wrap: wrap;
+  &__select{
+      select{
+          font-size: x-large;
+      }
+  }
+  &__counter{
+    h2 {
+        margin: 0 50px;
+        font-size: 50px;
+        color: white;
+    }
+    
+    button {
+        margin-top:0%;
+        border-radius: 50%;
+        width: 1rem;
+        height: 1rem;
+        outline: none;
+        border-style: none;
+        font-size: 25px;
+        background-color: #bababa;
+        box-shadow: 8px 8px 20px #00000027, -8px -8px -20px #969393;
+    }
+    
+    button:hover {
+        background-color: aqua;
+        color: red;
+        border-color: #000;
+    }
+    }
+    
+  
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     
-
+//yahya END
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
