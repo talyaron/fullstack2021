@@ -1,10 +1,14 @@
+@mixin flexCenter($justify, $direction) {
 
-
-@mixin flexCenter($justify, $direction){
     display: flex;
     justify-content: $justify;
     flex-direction: $direction;
     align-items: center;
+}
+
+@mixin border() {
+
+    border: 1px solid black;
 }
 
 // colors and font //
@@ -13,12 +17,15 @@ $iconscolor: rgb(62, 60, 60);
 $fontcolor: rgb(133, 122, 150);
 $primarycolor1: rgb(82, 6, 97);
 $primarycolor2: rgb(169, 38, 164);
-$mainFontFamily: 'Neue Haas Grotesk Display Pro', sans-serif; 
-$shadow: 1px 1px 1px #a8a7a7, 1px 13px 26px rgba(99, 91, 105, 0.4);
-$bgcolor: rgb(238,243,247);
+$mainFontFamily: 'Neue Haas Grotesk Display Pro',
+sans-serif;
+$shadow: 1px 1px 1px #a8a7a7,
+1px 13px 26px rgba(99, 91, 105, 0.4);
+$bgcolor: #F0F1F6;
 
 
-body{
+body {
+
     padding: 0.7em;
     font-family: $mainFontFamily;
     background-color: $bgcolor;
@@ -27,25 +34,64 @@ body{
 .schetop {
 
 
-    @include flexCenter(space-between);
+    @include flexCenter(space-between, row);
+    @include border();
+
     height: 5vh;
-    border: 0.5px solid black;
     padding-inline: 0.2em;
     color: $iconscolor;
 
-    .schetop__back{
+    &__back {
         font-size: 24px;
     }
 
 }
 
-.schetitle{
+.schetitle {
 
     @include flexCenter(center, column);
-    margin-block: 0px;
+    @include border();
 
-    h1, h2, p{
-    @include flexCenter(center, row);
+    height: 17vh;
+
+    div{
+        padding: 0px;
+        height: 20%;
+        font-size: 80%;
+        margin-bottom: 0.4em;
+        @include flexCenter(center, row);
     }
 
 }
+
+.schedatebox{
+
+    @include flexCenter(space-between, row);
+    @include border();
+    height: 7vh;
+    padding-inline: 0.5em;
+
+    h3,p{
+        @include flexCenter(center, row);
+        height: 40%;
+    }
+
+    p{
+        color: $fontcolor;
+        font-size: 80%;
+    }
+    
+}
+
+.schecards{
+
+    @include border();
+    height: 17vh;
+
+    &__cards{
+        width: 20%;
+        height: 20%;
+        background: green;
+    }
+}
+
