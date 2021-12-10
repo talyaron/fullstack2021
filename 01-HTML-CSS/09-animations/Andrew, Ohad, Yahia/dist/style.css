@@ -245,53 +245,36 @@
   color: var(--color-light-green);
 }
 
-.wrapperEx {
-  background-color: #2e3137;
+.wrapper-main {
+  background-color: var(--color-light-grey);
   border-radius: 15px;
-  padding: 5px;
-  width: 600px;
 }
-.wrapperEx select {
+
+.sub-wrapper1 {
+  display: flex;
+  flex-wrap: wrap;
+}
+.sub-wrapper1__select select {
   font-size: x-large;
 }
-.wrapperEx .container {
-  padding: -100px;
-  margin-top: 10px;
-  margin: 2px;
-}
-.wrapperEx .card {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  width: 50px;
-  padding: 100px;
-  margin: 5px;
-  position: relative;
-  margin-top: 0px;
-}
-.wrapperEx h2 {
+.sub-wrapper1__counter h2 {
   margin: 0 50px;
   font-size: 50px;
   color: white;
 }
-.wrapperEx button {
+.sub-wrapper1__counter button {
+  margin-top: 0%;
   border-radius: 50%;
-  width: 4rem;
-  height: 4rem;
+  width: 1rem;
+  height: 1rem;
   outline: none;
   border-style: none;
-  font-size: 50px;
+  font-size: 25px;
   background-color: #bababa;
   box-shadow: 8px 8px 20px #00000027, -8px -8px -20px #969393;
 }
-.wrapperEx button:hover {
+.sub-wrapper1__counter button:hover {
   background-color: aqua;
   color: red;
   border-color: #000;
-}
-
-@media only screen and (max-width: 350px) {
-  .wrapperEx {
-    width: 300px;
-  }
 }

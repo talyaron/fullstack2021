@@ -9,8 +9,73 @@
     <link rel="stylesheet" href="dist/style.css">
 </head>
 
+
 <body>
-   
+    <h1>Exchang</h1>
+   <div class="wrapper-main">
+       <div class="sub-wrapper1__select">
+            <select name="coins" id="coin">
+            <option value ="co">select coin</option>
+            <option value="co">END=$</option>
+            <option value="co">EUR-€</option>
+            <option value="co">GBP-₤</option>
+            <option value="co">ILS-₪</option>
+            <option value="co">SSP-£</option>
+            <option value="co">SYP-£</option>
+            </select>
+       </div>
+       <div class="sub-wrapper2__counter">
+            <div class="card">
+                <p></p>
+                <button onclick="decrement()">-</button>
+                <h2 id="root"></h2>
+                <button onclick="increment()">+</button>
+            </div>
+        </div>
+
+       </div>
+   </div>
+ 
+   <!--///////////////////////////////////////////////////////////////////////////-->
+
+   <div class="wrapper-main2">
+        <div class="sub-wrapper1__select">
+                <select name="coins" id="coin">
+                <option value ="co">select coin</option>
+                <option value="co">END=$</option>
+                <option value="co">EUR-€</option>
+                <option value="co">GBP-₤</option>
+                <option value="co">ILS-₪</option>
+                <option value="co">SSP-£</option>
+                <option value="co">SYP-£</option>
+                </select>
+        
+           </div>
+        </div>
+        <div class="sub-wrapper2__counter">
+                <div class="card">
+                    <p></p>
+                    <button onclick="decrement()">-</button>
+                    <h2 id="root"></h2>
+                    <button onclick="increment()">+</button>
+                </div>
+        </div>
+   </div>
+   <script>
+    var data = 0;
+    document.getElementById("root").innerText=data;
+
+    function decrement() {
+        data = data - 1;
+        document.getElementById("root").innerText=data;
+    }
+
+    function increment() {
+        data = data + 1;
+        document.getElementById("root").innerText=data;
+    }
+</script>
+
 </body>
 
 </html>
