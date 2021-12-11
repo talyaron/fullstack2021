@@ -203,209 +203,208 @@
 
 
 
-    .cartPage {
-        margin: 0;
-        padding: 0;
-        background-color: rgba(160, 156, 152, 0.192);
+.cartPage {
+    margin: 0;
+    padding: 0;
+    background-color: rgba(160, 156, 152, 0.192);
+
+
+}
+
+
+.myCart__grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(4, 20%);
+    position: relative;
+    left: 6%;
+    width: 90%;
+    height: 100vh;
+    gap: 10px;
+    background-color: rgba(241, 235, 229, 0.192);
+
+
+    &__title {
+        margin-top: 5%;
+        color: rgba(0, 0, 0, 0.774);
+        border-radius: 3%;
 
 
     }
 
 
-    .myCart__grid {
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
-        grid-template-rows: repeat(4, 20%);
-        position: relative;
-        left: 6%;
-        width: 90%;
-        height: 100vh;
-        gap: 10px;
-        background-color: rgba(241, 235, 229, 0.192);
-
-
-        &__title {
-            margin-top: 5%;
-            color: rgba(0, 0, 0, 0.774);
-            border-radius: 3%;
-
-
-        }
-
-
-        &__box {
-            background-color: rgb(255, 255, 255);
-            border-radius: 3%;
-            box-shadow: 2px 2px 10px rgb(75, 71, 71);
-            font-family: sans-serif;
-            color: rgba(0, 0, 0, 0.774);
-
-            &:hover {
-                background-color: rgba(235, 222, 222, 0.76);
-                cursor: pointer;
-            }
-
-        }
-
-        img {
-
-            position: absolute;
-            padding: 1rem;
-
-
-        }
-
-
-
-    }
-
-
-    .leftside {
-
-        position: absolute;
-        left: 7rem;
-
-
-        h3 {
-            opacity: 0.9;
-            margin-bottom: 0px;
-
-        }
-
-        p {
-            font-weight: bold;
-            margin-top: 2%;
-
-            color: rgba(0, 0, 0, 0.774);
-            opacity: 0.6;
-
-        }
-
-        input {
-            width: 3rem;
-            margin-left: 15%;
-            font-weight: bolder;
-
-        }
-
-    }
-
-    .rightside {
-        i {
-            position: absolute;
-            left: 23rem;
-            margin-top: 1rem;
-            opacity: 0.5;
-
-            &:hover {
-                opacity: 1;
-            }
-
-
-        }
-
-        h3 {
-            color: rgb(10, 156, 156);
-            position: absolute;
-            left: 20rem;
-            margin-top: 90px;
-
-        }
-    }
-
-
-
-
-    .checkout {
+    &__box {
         background-color: rgb(255, 255, 255);
-        width: 90%;
-        height: 50vh;
-        padding: 2rem;
+        border-radius: 3%;
+        box-shadow: 2px 2px 10px rgb(75, 71, 71);
         font-family: sans-serif;
         color: rgba(0, 0, 0, 0.774);
 
-        .h3 {
-            display: flex;
-            justify-content: space-between;
-
+        &:hover {
+            background-color: rgba(235, 222, 222, 0.76);
+            cursor: pointer;
         }
 
+    }
 
+    img {
 
-
-        .p {
-            font-weight: bold;
-            margin-top: 2%;
-            color: rgba(0, 0, 0, 0.774);
-            opacity: 0.6;
-            display: flex;
-            justify-content: space-between;
-
-
-        }
-
-        .h2 {
-            display: flex;
-            justify-content: space-between;
-
-        }
-
-        .buttons {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            border-radius: 3%;
-
-
-        }
-
-        .button__add {
-            background-color: white;
-            color: rgb(10, 156, 156);
-            font-weight: bold;
-            border: 2px solid rgb(10, 156, 156);
-            border-radius: 10%;
-            padding-left: 4%;
-            padding-right: 4%;
-            padding-top: 1%;
-            padding-bottom: 1%;
-
-            &:hover {
-                background-color: rgba(235, 222, 222, 0.76);
-                cursor: pointer;
-
-            }
-
-        }
-
-        .button__checkout {
-            background-color: rgb(10, 156, 156);
-            color: white;
-            font-weight: bold;
-            border: 2px solid rgb(10, 156, 156);
-            border-radius: 10%;
-            padding-left: 4%;
-            padding-right: 4%;
-            padding-top: 1%;
-            padding-bottom: 1%;
-
-            &:hover {
-                background-color: rgba(10, 156, 156, 0.637);
-                cursor: pointer;
-
-            }
-
-        }
+        position: absolute;
+        padding: 1rem;
 
 
     }
 
 
 
+}
+
+
+.leftside {
+
+    position: absolute;
+    left: 7rem;
+
+
+    h3 {
+        opacity: 0.9;
+        margin-bottom: 0px;
+
+    }
+
+    p {
+        font-weight: bold;
+        margin-top: 2%;
+
+        color: rgba(0, 0, 0, 0.774);
+        opacity: 0.6;
+
+    }
+
+    input {
+        width: 3rem;
+        margin-left: 15%;
+        font-weight: bolder;
+
+    }
+
+}
+
+.rightside {
+    i {
+        position: absolute;
+        left: 23rem;
+        margin-top: 1rem;
+        opacity: 0.5;
+
+        &:hover {
+            opacity: 1;
+        }
+
+
+    }
+
+    h3 {
+        color: rgb(10, 156, 156);
+        position: absolute;
+        left: 20rem;
+        margin-top: 90px;
+
+    }
+}
 
 
 
-//alex page 
+
+.checkout {
+    background-color: rgb(255, 255, 255);
+    width: 90%;
+    height: 50vh;
+    padding: 2rem;
+    font-family: sans-serif;
+    color: rgba(0, 0, 0, 0.774);
+
+    .h3 {
+        display: flex;
+        justify-content: space-between;
+
+    }
+
+
+
+
+    .p {
+        font-weight: bold;
+        margin-top: 2%;
+        color: rgba(0, 0, 0, 0.774);
+        opacity: 0.6;
+        display: flex;
+        justify-content: space-between;
+
+    }
+
+    .h2 {
+        display: flex;
+        justify-content: space-between;
+
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        border-radius: 3%;
+
+
+    }
+
+    .button__add {
+        background-color: white;
+        color: rgb(10, 156, 156);
+        font-weight: bold;
+        border: 2px solid rgb(10, 156, 156);
+        border-radius: 10%;
+        padding-left: 4%;
+        padding-right: 4%;
+        padding-top: 1%;
+        padding-bottom: 1%;
+
+        &:hover {
+            background-color: rgba(235, 222, 222, 0.76);
+            cursor: pointer;
+
+        }
+
+    }
+
+    .button__checkout {
+        background-color: rgb(10, 156, 156);
+        color: white;
+        font-weight: bold;
+        border: 2px solid rgb(10, 156, 156);
+        border-radius: 10%;
+        padding-left: 4%;
+        padding-right: 4%;
+        padding-top: 1%;
+        padding-bottom: 1%;
+
+        &:hover {
+            background-color: rgba(10, 156, 156, 0.637);
+            cursor: pointer;
+
+        }
+
+    }
+
+
+}
+
+
+
+
+
+
+// --- PlantCard Alex ---- //
 
 .plantCard {
     margin: 100px;
@@ -415,9 +414,9 @@
     background-image: linear-gradient(rgba(255, 0, 0, 0), rgb(217, 217, 217, 0.5));
 
 
-    @media only screen and (max-width:75ch) {
-        margin: 20px;
-    }
+    // @media only screen and (max-width:75ch) {
+    //     margin: 20px;
+    // }
 
     @media only screen and (max-width:150ch) {
         margin: 50px;

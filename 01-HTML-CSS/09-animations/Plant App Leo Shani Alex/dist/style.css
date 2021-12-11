@@ -310,11 +310,6 @@
   grid-template-rows: repeat(8, 120px);
   background-image: linear-gradient(rgba(255, 0, 0, 0), rgba(217, 217, 217, 0.5));
 }
-@media only screen and (max-width: 75ch) {
-  .plantCard {
-    margin: 20px;
-  }
-}
 @media only screen and (max-width: 150ch) {
   .plantCard {
     margin: 50px;
