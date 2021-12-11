@@ -1,3 +1,8 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
 .header_categories {
   position: relative;
   top: 0;
@@ -168,8 +173,6 @@
 
 /*Cart page- Shani*/
 .cartPage {
-  margin: 0;
-  padding: 0;
   background-color: rgba(160, 156, 152, 0.192);
 }
 
