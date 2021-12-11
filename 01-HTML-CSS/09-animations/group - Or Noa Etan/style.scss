@@ -95,6 +95,15 @@ body{
             justify-content: space-between;
         }
     }
+    .recent-box{
+        display: flex;
+        &__1{
+            height: 11rem;
+            width: 11em;
+            background-color: purple;
+        }
+        
+    }
 }
 
 main{
