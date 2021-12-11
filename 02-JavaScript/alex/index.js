@@ -1,4 +1,7 @@
-for(let i=10; i<10; i++){
-    console.log(i);
-    console.log(i*5);
+for (let x=0; x<14;x*(x-1)) {
+
+
+    console.log(x);
 }
+
+
