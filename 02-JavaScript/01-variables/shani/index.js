@@ -17,9 +17,9 @@ num1=window.prompt("Put the first number", "0");
 num2=window.prompt("Put the first number", "0");
 num3=window.prompt("Put the first number", "0");
 
-console.log("the sign is"+(Math.sign(num1)));
-console.log("the sign is"+(Math.sign(num2)));
-console.log("the sign is"+(Math.sign(num3)));
+console.log("the sign is " + (Math.sign(num1)));
+console.log("the sign is " + (Math.sign(num2)));
+console.log("the sign is " + (Math.sign(num3)));
 
 //exercise 3:
 
