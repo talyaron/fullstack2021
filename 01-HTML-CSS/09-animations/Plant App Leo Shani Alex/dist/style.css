@@ -188,9 +188,8 @@ body {
   background-color: rgba(241, 235, 229, 0.192);
 }
 .myCart__grid__title {
-  margin-top: 5%;
+  padding-top: 1rem;
   color: rgba(0, 0, 0, 0.774);
-  border-radius: 3%;
 }
 .myCart__grid__box {
   background-color: white;
@@ -304,6 +303,34 @@ body {
   cursor: pointer;
 }
 
+@media screen and (min-width: 1200px) {
+  .myCart__grid__title {
+    text-align: center;
+    font-size: calc(1rem + 0.5rem);
+  }
+  .myCart__grid__box {
+    font-size: calc(70% + 0.5rem);
+  }
+
+  .leftside input {
+    width: 4rem;
+    height: 2rem;
+  }
+
+  .checkout {
+    font-size: calc(70% + 0.5rem);
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+
+  .button__checkout {
+    font-size: calc(60% + 0.5rem);
+  }
+
+  .button__add {
+    font-size: calc(60% + 0.5rem);
+  }
+}
 .plantCard {
   margin: 100px;
   display: grid;
