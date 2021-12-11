@@ -234,7 +234,7 @@ body {
 
     &__box {
         background-color: rgb(255, 255, 255);
-        border-radius: 15%;
+        border-radius: 1rem;
         box-shadow: 2px 2px 10px rgb(75, 71, 71);
         font-family: sans-serif;
         color: rgba(0, 0, 0, 0.774);
@@ -316,8 +316,7 @@ body {
 
 
 .checkout {
-    background-color: rgb(255, 255, 255);
-    width: 90%;
+    background-color: rgb(255, 255, 255);    
     height: 50vh;
     padding: 2rem;
     font-family: sans-serif;
@@ -363,7 +362,7 @@ body {
         color: rgb(10, 156, 156);
         font-weight: bold;
         border: 2px solid rgb(10, 156, 156);
-        border-radius: 10%;
+        border-radius: 1rem;
         padding-left: 4%;
         padding-right: 4%;
         padding-top: 1%;
@@ -382,7 +381,7 @@ body {
         color: white;
         font-weight: bold;
         border: 2px solid rgb(10, 156, 156);
-        border-radius: 10%;
+        border-radius: 1rem;
         padding-left: 4%;
         padding-right: 4%;
         padding-top: 1%;
