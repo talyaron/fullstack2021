@@ -350,51 +350,52 @@
 
         }
 
-        .buttons{
-            display:flex;
-            justify-content:center;
-            gap:2rem;
-            border-radius:3%;
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            border-radius: 3%;
 
-        
+
         }
-        
-        .button__add{
-            background-color:white;
-            color:rgb(10, 156, 156);
-            font-weight:bold;
-            border:2px solid rgb(10, 156, 156);
-            border-radius:10%;
-            padding-left:4%;
-            padding-right:4%;
-            padding-top:1%;
-            padding-bottom:1%;
 
-            &:hover{
+        .button__add {
+            background-color: white;
+            color: rgb(10, 156, 156);
+            font-weight: bold;
+            border: 2px solid rgb(10, 156, 156);
+            border-radius: 10%;
+            padding-left: 4%;
+            padding-right: 4%;
+            padding-top: 1%;
+            padding-bottom: 1%;
+
+            &:hover {
                 background-color: rgba(235, 222, 222, 0.76);
                 cursor: pointer;
 
             }
-            
-          }
-        .button__checkout{
-            background-color:rgb(10, 156, 156);
-            color:white;
-            font-weight:bold;
-            border:2px solid rgb(10, 156, 156);
-            border-radius:10%;
-            padding-left:4%;
-            padding-right:4%;
-            padding-top:1%;
-            padding-bottom:1%;
 
-            &:hover{
+        }
+
+        .button__checkout {
+            background-color: rgb(10, 156, 156);
+            color: white;
+            font-weight: bold;
+            border: 2px solid rgb(10, 156, 156);
+            border-radius: 10%;
+            padding-left: 4%;
+            padding-right: 4%;
+            padding-top: 1%;
+            padding-bottom: 1%;
+
+            &:hover {
                 background-color: rgba(10, 156, 156, 0.637);
                 cursor: pointer;
 
             }
-            
-          }
+
+        }
 
 
     }
@@ -402,4 +403,107 @@
 
 
 
+}
+
+//alex page 
+.plantCard {
+    margin: 100px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(8, 120px);
+    background-image: linear-gradient(rgba(255, 0, 0, 0), rgb(217, 217, 217, 0.5));
+
+
+    @media only screen and (max-width:75ch) {
+        margin: 20px;
+    }
+
+    @media only screen and (max-width:150ch) {
+        margin: 50px;
+    }
+
+    @media only screen and (max-width:335ch) {
+        margin: 100px;
+
+    }
+
+    &__header {
+        background-color: rgb(190, 190, 190);
+    }
+
+    &__details {
+        padding: 15px;
+        grid-row: 2 / 6;
+        display: grid;
+        grid-template-columns: repeat(3, 120px);
+        grid-template-rows: repeat(4, 120px);
+
+        // @media only screen and (max-width:75ch) {
+        //     grid-template-columns: 1fr, 1fr;
+        // }
+
+        // @media only screen and (max-width:150ch) {
+        //     grid-template-columns: 3fr;
+        // }
+
+        // @media only screen and (max-width:335ch) {
+        //     grid-template-columns: 4fr;
+        // }
+
+        &__header {
+            grid-column: 1 /4;
+            grid-row: 1 / 2;
+        }
+
+        &--picture {
+            // border: 1px solid black;
+            grid-column: 2 / 4;
+            grid-row: 2 / 5;
+
+            & img {
+                // border: 1px solid black;
+                margin: auto;
+                max-width: 75%;
+                margin-left: 30%;
+            }
+        }
+
+        &__type {
+            grid-column: 1 / 2;
+
+            grid-row: 2 / 3;
+
+
+            &__01 {
+
+                color: rgb(53, 123, 0);
+
+                h3 {
+                    color: gray;
+                }
+            }
+        }
+    }
+
+    &__about {
+        margin-top: 60px;
+        margin-bottom: 10px;
+        background-color: white;
+        padding: 15px;
+        grid-row: 6 / 8;
+
+        &--icons {
+            gap: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+
+            // grid-template-columns: repeat(3, 120px);
+            // grid-template-rows: repeat(4, 120px);
+        }
+    }
+
+    &__cartPrice {
+        color: rgb(255, 98, 0);
+    }
 }
