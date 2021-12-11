@@ -423,110 +423,109 @@ body {
 
 
 
+}
 
 
+// --- PlantCard Alex ---- //
 
-    // --- PlantCard Alex ---- //
+.plantCard {
+    margin: 100px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(8, 120px);
+    background-image: linear-gradient(rgba(255, 0, 0, 0), rgb(217, 217, 217, 0.5));
 
-    .plantCard {
+
+    // @media only screen and (max-width:75ch) {
+    //     margin: 20px;
+    // }
+
+    @media only screen and (max-width:150ch) {
+        margin: 50px;
+    }
+
+    @media only screen and (max-width:335ch) {
         margin: 100px;
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(8, 120px);
-        background-image: linear-gradient(rgba(255, 0, 0, 0), rgb(217, 217, 217, 0.5));
 
+    }
+
+    &__header {
+        background-color: rgb(190, 190, 190);
+    }
+
+    &__details {
+        padding: 15px;
+        grid-row: 2 / 6;
+        display: grid;
+        grid-template-columns: repeat(3, 120px);
+        grid-template-rows: repeat(4, 120px);
 
         // @media only screen and (max-width:75ch) {
-        //     margin: 20px;
+        //     grid-template-columns: 1fr, 1fr;
         // }
 
-        @media only screen and (max-width:150ch) {
-            margin: 50px;
-        }
+        // @media only screen and (max-width:150ch) {
+        //     grid-template-columns: 3fr;
+        // }
 
-        @media only screen and (max-width:335ch) {
-            margin: 100px;
-
-        }
+        // @media only screen and (max-width:335ch) {
+        //     grid-template-columns: 4fr;
+        // }
 
         &__header {
-            background-color: rgb(190, 190, 190);
+            grid-column: 1 /4;
+            grid-row: 1 / 2;
         }
 
-        &__details {
-            padding: 15px;
-            grid-row: 2 / 6;
-            display: grid;
-            grid-template-columns: repeat(3, 120px);
-            grid-template-rows: repeat(4, 120px);
+        &--picture {
+            // border: 1px solid black;
+            grid-column: 2 / 4;
+            grid-row: 2 / 5;
 
-            // @media only screen and (max-width:75ch) {
-            //     grid-template-columns: 1fr, 1fr;
-            // }
-
-            // @media only screen and (max-width:150ch) {
-            //     grid-template-columns: 3fr;
-            // }
-
-            // @media only screen and (max-width:335ch) {
-            //     grid-template-columns: 4fr;
-            // }
-
-            &__header {
-                grid-column: 1 /4;
-                grid-row: 1 / 2;
-            }
-
-            &--picture {
+            & img {
                 // border: 1px solid black;
-                grid-column: 2 / 4;
-                grid-row: 2 / 5;
-
-                & img {
-                    // border: 1px solid black;
-                    margin: auto;
-                    max-width: 75%;
-                    margin-left: 30%;
-                }
+                margin: auto;
+                max-width: 75%;
+                margin-left: 30%;
             }
+        }
 
-            &__type {
-                grid-column: 1 / 2;
+        &__type {
+            grid-column: 1 / 2;
 
-                grid-row: 2 / 3;
+            grid-row: 2 / 3;
 
 
-                &__01 {
+            &__01 {
 
-                    color: rgb(53, 123, 0);
+                color: rgb(53, 123, 0);
 
-                    h3 {
-                        color: gray;
-                    }
+                h3 {
+                    color: gray;
                 }
             }
         }
+    }
 
-        &__about {
-            margin-top: 60px;
-            margin-bottom: 10px;
-            background-color: white;
-            padding: 15px;
-            grid-row: 6 / 8;
+    &__about {
+        margin-top: 60px;
+        margin-bottom: 10px;
+        background-color: white;
+        padding: 15px;
+        grid-row: 6 / 8;
 
-            &--icons {
-                gap: 30px;
-                display: flex;
-                align-items: center;
-                justify-content: space-evenly;
+        &--icons {
+            gap: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
 
-                // grid-template-columns: repeat(3, 120px);
-                // grid-template-rows: repeat(4, 120px);
-            }
+            // grid-template-columns: repeat(3, 120px);
+            // grid-template-rows: repeat(4, 120px);
         }
+    }
 
-        &__cartPrice {
-            color: rgb(255, 98, 0);
-        }
+    &__cartPrice {
+        color: rgb(255, 98, 0);
     }
 }

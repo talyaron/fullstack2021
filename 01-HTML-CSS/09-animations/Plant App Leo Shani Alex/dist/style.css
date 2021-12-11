@@ -317,7 +317,8 @@ body {
   background-color: rgba(10, 156, 156, 0.637);
   cursor: pointer;
 }
-.myCart__grid .plantCard {
+
+.plantCard {
   margin: 100px;
   display: grid;
   grid-template-columns: 1fr;
@@ -325,61 +326,61 @@ body {
   background-image: linear-gradient(rgba(255, 0, 0, 0), rgba(217, 217, 217, 0.5));
 }
 @media only screen and (max-width: 150ch) {
-  .myCart__grid .plantCard {
+  .plantCard {
     margin: 50px;
   }
 }
 @media only screen and (max-width: 335ch) {
-  .myCart__grid .plantCard {
+  .plantCard {
     margin: 100px;
   }
 }
-.myCart__grid .plantCard__header {
+.plantCard__header {
   background-color: #bebebe;
 }
-.myCart__grid .plantCard__details {
+.plantCard__details {
   padding: 15px;
   grid-row: 2/6;
   display: grid;
   grid-template-columns: repeat(3, 120px);
   grid-template-rows: repeat(4, 120px);
 }
-.myCart__grid .plantCard__details__header {
+.plantCard__details__header {
   grid-column: 1/4;
   grid-row: 1/2;
 }
-.myCart__grid .plantCard__details--picture {
+.plantCard__details--picture {
   grid-column: 2/4;
   grid-row: 2/5;
 }
-.myCart__grid .plantCard__details--picture img {
+.plantCard__details--picture img {
   margin: auto;
   max-width: 75%;
   margin-left: 30%;
 }
-.myCart__grid .plantCard__details__type {
+.plantCard__details__type {
   grid-column: 1/2;
   grid-row: 2/3;
 }
-.myCart__grid .plantCard__details__type__01 {
+.plantCard__details__type__01 {
   color: #357b00;
 }
-.myCart__grid .plantCard__details__type__01 h3 {
+.plantCard__details__type__01 h3 {
   color: gray;
 }
-.myCart__grid .plantCard__about {
+.plantCard__about {
   margin-top: 60px;
   margin-bottom: 10px;
   background-color: white;
   padding: 15px;
   grid-row: 6/8;
 }
-.myCart__grid .plantCard__about--icons {
+.plantCard__about--icons {
   gap: 30px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
 }
-.myCart__grid .plantCard__cartPrice {
+.plantCard__cartPrice {
   color: #ff6200;
 }
