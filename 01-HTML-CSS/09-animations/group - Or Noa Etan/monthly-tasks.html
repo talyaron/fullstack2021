@@ -12,6 +12,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
     <title>Monthly Tasks</title>
+    <script src="https://code.iconify.design/2/2.1.0/iconify.min.js"></script>
 </head>
 
 <body>
@@ -36,6 +37,7 @@
                 <h1>my tasks</h1>
                 <h3>9</h3>
             </div>
+            
         </div>
         <main>
             <div id="landing__task-count">
@@ -91,8 +93,8 @@
                     <div id="box__flex">
                     <div class="box__header">
                         <p class="box__logo logo-blue">Bē</p>
-                        <div>
-                            <p class="box__title">portfolio</p>
+                        <div class="box__title"> 
+                            <p>portfolio</p>
                             <p class="box__urg">high</p>
                         </div>
                     </div>
@@ -104,10 +106,18 @@
                     </div>
                 </div>
     </div>
-    <div id="task__descr"></div>
-    <div id="task__cal"></div>
-    </main>
+    <div id="landing__task__descr">
+        <span id="landing__task__descr__logo" class="iconify" data-icon="majesticons:pencil-line" data-width ="24"></span>
+        <div id="landing__task__descr__text">
+            <h3>Description</h3>
+            <p>create subtasks for the ...</p>
+        </div>
+        <span class="iconify" data-icon="ic:baseline-navigate-next" data-width="20" ></span>
     </div>
+    <div id="landing__task__cal"></div>
+</div>
+    </main>
+    
 
 </body>
 

@@ -57,11 +57,21 @@ nav ul li a i:hover {
   flex-direction: row;
   justify-content: space-between;
   padding-inline: 2rem;
-  max-width: 90vw;
+  max-width: 100vw;
 }
 #control__mytasks {
   display: flex;
+  padding-inline: 2rem;
   flex-direction: row;
+  right: 20vw;
+}
+#control__mytasks > h3 {
+  color: #F0F0F2;
+  background: #141414;
+  padding: 1rem;
+  justify-self: flex-start;
+  margin-left: 1rem;
+  border-radius: 7px;
 }
 #control__nav {
   align-self: center;
@@ -71,14 +81,6 @@ nav ul li a i:hover {
 }
 #control__nav__toggle:checked ~ nav {
   display: block;
-}
-#control h3 {
-  color: #F0F0F2;
-  background: #141414;
-  padding: 1rem;
-  align-self: flex-start;
-  margin-left: 1rem;
-  border-radius: 7px;
 }
 
 @media only screen and (min-width: 600px) {
@@ -102,6 +104,9 @@ nav ul li a i:hover {
     display: inline;
   }
 
+  #control {
+    max-width: 100%;
+  }
   #control__mytasks {
     display: none;
   }
