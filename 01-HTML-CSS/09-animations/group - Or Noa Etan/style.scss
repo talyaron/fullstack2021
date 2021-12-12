@@ -1,14 +1,14 @@
 body {
   display: flex;
-  background: #eee;  
+  background: #eee;
   height: auto;
 }
 #landing {
-padding-top: 1.5rem ;
+  padding-top: 1.5rem;
   width: 100vw;
   height: 100%;
-margin: auto;
-  background-color: rgb(114, 95, 95);
+  margin: auto;
+  background-color: #f0f0f2;
 
   &-home {
     height: 100vh;
@@ -51,7 +51,6 @@ margin: auto;
     &__task {
       display: flex;
       flex-direction: column;
-      font-weight: bold;
 
       .task {
         display: flex;
@@ -95,10 +94,10 @@ margin: auto;
   &__task {
     &-count {
       display: flex;
-      padding-left: 1.5rem ;
+      padding-left: 1.5rem;
       flex-direction: row;
       width: 100vw;
-      background: #aaeffa;
+      background: #f0f0f2;
       height: fit-content;
       overflow-y: scroll;
 
@@ -107,48 +106,92 @@ margin: auto;
         padding-top: 3rem;
       }
 
-      
       .box {
         box-sizing: content-box;
-        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
-          rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
-          rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-        justify-content: center;
+
         font-family: "Poppins", sans-serif;
         text-transform: capitalize;
         background: white;
         border-radius: 0.5rem;
-        padding: 0rem 1rem 1rem 2rem;
-        min-width: 20ch;
+        padding: 0rem 0rem 1rem 1.5rem;
+        min-width: 18ch;
         height: auto;
-        margin: .8rem;
+        margin: 0.8rem;
         height: auto;
-        
+        align-items: center;
+        justify-content: center;
 
         &__flex {
-            justify-content: center;
+          justify-content: center;
           display: flex;
           flex-direction: column;
           margin: 0;
           padding: 0;
+          line-height: 0.1ch;
         }
         &__header {
           display: flex;
           flex-direction: row;
-          justify-items: center;
         }
         &__title {
-          display: grid;
-          justify-content: center;
-        }
-        &__logo {
-          font-weight: bolder 700;
-          font-size: 1.5rem;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          line-height: 1.5rem;
 
-          margin-right: 1rem;
-          background-color: powderblue;
-          padding: 0.7rem;
-          border-radius: 0.5rem;
+          &-text {
+            margin-top: 1.5rem;
+            margin-bottom: 0;
+            font-weight: 600;
+            font-size: 1rem;
+          }
+          &-urg {
+            opacity: 50%;
+            margin-bottom: 0;
+            margin-top: 0.5ch;
+            font-size: 0.8rem;
+            font-weight: 200;
+          }
+        }
+
+        &__logo {
+          font-weight: 700;
+          font-size: 1.5rem;
+          margin: 0;
+          &-square {
+            width: 3ch;
+            height: 3ch;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            text-align: center;
+            margin-top: 1.5rem;
+            margin-right: 1.5rem;
+            padding: 0.7rem;
+            align-self: center;
+          }
+        }
+        .blue {
+          background-color: #a7ebf2;
+        }
+        .orange {
+          background-color: #f2b694;
+        }
+        &__expln {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          line-height: 1.5rem;
+          h4 {
+            margin-top: 1.5rem;
+            margin-bottom: 0;
+            font-weight: 600 bold;
+            font-size: 1.1rem;
+          }
+          &-transp {
+            opacity: 30%;
+            margin-bottom: 0;
+            margin-top: 0.5ch;
+          }
         }
       }
     }
@@ -165,6 +208,10 @@ margin: auto;
       align-items: center;
       padding: 1.5rem;
       margin: 2rem;
+      background-color: #f0f0f2;
+      &:hover {
+        cursor: pointer;
+      }
 
       @media only screen and (min-width: 600px) {
         max-width: 100%;
@@ -183,15 +230,101 @@ margin: auto;
         }
       }
     }
+    &__cal {
+      margin-left: 1.5rem;
+      padding: 0;
+      box-sizing: border-box;
+      
+      font-size: 62.5%;
+      width: fit-content;
+      height: fit-content;
+      background-color: #1212;
+      color: #eee;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-transform: capitalize;
+
+      &__flex {
+        width: 26rem;
+        height: 20rem;
+        background-color: #222227;
+        box-shadow: 0.5 rem 3 rem rgba($color: #000000, $alpha: 0.4);
+      }
+      &__month {
+        height: 6rem;
+        background-color: #167e56;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 1rem;
+        text-align: center;
+        text-shadow: 0.15rem 0.25rem rgba(0, 0, 0, 0.5);
+        i {
+          font-size: 1.25rem;
+          cursor: pointer;
+          
+        }
+        h1 {
+          font-size: 1.5rem;
+          font-weight: 400;
+          text-transform: uppercase;
+          letter-spacing: 0.1rem;
+          margin-bottom: .5rem;
+        }
+        p {
+          font-size: .8rem;
+        }
+      }
+      &__date {
+      }
+      &__weekdays {
+        width: 100%;
+        height: 2.5rem;
+        padding: 0 0.2rem;
+        display: flex;
+        align-items: center;
+
+        div {
+          font-size: .75 rem;
+          font-weight: 400;
+          letter-spacing: 0.05rem;
+          width: calc(22.1rem / 7);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          text-shadow: 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
+        }
+      }
+      &__days {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0.1rem;
+        div {
+          font-size: .7rem;
+          margin: 0.15rem;
+          width: calc(20.1rem / 7);
+          height: 2rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          text-shadow: 0.15rem 0.25rem rgba(0, 0, 0, 0.5);
+        }
+        .prev-date,.next-date{
+          opacity: .5;      
+        }
+      }
+    }
   }
 }
 
 main {
-    
   display: flex;
   width: 100%;
   height: 100vh;
   flex-direction: column;
   align-self: center;
   overflow-y: hidden;
+  background-color: #f0f0f2;
 }
