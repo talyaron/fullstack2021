@@ -26,12 +26,12 @@
         <div id="control">
             <div id="control__nav">
                 <label for="control__nav__toggle" class="control__nav__toggle__label">
-                    <span class="material-icons">menu</span>
+                    <span class="material-icons">menu fries</span>
                 </label>
                 <input type="checkbox" id="control__nav__toggle">
                 <nav class="hidden">
                     <ul>
-                        <li><a href="home.html"><i class="material-icons ">home</i></a></li>
+                        <li><a href="home.html"><i class="material-icons">home</i></a></li>
                         <li><a href="info.html"><i class="material-icons md-40 white-color">email</i></a></li>
                         <li><a href="#"><i class="material-icons white-color">pie_chart</i></a></li>
                         <li id="monthly-tasks"><a href="monthly-tasks.html"><i
@@ -198,7 +198,7 @@
             </div>
             <div id="landing__task__descr">
                 <span id="landing__task__descr__logo" class="iconify" data-icon="majesticons:pencil-line"
-                    data-width="24"></span>
+                    data-width="24" style="opacity: .7;"></span>
                 <div id="landing__task__descr__text">
                     <h3>Description</h3>
                     <p>create subtasks for the ...</p>
@@ -206,15 +206,12 @@
                 <span class="iconify" data-icon="ic:baseline-navigate-next" data-width="20"></span>
             </div>
             <div id="landing__task__cal">
+                <div id="landing__task__cal__title">
+                    <span class="iconify md-24" data-icon="mdi:calendar-range"></span>
+                    <h1>recent activity</h1>
+                    <i class="fas fa-caret-down"></i>
+                </div>
                 <div id="landing__task__cal__flex">
-                    <div id="landing__task__cal__month">
-                        <i class="fas fa-angle-left"></i>
-                        <div id="landing__task__cal__date">
-                            <h1>december</h1>
-                            <p>mon dec 27, 2021</p>
-                        </div>
-                        <i class="fas fa-angle-right next"></i>
-                    </div>
                     <div id="landing__task__cal__weekdays">
                         <div>sun</div>
                         <div>mon</div>
@@ -249,12 +246,21 @@
                         <div>19</div>
                         <div>20</div>
                         <div>21</div>
-                        <div>22</div>
+                        <div class="assigned">
+                            <p>22</p>
+                            <span class="iconify md-18" data-icon="entypo:dots-two-horizontal" style="color: rgb(34, 19, 19)"></span>
+                        </div>
                         <div>23</div>
                         <div>24</div>
-                        <div>25</div>
+                        <div class="assigned">
+                            <p>25</p>
+                            <span class="iconify md-18" data-icon="entypo:dot-single"></span>
+                        </div>
                         <div>26</div>
-                        <div>27</div>
+                        <div class="today">
+                            <p>27</p>
+                            <span class="iconify md-18" data-icon="entypo:dots-three-horizontal" style="color: gold"></span>
+                        </div>
                         <div>28</div>
                         <div>29</div>
                         <div>30</div>

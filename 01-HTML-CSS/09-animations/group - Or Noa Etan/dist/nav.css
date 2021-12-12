@@ -116,7 +116,7 @@ nav ul li a i:hover {
   }
 
   #control {
-    max-width: 100%;
+    max-width: 100vw;
   }
   #control__mytasks {
     display: none;
