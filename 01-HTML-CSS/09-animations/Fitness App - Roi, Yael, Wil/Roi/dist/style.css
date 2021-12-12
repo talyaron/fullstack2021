@@ -1,5 +1,6 @@
 body {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  background-color: black;
 }
 
 .Container {
@@ -11,23 +12,73 @@ body {
   grid-gap: 0.2rem;
 }
 .Container__Header {
-  background-color: #cadfc0;
+  border: 1px solid red;
   grid-area: Header;
 }
+.Container__Header__HContent {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 20% auto 20%;
+  border: 1px solid red;
+}
+.Container__Header__HContent__Avatar {
+  display: grid;
+  border: 1px solid red;
+  justify-content: center;
+  align-items: center;
+}
+.Container__Header__HContent__Avatar img {
+  width: 70px;
+  height: 70px;
+}
+.Container__Header__HContent__Welcome {
+  display: grid;
+  color: white;
+  align-items: center;
+}
+.Container__Header__HContent__MenuBtn {
+  display: grid;
+  border: 1px solid red;
+  justify-content: center;
+  align-items: center;
+}
+.Container__Header__HContent__MenuBtn img {
+  width: 70px;
+  height: 70px;
+}
 .Container__Navbar {
-  background-color: #c0d3df;
+  border: 1px solid red;
+  color: white;
   grid-area: Navbar;
 }
+.Container__Navbar__NContent {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  border: 1px solid red;
+}
+.Container__Navbar__NContent--Navbtn {
+  display: grid;
+  height: 100px;
+  text-align: center;
+  border: 1px solid red;
+}
+.Container__Navbar__NContent--Navbtn img {
+  height: 50px;
+  width: 50px;
+}
 .Container__Roi {
-  background-color: #dfcfc0;
+  border: 1px solid red;
+  color: white;
   grid-area: Roi;
 }
 .Container__Wil {
-  background-color: #dfcfc0;
+  border: 1px solid red;
+  color: white;
   grid-area: Wil;
 }
 .Container__Yael {
-  background-color: #dfcfc0;
+  border: 1px solid red;
+  color: white;
   grid-area: Yael;
 }
 

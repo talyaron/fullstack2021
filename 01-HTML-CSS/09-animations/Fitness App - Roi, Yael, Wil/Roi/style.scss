@@ -1,5 +1,6 @@
 body {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: black;
 }
 
 .Container {
@@ -13,27 +14,87 @@ body {
     grid-gap:0.2rem;
 
     &__Header {
-        background-color:rgb(202, 223, 192);
+        border:1px solid red;
         grid-area:Header;
+        
+        &__HContent {
+            height: 100%;
+            display: grid;
+            grid-template-columns: 20% auto 20%;
+            border: 1px solid red;
+
+            &__Avatar {
+                display: grid;
+                border: 1px solid red;
+                justify-content: center;
+                align-items: center;
+                
+                img {
+                    width: 70px;
+                    height: 70px;
+                }
+            }
+
+            &__Welcome {
+                display: grid;
+                color:white;
+                align-items: center;
+            }
+            
+            &__MenuBtn {
+                display: grid;
+                border: 1px solid red;
+                justify-content: center;
+                align-items: center;
+                
+                img {
+                    width: 70px;
+                    height: 70px;
+                }
+            }
+        }
     }
     &__Navbar {
-        background-color:rgb(192, 211, 223);
+        border:1px solid red;
+        color: white;
         grid-area:Navbar;
-    }
+
+        &__NContent {
+            display:grid;
+            grid-template-rows: 1fr 1fr 1fr 1fr;
+            border: 1px solid red;
+
+                &--Navbtn {
+                    display: grid;
+                    height: 100px;
+                    text-align: center;
+                    border: 1px solid red;
+
+                    img {
+                        height: 50px;
+                        width: 50px;
+                    }
+                }
+            }
+        }
+
     &__Roi {
-        background-color:rgb(223, 207, 192);
+        border:1px solid red;
+        color: white;
         grid-area:Roi;
     }
     &__Wil {
-        background-color:rgb(223, 207, 192);
+        border:1px solid red;
+        color: white;
         grid-area:Wil;
     }
     &__Yael {
-        background-color:rgb(223, 207, 192);
+        border:1px solid red;
+        color: white;
         grid-area:Yael;
     }
-}
 
+}
 @media only screen and (max-width:1000px) {
     
     .Container {
