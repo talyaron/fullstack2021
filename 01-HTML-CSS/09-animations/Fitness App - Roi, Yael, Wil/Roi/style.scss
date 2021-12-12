@@ -1,0 +1,22 @@
+.MainWrapper {
+  width: 40vw;
+  height:90vh;
+  border-radius: 40px;
+  background-color: #030203;
+  margin:auto;
+  display: grid;
+  grid-template-rows: 10% auto 10%;
+
+  &__Header {
+      display: grid;
+      border: 1px solid red;
+  }
+  &__Content {
+      display: grid;
+      border: 1px solid red;
+  }
+  &__NavBar {
+      display: grid;
+      border: 1px solid red;
+  }
+}

@@ -6,7 +6,7 @@ body {
 }
 
 #landing {
-  max-width: 576px;
+  width: 576px;
   height: 1224px;
   margin: auto;
   background-color: red;
@@ -77,6 +77,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+#landing-home .recent-box {
+  display: flex;
+}
+#landing-home .recent-box__1 {
+  height: 11rem;
+  width: 11em;
+  background-color: purple;
 }
 
 main {
