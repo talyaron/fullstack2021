@@ -58,24 +58,7 @@ body {
         border:1px solid red;
         color: white;
         grid-area:Navbar;
-
-        &__NContent {
-            display:grid;
-            grid-template-rows: 1fr 1fr 1fr 1fr;
-            border: 1px solid red;
-
-                &--Navbtn {
-                    display: grid;
-                    height: 100px;
-                    text-align: center;
-                    border: 1px solid red;
-
-                    img {
-                        height: 50px;
-                        width: 50px;
-                    }
-                }
-            }
+        
         }
 
     &__Roi {

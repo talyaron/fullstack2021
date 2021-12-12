@@ -51,21 +51,6 @@ body {
   color: white;
   grid-area: Navbar;
 }
-.Container__Navbar__NContent {
-  display: grid;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
-  border: 1px solid red;
-}
-.Container__Navbar__NContent--Navbtn {
-  display: grid;
-  height: 100px;
-  text-align: center;
-  border: 1px solid red;
-}
-.Container__Navbar__NContent--Navbtn img {
-  height: 50px;
-  width: 50px;
-}
 .Container__Roi {
   border: 1px solid red;
   color: white;
