@@ -13,22 +13,16 @@ for(let i = 0; i<10; i += 3){
 
 
 
-//let x,y;{
-//x = window.prompt("input numer");
-//y = window.prompt("input another number");
-//if (y < x) 
-// console.log(  "this is a big number:" +x )
+let x,y;{
+x = window.prompt("input numer");
+y = window.prompt("input another number")
+if (y < x) 
+ console.log(  "this is a big number:" +x )
 
+if (x <y) 
+console.log( "this is a big number:" +y )
 
-//if (x <y) 
-//
-
-
-
-
-//console.log( "this is a big number:" +y )
-
-//}
+}
 
 
 // let a, b, z;//
@@ -100,16 +94,16 @@ if (h > i &&h>f  &&h> j &&h>k)
   console.log ("nothing")
 }
 
-for (var x=0; x<=15; x++) {
+for (var n=0; x<=15; x++);{
 
-    if (x == 0) {
+    if (n == 0) {
         console.log(x +  " is even");
 }
-else if (x % 2 == 0) {
-        console.log(x + " is even");   
+else if (n % 2 == 0) {
+        console.log(n + " is even");   
 }
 else {
-        console.log(x + " is odd");
+        console.log(n + " is odd");
 }
 }
 
@@ -139,3 +133,4 @@ let i = 0; i<101; {
         console.log('Buzz')}
     }
     
+   
