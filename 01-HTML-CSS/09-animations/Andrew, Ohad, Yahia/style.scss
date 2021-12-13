@@ -1,5 +1,5 @@
 //Andrew Start
-:root{
+:root {
     --color-dark-grey: #22282c;
     --color-mid-grey: #2E3137;
     --color-light-grey: #383C3F;
@@ -15,144 +15,348 @@
     color: var(--color-white);
     font-family: Arial, Helvetica, sans-serif;
 }
-.header{
+
+.header {
     display: flex;
     justify-content: space-between;
-    &__icon{
+
+    &__icon {
         border: 1px solid var(--color-light-grey);
         border-radius: 5px;
         width: 30px;
         height: 30px;
+        background-color: var(--color-dark-grey);
     }
-    &__item{
-        border-radius: 5px;
-    }
-}
-.wallet-banner{
-    display: flex;
-    height: 25px;
-    &__item{
-        border-radius: 5px;
-        background-color: var(--color-light-grey);
-    }
-}
-.wallet-value{
-    width: 600px;
-    height: 600px;
-    position: relative;
-    &__avrage{
-        position: absolute;
-        top: 0px;
-        left: 0px;
-    }
-    &__max{
-        position: absolute;
-        top: 0px;
-        right: 0px;
-        font-weight: 900;
-        &::after{
-            position: absolute;
-            content: 'MAX 24H';
-            top: 1.7em;
-            right: 0px;
-            font-weight: 100;
-            color: var(--color-lighter-grey);
-        }
-    }
-    &__graph{
+
+    &__item {
+        color: var(--color-white);
         
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        border: 3px solid var(--color-red);
-        border-radius: 50%;
-        height: 600px;
-        h1{
-            position: relative;
-            &::before{
-                content: 'WALLET VALUE';
-                width: 22ch;
-                position: absolute;
-                color: var(--color-lighter-grey);
-                bottom: 3em;
-                text-align: center;
-                font-size: 0.5em;
-            }
-            &::after{
-                content: '▲ € 31.800,52 (21,1%)';
-                width: 20ch;
-                position: absolute;
-                font-size: 0.5em;
-                color: var(--color-light-green);
-                top: 3em;
-                text-align: center;
-            }
-        }
-        
+        border-radius: 5px;
+        background-color: var(--color-dark-grey);
     }
 }
-//andrew end
 
-
-//yahya alhawjra-->page exchange
-.wrapperEx{
-    background-color: #2e3137;
-    border-radius: 15px;
-    padding: 5px;
-    width: 600px;
-    
-   select{
-       font-size:x-large;
-   }
- .container{
-    padding: -100px;
-    margin-top: 10px;
-    margin: 2px;
-}
-
-.card {
-
+.footer{
     display: flex;
     justify-content: center;
-    text-align: center;
-    width: 50px;
-    padding: 100px;
-    margin: 5px;
-    position: relative;
-    margin-top: 0px;
+    position: fixed;
+    bottom: 20px;
+    height: 120px;
+    background-color: var(--color-light-grey);
     
-   
+    border-radius: 20px;
+    margin: 4vw;
+    &-container{
+        width: 640px;
+        display: flex;
+        justify-content: space-evenly;
+        color: var(--color-lighter-grey);
+        font-size: 1.2rem;
+        *{
+            padding: 10px;
+        }
+        &__market{
+            position: relative;
+            svg{
+                height: 50px;
+                fill: var(--color-lighter-grey);
+            }
+            &::after{
+                content: 'Market';
+                position: absolute;
+                bottom: 15px;
+                left: 16px;
+            }
+        }
+        &__exchange{
+            position: relative;
+            width: 90px;
+            svg{
+                position: absolute;
+                top: -45px;
+                right: 0px;
+                width: 90px;
+                fill: var(--color-lighter-grey);
+                .st1{
+                    fill: #bababa;
+                }
+                .st2{
+                    fill: var(--color-white);
+                    filter: drop-shadow( 2px 0px #7E8082 );
+                }
+            }
+            &::after{
+                content: 'Exchange';
+                position: absolute;
+                bottom: 15px;
+                left: 12px;
+            }
+        }
+        &__wallet{
+            position: relative;
+            svg{
+                height: 50px;
+                fill: var(--color-lighter-grey);
+            }
+            &::after{
+                content: 'Wallet';
+                position: absolute;
+                bottom: 15px;
+                left: 23px;
+            }
+        }
+    }
 }
 
-h2 {
-    margin: 0 50px;
-    font-size: 50px;
-    color: white;
-}
-
-button {
-    border-radius: 50%;
-    width: 4rem;
-    height: 4rem;
-    outline: none;
-    border-style: none;
-    font-size: 50px;
-    background-color: #bababa;
-    box-shadow: 8px 8px 20px #00000027, -8px -8px -20px #969393;
-}
-
-button:hover {
-    background-color: aqua;
-    color: red;
-    border-color: #000;
-}
-}
-@media only screen and(max-width:350px){
-    .wrapperEx{
-        width: 300px;
+.wallet {
+    width: 640px;
+    margin: 15px;
+    &-banner {
+        display: flex;
+        height: 70px;
+        width: 600px;
+        overflow: hidden;
+        &__item {
+            border-radius: 5px;
+            background-color: var(--color-light-grey);
+            margin: 1rem;
+            width: 50ch;
+            text-align: center;
+            padding-block: 0.6em;
+        }
     }
 
-    
+    &-value {
+        width: 600px;
+        height: 600px;
+        position: relative;
+
+        &__avrage {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            word-spacing: 0.7em;
+            span{
+                color: var(--color-lighter-grey);
+            }
+        }
+
+        &__max {
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            font-weight: 900;
+
+            &::after {
+                position: absolute;
+                content: 'MAX 24H';
+                top: 1.7em;
+                right: 0px;
+                font-weight: 100;
+                color: var(--color-lighter-grey);
+            }
+        }
+
+        &__graph {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            height: 600px;
+            svg{
+                width: 85%;
+                height: 85%;
+            }
+            h1 {
+                font-size: 3rem;
+                position: absolute;
+                top: 42%;
+                &::before {
+                    content: 'WALLET VALUE';
+                    width: 26ch;
+                    position: absolute;
+                    font-size: 0.4em;
+                    color: var(--color-lighter-grey);
+                    bottom: 5rem;
+                    text-align: center;
+                }
+
+                &::after {
+                    content: '▲ € 31.800,52 (21,1%)';
+                    width: 20ch;
+                    position: absolute;
+                    font-size: 0.4em;
+                    color: var(--color-light-green);
+                    top: 5rem;
+                    left: 4ch;
+                }
+            }
+
+        }
+    }
+
+    &-portfolio {
+        &__title {
+            
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            h2 {
+                font-weight: 100;
+            }
+
+            &__indicators {
+                color: var(--color-lighter-grey);
+                font-size: 0.8rem;
+                word-spacing: 1em;
+            }
+        }
+
+        &__list{
+            display: flex;
+            flex-direction: column;
+            
+            &__item{
+                display: flex;
+                justify-content: space-between;
+                &__icon{
+                    background-color: var(--color-mid-grey);
+                    border-radius: 25%;
+                    width: 75px;
+                    height: 75px;
+                    margin: 10px;
+                    svg{
+                        margin: 12.5px;
+                        width: 50px;
+                        fill: var(--color-white);
+                    }
+                }
+
+                &__name{
+                    margin: 1rem;
+                    font-size: 1.5rem;
+                    line-height: 0rem;
+                    :last-child{
+                        font-size: 0.7em;
+                    }
+                }
+
+                &__graph{
+                    position: relative;
+                    width: 250px;
+                    height: 90px;
+                    overflow: hidden;
+                    //border: 1px solid var(--color-light-grey);
+                    img{
+                        position: absolute;
+                        width: 350px;
+                        height: 200px;
+                        bottom: -30px;
+                    }
+                }
+
+                &__price{
+                    margin: 1rem;
+                    text-align: end;
+                    line-height: 0em;
+                    font-weight: 600;
+                    :first-child{
+                        font-size: 1.5em;
+                    }
+                    .--red{
+                        color: var(--color-red);
+                    }
+                    .green{
+                        color: var(--color-light-green);
+                    }
+                }
+            } 
+            &__spacer{
+                height: 200px;
+            }  
+        }
+    }
 }
+
+//andrew end
+//yahya alhawjra-->page exchange
+//yahya start
+.wrapper-main{
+background-color: var(--color-light-grey);
+border-radius:15px ;
+}
+.sub-wrapper1{
+  
+  display: flex;
+  flex-wrap: wrap;
+  &__select{
+      select{
+          font-size: x-large;
+      }
+  }
+  &__counter{
+    h2 {
+        margin: 0 50px;
+        font-size: 50px;
+        color: white;
+    }
+    
+    button {
+        margin-top:0%;
+        border-radius: 50%;
+        width: 1rem;
+        height: 1rem;
+        outline: none;
+        border-style: none;
+        font-size: 25px;
+        background-color: #bababa;
+        box-shadow: 8px 8px 20px #00000027, -8px -8px -20px #969393;
+    }
+    
+    button:hover {
+        background-color: aqua;
+        color: red;
+        border-color: #000;
+    }
+    }
+    
+  
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+//yahya END
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
