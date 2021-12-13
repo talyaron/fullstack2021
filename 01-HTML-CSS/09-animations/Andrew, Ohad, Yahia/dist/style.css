@@ -10,6 +10,16 @@
   --color-dark-green: #303A37;
   --color-light-green: #89A290;
   --color-red: #BB615D;
+  --color-rose: #F4C462;
+  --color-avax: #E7A788;
+  --color-link: #CDBDA5;
+  --color-busd: #86D3D9;
+  --color-doge: #FE8671;
+  --color-btc: #BD96EE;
+  --color-uni: #F7A1D5;
+  --color-klay: #A5A99E;
+  --color-axs: #9CAAE7;
+  --color-xlm: #33CFFF;
   background-color: var(--color-dark-grey);
   color: var(--color-white);
   font-family: Arial, Helvetica, sans-serif;
@@ -109,17 +119,52 @@
 }
 .wallet-banner {
   display: flex;
-  height: 70px;
+  height: 50px;
   width: 600px;
-  overflow: hidden;
+  white-space: nowrap;
 }
 .wallet-banner__item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding-inline: 10px;
   border-radius: 5px;
-  background-color: var(--color-light-grey);
-  margin: 1rem;
-  width: 50ch;
-  text-align: center;
-  padding-block: 0.6em;
+  background-image: var(--color-light-grey);
+  margin: 5px;
+  width: 90ch;
+}
+.wallet-banner__item svg {
+  width: 20px;
+}
+.wallet-banner__item svg #rose {
+  fill: var(--color-rose);
+}
+.wallet-banner__item svg #avax {
+  fill: var(--color-avax);
+}
+.wallet-banner__item svg #link {
+  fill: var(--color-link);
+}
+.wallet-banner__item svg #busd {
+  fill: var(--color-busd);
+}
+.wallet-banner__item svg #doge {
+  fill: var(--color-doge);
+}
+.wallet-banner__item svg #btc {
+  fill: var(--color-btc);
+}
+.wallet-banner__item svg #uni {
+  fill: var(--color-uni);
+}
+.wallet-banner__item svg #klay {
+  fill: var(--color-klay);
+}
+.wallet-banner__item svg #axs {
+  fill: var(--color-axs);
+}
+.wallet-banner__item svg #xlm {
+  fill: var(--color-xlm);
 }
 .wallet-value {
   width: 600px;
@@ -203,8 +248,11 @@
   flex-direction: column;
 }
 .wallet-portfolio__list__item {
+  padding: 10px;
   display: flex;
   justify-content: space-between;
+  position: relative;
+  box-shadow: 0px -2px 0px var(--color-light-grey);
 }
 .wallet-portfolio__list__item__icon {
   background-color: var(--color-mid-grey);
@@ -219,7 +267,9 @@
   fill: var(--color-white);
 }
 .wallet-portfolio__list__item__name {
+  text-align: start;
   margin: 1rem;
+  width: 12ch;
   font-size: 1.5rem;
   line-height: 0rem;
 }
@@ -228,7 +278,7 @@
 }
 .wallet-portfolio__list__item__graph {
   position: relative;
-  width: 250px;
+  width: 270px;
   height: 90px;
   overflow: hidden;
 }
@@ -289,4 +339,33 @@
   background-color: aqua;
   color: red;
   border-color: #000;
+}
+
+.market {
+  width: 640px;
+  height: 640px;
+  border: 1px solid red;
+  margin: 15px;
+}
+.market .header {
+  display: flex;
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 3%;
+  border: solid #303A37;
+  border-radius: 9px;
+}
+.market .header__btn {
+  background-color: #303A37;
+  /* Green */
+  border: none;
+  color: white;
+  padding: 15px 58px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 19px;
+  cursor: pointer;
+}
+.market .header__btn:hover {
+  background-color: #2c3532;
 }
