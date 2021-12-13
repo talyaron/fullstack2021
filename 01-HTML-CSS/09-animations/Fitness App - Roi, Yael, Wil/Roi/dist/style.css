@@ -1,0 +1,53 @@
+body {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  background-color: black;
+}
+
+.Container__Header {
+  display: grid;
+  grid-template-columns: 0.1fr auto 0.1fr;
+  grid-template-rows: 7vh;
+  align-items: center;
+}
+.Container__Header__Avatar {
+  display: grid;
+  padding: 10px;
+  justify-content: center;
+}
+.Container__Header__Avatar img {
+  width: 30px;
+  height: 30px;
+}
+.Container__Header__Welcome {
+  display: grid;
+  color: white;
+  padding: 10px;
+}
+.Container__Header__MenuBtn {
+  display: grid;
+  padding: 10px;
+  justify-content: center;
+}
+.Container__Header__MenuBtn img {
+  width: 30px;
+  height: 30px;
+}
+.Container__Main {
+  width: 100%;
+  height: 84vh;
+}
+.Container__Navbar {
+  display: flex;
+  flex-direction: row;
+}
+.Container__Navbar--Btn {
+  display: flex;
+  width: 100%;
+  height: 7vh;
+  justify-content: center;
+  align-items: center;
+}
+.Container__Navbar--Btn img {
+  width: 25px;
+  height: 25px;
+}

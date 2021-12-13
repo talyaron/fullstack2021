@@ -1,6 +1,288 @@
-body{
+@mixin flexCenter($justify, $direction) {
+
+    display: flex;
+    justify-content: $justify;
+    flex-direction: $direction;
+    align-items: center;
+}
+
+@mixin border() {
+
+    border: 1px solid black;
+}
+
+// colors and font //
+
+$iconscolor: rgb(72, 69, 69);
+$fontcolor: rgb(133, 122, 150);
+$primarycolor1: #66529af1;
+$primarycolor2: #e052b5e3;
+$mainFontFamily: 'Neue Haas Grotesk Display Pro',
+sans-serif;
+$shadow: 1px 1px 1px #a8a7a7,
+1px 13px 26px rgba(99, 91, 105, 0.4);
+$bgcolor: #f0f1f6;
 
 
-    border: 0px;
+body {
 
+    padding: 0.7em;
+    font-family: $mainFontFamily;
+    background-color: $bgcolor;
+}
+
+.schetop {
+
+
+    @include flexCenter(space-between, row);
+    // @include border();
+
+    height: 5vh;
+    padding-inline: 0.2em;
+    color: $iconscolor;
+
+    &__back {
+        font-size: 27px;
+    }
+
+    &__search {
+        font-size: 30px;
+    }
+
+}
+
+.schetitle {
+
+    @include flexCenter(center, column);
+    // @include border();
+
+    height: 14vh;
+
+    div {
+        height: 20%;
+        font-size: 80%;
+        margin-bottom: 0.4em;
+        @include flexCenter(center, row);
+    }
+
+    h1,
+    h2,
+    p {
+        margin: 0px;
+    }
+
+    p {
+        font-size: 17px;
+        color: rgb(52, 51, 51);
+    }
+
+    h2 {
+        font-size: 25px;
+    }
+
+    h1 {
+        font-size: 25px;
+    }
+
+}
+
+.schedatebox {
+
+    @include flexCenter(space-between, row);
+    // @include border();
+    height: 7vh;
+    padding-inline: 0.3em;
+
+    div {
+        height: 100%;
+        @include flexCenter(center, row);
+    }
+
+    h3,
+    p {
+        margin: 0px;
+        @include flexCenter(center, row);
+    }
+
+    p {
+        color: $fontcolor;
+    }
+
+}
+
+.schecards {
+
+    @include flexCenter(flex-start, row);
+    align-items: flex-start;
+    // @include border();
+    height: 17vh;
+    overflow-x: auto;
+
+    &__card {
+
+        @include flexCenter(center, column);
+        // @include border();
+        border-radius: 10px;
+        min-width: 3.5em;
+        height: 60%;
+        background: #D8CAE1;
+        margin-inline: 0.5em;
+        position:relative;
+        transition: 0.4s;
+        margin-top: 10px;
+    
+        
+   
+
+        div {
+            margin-top: 0.5em;
+            height: 25%;
+            @include flexCenter(center, row);
+        }
+
+        p {
+
+            width: 80%;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .date {
+            margin-top: 0;
+            p {
+                font-weight: 700;
+                font-size: 20px;
+            }
+        }
+
+        .day {
+            p {
+                font-weight: 200;
+            }
+        }
+
+        .bell {
+            color: rgb(255, 255, 255);
+            display: none;
+
+            &:active {
+                color: rgb(254, 229, 146)
+            }
+        }
+
+        .circle {
+            width: 18px;
+            height: 18px;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            background-color: rgb(201, 61, 61);
+            border: 3px solid #ffffff;
+            border-radius: 50%;
+            // margin-left: -10px;
+            position: absolute;
+            top: -15px;
+            right: -5px;
+            display: none;
+        }
+
+        &:hover {
+
+            height: 80%;
+            background: linear-gradient(145deg, $primarycolor1 40%, $primarycolor2);
+            color: white;
+
+            .date{
+                margin-top: 1em;
+            }
+
+            .bell {
+                display: block;
+            }
+            .circle{
+                display:block;
+            }
+        }
+    }
+}
+
+.progress {
+
+
+    // @include border();
+    height: 12vh;
+
+    >div {
+        margin-inline: 0.5em;
+        margin-bottom: 0.5em;
+    }
+
+    p {
+        margin-bottom: 0.5em;
+    }
+
+    &__title {
+        font-size: 20px;
+        font-weight: 700;
+    }
+
+    &__bar {
+
+        display: flex;
+        align-items: center;
+        background: #D8D5E0;
+        height: 1em;
+        border-radius: 25px;
+
+        &__btn {
+
+            width: 30px;
+            height: 30px;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            background-color: white;
+            border: 8px solid #464E85;
+            border-radius: 50px;
+            margin-left: -10px;
+
+        }
+
+        &__pbar {
+            padding: 0px;
+            margin: 0px;
+            border-radius: 25px;
+            height: 100%;
+            width: 67%;
+            background: linear-gradient(to right, $primarycolor1 60%, $primarycolor2);
+        }
+    }
+
+    &__mins {
+        font-size: 20px;
+        font-weight: 700;
+
+        span {
+            font-size: 18px;
+            font-weight: 300;
+        }
+    }
+}
+
+
+
+
+.image {
+
+    position: fixed;
+    bottom: -5px;
+    width: 100%;
+
+    img {
+
+        display: block;
+        margin: auto;
+        width: 350px;
+        height: 80%;
+    }
 }

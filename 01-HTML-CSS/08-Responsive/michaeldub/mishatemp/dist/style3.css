@@ -1,3 +1,223 @@
 body {
-  border: 0px;
+  padding: 0.7em;
+  font-family: "Neue Haas Grotesk Display Pro", sans-serif;
+  background-color: #f0f1f6;
+}
+
+.schetop {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  height: 5vh;
+  padding-inline: 0.2em;
+  color: #484545;
+}
+.schetop__back {
+  font-size: 27px;
+}
+.schetop__search {
+  font-size: 30px;
+}
+
+.schetitle {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 14vh;
+}
+.schetitle div {
+  height: 20%;
+  font-size: 80%;
+  margin-bottom: 0.4em;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+}
+.schetitle h1,
+.schetitle h2,
+.schetitle p {
+  margin: 0px;
+}
+.schetitle p {
+  font-size: 17px;
+  color: #343333;
+}
+.schetitle h2 {
+  font-size: 25px;
+}
+.schetitle h1 {
+  font-size: 25px;
+}
+
+.schedatebox {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  height: 7vh;
+  padding-inline: 0.3em;
+}
+.schedatebox div {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+}
+.schedatebox h3,
+.schedatebox p {
+  margin: 0px;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+}
+.schedatebox p {
+  color: #857a96;
+}
+
+.schecards {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  align-items: center;
+  align-items: flex-start;
+  height: 17vh;
+  overflow-x: auto;
+}
+.schecards__card {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  min-width: 3.5em;
+  height: 60%;
+  background: #D8CAE1;
+  margin-inline: 0.5em;
+  position: relative;
+  transition: 0.4s;
+  margin-top: 10px;
+}
+.schecards__card div {
+  margin-top: 0.5em;
+  height: 25%;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+}
+.schecards__card p {
+  width: 80%;
+  margin: 0px;
+  padding: 0px;
+}
+.schecards__card .date {
+  margin-top: 0;
+}
+.schecards__card .date p {
+  font-weight: 700;
+  font-size: 20px;
+}
+.schecards__card .day p {
+  font-weight: 200;
+}
+.schecards__card .bell {
+  color: white;
+  display: none;
+}
+.schecards__card .bell:active {
+  color: #fee592;
+}
+.schecards__card .circle {
+  width: 18px;
+  height: 18px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  background-color: #c93d3d;
+  border: 3px solid #ffffff;
+  border-radius: 50%;
+  position: absolute;
+  top: -15px;
+  right: -5px;
+  display: none;
+}
+.schecards__card:hover {
+  height: 80%;
+  background: linear-gradient(145deg, #66529af1 40%, #e052b5e3);
+  color: white;
+}
+.schecards__card:hover .date {
+  margin-top: 1em;
+}
+.schecards__card:hover .bell {
+  display: block;
+}
+.schecards__card:hover .circle {
+  display: block;
+}
+
+.progress {
+  height: 12vh;
+}
+.progress > div {
+  margin-inline: 0.5em;
+  margin-bottom: 0.5em;
+}
+.progress p {
+  margin-bottom: 0.5em;
+}
+.progress__title {
+  font-size: 20px;
+  font-weight: 700;
+}
+.progress__bar {
+  display: flex;
+  align-items: center;
+  background: #D8D5E0;
+  height: 1em;
+  border-radius: 25px;
+}
+.progress__bar__btn {
+  width: 30px;
+  height: 30px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  background-color: white;
+  border: 8px solid #464E85;
+  border-radius: 50px;
+  margin-left: -10px;
+}
+.progress__bar__pbar {
+  padding: 0px;
+  margin: 0px;
+  border-radius: 25px;
+  height: 100%;
+  width: 67%;
+  background: linear-gradient(to right, #66529af1 60%, #e052b5e3);
+}
+.progress__mins {
+  font-size: 20px;
+  font-weight: 700;
+}
+.progress__mins span {
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.image {
+  position: fixed;
+  bottom: -5px;
+  width: 100%;
+}
+.image img {
+  display: block;
+  margin: auto;
+  width: 350px;
+  height: 80%;
 }
