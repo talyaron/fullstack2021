@@ -216,7 +216,7 @@ body {
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: repeat(4, 20%);
     position: relative;
-    left: 6%;
+    left: 5%;
     width: 90%;
     height: 100vh;
     gap: 10px;
@@ -288,9 +288,11 @@ body {
 }
 
 .rightside {
+    
+   
     i {
         position: absolute;
-        left: 23rem;
+        left: 18rem;
         margin-top: 1rem;
         opacity: 0.5;
 
@@ -304,7 +306,7 @@ body {
     h3 {
         color: rgb(10, 156, 156);
         position: absolute;
-        left: 20rem;
+        left: 15rem;
         margin-top: 90px;
 
     }
@@ -316,6 +318,7 @@ body {
 .checkout {
     background-color: rgb(255, 255, 255);
     height: 50vh;
+    
     padding: 2rem;
     font-family: sans-serif;
     color: rgba(0, 0, 0, 0.774);
@@ -397,32 +400,73 @@ body {
 }
 
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 700px) {
 
     .myCart__grid {
+        grid-template-rows: repeat(4, 20%); 
+        
 
 
         &__title {
             text-align: center;
+
+
             font-size: calc(1rem + 0.5rem);
+            /* grid-row:1/span 1;
+             position:absolute;
+             left:43%;*/
 
         }
 
-
         &__box {
             font-size: calc(70% + 0.5rem);
+            position:relative;
+            left: 32%;
+            width: 40%;
+           
+            gap: 20px;
+            /* grid-row:2/span 3;
+            width:30vw; */
 
+            /*img {
+                width:14vw;                
+                padding-left:8%;
+
+            }*/
 
         }
     }
 
     .leftside {
-        input {
+       
+        text-align:center;
+
+        h3{
+            padding-left:10%;
+        }
+        p{
+            padding-left:10%;
+        }
+        
+       
+        input{            
+            margin-left:80%;
             width: 4rem;
-            height:2rem;
-            
+            height: 2rem;
+
 
         }
+    }
+
+    .rightside {
+
+       position:relative;
+       left:35%; 
+
+    
+        /*h3{
+           padding-top:20%;
+       }*/
     }
 
     .checkout {
@@ -447,7 +491,7 @@ body {
 
 
 
-// --- PlantCard Alex ---- //
+/*PlantCard Alex */
 
 .plantCard {
     margin: 100px;
