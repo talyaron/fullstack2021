@@ -2,8 +2,9 @@ let weight = 85;
 let height = 1.80;
 let bmi = 0;
 
-function BMI(x , y , z){
+function BMI(x , y ){
      let bmi = x/(y*y);
+     let z;
      
      if(bmi < 18.5) z = ' Underweight' ;
      else if (bmi < 22.9) z = ' Normal range';
