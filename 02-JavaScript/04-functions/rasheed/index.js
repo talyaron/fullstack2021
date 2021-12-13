@@ -1,24 +1,25 @@
-let h = 1.7;
-let m = 65;
 
-function bmi(m,h){
-
-    let sum = 0;
-    sum = m/(h*h);
-    return sum;
-    
-    console.log(sum);
+function bmi(ma,he){
+    return ma/(he*he);
 }
 
-function show(sum) {
+let sum = bmi(65,1.7);
+
+console.log(sum);
+
+function show(sum){
+    
     if (sum<18.5){
-        alert('this is underweight')
+        alert('this is underweight');
+        console.log(show(sum))
     }
+    
     else if (sum>18.5, sum<28.5){
-        alert('this is underweight')
+        alert('this is underweight');
+        console.log(show(sum))
     }
 
-    else alert('this is goodweight')
+    else alert('this is goodweight');
     
     
 }
