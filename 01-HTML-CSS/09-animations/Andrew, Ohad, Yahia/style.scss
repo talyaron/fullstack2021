@@ -11,6 +11,17 @@
     --color-light-green: #89A290;
     --color-red: #BB615D;
 
+    --color-rose: #F4C462;
+    --color-avax: #E7A788;
+    --color-link: #CDBDA5;
+    --color-busd: #86D3D9;
+    --color-doge: #FE8671;
+    --color-btc: #BD96EE;
+    --color-uni: #F7A1D5;
+    --color-klay: #A5A99E;
+    --color-axs: #9CAAE7;
+    --color-xlm: #33CFFF;
+
     background-color: var(--color-dark-grey);
     color: var(--color-white);
     font-family: Arial, Helvetica, sans-serif;
@@ -95,7 +106,7 @@
         &__wallet{
             position: relative;
             svg{
-                height: 50px;
+                height: 70px;
                 fill: var(--color-lighter-grey);
             }
             &::after{
@@ -302,6 +313,8 @@
                 justify-content: space-between;
                 &__icon{
                     background-color: var(--color-mid-grey);
+                    position: relative;
+                    box-shadow: 0px -2px 0px var(--color-light-grey);
                     border-radius: 25%;
                     width: 75px;
                     height: 75px;
@@ -317,6 +330,7 @@
                     margin: 1rem;
                     font-size: 1.5rem;
                     line-height: 0rem;
+                    text-align: start;
                     :last-child{
                         font-size: 0.7em;
                     }
