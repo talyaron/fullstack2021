@@ -1,0 +1,16 @@
+body {
+  margin: auto;
+}
+
+.discover {
+  display: grid;
+  max-width: fit-content;
+  max-height: fit-content;
+  grid-template-columns: repeat(5, 200px);
+  grid-template-rows: repeat(10, 130px);
+  background-color: aliceblue;
+}
+
+.box {
+  display: grid;
+}

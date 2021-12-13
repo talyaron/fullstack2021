@@ -245,18 +245,18 @@ let range = 81.6;
 
 for(range = 81.6;  range < students.length; students.length ++ ){
     console.log(students.length);
-    if( 'range' <= 60){
+    if( 'range' < 60){
         console.log('grade = F');
     }
-    else if('range' <= 70){
+    else if('range' < 70){
         console.log('grade = D');
     }
 
-    else if('range' <= 80){
+    else if('range' < 80){
         console.log('grade = C');
     }
 
-    else if('range' <= 90){
+    else if('range' < 90){
         console.log('grade = B');
     }
 
@@ -268,15 +268,15 @@ for(range = 81.6;  range < students.length; students.length ++ ){
 // 7.
 
 for(i = 0; i <= 100; i ++){
-    if(i % 3){
+    if(!(i % 3)){
         console.log('Fizz');
     }
 
-    else if (i % 5){
+    else if (!(i % 5)){
         console.log('Buzz');
     }
 
-    else if(i%3 && i%5){
+    else if(!(i%3) && !(i%5)){
         console.log('FizzBuzz');     // ??????????????
     }
 }
