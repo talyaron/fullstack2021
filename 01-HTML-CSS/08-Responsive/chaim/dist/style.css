@@ -10,7 +10,7 @@ body {
   font-family: "Roboto Condensed", sans-serif;
   grid-template-columns: repeat(8, 160px);
   grid-template-rows: 15vh 30vh 15vh;
-  row-gap: 2vh;
+  row-gap: 4vh;
   column-gap: 1vh;
   position: relative;
   background-color: yellowgreen;
@@ -62,6 +62,7 @@ body {
   text-align: var(10px);
   font-size: var(1fr);
   position: relative;
-  top: 60px;
+  top: 65px;
   left: 90px;
+  color: red;
 }

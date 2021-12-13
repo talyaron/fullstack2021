@@ -11,17 +11,6 @@
     --color-light-green: #89A290;
     --color-red: #BB615D;
 
-    --color-rose: #F4C462;
-    --color-avax: #E7A788;
-    --color-link: #CDBDA5;
-    --color-busd: #86D3D9;
-    --color-doge: #FE8671;
-    --color-btc: #BD96EE;
-    --color-uni: #F7A1D5;
-    --color-klay: #A5A99E;
-    --color-axs: #9CAAE7;
-    --color-xlm: #33CFFF;
-
     background-color: var(--color-dark-grey);
     color: var(--color-white);
     font-family: Arial, Helvetica, sans-serif;
@@ -41,87 +30,75 @@
 
     &__item {
         color: var(--color-white);
+        
         border-radius: 5px;
         background-color: var(--color-dark-grey);
     }
 }
 
-.footer {
+.footer{
     display: flex;
     justify-content: center;
     position: fixed;
     bottom: 20px;
     height: 120px;
     background-color: var(--color-light-grey);
-
+    
     border-radius: 20px;
     margin: 4vw;
-
-    &-container {
+    &-container{
         width: 640px;
         display: flex;
         justify-content: space-evenly;
         color: var(--color-lighter-grey);
         font-size: 1.2rem;
-
-        * {
+        *{
             padding: 10px;
         }
-
-        &__market {
+        &__market{
             position: relative;
-
-            svg {
+            svg{
                 height: 50px;
                 fill: var(--color-lighter-grey);
             }
-
-            &::after {
+            &::after{
                 content: 'Market';
                 position: absolute;
                 bottom: 15px;
                 left: 16px;
             }
         }
-
-        &__exchange {
+        &__exchange{
             position: relative;
             width: 90px;
-
-            svg {
+            svg{
                 position: absolute;
                 top: -45px;
                 right: 0px;
                 width: 90px;
                 fill: var(--color-lighter-grey);
-
-                .st1 {
+                .st1{
                     fill: #bababa;
                 }
-
-                .st2 {
+                .st2{
                     fill: var(--color-white);
-                    filter: drop-shadow(2px 0px #7E8082);
+                    filter: drop-shadow( 2px 0px #7E8082 );
                 }
             }
-
-            &::after {
+            &::after{
                 content: 'Exchange';
                 position: absolute;
                 bottom: 15px;
                 left: 12px;
             }
         }
-
-        &__wallet {
+        &__wallet{
             position: relative;
-
-            svg {
+            svg{
                 height: 50px;
                 fill: var(--color-lighter-grey);
             }
-
-            &::after {
+            &::after{
                 content: 'Wallet';
                 position: absolute;
                 bottom: 15px;
@@ -133,8 +110,8 @@
 
 .wallet {
     width: 640px;
+    border: 1px solid red ;
     margin: 15px;
-
     &-banner {
         display: flex;
         height: 60px;
@@ -239,8 +216,7 @@
             top: 0px;
             left: 0px;
             word-spacing: 0.7em;
-
-            span {
+            span{
                 color: var(--color-lighter-grey);
             }
         }
@@ -262,23 +238,18 @@
         }
 
         &__graph {
-            position: relative;
+
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            border: 3px solid var(--color-red);
             border-radius: 50%;
             height: 600px;
 
-            svg {
-                width: 85%;
-                height: 85%;
-            }
-
             h1 {
                 font-size: 3rem;
-                position: absolute;
-                top: 42%;
+                position: relative;
 
                 &::before {
                     content: 'WALLET VALUE';
@@ -306,7 +277,7 @@
 
     &-portfolio {
         &__title {
-
+            
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -322,82 +293,59 @@
             }
         }
 
-        &__list {
+        &__list{
             display: flex;
             flex-direction: column;
-
-            &__item {
-
-                padding: 10px;
+            
+            &__item{
                 display: flex;
                 justify-content: space-between;
-                position: relative;
-                box-shadow: 0px -2px 0px var(--color-light-grey);
-
-                &__icon {
+                &__icon{
                     background-color: var(--color-mid-grey);
                     border-radius: 25%;
                     width: 75px;
                     height: 75px;
                     margin: 10px;
-
-                    svg {
+                    svg{
                         margin: 12.5px;
                         width: 50px;
                         fill: var(--color-white);
                     }
                 }
 
-                &__name {
-                    text-align: start;
+                &__name{
                     margin: 1rem;
-                    width: 12ch;
                     font-size: 1.5rem;
                     line-height: 0rem;
-
-                    :last-child {
+                    :last-child{
                         font-size: 0.7em;
                     }
                 }
 
-                &__graph {
-                    position: relative;
-                    width: 270px;
-                    height: 90px;
-                    overflow: hidden;
-
-                    //border: 1px solid var(--color-light-grey);
-                    img {
-                        position: absolute;
-                        width: 350px;
-                        height: 200px;
-                        bottom: -30px;
+                &__graph{
+                    width: 250px;
+                    border: 1px solid var(--color-light-grey);
+                    img{
+                        width: 190px;
                     }
                 }
 
-                &__price {
+                &__price{
                     margin: 1rem;
                     text-align: end;
                     line-height: 0em;
                     font-weight: 600;
-
-                    :first-child {
+                    :first-child{
                         font-size: 1.5em;
                     }
-
-                    .--red {
+                    .--red{
                         color: var(--color-red);
                     }
-
-                    .green {
+                    .green{
                         color: var(--color-light-green);
                     }
                 }
-            }
-
-            &__spacer {
-                height: 200px;
-            }
+            }   
         }
     }
 }
@@ -405,82 +353,86 @@
 //andrew end
 //yahya alhawjra-->page exchange
 //yahya start
-.wrapper-main {
-    background-color: var(--color-light-grey);
-    border-radius: 15px;
-}
+.menu{
+   
+    il{
+        text-decoration: inline;
+        
+        text-align: center;
+        justify-content: center;
+        color: var(--color-lighter-grey);
+        border-radius: 10px;
+        font-size: xx-large;
+        margin: 10px;
+      }
 
-.sub-wrapper1 {
 
-    display: flex;
-    flex-wrap: wrap;
-
-    &__select {
-        select {
-            font-size: x-large;
-        }
-    }
-
-    &__counter {
-        h2 {
-            margin: 0 50px;
-            font-size: 50px;
+    }  
+    il:hover{
+            background-color: var(--color-light-green);
             color: white;
-        }
-
-        button {
-            margin-top: 0%;
-            border-radius: 50%;
-            width: 1rem;
-            height: 1rem;
-            outline: none;
-            border-style: none;
-            font-size: 25px;
-            background-color: #bababa;
-            box-shadow: 8px 8px 20px #00000027, -8px -8px -20px #969393;
-        }
-
-        button:hover {
-            background-color: aqua;
-            color: red;
-            border-color: #000;
-        }
-    }
-
-
-
-
-
-
+        
 }
 
+.title{
+    margin: 50px;
+h1{
+    color: var(--color-white);
+}
+p{
+    color: var(--color-lighter-grey);
+    font-size: 18px;
+}
+}
+   .wrapper{
+       display: flex;
+       flex-wrap: row;
+       .box{
+           background-color: var(--color-mid-grey);
+           border-radius: 10px;
+           margin: 70px;
+       }
+       button{
+           border-radius:50% ;
+           align-items: center;
+           justify-content: center;
+           margin-top:-50px;
+           outline: none;
+           margin-top: 0%;
+           margin: 10px;
+          
+         
+       
+    
+       }
+       h4 {
+        margin: 0 35px;
+        
+        color: rgb(158, 10, 10);
+    }
+    
+   }
+   .button-change{
+       margin-top: 50px;
+       margin-left: 8%;
+       justify-content: center;
+       align-items: center;
+   }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//yahya END
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+@media only screen and(max-width:600px) {
+    .button-change{
+        margin: 0;
+        margin-top: 50px;
+        margin-left: 50%;
+        justify-content: center;
+       align-items: center;
+    }
+}
+.wrapper2{
+    margin-left: -100px;
+    margin-top: 0px;
+    display: flex;
+    flex-wrap: row;
+}
+    
+/*yahya END*/
