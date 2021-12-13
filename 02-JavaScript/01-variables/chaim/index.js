@@ -115,13 +115,27 @@ else {
 
 
 {
-let student=  ('moshe 80,   yakov 90,   moty 100,    yosi 60,   yoni 85');
-   console.log (student*5)
+let =  moshe = 80,   yakov= 90,   moty= 100,    yosi= 40,     yoni= 85;
+   t= (moshe+yakov+moty+yosi+yoni)
+   k=t/5
+   console.log ("the avange is"+ k)
+   if (k>80 && k<90) 
+   console.log("b")
 
+   if (k>90 ) 
+   console.log("a")
   
+   if (k<80 && k>70) 
+   console.log("c")
 
 
- 
 }
 
-
+let i = 0; i<101; {
+    if (i % 3 == 0){
+      console.log('Fizz')
+    }
+    if (i %5 == 0){
+        console.log('Buzz')}
+    }
+    
