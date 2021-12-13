@@ -1,0 +1,87 @@
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: black;
+}
+
+.Container {
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 0.1fr auto 0.1fr;
+    grid-template-areas: 
+    "Header Header Header"
+    "Wil Roi Yael"
+    "Navbar Navbar Navbar"
+    ;
+
+    &__Header {
+        
+        grid-area: Header;
+        display:grid;
+        grid-template-columns: 0.1fr auto 0.1fr;
+        align-items: center;
+        border: 1px solid red;
+        
+        &__Avatar {
+                display: grid;
+                padding: 10px;
+                justify-content: center;
+                
+                img {
+                width: 30px;
+                height: 30px;
+                }
+        }
+
+        &__Welcome {
+            display:grid;
+            color:white;
+            padding: 10px;
+        }
+    
+        &__MenuBtn {
+            display:grid;
+            padding: px;
+            justify-content: center;
+                
+            img {
+                width: 30px;
+                height: 30px;
+                }
+        }
+
+    }
+
+    &__Main {
+        height: 80vh;
+        border: 1px solid red;
+        
+        &__Wil {
+            border: 1px solid red;
+        }
+        &__Roi {
+            border: 1px solid red;
+        }
+        &__Yael {
+            border: 1px solid red;
+        }
+    }
+
+    &__Navbar {
+        grid-area:Navbar;
+        display:flex;
+        flex-direction:row;
+
+        &--Btn {
+            display:flex;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid red;
+
+            img {
+                width: 25px;
+                height: 25px;
+            }
+        }
+    }
+}

@@ -1,4 +1,7 @@
-var x=60; y=3; z=2;
-x=x/y*z;
 
-console.log(x+y+z)
+let x; let y;
+if (x<14; x*x--){
+  
+  console.log(x);
+
+}
