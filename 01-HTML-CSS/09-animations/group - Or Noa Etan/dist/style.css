@@ -26,8 +26,14 @@ body {
   margin-left: 50px;
   margin-top: 20px;
 }
+#landing-home__logo img:hover {
+  cursor: pointer;
+}
 #landing-home__logo h1 {
   font-weight: 700;
+}
+#landing-home__logo h1:hover {
+  cursor: pointer;
 }
 #landing-home__logo span {
   font-size: 1rem;
@@ -41,7 +47,7 @@ body {
   margin-right: auto;
   font-size: 25px;
   border-radius: 5px;
-  height: 50px;
+  height: 45px;
   width: 80vw;
 }
 #landing-home__task {
@@ -57,6 +63,12 @@ body {
   align-items: center;
   font-weight: bold;
 }
+#landing-home__task h2:hover {
+  cursor: pointer;
+}
+#landing-home__task p:hover {
+  cursor: pointer;
+}
 #landing-home__task .left {
   margin-right: auto;
   margin-left: 1rem;
@@ -66,6 +78,7 @@ body {
   height: 50px;
   width: 50px;
   border-radius: 5px;
+  transition: 1s;
 }
 #landing-home__task .icon__1 {
   background-color: #ffc898;
@@ -79,11 +92,19 @@ body {
 #landing-home__task .icon i {
   margin-left: 13px;
   margin-top: 13px;
+  transition: all 0.5s;
+}
+#landing-home__task .icon i:hover {
+  cursor: pointer;
+  transform: rotate(360deg);
 }
 #landing-home .recent__title {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+#landing-home .recent__title:hover {
+  cursor: pointer;
 }
 #landing__task {
   overflow-y: hidden;
