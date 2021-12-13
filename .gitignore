@@ -1,8 +1,4 @@
 
-.vscode/settings.json
-01-HTML-CSS/05-grid/BBC-Tamir,Shay,Rasheed/home.html
-01-HTML-CSS/07-SCSS/yahya/all.css
-02-JavaScript/.DS_Store
-02-JavaScript/alex/index.js
-02-JavaScript/Roi/index.html
-*.js
+.DS_Store
+
+
