@@ -181,7 +181,7 @@ body {
   grid-template-columns: repeat(1, 1fr);
   grid-template-rows: repeat(4, 20%);
   position: relative;
-  left: 6%;
+  left: 5%;
   width: 90%;
   height: 100vh;
   gap: 10px;
@@ -229,7 +229,7 @@ body {
 
 .rightside i {
   position: absolute;
-  left: 23rem;
+  left: 18rem;
   margin-top: 1rem;
   opacity: 0.5;
 }
@@ -239,7 +239,7 @@ body {
 .rightside h3 {
   color: #0a9c9c;
   position: absolute;
-  left: 20rem;
+  left: 15rem;
   margin-top: 90px;
 }
 
@@ -303,18 +303,53 @@ body {
   cursor: pointer;
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 700px) {
+  .myCart__grid {
+    grid-template-rows: repeat(4, 20%);
+  }
   .myCart__grid__title {
     text-align: center;
     font-size: calc(1rem + 0.5rem);
+    /* grid-row:1/span 1;
+     position:absolute;
+     left:43%;*/
   }
   .myCart__grid__box {
     font-size: calc(70% + 0.5rem);
+    position: relative;
+    left: 32%;
+    width: 40%;
+    gap: 20px;
+    /* grid-row:2/span 3;
+    width:30vw; */
+    /*img {
+        width:14vw;                
+        padding-left:8%;
+
+    }*/
   }
 
+  .leftside {
+    text-align: center;
+  }
+  .leftside h3 {
+    padding-left: 10%;
+  }
+  .leftside p {
+    padding-left: 10%;
+  }
   .leftside input {
+    margin-left: 80%;
     width: 4rem;
     height: 2rem;
+  }
+
+  .rightside {
+    position: relative;
+    left: 35%;
+    /*h3{
+        padding-top:20%;
+    }*/
   }
 
   .checkout {
@@ -331,6 +366,7 @@ body {
     font-size: calc(60% + 0.5rem);
   }
 }
+/*PlantCard Alex */
 .plantCard {
   margin: 100px;
   display: grid;
