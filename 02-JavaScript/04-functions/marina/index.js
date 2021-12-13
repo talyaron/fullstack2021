@@ -33,3 +33,34 @@ if (q >= 35 && q < 40){
 if (q >= 45){
     console.log('class 4');
 }
+
+
+
+
+
+
+
+
+function calcInterest(loan, percentage, years){
+    let totalSun = loan;
+
+    for(let i = 0; i < 10; i ++ ){
+        totalSun = totalSun + (totalSun * percentage);
+    }
+
+}
+
+return totalSun
+
+let intrest = calcInterest( 100, 5, 10);
+console.log(intrest);
+
+
+
+
+
+
+
+
+
+
