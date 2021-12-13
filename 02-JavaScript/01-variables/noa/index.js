@@ -9,3 +9,9 @@ console.log(y);
 console.log(y1);
 console.log(y2);
 console.log(y3);
+
+
+for(let i=4; i<10; i++){
+    console.log(i);
+}
+
