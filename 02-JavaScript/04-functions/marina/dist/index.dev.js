@@ -31,3 +31,15 @@ if (q >= 35 && q < 40) {
 if (q >= 45) {
   console.log('class 4');
 }
+
+function calcInterest(loan, percentage, years) {
+  return totalSun;
+}
+
+var w = interest(100, 5);
+
+for (var i = 0; i < 10; i++) {}
+
+function ribit(investment, percentage, years) {
+  return investment;
+}

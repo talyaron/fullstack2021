@@ -9,17 +9,17 @@ console.log(sum);
 
 function show(sum){
     
-    if (sum<18.5){
-        alert('this is underweight');
-        console.log(show(sum))
+    if (sum > 18.5 && sum <= 25.5){
+        console.log(sum +' undrweight');
     }
     
-    else if (sum>18.5, sum<28.5){
-        alert('this is underweight');
-        console.log(show(sum))
+    else if (sum > 25.5 && sum <=  38.5){
+        console.log(sum +' undrweight');
     }
 
-    else alert('this is goodweight');
+    else {
+        console.log(sum +' undrweight');
+    }
     
     
 }
