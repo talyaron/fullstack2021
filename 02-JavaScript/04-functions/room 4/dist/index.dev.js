@@ -13,7 +13,7 @@ function BMI(weight, height) {
   } else if (BMI <= 34.9 && BMI > 29.9) {
     console.log("Fat");
   } else {
-    console.log("Dayum");
+    alert("Dayum");
   }
 }
 
