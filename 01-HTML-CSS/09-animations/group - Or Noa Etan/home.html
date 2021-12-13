@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="dist/style.css">
     <link rel="stylesheet" href="dist/nav.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <title>home</title>
+    <title>Home</title>
 </head>
 
 <body>
@@ -41,32 +41,74 @@
                 <h2>My Tasks</h2>
                 <div class="task">
                     <div class="icon icon__1"><i class="material-icons">list_alt</i></div>
-                    <p>To do</p>
-                    <p>5 tasks</p>
+                    <p class="left">To do</p>
+                    <p><span>5</span> tasks</p>
                 </div>
                 <div class="task">
                     <div class="icon icon__2"><i class="material-icons">drive_file_rename_outline</i></div>
-                    <p>In progress</p>
-                    <p>3 tasks</p>
+                    <p class="left">In progress</p>
+                    <p><span>3</span> tasks</p>
 
                 </div>
                 <div class="task">
                     <div class="icon icon__3"><i class="material-icons">check_circle_outline</i>
                     </div>
-                    <p>Done</p>
-                    <p>12 tasks</p>
+                    <p class="left">Done</p>
+                    <p> <span>12</span> tasks</p>
 
                 </div>
             </div>
             <div id="landing-home__recent">
                 <div class="recent__title">
+
                     <h2>Recently Created</h2>
                     <i class="material-icons">keyboard_arrow_right</i>
                 </div>
-                <div class="recent-box">
-                    <div class="recent-box__1"></div>
-                    <div class="recent-box__2"></div>
-                    <div class="recent-box__3"></div>
+                <div id="landing__task-count">
+
+
+                    <div class="box" style="background-color: #ff98f6;">
+                        <div id="box__flex">
+                            <div class="box__header">
+                                <div class="box__title">
+                                    <p class="box__title-text">mobile app</p>
+                                </div>
+                            </div>
+                            <div class="box__expln">
+                                <p><i class="material-icons">schedule</i>2 sep</p>
+                            </div>
+                            <h4>high priority</h4>
+                        </div>
+                    </div>
+                    <div class="box" style="background-color: #aaeffa;">
+                        <div id="box__flex">
+                            <div class="box__header">
+                                <div class="box__title">
+                                    <p class="box__title-text">web</p>
+                                </div>
+                            </div>
+                            <div class="box__expln box__time">
+                                <p><i class="material-icons">schedule</i>30 nov</p>
+                            </div>
+                            <h4>low priority</h4>
+                        </div>
+                    </div>
+                    <div class="box" style="background-color: #f4ff7f;">
+                        <div id="box__flex">
+                            <div class="box__header">
+                                <div class="box__title">
+                                    <p class="box__title-text">PC</p>
+                                </div>
+                            </div>
+                            <div class="box__expln">
+                                <p><i class="material-icons">schedule</i>25 dec</p>
+                            </div>
+                            <h4>low priority</h4>
+                        </div>
+                    </div>
+
+
+
                 </div>
             </div>
         </div>

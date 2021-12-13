@@ -4,6 +4,7 @@ body {
   height: auto;
   width: 100vw;
 }
+
 #landing {
   padding-top: 1.5rem;
   width: 100vw;
@@ -13,7 +14,6 @@ body {
 
   &-home {
     height: 100vh;
-    background: white;
     padding: 30px;
 
     &__logo {
@@ -33,7 +33,7 @@ body {
 
       span {
         font-size: 1rem;
-        font-weight: normal;
+        font-weight: bold;
       }
     }
 
@@ -44,19 +44,29 @@ body {
         margin-left: auto;
         margin-right: auto;
         font-size: 25px;
-        border-radius: 10px;
+        border-radius: 5px;
         height: 50px;
+        width: 80vw;
       }
     }
 
     &__task {
       display: flex;
       flex-direction: column;
+      span{
+        font-weight: bolder;
+      }
 
       .task {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        font-weight: bold;
+      }
+
+      .left {
+        margin-right: auto;
+        margin-left: 1rem;
       }
 
       .icon {
@@ -84,16 +94,18 @@ body {
       }
     }
 
-    &__recent__title {
+   .recent__title {
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
   }
+
   //------------Etan
   //----- already created description boxes
   &__task {
     overflow-y: hidden;
+
     &-count {
       display: flex;
       flex-direction: row;
@@ -101,6 +113,7 @@ body {
       background: #f0f0f2;
       height: fit-content;
       overflow-y: scroll;
+
       &:nth-child(1) {
         margin-left: 1.5rem;
       }
@@ -133,10 +146,12 @@ body {
           padding: 0;
           line-height: 0.1ch;
         }
+
         &__header {
           display: flex;
           flex-direction: row;
         }
+
         &__title {
           display: flex;
           flex-direction: column;
@@ -149,6 +164,7 @@ body {
             font-weight: 600;
             font-size: 1rem;
           }
+
           &-urg {
             opacity: 50%;
             margin-bottom: 0;
@@ -162,6 +178,7 @@ body {
           font-weight: 700;
           font-size: 1.5rem;
           margin: 0;
+
           &-square {
             width: 3ch;
             height: 3ch;
@@ -174,23 +191,29 @@ body {
             align-self: center;
           }
         }
+
         .blue {
           background-color: #a7ebf2;
         }
+
         .orange {
           background-color: #f2b694;
         }
+
         &__expln {
           display: flex;
           flex-direction: column;
           align-items: flex-start;
           line-height: 1.5rem;
+
+
           h4 {
             margin-top: 1.5rem;
             margin-bottom: 0;
             font-weight: 600 bold;
             font-size: 1.1rem;
           }
+
           &-transp {
             opacity: 30%;
             margin-bottom: 0;
@@ -199,6 +222,8 @@ body {
         }
       }
     }
+
+
     // ------ adding description box
 
     &__descr {
@@ -213,6 +238,7 @@ body {
       padding: 1.5rem;
       margin: 2rem;
       background-color: #f0f0f2;
+
       &:hover {
         cursor: pointer;
       }
@@ -227,13 +253,14 @@ body {
         flex-direction: column;
         align-content: center;
 
-        & > h3,
+        &>h3,
         p {
           margin: 0.1rem;
           padding: 0;
         }
       }
     }
+
     //--------- Calendar
     &__cal {
       padding: 0;
@@ -259,6 +286,7 @@ body {
         padding: 2vw 0rem 5vw 0rem;
         box-shadow: 0.5 rem 3rem rgba($color: #000000, $alpha: 0.4);
       }
+
       &__title {
         height: 6rem;
         width: 100vw;
@@ -268,12 +296,14 @@ body {
         align-items: center;
         text-align: center;
         text-shadow: 0.15rem 0.25rem rgba(0, 0, 0, 0.2);
+
         i {
           font-size: 1.25rem;
           cursor: pointer;
           margin-left: auto;
           margin-right: 1.5rem;
         }
+
         h1 {
           font-size: 1.5rem;
           font-weight: 400;
@@ -281,11 +311,12 @@ body {
           letter-spacing: 0.1rem;
           padding: 0;
         }
+
         svg {
           margin: 1.5rem;
         }
       }
-      
+
       &__weekdays {
         width: 100vw;
         height: 2.5rem;
@@ -303,6 +334,7 @@ body {
           margin: auto;
         }
       }
+
       &__days {
         width: 100%;
         height: 100%;
@@ -319,8 +351,10 @@ body {
         transition: background-color 0.2s;
 
         @media only screen and (min-width: 600px) {
-          padding: 0 2vw;;
+          padding: 0 2vw;
+          ;
         }
+
         div {
           height: fit-content;
           line-height: 3vh;
@@ -336,6 +370,7 @@ body {
               font-weight: bolder;
             }
           }
+
           & p {
             margin: 0;
           }
@@ -345,17 +380,20 @@ body {
         .next-date {
           opacity: 0.5;
         }
+
         .assigned {
           display: flex;
           flex-direction: column;
-          
+
           column-gap: 0;
           text-align: center;
           justify-content: space-around;
+
           p {
             line-height: 1.5vh;
           }
         }
+
         .today {
           font-weight: bolder;
           color: white;
@@ -369,6 +407,7 @@ body {
     }
   }
 }
+
 .iconify {
   padding: 0;
 }
