@@ -6,31 +6,33 @@
     animation-duration: 3s;
     animation-delay:1s;
     animation-iteration-count:infinite;
-    animation-direction:alternate ;
+    animation-direction:normal ;
+    animation-timing-function: ease-in-out;
     
+}
 
-    .ball {
-        width: 200px;
-        height: 200px;
-        border-radius: 100px;
+.ball {
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    background-color: tomato;
+    position: relative;
+    top:-250px;
+    left: 50px;
+    animation-name: rorate;
+    animation-duration: 3s;
+    animation-delay:1s;
+    animation-iteration-count:infinite;
+    animation-direction:reverse ;
+    animation-timing-function: ease-in-out;
+
+    .box{
+        width: 100px;
+        height: 100px;
         background-color: tomato;
-        position: relative;
-        top:50px;
-        left: 50px;
-        animation-name: rorate;
-        animation-duration: 3s;
-        animation-delay:1s;
-        animation-iteration-count:infinite;
-        animation-direction:alternate ;
-
-        .box{
-            width: 100px;
-            height: 100px;
-            background-color: tomato;
-        }
-        
-    
     }
+    
+
 }
 
 @keyframes spin{
@@ -44,9 +46,9 @@
 
 @keyframes rorate{
     from { 
-        transform: rotate(360deg); 
-    } to { 
         transform: rotate(0deg); 
+    } to { 
+        transform: rotate(360deg); 
     }
 
 }
