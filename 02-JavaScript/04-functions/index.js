@@ -1,3 +1,6 @@
+
+
+
 //definition
 function doSomthing(argument1, argument2, argument3, etc) {
     //do somthing with the arguments
