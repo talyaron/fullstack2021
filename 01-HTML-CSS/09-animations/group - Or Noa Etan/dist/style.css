@@ -14,7 +14,6 @@ body {
 }
 #landing-home {
   height: 100vh;
-  background: white;
   padding: 30px;
 }
 #landing-home__logo {
@@ -32,7 +31,7 @@ body {
 }
 #landing-home__logo span {
   font-size: 1rem;
-  font-weight: normal;
+  font-weight: bold;
 }
 #landing-home__search {
   text-align: center;
@@ -41,17 +40,26 @@ body {
   margin-left: auto;
   margin-right: auto;
   font-size: 25px;
-  border-radius: 10px;
+  border-radius: 5px;
   height: 50px;
+  width: 80vw;
 }
 #landing-home__task {
   display: flex;
   flex-direction: column;
 }
+#landing-home__task span {
+  font-weight: bolder;
+}
 #landing-home__task .task {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-weight: bold;
+}
+#landing-home__task .left {
+  margin-right: auto;
+  margin-left: 1rem;
 }
 #landing-home__task .icon {
   margin-top: 15px;
@@ -72,7 +80,7 @@ body {
   margin-left: 13px;
   margin-top: 13px;
 }
-#landing-home__recent__title {
+#landing-home .recent__title {
   display: flex;
   align-items: center;
   justify-content: space-between;
