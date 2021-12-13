@@ -105,56 +105,101 @@
 
 .wallet {
   width: 640px;
+  border: 1px solid red;
   margin: 15px;
 }
 .wallet-banner {
   display: flex;
-  height: 50px;
+  height: 60px;
   width: 600px;
+  overflow: scroll;
   white-space: nowrap;
 }
+.wallet-banner::-webkit-scrollbar {
+  width: 0px;
+}
 .wallet-banner__item {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 5px;
   padding-inline: 10px;
   border-radius: 5px;
-  background-image: var(--color-light-grey);
+  background-color: var(--color-light-grey);
   margin: 5px;
   width: 90ch;
 }
 .wallet-banner__item svg {
   width: 20px;
 }
-.wallet-banner__item svg #rose {
+.wallet-banner__item::before {
+  content: "";
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  filter: opacity(0.1);
+  border-radius: 5px;
+}
+.wallet-banner__item#rose {
   fill: var(--color-rose);
 }
-.wallet-banner__item svg #avax {
+.wallet-banner__item#rose::before {
+  background-color: var(--color-rose);
+}
+.wallet-banner__item#avax {
   fill: var(--color-avax);
 }
-.wallet-banner__item svg #link {
+.wallet-banner__item#avax::before {
+  background-color: var(--color-avax);
+}
+.wallet-banner__item#link {
   fill: var(--color-link);
 }
-.wallet-banner__item svg #busd {
+.wallet-banner__item#link::before {
+  background-color: var(--color-link);
+}
+.wallet-banner__item#busd {
   fill: var(--color-busd);
 }
-.wallet-banner__item svg #doge {
+.wallet-banner__item#busd::before {
+  background-color: var(--color-busd);
+}
+.wallet-banner__item#doge {
   fill: var(--color-doge);
 }
-.wallet-banner__item svg #btc {
+.wallet-banner__item#doge::before {
+  background-color: var(--color-doge);
+}
+.wallet-banner__item#btc {
   fill: var(--color-btc);
 }
-.wallet-banner__item svg #uni {
+.wallet-banner__item#btc::before {
+  background-color: var(--color-doge);
+}
+.wallet-banner__item#uni {
   fill: var(--color-uni);
 }
-.wallet-banner__item svg #klay {
+.wallet-banner__item#uni::before {
+  background-color: var(--color-uni);
+}
+.wallet-banner__item#klay {
   fill: var(--color-klay);
 }
-.wallet-banner__item svg #axs {
+.wallet-banner__item#klay::before {
+  background-color: var(--color-klay);
+}
+.wallet-banner__item#axs {
   fill: var(--color-axs);
 }
-.wallet-banner__item svg #xlm {
+.wallet-banner__item#axs::before {
+  background-color: var(--color-axs);
+}
+.wallet-banner__item#xlm {
   fill: var(--color-xlm);
+}
+.wallet-banner__item#xlm::before {
+  background-color: var(--color-xlm);
 }
 .wallet-value {
   width: 600px;
