@@ -11,71 +11,65 @@
 
 
 <body>
-    <h1>Exchang</h1>
-   <div class="wrapper-main">
-       <div class="sub-wrapper1__select">
-            <select name="coins" id="coin">
-            <option value ="co">select coin</option>
-            <option value="co">END=$</option>
-            <option value="co">EUR-€</option>
-            <option value="co">GBP-₤</option>
-            <option value="co">ILS-₪</option>
-            <option value="co">SSP-£</option>
-            <option value="co">SYP-£</option>
-            </select>
-       </div>
-       <div class="sub-wrapper2__counter">
-            <div class="card">
-                <p></p>
-                <button onclick="decrement()">-</button>
-                <h2 id="root"></h2>
-                <button onclick="increment()">+</button>
-            </div>
-        </div>
+   <ul class="menu">
+       <il><a href=""></a>Limit</il>
+       <il><a href=""></a>Market</il>
+       <il><a href=""></a>pool</il>
+       <il><a href=""></a>info</il>
+   </ul>
+   <div class="title"><h1>Exchang <p>OCTOBER 18,TUESDAY 3:19:23 PM</p></h1></div>
 
-       </div>
-   </div>
- 
-   <!--///////////////////////////////////////////////////////////////////////////-->
 
-   <div class="wrapper-main2">
-        <div class="sub-wrapper1__select">
-                <select name="coins" id="coin">
-                <option value ="co">select coin</option>
+   <div class="wrapper">
+       
+           <div class="box select">
+               <h5>YOU EXCHANG</h5> 
+               <select name="selec" id="coin">
+                <option value="co">select coin</option>
                 <option value="co">END=$</option>
                 <option value="co">EUR-€</option>
                 <option value="co">GBP-₤</option>
-                <option value="co">ILS-₪</option>
-                <option value="co">SSP-£</option>
-                <option value="co">SYP-£</option>
-                </select>
-        
+               </select>
+               <p style="font-size: small;">▴€0.187200</p>
            </div>
-        </div>
-        <div class="sub-wrapper2__counter">
-                <div class="card">
-                    <p></p>
+           
+               <div class="box button">
+                   
+                    <h4 id="root"></h4>
                     <button onclick="decrement()">-</button>
-                    <h2 id="root"></h2>
                     <button onclick="increment()">+</button>
-                </div>
-        </div>
+                    <p>PRICE     <span class="color="red>~</span>       €6.022</p>
+                </div> 
+                <div class="wrapper2">
+                    <div class="box select">
+                        <h5>YOU PRICE</h5> 
+                        <select name="selec" id="coin">
+                         <option value="co">select coin</option>
+                         <option value="co">END=$</option>
+                         <option value="co">EUR-€</option>
+                         <option value="co">GBP-₤</option>
+                        </select>
+                        <p style="font-size: small;">▴€0.187200</p>
+                    </div>
+                    (W)
+                        <div class="box button">
+                            
+                             <h4 id="num"></h4>
+                             <button onclick="decrem()">-</button>
+                             <button onclick="increaz()">+</button>
+                             <p>PRICE     <span class="color="red>~</span>       €6.022</p>
+                         </div>
+                </div> 
+
    </div>
-   <script>
-    var data = 0;
-    document.getElementById("root").innerText=data;
-
-    function decrement() {
-        data = data - 1;
-        document.getElementById("root").innerText=data;
-    }
-
-    function increment() {
-        data = data + 1;
-        document.getElementById("root").innerText=data;
-    }
-</script>
-
+<hr style="width:500px; float: left;">
+<div class="button-change">
+  <button style="color:orange;">⇅</button>  
+</div>
+<hr style="width:500px; float: left; margin-top: 30px;">
+   
+   
+   <script src="index.js"></script>
 </body>
 
 </html>
