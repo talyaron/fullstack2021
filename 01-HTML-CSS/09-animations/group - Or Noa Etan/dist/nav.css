@@ -66,7 +66,6 @@ nav ul li a i:hover {
   padding-inline: 0.5rem;
   flex-direction: row;
   right: 20vw;
-  text-transform: capitalize;
 }
 #control__mytasks-square {
   align-self: center;
@@ -122,6 +121,18 @@ nav ul li a i:hover {
     display: none;
   }
 }
+span {
+  opacity: 0;
+  transition: all 0.4s ease;
+  transform: translateY(50px);
+  display: inline-block;
+}
+
+.fade {
+  opacity: 1;
+  transform: translateY(0px);
+}
+
 @keyframes fade {
   from {
     opacity: 1;
