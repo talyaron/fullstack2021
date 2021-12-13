@@ -110,7 +110,6 @@
 
 .wallet {
     width: 640px;
-    border: 1px solid red ;
     margin: 15px;
     &-banner {
         display: flex;
@@ -159,19 +158,21 @@
         }
 
         &__graph {
-
+            position: relative;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            border: 3px solid var(--color-red);
             border-radius: 50%;
             height: 600px;
-
+            svg{
+                width: 85%;
+                height: 85%;
+            }
             h1 {
                 font-size: 3rem;
-                position: relative;
-
+                position: absolute;
+                top: 42%;
                 &::before {
                     content: 'WALLET VALUE';
                     width: 26ch;
@@ -244,10 +245,16 @@
                 }
 
                 &__graph{
+                    position: relative;
                     width: 250px;
-                    border: 1px solid var(--color-light-grey);
+                    height: 90px;
+                    overflow: hidden;
+                    //border: 1px solid var(--color-light-grey);
                     img{
-                        width: 190px;
+                        position: absolute;
+                        width: 350px;
+                        height: 200px;
+                        bottom: -30px;
                     }
                 }
 
@@ -266,7 +273,10 @@
                         color: var(--color-light-green);
                     }
                 }
-            }   
+            } 
+            &__spacer{
+                height: 200px;
+            }  
         }
     }
 }
