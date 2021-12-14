@@ -1,12 +1,21 @@
-let weight= window.prompt("what is your weight?");
-let height= window.prompt("what is your height?");
 
 
-function bmicalc(weight, height){
+    // const weight= window.prompt("what is your weight?");
+    // const height= window.prompt("what is your height?");
 
-   return weight/(height*height);
+    let weight = 80;
+    let height = 1.80;
+
+    let bmi = 0;
+
+    function bmicalc(weight, height){
+
+    return weight/(height*height);  
 
 }
 
-bmi = bmicalc;
+bmi += bmicalc(weight, height);
+
+
+
 console.log(bmi);
