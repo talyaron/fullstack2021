@@ -1,19 +1,17 @@
 // exercise 1
 
-let num1 = window.prompt("please enter first Num:");
-let num2 = window.prompt("please enter second Num:");
+function BiggerNum (a,b) {
 
-function BiggerNum(num1,num2) {
+let num1 = a 
+let num2 = b
 
-let x = num1
-let y = num2
-
-if (x == y) {
-		alert(x + " is equal to " + y)} 
-else if (y > x) {
-		alert(y + " is larger than " + x)} 
+if (num1 == num2) {
+		alert(num1 + " is equal to " + num2);} 
+else if (num2 > num1) {
+		alert(num2 + " is larger than " + num1);} 
 else {
-		alert(x + " is larger than " + y)}
+		alert(num1 + " is larger than " + num1);}
 }
 
-
+let num1 = window.prompt("please enter first Num:");
+let num2 = window.prompt("please enter second Num:");
