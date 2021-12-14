@@ -3,21 +3,17 @@
 let num1 = window.prompt("please enter first Num:");
 let num2 = window.prompt("please enter second Num:");
 
-function BiggerNum (num1,num2) {
+function BiggerNum(num1,num2) {
 
-if (num1 == num2) {
-		return result
-} 
-else if (num1 > num2) {
-		return result
-} 
+let x = num1
+let y = num2
+
+if (x == y) {
+		alert(x + " is equal to " + y)} 
+else if (y > x) {
+		alert(y + " is larger than " + x)} 
 else {
-		return result
+		alert(x + " is larger than " + y)}
 }
 
-}
-
-alert(num1 + " is larger than " + num2);
-alert(num1 + " is larger than " + num2);
-alert(num1 + " is equal to " + num2);
 
