@@ -1,6 +1,7 @@
 .wrapper{
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
 }
 
 
@@ -10,10 +11,8 @@
     position: relative;
     top:8vw;
     animation-name: bullet;
-    animation-duration: 2s;
-    animation-direction:normal ;
+    animation-duration: 8s;
     animation-timing-function: ease-in;
-    animation-fill-mode: forwards;
     animation-iteration-count: infinite;
     img{
         width: 100px;
@@ -25,9 +24,7 @@
       left: 0;
     }
     50% {
-      left: 70%;
+      left: 30%;
     }
-    100% {
-      left: 70%;    
-    }
+    
   }
