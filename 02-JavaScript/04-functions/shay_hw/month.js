@@ -1,3 +1,4 @@
+//second exercise
 let thisMonth=['nan', 'january', 'February', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december']
 function month(num){
    
