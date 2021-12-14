@@ -11,6 +11,17 @@
     --color-light-green: #89A290;
     --color-red: #BB615D;
 
+    --color-rose: #F4C462;
+    --color-avax: #E7A788;
+    --color-link: #CDBDA5;
+    --color-busd: #86D3D9;
+    --color-doge: #FE8671;
+    --color-btc: #BD96EE;
+    --color-uni: #F7A1D5;
+    --color-klay: #A5A99E;
+    --color-axs: #9CAAE7;
+    --color-xlm: #33CFFF;
+
     background-color: var(--color-dark-grey);
     color: var(--color-white);
     font-family: Arial, Helvetica, sans-serif;
@@ -95,7 +106,7 @@
         &__wallet{
             position: relative;
             svg{
-                height: 50px;
+                height: 70px;
                 fill: var(--color-lighter-grey);
             }
             &::after{
@@ -114,16 +125,95 @@
     margin: 15px;
     &-banner {
         display: flex;
-        height: 70px;
+        height: 60px;
         width: 600px;
-        overflow: hidden;
+        overflow: scroll;
+        white-space: nowrap;
+        &::-webkit-scrollbar{
+            width: 0px;
+        }
         &__item {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding-inline: 10px;
             border-radius: 5px;
             background-color: var(--color-light-grey);
-            margin: 1rem;
-            width: 50ch;
-            text-align: center;
-            padding-block: 0.6em;
+            margin: 5px;
+            width: 90ch;
+            svg {
+                width: 20px;
+            }
+            &::before{
+                content: '';
+                left: 0px;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                filter: opacity(0.1);
+                border-radius: 5px;
+            }
+            &#rose {
+                fill: var(--color-rose);
+                &::before{
+                    background-color: var(--color-rose);
+                }
+            }
+            &#avax {
+                fill: var(--color-avax);
+                &::before{
+                    background-color: var(--color-avax);
+                }
+            }
+            &#link {
+                fill: var(--color-link);
+                &::before{
+                    background-color: var(--color-link);
+                }
+            }
+            &#busd {
+                fill: var(--color-busd);
+                &::before{
+                    background-color: var(--color-busd);
+                }
+            }
+            &#doge {
+                fill: var(--color-doge);
+                &::before{
+                    background-color: var(--color-doge);
+                }
+            }
+            &#btc {
+                fill: var(--color-btc);
+                &::before{
+                    background-color: var(--color-doge);
+                }
+            }
+            &#uni {
+                fill: var(--color-uni);
+                &::before{
+                    background-color: var(--color-uni);
+                }
+            }
+            &#klay {
+                fill: var(--color-klay);
+                &::before{
+                    background-color: var(--color-klay);
+                }
+            }
+            &#axs {
+                fill: var(--color-axs);
+                &::before{
+                    background-color: var(--color-axs);
+                }
+            }
+            &#xlm {
+                fill: var(--color-xlm);
+                &::before{
+                    background-color: var(--color-xlm);
+                }
+            }
         }
     }
 
@@ -223,6 +313,8 @@
                 justify-content: space-between;
                 &__icon{
                     background-color: var(--color-mid-grey);
+                    position: relative;
+                    box-shadow: 0px -2px 0px var(--color-light-grey);
                     border-radius: 25%;
                     width: 75px;
                     height: 75px;
@@ -238,6 +330,7 @@
                     margin: 1rem;
                     font-size: 1.5rem;
                     line-height: 0rem;
+                    text-align: start;
                     :last-child{
                         font-size: 0.7em;
                     }

@@ -148,7 +148,7 @@ if (x == 10 && y < 20) {
 console.log("---------- condition type 6 age verification and gendered answer");
 
 var gender = "male";
-var age = "23";
+let age = window.prompt("In what year were you born?","Year");
 
 if (gender === "male") {
   if (age === 18) {
