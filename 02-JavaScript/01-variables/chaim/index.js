@@ -11,17 +11,12 @@ for(let i = 0; i<10; i += 3){
     console.log(i*8);
 }
 
-
-
-let x,y;{
-x = window.prompt("input numer");
-y = window.prompt("input another number")
-if (y < x) 
- console.log(  "this is a big number:" +x )
-
-if (x <y) 
-console.log( "this is a big number:" +y )
-
+function  nam(n, m)
+{
+   n=3;
+   m=4;
+   return (m*n);
+  
 }
 
 
@@ -94,18 +89,17 @@ if (h > i &&h>f  &&h> j &&h>k)
   console.log ("nothing")
 }
 
-for (var n=0; x<=15; x++);{
-
-    if (n == 0) {
-        console.log(x +  " is even");
-}
-else if (n % 2 == 0) {
-        console.log(n + " is even");   
-}
-else {
-        console.log(n + " is odd");
-}
-}
+//for (var n=0; x<=15; x++);{
+  //  if (n == 0) {
+    //    console.log(x +  " is even");
+//}
+//else if (n % 2 == 0) {
+//        console.log(n + " is even");   
+//}
+//else {
+  //      console.log(n + " is odd");
+//}
+//}
 
 
 {
