@@ -54,10 +54,30 @@ let age = yearnow - yearofbirth
 function yourAge(age) {
     return age;
 }
+if (yearofbirth < 1910 || yearofbirth > 2020) {
+    alert("Invalid year")
+}
+else {
+    alert("You'r Age is " + yourAge(age));
+}
 
-alert("You'r Age is " + yourAge(age));
 
-///Qustion Four////
+////Qustion Four////
+
+
+let liters = window.prompt("Liter to Oz Converter , Input Number of Liters?")
+let Oz = liters * (33.814)
+
+function convert() {
+    return Oz
+
+}
+
+alert((liters) + " Liters" + " = " + convert() + " Oz");
+
+
+
+
 
 
 
