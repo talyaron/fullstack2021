@@ -1,20 +1,36 @@
+//define
+function bmi(height, weight) {
+    return weight / (height * height)
+};
 
-function bmi(height, weight){
-    return weight/(height*height)
+
+function bmiMeaning(bmi) {
+
+    if (bmi > 18 && bmi <= 25) {
+        return (bmi + ' תקין')
+    }
+
+    else if (bmi <= 18) {
+        return (bmi + 'תת משקל')
+    }
+
+    if (bmi > 25) {
+        return (`${bmi} עודף משקל`)
+    }
 }
-q=bmi(1.59,52)
 
-q=bmi(1.8,90)
+//invoke
+let q = bmi(1.59, 52)
+console.log(q);
+let meaning = bmiMeaning(q);
+console.log(meaning);
 
 
-if(q>18 && q<=25){
-console.log(q,+' תקין')
-}
+q = bmi(1.8, 90);
+console.log(q);
+meaning = bmiMeaning(q);
+console.log(meaning);
 
-else if(q<=18){
-    console.log(q+'תת משקל')
-}
-
-if(q>25){
-console.log(`${q} עודף משקל`)
+function calcIntrest(loan, precentage, years){
+    return totalSum
 }

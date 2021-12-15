@@ -1,0 +1,33 @@
+body {
+    background-color: #030203;
+}
+
+.TopBox {
+   margin-top: 20%;
+   margin-left: 5%;
+   margin-right: 5%;
+    height: 165px;
+    background-color: #9966cc;
+    border-radius: 15px;
+}
+
+.Box {
+    margin-top: 10%;
+    margin-left: 12%;
+    height: 300px;
+    width: 260px;
+    background-color: #2a2727;
+    border-radius: 15px;
+ 
+}
+
+.BoxOptions {
+    margin-top: 6%;
+    margin-left: 10%;
+    margin-right: 10%;
+    display: inline-flex;
+    height: 50px;
+    width: 80%;
+    background-color: #030203;
+    border-radius: 5px;
+}
