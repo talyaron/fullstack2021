@@ -49,7 +49,16 @@ function maxNumber (num1, num2){
             console.log(num2);
         }
     }
-}
+
+    //OR YOU CAN WRITE:
+    //if(num1>num2) {
+    //console.log(num1)
+    //} else if (num1<num2){
+    //  console.log(num2)
+    //} else if(num1==num2) {
+  //  console.log(`equal`)
+    //}
+    //}
 
 maxNumber(-10, -11);
 
@@ -61,6 +70,9 @@ return nameMonth[numberMonth];
 }
 
 console.log(month(4));
+
+//In array you can write the months regular, without [''] and when you got number, reduce 1 from the number.
+//Also you can use switch ( https://www.w3schools.com/js/js_switch.asp )
 
 
 //3
@@ -90,12 +102,6 @@ function addUp(sumNumber){
 console.log(addUp(4));
 
 */
-
-
-
-
-
-
 
 
 

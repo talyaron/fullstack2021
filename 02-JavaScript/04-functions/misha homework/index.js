@@ -2,20 +2,23 @@
 
 // --- 1 --- //
 
-let a = window.prompt("what is the first number?")
-let b = window.prompt("what is the second number?")
+// let a = window.prompt("what is the first number?")
+// let b = window.prompt("what is the second number?")
 
-function largest(a,b){
+// function largest(a,b){
 
-if(a>b){
-    return a;
-}
-else{
-    return b;
-}
-}
+// if(a>b){
+//     return a;
+// }
+// else{
+//     return b;
+// }
+// }
 
-alert("largest number is "+ largest(a,b));
+// alert("largest number is "+ largest(a,b));
+
+
+// Also import not forget about equal numbers, (if (a==b))
 
 
 // ------------------------------------------------- //
@@ -47,6 +50,9 @@ alert("largest number is "+ largest(a,b));
 
 // }
 
+//In array you can write the months regular, without ["."] and when you got number, reduce 1 from the number.
+//Also you can use switch ( https://www.w3schools.com/js/js_switch.asp )
+
 // ------------------------------------------------- //
 // ------------------------------------------------- //
 
@@ -65,44 +71,54 @@ alert("largest number is "+ largest(a,b));
 
 // alert("you are "+ yourage + " years old");
 
+/*
+
+function age( yearborn){
+    let day = new Date();
+    return alert(day.getFullYear() - yearborn);
+}
+
+age( yearborn)
+
+*/
+
+
 // ------------------------------------------------- //
 // ------------------------------------------------- //
 
 // --- 4 --- //
 
-// let num = window.prompt("enter a number to check if its a prime number");
+let num = window.prompt("enter a number to check if its a prime number");
 
-// primecheck();
+primecheck();
 
-// function primecheck(num){
+function primecheck(num) {
 
-//     if(num<=1){
-//        return false;
-//     }
+    if (num <= 1) {
+        return false;
+    }
 
-//      else if (num === 2){
-//          return true;
-//     }
-    
-//     else{
-        
-//         for (i=3; i<num; i++){
-//             if(num % i == 0){
-//                 return false;
-//             }
-//             else{
-//                 return true;
-//             }
-            
-//         }
-//     }
-// }
+    else if (num === 2) {
+        return true;
+    }
 
-// if(primecheck(num) == false){
-// alert(num + " is not prime");
-// }
+    else {
 
-// else if(primecheck(num) == true){
-// alert(num + " is prime");
-// }
+        for (i = 3; i < num; i++) { //important to declare the i (let i=3)
+            if (num % i == 0) {
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+    }
+}
 
+if (primecheck(num) == false) {
+    alert(num + " is not prime");
+}
+
+else if (primecheck(num) == true) {
+    alert(num + " is prime");
+}
