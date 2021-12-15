@@ -16,41 +16,41 @@
 
 // --- 4 --- //
 
-let num = window.prompt("enter a number to check if its a prime number");
+// let num = window.prompt("enter a number to check if its a prime number");
 
-primecheck();
+// primecheck();
 
-function primecheck(num){
+// function primecheck(num){
 
-    if(num<=1){
-       return false;
-    }
+//     if(num<=1){
+//        return false;
+//     }
 
-     else if (num === 2){
-         return true;
-    }
+//      else if (num === 2){
+//          return true;
+//     }
     
-    else{
+//     else{
         
-        for (i=3; i<num; i++){
-            if(num % i == 0){
-                return false;
-            }
-            else{
-                return true;
-            }
+//         for (i=3; i<num; i++){
+//             if(num % i == 0){
+//                 return false;
+//             }
+//             else{
+//                 return true;
+//             }
             
-        }
-    }
-}
+//         }
+//     }
+// }
 
-if(primecheck(num) == false){
-alert(num + " is not prime");
-}
+// if(primecheck(num) == false){
+// alert(num + " is not prime");
+// }
 
-else if(primecheck(num) == true){
-alert(num + " is prime");
-}
+// else if(primecheck(num) == true){
+// alert(num + " is prime");
+// }
 
 
 

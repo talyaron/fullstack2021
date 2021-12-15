@@ -2,22 +2,23 @@
 
 // --- 1 --- //
 
-// let a = window.prompt("what is the first number?")
-// let b = window.prompt("what is the second number?")
+let a = window.prompt("what is the first number?")
+let b = window.prompt("what is the second number?")
 
-// function largest(a,b){
+function largest(a,b){
 
-// if(a>b){
-//     return a;
-// }
-// else{
-//     return b;
-// }
-// }
+if(a>b){
+    return a;
+}
+else{
+    return b;
+}
+}
 
-// alert("largest number is "+ largest(a,b));
+alert("largest number is "+ largest(a,b));
 
 
+// ------------------------------------------------- //
 // ------------------------------------------------- //
 
 
@@ -47,25 +48,61 @@
 // }
 
 // ------------------------------------------------- //
+// ------------------------------------------------- //
 
-/// --- 3 --- ///
+// --- 3 --- //
 
-// let a = window.prompt("Please, enter your age");
+// let yearborn = window.prompt("Enter the year you were born");
+// let yearnow = 2021;
 
-let year = date().getFullYear();
+// function age(yearnow, yearborn){
 
-let date =  new Date().getFullYear();
-console.log(date);
+//     return yearnow - yearborn;
 
-function yourage(a){
+// }
 
+// let yourage = age(yearnow, yearborn);
 
-}
+// alert("you are "+ yourage + " years old");
 
+// ------------------------------------------------- //
+// ------------------------------------------------- //
 
+// --- 4 --- //
 
+// let num = window.prompt("enter a number to check if its a prime number");
 
+// primecheck();
 
+// function primecheck(num){
 
+//     if(num<=1){
+//        return false;
+//     }
 
+//      else if (num === 2){
+//          return true;
+//     }
+    
+//     else{
+        
+//         for (i=3; i<num; i++){
+//             if(num % i == 0){
+//                 return false;
+//             }
+//             else{
+//                 return true;
+//             }
+            
+//         }
+//     }
+// }
+
+// if(primecheck(num) == false){
+// alert(num + " is not prime");
+// }
+
+// else if(primecheck(num) == true){
+// alert(num + " is prime");
+// }
 
