@@ -15,6 +15,17 @@ console.log(x);
 
 // whatsYourAge(2021, 2012)
 
+//OR
+
+/*
+function age( YearOfBirth){
+    let day = new Date();
+    return alert(day.getFullYear() - YearOfBirth);
+}
+
+age( YearOfBirth)
+*/
+
 
 
 

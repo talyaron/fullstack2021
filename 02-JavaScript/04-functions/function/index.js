@@ -28,6 +28,7 @@ function maxNumber (num1, num2){
    return Math.max(num1, num2);
 }
 
+
 let x = maxNumber(9, 10);
 console.log(x);
 
@@ -49,25 +50,36 @@ function maxNumber (num1, num2){
             console.log(num2);
         }
     }
-}
+
+    //OR YOU CAN WRITE:
+    //if(num1>num2) {
+    //console.log(num1)
+    //} else if (num1<num2){
+    //  console.log(num2)
+    //} else if(num1==num2) {
+  //  console.log(`equal`)
+    //}
+    //}
 
 maxNumber(-10, -11);
 
 
 //2
 function month(numberMonth) {
-let nameMonth = ['', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+let nameMonth = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 return nameMonth[numberMonth];
 }
 
-console.log(month(4));
+console.log(month(4-1));
 
+//In array you can write the months regular, without [''] and when you got number, reduce 1 from the number.
+//Also you can use switch ( https://www.w3schools.com/js/js_switch.asp )
 
 //3
 function age (year){
     let currentYear = new Date();
     currentYear = currentYear.getFullYear();
-    return currentYear - year; 
+    return currentYear - year;
 }
 
 let userAge = prompt('What is your year of birth?');
@@ -91,11 +103,14 @@ console.log(addUp(4));
 
 */
 
+//-----------------------------KATYA---------------//
+// function month(numberMonth) {
+//     let nameMonth = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+//     return console.log(nameMonth[numberMonth - 1])
+//
+// }
 
-
-
-
-
+// month(4)
 
 
 
