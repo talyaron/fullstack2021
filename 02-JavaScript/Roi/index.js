@@ -1,5 +1,0 @@
-
-
-function BMI (w,h) {
-
-}

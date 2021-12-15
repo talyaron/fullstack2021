@@ -1,0 +1,486 @@
+//Andrew Start
+:root {
+    --color-dark-grey: #22282c;
+    --color-mid-grey: #2E3137;
+    --color-light-grey: #383C3F;
+    --color-lighter-grey: #7E8082;
+    --color-white: #DDDDDD;
+    --color-orange: #EFAA79;
+    --color-brown: #3D2f31;
+    --color-dark-green: #303A37;
+    --color-light-green: #89A290;
+    --color-red: #BB615D;
+
+    --color-rose: #F4C462;
+    --color-avax: #E7A788;
+    --color-link: #CDBDA5;
+    --color-busd: #86D3D9;
+    --color-doge: #FE8671;
+    --color-btc: #BD96EE;
+    --color-uni: #F7A1D5;
+    --color-klay: #A5A99E;
+    --color-axs: #9CAAE7;
+    --color-xlm: #33CFFF;
+
+    background-color: var(--color-dark-grey);
+    color: var(--color-white);
+    font-family: Arial, Helvetica, sans-serif;
+}
+body{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+    &__icon {
+        position: relative;
+        border: 1px solid var(--color-light-grey);
+        border-radius: 10px;
+        width: 50px;
+        height: 50px;
+        background-color: var(--color-dark-grey);
+        svg{
+            width: 30px;
+            height: 30px;
+            fill: var(--color-orange);
+        }
+        &#bell{
+            &::after{
+                content: '6';
+                filter: drop-shadow(0px 0px 15px  #c05711);
+                font-size: 1rem;
+                font-weight: 600;
+                position: absolute;
+                top: -9px;
+                right: -9px;
+                width: 20px;
+                height: 20px;
+                line-height: 20px;
+                background-color: #c05711;
+                border-radius: 5px;
+                color: var(--color-white);
+            }
+        }
+    }
+
+    &__item {
+        color: var(--color-white);
+        border: 0px;
+        margin-inline: -130px;
+        border-radius: 5px;
+        font-size: 1.3rem;
+        background-color: var(--color-dark-grey);
+    }
+}
+
+.footer{
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    bottom: 20px;
+    height: 120px;
+    width: 90vw;
+    background-color: var(--color-light-grey);
+    border-radius: 20px;
+    margin: 4vw;
+    &-container{
+        width: 640px;
+        display: flex;
+        justify-content: space-evenly;
+        color: var(--color-lighter-grey);
+        font-size: 1.2rem;
+        *{
+            padding: 10px;
+        }
+        &__market{
+            position: relative;
+            svg{
+                height: 50px;
+                fill: var(--color-lighter-grey);
+            }
+            &::after{
+                content: 'Market';
+                position: absolute;
+                bottom: 15px;
+                left: 16px;
+            }
+        }
+        &__exchange{
+            position: relative;
+            width: 90px;
+            svg{
+                position: absolute;
+                top: -45px;
+                right: 0px;
+                width: 90px;
+                fill: var(--color-lighter-grey);
+                .st1{
+                    fill: #bababa;
+                }
+                .st2{
+                    fill: var(--color-white);
+                    filter: drop-shadow( 2px 0px #7E8082 );
+                }
+            }
+            &::after{
+                content: 'Exchange';
+                position: absolute;
+                bottom: 15px;
+                left: 12px;
+            }
+        }
+        &__wallet{
+            position: relative;
+            svg{
+                height: 50px;
+                fill: var(--color-lighter-grey);
+            }
+            &::after{
+                content: 'Wallet';
+                position: absolute;
+                bottom: 15px;
+                left: 23px;
+            }
+        }
+    }
+}
+
+.wallet {
+    width: 600px;
+    margin: 15px;
+    &-banner {
+        display: flex;
+        height: 60px;
+        width: 600px;
+        overflow: scroll;
+        white-space: nowrap;
+        &::-webkit-scrollbar{
+            width: 0px;
+        }
+        &__item {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding-inline: 10px;
+            border-radius: 10px;
+            background-color: var(--color-light-grey);
+            margin: 5px;
+            width: 90ch;
+            svg {
+                width: 20px;
+            }
+            &::before{
+                content: '';
+                left: 0px;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                filter: opacity(0.1);
+                border-radius: 10px;
+            }
+            &#rose {
+                fill: var(--color-rose);
+                &::before{
+                    background-color: var(--color-rose);
+                }
+            }
+            &#avax {
+                fill: var(--color-avax);
+                &::before{
+                    background-color: var(--color-avax);
+                }
+            }
+            &#link {
+                fill: var(--color-link);
+                &::before{
+                    background-color: var(--color-link);
+                }
+            }
+            &#busd {
+                fill: var(--color-busd);
+                &::before{
+                    background-color: var(--color-busd);
+                }
+            }
+            &#doge {
+                fill: var(--color-doge);
+                &::before{
+                    background-color: var(--color-doge);
+                }
+            }
+            &#btc {
+                fill: var(--color-btc);
+                &::before{
+                    background-color: var(--color-doge);
+                }
+            }
+            &#uni {
+                fill: var(--color-uni);
+                &::before{
+                    background-color: var(--color-uni);
+                }
+            }
+            &#klay {
+                fill: var(--color-klay);
+                &::before{
+                    background-color: var(--color-klay);
+                }
+            }
+            &#axs {
+                fill: var(--color-axs);
+                &::before{
+                    background-color: var(--color-axs);
+                }
+            }
+            &#xlm {
+                fill: var(--color-xlm);
+                &::before{
+                    background-color: var(--color-xlm);
+                }
+            }
+        }
+    }
+
+    &-value {
+        width: 600px;
+        height: 600px;
+        position: relative;
+
+        &__avrage {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            word-spacing: 0.7em;
+            span{
+                color: var(--color-lighter-grey);
+            }
+        }
+
+        &__max {
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            font-weight: 900;
+
+            &::after {
+                position: absolute;
+                content: 'MAX 24H';
+                top: 1.7em;
+                right: 0px;
+                font-weight: 100;
+                color: var(--color-lighter-grey);
+            }
+        }
+
+        &__graph {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 600px;
+            svg{
+                position: absolute;
+                width: 550px;
+                height: 550px;
+            }
+            h1 {
+                font-size: 3rem;
+                position: relative;
+
+                &::before {
+                    content: 'WALLET VALUE';
+                    width: 26ch;
+                    position: absolute;
+                    font-size: 0.4em;
+                    color: var(--color-lighter-grey);
+                    bottom: 5rem;
+                    text-align: center;
+                }
+
+                &::after {
+                    content: '▲ € 31.800,52 (21,1%)';
+                    width: 20ch;
+                    position: absolute;
+                    font-size: 0.4em;
+                    color: var(--color-light-green);
+                    top: 5rem;
+                    left: 4ch;
+                }
+            }
+
+        }
+    }
+
+    &-portfolio {
+        margin-bottom: 200px;
+        &__title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            h2 {
+                font-weight: 100;
+            }
+
+            &__indicators {
+                color: var(--color-lighter-grey);
+                font-size: 0.8rem;
+                word-spacing: 1em;
+            }
+        }
+
+        &__list{
+            position: relative;
+            &__item{
+                display: flex;
+                justify-content: space-between;
+                padding-block: 10px;
+                box-shadow: 0px -2px 0px 0px var(--color-light-grey);
+                &__icon{
+                    background-color: var(--color-mid-grey);
+                    border-radius: 25%;
+                    width: 75px;
+                    height: 75px;
+                    margin: 10px;
+                    svg{
+                        margin: 12.5px;
+                        width: 50px;
+                        fill: var(--color-white);
+                    }
+                }
+
+                &__name{
+                    position: absolute;
+                    left: 85px;
+                    margin: 1rem;
+                    font-size: 1.5rem;
+                    line-height: 0rem;
+                    :last-child{
+                        font-size: 0.7em;
+                        color: var(--color-lighter-grey);
+                    }
+                }
+
+                &__graph{
+                    position: absolute;
+                    left: 250px;
+                    width: 230px;
+                    //border: 1px solid var(--color-light-grey);
+                    overflow: hidden;
+                    img{
+                        width: 220px;
+                    }
+                }
+
+                &__price{
+                    margin: 1rem;
+                    text-align: end;
+                    line-height: 0em;
+                    font-weight: 600;
+                    :first-child{
+                        font-size: 1.5em;
+                    }
+                    .--red{
+                        color: var(--color-red);
+                    }
+                    .--green{
+                        color: var(--color-light-green);
+                    }
+                }
+            }   
+        }
+    }
+}
+
+//andrew end
+//yahya alhawjra-->page exchange
+//yahya start
+.menu{
+   
+    il{
+        text-decoration: inline;
+        
+        text-align: center;
+        justify-content: center;
+        color: var(--color-lighter-grey);
+        border-radius: 10px;
+        font-size: xx-large;
+        margin: 10px;
+      }
+
+
+    }  
+    il:hover{
+            background-color: var(--color-light-green);
+            color: white;
+        
+}
+
+.title{
+    margin: 50px;
+h1{
+    color: var(--color-white);
+}
+p{
+    color: var(--color-lighter-grey);
+    font-size: 18px;
+}
+}
+   .wrapper{
+       display: flex;
+       flex-wrap: row;
+       .box{
+           background-color: var(--color-mid-grey);
+           border-radius: 10px;
+           margin: 70px;
+       }
+       button{
+           border-radius:50% ;
+           align-items: center;
+           justify-content: center;
+           margin-top:-50px;
+           outline: none;
+           margin-top: 0%;
+           margin: 10px;
+          
+         
+       
+    
+       }
+       h4 {
+        margin: 0 35px;
+        
+        color: rgb(158, 10, 10);
+    }
+    
+   }
+   .button-change{
+       margin-top: 50px;
+       margin-left: 8%;
+       justify-content: center;
+       align-items: center;
+   }
+
+@media only screen and(max-width:600px) {
+    .button-change{
+        margin: 0;
+        margin-top: 50px;
+        margin-left: 50%;
+        justify-content: center;
+       align-items: center;
+    }
+}
+.wrapper2{
+    margin-left: -100px;
+    margin-top: 0px;
+    display: flex;
+    flex-wrap: row;
+}
+    
+/*yahya END*/
