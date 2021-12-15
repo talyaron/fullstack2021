@@ -5,5 +5,5 @@ function months(x) {
 } //choose a number between 1-12
 
 
-var x = months(0);
+var x = months(1);
 console.log(x);

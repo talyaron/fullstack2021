@@ -4,5 +4,5 @@ function numbers(numberA, numberB) {
     else return numberB
 }
 //choose 2 numbers
-let x = numbers (5,8);
+let x = numbers (9,15);
 console.log(x);

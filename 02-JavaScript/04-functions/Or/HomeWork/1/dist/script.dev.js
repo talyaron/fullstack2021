@@ -5,5 +5,5 @@ function numbers(numberA, numberB) {
 } //choose 2 numbers
 
 
-var x = numbers(5, 8);
+var x = numbers(9, 15);
 console.log(x);
