@@ -144,13 +144,13 @@ var range = 81.6; // let range = (david + vinoth + divya + ishitha + thomas) / 5
 for (range = 81.6; range < students.length; students.length++) {
   console.log(students.length);
 
-  if ('range' <= 60) {
+  if ('range' < 60) {
     console.log('grade = F');
-  } else if ('range' <= 70) {
+  } else if ('range' < 70) {
     console.log('grade = D');
-  } else if ('range' <= 80) {
+  } else if ('range' < 80) {
     console.log('grade = C');
-  } else if ('range' <= 90) {
+  } else if ('range' < 90) {
     console.log('grade = B');
   }
 } // 7.

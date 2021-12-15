@@ -11,7 +11,7 @@ for(let w = 0 ; w<20 ; w ++) {
     console.log(w)
 }
 
-/*Hw  */
+/*Hw  
 //exercise 1:
 var num1,num2;
 num1=window.prompt("Input the first integer", "0");
@@ -60,9 +60,8 @@ if (num2<num3) {
 
 //exercise 4:
 
-let num1,num2,num3,temp
-
-num1=window.prompt("Put the first number", "0");
+//let num1,num2,num3,temp
+/*num1=window.prompt("Put the first number", "0");
 num2=window.prompt("Put the second number", "0");
 num3=window.prompt("Put the third number", "0");
  
@@ -125,11 +124,25 @@ for(let x=0; x<=15; x++){
     console.log(x + " is even")
   }else{
     console.log(x+ " is odd")}
-  }
+  }*/
 
-  //exercise 6:
+//exercise 6:
+let David=80,
+    Vinoth=77,
+    Divya=88,
+    Ishitha=95,
+    Thomas=68;
+let average=((David+Vinoth+Divya+Ishitha+Thomas)/5);
+console.log(average);
+
+if (average<60){
+    console.log("F")
+}else if (average<70){
+    console.log("D")
+}else{
+     console.log("A");
+}
   
-  
+    
 
-
-
+        
