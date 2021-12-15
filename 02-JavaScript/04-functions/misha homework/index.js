@@ -10,9 +10,10 @@ function largest(a,b){
 if(a>b){
     return a;
 }
-else{
+else if (b>a){
     return b;
 }
+
 }
 
 alert("largest number is "+ largest(a,b));
