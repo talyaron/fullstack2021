@@ -1,7 +1,6 @@
 // PLEASE UNCOMMENT THE RIGHT SECTION TO ACTIVATE CODE //
 
 // --- 1 --- //
-
 let a = window.prompt("what is the first number?")
 let b = window.prompt("what is the second number?")
 
