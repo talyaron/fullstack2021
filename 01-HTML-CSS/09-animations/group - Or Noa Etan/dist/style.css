@@ -12,8 +12,35 @@ body {
   margin: auto;
   background-color: #f0f0f2;
 }
+#landing__dailytasksdone {
+  display: grid;
+  grid-template-columns: repeat(5, 80px);
+  grid-template-rows: 100px, 200px, 100px;
+  gap: 5px;
+}
+#landing__dailytasksdone .box1 {
+  grid-column: 1/4;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.5rem;
+  text-transform: capitalize;
+}
+#landing__dailytasksdone .box2 {
+  grid-column: 4/6;
+  font-weight: 550;
+}
+#landing__dailytasksdone .box3 {
+  grid-column: 1/6;
+}
+#landing__dailytasksdone .box {
+  border: 2px solid black;
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+}
 #landing-home {
   height: 100vh;
+  background: white;
   padding: 30px;
 }
 #landing-home__logo {
@@ -26,18 +53,12 @@ body {
   margin-left: 50px;
   margin-top: 20px;
 }
-#landing-home__logo img:hover {
-  cursor: pointer;
-}
 #landing-home__logo h1 {
   font-weight: 700;
 }
-#landing-home__logo h1:hover {
-  cursor: pointer;
-}
 #landing-home__logo span {
   font-size: 1rem;
-  font-weight: bold;
+  font-weight: normal;
 }
 #landing-home__search {
   text-align: center;
@@ -46,39 +67,23 @@ body {
   margin-left: auto;
   margin-right: auto;
   font-size: 25px;
-  border-radius: 5px;
-  height: 45px;
-  width: 80vw;
+  border-radius: 10px;
+  height: 50px;
 }
 #landing-home__task {
   display: flex;
   flex-direction: column;
 }
-#landing-home__task span {
-  font-weight: bolder;
-}
 #landing-home__task .task {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-weight: bold;
-}
-#landing-home__task h2:hover {
-  cursor: pointer;
-}
-#landing-home__task p:hover {
-  cursor: pointer;
-}
-#landing-home__task .left {
-  margin-right: auto;
-  margin-left: 1rem;
 }
 #landing-home__task .icon {
   margin-top: 15px;
   height: 50px;
   width: 50px;
   border-radius: 5px;
-  transition: 1s;
 }
 #landing-home__task .icon__1 {
   background-color: #ffc898;
@@ -92,19 +97,11 @@ body {
 #landing-home__task .icon i {
   margin-left: 13px;
   margin-top: 13px;
-  transition: all 0.5s;
 }
-#landing-home__task .icon i:hover {
-  cursor: pointer;
-  transform: rotate(360deg);
-}
-#landing-home .recent__title {
+#landing-home__recent__title {
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-#landing-home .recent__title:hover {
-  cursor: pointer;
 }
 #landing__task {
   overflow-y: hidden;
@@ -380,6 +377,18 @@ main {
   flex-direction: column;
   align-self: center;
   background-color: #f0f0f2;
+}
+
+span {
+  opacity: 0;
+  transition: all 0.4s ease;
+  transform: translateY(50px);
+  display: inline-block;
+}
+
+.fade {
+  opacity: 1;
+  transform: translateY(0px);
 }
 
 .md-18 {
