@@ -63,7 +63,7 @@
 // }
 // console.log(birthDate(date));
 
-//----a function that calculates 5% of your salary to put into savings-------04
+//----a function that calculates 10% of your salary to put into savings-------04
 
 // const amount= prompt ('what is your salary this month?');
 // function savings(amount) {
