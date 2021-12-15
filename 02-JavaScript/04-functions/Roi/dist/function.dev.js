@@ -26,4 +26,12 @@ function Age(BornYear, CurrentYear) {
   return CurrentYear - BornYear;
 }
 
-console.log(Age(b, a));
+console.log(Age(b, a)); //funtion to convert Fahrenheit to Celsius
+
+function convertF(temp) {
+  return (temp - 32) * (5 / 9);
+}
+
+var Fer = prompt("Please enter the tempature in Fahrenheit & I'll convert it to Celsius");
+var result = convertF(Fer);
+alert(result);
