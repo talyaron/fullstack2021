@@ -25,20 +25,53 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+body {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
+  width: 95%;
 }
 .header__icon {
+  position: relative;
   border: 1px solid var(--color-light-grey);
-  border-radius: 5px;
+  border-radius: 10px;
+  width: 50px;
+  height: 50px;
+  background-color: var(--color-dark-grey);
+}
+.header__icon svg {
   width: 30px;
   height: 30px;
-  background-color: var(--color-dark-grey);
+  fill: var(--color-orange);
+}
+.header__icon#bell::after {
+  content: "6";
+  filter: drop-shadow(0px 0px 15px #c05711);
+  font-size: 1rem;
+  font-weight: 600;
+  position: absolute;
+  top: -9px;
+  right: -9px;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  background-color: #c05711;
+  border-radius: 5px;
+  color: var(--color-white);
 }
 .header__item {
   color: var(--color-white);
+  border: 0px;
+  margin-inline: -130px;
   border-radius: 5px;
+  font-size: 1.3rem;
   background-color: var(--color-dark-grey);
 }
 
@@ -48,6 +81,7 @@
   position: fixed;
   bottom: 20px;
   height: 120px;
+  width: 90vw;
   background-color: var(--color-light-grey);
   border-radius: 20px;
   margin: 4vw;
@@ -114,8 +148,7 @@
 }
 
 .wallet {
-  width: 640px;
-  border: 1px solid red;
+  width: 600px;
   margin: 15px;
 }
 .wallet-banner {
@@ -134,7 +167,7 @@
   align-items: center;
   gap: 5px;
   padding-inline: 10px;
-  border-radius: 5px;
+  border-radius: 10px;
   background-color: var(--color-light-grey);
   margin: 5px;
   width: 90ch;
@@ -149,7 +182,7 @@
   height: 100%;
   position: absolute;
   filter: opacity(0.1);
-  border-radius: 5px;
+  border-radius: 10px;
 }
 .wallet-banner__item#rose {
   fill: var(--color-rose);
@@ -240,13 +273,17 @@
   color: var(--color-lighter-grey);
 }
 .wallet-value__graph {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 3px solid var(--color-red);
-  border-radius: 50%;
   height: 600px;
+}
+.wallet-value__graph svg {
+  position: absolute;
+  width: 550px;
+  height: 550px;
 }
 .wallet-value__graph h1 {
   font-size: 3rem;
@@ -270,6 +307,9 @@
   top: 5rem;
   left: 4ch;
 }
+.wallet-portfolio {
+  margin-bottom: 200px;
+}
 .wallet-portfolio__title {
   display: flex;
   justify-content: space-between;
@@ -284,17 +324,16 @@
   word-spacing: 1em;
 }
 .wallet-portfolio__list {
-  display: flex;
-  flex-direction: column;
+  position: relative;
 }
 .wallet-portfolio__list__item {
   display: flex;
   justify-content: space-between;
+  padding-block: 10px;
+  box-shadow: 0px -2px 0px 0px var(--color-light-grey);
 }
 .wallet-portfolio__list__item__icon {
   background-color: var(--color-mid-grey);
-  position: relative;
-  box-shadow: 0px -2px 0px var(--color-light-grey);
   border-radius: 25%;
   width: 75px;
   height: 75px;
@@ -306,20 +345,24 @@
   fill: var(--color-white);
 }
 .wallet-portfolio__list__item__name {
+  position: absolute;
+  left: 85px;
   margin: 1rem;
   font-size: 1.5rem;
   line-height: 0rem;
-  text-align: start;
 }
 .wallet-portfolio__list__item__name :last-child {
   font-size: 0.7em;
+  color: var(--color-lighter-grey);
 }
 .wallet-portfolio__list__item__graph {
-  width: 250px;
-  border: 1px solid var(--color-light-grey);
+  position: absolute;
+  left: 250px;
+  width: 230px;
+  overflow: hidden;
 }
 .wallet-portfolio__list__item__graph img {
-  width: 190px;
+  width: 220px;
 }
 .wallet-portfolio__list__item__price {
   margin: 1rem;
@@ -333,7 +376,7 @@
 .wallet-portfolio__list__item__price .--red {
   color: var(--color-red);
 }
-.wallet-portfolio__list__item__price .green {
+.wallet-portfolio__list__item__price .--green {
   color: var(--color-light-green);
 }
 
