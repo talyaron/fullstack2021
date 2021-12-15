@@ -1,5 +1,5 @@
 /*function 2*/
-const a = window.prompt("Input the number");
+const a = window.prompt("Input the number of the month");
 
 function month(a) {
     if (a == 1)
