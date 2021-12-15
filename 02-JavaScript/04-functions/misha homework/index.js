@@ -6,7 +6,7 @@ let b = window.prompt("what is the second number?")
 
 function largest(a,b){
 
-if(a>b){
+if(a=>b){
     return a;
 }
 else if (b>a){
