@@ -67,19 +67,58 @@ body {
   border-radius: 5px;
   color: var(--color-white);
 }
+.header__icon:hover #note1 {
+  animation: flop 1s forwards linear;
+}
+.header__icon:hover #note2 {
+  animation: flop 1s 1s forwards linear;
+}
+.header__icon:hover #note3 {
+  animation: flop 1s 2s forwards linear;
+}
+.header__icon:hover #note4 {
+  animation: flop 1s 3s forwards linear;
+}
+.header__icon:hover #note5 {
+  animation: flop 1s 4s forwards linear;
+}
+.header__icon:hover #note6 {
+  animation: flop 1s 5s forwards linear;
+}
 .header__icon__notification {
   transform-origin: bottom;
   position: absolute;
   left: 2px;
-  top: 2px;
   border-radius: 10px;
   box-shadow: 0px 0px 0px 1px red, 0px -2px 0px 0px blue;
   background-color: rgba(255, 248, 220, 0.158);
   width: 45px;
   height: 45px;
 }
-.header__icon__notification:hover {
-  animation: flop1 6s forwards linear;
+.header__icon__notification#note1 {
+  top: 2px;
+}
+.header__icon__notification#note2 {
+  top: 47px;
+}
+.header__icon__notification#note3 {
+  top: 92px;
+}
+.header__icon__notification#note4 {
+  top: 137px;
+}
+.header__icon__notification#note5 {
+  top: 182px;
+}
+.header__icon__notification#note6 {
+  top: 227px;
+}
+.header__icon__notification#hide {
+  position: absolute;
+  height: 270px;
+  width: 45px;
+  box-shadow: 0px 0px 0px 1px purple;
+  z-index: 9989;
 }
 .header__item {
   color: var(--color-white);
@@ -95,17 +134,20 @@ body {
   box-shadow: 0px 0px 0px 1px var(--color-white);
 }
 
-@keyframes flop1 {
-  17% {
+@keyframes flop {
+  70% {
     transform-origin: bottom;
-    transform: rotateX(180deg);
+    transform: rotateX(190deg);
+  }
+  80% {
+    transform-origin: bottom;
+    transform: rotateX(170deg);
   }
   100% {
     transform-origin: bottom;
     transform: rotateX(180deg);
   }
 }
-@keyframes flop2 {}
 .footer {
   display: flex;
   justify-content: center;

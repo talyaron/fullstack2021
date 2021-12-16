@@ -68,11 +68,34 @@ body{
                 color: var(--color-white);
             }
         }
+        &:hover{
+            #note1{
+                animation: flop 1s forwards linear;
+            }
+            #note2{
+                animation: flop 1s 1s forwards linear;
+            }
+            #note3{
+                animation: flop 1s 2s forwards linear;
+            }
+            #note4{
+                animation: flop 1s 3s forwards linear;
+            }
+            #note5{
+                animation: flop 1s 4s forwards linear;
+            }
+            #note6{
+                animation: flop 1s 5s forwards linear;
+            }
+            #hide{
+
+            }
+            
+        }
         &__notification{
             transform-origin: bottom;
             position: absolute;
             left: 2px;
-            top: 2px;
             border-radius: 10px;
             box-shadow: 
             0px 0px 0px 1px red,
@@ -81,13 +104,31 @@ body{
             background-color: rgba(255, 248, 220, 0.158);
             width: 45px;
             height: 45px;
-            #note1{
-
+            &#note1{
+                top: 2px;
             }
-            &:hover{
-                animation: flop1 6s forwards linear;
+            &#note2{
+                top: 47px;
             }
-            
+            &#note3{
+                top: 92px;
+            }
+            &#note4{
+                top: 137px;
+            }
+            &#note5{
+                top: 182px;
+            }
+            &#note6{
+                top: 227px;
+            }
+            &#hide{
+                position: absolute;
+                height: 270px;
+                width: 45px;
+                box-shadow: 0px 0px 0px 1px purple;
+                z-index: 9989;
+            }
         }
     }
 
@@ -106,18 +147,12 @@ body{
     }
 }
 
-@keyframes flop1{
-    17%{transform-origin: bottom; transform: rotateX(180deg);}
+@keyframes flop{
+    70%{transform-origin: bottom; transform: rotateX(190deg);}
+    80%{transform-origin: bottom; transform: rotateX(170deg);}
     100%{transform-origin: bottom; transform: rotateX(180deg);}
-    //50%{transform: rotateX(-180deg);}
-    //67%{transform: rotateX(360deg);}
-    //83%{transform: rotateX(180deg);}
-    //100%{transform: rotateX(360deg);}
-}
-@keyframes flop2{
     
 }
-
 .footer{
     display: flex;
     justify-content: center;

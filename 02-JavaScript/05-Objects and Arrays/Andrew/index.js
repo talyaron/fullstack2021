@@ -17,8 +17,11 @@ function convertToDate(a){
     return monthes[a-1];
 }
 let x = window.prompt("Please enter a Number between 1 and 12:")*1;
+if(){
+
+}
 if(x<1 || x>12){
-    alert(x +" is not a valid number.");
+    alert(x +" is not a valid number.");ccc
 }
 x = convertToDate(x);
 alert("The month is: " +x);

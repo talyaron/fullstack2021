@@ -20,6 +20,7 @@ var x = window.prompt("Please enter a Number between 1 and 12:") * 1;
 
 if (x < 1 || x > 12) {
   alert(x + " is not a valid number.");
+  ccc;
 }
 
 x = convertToDate(x);
