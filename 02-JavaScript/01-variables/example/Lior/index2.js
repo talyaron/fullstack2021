@@ -22,6 +22,9 @@
 //Q1
 
 function largest(num1,num2)
+num1 = parseInt(num1);
+num2 = parseInt(num2);
+
 {
     if (num1>num2)
     {
@@ -78,8 +81,6 @@ function countPaths(maxRow,maxCol)
      moveByRow=array[0][0]/10;
      moveByCol=array[0][0]%10;
      array=array(maxRow,maxCol)
-
-     array2=Array([],[])
 
     if(moveByCol<maxCol && moveByRow<maxRow)
     {

@@ -1,0 +1,57 @@
+body {
+    margin: 0%;
+    padding: 0% 5%;
+}
+
+.nav {
+    height: 100%;
+    width: 100%;
+    border: solid 2px black;
+
+    &__manu {
+        display: flex;
+        place-content: space-between;
+        text-decoration: none;
+    }
+
+    &__span {
+        color: red;
+        font-size: 2em;
+
+        &--activ {
+            color: blue;
+            font-size: 2em;
+        }
+
+        &--green {
+            color: green;
+            font-size: 2em;
+        }
+
+        &--pink {
+            color: pink;
+            font-size: 2em;
+        }
+
+    }
+
+    a {
+        color: black;
+        text-decoration: none;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+    }
+
+}
+.all{
+    display:flex;
+    place-content: space-between;
+    margin: 0% 2% 0% 5%;
+    
+    .pupimg:{
+        height: 100%;
+        width: 100%;
+        
+    }
+    
+}

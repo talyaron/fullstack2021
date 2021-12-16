@@ -2,20 +2,32 @@
 
 // --- 1 --- //
 
-// let a = window.prompt("what is the first number?")
-// let b = window.prompt("what is the second number?")
+let x;
+let y = true //false = boolean
 
-// function largest(a,b){
+let a = window.prompt("what is the first number?");
+let b = window.prompt("what is the second number?");
 
-// if(a>b){
-//     return a;
-// }
-// else{
-//     return b;
-// }
-// }
+console.log(typeof a);
+console.log(typeof b);
 
-// alert("largest number is "+ largest(a,b));
+a = parseInt(a);
+b = parseInt(b);
+
+console.log(typeof a)
+console.log(typeof b)
+
+function largest(a, b) {
+
+    if (a > b) {
+        return a;
+    }
+    else {
+        return b;
+    }
+}
+
+alert("largest number is " + largest(a, b));
 
 
 // Also import not forget about equal numbers, (if (a==b))
@@ -88,37 +100,37 @@ age( yearborn)
 
 // --- 4 --- //
 
-let num = window.prompt("enter a number to check if its a prime number");
+// let num = window.prompt("enter a number to check if its a prime number");
 
-primecheck();
+// primecheck();
 
-function primecheck(num) {
+// function primecheck(num) {
 
-    if (num <= 1) {
-        return false;
-    }
+//     if (num <= 1) {
+//         return false;
+//     }
 
-    else if (num === 2) {
-        return true;
-    }
+//     else if (num === 2) {
+//         return true;
+//     }
 
-    else {
+//     else {
 
-        for (i = 3; i < num; i++) { //important to declare the i (let i=3)
-            if (num % i == 0) {
-                return false;
-            }
-            else {
-                return true;
-            }
-        }
-    }
-}
+//         for (i = 3; i < num; i++) { //important to declare the i (let i=3)
+//             if (num % i == 0) {
+//                 return false;
+//             }
+//             else {
+//                 return true;
+//             }
+//         }
+//     }
+// }
 
-if (primecheck(num) == false) {
-    alert(num + " is not prime");
-}
+// if (primecheck(num) == false) {
+//     alert(num + " is not prime");
+// }
 
-else if (primecheck(num) == true) {
-    alert(num + " is prime");
-}
+// else if (primecheck(num) == true) {
+//     alert(num + " is prime");
+// }
