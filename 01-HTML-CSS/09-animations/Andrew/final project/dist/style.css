@@ -39,6 +39,7 @@ body {
   width: 95%;
 }
 .header__icon {
+  perspective: 100px;
   position: relative;
   border: 1px solid var(--color-light-grey);
   border-radius: 10px;
@@ -66,15 +67,87 @@ body {
   border-radius: 5px;
   color: var(--color-white);
 }
+.header__icon:hover #note1 {
+  animation: flop 1s forwards linear;
+}
+.header__icon:hover #note2 {
+  animation: flop 1s 1s forwards linear;
+}
+.header__icon:hover #note3 {
+  animation: flop 1s 2s forwards linear;
+}
+.header__icon:hover #note4 {
+  animation: flop 1s 3s forwards linear;
+}
+.header__icon:hover #note5 {
+  animation: flop 1s 4s forwards linear;
+}
+.header__icon:hover #note6 {
+  animation: flop 1s 5s forwards linear;
+}
+.header__icon__notification {
+  transform-origin: bottom;
+  position: absolute;
+  left: 2px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 0px 1px red, 0px -2px 0px 0px blue;
+  background-color: rgba(255, 248, 220, 0.158);
+  width: 45px;
+  height: 45px;
+}
+.header__icon__notification#note1 {
+  top: 2px;
+}
+.header__icon__notification#note2 {
+  top: 47px;
+}
+.header__icon__notification#note3 {
+  top: 92px;
+}
+.header__icon__notification#note4 {
+  top: 137px;
+}
+.header__icon__notification#note5 {
+  top: 182px;
+}
+.header__icon__notification#note6 {
+  top: 227px;
+}
+.header__icon__notification#hide {
+  position: absolute;
+  height: 270px;
+  width: 45px;
+  box-shadow: 0px 0px 0px 1px purple;
+  z-index: 9989;
+}
 .header__item {
   color: var(--color-white);
   border: 0px;
   margin-inline: -130px;
+  padding-inline: 2ch;
   border-radius: 5px;
   font-size: 1.3rem;
   background-color: var(--color-dark-grey);
 }
+.header__item:hover {
+  background-color: var(--color-light-grey);
+  box-shadow: 0px 0px 0px 1px var(--color-white);
+}
 
+@keyframes flop {
+  70% {
+    transform-origin: bottom;
+    transform: rotateX(190deg);
+  }
+  80% {
+    transform-origin: bottom;
+    transform: rotateX(170deg);
+  }
+  100% {
+    transform-origin: bottom;
+    transform: rotateX(180deg);
+  }
+}
 .footer {
   display: flex;
   justify-content: center;
@@ -152,7 +225,7 @@ body {
     transform: translateX(640px);
   }
   to {
-    transform: translateX(-1300px);
+    transform: translateX(-1250px);
   }
 }
 .wallet {
@@ -182,7 +255,7 @@ body {
   background-color: var(--color-light-grey);
   margin: 5px;
   width: 90ch;
-  animation: scroll-right 10s cubic-bezier(0, 0.2, 1, 0.8) infinite;
+  animation: scroll-right 15s cubic-bezier(0, 0.4, 1, 0.6) infinite;
 }
 .wallet-banner__item svg {
   width: 20px;
