@@ -8,3 +8,4 @@ console.log(answer + months[whatMonth-1]);
 }
 
 monthsName();
+
