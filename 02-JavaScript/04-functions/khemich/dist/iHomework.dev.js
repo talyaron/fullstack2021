@@ -94,5 +94,39 @@ function Salary(hours, HourlyPay) {
   }
 }
 
-var e = Salary(24, 90);
+var e = Salary(70, 350);
 console.log(e);
+
+function percentage(number, percentage) {
+  return number * (percentage / 100);
+}
+
+var f = percentage(777, 2);
+console.log(f);
+var Moshe = {
+  firstname: 'Moshe',
+  lastname: "Chaim",
+  History: 88,
+  Math: 65,
+  Hebrew: 79
+};
+var Ginadi = {
+  firstname: 'Ginadi',
+  lastname: 'Gondor',
+  history: 65,
+  Math: 95,
+  Hebrew: 77
+};
+var Revital = {
+  firstname: 'Revital',
+  lastname: 'Aharoni',
+  history: 95,
+  Math: 65,
+  Hebrew: 99
+};
+
+function tellmeabout(student) {
+  return "".concat(student.firstname, ", ").concat(student.lastname, " got ").concat(student.history, " in history ").concat(student.Math, " in math and ").concat(student.Hebrew, " in hebrew");
+}
+
+console.log(tellmeabout(Revital));
