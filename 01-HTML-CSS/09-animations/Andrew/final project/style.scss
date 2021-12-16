@@ -150,17 +150,27 @@ body{
     }
 }
 
+@keyframes scroll-right{
+    from{transform: translateX(640px);}
+    to{transform: translateX(-1300px);}
+}
+
 .wallet {
     width: 600px;
     margin: 15px;
     &-banner {
         display: flex;
-        height: 60px;
+        height: 45px;
         width: 600px;
-        overflow: scroll;
+        overflow: hidden;
         white-space: nowrap;
         &::-webkit-scrollbar{
             width: 0px;
+        }
+        &:hover{
+            > .wallet-banner__item{
+                animation-play-state: paused;
+            }
         }
         &__item {
             position: relative;
@@ -172,6 +182,7 @@ body{
             background-color: var(--color-light-grey);
             margin: 5px;
             width: 90ch;
+            animation: scroll-right 10s cubic-bezier(0,.2,1,.8) infinite;
             svg {
                 width: 20px;
             }
@@ -267,7 +278,7 @@ body{
             top: 0px;
             right: 0px;
             font-weight: 900;
-
+            
             &::after {
                 position: absolute;
                 content: 'MAX 24H';
