@@ -46,7 +46,7 @@ console.log(rasheed['isMarried']);
 
 //definr function
 function tellAboutTheStudent(student) {
-    if (student.isMarried) {
+     {if (student.isMarried)
         console.log(`${student.name} ${student.lastName} is ${student.age} years old and he is married`)
     } else {
         console.log(`${student.name} ${student.lastName} is ${student.age} years old and he is not married`)
