@@ -7,10 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="dist/style.css">
     <link rel="stylesheet" href="dist/nav.css">
+    <link rel="stylesheet" href="dist/popup.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
 
 
     <link
@@ -47,6 +49,7 @@
             </div>
 
         </div>
+
         <main>
             <div id="landing__task-count">
 
@@ -69,6 +72,7 @@
                         <div class="box__countdown5">5 days left</div>
                     </div>
                 </div>
+
                 <div class="box">
                     <div id="box__flex">
                         <div class="box__header">
@@ -123,17 +127,20 @@
                         <div class="box__countdown5">5 days left</div>
                     </div>
                 </div>
-                
+
             </div>
-            <div id="landing__task__descr">
-                <span id="landing__task__descr__logo" class="iconify" data-icon="majesticons:pencil-line"
-                    data-width="24" style="opacity: .7;"></span>
-                <div id="landing__task__descr__text">
-                    <h3>Description</h3>
-                    <p>create subtasks for the ...</p>
+            <button data-modal-target="#modal">
+                <div id="landing__task__descr">
+                    <span id="landing__task__descr__logo" class="iconify" data-icon="majesticons:pencil-line"
+                        data-width="24" style="opacity: .7;"></span>
+                    <div id="landing__task__descr__text">
+                        <h3>Description</h3>
+                        <p>create subtasks for the ...</p>
+                    </div>
+                    <span class="iconify" data-icon="ic:baseline-navigate-next" data-width="20"></span>
                 </div>
-                <span class="iconify" data-icon="ic:baseline-navigate-next" data-width="20"></span>
-            </div>
+            </button>
+            
             <div id="landing__task__cal">
                 <div id="landing__task__cal__title">
                     <span class="iconify md-24" data-icon="mdi:calendar-range"></span>
@@ -177,7 +184,8 @@
                         <div>21</div>
                         <div class="assigned">
                             <p>22</p>
-                            <span class="iconify md-18" data-icon="entypo:dots-two-horizontal" style="color: rgb(34, 19, 19)"></span>
+                            <span class="iconify md-18" data-icon="entypo:dots-two-horizontal"
+                                style="color: rgb(34, 19, 19)"></span>
                         </div>
                         <div>23</div>
                         <div>24</div>
@@ -188,7 +196,8 @@
                         <div>26</div>
                         <div class="today">
                             <p>27</p>
-                            <span class="iconify md-18" data-icon="entypo:dots-three-horizontal" style="color: gold"></span>
+                            <span class="iconify md-18" data-icon="entypo:dots-three-horizontal"
+                                style="color: gold"></span>
                         </div>
                         <div>28</div>
                         <div>29</div>
@@ -199,8 +208,84 @@
                 </div>
             </div>
         </main>
+
     </div>
-<script src="./app.js"></script>
+
+
+    <div class="modal" id="modal">
+        <div class="modal__header">
+            <div class="title">Create a new subtask for the week: </div>
+            <button data-close-button class="close__button">&times;</button>
+        </div>
+        <div class="modal__body">
+            <form action="submit">
+                <input type="data" placeholder="Name your new task">
+                <label for="urg">How important is it?</label>
+                <select name="urgency" id="urg">
+                    <option value="placeholder">--Please choose an option--</option>
+                    <option value="emergency">emergency</option>
+                    <option value="asap">asap</option>
+                    <option value="high">high</option>
+                    <option value="make ready">make ready</option>
+                    <option value="medium">medium</option>
+                    <option value="low">low</option>
+                </select>
+                <fieldset>
+                    <legend>When is it due?</legend>
+                    <ul>
+                        <li>
+                          <label for="title_1">
+                            <input type="radio" id="title_1" name="title" value="K" >
+                            Tomorrow
+                          </label>
+                        </li>
+                        <li>
+                          <label for="title_2">
+                            <input type="radio" id="title_2" name="title" value="Q">
+                            In 2 days
+                          </label>
+                        </li>
+                        <li>
+                          <label for="title_3">
+                            <input type="radio" id="title_3" name="title" value="J">
+                            In 3 days
+                          </label>
+                        </li>
+                        <li>
+                          <label for="title_3">
+                            <input type="radio" id="title_3" name="title" value="J">
+                            In 4 days
+                          </label>
+                        </li>
+                        <li>
+                          <label for="title_3">
+                            <input type="radio" id="title_3" name="title" value="J">
+                            In 5 days
+                          </label>
+                        </li>
+                        <li>
+                          <label for="title_3">
+                            <input type="radio" id="title_3" name="title" value="J">
+                            In 6 days
+                          </label>
+                        </li>
+                        <li>
+                          <label for="title_3">
+                            <input type="radio" id="title_3" name="title" value="J">
+                            In 7 days
+                          </label>
+                        </li>
+                    </ul>
+                  </fieldset>
+                <button>Done</button>
+            </form>
+        </div>
+    </div>
+    <div id="overlay"></div>
+
+    <script src="./app.js"></script>
+    <script src="./popup.js"></script>
+
 </html>
 
 </body>

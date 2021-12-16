@@ -89,6 +89,9 @@ nav ul li a i:hover {
 #control__nav__toggle:checked ~ nav {
   display: block;
 }
+#control span {
+  opacity: 1;
+}
 #control span:hover {
   cursor: pointer;
 }

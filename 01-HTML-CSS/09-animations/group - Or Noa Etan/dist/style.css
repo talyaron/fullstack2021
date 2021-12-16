@@ -138,7 +138,7 @@ body {
   justify-content: center;
 }
 #landing__task-count .box__flex {
-  justify-content: center;
+  align-content: space-around;
   display: flex;
   flex-direction: column;
   margin: 0;
@@ -377,18 +377,6 @@ main {
   flex-direction: column;
   align-self: center;
   background-color: #f0f0f2;
-}
-
-span {
-  opacity: 0;
-  transition: all 0.4s ease;
-  transform: translateY(50px);
-  display: inline-block;
-}
-
-.fade {
-  opacity: 1;
-  transform: translateY(0px);
 }
 
 .md-18 {
