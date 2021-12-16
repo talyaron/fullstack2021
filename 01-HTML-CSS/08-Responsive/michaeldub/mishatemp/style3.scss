@@ -23,12 +23,32 @@ $shadow: 1px 1px 1px #a8a7a7,
 1px 13px 26px rgba(99, 91, 105, 0.4);
 $bgcolor: #f0f1f6;
 
+html{
+    height: 100%;
+}
 
-body {
+body{
+    background-color: $bgcolor;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 99%;
+    padding: 0.5em;
+    // align-items: center;
+}
 
+.bigwrapper {
+
+    margin-top: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 95%;
+    border-radius: 20px;
     padding: 0.7em;
     font-family: $mainFontFamily;
     background-color: $bgcolor;
+    box-shadow: $shadow;
 }
 
 .schetop {
@@ -38,7 +58,7 @@ body {
     // @include border();
 
     height: 5vh;
-    padding-inline: 0.2em;
+    padding-inline: 0.5em;
     color: $iconscolor;
 
     &__back {
@@ -53,14 +73,13 @@ body {
 
 .schetitle {
 
-    @include flexCenter(center, column);
+    @include flexCenter(space-around, column);
     // @include border();
 
     height: 14vh;
 
     div {
         height: 20%;
-        font-size: 80%;
         margin-bottom: 0.4em;
         @include flexCenter(center, row);
     }
@@ -72,16 +91,16 @@ body {
     }
 
     p {
-        font-size: 17px;
+        font-size: 20px;
         color: rgb(52, 51, 51);
     }
 
     h2 {
-        font-size: 25px;
+        font-size: 30px;
     }
 
     h1 {
-        font-size: 25px;
+        font-size: 30px;
     }
 
 }
@@ -91,7 +110,7 @@ body {
     @include flexCenter(space-between, row);
     // @include border();
     height: 7vh;
-    padding-inline: 0.3em;
+    padding-inline: 0.5em;
 
     div {
         height: 100%;
@@ -100,11 +119,13 @@ body {
 
     h3,
     p {
+        font-size: 22px;
         margin: 0px;
         @include flexCenter(center, row);
     }
 
     p {
+        font-size: 17px;
         color: $fontcolor;
     }
 
@@ -115,28 +136,30 @@ body {
     @include flexCenter(flex-start, row);
     align-items: flex-start;
     // @include border();
+    border-radius: 5px;
     height: 17vh;
-    overflow-x: auto;
+    overflow-x: scroll;
 
     &__card {
 
-        @include flexCenter(center, column);
+        @include flexCenter(space-around, column);
         // @include border();
         border-radius: 10px;
         min-width: 3.5em;
-        height: 60%;
         background: #D8CAE1;
         margin-inline: 0.5em;
         position:relative;
         transition: 0.4s;
-        margin-top: 10px;
+        margin-top: 0.5em;
+        height: 60%;
     
         
    
 
         div {
+            // @include border();
             margin-top: 0.5em;
-            height: 25%;
+            height: 20%;
             @include flexCenter(center, row);
         }
 
@@ -148,7 +171,7 @@ body {
         }
 
         .date {
-            margin-top: 0;
+
             p {
                 font-weight: 700;
                 font-size: 20px;
@@ -179,7 +202,6 @@ body {
             background-color: rgb(201, 61, 61);
             border: 3px solid #ffffff;
             border-radius: 50%;
-            // margin-left: -10px;
             position: absolute;
             top: -15px;
             right: -5px;
@@ -191,10 +213,6 @@ body {
             height: 80%;
             background: linear-gradient(145deg, $primarycolor1 40%, $primarycolor2);
             color: white;
-
-            .date{
-                margin-top: 1em;
-            }
 
             .bell {
                 display: block;
@@ -211,18 +229,14 @@ body {
 
     // @include border();
     height: 12vh;
-
-    >div {
-        margin-inline: 0.5em;
-        margin-bottom: 0.5em;
-    }
+    padding-inline: 0.5em;
 
     p {
         margin-bottom: 0.5em;
     }
 
     &__title {
-        font-size: 20px;
+        font-size: 22px;
         font-weight: 700;
     }
 
@@ -259,8 +273,10 @@ body {
     }
 
     &__mins {
+
         font-size: 20px;
         font-weight: 700;
+        margin-top: 0.7em;
 
         span {
             font-size: 18px;
@@ -269,20 +285,57 @@ body {
     }
 }
 
-
-
-
 .image {
 
-    position: fixed;
-    bottom: -5px;
-    width: 100%;
+   @include flexCenter(center,row);
 
-    img {
+   img{
+       width: auto;
+   }
+   
+}
 
-        display: block;
-        margin: auto;
-        width: 350px;
-        height: 80%;
+@media only screen and (min-width: 900px){
+
+    body{
+        align-items: center;
+    }
+    .bigwrapper{
+        width: 850px;
+    }
+    .schetitle{
+        justify-content: space-around;
+        height: 25vh;
+    }
+    .schedatebox{
+        height: 5vh;
+    }
+
+    .schecards{
+
+        @include flexCenter(center, row);
+        flex-wrap: wrap;
+        height: 65vh;
+
+        &__card{
+
+            height: 25%;
+            justify-content: space-around;
+
+            div{
+                margin-top: 0px;
+            }
+
+            &:hover{
+                justify-content: space-around;
+                height: 25%;
+                
+            }
+
+            .circle{
+                top: -7px;
+            }
+
+        }
     }
 }
