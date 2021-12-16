@@ -64,6 +64,15 @@ body {
 
             &_units{
                 justify-self: center;
+                color: rgb(51, 89, 158);
+
+                .fas{
+                    color: honeydew;
+                }
+
+                span{
+                    margin-right: 10px;;
+                }
             }
     }
 

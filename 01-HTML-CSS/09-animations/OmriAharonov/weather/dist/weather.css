@@ -54,4 +54,11 @@ body {
 }
 .details__general .measure_units {
   justify-self: center;
+  color: #33599e;
+}
+.details__general .measure_units .fas {
+  color: honeydew;
+}
+.details__general .measure_units span {
+  margin-right: 10px;
 }
