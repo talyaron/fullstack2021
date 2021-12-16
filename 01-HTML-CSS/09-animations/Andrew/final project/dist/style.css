@@ -147,19 +147,30 @@ body {
   left: 23px;
 }
 
+@keyframes scroll-right {
+  from {
+    transform: translateX(640px);
+  }
+  to {
+    transform: translateX(-1300px);
+  }
+}
 .wallet {
   width: 600px;
   margin: 15px;
 }
 .wallet-banner {
   display: flex;
-  height: 60px;
+  height: 45px;
   width: 600px;
-  overflow: scroll;
+  overflow: hidden;
   white-space: nowrap;
 }
 .wallet-banner::-webkit-scrollbar {
   width: 0px;
+}
+.wallet-banner:hover > .wallet-banner__item {
+  animation-play-state: paused;
 }
 .wallet-banner__item {
   position: relative;
@@ -171,6 +182,7 @@ body {
   background-color: var(--color-light-grey);
   margin: 5px;
   width: 90ch;
+  animation: scroll-right 10s cubic-bezier(0, 0.2, 1, 0.8) infinite;
 }
 .wallet-banner__item svg {
   width: 20px;
