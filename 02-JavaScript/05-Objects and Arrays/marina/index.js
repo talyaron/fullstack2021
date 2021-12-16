@@ -15,9 +15,10 @@ console.log(dori['biology']);
 function tellAboutTheStudent(student) {
     if (student.physic > 93) {
         console.log(`${student.name} ${student.lastName} have  ${student.physic}  on physic`)
-    } else if (student.value<=100) {
-        console.log(`${student.name} ${student.lastName} have ${student.math} `)
-    } else console.log(`${student.name} ${student.lastName} have ${student.value} `)
+    } else if (student.test<=80) {
+        console.log(`${student.name} ${student.lastName} have ${student.math} on math`)
+    } else 
+    console.log(`${student.name} ${student.lastName} have ${student.test} passed`)
 }
 
 tellAboutTheStudent(dori);
