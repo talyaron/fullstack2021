@@ -14,9 +14,9 @@ console.log(dori['biology']);
 function tellAboutTheStudent(student) {
   if (student.physic > 93) {
     console.log("".concat(student.name, " ").concat(student.lastName, " have  ").concat(student.physic, "  on physic"));
-  } else {
+  } else if (student.value <= 100) {
     console.log("".concat(student.name, " ").concat(student.lastName, " have ").concat(student.math, " "));
-  }
+  } else console.log("".concat(student.name, " ").concat(student.lastName, " have ").concat(student.value, " "));
 }
 
 tellAboutTheStudent(dori);
