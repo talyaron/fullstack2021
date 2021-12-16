@@ -1,7 +1,27 @@
+html {
+  height: 100%;
+}
+
 body {
+  background-color: #f0f1f6;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 99%;
+  padding: 0.5em;
+}
+
+.bigwrapper {
+  margin-top: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 95%;
+  border-radius: 20px;
   padding: 0.7em;
   font-family: "Neue Haas Grotesk Display Pro", sans-serif;
   background-color: #f0f1f6;
+  box-shadow: 1px 1px 1px #a8a7a7, 1px 13px 26px rgba(99, 91, 105, 0.4);
 }
 
 .schetop {
@@ -10,7 +30,7 @@ body {
   flex-direction: row;
   align-items: center;
   height: 5vh;
-  padding-inline: 0.2em;
+  padding-inline: 0.5em;
   color: #484545;
 }
 .schetop__back {
@@ -22,14 +42,13 @@ body {
 
 .schetitle {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   flex-direction: column;
   align-items: center;
   height: 14vh;
 }
 .schetitle div {
   height: 20%;
-  font-size: 80%;
   margin-bottom: 0.4em;
   display: flex;
   justify-content: center;
@@ -42,14 +61,14 @@ body {
   margin: 0px;
 }
 .schetitle p {
-  font-size: 17px;
+  font-size: 20px;
   color: #343333;
 }
 .schetitle h2 {
-  font-size: 25px;
+  font-size: 30px;
 }
 .schetitle h1 {
-  font-size: 25px;
+  font-size: 30px;
 }
 
 .schedatebox {
@@ -58,7 +77,7 @@ body {
   flex-direction: row;
   align-items: center;
   height: 7vh;
-  padding-inline: 0.3em;
+  padding-inline: 0.5em;
 }
 .schedatebox div {
   height: 100%;
@@ -69,6 +88,7 @@ body {
 }
 .schedatebox h3,
 .schedatebox p {
+  font-size: 22px;
   margin: 0px;
   display: flex;
   justify-content: center;
@@ -76,6 +96,7 @@ body {
   align-items: center;
 }
 .schedatebox p {
+  font-size: 17px;
   color: #857a96;
 }
 
@@ -85,26 +106,27 @@ body {
   flex-direction: row;
   align-items: center;
   align-items: flex-start;
+  border-radius: 5px;
   height: 17vh;
-  overflow-x: auto;
+  overflow-x: scroll;
 }
 .schecards__card {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   flex-direction: column;
   align-items: center;
   border-radius: 10px;
   min-width: 3.5em;
-  height: 60%;
   background: #D8CAE1;
   margin-inline: 0.5em;
   position: relative;
   transition: 0.4s;
-  margin-top: 10px;
+  margin-top: 0.5em;
+  height: 60%;
 }
 .schecards__card div {
   margin-top: 0.5em;
-  height: 25%;
+  height: 20%;
   display: flex;
   justify-content: center;
   flex-direction: row;
@@ -114,9 +136,6 @@ body {
   width: 80%;
   margin: 0px;
   padding: 0px;
-}
-.schecards__card .date {
-  margin-top: 0;
 }
 .schecards__card .date p {
   font-weight: 700;
@@ -151,9 +170,6 @@ body {
   background: linear-gradient(145deg, #66529af1 40%, #e052b5e3);
   color: white;
 }
-.schecards__card:hover .date {
-  margin-top: 1em;
-}
 .schecards__card:hover .bell {
   display: block;
 }
@@ -163,16 +179,13 @@ body {
 
 .progress {
   height: 12vh;
-}
-.progress > div {
-  margin-inline: 0.5em;
-  margin-bottom: 0.5em;
+  padding-inline: 0.5em;
 }
 .progress p {
   margin-bottom: 0.5em;
 }
 .progress__title {
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 700;
 }
 .progress__bar {
@@ -204,6 +217,7 @@ body {
 .progress__mins {
   font-size: 20px;
   font-weight: 700;
+  margin-top: 0.7em;
 }
 .progress__mins span {
   font-size: 18px;
@@ -211,13 +225,53 @@ body {
 }
 
 .image {
-  position: fixed;
-  bottom: -5px;
-  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
 }
 .image img {
-  display: block;
-  margin: auto;
-  width: 350px;
-  height: 80%;
+  width: auto;
+}
+
+@media only screen and (min-width: 900px) {
+  body {
+    align-items: center;
+  }
+
+  .bigwrapper {
+    width: 850px;
+  }
+
+  .schetitle {
+    justify-content: space-around;
+    height: 25vh;
+  }
+
+  .schedatebox {
+    height: 5vh;
+  }
+
+  .schecards {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 65vh;
+  }
+  .schecards__card {
+    height: 25%;
+    justify-content: space-around;
+  }
+  .schecards__card div {
+    margin-top: 0px;
+  }
+  .schecards__card:hover {
+    justify-content: space-around;
+    height: 25%;
+  }
+  .schecards__card .circle {
+    top: -7px;
+  }
 }

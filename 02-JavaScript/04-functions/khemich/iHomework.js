@@ -85,5 +85,45 @@ function Salary(hours, HourlyPay) {
     }
 }
 
-let e = Salary(24, 90)
+let e = Salary(70, 350)
 console.log(e);
+
+function percentage(number, percentage) {
+    return number * (percentage / 100)
+}
+let f = percentage(777, 2)
+console.log(f);
+
+
+const Moshe = {
+    firstname: 'Moshe',
+    lastname: "Chaim",
+    History: 88,
+    Math: 65,
+    Hebrew: 79,
+}
+
+const Ginadi = {
+    firstname: 'Ginadi',
+    lastname: 'Gondor',
+    history: 65,
+    Math: 95,
+    Hebrew: 77,
+}
+
+const Revital={
+    firstname:'Revital',
+    lastname:'Aharoni',
+    history: 95,
+    Math:65,
+    Hebrew:99,
+
+}
+
+function tellmeabout(student){
+    return  `${student.firstname}, ${student.lastname} got ${student.history} in history ${student.Math} in math and ${student.Hebrew} in hebrew`
+}
+
+console.log(tellmeabout(Revital));
+
+
