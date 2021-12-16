@@ -42,3 +42,30 @@ function tellStudent(student) {
 tellStudent(student)
 tellStudent(secandstudent)
 tellStudent(thirdtudent)
+
+
+
+///////////////////////////////////////////
+
+
+let input = window.prompt("Enter the Number of the Month");
+
+function monthName(input) {
+
+    let months = ["תשרי", "חשוון", "כסלו", "טבת", "שבט" ,"אדר א", "אדר", "הסמוך" ,"לניסן" ,"ניסן" ,"אייר", "סיוון", "תמוז" ,"אב" ,"אלל"]
+
+
+    let output = months[input-1];
+    return output;
+
+}
+
+if (input <= 0 || input >= 15) {
+    alert("Error! Number Is Undifined")
+}
+
+else {
+
+    alert("The Month is " + monthName(input));
+
+}
