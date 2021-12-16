@@ -1,57 +1,108 @@
 body {
     margin: 0%;
-    padding: 0% 5%;
-}
-
-.nav {
-    height: 100%;
-    width: 100%;
-    border: solid 2px black;
-
-    &__manu {
-        display: flex;
-        place-content: space-between;
-        text-decoration: none;
-    }
-
-    &__span {
-        color: red;
-        font-size: 2em;
-
-        &--activ {
-            color: blue;
-            font-size: 2em;
-        }
-
-        &--green {
-            color: green;
-            font-size: 2em;
-        }
-
-        &--pink {
-            color: pink;
-            font-size: 2em;
-        }
-
-    }
-
-    a {
-        color: black;
-        text-decoration: none;
-        font-family: Arial, Helvetica, sans-serif;
-        font-weight: bold;
-    }
-
-}
-.all{
-    display:flex;
-    place-content: space-between;
-    margin: 0% 2% 0% 5%;
+    padding: 0%;
     
-    .pupimg:{
-        height: 100%;
-        width: 100%;
+}
+.saction1 {
+    &__img {
+        top: 40px;
+        height: 10%;
+        width: 50%;
+        position: absolute;
+        margin: 5%;
+    }
+    &__info {
+        position: absolute;
+        top: 60%;
+        left: 15%;
+        color: white;
+    }
+    &__sti {
+        position: absolute;
+        color: white;
+        top: 70%;
+        left: 15%;
+        width: 50%;
+    }
+}
+@media only screen and(min-width:670px) {
+    .saction1__img {
+        width: 30%;
+        height: 30%;
+    }
+    .saction1__info {
+        left: 5%;
+        color: rgb(177, 3, 3);
+        font-size: 2rem;
+    }
+    .saction1__sti {
+        left: 5%;
+        font-size: 4rem;
+        color: rgb(177, 3, 3);
+    }
+}
+.saction2 {
+    &__img {
+        position: absolute;
+        height: 600px;
+    }
+    &__info {
+        position: absolute;
+        color: rgb(0, 0, 0);
+        left: 0%;
+        background-color: white;
+        font-family: Arial, Helvetica, sans-serif;
+        width: 40%;
+        left: 10px;
+        font-size: 20px;
+    }
+    &__sti {
+        position: absolute;
+        color: rgb(0, 0, 0);
+        font-family: Arial, Helvetica, sans-serif;
+        top: 125%;
+        left: 10px;
+    }
+    &__minfo {
+        position: absolute;
+        color: rgb(0, 0, 0);
+        top: 140%;
+        left: 10px;
+        width: 40%;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+}
+@media only screen and(min-width:670px) {
+    .saction2__info {
+        top: 105%;
+        left: 46.5%;
+        width: 30%;
+        position: absolute;
+        color: black;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .saction2__sti {
+        position: absolute;
+        color: rgb(0, 0, 0);
+        font-family: Arial, Helvetica, sans-serif;
+        margin-top: -4%;
+        left: 50%;
+    }
+    .saction2__minfo {
+        position: absolute;
+        color: rgb(0, 0, 0);
+        margin-top: -6%;
+        left: 55%;
+        width: 40%;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+}
+.section3{
+     
+    img{
+        width: 107em;
+        margin-top: 162%;
+        position: absolute;
         
     }
-    
 }
