@@ -1,0 +1,83 @@
+body {
+  font-family: Arial Narrow, sans-serif;
+}
+
+@media only screen and (max-width: 1025px) {
+  .live .live__main {
+    display: grid;
+    grid-template-rows: 10vh 10vh 10vh 10vh;
+    grid-template-columns: 10vw 10vw;
+    margin: 60px;
+  }
+
+  .live .live__main .header {
+    grid-column: span 2;
+  }
+
+  .live .live__main .footer {
+    grid-column: span 2;
+  }
+
+  .live .live__main .boxBig1,
+  .live .live__main .boxBig2,
+  .live .live__main .box1,
+  .live .live__main .box2 {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  .live .live__main .boxBig3,
+  .live .live__main .box3,
+  .live .live__main .box4,
+  .live .live__main .box5,
+  .live .live__main .box6 {
+    display: none;
+  }
+}
+
+.live .live__main {
+  display: grid;
+  grid-template-rows: repeat(5, 20vh);
+  grid-template-columns: repeat(6, 185px);
+  justify-content: center;
+  padding: 30px 90px 40px 90px;
+}
+
+.live .live__main .header {
+  grid-column: span 6;
+  font-weight: bolder;
+  font-size: 2.9rem;
+  align-self: end;
+  padding-bottom: 24px;
+  letter-spacing: 0.5px;
+}
+
+.live .live__main .live__main__box--boxBig {
+  grid-column: span 2;
+  grid-row: span 2;
+  border: black solid 1px;
+}
+
+.live .live__main .live__main__box {
+  border: black solid 1px;
+}
+
+.live .live__main .footer {
+  grid-column: span 6;
+  justify-self: end;
+  padding-top: 13px;
+  font-size: 16px;
+  width: 95px;
+  height: 25px;
+  background: #313639;
+  color: white;
+  font-weight: bolder;
+  cursor: pointer;
+  position: relative;
+  padding: 13px 21px;
+}
+
+.live .live__main .footer:hover {
+  background-color: #d5001c;
+  transition: all 0.5s;
+}
