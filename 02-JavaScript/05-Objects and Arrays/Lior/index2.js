@@ -40,3 +40,19 @@ console.log(`${LiorSgrades.name}s ${LiorSgrades.last} are:
 }
 
 console.log(checkIfStudenGreat(LiorSgrades.math,LiorSgrades.chemistry,LiorSgrades.Biology,LiorSgrades.English))
+
+
+//Q
+
+let j = window.prompt("Enter the month's number")
+
+function month(i)
+{
+    i=parseInt(i)
+    let list=["תשרי", "חשוון", "כסלו",
+     "טבת", "שבט", "אדר" , "ניסן", "אייר",
+      "סיוון", "תמוז", "אב", "אלול"]
+      console.log(list[i-1])
+}
+
+month(j)
