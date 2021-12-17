@@ -5,6 +5,7 @@ const Maya = {
   occupation: 'Marketing Coordinator',
   Education: 'B.A. in Education',
   hobbies: 'Travel, Movies & Resturants',
+  friends: ['Avivit','Anat','Lesly','Osnat','Sima']
 }
 
 const Roi = {
@@ -14,6 +15,7 @@ const Roi = {
   occupation: 'Serivce Program Manager',
   Education: 'B.A. graphic design & Electronics Parctical engineer',
   hobbies: 'Sports, Music & Programming',
+  friends: ['Yaniv','Ilan','Oded','Hadas','Eliad']
 }
 
 const Omer = {
@@ -22,6 +24,7 @@ const Omer = {
   Age: 10.5,
   Education: '5th grade elementy school',
   hobbies: 'Football, Ninja & Playing video games',
+  friends: ['Alon','Omri','Nuriel','Omer','Yoav']
 }
 
 const Yahli = {
@@ -30,9 +33,12 @@ const Yahli = {
   Age: 9,
   Education: '3rd grade elementy school',
   hobbies: 'Football, Computers & playing with friends',
+  friends: ['Mietar','Amit','Itay','Adele','Dvir']
 }
 
 const family = [Maya, Roi, Omer, Yahli];
 
 for(var i = 0; i < family.length; i++) {
-  console.log(family[i].name) }
+  console.log(family[i].name) 
+  console.log(`${family[i].name} has the following friends:${family[i].friends}`) 
+}
