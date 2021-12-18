@@ -4,7 +4,7 @@ const tamar = {
     my:'Mother',
     age: 50,
     hobbies: 'Sports and Art ' ,
-    friends: ['Betty','Orit' ,'and Smadar']
+    friends: ['Betty','Orit' ,'Smadar']
 
 }
 
@@ -14,7 +14,7 @@ const rotem = {
     my:'Sister',
     age: 19,
     hobbies: 'Drawing, Jewelry making and Music',
-    friends: ['Rosa',' and Rachel']
+    friends: ['Rosa',' Rachel']
 }
 
 const keren = {
@@ -23,7 +23,7 @@ const keren = {
     my:'Sister',
     age: 19,
     hobbies: 'Drawing, Jewelry making and Sewing',
-    friends: ['Alice', 'and Ofir']
+    friends: ['Alice', 'Ofir']
 
 }
 
@@ -31,14 +31,15 @@ const family = [tamar ,rotem ,keren];
 
 for(let i= 0; i < family.length; i++ ) {
 
-console.log(family[i].name)
+    console.log(family[i].name);
+    console.log(`${family[i].name}'s friends:`);
  
 for(let q=0; q<family[i].friends.length; q++)
 
-console.log(`${family[i].name}'s friends are ${family[i].friends}.`)
+    console.log(` ${family[i].friends[q]}`);
 }
  
-
+//how do i show the friends array in the function. and why did we need the friends in array?
  
 function myFamily(member){
     return (`${member.name} ${member.lastName} is my ${member.my},
