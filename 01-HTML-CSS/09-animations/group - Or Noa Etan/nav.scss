@@ -63,6 +63,12 @@ nav ul {
   padding-inline: 2rem;
   max-width: 100vw;
 
+  &__back, &__filter{
+    background-color: gainsboro;
+    border-radius: 5px;
+    padding: 12px;
+  }
+
 
   &__mytasks {
 
@@ -169,14 +175,8 @@ h3 {
     transform: translateY(50px);
     display: inline-block;
   }
-<<<<<<< Updated upstream
   .fade{
     opacity: 0;
-=======
-
-  .fade {
-    opacity: 1;
->>>>>>> Stashed changes
     transform: translateY(0px);
   }
 }
