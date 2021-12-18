@@ -1,3 +1,14 @@
+@keyframes wiggle {
+  0% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(-10deg);
+  }
+}
 html {
   height: 100%;
 }
@@ -6,8 +17,6 @@ body {
   background-color: #f0f1f6;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  height: 95%;
   padding: 0.5em;
 }
 
@@ -16,7 +25,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 95%;
+  height: 900px;
   border-radius: 20px;
   padding: 0.7em;
   font-family: "Neue Haas Grotesk Display Pro", sans-serif;
@@ -29,7 +38,7 @@ body {
   justify-content: space-between;
   flex-direction: row;
   align-items: center;
-  height: 5vh;
+  height: 40px;
   padding-inline: 0.5em;
   color: #484545;
 }
@@ -45,7 +54,7 @@ body {
   justify-content: space-around;
   flex-direction: column;
   align-items: center;
-  height: 14vh;
+  height: 100px;
 }
 .schetitle div {
   height: 20%;
@@ -76,7 +85,7 @@ body {
   justify-content: space-between;
   flex-direction: row;
   align-items: center;
-  height: 7vh;
+  height: 70px;
   padding-inline: 0.5em;
 }
 .schedatebox div {
@@ -151,6 +160,13 @@ body {
 .schecards__card .bell:active {
   color: #fee592;
 }
+.schecards__card .bell:hover {
+  transform-origin: center top;
+  animation-name: wiggle;
+  animation-duration: 250ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
 .schecards__card .circle {
   width: 18px;
   height: 18px;
@@ -178,7 +194,7 @@ body {
 }
 
 .progress {
-  height: 12vh;
+  height: 120px;
   padding-inline: 0.5em;
 }
 .progress p {
@@ -230,7 +246,7 @@ body {
   flex-direction: row;
   align-items: center;
   align-items: flex-end;
-  height: 30vh;
+  height: 280px;
 }
 .image img {
   width: auto;
