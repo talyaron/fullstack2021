@@ -34,9 +34,15 @@ var Yahli = {
   hobbies: 'Football, Computers & playing with friends',
   friends: ['Mietar', 'Amit', 'Itay', 'Adele', 'Dvir']
 };
-var family = [Maya, Roi, Omer, Yahli];
+var family = [Maya, Roi, Omer, Yahli]; //let input = window.prompt("Enter a name of a family member");
+//function member() {
+//if (input === family[family.name]) {
 
 for (var i = 0; i < family.length; i++) {
   console.log(family[i].name);
   console.log("".concat(family[i].name, " has the following friends:").concat(family[i].friends));
-}
+} //}
+//else {
+//alert("This family memebr is not in my list - please add him");
+//}
+//}
