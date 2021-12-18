@@ -13,6 +13,8 @@ body {
   background-color: #f0f0f2;
 }
 #landing__dailytasksdone {
+  padding-top: 7vh;
+  margin: auto;
   display: grid;
   grid-template-columns: repeat(5, 80px);
   grid-template-rows: 100px, 200px, 100px;
@@ -28,9 +30,13 @@ body {
 #landing__dailytasksdone .box2 {
   grid-column: 4/6;
   font-weight: 550;
+  text-align: right;
 }
 #landing__dailytasksdone .box3 {
   grid-column: 1/6;
+}
+#landing__dailytasksdone .box3 img {
+  width: 100%;
 }
 #landing__dailytasksdone .box {
   border: 2px solid black;

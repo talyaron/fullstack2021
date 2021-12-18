@@ -12,6 +12,16 @@ const student = {
 console.log(`${student.name} ${student.lastname}'s grades are:
   math: ${student.math} 
   english: ${student.english} 
-  bible: ${student. bible} 
+  bible: ${student.bible} 
   literture: ${student.literture} 
   geography: ${student.geography}`)
+
+
+//array
+
+const arr = ['תשרי', 'חשוון', 'כסלו', 'טבת', 'שבט', 'אדר', 'ניסן', 'אייר', 'סיוון', 'תמוז', 'אב', 'אלול']
+
+function month(number) {
+        return arr[number-1];
+}
+console.log(month(8));
