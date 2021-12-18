@@ -30,6 +30,21 @@ body {
 
     }
 
+    &__dayTime{
+        display: flex;
+        flex-direction: column;
+
+        .card{
+            width: 100px;
+            height: 20px;
+            text-align: center;
+            padding: 0.5%;
+            border-radius: 40px;
+            margin: auto;
+            background: rgba(101, 43, 167, 0.562);
+        }
+    }
+
     &__temp {
         justify-self: center;
         font-size: 3rem;
@@ -57,21 +72,21 @@ body {
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: repeat(3 1fr);
-        justify-content: center;
+        margin: 0% 15% ;
 
         .measure{
-            justify-self: center;
 
             &_units{
-                justify-self: center;
+                justify-self: end;
                 color: rgb(51, 89, 158);
 
                 .fas{
                     color: honeydew;
+                    font-size: 12px;
                 }
 
                 span{
-                    margin-right: 10px;;
+                    margin-right: 10px;
                 }
             }
     }
