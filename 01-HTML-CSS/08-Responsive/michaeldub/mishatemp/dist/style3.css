@@ -20,12 +20,37 @@ body {
   padding: 0.5em;
 }
 
+.cloud {
+  position: absolute;
+  left: -90px;
+  height: 150px;
+  width: auto;
+}
+.cloud img {
+  height: 100%;
+  width: 100%;
+}
+
+.cloud2 {
+  position: absolute;
+  left: -90px;
+  top: 55px;
+  height: 150px;
+  width: auto;
+}
+.cloud2 img {
+  height: 100%;
+  width: 100%;
+}
+
 .bigwrapper {
+  position: relative;
+  overflow-x: hidden;
   margin-top: 1em;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 900px;
+  height: 92vh;
   border-radius: 20px;
   padding: 0.7em;
   font-family: "Neue Haas Grotesk Display Pro", sans-serif;
@@ -247,6 +272,7 @@ body {
   align-items: center;
   align-items: flex-end;
   height: 280px;
+  margin-bottom: -12px;
 }
 .image img {
   width: auto;
@@ -292,5 +318,10 @@ body {
   }
   .schecards__card .circle {
     top: -7px;
+  }
+}
+@media only screen and (max-height: 990px) {
+  .bigwrapper {
+    height: 900px;
   }
 }
