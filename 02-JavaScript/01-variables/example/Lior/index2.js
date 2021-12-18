@@ -51,7 +51,7 @@ function month(num)
      "April", "May", "June" , "Julu", "August",
       "September", "Octoboer", "November", "December"]
 
-    for (i=1; i<list.length; i++)
+    for (i=0; i<list.length; i++)
 
     {
         if (num===i)

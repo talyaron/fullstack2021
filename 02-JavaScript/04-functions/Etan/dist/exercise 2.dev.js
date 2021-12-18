@@ -4,8 +4,8 @@
 function monthsName() {
   var whatMonth = window.prompt("Whats the number of your favorite month?", "Enter month here");
   var answer = "Your favorite month is ";
-  var months = ['Not a month', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'November', 'December'];
-  alert(answer + months[whatMonth]);
+  var months = ['Tishrey', 'Heshvan', 'Kislev', 'Tevet', 'Shvat', 'Hadar', 'Nisan', 'Iyar', 'sivan', 'tamuz', 'av', 'elul'];
+  console.log(answer + months[whatMonth - 1]);
 }
 
 monthsName();
