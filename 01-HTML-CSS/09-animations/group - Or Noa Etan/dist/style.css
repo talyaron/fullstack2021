@@ -113,6 +113,7 @@ body {
   background: #f0f0f2;
   height: fit-content;
   overflow-y: scroll;
+  list-style: none;
 }
 #landing__task-count:nth-child(1) {
   margin-left: 1.5rem;
@@ -229,6 +230,7 @@ body {
   }
 }
 #landing__task__descr__text {
+  text-shadow: 0.1rem 0.18rem rgba(0, 0, 0, 0.2);
   padding-inline: 0;
   display: flex;
   flex-direction: column;

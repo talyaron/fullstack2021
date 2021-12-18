@@ -21,6 +21,7 @@
 
     <title>Monthly Tasks</title>
     <script src="https://code.iconify.design/2/2.1.0/iconify.min.js"></script>
+    
 </head>
 
 <body>
@@ -44,17 +45,15 @@
             <div id="control__mytasks">
                 <h3 class="fancy">My Tasks</h3>
                 <div id="control__mytasks-square">
-                    <h3>9</h3>
+                    <h3 data-task-count>9</h3>
                 </div>
             </div>
 
         </div>
 
         <main>
-            <div id="landing__task-count">
-
-
-                <div class="box">
+            <ul id="landing__task-count" >
+                <li class="box">
                     <div id="box__flex">
                         <div class="box__header">
                             <div class="box__logo-square blue">
@@ -69,11 +68,11 @@
                             <h4>landing page</h4>
                             <p class="box__expln-transp">nilson project</p>
                         </div>
-                        <div class="box__countdown5">5 days left</div>
+                        <div class="box__countdown">5 days left</div>
                     </div>
-                </div>
+                </li>
 
-                <div class="box">
+                <li class="box">
                     <div id="box__flex">
                         <div class="box__header">
                             <div class="box__logo-square orange">
@@ -88,47 +87,11 @@
                             <h4>landing page</h4>
                             <p class="box__expln-transp">nilson project</p>
                         </div>
-                        <div class="box__countdown5">5 days left</div>
+                        <div class="box__countdown">5 days left</div>
                     </div>
-                </div>
-                <div class="box">
-                    <div id="box__flex">
-                        <div class="box__header">
-                            <div class="box__logo-square orange">
-                                <p class="box__logo">Bē</p>
-                            </div>
-                            <div class="box__title">
-                                <p class="box__title-text">portfolio</p>
-                                <p class="box__title-urg">high</p>
-                            </div>
-                        </div>
-                        <div class="box__expln">
-                            <h4>landing page</h4>
-                            <p class="box__expln-transp">nilson project</p>
-                        </div>
-                        <div class="box__countdown5">5 days left</div>
-                    </div>
-                </div>
-                <div class="box">
-                    <div id="box__flex">
-                        <div class="box__header">
-                            <div class="box__logo-square orange">
-                                <p class="box__logo">Bē</p>
-                            </div>
-                            <div class="box__title">
-                                <p class="box__title-text">portfolio</p>
-                                <p class="box__title-urg">high</p>
-                            </div>
-                        </div>
-                        <div class="box__expln">
-                            <h4>landing page</h4>
-                            <p class="box__expln-transp">nilson project</p>
-                        </div>
-                        <div class="box__countdown5">5 days left</div>
-                    </div>
-                </div>
+                </li>
 
-            </div>
+            </ul>
             <button data-modal-target="#modal">
                 <div id="landing__task__descr">
                     <span id="landing__task__descr__logo" class="iconify" data-icon="majesticons:pencil-line"
@@ -214,14 +177,14 @@
 
     <div class="modal" id="modal">
         <div class="modal__header">
-            <div class="title">Create a new subtask for the week: </div>
+            <div class="modal__header-title">Create a new subtask for the week: </div>
             <button data-close-button class="close__button">&times;</button>
         </div>
         <div class="modal__body">
-            <form action="submit">
+            <form >
                 <input type="data" placeholder="Name your new task">
-                <label for="urg">How important is it?</label>
-                <select name="urgency" id="urg">
+                <div class="importance"><label for="urg">How important is it?</label>
+                <select name="urg" id="urg">
                     <option value="placeholder">--Please choose an option--</option>
                     <option value="emergency">emergency</option>
                     <option value="asap">asap</option>
@@ -230,6 +193,7 @@
                     <option value="medium">medium</option>
                     <option value="low">low</option>
                 </select>
+            </div>
                 <fieldset>
                     <legend>When is it due?</legend>
                     <ul>
@@ -252,39 +216,39 @@
                           </label>
                         </li>
                         <li>
-                          <label for="title_3">
+                          <label for="title_4">
                             <input type="radio" id="title_3" name="title" value="J">
                             In 4 days
                           </label>
                         </li>
                         <li>
-                          <label for="title_3">
+                          <label for="title_5">
                             <input type="radio" id="title_3" name="title" value="J">
                             In 5 days
                           </label>
                         </li>
                         <li>
-                          <label for="title_3">
+                          <label for="title_6">
                             <input type="radio" id="title_3" name="title" value="J">
                             In 6 days
                           </label>
                         </li>
                         <li>
-                          <label for="title_3">
+                          <label for="title_7">
                             <input type="radio" id="title_3" name="title" value="J">
                             In 7 days
                           </label>
                         </li>
                     </ul>
                   </fieldset>
-                <button>Done</button>
+                <button action="" onclick="newBox">Done</button>
             </form>
         </div>
     </div>
     <div id="overlay"></div>
 
     <script src="./app.js"></script>
-    <script src="./popup.js"></script>
+    <script src="./todo.js"></script>
 
 </html>
 
