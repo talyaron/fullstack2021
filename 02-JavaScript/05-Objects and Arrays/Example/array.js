@@ -9,7 +9,6 @@ for (let kjsdf in arr) {
 }
 
 //avarge
-
 const grades = [70, 90, 68, 79, 100];
 let sum = 0;
 
