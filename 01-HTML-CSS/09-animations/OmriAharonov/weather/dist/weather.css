@@ -25,6 +25,19 @@ body {
   justify-self: center;
   margin-top: -10px;
 }
+.details__dayTime {
+  display: flex;
+  flex-direction: column;
+}
+.details__dayTime .card {
+  width: 100px;
+  height: 20px;
+  text-align: center;
+  padding: 0.5%;
+  border-radius: 40px;
+  margin: auto;
+  background: rgba(101, 43, 167, 0.562);
+}
 .details__temp {
   justify-self: center;
   font-size: 3rem;
@@ -47,17 +60,15 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: repeat(3 1fr);
-  justify-content: center;
-}
-.details__general .measure {
-  justify-self: center;
+  margin: 0% 15%;
 }
 .details__general .measure_units {
-  justify-self: center;
+  justify-self: end;
   color: #33599e;
 }
 .details__general .measure_units .fas {
   color: honeydew;
+  font-size: 12px;
 }
 .details__general .measure_units span {
   margin-right: 10px;
