@@ -40,3 +40,15 @@ for (var i = 0; i < family.length; i++) {
   console.log(family[i].name);
   console.log("".concat(family[i].name, " has the following friends:").concat(family[i].friends));
 }
+
+function familyMember(myfamilyMember) {
+  myfamilyMember = {
+    mame: '$[]',
+    lastName: '$[]',
+    Age: '$[]',
+    Education: '$[]',
+    hobbies: '$[]',
+    friends: '$[]'
+  };
+  return myfamilyMember;
+}

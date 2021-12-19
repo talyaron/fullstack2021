@@ -1,4 +1,4 @@
-//Primitve types
+    //Primitve types
 
 let x = '222' //string
 let y = true; //boolean
@@ -52,7 +52,7 @@ function tellAboutTheStudent(student) {
         console.log(`${student.name} ${student.lastName} is ${student.age} years old and he is not married`)
     }
 };
-
+ 
 tellAboutTheStudent(rasheed);
 tellAboutTheStudent(michaelF);
 tellAboutTheStudent(ohad);

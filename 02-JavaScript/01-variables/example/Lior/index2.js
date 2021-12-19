@@ -112,3 +112,7 @@ function countPaths( array, count, currentCol, currentRow)
              return count++;
     return count;
 }
+
+
+
+friends=['Barak', 'Yefet', 'Igor', 'Eyal', 'Or', 'Shimon'];
