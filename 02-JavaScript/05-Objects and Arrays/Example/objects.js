@@ -1,4 +1,4 @@
-//Primitve types
+    //Primitve types
 
 let x = '222' //string
 let y = true; //boolean
