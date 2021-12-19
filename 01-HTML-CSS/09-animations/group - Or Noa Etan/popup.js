@@ -1,3 +1,4 @@
+/* open popup window */
 const openModalButttons = document.querySelectorAll('[data-modal-target]')
 const closeModalButttons = document.querySelectorAll('[data-close-button]')
 const overlay = document.getElementById('overlay')

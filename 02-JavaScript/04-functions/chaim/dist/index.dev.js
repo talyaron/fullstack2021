@@ -22,12 +22,12 @@ if (year == 10) console.log("oktober");
 if (year == 11) console.log("november");
 if (year == 12) console.log("dechember");
 
-function birthday() {}
-
-year = 2021;
-birth = 1987;
-birthday = year - birth;
-console.log(birthday);
+function birthday() {
+  var year = 2021;
+  var birth = 1987;
+  var birthday = year - birth;
+  console.log(birthday);
+}
 
 function walk() {}
 
