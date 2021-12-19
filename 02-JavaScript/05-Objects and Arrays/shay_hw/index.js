@@ -82,7 +82,7 @@ let family = [naama, tzvika, yedidia, orelRoni, maayan, shlomo, yonatan, roee];
     shlomo.friends = ['ori', ' matan', ' yosef', ' yedidia'];
     yonatan.friends = ['ofek', ' misgav', ' danielle', ' yehuda'];
     roee.friends = ['itzhak', ' maoz', ' dvir', ' yehuda'];
- let member='$[]'; 
+  
     for(let i=0; i<family.length; i++){
         console.log(family[i].name +' friends are ' + family[i].friends);
         
