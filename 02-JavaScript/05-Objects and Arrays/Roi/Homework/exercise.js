@@ -36,11 +36,23 @@ const Yahli = {
   friends: ['Mietar','Amit','Itay','Adele','Dvir']
 }
 
+
 const family = [Maya, Roi, Omer, Yahli];
 
-let input = window.prompt("Enter a name of a family member");
-
-    for(var i = 0; i < family.length; i++) {
-      console.log(family[i].name) 
-      console.log(`${family[i].name} has the following friends:${family[i].friends}`) 
+for(var i = 0; i < family.length; i++) {
+  console.log(family[i].name) 
+  console.log(`${family[i].name} has the following friends:${family[i].friends}`)}
+  
+  function familyMember(myfamilyMember){
+    
+    myfamilyMember={
+        mame: '$[]',
+        lastName:'$[]',
+        Age: '$[]',
+        Education: '$[]',
+        hobbies:'$[]',
+        friends:'$[]'
+    }
+      return(myfamilyMember);  
+    
     }
