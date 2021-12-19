@@ -1,61 +1,40 @@
-const nir = {
-    name: 'nir',
-    lastName: 'nisim',
-    gender:true,
-    english: 90,
-    Physics: 70,
-    technology: 90,
-    electricity: 75,
+let shoval = {
+    name: 'shoval',
+    lastName: 'dadon',
+    age: 30,
+    friends:['mai','rot'],
 }
-
-const aviel = {
+let aviel = {
     name: "aviel",
-    lastName: 'rasin',
-    gender:true,
-    english: 100,
-    Physics:70,
-    technology:80,
-    electricity:70,
-    
+    lastName: 'dadon',
+    age: 25,
+    friends:['avner','nisim'],
 }
-
-const tamir = {
+let tamir = {
     name: "tamir",
     lastName: 'dadon',
-    gender:true,
-    english: 80,
-    Physics:100,
-    technology: 90,
-    electricity: 75,
-    
+    age: 24,
+    friends:['avi','nir'],
 }
-
-const tair = {
+let tair = {
     name: "tair",
-    lastName: 'hania',
-    gender:false,
-    english: 90,
-    Physics:70,
-    technology:90,
-    electricity:50,
+    lastName: 'dadon',
+    age: 26,
+    friends:['yael','carlos'],
     
+}
+let family = [shoval, aviel, tamir, tair]
+for (let info in family) {
+    console.log(family[info]);
 }
 
 
-
-function tellAboutTheStudent(student) {
-    if (student.gender) {
-        console.log(`${student.name} ${student.lastName}  Scores in ${student.english}-english and 
-         ${student.technology}-technology and  ${student.Physics}-Physics and  ${student.electricity}-electricity ${student.name}
-          is a smart student`)
-        }else {
-            console.log(`${student.name} ${student.lastName} Scores in ${student.english}-english and 
-            ${student.technology}-technology and  ${student.Physics}-Physics and  ${student.electricity}-electricity ${student.name}
-              is a smart student`)
-        }
+function tallmeabouthim(family) {
+    if (family){
+        console.log(`${family.name} ${family.lastName} ${family.age} and my friends are ${family.friends}`)
+    }
 };
+tallmeabouthim(aviel)
 
-tellAboutTheStudent(tair);
-tellAboutTheStudent(tamir);
-tellAboutTheStudent(aviel);
-tellAboutTheStudent(nir);
+
+

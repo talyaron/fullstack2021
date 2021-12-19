@@ -1,52 +1,40 @@
 "use strict";
 
-var nir = {
-  name: 'nir',
-  lastName: 'nisim',
-  gender: true,
-  english: 90,
-  Physics: 70,
-  technology: 90,
-  electricity: 75
+var shoval = {
+  name: 'shoval',
+  lastName: 'dadon',
+  age: 30,
+  friends: ['mai', 'rot']
 };
 var aviel = {
   name: "aviel",
-  lastName: 'rasin',
-  gender: true,
-  english: 100,
-  Physics: 70,
-  technology: 80,
-  electricity: 70
+  lastName: 'dadon',
+  age: 25,
+  friends: ['avner', 'nisim']
 };
 var tamir = {
   name: "tamir",
   lastName: 'dadon',
-  gender: true,
-  english: 80,
-  Physics: 100,
-  technology: 90,
-  electricity: 75
+  age: 24,
+  friends: ['avi', 'nir']
 };
 var tair = {
   name: "tair",
-  lastName: 'hania',
-  gender: false,
-  english: 90,
-  Physics: 70,
-  technology: 90,
-  electricity: 50
+  lastName: 'dadon',
+  age: 26,
+  friends: ['yael', 'carlos']
 };
+var family = [shoval, aviel, tamir, tair];
 
-function tellAboutTheStudent(student) {
-  if (student.gender) {
-    console.log("".concat(student.name, " ").concat(student.lastName, "  Scores in ").concat(student.english, "-english and \n         ").concat(student.technology, "-technology and  ").concat(student.Physics, "-Physics and  ").concat(student.electricity, "-electricity ").concat(student.name, "\n          is a smart student"));
-  } else {
-    console.log("".concat(student.name, " ").concat(student.lastName, " Scores in ").concat(student.english, "-english and \n            ").concat(student.technology, "-technology and  ").concat(student.Physics, "-Physics and  ").concat(student.electricity, "-electricity ").concat(student.name, "\n              is a smart student"));
+for (var info in family) {
+  console.log(family[info]);
+}
+
+function tallmeabouthim(family) {
+  if (family) {
+    console.log("".concat(family.name, " ").concat(family.lastName, " ").concat(family.age, " and my friends are ").concat(family.friends));
   }
 }
 
 ;
-tellAboutTheStudent(tair);
-tellAboutTheStudent(tamir);
-tellAboutTheStudent(aviel);
-tellAboutTheStudent(nir);
+tallmeabouthim(aviel);
