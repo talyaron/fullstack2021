@@ -1,7 +1,16 @@
-const artists = [{name: 'denis'}, {name: 'avihu'}]
+const artists = [{name: 'Denis'}, {name: 'Avihu'}, {name:'Eminem'}]
 
 for( i=0; i<artists.length; i++){
-    let artist = artists.name
-console.log(artist)
-
+console.log(artists[i].name)
 }
+
+for(let i in artists){
+    console.log(artists[i].name)
+}
+for(let artist of artists){
+    console.log(artist.name)
+}
+
+artists.forEach(artist =>{
+    console.log(artist.name)
+})
