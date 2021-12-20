@@ -3,13 +3,12 @@ const arr = [1, 2, 'hello', 34, true, 'bla bla'] //[element, element]
 
 console.log(arr[2]);
 
-for (let kjsdf in arr) {
-    console.log(`${kjsdf} --> ${arr[kjsdf]}`)
+for (let i in arr) {
+    console.log(`${i} --> ${arr[i]}`)
 
 }
 
 //avarge
-
 const grades = [70, 90, 68, 79, 100];
 let sum = 0;
 
