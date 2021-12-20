@@ -1,3 +1,4 @@
+/*main page-leon*/
 body {
     margin: 0;
     padding: 0;
@@ -198,6 +199,75 @@ body {
         }
     }
 }
+
+section{
+    min-height: 5vh;
+  }
+  .container{
+    padding-top: 5%;
+  }
+  .row{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .box{
+    width: 80px;
+    height: 90px;
+    z-index: 10;
+    box-shadow: 0 10px 0px rgba(0, 0, 0, 0.19);
+    animation: 2s scale linear;
+  }
+  #box1{
+    transform-origin: bottom right;
+    border-radius: 0px 100px 10px 110px;
+    background: linear-gradient(160deg, #ee0979 0%, #ff6a00 100%);
+    }
+  #box2{
+    transform-origin: bottom left;
+    border-radius: 100px 0px 100px 0px;
+    background: linear-gradient(220deg, #ee0979 0%, #ff6a00 100%);
+    }
+  #box3{
+    transform-origin: top right;
+    border-radius: 100px 0px 100px 0px;
+    background: linear-gradient(30deg, #ee0979 0%, #ff6a00 100%);
+    }
+  #box4{
+    transform-origin: top left;
+    border-radius: 0px 100px 0px 100px;
+    background: linear-gradient(320deg, #ee0979 0%, #ff6a00 100%);
+    }
+    .circle{
+      width: 30px;
+      height: 30px;
+      border-radius: 100%;
+      background: #ffef00;
+      z-index: 100;
+      margin-top: -190px;
+    }
+  .line{
+    background: #0f9b0f;
+    margin-top: -130px;
+    width: 15px;
+    height: 190px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  }
+  .pot{
+    background: #968c8c;
+    border-radius: 0px 0px 40px 40px;
+    width: 150px;
+    height: 50px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  }
+  @keyframes scale {
+    0% {
+      scale: 0.5;
+    }
+    100% {
+      scale: 1;
+    }
+  }
 
 
 

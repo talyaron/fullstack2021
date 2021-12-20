@@ -25,4 +25,14 @@ function checkIfStudenGreat(math, chemistry, biology, english) {
   }
 }
 
-console.log(checkIfStudenGreat(LiorSgrades.math, LiorSgrades.chemistry, LiorSgrades.Biology, LiorSgrades.English));
+console.log(checkIfStudenGreat(LiorSgrades.math, LiorSgrades.chemistry, LiorSgrades.Biology, LiorSgrades.English)); //Q
+
+var j = window.prompt("Enter the month's number");
+
+function month(i) {
+  i = parseInt(i);
+  var list = ["תשרי", "חשוון", "כסלו", "טבת", "שבט", "אדר", "ניסן", "אייר", "סיוון", "תמוז", "אב", "אלול"];
+  console.log(list[i - 1]);
+}
+
+month(j);
