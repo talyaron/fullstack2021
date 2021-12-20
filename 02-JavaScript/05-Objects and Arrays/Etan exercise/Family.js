@@ -105,29 +105,6 @@ showFamily(family);
 //I want it to go inside the family array, choose the next object and display its friends
 
 
-// function showFamilyFriends(array) {
-//   let items = array.toString
-//   for (i = 0; i < array.length; i++) {
-//     console.log(`${items.firstName}'s best friends are ${items.friends}`);
-//   }
-// }
-// showFamilyFriends(family);
-
-// function familyFriendsNames() {
-//   const familyFriends = familyDetails.map((item) => {
-//   for (i = 0; i < familyDetails.length; i++) {
-//   return item.friends
-  
-// }
-// })
-// }
-// console.log(familyFriendsNames())
-
-
-
-// let items = family.toString().split(",");
-// for(let i=0,j=items.length;i<j;i++)
-// console.log(items[8]);
 
 familyDetails.forEach((item) => {
   console.log(`${item.firstName} ${item.lastName}'s best friends are: ${item.friends}`)
