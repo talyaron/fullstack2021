@@ -1,6 +1,5 @@
 function multi (a, b) {
-    return a * b;
-    
+    return a * b;  
 }
 let q = multi (2, 3)
 console.log(q);
