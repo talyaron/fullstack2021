@@ -85,15 +85,15 @@ function fullDescription(name) {
 
 console.log(fullDescription(Romina)); // this prints all their names:
 
-function showFamily(array) {
-  for (i = 0; i < array.length; i++) {
-    console.log(array[i]);
+function showFamily() {
+  for (i = 0; i < family.length; i++) {
+    console.log(family[i]);
   }
+
+  familyDetails.forEach(function (item) {
+    console.log("".concat(item.firstName, " ").concat(item.lastName, "'s best friends are: ").concat(item.friends));
+  });
 }
 
-showFamily(family); // every time the loop goes through, 
+showFamily(); // every time the loop goes through, 
 //I want it to go inside the family array, choose the next object and display its friends
-
-familyDetails.forEach(function (item) {
-  console.log("".concat(item.firstName, " ").concat(item.lastName, "'s best friends are: ").concat(item.friends));
-});

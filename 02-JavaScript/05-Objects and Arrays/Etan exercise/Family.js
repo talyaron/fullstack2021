@@ -92,12 +92,15 @@ console.log(fullDescription(Romina));
 
 // this prints all their names:
 
-function showFamily(array) {
-  for (i = 0; i < array.length; i++) {
-    console.log(array[i]);
+function showFamily() {
+  for (i = 0; i < family.length; i++) {
+    console.log(family[i]);
   }
+  familyDetails.forEach((item) => {
+    console.log(`${item.firstName} ${item.lastName}'s best friends are: ${item.friends}`)
+  })
 }
-showFamily(family);
+showFamily();
 
 
 
@@ -106,6 +109,3 @@ showFamily(family);
 
 
 
-familyDetails.forEach((item) => {
-  console.log(`${item.firstName} ${item.lastName}'s best friends are: ${item.friends}`)
-})
