@@ -15,7 +15,7 @@ const hello2 = sayHello2('Leon');
 console.log(hello2);
 
 //arrow function
-const sayHello3 =  (name) => {
+const sayHello3 =  (name)=> {
     return `Hello ${name}`;
 }
 
