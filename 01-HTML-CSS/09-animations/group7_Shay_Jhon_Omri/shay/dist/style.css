@@ -1,0 +1,470 @@
+@media only screen and (max-width: 600px) {
+  body {
+    max-width: 600px;
+    background-color: #081b25;
+    font-family: "Roboto", sans-serif;
+    max-height: 100vh;
+  }
+
+  .header {
+    padding-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(12, 50px);
+    grid-template-rows: repeat(3, 50px);
+  }
+  .header .fa-search {
+    color: #25404e;
+    grid-column: 2;
+    grid-row: 2;
+  }
+  .header .fa-pen {
+    grid-column: 11;
+    color: #25404e;
+    grid-row: 2;
+  }
+  .header p {
+    grid-row: 2;
+    grid-column: 4;
+    color: #25404e;
+    font-size: 18px;
+  }
+
+  .contain {
+    display: grid;
+    grid-template-columns: repeat(2, 200px);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 5px;
+    padding-left: 80px;
+    max-width: 600px;
+    max-height: 600px;
+  }
+  .contain__box {
+    background-color: #152c39;
+    border-radius: 20px;
+    width: 200px;
+    height: 200px;
+    display: grid;
+    grid-row: 1;
+    grid-column: 1;
+    grid-template-columns: repeat(3, 63px);
+    grid-template-rows: repeat(2, 100px);
+    gap: 5px;
+  }
+  .contain__box--text {
+    padding-top: 5px;
+    grid-row: 1;
+    grid-column: 2;
+    display: grid;
+    grid-template-rows: repeat(8, 20px);
+    grid-template-columns: repeat(8, 20px);
+  }
+  .contain__box--text h2 {
+    grid-row: 1;
+    grid-column: 2;
+    color: white;
+  }
+  .contain__box--text .city {
+    grid-row: 2;
+    grid-column: 2;
+    color: white;
+    font-size: 16px;
+    width: 100px;
+  }
+  .contain__box--text p {
+    grid-row: 4;
+    grid-column: 2;
+    font-size: 14px;
+    color: #3d5564;
+  }
+  .contain__box--text .fa-gradient {
+    background: -webkit-gradient(linear, left top, left bottom, from(#5f95fc), to(#cc63f9));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: initial;
+    font-size: 3em;
+    grid-column: 5 !important;
+    grid-row: 2;
+  }
+  .contain__box--text .fa-gradients {
+    background: -webkit-gradient(linear, left top, left bottom, from(#5f95fc), to(#cc63f9));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: initial;
+    font-size: 5em;
+    animation-duration: 2s;
+    animation-delay: 2s;
+    animation-iteration-count: 5;
+    width: 70px;
+    height: 70px;
+  }
+  .contain__box--text .fa-snow {
+    animation-name: snowflakes;
+    animation-duration: 2s;
+    animation-delay: 2s;
+    animation-iteration-count: 5;
+  }
+  @keyframes snowflakes {
+    from {
+      transform: translate(0px, 0px) scale(0.2);
+    }
+    25% {
+      transform: translate(0px, 15px) scale(0.2);
+    }
+    50% {
+      transform: translate(0px, 20px) scale(0.2);
+    }
+    75% {
+      transform: translate(0px, 30px) scale(0.2);
+    }
+    to {
+      transform: translate(0px, 40px) scale(0.2);
+    }
+  }
+  .contain__box--text .a {
+    animation-name: snowy;
+    opacity: 0;
+    grid-column: 4;
+  }
+  @keyframes snowy {
+    from {
+      transform: translate(20px, 0px) scale(0.1);
+      opacity: 0.5;
+    }
+    25% {
+      transform: translate(10px, 15px) scale(0.1);
+      opacity: 1;
+    }
+    50% {
+      transform: translate(20px, 20px) scale(0.1);
+      opacity: 1;
+    }
+    75% {
+      transform: translate(10px, 30px) scale(0.1);
+      opacity: 1;
+    }
+    to {
+      transform: translate(20px, 40px) scale(0.1);
+      opacity: 1;
+    }
+  }
+  .contain__box--text .b {
+    animation-name: snowa;
+    opacity: 0;
+    grid-column: 5;
+  }
+  @keyframes snowa {
+    from {
+      transform: translate(39px, 0px) scale(0.1);
+      opacity: 0.5;
+    }
+    25% {
+      transform: translate(25px, 15px) scale(0.1);
+      opacity: 1;
+    }
+    50% {
+      transform: translate(30px, 20px) scale(0.1);
+      opacity: 1;
+    }
+    75% {
+      transform: translate(39px, 30px) scale(0.1);
+      opacity: 1;
+    }
+    to {
+      transform: translate(30px, 40px) scale(0.1);
+      opacity: 1;
+    }
+  }
+  .contain__box--text .c {
+    animation-name: snowc;
+    opacity: 0;
+    grid-column: 6;
+  }
+  @keyframes snowc {
+    from {
+      transform: translate(20px, 0px) scale(0.1);
+      opacity: 0.5;
+    }
+    25% {
+      transform: translate(10px, 15px) scale(0.1);
+      opacity: 1;
+    }
+    50% {
+      transform: translate(20px, 20px) scale(0.1);
+      opacity: 1;
+    }
+    75% {
+      transform: translate(10px, 30px) scale(0.1);
+      opacity: 1;
+    }
+    to {
+      transform: translate(-20px, 40px) scale(0.1);
+      opacity: 1;
+    }
+  }
+  .contain__box--text .d {
+    animation-name: snowd;
+    opacity: 0;
+    grid-column: 7;
+  }
+  @keyframes snod {
+    from {
+      transform: translate(10px, 0px) scale(0.1);
+      opacity: 0.5;
+    }
+    25% {
+      transform: translate(15px, 15px) scale(0.1);
+      opacity: 1;
+    }
+    50% {
+      transform: translate(10px, 20px) scale(0.1);
+      opacity: 1;
+    }
+    75% {
+      transform: translate(15px, 30px) scale(0.1);
+      opacity: 1;
+    }
+    to {
+      transform: translate(10px, 40px) scale(0.1);
+      opacity: 1;
+    }
+  }
+  .contain__box--text .e {
+    animation-name: snowe;
+    opacity: 0;
+    grid-column: 5;
+  }
+  @keyframes snowe {
+    from {
+      transform: translate(10px, 0px) scale(0.1);
+      opacity: 0.5;
+    }
+    25% {
+      transform: translate(39px, 15px) scale(0.1);
+      opacity: 1;
+    }
+    50% {
+      transform: translate(30px, 20px) scale(0.1);
+      opacity: 1;
+    }
+    75% {
+      transform: translate(39px, 30px) scale(0.1);
+      opacity: 1;
+    }
+    to {
+      transform: translate(25px, 40px) scale(0.1);
+      opacity: 1;
+    }
+  }
+  .contain__box--text .f {
+    animation-name: snowf;
+    opacity: 0;
+    grid-column: 3;
+  }
+  @keyframes snowf {
+    from {
+      transform: translate(-20px, 0px) scale(0.1);
+      opacity: 0.5;
+    }
+    25% {
+      transform: translate(35px, 15px) scale(0.1);
+      opacity: 1;
+    }
+    50% {
+      transform: translate(-10px, 20px) scale(0.1);
+      opacity: 1;
+    }
+    75% {
+      transform: translate(36px, 30px) scale(0.1);
+      opacity: 1;
+    }
+    to {
+      transform: translate(25px, 40px) scale(0.1);
+      opacity: 1;
+    }
+  }
+  .contain__box--text .g {
+    animation-name: snowg;
+    opacity: 0;
+    grid-column: 6;
+  }
+  @keyframes snowg {
+    from {
+      transform: translate(-30px, 0px) scale(0.1);
+      opacity: 0.5;
+    }
+    25% {
+      transform: translate(5px, 15px) scale(0.1);
+      opacity: 1;
+    }
+    50% {
+      transform: translate(35px, 20px) scale(0.1);
+      opacity: 1;
+    }
+    75% {
+      transform: translate(-40px, 30px) scale(0.1);
+      opacity: 1;
+    }
+    to {
+      transform: translate(30px, 40px) scale(0.1);
+      opacity: 1;
+    }
+  }
+  .contain__box--text .h {
+    animation-name: snowh;
+    opacity: 0;
+    grid-column: 5;
+  }
+  @keyframes snowh {
+    from {
+      transform: translate(-30px, 0px) scale(0.1);
+      opacity: 0.5;
+    }
+    25% {
+      transform: translate(35px, 15px) scale(0.1);
+      opacity: 1;
+    }
+    50% {
+      transform: translate(12px, 20px) scale(0.1);
+      opacity: 1;
+    }
+    75% {
+      transform: translate(30px, 30px) scale(0.1);
+      opacity: 1;
+    }
+    to {
+      transform: translate(-10px, 40px) scale(0.1);
+      opacity: 1;
+    }
+  }
+  .contain__box--text .fa-circle {
+    animation-name: sun;
+    animation-duration: 4s;
+    animation-delay: 2s;
+    animation-iteration-count: 3;
+  }
+  @keyframes sun {
+    from {
+      transform: scale(0.7);
+    }
+    40% {
+      transform: scale(0.9);
+    }
+    80% {
+      transform: scale(90px);
+    }
+    to {
+      transform: scale(0.7);
+    }
+  }
+  .contain__box--text .rainy {
+    display: grid;
+    grid-template-columns: repeat(5, 10px);
+    max-width: 10px;
+    grid-row: 2;
+    gap: 2px;
+    grid-column: 6;
+  }
+  .contain__box--text .rainy .rain {
+    background-color: #5f95fc;
+    width: 2px;
+    height: 6px;
+    animation-name: rains;
+    animation-duration: 1s;
+    animation-delay: 2s;
+    animation-iteration-count: 6;
+    opacity: 0;
+  }
+  @keyframes rains {
+    from {
+      opacity: 0.5;
+      transform: translateY(5vh) skew(-30deg, -20deg);
+    }
+    50% {
+      transform: translateY(10vh) skew(-30deg, -20deg);
+      opacity: 1;
+    }
+    to {
+      opacity: 0.5;
+      transform: translateY(15vh) skew(-30deg, -20deg);
+    }
+  }
+  .contain__box--text .fa-cloud-sun {
+    grid-column: 5;
+    grid-row: 2;
+  }
+  .contain__box--text .fa-tint {
+    grid-row: 8;
+    grid-column: 2/3;
+    color: #436081;
+    font-size: 1.2em;
+    animation-name: tint;
+    animation-duration: 2s;
+    animation-delay: 2s;
+    animation-iteration-count: 4;
+  }
+  @keyframes tint {
+    50% {
+      background-position: 1px 0px;
+      background-image: url("https://htmlcolorcodes.com/assets/images/colors/bright-blue-color-solid-background-1920x1080.png");
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    100% {
+      background-position: 5px 0px;
+      background-image: url("https://www.solidbackgrounds.com/images/3840x2160/3840x2160-light-sea-green-solid-color-background.jpg");
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+  .contain__box--text .tint {
+    grid-column: 3/4;
+    color: white;
+    grid-row: 7;
+    width: 50px;
+  }
+  .contain__box--text .fa-wind {
+    grid-column: 5/6;
+    color: #436081;
+    grid-row: 8;
+    width: 25px;
+    font-size: 1.2em;
+    animation-name: wind;
+    animation-duration: 2s;
+    animation-delay: 2s;
+    animation-iteration-count: 3;
+  }
+  @keyframes wind {
+    from {
+      opacity: 1;
+      transform: translate(5px, 0);
+    }
+    25% {
+      opacity: 0.5;
+      transform: translate(0px, 0);
+    }
+    50% {
+      opacity: 0;
+      transform: translate(5px, 0);
+    }
+    75% {
+      opacity: 0.5;
+      transform: translate(0px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate(5px, 0);
+    }
+  }
+  .contain__box--text .wind {
+    grid-column: 7;
+    color: white;
+    grid-row: 7;
+  }
+
+  .bar {
+    padding-top: 40px;
+    padding-left: 70px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
