@@ -1,3 +1,4 @@
+/*main page-leon*/
 body {
   margin: 0;
   padding: 0;
@@ -171,6 +172,85 @@ body {
   transition: 0.7s;
 }
 
+section {
+  min-height: 5vh;
+}
+
+.container {
+  padding-top: 5%;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.box {
+  width: 80px;
+  height: 90px;
+  z-index: 10;
+  box-shadow: 0 10px 0px rgba(0, 0, 0, 0.19);
+  animation: 2s scale linear;
+}
+
+#box1 {
+  transform-origin: bottom right;
+  border-radius: 0px 100px 10px 110px;
+  background: linear-gradient(160deg, #ee0979 0%, #ff6a00 100%);
+}
+
+#box2 {
+  transform-origin: bottom left;
+  border-radius: 100px 0px 100px 0px;
+  background: linear-gradient(220deg, #ee0979 0%, #ff6a00 100%);
+}
+
+#box3 {
+  transform-origin: top right;
+  border-radius: 100px 0px 100px 0px;
+  background: linear-gradient(30deg, #ee0979 0%, #ff6a00 100%);
+}
+
+#box4 {
+  transform-origin: top left;
+  border-radius: 0px 100px 0px 100px;
+  background: linear-gradient(320deg, #ee0979 0%, #ff6a00 100%);
+}
+
+.circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  background: #ffef00;
+  z-index: 100;
+  margin-top: -190px;
+}
+
+.line {
+  background: #0f9b0f;
+  margin-top: -130px;
+  width: 15px;
+  height: 190px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+.pot {
+  background: #968c8c;
+  border-radius: 0px 0px 40px 40px;
+  width: 150px;
+  height: 50px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+@keyframes scale {
+  0% {
+    scale: 0.5;
+  }
+  100% {
+    scale: 1;
+  }
+}
 /*Cart page- Shani*/
 .cartPage {
   background-color: rgba(160, 156, 152, 0.192);
@@ -307,7 +387,7 @@ body {
   position: absolute;
   background-color: green;
   width: 1%;
-  height: 30%;
+  height: 28%;
   bottom: -90%;
   left: 50%;
   animation-name: treeGrows;
@@ -416,6 +496,19 @@ body {
   animation-duration: 5s;
   animation-fill-mode: forwards;
 }
+.cartgarden .flowerCircle p {
+  position: absolute;
+  left: 5%;
+  top: 20%;
+  font-size: 1%;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.774);
+}
+.cartgarden .flowerCircle:hover {
+  cursor: pointer;
+  background-color: #ffff79;
+  font-weight: bold;
+}
 @keyframes flowerCircle {
   0% {
     transform: scale(0);
@@ -442,6 +535,39 @@ body {
   background-color: #ff85eb;
   border: 0;
   border-radius: 100% 0% 100% 100%;
+}
+.cartgarden .secondPetal {
+  position: absolute;
+  width: 100%;
+  height: 80%;
+  bottom: -3%;
+  left: -110%;
+  background-color: #ff85eb;
+  border: 0;
+  border-radius: 100% 0% 100% 100%;
+  transform: rotate(30deg);
+}
+.cartgarden .thirdPetal {
+  position: absolute;
+  width: 100%;
+  height: 80%;
+  bottom: 60%;
+  left: -100%;
+  background-color: #ff85eb;
+  border: 0;
+  border-radius: 100% 0% 100% 100%;
+  transform: rotate(65deg);
+}
+.cartgarden .fourthPetal {
+  position: absolute;
+  width: 100%;
+  height: 80%;
+  bottom: 60%;
+  left: -90%;
+  background-color: #ff85eb;
+  border: 0;
+  border-radius: 100% 0% 100% 100%;
+  transform: rotate(80deg);
 }
 .cartgarden img {
   position: absolute;
