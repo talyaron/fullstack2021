@@ -94,7 +94,7 @@ console.log(fullDescription(Romina));
 
 function showFamily() {
   for(let i in familyDetails){
-    console.log(familyDetails[i].firstName);
+    console.log(familyDetails[i].friends);
     // console.log(`${familyDetails[i].firstName} ${familyDetails[i].lastName}'s best friends are ${familyDetails[i].friends}`)
   }
   /* and their friends */
