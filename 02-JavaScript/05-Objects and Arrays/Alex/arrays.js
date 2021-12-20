@@ -4,7 +4,7 @@ age:64,
 job:'carpenter',
 food: 'pasta',
 animal: 'cat',
-friends: ['noam ', 'leo ', 'yacov']
+friends: [{name:'shem '}, {name:'lilli '},{name: 'orna'}]
 
 };
 
@@ -14,7 +14,7 @@ age:62,
 job: 'teacher',
 food: 'pizza',
 animal: 'dog',
-friends: ['barb ', 'bill ', 'noa']
+friends: [{name:'shem '}, {name:'lilli '},{name: 'orna'}]
 }
 const child = {
 name:'yaniv',
@@ -22,14 +22,20 @@ age:32,
 job: 'teacher',
 food: 'pizza',
 animal: 'rat',
-friends: ['shem ', 'lilli ', 'orna']
+friends: [{name:'shem '}, {name:'lilli '},{name: 'orna'}]
 }
 
-// const family = [dad,mom,child];
+const family = [dad,mom,child];
 
-// for (let i=2; i>=0; i-- ){
-//     console.log(family[i].name +' '+'has the following friends: '+family[i].friends+'.'); 
-// ֿֿ}
+for(let i=0; i< family.length; i++ ){
+    console.log(family[i].name +' '+'has the following friends:'); 
+    for(let j in family[i].friends){
+         console.log(family[i].friends[j].name)
+    }
+
+}
+
+
 
  function familyMembers(person) {
  
