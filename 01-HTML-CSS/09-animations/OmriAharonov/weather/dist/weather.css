@@ -35,8 +35,14 @@ body {
   border-radius: 100px;
   background-image: linear-gradient(to bottom right, #10b0fa, rgba(247, 0, 255, 0.932));
   margin: auto;
+  animation-name: rorate;
+  animation-duration: 3s;
+  animation-delay: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: reverse;
+  animation-timing-function: ease-in-out;
 }
-.details .card {
+.details__dayTime .card {
   width: 100px;
   height: 20px;
   text-align: center;
@@ -79,4 +85,13 @@ body {
 }
 .details__general .measure_units span {
   margin-right: 10px;
+}
+
+@keyframes rorate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
