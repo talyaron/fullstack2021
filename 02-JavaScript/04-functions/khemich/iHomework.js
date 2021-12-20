@@ -85,7 +85,7 @@ function Salary(hours, HourlyPay) {
     }
 }
 
-let e = Salary(70, 350)
+let e = Salary(200, 70)
 console.log(e);
 
 function percentage(number, percentage) {
@@ -111,19 +111,78 @@ const Ginadi = {
     Hebrew: 77,
 }
 
-const Revital={
-    firstname:'Revital',
-    lastname:'Aharoni',
+const Revital = {
+    firstname: 'Revital',
+    lastname: 'Aharoni',
     history: 95,
-    Math:65,
-    Hebrew:99,
+    Math: 65,
+    Hebrew: 99,
 
 }
 
-function tellmeabout(student){
-    return  `${student.firstname}, ${student.lastname} got ${student.history} in history ${student.Math} in math and ${student.Hebrew} in hebrew`
+function tellmeabout(student) {
+    return `${student.firstname}, ${student.lastname} got ${student.history} in history ${student.Math} in math and ${student.Hebrew} in hebrew`
 }
 
 console.log(tellmeabout(Revital));
 
 
+const hebmonth = [`tishrei`, `heshvan`, `kislember`, `tevet`, `shvat`, `adar`, `nissan`, `iyar`, `sivan`, `tamuz`, `av`, `elul`];
+
+
+
+function yebmonth(i) {
+    if (typeof i !== 'number') {
+        return `this is not a number`
+    }
+    if (i > 12 || i < 1)
+        return `No please!`
+    else
+        return hebmonth[i - 1]
+}
+console.log(yebmonth(`h`));
+// random bullshit
+const Maria = {
+    name: 'Maria',
+    vegan: false,
+    hobby: 'Boats',
+    numberoflimbs: 4,
+    otherfriends: ['gabadu', 'seniorR', 'susuman'],
+}
+
+const Alice = {
+    name: "Alice",
+    vegan: true,
+    hobby: 'Pillow fighting',
+    numberoflimbs: 4,
+    otherfriends: ['bobo', 'philip', 'fatlip']
+}
+
+const Elen = {
+    name: 'Elen',
+    vegan: true,
+    hobby: 'watching microwaves work',
+    numberoflimbs: 3,
+    otherfriends: ['linda', 'ema', 'samba'],
+}
+
+const Salim = {
+    name: 'Salim',
+    vegan: false,
+    hobby: 'Drinking milk really fast',
+    numberoflimbs: 2,
+    otherfriends: ['daud', 'jerry', 'flavaslava'],
+}
+
+const Family = [Maria, Alice, Elen, Salim]
+
+function whodat(Family) {
+    if (Family.vegan == true)
+        return `this is ${Family.name} , shes vegan,her hobby is ${Family.hobby} and her friends are ${Family.otherfriends}... ohhhh and she has ${Family.numberoflimbs} limbs`
+    else if ( Family.numberoflimbs>2 && Family.vegan==false)
+        return `this is ${Family.name} shes not vegan(phew)her hobby is ${Family.hobby} and her friends are ${Family.otherfriends}... she has ${Family.numberoflimbs} spectecular limbs `
+        if (Family.numberoflimbs==2)
+        return `this is ${Family.name} hes not vegan(at all) his hobby is ${Family.hobby} and hir friends are ${Family.otherfriends}... poor guy has only ${Family.numberoflimbs} limbs `
+}
+
+console.log(whodat(Maria));
