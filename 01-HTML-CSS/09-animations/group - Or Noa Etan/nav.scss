@@ -63,23 +63,20 @@ nav ul {
   padding-inline: 2rem;
   max-width: 100vw;
 
-  &__back, &__filter{
+  &__back,
+  &__filter {
     background-color: gainsboro;
     border-radius: 5px;
     padding: 12px;
   }
 
-
   &__mytasks {
-
     display: flex;
     align-items: center;
     justify-content: center;
     padding-inline: 0.5rem;
     flex-direction: row;
     right: 20vw;
-
-
 
     &-square {
       align-self: center;
@@ -88,7 +85,7 @@ nav ul {
       overflow: hidden;
       text-align: center;
 
-      &>h3 {
+      & > h3 {
         padding: 1vw;
         background: #141414;
         color: #f0f0f2;
@@ -100,11 +97,10 @@ nav ul {
   &__nav {
     align-self: center;
 
-
     &__toggle {
       display: none;
 
-      &:checked~nav {
+      &:checked ~ nav {
         display: block;
       }
     }
@@ -155,17 +151,15 @@ nav ul {
   #control {
     max-width: 100vw;
 
-    &__back, &__filter{
+    &__back,
+    &__filter {
       padding-top: 10vh;
     }
 
     &__mytasks {
       display: none;
-
-
     }
   }
-
 }
 
 h3 {
@@ -175,7 +169,7 @@ h3 {
     transform: translateY(50px);
     display: inline-block;
   }
-  .fade{
+  .fade {
     opacity: 0;
     transform: translateY(0px);
   }

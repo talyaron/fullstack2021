@@ -94,7 +94,7 @@ function Salary(hours, HourlyPay) {
   }
 }
 
-var e = Salary(70, 350);
+var e = Salary(200, 70);
 console.log(e);
 
 function percentage(number, percentage) {
@@ -130,3 +130,51 @@ function tellmeabout(student) {
 }
 
 console.log(tellmeabout(Revital));
+var hebmonth = ["tishrei", "heshvan", "kislember", "tevet", "shvat", "adar", "nissan", "iyar", "sivan", "tamuz", "av", "elul"];
+
+function yebmonth(i) {
+  if (typeof i !== 'number') {
+    return "this is not a number";
+  }
+
+  if (i > 12 || i < 1) return "No please!";else return hebmonth[i - 1];
+}
+
+console.log(yebmonth("h")); // random bullshit
+
+var Maria = {
+  name: 'Maria',
+  vegan: false,
+  hobby: 'Boats',
+  numberoflimbs: 4,
+  otherfriends: ['gabadu', 'seniorR', 'susuman']
+};
+var Alice = {
+  name: "Alice",
+  vegan: true,
+  hobby: 'Pillow fighting',
+  numberoflimbs: 4,
+  otherfriends: ['bobo', 'philip', 'fatlip']
+};
+var Elen = {
+  name: 'Elen',
+  vegan: true,
+  hobby: 'watching microwaves work',
+  numberoflimbs: 3,
+  otherfriends: ['linda', 'ema', 'samba']
+};
+var Salim = {
+  name: 'Salim',
+  vegan: false,
+  hobby: 'Drinking milk really fast',
+  numberoflimbs: 2,
+  otherfriends: ['daud', 'jerry', 'flavaslava']
+};
+var Family = [Maria, Alice, Elen, Salim];
+
+function whodat(Family) {
+  if (Family.vegan == true) return "this is ".concat(Family.name, " , shes vegan,her hobby is ").concat(Family.hobby, " and her friends are ").concat(Family.otherfriends, "... ohhhh and she has ").concat(Family.numberoflimbs, " limbs");else if (Family.numberoflimbs > 2 && Family.vegan == false) return "this is ".concat(Family.name, " shes not vegan(phew)her hobby is ").concat(Family.hobby, " and her friends are ").concat(Family.otherfriends, "... she has ").concat(Family.numberoflimbs, " spectecular limbs ");
+  if (Family.numberoflimbs == 2) return "this is ".concat(Family.name, " hes not vegan(at all) his hobby is ").concat(Family.hobby, " and hir friends are ").concat(Family.otherfriends, "... poor guy has only ").concat(Family.numberoflimbs, " limbs ");
+}
+
+console.log(whodat(Maria));
