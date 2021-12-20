@@ -1,0 +1,51 @@
+"use strict";
+
+var sister = {
+  firstName: "Rasha",
+  lastName: "Jaber",
+  isMy: "is My Sister",
+  age: "31",
+  job: "BackEnd Delevoper",
+  residence: "Tal-Aviv"
+};
+sister.Friends = ["misha", "louis", "mark", "steven"];
+var mother = {
+  firstName: "Mona",
+  lastName: "Jaber",
+  isMy: "is My Mother",
+  age: "46",
+  job: "HomeMaker",
+  residence: "Jerusalem"
+};
+mother.Friends = ["sam", "sarah", "tami", "dwayne"];
+var father = {
+  firstName: "Jawad",
+  lastName: "Jaber",
+  isMy: "is My Father",
+  age: "53",
+  job: "BusinessMan",
+  residence: "Jerusalem"
+};
+father.Friends = ["toni", "rami", "paul", "jhon"];
+var partner = {
+  firstName: "Marie",
+  lastName: "Mishkuts",
+  isMy: "is My Partner",
+  age: "22",
+  job: "Food & Beverage",
+  residence: "Eilat"
+};
+partner.Friends = ["rotem", "Noam", "tesla", "c-note"];
+var family = [sister, mother, father, partner];
+
+for (var i = 0; i < family.length; i++) {
+  console.log(family[i].firstName, family[i].lastName, family[i].isMy);
+}
+
+for (var _i = 0; _i < family.length; _i++) {
+  console.log(family[_i].firstName, family[_i].lastName + " has the following friends:- " + family[_i].Friends);
+}
+
+function morefamilies() {
+  console.log("".concat(sister.firstName, " "));
+}
