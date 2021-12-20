@@ -1,58 +1,73 @@
-// let a=3;
-// let b=4;
-// /////regular function
+let a=3;
+let b=4;
+/////regular function
 
-// function sum(a,b){
-// return (a*b);
-// }
-// console.log(sum(a,b))
+function sum(a,b){
+return (a*b);
+}
+console.log(sum(a,b))
 
-// console.log("-------------------")
+console.log("-------------------")
 
-// //anonymous function
+//anonymous function
 
-// const sum2 = function(sum2){
-//     return(a*b);
-// }
-// console.log(sum2(a,b))
+const sum2 = function(sum2){
+    return(a*b);
+}
+console.log(sum2(a,b))
 
-// console.log("----------------")
+console.log("----------------")
 
-// //arrow function
+//arrow function
 
-// const sum3 = (a,b)=>{
-//     return(a*b);
-// }
+const sum3 = (a,b)=>{
+    return(a*b);
+}
 
-// console.log(sum3(a,b))
+console.log(sum3(a,b))
 
 
-// console.log("------------------------------------------------------------------")
+console.log("------------------------------------------------------------------")
 
-// const singers = ["adele","timberlake","maluma","fonzy","eyal"]
+const singers = ["adele","timberlake","maluma","fonzy","eyal"]
 
-// console.log("--------loop------------")
+console.log("--------loop------------")
 
-// for (let i =0 ;i < singers.length ; i++){
-//     console.log(singers[i]);
-// }
+for (let i =0 ;i < singers.length ; i++){
+    console.log(singers[i]);
+}
 
-// console.log("--------in loop------------")
+console.log("--------in loop------------")
 
-// for(let i in singers){
-//     console.log(singers[i]);
-// }
+for(let i in singers){
+    console.log(singers[i]);
+}
 
-// console.log("---------of loop-----------")
+console.log("---------of loop-----------")
 
-// for(let singer of singers){
-//     console.log(singer)
-// }
-// console.log("--------each loop------------")
+for(let singer of singers){
+    console.log(singer)
+}
+console.log("--------each loop------------")
 
-// singers.forEach(singer => {
-//     console.log(singer)
+singers.forEach(singer => {
+    console.log(singer)
     
-// });
+});
 
+
+console.log("---------------------------------------------------------------")
+
+const footballTeams = [
+    { teamName: 'Macabi Tel-Aviv', place: 16 },
+    { teamName: 'Beitar Jeruslam', place: 7 },
+    { teamName: 'Hapoel Haifa', place: 5 },
+    { teamName: 'Bnei-Sachnin', place: 6 }
+];
+
+
+let teamNum = footballTeams.findIndex(team => team.place == 7);
+
+
+console.log(`${teamNum}`)
 
