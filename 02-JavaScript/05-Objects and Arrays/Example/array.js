@@ -24,4 +24,5 @@ for (let i = 2; i < 100; i += 2) {
 
 
 let avg = sum / grades.length;
-console.log(avg)
+
+
