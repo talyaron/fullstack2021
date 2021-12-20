@@ -19,6 +19,31 @@ for(let myFav of singers){
 
 //for each
 
+singers.forEach(singer=>{
+    console.log(singer)
+})
+
+
+
+
+
+
+
+
+
+const students = [{ name: 'mira', grades: [100, 78, 43] }, { name: 'yoni', grades: [90, 89, 79, 76] }, { name: 'shani', grades: [95, 99, 100, 150] }]
+
+for(let student of students){
+    let sum = 0;
+    for(let grade of student.grades)
+        sum += grade;
+
+    const n = student.grades.length;
+    average = sum / n
+    console.log(`${student.name} has an avarge of ${average.toFixed(2)}`);
+
+}
+
 
 
 
@@ -35,6 +60,6 @@ const footballTeams = [
 ];
 
 
-const seventhPlace = footballTeams.indexOf(team => team.place ===7);{
+const seventhPlace = footballTeams.findIndex(team => team.place ===7);{
 console.log(seventhPlace)
 }
