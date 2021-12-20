@@ -25,20 +25,20 @@ animal: 'rat',
 friends: ['shem ', 'lilli ', 'orna']
 }
 
-const family = [dad,mom,child];
+// const family = [dad,mom,child];
 
-for (let i=2; i>=0; i-- ){
-    console.log(family[i].name +' '+'has the following friends: '+family[i].friends+'.'); 
-}
+// for (let i=2; i>=0; i-- ){
+//     console.log(family[i].name +' '+'has the following friends: '+family[i].friends+'.'); 
+// ֿֿ}
 
-// function familyMembers(person) {
+ function familyMembers(person) {
  
-//         console.log(person.name + ' '+ 'has the following friends: ' + person.friends+'.');  
-// }
+         console.log(person.name + ' '+ 'has the following friends: ' + person.friends+'.');  
+ }
 
-// familyMembers(dad)
-// familyMembers(mom)
-// familyMembers(child)
+ familyMembers(dad)
+ familyMembers(mom)
+ familyMembers(child)
 
 
 
