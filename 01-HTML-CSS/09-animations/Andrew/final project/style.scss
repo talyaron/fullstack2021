@@ -57,13 +57,15 @@ body {
             height: 30px;
             fill: var(--color-orange);
         }
-        &:hover{
-            .header__icon__scanner{
+
+        &:hover {
+            .header__icon__scanner {
                 visibility: visible;
                 transform: scale(1);
             }
-            
+
         }
+
         &__scanner {
             visibility: hidden;
             perspective: 400px;
@@ -81,8 +83,10 @@ body {
             transform-origin: top left;
             transform: scale(calc(1/6));
             transition: ease 0.3s;
+
             &__scene {
-                animation: rotate 20s infinite linear;  
+                animation: rotate 20s infinite linear;
+
                 &__line {
                     z-index: 200;
                     width: 2px;
@@ -413,7 +417,6 @@ body {
 }
 
 .footer {
-
     display: flex;
     justify-content: center;
     position: fixed;
@@ -498,8 +501,6 @@ body {
     }
 }
 
-
-
 @keyframes scroll-right {
     from {
         transform: translateX(640px);
@@ -515,7 +516,6 @@ body {
     margin: 15px;
 
     &-banner {
-
         display: flex;
         height: 45px;
         width: 600px;
@@ -642,73 +642,162 @@ body {
         height: 600px;
         position: relative;
 
-        &__avrage {
+        &__grid {
             position: absolute;
-            top: 0px;
-            left: 0px;
-            word-spacing: 0.7em;
-
-            span {
-                color: var(--color-lighter-grey);
-            }
-        }
-
-        &__max {
-            z-index: -1;
-            position: absolute;
-            top: 0px;
-            right: 0px;
-            font-weight: 900;
-
-            &::after {
-                position: absolute;
-                content: 'MAX 24H';
-                top: 1.7em;
-                right: 0px;
-                font-weight: 100;
-                color: var(--color-lighter-grey);
-            }
-        }
-
-        &__graph {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            display: grid;
+            width: 600px;
             height: 600px;
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: repeat(5, 1fr);
 
-            svg {
+            &__cell {
+                box-shadow: 0px 0px 0px 1px red;
+            }
+             #cell1:hover .wallet-value__scene{
+                 
+             }
+             #cell2:hover .wallet-value__scene{
+                 
+             }
+             #cell3:hover .wallet-value__scene{
+                 
+             }
+             #cell4:hover .wallet-value__scene{
+                 
+             }
+             #cell5:hover .wallet-value__scene{
+                 
+             }
+             #cell6:hover .wallet-value__scene{
+                 
+             }
+             #cell7:hover .wallet-value__scene{
+                 
+             }
+             #cell8:hover .wallet-value__scene{
+                 
+             }
+             #cell9:hover .wallet-value__scene{
+                 
+             }
+            #cell10:hover .wallet-value__scene{
+                
+            }
+            #cell11:hover .wallet-value__scene{
+                
+            }
+            #cell12:hover .wallet-value__scene{
+                
+            }
+            #cell13:hover .wallet-value__scene{
+                
+            }
+            #cell14:hover .wallet-value__scene{
+                
+            }
+            #cell15:hover .wallet-value__scene{
+                
+            }
+            #cell16:hover .wallet-value__scene{
+                
+            }
+            #cell17:hover .wallet-value__scene{
+                
+            }
+            #cell18:hover .wallet-value__scene{
+                
+            }
+            #cell19:hover .wallet-value__scene{
+                
+            }
+            #cell20:hover .wallet-value__scene{
+                
+            }
+            #cell21:hover .wallet-value__scene{
+                
+            }
+            #cell22:hover .wallet-value__scene{
+                
+            }
+            #cell23:hover .wallet-value__scene{
+                
+            }
+            #cell24:hover .wallet-value__scene{
+                
+            }
+            #cell25:hover .wallet-value__scene{
+                
+            }
+        }
+
+        &__scene {
+            &__avrage {
                 position: absolute;
-                width: 550px;
-                height: 550px;
+                top: 0px;
+                left: 0px;
+                word-spacing: 0.7em;
+
+                span {
+                    color: var(--color-lighter-grey);
+                }
             }
 
-            h1 {
-                font-size: 3rem;
-                position: relative;
-
-                &::before {
-                    content: 'WALLET VALUE';
-                    width: 26ch;
-                    position: absolute;
-                    font-size: 0.4em;
-                    color: var(--color-lighter-grey);
-                    bottom: 5rem;
-                    text-align: center;
-                }
+            &__max {
+                z-index: -1;
+                position: absolute;
+                top: 0px;
+                right: 0px;
+                font-weight: 900;
 
                 &::after {
-                    content: '▲ € 31.800,52 (21,1%)';
-                    width: 20ch;
                     position: absolute;
-                    font-size: 0.4em;
-                    color: var(--color-light-green);
-                    top: 5rem;
-                    left: 4ch;
+                    content: 'MAX 24H';
+                    top: 1.7em;
+                    right: 0px;
+                    font-weight: 100;
+                    color: var(--color-lighter-grey);
                 }
             }
 
+            &__graph {
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                height: 600px;
+
+                svg {
+                    position: absolute;
+                    width: 550px;
+                    height: 550px;
+                }
+
+                h1 {
+                    font-size: 3rem;
+                    position: relative;
+
+                    &::before {
+                        content: 'WALLET VALUE';
+                        width: 26ch;
+                        position: absolute;
+                        font-size: 0.4em;
+                        color: var(--color-lighter-grey);
+                        bottom: 5rem;
+                        text-align: center;
+                    }
+
+                    &::after {
+                        content: '▲ € 31.800,52 (21,1%)';
+                        width: 20ch;
+                        position: absolute;
+                        font-size: 0.4em;
+                        color: var(--color-light-green);
+                        top: 5rem;
+                        left: 4ch;
+                    }
+                }
+            }
         }
     }
 
