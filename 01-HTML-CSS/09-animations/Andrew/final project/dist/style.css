@@ -55,6 +55,48 @@ body {
   height: 30px;
   fill: var(--color-orange);
 }
+.header__icon:hover .header__icon__scanner {
+  visibility: visible;
+  transform: scale(1);
+}
+.header__icon__scanner {
+  visibility: hidden;
+  perspective: 400px;
+  perspective-origin: 50% -50%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 300px;
+  height: 300px;
+  background-color: #2E3137B0;
+  border-radius: 10px;
+  border: 1px solid var(--color-white);
+  overflow: hidden;
+  backdrop-filter: blur(3px);
+  transform-origin: top left;
+  transform: scale(calc(1/6));
+  transition: ease 0.3s;
+}
+.header__icon__scanner__scene {
+  animation: rotate 20s infinite linear;
+}
+.header__icon__scanner__scene__line {
+  z-index: 200;
+  width: 2px;
+  height: 200px;
+  background-color: white;
+  box-shadow: 0px 0px 10px 5px red;
+  position: absolute;
+  top: 15px;
+  left: 150px;
+  animation: scan 2s infinite ease-in-out alternate;
+}
+.header__icon__scanner__scene svg {
+  margin: 25px;
+  fill: var(--color-white);
+  width: 180px;
+  height: 180px;
+}
 .header__icon#bell {
   z-index: 7;
   box-shadow: 5px 5px 8px;
@@ -153,6 +195,7 @@ body {
   height: 50px;
   width: 300px;
   background-color: #383C3FD0;
+  backdrop-filter: blur(20px);
   border-radius: 10px;
   box-shadow: 0px 0px 0px 1px var(--color-dark-grey);
   position: absolute;
@@ -202,6 +245,22 @@ body {
   box-shadow: 0px 0px 0px 1px var(--color-white);
 }
 
+@keyframes scan {
+  0% {
+    transform: translateX(-110px);
+  }
+  100% {
+    transform: translateX(110px);
+  }
+}
+@keyframes rotate {
+  0% {
+    transform: rotateY(0deg) rotateX(90deg);
+  }
+  100% {
+    transform: rotateY(360deg) rotateX(90deg);
+  }
+}
 @keyframes flop-shadow {
   0% {
     height: 0px;

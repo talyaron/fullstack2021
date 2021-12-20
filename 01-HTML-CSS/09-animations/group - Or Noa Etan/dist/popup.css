@@ -15,9 +15,9 @@ button, input[type=submit], input[type=reset] {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(0);
-  transition: 200ms ease-in-out;
-  border: 1px solid #c3b8b8;
-  border-radius: 1rem;
+  transition: 200ms ease-out;
+  border: 0.1px dotted #c3b8b8;
+  border-radius: 0.5rem;
   z-index: 10;
   background-color: #eee;
   width: 500px;
@@ -36,8 +36,8 @@ button, input[type=submit], input[type=reset] {
   align-items: center;
   border-bottom: 1px solid #c3b8b8;
 }
-.modal__header .title {
-  text-decoration: underline;
+.modal__header-title {
+  text-shadow: 0.15rem 0.25rem rgba(0, 0, 0, 0.2);
   font-size: 1.25rem;
   font-weight: bold;
 }
