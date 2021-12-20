@@ -7,6 +7,7 @@ console.log(artists[i].name)
 for(let i in artists){
     console.log(artists[i].name)
 }
+
 for(let artist of artists){
     console.log(artist.name)
 }
