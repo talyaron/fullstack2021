@@ -55,16 +55,13 @@ const Yair = {
     friends: ['Yosef', 'Shimon', 'Dvir'],
 }
 
-const family = [David.name, Maya.name, Avigail.name, Noa.name, Rachel.name, Michael.name, Yair.name]
+const family = [David, Maya, Avigail, Noa, Rachel, Michael, Yair]
 
-const friend = [David.friends, Maya.friends, Avigail.friends, Noa.friends, Rachel.friends, Michael.friends, Yair.friends]
 
 for (let i in family) {
-    console.log(family[i]);
 
-}
-for (let f in friend) {
+    console.log(family[i].name);
 
-    console.log(`${family[i]}'s friends are: ${friend[f]}`)
+    console.log(`${family[i].name}'s friends are: ${family[i].friends}`)
 }
 
