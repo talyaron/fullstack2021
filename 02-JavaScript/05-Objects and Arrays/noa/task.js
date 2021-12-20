@@ -65,3 +65,6 @@ for (let i in family) {
     console.log(`${family[i].name}'s friends are: ${family[i].friends}`)
 }
 
+function families(family){
+    console.log(family[i].name);
+}
