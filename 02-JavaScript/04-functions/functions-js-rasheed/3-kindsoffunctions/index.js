@@ -27,7 +27,7 @@ const sum3 = (a,b)=>{
 console.log(sum3(a,b))
 
 
-console.log("-------------------------------")
+console.log("------------------------------------------------------------------")
 
 const singers = ["adele","timberlake","maluma","fonzy","eyal"]
 
