@@ -1,6 +1,6 @@
 const singers=["ELO","Elton John","Queen"]
 
-for ( let i=0; i<singers.length;i++){
+for(let i=0; i<singers.length; i++){
     console.log(singers[i])
 }
 
@@ -23,9 +23,22 @@ singers.forEach(singer=>{
     console.log(singer)
 })
 
+//while loop
 
+let i = 0;
+while(i<singers.length){
+    console.log(singers[i++]);
+}
 
+/*
+win_flag = false;
+for(let turn_counter = 0; !win_flag ; turn_counter++){
 
+    jkvrbtkv
+
+    win_flag = goal();
+}
+*/
 
 
 
