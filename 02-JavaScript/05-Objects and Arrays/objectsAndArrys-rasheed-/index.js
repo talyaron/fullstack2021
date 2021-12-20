@@ -49,3 +49,9 @@ for (let i = 0; i < family.length; i++) {
 for (let i = 0; i < family.length; i++) {
     console.log(family[i].firstName, family[i].lastName + " has the following friends:- " + family[i].Friends)
 }
+
+function morefamilies() {
+    console.log(`${sister.firstName} `)
+    
+
+}
