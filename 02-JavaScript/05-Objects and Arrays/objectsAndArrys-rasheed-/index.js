@@ -6,8 +6,9 @@ const sister = {
     age: "she's 31",
     job: " as a BackEnd Delevoper",
     residence: "Tal-Aviv",
+    Friends:["misha", "louis", "mark", "steven"]
 }
-sister.Friends = ["misha", "louis", "mark", "steven"]
+
 
 
 const mother = {
@@ -17,8 +18,9 @@ const mother = {
     age: "she's 46",
     job: " as a HomeMaker",
     residence: "Jerusalem",
+    Friends:["sam", "sarah", "tami", "dwayne"]
 }
-mother.Friends = ["sam", "sarah", "tami", "dwayne"]
+
 
 const father = {
     firstName: "Jawad",
@@ -27,8 +29,9 @@ const father = {
     age: "he's 53",
     job: "as a BusinessMan",
     residence: "Jerusalem",
+    Friends:["toni", "rami", "paul", "jhon"]
 }
-father.Friends = ["toni", "rami", "paul", "jhon"]
+
 
 const partner = {
     firstName: "Marie",
@@ -37,22 +40,23 @@ const partner = {
     age: "she's 22",
     job: " in Food & Beverage",
     residence: "Eilat",
+    Friends:["rotem", "Noam", "tesla", "c-note"]
 }
-partner.Friends = ["rotem", "Noam", "tesla", "c-note"]
+
 
 const family = [sister, mother, father, partner]
-for (let i = 0; i < family.length; i++) {
+for (let i in family) {
     console.log(family[i].firstName, family[i].lastName, family[i].isMy)
 }
 
 
-for (let i = 0; i < family.length; i++) {
+for (let i in family) {
     console.log(family[i].firstName, family[i].lastName + " has the following friends:- " + family[i].Friends)
 }
 
 function morefamilies(family) {
     console.log(`${family.firstName} ${family.lastName} ${family.isMy} and ${family.age} years old and lives in ${family.residence} and works${family.job} `)
-    
+
 
 }
 
