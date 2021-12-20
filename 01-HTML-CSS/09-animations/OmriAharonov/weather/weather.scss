@@ -23,14 +23,14 @@ body {
             margin: auto;
         }
 
-        p{
+        p {
             justify-self: center;
             margin-top: -10px;
         }
 
     }
 
-    &__dayTime{
+    &__dayTime {
         display: flex;
         flex-direction: column;
         //border: black solid 1px;
@@ -40,18 +40,17 @@ body {
             height: 150px;
             border-radius: 100px;
             background-image: linear-gradient(to bottom right, rgb(16, 176, 250), rgba(247, 0, 255, 0.932));
-            //background-color: rgb(218, 71, 255);
             margin: auto;
-            // animation-name: rorate;
-            // animation-duration: 3s
-            // animation-delay:1s;
-            // animation-iteration-count:infinite;
-            // animation-direction:reverse ;
-            // animation-timing-function: ease-in-out;
+            animation-name: rorate;
+            animation-duration: 3s;
+            animation-delay: 1s;
+            animation-iteration-count: infinite;
+            animation-direction: reverse;
+            animation-timing-function: ease-in-out;
         }
-    }
 
-        .card{
+
+        .card {
             width: 100px;
             height: 20px;
             text-align: center;
@@ -60,8 +59,7 @@ body {
             margin: auto;
             background: rgba(124, 49, 223, 0.295);
         }
-
-    
+    }
 
     &__temp {
         justify-self: center;
@@ -70,13 +68,13 @@ body {
 
     &__current {
         display: flex;
-        justify-content:center; 
-        gap:30px;
+        justify-content: center;
+        gap: 30px;
 
         .data {
             justify-content: center;
 
-            span{
+            span {
                 margin-left: 10px;
             }
         }
@@ -86,30 +84,39 @@ body {
         }
     }
 
-    &__general{
+    &__general {
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: repeat(3 1fr);
-        margin: 0% 15% ;
+        margin: 0% 15%;
 
-        .measure{
+        .measure {
 
-            &_units{
+            &_units {
                 justify-self: end;
                 color: rgb(51, 89, 158);
 
-                .fas{
+                .fas {
                     color: honeydew;
                     font-size: 12px;
                 }
 
-                span{
+                span {
                     margin-right: 10px;
                 }
             }
-    }
+        }
 
+
+
+    }
 }
 
+@keyframes rorate{
+    from { 
+        transform: rotate(0deg); 
+    } to { 
+        transform: rotate(360deg); 
+    }
 
 }
