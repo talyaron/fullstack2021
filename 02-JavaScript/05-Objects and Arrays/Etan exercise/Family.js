@@ -66,7 +66,7 @@ const Romina = {
       // height:
       // age:
       // }
-      let family = ['Etan', 'Tamir', 'Mozhgan', 'Romina'];
+      
       let familyDetails = [ Etan, Tamir, Mozhgan, Romina]
       
 
@@ -93,9 +93,11 @@ console.log(fullDescription(Romina));
 // this prints all their names:
 
 function showFamily() {
-  for (i = 0; i < family.length; i++) {
-    console.log(family[i]);
+  for(let i in familyDetails){
+    console.log(familyDetails[i].firstName);
+    // console.log(`${familyDetails[i].firstName} ${familyDetails[i].lastName}'s best friends are ${familyDetails[i].friends}`)
   }
+  /* and their friends */
   familyDetails.forEach((item) => {
     console.log(`${item.firstName} ${item.lastName}'s best friends are: ${item.friends}`)
   })
