@@ -387,7 +387,7 @@ section {
   position: absolute;
   background-color: green;
   width: 1%;
-  height: 30%;
+  height: 28%;
   bottom: -90%;
   left: 50%;
   animation-name: treeGrows;
@@ -496,6 +496,19 @@ section {
   animation-duration: 5s;
   animation-fill-mode: forwards;
 }
+.cartgarden .flowerCircle p {
+  position: absolute;
+  left: 5%;
+  top: 20%;
+  font-size: 1%;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.774);
+}
+.cartgarden .flowerCircle:hover {
+  cursor: pointer;
+  background-color: #ffff79;
+  font-weight: bold;
+}
 @keyframes flowerCircle {
   0% {
     transform: scale(0);
@@ -522,6 +535,39 @@ section {
   background-color: #ff85eb;
   border: 0;
   border-radius: 100% 0% 100% 100%;
+}
+.cartgarden .secondPetal {
+  position: absolute;
+  width: 100%;
+  height: 80%;
+  bottom: -3%;
+  left: -110%;
+  background-color: #ff85eb;
+  border: 0;
+  border-radius: 100% 0% 100% 100%;
+  transform: rotate(30deg);
+}
+.cartgarden .thirdPetal {
+  position: absolute;
+  width: 100%;
+  height: 80%;
+  bottom: 60%;
+  left: -100%;
+  background-color: #ff85eb;
+  border: 0;
+  border-radius: 100% 0% 100% 100%;
+  transform: rotate(65deg);
+}
+.cartgarden .fourthPetal {
+  position: absolute;
+  width: 100%;
+  height: 80%;
+  bottom: 60%;
+  left: -90%;
+  background-color: #ff85eb;
+  border: 0;
+  border-radius: 100% 0% 100% 100%;
+  transform: rotate(80deg);
 }
 .cartgarden img {
   position: absolute;

@@ -474,7 +474,7 @@ section{
         position:absolute;
         background-color:green;
         width:1%;
-        height:30%;
+        height:28%;
         bottom:-90%;
         left:50%;
         animation-name: treeGrows;
@@ -564,6 +564,27 @@ section{
         animation-name:flowerCircle;
         animation-duration:5s;
         animation-fill-mode:forwards;
+
+        p{
+            position:absolute;
+            left:5%;
+            top:20%;
+            font-size:1%;
+            text-align:center;
+            color:rgba(0, 0, 0, 0.774);
+        
+        }
+        
+        &:hover{
+            cursor:pointer;
+            background-color:rgb(255, 255, 121);
+            font-weight:bold;
+            
+            
+        }
+
+           
+
     }
      @keyframes flowerCircle{
         0%{ transform: scale(0)};
@@ -582,11 +603,46 @@ section{
         left:-73%; 
         background-color: rgb(255, 133, 235);
         border:0;
-        border-radius: 100% 0% 100% 100%;       
-               
-        
-
+        border-radius: 100% 0% 100% 100%;
+      
     }
+    .secondPetal{
+        position:absolute;
+        width:100%;
+        height:80%;
+        bottom:-3%;
+        left:-110%; 
+        background-color: rgb(255, 133, 235);
+        border:0;
+        border-radius: 100% 0% 100% 100%;
+        transform: rotate(30deg);  
+      
+    }
+    .thirdPetal{
+        position:absolute;
+        width:100%;
+        height:80%;
+        bottom:60%;
+        left:-100%; 
+        background-color: rgb(255, 133, 235);
+        border:0;
+        border-radius: 100% 0% 100% 100%;
+        transform: rotate(65deg);  
+      
+    }
+    .fourthPetal{
+        position:absolute;
+        width:100%;
+        height:80%;
+        bottom:60%;
+        left:-90%; 
+        background-color: rgb(255, 133, 235);
+        border:0;
+        border-radius: 100% 0% 100% 100%;
+        transform: rotate(80deg);  
+      
+    }
+   
 
 
 
