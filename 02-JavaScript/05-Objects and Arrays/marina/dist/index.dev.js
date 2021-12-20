@@ -3,7 +3,7 @@
 var dori = {
   name: 'Dori',
   lastName: 'Ziv',
-  math: 90,
+  math: 45,
   physic: 95,
   biology: 93,
   english: 100
@@ -14,9 +14,13 @@ console.log(dori['biology']);
 function tellAboutTheStudent(student) {
   if (student.physic > 93) {
     console.log("".concat(student.name, " ").concat(student.lastName, " have  ").concat(student.physic, "  on physic"));
-  } else if (student.test <= 80) {
+  }
+
+  if (student.math <= 80) {
+    console.log("".concat(student.name, " ").concat(student.lastName, " has ").concat(student.math, " on math"));
+  } else {
     console.log("".concat(student.name, " ").concat(student.lastName, " have ").concat(student.math, " on math"));
-  } else console.log("".concat(student.name, " ").concat(student.lastName, " have ").concat(student.test, " passed"));
+  }
 }
 
 tellAboutTheStudent(dori);

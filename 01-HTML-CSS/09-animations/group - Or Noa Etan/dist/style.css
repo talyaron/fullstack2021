@@ -5,6 +5,11 @@ body {
   width: 100vw;
 }
 
+.dark-mode {
+  background: invert(1);
+  color: invert(1);
+}
+
 #landing {
   padding-top: 1.5rem;
   width: 100vw;
@@ -31,20 +36,22 @@ body {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-}
-#landing__dailytaskslist .list__line .box-logo:nth-child(odd) {
   background-color: #f5c46a;
-}
-#landing__dailytaskslist .list__line .box-logo:nth-child(even) {
-  background-color: #a7dbec;
 }
 #landing__dailytaskslist .list__line .box-logo i {
   margin-left: 12px;
   margin-top: 12px;
 }
-#landing__dailytaskslist .list__line .box-logo h {
+#landing__dailytaskslist .list__line .box-log-blue {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #a7dbec;
+}
+#landing__dailytaskslist .list__line .box-log-blue h {
   margin-top: 12px;
   margin-left: 12px;
+  font-weight: 700;
 }
 #landing__dailytaskslist .list__line .logo {
   font-weight: 700;
@@ -53,7 +60,7 @@ body {
   padding: 1.5rem;
 }
 #landing__dailytasksdone {
-  padding-top: 6vh;
+  padding-top: 4vh;
   margin: auto;
   display: grid;
   grid-template-columns: repeat(5, 80px);
@@ -242,12 +249,6 @@ body {
   padding: 0.7rem;
   align-self: center;
 }
-#landing__task-count .box .blue {
-  background-color: #a7ebf2;
-}
-#landing__task-count .box .orange {
-  background-color: #f2b694;
-}
 #landing__task-count .box__expln {
   display: flex;
   flex-direction: column;
@@ -315,7 +316,7 @@ body {
 #landing__task__cal__flex {
   display: grid;
   align-content: flex-start;
-  width: 100vw;
+  width: 90vw;
   height: fit-content;
   background-color: white;
   border-radius: 2rem;
@@ -349,9 +350,11 @@ body {
   margin: 1.5rem;
 }
 #landing__task__cal__weekdays {
-  width: 100vw;
+  width: 90vw;
   height: 2.5rem;
   display: flex;
+  margin-bottom: 5vw;
+  border-bottom: 0.1px dotted #f0f0f2;
 }
 #landing__task__cal__weekdays div {
   font-size: 0.75rem;
@@ -365,7 +368,7 @@ body {
   margin: auto;
 }
 #landing__task__cal__days {
-  width: 100%;
+  width: 90vw;
   height: 100%;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -382,6 +385,7 @@ body {
 @media only screen and (min-width: 600px) {
   #landing__task__cal__days {
     padding: 0 2vw;
+    grid-template-columns: repeat(7, 8vw);
   }
 }
 #landing__task__cal__days div {
@@ -436,6 +440,33 @@ main {
   flex-direction: column;
   align-self: center;
   background-color: #f0f0f2;
+}
+
+.transparent {
+  background-color: none;
+}
+
+.blue {
+  background-color: #a7ebf2;
+}
+
+.orange {
+  background-color: #f2b694;
+}
+
+.green {
+  background-color: #79d19e;
+}
+
+.white {
+  background-color: white;
+}
+
+.black {
+  background-color: black;
+}
+.black > p {
+  color: white;
 }
 
 .md-18 {

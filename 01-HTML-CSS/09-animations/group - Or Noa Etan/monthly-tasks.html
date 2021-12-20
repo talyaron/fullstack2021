@@ -21,7 +21,7 @@
 
     <title>Monthly Tasks</title>
     <script src="https://code.iconify.design/2/2.1.0/iconify.min.js"></script>
-    
+
 </head>
 
 <body>
@@ -52,7 +52,7 @@
         </div>
 
         <main>
-            <ul id="landing__task-count" >
+            <ul id="landing__task-count">
                 <li class="box">
                     <div id="box__flex">
                         <div class="box__header">
@@ -103,7 +103,7 @@
                     <span class="iconify" data-icon="ic:baseline-navigate-next" data-width="20"></span>
                 </div>
             </button>
-            
+
             <div id="landing__task__cal">
                 <div id="landing__task__cal__title">
                     <span class="iconify md-24" data-icon="mdi:calendar-range"></span>
@@ -170,6 +170,7 @@
                     </div>
                 </div>
             </div>
+
         </main>
 
     </div>
@@ -181,75 +182,48 @@
             <button data-close-button class="close__button">&times;</button>
         </div>
         <div class="modal__body">
-            <form >
-                <input type="data" placeholder="Name your new task">
-                <div class="importance"><label for="urg">How important is it?</label>
-                <select name="urg" id="urg">
-                    <option value="placeholder">--Please choose an option--</option>
-                    <option value="emergency">emergency</option>
-                    <option value="asap">asap</option>
-                    <option value="high">high</option>
-                    <option value="make ready">make ready</option>
-                    <option value="medium">medium</option>
-                    <option value="low">low</option>
-                </select>
-            </div>
-                <fieldset>
-                    <legend>When is it due?</legend>
-                    <ul>
-                        <li>
-                          <label for="title_1">
-                            <input type="radio" id="title_1" name="title" value="K" >
-                            Tomorrow
-                          </label>
-                        </li>
-                        <li>
-                          <label for="title_2">
-                            <input type="radio" id="title_2" name="title" value="Q">
-                            In 2 days
-                          </label>
-                        </li>
-                        <li>
-                          <label for="title_3">
-                            <input type="radio" id="title_3" name="title" value="J">
-                            In 3 days
-                          </label>
-                        </li>
-                        <li>
-                          <label for="title_4">
-                            <input type="radio" id="title_3" name="title" value="J">
-                            In 4 days
-                          </label>
-                        </li>
-                        <li>
-                          <label for="title_5">
-                            <input type="radio" id="title_3" name="title" value="J">
-                            In 5 days
-                          </label>
-                        </li>
-                        <li>
-                          <label for="title_6">
-                            <input type="radio" id="title_3" name="title" value="J">
-                            In 6 days
-                          </label>
-                        </li>
-                        <li>
-                          <label for="title_7">
-                            <input type="radio" id="title_3" name="title" value="J">
-                            In 7 days
-                          </label>
-                        </li>
-                    </ul>
-                  </fieldset>
-                <button action="" onclick="newBox">Done</button>
+            <form id="myForm" class="form">
+                <div>
+                    <label for="box__logo-square color">Select a logo color</label>
+                    <select name="box__logo-square" id="box__logo-square-color">
+                        <option value="None" class="transparent" id="transparent">---</option>
+                        <option value="Blue" class="blue" id="blue">Blue</option>
+                        <option value="Orange" class="orange" id="orange">Orange</option>
+                        <option value="Green" class="green">Green</option>
+                        <option value="White" class="white">White</option>
+                        <option value="Black" class="black">Black</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="box__logo">make a 2 CH logo</label>
+                    <input type="text" name="box__logo" id="box__logo">
+                </div>
+                <div>
+                    <label for="box__title-text">Give your task a title</label>
+                    <input type="text" name="box__title-text" id="box__title-text" placeholder="Task name...">
+                </div>
+                <div class="importance">
+                    <label for="box__title-urg">How important is it?</label>
+                    <input type="text" name="box__title-urg" id="box__title-urg" placeholder="Low, Medium, High, etc.">
+                </div>
+                <div>
+                    <label for="box__expln">Describe the task</label>
+                    <input type="text" name="box__expln" id="box__expln">
+                </div>
+                <div>
+                    <label for="box__expln-transp">What subject is it?</label>
+                    <input type="text" name="box__expln-transp" id="box__expln-transp">
+                </div>
+                <button type="submit" id="submitButton"  >Click to save changes</button>
             </form>
         </div>
     </div>
     <div id="overlay"></div>
 
-    <script src="./app.js"></script>
-    <script src="./todo.js"></script>
 
-</html>
+
 
 </body>
+<script src="./app.js"></script>
+
+</html>
