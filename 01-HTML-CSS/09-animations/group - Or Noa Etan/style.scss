@@ -4,7 +4,10 @@ body {
   height: auto;
   width: 100vw;
 }
-
+.dark-mode {
+  background: invert(1);
+  color: invert(1);
+}
 #landing {
   padding-top: 1.5rem;
   width: 100vw;
@@ -32,7 +35,6 @@ body {
           height: 40px;
           border-radius: 50%;
 
-
           &:nth-child(odd) {
             background-color: rgb(245, 196, 106);
           }
@@ -44,7 +46,6 @@ body {
           i {
             margin-left: 12px;
             margin-top: 12px;
-
           }
 
           h {
@@ -60,8 +61,6 @@ body {
         p {
           padding: 1.5rem;
         }
-
-
       }
     }
   }
@@ -242,7 +241,6 @@ body {
           margin: 0;
           padding: 0;
           line-height: 0.1ch;
-
         }
 
         &__header {
@@ -290,14 +288,6 @@ body {
           }
         }
 
-        .blue {
-          background-color: #a7ebf2;
-        }
-
-        .orange {
-          background-color: #f2b694;
-        }
-
         &__expln {
           display: flex;
           flex-direction: column;
@@ -317,7 +307,6 @@ body {
             margin-top: 0.5ch;
           }
         }
-
       }
     }
 
@@ -345,14 +334,13 @@ body {
       }
 
       &__text {
-
         text-shadow: 0.1rem 0.18rem rgba(0, 0, 0, 0.2);
         padding-inline: 0;
         display: flex;
         flex-direction: column;
         align-content: center;
 
-        &>h3,
+        & > h3,
         p {
           margin: 0.1rem;
           padding: 0;
@@ -378,7 +366,7 @@ body {
       &__flex {
         display: grid;
         align-content: flex-start;
-        width: 100vw;
+        width: 90vw;
         height: fit-content;
         background-color: white;
         border-radius: 2rem;
@@ -417,9 +405,11 @@ body {
       }
 
       &__weekdays {
-        width: 100vw;
+        width: 90vw;
         height: 2.5rem;
         display: flex;
+        margin-bottom: 5vw;
+        border-bottom: 0.1px dotted #f0f0f2;
 
         div {
           font-size: 0.75rem;
@@ -435,7 +425,7 @@ body {
       }
 
       &__days {
-        width: 100%;
+        width: 90vw;
         height: 100%;
         display: grid;
         grid-template-columns: repeat(7, 1fr);
@@ -451,7 +441,7 @@ body {
 
         @media only screen and (min-width: 600px) {
           padding: 0 2vw;
-          ;
+          grid-template-columns: repeat(7, 8vw);
         }
 
         div {
@@ -521,6 +511,30 @@ main {
   background-color: #f0f0f2;
 }
 
+// colors to change box background
+.transparent{
+  background-color: none;
+}
+.blue {
+  background-color: #a7ebf2;
+}
+
+.orange {
+  background-color: #f2b694;
+}
+
+.green {
+  background-color: rgb(121, 209, 158);
+}
+.white{
+  background-color: white;
+}
+.black {
+  background-color: black;
+  & > p {
+    color: rgb(255, 255, 255);
+  }
+}
 
 //icon styles, use as
 .md-18 {
