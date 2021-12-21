@@ -1,106 +1,187 @@
 body {
-  margin: 0%;
+  background-color: rgba(128, 128, 128, 0.507);
+  margin: 3%;
+ 
+}
+
+.wrapper1__icon {
+  position: absolute;
+  top: 35px;
+}
+.wrapper1__icon :hover {
+  cursor: pointer;
+}
+.wrapper1 h2 {
+  position: relative;
+  top: 10px;
+  left: 35%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.wrapperfirst ul {
+  margin: 20px;
   padding: 0%;
-}
-
-.saction1__img {
-  top: 40px;
-  height: 10%;
-  width: 50%;
-  position: absolute;
-  margin: 5%;
-}
-.saction1__info {
-  position: absolute;
-  top: 60%;
-  left: 15%;
-  color: white;
-}
-.saction1__sti {
-  position: absolute;
-  color: white;
-  top: 70%;
-  left: 15%;
-  width: 50%;
-}
-
-@media only screen and (min-width: 670px) {
-  .saction1__img {
-    width: 30%;
-    height: 30%;
-  }
-
-  .saction1__info {
-    left: 5%;
-    color: #b10303;
-    font-size: 2rem;
-  }
-
-  .saction1__sti {
-    left: 5%;
-    font-size: 4rem;
-    color: #b10303;
-  }
-}
-.saction2__img {
-  position: absolute;
-  height: 600px;
-}
-.saction2__info {
-  position: absolute;
-  color: black;
-  left: 0%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
   background-color: white;
-  font-family: Arial, Helvetica, sans-serif;
-  width: 40%;
-  left: 10px;
-  font-size: 20px;
+  border-radius: 0px 30PX 0PX 40PX;
 }
-.saction2__sti {
-  position: absolute;
+.wrapperfirst ul :hover {
+  background-color: #a3a2a2;
+  border-radius: 0px 30PX 0PX 40PX;
+}
+.wrapperfirst a {
+  padding: 10px 25px 10px 25px;
+  text-align: center;
+  border-radius: 40px;
+  font-size: 1.4em;
+  text-decoration: none;
   color: black;
-  font-family: Arial, Helvetica, sans-serif;
-  top: 125%;
-  left: 10px;
+  font-style: italic;
+  font-weight: bold;
 }
-.saction2__minfo {
+
+.wrapper2 {
+  display: flex;
+  background-color: white;
+  border-radius: 40px;
+  place-content: space-between;
+  align-items: center;
+  padding: 3%;
+  margin: 20px;
+}
+.wrapper2__icon2 {
+  position: relative;
+  top: 1px;
+  font-size: 1.5em;
+  border-radius: 4px;
+}
+.wrapper2__name {
+  color: #b67703;
+}
+.wrapper2__button {
+  border-radius: 100px 100px 0px;
   position: absolute;
-  color: black;
-  top: 140%;
-  left: 10px;
-  width: 40%;
-  font-family: Arial, Helvetica, sans-serif;
+  left: 80%;
+  color: white;
+  background-color: black;
 }
-
-@media only screen and (min-width: 670px) {
-  .saction2__info {
-    top: 105%;
-    left: 46.5%;
-    width: 30%;
-    position: absolute;
-    color: black;
-    font-family: Arial, Helvetica, sans-serif;
-  }
-
-  .saction2__sti {
-    position: absolute;
-    color: black;
-    font-family: Arial, Helvetica, sans-serif;
-    margin-top: -4%;
-    left: 50%;
-  }
-
-  .saction2__minfo {
-    position: absolute;
-    color: black;
-    margin-top: -6%;
-    left: 55%;
-    width: 40%;
-    font-family: Arial, Helvetica, sans-serif;
-  }
-}
-.section3 img {
-  width: 107em;
-  margin-top: 162%;
+.wrapper2 p {
+  font-size: 1.4em;
   position: absolute;
+  left: 90px;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.wrapper3 {
+  display: flex;
+  background-color: white;
+  border-radius: 40px;
+  place-content: space-between;
+  align-items: center;
+  padding: 3%;
+  margin: 20px;
+}
+.wrapper3 p {
+  font-size: 1.4em;
+  position: absolute;
+  left: 90px;
+  font-style: italic;
+  font-weight: bold;
+}
+.wrapper3 button {
+  position: absolute;
+  left: 80%;
+  color: white;
+  border-radius: 100px 100px 0px;
+  background-color: black;
+}
+
+.wrapper4 {
+  display: flex;
+  gap: 20px;
+}
+.wrapper4 p {
+  font-size: 1.4em;
+  left: 90px;
+  font-style: italic;
+  font-weight: bold;
+}
+.wrapper4__bottun {
+  position: absolute;
+  align-items: center;
+  left: 80px;
+  top: 35%;
+  color: white;
+  height: 30px;
+  border-radius: 100px 100px 0px;
+  background-color: black;
+}
+
+.card {
+  border-radius: 40px;
+  background-color: white;
+}
+.card img {
+  height: 235px;
+  border-radius: 40px;
+}
+.card__info {
+  padding-left: 20px;
+}
+.card__des {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.card__subinfo {
+  display: flex;
+  gap: 30px;
+}
+.card__price {
+  font-style: italic;
+  position: relative;
+  left: 20px;
+}
+.card__price i {
+  color: orangered;
+}
+.card__loc {
+  font-style: italic;
+  position: relative;
+  left: 145px;
+}
+
+.card2 {
+  margin-top: 15px;
+  border-radius: 40px;
+  background-color: white;
+}
+.card2 img {
+  height: 235px;
+  border-radius: 40px;
+}
+.card2__info {
+  padding-left: 20px;
+}
+.card2__des {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.card2__subinfo {
+  display: flex;
+  gap: 30px;
+}
+.card2__price {
+  font-style: italic;
+  position: relative;
+  left: 20px;
+}
+.card2__price i {
+  color: orangered;
+}
+.card2__loc {
+  font-style: italic;
+  position: relative;
+  left: 145px;
 }

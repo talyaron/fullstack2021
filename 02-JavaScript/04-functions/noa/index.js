@@ -41,11 +41,11 @@ function calcIntrest(loan, precentage, years) {
 let x = calcIntrest(100, 5, 10);
 console.log(x);
 
-    else if (bmi <= 18) {
+     if (bmi <= 18) {
         return (bmi + 'תת משקל')
     }
 
-    if (bmi > 25) {
+  else  if (bmi > 25) {
         return (`${bmi} עודף משקל`)
     }
 }
