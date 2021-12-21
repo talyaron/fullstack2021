@@ -41,12 +41,12 @@ body {
             border-radius: 100px;
             background-image: linear-gradient(to bottom right, rgb(16, 176, 250), rgba(247, 0, 255, 0.932));
             margin: auto;
-            animation-name: rorate;
-            animation-duration: 3s;
+            box-shadow: rgb(248, 247, 245);
+            //animation-name: rorate;
+            animation-duration: 10s;
             animation-delay: 1s;
             animation-iteration-count: infinite;
-            animation-direction: reverse;
-            animation-timing-function: ease-in-out;
+            animation-timing-function:ease-out;
         }
 
 
@@ -114,9 +114,8 @@ body {
 
 @keyframes rorate{
     from { 
-        transform: rotate(0deg); 
+        transform: rotateY(0deg); 
     } to { 
-        transform: rotate(360deg); 
+        transform: rotateY(360deg); 
     }
-
 }
