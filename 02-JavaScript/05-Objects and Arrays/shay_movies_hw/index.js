@@ -32,6 +32,7 @@ console.log(changeRate);
 function newMovieRate(title,rank){
     title=changeRate[0].movieName
     rank= 11
+    changeRate[0].movieRating=rank
     return (title, rank);
 }
 console.log(newMovieRate(changeRate));
