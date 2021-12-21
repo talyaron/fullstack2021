@@ -40,8 +40,7 @@ movies.forEach(movie =>{
 
 
 
-  movies.filter( movie =>{ ti
-     
+  movies.filter( movie =>{ movie.title   })
 
-  })
+  console.log("Forrest Gump",4.5)
 
