@@ -114,7 +114,7 @@ body {
         position: absolute;
         align-items: center;
         left: 80px;
-        top:43px;
+        top:42.5%;
         color: white;
         height: 30px;
         border-radius: 100px 100px 0px;
@@ -144,7 +144,7 @@ body {
       position: relative;
       left: 20px;
       i{
-          color: orangered;
+          color: rgb(255, 102, 0);
       }
     }
     &__loc{
@@ -175,6 +175,7 @@ body {
         font-style:italic;
       position: relative;
       left: 20px;
+      
       i{
           color: orangered;
       }
