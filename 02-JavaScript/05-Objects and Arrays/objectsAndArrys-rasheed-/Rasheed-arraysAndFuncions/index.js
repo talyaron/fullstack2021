@@ -48,20 +48,26 @@ const movies = [
 
 ];
 
+console.log("-------------by rating------------------")
+
+const moviesByRating = movies.sort((a, b) =>
+    (b.rating - a.rating));
+
+for (let i in movies) {
+    console.log(`${movies[i].title} - ${movies[i].rating}`)
+}
+
+console.log("-------------by releaseDate------------------")
 
 
 movies.sort(function (a, b) {
-    return a.rating - b.rating;
-
+    let dateA = (a.releaseDate), dateB = (b.releaseDate);
+    return dateB - dateA;
 });
-console.log(movies)
 
-
-movies.sort(function (a, b) {
-    let dateA = new Date(a.releaseDate), dateB = new Date(b.releaseDate);
-    return dateA - dateB;
-});
-console.log(movies)
+for (let i in movies) {
+    console.log(`${movies[i].title} - ${movies[i].releaseDate}`)
+}
 
 
 
