@@ -38,7 +38,9 @@ movies.forEach(movie =>{
 
  function changeRanking(title, newRanking)
 
-  movies.findIndex( movie =>{ 
-      
-  })
+
+
+  movies.filter( movie =>{ movie.title   })
+
+  console.log("Forrest Gump",4.5)
 
