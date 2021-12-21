@@ -57,6 +57,8 @@ movies.sort(function (a, b) {
 console.log(movies)
 
 
+
+
 movies.sort(function (a, b) {
     let dateA = new Date(a.releaseDate), dateB = new Date(b.releaseDate);
     return dateA - dateB;
