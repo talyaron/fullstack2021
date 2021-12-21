@@ -50,3 +50,17 @@ movies.sort(function (a, b) {
 for (var _i in movies) {
   console.log("".concat(movies[_i].title, " - ").concat(movies[_i].releaseDate));
 }
+
+console.log("-------------by title and rank change------------------");
+var changeMovie = window.prompt("which movie rank do you want to change?");
+var newRate = window.prompt('What is your new rank?');
+var updatedRate = changeRating(changeMovie, newRate);
+
+function changeRating(title, newRating) {
+  var objIndex = movies.findIndex(function (obj) {
+    return obj.title == changeMovie;
+  });
+  movies[objIndex].rating = newRating;
+}
+
+console.log(movies);
