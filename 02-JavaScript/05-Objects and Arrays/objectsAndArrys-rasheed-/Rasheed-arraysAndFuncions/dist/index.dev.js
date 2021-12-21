@@ -31,17 +31,22 @@ var movies = [{
   rating: "8.5",
   releaseDate: "1985"
 }];
-movies.sort(function (a, b) {
-  return a.rating - b.rating;
+console.log("-------------by rating------------------");
+var moviesByRating = movies.sort(function (a, b) {
+  return b.rating - a.rating;
 });
 
 for (var i in movies) {
-  console.log("".concat(movies.name));
+  console.log("".concat(movies[i].title, " - ").concat(movies[i].rating));
 }
 
+console.log("-------------by releaseDate------------------");
 movies.sort(function (a, b) {
-  var dateA = new Date(a.releaseDate),
-      dateB = new Date(b.releaseDate);
-  return dateA - dateB;
+  var dateA = a.releaseDate,
+      dateB = b.releaseDate;
+  return dateB - dateA;
 });
-console.log(movies);
+
+for (var _i in movies) {
+  console.log("".concat(movies[_i].title, " - ").concat(movies[_i].releaseDate));
+}
