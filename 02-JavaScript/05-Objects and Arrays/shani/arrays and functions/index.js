@@ -38,7 +38,10 @@ movies.forEach(movie =>{
 
  function changeRanking(title, newRanking)
 
-  movies.findIndex( movie =>{ 
-      
+
+
+  movies.filter( movie =>{ ti
+     
+
   })
 
