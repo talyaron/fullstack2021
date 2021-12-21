@@ -8,23 +8,23 @@ const movies = [
 ];
 
 /*sort movies by their rank*/
-// const sortedmovies= movies.sort(
-//     (a,b)=>(a.rating<b.rating ? 1:-1)
-// );
-// console.log(sortedmovies)
+const sortedmovies= movies.sort(
+    (a,b)=>(a.rating<b.rating ? 1:-1)
+);
+console.log(sortedmovies)
 
 
 /*sort by their year*/
 
-// const sortyear=movies.sort(function(m1,m2){
-//     if (m1.year<m2.year){
-//         return 1
-//     }
-//     else {
-//        return -1
-//     }
-// });
-// console.log(sortyear);
+const sortyear=movies.sort(function(m1,m2){
+    if (m1.year<m2.year){
+        return 1
+    }
+    else {
+       return -1
+    }
+});
+console.log(sortyear);
 
 
 const moviesname= movies.map(function(movie){
