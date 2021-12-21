@@ -32,18 +32,20 @@ for(let i in movies){
 let changemovie = window.prompt("which movie rank do you want to change?")
 let newrank = window.prompt('What is your new rank?')
 
-newrank = 
-newrank *= 1.0;
+// newrank *= 1.0;
+// or :
+newrank = parseFloat(newrank);
 
-const updrank = changeRanking(changemovie, newrank);
+// const updrank = changeRanking(changemovie, newrank);
 
 function changeRanking(title, newRanking){
 
     const objIndex = movies.findIndex((obj => obj.name == changemovie));
     movies[objIndex].rank = newRanking;
-
+    return objIndex;
+    
 }
 
+console.log(movie);
 
-console.log(movies);
-// console.log(objIndex);
+

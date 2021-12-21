@@ -54,15 +54,17 @@ for (var _i in movies) {
 
 ;
 var changemovie = window.prompt("which movie rank do you want to change?");
-var newrank = window.prompt('What is your new rank?');
-newrank = newrank *= 1.0;
-var updrank = changeRanking(changemovie, newrank);
+var newrank = window.prompt('What is your new rank?'); // newrank *= 1.0;
+// or :
+
+newrank = parseFloat(newrank); // const updrank = changeRanking(changemovie, newrank);
 
 function changeRanking(title, newRanking) {
   var objIndex = movies.findIndex(function (obj) {
     return obj.name == changemovie;
   });
   movies[objIndex].rank = newRanking;
+  return objIndex;
 }
 
-console.log(movies); // console.log(objIndex);
+console.log(movie);
