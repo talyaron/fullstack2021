@@ -32,3 +32,4 @@ students.forEach(student => {
 
     console.log(`${name} has an avarge of ${avarge.toFixed(1)}`);
 })
+

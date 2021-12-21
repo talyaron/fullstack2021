@@ -470,18 +470,19 @@ section{
 }
 
 .cartgarden{
-    .tree{
+    .maintree{
         position:absolute;
         background-color:green;
         width:1%;
-        height:28%;
-        bottom:-90%;
+        height:15%;
+        bottom:-80%;
         left:50%;
         animation-name: treeGrows;
         animation-duration: 4s;
         animation-timing-function:linear;
         transform-origin:bottom;
-        animation-fill-mode:forwards;
+        animation-fill-mode:both;
+       
         
 
     }
@@ -555,7 +556,7 @@ section{
     .flowerCircle{
         background-color:yellow;
         width:250%;
-        height:20%;
+        height:40%;
         border-radius:50%;
         position:absolute;
         border: 1px orange solid; 
@@ -589,73 +590,12 @@ section{
      @keyframes flowerCircle{
         0%{ transform: scale(0)};
         20%{transform: scale(0)};
-        40%{transform: scale(0.5)};
-        65%{transform: scale(0.5)};        
+        40%{transform: scale(1)};
+        65%{transform: scale(1)};        
         100%{transform: scale(1)};  
 
     }
 
-    .firstPetal{
-        position:absolute;
-        width:100%;
-        height:80%;
-        bottom:-70%;
-        left:-73%; 
-        background-color: rgb(255, 133, 235);
-        border:0;
-        border-radius: 100% 0% 100% 100%;
-      
-    }
-    .secondPetal{
-        position:absolute;
-        width:100%;
-        height:80%;
-        bottom:-3%;
-        left:-110%; 
-        background-color: rgb(255, 133, 235);
-        border:0;
-        border-radius: 100% 0% 100% 100%;
-        transform: rotate(30deg);  
-      
-    }
-    .thirdPetal{
-        position:absolute;
-        width:100%;
-        height:80%;
-        bottom:60%;
-        left:-100%; 
-        background-color: rgb(255, 133, 235);
-        border:0;
-        border-radius: 100% 0% 100% 100%;
-        transform: rotate(70deg);  
-      
-    }
-    .fourthPetal{
-        position:absolute;
-        width:100%;
-        height:80%;
-        bottom:110%;
-        left:-25%; 
-        background-color: rgb(255, 133, 235);
-        border:0;
-        border-radius: 100% 0% 100% 100%;
-        transform: rotate(120deg);  
-      
-    }
-   
-    .fifthPetal{
-        position:absolute;
-        width:100%;
-        height:80%;
-        bottom:90%;
-        left:70%; 
-        background-color: rgb(255, 133, 235);
-        border:0;
-        border-radius: 100% 0% 100% 100%;
-        transform: rotate(170deg);  
-      
-    }
-   
 
 
 
@@ -665,6 +605,23 @@ section{
         bottom:-90%;
         width:100%;
         height:25%;
+    }
+
+
+    .tree2{
+        position:absolute;
+        background-color:green;
+        width:1%;
+        height:5%;
+        bottom:-80%;
+        left:20%;
+        animation-name: treeGrows;
+        animation-duration: 4s;
+        animation-timing-function:linear;
+        transform-origin:bottom;
+        animation-fill-mode:both;
+       
+
     }
 }
 
