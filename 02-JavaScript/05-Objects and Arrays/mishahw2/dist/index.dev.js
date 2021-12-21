@@ -57,7 +57,8 @@ var changemovie = window.prompt("which movie rank do you want to change?");
 var newrank = window.prompt('What is your new rank?'); // newrank *= 1.0;
 // or :
 
-newrank = parseFloat(newrank); // const updrank = changeRanking(changemovie, newrank);
+newrank = parseFloat(newrank);
+var updrank = changeRanking(changemovie, newrank);
 
 function changeRanking(title, newRanking) {
   var objIndex = movies.findIndex(function (obj) {
@@ -67,4 +68,4 @@ function changeRanking(title, newRanking) {
   return objIndex;
 }
 
-console.log(movie);
+console.log("".concat(movie[updrank].title));

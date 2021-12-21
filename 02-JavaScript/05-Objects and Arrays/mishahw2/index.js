@@ -36,7 +36,7 @@ let newrank = window.prompt('What is your new rank?')
 // or :
 newrank = parseFloat(newrank);
 
-// const updrank = changeRanking(changemovie, newrank);
+const updrank = changeRanking(changemovie, newrank);
 
 function changeRanking(title, newRanking){
 
@@ -45,7 +45,9 @@ function changeRanking(title, newRanking){
     return objIndex;
     
 }
+console.log(` ------- UPDATED RANK ------ `);
+console.log(`${movies[updrank].name} - ${movies[updrank].rank}`);
 
-console.log(movie);
+
 
 
