@@ -1,32 +1,32 @@
 "use strict";
 
 var movies = [{
-  title: "The Matrix",
+  title: "the matrix",
   director: "Lana Wachowski",
   rating: "8.7",
   releaseDate: "1999"
 }, {
-  title: "The Godfather",
+  title: "the godfather",
   director: "Francis Ford Coppola",
   rating: "9.2",
   releaseDate: "1972"
 }, {
-  title: "Fight Club",
+  title: "fight club",
   director: "David Fincher",
   rating: "8.8",
   releaseDate: "1999"
 }, {
-  title: "Inception",
+  title: "inception",
   director: "Christopher Nolan",
   rating: "8.8",
   releaseDate: "2010"
 }, {
-  title: "Interstellar",
+  title: "interstellar",
   director: "Christopher Nolan",
   rating: "8.6",
   releaseDate: "2014"
 }, {
-  title: "Back to the Future",
+  title: "back to the future",
   director: "Robert Zemeckis",
   rating: "8.5",
   releaseDate: "1985"
@@ -61,6 +61,7 @@ function changeRating(title, newRating) {
     return obj.title == changeMovie;
   });
   movies[objIndex].rating = newRating;
+  return objIndex;
 }
 
-console.log(movies);
+console.log("".concat(movies[updatedRate].title, " - ").concat(movies[updatedRate].rating));
