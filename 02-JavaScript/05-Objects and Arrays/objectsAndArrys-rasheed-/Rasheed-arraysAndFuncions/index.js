@@ -54,7 +54,12 @@ movies.sort(function (a, b) {
     return a.rating - b.rating;
 
 });
-console.log(movies)
+
+for(let i in movies){
+    console.log(`${movies.name}`)
+}
+
+
 
 
 movies.sort(function (a, b) {
