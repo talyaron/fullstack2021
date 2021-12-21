@@ -20,11 +20,13 @@ const singers = ['thom yorke', 'gilad kahana', 'omer adam', 'shlomi perez'];
 
 // CALLBACK //
 
-    singers.forEach(i =>{
+    // singers.forEach(i =>{
 
-        console.log(i);
-        
-    })
+    //     console.log(i);
+
+    // })
+
+    
 
 
 
