@@ -52,7 +52,7 @@ const teams = [
     {name: "Israel Start-Up Nation", position: 7},
     {name: "UAE Team Emirates" , position: 5},
     {name: "Ineos Grenadiers", position: 2},
-]
+];
 
 let team7 = teams.findIndex(team => team.position == 7);
 alert(` the team in the 7th position is: ${team7}`);
