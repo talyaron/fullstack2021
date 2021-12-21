@@ -1,7 +1,6 @@
 body {
   background-color: rgba(128, 128, 128, 0.507);
   margin: 3%;
-  font-family: "poppins";
 }
 
 .wrapper1__icon {
@@ -59,7 +58,7 @@ body {
   border-radius: 4px;
 }
 .wrapper2__name {
-  color: #b67703;
+  color: #949189;
 }
 .wrapper2__button {
   border-radius: 100px 100px 0px;
@@ -114,7 +113,7 @@ body {
   position: absolute;
   align-items: center;
   left: 80px;
-  top: 35%;
+  top: 4%;
   color: white;
   height: 30px;
   border-radius: 100px 100px 0px;
@@ -145,7 +144,7 @@ body {
   left: 20px;
 }
 .card__price i {
-  color: orangered;
+  color: #ff6600;
 }
 .card__loc {
   font-style: italic;
@@ -178,7 +177,7 @@ body {
   left: 20px;
 }
 .card2__price i {
-  color: orangered;
+  color: #1eff00;
 }
 .card2__loc {
   font-style: italic;
