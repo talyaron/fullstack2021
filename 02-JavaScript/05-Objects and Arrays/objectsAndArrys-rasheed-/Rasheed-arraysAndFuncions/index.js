@@ -69,7 +69,7 @@ for (let i in movies) {
     console.log(`${movies[i].title} - ${movies[i].releaseDate}`)
 }
 
-console.log("-------------by title and rank change------------------")
+console.log("-------------by title and rank change ------------------")
 
 
 let changeMovie = window.prompt("which movie rank do you want to change?")
