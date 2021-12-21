@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array</title>
+</head>
+
+<body>
+    <script>
+        const movies = [
+            { title: "one", year: 1999 },
+            { title: "two", year: 2202 },
+            { title: "three", year: 2151 }
+        ]
+
+        console.log(movies[1].title);
+
+        // movies.map/foreach
+        movies.forEach(movie => {
+            console.log(movie.title)
+        })
+
+        //regular
+        function fun() {
+            const a = "oierioeriojegioj"
+
+            return a
+        }
+
+        //arrow function
+        const fun1 = () => {
+
+        }
+
+        //anonymous function
+        () => {
+
+        }
+
+        //IIFE
+        ((num) => { console.log(num) })(9)
+
+
+
+
+
+    </script>
+</body>
+
+</html>
