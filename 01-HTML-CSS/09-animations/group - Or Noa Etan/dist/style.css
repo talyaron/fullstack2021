@@ -48,10 +48,11 @@ body {
   border-radius: 50%;
   background-color: #a7dbec;
 }
-#landing__dailytaskslist .list__line .box-log-blue h {
+#landing__dailytaskslist .list__line .box-log-blue h1 {
   margin-top: 12px;
   margin-left: 12px;
   font-weight: 700;
+  font-size: 15px;
 }
 #landing__dailytaskslist .list__line .logo {
   font-weight: 700;

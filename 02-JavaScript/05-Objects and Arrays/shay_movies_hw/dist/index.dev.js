@@ -47,7 +47,7 @@ console.log(changeRate);
 
 function newMovieRate(title, rank) {
   title = changeRate[0].movieName;
-  rank = changeRate[0].movieRating + 2;
+  rank = 11;
   return title, rank;
 }
 
