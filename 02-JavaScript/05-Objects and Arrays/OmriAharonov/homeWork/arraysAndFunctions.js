@@ -44,16 +44,16 @@ const movie_6 = {
 const movies = [movie_1, movie_2, movie_3, movie_4, movie_5, movie_6];
 
 let movieByRate = ((movies) => {
-  movies.sort((a, b) => { return b.rate - a.rate })
+  movies.sort((a, b) => { return b.rate - a.rate });
 });
 
 movieByRate(movies);
 
 movies.forEach(movie => {
-  console.log(`${movie.title} ${movie.rate}`)
-})
+  console.log(`${movie.title} ${movie.rate}`);
+});
 
-console.log('--------------------------------------------------------------------')
+console.log('--------------------------------------------------------------------');
 
 let movieByYear = ((movies) => {
   movies.sort((a, b) => { return a.year - b.year })
@@ -62,25 +62,24 @@ let movieByYear = ((movies) => {
 movieByYear(movies);
 
 movies.forEach(movie => {
-  console.log(`${movie.title} publicshed at the year of: ${movie.year}`)
-})
+  console.log(`${movie.title} publicshed at the year of: ${movie.year}`);
+});
 
-console.log('--------------------------------------------------------------------')
+console.log('--------------------------------------------------------------------');
 
 let changeRanking = ((title, newRanking) =>{
   movies.forEach( movie => {
     if(movie.title.localeCompare(title) === 0 ){
-      movie.rate = newRanking
-    }
-  })
+      movie.rate = newRanking;
+    };
+  });
 });
 
 changeRanking('The Pianist', 9.6);
 movieByRate(movies);
 movies.forEach(movie => {
-  console.log(`${movie.title} ${movie.rate}`)
-})
-
+  console.log(`${movie.title} ${movie.rate}`);
+});
 
 
 
