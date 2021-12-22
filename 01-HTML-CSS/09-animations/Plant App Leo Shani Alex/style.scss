@@ -482,8 +482,7 @@ section {
 
 }
 
-<<<<<<< HEAD
-.cartgarden {
+<<<<<<< HEAD .cartgarden {
     .maintree {
         position: absolute;
         background-color: green;
@@ -555,736 +554,897 @@ section {
         }
 
         ;
-=======
-.cartgarden{
-    .maintree{
-        position:absolute;
-        background-color:green;
-        width:0.5rem;
-        height:10%;
-        bottom:-80%;
-        left:80%;
-        animation-name: treeGrows;
-        animation-duration: 4s;
-        animation-timing-function:linear;
-        transform-origin:bottom;
-        animation-fill-mode:both;
-        animation-delay: 1s;  
-       
-        
 
-    }
-
-    @keyframes treeGrows{
-        0%{ transform: scale(0)};
-        15%{transform: scale(0.5)};
-        25%{transform: scale(1)};
-        40%{transform: scale(1.5)};
-        50%{transform: scale(1.5)};
-        65%{transform: scale(2)};
-        75%{transform: scale(2)};
-        90%{transform: scale(2)};
-        100%{transform: scale(2)};       
->>>>>>> e006daf78770d380d3ce3402e290e2e3e4403cac
-
-    }
-
-    .tree__leaf {
-        position: absolute;
-        width: 40%;
-        height: 40%;
-        background-color: green;
-        border: 0;
-        border-top-right-radius: 100%;
-        border-bottom-left-radius: 100%;
-
-    }
-
-    .tree__leaf--left {
-        bottom: 80%;
-        left: -97%;
-        width: 100%;
-        height: 10%;
-        animation-name: leftLeaf;
-        animation-duration: 3s;
-        animation-fill-mode: forwards;
-        animation-timing-function: ease-in;
-
-    }
-
-    @keyframes leftLeaf {
-        0% {
-            transform: scale(0)
-        }
-
-        ;
-
-        20% {
-            transform: scale(0.5)
-        }
-
-        ;
-
-        100% {
-            transform: scale(1)
-        }
-
-        ;
-
-    }
+        =======.cartgarden {
+            .maintree {
+                position: absolute;
+                background-color: green;
+                width: 0.5rem;
+                height: 10%;
+                bottom: -80%;
+                left: 80%;
+                animation-name: treeGrows;
+                animation-duration: 4s;
+                animation-timing-function: linear;
+                transform-origin: bottom;
+                animation-fill-mode: both;
+                animation-delay: 1s;
 
 
-    .tree__leaf--right {
-        bottom: 60%;
-        right: -91%;
-        width: 100%;
-        height: 6%;
-        transform: rotate(90deg);
-        animation-name: rightLeaf;
-        animation-duration: 8s;
-        animation-fill-mode: forwards;
-        animation-timing-function: ease-in;
 
-    }
-
-    @keyframes rightLeaf {
-        0% {
-            transform: scale(0)
-        }
-
-<<<<<<< HEAD
-        ;
-=======
-    }  
-    
-    .flowerCircle{
-        background-color:yellow;
-        width:300%;
-        height:45%;
-        border-radius:50%;
-        position:absolute;
-        border: 3px orange solid; 
-        bottom:95%;
-        right:-110%;
-        animation-name:flowerCircle;
-        animation-duration:5s;
-        animation-fill-mode:forwards;
-        font-weight:bold;
->>>>>>> e006daf78770d380d3ce3402e290e2e3e4403cac
-
-        20% {
-            transform: scale(1)
-        }
-<<<<<<< HEAD
-
-        ;
-
-        40% {
-            transform: scale(2)
-        }
-
-        ;
-
-        65% {
-            transform: scale(2)
-        }
-
-        ;
-
-        100% {
-            transform: scale(2.5)
-=======
-        
-        &:hover{
-            cursor:pointer;
-            background-color:rgb(255, 255, 121);
-            p{
-                color:rgb(255, 115, 0);
             }
-            
-            
->>>>>>> e006daf78770d380d3ce3402e290e2e3e4403cac
-        }
 
-        ;
+            @keyframes treeGrows {
+                0% {
+                    transform: scale(0)
+                }
 
-    }
+                ;
 
-    .flowerCircle {
-        background-color: yellow;
-        width: 250%;
-        height: 40%;
-        border-radius: 50%;
-        position: absolute;
-        border: 1px orange solid;
-        bottom: 95%;
-        right: -75%;
-        animation-name: flowerCircle;
-        animation-duration: 5s;
-        animation-fill-mode: forwards;
+                15% {
+                    transform: scale(0.5)
+                }
 
-        p {
-            position: absolute;
-            left: 5%;
-            top: 20%;
-            font-size: 1%;
-            text-align: center;
-            color: rgba(0, 0, 0, 0.774);
+                ;
 
-        }
+                25% {
+                    transform: scale(1)
+                }
 
-        &:hover {
-            cursor: pointer;
-            background-color: rgb(255, 255, 121);
-            font-weight: bold;
+                ;
 
+                40% {
+                    transform: scale(1.5)
+                }
 
-        }
+                ;
 
+                50% {
+                    transform: scale(1.5)
+                }
 
+                ;
 
-    }
+                65% {
+                    transform: scale(2)
+                }
 
-    @keyframes flowerCircle {
-        0% {
-            transform: scale(0)
-        }
+                ;
 
-        ;
+                75% {
+                    transform: scale(2)
+                }
 
-        20% {
-            transform: scale(0)
-        }
+                ;
 
-        ;
+                90% {
+                    transform: scale(2)
+                }
 
-        40% {
-            transform: scale(1)
-        }
+                ;
 
-        ;
+                100% {
+                    transform: scale(2)
+                }
 
-        65% {
-            transform: scale(1)
-        }
-
-        ;
-
-        100% {
-            transform: scale(1)
-        }
-
-        ;
-
-    }
-
-
-<<<<<<< HEAD
-
-
-    img {
-
-        position: absolute;
-        bottom: -90%;
-        width: 100%;
-        height: 25%;
-    }
-
-
-    .tree2 {
-        position: absolute;
-        background-color: green;
-        width: 1%;
-        height: 5%;
-        bottom: -80%;
-        left: 20%;
-        animation-name: treeGrows;
-        animation-duration: 4s;
-        animation-timing-function: linear;
-        transform-origin: bottom;
-        animation-fill-mode: both;
-
-=======
-    .tree2{
-        position:absolute;
-        background-color:green;
-        width:0.5rem;
-        height:10%;
-        bottom:-80%;
-        left:20%;
-        animation-name: tree2Grows;
-        animation-duration: 4s;
-        animation-timing-function:linear;
-        transform-origin:bottom;
-        animation-fill-mode:both;   
-          
-
-    }
-    @keyframes tree2Grows{
-        0%{ transform: scale(0)};
-        15%{transform: scale(0.5)};
-        25%{transform: scale(1)};
-        40%{transform: scale(1.5)};
-        50%{transform: scale(1.5)};
-        65%{transform: scale(2)};
-        75%{transform: scale(2)};
-        90%{transform: scale(2)};
-        100%{transform: scale(2)};       
->>>>>>> e006daf78770d380d3ce3402e290e2e3e4403cac
-
-    }
-    
-    .flowerCircle2{
-        background-color:rgb(255, 145, 0);
-        width:500%;
-        height:35%;
-        border-radius:60%;
-        position:absolute;
-        border: 4px yellow solid; 
-        bottom:95%;
-        right:-205%;
-        animation-name:flowerCircle;
-        animation-duration:5s;
-        animation-fill-mode:forwards;
-        font-weight:bold;
-        
-
-        p{
-            position:absolute;
-            left:5%;
-            top:20%;
-            font-size:1%;
-            text-align:center;
-            color:rgba(0, 0, 0, 0.774);
-        
-        }
-        
-        &:hover{
-            cursor:pointer;
-            background-color:rgb(230, 172, 48);
-            p{
-                color:rgb(255, 255, 21);
+                ;
+                >>>>>>>e006daf78770d380d3ce3402e290e2e3e4403cac
             }
-            
-            
-        }
 
-           
+            .tree__leaf {
+                position: absolute;
+                width: 40%;
+                height: 40%;
+                background-color: green;
+                border: 0;
+                border-top-right-radius: 100%;
+                border-bottom-left-radius: 100%;
 
-    }
+            }
 
-    
+            .tree__leaf--left {
+                bottom: 80%;
+                left: -97%;
+                width: 100%;
+                height: 10%;
+                animation-name: leftLeaf;
+                animation-duration: 3s;
+                animation-fill-mode: forwards;
+                animation-timing-function: ease-in;
 
-}
+            }
 
+            @keyframes leftLeaf {
+                0% {
+                    transform: scale(0)
+                }
 
-@media screen and (min-width: 700px) {
+                ;
 
-    .myCart__grid {
-        grid-template-rows: repeat(4, 20%);
+                20% {
+                    transform: scale(0.5)
+                }
 
+                ;
 
+                100% {
+                    transform: scale(1)
+                }
 
-        &__title {
-            text-align: center;
-            font-size: calc(1rem + 0.5rem);
-           
-        }
+                ;
 
-        &__box {
-            font-size: calc(70% + 0.5rem);
-            position: relative;
-            left: 32%;
-<<<<<<< HEAD
-            width: 40%;
-
-=======
-            width: 40%;           
->>>>>>> e006daf78770d380d3ce3402e290e2e3e4403cac
-            gap: 20px;
-           
-
-        }
-    }
-
-    .leftside {
-
-        text-align: center;
-
-        h3 {
-            padding-left: 10%;
-        }
-
-        p {
-            padding-left: 10%;
-        }
+            }
 
 
-        input {
-            margin-left: 80%;
-            width: 4rem;
-            height: 2rem;
+            .tree__leaf--right {
+                bottom: 60%;
+                right: -91%;
+                width: 100%;
+                height: 6%;
+                transform: rotate(90deg);
+                animation-name: rightLeaf;
+                animation-duration: 8s;
+                animation-fill-mode: forwards;
+                animation-timing-function: ease-in;
+
+            }
+
+            @keyframes rightLeaf {
+                0% {
+                    transform: scale(0)
+                }
+
+                <<<<<<< HEAD;
+                =======
+            }
+
+            .flowerCircle {
+                background-color: yellow;
+                width: 300%;
+                height: 45%;
+                border-radius: 50%;
+                position: absolute;
+                border: 3px orange solid;
+                bottom: 95%;
+                right: -110%;
+                animation-name: flowerCircle;
+                animation-duration: 5s;
+                animation-fill-mode: forwards;
+                font-weight: bold;
+
+                >>>>>>>e006daf78770d380d3ce3402e290e2e3e4403cac 20% {
+                    transform: scale(1)
+                }
+
+                ;
+
+                40% {
+                    transform: scale(2)
+                }
+
+                ;
+
+                65% {
+                    transform: scale(2)
+                }
+
+                ;
+
+                100% {
+                    transform: scale(2.5) &:hover {
+                        cursor: pointer;
+                        background-color: rgb(255, 255, 121);
+
+                        p {
+                            color: rgb(255, 115, 0);
+                        }
 
 
-        }
-    }
+                    }
 
-    .rightside {
+                    ;
 
-        position: relative;
-        left: 35%;
+                }
+
+                .flowerCircle {
+                    background-color: yellow;
+                    width: 250%;
+                    height: 40%;
+                    border-radius: 50%;
+                    position: absolute;
+                    border: 1px orange solid;
+                    bottom: 95%;
+                    right: -75%;
+                    animation-name: flowerCircle;
+                    animation-duration: 5s;
+                    animation-fill-mode: forwards;
+
+                    p {
+                        position: absolute;
+                        left: 5%;
+                        top: 20%;
+                        font-size: 1%;
+                        text-align: center;
+                        color: rgba(0, 0, 0, 0.774);
+
+                    }
+
+                    &:hover {
+                        cursor: pointer;
+                        background-color: rgb(255, 255, 121);
+                        font-weight: bold;
 
 
-<<<<<<< HEAD
-        /*h3{
+                    }
+
+
+
+                }
+
+                @keyframes flowerCircle {
+                    0% {
+                        transform: scale(0)
+                    }
+
+                    ;
+
+                    20% {
+                        transform: scale(0)
+                    }
+
+                    ;
+
+                    40% {
+                        transform: scale(1)
+                    }
+
+                    ;
+
+                    65% {
+                        transform: scale(1)
+                    }
+
+                    ;
+
+                    100% {
+                        transform: scale(1)
+                    }
+
+                    ;
+
+                }
+
+
+                <<<<<<< HEAD img {
+
+                    position: absolute;
+                    bottom: -90%;
+                    width: 100%;
+                    height: 25%;
+                }
+
+
+                .tree2 {
+                    position: absolute;
+                    background-color: green;
+                    width: 1%;
+                    height: 5%;
+                    bottom: -80%;
+                    left: 20%;
+                    animation-name: treeGrows;
+                    animation-duration: 4s;
+                    animation-timing-function: linear;
+                    transform-origin: bottom;
+                    animation-fill-mode: both;
+
+                    =======.tree2 {
+                        position: absolute;
+                        background-color: green;
+                        width: 0.5rem;
+                        height: 10%;
+                        bottom: -80%;
+                        left: 20%;
+                        animation-name: tree2Grows;
+                        animation-duration: 4s;
+                        animation-timing-function: linear;
+                        transform-origin: bottom;
+                        animation-fill-mode: both;
+
+
+                    }
+
+                    @keyframes tree2Grows {
+                        0% {
+                            transform: scale(0)
+                        }
+
+                        ;
+
+                        15% {
+                            transform: scale(0.5)
+                        }
+
+                        ;
+
+                        25% {
+                            transform: scale(1)
+                        }
+
+                        ;
+
+                        40% {
+                            transform: scale(1.5)
+                        }
+
+                        ;
+
+                        50% {
+                            transform: scale(1.5)
+                        }
+
+                        ;
+
+                        65% {
+                            transform: scale(2)
+                        }
+
+                        ;
+
+                        75% {
+                            transform: scale(2)
+                        }
+
+                        ;
+
+                        90% {
+                            transform: scale(2)
+                        }
+
+                        ;
+
+                        100% {
+                            transform: scale(2)
+                        }
+
+                        ;
+                        >>>>>>>e006daf78770d380d3ce3402e290e2e3e4403cac
+                    }
+
+                    .flowerCircle2 {
+                        background-color: rgb(255, 145, 0);
+                        width: 500%;
+                        height: 35%;
+                        border-radius: 60%;
+                        position: absolute;
+                        border: 4px yellow solid;
+                        bottom: 95%;
+                        right: -205%;
+                        animation-name: flowerCircle;
+                        animation-duration: 5s;
+                        animation-fill-mode: forwards;
+                        font-weight: bold;
+
+
+                        p {
+                            position: absolute;
+                            left: 5%;
+                            top: 20%;
+                            font-size: 1%;
+                            text-align: center;
+                            color: rgba(0, 0, 0, 0.774);
+
+                        }
+
+                        &:hover {
+                            cursor: pointer;
+                            background-color: rgb(230, 172, 48);
+
+                            p {
+                                color: rgb(255, 255, 21);
+                            }
+
+
+                        }
+
+
+
+                    }
+
+
+
+                }
+
+
+                @media screen and (min-width: 700px) {
+
+                    .myCart__grid {
+                        grid-template-rows: repeat(4, 20%);
+
+
+
+                        &__title {
+                            text-align: center;
+                            font-size: calc(1rem + 0.5rem);
+
+                        }
+
+                        &__box {
+                            font-size: calc(70% + 0.5rem);
+                            position: relative;
+                            left: 32%;
+                            <<<<<<< HEAD width: 40%;
+
+                            =======width: 40%;
+                            >>>>>>>e006daf78770d380d3ce3402e290e2e3e4403cac gap: 20px;
+
+
+                        }
+                    }
+
+                    .leftside {
+
+                        text-align: center;
+
+                        h3 {
+                            padding-left: 10%;
+                        }
+
+                        p {
+                            padding-left: 10%;
+                        }
+
+
+                        input {
+                            margin-left: 80%;
+                            width: 4rem;
+                            height: 2rem;
+
+
+                        }
+                    }
+
+                    .rightside {
+
+                        position: relative;
+                        left: 35%;
+
+
+                        <<<<<<< HEAD
+                        /*h3{
            padding-top:20%;
        }*/
-=======
-    
->>>>>>> e006daf78770d380d3ce3402e290e2e3e4403cac
-    }
+                        =======>>>>>>>e006daf78770d380d3ce3402e290e2e3e4403cac
+                    }
 
-    .checkout {
-        font-size: calc(70% + 0.5rem);
-        padding-left: 10%;
-        padding-right: 10%;
-    }
+                    .checkout {
+                        font-size: calc(70% + 0.5rem);
+                        padding-left: 10%;
+                        padding-right: 10%;
+                    }
 
-    .button__checkout {
-        font-size: calc(60% + 0.5rem);
+                    .button__checkout {
+                        font-size: calc(60% + 0.5rem);
 
-    }
+                    }
 
-    .button__add {
-        font-size: calc(60% + 0.5rem);
+                    .button__add {
+                        font-size: calc(60% + 0.5rem);
 
-    }
+                    }
 
-    .cartgarden{
+                    .cartgarden {
 
 
-        .maintree{            
-            left:70%;          
-            
-    
-        }
-       
-        
-        @keyframes treeGrows{
-            0%{ transform: scale(0)};
-            15%{transform: scale(1)};
-            25%{transform: scale(1.5)};
-            40%{transform: scale(2)};
-            50%{transform: scale(2.5)};
-            65%{transform: scale(2.5)};
-            75%{transform: scale(3)};
-            90%{transform: scale(3.5)};
-            100%{transform: scale(4)};       
-    
-        }
+                        .maintree {
+                            left: 70%;
 
-        .tree2{           
-            left:30%;          
-            
-        }
-        
 
-        @keyframes tree2Grows{
-            0%{ transform: scale(0)};
-            15%{transform: scale(0.5)};
-            25%{transform: scale(1)};
-            40%{transform: scale(1.5)};
-            50%{transform: scale(2)};
-            65%{transform: scale(2)};
-            75%{transform: scale(2.5)};
-            90%{transform: scale(3)};
-            100%{transform: scale(3)};       
-    
-        }
-    }
+                        }
 
-    
-    
-    
 
+                        @keyframes treeGrows {
+                            0% {
+                                transform: scale(0)
+                            }
 
-}
+                            ;
 
+                            15% {
+                                transform: scale(1)
+                            }
 
+                            ;
 
+                            25% {
+                                transform: scale(1.5)
+                            }
 
-// --- PlantCard Alex ---- //
-body {
-    padding: 0;
-    margin: 0;
+                            ;
 
+                            40% {
+                                transform: scale(2)
+                            }
 
+                            ;
 
-}
+                            50% {
+                                transform: scale(2.5)
+                            }
 
-.plantCard {
-    // border-radius: 45px;
-    // margin-top: 50%;
-    display: grid;
-    margin: auto;
-    // padding: 20px;
-    grid-template-columns: 1fr;
-    // grid-template-rows: repeat(8, 120px);
-    grid-template-rows: repeat(auto-fit, minmax(8, 120px));
-    background-image: linear-gradient(rgba(255, 0, 0, 0), rgba(234, 234, 234, 0.5));
+                            ;
 
+                            65% {
+                                transform: scale(2.5)
+                            }
 
+                            ;
 
+                            75% {
+                                transform: scale(3)
+                            }
 
-    @media only screen and (min-width:800px) {
-        margin: 20px;
-    }
+                            ;
 
-    @media only screen and (min-width:1200px) {
-        margin: 200px;
+                            90% {
+                                transform: scale(3.5)
+                            }
 
+                            ;
 
+                            100% {
+                                transform: scale(4)
+                            }
 
+                            ;
 
+                        }
 
-        p {
-            font-size: calc(1rem + 0.5rem);
-        }
-    }
+                        .tree2 {
+                            left: 30%;
 
+                        }
 
 
-    &__header {
-        grid-row: 1/2;
-        height: 80px;
-        // border: 1px solid black;
-        display: flex;
-        padding: 0;
-        margin: 0;
-        flex-direction: row-reverse;
-        // flex-wrap: wrap;
+                        @keyframes tree2Grows {
+                            0% {
+                                transform: scale(0)
+                            }
 
+                            ;
 
+                            15% {
+                                transform: scale(0.5)
+                            }
 
-        &--box {
+                            ;
 
+                            25% {
+                                transform: scale(1)
+                            }
 
+                            ;
 
-            background-color: rgb(255, 255, 255);
-            box-shadow: 1px 1px 10px grey;
-            margin-top: 15px;
-            height: 50%;
-            width: 70px;
-            justify-content: space-between;
-            border-radius: 50% 10% 10% 50%;
+                            40% {
+                                transform: scale(1.5)
+                            }
 
+                            ;
 
+                            50% {
+                                transform: scale(2)
+                            }
 
-            .material-icons {
-                margin-left: 30%;
-                margin-top: 10%;
-                font-family: 'Material Icons';
-                font-size: 30px;
-                color: rgb(180, 180, 180);
-            }
+                            ;
 
+                            65% {
+                                transform: scale(2)
+                            }
 
-        }
+                            ;
 
-        &--arrow {
-            margin: 50px;
-            background-color: rgb(0, 0, 0);
-            width: 85px;
-            height: 5px;
+                            75% {
+                                transform: scale(2.5)
+                            }
 
+                            ;
 
+                            90% {
+                                transform: scale(3)
+                            }
 
-        }
+                            ;
 
+                            100% {
+                                transform: scale(3)
+                            }
 
-    }
+                            ;
 
+                        }
+                    }
 
 
-    &__details {
-        margin: 10px;
-        padding: 15px;
-        grid-row: 2 / 6;
-        display: grid;
-        grid-template-columns: repeat(3, 120px);
-        grid-template-rows: repeat(4, 120px);
 
-        // @media only screen and (max-width:75ch) {
-        //     grid-template-columns: 1fr, 1fr;
-        // }
 
-        // @media only screen and (max-width:150ch) {
-        //     grid-template-columns: 3fr;
-        // }
 
-        @media only screen and (max-width:335ch) {
-            padding: calc(1.5rem+0.5);
-            margin: auto;
-            margin: 200px;
 
-        }
-
-        @media only screen and (max-width:635ch) {
-            padding: calc(1.5rem+0.5);
-            margin: auto;
-            // grid-template-columns: repeat(3, 300px);
-
-
-        }
-
-        &__header {
-            grid-column: 1 /4;
-            grid-row: 1 / 2;
-
-            h1 {
-
-                color: rgb(55, 55, 55);
-                ;
-            }
-
-            h2 {
-                color: grey;
-                font-size: 18px;
-            }
-
-        }
-
-        &--picture {
-            // border: 1px solid black;
-            grid-column: 2 / 4;
-            grid-row: 2 / 5;
-            z-index: 9;
-
-            & img {
-                // border: 1px solid black;
-                margin: auto;
-                max-width: 110%;
-                // box-shadow: 0 7px 40px -0.2px grey;
-                filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5));
-            }
-        }
-
-        &__type {
-            grid-column: 1 / 2;
-
-            grid-row: 2 / 3;
-
-
-            &__01 {
-
-                color: rgb(55, 55, 55);
-
-                h3 {
-                    color: gray;
                 }
-            }
 
-            &__02 {
-                grid-row: 3;
 
-                color: rgb(55, 55, 55);
 
-                h3 {
-                    color: gray;
+
+                // --- PlantCard Alex ---- //
+                body {
+                    padding: 0;
+                    margin: 0;
+
+
+
                 }
-            }
 
-            &__03 {
-                grid-row: 4;
+                .plantCard {
+                    // border-radius: 45px;
+                    // margin-top: 50%;
+                    display: grid;
+                    margin: auto;
+                    // padding: 20px;
+                    grid-template-columns: 1fr;
+                    // grid-template-rows: repeat(8, 120px);
+                    grid-template-rows: repeat(auto-fit, minmax(8, 120px));
+                    background-image: linear-gradient(rgba(255, 0, 0, 0), rgba(234, 234, 234, 0.5));
 
-                color: rgb(55, 55, 55);
 
-                h3 {
-                    color: gray;
+
+
+                    @media only screen and (min-width:800px) {
+                        margin: 20px;
+                    }
+
+                    @media only screen and (min-width:1200px) {
+                        margin: 200px;
+
+
+
+
+
+                        p {
+                            font-size: calc(1rem + 0.5rem);
+                        }
+                    }
+
+
+
+                    &__header {
+                        grid-row: 1/2;
+                        height: 80px;
+                        // border: 1px solid black;
+                        display: flex;
+                        padding: 0;
+                        margin: 0;
+                        flex-direction: row-reverse;
+                        // flex-wrap: wrap;
+
+
+
+                        &--box {
+
+
+
+                            background-color: rgb(255, 255, 255);
+                            box-shadow: 1px 1px 10px grey;
+                            margin-top: 15px;
+                            height: 50%;
+                            width: 70px;
+                            justify-content: space-between;
+                            border-radius: 50% 10% 10% 50%;
+
+
+
+                            .material-icons {
+                                margin-left: 30%;
+                                margin-top: 10%;
+                                font-family: 'Material Icons';
+                                font-size: 30px;
+                                color: rgb(180, 180, 180);
+                            }
+
+
+                        }
+
+                        &--arrow {
+                            margin: 50px;
+                            background-color: rgb(0, 0, 0);
+                            width: 85px;
+                            height: 5px;
+
+
+
+                        }
+
+
+                    }
+
+
+
+                    &__details {
+                        margin: 10px;
+                        padding: 15px;
+                        grid-row: 2 / 6;
+                        display: grid;
+                        grid-template-columns: repeat(3, 120px);
+                        grid-template-rows: repeat(4, 120px);
+
+                        // @media only screen and (max-width:75ch) {
+                        //     grid-template-columns: 1fr, 1fr;
+                        // }
+
+                        // @media only screen and (max-width:150ch) {
+                        //     grid-template-columns: 3fr;
+                        // }
+
+                        @media only screen and (max-width:335ch) {
+                            padding: calc(1.5rem+0.5);
+                            margin: auto;
+                            margin: 200px;
+
+                        }
+
+                        @media only screen and (max-width:635ch) {
+                            padding: calc(1.5rem+0.5);
+                            margin: auto;
+                            // grid-template-columns: repeat(3, 300px);
+
+
+                        }
+
+                        &__header {
+                            grid-column: 1 /4;
+                            grid-row: 1 / 2;
+
+                            h1 {
+
+                                color: rgb(55, 55, 55);
+                                ;
+                            }
+
+                            h2 {
+                                color: grey;
+                                font-size: 18px;
+                            }
+
+                        }
+
+                        &--picture {
+                            // border: 1px solid black;
+                            grid-column: 2 / 4;
+                            grid-row: 2 / 5;
+                            z-index: 9;
+
+                            & img {
+                                // border: 1px solid black;
+                                margin: auto;
+                                max-width: 110%;
+                                // box-shadow: 0 7px 40px -0.2px grey;
+                                filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5));
+                            }
+                        }
+
+                        &__type {
+                            grid-column: 1 / 2;
+
+                            grid-row: 2 / 3;
+
+
+                            &__01 {
+
+                                color: rgb(55, 55, 55);
+
+                                h3 {
+                                    color: gray;
+                                }
+                            }
+
+                            &__02 {
+                                grid-row: 3;
+
+                                color: rgb(55, 55, 55);
+
+                                h3 {
+                                    color: gray;
+                                }
+                            }
+
+                            &__03 {
+                                grid-row: 4;
+
+                                color: rgb(55, 55, 55);
+
+                                h3 {
+                                    color: gray;
+                                }
+                            }
+                        }
+                    }
+
+                    &__about {
+                        background-color: white;
+                        padding: 15px;
+                        color: rgb(154, 154, 154);
+                        grid-row: 6 / 8;
+                        height: 250px;
+
+                        // h2 {
+                        //     p {
+                        //         @media only screen and (max-width:335ch) {
+                        //             padding: calc(1.5rem+0.5);
+                        //             margin: auto;
+                        //             text-align: center;
+
+                        //         }
+                        //     }
+
+                        //     p {
+                        //         @media only screen and (max-width:635ch) {
+                        //             padding: calc(1.5rem+0.5);
+                        //             margin: auto;
+
+                        //         }
+                        //     }
+                        // }
+
+                        &--icons {
+                            gap: 30px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-evenly;
+
+                            &--01 {
+                                display: flex;
+                                flex-direction: row-reverse;
+                                align-items: center;
+
+                                span {
+                                    margin: 15px;
+                                    border-radius: 50px;
+                                    width: 35px;
+                                    height: 35px;
+                                    background-color: rgb(222, 247, 249);
+                                }
+                            }
+
+                            // grid-template-columns: repeat(3, 120px);
+                            // grid-template-rows: repeat(4, 120px);
+                        }
+
+                        // &--description {
+                        //     padding: 90px;
+                        // }
+                    }
+
+                    &__cartPrice {
+                        grid-row: 8;
+                        background-color: white;
+                        padding-top: 20px;
+                        justify-content: space-evenly;
+                        display: flex;
+                        justify-content: space-evenly;
+                        margin-top: 30px;
+
+
+                        &--button {
+                            color: rgb(255, 255, 255);
+                            border-radius: 15px;
+                            border-style: none;
+                            width: 150px;
+                            height: 45px;
+                            font-size: 20px;
+                            text-align: center;
+
+                            &.__02 {
+                                background-color: rgb(91, 192, 192);
+
+                            }
+
+                        }
+                    }
                 }
-            }
-        }
-    }
-
-    &__about {
-        background-color: white;
-        padding: 15px;
-        color: rgb(154, 154, 154);
-        grid-row: 6 / 8;
-        height: 250px;
-
-        // h2 {
-        //     p {
-        //         @media only screen and (max-width:335ch) {
-        //             padding: calc(1.5rem+0.5);
-        //             margin: auto;
-        //             text-align: center;
-
-        //         }
-        //     }
-
-        //     p {
-        //         @media only screen and (max-width:635ch) {
-        //             padding: calc(1.5rem+0.5);
-        //             margin: auto;
-
-        //         }
-        //     }
-        // }
-
-        &--icons {
-            gap: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: space-evenly;
-
-            &--01 {
-                display: flex;
-                flex-direction: row-reverse;
-                align-items: center;
-
-                span {
-                    margin: 15px;
-                    border-radius: 50px;
-                    width: 35px;
-                    height: 35px;
-                    background-color: rgb(222, 247, 249);
-                }
-            }
-
-            // grid-template-columns: repeat(3, 120px);
-            // grid-template-rows: repeat(4, 120px);
-        }
-
-        // &--description {
-        //     padding: 90px;
-        // }
-    }
-
-    &__cartPrice {
-        grid-row: 8;
-        background-color: white;
-        padding-top: 20px;
-        justify-content: space-evenly;
-        display: flex;
-        justify-content: space-evenly;
-        margin-top: 30px;
-
-
-        &--button {
-            color: rgb(255, 255, 255);
-            border-radius: 15px;
-            border-style: none;
-            width: 150px;
-            height: 45px;
-            font-size: 20px;
-            text-align: center;
-
-            &.__02 {
-                background-color: rgb(91, 192, 192);
-
-            }
-
-        }
-    }
-}
