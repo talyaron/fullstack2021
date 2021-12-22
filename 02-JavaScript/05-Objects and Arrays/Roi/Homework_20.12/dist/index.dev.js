@@ -33,14 +33,13 @@ var Movies = [{
   Rank: 9.0
 }]; //create a function that sorts the movies according to their ranking
 
-var ranking = Movies.sort(Movies.Rank);
-console.log(Rank); //create a function that sorts the movies according to their year of publication
-//Create a function that finds the movie according to its title, and changes its ranking to the new ranking 
-//which was set to the function (function changeRanking(title, newRanking){})
+var sorted_Movies = Movies.sort(function (a, b) {
+  return b.Rank - a.Rank;
+});
+console.log(sorted_Movies); //create a function that sorts the movies according to their year of publication
 
-var topTeams = footballTeams.filter(function (team) {
-  return team.place <= 6;
+var sorted_Movies = Movies.sort(function (a, b) {
+  return b.year - a.year;
 });
-topTeams.forEach(function (team) {
-  console.log(team.teamName);
-});
+console.log(sorted_Movies); //Create a function that finds the movie according to its title, and changes its ranking to the new ranking 
+//which was set to the function (function changeRanking(title, newRanking){})

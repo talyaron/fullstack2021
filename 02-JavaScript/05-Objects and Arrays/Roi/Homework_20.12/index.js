@@ -13,19 +13,23 @@ const Movies = [
 
 //create a function that sorts the movies according to their ranking
 
-const ranking = Movies.sort(Movies.Rank)
-console.log (Rank)
+var sorted_Movies = Movies.sort(function(a, b) {
+	return b.Rank - a.Rank;
+});
+
+console.log(sorted_Movies);
 
 //create a function that sorts the movies according to their year of publication
 
+var sorted_Movies = Movies.sort(function(a, b) {
+	return b.year - a.year;
+});
+
+console.log(sorted_Movies);
 
 //Create a function that finds the movie according to its title, and changes its ranking to the new ranking 
 //which was set to the function (function changeRanking(title, newRanking){})
 
 
 
-const topTeams = footballTeams.filter(team => team.place <= 6);
 
-topTeams.forEach(team => {
-  console.log(team.teamName)
-})
