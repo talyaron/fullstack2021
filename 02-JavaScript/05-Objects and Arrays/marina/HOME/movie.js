@@ -34,15 +34,41 @@ const findFilm = movies.filter (film => film.title == 'The Godfather');
 console.log (findFilm);
 
 
-//  4. changes its ranking to the new ranking which was set to the function ('Pulp Fiction '  rank 8.8 --> 9.2)
+//  4. changes its ranking to the new ranking which was set to the function 
 
 function changeRank (filmtitle, ranking) {
     filmtitle = movies[2].title 
     ranking = movies [2].rank 
-    return (movies [2], movies [2].title, movies [1].rank );  
+    return (movies [2], movies [2].title, movies [2].rank );  
 }
 
 console.log (changeRank())
+
+
+
+
+
+
+
+
+
+
+function changeRank (title, newRank) {
+    if(typeof(title)==='string' && typeof(newRank)==='number')
+    {
+        for (i=0; i<movies.length; i++)
+        {
+            if(movies[i].name=title)
+            {
+                movies[i].rating=newRank
+            }  
+        }
+    }
+
+    return movies
+}
+console.log (changeRank())
+
 
 
 
