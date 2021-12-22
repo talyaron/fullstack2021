@@ -12,7 +12,7 @@ const movies = [
 
 let ranking = (movies) => {
     movies.sort(function (a, b) { return (b.rating) - (a.rating) });
-};
+};  
 
 ranking(movies);
 let moviesRanked = "";
