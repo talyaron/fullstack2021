@@ -13,7 +13,6 @@ var singers = ['thom yorke', 'gilad kahana', 'omer adam', 'shlomi perez']; // RE
 //     console.log(i);
 // }
 // CALLBACK //
-
-singers.forEach(function (i) {
-  console.log(i);
-});
+// singers.forEach(i =>{
+//     console.log(i);
+// })
