@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="dist/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/v4-shims.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <title>Mango-Delivery</title>
+</head>
+
+<style>
+
+</style>
+
+<body>
+    <header class="header">
+        <div class="header__top">
+            <div></div>
+            <div><img class="header__top__logo-pic" src="images/mango-logo.png" alt=""></div>
+
+            <div class="header__top__search-box">
+                <input type="text" class="input" placeholder="search" style="text-align: center;">
+            </div>
+
+            <div class="header__top__log-sign">
+                <div><a href="">log in</a></div>
+                <div class="header__top__log-sign__sign-up"><a href="">sign up</a></div>
+                <div>
+                    <div class="popup" onclick="myFunction()">Enslish <i class="fas fa-chevron-down"
+                            style="color: #b4b4b4;"></i>
+                        <span class="popuptext" id="myPopup">
+                            <div>עברית</div>
+                            <div style="color: #ff9d02;">English</div>
+                            <div>French</div>
+                            <div>Swedish</div>
+                            <div>German</div>
+                            <div>Danish</div>
+                            <div>Indian</div>
+                            <div>Chinese</div>
+                            <div>Italian</div>
+                            <div>Spanish</div>
+                        </span>
+                    </div>
+
+                </div>
+            </div>
+            <div></div>
+        </div>
+
+
+
+        <div class="header__nav">
+            <div></div>
+            <div class="header__nav__city"><i class="fas fa-city"></i> city <i class="fas fa-chevron-down"></i>
+
+            </div>
+            <div class="header__nav__middle">
+                <button class="header__nav__middle__button"><i class="fas fa-archway"></i> Discover</button>
+                <button class="header__nav__middle__button"><i class="fas fa-pepper-hot"></i> Restaurants</button>
+                <button class="header__nav__middle__button"><i class="fas fa-barcode"></i> Stores</button>
+            </div>
+            <div></div>
+            <div></div>
+        </div>
+
+    </header>
+
+
+    <div class="container-showcase">
+        <div class="container-showcase__slide">
+            <div id="slide-pic">
+                <img src="images/Coconut.png" alt="">
+                <img src="images/Apple.png" alt="">
+                <img src="images/Apple.png" alt="">
+                <img src="images/Banana.png" alt="">
+            </div>
+        </div>
+
+
+
+        <div class="container-showcase__text">
+
+            <div class="container-showcase__text__top">
+                <div>
+
+                    <div class="circle orange"></div>
+
+                    <i class="fas fa-circle" style="color: #e9e9e9;"></i>
+                    <i class="fas fa-circle" style="color: #e9e9e9;"></i>
+                    <i class="fas fa-circle" style="color: #e9e9e9;"></i>
+                    <i class="fas fa-circle" style="color: #e9e9e9;"></i>
+                </div>
+                <div class="container-showcase__text__top__arrows">
+                    <div class="container-showcase__text__top__arrows__left"><i class="fas fa-angle-left"></i></div>
+                    <div class="container-showcase__text__top__arrows__right"><i class="fas fa-angle-right"></i></div>
+                </div>
+            </div>
+            <div class="container-showcase__text__bottom">
+                <div>
+                    <h3>CHECK IT OUT!</h3>
+                </div>
+
+                <div>
+                    <h1><span id="slide-text"></span></h1>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container-headline">
+        <div class="container-headline__text">
+            <h1>Shopping for the weekend</h1>
+        </div>
+        <div class="container-headline__right">
+            <div class="container-headline__right__see-all"><a href=""> See all</a></div>
+            <div class="container-headline__right__arrows-left"><i class="fas fa-angle-left"></i></div>
+            <div class="container-headline__right__arrows-right"><i class="fas fa-angle-right"></i></div>
+        </div>
+    </div>
+
+    <div class="container-day">
+
+        <div class="container-day__box">
+            <div><img class="container-day__box__pic" style="background-color: rgb(209, 240, 229);"
+                    src="images/Group.png" alt=""></div>
+            <div class="container-day__box__text">
+                <div>
+                    <h2>Groups</h2>
+                    <h3>Set Your Basket</h3>
+                </div>
+                <div class="container-day__box__time">
+                    20-25<br>min
+                </div>
+            </div>
+            <div class="container-day__box__icons">
+                <i class="fas fa-biking"></i> &#8362;10.00 &sdot; &#36;&#36;<b>&#36;</b><b>&#36;</b> &sdot; &#128577
+                7.8
+            </div>
+        </div>
+        <div class="container-day__box">
+            <div><img img class="container-day__box__pic" style="background-color: #d1f0e5;" src="images/Picnic.png"
+                    alt="">
+            </div>
+            <div class="container-day__box__text">
+                <div>
+                    <h2>Picnics</h2>
+                    <h3>Go Outdoors</h3>
+                </div>
+                <div class="container-day__box__time">
+                    20-25<br>min
+                </div>
+            </div>
+            <div class="container-day__box__icons">
+                <i class="fas fa-biking"></i> &#8362;14.00 &sdot; &#36;<b>&#36;</b><b>&#36;</b><b>&#36;</b> &sdot;
+                &#128578 8.4
+            </div>
+        </div>
+        <div class="container-day__box">
+            <div><img img class="container-day__box__pic" style="background-color: rgb(209, 240, 229);"
+                    src="images/Basket.png" alt="">
+            </div>
+            <div class="container-day__box__text">
+                <div>
+                    <h2>Gifts</h2>
+                    <h3>Surprise Your Friends</h3>
+                </div>
+                <div class="container-day__box__time">
+                    25-35<br>min
+                </div>
+            </div>
+            <div class="container-day__box__icons">
+                <i class="fas fa-biking"></i> &#8362;12.00 &sdot; &#36;<b>&#36;</b><b>&#36;</b><b>&#36;</b> &sdot;
+                &#128515 9.2
+            </div>
+        </div>
+    </div>
+
+    <div class="container-headline">
+        <div class="container-headline__text">
+            <h1>Categories</h1>
+        </div>
+        <div class="container-headline__right">
+            <div class="container-headline__right__see-all"><a href=""> See all</a></div>
+            <div class="container-headline__right__arrows-left"><i class="fas fa-angle-left"></i></div>
+            <div class="container-headline__right__arrows-right"><i class="fas fa-angle-right"></i></div>
+        </div>
+    </div>
+
+    <div class="container-categories">
+
+        <div class="container-categories__box">
+            <div><img class="container-categories__box__pic" style="background-color: rgb(209, 240, 229);"
+                    src="images/Apple.png" alt=""></div>
+            <div class="container-categories__box__text">
+                <h2>Apells | Tel Aviv</h2>
+                <h3>Surprise Your Friends</h3>
+            </div>
+        </div>
+        <div class="container-categories__box">
+            <div><img class="container-categories__box__pic" style="background-color: rgb(246, 246, 207);"
+                    src="images/Apricot.png" alt=""></div>
+            <div class="container-categories__box__text">
+                <h2>Apricot | Ashdod</h2>
+                <h3>Surprise Your Friends</h3>
+            </div>
+        </div>
+        <div class="container-categories__box">
+            <div><img class="container-categories__box__pic" style="background-color: rgb(209, 238, 245);"
+                    src="images/Apricot-dry.png" alt=""></div>
+            <div class="container-categories__box__text">
+                <h2>Dry Apricot | Ashdod</h2>
+                <h3>Surprise Your Friends</h3>
+            </div>
+        </div>
+        <div class="container-categories__box">
+            <div><img class="container-categories__box__pic" style="background-color: rgb(240, 227, 232);"
+                    src="images/Avukado.png" alt=""></div>
+            <div class="container-categories__box__text">
+                <h2>Avukado | Arava</h2>
+                <h3>Surprise Your Friends</h3>
+            </div>
+        </div>
+
+        <div class="container-categories__box">
+            <div><img class="container-categories__box__pic" style="background-color: rgb(231, 236, 245);"
+                    src="images/Banana.png" alt=""></div>
+            <div class="container-categories__box__text">
+                <h2>Banana | Beit-Shean</h2>
+                <h3>Surprise Your Friends</h3>
+            </div>
+        </div>
+        <div class="container-categories__box">
+            <div><img class="container-categories__box__pic" style="background-color: rgb(241, 229, 217);"
+                    src="images/Blackberries.png" alt=""></div>
+            <div class="container-categories__box__text">
+                <h2>Blackberries | Galil</h2>
+                <h3>Surprise Your Friends</h3>
+            </div>
+        </div>
+        <div class="container-categories__box">
+            <div><img class="container-categories__box__pic" style="background-color: rgb(219, 222, 238);"
+                    src="images/blueberries.png" alt=""></div>
+            <div class="container-categories__box__text">
+                <h2>Blueberries | Tzfat</h2>
+                <h3>Surprise Your Friends</h3>
+            </div>
+        </div>
+        <div class="container-categories__box">
+            <div><img class="container-categories__box__pic" style="background-color: rgb(239, 247, 197);"
+                    src="images/Cherries.png" alt=""></div>
+            <div class="container-categories__box__text">
+                <h2>Cherries | Cineret</h2>
+                <h3>Surprise Your Friends</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-headline">
+        <div class="container-headline__text">
+            <h1>Stores</h1>
+        </div>
+        <div class="container-headline__right">
+            <div class="container-headline__right__see-all"><a href=""> See all</a></div>
+            <div class="container-headline__right__arrows-left"><i class="fas fa-angle-left"></i></div>
+            <div class="container-headline__right__arrows-right"><i class="fas fa-angle-right"></i></div>
+        </div>
+    </div>
+
+    <div class="container-categories">
+
+        <div class="container-categories__box">
+            <div><img class="container-categories__box__pic" style="background-color: rgb(209, 240, 229);"
+                    src="images/Apple.png" alt=""></div>
+            <div class="container-categories__box__text">
+                <h2>Apells | Tel Aviv</h2>
+                <h3>Surprise Your Friends</h3>
+            </div>
+        </div>
+        <div class="container-categories__box">
+            <div><img class="container-categories__box__pic" style="background-color: rgb(246, 246, 207);"
+                    src="images/Apricot.png" alt=""></div>
+            <div class="container-categories__box__text">
+                <h2>Apricot | Ashdod</h2>
+                <h3>Surprise Your Friends</h3>
+            </div>
+        </div>
+        <div class="container-categories__box">
+            <div><img class="container-categories__box__pic" style="background-color: rgb(209, 238, 245);"
+                    src="images/Apricot-dry.png" alt=""></div>
+            <div class="container-categories__box__text">
+                <h2>Dry Apricot | Ashdod</h2>
+                <h3>Surprise Your Friends</h3>
+            </div>
+        </div>
+        <div class="container-categories__box">
+            <div><img class="container-categories__box__pic" style="background-color: rgb(240, 227, 232);"
+                    src="images/Avukado.png" alt=""></div>
+            <div class="container-categories__box__text">
+                <h2>Avukado | Arava</h2>
+                <h3>Surprise Your Friends</h3>
+            </div>
+        </div>
+
+        <div class="container-categories__box">
+            <div><img class="container-categories__box__pic" style="background-color: rgb(231, 236, 245);"
+                    src="images/Banana.png" alt=""></div>
+            <div class="container-categories__box__text">
+                <h2>Banana | Beit-Shean</h2>
+                <h3>Surprise Your Friends</h3>
+            </div>
+        </div>
+        <div class="container-categories__box">
+            <div><img class="container-categories__box__pic" style="background-color: rgb(241, 229, 217);"
+                    src="images/Blackberries.png" alt=""></div>
+            <div class="container-categories__box__text">
+                <h2>Blackberries | Galil</h2>
+                <h3>Surprise Your Friends</h3>
+            </div>
+        </div>
+        <div class="container-categories__box">
+            <div><img class="container-categories__box__pic" style="background-color: rgb(219, 222, 238);"
+                    src="images/blueberries.png" alt=""></div>
+            <div class="container-categories__box__text">
+                <h2>Blueberries | Tzfat</h2>
+                <h3>Surprise Your Friends</h3>
+            </div>
+        </div>
+        <div class="container-categories__box">
+            <div><img class="container-categories__box__pic" style="background-color: rgb(239, 247, 197);"
+                    src="images/Cherries.png" alt=""></div>
+            <div class="container-categories__box__text">
+                <h2>Cherries | Cineret</h2>
+                <h3>Surprise Your Friends</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-headline">
+        <div class="container-headline__text">
+            <h1>Stores</h1>
+        </div>
+        <div class="container-headline__right">
+            <div class="container-headline__right__see-all"><a href=""> See all</a></div>
+            <div class="container-headline__right__arrows-left"><i class="fas fa-angle-left"></i></div>
+            <div class="container-headline__right__arrows-right"><i class="fas fa-angle-right"></i></div>
+        </div>
+    </div>
+
+    <div class="container-categories">
+
+
+        <script>
+            // When the user clicks on div, open the popup
+            function myFunction() {
+                var popup = document.getElementById("myPopup");
+                popup.classList.toggle("show");
+            }
+        </script>
+
+</body>
+
+</html>
