@@ -283,6 +283,7 @@ section {
 
 
 
+
 /*Cart page- Shani*/
 
 .cartPage {
@@ -481,6 +482,7 @@ section {
 
 }
 
+<<<<<<< HEAD
 .cartgarden {
     .maintree {
         position: absolute;
@@ -553,6 +555,37 @@ section {
         }
 
         ;
+=======
+.cartgarden{
+    .maintree{
+        position:absolute;
+        background-color:green;
+        width:0.5rem;
+        height:10%;
+        bottom:-80%;
+        left:80%;
+        animation-name: treeGrows;
+        animation-duration: 4s;
+        animation-timing-function:linear;
+        transform-origin:bottom;
+        animation-fill-mode:both;
+        animation-delay: 1s;  
+       
+        
+
+    }
+
+    @keyframes treeGrows{
+        0%{ transform: scale(0)};
+        15%{transform: scale(0.5)};
+        25%{transform: scale(1)};
+        40%{transform: scale(1.5)};
+        50%{transform: scale(1.5)};
+        65%{transform: scale(2)};
+        75%{transform: scale(2)};
+        90%{transform: scale(2)};
+        100%{transform: scale(2)};       
+>>>>>>> e006daf78770d380d3ce3402e290e2e3e4403cac
 
     }
 
@@ -619,11 +652,30 @@ section {
             transform: scale(0)
         }
 
+<<<<<<< HEAD
         ;
+=======
+    }  
+    
+    .flowerCircle{
+        background-color:yellow;
+        width:300%;
+        height:45%;
+        border-radius:50%;
+        position:absolute;
+        border: 3px orange solid; 
+        bottom:95%;
+        right:-110%;
+        animation-name:flowerCircle;
+        animation-duration:5s;
+        animation-fill-mode:forwards;
+        font-weight:bold;
+>>>>>>> e006daf78770d380d3ce3402e290e2e3e4403cac
 
         20% {
             transform: scale(1)
         }
+<<<<<<< HEAD
 
         ;
 
@@ -641,6 +693,17 @@ section {
 
         100% {
             transform: scale(2.5)
+=======
+        
+        &:hover{
+            cursor:pointer;
+            background-color:rgb(255, 255, 121);
+            p{
+                color:rgb(255, 115, 0);
+            }
+            
+            
+>>>>>>> e006daf78770d380d3ce3402e290e2e3e4403cac
         }
 
         ;
@@ -716,6 +779,7 @@ section {
     }
 
 
+<<<<<<< HEAD
 
 
     img {
@@ -740,8 +804,77 @@ section {
         transform-origin: bottom;
         animation-fill-mode: both;
 
+=======
+    .tree2{
+        position:absolute;
+        background-color:green;
+        width:0.5rem;
+        height:10%;
+        bottom:-80%;
+        left:20%;
+        animation-name: tree2Grows;
+        animation-duration: 4s;
+        animation-timing-function:linear;
+        transform-origin:bottom;
+        animation-fill-mode:both;   
+          
 
     }
+    @keyframes tree2Grows{
+        0%{ transform: scale(0)};
+        15%{transform: scale(0.5)};
+        25%{transform: scale(1)};
+        40%{transform: scale(1.5)};
+        50%{transform: scale(1.5)};
+        65%{transform: scale(2)};
+        75%{transform: scale(2)};
+        90%{transform: scale(2)};
+        100%{transform: scale(2)};       
+>>>>>>> e006daf78770d380d3ce3402e290e2e3e4403cac
+
+    }
+    
+    .flowerCircle2{
+        background-color:rgb(255, 145, 0);
+        width:500%;
+        height:35%;
+        border-radius:60%;
+        position:absolute;
+        border: 4px yellow solid; 
+        bottom:95%;
+        right:-205%;
+        animation-name:flowerCircle;
+        animation-duration:5s;
+        animation-fill-mode:forwards;
+        font-weight:bold;
+        
+
+        p{
+            position:absolute;
+            left:5%;
+            top:20%;
+            font-size:1%;
+            text-align:center;
+            color:rgba(0, 0, 0, 0.774);
+        
+        }
+        
+        &:hover{
+            cursor:pointer;
+            background-color:rgb(230, 172, 48);
+            p{
+                color:rgb(255, 255, 21);
+            }
+            
+            
+        }
+
+           
+
+    }
+
+    
+
 }
 
 
@@ -754,30 +887,22 @@ section {
 
         &__title {
             text-align: center;
-
-
             font-size: calc(1rem + 0.5rem);
-            /* grid-row:1/span 1;
-             position:absolute;
-             left:43%;*/
-
+           
         }
 
         &__box {
             font-size: calc(70% + 0.5rem);
             position: relative;
             left: 32%;
+<<<<<<< HEAD
             width: 40%;
 
+=======
+            width: 40%;           
+>>>>>>> e006daf78770d380d3ce3402e290e2e3e4403cac
             gap: 20px;
-            /* grid-row:2/span 3;
-            width:30vw; */
-
-            /*img {
-                width:14vw;                
-                padding-left:8%;
-
-            }*/
+           
 
         }
     }
@@ -810,9 +935,13 @@ section {
         left: 35%;
 
 
+<<<<<<< HEAD
         /*h3{
            padding-top:20%;
        }*/
+=======
+    
+>>>>>>> e006daf78770d380d3ce3402e290e2e3e4403cac
     }
 
     .checkout {
@@ -830,6 +959,53 @@ section {
         font-size: calc(60% + 0.5rem);
 
     }
+
+    .cartgarden{
+
+
+        .maintree{            
+            left:70%;          
+            
+    
+        }
+       
+        
+        @keyframes treeGrows{
+            0%{ transform: scale(0)};
+            15%{transform: scale(1)};
+            25%{transform: scale(1.5)};
+            40%{transform: scale(2)};
+            50%{transform: scale(2.5)};
+            65%{transform: scale(2.5)};
+            75%{transform: scale(3)};
+            90%{transform: scale(3.5)};
+            100%{transform: scale(4)};       
+    
+        }
+
+        .tree2{           
+            left:30%;          
+            
+        }
+        
+
+        @keyframes tree2Grows{
+            0%{ transform: scale(0)};
+            15%{transform: scale(0.5)};
+            25%{transform: scale(1)};
+            40%{transform: scale(1.5)};
+            50%{transform: scale(2)};
+            65%{transform: scale(2)};
+            75%{transform: scale(2.5)};
+            90%{transform: scale(3)};
+            100%{transform: scale(3)};       
+    
+        }
+    }
+
+    
+    
+    
 
 
 }
