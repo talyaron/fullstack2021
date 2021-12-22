@@ -268,8 +268,26 @@ section{
       scale: 1;
     }
   }
+  @media screen and (min-width: 700px) {
+
+    .plantsGrid {
+        grid-template-rows: repeat(4, 20%); 
+        
+
+        &_plantsGrid_boxitem {
+            font-size: calc(70% + 0.5rem);
+            position:relative;
+            left: 32%;
+            width: 40%;           
+            gap: 20px;
+           
+
+        }
+    }
+}
 
 
+   
 
 
 /*Cart page- Shani*/
