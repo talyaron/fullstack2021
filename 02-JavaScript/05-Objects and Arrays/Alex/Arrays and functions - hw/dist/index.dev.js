@@ -42,5 +42,4 @@ var movies = [{
 //         return (movies[4].rating)
 //     }
 // }
-// const found = findTitle()
-// console.log(found)
+// console.log(findTitle())

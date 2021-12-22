@@ -25,8 +25,7 @@ const movies = [
 //     }
 // }
 
-// const found = findTitle()
-// console.log(found)
+// console.log(findTitle())
 
 
 
