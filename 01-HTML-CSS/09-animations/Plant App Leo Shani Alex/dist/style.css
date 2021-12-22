@@ -386,25 +386,26 @@ section {
 .cartgarden .maintree {
   position: absolute;
   background-color: green;
-  width: 1%;
-  height: 15%;
+  width: 0.5rem;
+  height: 10%;
   bottom: -80%;
-  left: 50%;
+  left: 80%;
   animation-name: treeGrows;
   animation-duration: 4s;
   animation-timing-function: linear;
   transform-origin: bottom;
   animation-fill-mode: both;
+  animation-delay: 1s;
 }
 @keyframes treeGrows {
   0% {
-    transform: scale(1);
+    transform: scale(0);
   }
   15% {
-    transform: scale(1);
+    transform: scale(0.5);
   }
   25% {
-    transform: scale(1.5);
+    transform: scale(1);
   }
   40% {
     transform: scale(1.5);
@@ -419,10 +420,10 @@ section {
     transform: scale(2);
   }
   90% {
-    transform: scale(2.5);
+    transform: scale(2);
   }
   100% {
-    transform: scale(2.5);
+    transform: scale(2);
   }
 }
 .cartgarden .tree__leaf {
@@ -485,16 +486,17 @@ section {
 }
 .cartgarden .flowerCircle {
   background-color: yellow;
-  width: 250%;
-  height: 40%;
+  width: 300%;
+  height: 45%;
   border-radius: 50%;
   position: absolute;
-  border: 1px orange solid;
+  border: 3px orange solid;
   bottom: 95%;
-  right: -75%;
+  right: -110%;
   animation-name: flowerCircle;
   animation-duration: 5s;
   animation-fill-mode: forwards;
+  font-weight: bold;
 }
 .cartgarden .flowerCircle p {
   position: absolute;
@@ -507,7 +509,9 @@ section {
 .cartgarden .flowerCircle:hover {
   cursor: pointer;
   background-color: #ffff79;
-  font-weight: bold;
+}
+.cartgarden .flowerCircle:hover p {
+  color: #ff7300;
 }
 @keyframes flowerCircle {
   0% {
@@ -535,15 +539,73 @@ section {
 .cartgarden .tree2 {
   position: absolute;
   background-color: green;
-  width: 1%;
-  height: 5%;
+  width: 0.5rem;
+  height: 10%;
   bottom: -80%;
   left: 20%;
-  animation-name: treeGrows;
+  animation-name: tree2Grows;
   animation-duration: 4s;
   animation-timing-function: linear;
   transform-origin: bottom;
   animation-fill-mode: both;
+}
+@keyframes tree2Grows {
+  0% {
+    transform: scale(0);
+  }
+  15% {
+    transform: scale(0.5);
+  }
+  25% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.5);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  65% {
+    transform: scale(2);
+  }
+  75% {
+    transform: scale(2);
+  }
+  90% {
+    transform: scale(2);
+  }
+  100% {
+    transform: scale(2);
+  }
+}
+.cartgarden .flowerCircle2 {
+  background-color: #ff9100;
+  width: 500%;
+  height: 35%;
+  border-radius: 60%;
+  position: absolute;
+  border: 4px yellow solid;
+  bottom: 95%;
+  right: -205%;
+  animation-name: flowerCircle;
+  animation-duration: 5s;
+  animation-fill-mode: forwards;
+  font-weight: bold;
+}
+.cartgarden .flowerCircle2 p {
+  position: absolute;
+  left: 5%;
+  top: 20%;
+  font-size: 1%;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.774);
+}
+.cartgarden .flowerCircle2:hover {
+  cursor: pointer;
+  background-color: #e6ac30;
+}
+.cartgarden .flowerCircle2:hover p {
+  color: #ffff15;
 }
 
 @media screen and (min-width: 700px) {
@@ -553,9 +615,6 @@ section {
   .myCart__grid__title {
     text-align: center;
     font-size: calc(1rem + 0.5rem);
-    /* grid-row:1/span 1;
-     position:absolute;
-     left:43%;*/
   }
   .myCart__grid__box {
     font-size: calc(70% + 0.5rem);
@@ -563,13 +622,6 @@ section {
     left: 32%;
     width: 40%;
     gap: 20px;
-    /* grid-row:2/span 3;
-    width:30vw; */
-    /*img {
-        width:14vw;                
-        padding-left:8%;
-
-    }*/
   }
 
   .leftside {
@@ -590,9 +642,6 @@ section {
   .rightside {
     position: relative;
     left: 35%;
-    /*h3{
-        padding-top:20%;
-    }*/
   }
 
   .checkout {
@@ -607,6 +656,71 @@ section {
 
   .button__add {
     font-size: calc(60% + 0.5rem);
+  }
+
+  .cartgarden .maintree {
+    left: 70%;
+  }
+  @keyframes treeGrows {
+    0% {
+      transform: scale(0);
+    }
+    15% {
+      transform: scale(1);
+    }
+    25% {
+      transform: scale(1.5);
+    }
+    40% {
+      transform: scale(2);
+    }
+    50% {
+      transform: scale(2.5);
+    }
+    65% {
+      transform: scale(2.5);
+    }
+    75% {
+      transform: scale(3);
+    }
+    90% {
+      transform: scale(3.5);
+    }
+    100% {
+      transform: scale(4);
+    }
+  }
+  .cartgarden .tree2 {
+    left: 30%;
+  }
+  @keyframes tree2Grows {
+    0% {
+      transform: scale(0);
+    }
+    15% {
+      transform: scale(0.5);
+    }
+    25% {
+      transform: scale(1);
+    }
+    40% {
+      transform: scale(1.5);
+    }
+    50% {
+      transform: scale(2);
+    }
+    65% {
+      transform: scale(2);
+    }
+    75% {
+      transform: scale(2.5);
+    }
+    90% {
+      transform: scale(3);
+    }
+    100% {
+      transform: scale(3);
+    }
   }
 }
 /*PlantCard Alex */
