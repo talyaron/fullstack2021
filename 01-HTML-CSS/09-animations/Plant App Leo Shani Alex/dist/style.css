@@ -430,3 +430,476 @@ body {
 .plantCard__cartPrice--button.__02 {
   background-color: #5bc0c0;
 }
+
+/*Cart page- Shani*/
+.cartPage {
+  background-color: rgba(160, 156, 152, 0.192);
+}
+
+.myCart__grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(4, 20%);
+  position: relative;
+  left: 5%;
+  width: 90%;
+  height: 100vh;
+  gap: 10px;
+  background-color: rgba(241, 235, 229, 0.192);
+}
+.myCart__grid__title {
+  padding-top: 1rem;
+  color: rgba(0, 0, 0, 0.774);
+}
+.myCart__grid__box {
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 2px 2px 10px #4b4747;
+  font-family: sans-serif;
+  color: rgba(0, 0, 0, 0.774);
+}
+.myCart__grid__box:hover {
+  background-color: rgba(235, 222, 222, 0.76);
+  cursor: pointer;
+}
+.myCart__grid img {
+  position: absolute;
+  padding: 1rem;
+}
+
+.leftside {
+  position: absolute;
+  left: 7rem;
+}
+.leftside h3 {
+  opacity: 0.9;
+  margin-bottom: 0px;
+}
+.leftside p {
+  font-weight: bold;
+  margin-top: 2%;
+  color: rgba(0, 0, 0, 0.774);
+  opacity: 0.6;
+}
+.leftside input {
+  width: 3rem;
+  margin-left: 15%;
+  font-weight: bolder;
+}
+
+.rightside i {
+  position: absolute;
+  left: 18rem;
+  margin-top: 1rem;
+  opacity: 0.5;
+}
+.rightside i:hover {
+  opacity: 1;
+}
+.rightside h3 {
+  color: #0a9c9c;
+  position: absolute;
+  left: 15rem;
+  margin-top: 90px;
+}
+
+.checkout {
+  background-color: white;
+  height: 50vh;
+  padding: 2rem;
+  font-family: sans-serif;
+  color: rgba(0, 0, 0, 0.774);
+}
+.checkout .h3 {
+  display: flex;
+  justify-content: space-between;
+}
+.checkout .p {
+  font-weight: bold;
+  margin-top: 2%;
+  color: rgba(0, 0, 0, 0.774);
+  opacity: 0.6;
+  display: flex;
+  justify-content: space-between;
+}
+.checkout .h2 {
+  display: flex;
+  justify-content: space-between;
+}
+.checkout .buttons {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  border-radius: 3%;
+}
+.checkout .button__add {
+  background-color: white;
+  color: #0a9c9c;
+  font-weight: bold;
+  border: 2px solid #0a9c9c;
+  border-radius: 1rem;
+  padding-left: 4%;
+  padding-right: 4%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+.checkout .button__add:hover {
+  background-color: rgba(235, 222, 222, 0.76);
+  cursor: pointer;
+}
+.checkout .button__checkout {
+  background-color: #0a9c9c;
+  color: white;
+  font-weight: bold;
+  border: 2px solid #0a9c9c;
+  border-radius: 1rem;
+  padding-left: 4%;
+  padding-right: 4%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+.checkout .button__checkout:hover {
+  background-color: rgba(10, 156, 156, 0.637);
+  cursor: pointer;
+}
+
+.cartgarden .maintree {
+  position: absolute;
+  background-color: green;
+  width: 0.5rem;
+  height: 10%;
+  bottom: -80%;
+  left: 80%;
+  animation-name: treeGrows;
+  animation-duration: 4s;
+  animation-timing-function: linear;
+  transform-origin: bottom;
+  animation-fill-mode: both;
+  animation-delay: 1s;
+}
+@keyframes treeGrows {
+  0% {
+    transform: scale(0);
+  }
+  15% {
+    transform: scale(0.5);
+  }
+  25% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.5);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  65% {
+    transform: scale(2);
+  }
+  75% {
+    transform: scale(2);
+  }
+  90% {
+    transform: scale(2);
+  }
+  100% {
+    transform: scale(2);
+  }
+}
+.cartgarden .tree__leaf {
+  position: absolute;
+  width: 40%;
+  height: 40%;
+  background-color: green;
+  border: 0;
+  border-top-right-radius: 100%;
+  border-bottom-left-radius: 100%;
+}
+.cartgarden .tree__leaf--left {
+  bottom: 80%;
+  left: -97%;
+  width: 100%;
+  height: 10%;
+  animation-name: leftLeaf;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in;
+}
+@keyframes leftLeaf {
+  0% {
+    transform: scale(0);
+  }
+  20% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.cartgarden .tree__leaf--right {
+  bottom: 60%;
+  right: -91%;
+  width: 100%;
+  height: 6%;
+  transform: rotate(90deg);
+  animation-name: rightLeaf;
+  animation-duration: 8s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in;
+}
+@keyframes rightLeaf {
+  0% {
+    transform: scale(0);
+  }
+  20% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(2);
+  }
+  65% {
+    transform: scale(2);
+  }
+  100% {
+    transform: scale(2.5);
+  }
+}
+.cartgarden .flowerCircle {
+  background-color: yellow;
+  width: 300%;
+  height: 45%;
+  border-radius: 50%;
+  position: absolute;
+  border: 3px orange solid;
+  bottom: 95%;
+  right: -110%;
+  animation-name: flowerCircle;
+  animation-duration: 5s;
+  animation-fill-mode: forwards;
+  font-weight: bold;
+}
+.cartgarden .flowerCircle p {
+  position: absolute;
+  left: 5%;
+  top: 20%;
+  font-size: 1%;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.774);
+}
+.cartgarden .flowerCircle:hover {
+  cursor: pointer;
+  background-color: #ffff79;
+}
+.cartgarden .flowerCircle:hover p {
+  color: #ff7300;
+}
+@keyframes flowerCircle {
+  0% {
+    transform: scale(0);
+  }
+  20% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
+  65% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.cartgarden img {
+  position: absolute;
+  bottom: -90%;
+  width: 100%;
+  height: 25%;
+}
+.cartgarden .tree2 {
+  position: absolute;
+  background-color: green;
+  width: 0.5rem;
+  height: 10%;
+  bottom: -80%;
+  left: 20%;
+  animation-name: tree2Grows;
+  animation-duration: 4s;
+  animation-timing-function: linear;
+  transform-origin: bottom;
+  animation-fill-mode: both;
+}
+@keyframes tree2Grows {
+  0% {
+    transform: scale(0);
+  }
+  15% {
+    transform: scale(0.5);
+  }
+  25% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.5);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  65% {
+    transform: scale(2);
+  }
+  75% {
+    transform: scale(2);
+  }
+  90% {
+    transform: scale(2);
+  }
+  100% {
+    transform: scale(2);
+  }
+}
+.cartgarden .flowerCircle2 {
+  background-color: #ff9100;
+  width: 500%;
+  height: 35%;
+  border-radius: 60%;
+  position: absolute;
+  border: 4px yellow solid;
+  bottom: 95%;
+  right: -205%;
+  animation-name: flowerCircle;
+  animation-duration: 5s;
+  animation-fill-mode: forwards;
+  font-weight: bold;
+}
+.cartgarden .flowerCircle2 p {
+  position: absolute;
+  left: 5%;
+  top: 20%;
+  font-size: 1%;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.774);
+}
+.cartgarden .flowerCircle2:hover {
+  cursor: pointer;
+  background-color: #e6ac30;
+}
+.cartgarden .flowerCircle2:hover p {
+  color: #ffff15;
+}
+
+@media screen and (min-width: 700px) {
+  .myCart__grid {
+    grid-template-rows: repeat(4, 20%);
+  }
+  .myCart__grid__title {
+    text-align: center;
+    font-size: calc(1rem + 0.5rem);
+  }
+  .myCart__grid__box {
+    font-size: calc(70% + 0.5rem);
+    position: relative;
+    left: 32%;
+    width: 40%;
+    gap: 20px;
+  }
+
+  .leftside {
+    text-align: center;
+  }
+  .leftside h3 {
+    padding-left: 10%;
+  }
+  .leftside p {
+    padding-left: 10%;
+  }
+  .leftside input {
+    margin-left: 80%;
+    width: 4rem;
+    height: 2rem;
+  }
+
+  .rightside {
+    position: relative;
+    left: 35%;
+  }
+
+  .checkout {
+    font-size: calc(70% + 0.5rem);
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+
+  .button__checkout {
+    font-size: calc(60% + 0.5rem);
+  }
+
+  .button__add {
+    font-size: calc(60% + 0.5rem);
+  }
+
+  .cartgarden .maintree {
+    left: 70%;
+  }
+  @keyframes treeGrows {
+    0% {
+      transform: scale(0);
+    }
+    15% {
+      transform: scale(1);
+    }
+    25% {
+      transform: scale(1.5);
+    }
+    40% {
+      transform: scale(2);
+    }
+    50% {
+      transform: scale(2.5);
+    }
+    65% {
+      transform: scale(2.5);
+    }
+    75% {
+      transform: scale(3);
+    }
+    90% {
+      transform: scale(3.5);
+    }
+    100% {
+      transform: scale(4);
+    }
+  }
+  .cartgarden .tree2 {
+    left: 30%;
+  }
+  @keyframes tree2Grows {
+    0% {
+      transform: scale(0);
+    }
+    15% {
+      transform: scale(0.5);
+    }
+    25% {
+      transform: scale(1);
+    }
+    40% {
+      transform: scale(1.5);
+    }
+    50% {
+      transform: scale(2);
+    }
+    65% {
+      transform: scale(2);
+    }
+    75% {
+      transform: scale(2.5);
+    }
+    90% {
+      transform: scale(3);
+    }
+    100% {
+      transform: scale(3);
+    }
+  }
+}
