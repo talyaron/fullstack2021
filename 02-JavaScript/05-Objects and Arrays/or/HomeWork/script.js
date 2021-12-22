@@ -26,16 +26,11 @@ movies.forEach((movie) => {
     console.log(`${movie.title} (${movie.year})`)
 })
 
-// new rating
-// let newRanking = '9.5'
-// let title = movies[5].title
-
-// console.log(`The new rating of the movie you chose:${title} (${newRanking})`)
 
 function changeRanking(title, newRanking='10') {
     // newRanking = '10'
     title = movies[5].title
-    console.log (title + newRanking)
+    console.log (`the new ranking of ${title} is: ${newRanking}`)
 }
 changeRanking ()
 
