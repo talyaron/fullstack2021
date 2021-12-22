@@ -28,13 +28,19 @@ movies.forEach(movie =>
 
  function changeRanking(title, newRanking)
 {
-    for (i=0; i<movies.length; i++)
+    if(typeof(title)==='string' && typeof(newRanking)==='number')
     {
-        if(movies[i].name=title)
+        for (i=0; i<movies.length; i++)
         {
-            movies[i].rating=newRanking
-        }  
+            if(movies[i].name=title)
+            {
+                movies[i].rating=newRanking
+            }  
+        }
     }
+
+    else
+    console.log("Your initial parameters are not in right format")
 
     return movies
 }
