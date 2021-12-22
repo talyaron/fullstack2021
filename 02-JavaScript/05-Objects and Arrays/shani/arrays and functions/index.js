@@ -36,11 +36,23 @@ movies.forEach(movie =>{
 /*Create a function that finds the movie according to its title, and changes its ranking to the new ranking which was set
  to the function (function changeRanking(title, newRanking){})*/
 
- function changeRanking(title, newRanking)
+ function changeRanking(title, newRanking){
+ 
+ let i=movies.findIndex( movie =>{ movie.title==title })
+  
+
+  movies[i].ranking=newRanking
+  
+ }
+
+ changeRanking("Forrest Gump",10)
+
+ for ( let i=0;i<movies.length;i++){
+
+    console.log(`${movies[i].title} ${movies[i].ranking}`)
+        
 
 
 
-  movies.filter( movie =>{ movie.title   })
 
-  console.log("Forrest Gump",4.5)
-
+ }

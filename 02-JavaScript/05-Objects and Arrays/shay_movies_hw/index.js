@@ -27,11 +27,13 @@ console.log(movieRate);
 
 const changeRate =movies.filter(name =>name.movieName=='Spider-Man: No Way Home');
 
-console.log(changeRate);
+
 
 function newMovieRate(title,rank){
-    title = changeRate.movieName[1];
-    rank= 2+ changeRate.movieRating[1];
-    return (movies[1], movies[1].movieName);
+    title=changeRate[0].movieName
+    rank= 11
+    changeRate[0].movieRating=rank
+    return (title, rank);
 }
 console.log(newMovieRate(changeRate));
+console.log(changeRate);
