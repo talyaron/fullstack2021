@@ -25,8 +25,7 @@ const movies = [
 //     }
 // }
 
-// const found = findTitle(movies[5].rating)
-// console.log(found)
+// console.log(findTitle())
 
 
 
