@@ -39,7 +39,7 @@ newrank = parseFloat(newrank);
 const updrank = changeRanking(changemovie, newrank);
 
 function changeRanking(title, newRanking){
-
+ 
     const objIndex = movies.findIndex((obj => obj.name == changemovie));
     movies[objIndex].rank = newRanking;
     return objIndex;

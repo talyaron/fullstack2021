@@ -172,9 +172,67 @@ var Salim = {
 };
 var Family = [Maria, Alice, Elen, Salim];
 
-function whodat(Family) {
-  if (Family.vegan == true) return "this is ".concat(Family.name, " , shes vegan,her hobby is ").concat(Family.hobby, " and her friends are ").concat(Family.otherfriends, "... ohhhh and she has ").concat(Family.numberoflimbs, " limbs");else if (Family.numberoflimbs > 2 && Family.vegan == false) return "this is ".concat(Family.name, " shes not vegan(phew)her hobby is ").concat(Family.hobby, " and her friends are ").concat(Family.otherfriends, "... she has ").concat(Family.numberoflimbs, " spectecular limbs ");
-  if (Family.numberoflimbs == 2) return "this is ".concat(Family.name, " hes not vegan(at all) his hobby is ").concat(Family.hobby, " and hir friends are ").concat(Family.otherfriends, "... poor guy has only ").concat(Family.numberoflimbs, " limbs ");
+for (var i in Family) {
+  console.log(Family[i].name);
+} // function whodat(Family) {
+//     if (Family.vegan == true)
+//         return `this is ${Family.name} , shes vegan,her hobby is ${Family.hobby} and her friends are ${Family.otherfriends}... ohhhh and she has ${Family.numberoflimbs} limbs`
+//     else if ( Family.numberoflimbs>2 && Family.vegan==false)
+//         return `this is ${Family.name} shes not vegan(phew)her hobby is ${Family.hobby} and her friends are ${Family.otherfriends}... she has ${Family.numberoflimbs} spectecular limbs `
+//         if (Family.numberoflimbs==2)
+//         return `this is ${Family.name} hes not vegan(at all) his hobby is ${Family.hobby} and hir friends are ${Family.otherfriends}... poor guy has only ${Family.numberoflimbs} limbs `
+// }
+// console.log(whodat(Maria));
+
+
+function multi(a, b) {
+  return a * b;
 }
 
-console.log(whodat(Maria));
+console.log(multi(2, 2));
+
+var multi2 = function multi2(a, b) {
+  return a * b;
+};
+
+console.log(multi2(3, 7));
+
+var multi3 = function multi3(a, b) {
+  return a * b;
+};
+
+console.log(multi3(5, 5));
+var singers = ["adele", "maluma", "fonzi", "davidguetta", "simon"]; //LOOP
+// for (let i = 0;i<singers.length;i++){
+//     console.log(singers[i]);
+// }
+//IN LOOP
+// for(let i in singers){
+//     console.log(singers[i]);
+// }
+//OF LOOP
+// for(let singer of singers ){
+//     console.log(singer);
+// }
+//EACH LOOP
+
+singers.forEach(function (singer) {
+  console.log(singer);
+});
+var footballTeams = [{
+  teamName: 'Macabi Tel-Aviv',
+  place: 16
+}, {
+  teamName: 'Beitar Jeruslam',
+  place: 7
+}, {
+  teamName: 'Hapoel Haifa',
+  place: 5
+}, {
+  teamName: 'Bnei-Sachnin',
+  place: 6
+}];
+console.log(footballTeams.slice(1, 2));
+footballTeams.forEach(function (footballTeam) {
+  console.log();
+});
