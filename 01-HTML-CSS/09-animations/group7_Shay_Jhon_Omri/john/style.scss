@@ -1,0 +1,97 @@
+body{
+    background-color: #081b25;
+}
+.wrapper{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3,1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    height: 20vh;
+    color: rgb(228, 228, 228);  
+
+    .fas{
+      font-size: 400px;
+      color: violet;
+    }
+    &__city {
+      grid-column: 1;
+      grid-row: 1;
+  
+      h1{ 
+          position: relative;
+          left:50px;
+      
+        }
+    }
+    &__photo {
+      grid-column-start: 2;
+      grid-row-start: 1;
+      grid-row-end: 4;
+      
+    }
+    &__degrees {
+      grid-column-start: 1;
+      grid-column-end: 2;
+      grid-row-start: 3;
+      grid-row-end: 3;
+      
+    }
+    &__weather {
+      grid-column-start: 1;
+      grid-column-end: 2;
+      grid-row-start: 3;
+      background-color: rgb(119, 42, 182);
+      width: 120px;
+      border-radius: 30%;
+      color: white;
+      
+  
+    }
+    
+    
+  }
+  
+  
+
+  
+  
+
+  .weatherBar{
+    display: flex;
+    height: 5vh;
+    width: 80vw;
+    background-color: transparent;
+    position: absolute;
+    top: 60vh;
+    justify-content: space-between;
+    color: white;
+  }
+  .hours{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    grid-template-rows: repeat(3,1fr);
+    grid-row-gap: 10px;
+    position: relative;
+    top: 600px;
+    color: white;
+  }
+  .days{
+    display: grid;
+    grid-template-columns: 3fr 2fr 1fr 1fr;
+    grid-template-rows: repeat(3,1fr);
+    font-size: x-large;
+    position: relative;
+    color: white;
+    top:700px;
+    grid-row-gap: 10px;
+  }
+.navbar{
+  display: flex;
+  position: sticky;
+  bottom: 1px;
+  justify-content: space-between;
+  &__item1{
+    color: violet;
+  }
+}
