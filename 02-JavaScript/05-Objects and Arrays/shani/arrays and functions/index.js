@@ -40,7 +40,6 @@ movies.forEach(movie =>{
  
  let i=movies.findIndex( movie =>{ movie.title==title })
   
- console.log(i)
 
   movies[i].ranking=newRanking
   
@@ -52,8 +51,15 @@ movies.forEach(movie =>{
 
     console.log(`${movies[i].title} ${movies[i].ranking}`)
         
-}*/
 
 
 
 
+ }*/
+
+ //practice
+
+ const myMovies = movies.filter(movie=> movie.title === "Toy Story");
+
+
+ console.log(myMovies);

@@ -7,16 +7,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Plant App</title>
     <link rel="stylesheet" href="dist/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
     <div class="plantCard">
-        <div class="plantCard__header"><button></button></div>
+
+        <div class="plantCard__header">
+            <div class="plantCard__header--box">
+                <div class="material-icons">shopping_cart</div>
+            </div>
+            <div class="plantCard__header--arrow">
+                <div></div>
+
+            </div>
+        </div>
 
         <div class="plantCard__details">
             <div class="plantCard__details__header">
-                <h1>cactus</h1>
-                <h2>robust & dynamic</h2>
+                <h1>Cactus</h1>
+                <h2>Robust & Dynamic,<br>with leaves.</h2>
             </div>
             <div class="plantCard__details--picture"> <img src="imgCard/cactus.png"> </div>
             <div class="plantCard__details__type__01">
@@ -32,25 +42,43 @@
                 <h4>Ferns</h4>
             </div>
         </div>
+
         <div class="plantCard__about">
 
             <div class="plantCard__about--description">
+                <h2>About</h2>
                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum ipsam deserunt neque veritatis
-                    hic
-                    ducimus reiciendis aut possimus ullam quas! Magnam porro, placeat tempora hic voluptates molestiae!
-                    Soluta, deserunt ipsam.</p>
+                    hic ducimus reiciendis aut possimus ullam quas!
+                </p>
             </div>
             <div class="plantCard__about--icons">
-                <div class="plantCard__about--icons--01">sun</div>
-                <div class="plantCard__about--icons--02">water</div>
-                <div class="plantCard__about--icons--03">lifetime</div>
+                <div class="plantCard__about--icons--01">
+                    <p>sun<br>8hrs
+                    </p>
+                    <span></span>
+
+                </div>
+                <div class="plantCard__about--icons--02">
+                    <p>water<br>2 days</p>
+                    <span></span>
+
+                </div>
+                <div class="plantCard__about--icons--03">
+                    <p>lifetime<br>7 month</p>
+                    <span></span>
+
+                </div>
             </div>
         </div>
+
         <div class="plantCard__cartPrice">
-            <p>price</p>
-            <div>
-            </div>
+            <h4>Price : <h2> $ 14.00</h2>
+            </h4>
+            <button class="plantCard__cartPrice--button __02">Add to cart</button>
         </div>
+
+    </div>
+
 </body>
 
 </html>

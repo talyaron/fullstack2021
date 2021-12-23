@@ -403,10 +403,38 @@ il:hover {
   }
 }
 .wrapper2 {
-  margin-left: -100px;
-  margin-top: 0px;
+  margin-left: 5px;
+  margin-top: 300px;
+  display: flex;
+  position: absolute;
+  flex-wrap: row;
+  justify-content: center;
+  text-align: center;
+}
+
+.your-Exchange {
+  position: absolute;
+  height: 20px;
+  background-color: var(--color-light-grey);
+}
+.your-Exchange__result {
+  height: 100px;
+  justify-content: center;
+  border-radius: 15px;
+  width: 400px;
+  background-color: var(--color-light-grey);
   display: flex;
   flex-wrap: row;
+  margin-top: 300px;
+}
+.your-Exchange__result .text {
+  color: var(--color-light-green);
+  justify-content: center;
+  text-align: center;
+  font-size: 28px;
+}
+.your-Exchange__result .theresult input {
+  font-size: large;
 }
 
 /*yahya END*/

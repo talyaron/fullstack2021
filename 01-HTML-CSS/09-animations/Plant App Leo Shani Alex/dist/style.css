@@ -2,6 +2,7 @@
 body {
   margin: 0;
   padding: 0;
+  font-family: sans-serif;
 }
 
 .header_categories {
@@ -24,7 +25,6 @@ body {
   position: relative;
   top: 6vh;
   text-align: center;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: 25px;
 }
 
@@ -40,7 +40,6 @@ body {
 .Nav_top_box {
   position: relative;
   left: 2%;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   font-size: 14px;
   width: 19%;
   text-align: center;
@@ -65,6 +64,9 @@ body {
   position: relative;
   border: 1px solid silver;
   background-size: cover;
+}
+.plantsGrid_boxitem a {
+  text-decoration: none;
 }
 .plantsGrid_boxitem:hover {
   cursor: pointer;
@@ -251,6 +253,187 @@ section {
     scale: 1;
   }
 }
+@media screen and (min-width: 700px) {
+  .plantsGrid {
+    grid-template-rows: repeat(4, 20%);
+  }
+  .plantsGrid_plantsGrid_boxitem {
+    font-size: calc(70% + 0.5rem);
+    position: relative;
+    left: 32%;
+    width: 40%;
+    gap: 20px;
+  }
+}
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.plantCard {
+  display: grid;
+  margin: auto;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(auto-fit, minmax(8, 120px));
+  background-image: linear-gradient(rgba(255, 0, 0, 0), rgba(234, 234, 234, 0.5));
+}
+@media only screen and (min-width: 800px) {
+  .plantCard {
+    margin: 20px;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .plantCard {
+    margin: 200px;
+  }
+  .plantCard p {
+    font-size: calc(1rem + 0.5rem);
+  }
+}
+.plantCard__header {
+  grid-row: 1/2;
+  height: 80px;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  flex-direction: row-reverse;
+}
+.plantCard__header--box {
+  background-color: white;
+  box-shadow: 1px 1px 10px grey;
+  margin-top: 15px;
+  height: 50%;
+  width: 70px;
+  justify-content: space-between;
+  border-radius: 50% 10% 10% 50%;
+}
+.plantCard__header--box .material-icons {
+  margin-left: 30%;
+  margin-top: 10%;
+  font-family: "Material Icons";
+  font-size: 30px;
+  color: #b4b4b4;
+}
+.plantCard__header--arrow {
+  margin: 50px;
+  background-color: black;
+  width: 85px;
+  height: 5px;
+}
+.plantCard__details {
+  margin: 10px;
+  padding: 15px;
+  grid-row: 2/6;
+  display: grid;
+  grid-template-columns: repeat(3, 120px);
+  grid-template-rows: repeat(4, 120px);
+}
+@media only screen and (max-width: 335ch) {
+  .plantCard__details {
+    padding: calc(1.5rem+0.5);
+    margin: auto;
+    margin: 200px;
+  }
+}
+@media only screen and (max-width: 635ch) {
+  .plantCard__details {
+    padding: calc(1.5rem+0.5);
+    margin: auto;
+  }
+}
+.plantCard__details__header {
+  grid-column: 1/4;
+  grid-row: 1/2;
+}
+.plantCard__details__header h1 {
+  color: #373737;
+}
+.plantCard__details__header h2 {
+  color: grey;
+  font-size: 18px;
+}
+.plantCard__details--picture {
+  grid-column: 2/4;
+  grid-row: 2/5;
+  z-index: 9;
+}
+.plantCard__details--picture img {
+  margin: auto;
+  max-width: 110%;
+  filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5));
+}
+.plantCard__details__type {
+  grid-column: 1/2;
+  grid-row: 2/3;
+}
+.plantCard__details__type__01 {
+  color: #373737;
+}
+.plantCard__details__type__01 h3 {
+  color: gray;
+}
+.plantCard__details__type__02 {
+  grid-row: 3;
+  color: #373737;
+}
+.plantCard__details__type__02 h3 {
+  color: gray;
+}
+.plantCard__details__type__03 {
+  grid-row: 4;
+  color: #373737;
+}
+.plantCard__details__type__03 h3 {
+  color: gray;
+}
+.plantCard__about {
+  background-color: white;
+  padding: 15px;
+  color: #9a9a9a;
+  grid-row: 6/8;
+  height: 250px;
+}
+.plantCard__about--icons {
+  gap: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.plantCard__about--icons--01 {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+.plantCard__about--icons--01 span {
+  margin: 15px;
+  border-radius: 50px;
+  width: 35px;
+  height: 35px;
+  background-color: #def7f9;
+}
+.plantCard__cartPrice {
+  grid-row: 8;
+  background-color: white;
+  padding-top: 20px;
+  justify-content: space-evenly;
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 30px;
+}
+.plantCard__cartPrice--button {
+  color: white;
+  border-radius: 15px;
+  border-style: none;
+  width: 150px;
+  height: 45px;
+  font-size: 20px;
+  text-align: center;
+}
+.plantCard__cartPrice--button.__02 {
+  background-color: #5bc0c0;
+  color: #fef42d;
+}
+
 /*Cart page- Shani*/
 .cartPage {
   background-color: rgba(160, 156, 152, 0.192);
@@ -386,25 +569,26 @@ section {
 .cartgarden .maintree {
   position: absolute;
   background-color: green;
-  width: 1%;
-  height: 15%;
+  width: 0.5rem;
+  height: 10%;
   bottom: -80%;
-  left: 50%;
+  left: 80%;
   animation-name: treeGrows;
   animation-duration: 4s;
   animation-timing-function: linear;
   transform-origin: bottom;
   animation-fill-mode: both;
+  animation-delay: 1s;
 }
 @keyframes treeGrows {
   0% {
-    transform: scale(1);
+    transform: scale(0);
   }
   15% {
-    transform: scale(1);
+    transform: scale(0.5);
   }
   25% {
-    transform: scale(1.5);
+    transform: scale(1);
   }
   40% {
     transform: scale(1.5);
@@ -419,10 +603,10 @@ section {
     transform: scale(2);
   }
   90% {
-    transform: scale(2.5);
+    transform: scale(2);
   }
   100% {
-    transform: scale(2.5);
+    transform: scale(2);
   }
 }
 .cartgarden .tree__leaf {
@@ -485,16 +669,17 @@ section {
 }
 .cartgarden .flowerCircle {
   background-color: yellow;
-  width: 250%;
-  height: 40%;
+  width: 300%;
+  height: 45%;
   border-radius: 50%;
   position: absolute;
-  border: 1px orange solid;
+  border: 3px orange solid;
   bottom: 95%;
-  right: -75%;
+  right: -110%;
   animation-name: flowerCircle;
   animation-duration: 5s;
   animation-fill-mode: forwards;
+  font-weight: bold;
 }
 .cartgarden .flowerCircle p {
   position: absolute;
@@ -507,7 +692,9 @@ section {
 .cartgarden .flowerCircle:hover {
   cursor: pointer;
   background-color: #ffff79;
-  font-weight: bold;
+}
+.cartgarden .flowerCircle:hover p {
+  color: #ff7300;
 }
 @keyframes flowerCircle {
   0% {
@@ -535,15 +722,73 @@ section {
 .cartgarden .tree2 {
   position: absolute;
   background-color: green;
-  width: 1%;
-  height: 5%;
+  width: 0.5rem;
+  height: 10%;
   bottom: -80%;
   left: 20%;
-  animation-name: treeGrows;
+  animation-name: tree2Grows;
   animation-duration: 4s;
   animation-timing-function: linear;
   transform-origin: bottom;
   animation-fill-mode: both;
+}
+@keyframes tree2Grows {
+  0% {
+    transform: scale(0);
+  }
+  15% {
+    transform: scale(0.5);
+  }
+  25% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.5);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  65% {
+    transform: scale(2);
+  }
+  75% {
+    transform: scale(2);
+  }
+  90% {
+    transform: scale(2);
+  }
+  100% {
+    transform: scale(2);
+  }
+}
+.cartgarden .flowerCircle2 {
+  background-color: #ff9100;
+  width: 500%;
+  height: 35%;
+  border-radius: 60%;
+  position: absolute;
+  border: 4px yellow solid;
+  bottom: 95%;
+  right: -205%;
+  animation-name: flowerCircle;
+  animation-duration: 5s;
+  animation-fill-mode: forwards;
+  font-weight: bold;
+}
+.cartgarden .flowerCircle2 p {
+  position: absolute;
+  left: 5%;
+  top: 15%;
+  font-size: 5px;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.774);
+}
+.cartgarden .flowerCircle2:hover {
+  cursor: pointer;
+  background-color: #e6ac30;
+}
+.cartgarden .flowerCircle2:hover p {
+  color: #ffff15;
 }
 
 @media screen and (min-width: 700px) {
@@ -553,9 +798,6 @@ section {
   .myCart__grid__title {
     text-align: center;
     font-size: calc(1rem + 0.5rem);
-    /* grid-row:1/span 1;
-     position:absolute;
-     left:43%;*/
   }
   .myCart__grid__box {
     font-size: calc(70% + 0.5rem);
@@ -563,13 +805,6 @@ section {
     left: 32%;
     width: 40%;
     gap: 20px;
-    /* grid-row:2/span 3;
-    width:30vw; */
-    /*img {
-        width:14vw;                
-        padding-left:8%;
-
-    }*/
   }
 
   .leftside {
@@ -590,9 +825,6 @@ section {
   .rightside {
     position: relative;
     left: 35%;
-    /*h3{
-        padding-top:20%;
-    }*/
   }
 
   .checkout {
@@ -608,71 +840,69 @@ section {
   .button__add {
     font-size: calc(60% + 0.5rem);
   }
-}
-/*PlantCard Alex */
-.plantCard {
-  margin: 100px;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(8, 120px);
-  background-image: linear-gradient(rgba(255, 0, 0, 0), rgba(217, 217, 217, 0.5));
-}
-@media only screen and (max-width: 150ch) {
-  .plantCard {
-    margin: 50px;
+
+  .cartgarden .maintree {
+    left: 70%;
   }
-}
-@media only screen and (max-width: 335ch) {
-  .plantCard {
-    margin: 100px;
+  @keyframes treeGrows {
+    0% {
+      transform: scale(0);
+    }
+    15% {
+      transform: scale(1);
+    }
+    25% {
+      transform: scale(1.5);
+    }
+    40% {
+      transform: scale(2);
+    }
+    50% {
+      transform: scale(2.5);
+    }
+    65% {
+      transform: scale(2.5);
+    }
+    75% {
+      transform: scale(3);
+    }
+    90% {
+      transform: scale(3.5);
+    }
+    100% {
+      transform: scale(4);
+    }
   }
-}
-.plantCard__header {
-  background-color: #bebebe;
-}
-.plantCard__details {
-  padding: 15px;
-  grid-row: 2/6;
-  display: grid;
-  grid-template-columns: repeat(3, 120px);
-  grid-template-rows: repeat(4, 120px);
-}
-.plantCard__details__header {
-  grid-column: 1/4;
-  grid-row: 1/2;
-}
-.plantCard__details--picture {
-  grid-column: 2/4;
-  grid-row: 2/5;
-}
-.plantCard__details--picture img {
-  margin: auto;
-  max-width: 75%;
-  margin-left: 30%;
-}
-.plantCard__details__type {
-  grid-column: 1/2;
-  grid-row: 2/3;
-}
-.plantCard__details__type__01 {
-  color: #357b00;
-}
-.plantCard__details__type__01 h3 {
-  color: gray;
-}
-.plantCard__about {
-  margin-top: 60px;
-  margin-bottom: 10px;
-  background-color: white;
-  padding: 15px;
-  grid-row: 6/8;
-}
-.plantCard__about--icons {
-  gap: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-}
-.plantCard__cartPrice {
-  color: #ff6200;
+  .cartgarden .tree2 {
+    left: 30%;
+  }
+  @keyframes tree2Grows {
+    0% {
+      transform: scale(0);
+    }
+    15% {
+      transform: scale(0.5);
+    }
+    25% {
+      transform: scale(1);
+    }
+    40% {
+      transform: scale(1.5);
+    }
+    50% {
+      transform: scale(2);
+    }
+    65% {
+      transform: scale(2);
+    }
+    75% {
+      transform: scale(2.5);
+    }
+    90% {
+      transform: scale(3);
+    }
+    100% {
+      transform: scale(3);
+    }
+  }
 }
