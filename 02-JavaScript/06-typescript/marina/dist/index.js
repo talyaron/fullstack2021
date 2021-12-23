@@ -1,12 +1,12 @@
 var a = 5;
 var c = 4;
-function avg(a, c) {
+function getAvg(a, c) {
     try {
-        return avg = (a + c) / 2;
+        var avg = (a + c) / 2;
+        return "The avarege is " + avg;
     }
     catch (error) {
         console.error(error);
     }
-    console.log("" + The, average, of, the, numbers, is(avg));
 }
-")\n\n}\n\n";
+console.log(getAvg(2, 40));
