@@ -1,5 +1,5 @@
 body {
-  background-color: #081b25;
+  background-color: #081b26;
 }
 
 .wrapper {
@@ -20,23 +20,19 @@ body {
   grid-row: 1;
 }
 .wrapper__city h1 {
-  position: relative;
   left: 50px;
 }
 .wrapper__photo {
-  grid-column-start: 2;
-  grid-row-start: 1;
-  grid-row-end: 4;
+  grid-column: 2;
+  grid-row: 1/3;
 }
 .wrapper__degrees {
-  grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row-start: 3;
-  grid-row-end: 3;
+  grid-column: 1;
+  grid-row: 2;
 }
 .wrapper__weather {
   grid-column-start: 1;
-  grid-column-end: 2;
+  grid-column-end: 1;
   grid-row-start: 3;
   background-color: #772ab6;
   width: 120px;
@@ -76,12 +72,14 @@ body {
   grid-row-gap: 10px;
 }
 
-.navbar {
-  display: flex;
-  position: sticky;
-  bottom: 1px;
-  justify-content: space-between;
+.bar {
+  margin: auto;
+  padding-top: 50px;
+  padding-left: 70px;
+  padding-bottom: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
 }
-.navbar__item1 {
-  color: violet;
+.bar__icons #active:target {
+  color: #7b446a;
 }
