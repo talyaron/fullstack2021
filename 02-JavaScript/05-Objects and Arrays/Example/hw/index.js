@@ -42,7 +42,7 @@ function changeRating(movies, title, newRating) {
 
     try {
 
-    
+      
         //check type
         if (!Array.isArray(movies)) throw new Error('movies is not an array');
         if (typeof title !== 'string') throw new Error('title is not a string');
@@ -67,6 +67,8 @@ function changeRating(movies, title, newRating) {
         return movies
     }
 }
+
+const newMovies = changeRating(imdbMovies, 'American Movie', 10);
 
 const newMovies = changeRating(imdbMovies, 'American Movie', 8);
 console.log(newMovies)
