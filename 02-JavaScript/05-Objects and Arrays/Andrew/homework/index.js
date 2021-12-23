@@ -1,3 +1,5 @@
+//Create objects (title, director, rating, year) of 6 movies from IMDB
+//(https://www.imdb.com/chart/top/?ref_=nv_mv_250) Create an array of movies (called movies)
 const movies = [
     { title: "The Good, the Bad and the Ugly", director: "Sergio Leone", rating: "8.8", year: "1966" },
     { title: "Fight Club", director: "David Fincher", rating: "8.8", year: "1999" },
