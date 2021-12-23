@@ -43,3 +43,12 @@ var sorted_Movies = Movies.sort(function (a, b) {
 });
 console.log(sorted_Movies); //Create a function that finds the movie according to its title, and changes its ranking to the new ranking 
 //which was set to the function (function changeRanking(title, newRanking){})
+
+function changeRanking(movieName) {
+  var newRanking = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '10';
+  // newRanking = '10'
+  movieName = Movies[5].movieName;
+  console.log("the new ranking of ".concat(movieName, " is: ").concat(newRanking));
+}
+
+changeRanking();
