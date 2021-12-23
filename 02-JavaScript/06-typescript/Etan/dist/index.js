@@ -1,4 +1,4 @@
-var a = 'what';
+var a = 5;
 var b = 5;
 var whatAge = function (x, y) {
     try {

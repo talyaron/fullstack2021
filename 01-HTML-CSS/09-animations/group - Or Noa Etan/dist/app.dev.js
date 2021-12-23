@@ -84,7 +84,7 @@ var expln = document.createElement("div");
 var explnTitle = document.createElement("h4");
 var explnText = document.createElement("p");
 var countdown = document.createElement("div");
-var color = prompt("what color would you like ur task to be?", "orange or blue?");
+var color = window.prompt("what color would you like ur task to be?", "orange, green, blue, black or white?");
 
 function newBox() {
   box.className = "box";
