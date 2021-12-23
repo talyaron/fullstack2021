@@ -30,6 +30,11 @@ console.log(sorted_Movies);
 //Create a function that finds the movie according to its title, and changes its ranking to the new ranking 
 //which was set to the function (function changeRanking(title, newRanking){})
 
-
+function changeRanking(movieName, newRanking='10') {
+  // newRanking = '10'
+  movieName = Movies[5].movieName
+  console.log (`the new ranking of ${movieName} is: ${newRanking}`)
+}
+changeRanking ()
 
 
