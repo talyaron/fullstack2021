@@ -36,12 +36,12 @@ console.log(numbers)
 
 //------------------names--------------------//
 console.log('NAMES')
-let names = ['ac', 'ab', 'da', 'aa'] //english motherfucker
+let names = ['ac', 'ab', 'da', 'aa']
 
 names = names.sort()
 console.log(names)
 
-let names2 = ['אג', 'נכ', 'גד', 'אב'] //hebrew beatches
+let names2 = ['אג', 'נכ', 'גד', 'אב']
 
 names2 = names2.sort()
 console.log(names2)

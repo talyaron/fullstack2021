@@ -6,10 +6,9 @@ const movies = [
     { movieName: 'carreabean', year: 2003,director:'lenon',rating: 7.5},
     { movieName: 'snatch', year: 2000,director:'john',rating: 8}
 ];
-
-/*sort movies by their rank*/
-const sortedmovies= movies.sort(
-    (a,b)=>(a.rating<b.rating ? 1:-1)
+/*sort by rank*/
+const sortedmovies=movies.sort(
+    (a,b)=> (a.rating<b.rating ? 1:-1)
 );
 console.log(sortedmovies)
 
@@ -26,11 +25,17 @@ const sortyear=movies.sort(function(m1,m2){
 });
 console.log(sortyear);
 
+// Create a function that finds the movie according to its title, and
+// changes its ranking to the new ranking which was set to the function
 
-const moviesname= movies.map(function(movie){
-    return movie.movieName;
-})
+let movieName = window.prompt("Please enter the name of the movie:")
+let newRating = window.prompt("Please enter the new ranking of the movie:")
 
-console.log(moviesname)
-
-  
+function changeRanking(movieName, newRating) {
+    if (movieName==title)
+    {
+    let wantedMovie = movies.findIndex(movie => movie.title == title);
+    movies[wantedMovie].rating = newRating;
+    }
+};
+alert('the new ranked is:'+ newRating)

@@ -48,10 +48,11 @@ body {
   border-radius: 50%;
   background-color: #a7dbec;
 }
-#landing__dailytaskslist .list__line .box-log-blue h {
+#landing__dailytaskslist .list__line .box-log-blue h1 {
   margin-top: 12px;
   margin-left: 12px;
   font-weight: 700;
+  font-size: 15px;
 }
 #landing__dailytaskslist .list__line .logo {
   font-weight: 700;
@@ -122,7 +123,7 @@ body {
 }
 #landing-home__logo span {
   font-size: 1rem;
-  font-weight: normal;
+  font-weight: 600;
 }
 #landing-home__search {
   text-align: center;
@@ -131,12 +132,23 @@ body {
   margin-left: auto;
   margin-right: auto;
   font-size: 25px;
-  border-radius: 10px;
-  height: 50px;
+  border-radius: 7px;
+  height: 45px;
 }
 #landing-home__task {
   display: flex;
   flex-direction: column;
+}
+#landing-home__task .left {
+  margin-right: auto;
+  margin-left: 1rem;
+  font-weight: 600;
+}
+#landing-home__task p {
+  margin-top: auto;
+}
+#landing-home__task span {
+  font-weight: 900;
 }
 #landing-home__task .task {
   display: flex;
@@ -162,7 +174,7 @@ body {
   margin-left: 13px;
   margin-top: 13px;
 }
-#landing-home__recent__title {
+#landing-home .recent__title {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -201,6 +213,15 @@ body {
   height: auto;
   align-items: center;
   justify-content: center;
+}
+#landing__task-count .box__home1 {
+  background-color: #ff98e09a;
+}
+#landing__task-count .box__home2 {
+  background-color: #aaeffa;
+}
+#landing__task-count .box__home3 {
+  background-color: #f4ff7f;
 }
 #landing__task-count .box__flex {
   align-content: space-around;
