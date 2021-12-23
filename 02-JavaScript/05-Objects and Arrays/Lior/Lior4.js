@@ -10,7 +10,8 @@ const movies=[{name: 'Spider-Man: No Way Home', director: 'Jon Watts', rating:9.
 
 movies.forEach(movie =>
     {
-        const rating= movies.sort(movies.rating);
+        const rating= movies.sort((a,b) => b.rating>a.rating );
+        console.log(rating)
     }
 )
 
@@ -19,28 +20,22 @@ movies.forEach(movie =>
 
 movies.forEach(movie =>
     {
-        const YearOfPuclication= movies.sort(movies.year);
+        const YearOfPuclication= moviessort((x,y) => y.year>x.year);
+        console.log(YearOfPuclication)
     }
 )
 
 
 //q4
 
- function changeRanking(title, newRanking)
+ function changeRanking(array,title, newRanking)
 {
-    if(typeof(title)==='string' && typeof(newRanking)==='number')
+    if(typeof(title)==='string' && typeof(newRanking)==='number' && Array.isArray(array))
     {
-        for (i=0; i<movies.length; i++)
-        {
-            if(movies[i].name=title)
-            {
-                movies[i].rating=newRanking
-            }  
-        }
+        let index= movies.findIndex(movie => movie.title === title)
+                movies[index].rating=newRanking;
+                return movies;
     }
-
     else
     console.log("Your initial parameters are not in right format")
-
-    return movies
 }
