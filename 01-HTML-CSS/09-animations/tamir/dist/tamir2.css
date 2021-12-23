@@ -134,20 +134,18 @@ body {
 }
 .card__subinfo {
   display: flex;
-  gap: 30px;
+  margin: 15px;
+  justify-content: space-between;
 }
 .card__price {
   font-style: italic;
-  position: relative;
-  left: 20px;
+  left: 10px;
 }
 .card__price i {
   color: #ff000d;
 }
 .card__loc {
   font-style: italic;
-  position: relative;
-  left: 145px;
 }
 
 .card2 {
@@ -168,28 +166,22 @@ body {
 }
 .card2__subinfo {
   display: flex;
-  gap: 30px;
+  justify-content: space-between;
+  margin: 15px;
 }
 .card2__price {
   font-style: italic;
-  position: relative;
-  left: 20px;
 }
 .card2__price i {
   color: lime;
 }
 .card2__loc {
   font-style: italic;
-  position: relative;
-  left: 145px;
 }
 
-@media only screen and (min-width: 671px) {
+@media only screen and (min-width: 670px) {
   .wrapperfirst ul {
-    justify-content: space-between;
     height: 80px;
-    background-color: white;
-    border-radius: 0px 30PX 0PX 40PX;
   }
   .wrapperfirst a {
     padding: 10px 50px 10px 50px;
@@ -225,7 +217,6 @@ body {
   }
 
   .wrapper4 {
-    display: flex;
     gap: 20px;
   }
   .wrapper4__info {
@@ -235,34 +226,5 @@ body {
   }
   .wrapper4__bottun {
     margin-top: 47px;
-  }
-
-  .card {
-    border-radius: 40px;
-    background-color: white;
-  }
-  .card img {
-    align-items: center;
-    background-size: auto;
-  }
-  .card__info {
-    padding-left: 20px;
-  }
-  .card__des {
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  }
-  .card__subinfo {
-    display: flex;
-    gap: 30px;
-  }
-  .card__price {
-    font-style: italic;
-    position: relative;
-    left: 20px;
-  }
-  .card__loc {
-    font-style: italic;
-    position: relative;
-    left: 145px;
   }
 }

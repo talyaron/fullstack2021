@@ -118,9 +118,6 @@ body {
 
 .wrapper4 {
     display: flex;
-
-
-
     &__info {
         font-size: 1.4em;
         font-style: italic;
@@ -137,7 +134,6 @@ body {
         background-color: hsl(0, 0%, 0%);
     }
 }
-
 .card {
 
     border-radius: 40px;
@@ -159,13 +155,13 @@ body {
 
     &__subinfo {
         display: flex;
-        gap: 30px;
+        margin: 15px;
+        justify-content: space-between;
     }
 
     &__price {
         font-style: italic;
-        position: relative;
-        left: 20px;
+        left: 10px;
 
         i {
             color: rgb(255, 0, 13);
@@ -174,8 +170,6 @@ body {
 
     &__loc {
         font-style: italic;
-        position: relative;
-        left: 145px;
     }
 }
 
@@ -183,6 +177,7 @@ body {
     margin-top: 15px;
     border-radius: 40px;
     background-color: white;
+
 
     img {
         height: 100%;
@@ -200,14 +195,15 @@ body {
 
     &__subinfo {
         display: flex;
-        gap: 30px;
+        justify-content: space-between;
+        margin: 15px;
     }
 
     &__price {
         font-style: italic;
-        position: relative;
 
-        left: 20px;
+
+
 
         i {
             color: rgb(0, 255, 0);
@@ -216,27 +212,18 @@ body {
 
     &__loc {
         font-style: italic;
-        position: relative;
-        left: 145px;
     }
 }
-
-@media only screen and(min-width: 671px) {
-
+@media only screen and(min-width: 670px) {
     .wrapperfirst {
-        ul {
-            justify-content: space-between;
+        ul {  
             height: 80px;
-            background-color: white;
-            border-radius: 0px 30PX 0PX 40PX;
         }
-
         a {
             padding: 10px 50px 10px 50px;
             font-size: 2.5em;
         }
     }
-
     .wrapper2 {
         &__icon2 {
             font-size: 2em;
@@ -273,7 +260,6 @@ body {
     }
 
     .wrapper4 {
-        display: flex;
         gap: 20px;
 
         &__info {
@@ -286,43 +272,6 @@ body {
             margin-top: 47px;
         }
     }
-
-    .card {
-
-        border-radius: 40px;
-        background-color: white;
-
-        img {
-            align-items: center;
-            background-size: auto;
-        }
-
-        &__info {
-            padding-left: 20px;
-        }
-
-        &__des {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        &__subinfo {
-            display: flex;
-            gap: 30px;
-        }
-
-        &__price {
-            font-style: italic;
-            position: relative;
-            left: 20px;
-
-
-
-        }
-
-        &__loc {
-            font-style: italic;
-            position: relative;
-            left: 145px;
-        }
-    }
 }
+
+
