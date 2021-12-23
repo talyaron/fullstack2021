@@ -53,21 +53,7 @@ console.log (changeRank())
 
 
 
-function changeRank (title, newRank) {
-    if(typeof(title)==='string' && typeof(newRank)==='number')
-    {
-        for (i=0; i<movies.length; i++)
-        {
-            if(movies[i].name=title)
-            {
-                movies[i].rating=newRank
-            }  
-        }
-    }
 
-    return movies
-}
-console.log (changeRank())
 
 
 
