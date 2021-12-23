@@ -56,7 +56,6 @@ function tellAboutThefamily(family) {
             console.log (`${family.firstname} ${family.last} ${family.age} years old is child`)                
         
 }
-
 };
 
 tellAboutThefamily(mather);
