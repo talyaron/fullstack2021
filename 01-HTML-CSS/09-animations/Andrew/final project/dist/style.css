@@ -342,6 +342,14 @@ body {
     transform: scaleX(1) rotateX(180deg);
   }
 }
+@keyframes spin {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
 .footer {
   display: flex;
   justify-content: center;
@@ -527,6 +535,7 @@ body {
   position: relative;
 }
 .wallet-value__grid {
+  perspective: 1000px;
   position: absolute;
   display: grid;
   width: 600px;
@@ -535,31 +544,114 @@ body {
   grid-template-rows: repeat(5, 1fr);
 }
 .wallet-value__grid__cell {
-  box-shadow: 0px 0px 0px 1px red;
+  width: 120px;
+  height: 120px;
 }
-.wallet-value__scene__avrage {
+.wallet-value__grid #cell1:hover ~ .wallet-value__scene {
+  transform: rotateX(20deg) rotateY(-20deg);
+}
+.wallet-value__grid #cell2:hover ~ .wallet-value__scene {
+  transform: rotateX(20deg) rotateY(-10deg);
+}
+.wallet-value__grid #cell3:hover ~ .wallet-value__scene {
+  transform: rotateX(20deg) rotateY(0deg);
+}
+.wallet-value__grid #cell4:hover ~ .wallet-value__scene {
+  transform: rotateX(20deg) rotateY(10deg);
+}
+.wallet-value__grid #cell5:hover ~ .wallet-value__scene {
+  transform: rotateX(20deg) rotateY(20deg);
+}
+.wallet-value__grid #cell6:hover ~ .wallet-value__scene {
+  transform: rotateX(10deg) rotateY(-20deg);
+}
+.wallet-value__grid #cell7:hover ~ .wallet-value__scene {
+  transform: rotateX(10deg) rotateY(-10deg);
+}
+.wallet-value__grid #cell8:hover ~ .wallet-value__scene {
+  transform: rotateX(10deg) rotateY(0deg);
+}
+.wallet-value__grid #cell9:hover ~ .wallet-value__scene {
+  transform: rotateX(10deg) rotateY(10deg);
+}
+.wallet-value__grid #cell10:hover ~ .wallet-value__scene {
+  transform: rotateX(10deg) rotateY(20deg);
+}
+.wallet-value__grid #cell11:hover ~ .wallet-value__scene {
+  transform: rotateX(0deg) rotateY(-20deg);
+}
+.wallet-value__grid #cell12:hover ~ .wallet-value__scene {
+  transform: rotateX(0deg) rotateY(-10deg);
+}
+.wallet-value__grid #cell13:hover ~ .wallet-value__scene {
+  transform: rotateX(0deg) rotateY(0deg);
+}
+.wallet-value__grid #cell14:hover ~ .wallet-value__scene {
+  transform: rotateX(0deg) rotateY(10deg);
+}
+.wallet-value__grid #cell15:hover ~ .wallet-value__scene {
+  transform: rotateX(0deg) rotateY(20deg);
+}
+.wallet-value__grid #cell16:hover ~ .wallet-value__scene {
+  transform: rotateX(-10deg) rotateY(-20deg);
+}
+.wallet-value__grid #cell17:hover ~ .wallet-value__scene {
+  transform: rotateX(-10deg) rotateY(-10deg);
+}
+.wallet-value__grid #cell18:hover ~ .wallet-value__scene {
+  transform: rotateX(-10deg) rotateY(0deg);
+}
+.wallet-value__grid #cell19:hover ~ .wallet-value__scene {
+  transform: rotateX(-10deg) rotateY(10deg);
+}
+.wallet-value__grid #cell20:hover ~ .wallet-value__scene {
+  transform: rotateX(-10deg) rotateY(20deg);
+}
+.wallet-value__grid #cell21:hover ~ .wallet-value__scene {
+  transform: rotateX(-20deg) rotateY(-20deg);
+}
+.wallet-value__grid #cell22:hover ~ .wallet-value__scene {
+  transform: rotateX(-20deg) rotateY(-10deg);
+}
+.wallet-value__grid #cell23:hover ~ .wallet-value__scene {
+  transform: rotateX(-20deg) rotateY(0deg);
+}
+.wallet-value__grid #cell24:hover ~ .wallet-value__scene {
+  transform: rotateX(-20deg) rotateY(10deg);
+}
+.wallet-value__grid #cell25:hover ~ .wallet-value__scene {
+  transform: rotateX(-20deg) rotateY(20deg);
+}
+.wallet-value__avrage {
   position: absolute;
   top: 0px;
   left: 0px;
   word-spacing: 0.7em;
 }
-.wallet-value__scene__avrage span {
+.wallet-value__avrage span {
   color: var(--color-lighter-grey);
 }
-.wallet-value__scene__max {
-  z-index: -1;
+.wallet-value__max {
+  z-index: 99;
   position: absolute;
   top: 0px;
   right: 0px;
   font-weight: 900;
 }
-.wallet-value__scene__max::after {
+.wallet-value__max::after {
   position: absolute;
   content: "MAX 24H";
   top: 1.7em;
   right: 0px;
   font-weight: 100;
   color: var(--color-lighter-grey);
+}
+.wallet-value__scene {
+  z-index: -1;
+  position: absolute;
+  left: 0%;
+  right: 0%;
+  transition: ease 500ms;
 }
 .wallet-value__scene__graph {
   position: relative;
@@ -573,6 +665,7 @@ body {
   position: absolute;
   width: 550px;
   height: 550px;
+  animation: spin 30s linear infinite;
 }
 .wallet-value__scene__graph h1 {
   font-size: 3rem;
