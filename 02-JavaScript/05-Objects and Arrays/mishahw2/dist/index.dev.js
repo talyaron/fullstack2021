@@ -68,4 +68,5 @@ function changeRanking(title, newRanking) {
   return objIndex;
 }
 
-console.log("".concat(movie[updrank].title));
+console.log(" ------- UPDATED RANK ------ ");
+console.log("".concat(movies[updrank].name, " - ").concat(movies[updrank].rank));

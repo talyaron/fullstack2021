@@ -143,7 +143,7 @@ body {
 
       span {
         font-size: 1rem;
-        font-weight: normal;
+        font-weight: 600;
       }
     }
 
@@ -154,14 +154,26 @@ body {
         margin-left: auto;
         margin-right: auto;
         font-size: 25px;
-        border-radius: 10px;
-        height: 50px;
+        border-radius: 7px;
+        height: 45px;
       }
     }
 
     &__task {
       display: flex;
       flex-direction: column;
+      .left{
+        margin-right: auto;
+        margin-left: 1rem;
+        font-weight: 600;
+
+      }
+      p{
+        margin-top: auto;
+      }
+      span{
+        font-weight: 900;
+      }
 
       .task {
         display: flex;
@@ -194,12 +206,13 @@ body {
       }
     }
 
-    &__recent__title {
+    .recent__title {
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
   }
+  
 
   //------------Etan
   //----- already created description boxes
@@ -237,6 +250,19 @@ body {
         height: auto;
         align-items: center;
         justify-content: center;
+        
+        
+        
+        &__home1{
+          background-color: #ff98e09a;
+        }
+        &__home2{
+          background-color:#aaeffa ;
+        }
+        &__home3{
+          background-color: #f4ff7f;
+        }
+
 
         &__flex {
           align-content: space-around;
@@ -291,12 +317,14 @@ body {
             align-self: center;
           }
         }
+        
 
         &__expln {
           display: flex;
           flex-direction: column;
           align-items: flex-start;
           line-height: 1.5rem;
+
 
           h4 {
             margin-top: 1.5rem;
