@@ -99,6 +99,18 @@
                   grid-column: 5;
                   grid-row: 2;
                 }
+                .fa-gradients{
+                    background: -webkit-gradient(linear, left top, left bottom, from(#5f95fc), to(#cc63f9));
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    display: initial;
+                    font-size: 5em;
+                    animation-duration: 2s;
+                    animation-delay: 2s;
+                    animation-iteration-count: 5;
+                    width: 70px;
+                    height: 70px;
+                }
                 .fa-snow{
                     animation-name: snowflakes;
                  animation-duration: 2s;
@@ -260,7 +272,26 @@
                     grid-row: 2;
                     width: 100px; height: 100px;
                 }
-                
+                .fa-circle{
+                    animation-name: sun;
+                    animation-duration: 4s;
+                    animation-delay: 2s;
+                    animation-iteration-count: 3;
+                }
+                  @keyframes sun {
+                    from{
+                        transform: scale(0.7);
+                    }
+                    40%{
+                        transform: scale(0.9);
+                    }
+                    80%{
+                        transform: scale(90px);
+                    }
+                    to{
+                        transform: scale(0.7);
+                    }
+                }
                     .fa-tint{
                         grid-row: 12;
                         grid-column: 2/3;
@@ -274,6 +305,12 @@
                         width: 30px;
                         height: 10px!important;
                     }
+                    @keyframes tint {
+                        50% {background-position: 1px 0px; background-image: url('https://htmlcolorcodes.com/assets/images/colors/bright-blue-color-solid-background-1920x1080.png'); -webkit-background-clip: text;
+                            -webkit-text-fill-color: transparent;}
+                        100% {background-position: 5px 0px; background-image: url('https://www.solidbackgrounds.com/images/3840x2160/3840x2160-light-sea-green-solid-color-background.jpg'); -webkit-background-clip: text;
+                            -webkit-text-fill-color: transparent;}   
+                    }
                    .fa-wind{
                         grid-column: 6/6;
                         color: #436081;
@@ -285,6 +322,23 @@
                         grid-column: 8;
                         color: white;
                         grid-row: 11;
+                    }
+                    @keyframes wind {
+                        from{
+                            opacity: 1; transform: translate(5px,0);
+                        }
+                        25%{
+                            opacity: 0.5; transform: translate(0px,0);
+                        }
+                        50%{
+                            opacity: 0; transform: translate(5px,0);
+                        }
+                        75%{
+                            opacity: 0.5; transform: translate(0px,0);
+                        }
+                        to{
+                            opacity: 1; transform: translate(5px,0);
+                        }
                     }
                 
                 }
