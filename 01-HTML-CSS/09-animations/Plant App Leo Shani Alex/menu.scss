@@ -1,0 +1,30 @@
+    
+.text {
+    text-align: center;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: space-evenly;
+    height: 500px;
+
+
+    .item {
+        border: 1px solid gray;
+        width: 100px;
+        // height: 100px;
+        flex-grow: 1;
+    }
+
+    .item:nth-child(1) {
+
+    }
+
+    .item:nth-child(2) {
+
+    }
+
+    .item:nth-child(3) {
+
+    }
+}

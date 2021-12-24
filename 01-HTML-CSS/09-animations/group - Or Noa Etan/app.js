@@ -77,9 +77,9 @@ let expln = document.createElement("div");
 let explnTitle = document.createElement("h4");
 let explnText = document.createElement("p");
 let countdown = document.createElement("div");
-let color = prompt(
+let color = window.prompt(
   "what color would you like ur task to be?",
-  "orange or blue?"
+  "orange, green, blue, black or white?"
 );
 
 
