@@ -1237,3 +1237,333 @@ body .days {
     margin-right: 10px;
   }
 }
+@media only screen and (max-width: 350px) {
+  body .main .contain {
+    margin: auto;
+    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 5px;
+  }
+  body .main .contain__box {
+    margin: auto;
+    background-color: #152c39;
+    border-radius: 20px;
+    width: 130px;
+    height: 130px;
+    gap: 5px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+  body .main .contain__box__up {
+    grid-row: 1;
+    grid-column: 1;
+    display: grid;
+    gap: 1px;
+    grid-template-rows: 0.1fr 0.1fr;
+    grid-template-columns: 2fr 3fr;
+  }
+  body .main .contain__box__up--text {
+    grid-row: 1;
+    grid-column: 1;
+  }
+  body .main .contain__box__up--text h2 {
+    margin-left: auto;
+    font-size: 14px;
+    color: white;
+  }
+  body .main .contain__box__up--city {
+    grid-row: 1;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.1fr 0.1fr;
+    width: 88px;
+  }
+  body .main .contain__box__up--city h6 {
+    color: white;
+    font-size: 11px;
+    grid-row: 1;
+  }
+  body .main .contain__box__up--city p {
+    grid-row: 2/-1;
+    grid-column: 1;
+    font-size: 13px;
+    color: #3d5564;
+  }
+  body .main .contain__box__up i span {
+    grid-row: 3;
+    grid-column: 2;
+    font-size: 14px;
+  }
+  body .main .contain__box__up--bigIcon {
+    margin: auto;
+    grid-column: 2;
+    grid-row: 1;
+  }
+  body .main .contain__box__up--bigIcon .fa-gradient {
+    font-size: 2em;
+    grid-row: 2;
+    grid-column: 1;
+  }
+  body .main .contain__box__up--bigIcon .fa-gradients {
+    grid-column: 1;
+    font-size: 2em;
+  }
+  @keyframes snowflakes {
+    from {
+      transform: translate(0px, 0px) scale(0.2);
+    }
+    25% {
+      transform: translate(0px, 5px) scale(0.2);
+    }
+    50% {
+      transform: translate(0px, 10px) scale(0.2);
+    }
+    75% {
+      transform: translate(0px, 15px) scale(0.2);
+    }
+    to {
+      transform: translate(0px, 20px) scale(0.2);
+    }
+  }
+  @keyframes snowy {
+    from {
+      transform: translate(0px, 5px) scale(0.2);
+      opacity: 0.5;
+    }
+    25% {
+      transform: translate(-5px, 10px) scale(0.2);
+      opacity: 1;
+    }
+    50% {
+      transform: translate(10px, 15px) scale(0.2);
+      opacity: 1;
+    }
+    75% {
+      transform: translate(-15px, 20px) scale(0.2);
+      opacity: 1;
+    }
+    to {
+      transform: translate(20px, 25px) scale(0.2);
+      opacity: 1;
+    }
+  }
+  @keyframes snowa {
+    from {
+      transform: translate(0px, 5px) scale(0.2);
+      opacity: 0.5;
+    }
+    25% {
+      transform: translate(5px, 15px) scale(0.2);
+      opacity: 1;
+    }
+    50% {
+      transform: translate(-10px, 10px) scale(0.2);
+      opacity: 1;
+    }
+    75% {
+      transform: translate(15px, 15px) scale(0.2);
+      opacity: 1;
+    }
+    to {
+      transform: translate(-20px, 20px) scale(0.2);
+      opacity: 1;
+    }
+  }
+  @keyframes snowc {
+    from {
+      transform: translate(5px, 0px) scale(0.2);
+      opacity: 0.5;
+    }
+    25% {
+      transform: translate(-5px, 5px) scale(0.2);
+      opacity: 1;
+    }
+    50% {
+      transform: translate(10px, 10px) scale(0.2);
+      opacity: 1;
+    }
+    75% {
+      transform: translate(0px, 15px) scale(0.2);
+      opacity: 1;
+    }
+    to {
+      transform: translate(-10px, 20px) scale(0.2);
+      opacity: 1;
+    }
+  }
+  @keyframes snod {
+    from {
+      transform: translate(10px, 5px) scale(0.2);
+      opacity: 0.5;
+    }
+    25% {
+      transform: translate(-55px, 10px) scale(0.2);
+      opacity: 1;
+    }
+    50% {
+      transform: translate(20px, 15px) scale(0.2);
+      opacity: 1;
+    }
+    75% {
+      transform: translate(-15px, 20px) scale(0.2);
+      opacity: 1;
+    }
+    to {
+      transform: translate(10px, 25px) scale(0.2);
+      opacity: 1;
+    }
+  }
+  @keyframes snowe {
+    from {
+      transform: translate(10px, 5px) scale(0.2);
+      opacity: 0.5;
+    }
+    25% {
+      transform: translate(23px, 10px) scale(0.2);
+      opacity: 1;
+    }
+    50% {
+      transform: translate(-30px, 15px) scale(0.2);
+      opacity: 1;
+    }
+    75% {
+      transform: translate(10px, 20px) scale(0.2);
+      opacity: 1;
+    }
+    to {
+      transform: translate(-5px, 25px) scale(0.2);
+      opacity: 1;
+    }
+  }
+  @keyframes snowf {
+    from {
+      transform: translate(-20px, 0px) scale(0.2);
+      opacity: 0.5;
+    }
+    25% {
+      transform: translate(-45px, 5px) scale(0.2);
+      opacity: 1;
+    }
+    50% {
+      transform: translate(-10px, 10px) scale(0.2);
+      opacity: 1;
+    }
+    75% {
+      transform: translate(6px, 15px) scale(0.2);
+      opacity: 1;
+    }
+    to {
+      transform: translate(25px, 20px) scale(0.2);
+      opacity: 1;
+    }
+  }
+  @keyframes snowg {
+    from {
+      transform: translate(-30px, 10px) scale(0.2);
+      opacity: 0.5;
+    }
+    25% {
+      transform: translate(25px, 15px) scale(0.2);
+      opacity: 1;
+    }
+    50% {
+      transform: translate(-35px, 20px) scale(0.2);
+      opacity: 1;
+    }
+    75% {
+      transform: translate(-40px, 35px) scale(0.2);
+      opacity: 1;
+    }
+    to {
+      transform: translate(20px, 50px) scale(0.2);
+      opacity: 1;
+    }
+  }
+  @keyframes snowh {
+    from {
+      transform: translate(-30px, 10px) scale(0.2);
+      opacity: 0.5;
+    }
+    25% {
+      transform: translate(3px, 15px) scale(0.2);
+      opacity: 1;
+    }
+    50% {
+      transform: translate(20px, 30px) scale(0.2);
+      opacity: 1;
+    }
+    75% {
+      transform: translate(10px, 45px) scale(0.2);
+      opacity: 1;
+    }
+    to {
+      transform: translate(-10px, 50px) scale(0.2);
+      opacity: 1;
+    }
+  }
+  body .main .contain__box__up--bigIcon .rainy {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    max-width: 10px;
+    grid-row: 1;
+    gap: 5px;
+    grid-column: 1;
+  }
+  body .main .contain__box__up--bigIcon .rainy .rain {
+    grid-row: 1;
+    grid-column: 1;
+    width: 2px;
+    height: 6px;
+    animation-name: rains;
+    animation-duration: 1s;
+    animation-delay: 2s;
+    animation-iteration-count: 6;
+    opacity: 0;
+  }
+  @keyframes rains {
+    from {
+      opacity: 0.5;
+      transform: translateY(3vh) skew(-30deg, -20deg);
+    }
+    50% {
+      transform: translateY(6vh) skew(-30deg, -20deg);
+      opacity: 1;
+    }
+    to {
+      opacity: 0.5;
+      transform: translateY(9vh) skew(-30deg, -20deg);
+    }
+  }
+  body .main .contain__box__down {
+    grid-row: 2;
+    margin-right: auto;
+    display: grid;
+    grid-template-rows: 2fr;
+    grid-template-columns: 1fr 1fr;
+  }
+  body .main .contain__box__down--smalIconsLeft {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  body .main .contain__box__down--smalIconsLeft .fa-tint {
+    font-size: 0.7em;
+    grid-column: 1;
+    grid-row: 1;
+  }
+  body .main .contain__box__down--smalIconsLeft .fa-tint span {
+    font-size: 12px;
+  }
+  body .main .contain__box__down--smalIconsRight {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  body .main .contain__box__down--smalIconsRight .fa-wind {
+    font-size: 0.7em;
+  }
+  body .main .contain__box__down--smalIconsRight .fa-wind span {
+    font-size: 12px;
+  }
+}
