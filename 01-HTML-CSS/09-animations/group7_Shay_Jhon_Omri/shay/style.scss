@@ -825,40 +825,42 @@ body {
     }
 }
     @media only screen and(max-width:600px) {
-
+        body{
             .main {
             
                 display: grid;
                 grid-template-columns: 1fr;
-                grid-template-rows: 0.5fr 3fr 0.6fr;
+                grid-template-rows: 0.7fr 3fr 0.6fr;
         
                 .header {
                     margin: auto;
                     display: grid;
-                    grid-template-columns: 10fr 2fr;
-                    grid-template-rows: 1fr;
+                    grid-template-columns: 20fr 2fr;
+                    grid-template-rows: 0.5fr;
         
                     //max-width: 800px;
                     &__icon {
-                        .fa-search {
-                            font-size: 3em;
-                            grid-column: 2;
-                            display: grid;
+                             display: grid;
                             grid-template-rows: 1fr;
-                            grid-template-columns: 0.2fr 0.8fr;
+                            grid-template-columns: 1fr 1fr;
+                        .fa-search {
+                            font-size: 1.7em;
+                            grid-column: 1;
+                            grid-row: 1;
         
                             span {
-        
-                                grid-column: 2;
+                                margin-top: auto;
+                                grid-row: 1;
+                                grid-column: 3;
                                 font-size: 14px;
                          
                             }
                         }
         
                         .fa-pen {
-        
+                            font-size: 1.7em;
                             grid-column: 5;
-                            font-size: 3em;
+                          
                         }
         
         
@@ -878,13 +880,15 @@ body {
                     //padding-left: 80px;
         
                     &__box {
-        
+                        margin: auto;
                         background-color: #152c39;
                         border-radius: 20px;
-                        width: 150px;
-                        height: 150px;
+                        width: 200px;
+                        height: 200px;
                         gap: 5px;
-        
+                        display: grid;
+                        grid-template-columns: 1fr;
+                        grid-template-rows: 1fr 1fr 1fr;
                         &__up {
                             
                             grid-row: 1;
@@ -892,46 +896,47 @@ body {
                             display: grid;
                             gap: 1px;
                             grid-template-rows: 0.1fr 0.1fr;
-                            grid-template-columns: 0.5fr 3fr 3fr;
+                            grid-template-columns: 2fr 3fr;
         
                             &--text {
-        
+                                
                                 grid-row: 1;
-                                grid-column: 2;
+                                grid-column: 1;
         
                                 h2 {
-        
+                                    margin-left: auto;
+                                    font-size: 20px;
                                     color: white;
                                 }
                             }
         
                             &--city {
-                                // margin-top: auto;
+                                // margin: auto;
                                 grid-row: 1;
                                 display: grid;
                                 grid-template-columns: 1fr;
-                                grid-template-rows: 0.6fr 1fr;
+                                grid-template-rows: 0.1fr 0.1fr;
                                 width: 88px;
         
                                 h6 {
                                     color: white;
-                                    font-size: 20px;
+                                    font-size: 14px;
+                                    grid-row: 1;
                                 }
         
-                                grid-row: 2;
-                                grid-column: 2;
+                               
         
                                 p {
-                                    grid-row: 2;
+                                    grid-row: 2 / -1;
                                     grid-column: 1;
         
-                                    font-size: 20px;
+                                    font-size: 16px;
                                     color: #3d5564;
                                 }
                             }
         
                             i {
-                                grid-column: 4;
+                                
         
                                 span {
         
@@ -945,12 +950,12 @@ body {
         
         
                             &--bigIcon {
-                                margin-right: auto;
-                                grid-column: 3;
-                                grid-row: 2;
+                                margin: auto;
+                                grid-column: 2;
+                                grid-row: 1;
         
                                 .fa-gradient {
-                                    font-size: 5em;
+                                    font-size: 3em;
                                     background: -webkit-gradient(linear, left top, left bottom, from(#5f95fc), to(#cc63f9));
                                     -webkit-background-clip: text;
                                     -webkit-text-fill-color: transparent;
@@ -962,7 +967,7 @@ body {
                                     -webkit-background-clip: text;
                                     -webkit-text-fill-color: transparent;
                                     display: initial;
-                                    font-size: 5em;
+                                    font-size: 3em;
                                     animation-duration: 5s;
                                     animation-delay: 2s;
                                     animation-iteration-count: 5;
@@ -1023,7 +1028,7 @@ body {
                                     }
         
                                     75% {
-                                        transform: translate(50px, 30px) scale(0.2);
+                                        transform: translate(44px, 30px) scale(0.2);
                                         opacity: 1;
                                     }
         
@@ -1046,7 +1051,7 @@ body {
                                     }
         
                                     25% {
-                                        transform: translate(50px, 35px) scale(0.2);
+                                        transform: translate(40px, 35px) scale(0.2);
                                         opacity: 1;
                                     }
         
@@ -1056,7 +1061,7 @@ body {
                                     }
         
                                     75% {
-                                        transform: translate(49px, 40px) scale(0.2);
+                                        transform: translate(45px, 40px) scale(0.2);
                                         opacity: 1;
                                     }
         
@@ -1089,7 +1094,7 @@ body {
                                     }
         
                                     75% {
-                                        transform: translate(50px, 70px) scale(0.2);
+                                        transform: translate(40px, 70px) scale(0.2);
                                         opacity: 1;
                                     }
         
@@ -1127,7 +1132,7 @@ body {
                                     }
         
                                     to {
-                                        transform: translate(50px, 80px)scale(0.2);
+                                        transform: translate(40px, 80px)scale(0.2);
                                         opacity: 1;
                                     }
                                 }
@@ -1155,12 +1160,12 @@ body {
                                     }
         
                                     75% {
-                                        transform: translate(49px, 45px) scale(0.2);
+                                        transform: translate(39px, 45px) scale(0.2);
                                         opacity: 1;
                                     }
         
                                     to {
-                                        transform: translate(55px, 60px)scale(0.2);
+                                        transform: translate(45px, 60px)scale(0.2);
                                         opacity: 1;
                                     }
                                 }
@@ -1178,7 +1183,7 @@ body {
                                     }
         
                                     25% {
-                                        transform: translate(55px, 55px) scale(0.2);
+                                        transform: translate(45px, 55px) scale(0.2);
                                         opacity: 1;
                                     }
         
@@ -1188,7 +1193,7 @@ body {
                                     }
         
                                     75% {
-                                        transform: translate(56px, 70px) scale(0.2);
+                                        transform: translate(6px, 70px) scale(0.2);
                                         opacity: 1;
                                     }
         
@@ -1265,8 +1270,7 @@ body {
                                 }
         
                                 .fa-cloud-sun {
-                                    grid-column: 6;
-                                    grid-row: 2;
+                                    //grid-row: 1;
                                     width: 100px;
                                     height: 100px;
                                 }
@@ -1298,10 +1302,10 @@ body {
                                 .rainy {
                                     display: grid;
                                     grid-template-columns: repeat(5, 1fr);
-                                    max-width: 15px;
+                                    max-width: 10px;
                                     grid-row: 2;
-                                    gap: 15px;
-                                    grid-column: 6;
+                                    gap: 5px;
+                                    grid-column: 1;
         
                                     .rain {
                                         background-color: #5f95fc;
@@ -1323,30 +1327,32 @@ body {
                                     }
         
                                     50% {
-                                        transform: translateY(10vh) skew(-30deg, -20deg);
+                                        transform: translateY(9vh) skew(-30deg, -20deg);
                                         opacity: 1;
                                     }
         
                                     to {
                                         opacity: 0.5;
-                                        transform: translateY(15vh) skew(-30deg, -20deg);
+                                        transform: translateY(10vh) skew(-30deg, -20deg);
                                     }
                                 }
                             }
                         }
                             &__down {
-                                margin: auto;
+                                grid-row: 3;
+                                margin-top: auto;
                                 display: grid;
-                                grid-template-rows: 1fr;
-                                grid-template-columns: 3fr 3fr;
+                                grid-template-rows: 2fr;
+                                grid-template-columns: 1fr 1fr;
                                 &--smalIconsLeft {
                                    grid-column: 1;
+                                   grid-row: 1;
                                     .fa-tint {
                                         animation-name: tint;
                                         animation-duration: 2s;
                                         animation-iteration-count: 6;
                                         color: #436081;
-                                        font-size: 1.5em;
+                                        font-size: 1em;
         
                                         span {
                                             color: #436081;
@@ -1355,9 +1361,10 @@ body {
                                             font-size: 15px;
                                             height: 10px !important;
                                             font-family: 'Roboto', sans-serif;
+                                            animation-name: spa;
                                         }
                                     }
-        
+                                    
                                     @keyframes tint {
                                         50% {
                                             background-position: 1px 0px;
@@ -1377,6 +1384,7 @@ body {
         
                                 &--smalIconsRight {
                                     grid-column: 2;
+                                    grid-row: 1;
                                     .fa-wind {
                                         color: #436081;
                                         width: 25px;
@@ -1540,6 +1548,7 @@ body {
             }
 
         }
+    }
     }
 
     @media only screen and(max-width:350px) {
