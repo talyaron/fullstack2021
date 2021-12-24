@@ -1,13 +1,16 @@
 body {
-    background-color: white;
+    background-color: #ffffff;
     color: #525252;
     font-family: system-ui, "Roboto", "Open Sans", sans-serif;
     font-size: 16px;
     line-height: 1.6em;
     margin: 0px;
     margin-top: 20px;
-}
+    width: 1500px;
+    margin-left: auto;
+    margin-right: auto;
 
+}
 
 
 // div {
@@ -50,7 +53,7 @@ h4 {
 
 button {
     border: none;
-    color: rgb(85, 83, 83);
+    color: #555353;
     font-family: system-ui, "Roboto", "Open Sans", sans-serif;
     cursor: pointer;
 }
@@ -66,8 +69,6 @@ input {
 
 
 
-
-
 // HEADER:
 
 .header {
@@ -75,11 +76,14 @@ input {
     grid-template-rows: 1fr 1fr;
     max-height: 100px;
     margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+
 
 
     &__top {
         display: grid;
-        grid-template-columns: 20% 1fr 1fr 1fr 20%;
+        grid-template-columns: 10% 1fr 1fr 1fr 10%;
         border-bottom: 1px solid #e2e2e2;
 
 
@@ -116,9 +120,11 @@ input {
 
     &__nav {
         display: grid;
-        grid-template-columns: 20% 1fr 1fr 1fr 20%;
+        grid-template-columns: 10% 1fr 1fr 1fr 10%;
         padding-bottom: 20px;
         padding-top: 30px;
+
+
 
         &__city {
             color: #ff9d02;
@@ -138,15 +144,38 @@ input {
             justify-content: space-between;
             gap: 1em;
             font-size: 16px;
-            font-weight: 500;
 
-            &__button {
-                background-color: #ff9d02;
+            button {
+                font-weight: 500;
                 border-radius: 15px;
                 padding: 0.2em;
                 word-spacing: 2px;
-                color: white;
                 height: 2.6em;
+            }
+
+
+
+            &__button-on {
+                background-color: #ff9d02;
+                color: white;
+                border: none;
+            }
+
+            &__button-off {
+                background-color: #ffffff;
+                color: #8b8b8b;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+
+                a:hover {
+                    box-shadow: 0px 2px 2px #d3d2d2;
+                    border-radius: 15px;
+                    padding: 0.5em 0.7em;
+                    transition: 0.2s;
+
+                }
             }
         }
     }
@@ -156,15 +185,18 @@ input {
 
 
 
-// SHOWCASE:
+// // SHOWCASE:
 
 .container-showcase {
     display: grid;
     grid-template-columns: 65% 35%;
-    width: 60%;
+    width: 80%;
     padding-top: 4em;
     margin: auto;
 
+    @media only screen and (max-width: 768px) {
+        width: 80%;
+    }
 
     &__slide {
         overflow: hidden;
@@ -336,28 +368,28 @@ input {
 
             @keyframes slide-text {
                 0% {
-                    content: "GIFT CARDS";
+                    content: "Gift Crds";
                 }
 
                 25% {
-                    content: "GIFT CARDS";
+                    content: "Gift Crds";
                 }
 
                 40% {
-                    content: "TEMTATIONS...";
+                    content: "Temptations...";
                 }
 
                 75% {
-                    content: "ARE YOU UP FOR THIS...?";
+                    content: "Are You Up For This?";
                 }
 
                 90% {
-                    content: "FRESH FROM OUR FIELDS!";
-
+                    content: "Fresh From Our Fields!"
+                        takeout
                 }
 
                 96% {
-                    content: "FRESH FROM OUR FIELDS!";
+                    content: "Fresh From Our Fields!";
                     opacity: 100%;
                 }
 
@@ -376,11 +408,15 @@ input {
 // HEADLINE:
 
 .container-headline {
-    width: 60%;
+    width: 80%;
     margin: auto;
     padding-top: 60px;
     display: grid;
     grid-template-columns: 2fr 1fr;
+
+    @media only screen and (max-width: 768px) {
+        width: 80%;
+    }
 
     &__text {
         padding-bottom: 10px;
@@ -436,12 +472,16 @@ input {
 // DAY:
 
 .container-day {
-    width: 60%;
+    width: 80%;
     margin: auto;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 20px;
     max-height: 17.4em;
+
+    @media only screen and (max-width: 768px) {
+        width: 80%;
+    }
 
     &__box {
         display: flex;
@@ -504,16 +544,26 @@ input {
 
 // CATEGORIES:
 .container-categories {
-    width: 60%;
+    width: 80%;
     margin: auto;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
 
+    @media only screen and (max-width: 768px) {
+        width: 80%;
+    }
+
     &__box {
         display: grid;
         grid-template-rows: 3fr 1fr;
         cursor: pointer;
+
+
+        div {
+            overflow: hidden;
+            border-radius: 20px;
+        }
 
         &__pic {
             border-radius: 20px;
@@ -522,15 +572,120 @@ input {
             object-fit: contain;
             width: 100%;
             height: 100%;
+
+            div {
+                border-radius: 20px;
+
+            }
+
         }
 
         &__text {
             line-height: 0.6em;
+
         }
+
+        img {
+            transition: all 0.4s ease-out;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+
+        }
+
+        img:hover {
+            transform: scale(1.1);
+
+        }
+
     }
+
 }
 
 
+
+// FOOTER:
+
+.footer {
+    background-color: #ececec;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+
+    a:hover {
+        color: rgb(247, 153, 32);
+    }
+
+}
+
+.footer-container-top {
+
+    background-color: #ececec;
+    margin-top: 10em;
+    padding-top: 3em;
+    display: grid;
+    grid-template-columns: 10% 1fr 1fr 1fr 10%;
+    align-items: center;
+    align-items: flex-start;
+    line-height: 0.5em;
+
+    @media only screen and (max-width: 768px) {
+        margin-top: 4em;
+       
+    }
+
+
+    h2 {
+        padding-left: 0.5em;
+        font-size: 16px;
+        color: black;
+        padding-top: 2em;
+        padding-bottom: 2em;
+    }
+
+    h3 {
+        padding-left: 1em;
+    }
+
+    .app-play {
+        max-width: 11em;
+        cursor: pointer;
+    }
+
+    &__logo {
+        box-sizing: border-box;
+        object-fit: contain;
+        max-width: 34%;
+        margin-top: 2em;
+        cursor: pointer;
+    }
+
+    &__text {
+        margin-top: 5.2em;
+    }
+
+
+}
+
+.footer-bottom {
+    background-color: rgb(236, 236, 236);
+    display: grid;
+    grid-template-columns: 10% 1fr 1fr 1fr 10%;
+    align-items: center;
+    padding-bottom: 10em;
+
+ 
+
+    &__social-media {
+        max-width: 10em;
+        cursor: pointer;
+    }
+
+    a {
+        font-size: 14px;
+    }
+
+}
 
 // LANGUAGE POP UP:
 
