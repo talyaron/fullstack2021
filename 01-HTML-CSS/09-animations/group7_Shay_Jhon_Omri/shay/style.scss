@@ -899,18 +899,22 @@ body {
                     display: grid;
                     gap: 1px;
                     grid-template-rows: 3fr;
-                    grid-template-columns:3fr 3fr;
+                    grid-template-columns:1fr 1fr;
                             &__text {
                                 margin: auto;
                                 display: grid;
                                 grid-template-columns: 1fr;
-                                grid-template-rows: 0.5fr 0.5fr;
+                                grid-template-rows: 0.1fr 0.1fr 0.1fr;
                                 grid-row: 1;
                                 
                                 &--text{
+                                    display: grid;
+                                    grid-template-columns: 1fr;
+                                    grid-template-rows: 0.1fr 0.11fr;
                                     grid-row: 1;
                                     grid-column: 1;    
                                 h2 {
+                                    grid-row: 2;
                                     margin-left: auto;
                                     font-size: 20px;
                                     color: white;
@@ -920,24 +924,26 @@ body {
                             &--city {
                                 // margin: auto;
                                 grid-column: 1;
-                                grid-row: 1;
+                                grid-row: 2;
                                 display: grid;
                                 grid-template-columns: 1fr;
-                                grid-template-rows: 0.1fr 0.1fr;
-                                width: 88px;
-        
+                                grid-template-rows: 0.1fr 0.1fr 0.1fr;
                                 h6 {
                                     color: white;
                                     font-size: 14px;
-                                    grid-row: 1;
+                                    grid-row: 2;
                                 }
         
                                }
                                 &--state{
+                                    display: grid;
+                                    grid-template-columns: 1fr;
+                                    grid-template-rows: 0.1fr 0.1fr 0.1fr;
                                     grid-row: 2;
                                     grid-column: 1;
                                 p {
-        
+                        
+                                    grid-row: 2;
                                     font-size: 16px;
                                     color: #3d5564;
                                 }
@@ -1590,12 +1596,15 @@ body {
                         grid-column: 1;
                         display: grid;
                         gap: 1px;
-                        grid-template-rows: 0.1fr 0.1fr;
+                        grid-template-rows: 0.3fr 0.5fr;
                         grid-template-columns: 2fr 3fr;
                         &__text{
+                            display: grid;
+                            grid-template-rows: 0.1fr 0.1fr 0.1fr;
+                            grid-template-columns: 1fr;
                         &--text {
                             
-                            grid-row: 1;
+                            grid-row: 1/1;
                             grid-column: 1;
     
                             h2 {
@@ -1608,22 +1617,19 @@ body {
                         &--city {
                             // margin: auto;
                             grid-row: 1;
-                            display: grid;
-                            grid-template-columns: 1fr;
-                            grid-template-rows: 0.1fr 0.1fr;
-                            width: 88px;
+                            grid-column: 1;
     
                             h6 {
                                 color: white;
                                 font-size: 11px;
-                                grid-row: 1;
+                               
                             }
                         }
                            &--state{
-    
-                            p {
-                                grid-row: 2 / -1;
+                                grid-row: 2;
                                 grid-column: 1;
+                            p {
+                               
     
                                 font-size: 13px;
                                 color: #3d5564;
@@ -1942,14 +1948,15 @@ body {
                         }
                     }
                         &__down {
-                            grid-row: 2;
+                            grid-row: 1;
                             margin-right: auto;
                             display: grid;
                             grid-template-rows: 2fr;
                             grid-template-columns: 1fr 1fr;
+                            grid-column: 1;
                             &--smalIconsLeft {
                                grid-column: 1;
-                               grid-row: 1;
+                               grid-row: 2;
                                 .fa-tint {
                                     font-size: 0.7em;
                                     grid-column: 1;
@@ -1966,7 +1973,7 @@ body {
     
                             &--smalIconsRight {
                                 grid-column: 2;
-                                grid-row: 1;
+                                grid-row: 2;
                                 .fa-wind {
                                
                                     font-size: 0.7em;
