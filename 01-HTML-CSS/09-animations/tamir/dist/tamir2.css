@@ -1,0 +1,230 @@
+body {
+  background-color: rgba(173, 179, 170, 0.507);
+  margin: 3%;
+}
+
+.wrapper1__icon {
+  position: absolute;
+  top: 35px;
+}
+.wrapper1__icon :hover {
+  cursor: pointer;
+}
+.wrapper1 h2 {
+  position: relative;
+  top: 10px;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.wrapperfirst ul {
+  margin: 20px;
+  padding: 0%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  background-color: white;
+  border-radius: 0px 30PX 0PX 40PX;
+}
+.wrapperfirst ul :hover {
+  background-color: #a3a2a2;
+  border-radius: 0px 30PX 0PX 40PX;
+}
+.wrapperfirst a {
+  padding: 10px 25px 10px 25px;
+  text-align: center;
+  border-radius: 40px;
+  font-size: 1.4em;
+  text-decoration: none;
+  color: black;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.wrapper2 {
+  display: flex;
+  background-color: white;
+  border-radius: 40px;
+  place-content: space-between;
+  align-items: center;
+  padding: 3%;
+  margin: 20px;
+}
+.wrapper2__icon2 {
+  position: relative;
+  top: 1px;
+  font-size: 1.5em;
+  border-radius: 4px;
+}
+.wrapper2__name {
+  color: orangered;
+}
+.wrapper2__button {
+  border-radius: 100px 100px 0px;
+  position: absolute;
+  left: 80%;
+  color: white;
+  background-color: black;
+}
+.wrapper2__info {
+  font-size: 1.4em;
+  position: absolute;
+  left: 90px;
+  font-style: italic;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.wrapper3 {
+  display: flex;
+  background-color: white;
+  border-radius: 40px;
+  place-content: space-between;
+  align-items: center;
+  padding: 3%;
+  margin: 20px;
+}
+.wrapper3__info {
+  font-size: 1.4em;
+  position: absolute;
+  left: 90px;
+  font-style: italic;
+  font-weight: bold;
+}
+.wrapper3__button {
+  position: absolute;
+  left: 80%;
+  color: white;
+  border-radius: 100px 100px 0px;
+  background-color: black;
+}
+
+.wrapper4 {
+  display: flex;
+}
+.wrapper4__info {
+  font-size: 1.4em;
+  font-style: italic;
+  font-weight: bold;
+}
+.wrapper4__bottun {
+  position: relative;
+  margin-top: 15px;
+  color: white;
+  height: 30px;
+  border-radius: 100px 100px 0px;
+  background-color: black;
+}
+
+.card {
+  border-radius: 40px;
+  background-color: white;
+}
+.card img {
+  height: 100%;
+  width: 100%;
+  border-radius: 40px;
+}
+.card__info {
+  padding-left: 20px;
+}
+.card__des {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.card__subinfo {
+  display: flex;
+  margin: 15px;
+  justify-content: space-between;
+}
+.card__price {
+  font-style: italic;
+  left: 10px;
+}
+.card__price i {
+  color: #ff000d;
+}
+.card__loc {
+  font-style: italic;
+}
+
+.card2 {
+  margin-top: 15px;
+  border-radius: 40px;
+  background-color: white;
+}
+.card2 img {
+  height: 100%;
+  width: 100%;
+  border-radius: 40px;
+}
+.card2__info {
+  padding-left: 20px;
+}
+.card2__des {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.card2__subinfo {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px;
+}
+.card2__price {
+  font-style: italic;
+}
+.card2__price i {
+  color: lime;
+}
+.card2__loc {
+  font-style: italic;
+}
+
+@media only screen and (min-width: 670px) {
+  .wrapperfirst ul {
+    height: 80px;
+  }
+  .wrapperfirst a {
+    padding: 10px 50px 10px 50px;
+    font-size: 2.5em;
+  }
+
+  .wrapper2__icon2 {
+    font-size: 2em;
+  }
+  .wrapper2__name {
+    color: orangered;
+  }
+  .wrapper2__button {
+    position: absolute;
+    left: 85%;
+    background-color: black;
+  }
+  .wrapper2__info {
+    font-size: 2.5em;
+    left: 120px;
+  }
+
+  .wrapper3 {
+    height: 40px;
+  }
+  .wrapper3__info {
+    font-size: 2.5em;
+    position: absolute;
+    left: 120px;
+  }
+  .wrapper3__button {
+    left: 85%;
+  }
+
+  .wrapper4 {
+    gap: 20px;
+  }
+  .wrapper4__info {
+    font-size: 2.5em;
+    font-style: italic;
+    font-weight: bold;
+  }
+  .wrapper4__bottun {
+    margin-top: 47px;
+  }
+}

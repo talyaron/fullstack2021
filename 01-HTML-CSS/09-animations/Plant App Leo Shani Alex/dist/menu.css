@@ -1,0 +1,14 @@
+.text {
+  text-align: center;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  height: 500px;
+}
+.wrapper .item {
+  border: 1px solid gray;
+  width: 100px;
+  flex-grow: 1;
+}
