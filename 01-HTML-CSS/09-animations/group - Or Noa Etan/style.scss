@@ -4,12 +4,14 @@ body {
   height: auto;
   width: 100vw;
 }
+
 .dark-mode {
   background: invert(1);
   color: invert(1);
 }
+
 #landing {
-  padding-top: 1.5rem;
+  // padding-top: 1.5rem; ---- added a media query at the bottom of the page
   width: 100vw;
   height: 100%;
   margin: auto;
@@ -19,7 +21,7 @@ body {
     padding-top: 1.5rem;
     display: flex;
     flex-direction: column;
-  
+
 
     .list {
       display: flex;
@@ -122,23 +124,31 @@ body {
   }
 
   &-home {
-    height: 100vh;
     background: white;
     padding: 30px;
-
+    padding-top: 20px;
     &__logo {
       display: flex;
+      justify-content: space-between;
+
 
       img {
         height: 60px;
         width: 60px;
         border-radius: 10px;
-        margin-left: 50px;
         margin-top: 20px;
+
+        &:hover {
+          cursor: pointer;
+        }
       }
 
       h1 {
         font-weight: 700;
+
+        &:hover {
+          cursor: pointer;
+        }
       }
 
       span {
@@ -148,30 +158,67 @@ body {
     }
 
     &__search {
+      display: flex;
+      align-items: center;
       text-align: center;
+      border: 1.5px solid black;
+      border-radius: 5px;
+      height: 50px;
+      width: 85vw;
+
+      i {
+        margin-left: 7px;
+        color: rgba(155, 155, 155, 0.521);
+      }
 
       input {
-        margin-left: auto;
-        margin-right: auto;
         font-size: 25px;
-        border-radius: 7px;
-        height: 45px;
+        outline: none;
+        border: none;
+        width: 75vw;
+      }
+      @media only screen and (min-width: 600px) {
+        width: 95vw;
+        input{
+          width: 90vw;
+        }
       }
     }
 
     &__task {
+      h2 {
+        position: relative;
+        top: 20px;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
       display: flex;
       flex-direction: column;
-      .left{
+
+      .left {
         margin-right: auto;
         margin-left: 1rem;
         font-weight: 600;
 
+        &:hover {
+          cursor: pointer;
+          text-decoration: underline;
+        }
       }
-      p{
+
+      p {
         margin-top: auto;
+
+        &:hover {
+          cursor: pointer;
+          text-decoration: underline;
+        }
       }
-      span{
+
+      span {
         font-weight: 900;
       }
 
@@ -187,6 +234,10 @@ body {
         width: 50px;
         border-radius: 5px;
 
+        &:hover {
+          cursor: pointer;
+        }
+
         &__1 {
           background-color: #ffc898;
         }
@@ -199,6 +250,7 @@ body {
           background-color: #f4ff7f;
         }
 
+
         i {
           margin-left: 13px;
           margin-top: 13px;
@@ -210,9 +262,13 @@ body {
       display: flex;
       align-items: center;
       justify-content: space-between;
+
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
-  
+
 
   //------------Etan
   //----- already created description boxes
@@ -223,7 +279,7 @@ body {
       display: flex;
       flex-direction: row;
       max-width: 100vw;
-      background: #f0f0f2;
+      background: transparent;
       height: fit-content;
       overflow-y: scroll;
       list-style: none;
@@ -235,6 +291,7 @@ body {
       @media only screen and (min-width: 600px) {
         max-width: 100%;
         padding-top: 3rem;
+        overflow-y: hidden;
       }
 
       .box {
@@ -250,17 +307,56 @@ body {
         height: auto;
         align-items: center;
         justify-content: center;
-        
-        
-        
-        &__home1{
+
+
+
+        &__home1 {
           background-color: #ff98e09a;
+          height: 150px;
+
+          h4 {
+            position: relative;
+            bottom: 15px;
+          }
+
+          &:hover {
+            cursor: pointer;
+          }
         }
-        &__home2{
-          background-color:#aaeffa ;
+
+        &__home2 {
+          background-color: #aaeffa;
+          height: 150px;
+
+          h4 {
+            position: relative;
+            bottom: 15px;
+          }
+
+          &:hover {
+            cursor: pointer;
+          }
+
         }
-        &__home3{
+
+        &__home3 {
           background-color: #f4ff7f;
+          height: 150px;
+
+          h4 {
+            position: relative;
+            bottom: 15px;
+          }
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+
+        .flex-date {
+          display: flex;
+          align-items: center;
+          gap: 5px;
         }
 
 
@@ -284,11 +380,15 @@ body {
           align-items: flex-start;
           line-height: 1.5rem;
 
+
           &-text {
             margin-top: 1.5rem;
             margin-bottom: 0;
             font-weight: 600;
             font-size: 1rem;
+          }
+          &-home-text{
+            font-size: 1.3rem;
           }
 
           &-urg {
@@ -317,7 +417,7 @@ body {
             align-self: center;
           }
         }
-        
+
 
         &__expln {
           display: flex;
@@ -372,7 +472,7 @@ body {
         flex-direction: column;
         align-content: center;
 
-        & > h3,
+        &>h3,
         p {
           margin: 0.1rem;
           padding: 0;
@@ -406,10 +506,11 @@ body {
         border-radius: 2rem;
         padding: 2vw 0rem 5vw 0rem;
         box-shadow: 0.5 rem 3rem rgba($color: #000000, $alpha: 0.4);
-      @media only screen and (min-width: 600px){
-        min-height: 25vw;
-        height: 30vw;
-      }
+
+        @media only screen and (min-width: 600px) {
+          min-height: 25vw;
+          height: 30vw;
+        }
       }
 
       &__title {
@@ -516,7 +617,7 @@ body {
           p {
             line-height: 1.5vh;
           }
-          
+
         }
 
         .today {
@@ -548,9 +649,10 @@ main {
 }
 
 // colors to change box background
-.transparent{
+.transparent {
   background-color: none;
 }
+
 .blue {
   background-color: #a7ebf2;
 }
@@ -562,12 +664,15 @@ main {
 .green {
   background-color: rgb(121, 209, 158);
 }
-.white{
+
+.white {
   background-color: white;
 }
+
 .black {
   background-color: black;
-  & > p {
+
+  &>p {
     color: rgb(255, 255, 255);
   }
 }
@@ -591,4 +696,9 @@ main {
 
 .md-40 {
   font-size: 40px;
+}
+@media only screen and (min-width: 600px) {
+#landing{
+  margin-top: 3.5rem;
+}
 }

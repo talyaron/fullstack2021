@@ -30,7 +30,6 @@ nav ul {
   flex-direction: row;
   justify-content: space-around;
   padding: 1rem;
-  border-radius: 0 0 1em 1em;
 }
 nav ul li a i {
   background-color: #f0f0f2;
