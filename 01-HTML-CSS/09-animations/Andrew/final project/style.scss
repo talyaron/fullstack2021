@@ -20,24 +20,29 @@
     --color-klay: #A5A99E;
     --color-axs: #9CAAE7;
     --color-xlm: #33CFFF;
-
+    --width: 85vw;
     background-color: var(--color-dark-grey);
     color: var(--color-white);
     font-family: Arial, Helvetica, sans-serif;
 }
-
+div{
+box-
+}
 body {
     margin-top: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    #wallet{
+        //width: 95vw;
+    }
 }
 
 .header {
     display: flex;
     justify-content: space-between;
-    width: 95%;
+    width: 90vw;
 
     &__icon {
         z-index: 999;
@@ -524,13 +529,13 @@ body {
 }
 
 .wallet {
-    width: 340px;
+    width: var(--width);
     margin: 15px;
 
     &-banner {
         display: flex;
         height: 45px;
-        width: 340px;
+        width: var(--width);
         overflow: hidden;
         white-space: nowrap;
 
@@ -648,7 +653,7 @@ body {
     }
 
     &-value {
-        width: 340px;
+        width: var(--width);
         aspect-ratio: 1;
         position: relative;
 
@@ -656,7 +661,7 @@ body {
             perspective: 1000px;
             position: absolute;
             display: grid;
-            width: 340px;
+            width: var(--width);
             aspect-ratio: 1;
             grid-template-columns: repeat(5, 1fr);
             grid-template-rows: repeat(5, 1fr);
@@ -811,12 +816,12 @@ body {
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                height: 340px;
+                height: var(--width);
                 overflow: hidden;
 
                 svg {
                     position: absolute;
-                    width: 300px;
+                    width: calc(var(--width)*0.9);
                     aspect-ratio: 1;
                     animation: spin 30s linear infinite;
                     //border: 1px solid red;
