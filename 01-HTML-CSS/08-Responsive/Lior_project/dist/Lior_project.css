@@ -1,0 +1,77 @@
+body {
+  width: 100%;
+  height: 400vh;
+  background: blue;
+  margin: 0px;
+}
+
+.general_container {
+  width: 100%;
+  height: 100vh;
+}
+
+.navbar {
+  width: 100%;
+  height: 100vh;
+  background: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+}
+.navbar__logo {
+  position: relative;
+  left: 150px;
+  top: -20px;
+  top: -35vh;
+}
+.navbar__car {
+  align-items: center;
+  align-content: center;
+  position: relative;
+  left: 150px;
+  top: -35vh;
+}
+.navbar__car__CarPicture {
+  width: 7vw;
+  height: 7vh;
+}
+.navbar__car__CarName {
+  text-align: center;
+  padding-bottom: 1.25rem;
+  size: 10px;
+  outline: none;
+  position: relative;
+}
+.navbar__car__CarName::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0px;
+  width: 0;
+  height: 3px;
+  background-color: red;
+  transition: width 0.75s ease-out;
+}
+.navbar__car__CarName:hover {
+  color: red;
+}
+.navbar__car__CarName:hover::before {
+  width: 100%;
+}
+.navbar__car__CarName__detailedPage {
+  display: grid;
+  position: relative;
+  top: -15vh;
+  right: 30vw;
+  height: 50vh;
+  width: 90vw;
+  margin-top: 35vh;
+  border: 3px solid black;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 100px);
+  background: white;
+  margin-left: 5vh;
+  overflow: hidden;
+}
