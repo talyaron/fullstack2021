@@ -1,0 +1,248 @@
+@import './var';
+@import './mixin';
+@import './activitiesGrid';
+@import './userBar';
+
+
+html {
+  font-family: $mainFontFamily;
+  color: $fontColor;
+}
+
+body {
+  background: $bgcolor;
+  width: 60%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 15px;
+  box-shadow: $shadow2;
+}
+
+.topIcons {
+  width: 98%;
+  @include flexSpaceBetween;
+}
+
+.gridUserIcon {
+  width: 98%;
+  @include flexSpaceBetween;
+}
+
+.search {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+
+  input {
+    border-radius: 30px;
+    @include inputBar1024;
+    width: 95%;
+  }
+
+  ion-icon {
+    position: absolute;
+    top: 18.5%;
+    left: 33%;
+  }
+}
+
+.navBar {
+  width: 100%;
+
+  &__list {
+    list-style: none;
+    @include flexSpaceBetween;
+    margin: 2.5% 3.5% 2% 0%;
+
+    &--link {
+      text-decoration: none;
+      padding: 0.2em 0.7em;
+      color: $fontColor;
+      font-size: 1.1em;
+
+      &:hover {
+        background: rgb(102, 51, 160);
+        color: white;
+        font-size: 1em;
+        cursor: pointer;
+        border-radius: 45px;
+      }
+
+    }
+  }
+
+}
+
+
+@media only screen and (max-width: 770px) {
+
+  body {
+    width: 100%;
+    border-radius: none;
+    box-shadow: none;
+
+    .search {
+      width: 99%;
+      margin-left: 2%;
+
+      input {
+        @include inputBar1024;
+        width: 95%;
+      }
+
+      ion-icon {
+        position: absolute;
+        top: 17%;
+        left: 5%;
+      }
+    }
+
+  }
+
+  .navBar {
+    &__list {
+      margin: 5% 3% 5% -3%;
+
+      &--link {
+        font-size: 1.2em;
+      }
+    }
+
+  }
+
+  .ActivitiesGrid {
+    grid-template-areas:
+      "steps sleep goals"
+      "steps sleep goals"
+      "steps colories goals"
+      "haert colories goals"
+      "haert colories goals";
+
+    weight {
+      display: none;
+    }
+
+    .haert {
+      &__chart {
+        @include flexCenter;
+
+        &--bmp {
+          position: absolute;
+          left: -5%;
+        }
+
+        .bar-graph-vertical .bar-container {
+          width: 1.3em;
+        }
+      }
+
+    }
+
+    .goals {
+      height: 46.5vh;
+
+      &__goalsDiagram {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+
+  .userBar {
+    @include flexCenter;
+    flex-direction: column;
+    gap: 1.5em;
+    padding-top: 1.6em;
+    padding-bottom: 0em;
+  }
+}
+
+@media only screen and (max-width: 540px) {
+
+  body {
+    width: 98%;
+    border-radius: none;
+    box-shadow: none;
+
+    .search {
+      width: 98%;
+      margin-left: 2%;
+
+      input {
+        @include inputBar;
+        width: 95%;
+      }
+
+      ion-icon {
+        position: absolute;
+        top: 24%;
+        left: 6%;
+      }
+    }
+
+    .navBar {
+      &__list {
+
+        margin-left: -9%;
+
+        &--link {
+          font-size: 0.9em;
+        }
+      }
+
+    }
+
+    .ActivitiesGrid {
+      grid-template-columns: 46% 46%;
+      grid-template-areas:
+        "steps sleep"
+        "steps sleep"
+        "steps colories"
+        "haert colories"
+        "haert colories";
+
+      goals,
+      weight {
+        display: none;
+      }
+
+      .haert {
+        &__chart {
+          @include flexCenter;
+
+          &--bmp {
+            display: none;
+          }
+
+          .bar-graph-vertical .bar-container {
+            width: 1em;
+          }
+        }
+      }
+
+      .steps {
+        &__stepsContainer {
+          padding-top: 0%;
+        }
+      }
+
+      .calories {
+        &__caloriesContainer {
+          padding-top: 0%;
+        }
+      }
+    }
+
+    .userBar {
+      gap: 0.5em;
+      padding-top: 0em;
+      padding-bottom: 0em;
+
+      &__DailyMeals,
+      &__info {
+        @include inputBar;
+      }
+    }
+  }
+}

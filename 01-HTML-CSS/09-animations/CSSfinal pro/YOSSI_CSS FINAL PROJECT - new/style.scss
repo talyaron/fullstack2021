@@ -6,7 +6,7 @@ body {
     line-height: 1.6em;
     margin: 0px;
     margin-top: 20px;
-    width: 1500px;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
 
@@ -17,7 +17,11 @@ body {
 //     border: 1px solid red;
 // }
 
-
+.wrapper{
+    width: 1500px;
+    margin-left: auto;
+    margin-right: auto;
+}
 a {
     text-decoration: none;
     color: #525252;
@@ -624,7 +628,7 @@ input {
     margin-top: 10em;
     padding-top: 3em;
     display: grid;
-    grid-template-columns: 10% 1fr 1fr 1fr 10%;
+    grid-template-columns: 18% 1fr 1fr 1fr 18%;
     align-items: center;
     align-items: flex-start;
     line-height: 0.5em;
@@ -670,7 +674,7 @@ input {
 .footer-bottom {
     background-color: rgb(236, 236, 236);
     display: grid;
-    grid-template-columns: 10% 1fr 1fr 1fr 10%;
+    grid-template-columns: 18% 1fr 1fr 1fr 18%;
     align-items: center;
     padding-bottom: 10em;
 

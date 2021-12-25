@@ -26,23 +26,24 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 div{
-box-
+    box-shadow: 0px 0px 0px 1px red;
 }
-body {
+
+body{
     margin-top: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    #wallet{
-        //width: 95vw;
-    }
 }
 
 .header {
     display: flex;
     justify-content: space-between;
     width: 90vw;
+    @media only screen and (min-width: 1200px){
+        width: 50vw;
+    }
 
     &__icon {
         z-index: 999;
@@ -234,7 +235,7 @@ body {
             &__message {
                 visibility: hidden;
                 height: 50px;
-                width: 300px;
+                width: 230px;
                 background-color: #383C3FD0;
                 backdrop-filter: blur(20px);
                 border-radius: 10px;
@@ -244,9 +245,13 @@ body {
                 transform-origin: right;
                 color: var(--color-white);
                 text-align: left;
-                font-size: 1rem;
+                font-size: 0.8rem;
                 line-height: 50px;
                 padding-left: 10px;
+                @media only screen and (min-width: 600px){
+                    width: 300px;
+                    font-size: 1rem;
+                }
             }
 
             &#note1 {
@@ -440,7 +445,9 @@ body {
     background-color: var(--color-light-grey);
     border-radius: 20px;
     margin: 2vw;
-
+    @media only screen and (min-width: 1200px){
+        width: 50vw;
+    }
     &-container {
         width: 100%;
         display: flex;
@@ -656,7 +663,11 @@ body {
         width: var(--width);
         aspect-ratio: 1;
         position: relative;
-
+        border: 1px solid blue;
+        @media only screen and (min-width: 1200px){
+            width: 50vw;
+            left: -20px;
+        }
         &__grid {
             perspective: 1000px;
             position: absolute;
@@ -665,10 +676,15 @@ body {
             aspect-ratio: 1;
             grid-template-columns: repeat(5, 1fr);
             grid-template-rows: repeat(5, 1fr);
-
+            @media only screen and (min-width: 1200px){
+                width: 50vw;
+            }
             &__cell {
-                width: 68px;
+                width: calc(var(--width)/5);
                 aspect-ratio: 1;
+                @media only screen and (min-width: 1200px){
+                    width: 10vw;
+                }
             }
 
             #cell1:hover~.wallet-value__scene {
@@ -818,12 +834,18 @@ body {
                 align-items: center;
                 height: var(--width);
                 overflow: hidden;
+                @media only screen and (min-width: 1200px){
+                    height: 50vw;
+                }
 
                 svg {
                     position: absolute;
                     width: calc(var(--width)*0.9);
                     aspect-ratio: 1;
                     animation: spin 30s linear infinite;
+                    @media only screen and (min-width: 1200px){
+                        width: 45vw;
+                    }
                     //border: 1px solid red;
                     //border-radius: 50%;
                 }
@@ -858,7 +880,9 @@ body {
 
     &-portfolio {
         margin-bottom: 90px;
-
+        @media only screen and (min-width: 1200px){
+            width: 45vw;
+        }
         &__title {
             display: flex;
             justify-content: space-between;
@@ -924,16 +948,33 @@ body {
 
                 &__graph {
                     position: absolute;
-                    left: 160px;
-                    width: 100px;
+                    left: 135px;
+                    width: 60px;
+                    @media only screen and (min-width: 341px){
+                        width: 90px;
+                    }
+                    @media only screen and (min-width: 375px){
+                        width: 110px;
+                    }
+                    @media only screen and (min-width: 540px){
+                        width: 250px;
+                    }
+                    @media only screen and (min-width: 748px){
+                        width: 400px;
+                    }
                     height: 70px;
-                    //border: 1px solid var(--color-light-grey);
+                    border: 1px solid var(--color-light-grey);
                     overflow: hidden;
                     img {
                         position: absolute;
-                        top: -10px;
-                        width: 180px;
-                        height: 70px;
+                        top: -7vw;
+                        width: 60vw;
+                        aspect-ratio: 3;
+                        @media only screen and (min-width: 748px){
+                            top: -7vw;
+                            width: 60vw;
+                            aspect-ratio: 4;
+                        }
                     }
                 }
 
