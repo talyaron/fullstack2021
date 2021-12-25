@@ -1,0 +1,573 @@
+// colors and font //
+
+$iconscolor: rgb(72, 69, 69);
+$fontcolor: rgb(133, 122, 150);
+$primarycolor1: #66529af1;
+$primarycolor2: #e052b5e3;
+$mainFontFamily: 'Neue Haas Grotesk Display Pro',
+sans-serif;
+$shadow: 1px 1px 1px #a8a7a7,
+1px 13px 26px rgba(99, 91, 105, 0.4);
+$bgcolor: #f0f1f6;
+
+// mixins and animations //
+
+@mixin flexCenter($justify, $direction) {
+
+    display: flex;
+    justify-content: $justify;
+    flex-direction: $direction;
+    align-items: center;
+}
+
+@mixin whitecloud {
+    position: absolute;
+    left: -70%;
+    animation-name: weather;
+    animation-duration: 17s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+
+    img {
+        height: 100%;
+        width: 100%;
+    }
+
+    height: 150px;
+    min-width: 200px;
+}
+
+@mixin border() {
+
+    border: 1px solid black;
+}
+
+@keyframes wiggle {
+
+    0% {
+        transform: rotate(-10deg);
+    }
+
+    50% {
+        transform: rotate(10deg);
+    }
+    100% {
+        transform: rotate(-10deg);
+    }
+
+
+}
+
+@keyframes weather {
+    from {
+        left: -70%;
+    }
+
+    to {
+        left: 200%;
+    }
+}
+
+@keyframes colorslide {
+    0% {
+        background-image: left;
+    }
+
+    100% {
+        background-position: right;
+    }
+}
+
+
+
+html {
+    height: 100%;
+}
+
+body {
+
+    background-color: $bgcolor;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 0.5em;
+
+}
+
+.cloud {
+    @include whitecloud();
+}
+
+.cloud2 {
+    @include whitecloud();
+    top: 55px;
+    animation-delay: 4s;
+    animation-duration: 19s;
+}
+
+.cloud3 {
+    @include whitecloud();
+    top: 70px;
+    animation-delay: 9s;
+    animation-duration: 21s;
+}
+
+.cloud4 {
+    @include whitecloud();
+    top: 0px;
+    animation-delay: 11s;
+    animation-duration: 15s;
+}
+
+.bigwrapper {
+
+    position: relative;
+    overflow-x: hidden;
+    margin-top: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 90vh;
+    border-radius: 20px;
+    padding: 0.7em;
+    font-family: $mainFontFamily;
+    background-color: $bgcolor;
+    box-shadow: $shadow;
+}
+
+.schetop {
+
+
+    @include flexCenter(space-between, row);
+    // @include border();
+
+    height: 4vh;
+    padding-inline: 0.5em;
+    color: $iconscolor;
+
+    &__back {
+        font-size: 27px;
+    }
+
+    &__search {
+        font-size: 30px;
+    }
+
+    div{
+        &:hover{
+        cursor: pointer
+        }
+    }
+
+}
+
+.schetitle {
+
+    @include flexCenter(space-around, column);
+    // @include border();
+
+    height: 13vh;
+
+    div {
+        height: 20%;
+        margin-bottom: 0.4em;
+        @include flexCenter(center, row);
+    }
+
+    h1,
+    h2,
+    p {
+        margin: 0px;
+    }
+
+    p {
+        font-size: 20px;
+        color: rgb(52, 51, 51);
+    }
+
+    h2,
+    h1 {
+        font-size: 30px;
+    }
+
+    z-index: 1;
+}
+
+.schedatebox {
+
+    @include flexCenter(space-between, row);
+    // @include border();
+    height: 7vh;
+    padding-inline: 0.5em;
+    z-index: 1;
+
+    div {
+        height: 100%;
+        @include flexCenter(center, row);
+    }
+
+    h3,
+    p {
+        font-size: 22px;
+        margin: 0px;
+        @include flexCenter(center, row);
+    }
+
+    p {
+        font-size: 17px;
+        color: $fontcolor;
+    }
+
+}
+
+.schecards {
+
+    @include flexCenter(flex-start, row);
+    align-items: flex-start;
+    // @include border();
+    border-radius: 5px;
+    height: 17vh;
+    overflow-x: scroll;
+
+    &__card {
+
+        @include flexCenter(space-around, column);
+        // @include border();
+        border-radius: 10px;
+        min-width: 3.5em;
+        background: #D8CAE1;
+        margin-inline: 0.5em;
+        position: relative;
+        transition: 0.4s;
+        margin-top: 0.5em;
+        height: 60%;
+
+        div {
+            // @include border();
+            margin-top: 0.5em;
+            height: 20%;
+            @include flexCenter(center, row);
+        }
+
+        p {
+            width: 80%;
+            margin: 0px;
+            padding: 0px;
+            height: 100%;
+        }
+
+        .date {
+            p {
+                font-weight: 700;
+                font-size: 20px;
+            }
+        }
+
+        .day {
+            p {
+                font-weight: 200;
+            }
+        }
+
+        .bell {
+
+            color: rgb(255, 255, 255);
+            display: none;
+
+            &:active {
+                color: rgb(254, 229, 146)
+            }
+
+            &:hover {
+                transform-origin: center top;
+                animation-name: wiggle;
+                animation-duration: 800ms;
+                animation-iteration-count: infinite;
+                animation-timing-function: ease-in-out;
+            }
+        }
+
+        .circle {
+            width: 18px;
+            height: 18px;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            background-color: rgb(201, 61, 61);
+            border: 3px solid #ffffff;
+            border-radius: 50%;
+            position: absolute;
+            top: -15px;
+            right: -5px;
+            display: none;
+        }
+
+        &:hover {
+
+            cursor: pointer;
+            height: 76%;
+            background-image: linear-gradient(145deg,             
+            $primarycolor1, $primarycolor2,
+            $primarycolor1);
+            background-position: left;
+            background-size: 500%;
+            animation-name: colorslide;
+            animation-duration: 4s;
+            animation-direction: alternate;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;
+            color: white;
+
+            .bell {
+                display: block;
+            }
+
+            .circle {
+                display: block;
+            }
+        }
+    }
+}
+
+.progress {
+
+    // @include border();
+    height: 12vh;
+    padding-inline: 0.5em;
+    margin: 0px;
+
+    &__title {
+        height: 30%;
+        font-size: 22px;
+        font-weight: 700;
+        margin-bottom: 12px;
+        padding: 0px;
+
+        p {
+            margin: 0px;
+            padding: 0px;
+
+        }
+    }
+
+    &__bar {
+
+        display: flex;
+        align-items: center;
+        background: #D8D5E0;
+        height: 20px;
+        border-radius: 25px;
+
+        &__btn {
+
+            width: 30px;
+            height: 30px;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            background-color: white;
+            border: 8px solid #464E85;
+            border-radius: 50px;
+            margin-left: -10px;
+
+        }
+
+        &__pbar {
+            padding: 0px;
+            margin: 0px;
+            border-radius: 25px;
+            height: 100%;
+            width: 67%;
+            background-image: linear-gradient(to right,             
+            $primarycolor1, $primarycolor2,
+            $primarycolor1);
+            background-position: left;
+            background-size: 500%;
+            animation-name: colorslide;
+            animation-duration: 4s;
+            animation-direction: alternate;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;
+        }
+    }
+
+    &__mins {
+
+        font-size: 20px;
+        font-weight: 700;
+        margin: 0px;
+        margin-top: 0.7vh;
+        padding: 0px;
+
+        span {
+            font-size: 18px;
+            font-weight: 300;
+        }
+    }
+}
+
+.image {
+
+    @include flexCenter(center, row);
+    align-items: flex-end;
+    height: 35%;
+    margin-bottom: -12px;
+
+
+    img {
+        width: auto;
+        height: 100%;
+    }
+
+}
+
+
+@media only screen and (max-width: 300px) {
+
+    .schetitle {
+
+        p {
+            font-size: 18px;
+        }
+
+        h2,
+        h1 {
+            font-size: 25px;
+        }
+    }
+
+}
+
+
+@media only screen and (min-width: 900px) {
+
+    @media only screen and (max-height: 700px) {
+
+        .schetitle {
+            p {
+                font-size: 17px;
+            }
+
+            h2 {
+                font-size: 22px;
+            }
+
+            h1 {
+                font-size: 22px;
+            }
+        }
+
+        .progress {
+            height: 15vh;
+
+            &__title {
+                font-size: 22px;
+            }
+        }
+
+        .schecards {
+
+            &__cards {
+                &:hover {
+                    height: 83%;
+                }
+            }
+        }
+    }
+
+    .schetitle {
+
+        div {
+            margin-block: 10px;
+        }
+
+        p {
+            font-size: 25px;
+        }
+
+        h2,
+        h1 {
+            font-size: 35px;
+        }
+    }
+
+    body {
+        align-items: center;
+    }
+
+    .bigwrapper {
+        width: 850px;
+    }
+
+    .schetop {
+        height: 40px;
+    }
+
+    .schetitle {
+
+        justify-content: space-around;
+        height: 100px;
+
+        div {
+            margin-block: 10px;
+        }
+
+
+        p {
+            font-size: 25px;
+            color: rgb(52, 51, 51);
+        }
+
+        h2,
+        h1 {
+            font-size: 35px;
+        }
+    }
+
+    .schedatebox {
+        height: 70px;
+
+        h3,
+        p {
+            font-size: 30px;
+        }
+
+        p {
+            font-size: 25px;
+            color: $fontcolor;
+        }
+    }
+
+    .progress {
+        margin-top: 10px;
+        height: 120px;
+        margin-bottom: -40px
+    }
+
+    .schecards {
+
+        @include flexCenter(center, row);
+        flex-wrap: wrap;
+        height: 300px;
+
+        &__card {
+
+            height: 30%;
+            justify-content: space-around;
+
+            div {
+                margin-top: 0px;
+            }
+
+            &:hover {
+                justify-content: space-around;
+                height: 30%;
+            }
+
+            .circle {
+                top: -7px;
+            }
+
+        }
+    }
+}
