@@ -59,7 +59,7 @@ body {
             //padding-left: 80px;
 
             &__box {
-
+                
                 background-color: #152c39;
                 border-radius: 20px;
                 width: 400px;
@@ -73,14 +73,14 @@ body {
                     display: grid;
                     gap: 1px;
                     grid-template-rows: 3fr;
-                    grid-template-columns:3fr 3fr;
+                    grid-template-columns:1fr 3fr;
 
                     &__text {
                         display: grid;
                         grid-template-columns: 1fr;
                         grid-template-rows: 0.1fr 0.5fr;
                         grid-row: 1;
-                       
+                        grid-column: 1;
                         &--text{
                                 grid-row: 1;
                         grid-column: 2; 
@@ -129,9 +129,11 @@ body {
 }
                     &--bigIcon {
                        margin: auto;
-                        grid-column: 5;
+                        grid-column: 2;
                         grid-row: 1;
-
+                        display: grid;
+                        grid-template-rows: 1fr;
+                        grid-template-columns: 1fr;
                         .fa-gradient {
                             font-size: 5em;
                             background: -webkit-gradient(linear, left top, left bottom, from(#5f95fc), to(#cc63f9));
@@ -471,13 +473,15 @@ body {
                                 transform: scale(0.7);
                             }
                         }
+                        &--bigIcons{
+                            grid-column: 1;
                         .rainy {
                             display: grid;
                             grid-template-columns: repeat(5, 1fr);
                             max-width: 15px;
                             grid-row: 2;
                             gap: 15px;
-                            grid-column: 6;
+                            grid-column: 1;
 
                             .rain {
                                 background-color: #5f95fc;
@@ -508,6 +512,7 @@ body {
                                 transform: translateY(15vh) skew(-30deg, -20deg);
                             }
                         }
+                    }
                     }
                 }
                     &__down {
@@ -1302,7 +1307,7 @@ body {
                                         transform: scale(0.7);
                                     }
                                 }
-                                
+                                &--bigIcons{
                                 .rainy {
                                     display: grid;
                                     grid-template-columns: repeat(5, 1fr);
@@ -1341,6 +1346,7 @@ body {
                                         transform: translateY(10vh) skew(-30deg, -20deg);
                                     }
                                 }
+                            }
                             }
                         }
                             &__down {
