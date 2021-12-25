@@ -59,7 +59,14 @@ nav > ul > li > a {
   font-size: 18px;
   transition: 0.7s;
 }
-nav > ul > li > a::before {
+nav > ul > li > a .CarName {
+  text-align: center;
+  padding-bottom: 1.25rem;
+  size: 10px;
+  outline: none;
+  position: relative;
+}
+nav > ul > li > a .CarName::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -68,6 +75,12 @@ nav > ul > li > a::before {
   height: 3px;
   background-color: red;
   transition: width 0.75s ease-out;
+}
+nav > ul > li > a .CarName:hover {
+  color: red;
+}
+nav > ul > li > a .CarName:hover::after {
+  width: 100%;
 }
 
 nav > ul > li > a:hover {

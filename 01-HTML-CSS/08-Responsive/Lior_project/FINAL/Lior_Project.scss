@@ -71,8 +71,16 @@ nav > ul > li > a
     font-size: 18px;
     transition: 0.7s;
 
+    .CarName
+    {
+       text-align: center;
+       padding-bottom: 1.25rem;
+       size: 10px;
+       outline: none;
+       position: relative;
 
-    &::before
+    //underline for each navbar picture
+       &::after
     {
         content: '';
         position: absolute;
@@ -83,6 +91,20 @@ nav > ul > li > a
         background-color: red;
         transition:  width 0.75s ease-out;
     }
+
+         &:hover
+         {
+             color: red;
+
+            &::after
+            {
+                width: 100%;
+            }   
+         
+         }
+        }
+
+
 }
 
 nav > ul > li > a:hover
