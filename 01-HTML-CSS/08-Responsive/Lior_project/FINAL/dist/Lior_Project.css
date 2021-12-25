@@ -216,7 +216,6 @@ nav ul.menu-area ul li a:hover {
   position: absolute;
   top: 50%;
   transform: translateY(-50%) rotate(-45deg);
-  transition: all 5s ease-in;
 }
 
 [id^=item] {
