@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="dist/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/v4-shims.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <title>Mango-Cart</title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header__top">
+            <div></div>
+            <div><img class="header__top__logo-pic" src="images/mango-logo.png" alt=""></div>
+
+            <div class="header__top__search-box">
+                <input type="text" class="input" placeholder="search" style="text-align: center;">
+            </div>
+
+            <div class="header__top__log-sign">
+                <div><a href="">log in</a></div>
+                <div class="header__top__log-sign__sign-up"><a href="">sign up</a></div>
+                <div>
+                    <div class="popup" onclick="myFunction()">Enslish <i class="fas fa-chevron-down"
+                            style="color: #b4b4b4;"></i>
+                        <span class="popuptext" id="myPopup">
+                            <div>עברית</div>
+                            <div style="color: #ff9d02;">English</div>
+                            <div>French</div>
+                            <div>Swedish</div>
+                            <div>German</div>
+                            <div>Danish</div>
+                            <div>Indian</div>
+                            <div>Chinese</div>
+                            <div>Italian</div>
+                            <div>Spanish</div>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div></div>
+        </div>
+
+
+
+        <div class="header__nav">
+            <div></div>
+            <div class="header__nav__city"><i class="fas fa-arrow-left"></i>
+
+            </div>
+            <div class="header__nav__middle">
+                <button class="header__nav__middle__button-on"><i class="fas fa-shopping-cart"></i> Shopping Cart</button>
+                <button class="header__nav__middle__button-off"> <a href=""><i class="fas fa-pepper-hot"></i>
+                        Restaurants</a></button>
+                <button class="header__nav__middle__button-off"> <a href=""><i class="fas fa-barcode"></i>
+                        Stores</a></button>
+            </div>
+            <div></div>
+            <div class="share"><i class="fas fa-share-alt"></i></div>
+        </div>
+
+    </header>
+
+    <div class="container-categories-cart__box">
+        <div><img class="container-categories-cart__box__pic" style="background-color: rgb(209, 240, 229);"
+                src="images/Apple.png" alt=""></div>
+        <div class="container-categories-cart__box__text">
+            <h2>Apple</h2>
+            <br>
+            <h3>189$<span> 199$</span></h3>
+
+            <button class="add">Add New</button>
+        </div>
+        <div class="container-categories-cart__box__button">
+            <button class="plus">+</button>
+            <button class="minus">-</button>
+        </div>
+    </div>
+    <div class="container-categories-cart__box">
+        <div><img class="container-categories-cart__box__pic" style="background-color: rgb(219, 240, 209);"
+                src="images/Coconut.png" alt=""></div>
+        <div class="container-categories-cart__box__text">
+            <h2>Coconut</h2>
+            <br>
+            <h3>124$<span> 139$</span></h3>
+            <button class="add">Add New</button>
+        </div>
+        <div class="container-categories-cart__box__button">
+            <button class="plus">+</button>
+            <button class="minus">-</button>
+        </div>
+    </div>
+    <div class="container-categories-cart__box">
+        <div><img class="container-categories-cart__box__pic" style="background-color: rgb(240, 209, 209);"
+                src="images/Cherries.png" alt=""></div>
+        <div class="container-categories-cart__box__text">
+            <h2>Cherry</h2>
+            <br>
+            <h3>114$<span> 119$</span></h3>
+
+            <button class="add">Add New</button>
+
+        </div>
+        <div class="container-categories-cart__box__button">
+            <button class="plus">+</button>
+            <button class="minus">-</button>
+        </div>
+    </div>
+
+    <div class="container-checkout">
+        <h2>Order Summery</h2>
+        <div class="container-checkout__box">
+            <div class="container-checkout__box__text">Cart</div>
+            <div class="container-checkout__box__price">476$</div>
+        </div>
+        <div class="container-checkout__box">
+            <div class="container-checkout__box__text">Tax</div>
+            <div class="container-checkout__box__price">4$</div>
+        </div>
+        <div class="container-checkout__box">
+            <div class="container-checkout__box__text">Delivery Charge</div>
+            <div class="container-checkout__box__price">90$</div>
+        </div>
+        <span></span>
+        <div class="container-checkout__box">
+            <div class="container-checkout__box__text">Total Price</div>
+            <div class="container-checkout__box__price-total">510$</div>
+        </div>
+        
+            <button class="pay">Check Out</button>
+            
+    
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        // When the user clicks on div, open the popup
+        function myFunction() {
+            var popup = document.getElementById("myPopup");
+            popup.classList.toggle("show");
+        }
+    </script>
+</body>
+
+</html>
