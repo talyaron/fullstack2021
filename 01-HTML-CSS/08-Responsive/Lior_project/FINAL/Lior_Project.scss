@@ -69,6 +69,8 @@ nav > ul > li > a
     padding: 5px 39px;
     color: black;
     font-size: 18px;
+    transition: 0.7s;
+
 
     &::before
     {
@@ -106,6 +108,8 @@ nav ul> li.dropDown > a::after
     margin-right: 0px;
     color: black;
 }
+
+
 
 nav>ul > li:hover
 {
@@ -164,6 +168,7 @@ nav ul.menu-area ul li a
     margin-top: 10px;
     color: black;
     text-transform: none;
+    transition: 0.7s;
 }
 
 .third_column
