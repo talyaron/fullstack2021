@@ -1,540 +1,1991 @@
-
-//     body{ 
-//         max-width: 100vw;
-//         background-color: 
-//         #081b25;
-//         font-family: 'Roboto', sans-serif;
-//        max-height: 50vh;
-//        .main{
-//        text-align: center;
-//        }
-//     }
-//         .header{
-//             margin: auto;
-//             padding-top: 10px;
-//             display: grid;
-//             grid-template-columns: repeat(29, 50px);
-//             grid-template-rows: repeat(3, 50px);
-//             max-width: 800px;
-//             .fa-search{
-//                 color: #25404e;
-//                 grid-column: 2;
-//                 grid-row: 2;
-//             }
-//             .fa-pen{
-//                 grid-column: 16;
-//                 color: #25404e;
-//                 grid-row: 2;
-//             }
-   
-        
-     
-//             p{
-//                 grid-row: 2;
-//                 grid-column: 5;
-//                 color: #25404e;
-//                 font-size: 18px;
-//             }
-          
-//         }
-//           .contain{
-//               margin: auto;
-//               align-items: center;
-//       display: grid;
-//       grid-template-columns: repeat(2,400px);
-//     grid-template-rows: repeat(3, 1fr);
-//       gap: 5px;
-//       //padding-left: 80px;
-//           max-width: 800px;
-//             max-height: 1200px;
-//           &__box{
- 
-//                 background-color: #152c39;
-//                 border-radius: 20px;
-//                 width:400px;
-//                 height:400px;
-//                 display: grid;
-//                 grid-row: 1;
-//                 grid-column: 1;
-//                 grid-template-columns: repeat(3, 63px);
-//                 grid-template-rows: repeat(2,100px);
-//                 gap: 10px;
-//                 &--text{
-//                     padding-top: 5px;
-//                     grid-row: 1;
-//                     grid-column: 2;
-//                     display: grid;
-//                     grid-template-rows: repeat(14, 20px);
-//                     grid-template-columns: repeat(8, 20px);
-//                     h2{
-//                         grid-row: 1;
-//                         grid-column: 2;
-//                         color: white;
-//                     }
-//                     .city{
-//                         grid-row: 3;
-//                         grid-column: 1;
-//                         color: white;
-//                         font-size: 20px;
-//                         width: 100px;
-//                     }
-//                    p{
-//                         grid-row: 5;
-//                         grid-column: 2;
-//                         font-size: 20px;
-//                         color: #3d5564;
-//                     }
-//                     i{
-//                         grid-column: 4;
-//                     }
-                
-            
-                 
-//                 .fa-gradient{
-//                    grid-column: 10!important;
-//                   background: -webkit-gradient(linear, left top, left bottom, from(#5f95fc), to(#cc63f9));
-//                   -webkit-background-clip: text;
-//                   -webkit-text-fill-color: transparent;
-//                   display: initial;
-//                   grid-column: 5;
-//                   grid-row: 2;
-//                 }
-//                 .fa-cloud-sun{
-//                     grid-column: 5;
-//                     grid-row: 2;
-//                     width: 100px; height: 100px;
-//                 }
-                
-//                     .fa-tint{
-//                         grid-row: 12;
-//                         grid-column: 2/3;
-//                         color: #436081;
-//                         font-size: 1.5em;
-//                     }
-//                     .tint{
-//                         grid-column: 4/4;
-//                         color: white;
-//                         grid-row: 11;
-//                         width: 30px;
-//                         height: 10px!important;
-//                     }
-//                    .fa-wind{
-//                         grid-column: 6/6;
-//                         color: #436081;
-//                         grid-row: 12;
-//                         width: 25px;
-//                         font-size: 1.5em;
-//                     }
-//                     .wind{
-//                         grid-column: 8;
-//                         color: white;
-//                         grid-row: 11;
-//                     }
-                
-//                 }
-//             }
-//     }
-// .bar{
-    
-//     margin: auto;
-//     padding-top: 50px;
-//     padding-left: 70px;
-//     padding-bottom: 20px;
-//     display: grid;
-//     grid-template-columns: repeat(4, 1fr);
-//    &__icons{
-// #active:target{
-//     color: #7b446a;
-// }
-// }
-// }
-@media only screen and(max-width:600px){
-    body{
-        max-width: 600px;
-        background-color: 
+body {
+    max-width: 100vw;
+    background-color:
         #081b25;
-        font-family: 'Roboto', sans-serif;
-       max-height: 100vh;
-    }
-    
-        .header{
-            padding-top: 10px;
+    font-family: 'Roboto', sans-serif;
+
+    .main {
+        justify-content: center;
+        margin: auto;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.5fr 3fr 0.6fr;
+
+        .header {
+            margin: auto;
             display: grid;
-            grid-template-columns: repeat(12, 50px);
-            grid-template-rows: repeat(3, 50px);
-          
-            .fa-search{
-                color: #25404e;
-                grid-column: 2;
-                grid-row: 2;
-            }
-            .fa-pen{
-                grid-column: 11;
-                color: #25404e;
-                grid-row: 2;
-            }
-        
-     
-            p{
-                grid-row: 2;
-                grid-column: 4;
-                color: #25404e;
-                font-size: 18px;
-            }
-          
-        }
-          .contain{
-      display: grid;
-      grid-template-columns: repeat(2,200px);
-    grid-template-rows: repeat(3, 1fr);
-      gap: 5px;
-      padding-left: 80px;
-          max-width: 600px;
-            max-height: 600px;
-          &__box{
- 
-                background-color: #152c39;
-                border-radius: 20px;
-                width:200px;
-                height:200px;
-                display: grid;
-                grid-row: 1;
-                grid-column: 1;
-                grid-template-columns: repeat(3, 63px);
-                grid-template-rows: repeat(2,100px);
-                gap: 5px;
-                &--text{
-                    padding-top: 5px;
-                    grid-row: 1;
+            grid-template-columns: 49fr 2fr;
+            grid-template-rows: 1fr;
+
+            //max-width: 800px;
+            &__icon {
+                .fa-search {
+                    color: #25404e;
                     grid-column: 2;
                     display: grid;
-                    grid-template-rows: repeat(8, 20px);
-                    grid-template-columns: repeat(8, 20px);
-                   
-                    h2{
-                        grid-row: 1;
+                    grid-template-rows: 1fr;
+                    grid-template-columns: 0.2fr 0.8fr;
+
+                    span {
+
                         grid-column: 2;
-                        color: white;
+                        color: #25404e;
+                        font-size: 18px;
+                        font-family: 'Roboto', sans-serif;
                     }
-                    .city{
+                }
+
+                .fa-pen {
+
+                    grid-column: 10;
+                    color: #25404e;
+                    grid-row: 1;
+                }
+
+
+
+
+
+            }
+        }
+
+        .contain {
+            margin: auto;
+            align-items: center;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr;
+            gap: 5px;
+            //padding-left: 80px;
+
+            &__box {
+                
+                background-color: #152c39;
+                border-radius: 20px;
+                width: 400px;
+                height: 400px;
+                gap: 10px;
+
+                &__up {
+                    
+                    grid-row: 1;
+                    grid-column: 1;
+                    display: grid;
+                    gap: 1px;
+                    grid-template-rows: 3fr;
+                    grid-template-columns:1fr 3fr;
+
+                    &__text {
+                        display: grid;
+                        grid-template-columns: 1fr;
+                        grid-template-rows: 0.1fr 0.5fr;
+                        grid-row: 1;
+                        grid-column: 1;
+                        &--text{
+                                grid-row: 1;
+                        grid-column: 2; 
+                        h2 {
+                       
+                            color: white;
+                        }
+                    }
+
+                    &--city {
+                        // margin-top: auto;
+                        grid-row: 2;
+                       grid-column: 2;
+                    
+                        
+
+                        h6 {
+                            color: white;
+                            font-size: 20px;
+                        }
+                    }
+                    &--state{
                         grid-row: 2;
                         grid-column: 2;
-                        color: white;
-                        font-size: 16px;
-                        width: 100px;
-                    }
-                   p{
-                        grid-row: 4;
-                        grid-column: 2;
-                        font-size: 14px;
-                        color: #3d5564;
-                    }
-                
-            
-                 
-                .fa-gradient{
-                    background: -webkit-gradient(linear, left top, left bottom, from(#5f95fc), to(#cc63f9));
-                    -webkit-background-clip: text;
-                    -webkit-text-fill-color: transparent;
-                    display: initial;
-                    font-size: 3em;
-                    grid-column: 5!important;
-                    grid-row: 2;
-                }
-                .fa-gradients{
-                    background: -webkit-gradient(linear, left top, left bottom, from(#5f95fc), to(#cc63f9));
-                    -webkit-background-clip: text;
-                    -webkit-text-fill-color: transparent;
-                    display: initial;
-                    font-size: 5em;
-                    animation-duration: 2s;
-                    animation-delay: 2s;
-                    animation-iteration-count: 5;
-                    width: 70px;
-                    height: 70px;
-                }
-                  .fa-snow{
-                       animation-name: snowflakes;
-                    animation-duration: 2s;
-                    animation-delay: 2s;
-                    animation-iteration-count: 5;
-                }
-                   @keyframes snowflakes{
-                   
-                    from   { transform: translate(0px, 0px) scale(0.2); 
-                    }
-                    25%  { transform: translate(0px, 15px) scale(0.2);
-                    }
-                    50%  { transform: translate(0px, 20px) scale(0.2);
-                    }
-                    75%  { transform: translate(0px, 30px) scale(0.2); 
-                    }
-                    to { transform: translate(0px, 40px) scale(0.2);
-                    }
 
-                }
-                .a{
-                    animation-name: snowy;
-                    opacity: 0;
-                    grid-column: 4;
-                }
-                @keyframes snowy{
-                    from   { transform: translate(20px, 0px) scale(0.1); opacity: 0.5;
-                    }
-                    25%  { transform: translate(10px, 15px) scale(0.1); opacity: 1;
-                    }
-                    50%  { transform: translate(20px, 20px) scale(0.1); opacity: 1;
-                    }
-                    75%  { transform: translate(10px, 30px) scale(0.1); opacity: 1;
-                    }
-                    to { transform: translate(20px, 40px)scale(0.1); opacity: 1;
-                    }
-                }
-                .b{
-                    animation-name: snowa;
-                    opacity: 0;
-                    grid-column: 5;
-                }
-                @keyframes snowa {
-                    from   { transform: translate(39px, 0px) scale(0.1); opacity: 0.5;
-                    }
-                    25%  { transform: translate(25px, 15px) scale(0.1); opacity: 1;
-                    }
-                    50%  { transform: translate(30px, 20px) scale(0.1); opacity: 1;
-                    }
-                    75%  { transform: translate(39px, 30px) scale(0.1); opacity: 1;
-                    }
-                    to { transform: translate(30px, 40px)scale(0.1); opacity: 1;
-                    }
-                }
-                .c{
-                    animation-name: snowc;
-                    opacity: 0;
-                    grid-column: 6;
-                }
-                @keyframes snowc {
-                    from   { transform: translate(20px, 0px) scale(0.1); opacity: 0.5;
-                    }
-                    25%  { transform: translate(10px, 15px) scale(0.1); opacity: 1;
-                    }
-                    50%  { transform: translate(20px, 20px) scale(0.1); opacity: 1;
-                    }
-                    75%  { transform: translate(10px, 30px) scale(0.1); opacity: 1;
-                    }
-                    to { transform: translate(-20px, 40px)scale(0.1); opacity: 1;
-                    }
-                }
-                .d{
-                    animation-name: snowd;
-                    opacity: 0;
-                    grid-column: 7;
-                }
-                @keyframes snod {
-                    from   { transform: translate(10px, 0px) scale(0.1); opacity: 0.5; 
-                    }
-                    25%  { transform: translate(15px, 15px) scale(0.1); opacity: 1;
-                    }
-                    50%  { transform: translate(10px, 20px) scale(0.1); opacity: 1;
-                    }
-                    75%  { transform: translate(15px, 30px) scale(0.1); opacity: 1;
-                    }
-                    to { transform: translate(10px, 40px)scale(0.1); opacity: 1;
-                    }
-                }
-                .e{
-                    animation-name: snowe;
-                    opacity: 0;
-                    grid-column: 5;
-                }
-                @keyframes snowe {
-                    from   { transform: translate(10px, 0px) scale(0.1); opacity: 0.5;
-                    }
-                    25%  { transform: translate(39px, 15px) scale(0.1); opacity: 1;
-                    }
-                    50%  { transform: translate(30px, 20px) scale(0.1); opacity: 1;
-                    }
-                    75%  { transform: translate(39px, 30px) scale(0.1); opacity: 1;
-                    }
-                    to { transform: translate(25px, 40px)scale(0.1); opacity: 1;
-                    }
-                }
-                .f{
-                    animation-name: snowf;
-                    opacity: 0;
-                    grid-column: 3;
-                }
-                @keyframes snowf {
-                    from   { transform: translate(-20px, 0px) scale(0.1); opacity: 0.5;
-                    }
-                    25%  { transform: translate(35px, 15px) scale(0.1); opacity: 1;
-                    }
-                    50%  { transform: translate(-10px, 20px) scale(0.1); opacity: 1;
-                    }
-                    75%  { transform: translate(36px, 30px) scale(0.1); opacity: 1;
-                    }
-                    to { transform: translate(25px, 40px)scale(0.1); opacity: 1;
-                    }
-                }
-                .g{
-                    animation-name: snowg;
-                    opacity: 0;
-                    grid-column: 6;
-                }
-                @keyframes snowg {
-                    from   { transform: translate(-30px, 0px) scale(0.1); opacity: 0.5; 
-                    }
-                    25%  { transform: translate(5px, 15px) scale(0.1); opacity: 1;
-                    }
-                    50%  { transform: translate(35px, 20px) scale(0.1); opacity: 1;
-                    }
-                    75%  { transform: translate(-40px, 30px) scale(0.1); opacity: 1;
-                    }
-                    to { transform: translate(30px, 40px)scale(0.1); opacity: 1;
-                    }
-                }
-                .h{
-                    animation-name: snowh;
-                    opacity: 0;
-                    grid-column: 5;
-                }
-                @keyframes snowh {
-                    from   { transform: translate(-30px, 0px) scale(0.1); opacity: 0.5; 
-                    }
-                    25%  { transform: translate(35px, 15px) scale(0.1); opacity: 1;
-                    }
-                    50%  { transform: translate(12px, 20px) scale(0.1); opacity: 1;
-                    }
-                    75%  { transform: translate(30px, 30px) scale(0.1); opacity: 1;
-                    }
-                    to { transform: translate(-10px, 40px)scale(0.1); opacity: 1;
-                    }
-                }
-              
-                .fa-circle{
-                    animation-name: sun;
-                    animation-duration: 4s;
-                    animation-delay: 2s;
-                    animation-iteration-count: 3;
-                }
-                  @keyframes sun {
-                    from{
-                        transform: scale(0.7);
-                    }
-                    40%{
-                        transform: scale(0.9);
-                    }
-                    80%{
-                        transform: scale(90px);
-                    }
-                    to{
-                        transform: scale(0.7);
-                    }
-                }
-                .rainy{
-                    display: grid;
-                    grid-template-columns: repeat(5, 10px);
-                    max-width: 10px;
-                    grid-row: 2;
-                    gap: 2px;
-                    grid-column: 6;
-                    
-                .rain{
-                    background-color: #5f95fc;
-                    width: 2px;
-                    height: 6px;
-                    animation-name: rains;
-                    animation-duration: 1s;
-                    animation-delay: 2s;
-                    animation-iteration-count: 6;
-                    opacity: 0;
-                    
-                }
-            }
-                @keyframes rains {
-                    from{
-                    opacity: 0.5;
-                    transform: translateY(5vh) skew(-30deg, -20deg);}
-                    50%{
-                        transform: translateY(10vh) skew(-30deg, -20deg); 
-                        opacity: 1; 
-                    }
-                  to{
-                    opacity: 0.5;
-                    transform: translateY(15vh) skew(-30deg, -20deg);}
-                }
-             
-              
-                .fa-cloud-sun{
-                    grid-column: 5;
-                    grid-row: 2;
-                }
-                
-                    .fa-tint{
-                        grid-row: 8;
-                        grid-column: 2/3;
-                        color: #436081;
-                        font-size: 1.2em;
-                          animation-name: tint;
-                        animation-duration: 2s;
-                        animation-delay: 2s;
-                        animation-iteration-count: 4;
-                    }
-                    @keyframes tint {
-                        50% {background-position: 1px 0px; background-image: url('https://htmlcolorcodes.com/assets/images/colors/bright-blue-color-solid-background-1920x1080.png'); -webkit-background-clip: text;
-                            -webkit-text-fill-color: transparent;}
-                        100% {background-position: 5px 0px; background-image: url('https://www.solidbackgrounds.com/images/3840x2160/3840x2160-light-sea-green-solid-color-background.jpg'); -webkit-background-clip: text;
-                            -webkit-text-fill-color: transparent;}   
-                    }
-                    .tint{
-                        grid-column: 3/4;
-                        color: white;
-                        grid-row: 7;
-                        width: 50px;
-                       
-                    }
-                   .fa-wind{
-                        grid-column: 5/6;
-                        color: #436081;
-                        grid-row: 8;
-                        width: 25px;
-                        font-size: 1.2em;
-                        animation-name: wind;
-                        animation-duration: 2s;
-                        animation-delay: 2s;
-                        animation-iteration-count: 3;
-                    }
-                    @keyframes wind {
-                        from{
-                            opacity: 1; transform: translate(5px,0);
+                        p {
+
+                            font-size: 20px;
+                            color: #3d5564;
                         }
-                        25%{
-                            opacity: 0.5; transform: translate(0px,0);
-                        }
-                        50%{
-                            opacity: 0; transform: translate(5px,0);
-                        }
-                        75%{
-                            opacity: 0.5; transform: translate(0px,0);
-                        }
-                        to{
-                            opacity: 1; transform: translate(5px,0);
+                   }
+
+                    i {
+                        grid-column: 4;
+
+                        span {
+
+                            grid-row: 3;
+                            grid-column: 2;
+                            font-size: 20px;
+                            color: #3d5564;
+                            font-family: 'Roboto', sans-serif;
                         }
                     }
-                    .wind{
-                        grid-column: 7;
-                        color: white;
-                        grid-row: 7;
-                    }
-                
-                }
-            }
-    }
-.bar{
-    padding-top: 40px;
-    padding-left: 70px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
 
 }
+                    &--bigIcon {
+                       margin: auto;
+                        grid-column: 2;
+                        grid-row: 1;
+                        display: grid;
+                        grid-template-rows: 1fr;
+                        grid-template-columns: 1fr;
+                        .fa-gradient {
+                            font-size: 5em;
+                            background: -webkit-gradient(linear, left top, left bottom, from(#5f95fc), to(#cc63f9));
+                            -webkit-background-clip: text;
+                            -webkit-text-fill-color: transparent;
+                            display: initial;
+                        }
 
+                        .fa-gradients {
+                            background: -webkit-gradient(linear, left top, left bottom, from(#5f95fc), to(#cc63f9));
+                            -webkit-background-clip: text;
+                            -webkit-text-fill-color: transparent;
+                            display: initial;
+                            font-size: 5em;
+                            animation-duration: 5s;
+                            animation-delay: 2s;
+                            animation-iteration-count: 5;
+
+                        }
+
+                        .fa-snow {
+                            animation-name: snowflakes;
+                            animation-duration: 5s;
+                            animation-delay: 2s;
+                            animation-iteration-count: 5;
+                        }
+
+                        @keyframes snowflakes {
+
+                            from {
+                                transform: translate(0px, 0px) scale(0.2);
+                            }
+
+                            25% {
+                                transform: translate(0px, 25px) scale(0.2);
+                            }
+
+                            50% {
+                                transform: translate(0px, 20px) scale(0.2);
+                            }
+
+                            75% {
+                                transform: translate(0px, 30px) scale(0.2);
+                            }
+
+                            to {
+                                transform: translate(0px, 40px) scale(0.2);
+                            }
+
+                        }
+
+                        .a {
+                            animation-name: snowy;
+                            opacity: 0;
+                            grid-column: 4;
+                        }
+
+                        @keyframes snowy {
+                            from {
+                                transform: translate(20px, 5px) scale(0.2);
+                                opacity: 0.5;
+                            }
+
+                            25% {
+                                transform: translate(-70px, 35px) scale(0.2);
+                                opacity: 1;
+                            }
+
+                            50% {
+                                transform: translate(-30px, 40px) scale(0.2);
+                                opacity: 1;
+                            }
+
+                            75% {
+                                transform: translate(50px, 30px) scale(0.2);
+                                opacity: 1;
+                            }
+
+                            to {
+                                transform: translate(20px, 45px)scale(0.2);
+                                opacity: 1;
+                            }
+                        }
+
+                        .b {
+                            animation-name: snowa;
+                            opacity: 0;
+                            grid-column: 5;
+                        }
+
+                        @keyframes snowa {
+                            from {
+                                transform: translate(39px, 15px) scale(0.2);
+                                opacity: 0.5;
+                            }
+
+                            25% {
+                                transform: translate(50px, 35px) scale(0.2);
+                                opacity: 1;
+                            }
+
+                            50% {
+                                transform: translate(20px, 20px) scale(0.2);
+                                opacity: 1;
+                            }
+
+                            75% {
+                                transform: translate(49px, 40px) scale(0.2);
+                                opacity: 1;
+                            }
+
+                            to {
+                                transform: translate(-30px, 45px)scale(0.2);
+                                opacity: 1;
+                            }
+                        }
+
+                        .c {
+                            animation-name: snowc;
+                            opacity: 0;
+                            grid-column: 6;
+                        }
+
+                        @keyframes snowc {
+                            from {
+                                transform: translate(-20px, 25px) scale(0.2);
+                                opacity: 0.5;
+                            }
+
+                            25% {
+                                transform: translate(10px, 55px) scale(0.2);
+                                opacity: 1;
+                            }
+
+                            50% {
+                                transform: translate(20px, 60px) scale(0.2);
+                                opacity: 1;
+                            }
+
+                            75% {
+                                transform: translate(50px, 70px) scale(0.2);
+                                opacity: 1;
+                            }
+
+                            to {
+                                transform: translate(-50px, 95px)scale(0.2);
+                                opacity: 1;
+                            }
+                        }
+
+                        .d {
+                            animation-name: snowd;
+                            opacity: 0;
+                            grid-column: 7;
+                        }
+
+                        @keyframes snod {
+                            from {
+                                transform: translate(10px, 20px) scale(0.2);
+                                opacity: 0.5;
+                            }
+
+                            25% {
+                                transform: translate(-55px, 15px) scale(0.2);
+                                opacity: 1;
+                            }
+
+                            50% {
+                                transform: translate(40px, 35px) scale(0.2);
+                                opacity: 1;
+                            }
+
+                            75% {
+                                transform: translate(-15px, 71px) scale(0.2);
+                                opacity: 1;
+                            }
+
+                            to {
+                                transform: translate(50px, 80px)scale(0.2);
+                                opacity: 1;
+                            }
+                        }
+
+                        .e {
+                            animation-name: snowe;
+                            opacity: 0;
+                            grid-column: 5;
+                        }
+
+                        @keyframes snowe {
+                            from {
+                                transform: translate(10px, 5px) scale(0.2);
+                                opacity: 0.5;
+                            }
+
+                            25% {
+                                transform: translate(39px, 15px) scale(0.2);
+                                opacity: 1;
+                            }
+
+                            50% {
+                                transform: translate(-30px, 30px) scale(0.2);
+                                opacity: 1;
+                            }
+
+                            75% {
+                                transform: translate(49px, 45px) scale(0.2);
+                                opacity: 1;
+                            }
+
+                            to {
+                                transform: translate(55px, 60px)scale(0.2);
+                                opacity: 1;
+                            }
+                        }
+
+                        .f {
+                            animation-name: snowf;
+                            opacity: 0;
+                            grid-column: 3;
+                        }
+
+                        @keyframes snowf {
+                            from {
+                                transform: translate(-20px, 15px) scale(0.2);
+                                opacity: 0.5;
+                            }
+
+                            25% {
+                                transform: translate(55px, 55px) scale(0.2);
+                                opacity: 1;
+                            }
+
+                            50% {
+                                transform: translate(-10px, 60px) scale(0.2);
+                                opacity: 1;
+                            }
+
+                            75% {
+                                transform: translate(56px, 70px) scale(0.2);
+                                opacity: 1;
+                            }
+
+                            to {
+                                transform: translate(25px, 85px)scale(0.2);
+                                opacity: 1;
+                            }
+                        }
+
+                        .g {
+                            animation-name: snowg;
+                            opacity: 0;
+                            grid-column: 6;
+                        }
+
+                        @keyframes snowg {
+                            from {
+                                transform: translate(-30px, 10px) scale(0.2);
+                                opacity: 0.5;
+                            }
+
+                            25% {
+                                transform: translate(25px, 15px) scale(0.2);
+                                opacity: 1;
+                            }
+
+                            50% {
+                                transform: translate(35px, 20px) scale(0.2);
+                                opacity: 1;
+                            }
+
+                            75% {
+                                transform: translate(-40px, 35px) scale(0.2);
+                                opacity: 1;
+                            }
+
+                            to {
+                                transform: translate(40px, 50px)scale(0.2);
+                                opacity: 1;
+                            }
+                        }
+
+                        .h {
+                            animation-name: snowh;
+                            opacity: 0;
+                            grid-column: 5;
+                        }
+
+                        @keyframes snowh {
+                            from {
+                                transform: translate(-30px, 10px) scale(0.2);
+                                opacity: 0.5;
+                            }
+
+                            25% {
+                                transform: translate(35px, 15px) scale(0.2);
+                                opacity: 1;
+                            }
+
+                            50% {
+                                transform: translate(20px, 30px) scale(0.2);
+                                opacity: 1;
+                            }
+
+                            75% {
+                                transform: translate(30px, 45px) scale(0.2);
+                                opacity: 1;
+                            }
+
+                            to {
+                                transform: translate(-10px, 50px)scale(0.2);
+                                opacity: 1;
+                            }
+                        }
+
+                        .fa-circle {
+                            animation-name: sun;
+                            animation-duration: 3s;
+                            animation-delay: 2s;
+                            animation-iteration-count: 3;
+                        }
+
+                        @keyframes sun {
+                            from {
+                                transform: scale(0.7);
+                            }
+
+                            40% {
+                                transform: scale(0.9);
+                            }
+
+                            80% {
+                                transform: scale(90px);
+                            }
+
+                            to {
+                                transform: scale(0.7);
+                            }
+                        }
+                        &--bigIcons{
+                            grid-column: 1;
+                        .rainy {
+                            display: grid;
+                            grid-template-columns: repeat(5, 1fr);
+                            max-width: 15px;
+                            grid-row: 2;
+                            gap: 15px;
+                            grid-column: 1;
+
+                            .rain {
+                                background-color: #5f95fc;
+                                width: 2px;
+                                height: 6px;
+                                animation-name: rains;
+                                animation-duration: 1s;
+                                animation-delay: 2s;
+                                animation-iteration-count: 6;
+                                opacity: 0;
+
+                            }
+                        }
+
+                        @keyframes rains {
+                            from {
+                                opacity: 0.5;
+                                transform: translateY(5vh) skew(-30deg, -20deg);
+                            }
+
+                            50% {
+                                transform: translateY(10vh) skew(-30deg, -20deg);
+                                opacity: 1;
+                            }
+
+                            to {
+                                opacity: 0.5;
+                                transform: translateY(15vh) skew(-30deg, -20deg);
+                            }
+                        }
+                    }
+                    }
+                }
+                    &__down {
+                        
+                        margin: auto;
+                        display: grid;
+                        grid-template-rows: 1fr 1fr;
+                        grid-template-columns: 3fr 3fr;
+                        &--smalIconsLeft {
+                           grid-column: 1;
+                           grid-row: 2;
+                            .fa-tint {
+                                animation-name: tint;
+                                animation-duration: 2s;
+                                animation-iteration-count: 6;
+                                color: #436081;
+                                font-size: 1.5em;
+
+                                span {
+                                    color: #436081;
+                                    color: white;
+                                    width: 30px;
+                                    font-size: 15px;
+                                    height: 10px !important;
+                                    font-family: 'Roboto', sans-serif;
+                                }
+                            }
+
+                            @keyframes tint {
+                                50% {
+                                    background-position: 1px 0px;
+                                    background-image: url('https://htmlcolorcodes.com/assets/images/colors/bright-blue-color-solid-background-1920x1080.png');
+                                    -webkit-background-clip: text;
+                                    -webkit-text-fill-color: transparent;
+                                }
+
+                                100% {
+                                    background-position: 5px 0px;
+                                    background-image: url('https://www.solidbackgrounds.com/images/3840x2160/3840x2160-light-sea-green-solid-color-background.jpg');
+                                    -webkit-background-clip: text;
+                                    -webkit-text-fill-color: transparent;
+                                }
+                            }
+                        }
+
+                        &--smalIconsRight {
+                            grid-column: 2;
+                            grid-row: 2;
+                            .fa-wind {
+                                color: #436081;
+                                width: 25px;
+                                font-size: 1.5em;
+                                animation-name: wind;
+                                animation-duration: 2s;
+                                animation-iteration-count: 6;
+                                span {
+                                    font-size: 15px;
+                                    color: white;
+                                    font-family: 'Roboto', sans-serif;
+                                }
+                            }
+
+                            @keyframes wind {
+                                from {
+                                    opacity: 1;
+                                    transform: translate(5px, 0);
+                                }
+
+                                25% {
+                                    opacity: 0.5;
+                                    transform: translate(0px, 0);
+                                }
+
+                                50% {
+                                    opacity: 0;
+                                    transform: translate(5px, 0);
+                                }
+
+                                75% {
+                                    opacity: 0.5;
+                                    transform: translate(0px, 0);
+                                }
+
+                                to {
+                                    opacity: 1;
+                                    transform: translate(5px, 0);
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+
+            .bar {
+
+                margin: auto;
+                padding-top: 50px;
+                padding-left: 70px;
+                padding-bottom: 20px;
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+
+                &__icons {
+                    #active:target {
+                        color: #7b446a;
+                    }
+                }
+            }
+        }
+    
+
+    .details {
+        background: rgba(19, 27, 36, 0.877);
+        max-width: 600px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: 6fr;
+        grid-template-rows: 0.8fr 1.6fr 0.8fr 0.3fr 1fr 1fr;
+        color: honeydew;
+
+
+        &__location {
+            margin-top: 20px;
+            display: grid;
+            grid-template-rows: repeat(2 1fr);
+
+            .fas {
+                color: gray;
+                margin: auto;
+            }
+
+            p {
+                justify-self: center;
+                margin-top: -10px;
+            }
+
+        }
+
+        &__dayTime {
+            display: flex;
+            flex-direction: column;
+            //border: black solid 1px;
+
+            .ball {
+                width: 150px;
+                height: 150px;
+                border-radius: 100px;
+                background-image: linear-gradient(to bottom right, rgb(16, 176, 250), rgba(247, 0, 255, 0.932));
+                margin: auto;
+                animation-name: rorate;
+                animation-duration: 3s;
+                animation-delay: 1s;
+                animation-iteration-count: infinite;
+                animation-direction: reverse;
+                animation-timing-function: ease-in-out;
+            }
+
+
+            .card {
+                width: 100px;
+                height: 20px;
+                text-align: center;
+                padding: 0.5%;
+                border-radius: 40px;
+                margin: auto;
+                background: rgba(124, 49, 223, 0.295);
+            }
+        }
+
+        &__temp {
+            justify-self: center;
+            font-size: 3rem;
+        }
+
+        &__current {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+
+            .data {
+                justify-content: center;
+
+                span {
+                    margin-left: 10px;
+                }
+            }
+
+            .fas {
+                color: cornflowerblue;
+            }
+        }
+
+        &__general {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: repeat(3 1fr);
+            margin: 0% 15%;
+
+            .measure {
+
+                &_units {
+                    justify-self: end;
+                    color: rgb(51, 89, 158);
+
+                    .fas {
+                        color: honeydew;
+                        font-size: 12px;
+                    }
+
+                    span {
+                        margin-right: 10px;
+                    }
+                }
+            }
+
+
+
+        }
+
+    }
+
+    .wrapper {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        grid-column-gap: 10px;
+        grid-row-gap: 10px;
+        height: 20vh;
+        color: rgb(228, 228, 228);
+
+        .fas {
+            font-size: 400px;
+            color: violet;
+        }
+
+        &__city {
+            grid-column: 1;
+            grid-row: 1;
+
+            h1 {
+                left: 50px;
+            }
+        }
+
+        &__photo {
+            grid-column: 2;
+            grid-row: 1/3
+        }
+
+        &__degrees {
+            grid-column: 1;
+            grid-row: 2;
+
+        }
+
+        &__weather {
+            grid-column-start: 1;
+            grid-column-end: 1;
+            grid-row-start: 3;
+            background-color: rgb(119, 42, 182);
+            width: 120px;
+            border-radius: 30%;
+            color: white;
+
+
+        }
+
+
+    }
+
+    .weatherBar {
+        display: flex;
+        height: 5vh;
+        width: 80vw;
+        background-color: transparent;
+        position: absolute;
+        top: 60vh;
+        justify-content: space-between;
+        color: white;
+    }
+
+    .hours {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        grid-row-gap: 10px;
+        position: relative;
+        top: 600px;
+        color: white;
+    }
+
+    .days {
+        display: grid;
+        grid-template-columns: 3fr 2fr 1fr 1fr;
+        grid-template-rows: repeat(3, 1fr);
+        font-size: x-large;
+        position: relative;
+        color: white;
+        top: 700px;
+        grid-row-gap: 10px;
+    }
+
+    @keyframes rorate {
+        from {
+            transform: rotate(0deg);
+        }
+
+        to {
+            transform: rotate(360deg);
+        }
+
+    }
+}
+    @media only screen and(max-width:600px) {
+        body{
+            .main {
+            
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-template-rows: 0.3fr 3fr 0.6fr;
+        
+                .header {
+                    margin: auto;
+                    display: grid;
+                    grid-template-columns: 25fr 2fr;
+                    grid-template-rows: 1fr;
+        
+                    //max-width: 800px;
+                    &__icon {
+                             display: grid;
+                            grid-template-rows: 1fr;
+                            grid-template-columns: 1fr 1fr;
+                        .fa-search {
+                            font-size: 1.7em;
+                            grid-column: 1;
+                            grid-row: 1;
+        
+                            span {
+                                margin-top: auto;
+                                grid-row: 1;
+                                grid-column: 2;
+                                font-size: 14px;
+                         
+                            }
+                        }
+        
+                        .fa-pen {
+                            font-size: 1.7em;
+                            grid-column: 5;
+                          
+                        }
+        
+        
+        
+        
+        
+                    }
+                }
+        
+                .contain {
+                    margin: auto;
+                    align-items: center;
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    grid-template-rows: 1fr 1fr 1fr;
+                    gap: 5px;
+                    //padding-left: 80px;
+        
+                    &__box {
+                        margin: auto;
+                        background-color: #152c39;
+                        border-radius: 20px;
+                        width: 200px;
+                        height: 200px;
+                        gap: 5px;
+                        display: grid;
+                        grid-template-columns: 1fr;
+                        grid-template-rows: 1fr 1fr 1fr;
+                        &__up {
+                            
+                            grid-row: 1;
+                    grid-column: 1;
+                    display: grid;
+                    gap: 1px;
+                    grid-template-rows: 3fr;
+                    grid-template-columns:3fr 3fr;
+                            &__text {
+                                margin: auto;
+                                display: grid;
+                                grid-template-columns: 1fr;
+                                grid-template-rows: 0.5fr 0.5fr;
+                                grid-row: 1;
+                                
+                                &--text{
+                                    grid-row: 1;
+                                    grid-column: 1;    
+                                h2 {
+                                    margin-left: auto;
+                                    font-size: 20px;
+                                    color: white;
+                                }
+                            }
+        
+                            &--city {
+                                // margin: auto;
+                                grid-column: 1;
+                                grid-row: 1;
+                                display: grid;
+                                grid-template-columns: 1fr;
+                                grid-template-rows: 0.1fr 0.1fr;
+                                width: 88px;
+        
+                                h6 {
+                                    color: white;
+                                    font-size: 14px;
+                                    grid-row: 1;
+                                }
+        
+                               }
+                                &--state{
+                                    grid-row: 2;
+                                    grid-column: 1;
+                                p {
+        
+                                    font-size: 16px;
+                                    color: #3d5564;
+                                }
+                            }
+        
+                            i {
+                                
+        
+                                span {
+        
+                                    grid-row: 3;
+                                    grid-column: 2;
+                                    font-size: 20px;
+                                    color: #3d5564;
+                                    font-family: 'Roboto', sans-serif;
+                                }
+                            }
+                        }
+                        
+                            &--bigIcon {
+                                margin: auto;
+                                grid-column: 2;
+                                grid-row: 1;
+        
+                                .fa-gradient {
+                                    font-size: 3em;
+                                    background: -webkit-gradient(linear, left top, left bottom, from(#5f95fc), to(#cc63f9));
+                                    -webkit-background-clip: text;
+                                    -webkit-text-fill-color: transparent;
+                                    display: initial;
+                                }
+        
+                                .fa-gradients {
+                                    background: -webkit-gradient(linear, left top, left bottom, from(#5f95fc), to(#cc63f9));
+                                    -webkit-background-clip: text;
+                                    -webkit-text-fill-color: transparent;
+                                    display: initial;
+                                    font-size: 3em;
+                                    animation-duration: 5s;
+                                    animation-delay: 2s;
+                                    animation-iteration-count: 5;
+        
+                                }
+        
+                                .fa-snow {
+                                    animation-name: snowflakes;
+                                    animation-duration: 5s;
+                                    animation-delay: 2s;
+                                    animation-iteration-count: 5;
+                                }
+        
+                                @keyframes snowflakes {
+        
+                                    from {
+                                        transform: translate(0px, 0px) scale(0.2);
+                                    }
+        
+                                    25% {
+                                        transform: translate(0px, 25px) scale(0.2);
+                                    }
+        
+                                    50% {
+                                        transform: translate(0px, 20px) scale(0.2);
+                                    }
+        
+                                    75% {
+                                        transform: translate(0px, 30px) scale(0.2);
+                                    }
+        
+                                    to {
+                                        transform: translate(0px, 40px) scale(0.2);
+                                    }
+        
+                                }
+        
+                                .a {
+                                    animation-name: snowy;
+                                    opacity: 0;
+                                    grid-column: 4;
+                                }
+        
+                                @keyframes snowy {
+                                    from {
+                                        transform: translate(20px, 5px) scale(0.2);
+                                        opacity: 0.5;
+                                    }
+        
+                                    25% {
+                                        transform: translate(-70px, 35px) scale(0.2);
+                                        opacity: 1;
+                                    }
+        
+                                    50% {
+                                        transform: translate(-30px, 40px) scale(0.2);
+                                        opacity: 1;
+                                    }
+        
+                                    75% {
+                                        transform: translate(44px, 30px) scale(0.2);
+                                        opacity: 1;
+                                    }
+        
+                                    to {
+                                        transform: translate(20px, 45px)scale(0.2);
+                                        opacity: 1;
+                                    }
+                                }
+        
+                                .b {
+                                    animation-name: snowa;
+                                    opacity: 0;
+                                    grid-column: 5;
+                                }
+        
+                                @keyframes snowa {
+                                    from {
+                                        transform: translate(39px, 15px) scale(0.2);
+                                        opacity: 0.5;
+                                    }
+        
+                                    25% {
+                                        transform: translate(40px, 35px) scale(0.2);
+                                        opacity: 1;
+                                    }
+        
+                                    50% {
+                                        transform: translate(20px, 20px) scale(0.2);
+                                        opacity: 1;
+                                    }
+        
+                                    75% {
+                                        transform: translate(45px, 40px) scale(0.2);
+                                        opacity: 1;
+                                    }
+        
+                                    to {
+                                        transform: translate(-30px, 45px)scale(0.2);
+                                        opacity: 1;
+                                    }
+                                }
+        
+                                .c {
+                                    animation-name: snowc;
+                                    opacity: 0;
+                                    grid-column: 6;
+                                }
+        
+                                @keyframes snowc {
+                                    from {
+                                        transform: translate(-20px, 25px) scale(0.2);
+                                        opacity: 0.5;
+                                    }
+        
+                                    25% {
+                                        transform: translate(10px, 55px) scale(0.2);
+                                        opacity: 1;
+                                    }
+        
+                                    50% {
+                                        transform: translate(20px, 60px) scale(0.2);
+                                        opacity: 1;
+                                    }
+        
+                                    75% {
+                                        transform: translate(40px, 70px) scale(0.2);
+                                        opacity: 1;
+                                    }
+        
+                                    to {
+                                        transform: translate(-50px, 95px)scale(0.2);
+                                        opacity: 1;
+                                    }
+                                }
+        
+                                .d {
+                                    animation-name: snowd;
+                                    opacity: 0;
+                                    grid-column: 7;
+                                }
+        
+                                @keyframes snod {
+                                    from {
+                                        transform: translate(10px, 20px) scale(0.2);
+                                        opacity: 0.5;
+                                    }
+        
+                                    25% {
+                                        transform: translate(-55px, 15px) scale(0.2);
+                                        opacity: 1;
+                                    }
+        
+                                    50% {
+                                        transform: translate(40px, 35px) scale(0.2);
+                                        opacity: 1;
+                                    }
+        
+                                    75% {
+                                        transform: translate(-15px, 71px) scale(0.2);
+                                        opacity: 1;
+                                    }
+        
+                                    to {
+                                        transform: translate(40px, 80px)scale(0.2);
+                                        opacity: 1;
+                                    }
+                                }
+        
+                                .e {
+                                    animation-name: snowe;
+                                    opacity: 0;
+                                    grid-column: 5;
+                                }
+        
+                                @keyframes snowe {
+                                    from {
+                                        transform: translate(10px, 5px) scale(0.2);
+                                        opacity: 0.5;
+                                    }
+        
+                                    25% {
+                                        transform: translate(39px, 15px) scale(0.2);
+                                        opacity: 1;
+                                    }
+        
+                                    50% {
+                                        transform: translate(-30px, 30px) scale(0.2);
+                                        opacity: 1;
+                                    }
+        
+                                    75% {
+                                        transform: translate(39px, 45px) scale(0.2);
+                                        opacity: 1;
+                                    }
+        
+                                    to {
+                                        transform: translate(45px, 60px)scale(0.2);
+                                        opacity: 1;
+                                    }
+                                }
+        
+                                .f {
+                                    animation-name: snowf;
+                                    opacity: 0;
+                                    grid-column: 3;
+                                }
+        
+                                @keyframes snowf {
+                                    from {
+                                        transform: translate(-20px, 15px) scale(0.2);
+                                        opacity: 0.5;
+                                    }
+        
+                                    25% {
+                                        transform: translate(45px, 55px) scale(0.2);
+                                        opacity: 1;
+                                    }
+        
+                                    50% {
+                                        transform: translate(-10px, 60px) scale(0.2);
+                                        opacity: 1;
+                                    }
+        
+                                    75% {
+                                        transform: translate(6px, 70px) scale(0.2);
+                                        opacity: 1;
+                                    }
+        
+                                    to {
+                                        transform: translate(25px, 85px)scale(0.2);
+                                        opacity: 1;
+                                    }
+                                }
+        
+                                .g {
+                                    animation-name: snowg;
+                                    opacity: 0;
+                                    grid-column: 6;
+                                }
+        
+                                @keyframes snowg {
+                                    from {
+                                        transform: translate(-30px, 10px) scale(0.2);
+                                        opacity: 0.5;
+                                    }
+        
+                                    25% {
+                                        transform: translate(25px, 15px) scale(0.2);
+                                        opacity: 1;
+                                    }
+        
+                                    50% {
+                                        transform: translate(35px, 20px) scale(0.2);
+                                        opacity: 1;
+                                    }
+        
+                                    75% {
+                                        transform: translate(-40px, 35px) scale(0.2);
+                                        opacity: 1;
+                                    }
+        
+                                    to {
+                                        transform: translate(40px, 50px)scale(0.2);
+                                        opacity: 1;
+                                    }
+                                }
+        
+                                .h {
+                                    animation-name: snowh;
+                                    opacity: 0;
+                                    grid-column: 5;
+                                }
+        
+                                @keyframes snowh {
+                                    from {
+                                        transform: translate(-30px, 10px) scale(0.2);
+                                        opacity: 0.5;
+                                    }
+        
+                                    25% {
+                                        transform: translate(35px, 15px) scale(0.2);
+                                        opacity: 1;
+                                    }
+        
+                                    50% {
+                                        transform: translate(20px, 30px) scale(0.2);
+                                        opacity: 1;
+                                    }
+        
+                                    75% {
+                                        transform: translate(30px, 45px) scale(0.2);
+                                        opacity: 1;
+                                    }
+        
+                                    to {
+                                        transform: translate(-10px, 50px)scale(0.2);
+                                        opacity: 1;
+                                    }
+                                }
+        
+                                .fa-cloud-sun {
+                                    //grid-row: 1;
+                                    width: 100px;
+                                    height: 100px;
+                                }
+        
+                                .fa-circle {
+                                    animation-name: sun;
+                                    animation-duration: 3s;
+                                    animation-delay: 2s;
+                                    animation-iteration-count: 3;
+                                }
+        
+                                @keyframes sun {
+                                    from {
+                                        transform: scale(0.7);
+                                    }
+        
+                                    40% {
+                                        transform: scale(0.9);
+                                    }
+        
+                                    80% {
+                                        transform: scale(90px);
+                                    }
+        
+                                    to {
+                                        transform: scale(0.7);
+                                    }
+                                }
+                                &--bigIcons{
+                                .rainy {
+                                    display: grid;
+                                    grid-template-columns: repeat(5, 1fr);
+                                    grid-row: 1;
+                                    gap: 5px;
+                                    grid-column: 1;
+                                    grid-template-rows: 1fr;
+                                    // margin-left: -50px;
+        
+                                    .rain {
+                                        background-color: #5f95fc;
+                                        width: 2px;
+                                        height: 6px;
+                                        animation-name: rains;
+                                        animation-duration: 1s;
+                                        animation-delay: 2s;
+                                        animation-iteration-count: 6;
+                                        opacity: 0;
+        
+                                    }
+                                }
+        
+                                @keyframes rains {
+                                    from {
+                                        opacity: 0.5;
+                                        transform: translateY(5vh) skew(-30deg, -20deg);
+                                    }
+        
+                                    50% {
+                                        transform: translateY(9vh) skew(-30deg, -20deg);
+                                        opacity: 1;
+                                    }
+        
+                                    to {
+                                        opacity: 0.5;
+                                        transform: translateY(10vh) skew(-30deg, -20deg);
+                                    }
+                                }
+                            }
+                            }
+                        }
+                            &__down {
+                                grid-row: 2;
+                                margin-top: auto;
+                                display: grid;
+                                grid-template-rows: 2fr;
+                                grid-template-columns: 1fr 1fr;
+                                &--smalIconsLeft {
+                                   grid-column: 1;
+                                   grid-row: 1;
+                                    .fa-tint {
+                                        animation-name: tint;
+                                        animation-duration: 2s;
+                                        animation-iteration-count: 6;
+                                        color: #436081;
+                                        font-size: 1em;
+        
+                                        span {
+                                            color: #436081;
+                                            color: white;
+                                            width: 30px;
+                                            font-size: 15px;
+                                            height: 10px !important;
+                                            font-family: 'Roboto', sans-serif;
+                                            animation-name: spa;
+                                        }
+                                    }
+                                    
+                                    @keyframes tint {
+                                        50% {
+                                            background-position: 1px 0px;
+                                            background-image: url('https://htmlcolorcodes.com/assets/images/colors/bright-blue-color-solid-background-1920x1080.png');
+                                            -webkit-background-clip: text;
+                                            -webkit-text-fill-color: transparent;
+                                        }
+        
+                                        100% {
+                                            background-position: 5px 0px;
+                                            background-image: url('https://www.solidbackgrounds.com/images/3840x2160/3840x2160-light-sea-green-solid-color-background.jpg');
+                                            -webkit-background-clip: text;
+                                            -webkit-text-fill-color: transparent;
+                                        }
+                                    }
+                                }
+        
+                                &--smalIconsRight {
+                                    grid-column: 2;
+                                    grid-row: 1;
+                                    .fa-wind {
+                                        color: #436081;
+                                        width: 25px;
+                                        font-size: 1.5em;
+                                        animation-name: wind;
+                                        animation-duration: 2s;
+                                        animation-iteration-count: 6;
+                                        span {
+                                            font-size: 15px;
+                                            color: white;
+                                            font-family: 'Roboto', sans-serif;
+                                        }
+                                    }
+        
+                                    @keyframes wind {
+                                        from {
+                                            opacity: 1;
+                                            transform: translate(5px, 0);
+                                        }
+        
+                                        25% {
+                                            opacity: 0.5;
+                                            transform: translate(0px, 0);
+                                        }
+        
+                                        50% {
+                                            opacity: 0;
+                                            transform: translate(5px, 0);
+                                        }
+        
+                                        75% {
+                                            opacity: 0.5;
+                                            transform: translate(0px, 0);
+                                        }
+        
+                                        to {
+                                            opacity: 1;
+                                            transform: translate(5px, 0);
+                                        }
+                                    }
+                                }
+                            }
+                        }   
+                        
+                    }
+            .bar {
+                padding-top: 40px;
+                padding-left: 70px;
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+
+            }
+        
+        }
+        .details {
+            background: rgba(19, 27, 36, 0.877);
+            max-width: 600px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 6fr;
+            grid-template-rows: 0.8fr 1.6fr 0.8fr 0.3fr 1fr 1fr;
+            color: honeydew;
+
+
+            &__location {
+                margin-top: 20px;
+                display: grid;
+                grid-template-rows: repeat(2 1fr);
+
+                .fas {
+                    color: gray;
+                    margin: auto;
+                }
+
+                p {
+                    justify-self: center;
+                    margin-top: -10px;
+                }
+
+            }
+
+            &__dayTime {
+                display: flex;
+                flex-direction: column;
+                //border: black solid 1px;
+
+                .ball {
+                    width: 150px;
+                    height: 150px;
+                    border-radius: 100px;
+                    background-image: linear-gradient(to bottom right, rgb(16, 176, 250), rgba(247, 0, 255, 0.932));
+                    margin: auto;
+                    animation-name: rorate;
+                    animation-duration: 3s;
+                    animation-delay: 1s;
+                    animation-iteration-count: infinite;
+                    animation-direction: reverse;
+                    animation-timing-function: ease-in-out;
+                }
+
+
+                .card {
+                    width: 100px;
+                    height: 20px;
+                    text-align: center;
+                    padding: 0.5%;
+                    border-radius: 40px;
+                    margin: auto;
+                    background: rgba(124, 49, 223, 0.295);
+                }
+            }
+
+            &__temp {
+                justify-self: center;
+                font-size: 3rem;
+            }
+
+            &__current {
+                display: flex;
+                justify-content: center;
+                gap: 30px;
+
+                .data {
+                    justify-content: center;
+
+                    span {
+                        margin-left: 10px;
+                    }
+                }
+
+                .fas {
+                    color: cornflowerblue;
+                }
+            }
+
+            &__general {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: repeat(3 1fr);
+                margin: 0% 15%;
+
+                .measure {
+
+                    &_units {
+                        justify-self: end;
+                        color: rgb(51, 89, 158);
+
+                        .fas {
+                            color: honeydew;
+                            font-size: 12px;
+                        }
+
+                        span {
+                            margin-right: 10px;
+                        }
+                    }
+                }
+
+
+
+            }
+
+        }
+    }
+    }
+
+    @media only screen and(max-width:350px) {
+    body{
+        .main{
+            .contain {
+                margin: auto;
+                align-items: center;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 1fr 1fr 1fr;
+                gap: 5px;
+                //padding-left: 80px;
+    
+                &__box {
+                    margin: auto;
+                    background-color: #152c39;
+                    border-radius: 20px;
+                    width: 130px;
+                    height: 130px;
+                    gap: 5px;
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    grid-template-rows: 1fr 1fr 1fr;
+                    &__up {
+                            
+                        grid-row: 1;
+                        grid-column: 1;
+                        display: grid;
+                        gap: 1px;
+                        grid-template-rows: 0.1fr 0.1fr;
+                        grid-template-columns: 2fr 3fr;
+                        &__text{
+                            margin: auto;
+                            display: grid;
+                            grid-template-columns: 1fr;
+                            grid-template-rows: 0.1fr 0.1fr;
+                            grid-row: 1;
+                        &--text {
+                            
+                            grid-row: 1;
+                            grid-column: 1;
+    
+                            h2 {
+                                margin-left: auto;
+                                font-size: 14px;
+                                color: white;
+                            }
+                        }
+    
+                        &--city {
+                            // margin: auto;
+                            grid-row: 1;
+                            display: grid;
+                            grid-template-columns: 1fr;
+                            grid-template-rows: 0.1fr 0.1fr;
+                            width: 88px;
+    
+                            h6 {
+                                color: white;
+                                font-size: 11px;
+                                grid-row: 1;
+                            }
+                        }
+                           &--state{
+    
+                            p {
+                                grid-row: 2 / -1;
+                                grid-column: 1;
+    
+                                font-size: 13px;
+                                color: #3d5564;
+                            }
+                        }
+    
+                        i {
+                            
+    
+                            span {
+    
+                                grid-row: 3;
+                                grid-column: 2;
+                                font-size: 14px;
+                               
+                            }
+                        }
+                    }
+                        &--bigIcon {
+                            margin: auto;
+                            grid-column: 2;
+                            grid-row: 1;
+                            .fa-gradient {
+                                font-size: 2em;
+                                grid-row: 2;
+                                grid-column: 1;
+                            }
+    
+                            .fa-gradients {
+                                grid-column: 1;
+                                font-size: 2em;
+                    
+    
+                            }
+                             @keyframes snowflakes {
+        
+                                    from {
+                                        transform: translate(0px, 0px) scale(0.2);
+                                    }
+        
+                                    25% {
+                                        transform: translate(0px, 5px) scale(0.2);
+                                    }
+        
+                                    50% {
+                                        transform: translate(0px, 10px) scale(0.2);
+                                    }
+        
+                                    75% {
+                                        transform: translate(0px, 15px) scale(0.2);
+                                    }
+        
+                                    to {
+                                        transform: translate(0px, 20px) scale(0.2);
+                                    }
+        
+                                }
+        
+                                @keyframes snowy {
+                                    from {
+                                        transform: translate(0px, 5px) scale(0.2);
+                                        opacity: 0.5;
+                                    }
+        
+                                    25% {
+                                        transform: translate(-5px, 10px) scale(0.2);
+                                        opacity: 1;
+                                    }
+        
+                                    50% {
+                                        transform: translate(10px, 15px) scale(0.2);
+                                        opacity: 1;
+                                    }
+        
+                                    75% {
+                                        transform: translate(-15px, 20px) scale(0.2);
+                                        opacity: 1;
+                                    }
+        
+                                    to {
+                                        transform: translate(20px, 25px)scale(0.2);
+                                        opacity: 1;
+                                    }
+                                }
+        
+                                @keyframes snowa {
+                                    from {
+                                        transform: translate(0px, 5px) scale(0.2);
+                                        opacity: 0.5;
+                                    }
+        
+                                    25% {
+                                        transform: translate(5px, 15px) scale(0.2);
+                                        opacity: 1;
+                                    }
+        
+                                    50% {
+                                        transform: translate(-10px,10px) scale(0.2);
+                                        opacity: 1;
+                                    }
+        
+                                    75% {
+                                        transform: translate(15px, 15px) scale(0.2);
+                                        opacity: 1;
+                                    }
+        
+                                    to {
+                                        transform: translate(-20px, 20px)scale(0.2);
+                                        opacity: 1;
+                                    }
+                                }
+        
+        
+                                @keyframes snowc {
+                                    from {
+                                        transform: translate(5px, 0px) scale(0.2);
+                                        opacity: 0.5;
+                                    }
+        
+                                    25% {
+                                        transform: translate(-5px, 5px) scale(0.2);
+                                        opacity: 1;
+                                    }
+        
+                                    50% {
+                                        transform: translate(10px, 10px) scale(0.2);
+                                        opacity: 1;
+                                    }
+        
+                                    75% {
+                                        transform: translate(0px, 15px) scale(0.2);
+                                        opacity: 1;
+                                    }
+        
+                                    to {
+                                        transform: translate(-10px, 20px)scale(0.2);
+                                        opacity: 1;
+                                    }
+                                }
+        
+        
+                                @keyframes snod {
+                                    from {
+                                        transform: translate(10px, 5px) scale(0.2);
+                                        opacity: 0.5;
+                                    }
+        
+                                    25% {
+                                        transform: translate(-55px, 10px) scale(0.2);
+                                        opacity: 1;
+                                    }
+        
+                                    50% {
+                                        transform: translate(20px, 15px) scale(0.2);
+                                        opacity: 1;
+                                    }
+        
+                                    75% {
+                                        transform: translate(-15px, 20px) scale(0.2);
+                                        opacity: 1;
+                                    }
+        
+                                    to {
+                                        transform: translate(10px, 25px)scale(0.2);
+                                        opacity: 1;
+                                    }
+                                }
+                                @keyframes snowe {
+                                    from {
+                                        transform: translate(10px, 5px) scale(0.2);
+                                        opacity: 0.5;
+                                    }
+        
+                                    25% {
+                                        transform: translate(23px, 10px) scale(0.2);
+                                        opacity: 1;
+                                    }
+        
+                                    50% {
+                                        transform: translate(-30px, 15px) scale(0.2);
+                                        opacity: 1;
+                                    }
+        
+                                    75% {
+                                        transform: translate(10px, 20px) scale(0.2);
+                                        opacity: 1;
+                                    }
+        
+                                    to {
+                                        transform: translate(-5px, 25px)scale(0.2);
+                                        opacity: 1;
+                                    }
+                                }
+                                @keyframes snowf {
+                                    from {
+                                        transform: translate(-20px, 0px) scale(0.2);
+                                        opacity: 0.5;
+                                    }
+        
+                                    25% {
+                                        transform: translate(-45px, 5px) scale(0.2);
+                                        opacity: 1;
+                                    }
+        
+                                    50% {
+                                        transform: translate(-10px, 10px) scale(0.2);
+                                        opacity: 1;
+                                    }
+        
+                                    75% {
+                                        transform: translate(6px, 15px) scale(0.2);
+                                        opacity: 1;
+                                    }
+        
+                                    to {
+                                        transform: translate(25px, 20px)scale(0.2);
+                                        opacity: 1;
+                                    }
+                                }
+        
+                        
+                                @keyframes snowg {
+                                    from {
+                                        transform: translate(-30px, 10px) scale(0.2);
+                                        opacity: 0.5;
+                                    }
+        
+                                    25% {
+                                        transform: translate(25px, 15px) scale(0.2);
+                                        opacity: 1;
+                                    }
+        
+                                    50% {
+                                        transform: translate(-35px, 20px) scale(0.2);
+                                        opacity: 1;
+                                    }
+        
+                                    75% {
+                                        transform: translate(-40px, 35px) scale(0.2);
+                                        opacity: 1;
+                                    }
+        
+                                    to {
+                                        transform: translate(20px, 50px)scale(0.2);
+                                        opacity: 1;
+                                    }
+                                }
+        
+        
+                                @keyframes snowh {
+                                    from {
+                                        transform: translate(-30px, 10px) scale(0.2);
+                                        opacity: 0.5;
+                                    }
+        
+                                    25% {
+                                        transform: translate(3px, 15px) scale(0.2);
+                                        opacity: 1;
+                                    }
+        
+                                    50% {
+                                        transform: translate(20px, 30px) scale(0.2);
+                                        opacity: 1;
+                                    }
+        
+                                    75% {
+                                        transform: translate(10px, 45px) scale(0.2);
+                                        opacity: 1;
+                                    }
+        
+                                    to {
+                                        transform: translate(-10px, 50px)scale(0.2);
+                                        opacity: 1;
+                                    }
+                                }
+        &--bigIcons{
+                                .rainy {
+                                    display: grid;
+                                    grid-template-columns: repeat(5, 5fr);
+            
+                                    grid-row: 1;
+                                    gap: 10px;
+                                    grid-column: 1;
+                                    
+                                    .rain {
+                                      grid-row: 1;
+                                      grid-column: 1;
+                                        width: 5px;
+                                        height: 6px;
+                                        animation-name: rains;
+                                        animation-duration: 1s;
+                                        animation-delay: 2s;
+                                        animation-iteration-count: 6;
+                                        opacity: 0;
+        
+                                    }
+                                }
+        
+                                @keyframes rains {
+                                    from {
+                                        opacity: 0.5;
+                                        transform: translateY(3vh) skew(-30deg, -20deg);
+                                    }
+        
+                                    50% {
+                                        transform: translateY(6vh) skew(-30deg, -20deg);
+                                        opacity: 1;
+                                    }
+        
+                                    to {
+                                        opacity: 0.5;
+                                        transform: translateY(9vh) skew(-30deg, -20deg);
+                                    }
+                                }  }   
+                        }
+                    }
+                        &__down {
+                            grid-row: 2;
+                            margin-right: auto;
+                            display: grid;
+                            grid-template-rows: 2fr;
+                            grid-template-columns: 1fr 1fr;
+                            &--smalIconsLeft {
+                               grid-column: 1;
+                               grid-row: 1;
+                                .fa-tint {
+                                    font-size: 0.7em;
+                                    grid-column: 1;
+                                    grid-row: 1;
+                                    span {
+                                       
+                                        font-size: 12px;
+                                   
+                                    }
+                                }
+                                
+                   
+                            }
+    
+                            &--smalIconsRight {
+                                grid-column: 2;
+                                grid-row: 1;
+                                .fa-wind {
+                               
+                                    font-size: 0.7em;
+                                    span {
+                                        font-size: 12px;
+
+                                    }
+                                }
+    
+                               
+                            }
+                        }
+                    
+        }
+    }
+    }
+    }
 }
