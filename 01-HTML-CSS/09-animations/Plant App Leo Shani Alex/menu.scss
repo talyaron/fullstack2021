@@ -1,30 +1,52 @@
-    
-.text {
-    text-align: center;
-}
-
-.wrapper {
-    display: flex;
-    justify-content: space-evenly;
-    height: 500px;
-
-
-    .item {
-        border: 1px solid gray;
-        width: 100px;
-        // height: 100px;
-        flex-grow: 1;
+    .body,html{
+        background-color: grey;
+    }
+    .text {
+        text-align: center;
+        color: rgb(61, 23, 23);
+        animation-name: moveDown;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        position: relative;
     }
 
-    .item:nth-child(1) {
+    .wrapper {
+        display: flex;
+        justify-content: center;
+        height: 500px;
 
+
+        .item {
+            border: 1px solid gray;
+            width: 100px;
+            flex: 1;
+
+            &:hover {
+                img {
+                    height: 100%;
+                }
+            }
+        }
+
+
+        .item:nth-child(1) {}
+
+        .item:nth-child(2) {}
+
+        .item:nth-child(3) {}
     }
 
-    .item:nth-child(2) {
+    @keyframes moveDown {
+        from {
+            top: -10vw;
+        }
 
+        to {
+            top: 0vw;
+        }
     }
 
-    .item:nth-child(3) {
-
+    img{
+        height: 90%;
     }
-}
