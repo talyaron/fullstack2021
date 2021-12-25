@@ -409,29 +409,25 @@ html {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  border: 1px solid #f3f2f2;
   border-radius: 15px;
   box-shadow: 1px 1px 1px #888092, 1px 18px 10px rgba(16, 16, 16, 0.2), 1px 30px 60px rgba(16, 16, 16, 0.4);
 }
-
-.topIcons {
+.bodyActivities__topIcons {
   width: 98%;
   display: flex;
   justify-content: space-between;
 }
-
-.gridUserIcon {
+.bodyActivities__gridUserIcon {
   width: 98%;
   display: flex;
   justify-content: space-between;
 }
-
-.search {
+.bodyActivities__search {
   width: 60%;
   margin-left: auto;
   margin-right: auto;
 }
-.search input {
+.bodyActivities__search input {
   border-radius: 30px;
   box-shadow: 2px 2px 6px #ddd6d6;
   background-color: #fdfdfd;
@@ -441,28 +437,27 @@ html {
   font-size: 1.2em;
   width: 95%;
 }
-.search ion-icon {
+.bodyActivities__search ion-icon {
   position: absolute;
   top: 18.5%;
   left: 33%;
 }
-
-.navBar {
+.bodyActivities__navBar {
   width: 100%;
 }
-.navBar__list {
+.bodyActivities__navBar__list {
   list-style: none;
   display: flex;
   justify-content: space-between;
   margin: 2.5% 3.5% 2% 0%;
 }
-.navBar__list--link {
+.bodyActivities__navBar__list--link {
   text-decoration: none;
   padding: 0.2em 0.7em;
   color: #857a96;
   font-size: 1.1em;
 }
-.navBar__list--link:hover {
+.bodyActivities__navBar__list--link:hover {
   background: #6633a0;
   color: white;
   font-size: 1em;

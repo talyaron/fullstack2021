@@ -9,15 +9,6 @@ html {
   color: $fontColor;
 }
 
-// body {
-//   background: $bgcolor;
-//   width: 60%;
-//   display: block;
-//   margin-left: auto;
-//   margin-right: auto;
-//   border-radius: 15px;
-//   box-shadow: $shadow2;
-// }
 
 .bodyActivities{
   background: $bgcolor;
@@ -25,63 +16,62 @@ html {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  border: 1px solid rgb(243, 242, 242);
   border-radius: 15px;
   box-shadow: $shadow2;
 
-}
-
-.topIcons {
-  width: 98%;
-  @include flexSpaceBetween;
-}
-
-.gridUserIcon {
-  width: 98%;
-  @include flexSpaceBetween;
-}
-
-.search {
-  width: 60%;
-  margin-left: auto;
-  margin-right: auto;
-
-  input {
-    border-radius: 30px;
-    @include inputBar1024;
-    width: 95%;
-  }
-
-  ion-icon {
-    position: absolute;
-    top: 18.5%;
-    left: 33%;
-  }
-}
-
-.navBar {
-  width: 100%;
-
-  &__list {
-    list-style: none;
+  &__topIcons {
+    width: 98%;
     @include flexSpaceBetween;
-    margin: 2.5% 3.5% 2% 0%;
+  }
 
-    &--link {
-      text-decoration: none;
-      padding: 0.2em 0.7em;
-      color: $fontColor;
-      font-size: 1.1em;
+  &__gridUserIcon {
+    width: 98%;
+    @include flexSpaceBetween;
+  }
 
-      &:hover {
-        background: rgb(102, 51, 160);
-        color: white;
-        font-size: 1em;
-        cursor: pointer;
-        border-radius: 45px;
-      }
-
+  &__search {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+  
+    input {
+      border-radius: 30px;
+      @include inputBar1024;
+      width: 95%;
     }
+  
+    ion-icon {
+      position: absolute;
+      top: 18.5%;
+      left: 33%;
+    }
+  }
+
+  &__navBar {
+    width: 100%;
+  
+    &__list {
+      list-style: none;
+      @include flexSpaceBetween;
+      margin: 2.5% 3.5% 2% 0%;
+  
+      &--link {
+        text-decoration: none;
+        padding: 0.2em 0.7em;
+        color: $fontColor;
+        font-size: 1.1em;
+  
+        &:hover {
+          background: rgb(102, 51, 160);
+          color: white;
+          font-size: 1em;
+          cursor: pointer;
+          border-radius: 45px;
+        }
+  
+      }
+    }
+  
   }
 
 }
@@ -97,8 +87,6 @@ html {
     margin: 0%;
     padding: 0%;
   
-  
-
     .search {
       width: 99%;
       margin-left: 2.5%;
