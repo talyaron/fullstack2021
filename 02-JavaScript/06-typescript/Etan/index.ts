@@ -1,4 +1,4 @@
-let a: number = 'what';
+let a: number = 5;
 let b: number = 5;
 
 const whatAge = (x: number, y: number) => {
