@@ -27,7 +27,7 @@
 }
 
 body {
-    margin-top: 50px;
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -35,7 +35,6 @@ body {
 }
 
 .header {
-
     display: flex;
     justify-content: space-between;
     width: 95%;
@@ -280,15 +279,16 @@ body {
     &__item {
         color: var(--color-white);
         border: 0px;
-        margin-inline: -130px;
+        margin-inline: -30px;
         padding-inline: 2ch;
-        border-radius: 5px;
-        font-size: 1.3rem;
+        border-radius: 10px;
+        font-size: 1rem;
         background-color: var(--color-dark-grey);
 
         &:hover {
             background-color: var(--color-light-grey);
             box-shadow: 0px 0px 0px 1px var(--color-white);
+            cursor: pointer;
         }
     }
 }
@@ -429,19 +429,19 @@ body {
     display: flex;
     justify-content: center;
     position: fixed;
-    bottom: 20px;
-    height: 120px;
+    bottom: 10px;
+    height: 70px;
     width: 90vw;
     background-color: var(--color-light-grey);
     border-radius: 20px;
-    margin: 4vw;
+    margin: 2vw;
 
     &-container {
-        width: 640px;
+        width: 100%;
         display: flex;
         justify-content: space-evenly;
         color: var(--color-lighter-grey);
-        font-size: 1.2rem;
+        font-size: 0.9rem;
 
         * {
             padding: 10px;
@@ -451,27 +451,28 @@ body {
             position: relative;
 
             svg {
-                height: 50px;
+                margin-top: -10px;
+                height: 30px;
                 fill: var(--color-lighter-grey);
             }
 
             &::after {
-                content: 'Market';
+                content: 'Wallet';
                 position: absolute;
-                bottom: 15px;
-                left: 16px;
+                bottom: 10px;
+                left: 15px;
             }
         }
 
         &__exchange {
             position: relative;
             width: 90px;
-
+            
             svg {
                 position: absolute;
                 top: -45px;
-                right: 0px;
-                width: 90px;
+                right: 15px;
+                width: 60px;
                 fill: var(--color-lighter-grey);
 
                 .st1 {
@@ -483,12 +484,13 @@ body {
                     filter: drop-shadow(2px 0px #7E8082);
                 }
             }
-
+            
             &::after {
                 content: 'Exchange';
                 position: absolute;
-                bottom: 15px;
-                left: 12px;
+                bottom: 10px;
+                left: 24px;
+                
             }
         }
 
@@ -496,15 +498,16 @@ body {
             position: relative;
 
             svg {
-                height: 50px;
+                margin-top: -10px;
+                height: 30px;
                 fill: var(--color-lighter-grey);
             }
 
             &::after {
                 content: 'Wallet';
                 position: absolute;
-                bottom: 15px;
-                left: 23px;
+                bottom: 10px;
+                left: 20px;
             }
         }
     }
@@ -521,16 +524,16 @@ body {
 }
 
 .wallet {
-    width: 600px;
+    width: 340px;
     margin: 15px;
 
     &-banner {
         display: flex;
         height: 45px;
-        width: 600px;
+        width: 340px;
         overflow: hidden;
         white-space: nowrap;
-        
+
         &:hover>.wallet-banner__item {
             animation-play-state: paused;
         }
@@ -645,22 +648,22 @@ body {
     }
 
     &-value {
-        width: 600px;
-        height: 600px;
+        width: 340px;
+        aspect-ratio: 1;
         position: relative;
 
         &__grid {
             perspective: 1000px;
             position: absolute;
             display: grid;
-            width: 600px;
-            height: 600px;
+            width: 340px;
+            aspect-ratio: 1;
             grid-template-columns: repeat(5, 1fr);
             grid-template-rows: repeat(5, 1fr);
 
             &__cell {
-                width: 120px;
-                height: 120px;
+                width: 68px;
+                aspect-ratio: 1;
             }
 
             #cell1:hover~.wallet-value__scene {
@@ -766,16 +769,19 @@ body {
 
 
         &__avrage {
+            font-size: 0.8rem;
             position: absolute;
             top: 0px;
             left: 0px;
             word-spacing: 0.7em;
+
             span {
                 color: var(--color-lighter-grey);
             }
         }
 
         &__max {
+            font-size: 0.8rem;
             z-index: 99;
             position: absolute;
             top: 0px;
@@ -805,39 +811,40 @@ body {
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                height: 600px;
+                height: 340px;
+                overflow: hidden;
 
                 svg {
                     position: absolute;
-                    width: 550px;
-                    height: 550px;
+                    width: 300px;
+                    aspect-ratio: 1;
                     animation: spin 30s linear infinite;
                     //border: 1px solid red;
                     //border-radius: 50%;
                 }
 
                 h1 {
-                    font-size: 3rem;
+                    font-size: 1.8rem;
                     position: relative;
 
                     &::before {
                         content: 'WALLET VALUE';
-                        width: 26ch;
+                        
                         position: absolute;
-                        font-size: 0.4em;
+                        font-size: 0.5em;
                         color: var(--color-lighter-grey);
-                        bottom: 5rem;
+                        bottom: 3em;
+                        left: 4ch;
                         text-align: center;
                     }
 
                     &::after {
                         content: '▲ € 31.800,52 (21,1%)';
-                        width: 20ch;
                         position: absolute;
-                        font-size: 0.4em;
+                        font-size: 0.5em;
                         color: var(--color-light-green);
-                        top: 5rem;
-                        left: 4ch;
+                        top: 3em;
+                        left: 1.5ch;
                     }
                 }
             }
@@ -845,7 +852,7 @@ body {
     }
 
     &-portfolio {
-        margin-bottom: 200px;
+        margin-bottom: 90px;
 
         &__title {
             display: flex;
@@ -858,67 +865,84 @@ body {
 
             &__indicators {
                 color: var(--color-lighter-grey);
-                font-size: 0.8rem;
-                word-spacing: 1em;
+                font-size: 0.7rem;
+                word-spacing: 1ch;
             }
         }
 
         &__list {
             position: relative;
-
+            perspective: 200px;
             &__item {
                 display: flex;
+                height: 60px;
                 justify-content: space-between;
                 padding-block: 10px;
                 box-shadow: 0px -2px 0px 0px var(--color-light-grey);
+                transition: ease 300ms;
+                border-radius: 10px;
+                perspective: 200px;
+                &:hover{
+                    transform:scale(1.05) ;
+                    box-shadow: 0px 0px 5px 2px ;
+                    .wallet-portfolio__list__item__graph>img{
+                        animation: graph 5s ease-in-out infinite alternate;
+                    }
+                }
 
                 &__icon {
                     background-color: var(--color-mid-grey);
                     border-radius: 25%;
-                    width: 75px;
-                    height: 75px;
-                    margin: 10px;
+                    width: 50px;
+                    height: 50px;
+                    margin: 5px;
 
                     svg {
-                        margin: 12.5px;
-                        width: 50px;
+                        margin: 10px;
+                        width: 30px;
                         fill: var(--color-white);
                     }
                 }
 
                 &__name {
                     position: absolute;
-                    left: 85px;
-                    margin: 1rem;
-                    font-size: 1.5rem;
+                    left: 55px;
+                    margin: 5px;
+                    font-size: 1.1rem;
                     line-height: 0rem;
 
                     :last-child {
-                        font-size: 0.7em;
+                        font-size: 0.6em;
                         color: var(--color-lighter-grey);
                     }
                 }
 
                 &__graph {
                     position: absolute;
-                    left: 250px;
-                    width: 230px;
+                    left: 160px;
+                    width: 100px;
+                    height: 70px;
                     //border: 1px solid var(--color-light-grey);
                     overflow: hidden;
-
                     img {
-                        width: 220px;
+                        position: absolute;
+                        top: -10px;
+                        width: 180px;
+                        height: 70px;
                     }
                 }
 
                 &__price {
-                    margin: 1rem;
+                    margin: 5px;
                     text-align: end;
-                    line-height: 0em;
+                    line-height: 0.2em;
                     font-weight: 600;
 
                     :first-child {
-                        font-size: 1.5em;
+                        font-size: 1em;
+                    }
+                    p{
+                        font-size: 0.8em;
                     }
 
                     .--red {
@@ -932,100 +956,92 @@ body {
             }
         }
     }
+    
+    @keyframes graph {
+        
+        to{transform: translateX(-90px);}
+    }
+
+    // &-cards {
+    //     margin-block:200px ;
+    //     perspective: 600px;
+    //     &__scene {
+    //         margin-bottom: 200px;
+    //         width: 600px;
+    //         border: 1px solid red;
+    //         display: flex;
+    //         justify-content: center;
+    //         transform-style: preserve-3d;
+    //         transform: rotateY(10deg);
+    //         animation: rotate 5s infinite ;
+    //         // &:hover {
+
+    //         //     .wallet-cards__front {}
+
+    //         //     .wallet-cards__back {}
+    //         // }
+
+    //         &__side {
+    //             position: relative;
+    //             border: 1px solid var(--color-lighter-grey);
+    //             width: 240px;
+    //             height: 180px;
+    //             background-image: url(https://media.istockphoto.com/photos/luxury-black-leather-texture-surface-background-picture-id1283599807?b=1&k=20&m=1283599807&s=170667a&w=0&h=pARfZM-2iXG_jNmGBwCsDQ2o0EU76Iwddw5lqG2SGC8=);
+    //             overflow: hidden;
+    //             perspective: 600px;
+    //             transform-style: preserve-3d;
+    //             .pocket {
+    //                 position: absolute;
+    //                 top: 30px;
+    //                 right: -40px;
+    //                 border: 3px dashed var(--color-link);
+    //                 width: 300px;
+    //                 height: 150px;
+    //                 transform: translateX(150px);
+    //                 background-image: url(https://media.istockphoto.com/photos/luxury-black-leather-texture-surface-background-picture-id1283599807?b=1&k=20&m=1283599807&s=170667a&w=0&h=pARfZM-2iXG_jNmGBwCsDQ2o0EU76Iwddw5lqG2SGC8=);
+    //             }
+
+    //             .lower {
+    //                 position: absolute;
+    //                 top: 70px;
+    //                 right: -40px;
+    //                 width: 300px;
+    //                 height: 150px;
+    //             }
+    //         }
+
+    //         &__mid {
+    //             border: 1px solid var(--color-lighter-grey);
+    //             width: 10px;
+    //             height: 180px;
+    //             background-image: url(https://media.istockphoto.com/photos/luxury-black-leather-texture-surface-background-picture-id1283599807?b=1&k=20&m=1283599807&s=170667a&w=0&h=pARfZM-2iXG_jNmGBwCsDQ2o0EU76Iwddw5lqG2SGC8=);
+    //         }
+
+    //         .front {
+    //             border-radius: 20px 0 0 20px;
+
+    //             .pocket {
+    //                 transform: rotateZ(-15deg);
+    //             }
+
+    //             transform-origin: right;
+    //             transform: rotateY(30deg);
+    //         }
+
+    //         .back {
+    //             border-radius: 0 20px 20px 0;
+
+    //             .pocket {
+    //                 transform: rotateZ(15deg);
+    //             }
+
+    //             transform: rotateY(-30deg);
+    //             transform-origin: left;
+    //         }
+
+    //     }
+    // }
 }
 
 //andrew end
 //yahya alhawjra-->page exchange
-//yahya start
-.menu {
-
-    il {
-        text-decoration: inline;
-
-        text-align: center;
-        justify-content: center;
-        color: var(--color-lighter-grey);
-        border-radius: 10px;
-        font-size: xx-large;
-        margin: 10px;
-    }
-
-
-}
-
-il:hover {
-    background-color: var(--color-light-green);
-    color: white;
-
-}
-
-.title {
-    margin: 50px;
-
-    h1 {
-        color: var(--color-white);
-    }
-
-    p {
-        color: var(--color-lighter-grey);
-        font-size: 18px;
-    }
-}
-
-.wrapper {
-    display: flex;
-    flex-wrap: row;
-
-    .box {
-        background-color: var(--color-mid-grey);
-        border-radius: 10px;
-        margin: 70px;
-    }
-
-    button {
-        border-radius: 50%;
-        align-items: center;
-        justify-content: center;
-        margin-top: -50px;
-        outline: none;
-        margin-top: 0%;
-        margin: 10px;
-
-
-
-
-    }
-
-    h4 {
-        margin: 0 35px;
-
-        color: rgb(158, 10, 10);
-    }
-
-}
-
-.button-change {
-    margin-top: 50px;
-    margin-left: 8%;
-    justify-content: center;
-    align-items: center;
-}
-
-@media only screen and(max-width:600px) {
-    .button-change {
-        margin: 0;
-        margin-top: 50px;
-        margin-left: 50%;
-        justify-content: center;
-        align-items: center;
-    }
-}
-
-.wrapper2 {
-    margin-left: -100px;
-    margin-top: 0px;
-    display: flex;
-    flex-wrap: row;
-}
-
-/*yahya END*/
