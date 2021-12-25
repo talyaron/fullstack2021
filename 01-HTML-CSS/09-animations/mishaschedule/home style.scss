@@ -1,15 +1,19 @@
-body{
-    background-color: rgba(128, 128, 128, 0.089);
-    justify-items: center;
-#main-wrapper  {
-  width: 600px;
-  margin-right: auto;
-  margin-left: auto;
-}
+
+// Shimon STARTs
+
+.body {
+  background-color: rgba(128, 128, 128, 0.089);
+  justify-items: center;
+
+  #main-wrapper {
+    width: 600px;
+    margin-right: auto;
+    margin-left: auto;
+  }
 
 
-.container {
-    justify-self:center;
+  .container {
+    justify-self: center;
     margin-top: 5px;
     padding: 10px;
     font-family: 'Neue Haas Grotesk Display Pro', sans-serif;
@@ -18,69 +22,79 @@ body{
     gap: 5px;
 
     @keyframes magnificent_popup {
-        from{left:20px;}
-        to  {left:900px;}
-   }
-   
-   .cloud {
-       position:absolute;
-       top: 19vh;
-       width:400px;
-       height:600px;
-       right:400px;
-       animation-name: magnificent_popup;
-       animation-duration: 15s;
-       animation-iteration-count: infinite;
-       animation-direction: alternate;
-       animation-fill-mode: forwards;
-       border-radius: 20%;
-   }
-   .cloud.active {
-       display:block;
-       margin-right: auto;
-       margin-left: auto;    }
-  
-    .bird {
-        position: absolute;
-        top: 8vh;
-        right:3vw;
-        width: 160px;
-        display:block;
-        margin-right: auto;
-        margin-left: auto; 
+      from {
+        left: 20px;
       }
-    
 
-    h1{
-        display:block;
-        margin-right: auto;
-        margin-left: auto; 
+      to {
+        left: 900px;
       }
+    }
+
+    .cloud {
+      position: absolute;
+      top: 19vh;
+      width: 400px;
+      height: 600px;
+      right: 400px;
+      animation-name: magnificent_popup;
+      animation-duration: 15s;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      animation-fill-mode: forwards;
+      border-radius: 20%;
+    }
+
+    .cloud.active {
+      display: block;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    .bird {
+      position: absolute;
+      top: 8vh;
+      right: 3vw;
+      width: 160px;
+      display: block;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+
+    h1 {
+      display: block;
+      margin-right: auto;
+      margin-left: auto;
+    }
 
     img {
 
-        justify-self: center;
-        width: 40%;
-        border-radius: 0% 15%;
-        display:block;
-        margin-right: auto;
-        margin-left: auto; 
-      }
+      justify-self: center;
+      width: 40%;
+      border-radius: 0% 15%;
+      display: block;
+      margin-right: auto;
+      margin-left: auto;
+    }
 
     .login {
-        align-items: center;
-        text-align: center;
-        padding: 2%;
-        width:350px;
-        display: flex;
-        flex-direction: column;
-        background-color: rgba(128, 128, 128, 0.151);
-        border-radius: 25px;
-        display:block;
-        margin-right: auto;
-        margin-left: auto; 
-      }
-
-
+      align-items: center;
+      text-align: center;
+      padding: 2%;
+      width: 350px;
+      display: flex;
+      flex-direction: column;
+      background-color: rgba(128, 128, 128, 0.151);
+      border-radius: 25px;
+      display: block;
+      margin-right: auto;
+      margin-left: auto;
     }
+
+
+  }
 }
+
+
+// Shimon ENDs

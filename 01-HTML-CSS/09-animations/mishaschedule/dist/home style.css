@@ -1,13 +1,13 @@
-body {
+.body {
   background-color: rgba(128, 128, 128, 0.089);
   justify-items: center;
 }
-body #main-wrapper {
+.body #main-wrapper {
   width: 600px;
   margin-right: auto;
   margin-left: auto;
 }
-body .container {
+.body .container {
   justify-self: center;
   margin-top: 5px;
   padding: 10px;
@@ -24,7 +24,7 @@ body .container {
     left: 900px;
   }
 }
-body .container .cloud {
+.body .container .cloud {
   position: absolute;
   top: 19vh;
   width: 400px;
@@ -37,12 +37,12 @@ body .container .cloud {
   animation-fill-mode: forwards;
   border-radius: 20%;
 }
-body .container .cloud.active {
+.body .container .cloud.active {
   display: block;
   margin-right: auto;
   margin-left: auto;
 }
-body .container .bird {
+.body .container .bird {
   position: absolute;
   top: 8vh;
   right: 3vw;
@@ -51,12 +51,12 @@ body .container .bird {
   margin-right: auto;
   margin-left: auto;
 }
-body .container h1 {
+.body .container h1 {
   display: block;
   margin-right: auto;
   margin-left: auto;
 }
-body .container img {
+.body .container img {
   justify-self: center;
   width: 40%;
   border-radius: 0% 15%;
@@ -64,7 +64,7 @@ body .container img {
   margin-right: auto;
   margin-left: auto;
 }
-body .container .login {
+.body .container .login {
   align-items: center;
   text-align: center;
   padding: 2%;
