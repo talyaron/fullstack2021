@@ -1,0 +1,343 @@
+//navbar  start---------------------------------------------------------------------->
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .navbar
+  {
+      width: 150%;
+      margin: 20px 50px;
+      position: relative;
+      top: 50px;
+
+      &__car__CarPicture
+      {
+          position: relative;
+          left: 485px;
+          top: 70px;
+          margin-right: 20px;
+      }
+  }
+  
+  nav
+  {
+      position: absolute;
+      
+  }
+
+  nav> ul
+  {
+    position: relative;
+    display: -webkit- flex;
+    display: -moz- flex;
+    display: -ms- flex;
+    display: -o- flex;
+    display: flex;
+    justify-content: center;
+    width: 180%;
+    margin: 0 50px;
+    padding: 0;
+    
+  }
+
+  nav a 
+  {
+      display: block;
+      text-decoration: none;
+  }
+
+  nav ul li
+  {
+    list-style: none; 
+    transition: 0.5s;
+  }
+
+ul img
+{
+    width: 150%;
+    height: 25vh;
+    left: 80px;
+    top: -70px;
+    position: relative;
+}
+
+nav > ul > li > a
+{
+    padding: 5px 39px;
+    color: black;
+    font-size: 18px;
+    transition: 0.7s;
+
+
+    &::before
+    {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0px;
+        width: 0;
+        height: 3px;
+        background-color: red;
+        transition:  width 0.75s ease-out;
+    }
+}
+
+nav > ul > li > a:hover
+{
+    color: red; 
+}
+.nav ul> li.dropDown
+{
+    position: relative;
+    margin-right: 40px;
+
+ 
+}
+
+nav ul> li.dropDown > a::after
+{
+    top: 100px;
+    position: relative;
+    z-index: 1;
+    float:left;
+    content: '';
+    margin-top: 8px;
+    margin-right: 0px;
+    color: black;
+}
+
+
+
+nav>ul > li:hover
+{
+    background: white;
+    color: red;
+}
+
+nav ul.menu-area
+{
+    padding: 40px 40px 0 40px;
+    background: white;
+    text-align: left;
+    position: absolute;
+    display: -webkit- flex;
+    display: -moz- flex;
+    display: -ms- flex;
+    display: -o- flex;
+    display: flex;
+    flex-wrap: wrap;
+    height: 20vh;
+    width: 120%;
+    top: -9999px;
+    left: -100px;
+    overflow: hidden;
+
+}
+
+nav ul li:hover ul.menu-area
+{
+    top: 100%;
+    color: black;
+}
+
+nav ul.menu-area ul
+{
+    width: 25%;
+    margin-bottom: 40px;
+    margin-left: 0px;
+    color: red;
+    font-weight: 50px;
+}
+
+nav ul.menu-area h4
+{
+  margin-bottom: 15px;
+  text-transform: capitalize;  
+}
+
+nav ul.menu-area ul li
+{
+    display: block;
+}
+
+nav ul.menu-area ul li a
+{
+    margin-top: 10px;
+    color: black;
+    text-transform: none;
+    transition: 0.7s;
+}
+
+.third_column
+{
+    border: 1.8px solid rgb(189, 186, 186);
+    align-content: center;
+    height: 3.5vh;
+    width: 60%;
+    text-align: center;
+
+    &:hover
+    {
+        background: black;
+        color: white;
+    }
+}
+
+nav ul.menu-area ul li a:hover
+{
+    color: red;
+}
+
+.second_column
+{
+    margin-top: 20px;
+}
+
+
+
+//navbar  end---------------------------------------------------------------------->
+
+
+//General Carousel  start ---------------------------------------------------->
+
+.Carousel_image
+{
+    width: 7vw;
+    left: 50px;
+    position: relative;
+    border: 0.8px solid rgb(163, 158, 158);
+    z-index: 2;
+}
+
+
+.Carousel__wrapper
+{
+    overflow: hidden;
+    z-index: 0;
+    height: 80vh;
+    position: relative;
+    width: 100%;
+    display: block;
+    top: 200px;
+    margin: 50px auto;
+    border: 3px solid rgb(95, 93, 93);
+
+    &__item
+    {
+        position: absolute;
+        top: 0px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 25px 50px;
+        opacity: 0;
+        transition: all 0.5s ease-in-out;
+
+    }
+
+    &__text
+    {
+        font-size: 50px;
+        position: relative;
+        color: rgb(80, 78, 78);
+        margin-top: 10px;
+        left: 35vw;
+        transition: 0.75s;
+
+        &:hover
+        {
+            color: #e41818;
+        }
+    }
+}
+
+.arrow
+{
+    border: solid rgb(238, 234, 234);
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 12px;
+    width: 2ch;
+    height: 3vh;
+
+    &:hover
+    {
+        border: solid #e41818;
+        border-width: 0 3px 3px 0;
+        opacity: 1;
+    }
+}
+
+.arrow_prev
+{
+    left: 70px;
+    border: 2px solid black;
+    border-width: 0 3px 3px 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) rotate(135deg);
+}
+
+.arrow_next
+{
+    right: 70px;
+    border: 2px solid black;
+    border-width: 0 3px 3px 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) rotate(-45deg);
+}
+
+[id^= "item"]
+{
+    display: none;
+}
+
+.item-1
+{
+    z-index: 2;
+    opacity: 1;
+    background: url('https://files.porsche.com/filestore/image/multimedia/none/cayenne-models-e3chili-announcement/preview/1cc14607-c9ea-11eb-80d7-005056bbdc38;sZ;twebp/porsche-preview.webp');
+    background-size: cover;
+    color: chartreuse;
+
+}
+
+.item-2
+{
+    background: url('https://files.porsche.com/filestore/image/multimedia/none/model-series-992-turbo-360-exterior-fallback/normal/40af7550-6e81-11ea-80c9-005056bbdc38;sK;twebp;c1350;gc/porsche-normal.webp');
+    background-size: cover;
+}
+
+.item-3
+{
+    background: url('https://files.porsche.com/filestore/vrhub360/multimedia/none/model-series-992-turbo-360-interior/preview/d1eabc71-8aee-11eb-80d4-005056bbdc38;sK;twebp;c1350;gc/porsche-preview.webp');
+    background-size: cover;
+}
+
+.item-4
+{
+    background: url('https://pics.porsche.com/rtt/iris?COSY-EU-100-1713c6eK12UC31P3T5JOCU%25hjdmiTDDmvMXlHWguCuq6Q44RtRHo9ZAaDjJu5PcI7tGW3rNbZJNKXv9Z7KcQQ%25yFN5tFAsXrw4r3wo0qnqZr8MCnR4i84tV2YN2OmNyW1QGWgCWKMUuyO9I7KMIrlhQ5kWHgfNk8h0Dy13Q9%25tlzfIjMREDrs6eWR6kUjGlHbnwFRY40VHTUNsVPjdwk');
+    background-size: cover;
+}
+
+*:target ~ .item-1
+{
+    opacity: 0;
+}
+
+#item-1:target ~ .item-1
+{
+    opacity: 1;
+}
+
+#item-2:target ~ .item-2 , #item-3:target ~ .item-3, #item-4:target ~ .item-4
+{
+    z-index: 3;
+    opacity: 1;
+}
+
+//General Carousel  end ------------------------------------------------------>

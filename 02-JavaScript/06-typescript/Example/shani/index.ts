@@ -4,8 +4,8 @@ let w:number=22
 
 function average( a:number ,b:number ):number {
     try{
-        const = avg (a+b)/2
-        console.log(`The average of m & w is ${average(m,w)}`);
+        const avg = (a+b)/2;
+        console.log(`The average of m & w is ${avg}`);
 
     }
     catch(error){
@@ -14,4 +14,7 @@ function average( a:number ,b:number ):number {
 
     }
 }
+
+console.log(average(m,w))
+
 
