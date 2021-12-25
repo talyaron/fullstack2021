@@ -129,7 +129,7 @@ nav ul {
     }
   }
 
-  #monthly-tasks {
+  #monthly-tasks, #home, #chart, #info{ //added the animation to all 4
     &:hover {
       .material-icons {
         animation: pulse 0.5s infinite alternate;
