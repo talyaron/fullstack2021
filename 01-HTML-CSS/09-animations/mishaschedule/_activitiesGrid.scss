@@ -1,0 +1,409 @@
+@import './var';
+@import './mixin';
+
+.ActivitiesGrid {
+  justify-content: center;
+  display: grid;
+  grid-gap: 1em;
+  grid-template-columns: 30% 30% 30%;
+  grid-template-rows: auto auto;
+  min-height: 20em;
+
+  grid-template-areas:
+    "steps sleep goals"
+    "steps sleep goals"
+    "steps colories goals"
+    "haert colories weight"
+    "haert colories weight";
+
+  .weight {
+    grid-area: weight;
+    @include activitiesBoard-1;
+    @include activitiesBoard-2;
+    height: 15vh;
+
+    &__weightIcons {
+      @include flexSpaceBetween;
+      padding: 2% 3%;
+    }
+
+    &--textWeght {
+      @include flexCenter;
+      margin-top: -11%;
+    }
+  }
+
+  .sleep {
+    grid-area: sleep;
+    background: linear-gradient(to bottom right, rgb(77, 53, 139) 50%, rgb(202, 54, 165) 100%);
+    color: white;
+    @include activitiesBoard-1;
+    height: 15vh;
+
+    &__sleepContent {
+
+      &__sleepIcons {
+        @include flexSpaceBetween;
+        padding: 3% 3%;
+
+        &--moonIcon {
+          background-color: $bgcolor;
+          border-radius: 50%;
+          color: black;
+          padding: 0.4%;
+        }
+      }
+
+      &__textHour {
+        padding-left: 3%;
+        padding-bottom: 5%;
+      }
+
+    }
+
+  }
+
+  .steps {
+    grid-area: steps;
+    @include activitiesBoard-1;
+    @include activitiesBoard-2;
+    height: 30vh;
+
+    &__stepsIcons {
+      padding: 2%;
+      @include flexSpaceBetween;
+    }
+
+    &__stepsContainer {
+
+      padding-top: 10%;
+
+      &__cercl {
+        @include flexCenter;
+
+        &--text {
+          position: absolute;
+        }
+
+      }
+
+      .animation {
+        -webkit-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+
+        &__circleAnimation {
+          stroke-dasharray: 440;
+          stroke-dashoffset: 440;
+          -webkit-animation: html 6s ease-out forwards;
+          animation: html 6s ease-out forwards;
+        }
+
+        @-webkit-keyframes html {
+          to {
+            stroke-dashoffset: 170;
+          }
+        }
+
+        @keyframes html {
+          to {
+            stroke-dashoffset: 170;
+          }
+        }
+
+      }
+
+    }
+
+  }
+
+  .calories {
+    grid-area: colories;
+    @include activitiesBoard-1;
+    @include activitiesBoard-2;
+    height: 30vh;
+
+    &__caloriesIcons {
+      @include flexSpaceBetween;
+      padding: 3% 3%;
+    }
+
+    &__caloriesContainer {
+      padding-top: 8%;
+
+      &__cercl {
+        @include flexCenter;
+
+        &--text {
+          position: absolute;
+        }
+      }
+
+      .animation {
+        -webkit-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+
+        &__circleAnimation {
+          stroke-dasharray: 440;
+          stroke-dashoffset: 440;
+          -webkit-animation: html 6s ease-out forwards;
+          animation: html 6s ease-out forwards;
+        }
+
+        @-webkit-keyframes html {
+          to {
+            stroke-dashoffset: 200;
+          }
+        }
+
+        @keyframes html {
+          to {
+            stroke-dashoffset: 200;
+          }
+        }
+
+      }
+
+    }
+
+  }
+
+  .goals {
+    grid-area: goals;
+    @include activitiesBoard-1;
+    @include activitiesBoard-2;
+    height: 30vh;
+
+    &__goalsIcons {
+      @include flexSpaceBetween;
+      padding: 3% 3%;
+    }
+
+    &__goalsDiagram {
+      @include flexSpaceEvenly;
+
+      &__circl {
+        @include flexCenter;
+
+        &--Text {
+          position: absolute;
+        }
+      }
+
+      .animation {
+        -webkit-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+
+        &__circleAnimation {
+          stroke-dasharray: 440;
+          stroke-dashoffset: 440;
+          -webkit-animation: html 6s ease-out forwards;
+          animation: html 6s ease-out forwards;
+        }
+
+        @-webkit-keyframes html {
+          to {
+            stroke-dashoffset: 170;
+          }
+        }
+
+        @keyframes html {
+          to {
+            stroke-dashoffset: 170;
+          }
+        }
+
+      }
+
+    }
+
+  }
+ 
+  .haert {
+    grid-area: haert;
+    @include activitiesBoard-1;
+    @include activitiesBoard-2;
+    height: 15vh;
+
+    &__heartIcons {
+      @include flexSpaceBetween;
+      padding: 2% 3%;
+    }
+
+    &__chart {
+      @include flexCenter;
+
+      &--bmp {
+        position: absolute;
+        left: 19.2%;
+      }
+
+      .bar-graph-vertical .bar-container {
+        float: left;
+        height: 10vh;
+        position: relative;
+        width: 2em;
+      }
+
+      .bar-graph-vertical .bar {
+        border-radius: 3px;
+        bottom: 1em;
+        position: absolute;
+        width: 0.4em;
+      }
+
+      .bar-graph-vertical .year {
+        -webkit-transform: rotate(90deg);
+        -moz-transform: rotate(90deg);
+        -o-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        transform: rotate(90deg);
+      }
+
+      .bar-graph-two .bar::after {
+        -webkit-transform: rotate(90deg);
+        -moz-transform: rotate(90deg);
+        -o-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        transform: rotate(90deg);
+      }
+
+      .bar-graph-two .bar-one .bar {
+        background-color: rgba(112, 19, 131, 0.747);
+        -webkit-animation: show-bar-one-vertical 2.5s 0.1s forwards;
+        -moz-animation: show-bar-one-vertical 2.5s 0.1s forwards;
+        animation: show-bar-one-vertical 2.5s 0.1s forwards;
+      }
+
+      .bar-graph-two .bar-two .bar {
+        background-color: rgb(243, 130, 239);
+        -webkit-animation: show-bar-two-vertical 2.5s 0.2s forwards;
+        -moz-animation: show-bar-two-vertical 2.5s 0.2s forwards;
+        animation: show-bar-two-vertical 2.5s 0.2s forwards;
+      }
+
+      .bar-graph-two .bar-three .bar {
+        background-color: rgb(243, 130, 239);
+        -webkit-animation: show-bar-three-vertical 2.5s 0.3s forwards;
+        -moz-animation: show-bar-three-vertical 2.5s 0.3s forwards;
+        animation: show-bar-three-vertical 2.5s 0.3s forwards;
+      }
+
+      .bar-graph-two .bar-four .bar {
+        background-color: rgba(112, 19, 131, 0.747);
+        -webkit-animation: show-bar-four-vertical 2.5s 0.4s forwards;
+        -moz-animation: show-bar-four-vertical 2.5s 0.4s forwards;
+        animation: show-bar-four-vertical 2.5s 0.4s forwards;
+      }
+
+      .bar-graph-two .bar-five .bar {
+        background-color: rgb(243, 130, 239);
+        -webkit-animation: show-bar-five-vertical 2.5s 0.5s forwards;
+        -moz-animation: show-bar-five-vertical 2.5s 0.5s forwards;
+        animation: show-bar-five-vertical 2.5s 0.5s forwards;
+      }
+
+      .bar-graph-two .bar-six .bar {
+        background-color: rgb(243, 130, 239);
+        -webkit-animation: show-bar-six-vertical 2.5s 0.6s forwards;
+        -moz-animation: show-bar-six-vertical 2.5s 0.6s forwards;
+        animation: show-bar-six-vertical 2.5s 0.6s forwards;
+      }
+
+      .bar-graph-two .bar-seven .bar {
+        background-color: rgba(112, 19, 131, 0.747);
+        -webkit-animation: show-bar-seven-vertical 2.5s 0.7s forwards;
+        -moz-animation: show-bar-seven-vertical 2.5s 0.7s forwards;
+        animation: show-bar-seven-vertical 2.5s 0.7s forwards;
+      }
+
+      .bar-graph-two .bar-eight .bar {
+        background-color: rgb(243, 130, 239);
+        -webkit-animation: show-bar-eight-vertical 25s 0.8s forwards;
+        -moz-animation: show-bar-eight-vertical 2.5s 0.8s forwards;
+        animation: show-bar-eight-vertical 2.5s 0.8s forwards;
+      }
+
+      @-webkit-keyframes show-bar-one-vertical {
+        0% {
+          height: 0;
+        }
+
+        100% {
+          height: 68%;
+        }
+      }
+
+      @-webkit-keyframes show-bar-two-vertical {
+        0% {
+          height: 0;
+        }
+
+        100% {
+          height: 55%;
+        }
+      }
+
+      @-webkit-keyframes show-bar-three-vertical {
+        0% {
+          height: 0;
+        }
+
+        100% {
+          height: 75%;
+        }
+      }
+
+      @-webkit-keyframes show-bar-four-vertical {
+        0% {
+          height: 0;
+        }
+
+        100% {
+          height: 50%;
+        }
+      }
+
+      @-webkit-keyframes show-bar-five-vertical {
+        0% {
+          height: 0;
+        }
+
+        100% {
+          height: 25%;
+        }
+      }
+
+      @-webkit-keyframes show-bar-six-vertical {
+        0% {
+          height: 0;
+        }
+
+        100% {
+          height: 95%;
+        }
+      }
+
+      @-webkit-keyframes show-bar-seven-vertical {
+        0% {
+          height: 0;
+        }
+
+        100% {
+          height: 82%;
+        }
+      }
+
+      @-webkit-keyframes show-bar-eight-vertical {
+        0% {
+          height: 0;
+        }
+
+        100% {
+          height: 37%;
+        }
+      }
+
+    }
+  }
+
+}
