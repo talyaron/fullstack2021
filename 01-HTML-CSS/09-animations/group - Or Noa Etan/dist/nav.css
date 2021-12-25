@@ -107,6 +107,7 @@ nav ul li a i:hover {
   }
   nav ul {
     top: 0;
+    border-radius: 0;
   }
   nav ul li {
     flex: 1 2 auto;
