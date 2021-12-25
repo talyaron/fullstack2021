@@ -381,10 +381,7 @@ body .main .contain__box__up--bigIcon .fa-circle {
     transform: scale(0.7);
   }
 }
-body .main .contain__box__up--bigIcon--bigIcons {
-  grid-column: 1;
-}
-body .main .contain__box__up--bigIcon--bigIcons .rainy {
+body .main .contain__box__up--bigIcon .rainy {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   max-width: 15px;
@@ -392,7 +389,7 @@ body .main .contain__box__up--bigIcon--bigIcons .rainy {
   gap: 15px;
   grid-column: 1;
 }
-body .main .contain__box__up--bigIcon--bigIcons .rainy .rain {
+body .main .contain__box__up--bigIcon .rainy .rain {
   background-color: #5f95fc;
   width: 2px;
   height: 6px;
@@ -405,15 +402,15 @@ body .main .contain__box__up--bigIcon--bigIcons .rainy .rain {
 @keyframes rains {
   from {
     opacity: 0.5;
-    transform: translateY(5vh) skew(-30deg, -20deg);
+    transform: translate(-5vh, 5vh) skew(-30deg, -20deg);
   }
   50% {
-    transform: translateY(10vh) skew(-30deg, -20deg);
+    transform: translate(-5vh, 10vh) skew(-30deg, -20deg);
     opacity: 1;
   }
   to {
     opacity: 0.5;
-    transform: translateY(15vh) skew(-30deg, -20deg);
+    transform: translate(-5vh, 15vh) skew(-30deg, -20deg);
   }
 }
 body .main .contain__box__down {
@@ -1051,15 +1048,15 @@ body .days {
       transform: scale(0.7);
     }
   }
-  body .main .contain__box__up--bigIcon--bigIcons .rainy {
+  body .main .contain__box__up--bigIcon .rainy {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-row: 1;
-    gap: 5px;
+    gap: 10px;
     grid-column: 1;
     grid-template-rows: 1fr;
   }
-  body .main .contain__box__up--bigIcon--bigIcons .rainy .rain {
+  body .main .contain__box__up--bigIcon .rainy .rain {
     background-color: #5f95fc;
     width: 2px;
     height: 6px;
@@ -1072,15 +1069,15 @@ body .days {
   @keyframes rains {
     from {
       opacity: 0.5;
-      transform: translateY(5vh) skew(-30deg, -20deg);
+      transform: translate(-5vh, 5vh) skew(-30deg, -20deg);
     }
     50% {
-      transform: translateY(9vh) skew(-30deg, -20deg);
+      transform: translate(-5vh, 9vh) skew(-30deg, -20deg);
       opacity: 1;
     }
     to {
       opacity: 0.5;
-      transform: translateY(10vh) skew(-30deg, -20deg);
+      transform: translate(-5vh, 10vh) skew(-30deg, -20deg);
     }
   }
   body .main .contain__box__down {
@@ -1280,13 +1277,6 @@ body .days {
     gap: 1px;
     grid-template-rows: 0.1fr 0.1fr;
     grid-template-columns: 2fr 3fr;
-  }
-  body .main .contain__box__up__text {
-    margin: auto;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 0.1fr 0.1fr;
-    grid-row: 1;
   }
   body .main .contain__box__up__text--text {
     grid-row: 1;
@@ -1527,17 +1517,18 @@ body .days {
       opacity: 1;
     }
   }
-  body .main .contain__box__up--bigIcon--bigIcons .rainy {
+  body .main .contain__box__up--bigIcon .rainy {
     display: grid;
-    grid-template-columns: repeat(5, 5fr);
+    grid-template-columns: repeat(5, 1fr);
     grid-row: 1;
     gap: 10px;
     grid-column: 1;
+    grid-template-rows: 1fr;
   }
-  body .main .contain__box__up--bigIcon--bigIcons .rainy .rain {
+  body .main .contain__box__up--bigIcon .rainy .rain {
     grid-row: 1;
     grid-column: 1;
-    width: 5px;
+    width: 2px;
     height: 6px;
     animation-name: rains;
     animation-duration: 1s;
