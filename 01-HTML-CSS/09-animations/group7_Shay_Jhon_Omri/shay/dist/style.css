@@ -1,105 +1,789 @@
+body {
+  max-width: 100vw;
+  background-color: #081b25;
+  font-family: "Roboto", sans-serif;
+}
+body .main {
+  justify-content: center;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.5fr 3fr 0.6fr;
+}
+body .main .header {
+  margin: auto;
+  display: grid;
+  grid-template-columns: 49fr 2fr;
+  grid-template-rows: 1fr;
+}
+body .main .header__icon .fa-search {
+  color: #25404e;
+  grid-column: 2;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 0.2fr 0.8fr;
+}
+body .main .header__icon .fa-search span {
+  grid-column: 2;
+  color: #25404e;
+  font-size: 18px;
+  font-family: "Roboto", sans-serif;
+}
+body .main .header__icon .fa-pen {
+  grid-column: 10;
+  color: #25404e;
+  grid-row: 1;
+}
+body .main .contain {
+  margin: auto;
+  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 5px;
+}
+body .main .contain__box {
+  background-color: #152c39;
+  border-radius: 20px;
+  width: 400px;
+  height: 400px;
+  gap: 10px;
+}
+body .main .contain__box__up {
+  grid-row: 1;
+  grid-column: 1;
+  display: grid;
+  gap: 1px;
+  grid-template-rows: 3fr;
+  grid-template-columns: 3fr 3fr;
+}
+body .main .contain__box__up__text {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.1fr 0.5fr;
+  grid-row: 1;
+}
+body .main .contain__box__up__text--text {
+  grid-row: 1;
+  grid-column: 2;
+}
+body .main .contain__box__up__text--text h2 {
+  color: white;
+}
+body .main .contain__box__up__text--city {
+  grid-row: 2;
+  grid-column: 2;
+}
+body .main .contain__box__up__text--city h6 {
+  color: white;
+  font-size: 20px;
+}
+body .main .contain__box__up__text--state {
+  grid-row: 2;
+  grid-column: 2;
+}
+body .main .contain__box__up__text--state p {
+  font-size: 20px;
+  color: #3d5564;
+}
+body .main .contain__box__up__text i {
+  grid-column: 4;
+}
+body .main .contain__box__up__text i span {
+  grid-row: 3;
+  grid-column: 2;
+  font-size: 20px;
+  color: #3d5564;
+  font-family: "Roboto", sans-serif;
+}
+body .main .contain__box__up--bigIcon {
+  margin: auto;
+  grid-column: 5;
+  grid-row: 1;
+}
+body .main .contain__box__up--bigIcon .fa-gradient {
+  font-size: 5em;
+  background: -webkit-gradient(linear, left top, left bottom, from(#5f95fc), to(#cc63f9));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: initial;
+}
+body .main .contain__box__up--bigIcon .fa-gradients {
+  background: -webkit-gradient(linear, left top, left bottom, from(#5f95fc), to(#cc63f9));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: initial;
+  font-size: 5em;
+  animation-duration: 5s;
+  animation-delay: 2s;
+  animation-iteration-count: 5;
+}
+body .main .contain__box__up--bigIcon .fa-snow {
+  animation-name: snowflakes;
+  animation-duration: 5s;
+  animation-delay: 2s;
+  animation-iteration-count: 5;
+}
+@keyframes snowflakes {
+  from {
+    transform: translate(0px, 0px) scale(0.2);
+  }
+  25% {
+    transform: translate(0px, 25px) scale(0.2);
+  }
+  50% {
+    transform: translate(0px, 20px) scale(0.2);
+  }
+  75% {
+    transform: translate(0px, 30px) scale(0.2);
+  }
+  to {
+    transform: translate(0px, 40px) scale(0.2);
+  }
+}
+body .main .contain__box__up--bigIcon .a {
+  animation-name: snowy;
+  opacity: 0;
+  grid-column: 4;
+}
+@keyframes snowy {
+  from {
+    transform: translate(20px, 5px) scale(0.2);
+    opacity: 0.5;
+  }
+  25% {
+    transform: translate(-70px, 35px) scale(0.2);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-30px, 40px) scale(0.2);
+    opacity: 1;
+  }
+  75% {
+    transform: translate(50px, 30px) scale(0.2);
+    opacity: 1;
+  }
+  to {
+    transform: translate(20px, 45px) scale(0.2);
+    opacity: 1;
+  }
+}
+body .main .contain__box__up--bigIcon .b {
+  animation-name: snowa;
+  opacity: 0;
+  grid-column: 5;
+}
+@keyframes snowa {
+  from {
+    transform: translate(39px, 15px) scale(0.2);
+    opacity: 0.5;
+  }
+  25% {
+    transform: translate(50px, 35px) scale(0.2);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(20px, 20px) scale(0.2);
+    opacity: 1;
+  }
+  75% {
+    transform: translate(49px, 40px) scale(0.2);
+    opacity: 1;
+  }
+  to {
+    transform: translate(-30px, 45px) scale(0.2);
+    opacity: 1;
+  }
+}
+body .main .contain__box__up--bigIcon .c {
+  animation-name: snowc;
+  opacity: 0;
+  grid-column: 6;
+}
+@keyframes snowc {
+  from {
+    transform: translate(-20px, 25px) scale(0.2);
+    opacity: 0.5;
+  }
+  25% {
+    transform: translate(10px, 55px) scale(0.2);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(20px, 60px) scale(0.2);
+    opacity: 1;
+  }
+  75% {
+    transform: translate(50px, 70px) scale(0.2);
+    opacity: 1;
+  }
+  to {
+    transform: translate(-50px, 95px) scale(0.2);
+    opacity: 1;
+  }
+}
+body .main .contain__box__up--bigIcon .d {
+  animation-name: snowd;
+  opacity: 0;
+  grid-column: 7;
+}
+@keyframes snod {
+  from {
+    transform: translate(10px, 20px) scale(0.2);
+    opacity: 0.5;
+  }
+  25% {
+    transform: translate(-55px, 15px) scale(0.2);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(40px, 35px) scale(0.2);
+    opacity: 1;
+  }
+  75% {
+    transform: translate(-15px, 71px) scale(0.2);
+    opacity: 1;
+  }
+  to {
+    transform: translate(50px, 80px) scale(0.2);
+    opacity: 1;
+  }
+}
+body .main .contain__box__up--bigIcon .e {
+  animation-name: snowe;
+  opacity: 0;
+  grid-column: 5;
+}
+@keyframes snowe {
+  from {
+    transform: translate(10px, 5px) scale(0.2);
+    opacity: 0.5;
+  }
+  25% {
+    transform: translate(39px, 15px) scale(0.2);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-30px, 30px) scale(0.2);
+    opacity: 1;
+  }
+  75% {
+    transform: translate(49px, 45px) scale(0.2);
+    opacity: 1;
+  }
+  to {
+    transform: translate(55px, 60px) scale(0.2);
+    opacity: 1;
+  }
+}
+body .main .contain__box__up--bigIcon .f {
+  animation-name: snowf;
+  opacity: 0;
+  grid-column: 3;
+}
+@keyframes snowf {
+  from {
+    transform: translate(-20px, 15px) scale(0.2);
+    opacity: 0.5;
+  }
+  25% {
+    transform: translate(55px, 55px) scale(0.2);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-10px, 60px) scale(0.2);
+    opacity: 1;
+  }
+  75% {
+    transform: translate(56px, 70px) scale(0.2);
+    opacity: 1;
+  }
+  to {
+    transform: translate(25px, 85px) scale(0.2);
+    opacity: 1;
+  }
+}
+body .main .contain__box__up--bigIcon .g {
+  animation-name: snowg;
+  opacity: 0;
+  grid-column: 6;
+}
+@keyframes snowg {
+  from {
+    transform: translate(-30px, 10px) scale(0.2);
+    opacity: 0.5;
+  }
+  25% {
+    transform: translate(25px, 15px) scale(0.2);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(35px, 20px) scale(0.2);
+    opacity: 1;
+  }
+  75% {
+    transform: translate(-40px, 35px) scale(0.2);
+    opacity: 1;
+  }
+  to {
+    transform: translate(40px, 50px) scale(0.2);
+    opacity: 1;
+  }
+}
+body .main .contain__box__up--bigIcon .h {
+  animation-name: snowh;
+  opacity: 0;
+  grid-column: 5;
+}
+@keyframes snowh {
+  from {
+    transform: translate(-30px, 10px) scale(0.2);
+    opacity: 0.5;
+  }
+  25% {
+    transform: translate(35px, 15px) scale(0.2);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(20px, 30px) scale(0.2);
+    opacity: 1;
+  }
+  75% {
+    transform: translate(30px, 45px) scale(0.2);
+    opacity: 1;
+  }
+  to {
+    transform: translate(-10px, 50px) scale(0.2);
+    opacity: 1;
+  }
+}
+body .main .contain__box__up--bigIcon .fa-circle {
+  animation-name: sun;
+  animation-duration: 3s;
+  animation-delay: 2s;
+  animation-iteration-count: 3;
+}
+@keyframes sun {
+  from {
+    transform: scale(0.7);
+  }
+  40% {
+    transform: scale(0.9);
+  }
+  80% {
+    transform: scale(90px);
+  }
+  to {
+    transform: scale(0.7);
+  }
+}
+body .main .contain__box__up--bigIcon .rainy {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  max-width: 15px;
+  grid-row: 2;
+  gap: 15px;
+  grid-column: 6;
+}
+body .main .contain__box__up--bigIcon .rainy .rain {
+  background-color: #5f95fc;
+  width: 2px;
+  height: 6px;
+  animation-name: rains;
+  animation-duration: 1s;
+  animation-delay: 2s;
+  animation-iteration-count: 6;
+  opacity: 0;
+}
+@keyframes rains {
+  from {
+    opacity: 0.5;
+    transform: translateY(5vh) skew(-30deg, -20deg);
+  }
+  50% {
+    transform: translateY(10vh) skew(-30deg, -20deg);
+    opacity: 1;
+  }
+  to {
+    opacity: 0.5;
+    transform: translateY(15vh) skew(-30deg, -20deg);
+  }
+}
+body .main .contain__box__down {
+  margin: auto;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 3fr 3fr;
+}
+body .main .contain__box__down--smalIconsLeft {
+  grid-column: 1;
+  grid-row: 2;
+}
+body .main .contain__box__down--smalIconsLeft .fa-tint {
+  animation-name: tint;
+  animation-duration: 2s;
+  animation-iteration-count: 6;
+  color: #436081;
+  font-size: 1.5em;
+}
+body .main .contain__box__down--smalIconsLeft .fa-tint span {
+  color: #436081;
+  color: white;
+  width: 30px;
+  font-size: 15px;
+  height: 10px !important;
+  font-family: "Roboto", sans-serif;
+}
+@keyframes tint {
+  50% {
+    background-position: 1px 0px;
+    background-image: url("https://htmlcolorcodes.com/assets/images/colors/bright-blue-color-solid-background-1920x1080.png");
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  100% {
+    background-position: 5px 0px;
+    background-image: url("https://www.solidbackgrounds.com/images/3840x2160/3840x2160-light-sea-green-solid-color-background.jpg");
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+body .main .contain__box__down--smalIconsRight {
+  grid-column: 2;
+  grid-row: 2;
+}
+body .main .contain__box__down--smalIconsRight .fa-wind {
+  color: #436081;
+  width: 25px;
+  font-size: 1.5em;
+  animation-name: wind;
+  animation-duration: 2s;
+  animation-iteration-count: 6;
+}
+body .main .contain__box__down--smalIconsRight .fa-wind span {
+  font-size: 15px;
+  color: white;
+  font-family: "Roboto", sans-serif;
+}
+@keyframes wind {
+  from {
+    opacity: 1;
+    transform: translate(5px, 0);
+  }
+  25% {
+    opacity: 0.5;
+    transform: translate(0px, 0);
+  }
+  50% {
+    opacity: 0;
+    transform: translate(5px, 0);
+  }
+  75% {
+    opacity: 0.5;
+    transform: translate(0px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate(5px, 0);
+  }
+}
+body .main .bar {
+  margin: auto;
+  padding-top: 50px;
+  padding-left: 70px;
+  padding-bottom: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+body .main .bar__icons #active:target {
+  color: #7b446a;
+}
+body .details {
+  background: rgba(19, 27, 36, 0.877);
+  max-width: 600px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 6fr;
+  grid-template-rows: 0.8fr 1.6fr 0.8fr 0.3fr 1fr 1fr;
+  color: honeydew;
+}
+body .details__location {
+  margin-top: 20px;
+  display: grid;
+  grid-template-rows: repeat(2 1fr);
+}
+body .details__location .fas {
+  color: gray;
+  margin: auto;
+}
+body .details__location p {
+  justify-self: center;
+  margin-top: -10px;
+}
+body .details__dayTime {
+  display: flex;
+  flex-direction: column;
+}
+body .details__dayTime .ball {
+  width: 150px;
+  height: 150px;
+  border-radius: 100px;
+  background-image: linear-gradient(to bottom right, #10b0fa, rgba(247, 0, 255, 0.932));
+  margin: auto;
+  animation-name: rorate;
+  animation-duration: 3s;
+  animation-delay: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: reverse;
+  animation-timing-function: ease-in-out;
+}
+body .details__dayTime .card {
+  width: 100px;
+  height: 20px;
+  text-align: center;
+  padding: 0.5%;
+  border-radius: 40px;
+  margin: auto;
+  background: rgba(124, 49, 223, 0.295);
+}
+body .details__temp {
+  justify-self: center;
+  font-size: 3rem;
+}
+body .details__current {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+body .details__current .data {
+  justify-content: center;
+}
+body .details__current .data span {
+  margin-left: 10px;
+}
+body .details__current .fas {
+  color: cornflowerblue;
+}
+body .details__general {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(3 1fr);
+  margin: 0% 15%;
+}
+body .details__general .measure_units {
+  justify-self: end;
+  color: #33599e;
+}
+body .details__general .measure_units .fas {
+  color: honeydew;
+  font-size: 12px;
+}
+body .details__general .measure_units span {
+  margin-right: 10px;
+}
+body .wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  height: 20vh;
+  color: #e4e4e4;
+}
+body .wrapper .fas {
+  font-size: 400px;
+  color: violet;
+}
+body .wrapper__city {
+  grid-column: 1;
+  grid-row: 1;
+}
+body .wrapper__city h1 {
+  left: 50px;
+}
+body .wrapper__photo {
+  grid-column: 2;
+  grid-row: 1/3;
+}
+body .wrapper__degrees {
+  grid-column: 1;
+  grid-row: 2;
+}
+body .wrapper__weather {
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 3;
+  background-color: #772ab6;
+  width: 120px;
+  border-radius: 30%;
+  color: white;
+}
+body .weatherBar {
+  display: flex;
+  height: 5vh;
+  width: 80vw;
+  background-color: transparent;
+  position: absolute;
+  top: 60vh;
+  justify-content: space-between;
+  color: white;
+}
+body .hours {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-row-gap: 10px;
+  position: relative;
+  top: 600px;
+  color: white;
+}
+body .days {
+  display: grid;
+  grid-template-columns: 3fr 2fr 1fr 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  font-size: x-large;
+  position: relative;
+  color: white;
+  top: 700px;
+  grid-row-gap: 10px;
+}
+@keyframes rorate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 @media only screen and (max-width: 600px) {
-  body {
-    max-width: 600px;
-    background-color: #081b25;
-    font-family: "Roboto", sans-serif;
-    max-height: 100vh;
-  }
-
-  .header {
-    padding-top: 10px;
+  body .main {
     display: grid;
-    grid-template-columns: repeat(12, 50px);
-    grid-template-rows: repeat(3, 50px);
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.3fr 3fr 0.6fr;
   }
-  .header .fa-search {
-    color: #25404e;
+  body .main .header {
+    margin: auto;
+    display: grid;
+    grid-template-columns: 25fr 2fr;
+    grid-template-rows: 1fr;
+  }
+  body .main .header__icon {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+  }
+  body .main .header__icon .fa-search {
+    font-size: 1.7em;
+    grid-column: 1;
+    grid-row: 1;
+  }
+  body .main .header__icon .fa-search span {
+    margin-top: auto;
+    grid-row: 1;
     grid-column: 2;
-    grid-row: 2;
+    font-size: 14px;
   }
-  .header .fa-pen {
-    grid-column: 11;
-    color: #25404e;
-    grid-row: 2;
+  body .main .header__icon .fa-pen {
+    font-size: 1.7em;
+    grid-column: 5;
   }
-  .header p {
-    grid-row: 2;
-    grid-column: 4;
-    color: #25404e;
-    font-size: 18px;
-  }
-
-  .contain {
+  body .main .contain {
+    margin: auto;
+    align-items: center;
     display: grid;
-    grid-template-columns: repeat(2, 200px);
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
     gap: 5px;
-    padding-left: 80px;
-    max-width: 600px;
-    max-height: 600px;
   }
-  .contain__box {
+  body .main .contain__box {
+    margin: auto;
     background-color: #152c39;
     border-radius: 20px;
     width: 200px;
     height: 200px;
+    gap: 5px;
     display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+  body .main .contain__box__up {
     grid-row: 1;
     grid-column: 1;
-    grid-template-columns: repeat(3, 63px);
-    grid-template-rows: repeat(2, 100px);
-    gap: 5px;
-  }
-  .contain__box--text {
-    padding-top: 5px;
-    grid-row: 1;
-    grid-column: 2;
     display: grid;
-    grid-template-rows: repeat(8, 20px);
-    grid-template-columns: repeat(8, 20px);
+    gap: 1px;
+    grid-template-rows: 3fr;
+    grid-template-columns: 3fr 3fr;
   }
-  .contain__box--text h2 {
+  body .main .contain__box__up__text {
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.5fr 0.5fr;
     grid-row: 1;
-    grid-column: 2;
+  }
+  body .main .contain__box__up__text--text {
+    grid-row: 1;
+    grid-column: 1;
+  }
+  body .main .contain__box__up__text--text h2 {
+    margin-left: auto;
+    font-size: 20px;
     color: white;
   }
-  .contain__box--text .city {
-    grid-row: 2;
-    grid-column: 2;
-    color: white;
-    font-size: 16px;
-    width: 100px;
+  body .main .contain__box__up__text--city {
+    grid-column: 1;
+    grid-row: 1;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.1fr 0.1fr;
+    width: 88px;
   }
-  .contain__box--text p {
-    grid-row: 4;
-    grid-column: 2;
+  body .main .contain__box__up__text--city h6 {
+    color: white;
     font-size: 14px;
+    grid-row: 1;
+  }
+  body .main .contain__box__up__text--state {
+    grid-row: 2;
+    grid-column: 1;
+  }
+  body .main .contain__box__up__text--state p {
+    font-size: 16px;
     color: #3d5564;
   }
-  .contain__box--text .fa-gradient {
+  body .main .contain__box__up__text i span {
+    grid-row: 3;
+    grid-column: 2;
+    font-size: 20px;
+    color: #3d5564;
+    font-family: "Roboto", sans-serif;
+  }
+  body .main .contain__box__up--bigIcon {
+    margin: auto;
+    grid-column: 2;
+    grid-row: 1;
+  }
+  body .main .contain__box__up--bigIcon .fa-gradient {
+    font-size: 3em;
+    background: -webkit-gradient(linear, left top, left bottom, from(#5f95fc), to(#cc63f9));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: initial;
+  }
+  body .main .contain__box__up--bigIcon .fa-gradients {
     background: -webkit-gradient(linear, left top, left bottom, from(#5f95fc), to(#cc63f9));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     display: initial;
     font-size: 3em;
-    grid-column: 5 !important;
-    grid-row: 2;
-  }
-  .contain__box--text .fa-gradients {
-    background: -webkit-gradient(linear, left top, left bottom, from(#5f95fc), to(#cc63f9));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    display: initial;
-    font-size: 5em;
-    animation-duration: 2s;
+    animation-duration: 5s;
     animation-delay: 2s;
     animation-iteration-count: 5;
-    width: 70px;
-    height: 70px;
   }
-  .contain__box--text .fa-snow {
+  body .main .contain__box__up--bigIcon .fa-snow {
     animation-name: snowflakes;
-    animation-duration: 2s;
+    animation-duration: 5s;
     animation-delay: 2s;
     animation-iteration-count: 5;
   }
@@ -108,7 +792,7 @@
       transform: translate(0px, 0px) scale(0.2);
     }
     25% {
-      transform: translate(0px, 15px) scale(0.2);
+      transform: translate(0px, 25px) scale(0.2);
     }
     50% {
       transform: translate(0px, 20px) scale(0.2);
@@ -120,225 +804,229 @@
       transform: translate(0px, 40px) scale(0.2);
     }
   }
-  .contain__box--text .a {
+  body .main .contain__box__up--bigIcon .a {
     animation-name: snowy;
     opacity: 0;
     grid-column: 4;
   }
   @keyframes snowy {
     from {
-      transform: translate(20px, 0px) scale(0.1);
+      transform: translate(20px, 5px) scale(0.2);
       opacity: 0.5;
     }
     25% {
-      transform: translate(10px, 15px) scale(0.1);
+      transform: translate(-70px, 35px) scale(0.2);
       opacity: 1;
     }
     50% {
-      transform: translate(20px, 20px) scale(0.1);
+      transform: translate(-30px, 40px) scale(0.2);
       opacity: 1;
     }
     75% {
-      transform: translate(10px, 30px) scale(0.1);
+      transform: translate(44px, 30px) scale(0.2);
       opacity: 1;
     }
     to {
-      transform: translate(20px, 40px) scale(0.1);
+      transform: translate(20px, 45px) scale(0.2);
       opacity: 1;
     }
   }
-  .contain__box--text .b {
+  body .main .contain__box__up--bigIcon .b {
     animation-name: snowa;
     opacity: 0;
     grid-column: 5;
   }
   @keyframes snowa {
     from {
-      transform: translate(39px, 0px) scale(0.1);
+      transform: translate(39px, 15px) scale(0.2);
       opacity: 0.5;
     }
     25% {
-      transform: translate(25px, 15px) scale(0.1);
+      transform: translate(40px, 35px) scale(0.2);
       opacity: 1;
     }
     50% {
-      transform: translate(30px, 20px) scale(0.1);
+      transform: translate(20px, 20px) scale(0.2);
       opacity: 1;
     }
     75% {
-      transform: translate(39px, 30px) scale(0.1);
+      transform: translate(45px, 40px) scale(0.2);
       opacity: 1;
     }
     to {
-      transform: translate(30px, 40px) scale(0.1);
+      transform: translate(-30px, 45px) scale(0.2);
       opacity: 1;
     }
   }
-  .contain__box--text .c {
+  body .main .contain__box__up--bigIcon .c {
     animation-name: snowc;
     opacity: 0;
     grid-column: 6;
   }
   @keyframes snowc {
     from {
-      transform: translate(20px, 0px) scale(0.1);
+      transform: translate(-20px, 25px) scale(0.2);
       opacity: 0.5;
     }
     25% {
-      transform: translate(10px, 15px) scale(0.1);
+      transform: translate(10px, 55px) scale(0.2);
       opacity: 1;
     }
     50% {
-      transform: translate(20px, 20px) scale(0.1);
+      transform: translate(20px, 60px) scale(0.2);
       opacity: 1;
     }
     75% {
-      transform: translate(10px, 30px) scale(0.1);
+      transform: translate(40px, 70px) scale(0.2);
       opacity: 1;
     }
     to {
-      transform: translate(-20px, 40px) scale(0.1);
+      transform: translate(-50px, 95px) scale(0.2);
       opacity: 1;
     }
   }
-  .contain__box--text .d {
+  body .main .contain__box__up--bigIcon .d {
     animation-name: snowd;
     opacity: 0;
     grid-column: 7;
   }
   @keyframes snod {
     from {
-      transform: translate(10px, 0px) scale(0.1);
+      transform: translate(10px, 20px) scale(0.2);
       opacity: 0.5;
     }
     25% {
-      transform: translate(15px, 15px) scale(0.1);
+      transform: translate(-55px, 15px) scale(0.2);
       opacity: 1;
     }
     50% {
-      transform: translate(10px, 20px) scale(0.1);
+      transform: translate(40px, 35px) scale(0.2);
       opacity: 1;
     }
     75% {
-      transform: translate(15px, 30px) scale(0.1);
+      transform: translate(-15px, 71px) scale(0.2);
       opacity: 1;
     }
     to {
-      transform: translate(10px, 40px) scale(0.1);
+      transform: translate(40px, 80px) scale(0.2);
       opacity: 1;
     }
   }
-  .contain__box--text .e {
+  body .main .contain__box__up--bigIcon .e {
     animation-name: snowe;
     opacity: 0;
     grid-column: 5;
   }
   @keyframes snowe {
     from {
-      transform: translate(10px, 0px) scale(0.1);
+      transform: translate(10px, 5px) scale(0.2);
       opacity: 0.5;
     }
     25% {
-      transform: translate(39px, 15px) scale(0.1);
+      transform: translate(39px, 15px) scale(0.2);
       opacity: 1;
     }
     50% {
-      transform: translate(30px, 20px) scale(0.1);
+      transform: translate(-30px, 30px) scale(0.2);
       opacity: 1;
     }
     75% {
-      transform: translate(39px, 30px) scale(0.1);
+      transform: translate(39px, 45px) scale(0.2);
       opacity: 1;
     }
     to {
-      transform: translate(25px, 40px) scale(0.1);
+      transform: translate(45px, 60px) scale(0.2);
       opacity: 1;
     }
   }
-  .contain__box--text .f {
+  body .main .contain__box__up--bigIcon .f {
     animation-name: snowf;
     opacity: 0;
     grid-column: 3;
   }
   @keyframes snowf {
     from {
-      transform: translate(-20px, 0px) scale(0.1);
+      transform: translate(-20px, 15px) scale(0.2);
       opacity: 0.5;
     }
     25% {
-      transform: translate(35px, 15px) scale(0.1);
+      transform: translate(45px, 55px) scale(0.2);
       opacity: 1;
     }
     50% {
-      transform: translate(-10px, 20px) scale(0.1);
+      transform: translate(-10px, 60px) scale(0.2);
       opacity: 1;
     }
     75% {
-      transform: translate(36px, 30px) scale(0.1);
+      transform: translate(6px, 70px) scale(0.2);
       opacity: 1;
     }
     to {
-      transform: translate(25px, 40px) scale(0.1);
+      transform: translate(25px, 85px) scale(0.2);
       opacity: 1;
     }
   }
-  .contain__box--text .g {
+  body .main .contain__box__up--bigIcon .g {
     animation-name: snowg;
     opacity: 0;
     grid-column: 6;
   }
   @keyframes snowg {
     from {
-      transform: translate(-30px, 0px) scale(0.1);
+      transform: translate(-30px, 10px) scale(0.2);
       opacity: 0.5;
     }
     25% {
-      transform: translate(5px, 15px) scale(0.1);
+      transform: translate(25px, 15px) scale(0.2);
       opacity: 1;
     }
     50% {
-      transform: translate(35px, 20px) scale(0.1);
+      transform: translate(35px, 20px) scale(0.2);
       opacity: 1;
     }
     75% {
-      transform: translate(-40px, 30px) scale(0.1);
+      transform: translate(-40px, 35px) scale(0.2);
       opacity: 1;
     }
     to {
-      transform: translate(30px, 40px) scale(0.1);
+      transform: translate(40px, 50px) scale(0.2);
       opacity: 1;
     }
   }
-  .contain__box--text .h {
+  body .main .contain__box__up--bigIcon .h {
     animation-name: snowh;
     opacity: 0;
     grid-column: 5;
   }
   @keyframes snowh {
     from {
-      transform: translate(-30px, 0px) scale(0.1);
+      transform: translate(-30px, 10px) scale(0.2);
       opacity: 0.5;
     }
     25% {
-      transform: translate(35px, 15px) scale(0.1);
+      transform: translate(35px, 15px) scale(0.2);
       opacity: 1;
     }
     50% {
-      transform: translate(12px, 20px) scale(0.1);
+      transform: translate(20px, 30px) scale(0.2);
       opacity: 1;
     }
     75% {
-      transform: translate(30px, 30px) scale(0.1);
+      transform: translate(30px, 45px) scale(0.2);
       opacity: 1;
     }
     to {
-      transform: translate(-10px, 40px) scale(0.1);
+      transform: translate(-10px, 50px) scale(0.2);
       opacity: 1;
     }
   }
-  .contain__box--text .fa-circle {
+  body .main .contain__box__up--bigIcon .fa-cloud-sun {
+    width: 100px;
+    height: 100px;
+  }
+  body .main .contain__box__up--bigIcon .fa-circle {
     animation-name: sun;
-    animation-duration: 4s;
+    animation-duration: 3s;
     animation-delay: 2s;
     animation-iteration-count: 3;
   }
@@ -356,15 +1044,15 @@
       transform: scale(0.7);
     }
   }
-  .contain__box--text .rainy {
+  body .main .contain__box__up--bigIcon .rainy {
     display: grid;
-    grid-template-columns: repeat(5, 10px);
-    max-width: 10px;
-    grid-row: 2;
-    gap: 2px;
-    grid-column: 6;
+    grid-template-columns: repeat(5, 1fr);
+    grid-row: 1;
+    gap: 5px;
+    grid-column: 1;
+    grid-template-rows: 1fr;
   }
-  .contain__box--text .rainy .rain {
+  body .main .contain__box__up--bigIcon .rainy .rain {
     background-color: #5f95fc;
     width: 2px;
     height: 6px;
@@ -380,27 +1068,40 @@
       transform: translateY(5vh) skew(-30deg, -20deg);
     }
     50% {
-      transform: translateY(10vh) skew(-30deg, -20deg);
+      transform: translateY(9vh) skew(-30deg, -20deg);
       opacity: 1;
     }
     to {
       opacity: 0.5;
-      transform: translateY(15vh) skew(-30deg, -20deg);
+      transform: translateY(10vh) skew(-30deg, -20deg);
     }
   }
-  .contain__box--text .fa-cloud-sun {
-    grid-column: 5;
+  body .main .contain__box__down {
     grid-row: 2;
+    margin-top: auto;
+    display: grid;
+    grid-template-rows: 2fr;
+    grid-template-columns: 1fr 1fr;
   }
-  .contain__box--text .fa-tint {
-    grid-row: 8;
-    grid-column: 2/3;
-    color: #436081;
-    font-size: 1.2em;
+  body .main .contain__box__down--smalIconsLeft {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  body .main .contain__box__down--smalIconsLeft .fa-tint {
     animation-name: tint;
     animation-duration: 2s;
-    animation-delay: 2s;
-    animation-iteration-count: 4;
+    animation-iteration-count: 6;
+    color: #436081;
+    font-size: 1em;
+  }
+  body .main .contain__box__down--smalIconsLeft .fa-tint span {
+    color: #436081;
+    color: white;
+    width: 30px;
+    font-size: 15px;
+    height: 10px !important;
+    font-family: "Roboto", sans-serif;
+    animation-name: spa;
   }
   @keyframes tint {
     50% {
@@ -416,22 +1117,22 @@
       -webkit-text-fill-color: transparent;
     }
   }
-  .contain__box--text .tint {
-    grid-column: 3/4;
-    color: white;
-    grid-row: 7;
-    width: 50px;
+  body .main .contain__box__down--smalIconsRight {
+    grid-column: 2;
+    grid-row: 1;
   }
-  .contain__box--text .fa-wind {
-    grid-column: 5/6;
+  body .main .contain__box__down--smalIconsRight .fa-wind {
     color: #436081;
-    grid-row: 8;
     width: 25px;
-    font-size: 1.2em;
+    font-size: 1.5em;
     animation-name: wind;
     animation-duration: 2s;
-    animation-delay: 2s;
-    animation-iteration-count: 3;
+    animation-iteration-count: 6;
+  }
+  body .main .contain__box__down--smalIconsRight .fa-wind span {
+    font-size: 15px;
+    color: white;
+    font-family: "Roboto", sans-serif;
   }
   @keyframes wind {
     from {
@@ -455,16 +1156,423 @@
       transform: translate(5px, 0);
     }
   }
-  .contain__box--text .wind {
-    grid-column: 7;
-    color: white;
-    grid-row: 7;
-  }
-
-  .bar {
+  body .main .bar {
     padding-top: 40px;
     padding-left: 70px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+  }
+  body .details {
+    background: rgba(19, 27, 36, 0.877);
+    max-width: 600px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 6fr;
+    grid-template-rows: 0.8fr 1.6fr 0.8fr 0.3fr 1fr 1fr;
+    color: honeydew;
+  }
+  body .details__location {
+    margin-top: 20px;
+    display: grid;
+    grid-template-rows: repeat(2 1fr);
+  }
+  body .details__location .fas {
+    color: gray;
+    margin: auto;
+  }
+  body .details__location p {
+    justify-self: center;
+    margin-top: -10px;
+  }
+  body .details__dayTime {
+    display: flex;
+    flex-direction: column;
+  }
+  body .details__dayTime .ball {
+    width: 150px;
+    height: 150px;
+    border-radius: 100px;
+    background-image: linear-gradient(to bottom right, #10b0fa, rgba(247, 0, 255, 0.932));
+    margin: auto;
+    animation-name: rorate;
+    animation-duration: 3s;
+    animation-delay: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: reverse;
+    animation-timing-function: ease-in-out;
+  }
+  body .details__dayTime .card {
+    width: 100px;
+    height: 20px;
+    text-align: center;
+    padding: 0.5%;
+    border-radius: 40px;
+    margin: auto;
+    background: rgba(124, 49, 223, 0.295);
+  }
+  body .details__temp {
+    justify-self: center;
+    font-size: 3rem;
+  }
+  body .details__current {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+  }
+  body .details__current .data {
+    justify-content: center;
+  }
+  body .details__current .data span {
+    margin-left: 10px;
+  }
+  body .details__current .fas {
+    color: cornflowerblue;
+  }
+  body .details__general {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3 1fr);
+    margin: 0% 15%;
+  }
+  body .details__general .measure_units {
+    justify-self: end;
+    color: #33599e;
+  }
+  body .details__general .measure_units .fas {
+    color: honeydew;
+    font-size: 12px;
+  }
+  body .details__general .measure_units span {
+    margin-right: 10px;
+  }
+}
+@media only screen and (max-width: 350px) {
+  body .main .contain {
+    margin: auto;
+    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 5px;
+  }
+  body .main .contain__box {
+    margin: auto;
+    background-color: #152c39;
+    border-radius: 20px;
+    width: 130px;
+    height: 130px;
+    gap: 5px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+  body .main .contain__box__up {
+    grid-row: 1;
+    grid-column: 1;
+    display: grid;
+    gap: 1px;
+    grid-template-rows: 0.1fr 0.1fr;
+    grid-template-columns: 2fr 3fr;
+  }
+  body .main .contain__box__up--text {
+    grid-row: 1;
+    grid-column: 1;
+  }
+  body .main .contain__box__up--text h2 {
+    margin-left: auto;
+    font-size: 14px;
+    color: white;
+  }
+  body .main .contain__box__up--city {
+    grid-row: 1;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.1fr 0.1fr;
+    width: 88px;
+  }
+  body .main .contain__box__up--city h6 {
+    color: white;
+    font-size: 11px;
+    grid-row: 1;
+  }
+  body .main .contain__box__up--city p {
+    grid-row: 2/-1;
+    grid-column: 1;
+    font-size: 13px;
+    color: #3d5564;
+  }
+  body .main .contain__box__up i span {
+    grid-row: 3;
+    grid-column: 2;
+    font-size: 14px;
+  }
+  body .main .contain__box__up--bigIcon {
+    margin: auto;
+    grid-column: 2;
+    grid-row: 1;
+  }
+  body .main .contain__box__up--bigIcon .fa-gradient {
+    font-size: 2em;
+    grid-row: 2;
+    grid-column: 1;
+  }
+  body .main .contain__box__up--bigIcon .fa-gradients {
+    grid-column: 1;
+    font-size: 2em;
+  }
+  @keyframes snowflakes {
+    from {
+      transform: translate(0px, 0px) scale(0.2);
+    }
+    25% {
+      transform: translate(0px, 5px) scale(0.2);
+    }
+    50% {
+      transform: translate(0px, 10px) scale(0.2);
+    }
+    75% {
+      transform: translate(0px, 15px) scale(0.2);
+    }
+    to {
+      transform: translate(0px, 20px) scale(0.2);
+    }
+  }
+  @keyframes snowy {
+    from {
+      transform: translate(0px, 5px) scale(0.2);
+      opacity: 0.5;
+    }
+    25% {
+      transform: translate(-5px, 10px) scale(0.2);
+      opacity: 1;
+    }
+    50% {
+      transform: translate(10px, 15px) scale(0.2);
+      opacity: 1;
+    }
+    75% {
+      transform: translate(-15px, 20px) scale(0.2);
+      opacity: 1;
+    }
+    to {
+      transform: translate(20px, 25px) scale(0.2);
+      opacity: 1;
+    }
+  }
+  @keyframes snowa {
+    from {
+      transform: translate(0px, 5px) scale(0.2);
+      opacity: 0.5;
+    }
+    25% {
+      transform: translate(5px, 15px) scale(0.2);
+      opacity: 1;
+    }
+    50% {
+      transform: translate(-10px, 10px) scale(0.2);
+      opacity: 1;
+    }
+    75% {
+      transform: translate(15px, 15px) scale(0.2);
+      opacity: 1;
+    }
+    to {
+      transform: translate(-20px, 20px) scale(0.2);
+      opacity: 1;
+    }
+  }
+  @keyframes snowc {
+    from {
+      transform: translate(5px, 0px) scale(0.2);
+      opacity: 0.5;
+    }
+    25% {
+      transform: translate(-5px, 5px) scale(0.2);
+      opacity: 1;
+    }
+    50% {
+      transform: translate(10px, 10px) scale(0.2);
+      opacity: 1;
+    }
+    75% {
+      transform: translate(0px, 15px) scale(0.2);
+      opacity: 1;
+    }
+    to {
+      transform: translate(-10px, 20px) scale(0.2);
+      opacity: 1;
+    }
+  }
+  @keyframes snod {
+    from {
+      transform: translate(10px, 5px) scale(0.2);
+      opacity: 0.5;
+    }
+    25% {
+      transform: translate(-55px, 10px) scale(0.2);
+      opacity: 1;
+    }
+    50% {
+      transform: translate(20px, 15px) scale(0.2);
+      opacity: 1;
+    }
+    75% {
+      transform: translate(-15px, 20px) scale(0.2);
+      opacity: 1;
+    }
+    to {
+      transform: translate(10px, 25px) scale(0.2);
+      opacity: 1;
+    }
+  }
+  @keyframes snowe {
+    from {
+      transform: translate(10px, 5px) scale(0.2);
+      opacity: 0.5;
+    }
+    25% {
+      transform: translate(23px, 10px) scale(0.2);
+      opacity: 1;
+    }
+    50% {
+      transform: translate(-30px, 15px) scale(0.2);
+      opacity: 1;
+    }
+    75% {
+      transform: translate(10px, 20px) scale(0.2);
+      opacity: 1;
+    }
+    to {
+      transform: translate(-5px, 25px) scale(0.2);
+      opacity: 1;
+    }
+  }
+  @keyframes snowf {
+    from {
+      transform: translate(-20px, 0px) scale(0.2);
+      opacity: 0.5;
+    }
+    25% {
+      transform: translate(-45px, 5px) scale(0.2);
+      opacity: 1;
+    }
+    50% {
+      transform: translate(-10px, 10px) scale(0.2);
+      opacity: 1;
+    }
+    75% {
+      transform: translate(6px, 15px) scale(0.2);
+      opacity: 1;
+    }
+    to {
+      transform: translate(25px, 20px) scale(0.2);
+      opacity: 1;
+    }
+  }
+  @keyframes snowg {
+    from {
+      transform: translate(-30px, 10px) scale(0.2);
+      opacity: 0.5;
+    }
+    25% {
+      transform: translate(25px, 15px) scale(0.2);
+      opacity: 1;
+    }
+    50% {
+      transform: translate(-35px, 20px) scale(0.2);
+      opacity: 1;
+    }
+    75% {
+      transform: translate(-40px, 35px) scale(0.2);
+      opacity: 1;
+    }
+    to {
+      transform: translate(20px, 50px) scale(0.2);
+      opacity: 1;
+    }
+  }
+  @keyframes snowh {
+    from {
+      transform: translate(-30px, 10px) scale(0.2);
+      opacity: 0.5;
+    }
+    25% {
+      transform: translate(3px, 15px) scale(0.2);
+      opacity: 1;
+    }
+    50% {
+      transform: translate(20px, 30px) scale(0.2);
+      opacity: 1;
+    }
+    75% {
+      transform: translate(10px, 45px) scale(0.2);
+      opacity: 1;
+    }
+    to {
+      transform: translate(-10px, 50px) scale(0.2);
+      opacity: 1;
+    }
+  }
+  body .main .contain__box__up--bigIcon .rainy {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    max-width: 10px;
+    grid-row: 1;
+    gap: 5px;
+    grid-column: 1;
+  }
+  body .main .contain__box__up--bigIcon .rainy .rain {
+    grid-row: 1;
+    grid-column: 1;
+    width: 2px;
+    height: 6px;
+    animation-name: rains;
+    animation-duration: 1s;
+    animation-delay: 2s;
+    animation-iteration-count: 6;
+    opacity: 0;
+  }
+  @keyframes rains {
+    from {
+      opacity: 0.5;
+      transform: translateY(3vh) skew(-30deg, -20deg);
+    }
+    50% {
+      transform: translateY(6vh) skew(-30deg, -20deg);
+      opacity: 1;
+    }
+    to {
+      opacity: 0.5;
+      transform: translateY(9vh) skew(-30deg, -20deg);
+    }
+  }
+  body .main .contain__box__down {
+    grid-row: 2;
+    margin-right: auto;
+    display: grid;
+    grid-template-rows: 2fr;
+    grid-template-columns: 1fr 1fr;
+  }
+  body .main .contain__box__down--smalIconsLeft {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  body .main .contain__box__down--smalIconsLeft .fa-tint {
+    font-size: 0.7em;
+    grid-column: 1;
+    grid-row: 1;
+  }
+  body .main .contain__box__down--smalIconsLeft .fa-tint span {
+    font-size: 12px;
+  }
+  body .main .contain__box__down--smalIconsRight {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  body .main .contain__box__down--smalIconsRight .fa-wind {
+    font-size: 0.7em;
+  }
+  body .main .contain__box__down--smalIconsRight .fa-wind span {
+    font-size: 12px;
   }
 }
