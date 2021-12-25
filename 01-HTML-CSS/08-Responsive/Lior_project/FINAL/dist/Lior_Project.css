@@ -8,6 +8,14 @@
 .navbar {
   width: 150%;
   margin: 20px 50px;
+  position: relative;
+  top: 50px;
+}
+.navbar__car__CarPicture {
+  position: relative;
+  left: 485px;
+  top: 70px;
+  margin-right: 20px;
 }
 
 nav {
@@ -39,13 +47,16 @@ nav ul li {
 
 ul img {
   width: 150%;
-  height: 20vh;
+  height: 25vh;
+  left: 80px;
+  top: -70px;
+  position: relative;
 }
 
 nav > ul > li > a {
-  padding: 15px 25px;
+  padding: 5px 39px;
   color: black;
-  font-size: 15px;
+  font-size: 18px;
 }
 nav > ul > li > a::before {
   content: "";
@@ -61,16 +72,20 @@ nav > ul > li > a::before {
 nav > ul > li > a:hover {
   color: red;
 }
-nav > ul > li > a:hover::before {
-  width: 100%;
+
+.nav ul > li.dropDown {
+  position: relative;
+  margin-right: 40px;
 }
 
 nav ul > li.dropDown > a::after {
+  top: 100px;
   position: relative;
-  float: right;
+  z-index: 1;
+  float: left;
   content: "";
-  margin-left: 10px;
   margin-top: 8px;
+  margin-right: 0px;
   color: black;
 }
 
@@ -90,9 +105,11 @@ nav ul.menu-area {
   display: -o- flex;
   display: flex;
   flex-wrap: wrap;
+  height: 20vh;
   width: 120%;
   top: -9999px;
   left: -100px;
+  overflow: hidden;
 }
 
 nav ul li:hover ul.menu-area {
@@ -123,8 +140,19 @@ nav ul.menu-area ul li a {
   text-transform: none;
 }
 
-nav ul.menu-area ul li a:hover {
+.third_column {
+  border: 1.8px solid #bdbaba;
+  align-content: center;
+  height: 3.5vh;
+  width: 60%;
+  text-align: center;
+}
+.third_column:hover {
+  background: black;
   color: white;
+}
+
+nav ul.menu-area ul li a:hover {
   color: red;
 }
 
@@ -132,26 +160,22 @@ nav ul.menu-area ul li a:hover {
   margin-top: 20px;
 }
 
-.third_column {
-  border: 1.8px solid #bdbaba;
-  border-radius: 50px;
-  align-content: center;
-  height: 3.5vh;
-  width: 60%;
-  text-align: center;
-}
-
 .Carousel_image {
-  width: 10vw;
-  z-index: 4;
+  width: 7vw;
+  left: 50px;
+  position: relative;
+  border: 0.8px solid #a39e9e;
+  z-index: 2;
 }
 
 .Carousel__wrapper {
-  height: 70vh;
+  overflow: hidden;
+  z-index: 0;
+  height: 80vh;
   position: relative;
   width: 100%;
   display: block;
-  top: 100px;
+  top: 200px;
   margin: 50px auto;
   border: 3px solid #5f5d5d;
 }
@@ -233,7 +257,7 @@ nav ul.menu-area ul li a:hover {
   opacity: 1;
 }
 
-.item_4_all {
-  width: 100%;
-  height: 50vh;
+.something {
+  font-size: 10px;
+  color: white;
 }
