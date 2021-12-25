@@ -72,10 +72,25 @@
   text-align: center;
   padding: 2%;
   width: 290px;
+  height: 280px;
   height: fit-content;
   background-color: rgba(128, 128, 128, 0.151);
   border-radius: 25px;
   display: block;
   margin-right: auto;
   margin-left: auto;
+}
+.shimon .container .login .login_button {
+  position: relative;
+  left: 200px;
+  top: 30px;
+  align-items: center;
+  text-align: center;
+  color: white;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background: linear-gradient(to bottom right, #4d358b 50%, #ca36a5 100%);
+  text-align: center;
+  padding: 2px;
 }
