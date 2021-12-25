@@ -9,14 +9,26 @@ html {
   color: $fontColor;
 }
 
-body {
+// body {
+//   background: $bgcolor;
+//   width: 60%;
+//   display: block;
+//   margin-left: auto;
+//   margin-right: auto;
+//   border-radius: 15px;
+//   box-shadow: $shadow2;
+// }
+
+.bodyActivities{
   background: $bgcolor;
   width: 60%;
   display: block;
   margin-left: auto;
   margin-right: auto;
+  border: 1px solid rgb(243, 242, 242);
   border-radius: 15px;
   box-shadow: $shadow2;
+
 }
 
 .topIcons {
@@ -77,14 +89,19 @@ body {
 
 @media only screen and (max-width: 770px) {
 
-  body {
+  .bodyActivities {
     width: 100%;
-    border-radius: none;
+    border-radius: 0px;
     box-shadow: none;
+    border: none;
+    margin: 0%;
+    padding: 0%;
+  
+  
 
     .search {
       width: 99%;
-      margin-left: 2%;
+      margin-left: 2.5%;
 
       input {
         @include inputBar1024;
@@ -160,14 +177,17 @@ body {
 
 @media only screen and (max-width: 540px) {
 
-  body {
-    width: 98%;
-    border-radius: none;
+  .bodyActivities {
+    width: 100%;
+    border-radius: 0px;
     box-shadow: none;
+    border: none;
+    margin: none;
+    padding: none;
 
     .search {
       width: 98%;
-      margin-left: 2%;
+      margin-left: 2.5%;
 
       input {
         @include inputBar;
