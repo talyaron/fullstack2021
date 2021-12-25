@@ -189,14 +189,25 @@ nav ul.menu-area ul li a:hover {
   opacity: 0;
   transition: all 0.5s ease-in-out;
 }
+.Carousel__wrapper__text {
+  font-size: 50px;
+  position: relative;
+  color: #504e4e;
+  margin-top: 10px;
+  left: 35vw;
+  transition: 0.75s;
+}
+.Carousel__wrapper__text:hover {
+  color: #e41818;
+}
 
 .arrow {
-  border: solid black;
+  border: solid #eeeaea;
   border-width: 0 3px 3px 0;
   display: inline-block;
   padding: 12px;
   width: 2ch;
-  height: 3hv;
+  height: 3vh;
 }
 .arrow:hover {
   border: solid #e41818;
@@ -205,14 +216,18 @@ nav ul.menu-area ul li a:hover {
 }
 
 .arrow_prev {
-  left: 30px;
+  left: 70px;
+  border: 2px solid black;
+  border-width: 0 3px 3px 0;
   position: absolute;
   top: 50%;
   transform: translateY(-50%) rotate(135deg);
 }
 
 .arrow_next {
-  right: 30px;
+  right: 70px;
+  border: 2px solid black;
+  border-width: 0 3px 3px 0;
   position: absolute;
   top: 50%;
   transform: translateY(-50%) rotate(-45deg);
@@ -227,6 +242,7 @@ nav ul.menu-area ul li a:hover {
   opacity: 1;
   background: url("https://files.porsche.com/filestore/image/multimedia/none/cayenne-models-e3chili-announcement/preview/1cc14607-c9ea-11eb-80d7-005056bbdc38;sZ;twebp/porsche-preview.webp");
   background-size: cover;
+  color: chartreuse;
 }
 
 .item-2 {
@@ -255,9 +271,4 @@ nav ul.menu-area ul li a:hover {
 #item-2:target ~ .item-2, #item-3:target ~ .item-3, #item-4:target ~ .item-4 {
   z-index: 3;
   opacity: 1;
-}
-
-.something {
-  font-size: 10px;
-  color: white;
 }
