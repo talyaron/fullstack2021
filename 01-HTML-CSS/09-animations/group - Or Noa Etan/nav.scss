@@ -32,7 +32,7 @@ nav ul {
   justify-content: space-around;
   padding: 1rem;
 
-  border-radius: 0 0 1em 1em;
+  // border-radius: 0 0 1em 1em; --- in the original its not rounded
 
   li a i {
     background-color: #f0f0f2;
@@ -129,7 +129,7 @@ nav ul {
     }
   }
 
-  #monthly-tasks {
+  #monthly-tasks, #home, #chart, #info{ //added the animation to all 4
     &:hover {
       .material-icons {
         animation: pulse 0.5s infinite alternate;
