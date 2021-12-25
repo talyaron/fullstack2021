@@ -84,7 +84,7 @@ html {
     height: 100%;
 }
 
-body {
+.body_schedule {
 
     background-color: $bgcolor;
     display: flex;
@@ -437,42 +437,29 @@ body {
     }
 
 }
+@media only screen and (max-height: 600px){
+    .schetitle {
+
+        p {
+            font-size: 18px;
+        }
+
+        h2,
+        h1 {
+            font-size: 25px;
+        }
+    }  
+    .schecards{
+        height: 18vh;
+    }
+
+}
 
 
 @media only screen and (min-width: 900px) {
 
-    @media only screen and (max-height: 700px) {
-
-        .schetitle {
-            p {
-                font-size: 17px;
-            }
-
-            h2 {
-                font-size: 22px;
-            }
-
-            h1 {
-                font-size: 22px;
-            }
-        }
-
-        .progress {
-            height: 15vh;
-
-            &__title {
-                font-size: 22px;
-            }
-        }
-
-        .schecards {
-
-            &__cards {
-                &:hover {
-                    height: 83%;
-                }
-            }
-        }
+    .body_schedule {
+        align-items: center;
     }
 
     .schetitle {
@@ -489,10 +476,6 @@ body {
         h1 {
             font-size: 35px;
         }
-    }
-
-    body {
-        align-items: center;
     }
 
     .bigwrapper {
@@ -570,4 +553,50 @@ body {
 
         }
     }
+
+    @media only screen and (max-height: 601px) {
+        
+        .schedatebox{
+            height: 20px;
+        }
+        .schetitle {
+
+            height: 50px;
+
+            p {
+                font-size: 17px;
+            }
+
+            h2 {
+                font-size: 22px;
+            }
+
+            h1 {
+                font-size: 22px;
+            }
+        }
+
+        .progress {
+            margin-top: 0px;
+            height: 11vh;
+            &__title {
+                font-size: 22px;
+            }
+        }
+        .schecards {
+            &__cards {
+                height: 28%;
+                &:hover {
+                    height: 83%;
+                }
+            }
+        }
+        .image{
+            img{
+                height: 93%;
+            }
+        }
+    }
+
+   
 }

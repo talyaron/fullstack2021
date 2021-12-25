@@ -29,7 +29,7 @@ html {
   height: 100%;
 }
 
-body {
+.body_schedule {
   background-color: #f0f1f6;
   display: flex;
   flex-direction: column;
@@ -377,29 +377,24 @@ body {
     font-size: 25px;
   }
 }
-@media only screen and (min-width: 900px) and (max-height: 700px) {
+@media only screen and (max-height: 600px) {
   .schetitle p {
-    font-size: 17px;
+    font-size: 18px;
   }
-  .schetitle h2 {
-    font-size: 22px;
-  }
-  .schetitle h1 {
-    font-size: 22px;
+  .schetitle h2,
+.schetitle h1 {
+    font-size: 25px;
   }
 
-  .progress {
-    height: 15vh;
-  }
-  .progress__title {
-    font-size: 22px;
-  }
-
-  .schecards__cards:hover {
-    height: 83%;
+  .schecards {
+    height: 18vh;
   }
 }
 @media only screen and (min-width: 900px) {
+  .body_schedule {
+    align-items: center;
+  }
+
   .schetitle div {
     margin-block: 10px;
   }
@@ -410,23 +405,15 @@ body {
 .schetitle h1 {
     font-size: 35px;
   }
-}
-@media only screen and (min-width: 900px) {
-  body {
-    align-items: center;
-  }
-}
-@media only screen and (min-width: 900px) {
+
   .bigwrapper {
     width: 850px;
   }
-}
-@media only screen and (min-width: 900px) {
+
   .schetop {
     height: 40px;
   }
-}
-@media only screen and (min-width: 900px) {
+
   .schetitle {
     justify-content: space-around;
     height: 100px;
@@ -442,8 +429,7 @@ body {
 .schetitle h1 {
     font-size: 35px;
   }
-}
-@media only screen and (min-width: 900px) {
+
   .schedatebox {
     height: 70px;
   }
@@ -455,15 +441,13 @@ body {
     font-size: 25px;
     color: #857a96;
   }
-}
-@media only screen and (min-width: 900px) {
+
   .progress {
     margin-top: 10px;
     height: 120px;
     margin-bottom: -40px;
   }
-}
-@media only screen and (min-width: 900px) {
+
   .schecards {
     display: flex;
     justify-content: center;
@@ -485,5 +469,42 @@ body {
   }
   .schecards__card .circle {
     top: -7px;
+  }
+}
+@media only screen and (min-width: 900px) and (max-height: 601px) {
+  .schedatebox {
+    height: 20px;
+  }
+
+  .schetitle {
+    height: 50px;
+  }
+  .schetitle p {
+    font-size: 17px;
+  }
+  .schetitle h2 {
+    font-size: 22px;
+  }
+  .schetitle h1 {
+    font-size: 22px;
+  }
+
+  .progress {
+    margin-top: 0px;
+    height: 11vh;
+  }
+  .progress__title {
+    font-size: 22px;
+  }
+
+  .schecards__cards {
+    height: 28%;
+  }
+  .schecards__cards:hover {
+    height: 83%;
+  }
+
+  .image img {
+    height: 93%;
   }
 }
