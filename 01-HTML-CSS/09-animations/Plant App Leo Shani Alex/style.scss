@@ -25,15 +25,16 @@ body {
         &:hover {
             cursor: pointer;
         }
+        
     }
 
     &_text {
         position: relative;
         top: 6vh;
-        text-align: center;
-        
+        text-align: center;        
         font-size: 25px;
     }
+    
 }
 
 .Nav_top {
@@ -607,6 +608,10 @@ body {
     &__title {
         padding-top: 1rem;
         color: rgba(0, 0, 0, 0.774);
+        font-family:none;
+        
+        
+       
 
     }
 
@@ -625,11 +630,26 @@ body {
 
     }
 
-    img {
-
+    .img {
+        height:7rem;
+        width:5rem;
         position: absolute;
-        padding: 1rem;
+        margin:2%;        
+        filter: drop-shadow(0 0 0.20rem rgb(156, 156, 156));
+         &--plant1{
+         background-color:rgb(255, 194, 204);
 
+        }  
+         &--plant2{
+         background-color:rgb(255, 255, 195);
+
+        } 
+        &--plant3{
+            background-color:rgb(173, 224, 241);
+   
+        }     
+       
+   
 
     }
 
@@ -647,6 +667,11 @@ body {
     h3 {
         opacity: 0.9;
         margin-bottom: 0px;
+        a{
+            text-decoration:none;
+            color: rgba(0, 0, 0, 0.774);
+
+        }
 
     }
 
@@ -740,8 +765,7 @@ body {
     }
 
     .button__add {
-        background-color: white;
-        color: rgb(10, 156, 156);
+        background-color: white;       
         font-weight: bold;
         border: 2px solid rgb(10, 156, 156);
         border-radius: 1rem;
@@ -750,9 +774,15 @@ body {
         padding-top: 1%;
         padding-bottom: 1%;
 
+        a{
+            text-decoration:none;
+            color: rgb(10, 156, 156);
+        }
+
         &:hover {
             background-color: rgba(235, 222, 222, 0.76);
             cursor: pointer;
+            
 
         }
 
