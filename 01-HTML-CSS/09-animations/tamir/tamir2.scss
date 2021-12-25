@@ -3,7 +3,9 @@ body {
     margin: 3%;
 }
 
-.wrapper1 {
+.wrappernav {
+    margin-bottom: 40px;
+
     &__icon {
         position: absolute;
         top: 35px;
@@ -13,7 +15,7 @@ body {
         }
     }
 
-    h2 {
+    &_title {
         position: relative;
         top: 10px;
         text-align: center;
@@ -30,12 +32,11 @@ body {
         align-items: center;
         height: 50px;
         background-color: white;
-        border-radius: 0px 30PX 0PX 40PX;
+        border-radius: 20PX;
 
         :hover {
-
             background-color: rgb(163, 162, 162);
-            border-radius: 0px 30PX 0PX 40PX;
+            border-radius: 20px;
         }
     }
 
@@ -46,100 +47,85 @@ body {
         font-size: 1.4em;
         text-decoration: none;
         color: black;
-        font-style: italic;
         font-weight: bold;
-
+        font-family: Arial, Helvetica, sans-serif;
     }
 }
 
-.wrapper2 {
-    display: flex;
-    background-color: white;
-    border-radius: 40px;
-    place-content: space-between;
-    align-items: center;
-    padding: 3%;
+.wrapper {
     margin: 20px;
+    padding: 4%;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    background-color: white;
+    border-radius: 20PX;
+    justify-content: space-between;
 
-    &__icon2 {
+    &__icon {
+
         position: relative;
         top: 1px;
         font-size: 1.5em;
         border-radius: 4px;
+        margin-right: 6px;
     }
 
     &__name {
+
         color: orangered;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+
+    &__info {
+
+        font-weight: bold;
+        font-size: 1.4em;
+        font-family: Arial, Helvetica, sans-serif;
     }
 
     &__button {
-        border-radius: 100px 100px 0px;
-        position: absolute;
-        left: 80%;
-        color: white;
+        position: relative;
+
+        width: 20px;
+        height: 20px;
+        border-radius: 40px;
         background-color: rgb(0, 0, 0);
+        text-align: center;
+
     }
 
-    &__info {
-        font-size: 1.4em;
-        position: absolute;
-        left: 90px;
-        font-style: italic;
-        font-weight: bold;
-        margin-left: 10px;
-    }
-}
-
-.wrapper3 {
-    display: flex;
-    background-color: white;
-    border-radius: 40px;
-    place-content: space-between;
-    align-items: center;
-    padding: 3%;
-    margin: 20px;
-
-    &__info {
-        font-size: 1.4em;
-        position: absolute;
-        left: 90px;
-        font-style: italic;
-        font-weight: bold;
-    }
-
-    &__button {
-        position: absolute;
-        left: 80%;
+    &__num {
         color: white;
-        border-radius: 100px 100px 0px;
-        background-color: black;
+
     }
 }
 
-.wrapper4 {
+.results {
     display: flex;
-
-
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5px;
 
     &__info {
         font-size: 1.4em;
-        font-style: italic;
-        font-weight: bold;
+        font-family: Arial, Helvetica, sans-serif;
 
     }
 
     &__bottun {
-        position: relative;
-        margin-top: 15px;
+        justify-content: center;
         color: white;
-        height: 30px;
-        border-radius: 100px 100px 0px;
+        width: 20px;
+        height: 20px;
+        border-radius: 40px;
+        text-align: center;
         background-color: hsl(0, 0%, 0%);
     }
 }
 
 .card {
-
     border-radius: 40px;
     background-color: white;
 
@@ -151,6 +137,7 @@ body {
 
     &__info {
         padding-left: 20px;
+
     }
 
     &__des {
@@ -159,76 +146,36 @@ body {
 
     &__subinfo {
         display: flex;
-        gap: 30px;
+        margin: 15px;
+        justify-content: space-between;
+
+
     }
 
     &__price {
-        font-style: italic;
-        position: relative;
-        left: 20px;
+        font-family: Arial, Helvetica, sans-serif;
+        left: 10px;
 
         i {
             color: rgb(255, 0, 13);
         }
-    }
 
-    &__loc {
-        font-style: italic;
-        position: relative;
-        left: 145px;
-    }
-}
-
-.card2 {
-    margin-top: 15px;
-    border-radius: 40px;
-    background-color: white;
-
-    img {
-        height: 100%;
-        width: 100%;
-        border-radius: 40px;
-    }
-
-    &__info {
-        padding-left: 20px;
-    }
-
-    &__des {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    &__subinfo {
-        display: flex;
-        gap: 30px;
-    }
-
-    &__price {
-        font-style: italic;
-        position: relative;
-
-        left: 20px;
-
-        i {
-            color: rgb(0, 255, 0);
+        &--activ {
+            i {
+                color: green;
+            }
         }
     }
 
     &__loc {
-        font-style: italic;
-        position: relative;
-        left: 145px;
+        font-family: Arial, Helvetica, sans-serif;
     }
 }
 
-@media only screen and(min-width: 671px) {
-
+@media only screen and(min-width: 670px) {
     .wrapperfirst {
         ul {
-            justify-content: space-between;
             height: 80px;
-            background-color: white;
-            border-radius: 0px 30PX 0PX 40PX;
         }
 
         a {
@@ -237,92 +184,51 @@ body {
         }
     }
 
-    .wrapper2 {
-        &__icon2 {
-            font-size: 2em;
+    .wrapper {
+
+        &__icon {
+            font-size: 2.5em;
         }
 
-        &__name {
-            color: orangered;
+        &__info {
+            font-size: 3em;
         }
 
         &__button {
-            position: absolute;
-            left: 85%;
-            background-color: rgb(0, 0, 0);
+            width: 40px;
+            height: 40px;
         }
 
-        &__info {
-            font-size: 2.5em;
-            left: 120px;
-        }
-    }
-
-    .wrapper3 {
-        height: 40px;
-
-        &__info {
-            font-size: 2.5em;
-            position: absolute;
-            left: 120px;
-        }
-
-        &__button {
-            left: 85%;
+        &__num {
+            position: relative;
+            top: 25%;
         }
     }
 
-    .wrapper4 {
-        display: flex;
-        gap: 20px;
+    .results {
 
         &__info {
-            font-size: 2.5em;
-            font-style: italic;
-            font-weight: bold;
+            font-size: 3em;
         }
 
         &__bottun {
-            margin-top: 47px;
+            width: 40px;
+            height: 40px;
         }
     }
 
     .card {
-
-        border-radius: 40px;
-        background-color: white;
-
-        img {
-            align-items: center;
-            background-size: auto;
-        }
-
         &__info {
-            padding-left: 20px;
-        }
-
-        &__des {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        &__subinfo {
-            display: flex;
-            gap: 30px;
-        }
-
-        &__price {
-            font-style: italic;
-            position: relative;
-            left: 20px;
-
-
-
+            font-size: 2em;
         }
 
         &__loc {
-            font-style: italic;
-            position: relative;
-            left: 145px;
+            font-size: 2rem;
+
+        }
+
+        &__price {
+            font-size: 2rem;
         }
     }
 }

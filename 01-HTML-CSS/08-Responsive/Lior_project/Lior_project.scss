@@ -1,0 +1,113 @@
+body
+{
+    width: 100%;
+    height: 400vh;
+    background: blue;
+    margin: 0px;
+}
+
+//container who defines the limitiation of the whole page
+.general_container
+{
+    width: 100%;
+    height: 100vh;
+}
+
+//navigation bar
+.navbar
+{
+    width: 100%;
+    height: 100vh;
+    background: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+
+    //Logo
+    &__logo
+    {
+        position: relative;
+        left: 150px;
+        top: -20px;
+        top: -35vh;
+    }
+    //Cars picture
+    &__car
+    {
+        align-items: center;
+        align-content: center;
+        position: relative;
+        left: 150px;
+        top: -35vh;
+
+        &__CarPicture
+        {
+           width: 7vw;
+           height: 7vh;
+        }
+
+        &__CarName
+        {
+           text-align: center;
+           padding-bottom: 1.25rem;
+           size: 10px;
+           outline: none;
+           position: relative;
+
+        //underline for each navbar picture
+           &::before
+        {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0px;
+            width: 0;
+            height: 3px;
+            background-color: red;
+            transition:  width 0.75s ease-out;
+        }
+
+             &:hover
+             {
+                 color: red;
+
+                &::before
+                {
+                    width: 100%;
+                }   
+             
+             }
+
+             &__detailedPage
+             {
+                 display: grid;
+                 position: relative;
+                 top: -15vh;
+                 right: 30vw;
+                 height: 50vh;
+                 width: 90vw;
+                 margin-top: 35vh;
+                 border: 3px solid black;
+                 grid-template-columns: repeat(3,1fr);
+                 grid-template-rows: repeat(4,100px);
+                 background: white;
+                 margin-left: 5vh;
+                 overflow: hidden; 
+
+
+                
+             }
+
+        }
+        
+    
+    }
+    
+}
+
+
+
+
+
