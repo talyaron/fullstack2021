@@ -10,7 +10,7 @@
 .ActivitiesGrid .weight {
   grid-area: weight;
   border-radius: 15px;
-  box-shadow: 1px 1px 1px #a8a7a7, 1px 10px 24px rgba(99, 91, 105, 0.4);
+  box-shadow: 1px 1px 1px #a8a7a7, 1px 10px 24px rgba(102, 95, 107, 0.4);
   font-size: 0.9em;
   background-color: #eef3f7;
   color: #857a96;
@@ -27,10 +27,34 @@
   align-items: center;
   margin-top: -11%;
 }
+.ActivitiesGrid .sleep {
+  grid-area: sleep;
+  background: linear-gradient(to bottom right, #4d358b 50%, #ca36a5 100%);
+  color: white;
+  border-radius: 15px;
+  box-shadow: 1px 1px 1px #a8a7a7, 1px 10px 24px rgba(102, 95, 107, 0.4);
+  font-size: 0.9em;
+  height: 15vh;
+}
+.ActivitiesGrid .sleep__sleepContent__sleepIcons {
+  display: flex;
+  justify-content: space-between;
+  padding: 3% 3%;
+}
+.ActivitiesGrid .sleep__sleepContent__sleepIcons--moonIcon {
+  background-color: #eef3f7;
+  border-radius: 50%;
+  color: black;
+  padding: 0.4%;
+}
+.ActivitiesGrid .sleep__sleepContent__textHour {
+  padding-left: 3%;
+  padding-bottom: 5%;
+}
 .ActivitiesGrid .steps {
   grid-area: steps;
   border-radius: 15px;
-  box-shadow: 1px 1px 1px #a8a7a7, 1px 10px 24px rgba(99, 91, 105, 0.4);
+  box-shadow: 1px 1px 1px #a8a7a7, 1px 10px 24px rgba(102, 95, 107, 0.4);
   font-size: 0.9em;
   background-color: #eef3f7;
   color: #857a96;
@@ -75,7 +99,7 @@
 .ActivitiesGrid .calories {
   grid-area: colories;
   border-radius: 15px;
-  box-shadow: 1px 1px 1px #a8a7a7, 1px 10px 24px rgba(99, 91, 105, 0.4);
+  box-shadow: 1px 1px 1px #a8a7a7, 1px 10px 24px rgba(102, 95, 107, 0.4);
   font-size: 0.9em;
   background-color: #eef3f7;
   color: #857a96;
@@ -120,7 +144,7 @@
 .ActivitiesGrid .goals {
   grid-area: goals;
   border-radius: 15px;
-  box-shadow: 1px 1px 1px #a8a7a7, 1px 10px 24px rgba(99, 91, 105, 0.4);
+  box-shadow: 1px 1px 1px #a8a7a7, 1px 10px 24px rgba(102, 95, 107, 0.4);
   font-size: 0.9em;
   background-color: #eef3f7;
   color: #857a96;
@@ -134,11 +158,6 @@
 .ActivitiesGrid .goals__goalsDiagram {
   display: flex;
   justify-content: space-evenly;
-}
-.ActivitiesGrid .goals__goalsDiagram--stepsCircl, .ActivitiesGrid .goals__goalsDiagram--caloriesCircl {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 .ActivitiesGrid .goals__goalsDiagram__circl {
   display: flex;
@@ -168,34 +187,10 @@
     stroke-dashoffset: 170;
   }
 }
-.ActivitiesGrid .sleep {
-  grid-area: sleep;
-  background: linear-gradient(to bottom right, #4d358b 50%, #ca36a5 100%);
-  color: white;
-  border-radius: 15px;
-  box-shadow: 1px 1px 1px #a8a7a7, 1px 10px 24px rgba(99, 91, 105, 0.4);
-  font-size: 0.9em;
-  height: 15vh;
-}
-.ActivitiesGrid .sleep__sleepContent__sleepIcons {
-  display: flex;
-  justify-content: space-between;
-  padding: 3% 3%;
-}
-.ActivitiesGrid .sleep__sleepContent__sleepIcons--moonIcon {
-  background-color: #eef3f7;
-  border-radius: 50%;
-  color: black;
-  padding: 0.4%;
-}
-.ActivitiesGrid .sleep__sleepContent__textHour {
-  padding-left: 3%;
-  padding-bottom: 5%;
-}
 .ActivitiesGrid .haert {
   grid-area: haert;
   border-radius: 15px;
-  box-shadow: 1px 1px 1px #a8a7a7, 1px 10px 24px rgba(99, 91, 105, 0.4);
+  box-shadow: 1px 1px 1px #a8a7a7, 1px 10px 24px rgba(102, 95, 107, 0.4);
   font-size: 0.9em;
   background-color: #eef3f7;
   color: #857a96;
@@ -243,51 +238,51 @@
 }
 .ActivitiesGrid .haert__chart .bar-graph-two .bar-one .bar {
   background-color: rgba(112, 19, 131, 0.747);
-  -webkit-animation: show-bar-one-vertical 1.2s 0.1s forwards;
-  -moz-animation: show-bar-one-vertical 1.2s 0.1s forwards;
-  animation: show-bar-one-vertical 1.2s 0.1s forwards;
+  -webkit-animation: show-bar-one-vertical 2.5s 0.1s forwards;
+  -moz-animation: show-bar-one-vertical 2.5s 0.1s forwards;
+  animation: show-bar-one-vertical 2.5s 0.1s forwards;
 }
 .ActivitiesGrid .haert__chart .bar-graph-two .bar-two .bar {
   background-color: #f382ef;
-  -webkit-animation: show-bar-two-vertical 1.2s 0.2s forwards;
-  -moz-animation: show-bar-two-vertical 1.2s 0.2s forwards;
-  animation: show-bar-two-vertical 1.2s 0.2s forwards;
+  -webkit-animation: show-bar-two-vertical 2.5s 0.2s forwards;
+  -moz-animation: show-bar-two-vertical 2.5s 0.2s forwards;
+  animation: show-bar-two-vertical 2.5s 0.2s forwards;
 }
 .ActivitiesGrid .haert__chart .bar-graph-two .bar-three .bar {
   background-color: #f382ef;
-  -webkit-animation: show-bar-three-vertical 1.2s 0.3s forwards;
-  -moz-animation: show-bar-three-vertical 1.2s 0.3s forwards;
-  animation: show-bar-three-vertical 1.2s 0.3s forwards;
+  -webkit-animation: show-bar-three-vertical 2.5s 0.3s forwards;
+  -moz-animation: show-bar-three-vertical 2.5s 0.3s forwards;
+  animation: show-bar-three-vertical 2.5s 0.3s forwards;
 }
 .ActivitiesGrid .haert__chart .bar-graph-two .bar-four .bar {
   background-color: rgba(112, 19, 131, 0.747);
-  -webkit-animation: show-bar-four-vertical 1.2s 0.4s forwards;
-  -moz-animation: show-bar-four-vertical 1.2s 0.4s forwards;
-  animation: show-bar-four-vertical 1.2s 0.4s forwards;
+  -webkit-animation: show-bar-four-vertical 2.5s 0.4s forwards;
+  -moz-animation: show-bar-four-vertical 2.5s 0.4s forwards;
+  animation: show-bar-four-vertical 2.5s 0.4s forwards;
 }
 .ActivitiesGrid .haert__chart .bar-graph-two .bar-five .bar {
   background-color: #f382ef;
-  -webkit-animation: show-bar-five-vertical 1.2s 0.5s forwards;
-  -moz-animation: show-bar-five-vertical 1.2s 0.5s forwards;
-  animation: show-bar-five-vertical 1.2s 0.5s forwards;
+  -webkit-animation: show-bar-five-vertical 2.5s 0.5s forwards;
+  -moz-animation: show-bar-five-vertical 2.5s 0.5s forwards;
+  animation: show-bar-five-vertical 2.5s 0.5s forwards;
 }
 .ActivitiesGrid .haert__chart .bar-graph-two .bar-six .bar {
   background-color: #f382ef;
-  -webkit-animation: show-bar-six-vertical 1.2s 0.6s forwards;
-  -moz-animation: show-bar-six-vertical 1.2s 0.6s forwards;
-  animation: show-bar-six-vertical 1.2s 0.6s forwards;
+  -webkit-animation: show-bar-six-vertical 2.5s 0.6s forwards;
+  -moz-animation: show-bar-six-vertical 2.5s 0.6s forwards;
+  animation: show-bar-six-vertical 2.5s 0.6s forwards;
 }
 .ActivitiesGrid .haert__chart .bar-graph-two .bar-seven .bar {
   background-color: rgba(112, 19, 131, 0.747);
-  -webkit-animation: show-bar-seven-vertical 1.2s 0.7s forwards;
-  -moz-animation: show-bar-seven-vertical 1.2s 0.7s forwards;
-  animation: show-bar-seven-vertical 1.2s 0.7s forwards;
+  -webkit-animation: show-bar-seven-vertical 2.5s 0.7s forwards;
+  -moz-animation: show-bar-seven-vertical 2.5s 0.7s forwards;
+  animation: show-bar-seven-vertical 2.5s 0.7s forwards;
 }
 .ActivitiesGrid .haert__chart .bar-graph-two .bar-eight .bar {
   background-color: #f382ef;
-  -webkit-animation: show-bar-eight-vertical 1.2s 0.7s forwards;
-  -moz-animation: show-bar-eight-vertical 1.2s 0.7s forwards;
-  animation: show-bar-eight-vertical 1.2s 0.7s forwards;
+  -webkit-animation: show-bar-eight-vertical 25s 0.8s forwards;
+  -moz-animation: show-bar-eight-vertical 2.5s 0.8s forwards;
+  animation: show-bar-eight-vertical 2.5s 0.8s forwards;
 }
 @-webkit-keyframes show-bar-one-vertical {
   0% {
@@ -310,7 +305,7 @@
     height: 0;
   }
   100% {
-    height: 70%;
+    height: 75%;
   }
 }
 @-webkit-keyframes show-bar-four-vertical {
@@ -326,7 +321,7 @@
     height: 0;
   }
   100% {
-    height: 20%;
+    height: 25%;
   }
 }
 @-webkit-keyframes show-bar-six-vertical {
@@ -334,7 +329,7 @@
     height: 0;
   }
   100% {
-    height: 85%;
+    height: 95%;
   }
 }
 @-webkit-keyframes show-bar-seven-vertical {
@@ -342,7 +337,7 @@
     height: 0;
   }
   100% {
-    height: 62%;
+    height: 82%;
   }
 }
 @-webkit-keyframes show-bar-eight-vertical {
@@ -408,34 +403,31 @@ html {
   color: #857a96;
 }
 
-body {
+.bodyActivities {
   background: #eef3f7;
   width: 60%;
   display: block;
   margin-left: auto;
   margin-right: auto;
   border-radius: 15px;
-  box-shadow: 1px 1px 1px #919191, 1px 18px 10px rgba(16, 16, 16, 0.2), 1px 30px 60px rgba(16, 16, 16, 0.4);
+  box-shadow: 1px 1px 1px #888092, 1px 18px 10px rgba(16, 16, 16, 0.2), 1px 30px 60px rgba(16, 16, 16, 0.4);
 }
-
-.topIcons {
+.bodyActivities__topIcons {
   width: 98%;
   display: flex;
   justify-content: space-between;
 }
-
-.gridUserIcon {
+.bodyActivities__gridUserIcon {
   width: 98%;
   display: flex;
   justify-content: space-between;
 }
-
-.search {
+.bodyActivities__search {
   width: 60%;
   margin-left: auto;
   margin-right: auto;
 }
-.search input {
+.bodyActivities__search input {
   border-radius: 30px;
   box-shadow: 2px 2px 6px #ddd6d6;
   background-color: #fdfdfd;
@@ -445,28 +437,27 @@ body {
   font-size: 1.2em;
   width: 95%;
 }
-.search ion-icon {
+.bodyActivities__search ion-icon {
   position: absolute;
   top: 18.5%;
   left: 33%;
 }
-
-.navBar {
+.bodyActivities__navBar {
   width: 100%;
 }
-.navBar__list {
+.bodyActivities__navBar__list {
   list-style: none;
   display: flex;
   justify-content: space-between;
   margin: 2.5% 3.5% 2% 0%;
 }
-.navBar__list--link {
+.bodyActivities__navBar__list--link {
   text-decoration: none;
   padding: 0.2em 0.7em;
   color: #857a96;
   font-size: 1.1em;
 }
-.navBar__list--link:hover {
+.bodyActivities__navBar__list--link:hover {
   background: #6633a0;
   color: white;
   font-size: 1em;
@@ -475,16 +466,19 @@ body {
 }
 
 @media only screen and (max-width: 770px) {
-  body {
+  .bodyActivities {
     width: 100%;
-    border-radius: none;
+    border-radius: 0px;
     box-shadow: none;
+    border: none;
+    margin: 0%;
+    padding: 0%;
   }
-  body .search {
+  .bodyActivities .search {
     width: 99%;
-    margin-left: 2%;
+    margin-left: 2.5%;
   }
-  body .search input {
+  .bodyActivities .search input {
     box-shadow: 2px 2px 6px #ddd6d6;
     background-color: #fdfdfd;
     color: rgba(158, 154, 154, 0.945);
@@ -493,7 +487,7 @@ body {
     font-size: 1.2em;
     width: 95%;
   }
-  body .search ion-icon {
+  .bodyActivities .search ion-icon {
     position: absolute;
     top: 17%;
     left: 5%;
@@ -543,16 +537,19 @@ body {
   }
 }
 @media only screen and (max-width: 540px) {
-  body {
-    width: 98%;
-    border-radius: none;
+  .bodyActivities {
+    width: 100%;
+    border-radius: 0px;
     box-shadow: none;
+    border: none;
+    margin: none;
+    padding: none;
   }
-  body .search {
+  .bodyActivities .search {
     width: 98%;
-    margin-left: 2%;
+    margin-left: 2.5%;
   }
-  body .search input {
+  .bodyActivities .search input {
     box-shadow: 2px 2px 6px #ddd6d6;
     background-color: #fdfdfd;
     color: rgba(158, 154, 154, 0.945);
@@ -561,48 +558,48 @@ body {
     font-size: 0.9em;
     width: 95%;
   }
-  body .search ion-icon {
+  .bodyActivities .search ion-icon {
     position: absolute;
     top: 24%;
     left: 6%;
   }
-  body .navBar__list {
+  .bodyActivities .navBar__list {
     margin-left: -9%;
   }
-  body .navBar__list--link {
+  .bodyActivities .navBar__list--link {
     font-size: 0.9em;
   }
-  body .ActivitiesGrid {
+  .bodyActivities .ActivitiesGrid {
     grid-template-columns: 46% 46%;
     grid-template-areas: "steps sleep" "steps sleep" "steps colories" "haert colories" "haert colories";
   }
-  body .ActivitiesGrid goals,
-body .ActivitiesGrid weight {
+  .bodyActivities .ActivitiesGrid goals,
+.bodyActivities .ActivitiesGrid weight {
     display: none;
   }
-  body .ActivitiesGrid .haert__chart {
+  .bodyActivities .ActivitiesGrid .haert__chart {
     display: flex;
     justify-content: center;
     align-items: center;
   }
-  body .ActivitiesGrid .haert__chart--bmp {
+  .bodyActivities .ActivitiesGrid .haert__chart--bmp {
     display: none;
   }
-  body .ActivitiesGrid .haert__chart .bar-graph-vertical .bar-container {
+  .bodyActivities .ActivitiesGrid .haert__chart .bar-graph-vertical .bar-container {
     width: 1em;
   }
-  body .ActivitiesGrid .steps__stepsContainer {
+  .bodyActivities .ActivitiesGrid .steps__stepsContainer {
     padding-top: 0%;
   }
-  body .ActivitiesGrid .calories__caloriesContainer {
+  .bodyActivities .ActivitiesGrid .calories__caloriesContainer {
     padding-top: 0%;
   }
-  body .userBar {
+  .bodyActivities .userBar {
     gap: 0.5em;
     padding-top: 0em;
     padding-bottom: 0em;
   }
-  body .userBar__DailyMeals, body .userBar__info {
+  .bodyActivities .userBar__DailyMeals, .bodyActivities .userBar__info {
     box-shadow: 2px 2px 6px #ddd6d6;
     background-color: #fdfdfd;
     color: rgba(158, 154, 154, 0.945);
