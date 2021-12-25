@@ -1592,7 +1592,12 @@ body {
                         gap: 1px;
                         grid-template-rows: 0.1fr 0.1fr;
                         grid-template-columns: 2fr 3fr;
-    
+                        &__text{
+                            margin: auto;
+                            display: grid;
+                            grid-template-columns: 1fr;
+                            grid-template-rows: 0.1fr 0.1fr;
+                            grid-row: 1;
                         &--text {
                             
                             grid-row: 1;
@@ -1618,8 +1623,8 @@ body {
                                 font-size: 11px;
                                 grid-row: 1;
                             }
-    
-                           
+                        }
+                           &--state{
     
                             p {
                                 grid-row: 2 / -1;
@@ -1641,6 +1646,7 @@ body {
                                
                             }
                         }
+                    }
                         &--bigIcon {
                             margin: auto;
                             grid-column: 2;
@@ -1898,19 +1904,19 @@ body {
                                         opacity: 1;
                                     }
                                 }
-        
+        &--bigIcons{
                                 .rainy {
                                     display: grid;
-                                    grid-template-columns: repeat(5, 1fr);
-                                    max-width: 10px;
+                                    grid-template-columns: repeat(5, 5fr);
+            
                                     grid-row: 1;
-                                    gap: 5px;
+                                    gap: 10px;
                                     grid-column: 1;
                                     
                                     .rain {
                                       grid-row: 1;
                                       grid-column: 1;
-                                        width: 2px;
+                                        width: 5px;
                                         height: 6px;
                                         animation-name: rains;
                                         animation-duration: 1s;
@@ -1936,7 +1942,7 @@ body {
                                         opacity: 0.5;
                                         transform: translateY(9vh) skew(-30deg, -20deg);
                                     }
-                                }     
+                                }  }   
                         }
                     }
                         &__down {

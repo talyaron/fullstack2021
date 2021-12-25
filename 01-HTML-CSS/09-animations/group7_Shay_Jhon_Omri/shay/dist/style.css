@@ -1281,34 +1281,41 @@ body .days {
     grid-template-rows: 0.1fr 0.1fr;
     grid-template-columns: 2fr 3fr;
   }
-  body .main .contain__box__up--text {
+  body .main .contain__box__up__text {
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.1fr 0.1fr;
+    grid-row: 1;
+  }
+  body .main .contain__box__up__text--text {
     grid-row: 1;
     grid-column: 1;
   }
-  body .main .contain__box__up--text h2 {
+  body .main .contain__box__up__text--text h2 {
     margin-left: auto;
     font-size: 14px;
     color: white;
   }
-  body .main .contain__box__up--city {
+  body .main .contain__box__up__text--city {
     grid-row: 1;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 0.1fr 0.1fr;
     width: 88px;
   }
-  body .main .contain__box__up--city h6 {
+  body .main .contain__box__up__text--city h6 {
     color: white;
     font-size: 11px;
     grid-row: 1;
   }
-  body .main .contain__box__up--city p {
+  body .main .contain__box__up__text--state p {
     grid-row: 2/-1;
     grid-column: 1;
     font-size: 13px;
     color: #3d5564;
   }
-  body .main .contain__box__up i span {
+  body .main .contain__box__up__text i span {
     grid-row: 3;
     grid-column: 2;
     font-size: 14px;
@@ -1520,18 +1527,17 @@ body .days {
       opacity: 1;
     }
   }
-  body .main .contain__box__up--bigIcon .rainy {
+  body .main .contain__box__up--bigIcon--bigIcons .rainy {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    max-width: 10px;
+    grid-template-columns: repeat(5, 5fr);
     grid-row: 1;
-    gap: 5px;
+    gap: 10px;
     grid-column: 1;
   }
-  body .main .contain__box__up--bigIcon .rainy .rain {
+  body .main .contain__box__up--bigIcon--bigIcons .rainy .rain {
     grid-row: 1;
     grid-column: 1;
-    width: 2px;
+    width: 5px;
     height: 6px;
     animation-name: rains;
     animation-duration: 1s;
