@@ -519,7 +519,7 @@ body {
   background-color: #1d2a35;
 }
 body .details {
-  max-width: 1280px;
+  max-width: 1370px;
   margin: auto;
   display: grid;
   grid-template-columns: 6fr;
@@ -610,15 +610,7 @@ body .details .bar {
   justify-content: space-around;
   margin: 2%;
 }
-@media only screen and (max-width: 1370px) {
-  body .details {
-    grid-template-rows: 0.8fr 1.6fr 0.8fr 0.3fr 2fr 0.8fr;
-  }
-  body .details__general {
-    margin: 5% 10%;
-  }
-}
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 1280px) {
   body .details {
     grid-template-rows: 0.8fr 1.6fr 0.8fr 0.3fr 2fr 0.8fr;
   }

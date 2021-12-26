@@ -646,7 +646,7 @@ body{
     background-color: #1d2a35;
 
     .details {
-        max-width: 1280px;
+        max-width: 1370px;
         margin: auto;
         display: grid;
         grid-template-columns: 6fr;
@@ -766,7 +766,7 @@ body{
 
     }
 
-    @media only screen and(max-width:1370px){
+    @media only screen and(max-width:1280px){
         .details {
 
            grid-template-rows: 0.8fr 1.6fr 0.8fr 0.3fr 2fr 0.8fr;
@@ -779,18 +779,7 @@ body{
         }
     }
 
-    @media only screen and(max-width:1024px){
-        .details {
 
-           grid-template-rows: 0.8fr 1.6fr 0.8fr 0.3fr 2fr 0.8fr;
-
-           &__general {
-
-            margin: 5% 10%;
-        }
-
-        }
-    }
 
     @media only screen and(max-width:770px){
         .details {
