@@ -62,16 +62,11 @@ body {
   border-radius: 4px;
   margin-right: 6px;
 }
-.wrapper__name {
-  color: orangered;
-  font-family: Arial, Helvetica, sans-serif;
-  border-radius: 10px;
-  padding: 3px;
-}
 .wrapper__info {
   font-weight: bold;
   font-size: 1.4em;
   font-family: Arial, Helvetica, sans-serif;
+  padding-right: 30px;
 }
 .wrapper__info :hover {
   cursor: pointer;
@@ -146,6 +141,42 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.drop {
+  position: relative;
+  margin: -30%;
+  display: inline-block;
+}
+.drop__btn {
+  background-color: #a3a2a2;
+  color: white;
+  padding: 6px;
+  font-size: 16px;
+  border: none;
+}
+.drop:hover .drop__content {
+  font-size: 2em;
+  display: block;
+}
+.drop__content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+.drop__content a {
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+}
+.drop__content a:hover {
+  background-color: #a3a2a2;
+  text-decoration: underline;
+}
+
 @media only screen and (min-width: 670px) {
   .wrapperfirst ul {
     height: 80px;
@@ -186,5 +217,17 @@ body {
   }
   .card__price {
     font-size: 2rem;
+  }
+
+  .drop__btn {
+    border-radius: 20px;
+    padding: 23px;
+  }
+  .drop:hover .drop__content {
+    border-radius: 20px;
+  }
+  .drop__content a:hover {
+    border-radius: 20px;
+    text-decoration: underline;
   }
 }
