@@ -20,13 +20,18 @@
   --color-klay: #A5A99E;
   --color-axs: #9CAAE7;
   --color-xlm: #33CFFF;
+  --width: 85vw;
   background-color: var(--color-dark-grey);
   color: var(--color-white);
   font-family: Arial, Helvetica, sans-serif;
 }
 
+div {
+  box-shadow: 0px 0px 0px 1px red;
+}
+
 body {
-  margin-top: 50px;
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -36,7 +41,12 @@ body {
 .header {
   display: flex;
   justify-content: space-between;
-  width: 95%;
+  width: 90vw;
+}
+@media only screen and (min-width: 1200px) {
+  .header {
+    width: 50vw;
+  }
 }
 .header__icon {
   z-index: 999;
@@ -193,7 +203,7 @@ body {
 .header__icon__notification__message {
   visibility: hidden;
   height: 50px;
-  width: 300px;
+  width: 230px;
   background-color: #383C3FD0;
   backdrop-filter: blur(20px);
   border-radius: 10px;
@@ -203,9 +213,15 @@ body {
   transform-origin: right;
   color: var(--color-white);
   text-align: left;
-  font-size: 1rem;
+  font-size: 0.8rem;
   line-height: 50px;
   padding-left: 10px;
+}
+@media only screen and (min-width: 600px) {
+  .header__icon__notification__message {
+    width: 300px;
+    font-size: 1rem;
+  }
 }
 .header__icon__notification#note1 {
   top: 0px;
@@ -234,15 +250,16 @@ body {
 .header__item {
   color: var(--color-white);
   border: 0px;
-  margin-inline: -130px;
+  margin-inline: -30px;
   padding-inline: 2ch;
-  border-radius: 5px;
-  font-size: 1.3rem;
+  border-radius: 10px;
+  font-size: 1rem;
   background-color: var(--color-dark-grey);
 }
 .header__item:hover {
   background-color: var(--color-light-grey);
   box-shadow: 0px 0px 0px 1px var(--color-white);
+  cursor: pointer;
 }
 
 @keyframes scan {
@@ -354,19 +371,24 @@ body {
   display: flex;
   justify-content: center;
   position: fixed;
-  bottom: 20px;
-  height: 120px;
+  bottom: 10px;
+  height: 70px;
   width: 90vw;
   background-color: var(--color-light-grey);
   border-radius: 20px;
-  margin: 4vw;
+  margin: 2vw;
+}
+@media only screen and (min-width: 1200px) {
+  .footer {
+    width: 50vw;
+  }
 }
 .footer-container {
-  width: 640px;
+  width: 100%;
   display: flex;
   justify-content: space-evenly;
   color: var(--color-lighter-grey);
-  font-size: 1.2rem;
+  font-size: 0.9rem;
 }
 .footer-container * {
   padding: 10px;
@@ -375,14 +397,15 @@ body {
   position: relative;
 }
 .footer-container__market svg {
-  height: 50px;
+  margin-top: -10px;
+  height: 30px;
   fill: var(--color-lighter-grey);
 }
 .footer-container__market::after {
-  content: "Market";
+  content: "Wallet";
   position: absolute;
-  bottom: 15px;
-  left: 16px;
+  bottom: 10px;
+  left: 15px;
 }
 .footer-container__exchange {
   position: relative;
@@ -391,8 +414,8 @@ body {
 .footer-container__exchange svg {
   position: absolute;
   top: -45px;
-  right: 0px;
-  width: 90px;
+  right: 15px;
+  width: 60px;
   fill: var(--color-lighter-grey);
 }
 .footer-container__exchange svg .st1 {
@@ -405,21 +428,22 @@ body {
 .footer-container__exchange::after {
   content: "Exchange";
   position: absolute;
-  bottom: 15px;
-  left: 12px;
+  bottom: 10px;
+  left: 24px;
 }
 .footer-container__wallet {
   position: relative;
 }
 .footer-container__wallet svg {
-  height: 50px;
+  margin-top: -10px;
+  height: 30px;
   fill: var(--color-lighter-grey);
 }
 .footer-container__wallet::after {
   content: "Wallet";
   position: absolute;
-  bottom: 15px;
-  left: 23px;
+  bottom: 10px;
+  left: 20px;
 }
 
 @keyframes scroll-right {
@@ -431,13 +455,13 @@ body {
   }
 }
 .wallet {
-  width: 600px;
+  width: var(--width);
   margin: 15px;
 }
 .wallet-banner {
   display: flex;
   height: 45px;
-  width: 600px;
+  width: var(--width);
   overflow: hidden;
   white-space: nowrap;
 }
@@ -530,22 +554,39 @@ body {
   background-color: var(--color-xlm);
 }
 .wallet-value {
-  width: 600px;
-  height: 600px;
+  width: var(--width);
+  aspect-ratio: 1;
   position: relative;
+  border: 1px solid blue;
+}
+@media only screen and (min-width: 1200px) {
+  .wallet-value {
+    width: 50vw;
+    left: -20px;
+  }
 }
 .wallet-value__grid {
   perspective: 1000px;
   position: absolute;
   display: grid;
-  width: 600px;
-  height: 600px;
+  width: var(--width);
+  aspect-ratio: 1;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(5, 1fr);
 }
+@media only screen and (min-width: 1200px) {
+  .wallet-value__grid {
+    width: 50vw;
+  }
+}
 .wallet-value__grid__cell {
-  width: 120px;
-  height: 120px;
+  width: calc(var(--width)/5);
+  aspect-ratio: 1;
+}
+@media only screen and (min-width: 1200px) {
+  .wallet-value__grid__cell {
+    width: 10vw;
+  }
 }
 .wallet-value__grid #cell1:hover ~ .wallet-value__scene {
   transform: rotateX(20deg) rotateY(-20deg);
@@ -623,6 +664,7 @@ body {
   transform: rotateX(-20deg) rotateY(20deg);
 }
 .wallet-value__avrage {
+  font-size: 0.8rem;
   position: absolute;
   top: 0px;
   left: 0px;
@@ -632,6 +674,7 @@ body {
   color: var(--color-lighter-grey);
 }
 .wallet-value__max {
+  font-size: 0.8rem;
   z-index: 99;
   position: absolute;
   top: 0px;
@@ -659,38 +702,53 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 600px;
+  height: var(--width);
+  overflow: hidden;
+}
+@media only screen and (min-width: 1200px) {
+  .wallet-value__scene__graph {
+    height: 50vw;
+  }
 }
 .wallet-value__scene__graph svg {
   position: absolute;
-  width: 550px;
-  height: 550px;
+  width: calc(var(--width)*0.9);
+  aspect-ratio: 1;
   animation: spin 30s linear infinite;
 }
+@media only screen and (min-width: 1200px) {
+  .wallet-value__scene__graph svg {
+    width: 45vw;
+  }
+}
 .wallet-value__scene__graph h1 {
-  font-size: 3rem;
+  font-size: 1.8rem;
   position: relative;
 }
 .wallet-value__scene__graph h1::before {
   content: "WALLET VALUE";
-  width: 26ch;
   position: absolute;
-  font-size: 0.4em;
+  font-size: 0.5em;
   color: var(--color-lighter-grey);
-  bottom: 5rem;
+  bottom: 3em;
+  left: 4ch;
   text-align: center;
 }
 .wallet-value__scene__graph h1::after {
   content: "▲ € 31.800,52 (21,1%)";
-  width: 20ch;
   position: absolute;
-  font-size: 0.4em;
+  font-size: 0.5em;
   color: var(--color-light-green);
-  top: 5rem;
-  left: 4ch;
+  top: 3em;
+  left: 1.5ch;
 }
 .wallet-portfolio {
-  margin-bottom: 200px;
+  margin-bottom: 90px;
+}
+@media only screen and (min-width: 1200px) {
+  .wallet-portfolio {
+    width: 45vw;
+  }
 }
 .wallet-portfolio__title {
   display: flex;
@@ -702,58 +760,105 @@ body {
 }
 .wallet-portfolio__title__indicators {
   color: var(--color-lighter-grey);
-  font-size: 0.8rem;
-  word-spacing: 1em;
+  font-size: 0.7rem;
+  word-spacing: 1ch;
 }
 .wallet-portfolio__list {
   position: relative;
+  perspective: 200px;
 }
 .wallet-portfolio__list__item {
   display: flex;
+  height: 60px;
   justify-content: space-between;
   padding-block: 10px;
   box-shadow: 0px -2px 0px 0px var(--color-light-grey);
+  transition: ease 300ms;
+  border-radius: 10px;
+  perspective: 200px;
+}
+.wallet-portfolio__list__item:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 0px 5px 2px;
+}
+.wallet-portfolio__list__item:hover .wallet-portfolio__list__item__graph > img {
+  animation: graph 5s ease-in-out infinite alternate;
 }
 .wallet-portfolio__list__item__icon {
   background-color: var(--color-mid-grey);
   border-radius: 25%;
-  width: 75px;
-  height: 75px;
-  margin: 10px;
+  width: 50px;
+  height: 50px;
+  margin: 5px;
 }
 .wallet-portfolio__list__item__icon svg {
-  margin: 12.5px;
-  width: 50px;
+  margin: 10px;
+  width: 30px;
   fill: var(--color-white);
 }
 .wallet-portfolio__list__item__name {
   position: absolute;
-  left: 85px;
-  margin: 1rem;
-  font-size: 1.5rem;
+  left: 55px;
+  margin: 5px;
+  font-size: 1.1rem;
   line-height: 0rem;
 }
 .wallet-portfolio__list__item__name :last-child {
-  font-size: 0.7em;
+  font-size: 0.6em;
   color: var(--color-lighter-grey);
 }
 .wallet-portfolio__list__item__graph {
   position: absolute;
-  left: 250px;
-  width: 230px;
+  left: 135px;
+  width: 60px;
+  height: 70px;
+  border: 1px solid var(--color-light-grey);
   overflow: hidden;
 }
+@media only screen and (min-width: 341px) {
+  .wallet-portfolio__list__item__graph {
+    width: 90px;
+  }
+}
+@media only screen and (min-width: 375px) {
+  .wallet-portfolio__list__item__graph {
+    width: 110px;
+  }
+}
+@media only screen and (min-width: 540px) {
+  .wallet-portfolio__list__item__graph {
+    width: 250px;
+  }
+}
+@media only screen and (min-width: 748px) {
+  .wallet-portfolio__list__item__graph {
+    width: 400px;
+  }
+}
 .wallet-portfolio__list__item__graph img {
-  width: 220px;
+  position: absolute;
+  top: -7vw;
+  width: 60vw;
+  aspect-ratio: 3;
+}
+@media only screen and (min-width: 748px) {
+  .wallet-portfolio__list__item__graph img {
+    top: -7vw;
+    width: 60vw;
+    aspect-ratio: 4;
+  }
 }
 .wallet-portfolio__list__item__price {
-  margin: 1rem;
+  margin: 5px;
   text-align: end;
-  line-height: 0em;
+  line-height: 0.2em;
   font-weight: 600;
 }
 .wallet-portfolio__list__item__price :first-child {
-  font-size: 1.5em;
+  font-size: 1em;
+}
+.wallet-portfolio__list__item__price p {
+  font-size: 0.8em;
 }
 .wallet-portfolio__list__item__price .--red {
   color: var(--color-red);
@@ -761,77 +866,8 @@ body {
 .wallet-portfolio__list__item__price .--green {
   color: var(--color-light-green);
 }
-
-.menu il {
-  text-decoration: inline;
-  text-align: center;
-  justify-content: center;
-  color: var(--color-lighter-grey);
-  border-radius: 10px;
-  font-size: xx-large;
-  margin: 10px;
-}
-
-il:hover {
-  background-color: var(--color-light-green);
-  color: white;
-}
-
-.title {
-  margin: 50px;
-}
-.title h1 {
-  color: var(--color-white);
-}
-.title p {
-  color: var(--color-lighter-grey);
-  font-size: 18px;
-}
-
-.wrapper {
-  display: flex;
-  flex-wrap: row;
-}
-.wrapper .box {
-  background-color: var(--color-mid-grey);
-  border-radius: 10px;
-  margin: 70px;
-}
-.wrapper button {
-  border-radius: 50%;
-  align-items: center;
-  justify-content: center;
-  margin-top: -50px;
-  outline: none;
-  margin-top: 0%;
-  margin: 10px;
-}
-.wrapper h4 {
-  margin: 0 35px;
-  color: #9e0a0a;
-}
-
-.button-change {
-  margin-top: 50px;
-  margin-left: 8%;
-  justify-content: center;
-  align-items: center;
-}
-
-@media only screen and (max-width: 600px) {
-  .button-change {
-    margin: 0;
-    margin-top: 50px;
-    margin-left: 50%;
-    justify-content: center;
-    align-items: center;
+@keyframes graph {
+  to {
+    transform: translateX(-90px);
   }
 }
-.wrapper2 {
-  margin-left: -100px;
-  margin-top: 0px;
-  display: flex;
-  flex-wrap: row;
-}
-
-/*yahya END*/

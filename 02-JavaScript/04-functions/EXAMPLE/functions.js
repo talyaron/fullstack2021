@@ -19,8 +19,8 @@ const sayHello3 =  (name)=> {
     return `Hello ${name}`;
 }
 
-const sayHello4 = name => `Hello ${name}`;
-
+const sayHello4 = (name1,name2) => `Hello ${name1} ${name2}`;
+console.log(sayHello4('roi','Naor'));
 
 const hello3 = sayHello3('Shay');
 console.log(hello3);

@@ -30,7 +30,6 @@ nav ul {
   flex-direction: row;
   justify-content: space-around;
   padding: 1rem;
-  border-radius: 0 0 1em 1em;
 }
 nav ul li a i {
   background-color: #f0f0f2;
@@ -107,13 +106,14 @@ nav ul li a i:hover {
   }
   nav ul {
     top: 0;
+    border-radius: 0;
   }
   nav ul li {
     flex: 1 2 auto;
     text-align: center;
   }
 
-  #monthly-tasks:hover .material-icons {
+  #monthly-tasks:hover .material-icons, #home:hover .material-icons, #chart:hover .material-icons, #info:hover .material-icons {
     animation: pulse 0.5s infinite alternate;
   }
 
