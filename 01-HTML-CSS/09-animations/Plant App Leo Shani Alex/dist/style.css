@@ -855,7 +855,7 @@ body {
 
   .rightside {
     position: relative;
-    left: 35%;
+    left: 30%;
   }
 
   .checkout {
@@ -953,7 +953,7 @@ body {
     gap: 20px;
   }
   .myCart__grid .img {
-    height: 9rem;
+    height: 7rem;
     width: 6rem;
     position: absolute;
     margin: 2%;

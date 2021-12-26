@@ -46,6 +46,7 @@ body {
   }
 }
 .header__icon {
+  z-index: 1;
   perspective: 300px;
   perspective-origin: 300%;
   position: relative;
@@ -920,13 +921,6 @@ body {
     top: -7vw;
     width: 60vw;
     aspect-ratio: 4;
-  }
-}
-@media only screen and (min-width: 748px) {
-  .wallet-portfolio__list__item__graph img {
-    top: -6vw;
-    width: 80vw;
-    aspect-ratio: 7;
   }
 }
 @media only screen and (min-width: 748px) {
