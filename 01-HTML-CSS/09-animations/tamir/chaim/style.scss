@@ -68,6 +68,7 @@ h1{
     position: relative;
     bottom: 90px;
     border-radius: 10vh;
+<<<<<<< HEAD:01-HTML-CSS/09-animations/chaim/style.scss
   
   }
   .container1>ol{
@@ -84,6 +85,26 @@ h1{
     height:20vh;
     background:silver;
     display:inline-block;
+=======
+
+}
+
+.container1>ol {
+
+    text-align: center;
+    font-size: 1.4em;
+    text-decoration: none;
+    color: black;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.container2 {
+    width: 100%;
+    height: 20vh;
+    background: silver;
+    display: inline-block;
+>>>>>>> d5e074d422302d2756ad4ba0f7bc46980a863c13:01-HTML-CSS/09-animations/tamir/chaim/style.scss
     position: relative;
     bottom: 40px;
     border-radius: 10vh;
@@ -111,17 +132,25 @@ h1{
     bottom: 7vh;   
     left: 15vh;
 }
+<<<<<<< HEAD:01-HTML-CSS/09-animations/chaim/style.scss
 
 
 .container2>i{
+=======
+.container2>i {
+>>>>>>> d5e074d422302d2756ad4ba0f7bc46980a863c13:01-HTML-CSS/09-animations/tamir/chaim/style.scss
     position: absolute;
     bottom: 6vh;   
   right: 10vh;
 }    
 
+<<<<<<< HEAD:01-HTML-CSS/09-animations/chaim/style.scss
 
 
 h3{
+=======
+h3 {
+>>>>>>> d5e074d422302d2756ad4ba0f7bc46980a863c13:01-HTML-CSS/09-animations/tamir/chaim/style.scss
     position: relative;
     left: 80vh;
     color:red;
