@@ -2,7 +2,6 @@ body {
   min-width: 100%;
   height: 100%;
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   background-color: rgba(226, 220, 220, 0.863);
 
@@ -14,7 +13,6 @@ body {
   border-radius: 15px;
   overflow: hidden;
   position: absolute;
-
   box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 }
 
@@ -28,19 +26,16 @@ body {
 }
 
 .night_bg {
-  background: #0F2129;
   background: linear-gradient(#0F2129, #47334A);
 }
 
 .frosty_bg {
-  background: #29386f;
   background: linear-gradient(#29386f, #b8f5ff);
   opacity: 0;
   animation: frostyAnimation 20s ease infinite;
 }
 
 .sunny_bg {
-  background: #ffbd3f;
   background: linear-gradient(#ffbd3f, #fff097);
   opacity: 0;
   animation: sunnyAnimation 20s ease infinite;
@@ -93,7 +88,7 @@ body {
     color: #4F787D;
     display: block;
     text-indent: -5px;
-    font-size: 100px;
+    font-size: 110px;
     font-weight: bold;
     position: relative;
     animation: degreesAnimation 20s ease infinite;
@@ -159,6 +154,8 @@ body {
   &_place {
     margin-bottom: 10px;
     text-transform: uppercase;
+    font-weight: bold;
+    font-size: larger;
     color: #694c6d;
     animation: placeAnimation 20s ease infinite;
 
@@ -170,11 +167,11 @@ body {
     }
 
     33% {
-      color: #4497bf;
+      color: #2b7fa9;
     }
 
     62% {
-      color: #4497bf;
+      color: #147db1;
     }
 
     63% {
@@ -213,7 +210,7 @@ body {
     }
   }
 
-  .weather {
+  &_weather {
     color: #FFF;
   }
 
@@ -259,22 +256,22 @@ body {
     }
 
     32% {
-      bottom: 600px;
+      bottom: 500px;
       left: 300px;
     }
 
     33% {
-      bottom: 600px;
+      bottom: 500px;
       left: 300px;
     }
 
     62% {
-      bottom: 600px;
+      bottom: 500px;
       left: 300px;
     }
 
     63% {
-      bottom: 600px;
+      bottom: 500px;
       left: 300px;
     }
 
@@ -357,7 +354,6 @@ body {
     opacity: 0.1;
     top: -5px;
     left: -30px;
-    animation: circle1Color 20s ease infinite;
   }
 
   &_circle2 {
@@ -370,7 +366,6 @@ body {
     opacity: 0.1;
     top: -15px;
     left: -40px;
-    animation: circle2Color 20s ease infinite;
   }
 
   &_circle3 {
@@ -383,7 +378,6 @@ body {
     opacity: 0.1;
     top: -25px;
     left: -50px;
-    animation: circle3Color 20s ease infinite;
   }
 
 }
@@ -403,20 +397,17 @@ body {
 }
 
 .ground1_night {
-  background: #2f2b3c;
   background: linear-gradient(#2f2b3c, #091B21);
   animation: nightGroundAnimation 20s ease infinite;
 }
 
 .ground1_frosty {
-  background: #f3ffff;
   background: linear-gradient(#f3ffff, #9af2ff);
   opacity: 0;
   animation: frostyGroundAnimation 20s ease infinite;
 }
 
 .ground1_sunny {
-  background: #e0d7a4;
   background: linear-gradient(#e0d7a4, #e7c77a);
   opacity: 0;
   animation: sunnyGroundAnimation 20s ease infinite;
@@ -437,7 +428,6 @@ body {
 }
 
 .ground2_night {
-  background: #2f2b3c;
   background: linear-gradient(#2f2b3c, #091B21);
   animation: nightGroundAnimation 20s ease infinite;
 }
@@ -457,7 +447,6 @@ body {
 }
 
 .ground2_frosty {
-  background: #f3ffff;
   background: linear-gradient(#f3ffff, #9af2ff);
   opacity: 0;
   animation: frostyGroundAnimation 20s ease infinite;
@@ -482,7 +471,6 @@ body {
 }
 
 .ground2_sunny {
-  background: #e0d7a4;
   background: linear-gradient(#e0d7a4, #e7c77a);
   opacity: 0;
   animation: sunnyGroundAnimation 20s ease infinite;
