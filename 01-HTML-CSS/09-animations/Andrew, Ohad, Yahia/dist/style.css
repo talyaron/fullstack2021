@@ -337,20 +337,16 @@
   color: var(--color-light-green);
 }
 
-<<<<<<< Updated upstream
 .menu {
   display: flex;
   flex-wrap: row;
 }
-=======
->>>>>>> Stashed changes
 .menu il {
   text-decoration: inline;
   text-align: center;
   justify-content: center;
   color: var(--color-lighter-grey);
   border-radius: 10px;
-<<<<<<< Updated upstream
   font-size: x-large;
   margin: 10px;
 }
@@ -386,37 +382,6 @@ body {
   border-radius: 10px;
   margin: 70px;
 }
-=======
-  font-size: xx-large;
-  margin: 10px;
-}
-
-il:hover {
-  background-color: var(--color-light-green);
-  color: white;
-}
-
-.title {
-  margin: 50px;
-}
-.title h1 {
-  color: var(--color-white);
-}
-.title p {
-  color: var(--color-lighter-grey);
-  font-size: 18px;
-}
-
-.wrapper {
-  display: flex;
-  flex-wrap: row;
-}
-.wrapper .box {
-  background-color: var(--color-mid-grey);
-  border-radius: 10px;
-  margin: 70px;
-}
->>>>>>> Stashed changes
 .wrapper button {
   border-radius: 50%;
   align-items: center;
@@ -433,16 +398,11 @@ il:hover {
 
 .button-change {
   margin-top: 50px;
-<<<<<<< Updated upstream
   margin-left: 40%;
-=======
-  margin-left: 8%;
->>>>>>> Stashed changes
   justify-content: center;
   align-items: center;
 }
 
-<<<<<<< Updated upstream
 .wrapper2 {
   margin-left: 5px;
   margin-top: 400px;
@@ -487,15 +447,6 @@ il:hover {
   font-family: system-ui;
 }
 
-.footer2 {
-  margin-top: 600;
-  float: left;
-  position: absolute;
-  margin-left: 5px;
-}
-
-=======
->>>>>>> Stashed changes
 @media only screen and (max-width: 600px) {
   .button-change {
     margin: 0;
@@ -505,7 +456,6 @@ il:hover {
     align-items: center;
   }
 }
-<<<<<<< Updated upstream
 @media only screen and (max-width: 300px) {
   .button-change {
     margin: 0;
@@ -515,13 +465,4 @@ il:hover {
     align-items: center;
   }
 }
-=======
-.wrapper2 {
-  margin-left: -100px;
-  margin-top: 0px;
-  display: flex;
-  flex-wrap: row;
-}
-
->>>>>>> Stashed changes
 /*yahya END*/

@@ -1,0 +1,26 @@
+.grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.grid div {
+    border: 1px solid black;
+}
+
+.grid__bigSeccion {
+    
+    grid-row: 1/3;
+    grid-column: 1/3;
+}
+
+
+.grid__bigSeccion3 {
+    grid-row: 2/4;
+    grid-column: 3/5;
+}
+
+.grid__bigSeccion2 {
+    grid-row: 1/3;
+    grid-column: 5/7;
+}
