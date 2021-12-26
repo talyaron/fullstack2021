@@ -514,14 +514,17 @@ body .main .bar {
 body .main .bar__icons #active:target {
   color: #7b446a;
 }
+
+body {
+  background-color: #1d2a35;
+}
 body .details {
-  background: #1d2a35;
-  max-width: 600px;
+  max-width: 1280px;
   margin: auto;
   display: grid;
   grid-template-columns: 6fr;
   grid-template-rows: 0.8fr 1.6fr 0.8fr 0.3fr 1fr 0.8fr;
-  color: honeydew;
+  color: #e1e3e2;
 }
 body .details__location {
   margin-top: 20px;
@@ -549,7 +552,7 @@ body .details__dayTime .ball {
   width: 150px;
   height: 150px;
   border-radius: 100px;
-  background-image: linear-gradient(to bottom right, #10b0fa, rgba(247, 0, 255, 0.932));
+  background-image: linear-gradient(to bottom right, #44a1fd, #f700ff);
   margin: auto;
   animation-name: rorate;
   animation-duration: 3s;
@@ -596,7 +599,7 @@ body .details__general .measure_units {
   color: #3c586d;
 }
 body .details__general .measure_units .fas {
-  color: honeydew;
+  color: #e1e3e2;
   font-size: 12px;
 }
 body .details__general .measure_units span {
@@ -605,9 +608,64 @@ body .details__general .measure_units span {
 body .details .bar {
   display: flex;
   justify-content: space-around;
-  margin: 8%;
+  margin: 2%;
 }
-body .wrapper {
+@media only screen and (max-width: 1370px) {
+  body .details {
+    grid-template-rows: 0.8fr 1.6fr 0.8fr 0.3fr 2fr 0.8fr;
+  }
+  body .details__general {
+    margin: 5% 10%;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  body .details {
+    grid-template-rows: 0.8fr 1.6fr 0.8fr 0.3fr 2fr 0.8fr;
+  }
+  body .details__general {
+    margin: 5% 10%;
+  }
+}
+@media only screen and (max-width: 770px) {
+  body .details {
+    grid-template-rows: 0.8fr 1.6fr 0.8fr 0.3fr 2fr 0.8fr;
+  }
+  body .details .bar {
+    justify-content: space-around;
+    margin: 1%;
+  }
+}
+@media only screen and (max-width: 600px) {
+  body .details {
+    grid-template-rows: 0.8fr 1.6fr 0.8fr 0.3fr 1fr 0.8fr;
+  }
+}
+@media only screen and (max-width: 320px) {
+  body .details__general {
+    margin: 0% 10%;
+  }
+  body .details .bar {
+    justify-content: space-between;
+    margin: 5%;
+  }
+}
+@media only screen and (max-width: 280px) {
+  body .details {
+    grid-template-rows: 0.8fr 1.6fr 0.8fr 0.3fr 1fr 0.3fr;
+  }
+  body .details__current {
+    gap: 5px;
+  }
+  body .details__general {
+    margin: 0% 5%;
+  }
+  body .details .bar {
+    justify-content: space-between;
+    margin: 5%;
+  }
+}
+
+.wrapper {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(3, 1fr);
@@ -616,26 +674,26 @@ body .wrapper {
   height: 20vh;
   color: #e4e4e4;
 }
-body .wrapper .fas {
+.wrapper .fas {
   font-size: 400px;
   color: violet;
 }
-body .wrapper__city {
+.wrapper__city {
   grid-column: 1;
   grid-row: 1;
 }
-body .wrapper__city h1 {
+.wrapper__city h1 {
   left: 50px;
 }
-body .wrapper__photo {
+.wrapper__photo {
   grid-column: 2;
   grid-row: 1/3;
 }
-body .wrapper__degrees {
+.wrapper__degrees {
   grid-column: 1;
   grid-row: 2;
 }
-body .wrapper__weather {
+.wrapper__weather {
   grid-column-start: 1;
   grid-column-end: 1;
   grid-row-start: 3;
@@ -644,7 +702,8 @@ body .wrapper__weather {
   border-radius: 30%;
   color: white;
 }
-body .weatherBar {
+
+.weatherBar {
   display: flex;
   height: 5vh;
   width: 80vw;
@@ -654,7 +713,8 @@ body .weatherBar {
   justify-content: space-between;
   color: white;
 }
-body .hours {
+
+.hours {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(3, 1fr);
@@ -663,7 +723,8 @@ body .hours {
   top: 600px;
   color: white;
 }
-body .days {
+
+.days {
   display: grid;
   grid-template-columns: 3fr 2fr 1fr 1fr;
   grid-template-rows: repeat(3, 1fr);
@@ -673,6 +734,7 @@ body .days {
   top: 700px;
   grid-row-gap: 10px;
 }
+
 @keyframes rorate {
   from {
     transform: rotate(0deg);
@@ -681,7 +743,6 @@ body .days {
     transform: rotate(360deg);
   }
 }
-
 @media only screen and (max-width: 600px) {
   body .main {
     grid-template-rows: 0.3fr 3fr 0.6fr;
@@ -1003,89 +1064,6 @@ body .days {
   }
   body .main .bar {
     gap: 80px;
-  }
-  body .details {
-    background: rgba(19, 27, 36, 0.877);
-    max-width: 600px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: 6fr;
-    grid-template-rows: 0.8fr 1.6fr 0.8fr 0.3fr 1fr 1fr;
-    color: honeydew;
-  }
-  body .details__location {
-    margin-top: 20px;
-    display: grid;
-    grid-template-rows: repeat(2 1fr);
-  }
-  body .details__location .fas {
-    color: gray;
-    margin: auto;
-  }
-  body .details__location p {
-    justify-self: center;
-    margin-top: -10px;
-  }
-  body .details__dayTime {
-    display: flex;
-    flex-direction: column;
-  }
-  body .details__dayTime .ball {
-    width: 150px;
-    height: 150px;
-    border-radius: 100px;
-    background-image: linear-gradient(to bottom right, #10b0fa, rgba(247, 0, 255, 0.932));
-    margin: auto;
-    animation-name: rorate;
-    animation-duration: 3s;
-    animation-delay: 1s;
-    animation-iteration-count: infinite;
-    animation-direction: reverse;
-    animation-timing-function: ease-in-out;
-  }
-  body .details__dayTime .card {
-    width: 100px;
-    height: 20px;
-    text-align: center;
-    padding: 0.5%;
-    border-radius: 40px;
-    margin: auto;
-    background: rgba(124, 49, 223, 0.295);
-  }
-  body .details__temp {
-    justify-self: center;
-    font-size: 3rem;
-  }
-  body .details__current {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-  }
-  body .details__current .data {
-    justify-content: center;
-  }
-  body .details__current .data span {
-    margin-left: 10px;
-  }
-  body .details__current .fas {
-    color: cornflowerblue;
-  }
-  body .details__general {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(3 1fr);
-    margin: 0% 15%;
-  }
-  body .details__general .measure_units {
-    justify-self: end;
-    color: #33599e;
-  }
-  body .details__general .measure_units .fas {
-    color: honeydew;
-    font-size: 12px;
-  }
-  body .details__general .measure_units span {
-    margin-right: 10px;
   }
 }
 @media only screen and (max-width: 350px) {
