@@ -643,19 +643,24 @@ body {
 
 
     .details {
-        background: rgba(19, 27, 36, 0.877);
+        background: #1d2a35;
         max-width: 600px;
         margin: auto;
         display: grid;
         grid-template-columns: 6fr;
-        grid-template-rows: 0.8fr 1.6fr 0.8fr 0.3fr 1fr 1fr;
+        grid-template-rows: 0.8fr 1.6fr 0.8fr 0.3fr 1fr 0.8fr;
         color: honeydew;
-
 
         &__location {
             margin-top: 20px;
             display: grid;
             grid-template-rows: repeat(2 1fr);
+
+            .text {
+                font-family: 'Roboto', sans-serif;
+                font-weight: 500;
+                font-size: 95%;
+            }
 
             .fas {
                 color: gray;
@@ -672,7 +677,7 @@ body {
         &__dayTime {
             display: flex;
             flex-direction: column;
-            //border: black solid 1px;
+
 
             .ball {
                 width: 150px;
@@ -696,7 +701,7 @@ body {
                 padding: 0.5%;
                 border-radius: 40px;
                 margin: auto;
-                background: rgba(124, 49, 223, 0.295);
+                background: #353361;
             }
         }
 
@@ -719,7 +724,7 @@ body {
             }
 
             .fas {
-                color: cornflowerblue;
+                color: #6686b6;
             }
         }
 
@@ -733,7 +738,8 @@ body {
 
                 &_units {
                     justify-self: end;
-                    color: rgb(51, 89, 158);
+                    color: #3c586d;
+
 
                     .fas {
                         color: honeydew;
@@ -746,8 +752,12 @@ body {
                 }
             }
 
+        }
 
-
+        .bar {
+            display: flex;
+            justify-content: space-around;
+            margin: 8%;
         }
 
     }

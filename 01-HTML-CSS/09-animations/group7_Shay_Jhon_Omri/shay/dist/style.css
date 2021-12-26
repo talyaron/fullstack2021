@@ -515,18 +515,23 @@ body .main .bar__icons #active:target {
   color: #7b446a;
 }
 body .details {
-  background: rgba(19, 27, 36, 0.877);
+  background: #1d2a35;
   max-width: 600px;
   margin: auto;
   display: grid;
   grid-template-columns: 6fr;
-  grid-template-rows: 0.8fr 1.6fr 0.8fr 0.3fr 1fr 1fr;
+  grid-template-rows: 0.8fr 1.6fr 0.8fr 0.3fr 1fr 0.8fr;
   color: honeydew;
 }
 body .details__location {
   margin-top: 20px;
   display: grid;
   grid-template-rows: repeat(2 1fr);
+}
+body .details__location .text {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 95%;
 }
 body .details__location .fas {
   color: gray;
@@ -560,7 +565,7 @@ body .details__dayTime .card {
   padding: 0.5%;
   border-radius: 40px;
   margin: auto;
-  background: rgba(124, 49, 223, 0.295);
+  background: #353361;
 }
 body .details__temp {
   justify-self: center;
@@ -578,7 +583,7 @@ body .details__current .data span {
   margin-left: 10px;
 }
 body .details__current .fas {
-  color: cornflowerblue;
+  color: #6686b6;
 }
 body .details__general {
   display: grid;
@@ -588,7 +593,7 @@ body .details__general {
 }
 body .details__general .measure_units {
   justify-self: end;
-  color: #33599e;
+  color: #3c586d;
 }
 body .details__general .measure_units .fas {
   color: honeydew;
@@ -596,6 +601,11 @@ body .details__general .measure_units .fas {
 }
 body .details__general .measure_units span {
   margin-right: 10px;
+}
+body .details .bar {
+  display: flex;
+  justify-content: space-around;
+  margin: 8%;
 }
 body .wrapper {
   display: grid;
