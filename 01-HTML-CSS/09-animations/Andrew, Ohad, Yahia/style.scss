@@ -368,18 +368,30 @@
 //yahya alhawjra-->page exchange
 //yahya start
 .menu{
+<<<<<<< Updated upstream
     display: flex;
         flex-wrap: row;
     il{
         text-decoration: inline;
        
+=======
+   
+    il{
+        text-decoration: inline;
+        
+>>>>>>> Stashed changes
         text-align: center;
         justify-content: center;
         color: var(--color-lighter-grey);
         border-radius: 10px;
+<<<<<<< Updated upstream
         font-size: x-large;
         margin: 10px;
         
+=======
+        font-size: xx-large;
+        margin: 10px;
+>>>>>>> Stashed changes
       }
 
 
@@ -388,6 +400,7 @@
             background-color: var(--color-light-green);
             color: white;
         
+<<<<<<< Updated upstream
 }
 
 .title{
@@ -525,3 +538,69 @@ body{
 }
 /*yahya END*/
 
+=======
+}
+
+.title{
+    margin: 50px;
+h1{
+    color: var(--color-white);
+}
+p{
+    color: var(--color-lighter-grey);
+    font-size: 18px;
+}
+}
+   .wrapper{
+       display: flex;
+       flex-wrap: row;
+       .box{
+           background-color: var(--color-mid-grey);
+           border-radius: 10px;
+           margin: 70px;
+       }
+       button{
+           border-radius:50% ;
+           align-items: center;
+           justify-content: center;
+           margin-top:-50px;
+           outline: none;
+           margin-top: 0%;
+           margin: 10px;
+          
+         
+       
+    
+       }
+       h4 {
+        margin: 0 35px;
+        
+        color: rgb(158, 10, 10);
+    }
+    
+   }
+   .button-change{
+       margin-top: 50px;
+       margin-left: 8%;
+       justify-content: center;
+       align-items: center;
+   }
+
+@media only screen and(max-width:600px) {
+    .button-change{
+        margin: 0;
+        margin-top: 50px;
+        margin-left: 50%;
+        justify-content: center;
+       align-items: center;
+    }
+}
+.wrapper2{
+    margin-left: -100px;
+    margin-top: 0px;
+    display: flex;
+    flex-wrap: row;
+}
+    
+/*yahya END*/
+>>>>>>> Stashed changes
