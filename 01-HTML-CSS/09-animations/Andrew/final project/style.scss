@@ -45,6 +45,7 @@ body {
     }
 
     &__icon {
+        z-index: 1;
         perspective: 300px;
         perspective-origin: 300%;
         position: relative;
@@ -922,7 +923,6 @@ body {
                     height: 35vw;
                 }
 
-
                 svg {
                     position: absolute;
                     width: calc(var(--width)*0.9);
@@ -1083,12 +1083,6 @@ body {
                             top: -7vw;
                             width: 60vw;
                             aspect-ratio: 4;
-                        }
-
-                        @media only screen and (min-width: 748px) {
-                            top: -6vw;
-                            width: 80vw;
-                            aspect-ratio: 7;
                         }
 
                         @media only screen and (min-width: 748px) {
