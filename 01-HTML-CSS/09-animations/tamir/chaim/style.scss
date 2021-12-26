@@ -1,0 +1,40 @@
+.wrapper {
+    border-radius: 40px;
+    background-color: rgb(218, 212, 212);
+
+    img {
+        width: 100%;
+        height: 100%;
+        border-radius: 40px;
+    }
+     &__h{
+         padding-left: 15px;
+     }
+    &__info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__subinfo {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin: 10px;
+        padding-left: 10px;
+
+        i {
+            color: orange;
+            
+        }
+
+    }
+
+    &__h3 {
+        padding-right: 20px;
+    }
+
+    &__h4 {
+        padding-right: 15px;
+    }
+}
