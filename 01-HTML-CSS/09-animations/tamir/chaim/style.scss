@@ -1,0 +1,164 @@
+body{
+    background-color:lightsteelblue;
+    margin: 8vh;
+}
+
+.wrapper1{
+    border: 30px;
+    background-color: white;
+    
+}
+
+.section>img{
+  width: 100%;
+  height: 100%;
+ border-radius: 30px; 
+ position: relative;
+ bottom: 20px;
+}  
+.hover{
+    cursor: pointer;
+  
+    
+}
+h1{
+    position: relative;
+    left:15vh;
+    color:black;
+    top: 5vh;
+
+}
+.icon>p{
+    position: relative;
+    bottom: 130vh;   
+   left: 10vh;
+    color: black;
+} 
+.icon>rp{
+    position: relative;
+    bottom: 26vh;   
+   left: 185vh;
+    color: tomato;
+} 
+.icon>i{
+    position: relative;
+    top: 10vh;   
+   right: 20vh;
+    color: orangered;
+}
+ h4{
+    position: relative;
+    left:  180vh;
+    bottom: 11vh;
+    font-size: 3vh;
+    
+}
+.box5{
+    position: relative;
+    top: 0vh;   
+    left: 110vh;
+    color: orange;
+}     
+.container1{
+
+    width:100%;
+    height:30vh;
+    background:silver;
+    display:inline-block;
+    position: relative;
+    bottom: 90px;
+    border-radius: 10vh;
+<<<<<<< HEAD:01-HTML-CSS/09-animations/chaim/style.scss
+  
+  }
+  .container1>ol{
+    
+        text-align: center;
+        font-size: 1.4em;
+        text-decoration: none;
+        color: black;
+        font-style: italic;
+        font-weight: bold;
+}
+  .container2 {
+    width:100%;
+    height:20vh;
+    background:silver;
+    display:inline-block;
+=======
+
+}
+
+.container1>ol {
+
+    text-align: center;
+    font-size: 1.4em;
+    text-decoration: none;
+    color: black;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.container2 {
+    width: 100%;
+    height: 20vh;
+    background: silver;
+    display: inline-block;
+>>>>>>> d5e074d422302d2756ad4ba0f7bc46980a863c13:01-HTML-CSS/09-animations/tamir/chaim/style.scss
+    position: relative;
+    bottom: 40px;
+    border-radius: 10vh;
+    margin-bottom: 20vh;
+  }
+
+  .container2>h5{ 
+      position: absolute;
+      bottom: 2vh;
+      left: 25vh;
+      font-size: 3vh;
+      font-style: italic;
+
+  }
+  .container2>h6{
+      position: absolute;
+      font-size: 3vh;
+      top: 3vh;
+      right: 16vh;
+  }
+
+
+.container2>img{
+    position: absolute;
+    bottom: 7vh;   
+    left: 15vh;
+}
+<<<<<<< HEAD:01-HTML-CSS/09-animations/chaim/style.scss
+
+
+.container2>i{
+=======
+.container2>i {
+>>>>>>> d5e074d422302d2756ad4ba0f7bc46980a863c13:01-HTML-CSS/09-animations/tamir/chaim/style.scss
+    position: absolute;
+    bottom: 6vh;   
+  right: 10vh;
+}    
+
+<<<<<<< HEAD:01-HTML-CSS/09-animations/chaim/style.scss
+
+
+h3{
+=======
+h3 {
+>>>>>>> d5e074d422302d2756ad4ba0f7bc46980a863c13:01-HTML-CSS/09-animations/tamir/chaim/style.scss
+    position: relative;
+    left: 80vh;
+    color:red;
+    top: 50px;
+    font-size: 5vh;
+}
+h3:hover{
+        cursor: pointer;
+      
+        
+    }

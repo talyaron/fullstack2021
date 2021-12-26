@@ -779,7 +779,7 @@ input {
     border-radius: 10%;
   }
 }
-.main .fruits:hover {
+.main .cart:hover {
   animation-name: wiggle;
   animation-duration: 500ms;
   animation-iteration-count: 1;
@@ -807,6 +807,10 @@ input {
   border-radius: 10%;
   width: 5em;
   text-align: center;
+}
+.main .fruits:hover {
+  transform: scale(1.1);
+  transition: all 0.4s ease-out;
 }
 
 .container-categories-cart {
