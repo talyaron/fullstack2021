@@ -722,7 +722,7 @@ html {
 }
 .ActivitiesGrid .haert__chart--bmp {
   position: absolute;
-  left: 19.2%;
+  left: 19.5%;
 }
 .ActivitiesGrid .haert__chart .bar-graph-vertical .bar-container {
   float: left;
@@ -912,55 +912,6 @@ html {
   margin-right: 2%;
 }
 
-.userBar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 1em;
-  padding-top: 1em;
-  padding-bottom: 1.2em;
-}
-.userBar__DailyMeals {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #eef3f7;
-  color: #857a96;
-  box-shadow: 2px 2px 6px #ddd6d6;
-  background-color: #fdfdfd;
-  color: rgba(158, 154, 154, 0.945);
-  border: none;
-  height: 3.2em;
-  font-size: 1.2em;
-  width: 93%;
-  border-radius: 10px;
-}
-.userBar__DailyMeals--mealIcon {
-  margin-right: 2%;
-}
-.userBar__info {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #eef3f7;
-  color: #857a96;
-  box-shadow: 2px 2px 6px #ddd6d6;
-  background-color: #fdfdfd;
-  color: rgba(158, 154, 154, 0.945);
-  border: none;
-  height: 3.2em;
-  font-size: 1.2em;
-  width: 93%;
-  border-radius: 10px;
-}
-.userBar__info--alertIcon {
-  background-color: #520661;
-  color: white;
-  border-radius: 50%;
-  margin-right: 2%;
-}
-
 html {
   font-family: "Neue Haas Grotesk Display Pro", sans-serif;
   color: #857a96;
@@ -1054,7 +1005,7 @@ html {
   .bodyActivities__search ion-icon {
     position: absolute;
     top: 17%;
-    left: 5%;
+    left: 6%;
   }
   .bodyActivities__navBar__list {
     margin: 5% 3% 5% -3%;
@@ -1075,7 +1026,7 @@ html {
   }
   .bodyActivities .ActivitiesGrid .haert__chart--bmp {
     position: absolute;
-    left: -5%;
+    left: -4%;
   }
   .bodyActivities .ActivitiesGrid .haert__chart .bar-graph-vertical .bar-container {
     width: 1.3em;
