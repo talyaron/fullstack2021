@@ -9,11 +9,12 @@
   width: 150%;
   margin: 20px 50px;
   position: relative;
+  left: 85px;
   top: 50px;
 }
 .navbar__car__CarPicture {
   position: relative;
-  left: 485px;
+  left: 585px;
   top: 70px;
   margin-right: 20px;
 }
