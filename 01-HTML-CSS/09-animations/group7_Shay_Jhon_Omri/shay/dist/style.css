@@ -600,7 +600,7 @@ body .cont .wrapper .fas {
   font-size: 200px;
   color: blueviolet;
   margin: auto;
-  border-radius: 100px;
+  border-radius: 50px;
   background-image: linear-gradient(to bottom right, #10b0fa, rgba(247, 0, 255, 0.932));
   margin: auto;
   animation-name: rorate;
