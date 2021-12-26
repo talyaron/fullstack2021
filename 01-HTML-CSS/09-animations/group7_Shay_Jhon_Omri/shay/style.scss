@@ -1,3 +1,4 @@
+//shay
 body {
     max-width: 100vw;
     background-color:
@@ -14,10 +15,9 @@ body {
         .header {
             margin: auto;
             display: grid;
-            grid-template-columns: 49fr 2fr;
+            grid-template-columns: 45fr 2fr;
             grid-template-rows: 1fr;
 
-            //max-width: 800px;
             &__icon {
                 .fa-search {
                     color: #25404e;
@@ -42,10 +42,6 @@ body {
                     grid-row: 1;
                 }
 
-
-
-
-
             }
         }
         .contain {
@@ -55,7 +51,6 @@ body {
             grid-template-columns: 1fr 1fr;
             grid-template-rows: 1fr 1fr 1fr;
             gap: 5px;
-            //padding-left: 80px;
 
             &__box {
 
@@ -946,6 +941,7 @@ body {
 
     }
 }
+//shay scss
     @media only screen and(max-width:600px) {
         body{
             .main {
@@ -1371,8 +1367,8 @@ body {
        
     }
     }
-    
-    @media only screen and(max-width:350px) {
+    //shay scss
+    @media only screen and(max-width:400px) {
     body{
         .main{
             .contain {

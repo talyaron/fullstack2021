@@ -13,7 +13,7 @@ body .main {
 body .main .header {
   margin: auto;
   display: grid;
-  grid-template-columns: 49fr 2fr;
+  grid-template-columns: 45fr 2fr;
   grid-template-rows: 1fr;
 }
 body .main .header__icon .fa-search {
@@ -1062,7 +1062,7 @@ body .cont .bar {
     gap: 80px;
   }
 }
-@media only screen and (max-width: 350px) {
+@media only screen and (max-width: 400px) {
   body .main .contain {
     margin-top: 20%;
   }
