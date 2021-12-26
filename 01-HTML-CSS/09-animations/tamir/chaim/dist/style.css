@@ -1,0 +1,7 @@
+.wrapper2 {
+  background-color: wheat;
+}
+.wrapper2__container {
+  margin: 10px;
+  justify-content: space-between;
+}
