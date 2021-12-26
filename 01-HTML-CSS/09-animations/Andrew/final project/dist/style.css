@@ -21,13 +21,10 @@
   --color-axs: #9CAAE7;
   --color-xlm: #33CFFF;
   --width: 85vw;
+  --animation-time: 3s;
   background-color: var(--color-dark-grey);
   color: var(--color-white);
   font-family: Arial, Helvetica, sans-serif;
-}
-
-div {
-  box-shadow: 0px 0px 0px 1px red;
 }
 
 body {
@@ -49,20 +46,18 @@ body {
   }
 }
 .header__icon {
-  z-index: 999;
   perspective: 300px;
   perspective-origin: 300%;
   position: relative;
   border: 1px solid var(--color-light-grey);
   border-radius: 10px;
   width: 50px;
-  height: 50px;
+  aspect-ratio: 1;
   background-color: var(--color-dark-grey);
-  --animation-time: 3s;
 }
 .header__icon svg {
   width: 30px;
-  height: 30px;
+  aspect-ratio: 1;
   fill: var(--color-orange);
 }
 .header__icon:hover .header__icon__scanner {
@@ -77,7 +72,7 @@ body {
   top: 0px;
   left: 0px;
   width: 300px;
-  height: 300px;
+  aspect-ratio: 1;
   background-color: #2E3137B0;
   border-radius: 10px;
   border: 1px solid var(--color-white);
@@ -105,7 +100,7 @@ body {
   margin: 25px;
   fill: var(--color-white);
   width: 180px;
-  height: 180px;
+  aspect-ratio: 1;
 }
 .header__icon#bell {
   z-index: 7;
@@ -120,7 +115,7 @@ body {
   top: -9px;
   right: -9px;
   width: 20px;
-  height: 20px;
+  aspect-ratio: 1;
   line-height: 20px;
   background-color: #c05711;
   border-radius: 5px;
@@ -319,16 +314,6 @@ body {
     height: 302px;
   }
 }
-@keyframes flop-shadow-extend {
-  0% {
-    height: 302px;
-  }
-  100% {
-    height: 302px;
-    width: 350px;
-    transform: translateX(-300px);
-  }
-}
 @keyframes flop {
   0% {
     visibility: visible;
@@ -367,6 +352,25 @@ body {
     transform: rotateZ(360deg);
   }
 }
+@keyframes spinY {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+@keyframes coin2 {
+  to {
+    transform: translateX(8px);
+    filter: drop-shadow(-2px 0px 0px #7E8082);
+  }
+}
+@keyframes coin1 {
+  to {
+    transform: translateX(-8px);
+  }
+}
 .footer {
   display: flex;
   justify-content: center;
@@ -389,12 +393,16 @@ body {
   justify-content: space-evenly;
   color: var(--color-lighter-grey);
   font-size: 0.9rem;
+  perspective: 300px;
 }
 .footer-container * {
   padding: 10px;
 }
 .footer-container__market {
   position: relative;
+  background-color: var(--color-light-grey);
+  border-radius: 10px;
+  transition: ease 500ms;
 }
 .footer-container__market svg {
   margin-top: -10px;
@@ -402,14 +410,26 @@ body {
   fill: var(--color-lighter-grey);
 }
 .footer-container__market::after {
-  content: "Wallet";
+  content: "Market";
   position: absolute;
   bottom: 10px;
   left: 15px;
 }
+.footer-container__market:hover {
+  transform: scale(1.05) translateY(-30px);
+  box-shadow: 0px -5px 5px 0px black, 0px 5px 0px 0px var(--color-light-grey);
+}
+.footer-container__market:hover.footer-container__market > svg {
+  animation: spinY 5s infinite linear;
+}
 .footer-container__exchange {
   position: relative;
   width: 90px;
+  background-color: var(--color-light-grey);
+  border-radius: 10px;
+  transition: ease 500ms;
+  perspective: 100px;
+  perspective-origin: 50% -10%;
 }
 .footer-container__exchange svg {
   position: absolute;
@@ -423,7 +443,7 @@ body {
 }
 .footer-container__exchange svg .st2 {
   fill: var(--color-white);
-  filter: drop-shadow(2px 0px #7E8082);
+  filter: drop-shadow(2px 0px 0px #7E8082);
 }
 .footer-container__exchange::after {
   content: "Exchange";
@@ -431,8 +451,23 @@ body {
   bottom: 10px;
   left: 24px;
 }
+.footer-container__exchange:hover {
+  transform: scale(1.05) translateY(-30px);
+  box-shadow: 0px 18px 0px 0px var(--color-light-grey), 0px -5px 5px 0px black, 0px 5px 0px 0px var(--color-light-grey);
+}
+.footer-container__exchange:hover .st1 {
+  animation: coin1 1s infinite cubic-bezier(0.8, 0, 0.2, 1) alternate;
+}
+.footer-container__exchange:hover .st2 {
+  animation: coin2 1s infinite cubic-bezier(0.9, 0, 0.1, 1) alternate;
+}
 .footer-container__wallet {
   position: relative;
+  background-color: var(--color-light-grey);
+  border-radius: 10px;
+  transition: ease 500ms;
+  perspective: 100px;
+  perspective-origin: 50% -10%;
 }
 .footer-container__wallet svg {
   margin-top: -10px;
@@ -444,6 +479,13 @@ body {
   position: absolute;
   bottom: 10px;
   left: 20px;
+}
+.footer-container__wallet:hover {
+  transform: scale(1.05) rotateX(-5deg) translateY(-30px);
+  box-shadow: 0px 18px 0px 0px var(--color-light-grey), 0px -5px 5px 0px black, 0px 5px 0px 0px var(--color-light-grey);
+}
+.footer-container__wallet:hover.footer-container__wallet > svg {
+  animation: spinY 5s infinite linear;
 }
 
 @keyframes scroll-right {
@@ -557,12 +599,17 @@ body {
   width: var(--width);
   aspect-ratio: 1;
   position: relative;
-  border: 1px solid blue;
 }
 @media only screen and (min-width: 1200px) {
   .wallet-value {
     width: 50vw;
-    left: -20px;
+    left: -90px;
+  }
+}
+@media only screen and (min-width: 1600px) {
+  .wallet-value {
+    width: 50vw;
+    left: 50px;
   }
 }
 .wallet-value__grid {
@@ -579,6 +626,11 @@ body {
     width: 50vw;
   }
 }
+@media only screen and (min-width: 1600px) {
+  .wallet-value__grid {
+    width: 35vw;
+  }
+}
 .wallet-value__grid__cell {
   width: calc(var(--width)/5);
   aspect-ratio: 1;
@@ -586,6 +638,11 @@ body {
 @media only screen and (min-width: 1200px) {
   .wallet-value__grid__cell {
     width: 10vw;
+  }
+}
+@media only screen and (min-width: 1600px) {
+  .wallet-value__grid__cell {
+    width: 7vw;
   }
 }
 .wallet-value__grid #cell1:hover ~ .wallet-value__scene {
@@ -710,6 +767,11 @@ body {
     height: 50vw;
   }
 }
+@media only screen and (min-width: 1600px) {
+  .wallet-value__scene__graph {
+    height: 35vw;
+  }
+}
 .wallet-value__scene__graph svg {
   position: absolute;
   width: calc(var(--width)*0.9);
@@ -718,7 +780,12 @@ body {
 }
 @media only screen and (min-width: 1200px) {
   .wallet-value__scene__graph svg {
-    width: 45vw;
+    width: 40vw;
+  }
+}
+@media only screen and (min-width: 1600px) {
+  .wallet-value__scene__graph svg {
+    width: 30vw;
   }
 }
 .wallet-value__scene__graph h1 {
@@ -748,6 +815,15 @@ body {
 @media only screen and (min-width: 1200px) {
   .wallet-portfolio {
     width: 45vw;
+    position: absolute;
+    right: 20px;
+    top: 130px;
+  }
+}
+@media only screen and (min-width: 1600px) {
+  .wallet-portfolio {
+    width: 35vw;
+    right: 200px;
   }
 }
 .wallet-portfolio__title {
@@ -765,7 +841,6 @@ body {
 }
 .wallet-portfolio__list {
   position: relative;
-  perspective: 200px;
 }
 .wallet-portfolio__list__item {
   display: flex;
@@ -782,13 +857,13 @@ body {
   box-shadow: 0px 0px 5px 2px;
 }
 .wallet-portfolio__list__item:hover .wallet-portfolio__list__item__graph > img {
-  animation: graph 5s ease-in-out infinite alternate;
+  animation: graph 5s ease-out infinite alternate;
 }
 .wallet-portfolio__list__item__icon {
   background-color: var(--color-mid-grey);
   border-radius: 25%;
   width: 50px;
-  height: 50px;
+  aspect-ratio: 1;
   margin: 5px;
 }
 .wallet-portfolio__list__item__icon svg {
@@ -812,7 +887,6 @@ body {
   left: 135px;
   width: 60px;
   height: 70px;
-  border: 1px solid var(--color-light-grey);
   overflow: hidden;
 }
 @media only screen and (min-width: 341px) {
@@ -832,7 +906,7 @@ body {
 }
 @media only screen and (min-width: 748px) {
   .wallet-portfolio__list__item__graph {
-    width: 400px;
+    width: 390px;
   }
 }
 .wallet-portfolio__list__item__graph img {
@@ -846,6 +920,27 @@ body {
     top: -7vw;
     width: 60vw;
     aspect-ratio: 4;
+  }
+}
+@media only screen and (min-width: 748px) {
+  .wallet-portfolio__list__item__graph img {
+    top: -6vw;
+    width: 80vw;
+    aspect-ratio: 7;
+  }
+}
+@media only screen and (min-width: 748px) {
+  .wallet-portfolio__list__item__graph img {
+    top: -6vw;
+    width: 80vw;
+    aspect-ratio: 7;
+  }
+}
+@media only screen and (min-width: 1920px) {
+  .wallet-portfolio__list__item__graph img {
+    top: -4vw;
+    width: 50vw;
+    aspect-ratio: 7;
   }
 }
 .wallet-portfolio__list__item__price {
