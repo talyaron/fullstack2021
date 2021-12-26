@@ -600,7 +600,11 @@ body .cont .wrapper .fas {
   font-size: 200px;
   color: blueviolet;
   margin: auto;
-  animation-duration: 3s;
+  border-radius: 100px;
+  background-image: linear-gradient(to bottom right, #10b0fa, rgba(247, 0, 255, 0.932));
+  margin: auto;
+  animation-name: rorate;
+  animation-duration: 2s;
   animation-delay: 1s;
   animation-direction: reverse;
   animation-timing-function: ease-in-out;
@@ -618,14 +622,23 @@ body .cont .weatherBar {
 }
 body .cont .graphic {
   display: flex;
-  justify-content: space-between;
 }
-body .cont .graphic__graph {
-  width: 500px;
+body .cont .graph1 {
+  width: 300px;
   height: 100px;
-  border: solid 5px #c4bcbc;
-  border-color: #c0b7b7 transparent transparent transparent;
-  border-radius: 150%/100px 100px 0 0;
+  border: solid 5px #000;
+  border-color: #faf4f4 transparent transparent transparent;
+  border-radius: 50%/100px 100px 0 0;
+}
+body .cont .graph2 {
+  width: 300px;
+  height: 100px;
+  border: solid 5px #000;
+  border-color: transparent transparent #f0e8e8 transparent;
+  border-radius: 0 0 240px 50%/60px;
+}
+body .cont .day {
+  color: rgba(255, 235, 205, 0.432);
 }
 body .cont .hours {
   display: grid;
