@@ -1,3 +1,12 @@
+<<<<<<< HEAD
+.wrapper2{
+  background-color: wheat; 
+
+&__container{
+    margin: 10px;
+    justify-content: space-between ;
+}
+=======
 .wrapper {
     border-radius: 40px;
     background-color: rgb(218, 212, 212);
@@ -37,4 +46,5 @@
     &__h4 {
         padding-right: 15px;
     }
+>>>>>>> 0dfc616b22c2de775ef43c06899d2de9c6a998a0
 }
