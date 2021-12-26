@@ -669,7 +669,7 @@ html {
 
         ion-icon {
             position: absolute;
-            top: 18.5%;
+            top: 18%;
             left: 33%;
         }
     }
@@ -725,7 +725,7 @@ html {
 
             ion-icon {
                 position: absolute;
-                top: 17%;
+                top: 16%;
                 left: 6%;
             }
         }
@@ -742,6 +742,7 @@ html {
         }
 
         .ActivitiesGrid {
+            grid-template-columns: 30% 30% 30%;
             grid-template-areas:
                 "steps sleep goals"
                 "steps sleep goals"
@@ -759,7 +760,7 @@ html {
 
                     &--bmp {
                         position: absolute;
-                        left: -4%;
+                        left: -5%;
                     }
 
                     .bar-graph-vertical .bar-container {
@@ -812,7 +813,7 @@ html {
 
             ion-icon {
                 position: absolute;
-                top: 24%;
+                top: 22.5%;
                 left: 6%;
             }
 
@@ -831,7 +832,7 @@ html {
         }
 
         .ActivitiesGrid {
-            grid-template-columns: 46% 46%;
+            grid-template-columns: 44% 44%;
             grid-template-areas:
                 "steps sleep"
                 "steps sleep"
