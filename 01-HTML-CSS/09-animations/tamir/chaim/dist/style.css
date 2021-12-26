@@ -1,7 +1,42 @@
+<<<<<<< HEAD
 .wrapper2 {
   background-color: wheat;
 }
 .wrapper2__container {
   margin: 10px;
   justify-content: space-between;
+=======
+.wrapper {
+  border-radius: 40px;
+  background-color: #dad4d4;
+}
+.wrapper img {
+  width: 100%;
+  height: 100%;
+  border-radius: 40px;
+}
+.wrapper__h {
+  padding-left: 15px;
+}
+.wrapper__info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.wrapper__subinfo {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 10px;
+  padding-left: 10px;
+}
+.wrapper__subinfo i {
+  color: orange;
+}
+.wrapper__h3 {
+  padding-right: 20px;
+}
+.wrapper__h4 {
+  padding-right: 15px;
+>>>>>>> 0dfc616b22c2de775ef43c06899d2de9c6a998a0
 }
