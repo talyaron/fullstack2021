@@ -1,0 +1,148 @@
+body {
+    background-color: lightsteelblue;
+    margin: 8vh;
+}
+
+.wrapper1 {
+    border: 30px;
+    background-color: white;
+
+}
+
+.box1>img {
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    position: relative;
+    bottom: 20px;
+}
+
+img:hover {
+    cursor: pointer;
+
+
+}
+
+h1 {
+    position: relative;
+    left: 15vh;
+    color: black;
+    top: 5vh;
+
+}
+
+.icon>p {
+    position: relative;
+    bottom: 130vh;
+    left: 10vh;
+    color: black;
+}
+
+.icon>rp {
+    position: relative;
+    bottom: 26vh;
+    left: 185vh;
+    color: tomato;
+}
+
+.icon>i {
+    position: relative;
+    top: 10vh;
+    right: 20vh;
+    color: orangered;
+}
+
+.box1>h4 {
+    position: relative;
+    left: 180vh;
+    bottom: 11vh;
+    font-size: 3vh;
+
+}
+
+.box5 {
+    position: relative;
+    top: 0vh;
+    left: 110vh;
+    color: orange;
+}
+
+.container1 {
+
+    width: 100%;
+    height: 30vh;
+    background: silver;
+    display: inline-block;
+    position: relative;
+    bottom: 90px;
+    border-radius: 10vh;
+
+}
+
+.container1>ol {
+
+    text-align: center;
+    font-size: 1.4em;
+    text-decoration: none;
+    color: black;
+    font-style: italic;
+    font-weight: bold;
+}
+
+
+.container2 {
+    width: 100%;
+    height: 20vh;
+    background: silver;
+    display: inline-block;
+    position: relative;
+    bottom: 40px;
+    border-radius: 10vh;
+    margin-bottom: 20vh;
+}
+
+.container2>h5 {
+    position: absolute;
+    bottom: 2vh;
+    left: 25vh;
+    font-size: 3vh;
+    font-style: italic;
+
+}
+
+.container2>h6 {
+    position: absolute;
+    font-size: 3vh;
+    top: 3vh;
+    right: 16vh;
+}
+
+
+.container2>img {
+    position: absolute;
+    bottom: 7vh;
+    left: 15vh;
+}
+
+
+.container2>i {
+    position: absolute;
+    bottom: 6vh;
+    right: 10vh;
+}
+
+
+
+h3 {
+    position: relative;
+    left: 80vh;
+    color: red;
+    top: 50px;
+    font-size: 5vh;
+}
+
+h3:hover {
+    cursor: pointer;
+
+
+}

@@ -811,7 +811,7 @@ body {
   color: #ffff15;
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 1300px) {
   .myCart__grid {
     grid-template-rows: repeat(4, 20%);
   }
@@ -895,6 +895,130 @@ body {
   }
   .cartgarden .tree2 {
     left: 30%;
+  }
+  @keyframes tree2Grows {
+    0% {
+      transform: scale(0);
+    }
+    15% {
+      transform: scale(0.5);
+    }
+    25% {
+      transform: scale(1);
+    }
+    40% {
+      transform: scale(1.5);
+    }
+    50% {
+      transform: scale(2);
+    }
+    65% {
+      transform: scale(2);
+    }
+    75% {
+      transform: scale(2.5);
+    }
+    90% {
+      transform: scale(3);
+    }
+    100% {
+      transform: scale(3);
+    }
+  }
+}
+@media only screen and (max-width: 1300px) and (min-width: 600px) {
+  .myCart__grid {
+    grid-template-rows: repeat(4, 20%);
+  }
+  .myCart__grid__title {
+    text-align: center;
+    font-size: calc(1rem + 0.5rem);
+  }
+  .myCart__grid__box {
+    font-size: calc(70% + 0.5rem);
+    position: relative;
+    left: 15%;
+    width: 70%;
+    gap: 20px;
+  }
+  .myCart__grid .img {
+    height: 9rem;
+    width: 6rem;
+    position: absolute;
+    margin: 2%;
+    filter: drop-shadow(0 0 0.2rem #9c9c9c);
+  }
+
+  .leftside {
+    text-align: center;
+  }
+  .leftside h3 {
+    padding-left: 10%;
+  }
+  .leftside p {
+    padding-left: 10%;
+  }
+  .leftside input {
+    margin-left: 80%;
+    width: 4rem;
+    height: 2rem;
+  }
+
+  .rightside {
+    position: relative;
+    left: 27%;
+  }
+
+  .checkout {
+    font-size: calc(70% + 0.5rem);
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+
+  .button__checkout {
+    font-size: calc(70% + 0.5rem);
+  }
+
+  .button__add {
+    font-size: calc(70% + 0.5rem);
+  }
+
+  .cartgarden .maintree {
+    left: 85%;
+    height: 6%;
+  }
+  @keyframes treeGrows {
+    0% {
+      transform: scale(0);
+    }
+    15% {
+      transform: scale(1);
+    }
+    25% {
+      transform: scale(1.5);
+    }
+    40% {
+      transform: scale(2);
+    }
+    50% {
+      transform: scale(2.5);
+    }
+    65% {
+      transform: scale(2.5);
+    }
+    75% {
+      transform: scale(3);
+    }
+    90% {
+      transform: scale(3.5);
+    }
+    100% {
+      transform: scale(4);
+    }
+  }
+  .cartgarden .tree2 {
+    left: 20%;
+    height: 8%;
   }
   @keyframes tree2Grows {
     0% {

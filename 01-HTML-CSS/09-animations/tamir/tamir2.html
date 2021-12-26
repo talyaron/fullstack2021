@@ -13,65 +13,83 @@
 <body>
 
     <div class="section1">
-        <div class=wrapper1>
-            <h2>Search</h2>
-            <i class="wrapper1__icon"><i class="fas fa-arrow-left"></i></i>
+        <div class=wrappernav>
+            <h2 class='wrappernav_title'>Search</h2>
+            <i class="wrappernav__icon"><i class="fas fa-arrow-left"></i></i>
         </div>
     </div>
-    <nav class='first'>
-        <div class=wrapperfirst>
-            <ul>
-                <a href="cars">cars</a>
-                <a href="bikes">bikes</a>
-                <a href="trucks">trucks</a>
-            </ul>
-        </div>
-    </nav>
+
+    <div class=wrapperfirst>
+        <ul>
+            <a href="#">cars</a>
+            <a href="#">bikes</a>
+            <a href="#">trucks</a>
+        </ul>
+    </div>
+
     <div class='section2'>
-        <div class=wrapper2>
-            <i class=wrapper2__icon2><i class="fas fa-car-side"></i></i>
-            <p class='wrapper2__info'>model:<span class='wrapper2__name'>siat</span></p>
-            <button class="wrapper2__button">1</button>
+        <div class=wrapper>
+            <p class='wrapper__info'><i class="fas fa-car-side"></i></i> model:
+            <div class="drop">
+                <button class="drop__btn">Cars</button>
+                <div class="drop__content">
+                    <a href="https://www.seat.co.il/">Seat</a>
+                    <a href="https://www.honda.co.il/">Honda</a>
+                    <a href="https://www.maserati.com/us/en">Maserati</a>
+                </div>
+            </div>
+            <span class='wrapper__name'>
+
+            </span>
+            </p>
+
+            <div class="wrapper__button">
+                <span class='wrapper__num'>1</span>
+            </div>
+
         </div>
     </div>
     <div class='section3'>
-        <div class=wrapper3>
-            <i class="wrapper3__icon"><i class="fas fa-align-justify"></i></i>
-            <p class='wrapper3__info'>parameters</p>
-            <button class="wrapper3__button">3</button>
+        <div class=wrapper>
+            <p class='wrapper__info'><i class="fas fa-align-justify"></i> parameters</p>
+            <div class="wrapper__button">
+                <span class='wrapper__num'>3</span>
+            </div>
         </div>
     </div>
     <div calss='section4'>
-        <div class=wrapper4>
-            <p class='wrapper4__info'>results</p>
-            <button class='wrapper4__bottun'>2</button>
+        <div class=results>
+            <p class='results__info'>results</p>
+            <div class='results__bottun'>
+                <span class='wrapper__num wrapper__num--activ'>2</span>
+            </div>
         </div>
     </div>
 
     <div class='card'>
         <span class='card__img'>
             <img
-                src="https://c.wallhere.com/photos/ea/f9/2016_Seat_Ateca_netcarshow_netcar_car_images_car_photo-469203.jpg!d">
-        </span>
-        <div class='card__info'>
-            <h1 class='card__des'>SEAT ateca x2 3s </h1>
-        </div>
-        <div class='card__subinfo'>
-            <p class='card__price'> $50,000 <i class="fas fa-fire"></i></p>
-            <p class='card__loc'><i class="fas fa-map-marker-alt"></i> 35 km away</p>
-        </div>
+                src="https://c.wallhere.com/photos/ea/f9/2016_Seat_Ateca_netcarshow_netcar_car_images_car_photo-469203.jpg!d"></img>
+
+            <div class='card__info'>
+                <h1>SEAT ateca x2 (3s) </h1>
+            </div>
+            <div class='card__subinfo'>
+                <p class='card__price'> $50,000 <i class="fas fa-fire"></i></p>
+                <p class='card__loc'><i class="fas fa-map-marker-alt"></i> 35 km away</p>
+            </div>
     </div>
-    <div class='card2'>
-        <span class='card2__img'>
+    <div class='card'>
+        <span class='card__img'>
             <img
                 src="https://mediacloud.carbuyer.co.uk/image/private/s--XgNhtddE--/v1579606190/carbuyer/seat-toledo-hatchback-2013-main.jpg">
         </span>
-        <div class='card2__info'>
-            <h1 class='card2__des'>SEAT toledo fr i4s </h1>
+        <div class='card__info'>
+            <h1>SEAt toledo fr (4s)</h1>
         </div>
-        <div class='card2__subinfo'>
-            <p class='card2__price'> $36,000 <i class="fas fa-fire"></i></p>
-            <p class='card2__loc'><i class="fas fa-map-marker-alt"></i> 30 km away</p>
+        <div class='card__subinfo'>
+            <p class='card__price card__price--activ'> $36,000 <i class="fas fa-fire"></i></p>
+            <p class='card__loc card__loc--activ'><i class="fas fa-map-marker-alt"></i> 30 km away</p>
         </div>
     </div>
 </body>
