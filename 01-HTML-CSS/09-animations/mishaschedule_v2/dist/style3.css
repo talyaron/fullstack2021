@@ -1,3 +1,9 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+
 @keyframes wiggle {
   0% {
     transform: rotate(-10deg);
@@ -954,7 +960,7 @@ html {
 }
 .bodyActivities__search ion-icon {
   position: absolute;
-  top: 18.5%;
+  top: 18%;
   left: 33%;
 }
 .bodyActivities__navBar {
@@ -1004,7 +1010,7 @@ html {
   }
   .bodyActivities__search ion-icon {
     position: absolute;
-    top: 17%;
+    top: 16%;
     left: 6%;
   }
   .bodyActivities__navBar__list {
@@ -1014,6 +1020,7 @@ html {
     font-size: 1.2em;
   }
   .bodyActivities .ActivitiesGrid {
+    grid-template-columns: 30% 30% 30%;
     grid-template-areas: "steps sleep goals" "steps sleep goals" "steps colories goals" "haert colories goals" "haert colories goals";
   }
   .bodyActivities .ActivitiesGrid weight {
@@ -1026,7 +1033,7 @@ html {
   }
   .bodyActivities .ActivitiesGrid .haert__chart--bmp {
     position: absolute;
-    left: -4%;
+    left: -5%;
   }
   .bodyActivities .ActivitiesGrid .haert__chart .bar-graph-vertical .bar-container {
     width: 1.3em;
@@ -1050,7 +1057,7 @@ html {
 }
 @media only screen and (max-width: 540px) {
   .bodyActivities {
-    width: 100%;
+    width: 98%;
     border-radius: 0px;
     box-shadow: none;
     border: none;
@@ -1072,7 +1079,7 @@ html {
   }
   .bodyActivities__search ion-icon {
     position: absolute;
-    top: 24%;
+    top: 22.5%;
     left: 6%;
   }
   .bodyActivities__navBar__list {
@@ -1082,7 +1089,7 @@ html {
     font-size: 0.9em;
   }
   .bodyActivities .ActivitiesGrid {
-    grid-template-columns: 46% 46%;
+    grid-template-columns: 44% 44%;
     grid-template-areas: "steps sleep" "steps sleep" "steps colories" "haert colories" "haert colories";
   }
   .bodyActivities .ActivitiesGrid goals,
