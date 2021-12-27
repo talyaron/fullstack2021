@@ -89,12 +89,11 @@ $bgcolor: #f0f1f6;
     }
 }
 
-@keyframes prog{
-    from {
-        width: 1%;
+@keyframes progress_a{
+    0% {
+        width: 0%;
     }
-
-    to {
+    100% {
         width: 67%;
     }
 }
@@ -393,18 +392,18 @@ html {
         }
 
         &__pbar {
+
             padding: 0px;
             margin: 0px;
             border-radius: 25px;
             height: 100%;
-            width: 57%;
+            width: 67%;
             background-image: linear-gradient(to right,
                     $primarycolor1, $primarycolor2,
                     $primarycolor1);
             background-position: left;
             background-size: 500%;
-            animation-name: prog;
-            animation-duration: 5s;
+            animation: progress_a 5s forwards;
             animation: colorslide 4s ease-in-out infinite alternate;
 
         }

@@ -31,11 +31,11 @@ html {
     background-position: right;
   }
 }
-@keyframes prog {
-  from {
-    width: 1%;
+@keyframes progress_a {
+  0% {
+    width: 0%;
   }
-  to {
+  100% {
     width: 67%;
   }
 }
@@ -345,12 +345,11 @@ html {
   margin: 0px;
   border-radius: 25px;
   height: 100%;
-  width: 57%;
+  width: 67%;
   background-image: linear-gradient(to right, #66529af1, #e052b5e3, #66529af1);
   background-position: left;
   background-size: 500%;
-  animation-name: prog;
-  animation-duration: 5s;
+  animation: progress_a 5s forwards;
   animation: colorslide 4s ease-in-out infinite alternate;
 }
 .progress__mins {
