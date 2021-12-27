@@ -20,3 +20,18 @@ function handleColor(ev){
 
     document.body.style.background = color;
 }
+
+const button = document.getElementById('theButton');
+button.addEventListener('click', toggleFullscreen)
+
+function toggleFullscreen() {
+    let elem = document.querySelector("video");
+  
+    if (!document.fullscreenElement) {
+      elem.requestFullscreen().catch(err => {
+        alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+      });
+    } else {
+      document.exitFullscreen();
+    }
+  }
