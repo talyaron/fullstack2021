@@ -52,10 +52,9 @@
   border-radius: 30px;
 
 
-  .cont{
+  .m {
     font-size: 3vh;
-    position: relative;
-   left: 50vh;
+   text-align: right;
   }
 }
 
@@ -74,10 +73,14 @@
   h6 {
     font-size: 2vh;
     position: relative;
-    left: 82vh;
-    bottom: 14vh;
+    left: 100vh;
+    bottom: 0vh;
   }
-
+p{
+  position: relative;
+  left: 85vh;
+  bottom: 15vh;
+}
   i {
     position: relative;
     left: 95vh;
@@ -91,10 +94,10 @@
   height: 100px;
   border-radius: 30px;
   position: relative;
-  bottom: 170px;
+  bottom: 25vh;
 
   h5 {
-    font-size: 5vh;
+    font-size: 8vh;
     padding: 15px;
     text-align: center;
 
@@ -115,29 +118,34 @@
     &__info {
       font-size: 3em;
     }
+
     &__h {
       font-size: 2em;
     }
-    &__subinfo{
+
+    &__subinfo {
       font-size: 2em;
     }
   }
 
-    .wrapper2{
-    &__p {
-      font-size: 3em;
+  .container1 {
+    &__p{
+      font-size: 4em;
     }
   }
-    .container2{
-
-     &__h4 {
+  .container2{
+    &__h4 {
       font-size: 2em;
-     }
-    
-  
+    }
+
+  &__p{
+    font-size: 3em;
+  }
+
     &__h5 {
       font-size: 5em;
     }
+
     &__h6 {
       font-size: 5em;
     }
