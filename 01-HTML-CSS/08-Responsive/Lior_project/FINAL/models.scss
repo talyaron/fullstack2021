@@ -513,6 +513,240 @@
     }
 }
 }
+body {
+    font-family: 'Roboto', sans-serif;
+
+
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+// <!-- main grid----discover -->
+
+.discover{
+    display: grid;
+
+    grid-template-rows: repeat(4, 60px 300px);
+    grid-template-columns: repeat(4, 1fr);
+    margin: 0;
+
+    // <!-- .discover__header -->
+
+    &__header {
+        grid-row: 1;
+        text-align: center;
+        justify-content: center;
+        margin: auto;
+        font-size: 30px;
+        font-weight: 1000
+
+    }
+
+
+
+    // <!-- .discover__wrapper -->
+    &__wrapper {
+        grid-row: 2/4;
+        grid-column: 1/5;
+
+        display: grid;
+
+        grid-template-columns: repeat(auto-fit, minmax(400px, 4fr));
+        grid-template-rows: repeat(auto-fit, minmax(300px, 2fr));
+
+
+        &__box {
+            color: rgb(252, 236, 236);
+            text-align: center;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: all 0.3s ease-in-out;
+            -webkit-transition: all 0.3s ease-in-out;
+            -moz-transition: all 0.3s ease-in-out;
+
+
+
+
+
+            &:hover {
+                border-bottom: 5px solid red;
+                opacity: 0.8;
+            }
+
+        }
+    
+
+        .box__title {
+            position: absolute;
+            top: 420px;
+            color: black;
+
+
+        }
+
+        i {
+            color: red;
+        }
+
+        // <!-- pics -->
+
+        .pic1 {
+
+            background-image: url(https://files.porsche.com/filestore/image/multimedia/none/rd-2017-homepage-teaser-ww-tequipmentsound-design-kw27/normal/e19a7537-5cd4-11e7-9717-0019999cd470;sK;twebp/porsche-normal.webp);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .pic2 {
+            background-image: url(https://files.porsche.com/filestore/image/multimedia/none/rd-2020-homepage-teaser-ww-gtshub-kw29/normal/9ed52783-c175-11ea-80ca-005056bbdc38;sK;twebp/porsche-normal.webp);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+        }
+
+        .pic3 {
+            background-image: url(https://files.porsche.com/filestore/image/multimedia/none/rd-2017-homepage-teaser-porscheexclusivemanufaktur-kw24/normal/3cbd9b47-4c59-11e7-bfe2-0019999cd470;sK;twebp/porsche-normal.webp);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+
+        }
+
+        .pic4 {
+            background-image: url(https://files.porsche.com/filestore/image/multimedia/none/rd-2018-homepage-teaser-ww-e-performance-kw12/normal/f7cc8e7c-6599-11e9-80c4-005056bbdc38;sK;twebp/porsche-normal.webp);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+    }
+
+    // <!-- links -->
+    &__links {
+        grid-row: 5/9;
+        grid-column: 1/5;
+        // border: 3px solid red;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(7, 1fr);
+        display: grid;
+
+
+        &__list {
+            // border: black 3px solid;
+            justify-content: center;
+
+        }
+
+        & ul {
+            display: flex;
+            flex-direction: column;
+
+
+            & a {
+                color: black;
+                margin-bottom: 15px;
+                text-align: center;
+                font-size: 20px;
+                text-decoration: none;
+
+                &:hover {
+                    transition: 0.8s;
+                    color: red;
+                    border-bottom: red;
+                }
+
+
+
+
+
+            }
+
+
+        }
+
+
+    }
+
+    &__share {
+        grid-row: 8/9;
+        grid-column: 4/5;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(7, 1fr);
+        display: grid;
+
+        &__btn {
+            background-color: #191F22;
+            color: white;
+            grid-row: 1/2;
+        grid-column: 1/4;
+
+        
+            &:hover {
+                transition: 0.8s;
+                background-color: red;
+            }
+        }
+        
+        
+
+        &__connect {
+            grid-row: 3/5;
+            grid-column: 1/4;
+
+        }
+
+        & i {
+            font-size: 50px;
+
+            &:hover {
+                transition: 0.8s;
+                color: red;
+            }
+
+        }
+
+    
+
+
+
+    }
+
+    
+@media only screen and (max-width: 900px) {
+    .discover__wrapper{
+        
+    }
+    
+
+
+    
+
+}
+
+@media only screen and (max-width: 600px) {
+
+   
+
+
+}
+}
+
 
 
 
