@@ -491,7 +491,7 @@ body {
 
 @keyframes scroll-right {
   from {
-    transform: translateX(640px);
+    transform: translateX(100vw);
   }
   to {
     transform: translateX(-1250px);
@@ -507,6 +507,13 @@ body {
   width: var(--width);
   overflow: hidden;
   white-space: nowrap;
+}
+@media only screen and (min-width: 1600px) {
+  .wallet-banner {
+    width: 50vw;
+    position: absolute;
+    left: 25vw;
+  }
 }
 .wallet-banner:hover > .wallet-banner__item {
   animation-play-state: paused;
@@ -604,13 +611,14 @@ body {
 @media only screen and (min-width: 1200px) {
   .wallet-value {
     width: 50vw;
-    left: -90px;
+    position: absolute;
+    top: 130px;
+    right: 50vw;
   }
 }
 @media only screen and (min-width: 1600px) {
   .wallet-value {
-    width: 50vw;
-    left: 50px;
+    left: 25vw;
   }
 }
 .wallet-value__grid {
@@ -629,7 +637,7 @@ body {
 }
 @media only screen and (min-width: 1600px) {
   .wallet-value__grid {
-    width: 35vw;
+    width: 25vw;
   }
 }
 .wallet-value__grid__cell {
@@ -643,7 +651,7 @@ body {
 }
 @media only screen and (min-width: 1600px) {
   .wallet-value__grid__cell {
-    width: 7vw;
+    width: 5vw;
   }
 }
 .wallet-value__grid #cell1:hover ~ .wallet-value__scene {
@@ -770,7 +778,7 @@ body {
 }
 @media only screen and (min-width: 1600px) {
   .wallet-value__scene__graph {
-    height: 35vw;
+    height: 25vw;
   }
 }
 .wallet-value__scene__graph svg {
@@ -786,7 +794,7 @@ body {
 }
 @media only screen and (min-width: 1600px) {
   .wallet-value__scene__graph svg {
-    width: 30vw;
+    width: 20vw;
   }
 }
 .wallet-value__scene__graph h1 {
@@ -817,14 +825,14 @@ body {
   .wallet-portfolio {
     width: 45vw;
     position: absolute;
-    right: 20px;
     top: 130px;
+    left: 51vw;
+    padding-bottom: 150px;
   }
 }
 @media only screen and (min-width: 1600px) {
   .wallet-portfolio {
-    width: 35vw;
-    right: 200px;
+    width: 23vw;
   }
 }
 .wallet-portfolio__title {
@@ -894,6 +902,7 @@ body {
   position: absolute;
   top: 10px;
   height: 40px;
+  width: 800px;
 }
 .wallet-portfolio__list__item__price {
   margin: 5px;

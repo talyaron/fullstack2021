@@ -43,6 +43,7 @@ body {
     @media only screen and (min-width: 1200px) {
         width: 50vw;
     }
+    
 
     &__icon {
         z-index: 1;
@@ -590,7 +591,7 @@ body {
 
 @keyframes scroll-right {
     from {
-        transform: translateX(640px);
+        transform: translateX(100vw);
     }
 
     to {
@@ -608,7 +609,11 @@ body {
         width: var(--width);
         overflow: hidden;
         white-space: nowrap;
-
+        @media only screen and (min-width: 1600px) {
+            width: 50vw;
+            position: absolute;
+            left: 25vw;
+        }
         &:hover>.wallet-banner__item {
             animation-play-state: paused;
         }
@@ -729,12 +734,13 @@ body {
 
         @media only screen and (min-width: 1200px) {
             width: 50vw;
-            left: -90px;
+            position: absolute;
+            top: 130px;
+            right: 50vw;
         }
 
         @media only screen and (min-width: 1600px) {
-            width: 50vw;
-            left: 50px;
+            left: 25vw;
         }
 
         &__grid {
@@ -751,7 +757,7 @@ body {
             }
 
             @media only screen and (min-width: 1600px) {
-                width: 35vw;
+                width: 25vw;
             }
 
             &__cell {
@@ -763,7 +769,7 @@ body {
                 }
 
                 @media only screen and (min-width: 1600px) {
-                    width: 7vw;
+                    width: 5vw;
                 }
             }
 
@@ -920,7 +926,7 @@ body {
                 }
 
                 @media only screen and (min-width: 1600px) {
-                    height: 35vw;
+                    height: 25vw;
                 }
 
                 svg {
@@ -934,7 +940,7 @@ body {
                     }
 
                     @media only screen and (min-width: 1600px) {
-                        width: 30vw;
+                        width: 20vw;
                     }
 
                     //border: 1px solid red;
@@ -975,13 +981,13 @@ body {
         @media only screen and (min-width: 1200px) {
             width: 45vw;
             position: absolute;
-            right: 20px;
             top: 130px;
+            left: 51vw;
+            padding-bottom: 150px;
         }
 
         @media only screen and (min-width: 1600px) {
-            width: 35vw;
-            right: 200px;
+            width: 23vw;
         }
 
         &__title {
@@ -1059,6 +1065,7 @@ body {
                         position: absolute;
                         top: 10px;
                         height: 40px;
+                        width: 800px;
                     }
                 }
 
