@@ -36,7 +36,7 @@ position: relative;
         }
     }
     &__cards{
-        height: 200px;
+       
         display: flex;
         flex-direction: row;
         overflow-x: scroll;
@@ -109,20 +109,26 @@ position: relative;
   
 }
 .contaniar__item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     &--header{
     color:#181c2a;
         font-size: large;
         padding:  30px;
     }
     &--img{
+        max-width: 800px;
         border-radius:40px 40px 0 0 ;
         margin-left: 40px;
         margin-right: 40px;
+        
         background-color: #fffbfb;
         img{
             background-size: cover;
             border-radius:40px ;
-            height: 430px;;
+           max-height: 430px;;
             width:  100%;
         }
         &--model{
@@ -151,7 +157,9 @@ position: relative;
 
         opacity: 1;
     }
-        &--plus img{
+        &--plus 
+        
+        img{
             transition: transform .5s;
             width: 55px;
             &:hover{
@@ -183,12 +191,38 @@ position: relative;
   }
   
   .front {
-      img{
-        border-radius:25px ;
-
-      }
+     background-size: cover;
     border: 2px solid black;
-    
+    &__button{
+        button {
+            font-family: inherit;
+            font-weight: bold;
+            /* color: var(--white-1); */
+            color: hsl(0, 0%, 90%);
+          
+            letter-spacing: 2px;
+          
+            padding: 9px 20px;
+            border: 1px solid hsl(0, 0%, 50%);
+            border-radius: 1000px;
+            background: #0000004a;
+            transition: 0.3s;
+          
+            cursor: pointer;
+          }
+          
+          button:hover,
+          button:focus {
+            color: hsl(150, 50%, 50%);
+            background: hsla(150, 25%, 10%, 0.2);
+            border-color: currentColor;
+          }
+          
+          button:active {
+            transform: translate(2px);
+          }
+          
+    }
   }
   
   .front:hover {
@@ -201,8 +235,23 @@ position: relative;
   .back {
       height: 100%;
     border: 2px solid black;
-    
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
     transform: rotateY(180deg);
+    &__one{
+        font-size: 25px;
+        margin-right: 10px;
+        margin-left: 5px;
+    }&__partition{
+       background-color: hsl(150, 50%, 50%);
+       height: 85px;
+       width: 8px;
+    }&__two{
+        margin-right: 3px;
+        font-size: 11px;
+        margin-left: 10px;
+    }
   }
   
   .back:hover {
@@ -217,6 +266,7 @@ position: relative;
     perspective: 1000px;
   }
   .main__card{
+      padding-top:20px ;
     transition: transform 2s;
     transform-style: preserve-3d;
     cursor: pointer;
@@ -230,6 +280,7 @@ position: relative;
     height: 160px;
     min-width:180px;
     background-size: cover;
+    
 img{
     height: 100%;
    width: 100%;

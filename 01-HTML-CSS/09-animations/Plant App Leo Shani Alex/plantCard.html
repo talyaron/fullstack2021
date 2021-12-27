@@ -8,38 +8,43 @@
     <title>Plant App</title>
     <link rel="stylesheet" href="dist/style.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="./dist/_dropAnimation.css">
+    <link rel="stylesheet" href="./dist/_heartAnimation.css">
+    <link rel="stylesheet" href="./dist/_sunAnimation.css">
 </head>
 
 <body>
     <div class="plantCard">
 
         <div class="plantCard__header">
-            <div class="plantCard__header--box">
-                <div class="material-icons">shopping_cart</div>
-            </div>
             <div class="plantCard__header--arrow">
-                <div></div>
-
+                <div class="material-icons"> <a href="mainpage.html"> west </a> </div>
             </div>
+            <div class="plantCard__header--box">
+                <div class="material-icons"> <a href="cartpage.html"> shopping_cart </a> </div>
+            </div>
+
         </div>
 
         <div class="plantCard__details">
             <div class="plantCard__details__header">
                 <h1>Cactus</h1>
-                <h2>Robust & Dynamic,<br>with leaves.</h2>
+                <h2>Robust & Dynamic,<br>with fruit.</h2>
             </div>
             <div class="plantCard__details--picture"> <img src="imgCard/cactus.png"> </div>
-            <div class="plantCard__details__type__01">
-                <h3>Type</h3>
-                <h4>Indoor</h4>
-            </div>
-            <div class="plantCard__details__type__02">
-                <h3>Size</h3>
-                <h4>Small</h4>
-            </div>
-            <div class="plantCard__details__type__03">
-                <h3>Plants</h3>
-                <h4>Ferns</h4>
+            <div class="plantCard__details__type  ">
+                <div class="plantCard__details__type__01">
+                    <h3>Type</h3>
+                    <h4>Indoor</h4>
+                </div>
+                <div class="plantCard__details__type__02">
+                    <h3>Size</h3>
+                    <h4>Large</h4>
+                </div>
+                <div class="plantCard__details__type__03">
+                    <h3>Plants</h3>
+                    <h4>Ferns</h4>
+                </div>
             </div>
         </div>
 
@@ -47,28 +52,48 @@
 
             <div class="plantCard__about--description">
                 <h2>About</h2>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum ipsam deserunt neque veritatis
-                    hic ducimus reiciendis aut possimus ullam quas!
+                <p>A cactus is a member of the plant family Cactaceae, a family comprising about 127 genera with some
+                    1750 known species of the order Caryophyllales. The word cactus derives, through Latin, from the
+                    Ancient Greek word κάκτος, a name originally used by Theophrastus for a spiny plant whose identity
+                    is now not certain.
                 </p>
             </div>
-            <div class="plantCard__about--icons">
-                <div class="plantCard__about--icons--01">
-                    <p>sun<br>8hrs
-                    </p>
-                    <span></span>
-
-                </div>
-                <div class="plantCard__about--icons--02">
-                    <p>water<br>2 days</p>
-                    <span></span>
-
-                </div>
-                <div class="plantCard__about--icons--03">
-                    <p>lifetime<br>7 month</p>
-                    <span></span>
-
+        </div>
+        <div class="plantCard__icons">
+            <div class="plantCard__icons--01">
+                <p>sun<br>8hrs</p>
+                <div class="sun">
+                    <div class="sunBeam">
+                        <div class="sunBeam__ray __01"></div>
+                        <div class="sunBeam__ray __02"></div>
+                        <div class="sunBeam__ray __03"></div>
+                        <div class="sunBeam__ray __04"></div>
+                        <div class="sunBeam__ray __05"></div>
+                        <div class="sunBeam__ray __06"></div>
+                    </div>
                 </div>
             </div>
+
+            <div class="plantCard__icons--02">
+
+                <p>water<br>2 days</p>
+                <div class="drop">
+                    <div class="drop__water"></div>
+                    <div></div>
+                </div>
+
+            </div>
+
+            <div class="plantCard__icons--03">
+
+                <p>lifetime<br>7 month</p>
+                <div class="heart">
+                    <div class="heart__beat">
+                    </div>
+                </div>
+
+            </div>
+
         </div>
 
         <div class="plantCard__cartPrice">
@@ -76,7 +101,6 @@
             </h4>
             <button class="plantCard__cartPrice--button __02">Add to cart</button>
         </div>
-
     </div>
 
 </body>
