@@ -345,7 +345,9 @@ nav ul.menu-area ul li a:hover {
   opacity: 1;
 }
 
-#item-2:target ~ .item-2, #item-3:target ~ .item-3, #item-4:target ~ .item-4 {
+#item-2:target ~ .item-2,
+#item-3:target ~ .item-3,
+#item-4:target ~ .item-4 {
   z-index: 3;
   opacity: 1;
 }
@@ -1608,7 +1610,6 @@ body {
 .discover__links ul a:hover {
   transition: 0.8s;
   color: red;
-  border-bottom: red;
 }
 .discover__share {
   grid-row: 8/9;

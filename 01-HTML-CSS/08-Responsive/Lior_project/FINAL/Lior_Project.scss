@@ -1965,8 +1965,8 @@ body {
     
 
         .box__title {
-            position: absolute;
-            top: 420px;
+            position: relative;
+            top: 400px;
             color: black;
 
 
@@ -2054,7 +2054,6 @@ body {
                 &:hover {
                     transition: 0.8s;
                     color: red;
-                    border-bottom: red;
                 }
 
 
