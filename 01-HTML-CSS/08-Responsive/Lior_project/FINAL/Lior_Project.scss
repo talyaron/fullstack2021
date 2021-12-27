@@ -1,4 +1,5 @@
 //navbar  start---------------------------------------------------------------------->
+
 *{
     margin: 0;
     padding: 0;
@@ -8,7 +9,7 @@
 
   .navbar
   {
-      width: 150%;
+      width: 170%;
       margin: 20px 50px;
       position: relative;
       left: 85px;
@@ -17,16 +18,40 @@
       &__car__CarPicture
       {
           position: relative;
-          left: 585px;
+          left: 625px;
           top: 70px;
           margin-right: 20px;
       }
+
+      @media only screen and (max-width: 1900PX )
+      {
+      &__car__CarPicture
+      {
+          position: relative;
+          left: 185px;
+          top: 70px;
+          margin-right: 20px;
+      }
+    }
+
+    @media only screen and (max-width: 1200PX )
+
+    {
+        &__car__CarPicture
+        {
+            position: relative;
+            left: 75px;
+            top: 70px;
+            margin-right: 10px;
+            size: 10px;
+        } 
+    }
+
   }
   
   nav
   {
-      position: absolute;
-      
+      position: absolute;   
   }
 
   nav> ul
@@ -38,11 +63,46 @@
     display: -o- flex;
     display: flex;
     justify-content: center;
-    width: 180%;
+    width: 190%;
     margin: 0 50px;
-    padding: 0;
-    
+    padding: 0; 
   }
+
+  @media only screen and (max-width: 1900PX )
+{
+    nav> ul
+    {
+      position: relative;
+      display: -webkit- flex;
+      display: -moz- flex;
+      display: -ms- flex;
+      display: -o- flex;
+      display: flex;
+      justify-content: center;
+      width: 90%;
+      margin: 0 50px;
+      padding: 0; 
+    }
+
+}
+
+@media only screen and (max-width: 1200PX )
+{
+    nav> ul
+    {
+      position: relative;
+      display: -webkit- flex;
+      display: -moz- flex;
+      display: -ms- flex;
+      display: -o- flex;
+      display: flex;
+      justify-content: center;
+      width: 170%;
+      margin: -10px -120px;
+      padding: 0; 
+    }
+
+}
 
   nav a 
   {
@@ -170,7 +230,7 @@ nav ul.menu-area ul
 {
     width: 25%;
     margin-bottom: 40px;
-    margin-left: 0px;
+    margin-left: -10px;
     color: red;
     font-weight: 50px;
 }
@@ -199,7 +259,7 @@ nav ul.menu-area ul li a
     border: 1.8px solid rgb(189, 186, 186);
     align-content: center;
     height: 3.5vh;
-    width: 60%;
+    width: 69%;
     text-align: center;
 
     &:hover
@@ -228,11 +288,24 @@ nav ul.menu-area ul li a:hover
 
 .Carousel_image
 {
-    width: 7vw;
+    width: 6vw;
     left: 50px;
     position: relative;
     border: 0.8px solid rgb(163, 158, 158);
     z-index: 2;
+}
+
+@media only screen and (max-width: 1200PX )
+{
+    .Carousel_image
+    {
+        width: 6vw;
+        left: 50px;
+        top: 9vh;
+        position: relative;
+        border: 0.8px solid rgb(163, 158, 158);
+        z-index: 2;
+    } 
 }
 
 
@@ -240,11 +313,11 @@ nav ul.menu-area ul li a:hover
 {
     overflow: hidden;
     z-index: 0;
-    height: 80vh;
+    height: 70vh;
     position: relative;
     width: 100%;
     display: block;
-    top: 200px;
+    top: 160px;
     margin: 50px auto;
     border: 3px solid rgb(95, 93, 93);
 
@@ -373,7 +446,7 @@ nav ul.menu-area ul li a:hover
     grid-template-columns: repeat(6, 15vw);
     justify-content: center;
     gap: 7px;
-    margin: .5vh 60px 60px 60px;
+    margin: .8vh 60px 60px 60px;
     font-family: Arial Narrow, sans-serif;
     
 
