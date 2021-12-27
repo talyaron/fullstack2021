@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,49 +9,59 @@
     <title>Document</title>
 
 </head>
+
 <body>
     <script>
-        function increment1() { document.getElementById('price').stepUp() 
-    }
-        function decrement1() { document.getElementById('price').stepDown();
-    }
+        function increment1() {
+            document.getElementById('price').stepUp()
+        }
+        function decrement1() {
+            document.getElementById('price').stepDown();
+        }
 
-    function increment2() { document.getElementById('AMOUNT').stepUp() 
-    }
-        function decrement2() { document.getElementById('AMOUNT').stepDown();
-    }
+        function increment2() {
+            document.getElementById('AMOUNT').stepUp()
+        }
+        function decrement2() {
+            document.getElementById('AMOUNT').stepDown();
+        }
     </script>
 
     <div class="market">
 
-        <div class="market--header"> 
-            <button class="market--header__btn" style="background-image: linear-gradient(90deg, rgba(56,60,63,1) 0%, rgba(49,167,128,0.8074580173866421) 97%, rgba(56,60,63,1) 100%); ;">BUYING</button>
+        <div class="market--header">
+            <button class="market--header__btn"
+                style="background-image: linear-gradient(90deg, rgba(56,60,63,1) 0%, rgba(49,167,128,0.8074580173866421) 97%, rgba(56,60,63,1) 100%); ;">BUYING</button>
             <button class="market--header__btn">SELLING</button>
             <button class="market--header__btn">MARGIN</button>
         </div>
 
         <div class="market--options">
-            <button class="market--options__btn" style="border-radius: 7px; background-color: rgb(78, 78, 78);">Limit</button>
+            <button class="market--options__btn"
+                style="border-radius: 7px; background-color: rgb(78, 78, 78);">Limit</button>
             <button class="market--options__btn">Market</button>
             <button class="market--options__btn">Pool</button>
         </div>
 
-        <div class="market--PriceWrapper__LeftText">€0.270010 <span class="market--PriceWrapper__RightText">AVG PRICE <span style="color: white;">24 HR</span></span></div>
-       
+        <div class="market--PriceWrapper__LeftText">€0.270010 <span class="market--PriceWrapper__RightText">AVG PRICE
+                <span style="color: white;">24 HR</span></span></div>
+
 
         <div class="market--PriceWrapper">
             <div class="market--PriceWrapper__title">Youre price</div>
-            <span class="market--PriceWrapper__euro">€</span><input id=price type="number" value="2.268871321" min=0.268871321 class="market--PriceWrapper__Price">
+            <span class="market--PriceWrapper__euro">€</span><input id=price type="number" value="2.268871321"
+                min=0.268871321 class="market--PriceWrapper__Price">
             <button onclick="increment1()" class="market--PriceWrapper__plus" title="plus">+</button>
             <button onclick="decrement1()" class="market--PriceWrapper__minus" title="minus">-</button>
         </div>
-        
+
         <div class="market--AmnuntWrapper__RightText">DEMANDS <span style="color: white;">381</span></span></div>
 
 
         <div class="market--AmnuntWrapper">
             <div class="market--AmnuntWrapper__title">AMOUNT</div>
-           <span style="position: relative; left: 4%;"><input id=AMOUNT type="number" value="50.000" class="market--AmnuntWrapper__Price"></span>
+            <span style="position: relative; left: 4%;"><input id=AMOUNT type="number" value="50.000"
+                    class="market--AmnuntWrapper__Price"></span>
             <button onclick="increment2()" class="market--AmnuntWrapper__plus" title="plus">+</button>
             <button onclick="decrement2()" class="market--AmnuntWrapper__minus" title="minus">-</button>
         </div>
@@ -60,7 +71,7 @@
             <div class="market--TotalWrapper__RightText">AVAILABLE <span style="color: white;"> €53,760.31</span></div>
             <div class="market--TotalWrapper__title">TOTAL (€)</div>
             <div class="market--TotalWrapper__price">13.440</div>
-            <div class="market--TotalWrapper--PercentWrapper"> 
+            <div class="market--TotalWrapper--PercentWrapper">
                 <button class="market--TotalWrapper--PercentWrapper__btn" style="background-color:orange;">25%</button>
                 <button class="market--TotalWrapper--PercentWrapper__btn">50%</button>
                 <button class="market--TotalWrapper--PercentWrapper__btn">75%</button>
@@ -69,12 +80,15 @@
         </div>
 
         <div class="market--finalPrice">
-        <div class="market--finalPrice__text">BUY <span style="color: black;background-color: white; border-radius: 5px;;">&nbsp; 50.000&nbsp; </span>&nbsp; SHIB</div>
+            <div class="market--finalPrice__text">BUY <span
+                    style="color: black;background-color: white; border-radius: 5px;;">&nbsp; 50.000&nbsp; </span>&nbsp;
+                SHIB</div>
         </div>
         <hr style="width: 90%; border: 1px solid rgb(70, 70, 70)">
 
         <div class="market--BottomCategories">
-            <button class="market--BottomCategories__btn" style="border-radius: 7px; background-color: rgb(78, 78, 78);">Open orders</button>
+            <button class="market--BottomCategories__btn"
+                style="border-radius: 7px; background-color: rgb(78, 78, 78);">Open orders</button>
             <button class="market--BottomCategories__btn">Market history</button>
             <button class="market--BottomCategories__btn">Margin data</button>
         </div>
@@ -93,22 +107,26 @@
             <span class="market--FooterBuy__Price">$97,864.91</span>
             <span class="market--FooterBuy__QuantityTitle">QUANTITY</span>
             <span class="market--FooterBuy__Quantity">15.765</span>
-            <span class="market--FooterBuy__CirclePos"><div class="market--FooterBuy__fullCircle">
-                <div class="market--FooterBuy__QuarterCircle"><span class="market--FooterBuy__PercentPos">25%</span></div></div></span> 
+            <span class="market--FooterBuy__CirclePos">
+                <div class="market--FooterBuy__fullCircle">
+                    <div class="market--FooterBuy__QuarterCircle"><span class="market--FooterBuy__PercentPos">25%</span>
+                    </div>
+                </div>
+            </span>
             <button class="market--FooterBuy__Cancel">CANCEL</button>
             <span class="market--FooterBuy__Date">2021-10-19 8:51</span>
             <span class="market--FooterBuy__Buy">BUY</span>
 
             <div class="market--FooterBuy__IconBox ">
 
-            <svg viewBox="0 0 254 254" style="width: 45px;">
-                <g>
-                    <path style="fill:white;" class="st1" d="M171.8,130.3c4.4-7.6,11.5-7.6,15.9,0l27.4,48.1c4.4,7.6,0.8,13.8-8,13.8h-55.2c-8.7,0-12.3-6.2-8-13.8
+                <svg viewBox="0 0 254 254" style="width: 45px;">
+                    <g>
+                        <path style="fill:white;" class="st1" d="M171.8,130.3c4.4-7.6,11.5-7.6,15.9,0l27.4,48.1c4.4,7.6,0.8,13.8-8,13.8h-55.2c-8.7,0-12.3-6.2-8-13.8
                     L171.8,130.3z M118.8,37.7c4.4-7.6,11.4-7.6,15.8,0l6.1,11L155.1,74c3.5,7.2,3.5,15.7,0,22.9l-48.3,83.7
                     c-4.4,6.8-11.7,11.1-19.8,11.6H46.9c-8.8,0-12.4-6.1-8-13.8L118.8,37.7z" />
-                </g>
-            </svg>
-            </div>      
+                    </g>
+                </svg>
+            </div>
         </div>
 
 
@@ -119,8 +137,12 @@
             <span class="market--FooterSell__Price">$11,301.55</span>
             <span class="market--FooterSell__QuantityTitle">QUANTITY</span>
             <span class="market--FooterSell__Quantity">12.25</span>
-            <span class="market--FooterSell__CirclePos"><div class="market--FooterSell__fullCircle">
-                <div class="market--FooterSell__QuarterCircle"><span class="market--FooterSell__PercentPos">25%</span></div></div></span> 
+            <span class="market--FooterSell__CirclePos">
+                <div class="market--FooterSell__fullCircle">
+                    <div class="market--FooterSell__QuarterCircle"><span
+                            class="market--FooterSell__PercentPos">25%</span></div>
+                </div>
+            </span>
             <button class="market--FooterSell__Cancel">CANCEL</button>
             <span class="market--FooterSell__Date">2021-10-19 18:23</span>
             <span class="market--FooterSell__Sell">SELL</span>
@@ -136,10 +158,46 @@
                        c0,24.2-16.4,43.1-35.7,43.1c-21.1,0-35.7-20.9-35.7-43.1c0.1-16.4,5.9-32.7,16.2-44.7c9-10.5,20.6-17.1,33.4-19.2
                        c0,0-1.1-0.1-2.5-0.1C28.7,0,0,28.7,0,64c0,14.5,4.8,27.9,13,38.6c9.7,12.4,23.9,20.2,39.6,20.2C83,122.9,105.3,94.6,105.3,64z" />
                 </svg>
-            </div>      
+            </div>
         </div>
-<br>
+        <br>
+    </div>
+    <div style="height: 400px;"></div>
+    <div class="footer">
+        <div class="footer-container">
+            <div class="footer-container__market">
 
+                <svg viewBox="37.67 100.39 19.76 19.77">
+                    <path d="M53.43,100.39H41.67c-2.2,0-4,1.8-4,4v11.77c0,2.2,1.8,4,4,4h11.76c2.2,0,4-1.8,4-4v-11.77
+		            C57.43,102.19,55.63,100.39,53.43,100.39z M43.31,112.18c0,0.42-0.33,0.75-0.75,0.75c-0.41,0-0.75-0.33-0.75-0.75v-3.82
+		            c0-0.41,0.34-0.75,0.75-0.75c0.42,0,0.75,0.34,0.75,0.75V112.18z M48.3,113.75c0,0.41-0.34,0.75-0.75,0.75s-0.75-0.34-0.75-0.75
+		            v-6.95c0-0.42,0.34-0.75,0.75-0.75s0.75,0.33,0.75,0.75V113.75z M53.29,112.18c0,0.42-0.34,0.75-0.75,0.75
+		            c-0.42,0-0.75-0.33-0.75-0.75v-3.82c0-0.41,0.33-0.75,0.75-0.75c0.41,0,0.75,0.34,0.75,0.75V112.18z" />
+                </svg>
+            </div>
+            <div class="footer-container__exchange">
+
+                <svg viewBox="115.55 75.626 40.841 45.048">
+                    <path d="M153.07,111.86l-14.25,8.02c-1.92,1.08-4.27,1.06-6.17-0.07l-14.07-8.33c-1.9-1.12-3.05-3.17-3.03-5.38
+			        l0.18-16.35c0.02-2.2,1.22-4.23,3.14-5.31l14.25-8.02c1.92-1.08,4.27-1.06,6.17,0.07l14.07,8.33c1.9,1.12,3.05,3.17,3.03,5.38
+			        l-0.18,16.35C156.19,108.76,154.99,110.78,153.07,111.86z"></path>
+                    <circle class="st1" cx="140.24" cy="98.16" r="6.56"></circle>
+                    <circle class="st2" cx="131.9" cy="98.16" r="6.56"></circle>
+                </svg>
+            </div>
+            <div class="footer-container__wallet" style="cursor: pointer;" onclick="window.location='Wallet.html';">
+
+                <svg viewBox="214.09 101.35 20.38 17.34">
+                    <path d="M234.01,113.09v0.03c0,3.07-2.51,5.57-5.58,5.57h-8.76c-3.07,0-5.58-2.5-5.58-5.57v-6.19
+			        c0-3.07,2.51-5.58,5.58-5.58h8.76c2.93,0,5.35,2.28,5.56,5.16c-0.52-0.21-1.14-0.24-1.79-0.24h-1.15c-1.86,0-3.37,1.51-3.37,3.37
+			        v0.29c0,1.85,1.51,3.37,3.37,3.37h1.15C232.83,113.3,233.47,113.3,234.01,113.09z" />
+                    <path d="M234.47,109.64v0.29c0,1.08-0.15,1.67-0.46,1.99c-0.37,0.38-0.96,0.38-1.81,0.38h-1.15
+			        c-1.31,0-2.37-1.07-2.37-2.37v-0.29c0-1.3,1.06-2.37,2.37-2.37h1.15c0.78,0,1.41,0,1.81,0.44
+			        C234.31,108.04,234.47,108.62,234.47,109.64z" />
+                </svg>
+            </div>
+        </div>
     </div>
 </body>
+
 </html>
