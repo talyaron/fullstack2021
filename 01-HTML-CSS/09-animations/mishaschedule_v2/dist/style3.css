@@ -349,8 +349,7 @@ html {
   background-image: linear-gradient(to right, #66529af1, #e052b5e3, #66529af1);
   background-position: left;
   background-size: 500%;
-  animation: progress_a 5s forwards;
-  animation: colorslide 4s ease-in-out infinite alternate;
+  animation: progress_a 5s forwards, colorslide 4s ease-in-out infinite alternate;
 }
 .progress__mins {
   font-size: 20px;

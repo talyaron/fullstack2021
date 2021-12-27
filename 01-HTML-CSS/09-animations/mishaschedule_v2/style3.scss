@@ -403,9 +403,7 @@ html {
                     $primarycolor1);
             background-position: left;
             background-size: 500%;
-            animation: progress_a 5s forwards;
-            animation: colorslide 4s ease-in-out infinite alternate;
-
+            animation: progress_a 5s forwards, colorslide 4s ease-in-out infinite alternate;
         }
     }
 
