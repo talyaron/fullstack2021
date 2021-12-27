@@ -17,10 +17,10 @@ html {
 }
 @keyframes weather {
   from {
-    left: -70%;
+    left: -50%;
   }
   to {
-    left: 200%;
+    left: 150%;
   }
 }
 @keyframes colorslide {
@@ -52,6 +52,8 @@ html {
   animation-timing-function: linear;
   height: 150px;
   min-width: 200px;
+  animation-duration: 32s;
+  animation-delay: 0s;
 }
 .cloud img {
   height: 100%;
@@ -68,8 +70,8 @@ html {
   height: 150px;
   min-width: 200px;
   top: 55px;
-  animation-delay: 4s;
-  animation-duration: 19s;
+  animation-delay: 5s;
+  animation-duration: 25s;
 }
 .cloud2 img {
   height: 100%;
@@ -86,8 +88,8 @@ html {
   height: 150px;
   min-width: 200px;
   top: 70px;
-  animation-delay: 9s;
-  animation-duration: 21s;
+  animation-delay: 10s;
+  animation-duration: 28s;
 }
 .cloud3 img {
   height: 100%;
@@ -104,8 +106,8 @@ html {
   height: 150px;
   min-width: 200px;
   top: 0px;
-  animation-delay: 11s;
-  animation-duration: 15s;
+  animation-delay: 15s;
+  animation-duration: 30s;
 }
 .cloud4 img {
   height: 100%;
@@ -125,6 +127,7 @@ html {
   font-family: "Neue Haas Grotesk Display Pro", sans-serif;
   background-color: #f0f1f6;
   box-shadow: 1px 1px 1px #a8a7a7, 1px 13px 26px rgba(99, 91, 105, 0.4);
+  color: #343333;
 }
 
 .schetop {
