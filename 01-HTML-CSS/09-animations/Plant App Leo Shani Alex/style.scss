@@ -484,7 +484,7 @@ body {
             align-items: center;
 
             .sun {
-                @import url(./_sunAnimation.scss);
+                @import url(/_sunAnimation.scss);
                 margin: 15px;
                 width: 300px;
                 height: 300px;
@@ -497,7 +497,7 @@ body {
             align-items: center;
 
             .drop {
-                @import url(./dist/_dropAnimation.css);
+                @import url(/_dropAnimation.scss);
                 margin: 15px;
                 width: 300px;
                 height: 300px;
@@ -510,7 +510,7 @@ body {
             align-items: center;
 
             .heart {
-                @import url(./dist/_heartAnimation.css);
+                @import url(/_heartAnimation.scss);
                 margin: 15px;
                 width: 300px;
                 height: 300px;

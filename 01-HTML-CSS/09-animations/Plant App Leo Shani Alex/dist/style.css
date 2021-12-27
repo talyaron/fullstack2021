@@ -404,7 +404,7 @@ body {
   align-items: center;
 }
 .plantCard__icons--01 .sun {
-  @import url(./_sunAnimation.scss);
+  @import url(/_sunAnimation.scss);
   margin: 15px;
   width: 300px;
   height: 300px;
@@ -415,7 +415,7 @@ body {
   align-items: center;
 }
 .plantCard__icons--02 .drop {
-  @import url(./dist/_dropAnimation.css);
+  @import url(/_dropAnimation.scss);
   margin: 15px;
   width: 300px;
   height: 300px;
@@ -426,7 +426,7 @@ body {
   align-items: center;
 }
 .plantCard__icons--03 .heart {
-  @import url(./dist/_heartAnimation.css);
+  @import url(/_heartAnimation.scss);
   margin: 15px;
   width: 300px;
   height: 300px;
