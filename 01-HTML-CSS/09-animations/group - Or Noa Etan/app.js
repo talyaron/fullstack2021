@@ -194,4 +194,5 @@ function newBox() {
 const myForm = document.getElementById("myForm");
 myForm.addEventListener("submit", (e) => {
   e.preventDefault(newBox());
+  closeModal(modal)
 });

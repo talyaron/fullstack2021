@@ -187,4 +187,5 @@ function newBox() {
 var myForm = document.getElementById("myForm");
 myForm.addEventListener("submit", function (e) {
   e.preventDefault(newBox());
+  closeModal(modal);
 });
