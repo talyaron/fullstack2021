@@ -41,8 +41,7 @@ body {
   opacity: 0.8;
 }
 .discover__wrapper .box__title {
-  position: absolute;
-  top: 420px;
+  
   color: black;
 }
 .discover__wrapper i {
