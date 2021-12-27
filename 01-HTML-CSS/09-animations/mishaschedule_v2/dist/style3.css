@@ -17,10 +17,10 @@ html {
 }
 @keyframes weather {
   from {
-    left: -70%;
+    left: -50vw;
   }
   to {
-    left: 200%;
+    left: 110vw;
   }
 }
 @keyframes colorslide {
@@ -29,6 +29,14 @@ html {
   }
   100% {
     background-position: right;
+  }
+}
+@keyframes progress_a {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 67%;
   }
 }
 html {
@@ -52,6 +60,8 @@ html {
   animation-timing-function: linear;
   height: 150px;
   min-width: 200px;
+  animation-duration: 32s;
+  animation-delay: 0s;
 }
 .cloud img {
   height: 100%;
@@ -68,8 +78,8 @@ html {
   height: 150px;
   min-width: 200px;
   top: 55px;
-  animation-delay: 4s;
-  animation-duration: 19s;
+  animation-delay: 5s;
+  animation-duration: 25s;
 }
 .cloud2 img {
   height: 100%;
@@ -86,8 +96,8 @@ html {
   height: 150px;
   min-width: 200px;
   top: 70px;
-  animation-delay: 9s;
-  animation-duration: 21s;
+  animation-delay: 10s;
+  animation-duration: 28s;
 }
 .cloud3 img {
   height: 100%;
@@ -104,8 +114,8 @@ html {
   height: 150px;
   min-width: 200px;
   top: 0px;
-  animation-delay: 11s;
-  animation-duration: 15s;
+  animation-delay: 15s;
+  animation-duration: 30s;
 }
 .cloud4 img {
   height: 100%;
@@ -125,6 +135,7 @@ html {
   font-family: "Neue Haas Grotesk Display Pro", sans-serif;
   background-color: #f0f1f6;
   box-shadow: 1px 1px 1px #a8a7a7, 1px 13px 26px rgba(99, 91, 105, 0.4);
+  color: #343333;
 }
 
 .schetop {
@@ -285,11 +296,7 @@ html {
   background-image: linear-gradient(145deg, #66529af1, #e052b5e3, #66529af1);
   background-position: left;
   background-size: 500%;
-  animation-name: colorslide;
-  animation-duration: 4s;
-  animation-direction: alternate;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
+  animation: colorslide 4s ease-in-out 0s infinite alternate;
   color: white;
 }
 .schecards__card:hover .bell {
@@ -333,6 +340,9 @@ html {
   border-radius: 50px;
   margin-left: -10px;
 }
+.progress__bar__btn:hover {
+  cursor: pointer;
+}
 .progress__bar__pbar {
   padding: 0px;
   margin: 0px;
@@ -342,11 +352,7 @@ html {
   background-image: linear-gradient(to right, #66529af1, #e052b5e3, #66529af1);
   background-position: left;
   background-size: 500%;
-  animation-name: colorslide;
-  animation-duration: 4s;
-  animation-direction: alternate;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
+  animation: progress_a 5s forwards, colorslide 4s ease-in-out infinite alternate;
 }
 .progress__mins {
   font-size: 20px;
@@ -397,6 +403,14 @@ html {
   }
 }
 @media only screen and (min-width: 900px) {
+  @keyframes weather {
+    from {
+      left: -20vw;
+    }
+    to {
+      left: 110vw;
+    }
+  }
   .body_schedule {
     align-items: center;
   }

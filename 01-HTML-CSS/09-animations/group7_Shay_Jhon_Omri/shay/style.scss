@@ -606,14 +606,16 @@ body {
 
                 }
             }
+
             .bar {
 
                 margin: auto;
+                padding-top: 50px;
+                padding-left: 70px;
+                padding-bottom: 20px;
                 display: grid;
-                grid-template-columns: repeat(4, 2fr);
-                grid-template-rows: 1fr;
-                gap: 180px;
-    
+                grid-template-columns: repeat(4, 1fr);
+
                 &__icons {
                     #active:target {
                         color: #7b446a;
@@ -1463,9 +1465,11 @@ body {
                         
                     }
             .bar {
+                padding-top: 40px;
+                padding-left: 70px;
                 display: grid;
                 grid-template-columns: repeat(4, 1fr);
-                gap: 80px;
+
             }
         
         }

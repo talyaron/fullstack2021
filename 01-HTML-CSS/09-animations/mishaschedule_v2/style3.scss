@@ -71,11 +71,11 @@ $bgcolor: #f0f1f6;
 
 @keyframes weather {
     from {
-        left: -70%;
+        left: -50vw;
     }
 
     to {
-        left: 200%;
+        left: 110vw;
     }
 }
 
@@ -86,6 +86,15 @@ $bgcolor: #f0f1f6;
 
     100% {
         background-position: right;
+    }
+}
+
+@keyframes progress_a{
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 67%;
     }
 }
 
@@ -107,27 +116,29 @@ html {
 
 .cloud {
     @include whitecloud();
+    animation-duration: 32s;
+    animation-delay: 0s;
 }
 
 .cloud2 {
     @include whitecloud();
     top: 55px;
-    animation-delay: 4s;
-    animation-duration: 19s;
+    animation-delay: 5s;
+    animation-duration: 25s;
 }
 
 .cloud3 {
     @include whitecloud();
     top: 70px;
-    animation-delay: 9s;
-    animation-duration: 21s;
+    animation-delay: 10s;
+    animation-duration: 28s;
 }
 
 .cloud4 {
     @include whitecloud();
     top: 0px;
-    animation-delay: 11s;
-    animation-duration: 15s;
+    animation-delay: 15s;
+    animation-duration: 30s;
 }
 
 .bigwrapper {
@@ -144,6 +155,7 @@ html {
     font-family: $mainFontFamily;
     background-color: $bgcolor;
     box-shadow: $shadow;
+    color: rgb(52, 51, 51);
 }
 
 .schetop {
@@ -322,11 +334,7 @@ html {
                     $primarycolor1);
             background-position: left;
             background-size: 500%;
-            animation-name: colorslide;
-            animation-duration: 4s;
-            animation-direction: alternate;
-            animation-iteration-count: infinite;
-            animation-timing-function: ease-in-out;
+            animation: colorslide 4s ease-in-out 0s infinite alternate;
             color: white;
 
             .bell {
@@ -380,10 +388,14 @@ html {
             border: 8px solid #464E85;
             border-radius: 50px;
             margin-left: -10px;
+            &:hover{
+                cursor: pointer;
+            }
 
         }
 
         &__pbar {
+
             padding: 0px;
             margin: 0px;
             border-radius: 25px;
@@ -394,11 +406,7 @@ html {
                     $primarycolor1);
             background-position: left;
             background-size: 500%;
-            animation-name: colorslide;
-            animation-duration: 4s;
-            animation-direction: alternate;
-            animation-iteration-count: infinite;
-            animation-timing-function: ease-in-out;
+            animation: progress_a 5s forwards, colorslide 4s ease-in-out infinite alternate;
         }
     }
 
@@ -469,6 +477,16 @@ html {
 }
 
 @media only screen and (min-width: 900px) {
+
+    @keyframes weather {
+        from {
+            left: -20vw;
+        }
+    
+        to {
+            left: 110vw;
+        }
+    }
 
     .body_schedule {
         align-items: center;
