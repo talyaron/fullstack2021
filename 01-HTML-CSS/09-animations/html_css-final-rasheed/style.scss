@@ -1,0 +1,555 @@
+body {
+  min-width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: rgba(226, 220, 220, 0.863);
+
+}
+
+.container {
+  width: 900px;
+  height: 98%;
+  border-radius: 15px;
+  overflow: hidden;
+  position: absolute;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+}
+
+.bg {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.night_bg {
+  background: linear-gradient(#0F2129, #47334A);
+}
+
+.frosty_bg {
+  background: linear-gradient(#29386f, #b8f5ff);
+  opacity: 0;
+  animation: frostyAnimation 20s ease infinite;
+}
+
+.sunny_bg {
+  background: linear-gradient(#ffbd3f, #fff097);
+  opacity: 0;
+  animation: sunnyAnimation 20s ease infinite;
+}
+
+@keyframes frostyAnimation {
+  32% {
+    opacity: 0;
+  }
+
+  33% {
+    opacity: 1;
+  }
+
+  62% {
+    opacity: 1;
+  }
+
+  63% {
+    opacity: 0;
+  }
+}
+
+
+@keyframes sunnyAnimation {
+  62% {
+    opacity: 0;
+  }
+
+  63% {
+    opacity: 1;
+  }
+
+  99% {
+    opacity: 1;
+  }
+}
+
+
+.text_container {
+  margin-top: 50px;
+  width: 100%;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  position: relative;
+  z-index: 3;
+
+
+  &_degrees {
+    color: #4F787D;
+    display: block;
+    text-indent: -5px;
+    font-size: 110px;
+    font-weight: bold;
+    position: relative;
+    animation: degreesAnimation 20s ease infinite;
+
+  }
+
+  @keyframes degreesAnimation {
+    32% {
+      color: #4F787D;
+    }
+
+    33% {
+      color: #a8ddff;
+    }
+
+    62% {
+      color: #a8ddff;
+    }
+
+    63% {
+      color: #fff5b8;
+    }
+
+    99% {
+      color: #fff5b8;
+    }
+  }
+
+
+  &_degrees::before {
+    content: '+24';
+    animation: degreesTextAnimation 20s ease infinite;
+  }
+
+  @keyframes degreesTextAnimation {
+    32% {
+      content: '+24';
+    }
+
+    33% {
+      content: '-13';
+    }
+
+    62% {
+      content: '-13';
+    }
+
+    63% {
+      content: '+32';
+    }
+
+    99% {
+      content: '+32';
+    }
+  }
+
+  &_degrees span {
+    font-size: 50px;
+    position: relative;
+    top: -40px;
+  }
+
+  &_place {
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: larger;
+    color: #694c6d;
+    animation: placeAnimation 20s ease infinite;
+
+  }
+
+  @keyframes placeAnimation {
+    32% {
+      color: #694c6d;
+    }
+
+    33% {
+      color: #2b7fa9;
+    }
+
+    62% {
+      color: #147db1;
+    }
+
+    63% {
+      color: #f8a62c;
+    }
+
+    99% {
+      color: #fba522;
+    }
+  }
+
+  &_place::before {
+    content: 'Madrid';
+    animation: placeTextAnimation 20s ease infinite;
+  }
+
+  @keyframes placeTextAnimation {
+    32% {
+      content: 'Madrid';
+    }
+
+    33% {
+      content: 'Moscow';
+    }
+
+    62% {
+      content: 'Moscow';
+    }
+
+    63% {
+      content: 'Ankara';
+    }
+
+    99% {
+      content: 'Ankara';
+    }
+  }
+
+  &_weather {
+    color: #FFF;
+  }
+
+  &_weather::before {
+    content: 'Clear';
+    animation: weatherTextAnimation 20s ease infinite;
+  }
+
+  @keyframes weatherTextAnimation {
+    32% {
+      content: 'Clear';
+    }
+
+    33% {
+      content: 'Frosty';
+    }
+
+    62% {
+      content: 'Frosty';
+    }
+
+    63% {
+      content: 'Hot';
+    }
+
+    99% {
+      content: 'Hot';
+    }
+  }
+}
+
+.circle_container {
+  position: absolute;
+  bottom: 200px;
+  left: 100px;
+  animation: circleAnimation 20s ease infinite;
+
+
+  @keyframes circleAnimation {
+    0% {
+      bottom: 0px;
+      left: 0px;
+    }
+
+    32% {
+      bottom: 500px;
+      left: 300px;
+    }
+
+    33% {
+      bottom: 500px;
+      left: 300px;
+    }
+
+    62% {
+      bottom: 500px;
+      left: 300px;
+    }
+
+    63% {
+      bottom: 500px;
+      left: 300px;
+    }
+
+    90% {
+      bottom: 450px;
+      left: 100px;
+    }
+
+    99% {
+      bottom: 0px;
+      left: 20px;
+    }
+
+    100% {
+      bottom: 0px;
+      left: 0px;
+    }
+  }
+
+  &_circle {
+    position: relative;
+    z-index: 7;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    box-shadow: 9px 9px 0 0 #BCAE76;
+    transform: rotate(100deg);
+    animation: circleColor 20s ease infinite;
+  }
+
+  @keyframes circleColor {
+    32% {
+      box-shadow: 9px 9px 0 0 #BCAE76;
+      background: none;
+      top: 0;
+      left: 0;
+    }
+
+    33% {
+      box-shadow: 0px 0px 0 0 #BCAE76;
+      background-color: #feffdf;
+      top: 10px;
+      left: -15px;
+    }
+
+    62% {
+      box-shadow: 0px 0px 0 0 #BCAE76;
+      background-color: #feffdf;
+      top: 10px;
+      left: -15px;
+    }
+
+    63% {
+      box-shadow: 0px 0px 0 0 #BCAE76;
+      background-color: #ffdb50;
+      top: 10px;
+      left: -15px;
+    }
+
+    99% {
+      box-shadow: 0px 0px 0 0 #BCAE76;
+      background-color: #f3c632;
+      top: 10px;
+      left: -15px;
+    }
+
+    100% {
+      box-shadow: 9px 9px 0 0 #BCAE76;
+    }
+  }
+
+  &_circle1 {
+    content: '';
+    background-color: #BCAE76;
+    position: absolute;
+    height: 90px;
+    width: 90px;
+    z-index: 6;
+    border-radius: 50%;
+    opacity: 0.1;
+    top: -5px;
+    left: -30px;
+  }
+
+  &_circle2 {
+    background-color: #BCAE76;
+    position: absolute;
+    height: 110px;
+    width: 110px;
+    z-index: 6;
+    border-radius: 50%;
+    opacity: 0.1;
+    top: -15px;
+    left: -40px;
+  }
+
+  &_circle3 {
+    background-color: #BCAE76;
+    position: absolute;
+    height: 130px;
+    width: 130px;
+    z-index: 6;
+    border-radius: 50%;
+    opacity: 0.1;
+    top: -25px;
+    left: -50px;
+  }
+
+}
+
+
+.ground1 {
+  width: 270px;
+  height: 170px;
+  border-top-left-radius: 200px;
+  border-top-right-radius: 300px;
+  position: absolute;
+  z-index: 2;
+  bottom: -50px;
+  left: -20px;
+  transform: rotate(20deg);
+  z-index: 8;
+}
+
+.ground1_night {
+  background: linear-gradient(#2f2b3c, #091B21);
+  animation: nightGroundAnimation 20s ease infinite;
+}
+
+.ground1_frosty {
+  background: linear-gradient(#f3ffff, #9af2ff);
+  opacity: 0;
+  animation: frostyGroundAnimation 20s ease infinite;
+}
+
+.ground1_sunny {
+  background: linear-gradient(#e0d7a4, #e7c77a);
+  opacity: 0;
+  animation: sunnyGroundAnimation 20s ease infinite;
+}
+
+.ground2 {
+  width: 1000px;
+  height: 150px;
+  border-top-left-radius: 100px;
+  border-top-right-radius: 400px;
+  position: absolute;
+  z-index: 2;
+  bottom: -70px;
+  right: -80px;
+  transform: rotate(-10deg);
+  z-index: 9;
+
+}
+
+.ground2_night {
+  background: linear-gradient(#2f2b3c, #091B21);
+  animation: nightGroundAnimation 20s ease infinite;
+}
+
+@keyframes nightGroundAnimation {
+  32% {
+    opacity: 1;
+  }
+
+  33% {
+    opacity: 0;
+  }
+
+  99% {
+    opacity: 0;
+  }
+}
+
+.ground2_frosty {
+  background: linear-gradient(#f3ffff, #9af2ff);
+  opacity: 0;
+  animation: frostyGroundAnimation 20s ease infinite;
+}
+
+@keyframes frostyGroundAnimation {
+  32% {
+    opacity: 0;
+  }
+
+  33% {
+    opacity: 1;
+  }
+
+  62% {
+    opacity: 1;
+  }
+
+  63% {
+    opacity: 0;
+  }
+}
+
+.ground2_sunny {
+  background: linear-gradient(#e0d7a4, #e7c77a);
+  opacity: 0;
+  animation: sunnyGroundAnimation 20s ease infinite;
+}
+
+
+@keyframes sunnyGroundAnimation {
+  62% {
+    opacity: 0;
+  }
+
+  63% {
+    opacity: 1;
+  }
+
+  99% {
+    opacity: 1;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .container {
+    width: 90%;
+    margin-left: -20px;
+    margin-top: -3px;
+
+  }
+
+  .ground2 {
+    bottom: -70px;
+  }
+
+  .ground1 {
+    bottom: -30px;
+  }
+
+  .circle_container {
+
+    @keyframes circleAnimation {
+
+      0% {
+        bottom: 0px;
+        left: 0px;
+      }
+
+      32% {
+        bottom: 300px;
+        left: 200px;
+      }
+
+      33% {
+        bottom: 300px;
+        left: 200px;
+      }
+
+      62% {
+        bottom: 300px;
+        left: 200px;
+      }
+
+      63% {
+        bottom: 300px;
+        left: 200px;
+      }
+
+      90% {
+        bottom: 200px;
+        left: 100px;
+      }
+
+      99% {
+        bottom: 0px;
+        left: 20px;
+      }
+
+      100% {
+        bottom: 0px;
+        left: 0px;
+      }
+    }
+  }
+}

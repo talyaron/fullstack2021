@@ -337,13 +337,17 @@
   color: var(--color-light-green);
 }
 
+.menu {
+  display: flex;
+  flex-wrap: row;
+}
 .menu il {
   text-decoration: inline;
   text-align: center;
   justify-content: center;
   color: var(--color-lighter-grey);
   border-radius: 10px;
-  font-size: xx-large;
+  font-size: x-large;
   margin: 10px;
 }
 
@@ -361,6 +365,12 @@ il:hover {
 .title p {
   color: var(--color-lighter-grey);
   font-size: 18px;
+}
+
+body {
+  background-color: var(--color-light-grey);
+  width: 500px;
+  border-radius: 15px;
 }
 
 .wrapper {
@@ -388,23 +398,14 @@ il:hover {
 
 .button-change {
   margin-top: 50px;
-  margin-left: 8%;
+  margin-left: 40%;
   justify-content: center;
   align-items: center;
 }
 
-@media only screen and (max-width: 600px) {
-  .button-change {
-    margin: 0;
-    margin-top: 50px;
-    margin-left: 50%;
-    justify-content: center;
-    align-items: center;
-  }
-}
 .wrapper2 {
   margin-left: 5px;
-  margin-top: 300px;
+  margin-top: 400px;
   display: flex;
   position: absolute;
   flex-wrap: row;
@@ -414,12 +415,16 @@ il:hover {
 
 .your-Exchange {
   position: absolute;
+  margin-top: 600px;
+  padding: 50px;
   height: 20px;
-  background-color: var(--color-light-grey);
+  background-color: var(--color-lighter-grey);
 }
 .your-Exchange__result {
   height: 100px;
   justify-content: center;
+  padding: 0px;
+  margin-left: 50px;
   border-radius: 15px;
   width: 400px;
   background-color: var(--color-light-grey);
@@ -432,9 +437,32 @@ il:hover {
   justify-content: center;
   text-align: center;
   font-size: 28px;
+  margin-top: 30px;
+}
+.your-Exchange__result .theresult {
+  margin-top: 30px;
 }
 .your-Exchange__result .theresult input {
   font-size: large;
+  font-family: system-ui;
 }
 
+@media only screen and (max-width: 600px) {
+  .button-change {
+    margin: 0;
+    margin-top: 50px;
+    margin-left: 50%;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media only screen and (max-width: 300px) {
+  .button-change {
+    margin: 0;
+    margin-top: 50px;
+    margin-left: 50%;
+    justify-content: center;
+    align-items: center;
+  }
+}
 /*yahya END*/

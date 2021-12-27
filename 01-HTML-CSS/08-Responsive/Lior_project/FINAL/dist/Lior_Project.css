@@ -1,0 +1,1641 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.navbar {
+  width: 170%;
+  margin: 20px 50px;
+  position: relative;
+  left: 85px;
+  top: 50px;
+  background: white;
+}
+.navbar__car__CarPicture {
+  position: relative;
+  left: 625px;
+  top: 70px;
+  margin-right: 20px;
+}
+@media only screen and (max-width: 1900PX) {
+  .navbar__car__CarPicture {
+    position: relative;
+    left: 185px;
+    top: 70px;
+    margin-right: 20px;
+  }
+}
+@media only screen and (max-width: 1200PX) {
+  .navbar__car__CarPicture {
+    position: relative;
+    left: 75px;
+    top: 70px;
+    margin-right: 10px;
+    size: 10px;
+  }
+}
+
+nav {
+  position: absolute;
+}
+
+nav > ul {
+  position: relative;
+  display: -webkit- flex;
+  display: -moz- flex;
+  display: -ms- flex;
+  display: -o- flex;
+  display: flex;
+  justify-content: center;
+  width: 190%;
+  margin: 0 50px;
+  padding: 0;
+}
+
+@media only screen and (max-width: 1900PX) {
+  nav > ul {
+    position: relative;
+    display: -webkit- flex;
+    display: -moz- flex;
+    display: -ms- flex;
+    display: -o- flex;
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    margin: 0 50px;
+    padding: 0;
+  }
+}
+@media only screen and (max-width: 1200PX) {
+  nav > ul {
+    position: relative;
+    display: -webkit- flex;
+    display: -moz- flex;
+    display: -ms- flex;
+    display: -o- flex;
+    display: flex;
+    justify-content: center;
+    width: 170%;
+    margin: -10px -120px;
+    padding: 0;
+  }
+}
+nav a {
+  display: block;
+  text-decoration: none;
+}
+
+nav ul li {
+  list-style: none;
+  transition: 0.5s;
+}
+
+ul img {
+  width: 150%;
+  height: 25vh;
+  left: 80px;
+  top: -70px;
+  position: relative;
+}
+
+nav > ul > li > a {
+  padding: 5px 39px;
+  color: black;
+  font-size: 18px;
+  transition: 0.7s;
+}
+nav > ul > li > a .CarName {
+  text-align: center;
+  padding-bottom: 1.25rem;
+  size: 10px;
+  outline: none;
+  position: relative;
+}
+nav > ul > li > a .CarName::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0px;
+  width: 0;
+  height: 3px;
+  background-color: red;
+  transition: width 0.75s ease-out;
+}
+nav > ul > li > a .CarName:hover {
+  color: red;
+}
+nav > ul > li > a .CarName:hover::after {
+  width: 100%;
+}
+
+nav > ul > li > a:hover {
+  color: red;
+  background: white;
+}
+
+.nav ul > li.dropDown {
+  position: relative;
+  margin-right: 40px;
+}
+
+nav ul > li.dropDown > a::after {
+  top: 100px;
+  position: relative;
+  z-index: 1;
+  float: left;
+  content: "";
+  margin-top: 8px;
+  margin-right: 0px;
+  color: black;
+}
+
+nav > ul > li:hover {
+  background: white;
+  color: red;
+}
+
+nav ul.menu-area {
+  padding: 40px 40px 0 40px;
+  background: white;
+  text-align: left;
+  position: absolute;
+  display: -webkit- flex;
+  display: -moz- flex;
+  display: -ms- flex;
+  display: -o- flex;
+  display: flex;
+  flex-wrap: wrap;
+  height: 20vh;
+  width: 120%;
+  top: -9999px;
+  left: -100px;
+  overflow: hidden;
+}
+
+nav ul li:hover ul.menu-area {
+  top: 100%;
+  color: black;
+}
+
+nav ul.menu-area ul {
+  width: 25%;
+  margin-bottom: 40px;
+  margin-left: -10px;
+  color: red;
+  background: white;
+  font-weight: 50px;
+}
+
+nav ul.menu-area h4 {
+  margin-bottom: 15px;
+  text-transform: capitalize;
+}
+
+nav ul.menu-area ul li {
+  display: block;
+}
+
+nav ul.menu-area ul li a {
+  margin-top: 10px;
+  color: black;
+  text-transform: none;
+  transition: 0.7s;
+}
+
+.third_column {
+  border: 1.8px solid #bdbaba;
+  align-content: center;
+  height: 3.5vh;
+  width: 69%;
+  text-align: center;
+}
+.third_column:hover {
+  background: black;
+  color: #610606;
+}
+
+nav ul.menu-area ul li a:hover {
+  color: red;
+  background: white;
+}
+
+.second_column {
+  margin-top: 20px;
+}
+
+.Carousel_image {
+  width: 6vw;
+  left: 50px;
+  position: relative;
+  border: 0.8px solid #a39e9e;
+  z-index: 2;
+}
+
+@media only screen and (max-width: 1200PX) {
+  .Carousel_image {
+    width: 6vw;
+    left: 50px;
+    top: 9vh;
+    position: relative;
+    border: 0.8px solid #a39e9e;
+    z-index: 2;
+  }
+}
+.Carousel__wrapper {
+  overflow: hidden;
+  z-index: 0;
+  height: 70vh;
+  position: relative;
+  width: 100%;
+  display: block;
+  top: 160px;
+  margin: 50px auto;
+  border: 3px solid #5f5d5d;
+}
+.Carousel__wrapper__item {
+  position: absolute;
+  top: 0px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 25px 50px;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+.Carousel__wrapper__text {
+  font-size: 50px;
+  position: relative;
+  color: #504e4e;
+  margin-top: 10px;
+  left: 35vw;
+  transition: 0.75s;
+}
+.Carousel__wrapper__text:hover {
+  color: #e41818;
+}
+
+.arrow {
+  border: solid #eeeaea;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  background: white;
+  padding: 12px;
+  width: 2ch;
+  height: 3vh;
+}
+.arrow:hover {
+  border: solid #e41818;
+  background: white;
+  border-width: 0 3px 3px 0;
+  opacity: 1;
+}
+
+.arrow_prev {
+  left: 70px;
+  border: 2px solid black;
+  border-width: 0 3px 3px 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) rotate(135deg);
+}
+
+.arrow_next {
+  right: 70px;
+  border: 2px solid black;
+  border-width: 0 3px 3px 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) rotate(-45deg);
+}
+
+[id^=item] {
+  display: none;
+}
+
+.item-1 {
+  z-index: 2;
+  opacity: 1;
+  background: url("https://files.porsche.com/filestore/image/multimedia/none/cayenne-models-e3chili-announcement/preview/1cc14607-c9ea-11eb-80d7-005056bbdc38;sZ;twebp/porsche-preview.webp");
+  background-size: cover;
+  color: chartreuse;
+}
+
+.item-2 {
+  background: url("https://files.porsche.com/filestore/image/multimedia/none/model-series-992-turbo-360-exterior-fallback/normal/40af7550-6e81-11ea-80c9-005056bbdc38;sK;twebp;c1350;gc/porsche-normal.webp");
+  background-size: cover;
+}
+
+.item-3 {
+  background: url("https://files.porsche.com/filestore/vrhub360/multimedia/none/model-series-992-turbo-360-interior/preview/d1eabc71-8aee-11eb-80d4-005056bbdc38;sK;twebp;c1350;gc/porsche-preview.webp");
+  background-size: cover;
+}
+
+.item-4 {
+  background: url("https://pics.porsche.com/rtt/iris?COSY-EU-100-1713c6eK12UC31P3T5JOCU%25hjdmiTDDmvMXlHWguCuq6Q44RtRHo9ZAaDjJu5PcI7tGW3rNbZJNKXv9Z7KcQQ%25yFN5tFAsXrw4r3wo0qnqZr8MCnR4i84tV2YN2OmNyW1QGWgCWKMUuyO9I7KMIrlhQ5kWHgfNk8h0Dy13Q9%25tlzfIjMREDrs6eWR6kUjGlHbnwFRY40VHTUNsVPjdwk");
+  background-size: cover;
+}
+
+*:target ~ .item-1 {
+  opacity: 0;
+}
+
+#item-1:target ~ .item-1 {
+  opacity: 1;
+}
+
+#item-2:target ~ .item-2,
+#item-3:target ~ .item-3,
+#item-4:target ~ .item-4 {
+  z-index: 3;
+  opacity: 1;
+}
+
+.models {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(9, 1fr);
+  margin: -50px -8px -8px -8px;
+  max-height: 120vh;
+  position: relative;
+  top: -100px;
+}
+.models_carsMenu {
+  display: grid;
+  grid-column: 1/31;
+  grid-row: 1;
+  grid-template-columns: repeat(16, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  border-bottom: 16px solid white;
+}
+.models_carsMenu-headLine {
+  grid-column: 2/3;
+  text-align: center;
+  font-size: 15px;
+  font-weight: bold;
+  font-family: "Ruda", sans-serif;
+}
+.models_carsMenu-animationCar {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0;
+  position: relative;
+}
+.models_carsMenu-animationCar:hover ul {
+  display: flex;
+}
+.models_carsMenu-animationCar:hover {
+  cursor: pointer;
+}
+.models_carsMenu-animationCar:hover span {
+  display: block;
+  font-weight: 800;
+}
+.models_carsMenu-animationCar ul {
+  display: none;
+  flex-direction: column;
+  opacity: 0.85;
+  position: absolute;
+  border-radius: 15px;
+  top: 60px;
+  left: 55px;
+  width: 120px;
+}
+.models_carsMenu-animationCar ul a {
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  font-size: 17px;
+  font-weight: 1500;
+  color: black;
+  background-color: white;
+  margin: 0 0 0 -40px;
+  font-family: "Roboto", sans-serif;
+  border-bottom: 1px solid black;
+  border-radius: 10px;
+  padding-top: 5px;
+}
+.models_carsMenu-animationCar ul a:hover {
+  color: white;
+  background-color: #4a5ad3;
+}
+.models_carsMenu-animationCar span {
+  font-size: 17px;
+  font-family: "Lobster Two", cursive;
+  display: none;
+}
+.models_carsMenu .animationOne {
+  grid-column: 5/7;
+  background-image: url(https://cdn.jdpower.com/ChromeImageGallery/ColorMatched/White/640/cc_2020PRC19_03_640/cc_2020PRC190008_03_640_P3.jpg);
+  animation: carMovesLeft 4s 0.5s forwards;
+}
+.models_carsMenu .animationTwo {
+  grid-column: 7/9;
+  background-image: url(https://cdn.jdpower.com/ChromeImageGallery/Expanded/White/640/2022PRC01_640/2022PRC010074_640_03.jpg);
+  animation: carMovesLeft 4s 1.5s forwards;
+}
+.models_carsMenu .animationThree {
+  grid-column: 9/11;
+  background-image: url(https://cdn.jdpower.com/ChromeImageGallery/ColorMatched/White/640/cc_2021PRC20_03_640/cc_2021PRC200034_03_640_Y8.jpg);
+  animation: carMovesLeft 4s 2.5s forwards;
+}
+.models_carsMenu .animationFour {
+  grid-column: 11/13;
+  background-image: url(https://cdn.jdpower.com/ChromeImageGallery/ColorMatched/White/640/cc_2022PRC13_03_640/cc_2022PRC130008_03_640_3H.jpg);
+  animation: carMovesLeft 4s 3.5s forwards;
+}
+.models_carsMenu .animationFive {
+  grid-column: 13/15;
+  background-image: url(https://cdn.jdpower.com/ChromeImageGallery/ColorMatched/White/640/cc_2020PRS03_03_640/cc_2020PRS030039_03_640_L0.jpg);
+  animation: carMovesLeft 4s 4.5s forwards;
+}
+.models_carsMenu .animationSix {
+  grid-column: 15/17;
+  background-image: url(https://cdn.jdpower.com/ChromeImageGallery/Expanded/White/640/2020PRS06_640/2020PRS060003_640_03.jpg);
+  animation: carMovesLeft 4s 5.5s forwards;
+}
+@keyframes carMovesLeft {
+  from {
+    transform: translateX(970px);
+  }
+  to {
+    transform: translateX(-120px);
+    opacity: 1;
+  }
+}
+.models_container {
+  display: grid;
+  grid-row: 2/10;
+  grid-column: 1/8;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+.models_container_box {
+  display: grid;
+  grid-template-columns: repeat(20, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  background-position: center;
+  background-size: cover;
+}
+.models_container_box:hover {
+  background-position: center;
+  background-size: cover;
+}
+.models_container_box_headline {
+  display: flex;
+  grid-row: 1/2;
+  grid-column: 2/11;
+}
+.models_container_box_headline span {
+  color: white;
+  font-size: 35px;
+  font-weight: 750;
+  font-family: "Quicksand", sans-serif;
+  margin-left: 10px;
+}
+.models_container_box_buttons {
+  grid-row: 7;
+  grid-column: 1/21;
+  display: grid;
+  grid-template-columns: repeat(14, 1fr);
+  column-gap: 1em;
+  height: 110%;
+}
+.models_container_box_buttons-Name {
+  display: none;
+  grid-column: 5/11;
+  background: none;
+  border: 2px solid #dd3333;
+  color: #dd3333;
+  border-radius: 30px;
+  font-weight: 1000;
+  font-size: 13px;
+}
+.models_container_box_buttons-buildYourOwn {
+  grid-template-columns: repeat(10);
+  background-color: white;
+  display: block;
+  grid-column: 3/8;
+  border: none;
+  column-gap: 1em;
+  font-family: "Inter", sans-serif;
+}
+.models_container_box_buttons-buildYourOwn:hover {
+  cursor: pointer;
+  background-color: #dd3333;
+  color: white;
+}
+.models_container_box_buttons-allModels {
+  grid-column: 8/12;
+  background: none;
+  border: 1px solid white;
+  color: white;
+  font-weight: 700;
+  font-family: "Inter", sans-serif;
+}
+.models_container_box_buttons-allModels:hover {
+  cursor: pointer;
+  color: #dd3333;
+  border: 1px solid #dd3333;
+}
+.models_container_box_buttons .fas {
+  position: relative;
+  left: -10px;
+  font-size: 15px;
+}
+.models_container .box718 {
+  background-image: url(https://files.porsche.com/filestore/wallpaper/multimedia/none/jdp-2016-982-718-c7-gallery-wallpaper-01/wallpaper/8c279810-e874-11ea-80cd-005056bbdc38;twebp065;l63738108268;w1920;h1080/porsche-wallpaper.webp);
+}
+.models_container .box718:hover {
+  background-image: url(https://media4.giphy.com/media/l2A3N9ohgDPgoVKQJ7/200w.webp?cid=ecf05e47zxrj2legjmt3vrq64haf6f0k7hyw9907he8fncid&rid=200w.webp&ct=g);
+}
+.models_container .box911 {
+  background-image: url(https://newsroom.porsche.com/.imaging/mte/porsche-templating-theme/image_1290x726/dam/pnr/2021/Products/911-five-modes-in-one-day/sport-mode/MFR09717-north-pennine-moors--sport.jpeg/jcr:content/MFR09717-north%20pennine%20moors%20-sport.jpeg);
+}
+.models_container .box911:hover {
+  background-image: url(https://thumbs.gfycat.com/FlimsyImpracticalHairstreakbutterfly-size_restricted.gif);
+}
+.models_container .boxTaycan {
+  background-image: url(https://robbreport.com/wp-content/uploads/2019/10/10-porsche-taycan-4s.jpg?w=1000);
+}
+.models_container .boxTaycan:hover {
+  background-image: url(https://media0.giphy.com/media/UtPkarDI7QxxMHaVji/200w.webp?cid=ecf05e47e6t8vwwe7zbspjckg30gvg8ue24383ceh3bhy5ei&rid=200w.webp&ct=g);
+}
+.models_container .boxpanamera {
+  background-image: url(https://www.autocar.co.uk/sites/autocar.co.uk/files/porsche-panamera.jpg);
+}
+.models_container .boxpanamera:hover {
+  background-image: url(https://media3.giphy.com/media/l3q2xFuPPeBjligxy/200w.webp?cid=ecf05e47ku00pzj0ar2pd6ujunt62mj0gv621d1o6dwk3bkf&rid=200w.webp&ct=g);
+}
+.models_container .boxmecan {
+  background-image: url(https://www.cnet.com/a/img/aJoSV8VSqMO2xPfpxYxoR0pMFHA=/940x0/2021/08/30/08a56f0e-aa2d-4870-8303-1cde5a25d842/2022-porsche-macan-001.jpg);
+}
+.models_container .boxmecan:hover {
+  background-image: url(https://media4.giphy.com/media/w8ZZe1n3GRTjiIqY5K/giphy.gif);
+}
+.models_container .boxcayenne {
+  background-image: url(https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/2020-porsche-cayenne-turbo-s-e-hybrid-105-1578421900.jpg?crop=0.622xw:0.466xh;0.236xw,0.356xh&resize=1200:*);
+}
+.models_container .boxcayenne:hover {
+  background-image: url(https://i.pinimg.com/originals/1f/52/62/1f52622c8d112fb2e0f6277e87615025.gif);
+}
+
+@media only screen and (max-width: 1200px) {
+  .models {
+    grid-template-rows: repeat(6, 1fr);
+  }
+  .models_container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+  .models_carsMenu {
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(16, 1fr);
+  }
+  .models_carsMenu .animationOne {
+    grid-column: 4/6;
+  }
+  .models_carsMenu .animationTwo {
+    grid-column: 6/8;
+  }
+  .models_carsMenu .animationThree {
+    grid-column: 8/10;
+  }
+  .models_carsMenu .animationFour {
+    grid-column: 10/12;
+  }
+  .models_carsMenu .animationFive {
+    grid-column: 12/14;
+  }
+  .models_carsMenu .animationSix {
+    grid-column: 14/16;
+  }
+  .models_carsMenu-animationCar {
+    grid-row: 2;
+  }
+  .models_carsMenu-animationCar ul {
+    left: 7px;
+    top: 82px;
+    width: 80px;
+  }
+  .models_carsMenu-animationCar ul a {
+    font-size: 13px;
+  }
+  .models_carsMenu-animationCar span {
+    font-size: 14px;
+  }
+  .models_carsMenu-headLine {
+    grid-row: 1;
+    grid-column: 1/31;
+    text-align: center;
+    font-size: 17px;
+  }
+}
+@media only screen and (max-width: 1050px) {
+  .models_container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 300px);
+  }
+  .models_carsMenu {
+    grid-template-columns: repeat(35, 1fr);
+    grid-column: 1/8;
+  }
+  .models_carsMenu .animationOne {
+    grid-column: 7/11;
+  }
+  .models_carsMenu .animationTwo {
+    grid-column: 12/16;
+  }
+  .models_carsMenu .animationThree {
+    grid-column: 17/21;
+  }
+  .models_carsMenu .animationFour {
+    grid-column: 22/26;
+  }
+  .models_carsMenu .animationFive {
+    grid-column: 27/31;
+  }
+  .models_carsMenu .animationSix {
+    grid-column: 32/36;
+  }
+  .models_carsMenu ul {
+    left: 2px;
+    top: 68px;
+    width: 70px;
+  }
+  .models_carsMenu ul a {
+    font-size: 12px;
+  }
+}
+@media only screen and (max-width: 950px) {
+  .models_container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 280px);
+  }
+  .models_carsMenu {
+    grid-template-columns: repeat(35, 26px);
+    grid-column: 1/8;
+  }
+  .models_carsMenu ul {
+    left: -7px;
+    top: 65px;
+    width: 70px;
+  }
+  .models_carsMenu ul a {
+    font-size: 12px;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .models_container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 270px);
+  }
+  .models_container_box_buttons button {
+    font-size: 11px;
+  }
+  .models_carsMenu {
+    grid-template-columns: repeat(100, 10px);
+    grid-column: 1/8;
+  }
+  .models_carsMenu .animationOne {
+    grid-column: 13/23;
+  }
+  .models_carsMenu .animationTwo {
+    grid-column: 24/34;
+  }
+  .models_carsMenu .animationThree {
+    grid-column: 35/45;
+  }
+  .models_carsMenu .animationFour {
+    grid-column: 46/56;
+  }
+  .models_carsMenu .animationFive {
+    grid-column: 57/67;
+  }
+  .models_carsMenu .animationSix {
+    grid-column: 68/78;
+  }
+  .models_carsMenu ul {
+    left: 0px;
+    top: 60px;
+    width: 60px;
+  }
+  .models_carsMenu ul a {
+    font-size: 12px;
+  }
+  .models_carsMenu-headLine {
+    grid-column: 1/69;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: "Ruda", sans-serif;
+  }
+}
+@media only screen and (max-width: 670px) {
+  .models_container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 270px);
+  }
+  .models_box_buttons-buildYourOwn {
+    grid-column: 2/8;
+  }
+  .models_box_buttons_carsMenu {
+    grid-template-columns: repeat(300, 5px);
+    grid-column: 1/8;
+  }
+  .models_box_buttons_carsMenu .animationOne {
+    grid-column: 25/45;
+  }
+  .models_box_buttons_carsMenu .animationTwo {
+    grid-column: 45/65;
+  }
+  .models_box_buttons_carsMenu .animationThree {
+    grid-column: 65/85;
+  }
+  .models_box_buttons_carsMenu .animationFour {
+    grid-column: 85/105;
+  }
+  .models_box_buttons_carsMenu .animationFive {
+    grid-column: 105/125;
+  }
+  .models_box_buttons_carsMenu .animationSix {
+    grid-column: 125/145;
+  }
+  .models_box_buttons_carsMenu ul {
+    left: 5px;
+    width: 50px;
+  }
+  .models_box_buttons_carsMenu ul a {
+    font-size: 12px;
+  }
+  .models_box_buttons_carsMenu-headLine {
+    grid-column: 1/128;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: "Ruda", sans-serif;
+  }
+}
+@media only screen and (max-width: 670px) and (max-width: 630px) {
+  .models {
+    grid-template-rows: repeat(10, 65px);
+  }
+  .models_container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 250px);
+    grid-row: 2/11;
+  }
+  .models_container_box_buttons-buildYourOwn {
+    display: none;
+  }
+  .models_container_box_buttons-allModels {
+    display: none;
+  }
+  .models_container_box_buttons-Name {
+    display: block;
+  }
+  .models_container_box_buttons-Name:hover {
+    cursor: pointer;
+    color: white;
+    border: 5px solid white;
+  }
+  .models_carsMenu {
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    border-bottom: 3px solid white;
+  }
+  .models_carsMenu-animationCar {
+    display: none;
+  }
+  .models_carsMenu:hover span {
+    display: none;
+  }
+  .models_carsMenu:hover ul {
+    display: none;
+  }
+  .models_carsMenu-headLine {
+    grid-column: 2/3;
+    grid-row: 3;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: "Ruda", sans-serif;
+  }
+}
+.live__main {
+  display: grid;
+  grid-template-rows: repeat(5, 20vh);
+  grid-template-columns: repeat(6, 15vw);
+  justify-content: center;
+  gap: 7px;
+  margin: 0.8vh 60px 60px 60px;
+  font-family: Arial Narrow, sans-serif;
+}
+.live__main__box {
+  display: flex;
+  justify-content: flex-end;
+  align-content: flex-end;
+  background-size: cover;
+  cursor: pointer;
+}
+.live__main__box h3 {
+  opacity: 0;
+  padding-right: 110px;
+  padding-top: 80px;
+  font-size: 15px;
+  color: #292929;
+  line-height: 1.2;
+}
+.live__main__box h3 span {
+  font-size: 20px;
+}
+.live__main__box h3:hover {
+  opacity: 100%;
+  transition: all 1.5s;
+}
+.live__main__box .fab {
+  color: white;
+  align-self: flex-end;
+  position: relative;
+  right: 10px;
+  bottom: 10px;
+}
+.live__main__box:hover .fab {
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.52);
+  border-radius: 0 0 10px 10px;
+}
+.live__main__box.box1 {
+  transition: all 2s ease-out;
+  background-image: url("https://images.unsplash.com/photo-1617427618363-05c520d7eb5a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1926&q=80");
+}
+.live__main__box.box1:hover {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("https://images.unsplash.com/photo-1617427618363-05c520d7eb5a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1926&q=80");
+}
+.live__main__box.box2 {
+  background-image: url("https://images.unsplash.com/photo-1588258219511-64eb629cb833?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3270&q=80");
+}
+.live__main__box.box2:hover {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("https://images.unsplash.com/photo-1588258219511-64eb629cb833?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3270&q=80");
+}
+.live__main__box.box3 {
+  background-image: url("https://images.unsplash.com/photo-1585844508832-81ed8bd5ca29?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3118&q=80");
+}
+.live__main__box.box3:hover {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("https://images.unsplash.com/photo-1585844508832-81ed8bd5ca29?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3118&q=80");
+}
+.live__main__box.box4 {
+  background-image: url("https://images.unsplash.com/photo-1534093607318-f025413f49cb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3870&q=80");
+}
+.live__main__box.box4:hover {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("https://images.unsplash.com/photo-1534093607318-f025413f49cb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3870&q=80");
+}
+.live__main__box.box5 {
+  background-image: url("https://images.unsplash.com/photo-1613921568536-555645be4032?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2622&q=80");
+}
+.live__main__box.box5:hover {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("https://images.unsplash.com/photo-1613921568536-555645be4032?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2622&q=80");
+}
+.live__main__box.box6 {
+  background-image: url("https://images.unsplash.com/photo-1595360136370-89e59179a8b9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3270&q=80");
+}
+.live__main__box.box6:hover {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("https://images.unsplash.com/photo-1595360136370-89e59179a8b9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3270&q=80");
+}
+.live__main__box--boxBig {
+  display: flex;
+  justify-content: flex-end;
+  align-content: flex-end;
+  grid-column: span 2;
+  grid-row: span 2;
+  overflow: hidden;
+}
+.live__main__box--boxBig .box-hide {
+  top: 100%;
+  position: relative;
+  transition: all 1s ease-out;
+  background: #d5001c;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  cursor: pointer;
+}
+.live__main__box--boxBig .box-hide span {
+  display: grid;
+  justify-content: center;
+  font-size: 25px;
+  font-weight: bold;
+}
+.live__main__box--boxBig:hover .box-hide {
+  top: 70%;
+}
+.live__main__box--boxBig:hover {
+  transition: all 3s;
+}
+.live__main__box--boxBig:hover .fab {
+  bottom: 50px;
+  transition: all 1s;
+  z-index: 1;
+}
+.live__main__box--boxBig .fab {
+  color: white;
+  position: relative;
+  left: 440px;
+  bottom: 60px;
+  z-index: 1;
+}
+.live__main__box--boxBig.boxBig1 {
+  background-image: url("https://images.unsplash.com/photo-1610379361814-e571eaca6159?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80");
+  background-size: cover;
+  animation: slide 10s infinite alternate;
+}
+@keyframes slide {
+  50% {
+    background-image: url("https://images.unsplash.com/photo-1592853625601-bb9d23da12fc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3540&q=80");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  100% {
+    background-image: url("https://images.unsplash.com/photo-1597957266780-9c39b6972522?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3132&q=80");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+.live__main__box--boxBig.boxBig1:hover {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("https://images.unsplash.com/photo-1610379361814-e571eaca6159?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80");
+  animation-name: none;
+}
+.live__main__box--boxBig.boxBig2 {
+  background-image: url("https://images.unsplash.com/photo-1611651338412-8403fa6e3599?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3542&q=80");
+  background-size: cover;
+}
+.live__main__box--boxBig.boxBig2:hover {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("https://images.unsplash.com/photo-1611651338412-8403fa6e3599?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3542&q=80");
+}
+.live__main__box--boxBig.boxBig3 {
+  background-image: url("https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3540&q=80");
+  background-size: cover;
+}
+.live__main__box--boxBig.boxBig3:hover {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3540&q=80");
+}
+.live__main .header {
+  grid-column: span 6;
+  align-self: flex-end;
+  font-weight: bolder;
+  font-size: 2.9rem;
+  padding-bottom: 24px;
+  letter-spacing: 0.5px;
+}
+.live__main .footer {
+  grid-column: span 6;
+  align-self: flex-start;
+  justify-self: flex-end;
+  padding-top: 13px;
+  font-size: 16px;
+  width: 95px;
+  height: 25px;
+  background: #313639;
+  color: white;
+  font-weight: bolder;
+  cursor: pointer;
+  position: relative;
+  padding: 13px 21px;
+}
+.live__main .footer span {
+  padding-right: 3px;
+}
+.live__main .footer:hover {
+  background-color: #d5001c;
+  transition: all 0.5s;
+}
+
+@media only screen and (max-width: 1400px) {
+  .live__main__box h3 {
+    display: none;
+  }
+  .live__main__box span {
+    display: none;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .live__main {
+    display: grid;
+    grid-template-rows: repeat(5, 20vh);
+    grid-template-columns: repeat(4, 15vw);
+    gap: 4px;
+    font-family: Arial Narrow, sans-serif;
+  }
+  .live__main .header {
+    grid-column: span 4;
+  }
+  .live__main .footer {
+    grid-column: span 4;
+  }
+  .live__main__box--boxBig.boxBig3 {
+    display: none;
+  }
+  .live__main__box h3 {
+    font-size: 0.5px;
+  }
+  .live__main__box.box5, .live__main__box.box6 {
+    display: none;
+  }
+}
+.models {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(9, 1fr);
+  margin: 0 -8px -8px -8px;
+}
+.models_carsMenu {
+  display: grid;
+  grid-column: 1/31;
+  grid-row: 1;
+  grid-template-columns: repeat(16, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  border-bottom: 16px solid white;
+}
+.models_carsMenu-headLine {
+  grid-column: 2/3;
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  font-family: "Ruda", sans-serif;
+}
+.models_carsMenu-animationCar {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0;
+  position: relative;
+}
+.models_carsMenu-animationCar:hover ul {
+  display: flex;
+}
+.models_carsMenu-animationCar:hover {
+  cursor: pointer;
+}
+.models_carsMenu-animationCar:hover span {
+  display: block;
+  font-weight: 800;
+}
+.models_carsMenu-animationCar ul {
+  display: none;
+  flex-direction: column;
+  opacity: 0.85;
+  position: absolute;
+  border-radius: 15px;
+  top: 60px;
+  left: 10px;
+  width: 120px;
+}
+.models_carsMenu-animationCar ul a {
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  font-size: 17px;
+  font-weight: 1500;
+  color: black;
+  background-color: white;
+  margin: 0 0 0 -40px;
+  font-family: "Roboto", sans-serif;
+  border-bottom: 1px solid black;
+  border-radius: 10px;
+  padding-top: 5px;
+}
+.models_carsMenu-animationCar ul a:hover {
+  color: white;
+  background-color: #4a5ad3;
+}
+.models_carsMenu-animationCar span {
+  font-size: 17px;
+  font-family: "Lobster Two", cursive;
+  display: none;
+}
+.models_carsMenu .animationOne {
+  grid-column: 5/7;
+  background-image: url(https://cdn.jdpower.com/ChromeImageGallery/ColorMatched/White/640/cc_2020PRC19_03_640/cc_2020PRC190008_03_640_P3.jpg);
+  animation: carMovesLeft 4s 0.5s forwards;
+}
+.models_carsMenu .animationTwo {
+  grid-column: 7/9;
+  background-image: url(https://cdn.jdpower.com/ChromeImageGallery/Expanded/White/640/2022PRC01_640/2022PRC010074_640_03.jpg);
+  animation: carMovesLeft 4s 1.5s forwards;
+}
+.models_carsMenu .animationThree {
+  grid-column: 9/11;
+  background-image: url(https://cdn.jdpower.com/ChromeImageGallery/ColorMatched/White/640/cc_2021PRC20_03_640/cc_2021PRC200034_03_640_Y8.jpg);
+  animation: carMovesLeft 4s 2.5s forwards;
+}
+.models_carsMenu .animationFour {
+  grid-column: 11/13;
+  background-image: url(https://cdn.jdpower.com/ChromeImageGallery/ColorMatched/White/640/cc_2022PRC13_03_640/cc_2022PRC130008_03_640_3H.jpg);
+  animation: carMovesLeft 4s 3.5s forwards;
+}
+.models_carsMenu .animationFive {
+  grid-column: 13/15;
+  background-image: url(https://cdn.jdpower.com/ChromeImageGallery/ColorMatched/White/640/cc_2020PRS03_03_640/cc_2020PRS030039_03_640_L0.jpg);
+  animation: carMovesLeft 4s 4.5s forwards;
+}
+.models_carsMenu .animationSix {
+  grid-column: 15/17;
+  background-image: url(https://cdn.jdpower.com/ChromeImageGallery/Expanded/White/640/2020PRS06_640/2020PRS060003_640_03.jpg);
+  animation: carMovesLeft 4s 5.5s forwards;
+}
+@keyframes carMovesLeft {
+  from {
+    transform: translateX(970px);
+  }
+  to {
+    transform: translateX(-120px);
+    opacity: 1;
+  }
+}
+.models_container {
+  display: grid;
+  grid-row: 2/10;
+  grid-column: 1/8;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+.models_container_box {
+  display: grid;
+  grid-template-columns: repeat(20, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  background-position: center;
+  background-size: cover;
+}
+.models_container_box:hover {
+  background-position: center;
+  background-size: cover;
+}
+.models_container_box_headline {
+  display: flex;
+  grid-row: 1/2;
+  grid-column: 2/11;
+}
+.models_container_box_headline span {
+  color: white;
+  font-size: 35px;
+  font-weight: 750;
+  font-family: "Quicksand", sans-serif;
+  margin-left: 10px;
+}
+.models_container_box_buttons {
+  grid-row: 7;
+  grid-column: 1/21;
+  display: grid;
+  grid-template-columns: repeat(14, 1fr);
+  column-gap: 1em;
+  height: 110%;
+}
+.models_container_box_buttons-Name {
+  display: none;
+  grid-column: 5/11;
+  background: none;
+  border: 2px solid #dd3333;
+  color: #dd3333;
+  border-radius: 30px;
+  font-weight: 1000;
+  font-size: 13px;
+}
+.models_container_box_buttons-buildYourOwn {
+  grid-template-columns: repeat(10);
+  background-color: white;
+  display: block;
+  grid-column: 3/8;
+  border: none;
+  column-gap: 1em;
+  font-family: "Inter", sans-serif;
+}
+.models_container_box_buttons-buildYourOwn:hover {
+  cursor: pointer;
+  background-color: #dd3333;
+  color: white;
+}
+.models_container_box_buttons-allModels {
+  grid-column: 8/12;
+  background: none;
+  border: 1px solid white;
+  color: white;
+  font-weight: 700;
+  font-family: "Inter", sans-serif;
+}
+.models_container_box_buttons-allModels:hover {
+  cursor: pointer;
+  color: #dd3333;
+  border: 1px solid #dd3333;
+}
+.models_container_box_buttons .fas {
+  position: relative;
+  left: -10px;
+  font-size: 15px;
+}
+.models_container .box718 {
+  background-image: url(https://files.porsche.com/filestore/wallpaper/multimedia/none/jdp-2016-982-718-c7-gallery-wallpaper-01/wallpaper/8c279810-e874-11ea-80cd-005056bbdc38;twebp065;l63738108268;w1920;h1080/porsche-wallpaper.webp);
+}
+.models_container .box718:hover {
+  background-image: url(https://media4.giphy.com/media/l2A3N9ohgDPgoVKQJ7/200w.webp?cid=ecf05e47zxrj2legjmt3vrq64haf6f0k7hyw9907he8fncid&rid=200w.webp&ct=g);
+}
+.models_container .box911 {
+  background-image: url(https://newsroom.porsche.com/.imaging/mte/porsche-templating-theme/image_1290x726/dam/pnr/2021/Products/911-five-modes-in-one-day/sport-mode/MFR09717-north-pennine-moors--sport.jpeg/jcr:content/MFR09717-north%20pennine%20moors%20-sport.jpeg);
+}
+.models_container .box911:hover {
+  background-image: url(https://thumbs.gfycat.com/FlimsyImpracticalHairstreakbutterfly-size_restricted.gif);
+}
+.models_container .boxTaycan {
+  background-image: url(https://robbreport.com/wp-content/uploads/2019/10/10-porsche-taycan-4s.jpg?w=1000);
+}
+.models_container .boxTaycan:hover {
+  background-image: url(https://media0.giphy.com/media/UtPkarDI7QxxMHaVji/200w.webp?cid=ecf05e47e6t8vwwe7zbspjckg30gvg8ue24383ceh3bhy5ei&rid=200w.webp&ct=g);
+}
+.models_container .boxpanamera {
+  background-image: url(https://www.autocar.co.uk/sites/autocar.co.uk/files/porsche-panamera.jpg);
+}
+.models_container .boxpanamera:hover {
+  background-image: url(https://media3.giphy.com/media/l3q2xFuPPeBjligxy/200w.webp?cid=ecf05e47ku00pzj0ar2pd6ujunt62mj0gv621d1o6dwk3bkf&rid=200w.webp&ct=g);
+}
+.models_container .boxmecan {
+  background-image: url(https://www.cnet.com/a/img/aJoSV8VSqMO2xPfpxYxoR0pMFHA=/940x0/2021/08/30/08a56f0e-aa2d-4870-8303-1cde5a25d842/2022-porsche-macan-001.jpg);
+}
+.models_container .boxmecan:hover {
+  background-image: url(https://media4.giphy.com/media/w8ZZe1n3GRTjiIqY5K/giphy.gif);
+}
+.models_container .boxcayenne {
+  background-image: url(https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/2020-porsche-cayenne-turbo-s-e-hybrid-105-1578421900.jpg?crop=0.622xw:0.466xh;0.236xw,0.356xh&resize=1200:*);
+}
+.models_container .boxcayenne:hover {
+  background-image: url(https://i.pinimg.com/originals/1f/52/62/1f52622c8d112fb2e0f6277e87615025.gif);
+}
+
+@media only screen and (max-width: 1200px) {
+  .models {
+    grid-template-rows: repeat(6, 1fr);
+  }
+  .models_container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+  .models_carsMenu {
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(16, 1fr);
+  }
+  .models_carsMenu .animationOne {
+    grid-column: 4/6;
+  }
+  .models_carsMenu .animationTwo {
+    grid-column: 6/8;
+  }
+  .models_carsMenu .animationThree {
+    grid-column: 8/10;
+  }
+  .models_carsMenu .animationFour {
+    grid-column: 10/12;
+  }
+  .models_carsMenu .animationFive {
+    grid-column: 12/14;
+  }
+  .models_carsMenu .animationSix {
+    grid-column: 14/16;
+  }
+  .models_carsMenu-animationCar {
+    grid-row: 2;
+  }
+  .models_carsMenu-animationCar ul {
+    left: 7px;
+    top: 82px;
+    width: 80px;
+  }
+  .models_carsMenu-animationCar ul a {
+    font-size: 13px;
+  }
+  .models_carsMenu-animationCar span {
+    font-size: 14px;
+  }
+  .models_carsMenu-headLine {
+    grid-row: 1;
+    grid-column: 1/31;
+    text-align: center;
+    font-size: 17px;
+  }
+}
+@media only screen and (max-width: 1050px) {
+  .models_container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 300px);
+  }
+  .models_carsMenu {
+    grid-template-columns: repeat(35, 1fr);
+    grid-column: 1/8;
+  }
+  .models_carsMenu .animationOne {
+    grid-column: 7/11;
+  }
+  .models_carsMenu .animationTwo {
+    grid-column: 12/16;
+  }
+  .models_carsMenu .animationThree {
+    grid-column: 17/21;
+  }
+  .models_carsMenu .animationFour {
+    grid-column: 22/26;
+  }
+  .models_carsMenu .animationFive {
+    grid-column: 27/31;
+  }
+  .models_carsMenu .animationSix {
+    grid-column: 32/36;
+  }
+  .models_carsMenu ul {
+    left: 2px;
+    top: 68px;
+    width: 70px;
+  }
+  .models_carsMenu ul a {
+    font-size: 12px;
+  }
+}
+@media only screen and (max-width: 950px) {
+  .models_container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 280px);
+  }
+  .models_carsMenu {
+    grid-template-columns: repeat(35, 26px);
+    grid-column: 1/8;
+  }
+  .models_carsMenu ul {
+    left: -7px;
+    top: 65px;
+    width: 70px;
+  }
+  .models_carsMenu ul a {
+    font-size: 12px;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .models_container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 270px);
+  }
+  .models_container_box_buttons button {
+    font-size: 11px;
+  }
+  .models_carsMenu {
+    grid-template-columns: repeat(100, 10px);
+    grid-column: 1/8;
+  }
+  .models_carsMenu .animationOne {
+    grid-column: 13/23;
+  }
+  .models_carsMenu .animationTwo {
+    grid-column: 24/34;
+  }
+  .models_carsMenu .animationThree {
+    grid-column: 35/45;
+  }
+  .models_carsMenu .animationFour {
+    grid-column: 46/56;
+  }
+  .models_carsMenu .animationFive {
+    grid-column: 57/67;
+  }
+  .models_carsMenu .animationSix {
+    grid-column: 68/78;
+  }
+  .models_carsMenu ul {
+    left: 0px;
+    top: 60px;
+    width: 60px;
+  }
+  .models_carsMenu ul a {
+    font-size: 12px;
+  }
+  .models_carsMenu-headLine {
+    grid-column: 1/69;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: "Ruda", sans-serif;
+  }
+}
+@media only screen and (max-width: 670px) {
+  .models_container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 270px);
+  }
+  .models_box_buttons-buildYourOwn {
+    grid-column: 2/8;
+  }
+  .models_box_buttons_carsMenu {
+    grid-template-columns: repeat(300, 5px);
+    grid-column: 1/8;
+  }
+  .models_box_buttons_carsMenu .animationOne {
+    grid-column: 25/45;
+  }
+  .models_box_buttons_carsMenu .animationTwo {
+    grid-column: 45/65;
+  }
+  .models_box_buttons_carsMenu .animationThree {
+    grid-column: 65/85;
+  }
+  .models_box_buttons_carsMenu .animationFour {
+    grid-column: 85/105;
+  }
+  .models_box_buttons_carsMenu .animationFive {
+    grid-column: 105/125;
+  }
+  .models_box_buttons_carsMenu .animationSix {
+    grid-column: 125/145;
+  }
+  .models_box_buttons_carsMenu ul {
+    left: 5px;
+    width: 50px;
+  }
+  .models_box_buttons_carsMenu ul a {
+    font-size: 12px;
+  }
+  .models_box_buttons_carsMenu-headLine {
+    grid-column: 1/128;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: "Ruda", sans-serif;
+  }
+}
+@media only screen and (max-width: 670px) and (max-width: 630px) {
+  .models {
+    grid-template-rows: repeat(10, 65px);
+  }
+  .models_container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 250px);
+    grid-row: 2/11;
+  }
+  .models_container_box_buttons-buildYourOwn {
+    display: none;
+  }
+  .models_container_box_buttons-allModels {
+    display: none;
+  }
+  .models_container_box_buttons-Name {
+    display: block;
+  }
+  .models_container_box_buttons-Name:hover {
+    cursor: pointer;
+    color: white;
+    border: 5px solid white;
+  }
+  .models_carsMenu {
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    border-bottom: 3px solid white;
+  }
+  .models_carsMenu-animationCar {
+    display: none;
+  }
+  .models_carsMenu:hover span {
+    display: none;
+  }
+  .models_carsMenu:hover ul {
+    display: none;
+  }
+  .models_carsMenu-headLine {
+    grid-column: 2/3;
+    grid-row: 3;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: "Ruda", sans-serif;
+  }
+}
+body {
+  font-family: "Roboto", sans-serif;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.discover {
+  display: grid;
+  grid-template-rows: repeat(4, 60px 300px);
+  grid-template-columns: repeat(4, 1fr);
+  margin: 0;
+}
+.discover__header {
+  grid-row: 1;
+  text-align: center;
+  justify-content: center;
+  margin: auto;
+  font-size: 30px;
+  font-weight: 1000;
+}
+.discover__wrapper {
+  grid-row: 2/4;
+  grid-column: 1/5;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 4fr));
+  grid-template-rows: repeat(auto-fit, minmax(300px, 2fr));
+}
+.discover__wrapper__box {
+  color: #fcecec;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+}
+.discover__wrapper__box:hover {
+  border-bottom: 5px solid red;
+  opacity: 0.8;
+}
+.discover__wrapper .box__title {
+  position: relative;
+  top: 400px;
+  color: black;
+}
+.discover__wrapper i {
+  color: red;
+}
+.discover__wrapper .pic1 {
+  background-image: url(https://files.porsche.com/filestore/image/multimedia/none/rd-2017-homepage-teaser-ww-tequipmentsound-design-kw27/normal/e19a7537-5cd4-11e7-9717-0019999cd470;sK;twebp/porsche-normal.webp);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.discover__wrapper .pic2 {
+  background-image: url(https://files.porsche.com/filestore/image/multimedia/none/rd-2020-homepage-teaser-ww-gtshub-kw29/normal/9ed52783-c175-11ea-80ca-005056bbdc38;sK;twebp/porsche-normal.webp);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.discover__wrapper .pic3 {
+  background-image: url(https://files.porsche.com/filestore/image/multimedia/none/rd-2017-homepage-teaser-porscheexclusivemanufaktur-kw24/normal/3cbd9b47-4c59-11e7-bfe2-0019999cd470;sK;twebp/porsche-normal.webp);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.discover__wrapper .pic4 {
+  background-image: url(https://files.porsche.com/filestore/image/multimedia/none/rd-2018-homepage-teaser-ww-e-performance-kw12/normal/f7cc8e7c-6599-11e9-80c4-005056bbdc38;sK;twebp/porsche-normal.webp);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.discover__links {
+  grid-row: 5/9;
+  grid-column: 1/5;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+  display: grid;
+}
+.discover__links__list {
+  justify-content: center;
+}
+.discover__links ul {
+  display: flex;
+  flex-direction: column;
+}
+.discover__links ul a {
+  color: black;
+  margin-bottom: 15px;
+  text-align: center;
+  font-size: 20px;
+  text-decoration: none;
+}
+.discover__links ul a:hover {
+  transition: 0.8s;
+  color: red;
+}
+.discover__share {
+  grid-row: 8/9;
+  grid-column: 4/5;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+  display: grid;
+}
+.discover__share__btn {
+  background-color: #191F22;
+  color: white;
+  grid-row: 1/2;
+  grid-column: 1/4;
+}
+.discover__share__btn:hover {
+  transition: 0.8s;
+  background-color: red;
+}
+.discover__share__connect {
+  grid-row: 3/5;
+  grid-column: 1/4;
+}
+.discover__share i {
+  font-size: 50px;
+}
+.discover__share i:hover {
+  transition: 0.8s;
+  color: red;
+}

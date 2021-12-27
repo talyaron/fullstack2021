@@ -1,6 +1,7 @@
 .gauge {
   width: 100%;
   max-width: 350px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 .gauge__body {
   width: 100%;
@@ -18,7 +19,7 @@
   background: #8d35df;
   transform-origin: center top;
   transform: rotate(0.5turn);
-  transition: transform 0.2s ease-out;
+  transition: transform 3s ease-out;
 }
 .gauge__body__cover1 {
   width: 75%;
@@ -28,6 +29,28 @@
   position: absolute;
   top: 12.5%;
   left: 12.5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.gauge__body__cover1__circle {
+  width: 70%;
+  height: 70%;
+  border-radius: 50%;
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.gauge__body__cover1__circle--a {
+  font-size: 15px;
+}
+.gauge__body__cover1__circle--b {
+  font-size: 30px;
+}
+.gauge__body__cover1__circle--c {
+  font-size: 15px;
 }
 .gauge__body__cover2 {
   width: 100%;

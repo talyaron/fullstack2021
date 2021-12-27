@@ -1,0 +1,79 @@
+    .body,
+    html {
+        background-color: grey;
+    }
+
+    .text {
+        text-align: center;
+        color: rgb(61, 23, 23);
+        animation-name: moveDown;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        position: relative;
+    }
+
+    .wrapper {
+        display: flex;
+        justify-content: center;
+        height: 500px;
+
+        .item {
+            border: 1px solid gray;
+            width: 100px;
+            flex: 1;
+
+            &:hover {
+                img {
+                    height: 100%;
+                }
+            }
+        }
+
+        img {
+            height: 90%;
+        }
+    }
+
+
+    @media only screen and (max-width: 800px) {
+
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 200px;
+            width: 150px;
+            
+            position: relative;
+
+            div>a>img {
+                height: 30vh;
+                width: 50vw;
+            }
+
+            .item {
+                border: 1px solid gray;
+                flex: 1;
+                position: relative;
+                top: 40vh;
+
+                &:hover {
+                    img {
+                        height: 35vh;
+                    }
+                }
+            }
+        }
+    }
+
+
+    @keyframes moveDown {
+        from {
+            top: -4vw;
+        }
+
+        to {
+            top: 0vw;
+        }
+    }

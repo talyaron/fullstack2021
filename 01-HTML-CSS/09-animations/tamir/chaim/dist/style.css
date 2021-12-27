@@ -1,0 +1,126 @@
+body {
+  padding: 0;
+  margin: 5px;
+}
+
+.wrapper {
+  border-radius: 40px;
+  background-color: #dad4d4;
+}
+.wrapper img {
+  width: 100%;
+  height: 100%;
+  border-radius: 40px;
+}
+.wrapper__h {
+  padding-left: 15px;
+}
+.wrapper__info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.wrapper__info :hover {
+  cursor: pointer;
+  border-bottom: 2px solid brown;
+}
+.wrapper__subinfo {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 10px;
+  padding-left: 10px;
+}
+.wrapper__subinfo :hover {
+  cursor: pointer;
+  border-bottom: 2px solid brown;
+}
+.wrapper__subinfo i {
+  color: orange;
+}
+.wrapper__h3 {
+  padding-right: 20px;
+}
+.wrapper__h4 {
+  padding-right: 15px;
+}
+
+.container1 {
+  background-color: #dad4d4;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+  text-align: center;
+  justify-content: space-between;
+  margin: 0vh;
+  border-radius: 30px;
+}
+.container1 :hover {
+  cursor: pointer;
+}
+.container1 .m {
+  font-size: 3vh;
+  text-align: right;
+}
+
+.container2 {
+  background-color: #dad4d4;
+  justify-content: space-between;
+  margin: 0vh;
+  border-radius: 30px;
+  height: 150px;
+}
+.container2__h5 {
+  font-size: 3vh;
+  padding-left: 15px;
+}
+.container2__h5__h6 {
+  font-size: 3vh;
+  padding-right: 10px;
+}
+
+.container3 {
+  background-color: blue;
+  width: 100%;
+  height: 100px;
+  border-radius: 30px;
+}
+.container3 h5 {
+  font-size: 8vh;
+  padding: 15px;
+  text-align: center;
+}
+.container3 :hover {
+  text-decoration: underline;
+  text-decoration-color: red;
+}
+
+@media only screen and (min-width: 670px) {
+  .wrapper__info {
+    font-size: 3em;
+  }
+  .wrapper__h {
+    font-size: 2em;
+  }
+  .wrapper__subinfo {
+    font-size: 2em;
+  }
+
+  .wrapper2 .container1 {
+    font-size: 3em;
+  }
+  .wrapper2 .container1 .m {
+    font-size: 2em;
+  }
+
+  .container2 h5 {
+    font-size: 2em;
+  }
+  .container2 h5 h6 {
+    font-size: 2em;
+  }
+
+  .container3 h5 {
+    font-size: 3em;
+  }
+}

@@ -12,20 +12,86 @@ body {
 
 #landing {
   padding-top: 1.5rem;
+  padding-bottom: 2.5rem;
   width: 100vw;
   height: 100%;
   margin: auto;
   background-color: #f0f0f2;
 }
+#landing__dailytasksdone {
+  padding: 5%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(5, 17%);
+  grid-template-rows: 17%, 35%, 17%;
+  gap: 15px;
+}
+@media only screen and (min-width: 1200px) {
+  #landing__dailytasksdone {
+    position: absolute;
+    top: 20%;
+    left: 0%;
+  }
+}
+#landing__dailytasksdone .box1 {
+  grid-column: 1/4;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.5rem;
+  text-transform: capitalize;
+}
+#landing__dailytasksdone .box2 {
+  grid-column: 4/6;
+  font-weight: 550;
+  text-align: right;
+}
+#landing__dailytasksdone .box3 {
+  grid-column: 1/6;
+}
+#landing__dailytasksdone .box3 img {
+  width: 100%;
+}
+#landing__dailytasksdone .box {
+  border: 2px solid black;
+  border-radius: 15px;
+  padding: 20%;
+  text-align: center;
+}
+#landing__dailytasksdone .box:hover {
+  background-color: rgba(0, 0, 0, 0.837);
+  cursor: pointer;
+}
+#landing__dailytasksdone .box p {
+  margin: 0;
+  font-weight: 500;
+}
+#landing__dailytasksdone .box p:hover {
+  color: white;
+}
 #landing__dailytaskslist {
-  padding-top: 1.5rem;
+  padding: 5%;
   display: flex;
   flex-direction: column;
+  width: 90%;
+}
+@media only screen and (min-width: 1200px) {
+  #landing__dailytaskslist {
+    position: absolute;
+    top: 20%;
+    right: 0%;
+    width: 35%;
+  }
 }
 #landing__dailytaskslist .list {
   display: flex;
   justify-content: space-around;
   border-bottom: 0.5px solid rgba(96, 94, 94, 0.68);
+  transition: all 0.5s;
+}
+#landing__dailytaskslist .list:hover {
+  transform: scale(1.2);
+  z-index: 1;
+  cursor: pointer;
 }
 #landing__dailytaskslist .list__line {
   display: flex;
@@ -57,51 +123,11 @@ body {
 #landing__dailytaskslist .list__line .logo {
   font-weight: 700;
 }
+#landing__dailytaskslist .list__line .logo:hover {
+  text-decoration: underline;
+}
 #landing__dailytaskslist .list__line p {
   padding: 1.5rem;
-}
-#landing__dailytasksdone {
-  padding-top: 4vh;
-  margin: auto;
-  display: grid;
-  grid-template-columns: repeat(5, 80px);
-  grid-template-rows: 100px, 200px, 100px;
-  gap: 10px;
-}
-#landing__dailytasksdone .box1 {
-  grid-column: 1/4;
-  font-weight: 700;
-  font-family: "Poppins", sans-serif;
-  font-size: 1.5rem;
-  text-transform: capitalize;
-}
-#landing__dailytasksdone .box2 {
-  grid-column: 4/6;
-  font-weight: 550;
-  text-align: right;
-}
-#landing__dailytasksdone .box3 {
-  grid-column: 1/6;
-}
-#landing__dailytasksdone .box3 img {
-  width: 100%;
-}
-#landing__dailytasksdone .box {
-  border: 2px solid black;
-  border-radius: 15px;
-  padding: 20px;
-  text-align: center;
-}
-#landing__dailytasksdone .box:hover {
-  background-color: rgba(0, 0, 0, 0.837);
-  cursor: pointer;
-}
-#landing__dailytasksdone .box p {
-  margin: 0;
-  font-weight: 500;
-}
-#landing__dailytasksdone .box p:hover {
-  color: white;
 }
 #landing-home {
   height: 100vh;
