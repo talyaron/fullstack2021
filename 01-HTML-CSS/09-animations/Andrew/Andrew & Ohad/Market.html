@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="dist/style.css">
+    <title>Document</title>
+
+</head>
+<body>
+    <script>
+        function increment1() { document.getElementById('price').stepUp() 
+    }
+        function decrement1() { document.getElementById('price').stepDown();
+    }
+
+    function increment2() { document.getElementById('AMOUNT').stepUp() 
+    }
+        function decrement2() { document.getElementById('AMOUNT').stepDown();
+    }
+    </script>
+
+    <div class="market">
+
+        <div class="market--header"> 
+            <button class="market--header__btn" style="background-image: linear-gradient(90deg, rgba(56,60,63,1) 0%, rgba(49,167,128,0.8074580173866421) 97%, rgba(56,60,63,1) 100%); ;">BUYING</button>
+            <button class="market--header__btn">SELLING</button>
+            <button class="market--header__btn">MARGIN</button>
+        </div>
+
+        <div class="market--options">
+            <button class="market--options__btn" style="border-radius: 7px; background-color: rgb(78, 78, 78);">Limit</button>
+            <button class="market--options__btn">Market</button>
+            <button class="market--options__btn">Pool</button>
+        </div>
+
+        <div class="market--PriceWrapper__LeftText">€0.270010 <span class="market--PriceWrapper__RightText">AVG PRICE <span style="color: white;">24 HR</span></span></div>
+       
+
+        <div class="market--PriceWrapper">
+            <div class="market--PriceWrapper__title">Youre price</div>
+            <span class="market--PriceWrapper__euro">€</span><input id=price type="number" value="2.268871321" min=0.268871321 class="market--PriceWrapper__Price">
+            <button onclick="increment1()" class="market--PriceWrapper__plus" title="plus">+</button>
+            <button onclick="decrement1()" class="market--PriceWrapper__minus" title="minus">-</button>
+        </div>
+        
+        <div class="market--AmnuntWrapper__RightText">DEMANDS <span style="color: white;">381</span></span></div>
+
+
+        <div class="market--AmnuntWrapper">
+            <div class="market--AmnuntWrapper__title">AMOUNT</div>
+           <span style="position: relative; left: 4%;"><input id=AMOUNT type="number" value="50.000" class="market--AmnuntWrapper__Price"></span>
+            <button onclick="increment2()" class="market--AmnuntWrapper__plus" title="plus">+</button>
+            <button onclick="decrement2()" class="market--AmnuntWrapper__minus" title="minus">-</button>
+        </div>
+
+        <div class="market--TotalWrapper">
+            <div class="market--TotalWrapper__LeftText">MA / EMA / BOLL</div>
+            <div class="market--TotalWrapper__RightText">AVAILABLE <span style="color: white;"> €53,760.31</span></div>
+            <div class="market--TotalWrapper__title">TOTAL (€)</div>
+            <div class="market--TotalWrapper__price">13.440</div>
+            <div class="market--TotalWrapper--PercentWrapper"> 
+                <button class="market--TotalWrapper--PercentWrapper__btn" style="background-color:orange;">25%</button>
+                <button class="market--TotalWrapper--PercentWrapper__btn">50%</button>
+                <button class="market--TotalWrapper--PercentWrapper__btn">75%</button>
+                <button class="market--TotalWrapper--PercentWrapper__btn">100%</button>
+            </div>
+        </div>
+
+        <div class="market--finalPrice">
+        <div class="market--finalPrice__text">BUY <span style="color: black;background-color: white; border-radius: 5px;;">&nbsp; 50.000&nbsp; </span>&nbsp; SHIB</div>
+        </div>
+        <hr style="width: 90%; border: 1px solid rgb(70, 70, 70)">
+
+        <div class="market--BottomCategories">
+            <button class="market--BottomCategories__btn" style="border-radius: 7px; background-color: rgb(78, 78, 78);">Open orders</button>
+            <button class="market--BottomCategories__btn">Market history</button>
+            <button class="market--BottomCategories__btn">Margin data</button>
+        </div>
+        <span class="market--Notification">2</span>
+        <div>
+            <span class="market--FooterStatus" style="margin: 5%;">CURRENCY</span>
+            <span class="market--FooterStatus">DETAILS</span>
+            <span class="market--FooterStatus">FINALIZED</span>
+            <span class="market--FooterStatus">DATE/ACTION</span>
+        </div>
+
+        <div class="market--FooterBuy">
+            <span class="market--FooterBuy__NameTitle">ARDOR</span>
+            <span class="market--FooterBuy__Name">ARDOR</span>
+            <span class="market--FooterBuy__PriceTitle">PRICE</span>
+            <span class="market--FooterBuy__Price">$97,864.91</span>
+            <span class="market--FooterBuy__QuantityTitle">QUANTITY</span>
+            <span class="market--FooterBuy__Quantity">15.765</span>
+            <span class="market--FooterBuy__CirclePos"><div class="market--FooterBuy__fullCircle">
+                <div class="market--FooterBuy__QuarterCircle"><span class="market--FooterBuy__PercentPos">25%</span></div></div></span> 
+            <button class="market--FooterBuy__Cancel">CANCEL</button>
+            <span class="market--FooterBuy__Date">2021-10-19 8:51</span>
+            <span class="market--FooterBuy__Buy">BUY</span>
+
+            <div class="market--FooterBuy__IconBox ">
+
+            <svg viewBox="0 0 254 254" style="width: 45px;">
+                <g>
+                    <path style="fill:white;" class="st1" d="M171.8,130.3c4.4-7.6,11.5-7.6,15.9,0l27.4,48.1c4.4,7.6,0.8,13.8-8,13.8h-55.2c-8.7,0-12.3-6.2-8-13.8
+                    L171.8,130.3z M118.8,37.7c4.4-7.6,11.4-7.6,15.8,0l6.1,11L155.1,74c3.5,7.2,3.5,15.7,0,22.9l-48.3,83.7
+                    c-4.4,6.8-11.7,11.1-19.8,11.6H46.9c-8.8,0-12.4-6.1-8-13.8L118.8,37.7z" />
+                </g>
+            </svg>
+            </div>      
+        </div>
+
+
+        <div class="market--FooterSell">
+            <span class="market--FooterSell__NameTitle">ROSE</span>
+            <span class="market--FooterSell__Name">ROSE</span>
+            <span class="market--FooterSell__PriceTitle">PRICE</span>
+            <span class="market--FooterSell__Price">$11,301.55</span>
+            <span class="market--FooterSell__QuantityTitle">QUANTITY</span>
+            <span class="market--FooterSell__Quantity">12.25</span>
+            <span class="market--FooterSell__CirclePos"><div class="market--FooterSell__fullCircle">
+                <div class="market--FooterSell__QuarterCircle"><span class="market--FooterSell__PercentPos">25%</span></div></div></span> 
+            <button class="market--FooterSell__Cancel">CANCEL</button>
+            <span class="market--FooterSell__Date">2021-10-19 18:23</span>
+            <span class="market--FooterSell__Sell">SELL</span>
+
+            <div class="market--FooterSell__IconBox">
+
+                <svg viewBox="0 0 128 128">
+                    <path style="fill: white;"
+                        d="M115,25.4C105.3,13,91.1,5.1,75.4,5.1C45,5.1,22.7,33.4,22.7,64c0,21.3,14.2,37.3,29.9,37.3
+                       c1.5,0,2.9-0.1,4.4-0.4C46.4,93.2,39.7,79.2,39.7,64c0-24.2,16.4-43.1,35.7-43.1c21.1,0,35.7,20.9,35.7,43.1
+                       c-0.1,16.4-5.9,32.7-16.2,44.7c-9,10.5-20.6,17.1-33.4,19.2c0,0,1.1,0.1,2.5,0.1c35.3,0,64-28.7,64-64
+                       C128,49.5,123.2,36.1,115,25.4z M105.3,64c0-21.3-14.2-37.3-29.9-37.3c-1.5,0-2.9,0.1-4.4,0.4C81.6,34.8,88.3,48.8,88.3,64
+                       c0,24.2-16.4,43.1-35.7,43.1c-21.1,0-35.7-20.9-35.7-43.1c0.1-16.4,5.9-32.7,16.2-44.7c9-10.5,20.6-17.1,33.4-19.2
+                       c0,0-1.1-0.1-2.5-0.1C28.7,0,0,28.7,0,64c0,14.5,4.8,27.9,13,38.6c9.7,12.4,23.9,20.2,39.6,20.2C83,122.9,105.3,94.6,105.3,64z" />
+                </svg>
+            </div>      
+        </div>
+<br>
+
+    </div>
+</body>
+</html>
