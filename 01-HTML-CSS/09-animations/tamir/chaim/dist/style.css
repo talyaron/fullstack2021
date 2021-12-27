@@ -1,3 +1,8 @@
+body {
+  padding: 0;
+  margin: 5px;
+}
+
 .wrapper {
   border-radius: 40px;
   background-color: #dad4d4;
@@ -15,12 +20,20 @@
   justify-content: space-between;
   align-items: center;
 }
+.wrapper__info :hover {
+  cursor: pointer;
+  border-bottom: 2px solid brown;
+}
 .wrapper__subinfo {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   margin: 10px;
   padding-left: 10px;
+}
+.wrapper__subinfo :hover {
+  cursor: pointer;
+  border-bottom: 2px solid brown;
 }
 .wrapper__subinfo i {
   color: orange;
@@ -42,6 +55,9 @@
   margin: 0vh;
   border-radius: 30px;
 }
+.container1 :hover {
+  cursor: pointer;
+}
 .container1 .m {
   font-size: 3vh;
   text-align: right;
@@ -54,25 +70,13 @@
   border-radius: 30px;
   height: 150px;
 }
-.container2 h5 {
+.container2__h5 {
   font-size: 3vh;
-  padding: 15px;
+  padding-left: 15px;
 }
-.container2 h6 {
-  font-size: 2vh;
-  position: relative;
-  left: 100vh;
-  bottom: 0vh;
-}
-.container2 p {
-  position: relative;
-  left: 85vh;
-  bottom: 15vh;
-}
-.container2 i {
-  position: relative;
-  left: 95vh;
-  bottom: 22vh;
+.container2__h5__h6 {
+  font-size: 3vh;
+  padding-right: 10px;
 }
 
 .container3 {
@@ -80,8 +84,6 @@
   width: 100%;
   height: 100px;
   border-radius: 30px;
-  position: relative;
-  bottom: 25vh;
 }
 .container3 h5 {
   font-size: 8vh;
@@ -104,20 +106,21 @@
     font-size: 2em;
   }
 
-  .container1__p {
-    font-size: 4em;
-  }
-
-  .container2__h4 {
-    font-size: 2em;
-  }
-  .container2__p {
+  .wrapper2 .container1 {
     font-size: 3em;
   }
-  .container2__h5 {
-    font-size: 5em;
+  .wrapper2 .container1 .m {
+    font-size: 2em;
   }
-  .container2__h6 {
-    font-size: 5em;
+
+  .container2 h5 {
+    font-size: 2em;
+  }
+  .container2 h5 h6 {
+    font-size: 2em;
+  }
+
+  .container3 h5 {
+    font-size: 3em;
   }
 }
