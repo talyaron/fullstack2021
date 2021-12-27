@@ -1,3 +1,4 @@
+//id element
 const target:any = document.querySelector('#theTarget');
 console.dir(target);
 target.style.backgroundColor = 'gold';
@@ -5,6 +6,7 @@ target.style.color ='turquoise';
 target.style.fontSize = '5rem';
 target.style.textAlign = 'center';
 
+//class element
 const boxes:NodeList = document.querySelectorAll('.boxFirst');
 
 console.dir(boxes);
@@ -29,15 +31,17 @@ secElem.style.textAlign ='center';
 secElem.style.color ='turquoise'; 
 secElem.style.borderRadius = '5px';
 secElem.style.animation = 'color 5s 2';
-setTimeout(() => {secElem.style.background = 'purple'}, 5000);
+
 
 });
-const pargraph = document.querySelector('p');
-pargraph.style.fontSize = '5rem';
-pargraph.style.fontFamily = 'arial, sans-serif'
-pargraph.style.color = 'turquoise';
-pargraph.style.background = 'purple';
-pargraph.style.textAlign ='center';
-pargraph.style.borderRadius = '15px';
-setTimeout(() => {pargraph.style.color= 'purple'}, 3000);
-setTimeout(() => {pargraph.style.background= 'turquoise'}, 3000);
+
+//element with animation
+const colorChange = document.querySelector('p');
+colorChange.style.fontSize = '5rem';
+colorChange.style.fontFamily = 'arial, sans-serif'
+colorChange.style.color = 'turquoise';
+colorChange.style.background = 'purple';
+colorChange.style.textAlign ='center';
+colorChange.style.borderRadius = '15px';
+setTimeout(() => {colorChange.style.color= 'purple'}, 3000);
+setTimeout(() => {colorChange.style.background= 'turquoise'}, 3000);

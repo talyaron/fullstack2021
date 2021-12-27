@@ -1,9 +1,11 @@
+//id element
 var target = document.querySelector('#theTarget');
 console.dir(target);
 target.style.backgroundColor = 'gold';
 target.style.color = 'turquoise';
 target.style.fontSize = '5rem';
 target.style.textAlign = 'center';
+//class element
 var boxes = document.querySelectorAll('.boxFirst');
 console.dir(boxes);
 boxes.forEach(function (elm) {
@@ -25,14 +27,14 @@ boxeSec.forEach(function (secElem) {
     secElem.style.color = 'turquoise';
     secElem.style.borderRadius = '5px';
     secElem.style.animation = 'color 5s 2';
-    setTimeout(function () { secElem.style.background = 'purple'; }, 5000);
 });
-var pargraph = document.querySelector('p');
-pargraph.style.fontSize = '5rem';
-pargraph.style.fontFamily = 'arial, sans-serif';
-pargraph.style.color = 'turquoise';
-pargraph.style.background = 'purple';
-pargraph.style.textAlign = 'center';
-pargraph.style.borderRadius = '15px';
-setTimeout(function () { pargraph.style.color = 'purple'; }, 3000);
-setTimeout(function () { pargraph.style.background = 'turquoise'; }, 3000);
+//element with animation
+var colorChange = document.querySelector('p');
+colorChange.style.fontSize = '5rem';
+colorChange.style.fontFamily = 'arial, sans-serif';
+colorChange.style.color = 'turquoise';
+colorChange.style.background = 'purple';
+colorChange.style.textAlign = 'center';
+colorChange.style.borderRadius = '15px';
+setTimeout(function () { colorChange.style.color = 'purple'; }, 3000);
+setTimeout(function () { colorChange.style.background = 'turquoise'; }, 3000);
