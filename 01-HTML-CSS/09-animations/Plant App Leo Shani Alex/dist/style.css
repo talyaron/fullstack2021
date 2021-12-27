@@ -1087,11 +1087,6 @@ body {
     }
   }
 }
-.body,
-html {
-  background-color: grey;
-}
-
 .text {
   text-align: center;
   color: #3d1717;
