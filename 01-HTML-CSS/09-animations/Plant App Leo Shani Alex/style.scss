@@ -21,10 +21,14 @@ body {
         position: absolute;
         left: 6%;
         top: 5vh;
-
-        &:hover {
-            cursor: pointer;
+        a{
+            color: black;
+          
+                cursor: pointer;
+            
         }
+
+       
         
     }
 
@@ -150,6 +154,9 @@ body {
         align-items: center;
         width: 20%;
         height: 20%;
+        a{
+            color: black;
+        }
 
         i {
             position: relative;
@@ -290,7 +297,14 @@ section {
 @media screen and (min-width: 700px) {
 
     .plantsGrid {
-        grid-template-rows: repeat(4, 20%);
+        position: relative;
+        left: 4%;
+        width: 85%;
+        height: 150vh;
+        display: grid;
+        gap: 8px;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
 
 
         &_plantsGrid_boxitem {
@@ -303,6 +317,7 @@ section {
 
         }
     }
+  
 }
 
 
@@ -894,6 +909,7 @@ body {
         border: 0;
         border-top-right-radius: 100%;
         border-bottom-left-radius: 100%;
+       
 
     }
 
@@ -1232,7 +1248,7 @@ body {
     .rightside {
 
         position: relative;
-        left: 35%;
+        left: 30%;
 
 
     }
@@ -1412,7 +1428,7 @@ body {
         }
         
      .img {
-        height:9rem;
+        height:7rem;
         width:6rem;
         position: absolute;
         margin:2%;        

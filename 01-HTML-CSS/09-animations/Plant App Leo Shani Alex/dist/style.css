@@ -18,7 +18,8 @@ body {
   left: 6%;
   top: 5vh;
 }
-.header_categories .icon:hover {
+.header_categories .icon a {
+  color: black;
   cursor: pointer;
 }
 .header_categories_text {
@@ -127,6 +128,9 @@ body {
   align-items: center;
   width: 20%;
   height: 20%;
+}
+.Nav_bottom_box2 a {
+  color: black;
 }
 .Nav_bottom_box2 i {
   position: relative;
@@ -255,7 +259,14 @@ section {
 }
 @media screen and (min-width: 700px) {
   .plantsGrid {
-    grid-template-rows: repeat(4, 20%);
+    position: relative;
+    left: 4%;
+    width: 85%;
+    height: 150vh;
+    display: grid;
+    gap: 8px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
   }
   .plantsGrid_plantsGrid_boxitem {
     font-size: calc(70% + 0.5rem);
@@ -844,7 +855,7 @@ body {
 
   .rightside {
     position: relative;
-    left: 35%;
+    left: 30%;
   }
 
   .checkout {
@@ -942,7 +953,7 @@ body {
     gap: 20px;
   }
   .myCart__grid .img {
-    height: 9rem;
+    height: 7rem;
     width: 6rem;
     position: absolute;
     margin: 2%;

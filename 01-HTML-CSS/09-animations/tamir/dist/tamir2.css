@@ -28,11 +28,19 @@ body {
   align-items: center;
   height: 50px;
   background-color: white;
-  border-radius: 20PX;
+  border-radius: 10PX;
 }
 .wrapperfirst ul :hover {
-  background-color: #a3a2a2;
-  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.774);
+  border-radius: 10px;
+  box-shadow: 10px 10px 5px;
+  font-size: 1.5em;
+}
+.wrapperfirst ul :nth-child(3):hover {
+  box-shadow: -10px 10px 5px;
+}
+.wrapperfirst ul :nth-child(2):hover {
+  box-shadow: 0px 10px 5px;
 }
 .wrapperfirst a {
   padding: 10px 25px 10px 25px;
@@ -62,22 +70,27 @@ body {
   border-radius: 4px;
   margin-right: 6px;
 }
-.wrapper__name {
-  color: orangered;
-  font-family: Arial, Helvetica, sans-serif;
-}
 .wrapper__info {
   font-weight: bold;
   font-size: 1.4em;
+  color: black;
   font-family: Arial, Helvetica, sans-serif;
+  padding-right: 30px;
+}
+.wrapper__info :hover {
+  cursor: pointer;
+  color: black;
 }
 .wrapper__button {
   position: relative;
   width: 20px;
   height: 20px;
   border-radius: 40px;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.774);
   text-align: center;
+}
+.wrapper__button :hover {
+  cursor: no-drop;
 }
 .wrapper__num {
   color: white;
@@ -100,7 +113,10 @@ body {
   height: 20px;
   border-radius: 40px;
   text-align: center;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.774);
+}
+.results__bottun :hover {
+  cursor: no-drop;
 }
 
 .card {
@@ -135,6 +151,52 @@ body {
 }
 .card__loc {
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.drop {
+  position: relative;
+  margin: -30%;
+  display: inline-block;
+  border-radius: 20px;
+}
+.drop__btn {
+  background-color: #a3a2a2;
+  color: white;
+  padding: 6px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.774);
+}
+.drop:hover .drop__content {
+  font-size: 2em;
+  display: block;
+}
+.drop__content {
+  display: none;
+  position: absolute;
+  border-radius: 20px;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+.drop__content a {
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+  border-radius: 20px;
+  opacity: 0.5;
+}
+.drop__content a:hover {
+  background-color: #a3a2a2;
+  text-decoration: underline;
+  text-decoration-color: red;
+  -webkit-text-decoretion-color: red;
+  opacity: 1;
 }
 
 @media only screen and (min-width: 670px) {
@@ -177,5 +239,19 @@ body {
   }
   .card__price {
     font-size: 2rem;
+  }
+
+  .drop__btn {
+    border-radius: 20px;
+    padding: 23px;
+  }
+  .drop:hover .drop__content {
+    border-radius: 20px;
+  }
+  .drop__content a:hover {
+    border-radius: 20px;
+    text-decoration: underline;
+    text-decoration-color: red;
+    -webkit-text-decoretion-color: red;
   }
 }

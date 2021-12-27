@@ -1,9 +1,12 @@
+// tamir scss!
 body {
     background-color: rgba(173, 179, 170, 0.507);
     margin: 3%;
+    
 }
 
 .wrappernav {
+    
     margin-bottom: 40px;
 
     &__icon {
@@ -12,6 +15,7 @@ body {
 
         :hover {
             cursor: pointer;
+           
         }
     }
 
@@ -23,7 +27,10 @@ body {
     }
 }
 
+
 .wrapperfirst {
+
+
     ul {
         margin: 20px;
         padding: 0%;
@@ -32,12 +39,23 @@ body {
         align-items: center;
         height: 50px;
         background-color: white;
-        border-radius: 20PX;
+        border-radius: 10PX;
 
         :hover {
-            background-color: rgb(163, 162, 162);
-            border-radius: 20px;
+            background-color: hsla(0, 0%, 0%, 0.774);
+            border-radius: 10px;
+            box-shadow: 10px 10px 5px;
+            font-size: 1.5em;
         }
+
+        :nth-child(3):hover {
+            box-shadow: -10px 10px 5px;
+        }
+
+        :nth-child(2):hover {
+            box-shadow: 0px 10px 5px;
+        }
+
     }
 
     a {
@@ -50,9 +68,11 @@ body {
         font-weight: bold;
         font-family: Arial, Helvetica, sans-serif;
     }
+
 }
 
 .wrapper {
+    
     margin: 20px;
     padding: 4%;
     display: flex;
@@ -63,7 +83,6 @@ body {
     justify-content: space-between;
 
     &__icon {
-
         position: relative;
         top: 1px;
         font-size: 1.5em;
@@ -71,34 +90,35 @@ body {
         margin-right: 6px;
     }
 
-    &__name {
-
-        color: orangered;
-        font-family: Arial, Helvetica, sans-serif;
-    }
-
-
     &__info {
-
         font-weight: bold;
         font-size: 1.4em;
+        color: rgb(0, 0, 0);
         font-family: Arial, Helvetica, sans-serif;
+        padding-right: 30px;
+
+        :hover {
+            cursor: pointer;
+            color: black;
+        }
+
     }
 
     &__button {
         position: relative;
-
         width: 20px;
         height: 20px;
         border-radius: 40px;
-        background-color: rgb(0, 0, 0);
+        background-color: hsla(0, 0%, 0%, 0.774);
         text-align: center;
 
+        :hover {
+            cursor: no-drop
+        }
     }
 
     &__num {
         color: white;
-
     }
 }
 
@@ -111,7 +131,6 @@ body {
     &__info {
         font-size: 1.4em;
         font-family: Arial, Helvetica, sans-serif;
-
     }
 
     &__bottun {
@@ -121,7 +140,11 @@ body {
         height: 20px;
         border-radius: 40px;
         text-align: center;
-        background-color: hsl(0, 0%, 0%);
+        background-color: hsla(0, 0%, 0%, 0.774);
+
+        :hover {
+            cursor: no-drop
+        }
     }
 }
 
@@ -133,11 +156,11 @@ body {
         height: 100%;
         width: 100%;
         border-radius: 40px;
+        
     }
-
+   
     &__info {
         padding-left: 20px;
-
     }
 
     &__des {
@@ -148,8 +171,6 @@ body {
         display: flex;
         margin: 15px;
         justify-content: space-between;
-
-
     }
 
     &__price {
@@ -171,6 +192,58 @@ body {
         font-family: Arial, Helvetica, sans-serif;
     }
 }
+
+.drop {
+    position: relative;
+    margin: -30%;
+    display: inline-block;
+    border-radius: 20px;
+
+    &__btn {
+        background-color: rgb(163, 162, 162);
+        color: white;
+        padding: 6px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        background-color: hsla(0, 0%, 0%, 0.774);
+    }
+
+    .drop:hover &__content {
+        font-size: 2em;
+        display: block;
+    }
+
+    &__content {
+        display: none;
+        position: absolute;
+        border-radius: 20px;
+        background-color: #f1f1f1;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+
+        a {
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-family: Arial, Helvetica, sans-serif;
+            color: rgb(0, 0, 0);
+            border-radius: 20px;
+            opacity: 0.5;
+        }
+
+        a:hover {
+            background-color: rgb(163, 162, 162);
+            text-decoration: underline;
+            text-decoration-color: red;
+            -webkit-text-decoretion-color: red;
+            opacity: 1;
+        }
+    }
+}
+
 
 @media only screen and(min-width: 670px) {
     .wrapperfirst {
@@ -229,6 +302,27 @@ body {
 
         &__price {
             font-size: 2rem;
+        }
+    }
+
+    .drop {
+        &__btn {
+            border-radius: 20px;
+            padding: 23px;
+        }
+
+        .drop:hover &__content {
+            border-radius: 20px;
+        }
+
+        &__content {
+            a:hover {
+                border-radius: 20px;
+                text-decoration: underline;
+                text-decoration-color: red;
+                -webkit-text-decoretion-color: red;
+
+            }
         }
     }
 }
