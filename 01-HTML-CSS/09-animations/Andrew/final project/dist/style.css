@@ -858,7 +858,7 @@ body {
   box-shadow: 0px 0px 5px 2px;
 }
 .wallet-portfolio__list__item:hover .wallet-portfolio__list__item__graph > img {
-  animation: graph 5s ease-out infinite alternate;
+  animation: graph 10s ease-out infinite alternate;
 }
 .wallet-portfolio__list__item__icon {
   background-color: var(--color-mid-grey);
@@ -886,56 +886,14 @@ body {
 .wallet-portfolio__list__item__graph {
   position: absolute;
   left: 135px;
-  width: 60px;
+  width: calc(100% - 220px);
   height: 70px;
   overflow: hidden;
 }
-@media only screen and (min-width: 341px) {
-  .wallet-portfolio__list__item__graph {
-    width: 90px;
-  }
-}
-@media only screen and (min-width: 375px) {
-  .wallet-portfolio__list__item__graph {
-    width: 110px;
-  }
-}
-@media only screen and (min-width: 540px) {
-  .wallet-portfolio__list__item__graph {
-    width: 250px;
-  }
-}
-@media only screen and (min-width: 748px) {
-  .wallet-portfolio__list__item__graph {
-    width: 390px;
-  }
-}
 .wallet-portfolio__list__item__graph img {
   position: absolute;
-  top: -7vw;
-  width: 60vw;
-  aspect-ratio: 3;
-}
-@media only screen and (min-width: 748px) {
-  .wallet-portfolio__list__item__graph img {
-    top: -7vw;
-    width: 60vw;
-    aspect-ratio: 4;
-  }
-}
-@media only screen and (min-width: 748px) {
-  .wallet-portfolio__list__item__graph img {
-    top: -6vw;
-    width: 80vw;
-    aspect-ratio: 7;
-  }
-}
-@media only screen and (min-width: 1920px) {
-  .wallet-portfolio__list__item__graph img {
-    top: -4vw;
-    width: 50vw;
-    aspect-ratio: 7;
-  }
+  top: 10px;
+  height: 40px;
 }
 .wallet-portfolio__list__item__price {
   margin: 5px;
@@ -957,6 +915,6 @@ body {
 }
 @keyframes graph {
   to {
-    transform: translateX(-90px);
+    transform: translateX(-180px);
   }
 }

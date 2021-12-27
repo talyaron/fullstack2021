@@ -1018,7 +1018,7 @@ body {
                     box-shadow: 0px 0px 5px 2px;
 
                     .wallet-portfolio__list__item__graph>img {
-                        animation: graph 5s ease-out infinite alternate;
+                        animation: graph 10s ease-out infinite alternate;
                     }
                 }
 
@@ -1052,51 +1052,13 @@ body {
                 &__graph {
                     position: absolute;
                     left: 135px;
-                    width: 60px;
-
-                    @media only screen and (min-width: 341px) {
-                        width: 90px;
-                    }
-
-                    @media only screen and (min-width: 375px) {
-                        width: 110px;
-                    }
-
-                    @media only screen and (min-width: 540px) {
-                        width: 250px;
-                    }
-
-                    @media only screen and (min-width: 748px) {
-                        width: 390px;
-                    }
-
+                    width: calc(100% - 220px);
                     height: 70px;
                     overflow: hidden;
-
                     img {
                         position: absolute;
-                        top: -7vw;
-                        width: 60vw;
-                        aspect-ratio: 3;
-
-                        @media only screen and (min-width: 748px) {
-                            top: -7vw;
-                            width: 60vw;
-                            aspect-ratio: 4;
-                        }
-
-                        @media only screen and (min-width: 748px) {
-                            top: -6vw;
-                            width: 80vw;
-                            aspect-ratio: 7;
-                        }
-
-                        @media only screen and (min-width: 1920px) {
-                            top: -4vw;
-                            width: 50vw;
-                            aspect-ratio: 7;
-                        }
-
+                        top: 10px;
+                        height: 40px;
                     }
                 }
 
@@ -1105,7 +1067,6 @@ body {
                     text-align: end;
                     line-height: 0.2em;
                     font-weight: 600;
-
                     :first-child {
                         font-size: 1em;
                     }
@@ -1129,7 +1090,7 @@ body {
     @keyframes graph {
 
         to {
-            transform: translateX(-90px);
+            transform: translateX(-180px);
         }
     }
 }
