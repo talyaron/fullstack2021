@@ -470,7 +470,7 @@ body {
         font-size: 0.9rem;
         perspective: 300px;
 
-        * {
+        *{
             padding: 10px;
         }
 
@@ -1101,3 +1101,836 @@ body {
         }
     }
 }
+//Andrew End
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Ohad Start
+
+.market{
+    width: 349px;
+    @media only screen and (min-width:639px) {
+        width: 640px;
+    }
+
+    height: 740px;
+    //border: 1px solid red ;
+    margin: auto;
+    position: relative;
+
+    &--header{
+        background-color:#383C3F ;
+        display: flex;
+        margin: 4.3%;
+        border:  solid #383C3F;
+        border-radius: 11px;
+        
+        &__btn{
+            background-color: #383C3F; 
+            border: none;
+            color: white;
+            margin-left: 0.5%;
+            padding: 3.5% 7%;
+            @media only screen and (min-width:639px) {
+                padding: 3.5% 11%;
+            }
+            text-align: center;
+            font-size: 90%;
+            cursor: pointer;         
+        }
+        &__btn:hover{
+            background-color: #2f3235;
+                    }
+                }
+    &--options{
+        display: flex;
+        margin: 4.6%;
+    &__btn{
+        background-color: #22282c; 
+        border: none;
+        color: white;
+        padding: 1.5% 3.8%;
+        @media only screen and (min-width:639px) {
+            padding: 2% 6.5%;
+        }
+        text-align: center;
+        font-size: 90%;
+        cursor: pointer;         
+    }
+    &__btn:hover{
+        background-color: #2f3235 ;
+        border-radius: 7px;     
+    }
+            }
+    &--PriceWrapper{
+        background-color: #383C3F;
+        margin: 5%;
+        width: 90%;
+        height: 60px;
+        border-radius: 7px;
+        position: relative;
+        bottom: 3%;
+
+        @media only screen and (min-width:639px) {
+            margin-bottom: 0%;
+        }
+
+        &__title{
+            width: 20ch;
+            position: relative;
+            left: 41.5%;
+            top: 5%;
+            @media only screen and (min-width:639px) {
+            left: 46.5%;
+            top: 15%;
+            }
+            color: gray;
+            margin-top: 0.3%;
+            @media only screen and (min-width:639px) {
+                margin-top: 1.5%;
+            }
+        }
+
+        &__Price{
+            background-color:#383C3F; 
+            color: white;
+            border: none;
+            position: relative;
+            
+            left: 33%;
+            width: 37%;
+            height: 25%;
+            bottom: 11%;
+            font-size: 120%;
+            @media only screen and (min-width:639px) {
+                left: 42%;
+                width: 37%;
+                top:0.3%;
+            }
+        }
+
+        &__euro{
+            position: relative; 
+            left: 32.5%;
+            @media only screen and (min-width:639px) {
+                left: 42.5%;
+                top: 0.3%;
+            }
+            bottom: 11%;
+            font-size: 120%;
+            color: white;
+        }
+
+        &__plus{
+            cursor: pointer;
+            border-radius: 100%;
+            border: none;
+            background-color:#2f3438;
+            color: white;
+            width: 30px;
+            height: 35px;
+            font-size: 30px;
+            text-align: center;
+            position: relative;
+            bottom: 4px;
+            left: 44.5%;
+            @media only screen and (min-width:639px) {
+                left: 52.5%;
+                bottom: 4%;
+            }
+        }
+
+        &__minus{
+            cursor: pointer;
+            border-radius: 100%;
+            border: none;
+            background-color:#2f3438;
+            color: white;
+            width: 30px;
+            height: 35px;
+            font-size: 30px;
+            text-align: center;
+            position: relative;
+            bottom: 4px;
+            right: 50%;
+            @media only screen and (min-width:639px) {
+                right: 43.5%;
+                bottom: 4%;
+            }
+        }
+        &__LeftText{
+            position: relative; 
+            margin-left: 6%;
+            bottom: 1.2%;
+            @media only screen and (min-width:639px) {
+                top:1%;
+            }
+            color: white;
+            font-size: 12px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        &__RightText{
+            position: relative;
+             left: 44.5%;
+             @media only screen and (min-width:639px) {
+                left:67.5%;
+            }
+              font-family: Arial, Helvetica, sans-serif;
+              color: gray; 
+              font-size: 12px;
+        }
+
+       
+    }
+
+        &--AmnuntWrapper{
+            background-color: #383C3F;
+            margin: 5%;
+            position: relative;
+            bottom: 5%;
+            width: 90%;
+            height: 60px;
+            border-radius: 7px;
+    
+            &__title{
+                position: absolute;
+                left: 43%;
+                color: gray;
+                margin-top: 4px;
+                font-size: 90%;
+
+                @media only screen and (min-width:639px) {
+                    left: 47%;
+                    top: 8%;
+                }
+            }
+    
+            &__Price{
+                background-color:#383C3F; 
+                color: white;
+                border: none;
+                position: relative;
+                left: 38%;
+                width: 24%;
+                height: 25%;
+                top: 22%;
+                font-size: 125%;
+
+                
+                @media only screen and (min-width:639px) {
+                    width: 19.5%;
+                    left: 43%;
+                    top: 30%;
+                    
+                }
+                
+            }
+    
+            &__plus{
+                cursor: pointer;
+                border-radius: 100%;
+                border: none;
+                background-color:#2f3438;
+                color: white;
+                width: 30px;
+                height: 35px;
+                font-size: 30px;
+                text-align: center;
+                position: relative;
+                top: 21%;
+                left: 61.5%;
+
+                @media only screen and (min-width:639px) {
+                    left: 72%;
+                    top: 27%;
+                }
+            }
+    
+            &__minus{
+                cursor: pointer;
+                border-radius: 100%;
+                border: none;
+                background-color:#2f3438;
+                color: white;
+                width: 30px;
+                height: 35px;
+                font-size: 30px;
+                text-align: center;
+                position: relative;
+                top: 21%;
+                right: 32.5%;
+
+                @media only screen and (min-width:639px) {
+                    right: 24.5%;
+                    top: 29%;
+                }
+            }
+
+            &__RightText{
+                width: 14ch;
+                position: relative;
+                 left: 70%;
+                 bottom: 4%;
+                  font-family: Arial, Helvetica, sans-serif;
+                  color: gray; 
+                  font-size: 12px;
+                  @media only screen and (min-width:639px) {
+                    bottom: 1.7%;
+                    left: 81.2%;
+                  }
+            }
+        }
+
+        &--TotalWrapper{
+            background-color: #383C3F;
+            margin: 5%;
+            width: 90%;
+            height: 60px;
+            border-radius: 7px;
+            position: relative;
+            bottom: 4%;
+
+            &__LeftText{
+                position: relative; 
+                margin-left: 1%;
+                bottom: 30%;
+                color: gray;
+                font-size: 12px;
+                font-family: Arial, Helvetica, sans-serif;
+
+                @media only screen and (min-width:639px) {
+                    bottom: 41%;
+                }
+            }
+    
+            &__RightText{
+                width: 19ch;
+                position: relative; 
+                left: 59%;
+                bottom: 53%;
+                color: gray;
+                font-size: 12px;
+                font-family: Arial, Helvetica, sans-serif;
+
+                @media only screen and (min-width:639px) {
+                    left: 77.5%;
+                    bottom: 64%;
+                }
+        }
+
+        &__title{
+            position: absolute;
+            left: 43%;
+            bottom: 60%;
+            color: gray;
+            margin-top: 4px;
+
+            @media only screen and (min-width:639px) {
+                left: 46%;
+            }
+        }
+
+        &__price{
+            width: 13ch;
+            color: white;
+            position: relative;
+            left: 43%;
+            font-size: 22px;
+
+            @media only screen and (min-width:639px) {
+                left: 46%;
+            }
+        }
+
+        &--PercentWrapper{
+            background-color: #3f4246;;
+            display: flex;
+            padding: 0px;
+            border-radius: 7px;
+            margin-top: 1.2%;
+
+            &__btn{
+                background-color: #3f4246;
+                border: none;
+                color: white;
+                padding: 10px 6.7%;
+                text-align: center;
+                font-size: 16px;
+                border-radius: 10px;
+                border: 1px solid  #484949;
+                cursor: pointer;
+
+                @media only screen and (min-width:639px) {
+                    padding: 10px 9.4%;
+                }
+            }
+            &__btn:hover{
+                background-color: #2f3235;
+            }
+        }   
+    }
+
+    &--finalPrice{
+        background-color: #505457;
+        border: solid #717477;
+        margin: 5%;
+        position: relative;
+        width: 89%;
+        height: 60px;
+        border-radius: 7px ;
+
+
+        &__text{
+            animation-name: backInUp;
+            animation-duration: 1.5s;
+            color: white;
+            position: relative;
+            text-align: center;
+            top: 30%;
+            font-size: 22px;
+            @keyframes backInUp {
+                0% {
+                  transform: translateY(1200px) scale(.7);
+                  opacity: .7;
+                }
+              
+                80% {
+                  transform: translateY(0px) scale(.7);
+                  opacity: .7;
+                }
+              
+                100% {
+                  transform: scale(1);
+                  opacity: 1;
+                }
+              }
+            @media only screen and (min-width:639px) {
+                left: 3%;
+            }
+        }
+    }
+
+    &--BottomCategories{
+
+        display: flex;
+        margin: 4.6%;
+    &__btn{
+        background-color: #22282c; 
+        border: none;
+        color: white;
+        padding: 2.2% 2.1%;
+        @media only screen and (min-width:639px) {
+            padding: 2% 8.8%;
+        }
+        font-size: 100%;
+        cursor: pointer;         
+    }
+    &__btn:hover{
+        background-color: #2f3235 ;
+        border-radius: 7px;   
+    }
+}
+    &--Notification{
+        position: relative;
+        bottom: 8%;
+        left: 30.3%;
+        padding: 1.5px 6px;
+        border-radius: 25%;
+        background-color: orange;
+        color: white;
+        @media only screen and (min-width:639px) {
+            bottom: 10.5%;
+            left: 32.3%;
+        }
+    }
+
+    &--FooterStatus{
+        position: relative; 
+        bottom: 20px;
+        color: gray;
+        font-size: 12px;
+        font-family: Arial, Helvetica, sans-serif;
+        margin-left: 3.9%;
+        @media only screen and (min-width:639px) {
+            margin-left: 13.4%;
+        }
+    }
+
+    &--FooterBuy{
+        width: 92%;
+        height: 18%;
+        margin-left: 4.6%;
+        background: linear-gradient(90deg, rgba(56,60,63,1) 10%, rgba(7,128,63,1) 100%, rgba(33,222,121,1) 100%);
+            
+        &__NameTitle{
+            position: relative; 
+            top: 17%; 
+            left: 5.2%;
+            color: gray;
+            font-size: 90%;
+            @media only screen and (min-width:639px) {
+                top: 17%; 
+                left: 4.5%;
+            }
+        }
+
+        &__Name{
+            position: relative; 
+            color: white;
+            @media only screen and (min-width:639px){
+            top: 31%; 
+            right: 5%;
+            }
+            top: 31%; 
+            right: 11.4%
+        }
+
+        &__PriceTitle{
+            position: relative; 
+            color: gray;
+            font-size: 90%;
+            @media only screen and (min-width:639px){
+                top: 15%;
+                left: 14.2%;
+            }
+            top: 15%;
+            left: 1.2%;
+        }
+
+        &__Price{
+            position: relative;
+            color: white;
+            @media only screen and (min-width:639px){
+                top: 30%; 
+                left: 6.7%;
+            }
+            top: 30%; 
+            right: 13.5%;
+        }
+
+        &__QuantityTitle{
+            position: relative; 
+            color: gray;
+            font-size: 80%;
+            @media only screen and (min-width:639px){
+                top: 57%; 
+                right:6%;
+            }
+            top: 57%; 
+            right:37%;
+            
+        }
+
+        &__Quantity{
+            position: relative; 
+            color: white;
+            @media only screen and (min-width:639px){
+                top: 73%; 
+                right:18%;
+                
+            }
+            top: 63%; 
+            right:-35%;
+
+        }
+
+        &__fullCircle{
+            border-radius:50%;
+            background-color: rgba(196, 196, 196, 0.11);
+            @media only screen and (min-width:639px){
+                width: 55px;
+                height: 55px;
+            }
+            width: 55px;
+            height: 55px;
+        }
+
+        &__CirclePos{
+            position: relative; 
+            @media only screen and (min-width:639px){
+                left: 56%; 
+                top: 1%;
+            }
+            left: 59%; 
+            bottom: 15%;
+
+        }
+
+        &__QuarterCircle{
+            border: 1px solid rgba(196, 196, 196, 0.596);
+            position: relative;
+            @media only screen and (min-width:639px){
+                width: 29px;
+                height: 29px;
+                border-radius: 0 25px  0 0;
+                left: 41.5%;
+            }
+            width: 29px;
+            height: 29px;
+            border-radius: 0 25px  0 0;
+            left: 41.5%;
+          }
+
+          &__PercentPos{
+            position: relative; 
+            color: white;
+            @media only screen and (min-width:639px){
+                right: 35%; 
+                top: 60%; 
+            }
+            right: 35%; 
+            top: 60%; 
+          }
+
+          &__Cancel{
+              position: relative;
+              border: rgba(78, 78, 78, 0.671) 1px solid;
+              border-radius: 7px;
+              background-color: rgba(78, 78, 78, 0.308);
+              color: white;
+              cursor: pointer;
+              padding: 1% 2.5%;  
+              @media only screen and (min-width:639px){
+                left: 80%;
+                bottom: 40%;  
+              }
+              left: 77%;
+              bottom: 40%;      
+          }
+
+          &__Cancel:hover{
+            background-color: rgb(78, 78, 78);
+          }
+
+          &__Date{
+            position: relative; 
+            color: gray;
+            font-size: 90%;
+            @media only screen and (min-width:639px){
+                left: 65%; 
+                bottom: 18%;
+            }
+            left: 45%; 
+            bottom: 13%;
+          }
+
+          &__Buy{
+            color: rgb(46, 245, 46);
+            position: relative; 
+            cursor: pointer;
+            @media only screen and (min-width:639px){
+                left: 59%; 
+                top: 5%;
+            }
+            left: 31%; 
+            top: 7%;
+          }
+
+          &__IconBox{
+            position: relative;
+            border: white 1px solid;
+            border-radius: 7px;
+            background-color: rgba(78, 78, 78, 0.233);
+            color: white;
+            @media only screen and (min-width:639px){
+                width: 7.5%;
+                height: 33%;
+                left: 4%;
+                bottom: 25%;   
+            }
+            width: 16.4%;
+            height: 33%;
+            left: 3.5%;
+            bottom: 25%;    
+          }
+    }
+
+    &--FooterSell{
+        margin-left: 4.6%;
+        width: 92%;
+        height: 18%;
+        background: linear-gradient(90deg, rgba(56,60,63,1) 10%, rgb(237, 18, 18) 100%, rgba(237,18,18) 100%);
+            
+        &__NameTitle{
+            position: relative; 
+            top: 17%; 
+            left: 5.2%;
+            color: gray;
+            font-size: 90%;
+            @media only screen and (min-width:639px) {
+                top: 17%; 
+                left: 4.2%;
+            }
+        }
+
+        &__Name{
+            position: relative; 
+            color: white;
+            @media only screen and (min-width:639px){
+            top: 31%; 
+            right: 2.4%
+            }
+            top: 31%; 
+            right: 8%
+        }
+
+        &__PriceTitle{
+            position: relative; 
+            color: gray;
+            font-size: 90%;
+            @media only screen and (min-width:639px){
+                top: 15%;
+                left: 19.2%;
+            }
+            top: 15%;
+            left: 10.2%;
+        }
+
+        &__Price{
+            position: relative;
+            color: white;
+            @media only screen and (min-width:639px){
+                top: 30%; 
+                left: 11.4%;
+            }
+            top: 30%; 
+            right: 3.5%;
+        }
+
+        &__QuantityTitle{
+            position: relative; 
+            color: gray;
+            font-size: 80%;
+            @media only screen and (min-width:639px){
+                top: 57%; 
+                right:1.5%;
+            }
+            top: 57%; 
+            right:27.5%;
+            
+        }
+
+        &__Quantity{
+            position: relative; 
+            color: white;
+            @media only screen and (min-width:639px){
+                top: 73%; 
+                right:13.5%;
+            }
+            top: 73%; 
+            right:49.5%;
+
+        }
+
+        &__fullCircle{
+            border-radius:50%;
+            background-color: rgba(196, 196, 196, 0.11);
+            @media only screen and (min-width:639px){
+                width: 55px;
+                height: 55px;
+            }
+            width: 55px;
+            height: 55px;
+        }
+
+        &__CirclePos{
+            position: relative; 
+            @media only screen and (min-width:639px){
+                left: 56%; 
+                top: 1%;
+            }
+            left: 60.5%; 
+            bottom: 3%;
+
+        }
+
+        &__QuarterCircle{
+            border: 1px solid rgba(196, 196, 196, 0.596);
+            position: relative;
+            @media only screen and (min-width:639px){
+                width: 29px;
+                height: 29px;
+                border-radius: 0 25px  0 0;
+                left: 41.5%;
+            }
+            width: 29px;
+            height: 29px;
+            border-radius: 0 25px  0 0;
+            left: 41.5%;
+          }
+
+          &__PercentPos{
+            position: relative; 
+            color: white;
+            @media only screen and (min-width:639px){
+                right: 35%; 
+                top: 60%; 
+            }
+            right: 35%; 
+            top: 60%; 
+          }
+
+          &__Cancel{
+              position: relative;
+              border: rgba(78, 78, 78, 0.671) 1px solid;
+              border-radius: 7px;
+              background-color: rgba(78, 78, 78, 0.308);
+              color: white;
+              cursor: pointer;
+              padding: 1% 2.5%;   
+              @media only screen and (min-width:639px){
+                left: 80%;
+                bottom: 40%;  
+              }
+              left: 77.5%;
+              bottom: 27%;      
+          }
+
+          &__Cancel:hover{
+            background-color: rgb(78, 78, 78);
+          }
+
+          &__Date{
+            position: relative; 
+            color: gray;
+            font-size: 90%;
+            @media only screen and (min-width:639px){
+                left: 65%; 
+                bottom: 18%;
+            }
+            left: 43%; 
+            bottom: 0.5%;
+          }
+
+          &__Sell{
+            color: rgb(255, 255, 255);
+            position: relative; 
+            cursor: pointer;
+            @media only screen and (min-width:639px){
+                left: 57%; 
+                top: 5%;
+            }
+            left: 28%; 
+            top: 15%;
+          }
+
+          &__IconBox{
+            position: relative;
+            border: white 1px solid;
+            border-radius: 7px;
+            background-color: rgba(78, 78, 78, 0.233);
+            color: white;
+            @media only screen and (min-width:639px){
+                width: 7.5%;
+                height: 39%;
+                left: 4%;
+                bottom: 25%;   
+            }
+            width: 12.5%;
+            height: 33%;
+            left: 3.5%;
+            bottom: 13%;    
+          }
+    }
+}
+//ohad End
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

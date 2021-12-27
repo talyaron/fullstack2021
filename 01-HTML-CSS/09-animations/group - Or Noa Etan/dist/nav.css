@@ -143,38 +143,6 @@ h3 .fade {
   transform: translateY(0px);
 }
 
-@keyframes fade {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0.25;
-  }
-}
-@keyframes shrink {
-  from {
-    transform: scale(1);
-  }
-  to {
-    transform: scale(0.75);
-  }
-}
-@keyframes moveRight {
-  from {
-    left: 0vw;
-  }
-  to {
-    left: 50vw;
-  }
-}
-@keyframes moveUp {
-  from {
-    top: 50vw;
-  }
-  to {
-    top: 0vw;
-  }
-}
 @keyframes pulse {
   from {
     transform: scale(1);
