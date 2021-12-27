@@ -403,8 +403,9 @@ html {
                     $primarycolor1);
             background-position: left;
             background-size: 500%;
-            animation-name: prog 4s ease-out 0s 1;
-            animation-name: colorslide 4s ease-in-out infinite alternate;
+            animation-name: prog;
+            animation-duration: 5s;
+            animation: colorslide 4s ease-in-out infinite alternate;
 
         }
     }
