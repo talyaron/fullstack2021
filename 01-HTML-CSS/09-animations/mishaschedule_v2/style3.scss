@@ -71,11 +71,11 @@ $bgcolor: #f0f1f6;
 
 @keyframes weather {
     from {
-        left: -50%;
+        left: -50vw;
     }
 
     to {
-        left: 150%;
+        left: 110vw;
     }
 }
 
@@ -86,6 +86,16 @@ $bgcolor: #f0f1f6;
 
     100% {
         background-position: right;
+    }
+}
+
+@keyframes prog{
+    from {
+        width: 1%;
+    }
+
+    to {
+        width: 67%;
     }
 }
 
@@ -325,11 +335,7 @@ html {
                     $primarycolor1);
             background-position: left;
             background-size: 500%;
-            animation-name: colorslide;
-            animation-duration: 4s;
-            animation-direction: alternate;
-            animation-iteration-count: infinite;
-            animation-timing-function: ease-in-out;
+            animation: colorslide 4s ease-in-out 0s infinite alternate;
             color: white;
 
             .bell {
@@ -391,17 +397,15 @@ html {
             margin: 0px;
             border-radius: 25px;
             height: 100%;
-            width: 67%;
+            width: 57%;
             background-image: linear-gradient(to right,
                     $primarycolor1, $primarycolor2,
                     $primarycolor1);
             background-position: left;
             background-size: 500%;
-            animation-name: colorslide;
-            animation-duration: 4s;
-            animation-direction: alternate;
-            animation-iteration-count: infinite;
-            animation-timing-function: ease-in-out;
+            animation-name: prog 4s ease-out 0s 1;
+            animation-name: colorslide 4s ease-in-out infinite alternate;
+
         }
     }
 
@@ -472,6 +476,16 @@ html {
 }
 
 @media only screen and (min-width: 900px) {
+
+    @keyframes weather {
+        from {
+            left: -20vw;
+        }
+    
+        to {
+            left: 110vw;
+        }
+    }
 
     .body_schedule {
         align-items: center;
