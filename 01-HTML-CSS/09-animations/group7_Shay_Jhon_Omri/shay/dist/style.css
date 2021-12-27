@@ -493,10 +493,11 @@ body .main .contain__box__down--smalIconsRight .fa-wind span {
 }
 body .main .bar {
   margin: auto;
+  padding-top: 50px;
+  padding-left: 70px;
+  padding-bottom: 20px;
   display: grid;
-  grid-template-columns: repeat(4, 2fr);
-  grid-template-rows: 1fr;
-  gap: 180px;
+  grid-template-columns: repeat(4, 1fr);
 }
 body .main .bar__icons #active:target {
   color: #7b446a;
@@ -1185,9 +1186,10 @@ body .cont .bar {
     }
   }
   body .main .bar {
+    padding-top: 40px;
+    padding-left: 70px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 80px;
   }
   body .details {
     background: rgba(19, 27, 36, 0.877);

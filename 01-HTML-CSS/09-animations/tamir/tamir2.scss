@@ -1,11 +1,12 @@
+// tamir scss!
 body {
     background-color: rgba(173, 179, 170, 0.507);
     margin: 3%;
-
-
+    
 }
 
 .wrappernav {
+    
     margin-bottom: 40px;
 
     &__icon {
@@ -14,6 +15,7 @@ body {
 
         :hover {
             cursor: pointer;
+           
         }
     }
 
@@ -24,6 +26,7 @@ body {
         font-family: Arial, Helvetica, sans-serif;
     }
 }
+
 
 .wrapperfirst {
 
@@ -38,13 +41,11 @@ body {
         background-color: white;
         border-radius: 10PX;
 
-
         :hover {
             background-color: hsla(0, 0%, 0%, 0.774);
             border-radius: 10px;
             box-shadow: 10px 10px 5px;
             font-size: 1.5em;
-
         }
 
         :nth-child(3):hover {
@@ -66,12 +67,12 @@ body {
         color: black;
         font-weight: bold;
         font-family: Arial, Helvetica, sans-serif;
-
     }
 
 }
 
 .wrapper {
+    
     margin: 20px;
     padding: 4%;
     display: flex;
@@ -100,7 +101,7 @@ body {
             cursor: pointer;
             color: black;
         }
-        
+
     }
 
     &__button {
@@ -115,8 +116,6 @@ body {
             cursor: no-drop
         }
     }
-
-    
 
     &__num {
         color: white;
@@ -157,8 +156,9 @@ body {
         height: 100%;
         width: 100%;
         border-radius: 40px;
+        
     }
-
+   
     &__info {
         padding-left: 20px;
     }
@@ -243,6 +243,7 @@ body {
         }
     }
 }
+
 
 @media only screen and(min-width: 670px) {
     .wrapperfirst {
