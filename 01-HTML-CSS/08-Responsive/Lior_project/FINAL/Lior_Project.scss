@@ -1911,7 +1911,7 @@ body {
 
 // <!-- main grid----discover -->
 
-.discover {
+.discover{
     display: grid;
 
     grid-template-rows: repeat(4, 60px 300px);
@@ -1927,6 +1927,7 @@ body {
         margin: auto;
         font-size: 30px;
         font-weight: 1000
+
     }
 
 
@@ -1961,7 +1962,7 @@ body {
             }
 
         }
-
+    
 
         .box__title {
             position: absolute;
@@ -2079,16 +2080,16 @@ body {
             background-color: #191F22;
             color: white;
             grid-row: 1/2;
-            grid-column: 1/4;
+        grid-column: 1/4;
 
-
+        
             &:hover {
                 transition: 0.8s;
                 background-color: red;
             }
         }
-
-
+        
+        
 
         &__connect {
             grid-row: 3/5;
@@ -2106,15 +2107,32 @@ body {
 
         }
 
-
+    
 
 
 
     }
 
+    
+@media only screen and (max-width: 900px) {
+    .discover__wrapper{
+        
+    }
+    
+
+
+    
+
+}
+
+@media only screen and (max-width: 600px) {
+
+   
 
 
 }
+}
+
 
 
 
