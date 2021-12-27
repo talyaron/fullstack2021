@@ -345,6 +345,11 @@ body {
     grid-template-columns: repeat(5, 140px);
     grid-template-rows: repeat(12, 120px);
 
+    a {
+        text-decoration: none;
+        color: gray;
+    }
+
     &__header {
         position: relative;
         grid-row: 1;
@@ -378,6 +383,7 @@ body {
         &--arrow {
 
             .material-icons {
+
                 margin-left: 30%;
                 margin-top: 15%;
                 font-family: 'Material Icons';
@@ -1599,64 +1605,73 @@ body {
 
 
 }
+
 //yoel
 
 
 .text {
-  text-align: center;
-  color: #3d1717;
-  animation-name: moveDown;
-  animation-duration: 2s;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-  position: relative;
+    text-align: center;
+    color: #3d1717;
+    animation-name: moveDown;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    position: relative;
 }
 
 .wrapper {
-  display: flex;
-  justify-content: center;
-  height: 500px;
+    display: flex;
+    justify-content: center;
+    height: 500px;
 }
+
 .wrapper .item {
-  border: 1px solid gray;
-  width: 100px;
-  flex: 1;
+    border: 1px solid gray;
+    width: 100px;
+    flex: 1;
 }
+
 .wrapper .item:hover img {
-  height: 100%;
+    height: 100%;
 }
+
 .wrapper img {
-  height: 90%;
+    height: 90%;
 }
 
 @media only screen and (max-width: 800px) {
-  .wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 200px;
-    width: 150px;
-    position: relative;
-  }
-  .wrapper div > a > img {
-    height: 30vh;
-    width: 50vw;
-  }
-  .wrapper .item {
-    border: 1px solid gray;
-    flex: 1;
-    position: relative;
-    top: 40vh;
-  }
-  .wrapper .item:hover img {
-    height: 35vh;
-  }
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 200px;
+        width: 150px;
+        position: relative;
+    }
+
+    .wrapper div>a>img {
+        height: 30vh;
+        width: 50vw;
+    }
+
+    .wrapper .item {
+        border: 1px solid gray;
+        flex: 1;
+        position: relative;
+        top: 40vh;
+    }
+
+    .wrapper .item:hover img {
+        height: 35vh;
+    }
 }
+
 @keyframes moveDown {
-  from {
-    top: -4vw;
-  }
-  to {
-    top: 0vw;
-  }
+    from {
+        top: -4vw;
+    }
+
+    to {
+        top: 0vw;
+    }
 }

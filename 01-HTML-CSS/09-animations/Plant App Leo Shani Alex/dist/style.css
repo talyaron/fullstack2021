@@ -288,6 +288,10 @@ body {
   grid-template-columns: repeat(5, 140px);
   grid-template-rows: repeat(12, 120px);
 }
+.plantCard a {
+  text-decoration: none;
+  color: gray;
+}
 .plantCard__header {
   position: relative;
   grid-row: 1;
