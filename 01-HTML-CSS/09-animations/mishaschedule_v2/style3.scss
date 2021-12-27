@@ -388,6 +388,9 @@ html {
             border: 8px solid #464E85;
             border-radius: 50px;
             margin-left: -10px;
+            &:hover{
+                cursor: pointer;
+            }
 
         }
 

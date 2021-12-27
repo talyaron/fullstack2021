@@ -340,6 +340,9 @@ html {
   border-radius: 50px;
   margin-left: -10px;
 }
+.progress__bar__btn:hover {
+  cursor: pointer;
+}
 .progress__bar__pbar {
   padding: 0px;
   margin: 0px;
