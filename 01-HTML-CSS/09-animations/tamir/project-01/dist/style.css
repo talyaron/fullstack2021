@@ -32,7 +32,6 @@ body .wrapper {
   font-size: 25px;
 }
 .main__cards {
-  height: 200px;
   display: flex;
   flex-direction: row;
   overflow-x: scroll;
@@ -95,12 +94,18 @@ body .wrapper {
   font-size: small;
 }
 
+.contaniar__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .contaniar__item--header {
   color: #181c2a;
   font-size: large;
   padding: 30px;
 }
 .contaniar__item--img {
+  max-width: 800px;
   border-radius: 40px 40px 0 0;
   margin-left: 40px;
   margin-right: 40px;
@@ -109,7 +114,7 @@ body .wrapper {
 .contaniar__item--img img {
   background-size: cover;
   border-radius: 40px;
-  height: 430px;
+  max-height: 430px;
   width: 100%;
 }
 .contaniar__item--img--model {
@@ -156,10 +161,30 @@ body .wrapper {
 }
 
 .front {
+  background-size: cover;
   border: 2px solid black;
 }
-.front img {
-  border-radius: 25px;
+.front__button button {
+  font-family: inherit;
+  font-weight: bold;
+  /* color: var(--white-1); */
+  color: #e6e6e6;
+  letter-spacing: 2px;
+  padding: 9px 20px;
+  border: 1px solid gray;
+  border-radius: 1000px;
+  background: #0000004a;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.front__button button:hover,
+.front__button button:focus {
+  color: #40bf80;
+  background: rgba(19, 32, 26, 0.2);
+  border-color: currentColor;
+}
+.front__button button:active {
+  transform: translate(2px);
 }
 
 .front:hover {
@@ -171,7 +196,25 @@ body .wrapper {
 .back {
   height: 100%;
   border: 2px solid black;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
   transform: rotateY(180deg);
+}
+.back__one {
+  font-size: 25px;
+  margin-right: 10px;
+  margin-left: 5px;
+}
+.back__partition {
+  background-color: #40bf80;
+  height: 85px;
+  width: 8px;
+}
+.back__two {
+  margin-right: 3px;
+  font-size: 11px;
+  margin-left: 10px;
 }
 
 .back:hover {
@@ -188,6 +231,7 @@ body .wrapper {
 }
 
 .main__card {
+  padding-top: 20px;
   transition: transform 2s;
   transform-style: preserve-3d;
   cursor: pointer;
