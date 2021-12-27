@@ -841,8 +841,8 @@ input {
   padding: 5%;
   box-sizing: border-box;
   object-fit: contain;
-  width: 100%;
-  height: 100%;
+  width: 60%;
+  height: 60%;
 }
 .container-categories-cart__box__pic div {
   border-radius: 20px;
@@ -852,42 +852,49 @@ input {
 }
 .container-categories-cart__box img {
   transition: all 0.4s ease-out;
-  width: 75%;
-  height: 75%;
+  width: 60%;
+  height: 60%;
   background-size: cover;
 }
 .container-categories-cart__box img:hover {
   transform: scale(1.1);
 }
-.container-categories-cart__box__button {
-  font-size: 10vw;
-}
 
 .plus {
   background-color: green;
   color: white;
+  border-radius: 20%;
+}
+.plus:hover {
+  box-shadow: 1px 1px 3px gray;
 }
 
 .minus {
   background-color: #ff9d02;
   color: white;
+  border-radius: 20%;
+}
+.minus:hover {
+  background-color: red;
+  transition: 0.4s;
+  box-shadow: 1px 1px 3px gray;
 }
 
 .add {
   background-color: #ff9d02;
   color: white;
-  border-radius: 3px;
+  border-radius: 30px;
 }
 .add:hover {
-  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.397);
+  box-shadow: 1px 1px 3px gray;
   transition: 0.3s;
 }
 .add:active {
-  animation-name: spin;
+  animation-name: activeate;
   animation-duration: 0.5s;
 }
 
-@keyframes spin {
+@keyframes activeate {
   from {
     transform: scale(1);
     background-color: green;
@@ -908,7 +915,7 @@ input {
   margin: auto;
   background-color: #ff9e0250;
   width: 40%;
-  height: 40%;
+  height: 60%;
   display: flex;
   flex-direction: column;
   border-radius: 30px;
@@ -933,8 +940,12 @@ input {
 .pay {
   background-color: #ff9d02;
   color: white;
+  border-radius: 30px;
+}
+.pay:hover {
+  box-shadow: 1px 1px 3px gray;
 }
 .pay:active {
-  animation-name: spin;
+  animation-name: activeate;
   animation-duration: 0.5s;
 }

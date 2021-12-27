@@ -1070,8 +1070,8 @@ input {
             padding: 5%;
             box-sizing: border-box;
             object-fit: contain;
-            width: 100%;
-            height: 100%;
+            width: 60%;
+            height: 60%;
 
             div {
                 border-radius: 20px;
@@ -1087,8 +1087,8 @@ input {
 
         img {
             transition: all 0.4s ease-out;
-            width: 75%;
-            height: 75%;
+            width: 60%;
+            height: 60%;
             background-size: cover;
 
         }
@@ -1098,12 +1098,7 @@ input {
 
         }
 
-        &__button {
-            font-size: 10vw;
-
-
-
-        }
+        
 
     }
 
@@ -1112,32 +1107,42 @@ input {
 .plus {
     background-color: green;
     color: white;
+    border-radius: 20%;
+    &:hover{
+        box-shadow: 1px 1px 3px gray;
+    }
 }
 
 .minus {
     background-color: #ff9d02;
     color: white;
+    border-radius: 20%;
+    &:hover{
+        background-color: red;
+        transition: 0.4s;
+        box-shadow: 1px 1px 3px gray;
+    }
 }
 
 .add {
     background-color: #ff9d02;
     color: white;
-    border-radius: 3px;
+    border-radius: 30px;
 
     &:hover {
-        box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.397);
+        box-shadow: 1px 1px 3px gray;
         transition: 0.3s;
 
     }
 
     &:active {
-        animation-name: spin;
+        animation-name: activeate;
         animation-duration: 0.5s;
 
     }
 }
 
-@keyframes spin {
+@keyframes activeate {
     from {
         transform: scale(1);
         background-color: green;
@@ -1160,10 +1165,11 @@ input {
 }
 
 .container-checkout {
+
     margin: auto;
     background-color: #ff9e0250;
     width: 40%;
-    height: 40%;
+    height: 60%;
     display: flex;
     flex-direction: column;
     border-radius: 30px;
@@ -1198,9 +1204,14 @@ input {
 .pay {
     background-color: #ff9d02;
     color: white;
-
+    border-radius: 30px;
+    
+    &:hover{
+        box-shadow: 1px 1px 3px gray;
+    }
     &:active {
-        animation-name: spin;
+        
+        animation-name: activeate;
         animation-duration: 0.5s;
     }
 }
