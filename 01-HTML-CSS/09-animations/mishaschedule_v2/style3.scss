@@ -71,11 +71,11 @@ $bgcolor: #f0f1f6;
 
 @keyframes weather {
     from {
-        left: -70%;
+        left: -50%;
     }
 
     to {
-        left: 200%;
+        left: 150%;
     }
 }
 
@@ -107,27 +107,29 @@ html {
 
 .cloud {
     @include whitecloud();
+    animation-duration: 32s;
+    animation-delay: 0s;
 }
 
 .cloud2 {
     @include whitecloud();
     top: 55px;
-    animation-delay: 4s;
-    animation-duration: 19s;
+    animation-delay: 5s;
+    animation-duration: 25s;
 }
 
 .cloud3 {
     @include whitecloud();
     top: 70px;
-    animation-delay: 9s;
-    animation-duration: 21s;
+    animation-delay: 10s;
+    animation-duration: 28s;
 }
 
 .cloud4 {
     @include whitecloud();
     top: 0px;
-    animation-delay: 11s;
-    animation-duration: 15s;
+    animation-delay: 15s;
+    animation-duration: 30s;
 }
 
 .bigwrapper {
@@ -144,6 +146,7 @@ html {
     font-family: $mainFontFamily;
     background-color: $bgcolor;
     box-shadow: $shadow;
+    color: rgb(52, 51, 51);
 }
 
 .schetop {
