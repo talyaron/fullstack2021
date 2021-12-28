@@ -59,7 +59,7 @@ pawnWhite.style.top = '380px';
 pawnWhite.style.left = '75px';
 
 const animationTime = 700;
-const animationDelay = 3500;
+const animationDelay = 3000;
 
 const timeout1st = setTimeout(firstMove,  animationDelay+animationTime);
 const timeout2nd = setTimeout(secondMove, animationDelay+animationTime*2);
