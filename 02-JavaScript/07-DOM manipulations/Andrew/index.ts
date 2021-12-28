@@ -35,6 +35,7 @@ pieces.forEach(element => {
     element.style.height = '65px';
     element.style.position = 'absolute';
     element.style.filter = 'drop-shadow(0px 0px 8px white)';
+    element.style.transition = 'ease 0.4s';
 });
 const kingBlack: any = document.querySelector('#kingB');
 const kingWhite: any = document.querySelector('#kingW');
