@@ -1,7 +1,7 @@
-const welcome = document.querySelector(".hello");
-const here = document.querySelector("#man");
-const goodBye = document.querySelector(".bye");
-const unwelcome = document.getElementById("everyone");
+const welcome:any = document.querySelector(".hello");
+const here:any = document.querySelector("#man");
+const goodBye:any = document.querySelector(".bye");
+const unwelcome:any = document.getElementById("everyone");
 
 let changes = function () {
     welcome.style.fontSize = welcome.style.fontSize + 4 + "rem";
