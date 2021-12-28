@@ -1,7 +1,7 @@
 let greetings:any=document.querySelector("#Greetings");
 greetings.style.fontFamily="Impact,Charcoal,sans-serif";
 
-
+//how do i do upper case
 
 
 
@@ -21,10 +21,22 @@ pacman.style.height="3rem";
 pacman.style.borderRadius="50%";
 
 
-// ( dots=0; dots<dots.length;dots++){
-//     console.log("")
-// }
+//why wont my white dots showw????
 
+let dots:any=document.querySelector(".dot");
+for(let i=0;i<=dots.length;i++){
+    function type() {
+        
+        dots.style.backgroundColor="white";
+        dots.style.width="1rem";
+        dots.style.height="1rem";
+        dots.style.borderRadius="50%";
+        dots.style.margin="15px";
+        
+    
+    }
+    
+  //or  
 let dots:any=document.querySelector(".dot");
 dots.style.backgroundColor="white";
 dots.style.width="1rem";
