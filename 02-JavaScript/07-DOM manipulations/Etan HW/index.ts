@@ -9,33 +9,34 @@ let changes = function () {
     goodBye.style.padding = "20vh";
     goodBye.style.fontSize = "4rem";
     goodBye.style.background = "#3D9970";
+    unwelcome.style.display = 'none'
 };
 changes();
 
-unwelcome.style.opacity = '0';
+
 
 
 function fadeIn(){
     unwelcome.style.position = 'relative';
     unwelcome.style.width = '100vw'
-    unwelcome.style.display = unwelcome.style.display + 'block';
-    unwelcome.style.opacity = unwelcome.style.opacity + '1';
+    unwelcome.style.display = 'block';
+    
     unwelcome.style.fontSize ='5rem'
 }
 setTimeout(fadeIn,1000);
 
 function doMove() {
-    unwelcome.style.padding = unwelcome.style.padding + 100 + "px"; // pseudo-property code: Move right by 100px
+    unwelcome.style.padding = '100px' // pseudo-property code: Move right by 100px
     
 }
 setTimeout(doMove, 1000); // call doMove() in 20 msec
 
-let speed = 1000/60; // 60 Frame per second
-let opacity = 100;
-let display = 100;
+
+
+
 
 function fadeOut(){
-    unwelcome.style.opacity = unwelcome.style.opacity+0;
+    
     unwelcome.style.display = 'none'
     
 }
