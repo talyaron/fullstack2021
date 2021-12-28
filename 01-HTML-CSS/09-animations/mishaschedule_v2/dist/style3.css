@@ -1,3 +1,9 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+
 @keyframes wiggle {
   0% {
     transform: rotate(-10deg);
@@ -11,10 +17,10 @@
 }
 @keyframes weather {
   from {
-    left: -70%;
+    left: -50vw;
   }
   to {
-    left: 200%;
+    left: 110vw;
   }
 }
 @keyframes colorslide {
@@ -23,6 +29,14 @@
   }
   100% {
     background-position: right;
+  }
+}
+@keyframes progress_a {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 67%;
   }
 }
 html {
@@ -46,6 +60,8 @@ html {
   animation-timing-function: linear;
   height: 150px;
   min-width: 200px;
+  animation-duration: 32s;
+  animation-delay: 0s;
 }
 .cloud img {
   height: 100%;
@@ -62,8 +78,8 @@ html {
   height: 150px;
   min-width: 200px;
   top: 55px;
-  animation-delay: 4s;
-  animation-duration: 19s;
+  animation-delay: 5s;
+  animation-duration: 25s;
 }
 .cloud2 img {
   height: 100%;
@@ -80,8 +96,8 @@ html {
   height: 150px;
   min-width: 200px;
   top: 70px;
-  animation-delay: 9s;
-  animation-duration: 21s;
+  animation-delay: 10s;
+  animation-duration: 28s;
 }
 .cloud3 img {
   height: 100%;
@@ -98,8 +114,8 @@ html {
   height: 150px;
   min-width: 200px;
   top: 0px;
-  animation-delay: 11s;
-  animation-duration: 15s;
+  animation-delay: 15s;
+  animation-duration: 30s;
 }
 .cloud4 img {
   height: 100%;
@@ -119,6 +135,7 @@ html {
   font-family: "Neue Haas Grotesk Display Pro", sans-serif;
   background-color: #f0f1f6;
   box-shadow: 1px 1px 1px #a8a7a7, 1px 13px 26px rgba(99, 91, 105, 0.4);
+  color: #343333;
 }
 
 .schetop {
@@ -132,6 +149,7 @@ html {
 }
 .schetop__back {
   font-size: 27px;
+  color: #484545;
 }
 .schetop__search {
   font-size: 30px;
@@ -279,11 +297,7 @@ html {
   background-image: linear-gradient(145deg, #66529af1, #e052b5e3, #66529af1);
   background-position: left;
   background-size: 500%;
-  animation-name: colorslide;
-  animation-duration: 4s;
-  animation-direction: alternate;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
+  animation: colorslide 4s ease-in-out 0s infinite alternate;
   color: white;
 }
 .schecards__card:hover .bell {
@@ -327,6 +341,9 @@ html {
   border-radius: 50px;
   margin-left: -10px;
 }
+.progress__bar__btn:hover {
+  cursor: pointer;
+}
 .progress__bar__pbar {
   padding: 0px;
   margin: 0px;
@@ -336,11 +353,7 @@ html {
   background-image: linear-gradient(to right, #66529af1, #e052b5e3, #66529af1);
   background-position: left;
   background-size: 500%;
-  animation-name: colorslide;
-  animation-duration: 4s;
-  animation-direction: alternate;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
+  animation: progress_a 5s forwards, colorslide 4s ease-in-out infinite alternate;
 }
 .progress__mins {
   font-size: 20px;
@@ -391,6 +404,14 @@ html {
   }
 }
 @media only screen and (min-width: 900px) {
+  @keyframes weather {
+    from {
+      left: -20vw;
+    }
+    to {
+      left: 110vw;
+    }
+  }
   .body_schedule {
     align-items: center;
   }
@@ -508,74 +529,7 @@ html {
     height: 93%;
   }
 }
-html {
-  font-family: "Neue Haas Grotesk Display Pro", sans-serif;
-  color: #857a96;
-}
-
-.bodyActivities {
-  background: #eef3f7;
-  background-size: cover;
-  width: 60%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 15px;
-  box-shadow: 1px 1px 1px #888092, 1px 18px 10px rgba(16, 16, 16, 0.2), 1px 30px 60px rgba(16, 16, 16, 0.4);
-}
-.bodyActivities__topIcons {
-  width: 98%;
-  display: flex;
-  justify-content: space-between;
-}
-.bodyActivities__gridUserIcon {
-  width: 98%;
-  display: flex;
-  justify-content: space-between;
-}
-.bodyActivities__search {
-  width: 60%;
-  margin-left: auto;
-  margin-right: auto;
-}
-.bodyActivities__search input {
-  border-radius: 30px;
-  box-shadow: 2px 2px 6px #ddd6d6;
-  background-color: #fdfdfd;
-  color: rgba(158, 154, 154, 0.945);
-  border: none;
-  height: 3.2em;
-  font-size: 1.2em;
-  width: 95%;
-}
-.bodyActivities__search ion-icon {
-  position: absolute;
-  top: 18.5%;
-  left: 33%;
-}
-.bodyActivities__navBar {
-  width: 100%;
-}
-.bodyActivities__navBar__list {
-  list-style: none;
-  display: flex;
-  justify-content: space-between;
-  margin: 2.5% 3.5% 2% 0%;
-}
-.bodyActivities__navBar__list--link {
-  text-decoration: none;
-  padding: 0.2em 0.7em;
-  color: #857a96;
-  font-size: 1.1em;
-}
-.bodyActivities__navBar__list--link:hover {
-  background: #6633a0;
-  color: white;
-  font-size: 1em;
-  cursor: pointer;
-  border-radius: 45px;
-}
-.bodyActivities .ActivitiesGrid {
+.ActivitiesGrid {
   justify-content: center;
   display: grid;
   grid-gap: 1em;
@@ -584,7 +538,7 @@ html {
   min-height: 20em;
   grid-template-areas: "steps sleep goals" "steps sleep goals" "steps colories goals" "haert colories weight" "haert colories weight";
 }
-.bodyActivities .ActivitiesGrid .weight {
+.ActivitiesGrid .weight {
   grid-area: weight;
   border-radius: 15px;
   box-shadow: 1px 1px 1px #a8a7a7, 1px 10px 24px rgba(102, 95, 107, 0.4);
@@ -593,18 +547,18 @@ html {
   color: #857a96;
   height: 15vh;
 }
-.bodyActivities .ActivitiesGrid .weight__weightIcons {
+.ActivitiesGrid .weight__weightIcons {
   display: flex;
   justify-content: space-between;
   padding: 2% 3%;
 }
-.bodyActivities .ActivitiesGrid .weight--textWeght {
+.ActivitiesGrid .weight--textWeght {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: -11%;
 }
-.bodyActivities .ActivitiesGrid .sleep {
+.ActivitiesGrid .sleep {
   grid-area: sleep;
   background: linear-gradient(to bottom right, #4d358b 50%, #ca36a5 100%);
   color: white;
@@ -613,22 +567,22 @@ html {
   font-size: 0.9em;
   height: 15vh;
 }
-.bodyActivities .ActivitiesGrid .sleep__sleepContent__sleepIcons {
+.ActivitiesGrid .sleep__sleepContent__sleepIcons {
   display: flex;
   justify-content: space-between;
   padding: 3% 3%;
 }
-.bodyActivities .ActivitiesGrid .sleep__sleepContent__sleepIcons--moonIcon {
+.ActivitiesGrid .sleep__sleepContent__sleepIcons--moonIcon {
   background-color: #eef3f7;
   border-radius: 50%;
   color: black;
   padding: 0.4%;
 }
-.bodyActivities .ActivitiesGrid .sleep__sleepContent__textHour {
+.ActivitiesGrid .sleep__sleepContent__textHour {
   padding-left: 3%;
   padding-bottom: 5%;
 }
-.bodyActivities .ActivitiesGrid .steps {
+.ActivitiesGrid .steps {
   grid-area: steps;
   border-radius: 15px;
   box-shadow: 1px 1px 1px #a8a7a7, 1px 10px 24px rgba(102, 95, 107, 0.4);
@@ -637,27 +591,27 @@ html {
   color: #857a96;
   height: 30vh;
 }
-.bodyActivities .ActivitiesGrid .steps__stepsIcons {
+.ActivitiesGrid .steps__stepsIcons {
   padding: 2%;
   display: flex;
   justify-content: space-between;
 }
-.bodyActivities .ActivitiesGrid .steps__stepsContainer {
+.ActivitiesGrid .steps__stepsContainer {
   padding-top: 10%;
 }
-.bodyActivities .ActivitiesGrid .steps__stepsContainer__cercl {
+.ActivitiesGrid .steps__stepsContainer__cercl {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.bodyActivities .ActivitiesGrid .steps__stepsContainer__cercl--text {
+.ActivitiesGrid .steps__stepsContainer__cercl--text {
   position: absolute;
 }
-.bodyActivities .ActivitiesGrid .steps__stepsContainer .animation {
+.ActivitiesGrid .steps__stepsContainer .animation {
   -webkit-transform: rotate(-90deg);
   transform: rotate(-90deg);
 }
-.bodyActivities .ActivitiesGrid .steps__stepsContainer .animation__circleAnimation {
+.ActivitiesGrid .steps__stepsContainer .animation__circleAnimation {
   stroke-dasharray: 440;
   stroke-dashoffset: 440;
   -webkit-animation: html 6s ease-out forwards;
@@ -673,7 +627,7 @@ html {
     stroke-dashoffset: 170;
   }
 }
-.bodyActivities .ActivitiesGrid .calories {
+.ActivitiesGrid .calories {
   grid-area: colories;
   border-radius: 15px;
   box-shadow: 1px 1px 1px #a8a7a7, 1px 10px 24px rgba(102, 95, 107, 0.4);
@@ -682,27 +636,27 @@ html {
   color: #857a96;
   height: 30vh;
 }
-.bodyActivities .ActivitiesGrid .calories__caloriesIcons {
+.ActivitiesGrid .calories__caloriesIcons {
   display: flex;
   justify-content: space-between;
   padding: 3% 3%;
 }
-.bodyActivities .ActivitiesGrid .calories__caloriesContainer {
+.ActivitiesGrid .calories__caloriesContainer {
   padding-top: 8%;
 }
-.bodyActivities .ActivitiesGrid .calories__caloriesContainer__cercl {
+.ActivitiesGrid .calories__caloriesContainer__cercl {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.bodyActivities .ActivitiesGrid .calories__caloriesContainer__cercl--text {
+.ActivitiesGrid .calories__caloriesContainer__cercl--text {
   position: absolute;
 }
-.bodyActivities .ActivitiesGrid .calories__caloriesContainer .animation {
+.ActivitiesGrid .calories__caloriesContainer .animation {
   -webkit-transform: rotate(-90deg);
   transform: rotate(-90deg);
 }
-.bodyActivities .ActivitiesGrid .calories__caloriesContainer .animation__circleAnimation {
+.ActivitiesGrid .calories__caloriesContainer .animation__circleAnimation {
   stroke-dasharray: 440;
   stroke-dashoffset: 440;
   -webkit-animation: html 6s ease-out forwards;
@@ -718,7 +672,7 @@ html {
     stroke-dashoffset: 200;
   }
 }
-.bodyActivities .ActivitiesGrid .goals {
+.ActivitiesGrid .goals {
   grid-area: goals;
   border-radius: 15px;
   box-shadow: 1px 1px 1px #a8a7a7, 1px 10px 24px rgba(102, 95, 107, 0.4);
@@ -727,32 +681,32 @@ html {
   color: #857a96;
   height: 30vh;
 }
-.bodyActivities .ActivitiesGrid .goals__goalsIcons {
+.ActivitiesGrid .goals__goalsIcons {
   display: flex;
   justify-content: space-between;
   padding: 3% 3%;
 }
-.bodyActivities .ActivitiesGrid .goals__goalsDiagram {
+.ActivitiesGrid .goals__goalsDiagram {
   display: flex;
   justify-content: space-evenly;
 }
-.bodyActivities .ActivitiesGrid .goals__goalsDiagram--text {
+.ActivitiesGrid .goals__goalsDiagram--text {
   display: flex;
   justify-content: space-evenly;
 }
-.bodyActivities .ActivitiesGrid .goals__goalsDiagram__circl {
+.ActivitiesGrid .goals__goalsDiagram__circl {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.bodyActivities .ActivitiesGrid .goals__goalsDiagram__circl--Text {
+.ActivitiesGrid .goals__goalsDiagram__circl--Text {
   position: absolute;
 }
-.bodyActivities .ActivitiesGrid .goals__goalsDiagram .animation {
+.ActivitiesGrid .goals__goalsDiagram .animation {
   -webkit-transform: rotate(-90deg);
   transform: rotate(-90deg);
 }
-.bodyActivities .ActivitiesGrid .goals__goalsDiagram .animation__circleAnimation {
+.ActivitiesGrid .goals__goalsDiagram .animation__circleAnimation {
   stroke-dasharray: 440;
   stroke-dashoffset: 440;
   -webkit-animation: html 6s ease-out forwards;
@@ -768,7 +722,7 @@ html {
     stroke-dashoffset: 170;
   }
 }
-.bodyActivities .ActivitiesGrid .haert {
+.ActivitiesGrid .haert {
   grid-area: haert;
   border-radius: 15px;
   box-shadow: 1px 1px 1px #a8a7a7, 1px 10px 24px rgba(102, 95, 107, 0.4);
@@ -777,89 +731,89 @@ html {
   color: #857a96;
   height: 15vh;
 }
-.bodyActivities .ActivitiesGrid .haert__heartIcons {
+.ActivitiesGrid .haert__heartIcons {
   display: flex;
   justify-content: space-between;
   padding: 2% 3%;
 }
-.bodyActivities .ActivitiesGrid .haert__chart {
+.ActivitiesGrid .haert__chart {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.bodyActivities .ActivitiesGrid .haert__chart--bmp {
+.ActivitiesGrid .haert__chart--bmp {
   position: absolute;
-  left: 19.2%;
+  left: 19.5%;
 }
-.bodyActivities .ActivitiesGrid .haert__chart .bar-graph-vertical .bar-container {
+.ActivitiesGrid .haert__chart .bar-graph-vertical .bar-container {
   float: left;
   height: 10vh;
   position: relative;
   width: 2em;
 }
-.bodyActivities .ActivitiesGrid .haert__chart .bar-graph-vertical .bar {
+.ActivitiesGrid .haert__chart .bar-graph-vertical .bar {
   border-radius: 3px;
   bottom: 1em;
   position: absolute;
   width: 0.4em;
 }
-.bodyActivities .ActivitiesGrid .haert__chart .bar-graph-vertical .year {
+.ActivitiesGrid .haert__chart .bar-graph-vertical .year {
   -webkit-transform: rotate(90deg);
   -moz-transform: rotate(90deg);
   -o-transform: rotate(90deg);
   -ms-transform: rotate(90deg);
   transform: rotate(90deg);
 }
-.bodyActivities .ActivitiesGrid .haert__chart .bar-graph-two .bar::after {
+.ActivitiesGrid .haert__chart .bar-graph-two .bar::after {
   -webkit-transform: rotate(90deg);
   -moz-transform: rotate(90deg);
   -o-transform: rotate(90deg);
   -ms-transform: rotate(90deg);
   transform: rotate(90deg);
 }
-.bodyActivities .ActivitiesGrid .haert__chart .bar-graph-two .bar-one .bar {
+.ActivitiesGrid .haert__chart .bar-graph-two .bar-one .bar {
   background-color: rgba(112, 19, 131, 0.747);
   -webkit-animation: show-bar-one-vertical 2.5s 0.1s forwards;
   -moz-animation: show-bar-one-vertical 2.5s 0.1s forwards;
   animation: show-bar-one-vertical 2.5s 0.1s forwards;
 }
-.bodyActivities .ActivitiesGrid .haert__chart .bar-graph-two .bar-two .bar {
+.ActivitiesGrid .haert__chart .bar-graph-two .bar-two .bar {
   background-color: #f382ef;
   -webkit-animation: show-bar-two-vertical 2.5s 0.2s forwards;
   -moz-animation: show-bar-two-vertical 2.5s 0.2s forwards;
   animation: show-bar-two-vertical 2.5s 0.2s forwards;
 }
-.bodyActivities .ActivitiesGrid .haert__chart .bar-graph-two .bar-three .bar {
+.ActivitiesGrid .haert__chart .bar-graph-two .bar-three .bar {
   background-color: #f382ef;
   -webkit-animation: show-bar-three-vertical 2.5s 0.3s forwards;
   -moz-animation: show-bar-three-vertical 2.5s 0.3s forwards;
   animation: show-bar-three-vertical 2.5s 0.3s forwards;
 }
-.bodyActivities .ActivitiesGrid .haert__chart .bar-graph-two .bar-four .bar {
+.ActivitiesGrid .haert__chart .bar-graph-two .bar-four .bar {
   background-color: rgba(112, 19, 131, 0.747);
   -webkit-animation: show-bar-four-vertical 2.5s 0.4s forwards;
   -moz-animation: show-bar-four-vertical 2.5s 0.4s forwards;
   animation: show-bar-four-vertical 2.5s 0.4s forwards;
 }
-.bodyActivities .ActivitiesGrid .haert__chart .bar-graph-two .bar-five .bar {
+.ActivitiesGrid .haert__chart .bar-graph-two .bar-five .bar {
   background-color: #f382ef;
   -webkit-animation: show-bar-five-vertical 2.5s 0.5s forwards;
   -moz-animation: show-bar-five-vertical 2.5s 0.5s forwards;
   animation: show-bar-five-vertical 2.5s 0.5s forwards;
 }
-.bodyActivities .ActivitiesGrid .haert__chart .bar-graph-two .bar-six .bar {
+.ActivitiesGrid .haert__chart .bar-graph-two .bar-six .bar {
   background-color: #f382ef;
   -webkit-animation: show-bar-six-vertical 2.5s 0.6s forwards;
   -moz-animation: show-bar-six-vertical 2.5s 0.6s forwards;
   animation: show-bar-six-vertical 2.5s 0.6s forwards;
 }
-.bodyActivities .ActivitiesGrid .haert__chart .bar-graph-two .bar-seven .bar {
+.ActivitiesGrid .haert__chart .bar-graph-two .bar-seven .bar {
   background-color: rgba(112, 19, 131, 0.747);
   -webkit-animation: show-bar-seven-vertical 2.5s 0.7s forwards;
   -moz-animation: show-bar-seven-vertical 2.5s 0.7s forwards;
   animation: show-bar-seven-vertical 2.5s 0.7s forwards;
 }
-.bodyActivities .ActivitiesGrid .haert__chart .bar-graph-two .bar-eight .bar {
+.ActivitiesGrid .haert__chart .bar-graph-two .bar-eight .bar {
   background-color: #f382ef;
   -webkit-animation: show-bar-eight-vertical 25s 0.8s forwards;
   -moz-animation: show-bar-eight-vertical 2.5s 0.8s forwards;
@@ -929,7 +883,8 @@ html {
     height: 37%;
   }
 }
-.bodyActivities .userBar {
+
+.userBar {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -938,7 +893,7 @@ html {
   padding-top: 1em;
   padding-bottom: 1.2em;
 }
-.bodyActivities .userBar__DailyMeals {
+.userBar__DailyMeals {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -953,10 +908,10 @@ html {
   width: 93%;
   border-radius: 10px;
 }
-.bodyActivities .userBar__DailyMeals--mealIcon {
+.userBar__DailyMeals--mealIcon {
   margin-right: 2%;
 }
-.bodyActivities .userBar__info {
+.userBar__info {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -971,11 +926,79 @@ html {
   width: 93%;
   border-radius: 10px;
 }
-.bodyActivities .userBar__info--alertIcon {
+.userBar__info--alertIcon {
   background-color: #520661;
   color: white;
   border-radius: 50%;
   margin-right: 2%;
+}
+
+html {
+  font-family: "Neue Haas Grotesk Display Pro", sans-serif;
+  color: #857a96;
+}
+
+.bodyActivities {
+  background: #eef3f7;
+  background-size: cover;
+  width: 60%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 15px;
+  box-shadow: 1px 1px 1px #888092, 1px 18px 10px rgba(16, 16, 16, 0.2), 1px 30px 60px rgba(16, 16, 16, 0.4);
+}
+.bodyActivities__topIcons {
+  width: 98%;
+  display: flex;
+  justify-content: space-between;
+}
+.bodyActivities__gridUserIcon {
+  width: 98%;
+  display: flex;
+  justify-content: space-between;
+}
+.bodyActivities__search {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.bodyActivities__search input {
+  border-radius: 30px;
+  box-shadow: 2px 2px 6px #ddd6d6;
+  background-color: #fdfdfd;
+  color: rgba(158, 154, 154, 0.945);
+  border: none;
+  height: 3.2em;
+  font-size: 1.2em;
+  width: 95%;
+}
+.bodyActivities__search ion-icon {
+  position: absolute;
+  top: 18%;
+  left: 33%;
+}
+.bodyActivities__navBar {
+  width: 100%;
+}
+.bodyActivities__navBar__list {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  margin: 2.5% 3.5% 2% 0%;
+}
+.bodyActivities__navBar__list--link {
+  text-decoration: none;
+  padding: 0.2em 0.7em;
+  color: #857a96;
+  font-size: 1.1em;
+}
+.bodyActivities__navBar__list--link:hover {
+  background: #6633a0;
+  color: white;
+  font-size: 1em;
+  cursor: pointer;
+  border-radius: 45px;
 }
 
 @media only screen and (max-width: 770px) {
@@ -1002,8 +1025,8 @@ html {
   }
   .bodyActivities__search ion-icon {
     position: absolute;
-    top: 17%;
-    left: 5%;
+    top: 16%;
+    left: 6%;
   }
   .bodyActivities__navBar__list {
     margin: 5% 3% 5% -3%;
@@ -1012,6 +1035,7 @@ html {
     font-size: 1.2em;
   }
   .bodyActivities .ActivitiesGrid {
+    grid-template-columns: 30% 30% 30%;
     grid-template-areas: "steps sleep goals" "steps sleep goals" "steps colories goals" "haert colories goals" "haert colories goals";
   }
   .bodyActivities .ActivitiesGrid weight {
@@ -1048,7 +1072,7 @@ html {
 }
 @media only screen and (max-width: 540px) {
   .bodyActivities {
-    width: 100%;
+    width: 98%;
     border-radius: 0px;
     box-shadow: none;
     border: none;
@@ -1070,7 +1094,7 @@ html {
   }
   .bodyActivities__search ion-icon {
     position: absolute;
-    top: 24%;
+    top: 22.5%;
     left: 6%;
   }
   .bodyActivities__navBar__list {
@@ -1080,7 +1104,7 @@ html {
     font-size: 0.9em;
   }
   .bodyActivities .ActivitiesGrid {
-    grid-template-columns: 46% 46%;
+    grid-template-columns: 44% 44%;
     grid-template-areas: "steps sleep" "steps sleep" "steps colories" "haert colories" "haert colories";
   }
   .bodyActivities .ActivitiesGrid goals,
@@ -1117,4 +1141,102 @@ html {
     height: 2.5em;
     font-size: 0.9em;
   }
+}
+.shimon {
+  background-color: rgba(128, 128, 128, 0.089);
+  justify-items: center;
+  height: fit-content;
+}
+.shimon #main-wrapper {
+  width: 600px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.shimon .container {
+  justify-self: center;
+  font-family: "Neue Haas Grotesk Display Pro", sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.shimon .container .cloud {
+  position: absolute;
+  top: 15vh;
+  width: 300px;
+  animation-name: magnificent_popup;
+  animation-duration: 15s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+  border-radius: 20%;
+  z-index: -1;
+}
+@keyframes magnificent_popup {
+  from {
+    left: 20px;
+  }
+  to {
+    left: 1200px;
+  }
+}
+.shimon .container .cloud.active {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+.shimon .container .bird {
+  position: absolute;
+  top: 30px;
+  right: 3vw;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+.shimon .container .bird img {
+  width: 100px;
+}
+.shimon .container h1 {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  color: black;
+}
+.shimon .container img {
+  justify-self: center;
+  max-width: 45%;
+  border-radius: 15%;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  z-index: -2;
+}
+.shimon .container .login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2%;
+  width: 290px;
+  height: 280px;
+  height: fit-content;
+  background-color: rgba(128, 128, 128, 0.151);
+  border-radius: 25px;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  color: black;
+}
+.shimon .container .login .login_button {
+  position: relative;
+  left: 200px;
+  top: 30px;
+  align-items: center;
+  text-align: center;
+  color: white;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background: linear-gradient(to bottom right, #4d358b 50%, #ca36a5 100%);
+  text-align: center;
+  padding: 2px;
 }

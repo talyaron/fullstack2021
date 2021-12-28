@@ -11,6 +11,7 @@ body {
 }
 
 #landing {
+  padding-bottom: 2.5rem;
   width: 100vw;
   height: 100%;
   margin: auto;
@@ -21,15 +22,80 @@ body {
     margin-top: 3.5rem;
   }
 }
+#landing__dailytasksdone {
+  padding: 5%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(5, 17%);
+  grid-template-rows: 17%, 35%, 17%;
+  gap: 15px;
+}
+@media only screen and (min-width: 1200px) {
+  #landing__dailytasksdone {
+    position: absolute;
+    top: 20%;
+    left: 0%;
+  }
+}
+#landing__dailytasksdone .box1 {
+  grid-column: 1/4;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.5rem;
+  text-transform: capitalize;
+}
+#landing__dailytasksdone .box2 {
+  grid-column: 4/6;
+  font-weight: 550;
+  text-align: right;
+}
+#landing__dailytasksdone .box3 {
+  grid-column: 1/6;
+}
+#landing__dailytasksdone .box3 img {
+  width: 100%;
+}
+#landing__dailytasksdone .box {
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 20%;
+  text-align: center;
+}
+#landing__dailytasksdone .box:hover {
+  background-color: rgba(0, 0, 0, 0.837);
+  cursor: pointer;
+}
+#landing__dailytasksdone .box p {
+  margin: 0;
+  font-weight: 500;
+}
+#landing__dailytasksdone .box p:hover {
+  color: white;
+}
 #landing__dailytaskslist {
-  padding-top: 1.5rem;
+  padding: 5%;
   display: flex;
   flex-direction: column;
+  width: 90%;
+}
+@media only screen and (min-width: 1200px) {
+  #landing__dailytaskslist {
+    position: absolute;
+    top: 20%;
+    right: 0%;
+    width: 35%;
+  }
 }
 #landing__dailytaskslist .list {
   display: flex;
   justify-content: space-around;
   border-bottom: 0.5px solid rgba(96, 94, 94, 0.68);
+  transition: all 0.5s;
+}
+#landing__dailytaskslist .list:hover {
+  transform: scale(1.2);
+  z-index: 1;
+  cursor: pointer;
 }
 #landing__dailytaskslist .list__line {
   display: flex;
@@ -61,51 +127,11 @@ body {
 #landing__dailytaskslist .list__line .logo {
   font-weight: 700;
 }
+#landing__dailytaskslist .list__line .logo:hover {
+  text-decoration: underline;
+}
 #landing__dailytaskslist .list__line p {
   padding: 1.5rem;
-}
-#landing__dailytasksdone {
-  padding-top: 4vh;
-  margin: auto;
-  display: grid;
-  grid-template-columns: repeat(5, 80px);
-  grid-template-rows: 100px, 200px, 100px;
-  gap: 10px;
-}
-#landing__dailytasksdone .box1 {
-  grid-column: 1/4;
-  font-weight: 700;
-  font-family: "Poppins", sans-serif;
-  font-size: 1.5rem;
-  text-transform: capitalize;
-}
-#landing__dailytasksdone .box2 {
-  grid-column: 4/6;
-  font-weight: 550;
-  text-align: right;
-}
-#landing__dailytasksdone .box3 {
-  grid-column: 1/6;
-}
-#landing__dailytasksdone .box3 img {
-  width: 100%;
-}
-#landing__dailytasksdone .box {
-  border: 2px solid black;
-  border-radius: 15px;
-  padding: 20px;
-  text-align: center;
-}
-#landing__dailytasksdone .box:hover {
-  background-color: rgba(0, 0, 0, 0.837);
-  cursor: pointer;
-}
-#landing__dailytasksdone .box p {
-  margin: 0;
-  font-weight: 500;
-}
-#landing__dailytasksdone .box p:hover {
-  color: white;
 }
 #landing-home {
   background: white;
@@ -264,7 +290,7 @@ body {
   justify-content: center;
 }
 #landing__task-count .box__home1 {
-  background-color: #ff98e09a;
+  background-color: #ffbfec9a;
   height: 150px;
 }
 #landing__task-count .box__home1 h4 {
@@ -275,7 +301,7 @@ body {
   cursor: pointer;
 }
 #landing__task-count .box__home2 {
-  background-color: #aaeffa;
+  background-color: #caf8ff;
   height: 150px;
 }
 #landing__task-count .box__home2 h4 {
@@ -286,7 +312,7 @@ body {
   cursor: pointer;
 }
 #landing__task-count .box__home3 {
-  background-color: #f4ff7f;
+  background-color: #f7ffa1;
   height: 150px;
 }
 #landing__task-count .box__home3 h4 {
@@ -419,19 +445,11 @@ body {
   display: grid;
   align-content: flex-start;
   width: 90vw;
-  min-height: fit-content;
-  height: 35vw;
-  min-height: 20vh;
+  height: fit-content;
   background-color: white;
   border-radius: 2rem;
   padding: 2vw 0rem 5vw 0rem;
   box-shadow: 0.5 rem 3rem rgba(0, 0, 0, 0.4);
-}
-@media only screen and (min-width: 600px) {
-  #landing__task__cal__flex {
-    min-height: 25vw;
-    height: 30vw;
-  }
 }
 #landing__task__cal__title {
   height: 6rem;
@@ -479,10 +497,10 @@ body {
 }
 #landing__task__cal__days {
   width: 90vw;
-  height: 3vw;
+  height: 100%;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: repeat(2, 7vw);
+  grid-template-rows: repeat(5, 3vw);
   justify-items: center;
   align-items: center;
   grid-gap: 5vw;
@@ -502,7 +520,7 @@ body {
   height: fit-content;
   line-height: 3vh;
   width: fit-content;
-  padding: 2vw;
+  padding: 1vw 1vw 0.5vw 1vw;
   border-radius: 0.25rem;
 }
 #landing__task__cal__days div:hover {
@@ -512,6 +530,9 @@ body {
   background-color: #918d8d;
   font-weight: bolder;
 }
+#landing__task__cal__days div p {
+  margin: 0;
+}
 #landing__task__cal__days .prev-date,
 #landing__task__cal__days .next-date {
   opacity: 0.5;
@@ -519,7 +540,6 @@ body {
 #landing__task__cal__days .assigned {
   display: flex;
   flex-direction: column;
-  padding: 1.5vw;
   column-gap: 0;
   text-align: center;
   justify-content: space-around;
@@ -534,7 +554,7 @@ body {
   text-align: center;
   display: flex;
   flex-direction: column;
-  padding: 1.5vw;
+  padding: 0.1vw 1vw 0.1vw 1vw;
 }
 
 .iconify {

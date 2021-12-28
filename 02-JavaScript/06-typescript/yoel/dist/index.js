@@ -1,10 +1,6 @@
-function avg(a, b) {
-    try {
-        var avg2 = (a + b) / 2;
-        return 'the average is ' + avg2;
-    }
-    catch (error) {
-        console.log(error);
-    }
-}
-console.log(avg(7, 6));
+// let num:number = 9;
+// let num2:number = 9;
+// function avg(a:number , b:number):string{
+//     return  `the avg is ${(a+b)/2}`;
+// }
+// console.log(avg(num,num2));

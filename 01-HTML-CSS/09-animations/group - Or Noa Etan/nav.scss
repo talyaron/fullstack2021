@@ -18,7 +18,7 @@ nav {
 
   :not(.hidden) {
     background-color: #141414;
-    color: #f0f0f2;
+    
   }
 }
 
@@ -36,13 +36,14 @@ nav ul {
 
   li a i {
     background-color: #f0f0f2;
-    color: #141414;
+    color: rgba(255,255, 255, .3);
     display: block;
     padding: 0.8rem 1rem;
     text-decoration: none;
 
     &:hover {
-      background: rgb(117, 116, 116);
+      background: rgb(46, 46, 46);
+      color: rgba(255,255, 255, 1);
       text-underline-position: below;
       border-radius: 3rem;
     }
@@ -68,6 +69,7 @@ nav ul {
     background-color: gainsboro;
     border-radius: 5px;
     padding: 12px;
+
   }
 
   &__mytasks {
@@ -77,20 +79,17 @@ nav ul {
     padding-inline: 0.5rem;
     flex-direction: row;
     right: 20vw;
+    
 
     &-square {
       align-self: center;
       margin-left: 1rem;
-      width: 3ch;
+      padding: .8ch 1.3ch;
       overflow: hidden;
       text-align: center;
-
-      & > h3 {
-        padding: 1vw;
-        background: #141414;
-        color: #f0f0f2;
-        border-radius: 7px;
-      }
+      background: #141414;
+      color: #f0f0f2;
+      border-radius: 7px;
     }
   }
 
@@ -121,6 +120,7 @@ nav ul {
 
     ul {
       top: 0;
+      border-radius: 0;
 
       li {
         flex: 1 2 auto;
@@ -128,21 +128,17 @@ nav ul {
       }
     }
   }
+#info{
+  animation: fade 0.5s infinite alternate;
+}
+#monthly-tasks, #home, #chart{ 
+&:hover {
+    .material-icons {
+      animation: pulse 0.5s infinite alternate;
 
-  #monthly-tasks, #home, #chart, #info{ //added the animation to all 4
-    &:hover {
-      .material-icons {
-        animation: pulse 0.5s infinite alternate;
-
-        // animation-name: fade, shrink;
-        // animation-duration: 0.5s, 0.53s;
-        // animation-iteration-count: infinite, infinite;
-        // animation-direction: alternate, alternate;
-        // animation-timing-function: ease-in-out;
-      }
     }
   }
-
+}
   .hidden {
     top: 0;
     display: inline;
@@ -157,7 +153,8 @@ nav ul {
     }
 
     &__mytasks {
-      display: none;
+      position: absolute;
+      top: 10vh;
     }
   }
 }
@@ -176,45 +173,6 @@ h3 {
 }
 
 // KEYFRAMES
-@keyframes fade {
-  from {
-    opacity: 1;
-  }
-
-  to {
-    opacity: 0.25;
-  }
-}
-
-@keyframes shrink {
-  from {
-    transform: scale(1);
-  }
-
-  to {
-    transform: scale(0.75);
-  }
-}
-
-@keyframes moveRight {
-  from {
-    left: 0vw;
-  }
-
-  to {
-    left: 50vw;
-  }
-}
-
-@keyframes moveUp {
-  from {
-    top: 50vw;
-  }
-
-  to {
-    top: 0vw;
-  }
-}
 
 @keyframes pulse {
   from {
@@ -227,7 +185,14 @@ h3 {
     opacity: 0.25;
   }
 }
-
+@keyframes fade {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.25;
+  }
+}
 //icon styles, use as
 .md-18 {
   font-size: 18px;
@@ -247,4 +212,11 @@ h3 {
 
 .md-40 {
   font-size: 40px;
+}
+
+.md-light {
+  color: rgba(255, 255, 255, 1);
+}
+.md-inactive {
+  color: rgba(255,255, 255, .3);
 }

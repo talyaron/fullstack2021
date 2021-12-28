@@ -18,7 +18,6 @@ nav {
 }
 nav :not(.hidden) {
   background-color: #141414;
-  color: #f0f0f2;
 }
 
 nav ul {
@@ -33,13 +32,14 @@ nav ul {
 }
 nav ul li a i {
   background-color: #f0f0f2;
-  color: #141414;
+  color: rgba(255, 255, 255, 0.3);
   display: block;
   padding: 0.8rem 1rem;
   text-decoration: none;
 }
 nav ul li a i:hover {
-  background: #757474;
+  background: #2e2e2e;
+  color: white;
   text-underline-position: below;
   border-radius: 3rem;
 }
@@ -74,12 +74,9 @@ nav ul li a i:hover {
 #control__mytasks-square {
   align-self: center;
   margin-left: 1rem;
-  width: 3ch;
+  padding: 0.8ch 1.3ch;
   overflow: hidden;
   text-align: center;
-}
-#control__mytasks-square > h3 {
-  padding: 1vw;
   background: #141414;
   color: #f0f0f2;
   border-radius: 7px;
@@ -106,13 +103,18 @@ nav ul li a i:hover {
   }
   nav ul {
     top: 0;
+    border-radius: 0;
   }
   nav ul li {
     flex: 1 2 auto;
     text-align: center;
   }
 
-  #monthly-tasks:hover .material-icons, #home:hover .material-icons, #chart:hover .material-icons, #info:hover .material-icons {
+  #info {
+    animation: fade 0.5s infinite alternate;
+  }
+
+  #monthly-tasks:hover .material-icons, #home:hover .material-icons, #chart:hover .material-icons {
     animation: pulse 0.5s infinite alternate;
   }
 
@@ -128,7 +130,8 @@ nav ul li a i:hover {
     padding-top: 10vh;
   }
   #control__mytasks {
-    display: none;
+    position: absolute;
+    top: 10vh;
   }
 }
 h3 span {
@@ -142,38 +145,6 @@ h3 .fade {
   transform: translateY(0px);
 }
 
-@keyframes fade {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0.25;
-  }
-}
-@keyframes shrink {
-  from {
-    transform: scale(1);
-  }
-  to {
-    transform: scale(0.75);
-  }
-}
-@keyframes moveRight {
-  from {
-    left: 0vw;
-  }
-  to {
-    left: 50vw;
-  }
-}
-@keyframes moveUp {
-  from {
-    top: 50vw;
-  }
-  to {
-    top: 0vw;
-  }
-}
 @keyframes pulse {
   from {
     transform: scale(1);
@@ -181,6 +152,14 @@ h3 .fade {
   }
   to {
     transform: scale(0.75);
+    opacity: 0.25;
+  }
+}
+@keyframes fade {
+  from {
+    opacity: 1;
+  }
+  to {
     opacity: 0.25;
   }
 }
@@ -202,4 +181,12 @@ h3 .fade {
 
 .md-40 {
   font-size: 40px;
+}
+
+.md-light {
+  color: white;
+}
+
+.md-inactive {
+  color: rgba(255, 255, 255, 0.3);
 }

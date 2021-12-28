@@ -155,23 +155,27 @@
   justify-content: space-between;
   padding: 3% 3%;
 }
-.ActivitiesGrid .goals .goalsDiagram {
+.ActivitiesGrid .goals__goalsDiagram {
   display: flex;
   justify-content: space-evenly;
 }
-.ActivitiesGrid .goals .goalsDiagram .circl {
+.ActivitiesGrid .goals__goalsDiagram--text {
+  display: flex;
+  justify-content: space-evenly;
+}
+.ActivitiesGrid .goals__goalsDiagram__circl {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.ActivitiesGrid .goals .goalsDiagram .circl--Text {
+.ActivitiesGrid .goals__goalsDiagram__circl--Text {
   position: absolute;
 }
-.ActivitiesGrid .goals .goalsDiagram .animation {
+.ActivitiesGrid .goals__goalsDiagram .animation {
   -webkit-transform: rotate(-90deg);
   transform: rotate(-90deg);
 }
-.ActivitiesGrid .goals .goalsDiagram .animation__circleAnimation {
+.ActivitiesGrid .goals__goalsDiagram .animation__circleAnimation {
   stroke-dasharray: 440;
   stroke-dashoffset: 440;
   -webkit-animation: html 6s ease-out forwards;
@@ -208,7 +212,7 @@
 }
 .ActivitiesGrid .haert__chart--bmp {
   position: absolute;
-  left: 19.2%;
+  left: 19.5%;
 }
 .ActivitiesGrid .haert__chart .bar-graph-vertical .bar-container {
   float: left;
