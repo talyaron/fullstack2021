@@ -21,3 +21,6 @@ console.log(wLet, wVar);
 
 
 var wVar; //unhoisted
+
+
+console.dir(document)

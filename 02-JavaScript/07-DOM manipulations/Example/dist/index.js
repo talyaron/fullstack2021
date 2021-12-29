@@ -16,3 +16,16 @@ function handleColor(ev) {
     var color = ev.target.value;
     document.body.style.background = color;
 }
+var button = document.getElementById('theButton');
+button.addEventListener('click', toggleFullscreen);
+function toggleFullscreen() {
+    var elem = document.querySelector("video");
+    if (!document.fullscreenElement) {
+        elem.requestFullscreen()["catch"](function (err) {
+            alert("Error attempting to enable full-screen mode: " + err.message + " (" + err.name + ")");
+        });
+    }
+    else {
+        document.exitFullscreen();
+    }
+}
