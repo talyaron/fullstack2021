@@ -48,7 +48,7 @@ pacman.style.borderRadius="50%";
 
 
 
-//setTimeout(function PACMAN() {PACMAN.innerText= "Hola"; greetings3.style.color='red';},7000);
+
 
 // /i tried to the dots in a loop form but it didnt work out for me
 
@@ -125,12 +125,9 @@ const goodbye:any=document.getElementById('goodbye');
 goodbye.style.color="blue";
 
 const shalom:any=document.getElementById('shalombye');
-shalom.style.color="red";
+shalom.style.color="green";
 
 const adios:any=document.getElementById('adios');
-adios.style.color="green";
-
-
-
+adios.style.color="red";
 
 

@@ -26,7 +26,6 @@ pacman.style.backgroundColor = "yellow";
 pacman.style.width = "3rem";
 pacman.style.height = "3rem";
 pacman.style.borderRadius = "50%";
-//setTimeout(function PACMAN() {PACMAN.innerText= "Hola"; greetings3.style.color='red';},7000);
 // /i tried to the dots in a loop form but it didnt work out for me
 // let dots:any=document.querySelectorAll('.dot');
 // for(let i=0;i<=dots.length;i++){
@@ -79,6 +78,6 @@ bye.style.transform = 'rotate(180deg)';
 var goodbye = document.getElementById('goodbye');
 goodbye.style.color = "blue";
 var shalom = document.getElementById('shalombye');
-shalom.style.color = "red";
+shalom.style.color = "green";
 var adios = document.getElementById('adios');
-adios.style.color = "green";
+adios.style.color = "red";
