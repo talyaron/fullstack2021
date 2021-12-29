@@ -13,18 +13,26 @@
     <ul>
         <li id="shopping">Buy groceries</li>
         <li class="animal">Feed the cat</li>
-        <li class="clean">Do laundry</li>
+        <button onclick="myFunction()">
+            <li class="clean">Do laundry</li>
     </ul>
 
     <script>
         document.getElementById("shopping").style.color = "blue";
         document.getElementById("shopping").style.fontSize = "x-large";
+        document.querySelector
 
         const myTimeout = setTimeout(change, 500);
 
         function change() {
-            document.getElementById("shopping").innerHTML = "buy pizza"
 
+            document.getElementById("shopping").innerHTML = "Buy Pizza"
+
+        }
+
+        function myFunction() {
+            var x = document.getElementsByClassName("clean");
+            x[0].innerHTML = "Pizza Time!";
         }
     </script>
 </body>
