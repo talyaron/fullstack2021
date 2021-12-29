@@ -1,4 +1,4 @@
-//id
+//  id
 let header:any=document.querySelector(`#header`);
 header.style.borderBottom=`solid 2px #ccc`;
 header.innerHTML = 'Hello world';
@@ -9,7 +9,7 @@ button.addEventListener(`click`,(event)=>{
 });
 
 
-//class
+// class
 let container:any=document.querySelector(`.container`);
 container.style.color=`blue`;
 container.style.fontSize=`40px`;

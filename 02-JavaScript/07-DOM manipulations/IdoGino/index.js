@@ -11,7 +11,8 @@ var para = document.querySelector('p');
 para.style.fontWeight = 'bold';
 setTimeout(function () { para.style.transform = 'rotateX(180deg)'; }, 2000);
 setTimeout(function () { para.style.transform = 'rotateY(180deg)'; }, 4000);
-setTimeout(function () { para.style.transform = 'rotateY(0deg)'; }, 6000);
+setTimeout(function () { para.style.transform = 'rotateX(180deg)'; }, 6000);
+setTimeout(function () { para.style.transform = 'rotateY(0deg)'; }, 8000);
 var btnCircle = document.getElementById("btnCircle");
 btnCircle.onclick = function () {
     if (box.className == "circle") {
