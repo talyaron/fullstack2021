@@ -8,6 +8,7 @@ let letters: any = document.querySelectorAll('.logtext');
 
 for(let i=0;i<=letters.length;i++){
 function type() {
+
     letters[i].style.fontSize = '40px';
     letters[i].style.color = '#03A062';
 
