@@ -13,10 +13,10 @@ body {
   "header header header"
   "Wil Roi Yael"
   "Navbar Navbar Navbar";
+  gap:1px;
 
 
   &__header {
-    border:1px solid red;
     background-color: black;
     grid-area: header;
     display:grid;
@@ -51,18 +51,214 @@ body {
       }
     }
   }
+
+  //will's page start
+
     &__Wil {
       background-color: black;
       grid-area: Wil;
 
-
+      .TopBox {
+        padding-left: 20px;
+        padding-bottom: 20px;
+        padding-top: 5px;
+        margin-top: 65%;
+        margin-left: 8%;
+        margin-right: 8%;
+        height: 160px;
+        background-color: #9966cc;
+        background-image: linear-gradient(to left, #9966cc, #cca1f0);
+        box-shadow: 0px 0px 1px 1px #cca1f0;
+        border-radius: 15px;
+        color: white;
+      }
+      
+      .container {
+        height: 6px;
+        width: 50%;
+        background-color: black;
+        position: relative;
+        border-radius: 4px;
+      }
+      
+      .container .progressBar {
+        position: absolute;
+        height: 100%;
+        background-color: orange;
+        animation: progress-animation 3s forwards;
+        border-radius: 4px;
+      }
+      
+      @keyframes progress-animation {
+        0% {
+            width: 0%;
+        }
+        100% {
+            width: 70%;
+        }
+      }
+      
+      .Box {
+        margin-top: 25%;
+        margin-left: 5%;
+        margin-right: 5%;
+        height:28%;
+        width: inherit;
+        background-color: #2a2727;
+        color: white;
+        border-radius: 15px;
+        box-shadow: 0px 0px 0px 1px #888888;
+      }
+      
+      .BoxOptions {
+        margin-top: 7%;
+        margin-left: 8%;
+        margin-right: 8%;
+        display: inline-flex;
+        height: 50px;
+        width: 85%;
+        background-color: #030203;
+        border-radius: 5px;
+      }
+      
+      .BoxOptions>p {
+        margin-right: 40px;
+      }
+      
+      .BoxOptions>img {
+        width: 24px;
+        height: 24px;
+        margin-left: 15px;
+        margin-right: 15px;
+        margin-top: auto;
+        margin-bottom: auto;
+      }
+      
+      #arrow {
+        margin-left: 48px;
+      }
     }
 
-  &__Roi {
-    border:1px solid red;
-    grid-area: Roi;
+    //Wil's page end
 
+    //Roi's page start
+  &__Roi {
+    grid-area: Roi;
+    background-color: black;
+   
+    
+    h1 {margin-top: 50%; color:white; text-align:center;}
+    
+    .gBox {
+      display:flex;
+      height: 25%;
+      stroke-dasharray: 100 150;
+      animation: dash 5s linear alternate;
+
+      &__innerCircle {
+        position: absolute;
+        top: 40%;
+        left: 44.5%;
+        height: 130px;
+        width: 130px;
+        background-color: rgb(39, 38, 38);
+        border-radius: 50%;
+        text-align: center;
+
+        &--1 {
+          margin-top: 10px;
+          font-size: 25px;
+       }
+        &--2 {
+          font-size: 35px;
+          color:white
+        }
+        &--3 {
+          font-size:15px;
+          color: gray;
+        
+        }
+      }
+    }
+      .lowerTxt {
+        margin-top:7px;
+        display:flex;
+        flex-direction: row;
+        gap: 75px;
+        justify-content: center;
+        color:white;
+
+        &--Gym {display:flex; justify-content: center; align-items: center;}
+        &--Swim {display:flex; justify-content: center; align-items: center;}
+        &--Diet {display:flex; justify-content: center; align-items: center;}
+      }
+
+      .viewDetails{
+        margin-top: 50px;
+        margin-left: 30%;
+        border-radius: 30px;
+        width:35%;
+        height:7%;
+        background-color: rgb(248, 169, 22);
+        color:white;
+        p {text-align: center; padding-top: 16%; font-size: 20px;}
+      }
+
+      .statBtn {
+        display:flex;
+        flex-direction:row;
+        justify-content: center;
+        gap:25px;
+      
+        
+
+        &--icon1 {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100px;
+          height: 100px;
+          background-color: rgb(39, 38, 38);
+          border-radius: 50%;
+          font-size: 40px;
+        
+        }
+        &--icon2 {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100px;
+          height: 100px;
+          background-color: rgb(39, 38, 38);
+          border-radius: 50%;
+          font-size: 40px;
+       
+        }
+        &--icon3 {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100px;
+          height: 100px;
+          background-color: rgb(39, 38, 38);
+          border-radius: 50%;
+          font-size: 40px;
+        }
+      }
+    
+
+    @keyframes dash {
+    from {
+      stroke-dasharray: 0 170;
+    }
+    to {
+      stroke-dasharray: 100;
+      }
+    }
   }
+
+  
+
   &__Yael {
     border:1px solid red;
     grid-area: Yael;
@@ -139,81 +335,3 @@ display: none;
   }
 }
 
-.TopBox {
-  padding-left: 20px;
-  padding-bottom: 20px;
-  padding-top: 5px;
-  margin-top: 5%;
-  margin-left: 8%;
-  margin-right: 8%;
-  height: 160px;
-  background-color: #9966cc;
-  background-image: linear-gradient(to left, #9966cc, #cca1f0);
-  box-shadow: 0px 0px 1px 1px #cca1f0;
-  border-radius: 15px;
-  color: white;
-}
-
-.container {
-  height: 6px;
-  width: 50%;
-  background-color: black;
-  position: relative;
-  border-radius: 4px;
-}
-
-.container .progressBar {
-  position: absolute;
-  height: 100%;
-  background-color: orange;
-  animation: progress-animation 3s forwards;
-  border-radius: 4px;
-}
-
-@keyframes progress-animation {
-  0% {
-      width: 0%;
-  }
-  100% {
-      width: 70%;
-  }
-}
-
-.Box {
-  margin-top: 5%;
-  margin-left: 8%;
-  height: 330px;
-  width: 300px;
-  background-color: #2a2727;
-  color: white;
-  border-radius: 15px;
-  box-shadow: 0px 0px 0px 1px #888888;
-}
-
-.BoxOptions {
-  margin-top: 8%;
-  margin-left: 10%;
-  margin-right: 10%;
-  display: inline-flex;
-  height: 50px;
-  width: 85%;
-  background-color: #030203;
-  border-radius: 5px;
-}
-
-.BoxOptions>p {
-  margin-right: 40px;
-}
-
-.BoxOptions>img {
-  width: 24px;
-  height: 24px;
-  margin-left: 15px;
-  margin-right: 15px;
-  margin-top: auto;
-  margin-bottom: auto;
-}
-
-#arrow {
-  margin-left: 48px;
-}
