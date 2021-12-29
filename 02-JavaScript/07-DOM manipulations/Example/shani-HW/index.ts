@@ -50,6 +50,7 @@ pacman.style.borderRadius="50%";
 
 
 
+
 // /i tried to the dots in a loop form but it didnt work out for me
 
 // let dots:any=document.querySelectorAll('.dot');
@@ -129,5 +130,43 @@ shalom.style.color="green";
 
 const adios:any=document.getElementById('adios');
 adios.style.color="red";
+
+const goodbye1:any= document.getElementById('goodbye');
+console.dir(goodbye1);
+setTimeout(function a() {goodbye1.style.color='black'; },3000);
+
+const shalom1:any= document.getElementById('shalombye');
+console.dir(shalom1);
+setTimeout(function a() {shalom1.style.color='black'; },5000);
+
+const adios1:any= document.getElementById('adios');
+console.dir(adios1);
+setTimeout(function a() {adios1.style.color='black'; },7000);
+
+
+
+
+
+const byeAll:any=document.querySelector("#Bye");
+console.dir(byeAll);
+setTimeout(function transform() {byeAll.style.transform='none';},9000);
+
+
+
+
+let bye1:any= document.getElementById('goodbye');
+console.dir( bye1);
+setTimeout(function innertext() { bye1.innerText= "Good bye";},9000);
+
+let  bye2:any= document.getElementById('shalombye');
+console.dir(bye2);
+setTimeout(function innertext() {bye2.innerText= "Shalom";},9000);
+
+let  bye3:any= document.getElementById('adios');
+console.dir(bye3);
+setTimeout(function innertext() {bye3.innerText= "Adios";},9000);
+
+
+
 
 
