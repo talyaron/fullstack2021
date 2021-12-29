@@ -1,4 +1,5 @@
 document.title = 'Shanis Page';
+//id="Greetings"
 var greetings = document.querySelector("#Greetings");
 greetings.style.fontFamily = "Impact,Charcoal,sans-serif";
 var greetings1 = document.getElementById('welcome');
@@ -21,11 +22,13 @@ pathway.style.marginTop = "5rem";
 pathway.style.display = "flex";
 pathway.style.flexDirection = "row";
 pathway.style.justifyContent = " space-between";
+//class="pacman"
 var pacman = document.querySelector(".pacman");
 pacman.style.backgroundColor = "yellow";
 pacman.style.width = "3rem";
 pacman.style.height = "3rem";
 pacman.style.borderRadius = "50%";
+//how do i make pacman move???//
 // /i tried to the dots in a loop form but it didnt work out for me
 // let dots:any=document.querySelectorAll('.dot');
 // for(let i=0;i<=dots.length;i++){
