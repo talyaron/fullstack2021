@@ -1,5 +1,5 @@
 var box = document.getElementById('boxi');
-box.style.border = '5px solid red ';
+    box.style.border = '5px solid red ';
 box.style.background = 'black';
 var boxi = document.querySelectorAll('.box');
 boxi.forEach(function (elm) {
