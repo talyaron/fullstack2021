@@ -10,3 +10,5 @@ function getAvg(a, c) {
     }
 }
 console.log(getAvg(2, 40));
+console.dir(document);
+console.dir(window);

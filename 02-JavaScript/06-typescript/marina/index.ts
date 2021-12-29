@@ -14,3 +14,8 @@ function getAvg (a:number, c:number):string {
 
 console.log(getAvg(2,40))
 
+
+
+console.dir(document);
+console.dir(window);
+
