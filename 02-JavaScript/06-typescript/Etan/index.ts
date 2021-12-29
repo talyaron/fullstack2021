@@ -9,3 +9,5 @@ const whatAge = (x: number, y: number) => {
   } catch (error) {console.log('wrong input')}
 };
 console.log(whatAge(a, b));
+
+
