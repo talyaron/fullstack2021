@@ -1,4 +1,4 @@
-//id
+//  id
 var header = document.querySelector("#header");
 header.style.borderBottom = "solid 2px #ccc";
 header.innerHTML = 'Hello world';
@@ -7,7 +7,7 @@ var button = document.querySelector("#myButton");
 button.addEventListener("click", function (event) {
     console.log("click!");
 });
-//class
+// class
 var container = document.querySelector(".container");
 container.style.color = "blue";
 container.style.fontSize = "40px";
