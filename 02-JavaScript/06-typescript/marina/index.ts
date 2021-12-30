@@ -12,10 +12,32 @@ function getAvg (a:number, c:number):string {
     }
 }
 
-console.log(getAvg(2,40))
+console.log(getAvg(6,57))
 
 
 
 console.dir(document);
 console.dir(window);
+
+
+
+
+
+
+
+
+
+
+// Type Aliases
+
+type StringOrNum = string|number;
+type ObjWithName = { name: string, uid: StringOrNum } 
+
+const greet = (user: {name: string, uid:string | number}) => {
+    console.log (`${user.name} says hello`);
+}
+
+const greetAgain = (user: ObjWithName) => {
+    console.log(`${user.name} says hello`);
+}
 
