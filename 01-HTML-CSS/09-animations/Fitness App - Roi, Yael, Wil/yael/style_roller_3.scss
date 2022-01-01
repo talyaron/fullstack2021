@@ -10,6 +10,11 @@
   $spacing-sm: 15px;
   $spacing-lg: 100px;
   
+  
+  // Color Variables
+  $color-grey: #333;
+  $color-green: green;
+  
   // Margin Mixin for centering horizontally
   @mixin marginMiddle() {
     margin-right: auto;
@@ -155,6 +160,7 @@
           width: auto;
           @include padding($padAll: $spacing-sm);
           &--left{
+            //margin-left: 20%;
             background-color: rebeccapurple;
             color: rebeccapurple;
             font-size: 17px;
