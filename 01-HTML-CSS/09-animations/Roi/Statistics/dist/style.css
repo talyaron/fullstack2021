@@ -1,0 +1,164 @@
+body {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.Container {
+  display: grid;
+  grid-template-rows: 1fr auto 1fr;
+}
+.Container__header {
+  display: grid;
+  grid-template-columns: auto 0.1fr;
+  background-color: black;
+  height: 50px;
+  align-items: center;
+}
+.Container__header__Statistics {
+  display: grid;
+  color: white;
+}
+.Container__header__MenuBtn {
+  display: grid;
+  justify-content: center;
+  padding-right: 10px;
+}
+.Container__header__MenuBtn img {
+  width: 30px;
+  height: 30px;
+}
+.Container__Roi {
+  display: grid;
+  background-color: black;
+}
+.Container__Roi h1 {
+  color: white;
+  text-align: center;
+  margin: 0;
+  padding-top: 5%;
+}
+.Container__Roi .gBox {
+  padding-top: 5%;
+  stroke-dasharray: 100 150;
+  animation: dash 2s linear alternate;
+}
+.Container__Roi .gBox__innerCircle {
+  position: absolute;
+  top: 35vh;
+  left: 36vw;
+  height: 130px;
+  width: 130px;
+  background-color: #272626;
+  border-radius: 50%;
+  text-align: center;
+}
+.Container__Roi .gBox__innerCircle--1 {
+  margin-top: 10px;
+  font-size: 25px;
+}
+.Container__Roi .gBox__innerCircle--2 {
+  font-size: 35px;
+  color: white;
+}
+.Container__Roi .gBox__innerCircle--3 {
+  font-size: 15px;
+  color: gray;
+}
+.Container__Roi .statBtn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+}
+.Container__Roi .statBtn--icon1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  background-color: #272626;
+  border-radius: 50%;
+  font-size: 40px;
+}
+.Container__Roi .statBtn--icon2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  background-color: #272626;
+  border-radius: 50%;
+  font-size: 40px;
+}
+.Container__Roi .statBtn--icon3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  background-color: #272626;
+  border-radius: 50%;
+  font-size: 40px;
+}
+.Container__Roi .lowerTxt {
+  margin-top: 7px;
+  display: flex;
+  flex-direction: row;
+  gap: 75px;
+  justify-content: center;
+  color: white;
+}
+.Container__Roi .lowerTxt--Gym {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Container__Roi .lowerTxt--Swim {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Container__Roi .lowerTxt--Diet {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Container__Roi .viewDetails {
+  position: relative;
+  left: 35vw;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  width: 35%;
+  height: 50px;
+  background-color: #ce8a0c;
+  color: white;
+}
+@keyframes dash {
+  from {
+    stroke-dasharray: 0 170;
+  }
+  to {
+    stroke-dasharray: 100;
+  }
+}
+.Container__Navbar {
+  background-color: black;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+}
+.Container__Navbar--Btn {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.Container__Navbar--Btn img {
+  width: 25px;
+  height: 25px;
+}

@@ -48,9 +48,9 @@ body {
 }
 .Container__Wil .TopBox {
   padding-left: 20px;
-  padding-bottom: 20px;
-  padding-top: 5px;
-  margin-top: 65%;
+  padding-bottom: 25px;
+  padding-top: 2px;
+  margin-top: 3%;
   margin-left: 8%;
   margin-right: 8%;
   height: 160px;
@@ -83,10 +83,11 @@ body {
   }
 }
 .Container__Wil .Box {
-  margin-top: 25%;
+  margin-top: 5%;
+  margin-bottom: 5%;
   margin-left: 5%;
   margin-right: 5%;
-  height: 28%;
+  height: 50vh;
   width: inherit;
   background-color: #2a2727;
   color: white;

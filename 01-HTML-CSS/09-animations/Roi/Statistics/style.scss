@@ -1,0 +1,171 @@
+body {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin:0;
+  padding:0;
+}
+
+.Container {
+  display:grid;
+  grid-template-rows: 1fr auto 1fr;
+
+  &__header {
+    display:grid;
+    grid-template-columns: auto 0.1fr;
+    background-color: black;
+    height: 50px;
+    align-items: center;
+
+    &__Statistics {
+      display: grid;
+      color:white;
+    }
+    
+    &__MenuBtn {
+      display:grid;
+      justify-content: center;
+      padding-right: 10px;
+
+      img {
+      width: 30px;
+      height: 30px;
+      }
+    }
+  }
+   
+  &__Roi {
+    display: grid;
+    background-color: black;
+    h1 {color:white; text-align:center;margin:0;padding-top:5%;}
+    
+    .gBox {
+      padding-top:5%;
+      stroke-dasharray: 100 150;
+      animation: dash 2s linear alternate;
+      
+      &__innerCircle {
+        position: absolute;
+        top: 35vh;
+        left: 36vw;
+        height: 130px;
+        width: 130px;
+        background-color: rgb(39, 38, 38);
+        border-radius: 50%;
+        text-align: center;
+
+        &--1 {
+          margin-top: 10px;
+          font-size: 25px;
+       }
+        &--2 {
+          font-size: 35px;
+          color:white
+        }
+        &--3 {
+          font-size:15px;
+          color: gray;
+        
+        }
+      }
+    }
+
+    .statBtn {
+      display:flex;
+      flex-direction:row;
+      justify-content: center;
+      gap:10px;
+    
+      &--icon1 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100px;
+        height: 100px;
+        background-color: rgb(39, 38, 38);
+        border-radius: 50%;
+        font-size: 40px;
+      
+      }
+      &--icon2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100px;
+        height: 100px;
+        background-color: rgb(39, 38, 38);
+        border-radius: 50%;
+        font-size: 40px;
+     
+      }
+      &--icon3 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100px;
+        height: 100px;
+        background-color: rgb(39, 38, 38);
+        border-radius: 50%;
+        font-size: 40px;
+      }
+    }
+      .lowerTxt {
+        margin-top:7px;
+        display:flex;
+        flex-direction: row;
+        gap: 75px;
+        justify-content: center;
+        color:white;
+
+        &--Gym {display:flex; justify-content: center; align-items: center;}
+        &--Swim {display:flex; justify-content: center; align-items: center;}
+        &--Diet {display:flex; justify-content: center; align-items: center;}
+      }
+
+      .viewDetails{
+        position: relative;
+        left: 35vw;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 20px;
+        width:35%;
+        height:50px;
+        background-color: rgb(206, 138, 12);
+        color:white;
+        
+      }
+
+    @keyframes dash {
+    from {
+      stroke-dasharray: 0 170;
+    }
+    to {
+      stroke-dasharray: 100;
+      }
+    }
+  }
+
+  &__Navbar {
+    background-color: black;
+    height: 40px;
+    display:flex;
+    flex-direction:row;
+
+    &--Btn {
+      display:flex;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+     
+      img {
+         width: 25px;
+        height: 25px;
+      }
+    }
+  }
+}
+
+
+
+
