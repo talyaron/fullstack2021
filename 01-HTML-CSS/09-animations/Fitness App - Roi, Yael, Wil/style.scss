@@ -153,7 +153,7 @@ body {
       display:flex;
       height: 25%;
       stroke-dasharray: 100 150;
-      animation: dash 5s linear alternate;
+      animation: dash 2s linear alternate;
 
       &__innerCircle {
         position: absolute;
@@ -199,7 +199,7 @@ body {
         border-radius: 30px;
         width:35%;
         height:7%;
-        background-color: rgb(248, 169, 22);
+        background-color: rgb(136, 92, 10);
         color:white;
         p {text-align: center; padding-top: 16%; font-size: 20px;}
       }

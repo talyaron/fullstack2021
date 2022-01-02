@@ -130,7 +130,7 @@ body {
   display: flex;
   height: 25%;
   stroke-dasharray: 100 150;
-  animation: dash 5s linear alternate;
+  animation: dash 2s linear alternate;
 }
 .Container__Roi .gBox__innerCircle {
   position: absolute;
@@ -183,7 +183,7 @@ body {
   border-radius: 30px;
   width: 35%;
   height: 7%;
-  background-color: #f8a916;
+  background-color: #885c0a;
   color: white;
 }
 .Container__Roi .viewDetails p {
