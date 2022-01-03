@@ -1,0 +1,13 @@
+.btn{
+   
+    border-radius: 200px;
+    border:2px solid rgb(61, 61, 61);
+    padding: 20px 40px;
+    width: fit-content;
+    cursor: pointer;
+    user-select: none;
+
+    &:hover{
+        background-color: beige;
+    }
+}
