@@ -1,4 +1,4 @@
-document.title = 'Shanis Page';
+//document.title='Shanis Page';
 //id="Greetings"
 var greetings = document.querySelector("#Greetings");
 greetings.style.fontFamily = "Impact,Charcoal,sans-serif";
