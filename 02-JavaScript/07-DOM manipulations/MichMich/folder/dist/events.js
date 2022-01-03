@@ -1,9 +1,11 @@
-var button1 = document.getElementById("btnone");
-var button2 = document.getElementById("btn2");
-button1.addEventListener("click", function () {
-    console.log("it was clicked");
+var buttons = document.querySelectorAll(".btn");
+buttons.forEach(function (button) {
+    button.addEventListener("click", handleClick);
 });
-button2.addEventListener("mouseenter", runMouseEnter);
-function runMouseEnter() {
-    console.log("mouse innnnnnnnn");
+console.dir(ev);
+function handleClick(ev) {
+    var clickedLink = e.target;
+    // getting location of clicked link.
+    e.style.top = "200px";
+    e.style.left = "200px";
 }

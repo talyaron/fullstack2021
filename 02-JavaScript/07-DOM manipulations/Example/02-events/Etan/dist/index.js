@@ -2,7 +2,7 @@ var btn1 = document.querySelector('#first');
 var btn2 = document.querySelector('#second');
 var btn3 = document.querySelector('#third');
 var field = document.querySelector('h1');
-var btns = document.querySelectorAll('button');
+var btns = document.querySelectorAll('.btn');
 btn1.addEventListener('click', hello);
 function hello() {
     field.textContent = 'Hello!';
@@ -16,5 +16,4 @@ function goodBye() {
 function how() {
     field.textContent = 'how\'s it going?';
 }
-btns.style.cssText =
-    'color: red';
+btns.forEach(function (button) { button.style.color = 'red'; });
