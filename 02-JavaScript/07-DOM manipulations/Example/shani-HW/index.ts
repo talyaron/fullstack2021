@@ -27,7 +27,7 @@ setTimeout(function innertext() {greetings3.innerText= "Hola"; greetings3.style.
 
 const greetingsAll:any=document.querySelector("#Greetings");
 console.dir(greetingsAll);
-setTimeout(function transform() {greetingsAll.style.transform='rotate(180deg)';},9000);
+setTimeout(()=> {greetingsAll.style.transform='rotate(180deg)';},9000);
 
 
 let pathway:any=document.querySelector("#path");
@@ -49,7 +49,7 @@ pacman.style.height="3rem";
 pacman.style.borderRadius="50%";
 
 //how do i make pacman move???//
-
+setTimeout(()=> {pacman.style.transform='translateX(90vw)';},1000);
 
 
 

@@ -13,7 +13,7 @@ console.dir(greetings3);
 setTimeout(function innertext() { greetings3.innerText = "Hola"; greetings3.style.color = 'red'; }, 7000);
 var greetingsAll = document.querySelector("#Greetings");
 console.dir(greetingsAll);
-setTimeout(function transform() { greetingsAll.style.transform = 'rotate(180deg)'; }, 9000);
+setTimeout(function () { greetingsAll.style.transform = 'rotate(180deg)'; }, 9000);
 var pathway = document.querySelector("#path");
 pathway.style.width = "100%";
 pathway.style.height = "3rem";
@@ -29,6 +29,7 @@ pacman.style.width = "3rem";
 pacman.style.height = "3rem";
 pacman.style.borderRadius = "50%";
 //how do i make pacman move???//
+setTimeout(function () { pacman.style.transform = 'translateX(90vw)'; }, 1000);
 // /i tried to the dots in a loop form but it didnt work out for me
 // let dots:any=document.querySelectorAll('.dot');
 // for(let i=0;i<=dots.length;i++){
