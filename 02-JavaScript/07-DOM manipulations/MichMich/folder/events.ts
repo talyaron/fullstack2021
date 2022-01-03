@@ -1,18 +1,22 @@
-const button1 = document.getElementById("btnone");
-const button2 = document.getElementById(`btn2`);
+const buttons= document.querySelectorAll(`.btn`);
 
-
-button1.addEventListener(`click`,()=>{
-    console.log(`it was clicked`);
-    
+buttons.forEach(button=>{
+    button.addEventListener(`click`, handleClick)
 })
 
-button2.addEventListener(`mouseenter`,runMouseEnter);
+console.dir(ev);
 
-function runMouseEnter(){
-    console.log(`mouse innnnnnnnn`);
-    
-}
+function handleClick( ev )
+{  
+    var clickedLink = e.target;    
+    // getting location of clicked link.
+    e.style.top = "200px";
+    e.style.left = "200px"
+
+
+
+
+
 
 
 
