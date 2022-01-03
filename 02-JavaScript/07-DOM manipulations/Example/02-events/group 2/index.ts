@@ -9,7 +9,7 @@ function handleClick(ev):void{
     
     if (id==`left`){
         
-        move.style.transform= 'translateX(10px)';
+        move.style.left= '-20px';
 
 
     }
