@@ -1,3 +1,4 @@
+//for only one button
 var theFirstButton = document.getElementById('theFirstButton');
 theFirstButton.addEventListener('click', runButton1);
 theFirstButton.addEventListener('mouseenter', runMouseEnter);
@@ -16,4 +17,18 @@ function runMouseOut() {
 }
 function handleRoll() {
     console.log('the wheel rolled');
+}
+//for many
+var buttons = document.querySelectorAll('.btn');
+buttons.forEach(function (button) {
+    button.addEventListener('click', handleClick);
+    button.addEventListener('mouseenter', handleMouseEnter);
+});
+function handleClick(ev) {
+    console.dir(ev);
+    var id = ev.target.id;
+    console.log("I was clicked by button with id " + id);
+}
+function handleMouseEnter(ev) {
+    console.log(ev);
 }
