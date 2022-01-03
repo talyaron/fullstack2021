@@ -1,0 +1,539 @@
+//-----------------------------Yael Start---------------------------------------------------
+.content * {
+    margin: 0;
+    padding: 0;
+    letter-spacing: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+  }
+   // Spacing Variables
+  $spacing-sm: 15px;
+  $spacing-lg: 100px;
+  
+  
+  // Color Variables
+  $color-grey: #333;
+  $color-green: green;
+  
+  // Margin Mixin for centering horizontally
+  @mixin marginMiddle() {
+    margin-right: auto;
+    margin-left: auto;
+  }
+  
+  @mixin padding(
+    $top: null, 
+    $right: null, 
+    $bottom: null, 
+    $left: null, 
+    $padAll: null
+  ) {
+    @if ($padAll) {
+      padding: $padAll
+    } @else {
+      padding-top: $top;
+      padding-right: $right;
+      padding-bottom: $bottom;
+      padding-left: $left;
+    }
+  }
+  
+  @mixin font($size: 16px, $bold: false) {
+    font-size: $size;
+    @if ($bold) {
+      font-weight: bold;
+    }
+  }
+  
+  html,body{
+      display: grid;
+      height: 100px;
+      background-color: #030203;
+      color: white;
+  }
+
+h1{
+   position: relative;
+   top:20px; 
+  display: flex;
+}
+  h1>img{
+    width: 24px;
+    height: 24px;
+  }
+  
+  #menu1{
+    height:65px;
+    width:70px;
+    position:relative;
+    left:80%;
+    bottom:20px;
+  }
+  #card1B{
+    background-color:lightblue;
+  box-shadow: 0px 0px 1px 1px #cca1f0;
+  border-radius: 15px; 
+  img{
+    position: relative;
+    top: 0px;
+    width: 100%;
+    //height: 101%;
+   
+    height: 100%;
+    object-fit: fill;
+      }
+      
+  }
+  #card1{
+    background-color:#9966cc;
+    background-image: linear-gradient(to left, #9966cc, #cca1f0);
+  box-shadow: 0px 0px 1px 1px #cca1f0;
+  border-radius: 15px;
+  
+  img{
+    position: relative;
+    top: 20px;
+    width: 80%;
+    //height: 101%;
+   
+    height: 80%;
+    object-fit: fill;
+      }    
+  }
+
+  #card2B {
+    background-color: #cca1f0;
+   // background-image: linear-gradient(to left, rgb(255,192,203), rgb(248, 214, 220));
+  //box-shadow: 0px 0px 1px 1px #cca1f0;
+  border-radius: 15px; 
+    img{
+  position: relative;
+  bottom:10px;
+  left:10px;
+  width: 90%;
+  //height: 101%;
+ 
+  height: 110%;
+  object-fit: fill;
+    }
+   
+}
+
+#card2{
+  background-color: rgb(255,192,203);
+    background-image: linear-gradient(to left, rgb(255,192,203), rgb(248, 214, 220));
+box-shadow: 0px 0px 1px 1px #cca1f0;
+border-radius: 15px; 
+img{
+  position: relative;
+  bottom: 40px;
+  width: 100%;
+  //height: 101%;
+ 
+  height: 120%;
+  object-fit: fill;
+    }
+    
+}
+
+  #card3B {
+    background-color: lightblue;
+  //  background-image: linear-gradient(to left, lightblue, rgb(213, 228, 233));
+  //box-shadow: 0px 0px 1px 1px #afa1f0;
+  border-radius: 15px;  
+  img{
+    position: relative;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+      }}
+  
+      #card3 {
+        background-color: grey;
+        background-image: linear-gradient(to left, grey, rgb(213, 228, 233));
+      //box-shadow: 0px 0px 1px 1px #afa1f0;
+      border-radius: 15px;  
+      img{
+        position: relative;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        object-fit: fill;
+          }}
+      
+  #card4B{
+    background-color: #cca1f0;
+    //background-image: linear-gradient(to left, rgb(238, 255, 192), rgb(248, 214, 220));
+  //box-shadow: 0px 0px 1px 1px #cca1f0;
+  border-radius:15px;  
+  img{
+    position: relative;
+    left:10px;
+    width: 90%;
+    height: 100%;
+    object-fit: fill;
+      }
+}
+      
+#card4{
+  background-color:#9966cc;
+  background-image: linear-gradient(to left, #9966cc, #cca1f0);
+box-shadow: 0px 0px 1px 1px #cca1f0;
+border-radius: 15px;  
+img{
+  position: relative;
+  left:10px;
+  width: 80%;
+  height: 110%;
+  object-fit: fill;
+    }
+}
+  #card5B{
+    background-color: lightblue;
+    //background-image: linear-gradient(to left, orange, rgb(231, 218, 193));
+  box-shadow: 0px 0px 1px 1px #cca1f0;
+  border-radius: 15px; 
+  img{
+    position: relative;
+    top: 10px;
+    width: 100%;
+    //height: 101%;
+   
+    height: 100%;
+    object-fit: fill;
+      }
+}
+
+#card5{
+  background-color: rgb(255,192,203);
+  background-image: linear-gradient(to left, rgb(255,192,203), rgb(248, 214, 220));
+box-shadow: 0px 0px 1px 1px #cca1f0;
+border-radius: 15px; 
+img{
+  position: relative;
+  top: 10px;
+  width: 100%;
+  //height: 101%;
+ 
+  height: 100%;
+  object-fit: fill;
+    }
+} 
+#card6B{
+  background-color: #cca1f0;
+  background-image: linear-gradient(to left, turquoise rgb(231, 218, 193));
+box-shadow: 0px 0px 1px 1px #cca1f0;
+border-radius: 15px; 
+img{
+  position: relative;
+  top:30px;
+  left: 30px;
+  width: 80%;
+  //height: 101%;
+ 
+  height: 90%;
+  object-fit: fill;
+    }
+}
+#card6{
+  background-color: grey;
+        background-image: linear-gradient(to left, grey, rgb(213, 228, 233));
+box-shadow: 0px 0px 1px 1px #cca1f0;
+border-radius: 15px; 
+img{
+  position: relative;
+  top:20px;
+  left: 20px;
+  width: 100%;
+  //height: 101%;
+ 
+  height: 90%;
+  object-fit: fill;
+    }
+}
+
+
+  /* CARD LIST */
+  .card-list {
+    @include marginMiddle;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    padding-top: 10px;
+ 
+    // &__slider owl-carousel {
+    &__slider{
+     max-width: 1300px;
+     display: flex ;    
+     flex-wrap:wrap;
+     justify-content: space-between; 
+     width:100%;
+     padding-bottom: 49px ;
+     
+      
+        &__item {
+            display: flex;
+            flex-direction: row-reverse;
+            text-align:left;
+            flex-direction: row-reverse;
+            padding-left: 15px;
+            
+            @mixin margin {};
+            cursor: pointer;
+            overflow: hidden;
+            list-style: none;
+            width: 96.5%;
+            height: auto;
+            border-radius: 10px;
+      
+      &__fig {
+        display: block;
+        width: 100%;
+        height: 200px;
+        
+        
+        &__img {
+          width: 300px;
+          //height: 101%;
+         
+          height: 400px;
+          object-fit: cover;
+         
+        }
+      }
+    
+      &__content{
+       
+           width:120%;
+           
+           
+            &__title {
+            @include font(20px, true);
+            padding-top: 30px;
+            padding-bottom: 10px;
+            
+            #navbar{
+              position:absolute;
+              left:80%;
+              height:30px;
+              width:50px;
+            }           
+        }
+           
+        &__subtitle {
+              padding-bottom: 25px;
+            }
+      
+  
+      &__body {
+        @include padding(0px, $spacing-sm, $spacing-sm, $spacing-sm);
+     
+      }
+    
+      &__container{
+
+           display: flex;
+           flex-wrap: wrap-reverse;
+           justify-content:left; 
+
+          width: auto;
+          &--left>button{
+            
+            display:flex ;
+            flex-wrap: wrap;
+
+            position: relative;
+          
+            padding: 5px 20px;
+                       
+            background: rgb(153, 151, 151);
+            opacity: 45%;
+            color: white;
+            
+
+            font-size: 15px;
+            
+            border-radius: 15px;
+            border: none;
+            cursor: pointer;
+            
+            
+        }
+          &--right>button{
+            display:flex ;
+            padding: 5px 10px;
+            background: rgb(153, 151, 151);
+            opacity: 55%;
+            color: white;
+            
+
+            font-size: 15px;
+            
+            border-radius: 15px;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            left:30px;
+            
+      
+        }
+       
+      }
+      &__continer:hover{
+          transform: scale(0.9);
+      }
+    
+    }       
+  }
+    }
+    //     
+   
+}
+
+#navbar{
+  height: 14px;
+  width: 17px;
+}
+
+
+
+/*-------------------------------------------------------------------------------*/ 
+
+.sports-list__slider{
+  width: 1300px;
+  height: 100%;
+    
+.sports_container{
+  display:inline-block;
+  align-items: center;
+
+.outbox{
+  position:relative;
+  left:0;
+  right: 0;
+  height: 70px;
+  width:70px;
+  border-radius: 50%;
+  background: #333;
+  text-align: center;
+  align-items: center;
+
+
+  
+  .avatar {
+    display:inline-block;
+    align-items: center;
+    vertical-align: middle;
+    margin-top: 15px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+
+  
+  }
+  
+}
+.sport_type{
+  
+  color:#333;  
+  font-weight:800;
+  position: relative;
+  bottom:10px;
+  align-items: center;
+  text-align: center;
+
+  
+}
+}
+}
+
+
+/*-------------------------------------------------------------------------------*/ 
+
+
+/* BOTTOM CARD LIST */
+.card-list2 {
+  @include marginMiddle;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  padding-top: 50px;
+
+  // &__slider owl-carousel {
+  &__slider{
+   max-width: 1300px;
+   display: flex ;    
+   flex-wrap:wrap;
+   justify-content: space-between; 
+   width:100%;
+   padding-bottom: $spacing-lg ;
+   
+    
+      &__item {
+          display: block;
+          color: white;
+          //flex-direction: row-reverse;
+          @mixin margin {};
+          cursor: pointer;
+          overflow: hidden;
+          list-style: none;
+          width: 96.5%;
+          height: auto;
+          border-radius: 10px;
+          text-align:center;
+
+    
+    &__fig {
+      display: block;
+      width: 100%;
+      height: 250px;
+      
+      &__img {
+        width: 101%;
+        height: 101%;
+        object-fit: cover;
+      }
+    }
+  
+    &__content{
+      //   display: block;
+         WIDTH:120%;
+         
+      &__title,   
+      &__body {
+          color: $color-grey;
+      }
+          &__title {
+          
+          @include font(20px, true);
+          @include padding($padAll: $spacing-sm);
+          margin-top: 10%;
+          position:relative;
+          top:10px;
+          right:20px;
+          color: white;
+      }
+          // &--important
+      &_subtitle {
+          @extend .card-list2__slider__item__content__title;
+          color: $color-green;
+          }
+    
+
+    &__body {
+      @include padding(0px, $spacing-sm, $spacing-sm, $spacing-sm);
+   
+    }
+  
+  }       
+}
+  }
+}
+
+
+/*-----------------------------------ROI Start--------------------------------------------*/ 
+
+/*-----------------------------------Will Start--------------------------------------------*/ 
