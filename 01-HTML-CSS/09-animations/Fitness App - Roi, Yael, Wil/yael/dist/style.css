@@ -13,9 +13,23 @@ html, body {
   color: white;
 }
 
+h1 {
+  position: relative;
+  top: 20px;
+  display: flex;
+}
+
 h1 > img {
   width: 24px;
   height: 24px;
+}
+
+#menu1 {
+  height: 70px;
+  width: 70px;
+  position: relative;
+  left: 80%;
+  bottom: 20px;
 }
 
 #card1B {
@@ -104,8 +118,8 @@ h1 > img {
 #card4B img {
   position: relative;
   left: 10px;
-  width: 80%;
-  height: 110%;
+  width: 90%;
+  height: 100%;
   object-fit: fill;
 }
 
@@ -158,9 +172,9 @@ h1 > img {
 }
 #card6B img {
   position: relative;
-  top: 20px;
-  left: 20px;
-  width: 100%;
+  top: 30px;
+  left: 30px;
+  width: 80%;
   height: 90%;
   object-fit: fill;
 }
@@ -188,7 +202,7 @@ h1 > img {
   flex-wrap: wrap;
   justify-content: space-between;
   width: 100%;
-  padding-top: 50px;
+  padding-top: 20px;
 }
 .card-list__slider {
   max-width: 1300px;
@@ -259,7 +273,7 @@ h1 > img {
   background: #999797;
   opacity: 45%;
   color: white;
-  font-size: 13px;
+  font-size: 15px;
   border-radius: 15px;
   border: none;
   cursor: pointer;
@@ -270,7 +284,7 @@ h1 > img {
   background: #999797;
   opacity: 55%;
   color: white;
-  font-size: 13px;
+  font-size: 15px;
   border-radius: 15px;
   border: none;
   cursor: pointer;
