@@ -18,6 +18,7 @@ body {
     &__Statistics {
       display: grid;
       color:white;
+      padding-left: 10px;
     }
     
     &__MenuBtn {
@@ -30,22 +31,25 @@ body {
       height: 30px;
       }
     }
-  }
+  }/
    
   &__Roi {
     display: grid;
+    height:50vh;
     background-color: black;
-    h1 {color:white; text-align:center;margin:0;padding-top:5%;}
+    h1 {color:white; text-align:center;margin:0;padding-top:10px;height:100px;}
     
     .gBox {
-      padding-top:5%;
+      padding-top:2%;
+      height: 300px;
       stroke-dasharray: 100 150;
       animation: dash 2s linear alternate;
-      
+  
       &__innerCircle {
-        position: absolute;
-        top: 35vh;
-        left: 36vw;
+    
+        margin:auto;
+        position:relative;
+        bottom:230px;
         height: 130px;
         width: 130px;
         background-color: rgb(39, 38, 38);
@@ -58,7 +62,7 @@ body {
        }
         &--2 {
           font-size: 35px;
-          color:white
+          color:white;
         }
         &--3 {
           font-size:15px;
@@ -70,9 +74,10 @@ body {
 
     .statBtn {
       display:flex;
+      height: 100px;
       flex-direction:row;
       justify-content: center;
-      gap:10px;
+      gap:15px;
     
       &--icon1 {
         display: flex;
@@ -108,9 +113,9 @@ body {
       }
     }
       .lowerTxt {
-        margin-top:7px;
         display:flex;
         flex-direction: row;
+        height: 20px;
         gap: 75px;
         justify-content: center;
         color:white;
@@ -121,18 +126,20 @@ body {
       }
 
       .viewDetails{
-        position: relative;
-        left: 35vw;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        display: flex;
+        display:flex;
         justify-content: center;
         align-items: center;
-        border-radius: 20px;
-        width:35%;
-        height:50px;
-        background-color: rgb(206, 138, 12);
-        color:white;
+        
+        &__txt {
+          display: flex;
+          color:white;
+          width:100px;
+          height:50px; 
+          background-color: rgb(206, 138, 12);
+          border-radius: 20px;
+          justify-content: center;
+          align-items: center;
+        }
         
       }
 
@@ -165,7 +172,6 @@ body {
     }
   }
 }
-
 
 
 

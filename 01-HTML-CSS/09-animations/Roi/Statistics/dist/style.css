@@ -18,6 +18,7 @@ body {
 .Container__header__Statistics {
   display: grid;
   color: white;
+  padding-left: 10px;
 }
 .Container__header__MenuBtn {
   display: grid;
@@ -30,23 +31,26 @@ body {
 }
 .Container__Roi {
   display: grid;
+  height: 50vh;
   background-color: black;
 }
 .Container__Roi h1 {
   color: white;
   text-align: center;
   margin: 0;
-  padding-top: 5%;
+  padding-top: 10px;
+  height: 100px;
 }
 .Container__Roi .gBox {
-  padding-top: 5%;
+  padding-top: 2%;
+  height: 300px;
   stroke-dasharray: 100 150;
   animation: dash 2s linear alternate;
 }
 .Container__Roi .gBox__innerCircle {
-  position: absolute;
-  top: 35vh;
-  left: 36vw;
+  margin: auto;
+  position: relative;
+  bottom: 230px;
   height: 130px;
   width: 130px;
   background-color: #272626;
@@ -67,9 +71,10 @@ body {
 }
 .Container__Roi .statBtn {
   display: flex;
+  height: 100px;
   flex-direction: row;
   justify-content: center;
-  gap: 10px;
+  gap: 15px;
 }
 .Container__Roi .statBtn--icon1 {
   display: flex;
@@ -102,9 +107,9 @@ body {
   font-size: 40px;
 }
 .Container__Roi .lowerTxt {
-  margin-top: 7px;
   display: flex;
   flex-direction: row;
+  height: 20px;
   gap: 75px;
   justify-content: center;
   color: white;
@@ -125,18 +130,19 @@ body {
   align-items: center;
 }
 .Container__Roi .viewDetails {
-  position: relative;
-  left: 35vw;
-  margin-top: 10px;
-  margin-bottom: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 20px;
-  width: 35%;
+}
+.Container__Roi .viewDetails__txt {
+  display: flex;
+  color: white;
+  width: 100px;
   height: 50px;
   background-color: #ce8a0c;
-  color: white;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
 }
 @keyframes dash {
   from {
