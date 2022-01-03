@@ -3,3 +3,11 @@ function age(a: number, b: number): string {
 }
 
 console.log(age(5, 5));
+
+console.dir(window)
+const one =document
+
+
+
+
+
