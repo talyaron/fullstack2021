@@ -3,9 +3,9 @@ buttons.forEach(function (button) {
     button.addEventListener('click', handleClick);
     button.addEventListener('mouseenter', handleMouseEnter);
 });
+var move = document.getElementById('moves');
 function handleClick(ev) {
     var id = ev.target.id;
-    var move = document.getElementById('moves');
     if (id == "left") {
         move.style.transform = 'translateX(10px)';
     }
