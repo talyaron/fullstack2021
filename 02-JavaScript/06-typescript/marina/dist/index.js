@@ -9,4 +9,12 @@ function getAvg(a, c) {
         console.error(error);
     }
 }
-console.log(getAvg(2, 40));
+console.log(getAvg(6, 57));
+console.dir(document);
+console.dir(window);
+var greet = function (user) {
+    console.log(user.name + " says hello");
+};
+var greetAgain = function (user) {
+    console.log(user.name + " says hello");
+};
