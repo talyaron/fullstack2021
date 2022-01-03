@@ -25,7 +25,7 @@ h1 > img {
 }
 
 #menu1 {
-  height: 70px;
+  height: 65px;
   width: 70px;
   position: relative;
   left: 80%;
@@ -202,7 +202,7 @@ h1 > img {
   flex-wrap: wrap;
   justify-content: space-between;
   width: 100%;
-  padding-top: 20px;
+  padding-top: 10px;
 }
 .card-list__slider {
   max-width: 1300px;
@@ -210,7 +210,7 @@ h1 > img {
   flex-wrap: wrap;
   justify-content: space-between;
   width: 100%;
-  padding-bottom: 20px;
+  padding-bottom: 49px;
 }
 .card-list__slider__item {
   display: flex;
