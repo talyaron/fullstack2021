@@ -1,0 +1,670 @@
+.content * {
+  margin: 0;
+  padding: 0;
+  letter-spacing: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+html, body {
+  display: grid;
+  height: 100px;
+  background-color: #030203;
+  color: white;
+}
+
+h1 {
+  position: relative;
+  top: 20px;
+  display: flex;
+}
+
+h1 > img {
+  width: 24px;
+  height: 24px;
+}
+
+#menu1 {
+  height: 65px;
+  width: 70px;
+  position: relative;
+  left: 80%;
+  bottom: 20px;
+}
+
+#card1B {
+  background-color: lightblue;
+  box-shadow: 0px 0px 1px 1px #cca1f0;
+  border-radius: 15px;
+}
+#card1B img {
+  position: relative;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+#card1 {
+  background-color: #9966cc;
+  background-image: linear-gradient(to left, #9966cc, #cca1f0);
+  box-shadow: 0px 0px 1px 1px #cca1f0;
+  border-radius: 15px;
+}
+#card1 img {
+  position: relative;
+  top: 20px;
+  width: 80%;
+  height: 80%;
+  object-fit: fill;
+}
+
+#card2B {
+  background-color: #cca1f0;
+  border-radius: 15px;
+}
+#card2B img {
+  position: relative;
+  bottom: 10px;
+  left: 10px;
+  width: 90%;
+  height: 110%;
+  object-fit: fill;
+}
+
+#card2 {
+  background-color: pink;
+  background-image: linear-gradient(to left, pink, #f8d6dc);
+  box-shadow: 0px 0px 1px 1px #cca1f0;
+  border-radius: 15px;
+}
+#card2 img {
+  position: relative;
+  bottom: 40px;
+  width: 100%;
+  height: 120%;
+  object-fit: fill;
+}
+
+#card3B {
+  background-color: lightblue;
+  border-radius: 15px;
+}
+#card3B img {
+  position: relative;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+#card3 {
+  background-color: grey;
+  background-image: linear-gradient(to left, grey, #d5e4e9);
+  border-radius: 15px;
+}
+#card3 img {
+  position: relative;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+#card4B {
+  background-color: #cca1f0;
+  border-radius: 15px;
+}
+#card4B img {
+  position: relative;
+  left: 10px;
+  width: 90%;
+  height: 100%;
+  object-fit: fill;
+}
+
+#card4 {
+  background-color: #9966cc;
+  background-image: linear-gradient(to left, #9966cc, #cca1f0);
+  box-shadow: 0px 0px 1px 1px #cca1f0;
+  border-radius: 15px;
+}
+#card4 img {
+  position: relative;
+  left: 10px;
+  width: 80%;
+  height: 110%;
+  object-fit: fill;
+}
+
+#card5B {
+  background-color: lightblue;
+  box-shadow: 0px 0px 1px 1px #cca1f0;
+  border-radius: 15px;
+}
+#card5B img {
+  position: relative;
+  top: 10px;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+#card5 {
+  background-color: pink;
+  background-image: linear-gradient(to left, pink, #f8d6dc);
+  box-shadow: 0px 0px 1px 1px #cca1f0;
+  border-radius: 15px;
+}
+#card5 img {
+  position: relative;
+  top: 10px;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+#card6B {
+  background-color: #cca1f0;
+  background-image: linear-gradient(to left, turquoise #e7dac1);
+  box-shadow: 0px 0px 1px 1px #cca1f0;
+  border-radius: 15px;
+}
+#card6B img {
+  position: relative;
+  top: 30px;
+  left: 30px;
+  width: 80%;
+  height: 90%;
+  object-fit: fill;
+}
+
+#card6 {
+  background-color: grey;
+  background-image: linear-gradient(to left, grey, #d5e4e9);
+  box-shadow: 0px 0px 1px 1px #cca1f0;
+  border-radius: 15px;
+}
+#card6 img {
+  position: relative;
+  top: 20px;
+  left: 20px;
+  width: 100%;
+  height: 90%;
+  object-fit: fill;
+}
+
+/* CARD LIST */
+.card-list {
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  padding-top: 10px;
+}
+.card-list__slider {
+  max-width: 1300px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  padding-bottom: 49px;
+}
+.card-list__slider__item {
+  display: flex;
+  flex-direction: row-reverse;
+  text-align: left;
+  flex-direction: row-reverse;
+  padding-left: 15px;
+  cursor: pointer;
+  overflow: hidden;
+  list-style: none;
+  width: 96.5%;
+  height: auto;
+  border-radius: 10px;
+}
+.card-list__slider__item__fig {
+  display: block;
+  width: 100%;
+  height: 200px;
+}
+.card-list__slider__item__fig__img {
+  width: 300px;
+  height: 400px;
+  object-fit: cover;
+}
+.card-list__slider__item__content {
+  width: 120%;
+}
+.card-list__slider__item__content__title {
+  font-size: 20px;
+  font-weight: bold;
+  padding-top: 30px;
+  padding-bottom: 10px;
+}
+.card-list__slider__item__content__title #navbar {
+  position: absolute;
+  left: 80%;
+  height: 30px;
+  width: 50px;
+}
+.card-list__slider__item__content__subtitle {
+  padding-bottom: 25px;
+}
+.card-list__slider__item__content__body {
+  padding-top: 0px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+  padding-left: 15px;
+}
+.card-list__slider__item__content__container {
+  display: flex;
+  flex-wrap: wrap-reverse;
+  justify-content: left;
+  width: auto;
+}
+.card-list__slider__item__content__container--left > button {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  padding: 5px 20px;
+  background: #999797;
+  opacity: 45%;
+  color: white;
+  font-size: 15px;
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
+}
+.card-list__slider__item__content__container--right > button {
+  display: flex;
+  padding: 5px 10px;
+  background: #999797;
+  opacity: 55%;
+  color: white;
+  font-size: 15px;
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  left: 30px;
+}
+.card-list__slider__item__content__continer:hover {
+  transform: scale(0.9);
+}
+
+#navbar {
+  height: 14px;
+  width: 17px;
+}
+
+/*-------------------------------------------------------------------------------*/
+.sports-list__slider {
+  width: 1300px;
+  height: 100%;
+}
+.sports-list__slider .sports_container {
+  display: inline-block;
+  align-items: center;
+}
+.sports-list__slider .sports_container .outbox {
+  position: relative;
+  left: 0;
+  right: 0;
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  background: #333;
+  text-align: center;
+  align-items: center;
+}
+.sports-list__slider .sports_container .outbox .avatar {
+  display: inline-block;
+  align-items: center;
+  vertical-align: middle;
+  margin-top: 15px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.sports-list__slider .sports_container .sport_type {
+  color: #333;
+  font-weight: 800;
+  position: relative;
+  bottom: 10px;
+  align-items: center;
+  text-align: center;
+}
+
+/*-------------------------------------------------------------------------------*/
+/* BOTTOM CARD LIST */
+.card-list2 {
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  padding-top: 50px;
+}
+.card-list2__slider {
+  max-width: 1300px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  padding-bottom: 100px;
+}
+.card-list2__slider__item {
+  display: block;
+  color: white;
+  cursor: pointer;
+  overflow: hidden;
+  list-style: none;
+  width: 96.5%;
+  height: auto;
+  border-radius: 10px;
+  text-align: center;
+}
+.card-list2__slider__item__fig {
+  display: block;
+  width: 100%;
+  height: 250px;
+}
+.card-list2__slider__item__fig__img {
+  width: 101%;
+  height: 101%;
+  object-fit: cover;
+}
+.card-list2__slider__item__content {
+  WIDTH: 120%;
+}
+.card-list2__slider__item__content__title, .card-list2__slider__item__content_subtitle, .card-list2__slider__item__content__body {
+  color: #333;
+}
+.card-list2__slider__item__content__title, .card-list2__slider__item__content_subtitle {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 15px;
+  margin-top: 10%;
+  position: relative;
+  top: 10px;
+  right: 20px;
+  color: white;
+}
+.card-list2__slider__item__content_subtitle {
+  color: green;
+}
+.card-list2__slider__item__content__body {
+  padding-top: 0px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+  padding-left: 15px;
+}
+
+/*-----------------------------------ROI Start--------------------------------------------*/
+body {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.Container {
+  display: grid;
+  grid-template-rows: 1fr auto 1fr;
+}
+.Container__header {
+  display: grid;
+  grid-template-columns: auto 0.1fr;
+  background-color: black;
+  height: 80px;
+  align-items: center;
+}
+.Container__header__Statistics {
+  display: grid;
+  color: white;
+  font-size: 25px;
+  padding-left: 10px;
+}
+.Container__header__MenuBtn {
+  display: grid;
+  justify-content: center;
+  padding-right: 10px;
+  padding-top: 10px;
+}
+.Container__header__MenuBtn img {
+  width: 50px;
+  height: 50px;
+}
+.Container__Roi {
+  display: grid;
+  height: 50vh;
+  background-color: black;
+}
+.Container__Roi p {
+  color: white;
+  text-align: center;
+  margin: 0;
+  padding-top: 20px;
+  height: 100px;
+  font-size: 40px;
+}
+.Container__Roi .gBox {
+  padding-top: 2%;
+  height: 300px;
+  stroke-dasharray: 100 150;
+  animation: dash 2s linear alternate;
+}
+.Container__Roi .gBox__innerCircle {
+  margin: auto;
+  position: relative;
+  bottom: 230px;
+  height: 130px;
+  width: 130px;
+  background-color: #272626;
+  border-radius: 50%;
+  text-align: center;
+}
+.Container__Roi .gBox__innerCircle--1 {
+  margin-top: 10px;
+  font-size: 25px;
+}
+.Container__Roi .gBox__innerCircle--2 {
+  font-size: 35px;
+  color: white;
+}
+.Container__Roi .gBox__innerCircle--3 {
+  font-size: 15px;
+  color: gray;
+}
+.Container__Roi .statBtn {
+  display: flex;
+  height: 100px;
+  flex-direction: row;
+  justify-content: center;
+  gap: 15px;
+}
+.Container__Roi .statBtn--icon1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  background-color: #272626;
+  border-radius: 50%;
+  font-size: 40px;
+}
+.Container__Roi .statBtn--icon2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  background-color: #272626;
+  border-radius: 50%;
+  font-size: 40px;
+}
+.Container__Roi .statBtn--icon3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  background-color: #272626;
+  border-radius: 50%;
+  font-size: 40px;
+}
+.Container__Roi .lowerTxt {
+  display: flex;
+  flex-direction: row;
+  height: 20px;
+  gap: 75px;
+  justify-content: center;
+  color: white;
+}
+.Container__Roi .lowerTxt--Gym {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Container__Roi .lowerTxt--Swim {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Container__Roi .lowerTxt--Diet {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Container__Roi .viewDetails {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Container__Roi .viewDetails__txt {
+  display: flex;
+  color: white;
+  width: 100px;
+  height: 50px;
+  background-color: #ce8a0c;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+}
+@keyframes dash {
+  from {
+    stroke-dasharray: 0 170;
+  }
+  to {
+    stroke-dasharray: 100;
+  }
+}
+.Container__Navbar {
+  background-color: black;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+}
+.Container__Navbar--Btn {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.Container__Navbar--Btn img {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+}
+.Container__Navbar img:hover {
+  opacity: 0;
+}
+
+/*-----------------------------------Will Start--------------------------------------------*/
+body {
+  background-color: #030203;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  color: white;
+}
+
+.TopBox {
+  padding-bottom: 20px;
+  padding-top: 5px;
+  padding-left: 20px;
+  margin-top: 20%;
+  margin-left: 8%;
+  margin-right: 5%;
+  height: 160px;
+  width: 345px;
+  background-color: #9966cc;
+  background-image: linear-gradient(to left, #9966cc, #cca1f0);
+  box-shadow: 0px 0px 1px 1px #cca1f0;
+  border-radius: 15px;
+}
+.TopBox:hover {
+  cursor: pointer;
+}
+
+.container {
+  height: 6px;
+  width: 50%;
+  background-color: black;
+  position: relative;
+  border-radius: 4px;
+}
+.container .progressBar {
+  position: absolute;
+  height: 100%;
+  background-color: orange;
+  animation: progress-animation 3s forwards;
+  border-radius: 4px;
+}
+
+@keyframes progress-animation {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 70%;
+  }
+}
+.Box {
+  margin-top: 20%;
+  height: 330px;
+  width: 350px;
+  background-color: #2a2727;
+  border-radius: 15px;
+  box-shadow: 0px 0px 0px 1px #888888;
+}
+.Box__BoxOptions {
+  margin-top: 8%;
+  margin-left: 10%;
+  margin-right: 10%;
+  display: inline-flex;
+  justify-content: space-between;
+  height: 50px;
+  width: 85%;
+  background-color: #030203;
+  border-radius: 5px;
+}
+
+.Box__BoxOptions:hover {
+  cursor: pointer;
+  background-color: #6d6b6d;
+}
+
+.Box__BoxOptions > p {
+  margin-right: 60px;
+}
+
+.Box__BoxOptions > img {
+  width: 24px;
+  height: 24px;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-top: auto;
+  margin-bottom: auto;
+}

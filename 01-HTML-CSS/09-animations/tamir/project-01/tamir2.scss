@@ -1,0 +1,328 @@
+
+body {
+    background-color: rgba(173, 179, 170, 0.507);
+    margin: 3%;
+    
+}
+
+.wrappernav {
+    
+    margin-bottom: 40px;
+
+    &__icon {
+        position: absolute;
+        top: 35px;
+
+        :hover {
+            cursor: pointer;
+           
+        }
+    }
+
+    &_title {
+        position: relative;
+        top: 10px;
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+}
+
+
+.wrapperfirst {
+
+
+    ul {
+        margin: 20px;
+        padding: 0%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 50px;
+        background-color: white;
+        border-radius: 10PX;
+
+        :hover {
+            background-color: hsla(0, 0%, 0%, 0.774);
+            border-radius: 10px;
+            box-shadow: 10px 10px 5px;
+            font-size: 1.5em;
+        }
+
+        :nth-child(3):hover {
+            box-shadow: -10px 10px 5px;
+        }
+
+        :nth-child(2):hover {
+            box-shadow: 0px 10px 5px;
+        }
+
+    }
+
+    a {
+        padding: 10px 25px 10px 25px;
+        text-align: center;
+        border-radius: 40px;
+        font-size: 1.4em;
+        text-decoration: none;
+        color: black;
+        font-weight: bold;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+}
+
+.wrapper {
+    
+    margin: 20px;
+    padding: 4%;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    background-color: white;
+    border-radius: 20PX;
+    justify-content: space-between;
+
+    &__icon {
+        position: relative;
+        top: 1px;
+        font-size: 1.5em;
+        border-radius: 4px;
+        margin-right: 6px;
+    }
+
+    &__info {
+        font-weight: bold;
+        font-size: 1.4em;
+        color: rgb(0, 0, 0);
+        font-family: Arial, Helvetica, sans-serif;
+        padding-right: 30px;
+
+        :hover {
+            cursor: pointer;
+            color: black;
+        }
+
+    }
+
+    &__button {
+        position: relative;
+        width: 20px;
+        height: 20px;
+        border-radius: 40px;
+        background-color: hsla(0, 0%, 0%, 0.774);
+        text-align: center;
+
+        :hover {
+            cursor: no-drop
+        }
+    }
+
+    &__num {
+        color: white;
+    }
+}
+
+.results {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5px;
+
+    &__info {
+        font-size: 1.4em;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    &__bottun {
+        justify-content: center;
+        color: white;
+        width: 20px;
+        height: 20px;
+        border-radius: 40px;
+        text-align: center;
+        background-color: hsla(0, 0%, 0%, 0.774);
+
+        :hover {
+            cursor: no-drop
+        }
+    }
+}
+
+.card {
+    border-radius: 40px;
+    background-color: white;
+
+    img {
+        height: 100%;
+        width: 100%;
+        border-radius: 40px;
+        
+    }
+   
+    &__info {
+        padding-left: 20px;
+    }
+
+    &__des {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    &__subinfo {
+        display: flex;
+        margin: 15px;
+        justify-content: space-between;
+    }
+
+    &__price {
+        font-family: Arial, Helvetica, sans-serif;
+        left: 10px;
+
+        i {
+            color: rgb(255, 0, 13);
+        }
+
+        &--activ {
+            i {
+                color: green;
+            }
+        }
+    }
+
+    &__loc {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+}
+
+.drop {
+    position: relative;
+    margin: -30%;
+    display: inline-block;
+    border-radius: 20px;
+
+    &__btn {
+        background-color: rgb(163, 162, 162);
+        color: white;
+        padding: 6px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        background-color: hsla(0, 0%, 0%, 0.774);
+    }
+
+    .drop:hover &__content {
+        font-size: 2em;
+        display: block;
+    }
+
+    &__content {
+        display: none;
+        position: absolute;
+        border-radius: 20px;
+        background-color: #f1f1f1;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+
+        a {
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-family: Arial, Helvetica, sans-serif;
+            color: rgb(0, 0, 0);
+            border-radius: 20px;
+            opacity: 0.5;
+        }
+
+        a:hover {
+            background-color: rgb(163, 162, 162);
+            text-decoration: underline;
+            text-decoration-color: red;
+            -webkit-text-decoretion-color: red;
+            opacity: 1;
+        }
+    }
+}
+
+
+@media only screen and(min-width: 670px) {
+    .wrapperfirst {
+        ul {
+            height: 80px;
+        }
+
+        a {
+            padding: 10px 50px 10px 50px;
+            font-size: 2.5em;
+        }
+    }
+
+    .wrapper {
+
+        &__icon {
+            font-size: 2.5em;
+        }
+
+        &__info {
+            font-size: 3em;
+        }
+
+        &__button {
+            width: 40px;
+            height: 40px;
+        }
+
+        &__num {
+            position: relative;
+            top: 25%;
+        }
+    }
+
+    .results {
+
+        &__info {
+            font-size: 3em;
+        }
+
+        &__bottun {
+            width: 40px;
+            height: 40px;
+        }
+    }
+
+    .card {
+        &__info {
+            font-size: 2em;
+        }
+
+        &__loc {
+            font-size: 2rem;
+
+        }
+
+        &__price {
+            font-size: 2rem;
+        }
+    }
+
+    .drop {
+        &__btn {
+            border-radius: 20px;
+            padding: 23px;
+        }
+
+        .drop:hover &__content {
+            border-radius: 20px;
+        }
+
+        &__content {
+            a:hover {
+                border-radius: 20px;
+                text-decoration: underline;
+                text-decoration-color: red;
+                -webkit-text-decoretion-color: red;
+
+            }
+        }
+    }
+}

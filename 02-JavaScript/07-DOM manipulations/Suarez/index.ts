@@ -1,0 +1,21 @@
+const x:any = document.getElementById("x");
+const y:any = document.getElementById("y");
+const z:any = document.getElementById("z");
+const a:any = document.getElementById("a");
+const b:any = document.getElementById("b");
+x.style.background = 'red';
+x.style.border = 'solid 2px black';
+x.style.borderRadius = '20px';
+y.style.background = 'green';
+y.style.width = '90px';
+y.style.height = '80px';
+z.style.background = 'blue';
+z.style.textAlign = 'center';
+z.style.fontWeight = 'bold';
+z.style.fontSize = '80px';
+
+a.style.background = 'yellow';
+b.style.background = 'black';
+b.style.color = 'white';
+b.style.height = '200px';
+b.style.fontSize = '100px';
