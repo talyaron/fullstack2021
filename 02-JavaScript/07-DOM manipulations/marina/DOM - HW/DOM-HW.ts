@@ -93,7 +93,7 @@ setTimeout (function goodbytext() {GoodbyText.style.color = 'black'; GoodbyText.
 
 const timeOUT:any = setTimeout(goodby, 4000);
 function goodby() {
-    document.querySelector ('p').innerHTML = 'See You Tonight!';
+    document.querySelector ('p').innerHTML = 'See You Tonight';
     GoodbyText.style.color = '#eb2f06';
     GoodbyText.style.fontSize = '3em';
 }
@@ -101,7 +101,7 @@ function goodby() {
 
 const tonight:any = setTimeout (Goodby, 6000);
 function Goodby() {
-    document.querySelector ('p').innerHTML = 'Come Back After Tomorrow...=)';
+    document.querySelector ('p').innerHTML = 'Come Back After Tomorrow';
 }
 
 
