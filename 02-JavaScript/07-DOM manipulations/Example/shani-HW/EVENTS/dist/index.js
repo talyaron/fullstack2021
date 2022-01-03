@@ -1,0 +1,14 @@
+var theFirstButton = document.getElementById('theFirstButton');
+theFirstButton.addEventListener('click', function () { console.log('I WAS CLICKED!'); });
+theFirstButton.style.backgroundColor = "red";
+var theSecondButton = document.getElementById('theSecondButton');
+theSecondButton.addEventListener('mousedown', function () { console.log('ZE MOUSE IS DOWN'); });
+theSecondButton.style.backgroundColor = "orange";
+var theThirdButton = document.getElementById('theThirdButton');
+theThirdButton.addEventListener('mousemove', function () { console.log('ZE MOUSE MOVED'); });
+theThirdButton.style.backgroundColor = "yellow";
+var theFourthButton = document.getElementById('theFourthButton');
+theFourthButton.addEventListener('mouseout', function () { console.log('ZE MOUSE IS OUT'); });
+theFourthButton.style.backgroundColor = "green";
+theFourthButton.addEventListener('mouseover', function () { console.log('ZE MOUSE IS OVER'); });
+theFourthButton.style.backgroundColor = "green";
