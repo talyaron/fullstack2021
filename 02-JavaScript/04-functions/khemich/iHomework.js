@@ -244,3 +244,6 @@ console.log(footballTeams.slice(1,2));
 footballTeams.forEach(footballTeam=>{
     console.log();
 })
+
+
+

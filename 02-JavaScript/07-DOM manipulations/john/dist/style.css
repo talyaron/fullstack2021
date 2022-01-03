@@ -1,0 +1,11 @@
+.btn {
+  border-radius: 200px;
+  border: 2px solid #af5151;
+  padding: 20px 40px;
+  width: fit-content;
+  cursor: pointer;
+  user-select: none;
+}
+.btn:hover {
+  background-color: #143619;
+}
