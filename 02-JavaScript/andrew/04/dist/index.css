@@ -6,13 +6,36 @@
   border: 3px solid black;
   text-align: center;
   line-height: 50px;
+  position: absolute;
 }
 .box:hover {
   cursor: pointer;
 }
 
+#box1 {
+  left: 60px;
+}
+
+#box2 {
+  top: 60px;
+  left: 120px;
+}
+
+#box3 {
+  top: 60px;
+  left: 0px;
+}
+
+#box4 {
+  top: 120px;
+  left: 60px;
+}
+
 img {
+  z-index: -1;
   height: 200px;
   position: absolute;
-  right: 100px;
+  left: 0px;
+  top: 0px;
+  transition: ease 200ms;
 }

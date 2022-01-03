@@ -7,10 +7,11 @@ const cat:any = document.querySelector(`#cat`);
 
 let yAxis = 0;
 let xAxis = 0;
+let moveAmount= 50;
 
 
-boxUp.addEventListener("click", ()=>{yAxis = yAxis-20;cat.style.top = `${yAxis}px`});
-boxRight.addEventListener("click", ()=>{xAxis = xAxis+20;cat.style.left = `${xAxis}px`});
-boxLeft.addEventListener("click", ()=>{xAxis = xAxis-20;cat.style.left =  `${xAxis}px`});
-boxDown.addEventListener("click", ()=>{yAxis = yAxis+20;cat.style.top = `${yAxis}px`});
+boxUp.addEventListener("click", ()=>{yAxis = yAxis-moveAmount;cat.style.top = `${yAxis}px`});
+boxRight.addEventListener("click", ()=>{xAxis = xAxis+moveAmount;cat.style.left = `${xAxis}px`});
+boxLeft.addEventListener("click", ()=>{xAxis = xAxis-moveAmount;cat.style.left =  `${xAxis}px`});
+boxDown.addEventListener("click", ()=>{yAxis = yAxis+moveAmount;cat.style.top = `${yAxis}px`});
 
