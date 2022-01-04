@@ -2,10 +2,11 @@ var buttons = document.querySelectorAll(".btn");
 buttons.forEach(function (button) {
     button.addEventListener("click", handleClick);
 });
-console.dir(ev);
+var image = document.querySelector(".img1");
 function handleClick(ev) {
-    var clickedLink = e.target;
-    // getting location of clicked link.
-    e.style.top = "200px";
-    e.style.left = "200px";
+    var clickedLink = ev.target.id;
+    console.log(clickedLink);
+    if (clickedLink == "left") {
+        document.getElementsByClassName("img1").style.left = "100px";
+    }
 }
