@@ -1,0 +1,12 @@
+img {
+  height: 50px;
+  aspect-ratio: 1;
+  position: absolute;
+  margin-top: 50vh;
+  margin-left: 40vw;
+  transition: transform 2s;
+}
+
+.btn {
+  font-size: 2rem;
+}

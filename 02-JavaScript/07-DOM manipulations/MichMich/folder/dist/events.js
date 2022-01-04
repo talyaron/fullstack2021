@@ -1,9 +1,12 @@
-var button1 = document.getElementById("btnone");
-var button2 = document.getElementById("btn2");
-button1.addEventListener("click", function () {
-    console.log("it was clicked");
+var buttons = document.querySelectorAll(".btn");
+buttons.forEach(function (button) {
+    button.addEventListener("click", handleClick);
 });
-button2.addEventListener("mouseenter", runMouseEnter);
-function runMouseEnter() {
-    console.log("mouse innnnnnnnn");
+var image = document.querySelector(".img1");
+function handleClick(ev) {
+    var clickedLink = ev.target.id;
+    console.log(clickedLink);
+    if (clickedLink == "left") {
+        document.getElementsByClassName("img1").style.left = "100px";
+    }
 }

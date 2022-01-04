@@ -1,18 +1,25 @@
-const button1 = document.getElementById("btnone");
-const button2 = document.getElementById(`btn2`);
+const buttons= document.querySelectorAll(`.btn`);
 
-
-button1.addEventListener(`click`,()=>{
-    console.log(`it was clicked`);
-    
+buttons.forEach(button=>{
+    button.addEventListener(`click`, handleClick)
 })
 
-button2.addEventListener(`mouseenter`,runMouseEnter);
+const image=document.querySelector(`.img1`)
 
-function runMouseEnter(){
-    console.log(`mouse innnnnnnnn`);
-    
+function handleClick( ev )
+{  
+    var clickedLink = ev.target.id;    
+    console.log(clickedLink)
+    if(clickedLink==`left`){
+        document.getElementsByClassName(`img1`).style.left="100px";
+        
+    }
 }
+
+
+
+
+
 
 
 
