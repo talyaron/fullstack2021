@@ -1,8 +1,7 @@
 
 
 
-
-//document.title='Shanis Page';
+document.title='Shanis Page';
 
 //id="Greetings"
 let greetings:any=document.querySelector("#Greetings");
