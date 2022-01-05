@@ -1,0 +1,355 @@
+.ActivitiesGrid {
+  justify-content: center;
+  display: grid;
+  grid-gap: 1em;
+  grid-template-columns: 30% 30% 30%;
+  grid-template-rows: auto auto;
+  min-height: 20em;
+  grid-template-areas: "steps sleep goals" "steps sleep goals" "steps colories goals" "haert colories weight" "haert colories weight";
+}
+.ActivitiesGrid .weight {
+  grid-area: weight;
+  border-radius: 15px;
+  box-shadow: 1px 1px 1px #a8a7a7, 1px 10px 24px rgba(99, 91, 105, 0.4);
+  font-size: 0.9em;
+  background-color: #eef3f7;
+  color: #857a96;
+  height: 15vh;
+}
+.ActivitiesGrid .weight__weightIcons {
+  display: flex;
+  justify-content: space-between;
+  padding: 2% 3%;
+}
+.ActivitiesGrid .weight--textWeght {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -11%;
+}
+.ActivitiesGrid .steps {
+  grid-area: steps;
+  border-radius: 15px;
+  box-shadow: 1px 1px 1px #a8a7a7, 1px 10px 24px rgba(99, 91, 105, 0.4);
+  font-size: 0.9em;
+  background-color: #eef3f7;
+  color: #857a96;
+  height: 30vh;
+}
+.ActivitiesGrid .steps__stepsIcons {
+  padding: 2%;
+  display: flex;
+  justify-content: space-between;
+}
+.ActivitiesGrid .steps__stepsContainer {
+  padding-top: 10%;
+}
+.ActivitiesGrid .steps__stepsContainer__cercl {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ActivitiesGrid .steps__stepsContainer__cercl--text {
+  position: absolute;
+}
+.ActivitiesGrid .steps__stepsContainer .animation {
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+.ActivitiesGrid .steps__stepsContainer .animation__circleAnimation {
+  stroke-dasharray: 440;
+  stroke-dashoffset: 440;
+  -webkit-animation: html 6s ease-out forwards;
+  animation: html 6s ease-out forwards;
+}
+@-webkit-keyframes html {
+  to {
+    stroke-dashoffset: 170;
+  }
+}
+@keyframes html {
+  to {
+    stroke-dashoffset: 170;
+  }
+}
+.ActivitiesGrid .calories {
+  grid-area: colories;
+  border-radius: 15px;
+  box-shadow: 1px 1px 1px #a8a7a7, 1px 10px 24px rgba(99, 91, 105, 0.4);
+  font-size: 0.9em;
+  background-color: #eef3f7;
+  color: #857a96;
+  height: 30vh;
+}
+.ActivitiesGrid .calories__caloriesIcons {
+  display: flex;
+  justify-content: space-between;
+  padding: 3% 3%;
+}
+.ActivitiesGrid .calories__caloriesContainer {
+  padding-top: 8%;
+}
+.ActivitiesGrid .calories__caloriesContainer__cercl {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ActivitiesGrid .calories__caloriesContainer__cercl--text {
+  position: absolute;
+}
+.ActivitiesGrid .calories__caloriesContainer .animation {
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+.ActivitiesGrid .calories__caloriesContainer .animation__circleAnimation {
+  stroke-dasharray: 440;
+  stroke-dashoffset: 440;
+  -webkit-animation: html 6s ease-out forwards;
+  animation: html 6s ease-out forwards;
+}
+@-webkit-keyframes html {
+  to {
+    stroke-dashoffset: 200;
+  }
+}
+@keyframes html {
+  to {
+    stroke-dashoffset: 200;
+  }
+}
+.ActivitiesGrid .goals {
+  grid-area: goals;
+  border-radius: 15px;
+  box-shadow: 1px 1px 1px #a8a7a7, 1px 10px 24px rgba(99, 91, 105, 0.4);
+  font-size: 0.9em;
+  background-color: #eef3f7;
+  color: #857a96;
+  height: 30vh;
+}
+.ActivitiesGrid .goals__goalsIcons {
+  display: flex;
+  justify-content: space-between;
+  padding: 3% 3%;
+}
+.ActivitiesGrid .goals__goalsDiagram {
+  display: flex;
+  justify-content: space-evenly;
+}
+.ActivitiesGrid .goals__goalsDiagram--stepsCircl, .ActivitiesGrid .goals__goalsDiagram--caloriesCircl {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.ActivitiesGrid .goals__goalsDiagram__circl {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ActivitiesGrid .goals__goalsDiagram__circl--Text {
+  position: absolute;
+}
+.ActivitiesGrid .goals__goalsDiagram .animation {
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+.ActivitiesGrid .goals__goalsDiagram .animation__circleAnimation {
+  stroke-dasharray: 440;
+  stroke-dashoffset: 440;
+  -webkit-animation: html 6s ease-out forwards;
+  animation: html 6s ease-out forwards;
+}
+@-webkit-keyframes html {
+  to {
+    stroke-dashoffset: 170;
+  }
+}
+@keyframes html {
+  to {
+    stroke-dashoffset: 170;
+  }
+}
+.ActivitiesGrid .sleep {
+  grid-area: sleep;
+  background: linear-gradient(to bottom right, #4d358b 50%, #ca36a5 100%);
+  color: white;
+  border-radius: 15px;
+  box-shadow: 1px 1px 1px #a8a7a7, 1px 10px 24px rgba(99, 91, 105, 0.4);
+  font-size: 0.9em;
+  height: 15vh;
+}
+.ActivitiesGrid .sleep__sleepContent__sleepIcons {
+  display: flex;
+  justify-content: space-between;
+  padding: 3% 3%;
+}
+.ActivitiesGrid .sleep__sleepContent__sleepIcons--moonIcon {
+  background-color: #eef3f7;
+  border-radius: 50%;
+  color: black;
+  padding: 0.4%;
+}
+.ActivitiesGrid .sleep__sleepContent__textHour {
+  padding-left: 3%;
+  padding-bottom: 5%;
+}
+.ActivitiesGrid .haert {
+  grid-area: haert;
+  border-radius: 15px;
+  box-shadow: 1px 1px 1px #a8a7a7, 1px 10px 24px rgba(99, 91, 105, 0.4);
+  font-size: 0.9em;
+  background-color: #eef3f7;
+  color: #857a96;
+  height: 15vh;
+}
+.ActivitiesGrid .haert__heartIcons {
+  display: flex;
+  justify-content: space-between;
+  padding: 2% 3%;
+}
+.ActivitiesGrid .haert__chart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ActivitiesGrid .haert__chart--bmp {
+  position: absolute;
+  left: 19.2%;
+}
+.ActivitiesGrid .haert__chart .bar-graph-vertical .bar-container {
+  float: left;
+  height: 10vh;
+  position: relative;
+  width: 2em;
+}
+.ActivitiesGrid .haert__chart .bar-graph-vertical .bar {
+  border-radius: 3px;
+  bottom: 1em;
+  position: absolute;
+  width: 0.4em;
+}
+.ActivitiesGrid .haert__chart .bar-graph-vertical .year {
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+.ActivitiesGrid .haert__chart .bar-graph-two .bar::after {
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+.ActivitiesGrid .haert__chart .bar-graph-two .bar-one .bar {
+  background-color: rgba(112, 19, 131, 0.747);
+  -webkit-animation: show-bar-one-vertical 1.2s 0.1s forwards;
+  -moz-animation: show-bar-one-vertical 1.2s 0.1s forwards;
+  animation: show-bar-one-vertical 1.2s 0.1s forwards;
+}
+.ActivitiesGrid .haert__chart .bar-graph-two .bar-two .bar {
+  background-color: #f382ef;
+  -webkit-animation: show-bar-two-vertical 1.2s 0.2s forwards;
+  -moz-animation: show-bar-two-vertical 1.2s 0.2s forwards;
+  animation: show-bar-two-vertical 1.2s 0.2s forwards;
+}
+.ActivitiesGrid .haert__chart .bar-graph-two .bar-three .bar {
+  background-color: #f382ef;
+  -webkit-animation: show-bar-three-vertical 1.2s 0.3s forwards;
+  -moz-animation: show-bar-three-vertical 1.2s 0.3s forwards;
+  animation: show-bar-three-vertical 1.2s 0.3s forwards;
+}
+.ActivitiesGrid .haert__chart .bar-graph-two .bar-four .bar {
+  background-color: rgba(112, 19, 131, 0.747);
+  -webkit-animation: show-bar-four-vertical 1.2s 0.4s forwards;
+  -moz-animation: show-bar-four-vertical 1.2s 0.4s forwards;
+  animation: show-bar-four-vertical 1.2s 0.4s forwards;
+}
+.ActivitiesGrid .haert__chart .bar-graph-two .bar-five .bar {
+  background-color: #f382ef;
+  -webkit-animation: show-bar-five-vertical 1.2s 0.5s forwards;
+  -moz-animation: show-bar-five-vertical 1.2s 0.5s forwards;
+  animation: show-bar-five-vertical 1.2s 0.5s forwards;
+}
+.ActivitiesGrid .haert__chart .bar-graph-two .bar-six .bar {
+  background-color: #f382ef;
+  -webkit-animation: show-bar-six-vertical 1.2s 0.6s forwards;
+  -moz-animation: show-bar-six-vertical 1.2s 0.6s forwards;
+  animation: show-bar-six-vertical 1.2s 0.6s forwards;
+}
+.ActivitiesGrid .haert__chart .bar-graph-two .bar-seven .bar {
+  background-color: rgba(112, 19, 131, 0.747);
+  -webkit-animation: show-bar-seven-vertical 1.2s 0.7s forwards;
+  -moz-animation: show-bar-seven-vertical 1.2s 0.7s forwards;
+  animation: show-bar-seven-vertical 1.2s 0.7s forwards;
+}
+.ActivitiesGrid .haert__chart .bar-graph-two .bar-eight .bar {
+  background-color: #f382ef;
+  -webkit-animation: show-bar-eight-vertical 1.2s 0.7s forwards;
+  -moz-animation: show-bar-eight-vertical 1.2s 0.7s forwards;
+  animation: show-bar-eight-vertical 1.2s 0.7s forwards;
+}
+@-webkit-keyframes show-bar-one-vertical {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 68%;
+  }
+}
+@-webkit-keyframes show-bar-two-vertical {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 55%;
+  }
+}
+@-webkit-keyframes show-bar-three-vertical {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 70%;
+  }
+}
+@-webkit-keyframes show-bar-four-vertical {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 50%;
+  }
+}
+@-webkit-keyframes show-bar-five-vertical {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 20%;
+  }
+}
+@-webkit-keyframes show-bar-six-vertical {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 85%;
+  }
+}
+@-webkit-keyframes show-bar-seven-vertical {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 62%;
+  }
+}
+@-webkit-keyframes show-bar-eight-vertical {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 37%;
+  }
+}
