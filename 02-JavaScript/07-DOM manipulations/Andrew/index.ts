@@ -1,10 +1,19 @@
 const board: any = document.querySelector('#board');
-board.style.width = '650px';
-board.style.height = '650px';
-board.style.background = 'brown';
-board.style.display = 'flex';
-board.style.justifyContent = 'center';
-board.style.alignItems = 'center';
+// board.style.width = '650px';
+// board.style.height = '650px';
+// board.style.background = 'brown';
+// board.style.display = 'flex';
+// board.style.justifyContent = 'center';
+// board.style.alignItems = 'center';
+board.style.cssText =
+`
+width: 650px;
+height: 650px;
+background: brown;
+display: flex;
+justify-content: center;
+align-items: center;
+`
 
 const grid: any = document.querySelector('#grid');
 grid.style.width = '600px';
@@ -13,6 +22,15 @@ grid.style.display = 'grid';
 grid.style.gridTemplateRows = 'repeat(8, 1fr)';
 grid.style.gridTemplateColumns = 'repeat(8, 1fr)';
 grid.style.position = 'relative';
+// grid.style.cssText =
+// `
+// width: 600px;
+// height: 600px;
+// display: grid;
+// grid-template-rows: repeat(8, 1fr);
+// grid-template-columns: repeat(8, 1fr);
+// grid.style.position: relative;
+// `
 
 const cells: any = document.querySelectorAll('.cell');
 cells.forEach(element => {
@@ -31,11 +49,19 @@ blacks.forEach(element => {
 
 const pieces: any = document.querySelectorAll('img');
 pieces.forEach(element => {
-    element.style.width = '65px';
-    element.style.height = '65px';
-    element.style.position = 'absolute';
-    element.style.filter = 'drop-shadow(0px 0px 8px white)';
-    element.style.transition = 'ease 0.4s';
+    // element.style.width = '65px';
+    // element.style.height = '65px';
+    // element.style.position = 'absolute';
+    // element.style.filter = 'drop-shadow(0px 0px 8px white)';
+    // element.style.transition = 'ease 0.4s';
+    element.style.cssText =
+    `
+    width: 65px;
+    height: 65px;
+    position: absolute;
+    filter: drop-shadow(0px 0px 8px white);
+    transition: ease 0.4s;
+    `
 });
 const kingBlack: any = document.querySelector('#kingB');
 const kingWhite: any = document.querySelector('#kingW');
@@ -59,14 +85,17 @@ bishopWhite.style.left = '530px';
 pawnWhite.style.top = '380px';
 pawnWhite.style.left = '75px';
 
+
+
+
 const animationTime = 700;
 const animationDelay = 3000;
 
-const timeout1st = setTimeout(firstMove,  animationDelay+animationTime);
-const timeout2nd = setTimeout(secondMove, animationDelay+animationTime*2);
-const timeout3rd = setTimeout(thirdMove, animationDelay+animationTime*3);
-const timeout4th = setTimeout(fourthMove, animationDelay+animationTime*4);
-const timeout5th = setTimeout(fifthMove, animationDelay+animationTime*5);
+const timeout1st = setTimeout(firstMove,  animationDelay+animationTime);     // 3700ms
+const timeout2nd = setTimeout(secondMove, animationDelay+animationTime*2);   // 4400ms
+const timeout3rd = setTimeout(thirdMove, animationDelay+animationTime*3);   //  5100ms 
+const timeout4th = setTimeout(fourthMove, animationDelay+animationTime*4);   // 5800ms
+const timeout5th = setTimeout(fifthMove, animationDelay+animationTime*5);   //  6500ms
 
 function firstMove() {
     pawnWhite.style.top = '300px';
