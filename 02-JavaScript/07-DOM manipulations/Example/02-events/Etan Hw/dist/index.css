@@ -5,21 +5,28 @@ body {
 }
 
 .container {
-  height: 20vw;
+  height: max(10vw, 30vw);
   display: flex;
   overflow-x: scroll;
+  gap: 1rem;
 }
-.container > * {
-  flex-shrink: 0;
+.container img {
+  transition: 1s;
+  border-radius: 1rem;
+}
+.container img:hover {
+  z-index: 10;
+  transform: scale(1.2);
 }
 
 #description {
   margin: 0;
   font-family: sans-serif;
   font-weight: bold;
-  line-height: 20vw;
+  line-height: 20vh;
   text-align: center;
   background-color: red;
+  z-index: 0;
 }
 
 h3 span {
