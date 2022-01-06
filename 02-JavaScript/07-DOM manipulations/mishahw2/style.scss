@@ -1,0 +1,19 @@
+body{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.wrapper{
+    display:flex;
+    width: 90vw;
+    border: 1px solid black;
+
+    .box{
+        width: fit-content;
+        height: 100%;
+        img{
+            width: 100%;
+        }
+    }
+}
