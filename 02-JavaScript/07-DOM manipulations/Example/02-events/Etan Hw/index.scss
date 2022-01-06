@@ -7,7 +7,7 @@ body {
   height:max(10vw, 30vw);
   display: flex;
   overflow-x: scroll;
-  gap: 1rem;
+  gap: .2rem;
   // & > * {
   //   flex-shrink: 0;
   // };
@@ -15,14 +15,15 @@ body {
   img{
     transition: 1s;
     border-radius: 1rem;
+    transform: scale(.8);
     &:hover{
     z-index: 10;
-    transform: scale(1.2)
+    transform: scale(1)
   }}
 };
 
 #description {
-  
+  margin: 0;
   font-family: sans-serif;
   font-weight: bold;
   line-height: 20vh;
