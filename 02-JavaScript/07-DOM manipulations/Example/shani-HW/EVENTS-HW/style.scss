@@ -1,3 +1,8 @@
+body{
+    margin:0;
+    padding:0;
+}
+
 .music{
   display:flex;
   flex-direction: row;  
@@ -8,4 +13,11 @@
       height:20%;
   }
 
+  
+}
+
+.text{
+    width:100rem;
+    height:5rem;
+    background-color: blue;
 }
