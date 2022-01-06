@@ -22,7 +22,7 @@ body {
 };
 
 #description {
-  margin: 0;
+  
   font-family: sans-serif;
   font-weight: bold;
   line-height: 20vh;
@@ -34,7 +34,7 @@ h3 {
   span {
     opacity: 1;
     transition: all 0.4s ease;
-    transform: translateY(50px);
+    transform: translateY(0px);
     display: inline-block;
   };
   .fade {
