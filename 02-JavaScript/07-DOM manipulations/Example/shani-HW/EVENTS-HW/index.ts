@@ -19,6 +19,7 @@ const george: any = document.querySelector("#george");
 george.addEventListener("mouseenter", () => {
     document.body.style.backgroundColor = "rgb(173,216,230)";
     document.body.style.transition = "1s";
+   
 
 
 });
