@@ -1,19 +1,20 @@
 body {
   margin: 0;
   padding: 0;
+  font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
 }
 
 .music {
   display: flex;
   flex-direction: row;
-  justify-content: center;
   margin-top: 5rem;
+  overflow-x: scroll;
 }
 .music img {
-  width: 20%;
-  height: 20%;
+  width: 50vw;
+  height: 40vh;
   transition: all 0.2s ease-in-out;
-  margin: 2rem;
+  margin: 1rem;
 }
 .music img:hover {
   transform: scale(1.1);
@@ -24,4 +25,7 @@ body {
   height: 5rem;
   background-color: #4b4bdb;
   text-align: center;
+}
+.text .name {
+  color: #4bdbdb;
 }
