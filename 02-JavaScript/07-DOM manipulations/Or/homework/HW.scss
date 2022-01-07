@@ -1,0 +1,14 @@
+.pics{
+    display: flex;
+    justify-content: space-between;
+}
+img:hover{
+    cursor: pointer;
+}
+#text{
+    text-align: center;
+    font-size: 3rem;
+    width: 100%;
+    color: white;
+    background: red;
+}

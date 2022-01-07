@@ -1,0 +1,23 @@
+.container {
+  grid-gap: 5px;
+  text-align: center;
+  margin-top: 50px;
+  align-items: center;
+  transition: 0.5s;
+  display: grid;
+  text-align: center;
+  grid-template-columns: repeat(5, 1fr);
+}
+.container img {
+  background-size: cover;
+  width: 19vw;
+  height: 150px;
+}
+
+.redline {
+  background-color: red;
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  color: white;
+}

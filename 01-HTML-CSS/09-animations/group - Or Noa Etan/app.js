@@ -2,13 +2,17 @@
 const text = document.querySelector(".fancy");
 const strText = text.textContent;
 const splitText = strText.split("");
+console.log(splitText)
 text.textContent = "";
-for (let i = 0; i < splitText.length; i++) {
-  text.innerHTML += "<span>" + splitText[i] + "</span>";
-}
+splitText.forEach(i => {
+  text.innerHTML += '<span>' + `${i}` + '</span>';
+});
+// for (i = 0; i < splitText.length; i++) {
+//   text.innerHTML += "<span>" + splitText[i] + "</span>";
+// }
 /* this is the animation part */
 let char = 0;
-let timer = setInterval(onTick, 50);
+let timer = setInterval(onTick, 120);
 
 function onTick() {
   const span = text.querySelectorAll("span")[char];
