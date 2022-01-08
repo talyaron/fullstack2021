@@ -1,17 +1,25 @@
-var rabbiYoramAbargel = document.getElementById("rabbiYoramAbargel");
-var rabbiOvadiaYosef = document.getElementById("rabbiOvadiaYosef");
-var rabbiMordechaiEliahu = document.getElementById("rabbiMordechaiEliahu");
-var rabbi = document.getElementById("rabbi");
-var text = document.getElementById("text");
-rabbi.addEventListener("mouseenter", function () {
-    text.innerHTML = "\u05D4\u05E8\u05D1\u05D9 \u05DE\u05DC\u05D9\u05D5\u05D1\u05D5\u05D5\u05D9\u05D8\u05E9";
-});
-rabbiOvadiaYosef.addEventListener("mouseenter", function () {
-    text.innerHTML = "\u05D4\u05E8\u05D1 \u05E2\u05D5\u05D1\u05D3\u05D9\u05D4 \u05D9\u05D5\u05E1\u05E3";
-});
-rabbiMordechaiEliahu.addEventListener("mouseenter", function () {
-    text.innerHTML = "\u05D4\u05E8\u05D1 \u05DE\u05E8\u05D3\u05DB\u05D9 \u05D0\u05DC\u05D9\u05D4\u05D5";
-});
-rabbiYoramAbargel.addEventListener("mouseenter", function () {
-    text.innerHTML = "\u05D4\u05E8\u05D1 \u05D9\u05D5\u05E8\u05DD \u05D0\u05D1\u05E8\u05D2'\u05DC";
+var text = document.getElementById("text"); //needed for both options
+//OPTION 1
+// const rabbiYoramAbargel = document.getElementById(`rabbiYoramAbargel`);
+// const rabbiOvadiaYosef = document.getElementById(`rabbiOvadiaYosef`);
+// const rabbiMordechaiEliahu = document.getElementById(`rabbiMordechaiEliahu`);
+// const rabbi = document.getElementById(`rabbi`);
+// rabbi.addEventListener(`mouseenter`,()=>{
+//     text.innerHTML=`הרבי מליובוויטש`;
+// })
+// rabbiOvadiaYosef.addEventListener(`mouseenter`,()=>{
+//     text.innerHTML=`הרב עובדיה יוסף`;
+// })
+// rabbiMordechaiEliahu.addEventListener(`mouseenter`,()=>{
+//     text.innerHTML=`הרב מרדכי אליהו`;
+// })
+// rabbiYoramAbargel.addEventListener(`mouseenter`,()=>{
+//     text.innerHTML=`הרב יורם אברג'ל`;
+// })
+// OPTION 2
+var img = document.querySelectorAll("img");
+img.forEach(function (item) {
+    item.addEventListener("mouseover", function () {
+        text.innerHTML = item.alt;
+    });
 });
