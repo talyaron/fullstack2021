@@ -1,15 +1,21 @@
-body .pic {
+body .gallery {
+  max-width: 1500px;
+  background-color: #2e3ae0;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 400px 200px;
+  margin: 20px auto;
+}
+body .gallery .pic {
   display: flex;
   background-size: cover;
-  display: inline-block;
+  background-repeat: no-repeat;
   border-radius: 100px;
-  width: 300px;
-  height: 400px;
   box-shadow: 0 0 16px rgba(0, 0, 0, 0.5);
   position: relative;
   cursor: pointer;
 }
-body .pic .text {
+body .gallery .pic .text {
   position: absolute;
   color: #eee;
   padding: 8px;
@@ -22,9 +28,9 @@ body .pic .text {
   text-align: center;
   padding-top: 30%;
   opacity: 0;
-  transition: 0.3s;
 }
-body .pic .text:hover {
+body .gallery .pic .text:hover {
   opacity: 1;
   padding-top: 40%;
+  transition: 0.3s;
 }
