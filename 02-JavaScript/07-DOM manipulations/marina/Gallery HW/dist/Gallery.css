@@ -1,0 +1,63 @@
+body {
+  display: block;
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+  background: #e4e1e1;
+}
+
+.wrapper {
+  margin: 10em 0em;
+  display: flex;
+  gap: 3em;
+  flex-direction: column;
+}
+.wrapper__line1, .wrapper__line2, .wrapper__line3 {
+  display: flex;
+  flex-direction: row;
+  gap: 2em;
+}
+.wrapper__img {
+  position: relative;
+  justify-content: center;
+  width: 37em;
+  height: 25em;
+  border-radius: 50px;
+  padding: 2em;
+  box-shadow: 1px 1px 1px #a8a7a7, 1px 10px 24px rgba(102, 95, 107, 0.4);
+}
+.wrapper #pImg1,
+.wrapper #pImg2,
+.wrapper #pImg3,
+.wrapper #pImg4,
+.wrapper #pImg5,
+.wrapper #pImg6 {
+  color: #5f5c5c;
+  font-weight: 800;
+  font-size: 1.7em;
+  position: absolute;
+}
+.wrapper #pImg1 {
+  left: 28%;
+  top: 60%;
+}
+.wrapper #pImg2 {
+  left: 62%;
+  top: 60%;
+}
+.wrapper #pImg3 {
+  left: 21%;
+  top: 114%;
+}
+.wrapper #pImg4 {
+  left: 63%;
+  top: 114%;
+}
+.wrapper #pImg5 {
+  left: 28%;
+  top: 168.5%;
+}
+.wrapper #pImg6 {
+  left: 64%;
+  top: 168.5%;
+}
