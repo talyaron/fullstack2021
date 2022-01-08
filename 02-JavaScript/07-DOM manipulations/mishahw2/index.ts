@@ -1,4 +1,5 @@
 const dflt = document.getElementById('deafultText');
+dflt.innerHTML = 'These are my pets';
 let boxes = document.querySelectorAll('img');
 
 for (const i of boxes) {
@@ -8,7 +9,7 @@ for (const i of boxes) {
     })
 
     i.addEventListener('mouseleave', () => {
-        dflt.innerHTML = 'Those are my pets';
+        dflt.innerHTML = 'These are my pets';
     })
 
 }
