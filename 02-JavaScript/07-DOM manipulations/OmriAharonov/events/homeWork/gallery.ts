@@ -1,18 +1,15 @@
 const box:any = document.querySelector('.box');
-box.style.cssText = 
-`
-width: 90vw;
-height: 500px;
-margin: 50px auto ;
-background: yellow;
+const description:any = document.querySelector('.description');
+const gallery:any = document.querySelectorAll('.gallery');
+//const pic:any = document.querySelectorAll('.pic');
 
-`
+gallery.forEach(picture => {
+    picture.addEventListener('mouseenter', handleHover)
+});
 
-const gallery:any = document.querySelector('.gallery');
-gallery.style.cssText = 
-`
-display: flex;
+function handleHover(){
+    
+};
 
 
-`
 
