@@ -1,0 +1,93 @@
+.main {
+  width: 101%;
+  margin: -5px 0px 0px -8px;
+  height: 98vh;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+.main_display {
+  grid-column: 1/4;
+  background-image: linear-gradient(90deg, #464a4b, rgba(160, 167, 166, 0)), repeating-linear-gradient(-45deg, #571954, #3a1842 1.5px, #400053 2px, #422dbd 4px);
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(1, 15px);
+}
+.main_display video {
+  height: 28vh;
+  width: 500px;
+  background-color: black;
+  border: 10px solid black;
+  margin-top: 5px;
+  border-radius: 40px;
+  grid-column-start: 3;
+  grid-column-end: 4;
+}
+.main_display-info {
+  height: 40vh;
+  grid-row: 1;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  display: flex;
+  justify-content: center;
+}
+.main_display-info p {
+  max-width: 50ch;
+  font-size: 20px;
+  font-weight: 750;
+  color: black;
+  font-family: "Hind Siliguri", sans-serif;
+  display: none;
+}
+.main_box {
+  border: 2px solid black;
+  background-size: cover;
+  background-position: center;
+  display: grid;
+  opacity: 0.85;
+  grid-template-rows: repeat(6, 1fr);
+  grid-template-columns: repeat(6, 1fr);
+}
+.main_box:hover {
+  opacity: 1;
+}
+.main_box button {
+  grid-row: 5/6;
+  box-shadow: rgba(28, 28, 243, 0.25) 0px 30px 60px -12px inset, rgba(99, 99, 99, 0.3) 0px 18px 36px -18px inset;
+  color: black;
+  display: flex;
+  justify-content: center;
+  padding-top: 5px;
+  font-size: 17px;
+  font-weight: 600;
+  font-family: "Roboto", sans-serif;
+  display: none;
+}
+.main_box button:hover {
+  cursor: pointer;
+  font-weight: 600;
+}
+.main_box-btnInfo {
+  grid-column: 3/5;
+}
+.main_box-btnVideo {
+  grid-column: 1/3;
+}
+.main .gta {
+  background-image: url(https://www.spieltimes.com/wp-content/uploads/2021/12/maxresdefault-9.jpg);
+}
+.main .cod {
+  background-image: url(https://oneesports.azureedge.net/cdn-data/2021/05/CallOfDuty_Warzone_Graphic.jpg);
+}
+.main .fifa {
+  background-image: url(https://i.pinimg.com/564x/b2/80/e1/b280e104158a8a6b25f8a88f68f1cecb.jpg);
+}
+.main .nba {
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEozVM6VF8SkwtOep5h4GrFiT8fbovEnRy09vRUWxcsnkdxtPxJ6D2lOuQrOEcVNCB2U0&usqp=CAU);
+}
+.main .fortnite {
+  background-image: url(https://cdn1.epicgames.com/offer/fn/19BR_KeyArt_EGS_Launcher_Blade_2560x1440_2560x1440-0c719814e3356a4726560c70f0462e7b);
+}
+.main .spiderman {
+  background-image: url(https://i.ytimg.com/vi/H1PU5tny4mU/maxresdefault.jpg);
+}
