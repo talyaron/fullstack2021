@@ -16,6 +16,19 @@ body {
 .container-image {
   width: 40vh;
   box-shadow: 10px 15px 15px black;
+  cursor: pointer;
+  animation: move 4s linear infinite;
+}
+@keyframes move {
+  0% {
+    transform: translateX(-10px);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(-10px);
+  }
 }
 .container-image img {
   width: 100%;

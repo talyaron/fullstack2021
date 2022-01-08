@@ -1,14 +1,15 @@
 const text = document.getElementById('text');
 let imageContainer = document.querySelectorAll('img');
 
-for (const hover of imageContainer) {
+for (const i of imageContainer) {
 
-    hover.addEventListener('mouseenter', function(){
-        text.innerHTML = hover.alt;
+    i.addEventListener('mouseenter', function(){
+        text.innerHTML = i.alt;
     })
 
-    hover.addEventListener('mouseleave', function(){
+    i.addEventListener('mouseleave', function(){
         text.innerHTML = 'Hover Over The Book Cover To Reveal Title';
     })
 
 }
+
