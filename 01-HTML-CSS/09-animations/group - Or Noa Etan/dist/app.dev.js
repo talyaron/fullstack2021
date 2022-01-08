@@ -4,16 +4,18 @@
 var text = document.querySelector(".fancy");
 var strText = text.textContent;
 var splitText = strText.split("");
+console.log(splitText);
 text.textContent = "";
+splitText.forEach(function (i) {
+  text.innerHTML += '<span>' + "".concat(i) + '</span>';
+}); // for (i = 0; i < splitText.length; i++) {
+//   text.innerHTML += "<span>" + splitText[i] + "</span>";
+// }
 
-for (var i = 0; i < splitText.length; i++) {
-  text.innerHTML += "<span>" + splitText[i] + "</span>";
-}
 /* this is the animation part */
 
-
 var _char = 0;
-var timer = setInterval(onTick, 50);
+var timer = setInterval(onTick, 120);
 
 function onTick() {
   var span = text.querySelectorAll("span")[_char];
