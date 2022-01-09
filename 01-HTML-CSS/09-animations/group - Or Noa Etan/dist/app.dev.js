@@ -116,7 +116,7 @@ function newBox() {
   explnText.innerText = prompt("what company is it for?", "nilson project");
   expln.appendChild(explnText);
   countdown.className = "box__countdown";
-  countdown.innerText = "5 days left";
+  countdown.innerText = prompt("In how many days do you need it done?") + ' days left';
   flex.appendChild(countdown);
 }
 

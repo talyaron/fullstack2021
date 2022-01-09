@@ -1,11 +1,12 @@
 /* this is meant to seperate each letter in a description ID */
+
 const text = document.querySelector("#description");
-const strText = text.innerHTML;
+const strText = text.textContent;
 const splitText = strText.split("");
-console.log(splitText)
+console.log(splitText);
 text.textContent = "";
-splitText.forEach(i => {
-  text.innerHTML +=  '<span>' + `${i}` + '</span>';
+splitText.forEach((i) => {
+  text.innerHTML += "<span>" + `${i}` + "</span>";
 });
 // for (i = 0; i < splitText.length; i++) {
 //   text.innerHTML += "<span>" + splitText[i] + "</span>";
@@ -29,54 +30,68 @@ function complete() {
   timer = null;
 }
 
+const mom = document.getElementById("mom");
+const dad = document.getElementById("dad");
+const Benji = document.getElementById("Benji");
+const Ning = document.getElementById("Ning");
+const Tamir = document.getElementById("Tamir");
+const Romi = document.getElementById("Romi");
+const Mejohnindavi = document.getElementById("Mejohnindavi");
+const Citron = document.getElementById("Citron");
+const Chen = document.getElementById("Chen");
 
-const mom = document.getElementById('mom')
-const dadndBen = document.getElementById('dadndBen')
-const Tamir = document.getElementById('Tamir')
-const Romi = document.getElementById('Romi')
-const Mejohnindavi = document.getElementById('Mejohnindavi')
-const Citron = document.getElementById('Citron')
-const Chen = document.getElementById('Chen')
-
-mom.addEventListener('mouseenter',() => {
-    text.innerHTML = 'this-is-my-mother'
-})
-mom.addEventListener('mouseleave',() => {
-    text.innerHTML = "Who's-next?"
-})
-dadndBen.addEventListener('mouseenter',() => {
-    text.innerHTML = 'this-is-my-father-and-his-new-son,-benjamin.'
-})
-dadndBen.addEventListener('mouseleave',() => {
-    text.innerHTML = "Who's-next?"
-})
-Tamir.addEventListener('mouseenter',() => {
-    text.innerHTML = 'this-is-my-mother'
-})
-Tamir.addEventListener('mouseleave',() => {
-    text.innerHTML = "Who's-next?"
-})
-Romi.addEventListener('mouseenter',() => {
-    text.innerHTML = 'this-is-my-mother'
-})
-Romi.addEventListener('mouseleave',() => {
-    text.innerHTML = "Who's-next?"
-})
-Mejohnindavi.addEventListener('mouseenter',() => {
-    text.innerHTML = 'this-is-my-mother'
-})
-Mejohnindavi.addEventListener('mouseleave',() => {
-    text.innerHTML = "Who's-next?"
-})
-Citron.addEventListener('mouseenter',() => {
-    text.innerHTML = 'this-is-my-mother'
-})
-Citron.addEventListener('mouseleave',() => {
-    text.innerHTML = "Who's-next?"
-})
-Chen.addEventListener('mouseenter',() => {
-    text.innerHTML = 'this-is-my-mother'
-})
-Chen.addEventListener('mouseleave',() => {
-    text.innerHTML = "Who's-next?"
-})
+mom.addEventListener("mouseenter", () => {
+  text.innerHTML = "this is my mother, Mozhgan.";
+});
+mom.addEventListener("mouseleave", () => {
+  text.innerHTML = "Who's next?";
+});
+dad.addEventListener("mouseenter", () => {
+  text.innerHTML = "this is my father, David.";
+});
+dad.addEventListener("mouseleave", () => {
+  text.innerHTML = "Who's next?";
+});
+Benji.addEventListener("mouseenter", () => {
+  text.innerHTML = "this is my half brother, Benjamin (Benji).";
+});
+Benji.addEventListener("mouseleave", () => {
+  text.innerHTML = "his mother is to the right";
+});
+Ning.addEventListener("mouseenter", () => {
+  text.innerHTML = "this is Ning, she's my fathers wife.";
+});
+Ning.addEventListener("mouseleave", () => {
+  text.innerHTML = "Who's next?";
+});
+Tamir.addEventListener("mouseenter", () => {
+  text.innerHTML = "this is my brother, Tamir.";
+});
+Tamir.addEventListener("mouseleave", () => {
+  text.innerHTML = "Who's next?";
+});
+Romi.addEventListener("mouseenter", () => {
+  text.innerHTML = "this is my wife, Romina, she's from Paraguay.";
+});
+Romi.addEventListener("mouseleave", () => {
+  text.innerHTML = "Who's next?";
+});
+Mejohnindavi.addEventListener("mouseenter", () => {
+  text.innerHTML =
+    "oh no that picture again? are two of my best friends who dont have recent pics";
+});
+Mejohnindavi.addEventListener("mouseleave", () => {
+  text.innerHTML = "Who's next?";
+});
+Citron.addEventListener("mouseenter", () => {
+  text.innerHTML = "this is my friend Citron.";
+});
+Citron.addEventListener("mouseleave", () => {
+  text.innerHTML = "Who's next?";
+});
+Chen.addEventListener("mouseenter", () => {
+  text.innerHTML = "this is my friend Chen";
+});
+Chen.addEventListener("mouseleave", () => {
+  text.innerHTML = "Who's next?";
+});
