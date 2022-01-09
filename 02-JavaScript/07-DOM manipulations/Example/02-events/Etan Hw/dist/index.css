@@ -2,12 +2,13 @@ body {
   display: flex;
   flex-direction: column;
   margin: 0;
+  font-size: 2rem;
 }
 
 .container {
   height: max(10vw, 30vw);
   display: flex;
-  overflow-x: scroll;
+  overflow: scroll;
   gap: 0.2rem;
 }
 .container img {
@@ -32,11 +33,11 @@ body {
 
 h3 span {
   opacity: 1;
-  transition: all 0.4s ease;
+  transition: all 0.4s ease 1s;
   transform: translateY(0px);
   display: inline-block;
 }
 h3 .fade {
   opacity: 0;
-  transform: translateY(0px);
+  transform: translateY(-50px);
 }
