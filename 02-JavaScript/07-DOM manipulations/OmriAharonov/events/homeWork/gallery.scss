@@ -1,24 +1,35 @@
+html,
 body {
+
+    background:no-repeat center center fixed;
+    background-image: linear-gradient(to bottom right,#002240, #006dc2);
 
     .gallery {
 
         max-width: 1500px;
-        background-color:rgb(46, 58, 224);
         display: grid;
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: repeat(4, 1fr);
         grid-template-rows: 400px 200px;
-        margin: 20px auto;
-        
-     
+        margin: 100px auto;
+        border-radius: 30px;
+
+
         .pic {
             display: flex;
-            background-size:cover;
-            background-repeat:no-repeat;
+            background-size: cover;
+            background-repeat: no-repeat;
             border-radius: 100px;
             box-shadow: 0 0 16px rgba(0, 0, 0, 0.5);
             position: relative;
             cursor: pointer;
-            
+
+            img {
+                width: 100%;
+                height: 100%;
+                display: block;
+                border-radius: 100px;
+            }
+
             .text {
                 position: absolute;
                 color: #eee;
@@ -32,7 +43,9 @@ body {
                 text-align: center;
                 padding-top: 30%;
                 opacity: 0;
-                
+                font-family: 'The Nautigal';
+                font-size: 3rem;
+
                 &:hover {
                     opacity: 1;
                     padding-top: 40%;
@@ -40,24 +53,14 @@ body {
                 }
             }
 
-         
+            .description{
+                font-family: 'Courgette', cursive;
+                font-size: 2rem;
+                color: darkgoldenrod;
+            }
 
         }
 
-      
     }
 
 }
-
-
-
-
-
-
-
-
-
-//New Zealand Lake Matheson, and the reflections of mount Tasman and Cook
-//Norway northern lights
-//maldives Fesdu Island resort
-//rgba(24, 69, 128, 0.904

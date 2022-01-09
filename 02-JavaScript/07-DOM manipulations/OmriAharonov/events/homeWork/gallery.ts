@@ -5,8 +5,8 @@ const text1: any = document.getElementById('1');
 text1.style.cssText =
     `
 position: absolute;
-margin-top: 500px;
-margin-left: 650px;
+margin-top: 550px;
+margin-left: 600px;
 white-space: nowrap;
 opacity:0;
 
@@ -16,21 +16,23 @@ const text2: any = document.getElementById('2');
 text2.style.cssText =
     `
 position: absolute;
-margin-top: 500px;
-margin-left: 350px;
+margin-top: 550px;
+margin-left: 250px;
 white-space: nowrap;
 opacity:0;
 
 `
 
+
+
 const text3: any = document.getElementById('3');
 text3.style.cssText =
     `
 position: absolute;
-margin-top: 500px;
-margin-left: 100px;
+margin-top: 550px;
+margin-left: -400px;
 white-space: nowrap;
-opacity:0;
+opacity: 0;
 
 `
 
@@ -38,18 +40,7 @@ const text4: any = document.getElementById('4');
 text4.style.cssText =
     `
 position: absolute;
-margin-top: 500px;
-margin-left: -350px;
-white-space: nowrap;
-opacity: 0;
-
-`
-
-const text5: any = document.getElementById('5');
-text5.style.cssText =
-    `
-position: absolute;
-margin-top: 500px;
+margin-top: 550px;
 margin-left: -500px;
 white-space: nowrap;
 opacity: 0;

@@ -1,11 +1,18 @@
+html,
+body {
+  background: no-repeat center center fixed;
+  background-image: linear-gradient(to bottom right, #002240, #006dc2);
+}
+html .gallery,
 body .gallery {
   max-width: 1500px;
-  background-color: #2e3ae0;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 400px 200px;
-  margin: 20px auto;
+  margin: 100px auto;
+  border-radius: 30px;
 }
+html .gallery .pic,
 body .gallery .pic {
   display: flex;
   background-size: cover;
@@ -15,6 +22,14 @@ body .gallery .pic {
   position: relative;
   cursor: pointer;
 }
+html .gallery .pic img,
+body .gallery .pic img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 100px;
+}
+html .gallery .pic .text,
 body .gallery .pic .text {
   position: absolute;
   color: #eee;
@@ -28,9 +43,18 @@ body .gallery .pic .text {
   text-align: center;
   padding-top: 30%;
   opacity: 0;
+  font-family: "The Nautigal";
+  font-size: 3rem;
 }
+html .gallery .pic .text:hover,
 body .gallery .pic .text:hover {
   opacity: 1;
   padding-top: 40%;
   transition: 0.3s;
+}
+html .gallery .pic .description,
+body .gallery .pic .description {
+  font-family: "Courgette", cursive;
+  font-size: 2rem;
+  color: darkgoldenrod;
 }
