@@ -1,0 +1,48 @@
+body::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  background-image: url(https://media.istockphoto.com/photos/green-grass-football-pitch-picture-id537211737?b=1&k=20&m=537211737&s=170667a&w=0&h=Jjgu_WvzRSCzX1d_fbet_rr2xfcT3DMmgDFS9shWmi4=);
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0.8;
+}
+
+#imges {
+  position: relative;
+  width: 100;
+  top: 200px;
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.295);
+  justify-content: space-evenly;
+  flex-direction: row;
+}
+#imges img {
+  border-radius: 25px;
+  border: solid 2px rgba(0, 0, 0, 0.295);
+  width: 100%;
+  opacity: 0.8;
+  height: 200px;
+  transition: box-shadow 0.3s;
+}
+#imges img:hover {
+  transform: scale(1.2);
+  opacity: 1;
+  box-shadow: 0 0 20px rgba(9, 255, 0, 0.575);
+}
+
+#text {
+  position: relative;
+  top: 200px;
+  font-size: 30px;
+  display: flex;
+  flex-direction: column;
+  width: 100;
+  height: 50px;
+  justify-content: center;
+  text-align: center;
+  margin: 0;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.295);
+}
