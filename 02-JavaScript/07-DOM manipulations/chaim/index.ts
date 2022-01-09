@@ -21,3 +21,18 @@ boxes.forEach((box: any) => {
     box.style.margin = `15px`;
 })
 
+
+const myTimeout:any = setTimeout(myGreeting, 3000);
+function myGreeting() {
+  document.querySelector("#greet").innerHTML = "Happy Birthday!"
+}
+const btn = document.querySelector('button');
+
+function random(number) {
+  return Math.floor(Math.random() * (number+1));
+}
+
+btn.addEventListener('click', () => {
+  const rndCol = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
+  document.body.style.backgroundColor = rndCol;
+});

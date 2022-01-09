@@ -1,0 +1,40 @@
+h1{
+    text-align: center;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #FFFDDE;
+    font-family: 'Roboto', sans-serif;
+}
+.main {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+}
+
+img {
+    width: 20%;
+}
+
+#text {
+    font-size: 2rem;
+    text-align: center;
+    padding: 20px;
+    color: rgb(214, 137, 137);
+}
+.nft{
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    width: 400px;
+    font-size: 2rem;
+
+
+}
+hr{
+    border-top: 1px dotted red;
+}

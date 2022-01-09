@@ -1,0 +1,17 @@
+img {
+  width: 200px;
+}
+
+.main {
+  justify-content: center;
+  margin: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 200px);
+  gap: 20px;
+}
+.main #text {
+  text-align: center;
+  font-size: 50px;
+  background-color: antiquewhite;
+  grid-column: 1/5;
+}

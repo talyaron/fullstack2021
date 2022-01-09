@@ -1,19 +1,23 @@
-// console.log(document.getElementById("1"));
-const firstline =document.getElementById("1");
-console.log(firstline)
- firstline.style.fontSize = "200px";
- 
- const secondline =document.getElementById("2");
- console.log(secondline)
- secondline.style.fontSize ="100px"
- secondline.style.background ="blue"
+const spiderman = document.getElementById("spiderman")
+const superman = document.getElementById("superman")
+const catwoman = document.getElementById("catwoman")
+const supergirl = document.getElementById("supergirl")
 
- const thirdline = document.getElementById("3");
- console.log(thirdline)
- thirdline.style.fontSize = "50px"
- thirdline.style.color = "green"
+const img = document.querySelectorAll("img")
+const text = document.getElementById("text")
 
-const fourthline = document.querySelector(".paragraph")
-console.log(fourthline)
-fourthline.style.fontSize = "120px"
-fourthline.style.background = "red"
+spiderman.addEventListener('mouseover',()=>{
+    text.innerHTML = 'this is spiderman'
+})
+superman.addEventListener('mouseover',()=>{
+    text.innerHTML = 'this is superman'
+})
+
+catwoman.addEventListener('mouseover',()=>{
+    text.innerHTML = 'this is catwoman'
+    
+})
+
+supergirl.addEventListener('mouseover',()=>{
+    text.innerHTML = 'this is supergirl'
+})
