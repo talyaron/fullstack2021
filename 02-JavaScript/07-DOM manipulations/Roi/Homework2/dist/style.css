@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+}
+.container img {
+  width: 300px;
+  height: 150px;
+}
+
+#lowertext {
+  text-align: center;
+  font-size: 2rem;
+  color: blue;
+}

@@ -59,3 +59,5 @@ a=window.prompt("any days do you go for a walk?")
 b=window.prompt("how many mils do you walk a day?")
 walk=a*b
 console.log(walk)
+
+
