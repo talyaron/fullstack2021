@@ -22,4 +22,12 @@ function handleSubmit(ev) {
         }
     }
     console.log(formObj);
+    createCard(formObj);
+}
+function createCard(obj) {
+    var html = "<div class=\"card\">" +
+        ("<h1>" + obj.name + "</h1>") +
+        ("<p>Telphone: " + obj.phone + "</p>") +
+        "</div>";
+    document.getElementById('card').innerHTML = html;
 }

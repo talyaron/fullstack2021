@@ -13,13 +13,13 @@
     <form onsubmit='handleSubmit(event)'>
         <div class="fruitradio">
             <h1>Select a fruit</h1>
-            <input type="radio" name="pick" id="apple" placeholder="apple" checked>
+            <input type="radio" name="pick" id="apple" value="apple" checked>
             <label for="apple">apple</label>d
-            <input type="radio" name="pick" id="banana"  placeholder="banana">
+            <input type="radio" name="pick" id="banana"  value="banana">
             <label for="banana">banana</label>
-            <input type="radio" name="pick" id="kiwi" placeholder="kiwi">
+            <input type="radio" name="pick" id="kiwi" value="kiwi">
             <label for="kiwi">kiwi</label>
-            <input type="radio" name="pick"id="orange"  placeholder="orange">
+            <input type="radio" name="pick"id="orange"  value="orange">
             <label for="orange">orange</label>
         </div>
         <br/>
@@ -34,22 +34,18 @@
         <br><input type="submit" value="submit">  
 
 
-         <div class="bmi calculator">
-        <label>BMI/label><br>  
-        <input type="number" name="height" id="" placeholder="height">
-        <input type="number" name="weight" id="" placeholder="weight">
-        <br><input type="submit" value="calculate"> 
-         </div>
-
+         
     </form>
 
-    <form onsubmit='bmicalculate(event)'>
-        <label>BMI/label><br>  
-            <input type="number" name="height" id="" placeholder="height">
-            <input type="number" name="weight" id="" placeholder="weight">
+    <form onsubmit='bmicalculate(event) ' id="form">
+        <label>BMI</label><br>  
+            <input type="text" name="height" id="height" placeholder="height">
+            <input type="number" name="mass" id="mass" placeholder="weight">
             <br><input type="submit" value="calculate"> 
 
     </form>
+    <div id="result"></div>
+
     <script src="dist/index.js"></script>
 </body>
 
