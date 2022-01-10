@@ -5,7 +5,6 @@ text.style.cssText =
 color: orange;
 font-size: 7vh;
 `
-
 const img=document.querySelectorAll('img')
 console.log (img)
 

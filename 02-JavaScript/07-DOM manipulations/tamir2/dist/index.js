@@ -23,26 +23,57 @@
 // }
 // const newcity1 = changecity(members, 'aliza', 'ashdod')
 // console.log(newcity1)
-events: var thefirstbtn = document.getElementById('theone');
-var thesecbtn = document.getElementById('thetwo');
-var thetherbtn = document.getElementById('thethe');
-var theforbtn = document.getElementById('thefor');
-var thefivebtn = document.getElementById('thefive');
-thefirstbtn.addEventListener('mouseenter', runbtn1);
-function runbtn1() {
-    console.log('tamir');
-}
+// events:
+// const thefirstbtn =document.getElementById('theone');
+// const thesecbtn =document.getElementById('thetwo');
+// const thetherbtn =document.getElementById('thethe');
+// const theforbtn =document.getElementById('thefor');
+// const thefivebtn =document.getElementById('thefive');
+// for only 1 btn
+// thefirstbtn.addEventListener('mouseenter',runbtn1);
+// function runbtn1(){
+//     console.log('tamir')
+// }
 // thesecbtn.addEventListener('click',runbtn2,);
-function runbtn2() {
-    console.log('dont click on me');
+// function runbtn2(){
+//     console.log('dont click on me')
+// }
+// setTimeout(()=>{thefirstbtn.style.borderRadius='40px';},3000);
+// setTimeout(()=>{thefirstbtn.style.color='red';},3000);
+// setTimeout(()=>{thesecbtn.style.borderRadius='40px';},4000);
+// setTimeout(()=>{thesecbtn.style.color='brown';},4000);
+// setTimeout(()=>{thetherbtn.style.borderRadius='40px';},5000);
+// setTimeout(()=>{thetherbtn.style.color='blue';},5000);
+// setTimeout(()=>{theforbtn.style.borderRadius='40px';},6000);
+// setTimeout(()=>{theforbtn.style.color='yellow';},6000);
+// setTimeout(()=>{thefivebtn.style.borderRadius='40px';},7000);
+// setTimeout(()=>{thefivebtn.style.color='green';},7000);
+// for all-
+// const buttons = document.querySelectorAll('.btn')
+// buttons.forEach(button=>{
+//     button.addEventListener('click',runbtn1)
+// })
+// move item-
+var buttons = document.querySelectorAll('.btn');
+buttons.forEach(function (button) {
+    button.addEventListener('click', runnow);
+});
+function runnow(ev) {
+    var supermen = document.getElementById('supermen');
+    var id = ev.target.id;
+    var position = supermen.getBoundingClientRect();
+    switch (id) {
+        case 'up':
+            supermen.style.top = position.top - 30 + "px";
+            break;
+        case 'down':
+            supermen.style.top = position.top + 30 + "px";
+            break;
+        case 'right':
+            supermen.style.left = position.left + 30 + " px";
+            break;
+        case 'left':
+            supermen.style.left = position.left - 30 + " px";
+            break;
+    }
 }
-setTimeout(function () { thefirstbtn.style.borderRadius = '40px'; }, 3000);
-setTimeout(function () { thefirstbtn.style.color = 'red'; }, 3000);
-setTimeout(function () { thesecbtn.style.borderRadius = '40px'; }, 4000);
-setTimeout(function () { thesecbtn.style.color = 'brown'; }, 4000);
-setTimeout(function () { thetherbtn.style.borderRadius = '40px'; }, 5000);
-setTimeout(function () { thetherbtn.style.color = 'blue'; }, 5000);
-setTimeout(function () { theforbtn.style.borderRadius = '40px'; }, 6000);
-setTimeout(function () { theforbtn.style.color = 'yellow'; }, 6000);
-setTimeout(function () { thefivebtn.style.borderRadius = '40px'; }, 7000);
-setTimeout(function () { thefivebtn.style.color = 'green'; }, 7000);

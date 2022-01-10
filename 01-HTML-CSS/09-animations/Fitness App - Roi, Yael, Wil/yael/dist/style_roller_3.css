@@ -1,0 +1,168 @@
+.content * {
+  margin: 0;
+  padding: 0;
+  letter-spacing: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+html, body {
+  display: grid;
+  height: 100px;
+  background-color: #030203;
+  color: white;
+}
+
+h1 > img {
+  width: 24px;
+  height: 24px;
+}
+
+#card1 {
+  background-color: #9966cc;
+  background-image: linear-gradient(to left, #9966cc, #cca1f0);
+  border-radius: 15px;
+}
+
+#card2 {
+  background-color: lightblue;
+  background-image: linear-gradient(to left, lightblue, #d5e4e9);
+  border-radius: 15px;
+}
+
+#card3 {
+  background-color: pink;
+  background-image: linear-gradient(to left, pink, #f8d6dc);
+  box-shadow: 0px 0px 1px 1px #cca1f0;
+  border-radius: 15px;
+}
+
+#card4 {
+  background-color: orange;
+  background-image: linear-gradient(to left, orange, #e7dac1);
+  box-shadow: 0px 0px 1px 1px #cca1f0;
+  border-radius: 15px;
+}
+
+/* CARD LIST */
+.card-list {
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  padding-top: 50px;
+}
+.card-list__slider {
+  max-width: 1300px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  padding-bottom: 100px;
+}
+.card-list__slider__item {
+  display: flex;
+  flex-direction: row-reverse;
+  text-align: center;
+  flex-direction: row-reverse;
+  cursor: pointer;
+  overflow: hidden;
+  list-style: none;
+  width: 96.5%;
+  height: auto;
+  border-radius: 10px;
+}
+.card-list__slider__item__fig {
+  display: block;
+  width: 100%;
+  height: 200px;
+}
+.card-list__slider__item__fig__img {
+  width: 101%;
+  height: 101%;
+  object-fit: cover;
+}
+.card-list__slider__item__content {
+  WIDTH: 120%;
+}
+.card-list__slider__item__content__title, .card-list__slider__item__content_subtitle, .card-list__slider__item__content__body {
+  color: #333;
+}
+.card-list__slider__item__content__title, .card-list__slider__item__content_subtitle {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 15px;
+}
+.card-list__slider__item__content_subtitle {
+  color: green;
+}
+.card-list__slider__item__content__body {
+  padding-top: 0px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+  padding-left: 15px;
+}
+.card-list__slider__item__content__container {
+  display: flex;
+  flex-wrap: wrap-reverse;
+  justify-content: space-between;
+  width: auto;
+  padding: 15px;
+}
+.card-list__slider__item__content__container--left {
+  background-color: rebeccapurple;
+  color: rebeccapurple;
+  font-size: 17px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.card-list__slider__item__content__container--right {
+  background-color: rebeccapurple;
+  color: rebeccapurple;
+  font-size: 17px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.card-list__slider__item__content__continer:hover {
+  transform: scale(0.9);
+}
+
+/*-------------------------------------------------------------------------------*/
+.sports-list__slider {
+  width: 1300px;
+  height: 100%;
+}
+.sports-list__slider .sports_container {
+  display: inline-block;
+  align-items: center;
+}
+.sports-list__slider .sports_container .outbox {
+  position: relative;
+  left: 0;
+  right: 0;
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  background: #333;
+  text-align: center;
+  align-items: center;
+}
+.sports-list__slider .sports_container .outbox .avatar {
+  display: inline-block;
+  align-items: center;
+  vertical-align: middle;
+  margin-top: 15px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.sports-list__slider .sports_container .sport_type {
+  color: #333;
+  font-weight: 800;
+  position: relative;
+  bottom: 10px;
+  align-items: center;
+  text-align: center;
+}
