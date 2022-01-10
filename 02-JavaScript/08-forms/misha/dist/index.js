@@ -1,5 +1,5 @@
 function handleSubmit(ev) {
-    ev.preventDea();
+    ev.preventDeafult();
     var formObj = {};
     for (var _i = 0, _a = ev.target; _i < _a.length; _i++) {
         var field = _a[_i];
