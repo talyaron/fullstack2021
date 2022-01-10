@@ -2,7 +2,7 @@
 
 function handleSubmit(ev) {
 
-    ev.preventDeafult();
+    ev.preventDefault();
     const formObj = {};
 
     for (let field of ev.target) {
