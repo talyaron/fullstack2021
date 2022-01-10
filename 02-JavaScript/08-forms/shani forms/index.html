@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="dist/style.css">
+</head>
+
+<body>
+    <form onsubmit='handleSubmit(event)'>
+        <div class="fruitradio">
+            <h1>Select a fruit</h1>
+            <input type="radio" name="pick" id="apple" placeholder="apple" checked>
+            <label for="apple">apple</label>d
+            <input type="radio" name="pick" id="banana"  placeholder="banana">
+            <label for="banana">banana</label>
+            <input type="radio" name="pick" id="kiwi" placeholder="kiwi">
+            <label for="kiwi">kiwi</label>
+            <input type="radio" name="pick"id="orange"  placeholder="orange">
+            <label for="orange">orange</label>
+        </div>
+        <br/>
+        <label>Enter Email</label><br>  
+        <input type="email" name="email"  id="email" placeholder="email">
+        <br>
+
+        <label>Enter User name</label><br>  
+        <input type="text" name="firstname" id='' placeholder="firstname"><br>  
+        <label>Enter Password</label><br>  
+        <input type="Password" name="password" id='' placeholder="password"><br>  
+        <br><input type="submit" value="submit">  
+
+    </form>
+    <script src="dist/index.js"></script>
+</body>
+
+</html>
