@@ -11,3 +11,7 @@ function handleSubmit(ev) {
     }
     console.log(formObj);
 }
+function bmicalculate(ev) {
+    ev.preventDefault();
+    ev.target;
+}

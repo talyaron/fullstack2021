@@ -17,3 +17,12 @@ function handleSubmit(ev) {
 
 
 }
+
+
+
+function bmicalculate(ev) {
+    ev.preventDefault();
+
+    ev.target
+
+}
