@@ -1,4 +1,4 @@
-const pic: any = document.querySelectorAll('.pic');
+const pictures: any = document.querySelectorAll('.pic');
 const description: any = document.querySelector('.description');
 
 const text1: any = document.getElementById('1');
@@ -49,21 +49,17 @@ opacity: 0;
 
 
 
-pic.forEach(picture => {
-    picture.addEventListener('mousemove', handleHover)
-    picture.addEventListener('mouseleave', handleHoveroff)
+pictures.forEach(picture => {
+    picture.addEventListener('mouseenter',   ()=>handleHover(picture))
+    picture.addEventListener('mouseleave', ()=>handleHoveroff(picture))
 });
 
-function handleHover() {
-   for( let i = 0; i < pic.length; i++){
-    this.getElementsByClassName('description')[i].style.opacity = '1';
-   }
+function handleHover(picture) {
+    picture.children[2].style.opacity = '1';
 };
 
-function handleHoveroff() {
-    for( let i = 0; i < pic.length; i++){
-        this.getElementsByClassName('description')[i].style.opacity = '0';
-       }
+function handleHoveroff(picture) {
+    picture.children[2].style.opacity = '0';
 };
 
 
