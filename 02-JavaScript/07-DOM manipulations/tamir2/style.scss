@@ -3,7 +3,7 @@
 //     width: 600px;
 //     background-color: #0000ff;
 //     border-radius: 40px;
-    
+
 //     &__tamir{
 //         height: 40px;
 //         width: 40px;
@@ -16,3 +16,10 @@
 
 // event-scss;
 
+img {
+    position: absolute;
+    top: 50px;
+    left: 0px;
+    height: 200px;
+    transition: all 300ms;
+}

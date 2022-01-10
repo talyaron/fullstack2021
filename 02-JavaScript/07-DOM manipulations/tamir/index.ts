@@ -22,5 +22,10 @@ for (let i of img) {
         text.innerHTML = i.alt
     })
 }
-
+for (let i of img) {
+    console.log(i.alt)
+    i.addEventListener('mouseout', () => {
+        text.innerHTML ="";
+    })
+}
 
