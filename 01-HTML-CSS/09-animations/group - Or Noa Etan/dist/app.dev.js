@@ -74,6 +74,7 @@ function closeModal(modal) {
 /* make a new task box */
 
 
+var myForm = document.getElementById("myForm");
 var box = document.createElement("li");
 var flex = document.createElement("div");
 var header = document.createElement("div");
@@ -86,7 +87,7 @@ var expln = document.createElement("div");
 var explnTitle = document.createElement("h4");
 var explnText = document.createElement("p");
 var countdown = document.createElement("div");
-var color = window.prompt("what color would you like ur task to be?", "orange, green, blue, black or white?");
+var color = myForm.querySelector("#colors");
 
 function newBox() {
   box.className = "box";
@@ -120,7 +121,7 @@ function newBox() {
   flex.appendChild(countdown);
 }
 
-var myForm = document.getElementById("myForm");
+console.dir(color.value);
 myForm.addEventListener("submit", function (e) {
   e.preventDefault(newBox());
   closeModal(modal);

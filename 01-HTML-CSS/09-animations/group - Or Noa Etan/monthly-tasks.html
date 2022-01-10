@@ -183,28 +183,52 @@
         <div class="modal__body">
             <form id="myForm" class="form">
                 <div>
-                    <label for="box__logo-square color">Select a logo color</label>
-                    <select name="box__logo-square" id="box__logo-square-color">
-                        <option value="None" class="transparent" id="transparent">---</option>
-                        <option value="Blue" class="blue" id="blue">Blue</option>
-                        <option value="Orange" class="orange" id="orange">Orange</option>
-                        <option value="Green" class="green">Green</option>
-                        <option value="White" class="white">White</option>
-                        <option value="Black" class="black">Black</option>
-                    </select>
+                    <label for="box__logo-square-color">Select a logo color</label>
+                    <input type="text" list="colors" name="box__logo-square" id="box__logo-square-color">
+                    <datalist id="colors">
+                        <option value="none" class="transparent" id="transparent">---</option>
+                        <option value="blue" class="blue" id="blue">Blue</option>
+                        <option value="orange" class="orange" id="orange">orange</option>
+                        <option value="green" class="green">Green</option>
+                        <option value="white" class="white">White</option>
+                        <option value="black" class="black">Black</option>
+                    </datalist>
                 </div>
                 <div>
-                    <label for="box__logo">make a 2 CH logo</label>
-                    <input type="text" name="box__logo" id="box__logo">
+                    <label for="box__logo">make a 2 CH logo or icon</label>
+                    <input list="box__logo-list" type="text" name="box__logo" id="box__logo">
+                    <datalist id="box__logo-list">
+                        <option value="Bē"></option>
+                        <option value="Dē"></option>
+                        <option value="Cē"></option>
+                        <option value="Aē"></option>
+                        <option value="Eē"></option>
+                        <option value="Fē"></option>
+                    </datalist>
                 </div>
+
                 <div>
                     <label for="box__title-text">Give your task a title</label>
                     <input type="text" name="box__title-text" id="box__title-text" placeholder="Task name...">
                 </div>
+
                 <div class="importance">
                     <label for="box__title-urg">How important is it?</label>
-                    <input type="text" name="box__title-urg" id="box__title-urg" placeholder="Low, Medium, High, etc.">
+                    <input list="priorityList" type="text" name="box__title-urg" id="box__title-urg"
+                        placeholder="Low, Medium, High, etc.">
+                        <datalist id="priorityList">
+                            <option value="Contractor Needed"></option>
+                            <option value="Emergency"></option>
+                            <option value="High"></option>
+                            <option value="Medium"></option>
+                            <option value="Low"></option>
+                            <option value="Make Ready"></option>
+                            <option value="Parts on Order"></option>
+                            <option value="Routine"></option>
+                        </datalist>
+
                 </div>
+
                 <div>
                     <label for="box__expln">Describe the task</label>
                     <input type="text" name="box__expln" id="box__expln">
@@ -212,6 +236,43 @@
                 <div>
                     <label for="box__expln-transp">What subject is it?</label>
                     <input type="text" name="box__expln-transp" id="box__expln-transp">
+                </div>
+                
+                <div>
+                    <label for="box__countdown">In how many days do you need it done?</label>
+                    <input list="box__countdown-numbers" type="text" name="box__countdown" id="box__countdown">
+                    <datalist id="box__countdown-numbers">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="21">21</option>
+                        <option value="22">22</option>
+                        <option value="23">23</option>
+                        <option value="24">24</option>
+                        <option value="25">25</option>
+                        <option value="26">26</option>
+                        <option value="27">27</option>
+                        <option value="28">28</option>
+                        <option value="29">29</option>
+                        <option value="30">30</option>
+                    </datalist>
                 </div>
                 <button type="submit" id="submitButton">Click to save changes</button>
             </form>
@@ -223,6 +284,6 @@
 
 
 </body>
-<script src="./app.js"></script>
+<script src="./dist/app.js"></script>
 
 </html>
