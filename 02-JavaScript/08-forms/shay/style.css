@@ -1,0 +1,15 @@
+form{
+    margin: auto;
+    
+
+}
+    input{
+        text-align: center;
+        border-radius: 15px;
+        color: rgb(5, 92, 92);
+    background-image: linear-gradient(rgb(236, 102, 236), rgb(117, 117, 231));
+}
+::placeholder{
+    color: rgb(5, 92, 92);
+    background-image: linear-gradient(rgb(236, 102, 236), rgb(117, 117, 231));
+}
