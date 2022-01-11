@@ -1,8 +1,7 @@
-console.log('hi')
+
 
 function handleSubmit(ev) {
-    ev.preventDefault(); //prevent refresh
-
+    ev.preventDefault();
     const formObj = {}
     console.log(ev)
 
@@ -28,14 +27,32 @@ function handleSubmit(ev) {
     }
 
     console.log(formObj)
-    createCard(formObj)
+
+
 
 }
-function createCard(obj){
-    const html =`<div class="card">`+
-    `<h1>${obj.name}</h1>`+
-    `<p>Telphone: ${obj.phone}</p>`+
-    `</div>`
 
-    document.getElementById('card').innerHTML = html;
+interface BMI{
+    mass?:number;
+    height?:number;
+}
+
+function bmicalculate(ev) {
+    ev.preventDefault();
+    const result:any = document.querySelector('#result');
+    const formObj:BMI = {};
+    console.log(ev)
+
+    for(field of ev.target){
+
+        if(field.name !== 'submit') formObj[field.name] = field.value;
+    }
+    console.log(formObj);
+    
+
+    const mass = formObj.mass;
+    let height = formObj.height;
+    result.innerHTML = `your BMI is :${mass/(height*height)}`
+   
+
 }
