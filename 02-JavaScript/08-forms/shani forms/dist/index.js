@@ -1,6 +1,5 @@
-console.log('hi');
 function handleSubmit(ev) {
-    ev.preventDefault(); //prevent refresh
+    ev.preventDefault();
     var formObj = {};
     console.log(ev);
     for (var _i = 0, _a = ev.target; _i < _a.length; _i++) {
@@ -22,12 +21,19 @@ function handleSubmit(ev) {
         }
     }
     console.log(formObj);
-    createCard(formObj);
 }
-function createCard(obj) {
-    var html = "<div class=\"card\">" +
-        ("<h1>" + obj.name + "</h1>") +
-        ("<p>Telphone: " + obj.phone + "</p>") +
-        "</div>";
-    document.getElementById('card').innerHTML = html;
+function bmicalculate(ev) {
+    ev.preventDefault();
+    var result = document.querySelector('#result');
+    var formObj = {};
+    console.log(ev);
+    for (var _i = 0, _a = ev.target; _i < _a.length; _i++) {
+        field = _a[_i];
+        if (field.name !== 'submit')
+            formObj[field.name] = field.value;
+    }
+    console.log(formObj);
+    var mass = formObj.mass;
+    var height = formObj.height;
+    result.innerHTML = "your BMI is :" + mass / (height * height);
 }
