@@ -44,7 +44,7 @@ body {
 .employCard {
   background-color: #c4c2c2;
   width: 40rem;
-  height: 30rem;
+  height: 28rem;
   margin-top: 10rem;
   margin-bottom: 10rem;
   border-radius: 2rem;
@@ -59,15 +59,22 @@ body {
   height: 6rem;
   margin-left: 3.5rem;
 }
-.employCard img {
+.employCard .personPic {
   width: 7rem;
   z-index: 1;
   position: absolute;
-  left: 5rem;
-  bottom: -7rem;
+  left: 34rem;
+  bottom: -5rem;
   box-shadow: -2px -2px 0 10px #c4c2c2;
 }
-.employCard h1, .employCard h2 {
+.employCard .logo {
+  width: 10rem;
+  position: absolute;
+  left: 52rem;
+  bottom: -1rem;
+}
+.employCard h1,
+.employCard h2 {
   background-color: white;
 }
 .employCard h1 {
@@ -85,11 +92,29 @@ body {
   gap: 1rem;
 }
 .employCard .login {
-  margin-left: 10rem;
+  margin-left: 13rem;
   display: flex;
   flex-direction: row;
   gap: 1rem;
 }
 .employCard .grid {
   display: grid;
+  grid-template-columns: repeat(2, 15vw);
+  grid-template-rows: 3;
+  margin-left: 3.5rem;
+  margin-top: 1rem;
+  gap: 1px;
+}
+.employCard .grid .phoneCard {
+  width: 20rem;
+  margin-top: 2rem;
+}
+.employCard .rightCorner {
+  gap: 1rem;
+  margin-left: 28rem;
+  margin-top: -4rem;
+}
+.employCard .rightCorner .barcode {
+  width: 10rem;
+  height: 4rem;
 }
