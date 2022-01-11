@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="dist/style.css">
+</head>
+
+<body>
+    <form onsubmit='handleSubmit(event)' id="form">
+        <label>Name</label>
+        <br>
+        <input type="text" name="firstname" id="firstname" placeholder="First">
+        <input type="text" name="lastname" id="lastname" placeholder="Last">
+
+        <br>
+
+        <label>Choose your username</label>
+        <br>
+        <input type="text" name="username" id="username">
+
+        <br>
+
+        <label>Create a password</label>
+        <br>
+        <input type="text" name="password" id="password">
+
+        <br>
+
+        <label>Confirm your password</label>
+        <br>
+        <input type="text" name="confirm" id="confirm">
+
+        <br>
+
+        <label>Birthday</label>
+        <br>
+        <input type="month" id="month" name="month"   placeholder="Month"   min="1970-01" max="2022-01" value="2022-01">
+
+       <input type="number" name="day" id="day" placeholder="Day" min="01" max="31" >
+       
+       <input type="number" name="year" id="year" placeholder="Year" min="1960" max="2022" >
+
+       <br>
+       
+       <div class="selectdiv">
+        <label>
+            <select>
+                <option selected>Gender </option>
+                <option>Option 1</option>
+                <option>Option 2</option>
+                <option>Last long option</option>
+            </select>
+        </label>
+      </div>
+      
+
+    
+
+    </form>
+    <script src="dist/index.js"></script>
+</body>
+
+</html>
