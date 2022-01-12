@@ -5,13 +5,11 @@ function handleSubmit(ev) {
         var elem = _a[_i];
         if (elem.name !== 'submit')
             info[elem.name] = elem.valueAsNumber;
-        //console.dir(elem)
+        console.dir(elem);
     }
+    console.dir(info);
+    var hei = info['weight'];
+    var wei = info['height'];
+    console.log(hei);
+    console.log(wei);
 }
-function calculateBmi(obj) {
-    var calc = (obj.weight / ((obj.height * obj.height) / 100));
-}
-var result = calculateBmi(info);
-document.querySelector('bmi').innerHTML = "" + result;
-// console.log(info);
-// console.dir(info);
