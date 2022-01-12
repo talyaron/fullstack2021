@@ -1,7 +1,7 @@
 function handleSubmit1(e: any): void {
     e.preventDefault();
 
-    console.log(e)
+    console.log(e);
 
     const first: string = e.target.firstname.value
     console.log('first name is ' + first);
@@ -32,19 +32,38 @@ function handleSubmit1(e: any): void {
 
     if (pass === passConfirm) {
         pass
-    } else {
+    }else {
         alert('PASSWORD CONFIRMATION IS INCORRECT!')
-    }
-
-
-   
-    const employ = { first, last, user, pass, mon, day, gen, tel }
-    console.log(employ)
+    };
 
     
 
-    const fn:any=document.querySelector("#firstname");
-    fn.innerHTML=first
+    // const employ = { first, last, user, pass, mon, day, gen, tel }
+    // console.log(employ);
 
-  
+
+
+    // const fn: any = document.querySelector("#firstname");
+    // fn.innerHTML = first
+
+    // console.log(first)
+
+
+
+
+    const result:any = document.querySelector('.firstnameCard');
+    const formObj = {};
+    console.log(e)
+    let i
+    for(i of e.target){
+
+        if(i.firstname !== 'submit') formObj[i.firstname] = i.value;
+    }
+    console.log(formObj);
+
+
+    result.innerHTML = `${first}`
+   
+
+
 }

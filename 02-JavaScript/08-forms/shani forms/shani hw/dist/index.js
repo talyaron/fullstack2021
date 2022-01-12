@@ -25,8 +25,21 @@ function handleSubmit1(e) {
     else {
         alert('PASSWORD CONFIRMATION IS INCORRECT!');
     }
-    var employ = { first: first, last: last, user: user, pass: pass, mon: mon, day: day, gen: gen, tel: tel };
-    console.log(employ);
-    var fn = document.querySelector("#firstname");
-    fn.innerHTML = first;
+    ;
+    // const employ = { first, last, user, pass, mon, day, gen, tel }
+    // console.log(employ);
+    // const fn: any = document.querySelector("#firstname");
+    // fn.innerHTML = first
+    // console.log(first)
+    var result = document.querySelector('.firstnameCard');
+    var formObj = {};
+    console.log(e);
+    var i;
+    for (var _i = 0, _a = e.target; _i < _a.length; _i++) {
+        i = _a[_i];
+        if (i.firstname !== 'submit')
+            formObj[i.firstname] = i.value;
+    }
+    console.log(formObj);
+    result.innerHTML = "" + first;
 }
