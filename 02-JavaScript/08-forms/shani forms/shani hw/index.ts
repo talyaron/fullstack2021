@@ -43,7 +43,7 @@ function handleSubmit1(e: any): void {
 
 
 
-    // const fn: any = document.querySelector("#firstname");
+    // const fn: any = document.querySelector(".firstname");
     // fn.innerHTML = first
 
     // console.log(first)
@@ -52,14 +52,38 @@ function handleSubmit1(e: any): void {
 
 
     const result:any = document.querySelector('.firstnameCard');
-    const formObj = {};
-    console.log(e)
-    let i
-    for(i of e.target){
+    // const formObj = {};
+    // console.log(e)
+    // let i
+    // for(i of e.target){
 
-        if(i.firstname !== 'submit') formObj[i.firstname] = i.value;
-    }
-    console.log(formObj);
+    //     if(i.firstname !== 'submit') formObj[i.firstname] = i.value;
+    // }
+    // console.log(formObj);
+
+
+                                    //katya תירגול
+
+    // interface Info {
+    //     firstname?: string
+    // }
+    
+    // function handleSubmit1(e: any): void {
+    //     e.preventDefault();
+    
+    //     const result: any = document.querySelector('.firstnameCard');
+    //     const formObj: Info = {}
+    //     let i
+    //     for (i of e.target) {
+    //         // console.log(i)
+    
+    //         if (i.name !== 'submit') formObj[i.name] = i.value;
+    //     }
+    
+    //     console.log(formObj)
+    
+    // }
+    
 
 
     result.innerHTML = `${first}`
