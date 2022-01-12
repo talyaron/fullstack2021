@@ -1,24 +1,18 @@
-
+const fname = document.getElementById('fname')
 
 function createCard(event) {
-
     // event.preventDefault();
-    const formObj = {};
+
+    const formObj:any = {};
     for (let field of event.target) {
 
-        // console.log(field.name, field.value)
         if (field.name !== 'Submit') formObj[field.name] = field.value;
 
     }
 
-    console.log(formObj);
-    // const fname = formObj.name;
-    // console.log(fname);
-    // console.log(formObj[1]);
-
+    fname.innerHTML = `${formObj.name}`
 }
 
-console.log(formObj.name);
 
 
 
