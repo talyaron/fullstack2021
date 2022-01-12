@@ -1,0 +1,54 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  background-color: aquamarine;
+}
+
+main {
+  width: 50%;
+  margin: 2% auto;
+}
+
+.info {
+  background-color: white;
+  width: 50%;
+  margin: 5% auto;
+  padding: 3%;
+  border-radius: 0.5rem;
+  position: relative;
+}
+.info__top {
+  background-color: blue;
+  height: 9vh;
+  position: relative;
+}
+.info__top--p {
+  color: white;
+  position: absolute;
+  top: 0vh;
+  right: 5%;
+}
+.info__img {
+  width: 20%;
+  position: absolute;
+  top: 7vh;
+  left: 10%;
+  background-color: #c5ff82;
+  border: 2px solid red;
+  border-radius: 0.2rem;
+}
+.info__nameDate {
+  margin: 1% 0 0 35%;
+}
+.info__nameDate h3,
+.info__nameDate p {
+  padding: 0;
+  margin: 0;
+}
+.info__dryInfo {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+  width: 80%;
+}
