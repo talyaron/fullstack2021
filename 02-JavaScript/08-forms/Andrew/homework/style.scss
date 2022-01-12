@@ -1,0 +1,157 @@
+body {
+    background-color: rgb(131, 131, 131);
+    font-family: Arial, Helvetica, sans-serif;
+    padding-left: 100px;
+    display: flex;
+}
+
+#form {
+    background-color: wheat;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    padding: 10px;
+}
+
+label {
+    margin-top: 10px;
+}
+
+input {
+    width: 200px;
+    margin: 2px;
+}
+
+#color {
+    width: 40px;
+    height: 40px;
+}
+
+#canvas {
+    border: 3px solid black;
+    background: blanchedalmond;
+}
+
+#signature {
+    // border: 1px solid black;
+    position: absolute;
+    top: 200px;
+    left: 230px;
+    width: 200px;
+    height: 100px;
+}
+
+#sumbit {
+    background: greenyellow;
+}
+
+#card {
+    // visibility: hidden;
+    margin-top: 200px;
+    padding: 15px;
+    height: 250px;
+    aspect-ratio: 1.4189;
+    background-color: white;
+    border-radius: 20px;
+    position: relative;
+    z-index: -10;
+
+    &_background {
+        position: absolute;
+        width: 352px;
+        height: 100px;
+        background-color: lightblue;
+        z-index: -1;
+    }
+
+    &_logo {
+        background: url(https://gcdn.pbrd.co/images/EboilA55Pdj6.png?o=1);
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 130px;
+        height: 100px;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+    }
+
+    &_name {
+        font-size: 1.5rem;
+        position: absolute;
+        top: 120px;
+        left: 150px;
+    }
+
+    &_role {
+        position: absolute;
+        top: 145px;
+        left: 150px;
+    }
+
+    &_pic {
+        background-color: white;
+        background-size: 100% 100%;
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        top: 55px;
+        left: 25px;
+        border-radius: 10px;
+        border: 5px solid white;
+    }
+
+    &_id {
+        position: absolute;
+        top: 210px;
+        left: 30px;
+
+        &::before {
+            content: 'ID No:';
+            font-size: 0.8rem;
+            position: absolute;
+            bottom: 1rem;
+        }
+    }
+
+    &_DOB {
+        position: absolute;
+        top: 250px;
+        left: 30px;
+
+        &::before {
+            content: 'D.O.B:';
+            font-size: 0.8rem;
+            position: absolute;
+            bottom: 1rem;
+        }
+    }
+
+    &_joinded {
+        position: absolute;
+        top: 210px;
+        left: 130px;
+
+        &::before {
+            content: 'Joined Date:';
+            font-size: 0.8rem;
+            position: absolute;
+            bottom: 1rem;
+        }
+    }
+
+    &_expire {
+        position: absolute;
+        top: 250px;
+        left: 130px;
+
+        &::before {
+            content: 'Expire Date:';
+            font-size: 0.8rem;
+            position: absolute;
+            bottom: 1rem;
+        }
+    }
+
+}
