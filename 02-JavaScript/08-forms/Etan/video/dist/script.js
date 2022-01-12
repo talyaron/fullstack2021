@@ -8,7 +8,7 @@ var ofir = {
         return 'My Friends name is ' + ofir.name + (", he's " + ofir.age + " years old ") + ("and his hobbies are " + ofir.hobbies[0] + " and " + ofir.hobbies[1]);
     }
 };
-console.log(ofir.interduce());
+console.log(ofir.interduce()); // before constructors
 function Friend(name, age, height, eyeColor, hobbies) {
     this.name = name;
     this.age = age;
@@ -29,4 +29,3 @@ console.log(myFriends[2].interduction());
 console.log(myFriends[3].interduction());
 console.log(myFriends[4].interduction());
 console.log(myFriends);
-console.log(ofir.interduce()); // before constructors
