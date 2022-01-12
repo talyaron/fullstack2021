@@ -1,3 +1,5 @@
+/* Part 1 */
+
 const ofir = {
     name: 'Ofir',
     age: 23,
@@ -33,3 +35,7 @@ console.log(myFriends[2].interduction())
 console.log(myFriends[3].interduction())
 console.log(myFriends[4].interduction())
 console.log(myFriends)
+
+
+/* part 2 */
+console.dir(window.document.all[6].textContent)
