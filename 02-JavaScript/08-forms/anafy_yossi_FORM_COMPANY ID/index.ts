@@ -1,4 +1,4 @@
-function handleIdCard(e:any) {
+function handleIdCard(e: any) {
     e.preventDefault();
 
     const object = {}
@@ -16,54 +16,56 @@ function handleIdCard(e:any) {
 }
 
 
-function createCard(cardObject:any) {
+function createCard(cardObject: any) {
 
     const cardText =
-        `<div id="printCard">
 
-        <div class="firstRow"></div>
+    `<div id="printCard">
 
-        <div class="secondRow">
+    <div class="firstRow"></div>
+
+    <div class="secondRow">
+        <div></div>
+        <div id="display_image"></div>
+        <div class="thirdColumn">
             <div></div>
-            <div id="display_image"></div>
-            <div class="thirdColumn">
-                <div></div>
-                <div class="cardName">
+            <div class="cardName">
                 <h2>${cardObject.firstName} ${cardObject.lastName}</h2>
                 <h3>Creative Manager</h3>
-                </div>
             </div>
         </div>
+    </div>
 
-        <div class="thirdRow">
+    <div class="thirdRow">
         <div></div>
-        
-            <div class="info">
+
+        <div class="info">
             <h3><b>ID No</b></h3>
             <h3><b>${cardObject.idNumber}</b></h3>
             <div class="infoBottom">
-            <h3><b>D.O.B</b></h3>
-            ${cardObject.month}/${cardObject.day}/${cardObject.year}
+                <h3><b>D.O.B</b></h3>
+                ${cardObject.month}/${cardObject.day}/${cardObject.year}
             </div>
-            </div>
+        </div>
 
-            <div class="info">
+        <div class="info">
             <h3><b>Gender</b></h3>
-            <h3>${cardObject.gender}</h3> 
+            <h3>${cardObject.gender}</h3>
             <div class="infoBottom">
-            <h3><b>Expire Date</b></h3>
-            ${cardObject.month}/${cardObject.day}/${cardObject.year + 1}
+                <h3><b>Expire Date</b></h3>
+                ${cardObject.month}/${cardObject.day}/${cardObject.year + 1}
             </div>
-            </div>
+        </div>
 
-            <div class="barcode">
-            <h3  style="color: #9c9c9c;">Your Signature</h3>
+        <div class="barcode">
+            <h3 style="color: #9c9c9c;">Your Signature</h3>
             <h3><b>Yours Sincerely</b></h3>
-            <img src="barcode.png" alt=""></div>
+            <img src="barcode.png" alt="">
+        </div>
 
-            <div></div>
-            
-        </div>`
+        <div></div>
+
+    </div>`
 
     document.getElementById('printCardPreview').innerHTML = cardText;
 
@@ -71,6 +73,7 @@ function createCard(cardObject:any) {
 
 
 const image_input: any = document.querySelector("#image_input");
+
 var uploaded_image: any = "";
 image_input.addEventListener("change", function () {
     const reader = new FileReader();
