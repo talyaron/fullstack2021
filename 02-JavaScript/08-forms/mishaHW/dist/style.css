@@ -4,9 +4,12 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  flex-direction: column;
 }
 
 .wrapper {
+  position: relative;
+  top: 200px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,7 +18,7 @@ body {
   width: 500px;
   background-color: ivory;
   border-radius: 10px;
-  box-shadow: 5px 5px 10px lavenderblush;
+  box-shadow: 5px 5px 10px #a3b89e;
 }
 .wrapper .section {
   display: flex;
@@ -44,11 +47,14 @@ body {
 }
 
 .wrapper2 {
+  top: -600px;
   position: relative;
   padding: 2em;
   background-color: ivory;
   height: 330px;
   width: 600px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px #a3b89e;
 }
 .wrapper2 .banner {
   display: flex;
@@ -93,4 +99,8 @@ body {
   margin: 0px;
   padding: 0px;
   height: 150px;
+}
+
+.visable {
+  visibility: hidden;
 }
