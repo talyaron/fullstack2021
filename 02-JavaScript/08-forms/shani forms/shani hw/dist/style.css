@@ -33,7 +33,7 @@ body {
   margin: auto;
   margin-top: 1rem;
 }
-.form #format {
+.form #gender {
   width: 22rem;
   margin-left: 4px;
 }
@@ -42,7 +42,8 @@ body {
 }
 
 .employCard {
-  background-color: #c4c2c2;
+  background-color: #a0aed6;
+  box-shadow: -1px -1px 6px 6px #a89e9e;
   width: 40rem;
   height: 28rem;
   margin-top: 10rem;
@@ -65,7 +66,7 @@ body {
   position: absolute;
   left: 34rem;
   bottom: -5rem;
-  box-shadow: -2px -2px 0 10px #c4c2c2;
+  box-shadow: -2px -2px 0 10px #a0aed6;
 }
 .employCard .logo {
   width: 10rem;

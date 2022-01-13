@@ -51,7 +51,7 @@ body {
         }
     }
 
-    #format {
+    #gender {
         width: 22rem;
         margin-left: 4px;
     }
@@ -68,7 +68,8 @@ body {
 //the employ card after the details have been put
 
 .employCard {
-    background-color: rgb(196, 194, 194);
+    background-color: rgb(160, 174, 214);
+    box-shadow: -1px -1px 6px 6px rgb(168, 158, 158);
     width: 40rem;
     height: 28rem;
     margin-top: 10rem;
@@ -93,7 +94,7 @@ body {
         position: absolute;
         left: 34rem;
         bottom: -5rem;
-        box-shadow: -2px -2px 0 10px rgb(196, 194, 194);
+        box-shadow: -2px -2px 0 10px rgb(160, 174, 214);
 
     }
 
