@@ -75,7 +75,7 @@ function handleSumbit(ev) {
             return;
         }
     }
-    console.log(outputsObj);
+    console.log(formObj);
 
     destCtx.drawImage(canvas, 0, 0);
 
