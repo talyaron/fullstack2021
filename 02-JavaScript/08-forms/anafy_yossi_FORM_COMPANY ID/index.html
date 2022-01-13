@@ -1,0 +1,79 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="dist/style.css">
+    <title>ID CARD</title>
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <!-- FORM -->
+        <form id="form" onsubmit="handleIdCard(event);">
+            <h2>Name</h2><!-- NAME -->
+            <div class="fullName">
+                <input type="text" name="firstName" id="firstName" placeholder="First (required)" required>
+                <input type="text" name="lastName" id="lastName" placeholder="Last (required)" required maxlength="10">
+            </div>
+            <h2>Enter email address</h2><!-- EMAIL -->
+            <input type="email" name="userName" id="userName" placeholder="example@gmail.com"
+                style="text-align: end; padding-right: 4%;">
+            <h2>Create a password</h2><!-- PASSWORD -->
+            <input type="password" name="password" id="password" placeholder="">
+            <h2>ID number</h2><!-- ID -->
+            <input type="number" name="idNumber" id="idNumber" placeholder="9 character required" value=""
+                min="011111111" max="999999999" required>
+            <h2>Date of birth</h2><!-- BIRTHDAY -->
+            <div class="birthdayDate">
+                <div><select name="month" placeholder="month"
+                        style="border: 1px solid #c7c7c7; border-radius: 6px; padding: 4px 8px; background-color: #e9e9e9;">
+                        <option value="1">January</option>
+                        <option value="2">February</option>
+                        <option value="3">March</option>
+                        <option value="4">April</option>
+                        <option value="5">May</option>
+                        <option value="6">June</option>
+                        <option value="7">July</option>
+                        <option value="8">August</option>
+                        <option value="9">September</option>
+                        <option value="10">October</option>
+                        <option value="11">Novenber</option>
+                        <option value="12">December</option>
+                    </select>
+                </div>
+                <div><input type="number" name="day" id="day" placeholder="Day" min="1" max="31" step="1" value="1"
+                        style="text-align: center;" required></div>
+                <div><input type="number" name="year" id="year" placeholder="Year" min="1900" max="2099" step="1"
+                        value="2022" style="text-align: center;" required></div>
+            </div>
+            <h2>Gender</h2><!-- GENDER -->
+            <select name="gender" placeholder="Gender"
+                style="border: 1px solid #c7c7c7; border-radius: 4px; padding: 1% 0%; background-color: #e9e9e9;">
+                <option>***</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Free">Free</option>
+            </select>
+            <h2>Mobile phone</h2><!-- PHONE -->
+            <input type="tel" name="tel" id="tel" placeholder="" value="+972">
+
+            <h2>Upload Image</h2><!-- PIC -->
+            <input type="file" id="image_input" value="uploaded_image">
+
+            </br>
+            <!-- SEND/RESET -->
+            <input type="submit" name='submit' value="Send" style="font-size: 20px;">
+            <input type="reset" style="color: cornflowerblue; font-size: 20px;">
+
+        </form>
+        <!-- CARD PREVIEW -->
+        <div id="printCardPreview"></div>
+    </div>
+    
+    <script src="dist/index.js"></script>
+</body>
+
+</html>
