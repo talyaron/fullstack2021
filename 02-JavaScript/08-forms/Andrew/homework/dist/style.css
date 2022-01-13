@@ -40,6 +40,7 @@ input {
   left: 230px;
   width: 200px;
   height: 100px;
+  z-index: 10;
 }
 
 #sumbit {
@@ -86,7 +87,7 @@ input {
 }
 #card_pic {
   background-color: white;
-  background-size: 100% 100%;
+  background-size: 130% 100%;
   width: 100px;
   height: 100px;
   position: absolute;
