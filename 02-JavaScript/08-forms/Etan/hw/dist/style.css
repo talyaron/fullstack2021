@@ -1,4 +1,38 @@
 body {
-  margin: 0;
-  padding: 0;
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #6599ca;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #f1f1f1;
+  height: 80vh;
+  width: 30vw;
+  padding: 1.5vw;
+}
+form fieldset {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5ch;
+  width: 100%;
+  border: 0;
+  padding: 0.4vw 0;
+}
+form input {
+  flex-grow: 1;
+  width: 100%;
+  line-height: 1.5;
+}
+form input::placeholder {
+  padding: 0.4vw;
+}
+form input#userName::placeholder {
+  text-align: right;
 }

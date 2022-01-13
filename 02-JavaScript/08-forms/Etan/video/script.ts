@@ -39,3 +39,5 @@ console.log(myFriends)
 
 /* part 2 */
 console.dir(window.document.all[6].textContent)
+console.dir(window.document.all[6])
+console.log(window.document.all[6].outerHTML)
