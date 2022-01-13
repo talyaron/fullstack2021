@@ -1,7 +1,6 @@
 function handleSubmit(ev) {
     ev.preventDefault();
-    var form = ev.target;
-    var formObj = createFormObj(form);
+    var formObj = createFormObj(ev.target);
     printCard(formObj);
 }
 function createFormObj(form) {
@@ -19,7 +18,10 @@ function loadImage(e) {
     // image.src = URL.createObjectURL(e.target.files[0]);
 }
 function printCard(obj) {
-    var html = "<div class=\"card\">\n    <h3>" + obj.name + "</h3>\n    <p>Dept: " + obj.dept + "</p>\n    </div>";
+    var html = "<div class=\"card\">" +
+        ("<h3>" + obj.name + "</h3>") +
+        ("<p>Dept: " + obj.dept + "</p>") +
+        "</div>";
     var root = document.querySelector('#cardRoot');
     root.innerHTML = html;
 }
