@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Id card maker</h1>
+    <div class="back">
+    
+    <form onclick="handleSubmit(event)">
+     
+       
+        <label for="name"> Full name</label>
+        <input type="text" name="name" placeholder="enter your full name" id="myName">
+        <label for="dept"> Your role in the company</label>
+        <input type="text" name="dept" id="myRole" placeholder="enter your job role position">
+        <label for="idNum"> Your id number</label>
+        <input type="number" name="idNum" id="myIdNum" placeholder="enter your id number">
+        <label for="date"> Your date of birth</label>
+        <input type="date" name="date" id="myDate"> 
+
+        
+         <label for="file" class="upload">Upload an Image </label>
+
+        <input type="file"
+       id="file" name="image"
+       accept="image/*" onchange="loadImage(event)">
+
+       <input type="submit" id="preview" value="send">
+    </form>
+    
+    <div class="container">
+ <div class="card" id="result">
+    <header id="head">
+        <div class="job">
+        <h4>Job Id Card</h4></div>
+    <img src="https://toppng.com/uploads/preview/design-for-logo-11549988276bxsuzsd1y1.png" alt="logo" style="width: 50px; height: 50px;" id="logo">
+   </header>
+    <div id="content">
+        <img src="" alt=""  id="imgDisplay" style="width: 100px; height: 150px; margin-right: 180px;">
+        <ul>
+            <li id="name"></li>
+            <li id="role"></li>
+            <li id="id"></li>
+            <li id="dateOfBirth"></li>
+        </ul>
+    </div>
+    </div>
+   </div>
+</div>
+    <script src="dist/index.js"></script>
+</body>
+</html>

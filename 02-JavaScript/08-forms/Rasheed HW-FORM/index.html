@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Moon+Dance&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h1><u>Worker Form</u></h1>
+            <form>
+                <label>Name</label>
+                <input type="text" name="firstName" id="inNameFirst" placeholder="First">
+                <input type="text" name="lastName" id="inNameLast" placeholder="Last">
+                <label>Choose your username</label>
+                <input type="text" name="UserName" id="inUserName">
+                <label>Creat a Password</label>
+                <input type="text" name="inPassword" id="">
+                <label>Confirm your Password</label>
+                <input type="text" name="inPassword" id="">
+                <label>Birthday</label>
+                <input type="date" name="Birth" id="inBirth">
+                <label>Gender</label>
+                <select name="gender" id="inGender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">other</option>
+                </select>
+                <label>Mobile phone</label>
+                <input type="tel" name="Number" id="inNumber">
+                <label for="file" class="upload">Upload an Image</label>
+                <span>Choose one that desrcibes you perfectly</span>
+                <input type="file" id="file" accept="image/*" onchange="loadImage(event)">
+                <button type="submit" id="creat" value="submit">Submit</button>
+
+
+            </form>
+        </div>
+        <div class="card-container">
+            <div id="result">
+                <header id="head">
+                    <div class="workerId">
+                        <h3>Worker card</h3>
+                        <h4>Embployed</h4>
+                    </div>
+                    <img src="worker.png" id="logo" alt="">
+                </header>
+                <div class="card-content">
+                    <img src="" id="imgDisplay">
+                    <ul>
+                        <li><u>Name : <span id="name"></span></u></li>
+                        <li ><u>Birthdate : <span id="birth"></span></u></li>
+                        <li ><u>Gender : <span id="gender"></span></u></li>
+                        <li><u>Tel :<span id="telephone"></span></u></li>
+                    </ul>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
