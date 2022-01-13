@@ -9,17 +9,17 @@
 //     }
 //     console.log(formObj)
 // }
-var myName = document.getElementById('myName');
-var myRole = document.getElementById('myRole');
-var myId = document.getElementById('myIdNum');
-var myDate = document.getElementById('myDate');
-var preview = document.getElementById('preview');
-preview.addEventListener('onClick', handleSubmit);
+var preview = document.getElementById('#preview');
+preview.addEventListener('onclick', handleSubmit);
 function handleSubmit(ev) {
-    var name = document.getElementById('name');
-    var role = document.getElementById('role');
-    var id = document.getElementById('id');
-    var dateOfBirth = document.getElementById('dateOfBirth');
+    var myName = document.querySelector('#myName');
+    var myRole = document.querySelector('#myRole');
+    var myId = document.querySelector('#myIdNum');
+    var myDate = document.querySelector('#myDate');
+    var name = document.querySelector('#name');
+    var role = document.querySelector('#role');
+    var id = document.querySelector('#id');
+    var dateOfBirth = document.querySelector('#dateOfBirth');
     name.innerHTML = myName;
     role.innerHTML = myRole;
     id.innerHTML = myId;
