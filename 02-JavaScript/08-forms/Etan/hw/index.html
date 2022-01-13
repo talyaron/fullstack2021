@@ -1,14 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./dist/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Basic&display=swap" rel="stylesheet">
+
     <title>Document</title>
 </head>
+
 <body>
-    
+    <form onsubmit="handleSubmit(event)">
+        <legend>Name
+            <fieldset>
+                <input type="text" placeholder="First" id="First">
+                <input type="text" placeholder="Last" id="Last">
+            </fieldset>
+        </legend>
+        <legend>Choose your username
+            <fieldset>
+                <input type="text" placeholder="@gmail.com" id="userName">
+            </fieldset>
+        </legend>
+        <legend>Create a password
+            <fieldset>
+                <input type="current-password" placeholder="" id="pass">
+            </fieldset>
+        </legend>
+        <legend>Confirm your password
+            <fieldset>
+                <input type="current-password" placeholder="" id="passConfirm">
+
+            </fieldset>
+        </legend>
+        <legend>Birthday
+            <fieldset>
+                <input type="date" name="" id="">
+            </fieldset>
+        </legend>
+        <legend>Gender
+            <fieldset>
+                <input type="text" placeholder="First">
+                <input type="text" placeholder="Last">
+            </fieldset>
+        </legend>
+        <legend>Mobile Phone
+            <fieldset>
+                <input type="tel">
+            </fieldset>
+        </legend>
+        <input type="submit" id="nameTag"value="Create Your Name Tag">
+    </form>
+    <div id="placeholder"></div>
 </body>
 <script src="./dist/script.js"></script>
+
 </html>
