@@ -23,8 +23,9 @@ function handleSubmit(e) {
     data = { firstname, lastname, username }
 
     card1.innerHTML =
-    
-   `<div class="top"></div>
+   `
+   <div class="card"
+   <div class="top"></div>
    
    <div class="name">
    <h1> ${firstname} ${lastname}</h1>
@@ -32,7 +33,7 @@ function handleSubmit(e) {
    
    </div>
    
-   
+   </div>
    
    
    
