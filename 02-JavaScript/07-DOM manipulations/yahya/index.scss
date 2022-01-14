@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Vujahday+Script&display=swap');
+.container{
+    gap: 20px;
+    // text-align: center;
+    margin-top: 50px;
+    // align-items: center;
+    transition: 0.5s;
+    // display: grid;
+    // text-align: center;
+    // grid-template-columns: repeat(5,1fr);
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: center;
+    width: 98%;
+    height: auto;
+
+
+    
+
+img{
+    background-size: cover;
+     width:40vh;
+     box-shadow: 10px 15px 15px rgba(0, 0, 0, 0.466);
+     border-radius: 4px;
+    // height:auto;
+}
+#text{
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    font-size: 4rem;
+    padding: 15px;
+    font-weight: 800;
+    width: 100%;
+    height: 80px;
+    text-align: center;
+    color: white;
+    font-family: 'Vujahday Script', cursive;
+}
+
+}

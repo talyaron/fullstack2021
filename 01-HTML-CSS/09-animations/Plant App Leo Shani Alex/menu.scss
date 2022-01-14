@@ -1,0 +1,52 @@
+    .body,html{
+        background-color: grey;
+    }
+    .text {
+        text-align: center;
+        color: rgb(61, 23, 23);
+        animation-name: moveDown;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        position: relative;
+    }
+
+    .wrapper {
+        display: flex;
+        justify-content: center;
+        height: 500px;
+
+
+        .item {
+            border: 1px solid gray;
+            width: 100px;
+            flex: 1;
+
+            &:hover {
+                img {
+                    height: 100%;
+                }
+            }
+        }
+
+
+        .item:nth-child(1) {}
+
+        .item:nth-child(2) {}
+
+        .item:nth-child(3) {}
+    }
+
+    @keyframes moveDown {
+        from {
+            top: -10vw;
+        }
+
+        to {
+            top: 0vw;
+        }
+    }
+
+    img{
+        height: 90%;
+    }

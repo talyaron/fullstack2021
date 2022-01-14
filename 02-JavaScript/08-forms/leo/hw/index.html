@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="dist/style.css">
+</head>
+<body>
+    <div class="maincard">
+    <form action="" onsubmit="handlesubmit(e)">
+        <label for="">Name</label>
+        <input type="text"  name= "name" placeholder="name">
+        <input type="text" name="lastname" placeholder="last name">
+
+        <label for="">Username</label>
+        <input type="text" placeholder="username">
+
+        <label for="">Create password</label>
+        <input type="number" placeholder="password">
+
+        <label for="">Birth day</label>
+        <input type="date" name="birthday">
+
+        <label for="">Gender</label>
+        <select name="" id="">
+            <option disabled>gender</option>
+            <option value="female">woman</option>
+            <option value="male">man</option>
+        </select>
+
+        <label for="picture">Picture</label>
+        <input type="file" accept="image/*" name="picture" id="picture">
+
+        <button type="submit">Send</button>
+    </form>
+</div>
+
+<div id="usercard">
+    <div id="card_logo" style="background-image: url(img/work.jpg);"></div>
+        <div class="output" id="card_name"></div>
+        <div class="output" id="card_pic"></div>
+        <div class="output" id="card_DOB"></div>
+   
+</div>
+
+<img id="abc">
+<script src="dist/index.js"></script>
+
+</body>
+</html>

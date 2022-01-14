@@ -1,0 +1,26 @@
+.wrapper {
+  display: flex;
+  transform: 0.5s;
+}
+.wrapper img {
+  background-size: cover;
+  width: 250px;
+  height: 200px;
+  position: relative;
+  left: 210px;
+  top: 50px;
+  border-radius: 10%;
+}
+.wrapper .line {
+  background: blue;
+  width: 50%;
+  height: 60px;
+  text-align: center;
+  position: relative;
+  top: 38%;
+}
+.wrapper #text {
+  position: absolute;
+  bottom: 50vh;
+  left: 70vh;
+}

@@ -1,0 +1,7 @@
+img {
+  position: absolute;
+  top: 50px;
+  left: 0px;
+  height: 200px;
+  transition: all 300ms;
+}

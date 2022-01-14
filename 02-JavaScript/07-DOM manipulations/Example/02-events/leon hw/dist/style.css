@@ -1,0 +1,24 @@
+.main {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  left: 10%;
+}
+
+img {
+  width: 20%;
+  cursor: pointer;
+}
+
+#text {
+  font-size: 2rem;
+  position: relative;
+  left: 10%;
+  border: 1px solid brown;
+  width: 79vw;
+  height: 10vh;
+  text-align: center;
+  background-color: cornsilk;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  color: darkgoldenrod;
+}

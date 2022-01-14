@@ -1,0 +1,45 @@
+@mixin flexCenter() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flexSpaceBetween {
+    display: flex;
+    justify-content: space-between;
+}
+
+@mixin flexSpaceEvenly{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+@mixin inputBar(){
+    box-shadow: 2px 2px 6px rgb(221, 214, 214);
+    background-color: #fdfdfd;
+    color: rgba(158, 154, 154, 0.945);
+    border: none;
+    height: 2.5em;
+    font-size: 0.9em;
+}
+
+@mixin inputBar1024{
+    box-shadow: 2px 2px 6px rgb(221, 214, 214);
+    background-color: #fdfdfd;
+    color: rgba(158, 154, 154, 0.945);
+    border: none;
+    height: 3.2em;
+    font-size: 1.2em;
+}
+
+@mixin activitiesBoard-1{
+    border-radius: 15px;
+    box-shadow: $shadow;
+    font-size: 0.9em;
+}
+
+@mixin activitiesBoard-2{
+    background-color: $bgcolor;
+    color: $fontColor;
+}
+

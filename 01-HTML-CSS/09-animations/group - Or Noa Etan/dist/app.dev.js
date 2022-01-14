@@ -4,16 +4,18 @@
 var text = document.querySelector(".fancy");
 var strText = text.textContent;
 var splitText = strText.split("");
+console.log(splitText);
 text.textContent = "";
+splitText.forEach(function (i) {
+  text.innerHTML += '<span>' + "".concat(i) + '</span>';
+}); // for (i = 0; i < splitText.length; i++) {
+//   text.innerHTML += "<span>" + splitText[i] + "</span>";
+// }
 
-for (var i = 0; i < splitText.length; i++) {
-  text.innerHTML += "<span>" + splitText[i] + "</span>";
-}
 /* this is the animation part */
 
-
 var _char = 0;
-var timer = setInterval(onTick, 50);
+var timer = setInterval(onTick, 120);
 
 function onTick() {
   var span = text.querySelectorAll("span")[_char];
@@ -72,6 +74,7 @@ function closeModal(modal) {
 /* make a new task box */
 
 
+var myForm = document.getElementById("myForm");
 var box = document.createElement("li");
 var flex = document.createElement("div");
 var header = document.createElement("div");
@@ -84,7 +87,7 @@ var expln = document.createElement("div");
 var explnTitle = document.createElement("h4");
 var explnText = document.createElement("p");
 var countdown = document.createElement("div");
-var color = window.prompt("what color would you like ur task to be?", "orange, green, blue, black or white?");
+var color = myForm.querySelector("#colors");
 
 function newBox() {
   box.className = "box";
@@ -114,11 +117,11 @@ function newBox() {
   explnText.innerText = prompt("what company is it for?", "nilson project");
   expln.appendChild(explnText);
   countdown.className = "box__countdown";
-  countdown.innerText = "5 days left";
+  countdown.innerText = prompt("In how many days do you need it done?") + ' days left';
   flex.appendChild(countdown);
 }
 
-var myForm = document.getElementById("myForm");
+console.dir(color.value);
 myForm.addEventListener("submit", function (e) {
   e.preventDefault(newBox());
   closeModal(modal);

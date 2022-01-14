@@ -1,16 +1,18 @@
-// console.log(document.getElementById("1"));
-var firstline = document.getElementById("1");
-console.log(firstline);
-firstline.style.fontSize = "200px";
-var secondline = document.getElementById("2");
-console.log(secondline);
-secondline.style.fontSize = "100px";
-secondline.style.background = "blue";
-var thirdline = document.getElementById("3");
-console.log(thirdline);
-thirdline.style.fontSize = "50px";
-thirdline.style.color = "green";
-var fourthline = document.querySelector(".paragraph");
-console.log(fourthline);
-fourthline.style.fontSize = "120px";
-fourthline.style.background = "red";
+var spiderman = document.getElementById("spiderman");
+var superman = document.getElementById("superman");
+var catwoman = document.getElementById("catwoman");
+var supergirl = document.getElementById("supergirl");
+var img = document.querySelectorAll("img");
+var text = document.getElementById("text");
+spiderman.addEventListener('mouseover', function () {
+    text.innerHTML = 'this is spiderman';
+});
+superman.addEventListener('mouseover', function () {
+    text.innerHTML = 'this is superman';
+});
+catwoman.addEventListener('mouseover', function () {
+    text.innerHTML = 'this is catwoman';
+});
+supergirl.addEventListener('mouseover', function () {
+    text.innerHTML = 'this is supergirl';
+});
