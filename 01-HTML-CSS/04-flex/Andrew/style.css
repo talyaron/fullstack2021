@@ -44,12 +44,12 @@ a{
     font-size: 2rem;
 
 }
-#about{
+.about{
     display: flex;
     flex-direction: row;
     padding: 1rem;
 }
-#about > img{
+.about > img{
     width: 40vw;
 }
 .aboutText{

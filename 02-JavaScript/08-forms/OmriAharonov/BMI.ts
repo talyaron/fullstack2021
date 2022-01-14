@@ -1,30 +1,11 @@
-interface info{
-    weight?: number;
-    height?: number;
-};
+const bmiObj = {};
 
-function handleSubmit(ev) {
+function handleSubmit(ev){
     ev.preventDefault();
-    const result:any = document.querySelector('.bmi');
+  
+    
+   bmiObj[ev.target.placeholder('weight')] /  (ev.target.placeholder('Height')) * (ev.target.placeholder('Height'))
 
-    const bmi:info = {};
-
-    for (let elem of ev.target) {
-
-        if (elem.name !== 'submit') bmi[elem.name] = elem.valueAsNumber;
-        
-    }
-
-    result.innerHTML = `your BMI is: ${bmi.weight /(((bmi.height)/100)*((bmi.height)/100))}`;
-
+   
 }
-
-
-
-
-
-
-
-
-
 

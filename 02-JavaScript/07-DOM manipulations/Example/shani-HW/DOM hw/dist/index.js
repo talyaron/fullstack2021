@@ -27,7 +27,7 @@ var pacman = document.querySelector(".pacman");
 pacman.style.backgroundColor = "yellow";
 pacman.style.width = "3rem";
 pacman.style.height = "3rem";
-//pacman.style.borderRadius="50%";
+pacman.style.borderRadius = "50%";
 //how do i make pacman move???//
 setTimeout(function () { pacman.style.transform = 'translateX(90vw)'; }, 1000);
 // /i tried to the dots in a loop form but it didnt work out for me

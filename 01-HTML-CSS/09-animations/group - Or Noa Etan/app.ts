@@ -96,7 +96,6 @@ function newBox() {
   header.className = "box__header";
   flex.appendChild(header);
   logo.className = `box__logo-square ${color.value || "blue"}`;
-  // logo.style.backgroundColor = `${color.value}`
   header.appendChild(logo);
   p.className = "box__logo";
   logo.appendChild(p);
@@ -130,5 +129,5 @@ myForm.addEventListener("submit", (e:any) => {
   closeModal(modal)
 });
 
-console.log?.(color.value)
+console.dir(color.value)
 console.log(daysLeft.value)
