@@ -18,14 +18,25 @@ let fullStackClass: Class = {
 const students = ['moshe', 'ahron', 'miriam' ,'dan' ,'levi'];
 
 
-function createGrade(){
+// function createGrade(){
 
-    for(let i in students)
+//     for(let i in students)
         
-    fullStackClass.lessons.grades{i}
+//     fullStackClass.lessons.grades{i}
         
-    });
+//     });
+
+// }
+
+
+function constructor(name, eyeColor, age) {
+
+    this.name = name;
+    this.eyeColor = eyeColor;
+    this.age = age;
 
 }
 
+let person01 = new constructor('ido', 'brown', 30);
+let person02 = new constructor('michael','brown',30);
 
