@@ -35,6 +35,7 @@ openModalButttons.forEach(function (button) {
     var modal = document.querySelector(button.dataset.modalTarget);
     button.addEventListener("click", function () {
         openModal(modal);
+        console.dir(button);
     });
 });
 overlay.addEventListener("click", function () {
