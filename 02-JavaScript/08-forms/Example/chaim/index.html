@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="dist/index.min.css">
+</head>
+
+<body>
+    <div class="box"></div>
+    <form onsubmit='handlesubmit(event)'>
+        <label for="fname"> name</label><br> 
+       <input type="text" name="name" id="" placeholder="first name"> <input type="text" name="last" id="" placeholder="last name"><br>
+        <label for="fname">user name:</label><br>
+        <input type="email" name="email" id="" placeholder="email"><br>
+        <label for="fname">password:</label><br>
+        <input type="password" name="password" id=""  placeholder="password"><br>
+        <label for="fname">agein password:</label><br>
+        <input type="password" name="password" id=""  placeholder="password"><br>
+        <label for="fname">birth:</label><br>
+        <input type="date" name="date" id=""  placeholder="date"><br>
+        <label for="fname">gender:</label><br>
+        <label for="fname">Male:</label> <input type="radio" name="Male" id=""  placeholder="Male">   <label for="fname">female:</label> <input type="radio" name="Male" id=""  placeholder="Male"><br>
+        <label for="fname">phone:</label><br>
+        <input type="tel" name="tel" id="" placeholder="tel">
+        <input type="submit" name='submit' value="Send">
+
+        <div class="card">
+            <div class="card_background"></div>
+            <div id="card_logo"></div>
+            <div class="card_name" id="card_name"></div>
+            <div class="card_pic" id="card_pic"></div>
+            <div class="card_id" id="card_id"></div>
+            <div class="card_joinded" id="card_joinded">00000000</div>
+            <div class="card_DOB" id="card_DOB">dd/mm/yyyy</div>
+        </div>
+    
+    </form>
+    <script src=dist/index.min.js></script>
+</body>
+
+</html>

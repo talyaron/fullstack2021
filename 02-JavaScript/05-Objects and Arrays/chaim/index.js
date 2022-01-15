@@ -85,7 +85,6 @@ const fre= [freinds,freindsc, freindsn,freindsh, freindsm, freindss]
 const first=[mather.firstname,father.firstname,childa.firstname,childb.firstname,childc.firstname,childd.firstname]
 const all=first.concat(fre);
 
-
 for (let x in all){
  if (x<6)
       console.log ('the freind of '+first[x]+ ' is: ' +fre[x])

@@ -1,0 +1,21 @@
+form {
+  margin: 10%;
+  background-color: whitesmoke;
+  width: 30%;
+  height: 50%;
+  padding-left: 5%;
+  position: absolute;
+  left: 20%;
+}
+
+.card {
+  margin-top: 100px;
+  border-radius: 20px;
+}
+.card_background {
+  position: absolute;
+  left: 0px;
+  width: 400px;
+  height: 200px;
+  background-color: lightblue;
+}
