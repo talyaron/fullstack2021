@@ -1,10 +1,11 @@
-function createCard(event) {
-    console.dir(event);
-    ev.preventDefault();
+function handleSubmit(ev) {
+    ev.preventDeafult();
     var formObj = {};
-    // for (let field of ev.target) {
-    //     console.log(field.name, field.value)
-    //     if (field.name !== 'submit') formObj[field.name] = field.value;
-    // }
-    // console.log(formObj);
+    for (var _i = 0, _a = ev.target; _i < _a.length; _i++) {
+        var field = _a[_i];
+        console.log(field.name, field.value);
+        if (field.name !== 'submit')
+            formObj[field.name] = field.value;
+    }
+    console.log(formObj);
 }
