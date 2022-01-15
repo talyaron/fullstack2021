@@ -3,11 +3,10 @@ interface Class {
                     title: string,
                     grades: Array<any>
                     }>
-    generateNewLesson(string, Array):void
 }
 const students:Array<string> = ['moshe', 'ahron', 'miriam', 'dan', 'levi'];
 
-let fullStackClass:Class = {
+let fullStackClass:any  = {
     lessons: [
         {
             title: 'Objects - advance',
