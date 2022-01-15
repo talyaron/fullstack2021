@@ -22,13 +22,16 @@ function createGrades(studentList, className) {
         fullStackClass.lesson[0].grades[i] = { name: studentList[i], grade: getRandomInt() };
     }
 }
+createGrades(students, fullStackClass);
+console.log(fullStackClass)
 function handleSubmit(ev) {
     ev.preventDefault();
     var madeUpClass = document.getElementsByName("className")[0].value;
-    fullStackClass.createClass(madeUpClass, students);
-}
-createGrades(students, fullStackClass);
-console.log(fullStackClass);
+   
+
+fullStackClass.createClass(madeUpClass, students);
+ console.log("Todays Grades are...:")
+console.log(fullStackClass);}
 
 //  console.dir(j)
 //Object.keys(fullStackClass.lesson[0]

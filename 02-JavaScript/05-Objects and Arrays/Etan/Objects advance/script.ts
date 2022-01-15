@@ -34,11 +34,12 @@ function createGrades(studentList:Array<string>,className:Class) {
 function handleSubmit (ev:any){
     ev.preventDefault();
     const madeUpClass:any = document.getElementsByName("className")[0].value;
-    console.dir(madeUpClass)
-    fullStackClass.createClass(madeUpClass, students)
-}
-createGrades(students,fullStackClass);
-console.log(fullStackClass)
+    createGrades(students,fullStackClass)
+fullStackClass.createClass(madeUpClass, students)
+console.log("hello")
+console.log(fullStackClass)}:
+
+
 //  console.dir(j)
 
 
