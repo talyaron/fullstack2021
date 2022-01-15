@@ -114,5 +114,5 @@ myForm.addEventListener("submit", function (e) {
     e.preventDefault(newBox());
     closeModal(modal);
 });
-console.dir(color.value);
+console.log?.(color.value);
 console.log(daysLeft.value);

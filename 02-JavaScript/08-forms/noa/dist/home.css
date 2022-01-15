@@ -14,17 +14,17 @@ form {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
-.card1 {
+.card {
   margin: 10px;
   padding: 10px;
   width: 300px;
   height: 150px;
   background-color: ghostwhite;
 }
-.card1 .top {
+.card .top {
   height: 50px;
   background-color: lightblue;
 }
-.card1 .name {
+.card .name {
   margin: 0px;
 }
