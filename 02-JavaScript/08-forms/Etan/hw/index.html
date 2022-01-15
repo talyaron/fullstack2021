@@ -20,40 +20,44 @@
     <form onsubmit="handleSubmit(event)">
         <legend>Name
             <fieldset>
-                <input type="text" placeholder="First" id="First">
-                <input type="text" placeholder="Last" id="Last">
+                <input type="text" name="firstName" placeholder="First" id="First">
+                <input type="text" name="lastName" placeholder="Last" id="Last">
             </fieldset>
         </legend>
         <legend>Choose your username
             <fieldset>
-                <input type="text" placeholder="@gmail.com" id="userName">
+                <input type="text" name="eMail" placeholder="@gmail.com" id="userName">
             </fieldset>
         </legend>
         <legend>Create a password
             <fieldset>
-                <input type="current-password" placeholder="" id="pass">
+                <input type="password" name="pass" placeholder="" id="pass">
             </fieldset>
         </legend>
         <legend>Confirm your password
             <fieldset>
-                <input type="current-password" placeholder="" id="passConfirm">
+                <input type="password" name="passConfirm" placeholder="" id="passConfirm">
 
             </fieldset>
         </legend>
         <legend>Birthday
             <fieldset>
-                <input type="date" name="" id="">
+                <input type="date" name="birthday" id="">
             </fieldset>
         </legend>
         <legend>Gender
             <fieldset>
-                <input type="text" placeholder="First">
-                <input type="text" placeholder="Last">
+                <select name="gender" id="gender">
+                    <option value="none" selected>Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">other</option>
+                </select>
             </fieldset>
         </legend>
         <legend>Mobile Phone
             <fieldset>
-                <input type="tel">
+                <input type="tel" name="tel">
             </fieldset>
         </legend>
         <input type="submit" id="nameTag"value="Create Your Name Tag">
