@@ -1,15 +1,29 @@
 
+//exercise 1 present it in three ways the age
 
-const x= {age:12}
-x.age=12
-x["age"]=12
+interface Obj{
+    x?:number
+    age?:number
+}
+const x:Obj= {};
+let a="age";
+x[a]=12;
+console.log(x)
+
+
+x.age=13
+console.log(x)
+
+x["age"]=14
 
 console.log(x)
+
+//exercise 2
 
 
 const keys1=[`author`,`year`,`pages`]
 
-const values2=[`shani`,1993,184]
+const values2=[`shani`,1999,8030]
 
 
 let result={};
@@ -19,7 +33,7 @@ console.log(result);
 
 
 
-
+//second way
 
 const ob = {};
 const keys=["author","year published", "page number"];
