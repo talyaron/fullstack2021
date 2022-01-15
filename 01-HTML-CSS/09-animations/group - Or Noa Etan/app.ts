@@ -39,6 +39,7 @@ openModalButttons.forEach((button) => {
   const modal:any = document.querySelector(button.dataset.modalTarget);
   button.addEventListener("click", () => {
     openModal(modal);
+    console.dir(button)
   });
 });
 
@@ -70,6 +71,7 @@ function closeModal(modal) {
 
 /* make a new task box */
 const myForm:any = document.getElementById("myForm");
+
 let box = document.createElement("li");
 let flex = document.createElement("div");
 let header = document.createElement("div");
