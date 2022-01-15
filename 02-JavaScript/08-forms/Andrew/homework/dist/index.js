@@ -40,23 +40,21 @@ function getMousePos(canvas, ev) {
 }
 function handleSumbit(ev) {
     ev.preventDefault();
-    var background = document.querySelector('#card_background');
-    var name = document.querySelector('#card_name');
-    var role = document.querySelector('#card_role');
-    var image = document.querySelector('#card_pic');
-    var ID = document.querySelector('#card_id');
-    var DOB = document.querySelector('#card_DOB');
-    var joined = document.querySelector('#card_joinded');
-    var expire = document.querySelector('#card_expire');
+    var outputs = document.querySelectorAll('.output');
     var uploadedPic = document.querySelector('#picture');
-    var formObj = {};
     var signature = document.querySelector('#signature');
     var destCtx = signature.getContext('2d');
     var today = new Date();
     var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
     var nextDate = (today.getFullYear() + 1) + '-' + (today.getMonth() + 7) + '-' + today.getDate();
-    for (var _i = 0, _a = ev.target; _i < _a.length; _i++) {
-        var field = _a[_i];
+    var formObj = {};
+    var outputsObj = {};
+    for (var _i = 0, outputs_1 = outputs; _i < outputs_1.length; _i++) {
+        var field = outputs_1[_i];
+        outputsObj[field.id] = field;
+    }
+    for (var _a = 0, _b = ev.target; _a < _b.length; _a++) {
+        var field = _b[_a];
         if (field.name !== 'submit') {
             formObj[field.name] = field.value;
         }
@@ -66,13 +64,13 @@ function handleSumbit(ev) {
         }
     }
     console.log(formObj);
-    background.style.background = formObj.color;
-    name.innerHTML = formObj.firstName + " " + formObj.lastName;
-    role.innerHTML = formObj.role;
-    image.style.backgroundImage = "url('" + URL.createObjectURL(uploadedPic.files[0]) + "')";
-    ID.innerHTML = formObj.IDNum;
-    DOB.innerHTML = formObj.DOB;
-    joined.innerHTML = date;
-    expire.innerHTML = nextDate;
     destCtx.drawImage(canvas, 0, 0);
+    outputsObj.card_background.style.background = formObj.color;
+    outputsObj.card_name.innerHTML = formObj.firstName + " " + formObj.lastName;
+    outputsObj.card_role.innerHTML = formObj.role;
+    outputsObj.card_pic.style.backgroundImage = "url('" + URL.createObjectURL(uploadedPic.files[0]) + "')";
+    outputsObj.card_id.innerHTML = formObj.IDNum;
+    outputsObj.card_DOB.innerHTML = formObj.DOB;
+    outputsObj.card_joined.innerHTML = date;
+    outputsObj.card_expire.innerHTML = nextDate;
 }

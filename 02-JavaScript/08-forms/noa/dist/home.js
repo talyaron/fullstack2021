@@ -10,5 +10,5 @@ function handleSubmit(e) {
     console.log(firstname);
     data = { firstname: firstname, lastname: lastname, username: username };
     card1.innerHTML =
-        "<div class=\"top\"></div>\n   \n   <div class=\"name\">\n   <h1> " + firstname + " " + lastname + "</h1>\n   <h2> " + username + "\n   \n   </div>\n   \n   \n   \n   \n   \n   ";
+        "\n   <div class=\"card\"\n   <div class=\"top\"></div>\n   \n   <div class=\"name\">\n   <h1> " + firstname + " " + lastname + "</h1>\n   <h2> " + username + "\n   \n   </div>\n   \n   </div>\n   \n   \n   \n   ";
 }

@@ -1,52 +1,54 @@
-interface card{
+interface Card {
     image?: File;
     name?: string;
     dept?: string;
-    idNum?:number;
-    date?:number;
-    email?:string;
-    phone?:number;
+    idNum?: number;
+    date?: number;
+    email?: string;
+    phone?: number;
 }
 
-// function handleSubmit(ev){
-//     ev.preventDefault();
-//     const formObj ={}
-//     console.log(ev)
-//     for(let filed of ev.target){
-//         console.dir(filed)
-//         console.log(filed.name, filed.value)
-//         if(filed.name!== 'submit') formObj[filed.name]= filed.value;
-//     }
-//     console.log(formObj)
-// }
-
-
-const myName = document.getElementById('myName');
-const myRole = document.getElementById('myRole');
-const myId = document.getElementById('myIdNum');
-const myDate = document.getElementById('myDate');
-
-
-const preview = document.getElementById('preview');
-preview.addEventListener('onClick',handleSubmit);
-function handleSubmit(ev){
+function handleSubmit(ev) {
+    ev.preventDefault();
     
-
-const name = document.getElementById('name');
-const role = document.getElementById('role');
-const id = document.getElementById('id');
-const dateOfBirth = document.getElementById('dateOfBirth');
-
-   name.innerHTML = myName;
-   role.innerHTML = myRole;
-   id.innerHTML = myId;
-   dateOfBirth.innerHTML = myDate;
+    const form = ev.target;
+    const formObj = createFormObj(form);
+    printCard(formObj);
 
 
 }
 
+function createFormObj(form){
+    const formObj: Card = {};
 
-function loadImage(e){
+    for (let inputField of form) {
+       
+        if (inputField.id !== 'preview') {
+            
+            formObj[inputField.name] = inputField.value;
+        }
+    }
+
+    return formObj;
+}
+
+
+
+function loadImage(e) {
     const image = document.getElementById('imgDisplay');
-    image.src = URL.createObjectURL(e.target.files[0]);
+    // image.src = URL.createObjectURL(e.target.files[0]);
+}
+
+function printCard(obj){
+    
+    const html = `<div class="card">
+    <h3>${obj.name}</h3>
+    <p>Dept: ${obj.dept}</p>
+    </div>`;
+
+    const root = document.querySelector('#cardRoot');
+
+    root.innerHTML = html;
+
+    
 }

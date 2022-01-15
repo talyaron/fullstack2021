@@ -1,0 +1,14 @@
+form {
+  margin: auto;
+  background-color: #463c3c;
+  color: burlywood;
+  max-width: 200px;
+  border-radius: 10px;
+  border: #080706 solid 5px;
+}
+
+.form {
+  margin: auto;
+  max-width: 220px;
+  padding-top: 80px;
+}

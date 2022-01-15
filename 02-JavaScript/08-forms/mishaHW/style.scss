@@ -4,10 +4,13 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    flex-direction: column;
 }
 
 .wrapper {
 
+    position: relative;
+    top: 200px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -16,7 +19,7 @@ body {
     width: 500px;
     background-color: rgb(255, 255, 240);
     border-radius: 10px;
-    box-shadow: 5px 5px 10px lavenderblush;
+    box-shadow: 5px 5px 10px rgb(163, 184, 158);
 
     .section {
 
@@ -54,12 +57,14 @@ body {
 }
 
 .wrapper2 {
-
+    top: -600px;
     position: relative;
     padding: 2em;
     background-color: rgb(255, 255, 240);
     height: 330px;
     width: 600px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px rgb(163, 184, 158);
 
     .banner {
         h1{
@@ -111,4 +116,8 @@ body {
         padding: 0px;
         height: 150px;
     }
+}
+.visable{
+    visibility: hidden;
+
 }

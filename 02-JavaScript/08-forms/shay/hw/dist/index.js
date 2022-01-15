@@ -1,31 +1,25 @@
-// function handleSubmit(ev){
-//     ev.preventDefault();
-//     const formObj ={}
-//     console.log(ev)
-//     for(let filed of ev.target){
-//         console.dir(filed)
-//         console.log(filed.name, filed.value)
-//         if(filed.name!== 'submit') formObj[filed.name]= filed.value;
-//     }
-//     console.log(formObj)
-// }
-var myName = document.getElementById('myName');
-var myRole = document.getElementById('myRole');
-var myId = document.getElementById('myIdNum');
-var myDate = document.getElementById('myDate');
-var preview = document.getElementById('preview');
-preview.addEventListener('onClick', handleSubmit);
 function handleSubmit(ev) {
-    var name = document.getElementById('name');
-    var role = document.getElementById('role');
-    var id = document.getElementById('id');
-    var dateOfBirth = document.getElementById('dateOfBirth');
-    name.innerHTML = myName;
-    role.innerHTML = myRole;
-    id.innerHTML = myId;
-    dateOfBirth.innerHTML = myDate;
+    ev.preventDefault();
+    var form = ev.target;
+    var formObj = createFormObj(form);
+    printCard(formObj);
+}
+function createFormObj(form) {
+    var formObj = {};
+    for (var _i = 0, form_1 = form; _i < form_1.length; _i++) {
+        var inputField = form_1[_i];
+        if (inputField.id !== 'preview') {
+            formObj[inputField.name] = inputField.value;
+        }
+    }
+    return formObj;
 }
 function loadImage(e) {
     var image = document.getElementById('imgDisplay');
-    image.src = URL.createObjectURL(e.target.files[0]);
+    // image.src = URL.createObjectURL(e.target.files[0]);
+}
+function printCard(obj) {
+    var html = "<div class=\"card\">\n    <h3>" + obj.name + "</h3>\n    <p>Dept: " + obj.dept + "</p>\n    </div>";
+    var root = document.querySelector('#cardRoot');
+    root.innerHTML = html;
 }
