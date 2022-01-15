@@ -1,22 +1,26 @@
 interface Class {
     lessons: Array<{
-                    title: string,
-                    grades: Array<any>
-                    }>
+        title: string,
+        grades: Array<any>
+    }>
+    generateNewLesson(string, Array):void
 }
-const students:Array<string> = ['moshe', 'ahron', 'miriam', 'dan', 'levi'];
+const students: Array<string> = ['Moshe', 'Ahron', 'Miriam', 'Dan', 'Levi'];
 
-let fullStackClass:any  = {
+
+//create an internal function to the object
+
+let fullStackClass: Class = {
     lessons: [
         {
             title: 'Objects - advance',
             grades: []
         }
     ],
-    generateNewLesson(newTitle,studentList){
-        this.lessons.push({title: newTitle, grades:[]});
-        studentList.forEach((student , i) => {
-            this.lessons.slice(-1)[0].grades[i] = {name: student, grade: getRandomgGrade()}
+    generateNewLesson(newTitle, studentList) {
+        this.lessons.push({ title: newTitle, grades: [] });
+        studentList.forEach((student, i) => {
+            this.lessons.slice(-1)[0].grades[i] = { name: student, grade: getRandomgGrade() }
         });
     }
 }
@@ -24,24 +28,47 @@ let fullStackClass:any  = {
 
 
 //create a function which genrate random grades between 40 and 100 for all students (make the score an integer).
-function getRandomgGrade(){
+function getRandomgGrade() {
     return Math.floor(Math.random() * 61 + 40);
 }
 
-function generateGrades(theClass , studentList){
-    studentList.forEach((student,i) => {
-        theClass.lessons[0].grades[i] = {name: student, grade: getRandomgGrade()}
+function generateGrades(theClass, studentList) {
+    studentList.forEach((student, i) => {
+        theClass.lessons[0].grades[i] = { name: student, grade: getRandomgGrade() }
     });
-    console.log(theClass); 
 }
 
 
-generateGrades(fullStackClass,students);
-console.log(fullStackClass);
-//create an internal function to the object
+generateGrades(fullStackClass, students);
 
-fullStackClass.generateNewLesson("dom",students);
+//למי שמשעמם שיעשה את זה גם בDOM
 
+
+function Sumbit(ev) {
+    ev.preventDefault();
+    let input = (<HTMLInputElement>document.querySelector('#input')).value;
+    fullStackClass.generateNewLesson(input, students);
+    console.log(fullStackClass);
+
+    const newDiv = document.createElement("span");
+    const startDiv = document.querySelector("#first class");
+    document.body.insertBefore(newDiv, startDiv);
+    
+    let text:string = ``;
+    for (let i = 0; i < fullStackClass.lessons.slice(-1)[0].grades.length; i++) {
+        text += `<div class="class__grade">${fullStackClass.lessons.slice(-1)[0].grades[i].name}: ${fullStackClass.lessons.slice(-1)[0].grades[i].grade}</div> `
+    }
+    
+    let newClass = 
+    `<div class="class">
+    <h2 class="class__title">Lesson: ${fullStackClass.lessons.slice(-1)[0].title}</h2>
+    <div class="class__grades">
+        ${text}
+    </div>
+    </div>`
+    document.querySelector("span").outerHTML = `${newClass}`;
+
+}
 //at the end the object should look somthing like that:
 
 // fullStackClass = {
