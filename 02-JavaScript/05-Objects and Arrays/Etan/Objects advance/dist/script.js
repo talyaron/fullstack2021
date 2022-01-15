@@ -25,11 +25,11 @@ function createGrades(studentList, className) {
 function handleSubmit(ev) {
     ev.preventDefault();
     var madeUpClass = document.getElementsByName("className")[0].value;
-    console.dir(madeUpClass);
     fullStackClass.createClass(madeUpClass, students);
 }
 createGrades(students, fullStackClass);
 console.log(fullStackClass);
+
 //  console.dir(j)
 //Object.keys(fullStackClass.lesson[0]
 // fullStackClass = {
