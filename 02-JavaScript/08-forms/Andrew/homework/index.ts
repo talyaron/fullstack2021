@@ -75,7 +75,7 @@ function handleSumbit(ev) {
             return;
         }
     }
-    console.log(outputsObj);
+    console.log(formObj);
 
     destCtx.drawImage(canvas, 0, 0);
 
@@ -87,4 +87,8 @@ function handleSumbit(ev) {
     outputsObj.card_DOB.innerHTML = formObj.DOB;
     outputsObj.card_joined.innerHTML = date;
     outputsObj.card_expire.innerHTML = nextDate;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> parent of 5ea67473 (Merge branch 'main' of https://github.com/talyaron/fullstack2021)

@@ -11,7 +11,8 @@ interface Card {
 function handleSubmit(ev) {
     ev.preventDefault();
     
-    const formObj = createFormObj(ev.target);
+    const form = ev.target;
+    const formObj = createFormObj(form);
     printCard(formObj);
 
 
@@ -40,10 +41,10 @@ function loadImage(e) {
 
 function printCard(obj){
     
-    const html = `<div class="card">`+
-    `<h3>${obj.name}</h3>`+
-    `<p>Dept: ${obj.dept}</p>`+
-    `</div>`;
+    const html = `<div class="card">
+    <h3>${obj.name}</h3>
+    <p>Dept: ${obj.dept}</p>
+    </div>`;
 
     const root = document.querySelector('#cardRoot');
 

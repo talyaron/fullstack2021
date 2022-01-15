@@ -63,7 +63,7 @@ function handleSumbit(ev) {
             return;
         }
     }
-    console.log(outputsObj);
+    console.log(formObj);
     destCtx.drawImage(canvas, 0, 0);
     outputsObj.card_background.style.background = formObj.color;
     outputsObj.card_name.innerHTML = formObj.firstName + " " + formObj.lastName;
