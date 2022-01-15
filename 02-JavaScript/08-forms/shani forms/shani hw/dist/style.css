@@ -1,0 +1,121 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: monospace;
+}
+
+.form {
+  background-color: #62fff7;
+  width: 30rem;
+  height: 36rem;
+  margin: auto;
+}
+.form .userInput {
+  padding-top: 1rem;
+  padding-left: 4rem;
+}
+.form h1 {
+  text-align: center;
+  text-decoration: underline;
+  margin-top: 2rem;
+  padding-top: 2rem;
+}
+.form input {
+  margin: 2%;
+}
+.form input:not(#firstname, #lastname, #submit, #month, #day, #year) {
+  width: 21rem;
+}
+.form input#submit {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  margin-top: 1rem;
+}
+.form #gender {
+  width: 22rem;
+  margin-left: 4px;
+}
+.form .lable {
+  font-weight: bold;
+}
+
+.employCard {
+  background-color: #a0aed6;
+  box-shadow: -1px -1px 6px 6px #a89e9e;
+  width: 40rem;
+  height: 28rem;
+  margin-top: 10rem;
+  margin-bottom: 10rem;
+  border-radius: 2rem;
+  margin: auto;
+  margin-top: 3rem;
+  margin-bottom: 10rem;
+  padding-top: 1rem;
+}
+.employCard .box {
+  background-image: url("https://t3.ftcdn.net/jpg/03/51/51/28/360_F_351512882_2kFH8IaSe4lyA7SXBLzEXyGKNEgbO1iH.jpg");
+  width: 33rem;
+  height: 6rem;
+  margin-left: 3.5rem;
+}
+.employCard .personPic {
+  width: 7rem;
+  z-index: 1;
+  position: absolute;
+  left: 34rem;
+  bottom: -5rem;
+  box-shadow: -2px -2px 0 10px #a0aed6;
+}
+.employCard .logo {
+  width: 10rem;
+  position: absolute;
+  left: 52rem;
+  bottom: -1rem;
+}
+.employCard h1,
+.employCard h2 {
+  background-color: white;
+}
+.employCard h1 {
+  width: 8rem;
+  height: 2rem;
+}
+.employCard h2 {
+  width: 10rem;
+  height: 2rem;
+}
+.employCard .personName {
+  margin-left: 15rem;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+.employCard .login {
+  margin-left: 13rem;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+.employCard .grid {
+  display: grid;
+  grid-template-columns: repeat(2, 15vw);
+  grid-template-rows: 3;
+  margin-left: 3.5rem;
+  margin-top: 1rem;
+  gap: 1px;
+}
+.employCard .grid .phoneCard {
+  width: 20rem;
+  margin-top: 2rem;
+}
+.employCard .rightCorner {
+  gap: 1rem;
+  margin-left: 28rem;
+  margin-top: -4rem;
+}
+.employCard .rightCorner .barcode {
+  width: 10rem;
+  height: 4rem;
+}

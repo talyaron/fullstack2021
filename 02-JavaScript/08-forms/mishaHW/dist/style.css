@@ -1,0 +1,106 @@
+body {
+  background-color: #f9faee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+}
+
+.wrapper {
+  position: relative;
+  top: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 700px;
+  width: 500px;
+  background-color: ivory;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px #a3b89e;
+}
+.wrapper .section {
+  display: flex;
+  flex-direction: column;
+  margin: 1em;
+  font-size: 25px;
+}
+.wrapper .section label {
+  margin-bottom: 0.5em;
+}
+.wrapper .section .fullname {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.wrapper .section .fullname input {
+  margin-right: 0.5em;
+}
+.wrapper .buttons {
+  flex-direction: row;
+}
+.wrapper .buttons .submit, .wrapper .buttons button {
+  height: 35px;
+  width: 100px;
+  margin-right: 1em;
+}
+
+.wrapper2 {
+  top: -600px;
+  position: relative;
+  padding: 2em;
+  background-color: ivory;
+  height: 330px;
+  width: 600px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px #a3b89e;
+}
+.wrapper2 .banner {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 30%;
+  width: 100%;
+  background: linear-gradient(217deg, rgba(255, 254, 254, 0.8), rgba(255, 0, 0, 0) 90.71%), linear-gradient(127deg, rgba(5, 105, 5, 0.8), rgba(0, 255, 0, 0) 90.71%), linear-gradient(336deg, rgba(251, 255, 21, 0.8), rgba(0, 0, 255, 0) 90.71%);
+  border-radius: 5px;
+}
+.wrapper2 .banner h1 {
+  margin-right: 1em;
+}
+.wrapper2 img {
+  position: relative;
+  left: 20px;
+  bottom: 50px;
+  width: 13vh;
+  height: 17vh;
+  border: 10px solid white;
+  border-radius: 5px;
+}
+.wrapper2 .name {
+  position: absolute;
+  left: 35%;
+  bottom: 40%;
+}
+.wrapper2 .name h1 {
+  padding: 0px;
+  margin: 0px;
+}
+.wrapper2 .details {
+  font-size: 20px;
+  font-weight: 500;
+  display: grid;
+  gap: 1em;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  margin: 1em;
+}
+.wrapper2 .profilepic {
+  margin: 0px;
+  padding: 0px;
+  height: 150px;
+}
+
+.visable {
+  visibility: hidden;
+}
