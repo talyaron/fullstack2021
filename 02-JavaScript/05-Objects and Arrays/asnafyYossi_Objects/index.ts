@@ -35,7 +35,7 @@ lessons.forEach(function(lesson) {
     `<div id="lesson">Lesson name : ${lesson}</div>`;
 
     for (let i in students) {
-        let randomNum = Math.round(Math.random() * 60) + 40;
+        let randomNum = Math.floor(Math.random() * 61) + 40;
         grades[students[i]] = randomNum;
         document.getElementById("wrapper").innerHTML += 
         `<div id="name"> Name: ${students[i]}</div>`;
