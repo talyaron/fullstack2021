@@ -18,14 +18,18 @@ function handleSubmit(ev) {
                     formObj[field.name] = field.value;
                 }
             }
+
             else {
                 formObj[field.name] = field.value;
             }
+
+
         }
     }
 
     console.log(formObj)
     createCard(formObj)
+
 }
 function createCard(obj){
     const html =`<div class="card">`+

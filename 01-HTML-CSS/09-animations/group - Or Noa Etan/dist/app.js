@@ -35,6 +35,7 @@ openModalButttons.forEach(function (button) {
     var modal = document.querySelector(button.dataset.modalTarget);
     button.addEventListener("click", function () {
         openModal(modal);
+        console.dir(button);
     });
 });
 overlay.addEventListener("click", function () {
@@ -86,6 +87,7 @@ function newBox() {
     header.className = "box__header";
     flex.appendChild(header);
     logo.className = "box__logo-square " + (color.value || "blue");
+    // logo.style.backgroundColor = `${color.value}`
     header.appendChild(logo);
     p.className = "box__logo";
     logo.appendChild(p);
@@ -113,5 +115,5 @@ myForm.addEventListener("submit", function (e) {
     e.preventDefault(newBox());
     closeModal(modal);
 });
-console.dir(color.value);
+console.log?.(color.value);
 console.log(daysLeft.value);

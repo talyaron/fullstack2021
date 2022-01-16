@@ -1,0 +1,123 @@
+body {
+    background-color: rgb(249, 250, 238);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.wrapper {
+
+    position: relative;
+    top: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 700px;
+    width: 500px;
+    background-color: rgb(255, 255, 240);
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px rgb(163, 184, 158);
+
+    .section {
+
+        display: flex;
+        flex-direction: column;
+        margin: 1em;
+        font-size: 25px;
+
+        label {
+            margin-bottom: 0.5em;
+        }
+
+        .fullname {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+
+            input{
+                margin-right: 0.5em;
+            }
+        }
+    }
+
+    .buttons {
+        
+        flex-direction: row;
+
+        .submit, button{
+            height: 35px;
+            width: 100px;
+            margin-right: 1em;
+        }
+
+    }
+}
+
+.wrapper2 {
+    top: -600px;
+    position: relative;
+    padding: 2em;
+    background-color: rgb(255, 255, 240);
+    height: 330px;
+    width: 600px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px rgb(163, 184, 158);
+
+    .banner {
+        h1{
+            margin-right: 1em;
+        }
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        height: 30%;
+        width: 100%;
+        background: linear-gradient(217deg, rgba(255, 254, 254, 0.8), rgba(255, 0, 0, 0) 90.71%),
+            linear-gradient(127deg, rgba(5, 105, 5, 0.8), rgba(0, 255, 0, 0) 90.71%),
+            linear-gradient(336deg, rgba(251, 255, 21, 0.8), rgba(0, 0, 255, 0) 90.71%);
+        border-radius: 5px;
+    }
+
+    img{
+        position: relative;
+        left: 20px;
+        bottom: 50px;
+        width: 13vh;
+        height: 17vh;
+        border: 10px solid white;
+        border-radius: 5px;
+    }
+
+    .name{
+        h1{
+            padding:0px;
+            margin:0px;
+        }
+        position: absolute;
+        left: 35%;
+        bottom: 40%;
+    }
+
+    .details{
+        font-size: 20px;
+        font-weight: 500;
+        display:grid;
+        gap: 1em;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        margin: 1em;
+    }
+
+    .profilepic{
+        margin: 0px;
+        padding: 0px;
+        height: 150px;
+    }
+}
+.visable{
+    visibility: hidden;
+
+}

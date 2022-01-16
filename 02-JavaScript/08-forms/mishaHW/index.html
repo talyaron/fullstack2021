@@ -1,22 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HW FORM</title>
+    <title>FORM</title>
+    <link rel="stylesheet" href="dist/style.css">
 </head>
+
 <body>
     <div class="wrapper">
-        <form action="" onsubmit="createCard(ev)">
-        
-            <input type="name" name='name' id='' placeholder="Name">
-            <input type="telephone" name='phone' id='' placeholder="Phone Number">
-            <input type="color" name='color' id=''>
-            <input type="date" name='date' id=''>
-            <input type='submit' name='submit' id='' value='send'>
-    
+
+        <form action='card.html' onsubmit="createCard(event)">
+
+            <div class="section">
+                <label for='name'>Name</label>
+                <div class="fullname">
+                    <input type="name" name='name' id='name' placeholder="First">
+                    <input type="name" name='last' id='last' placeholder="Last">
+                </div>
+            </div>
+
+            <div class="section">
+                <label for='email'>Choose your username</label>
+                <input type="email" name='username' id='email' placeholder="@gmail.com">
+            </div>
+
+            <div class="section">
+                <label for='password'>Create a password</label>
+                <input type="password" name='password' id='password'>
+            </div>
+
+            <div class="section">
+                <label for='passconf'>Confirm your password </label>
+                <input type="password" name='passconf' id='passconf'>
+            </div>
+
+            <div class="section">
+                <label for='date'>Birthdate</label>
+                <input type="date" name='date' id='date'>
+            </div>
+
+            <div class="section">
+                <label for='gender'>Gender</label>
+                <select name='gender' id='gender'>
+                    <option value='I am..' disabled selected>I am...</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="Transgender">Transgender</option>
+                    <option value="Gender Fluid">Gender Fluid</option>
+                    <option value="Bigender">BiGender</option>
+                    <option value="Non-Conforming">Non-Conforming</option>
+                    <option value="Third Sex">Third Sex</option>
+                    <option value="Two-Spirit">Two Spirit</option>
+                    <option value="GenderQueer">Gender Queer</option>
+                    <option value="Agender">Agender</option>
+                    <option value="Intersex">Intersex</option>
+                </select>
+            </div>
+            <div class="section">
+                <label for='phone'>Mobile phone</label>
+                <input type="phone" name='phone' id='phone'>
+            </div>
+            <div class="section buttons">
+                <button type='reset' class='reset' value='reset'>Reset</button>
+                <input type="submit" class='submit' name='submit' id='submit' value='Submit'></input>
+            </div>
+
         </form>
     </div>
+    <div class="wrapper2 visable">
+
+        <div class="banner">
+            <h1>Company</h1>
+        </div>
+        <div class="profilepic">
+            <img src="img/0007913116_41.jpeg" alt="">
+        </div>
+
+        <div class="name">
+            <h1 id='fname'>Full the <span id='lname'>Name</span></h1>
+            <p>Manager I Am</p>
+        </div>
+
+        <div class='details'>
+            <div class="dob" id='carddate'>1-1-2001</div>
+            <div class="password" id='cardmail'>blahblah</div>
+            <div class="gender" id='cardgend'>hemale</div>
+            <div class="phone" id='cardphone'>0548898035</div>
+        </div>
+
+    </div>
+    <script src='dist/index.js'></script>
 </body>
+
 </html>

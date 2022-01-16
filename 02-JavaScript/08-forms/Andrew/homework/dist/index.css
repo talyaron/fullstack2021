@@ -1,0 +1,142 @@
+body {
+  background-color: #838383;
+  font-family: Arial, Helvetica, sans-serif;
+  padding-left: 100px;
+  display: flex;
+}
+
+#form {
+  background-color: wheat;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+  padding: 10px;
+}
+
+label {
+  margin-top: 10px;
+}
+
+input {
+  width: 200px;
+  margin: 2px;
+}
+
+#color {
+  width: 40px;
+  height: 40px;
+}
+
+#canvas {
+  border: 3px solid black;
+  background: blanchedalmond;
+}
+
+#signature {
+  position: absolute;
+  top: 200px;
+  left: 230px;
+  width: 200px;
+  height: 100px;
+  z-index: 10;
+}
+
+#sumbit {
+  background: greenyellow;
+}
+
+#card {
+  margin-top: 200px;
+  padding: 15px;
+  height: 250px;
+  aspect-ratio: 1.4189;
+  background-color: white;
+  border-radius: 20px;
+  position: relative;
+  z-index: -10;
+}
+#card_background {
+  position: absolute;
+  width: 352px;
+  height: 100px;
+  background-color: lightblue;
+  z-index: -1;
+}
+#card_logo {
+  background: url(https://gcdn.pbrd.co/images/EboilA55Pdj6.png?o=1);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 130px;
+  height: 100px;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+#card_name {
+  font-size: 1.5rem;
+  position: absolute;
+  top: 120px;
+  left: 150px;
+}
+#card_role {
+  position: absolute;
+  top: 145px;
+  left: 150px;
+}
+#card_pic {
+  background-color: white;
+  background-size: 130% 100%;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 55px;
+  left: 25px;
+  border-radius: 10px;
+  border: 5px solid white;
+}
+#card_id {
+  position: absolute;
+  top: 210px;
+  left: 30px;
+}
+#card_id::before {
+  content: "ID No:";
+  font-size: 0.8rem;
+  position: absolute;
+  bottom: 1rem;
+}
+#card_DOB {
+  position: absolute;
+  top: 250px;
+  left: 30px;
+}
+#card_DOB::before {
+  content: "D.O.B:";
+  font-size: 0.8rem;
+  position: absolute;
+  bottom: 1rem;
+}
+#card_joinded {
+  position: absolute;
+  top: 210px;
+  left: 130px;
+}
+#card_joinded::before {
+  content: "Joined Date:";
+  font-size: 0.8rem;
+  position: absolute;
+  bottom: 1rem;
+}
+#card_expire {
+  position: absolute;
+  top: 250px;
+  left: 130px;
+}
+#card_expire::before {
+  content: "Expire Date:";
+  font-size: 0.8rem;
+  position: absolute;
+  bottom: 1rem;
+}

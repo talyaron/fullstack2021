@@ -12,6 +12,7 @@ textEvent.forEach(elem => {
     elem.addEventListener('keyup', event => {
         textStorage = event.target.value;
         console.dir(event);
+
     })
 
 });
@@ -22,7 +23,7 @@ textEvent.forEach(elem => {
 
 theInput.addEventListener('submit', handleInput);
 
-function handleInput(ev){
+function handleInput(ev) {
     console.dir(ev);
     textDemo.innerHTML = textStorage;
 }
