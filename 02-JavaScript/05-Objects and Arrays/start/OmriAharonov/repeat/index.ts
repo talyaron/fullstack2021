@@ -17,9 +17,9 @@ const keys = ['author', 'yearOfPublication', 'pages'];
 const values = ['J K Roling', 2001, 500];
 const book = {}
 
-keys.forEach(elem =>{
-    book[elem] = keys[elem];
-})
+// keys.forEach(elem =>{
+//     book[elem] = keys[elem];
+// })
 
 // values.forEach(elem =>{
 //     book.elem = 
@@ -36,8 +36,8 @@ keys.forEach(elem =>{
 // let result = {};
 
 
-// for(let i=0; i<keys.length; i++) {
-//    result[keys[i]]= values[i];
-// }
+for(let i=0; i<keys.length; i++) {
+   book[keys[i]]= values[i];
+}
 
-// console.log(result);
+console.log(book);
