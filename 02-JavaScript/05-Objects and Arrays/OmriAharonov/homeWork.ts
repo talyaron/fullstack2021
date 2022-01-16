@@ -1,8 +1,9 @@
 interface Class {
-    lessons: Array <{
+    lessons: Array<{
         title: string,
-        grades: Array <any>
+        grades: Array<any>
     }>
+    createLesson(string, Array?):void
 }
 
 let fullStackClass: Class = {
@@ -10,10 +11,29 @@ let fullStackClass: Class = {
         {
             title: 'Objects - advance',
             grades: []
-        }
-    ]
+        },
+    ],
+    createLesson(newTitle){
+        this.lessons.push({title:newTitle, grades:[]});
+    }
 }
 
-const students = ['Moshe', 'Aharonn', 'Miriam', 'Dan', 'Levi'];
+//create a function which genrate random grades between 40 and 100 for all students (make the score an integer).
+const students = ['Moshe', 'Aharon', 'Miriam', 'Dan', 'Levi'];
 
-let random = Math.floor((Math.random() * (100 -40)) + 40);
+const getRnadomnNumber = function () {
+    return Math.floor((Math.random() * (100 - 40)) + 40);
+}
+
+for (let i = 0; i < students.length; i++) {
+    fullStackClass.lessons[0].grades[i] = {name: students[i], grade: getRnadomnNumber()}
+}
+
+console.log(fullStackClass.lessons[0].grades);
+
+//create an internal function to the object
+
+fullStackClass.createLesson('SCSS');
+console.log(fullStackClass)
+
+//https://www.freecodecamp.org/news/javascript-array-of-objects-tutorial-how-to-create-update-and-loop-through-objects-using-js-array-methods/
