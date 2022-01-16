@@ -15,4 +15,11 @@ const fullStacClass: Class = {
 }
 const students= ['moshe', 'chaim', 'yosef', 'david', 'gadi'];
 
-//const newgrade= createrandomgradefunc(70,80,90,100,60)
+for (let i in students){
+    fullStacClass.lessons[0].grades[i]= {name:students[i], grade: createrandomgradefunc(40,100)};
+}
+    function createrandomgradefunc(mingrade, maxgrade){
+   return Math.floor(Math.random()*(maxgrade-mingrade+1)+mingrade);
+    }
+    console.log (fullStacClass);
+
