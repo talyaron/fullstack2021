@@ -16,12 +16,6 @@
 // // books[keys[index]] =values[index];
 // // }
 // console.log(books);
-// interface school {
-//     lessons:Array<{
-//         lesson: string,
-//         grades: Array<any>
-//     }>
-// }
 var lessons = ['Coocking', 'Eating', 'Dancingg'];
 var students = ['Moshe', 'Ahron', 'Simi', 'Obama', 'Chiwawa'];
 var grades = [];
@@ -29,7 +23,7 @@ lessons.forEach(function (lesson) {
     document.getElementById("wrapper").innerHTML +=
         "<div id=\"lesson\">Lesson name : " + lesson + "</div>";
     for (var i in students) {
-        var randomNum = Math.floor(Math.random() * 60) + 40;
+        var randomNum = Math.round(Math.random() * 60) + 40;
         grades[students[i]] = randomNum;
         document.getElementById("wrapper").innerHTML +=
             "<div id=\"name\"> Name: " + students[i] + "</div>";
