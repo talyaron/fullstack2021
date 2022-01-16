@@ -19,7 +19,7 @@ let fulstackClass: Class = {
     newLesson(titleNew, studentNames) {
         this.lessons.push({ title: titleNew, grades: [] })
         for (let i in studentNames) {
-            this.lessons[this.lessons.length - 1].grades[i] = { name: studentNames[i], grade: createRandomGradeFunc(40, 100) };
+            this.lessons[this.lessons.length - 1].grades[i] = { name: studentNames[i], grade: RandomGrade(40, 100) };
         }
     }
 };
@@ -27,10 +27,10 @@ let fulstackClass: Class = {
 
 
 for (let i in students) {
-    fulstackClass.lessons[0].grades[i] = { name: students[i], grade: createRandomGradeFunc(40, 100) };
+    fulstackClass.lessons[0].grades[i] = { name: students[i], grade: RandomGrade(40, 100) };
 }
 
-function createRandomGradeFunc(minGrade, maxGrade) {
+function RandomGrade(minGrade, maxGrade) {
     return Math.floor(Math.random() * (maxGrade - minGrade + 1) + minGrade);
 }
 
