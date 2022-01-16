@@ -21,7 +21,6 @@ console.log(result);
 
 
 // אופציה שניה לפתרון
-<<<<<<< HEAD
 // const ob = {};
 // const keys=["autur","year published", "page number"];
 // const values= ["J.K Rollings",2001,360];
@@ -31,14 +30,3 @@ console.log(result);
 //     ob[keys[i]] = values[i];
 // }
 // console.log(ob);
-=======
-const ob = {};
-const keys=["autur","year published", "page number"];
-const values= ["J.K Rollings",2001,360];
-
-
-for(let i=0;i<keys.length;i++){
-    ob[keys[i]] = values[i];
-}
-console.log(ob);
->>>>>>> parent of 5ea67473 (Merge branch 'main' of https://github.com/talyaron/fullstack2021)
