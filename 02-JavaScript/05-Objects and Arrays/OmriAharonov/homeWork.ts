@@ -14,7 +14,6 @@ let fullStackClass: Class = {
     ]
 }
 
-const students = ['moshe', 'aharonn', 'miriam', 'dan', 'levi'];
+const students = ['Moshe', 'Aharonn', 'Miriam', 'Dan', 'Levi'];
 
-//console.dir(fullStackClass);
-console.log(fullStackClass.lessons[0]['grades'])
+let random = Math.floor((Math.random() * (100 -40)) + 40);

@@ -6,6 +6,5 @@ var fullStackClass = {
         }
     ]
 };
-var students = ['moshe', 'aharonn', 'miriam', 'dan', 'levi'];
-//console.dir(fullStackClass);
-console.log(fullStackClass.lessons[0]['grades']);
+var students = ['Moshe', 'Aharonn', 'Miriam', 'Dan', 'Levi'];
+var random = Math.floor((Math.random() * (100 - 40)) + 40);
