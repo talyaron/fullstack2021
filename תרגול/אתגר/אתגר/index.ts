@@ -1,7 +1,7 @@
 //variables for input & storage
 let textStorage = [];
 let theInput = document.querySelector('.form');
-const textDemo = document.querySelector('.demoText');
+let textDemo =<HTMLElement>document.querySelector('.demoText');
 
 
 let textEvent = document.querySelectorAll('.input');
@@ -10,8 +10,9 @@ let textEvent = document.querySelectorAll('.input');
 
 textEvent.forEach(elem => {
     elem.addEventListener('keyup', event => {
-        textStorage = event.target.value;
+        var textStorage = (<HTMLInputElement>event.target).value;
         console.dir(event);
+        console.log(textStorage);
 
     })
 
@@ -26,6 +27,8 @@ theInput.addEventListener('submit', handleInput);
 function handleInput(ev) {
     console.dir(ev);
     textDemo.innerHTML = textStorage;
+    //textDemo.innerHTML = 'abba';
+
 }
 
 

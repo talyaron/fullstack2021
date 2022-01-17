@@ -17,7 +17,7 @@ let fullStackClass: Class = {
     newLesson(newTitle, studentList) {
         this.lessons.push({ title: newTitle, grades: [] });
         studentList.forEach((student, i) => {
-            this.lessons.slice(-1)[0].grades[i] = { name: student, grade: getRandomgGrade() }
+            this.lessons[this.lessons.length-1].grades[i] = { name: student, grade: getRandomgGrade() }
         });
     }
 }
