@@ -7,7 +7,6 @@ var img = document.querySelectorAll("img");
 var _loop_1 = function (item) {
     item.addEventListener("mouseenter", function () {
         text.innerHTML = item.alt;
-        console.log(item.alt);
     });
 };
 for (var _i = 0, img_1 = img; _i < img_1.length; _i++) {
