@@ -16,18 +16,66 @@
 // // books[keys[index]] =values[index];
 // // }
 // console.log(books);
-var lessons = ['Coocking', 'Eating', 'Dancingg'];
-var students = ['Moshe', 'Ahron', 'Simi', 'Obama', 'Chiwawa'];
-var grades = [];
-lessons.forEach(function (lesson) {
-    document.getElementById("wrapper").innerHTML +=
-        "<div id=\"lesson\">Lesson name : " + lesson + "</div>";
-    for (var i in students) {
-        var randomNum = Math.floor(Math.random() * 61) + 40;
-        grades[students[i]] = randomNum;
+// coocking[{
+//    student{
+//        name:
+//        grade:[]
+//    }
+// }
+// ]
+// lessons:[
+//     {corseTitle:
+//             Stusednts:[
+//                         {name:
+//                         grade:
+//                         },
+//                         {name:
+//                         grade:
+//                         }
+//                     ]
+//     },
+//     {corseTitle:
+//         Stusednts:[
+//                         {name:
+//                         grade:
+//                         },
+//                         {name:
+//                         grade:
+//                         }
+//                   ]
+//    }
+// ]
+function createCard(cardObject) {
+    var lessons = ["" + cardObject.lessonInput];
+    var students = ['Moshe', 'Ahron', 'Simi', 'Obama', 'Chiwawa'];
+    var grades = [];
+    lessons.forEach(function (lesson) {
         document.getElementById("wrapper").innerHTML +=
-            "<div id=\"name\"> Name: " + students[i] + "</div>";
-        document.getElementById("wrapper").innerHTML +=
-            "<div id=\"grade\"> Grade : " + randomNum.valueOf() + "</div>";
+            "<div id=\"lesson\">Lesson name : " + lesson + "</div>";
+        for (var i in students) {
+            var randomNum = Math.floor(Math.random() * 61) + 40;
+            grades[students[i]] = randomNum;
+            document.getElementById("wrapper").innerHTML +=
+                "<div id=\"name\"> Name: " + students[i] + "</div>";
+            document.getElementById("wrapper").innerHTML +=
+                "<div id=\"grade\"> Grade : " + randomNum.valueOf() + "</div>";
+        }
+        console.log(lesson, grades);
+    });
+}
+function handleCard(e) {
+    e.preventDefault();
+    var object = {};
+    for (var _i = 0, _a = e.target; _i < _a.length; _i++) {
+        var field = _a[_i];
+        if (field.type !== 'submit') {
+            if (field.type === 'number') {
+                object[field.name] = field.valueAsNumber;
+            }
+            else {
+                object[field.name] = field.value;
+            }
+        }
     }
-});
+    createCard(object);
+}
