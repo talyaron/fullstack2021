@@ -12,7 +12,7 @@ let fullStackClass: Class = {
       title: "Math",
       grades: [],
       func: function(){
-         console.log(this.grades);
+         return(this.grades);
       }
       
     },
@@ -36,7 +36,8 @@ function getRandomGrade() {
     return Math.floor(Math.random() * (100 - 40) + 40);
   }
   
-console.log(funky,subject,result, putNameInGrade());
+console.log(subject,result, putNameInGrade());
+console.log(funky);
 
 
 
