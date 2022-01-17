@@ -98,9 +98,9 @@ let myStuff ={
     },
     removeItem(nameOf){
         for (let category in this){
-            for(let element in this[category]){
-                if(this[category][element].name == nameOf){
-                    this[category].splice(element,1)
+            for(let object in this[category]){
+                if(this[category][object].name == nameOf){
+                    this[category].splice(object,1)
                 }
             }
         }

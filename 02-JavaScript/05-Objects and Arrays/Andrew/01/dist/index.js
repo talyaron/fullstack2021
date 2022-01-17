@@ -85,9 +85,9 @@ var myStuff = {
     },
     removeItem: function (nameOf) {
         for (var category in this) {
-            for (var element in this[category]) {
-                if (this[category][element].name == nameOf) {
-                    this[category].splice(element, 1);
+            for (var object in this[category]) {
+                if (this[category][object].name == nameOf) {
+                    this[category].splice(object, 1);
                 }
             }
         }
