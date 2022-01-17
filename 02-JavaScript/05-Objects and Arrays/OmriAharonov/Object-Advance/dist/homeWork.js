@@ -5,8 +5,12 @@ var fullStackClass = {
             grades: []
         },
     ],
-    createLesson: function (newTitle) {
-        this.lessons.push({ title: newTitle, grades: [] });
+    createLesson: function (newTitle, studentList) {
+        var grades = this.lessons.slice(-1);
+        for (var i = 0; i < studentList.length; i++) {
+            grades[i] = { name: studentList[i], grade: getRnadomnNumber() };
+        }
+        this.lessons.push({ title: newTitle, grades: grades });
     }
 };
 //create a function which genrate random grades between 40 and 100 for all students (make the score an integer).
@@ -17,8 +21,8 @@ var getRnadomnNumber = function () {
 for (var i = 0; i < students.length; i++) {
     fullStackClass.lessons[0].grades[i] = { name: students[i], grade: getRnadomnNumber() };
 }
-console.log(fullStackClass.lessons[0].grades);
-//create an internal function to the object
-fullStackClass.createLesson('SCSS');
 console.log(fullStackClass);
-//https://www.freecodecamp.org/news/javascript-array-of-objects-tutorial-how-to-create-update-and-loop-through-objects-using-js-array-methods/
+//create an internal function to the object
+fullStackClass.createLesson('SCSS', students);
+fullStackClass.createLesson('Biology', students);
+console.log(fullStackClass);

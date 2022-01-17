@@ -3,7 +3,7 @@ interface Class {
         title: string,
         grades: Array<any>
     }>
-    createLesson(string, Array?):void
+    createLesson(string, Array): void
 }
 
 let fullStackClass: Class = {
@@ -13,8 +13,12 @@ let fullStackClass: Class = {
             grades: []
         },
     ],
-    createLesson(newTitle){
-        this.lessons.push({title:newTitle, grades:[]});
+    createLesson(newTitle, studentList) {
+        let grades = this.lessons.slice(-1);
+        for(let i = 0; i < studentList.length; i++){
+            grades[i] = { name: studentList[i], grade: getRnadomnNumber() }
+        }
+        this.lessons.push({title: newTitle, grades: grades});
     }
 }
 
@@ -26,14 +30,14 @@ const getRnadomnNumber = function () {
 }
 
 for (let i = 0; i < students.length; i++) {
-    fullStackClass.lessons[0].grades[i] = {name: students[i], grade: getRnadomnNumber()}
+    fullStackClass.lessons[0].grades[i] = { name: students[i], grade: getRnadomnNumber() }
 }
 
-console.log(fullStackClass.lessons[0].grades);
+console.log(fullStackClass);
 
 //create an internal function to the object
 
-fullStackClass.createLesson('SCSS');
+fullStackClass.createLesson('SCSS', students);
+fullStackClass.createLesson('Biology', students);
 console.log(fullStackClass)
 
-//https://www.freecodecamp.org/news/javascript-array-of-objects-tutorial-how-to-create-update-and-loop-through-objects-using-js-array-methods/
