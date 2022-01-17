@@ -32,7 +32,7 @@ function Sumbit(ev) {
     fullStackClass.generateNewLesson(input, students);
     console.log(fullStackClass);
     var newDiv = document.createElement("span");
-    var startDiv = document.querySelector("#first class");
+    var startDiv = document.querySelector("#place_holder");
     document.body.insertBefore(newDiv, startDiv);
     var text = "";
     for (var i = 0; i < fullStackClass.lessons.slice(-1)[0].grades.length; i++) {

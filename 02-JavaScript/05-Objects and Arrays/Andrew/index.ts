@@ -51,7 +51,7 @@ function Sumbit(ev) {
     console.log(fullStackClass);
 
     const newDiv = document.createElement("span");
-    const startDiv = document.querySelector("#first class");
+    const startDiv = document.querySelector("#place_holder");
     document.body.insertBefore(newDiv, startDiv);
     
     let text:string = ``;
