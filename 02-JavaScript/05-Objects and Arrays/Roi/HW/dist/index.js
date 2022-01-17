@@ -7,7 +7,12 @@ var fullStackClass = {
     ]
 };
 var students = ['moshe, ahron, miriam', 'dan', 'levi'];
-var grades = RandomGradeGenerator(40, 100);
-function RandomGradeGeneratorcreateR(minGrade, maxGrade) {
-    return Mathfloor(Math.random()) * (maxGrade - minGrade) + minGrade + 1;
+function getRandomgGrade() {
+    return Math.floor(Math.random() * 61 + 40);
 }
+function generateGrades(theClass, studentList) {
+    studentList.forEach(function (student, i) {
+        theClass.lessons[0].grades[i] = { name: student, grade: getRandomgGrade() };
+    });
+}
+generateGrades(fullStackClass, students);

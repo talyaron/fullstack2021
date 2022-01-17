@@ -16,8 +16,14 @@ let fullStackClass: Class = {
 
 const students = ['moshe, ahron, miriam', 'dan', 'levi'];
 
-let grades = RandomGradeGenerator (40,100)
-
-function RandomGradeGeneratorcreateR (minGrade, maxGrade) {
-  return Mathfloor(Math.random ())*(maxGrade - minGrade) + minGrade + 1;
+function getRandomgGrade() {
+  return Math.floor(Math.random() * 61 + 40);
 }
+
+function generateGrades(theClass, studentList) {
+  studentList.forEach((student, i) => {
+      theClass.lessons[0].grades[i] = { name: student, grade: getRandomgGrade() }
+  });
+}
+
+generateGrades(fullStackClass, students);
