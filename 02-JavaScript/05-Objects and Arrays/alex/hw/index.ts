@@ -37,7 +37,7 @@ function getRandomGrade() {
   }
   
 console.log(subject,result, putNameInGrade());
-console.log(funky);
+console.log("english",funky,);
 
 
 
