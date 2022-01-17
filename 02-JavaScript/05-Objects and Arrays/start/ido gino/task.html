@@ -4,17 +4,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>js</title>
-    
+    <link rel="stylesheet" href="dist/Task.css">
+    <title>Document</title>
 </head>
 <body>
+
+    <div id="lesson" class="main">
+    <form onsubmit='displayGrades(event)'>
+    <input id="input" name="newClass" type="text" placeholder="write the name of the lesson">
+    <button id="btnSub" name="submit" type="submit">Show Grades</button>
+    </form> 
+    <div class="main-show"></div> 
+    <div id="listAverage" class="main-show-listAverage"></div>
+    </div>
+
     
 
 
 
 
+    
 
-
-    <script src="task.js"></script>
+    <script src="dist/Task.js"></script>
 </body>
 </html>
