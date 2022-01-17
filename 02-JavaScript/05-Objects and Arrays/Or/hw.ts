@@ -38,4 +38,5 @@ function insertGrades(classroom, names) {
     });
 }
 insertGrades(fullStackClass,students)
+
 console.dir(fullStackClass.lessons)
