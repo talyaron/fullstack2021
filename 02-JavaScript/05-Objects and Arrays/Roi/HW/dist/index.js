@@ -7,4 +7,7 @@ var fullStackClass = {
     ]
 };
 var students = ['moshe, ahron, miriam', 'dan', 'levi'];
-var grades = Math.floor(Math.random() * 100);
+var grades = RandomGradeGenerator(40, 100);
+function RandomGradeGeneratorcreateR(minGrade, maxGrade) {
+    return Mathfloor(Math.random()) * (maxGrade - minGrade) + minGrade + 1;
+}
