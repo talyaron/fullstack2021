@@ -10,9 +10,17 @@
 </head>
 
 <body>
-    <div id="wrapper">
+    <form id="form" onsubmit="handleCard(event);">
+        <input type="lessonInput" name="lessonInput" id="lessonInput" placeholder="Enter lesson" required>
+        <input type="submit" name='submit' id="submit" value="Send">
+    </form>
 
+    <div id="wrapper"></div>
+
+    <div id="refreshDiv">
+        <button id="refresh" onClick="window.location.reload();">Refresh</button>
     </div>
+    
     <script src="dist/index.js"></script>
 </body>
 
