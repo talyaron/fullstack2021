@@ -22,35 +22,27 @@
 // // }
 
 
-
 // console.log(books);
 
-// interface school {
-//     lessons:Array<{
-//         lesson: string,
-//         grades: Array<any>
-//     }>
-// }
 
 
+const lessons:Array<String> = ['Coocking', 'Eating','Dancingg'];
+const students:Array<string> = ['Moshe', 'Ahron', 'Simi', 'Obama', 'Chiwawa'];
+let grades:Array<number> = [];
 
-    const lessons = ['Coocking', 'Eating','Dancingg'];
-    const students = ['Moshe', 'Ahron', 'Simi', 'Obama', 'Chiwawa' ];
-    let grades = [];
-  
-    lessons.forEach(function(lesson) {
+lessons.forEach(function(lesson) {
+    document.getElementById("wrapper").innerHTML += 
+    `<div id="lesson">Lesson name : ${lesson}</div>`;
+
+    for (let i in students) {
+        let randomNum = Math.floor(Math.random() * 61) + 40;
+        grades[students[i]] = randomNum;
         document.getElementById("wrapper").innerHTML += 
-        `<div id="lesson">Lesson name : ${lesson}</div>`;
-
-        for (let i in students) {
-            let randomNum = Math.floor(Math.random() * 60) + 40;
-            grades[students[i]] = randomNum;
-            document.getElementById("wrapper").innerHTML += 
-            `<div id="name"> Name: ${students[i]}</div>`;
-            document.getElementById("wrapper").innerHTML += 
-            `<div id="grade"> Grade : ${randomNum.valueOf()}</div>`;
-        }
-    })
+        `<div id="name"> Name: ${students[i]}</div>`;
+        document.getElementById("wrapper").innerHTML += 
+        `<div id="grade"> Grade : ${randomNum.valueOf()}</div>`;
+    }
+})
    
 
 
