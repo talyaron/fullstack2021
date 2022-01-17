@@ -12,7 +12,7 @@ let fullStackClass: Class = {
       title: "Math",
       grades: [],
       func: function(){
-         return(this.grades);
+         return this.grades;
       }
       
     },
