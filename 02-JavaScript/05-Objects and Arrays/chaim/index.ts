@@ -1,25 +1,38 @@
-interface Class  {        
+interface Class {
     lessons: Array<{
         title: string,
         grades: Array<any>
     }>
+    createanewlesson(string, Array):void
 }
-const fullStacClass: Class = {
+const students = ['chaim', 'meir', 'yakov', 'yosi', 'menachem'];
 
+
+const fullStackClass: Class = {
     lessons: [
         {
-        title: 'Objects - advance',
-        grades: []
+            title: 'Objects - advance',
+            grades: []
+        }
+    ],
+    createanewlesson(newTitle, studentList) {
+        this.lessons.push({ title: newTitle, grades: [] });
+        studentList.forEach((student, i) => {
+            this.lessons(-1)[0].grades[i] = { name: student, grade: RandomgGrade() }
+        })
     }
-    ]
 }
-const students= ['moshe', 'chaim', 'yosef', 'david', 'gadi'];
+console.log(fullStackClass)
 
-for (let i in students){
-    fullStacClass.lessons[0].grades[i]= {name:students[i], grade: createrandomgradefunc(40,100)};
+function RandomgGrade() {
+    return Math.floor(Math.random() * 61 + 40);
 }
-    function createrandomgradefunc(mingrade, maxgrade){
-   return Math.floor(Math.random()*(maxgrade-mingrade+1)+mingrade);
-    }
-    console.log (fullStacClass);
+function generateGrades(theClass, studentList) {
+    studentList.forEach((student, i) => {
+        theClass.lessons[0].grades[i] = { name: student, grade: RandomgGrade() }
+    });
+}
 
+
+generateGrades(fullStackClass, students);
+console.dir(fullStackClass)
