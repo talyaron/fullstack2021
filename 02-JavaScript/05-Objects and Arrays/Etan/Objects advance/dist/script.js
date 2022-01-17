@@ -14,25 +14,25 @@ var fullStackClass = {
         });
     }
 };
+var newClass = new Map([]);
+newClass.set('grade:', getRandomInt());
 function getRandomInt() {
     return Math.round(Math.random() * 60 + 40);
 }
+var newClassRoom = [];
 function createGrades(studentList, className) {
     for (var i = 0; i < studentList.length; i++) {
-        fullStackClass.lesson[0].grades[i] = { name: studentList[i], grade: getRandomInt() };
+        className.lesson[0].grades[i] = { name: studentList[i], grade: getRandomInt() };
     }
 }
 createGrades(students, fullStackClass);
-console.log(fullStackClass)
 function handleSubmit(ev) {
     ev.preventDefault();
     var madeUpClass = document.getElementsByName("className")[0].value;
-   
-
-fullStackClass.createClass(madeUpClass, students);
- console.log("Todays Grades are...:")
-console.log(fullStackClass);}
-
+    fullStackClass.createClass(madeUpClass, students);
+    console.log("Todays Grades are...");
+}
+;
 //  console.dir(j)
 //Object.keys(fullStackClass.lesson[0]
 // fullStackClass = {

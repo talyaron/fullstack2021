@@ -6,7 +6,7 @@ interface Class {
     }>
     
 }
-let fullStackClass:any = {
+const fullStackClass = {
     lesson: [
         {
             title: 'objects - advanced',
@@ -19,25 +19,27 @@ studentList.forEach((student:any, i:any) => {
 })
 }
 }
-
+const newClass = new Map([]);
+newClass.set('grade:', getRandomInt());
 
 function getRandomInt(){
     return Math.round(Math.random() * 60 + 40);
 }
+let newClassRoom:Array<any> = []
 
 function createGrades(studentList:Array<string>,className:Class) {
     for(let i = 0; i < studentList.length; i++) {
-        fullStackClass.lesson[0].grades[i] = {name: studentList[i],grade: getRandomInt()}
+    className.lesson[0].grades[i] = {name: studentList[i], grade: getRandomInt()}
     }
 }
 createGrades(students,fullStackClass)
+
 function handleSubmit (ev:any){
     ev.preventDefault();
     const madeUpClass:any = document.getElementsByName("className")[0].value;
-    
-fullStackClass.createClass(madeUpClass, students)
-console.log("Todays Grades are...")
-console.log(fullStackClass)}:
+    fullStackClass.createClass(madeUpClass, students)
+console.log(`Todays Grades are...`)};
+
 
 
 //  console.dir(j)
