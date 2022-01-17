@@ -9,9 +9,6 @@ const img = document.querySelectorAll("img")
 
 for(const item of img){
   item.addEventListener("mouseenter", ()=>{
-    text.innerHTML = item.alt;
- console.log(item.alt)
-
-    
+    text.innerHTML = item.alt;  
   })
 }
