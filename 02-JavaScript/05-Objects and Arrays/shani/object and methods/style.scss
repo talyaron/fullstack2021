@@ -1,29 +1,32 @@
 img {
-    width: 5rem;
-    border: 0.5rem solid black;
-    text-align: center;
-    display: block;
+  width: 5rem;
+  border: 0.5rem solid black;
+  text-align: center;
+  display: block;
   margin-left: auto;
   margin-right: auto;
-  
+
 }
 
-// .books {
-//     width:30vw;
-//     background-color:rgb(247, 247, 134);
-//     h2 {
-//         background-color: yellow;
-//         width: 30vw;
-//         text-align: center;
+.books {
+  width: 15vw;
+  background-color: rgb(241, 241, 231);
+  position:relative;
+  display:grid;
+  grid-template-columns: 15vw 1px;
+  
+ 
+
+
+  h2 {
+    background-color: yellow;
+    width: 15vw;
+    text-align: center;
 
 
 
-//     }
+  }
 
 
-// }
+}
 
-// .card{
-//     display:grid;
-//     grid-template-columns: repeat(4,60px) ;
-// }
