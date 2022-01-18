@@ -9,13 +9,39 @@ img {
 
 .books {
   width: 15vw;
-  background-color: #f1f1e7;
+  background-color: #ffefa7;
   position: relative;
   display: grid;
   grid-template-columns: 15vw 1px;
 }
 .books h2 {
   background-color: yellow;
+  width: 15vw;
+  text-align: center;
+}
+
+.movies {
+  width: 15vw;
+  background-color: rgba(70, 8, 8, 0.808);
+  position: relative;
+  display: grid;
+  grid-template-columns: 15vw 1px;
+}
+.movies h2 {
+  background-color: red;
+  width: 15vw;
+  text-align: center;
+}
+
+.expired {
+  width: 15vw;
+  background-color: rgba(102, 255, 14, 0.616);
+  position: relative;
+  display: grid;
+  grid-template-columns: 15vw 1px;
+}
+.expired h2 {
+  background-color: #48ff00;
   width: 15vw;
   text-align: center;
 }

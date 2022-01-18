@@ -10,7 +10,7 @@ img {
 
 .books {
   width: 15vw;
-  background-color: rgb(241, 241, 231);
+  background-color: rgb(255, 239, 167);
   position:relative;
   display:grid;
   grid-template-columns: 15vw 1px;
@@ -20,6 +20,48 @@ img {
 
   h2 {
     background-color: yellow;
+    width: 15vw;
+    text-align: center;
+
+
+
+  }
+
+
+}
+
+.movies {
+  width: 15vw;
+  background-color: rgba(70, 8, 8, 0.808);
+  position:relative;
+  display:grid;
+  grid-template-columns: 15vw 1px; 
+ 
+
+
+  h2 {
+    background-color: red;
+    width: 15vw;
+    text-align: center;
+
+
+
+  }
+
+
+}
+
+.expired {
+  width: 15vw;
+  background-color: rgba(102, 255, 14, 0.616);
+  position:relative;
+  display:grid;
+  grid-template-columns: 15vw 1px; 
+ 
+
+
+  h2 {
+    background-color: rgb(72, 255, 0);
     width: 15vw;
     text-align: center;
 
