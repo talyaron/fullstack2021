@@ -19,11 +19,16 @@ let fullStackClass: Class = {
     ],
     generateNewLesson(newTitle, studentList) {
         this.lessons.push({ title: newTitle, grades: [] });
+        console.time("answer time");
         studentList.forEach((student, i) => {
             this.lessons.slice(-1)[0].grades[i] = { name: student, grade: getRandomgGrade() }
         });
+        console.timeEnd("answer time");
+        console.log(this.lessons.lenght);
+        
     }
 }
+// [this.lessons.lenght-1]
 
 
 
