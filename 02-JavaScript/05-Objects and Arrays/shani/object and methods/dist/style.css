@@ -6,3 +6,16 @@ img {
   margin-left: auto;
   margin-right: auto;
 }
+
+.books {
+  width: 15vw;
+  background-color: #f1f1e7;
+  position: relative;
+  display: grid;
+  grid-template-columns: 15vw 1px;
+}
+.books h2 {
+  background-color: yellow;
+  width: 15vw;
+  text-align: center;
+}

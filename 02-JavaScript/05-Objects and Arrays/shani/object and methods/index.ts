@@ -46,17 +46,12 @@ let myHome:stuff = {
 
 
     ],
-    addItem(title, img, when): void {
+    addItem(title, img, when){
         this.expired.push({ name: title, imgSrc: img, year: when });
     },
-    removeItem(): void {
-        for (let i = 0; i < myHome.books.length; i++) {
-            if (myHome.books[i].name ==="Shark Tale" ) {
-                myHome.books.splice(i,0);
-                break;
-            }
-
-        }
+    removeItem() {
+        // var newArray = myArray.filter(function(f) { return f !== 'two' })
+        //  console.log(newArray)
 
     }
 }
@@ -68,26 +63,26 @@ console.log(myHome)
 
 
 
-// function renderitems(classObj, domElement: any) {
-//     let html: string = '';
+
+
+function renderitems(classObj, domElement: any) {
+    let html: string = '';
    
-//     classObj.books.forEach(book => {
-//         let bookHTML = `<div class='card'>
-//         <div class="books">
-//         <h2>${book.name}(${book.year})</h2> <img src=${book.imgSrc}></div>`;
+    classObj.books.forEach(book => {
+        let bookHTML = `<div class='card'>
+        <div class="books">
         
-//         // lesson.grades.forEach(student => {
-//         //     lessonHTML += `<p>${student.name}: ${student.grade}</p>`
-//         // })
+        <h2>${book.name}(${book.year})</h2> <img src=${book.imgSrc}></div>`;
+       
         
-//         bookHTML += '</div>';
-//         html += bookHTML;
+        bookHTML += '</div>';
+        html += bookHTML;
 
-//     });
+    });
 
-//     domElement.innerHTML = html;
-// }
+    domElement.innerHTML = html;
+}
 
-// const root = document.querySelector('#rootLessons');
+const root = document.querySelector('#rootLessons');
 
-// renderitems(myHome, root);
+renderitems(myHome, root);
