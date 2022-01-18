@@ -10,11 +10,15 @@ var fullStackClass = {
     generateNewLesson: function (newTitle, studentList) {
         var _this = this;
         this.lessons.push({ title: newTitle, grades: [] });
+        console.time("answer time");
         studentList.forEach(function (student, i) {
             _this.lessons.slice(-1)[0].grades[i] = { name: student, grade: getRandomgGrade() };
         });
+        console.timeEnd("answer time");
+        console.log(this.lessons.lenght);
     }
 };
+// [this.lessons.lenght-1]
 //create a function which genrate random grades between 40 and 100 for all students (make the score an integer).
 function getRandomgGrade() {
     return Math.floor(Math.random() * 61 + 40);
