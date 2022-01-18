@@ -22,17 +22,15 @@ h2 {
 
 
 .card {
-  display:gird;
-  grid-template-columns:30px 30px 30px 30px;
+  // display:grid;
+  // grid-template-columns:30px 30px 30px 30px;
+ // grid-template-rows:30px ;
 
   .books {
     width: 15vw;
     background-color: rgb(255, 239, 167);
-    //position: relative; 
+    position: relative; 
     border: solid 5px black;
-
-
-
 
     h2 {
       background-color: yellow;

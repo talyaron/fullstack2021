@@ -16,13 +16,10 @@ h2 {
   text-align: center;
 }
 
-.card {
-  display: gird;
-  grid-template-columns: 30px 30px 30px 30px;
-}
 .card .books {
   width: 15vw;
   background-color: #ffefa7;
+  position: relative;
   border: solid 5px black;
 }
 .card .books h2 {
