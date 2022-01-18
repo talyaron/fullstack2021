@@ -15,6 +15,8 @@ interface Home {
         yearmade: number
     }>;
 
+    addItems(section, item)
+
 }
 
 
@@ -65,6 +67,8 @@ let myHome: Home = {
         },
     ],
 
+    addItems(section, item){
+        section.push()
+    }
 
-    
 }
