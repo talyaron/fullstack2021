@@ -1,27 +1,28 @@
-// interface stuff {
-//     books: Array<{
-//         name: string;
-//         imgSrc: string;
-//         year: number;
+interface stuff {
+    books: Array<{
+        name: string;
+        imgSrc: string;
+        year: number;
 
-//     }>
-//     movies: Array<{
-//         name: string;
-//         imgSrc: string;
-//         year: number;
+    }>
+    movies: Array<{
+        name: string;
+        imgSrc: string;
+        year: number;
 
-//     }>
-//     expired: Array<{
-//         name: string;
-//         imgSrc: string;
-//         description:string;
-//         year: number;
+    }>
+    expired: Array<{
+        name: string;
+        imgSrc: string;
+        description:string;
+        year: number;
 
-//     }>
-//     addItem: void
-// }
+    }>
+    addItem: any;
+    removeItem:any;
+}
 
-let myHome = {
+let myHome:stuff = {
 
     books: [
         { name: "The Girl with the Dragon Tattoo", imgSrc: "https://m.media-amazon.com/images/I/51L+3fbhYML.jpg", year: 2005 },
@@ -48,18 +49,45 @@ let myHome = {
     addItem(title, img, when): void {
         this.expired.push({ name: title, imgSrc: img, year: when });
     },
-    // removeItem(x): void {
-    //     for (let i = 0; i < myHome[i].length; i++) {
-    //         if (myHome[i].name ==="Shark Tale" ) {
-    //             myHome[i].splice( 0);
-    //             break;
-    //         }
+    removeItem(): void {
+        for (let i = 0; i < myHome.books.length; i++) {
+            if (myHome.books[i].name ==="Shark Tale" ) {
+                myHome.books.splice(i,0);
+                break;
+            }
 
-    //     }
+        }
 
-    // }
+    }
 }
 myHome.addItem("apple", "nope", 1998)
-// myHome.removeItem("Shark Tale")
+myHome.removeItem()
 
 console.log(myHome)
+
+
+
+
+// function renderitems(classObj, domElement: any) {
+//     let html: string = '';
+   
+//     classObj.books.forEach(book => {
+//         let bookHTML = `<div class='card'>
+//         <div class="books">
+//         <h2>${book.name}(${book.year})</h2> <img src=${book.imgSrc}></div>`;
+        
+//         // lesson.grades.forEach(student => {
+//         //     lessonHTML += `<p>${student.name}: ${student.grade}</p>`
+//         // })
+        
+//         bookHTML += '</div>';
+//         html += bookHTML;
+
+//     });
+
+//     domElement.innerHTML = html;
+// }
+
+// const root = document.querySelector('#rootLessons');
+
+// renderitems(myHome, root);
