@@ -7,41 +7,44 @@ img {
   margin-right: auto;
 }
 
-.books {
-  width: 15vw;
-  background-color: #ffefa7;
-  position: relative;
-  display: grid;
-  grid-template-columns: 15vw 1px;
+h1 {
+  text-decoration: underline;
 }
-.books h2 {
-  background-color: yellow;
+
+h2 {
   width: 15vw;
   text-align: center;
 }
 
-.movies {
+.card {
+  display: gird;
+  grid-template-columns: 30px 30px 30px 30px;
+}
+.card .books {
+  width: 15vw;
+  background-color: #ffefa7;
+  border: solid 5px black;
+}
+.card .books h2 {
+  background-color: yellow;
+}
+.card .movies {
   width: 15vw;
   background-color: rgba(70, 8, 8, 0.808);
   position: relative;
   display: grid;
   grid-template-columns: 15vw 1px;
 }
-.movies h2 {
+.card .movies h2 {
   background-color: red;
-  width: 15vw;
-  text-align: center;
 }
-
-.expired {
+.card .expired {
   width: 15vw;
   background-color: rgba(102, 255, 14, 0.616);
   position: relative;
   display: grid;
   grid-template-columns: 15vw 1px;
 }
-.expired h2 {
+.card .expired h2 {
   background-color: #48ff00;
-  width: 15vw;
-  text-align: center;
 }
