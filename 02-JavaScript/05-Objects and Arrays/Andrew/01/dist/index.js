@@ -88,7 +88,6 @@ var myStuff = {
             for (var object in this[category]) {
                 if (this[category][object].name == nameOf) {
                     this[category].splice(object, 1);
-<<<<<<< Updated upstream
                     return;
                 }
             }
@@ -141,24 +140,12 @@ function renderPage() {
     for (var section in myStuff) {
         if (section == "addItem")
             break;
-        console.log(section);
         html += "<div class=\"wrapper\">";
         for (var item in myStuff[section]) {
             html += "<div class=\"wrapper__card\">\n                        <h3>" + myStuff[section][item].name + "</h3>\n                        <img src=\"" + myStuff[section][item].imgSRC + "\">\n                        <p>" + myStuff[section][item].description + "</p>\n                    </div>";
-            console.log(myStuff[section][item].imgSRC);
         }
         html += "</div>";
     }
     document.querySelector("#view").innerHTML = html;
 }
 renderPage();
-=======
-                }
-            }
-        }
-    }
-};
-myStuff.addItem("Dreadnought", "Forbiden", "picturelink", "bikes");
-myStuff.removeItem("The Road");
-console.log(myStuff);
->>>>>>> Stashed changes
