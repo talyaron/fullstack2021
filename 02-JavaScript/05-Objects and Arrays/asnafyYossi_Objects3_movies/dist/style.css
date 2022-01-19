@@ -1,0 +1,38 @@
+body {
+  width: 100%;
+  margin: auto;
+}
+
+#pic {
+  width: 400px;
+  height: 600px;
+  object-fit: cover;
+  background: url("bgimage.jpg") no-repeat;
+  background-size: 100% 100%;
+  margin: auto;
+  margin-top: 10PX;
+  margin-bottom: 100px;
+  box-shadow: 0px 20px 20px #0a0a0a;
+}
+
+#contain {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: flex-end;
+  transform: translateY(150%);
+}
+
+#movieTiltle {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  color: #fad60c;
+  font-size: 24px;
+  font-weight: bold;
+  background-color: rgba(104, 104, 104, 0.883);
+  padding: 8px;
+  padding-bottom: 12px;
+  margin-top: 14PX;
+  border: 3px dotted #fad60c;
+}
