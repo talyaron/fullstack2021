@@ -28,7 +28,7 @@ const myHome:Home = {
        let upHome =  this.Books.push({name:name,author:author})
        let lastOfList = myHome.Books.at(-1)
        let lastBook = `<div id="book">
-       <p classß="text">Your newly added book is:</p>
+       <p class="text">Your newly added book is:</p>
        <p class="first">${lastOfList.name}</p>
        <p class="second">By: ${lastOfList.author}</p>
    </div>`
@@ -39,7 +39,7 @@ const myHome:Home = {
         let upHome =  this.Clothes.push({type:type,company:company})
         let lastOfList = myHome.Clothes.at(-1)
         let lastClothing = `<div id="clothing">
-       <p classß="text">Your newly added clothing item is:</p>
+       <p class="text">Your newly added clothing item is:</p>
        <p class="first">A ${lastOfList.type}</p>
        <p class="second">By: ${lastOfList.company}</p>
    </div>`
@@ -50,7 +50,7 @@ const myHome:Home = {
        let upHome =  this.Movies.push({name:name,year:year})
        let lastOfList = myHome.Movies.at(-1)
        let lastMovie = `<div id="movie">
-       <p classß="text">Your newly added movie is:</p>
+       <p class="text">Your newly added movie is:</p>
        <p class="first">${lastOfList.name}</p>
        <p class="second">Published:${lastOfList.year}</p>
        </div>`
