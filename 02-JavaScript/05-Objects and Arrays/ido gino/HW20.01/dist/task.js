@@ -63,8 +63,8 @@ function displayHome(ev) {
             }
         }
     }
-    // console.log(removeElm);
-    // console.log(add);
+    console.log(removeElm);
+    console.log(add);
     console.log(arrayName);
     myhome.addto(arrayName, add);
     myhome.remove(arrayName, removeElm);
@@ -73,7 +73,7 @@ function displayHome(ev) {
 }
 function creatCard(objects) {
     for (var i = 0; i < objects.length; i++) {
-        boxes[i].innerHTML = "<h2>" + objects[i].title + "<h2/>" + ("<p class=\"main-show-box-displayList\">" + objects[i].value + "<p/><br>");
+        boxes[i].innerHTML = "<h2 class=\"main-show-box-head\">" + objects[i].title + "<h2/>  <p class=\"main-show-box-displayList\">" + objects[i].value + "<p/><br>";
     }
 }
 function checkFields(add, removeElm, arrayName) {

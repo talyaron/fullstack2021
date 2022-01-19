@@ -63,9 +63,6 @@ let myhome: Home = {
 
 console.log(Object.keys(myhome))
 console.log(Object.keys(boxes))
-
-
-
 console.log(myhome.objects);
 
 function displayHome(ev): void {
@@ -73,7 +70,6 @@ function displayHome(ev): void {
     let arrayName;
     let add: string;
     let removeElm;
-
     for (let field of ev.target) {
         if (field.name !== "submit") {
             if (field.name == "listArrays") {
@@ -85,10 +81,8 @@ function displayHome(ev): void {
             }
         }
     }
-
-    
-    // console.log(removeElm);
-    // console.log(add);
+    console.log(removeElm);
+    console.log(add);
     console.log(arrayName);
 
     myhome.addto(arrayName, add)
@@ -96,10 +90,9 @@ function displayHome(ev): void {
     creatCard(myhome.objects)
     checkFields(add ,removeElm ,arrayName)
 }
-
 function creatCard(objects) {
     for (let i = 0; i < objects.length; i++) {
-        boxes[i].innerHTML = `<h2>${objects[i].title}<h2/>` + `<p class="main-show-box-displayList">${objects[i].value}<p/><br>`
+        boxes[i].innerHTML = `<h2 class="main-show-box-head">${objects[i].title}<h2/>  <p class="main-show-box-displayList">${objects[i].value}<p/><br>`
     }
 }
 function checkFields(add , removeElm ,arrayName){

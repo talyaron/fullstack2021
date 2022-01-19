@@ -58,7 +58,7 @@
         flex-direction: row;
 
         &-box{
-            // border: 3px solid black;
+            border: 3px solid black;
             height: 100%;
             width: 33%;
             display: flex;
@@ -66,20 +66,23 @@
 
             &-displayList{
                 display: flex;
-                height: 50vh;
+                height: 53vh;
                 flex-direction: column;
                 color: rgb(33, 22, 133);
-                font-size: 25px;
+                font-size: 27px;
                 font-weight: bold;
-                max-width: 75ch;
+                width: 100%;
+                font-family: cursive;
                 // border: 3px solid red;
                 
             }
-            & h2{
-                align-self: center;
-                color:rgb(165, 92, 33) ;
+            &-head{
+                font-size: 30px;
+                text-align: center;
+                color:rgb(0, 0, 0) ;
+                width: 100%;
+                text-decoration-line: underline;
             }
-
         }
     }
 }

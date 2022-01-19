@@ -51,6 +51,7 @@
   flex-direction: row;
 }
 .main-show-box {
+  border: 3px solid black;
   height: 100%;
   width: 33%;
   display: flex;
@@ -58,14 +59,18 @@
 }
 .main-show-box-displayList {
   display: flex;
-  height: 50vh;
+  height: 53vh;
   flex-direction: column;
   color: #211685;
-  font-size: 25px;
+  font-size: 27px;
   font-weight: bold;
-  max-width: 75ch;
+  width: 100%;
+  font-family: cursive;
 }
-.main-show-box h2 {
-  align-self: center;
-  color: #a55c21;
+.main-show-box-head {
+  font-size: 30px;
+  text-align: center;
+  color: black;
+  width: 100%;
+  text-decoration-line: underline;
 }
