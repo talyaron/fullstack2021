@@ -4,7 +4,6 @@ interface Class {
         grades: Array<any>
     }>;
     createRandomGrades?: any
-
 }
 
 const students: Array<string> = ['moshe', 'ahron', 'miriam', 'dan', 'levi'];
@@ -86,14 +85,14 @@ console.log(fullStackClass.createRandomGrades(students));
 
 function renderLessons(classObj: Class, domElement: any) {
     let html: string = '';
-   
+
     classObj.lessons.forEach(lesson => {
         let lessonHTML = `<div class='card'><h2>${lesson.title}</h2>`;
-        
+
         lesson.grades.forEach(student => {
             lessonHTML += `<p>${student.name}: ${student.grade}</p>`
         })
-        
+
         lessonHTML += '</div>';
         html += lessonHTML;
 
