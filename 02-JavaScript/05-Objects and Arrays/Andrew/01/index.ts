@@ -157,7 +157,7 @@ function renderPage() {
     for (let section in myStuff) {
 
         if(section == "addItem") break;
-        console.log(section);
+
         html += `<div class="wrapper">`;
 
         for (let item in myStuff[section]) {
@@ -166,7 +166,6 @@ function renderPage() {
                         <img src="${myStuff[section][item].imgSRC}">
                         <p>${myStuff[section][item].description}</p>
                     </div>`;
-                    console.log(myStuff[section][item].imgSRC);
                     
         }
         html += `</div>`;
