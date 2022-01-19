@@ -37,13 +37,14 @@ var myHome = {
         container.innerHTML += lastMovie;
     },
     removeMovie: function (name) {
-        this.Movies.splice(name, 1);
+        var result = this.Movies.splice(name, 1);
+        console.log(result);
     }
 };
 myHome.addBook("JavaScript: The Good Parts", "Douglas Crockford");
 myHome.addClothing("jacket", "Levi's");
 myHome.addMovie("Pirates of Silicon Valley", 1999);
 myHome.removeBook("atomic habbits");
-myHome.removeClothing("Jeans jacket", "Levi's");
+myHome.removeClothing("jacket", "Levi's");
 myHome.removeMovie("Harry potter 1");
 console.log(myHome);
