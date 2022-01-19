@@ -1,27 +1,4 @@
-interface Home {
-
-    books: Array<{
-        title: string
-        author: string
-    }>;
-
-    shoes: Array<{
-        brand: string
-        price: number
-    }>;
-
-    guitars: Array<{
-        brand: string
-        yearmade: number
-    }>;
-
-    addItems(section, item)
-
-}
-
-
-let myHome: Home = {
-
+var myHome = {
     books: [
         {
             title: 'The Silent Treatment',
@@ -36,8 +13,6 @@ let myHome: Home = {
             author: 'Tomer Kaufman'
         }
     ],
-
-
     shoes: [
         {
             brand: 'Adidas',
@@ -51,12 +26,8 @@ let myHome: Home = {
             brand: 'Timberland',
             price: 700
         },
-
-
     ],
-
     guitars: [
-
         {
             brand: 'Fender',
             yearmade: 2008
@@ -66,17 +37,11 @@ let myHome: Home = {
             yearmade: 2015
         },
     ],
-
-    addItems(section, item){
-        section.push(section[section.length] = item)
+    addItems: function (section, item) {
+        section.push(section[section.length] = item);
     }
-
-}
-
-const section = 'guitars';
-const item = {brand: 'ibanez', yearmade: 2002 }
-
+};
+var section = 'guitars';
+var item = { brand: 'ibanez', yearmade: 2002 };
 myHome.addItems(section, item);
-
 console.log(myHome);
-

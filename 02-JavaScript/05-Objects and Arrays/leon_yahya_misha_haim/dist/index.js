@@ -3,19 +3,19 @@ var obj = {
     movies: [
         {
             title: 'spiderman',
-            imgSrc: 'img/download.jpg',
+            imgSrc: 'img/download.jpeg',
             avarageScore: 9.7,
             price: 40
         },
         {
             title: 'superman',
-            imgSrc: 'img/superman.jpg',
+            imgSrc: 'img/superman.jpeg',
             avarageScore: 8.6,
             price: 45
         },
         {
             title: 'batman',
-            imgSrc: 'img/batman.jpg',
+            imgSrc: 'img/batman.jpeg',
             avarageScore: 9.3,
             price: 47
         }
@@ -30,5 +30,16 @@ var obj = {
         }
     }
 };
+function renderMovies(obj, rootElement) {
+    var html = '';
+    obj.movies.forEach(function (movie) {
+        var movieHTML = "<div class='card'><h2>" + movie.title + "<h2>\n        <p>" + movie.price + "</p>\n        <img src='" + movie.imgSrc + "'>";
+        movieHTML += '</div>';
+        html += movieHTML;
+    });
+    rootElement.innerHTML = html;
+}
+var roothtml = document.getElementById('root');
 obj.increasePrices(-30);
+renderMovies(obj, roothtml);
 console.log(obj);
