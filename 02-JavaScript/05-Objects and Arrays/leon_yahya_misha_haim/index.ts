@@ -57,5 +57,3 @@ obj.increasePrices(-30);
 
 console.log(obj);
 
-
-
