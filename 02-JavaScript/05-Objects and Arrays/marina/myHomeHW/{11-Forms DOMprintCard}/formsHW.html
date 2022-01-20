@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="dist/formsHW.css">
+    <title>formsHW</title>
+</head>
+
+<body>
+
+    <div class="header">
+        Fill the form
+    </div>
+
+    <form onsubmit="handleSubmit(event)" class="formWrapper">
+
+        <label for="name">Name<br>
+            <input type="text" name="name" id="nameF" placeholder="Full name" >
+        </label>
+
+        <label for="idnumber">ID number<br>
+            <input type="number" name="idNumber" id="idF" placeholder="ID number">
+        </label>
+
+        <label for="join">Joined date<br>
+            <input type="date" name="joined" id="joinedF">
+        </label>
+
+        <label for="exp">Expire date<br>
+            <input type="date" name="expired" id="expireF">
+        </label>
+
+        <label for="dob">D.O.B.<br>
+            <input type="date" name="dob" id="dobF">
+        </label>
+
+        <label for="submit">Send<br>
+            <input type="submit" name="submit" value="">
+        </label>
+        <canvas name="sign" id="signF"></canvas>
+    </form>
+
+
+
+    <div id="cardRoot"></div>
+
+    <!-- <div class="card">
+        <div class="card__logo">
+            <img src="https://cdn-static.thetrustedinsight.com/assets_v2/images/misc/profile-cover.jpg" alt="">
+        </div>
+
+        <div class="card__ditails">
+            <div class="card__ditails__imgName">
+                <div class="card__ditails__imgName--img">
+                    <img style="width: 150px;" src="https://i.pinimg.com/originals/2f/98/52/2f985280618decfef2137c8b7df35c3e.jpg" alt="">
+                </div>
+
+                <div class="card__ditails__imgName--name">
+                    <h1 id="personName">${obj.name}</h1>
+                    <p id="personDuty">Creative Manager</p>
+                </div>
+            </div>
+
+            <div class="card__ditails__signature">
+                <canvas id="signC">${obj.sign}</canvas>
+                <h3>Yours Sincerely</h3>
+                <div class="card__ditails__signature--barcode">
+                    <img src="https://code-cache.com/en/wp-content/uploads/2021/09/codee15.jpg" alt="">
+                </div>              
+            </div>
+        </div>
+
+        <div class="card__id">
+            <div class="id1">
+                <div style="font-size: 1em;" class="card__id--idNumber">ID No</div>
+                <div style="font-size: 0.9em;" id="idC" class="card__id--idNumber">${obj.idNumber}</div><br>
+                <div style="font-size: 1em;" class="card__id--DOB">D.O.B.</div>
+                <div style="font-size: 0.9em;" id="dobC" class="card__id--DOB">${obj.dob}</div>
+            </div>
+
+            <div class="id2">
+                <div style="font-size: 1em;" class="card__id--joined">Joined date</div>
+                <div style="font-size: 0.9em;" id="joinedC" class="card__id--joined">${obj.joined}</div><br>
+                <div style="font-size: 1em;" class="card__id--expire">Expire date</div>
+                <div style="font-size: 0.9em;" id="expireC" class="card__id--expire">${obj.expired}</div>
+            </div>
+        </div>
+    </div> -->
+    <script src="dist/formsHW.js"></script>
+</body>
+
+</html>
