@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="dist/style.New.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <form action="" id="form" onsubmit="handleSubmit(event)">
+        <label for="">Books:</label>
+        <input type="text" name="books" placeholder="Books">
+
+        <label for="">Cloths:</label>
+        <input type="text" name="cloths" placeholder="Cloths">
+
+        <label for="">Movies:</label>
+        <input type="text" name="movies" placeholder="Movies">
+
+        <input type="submit" name="submit" id="inputSubmit">
+
+
+    </form>
+
+    <form action="" id="form1" onsubmit="handleRemove(event)">
+        <input type="submit" name="remove" value="Remove Last Items" id="inputRemove">
+    </form>
+
+    <div class="render"></div>
+    
+
+    <script src="dist/indexNew.js"></script>
+</body>
+</html>

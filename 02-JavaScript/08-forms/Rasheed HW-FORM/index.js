@@ -11,10 +11,11 @@ function cardDisplay(ev) {
     var inBirth = document.getElementById("inBirth").value;
     var inGender = document.getElementById("inGender").value;
     var inNumber = document.getElementById("inNumber").value;
-    var name = document.getElementById("name");
-    var birth = document.getElementById("birth");
+    tById("birth");
     var gender = document.getElementById("gender");
     var telephone = document.getElementById("telephone");
+    var name = document.getElementById("name");
+    var birth = document.getElemen;
     name.innerHTML = inNameFirst, inNameLast;
     birth.innerHTML = inBirth;
     gender.innerHTML = inGender;
