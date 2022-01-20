@@ -23,10 +23,10 @@ const myHome: myStuff = {
     this.movies.splice(mov);
     return this;
   },
-
-
 };
 
+myHome.addItems ('born','away','today')
+myHome.removeItems([0],[1],[2]);
 
 
 let x=document.getElementById('root');
@@ -40,5 +40,7 @@ x.innerHTML = `<h2>
 }
 
 goo()
-console.log(myHome.addItems('born', 'away', 'today'));
+
+
+// console.log(myHome.addItems('born', 'away', 'today'));
 // console.log(myHome.removeItems([0],[1],[2]));
