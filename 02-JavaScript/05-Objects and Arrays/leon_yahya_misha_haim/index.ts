@@ -55,7 +55,7 @@ const obj: Movies = {
 
 function renderMovies (obj, rootElement){
     let html: string = '';
-
+    
     obj.movies.forEach(movie =>{
         let movieHTML = `<div class='card'><h2>${movie.title}<h2>
         <p>${movie.price}</p>

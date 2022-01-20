@@ -38,10 +38,31 @@ var myHome = {
         },
     ],
     addItems: function (section, item) {
-        section.push(section[section.length] = item);
+        section.push(item);
     }
 };
-var section = 'guitars';
-var item = { brand: 'ibanez', yearmade: 2002 };
+var rootHtml = document.getElementById('root');
+function submitType(ev) {
+    var html = '';
+    if (ev.value === 'guitars') {
+        myHome.guitars.forEach(function (guitar) {
+            var keyHTML = "<h2>" + guitar.brand + ": " + guitar.yearmade + "</h2>";
+            html += keyHTML;
+        });
+    }
+    rootHtml.innerHTML = html;
+}
+var section = myHome.guitars;
+var item = { brand: 'Ibanez', yearmade: 2002 };
 myHome.addItems(section, item);
 console.log(myHome);
+// function renderHome(obj, element) {
+//     let html: string = '';
+//     obj.forEach(section => {
+//         let sectionHTML = `<div class='card'><h2>${section[0]}<h2>`
+//         sectionHTML += '</div>';
+//         html += sectionHTML;
+//     })
+// element.innerHTML = html;
+// }
+// renderHome(myHome, rootHtml);
