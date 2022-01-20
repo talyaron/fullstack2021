@@ -49,11 +49,11 @@ const marinaHome: AtHome = {
 
 
 function handleSubmit(e){
-    e.preventDefault;
-    console.dir(e.target);
+    e.preventDefault();
+    // console.dir(e.target.elements.bookName.value);
     const root = document.getElementById('listRoot');
-    const title = e.target.elements.title.value;
-    const author = e.target.elements.author.value;
+    const title = e.target.elements.bookName.value;
+    const author = e.target.elements.bookName.value;
 
     marinaHome.AddBook({ title, author});
     marinaHome.renderBooks(root);

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="dist/index.css">
+</head>
+
+<body>
+    <form onsubmit="addItem(ev)">
+        <input type="text" placeholder="Item Name" id="item_name">
+        <input type="number" placeholder="00.00$" id="item_price">
+        <input type="search" value="Add Item" id="submit">
+    </form>
+    <div id="sort_wrapper">
+        <button>Sort: Price ↓</button>
+        <button>Sort: Price ↑</button>
+        <button>Sort: Name ↓</button>
+        <button>Sort: Name ↑</button>
+        <div id="sliders">
+            <label for="min">Min Price
+                <input type="range" name="min" min="0" max="11">
+            </label>
+            <label for="max">Max Price
+                <input type="range" name="max" min="0" max="11">
+            </label>
+        </div>
+    </div>
+    <div id="output"></div>
+    
+
+    <script src="dist/index.js"></script>
+</body>
+
+</html>

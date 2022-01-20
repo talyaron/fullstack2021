@@ -93,6 +93,26 @@ var myStuff = {
             }
         }
         alert("no item with the name \"" + nameOf + "\" exists");
+    },
+    arrangeByYearUp: function () { this.movies.sort(function (a, b) { return a.description - b.description; }); },
+    arrangeByYearDown: function () { this.movies.sort(function (a, b) { return b.description - a.description; }); },
+    arrangeByNameUp: function () {
+        this.movies.sort(function (a, b) {
+            if (a.name.toUpperCase() < b.name.toUpperCase())
+                return -1;
+            if (a.name.toUpperCase() > b.name.toUpperCase())
+                return 1;
+            return 0;
+        });
+    },
+    arrangeByNameDown: function () {
+        this.movies.sort(function (a, b) {
+            if (a.name.toUpperCase() < b.name.toUpperCase())
+                return 1;
+            if (a.name.toUpperCase() > b.name.toUpperCase())
+                return -1;
+            return 0;
+        });
     }
 };
 console.log(myStuff);
@@ -149,3 +169,26 @@ function renderPage() {
     document.querySelector("#view").innerHTML = html;
 }
 renderPage();
+document.querySelector('#year_up').addEventListener("click", handleclick);
+document.querySelector('#year_down').addEventListener("click", handleclick);
+document.querySelector('#name_up').addEventListener("click", handleclick);
+document.querySelector('#name_down').addEventListener("click", handleclick);
+function handleclick(ev) {
+    var id = ev.target.id;
+    switch (id) {
+        case 'year_up':
+            myStuff.arrangeByYearUp();
+            break;
+        case 'year_down':
+            myStuff.arrangeByYearDown();
+            break;
+        case 'name_up':
+            myStuff.arrangeByNameUp();
+            break;
+        case 'name_down':
+            myStuff.arrangeByNameDown();
+            break;
+    }
+    renderPage();
+}
+// myStuff.arrangeByYear();

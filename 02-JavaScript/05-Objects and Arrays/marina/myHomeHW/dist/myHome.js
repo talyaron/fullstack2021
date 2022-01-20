@@ -25,11 +25,11 @@ var marinaHome = {
     }
 };
 function handleSubmit(e) {
-    e.preventDefault;
-    console.dir(e.target);
+    e.preventDefault();
+    // console.dir(e.target.elements.bookName.value);
     var root = document.getElementById('listRoot');
-    var title = e.target.elements.title.value;
-    var author = e.target.elements.author.value;
+    var title = e.target.elements.bookName.value;
+    var author = e.target.elements.bookName.value;
     marinaHome.AddBook({ title: title, author: author });
     marinaHome.renderBooks(root);
 }
