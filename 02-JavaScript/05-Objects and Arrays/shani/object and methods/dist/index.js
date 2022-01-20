@@ -26,7 +26,7 @@ var myHome = {
     }
 };
 myHome.addItem("apple", "nope", 1998, 'expired', "i dont remember");
-myHome.removeItem();
+myHome.removeItem(); //?
 console.log(myHome);
 function renderitemsBooks(classObj, domElement) {
     var html = '';
