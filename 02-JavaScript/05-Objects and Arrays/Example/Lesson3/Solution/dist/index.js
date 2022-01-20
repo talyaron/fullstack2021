@@ -55,3 +55,6 @@ var newMovies = talHome.newMovies(1999);
 console.log(newMovies);
 talHome.sortMovies();
 console.log(talHome.movies);
+function handlePriceChange(ev) {
+    console.log(ev.target.valueAsNumber);
+}
