@@ -4,10 +4,9 @@ interface Class {
         title:string,
         grades: Array<any>
     }>
-    createClass(newClass:Class, studentList:Array<string>)
     
 }
-const fullStackClass:Class = {
+const fullStackClass = {
     lesson: [
         {
             title: 'objects - advanced',
