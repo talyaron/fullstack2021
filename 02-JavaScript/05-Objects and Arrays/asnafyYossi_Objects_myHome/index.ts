@@ -18,7 +18,7 @@ const myHome: myHome = {
         this[cat] = this[cat].filter(item => !name.includes(item))
     },
 }
-// myHome.removeItems('aa','dd')
+// myHome.addItems('aa','dd')
 // myHome.removeItems('aa','dd')
 
 
