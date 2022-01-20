@@ -16,11 +16,15 @@ h2 {
   text-align: center;
 }
 
+.card {
+  position: relative;
+}
 .card .books {
   width: 15vw;
   background-color: #ffefa7;
-  position: relative;
-  border: solid 5px black;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
 }
 .card .books h2 {
   background-color: yellow;
@@ -28,9 +32,6 @@ h2 {
 .card .movies {
   width: 15vw;
   background-color: rgba(70, 8, 8, 0.808);
-  position: relative;
-  display: grid;
-  grid-template-columns: 15vw 1px;
 }
 .card .movies h2 {
   background-color: red;
@@ -38,9 +39,6 @@ h2 {
 .card .expired {
   width: 15vw;
   background-color: rgba(102, 255, 14, 0.616);
-  position: relative;
-  display: grid;
-  grid-template-columns: 15vw 1px;
 }
 .card .expired h2 {
   background-color: #48ff00;
