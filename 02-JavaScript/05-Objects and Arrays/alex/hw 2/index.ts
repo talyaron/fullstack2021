@@ -10,14 +10,14 @@ const myHome: myStuff = {
   books: ["darkness", " apocalypse", "darling days"],
   clothes: ["shirt", "pants", "leggings"],
   movies: ["where the wild things are", "anger", "soundless"],
-  addItems: function (book, cloth, mov) {
+  addItems(book, cloth, mov) {
     this.books.push(book);
     this.clothes.push(cloth);
     this.movies.push(mov);
     return this;
   },
 
-  removeItems: function (book, cloth, mov) {
+  removeItems(book, cloth, mov) {
     this.books.splice(book);
     this.clothes.splice(cloth);
     this.movies.splice(mov);
