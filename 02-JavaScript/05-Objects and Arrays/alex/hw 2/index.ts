@@ -17,7 +17,7 @@ const myHome: myStuff = {
     return this;
   },
 
-  removeItems(book, cloth, mov) {
+  removeItems: function (book, cloth, mov) {
     this.books.splice(book);
     this.clothes.splice(cloth);
     this.movies.splice(mov);
