@@ -1,60 +1,104 @@
-var root = document.getElementById('listRoot');
+var rootBook = document.getElementById('rootBook');
+var rootMusic = document.getElementById('rootMusic');
+var rootMovie = document.getElementById('rootMovie');
 ;
 ;
 ;
-var myHome = {
-    Books: [{ name: 'The Monday starts on Saturday', author: 'Strugazkie' }, { name: 'The Phantom of the Opera', author: 'Gaston Leroux' }],
-    MyMusic: [{ name: 'Miami Vice ', performer: 'Jan Hammer' }, { name: 'Vision', performer: 'Frank Duval' }],
-    MyMovies: [{ name: 'All is lost', director: 'Chandor' }, { name: '8 femmes', director: 'François Ozon' }],
-    // Adding items to the list
-    AddBook: function (name, author) {
-        var newItem = this.Books.push({ name: name, author: author });
-        var lastItem = this.Books.at(-1);
-        var html = "<div class=\"listAddition\">\n        <p>The book you have added:</p>\n        <h3>" + lastItem.name + "</h3>\n        <p>by</p>\n        <h4> " + lastItem.author + "</h4>\n        </div>";
-        root.innerHTML += html;
-        return newItem;
+var marinaHome = {
+    books: [],
+    songs: [],
+    movies: [],
+    AddBook: function (book) {
+        this.books.push(book);
     },
-    AddMusic: function (name, performer) {
-        var newItem = this.MyMusic.push({ name: name, performer: performer });
-        var lastItem = this.MyMusic.at(-1);
-        var html = "<div class=\"listAddition\">\n        <p>The song you have added:</p>\n        <h3>" + lastItem.name + "</h3>\n        <p>by</p>\n        <h4> " + lastItem.performer + "</h4>\n        </div>";
-        root.innerHTML += html;
-        return newItem;
+    RemoveBook: function (bookTitle) {
+        var index = this.books.findIndex(function (book) { return book.title === bookTitle; });
+        if (index >= 0) {
+            this.books.splice(index, 1);
+        }
     },
-    AddMovie: function (name, director) {
-        var newItem = this.MyMovies.push({ name: name, director: director });
-        var lastItem = this.MyMovies.at(-1);
-        var html = "<div class=\"listAddition\">\n        <p>The movie you have added:</p>\n        <h3>" + lastItem.name + "</h3>\n        <p>by</p>\n        <h4> " + lastItem.director + "</h4>\n        </div>";
-        root.innerHTML += html;
-        return newItem;
+    renderBooks: function (domElement) {
+        var html = '';
+        this.books.forEach(function (book) {
+            html += "<div class=\"books\">\n            <p>" + book.title + ", " + book.author + "</p></div>";
+        });
+        console.log(html);
+        domElement.innerHTML = html;
     },
-    // 2. removing items from the list
-    RemovedBook: function (name, author) {
-        var removedBook = this.Books.pop();
-        var html = "<div class=\"listRemoving\">\n        <p>The book you have removed:</p>\n        <h3>" + removedBook.name + "</h3>\n        <p>by</p>\n        <h4> " + removedBook.author + "</h4>\n        </div>";
-        root.innerHTML += html;
-        return removedBook;
+    AddSong: function (song) {
+        this.songs.push(song);
     },
-    RemovedMusic: function (name, performer) {
-        var removedMusic = this.MyMusic.splice(0, 1);
-        var lastRemovedMusic = this.MyMusic.at();
-        var html = "<div class=\"listRemoving\">\n        <p>The song you have removed:</p>\n        <h3>" + lastRemovedMusic.name + "</h3>\n        <p>by</p>\n        <h4> " + lastRemovedMusic.performer + "</h4>\n        </div>";
-        root.innerHTML += html;
-        return removedMusic;
+    RemoveSong: function (songTitle) {
+        var index = this.songs.findIndex(function (song) { return song.title === songTitle; });
+        if (index >= 0) {
+            this.songs.splice(index, 1);
+        }
     },
-    RemoveMovie: function (name, director) {
-        var removedMovie = this.MyMovies.splice(0, 1);
-        var lastRemovedMovie = this.MyMovies.at();
-        var html = "<div class=\"listRemoving\">\n        <p>The movie you have removed:</p>\n        <h3>" + lastRemovedMovie.name + "</h3>\n        <p>by</p>\n        <h4> " + lastRemovedMovie.director + "</h4>\n        </div>";
-        root.innerHTML += html;
-        return removedMovie;
+    renderMusic: function (domElement) {
+        var html = '';
+        this.songs.forEach(function (song) {
+            html += "<div class=\"songs\">\n            <p>" + song.title + ", " + song.performer + "</p></div>";
+        });
+        console.log(html);
+        domElement.innerHTML = html;
+    },
+    AddMovie: function (movie) {
+        this.movies.push(movie);
+    },
+    RemoveMovie: function (movieTitle) {
+        var index = this.movies.findIndex(function (movie) { return movie.title === movieTitle; });
+        if (index >= 0) {
+            this.movies.splice(index, 1);
+        }
+    },
+    renderMovie: function (domElement) {
+        var html = '';
+        this.movies.forEach(function (movie) {
+            html += "<div class = \"movie\">\n            <p>" + movie.title + ", " + movie.director + "</p></div>";
+        });
+        console.log(html);
+        domElement.innerHTML = html;
     }
 };
-myHome.AddBook('Way Station', 'Saimak Klifford');
-myHome.AddMusic('Child in time', 'Deep Purple');
-myHome.AddMovie('Manhattan Murder Mystery ', 'Woody Allen');
-myHome.RemoveMovie('', '');
-myHome.RemovedMusic('', '');
-myHome.RemovedBook(" ", " ");
-console.log(myHome);
-// 3. Optional part (not working)
+function handleSubmit(e) {
+    e.preventDefault();
+    // console.dir(e.target.elements.bookName.value);
+    var rootBook = document.getElementById('rootBook');
+    var title = e.target.elements.bookName.value;
+    var author = e.target.elements.bookAuthor.value;
+    marinaHome.AddBook({ title: title, author: author });
+    marinaHome.renderBooks(rootBook);
+    e.target.reset();
+}
+function handleSubmit(e) {
+    e.preventDefault();
+    // console.dir(e.target.elements.songName.value);
+    var rootMusic = document.getElementById('rootMusic');
+    var title = e.target.elements.songName.value;
+    var performer = e.target.elements.songPerformer.value;
+    marinaHome.AddSong({ title: title, performer: performer });
+    marinaHome.renderMusic(rootMusic);
+    e.target.reset();
+}
+function handleSubmit(e) {
+    e.preventDefault();
+    // console.dir(e.target.elements.songName.value);
+    var rootMovie = document.getElementById('rootMovie');
+    var title = e.target.elements.movieName.value;
+    var director = e.target.elements.movieDirector.value;
+    marinaHome.AddMovie({ title: title, director: director });
+    marinaHome.renderMovie(rootMovie);
+    e.target.reset();
+}
+marinaHome.AddBook({ title: 'The Monday starts on Saturday', author: 'Strugazkie' });
+marinaHome.AddBook({ title: 'The Phantom of the Opera', author: 'Gaston Leroux' });
+marinaHome.AddBook({ title: 'Way Station', author: 'Saimak Klifford' });
+marinaHome.AddSong({ title: 'Miami Vice ', performer: 'Jan Hammer' });
+marinaHome.AddSong({ title: 'Child in time', performer: 'Deep Purple' });
+marinaHome.AddSong({ title: 'Vision', performer: 'Frank Duval' });
+marinaHome.AddMovie({ title: 'All is lost', director: 'Chandor' });
+marinaHome.AddMovie({ title: '8 femmes', director: 'François Ozon' });
+marinaHome.AddMovie({ title: 'Manhattan Murder Mystery ', director: 'Woody Allen' });
+marinaHome.renderBooks(rootBook);
+marinaHome.renderMusic(rootMusic);
+marinaHome.renderMovie(rootMovie);
