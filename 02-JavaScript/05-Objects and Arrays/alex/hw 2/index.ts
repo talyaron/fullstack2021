@@ -26,11 +26,11 @@ const myHome: myStuff = {
 };
 
 myHome.addItems ('born','away','today')
-myHome.removeItems([0],[1],[2]);
+// myHome.removeItems([1,0],[1],[2]);
 
 
 let x=document.getElementById('root');
-function goo () {
+function printDom () {
 x.innerHTML = `<h2>
 <div>${myHome.books}</div>
 <div>${myHome.clothes}</div>
@@ -39,8 +39,8 @@ x.innerHTML = `<h2>
 
 }
 
-goo()
+printDom()
 
 
-// console.log(myHome.addItems('born', 'away', 'today'));
+console.log(myHome.addItems('born', 'away', 'today'));
 // console.log(myHome.removeItems([0],[1],[2]));

@@ -16,11 +16,11 @@ var myHome = {
     }
 };
 myHome.addItems('born', 'away', 'today');
-myHome.removeItems([0], [1], [2]);
+// myHome.removeItems([1,0],[1],[2]);
 var x = document.getElementById('root');
-function goo() {
+function printDom() {
     x.innerHTML = "<h2>\n<div>" + myHome.books + "</div>\n<div>" + myHome.clothes + "</div>\n<div>" + myHome.movies + "</div>\n</h2>";
 }
-goo();
-// console.log(myHome.addItems('born', 'away', 'today'));
+printDom();
+console.log(myHome.addItems('born', 'away', 'today'));
 // console.log(myHome.removeItems([0],[1],[2]));
