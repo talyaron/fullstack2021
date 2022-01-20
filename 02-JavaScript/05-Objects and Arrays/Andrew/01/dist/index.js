@@ -88,11 +88,64 @@ var myStuff = {
             for (var object in this[category]) {
                 if (this[category][object].name == nameOf) {
                     this[category].splice(object, 1);
+                    return;
                 }
             }
         }
+        alert("no item with the name \"" + nameOf + "\" exists");
     }
 };
-myStuff.addItem("Dreadnought", "Forbiden", "picturelink", "bikes");
-myStuff.removeItem("The Road");
 console.log(myStuff);
+function addItem(ev) {
+    ev.preventDefault();
+    var CAT;
+    var itemName;
+    var itemInfo;
+    var itemPic;
+    for (var _i = 0, _a = ev.target; _i < _a.length; _i++) {
+        var field = _a[_i];
+        // console.log(field.type, field.name, field.value, field.checked);
+        if (field.type == "text" && field.value == "") {
+            alert("You must fill all fields!");
+            return;
+        }
+        else if (field.checked) {
+            CAT = field.value;
+        }
+        else if (field.id == "name") {
+            itemName = field.value;
+        }
+        else if (field.id == "info") {
+            itemInfo = field.value;
+        }
+        else if (field.type == "file") {
+            itemPic = "" + URL.createObjectURL(field.files[0]);
+        }
+    }
+    myStuff.addItem(itemName, itemInfo, itemPic, CAT);
+    renderPage();
+}
+function removeItem(ev) {
+    ev.preventDefault();
+    for (var _i = 0, _a = ev.target; _i < _a.length; _i++) {
+        var field = _a[_i];
+        if (field.type == "text") {
+            myStuff.removeItem(field.value);
+        }
+    }
+    renderPage();
+}
+function renderPage() {
+    var html = "";
+    for (var section in myStuff) {
+        if (section == "addItem")
+            break;
+        html += "<div class=\"wrapper\">";
+        for (var item in myStuff[section]) {
+            html += "<div class=\"wrapper__card\">\n                        <h3>" + myStuff[section][item].name + "</h3>\n                        <img src=\"" + myStuff[section][item].imgSRC + "\">\n                        <p>" + myStuff[section][item].description + "</p>\n                    </div>";
+        }
+        html += "</div>";
+    }
+    document.querySelector("#view").innerHTML = html;
+}
+renderPage();

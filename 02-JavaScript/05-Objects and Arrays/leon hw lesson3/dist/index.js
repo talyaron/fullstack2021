@@ -1,7 +1,15 @@
 var myHome = {
     books: [],
     clothes: [],
-    movies: []
+    movies: [],
+    addItems: function () {
+        this.books.push("harry potter", "king of jungle", "yolo");
+        this.clothes.push("jeans", "T shirts", "jacket");
+        this.movies.push("fast and furious", "the saw");
+        return this;
+    }
 };
-var myHomw = this.books.splice(0, "yolo");
-console.log(myHome.books);
+console.log(myHome.addItems());
+function renderItems(myHome) {
+    var html = '';
+}

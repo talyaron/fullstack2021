@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,9 +8,37 @@
     <title>Document</title>
     <link rel="stylesheet" href="dist/index.css">
 </head>
-<body>
-    
 
+<body>
+    <div class="form-wrapper">
+        <form onsubmit='addItem(event)'>
+            <input type="text" placeholder="Name of item to add" id="name">
+            <input type="text" placeholder="Enter item info" id="info">
+            <input type="file" id="">
+            <div><input type="radio" id="books" name="category_radio" value="books" id="">
+                <label for="books">Books</label>
+            </div>
+            <div><input type="radio" id="bikes" name="category_radio" value="bikes" id="">
+                <label for="bikes">Bikes</label>
+            </div>
+            <div><input type="radio" id="movies" name="category_radio" value="movies" id="">
+                <label for="movies">Movies</label>
+            </div>
+            <input type="submit" value="Add Item" id="">
+        </form>
+        <form onsubmit='removeItem(event)'>
+            <input type="text" placeholder="Name of item to remove" id="">
+            <input type="submit" value="Remove item" id="">
+        </form>
+    </div>
+    <div id="view">
+
+
+
+
+        
+    </div>
     <script src="dist/index.js"></script>
 </body>
+
 </html>
