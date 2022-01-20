@@ -3,7 +3,10 @@ interface MyHome{
     books:Array<Books>;
     clothes:Array<Clothes>;
     addMovie(movie:Movie);
+    addBook(book:Books);
+    
     removeMovie(movieTitle:string);
+    removeBook(bookTitle:string);
     renderMovies(domElement:any);
 }
 
@@ -20,12 +23,15 @@ interface Clothes{
     brand:string;
 }
 
-const talHome:MyHome={
-    movies:[],
-    books:[],
-    clothes:[],
+const shaniHome:MyHome={
+    movies:[{title:"shani",year:1999}],
+    books:[{title:"Apple",author:"shani"}],
+    clothes:[{type:"Shoe",brand:"store"}],
     addMovie(movie:Movie){
         this.movies.push(movie);
+    },
+    addBook(book:Books){
+        this.books.push(book);
     },
     removeMovie(movieTitle:string){
        
@@ -52,19 +58,18 @@ function handleAddMovie(ev){
     const title = ev.target.elements.title.value;
     const year:number = ev.target.elements.year.valueAsNumber;
 
-    talHome.addMovie({title, year});
+    shaniHome.addMovie({title, year});
     const rootMovies = document.getElementById('rootMovies');
-    talHome.renderMovies(rootMovies);
+    shaniHome.renderMovies(rootMovies);
 
     ev.target.reset();
 }
 
-talHome.addMovie({title:'matrix', year:1999});
-talHome.addMovie({title:'matrix-2', year:2000});
-talHome.addMovie({title:'matrix-3', year:2003});
-talHome.removeMovie('matrix-2');
+shaniHome.addMovie({title:'matrix', year:1999});
+shaniHome.addBook({title:"meeee",author:"shani"})
+shaniHome.removeMovie('matrix-2');
 
 const rootMovies = document.getElementById('rootMovies');
-talHome.renderMovies(rootMovies);
+shaniHome.renderMovies(rootMovies);
 
-console.log(talHome);
+console.log(shaniHome);

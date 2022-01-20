@@ -1,9 +1,12 @@
-var talHome = {
-    movies: [],
-    books: [],
-    clothes: [],
+var shaniHome = {
+    movies: [{ title: "shani", year: 1999 }],
+    books: [{ title: "Apple", author: "shani" }],
+    clothes: [{ type: "Shoe", brand: "store" }],
     addMovie: function (movie) {
         this.movies.push(movie);
+    },
+    addBook: function (book) {
+        this.books.push(book);
     },
     removeMovie: function (movieTitle) {
         var index = this.movies.findIndex(function (movie) { return movie.title === movieTitle; });
@@ -24,15 +27,14 @@ function handleAddMovie(ev) {
     console.dir(ev.target);
     var title = ev.target.elements.title.value;
     var year = ev.target.elements.year.valueAsNumber;
-    talHome.addMovie({ title: title, year: year });
+    shaniHome.addMovie({ title: title, year: year });
     var rootMovies = document.getElementById('rootMovies');
-    talHome.renderMovies(rootMovies);
+    shaniHome.renderMovies(rootMovies);
     ev.target.reset();
 }
-talHome.addMovie({ title: 'matrix', year: 1999 });
-talHome.addMovie({ title: 'matrix-2', year: 2000 });
-talHome.addMovie({ title: 'matrix-3', year: 2003 });
-talHome.removeMovie('matrix-2');
+shaniHome.addMovie({ title: 'matrix', year: 1999 });
+shaniHome.addBook({ title: "meeee", author: "shani" });
+shaniHome.removeMovie('matrix-2');
 var rootMovies = document.getElementById('rootMovies');
-talHome.renderMovies(rootMovies);
-console.log(talHome);
+shaniHome.renderMovies(rootMovies);
+console.log(shaniHome);
