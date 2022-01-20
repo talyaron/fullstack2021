@@ -88,6 +88,7 @@ var myStuff = {
             for (var object in this[category]) {
                 if (this[category][object].name == nameOf) {
                     this[category].splice(object, 1);
+<<<<<<< Updated upstream
                     return;
                 }
             }
@@ -149,3 +150,13 @@ function renderPage() {
     document.querySelector("#view").innerHTML = html;
 }
 renderPage();
+=======
+                }
+            }
+        }
+    }
+};
+myStuff.addItem("Dreadnought", "Forbiden", "picturelink", "bikes");
+myStuff.removeItem("The Road");
+console.log(myStuff);
+>>>>>>> Stashed changes
