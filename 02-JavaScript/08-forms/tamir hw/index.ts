@@ -5,7 +5,7 @@ interface Class {
     }>,
     newLesson(string, Array): void,
 };
-const students = ['moshe', 'shron', 'miriam', 'dan', 'levi']
+const students = ['tamir', 'shron', 'nisan', 'ariel', 'itai']
 let fulstackClass: Class = {
     lessons: [
         {
@@ -22,9 +22,9 @@ let fulstackClass: Class = {
             this.lessons[this.lessons.length - 1].grades[i] = { name: studentNames[i], grade: RandomGrade(40, 100) };
         }
     }
+
+
 };
-
-
 
 for (let i in students) {
     fulstackClass.lessons[0].grades[i] = { name: students[i], grade: RandomGrade(40, 100) };

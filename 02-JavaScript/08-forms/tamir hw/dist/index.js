@@ -1,5 +1,5 @@
 ;
-var students = ['moshe', 'shron', 'miriam', 'dan', 'levi'];
+var students = ['tamir', 'shron', 'nisan', 'ariel', 'itai'];
 var fulstackClass = {
     lessons: [
         {

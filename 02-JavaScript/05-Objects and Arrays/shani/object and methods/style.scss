@@ -22,15 +22,19 @@ h2 {
 
 
 .card {
-  // display:grid;
-  // grid-template-columns:30px 30px 30px 30px;
- // grid-template-rows:30px ;
+  position: relative;
+
+
 
   .books {
     width: 15vw;
     background-color: rgb(255, 239, 167);
-    position: relative; 
-    border: solid 5px black;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    //why wont flex or grid work
+
+
 
     h2 {
       background-color: yellow;
@@ -45,10 +49,9 @@ h2 {
   .movies {
     width: 15vw;
     background-color: rgba(70, 8, 8, 0.808);
-    position: relative;
-    display: grid;
-    grid-template-columns: 15vw 1px;
     
+
+
 
 
     h2 {
@@ -64,9 +67,6 @@ h2 {
   .expired {
     width: 15vw;
     background-color: rgba(102, 255, 14, 0.616);
-    position: relative;
-    display: grid;
-    grid-template-columns: 15vw 1px;
 
 
 
