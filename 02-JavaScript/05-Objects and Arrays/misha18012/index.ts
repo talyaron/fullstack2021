@@ -81,7 +81,7 @@ let myHome: Home = {
         }
     },
     removeItems(section, item) {
-        section.slice(item)
+        section.splice(item)
     }
 
 }

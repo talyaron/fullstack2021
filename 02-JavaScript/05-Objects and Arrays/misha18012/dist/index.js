@@ -50,7 +50,7 @@ var myHome = {
         }
     },
     removeItems: function (section, item) {
-        section.slice(item);
+        section.splice(item);
     }
 };
 function renderHome(obj, rootElement) {
