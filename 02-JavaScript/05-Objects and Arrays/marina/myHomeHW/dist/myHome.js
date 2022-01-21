@@ -20,13 +20,14 @@ var marinaHome = {
     renderBooks: function (domElement) {
         var html = '';
         this.books.forEach(function (book) {
-            html += "<div class=\"books\">\n            <p>" + book.title + ", " + book.author + "</p></div>";
+            html += "<div class = \"books\">\n            <p>Your last added book</p>\n            <h3>" + book.title + "</h3>\n            by <h4>" + book.author + "</h4></div>";
         });
-        console.log(html);
+        // console.log(html);
         domElement.innerHTML = html;
     },
     AddSong: function (song) {
         this.songs.push(song);
+        console.log(song);
     },
     RemoveSong: function (songTitle) {
         var index = this.songs.findIndex(function (song) { return song.title === songTitle; });
@@ -37,13 +38,14 @@ var marinaHome = {
     renderMusic: function (domElement) {
         var html = '';
         this.songs.forEach(function (song) {
-            html += "<div class=\"songs\">\n            <p>" + song.title + ", " + song.performer + "</p></div>";
+            html += "<div class = \"songs\">\n            <p>Your last added song</p>\n            <h3>" + song.title + "</h3> \n            by <h4>" + song.performer + "</h4></div>";
         });
-        console.log(html);
+        // console.log(html);
         domElement.innerHTML = html;
     },
     AddMovie: function (movie) {
         this.movies.push(movie);
+        console.log(movie);
     },
     RemoveMovie: function (movieTitle) {
         var index = this.movies.findIndex(function (movie) { return movie.title === movieTitle; });
@@ -54,15 +56,15 @@ var marinaHome = {
     renderMovie: function (domElement) {
         var html = '';
         this.movies.forEach(function (movie) {
-            html += "<div class = \"movie\">\n            <p>" + movie.title + ", " + movie.director + "</p></div>";
+            html += "<div class = \"movies\">\n            <p>Your last added song</p>\n            <h3>" + movie.title + "</h3> \n            by <h4>" + movie.director + "</h4></div>";
         });
-        console.log(html);
+        // console.log(html);
         domElement.innerHTML = html;
     }
 };
 function handleSubmit(e) {
     e.preventDefault();
-    // console.dir(e.target.elements.bookName.value);
+    console.dir(e.target.elements.bookName.value);
     var rootBook = document.getElementById('rootBook');
     var title = e.target.elements.bookName.value;
     var author = e.target.elements.bookAuthor.value;
@@ -82,7 +84,7 @@ function handleSubmit(e) {
 }
 function handleSubmit(e) {
     e.preventDefault();
-    // console.dir(e.target.elements.songName.value);
+    // console.dir(e.target.elements.movieName.value);
     var rootMovie = document.getElementById('rootMovie');
     var title = e.target.elements.movieName.value;
     var director = e.target.elements.movieDirector.value;

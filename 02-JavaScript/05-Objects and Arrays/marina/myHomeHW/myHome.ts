@@ -42,16 +42,21 @@ const marinaHome: AtHome = {
     renderBooks(domElement) {
         let html = '';
         this.books.forEach(book => {
-            html += `<div class="books">
-            <p>${book.title}, ${book.author}</p></div>`
+            html += `<div class = "books">
+            <p>Your last added book</p>
+            <h3>${book.title}</h3>
+            by <h4>${book.author}</h4></div>`
         });
-        console.log(html);
+        // console.log(html);
         domElement.innerHTML = html;
     },
 
 
+
+
     AddSong(song: Music) {
         this.songs.push(song);
+        console.log(song);
     },
 
     RemoveSong(songTitle: string) {
@@ -64,16 +69,22 @@ const marinaHome: AtHome = {
     renderMusic(domElement) {
         let html = '';
         this.songs.forEach(song => {
-            html += `<div class="songs">
-            <p>${song.title}, ${song.performer}</p></div>`
+            html += `<div class = "songs">
+            <p>Your last added song</p>
+            <h3>${song.title}</h3> 
+            by <h4>${song.performer}</h4></div>`
         });
-        console.log(html);
+        // console.log(html);
         domElement.innerHTML = html;
     },
 
-    AddMovie(movie: Movie) {
+
+
+    AddMovie(movie: Movies) {
         this.movies.push(movie);
+        console.log(movie);
     },
+   
 
     RemoveMovie(movieTitle: string) {
         const index = this.movies.findIndex(movie => movie.title === movieTitle);
@@ -85,10 +96,12 @@ const marinaHome: AtHome = {
     renderMovie(domElement) {
         let html = '';
         this.movies.forEach(movie => {
-            html += `<div class = "movie">
-            <p>${movie.title}, ${movie.director}</p></div>`
+            html += `<div class = "movies">
+            <p>Your last added song</p>
+            <h3>${movie.title}</h3> 
+            by <h4>${movie.director}</h4></div>`
         });
-        console.log(html);
+        // console.log(html);
         domElement.innerHTML = html;
     }
 
@@ -97,7 +110,7 @@ const marinaHome: AtHome = {
 
 function handleSubmit(e){
     e.preventDefault();
-    // console.dir(e.target.elements.bookName.value);
+    console.dir(e.target.elements.bookName.value);
     const rootBook = document.getElementById('rootBook');
     const title = e.target.elements.bookName.value;
     const author = e.target.elements.bookAuthor.value;
@@ -119,7 +132,7 @@ function handleSubmit(e){
 
 function handleSubmit(e){
     e.preventDefault();
-    // console.dir(e.target.elements.songName.value);
+    // console.dir(e.target.elements.movieName.value);
     const rootMovie = document.getElementById('rootMovie');
     const title = e.target.elements.movieName.value;
     const director = e.target.elements.movieDirector.value;
