@@ -7,7 +7,15 @@ var shaniHome = {
         { name: "Bagel", description: "No one wants to be the asshole that takes the last bagel", year: 2017 },],
     addMovie: function (movie) {
         this.movies.push(movie);
+    },
+    addBooks: function (book) {
+        this.books.push(book);
+    },
+    addExpired: function (expired) {
+        this.expiredStuff.push(expired);
     }
 };
 shaniHome.addMovie({ title: "Madagascar", imgSrc: "", year: 2005 });
+shaniHome.addBooks({ title: "Hary Potter ", imgSrc: "", author: "JK Rowling" });
+shaniHome.addExpired({ name: "apple", description: "for pie maybe ", year: 2021 });
 console.log(shaniHome);

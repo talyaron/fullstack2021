@@ -3,8 +3,11 @@ interface myHome{
     books: Array<Books>;
     expiredStuff: Array<Expired>;
     addMovie(movie: Movie);
-    addBooks?(books: Books);
-    addExpired?(expiredStuff: Expired);
+    addBooks(book: Books);
+    addExpired(expired: Expired);
+    removeMovie?(movieTitle: string);
+    removeBooks?(bookTitle: string);
+    removeExpired?(expiredName: string);
 
 }
 
@@ -36,6 +39,13 @@ interface Expired{
     addMovie(movie: Movie){
         this.movies.push(movie);
     },
+    addBooks(book: Books){
+        this.books.push(book);
+    },
+    addExpired(expired: Expired){
+        this.expiredStuff.push(expired);
+    },
+
 }
 
 
@@ -43,5 +53,7 @@ interface Expired{
 
 
 shaniHome.addMovie({title:"Madagascar", imgSrc:"",year:2005})
+shaniHome.addBooks({title:"Hary Potter ", imgSrc:"",author:"JK Rowling"})
+shaniHome.addExpired({name:"apple",description:"for pie maybe ",year:2021})
 
 console.log(shaniHome)
