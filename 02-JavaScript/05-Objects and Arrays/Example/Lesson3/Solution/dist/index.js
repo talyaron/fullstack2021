@@ -18,23 +18,11 @@ var talHome = {
         });
         // console.log(html)
         domElement.innerHTML = html;
-    },
-    newMovies: function (year) {
-        return this.movies.filter(function (movie) { return movie.year > year; });
-    },
-    sortMovies: function (orderBy) {
-        if (orderBy === void 0) { orderBy = 'asc'; }
-        if (orderBy === 'asc') {
-            this.movies.sort(function (a, b) { return a.year - b.year; });
-        }
-        else if (orderBy === 'desc') {
-            this.movies.sort(function (a, b) { return b.year - a.year; });
-        }
     }
 };
-var numbers = [2, 4, 5, 66, 45, 23, 12];
-var lessThan20 = numbers.filter(function (elm) { return elm > 20; });
-console.log(lessThan20);
+// const numbers = [2, 4, 5, 66, 45, 23, 12];
+// const lessThan20 = numbers.filter((elm) => { return elm > 20 });
+// console.log(lessThan20)
 function handleAddMovie(ev) {
     ev.preventDefault();
     console.dir(ev.target);
@@ -53,8 +41,3 @@ talHome.renderMovies(rootMovies);
 console.log(talHome);
 var newMovies = talHome.newMovies(1999);
 console.log(newMovies);
-talHome.sortMovies();
-console.log(talHome.movies);
-function handlePriceChange(ev) {
-    console.log(ev.target.valueAsNumber);
-}
