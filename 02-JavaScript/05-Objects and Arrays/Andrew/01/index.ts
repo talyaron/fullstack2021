@@ -4,10 +4,14 @@ interface stuff {
     movies:Array<item>,
     addItem(name:string,info:string,SRC:string,Category:string):void,
     removeItem(name:string):void,
+    arrangeByYearUp():void
+    arrangeByYearDown():void
+    arrangeByNameUp():void
+    arrangeByNameDown():void
 }
 interface item{
     name:string,
-    description:string,
+    description?:string,
     imgSRC:string
 }
 
@@ -107,7 +111,20 @@ let myStuff:stuff = {
             }
         }
         alert(`no item with the name "${nameOf}" exists`);
-    }
+    },
+    arrangeByYearUp(){ this.movies.sort((a,b) => a.description - b.description)},
+    arrangeByYearDown(){ this.movies.sort((a,b) => b.description - a.description)},
+    arrangeByNameUp(){ this.movies.sort((a,b) => {
+        if(a.name.toUpperCase()<b.name.toUpperCase())return -1;
+        if(a.name.toUpperCase()>b.name.toUpperCase())return 1;
+        return 0;
+    })},
+    arrangeByNameDown(){ this.movies.sort((a,b) => {
+        if(a.name.toUpperCase()<b.name.toUpperCase())return 1;
+        if(a.name.toUpperCase()>b.name.toUpperCase())return -1;
+        return 0;
+    })}
+    
 }
 console.log(myStuff);
 
@@ -174,3 +191,27 @@ function renderPage() {
 }
 
 renderPage();
+
+document.querySelector('#year_up').addEventListener("click",handleclick);
+document.querySelector('#year_down').addEventListener("click",handleclick);
+document.querySelector('#name_up').addEventListener("click",handleclick);
+document.querySelector('#name_down').addEventListener("click",handleclick);
+
+
+
+function handleclick(ev){
+    let id = ev.target.id
+    switch (id){
+        case'year_up': myStuff.arrangeByYearUp()
+        break;
+        case'year_down': myStuff.arrangeByYearDown()
+        break;
+        case'name_up': myStuff.arrangeByNameUp()
+        break;
+        case'name_down': myStuff.arrangeByNameDown()
+        break;
+    }
+    renderPage();
+}
+// myStuff.arrangeByYear();
+

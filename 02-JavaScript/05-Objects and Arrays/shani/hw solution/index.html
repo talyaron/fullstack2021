@@ -5,17 +5,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Objects</title>
+    <title>Document</title>
 </head>
 
 <body>
+
     <form onsubmit='handleAddMovie(event)'>
         <input type="text" name="title" placeholder="Title of movie" required>
         <input type='number' name="year" placeholder="Year of movie" required>
         <input type="submit" value="ADD MOVIE">
     </form>
-    <label for="price">Price</label>
-    <input type="number" id='price' placeholder="Set amount" onkeyup="handlePriceChange(event)">
+   
+   
+
     <div id="rootMovies"></div>
     <script src="dist/index.js"></script>
 </body>

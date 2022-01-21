@@ -1,12 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
+
 <body>
+    <form onsubmit='functionformovie(event)'>
+        <input type="text" name="title" placeholder="name of movie" required>
+        <input type="submit" value="add the godamn movie">
+        
+    </form>
+    <form onsubmit="functionforbook(event)">
+        <input type="text" name="bookName" placeholder="name of book" required>
+        <input type="submit" value="add the godamn book">
+    </form>
+    <form onsubmit="functionforclothes(event)">
+    <input type="text" name="brand" placeholder="brank of clothing" required>
+    <input type="submit" value="brand !! which one?">
+    </form>
+    <div id="rootClothing"></div>
+    <div id="rootBook"></div>
+    <div id="rootMovies"></div>
     <script src="dist/HW2.js"></script>
 </body>
+
 </html>
