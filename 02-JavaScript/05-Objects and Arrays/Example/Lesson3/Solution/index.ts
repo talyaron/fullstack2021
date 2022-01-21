@@ -45,23 +45,23 @@ const talHome: MyHome = {
         // console.log(html)
         domElement.innerHTML = html
     },
-    newMovies(year): Array<Movie> {
-        return this.movies.filter((movie) => { return movie.year > year })
-    },
-    sortMovies(orderBy = 'asc') {
-        if (orderBy === 'asc') {
-            this.movies.sort((a, b) => { return a.year - b.year })
-        } else if (orderBy === 'desc') {
-            this.movies.sort((a, b) => { return b.year - a.year })
-        }
-    }
+    // newMovies(year): Array<Movie> {
+    //     return this.movies.filter((movie) => { return movie.year > year })
+    // },
+    // sortMovies(orderBy = 'asc') {
+    //     if (orderBy === 'asc') {
+    //         this.movies.sort((a, b) => { return a.year - b.year })
+    //     } else if (orderBy === 'desc') {
+    //         this.movies.sort((a, b) => { return b.year - a.year })
+    //     }
+    // }
 
 
 }
 
-const numbers = [2, 4, 5, 66, 45, 23, 12];
-const lessThan20 = numbers.filter((elm) => { return elm > 20 });
-console.log(lessThan20)
+// const numbers = [2, 4, 5, 66, 45, 23, 12];
+// const lessThan20 = numbers.filter((elm) => { return elm > 20 });
+// console.log(lessThan20)
 
 function handleAddMovie(ev) {
     ev.preventDefault();
@@ -90,9 +90,9 @@ console.log(talHome);
 const newMovies = talHome.newMovies(1999);
 console.log(newMovies);
 
-talHome.sortMovies();
-console.log(talHome.movies);
+// talHome.sortMovies();
+// console.log(talHome.movies);
 
-function handlePriceChange(ev){
-    console.log(ev.target.valueAsNumber)
+// function handlePriceChange(ev){
+//     console.log(ev.target.valueAsNumber)
 }
