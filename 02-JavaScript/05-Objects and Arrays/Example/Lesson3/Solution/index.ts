@@ -95,4 +95,3 @@ console.log(newMovies);
 
 // function handlePriceChange(ev){
 //     console.log(ev.target.valueAsNumber)
-}

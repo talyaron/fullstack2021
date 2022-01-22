@@ -62,7 +62,19 @@ document.querySelector('#price_down').addEventListener("click", function () {
     renderList(Inventory);
     handleSlider();
 });
-document.querySelector('#price_up').addEventListener("click", function () { Inventory.sortPriceUp(); renderList(Inventory); });
-document.querySelector('#name_down').addEventListener("click", function () { Inventory.sortNameDown(); renderList(Inventory); });
-document.querySelector('#name_up').addEventListener("click", function () { Inventory.sortNameUp(); renderList(Inventory); });
+document.querySelector('#price_up').addEventListener("click", function () {
+    Inventory.sortPriceUp();
+    renderList(Inventory);
+    handleSlider();
+});
+document.querySelector('#name_down').addEventListener("click", function () {
+    Inventory.sortNameDown();
+    renderList(Inventory);
+    handleSlider();
+});
+document.querySelector('#name_up').addEventListener("click", function () {
+    Inventory.sortNameUp();
+    renderList(Inventory);
+    handleSlider();
+});
 renderList(Inventory);
