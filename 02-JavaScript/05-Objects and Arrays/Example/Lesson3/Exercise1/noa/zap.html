@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="dist/zap.css">
 </head>
 
 <body>
@@ -15,9 +16,19 @@
         <input type="number" name="price" placeholder="Enter Price" required>
         <input type="submit" value="Add">
     </form>
+    <div class="sort">
+        <P class="text" >sort price</P>
+        <button id="lowToHigh">low to high</button>
+        <button id="highToLow">high to low</button>
+        <!-- <input type="radio" name="sort" id="lowtohigh" value="low to high">
+        <label for="lowtohigh">low to high</label>
+        <input type="radio" name="sort" id="hightolow" value="high to low">
+        <label for="hightolow">high to low</label> -->
+    </div>
+
 
     <label for="price">Show price lower than</label>
-    <input type="number" name="" id="price" placeholder="price" onkeyup="handlePrice">
+    <input type="number" name="price" id="price" placeholder="price" onkeyup="handlePrice(event)">
 
     <div id="list"></div>
 
