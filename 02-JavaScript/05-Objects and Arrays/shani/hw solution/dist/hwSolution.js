@@ -13,9 +13,49 @@ var shaniHome = {
     },
     addExpired: function (expired) {
         this.expiredStuff.push(expired);
+    },
+    removeMovie: function (movieTitle) {
+        var index = this.movies.findIndex(function (movie) { return movie.title === movieTitle; });
+        if (index >= 0) {
+            this.movies.splice(index, 1);
+        }
+    },
+    removeBooks: function (bookTitle) {
+        var index = this.books.findIndex(function (book) { return book.title === bookTitle; });
+        if (index >= 0) {
+            this.books.splice(index, 1);
+        }
+    },
+    removeExpired: function (expiredName) {
+        var index = this.expiredStuff.findIndex(function (expired) { return expired.name === expiredName; });
+        if (index >= 0) {
+            this.expiredStuff.splice(index, 1);
+        }
+    },
+    renderMovies: function (domElement) {
+        var html = '';
+        this.movies.forEach(function (movie) {
+            html += "<div class='card'>\n            <p>" + movie.title + ", " + movie.year + "</p> <img src=" + movie.imgSrc + "></div>";
+        });
+        domElement.innerHTML = html;
     }
 };
+function handleAddMovie(ev) {
+    ev.preventDefault();
+    console.dir(ev.target);
+    var title = ev.target.elements.title.value;
+    var year = ev.target.elements.year.valueAsNumber;
+    shaniHome.addMovie({ title: title, year: year });
+    var rootM = document.getElementById('rootMovies');
+    shaniHome.renderMovies(rootM);
+    ev.target.reset();
+}
 shaniHome.addMovie({ title: "Madagascar", imgSrc: "", year: 2005 });
-shaniHome.addBooks({ title: "Hary Potter ", imgSrc: "", author: "JK Rowling" });
+shaniHome.addBooks({ title: "Harry Potter", imgSrc: "", author: "JK Rowling" });
 shaniHome.addExpired({ name: "apple", description: "for pie maybe ", year: 2021 });
+shaniHome.removeMovie("Madagascar");
+shaniHome.removeBooks("Harry Potter");
+shaniHome.removeExpired("apple");
+var rootM = document.getElementById('rootMovies');
+shaniHome.renderMovies(rootM);
 console.log(shaniHome);

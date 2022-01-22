@@ -5,8 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="dist/style.css">
 </head>
 <body>
+    <form onsubmit='handleAddMovie(event)'>
+        <input type="text" name="title" placeholder="Title of movie" required>
+        <input type='number' name="year" placeholder="Year of movie" required>
+        <input type="image" name="imgSrc" >
+        <input type="submit" value="ADD MOVIE">
+    </form>
+    <div id="rootMovies"></div>
     <script src="dist/hwSolution.js"></script>
 </body>
 </html>
