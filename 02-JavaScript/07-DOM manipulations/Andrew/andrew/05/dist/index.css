@@ -1,18 +1,15 @@
 body {
-  margin-top: 20px;
   font-family: Arial, Helvetica, sans-serif;
   background-color: darkgrey;
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: fixed;
-  top: 5px;
-  left: calc(50% - 250px);
 }
 
 form {
+  margin-top: 20px;
   background-color: #666;
-  width: 700px;
+  width: 800px;
   height: 50px;
   display: flex;
   justify-content: space-around;
@@ -32,7 +29,7 @@ form #submit {
 
 #sort_wrapper {
   background-color: #333;
-  width: 700px;
+  width: 800px;
   height: 100px;
   display: flex;
   justify-content: space-around;
@@ -49,10 +46,17 @@ form #submit {
 #sort_wrapper #sliders label {
   text-align: center;
   color: white;
+  display: flex;
+  align-items: center;
 }
 
 #output {
   background-color: #555;
-  width: 50vw;
-  height: 100vw;
+  width: 700px;
+}
+#output .item {
+  display: flex;
+  justify-content: space-around;
+  border: 1px solid black;
+  margin: 10px;
 }
