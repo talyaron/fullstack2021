@@ -4,6 +4,7 @@ interface zap {
     renderItem(domElement: any);
     sortAscending(orderBy?: any);
     sortDescending?(orderBy?: string);
+    lowerThan
 }
 interface item {
     description: string;
@@ -31,7 +32,8 @@ const zapPage: zap = {
         // ascending.addEventListener('click', (product) => {
         //     this.product.sort((a, b) => { return a.price - b.price })
         // })
-     this.products.sort((a, b) => { return a.price - b.price })
+        document.getElementById("ascending").addEventListener("click", this.products.sort((a, b) => { return a.price - b.price }));
+     
         
 
     },
@@ -39,13 +41,18 @@ const zapPage: zap = {
         this.products.sort((a,b)=>{return b.price-a.price})
 
     },
+    lowerThan(){
+        this.products.filter(product=> {return product.price>20})
+        
+    },
+    
 
 }
 //render makes what i wrote in the ts show on the html
 //the handle submit makes the input responsive
 function handleSubmit(ev) {
     ev.preventDefault();
-    //console.dir(ev.target)
+   // console.dir(ev.target.value)
     const description = ev.target.elements.description.value;
     const price: number = ev.target.elements.price.valueAsNumber;
 
@@ -53,9 +60,15 @@ function handleSubmit(ev) {
     const rootZap = document.getElementById('rootZap');
     zapPage.renderItem(rootZap);
 
+    //zapPage.sortAscending({description, price})
+
 
 
     ev.target.reset();
+}
+
+function handleInput(ev){
+    console.log(ev.target.value)
 }
 
 
@@ -70,3 +83,5 @@ zapPage.sortAscending();
 console.log(zapPage.products);
 // zapPage.sortDescending();
 // console.log(zapPage.products);
+
+

@@ -15,23 +15,30 @@ var zapPage = {
         // ascending.addEventListener('click', (product) => {
         //     this.product.sort((a, b) => { return a.price - b.price })
         // })
-        this.products.sort(function (a, b) { return a.price - b.price; });
+        document.getElementById("ascending").addEventListener("click", this.products.sort(function (a, b) { return a.price - b.price; }));
     },
     sortDescending: function () {
         this.products.sort(function (a, b) { return b.price - a.price; });
+    },
+    lowerThan: function () {
+        this.products.filter(function (product) { return product.price > 20; });
     }
 };
 //render makes what i wrote in the ts show on the html
 //the handle submit makes the input responsive
 function handleSubmit(ev) {
     ev.preventDefault();
-    //console.dir(ev.target)
+    // console.dir(ev.target.value)
     var description = ev.target.elements.description.value;
     var price = ev.target.elements.price.valueAsNumber;
     zapPage.addItem({ description: description, price: price });
     var rootZap = document.getElementById('rootZap');
     zapPage.renderItem(rootZap);
+    //zapPage.sortAscending({description, price})
     ev.target.reset();
+}
+function handleInput(ev) {
+    console.log(ev.target.value);
 }
 zapPage.addItem({ description: "paper", price: 5 });
 console.log(zapPage);
