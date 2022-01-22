@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="dist/style.css">
+</head>
+
+<body>
+    <form onsubmit='handleSubmit(event)'>
+        <input type="text" name="title" placeholder="name of item" required>
+        <input type='number' name="year" placeholder="enter price" required>
+        <input type="submit" value="ADD">
+    </form>
+
+    
+    <button type="button" onclick="">Sort by highest to lowest</button>
+    <button type="button" onclick="">Sort by lowest to highest</button>
+    <label>Show price lower than</label>
+    <input type='number' placeholder="number">
+
+    <script src="dist/zap.js"></script>
+</body>
+
+</html>

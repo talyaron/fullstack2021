@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="dist/index.css">
+</head>
+
+<body>
+    <form onsubmit='handleSubmit(event)'>
+        <input type="text" placeholder="Item Name" name="itemName" id="item_name">
+        <input type="number" placeholder="00.00$" name="itemPrice" id="item_price">
+        <input type="submit" value="Add Item" name="send" id="submit">
+    </form>
+    <div id="sort_wrapper">
+        <button id="price_down" >Sort: Price ↓</button>
+        <button id="price_up" >Sort: Price ↑</button>
+        <button id="name_down" >Sort: Name ↓</button>
+        <button id="name_up" >Sort: Name ↑</button>
+        <div id="sliders">
+            <label for="min">Min Price
+                <input type="range" name="min" min="0" max="11" id="rangeMin" onchange='handleSlider(event)'>
+                <p id="min-value"></p>
+            </label>
+            <label for="max">Max Price
+                <input type="range" name="max" min="0" max="11" id="rangeMax" onchange='handleSlider(event)'>
+                <p id="max-value"></p>
+            </label>
+        </div>
+    </div>
+    <div id="output"></div>
+
+
+    <script src="dist/index.js"></script>
+</body>
+
+</html>
