@@ -49,7 +49,7 @@ const omriHome: myHome = {
 
 function handleMovie(ev){
     ev.preventDefault();
-    const title = ev.target
+    const title = ev.target;
     console.dir(title);
     ev.reset()
 }
