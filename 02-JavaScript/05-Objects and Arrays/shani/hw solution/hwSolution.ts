@@ -5,16 +5,17 @@ interface myHome{
     addMovie(movie: Movie);
     addBooks(book: Books);
     addExpired(expired: Expired);
-    removeMovie?(movieTitle: string);
-    removeBooks?(bookTitle: string);
-    removeExpired?(expiredName: string);
+    removeMovie(movieTitle: string);
+    removeBooks(bookTitle: string);
+    removeExpired(expiredName: string);
+    renderMovies(domElement: any);
 
 }
 
 interface Movie{
     title:string;
     year:number;
-    imgSrc:string
+    imgSrc?:string
 }
 
 interface Books{
@@ -45,15 +46,67 @@ interface Expired{
     addExpired(expired: Expired){
         this.expiredStuff.push(expired);
     },
+    removeMovie(movieTitle: string){
+        const index=this.movies.findIndex(movie => movie.title=== movieTitle);
+        if(index>=0){
+            this.movies.splice(index,1)
 
+        }
+    },
+    removeBooks(bookTitle: string){
+        const index=this.books.findIndex(book=> book.title=== bookTitle);
+        if(index>=0){
+            this.books.splice(index,1)
+
+        }
+    },
+    removeExpired(expiredName: string){
+        const index=this.expiredStuff.findIndex(expired => expired.name=== expiredName);
+        if(index>=0){
+            this.expiredStuff.splice(index,1)
+
+        }
+    },
+    renderMovies(domElement){
+        let html='';
+        this.movies.forEach(movie => {
+            html += `<div class='card'>
+            <p>${movie.title}, ${movie.year}</p> <img src=${movie.imgSrc}></div>`
+            
+        })
+        domElement.innerHTML = html
+    },
+
+}
+
+function handleAddMovie(ev) {
+    ev.preventDefault();
+    console.dir(ev.target)
+    const title = ev.target.elements.title.value;
+    const year: number = ev.target.elements.year.valueAsNumber;
+
+    
+
+    shaniHome.addMovie({ title, year});
+    const rootM = document.getElementById('rootMovies');
+    shaniHome.renderMovies(rootM);
+
+    ev.target.reset();
 }
 
 
 
 
 
-shaniHome.addMovie({title:"Madagascar", imgSrc:"",year:2005})
-shaniHome.addBooks({title:"Hary Potter ", imgSrc:"",author:"JK Rowling"})
-shaniHome.addExpired({name:"apple",description:"for pie maybe ",year:2021})
+shaniHome.addMovie({title:"Madagascar", imgSrc:"",year:2005});
+shaniHome.addBooks({title:"Harry Potter", imgSrc:"",author:"JK Rowling"});
+shaniHome.addExpired({name:"apple",description:"for pie maybe ",year:2021});
+shaniHome.removeMovie("Madagascar");
+shaniHome.removeBooks("Harry Potter");
+shaniHome.removeExpired("apple");
+
+const rootM = document.getElementById('rootMovies');
+shaniHome.renderMovies(rootM);
+
 
 console.log(shaniHome)
