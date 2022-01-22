@@ -84,4 +84,4 @@ console.log(zapPage.products);
 // zapPage.sortDescending();
 // console.log(zapPage.products);
 
-//zapPage.lowerThan();
+
