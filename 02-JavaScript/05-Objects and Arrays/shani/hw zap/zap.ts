@@ -31,7 +31,8 @@ const zapPage: zap = {
         // ascending.addEventListener('click', (product) => {
         //     this.product.sort((a, b) => { return a.price - b.price })
         // })
-     this.products.sort((a, b) => { return a.price - b.price })
+        document.getElementById("ascending").addEventListener("click", this.products.sort((a, b) => { return a.price - b.price }));
+     
         
 
     },
@@ -45,13 +46,15 @@ const zapPage: zap = {
 //the handle submit makes the input responsive
 function handleSubmit(ev) {
     ev.preventDefault();
-    //console.dir(ev.target)
+   // console.dir(ev.target.value)
     const description = ev.target.elements.description.value;
     const price: number = ev.target.elements.price.valueAsNumber;
 
     zapPage.addItem({ description, price });
     const rootZap = document.getElementById('rootZap');
     zapPage.renderItem(rootZap);
+
+    //zapPage.sortAscending({description, price})
 
 
 
