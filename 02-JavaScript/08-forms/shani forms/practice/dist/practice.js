@@ -28,3 +28,8 @@
 // // Carl the total sum is 21
 // sumOfNumbers("Karen")
 // //Karen the total sum is 0
+var people = ["x", "y"];
+people.forEach(function () {
+    console.log("something");
+});
+console.log(people);

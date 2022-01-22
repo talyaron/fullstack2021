@@ -1,0 +1,12 @@
+body {
+    background: rgb(66, 66, 255);
+}
+
+form {
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 1.5rem;
+    input{
+        border-radius: 5px;
+    }
+}

@@ -3,7 +3,7 @@ body {
     color: grayscale($color: #4d4c4c);
 }
 
-#listRoot {
+#rootMovie, #rootMusic, #rootBook {
     margin-top: 10em;
     display: flex;
     justify-content: space-evenly;
