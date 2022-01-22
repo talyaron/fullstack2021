@@ -11,6 +11,10 @@ var zapPage = {
         domElement.innerHTML = html;
     },
     sortAscending: function () {
+        // const ascending = document.getElementById('Ascending')
+        // ascending.addEventListener('click', (product) => {
+        //     this.product.sort((a, b) => { return a.price - b.price })
+        // })
         this.products.sort(function (a, b) { return a.price - b.price; });
     },
     sortDescending: function () {
@@ -21,7 +25,7 @@ var zapPage = {
 //the handle submit makes the input responsive
 function handleSubmit(ev) {
     ev.preventDefault();
-    console.dir(ev.target);
+    //console.dir(ev.target)
     var description = ev.target.elements.description.value;
     var price = ev.target.elements.price.valueAsNumber;
     zapPage.addItem({ description: description, price: price });
@@ -35,5 +39,5 @@ var rootZap = document.getElementById('rootZap');
 zapPage.renderItem(rootZap);
 zapPage.sortAscending();
 console.log(zapPage.products);
-zapPage.sortDescending();
-console.log(zapPage.products);
+// zapPage.sortDescending();
+// console.log(zapPage.products);

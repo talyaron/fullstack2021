@@ -2,8 +2,8 @@ interface zap {
     products: Array<item>,
     addItem(product: item);
     renderItem(domElement: any);
-    sortAscending(orderBy?: string);
-    sortDescending(orderBy?: string);
+    sortAscending(orderBy?: any);
+    sortDescending?(orderBy?: string);
 }
 interface item {
     description: string;
@@ -26,7 +26,13 @@ const zapPage: zap = {
         domElement.innerHTML = html
     },
     sortAscending(){
-        this.products.sort((a,b)=>{return a.price-b.price})
+        // const ascending = document.getElementById('Ascending')
+        
+        // ascending.addEventListener('click', (product) => {
+        //     this.product.sort((a, b) => { return a.price - b.price })
+        // })
+     this.products.sort((a, b) => { return a.price - b.price })
+        
 
     },
     sortDescending(){
@@ -39,7 +45,7 @@ const zapPage: zap = {
 //the handle submit makes the input responsive
 function handleSubmit(ev) {
     ev.preventDefault();
-    console.dir(ev.target)
+    //console.dir(ev.target)
     const description = ev.target.elements.description.value;
     const price: number = ev.target.elements.price.valueAsNumber;
 
@@ -47,8 +53,11 @@ function handleSubmit(ev) {
     const rootZap = document.getElementById('rootZap');
     zapPage.renderItem(rootZap);
 
+
+
     ev.target.reset();
 }
+
 
 
 zapPage.addItem({ description: "paper", price: 5 });
@@ -59,5 +68,5 @@ zapPage.renderItem(rootZap);
 
 zapPage.sortAscending();
 console.log(zapPage.products);
-zapPage.sortDescending();
-console.log(zapPage.products);
+// zapPage.sortDescending();
+// console.log(zapPage.products);
