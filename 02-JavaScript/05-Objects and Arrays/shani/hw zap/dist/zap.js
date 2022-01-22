@@ -19,6 +19,9 @@ var zapPage = {
     },
     sortDescending: function () {
         this.products.sort(function (a, b) { return b.price - a.price; });
+    },
+    lowerThan: function () {
+        this.products.filter(function (product) { return product.price > 20; });
     }
 };
 //render makes what i wrote in the ts show on the html
@@ -34,6 +37,9 @@ function handleSubmit(ev) {
     //zapPage.sortAscending({description, price})
     ev.target.reset();
 }
+function handleInput(ev) {
+    console.log(ev.target.value);
+}
 zapPage.addItem({ description: "paper", price: 5 });
 console.log(zapPage);
 var rootZap = document.getElementById('rootZap');
@@ -42,3 +48,4 @@ zapPage.sortAscending();
 console.log(zapPage.products);
 // zapPage.sortDescending();
 // console.log(zapPage.products);
+//zapPage.lowerThan();

@@ -4,6 +4,7 @@ interface zap {
     renderItem(domElement: any);
     sortAscending(orderBy?: any);
     sortDescending?(orderBy?: string);
+    lowerThan
 }
 interface item {
     description: string;
@@ -40,6 +41,11 @@ const zapPage: zap = {
         this.products.sort((a,b)=>{return b.price-a.price})
 
     },
+    lowerThan(){
+        this.products.filter(product=> {return product.price>20})
+        
+    },
+    
 
 }
 //render makes what i wrote in the ts show on the html
@@ -61,6 +67,10 @@ function handleSubmit(ev) {
     ev.target.reset();
 }
 
+function handleInput(ev){
+    console.log(ev.target.value)
+}
+
 
 
 zapPage.addItem({ description: "paper", price: 5 });
@@ -73,3 +83,5 @@ zapPage.sortAscending();
 console.log(zapPage.products);
 // zapPage.sortDescending();
 // console.log(zapPage.products);
+
+//zapPage.lowerThan();
