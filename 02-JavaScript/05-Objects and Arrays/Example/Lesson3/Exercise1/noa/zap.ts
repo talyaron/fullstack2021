@@ -5,9 +5,21 @@ interface Zap {
     sortItem: any
 }
 
-
 const ZapList: Zap = {
-    products: [],
+    products: [
+        {
+            description: 'adidas',
+            price: 300
+        },
+        {
+            description: 'toe',
+            price: 150
+        },
+        {
+            description: 'creels',
+            price: 200
+        },
+    ],
 
     AddItem(item) {
         this.products.push(item)
@@ -17,22 +29,25 @@ const ZapList: Zap = {
         const button1 = document.getElementById('lowToHigh')
         const button2 = document.getElementById('highToLow')
 
-        button1.addEventListener('click', (product) => {
-            this.product.sort((a, b) => { return a.price - b.price })
+        button1.addEventListener('click', () => {
+            this.products.sort((a, b) => { return a.price - b.price })
+            this.renderZaplist(list);
         })
 
         button2.addEventListener('click', () => {
             this.products.sort((a, b) => { return b.price - a.price })
+            this.renderZaplist(list);
         })
-
-        ZapList.renderZaplist(document.getElementById('list'));
     },
 
-
-    renderZaplist(domElement) {
+    renderZaplist(domElement, pricenum) {
         let HTML = '';
+        let maxPrice = this.products.slice()
 
-        this.products.forEach(element => {
+        if(pricenum){
+           maxPrice = maxPrice.filter((product) => { return product.price <= pricenum }) 
+        }
+        maxPrice.forEach(element => {
             HTML += ` <div class='card'>
             <P> The product: ${element.description}, price: ${element.price}</p>
             </div>`
@@ -63,15 +78,7 @@ function handleZaplist(ev) {
 }
 
 function handlePrice(ev) {
-    ev.preventDefault();
-    const pricenum = ev.target.elements.price.valueAsNumber
-    function newList(price) {
-        return this.products.filter((product) => { return product.price > pricenum })
-
-    }
-
-}
-function getElementById(arg0: string): any {
-    throw new Error("Function not implemented.")
+    const pricenum = ev.target.value
+    ZapList.renderZaplist(list, pricenum)
 }
 
