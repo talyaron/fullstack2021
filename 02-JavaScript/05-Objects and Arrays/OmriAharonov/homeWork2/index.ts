@@ -49,9 +49,11 @@ const omriHome: myHome = {
 
 function handleMovie(ev){
     ev.preventDefault();
-    const title = ev.target;
-    console.dir(title);
-    ev.reset()
+    const title: string = ev.target.elements.Title.value;
+    const director: string = ev.target.elements.Director.value;
+    omriHome.addMovie({title, director});
+    const root_Movies = document.querySelector('#root_Movies');
+    omriHome.renderMovie(root_Movies);
 }
 
 
