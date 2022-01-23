@@ -76,13 +76,6 @@ console.log(ev.target.value);
     
 }
 
-
-  myProduct.addItem({product: 'tire', price: 105});
-myProduct.addItem({product: 'med', price: 15});
-myProduct.addItem({product: 'coockie',price: 20});
-myProduct.addItem({product: 'phone',price: 100});
-// myProduct.sortAsc()
-// myProduct.sortDesc()
 console.log(myProduct);
 const rootZap = document.getElementById("rootZap");
  myProduct.renderZap(rootZap);
