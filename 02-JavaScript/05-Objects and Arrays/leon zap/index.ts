@@ -12,10 +12,9 @@ interface descriptionAndPrice{
 let zapitem:itemObject={
 items:[],
 addItem(addItem:descriptionAndPrice){
-    this.items.push(addItem);
-    // console.log(this)
-    this.renderItem(root)
+    this.items.push(addItem);   
 },
+
 renderItem(itemOnDom){
     console.log(itemOnDom)
     console.log(this.items)
@@ -25,8 +24,7 @@ renderItem(itemOnDom){
     this.items.forEach(item => {
         itemHtml=`<div class="card"><p>${item.company}:${item.price}</p></div>`
     })
-    itemOnDom.innerHTML+=itemHtml;
-}
+    itemOnDom.innerHTML+=itemHtml;}
 }
 
 

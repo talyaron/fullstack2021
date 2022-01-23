@@ -2,8 +2,6 @@ var zapitem = {
     items: [],
     addItem: function (addItem) {
         this.items.push(addItem);
-        // console.log(this)
-        this.renderItem(root);
     },
     renderItem: function (itemOnDom) {
         console.log(itemOnDom);
