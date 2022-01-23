@@ -45,15 +45,17 @@ function handleAddMovie(ev) {
     console.dir(ev.target);
     var title = ev.target.elements.title.value;
     var year = ev.target.elements.year.valueAsNumber;
-    shaniHome.addMovie({ title: title, year: year });
+    var imgSrc = ev.target.elements.imgSrc.value;
+    shaniHome.addMovie({ title: title, year: year, imgSrc: imgSrc });
     var rootM = document.getElementById('rootMovies');
     shaniHome.renderMovies(rootM);
     ev.target.reset();
 }
-shaniHome.addMovie({ title: "Madagascar", imgSrc: "", year: 2005 });
+console.dir(shaniHome.movies);
+shaniHome.addMovie({ title: "Madagascar", imgSrc: "https://upload.wikimedia.org/wikipedia/en/7/7f/Madagascar2poster.jpg", year: 2005 });
 shaniHome.addBooks({ title: "Harry Potter", imgSrc: "", author: "JK Rowling" });
 shaniHome.addExpired({ name: "apple", description: "for pie maybe ", year: 2021 });
-shaniHome.removeMovie("Madagascar");
+//shaniHome.removeMovie("Madagascar");
 shaniHome.removeBooks("Harry Potter");
 shaniHome.removeExpired("apple");
 var rootM = document.getElementById('rootMovies');
