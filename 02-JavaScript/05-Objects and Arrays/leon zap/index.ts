@@ -1,6 +1,6 @@
-const zapitems{
-    addItem:function(item){
-        this.addit
+let zapItem:zapObject={
+    Items:[],
+    addItem(addItem:descriptionAndPrice){
+        this.Items.push(addItem)
     }
-
 }
