@@ -20,6 +20,7 @@ form{
 }
 
 .sortPrice{
+    
     margin-left:35rem;
     margin-top:1%;
     background-color: rgba(255, 239, 98, 0.651);
@@ -30,14 +31,16 @@ form{
     border-radius:3rem;
     #ascending{
         &:hover {
-            transform:translateY(15px);
-            transition:1s;
+            cursor:pointer;
+            transform:translateY(10px);
+            transition:2s;
         }
     }
     #descending{
         &:hover {
-            transform:translateY(-15px);
-            transition:1s;
+            cursor:pointer;
+            transform:translateY(-10px);
+            transition:2s;
         }
     }
 
