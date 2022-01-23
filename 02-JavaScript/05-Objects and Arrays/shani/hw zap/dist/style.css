@@ -28,12 +28,14 @@ form {
   border-radius: 3rem;
 }
 .sortPrice #ascending:hover {
-  transform: translateY(15px);
-  transition: 1s;
+  cursor: pointer;
+  transform: translateY(10px);
+  transition: 2s;
 }
 .sortPrice #descending:hover {
-  transform: translateY(-15px);
-  transition: 1s;
+  cursor: pointer;
+  transform: translateY(-10px);
+  transition: 2s;
 }
 
 .lowerThanPrice {
