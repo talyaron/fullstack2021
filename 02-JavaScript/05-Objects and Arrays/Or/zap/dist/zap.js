@@ -1,28 +1,36 @@
 var list = {
     items: [],
-    renderList: function (domElements) {
+    renderList: function (array) {
         var HTML = '';
-        this.items.forEach(function (item) {
+        array.forEach(function (item) {
             HTML += "<li><p> " + item.description + " " + item.price + "$</p></li>";
         });
-        domElements.innerHTML = HTML;
+        document.getElementById("rootList").innerHTML = HTML;
     },
     sortListAsc: function () {
         this.items.sort(function (a, b) { return a.price - b.price; });
     },
     sortListDesc: function () {
         this.items.sort(function (a, b) { return b.price - a.price; });
+    },
+    filterList: function (maxPrice) {
+        if (maxPrice == "") {
+            this.renderList(this.items);
+            return;
+        }
+        var newFilter = this.items.filter(function (item) { return item.price <= (maxPrice); });
+        list.renderList(newFilter);
+        console.log(newFilter);
     }
 };
-var rootList = document.getElementById("rootList");
-list.renderList(rootList);
+list.renderList(list.items);
 function handleSubmit(ev) {
     console.log(ev.target.elements);
     ev.preventDefault();
     var description = ev.target.elements.description.value;
     var price = ev.target.elements.price.valueAsNumber;
     list.items.push({ description: description, price: price });
-    list.renderList(rootList);
+    list.renderList(list.items);
     ev.target.reset();
 }
 function handleClick(ev) {
@@ -34,15 +42,10 @@ function handleClick(ev) {
             list.sortListDesc();
             break;
     }
-    list.renderList(rootList);
+    list.renderList(list.items);
 }
 function handleFilter(ev) {
     console.log(ev.target.value);
-    var maxPrice = ev.target.value;
-    list.items.filter(function (item) {
-        return item.price > maxPrice;
-    });
-    console.log(list);
-    list.renderList(rootList);
+    list.filterList(ev.target.value);
 }
 console.log(list);
