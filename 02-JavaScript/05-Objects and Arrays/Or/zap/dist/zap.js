@@ -3,7 +3,7 @@ var list = {
     renderList: function (array) {
         var HTML = '';
         array.forEach(function (item) {
-            HTML += "<li><p> " + item.description + " " + item.price + "$</p></li>";
+            HTML += "<li><p>The " + item.description + " costs: " + item.price + "$</p></li>";
         });
         document.getElementById("rootList").innerHTML = HTML;
     },

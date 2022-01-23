@@ -11,7 +11,7 @@ const list: list = {
     renderList(array) {
         let HTML = '';
         array.forEach(item => {
-            HTML += `<li><p> ${item.description} ${item.price}$</p></li>`
+            HTML += `<li><p>The ${item.description} costs: ${item.price}$</p></li>`
         });
         document.getElementById(`rootList`).innerHTML = HTML
     },
