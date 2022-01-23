@@ -1,13 +1,10 @@
+"use strict";
 
 // i=window.prompt("Choose a number")
-
-
 // const months=["Tishrai", "Heshvan", "Kislev","Tevet","Shvat","Adar","Nisan","Iyar","Sivan","Tammuz","Av","Elul","Error month not found"]
-
 //  function convertMonth(i){
 //      if(i<=1){
 //          return months[0]
-     
 //         } 
 //     else if (i==2){
 //          return months[1]
@@ -45,19 +42,10 @@
 //     else{
 //         alert(months[12])
 //     }
-
-
 //    }
-
 //  console.log(convertMonth(i))
-
-
-
 //a shorter way to do so
-
 // x=window.prompt("Choose a number")
-
-
 // const jewishMonths=["Error month not found","Tishrai", "Heshvan", "Kislev","Tevet","Shvat","Adar","Nisan","Iyar","Sivan","Tammuz","Av","Elul"];
 // function convertJewishMonth(y){
 //     if(y<=0 || y>12){
@@ -66,48 +54,52 @@
 //         return(jewishMonths[y]);
 //     }
 // }
-
 // console.log(convertJewishMonth(x))
-
-
 //trying in array of objects
 //z=window.prompt("Choose a number")
-const jewishAndOtherMonths=["Error month not found",{jewish:"Tishrai", other:"October"}, {jewish:"Heshvan", other:"November"}, "Kislev","Tevet","Shvat","Adar","Nisan","Iyar","Sivan","Tammuz","Av","Elul"];
-function convertJewishMonth(v){
-    if(v<=0 || v>12){
-        alert( jewishAndOtherMonths[0]);
-    }else{
-        return( jewishAndOtherMonths[v]);
-    }
+var jewishAndOtherMonths = ["Error month not found", {
+  jewish: "Tishrai",
+  other: "October"
+}, {
+  jewish: "Heshvan",
+  other: "November"
+}, "Kislev", "Tevet", "Shvat", "Adar", "Nisan", "Iyar", "Sivan", "Tammuz", "Av", "Elul"];
+
+function convertJewishMonth(v) {
+  if (v <= 0 || v > 12) {
+    alert(jewishAndOtherMonths[0]);
+  } else {
+    return jewishAndOtherMonths[v];
+  }
+} //console.log(convertJewishMonth(z))
+
+
+var name1 = window.prompt("enter name of jewish month to find regular month: ");
+var result = searchHebrew(jewishAndOtherMonths, name1);
+
+if (result == undefined) {
+  console.log(jewishAndOtherMonths[0]);
+} else {
+  console.log(result.other);
 }
 
-//console.log(convertJewishMonth(z))
-let name1 = window.prompt("enter name of jewish month to find regular month: ")
-let result=searchHebrew(jewishAndOtherMonths,name1);
-if(result==undefined){
-   console.log(jewishAndOtherMonths[0])
-}else{
-    console.log(result.other)
+name1 = window.prompt("enter name of regular month to find jewish month: ");
+result = searchOther(jewishAndOtherMonths, name1);
+
+if (result == undefined) {
+  console.log(jewishAndOtherMonths[0]);
+} else {
+  console.log(result.jewish);
 }
 
-name1 = window.prompt("enter name of regular month to find jewish month: ")
-result=searchOther(jewishAndOtherMonths,name1);
-if(result==undefined){
-    console.log(jewishAndOtherMonths[0])
-}else{
-    console.log(result.jewish)
+function searchHebrew(arr, name) {
+  return arr.find(function (element) {
+    return element.jewish == name;
+  });
 }
 
-
-
-
-
-
-function searchHebrew(arr, name){
-	return arr.find(element => element.jewish == name);
-}
-
-
-function searchOther(arr, name){
-	return arr.find(element => element.other == name);
+function searchOther(arr, name) {
+  return arr.find(function (element) {
+    return element.other == name;
+  });
 }
