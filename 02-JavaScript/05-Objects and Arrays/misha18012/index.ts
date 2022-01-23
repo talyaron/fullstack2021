@@ -70,13 +70,13 @@ let myHome: Home = {
 
     addItems(ev) {
         ev.preventDefault();
-        if(ev.target.name === 'guitar'){
+        if (ev.target.name === 'guitar') {
             this.guitars.push(ev.target.value);
         }
-        else if(ev.target.name === 'books'){
+        else if (ev.target.name === 'books') {
             this.guitars.push(ev.target.value);
         }
-        else if(ev.target.name === 'shoes'){
+        else if (ev.target.name === 'shoes') {
             this.guitars.push(ev.target.value);
         }
     },
@@ -86,25 +86,25 @@ let myHome: Home = {
 
 }
 
-function renderHome (obj, rootElement){
+function renderHome(obj, rootElement) {
     let html: string = '<h1>My Home</h1><h2>Guitars</h2>';
     let movieHTML = '';
 
-    obj.guitars.forEach(item =>{
+    obj.guitars.forEach(item => {
         movieHTML = `<div class='card'><h2>Brand: ${item.brand} - Year Made: ${item.yearmade}<h2>`
         movieHTML += '</div>';
         html += movieHTML;
     })
 
     html += `<h2>Books</h2>`;
-    obj.books.forEach(item =>{
+    obj.books.forEach(item => {
         let movieHTML = `<h2>Title: ${item.title} - Author: ${item.author}<h2>`
         movieHTML += '</div>';
         html += movieHTML;
     })
 
     html += `<h2>Shoes</h2>`;
-    obj.shoes.forEach(item =>{
+    obj.shoes.forEach(item => {
         let movieHTML = `<h2>Brand: ${item.brand} - Price: ${item.price}<h2>`
         movieHTML += '</div>';
         html += movieHTML;
@@ -116,4 +116,4 @@ function renderHome (obj, rootElement){
 
 let root = document.getElementById('root')
 
-renderHome(myHome,root);
+renderHome(myHome, root);
