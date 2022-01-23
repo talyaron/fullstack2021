@@ -1,12 +1,31 @@
+* {
+  font-family: "Outfit", sans-serif;
+  font-size: 1.2rem;
+}
+
 body {
   background: #4242ff;
 }
-
-form {
+body .sort {
   display: flex;
-  justify-content: space-evenly;
-  font-size: 1.5rem;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 10px;
 }
-form input {
+body .sort button, body .sort input {
   border-radius: 5px;
+}
+body form {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+body form input {
+  border-radius: 5px;
+}
+body ul li {
+  height: 100%;
+  border-radius: 5px;
+  background: white;
+  list-style-type: none;
 }

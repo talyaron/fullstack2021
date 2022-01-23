@@ -12,6 +12,17 @@
         <input type="text"  name="description" placeholder="Enter Description" required>
         <input type="number" name="price" placeholder="Enter Price" required>
         <input type="submit" value="ADD item"> </form>
+
+    <form onsubmit="handleAsc(event)" id="AscItem">
+        <input type="submit" name="asc" value="Sort Asc">
+    </form>
+
+    <form onsubmit="handleDesc(event)" id="DescItem">
+        <input type="submit" name="desc" value="Sort Desc">
+    </form>
+
+    <input type="number" name="number" placeholder="Filter Price" onkeyup="handleFilter(event)" id="filterItem">
+
   
     <div class="rootItem"></div>
     <script src="dist/index.js"></script>

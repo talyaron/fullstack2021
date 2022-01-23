@@ -49,8 +49,8 @@ function handleSubmit(ev) {
     renderList(Inventory);
 }
 function handleSlider() {
-    var min = document.querySelector('#rangeMin').value;
-    var max = document.querySelector('#rangeMax').value;
+    var min = document.querySelector('#rangeMin').valueAsNumber;
+    var max = document.querySelector('#rangeMax').valueAsNumber;
     Inventory.filter(min, max);
     document.querySelector('#min-value').innerHTML = min + "$";
     document.querySelector('#max-value').innerHTML = max + "$";
