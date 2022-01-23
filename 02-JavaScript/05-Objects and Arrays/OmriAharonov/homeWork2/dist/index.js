@@ -22,9 +22,11 @@ var omriHome = {
 };
 function handleMovie(ev) {
     ev.preventDefault();
-    var title = ev.target;
-    console.dir(title);
-    ev.reset();
+    var title = ev.target.elements.Title.value;
+    var director = ev.target.elements.Director.value;
+    omriHome.addMovie({ title: title, director: director });
+    var root_Movies = document.querySelector('#root_Movies');
+    omriHome.renderMovie(root_Movies);
 }
 // omriHome.addMovie({ title: 'The Pianist', director: 'Roman Polanski' });
 // const rootMovies = document.querySelector('#root_Movies');

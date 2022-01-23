@@ -7,18 +7,18 @@ interface Zap {
 
 const ZapList: Zap = {
     products: [
-        {
-            description: 'adidas',
-            price: 300
-        },
-        {
-            description: 'toe',
-            price: 150
-        },
-        {
-            description: 'creels',
-            price: 200
-        },
+        // {
+        //     description: 'adidas',
+        //     price: 300
+        // },
+        // {
+        //     description: 'toe',
+        //     price: 150
+        // },
+        // {
+        //     description: 'creels',
+        //     price: 200
+        // },
     ],
 
     AddItem(item) {

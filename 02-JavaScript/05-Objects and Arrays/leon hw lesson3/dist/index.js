@@ -11,6 +11,8 @@ var myHome = {
 };
 console.log(myHome.addItems());
 function renderItems(myHome, domElement) {
+    //יוצאת שגיא בקונסול, לא ניתן לראות את ה
+    //innerHTML
     var html = '';
     this.movies.forEach(function (movie) {
         html += "<div class='card'>\n        <p>" + movie.name + ", " + movie.year + "</p></div>";
