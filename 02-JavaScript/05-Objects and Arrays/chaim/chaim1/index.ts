@@ -1,6 +1,6 @@
 
 interface home {
-    books: Array<{ name: string }>,
+    books: Array<{ name: any }>,
     clothes: Array<{ name: string }>,
     movies: Array<{ name: string }>,
     addItems?: any
@@ -66,3 +66,13 @@ function renderhome(myhome, domElement: any) {
 }
 const root = document.querySelector(`#roothome`);
 renderhome(myhome, root)
+
+
+
+function handleAddbooks(ev){
+    ev.preventDefault();
+    console.dir(ev.target)
+    const title= ev.target.elements.title.value
+    const year= ev.target.elements.year.valueAsNumber;
+   
+}
