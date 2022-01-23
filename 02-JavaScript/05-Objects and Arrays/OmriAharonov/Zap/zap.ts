@@ -2,8 +2,8 @@ interface shop {
     items: Array<Item>;
     addItem(item: Item);
     renderItem(domElement: any);
-    sortItemAsc(Array: Item);
-    sortItemDesc(Array: Item)
+    sortItemAsc();
+    sortItemDesc();
 }
 
 interface Item {
@@ -29,13 +29,13 @@ const zapShop: shop = {
         domElement.innerHTML = html;
     },
 
-    sortItemAsc(this.items) {
+    sortItemAsc() {
         this.items.sort((a, b) => { return a.price - b.price })
     },
 
-    // sortItemDesc(this) {
-    //     this.items.sort((a, b) => { return b.price - a.price })
-    // }
+    sortItemDesc() {
+        this.items.sort((a, b) => { return b.price - a.price })
+    }
 }
 
 function handleItem(ev) {
@@ -49,11 +49,21 @@ function handleItem(ev) {
     ev.target.reset();
 }
 
-function handleSort(ev) {
+function handleSortDesc(ev) {
     ev.preventDefault();
-    console.dir(ev.target)
-    const description: string = ev.target.elements.description.value;
-    const price: number = ev.target.elements.price.valueAsNumber;
-    const items: Array<Item> = zapShop.addItem({ description, price });
-    zapShop.sortItemAsc(Item);
+    zapShop.sortItemDesc();
+    const rootItems = document.getElementById('rootItems');
+    zapShop.renderItem(rootItems);
 }
+
+function handleSortAsc(ev) {
+    ev.preventDefault();
+    zapShop.sortItemAsc();
+    const rootItems = document.getElementById('rootItems');
+    zapShop.renderItem(rootItems);
+}
+
+
+
+
+

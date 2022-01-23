@@ -16,12 +16,16 @@
         <input type="number" name="price" placeholder="Price" required>
         <input type="submit" value="ADD">
     </form>
-    <form class="input" onsubmit="handleSort(event)">
-        <input type="submit" value="sort asc">
-        <!-- <input type="submit" value="sort desc"> -->
+    <form class="sort" onsubmit="handleSortAsc(event)">
+        <input type="submit" value="sort asc">  
+    </form>
+    <form class="sort" onsubmit="handleSortDesc(event)">
+        <input type="submit" value="sort desc"> 
     </form>
     <div id="rootItems"></div>
     <script src="dist/zap.js"></script>
 </body>
 
 </html>
+
+

@@ -11,9 +11,13 @@ var zapShop = {
         html += "</div>";
         domElement.innerHTML = html;
     },
-    : .items
-}, _a = void 0,  = _a["this"], items = _a.items, sort = _a.sort;
-(function (a, b) { return a.price - b.price; });
+    sortItemAsc: function () {
+        this.items.sort(function (a, b) { return a.price - b.price; });
+    },
+    sortItemDesc: function () {
+        this.items.sort(function (a, b) { return b.price - a.price; });
+    }
+};
 function handleItem(ev) {
     ev.preventDefault();
     console.dir(ev);
@@ -24,11 +28,15 @@ function handleItem(ev) {
     zapShop.renderItem(rootItems);
     ev.target.reset();
 }
-function handleSort(ev) {
+function handleSortDesc(ev) {
     ev.preventDefault();
-    console.dir(ev.target);
-    var description = ev.target.elements.description.value;
-    var price = ev.target.elements.price.valueAsNumber;
-    var items = zapShop.addItem({ description: description, price: price });
-    zapShop.sortItemAsc(Item);
+    zapShop.sortItemDesc();
+    var rootItems = document.getElementById('rootItems');
+    zapShop.renderItem(rootItems);
+}
+function handleSortAsc(ev) {
+    ev.preventDefault();
+    zapShop.sortItemAsc();
+    var rootItems = document.getElementById('rootItems');
+    zapShop.renderItem(rootItems);
 }
