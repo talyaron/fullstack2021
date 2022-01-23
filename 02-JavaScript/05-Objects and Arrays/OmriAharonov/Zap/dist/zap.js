@@ -6,7 +6,7 @@ var zapShop = {
     renderItem: function (domElement) {
         var html = '';
         this.items.forEach(function (item) {
-            html += "<div class = 'card_item'>\n            <p> Item: " + item.description + " | Price: " + item.price + "$</p>";
+            html += "<div class = 'card_item'>\n            <p>  " + item.description + "  : " + item.price + "$</p>";
         });
         html += "</div>";
         domElement.innerHTML = html;
@@ -18,6 +18,12 @@ var zapShop = {
         this.items.sort(function (a, b) { return b.price - a.price; });
     }
 };
+zapShop.addItem({ description: 'Curved Monitor LG 32"', price: 180 });
+zapShop.addItem({ description: 'JBL Headphones', price: 200 });
+zapShop.addItem({ description: 'Vtech router', price: 18 });
+zapShop.addItem({ description: 'SONY playstation', price: 1500 });
+var rootItems = document.getElementById('rootItems');
+zapShop.renderItem(rootItems);
 function handleItem(ev) {
     ev.preventDefault();
     console.dir(ev);
@@ -38,5 +44,10 @@ function handleSortAsc(ev) {
     ev.preventDefault();
     zapShop.sortItemAsc();
     var rootItems = document.getElementById('rootItems');
+    zapShop.renderItem(rootItems);
+}
+function handlePrice(ev) {
+    zapShop.items.filter(function (element) { return element < ev.target.valueAsNumber; });
+    var rootItems = document.getElementById('newItems');
     zapShop.renderItem(rootItems);
 }

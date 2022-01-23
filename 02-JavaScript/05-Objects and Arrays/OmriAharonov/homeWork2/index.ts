@@ -57,6 +57,6 @@ function handleMovie(ev){
 }
 
 
-// omriHome.addMovie({ title: 'The Pianist', director: 'Roman Polanski' });
-// const rootMovies = document.querySelector('#root_Movies');
-// omriHome.renderMovie(rootMovies);
+omriHome.addMovie({ title: 'The Pianist', director: 'Roman Polanski' });
+const rootMovies = document.querySelector('#root_Movies');
+omriHome.renderMovie(rootMovies);
