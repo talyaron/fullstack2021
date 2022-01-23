@@ -84,8 +84,7 @@ function handleAddMovie(ev) {
     console.dir(ev.target)
     const title = ev.target.elements.title.value;
     const year: number = ev.target.elements.year.valueAsNumber;
-    const imgSrc:string = ev.target.elements.imgSrc.value;
-   
+    const imgSrc:string = ev.target.elements.imgSrc.value;  
     
 
     shaniHome.addMovie({ title, year,imgSrc});
