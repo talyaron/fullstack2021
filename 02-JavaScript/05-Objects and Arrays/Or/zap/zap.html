@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,13 +8,23 @@
     <title>Document</title>
     <link rel="stylesheet" href="dist/zap.css">
 </head>
+
 <body>
     <form onsubmit="handleSubmit(event)">
-    <input type="text" name="description" placeholder="Enter description">
-    <input type="number" name="price" placeholder="Enter price">
-    <input type="submit" value="Add">
+        <label for="description">description</label>
+        <input type="text" name="description" placeholder="Enter description">
+        <label for="price">price</label>
+        <input type="number" name="price" placeholder="Enter price">
+        <input type="submit" value="Add">
     </form>
+    <div class="sort">
+        <button id="desc" onclick="handleClick(event)">desc</button>
+        <button id="asc" onclick="handleClick(event)">asc</button>
+    </div>
+    <input type="number" id="filter" name="filter" placeholder="Max Price" onkeyup="handleFilter(event)">
+
     <ul id="rootList"></ul>
     <script src="dist/zap.js"></script>
 </body>
+
 </html>

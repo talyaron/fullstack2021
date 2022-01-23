@@ -16,11 +16,13 @@
         <input type="submit" value="ADD">
     </form>
 
-    
-    <button type="button" onclick="">Sort by highest to lowest</button>
-    <button type="button" onclick="">Sort by lowest to highest</button>
+    <div class="sortPrice">
+        <button type="button" id="ascending">Sort by highest to lowest</button>
+        <button type="button" id="descending">Sort by lowest to highest</button>
+    </div>
+
     <label>Show price lower than</label>
-    <input type='number' placeholder="number">
+    <input type='number' onkeyup="handleInput(event)" placeholder="number">
 
     <div id="rootZap"></div>
 
