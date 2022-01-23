@@ -71,19 +71,32 @@
 
 
 //trying in array of objects
-//z=window.prompt("Choose a number")
-const jewishAndOtherMonths=["Error month not found",{jewish:"Tishrai", other:"October"}, {jewish:"Heshvan", other:"November"}, "Kislev","Tevet","Shvat","Adar","Nisan","Iyar","Sivan","Tammuz","Av","Elul"];
-function convertJewishMonth(v){
-    if(v<=0 || v>12){
-        alert( jewishAndOtherMonths[0]);
-    }else{
-        return( jewishAndOtherMonths[v]);
-    }
+z=window.prompt("Choose a number")
+const jewishAndOtherMonths=["Error month not found", 
+                            {jewish:"Tishrai", other:"October"}, 
+                            {jewish:"Heshvan", other:"November"}, 
+                            {jewish:"Kislev", other:"December"}, 
+                            {jewish:"Tevet", other:"November"}, 
+                            {jewish:"Shvat", other:"November"}, 
+                            {jewish:"Adar", other:"November"}, 
+                            {jewish:"Nisan", other:"November"}, 
+                            {jewish:"Iyar", other:"November"}, 
+                            {jewish:"Sivan", other:"November"}, 
+                            {jewish:"Tammuz", other:"November"}, 
+                            {jewish:"Av", other:"November"}, 
+                            {jewish:"Elul", other:"September"}];
+
+let myMonth = convertJewishMonth(z);
+if(myMonth == "err"){
+    alert(jewishAndOtherMonths[0]);
+} else {
+    alert("The " + z + "th Jewish month is: " + myMonth.jewish);
+    alert("The regular month is: " + myMonth.other);
 }
 
-//console.log(convertJewishMonth(z))
+/*
 let name1 = window.prompt("enter name of jewish month to find regular month: ")
-let result=searchHebrew(jewishAndOtherMonths,name1);
+let result=searchHebrew(name1);
 if(result==undefined){
    console.log(jewishAndOtherMonths[0])
 }else{
@@ -101,13 +114,20 @@ if(result==undefined){
 
 
 
-
-
-function searchHebrew(arr, name){
-	return arr.find(element => element.jewish == name);
+function searchHebrew(name){
+	return jewishAndOtherMonths.find(element => element.jewish == name);
 }
 
 
 function searchOther(arr, name){
 	return arr.find(element => element.other == name);
+}
+*/
+
+function convertJewishMonth(v){
+    if(v<=0 || v>12){
+        return "err";
+    }else{
+        return(jewishAndOtherMonths[v]);
+    }
 }
