@@ -6,7 +6,7 @@ var zapPage = {
     renderItem: function (array) {
         var html = "";
         array.forEach(function (item) {
-            html += "<div class='card'>\n            <p>" + item.description + ", " + item.price + "</p></div>";
+            html += "<div class='card'>\n            <p>" + item.description + ", $" + item.price + "</p></div>";
         });
         document.getElementById('rootZap').innerHTML = html;
     },
