@@ -1,0 +1,61 @@
+body {
+    
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: darkgrey;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+form{
+    margin-top: 20px;
+    background-color: #666;
+    width: 800px;
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    #item_name{
+        height: 20px;
+    }
+    #item_price{
+        width: 80px;
+        height: 20px;
+    }
+    #submit{
+        width: 80px;
+        height: 25px;
+    }
+}
+#sort_wrapper{
+    background-color: #333;
+    width: 800px;
+    height: 100px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    button{
+        width: 100px;
+        height: 30px;
+    }
+    #sliders{
+        display: flex;
+        flex-direction: column;
+        label{
+            text-align: center;
+            color: white;
+            display: flex;
+            align-items: center;
+        }
+    }   
+}
+#output{
+    background-color: #555;
+    width: 700px;
+    // height: 100vh;
+    .item{
+        display: flex;
+        justify-content: space-around;
+        border: 1px solid black;
+        margin: 10px;
+    }
+}
