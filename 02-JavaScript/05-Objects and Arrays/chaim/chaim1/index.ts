@@ -17,7 +17,7 @@ const myhome: home = {
 
     clothes: [
         { name: "tishert" },
-        { name: "hats" } 
+        { name: "hats" }
     ],
 
     movies: [
@@ -39,9 +39,10 @@ const myhome: home = {
         return this
     }
 }
-console.log(myhome)
-myhome.addItems()
+
+myhome.addItems()//הפונקציות לא עובדות
 myhome.removeitems()
+console.log(myhome)
 
 function renderhome(myhome, domElement: any) {
     let html: string =
