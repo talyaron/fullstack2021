@@ -1,0 +1,78 @@
+.sun {
+  display: flex;
+  margin-top: 50%;
+  justify-content: center;
+  align-items: center;
+  clip-path: inset(1px 1px 1px 1px round 300px);
+  background-color: #def7f9;
+}
+.sunBeam {
+  align-content: center;
+  justify-content: center;
+  margin-top: 200px;
+  margin-left: -55px;
+}
+.sunBeam__ray {
+  background-color: #ffa200;
+  border-top: 50px solid #ff7300;
+  border-bottom: 50px solid #ff7300;
+  margin-left: 50%;
+  width: 15px;
+  height: 100px;
+  margin: auto;
+  box-shadow: 5px 10px 20px #f8f1a1;
+}
+.sunBeam__ray.__01 {
+  animation-name: sun;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: running;
+  animation-fill-mode: slidein;
+  margin-top: -200px;
+  margin-left: 50px;
+  transform: rotate(10deg);
+}
+.sunBeam__ray.__02 {
+  animation-name: sun;
+  animation-duration: 20s;
+  margin-top: -200px;
+  margin-left: 50px;
+  transform: rotate(0deg);
+}
+.sunBeam__ray.__03 {
+  animation-name: sun;
+  animation-duration: 30s;
+  margin-top: -200px;
+  margin-left: 50px;
+  transform: rotate(0deg);
+}
+.sunBeam__ray.__04 {
+  animation-name: sun;
+  animation-duration: 40s;
+  margin-top: -200px;
+  margin-left: 50px;
+  transform: rotate(0deg);
+}
+.sunBeam__ray.__05 {
+  animation-name: sun;
+  animation-duration: 50s;
+  margin-top: -200px;
+  margin-left: 50px;
+  transform: rotate(0deg);
+}
+.sunBeam__ray.__06 {
+  animation-name: sun;
+  animation-duration: 60s;
+  margin-top: -200px;
+  margin-left: 50px;
+  transform: rotate(0deg);
+}
+@keyframes sun {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
