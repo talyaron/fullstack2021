@@ -39,24 +39,13 @@ const omriHome: myHome = {
         let html = '';
         this.movies.forEach(movie => {
             html += `<div class = 'card'>
-            <p>Title: ${movie.title} </p>
-            <p>Director: ${movie.director} </p>`
+            <p> ${movie.title}, ${movie.year}`
         })
-        html += `</div>`
+
         domElem.innerHTML = html;
     }
 }
 
-function handleMovie(ev){
-    ev.preventDefault();
-    const title: string = ev.target.elements.Title.value;
-    const director: string = ev.target.elements.Director.value;
-    omriHome.addMovie({title, director});
-    const root_Movies = document.querySelector('#root_Movies');
-    omriHome.renderMovie(root_Movies);
-}
-
-
-// omriHome.addMovie({ title: 'The Pianist', director: 'Roman Polanski' });
-// const rootMovies = document.querySelector('#root_Movies');
-// omriHome.renderMovie(rootMovies);
+omriHome.addMovie({ title: 'The Pianist', director: 'Roman Polanski' });
+const rootMovies = document.querySelector('#root_Movies');
+omriHome.renderMovie(rootMovies);

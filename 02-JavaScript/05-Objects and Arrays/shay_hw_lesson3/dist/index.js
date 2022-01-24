@@ -49,7 +49,7 @@ var myHome = {
         });
     }
 };
-// console.log(myHome.addItem('super - man', 'wine', 'The Hunger Games'));
+console.log(myHome.addItem('super - man', 'wine', 'The Hunger Games'));
 console.log(myHome.removItem('spider - man', 'Milki', 'The Dark Artifices'));
 console.log(myHome);
 function home(myHome, domElement) {

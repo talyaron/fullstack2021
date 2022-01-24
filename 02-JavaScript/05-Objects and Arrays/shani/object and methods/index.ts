@@ -48,14 +48,14 @@ let myHome: stuff = {
     addItem(title, img, when, itemName, about) {
         this[itemName].push({ name: title, imgSrc: img, description: about, year: when });
     },
-    removeItem() {
+    removeItem( ) {
         // var myIndex = myHome.books.indexOf({ name: title, imgSrc: img, year: when });
         // if (myIndex !== -1) {
         //     myHome.books.splice(myIndex);
         // }
         // return myHome
 
-        const removeBooks = myHome.books.pop() //תנסי להשתמש בטכניקה אחרת בשביל למחוק
+        const removeBooks = myHome.books.pop()
         const removeMovies = myHome.movies.pop()
         const removeExipred = myHome.expired.pop()
 

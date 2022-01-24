@@ -38,5 +38,3 @@ myHome.addBook('JavaScript: The Good Parts', 'Douglas Crockford');
 myHome.addClothing('jacket', "Levi's");
 myHome.addMovie('Pirates of Silicon Valley', 1999);
 console.log(myHome);
-//לא עשית מחיקה
-//remove an item from an array, by name of the item.

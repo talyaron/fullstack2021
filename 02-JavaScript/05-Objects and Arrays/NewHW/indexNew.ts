@@ -46,7 +46,7 @@ function handleRemove(event) {
     event.preventDefault();
     console.log(event);
 
-    home.books.pop();//תבדוק דרך אחרת איך ניתן למחוק אובייקטים
+    home.books.pop();
     home.cloths.pop();
     home.movies.pop();
 
@@ -54,18 +54,13 @@ function handleRemove(event) {
 
 }
 
-for (let item in home) {
-    /*
-    לא קורה כלום ב
-    DOM
-    רק בקונסול
-    */
+for (let item in home){
 
-    if (typeof home[item] !== "function") {
+    if (typeof home[item] !==  "function"){
         let displayDom = document.querySelector(".render");
-        displayDom.innerHTML += `${home[item]}`
-    }
-}
+        displayDom.innerHTML += `${home[item]}`   
+    }     
+}  
 
 
 

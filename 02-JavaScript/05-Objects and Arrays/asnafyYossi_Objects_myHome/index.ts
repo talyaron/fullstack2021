@@ -59,5 +59,3 @@ for (let i = 0; i < myHome.movies.length; i++) {
 
 
 console.log(myHome)
-
-

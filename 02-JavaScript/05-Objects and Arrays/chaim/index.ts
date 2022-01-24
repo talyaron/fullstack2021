@@ -36,14 +36,3 @@ function generateGrades(theClass, studentList) {
 
 generateGrades(fullStackClass, students);
 console.dir(fullStackClass)
-
-
-
-function handleAddbooks(ev){
-    ev.preventDefault();
-    console.dir(ev.target)
-    const title= ev.target.elements.title.value
-    const year= ev.target.elements.year.valueAsNumber;
-    
-
-}

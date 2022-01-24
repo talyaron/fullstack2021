@@ -26,7 +26,7 @@ var myHome = {
         //     myHome.books.splice(myIndex);
         // }
         // return myHome
-        var removeBooks = myHome.books.pop(); //תנסי להשתמש בטכניקה אחרת בשביל למחוק
+        var removeBooks = myHome.books.pop();
         var removeMovies = myHome.movies.pop();
         var removeExipred = myHome.expired.pop();
     }

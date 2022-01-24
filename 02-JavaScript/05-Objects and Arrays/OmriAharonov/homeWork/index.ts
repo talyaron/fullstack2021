@@ -108,15 +108,15 @@ myHome.addItem(myHome.tvShows, 'Breaking bad', 5, 10);
 
 function renderMyHome(obj: myHome, domElem: any) {
     let html: string = '';
-    for (let [array] of Object.entries(obj)) {
-        if (obj[array][0] !== undefined) {
+    for (let [array]  of Object.entries(obj)) {
+        if (obj[array][0] !== undefined){
             let arrayHtml = `<div class = 'card'> <h2> ${[array]}: </h2>`;
 
-            obj[array].forEach((item, i) => {
+            obj[array].forEach((item,i) =>{
                 arrayHtml += `<h4> ${obj[array][i].title} </h4>`;
 
             })
-
+            
             arrayHtml += `</div>`;
             html += arrayHtml;
         }
