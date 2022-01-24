@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="dist/zap1.css">
+</head>
+
+<body>
+
+
+    <div class="h1">
+        <h1>zapZapOto!</h1>  
+    </div>
+    
+
+    <div class="wrapper wrapper1">
+
+        <form onsubmit="handleSubmit(event)" id="idItem">
+            <input type="text" name="description" placeholder="Enter Description" class="textNumberInput" required>
+            <input type="number" name="price" placeholder="Enter Price" class="textNumberInput" required>
+            <input name="submit" value="Add Laptop" type="submit" class="submitInput">
+        </form>
+    </div>
+
+
+<div class="wrapper wrapper2">
+    <form onsubmit="handleAsc(event)" id="AscItem">
+        <input type="submit" name="asc" value="Sort Asc" class="submitInput">
+    </form>
+
+    <form onsubmit="handleDesc(event)" id="DescItem">
+        <input type="submit" name="desc" value="Sort Desc" class="submitInput">
+    </form>
+
+    <input type="number" name="number" placeholder="Filter Price" onkeyup="handleFilter(event)" class="textNumberInput filterInput" id="filterItem">
+</div>
+
+
+
+    <div id="rootLaptops"></div>
+
+
+
+
+
+    <script src="dist/zap1.js"></script>
+</body>
+
+</html>
