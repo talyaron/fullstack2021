@@ -1,6 +1,5 @@
-
 let tech = document.getElementById(`container_Tech`);
-let newItem;
+let newItem: typeof Item;
 let container = document.querySelectorAll('[id*="container_"]');
 function Item(
   name: string,
@@ -35,18 +34,40 @@ interface Market {
   reset: Function;
   maxFiltered?: Function;
   minFiltered?: Function;
+  categoryFiltered: Function;
   //   pickUpMinNMax: Function;
 }
 let zap: Market = {
   items: [
-    new Item(`Bestand`, `Gray`,'', 3, `Free`, `Books`),
-    new Item(`Bestand Laptop`, `Gray`, '',28, `Free`, `Tech`),
-    new Item(`Bestand Laptop`, `Gray`,'', 23, `Free`, `Tech`),
-    new Item(`Among US`, `Nintendo switch`, 'Impostor Edition',49.99, `Free`, `Games`),
-    new Item(`Bestand Laptop`, `Gray`, '',49.99, `Free`, `Books`),
-    new Item(`Sony PlayStation 5`, `White`,'standard', 659, `Free`, `Tech`),
-    new Item(`Nintendo switch console `, `Red/Black`,'standard', 349.99, `Free`, `Tech`),
-    new Item(`Black Card Revoked`, `Original flavor`,'Original', 14.49, `+10`, `Games`),
+    new Item(`Bestand`, `Gray`, "", 3, `Free`, `Books`),
+    new Item(`Bestand Laptop`, `Gray`, "", 28, `Free`, `Tech`),
+    new Item(`Bestand Laptop`, `Gray`, "", 23, `Free`, `Tech`),
+    new Item(
+      `Among US`,
+      `Nintendo switch`,
+      "Impostor Edition",
+      49.99,
+      `Free`,
+      `Games`
+    ),
+    new Item(`Bestand Laptop`, `Gray`, "", 49.99, `Free`, `Books`),
+    new Item(`Sony PlayStation 5`, `White`, "standard", 659, `Free`, `Tech`),
+    new Item(
+      `Nintendo switch console `,
+      `Red/Black`,
+      "standard",
+      349.99,
+      `Free`,
+      `Tech`
+    ),
+    new Item(
+      `Black Card Revoked`,
+      `Original flavor`,
+      "Original",
+      14.49,
+      `+10`,
+      `Games`
+    ),
   ],
   addNewItem(item: void) {
     this.items.push(item);
@@ -58,8 +79,8 @@ let zap: Market = {
                     <h1>${Item.name}</h1>
                     <p class="model">${Item.model}</p>
                     <p class="description">${Item.description}</p>
-                    <p class="price">${Item.price|| ''}$</p>
-                    <p>${Item.deliveryPrice || ''} Shipping</p>`;
+                    <p class="price">${Item.price || ""}$</p>
+                    <p>${Item.deliveryPrice || ""} Shipping</p>`;
 
       if (Item.category === "Tech") {
         document.getElementById(`container_Tech`).innerHTML += html;
@@ -70,8 +91,7 @@ let zap: Market = {
       } else {
         document.getElementById(`container_---`).innerHTML += html;
       }
-    }
-    );
+    });
   },
   clear() {
     container.forEach((field) => {
@@ -95,38 +115,51 @@ let zap: Market = {
     zap.renderThis(this.items);
   },
   maxFiltered(e: any) {
-
     let ZapItemsFiltered = this.items;
-    if (e.value == ""){
+    if (e.value == "") {
       this.clear();
       this.renderThis(this.items);
       return;
-    }else{
-    ZapItemsFiltered = this.items.filter((item) => item.price <= e.value);
-    zap.clear();
-    this.renderThis(ZapItemsFiltered);
-    ;}
-    console.log(ZapItemsFiltered)
+    } else {
+      ZapItemsFiltered = this.items.filter((item) => item.price <= e.value);
+      zap.clear();
+      this.renderThis(ZapItemsFiltered);
+    }
+    console.log(ZapItemsFiltered);
     console.log(this.items);
-    
   },
-  minFiltered(e:any){
+  minFiltered(e: any) {
     let ZapItemsFiltered = this.items;
-    if (e.value == ""){
+    if (e.value == "") {
       this.clear();
       this.renderThis(this.items);
       return;
-    }else{
-    ZapItemsFiltered = this.items.filter((item) => item.price >= e.value);
+    } else {
+      ZapItemsFiltered = this.items.filter((item) => item.price >= e.value);
+      zap.clear();
+      this.renderThis(ZapItemsFiltered);
+    }
+  },
+  categoryFiltered(e: any) {
+    if (e.target.value === 'all') {
+      this.clear();
+      this.renderThis(this.items);
+      return;
+    } else {
+      let zapItemsFiltered = this.items;
+    console.dir(e.target);
+    zapItemsFiltered = this.items.filter(
+      (item) => item.category === e.target.value
+    );
     zap.clear();
-    this.renderThis(ZapItemsFiltered);
-  }
-}
-}
-
+    this.renderThis(zapItemsFiltered);
+    }
+  },
+};
 
 function handleSubmit(ev: any) {
   ev.preventDefault();
+  console.dir(ev.target);
   newItem = new Item(
     ev.target.elements.name.value,
     ev.target.elements.model.value,
@@ -155,7 +188,6 @@ function reset(a, b) {
   return a.addDate - b.addDate;
 }
 let min = document.getElementById("min");
-// let minFilter = min.valueAsNumber;
 
 let maxPrice = Math.max.apply(
   Math,
@@ -163,13 +195,26 @@ let maxPrice = Math.max.apply(
     return item.price;
   })
 );
-
+// document.getElementById('maxPrice').innerHTML = maxPrice
 let minPrice = Math.min.apply(
   Math,
   zap.items.map(function (item) {
     return item.price;
   })
 );
+
+function handleAB(ev) {
+  ev.preventDefault();
+  const a = ev.target.elements.a.valueAsNumber;
+  const b = ev.target.elements.b.valueAsNumber;
+  if (a < b) {
+    return a - b;
+  } else {
+    b - a;
+  }
+}
+// document.getElementById('minPrice').innerHTML = minPrice
+
 // let vals = [{name: `e`, price: 5},{name:'d', price: 4},{name: `i`, price: 9},{name: `b`, price: 2},{name: `a`, price: 2}];
 // vals = vals.price.filter(x => x % 2 === 0);
 // console.log(vals);
