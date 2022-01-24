@@ -30,7 +30,9 @@
   <button id="sortItemDesc" onclick='zap.descNow()'>Sort descending</button>
 </div>
 <legend id="filters">Filter your choices by budget:
-  <input type="text" onkeyup="zap.maxFiltered(this)" name="filter" id="filter">
+  <input type="text" onkeyup="zap.maxFiltered(this)" name="filter" id="maxfilter">
+  <label for="minFilter">Filter by minimum</label>
+  <input type="text" onkeyup="zap.minFiltered(this)" name="filter" id="minFilter">
 </legend>
 </header>
 <div id="totalContainer" >

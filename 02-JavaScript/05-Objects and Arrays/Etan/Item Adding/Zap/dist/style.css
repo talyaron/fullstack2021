@@ -1,5 +1,5 @@
 html {
-  font-size: 1.2rem;
+  font-size: 0.8em;
   margin: 0;
   padding: 0;
   max-width: 100vw;
@@ -54,17 +54,23 @@ header #filters {
   align-items: flex-start;
 }
 #totalContainer #card {
+  height: 30vh;
+  width: 15vw;
   display: grid;
   overflow-x: hidden;
   grid-template-areas: "n n" "d fd" "p sp";
-  color: #9fd3c7;
-  background: #385170;
-  width: 20vw;
+  color: #9fd3c777;
+  background: #353535;
   padding: 0.5rem;
   font-size: 1.2em;
 }
 #totalContainer #card h1 {
+  font-size: 1.5em;
   grid-area: n;
+}
+#totalContainer #card h1:hover {
+  color: #9fd3c7;
+  cursor: pointer;
 }
 #totalContainer #card .model {
   grid-area: d;
@@ -84,7 +90,7 @@ header #filters {
 }
 
 .container {
-  color: #142d4c;
+  color: #353535;
   background-size: cover;
 }
 .container__items {

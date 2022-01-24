@@ -1,4 +1,3 @@
-var filter = document.getElementById("filter").innerHTML;
 var tech = document.getElementById("container_Tech");
 var newItem;
 var container = document.querySelectorAll('[id*="container_"]');
@@ -78,6 +77,19 @@ var zap = {
         }
         console.log(ZapItemsFiltered);
         console.log(this.items);
+    },
+    minFiltered: function (e) {
+        var ZapItemsFiltered = this.items;
+        if (e.value == "") {
+            this.clear();
+            this.renderThis(this.items);
+            return;
+        }
+        else {
+            ZapItemsFiltered = this.items.filter(function (item) { return item.price >= e.value; });
+            zap.clear();
+            this.renderThis(ZapItemsFiltered);
+        }
     }
 };
 function handleSubmit(ev) {

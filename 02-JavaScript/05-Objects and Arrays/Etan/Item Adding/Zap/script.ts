@@ -1,4 +1,4 @@
-let filter = document.getElementById("filter").innerHTML;
+
 let tech = document.getElementById(`container_Tech`);
 let newItem;
 let container = document.querySelectorAll('[id*="container_"]');
@@ -34,6 +34,7 @@ interface Market {
   descNow: Function;
   reset: Function;
   maxFiltered?: Function;
+  minFiltered?: Function;
   //   pickUpMinNMax: Function;
 }
 let zap: Market = {
@@ -109,7 +110,19 @@ let zap: Market = {
     console.log(this.items);
     
   },
-};
+  minFiltered(e:any){
+    let ZapItemsFiltered = this.items;
+    if (e.value == ""){
+      this.clear();
+      this.renderThis(this.items);
+      return;
+    }else{
+    ZapItemsFiltered = this.items.filter((item) => item.price >= e.value);
+    zap.clear();
+    this.renderThis(ZapItemsFiltered);
+  }
+}
+}
 
 
 function handleSubmit(ev: any) {

@@ -1,5 +1,5 @@
 html {
-  font-size: 1.2rem;
+  font-size: 0.8em;
   margin: 0;
   padding: 0;
 max-width: 100vw;
@@ -67,19 +67,25 @@ header {
   //   color: #385170;
   // }
   #card {
+    height: 30vh;
+    width: 15vw;
     display: grid;
     overflow-x: hidden;
     grid-template-areas: 
     'n n'
     'd fd'
     'p sp';
-    color: #9fd3c7;
-    background: #385170;
-    width: 20vw;
+    color: #9fd3c777;
+    background: #353535;
     padding: 0.5rem;
     font-size: 1.2em;
     h1{
+      font-size: 1.5em;
       grid-area: n;
+      &:hover{
+        color: #9fd3c7;
+        cursor: pointer;
+      }
     }
     .model{
       grid-area: d;
@@ -102,7 +108,7 @@ header {
   }
 }
 .container {
-  color: #142d4c;
+  color: #353535;
   background-size: cover;
 
   &__items {
