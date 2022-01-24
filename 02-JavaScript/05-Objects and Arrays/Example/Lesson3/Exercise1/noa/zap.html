@@ -14,10 +14,10 @@
     <form onsubmit="handleZaplist(event)">
         <input type="text" name="description" placeholder="Enter Description" required>
         <input type="number" name="price" placeholder="Enter Price" required>
-        <input type="submit" value="Add">
+        <input id="submit" type="submit" value="Add">
     </form>
     <div class="sort">
-        <P class="text" >sort price</P>
+        <P class="text">sort price</P>
         <button id="lowToHigh">low to high</button>
         <button id="highToLow">high to low</button>
         <!-- <input type="radio" name="sort" id="lowtohigh" value="low to high">
@@ -26,10 +26,10 @@
         <label for="hightolow">high to low</label> -->
     </div>
 
-<div class="price">
-    <label for="price">Show price lower than</label>
-    <input type="number" name="price" id="price" placeholder="price" onkeyup="handlePrice(event)">
-</div>
+    <div class="price">
+        <label for="price">Show price lower than</label>
+        <input type="number" name="price" id="price" placeholder="price" onkeyup="handlePrice(event)">
+    </div>
     <div id="list"></div>
 
     <script src="dist/zap.js"></script>

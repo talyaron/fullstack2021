@@ -1,12 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <title>Document</title>
+    <link rel="stylesheet" href="dist/zap.css">
 </head>
+
 <body>
+    <h1>ZAP shop</h1>
+    <form class="input" onsubmit="handleItem(event)">
+        <input type="text" name="description" placeholder="Item" required>
+        <input type="number" name="price" placeholder="Price" required>
+        <input type="submit" value="ADD">
+    </form>
+    <div class="sort">
+        <form onsubmit="handleSortAsc(event)">
+            <input type="submit" value="sort asc" style="width: 180px;">
+        </form>
+        <form onsubmit="handleSortDesc(event)">
+            <input type="submit" value="sort desc" style="width: 180px;">
+        </form>
+    </div>
+    <input id="newItems" type="number" placeholder="Set Amount" onkeyup="handlePrice(event)">
+    <div id="rootItems"></div>
     <script src="dist/zap.js"></script>
 </body>
+
 </html>

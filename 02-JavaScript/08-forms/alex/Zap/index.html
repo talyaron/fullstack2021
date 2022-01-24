@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZAP</title>
+</head>
+<body>
+
+    <form onsubmit="handleAddItem(event)">
+        <input type="text" name="item" placeholder="item" id="item" required>
+        <input type="number" name="price" placeholder="price" id="price" required>
+        <input type="submit" value="add" id="button">
+    </form>
+<br>
+    <!-- <input type="submit" value="sort asc">
+    <input type="submit" value="sort dsc"> -->
+    
+    <input type="number" placeholder="show prices lower than x" onkeyup="handleChange(event)">
+
+
+
+    <div id="rootItems"></div>
+    <script src='dist/index.js'></script>
+
+</body>
+</html>
