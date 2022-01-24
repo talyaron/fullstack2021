@@ -22,7 +22,7 @@ const zapShop: shop = {
         let html = '';
         this.items.forEach(item => {
             html += `<div class = 'card_item'>
-            <p>  ${item.description}  : ${item.price}$</p>`
+            <p> Item: ${item.description} | Price: ${item.price}$</p>`
         })
 
         html += `</div>`
@@ -37,15 +37,6 @@ const zapShop: shop = {
         this.items.sort((a, b) => { return b.price - a.price })
     }
 }
-
-zapShop.addItem({ description: 'Curved Monitor LG 32"', price: 180 })
-zapShop.addItem({ description: 'JBL Headphones', price: 200 })
-zapShop.addItem({ description: 'Vtech router', price: 18 })
-zapShop.addItem({ description: 'SONY playstation', price: 1500 })
-const rootItems = document.getElementById('rootItems');
-zapShop.renderItem(rootItems)
-
-
 
 function handleItem(ev) {
     ev.preventDefault();
@@ -69,12 +60,6 @@ function handleSortAsc(ev) {
     ev.preventDefault();
     zapShop.sortItemAsc();
     const rootItems = document.getElementById('rootItems');
-    zapShop.renderItem(rootItems);
-}
-
-function handlePrice(ev){
-    zapShop.items.filter(element => {return element < ev.target.valueAsNumber})
-    const rootItems = document.getElementById('newItems');
     zapShop.renderItem(rootItems);
 }
 

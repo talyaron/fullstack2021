@@ -76,15 +76,15 @@ const jewishAndOtherMonths=["Error month not found",
                             {jewish:"Tishrai", other:"October"}, 
                             {jewish:"Heshvan", other:"November"}, 
                             {jewish:"Kislev", other:"December"}, 
-                            {jewish:"Tevet", other:"November"}, 
-                            {jewish:"Shvat", other:"November"}, 
-                            {jewish:"Adar", other:"November"}, 
-                            {jewish:"Nisan", other:"November"}, 
-                            {jewish:"Iyar", other:"November"}, 
-                            {jewish:"Sivan", other:"November"}, 
-                            {jewish:"Tammuz", other:"November"}, 
-                            {jewish:"Av", other:"November"}, 
-                            {jewish:"Elul", other:"September"}];
+                            {jewish:"Tevet", other:"January"}, 
+                            {jewish:"Shvat", other:"February"}, 
+                            {jewish:"Adar", other:"Match"}, 
+                            {jewish:"Nisan", other:"April"}, 
+                            {jewish:"Iyar", other:"May"}, 
+                            {jewish:"Sivan", other:"June"}, 
+                            {jewish:"Tammuz", other:"July"}, 
+                            {jewish:"Av", other:"August"}, 
+                            {jewish:"Elul", other:"Septemberrr"}];
 
 let myMonth = convertJewishMonth(z);
 if(myMonth == "err"){

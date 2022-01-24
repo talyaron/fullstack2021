@@ -5,30 +5,10 @@ body {
 #container{
     height: 100vh;
     width: 100vw;
-    display: grid;
-
-    grid-template-areas: 
-    "f f f"
-    "b c m"
-    ". s .";
+    display: flex;
+    flex-direction: row;
 justify-content: space-around;
 align-items: center;
-
-.myForm{
-    grid-area: f;
-}
-#book{
-    grid-area: b;
-}
-#clothing{
-    grid-area: c;
-}
-#movie{
-    grid-area: m;
-}
-#submit{
-    grid-area: s;
-}
 .text{
     font-size: 3em;
     font-family: 'Poppins', 'sans-serif';
