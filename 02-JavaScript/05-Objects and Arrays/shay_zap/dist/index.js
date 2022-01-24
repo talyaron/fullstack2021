@@ -15,9 +15,9 @@ var myProduct = {
     },
     renderZap: function (domElement, list) {
         var html = "";
-        this.zap.forEach(function (element) {
-            html += "<div class = 'card'>\n                         <p>product: " + element.product + ", price: " + element.price + "</p>\n                     </div>";
-            console.log(html);
+        console.log(list);
+        list.forEach(function (element) {
+            html += "<div class = 'card'>\n       <p>product: " + element.product + ", price: " + element.price + "</p></div>";
         });
         domElement.innerHTML = html;
     },
