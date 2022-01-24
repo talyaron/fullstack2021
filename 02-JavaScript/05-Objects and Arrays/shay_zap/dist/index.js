@@ -17,11 +17,12 @@ var myProduct = {
         domElement.innerHTML = html;
     },
     priceUnder: function (item) {
+        console.log(item);
         if (item == "") {
             this.renderZap(this.Zap);
             return;
         }
-        var listFilter = this.zap.filter(function (element) { return element.price <= (item); });
+        var listFilter = this.zap.filter(function (element) { return element.price <= item; });
         console.log(listFilter);
         myProduct.renderZap(listFilter);
     }
@@ -49,12 +50,6 @@ function handleFilter(ev) {
     myProduct.priceUnder(ev.target.value);
     console.log(ev.target.value);
 }
-myProduct.addItem({ product: 'tire', price: 105 });
-myProduct.addItem({ product: 'med', price: 15 });
-myProduct.addItem({ product: 'coockie', price: 20 });
-myProduct.addItem({ product: 'phone', price: 100 });
-// myProduct.sortAsc()
-// myProduct.sortDesc()
 console.log(myProduct);
 var rootZap = document.getElementById("rootZap");
 myProduct.renderZap(rootZap);
