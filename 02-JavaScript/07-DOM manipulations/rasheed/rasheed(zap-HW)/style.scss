@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+
+
+.container {
+    padding: 20px;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Fjalla One', sans-serif;
+
+    &-label{
+        font-size: 1.5rem;
+    }
+
+    &-input {
+        width: 30%;
+        padding: 5px;
+        border-radius: 5px;
+    }
+
+    &-hero {
+        height: 200px;
+        background-color: gray;
+    }
+
+    &-form {
+        margin-top: 20px;
+        margin-bottom: 50px;
+        justify-content: center;
+        font-family: 'Fjalla One', sans-serif;
+
+        &-label {
+            font-size: large;
+        }
+
+        &-inputs {
+            width: 20%;
+            padding: 5px;
+        }
+
+        &-btn {
+            width: 30%;
+            margin-top: 20px;
+            padding: 5px;
+            margin-left: 15px;
+            background-color: rgba(128, 128, 128, 0.493);
+            border-radius: 10px;
+            box-shadow: 0px 5px 10px;
+            cursor: pointer;
+            &:hover{
+                background-color: green;    
+         }
+        }
+
+    }
+
+    &-btnAsc {
+        
+        height: 60px;
+        padding: 20px;
+        width: 100%;
+        box-shadow: 0px 5px 10px;
+        background-color: rgba(143, 129, 129, 0.096);
+        border-radius: 10px;
+        font-weight: bold;
+        cursor: pointer;
+        &:hover{
+               box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #130e10    
+        }
+
+    }
+
+    &-btnDesc {
+        margin-top: 20px;
+        margin-bottom: 25px;
+        padding: 20px;
+        height: 60px;
+        width: 100%;
+        box-shadow: 0px 5px 10px;
+        background-color: rgba(128, 128, 128, 0.493);
+        border-radius: 10px;
+        font-weight: bold;
+        cursor: pointer;
+        &:hover{
+            box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #130e10    
+     }
+
+
+    }
+
+
+}
+
+span {
+    font-family: 'Sacramento', cursive;
+    margin: auto;
+    font-size: 3rem;
+    padding: 50px;
+    color: black;
+    animation: glow 0.75s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #130e10, 0 0 40px #1f151a, 0 0 50px #161214, 0 0 60px #130d10, 0 0 70px #1d181a;
+      }
+      to {
+        text-shadow: 0 0 20px #fff, 0 0 30px #0a0709, 0 0 40px #1b1317, 0 0 50px #160c11, 0 0 60px #1b1518, 0 0 70px #181315, 0 0 80px #1a1115;
+      }
+    
+}
+
+
+
+.result {
+    text-align: center;
+    height: 56%;
+    display: grid;
+    gap: 15px;
+    grid-template-columns: repeat(5, 1fr);
+    padding: 20px;
+    justify-content: center;
+
+
+    &-card {
+        font-family: 'Luckiest Guy', cursive;
+        box-sizing: border-box;
+        box-shadow: black 5px 0px 10px;
+        background-color: rgb(195, 194, 194);
+        padding: 15px;
+        // width: 160px;
+        justify-content: center;
+        gap: 5px;
+        border: black solid;
+        border-radius: 15px;
+        font-size: 1rem;
+
+    }
+
+}
