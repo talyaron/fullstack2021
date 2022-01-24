@@ -24,15 +24,22 @@ const myProduct: Obj = {
     sortDesc() {
         this.zap.sort((x, y) => x.price - y.price)
     },
+
+
     renderZap(domElement) {
         let html = "";
 
         this.zap.forEach(element => {
             html += `<div class = 'card'>
-        <p>product: ${element.product}, price: ${element.price}</p></div>`
+                         <p>product: ${element.product}, price: ${element.price}</p>
+                     </div>`;
+        console.log(html)
+
         });
         domElement.innerHTML = html;
     },
+
+
     priceUnder(item) {
         console.log(item)
 
