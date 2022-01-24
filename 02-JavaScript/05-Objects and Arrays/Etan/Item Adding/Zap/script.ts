@@ -1,6 +1,7 @@
 let tech = document.getElementById(`container_Tech`);
 let newItem: typeof Item;
 let container = document.querySelectorAll('[id*="container_"]');
+
 function Item(
   name: string,
   model: string,
@@ -69,7 +70,7 @@ let zap: Market = {
       `Games`
     ),
   ],
-  addNewItem(item: void) {
+  addNewItem(item: typeof Item) {
     this.items.push(item);
   },
   renderThis(array) {
@@ -141,18 +142,18 @@ let zap: Market = {
     }
   },
   categoryFiltered(e: any) {
-    if (e.target.value === 'all') {
+    if (e.target.value === "all") {
       this.clear();
       this.renderThis(this.items);
       return;
     } else {
       let zapItemsFiltered = this.items;
-    console.dir(e.target);
-    zapItemsFiltered = this.items.filter(
-      (item) => item.category === e.target.value
-    );
-    zap.clear();
-    this.renderThis(zapItemsFiltered);
+      console.dir(e.target);
+      zapItemsFiltered = this.items.filter(
+        (item) => item.category === e.target.value
+      );
+      zap.clear();
+      this.renderThis(zapItemsFiltered);
     }
   },
 };
@@ -160,6 +161,7 @@ let zap: Market = {
 function handleSubmit(ev: any) {
   ev.preventDefault();
   console.dir(ev.target);
+  
   newItem = new Item(
     ev.target.elements.name.value,
     ev.target.elements.model.value,
@@ -195,6 +197,7 @@ let maxPrice = Math.max.apply(
     return item.price;
   })
 );
+
 // document.getElementById('maxPrice').innerHTML = maxPrice
 let minPrice = Math.min.apply(
   Math,
@@ -210,7 +213,7 @@ function handleAB(ev) {
   if (a < b) {
     return a - b;
   } else {
-    b - a;
+    return b - a;
   }
 }
 // document.getElementById('minPrice').innerHTML = minPrice

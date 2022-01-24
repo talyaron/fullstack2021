@@ -91,7 +91,7 @@ var zap = {
         }
     },
     categoryFiltered: function (e) {
-        if (e.target.value === 'all') {
+        if (e.target.value === "all") {
             this.clear();
             this.renderThis(this.items);
             return;
@@ -141,7 +141,7 @@ function handleAB(ev) {
         return a - b;
     }
     else {
-        b - a;
+        return b - a;
     }
 }
 // document.getElementById('minPrice').innerHTML = minPrice
