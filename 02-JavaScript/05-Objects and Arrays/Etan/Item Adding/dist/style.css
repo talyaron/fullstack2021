@@ -6,25 +6,10 @@ body {
 #container {
   height: 100vh;
   width: 100vw;
-  display: grid;
-  grid-template-areas: "f f f" "b c m" ". s .";
+  display: flex;
+  flex-direction: row;
   justify-content: space-around;
   align-items: center;
-}
-#container .myForm {
-  grid-area: f;
-}
-#container #book {
-  grid-area: b;
-}
-#container #clothing {
-  grid-area: c;
-}
-#container #movie {
-  grid-area: m;
-}
-#container #submit {
-  grid-area: s;
 }
 #container .text {
   font-size: 3em;

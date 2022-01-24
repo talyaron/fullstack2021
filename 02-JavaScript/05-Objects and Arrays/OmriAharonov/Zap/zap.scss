@@ -2,35 +2,42 @@ body {
     background: rgb(0, 174, 255);
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows:repeat(3 1fr);
-    //border: black solid 1px;
+    grid-template-rows: 0.5fr 1fr 1fr 0.5 2fr;
+
+
 
     h1 {
         margin: 10px auto;
         color: rgba(3, 52, 116, 0.829);
+        font-family: 'Mochiy Pop P One', sans-serif;
     }
 
-    .input{
+    .input {
         display: flex;
         gap: 20px;
         width: 500px;
         height: 30px;
         margin: 80px auto 0 auto;
-        justify-content: center;
+        justify-content: left;
     }
 
-    .sort{
+    .sort {
         display: flex;
         gap: 20px;
-        //justify-content: center;
-        margin: 20px auto 0 auto;
+        margin: 20px;
+        margin-left: 36.8%;
+
+
     }
 
     #rootItems {
-        border: rgb(233, 206, 116) solid 2px;
+        background-color: rgb(233, 206, 116);
+        border-radius: 3px;
         width: 480px;
-        min-height: 300px;
-        margin: 40px auto;
+        min-height: 250px;
+        margin-left: 35%;
+        margin-top: 20px;
+        font-family: 'Bebas Neue', cursive;
 
         .card_item {
 
@@ -41,4 +48,8 @@ body {
         }
     }
 
+    #newItems {
+        width: 200px;
+        margin-left: 42%;
+    }
 }
