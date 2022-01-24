@@ -30,8 +30,15 @@ let zapitem: any = {
             itemHtml += `<div class="card"><p>${item.company}:${item.price}</p></div>`
         })
         itemOnDom.innerHTML = itemHtml;
-    }
+    },
 }
+
+zapitem.addItem({ company: 'lenovo 16`', price: 180 });
+zapitem.addItem({ company: 'X-box series x', price: 1180 });
+zapitem.addItem({ company: 'Iphone 13"', price: 2280 });
+const root = document.querySelector(".rootItem");
+zapitem.renderItem(root);
+
 function handleAsc(event){
     event.preventDefault();
     zapitem.sortAssending();
@@ -44,12 +51,17 @@ function handleDesc(event){
     zapitem.renderItem(root);
 }
 
-function handleFilter(event){
-    console.log(event.target.value)
-    zapitem.renderItem(root);
-}
-    
-
+function handleFilter(event) {
+    const amonut = event.target.valueAsNumber;
+    zapitem.items = zapitem.items.filter(ele => { return ele.price < amonut });
+    if (zapitem.item.length > 0) {
+        const root = document.querySelector(".rootItem");
+        zapitem.renderItem(root);
+    }
+    else {
+        const root = document.querySelector(".rootItem");
+        zapitem.renderItem(root);
+    }}
 
 function handlesubmit(event) {
     event.preventDefault();
@@ -65,7 +77,7 @@ function handlesubmit(event) {
     // event.traget.reset();
 
 }
-const root = document.querySelector(".rootItem");
+// const root = document.querySelector(".rootItem");
 
 
 
