@@ -40,7 +40,7 @@ const myhome: home = {
     }
 }
 
-myhome.addItems()//הפונקציות לא עובדות
+myhome.addItems()
 myhome.removeitems()
 console.log(myhome)
 

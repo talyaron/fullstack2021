@@ -9,22 +9,20 @@
 </head>
 
 <body>
-    <form onsubmit='handlesubmit(event)'>   
+    <form onsubmit='handlesubmit(event)'> 
         <label for="description">enter description</label><br>
         <input type="text" name="description" placeholder="description"><br>
         <label for="price">price</label><br><input type="number" name="price" placeholder="price"><br>
-        <label for="add">add</label><br>
-        <input type="add" name="add" placeholder="add">
+       
         <label for="sort">sort</label><br>
-        <select id="sort by"><br>
-            <option value="From high to low">From high to low</option>
-            <option value="From low to high">From low to high</option>
-            <option value="The most popular">The most popular</option>
-            <option value="Several stores">Several stores</option>
-        </select><br>
-        <input type="filter" name="filter" onkeypress="handlefilter(event)"><br>
+        <select id="sort">
+        <select id="desc" onclick="handleClick(event)">desc</select>
+        <select id="asc" onclick="handleClick(event)">asc</select>
+        <input type="number" id="filter" name="filter" placeholder="Max Price" onkeyup="handleFilter(event)">
+    </select>
         <input type="submit" name="submit" value="send">
-    </form>
+        <ul id="rootList"></ul>
+        </form>
     <script src="dist/index.min.js"></script>
     
 </body>
