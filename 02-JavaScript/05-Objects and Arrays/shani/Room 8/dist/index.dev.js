@@ -68,28 +68,28 @@ var jewishAndOtherMonths = ["Error month not found", {
   other: "December"
 }, {
   jewish: "Tevet",
-  other: "November"
+  other: "January"
 }, {
   jewish: "Shvat",
-  other: "November"
+  other: "February"
 }, {
   jewish: "Adar",
-  other: "November"
+  other: "Match"
 }, {
   jewish: "Nisan",
-  other: "November"
+  other: "April"
 }, {
   jewish: "Iyar",
-  other: "November"
+  other: "May"
 }, {
   jewish: "Sivan",
-  other: "November"
+  other: "June"
 }, {
   jewish: "Tammuz",
-  other: "November"
+  other: "July"
 }, {
   jewish: "Av",
-  other: "November"
+  other: "August"
 }, {
   jewish: "Elul",
   other: "September"
