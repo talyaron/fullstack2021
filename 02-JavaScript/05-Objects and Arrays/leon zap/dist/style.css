@@ -1,11 +1,11 @@
 body {
-  background-color: #d4ca6f;
+  background-color: #e9e984;
 }
 
 .logo {
   font-size: 60px;
   font-family: fantasy;
-  color: #fafafa;
+  color: #11141f;
   position: absolute;
   left: 50vw;
 }
@@ -19,4 +19,19 @@ body {
   position: absolute;
   left: 23vw;
   top: 20vh;
+}
+
+.menu {
+  position: absolute;
+  top: 120px;
+  left: 0;
+  width: 20vw;
+  height: 30vh;
+  border: 2px solid black;
+}
+
+.products {
+  border: 1px solid black;
+  margin-top: 10px;
+  background-color: blanchedalmond;
 }
