@@ -101,7 +101,7 @@ let zap: Market = {
       this.renderThis(this.items);
       return;
     }else{
-    ZapItemsFiltered = this.items.filter((item) => item.price >= e.value);
+    ZapItemsFiltered = this.items.filter((item) => item.price <= e.value);
     zap.clear();
     this.renderThis(ZapItemsFiltered);
     ;}

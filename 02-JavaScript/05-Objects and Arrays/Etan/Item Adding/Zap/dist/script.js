@@ -71,7 +71,7 @@ var zap = {
             return;
         }
         else {
-            ZapItemsFiltered = this.items.filter(function (item) { return item.price >= e.value; });
+            ZapItemsFiltered = this.items.filter(function (item) { return item.price <= e.value; });
             zap.clear();
             this.renderThis(ZapItemsFiltered);
             ;
