@@ -84,7 +84,7 @@ const jewishAndOtherMonths=["Error month not found",
                             {jewish:"Sivan", other:"June"}, 
                             {jewish:"Tammuz", other:"July"}, 
                             {jewish:"Av", other:"August"}, 
-                            {jewish:"Elul", other:"September"}];
+                            {jewish:"Elul", other:"Septemberrr"}];
 
 let myMonth = convertJewishMonth(z);
 if(myMonth == "err"){

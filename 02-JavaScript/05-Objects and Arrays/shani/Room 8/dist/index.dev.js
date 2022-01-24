@@ -92,7 +92,7 @@ var jewishAndOtherMonths = ["Error month not found", {
   other: "August"
 }, {
   jewish: "Elul",
-  other: "September"
+  other: "Septemberrr"
 }];
 var myMonth = convertJewishMonth(z);
 
