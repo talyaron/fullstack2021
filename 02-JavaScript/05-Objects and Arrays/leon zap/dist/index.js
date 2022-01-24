@@ -10,8 +10,8 @@ var zapitem = {
         this.items.sort(function (a, b) { return b.price - a.price; });
     },
     renderItem: function (itemOnDom) {
-        console.log(itemOnDom);
-        console.log(this.items);
+        // console.log(itemOnDom)
+        // console.log(this.items)
         var itemHtml = '';
         this.items.forEach(function (item) {
             itemHtml += "<div class=\"card\"><p>" + item.company + ":" + item.price + "</p></div>";
@@ -40,4 +40,3 @@ function handlesubmit(event) {
     // event.traget.reset();
 }
 var root = document.querySelector(".rootItem");
-zapitem.renderItem(root);

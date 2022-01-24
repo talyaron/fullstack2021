@@ -1,0 +1,20 @@
+body{
+    background-color: rgb(212, 202, 111);
+}
+.logo{
+    font-size: 60px;
+    font-family: fantasy;
+    color: rgb(250, 250, 250);
+    position: absolute;
+    left: 50vw;
+}
+.rootItem{
+    border: 2px solid black;
+    background-color: rgb(243, 243, 243);
+    width: 70vw;
+    height: 90vh;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    position: absolute;
+    left: 23vw;
+    top: 20vh;
+}

@@ -25,7 +25,7 @@ const zapShop: shop = {
         let html = '';
         this.items.forEach(item => {
             html += `<div class = 'card_item'>
-            <p>  ${item.description}  : ${item.price}$</p>`
+            <p> Item: ${item.description} | Price: ${item.price}$</p>`
         })
 
         html += `</div>`;

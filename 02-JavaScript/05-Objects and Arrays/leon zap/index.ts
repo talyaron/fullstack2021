@@ -21,8 +21,8 @@ let zapitem: any = {
         this.items.sort((a,b)=>b.price-a.price);
     },
     renderItem(itemOnDom) {
-        console.log(itemOnDom)
-        console.log(this.items)
+        // console.log(itemOnDom)
+        // console.log(this.items)
         let itemHtml: string = '';
 
 
@@ -60,7 +60,7 @@ function handlesubmit(event) {
 }
 const root = document.querySelector(".rootItem");
 
-zapitem.renderItem(root);
+
 
 
 

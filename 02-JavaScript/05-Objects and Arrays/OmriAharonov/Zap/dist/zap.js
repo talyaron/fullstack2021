@@ -7,7 +7,7 @@ var zapShop = {
     renderItem: function (domElement) {
         var html = '';
         this.items.forEach(function (item) {
-            html += "<div class = 'card_item'>\n            <p>  " + item.description + "  : " + item.price + "$</p>";
+            html += "<div class = 'card_item'>\n            <p> Item: " + item.description + " | Price: " + item.price + "$</p>";
         });
         html += "</div>";
         domElement.innerHTML = html;
