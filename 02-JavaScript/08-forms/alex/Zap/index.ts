@@ -51,13 +51,6 @@ const Zap: shop = {
 function handleChange(event):void {
   event.preventDefault();
   const price = event.target.valueAsNumber;
-  Zap.filterItems(price);
-  const rootItems = document.getElementById('rootItems');
-  Zap.renderZap(rootItems);
-  // const rootItems = document.getElementById('rootItems');
-  // Zap.renderZap(rootItems);
-  console.log(event.target.valueAsNumber)
-
   const filterd = Zap.filterItems(price)
   console.log(filterd)
 }

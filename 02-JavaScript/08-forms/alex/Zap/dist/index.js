@@ -35,12 +35,6 @@ var Zap = {
 function handleChange(event) {
     event.preventDefault();
     var price = event.target.valueAsNumber;
-    Zap.filterItems(price);
-    var rootItems = document.getElementById('rootItems');
-    Zap.renderZap(rootItems);
-    // const rootItems = document.getElementById('rootItems');
-    // Zap.renderZap(rootItems);
-    console.log(event.target.valueAsNumber);
     var filterd = Zap.filterItems(price);
     console.log(filterd);
 }
