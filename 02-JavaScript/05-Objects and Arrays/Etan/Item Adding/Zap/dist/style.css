@@ -16,8 +16,9 @@ body {
 }
 
 header {
+  padding: 2rem;
   height: 20vh;
-  width: 100vw;
+  width: 100%;
   background-color: #3a3f40;
   display: grid;
   grid-template-columns: 25vw 50vw 25vw;
