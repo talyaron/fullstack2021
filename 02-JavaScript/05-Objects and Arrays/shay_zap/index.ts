@@ -56,7 +56,7 @@ renderFilter(domElement, filterd) {
     return  this.zap.filter(element=> element.price <= item);
 
 
-}
+} 
 };
 
 
