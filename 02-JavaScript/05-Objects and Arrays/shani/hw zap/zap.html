@@ -6,20 +6,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="dist/style.css">
 </head>
 
 <body>
+    <h1>ZAP</h1>
     <form onsubmit='handleSubmit(event)'>
-        <input type="text" name="title" placeholder="name of item" required>
-        <input type='number' name="year" placeholder="enter price" required>
+        <input type="text" name="description" placeholder="name of item" required>
+        <input type='number' name="price" placeholder="enter price" required>
         <input type="submit" value="ADD">
     </form>
 
-    
-    <button type="button" onclick="">Sort by highest to lowest</button>
-    <button type="button" onclick="">Sort by lowest to highest</button>
-    <label>Show price lower than</label>
-    <input type='number' placeholder="number">
+    <div class="sortPrice">
+        <button type="button" id="ascending">Sort by highest to lowest</button>
+        <button type="button" id="descending">Sort by lowest to highest</button>
+    </div>
+    <div class="lowerThanPrice">
+        <label>Show price lower than</label>
+        <input type='number' onkeyup="handleInput(event)" placeholder="number">
+    </div>
+    <div id="rootZap"></div>
 
     <script src="dist/zap.js"></script>
 </body>

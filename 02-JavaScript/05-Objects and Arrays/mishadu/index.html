@@ -1,57 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+<<<<<<< HEAD
+=======
 
+>>>>>>> 3a436b7d58a73ecdc57c0c1e3a64e41983655ac6
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="dist/style.css">
 </head>
+<<<<<<< HEAD
+<body>
+    <script src="index.js"></script> 
+</body>
+=======
 
 <body>
-    <div class="wrapper">
 
-        <div class="wrapperheader">
-            
-            <form onsubmit="handleSubmit(event)">
-                
-                <div class="section">
-                    <label for='itemname'>Item Name</label>
-                    <input type='text' name='itemname' id='itemname'required>
-                </div>
-                
-                <div class="section">
-                    <label for='itemprice' required>Item Price</label>
-                    <input type='number' name='itemprice' id='itemprice' required>
-                </div>
-                
-                <select name='sortby' id='sortby' onchange="handleChoise()" >
-                    <option value="Sort by..." disabled selected>Sort by...</option>
-                    <option value='price low to high' id = 'pLTH'>Price low to high</option>Î
-                    <option value='price high to low' id = 'pHTL'>Price high to low</option>Î
-                </select>
+    <form onsubmit="handleSubmit(ev)">
 
-                <input name='maxprice' type='number' placeholder="Max Price" onkeyup="handlePriceChange()">
-                
-                <input type="submit"  value='Add Item'></input>
-                
+        <select name='sortby' id='sortby'>
+            <option value="Sort by..." disablet selected></option>
+            <option value='Price Low To High'></option>Î
+            <option value='Price High To Low'></option>Î
+        </select>
 
-            </form>
-            
-            
-        </div>
-        
-        <div class="wrapperbody">
-            
-            <div id="root">
-                
-            </div>
-            
-        </div>
-
-    </div>
-        <script src='dist/index.js'></script>
-    </body>
+    </form>
     
-    </html>
+    <input type='number' placeholder="Max Price" onkeyup="handlePriceChange(ev)">
+
+
+
+    <script src='dist/index.ts'></script>
+</body>
+
+>>>>>>> 3a436b7d58a73ecdc57c0c1e3a64e41983655ac6
+</html>

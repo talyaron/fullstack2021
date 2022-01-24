@@ -2,8 +2,6 @@ interface ZAP{
     items:Array<Item>;
     addItem(item:Item)
     removeItem(itemName:string)
-    renderItems(domElement,maxprice?)
-    sortItems(sortBy)
 }
 
 interface Item{
@@ -14,20 +12,7 @@ interface Item{
 
 const zap:ZAP = {
 
-    items:[ 
-        {
-            name: 'adidas',
-            price: 300
-        },
-        {
-            name: 'toe',
-            price: 150
-        },
-        {
-            name: 'creels',
-            price: 200
-        },
-     ],
+    items:[  ],
 
     addItem(item:Item){
         this.items.push(item);
@@ -38,64 +23,8 @@ const zap:ZAP = {
         if (index>=0){
             this.items.splice(index,1)
         }
-    },
-
-    renderItems(domElement,maxprice){
-        let html = '';
-        let mpitems = this.items.slice()
-
-        if(maxprice){
-            mpitems=mpitems.filter(item=>{
-                return item.price<=maxprice
-            })
-        }
-        
-        mpitems.forEach(item=> {
-            html += `<div class='card'>
-            <p>${item.name}: ${item.price}</p></div>`
-        })
-
-        domElement.innerHTML = html;
-    },
-
-    sortItems(sortBy) {
-        
-        if (sortBy === 'price low to high') {
-
-            this.items.sort((a, b) => { return a.price - b.price })
-        } else if (sortBy === 'price high to low') {
-
-            this.items.sort((a, b) => { return b.price - a.price })
-        }
-
-        this.renderItems(document.getElementById('root'));
     }
+
+    renderItems()
 }
-
-let rootHTML = document.getElementById('root')
-zap.renderItems(rootHTML);
-
-
-function handleSubmit(ev){
-    ev.preventDefault();
-    const name = ev.target.elements.itemname.value;
-    const price = +ev.target.elements.itemprice.value;
-    const newItem:Item = {name, price};
-    zap.addItem(newItem);
-    zap.renderItems(rootHTML);
-    ev.target.reset();
-}
-
-function handleChoise(){
-const sortBy = (<HTMLSelectElement>document.getElementById('sortby')).value
-console.log(sortBy);
-zap.sortItems(sortBy)
-}
-
-
-function handlePriceChange(){
-    let maxprice = (<HTMLInputElement>document.querySelector('[name=maxprice]')).valueAsNumber
-    zap.renderItems(rootHTML,maxprice);
-}
-
 
