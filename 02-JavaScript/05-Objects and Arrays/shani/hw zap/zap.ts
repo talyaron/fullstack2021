@@ -21,7 +21,7 @@ const zapPage: zap = {
         let html = "";
         array.forEach(item => {
             html += `<div class='card'>
-            <p>${item.description}, ${item.price}</p></div>`
+            <p>${item.description}, $${item.price}</p></div>`
 
         })
         document.getElementById('rootZap').innerHTML = html
