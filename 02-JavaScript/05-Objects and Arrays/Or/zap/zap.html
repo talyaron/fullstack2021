@@ -14,15 +14,15 @@
 <body>
     <form onsubmit="handleSubmit(event)">
         <label for="description">Description:</label>
-        <input type="text" name="description" placeholder="Enter description">
+        <input type="text" name="description" placeholder="Enter description" required>
         <label for="price">Price:</label>
-        <input type="number" name="price" placeholder="Enter price">
+        <input type="number" name="price" placeholder="Enter price" required>
         <input type="submit" value="Add">
     </form>
     <div class="sort">
         <button id="desc" onclick="handleClick(event)">desc</button>
         <button id="asc" onclick="handleClick(event)">asc</button>
-        <input type="number" id="filter" name="filter" placeholder="Max Price" onkeyup="handleFilter(event)">
+        <input type="number" id="filter" name="filter" placeholder="Max Price$  " onkeyup="handleFilter(event)">
     </div>
 
     <ul id="rootList"></ul>

@@ -22,9 +22,8 @@ const list: list = {
         this.items.sort((a, b) => b.price - a.price)
     },
     filterList(maxPrice) {
-        if (maxPrice == "") {
-            this.renderList(this.items);
-            return;
+        if (maxPrice === "") {
+            this.renderList(this.items); return;
         }
         let newFilter = this.items.filter(item => item.price <= (maxPrice))
         list.renderList(newFilter);
