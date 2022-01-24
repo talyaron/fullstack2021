@@ -12,6 +12,6 @@ var myHome = {
         return this;
     }
 };
-myHome.addItems(myHome.books, "xxx");
-myHome.removeItem(myHome.bands, "Blind Faith");
+// myHome.addItems(myHome.books, `xxx`);
+// myHome.removeItem(myHome.bands, `Blind Faith`);
 console.dir(myHome);

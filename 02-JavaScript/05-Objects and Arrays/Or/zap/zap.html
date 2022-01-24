@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="dist/zap.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+
+<body>
+    <form onsubmit="handleSubmit(event)">
+        <label for="description">Description:</label>
+        <input type="text" name="description" placeholder="Enter description">
+        <label for="price">Price:</label>
+        <input type="number" name="price" placeholder="Enter price">
+        <input type="submit" value="Add">
+    </form>
+    <div class="sort">
+        <button id="desc" onclick="handleClick(event)">desc</button>
+        <button id="asc" onclick="handleClick(event)">asc</button>
+        <input type="number" id="filter" name="filter" placeholder="Max Price" onkeyup="handleFilter(event)">
+    </div>
+
+    <ul id="rootList"></ul>
+    <script src="dist/zap.js"></script>
+</body>
+
+</html>

@@ -1,7 +1,7 @@
 body {
     width: 1600px;
     margin: auto;
-    background: rgb(255, 217, 2);
+    background: #fcba07f1;
     padding-top: 40px;
     font-family: fantasy;
 }
@@ -40,6 +40,7 @@ body {
     flex-direction: column;
     justify-content: center;
     text-align: center;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
 }
 
 #clothes {
@@ -54,6 +55,7 @@ body {
     flex-direction: column;
     justify-content: center;
     text-align: center;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
 }
 
 #movies {
@@ -68,6 +70,7 @@ body {
     flex-direction: column;
     justify-content: center;
     text-align: center;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
 }
 
 #select {
@@ -82,4 +85,8 @@ body {
 #add {
     font-size: 18px;
     color: black;
+}
+
+h1{
+    text-shadow: -4px 0 black, 0 4px black, 4px 0 black, 0 -4px black;
 }

@@ -48,3 +48,5 @@ myHome.removeBook("atomic habbits");
 myHome.removeClothing("jacket", "Levi's");
 myHome.removeMovie("Harry potter 1");
 console.log(myHome);
+//לא עשית מחיקה
+//remove an item from an array, by name of the item.
