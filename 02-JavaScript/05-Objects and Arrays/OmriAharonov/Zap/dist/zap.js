@@ -1,5 +1,6 @@
 var zapShop = {
     items: [],
+    tempItem: [],
     addItem: function (item) {
         this.items.push(item);
     },
@@ -11,17 +12,27 @@ var zapShop = {
         html += "</div>";
         domElement.innerHTML = html;
     },
+    renderTempItem: function (domElement) {
+        var html = '';
+        this.tempItem.forEach(function (item) {
+            html += "<div class = 'card_item'>\n            <p>  " + item.description + "  : " + item.price + "$</p>";
+        });
+        html += "</div>";
+        domElement.innerHTML = html;
+    },
     sortItemAsc: function () {
         this.items.sort(function (a, b) { return a.price - b.price; });
+        this.tempItem.sort(function (a, b) { return a.price - b.price; });
     },
     sortItemDesc: function () {
         this.items.sort(function (a, b) { return b.price - a.price; });
+        this.tempItem.sort(function (a, b) { return b.price - a.price; });
     }
 };
 zapShop.addItem({ description: 'Curved Monitor LG 32"', price: 180 });
 zapShop.addItem({ description: 'JBL Headphones', price: 200 });
 zapShop.addItem({ description: 'Vtech router', price: 18 });
-zapShop.addItem({ description: 'SONY playstation', price: 1500 });
+zapShop.addItem({ description: 'SONY playstation 5', price: 1500 });
 var rootItems = document.getElementById('rootItems');
 zapShop.renderItem(rootItems);
 function handleItem(ev) {
@@ -47,7 +58,14 @@ function handleSortAsc(ev) {
     zapShop.renderItem(rootItems);
 }
 function handlePrice(ev) {
-    zapShop.items.filter(function (element) { return element < ev.target.valueAsNumber; });
-    var rootItems = document.getElementById('newItems');
-    zapShop.renderItem(rootItems);
+    var amonut = ev.target.valueAsNumber;
+    zapShop.tempItem = zapShop.items.filter(function (ele) { return ele.price < amonut; });
+    if (zapShop.tempItem.length > 0) {
+        var rootItems_1 = document.getElementById('rootItems');
+        zapShop.renderTempItem(rootItems_1);
+    }
+    else {
+        var rootItems_2 = document.getElementById('rootItems');
+        zapShop.renderItem(rootItems_2);
+    }
 }
