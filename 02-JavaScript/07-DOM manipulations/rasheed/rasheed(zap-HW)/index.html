@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/3ae94d6aa8.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <h1><span><i class="fas fa-warehouse"></i>
+            Warehouse</span></h1>
+    <div class="container">
+
+        <div class="container-hero"></div>
+
+        <form class="container-form" id="form" name="form" onsubmit="handleSubmit(event)">
+            <label class="container-form-lable">Add Product <i class="fas fa-sign-in-alt"></i></label>
+            <input class="container-form-inputs" id="product" type="text" name="description" placeholder="Product..."
+                required>
+            <label class="container-form-lable">Add Price <i class="fas fa-sign-in-alt"></i> </label>
+            <input class="container-form-inputs" id="price" type="number" name="price" placeholder="Price..." required>
+            <input class="container-form-btn" type="submit" value="Add" onclick="allLetter(document.form.description)">
+        </form>
+        <input class="container-btnAsc" type="submit" value="Sort Low to High" onclick="handleDesc(event)">
+        <input class="container-btnDesc" type="submit" value="Sort High to Low" onclick="handleAsc(event)">
+        <label class="container-lable">Enter Wanted Price <i class="fas fa-sign-in-alt"></i> </label>
+        <input class="container-input" id="lessThan" type="number" name="lessThan" onkeyup="handleInput(event) "
+            placeholder="Show Products less Than...">
+        <div class="result" id="cardResult"></div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>

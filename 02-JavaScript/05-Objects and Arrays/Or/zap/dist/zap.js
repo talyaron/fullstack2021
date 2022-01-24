@@ -14,7 +14,7 @@ var list = {
         this.items.sort(function (a, b) { return b.price - a.price; });
     },
     filterList: function (maxPrice) {
-        if (maxPrice == "") {
+        if (maxPrice === "") {
             this.renderList(this.items);
             return;
         }
