@@ -29,6 +29,10 @@ function handleDesc(event) {
     zapitem.sortdescending();
     zapitem.renderItem(root);
 }
+function handleFilter(event) {
+    console.log(event.target.value);
+    zapitem.renderItem(root);
+}
 function handlesubmit(event) {
     event.preventDefault();
     // console.log(event);
