@@ -1,4 +1,19 @@
-let Inventory = {
+interface zapList{
+    items:Array<thing>
+    addItem(item:thing):void
+    sortPriceDown():void
+    sortPriceUp():void
+    sortNameUp():void
+    sortNameDown():void
+    filter(min:number, max:number):void
+}
+interface thing{
+    name:string,
+    price:number
+}
+
+
+let Inventory:zapList = {
     items: [{ name: "somthing", price: 5 }, { name: "somthing else", price: 10 }, { name: "somthing diffrent", price: 15 }],
     addItem(item) { this.items.push(item) },
     sortPriceDown() { this.items.sort((a, b) => a.price - b.price) },
@@ -54,8 +69,8 @@ function handleSubmit(ev) {
 }
 
 function handleSlider() {
-    let min = (<HTMLInputElement>document.querySelector('#rangeMin')).value;
-    let max = (<HTMLInputElement>document.querySelector('#rangeMax')).value;
+    let min = (<HTMLInputElement>document.querySelector('#rangeMin')).valueAsNumber;
+    let max = (<HTMLInputElement>document.querySelector('#rangeMax')).valueAsNumber;
     Inventory.filter(min, max);
     document.querySelector('#min-value').innerHTML = `${min}$`;
     document.querySelector('#max-value').innerHTML = `${max}$`;

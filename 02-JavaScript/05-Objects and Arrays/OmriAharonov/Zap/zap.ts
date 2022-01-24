@@ -1,9 +1,11 @@
 interface shop {
     items: Array<Item>;
+    tempItem?: Array<Item>;
     addItem(item: Item);
     renderItem(domElement: any);
-    sortItemAsc(Array: Item);
-    sortItemDesc(Array: Item)
+    renderTempItem(domElement: any)
+    sortItemAsc();
+    sortItemDesc();
 }
 
 interface Item {
@@ -13,6 +15,7 @@ interface Item {
 
 const zapShop: shop = {
     items: [],
+    tempItem: [],
 
     addItem(item: Item) {
         this.items.push(item);
@@ -25,18 +28,40 @@ const zapShop: shop = {
             <p> Item: ${item.description} | Price: ${item.price}$</p>`
         })
 
-        html += `</div>`
+        html += `</div>`;
         domElement.innerHTML = html;
     },
 
-    sortItemAsc(this.items) {
-        this.items.sort((a, b) => { return a.price - b.price })
+    renderTempItem(domElement) {
+        let html = '';
+        this.tempItem.forEach(item => {
+            html += `<div class = 'card_item'>
+            <p>  ${item.description}  : ${item.price}$</p>`
+        })
+
+        html += `</div>`;
+        domElement.innerHTML = html;
     },
 
-    // sortItemDesc(this) {
-    //     this.items.sort((a, b) => { return b.price - a.price })
-    // }
+    sortItemAsc() {
+        this.items.sort((a, b) => { return a.price - b.price })
+        this.tempItem.sort((a, b) => { return a.price - b.price })
+    },
+
+    sortItemDesc() {
+        this.items.sort((a, b) => { return b.price - a.price })
+        this.tempItem.sort((a, b) => { return b.price - a.price })
+    }
 }
+
+zapShop.addItem({ description: 'Curved Monitor LG 32"', price: 180 })
+zapShop.addItem({ description: 'JBL Headphones', price: 200 })
+zapShop.addItem({ description: 'Vtech router', price: 18 })
+zapShop.addItem({ description: 'SONY playstation 5', price: 1500 })
+const rootItems = document.getElementById('rootItems');
+zapShop.renderItem(rootItems)
+
+
 
 function handleItem(ev) {
     ev.preventDefault();
@@ -49,11 +74,37 @@ function handleItem(ev) {
     ev.target.reset();
 }
 
-function handleSort(ev) {
+function handleSortDesc(ev) {
     ev.preventDefault();
-    console.dir(ev.target)
-    const description: string = ev.target.elements.description.value;
-    const price: number = ev.target.elements.price.valueAsNumber;
-    const items: Array<Item> = zapShop.addItem({ description, price });
-    zapShop.sortItemAsc(Item);
+    zapShop.sortItemDesc();
+    const rootItems = document.getElementById('rootItems');
+    zapShop.renderItem(rootItems);
 }
+
+function handleSortAsc(ev) {
+    ev.preventDefault();
+    zapShop.sortItemAsc();
+    const rootItems = document.getElementById('rootItems');
+    zapShop.renderItem(rootItems);
+}
+
+function handlePrice(ev) {
+    const amonut = ev.target.valueAsNumber;
+    zapShop.tempItem = zapShop.items.filter(ele => { return ele.price < amonut });
+    if (zapShop.tempItem.length > 0) {
+        const rootItems = document.getElementById('rootItems');
+        zapShop.renderTempItem(rootItems);
+    }
+    else {
+        const rootItems = document.getElementById('rootItems');
+        zapShop.renderItem(rootItems);
+    }
+
+}
+
+
+
+
+
+
+
