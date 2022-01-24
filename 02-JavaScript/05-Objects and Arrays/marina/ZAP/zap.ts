@@ -7,11 +7,11 @@ const closePopup: any = document.querySelector(".popup_close");
 setTimeout(function popupTimeOut() { popup.style.visibility = 'visible'; }, 2000);
 
 helloGuest.addEventListener('mouseover', () => {
-    popup.style.visibility = 'visible';
+  popup.style.visibility = 'visible';
 });
 
 closePopup.addEventListener('click', () => {
-    popup.style.visibility = 'hidden';
+  popup.style.visibility = 'hidden';
 });
 
 // popup.addEventListener('click', (e) => {       // does`nt work
@@ -76,11 +76,13 @@ interface Zap {
   computers: Array<Computer>;
   addComputer(computer: Computer);
   removeComputer(compTitle: string);
-  renderComp(domElement: any);
-  sortAscen(price: number);
-  sortDescen(price: number);
-  newComp(price: number);
-  renderFilter(price: number);
+  renderAllComputers(domElement: any);
+  sortAscen();
+  sortDescen();
+  filterMaxPrice(price: number);
+  renderFilter(domElement:any, filterd:Array<Computer>);
+  renderComputerList(domElement:any, filterd:Array<Computer>);
+
   //   renderAsc(): any;
 }
 
@@ -100,32 +102,42 @@ const myZapSearch: Zap = {
     }
   },
 
-  newComp(price): Array<Computer> {
-    return this.computers.filter((computer) => {
-      return computer.price > price;
-    });
+  filterMaxPrice(price): Array<Computer> {
+    return this.computers.filter((computer) => computer.price < price);
   },
 
   sortAscen() {
-    this.computers.sort((a, b) => a.price - b.price);
-    // renderAsc(this.computers, rootComp);
+    console.log('sortAscen');
+    this.computers = this.computers.sort((a, b) =>{return a.price - b.price});
+    console.log(this.computers)
   },
 
   sortDescen() {
-    this.computers.sort((a, b) => b.price - a.price);
+    console.log('sortDescen');
+    this.computers = this.computers.sort((a, b) =>{return b.price - a.price});
+    console.dir(this)
   },
 
-  renderComp(domElement) {
+  renderAllComputers(domElement) {
+    const computers = this.computers;
+    this.renderComputerList(domElement, computers)
+  },
+
+  renderFilter(domElement, filterd){
+    this.renderComputerList(domElement, filterd)
+  },
+
+  renderComputerList(domElement, list){
     let html = "";
-    this.computers.forEach((computer) => {
-      html = `<div class = "computers">
+    list.forEach((computer) => {
+      html += `<div class = "computers">
             <p>You were looking for</p>
             <h3>${computer.compDescription}</h3>
-            <p>for</p> <h4>${computer.compPrice}</h4></div>`;
+            <p>for</p> <h4>${computer.price}</h4></div>`;
     });
     // console.log(html);
-    domElement.innerHTML += html;
-  },
+    domElement.innerHTML = html;
+  }
 };
 
 // function renderAsc(sortAscen, rootComp) {
@@ -138,28 +150,28 @@ const myZapSearch: Zap = {
 // }
 
 
-const newComp: any = myZapSearch.newComp(25);
-console.log(newComp);
 
-function handlePriceAscen(e) {
-  //   console.log(e, e.targit);
-  e.preventDefault();
-  myZapSearch.sortAscen(price: number);
-  myZapSearch.renderComp(rootComp);
+function handlePriceAscen() {
+
+
+  myZapSearch.sortAscen();
+  const rootComp = document.querySelector("#rootComputer");
+  myZapSearch.renderAllComputers(rootComp);
+
   // myZapSearch.sortAscen(ev.target.elements.ascending.name);
 }
 
 function handlePriseDescen(e) {
   //   console.log(e, e.targit);
-  e.preventDefault();
-  myZapSearch.sortDescen(price: number);
-  myZapSearch.renderComp(rootComp);
+  const rootComp = document.querySelector("#rootComputer");
+  myZapSearch.sortDescen();
+  myZapSearch.renderAllComputers(rootComp);
 }
 
 function handleDelete(e) {
   //   console.log(e, e.targit);
   e.preventDefault();
-  myZapSearch.renderComp(rootComp);
+  myZapSearch.renderAllComputers(rootComp);
 }
 
 function handleSubmit(e) {
@@ -167,9 +179,9 @@ function handleSubmit(e) {
   console.dir(e.target);
   const rootComp: any = document.querySelector("#rootComputer");
   const compDescription: any = e.target.elements.comp_title.value;
-  const compPrice: number = e.target.elements.comp_price.value;
-  myZapSearch.addComputer({ compDescription, compPrice });
-  myZapSearch.renderComp(rootComp);
+  const price: number = e.target.elements.price.value;
+  myZapSearch.addComputer({ compDescription, price });
+  myZapSearch.renderAllComputers(rootComp);
 
   e.target.reset();
 }
@@ -178,13 +190,23 @@ function handleSubmit(e) {
 
 // Filtering (M.F)
 function handleFilter(e) {
-  let fiterEvent = e.target.valueAsNumber;
-  FilterIt(fiterEvent);
+  const price = e.target.valueAsNumber;
+  const rootComp = document.getElementById("rootComputer");
+  if(price){
+
+  console.log(price);
+  const filterd = myZapSearch.filterMaxPrice(price)
+  console.log(filterd)
+  
+  myZapSearch.renderFilter(rootComp, filterd);
+  } else {
+    myZapSearch.renderAllComputers();
+  }
 }
 
 function FilterIt(filterNumber) {
-    let filtered: Array<Computer> = [];
-    
+  let filtered: Array<Computer> = [];
+
   filtered = myZapSearch.computers.filter((priceFilter) => {
     return priceFilter.price < filterNumber;
   });
