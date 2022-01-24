@@ -41,6 +41,8 @@ function handleChange(event) {
     // const rootItems = document.getElementById('rootItems');
     // Zap.renderZap(rootItems);
     console.log(event.target.valueAsNumber);
+    var filterd = Zap.filterItems(price);
+    console.log(filterd);
 }
 // const filterItems = Zap.filterItems(5);
 // console.log(filterItems);
