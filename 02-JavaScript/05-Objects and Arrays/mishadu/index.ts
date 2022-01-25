@@ -9,6 +9,7 @@ interface ZAP{
 interface Item{
     name: string;
     price: number;
+    type: string;
 }
 
 
@@ -17,11 +18,13 @@ const zap:ZAP = {
     items:[ 
         {
             name: 'adidas',
-            price: 300
+            price: 300,
+            type: 'shoes'
         },
         {
             name: 'toe',
-            price: 150
+            price: 150,
+            type: 
         },
         {
             name: 'creels',
