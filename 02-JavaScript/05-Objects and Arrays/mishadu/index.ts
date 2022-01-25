@@ -105,7 +105,11 @@ const zap: ZAP = {
 
         list.forEach(item => {
             html += `<div class='card'>
-            <p>${item.name}: ${item.price}</p></div>`
+
+
+            <input type="checkbox" value="${item.id}"><p>${item.name}: ${item.price}</p>
+            
+            </div>`
         })
 
         domElement.innerHTML = html;
@@ -149,6 +153,10 @@ function handlePriceChange() {
     zap.renderFilteredByMaxPrice(maxprice, rootHTML);
 }
 
+function handleDeleteItems() {
+
+    
+}
 
 
 

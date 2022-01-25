@@ -66,7 +66,7 @@ var zap = {
     renderItems: function (list, domElement) {
         var html = '';
         list.forEach(function (item) {
-            html += "<div class='card'>\n            <p>" + item.name + ": " + item.price + "</p></div>";
+            html += "<div class='card'>\n\n\n            <input type=\"checkbox\" value=\"" + item.id + "\"><p>" + item.name + ": " + item.price + "</p>\n            \n            </div>";
         });
         domElement.innerHTML = html;
     }
@@ -95,4 +95,6 @@ function handlePriceChange() {
     var maxprice = document.querySelector('[name=maxprice]').valueAsNumber;
     var rootHTML = document.getElementById('root');
     zap.renderFilteredByMaxPrice(maxprice, rootHTML);
+}
+function handleDeleteItems() {
 }

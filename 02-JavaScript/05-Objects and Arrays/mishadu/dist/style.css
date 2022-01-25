@@ -34,4 +34,6 @@ form div, form select, form input {
 }
 #root .card {
   margin-inline-end: 1em;
+  display: flex;
+  justify-content: center;
 }
