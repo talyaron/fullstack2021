@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./dist/style.css">
+  <link rel="stylesheet" href="./dist/zap.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <title>Document</title>
 </head>
@@ -74,13 +74,18 @@
       </div>
     </div>
   </div>
-
+<div class="container__nums"> 
+<fieldset class="container__nums-form">
+<legend>check the difference between your numbers</legend>
   <form onsubmit="handleAB(event)">
-    <input type="number" name="a" id="a">
-    <input type="number" name="b" id="b">
+    <input type="number" name="a" id="a" placeholder="num 1">
+    <input type="number" name="b" id="b" placeholder="num 2">
     <input type="submit">
   </form>
+</fieldset>
+</div>
+
 </body>
-<script src="./dist/script.js"></script>
+<script src="./dist/zap.js"></script>
 
 </html>
