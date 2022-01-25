@@ -28,11 +28,8 @@ var zap = {
     addItem: function (item) {
         this.items.push(item);
     },
-    removeItem: function (itemName) {
-        var index = this.items.findIndex(function (item) { return item.name === itemName; });
-        if (index >= 0) {
-            this.items.splice(index, 1);
-        }
+    removeItem: function (id) {
+        this.data = this.data.filter(function (item) { return item.id !== id; });
     },
     sortItems: function (sortBy) {
         if (sortBy === 'price low to high') {

@@ -52,11 +52,8 @@ const zap: ZAP = {
         this.items.push(item);
     },
 
-    removeItem(itemName: string) {
-        const index = this.items.findIndex(item => item.name === itemName)
-        if (index >= 0) {
-            this.items.splice(index, 1)
-        }
+    removeItem(id) {
+        this.data = this.data.filter(item=>item.id !== id);
     },
 
     sortItems(sortBy) {
