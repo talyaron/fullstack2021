@@ -1,5 +1,6 @@
 var uid = function () {
-    return Date.now().toString(36) + Math.random().toString(36);
+    return Date.now().toString(36) + Math.random().toString(36).substr(2);
+    ;
 };
 var id = uid();
 var myPaintings = {
@@ -19,9 +20,10 @@ var myPaintings = {
     },
     addPainting: function (nameOfPainting, artist, madeIn, id) {
         this.listOfPaintings.push({ nameOfPainting: nameOfPainting, artist: artist, madeIn: madeIn, id: id });
+    },
+    removePainting: function (listOfPaintings, index) {
     }
 };
-//console.log(myPaintings)
 // myPaintings.sortByAscending(myPaintings);
 // myPaintings.sortByDescending(myPaintings);
 //moved them to the bottom so it sort also the added paintings
