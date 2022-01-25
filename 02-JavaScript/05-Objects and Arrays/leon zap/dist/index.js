@@ -36,15 +36,8 @@ function handleDesc(event) {
 }
 function handleFilter(event) {
     var amonut = event.target.valueAsNumber;
-    zapitem.items = zapitem.items.filter(function (ele) { return ele.price < amonut; });
-    if (zapitem.item.length > 0) {
-        var root_1 = document.querySelector(".rootItem");
-        zapitem.renderItem(root_1);
-    }
-    else {
-        var root_2 = document.querySelector(".rootItem");
-        zapitem.renderItem(root_2);
-    }
+    var filterd = zapitem.
+    ;
 }
 function handlesubmit(event) {
     event.preventDefault();

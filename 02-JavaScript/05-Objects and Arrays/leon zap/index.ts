@@ -53,16 +53,8 @@ function handleDesc(event){
 
 function handleFilter(event) {
     const amonut = event.target.valueAsNumber;
-    zapitem.items = zapitem.items.filter(ele => { return ele.price < amonut });
-    if (zapitem.item.length > 0) {
-        const root = document.querySelector(".rootItem");
-        zapitem.renderItem(root);
-    }
-    else {
-        const root = document.querySelector(".rootItem");
-        zapitem.renderItem(root);
-    }}
-
+    const filterd=zapitem.
+}
 function handlesubmit(event) {
     event.preventDefault();
     // console.log(event);
