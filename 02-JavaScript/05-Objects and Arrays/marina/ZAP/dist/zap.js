@@ -47,25 +47,33 @@ var myZapSearch = {
             this.computers.splice(index, 1);
         }
     },
-    newComp: function (price) {
-        return this.computers.filter(function (computer) {
-            return computer.price > price;
-        });
+    filterMaxPrice: function (price) {
+        return this.computers.filter(function (computer) { return computer.price < price; });
     },
     sortAscen: function () {
-        this.computers.sort(function (a, b) { return a.price - b.price; });
-        // renderAsc(this.computers, rootComp);
+        console.log('sortAscen');
+        this.computers = this.computers.sort(function (a, b) { return a.price - b.price; });
+        console.log(this.computers);
     },
     sortDescen: function () {
-        this.computers.sort(function (a, b) { return b.price - a.price; });
+        console.log('sortDescen');
+        this.computers = this.computers.sort(function (a, b) { return b.price - a.price; });
+        console.dir(this);
     },
-    renderComp: function (domElement) {
+    renderAllComputers: function (domElement) {
+        var computers = this.computers;
+        this.renderComputerList(domElement, computers);
+    },
+    renderFilter: function (domElement, filterd) {
+        this.renderComputerList(domElement, filterd);
+    },
+    renderComputerList: function (domElement, list) {
         var html = "";
-        this.computers.forEach(function (computer) {
-            html = "<div class = \"computers\">\n            <p>You were looking for</p>\n            <h3>" + computer.compDescription + "</h3>\n            <p>for</p> <h4>" + computer.compPrice + "</h4></div>";
+        list.forEach(function (computer) {
+            html += "<div class = \"computers\">\n            <p>You were looking for</p>\n            <h3>" + computer.compDescription + "</h3>\n            <p>for</p> <h4>" + computer.price + "</h4></div>";
         });
         // console.log(html);
-        domElement.innerHTML += html;
+        domElement.innerHTML = html;
     }
 };
 // function renderAsc(sortAscen, rootComp) {
@@ -75,40 +83,46 @@ var myZapSearch = {
 //   }
 //   rootComp.innerHTML = sortedAscHtml;
 // }
-var newComp = myZapSearch.newComp(25);
-console.log(newComp);
-function handlePriceAscen(e) {
-    //   console.log(e, e.targit);
-    e.preventDefault();
-    myZapSearch.sortAscen(price, number);
-    myZapSearch.renderComp(rootComp);
+function handlePriceAscen() {
+    myZapSearch.sortAscen();
+    var rootComp = document.querySelector("#rootComputer");
+    myZapSearch.renderAllComputers(rootComp);
     // myZapSearch.sortAscen(ev.target.elements.ascending.name);
 }
 function handlePriseDescen(e) {
     //   console.log(e, e.targit);
-    e.preventDefault();
-    myZapSearch.sortDescen(price, number);
-    myZapSearch.renderComp(rootComp);
+    var rootComp = document.querySelector("#rootComputer");
+    myZapSearch.sortDescen();
+    myZapSearch.renderAllComputers(rootComp);
 }
 function handleDelete(e) {
     //   console.log(e, e.targit);
     e.preventDefault();
-    myZapSearch.renderComp(rootComp);
+    myZapSearch.renderAllComputers(rootComp);
 }
 function handleSubmit(e) {
     e.preventDefault();
     console.dir(e.target);
     var rootComp = document.querySelector("#rootComputer");
     var compDescription = e.target.elements.comp_title.value;
-    var compPrice = e.target.elements.comp_price.value;
-    myZapSearch.addComputer({ compDescription: compDescription, compPrice: compPrice });
-    myZapSearch.renderComp(rootComp);
+    var price = e.target.elements.price.value;
+    myZapSearch.addComputer({ compDescription: compDescription, price: price });
+    myZapSearch.renderAllComputers(rootComp);
     e.target.reset();
 }
 // Filtering (M.F)
 function handleFilter(e) {
-    var fiterEvent = e.target.valueAsNumber;
-    FilterIt(fiterEvent);
+    var price = e.target.valueAsNumber;
+    var rootComp = document.getElementById("rootComputer");
+    if (price) {
+        console.log(price);
+        var filterd = myZapSearch.filterMaxPrice(price);
+        console.log(filterd);
+        myZapSearch.renderFilter(rootComp, filterd);
+    }
+    else {
+        myZapSearch.renderAllComputers();
+    }
 }
 function FilterIt(filterNumber) {
     var filtered = [];

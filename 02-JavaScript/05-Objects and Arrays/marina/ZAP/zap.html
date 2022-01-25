@@ -72,24 +72,24 @@
 
     <form  onsubmit="handleSubmit(event)" class="lookig_for">
         <input style="width: 15%; height: 3em;" type="text" name="comp_title" id="comp_title" placeholder="Enter description here" >
-        <input style="width: 15%; height: 3em;" type="text" name="comp_price" id="comp_price" placeholder="Enter price here" >
+        <input style="width: 15%; height: 3em;" type="text" name="price" id="price" placeholder="Enter price here" >
         <button style="width: 5%; height: 3em;" id="btn_submit" type="submit">Add an item</button>
     </form>
 
-    <form class="delete">
+   
         <input style="width: 15%; height: 3em;" type="text" name="comp_delete" id="comp_delete" placeholder="Enter an item to delete" >
         <button style="width: 5%; height: 3em;"  onsubmit="handleDelete(event)" id="btn_submit" type="submit">Delete an item</button>
-    </form>
+    
 
-    <form class="sortPrice">
-        <input style="width: 15%; height: 3em;" type="text" name="filter_price" id="filter_price" placeholder="Enter a price here" >
-        <button style="width: 5%; height: 3em;"  onsubmit="handleFilter(event)" id="btn_submit" type="submit">Find for me</button>
-    </form>
+    
+        <input style="width: 15%; height: 3em;" onkeyup="handleFilter(event)" type="number" name="filter_price" id="filter_price" placeholder="Enter a price here" >
+      
+   
 
-    <form class="sortName">
-        <button  class="ascending" style="width: 5%; height: 3em;"  onsubmit="handlePriceAscen(event)" id="btn_submit" type="submit">Sort by price  <ion-icon name="arrow-up-outline"></ion-icon></button>
-        <button  class="descending" style="width: 5%; height: 3em;"  onsubmit="handlePriseDescen(event)" id="btn_submit" type="submit">Sort by price  <ion-icon name="arrow-down-outline"></ion-icon></button>
-    </form>
+   
+        <button  class="ascending" style="width: 5%; height: 3em;"  onclick="handlePriceAscen()" id="btn_submit" type="submit">Sort by price  <ion-icon name="arrow-up-outline"></ion-icon></button>
+        <button  class="descending" style="width: 5%; height: 3em;"  onclick="handlePriseDescen()" id="btn_submit" type="submit">Sort by price  <ion-icon name="arrow-down-outline"></ion-icon></button>
+    
 
 
     <div id="rootComputer"></div>

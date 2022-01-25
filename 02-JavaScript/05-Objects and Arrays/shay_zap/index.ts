@@ -1,9 +1,12 @@
 interface Obj{
     zap:Array< Product >,
-    addItem?:any,
+    addItem(product:Product),
     sortAsc?:any,
     sortDesc?:any,
-    renderZap?:any,
+    renderAll(domElement)
+    renderZap(domElement:any, filterd:Array<Product>),
+    renderFilter(domElement:any, filterd:Array<Product>);
+    
      priceUnder
 }
 interface Product {
@@ -13,9 +16,9 @@ interface Product {
 
 const myProduct: Obj={
     zap:[],
-    addItem(products:Product){
+    addItem(product:Product){
         
-        this.zap.push(products);
+        this.zap.push(product);
     },
     sortAsc(){
         this.zap.sort((x, y)=> y.price -x.price)
@@ -24,25 +27,34 @@ const myProduct: Obj={
     sortDesc(){
         this.zap.sort((x, y)=> x.price -y.price)
     },
-    renderZap(domElement){
+    renderAll(domElement) {
+        const computers = this.zap;
+        this.renderZap(domElement, computers)
+      },
+    renderZap(domElement, list){
     let html = "";
+console.log(list);
 
-    this.zap.forEach(element => {
-        html+=`<div class = 'card'>
-        <p>product: ${element.product}, price: ${element.price}</p></div>`
-    });
+    list.forEach(element => {
+       html+=`<div class = 'card'>
+       <p>product: ${element.product}, price: ${element.price}</p></div>`
+   });
     domElement.innerHTML = html;
 },
+renderFilter(domElement, filterd) {
+    this.renderZap( domElement, filterd);
+   
+    
+},
+
  priceUnder(item){
      
    if(item == ""){
        this.renderZap(this.Zap);
        return;
    }
-    let listFilter = this.zap.filter(element=> element.price <= (item));
-    console.log(listFilter);
-    
-    myProduct.renderZap(listFilter);
+    return  this.zap.filter(element=> element.price <= item);
+
 
 }
 };
@@ -58,25 +70,50 @@ function handlePriceChange(ev) {
 
     myProduct.addItem({ product, price });
     const rootZap= document.getElementById("rootZap");
-    myProduct.renderZap(rootZap);
+    myProduct.renderAll(rootZap);
+ 
     ev.target.reset();
   }
-function sort(ev){
-    switch(ev.target.id){
-        case `asc`: myProduct.sortAsc();
-        break;
-        case `desc`: myProduct.sortDesc();
-    }
-    myProduct.renderZap(rootZap)
+// function sort(ev){
+  
+//     switch(ev.target.id){
+//         case `asc`:   myProduct.sortAsc();
+//         break;
+//         case `desc`:   myProduct.sortDesc();
+//     }
+//     const rootZap = document.getElementById("rootZap");
+//  myProduct.renderZap(this.zap, rootZap);
+// }
+function handleAsc(event){
+    event.preventDefault();
+     myProduct.sortAsc();
+     const rootZap = document.getElementById("rootZap");
+    myProduct.renderAll(rootZap);
+
+};
+function handleDesc(event){
+    event.preventDefault();
+     myProduct.sortDesc();
+     const rootZap = document.getElementById("rootZap");
+    myProduct.renderAll(rootZap);
 }
 
 function handleFilter(ev){
-myProduct.priceUnder(ev.target.value)
-console.log(ev.target.value);
+    const price = ev.target.valueAsNumber;
+    const rootZap = document.getElementById("rootZap");
+    if(price){
+  
+    console.log(price) + `price`;
+    const filterd = myProduct.priceUnder(price)
+    console.log(filterd)
+    
+    myProduct.renderFilter(rootZap, filterd);
+    } else {
+      this.renderAll();
+    }
     
 }
-
 console.log(myProduct);
-const rootZap = document.getElementById("rootZap");
- myProduct.renderZap(rootZap);
+
+console.log(this.zap);
 
