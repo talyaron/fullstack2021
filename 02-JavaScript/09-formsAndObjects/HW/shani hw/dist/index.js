@@ -21,10 +21,11 @@ var myPaintings = {
         this.listOfPaintings.push({ nameOfPainting: nameOfPainting, artist: artist, madeIn: madeIn, id: id });
     }
 };
-console.log(myPaintings);
-myPaintings.sortByAscending(myPaintings);
-myPaintings.sortByDescending(myPaintings);
+//console.log(myPaintings)
+// myPaintings.sortByAscending(myPaintings);
+// myPaintings.sortByDescending(myPaintings);
 //moved them to the bottom so it sort also the added paintings
 myPaintings.addPainting("The Mona Lisa", "Leonardo Da Vinci", 1503, id);
 myPaintings.sortByAscending(myPaintings);
 myPaintings.sortByDescending(myPaintings);
+console.log(myPaintings);
