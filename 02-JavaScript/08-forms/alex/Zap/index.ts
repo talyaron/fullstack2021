@@ -3,7 +3,8 @@ interface shop {
   addItem(product: product)
   renderZap(domElement: any);
   filterItems(pricing?: number)
-  sortItems(orderBy?: string)
+  sortItemsAsc();
+  sortItemsDsc();
 }
 
 interface product {
@@ -27,35 +28,47 @@ const Zap: shop = {
     });
     domElement.innerHTML = html;
   },
-  sortItems(orderBy = 'asc') {
-    if (orderBy === 'asc') {
-      this.products.sort((a, b) => {
-        return a.price - b.price
-      })
-    }
-    else if (orderBy === 'dsc') {
-      this.products.sort((a, b) => {
-        return b.price - a.price
-      })
-    }
+
+  sortItemsAsc() {
+    this.products.sort((a, b) => { return a.price - b.price })
   },
+  sortItemsDsc() {
+    this.products.sort((a, b) => { return b.price - a.price })
+  },
+
+
   filterItems(pricing): Array<product> {
     return this.products.filter((product) => {
       return product.price > pricing
-
     })
   }
 
 }
 
-function handleChange(event):void {
+
+
+function handleChange(event): void {
   event.preventDefault();
   const price = event.target.valueAsNumber;
   const filterd = Zap.filterItems(price)
   console.log(filterd)
 }
 
-// const filterItems = Zap.filterItems(5);
+function handleSortAsc(event): void {
+  event.preventDefault();
+  Zap.sortItemsAsc();
+  console.log(Zap.products);
+}
+ 
+function handleSortDsc(event): void {
+  event.preventDefault();
+  Zap.sortItemsDsc();
+  console.log(Zap.products);
+}
+
+
+// const filterItems = Zap.sortItems(5);
+
 // console.log(filterItems);
 
 

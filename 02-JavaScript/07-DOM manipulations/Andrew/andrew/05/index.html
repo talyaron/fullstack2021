@@ -13,6 +13,15 @@
     <form onsubmit='handleSubmit(event)'>
         <input type="text" placeholder="Item Name" name="itemName" id="item_name">
         <input type="number" placeholder="00.00$" name="itemPrice" id="item_price">
+        <div><input type="radio" id="computers" name="category_radio" value="computers" id="">
+            <label for="books">Computers</label>
+        </div>
+        <div><input type="radio" id="books" name="category_radio" value="books" id="">
+            <label for="bikes">Books</label>
+        </div>
+        <div><input type="radio" id="movies" name="category_radio" value="movies" id="">
+            <label for="movies">Movies</label>
+        </div>
         <input type="submit" value="Add Item" name="send" id="submit">
     </form>
     <div id="sort_wrapper">
@@ -20,13 +29,19 @@
         <button id="price_up" >Sort: Price ↑</button>
         <button id="name_down" >Sort: Name ↓</button>
         <button id="name_up" >Sort: Name ↑</button>
+        <select name="categorys" id="category_selector" onchange='handleSelect(event)'>
+            <option value="all">Show All</option>
+            <option value="computers">Computers</option>
+            <option value="books">Books</option>
+            <option value="movies">Movies</option>
+          </select>
         <div id="sliders">
             <label for="min">Min Price
                 <input type="range" name="min" min="0" max="15" value="0" id="rangeMin" onchange='handleSlider(event)'>
                 <p id="min-value"></p>
             </label>
             <label for="max">Max Price
-                <input type="range" name="max" min="0" max="15" value="15" id="rangeMax" onchange='handleSlider(event)'>
+                <input type="range" name="max" min="0" max="90" value="90" id="rangeMax" onchange='handleSlider(event)'>
                 <p id="max-value"></p>
             </label>
         </div>
