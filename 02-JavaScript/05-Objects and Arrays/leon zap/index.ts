@@ -1,5 +1,6 @@
 interface itemObject {
     items: Array<descriptionAndPrice>,
+    tempitem:Array<descriptionAndPrice>,
     addItem(newItem: descriptionAndPrice)
     renderItem(domElement: any)
 }
@@ -23,8 +24,6 @@ let zapitem: any = {
     },
     renderItem(itemOnDom) {
         let itemHtml: string = '';
-
-
         this.items.forEach(item => {
             itemHtml += `<div class="card"><p>${item.company}:${item.price}</p></div>`
         })
@@ -32,8 +31,6 @@ let zapitem: any = {
     },
     rendertempItem(itemOnDom) {
         let itemHtml: string = '';
-
-
         this.tempItem.forEach(item => {
             itemHtml += `<div class="card"><p>${item.company}:${item.price}</p></div>`
         })
@@ -68,11 +65,9 @@ function handlesubmit(event) {
     zapitem.addItem({ company, price });
 
     zapitem.renderItem(root);
-    // console.log(zapitem)
-
     // event.traget.reset();
-
 }
+
 function handleFilter(event) {
     const price = event.target.valueAsNumber;
     zapitem.tempItem = zapitem.items.filter(ele => { return ele.price < price });

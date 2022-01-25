@@ -47,7 +47,6 @@ function handlesubmit(event) {
     var price = event.target.elements.price.valueAsNumber;
     zapitem.addItem({ company: company, price: price });
     zapitem.renderItem(root);
-    // console.log(zapitem)
     // event.traget.reset();
 }
 function handleFilter(event) {
