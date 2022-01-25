@@ -1,13 +1,18 @@
+var zapAfterDelete;
 var tech = document.getElementById("container_Tech");
 var newItem;
 var container = document.querySelectorAll('[id*="container_"]');
-function Item(name, model, description, price, deliveryPrice, category) {
+var uid = function () {
+    return Date.now().toString(36) + Math.random().toString(36).substr(2);
+};
+function Item(name, model, description, price, deliveryPrice, category, id) {
     this.name = name;
     this.model = model;
     this.description = description;
     this.price = price;
     this.deliveryPrice = deliveryPrice;
     this.category = category;
+    this.id = uid();
 }
 var zap = {
     items: [
@@ -21,12 +26,20 @@ var zap = {
         new Item("Black Card Revoked", "Original flavor", "Original", 14.49, "+10", "Games"),
     ],
     addNewItem: function (item) {
-        this.items.push(item);
+        var id = uid();
+        this.items.push(id, item);
+    },
+    deleteItem: function (id) {
+        var zapAfterDelete = this.items;
+        this.items = this.items.filter(function (item) { return item.id !== id; });
+        console.dir(zapAfterDelete);
+        zap.clear();
+        this.renderThis(zapAfterDelete);
     },
     renderThis: function (array) {
         var html = "";
         array.forEach(function (Item) {
-            html = "<div price='" + Item.price + "' id='card' class='" + Item.category + "'>\n                    <h1>" + Item.name + "</h1>\n                    <p class=\"model\">" + Item.model + "</p>\n                    <p class=\"description\">" + Item.description + "</p>\n                    <p class=\"price\">" + (Item.price || "") + "$</p>\n                    <p>" + (Item.deliveryPrice || "") + " Shipping</p>";
+            html = "<div price='" + Item.price + "' id='card' class='" + Item.category + "'>\n      <i class=\"fa fa-times\" onclick=\"handleDeleteItem('" + Item.id + "')\"></i>\n                    <h1 contenteditable=\"true\">" + Item.name + "</h1>\n                    <p class=\"model\">" + Item.model + "</p>\n                    <p class=\"description\">" + Item.description + "</p>\n                    <p class=\"price\">" + (Item.price || "") + "$</p>\n                    <p>" + (Item.deliveryPrice || "") + " Shipping</p>";
             if (Item.category === "Tech") {
                 document.getElementById("container_Tech").innerHTML += html;
             }
@@ -126,6 +139,9 @@ function reset(a, b) {
     return a.addDate - b.addDate;
 }
 var min = document.getElementById("min");
+function handleDeleteItem(id) {
+    zap.deleteItem(id);
+}
 var maxPrice = Math.max.apply(Math, zap.items.map(function (item) {
     return item.price;
 }));
@@ -137,16 +153,29 @@ function handleAB(ev) {
     ev.preventDefault();
     var a = ev.target.elements.a.valueAsNumber;
     var b = ev.target.elements.b.valueAsNumber;
-    if (a < b) {
-        return a - b;
+    var dif = 0;
+    ev.target.reset();
+    if (a > b) {
+        dif = a - b;
+        console.log("num1 = " + a + ", num2 = " + b + " and their diffrence is: " + dif);
+        if (dif < a && dif < b) {
+            console.log("These two are very close!");
+        }
+        else {
+            return;
+        }
+    }
+    else if (a < b) {
+        dif = b - a;
+        console.log("num1 = " + a + ", num2 = " + b + ", and their diffrence is: " + dif);
+        if (dif < a && dif < b) {
+            console.log("These two are very close!");
+        }
+        else {
+            return;
+        }
     }
     else {
-        return b - a;
+        console.log(a + " & " + b + " are even.");
     }
 }
-// document.getElementById('minPrice').innerHTML = minPrice
-// let vals = [{name: `e`, price: 5},{name:'d', price: 4},{name: `i`, price: 9},{name: `b`, price: 2},{name: `a`, price: 2}];
-// vals = vals.price.filter(x => x % 2 === 0);
-// console.log(vals);
-// let filteredZip = zap.items.filter((num, i) => zap.items.indexOf(num) === i)
-// console.dir(filteredZip);
