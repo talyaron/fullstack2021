@@ -11,6 +11,7 @@ interface descriptionAndPrice {
 
 let zapitem: any = {
     items: [],
+    tempItem: [],
     addItem(addItem: descriptionAndPrice) {
         this.items.push(addItem);
     },
@@ -21,8 +22,6 @@ let zapitem: any = {
         this.items.sort((a,b)=>b.price-a.price);
     },
     renderItem(itemOnDom) {
-        // console.log(itemOnDom)
-        // console.log(this.items)
         let itemHtml: string = '';
 
 
@@ -31,6 +30,15 @@ let zapitem: any = {
         })
         itemOnDom.innerHTML = itemHtml;
     },
+    rendertempItem(itemOnDom) {
+        let itemHtml: string = '';
+
+
+        this.tempItem.forEach(item => {
+            itemHtml += `<div class="card"><p>${item.company}:${item.price}</p></div>`
+        })
+        itemOnDom.innerHTML = itemHtml;
+    }
 }
 
 zapitem.addItem({ company: 'lenovo 16`', price: 180 });
@@ -51,10 +59,6 @@ function handleDesc(event){
     zapitem.renderItem(root);
 }
 
-function handleFilter(event) {
-    const amonut = event.target.valueAsNumber;
-    const filterd=zapitem.
-}
 function handlesubmit(event) {
     event.preventDefault();
     // console.log(event);
@@ -68,6 +72,18 @@ function handlesubmit(event) {
 
     // event.traget.reset();
 
+}
+function handleFilter(event) {
+    const price = event.target.valueAsNumber;
+    zapitem.tempItem = zapitem.items.filter(ele => { return ele.price < price });
+    if (zapitem.tempItem.length > 0) {
+        const root = document.querySelector(".rootItem");
+        zapitem.rendertempItem(root);
+    }
+    else {
+        const root = document.querySelector(".rootItem");
+        zapitem.renderItem(root);
+    }
 }
 // const root = document.querySelector(".rootItem");
 

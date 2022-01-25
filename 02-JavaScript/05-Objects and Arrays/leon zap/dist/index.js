@@ -1,5 +1,6 @@
 var zapitem = {
     items: [],
+    tempItem: [],
     addItem: function (addItem) {
         this.items.push(addItem);
     },
@@ -10,10 +11,15 @@ var zapitem = {
         this.items.sort(function (a, b) { return b.price - a.price; });
     },
     renderItem: function (itemOnDom) {
-        // console.log(itemOnDom)
-        // console.log(this.items)
         var itemHtml = '';
         this.items.forEach(function (item) {
+            itemHtml += "<div class=\"card\"><p>" + item.company + ":" + item.price + "</p></div>";
+        });
+        itemOnDom.innerHTML = itemHtml;
+    },
+    rendertempItem: function (itemOnDom) {
+        var itemHtml = '';
+        this.tempItem.forEach(function (item) {
             itemHtml += "<div class=\"card\"><p>" + item.company + ":" + item.price + "</p></div>";
         });
         itemOnDom.innerHTML = itemHtml;
@@ -34,11 +40,6 @@ function handleDesc(event) {
     zapitem.sortdescending();
     zapitem.renderItem(root);
 }
-function handleFilter(event) {
-    var amonut = event.target.valueAsNumber;
-    var filterd = zapitem.
-    ;
-}
 function handlesubmit(event) {
     event.preventDefault();
     // console.log(event);
@@ -48,5 +49,17 @@ function handlesubmit(event) {
     zapitem.renderItem(root);
     // console.log(zapitem)
     // event.traget.reset();
+}
+function handleFilter(event) {
+    var price = event.target.valueAsNumber;
+    zapitem.tempItem = zapitem.items.filter(function (ele) { return ele.price < price; });
+    if (zapitem.tempItem.length > 0) {
+        var root_1 = document.querySelector(".rootItem");
+        zapitem.rendertempItem(root_1);
+    }
+    else {
+        var root_2 = document.querySelector(".rootItem");
+        zapitem.renderItem(root_2);
+    }
 }
 // const root = document.querySelector(".rootItem");
