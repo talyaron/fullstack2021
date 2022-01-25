@@ -130,10 +130,18 @@ html {
       color: #385170;
     }
     &__nums{
+      background-color: #353535;
       position: fixed;
       width:20vw;
       top: 200px;
       right: 50px;
+      legend{
+        background-color:#385170 ;
+color:#9fd3c7
+      }
+      fieldset{
+        border: red;
+      }
     }
   }
   
