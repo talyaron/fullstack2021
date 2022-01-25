@@ -11,12 +11,12 @@ interface painting{
     nameOfPainting:string;
     artist:string;
     madeIn:number;
-    id:any;
+    id?:string;
 
 }
 
 const uid = function(){
-    return Date.now().toString(36) + Math.random().toString(36).substr(2);;
+    return Date.now().toString(36) + Math.random().toString(36).substr(2);
 };
 const id=uid();
 
@@ -41,13 +41,18 @@ const myPaintings:thePaintings ={
          
    
  },
- addPainting(nameOfPainting,artist,madeIn,id){
+ addPainting(nameOfPainting,artist,madeIn){
      
-     this.listOfPaintings.push({nameOfPainting,artist,madeIn,id})
+    this.listOfPaintings.push({nameOfPainting,artist,madeIn,id})
 
  },
- removePainting(listOfPaintings,index){
-     
+ removePainting(nameOfPainting){
+//   const newArray=this.listOfPaintings.filter(painting=>painting.nameOfPainting!==nameOfPainting)   
+//     //return newArray
+//     console.log(newArray)
+//or i use what i did up there without the return to show the list of the new array after stuff were removed
+    this.listOfPaintings=this.listOfPaintings.filter(painting=>painting.nameOfPainting!==nameOfPainting)   
+    
 
  },
  
@@ -58,8 +63,11 @@ const myPaintings:thePaintings ={
 // myPaintings.sortByDescending(myPaintings);
 //moved them to the bottom so it sort also the added paintings
 myPaintings.addPainting("The Mona Lisa","Leonardo Da Vinci",1503,id)
+myPaintings.addPainting("Viva la Vida, Watermelons","Frida Kahlo",1954,id)
 myPaintings.sortByAscending(myPaintings);
 myPaintings.sortByDescending(myPaintings);
+myPaintings.removePainting("Wheat Field with Cypresses")
+
 console.log(myPaintings)
 
 
