@@ -1,0 +1,40 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgb(255, 255, 255);
+}
+
+.wrapper{
+    width: 80vw;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    box-shadow: 0px 0px 3px black;
+    padding: 1em;
+}
+
+form{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    div, select, input{
+        margin-inline-end: 1em;
+    }
+}
+
+#root{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .card{
+        margin-inline-end: 1em;
+        display: flex;
+        justify-content: center;
+    }
+}

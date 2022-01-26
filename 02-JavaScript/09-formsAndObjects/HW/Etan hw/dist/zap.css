@@ -111,3 +111,17 @@ header #filters {
   background-size: max;
   color: #385170;
 }
+.container__nums {
+  background-color: #353535;
+  position: fixed;
+  width: 20vw;
+  top: 200px;
+  right: 50px;
+}
+.container__nums legend {
+  background-color: #385170;
+  color: #9fd3c7;
+}
+.container__nums fieldset {
+  border: red;
+}

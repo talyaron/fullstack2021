@@ -13,18 +13,11 @@ var Zap = {
         });
         domElement.innerHTML = html;
     },
-    sortItems: function (orderBy) {
-        if (orderBy === void 0) { orderBy = 'asc'; }
-        if (orderBy === 'asc') {
-            this.products.sort(function (a, b) {
-                return a.price - b.price;
-            });
-        }
-        else if (orderBy === 'dsc') {
-            this.products.sort(function (a, b) {
-                return b.price - a.price;
-            });
-        }
+    sortItemsAsc: function () {
+        this.products.sort(function (a, b) { return a.price - b.price; });
+    },
+    sortItemsDsc: function () {
+        this.products.sort(function (a, b) { return b.price - a.price; });
     },
     filterItems: function (pricing) {
         return this.products.filter(function (product) {
@@ -38,7 +31,17 @@ function handleChange(event) {
     var filterd = Zap.filterItems(price);
     console.log(filterd);
 }
-// const filterItems = Zap.filterItems(5);
+function handleSortAsc(event) {
+    event.preventDefault();
+    Zap.sortItemsAsc();
+    console.log(Zap.products);
+}
+function handleSortDsc(event) {
+    event.preventDefault();
+    Zap.sortItemsDsc();
+    console.log(Zap.products);
+}
+// const filterItems = Zap.sortItems(5);
 // console.log(filterItems);
 function handleAddItem(event) {
     event.preventDefault();
