@@ -2,6 +2,7 @@ interface zapList{
     items:Array<thing>
     addItem(item:thing):void
     deleteItem(id:string):void
+    editItem(id:string):void
     sortPriceDown():void
     sortPriceUp():void
     sortNameUp():void
@@ -25,6 +26,17 @@ let Inventory:zapList = {
     },
     deleteItem(id){
         this.items = this.items.filter(item => item.id !==id)
+    },
+    editItem(id){
+        let updatedItem = this.items.filter(item => item.id ==id)[0];
+        updatedItem.name = prompt("Update the name", `${updatedItem.name}`);
+        updatedItem.price = prompt("Update the Price", `${updatedItem.price}`);
+        do{
+            updatedItem.category = prompt("Update Category, either computers, books, or movies", `${updatedItem.category}`);
+        }
+        while(updatedItem.category !== "computers" && updatedItem.category !== "books" && updatedItem.category !== "movies");
+        
+        // this.items.splice(4, 1, 'May')
     },
     sortPriceDown() { this.items.sort((a, b) => a.price - b.price) },
     sortPriceUp() { this.items.sort((a, b) => b.price - a.price) },
@@ -70,6 +82,7 @@ function renderList(list) {
                     <h2>${list.items[item].price} Shmekels</h2>
                     <p>${list.items[item].category}</p>
                     <button id="${list.items[item].id}" onclick='handleDelete(event)'>Delete</button>
+                    <button id="${list.items[item].id}" onclick='handleEdit(event)'>Edit</button>
                 </div>`;
     }
     document.querySelector('#output').innerHTML = html;
@@ -80,6 +93,11 @@ function renderList(list) {
 
 function handleDelete(ev){
     Inventory.deleteItem(ev.target.id);
+    renderList(Inventory);
+}
+
+function handleEdit(ev){
+    Inventory.editItem(ev.target.id);
     renderList(Inventory);
 }
 

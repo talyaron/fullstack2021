@@ -1,0 +1,41 @@
+.drop {
+  display: flex;
+  justify-content: center;
+  clip-path: inset(1px 1px 1px 1px round 300px);
+  background-color: #def7f9;
+  width: 150px;
+  height: 150px;
+}
+.drop__water {
+  box-shadow: whitesmoke;
+  background-color: aqua;
+  box-shadow: 5px 10px 20px #a9a1f8;
+  width: 55px;
+  height: 55px;
+  position: relative;
+  transform: rotate(-45deg);
+  border-radius: 150% 0 150% 150%;
+  animation-name: tear;
+  animation-duration: 3s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: running;
+  animation-fill-mode: slidein;
+}
+@keyframes tear {
+  0% {
+    left: 0px;
+    top: 0px;
+    transform: rotate(-45deg);
+  }
+  75% {
+    left: 0px;
+    top: 200px;
+    transform: rotate(-45deg);
+  }
+  100% {
+    left: 0px;
+    top: 300px;
+    transform: rotate(-45deg);
+  }
+}
