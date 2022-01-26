@@ -55,3 +55,14 @@ myPaintings.removePaintingByName("Wheat Field with Cypresses");
 //wont work at the moment cause the id is always changing
 myPaintings.renderListOfPaintings(myPaintings.listOfPaintings);
 console.log(myPaintings);
+function handleSubmit(ev) {
+    ev.preventDefault();
+    var nameOfPainting = ev.target.elements.nameOfPainting.value;
+    var artist = ev.target.elements.artist.value;
+    var madeIn = ev.target.elements.madeIn.valueAsNumber;
+    myPaintings.addPainting(nameOfPainting, artist, madeIn);
+    //makes that the items that the user adds goes into the function of addPainting and each inputs value is taken and taken into the adding function
+    myPaintings.renderListOfPaintings(myPaintings.listOfPaintings);
+    //i do this in order to connect the addPainting form into the render and will print it with the new list which an item was added 
+    ev.target.reset();
+}

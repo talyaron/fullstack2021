@@ -77,6 +77,9 @@ const myPaintings:thePaintings ={
       document.getElementById('root').style.backgroundSize= "60vw 100vh";
       document.getElementById('root').style.backgroundRepeat= "no-repeat"; 
       document.getElementById('root').style.backgroundPosition="center";
+
+
+
       document.getElementById('root').innerHTML = html
       
     
@@ -98,6 +101,30 @@ myPaintings.removePaintingByName("Wheat Field with Cypresses")
 myPaintings.renderListOfPaintings(myPaintings.listOfPaintings);
 
 console.log(myPaintings)
+
+function handleSubmit(ev){
+    ev.preventDefault();
+    
+
+    const nameOfPainting=ev.target.elements.nameOfPainting.value;
+    const artist=ev.target.elements.artist.value;
+    const madeIn=ev.target.elements.madeIn.valueAsNumber;
+
+   
+   
+    myPaintings.addPainting(nameOfPainting,artist,madeIn);
+    //makes that the items that the user adds goes into the function of addPainting and each inputs value is taken and taken into the adding function
+    myPaintings.renderListOfPaintings(myPaintings.listOfPaintings);
+    //i do this in order to connect the addPainting form into the render and will print it with the new list which an item was added 
+    
+
+    ev.target.reset();
+
+}
+
+
+
+
 
 
 
