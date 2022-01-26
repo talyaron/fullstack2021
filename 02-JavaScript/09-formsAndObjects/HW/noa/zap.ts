@@ -4,17 +4,24 @@ interface Zap {
     renderZaplist(domElement);
     sortItem(product);
     filterByPrice(pricenum);
+    deleteItem(id);
 }
 
-interface Products{
-    description:string;
-    price:number;
+interface Products {
+    description: string;
+    price: number;
+    id:number;
 }
+
+const uid = function () {
+    return Date.now().toString(36) + Math.random().toString(36).substr(2);
+};
 
 const ZapList: Zap = {
-    products: [ ],
+    products: [],
 
     AddItem(item) {
+        const id = uid();
         this.products.push(item)
     },
 
@@ -37,11 +44,16 @@ const ZapList: Zap = {
         this.products.filter((product) => { return product.price <= pricenum })
     },
 
+    deleteItem(id) {
+        this.products =this.products.filter(product=>product.id!==id)
+    },
+
     renderZaplist(domElement) {
         let HTML = '';
-        this.products.forEach(element => {
+        this.products.forEach(product => {
             HTML += ` <div class='card'>
-            <P> The product: ${element.description}, price: ${element.price}</p>
+            <P> The product: ${product.description}, price: ${product.price}</p>
+            <button onclick="handleDelete('${product.id}')">Delete</button>
             </div>`
         });
 
@@ -57,10 +69,11 @@ function handleZaplist(ev) {
 
     const description = ev.target.elements.description.value
     const price = ev.target.elements.price.valueAsNumber
+    const id = uid();
 
     console.log(description, price)
 
-    ZapList.AddItem({ description, price })
+    ZapList.AddItem({id, description, price })
     const list = document.getElementById('list')
     ZapList.renderZaplist(list)
 
@@ -72,3 +85,8 @@ function handlePrice(ev) {
     ZapList.renderZaplist(list)
 }
 
+function handleDelete(id) {
+ZapList.deleteItem(id)
+const list = document.getElementById('list')
+ZapList.renderZaplist(list)
+}
