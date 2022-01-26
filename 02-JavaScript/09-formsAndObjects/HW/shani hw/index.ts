@@ -5,7 +5,8 @@ interface thePaintings{
     addPainting:any;
     removePaintingByName?:any;
     removePaintingById?:any;
-
+    renderListOfPaintings(list: Array<painting>);
+    
 }
 
 interface painting{
@@ -61,7 +62,25 @@ const myPaintings:thePaintings ={
  removePaintingById(id){
     this.listOfPaintings=this.listOfPaintings.filter(painting=>painting.id !==id)   
  },
- 
+ renderListOfPaintings(array){
+     let html=""
+    array.forEach(painting=>{
+        html+=`<div class="painting">
+        <p>Name of painting:${painting.nameOfPainting}</p>
+        <p>Artist:${painting.artist}</p>
+        <p>Year:${painting.madeIn}</p>      
+        
+        </div>`
+       
+    })
+    document.getElementById('root').style.backgroundImage="url('img/frame.png')" ;
+      document.getElementById('root').style.backgroundSize= "60vw 100vh";
+      document.getElementById('root').style.backgroundRepeat= "no-repeat"; 
+      document.getElementById('root').style.backgroundPosition="center";
+      document.getElementById('root').innerHTML = html
+      
+    
+ },
 
 }
 
@@ -76,8 +95,11 @@ myPaintings.removePaintingByName("Wheat Field with Cypresses")
 //myPaintings.removePaintingById("kyumjh549hdf5s03hab")
             //wont work at the moment cause the id is always changing
 
+myPaintings.renderListOfPaintings(myPaintings.listOfPaintings);
 
 console.log(myPaintings)
+
+
 
 
 
