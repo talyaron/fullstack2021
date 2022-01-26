@@ -57,7 +57,7 @@ const zap: ZAP = {
     },
 
     removeItem(id) {
-        this.data = this.data.filter(item=>item.id !== id);
+        this.items = this.items.filter(item=>item.id !== id);
     },
 
     sortItems(sortBy) {
@@ -158,10 +158,12 @@ function handlePriceChange() {
     zap.renderFilteredByMaxPrice(maxprice, rootHTML);
 }
 
-function handleDeleteItems() {
-
-    
+function handleDelete(id){
+    const root = document.getElementById('root');
+    zap.removeItem(id);
+    zap.renderAllData(root);  
 }
+
 
 
 
