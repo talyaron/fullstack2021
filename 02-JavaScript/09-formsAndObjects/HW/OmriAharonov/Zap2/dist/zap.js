@@ -1,6 +1,6 @@
 var zapShop = {
     items: [],
-    tempItem: [],
+    tempItems: [],
     addItem: function (item) {
         this.items.push(item);
     },
@@ -15,22 +15,14 @@ var zapShop = {
     renderItem: function (domElement) {
         this.render(this.items, domElement);
     },
-    // renderTempItem(domElement) {
-    //     let html = '';
-    //     this.tempItem.forEach(item => {
-    //         html += `<div class = 'card_item'>
-    //         <p>  ${item.description}  : ${item.price}$</p>`
-    //     })
-    //     html += `</div>`;
-    //     domElement.innerHTML = html;
-    // },
+    renderTempItem: function (domElement) {
+        this.render(this.tempItems, domElement);
+    },
     sortItemAsc: function () {
         this.items.sort(function (a, b) { return a.price - b.price; });
-        this.tempItem.sort(function (a, b) { return a.price - b.price; });
     },
     sortItemDesc: function () {
         this.items.sort(function (a, b) { return b.price - a.price; });
-        this.tempItem.sort(function (a, b) { return b.price - a.price; });
     }
 };
 zapShop.addItem({ type: 'computer', description: 'Lenovo ThinkPadT15p', price: 850 });
@@ -62,8 +54,8 @@ function handleSortAsc(ev) {
 }
 function handlePrice(ev) {
     var amonut = ev.target.valueAsNumber;
-    zapShop.tempItem = zapShop.items.filter(function (ele) { return ele.price < amonut; });
-    if (zapShop.tempItem.length > 0) {
+    zapShop.tempItems = zapShop.items.filter(function (ele) { return ele.price < amonut; });
+    if (zapShop.tempItems.length > 0) {
         var rootItems_1 = document.getElementById('rootItems');
         zapShop.renderTempItem(rootItems_1);
     }
