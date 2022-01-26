@@ -35,8 +35,6 @@ let Inventory:zapList = {
             updatedItem.category = prompt("Update Category, either computers, books, or movies", `${updatedItem.category}`);
         }
         while(updatedItem.category !== "computers" && updatedItem.category !== "books" && updatedItem.category !== "movies");
-        
-        // this.items.splice(4, 1, 'May')
     },
     sortPriceDown() { this.items.sort((a, b) => a.price - b.price) },
     sortPriceUp() { this.items.sort((a, b) => b.price - a.price) },

@@ -14,7 +14,6 @@ var Inventory = {
         do {
             updatedItem.category = prompt("Update Category, either computers, books, or movies", "" + updatedItem.category);
         } while (updatedItem.category !== "computers" && updatedItem.category !== "books" && updatedItem.category !== "movies");
-        // this.items.splice(4, 1, 'May')
     },
     sortPriceDown: function () { this.items.sort(function (a, b) { return a.price - b.price; }); },
     sortPriceUp: function () { this.items.sort(function (a, b) { return b.price - a.price; }); },
