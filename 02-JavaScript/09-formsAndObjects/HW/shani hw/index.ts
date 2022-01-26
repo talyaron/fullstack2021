@@ -24,7 +24,7 @@ const uid = function(){
 
 const myPaintings:thePaintings ={
  listOfPaintings:[
-     {nameOfPainting:'The Waterlily Pond: Green Harmony',artist:"Claude Monet",madeIn:1899},
+     {nameOfPainting:'The Waterlily Pond:Green Harmony',artist:"Claude Monet",madeIn:1899},
      {nameOfPainting:"Wheat Field with Cypresses",artist:" Vincent van Gogh",madeIn:1889 }
      
  ],
@@ -68,19 +68,20 @@ const myPaintings:thePaintings ={
         html+=`<div class="painting">
         <p>Name of painting:${painting.nameOfPainting}</p>
         <p>Artist:${painting.artist}</p>
-        <p>Year:${painting.madeIn}</p>      
+        <p>Year:${painting.madeIn}</p>
+        <button onclick="handleDelete('${painting.id}')">DELETE</button>      
         
         </div>`
        
     })
     document.getElementById('root').style.backgroundImage="url('img/frame.png')" ;
-      document.getElementById('root').style.backgroundSize= "60vw 100vh";
-      document.getElementById('root').style.backgroundRepeat= "no-repeat"; 
-      document.getElementById('root').style.backgroundPosition="center";
+    document.getElementById('root').style.backgroundSize= "60vw 110vh";
+    document.getElementById('root').style.backgroundRepeat= "no-repeat"; 
+    document.getElementById('root').style.backgroundPosition="center";
 
 
 
-      document.getElementById('root').innerHTML = html
+    document.getElementById('root').innerHTML = html
       
     
  },
@@ -115,10 +116,17 @@ function handleSubmit(ev){
     myPaintings.addPainting(nameOfPainting,artist,madeIn);
     //makes that the items that the user adds goes into the function of addPainting and each inputs value is taken and taken into the adding function
     myPaintings.renderListOfPaintings(myPaintings.listOfPaintings);
-    //i do this in order to connect the addPainting form into the render and will print it with the new list which an item was added 
+    //i do this in order to print the new list that is printed through the render and is taking the new list changed after the addPainting
     
 
     ev.target.reset();
+
+}
+
+//i dont understand how to do the delete. i understood why the button delete has to be in the render with each added painting
+function handleDelete(id){
+    
+
 
 }
 
