@@ -1,19 +1,10 @@
+var uid = function () {
+    return Date.now().toString(36) + Math.random().toString(36).substr(2);
+};
 var ZapList = {
-    products: [
-    // {
-    //     description: 'adidas',
-    //     price: 300
-    // },
-    // {
-    //     description: 'toe',
-    //     price: 150
-    // },
-    // {
-    //     description: 'creels',
-    //     price: 200
-    // },
-    ],
+    products: [],
     AddItem: function (item) {
+        var id = uid();
         this.products.push(item);
     },
     sortItem: function (product) {
@@ -29,32 +20,39 @@ var ZapList = {
             _this.renderZaplist(list);
         });
     },
-    renderZaplist: function (domElement, pricenum) {
+    filterByPrice: function (pricenum) {
+        this.products.filter(function (product) { return product.price <= pricenum; });
+    },
+    deleteItem: function (id) {
+        this.products = this.products.filter(function (product) { return product.id !== id; });
+    },
+    renderZaplist: function (domElement) {
         var HTML = '';
-        var maxPrice = this.products.slice();
-        if (pricenum) {
-            maxPrice = maxPrice.filter(function (product) { return product.price <= pricenum; });
-        }
-        maxPrice.forEach(function (element) {
-            HTML += " <div class='card'>\n            <P> The product: " + element.description + ", price: " + element.price + "</p>\n            </div>";
+        this.products.forEach(function (product) {
+            HTML += " <div class='card'>\n            <P> The product: " + product.description + ", price: " + product.price + "</p>\n            <button onclick=\"handleDelete('" + product.id + "')\">Delete</button>\n            </div>";
         });
         domElement.innerHTML = HTML;
     }
 };
-ZapList.sortItem();
 var list = document.getElementById('list');
 ZapList.renderZaplist(list);
 function handleZaplist(ev) {
     ev.preventDefault();
     var description = ev.target.elements.description.value;
     var price = ev.target.elements.price.valueAsNumber;
+    var id = uid();
     console.log(description, price);
-    ZapList.AddItem({ description: description, price: price });
+    ZapList.AddItem({ id: id, description: description, price: price });
     var list = document.getElementById('list');
     ZapList.renderZaplist(list);
     ev.target.reset();
 }
 function handlePrice(ev) {
     var pricenum = ev.target.value;
-    ZapList.renderZaplist(list, pricenum);
+    ZapList.renderZaplist(list);
+}
+function handleDelete(id) {
+    ZapList.deleteItem(id);
+    var list = document.getElementById('list');
+    ZapList.renderZaplist(list);
 }
