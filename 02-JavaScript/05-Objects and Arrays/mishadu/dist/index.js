@@ -1,25 +1,28 @@
+var uid = function () {
+    return Date.now().toString(36) + Math.random().toString(36).substr(2);
+};
 var zap = {
     items: [
         {
-            id: 1,
+            id: 'dflt1',
             type: 'shoes',
             name: 'creels',
             price: 300
         },
         {
-            id: 2,
+            id: 'dflt2',
             type: 'shoes',
             name: 'crimbs',
             price: 150
         },
         {
-            id: 3,
+            id: 'dflt3',
             type: 'shoes',
             name: 'creels',
             price: 200
         },
         {
-            id: 4,
+            id: 'dflt4',
             type: 'gummys',
             name: 'cola',
             price: 35
@@ -29,7 +32,7 @@ var zap = {
         this.items.push(item);
     },
     removeItem: function (id) {
-        this.data = this.data.filter(function (item) { return item.id !== id; });
+        this.items = this.items.filter(function (item) { return item.id !== id; });
     },
     sortItems: function (sortBy) {
         if (sortBy === 'price low to high') {
@@ -66,7 +69,7 @@ var zap = {
     renderItems: function (list, domElement) {
         var html = '';
         list.forEach(function (item) {
-            html += "<div class='card'>\n\n\n            <input type=\"checkbox\" value=\"" + item.id + "\"><p>" + item.name + ": " + item.price + "</p>\n            \n            </div>";
+            html += "<div class='card'>\n\n\n            <p>" + item.name + ": " + item.price + "</p>\n            <button onclick='handleDelete('" + item.id + "')'>DELETE</button>\n            \n            </div>";
         });
         domElement.innerHTML = html;
     }
@@ -78,7 +81,8 @@ function handleSubmit(ev) {
     var name = ev.target.elements.itemname.value;
     var price = +ev.target.elements.itemprice.value;
     var type = ev.target.elements.itemtype.value;
-    var newItem = { name: name, price: price, type: type };
+    var id = uid();
+    var newItem = { id: id, name: name, price: price, type: type };
     zap.addItem(newItem);
     zap.renderItems(zap.items, rootHTML);
     ev.target.reset();
@@ -96,5 +100,8 @@ function handlePriceChange() {
     var rootHTML = document.getElementById('root');
     zap.renderFilteredByMaxPrice(maxprice, rootHTML);
 }
-function handleDeleteItems() {
+function handleDelete(id) {
+    var root = document.getElementById('root');
+    zap.removeItem(id);
+    zap.renderAllData(root);
 }

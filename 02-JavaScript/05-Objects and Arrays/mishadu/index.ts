@@ -1,3 +1,7 @@
+const uid = function(){
+    return Date.now().toString(36) + Math.random().toString(36).substr(2);
+};
+
 interface ZAP {
     items: Array<Item>;
     addItem(item: Item)
@@ -12,7 +16,7 @@ interface ZAP {
 }
 
 interface Item {
-    id?: number;
+    id?: string;
     type: string;
     name: string;
     price: number;
@@ -23,25 +27,25 @@ const zap: ZAP = {
 
     items: [
         {   
-            id: 1,
+            id: 'dflt1',
             type: 'shoes',
             name: 'creels',
             price: 300,
         },
         {
-            id: 2,
+            id: 'dflt2',
             type: 'shoes',
             name: 'crimbs',
             price: 150,
         },
         {
-            id: 3,
+            id: 'dflt3',
             type: 'shoes',
             name: 'creels',
             price: 200,
         },
         {
-            id: 4,
+            id: 'dflt4',
             type: 'gummys',
             name: 'cola',
             price: 35,
@@ -53,7 +57,7 @@ const zap: ZAP = {
     },
 
     removeItem(id) {
-        this.data = this.data.filter(item=>item.id !== id);
+        this.items = this.items.filter(item=>item.id !== id);
     },
 
     sortItems(sortBy) {
@@ -107,7 +111,8 @@ const zap: ZAP = {
             html += `<div class='card'>
 
 
-            <input type="checkbox" value="${item.id}"><p>${item.name}: ${item.price}</p>
+            <p>${item.name}: ${item.price}</p>
+            <button onclick='handleDelete('${item.id}')'>DELETE</button>
             
             </div>`
         })
@@ -127,8 +132,8 @@ function handleSubmit(ev) {
     const name = ev.target.elements.itemname.value;
     const price = +ev.target.elements.itemprice.value;
     const type = ev.target.elements.itemtype.value;
-
-    const newItem: Item = {name, price, type };
+    const id = uid();
+    const newItem: Item = {id, name, price, type };
 
     zap.addItem(newItem);
     zap.renderItems(zap.items, rootHTML);
@@ -153,10 +158,12 @@ function handlePriceChange() {
     zap.renderFilteredByMaxPrice(maxprice, rootHTML);
 }
 
-function handleDeleteItems() {
-
-    
+function handleDelete(id){
+    const root = document.getElementById('root');
+    zap.removeItem(id);
+    zap.renderAllData(root);  
 }
+
 
 
 
