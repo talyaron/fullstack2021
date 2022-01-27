@@ -23,8 +23,8 @@
     </form>
     <div class="sort">
         <P class="text">sort price</P>
-        <button id="lowToHigh">low to high</button>
-        <button id="highToLow">high to low</button>
+        <button id="lowToHigh" onclick="handleSortAsc()">low to high</button>
+        <button id="highToLow" onclick="handleSortDesc()">high to low</button>
     </div>
 
     <div class="price">
@@ -34,7 +34,8 @@
 
     <div class="category">
         <select name="showCategory" id="" onchange="handleSelect(event)" required>
-            <option value="">Show All</option>
+            <option value="" disabled selected>Choose category</option>
+            <option value="all">Show All</option>
             <option value="computers">Computers</option>
             <option value="phones">Phones</option>
         </select>
