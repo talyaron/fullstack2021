@@ -1,0 +1,11 @@
+form {
+  margin: auto;
+  border-radius: 10px;
+  background-color: #b3ebf5;
+  text-align: center;
+  width: 30rem;
+  padding: 2rem;
+}
+form #email {
+  width: 25rem;
+}

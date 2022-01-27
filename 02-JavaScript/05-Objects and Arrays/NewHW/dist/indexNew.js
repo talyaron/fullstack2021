@@ -30,12 +30,17 @@ function handleSubmit(event) {
 function handleRemove(event) {
     event.preventDefault();
     console.log(event);
-    home.books.pop();
+    home.books.pop(); //תבדוק דרך אחרת איך ניתן למחוק אובייקטים
     home.cloths.pop();
     home.movies.pop();
     console.log(home);
 }
 for (var item in home) {
+    /*
+    לא קורה כלום ב
+    DOM
+    רק בקונסול
+    */
     if (typeof home[item] !== "function") {
         var displayDom = document.querySelector(".render");
         displayDom.innerHTML += "" + home[item];

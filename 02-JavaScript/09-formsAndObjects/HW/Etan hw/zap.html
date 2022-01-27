@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./dist/zap.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <header>
+    <form onsubmit="handleSubmit(event)">
+      <legend>enter your new item info:
+        <input type="text" name="name" id="name" placeholder="Type your items name?">
+        <input type="text" name="model" id="model" placeholder="What's the model for the item?">
+        <input type="text" name="description" id="description" placeholder="describe it a little more">
+        <input type="number" name="price" id="price" placeholder="Whats your items price?">
+        <input type="number" name="deliveryPrice" id="deliveryPrice" placeholder="Shipping price?">
+        <select name="category" id="category">
+          <option value="---">---</option>
+          <option value="Tech">Tech</option>
+          <option value="Books">Books</option>
+          <option value="Games">Games</option>
+        </select>
+        <input type="submit" value="create">
+      </legend>
+    </form>
+    <div id="sortButtons">
+      <button id="sortItemAsc" onclick='zap.ascNow()'>Sort ascending</button>
+      <button id="sortItemDesc" onclick='zap.descNow()'>Sort descending</button>
+    </div>
+    <legend id="filters">
+
+      <label for="maxFilter">Filter your choices by budget:</label>
+      <input type="text" onkeyup="zap.maxFiltered(this)" name="maxFilter" id="maxfilter">
+
+      <label for="minFilter">Filter by minimum:</label>
+      <input type="text" onkeyup="zap.minFiltered(this)" name="minFilter" id="minFilter">
+
+      <label for="categoryFilter">Filter by category:</label>
+      <select onchange="zap.categoryFiltered(event)" name="categoryFilter" id="categoryFilter">
+        <option disabled selected>Select a category</option>
+        <option value="all">all</option>
+        <option value="Tech">Tech</option>
+        <option value="Books">Books</option>
+        <option value="Games">Games</option>
+        <option value="---">---</option>
+      </select>
+    </legend>
+  </header>
+  <div id="totalContainer">
+    <div class="container">
+      <h1>Tech:</h1>
+      <div class="container__items" id="container_Tech">
+      </div>
+    </div>
+    <div class="container">
+      <h1>Books:</h1>
+      <div class="container__items" id="container_Books">
+      </div>
+    </div>
+    <div class="container">
+      <h1>Games:</h1>
+      <div class="container__items" id="container_Games">
+      </div>
+    </div>
+    <div class="container">
+      <h1>Generic:</h1>
+      <div class="container__items" id="container_---">
+
+      </div>
+    </div>
+  </div>
+<div class="container__nums"> 
+<fieldset class="container__nums-form">
+<legend>check the difference between your numbers</legend>
+  <form onsubmit="handleAB(event)">
+    <input type="number" name="a" id="a" placeholder="num 1">
+    <input type="number" name="b" id="b" placeholder="num 2">
+    <input type="submit">
+  </form>
+</fieldset>
+</div>
+
+</body>
+<script src="./dist/zap.js"></script>
+
+</html>

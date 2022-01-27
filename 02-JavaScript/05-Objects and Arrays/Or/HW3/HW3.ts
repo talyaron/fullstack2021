@@ -42,19 +42,19 @@ function renderHome(homeObj: home, domElement: any) {
     <h1>My Home</h1>
     <h1>books:</h1>`
     myHome.books.forEach(book => {
-        
+
         let homeHtml = `<div class='card'><h2>${book.name}</h2> </div>`;
         HTML += homeHtml;
     })
     HTML += `<h1>movies:</h1>`
-    myHome.movies.forEach(movie=>{
-       let homeHtml = `<div class='card'><h2>${movie.name}</h2> </div>`;    
-       HTML += homeHtml;
+    myHome.movies.forEach(movie => {
+        let homeHtml = `<div class='card'><h2>${movie.name}</h2> </div>`;
+        HTML += homeHtml;
     })
     HTML += `<h1>spices:</h1>`
-    myHome.spices.forEach(spice=>{
-       let homeHtml = `<div class='card'><h2>${spice.name}</h2> </div>`;  
-       HTML += homeHtml;
+    myHome.spices.forEach(spice => {
+        let homeHtml = `<div class='card'><h2>${spice.name}</h2> </div>`;
+        HTML += homeHtml;
     })
 
     domElement.innerHTML = HTML;

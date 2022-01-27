@@ -1,6 +1,6 @@
 
 interface home {
-    books: Array<{ name: string }>,
+    books: Array<{ name: any }>,
     clothes: Array<{ name: string }>,
     movies: Array<{ name: string }>,
     addItems?: any
@@ -17,7 +17,7 @@ const myhome: home = {
 
     clothes: [
         { name: "tishert" },
-        { name: "hats" } 
+        { name: "hats" }
     ],
 
     movies: [
@@ -39,9 +39,10 @@ const myhome: home = {
         return this
     }
 }
-console.log(myhome)
+
 myhome.addItems()
 myhome.removeitems()
+console.log(myhome)
 
 function renderhome(myhome, domElement: any) {
     let html: string =
@@ -66,3 +67,13 @@ function renderhome(myhome, domElement: any) {
 }
 const root = document.querySelector(`#roothome`);
 renderhome(myhome, root)
+
+
+
+function handleAddbooks(ev){
+    ev.preventDefault();
+    console.dir(ev.target)
+    const title= ev.target.elements.title.value
+    const year= ev.target.elements.year.valueAsNumber;
+   
+}

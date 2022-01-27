@@ -6,7 +6,7 @@ interface MyHome{
     addBook(book:Books);
     
     removeMovie(movieTitle:string);
-    removeBook(bookTitle:string);
+    //removeBook(bookTitle:string);
     renderMovies(domElement:any);
 }
 

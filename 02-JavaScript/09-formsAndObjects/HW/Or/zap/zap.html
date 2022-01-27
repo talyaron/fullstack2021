@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="dist/zap.css">
+    <script src="https://kit.fontawesome.com/61cc078105.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+
+<body>
+    <form onsubmit="handleSubmit(event)">
+        <label for="description">Description:</label>
+        <input type="text" name="description" placeholder="Enter description" required>
+        <label for="price">Price:</label>
+        <input type="number" name="price" placeholder="Enter price" required>
+        <select name="type" id="type">
+            <option value="type" disabled selected>Type</option>
+            <option value="sports">Sports</option>
+            <option value="books">Books</option>
+            <option value="food">Food</option>
+        </select>
+        <input type="submit" value="Add">
+    </form>
+
+    <div class="sort">
+        <button id="desc" onclick="handleClick(event)">desc</button>
+        <button id="asc" onclick="handleClick(event)">asc</button>
+        <input type="number" id="filter" name="filter" placeholder="Max Price$  " onkeyup="handleFilter(event)">
+        <select name="filter-type" id="filter-type" onchange='handleSelect(event)'>
+            <option value="type" disabled selected>Type</option>
+            <option value="all">Show all</option>
+            <option value="sports">Sports</option>
+            <option value="books">Books</option>
+            <option value="food">Food</option>
+        </select>
+    </div>
+    
+
+    <ul id="rootList"></ul>
+    <script src="dist/zap.js"></script>
+</body>
+
+</html>

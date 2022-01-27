@@ -1,0 +1,12 @@
+var boxUp = document.querySelector("#box1");
+var boxRight = document.querySelector("#box2");
+var boxLeft = document.querySelector("#box3");
+var boxDown = document.querySelector("#box4");
+var cat = document.querySelector("#cat");
+var yAxis = 0;
+var xAxis = 0;
+var moveAmount = 50;
+boxUp.addEventListener("click", function () { yAxis = yAxis - moveAmount; cat.style.top = yAxis + "px"; });
+boxRight.addEventListener("click", function () { xAxis = xAxis + moveAmount; cat.style.left = xAxis + "px"; });
+boxLeft.addEventListener("click", function () { xAxis = xAxis - moveAmount; cat.style.left = xAxis + "px"; });
+boxDown.addEventListener("click", function () { yAxis = yAxis + moveAmount; cat.style.top = yAxis + "px"; });

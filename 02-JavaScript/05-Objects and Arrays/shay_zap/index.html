@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form onsubmit="handlePriceChange(event)"">
+        <input type="text" name="title" id="" placeholder="enter the title">
+        <input type="number" name="price" id="" placeholder="enter price">
+        <button type="submit" onkclick="addItem()">send</button>
+  
+    </form>
+    
+        <button type="submit" onclick="handleAsc(event)" id="asc">sort ASC</button>
+    <button type="submit" onclick="handleDesc(event)" id="desc">sort DESC</button>
+   
+  
+     <input type="number" name="filter" onkeyup="handleFilter(event)" placeholder="enter max price" >
+ 
+
+<div id="rootZap"></div>
+    <script src="dist/index.js"></script>
+</body>
+</html>
