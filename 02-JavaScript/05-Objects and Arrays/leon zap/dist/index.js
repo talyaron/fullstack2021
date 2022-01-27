@@ -39,7 +39,7 @@ var zapitem = {
 };
 zapitem.addItem('lenovo 16`', 180, 'computer');
 zapitem.addItem('X-box series x', 1180, 'gameconsole');
-zapitem.addItem('Iphone 13"', 2280, 'phones');
+zapitem.addItem('Iphone 13"', 2280, 'phone');
 var root = document.querySelector(".rootItem");
 zapitem.renderItem(root);
 function handleAsc(event) {

@@ -1,16 +1,19 @@
 interface Zap {
     products: Array<Products>;
     AddItem(item);
-    renderZaplist(domElement);
+    renderZaplist(list, domElement);
     sortItem(product);
     filterByPrice(pricenum);
     deleteItem(id);
+    filterByCategory(showCategory);
+    renderByCategory(showCategory, domElement)
 }
 
 interface Products {
     description: string;
     price: number;
-    id:number;
+    id?: string;
+    category: 'computers' | 'phones';
 }
 
 const uid = function () {
@@ -18,7 +21,22 @@ const uid = function () {
 };
 
 const ZapList: Zap = {
-    products: [],
+    products: [
+        {
+            description: 'lenovo',
+            price: 200,
+            id:'6',
+            category: 'computers'
+
+        },
+        {
+            description: 'galaxy',
+            price: 500,
+            id:'5',
+            category: 'phones'
+
+        }
+    ],
 
     AddItem(item) {
         const id = uid();
@@ -31,12 +49,12 @@ const ZapList: Zap = {
 
         button1.addEventListener('click', () => {
             this.products.sort((a, b) => { return a.price - b.price })
-            this.renderZaplist(list);
+            this.renderZaplist(this.products, rootHTML);
         })
 
         button2.addEventListener('click', () => {
             this.products.sort((a, b) => { return b.price - a.price })
-            this.renderZaplist(list);
+            this.renderZaplist(this.products,rootHTML);
         })
     },
 
@@ -45,14 +63,26 @@ const ZapList: Zap = {
     },
 
     deleteItem(id) {
-        this.products =this.products.filter(product=>product.id!==id)
+        this.products = this.products.filter(product => product.id !== id)
     },
 
-    renderZaplist(domElement) {
+    filterByCategory(showCategory) {
+        this.products = this.products.filter(product => product.showCategory === showCategory)
+    },
+
+    renderByCategory(showCategory, domElement) {
+        const filtered = this.filterByCategory(showCategory)
+        this.renderZaplist(filtered, domElement)
+    },
+
+    renderZaplist(list,domElement) {
         let HTML = '';
-        this.products.forEach(product => {
+        console.log(list);
+        
+        list.forEach(product => {
             HTML += ` <div class='card'>
-            <P> The product: ${product.description}, price: ${product.price}</p>
+            <P> The product: ${product.description}, Price: ${product.price}
+            , Category: ${product.category}</p>
             <button onclick="handleDelete('${product.id}')">Delete</button>
             </div>`
         });
@@ -61,8 +91,8 @@ const ZapList: Zap = {
     }
 }
 
-const list = document.getElementById('list')
-ZapList.renderZaplist(list)
+const rootHTML = document.getElementById('root')
+ZapList.renderZaplist(ZapList.products, rootHTML)
 
 function handleZaplist(ev) {
     ev.preventDefault();
@@ -70,23 +100,41 @@ function handleZaplist(ev) {
     const description = ev.target.elements.description.value
     const price = ev.target.elements.price.valueAsNumber
     const id = uid();
+    const category = ev.target.elements.category.value
 
-    console.log(description, price)
+    console.log(category)
 
-    ZapList.AddItem({id, description, price })
-    const list = document.getElementById('list')
-    ZapList.renderZaplist(list)
+    ZapList.AddItem({ id, description, price, category })
+    const  rootHTML = document.getElementById('root')
+    ZapList.renderZaplist(ZapList.products, rootHTML)
 
     ev.target.reset();
 }
 
 function handlePrice(ev) {
     const pricenum = ev.target.value
-    ZapList.renderZaplist(list)
+    ZapList.renderZaplist(ZapList.products,rootHTML)
 }
 
 function handleDelete(id) {
-ZapList.deleteItem(id)
-const list = document.getElementById('list')
-ZapList.renderZaplist(list)
+    ZapList.deleteItem(id)
+    const  rootHTML = document.getElementById('root')
+    ZapList.renderZaplist(ZapList.products,rootHTML)
+}
+
+function handleSelect(ev) {
+    const showCategory = ev.target.value
+    console.log(showCategory)
+
+    const  rootHTML = document.getElementById('root')
+    ZapList.renderByCategory(showCategory, rootHTML)
+
+    // if (showCategory === 'Show All') {
+    //     ZapList.renderZaplist(ZapList.products,rootHTML)
+    // }
+    // else {
+
+    //     ZapList.renderByCategory(showCategory, rootHTML)
+    // }
+
 }
