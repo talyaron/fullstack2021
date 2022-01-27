@@ -10,17 +10,25 @@
 </head>
 
 <body>
+
     <div class='zap'>
         <p class='zap__p1'>z</p>
         <p class='zap__p2'>a</p>
         <p class='zap__p3'>p</p>
+
     </div>
+
     <form onsubmit="handleadditem(event)" class="form">
-        <input type="text" name="title" id="" placeholder="your title here">
+        <input type="text" name="title" id="" placeholder="your item here">
         <input type="number" name="price" id="price" placeholder="your price here">
         <input type="submit" value="add-item">
-
     </form>
+
+    <form onsubmit="handleremoveitem(event)" class="form2">
+        <input type="text" name="itemName" id="" placeholder="delete one">
+        <input type="submit" value="clik to delete">
+    </form>
+
     <div class='sort'>
         <form onsubmit="handlesortitem(event)">
             <input type="submit" value="sort up">
@@ -28,14 +36,13 @@
         <form onsubmit="handlesortitemacs(event)">
             <input type="submit" value="sort down">
         </form>
-
-        <form onkeyup="handlethelowerprice(event)">
-            <input type="text" id='push'value="" placeholder="your lower price here">
+        <form>
+            <input type="number" id='push' onkeyup="handleprice(event)" placeholder="your lower price here">
         </form>
 
     </div>
     <div id="renderitems"></div>
-
+    <div id='renderitems2'></div>
 
     <script src="dist/zap.js"></script>
 </body>

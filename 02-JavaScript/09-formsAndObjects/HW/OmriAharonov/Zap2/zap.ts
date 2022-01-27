@@ -35,7 +35,7 @@ const zapShop: shop = {
         list.forEach(item => {
             html += `<div class = 'card_item'>
             <p> ${item.description} | Price: ${item.price}$
-            <button onclick="handleDelete(${item.id})">Delete</button> </p>`
+            <button onclick="handleDelete(${item.id})">x</button> </p>`
         });
 
         html += `</div>`;
