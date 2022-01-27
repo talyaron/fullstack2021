@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="dist/style.css">
 </head>
+
 <body>
     <h1>My Museum</h1>
     <form onsubmit="handleSubmit(event)">
@@ -15,9 +17,14 @@
         <input type='number' name="madeIn" placeholder="enter year made" required>
         <input type="submit" value="ADD">
     </form>
+    <div class="sortingButtons">
+        <button type="button" id="ascending">Ascending</button>
+        <button type="button" id="descending">Descending</button>
+    </div>
     <div id="root">
-        <!-- <button onclick="handleDelete(event)">delete</button> -->
+
     </div>
     <script src="dist/index.js"></script>
 </body>
+
 </html>

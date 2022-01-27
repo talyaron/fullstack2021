@@ -7,13 +7,21 @@ var myPaintings = {
         { nameOfPainting: "Wheat Field with Cypresses", artist: " Vincent van Gogh", madeIn: 1889 }
     ],
     sortByAscending: function () {
-        this.listOfPaintings.sort(function (a, b) {
-            return a.madeIn - b.madeIn;
+        var _this = this;
+        document.getElementById('ascending').addEventListener("click", function () {
+            _this.listOfPaintings.sort(function (a, b) {
+                return a.madeIn - b.madeIn;
+            });
+            myPaintings.renderListOfPaintings(myPaintings.listOfPaintings);
         });
     },
     sortByDescending: function () {
-        this.listOfPaintings.sort(function (a, b) {
-            return b.madeIn - a.madeIn;
+        var _this = this;
+        document.getElementById('descending').addEventListener("click", function () {
+            _this.listOfPaintings.sort(function (a, b) {
+                return b.madeIn - a.madeIn;
+            });
+            myPaintings.renderListOfPaintings(myPaintings.listOfPaintings);
         });
     },
     addPainting: function (nameOfPainting, artist, madeIn) {

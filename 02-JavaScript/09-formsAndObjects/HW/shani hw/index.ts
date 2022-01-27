@@ -29,17 +29,30 @@ const myPaintings:thePaintings ={
      
  ],
  sortByAscending(){
-   this.listOfPaintings.sort(function(a, b) {
-        return a.madeIn - b.madeIn;
-    });
+     document.getElementById('ascending').addEventListener("click",()=>{
+        this.listOfPaintings.sort(function(a, b) {
+            return a.madeIn - b.madeIn;
+        });
+        myPaintings.renderListOfPaintings(myPaintings.listOfPaintings);
+
+    })
+    
     
  },
  sortByDescending(){
-    this.listOfPaintings.sort(function(a, b) {
-        return b.madeIn-a.madeIn ;
-        
-       
-    }); 
+
+
+    document.getElementById('descending').addEventListener("click",()=>{
+        this.listOfPaintings.sort(function(a, b) {
+            return b.madeIn-a.madeIn ;
+            
+           
+        });
+        myPaintings.renderListOfPaintings(myPaintings.listOfPaintings);
+
+
+    })
+    
          
    
  },
