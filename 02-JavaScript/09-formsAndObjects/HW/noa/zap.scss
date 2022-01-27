@@ -8,15 +8,17 @@ body {
         text-decoration: underline;
     }
 
-    form {
-        display: flex;
-        gap: 10px;
-
-        input {
+ input {
+            height: 25px;
             border-radius: 5px;
             background-color: opacify($color: #efd5f863, $amount: 0);
         }
 
+    form {
+        display: flex;
+        gap: 10px;
+
+        
         #submit{
             border-radius: 2px;
             background-color:white;
@@ -41,11 +43,8 @@ body {
         font-family: fantasy;
 
         input {
-
             margin-left: 5px;
             width: 60px;
-            border-radius: 5px;
-            background-color: opacify($color: #efd5f863, $amount: 0);
         }
     }
 
@@ -57,11 +56,17 @@ body {
     }
 
     .card {
-        
+        display: flex;
+        margin: 10px;
         p {
             margin: 15px;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             font-weight: 700px;
+        }
+
+        >*{
+            height: 30px;
+            margin: 10px;
         }
     }
 }
