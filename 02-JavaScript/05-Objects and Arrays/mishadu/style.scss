@@ -27,9 +27,12 @@ form{
     div, select, input{
         margin: 1em;
     }
+
+
 }
 
 #root{
+
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -45,4 +48,5 @@ form{
     button{
         margin: 1em;
     }
+
 }
