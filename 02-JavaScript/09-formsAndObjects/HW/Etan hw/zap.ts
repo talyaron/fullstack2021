@@ -94,10 +94,10 @@ let zap: Market = {
       html = `<div price='${Item.price}' id='card' class='${Item.category}'>
       <i class="fa fa-times" onclick="handleDeleteItem('${Item.id}')"></i>
                     <h1 contenteditable="true">${Item.name}</h1>
-                    <p class="model">${Item.model}</p>
-                    <p class="description">${Item.description}</p>
-                    <p class="price">${Item.price || ""}$</p>
-                    <p>${Item.deliveryPrice || ""} Shipping</p>`;
+                    <p contenteditable="true" class="model">${Item.model}</p>
+                    <p contenteditable="true" class="description">${Item.description}</p>
+                    <p contenteditable="true" class="price">${Item.price || ""}$</p>
+                    <p contenteditable="true"> ${Item.deliveryPrice || ""} Shipping</p>`;
 
       if (Item.category === "Tech") {
         document.getElementById(`container_Tech`).innerHTML += html;
