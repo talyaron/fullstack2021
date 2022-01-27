@@ -89,7 +89,6 @@ const zap: ZAP = {
 
     renderByType(type, domElement) {
         const filtered = this.filterByType(type);
-        console.log(filtered);
         this.renderItems(filtered, domElement);
     },
 
