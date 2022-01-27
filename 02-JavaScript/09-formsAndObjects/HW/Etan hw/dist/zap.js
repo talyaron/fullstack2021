@@ -39,7 +39,7 @@ var zap = {
     renderThis: function (array) {
         var html = "";
         array.forEach(function (Item) {
-            html = "<div price='" + Item.price + "' id='card' class='" + Item.category + "'>\n      <i class=\"fa fa-times\" onclick=\"handleDeleteItem('" + Item.id + "')\"></i>\n                    <h1 contenteditable=\"true\">" + Item.name + "</h1>\n                    <p class=\"model\">" + Item.model + "</p>\n                    <p class=\"description\">" + Item.description + "</p>\n                    <p class=\"price\">" + (Item.price || "") + "$</p>\n                    <p>" + (Item.deliveryPrice || "") + " Shipping</p>";
+            html = "<div price='" + Item.price + "' id='card' class='" + Item.category + "'>\n      <i class=\"fa fa-times\" onclick=\"handleDeleteItem('" + Item.id + "')\"></i>\n                    <h1 contenteditable=\"true\">" + Item.name + "</h1>\n                    <p contenteditable=\"true\" class=\"model\">" + Item.model + "</p>\n                    <p contenteditable=\"true\" class=\"description\">" + Item.description + "</p>\n                    <p contenteditable=\"true\" class=\"price\">" + (Item.price || "") + "$</p>\n                    <p contenteditable=\"true\"> " + (Item.deliveryPrice || "") + " Shipping</p>";
             if (Item.category === "Tech") {
                 document.getElementById("container_Tech").innerHTML += html;
             }
