@@ -1,13 +1,19 @@
+let zapAfterDelete;
 let tech = document.getElementById(`container_Tech`);
 let newItem: typeof Item;
 let container = document.querySelectorAll('[id*="container_"]');
+const uid = function () {
+  return Date.now().toString(36) + Math.random().toString(36).substr(2);
+};
+
 function Item(
   name: string,
   model: string,
   description: string,
   price: number,
   deliveryPrice: any,
-  category: string
+  category: string,
+  id?: number
 ) {
   this.name = name;
   this.model = model;
@@ -15,6 +21,7 @@ function Item(
   this.price = price;
   this.deliveryPrice = deliveryPrice;
   this.category = category;
+  this.id = uid();
 }
 // class Item  {
 //     constructor(name:string, model:string, price:number, deliveryPrice:any, category:string){
@@ -27,6 +34,7 @@ function Item(
 interface Market {
   items: Array<typeof Item>;
   addNewItem: Function;
+  deleteItem: Function;
   renderThis: Function;
   clear: Function;
   ascNow: Function;
@@ -69,14 +77,23 @@ let zap: Market = {
       `Games`
     ),
   ],
-  addNewItem(item: void) {
-    this.items.push(item);
+  addNewItem(item: typeof Item) {
+    const id = uid();
+    this.items.push(id, item);
+  },
+  deleteItem(id) {
+    let zapAfterDelete = this.items;
+    this.items = this.items.filter((item) => item.id !== id);
+    console.dir(zapAfterDelete);
+    zap.clear();
+    this.renderThis(zapAfterDelete);
   },
   renderThis(array) {
     let html = ``;
     array.forEach((Item) => {
       html = `<div price='${Item.price}' id='card' class='${Item.category}'>
-                    <h1>${Item.name}</h1>
+      <i class="fa fa-times" onclick="handleDeleteItem('${Item.id}')"></i>
+                    <h1 contenteditable="true">${Item.name}</h1>
                     <p class="model">${Item.model}</p>
                     <p class="description">${Item.description}</p>
                     <p class="price">${Item.price || ""}$</p>
@@ -141,18 +158,18 @@ let zap: Market = {
     }
   },
   categoryFiltered(e: any) {
-    if (e.target.value === 'all') {
+    if (e.target.value === "all") {
       this.clear();
       this.renderThis(this.items);
       return;
     } else {
       let zapItemsFiltered = this.items;
-    console.dir(e.target);
-    zapItemsFiltered = this.items.filter(
-      (item) => item.category === e.target.value
-    );
-    zap.clear();
-    this.renderThis(zapItemsFiltered);
+      console.dir(e.target);
+      zapItemsFiltered = this.items.filter(
+        (item) => item.category === e.target.value
+      );
+      zap.clear();
+      this.renderThis(zapItemsFiltered);
     }
   },
 };
@@ -160,6 +177,7 @@ let zap: Market = {
 function handleSubmit(ev: any) {
   ev.preventDefault();
   console.dir(ev.target);
+
   newItem = new Item(
     ev.target.elements.name.value,
     ev.target.elements.model.value,
@@ -177,7 +195,6 @@ function handleSubmit(ev: any) {
 }
 
 zap.renderThis(zap.items);
-
 function asc(a, b) {
   return a.price - b.price;
 }
@@ -189,12 +206,17 @@ function reset(a, b) {
 }
 let min = document.getElementById("min");
 
+function handleDeleteItem(id) {
+  zap.deleteItem(id);
+}
+
 let maxPrice = Math.max.apply(
   Math,
   zap.items.map(function (item) {
     return item.price;
   })
 );
+
 // document.getElementById('maxPrice').innerHTML = maxPrice
 let minPrice = Math.min.apply(
   Math,
@@ -202,21 +224,29 @@ let minPrice = Math.min.apply(
     return item.price;
   })
 );
-
 function handleAB(ev) {
   ev.preventDefault();
   const a = ev.target.elements.a.valueAsNumber;
   const b = ev.target.elements.b.valueAsNumber;
-  if (a < b) {
-    return a - b;
-  } else {
-    b - a;
-  }
+  let dif = 0;
+  ev.target.reset();
+  if (a > b) {
+    dif = a - b;
+    console.log(`num1 = ${a}, num2 = ${b} and their diffrence is: ${dif}`);
+    if (dif < a && dif < b) {
+      console.log("These two are very close!");
+    } else {
+return;
+    }
+  } else if (a < b) {
+    dif = b - a;
+    console.log(`num1 = ${a}, num2 = ${b}, and their diffrence is: ${dif}`);
+    if (dif < a && dif < b) {
+      console.log("These two are very close!");
+    }else {
+return; }
+} else {
+  console.log (`${a} & ${b} are even.`)
 }
-// document.getElementById('minPrice').innerHTML = minPrice
 
-// let vals = [{name: `e`, price: 5},{name:'d', price: 4},{name: `i`, price: 9},{name: `b`, price: 2},{name: `a`, price: 2}];
-// vals = vals.price.filter(x => x % 2 === 0);
-// console.log(vals);
-// let filteredZip = zap.items.filter((num, i) => zap.items.indexOf(num) === i)
-// console.dir(filteredZip);
+}

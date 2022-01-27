@@ -1,0 +1,60 @@
+$font-color:rgba(90, 9, 9, 0.603);
+
+
+
+body {
+    margin: 0px;
+    padding: 0px;
+    background-color: rgba(129, 32, 32, 0.815);
+}
+
+
+h1 {
+    text-align: center;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-size: 60px;
+    letter-spacing: -1.2px;
+    word-spacing: 1px;
+    font-weight: 400;
+    text-decoration: none solid rgb(68, 68, 68);
+    font-style: italic;
+    font-variant: small-caps;
+    text-transform: capitalize;
+    color: $font-color;
+
+}
+
+#root {
+
+    display: grid;
+    grid-template-rows: repeat(4, 10rem);
+    grid-template-columns: repeat(2, 20vw);
+    gap: 2rem;
+    justify-content: center;
+    padding-top: 20%;
+
+
+
+    .painting {
+
+        padding: 2% 2%;
+        display: inline-block;
+        border: 3px solid #333333;
+        border-radius: 2% 6% 5% 4% / 1% 1% 2% 4%;
+        text-transform: uppercase;
+        letter-spacing: 0.2ch;
+        background: #ffffff;
+        color: $font-color;
+
+
+    }
+}
+
+form {
+    text-align:center;
+}
+
+.sortingButtons{
+    text-align: center;
+    margin:2rem;
+}
