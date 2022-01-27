@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="dist/style2.css">
+</head>
+
+<body>
+
+
+    <div class="h1">
+        <h1>zapZapOto!</h1>
+    </div>
+
+
+    <select name="" id="" onchange="handleSelection(event)">
+        <option value="" disabled selected>choose a type</option>
+        <option value="all">all</option>
+        <option value="laptops">laptops</option>
+        <option value="smartphones">smartphones</option>
+    </select>
+
+
+    <div class="wrapper wrapper1">
+
+
+        <form onsubmit="handleSubmit(event)" id="laptops">
+            <input type="text" name="description" placeholder="Enter Description" class="textNumberInput" required>
+            <input type="number" name="price" placeholder="Enter Price" class="textNumberInput" required>
+            <input name="submit" value="Laptop" type="submit" class="submitInput">
+
+        </form>
+
+        <form onsubmit="handleSubmit1(event)" id="smartphones">
+
+            <input type="text" name="description" placeholder="Enter Description" class="textNumberInput" required>
+            <input type="number" name="price" placeholder="Enter Price" class="textNumberInput" required>
+            <input name="submit" value="smartphone" type="submit" class="submitInput">
+
+        </form>
+
+
+    </div>
+
+
+    <div class="wrapper wrapper2">
+        <div id="AscItem">
+            <input type="submit" name="asc" value="Sort Asc" class="submitInput" onclick="handleAsc(event)">
+        </div>
+
+        <div id="DescItem">
+            <input type="submit" name="desc" value="Sort Desc" class="submitInput" onclick="handleDesc(event)">
+        </div>
+
+        <input type="number" name="number" placeholder="Filter Price" onkeyup="handleFilter(event)"
+            class="textNumberInput filterInput" id="filterItem">
+    </div>
+
+
+
+    <div id="rootLaptops"></div>
+
+
+
+
+
+    <script src="dist/index2.js"></script>
+</body>
+
+</html>
