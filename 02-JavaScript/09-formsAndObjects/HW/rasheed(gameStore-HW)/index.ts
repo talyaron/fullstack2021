@@ -9,13 +9,11 @@ interface obj {
     filterByPrice(price: number): any
     filterByType(type: 'pc games' | 'mobile games'): any
     deleteProducts(id: string): any
-    updateProduct(price: number): any
-    updateProductPrice(index: any, value: any)
+    updateProduct(id: any, index:any): any
     render(list: Array<Products>, domElement: any): any
     renderAllProducts(array: any): any;
     renderByType(type: 'pc games' | 'mobile games', domElement: any): any
     renderByPrice(price: Array<Products>, domElement: any): any
-    renderUpdate(list:Array<Products> ,domElement:any):any
 
 
 }
@@ -42,12 +40,11 @@ const productObj: obj = {
     deleteProducts(id) {
         this.products = this.products.filter(product => product.id !== id);
     },
-    updateProduct(id) {
-        return this.products.findIndex(product => product.id === id);
-
-    },
-    updateProductPrice(index, value) {
-        this.products[index].price = value;
+    updateProduct(id, newPrice) {
+      const index =  this.products.findIndex(product => product.id === id);
+      if (index >= 0){
+      this.products[index].price = newPrice;
+      }
     },
     filterByPrice(price) {
         return this.products.filter(product => product.price < price);
@@ -82,9 +79,6 @@ const productObj: obj = {
     renderByPrice(price, domElement) {
         const filterd = this.filterByPrice(price);
         this.render(filterd, domElement);
-    },
-    renderUpdate(list , domElement) {
-        this.render(list , domElement)
     },
 
 
@@ -151,11 +145,9 @@ function handleUpdate(ev, id) {
 
     const root = document.getElementById('root');
 
-    const NewPrice = ev.target.update.value;
-    const updatedPrice  = productObj.updateProduct(id)
-
-    productObj.updateProductPrice(updatedPrice , NewPrice)
-    productObj.renderUpdate(productObj.products, root)
+    const NewPrice = ev.target.elements.update.value;
+    productObj.updateProduct(id , NewPrice)
+    productObj.renderAllProducts(root)
 
 }
 
