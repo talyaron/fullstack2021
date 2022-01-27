@@ -1,7 +1,7 @@
 body {
   margin: 0px;
   padding: 0px;
-  background-color: rgba(82, 23, 23, 0.87);
+  background-color: rgba(129, 32, 32, 0.815);
 }
 
 h1 {
@@ -10,12 +10,12 @@ h1 {
   font-size: 60px;
   letter-spacing: -1.2px;
   word-spacing: 1px;
-  color: #000000;
   font-weight: 400;
   text-decoration: none solid #444444;
   font-style: italic;
   font-variant: small-caps;
   text-transform: capitalize;
+  color: rgba(90, 9, 9, 0.603);
 }
 
 #root {
@@ -34,6 +34,7 @@ h1 {
   text-transform: uppercase;
   letter-spacing: 0.2ch;
   background: #ffffff;
+  color: rgba(90, 9, 9, 0.603);
 }
 
 form {
