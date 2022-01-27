@@ -115,7 +115,7 @@ const ZapList: Zap = {
 const rootHTML = document.getElementById("root");
 ZapList.renderZaplist(ZapList.products, rootHTML);
 
-ZapList.sortItem();
+
 
 function handleZaplist(ev) {
   ev.preventDefault();
