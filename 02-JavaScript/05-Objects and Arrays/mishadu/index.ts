@@ -65,12 +65,15 @@ const zap: ZAP = {
         if (sortBy === 'price low to high') {
 
             this.items.sort((a, b) => { return a.price - b.price })
-        } else if (sortBy === 'price high to low') {
+            
+        } 
+        
+        else if (sortBy === 'price high to low') {
 
             this.items.sort((a, b) => { return b.price - a.price })
         }
 
-        this.renderItems(document.getElementById('root'));
+        this.renderItems(this.items, document.getElementById('root'));
     },
 
     filterMaxPrice(maxPrice) {

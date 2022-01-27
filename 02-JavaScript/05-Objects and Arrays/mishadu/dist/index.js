@@ -41,7 +41,7 @@ var zap = {
         else if (sortBy === 'price high to low') {
             this.items.sort(function (a, b) { return b.price - a.price; });
         }
-        this.renderItems(document.getElementById('root'));
+        this.renderItems(this.items, document.getElementById('root'));
     },
     filterMaxPrice: function (maxPrice) {
         return this.items.filter(function (item) { return item.price <= maxPrice; });
