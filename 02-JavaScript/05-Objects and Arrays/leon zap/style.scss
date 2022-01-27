@@ -1,22 +1,23 @@
 body{
-    background-color: rgb(233, 233, 214);
+    background-color: rgb(255, 177, 66);
 }
 .logo{
     font-size: 60px;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color: rgb(4, 2, 107);
+    font-family:'Times New Roman', Times, serif;
+    color: rgb(26, 25, 34);
     position: absolute;
     left: 50vw;
 }
 .rootItem{
     border: 2px solid black;
-    background-color: rgb(177, 156, 22);
+    background-color: #ffffff;
     width: 70vw;
     height: 90vh;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     position: absolute;
     left: 23vw;
     top: 20vh;
+    font-size: 23px;
 }
 
 .menu{

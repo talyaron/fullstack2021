@@ -1,24 +1,25 @@
 body {
-  background-color: #e9e9d6;
+  background-color: #ffb142;
 }
 
 .logo {
   font-size: 60px;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
-  color: #04026b;
+  font-family: "Times New Roman", Times, serif;
+  color: #1a1922;
   position: absolute;
   left: 50vw;
 }
 
 .rootItem {
   border: 2px solid black;
-  background-color: #b19c16;
+  background-color: #ffffff;
   width: 70vw;
   height: 90vh;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   position: absolute;
   left: 23vw;
   top: 20vh;
+  font-size: 23px;
 }
 
 .menu {
