@@ -50,7 +50,7 @@ let zapitem: any = {
         return this.items.filter(item => item.type === type);
     },
 
-    renderByType(type , itemOnDom){
+    renderByType(type,itemOnDom){
        const filterdItems = this.filterByType(type);
        this.render(filterdItems, itemOnDom);
     }
@@ -59,7 +59,7 @@ let zapitem: any = {
 
 zapitem.addItem( 'lenovo 16`', 180,'computer');
 zapitem.addItem( 'X-box series x', 1180,'gameconsole');
-zapitem.addItem('Iphone 13"', 2280,'phones');
+zapitem.addItem('Iphone 13"', 2280,'phone');
 const root = document.querySelector(".rootItem");
 zapitem.renderItem(root);
 
