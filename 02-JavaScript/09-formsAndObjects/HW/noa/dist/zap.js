@@ -1,60 +1,118 @@
+var uid = function () {
+    return Date.now().toString(36) + Math.random().toString(36).substr(2);
+};
 var ZapList = {
     products: [
-    // {
-    //     description: 'adidas',
-    //     price: 300
-    // },
-    // {
-    //     description: 'toe',
-    //     price: 150
-    // },
-    // {
-    //     description: 'creels',
-    //     price: 200
-    // },
+        {
+            description: "lenovo",
+            price: 200,
+            id: "6",
+            category: "computers"
+        },
+        {
+            description: "galaxy",
+            price: 500,
+            id: "5",
+            category: "phones"
+        },
     ],
     AddItem: function (item) {
+        item.id = uid();
         this.products.push(item);
     },
-    sortItem: function (product) {
-        var _this = this;
-        var button1 = document.getElementById('lowToHigh');
-        var button2 = document.getElementById('highToLow');
-        button1.addEventListener('click', function () {
-            _this.products.sort(function (a, b) { return a.price - b.price; });
-            _this.renderZaplist(list);
+    // sortItem() {
+    //     const button1 = document.getElementById('lowToHigh')
+    //     const button2 = document.getElementById('highToLow')
+    //     button1.addEventListener('click', () => {
+    //         this.products.sort((a, b) => { return a.price - b.price })
+    //         this.renderZaplist(this.products, rootHTML);
+    //     })
+    //     button2.addEventListener('click', () => {
+    //         this.products.sort((a, b) => { return b.price - a.price })
+    //         this.renderZaplist(this.products,rootHTML);
+    //     })
+    // },
+    sortItemsAsc: function () {
+        this.products.sort(function (a, b) {
+            return a.price - b.price;
         });
-        button2.addEventListener('click', function () {
-            _this.products.sort(function (a, b) { return b.price - a.price; });
-            _this.renderZaplist(list);
+        this.renderZaplist(this.products, rootHTML);
+    },
+    sortItemsDesc: function () {
+        this.products.sort(function (a, b) {
+            return b.price - a.price;
+        });
+        this.renderZaplist(this.products, rootHTML);
+    },
+    filterByPrice: function (pricenum) {
+        this.products.filter(function (product) {
+            return product.price <= pricenum;
         });
     },
-    renderZaplist: function (domElement, pricenum) {
-        var HTML = '';
-        var maxPrice = this.products.slice();
-        if (pricenum) {
-            maxPrice = maxPrice.filter(function (product) { return product.price <= pricenum; });
+    deleteItem: function (id) {
+        this.products = this.products.filter(function (product) { return product.id !== id; });
+    },
+    filterByCategory: function (showCategory) {
+        return this.products.filter(function (product) { return product.category === showCategory; });
+    },
+    renderByCategory: function (showCategory, domElement) {
+        if (showCategory === "all") {
+            this.renderZaplist(this.products, domElement);
         }
-        maxPrice.forEach(function (element) {
-            HTML += " <div class='card'>\n            <P> The product: " + element.description + ", price: " + element.price + "</p>\n            </div>";
+        else {
+            var filtered = this.filterByCategory(showCategory);
+            console.log(filtered);
+            this.renderZaplist(filtered, domElement);
+        }
+    },
+    renderZaplist: function (list, domElement) {
+        var HTML = "";
+        console.log(list);
+        list.forEach(function (product) {
+            HTML += " <div class='card'>\n            <P> The product: " + product.description + ", Price: " + product.price + "\n            , Category: " + product.category + "</p>\n            <button onclick=\"handleDelete('" + product.id + "')\">Delete</button>\n            </div>";
         });
         domElement.innerHTML = HTML;
     }
 };
+var rootHTML = document.getElementById("root");
+ZapList.renderZaplist(ZapList.products, rootHTML);
 ZapList.sortItem();
-var list = document.getElementById('list');
-ZapList.renderZaplist(list);
 function handleZaplist(ev) {
     ev.preventDefault();
     var description = ev.target.elements.description.value;
     var price = ev.target.elements.price.valueAsNumber;
-    console.log(description, price);
-    ZapList.AddItem({ description: description, price: price });
-    var list = document.getElementById('list');
-    ZapList.renderZaplist(list);
+    var id = uid();
+    var category = ev.target.elements.category.value;
+    console.log(category);
+    ZapList.AddItem({ id: id, description: description, price: price, category: category });
+    var rootHTML = document.getElementById("root");
+    ZapList.renderZaplist(ZapList.products, rootHTML);
     ev.target.reset();
 }
 function handlePrice(ev) {
     var pricenum = ev.target.value;
-    ZapList.renderZaplist(list, pricenum);
+    ZapList.renderZaplist(ZapList.products, rootHTML);
+}
+function handleDelete(id) {
+    ZapList.deleteItem(id);
+    var rootHTML = document.getElementById("root");
+    ZapList.renderZaplist(ZapList.products, rootHTML);
+}
+function handleSelect(ev) {
+    var showCategory = ev.target.value;
+    console.log(showCategory);
+    var rootHTML = document.getElementById("root");
+    ZapList.renderByCategory(showCategory, rootHTML);
+    // if (showCategory === 'Show All') {
+    //     ZapList.renderZaplist(ZapList.products,rootHTML)
+    // }
+    // else {
+    //     ZapList.renderByCategory(showCategory, rootHTML)
+    // }
+}
+function handleSortAsc() {
+    ZapList.sortItemsAsc();
+}
+function handleSortDesc() {
+    ZapList.sortItemsDesc();
 }

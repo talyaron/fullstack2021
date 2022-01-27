@@ -140,15 +140,6 @@ const myZapSearch: Zap = {
   }
 };
 
-// function renderAsc(sortAscen, rootComp) {
-//   let sortedAscHtml = "";
-
-//   for (let i in sortedArray) {
-//     sortedAscHtml += `<div class="card"><p>${sortedArray[i].titleComp}: ${sortedArray[i].price}</p></div>`;
-//   }
-//   rootComp.innerHTML = sortedAscHtml;
-// }
-
 
 
 function handlePriceAscen() {
@@ -204,20 +195,20 @@ function handleFilter(e) {
   }
 }
 
-function FilterIt(filterNumber) {
-  let filtered: Array<Computer> = [];
+// function FilterIt(filterNumber) {
+//   let filtered: Array<Computer> = [];
 
-  filtered = myZapSearch.computers.filter((priceFilter) => {
-    return priceFilter.price < filterNumber;
-  });
-  renderFilter(filtered, rootComp);
-}
+//   filtered = myZapSearch.computers.filter((priceFilter) => {
+//     return priceFilter.price < filterNumber;
+//   });
+//   renderFilter(filtered, rootComp);
+// }
 
-function renderFilter(compFiltered, rootComp) {
-  let filteredHtml = "";
+// function renderFilter(compFiltered, rootComp) {
+//   let filteredHtml = "";
 
-  for (let i in compFiltered) {
-    filteredHtml += `<div class="card"><p>${compFiltered[i].titleComp}: ${compFiltered[i].price}</p></div>`;
-  }
-  rootComp.innerHTML = filteredHtml;
-}
+//   for (let i in compFiltered) {
+//     filteredHtml += `<div class="card"><p>${compFiltered[i].titleComp}: ${compFiltered[i].price}</p></div>`;
+//   }
+//   rootComp.innerHTML = filteredHtml;
+// }

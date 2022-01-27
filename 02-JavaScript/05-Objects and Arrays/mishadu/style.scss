@@ -4,6 +4,7 @@ body{
     align-items: center;
     height: 100vh;
     background-color: rgb(255, 255, 255);
+    font-size: 20px;
 }
 
 .wrapper{
@@ -12,9 +13,10 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
     box-shadow: 0px 0px 3px black;
     padding: 1em;
+
 }
 
 form{
@@ -23,16 +25,28 @@ form{
     align-items: center;
     width: 100%;
     div, select, input{
-        margin-inline-end: 1em;
+        margin: 1em;
     }
+
+
 }
 
 #root{
+
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
 
     .card{
         margin-inline-end: 1em;
+        display: flex;
+        justify-content: center;
     }
+
+    button{
+        margin: 1em;
+    }
+
 }

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Zap</title>
     <link rel="stylesheet" href="dist/zap.css">
 </head>
 
@@ -14,23 +14,34 @@
     <form onsubmit="handleZaplist(event)">
         <input type="text" name="description" placeholder="Enter Description" required>
         <input type="number" name="price" placeholder="Enter Price" required>
+        <select name="category" id="" required>
+            <option value=""disabled selected>Choose Category</option>
+            <option value="computers">Computers</option>
+            <option value="phones">Phones</option>
+        </select>
         <input id="submit" type="submit" value="Add">
     </form>
     <div class="sort">
         <P class="text">sort price</P>
-        <button id="lowToHigh">low to high</button>
-        <button id="highToLow">high to low</button>
-        <!-- <input type="radio" name="sort" id="lowtohigh" value="low to high">
-        <label for="lowtohigh">low to high</label>
-        <input type="radio" name="sort" id="hightolow" value="high to low">
-        <label for="hightolow">high to low</label> -->
+        <button id="lowToHigh" onclick="handleSortAsc()">low to high</button>
+        <button id="highToLow" onclick="handleSortDesc()">high to low</button>
     </div>
 
     <div class="price">
         <label for="price">Show price lower than</label>
         <input type="number" name="price" id="price" placeholder="price" onkeyup="handlePrice(event)">
     </div>
-    <div id="list"></div>
+
+    <div class="category">
+        <select name="showCategory" id="" onchange="handleSelect(event)" required>
+            <option value="" disabled selected>Choose category</option>
+            <option value="all">Show All</option>
+            <option value="computers">Computers</option>
+            <option value="phones">Phones</option>
+        </select>
+    </div>
+
+    <div id="root"></div>
 
     <script src="dist/zap.js"></script>
 </body>
