@@ -43,11 +43,12 @@ const ZapList: Zap = {
         this.products.push(item)
     },
 
-    sortItem(product) {
+    sortItem() {
         const button1 = document.getElementById('lowToHigh')
         const button2 = document.getElementById('highToLow')
 
         button1.addEventListener('click', () => {
+
             this.products.sort((a, b) => { return a.price - b.price })
             this.renderZaplist(this.products, rootHTML);
         })
@@ -138,3 +139,4 @@ function handleSelect(ev) {
     // }
 
 }
+ZapList.sortItem();
