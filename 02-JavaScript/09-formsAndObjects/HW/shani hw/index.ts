@@ -29,17 +29,30 @@ const myPaintings:thePaintings ={
      
  ],
  sortByAscending(){
-   this.listOfPaintings.sort(function(a, b) {
-        return a.madeIn - b.madeIn;
-    });
+     document.getElementById('ascending').addEventListener("click",()=>{
+        this.listOfPaintings.sort(function(a, b) {
+            return a.madeIn - b.madeIn;
+        });
+        myPaintings.renderListOfPaintings(myPaintings.listOfPaintings);
+
+    })
+    
     
  },
  sortByDescending(){
-    this.listOfPaintings.sort(function(a, b) {
-        return b.madeIn-a.madeIn ;
-        
-       
-    }); 
+
+
+    document.getElementById('descending').addEventListener("click",()=>{
+        this.listOfPaintings.sort(function(a, b) {
+            return b.madeIn-a.madeIn ;
+            
+           
+        });
+        myPaintings.renderListOfPaintings(myPaintings.listOfPaintings);
+
+
+    })
+    
          
    
  },
@@ -123,17 +136,14 @@ function handleSubmit(ev){
 
 }
 
-//i dont understand how to do the delete. i understood why the button delete has to be in the render with each added painting
+//i dont understand how by me writing the renderlistpaintings it is updated with the item i erased
 function handleDelete(id){
     
+    myPaintings.removePaintingById(id)
+    myPaintings.renderListOfPaintings(myPaintings.listOfPaintings);
 
 
 }
-
-
-
-
-
 
 
 

@@ -7,13 +7,21 @@ var myPaintings = {
         { nameOfPainting: "Wheat Field with Cypresses", artist: " Vincent van Gogh", madeIn: 1889 }
     ],
     sortByAscending: function () {
-        this.listOfPaintings.sort(function (a, b) {
-            return a.madeIn - b.madeIn;
+        var _this = this;
+        document.getElementById('ascending').addEventListener("click", function () {
+            _this.listOfPaintings.sort(function (a, b) {
+                return a.madeIn - b.madeIn;
+            });
+            myPaintings.renderListOfPaintings(myPaintings.listOfPaintings);
         });
     },
     sortByDescending: function () {
-        this.listOfPaintings.sort(function (a, b) {
-            return b.madeIn - a.madeIn;
+        var _this = this;
+        document.getElementById('descending').addEventListener("click", function () {
+            _this.listOfPaintings.sort(function (a, b) {
+                return b.madeIn - a.madeIn;
+            });
+            myPaintings.renderListOfPaintings(myPaintings.listOfPaintings);
         });
     },
     addPainting: function (nameOfPainting, artist, madeIn) {
@@ -66,6 +74,8 @@ function handleSubmit(ev) {
     //i do this in order to print the new list that is printed through the render and is taking the new list changed after the addPainting
     ev.target.reset();
 }
-//i dont understand how to do the delete. i understood why the button delete has to be in the render with each added painting
+//i dont understand how by me writing the renderlistpaintings it is updated with the item i erased
 function handleDelete(id) {
+    myPaintings.removePaintingById(id);
+    myPaintings.renderListOfPaintings(myPaintings.listOfPaintings);
 }

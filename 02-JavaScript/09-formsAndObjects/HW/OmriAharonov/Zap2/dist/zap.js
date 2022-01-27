@@ -9,7 +9,7 @@ var zapShop = {
     render: function (list, domElement) {
         var html = '';
         list.forEach(function (item) {
-            html += "<div class = 'card_item'>\n            <p> " + item.description + " | Price: " + item.price + "$\n            <button onclick=\"handleDelete(" + item.id + ")\">Delete</button> </p>";
+            html += "<div class = 'card_item'>\n            <p> " + item.description + " | Price: " + item.price + "$\n            <button onclick=\"handleDelete(" + item.id + ")\">x</button> </p>";
         });
         html += "</div>";
         domElement.innerHTML = html;
