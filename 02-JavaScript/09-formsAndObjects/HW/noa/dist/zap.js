@@ -76,6 +76,7 @@ var ZapList = {
 };
 var rootHTML = document.getElementById("root");
 ZapList.renderZaplist(ZapList.products, rootHTML);
+ZapList.sortItem();
 function handleZaplist(ev) {
     ev.preventDefault();
     var description = ev.target.elements.description.value;
