@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap');
+
+body {
+    background-color: rgb(180, 169, 169) (248, 218, 218);
+}
+
+.container {
+    padding: 20px;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Open Sans Condensed', sans-serif;
+    
+
+
+    &-label {
+        font-size: 1.5rem;
+    }
+        
+
+    &-input {
+        width: 30%;
+        padding: 10px;
+        border-radius: 50px;
+        border: none;
+        box-shadow: rgb(175, 165, 165) 5px 0px 10px;
+    }
+
+    &-hero {
+        height: 300px;
+        background-image: url(https://media3.giphy.com/media/mbJ6CW4kRaXcW3CZzQ/giphy.gif?cid=ecf05e47r8xmuimereeygvkzrcfvwnlxwh0ixs8qekp3j5jc&rid=giphy.gif&ct=g);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+    }
+
+    &-form {
+        margin-top: 20px;
+        font-size: large;
+        margin-bottom: 50px;
+        justify-content: center;
+        font-family: 'Open Sans Condensed', sans-serif;
+
+        &-lable{
+            padding: 10px;
+        }
+
+        &-inputs {
+            width: 20%;
+            padding: 10px;
+            border-radius: 50px;
+            border: none;
+            box-shadow: rgb(175, 165, 165) 5px 0px 10px;
+        }
+
+        &-btn {
+            font-size: 1.5rem;
+            display: flex;
+            height: 60px;
+            width: 100%;
+            margin-top: 20px;
+            border: none;
+            padding: 5px;
+            justify-content: center;
+            border-radius: 10px;
+            box-shadow: rgb(175, 165, 165) 5px 0px 10px;
+            cursor: pointer;
+            font-family: 'Open Sans Condensed', sans-serif;
+
+            &:hover {
+                transform: scale(0.9);
+            }
+        }
+
+        &-select {
+            width: 20%;
+            padding: 10px;
+            border-radius: 50px;
+            border: none;
+            box-shadow: rgb(175, 165, 165) 5px 0px 10px;
+            margin: 20px;
+        }
+
+
+    }
+
+    &-btnAsc {
+        height: 60px;
+        padding: 20px;
+        width: 100%;
+        box-shadow: rgb(175, 165, 165) 5px 0px 10px;
+        border-radius: 10px;
+        font-weight: bold;
+        cursor: pointer;
+        border: none;
+        font-family: 'Open Sans Condensed', sans-serif;
+
+        &:hover {
+            transform: scale(0.9);
+        }
+
+    }
+
+    &-btnDesc {
+        margin-top: 20px;
+        margin-bottom: 25px;
+        padding: 20px;
+        height: 60px;
+        width: 100%;
+        border: none;
+        box-shadow: rgb(175, 165, 165) 5px 0px 10px;
+        border-radius: 10px;
+        font-weight: bold;
+        cursor: pointer;
+        font-family: 'Open Sans Condensed', sans-serif;
+
+        &:hover {
+            transform: scale(0.9);
+        }
+
+
+    }
+
+
+}
+
+span {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 3rem;
+    padding: 50px;
+    color: black;
+    animation: glow 0.6s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #6b6a6b, 0 0 40px #6b6a6b, 0 0 50px #6b6a6b, 0 0 60px #6b6a6b, 0 0 70px #6b6a6b;
+    }
+
+    to {
+        text-shadow: 0 0 20px #fff, 0 0 30px #6b6a6b, 0 0 40px #6b6a6b, 0 0 50px #6b6a6b, 0 0 60px #6b6a6b, 0 0 70px #6b6a6b, 0 0 80px #6b6a6b;
+    }
+
+
+}
+
+
+
+.result {
+    text-align: center;
+    height: 56%;
+    display: grid;
+    gap: 15px;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 20px;
+    justify-content: center;
+    cursor: pointer;
+
+    
+
+    &-card {
+        font-family: 'Open Sans Condensed', sans-serif;
+        box-sizing: border-box;
+        box-shadow: rgb(175, 165, 165) 5px 0px 10px;
+        background-color: rgb(233, 233, 233);
+        padding: 50px;
+        justify-content: center;
+        gap: 5px;
+        border-radius: 15px;
+        font-size: 1.5rem;
+        
+
+
+    }
+
+}
+
+.tsBtn {
+    border: none;
+    padding: 10px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    box-shadow: rgb(175, 165, 165) 5px 0px 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    
+    
+
+
+}
+
+.tsInput{
+    margin-top: 10px;
+    padding: 15px;
+    border-radius: 50px;
+    border: none;
+    box-shadow: rgb(175, 165, 165) 5px 0px 10px;
+}
