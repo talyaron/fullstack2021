@@ -47,7 +47,7 @@
                 </div>
 
                 <div class="section">
-                    <label for='itemtype'>Item Type</label>
+                    <label for='itemtype'>Add Item Type</label>
                     <select type='text' name='itemtype' id='itemtype' required>
                         <option value="" disabled selected>Choose type...</option>
                         <option value='shoes' id='pLTH'>Shoes</option>
@@ -55,7 +55,8 @@
                     </select>
                 </div>
 
-                <input type="submit" value='Add Item'></input>
+                <button type="submit" >ADD ITEM</button>
+                <button type="submit" onclick="updateItem(event)">UPDATE ITEM</button>
 
             </form>
 
@@ -70,7 +71,8 @@
 
     </div>
 
-    <script src='dist/index.js'></script>
+    <script src="dist/index.js"></script>
+
 </body>
 
 

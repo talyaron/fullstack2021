@@ -41,7 +41,7 @@ const zap: ZAP = {
         {
             id: 'dflt3',
             type: 'shoes',
-            name: 'creels',
+            name: 'cruggs',
             price: 200,
         },
         {
@@ -111,8 +111,8 @@ const zap: ZAP = {
             html += `<div class='card'>
 
 
-            <p>${item.name}: ${item.price}</p>
-            <button onclick='handleDelete('${item.id}')'>DELETE</button>
+            <p contenteditable="true">${item.name}: ${item.price}</p>
+            <button onclick="handleDelete('${item.id}')">DELETE</button>
             
             </div>`
         })
@@ -159,6 +159,7 @@ function handlePriceChange() {
 }
 
 function handleDelete(id){
+    console.log('ok');
     const root = document.getElementById('root');
     zap.removeItem(id);
     zap.renderAllData(root);  

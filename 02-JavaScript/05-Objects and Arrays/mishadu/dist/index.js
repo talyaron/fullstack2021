@@ -18,7 +18,7 @@ var zap = {
         {
             id: 'dflt3',
             type: 'shoes',
-            name: 'creels',
+            name: 'cruggs',
             price: 200
         },
         {
@@ -69,7 +69,7 @@ var zap = {
     renderItems: function (list, domElement) {
         var html = '';
         list.forEach(function (item) {
-            html += "<div class='card'>\n\n\n            <p>" + item.name + ": " + item.price + "</p>\n            <button onclick='handleDelete('" + item.id + "')'>DELETE</button>\n            \n            </div>";
+            html += "<div class='card'>\n\n\n            <p contenteditable=\"true\">" + item.name + ": " + item.price + "</p>\n            <button onclick=\"handleDelete('" + item.id + "')\">DELETE</button>\n            \n            </div>";
         });
         domElement.innerHTML = html;
     }
@@ -101,6 +101,7 @@ function handlePriceChange() {
     zap.renderFilteredByMaxPrice(maxprice, rootHTML);
 }
 function handleDelete(id) {
+    console.log('ok');
     var root = document.getElementById('root');
     zap.removeItem(id);
     zap.renderAllData(root);
