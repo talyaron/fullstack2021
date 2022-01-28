@@ -74,6 +74,7 @@ function handlesortitem(ev) {
     ev.preventDefault();
     zapitems.sortitemsDES()
     zapitems.renderitem(rootitems)
+    
 }
 // ממיין את הרשימה לפי מחיר מלמטה למעלה
 function handlesortitemacs(ev) {
