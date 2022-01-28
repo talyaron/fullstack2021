@@ -2,8 +2,42 @@
   padding: 0;
   margin: 0;
   border: 0;
+  font-family: bebas;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
 }
 
 .home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  min-height: 100vh;
   background: url(http://www.fusushi.co.il/warehouse/dynamic/50913.jpg), url(http://www.fusushi.co.il/warehouse/dynamic/50916.jpg), url(http://en.fusushi.co.il/warehouse/dynamic/55244.jpg;);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center center;
+}
+
+.lobby {
+  min-height: 100vh;
+  background-color: #121213;
+}
+
+.navbar {
+  position: relative;
+  top: 3em;
+  width: 1100px;
+  height: 75px;
+  background-color: #EBEBEB;
+}
+.navbar ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
 }
