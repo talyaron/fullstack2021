@@ -1,0 +1,9 @@
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+.home {
+  background: url(http://www.fusushi.co.il/warehouse/dynamic/50913.jpg), url(http://www.fusushi.co.il/warehouse/dynamic/50916.jpg), url(http://en.fusushi.co.il/warehouse/dynamic/55244.jpg;);
+}
