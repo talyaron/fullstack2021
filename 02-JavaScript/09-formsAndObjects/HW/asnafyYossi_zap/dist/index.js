@@ -9,8 +9,11 @@ var zap = {
     deleteItem: function (id) {
         this.items = this.items.filter(function (item) { return item.id !== id; });
     },
-    editItem: function (item) {
-        this.items.push(item);
+    editItem: function (id, itemEdited) {
+        var index = this.items.findIndex(function (item) { return item.id === id; });
+        if (index >= 0) {
+            this.items[index].title = itemEdited;
+        }
     },
     removeItems: function (itemTitle) {
         var index = this.items.findIndex(function (item) { return item.title === itemTitle; });
@@ -43,7 +46,7 @@ var zap = {
     renderItemsList: function (domElement, list) {
         var html = '';
         list.forEach(function (item) {
-            html += "<div class='card'>\n            <div class=\"category\">&#9632; " + item.select + "</div>\n            <div>\n            <div class=\"title\">" + item.title + "</div>\n            <div class=\"description\">" + item.description + "</div>\n            </div>\n            <div class=\"price\">&#8362;" + item.price + "</div>\n            <div class=\"itemPic\">\n            <img src=\"" + item.select + ".png\" alt=\"\">\n            <hr>\n            </div>\n            <div class=\"edit\"><a href=\"#editPopUP\">Edit</a></div>\n            <div class=\"popUpbox\" id=\"editPopUP\">\n            <figure>\n                <a href=\"#\" class=\"close\"></a>\n                <figcaption>\n                <form id=\"formAdd\" onsubmit='handleEditItems(event)'>\n                <select name=\"select\" id=\"select\" placeholder=\"select\">\n                <option>select</option>\n                <option>electronics</option>\n                <option>fashion</option>\n                <option>games</option>\n               </select>\n               <input type=\"text\" name=\"title\" placeholder=\"Edit title\">\n               <input type='number' name=\"price\" placeholder=\"Edit price\">\n                <input type=\"submit\" value=\"SAVE\">\n            </form>\n                </figcaption>\n            </figure>\n            </div>\n            <div class=\"delete\">\n            <button onclick=\"handleDelete('" + item.id + "')\"><span style=\"color: #d21ec3;\">X</span></button>\n            </div>\n            </div>";
+            html += "<div class='card'>\n            <div class=\"category\">&#9632; " + item.select + "</div>\n            <div>\n            <div class=\"title\">" + item.title + "</div>\n            <div class=\"description\">" + item.description + "</div>\n            </div>\n            <div class=\"price\">&#8362;" + item.price + "</div>\n            <div class=\"itemPic\">\n            <img src=\"" + item.select + ".png\" alt=\"\">\n            <hr>\n            </div>\n            <div class=\"edit\"><a href=\"#editPopUP\">Edit</a></div>\n            <div class=\"popUpbox\" id=\"editPopUP\">\n            <figure>\n                <a href=\"#\" class=\"close\"></a>\n                <figcaption>\n                <form id=\"formAdd\" onsubmit=\"handleEditItems(event, '" + item.id + "')\">\n              <input type=\"text\" name=\"itemEdited\" placeholder=\"Edit title\">\n                <input type=\"submit\" value=\"SAVE\">\n            </form>\n                </figcaption>\n            </figure>\n            </div>\n            <div class=\"delete\">\n            <button onclick=\"handleDelete('" + item.id + "')\"><span style=\"color: #d21ec3;\">X</span></button>\n            </div>\n            </div>";
         });
         domElement.innerHTML = html;
     }
@@ -60,15 +63,13 @@ function handleaddItems(ev) {
     zap.renderItems(rootItems);
     ev.target.reset();
 }
-function handleEditItems(ev) {
+function handleEditItems(ev, id) {
     ev.preventDefault();
-    var select = ev.target.elements.select.value;
-    var title = ev.target.elements.title.value;
-    var price = ev.target.elements.price.valueAsNumber;
-    zap.editItem({ select: select, title: title, price: price });
+    var itemEdited = ev.target.elements.itemEdited.value;
+    zap.editItem(id, itemEdited);
     var rootItems = document.getElementById('rootItems');
-    zap.renderItems(rootItems);
     ev.target.reset();
+    zap.renderItems(rootItems);
 }
 function handleremoveItems(ev) {
     ev.preventDefault();
@@ -105,18 +106,10 @@ function handleDelete(id) {
     zap.deleteItem(id);
     zap.renderItems(rootItems);
 }
-function handleEdit(id) {
-    var rootItems = document.getElementById('rootItems');
-    zap.editItem(id);
-    zap.renderItems(rootItems);
-}
 zap.addItems({ id: '', select: 'fashion', title: 'Jacket', description: 'product is an object or system made available for consumer use...<a href="">read more</a>', price: 400 });
 zap.addItems({ id: '', select: 'games', title: 'Checkmate', description: 'product is an object or system made available for consumer use...<a href="">read more</a>', price: 200 });
 zap.addItems({ id: '', select: 'fashion', title: 'Jacket', description: 'product is an object or system made available for consumer use...<a href="">read more</a>', price: 500 });
 zap.addItems({ id: '', select: 'electronics', title: 'iMac', description: 'product is an object or system made available for consumer use...<a href="">read more</a>', price: 2000 });
 var rootItems = document.getElementById('rootItems');
 zap.renderItems(rootItems);
-// function handlePriceChange(ev) {
-//     console.log(ev.target.valueAsNumber)
-// }
 console.log(zap);
