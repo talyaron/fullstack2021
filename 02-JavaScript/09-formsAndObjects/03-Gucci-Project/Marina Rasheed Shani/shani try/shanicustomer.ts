@@ -1,14 +1,16 @@
 interface handbags{
     listOfBags:Array<bag>;
+    addItem?:;
     sortByAscending?:any;
     sortByDescending?:any;
-    filterLowerThan?:any
+    filterLowerThan?:any;
 }
 
 interface bag{
     nameOfBag:string;
     price:number;
     id?:string;
+    type?:
 }
 
 
