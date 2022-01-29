@@ -22,8 +22,8 @@ interface Item {
 interface Gucci {
   id?: number,
   data: Array<Item>,
-  addItem(title: string, type: "dress" | "pans", price: number),
-  filterByType(type: "dress" | "pans"),
+  addItem(title: string, type: "dress" | "pants", price: number),
+  filterByType(type: "dress" | "pants"),
   filterMaxPrice(price: number),
   sortAscen(),
   sortDescen(),
@@ -31,7 +31,7 @@ interface Gucci {
   render(list: Array<Item>, domElement: any),
   renderFilter(domElement: any, filterd: Array<Item>),
   renderAllData(domElement: any),
-  renderByType(type: "dress" | "pans", domElement),
+  renderByType(type: "dress" | "pants", domElement),
 }
 
 const gucciShop: Gucci = {
@@ -131,7 +131,7 @@ function handleFilter(e) {
 }
 
 gucciShop.addItem("Gucci Tiger denim shorts with embroidery", "dress", 1800);
-gucciShop.addItem("Shiny leather pant", "pans", 3800);
+gucciShop.addItem("Shiny leather pant", "pants", 3800);
 
 const root = document.getElementById("root");
 gucciShop.renderAllData(root);

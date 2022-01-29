@@ -1,6 +1,6 @@
 interface handbags{
     listOfBags:Array<bag>;
-    addItem?:;
+    addItem?:any;
     sortByAscending?:any;
     sortByDescending?:any;
     filterLowerThan?:any;
