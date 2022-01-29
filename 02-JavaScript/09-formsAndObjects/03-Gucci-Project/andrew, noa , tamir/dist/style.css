@@ -61,7 +61,31 @@ body {
 }
 .filter-bar__item {
   margin-inline: 20px;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
+  width: 100px;
+}
+.filter-bar__item:hover {
+  cursor: pointer;
+  color: var(--main-color-purple1);
+}
+
+.filter-dropbar {
+  display: flex;
+  justify-content: center;
+  margin-block: 10px;
+  padding-block: 20px;
+  background-color: var(--main-color-light-gray2);
+}
+.filter-dropbar__group {
+  width: 100px;
+  margin-inline: 20px;
+}
+.filter-dropbar__group p {
+  font-size: 0.8rem;
+}
+.filter-dropbar__group p:hover {
+  cursor: pointer;
+  color: var(--main-color-purple1);
 }
 
 .main {
