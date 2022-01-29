@@ -43,7 +43,7 @@ let aviator: aviator = {
         this.items.sort((a, b) => { return b.price - a.price })
     }
 }
-
+ 
 function handlesortitem(ev) {
     console.log('okk')
     ev.preventDefault();
