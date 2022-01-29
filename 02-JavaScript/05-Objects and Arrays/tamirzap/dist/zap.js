@@ -31,16 +31,15 @@ var zapitems = {
         }
     }
 };
-zapitems.additem({ nameofitem: 'tamir', price: 54, type: 'tamir1' });
-zapitems.additem({ nameofitem: 'avi', price: 54, type: 'tamir' });
-zapitems.additem({ nameofitem: 'yosi', price: 54, type: 'tamir1' });
+zapitems.additem({ nameofitem: 'tamir', price: 54 });
+zapitems.additem({ nameofitem: 'avi', price: 54 });
+zapitems.additem({ nameofitem: 'yosi', price: 54 });
 // מוסיף אובייקט לפי דרישה
 function handleadditem(ev) {
     ev.preventDefault();
-    var type = ev.target.elements.type.value;
     var nameofitem = ev.target.elements.title.value;
     var price = ev.target.elements.price.valueAsNumber;
-    zapitems.additem({ nameofitem: nameofitem, price: price, type: type });
+    zapitems.additem({ nameofitem: nameofitem, price: price });
     zapitems.renderitem(rootitems);
     ev.target.reset();
 }
