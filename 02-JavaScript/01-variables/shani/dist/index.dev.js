@@ -1,19 +1,13 @@
-var z=10;
+"use strict";
 
-var y=2
+var z = 10;
+var y = 2; // roy
 
-// roy
+console.log(z + 4);
 
-
-
-
-console.log(z+4);
-
-
-for(let w = 0 ; w<20 ; w ++) {
-    console.log(w)
+for (var w = 0; w < 20; w++) {
+  console.log(w);
 }
-
 /*Hw  
 //exercise 1:
 var num1,num2;
@@ -128,44 +122,34 @@ for(let x=0; x<=15; x++){
   }else{
     console.log(x+ " is odd")}
   }*/
-
 //exercise 6:
-let David=80,
-    Vinoth=77,
-    Divya=88,
-    Ishitha=95,
-    Thomas=68;
-let average=((David+Vinoth+Divya+Ishitha+Thomas)/5);
+
+
+var David = 80,
+    Vinoth = 77,
+    Divya = 88,
+    Ishitha = 95,
+    Thomas = 68;
+var average = (David + Vinoth + Divya + Ishitha + Thomas) / 5;
 console.log(average);
 
-if (average<60){
-    console.log("F")
-}else if (average<70){
-    console.log("D")
-}else{
-     console.log("A");
-}
- 
-//exercise 7
+if (average < 60) {
+  console.log("F");
+} else if (average < 70) {
+  console.log("D");
+} else {
+  console.log("A");
+} //exercise 7
 
-for (let i=1; i <=100; i++)
-  {
-    if (i%3===0 && i%5===0)
-    {
-      console.log(i+ "FizzBuzz");
-    } else if(i%3===0){
-      console.log(i + "Fizz");
-    } else if (i%5===0){
-      console.log(i + "Buzz");
-    } else{
-      console.log(i);
-    }
+
+for (var i = 1; i <= 100; i++) {
+  if (i % 3 === 0 && i % 5 === 0) {
+    console.log(i + "FizzBuzz");
+  } else if (i % 3 === 0) {
+    console.log(i + "Fizz");
+  } else if (i % 5 === 0) {
+    console.log(i + "Buzz");
+  } else {
+    console.log(i);
   }
-      
-      
-    
-   
-       
-    
-
-        
+}

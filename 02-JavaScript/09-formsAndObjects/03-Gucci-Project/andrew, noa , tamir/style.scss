@@ -1,4 +1,4 @@
-:root{
+:root {
     --main-color-purple1: #C21E86;
     --main-color-purple2: #8E1562;
     --main-color-purple3: #580E3D;
@@ -9,16 +9,18 @@
     --main-color-light-gray2: #666A62;
     --main-color-light-gray3: #333531;
 }
-body{
+
+body {
     background-color: var(--main-color-light-gray3);
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     height: 200vh;
 }
+
 // div{
 //     border: 1px solid red;
 // }
-.header{
+.header {
     position: fixed;
     z-index: 1;
     top: 0px;
@@ -30,55 +32,95 @@ body{
     // border: 1px solid red;
     width: 99vw;
     background-color: var(--main-color-light-gray2);
-    &__wrapper{
+
+    &__wrapper {
         display: flex;
         justify-content: space-around;
         align-items: center;
+
         // width: 200px;
-        &__item{
+        &__item {
             width: fit-content;
             margin-inline: 20px;
             font-size: 1rem;
         }
     }
 }
-.nav-bar{
+
+.nav-bar {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-block: 10px;
     padding-top: 50px;
-    &__item{
+
+    &__item {
         margin-inline: 15px;
     }
 }
-.filter-bar{
+
+.filter-bar {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-block: 10px;
     padding-block: 20px;
     background-color: var(--main-color-light-gray2);
-    &__item{
+
+    &__item {
         margin-inline: 20px;
-        font-size: 1.4rem;
+        font-size: 1.2rem;
+        // border: 1px solid red;
+        width: 100px;
+
+        &:hover {
+            cursor: pointer;
+            color: var(--main-color-purple1)
+        }
     }
 }
-.main{
+
+.filter-dropbar {
+    display: flex;
+    justify-content: center;
+    margin-block: 10px;
+    padding-block: 20px;
+    background-color: var(--main-color-light-gray2);
+
+    &__group {
+        width: 100px;
+        // border: 1px solid red;
+        margin-inline: 20px;
+
+        p {
+            font-size: 0.8rem;
+
+            &:hover {
+                cursor: pointer;
+                color: var(--main-color-purple1)
+            }
+        }
+    }
+}
+
+.main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    &__category-wrapper{
+
+    &__category-wrapper {
         padding-top: 50px;
         display: grid;
         gap: 20px;
         grid-template-columns: repeat(3, 1fr);
         position: relative;
-        &__title{
+
+        &__title {
             position: absolute;
             font-size: 2rem;
         }
-        &__card{
+
+        &__card {
             background-color: #ebebeb;
             border-radius: 10px;
             color: var(--main-color-gray2);
@@ -88,7 +130,8 @@ body{
             flex-direction: column;
             justify-content: space-around;
             align-items: center;
-            img{
+
+            img {
                 height: 200px;
             }
         }
