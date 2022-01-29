@@ -1,4 +1,4 @@
-body {
+body, option {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 1.2em;
 }
@@ -32,6 +32,12 @@ body {
   justify-content: center;
   gap: 0.7em;
   margin-bottom: 2em;
+}
+.SubMenuItem__selection select, .SubMenuItem__selection option {
+  background-color: #3a3f40;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 0.9em;
+  color: white;
 }
 
 .searchResut,
@@ -85,7 +91,7 @@ body {
   cursor: pointer;
 }
 
-.computers {
+.computers, .item {
   width: 60%;
   display: flex;
   justify-content: space-between;
@@ -95,21 +101,25 @@ body {
   margin-top: 1em;
   box-shadow: 1px 2px 6px rgba(74, 59, 87, 0.4);
 }
-.computers_comp1 {
+.computers_comp1, .item_comp1 {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.lookig_for, .delete, .sortPrice, .sortName {
-  margin-top: 2em;
+.lookig_for,
+.delete {
+  margin-top: 1em;
   display: flex;
   flex-direction: row;
   justify-content: center;
   gap: 1em;
-  padding-bottom: 2em;
+  padding-bottom: 1em;
 }
-.lookig_for input, .delete input, .sortPrice input, .sortName input {
+.lookig_for input,
+.lookig_for button,
+.delete input,
+.delete button {
   border-radius: 10px;
   width: 100%;
   height: 3em;
@@ -117,7 +127,26 @@ body {
   font-size: 1em;
   box-shadow: 1px 2px 6px rgba(102, 95, 107, 0.4);
 }
-.lookig_for button, .delete button, .sortPrice button, .sortName button {
+
+.sortPrice {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  width: 100%;
+  height: 3em;
+  border-color: transparent;
+  font-size: 1em;
+  box-shadow: 1px 2px 6px rgba(102, 95, 107, 0.4);
+}
+
+.sort {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+}
+.sort button {
+  margin-top: 1em;
   border-radius: 10px;
   font-size: 1em;
   border-color: transparent;

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <title>zap</title>
     <link rel="stylesheet" href="dist/zap.css">
 </head>
@@ -16,7 +16,7 @@
     <div class="header">
         <div class="header_wrapper">
             <img src="img\zap.png" width="90" height="85" alt="">
-            <form onsubmit="HandleSearch(event)">
+            <form onkeyup="HandleTopSearch (event)">
                 <input class="search" type="text" name="search" id="search">
             </form>
             <a itemprop="url" href="https://www.zap.co.il/">
@@ -33,9 +33,16 @@
         <div>children</div>
         <div>sport</div>
         <div>home & garden</div>
-        <div class="subMenuComputer" >computers</div>
-        <div>electronics</div>
-        <div>all categories</div>
+        <div class="subMenuComputer" onclick="handleShowComputers(event)">computers</div>
+        <div class="subMenuElectronics" onclick="handleShowElectronics(event)">electronics</div>
+        <div class="SubMenuItem__selection">
+            <select name="" id="" onchange='handleSelect(event)'>
+                <option value="" disabled selected>all categories</option>
+                <option value="all">Show all</option>
+                <option value="computer">Computers</option>
+                <option value="electronics">Viewing and audio systems</option>
+            </select>
+        </div>
     </div>
     <div class="popupTextOver">
         <p class="guest_mouseover" style="font-size: smaller;">Hello, guest! </p>
@@ -70,33 +77,36 @@
     </div>
 
 
-    <form  onsubmit="handleSubmit(event)" class="lookig_for">
-        <input style="width: 15%; height: 3em;" type="text" name="comp_title" id="comp_title" placeholder="Enter description here" >
-        <input style="width: 15%; height: 3em;" type="text" name="comp_price" id="comp_price" placeholder="Enter price here" >
-        <button style="width: 5%; height: 3em;" onsubmit="handleSubmit(event)"   id="btn_submit" type="submit">Add an item</button>
+    <form onsubmit="handleSubmit(event)" class="lookig_for">
+        <input style="width: 15%; height: 3em;" type="text" name="title" id="title"
+            placeholder="Enter description here">
+        <input style="width: 15%; height: 3em;" type="number" name="price" id="price" placeholder="Enter price here">
+        <button style="width: 5%; height: 3em;" id="btn_submit" type="submit">Add an item</button>
     </form>
 
-    <form class="delete">
-        <input style="width: 15%; height: 3em;" type="text" name="comp_delete" id="comp_delete" placeholder="Enter an item to delete" >
-        <button style="width: 5%; height: 3em;"  onsubmit="handleDelete(event)" id="btn_submit" type="submit">Delete an item</button>
-    </form>
-
-    <form class="sortPrice">
-        <input style="width: 15%; height: 3em;" type="text" name="sort_price" id="sort_price" placeholder="Enter a price here" >
-        <button style="width: 5%; height: 3em;"  onsubmit="handleSortPrice(event)" id="btn_submit" type="submit">Lowest price</button>
-    </form>
-
-    <form class="sortName">
-        <button  class="ascending" style="width: 5%; height: 3em;"  onsubmit="handleSortNameAscen(event)" id="btn_submit" type="submit">Sort by name  <ion-icon name="arrow-up-outline"></ion-icon></button>
-        <button  class="descending" style="width: 5%; height: 3em;"  onsubmit="handleSortNameDescen(event)" id="btn_submit" type="submit">Sort by name  <ion-icon name="arrow-down-outline"></ion-icon></button>
-    </form>
+    <div class="delete">
+        <input style="width: 15%; height: 3em;" type="text" name="delete" id="delete"
+            placeholder="Enter an item to delete">
+        <button style="width: 5%; height: 3em;" id="delete" type="submit" value="Delete an item">Delete an item</button>
+    </div>
 
 
-    <div id="rootComputer"></div>
+    <input class="sortPrice" style="width: 15%; height: 3em;" onkeyup="handleFilter(event)" type="number"
+        name="filter_price" id="filter_price" placeholder="Enter a price here">
 
+    <div class="sort">
+        <button class="ascending" style="width: 5%; height: 3em;" onclick="handlePriceAscen()" id="btn_submit"
+            type="submit">Sort by price <ion-icon name="arrow-up-outline"></ion-icon></button>
+
+        <button class="descending" style="width: 5%; height: 3em;" onclick="handlePriseDescen()" id="btn_submit"
+            type="submit">Sort by price <ion-icon name="arrow-down-outline"></ion-icon></button>
+    </div>
+
+    <!-- <div id="rootComputer"></div> -->
+    <div id="root"></div>
 
     <script src="dist/zap.js"></script>
-    <!-- <script src="zap.js"></script> -->
+
 </body>
 
 </html>
