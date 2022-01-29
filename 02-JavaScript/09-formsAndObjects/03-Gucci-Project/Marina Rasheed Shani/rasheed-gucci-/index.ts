@@ -1,11 +1,11 @@
 interface Store {
-  products: Array<Product>;
-  addProducts();
+  menClothes: Array<Product>;
+  addMenClothes();
   storeData();
   getData();
-  addMoreProducts(item: string, price: number): any
+  addMoremenClothes(item: string, price: number): any
   render(list: any, domElement: any): any;
-  renderAllProducts(domElement:any):any;
+  renderAllmenClothes(domElement:any):any;
 }
 
 interface Product {
@@ -14,10 +14,10 @@ interface Product {
   id: number;
 }
 
-const myStore: Store = {
-  products: [],
-  addProducts() {
-    this.products = [
+const gucci: Store = {
+  menClothes: [],
+  addMenClothes() {
+    this.menClothes = [
       { name: "T-Shirt", price: 110, id: 1 },
       { name: "Sweather", price: 220, id: 2 },
       { name: "long-Shirt", price: 450, id: 3 },
@@ -32,15 +32,15 @@ const myStore: Store = {
     this.storeData();
   },
   storeData() {
-    localStorage.setItem('storeData', JSON.stringify(this.products))
+    localStorage.setItem('storeData', JSON.stringify(this.menClothes))
 
   },
   getData() {
-    this.products = JSON.parse(localStorage.getItem('storeData'))
+    this.menClothes = JSON.parse(localStorage.getItem('storeData'))
   },
 
-  addMoreProducts(item, price) {
-    this.products.push({ item, price })
+  addMoremenClothes(item, price) {
+    this.menClothes.push({ item, price })
     this.storeData();
     
   },
@@ -53,25 +53,25 @@ const myStore: Store = {
     })
     domElement.innerHTML = html
   },
-  renderAllProducts(domElement) {
-    const products = this.products;
-    this.render(products, domElement);
+  renderAllmenClothes(domElement) {
+    const menClothes = this.menClothes;
+    this.render(menClothes, domElement);
 },
 };
-function handleAddProducts() {
-  myStore.addProducts()
-  myStore.getData();
+function handleAddmenClothes() {
+  gucci.addMenClothes()
+  gucci.getData();
   const root = document.getElementById('root')
-  myStore.renderAllProducts(root)
+  gucci.renderAllmenClothes(root)
 }
 
-function handleAddMoreProducts(ev) {
+function handleAddMoremenClothes(ev) {
   ev.preventDefault();
-  myStore.addProducts()
+  gucci.addMenClothes()
   const item = ev.target.item.value
   const price = ev.target.price.value
-  myStore.addMoreProducts(item, price)
-  console.log(myStore.products)
-  myStore.storeData();
+  gucci.addMoremenClothes(item, price)
+  console.log(gucci.menClothes)
+  gucci.storeData();
   
 }

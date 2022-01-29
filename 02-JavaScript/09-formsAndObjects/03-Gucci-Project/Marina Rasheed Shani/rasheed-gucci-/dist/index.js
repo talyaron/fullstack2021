@@ -1,7 +1,7 @@
-var myStore = {
-    products: [],
-    addProducts: function () {
-        this.products = [
+var gucci = {
+    menClothes: [],
+    addMenClothes: function () {
+        this.menClothes = [
             { name: "T-Shirt", price: 110, id: 1 },
             { name: "Sweather", price: 220, id: 2 },
             { name: "long-Shirt", price: 450, id: 3 },
@@ -16,13 +16,13 @@ var myStore = {
         this.storeData();
     },
     storeData: function () {
-        localStorage.setItem('storeData', JSON.stringify(this.products));
+        localStorage.setItem('storeData', JSON.stringify(this.menClothes));
     },
     getData: function () {
-        this.products = JSON.parse(localStorage.getItem('storeData'));
+        this.menClothes = JSON.parse(localStorage.getItem('storeData'));
     },
-    addMoreProducts: function (item, price) {
-        this.products.push({ item: item, price: price });
+    addMoremenClothes: function (item, price) {
+        this.menClothes.push({ item: item, price: price });
         this.storeData();
     },
     render: function (list, domElement) {
@@ -32,23 +32,23 @@ var myStore = {
         });
         domElement.innerHTML = html;
     },
-    renderAllProducts: function (domElement) {
-        var products = this.products;
-        this.render(products, domElement);
+    renderAllmenClothes: function (domElement) {
+        var menClothes = this.menClothes;
+        this.render(menClothes, domElement);
     }
 };
-function handleAddProducts() {
-    myStore.addProducts();
-    myStore.getData();
+function handleAddmenClothes() {
+    gucci.addMenClothes();
+    gucci.getData();
     var root = document.getElementById('root');
-    myStore.renderAllProducts(root);
+    gucci.renderAllmenClothes(root);
 }
-function handleAddMoreProducts(ev) {
+function handleAddMoremenClothes(ev) {
     ev.preventDefault();
-    myStore.addProducts();
+    gucci.addMenClothes();
     var item = ev.target.item.value;
     var price = ev.target.price.value;
-    myStore.addMoreProducts(item, price);
-    console.log(myStore.products);
-    myStore.storeData();
+    gucci.addMoremenClothes(item, price);
+    console.log(gucci.menClothes);
+    gucci.storeData();
 }
