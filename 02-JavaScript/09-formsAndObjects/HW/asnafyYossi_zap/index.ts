@@ -3,6 +3,7 @@ const uid = function () {
 }
 
 interface zap {
+    id?: number;
     items: Array<Items>;
     addItems(item: Items);
     deleteItem(id: string);
@@ -10,11 +11,11 @@ interface zap {
     renderItems(domElement: any);
     newItems(price: number);
     sortItems(orderBy?: string);
-    filterItemsByMaxPrice(price: number)
-    renderFilter(domElement: any, filtered: Array<Items>)
-    renderItemsList(domElement: any, filtered: Array<Items>)
-    deleteItem(id: string)
-    editItem(item)
+    filterItemsByMaxPrice(price: number);
+    renderFilter(domElement: any, filtered: Array<Items>);
+    renderItemsList(domElement: any, filtered: Array<Items>);
+    deleteItem(id: string);
+    editItem(id, itemEdited)
 }
 interface Items {
     id: string;
@@ -34,8 +35,11 @@ const zap: zap = {
         this.items = this.items.filter(item => item.id !== id);
     },
 
-    editItem(item: Items) {
-        this.items.push(item);
+    editItem(id, itemEdited) {
+        const index = this.items.findIndex((item) => item.id === id);
+        if (index >= 0) {
+            this.items[index].title = itemEdited;
+        }
     },
     removeItems(itemTitle: string) {
         const index = this.items.findIndex(item => item.title === itemTitle);
@@ -82,15 +86,8 @@ const zap: zap = {
             <figure>
                 <a href="#" class="close"></a>
                 <figcaption>
-                <form id="formAdd" onsubmit='handleEditItems(event)'>
-                <select name="select" id="select" placeholder="select">
-                <option>select</option>
-                <option>electronics</option>
-                <option>fashion</option>
-                <option>games</option>
-               </select>
-               <input type="text" name="title" placeholder="Edit title">
-               <input type='number' name="price" placeholder="Edit price">
+                <form id="formAdd" onsubmit="handleEditItems(event, '${item.id}')">
+              <input type="text" name="itemEdited" placeholder="Edit title">
                 <input type="submit" value="SAVE">
             </form>
                 </figcaption>
@@ -119,15 +116,13 @@ function handleaddItems(ev) {
     ev.target.reset();
 }
 
-function handleEditItems(ev) {
+function handleEditItems(ev, id) {
     ev.preventDefault();
-    const select = ev.target.elements.select.value;
-    const title = ev.target.elements.title.value;
-    const price: number = ev.target.elements.price.valueAsNumber;
-    zap.editItem({ select, title, price });
+    const itemEdited = ev.target.elements.itemEdited.value;
+    zap.editItem(id, itemEdited);
     const rootItems = document.getElementById('rootItems');
-    zap.renderItems(rootItems);
     ev.target.reset();
+    zap.renderItems(rootItems);
 }
 
 function handleremoveItems(ev) {
@@ -170,22 +165,16 @@ function handleDelete(id) {
 }
 
 
-function handleEdit(id) {
-    const rootItems = document.getElementById('rootItems');
-    zap.editItem(id)
-    zap.renderItems(rootItems)
-}
 
 zap.addItems({ id: '', select: 'fashion', title: 'Jacket', description: 'product is an object or system made available for consumer use...<a href="">read more</a>', price: 400 });
-zap.addItems({ id: '',select: 'games', title: 'Checkmate', description: 'product is an object or system made available for consumer use...<a href="">read more</a>', price: 200 });
-zap.addItems({ id: '',select: 'fashion', title: 'Jacket', description: 'product is an object or system made available for consumer use...<a href="">read more</a>',  price: 500 });
-zap.addItems({ id: '',select: 'electronics', title: 'iMac', description: 'product is an object or system made available for consumer use...<a href="">read more</a>', price: 2000 });
+zap.addItems({ id: '', select: 'games', title: 'Checkmate', description: 'product is an object or system made available for consumer use...<a href="">read more</a>', price: 200 });
+zap.addItems({ id: '', select: 'fashion', title: 'Jacket', description: 'product is an object or system made available for consumer use...<a href="">read more</a>', price: 500 });
+zap.addItems({ id: '', select: 'electronics', title: 'iMac', description: 'product is an object or system made available for consumer use...<a href="">read more</a>', price: 2000 });
 
 const rootItems = document.getElementById('rootItems');
 zap.renderItems(rootItems);
 
-// function handlePriceChange(ev) {
-//     console.log(ev.target.valueAsNumber)
-// }
+
 
 console.log(zap);
+

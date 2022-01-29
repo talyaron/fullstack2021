@@ -6,26 +6,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZAP</title>
+    <link rel="stylesheet" href="dist/style.css">
 </head>
 
 <body>
-
+<div class="zap">
+    <div class="title">ZAP</div>
     <form onsubmit="handleAddItem(event)">
-        <input type="text" name="item" placeholder="item" id="item" required>
-        <input type="number" name="price" placeholder="price" id="price" required>
-        <input type="submit" value="add" id="button">
+        <input type="text" name="item" placeholder="item" class="item" id="item" required>
+        <input type="number" name="price" placeholder="price" class="item" id="price" required>
+        <input type="submit" value="add" id="button" class="item">
     </form>
-    <br>
 
 
-    <input type="number" placeholder="show prices lower than x" onkeyup="handleChange(event)">
-    <br>
-    <br>
-    <input type="submit" value="asc" onclick="handleSortAsc(event)">
-    <input type="submit" value="dsc" onclick="handleSortDsc(event)">
+    <input type="number" class="item" placeholder="show prices lower than x" onkeyup="handleChange(event)">
+    
+    <input type="submit" class="item" value="ascending order" onclick="handleSortAsc(event)">
+    <input type="submit" class="item" value="descending order" onclick="handleSortDsc(event)">
+   
+    <select onchange="handleSelect(event)">
+        <option value="All" >Show All</option>
+        <option value="Computer">Computers</option>
+        <option value="Headphones">Headphones</option>
+    </select>
 
-
-    <div id="rootItems"></div>
+    <div id="rootItems" class="items"></div>
+</div>
     <script src='dist/index.js'></script>
 
 </body>

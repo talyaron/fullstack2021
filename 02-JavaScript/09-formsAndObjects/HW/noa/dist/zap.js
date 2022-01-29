@@ -20,7 +20,7 @@ var ZapList = {
         var id = uid();
         this.products.push(item);
     },
-    sortItem: function (product) {
+    sortItem: function () {
         var _this = this;
         var button1 = document.getElementById('lowToHigh');
         var button2 = document.getElementById('highToLow');
@@ -90,3 +90,4 @@ function handleSelect(ev) {
     //     ZapList.renderByCategory(showCategory, rootHTML)
     // }
 }
+ZapList.sortItem();
