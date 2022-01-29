@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aviator Watches</title>
+    <script src="https://kit.fontawesome.com/07ce8225e4.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="dist/style.css">
     <script src="dist/index.js" defer></script>
 </head>
@@ -24,22 +25,12 @@
             <div class="header__wrapper__item">CART</div>
         </div>
     </div>
-<<<<<<< Updated upstream
     <div class="nav-bar">
         <div class="nav-bar__item">WATCHES</div>
         <div class="nav-bar__item">BRAND</div>
         <div class="nav-bar__item">POINTS OF SALE</div>
         <div class="nav-bar__item">CUSTOMER SERVICE</div>
         <div class="nav-bar__item">SEARCH</div>
-=======
-    <div class='filter_bar' style="display: flex;gap: 5px;margin-bottom: 10px; justify-content:center;background-color: rgb(248, 248, 248);">
-        <div onclick="handlesortitem(event)" class='sort' style="cursor: pointer;">sort item up</div>|
-        <div onclick="handlesortitemacs(event)" class='filter_bar__item'style="cursor: pointer;">sort item down</div>|
-       
-        <form>
-            <input type="number" id='push' onkeyup="handleprice(event)" placeholder="your lower price here" class='filter_bar__item'>
-        </form>
->>>>>>> Stashed changes
     </div>
     <div class="filter-bar">
         <div class="filter-bar__item">All Watches</div>
@@ -121,24 +112,30 @@
         </div>
         <div class="filter-dropbar__group">
             <p>Bestseller</p>
-            <p>Highest price</p>
-            <p>Lowest price</p>
+            
+            <p onclick="handlesortitemacs(event)">Highest price</p>
+            <p onclick="handlesortitem(event)">Lowest price</p>
+        
         </div>
     </div>
-
-    <div class="main">
+    <div id='main' style="display: grid;grid-template-columns: repeat(3,30%);gap: 40px;" ></div>
+    <div class='wow'>
+        <h2 class='wow__title'>your items redy to delivery:</h2> 
+    <div id='cart'></div>
+    <div>
+    <!-- <div class="main">
         <div class="main__category-wrapper">
             <div class="main__category-wrapper__title">AIRCOBRA P45</div>
             <div class="main__category-wrapper__card">
                 <img src="https://aviatorwatch.swiss/assets/catalog/airacobra-p45-chrono/AVIATOR-WATCH--AIRACOBRA-P45-CHRONO--V.2.25.8.172.4-w_680.jpg">
                 <div class="main__category-wrapper__name">AirCobra P45 Chrono Quartz</div>
-                <div class="main__category-wrapper__price">595</div>
+                <div class="main__category-wrapper__price">575</div>
 
             </div>
             <div class="main__category-wrapper__card">
                 <img src="https://aviatorwatch.swiss/assets/catalog/douglas-day-date/AVIATOR-WATCH--DOUGLAS-DAY-DATE--V.3.20.0.141.4-w_680.jpg">
                 <div class="main__category-wrapper__name">AirCobra P45 Chrono Quartz</div>
-                <div class="main__category-wrapper__price">595</div>
+                <div class="main__category-wrapper__price">565</div>
 
             </div>
             <div class="main__category-wrapper__card">
@@ -148,7 +145,8 @@
 
             </div>
         </div>
-    </div>
+    </div> -->
+    <script src="dist/index.js"></script>
 </body>
 
 </html>

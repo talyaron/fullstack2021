@@ -5,43 +5,148 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <!-- <link rel="stylesheet" href="dist/style.css"> -->
+    <title>Aviator Watches</title>
+    <script src="https://kit.fontawesome.com/07ce8225e4.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="dist/style.css">
+    <script src="dist/index.js" defer></script>
 </head>
 
-<body style="background-color: rgb(240, 234, 234);">
-    <div class='header'>
-        <div class='header__item'>
-
+<body>
+    <div class="header">
+        <div class="header__wrapper">
+            <div class="header__wrapper__item">CONTACT US</div>
+            <div class="header__wrapper__item">+972-545123456</div>
+            <div class="header__wrapper__item">ISRAEL (USD)</div>
+            <div class="header__wrapper__item">EN</div>
+        </div>
+        <div class="header__wrapper">
+            <div class="header__wrapper__item">FAV</div>
+            <div class="header__wrapper__item">ACCOUNT</div>
+            <div class="header__wrapper__item">CART</div>
         </div>
     </div>
-    <div class='nav_bar'>
-        <div class='nav_bar__item'>
+    <div class="nav-bar">
+        <div class="nav-bar__item">WATCHES</div>
+        <div class="nav-bar__item">BRAND</div>
+        <div class="nav-bar__item">POINTS OF SALE</div>
+        <div class="nav-bar__item">CUSTOMER SERVICE</div>
+        <div class="nav-bar__item">SEARCH</div>
+    </div>
+    <div class="filter-bar">
+        <div class="filter-bar__item">All Watches</div>
+        <div class="filter-bar__item">Group</div>
+        <div class="filter-bar__item">Collection</div>
+        <div class="filter-bar__item">Function</div>
+        <div class="filter-bar__item">Movement</div>
+        <div class="filter-bar__item">Case</div>
+        <div class="filter-bar__item">Diameter</div>
+        <div class="filter-bar__item">Dial</div>
+        <div class="filter-bar__item">Bracelet</div>
+        <div class="filter-bar__item">Sort by</div>
+    </div>
 
+    <div class="filter-dropbar">
+        <div class="filter-dropbar__group"></div>
+        <div class="filter-dropbar__group">
+            <p>AUTOMATIC WATCHES</p>
+            <p>CLASSIC WATCHES</p>
+            <p>LADIES WATCHES</p>
+            <p>MANS WATCHES</p>
+            <p>MILITRY WATCHES</p>
+            <p>NEW RELEASES</p>
+            <p>SPORT WATCHES</p>
+        </div>
+        <div class="filter-dropbar__group">
+            <p>AIRCOBRA</p>
+            <p>BRISTOL</p>
+            <p>DOUGLAS</p>
+            <p>MIG</p>
+            <p>MOONFLIGHT</p>
+        </div>
+        <div class="filter-dropbar__group">
+            <p>Chronograph</p>
+            <p>Day / Date</p>
+            <p>Moonphase</p>
+            <p>Oversized Date</p>
+            <p>Small Second</p>
+        </div>
+        <div class="filter-dropbar__group">
+            <p>Automatic</p>
+            <p>Quartz</p>
+        </div>
+        <div class="filter-dropbar__group">
+            <p>Black PVD</p>
+            <p>Brown PVD</p>
+            <p>Gold PVD</p>
+            <p>Grey PVD</p>
+            <p>Rose Gold PVD</p>
+            <p>Stainless Steel</p>
+        </div>
+        <div class="filter-dropbar__group">
+            <p>36 mm</p>
+            <p>41.20 mm</p>
+            <p>42 mm</p>
+            <p>45 mm</p>
+            <p>46 mm</p>
+            <p>47 mm</p>
+        </div>
+        <div class="filter-dropbar__group">
+            <p>Beige</p>
+            <p>Black</p>
+            <p>Blue</p>
+            <p>Brown</p>
+            <p>Green</p>
+            <p>Grey</p>
+            <p>Ivory</p>
+            <p>Pink</p>
+            <p>Red</p>
+            <p>Rose Gold</p>
+            <p>Rose Taupe</p>
+            <p>Silver</p>
+            <p>White</p>
+        </div>
+        <div class="filter-dropbar__group">
+            <p>Leather</p>
+            <p>Rubber</p>
+            <p>Steel</p>
+        </div>
+        <div class="filter-dropbar__group">
+            <p>Bestseller</p>
+            
+            <p onclick="handlesortitemacs(event)">Highest price</p>
+            <p onclick="handlesortitem(event)">Lowest price</p>
+        
         </div>
     </div>
-    <div class='filter_bar' style="display: flex;gap: 5px;margin-bottom: 10px; justify-content:center;">
-        <form onsubmit="handlesortitem(event)" class='filter_bar__item'>
-            <input type="submit" value="sort up">
-        </form>
-        <form onsubmit="handlesortitemacs(event)" class='filter_bar__item'>
-            <input type="submit" value="sort down">
-        </form>
-        <form>
-            <input type="number" id='push' onkeyup="handleprice(event)" placeholder="your lower price here" class='filter_bar__item'>
-        </form>
-    </div>
-    <div id='category_wrapper'
-        style='display:grid;justify-content:center;justify-content: space-evenly;grid-template-columns: repeat(3,15%);'>
-    </div>
+    <div id='main' style="display: grid;grid-template-columns: repeat(3,30%);gap: 40px;" ></div>
+    <div class='wow'>
+        <h2 class='wow__title'>your items redy to delivery:</h2> 
+    <div id='cart'></div>
+    <div>
+    <!-- <div class="main">
+        <div class="main__category-wrapper">
+            <div class="main__category-wrapper__title">AIRCOBRA P45</div>
+            <div class="main__category-wrapper__card">
+                <img src="https://aviatorwatch.swiss/assets/catalog/airacobra-p45-chrono/AVIATOR-WATCH--AIRACOBRA-P45-CHRONO--V.2.25.8.172.4-w_680.jpg">
+                <div class="main__category-wrapper__name">AirCobra P45 Chrono Quartz</div>
+                <div class="main__category-wrapper__price">575</div>
 
+            </div>
+            <div class="main__category-wrapper__card">
+                <img src="https://aviatorwatch.swiss/assets/catalog/douglas-day-date/AVIATOR-WATCH--DOUGLAS-DAY-DATE--V.3.20.0.141.4-w_680.jpg">
+                <div class="main__category-wrapper__name">AirCobra P45 Chrono Quartz</div>
+                <div class="main__category-wrapper__price">565</div>
+
+            </div>
+            <div class="main__category-wrapper__card">
+                <img src="https://aviatorwatch.swiss/assets/catalog/douglas-moonflight/AVIATOR-WATCH--DOUGLAS-MOONFLIGHT--V.1.33.0.257.4-w_680.jpg">
+                <div class="main__category-wrapper__name">AirCobra P45 Chrono Quartz</div>
+                <div class="main__category-wrapper__price">595</div>
+
+            </div>
+        </div>
+    </div> -->
     <script src="dist/index.js"></script>
 </body>
 
 </html>
-<!-- <div calss='category_wrapper__card' style="display: grid; width: 200px;text-align: center;justify-content: space-between;background-color: gray;">
-    <img src="https://aviatorwatch.swiss/assets/catalog/douglas-day-date-41/AVIATOR-WATCH--DOUGLAS-DAY-DATE-41--V.3.35.0.276.4.webp"
-        alt="" class='category_wrapper__card__img' style="width: 200px;">
-    <div class="category_wrapper__card__name">bve</div>
-    <div class="category_wrapper__card__price" style="margin-top: 3px;justify-content: space-evenly;"></div>
-</div> -->
