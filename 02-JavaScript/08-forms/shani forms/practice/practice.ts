@@ -43,4 +43,9 @@
 // sumOfNumbers("Karen")
 // //Karen the total sum is 0
 
+let people=["x","y"]
 
+people.forEach(function(){
+    console.log("something")
+})
+console.log(people)

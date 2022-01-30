@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>myHome</title>
+    <link rel="stylesheet" href="dist/myHome.css">
+</head>
+
+<body>
+    <form onsubmit="handleSubmit(event)">
+        <label for="name">New Book
+            <input type="text" name="bookName" id="bookName" placeholder="Add a book name">
+            <input type="text" name="bookAuthor" id="bookAuthor" placeholder="Add a book author">
+        </label>
+        <label for="name">New Song 
+            <input type="text" name="songName" id="songName" placeholder="Add a song name">
+            <input type="text" name="songPerformer" id="songPerformer" placeholder="Add a song performer">
+        </label>
+        <label for="name">New Movie
+            <input type="text" name="movieName" id="movieName" placeholder='Add a movie name'>
+            <input type="text" name="movieDirector" id="movieDirector" placeholder='Add a movie director'>
+        </label>
+        <input type="submit" name="submit" id="submit" placeholder='Submit'>
+    </form>
+    <div id="rootBook"></div>
+    <div id="rootMusic"></div>
+    <div id="rootMovie"></div>
+    <script src="dist/myHome.js"></script>
+</body>
+
+</html>

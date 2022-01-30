@@ -49,14 +49,20 @@ let myHome: stuff = {
         this[itemName].push({ name: title, imgSrc: img, description: about, year: when });
     },
     removeItem() {
-        // var newArray = myArray.filter(function(f) { return f !== 'two' })
-        //  console.log(newArray)
+        // var myIndex = myHome.books.indexOf({ name: title, imgSrc: img, year: when });
+        // if (myIndex !== -1) {
+        //     myHome.books.splice(myIndex);
+        // }
+        // return myHome
+
+        const removeBooks = myHome.books.pop() //תנסי להשתמש בטכניקה אחרת בשביל למחוק
+        const removeMovies = myHome.movies.pop()
+        const removeExipred = myHome.expired.pop()
 
     }
 }
-myHome.addItem("apple", "nope", 1998, 'expired', "i dont remember")
-
-myHome.removeItem()
+myHome.addItem("apple", "nope", 1998, 'expired', "i dont remember");
+myHome.removeItem();
 
 console.log(myHome)
 
@@ -136,5 +142,9 @@ function renderitemsExipired(classObj, domElement: any) {
 const rootE = document.querySelector('#expiredItems');
 
 renderitemsExipired(myHome, rootE);
+
+
+//input my form
+
 
 

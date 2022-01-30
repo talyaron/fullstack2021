@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="dist/style.css">
+
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="html" style="background-image: url('background2.jpg'); background-repeat: no-repeat;">
+        <form id="form" onsubmit="handleMyHome(event);">
+            <select name="select" id="select">
+                <option style="background-color: blueviolet;">select</option>
+                <option style="background-color: #ff0000b4;" value="books" id="slcBooks">books</option>
+                <option style="background-color: #fffb009d;" value="clothes" id="slcClothes">clothes</option>
+                <option style="background-color: #7fb600;" value="movies" id="slcMovies">movies</option>
+            </select>
+            <h2>My Home</h2>
+            <div>
+                <input type="text" name="add" id="add" placeholder="Add Item">
+            </div>
+
+            <input id="submit" type="submit" name='submit' value="Submit">
+        </form>
+        <div id="card">
+            <div id="books"
+                style="background-image: url(buble1.png);background-repeat:no-repeat; width:200px; height:200px; "><h1>BOOKS</h1>
+            </div>
+            <div id="clothes"
+                style="background-image: url(buble1.png);background-repeat:no-repeat; width:200px; height:200px; "><h1>CLOTHES</h1>
+            </div>
+            <div id="movies"
+                style="background-image: url(buble1.png);background-repeat:no-repeat; width:200px; height:200px; "><h1>MOVIES</h1>
+            </div>
+        </div>
+    </div>
+    <script src="dist/index.js"></script>
+
+</body>
+
+</html>

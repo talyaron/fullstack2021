@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form onsubmit='handlesubmit(event)'> 
+        <label for="description">enter description</label><br>
+        <input type="text" name="description" placeholder="description"><br>
+        <label for="price">price</label><br><input type="number" name="price" placeholder="price"><br>
+       
+        <label for="sort">sort</label><br>
+        <select id="sort">
+        <select id="desc" onclick="handleClick(event)">desc</select>
+        <select id="asc" onclick="handleClick(event)">asc</select>
+        <input type="number" id="filter" name="filter" placeholder="Max Price" onkeyup="handleFilter(event)">
+    </select>
+        <input type="submit" name="submit" value="send">
+        <ul id="rootList"></ul>
+        </form>
+    <script src="dist/index.min.js"></script>
+    
+</body>
+
+</html>

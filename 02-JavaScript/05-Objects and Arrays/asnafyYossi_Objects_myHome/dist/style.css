@@ -1,0 +1,92 @@
+body {
+  width: 1600px;
+  margin: auto;
+  background: #fcba07f1;
+  padding-top: 40px;
+  font-family: fantasy;
+}
+
+#form {
+  padding: 20px;
+  font-size: 30px;
+}
+
+#html {
+  width: 1200px;
+  height: 600px;
+  margin: auto;
+  object-fit: fill;
+  position: relative;
+}
+
+#card {
+  font-size: 22px;
+  position: relative;
+  bottom: 400px;
+  width: 400px;
+  margin-left: 250px;
+}
+
+#books {
+  width: 200px;
+  margin: auto;
+  margin-left: 300PX;
+  margin-top: 150PX;
+  margin-bottom: 10px;
+  padding-left: 10px;
+  color: #ffffff;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+}
+
+#clothes {
+  width: 200px;
+  padding-left: 10px;
+  position: relative;
+  top: -50px;
+  left: 50px;
+  color: #ffffff;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+}
+
+#movies {
+  position: relative;
+  width: 200px;
+  padding-left: 10px;
+  top: -150px;
+  left: 350px;
+  color: #ffffff;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+}
+
+#select {
+  font-size: 20px;
+}
+
+#submit {
+  font-size: 18px;
+  color: black;
+}
+
+#add {
+  font-size: 18px;
+  color: black;
+}
+
+h1 {
+  text-shadow: -4px 0 black, 0 4px black, 4px 0 black, 0 -4px black;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="dist/task.css">
+    <title>Array</title>
+</head>
+<body>
+
+    <div id="main" class="main">
+        <form class="main-form" onsubmit='displayHome(event)'>
+            <select class="main-form-select" name="listArrays" id="selectArray">
+                <option value="empty">choose here</option>
+                <option value="MOVIES">movies</option>
+                <option value="GAMES">games</option>
+                <option value="SHOES">shoes</option>
+            </select>
+        <label for="add">Add Here :</label>
+        <input class="main-form-input" id="input" name="inputAdd" type="text" placeholder="What to add?">
+        <label for="remove">Remove Here : </label>
+        <input class="main-form-input" id="input" name="inputRemove" type="text" placeholder="What to remove?">
+        <button class="main-form-submit" id="btnSub" name="submit" type="submit">Show Display</button>
+        </form> 
+        <div class="main-show">
+            <div class="main-show-box" id="movies"></div>
+            <div class="main-show-box " id="games"></div>
+            <div class="main-show-box" id="shoes"></div>
+        </div> 
+        </div>
+    
+
+
+
+
+    <script src="dist/task.js"></script>
+</body>
+</html>

@@ -21,8 +21,14 @@ var myHome = {
         this[itemName].push({ name: title, imgSrc: img, description: about, year: when });
     },
     removeItem: function () {
-        // var newArray = myArray.filter(function(f) { return f !== 'two' })
-        //  console.log(newArray)
+        // var myIndex = myHome.books.indexOf({ name: title, imgSrc: img, year: when });
+        // if (myIndex !== -1) {
+        //     myHome.books.splice(myIndex);
+        // }
+        // return myHome
+        var removeBooks = myHome.books.pop(); //תנסי להשתמש בטכניקה אחרת בשביל למחוק
+        var removeMovies = myHome.movies.pop();
+        var removeExipred = myHome.expired.pop();
     }
 };
 myHome.addItem("apple", "nope", 1998, 'expired', "i dont remember");
@@ -61,3 +67,4 @@ function renderitemsExipired(classObj, domElement) {
 }
 var rootE = document.querySelector('#expiredItems');
 renderitemsExipired(myHome, rootE);
+//input my form
