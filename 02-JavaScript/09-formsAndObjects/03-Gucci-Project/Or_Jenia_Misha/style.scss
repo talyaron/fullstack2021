@@ -14,14 +14,26 @@
 
     0% {
         background: url(http://en.fusushi.co.il/warehouse/dynamic/55244.jpg);
+        background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center center;
     }
 
     50% {
         background: url(http://www.fusushi.co.il/warehouse/dynamic/50916.jpg);
+        background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center center;
     }
 
     100% {
         background: url(http://www.fusushi.co.il/warehouse/dynamic/50913.jpg);
+        background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center center;
     }
 }
 
@@ -64,14 +76,13 @@ body {
     background-attachment: fixed;
     background-size: cover;
     background-position: center center;
-    transition: 1s;
 
     animation-name: backgroundphotos;
     animation-duration: 20s;
     animation-direction: normal;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
-
+    transition: 1s;
 
     &__title {
         position: absolute;
