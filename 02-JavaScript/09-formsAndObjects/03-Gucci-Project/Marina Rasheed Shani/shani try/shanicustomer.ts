@@ -4,10 +4,11 @@ interface gucci {
     render(list:Array<item>,domElement),
     renderAllData(domElement:any),
     filterByType(type: "jewelry" | "bag"),  
-    renderfilterByType?(type: "jewelry" | "bag",domElement:any), 
-    sortByAscending?: any,
-    sortByDescending?: any,
-    //filterLowerThan?(price: number),
+    renderfilterByType(type: "jewelry" | "bag",domElement:any), 
+    sortByAscending: any,
+    sortByDescending: any,
+    filterLowerThan?(input: number),
+    removeItemById:any
     
     
 
@@ -67,6 +68,14 @@ const gucciStore: gucci = {
     sortByDescending(){
         this.listOfItems.sort((a,b)=>{return b.price-a.price})
     },
+    filterLowerThan(input) {
+        this.listOfItems.filter(item => item.price < Number(input))
+        
+    },
+    removeItemById(id){
+        this.listOfItems=this.listOfItems.filter(item=>item.id !==id)   
+     },
+
     
 
 

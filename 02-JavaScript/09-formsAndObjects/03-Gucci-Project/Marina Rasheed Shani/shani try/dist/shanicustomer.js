@@ -32,6 +32,12 @@ var gucciStore = {
     },
     sortByDescending: function () {
         this.listOfItems.sort(function (a, b) { return b.price - a.price; });
+    },
+    filterLowerThan: function (input) {
+        this.listOfItems.filter(function (item) { return item.price < Number(input); });
+    },
+    removeItemById: function (id) {
+        this.listOfItems = this.listOfItems.filter(function (item) { return item.id !== id; });
     }
 };
 gucciStore.addItem("green gucci purse", 1000, "bag");
