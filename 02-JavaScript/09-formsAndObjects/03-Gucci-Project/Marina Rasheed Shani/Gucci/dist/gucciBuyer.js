@@ -89,3 +89,4 @@ gucciShop.addItem("Gucci Tiger denim shorts with embroidery", "dress", 1800);
 gucciShop.addItem("Shiny leather pant", "pants", 3800);
 var root = document.getElementById("root");
 gucciShop.renderAllData(root);
+gucciShop.renderByType("pants", root);
