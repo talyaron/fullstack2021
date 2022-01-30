@@ -1,3 +1,11 @@
+@mixin backgroundsettings{
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center center;
+}
+
+
 @keyframes arrowdown {
 
     from {
@@ -13,37 +21,26 @@
 @keyframes backgroundphotos {
 
     0% {
-        background: url(http://en.fusushi.co.il/warehouse/dynamic/55244.jpg);
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-size: cover;
-        background-position: center center;
-    }
-
-    30% {
         background: url(http://www.fusushi.co.il/warehouse/dynamic/50916.jpg);
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-size: cover;
-        background-position: center center;
+        @include backgroundsettings;
     }
 
-    60% {
-        background: url(http://www.fusushi.co.il/warehouse/dynamic/50913.jpg);
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-size: cover;
-        background-position: center center;
+    20% {
+        background: url(http://www.fusushi.co.il/warehouse/dynamic/50916.jpg);
+        @include backgroundsettings;
     }
 
-    100% {
+    40% {
         background: url(http://en.fusushi.co.il/warehouse/dynamic/55244.jpg);
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-size: cover;
-        background-position: center center;
+        @include backgroundsettings;
+    }
+    
+    100% {
+        background: url(http://www.fusushi.co.il/warehouse/dynamic/50913.jpg);
+        @include backgroundsettings;
     }
 
+    
 }
 
 
@@ -76,8 +73,8 @@ body {
     position: relative;
     min-height: 100vh;
 
-    background:
-        url(http://en.fusushi.co.il/warehouse/dynamic/55244.jpg);
+    background: black;
+        // url(http://en.fusushi.co.il/warehouse/dynamic/55244.jpg);
     // url(http://www.fusushi.co.il/warehouse/dynamic/50916.jpg),
     // url(http://en.fusushi.co.il/warehouse/dynamic/55244.jpg);
 
