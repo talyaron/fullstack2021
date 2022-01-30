@@ -12,11 +12,17 @@
 
 @keyframes backgroundphotos {
 
-    0% {}
+    0% {
+        background: url(http://www.fusushi.co.il/warehouse/dynamic/50913.jpg);
+    }
 
-    33% {}
+    33% {
+        background: url(http://www.fusushi.co.il/warehouse/dynamic/50916.jpg);
+    }
 
-    66% {}
+    66% {
+        background: url(http://en.fusushi.co.il/warehouse/dynamic/55244.jpg);
+    }
 }
 
 
@@ -29,7 +35,7 @@
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Barlow Condensed', sans-serif;
 }
 
 
@@ -51,11 +57,21 @@ body {
     background:
         url(http://www.fusushi.co.il/warehouse/dynamic/50913.jpg),
         url(http://www.fusushi.co.il/warehouse/dynamic/50916.jpg),
-        url(http://en.fusushi.co.il/warehouse/dynamic/55244.jpg;);
+        url(http://en.fusushi.co.il/warehouse/dynamic/55244.jpg);
+   
+
+    animation-name: backgroundphotos;
+    animation-duration: 15s;
+    animation-direction: normal;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
     background-position: center center;
+
+
 
     &__title {
         position: absolute;
@@ -67,73 +83,6 @@ body {
 
 }
 
-.lobby {
-    min-height: 120vh;
-    background-color: rgb(12, 11, 11);
-    color: white;
-    text-align: center;
-
-    &description {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-        p {
-            margin-top: 3rem;
-            width: 50ch;
-            font-size: 1.1rem;
-            font-weight: 500;
-        }
-
-        h2 {
-            margin-top: 2rem;
-            font-size: 3rem;
-            font-weight: 600;
-
-            &::after {
-                content: '';
-                height: 2px;
-                width: 80px;
-                background: #ed3524;
-                display: block;
-                margin: 2px auto 0;
-            }
-        }
-    }
-
-    &images {
-        font-size: 1.5rem;
-        margin-top: 50px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 75px;
-
-        &__box__image {
-            width: fit-content;
-            overflow: hidden;
-
-        }
-        p{
-            margin-top: 5px;
-            &:hover{
-                cursor: pointer;
-            }
-        }
-
-
-        img {
-            width: 100%;
-            display: block;
-            transition: ease-in-out .5s;
-
-            &:hover {
-                cursor: pointer;
-                transform: scale(1.1);
-            }
-        }
-    }
-}
 
 .navbar {
     position: fixed;
@@ -165,6 +114,12 @@ body {
                 box-shadow: 0 0 0 1px rgb(0, 0, 0);
             }
 
+        }
+
+        .fulogo {
+            &:hover {
+                box-shadow: 0 0 0 0px rgb(0, 0, 0);
+            }
         }
 
         img {
@@ -258,6 +213,87 @@ body {
         img {
             height: 96px;
             width: 96px;
+        }
+    }
+}
+
+// -------- LOBBY ---------- //
+
+
+.lobby {
+
+    min-height: 100vh;
+    background-color: rgb(12, 11, 11);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    &__description {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h2 {
+            margin-top: 5rem;
+            font-size: 3rem;
+            font-weight: 600;
+
+            &::after {
+                content: '';
+                height: 2px;
+                width: 80px;
+                background: #ed3524;
+                display: block;
+                margin: 2px auto 0;
+            }
+
+        }
+
+        p {
+            margin-top: 3rem;
+            width: 50ch;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+
+    }
+
+    &__images {
+        font-size: 1.5rem;
+        margin-top: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 75px;
+
+        &__box__image {
+            width: fit-content;
+            overflow: hidden;
+
+        }
+
+        p {
+            margin-top: 5px;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+
+        img {
+            width: 100%;
+            display: block;
+            transition: ease-in-out .5s;
+
+            &:hover {
+                cursor: pointer;
+                transform: scale(1.1);
+            }
         }
     }
 }

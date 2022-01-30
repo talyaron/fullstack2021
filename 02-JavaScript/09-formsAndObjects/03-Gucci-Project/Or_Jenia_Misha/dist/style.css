@@ -6,7 +6,17 @@
     top: 10px;
   }
 }
-@keyframes backgroundphotos {}
+@keyframes backgroundphotos {
+  0% {
+    background: url(http://www.fusushi.co.il/warehouse/dynamic/50913.jpg);
+  }
+  33% {
+    background: url(http://www.fusushi.co.il/warehouse/dynamic/50916.jpg);
+  }
+  66% {
+    background: url(http://en.fusushi.co.il/warehouse/dynamic/55244.jpg);
+  }
+}
 * {
   padding: 0;
   margin: 0;
@@ -15,7 +25,7 @@
 }
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: "Barlow Condensed", sans-serif;
 }
 
 .homeopacity {
@@ -30,7 +40,12 @@ body {
 .home {
   position: relative;
   min-height: 100vh;
-  background: url(http://www.fusushi.co.il/warehouse/dynamic/50913.jpg), url(http://www.fusushi.co.il/warehouse/dynamic/50916.jpg), url(http://en.fusushi.co.il/warehouse/dynamic/55244.jpg;);
+  background: url(http://www.fusushi.co.il/warehouse/dynamic/50913.jpg), url(http://www.fusushi.co.il/warehouse/dynamic/50916.jpg), url(http://en.fusushi.co.il/warehouse/dynamic/55244.jpg);
+  animation-name: backgroundphotos;
+  animation-duration: 15s;
+  animation-direction: normal;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -41,64 +56,6 @@ body {
   top: 40%;
   color: #EBEBEB;
   font-size: 65px;
-}
-
-.lobby {
-  min-height: 120vh;
-  background-color: #0c0b0b;
-  color: white;
-  text-align: center;
-}
-.lobbydescription {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.lobbydescription p {
-  margin-top: 3rem;
-  width: 50ch;
-  font-size: 1.1rem;
-  font-weight: 500;
-}
-.lobbydescription h2 {
-  margin-top: 2rem;
-  font-size: 3rem;
-  font-weight: 600;
-}
-.lobbydescription h2::after {
-  content: "";
-  height: 2px;
-  width: 80px;
-  background: #ed3524;
-  display: block;
-  margin: 2px auto 0;
-}
-.lobbyimages {
-  font-size: 1.5rem;
-  margin-top: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 75px;
-}
-.lobbyimages__box__image {
-  width: fit-content;
-  overflow: hidden;
-}
-.lobbyimages p {
-  margin-top: 5px;
-}
-.lobbyimages p:hover {
-  cursor: pointer;
-}
-.lobbyimages img {
-  width: 100%;
-  display: block;
-  transition: ease-in-out 0.5s;
-}
-.lobbyimages img:hover {
-  cursor: pointer;
-  transform: scale(1.1);
 }
 
 .navbar {
@@ -127,6 +84,9 @@ body {
 .navbar ul li:hover {
   cursor: pointer;
   box-shadow: 0 0 0 1px black;
+}
+.navbar ul .fulogo:hover {
+  box-shadow: 0 0 0 0px black;
 }
 .navbar ul img {
   height: 130px;
@@ -199,4 +159,66 @@ body {
 .footer .footer__gift img {
   height: 96px;
   width: 96px;
+}
+
+.lobby {
+  min-height: 100vh;
+  background-color: #0c0b0b;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.lobby__description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.lobby__description h2 {
+  margin-top: 5rem;
+  font-size: 3rem;
+  font-weight: 600;
+}
+.lobby__description h2::after {
+  content: "";
+  height: 2px;
+  width: 80px;
+  background: #ed3524;
+  display: block;
+  margin: 2px auto 0;
+}
+.lobby__description p {
+  margin-top: 3rem;
+  width: 50ch;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+.lobby__images {
+  font-size: 1.5rem;
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 75px;
+}
+.lobby__images__box__image {
+  width: fit-content;
+  overflow: hidden;
+}
+.lobby__images p {
+  margin-top: 5px;
+}
+.lobby__images p:hover {
+  cursor: pointer;
+}
+.lobby__images img {
+  width: 100%;
+  display: block;
+  transition: ease-in-out 0.5s;
+}
+.lobby__images img:hover {
+  cursor: pointer;
+  transform: scale(1.1);
 }
