@@ -2,7 +2,6 @@
   padding: 0;
   margin: 0;
   border: 0;
-  font-family: bebas;
 }
 
 body {
@@ -29,14 +28,14 @@ body {
 }
 .home__title {
   position: absolute;
-  top: 50%;
+  top: 40%;
   color: #EBEBEB;
   font-size: 65px;
 }
 
 .lobby {
   min-height: 100vh;
-  background-color: #121213;
+  background-color: #0c0b0b;
 }
 
 .navbar {
@@ -49,6 +48,7 @@ body {
   height: 60px;
   background-color: #EBEBEB;
   z-index: 2;
+  font-size: 18px;
 }
 .navbar ul {
   list-style-type: none;
@@ -58,31 +58,73 @@ body {
   align-items: center;
   padding: 1em;
 }
+.navbar ul li {
+  padding: 5px;
+}
+.navbar ul li:hover {
+  cursor: pointer;
+  box-shadow: 0 0 0 1px black;
+}
 .navbar ul img {
   height: 130px;
 }
+.navbar ul .smedia {
+  font-size: 24px;
+}
+.navbar ul .smedia i {
+  margin-inline: 0.2em;
+}
 
-.footer__whatsapp {
+.footer {
+  position: absolute;
+  top: 80%;
+  display: flex;
+  width: 95%;
+  justify-content: space-between;
+  color: white;
+}
+.footer .footer__whatsapp {
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: absolute;
-  top: 80%;
-  right: 90%;
-  height: 100px;
+  height: 150px;
   width: 100px;
-  color: white;
+  text-align: center;
+  font-size: 18px;
+  line-height: 1;
 }
-.footer__whatsapp img {
-  margin-top: 0.3em;
-  height: auto;
-  width: 100px;
+.footer .footer__whatsapp img {
+  margin-top: 0.2em;
+  height: 90px;
+  width: 90px;
 }
-
-.footer__gift img {
-  position: absolute;
-  top: 83%;
-  left: 90%;
-  height: 100px;
-  width: 100px;
+.footer .footer__whatsapp img:hover {
+  cursor: pointer;
+}
+.footer .footer__arrowpics {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+.footer .footer__arrowpics__arrow {
+  font-size: 5rem;
+  font-weight: 200;
+}
+.footer .footer__arrowpics__pics i {
+  margin-inline: 0.2em;
+}
+.footer .footer__arrowpics:hover {
+  cursor: pointer;
+}
+.footer .footer__gift {
+  display: flex;
+  align-items: center;
+}
+.footer .footer__gift:hover {
+  cursor: pointer;
+}
+.footer .footer__gift img {
+  height: 96px;
+  width: 96px;
 }
