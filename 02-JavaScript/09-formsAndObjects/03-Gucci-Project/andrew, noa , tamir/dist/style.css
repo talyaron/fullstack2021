@@ -76,6 +76,10 @@ body {
   margin-block: 10px;
   padding-block: 20px;
   background-color: var(--main-color-light-gray2);
+  z-index: -1;
+  transition: ease 500ms;
+  transform: translateY(-30px);
+  opacity: 0;
 }
 .filter-dropbar__group {
   width: 100px;
@@ -87,6 +91,11 @@ body {
 .filter-dropbar__group p:hover {
   cursor: pointer;
   color: var(--main-color-purple1);
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0px);
 }
 
 #main {
