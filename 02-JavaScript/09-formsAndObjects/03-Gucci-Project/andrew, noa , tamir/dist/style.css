@@ -8,6 +8,7 @@
   --main-color-light-gray1: #989C94;
   --main-color-light-gray2: #666A62;
   --main-color-light-gray3: #333531;
+  --card-color: #EBEBEB;
 }
 
 body {
@@ -90,23 +91,43 @@ body {
 
 #main {
   display: flex;
-  text-align: center;
-  background-color: #e7e7e7;
-}
-#main img {
-  width: 200px;
-  border-radius: 20px;
+  flex-direction: column;
+  align-items: center;
 }
 
+.category-wrapper {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding-top: 4rem;
+}
 .category-wrapper__title {
-  color: black;
+  position: absolute;
+  color: var(--card-color);
+  left: calc(50% - 250px);
+  text-align: center;
+  width: 500px;
+  margin: 15px;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  font-size: 1.4em;
+  font-size: 3rem;
 }
-.category-wrapper__name {
+.category-wrapper__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--card-color);
+  width: 250px;
+  border-radius: 20px;
+  margin: 20px;
+  padding-block: 10px;
+}
+.category-wrapper__card img {
+  width: 200px;
+}
+.category-wrapper__card__name {
   color: black;
 }
-.category-wrapper__price {
+.category-wrapper__card__price {
   color: black;
 }
 

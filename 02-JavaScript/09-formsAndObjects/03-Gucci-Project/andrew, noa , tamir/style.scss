@@ -8,6 +8,7 @@
     --main-color-light-gray1: #989C94;
     --main-color-light-gray2: #666A62;
     --main-color-light-gray3: #333531;
+    --card-color: #EBEBEB;
 }
 
 body {
@@ -105,72 +106,91 @@ body {
 
 #main {
     display: flex;
-    text-align: center;
-    background-color:
-        rgb(231, 231, 231);
-
-    img {
-        width: 200px;
-        border-radius: 20px;
-    }
-
-
-
-
+    flex-direction: column;
+    align-items: center;
 }
 
 .category-wrapper {
-   
-    &__title{
-        color: black;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding-top: 4rem;
+    &__title {
+        position: absolute;
+        color: var(--card-color);
+        left: calc(50% - 250px);
+        text-align: center;
+        width: 500px;
+        margin: 15px;
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        font-size: 1.4em;
-    }
-    &__name {
-        color: black;
-    }
-    &__price{
-        color: black;
+        font-size: 3rem;
     }
 
+    &__card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: var(--card-color);
+        width: 250px;
+        border-radius: 20px;
+        margin: 20px;
+        padding-block: 10px;
+        img{
+            width: 200px;
+        }
+        &__name {
+            color: black;
+        }
+
+        &__price {
+            color: black;
+        }
+    }
 }
-#cart{
-    
-    .cart{
+
+#cart {
+
+    .cart {
         background-color: rgb(210, 210, 211);
         border-radius: 10px;
     }
+
     gap: 5px;
     width: 280px;
     display: grid;
-    grid-template-columns: repeat(3,50%);
+    grid-template-columns: repeat(3, 50%);
     margin-top: 10px;
     text-align: center;
-    .h2{
+
+    .h2 {
         color: brown;
     }
-    img{
+
+    img {
         width: 100px;
     }
-.add1{
-    display: none;
+
+    .add1 {
+        display: none;
+    }
 }
-}
-.wow{
+
+.wow {
     margin-top: 10px;
     width: 450px;
-    border:2px solid black;
+    border: 2px solid black;
     border-radius: 20px;
     box-shadow: black 20px 20px 20px;
-    
 
-    &__title{
+
+    &__title {
         text-align: center;
         color: rgb(238, 238, 238);
-        
+
     }
-    img{
+
+    img {
         border-radius: 40px;
     }
-    
+
 }
