@@ -7,9 +7,24 @@
     <title>Document</title>
 </head>
 <body>
+    <select onchange='handleSelect(event)'>
+        <option value="" disabled selected>Choose a type</option>
+        <option value="all">ALL</option>
+        <option value="jewelry">JEWELRY</option>       
+        <option value="bag">BAG</option>
+    </select>
+
+    <div class="sortPrice">
+        <button type="button" id="ascending" onclick="handlePriceAsc()">Sort by highest to lowest</button>
+        <button type="button" id="descending" onclick="handlePriceDesc()">Sort by lowest to highest</button>
+    </div>
+
+    <div class="lowerThanPrice">
+        <label>Show price lower than</label>
+        <input type='number' onkeyup="handleInput(event)" placeholder="number">
+    </div>
+
+    <div id="root"></div>
     <script src="dist/shanicustomer.js"></script>
-   
-
-
 </body>
 </html>
