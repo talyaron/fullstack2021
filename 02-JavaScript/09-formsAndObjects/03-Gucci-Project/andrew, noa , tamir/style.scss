@@ -23,7 +23,7 @@ body {
 // }
 .header {
     position: fixed;
-    z-index: 1;
+    z-index: 20;
     top: 0px;
     left: 0px;
     height: 45px;
@@ -33,6 +33,7 @@ body {
     // border: 1px solid red;
     width: 99vw;
     background-color: var(--main-color-light-gray2);
+    
 
     &__wrapper {
         display: flex;
@@ -44,6 +45,48 @@ body {
             width: fit-content;
             margin-inline: 20px;
             font-size: 1rem;
+            &:hover {
+                cursor: pointer;
+                color: var(--main-color-purple1)
+            }
+        }
+    }
+}
+.currency-selector{
+    // border: 1px solid red;
+    z-index: 10;
+    position: sticky;
+    top: 45px;
+    left: 240px;
+    padding: 5px;
+    width: 300px;
+    height: 200px;
+    margin-bottom: -200px;
+    background-color: var(--main-color-light-gray3);
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px 5px black;
+
+    transition: ease 500ms;
+    opacity: 0;
+    transform: translateY(-30px);
+    position: sticky;
+    p{
+        text-align: center;
+    }
+    .currency{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &:hover{
+            cursor: pointer;
+        }
+        img{
+            width: 50px;
+            height: 30px;
+            margin-left: 15px;
+        }
+        *{
+            pointer-events: none;
         }
     }
 }
@@ -82,6 +125,8 @@ body {
 }
 
 .filter-dropbar {
+    position: absolute;
+    width: 100vw;
     display: flex;
     justify-content: center;
     margin-block: 10px;
@@ -109,10 +154,7 @@ body {
     }
 }
 
-.visible{
-    opacity: 1;
-    transform: translateY(0px);
-}
+
 
 #main {
     display: flex;
@@ -125,6 +167,7 @@ body {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     padding-top: 4rem;
+
     &__title {
         position: absolute;
         color: var(--card-color);
@@ -145,17 +188,27 @@ body {
         border-radius: 20px;
         margin: 20px;
         padding-block: 10px;
-        img{
+
+        img {
             width: 200px;
         }
+
         &__name {
             color: black;
         }
 
         &__price {
             color: black;
+            &::after{
+                content: ' $';
+            }
         }
     }
+}
+
+.visible {
+    opacity: 1;
+    transform: translateY(0px);
 }
 
 #cart {
