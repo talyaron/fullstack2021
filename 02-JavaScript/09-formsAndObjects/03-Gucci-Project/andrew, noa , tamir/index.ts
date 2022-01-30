@@ -1,16 +1,17 @@
 interface aviator {
+
     items: Array<newItem>
     filteritems: Array<newItem>
     additem(newItem)
     renderitem(domElement: any)
-    renderitemcart(domElement:any)
+    renderitemcart(domElement: any)
     sortitemup();
     sortitemdown()
 }
 interface newItem {
-    img?: string
-    name?: string
-    price?: number
+    img: string
+    name: string
+    price: number
 
 }
 
@@ -25,6 +26,7 @@ let aviator: aviator = {
         { name: 'nir', price: 60, img: 'https://aviatorwatch.swiss/assets/catalog/douglas-day-date-41/AVIATOR-WATCH--DOUGLAS-DAY-DATE-41--V.3.35.0.274.4.webp' }],
 
     filteritems: [],
+
     renderitem(domElement) {
         let html = '';
         this.items.forEach((item) => {
@@ -45,16 +47,19 @@ let aviator: aviator = {
         domElement.innerHTML = html
     },
     // <i class="fab fa-opencart"></i>
-    renderitemcart(domElement){
-        let html2='';
+    renderitemcart(domElement) {
+        let html2 = '';
 
         this.filteritems.forEach(item => {
-           html2 += `<div class='cart'>
+            html2 += `<div class='cart'>
+           
            ${item.img}
+           <button onclick='handleDalete(event)'><i class="far fa-trash-alt"></i></button>
             </div>`
         });
-        domElement.innerHTML= html2
+        domElement.innerHTML = html2
     },
+
     additem(newItem) {
         this.filteritems.push(newItem)
     },
@@ -63,18 +68,15 @@ let aviator: aviator = {
     },
     sortitemdown() {
         this.items.sort((a, b) => { return b.price - a.price })
-    }
+    },
 }
 function handleaddcart(ev) {
-    const img=(ev.path[1].innerHTML)
-    console.dir(ev)
+    const img = (ev.path[1].innerHTML)
     const name = (ev.target.parentElement.firstElementChild.textContent)
-    const price=  (ev.target.previousElementSibling.textContent)
-   aviator.additem({img,name,price})
-   const cart = document.getElementById('cart')
-   aviator.renderitemcart(cart)
-
-
+    const price = (ev.target.previousElementSibling.textContent)
+    aviator.additem({ img, name, price })
+    const cart = document.getElementById('cart')
+    aviator.renderitemcart(cart)
 }
 function handlesortitem(ev) {
     ev.preventDefault();
@@ -86,7 +88,11 @@ function handlesortitemacs(ev) {
     aviator.sortitemdown()
     aviator.renderitem(rootitems)
 }
+function handleDalete(ev) {
+   
+}
 
+// document.body.removeChild(document.getElementById('cart'))
 const rootitems = document.getElementById('main')
 aviator.renderitem(rootitems)
 
