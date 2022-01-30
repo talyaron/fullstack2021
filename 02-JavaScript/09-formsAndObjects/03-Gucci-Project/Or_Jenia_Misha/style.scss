@@ -10,19 +10,13 @@
 
 }
 
-@keyframes backgroundphotos{
+@keyframes backgroundphotos {
 
-    0%{
+    0% {}
 
-    }
+    33% {}
 
-    33%{
-
-    }
-
-    66%{
-        
-    }
+    66% {}
 }
 
 
@@ -30,6 +24,7 @@
     padding: 0;
     margin: 0;
     border: 0;
+    box-sizing: border-box;
 
 }
 
@@ -73,8 +68,71 @@ body {
 }
 
 .lobby {
-    min-height: 100vh;
+    min-height: 120vh;
     background-color: rgb(12, 11, 11);
+    color: white;
+    text-align: center;
+
+    &description {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        p {
+            margin-top: 3rem;
+            width: 50ch;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        h2 {
+            margin-top: 2rem;
+            font-size: 3rem;
+            font-weight: 600;
+
+            &::after {
+                content: '';
+                height: 2px;
+                width: 80px;
+                background: #ed3524;
+                display: block;
+                margin: 2px auto 0;
+            }
+        }
+    }
+
+    &images {
+        font-size: 1.5rem;
+        margin-top: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 75px;
+
+        &__box__image {
+            width: fit-content;
+            overflow: hidden;
+
+        }
+        p{
+            margin-top: 5px;
+            &:hover{
+                cursor: pointer;
+            }
+        }
+
+
+        img {
+            width: 100%;
+            display: block;
+            transition: ease-in-out .5s;
+
+            &:hover {
+                cursor: pointer;
+                transform: scale(1.1);
+            }
+        }
+    }
 }
 
 .navbar {
@@ -127,7 +185,7 @@ body {
 
 .footer {
     position: absolute;
-    top: 80%;
+    top: 75%;
     display: flex;
     width: 95%;
     justify-content: space-between;

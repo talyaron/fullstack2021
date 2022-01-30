@@ -11,6 +11,7 @@
   padding: 0;
   margin: 0;
   border: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -43,8 +44,61 @@ body {
 }
 
 .lobby {
-  min-height: 100vh;
+  min-height: 120vh;
   background-color: #0c0b0b;
+  color: white;
+  text-align: center;
+}
+.lobbydescription {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.lobbydescription p {
+  margin-top: 3rem;
+  width: 50ch;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+.lobbydescription h2 {
+  margin-top: 2rem;
+  font-size: 3rem;
+  font-weight: 600;
+}
+.lobbydescription h2::after {
+  content: "";
+  height: 2px;
+  width: 80px;
+  background: #ed3524;
+  display: block;
+  margin: 2px auto 0;
+}
+.lobbyimages {
+  font-size: 1.5rem;
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 75px;
+}
+.lobbyimages__box__image {
+  width: fit-content;
+  overflow: hidden;
+}
+.lobbyimages p {
+  margin-top: 5px;
+}
+.lobbyimages p:hover {
+  cursor: pointer;
+}
+.lobbyimages img {
+  width: 100%;
+  display: block;
+  transition: ease-in-out 0.5s;
+}
+.lobbyimages img:hover {
+  cursor: pointer;
+  transform: scale(1.1);
 }
 
 .navbar {
@@ -86,7 +140,7 @@ body {
 
 .footer {
   position: absolute;
-  top: 80%;
+  top: 75%;
   display: flex;
   width: 95%;
   justify-content: space-between;
