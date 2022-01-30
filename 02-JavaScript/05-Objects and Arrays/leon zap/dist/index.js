@@ -1,8 +1,10 @@
 var zapitem = {
+    id: 0,
     items: [],
     tempItem: [],
-    addItem: function (addItem) {
-        this.items.push(addItem);
+    addItem: function (description, price, type) {
+        this.items.push({ id: this.id, description: description, price: price, type: type });
+        this.id++;
     },
     sortAssending: function () {
         this.items.sort(function (a, b) { return a.price - b.price; });
@@ -10,24 +12,34 @@ var zapitem = {
     sortdescending: function () {
         this.items.sort(function (a, b) { return b.price - a.price; });
     },
-    renderItem: function (itemOnDom) {
+    render: function (list, itemOnDom) {
         var itemHtml = '';
-        this.items.forEach(function (item) {
-            itemHtml += "<div class=\"card\"><p>" + item.company + ":" + item.price + "</p></div>";
+        list.forEach(function (item) {
+            itemHtml += "<div class=\"card\"><p>" + item.description + "|" + item.price + "</p>\n            <button onclick=\"handleDelete(" + item.id + ")\">Delete</button> </p>";
         });
+        itemHtml += "</div>";
         itemOnDom.innerHTML = itemHtml;
     },
+    renderItem: function (itemOnDom) {
+        this.render(this.items, itemOnDom);
+    },
     rendertempItem: function (itemOnDom) {
-        var itemHtml = '';
-        this.tempItem.forEach(function (item) {
-            itemHtml += "<div class=\"card\"><p>" + item.company + ":" + item.price + "</p></div>";
-        });
-        itemOnDom.innerHTML = itemHtml;
+        this.render(this.tempItem, itemOnDom);
+    },
+    deleteItem: function (id) {
+        this.items = this.items.filter(function (item) { return item.id !== id; });
+    },
+    filterByType: function (type) {
+        return this.items.filter(function (item) { return item.type === type; });
+    },
+    renderByType: function (type, itemOnDom) {
+        var filterdItems = this.filterByType(type);
+        this.render(filterdItems, itemOnDom);
     }
 };
-zapitem.addItem({ company: 'lenovo 16`', price: 180 });
-zapitem.addItem({ company: 'X-box series x', price: 1180 });
-zapitem.addItem({ company: 'Iphone 13"', price: 2280 });
+zapitem.addItem('lenovo 16`', 180, 'computer');
+zapitem.addItem('X-box series x', 1180, 'gameconsole');
+zapitem.addItem('Iphone 13"', 2280, 'phone');
 var root = document.querySelector(".rootItem");
 zapitem.renderItem(root);
 function handleAsc(event) {
@@ -45,7 +57,9 @@ function handlesubmit(event) {
     // console.log(event);
     var company = event.target.elements.description.value;
     var price = event.target.elements.price.valueAsNumber;
-    zapitem.addItem({ company: company, price: price });
+    var type = event.target.elements.type.value;
+    zapitem.addItem(company, price, type);
+    var root = document.querySelector(".rootItem");
     zapitem.renderItem(root);
     // event.traget.reset();
 }
@@ -61,4 +75,18 @@ function handleFilter(event) {
         zapitem.renderItem(root_2);
     }
 }
-// const root = document.querySelector(".rootItem");
+function handleDelete(id) {
+    var root = document.querySelector(".rootItem");
+    zapitem.deleteItem(id);
+    zapitem.renderItem(root);
+}
+function handleSelect(ev) {
+    var root = document.querySelector(".rootItem");
+    var type = ev.target.value;
+    if (type === 'all') {
+        zapitem.renderItem(root);
+    }
+    else {
+        zapitem.renderByType(type, root);
+    }
+}

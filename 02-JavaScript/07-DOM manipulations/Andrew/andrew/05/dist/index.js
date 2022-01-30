@@ -7,6 +7,14 @@ var Inventory = {
     deleteItem: function (id) {
         this.items = this.items.filter(function (item) { return item.id !== id; });
     },
+    editItem: function (id) {
+        var updatedItem = this.items.filter(function (item) { return item.id == id; })[0];
+        updatedItem.name = prompt("Update the name", "" + updatedItem.name);
+        updatedItem.price = prompt("Update the Price", "" + updatedItem.price);
+        do {
+            updatedItem.category = prompt("Update Category, either computers, books, or movies", "" + updatedItem.category);
+        } while (updatedItem.category !== "computers" && updatedItem.category !== "books" && updatedItem.category !== "movies");
+    },
     sortPriceDown: function () { this.items.sort(function (a, b) { return a.price - b.price; }); },
     sortPriceUp: function () { this.items.sort(function (a, b) { return b.price - a.price; }); },
     sortNameUp: function () {
@@ -46,7 +54,7 @@ var uid = function () {
 function renderList(list) {
     var html = '';
     for (var item in list.items) {
-        html += "<div class=\"item\">\n                    <h3>" + list.items[item].name + "</h3>\n                    <h2>" + list.items[item].price + " Shmekels</h2>\n                    <p>" + list.items[item].category + "</p>\n                    <button id=\"" + list.items[item].id + "\" onclick='handleDelete(event)'>Delete</button>\n                </div>";
+        html += "<div class=\"item\">\n                    <h3>" + list.items[item].name + "</h3>\n                    <h2>" + list.items[item].price + " Shmekels</h2>\n                    <p>" + list.items[item].category + "</p>\n                    <button id=\"" + list.items[item].id + "\" onclick='handleDelete(event)'>Delete</button>\n                    <button id=\"" + list.items[item].id + "\" onclick='handleEdit(event)'>Edit</button>\n                </div>";
     }
     document.querySelector('#output').innerHTML = html;
     var highestPrice = Math.max.apply(Math, Inventory.items.map(function (item) { return item.price; }));
@@ -55,6 +63,10 @@ function renderList(list) {
 ;
 function handleDelete(ev) {
     Inventory.deleteItem(ev.target.id);
+    renderList(Inventory);
+}
+function handleEdit(ev) {
+    Inventory.editItem(ev.target.id);
     renderList(Inventory);
 }
 function handleSelect(ev) {

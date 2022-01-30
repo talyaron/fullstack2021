@@ -1,0 +1,110 @@
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    font-family: bebas;
+}
+
+body {
+    // font-family: 'Bebas Neue', cursive;
+    font-family: 'Poppins', sans-serif;
+    // font-family: 'The Nautigal', cursive;
+    // font-family: 'VT323', monospace;
+    // font-family: 'Zen Kurenaido', sans-serif;
+}
+
+
+.homeopacity {
+    background-color: rgba(0, 0, 0, 0.308);
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.home {
+
+    position: relative;
+    min-height: 100vh;
+
+    background:
+        url(http://www.fusushi.co.il/warehouse/dynamic/50913.jpg),
+        url(http://www.fusushi.co.il/warehouse/dynamic/50916.jpg),
+        url(http://en.fusushi.co.il/warehouse/dynamic/55244.jpg;);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center center;
+
+    &__title{
+        position: absolute;
+        top: 50%;
+        color: #EBEBEB;
+        font-size: 65px;
+    }
+
+
+}
+
+.lobby {
+    min-height: 100vh;
+    background-color: rgb(18, 18, 19);
+}
+
+.navbar {
+    position: fixed;
+    top: 3em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1200px;
+    height: 60px;
+    background-color: #EBEBEB;
+    z-index: 2;
+
+    ul {
+        list-style-type: none;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        align-items: center;
+        padding: 1em;
+
+        img {
+            height: 130px;
+        }
+    }
+
+}
+
+.footer__whatsapp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 80%;
+    right: 90%;
+    height: 100px;
+    width: 100px;
+    color: white;
+
+    img {
+        margin-top: 0.3em;
+        height: auto;
+        width: 100px;
+    }
+
+}
+
+.footer__gift{
+    img{
+        position: absolute;
+        top: 83%;
+        left: 90%;
+        height: 100px;
+        width: 100px;
+    }
+}
+

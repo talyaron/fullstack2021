@@ -1,46 +1,65 @@
 interface itemObject {
-    items: Array<descriptionAndPrice>,
-    tempitem:Array<descriptionAndPrice>,
-    addItem(newItem: descriptionAndPrice)
-    renderItem(domElement: any)
+    id:number,
+    items: Array<item>,
+    tempitem?:Array<item>,
+    addItem(description: string, price: number, type: "computer" | "gameconsole" | "phone")
+    renderItem(itemOnDom: any)
 }
 
-interface descriptionAndPrice {
-    company: string,
+interface item {
+    id:number,
+    desceription: string,
     price: number,
+    type: "computer" | "gameconsole" | "phone",
 }
 
 let zapitem: any = {
+    id: 0,
     items: [],
     tempItem: [],
-    addItem(addItem: descriptionAndPrice) {
-        this.items.push(addItem);
+    addItem(description,price,type) {
+        this.items.push({ id: this.id, description, price, type });
+        this.id++;
     },
+
     sortAssending(){
         this.items.sort((a,b)=> a.price - b.price);
     },
     sortdescending(){
         this.items.sort((a,b)=>b.price-a.price);
     },
-    renderItem(itemOnDom) {
+    render(list,itemOnDom) {
         let itemHtml: string = '';
-        this.items.forEach(item => {
-            itemHtml += `<div class="card"><p>${item.company}:${item.price}</p></div>`
-        })
+        list.forEach(item => {
+            itemHtml += `<div class="card"><p>${item.description}|${item.price}</p>
+            <button onclick="handleDelete(${item.id})">Delete</button> </p>`
+        });
+        itemHtml += `</div>`;
         itemOnDom.innerHTML = itemHtml;
     },
-    rendertempItem(itemOnDom) {
-        let itemHtml: string = '';
-        this.tempItem.forEach(item => {
-            itemHtml += `<div class="card"><p>${item.company}:${item.price}</p></div>`
-        })
-        itemOnDom.innerHTML = itemHtml;
+    renderItem(itemOnDom){
+        this.render(this.items,itemOnDom)
+    },
+    rendertempItem(itemOnDom){
+        this.render(this.tempItem,itemOnDom)
+    },
+    deleteItem(id){
+        this.items = this.items.filter(item=>item.id !== id);
+    },
+    filterByType(type){
+        return this.items.filter(item => item.type === type);
+    },
+
+    renderByType(type,itemOnDom){
+       const filterdItems = this.filterByType(type);
+       this.render(filterdItems, itemOnDom);
     }
+    
 }
 
-zapitem.addItem({ company: 'lenovo 16`', price: 180 });
-zapitem.addItem({ company: 'X-box series x', price: 1180 });
-zapitem.addItem({ company: 'Iphone 13"', price: 2280 });
+zapitem.addItem( 'lenovo 16`', 180,'computer');
+zapitem.addItem( 'X-box series x', 1180,'gameconsole');
+zapitem.addItem('Iphone 13"', 2280,'phone');
 const root = document.querySelector(".rootItem");
 zapitem.renderItem(root);
 
@@ -61,9 +80,9 @@ function handlesubmit(event) {
     // console.log(event);
     const company = event.target.elements.description.value;
     const price = event.target.elements.price.valueAsNumber;
-
-    zapitem.addItem({ company, price });
-
+    const type: "computer" | "gameconsole" | "phone" = event.target.elements.type.value;
+    zapitem.addItem( company,price,type);
+    const root = document.querySelector(".rootItem");
     zapitem.renderItem(root);
     // event.traget.reset();
 }
@@ -80,7 +99,24 @@ function handleFilter(event) {
         zapitem.renderItem(root);
     }
 }
-// const root = document.querySelector(".rootItem");
+
+function handleDelete(id){
+     const root = document.querySelector(".rootItem");
+    zapitem.deleteItem(id);
+    zapitem.renderItem(root);
+}
+
+function handleSelect(ev){
+     const root = document.querySelector(".rootItem");
+    const type = ev.target.value;
+    if (type === 'all') {
+        zapitem.renderItem(root);
+    } 
+    else {
+        zapitem.renderByType(type, root);
+    }
+}
+
 
 
 

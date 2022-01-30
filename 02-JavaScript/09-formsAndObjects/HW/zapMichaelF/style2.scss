@@ -1,0 +1,91 @@
+body{
+    background: rgb(204, 204, 204);
+}
+
+.h1{
+
+    h1{
+        font-family: Verdana, Tahoma, sans-serif;
+        color: #01BEDC;
+        font-size: 3rem;
+        font-weight: bolder;
+        margin-left: 30px;  
+        margin-top: 50px;     
+    }
+}
+
+.wrapper{
+    display: flex;
+    gap: 5px;
+    margin: 20px;
+    margin-left: 200px;
+
+    .submitInput{
+        background: #834FE2;
+        border-radius: 3%;
+        border: transparent;
+        padding: 10px 70px;
+        font-family: Verdana, Tahoma, sans-serif;
+        font-size: 1rem;
+        font-weight: 300;
+        color: white;
+        box-shadow: 5px 5px 30px black;
+        cursor: pointer;
+    }
+
+    .textNumberInput{
+        border: #FBAC45 2px solid;
+        padding: 10px 50px;
+    }
+
+    .containerChild1{
+        margin-top: 20px;
+    }
+
+    .filterInput{
+        padding: 10px 85px ;
+    }
+}
+
+#laptops{
+    margin-top: 200px;
+}
+
+#sortItem{
+    margin-top: 200px; 
+}
+
+#rootLaptops{
+    width: 400px;
+    height: 400px;
+    position: relative;
+    left: 1100px;
+    bottom: 1000px;
+}
+
+#filterItem{
+    margin-bottom: 700px;
+}
+
+.card{
+
+    position: relative;
+    right: 100px;
+
+    p{
+        font-family: Verdana, Tahoma, sans-serif;
+        color: #570677;
+        font-weight: 700;
+        font-size: 2rem;
+        line-height: 1;
+    }
+
+    span{
+        color: red;
+    }
+
+}
+
+
+
+
