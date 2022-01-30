@@ -10,7 +10,9 @@ var zap = {
         this.items = this.items.filter(function (item) { return item.id !== id; });
     },
     editItem: function (id, itemEdited) {
+        console.log(id);
         var index = this.items.findIndex(function (item) { return item.id === id; });
+        console.log(index);
         if (index >= 0) {
             this.items[index].title = itemEdited;
         }
@@ -64,6 +66,7 @@ function handleaddItems(ev) {
     ev.target.reset();
 }
 function handleEditItems(ev, id) {
+    console.log(id);
     ev.preventDefault();
     var itemEdited = ev.target.elements.itemEdited.value;
     zap.editItem(id, itemEdited);
@@ -106,10 +109,10 @@ function handleDelete(id) {
     zap.deleteItem(id);
     zap.renderItems(rootItems);
 }
-zap.addItems({ id: '', select: 'fashion', title: 'Jacket', description: 'product is an object or system made available for consumer use...<a href="">read more</a>', price: 400 });
-zap.addItems({ id: '', select: 'games', title: 'Checkmate', description: 'product is an object or system made available for consumer use...<a href="">read more</a>', price: 200 });
-zap.addItems({ id: '', select: 'fashion', title: 'Jacket', description: 'product is an object or system made available for consumer use...<a href="">read more</a>', price: 500 });
-zap.addItems({ id: '', select: 'electronics', title: 'iMac', description: 'product is an object or system made available for consumer use...<a href="">read more</a>', price: 2000 });
+zap.addItems({ id: " 1", select: 'fashion', title: 'Jacket', description: 'product is an object or system made available for consumer use...<a href="">read more</a>', price: 400 });
+zap.addItems({ id: "2", select: 'games', title: 'Checkmate', description: 'product is an object or system made available for consumer use...<a href="">read more</a>', price: 200 });
+zap.addItems({ id: "3", select: 'fashion', title: 'Jacket', description: 'product is an object or system made available for consumer use...<a href="">read more</a>', price: 500 });
+zap.addItems({ id: "4", select: 'electronics', title: 'iMac', description: 'product is an object or system made available for consumer use...<a href="">read more</a>', price: 2000 });
 var rootItems = document.getElementById('rootItems');
 zap.renderItems(rootItems);
 console.log(zap);
