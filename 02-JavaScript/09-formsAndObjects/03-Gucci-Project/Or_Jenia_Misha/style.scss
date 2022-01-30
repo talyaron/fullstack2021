@@ -15,26 +15,35 @@
     0% {
         background: url(http://en.fusushi.co.il/warehouse/dynamic/55244.jpg);
         background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center center;
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center center;
     }
 
-    50% {
+    30% {
         background: url(http://www.fusushi.co.il/warehouse/dynamic/50916.jpg);
         background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center center;
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center center;
+    }
+
+    60% {
+        background: url(http://www.fusushi.co.il/warehouse/dynamic/50913.jpg);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center center;
     }
 
     100% {
-        background: url(http://www.fusushi.co.il/warehouse/dynamic/50913.jpg);
+        background: url(http://en.fusushi.co.il/warehouse/dynamic/55244.jpg);
         background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center center;
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center center;
     }
+
 }
 
 
@@ -68,9 +77,9 @@ body {
     min-height: 100vh;
 
     background:
-        url(http://www.fusushi.co.il/warehouse/dynamic/50913.jpg);
-        // url(http://www.fusushi.co.il/warehouse/dynamic/50916.jpg),
-        // url(http://en.fusushi.co.il/warehouse/dynamic/55244.jpg);
+        url(http://en.fusushi.co.il/warehouse/dynamic/55244.jpg);
+    // url(http://www.fusushi.co.il/warehouse/dynamic/50916.jpg),
+    // url(http://en.fusushi.co.il/warehouse/dynamic/55244.jpg);
 
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -81,8 +90,7 @@ body {
     animation-duration: 20s;
     animation-direction: normal;
     animation-iteration-count: infinite;
-    animation-timing-function: ease-in-out;
-    transition: 1s;
+    animation-timing-function: cubic-bezier(0, 1.57, 1, .96);
 
     &__title {
         position: absolute;
@@ -128,7 +136,8 @@ body {
 
         }
 
-        .fulogo, .smedia {
+        .fulogo,
+        .smedia {
             &:hover {
                 box-shadow: 0 0 0 0px rgb(0, 0, 0);
             }
@@ -147,9 +156,10 @@ body {
             }
         }
 
-        i{
+        i {
             padding: 0.2em;
-            &:hover{
+
+            &:hover {
                 box-shadow: 0 0 0 1px rgb(0, 0, 0);
             }
         }
