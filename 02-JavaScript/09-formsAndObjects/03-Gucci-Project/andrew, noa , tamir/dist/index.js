@@ -16,7 +16,7 @@ var aviator = {
     renderitemcart: function (domElement) {
         var html2 = '';
         this.filteritems.forEach(function (item) {
-            html2 += "<div class='cart'>\n           " + item.img + "\n            </div>";
+            html2 += "<div class='cart'>\n           \n           " + item.img + "\n           <button onclick='handleDalete(event)'><i class=\"far fa-trash-alt\"></i></button>\n            </div>";
         });
         domElement.innerHTML = html2;
     },
@@ -32,7 +32,6 @@ var aviator = {
 };
 function handleaddcart(ev) {
     var img = (ev.path[1].innerHTML);
-    console.dir(ev);
     var name = (ev.target.parentElement.firstElementChild.textContent);
     var price = (ev.target.previousElementSibling.textContent);
     aviator.additem({ img: img, name: name, price: price });
@@ -49,6 +48,9 @@ function handlesortitemacs(ev) {
     aviator.sortitemdown();
     aviator.renderitem(rootitems);
 }
+function handleDalete(ev) {
+}
+// document.body.removeChild(document.getElementById('cart'))
 var rootitems = document.getElementById('main');
 aviator.renderitem(rootitems);
 var cart = document.getElementById('cart');
