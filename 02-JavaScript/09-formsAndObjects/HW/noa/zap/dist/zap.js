@@ -4,50 +4,69 @@ var uid = function () {
 var ZapList = {
     products: [
         {
-            description: 'lenovo',
+            description: "lenovo",
             price: 200,
-            id: '6',
-            category: 'computers'
+            id: "6",
+            category: "computers"
         },
         {
-            description: 'galaxy',
+            description: "galaxy",
             price: 500,
-            id: '5',
-            category: 'phones'
-        }
+            id: "5",
+            category: "phones"
+        },
     ],
     AddItem: function (item) {
-        var id = uid();
+        item.id = uid();
         this.products.push(item);
     },
-    sortItem: function () {
-        var _this = this;
-        var button1 = document.getElementById('lowToHigh');
-        var button2 = document.getElementById('highToLow');
-        button1.addEventListener('click', function () {
-            _this.products.sort(function (a, b) { return a.price - b.price; });
-            _this.renderZaplist(_this.products, rootHTML);
+    // sortItem() {
+    //     const button1 = document.getElementById('lowToHigh')
+    //     const button2 = document.getElementById('highToLow')
+    //     button1.addEventListener('click', () => {
+    //         this.products.sort((a, b) => { return a.price - b.price })
+    //         this.renderZaplist(this.products, rootHTML);
+    //     })
+    //     button2.addEventListener('click', () => {
+    //         this.products.sort((a, b) => { return b.price - a.price })
+    //         this.renderZaplist(this.products,rootHTML);
+    //     })
+    // },
+    sortItemsAsc: function () {
+        this.products.sort(function (a, b) {
+            return a.price - b.price;
         });
-        button2.addEventListener('click', function () {
-            _this.products.sort(function (a, b) { return b.price - a.price; });
-            _this.renderZaplist(_this.products, rootHTML);
+        this.renderZaplist(this.products, rootHTML);
+    },
+    sortItemsDesc: function () {
+        this.products.sort(function (a, b) {
+            return b.price - a.price;
         });
+        this.renderZaplist(this.products, rootHTML);
     },
     filterByPrice: function (pricenum) {
-        this.products.filter(function (product) { return product.price <= pricenum; });
+        this.products.filter(function (product) {
+            return product.price <= pricenum;
+        });
     },
     deleteItem: function (id) {
         this.products = this.products.filter(function (product) { return product.id !== id; });
     },
     filterByCategory: function (showCategory) {
-        this.products = this.products.filter(function (product) { return product.showCategory === showCategory; });
+        return this.products.filter(function (product) { return product.category === showCategory; });
     },
     renderByCategory: function (showCategory, domElement) {
-        var filtered = this.filterByCategory(showCategory);
-        this.renderZaplist(filtered, domElement);
+        if (showCategory === "all") {
+            this.renderZaplist(this.products, domElement);
+        }
+        else {
+            var filtered = this.filterByCategory(showCategory);
+            console.log(filtered);
+            this.renderZaplist(filtered, domElement);
+        }
     },
     renderZaplist: function (list, domElement) {
-        var HTML = '';
+        var HTML = "";
         console.log(list);
         list.forEach(function (product) {
             HTML += " <div class='card'>\n            <P> The product: " + product.description + ", Price: " + product.price + "\n            , Category: " + product.category + "</p>\n            <button onclick=\"handleDelete('" + product.id + "')\">Delete</button>\n            </div>";
@@ -55,7 +74,7 @@ var ZapList = {
         domElement.innerHTML = HTML;
     }
 };
-var rootHTML = document.getElementById('root');
+var rootHTML = document.getElementById("root");
 ZapList.renderZaplist(ZapList.products, rootHTML);
 function handleZaplist(ev) {
     ev.preventDefault();
@@ -65,7 +84,7 @@ function handleZaplist(ev) {
     var category = ev.target.elements.category.value;
     console.log(category);
     ZapList.AddItem({ id: id, description: description, price: price, category: category });
-    var rootHTML = document.getElementById('root');
+    var rootHTML = document.getElementById("root");
     ZapList.renderZaplist(ZapList.products, rootHTML);
     ev.target.reset();
 }
@@ -75,13 +94,13 @@ function handlePrice(ev) {
 }
 function handleDelete(id) {
     ZapList.deleteItem(id);
-    var rootHTML = document.getElementById('root');
+    var rootHTML = document.getElementById("root");
     ZapList.renderZaplist(ZapList.products, rootHTML);
 }
 function handleSelect(ev) {
     var showCategory = ev.target.value;
     console.log(showCategory);
-    var rootHTML = document.getElementById('root');
+    var rootHTML = document.getElementById("root");
     ZapList.renderByCategory(showCategory, rootHTML);
     // if (showCategory === 'Show All') {
     //     ZapList.renderZaplist(ZapList.products,rootHTML)
@@ -90,4 +109,9 @@ function handleSelect(ev) {
     //     ZapList.renderByCategory(showCategory, rootHTML)
     // }
 }
-ZapList.sortItem();
+function handleSortAsc() {
+    ZapList.sortItemsAsc();
+}
+function handleSortDesc() {
+    ZapList.sortItemsDesc();
+}
