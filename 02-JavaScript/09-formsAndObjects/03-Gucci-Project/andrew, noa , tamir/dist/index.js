@@ -7,9 +7,11 @@ var aviator = {
     filteritems: [],
     renderitem: function (domElement) {
         var html = '';
+        html += "<div class=\"category-wrapper\">";
         this.items.forEach(function (item) {
-            html += " <div class=\"main\">\n            <div class=\"category-wrapper\">\n                <div class=\"category-wrapper__title\">Watches</div>\n                <div class=\"category-wrapper__card\">\n                     <div class='category-wrapper__img'> <img src=\"" + item.img + "\"></div>\n                    <div class=\"category-wrapper__name\" >" + item.name + " </div>\n                    <div class=\"category-wrapper__price\">" + item.price + "</div>\n                    <div class='add' onclick=\"handleaddcart(event)\"></div>\n                    <button class='add1' onclick=\"handleaddcart(event)\" style=\"cursor: pointer;color:black\">add to cart<i class=\"fab fa-opencart\"></i></button>\n                </div>\n            </div>\n        </div>";
+            html += "\n                <div class=\"category-wrapper__title\">DOUGLAS</div>\n                <div class=\"category-wrapper__card\">\n                    <div class='category-wrapper__card__img'> <img src=\"" + item.img + "\"></div>\n                    <div class=\"category-wrapper__card__name\" >" + item.name + " </div>\n                    <div class=\"category-wrapper__card__price\">" + item.price + "</div>\n                    <div class='add' onclick=\"handleaddcart(event)\"></div>\n                    <button class='add1' onclick=\"handleaddcart(event)\" style=\"cursor: pointer;color:black\">add to cart<i class=\"fab fa-opencart\"></i></button>\n                </div>";
         });
+        html += "</div>";
         domElement.innerHTML = html;
     },
     // <i class="fab fa-opencart"></i>

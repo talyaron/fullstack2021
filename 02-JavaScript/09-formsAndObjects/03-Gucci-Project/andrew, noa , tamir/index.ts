@@ -29,21 +29,19 @@ let aviator: aviator = {
 
     renderitem(domElement) {
         let html = '';
+        html += `<div class="category-wrapper">`;
         this.items.forEach((item) => {
-            html += ` <div class="main">
-            <div class="category-wrapper">
-                <div class="category-wrapper__title">Watches</div>
+            html += `
+                <div class="category-wrapper__title">DOUGLAS</div>
                 <div class="category-wrapper__card">
-                     <div class='category-wrapper__img'> <img src="${item.img}"></div>
-                    <div class="category-wrapper__name" >${item.name} </div>
-                    <div class="category-wrapper__price">${item.price}</div>
+                    <div class='category-wrapper__card__img'> <img src="${item.img}"></div>
+                    <div class="category-wrapper__card__name" >${item.name} </div>
+                    <div class="category-wrapper__card__price">${item.price}</div>
                     <div class='add' onclick="handleaddcart(event)"></div>
                     <button class='add1' onclick="handleaddcart(event)" style="cursor: pointer;color:black">add to cart<i class="fab fa-opencart"></i></button>
-                </div>
-            </div>
-        </div>`
-
+                </div>`
         });
+        html += `</div>`;
         domElement.innerHTML = html
     },
     // <i class="fab fa-opencart"></i>
