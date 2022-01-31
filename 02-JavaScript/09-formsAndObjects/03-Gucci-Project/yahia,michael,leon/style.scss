@@ -37,6 +37,10 @@
     height: 7vh;
     font-family: monospace;
     font-size: 16px;
+    &:hover{
+        cursor: pointer;
+        border: 1px solid black;
+    }
 }
 
 .main-grid{
@@ -70,8 +74,8 @@
     left: 450px;
     display: flex;
     gap: 6px;
-    .box1{ background-color: black;
-        border: 1px solid black;
+.box1{ background-color: black;
+    border: 1px solid black;
     border-radius: 12px;
     width: 15%;
     height: 10vh;
@@ -80,6 +84,4 @@
     font-family: monospace;
     font-size: 20px;
     }
-
-
 }
