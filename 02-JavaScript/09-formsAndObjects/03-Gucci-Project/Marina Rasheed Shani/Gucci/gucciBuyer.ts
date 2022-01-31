@@ -135,3 +135,4 @@ gucciShop.addItem("Shiny leather pant", "pants", 3800);
 
 const root = document.getElementById("root");
 gucciShop.renderAllData(root);
+gucciShop.renderByType("pants",root)

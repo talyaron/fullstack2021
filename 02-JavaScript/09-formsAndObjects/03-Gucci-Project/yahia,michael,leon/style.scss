@@ -6,6 +6,7 @@
     height: 7vh;
     display: flex;
     background-color: rgb(247, 243, 243);
+    justify-self: end;
     
 }
 .main_navbar{
@@ -23,6 +24,7 @@
     background-repeat: no-repeat;
     width: 10%;
     height: 7vh;
+    justify-self: start;
    
 }
 .nike{
@@ -37,6 +39,10 @@
     height: 7vh;
     font-family: monospace;
     font-size: 16px;
+    &:hover{
+        cursor: pointer;
+        border: 1px solid black;
+    }
 }
 
 .main-grid{
@@ -58,7 +64,8 @@
     grid-row: 9/9;
     text-align: center;
     font-size: 32px;
-    p{
+    
+    span{
         font-family: fantasy;
         font-weight: bold;
         font-size: 50px;
@@ -70,16 +77,20 @@
     left: 450px;
     display: flex;
     gap: 6px;
-    .box1{ background-color: black;
-        border: 1px solid black;
+.box1{ background-color: black;
+    border: 1px solid black;
     border-radius: 12px;
     width: 15%;
     height: 10vh;
     color: white;
-    text-align: center;
     font-family: monospace;
     font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     }
-
-
+}
+.card{
+    color: red
+    
 }

@@ -6,6 +6,7 @@
   height: 7vh;
   display: flex;
   background-color: #f7f3f3;
+  justify-self: end;
 }
 
 .main_navbar {
@@ -23,6 +24,7 @@
   background-repeat: no-repeat;
   width: 10%;
   height: 7vh;
+  justify-self: start;
 }
 
 .nike {
@@ -37,6 +39,10 @@
   height: 7vh;
   font-family: monospace;
   font-size: 16px;
+}
+._box:hover {
+  cursor: pointer;
+  border: 1px solid black;
 }
 
 .main-grid {
@@ -62,7 +68,7 @@
   text-align: center;
   font-size: 32px;
 }
-._main_cta p {
+._main_cta span {
   font-family: fantasy;
   font-weight: bold;
   font-size: 50px;
@@ -81,7 +87,13 @@
   width: 15%;
   height: 10vh;
   color: white;
-  text-align: center;
   font-family: monospace;
   font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  color: red;
 }
