@@ -29,10 +29,32 @@ let stock = {
         newItem.id = uid();
         this.items.push(newItem)
         console.log(this.items)
+        this.renderStock(this.items)
     },
 
     deleteItem(id) {
 
+    },
+
+    renderStock(items) {
+        let HTML = '';
+        items.forEach(item => {
+            HTML += ` <div class="card"
+            <p> name: ${item.name}</p>
+            <p> price: ${item.price}</p>
+            <img src="${item.img}">
+            <p> group: ${item.group}</p>
+            <p> collection: ${item.Collection}</p>
+            <p> price: ${item.function}</p>
+            <p> price: ${item.movement}</p>
+            <p> price: ${item.case}</p>
+            <p> price: ${item.diameter}</p>
+            <p> price: ${item.dial}</p>
+            <p> price: ${item.bracelet}</p>
+           </div> `
+        });
+        const rootHTML = document.getElementById('root')
+        rootHTML.innerHTML = HTML;
     }
 }
 
