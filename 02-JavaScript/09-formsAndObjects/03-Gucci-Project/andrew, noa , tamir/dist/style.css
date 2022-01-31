@@ -1,3 +1,4 @@
+@charset "UTF-8";
 :root {
   --main-color-purple1: #C21E86;
   --main-color-purple2: #8E1562;
@@ -191,8 +192,14 @@ body {
 .category-wrapper__card__price {
   color: black;
 }
-.category-wrapper__card__price::after {
+.category-wrapper__card .USD::after {
   content: " $";
+}
+.category-wrapper__card .EUR::after {
+  content: " €";
+}
+.category-wrapper__card .GBP::after {
+  content: " £";
 }
 
 #cart {
@@ -230,4 +237,17 @@ body {
 }
 .wow img {
   border-radius: 40px;
+}
+
+#root .card {
+  display: flex;
+  align-items: center;
+}
+#root .card p {
+  border: 1px solid black;
+  width: 400px;
+  margin-inline: 20px;
+}
+#root .card img {
+  width: 75px;
 }
