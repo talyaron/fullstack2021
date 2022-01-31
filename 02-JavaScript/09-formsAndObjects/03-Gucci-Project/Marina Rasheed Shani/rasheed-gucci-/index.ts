@@ -30,7 +30,7 @@ const gucci: Store = {
   },
   addClothes(name, price, type, department, gender,id) {
     console.log(this);
-    this.items.push({ name, price, type, department, gender});
+    this.items.push({ name, price, type, department, gender, id});
     this.storeData();
   },
   render(list, domElement) {
@@ -58,15 +58,22 @@ function handleShowClothes() {
 
 function handleAddclothes(ev) {
   ev.preventDefault();
+  console.dir(ev.target)
   const name = ev.target.name.value;
   const price = ev.target.price.value;
-  const department = (<HTMLInputElement>document.getElementById('selectDepartment')).value;
-  const gender = (<HTMLInputElement>document.getElementById('selectGender')).value;
-  const type = (<HTMLInputElement>document.getElementById('selectType')).value;
+  const department = ev.target[2].value;
+  const gender = ev.target[3].value;
+  const type = ev.target[4].value;
   let id = uid
   gucci.addClothes(name, price, department, gender , type, id);
   console.log(gucci.items);
   gucci.storeData();
+}
+
+function handleTestDepartment(){
+gucci.getData();
+const root = document.getElementById("rootTest");
+  gucci.renderAllitems(root);
 }
 
 const uid = function () {
