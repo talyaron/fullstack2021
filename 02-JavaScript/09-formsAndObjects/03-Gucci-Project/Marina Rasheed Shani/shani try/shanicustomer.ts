@@ -43,9 +43,10 @@ const gucciStore: gucci = {
         let html="";
         list.forEach(item=>{
             html+=`<div class="item">
-            <h3>${item.nameOfItem}</h3>
+            <p>${item.nameOfItem}</p>
             <p>${item.type}</p>
-            <h3>${item.price}</h3>      
+            <p>${item.price}</p> 
+            <hr>     
             </div>`
         });
         domElement.innerHTML=html;    
@@ -101,7 +102,6 @@ gucciStore.renderAllData(root)
 
 // function handleSubmit(ev) {
 //     ev.preventDefault();
-//     // console.dir(ev.target.value)
 //     const nameOfItem = ev.target.elements.nameOfItem.value;
 //     const price: number = ev.target.elements.price.valueAsNumber;
 //     const type = ev.target.elements.type.value;

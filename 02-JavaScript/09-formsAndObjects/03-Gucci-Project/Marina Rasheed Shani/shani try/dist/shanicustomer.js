@@ -13,7 +13,7 @@ var gucciStore = {
     render: function (list, domElement) {
         var html = "";
         list.forEach(function (item) {
-            html += "<div class=\"item\">\n            <h3>" + item.nameOfItem + "</h3>\n            <p>" + item.type + "</p>\n            <h3>" + item.price + "</h3>      \n            </div>";
+            html += "<div class=\"item\">\n            <p>" + item.nameOfItem + "</p>\n            <p>" + item.type + "</p>\n            <p>" + item.price + "</p> \n            <hr>     \n            </div>";
         });
         domElement.innerHTML = html;
     },
@@ -53,7 +53,6 @@ gucciStore.renderAllData(root);
 //gucciStore.renderfilterByType("jewelry",root)
 // function handleSubmit(ev) {
 //     ev.preventDefault();
-//     // console.dir(ev.target.value)
 //     const nameOfItem = ev.target.elements.nameOfItem.value;
 //     const price: number = ev.target.elements.price.valueAsNumber;
 //     const type = ev.target.elements.type.value;
