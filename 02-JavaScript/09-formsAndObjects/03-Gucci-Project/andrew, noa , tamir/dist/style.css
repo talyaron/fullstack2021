@@ -30,6 +30,9 @@ body {
   width: 99vw;
   background-color: var(--main-color-light-gray2);
 }
+.header svg {
+  fill: var(--card-color);
+}
 .header__wrapper {
   display: flex;
   justify-content: space-around;
@@ -61,6 +64,12 @@ body {
   opacity: 0;
   transform: translateY(-30px);
   position: sticky;
+  pointer-events: none;
+}
+.currency-selector.visible {
+  opacity: 1;
+  transform: translateY(0px);
+  pointer-events: all;
 }
 .currency-selector p {
   text-align: center;
@@ -124,6 +133,11 @@ body {
   transform: translateY(-30px);
   opacity: 0;
 }
+.filter-dropbar.visible {
+  opacity: 1;
+  transform: translateY(0px);
+  position: static;
+}
 .filter-dropbar__group {
   width: 100px;
   margin-inline: 20px;
@@ -179,12 +193,6 @@ body {
 }
 .category-wrapper__card__price::after {
   content: " $";
-}
-
-.visible {
-  opacity: 1;
-  transform: translateY(0px);
-  position: static;
 }
 
 #cart {
