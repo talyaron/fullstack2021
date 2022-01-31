@@ -9,6 +9,10 @@ var stock = {
         this.items.push(newItem);
         console.log(this.items);
         this.renderStock(this.items);
+        this.storeData();
+    },
+    storeData: function () {
+        localStorage.setItem('storeData', JSON.stringify(this.items));
     },
     deleteItem: function (id) {
         this.items = this.items.filter(function (item) { return item.id !== id; });
