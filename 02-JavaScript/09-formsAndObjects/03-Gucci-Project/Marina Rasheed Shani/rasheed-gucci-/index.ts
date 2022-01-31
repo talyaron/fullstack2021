@@ -10,7 +10,7 @@ interface Store {
 interface menClothes {
   name: string;
   price: number;
-  type?:'menClother' | 'Watches'
+  type?: "menClother" | "Watches";
   id?: number;
 }
 
@@ -20,9 +20,13 @@ const gucci: Store = {
     localStorage.setItem("storeData", JSON.stringify(this.menClothes));
   },
   getData() {
-    this.menClothes = JSON.parse(localStorage.getItem("storeData"));
+    const clothesStorage = JSON.parse(localStorage.getItem("storeData"));
+    if (Array.isArray(clothesStorage)) {
+      this.menClothes = clothesStorage;
+    }
   },
   addClothes(name, price) {
+    console.log(this);
     this.menClothes.push({ name, price });
     this.storeData();
   },
@@ -41,23 +45,17 @@ const gucci: Store = {
   },
 };
 
-
 gucci.getData();
 
-
 function handleShowClothes() {
- 
   gucci.getData();
   const root = document.getElementById("root");
   gucci.renderAllmenClothes(root);
 }
 
-
-
-
 function handleAddclothes(ev) {
   ev.preventDefault();
- 
+
   const name = ev.target.name.value;
   const price = ev.target.price.value;
   gucci.addClothes(name, price);

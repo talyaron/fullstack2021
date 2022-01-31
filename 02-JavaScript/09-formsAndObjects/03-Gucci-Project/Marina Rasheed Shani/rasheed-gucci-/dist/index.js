@@ -4,9 +4,13 @@ var gucci = {
         localStorage.setItem("storeData", JSON.stringify(this.menClothes));
     },
     getData: function () {
-        this.menClothes = JSON.parse(localStorage.getItem("storeData"));
+        var clothesStorage = JSON.parse(localStorage.getItem("storeData"));
+        if (Array.isArray(clothesStorage)) {
+            this.menClothes = clothesStorage;
+        }
     },
     addClothes: function (name, price) {
+        console.log(this);
         this.menClothes.push({ name: name, price: price });
         this.storeData();
     },
