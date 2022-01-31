@@ -1,0 +1,318 @@
+* {
+  box-sizing: border-box;
+}
+
+.main {
+  max-width: 300px;
+  height: 700px;
+  margin: auto;
+  background-image: linear-gradient(90deg, #464a4b, rgba(160, 167, 166, 0)), repeating-linear-gradient(-45deg, #57779b, #1b7557 1.5px, #456bb3 2px, #422dbd 4px);
+}
+.main_form {
+  height: 300px;
+  max-width: 300px;
+  display: grid;
+  grid-template-columns: repeat(3, 33%);
+  grid-template-rows: repeat(10, 1fr);
+}
+.main_form_btns {
+  grid-column: 1/4;
+  grid-row: 9/11;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.main_form_btns-Btn {
+  box-shadow: rgba(38, 168, 21, 0.55) 0px 30px 60px -12px inset, #775521 0px 18px 36px -30px inset;
+  grid-column: 2/3;
+  width: 45%;
+  border-radius: 40px;
+  font-weight: 1000;
+  font-size: 15px;
+}
+.main_form-selectCatagory {
+  font-size: 15px;
+  font-weight: bold;
+  box-shadow: rgba(102, 122, 153, 0.85) 0px 30px 60px -12px inset, rgba(77, 76, 74, 0.5) 0px 18px 36px -30px inset;
+  height: 4vh;
+  text-align: center;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 100%;
+  background: #085f37;
+  color: #f1eaea;
+  grid-column: 1/4;
+  font-weight: bold;
+}
+.main_form-selectCatagory-options {
+  font-size: 15px;
+  border: 10px solid black;
+  font-weight: 400;
+  display: inline-block;
+  text-decoration-style: underline;
+}
+.main_form-selectCatagory-sortOptions {
+  height: 5vh;
+}
+.main_form-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  grid-column: 1/4;
+  grid-row: 3;
+}
+.main_form-actions-btn {
+  width: 33%;
+  box-shadow: rgba(68, 66, 68, 0.75) 0px 30px 60px -12px inset, rgba(183, 96, 199, 0.8) 0px 18px 36px -10px inset;
+}
+.main_form-displayOptions {
+  grid-row: 5/9;
+  grid-column: 1/4;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.main_form-displayOptions-filterOptions {
+  justify-self: start;
+  height: 30%;
+  width: 100%;
+  border: 3px solid white;
+  box-shadow: rgba(16, 119, 56, 0.55) 0px 30px 60px -12px inset, #77550c 0px 18px 36px -30px inset;
+}
+.main_form-filter-btn {
+  width: 40%;
+  height: 33%;
+  box-shadow: rgba(68, 66, 68, 0.75) 0px 30px 60px -12px inset, rgba(24, 102, 107, 0.8) 0px 18px 36px -10px inset;
+}
+.main_form-filterInputs {
+  box-shadow: rgba(6, 61, 97, 0.85) 0px 30px 60px -12px inset, rgba(16, 63, 85, 0.5) 0px 18px 36px -30px inset;
+  height: 30%;
+  overflow: auto;
+  white-space: nowrap;
+}
+.main_form-filterInputs-option {
+  font-size: 15px;
+  background-color: #037043;
+}
+.main_displayLists {
+  background-color: white;
+  overflow: auto;
+  white-space: nowrap;
+  border: 3px solid black;
+  margin-top: 5px;
+  height: 42vh;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+.main_scrollmenu {
+  display: flex;
+  flex-direction: column;
+  height: 60vh;
+  margin-top: 5px;
+  border-top: 1px solid #46404a;
+  border-bottom: 1px solid #46404a;
+  background-image: linear-gradient(90deg, #464a4b, rgba(160, 167, 166, 0)), repeating-linear-gradient(-45deg, #57779b, #1b7557 1.5px, #456bb3 2px, #422dbd 4px);
+}
+.main_scrollmenu-box {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  column-gap: 3px;
+  overflow: auto;
+  white-space: nowrap;
+}
+.main_scrollmenu-box-card {
+  height: 100%;
+  background-color: #4e4c4c;
+  width: 50%;
+  row-gap: 5px;
+  text-align: center;
+  border: 1px solid #fdfcfc;
+}
+.main_scrollmenu-box-card-btn {
+  width: fit-content;
+  font-size: 10px;
+  border-radius: 15px;
+  color: chocolate;
+  background: black;
+}
+.main_scrollmenu-box-card-head {
+  color: chocolate;
+  font-size: 12px;
+  font-weight: 1000;
+}
+.main_scrollmenu-box-card-para {
+  margin-top: 10px;
+  font-size: 12px;
+  color: white;
+}
+.main_add {
+  height: 33%;
+  background-color: #523b55;
+  color: white;
+}
+.main_add::placeholder {
+  color: snow;
+}
+.main_sortBtn {
+  height: 25%;
+  background-color: #523b55;
+  color: white;
+}
+
+.container {
+  max-width: 740px;
+  height: 900px;
+  border: 3px solid red;
+  margin: auto;
+  background-image: linear-gradient(90deg, #dcf5fc, rgba(160, 167, 166, 0)), repeating-linear-gradient(-45deg, #d1fffd, #f3f591 1.5px, #b4c9f1 2px, #fac294 4px);
+}
+.container_header {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  flex-direction: row;
+  margin-top: 10px;
+  height: 12vh;
+}
+.container_header-logo {
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRT2g09MmhCe-sbllbrt4IiSLhWaDxbGMrEegdPhPyT5uIkLMxjR-qAi_-AIvz61Ust4s&usqp=CAU);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  grid-row: 1/4;
+  grid-column: 1/2;
+  height: 10vh;
+}
+.container_header-search {
+  height: 10vh;
+  grid-row: 1/4;
+  grid-column: 2/8;
+  justify-content: center;
+}
+.container_header-search input {
+  width: 100%;
+  height: 90%;
+  align-self: center;
+  background-color: blanchedalmond;
+  border-radius: 10px;
+}
+.container_header_menu {
+  grid-column: 8/13;
+  height: 10vh;
+  grid-row: 1/4;
+  display: flex;
+  column-gap: 1rem;
+}
+.container_header_menu-btn {
+  background-color: transparent;
+  box-shadow: none;
+  display: inline-block;
+  width: 25%;
+  border: none;
+}
+.container_header_menu-btn p {
+  font-size: 12px;
+}
+.container-imgsBox {
+  background-image: url(https://s18670.pcdn.co/wp-content/uploads/Top-20-Teacher-T-Shirts-on-Etsy.png);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin: auto;
+  width: 100%;
+  height: 35%;
+  margin-top: 10px;
+}
+.container_catagories {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  flex-direction: row;
+  height: 20%;
+  margin: auto;
+}
+.container_catagories-box {
+  margin-top: 10px;
+  width: 35%;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.container_catagories-display {
+  width: 100%;
+  height: 25%;
+  margin-top: 5px;
+  border: 1px solid #c5bbbb;
+  display: flex;
+  flex-direction: column;
+  column-gap: 5px;
+  overflow: auto;
+  white-space: nowrap;
+}
+.container_catagories-display-card {
+  border-bottom: 5px solid black;
+  box-sizing: content-box;
+  box-shadow: rgba(110, 111, 112, 0.55) 0px 30px 60px 80px inset, rgba(12, 24, 94, 0.75) 0px 18px 36px 30px inset;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+}
+.container_catagories-display-card-details {
+  height: 100%;
+  grid-column: 1/2;
+}
+.container_catagories-display-card-img {
+  height: 100%;
+  grid-column: 2/3;
+  grid-template-rows: 4;
+  border-left: 5px dotted #cc4343;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: blue;
+}
+.container_catagories .Tshirts {
+  background-image: url("https://www.buytshirtdesigns.net/wp-content/uploads/2020/02/20-Gym-T-shirts-600x450.jpg");
+}
+.container_catagories .shoes {
+  background-image: url("https://thumbs.dreamstime.com/b/various-types-shoes-vector-graphics-silhouettes-various-types-shoes-vector-graphics-silhouettes-shoes-men-200369007.jpg");
+}
+.container_catagories .pants {
+  background-image: url("https://media.istockphoto.com/vectors/set-of-trousers-for-business-man-vector-id818252146?k=20&m=818252146&s=612x612&w=0&h=zA3CDwVXCfKAgIZ1FxkyfvGLRgKX_aentNe9AwmNDJw=");
+}
+.container_sortANDfilterBtns {
+  height: 7vh;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+.container_sortANDfilterBtns-box {
+  height: 80%;
+  width: 30%;
+  margin: auto;
+}
+.container-select {
+  font-size: 12px;
+  font-weight: bold;
+  box-shadow: rgba(40, 40, 41, 0.85) 0px 30px 60px -12px inset, rgba(25, 34, 153, 0.8) 0px 18px 36px 30px inset;
+  height: 4vh;
+  text-align: center;
+  appearance: none;
+  width: 45%;
+  background: #3256b9;
+  color: white;
+  font-weight: bold;
+  margin: auto;
+}
+.container-select-options {
+  font-size: 10px;
+  display: inline-block;
+  font-family: "Times New Roman", Times, serif;
+}

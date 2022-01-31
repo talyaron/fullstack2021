@@ -18,11 +18,11 @@ var productObj = {
     deleteProducts: function (id) {
         this.products = this.products.filter(function (product) { return product.id !== id; });
     },
-    updateProduct: function (id) {
-        return this.products.findIndex(function (product) { return product.id === id; });
-    },
-    updateProductPrice: function (index, value) {
-        this.products[index].price = value;
+    updateProduct: function (id, newPrice) {
+        var index = this.products.findIndex(function (product) { return product.id === id; });
+        if (index >= 0) {
+            this.products[index].price = newPrice;
+        }
     },
     filterByPrice: function (price) {
         return this.products.filter(function (product) { return product.price < price; });
@@ -48,9 +48,6 @@ var productObj = {
     renderByPrice: function (price, domElement) {
         var filterd = this.filterByPrice(price);
         this.render(filterd, domElement);
-    },
-    renderUpdate: function (list, domElement) {
-        this.render(list, domElement);
     }
 };
 function handleSubmit(ev) {
@@ -104,10 +101,9 @@ function handleSelect(ev) {
 function handleUpdate(ev, id) {
     ev.preventDefault();
     var root = document.getElementById('root');
-    var NewPrice = ev.target.update.value;
-    var updatedPrice = productObj.updateProduct(id);
-    productObj.updateProductPrice(updatedPrice, NewPrice);
-    productObj.renderUpdate(productObj.products, root);
+    var NewPrice = ev.target.elements.update.value;
+    productObj.updateProduct(id, NewPrice);
+    productObj.renderAllProducts(root);
 }
 productObj.addProducts('Halo', 99.99, 'pc games');
 productObj.addProducts('Dark Siders', 103.99, 'pc games');

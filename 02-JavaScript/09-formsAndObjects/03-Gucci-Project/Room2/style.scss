@@ -1,0 +1,77 @@
+.header {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  align-items: center;
+  height: 9vh;
+  border: 1px solid black;
+
+  &__logo {
+    img {
+      height: 25%;
+      width: 25%;
+    }
+  }
+
+  &__nav {
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    // position: relative;
+    bottom: 30px;
+    gap: 10px;
+    justify-content: center;
+
+    a {
+      text-decoration: none;
+      color: rgb(0, 0, 0);
+    }
+  }
+
+  &__searchBar {
+    input {
+      padding: 6px 10px;
+      margin-top: 8px;
+      margin-right: 16px;
+      background: #ddd;
+      font-size: 17px;
+      border: none;
+      cursor: pointer;
+    }
+  }
+}
+
+.breadCrumbs {
+  ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+
+    li {
+      a {
+        text-decoration: none;
+        color: black;
+      }
+      &:active {
+        text-decoration: underline;
+      }
+    }
+
+    text-decoration: none;
+    list-style: none;
+  }
+}
+
+.cards {
+  display:grid;
+  grid-template-rows:repeat(3, 1fr) ;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid black;
+  &__item {
+width: 330px;
+height:450px;
+border: 1px solid black;
+
+  }
+
+}

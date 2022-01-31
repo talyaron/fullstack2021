@@ -1,3 +1,4 @@
+
 interface MyHome {
     movies: Array<Movie>;
     books: Array<Books>;
@@ -95,3 +96,4 @@ console.log(newMovies);
 
 // function handlePriceChange(ev){
 //     console.log(ev.target.valueAsNumber)
+
