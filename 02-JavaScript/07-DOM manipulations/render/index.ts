@@ -6,7 +6,7 @@ interface Class {
     putNameAndGrades?:any,
     renderFamily?:any;
 }
-const family:Array<string> = ['no','se', 'daniel', 'yair', 'yonatan', 'nonoyos'];
+const student:Array<string> = ['no','se', 'daniel', 'yair', 'yonatan', 'nonoyos'];
 
 let fullstack: Class = {
     lessons: [{
@@ -65,7 +65,9 @@ let fullstack: Class = {
 
 const root = document.getElementById('root')
  
-fullstack.putNameAndGrades(fullstack ,family);
-fullstack.renderFamily(fullstack , root)
+// fullstack.putNameAndGrades(fullstack ,student);
+
+console.log(fullstack.renderFamily(fullstack , root));
+
   
 

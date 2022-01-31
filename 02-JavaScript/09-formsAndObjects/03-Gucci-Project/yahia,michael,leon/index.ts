@@ -3,6 +3,8 @@ interface Object {
     additems(list:namePrice),
     sortAsc(),
     sortDes(),
+    renderAllData(root:any)
+    render(root:any,list:namePrice),
 }
 
 interface namePrice {
@@ -14,15 +16,18 @@ let nikeItems: object = {
     items: [],
     additems(list:namePrice){
         this.items.push(list)
-        console.log(this.items)
+        
     },   
     sortAsc(){
         this.items.sort((a,b)=>a.price-b.price)
-        console.log(this.items)
+        
     },
     sortDes(){
         this.items.sort((a,b)=>b.price-a.price)
-        console.log(this.items)
+        
+    },
+    renderAllData(root:any){
+        
     }
 }
 
@@ -31,7 +36,13 @@ function handleSubmit(event) {
     const name = event.target.elements.description.value
     const price = event.target.elements.price.value
     nikeItems.additems({name, price})
+
+    const root = document.getElementById('root');
+    nikeItems.renderAllData(root);
+
+
     event.target.reset()
+
 }
 
 function handleAsce(){
@@ -41,3 +52,4 @@ nikeItems.sortAsc()
 function handleDesce(){
     nikeItems.sortDes()
 }
+

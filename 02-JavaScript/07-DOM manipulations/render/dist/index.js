@@ -1,4 +1,4 @@
-var family = ['no', 'se', 'daniel', 'yair', 'yonatan', 'nonoyos'];
+var student = ['no', 'se', 'daniel', 'yair', 'yonatan', 'nonoyos'];
 var fullstack = {
     lessons: [{
             title: 'object - advenced',
@@ -45,5 +45,5 @@ var fullstack = {
     }
 };
 var root = document.getElementById('root');
-fullstack.putNameAndGrades(fullstack, family);
-fullstack.renderFamily(fullstack, root);
+// fullstack.putNameAndGrades(fullstack ,student);
+console.log(fullstack.renderFamily(fullstack, root));
