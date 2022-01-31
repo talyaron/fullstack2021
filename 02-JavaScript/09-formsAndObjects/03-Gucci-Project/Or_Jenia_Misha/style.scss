@@ -21,17 +21,17 @@
 @keyframes backgroundphotos {
 
     0% {
+        background: url(http://www.fusushi.co.il/warehouse/dynamic/50913.jpg);
+        @include backgroundsettings;
+    }
+
+    33% {
         background: url(http://www.fusushi.co.il/warehouse/dynamic/50916.jpg);
         @include backgroundsettings;
     }
 
-    20% {
-        background: url(http://www.fusushi.co.il/warehouse/dynamic/50916.jpg);
-        @include backgroundsettings;
-    }
-
-    40% {
-        background: url(http://en.fusushi.co.il/warehouse/dynamic/55244.jpg);
+    66% {
+        background: url(http://en.fusushi.co.il/warehouse/dynamic/55243.jpg);
         @include backgroundsettings;
     }
 
@@ -72,22 +72,11 @@ body {
 
     position: relative;
     min-height: 100vh;
-
-    background: black;
-    // url(http://en.fusushi.co.il/warehouse/dynamic/55244.jpg);
-    // url(http://www.fusushi.co.il/warehouse/dynamic/50916.jpg),
-    // url(http://en.fusushi.co.il/warehouse/dynamic/55244.jpg);
-
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center center;
-
     animation-name: backgroundphotos;
     animation-duration: 20s;
     animation-direction: normal;
     animation-iteration-count: infinite;
-    animation-timing-function: cubic-bezier(0, 1.57, 1, .96);
+    animation-timing-function: cubic-bezier( 0, 1.01, 0, 1.01 );
 
     &__title {
         position: absolute;
@@ -326,11 +315,22 @@ body {
     }
 }
 
-//-------------Menu-------------//
+//------------- MENU -------------//
+
+.menuopacity {
+    background-color: rgba(0, 0, 0, 0.858);
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 3em;
+}
 
 .menu {
-    
-    background: url("https://www.seekpng.com/png/detail/286-2863479_geisha-png-pic-geisha-png.png");
+
+    background: url("https://images3.alphacoders.com/929/thumb-1920-92919.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -341,14 +341,14 @@ body {
     align-items: center;
     text-align: center;
     min-height: 100vh;
-    color: rgb(144, 140, 140);
+    color: #EBEBEB;
 
 
     &__title {
-        color: white;
         margin-top: 2rem;
         font-size: 3rem;
         font-weight: 600;
+
         &::after {
             content: '';
             height: 2px;
@@ -358,37 +358,54 @@ body {
             margin: 2px auto 0;
         }
     }
-    &__box{
+
+    &__box {
         display: grid;
-        grid-template-rows: repeat(3,250px);
-        grid-template-columns: repeat(6,1fr);
-        gap:15px;
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: repeat(3, 1fr);
         align-items: center;
-        
+        width: 65%;
+
     }
 
-    &__cell{
+    &__cell {
+
         margin-top: 2rem;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-size: cover;
-        background-position: center center;
-        width: 12rem;
-        height: 15rem;
-        border-radius: 30%;
-        img{
-            width: 100%;
-            height: 80%;
-            border-radius: 40%;
+        width: 10rem;
+        height: 12rem;
+        overflow: hidden;
+
+
+        .picwrap {
+            height: 10rem;
+            width: 10rem;
+            overflow: hidden;
+            border-radius: 100%;
+            border: 5px solid rgb(28, 28, 28);
+        }
+
+        img {
+
+            width: 102%;
+            height: 102%;
+  
+
             &:hover {
                 cursor: pointer;
                 transform: scale(1.1);
             }
+
+            &:not(:hover) {
+                transform: scale(1);
+            }
+
+            transition: all 0.6s ease-in-out;
         }
-        p{
+
+        p {
             padding-top: 0.8rem;
             text-shadow: 1px 1px 3px black;
         }
-        
+
     }
 }
