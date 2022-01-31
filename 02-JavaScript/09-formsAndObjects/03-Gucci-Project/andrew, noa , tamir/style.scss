@@ -299,3 +299,16 @@ body {
         }
     }
 }
+
+.updateForm{
+    position: fixed;
+    bottom: 10px;
+    z-index: 1;
+    background-color: var(--main-color-purple1);
+    transition: ease 0.5s;
+    transform: translateY(60px);
+    
+}
+.visableForm{
+    transform: translateY(0px);
+}
