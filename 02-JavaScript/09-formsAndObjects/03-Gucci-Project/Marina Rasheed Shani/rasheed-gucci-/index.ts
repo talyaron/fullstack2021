@@ -12,7 +12,7 @@ interface Item {
   price: number;
   type?: string;
   department: 'clothes' | 'watches' | 'jewelry' | 'bags';
-  gender: 'men' | 'women'
+  gender: 'men' | 'women';
   id?: any;
 }
 
@@ -60,11 +60,11 @@ function handleAddclothes(ev) {
   ev.preventDefault();
   const name = ev.target.name.value;
   const price = ev.target.price.value;
-  const department = ev.target.value;
-  const gender = ev.target.value;
-  const type = ev.target.value;
+  const department = (<HTMLInputElement>document.getElementById('selectDepartment')).value;
+  const gender = (<HTMLInputElement>document.getElementById('selectGender')).value;
+  const type = (<HTMLInputElement>document.getElementById('selectType')).value;
   let id = uid
-  gucci.addClothes(name, price, department, gender, type, id);
+  gucci.addClothes(name, price, department, gender , type, id);
   console.log(gucci.items);
   gucci.storeData();
 }

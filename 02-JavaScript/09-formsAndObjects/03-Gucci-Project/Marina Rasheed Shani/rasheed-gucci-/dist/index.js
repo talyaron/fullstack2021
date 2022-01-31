@@ -36,9 +36,9 @@ function handleAddclothes(ev) {
     ev.preventDefault();
     var name = ev.target.name.value;
     var price = ev.target.price.value;
-    var department = ev.target.value;
-    var gender = ev.target.value;
-    var type = ev.target.value;
+    var department = document.getElementById('selectDepartment').value;
+    var gender = document.getElementById('selectGender').value;
+    var type = document.getElementById('selectType').value;
     var id = uid;
     gucci.addClothes(name, price, department, gender, type, id);
     console.log(gucci.items);
