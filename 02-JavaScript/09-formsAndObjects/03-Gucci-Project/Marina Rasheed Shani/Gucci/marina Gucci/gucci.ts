@@ -4,8 +4,10 @@ const uid = function () {
 
 interface Store {
   products: Array<Product>;
-  addItem(title: string, type: "string", price: number, id: string);
-  addNewItem(title: string, type: "string", price: number, id: string);
+  addItem(title: string, category: string, price: number, id: string);
+  addNewItem(title: string, category: string, price: number); //there was property of id
+  //if you don't send id to function, you don't need to declare it.
+  //Be sure you use the same type of values in function parameters
   storeData();
   getData();
   render(list: any, domElement: any);
@@ -20,24 +22,43 @@ interface Product {
 }
 
 const gucci: Store = {
-  products: [],
+  products: [
+    { title: "pants", price: 450, category: "women", id: "2" }
+  ],
 
   addItem() {
     this.products = [
-      { title: "short", price: 120, category: "women", id: 1 },
-      { title: "pants", price: 450, category: "women", id: 2 },
-      { title: "dress", price: 378, category: "women", id: 3 },
+      { title: "short", price: 120, category: "women", id: "1" },
+      //if your id is string - he must to be writen like string (was 1 not "1")
+      //also you have uid, use him to create id, ex:
+      { title: "pants", price: 450, category: "women", id: uid() },
+      { title: "dress", price: 378, category: "women", id: "3" },
     ];
     this.storeData();
   },
 
   addNewItem(title, price, category) {
+
     const id = uid();
-    this.products.push({ title, price, category, id });
-    this.storeData();
+    const item = { title, price, category, id }
+    console.log(item)
+
+    console.log(this.products)
+
+    if (item) {
+      try {
+        console.log(this.products)
+        this.products.push(item)
+        console.log(`pushed`)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    // this.products.push(item);
+    // this.storeData();
   },
 
-  
+
   storeData() {
     localStorage.setItem("storeData", JSON.stringify(this.products));
   },
@@ -60,15 +81,23 @@ const gucci: Store = {
     const products = this.products;
     this.render(products, domElement);
   },
-};
+}
+
+console.log(gucci.products)
 
 function handleAddNewItemSubmit(e) {
   e.preventDefault();
-  gucci.addNewItem(title, price, category);
+
   const root: any = document.querySelector("#root");
-  const title: any = e.target.elements.title.value;
+
+  const title: string = e.target.elements.title.value; //was any
   const price: number = e.target.elements.price.value;
-  const category: number = e.target.elements.category.value;
+  const category: string = e.target.elements.category.value; //was number
+
+  console.log(`title is ${title} category ${category} price ${price}`)
+
+  gucci.addNewItem(title, category, price);
+
   gucci.renderAllData(root);
 }
 
