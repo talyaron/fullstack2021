@@ -4,10 +4,14 @@ var gucci = {
         localStorage.setItem("storeData", JSON.stringify(this.menClothes));
     },
     getData: function () {
-        this.menClothes = JSON.parse(localStorage.getItem("storeData"));
+        var clothesStorage = JSON.parse(localStorage.getItem("storeData"));
+        if (Array.isArray(clothesStorage)) {
+            this.menClothes = clothesStorage;
+        }
     },
-    addMoremenClothes: function (item, price) {
-        this.menClothes.push({ item: item, price: price });
+    addClothes: function (name, price) {
+        console.log(this);
+        this.menClothes.push({ name: name, price: price });
         this.storeData();
     },
     render: function (list, domElement) {
@@ -28,11 +32,21 @@ function handleShowClothes() {
     var root = document.getElementById("root");
     gucci.renderAllmenClothes(root);
 }
-function handleAddMoreProducts(ev) {
+function handleAddclothes(ev) {
     ev.preventDefault();
-    var item = ev.target.item.value;
+    var name = ev.target.name.value;
     var price = ev.target.price.value;
-    gucci.addMoremenClothes(item, price);
+    gucci.addClothes(name, price);
     console.log(gucci.menClothes);
     gucci.storeData();
 }
+// gucci.addClothes('T-Shirt' , 552)
+// gucci.addClothes('Pants' , 552)
+// gucci.addClothes('Jeans' , 552)
+// gucci.addClothes('T-Shirt' , 552)
+// gucci.addClothes('T-Shirt' , 552)
+// gucci.addClothes('T-Shirt' , 552)
+// gucci.addClothes('T-Shirt' , 552)
+// gucci.addClothes('T-Shirt' , 552)
+// gucci.addClothes('T-Shirt' , 552)
+// gucci.addClothes('T-Shirt' , 552)
