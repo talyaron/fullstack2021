@@ -2,19 +2,36 @@ var uid = function () {
     return Date.now().toString(36) + Math.random().toString(36).substr(2);
 };
 var gucci = {
-    products: [],
+    products: [
+        { title: "pants", price: 450, category: "women", id: "2" }
+    ],
     addItem: function () {
         this.products = [
-            { title: "short", price: 120, category: "women", id: 1 },
-            { title: "pants", price: 450, category: "women", id: 2 },
-            { title: "dress", price: 378, category: "women", id: 3 },
+            { title: "short", price: 120, category: "women", id: "1" },
+            //if your id is string - he must to be writen like string (was 1 not "1")
+            //also you have uid, use him to create id, ex:
+            { title: "pants", price: 450, category: "women", id: uid() },
+            { title: "dress", price: 378, category: "women", id: "3" },
         ];
         this.storeData();
     },
     addNewItem: function (title, price, category) {
         var id = uid();
-        this.products.push({ title: title, price: price, category: category, id: id });
-        this.storeData();
+        var item = { title: title, price: price, category: category, id: id };
+        console.log(item);
+        console.log(this.products);
+        if (item) {
+            try {
+                console.log(this.products);
+                this.products.push(item);
+                console.log("pushed");
+            }
+            catch (error) {
+                console.log(error);
+            }
+        }
+        // this.products.push(item);
+        // this.storeData();
     },
     storeData: function () {
         localStorage.setItem("storeData", JSON.stringify(this.products));
@@ -33,13 +50,15 @@ var gucci = {
         this.render(products, domElement);
     }
 };
+console.log(gucci.products);
 function handleAddNewItemSubmit(e) {
     e.preventDefault();
-    gucci.addNewItem(title, price, category);
     var root = document.querySelector("#root");
-    var title = e.target.elements.title.value;
+    var title = e.target.elements.title.value; //was any
     var price = e.target.elements.price.value;
-    var category = e.target.elements.category.value;
+    var category = e.target.elements.category.value; //was number
+    console.log("title is " + title + " category " + category + " price " + price);
+    gucci.addNewItem(title, category, price);
     gucci.renderAllData(root);
 }
 // function handleShowProducts(): void {
