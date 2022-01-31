@@ -86,18 +86,20 @@
 
             }
         }
-        &-filter-btn{
+
+        &-filter-btn {
             width: 40%;
             height: 33%;
             box-shadow: rgba(68, 66, 68, 0.75) 0px 30px 60px -12px inset, rgba(24, 102, 107, 0.8) 0px 18px 36px -10px inset;
         }
-        &-filterBrand{
+
+        &-filterBrand {
             box-shadow: rgba(6, 61, 97, 0.85) 0px 30px 60px -12px inset, rgba(16, 63, 85, 0.5) 0px 18px 36px -30px inset;
             height: 30%;
             overflow: auto;
             white-space: nowrap;
 
-            &-option{
+            &-option {
                 font-size: 15px;
                 background-color: #037043;
             }
@@ -145,21 +147,22 @@
                 text-align: center;
                 border: 1px solid rgb(253, 252, 252);
 
-                &-btn{
+                &-btn {
                     width: fit-content;
                     font-size: 10px;
                     border-radius: 15px;
                     color: chocolate;
                     background: black;
-                    
+
                 }
-                &-head{
+
+                &-head {
                     color: chocolate;
                     font-size: 12px;
                     font-weight: 1000;
                 }
 
-                &-para{
+                &-para {
                     // color: chocolate;
                     margin-top: 10px;
                     font-size: 12px;
@@ -185,50 +188,53 @@
         color: rgb(255, 255, 255);
     }
 }
-.container{
+
+.container {
     max-width: 750px;
     height: 700px;
     border: 3px solid red;
     margin: auto;
     // background-color: rgb(46, 127, 141);
 
-    &_header{
+    &_header {
         // background-color: rgb(46, 127, 141);
         display: grid;
-        grid-template-columns: repeat(12,1fr);
-        grid-template-rows: repeat(5,1fr);
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: repeat(5, 1fr);
         flex-direction: row;
         margin-top: 10px;
         height: 12vh;
         // border: 3px solid blue;
 
-        &-logo{
-        // border: 2px solid red;
-        background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRT2g09MmhCe-sbllbrt4IiSLhWaDxbGMrEegdPhPyT5uIkLMxjR-qAi_-AIvz61Ust4s&usqp=CAU);
-        background-position: center;
-         background-size: contain;
-        background-repeat: no-repeat;
-        grid-row: 1/4;
-        grid-column: 2/3; 
-        height: 10vh;
+        &-logo {
+            // border: 2px solid red;
+            background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRT2g09MmhCe-sbllbrt4IiSLhWaDxbGMrEegdPhPyT5uIkLMxjR-qAi_-AIvz61Ust4s&usqp=CAU);
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            grid-row: 1/4;
+            grid-column: 2/3;
+            height: 10vh;
         }
-        &-search{
+
+        &-search {
             // border: 2px solid red;
             height: 10vh;
             grid-row: 1/4;
             grid-column: 3/9;
             justify-content: center;
 
-            & input{
+            & input {
                 width: 100%;
                 height: 90%;
                 align-self: center;
                 background-color: blanchedalmond;
                 border-radius: 10px;
-                
+
             }
         }
-        &_menu{
+
+        &_menu {
             grid-column: 9/13;
             width: 20vw;
             height: 10vh;
@@ -237,8 +243,8 @@
             display: flex;
             column-gap: 1rem;
             margin-left: 10px;
-            
-            &-btn{
+
+            &-btn {
                 background-color: transparent;
                 box-shadow: none;
                 display: inline-block;
@@ -246,13 +252,14 @@
                 border: none;
                 // border: 1px solid black;
 
-                & p{
+                & p {
                     font-size: 12px;
                 }
             }
         }
     }
-    &-imgsBox{
+
+    &-imgsBox {
         background-image: url(https://blog.placeit.net/wp-content/uploads/2018/02/facebook-ad-image-templates-by-placeit_01.jpg);
         background-position: center;
         background-size: cover;
@@ -263,24 +270,33 @@
         margin-top: 10px;
         border: 3px solid red;
     }
-    &_catagories{
+
+    &_catagories {
         display: flex;
         justify-content: space-around;
-        width: 100%;
+        width: 80%;
         flex-direction: row;
         height: 20%;
         margin: auto;
-        // border: 3px solid blue;
 
-        &-box{
+        // border: 3px solid blue;
+        & img {
+            width: 170px;
+            height: 105px;
+        }
+
+        &-box {
             margin-top: 10px;
             width: 30%;
-            border:1px solid gray;
+            border: 1px solid gray;
         }
-        &-display{
-            width: 100%;
+
+        &-display {
+            width: 40%;
+            margin-top: 150px;
             height: 30%;
             border: 2px solid black;
+            position: absolute;
         }
     }
 }

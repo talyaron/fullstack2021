@@ -222,10 +222,14 @@
 .container_catagories {
   display: flex;
   justify-content: space-around;
-  width: 100%;
+  width: 80%;
   flex-direction: row;
   height: 20%;
   margin: auto;
+}
+.container_catagories img {
+  width: 170px;
+  height: 105px;
 }
 .container_catagories-box {
   margin-top: 10px;
@@ -233,7 +237,9 @@
   border: 1px solid gray;
 }
 .container_catagories-display {
-  width: 100%;
+  width: 40%;
+  margin-top: 150px;
   height: 30%;
   border: 2px solid black;
+  position: absolute;
 }
