@@ -316,8 +316,10 @@ body {
   border: 5px solid #353535;
 }
 .menu__cell img {
-  width: 102%;
+  width: 142%;
   height: 102%;
+  position: relative;
+  right: 30px;
   transition: all 0.6s ease-in-out;
 }
 .menu__cell img:hover {
@@ -330,4 +332,9 @@ body {
 .menu__cell p {
   padding-top: 0.8rem;
   text-shadow: 1px 1px 3px black;
+}
+
+#button {
+  width: fit-content;
+  height: fit-content;
 }
