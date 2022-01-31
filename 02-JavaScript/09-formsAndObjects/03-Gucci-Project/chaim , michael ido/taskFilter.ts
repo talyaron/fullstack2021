@@ -227,7 +227,7 @@ let clothsList: cloths = {
                <p class="container_catagories-display-card-para"> Price : ${element.price} </p>
                <button class="container_catagories-display-card-btn" onclick="addToCart('${element.id}')">Add To Cart</button>
                </div>
-               <div id="itemImg" class="container_catagories-display-card-img"></div>
+               <div id="itemImg" class="container_catagories-display-card-img"><img src="" id="imgBox" alt=""></div>
                </div>
                 `;
     });
@@ -514,6 +514,7 @@ function changingImgsBox() {
   count++;
 }
 
+<<<<<<< Updated upstream
 const catagoriesBoxes = document.querySelectorAll(".container_catagories-box");
 
 catagoriesBoxes.forEach((box) => {
@@ -524,6 +525,17 @@ catagoriesBoxes.forEach((box) => {
 function showOptions(box:any, boxId:string) {
   let html = `
     <select class="container-select" name="chooseSort" id="${boxId}" onchange="handleSort(event)">
+=======
+const catagoriesBoxes = document.querySelectorAll('.container_catagories-box')
+
+catagoriesBoxes.forEach(box => {
+    box.addEventListener('click', showOptions)
+})
+
+function showOptions(box) {
+    let html = `
+    <select class="container-select" name="chooseSort" id="selectCatagory" onchange="handleSort(event)">
+>>>>>>> Stashed changes
    <option class=""container-select-Options" disabled selected>Sort By</option>
    <option class=""container-select-Options" value="sortAtoZ">A ---> Z</option>
    <option class=""container-select-Options" value="sortZtoA">Z ---> A</option>
@@ -571,6 +583,8 @@ function showOptions(box:any, boxId:string) {
     sortANDfilterBtnsPants.innerHTML = html;
   }
 }
+
+
 function handleSort(ev) {
   const sortValue = ev.target.value;
   const boxId = ev.target.id
