@@ -21,4 +21,6 @@ function handleCurrencyOptionClick(ev) {
     var id = ev.target.id;
     console.log(id);
     currencyButton.innerHTML = "ISRAEL (" + id + ")";
+    switch (id) {
+    }
 }
