@@ -34,7 +34,7 @@ var gucciStore = {
         this.listOfItems.sort(function (a, b) { return b.price - a.price; });
     },
     filterLowerThan: function (input) {
-        this.listOfItems.filter(function (item) { return item.price < Number(input); });
+        return this.listOfItems.filter(function (item) { return item.price < Number(input); });
     },
     removeItemById: function (id) {
         this.listOfItems = this.listOfItems.filter(function (item) { return item.id !== id; });
@@ -46,11 +46,22 @@ gucciStore.addItem("silver diamond ring ", 1000, "jewelry");
 gucciStore.addItem("solid gold fannypack", 100000, "bag");
 gucciStore.sortByAscending();
 gucciStore.sortByDescending();
-console.log(gucciStore.listOfItems);
-//console.log(gucciStore)
+//console.log(gucciStore.listOfItems)
+console.log(gucciStore);
 var root = document.getElementById('root');
 gucciStore.renderAllData(root);
 //gucciStore.renderfilterByType("jewelry",root)
+// function handleSubmit(ev) {
+//     ev.preventDefault();
+//     // console.dir(ev.target.value)
+//     const nameOfItem = ev.target.elements.nameOfItem.value;
+//     const price: number = ev.target.elements.price.valueAsNumber;
+//     const type = ev.target.elements.type.value;
+//     gucciStore.addItem(nameOfItem,price,type);
+//     const root=document.getElementById('root')
+//     gucciStore.renderAllData(root);
+//     ev.target.reset();
+// }
 function handleSelect(ev) {
     console.dir(ev);
     var type = ev.target.value;
@@ -69,6 +80,11 @@ function handlePriceAsc(ev) {
 }
 function handlePriceDesc(ev) {
     gucciStore.sortByDescending();
+    var root = document.getElementById('root');
+    gucciStore.renderAllData(root);
+}
+function handleInput(ev) {
+    gucciStore.filterLowerThan(ev.target.value);
     var root = document.getElementById('root');
     gucciStore.renderAllData(root);
 }
