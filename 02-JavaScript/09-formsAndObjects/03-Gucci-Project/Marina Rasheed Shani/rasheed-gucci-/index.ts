@@ -2,7 +2,7 @@ interface Store {
   menClothes: Array<menClothes>;
   storeData();
   getData();
-  addMenClothes(name: string, price: number): any;
+  addClothes(name: string, price: number): any;
   render(list: any, domElement: any): any;
   renderAllmenClothes(domElement: any): any;
 }
@@ -22,7 +22,7 @@ const gucci: Store = {
   getData() {
     this.menClothes = JSON.parse(localStorage.getItem("storeData"));
   },
-  addMenClothes(name, price) {
+  addClothes(name, price) {
     this.menClothes.push({ name, price });
     this.storeData();
   },
@@ -60,18 +60,18 @@ function handleAddclothes(ev) {
  
   const name = ev.target.name.value;
   const price = ev.target.price.value;
-  gucci.addMenClothes(name, price);
+  gucci.addClothes(name, price);
   console.log(gucci.menClothes);
   gucci.storeData();
 }
 
-gucci.addMenClothes('T-Shirt' , 552)
-gucci.addMenClothes('Pants' , 552)
-gucci.addMenClothes('Jeans' , 552)
-gucci.addMenClothes('T-Shirt' , 552)
-gucci.addMenClothes('T-Shirt' , 552)
-gucci.addMenClothes('T-Shirt' , 552)
-gucci.addMenClothes('T-Shirt' , 552)
-gucci.addMenClothes('T-Shirt' , 552)
-gucci.addMenClothes('T-Shirt' , 552)
-gucci.addMenClothes('T-Shirt' , 552)
+gucci.addClothes('T-Shirt' , 552)
+gucci.addClothes('Pants' , 552)
+gucci.addClothes('Jeans' , 552)
+gucci.addClothes('T-Shirt' , 552)
+gucci.addClothes('T-Shirt' , 552)
+gucci.addClothes('T-Shirt' , 552)
+gucci.addClothes('T-Shirt' , 552)
+gucci.addClothes('T-Shirt' , 552)
+gucci.addClothes('T-Shirt' , 552)
+gucci.addClothes('T-Shirt' , 552)
