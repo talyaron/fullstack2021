@@ -325,10 +325,12 @@
                 &-img{
                     height: 100%;
                     grid-column: 2/3;
-                    // border-left: 1px dotted black;
+                    grid-template-rows: 4;
+                    border-left: 5px dotted rgb(204, 67, 67);
                     background-position: center;
                     background-size: contain;
                     background-repeat: no-repeat;
+                    background-color: blue;
                 }
             }
         }
@@ -343,6 +345,7 @@
         .pants {
             background-image: url("https://media.istockphoto.com/vectors/set-of-trousers-for-business-man-vector-id818252146?k=20&m=818252146&s=612x612&w=0&h=zA3CDwVXCfKAgIZ1FxkyfvGLRgKX_aentNe9AwmNDJw=");
         }
+
     }
 
     &_sortANDfilterBtns {

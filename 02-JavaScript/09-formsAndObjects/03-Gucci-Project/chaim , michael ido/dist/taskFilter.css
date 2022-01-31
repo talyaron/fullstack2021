@@ -269,9 +269,12 @@
 .container_catagories-display-card-img {
   height: 100%;
   grid-column: 2/3;
+  grid-template-rows: 4;
+  border-left: 5px dotted #cc4343;
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
+  background-color: blue;
 }
 .container_catagories .Tshirts {
   background-image: url("https://www.buytshirtdesigns.net/wp-content/uploads/2020/02/20-Gym-T-shirts-600x450.jpg");
