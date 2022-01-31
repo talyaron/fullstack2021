@@ -26,17 +26,20 @@ let stock = {
         { name: 'nir', price: 60, img: 'https://aviatorwatch.swiss/assets/catalog/douglas-day-date-41/AVIATOR-WATCH--DOUGLAS-DAY-DATE-41--V.3.35.0.274.4.webp' }
     ],
     addItem(newItem) {
-        newItem.id=uid();
+        newItem.id = uid();
         this.items.push(newItem)
         console.log(this.items)
+    },
+
+    deleteItem(id) {
+
     }
 }
 
 function handleSubmit(ev) {
     ev.preventDefault();
-    const newItem = { name: "", price: 0, img: "", group: "", Collection: "", function: "", movement: "", case: "", diameter: "", dial: "", bracelet: "",id:0 };
+    const newItem = { name: "", price: 0, img: "", group: "", Collection: "", function: "", movement: "", case: "", diameter: "", dial: "", bracelet: "", id: 0 };
     for (let field of ev.target) {
-        console.log(field.value);
         let name = field.name;
         switch (name) {
             case "name":
@@ -75,5 +78,7 @@ function handleSubmit(ev) {
         }
 
     }
+
+    stock.addItem(newItem);
 
 }
