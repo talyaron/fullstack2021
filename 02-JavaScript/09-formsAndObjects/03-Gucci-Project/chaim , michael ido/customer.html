@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/d13a0d855d.js" crossorigin="anonymous"></script>  
+    <link rel="stylesheet" href="dist/taskFilter.css">
+    <title>customer page</title>
+</head>
+<body onload="set_timeImgs()">
+
+    <div class="container">
+        <div class="container_header">
+            <a href="customer.html" class="container_header-logo"></a> 
+             <div class="container_header-search"><input type="search" placeholder="Search for a product"></div>
+             <div class="container_header_menu">
+                <button class="container_header_menu-btn"><i class="fas fa-bell fa-2x"></i><p>Notifications</p></button>
+               <button class="container_header_menu-btn"><i class="fas fa-user-tie fa-2x"></i><p>Sign In</p></button>
+               <button class="container_header_menu-btn"><i class="fas fa-truck-loading fa-2x"></i><p>Your orders</p></button>
+               <button class="container_header_menu-btn"><i class="fas fa-shopping-cart fa-2x" onclick="displayCart()"></i><p>Shopping cart</p></button>
+             </div>             
+         </div>
+         <div class="container-imgsBox" id="ImgsBox"></div>
+
+         <div class="container_catagories">
+            <div id="Tshirts" class="container_catagories-box Tshirts"></div>
+            <div id="shoes" class="container_catagories-box shoes"></div>
+            <div id="pants" class="container_catagories-box pants"></div>  
+         </div>
+
+         <div class="container_sortANDfilterBtns">
+             <div id="sortANDfilterBtnsTshirts" class="container_sortANDfilterBtns-box"></div>
+             <div id="sortANDfilterBtnsShoes"  class="container_sortANDfilterBtns-box"></div>
+             <div id="sortANDfilterBtnsPants"  class="container_sortANDfilterBtns-box"></div>
+         </div>
+         <div class="container_catagories-display">
+             <div class="container_catagories-display-card">
+                 <!-- <div class="container_catagories-display-card-details"></div>
+               <div id="itemImg" class="container_catagories-display-card-img"></div> -->
+             </div>
+         </div>
+
+
+
+</div>
+<script src="dist/taskFilter.js"></script>
+ 
+    
+</body>
+</html>

@@ -1,0 +1,43 @@
+.header {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  align-items: center;
+  height: 9vh;
+  border: 1px solid black;
+}
+.header__logo img {
+  height: 25%;
+  width: 25%;
+}
+.header__nav {
+  font-size: 25px;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  bottom: 30px;
+  gap: 10px;
+  justify-content: center;
+}
+.header__nav a {
+  text-decoration: none;
+  color: black;
+}
+.header__searchBar input {
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.breadCrumbs {
+  text-decoration: none;
+  list-style: none;
+}
+.breadCrumbs ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+}

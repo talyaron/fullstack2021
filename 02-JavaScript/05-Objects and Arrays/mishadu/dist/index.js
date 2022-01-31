@@ -51,7 +51,6 @@ var zap = {
     },
     renderByType: function (type, domElement) {
         var filtered = this.filterByType(type);
-        console.log(filtered);
         this.renderItems(filtered, domElement);
     },
     renderFilteredByMaxPrice: function (maxPrice, domElement) {
