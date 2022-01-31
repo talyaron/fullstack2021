@@ -1,14 +1,26 @@
 console.log('owner')
 
-// interface aviator {
-
-//     items: Array<newItem>
-
-// }
+interface aviator {
+    items: Array<newItem>
+    addItem(newItem)
+    deleteItem(id)
+    updateItem(item)
+    renderStock(items)
+    storeData()
+}
 interface newItem {
-    img: string
     name: string
     price: number
+    img: string
+    group: string
+    Collection: string
+    function: string
+    movement: string
+    case: string
+    diameter: string
+    dial: string
+    bracelet: string
+    id: string
 
 }
 
@@ -16,20 +28,25 @@ const uid = function () {
     return Date.now().toString(36) + Math.random().toString(36).substr(2);
 };
 
-let stock = {
-    items: [ ],
+let stock:aviator = {
+    items: [],
     addItem(newItem) {
         newItem.id = uid();
         this.items.push(newItem)
         console.log(this.items)
         this.renderStock(this.items)
+        this.storeData();
+    },
+
+    storeData(){
+        localStorage.setItem('storeData', JSON.stringify(this.items))
     },
 
     deleteItem(id) {
         this.items = this.items.filter((item) => item.id !== id);
     },
 
-    updateItem(item){
+    updateItem(item) {
 
     },
 
