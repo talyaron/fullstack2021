@@ -1,4 +1,4 @@
-var bookShop = {
+var bookie = {
     id: 0,
     books: [],
     addItem: function (category, name, price, img) {

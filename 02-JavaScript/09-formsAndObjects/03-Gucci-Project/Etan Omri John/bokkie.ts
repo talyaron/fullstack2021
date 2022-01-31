@@ -17,7 +17,7 @@ interface book{
     img: any;
 }
 
-const bookShop: BookShop = {
+const bookie: BookShop = {
     id: 0,
     books: [],
     addItem(category,name,price,img){
