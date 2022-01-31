@@ -1,45 +1,24 @@
-interface Class {
-    lessons: Array < {
-        title: string,
-        grades: Array < any >
-    } > ,
-    NewObj():void
-};
+interface obj{
+    books: Array<string>
+    clothes:Array<string>
+    movies:Array<string>
+    addBook(name:string,author:string)
+    addClothes(item:string,brand:string)
+    addMovies(name:string,category:string)
 
-let fullStackClass: Class = {
-    lessons: [{
-        title: "Object-advanced",
-        grades: [],
-    }],
-    NewObj (newTitle, newStudents){
-        this.lessons.push({title: newTitle, grades: [{}]});
+}
+const myHome:obj = {
+    books: [
+        {name:'the 5 second rule' , author: 'mel robbins'},{name:'The Monk Who Sold His Ferrari' , author:'Robin Sharma'}],
+    clothes: [{item: 't-shirt' , brand:'castro'},{item: 'swedder' , brand:'adidas'}],
+    movies: [{name:'dont mess with the zohan' , category:'comedy'}],
 
-        for (let j in newStudents){
-            this.lessons[this.lessons.length-1].grades[j] =  {name: newStudents[j], grade: GetRandomGrade(100, 40)}
-        }
+    addBook: function(name:string,author:string){
+        this.books.foreach(book=>{
+
+        })
     }
-}
 
-
-fullStackClass.NewObj();
-
-const students = ['moshe', 'shron', 'miriam', 'dan', 'levi'];
-
-
-function GetRandomGrade(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
 
 }
-
-function NewGrades(ClassName,nameStudents) {
-    for (let i in nameStudents) {
-        ClassName.lessons[0].grades[i] = { name: nameStudents[i],  grade: GetRandomGrade(40, 100)
-        }
-    }
-}
-
-
-NewGrades(fullStackClass,students)
-
-console.log(fullStackClass)
-fullStackClass.NewObj ("History", students)
+console.log(myHome)

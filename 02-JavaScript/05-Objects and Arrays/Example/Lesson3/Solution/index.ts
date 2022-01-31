@@ -23,7 +23,7 @@ interface Clothes {
 }
 
 const talHome: MyHome = {
-    movies: [],
+    movies: [],       
     books: [],
     clothes: [],
     addMovie(movie: Movie) {
