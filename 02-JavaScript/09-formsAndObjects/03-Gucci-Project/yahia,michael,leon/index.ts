@@ -4,16 +4,25 @@ const uid = function () {
 
 interface Object {
     items: Array<namePrice>,
+    carts:Array<type>
     additems(name: string, price: number),
     sortAsc(),
     sortDes(),
     deleteItem(idItem: string),
-    updateItem(idItem:string,newValue:string)
-    renderAllData(root: any)
+    updateItem(idItem:string,newValue:string),
+    addToCarts(cart:any),
+    selectItem(type:"shoes"|"pants"|"hoodie")
+    renderAllData(root: any),
+    renderAllCarts(root:any),
     render(root: any, list: namePrice),
 
 
 }
+interface type{
+    type:"shoes"|"pants"|"hoodie"
+    name:string
+}
+
 
 interface namePrice {
     name: string;
@@ -23,15 +32,10 @@ interface namePrice {
 
 let nikeItems: object = {
     items: [],
+    carts:[],
     additems(name, price) {
-
-
         const idItem = uid();
-
-        this.items.push({ name, price, idItem })
-        
-
-
+        this.items.push({ name, price, idItem })   
     },
     sortAsc() {
         this.items.sort((a, b) => a.price - b.price)
@@ -49,10 +53,31 @@ let nikeItems: object = {
         const i =this.items.findIndex(item=>item.idItem===idItem)
         this.items[i].name=newValue
     },
+    addToCarts(cart:string){
+        this.carts.push(cart)
+    },
+    renderAllCarts(root:any){
+        const list=this.carts;
+        this.renderCarts(root,list)
+    },
+    selectItem(type){
+
+        this.carts.filter(type=>{
+        
+      const select = this.carts.type===type
+        })
+      console.log(select)
+    },
     renderAllData(root: any) {
         const list = this.items;
-
         this.render(root, list)
+    },
+    renderCarts(root,list){
+        let htmlCustomer:string="";
+        list.forEach(item=> {
+            htmlCustomer+=`<div class= 'card'> <p>${item}</p></div>`
+        });
+        root.innerHTML = htmlCustomer;
     },
     render(root: any, list) {
         let html: string = '';
@@ -102,7 +127,6 @@ function handleDesce() {
 
 
 function handleDelete(id) {
-
     nikeItems.deleteItem(id);
     const root = document.getElementById('root');
     nikeItems.renderAllData(root);
@@ -113,4 +137,17 @@ function handleupdate(event,id){
     nikeItems.updateItem(id,updateditem)
     const root = document.getElementById('root');
     nikeItems.renderAllData(root);
+}
+//customer
+function handleCart(event){
+    const addToCart=event.target.value
+    nikeItems.addToCarts(addToCart)
+    const root = document.getElementById('root');
+    nikeItems.renderAllCarts(root);
+}
+
+function handleSelect(event){
+const select=event.target.value
+
+    
 }
