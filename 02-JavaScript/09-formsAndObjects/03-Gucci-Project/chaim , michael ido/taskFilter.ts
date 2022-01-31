@@ -182,7 +182,7 @@ function display(ev): void {
     // receiving inputs values ----------
 
     // console.log(clothsList.Tshirts);
-
+    console.log(clothsList.Tshirts);
     let catagory;
     let brand;
     let price: number;
@@ -216,8 +216,8 @@ function display(ev): void {
             }
         }
     }
-    
-    
+
+
     console.log(filterPriceFromInput);
     console.log(filterPriceUpToInput);
 
@@ -464,7 +464,7 @@ function handleSort(ev) {
 
     const sortValue = ev.target.value
 
-    if (sortValue == "sortAtoZ"){
+    if (sortValue == "sortAtoZ") {
         console.log('lala');
     } else if (sortValue == "sortZtoA") {
         console.log('lili');

@@ -32,12 +32,29 @@
   cursor: pointer;
 }
 
-.breadCrumbs {
-  text-decoration: none;
-  list-style: none;
-}
 .breadCrumbs ul {
   list-style: none;
   display: flex;
   flex-direction: row;
+  text-decoration: none;
+  list-style: none;
+}
+.breadCrumbs ul li a {
+  text-decoration: none;
+  color: black;
+}
+.breadCrumbs ul li:active {
+  text-decoration: underline;
+}
+
+.cards {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid black;
+}
+.cards__item {
+  width: 330px;
+  height: 450px;
+  border: 1px solid black;
 }
