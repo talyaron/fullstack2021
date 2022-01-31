@@ -1,17 +1,17 @@
 var gucci = {
-    menClothes: [],
+    items: [],
     storeData: function () {
-        localStorage.setItem("storeData", JSON.stringify(this.menClothes));
+        localStorage.setItem("storeData", JSON.stringify(this.items));
     },
     getData: function () {
         var clothesStorage = JSON.parse(localStorage.getItem("storeData"));
         if (Array.isArray(clothesStorage)) {
-            this.menClothes = clothesStorage;
+            this.items = clothesStorage;
         }
     },
-    addClothes: function (name, price) {
+    addClothes: function (name, price, type, department, gender, id) {
         console.log(this);
-        this.menClothes.push({ name: name, price: price });
+        this.items.push({ name: name, price: price, type: type, department: department, gender: gender });
         this.storeData();
     },
     render: function (list, domElement) {
@@ -21,32 +21,29 @@ var gucci = {
         });
         domElement.innerHTML = html;
     },
-    renderAllmenClothes: function (domElement) {
-        var menClothes = this.menClothes;
-        this.render(menClothes, domElement);
+    renderAllitems: function (domElement) {
+        var items = this.items;
+        this.render(items, domElement);
     }
 };
 gucci.getData();
 function handleShowClothes() {
     gucci.getData();
     var root = document.getElementById("root");
-    gucci.renderAllmenClothes(root);
+    gucci.renderAllitems(root);
 }
 function handleAddclothes(ev) {
     ev.preventDefault();
     var name = ev.target.name.value;
     var price = ev.target.price.value;
-    gucci.addClothes(name, price);
-    console.log(gucci.menClothes);
+    var department = document.getElementById('selectDepartment').value;
+    var gender = document.getElementById('selectGender').value;
+    var type = document.getElementById('selectType').value;
+    var id = uid;
+    gucci.addClothes(name, price, department, gender, type, id);
+    console.log(gucci.items);
     gucci.storeData();
 }
-// gucci.addClothes('T-Shirt' , 552)
-// gucci.addClothes('Pants' , 552)
-// gucci.addClothes('Jeans' , 552)
-// gucci.addClothes('T-Shirt' , 552)
-// gucci.addClothes('T-Shirt' , 552)
-// gucci.addClothes('T-Shirt' , 552)
-// gucci.addClothes('T-Shirt' , 552)
-// gucci.addClothes('T-Shirt' , 552)
-// gucci.addClothes('T-Shirt' , 552)
-// gucci.addClothes('T-Shirt' , 552)
+var uid = function () {
+    return Date.now().toString(36) + Math.random().toString(36).substr(2);
+};
