@@ -51,16 +51,17 @@ console.log(gucciStore);
 var root = document.getElementById('root');
 gucciStore.renderAllData(root);
 //gucciStore.renderfilterByType("jewelry",root)
-// function handleSubmit(ev) {
-//     ev.preventDefault();
-//     const nameOfItem = ev.target.elements.nameOfItem.value;
-//     const price: number = ev.target.elements.price.valueAsNumber;
-//     const type = ev.target.elements.type.value;
-//     gucciStore.addItem(nameOfItem,price,type);
-//     const root=document.getElementById('root')
-//     gucciStore.renderAllData(root);
-//     ev.target.reset();
-// }
+function handleSubmit(ev) {
+    ev.preventDefault();
+    console.log(ev.target.elements.nameOfItem.value);
+    var nameOfItem = ev.target.elements.nameOfItem.value;
+    var price = ev.target.elements.price.valueAsNumber;
+    var type = ev.target.elements.type.value;
+    gucciStore.addItem(nameOfItem, price, type);
+    var root = document.getElementById('root');
+    gucciStore.renderAllData(root);
+    ev.target.reset();
+}
 function handleSelect(ev) {
     console.dir(ev);
     var type = ev.target.value;
