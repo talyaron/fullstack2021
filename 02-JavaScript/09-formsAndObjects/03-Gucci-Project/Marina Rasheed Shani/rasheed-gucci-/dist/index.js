@@ -11,7 +11,7 @@ var gucci = {
     },
     addClothes: function (name, price, type, department, gender, id) {
         console.log(this);
-        this.items.push({ name: name, price: price, type: type, department: department, gender: gender });
+        this.items.push({ name: name, price: price, type: type, department: department, gender: gender, id: id });
         this.storeData();
     },
     render: function (list, domElement) {
@@ -34,15 +34,21 @@ function handleShowClothes() {
 }
 function handleAddclothes(ev) {
     ev.preventDefault();
+    console.dir(ev.target);
     var name = ev.target.name.value;
     var price = ev.target.price.value;
-    var department = document.getElementById('selectDepartment').value;
-    var gender = document.getElementById('selectGender').value;
-    var type = document.getElementById('selectType').value;
+    var department = ev.target[2].value;
+    var gender = ev.target[3].value;
+    var type = ev.target[4].value;
     var id = uid;
     gucci.addClothes(name, price, department, gender, type, id);
     console.log(gucci.items);
     gucci.storeData();
+}
+function handleTestDepartment() {
+    gucci.getData();
+    var root = document.getElementById("rootTest");
+    gucci.renderAllitems(root);
 }
 var uid = function () {
     return Date.now().toString(36) + Math.random().toString(36).substr(2);
