@@ -8,21 +8,21 @@
 }
 @keyframes backgroundphotos {
   0% {
+    background: url(http://www.fusushi.co.il/warehouse/dynamic/50913.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center center;
+  }
+  33% {
     background: url(http://www.fusushi.co.il/warehouse/dynamic/50916.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
     background-position: center center;
   }
-  20% {
-    background: url(http://www.fusushi.co.il/warehouse/dynamic/50916.jpg);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center center;
-  }
-  40% {
-    background: url(http://en.fusushi.co.il/warehouse/dynamic/55244.jpg);
+  66% {
+    background: url(http://en.fusushi.co.il/warehouse/dynamic/55243.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -59,16 +59,11 @@ body {
 .home {
   position: relative;
   min-height: 100vh;
-  background: black;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center center;
   animation-name: backgroundphotos;
   animation-duration: 20s;
   animation-direction: normal;
   animation-iteration-count: infinite;
-  animation-timing-function: cubic-bezier(0, 1.57, 1, 0.96);
+  animation-timing-function: cubic-bezier(0, 1.01, 0, 1.01);
 }
 .home__title {
   position: absolute;
@@ -249,8 +244,19 @@ body {
   transform: scale(1.1);
 }
 
+.menuopacity {
+  background-color: rgba(0, 0, 0, 0.858);
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 3em;
+}
+
 .menu {
-  background: url("https://www.seekpng.com/png/detail/286-2863479_geisha-png-pic-geisha-png.png");
+  background: url("https://images3.alphacoders.com/929/thumb-1920-92919.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -261,10 +267,9 @@ body {
   align-items: center;
   text-align: center;
   min-height: 100vh;
-  color: #908c8c;
+  color: #EBEBEB;
 }
 .menu__title {
-  color: white;
   margin-top: 2rem;
   font-size: 3rem;
   font-weight: 600;
@@ -279,29 +284,35 @@ body {
 }
 .menu__box {
   display: grid;
-  grid-template-rows: repeat(3, 250px);
   grid-template-columns: repeat(6, 1fr);
-  gap: 15px;
+  grid-template-rows: repeat(3, 1fr);
   align-items: center;
+  width: 65%;
 }
 .menu__cell {
   margin-top: 2rem;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center center;
-  width: 12rem;
-  height: 15rem;
-  border-radius: 30%;
+  width: 10rem;
+  height: 12rem;
+  overflow: hidden;
+}
+.menu__cell .picwrap {
+  height: 10rem;
+  width: 10rem;
+  overflow: hidden;
+  border-radius: 100%;
+  border: 5px solid #1c1c1c;
 }
 .menu__cell img {
-  width: 100%;
-  height: 80%;
-  border-radius: 40%;
+  width: 102%;
+  height: 102%;
+  transition: all 0.6s ease-in-out;
 }
 .menu__cell img:hover {
   cursor: pointer;
   transform: scale(1.1);
+}
+.menu__cell img:not(:hover) {
+  transform: scale(1);
 }
 .menu__cell p {
   padding-top: 0.8rem;
