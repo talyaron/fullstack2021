@@ -8,8 +8,10 @@ interface Object {
     sortAsc(),
     sortDes(),
     deleteItem(idItem: string),
+    updateItem(idItem:string,newValue:string)
     renderAllData(root: any)
     render(root: any, list: namePrice),
+
 
 }
 
@@ -27,7 +29,7 @@ let nikeItems: object = {
         const idItem = uid();
 
         this.items.push({ name, price, idItem })
-        console.log(this.items)
+        
 
 
     },
@@ -41,7 +43,11 @@ let nikeItems: object = {
     },
     deleteItem(idItem) {
         this.items = this.items.filter(item => item.idItem !== idItem)
-        console.log(this.items);
+        
+    },
+    updateItem(idItem,newValue){
+        const i =this.items.findIndex(item=>item.idItem===idItem)
+        this.items[i].name=newValue
     },
     renderAllData(root: any) {
         const list = this.items;
@@ -52,8 +58,14 @@ let nikeItems: object = {
         let html: string = '';
 
         list.forEach(item => {
-            html += `<div class = 'card'> <p>${item.name}: ${item.price}</p></div>
-            <button onclick="handleDelete('${item.idItem}')">delete</button>`
+            html += `<div class = 'card'> <p>${item.name}: ${item.price}</p>
+            <button onclick="handleDelete('${item.idItem}')">delete</button>
+            <form onsubmit="handleupdate(event,'${item.idItem}')">
+            <input type="text" name="nameUpdate" placeholder="change item">
+            <input type="submit" value="submit">
+            </form>
+            </div>`
+            
         })
         root.innerHTML = html;
     }
@@ -92,6 +104,13 @@ function handleDesce() {
 function handleDelete(id) {
 
     nikeItems.deleteItem(id);
+    const root = document.getElementById('root');
+    nikeItems.renderAllData(root);
+}
+function handleupdate(event,id){
+    event.preventDefault();
+    const updateditem=event.target.elements.nameUpdate.value
+    nikeItems.updateItem(id,updateditem)
     const root = document.getElementById('root');
     nikeItems.renderAllData(root);
 }

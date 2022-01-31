@@ -6,7 +6,6 @@ var nikeItems = {
     additems: function (name, price) {
         var idItem = uid();
         this.items.push({ name: name, price: price, idItem: idItem });
-        console.log(this.items);
     },
     sortAsc: function () {
         this.items.sort(function (a, b) { return a.price - b.price; });
@@ -16,7 +15,10 @@ var nikeItems = {
     },
     deleteItem: function (idItem) {
         this.items = this.items.filter(function (item) { return item.idItem !== idItem; });
-        console.log(this.items);
+    },
+    updateItem: function (idItem, newValue) {
+        var i = this.items.findIndex(function (item) { return item.idItem === idItem; });
+        this.items[i].name = newValue;
     },
     renderAllData: function (root) {
         var list = this.items;
@@ -25,7 +27,7 @@ var nikeItems = {
     render: function (root, list) {
         var html = '';
         list.forEach(function (item) {
-            html += "<div class = 'card'> <p>" + item.name + ": " + item.price + "</p></div>\n            <button onclick=\"handleDelete('" + item.idItem + "')\">delete</button>";
+            html += "<div class = 'card'> <p>" + item.name + ": " + item.price + "</p>\n            <button onclick=\"handleDelete('" + item.idItem + "')\">delete</button>\n            <form onsubmit=\"handleupdate(event,'" + item.idItem + "')\">\n            <input type=\"text\" name=\"nameUpdate\" placeholder=\"change item\">\n            <input type=\"submit\" value=\"submit\">\n            </form>\n            </div>";
         });
         root.innerHTML = html;
     }
@@ -51,6 +53,13 @@ function handleDesce() {
 }
 function handleDelete(id) {
     nikeItems.deleteItem(id);
+    var root = document.getElementById('root');
+    nikeItems.renderAllData(root);
+}
+function handleupdate(event, id) {
+    event.preventDefault();
+    var updateditem = event.target.elements.nameUpdate.value;
+    nikeItems.updateItem(id, updateditem);
     var root = document.getElementById('root');
     nikeItems.renderAllData(root);
 }
