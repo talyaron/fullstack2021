@@ -100,22 +100,23 @@ gucciStore.renderAllData(root)
 
 //gucciStore.renderfilterByType("jewelry",root)
 
-// function handleSubmit(ev) {
-//     ev.preventDefault();
-//     const nameOfItem = ev.target.elements.nameOfItem.value;
-//     const price: number = ev.target.elements.price.valueAsNumber;
-//     const type = ev.target.elements.type.value;
+function handleSubmit(ev) {
+    ev.preventDefault();
+    console.log(ev.target.elements.nameOfItem.value)
+    const nameOfItem = ev.target.elements.nameOfItem.value;
+    const price: number = ev.target.elements.price.valueAsNumber;
+    const type = ev.target.elements.type.value;
 
-//     gucciStore.addItem(nameOfItem,price,type);
-//     const root=document.getElementById('root')
-//     gucciStore.renderAllData(root);
-
-
-
+    gucciStore.addItem(nameOfItem,price,type);
+    const root=document.getElementById('root')
+    gucciStore.renderAllData(root);
 
 
-//     ev.target.reset();
-// }
+
+
+
+    ev.target.reset();
+}
 
 
 

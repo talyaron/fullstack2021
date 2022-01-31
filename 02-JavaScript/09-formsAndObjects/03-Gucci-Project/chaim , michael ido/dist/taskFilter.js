@@ -123,6 +123,7 @@ function display(ev) {
     // console.log(ev.target);
     // receiving inputs values ----------
     // console.log(clothsList.Tshirts);
+    console.log(clothsList.Tshirts);
     var catagory;
     var brand;
     var price;
