@@ -1,0 +1,11 @@
+.erp {
+  background-color: bisque;
+}
+
+.container_title {
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: center;
+}

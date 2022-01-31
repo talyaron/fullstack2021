@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="dist/taskFilter.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="main">
+        <h1 class="main-header">Zap</h1>
+        
+        <form class="main_form" onsubmit='display(event)'>
+
+                <select class="main_form-selectCatagory" name="Catagory" id="selectCatagory">
+                    <option class="main_form-selectCatagory-options" value="empty">Choose Catagory</option>
+                    <option class="main_form-selectCatagory-options" value="Tshirts">Tshirts</option>
+                    <option class="main_form-selectCatagory-options" value="shoes">Shoes</option>
+                    <option class="main_form-selectCatagory-options" value="pants">Pants</option>
+                    </select>
+                    <div class="main_form-actions">
+                    <input class="main_form-actions-btn" type="button" name="Add" id="add" value="ADD" >
+                    <input class="main_form-actions-btn" type="button" name="sort" id="sort" value="Sort" >
+                    <input class="main_form-actions-btn" type="button" name="filter" id="filter" value="Filter">
+                    </div>
+
+                    <div class="main_form-displayOptions"></div>
+
+<!-- <input type="reset" value="reset"> -->                 
+                    <div class="main_form_btns">
+                    <button class="main_form_btns-Btn" type="button" onclick="SaveInLocalStorage()">Save</button>
+                    <input class="main_form_btns-Btn" name="submit" type="submit" value="Display">
+                </div>
+        </form>
+
+        <div class="main_scrollmenu" id="displayBox">
+            <div class="main_scrollmenu-box" id="TshirtsBox"></div>
+             <div class="main_scrollmenu-box" id="shoesBox"></div>
+            <div class="main_scrollmenu-box" id="pantsBox"></div>
+             </div> 
+    </div>
+    
+    <script src="dist/taskFilter.js"></script>
+</body>
+</html>

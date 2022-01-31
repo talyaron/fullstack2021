@@ -1,0 +1,8 @@
+.header {
+  display: flex;
+  border: solid black;
+  justify-content: center;
+}
+.header__navbartop .header__Gucci {
+  font-size: 4rem;
+}

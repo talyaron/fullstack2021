@@ -12,7 +12,6 @@ interface finditems {
 interface newItem {
     nameofitem?: string,
     price?: number
-    type:'tamir'|'tamir1'
 }
 let zapitems: finditems = {
     items: [],
@@ -56,16 +55,15 @@ let zapitems: finditems = {
 
 }
 
-zapitems.additem({nameofitem:'tamir',price:54,type:'tamir1'})
-zapitems.additem({nameofitem:'avi',price:54,type:'tamir'})
-zapitems.additem({nameofitem:'yosi',price:54,type:'tamir1'})
+zapitems.additem({nameofitem:'tamir',price:54})
+zapitems.additem({nameofitem:'avi',price:54})
+zapitems.additem({nameofitem:'yosi',price:54})
 // מוסיף אובייקט לפי דרישה
 function handleadditem(ev) {
     ev.preventDefault();
-    const type=ev.target.elements.type.value;
     const nameofitem = ev.target.elements.title.value;
     const price: number = ev.target.elements.price.valueAsNumber;
-    zapitems.additem({ nameofitem, price ,type})
+    zapitems.additem({ nameofitem, price })
     zapitems.renderitem(rootitems)
     ev.target.reset();
 }
@@ -74,6 +72,7 @@ function handlesortitem(ev) {
     ev.preventDefault();
     zapitems.sortitemsDES()
     zapitems.renderitem(rootitems)
+    
 }
 // ממיין את הרשימה לפי מחיר מלמטה למעלה
 function handlesortitemacs(ev) {
