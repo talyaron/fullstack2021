@@ -14,8 +14,8 @@ var gucci = {
         this.items.push({ name: name, price: price, type: type, department: department, gender: gender, id: id });
         this.storeData();
     },
-    removeItems: function (itemTitle) {
-        var index = this.items.findIndex(function (item) { return item.title === itemTitle; });
+    removeItems: function (itemName) {
+        var index = this.items.findIndex(function (item) { return item.name === itemName; });
         if (index >= 0) {
             this.items.splice(index, 1);
         }
@@ -48,19 +48,18 @@ function handleAddclothes(ev) {
     var id = uid;
     gucci.addClothes(name, price, department, gender, type, id);
     console.log(gucci.items);
+    ev.target.reset();
     gucci.storeData();
 }
-function handleTestDepartment() {
-    gucci.getData();
-    var root = document.getElementById("rootTest");
-    gucci.renderAllitems(root);
-}
-function handleremoveItems(ev) {
+function handleRemoveItems(ev) {
     ev.preventDefault();
     var name = ev.target.elements.remove.value;
     gucci.removeItems(name);
     var root = document.getElementById('root');
+    gucci.storeData();
     gucci.renderAllitems(root);
+    console.log(gucci.items);
+    ev.target.reset();
 }
 function loadImage(event) {
     var image = document.getElementById("imgDisplay");

@@ -34,8 +34,8 @@ const gucci: Store = {
     this.items.push({ name, price, type, department, gender, id });
     this.storeData();
   },
-  removeItems(itemTitle: string) {
-    const index = this.items.findIndex(item => item.title === itemTitle);
+  removeItems(itemName) {
+    const index = this.items.findIndex(item => item.name === itemName);
     if (index >= 0) {
       this.items.splice(index, 1)
 
@@ -76,21 +76,19 @@ function handleAddclothes(ev) {
   let id = uid
   gucci.addClothes(name, price, department, gender, type, id);
   console.log(gucci.items);
+  ev.target.reset()
   gucci.storeData();
 }
 
-function handleTestDepartment() {
-  gucci.getData();
-  const root = document.getElementById("rootTest");
-  gucci.renderAllitems(root);
-}
-
-function handleremoveItems(ev) {
+function handleRemoveItems(ev) {
   ev.preventDefault();
   const name = ev.target.elements.remove.value;
   gucci.removeItems(name);
   const root = document.getElementById('root');
+  gucci.storeData();
   gucci.renderAllitems(root);
+  console.log(gucci.items);
+  ev.target.reset()
 }
 
 function loadImage(event) {
