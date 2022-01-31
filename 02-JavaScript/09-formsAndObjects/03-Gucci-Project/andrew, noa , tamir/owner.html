@@ -89,6 +89,84 @@
         <input type="submit" value="Add" name="send">
     </form>
 
+    <form class="updateForm" onsubmit="handleUpdate(event)">
+        <input type="text" name="name" placeholder="name">
+        <input type="number" name="price" placeholder="price">
+        <input type="text" name="img" placeholder="img">
+        
+        <select  name="group" id="">
+            <option value="group" disabled selected>gruop</option>
+            <option value="AUTOMATIC WATCHES">AUTOMATIC WATCHES</option>
+            <option value="CLASSIC WATCHES">CLASSIC WATCHES</option>
+            <option value="LADIES WATCHES">LADIES WATCHES</option>
+            <option value="MANS WATCHES">MANS WATCHES</option>
+            <option value="MILITRY WATCHES">MILITRY WATCHES</option>
+            <option value="NEW RELEASES">NEW RELEASES</option>
+            <option value="SPORT WATCHES">SPORT WATCHES</option>
+        </select>
+        <select name="Collection" id="" >
+            <option value="collection" disabled selected>collection</option>
+            <option value="AIRCOBRA">AIRCOBRA</option>
+            <option value="BRISTOL">BRISTOL</option>
+            <option value="DOUGLAS">DOUGLAS</option>
+            <option value="MIG">MIG</option>
+            <option value="MOONFLIGHT">MOONFLIGHT</option>
+        </select>
+        <select name="function" id="">
+            <option value="function" disabled selected>function</option>
+            <option value="Chronograph">Chronograph</option>
+            <option value="Day / Date">Day / Date</option>
+            <option value="Moonphase">Moonphase</option>
+            <option value="Oversized Date">Oversized Date</option>
+            <option value="Small Second">Small Second</option>
+        </select>
+        <select name="movement" id="" >
+            <option value="movement" disabled selected>movement</option>
+            <option value="Automatic">Automatic</option>
+            <option value="Quartz">Quartz</option>
+        </select>
+        <select name="case" id="">
+            <option value="case" disabled selected>case</option>
+            <option value="Black PVD">Black PVD</option>
+            <option value="Brown PVD">Brown PVD</option>
+            <option value="Gold PVD">Gold PVD</option>
+            <option value="Grey PVD">Grey PVD</option>
+            <option value="Rose Gold PVD">Rose Gold PVD</option>
+            <option value="Stainless Steel">Stainless Steel</option>
+        </select>
+        <select name="diameter" id="" >
+            <option value="diameter" disabled selected>diameter</option>
+            <option value="36 mm">36 mm</option>
+            <option value="41.20 mm">41.20 mm</option>
+            <option value="42 mm">42 mm</option>
+            <option value="45 mm">45 mm</option>
+            <option value="46 mm">46 mm</option>
+            <option value="47 mm">47 mm</option>
+        </select>
+        <select name="dial" id="">
+            <option value="dial" disabled selected>dial</option>
+            <option value="Beige">Beige</option>
+            <option value="Black">Black</option>
+            <option value="Blue">Blue</option>
+            <option value="Brown">Brown</option>
+            <option value="Green">Green</option>
+            <option value="Grey">Grey</option>
+            <option value="Ivory">Ivory</option>
+            <option value="Pink">Pink</option>
+            <option value="Red">Red</option>
+            <option value="Rose Gold">Rose Gold</option>
+            <option value="Rose Taupe">Rose Taupe</option>
+            <option value="Silver">Silver</option>
+            <option value="White">White</option>
+        </select>
+        <select name="bracelet" id="">
+            <option value="bracelet" disabled selected>bracelet</option>
+            <option value="Leather">Leather</option>
+            <option value="Rubber">Rubber</option>
+            <option value="Steel">Steel</option>
+        </select>
+        <input type="submit" value="Update" name="send">
+    </form>
    <div id="root"></div>
     <script src="dist/owner.js"></script>
 </body>

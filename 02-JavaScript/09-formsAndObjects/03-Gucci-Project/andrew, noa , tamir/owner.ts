@@ -28,7 +28,7 @@ const uid = function () {
     return Date.now().toString(36) + Math.random().toString(36).substr(2);
 };
 
-let stock:aviator = {
+let stock: aviator = {
     items: [],
     addItem(newItem) {
         newItem.id = uid();
@@ -38,7 +38,7 @@ let stock:aviator = {
         this.storeData();
     },
 
-    storeData(){
+    storeData() {
         localStorage.setItem('storeData', JSON.stringify(this.items))
     },
 
@@ -66,7 +66,7 @@ let stock:aviator = {
             <p> dial: ${item.dial}</p>
             <p> bracelet: ${item.bracelet}</p>
             <button onclick="handleDelete('${item.id}')">Delete</button>
-            <button onclick="handleUpdate()">Update</button>
+            <button onclick="handleEdit('${item.id}')">Edit</button>
            </div> `
         });
         const rootHTML = document.getElementById('root')
@@ -124,6 +124,56 @@ function handleSubmit(ev) {
 function handleDelete(id) {
     stock.deleteItem(id);
     stock.renderStock(stock.items);
+}
+
+function handleEdit(id) {
+    const form: any = document.querySelector('.updateForm');
+    form.classList.add('visableForm')
+    let EditedItem:any = stock.items.filter((item) => item.id === id)[0];
+    console.log(EditedItem);
+    for (let field of form) {
+        let name = field.name;
+        switch (name) {
+            case "name":
+                field.value = EditedItem.name;
+                break;
+            case "price":
+                field.value = EditedItem.price;
+                break;
+            case "img":
+                field.value = EditedItem.img;
+                break;
+            case "group":
+                field.value = EditedItem.group;
+                break;
+            case "Collection":
+                field.value = EditedItem.Collection;
+                break;
+            case "function":
+                field.value =  EditedItem.function;
+                break;
+            case "movement":
+                field.value =  EditedItem.movement;
+                break;
+            case "case":
+                field.value = EditedItem.case;
+                break;
+            case "diameter":
+                field.value = EditedItem.diameter;
+                break;
+            case "dial":
+                field.value =  EditedItem.dial;
+                break;
+            case "bracelet":
+                field.value = EditedItem.bracelet;
+                break;
+        }
+    }
+}
+
+function handleUpdate(ev) {
+ev.preventDefault()
+    
 }
 
 stock.addItem({ name: 'DOUGLAS DAY 41', price: 45, img: `https://aviatorwatch.swiss/assets/catalog/douglas-day-date-41/AVIATOR-WATCH--DOUGLAS-DAY-DATE-41--V.3.35.0.278.4.webp`, group: "AUTOMATIC WATCHES", Collection: "BRISTOL", function: "Chronograph", movement: "Quartz", case: "Gold PVD", diameter: "42 mm", dial: "Ivory", bracelet: "Leather", id: 0 })

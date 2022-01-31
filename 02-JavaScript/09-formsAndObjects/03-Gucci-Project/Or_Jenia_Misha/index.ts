@@ -1,64 +1,90 @@
 const uid = function () {
-    return Date.now().toString(36) + Math.random().toString(36).substr(2);
+  return Date.now().toString(36) + Math.random().toString(36).substr(2);
+};
+
+interface Menu {
+  dishes: Array<Dish>;
+
+  addDish?(name: string, price: number, description: string, category: string);
+  removeDish?(id: string);
+  updateDish?(id: string, newDish: Dish);
+  renderDishes?(list: any, domElement: any);
+  storeData?();
+  getData?();
 }
 
-    interface Menu {
+interface Dish {
+  id: string;
+  name: string;
+  price: number;
+  description: string;
+  category: string;
+}
 
-        dishes: Array<Dish>;
+let sushiMenu: Menu = {
+  dishes: [
+    {
+      id: "a1",
+      name: "Maguro Nigiri",
+      price: 70,
+      description:
+        "Rice fingers with red tuna tataki with foie gras and a drizzle of teriyaki. 5 pcs",
+      category: "firsts",
+    },
+  ],
 
-        addDish?(name:string, price:number, description:string, category:string)
-        removeDish?(id)
-        updateDish(id, newDish)
-        renderDishes?(list,domElement)
+  addDish(name, price, description, category) {
+    let id = uid();
+    this.dishes.push({ id, name, price, description, category });
+    this.storeData();
+    this.getData();
+  },
+
+  removeDish(id) {
+    this.dishes = this.dishes.filter((dish) => dish.id !== id);
+  },
+
+  updateDish(id, newDish) {
+    const index = this.dishes.findIndex((dish) => dish.id === id);
+
+    if (index >= 0) {
+      this.dishes[index] = newDish;
     }
+  },
+  renderDishes(list, domElement) {
+    let html = "";
+    list.forEach((item) => {
+      html += `<div class="card">${item.name}, ${item.price},${item.category}</div>`;
+    });
 
-    interface Dish {
-
-        id: string;
-        name: string,
-        price: number,
-        description: string,
-        category: string,
-
+    domElement.innerHTML = html;
+  },
+  storeData() {
+    localStorage.setItem("storeData", JSON.stringify(this.dishes));
+  },
+  getData() {
+    const dishes = JSON.parse(localStorage.getItem("storeData"));
+    if (dishes && Array.isArray(dishes)) {
+      this.dishes= dishes;
     }
+  },
+};
+const root = document.getElementById("root");
+sushiMenu.renderDishes(sushiMenu.dishes, root);
 
-    let sushiMenu: Menu = {
+function handleAddDish(ev) {
+  ev.preventDefault();
+  const dishName = ev.target.elements.name.value;
+  const dishPrice = ev.target.elements.price.valueAsNumber;
+  const dishDesc = ev.target.elements.description.value;
+  const dishCategory = (<HTMLSelectElement>document.getElementById("category"))
+    .value;
+  sushiMenu.addDish(dishName, dishPrice, dishDesc, dishCategory);
+  const root = document.getElementById("root");
+  sushiMenu.renderDishes(sushiMenu.dishes, root);
+  ev.target.reset();
+}
 
-        dishes: [
-            {
-                id: 'a1',
-                name: 'Maguro Nigiri',
-                price: 70,
-                description: 'Rice fingers with red tuna tataki with foie gras and a drizzle of teriyaki. 5 pcs',
-                category: 'firsts'
-            }
-        ],
+sushiMenu.getData();
 
-        addDish(name, price, description, category){
-            let id = uid();
-            this.dishes.push({id, name, price, description, category})
-        },
-
-        removeDish(id){
-            this.dishes = this.dishes.filter(dish => dish.id !== id);
-        },
-
-        updateDish(id, newDish) {
-
-            const index = this.dishes.findIndex((dish) => dish.id === id);
-
-            if (index >= 0) {
-              this.dishes[index] = newDish;
-            }
-
-        },
-
-
-    }
-
-  
-sushiMenu.addDish('Tuna Tartare', 66, 'Spicy tuna, tempura flakes, nori sheets, seared avocado, chives and cucumber. Served with spiced soy sauce.', 'firsts')
-sushiMenu.removeDish('a1');
-
-
-console.log(sushiMenu);
+// sushiMenu.renderDishes(sushiMenu.dishes, root);
