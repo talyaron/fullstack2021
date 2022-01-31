@@ -158,7 +158,7 @@ var clothsList = {
     renderCustomerPage: function (list, display, catagory) {
         var html = "";
         list.forEach(function (element) {
-            html += " \n                <div class=\"container_catagories-display-card\">\n                <div class=\"container_catagories-display-card-details\">\n                <h3 class=\"container_catagories-display-card-head\">" + element.brand + " " + catagory + "</h3>\n                <p class=\"container_catagories-display-card-para\"> Size : " + element.size + "</p>\n               <p class=\"container_catagories-display-card-para\"> Price : " + element.price + " </p>\n               <button class=\"container_catagories-display-card-btn\" onclick=\"addToCart('" + element.id + "')\">Add To Cart</button>\n               </div>\n               <div id=\"itemImg\" class=\"container_catagories-display-card-img\"><img src=\"\" id=\"imgBox\" alt=\"\"></div>\n               </div>\n                ";
+            html += " \n                <div class=\"container_catagories-display-card\">\n                <div class=\"container_catagories-display-card-details\">\n                <h3 class=\"container_catagories-display-card-head\">" + element.brand + " " + catagory + "</h3>\n                <p class=\"container_catagories-display-card-para\"> Size : " + element.size + "</p>\n               <p class=\"container_catagories-display-card-para\"> Price : " + element.price + " </p>\n               <button class=\"container_catagories-display-card-btn\" onclick=\"addToCart('" + element.id + "')\">Add To Cart</button>\n               </div>\n               <div id=\"itemImg\" class=\"container_catagories-display-card-img\"></div>\n               </div>\n                ";
         });
         display.innerHTML = html;
     },
@@ -170,6 +170,38 @@ var clothsList = {
     },
     renderCustomerPagePants: function (display, catagory) {
         this.renderCustomerPage(display, catagory);
+    }, SortCustomerPage: function (list, catagory, sortOption, display) {
+        var sortedList;
+        if (sortOption == "sortLowToHigh") {
+            sortedList = list.sort(function (a, b) {
+                return a.price - b.price;
+            });
+        }
+        else if (sortOption == "sortHighToLow") {
+            sortedList = list.sort(function (a, b) {
+                return b.price - a.price;
+            });
+        }
+        else if (sortOption == "sortAtoZ") {
+            sortedList = list.sort(function (a, b) {
+                return a.brand.toLowerCase() > b.brand.toLowerCase()
+                    ? 1
+                    : b.brand.toLowerCase() > a.brand.toLowerCase()
+                        ? -1
+                        : 0;
+            });
+        }
+        else if (sortOption == "sortZtoA") {
+            sortedList = list.sort(function (a, b) {
+                return b.brand.toLowerCase() > a.brand.toLowerCase()
+                    ? 1
+                    : a.brand.toLowerCase() > b.brand.toLowerCase()
+                        ? -1
+                        : 0;
+            });
+        }
+        console.log(sortedList);
+        this.render(sortedList, display, catagory);
     }
 };
 function display(ev) {
@@ -219,8 +251,9 @@ function display(ev) {
             }
         }
     }
-    console.log(filterPriceFromInput);
-    console.log(filterPriceUpToInput);
+    console.log(sortOption);
+    // console.log(filterPriceFromInput);
+    // console.log(filterPriceUpToInput);
     var sortOptions = document.querySelectorAll(".main_form-selectCatagory-sortOptions");
     var TshirtsBox = document.getElementById("TshirtsBox");
     var shoesBox = document.getElementById("shoesBox");
@@ -382,7 +415,7 @@ catagoriesBoxes.forEach(function (box) {
     box.addEventListener("click", function (ev) { showOptions(ev, boxId); });
 });
 function showOptions(box, boxId) {
-    var html = "\n    <select class=\"container-select\" name=\"chooseSort\" id=\"" + boxId + "\" onchange=\"handleSort(event)\">\n   <option class=\"\"container-select-Options\" disabled selected>Sort By</option>\n   <option class=\"\"container-select-Options\" value=\"sortAtoZ\">A ---> Z</option>\n   <option class=\"\"container-select-Options\" value=\"sortZtoA\">Z ---> A</option>\n   <option class=\"\"container-select-Options\" value=\"sortLowToHigh\">$ Low to High $</option>\n   <option class=\"\"container-select-Options\" value=\"sortHighToLow\">$ High to Low $</option>\n   </select>   \n   <select class=\"container-select\" name=\"chooseFilter\" id=\"selectFilterBy\" onchange=\"handleFilter(event)\">\n   <option class=\"main_form-select-Options\" disabled selected>Filter By</option>\n   <option class=\"main_form-select-Options\" value=\"brand\">Brand</option>\n   <option class=\"main_form-select-Options\" value=\"size\" >Size</option>\n   <option class=\"main_form-select-Options\" value=\"price\">Price</option>\n   </select> ";
+    var html = "\n    <select class=\"container-select\" name=\"chooseSort\" id=\"" + boxId + "\" onchange=\"handleSort(event)\">\n   <option class=\"\"container-select-Options\" disabled selected>Sort By</option>\n   <option class=\"\"container-select-Options\" value=\"sortAtoZ\">A ---> Z</option>\n   <option class=\"\"container-select-Options\" value=\"sortZtoA\">Z ---> A</option>\n   <option class=\"\"container-select-Options\" value=\"sortLowToHigh\">$ Low to High $</option>\n   <option class=\"\"container-select-Options\" value=\"sortHighToLow\">$ High to Low $</option>\n   </select>   \n   <select class=\"container-select\" name=\"chooseFilter\" id=\"" + boxId + "\" onchange=\"handleFilter(event)\">\n   <option class=\"main_form-select-Options\" disabled selected>Filter By</option>\n   <option class=\"main_form-select-Options\" value=\"brand\">Brand</option>\n   <option class=\"main_form-select-Options\" value=\"size\" >Size</option>\n   <option class=\"main_form-select-Options\" value=\"price\">Price</option>\n   </select> ";
     // const cardImg = document.getElementById('itemImg')
     var sortANDfilterBtnsTshirts = document.getElementById("sortANDfilterBtnsTshirts");
     var sortANDfilterBtnsShoes = document.getElementById("sortANDfilterBtnsShoes");
@@ -416,16 +449,14 @@ function handleSort(ev) {
     var sortValue = ev.target.value;
     var boxId = ev.target.id;
     console.log(boxId);
-    if (sortValue == "sortAtoZ") {
-        console.log("lala");
+    var ListDisplay = document.getElementById('ListDisplay');
+    if (boxId == 'Tshirts') {
+        clothsList.SortCustomerPage(clothsList.Tshirts, "Tshirt", sortValue, ListDisplay);
     }
-    else if (sortValue == "sortZtoA") {
-        console.log("lili");
+    else if (boxId == "shoes") {
+        clothsList.SortCustomerPage(clothsList.shoes, "Shoes", sortValue, ListDisplay);
     }
-    else if (sortValue == "sortLowToHigh") {
-        console.log("dadad");
-    }
-    else if (sortValue == "sortHighToLow") {
-        console.log("rarara");
+    else if (boxId == "pants") {
+        clothsList.SortCustomerPage(clothsList.pants, "Pants", sortValue, ListDisplay);
     }
 }
