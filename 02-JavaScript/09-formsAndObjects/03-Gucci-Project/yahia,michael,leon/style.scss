@@ -6,6 +6,7 @@
     height: 7vh;
     display: flex;
     background-color: rgb(247, 243, 243);
+    justify-self: end;
     
 }
 .main_navbar{
@@ -23,6 +24,7 @@
     background-repeat: no-repeat;
     width: 10%;
     height: 7vh;
+    justify-self: start;
    
 }
 .nike{
@@ -62,7 +64,8 @@
     grid-row: 9/9;
     text-align: center;
     font-size: 32px;
-    p{
+    
+    span{
         font-family: fantasy;
         font-weight: bold;
         font-size: 50px;
@@ -80,8 +83,10 @@
     width: 15%;
     height: 10vh;
     color: white;
-    text-align: center;
     font-family: monospace;
     font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     }
 }
