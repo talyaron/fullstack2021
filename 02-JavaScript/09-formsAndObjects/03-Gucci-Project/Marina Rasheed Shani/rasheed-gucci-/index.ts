@@ -1,33 +1,36 @@
 interface Store {
-  menClothes: Array<menClothes>;
+  items: Array<Item>;
   storeData();
   getData();
-  addClothes(name: string, price: number): any;
+  addClothes(name: string, price: number, type: string, department: 'clothes' | 'watches' | 'jewelry' | 'bags', gender: 'men' | 'women',id : any): any;
   render(list: any, domElement: any): any;
-  renderAllmenClothes(domElement: any): any;
+  renderAllitems(domElement: any): any;
 }
 
-interface menClothes {
+interface Item {
   name: string;
   price: number;
-  type?: "menClother" | "Watches";
-  id?: number;
+  type?: string;
+  department: 'clothes' | 'watches' | 'jewelry' | 'bags';
+  gender: 'men' | 'women'
+  id?: any;
 }
 
+
 const gucci: Store = {
-  menClothes: [],
+  items: [],
   storeData() {
-    localStorage.setItem("storeData", JSON.stringify(this.menClothes));
+    localStorage.setItem("storeData", JSON.stringify(this.items));
   },
   getData() {
     const clothesStorage = JSON.parse(localStorage.getItem("storeData"));
     if (Array.isArray(clothesStorage)) {
-      this.menClothes = clothesStorage;
+      this.items = clothesStorage;
     }
   },
-  addClothes(name, price) {
+  addClothes(name, price, type, department, gender,id) {
     console.log(this);
-    this.menClothes.push({ name, price });
+    this.items.push({ name, price, type, department, gender});
     this.storeData();
   },
   render(list, domElement) {
@@ -39,9 +42,9 @@ const gucci: Store = {
     });
     domElement.innerHTML = html;
   },
-  renderAllmenClothes(domElement) {
-    const menClothes = this.menClothes;
-    this.render(menClothes, domElement);
+  renderAllitems(domElement) {
+    const items = this.items;
+    this.render(items, domElement);
   },
 };
 
@@ -50,26 +53,22 @@ gucci.getData();
 function handleShowClothes() {
   gucci.getData();
   const root = document.getElementById("root");
-  gucci.renderAllmenClothes(root);
+  gucci.renderAllitems(root);
 }
 
 function handleAddclothes(ev) {
   ev.preventDefault();
-
   const name = ev.target.name.value;
   const price = ev.target.price.value;
-  gucci.addClothes(name, price);
-  console.log(gucci.menClothes);
+  const department = ev.target.value;
+  const gender = ev.target.value;
+  const type = ev.target.value;
+  let id = uid
+  gucci.addClothes(name, price, department, gender, type, id);
+  console.log(gucci.items);
   gucci.storeData();
 }
 
-// gucci.addClothes('T-Shirt' , 552)
-// gucci.addClothes('Pants' , 552)
-// gucci.addClothes('Jeans' , 552)
-// gucci.addClothes('T-Shirt' , 552)
-// gucci.addClothes('T-Shirt' , 552)
-// gucci.addClothes('T-Shirt' , 552)
-// gucci.addClothes('T-Shirt' , 552)
-// gucci.addClothes('T-Shirt' , 552)
-// gucci.addClothes('T-Shirt' , 552)
-// gucci.addClothes('T-Shirt' , 552)
+const uid = function () {
+  return Date.now().toString(36) + Math.random().toString(36).substr(2);
+};
