@@ -1,18 +1,71 @@
+@mixin backgroundsettings {
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center center;
+}
+
+
+@keyframes arrowdown {
+
+    from {
+        top: -18px;
+    }
+
+    to {
+        top: 10px;
+    }
+
+}
+
+@keyframes backgroundphotos {
+
+    0% {
+        background: url(http://www.fusushi.co.il/warehouse/dynamic/50913.jpg);
+        @include backgroundsettings;
+    }
+
+    33% {
+        background: url(http://www.fusushi.co.il/warehouse/dynamic/50916.jpg);
+        @include backgroundsettings;
+    }
+
+    66% {
+        background: url(http://en.fusushi.co.il/warehouse/dynamic/55243.jpg);
+        @include backgroundsettings;
+    }
+
+    100% {
+        background: url(http://www.fusushi.co.il/warehouse/dynamic/50913.jpg);
+        @include backgroundsettings;
+    }
+
+}
+
+@keyframes slide{
+    0%{
+        left: 500%;
+    }
+
+    100%{
+        left: 0%;
+    }
+}
+
+
 * {
     padding: 0;
     margin: 0;
     border: 0;
-    font-family: bebas;
+    box-sizing: border-box;
+
 }
 
 body {
-    // font-family: 'Bebas Neue', cursive;
-    font-family: 'Poppins', sans-serif;
-    // font-family: 'The Nautigal', cursive;
-    // font-family: 'VT323', monospace;
-    // font-family: 'Zen Kurenaido', sans-serif;
+    font-family: 'Barlow Condensed', sans-serif;
 }
 
+// ---------- HOME -------  //
 
 .homeopacity {
     background-color: rgba(0, 0, 0, 0.308);
@@ -28,19 +81,15 @@ body {
 
     position: relative;
     min-height: 100vh;
+    animation-name: backgroundphotos;
+    animation-duration: 20s;
+    animation-direction: normal;
+    animation-iteration-count: infinite;
+    animation-timing-function: cubic-bezier( 0, 1.01, 0, 1.01 );
 
-    background:
-        url(http://www.fusushi.co.il/warehouse/dynamic/50913.jpg),
-        url(http://www.fusushi.co.il/warehouse/dynamic/50916.jpg),
-        url(http://en.fusushi.co.il/warehouse/dynamic/55244.jpg;);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center center;
-
-    &__title{
+    &__title {
         position: absolute;
-        top: 50%;
+        top: 40%;
         color: #EBEBEB;
         font-size: 65px;
     }
@@ -48,10 +97,6 @@ body {
 
 }
 
-.lobby {
-    min-height: 100vh;
-    background-color: rgb(18, 18, 19);
-}
 
 .navbar {
     position: fixed;
@@ -63,8 +108,11 @@ body {
     height: 60px;
     background-color: #EBEBEB;
     z-index: 2;
+    font-size: 18px;
+
 
     ul {
+
         list-style-type: none;
         display: flex;
         justify-content: space-between;
@@ -72,39 +120,307 @@ body {
         align-items: center;
         padding: 1em;
 
+        li {
+            padding: 5px;
+
+            &:hover {
+                cursor: pointer;
+                box-shadow: 0 0 0 1px rgb(0, 0, 0);
+            }
+
+
+        }
+
+        .fulogo,
+        .smedia {
+            &:hover {
+                box-shadow: 0 0 0 0px rgb(0, 0, 0);
+            }
+
+        }
+
         img {
             height: 130px;
+        }
+
+        .smedia {
+            font-size: 24px;
+
+            i {
+                margin-inline: 0.2em;
+            }
+        }
+
+        i {
+            padding: 0.2em;
+
+            &:hover {
+                box-shadow: 0 0 0 1px rgb(0, 0, 0);
+            }
         }
     }
 
 }
 
-.footer__whatsapp {
+
+.footer {
+    position: absolute;
+    top: 75%;
+    display: flex;
+    width: 95%;
+    justify-content: space-between;
+    color: white;
+
+    .footer__whatsapp {
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 180px;
+        width: 130px;
+        text-align: center;
+        font-size: 18px;
+        line-height: 1;
+
+        .wapic {
+            width: 100%;
+        }
+
+        img {
+            margin-top: 0.2em;
+            height: 90px;
+            width: 90px;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+    }
+
+    .footer__arrowpics {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+
+
+        &__arrow {
+            font-size: 5rem;
+            font-weight: 200;
+            position: relative;
+            animation-name: arrowdown;
+            animation-duration: 1s;
+            animation-direction: alternate;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;
+        }
+
+        &__pics {
+            i {
+                margin-inline: 0.2em;
+            }
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    .footer__gift {
+        display: flex;
+        align-items: center;
+
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        img {
+            height: 96px;
+            width: 96px;
+        }
+    }
+}
+
+// -------- LOBBY ---------- //
+
+
+.lobby {
+
+    min-height: 100vh;
+    background-color: rgb(12, 11, 11);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    &__description {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h2 {
+            margin-top: 5rem;
+            font-size: 3rem;
+            font-weight: 600;
+
+            &::after {
+                content: '';
+                height: 2px;
+                width: 80px;
+                background: #ed3524;
+                display: block;
+                margin: 2px auto 0;
+            }
+
+        }
+
+        p {
+            margin-top: 3rem;
+            width: 50ch;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+
+    }
+
+    &__images {
+        font-size: 1.5rem;
+        margin-top: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 75px;
+
+        &__box__image {
+            width: fit-content;
+            overflow: hidden;
+
+        }
+
+        p {
+            margin-top: 5px;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+
+        img {
+            width: 100%;
+            display: block;
+            transition: ease-in-out .5s;
+
+            &:hover {
+                cursor: pointer;
+                transform: scale(1.1);
+            }
+        }
+    }
+}
+
+//------------- MENU -------------//
+
+.menuopacity {
+    background-color: rgba(0, 0, 0, 0.858);
+    height: 100vh;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: absolute;
-    top: 80%;
-    right: 90%;
-    height: 100px;
-    width: 100px;
-    color: white;
-
-    img {
-        margin-top: 0.3em;
-        height: auto;
-        width: 100px;
-    }
-
+    justify-content: center;
+    padding-top: 3em;
 }
 
-.footer__gift{
-    img{
-        position: absolute;
-        top: 83%;
-        left: 90%;
-        height: 100px;
-        width: 100px;
+.menu {
+
+    background: url("https://images3.alphacoders.com/929/thumb-1920-92919.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+    color: #EBEBEB;
+
+
+    &__title {
+        margin-top: 2rem;
+        font-size: 3rem;
+        font-weight: 600;
+
+        &::after {
+            content: '';
+            height: 2px;
+            width: 60px;
+            background: #ed3524;
+            display: block;
+            margin: 2px auto 0;
+        }
+    }
+
+    &__box {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        align-items: center;
+        width: 65%;
+
+    }
+
+    &__cell {
+
+        position: relative;
+        margin-top: 2rem;
+        width: 10rem;
+        height: 12rem;
+        overflow: hidden;
+        
+
+
+        .picwrap {
+            transition: all 0.6s ease-in-out;
+            height: 10rem;
+            width: 10rem;
+            overflow: hidden;
+            border-radius: 100%;
+            border: 5px solid rgb(28, 28, 28);
+            &:hover{
+                border: 5px solid rgb(53, 53, 53);
+            }
+        }
+
+        img {
+
+            width: 102%;
+            height: 102%;
+  
+
+            &:hover {
+                cursor: pointer;
+                transform: scale(1.1);
+            }
+
+            &:not(:hover) {
+                transform: scale(1);
+            }
+
+            transition: all 0.6s ease-in-out;
+        }
+
+        p {
+            padding-top: 0.8rem;
+            text-shadow: 1px 1px 3px black;
+        }
+
     }
 }
-

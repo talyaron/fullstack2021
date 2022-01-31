@@ -151,18 +151,96 @@
 
 
 
+// // 1
+// // 12
+// // 123
+// // 1234
 
-let num=5
-let result=""
-for(let i=0;i<num;i++){
-    for(let j=0;j<i;j++){
-    result+=i
- } 
- console.log(result)
+// let num=5
+// let result=""
+
+
+// for(let i=1;i<num;i++)
+// { 
+    
+ 
+//     result=result+i
+    
+ 
+//     console.log(result)
+// }
+// console.log("End")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// let numOfStars=5
+// let solution=""
+
+// for(i=0;i<numOfStars;i++){
+//     solution=solution+"*"
+
+//     console.log(solution)
+// }
+
+// //the first exercise he gave with the stars
+// let num=3;
+// let result=""
+// for(let i=0;i<num;i++){
+//     result = ""
+//     for(let j=0;j<=i;j++){
+//         result+="*" 
+//     }
+//     console.log(result)    
+// }
+// result=""
+
+
+//multipication table
+
+let num=10;
+//let result=0
+
+for(i=0;i<num;i++){
+
+    let result=1
+    
+
+    for(j=0;j<num;j++){
+        
+        result=j*i
+       
+    }
+    
+    console.log(result)
 }
-
-
-
 
 
 

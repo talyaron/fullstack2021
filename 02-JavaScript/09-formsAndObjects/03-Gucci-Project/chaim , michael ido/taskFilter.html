@@ -12,6 +12,7 @@
         <h1 class="main-header">Zap</h1>
         
         <form class="main_form" onsubmit='display(event)'>
+
                 <select class="main_form-selectCatagory" name="Catagory" id="selectCatagory">
                     <option class="main_form-selectCatagory-options" value="empty">Choose Catagory</option>
                     <option class="main_form-selectCatagory-options" value="Tshirts">Tshirts</option>
@@ -21,27 +22,25 @@
                     <div class="main_form-actions">
                     <input class="main_form-actions-btn" type="button" name="Add" id="add" value="ADD" >
                     <input class="main_form-actions-btn" type="button" name="sort" id="sort" value="Sort" >
-                    <input class="main_form-actions-btn" type="button" name="filter" id="filter" value="Filter" >
+                    <input class="main_form-actions-btn" type="button" name="filter" id="filter" value="Filter">
                     </div>
 
                     <div class="main_form-displayOptions"></div>
 
-<!-- <input type="reset" value="reset"> -->
-                    
-                    <input class="main_form-submit" name="submit" type="submit" value="Display">
+<!-- <input type="reset" value="reset"> -->                 
+                    <div class="main_form_btns">
+                    <button class="main_form_btns-Btn" type="button" onclick="SaveInLocalStorage()">Save</button>
+                    <input class="main_form_btns-Btn" name="submit" type="submit" value="Display">
+                </div>
         </form>
 
-
+       
         <div class="main_scrollmenu" id="displayBox">
             <div class="main_scrollmenu-box" id="TshirtsBox"></div>
              <div class="main_scrollmenu-box" id="shoesBox"></div>
             <div class="main_scrollmenu-box" id="pantsBox"></div>
              </div> 
-
-
-
     </div>
-    
     
     <script src="dist/taskFilter.js"></script>
 </body>

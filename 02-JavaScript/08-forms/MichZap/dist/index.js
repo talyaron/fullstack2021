@@ -11,14 +11,13 @@ var Items = {
         domElement.innerHTML = html;
     }
 };
-// Items.addItems({itemName:`mug`,itemPrice:14});
-// console.log(Items);
 function handleSubmit(ev) {
     ev.preventDefault();
     console.dir(ev.target);
-    var itemName = ev.target.elements.itemName;
-    var itemPrice = ev.target.elements.itemPrice;
+    var itemName = ev.target.elements.itemName.value;
+    var itemPrice = ev.target.elements.itemPrice.valueAsNumber;
     Items.addItems({ itemName: itemName, itemPrice: itemPrice });
     var rootItems = document.getElementById('rootItems');
     Items.renderItems(rootItems);
+    ev.target.reset();
 }

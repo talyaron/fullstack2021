@@ -6,8 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aviator Watches</title>
+    <script src="https://kit.fontawesome.com/07ce8225e4.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="dist/style.css">
     <script src="dist/index.js" defer></script>
+    <script src="dist/index2.js" defer></script>
 </head>
 
 <body>
@@ -15,7 +17,7 @@
         <div class="header__wrapper">
             <div class="header__wrapper__item">CONTACT US</div>
             <div class="header__wrapper__item">+972-545123456</div>
-            <div class="header__wrapper__item">ISRAEL (USD)</div>
+            <div class="header__wrapper__item" id="currency-button">ISRAEL (USD)</div>
             <div class="header__wrapper__item">EN</div>
         </div>
         <div class="header__wrapper">
@@ -23,6 +25,12 @@
             <div class="header__wrapper__item">ACCOUNT</div>
             <div class="header__wrapper__item">CART</div>
         </div>
+    </div>
+    <div class="currency-selector">
+        <p>Please choose your prefered currency:</p>
+        <div class="currency" id="USD"><p>($) USD</p><img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/220px-Flag_of_the_United_States.svg.png"></div>
+        <div class="currency" id="GBP"><p>(£) GBP</p><img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/255px-Flag_of_the_United_Kingdom.svg.png"></div>
+        <div class="currency" id="EUR"><p>(€) EUR</p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Flag_of_Europe.svg/255px-Flag_of_Europe.svg.png"></div>
     </div>
     <div class="nav-bar">
         <div class="nav-bar__item">WATCHES</div>
@@ -110,35 +118,22 @@
             <p>Steel</p>
         </div>
         <div class="filter-dropbar__group">
-            <p>Bestseller</p>
-            <p>Highest price</p>
-            <p>Lowest price</p>
+            <p>Bestseller</p>  
+            <p onclick="handlesortitemacs(event)">Highest price</p>
+            <p onclick="handlesortitem(event)">Lowest price</p>
+        
         </div>
     </div>
-
-    <div class="main">
-        <div class="main__category-wrapper">
-            <div class="main__category-wrapper__title">AIRCOBRA P45</div>
-            <div class="main__category-wrapper__card">
-                <img src="https://aviatorwatch.swiss/assets/catalog/airacobra-p45-chrono/AVIATOR-WATCH--AIRACOBRA-P45-CHRONO--V.2.25.8.172.4-w_680.jpg">
-                <div class="main__category-wrapper__name">AirCobra P45 Chrono Quartz</div>
-                <div class="main__category-wrapper__price">595</div>
-
-            </div>
-            <div class="main__category-wrapper__card">
-                <img src="https://aviatorwatch.swiss/assets/catalog/douglas-day-date/AVIATOR-WATCH--DOUGLAS-DAY-DATE--V.3.20.0.141.4-w_680.jpg">
-                <div class="main__category-wrapper__name">AirCobra P45 Chrono Quartz</div>
-                <div class="main__category-wrapper__price">595</div>
-
-            </div>
-            <div class="main__category-wrapper__card">
-                <img src="https://aviatorwatch.swiss/assets/catalog/douglas-moonflight/AVIATOR-WATCH--DOUGLAS-MOONFLIGHT--V.1.33.0.257.4-w_680.jpg">
-                <div class="main__category-wrapper__name">AirCobra P45 Chrono Quartz</div>
-                <div class="main__category-wrapper__price">595</div>
-
-            </div>
-        </div>
-    </div>
+    <div id='main'></div>
+    
+    
+    <div class='wow'>
+        
+        <h2 class='wow__title' >your items redy to delivery:</h2> 
+    <div id='cart'></div>
+    <div>
+ 
+    
 </body>
 
 </html>

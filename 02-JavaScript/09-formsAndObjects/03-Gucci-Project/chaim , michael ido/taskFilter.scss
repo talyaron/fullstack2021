@@ -19,6 +19,23 @@
         grid-template-columns: repeat(3, 33%);
         grid-template-rows: repeat(10, 1fr);
 
+        &_btns {
+            grid-column: 1/4;
+            grid-row: 9/11;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+
+            &-Btn {
+                box-shadow: rgba(38, 168, 21, 0.55) 0px 30px 60px -12px inset, rgba(119, 85, 33, 1.5) 0px 18px 36px -30px inset;
+                grid-column: 2/3;
+                width: 45%;
+                border-radius: 40px;
+                font-weight: 1000;
+                font-size: 15px;
+            }
+        }
+
         &-selectCatagory {
             font-size: 15px;
             font-weight: bold;
@@ -57,15 +74,7 @@
             &-btn {
                 width: 33%;
                 box-shadow: rgba(68, 66, 68, 0.75) 0px 30px 60px -12px inset, rgba(183, 96, 199, 0.8) 0px 18px 36px -10px inset;
-
             }
-        }
-
-        &-submit {
-            grid-row: 10;
-            grid-column: 2/3;
-            border-radius: 20px;
-            box-shadow: rgba(16, 119, 56, 0.55) 0px 30px 60px -12px inset, rgba(119, 85, 33, 1.5) 0px 18px 36px -30px inset;
         }
 
         &-displayOptions {
@@ -93,7 +102,11 @@
             box-shadow: rgba(68, 66, 68, 0.75) 0px 30px 60px -12px inset, rgba(24, 102, 107, 0.8) 0px 18px 36px -10px inset;
         }
 
+<<<<<<< HEAD
         &-filterBrand {
+=======
+        &-filterInputs {
+>>>>>>> 6a17bf2d99d477e7b1db0af744470bc8d8f0d8c4
             box-shadow: rgba(6, 61, 97, 0.85) 0px 30px 60px -12px inset, rgba(16, 63, 85, 0.5) 0px 18px 36px -30px inset;
             height: 30%;
             overflow: auto;
@@ -136,7 +149,7 @@
             display: flex;
             flex-direction: row;
             column-gap: 3px;
-            overflow-x: auto;
+            overflow: auto;
             white-space: nowrap;
 
             &-card {
@@ -189,11 +202,23 @@
     }
 }
 
+<<<<<<< HEAD
 .container {
     max-width: 750px;
     height: 700px;
+=======
+// Customer page -----------------------
+
+
+.container {
+    max-width: 740px;
+    height: 900px;
+>>>>>>> 6a17bf2d99d477e7b1db0af744470bc8d8f0d8c4
     border: 3px solid red;
     margin: auto;
+    background-image:
+        linear-gradient(90deg, rgb(220, 245, 252), rgba(160, 167, 166, 0)),
+        repeating-linear-gradient(-45deg, #d1fffd, #f3f591 1.5px, #b4c9f1 2px, #fac294 4px);
     // background-color: rgb(46, 127, 141);
 
     &_header {
@@ -207,6 +232,7 @@
         // border: 3px solid blue;
 
         &-logo {
+<<<<<<< HEAD
             // border: 2px solid red;
             background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRT2g09MmhCe-sbllbrt4IiSLhWaDxbGMrEegdPhPyT5uIkLMxjR-qAi_-AIvz61Ust4s&usqp=CAU);
             background-position: center;
@@ -218,10 +244,22 @@
         }
 
         &-search {
+=======
+>>>>>>> 6a17bf2d99d477e7b1db0af744470bc8d8f0d8c4
             // border: 2px solid red;
+            background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRT2g09MmhCe-sbllbrt4IiSLhWaDxbGMrEegdPhPyT5uIkLMxjR-qAi_-AIvz61Ust4s&usqp=CAU);
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            grid-row: 1/4;
+            grid-column: 1/2;
+            height: 10vh;
+        }
+
+        &-search {
             height: 10vh;
             grid-row: 1/4;
-            grid-column: 3/9;
+            grid-column: 2/8;
             justify-content: center;
 
             & input {
@@ -235,14 +273,20 @@
         }
 
         &_menu {
+<<<<<<< HEAD
             grid-column: 9/13;
             width: 20vw;
+=======
+            grid-column: 8/13;
+>>>>>>> 6a17bf2d99d477e7b1db0af744470bc8d8f0d8c4
             height: 10vh;
-            // border: 2px solid yellow;
             grid-row: 1/4;
             display: flex;
             column-gap: 1rem;
+<<<<<<< HEAD
             margin-left: 10px;
+=======
+>>>>>>> 6a17bf2d99d477e7b1db0af744470bc8d8f0d8c4
 
             &-btn {
                 background-color: transparent;
@@ -250,7 +294,6 @@
                 display: inline-block;
                 width: 25%;
                 border: none;
-                // border: 1px solid black;
 
                 & p {
                     font-size: 12px;
@@ -260,15 +303,18 @@
     }
 
     &-imgsBox {
+<<<<<<< HEAD
         background-image: url(https://blog.placeit.net/wp-content/uploads/2018/02/facebook-ad-image-templates-by-placeit_01.jpg);
+=======
+        background-image: url(https://s18670.pcdn.co/wp-content/uploads/Top-20-Teacher-T-Shirts-on-Etsy.png);
+>>>>>>> 6a17bf2d99d477e7b1db0af744470bc8d8f0d8c4
         background-position: center;
-        background-size: cover;
-        // background-repeat: no-repeat;
+        background-size: contain;
+        background-repeat: no-repeat;
         margin: auto;
-        width: 75%;
+        width: 100%;
         height: 35%;
         margin-top: 10px;
-        border: 3px solid red;
     }
 
     &_catagories {
@@ -278,6 +324,7 @@
         flex-direction: row;
         height: 20%;
         margin: auto;
+<<<<<<< HEAD
 
         // border: 3px solid blue;
         & img {
@@ -297,6 +344,98 @@
             height: 30%;
             border: 2px solid black;
             position: absolute;
+=======
+
+        &-box {
+            margin-top: 10px;
+            width: 35%;
+            // border: 1px solid black;
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        &-display {
+            width: 100%;
+            height: 25%;
+            margin-top: 5px;
+            border: 1px solid rgb(197, 187, 187);
+            display: flex;
+            flex-direction: column;
+            column-gap: 5px;
+            overflow: auto;
+            white-space: nowrap;
+
+            &-card{
+                border-bottom: 5px solid rgb(0, 0, 0);
+                box-sizing: content-box;
+                box-shadow: rgba(110, 111, 112, 0.55) 0px 30px 60px 80px inset, rgba(12, 24, 94, 0.75) 0px 18px 36px 30px inset;
+                height: 100%;
+                width: 100%;
+                display: grid;
+                grid-template-columns: repeat(2,50%);
+
+                &-details{
+                    height: 100%;
+                    grid-column: 1/2;
+                }
+
+                &-img{
+                    height: 100%;
+                    grid-column: 2/3;
+                    // border-left: 1px dotted black;
+                    background-position: center;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                }
+            }
+        }
+        .Tshirts {
+            background-image: url("https://www.buytshirtdesigns.net/wp-content/uploads/2020/02/20-Gym-T-shirts-600x450.jpg");
+        }
+
+        .shoes {
+            background-image: url("https://thumbs.dreamstime.com/b/various-types-shoes-vector-graphics-silhouettes-various-types-shoes-vector-graphics-silhouettes-shoes-men-200369007.jpg");
+        }
+
+        .pants {
+            background-image: url("https://media.istockphoto.com/vectors/set-of-trousers-for-business-man-vector-id818252146?k=20&m=818252146&s=612x612&w=0&h=zA3CDwVXCfKAgIZ1FxkyfvGLRgKX_aentNe9AwmNDJw=");
+        }
+    }
+
+    &_sortANDfilterBtns {
+        height: 7vh;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 15px;
+        
+        &-box {
+            height: 80%;
+            width: 30%;
+            margin: auto;
+        }
+    }
+    &-select{
+        font-size: 12px;
+        font-weight: bold;
+        box-shadow: rgba(40, 40, 41, 0.85) 0px 30px 60px -12px inset,rgba(25, 34, 153, 0.8) 0px 18px 36px 30px inset;
+        height: 4vh;
+        text-align: center;
+        appearance: none;
+        width: 45%;
+        background: rgb(50, 86, 185);
+        color: rgb(255, 255, 255);
+        font-weight: bold;
+        margin:auto;
+
+        &-options{
+            font-size: 10px;
+            display: inline-block;
+            font-family: 'Times New Roman', Times, serif;
+            
+>>>>>>> 6a17bf2d99d477e7b1db0af744470bc8d8f0d8c4
         }
     }
 }

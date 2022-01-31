@@ -8,6 +8,7 @@
     --main-color-light-gray1: #989C94;
     --main-color-light-gray2: #666A62;
     --main-color-light-gray3: #333531;
+    --card-color: #EBEBEB;
 }
 
 body {
@@ -22,7 +23,7 @@ body {
 // }
 .header {
     position: fixed;
-    z-index: 1;
+    z-index: 20;
     top: 0px;
     left: 0px;
     height: 45px;
@@ -32,6 +33,7 @@ body {
     // border: 1px solid red;
     width: 99vw;
     background-color: var(--main-color-light-gray2);
+    
 
     &__wrapper {
         display: flex;
@@ -43,6 +45,48 @@ body {
             width: fit-content;
             margin-inline: 20px;
             font-size: 1rem;
+            &:hover {
+                cursor: pointer;
+                color: var(--main-color-purple1)
+            }
+        }
+    }
+}
+.currency-selector{
+    // border: 1px solid red;
+    z-index: 10;
+    position: sticky;
+    top: 45px;
+    left: 240px;
+    padding: 5px;
+    width: 300px;
+    height: 200px;
+    margin-bottom: -200px;
+    background-color: var(--main-color-light-gray3);
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px 5px black;
+
+    transition: ease 500ms;
+    opacity: 0;
+    transform: translateY(-30px);
+    position: sticky;
+    p{
+        text-align: center;
+    }
+    .currency{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &:hover{
+            cursor: pointer;
+        }
+        img{
+            width: 50px;
+            height: 30px;
+            margin-left: 15px;
+        }
+        *{
+            pointer-events: none;
         }
     }
 }
@@ -81,11 +125,18 @@ body {
 }
 
 .filter-dropbar {
+    position: absolute;
+    width: 100vw;
     display: flex;
     justify-content: center;
     margin-block: 10px;
     padding-block: 20px;
     background-color: var(--main-color-light-gray2);
+    z-index: -1;
+
+    transition: ease 500ms;
+    transform: translateY(-30px);
+    opacity: 0;
 
     &__group {
         width: 100px;
@@ -103,37 +154,107 @@ body {
     }
 }
 
-.main {
+
+
+#main {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
 
-    &__category-wrapper {
-        padding-top: 50px;
-        display: grid;
-        gap: 20px;
-        grid-template-columns: repeat(3, 1fr);
-        position: relative;
+.category-wrapper {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding-top: 4rem;
 
-        &__title {
-            position: absolute;
-            font-size: 2rem;
+    &__title {
+        position: absolute;
+        color: var(--card-color);
+        left: calc(50% - 250px);
+        text-align: center;
+        width: 500px;
+        margin: 15px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 3rem;
+    }
+
+    &__card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: var(--card-color);
+        width: 250px;
+        border-radius: 20px;
+        margin: 20px;
+        padding-block: 10px;
+
+        img {
+            width: 200px;
         }
 
-        &__card {
-            background-color: #ebebeb;
-            border-radius: 10px;
-            color: var(--main-color-gray2);
-            height: 350px;
-            width: 250px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            align-items: center;
+        &__name {
+            color: black;
+        }
 
-            img {
-                height: 200px;
+        &__price {
+            color: black;
+            &::after{
+                content: ' $';
             }
         }
     }
+}
+
+.visible {
+    opacity: 1;
+    transform: translateY(0px);
+    position: static;
+}
+
+#cart {
+
+    .cart {
+        background-color: rgb(210, 210, 211);
+        border-radius: 10px;
+    }
+
+    gap: 5px;
+    width: 280px;
+    display: grid;
+    grid-template-columns: repeat(3, 50%);
+    margin-top: 10px;
+    text-align: center;
+
+    .h2 {
+        color: brown;
+    }
+
+    img {
+        width: 100px;
+    }
+
+    .add1 {
+        display: none;
+    }
+}
+
+.wow {
+    margin-top: 10px;
+    width: 450px;
+    border: 2px solid black;
+    border-radius: 20px;
+    box-shadow: black 20px 20px 20px;
+
+
+    &__title {
+        text-align: center;
+        color: rgb(238, 238, 238);
+
+    }
+
+    img {
+        border-radius: 40px;
+    }
+
 }

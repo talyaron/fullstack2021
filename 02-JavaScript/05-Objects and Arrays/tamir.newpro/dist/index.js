@@ -8,9 +8,20 @@ var aviator = {
     renderitem: function (domElement) {
         var html = '';
         this.items.forEach(function (item) {
-            html += "<div class='category_wrapper' style=\"background-color: rgb(236, 232, 232);display: flex;\">\n                         <div class='category_wrapper__card' style=\"display: grid; width: 200px;text-align: center;\">\n                        <div class='category_wrapper__card__img'><img src=\"" + item.img + "\" alt=\"\"  style=\"width: 200px;\"></div>\n                        <div class=\"category_wrapper__card__name\">" + item.name + "</div>\n                        <div class=\"category_wrapper__card__price\" style=\"margin-top: 3px;\">" + item.price + "</div>\n                   </div>\n                   </div>";
+            html += " <div class=\"main\">\n            <div class=\"category-wrapper\">\n                <div class=\"category-wrapper__title\">Watches</div>\n                <div class=\"category-wrapper__card\">\n                     <div class='category-wrapper__img'> <img src=\"" + item.img + "\"></div>\n                    <div class=\"category-wrapper__name\" >" + item.name + " </div>\n                    <div class=\"category-wrapper__price\">" + item.price + "</div>\n                    <div class='add' onclick=\"handleaddcart(event)\"></div>\n                    <button class='add1' onclick=\"handleaddcart(event)\" style=\"cursor: pointer;color:black\">add to cart<i class=\"fab fa-opencart\"></i></button>\n                </div>\n            </div>\n        </div>";
         });
         domElement.innerHTML = html;
+    },
+    // <i class="fab fa-opencart"></i>
+    renderitemcart: function (domElement) {
+        var html2 = '';
+        this.filteritems.forEach(function (item) {
+            html2 += "<div class='cart'>\n           " + item.img + "\n            </div>";
+        });
+        domElement.innerHTML = html2;
+    },
+    additem: function (newItem) {
+        this.filteritems.push(newItem);
     },
     sortitemup: function () {
         this.items.sort(function (a, b) { return a.price - b.price; });
@@ -19,17 +30,26 @@ var aviator = {
         this.items.sort(function (a, b) { return b.price - a.price; });
     }
 };
+function handleaddcart(ev) {
+    var img = (ev.path[1].innerHTML);
+    console.dir(ev);
+    var name = (ev.target.parentElement.firstElementChild.textContent);
+    var price = (ev.target.previousElementSibling.textContent);
+    aviator.additem({ img: img, name: name, price: price });
+    var cart = document.getElementById('cart');
+    aviator.renderitemcart(cart);
+}
 function handlesortitem(ev) {
-    console.log('okk');
     ev.preventDefault();
     aviator.sortitemup();
     aviator.renderitem(rootitems);
 }
 function handlesortitemacs(ev) {
     ev.preventDefault();
-    console.log('okk');
     aviator.sortitemdown();
     aviator.renderitem(rootitems);
 }
-var rootitems = document.getElementById('category_wrapper');
+var rootitems = document.getElementById('main');
 aviator.renderitem(rootitems);
+var cart = document.getElementById('cart');
+aviator.renderitemcart(cart);
