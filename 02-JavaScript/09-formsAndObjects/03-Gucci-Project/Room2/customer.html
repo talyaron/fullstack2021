@@ -1,107 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Customer</title>
     <link rel="stylesheet" href="dist/style.css" />
-    <script
-      src="https://kit.fontawesome.com/01fab75280.js"
-      crossorigin="anonymous"
-    ></script>
-  </head>
+    <script src="https://kit.fontawesome.com/01fab75280.js" crossorigin="anonymous"></script>
+</head>
 
-  <body>
+<body>
     <div class="header">
-      <div class="header__logo"><img src="images/adidasLogo.png" alt="" /></div>
-      <div class="header__nav">
-        <a href="">MEN</a>
-        <a href="">WOMEN</a>
-        <a href="">KIDS</a>
-      </div>
-      <form action="" class="header__searchBar">
-        <input type="text" placeholder="Search.." name="search" />
-        <button type="submit"><i class="fa fa-search"></i></button>
-      </form>
+        <div class="header__logo"><img src="images/adidasLogo.png" alt="" /></div>
+        <div class="header__nav">
+            <a href="">MEN</a>
+            <a href="">WOMEN</a>
+            <a href="">KIDS</a>
+        </div>
+        <form action="" class="header__searchBar">
+            <input type="text" placeholder="Search.." name="search" />
+            <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+        <div class="header__cart">
+            <button onclick="handleCart(event)">icon</button>
+
+        </div>
     </div>
+
     <div class="breadCrumbs">
-      <a href="">back</a>
-      <ul>
-        <li id="home"><a href="#"> Home /</a></li>
-        <li><a href="#"> Men /</a></li>
-        <li><a href="#">Shoes/</a></li>
-      </ul>
+        <a href="">back</a>
+        <ul>
+            <li id="home"><a href="#"> Home /</a></li>
+            <li><a href="#"> Men /</a></li>
+            <li><a href="#">Shoes/</a></li>
+        </ul>
+    </div>
+    <h1></h1>
+    <div class="header__sort">
+
+        <select onchange="handlePriceRange(event)">
+            <option value="priceRange">
+        </select>
+
+        <select onchange="handleShoeSize(event)">
+            <option value="shoeSize">
+                <input type="range">
+            </option>
+        </select>
+
+        <select onchange="handleGender(event)">
+            <option value="gender">
+        </select>
+
+        <select onchange="handleColor(event)">
+            <option value="color">
+        </select>
+
+        <select onchange="handleSort(event)">
+            <option value="startPosition"> </option>
+            <option value="letterAsc"> </option>
+            <option value="letterDsc"> </option>
+            <option value="priceAsc"> </option>
+            <option value="priceDsc"> </option>
+        </select>
+
     </div>
 
     <div class="cards">
-      <div class="cards__item">
-        <div class="picture">
-          <img
-            src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0000011_adilette-slides_280648_side-lateral-center-view.jpeg"
-            alt=""
-          />
-          <img src="" alt="" />
-        </div>
-        <div class="color"></div>
-        <div class="description"></div>
-      </div>
+        <div class="cards__item">
+            <div class="cards__item--like"></div>
+            <div class="picture">
 
-      <div class="cards__item">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-      <div class="cards__item">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-      <div class="cards__item">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-      <div class="cards__item">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-      <div class="cards__item">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-      <div class="cards__item">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-      <div class="cards__item">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-      <div class="cards__item">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-      <div class="cards__item">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-      <div class="cards__item">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-      <div class="cards__item">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
+                <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0000011_adilette-slides_280648_side-lateral-center-view.jpeg"
+                    alt="" />
+                <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0000012_adilette-slides_280648_top-portrait-view.jpeg"
+                    alt="" />
+            </div>
+            <div class="color">
+                <div class="color--item"></div>
+                <div class="color--item"></div>
+            </div>
+            <div class="description">
+                <p></p>
+            </div>
+        </div>
+
+        <div class="cards__item">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="cards__item">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="cards__item">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="cards__item">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="cards__item">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="cards__item">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="cards__item">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="cards__item">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="cards__item">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="cards__item">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="cards__item">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
     </div>
-  </body>
+</body>
+
 </html>
