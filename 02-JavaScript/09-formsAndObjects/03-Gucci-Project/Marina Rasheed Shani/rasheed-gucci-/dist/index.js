@@ -14,10 +14,16 @@ var gucci = {
         this.items.push({ name: name, price: price, type: type, department: department, gender: gender, id: id });
         this.storeData();
     },
+    removeItems: function (itemName) {
+        var index = this.items.findIndex(function (item) { return item.name === itemName; });
+        if (index >= 0) {
+            this.items.splice(index, 1);
+        }
+    },
     render: function (list, domElement) {
         var html = "";
         list.forEach(function (product) {
-            html += "<div class='result-card'>\n        <p> item : " + product.name + " , price :  " + product.price + "$</p>\n        </div>";
+            html += "<div class='result-card'>\n        <p> item : " + product.name + " , <img src=\"\" id=\"imgDisplay\">  " + product.price + "$</p>\n        \n        </div>";
         });
         domElement.innerHTML = html;
     },
@@ -26,7 +32,6 @@ var gucci = {
         this.render(items, domElement);
     }
 };
-gucci.getData();
 function handleShowClothes() {
     gucci.getData();
     var root = document.getElementById("root");
@@ -43,13 +48,24 @@ function handleAddclothes(ev) {
     var id = uid;
     gucci.addClothes(name, price, department, gender, type, id);
     console.log(gucci.items);
+    ev.target.reset();
     gucci.storeData();
 }
-function handleTestDepartment() {
-    gucci.getData();
-    var root = document.getElementById("rootTest");
+function handleRemoveItems(ev) {
+    ev.preventDefault();
+    var name = ev.target.elements.remove.value;
+    gucci.removeItems(name);
+    var root = document.getElementById('root');
+    gucci.storeData();
     gucci.renderAllitems(root);
+    console.log(gucci.items);
+    ev.target.reset();
 }
+function loadImage(event) {
+    var image = document.getElementById("imgDisplay");
+    image.src = URL.createObjectURL(event.target.files[0]);
+}
+gucci.getData();
 var uid = function () {
     return Date.now().toString(36) + Math.random().toString(36).substr(2);
 };

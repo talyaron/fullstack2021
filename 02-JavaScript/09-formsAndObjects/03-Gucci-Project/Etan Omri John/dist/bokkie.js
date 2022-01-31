@@ -12,3 +12,9 @@ var bookie = {
         this.items.sort(function (a, b) { return b.price - a.price; });
     }
 };
+//function handleAddToCart()
+//function handleOpenThis()
+//function handleOpenMenu()
+//function handleCloseMenu()
+//function handleSortDesc()
+//function handleSortAsc(ev)
