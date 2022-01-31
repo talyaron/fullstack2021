@@ -49,7 +49,6 @@ function handleZaplist(ev) {
 }
 function handlePrice(ev) {
     var pricenum = ev.target.value;
-    ZapList.renderZaplist(list);
 }
 function handleDelete(id) {
     ZapList.deleteItem(id);

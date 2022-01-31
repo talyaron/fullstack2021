@@ -81,8 +81,7 @@ function handleZaplist(ev) {
 }
 
 function handlePrice(ev) {
-    const pricenum = ev.target.value
-    ZapList.renderZaplist(list)
+    const pricenum = ev.target.value:
 }
 
 function handleDelete(id) {
