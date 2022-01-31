@@ -40,7 +40,16 @@
         @include backgroundsettings;
     }
 
+}
 
+@keyframes slide{
+    0%{
+        left: 500%;
+    }
+
+    100%{
+        left: 0%;
+    }
 }
 
 
@@ -370,18 +379,24 @@ body {
 
     &__cell {
 
+        position: relative;
         margin-top: 2rem;
         width: 10rem;
         height: 12rem;
         overflow: hidden;
+        
 
 
         .picwrap {
+            transition: all 0.6s ease-in-out;
             height: 10rem;
             width: 10rem;
             overflow: hidden;
             border-radius: 100%;
             border: 5px solid rgb(28, 28, 28);
+            &:hover{
+                border: 5px solid rgb(53, 53, 53);
+            }
         }
 
         img {
