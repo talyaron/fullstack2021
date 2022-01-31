@@ -590,5 +590,4 @@ function handleSort(ev) {
     } else if (boxId == "pants") {
         clothsList.SortCustomerPage(clothsList.pants, sortValue, ListDisplay, "Pants")
     }
-
 }
