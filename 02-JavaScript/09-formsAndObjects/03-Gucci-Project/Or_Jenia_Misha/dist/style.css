@@ -1,0 +1,333 @@
+@keyframes arrowdown {
+  from {
+    top: -18px;
+  }
+  to {
+    top: 10px;
+  }
+}
+@keyframes backgroundphotos {
+  0% {
+    background: url(http://www.fusushi.co.il/warehouse/dynamic/50913.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center center;
+  }
+  33% {
+    background: url(http://www.fusushi.co.il/warehouse/dynamic/50916.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center center;
+  }
+  66% {
+    background: url(http://en.fusushi.co.il/warehouse/dynamic/55243.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center center;
+  }
+  100% {
+    background: url(http://www.fusushi.co.il/warehouse/dynamic/50913.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center center;
+  }
+}
+@keyframes slide {
+  0% {
+    left: 500%;
+  }
+  100% {
+    left: 0%;
+  }
+}
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Barlow Condensed", sans-serif;
+}
+
+.homeopacity {
+  background-color: rgba(0, 0, 0, 0.308);
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home {
+  position: relative;
+  min-height: 100vh;
+  animation-name: backgroundphotos;
+  animation-duration: 20s;
+  animation-direction: normal;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(0, 1.01, 0, 1.01);
+}
+.home__title {
+  position: absolute;
+  top: 40%;
+  color: #EBEBEB;
+  font-size: 65px;
+}
+
+.navbar {
+  position: fixed;
+  top: 3em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1200px;
+  height: 60px;
+  background-color: #EBEBEB;
+  z-index: 2;
+  font-size: 18px;
+}
+.navbar ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  padding: 1em;
+}
+.navbar ul li {
+  padding: 5px;
+}
+.navbar ul li:hover {
+  cursor: pointer;
+  box-shadow: 0 0 0 1px black;
+}
+.navbar ul .fulogo:hover,
+.navbar ul .smedia:hover {
+  box-shadow: 0 0 0 0px black;
+}
+.navbar ul img {
+  height: 130px;
+}
+.navbar ul .smedia {
+  font-size: 24px;
+}
+.navbar ul .smedia i {
+  margin-inline: 0.2em;
+}
+.navbar ul i {
+  padding: 0.2em;
+}
+.navbar ul i:hover {
+  box-shadow: 0 0 0 1px black;
+}
+
+.footer {
+  position: absolute;
+  top: 75%;
+  display: flex;
+  width: 95%;
+  justify-content: space-between;
+  color: white;
+}
+.footer .footer__whatsapp {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 180px;
+  width: 130px;
+  text-align: center;
+  font-size: 18px;
+  line-height: 1;
+}
+.footer .footer__whatsapp .wapic {
+  width: 100%;
+}
+.footer .footer__whatsapp img {
+  margin-top: 0.2em;
+  height: 90px;
+  width: 90px;
+}
+.footer .footer__whatsapp img:hover {
+  cursor: pointer;
+}
+.footer .footer__arrowpics {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+.footer .footer__arrowpics__arrow {
+  font-size: 5rem;
+  font-weight: 200;
+  position: relative;
+  animation-name: arrowdown;
+  animation-duration: 1s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+.footer .footer__arrowpics__pics i {
+  margin-inline: 0.2em;
+}
+.footer .footer__arrowpics:hover {
+  cursor: pointer;
+}
+.footer .footer__gift {
+  display: flex;
+  align-items: center;
+}
+.footer .footer__gift:hover {
+  cursor: pointer;
+}
+.footer .footer__gift img {
+  height: 96px;
+  width: 96px;
+}
+
+.lobby {
+  min-height: 100vh;
+  background-color: #0c0b0b;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.lobby__description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.lobby__description h2 {
+  margin-top: 5rem;
+  font-size: 3rem;
+  font-weight: 600;
+}
+.lobby__description h2::after {
+  content: "";
+  height: 2px;
+  width: 80px;
+  background: #ed3524;
+  display: block;
+  margin: 2px auto 0;
+}
+.lobby__description p {
+  margin-top: 3rem;
+  width: 50ch;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+.lobby__images {
+  font-size: 1.5rem;
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 75px;
+}
+.lobby__images__box__image {
+  width: fit-content;
+  overflow: hidden;
+}
+.lobby__images p {
+  margin-top: 5px;
+}
+.lobby__images p:hover {
+  cursor: pointer;
+}
+.lobby__images img {
+  width: 100%;
+  display: block;
+  transition: ease-in-out 0.5s;
+}
+.lobby__images img:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.menuopacity {
+  background-color: rgba(0, 0, 0, 0.858);
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 3em;
+}
+
+.menu {
+  background: url("https://images3.alphacoders.com/929/thumb-1920-92919.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+  color: #EBEBEB;
+}
+.menu__title {
+  margin-top: 2rem;
+  font-size: 3rem;
+  font-weight: 600;
+}
+.menu__title::after {
+  content: "";
+  height: 2px;
+  width: 60px;
+  background: #ed3524;
+  display: block;
+  margin: 2px auto 0;
+}
+.menu__box {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  align-items: center;
+  width: 65%;
+}
+.menu__cell {
+  position: relative;
+  margin-top: 2rem;
+  width: 10rem;
+  height: 12rem;
+  overflow: hidden;
+}
+.menu__cell .picwrap {
+  transition: all 0.6s ease-in-out;
+  height: 10rem;
+  width: 10rem;
+  overflow: hidden;
+  border-radius: 100%;
+  border: 5px solid #1c1c1c;
+}
+.menu__cell .picwrap:hover {
+  border: 5px solid #353535;
+}
+.menu__cell img {
+  width: 102%;
+  height: 102%;
+  transition: all 0.6s ease-in-out;
+}
+.menu__cell img:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+.menu__cell img:not(:hover) {
+  transform: scale(1);
+}
+.menu__cell p {
+  padding-top: 0.8rem;
+  text-shadow: 1px 1px 3px black;
+}

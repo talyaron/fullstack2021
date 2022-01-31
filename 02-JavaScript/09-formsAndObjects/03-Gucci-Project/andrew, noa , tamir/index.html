@@ -1,14 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Aviator Watches</title>
+    <script src="https://kit.fontawesome.com/07ce8225e4.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="dist/style.css">
+    <script src="dist/index.js" defer></script>
+    <script src="dist/index2.js" defer></script>
 </head>
+
 <body>
+    <div class="header">
+        <div class="header__wrapper">
+            <div class="header__wrapper__item">CONTACT US</div>
+            <div class="header__wrapper__item">+972-545123456</div>
+            <div class="header__wrapper__item" id="currency-button">ISRAEL (USD)</div>
+            <div class="header__wrapper__item">EN</div>
+        </div>
+        <div class="header__wrapper">
+            <div class="header__wrapper__item">FAV</div>
+            <div class="header__wrapper__item">ACCOUNT</div>
+            <div class="header__wrapper__item">CART</div>
+        </div>
+    </div>
+    <div class="currency-selector">
+        <p>Please choose your prefered currency:</p>
+        <div class="currency" id="USD"><p>($) USD</p><img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/220px-Flag_of_the_United_States.svg.png"></div>
+        <div class="currency" id="GBP"><p>(£) GBP</p><img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/255px-Flag_of_the_United_Kingdom.svg.png"></div>
+        <div class="currency" id="EUR"><p>(€) EUR</p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Flag_of_Europe.svg/255px-Flag_of_Europe.svg.png"></div>
+    </div>
+    <div class="nav-bar">
+        <div class="nav-bar__item">WATCHES</div>
+        <div class="nav-bar__item">BRAND</div>
+        <div class="nav-bar__item">POINTS OF SALE</div>
+        <div class="nav-bar__item">CUSTOMER SERVICE</div>
+        <div class="nav-bar__item">SEARCH</div>
+    </div>
+    <div class="filter-bar">
+        <div class="filter-bar__item">All Watches</div>
+        <div class="filter-bar__item">Group</div>
+        <div class="filter-bar__item">Collection</div>
+        <div class="filter-bar__item">Function</div>
+        <div class="filter-bar__item">Movement</div>
+        <div class="filter-bar__item">Case</div>
+        <div class="filter-bar__item">Diameter</div>
+        <div class="filter-bar__item">Dial</div>
+        <div class="filter-bar__item">Bracelet</div>
+        <div class="filter-bar__item">Sort by</div>
+    </div>
+
+    <div class="filter-dropbar">
+        <div class="filter-dropbar__group"></div>
+        <div class="filter-dropbar__group">
+            <p>AUTOMATIC WATCHES</p>
+            <p>CLASSIC WATCHES</p>
+            <p>LADIES WATCHES</p>
+            <p>MANS WATCHES</p>
+            <p>MILITRY WATCHES</p>
+            <p>NEW RELEASES</p>
+            <p>SPORT WATCHES</p>
+        </div>
+        <div class="filter-dropbar__group">
+            <p>AIRCOBRA</p>
+            <p>BRISTOL</p>
+            <p>DOUGLAS</p>
+            <p>MIG</p>
+            <p>MOONFLIGHT</p>
+        </div>
+        <div class="filter-dropbar__group">
+            <p>Chronograph</p>
+            <p>Day / Date</p>
+            <p>Moonphase</p>
+            <p>Oversized Date</p>
+            <p>Small Second</p>
+        </div>
+        <div class="filter-dropbar__group">
+            <p>Automatic</p>
+            <p>Quartz</p>
+        </div>
+        <div class="filter-dropbar__group">
+            <p>Black PVD</p>
+            <p>Brown PVD</p>
+            <p>Gold PVD</p>
+            <p>Grey PVD</p>
+            <p>Rose Gold PVD</p>
+            <p>Stainless Steel</p>
+        </div>
+        <div class="filter-dropbar__group">
+            <p>36 mm</p>
+            <p>41.20 mm</p>
+            <p>42 mm</p>
+            <p>45 mm</p>
+            <p>46 mm</p>
+            <p>47 mm</p>
+        </div>
+        <div class="filter-dropbar__group">
+            <p>Beige</p>
+            <p>Black</p>
+            <p>Blue</p>
+            <p>Brown</p>
+            <p>Green</p>
+            <p>Grey</p>
+            <p>Ivory</p>
+            <p>Pink</p>
+            <p>Red</p>
+            <p>Rose Gold</p>
+            <p>Rose Taupe</p>
+            <p>Silver</p>
+            <p>White</p>
+        </div>
+        <div class="filter-dropbar__group">
+            <p>Leather</p>
+            <p>Rubber</p>
+            <p>Steel</p>
+        </div>
+        <div class="filter-dropbar__group">
+            <p>Bestseller</p>  
+            <p onclick="handlesortitemacs(event)">Highest price</p>
+            <p onclick="handlesortitem(event)">Lowest price</p>
+        
+        </div>
+    </div>
+    <div id='main'></div>
     
-    <script src="dist/index.js"></script>
+    
+    <div class='wow'>
+        
+        <h2 class='wow__title' >your items redy to delivery:</h2> 
+    <div id='cart'></div>
+    <div>
+ 
+    
 </body>
+
 </html>
