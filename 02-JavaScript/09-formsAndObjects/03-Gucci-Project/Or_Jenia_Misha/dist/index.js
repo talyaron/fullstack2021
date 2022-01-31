@@ -4,12 +4,12 @@ var uid = function () {
 var sushiMenu = {
     dishes: [
         {
-            id: 'a1',
-            name: 'Maguro Nigiri',
+            id: "a1",
+            name: "Maguro Nigiri",
             price: 70,
-            description: 'Rice fingers with red tuna tataki with foie gras and a drizzle of teriyaki. 5 pcs',
-            category: 'firsts'
-        }
+            description: "Rice fingers with red tuna tataki with foie gras and a drizzle of teriyaki. 5 pcs",
+            category: "firsts"
+        },
     ],
     addDish: function (name, price, description, category) {
         var id = uid();
@@ -34,10 +34,13 @@ var sushiMenu = {
         domElement.innerHTML = html;
     },
     storeData: function () {
-        localStorage.setItem('storeData', JSON.stringify(this.dishes));
+        localStorage.setItem("storeData", JSON.stringify(this.dishes));
     },
     getData: function () {
-        this.dishes = JSON.parse(localStorage.getItem('storeData'));
+        var dishes = JSON.parse(localStorage.getItem("storeData"));
+        if (dishes && Array.isArray(dishes)) {
+            this.dishes = dishes;
+        }
     }
 };
 var root = document.getElementById("root");
@@ -47,7 +50,8 @@ function handleAddDish(ev) {
     var dishName = ev.target.elements.name.value;
     var dishPrice = ev.target.elements.price.valueAsNumber;
     var dishDesc = ev.target.elements.description.value;
-    var dishCategory = document.getElementById("category").value;
+    var dishCategory = document.getElementById("category")
+        .value;
     sushiMenu.addDish(dishName, dishPrice, dishDesc, dishCategory);
     var root = document.getElementById("root");
     sushiMenu.renderDishes(sushiMenu.dishes, root);
