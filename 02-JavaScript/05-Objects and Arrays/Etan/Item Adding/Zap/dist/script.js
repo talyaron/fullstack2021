@@ -149,6 +149,8 @@ var maxPrice = Math.max.apply(Math, zap.items.map(function (item) {
 var minPrice = Math.min.apply(Math, zap.items.map(function (item) {
     return item.price;
 }));
+console.log(maxPrice);
+console.log(minPrice);
 function handleAB(ev) {
     ev.preventDefault();
     var a = ev.target.elements.a.valueAsNumber;
