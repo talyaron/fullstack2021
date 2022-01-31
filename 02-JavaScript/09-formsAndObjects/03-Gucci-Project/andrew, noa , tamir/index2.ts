@@ -22,8 +22,25 @@ currencyOption.forEach(currency => {
 });
 function handleCurrencyOptionClick(ev){
     let id = ev.target.id;
+    let prices:any = document.querySelectorAll(".category-wrapper__card__price");
     console.log(id);
     currencyButton.innerHTML = `ISRAEL (${id})`;
+    prices.forEach(price => {
+        switch (id){
+            case "USD":
+                price.classList.add("USD");
+                price.classList.remove("EUR","GBP");
+            break;
+            case "EUR":
+                price.classList.add("EUR");
+                price.classList.remove("USD","GBP");
+            break;
+            case "GBP":
+                price.classList.add("GBP");
+                price.classList.remove("EUR","USD");
+            break;
+        }
+    });
     
 }
 

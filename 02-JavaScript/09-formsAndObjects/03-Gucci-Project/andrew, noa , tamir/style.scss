@@ -33,7 +33,10 @@ body {
     // border: 1px solid red;
     width: 99vw;
     background-color: var(--main-color-light-gray2);
-    
+
+    svg{
+        fill: var(--card-color);
+    }
 
     &__wrapper {
         display: flex;
@@ -70,6 +73,14 @@ body {
     opacity: 0;
     transform: translateY(-30px);
     position: sticky;
+    pointer-events: none;
+
+    &.visible {
+        opacity: 1;
+        transform: translateY(0px);
+        pointer-events: all;
+    }
+
     p{
         text-align: center;
     }
@@ -138,6 +149,11 @@ body {
     transform: translateY(-30px);
     opacity: 0;
 
+    &.visible {
+        opacity: 1;
+        transform: translateY(0px);
+        position: static;
+    }
     &__group {
         width: 100px;
         // border: 1px solid red;
@@ -199,18 +215,26 @@ body {
 
         &__price {
             color: black;
+        }
+        .USD{
             &::after{
                 content: ' $';
+            }
+        }
+        .EUR{
+            &::after{
+                content: ' €';
+            }
+        }
+        .GBP{
+            &::after{
+                content: ' £';
             }
         }
     }
 }
 
-.visible {
-    opacity: 1;
-    transform: translateY(0px);
-    position: static;
-}
+
 
 #cart {
 
@@ -257,4 +281,21 @@ body {
         border-radius: 40px;
     }
 
+}
+
+////OWNER
+#root{
+
+    .card{
+        display: flex;
+        align-items: center;
+        p{
+            border: 1px solid black;
+            width: 400px;
+            margin-inline: 20px;
+        }
+        img{
+            width: 75px;
+        }
+    }
 }

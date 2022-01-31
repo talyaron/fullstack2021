@@ -12,17 +12,21 @@
     <form onsubmit='handlesubmit(event)'> 
         <label for="description">enter description</label><br>
         <input type="text" name="description" placeholder="description"><br>
-        <label for="price">price</label><br><input type="number" name="price" placeholder="price"><br>
-       
+        <label for="price">price</label><br>
+        <input type="number" name="price" placeholder="price"><br>
+        <label for="title">phone</label><br>
+        <input type="tel" name="phone" placeholder="phone"><br>
         <label for="sort">sort</label><br>
         <select id="sort">
-        <select id="desc" onclick="handleClick(event)">desc</select>
-        <select id="asc" onclick="handleClick(event)">asc</select>
+        <select id="desc" onkeyup="handlesubmit(event)">desc</select>
+        <select id="asc" onkeyup="handlesubmit(event)">asc</select>
         <input type="number" id="filter" name="filter" placeholder="Max Price" onkeyup="handleFilter(event)">
-    </select>
-        <input type="submit" name="submit" value="send">
+</form>
+            <input type="text" name="delete" id="delete" placeholder="to delete" >
+        <button  onsubmit="handleDelete(event)" id="btn" type="submit">Delete an item</button>
+   
         <ul id="rootList"></ul>
-        </form>
+
     <script src="dist/index.min.js"></script>
     
 </body>
