@@ -65,13 +65,13 @@ function handleAddclothes(ev) {
   gucci.storeData();
 }
 
-gucci.addClothes('T-Shirt' , 552)
-gucci.addClothes('Pants' , 552)
-gucci.addClothes('Jeans' , 552)
-gucci.addClothes('T-Shirt' , 552)
-gucci.addClothes('T-Shirt' , 552)
-gucci.addClothes('T-Shirt' , 552)
-gucci.addClothes('T-Shirt' , 552)
-gucci.addClothes('T-Shirt' , 552)
-gucci.addClothes('T-Shirt' , 552)
-gucci.addClothes('T-Shirt' , 552)
+// gucci.addClothes('T-Shirt' , 552)
+// gucci.addClothes('Pants' , 552)
+// gucci.addClothes('Jeans' , 552)
+// gucci.addClothes('T-Shirt' , 552)
+// gucci.addClothes('T-Shirt' , 552)
+// gucci.addClothes('T-Shirt' , 552)
+// gucci.addClothes('T-Shirt' , 552)
+// gucci.addClothes('T-Shirt' , 552)
+// gucci.addClothes('T-Shirt' , 552)
+// gucci.addClothes('T-Shirt' , 552)
