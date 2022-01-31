@@ -24,7 +24,7 @@ interface cloths {
     filterBySize(list, filterSizeInput);
     renderBySize(list, filterSizeInput, display, catagory);
     filterByPrice(list, filterPriceFromInput, filterPriceUpToInput);
-    renderByPrice(list,filterPriceFromInput,filterPriceUpToInput,display,catagory);
+    renderByPrice(list, filterPriceFromInput, filterPriceUpToInput, display, catagory);
     storeDataTshirts();
     storeDataShoes();
     storeDataPants();
@@ -35,8 +35,8 @@ interface cloths {
     renderCustomerPageTshirts(display, catagory);
     renderCustomerPageShoes(display, catagory);
     renderCustomerPagePants(display, catagory);
-    SortCustomerPage(  list, catagory, sortOption, display)
-    
+    SortCustomerPage(list, catagory, sortOption, display)
+
 }
 interface item {
     id?: any;
@@ -94,7 +94,7 @@ let clothsList: cloths = {
             <p class="main_scrollmenu-box-card-para"> Size : ${element.size}</p>
            <p class="main_scrollmenu-box-card-para"> Price : ${element.price} </p>
            <button class="main_scrollmenu-box-card-btn" onclick="deleteCard('${element.id}')">Delete Item</button>
-           </div> `;
+           </div> `
         });
         display.innerHTML = html;
     },
@@ -107,7 +107,7 @@ let clothsList: cloths = {
     renderPants(display, catagory) {
         this.render(this.pants, display, catagory);
     },
-    Sort(  list, catagory, sortOption, display) {
+    Sort(list, catagory, sortOption, display) {
         let sortedList;
         if (sortOption == "sortLowToHigh") {
             sortedList = list.sort((a, b) => {
@@ -137,7 +137,7 @@ let clothsList: cloths = {
         console.log(sortedList);
         this.render(sortedList, display, catagory);
     },
-    SortTshirts(sortOption, display, catagory){
+    SortTshirts(sortOption, display, catagory) {
         this.Sort(this.Tshirts, catagory, sortOption, display);
     },
     SortShoes(sortOption, display, catagory) {
@@ -237,35 +237,26 @@ let clothsList: cloths = {
     },
     renderCustomerPagePants(display, catagory) {
         this.renderCustomerPage(display, catagory);
-    },SortCustomerPage(list, catagory, sortOption, display) {
-        let sortedList;
-        if (sortOption == "sortLowToHigh") {
-            sortedList = list.sort((a, b) => {
+    }, SortCustomerPage(list , sortValue, display, catagory) {
+        let sortedListCustomer;
+        if (sortValue == "sortLowToHigh") {
+            sortedListCustomer = list.sort((a, b) => {
                 return a.price - b.price;
             });
-        } else if (sortOption == "sortHighToLow") {
-            sortedList = list.sort((a, b) => {
+        } else if (sortValue == "sortHighToLow") {
+            sortedListCustomer = list.sort((a, b) => {
                 return b.price - a.price;
             });
-        } else if (sortOption == "sortAtoZ") {
-            sortedList = list.sort((a, b) =>
-                a.brand.toLowerCase() > b.brand.toLowerCase()
-                    ? 1
-                    : b.brand.toLowerCase() > a.brand.toLowerCase()
-                        ? -1
-                        : 0
+        } else if (sortValue == "sortAtoZ") {
+            sortedListCustomer = list.sort((a, b) =>
+                a.brand.toLowerCase() > b.brand.toLowerCase()? 1: b.brand.toLowerCase() > a.brand.toLowerCase()? -1: 0
             );
-        } else if (sortOption == "sortZtoA") {
-            sortedList = list.sort((a, b) =>
-                b.brand.toLowerCase() > a.brand.toLowerCase()
-                    ? 1
-                    : a.brand.toLowerCase() > b.brand.toLowerCase()
-                        ? -1
-                        : 0
+        } else if (sortValue == "sortZtoA") {
+            sortedListCustomer = list.sort((a, b) =>b.brand.toLowerCase() > a.brand.toLowerCase() ? 1
+            : a.brand.toLowerCase() > b.brand.toLowerCase()? -1 : 0
             );
         }
-        console.log(sortedList);
-        this.render(sortedList, display, catagory);
+        this.renderCustomerPage(sortedListCustomer , display , catagory)
     }
 }
 
@@ -311,7 +302,7 @@ function display(ev): void {
         }
     }
     console.log(sortOption);
-    
+
     // console.log(filterPriceFromInput);
     // console.log(filterPriceUpToInput);
 
@@ -355,19 +346,9 @@ function display(ev): void {
 
     if (filterBrandInput) {
         if (catagory == "Tshirts") {
-            clothsList.renderByBrand(
-                clothsList.Tshirts,
-                filterBrandInput,
-                TshirtsBox,
-                "Tshirts"
-            );
+            clothsList.renderByBrand(clothsList.Tshirts,filterBrandInput,TshirtsBox,"Tshirts" );
         } else if (catagory == "shoes") {
-            clothsList.renderByBrand(
-                clothsList.shoes,
-                filterBrandInput,
-                shoesBox,
-                "shoes"
-            );
+            clothsList.renderByBrand(clothsList.shoes,filterBrandInput,shoesBox,"shoes");
         } else if (catagory == "pants") {
             clothsList.renderByBrand(
                 clothsList.pants,
@@ -593,19 +574,21 @@ function showOptions(box: any, boxId: string) {
     }
 }
 function handleSort(ev) {
-    
+
     const sortValue = ev.target.value;
     const boxId = ev.target.id
 
     console.log(boxId)
-    const ListDisplay = document.getElementById('ListDisplay')
-
-    if(boxId == 'Tshirts'){
-    clothsList.SortCustomerPage(clothsList.Tshirts, "Tshirt", sortValue, ListDisplay)
-    }else if(boxId == "shoes"){
-    clothsList.SortCustomerPage(clothsList.shoes, "Shoes", sortValue, ListDisplay)
-    }else if(boxId == "pants"){
-        clothsList.SortCustomerPage(clothsList.pants, "Pants", sortValue, ListDisplay)
+    console.log(sortValue);
+    
+    const ListDisplay = document.querySelector('.container_catagories-display')
+    
+    if (boxId == 'Tshirts') {
+        clothsList.SortCustomerPage(clothsList.Tshirts, sortValue, ListDisplay, "Shoes")
+    } else if (boxId == "shoes") {
+        clothsList.SortCustomerPage(clothsList.shoes, sortValue, ListDisplay, "Shoes")
+    } else if (boxId == "pants") {
+        clothsList.SortCustomerPage(clothsList.pants, sortValue, ListDisplay, "Pants")
     }
 
 }

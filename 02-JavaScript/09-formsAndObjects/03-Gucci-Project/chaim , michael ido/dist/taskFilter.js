@@ -170,38 +170,28 @@ var clothsList = {
     },
     renderCustomerPagePants: function (display, catagory) {
         this.renderCustomerPage(display, catagory);
-    }, SortCustomerPage: function (list, catagory, sortOption, display) {
-        var sortedList;
-        if (sortOption == "sortLowToHigh") {
-            sortedList = list.sort(function (a, b) {
+    }, SortCustomerPage: function (list, sortValue, display, catagory) {
+        var sortedListCustomer;
+        if (sortValue == "sortLowToHigh") {
+            sortedListCustomer = list.sort(function (a, b) {
                 return a.price - b.price;
             });
         }
-        else if (sortOption == "sortHighToLow") {
-            sortedList = list.sort(function (a, b) {
+        else if (sortValue == "sortHighToLow") {
+            sortedListCustomer = list.sort(function (a, b) {
                 return b.price - a.price;
             });
         }
-        else if (sortOption == "sortAtoZ") {
-            sortedList = list.sort(function (a, b) {
-                return a.brand.toLowerCase() > b.brand.toLowerCase()
-                    ? 1
-                    : b.brand.toLowerCase() > a.brand.toLowerCase()
-                        ? -1
-                        : 0;
+        else if (sortValue == "sortAtoZ") {
+            sortedListCustomer = list.sort(function (a, b) {
+                return a.brand.toLowerCase() > b.brand.toLowerCase() ? 1 : b.brand.toLowerCase() > a.brand.toLowerCase() ? -1 : 0;
             });
         }
-        else if (sortOption == "sortZtoA") {
-            sortedList = list.sort(function (a, b) {
-                return b.brand.toLowerCase() > a.brand.toLowerCase()
-                    ? 1
-                    : a.brand.toLowerCase() > b.brand.toLowerCase()
-                        ? -1
-                        : 0;
-            });
+        else if (sortValue == "sortZtoA") {
+            sortedListCustomer = list.sort(function (a, b) { return b.brand.toLowerCase() > a.brand.toLowerCase() ? 1
+                : a.brand.toLowerCase() > b.brand.toLowerCase() ? -1 : 0; });
         }
-        console.log(sortedList);
-        this.render(sortedList, display, catagory);
+        this.renderCustomerPage(sortedListCustomer, display, catagory);
     }
 };
 function display(ev) {
@@ -449,14 +439,15 @@ function handleSort(ev) {
     var sortValue = ev.target.value;
     var boxId = ev.target.id;
     console.log(boxId);
-    var ListDisplay = document.getElementById('ListDisplay');
+    console.log(sortValue);
+    var ListDisplay = document.querySelector('.container_catagories-display');
     if (boxId == 'Tshirts') {
-        clothsList.SortCustomerPage(clothsList.Tshirts, "Tshirt", sortValue, ListDisplay);
+        clothsList.SortCustomerPage(clothsList.Tshirts, sortValue, ListDisplay, "Shoes");
     }
     else if (boxId == "shoes") {
-        clothsList.SortCustomerPage(clothsList.shoes, "Shoes", sortValue, ListDisplay);
+        clothsList.SortCustomerPage(clothsList.shoes, sortValue, ListDisplay, "Shoes");
     }
     else if (boxId == "pants") {
-        clothsList.SortCustomerPage(clothsList.pants, "Pants", sortValue, ListDisplay);
+        clothsList.SortCustomerPage(clothsList.pants, sortValue, ListDisplay, "Pants");
     }
 }
