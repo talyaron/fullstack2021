@@ -47,7 +47,7 @@ let stock: aviator = {
     },
 
     updateItem(item) {
-
+        
     },
 
     renderStock(items) {
@@ -167,13 +167,58 @@ function handleEdit(id) {
             case "bracelet":
                 field.value = EditedItem.bracelet;
                 break;
+            case "id":
+                field.value = EditedItem.id;
+                break;
         }
     }
 }
 
 function handleUpdate(ev) {
 ev.preventDefault()
-    
+let updateItem = { name: "", price: 0, img: "", group: "", Collection: "", function: "", movement: "", case: "", diameter: "", dial: "", bracelet: "", id: 0 };
+for (let field of ev.target) {
+    let name = field.name;
+    switch (name) {
+        case "name":
+            updateItem.name = field.value;
+            break;
+        case "price":
+            updateItem.price = field.value;
+            break;
+        case "img":
+            updateItem.img = field.value
+            break;
+        case "group":
+            updateItem.group = field.value;
+            break;
+        case "Collection":
+            updateItem.Collection = field.value;
+            break;
+        case "function":
+            updateItem.function = field.value;
+            break;
+        case "movement":
+            updateItem.movement = field.value;
+            break;
+        case "case":
+            updateItem.case = field.value;
+            break;
+        case "diameter":
+            updateItem.diameter = field.value;
+            break;
+        case "dial":
+            updateItem.dial = field.value;
+            break;
+        case "bracelet":
+            updateItem.bracelet = field.value;
+            break;
+        case "id":
+            updateItem.id = field.value;
+            break;
+    }
+
+}
 }
 
 stock.addItem({ name: 'DOUGLAS DAY 41', price: 45, img: `https://aviatorwatch.swiss/assets/catalog/douglas-day-date-41/AVIATOR-WATCH--DOUGLAS-DAY-DATE-41--V.3.35.0.278.4.webp`, group: "AUTOMATIC WATCHES", Collection: "BRISTOL", function: "Chronograph", movement: "Quartz", case: "Gold PVD", diameter: "42 mm", dial: "Ivory", bracelet: "Leather", id: 0 })
