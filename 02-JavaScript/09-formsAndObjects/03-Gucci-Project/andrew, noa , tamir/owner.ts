@@ -1,14 +1,26 @@
 console.log('owner')
 
-// interface aviator {
-
-//     items: Array<newItem>
-
-// }
+interface aviator {
+    items: Array<newItem>
+    addItem(newItem)
+    deleteItem(id)
+    updateItem(item)
+    renderStock(items)
+    storeData()
+}
 interface newItem {
-    img: string
     name: string
     price: number
+    img: string
+    group: string
+    Collection: string
+    function: string
+    movement: string
+    case: string
+    diameter: string
+    dial: string
+    bracelet: string
+    id: string
 
 }
 
@@ -16,23 +28,49 @@ const uid = function () {
     return Date.now().toString(36) + Math.random().toString(36).substr(2);
 };
 
-let stock = {
-    items: [
-        { name: 'DOUGLAS DAY 41', price: 45, img: `https://aviatorwatch.swiss/assets/catalog/douglas-day-date-41/AVIATOR-WATCH--DOUGLAS-DAY-DATE-41--V.3.35.0.278.4.webp` },
-        { name: 'DOUGLAS DAY-DATE 41', price: 55, img: 'https://aviatorwatch.swiss/assets/catalog/douglas-day-date-41/AVIATOR-WATCH--DOUGLAS-DAY-DATE-41--V.3.35.0.276.4.webp' },
-        { name: 'DOUGLAS', price: 35, img: 'https://aviatorwatch.swiss/assets/catalog/douglas-dc-3/AVIATOR-WATCH--DOUGLAS-DC-3--V.3.32.2.237.4.webp' },
-        { name: 'tamir', price: 57, img: 'https://aviatorwatch.swiss/assets/catalog/douglas-day-date-41/AVIATOR-WATCH--DOUGLAS-DAY-DATE-41--V.3.35.2.277.4.webp' },
-        { name: 'avi', price: 140, img: 'https://aviatorwatch.swiss/assets/catalog/douglas-day-date-41/AVIATOR-WATCH--DOUGLAS-DAY-DATE-41--V.3.35.2.280.4.webp' },
-        { name: 'nir', price: 60, img: 'https://aviatorwatch.swiss/assets/catalog/douglas-day-date-41/AVIATOR-WATCH--DOUGLAS-DAY-DATE-41--V.3.35.0.274.4.webp' }
-    ],
+let stock:aviator = {
+    items: [],
     addItem(newItem) {
         newItem.id = uid();
         this.items.push(newItem)
         console.log(this.items)
+        this.renderStock(this.items)
+        this.storeData();
+    },
+
+    storeData(){
+        localStorage.setItem('storeData', JSON.stringify(this.items))
     },
 
     deleteItem(id) {
+        this.items = this.items.filter((item) => item.id !== id);
+    },
 
+    updateItem(item) {
+
+    },
+
+    renderStock(items) {
+        let HTML = '';
+        items.forEach(item => {
+            HTML += ` <div class="card"
+            <p> name: ${item.name}</p>
+            <p> price: ${item.price}</p>
+            <img src="${item.img}">
+            <p> group: ${item.group}</p>
+            <p> collection: ${item.Collection}</p>
+            <p> function: ${item.function}</p>
+            <p> movement: ${item.movement}</p>
+            <p> case: ${item.case}</p>
+            <p> diameter: ${item.diameter}</p>
+            <p> dial: ${item.dial}</p>
+            <p> bracelet: ${item.bracelet}</p>
+            <button onclick="handleDelete('${item.id}')">Delete</button>
+            <button onclick="handleUpdate()">Update</button>
+           </div> `
+        });
+        const rootHTML = document.getElementById('root')
+        rootHTML.innerHTML = HTML;
     }
 }
 
@@ -82,3 +120,10 @@ function handleSubmit(ev) {
     stock.addItem(newItem);
 
 }
+
+function handleDelete(id) {
+    stock.deleteItem(id);
+    stock.renderStock(stock.items);
+}
+
+stock.addItem({ name: 'DOUGLAS DAY 41', price: 45, img: `https://aviatorwatch.swiss/assets/catalog/douglas-day-date-41/AVIATOR-WATCH--DOUGLAS-DAY-DATE-41--V.3.35.0.278.4.webp`, group: "AUTOMATIC WATCHES", Collection: "BRISTOL", function: "Chronograph", movement: "Quartz", case: "Gold PVD", diameter: "42 mm", dial: "Ivory", bracelet: "Leather", id: 0 })
