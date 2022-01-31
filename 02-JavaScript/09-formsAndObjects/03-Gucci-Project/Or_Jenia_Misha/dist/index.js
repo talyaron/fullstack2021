@@ -14,6 +14,8 @@ var sushiMenu = {
     addDish: function (name, price, description, category) {
         var id = uid();
         this.dishes.push({ id: id, name: name, price: price, description: description, category: category });
+        this.storeData();
+        this.getData();
     },
     removeDish: function (id) {
         this.dishes = this.dishes.filter(function (dish) { return dish.id !== id; });
@@ -23,8 +25,33 @@ var sushiMenu = {
         if (index >= 0) {
             this.dishes[index] = newDish;
         }
+    },
+    renderDishes: function (list, domElement) {
+        var html = "";
+        list.forEach(function (item) {
+            html += "<div class=\"card\">" + item.name + ", " + item.price + "," + item.category + "</div>";
+        });
+        domElement.innerHTML = html;
+    },
+    storeData: function () {
+        localStorage.setItem('storeData', JSON.stringify(this.dishes));
+    },
+    getData: function () {
+        this.dishes = JSON.parse(localStorage.getItem('storeData'));
     }
 };
-sushiMenu.addDish('Tuna Tartare', 66, 'Spicy tuna, tempura flakes, nori sheets, seared avocado, chives and cucumber. Served with spiced soy sauce.', 'firsts');
-sushiMenu.removeDish('a1');
-console.log(sushiMenu);
+var root = document.getElementById("root");
+sushiMenu.renderDishes(sushiMenu.dishes, root);
+function handleAddDish(ev) {
+    ev.preventDefault();
+    var dishName = ev.target.elements.name.value;
+    var dishPrice = ev.target.elements.price.valueAsNumber;
+    var dishDesc = ev.target.elements.description.value;
+    var dishCategory = document.getElementById("category").value;
+    sushiMenu.addDish(dishName, dishPrice, dishDesc, dishCategory);
+    var root = document.getElementById("root");
+    sushiMenu.renderDishes(sushiMenu.dishes, root);
+    ev.target.reset();
+}
+sushiMenu.getData();
+// sushiMenu.renderDishes(sushiMenu.dishes, root);
