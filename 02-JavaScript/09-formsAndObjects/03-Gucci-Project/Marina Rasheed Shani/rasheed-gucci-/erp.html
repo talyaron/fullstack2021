@@ -19,6 +19,7 @@
     <form onsubmit="handleAddItems(event)">
         <input id="itemName" type="text" name="name" placeholder="item-name">
         <input id="price" type="number" name="price" placeholder="item-price">
+        <input type="text" name="img" id="img">
         
         <select id="selectDepartment">
             <option value="" disabled selected>Choose a department</option>
@@ -43,13 +44,10 @@
         </select>
         <input type="submit" value="add-Product">
     </form>
-    <input type="file" id="uploadBannerImage" onchange="readUrl(this)">
-    <!-- <input type="file" name="backImg" > -->
     <form onsubmit="handleRemoveItems(event)">
         <input type="text" name="remove" id="remove" placeholder="Enter item Name to Remove">
         <input id="removeBtn" type="submit" value="remove">
     </form>
-    <input type="file" id="myImageInput">
     <script src="dist/index.js"></script>
 </body>
 

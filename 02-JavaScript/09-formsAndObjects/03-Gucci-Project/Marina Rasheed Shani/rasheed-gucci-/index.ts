@@ -7,12 +7,13 @@ interface Store {
   addItems(
     name: string,
     price: number,
+    img:any,
     type: string,
     department: "clothes" | "watches" | "jewelry" | "bags",
     gender: "men" | "women",
     id: any
   ): any;
-  removeItems(itemName: string):any
+  removeItems(itemName: string): any
   render(list: any, domElement: any): any;
   renderAllitems(domElement: any): any;
 }
@@ -24,8 +25,8 @@ interface Item {
   gender: "men" | "women";
   type: string;
   id?: any;
-  topImg?:any;
-  backImg?:any;
+  img?: any;
+
 }
 
 const gucci: Store = {
@@ -39,24 +40,24 @@ const gucci: Store = {
       this.items = clothesStorage;
     }
   },
-  addItems(name, price, department, gender,type, id) {
+  addItems(name, price,img, department, gender, type, id) {
     console.log(this);
-    this.items.push({ name, price, department, gender, type });
+    this.items.push({ name, price,img, department, gender, type });
     this.storeData();
   },
   removeItems(itemName: string) {
     const index = this.items.findIndex(item => item.name === itemName);
     if (index >= 0) {
-        this.items.splice(index, 1)
+      this.items.splice(index, 1)
     }
-},
+  },
   render(list, domElement) {
     let html = "";
     list.forEach((product) => {
       html += `<div class="items">
-        <p> item : ${product.name} , price : ${product.price}$</p>
-        <img class="img-back" src="${product.topImg}" >
-        <img class="img-top" src="${product.backImg}"  >
+        <p> item : ${product.name}</p>
+        <img class="img-back" src="${product.img}" >
+        <p> price : ${product.price}$</p>
        
         </div>`;
     });
@@ -82,14 +83,16 @@ function handleShowItems() {
 
 function handleAddItems(ev) {
   ev.preventDefault();
-  console.dir(ev.target[4].value)
+  console.dir(ev.target)
+
   const name = ev.target.name.value;
   const price = ev.target.price.value;
-  const department = ev.target[2].value;
-  const gender = ev.target[3].value;
-  const type = ev.target[4].value;
+  const img = ev.target[2].value;
+  const department = ev.target[3].value;
+  const gender = ev.target[4].value;
+  const type = ev.target[5].value;
   let id = uid;
-  gucci.addItems(name, price, department, gender, type, id);
+  gucci.addItems(name, price,img, department, gender, type, id);
   console.log(gucci.items);
   gucci.storeData();
 }
@@ -107,12 +110,25 @@ const uid = function () {
 };
 
 
-// render(list, domElement) {
-//   let html = "";
-//   list.forEach((product) => {
-//     html += `<div class='result-card'>
-//       <p> item : ${product.name} , price :  ${product.price}$</p>
-//       </div>`;
-//   });
-//   domElement.innerHTML = html;
-// },
+
+
+
+let navBar = document.querySelectorAll('.container__navBar__catergory');
+navBar.forEach(item => {
+  item.addEventListener('mouseover' ,handleNavMouseover)
+});
+
+let dropDown = document.querySelector('.container__dropdawn')
+function handleNavMouseover(){
+  dropDown.classList.toggle('visible')
+}
+
+
+
+navBar.forEach(item => {
+  item.addEventListener('mouseleave' , handleNavMouseleave)
+})
+function handleNavMouseleave(){
+  dropDown.classList.toggle('hidden')
+}
+

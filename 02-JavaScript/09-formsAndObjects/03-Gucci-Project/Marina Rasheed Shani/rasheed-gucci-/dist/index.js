@@ -9,9 +9,9 @@ var gucci = {
             this.items = clothesStorage;
         }
     },
-    addItems: function (name, price, department, gender, type, id) {
+    addItems: function (name, price, img, department, gender, type, id) {
         console.log(this);
-        this.items.push({ name: name, price: price, department: department, gender: gender, type: type });
+        this.items.push({ name: name, price: price, img: img, department: department, gender: gender, type: type });
         this.storeData();
     },
     removeItems: function (itemName) {
@@ -23,7 +23,7 @@ var gucci = {
     render: function (list, domElement) {
         var html = "";
         list.forEach(function (product) {
-            html += "<div class=\"items\">\n        <p> item : " + product.name + " , price : " + product.price + "$</p>\n        <img class=\"img-back\" src=\"" + product.topImg + "\" >\n        <img class=\"img-top\" src=\"" + product.backImg + "\"  >\n       \n        </div>";
+            html += "<div class=\"items\">\n        <p> item : " + product.name + "</p>\n        <img class=\"img-back\" src=\"" + product.img + "\" >\n        <p> price : " + product.price + "$</p>\n       \n        </div>";
         });
         domElement.innerHTML = html;
     },
@@ -43,14 +43,15 @@ function handleShowItems() {
 }
 function handleAddItems(ev) {
     ev.preventDefault();
-    console.dir(ev.target[4].value);
+    console.dir(ev.target);
     var name = ev.target.name.value;
     var price = ev.target.price.value;
-    var department = ev.target[2].value;
-    var gender = ev.target[3].value;
-    var type = ev.target[4].value;
+    var img = ev.target[2].value;
+    var department = ev.target[3].value;
+    var gender = ev.target[4].value;
+    var type = ev.target[5].value;
     var id = uid;
-    gucci.addItems(name, price, department, gender, type, id);
+    gucci.addItems(name, price, img, department, gender, type, id);
     console.log(gucci.items);
     gucci.storeData();
 }
@@ -65,12 +66,17 @@ function handleRemoveItems(ev) {
 var uid = function () {
     return Date.now().toString(36) + Math.random().toString(36).substr(2);
 };
-// render(list, domElement) {
-//   let html = "";
-//   list.forEach((product) => {
-//     html += `<div class='result-card'>
-//       <p> item : ${product.name} , price :  ${product.price}$</p>
-//       </div>`;
-//   });
-//   domElement.innerHTML = html;
-// },
+var navBar = document.querySelectorAll('.container__navBar__catergory');
+navBar.forEach(function (item) {
+    item.addEventListener('mouseover', handleNavMouseover);
+});
+var dropDown = document.querySelector('.container__dropdawn');
+function handleNavMouseover() {
+    dropDown.classList.toggle('visible');
+}
+navBar.forEach(function (item) {
+    item.addEventListener('mouseleave', handleNavMouseleave);
+});
+function handleNavMouseleave() {
+    dropDown.classList.toggle('hidden');
+}

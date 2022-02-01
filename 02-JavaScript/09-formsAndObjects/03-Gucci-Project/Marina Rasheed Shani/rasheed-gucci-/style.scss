@@ -63,7 +63,22 @@ body {
     font-weight: 300;
     font-size: larger;
     cursor: pointer;
-    opacity: 1;
+    opacity: 0;
+    transition: ease 300ms;
+    // transform: translateY(0px);
+    // visibility: hidden;
+
+    &.visible {
+      opacity: 1;
+      transform: translateY(0px);
+      position: static;
+
+
+    }
+    &.hidden{
+      opacity: 0;
+      
+    }
   }
 
   &__main {
@@ -187,40 +202,42 @@ $border:solid 3px black;
 
 
   .items {
-    color: black;   
+    color: black;
     position: relative;
     display: inline-block;
     text-align: center;
-    .img-back{
-      height:380px;
+
+    .img-back {
+      height: 380px;
       width: 20em;
-     
-    }
-    p{
-      
-      text-align:center;
 
     }
-    
+
+    p {
+
+      text-align: center;
+
+    }
+
 
     .img-top {
       display: none;
       position: absolute;
-       top: 0;
+      top: 0;
       left: 5em;
       z-index: 1;
-      border:solid 2px black;
+      border: solid 2px black;
       transition: 10s ease;
-      
-     
+
+
     }
 
     &:hover .img-top {
-  
+
       display: inline;
       width: 20em;
-      height:380px;
-      
+      height: 380px;
+
     }
   }
 }
