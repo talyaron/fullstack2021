@@ -51,14 +51,14 @@ let sushiMenu: Menu = {
       this.dishes[index] = newDish;
     }
   },
-  renderDishes(list, domElement) {
-    let html = "";
-    list.forEach((item) => {
-      html += `<div class="card">${item.name}, ${item.price},${item.category}</div>`;
-    });
+  // renderDishes(list, domElement) {
+  //   let html = "";
+  //   list.forEach((item) => {
+  //     html += `<div class="card">${item.name}, ${item.price},${item.category}</div>`;
+  //   });
 
-    domElement.innerHTML = html;
-  },
+  //   domElement.innerHTML = html;
+  // },
   storeData() {
     localStorage.setItem("storeData", JSON.stringify(this.dishes));
   },

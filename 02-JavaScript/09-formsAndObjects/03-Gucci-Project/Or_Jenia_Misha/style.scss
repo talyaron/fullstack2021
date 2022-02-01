@@ -42,12 +42,12 @@
 
 }
 
-@keyframes slide{
-    0%{
+@keyframes slide {
+    0% {
         left: 500%;
     }
 
-    100%{
+    100% {
         left: 0%;
     }
 }
@@ -85,7 +85,7 @@ body {
     animation-duration: 20s;
     animation-direction: normal;
     animation-iteration-count: infinite;
-    animation-timing-function: cubic-bezier( 0, 1.01, 0, 1.01 );
+    animation-timing-function: cubic-bezier(0, 1.01, 0, 1.01);
 
     &__title {
         position: absolute;
@@ -169,7 +169,7 @@ body {
     display: flex;
     width: 95%;
     justify-content: space-between;
-    color: white;
+    color: #EBEBEB;
 
     .footer__whatsapp {
 
@@ -250,7 +250,7 @@ body {
 
     min-height: 100vh;
     background-color: rgb(12, 11, 11);
-    color: white;
+    color: #EBEBEB;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -329,7 +329,7 @@ body {
 .menuopacity {
     background-color: rgba(0, 0, 0, 0.858);
     height: 100vh;
-    width: 100%;
+    width: 100vw;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -346,17 +346,20 @@ body {
     background-position: center center;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    align-items: space-around;
     text-align: center;
     min-height: 100vh;
     color: #EBEBEB;
 
 
     &__title {
-        margin-top: 2rem;
+
         font-size: 3rem;
         font-weight: 600;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
 
         &::after {
             content: '';
@@ -369,22 +372,29 @@ body {
     }
 
     &__box {
+        position: relative;
+        top: 2em;
         display: grid;
         grid-template-columns: repeat(6, 1fr);
         grid-template-rows: repeat(3, 1fr);
         align-items: center;
-        width: 65%;
+        width: 1200px;
+        height: 75%;
 
     }
 
     &__cell {
 
         position: relative;
-        margin-top: 2rem;
-        width: 10rem;
-        height: 12rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
         overflow: hidden;
-        
+        gap: 0.8em;
+
 
 
         .picwrap {
@@ -394,7 +404,8 @@ body {
             overflow: hidden;
             border-radius: 100%;
             border: 5px solid rgb(28, 28, 28);
-            &:hover{
+
+            &:hover {
                 border: 5px solid rgb(53, 53, 53);
             }
         }
@@ -405,8 +416,8 @@ body {
             height: 102%;
             position: relative;
             right: 30px;
-            
-  
+
+
 
             &:hover {
                 cursor: pointer;
@@ -427,7 +438,62 @@ body {
 
     }
 }
-#button{
-    width: fit-content;
-    height: fit-content;
+
+// ----------- POPMENU ----------- // 
+
+.popmenu {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #EBEBEB;
+
+    &__x {
+        font-size: 75px;
+        text-shadow: 0px 0px 3px black;
+    }
+
+    &__box {
+
+        width: 960px;
+        height: 700px;
+        background-image: url("https://images3.alphacoders.com/929/thumb-1920-92919.jpg");
+        @include backgroundsettings();
+
+        &__opacity {
+            height: 100%;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.856);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: rgb(161, 161, 161);
+
+            &__navbar{
+                height: 10%;
+                width: 900px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                font-size: 15px;
+
+                div{
+                    height: 50%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: fit-content;
+                    margin: 5px;
+                    padding: 5px;
+                    border-bottom: 1px solid grey;
+                    &:hover{
+                        cursor: pointer;
+                    }
+                }
+            }
+
+        }
+    }
 }

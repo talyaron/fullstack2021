@@ -23,7 +23,7 @@ var gucci = {
     render: function (list, domElement) {
         var html = "";
         list.forEach(function (product) {
-            html += "<div class='result-card'>\n        <p> item : " + product.name + " , price :  " + product.price + "$</p>\n        </div>";
+            html += "<div class=\"items\">\n        <p> item : " + product.name + " , price : " + product.price + "$</p>\n        <img class=\"img-back\" src=\"" + product.topImg + "\" >\n        <img class=\"img-top\" src=\"" + product.backImg + "\"  >\n       \n        </div>";
         });
         domElement.innerHTML = html;
     },
@@ -32,11 +32,11 @@ var gucci = {
         this.render(items, domElement);
     }
 };
-function handleShowItems() {
-    console.log(gucci.items);
-}
+// function handleShowItems(){
+//   console.log(gucci.items)
+// }
 gucci.getData();
-function handleShowClothes() {
+function handleShowItems() {
     gucci.getData();
     var root = document.getElementById("root");
     gucci.renderAllitems(root);
@@ -65,3 +65,12 @@ function handleRemoveItems(ev) {
 var uid = function () {
     return Date.now().toString(36) + Math.random().toString(36).substr(2);
 };
+// render(list, domElement) {
+//   let html = "";
+//   list.forEach((product) => {
+//     html += `<div class='result-card'>
+//       <p> item : ${product.name} , price :  ${product.price}$</p>
+//       </div>`;
+//   });
+//   domElement.innerHTML = html;
+// },

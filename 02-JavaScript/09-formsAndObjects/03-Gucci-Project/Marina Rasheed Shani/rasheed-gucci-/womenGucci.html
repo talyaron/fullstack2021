@@ -115,13 +115,13 @@
 
         <div class="catergory__buttons">
 
-            
+
 
 
             <select class="catergory__buttons--selector" onchange='handleSelect(event)'>
                 <option value="" disabled selected>Choose a type</option>
                 <option value="all">ALL</option>
-                <option value="dresses">Dresses</option>
+                <option value="dresses">DRESSES</option>
                 <option value="pants">PANTS</option>
                 <option value="shirts">SHIRT</option>
             </select>
@@ -138,29 +138,52 @@
 
         </div>
         <div class="catergory__items">
-            <div class="itemSilkDress">
-                <img src="https://media.gucci.com/style/DarkGray_South_0_160_316x316/1635527707/664317_Z8AWG_9791_001_100_0000_Light-Belted-optical-print-silk-dress.jpg">
-                <p>Belted optical print silk dress</p>
-                <p>4,980</p>
-            </div>
-            <div class="itemSilkDress">
-                <img src="https://media.gucci.com/style/DarkGray_South_0_160_316x316/1635527707/664317_Z8AWG_9791_001_100_0000_Light-Belted-optical-print-silk-dress.jpg">
-                <p>Belted optical print silk dress</p>
-                <p>4,980</p>
-            </div>
-            <div class="itemSilkDress">
-                <img src="https://media.gucci.com/style/DarkGray_South_0_160_316x316/1635527707/664317_Z8AWG_9791_001_100_0000_Light-Belted-optical-print-silk-dress.jpg">
-                <p>Belted optical print silk dress</p>
-                <p>4,980</p>
-            </div>
-            <div class="itemSilkDressTest">
-                <img src="https://media.gucci.com/style/DarkGray_South_0_160_316x316/1635527707/664317_Z8AWG_9791_001_100_0000_Light-Belted-optical-print-silk-dress.jpg" alt="Card Back">
-                <p>Belted optical print silk dress</p>
-                <p>4,980</p>
+
+            <!-- <div class="itemSilkDress">
+                <img src="https://media.gucci.com/style/DarkGray_South_0_160_316x316/1635527707/664317_Z8AWG_9791_001_100_0000_Light-Belted-optical-print-silk-dress.jpg" class="img-back"alt="Card Back">
                 <img src="https://media.gucci.com/style/White_South_0_40_632x790/1635527709/664317_Z8AWG_9791_002_100_0000_Light.jpg" class="img-top" alt="Card Front">
+                <p>Belted optical print silk dress</p>
+                <p>4,980</p>
+                
 
             </div>
-           
+            <div class="itemSilkDress">
+                <img src="https://media.gucci.com/style/DarkGray_South_0_160_316x316/1635527707/664317_Z8AWG_9791_001_100_0000_Light-Belted-optical-print-silk-dress.jpg" class="img-back"alt="Card Back">
+                <img src="https://media.gucci.com/style/White_South_0_40_632x790/1635527709/664317_Z8AWG_9791_002_100_0000_Light.jpg" class="img-top" alt="Card Front">
+                <p>Belted optical print silk dress</p>
+                <p>4,980</p>
+                
+
+            </div>
+            <div class="itemSilkDress">
+                <img src="https://media.gucci.com/style/DarkGray_South_0_160_316x316/1635527707/664317_Z8AWG_9791_001_100_0000_Light-Belted-optical-print-silk-dress.jpg" class="img-back"alt="Card Back">
+                <img src="https://media.gucci.com/style/White_South_0_40_632x790/1635527709/664317_Z8AWG_9791_002_100_0000_Light.jpg" class="img-top" alt="Card Front">
+                <p>Belted optical print silk dress</p>
+                <p>4,980</p>
+                
+
+            </div>
+            <div class="itemSilkDress">
+                <img src="https://media.gucci.com/style/DarkGray_South_0_160_316x316/1635527707/664317_Z8AWG_9791_001_100_0000_Light-Belted-optical-print-silk-dress.jpg" class="img-back"alt="Card Back">
+                <img src="https://media.gucci.com/style/White_South_0_40_632x790/1635527709/664317_Z8AWG_9791_002_100_0000_Light.jpg" class="img-top" alt="Card Front">
+                <p>Belted optical print silk dress</p>
+                <p>4,980</p>
+                
+
+            </div>
+            <div class="itemSilkDress">
+                <img src="https://media.gucci.com/style/DarkGray_South_0_160_316x316/1635527707/664317_Z8AWG_9791_001_100_0000_Light-Belted-optical-print-silk-dress.jpg" class="img-back"alt="Card Back">
+                <img src="https://media.gucci.com/style/White_South_0_40_632x790/1635527709/664317_Z8AWG_9791_002_100_0000_Light.jpg" class="img-top" alt="Card Front">
+                <p>Belted optical print silk dress</p>
+                <p>4,980</p>
+                
+
+            </div>-->
+            <div onmouseover="handleShowItems()">Show Products</div>
+
+            <div id="root"></div>
+
+
 
 
         </div>
@@ -234,9 +257,10 @@
         <a href="./index.html">Store</a>
         <a href="./erp.html">ERP</a>
     </nav>
+    <script src="dist/index.js"></script>
     <!-- <h1>Store</h1>
-    <div onmouseover="handleShowClothes()">Show Products</div> -->
-    <div id="root"></div>
+    
+    
 
 </body>
 

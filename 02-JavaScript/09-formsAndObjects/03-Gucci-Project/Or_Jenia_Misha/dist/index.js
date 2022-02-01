@@ -26,13 +26,13 @@ var sushiMenu = {
             this.dishes[index] = newDish;
         }
     },
-    renderDishes: function (list, domElement) {
-        var html = "";
-        list.forEach(function (item) {
-            html += "<div class=\"card\">" + item.name + ", " + item.price + "," + item.category + "</div>";
-        });
-        domElement.innerHTML = html;
-    },
+    // renderDishes(list, domElement) {
+    //   let html = "";
+    //   list.forEach((item) => {
+    //     html += `<div class="card">${item.name}, ${item.price},${item.category}</div>`;
+    //   });
+    //   domElement.innerHTML = html;
+    // },
     storeData: function () {
         localStorage.setItem("storeData", JSON.stringify(this.dishes));
     },
