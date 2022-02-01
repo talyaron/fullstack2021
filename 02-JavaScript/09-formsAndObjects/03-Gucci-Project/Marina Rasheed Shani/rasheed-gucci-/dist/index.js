@@ -30,6 +30,11 @@ var gucci = {
     renderAllitems: function (domElement) {
         var items = this.items;
         this.render(items, domElement);
+    },
+    sortByAscending: function (type) {
+        this.storeData.sort(function (a, b) {
+            return a[type] - b[type];
+        });
     }
 };
 function handleShowItems() {
@@ -66,6 +71,11 @@ function handleRemoveItems(ev) {
 var uid = function () {
     return Date.now().toString(36) + Math.random().toString(36).substr(2);
 };
+function handlePriceAsc(price) {
+    gucci.sortByAscending(price);
+    var root = document.getElementById('root');
+    gucci.renderAllitems(root);
+}
 var navBar = document.querySelectorAll('.container__navBar__catergory');
 navBar.forEach(function (item) {
     item.addEventListener('mouseover', handleNavMouseover);
