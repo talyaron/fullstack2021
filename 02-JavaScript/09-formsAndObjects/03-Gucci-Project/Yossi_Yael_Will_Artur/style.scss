@@ -1,7 +1,6 @@
- 
-div{
-    border: 1px solid red;
-}
+ div {
+     border: 1px solid red;
+ }
 
  .bodyOwner {
      width: 80%;
@@ -17,14 +16,17 @@ div{
      width: 100%;
      height: 100px;
      background-color: #242e31;
-     display: grid;
-     grid-template-columns: 1fr 2fr;
      border-radius: 6px;
      outline: 1px solid #fff;
      outline-offset: -10px;
      border-radius: 6px;
 
+     &__btn {
+         padding: 2px;
+         margin: 10px;
      }
+
+ }
 
  .wrapperForms {
      display: grid;
@@ -36,12 +38,12 @@ div{
      border-radius: 6px;
  }
 
- #formAddItem{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-}
+ #formAddItem {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     gap: 10px;
+ }
 
  input,
  #select {
@@ -58,7 +60,7 @@ div{
  }
 
  .sortBtns {
-     
+
      button {
          min-height: 22px;
          border-radius: 4px;

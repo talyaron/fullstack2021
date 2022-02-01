@@ -1,10 +1,18 @@
 var uid = function () {
     return Date.now().toString(36) + Math.random().toString(36).substr(2);
 };
-var zap = {
+var gucci = {
     items: [],
     addItems: function (item) {
         this.items.push(item);
+        this.storeData();
+        this.getData();
+    },
+    storeData: function () {
+        localStorage.setItem('storeData', JSON.stringify(this.items));
+    },
+    getData: function () {
+        this.items = JSON.parse(localStorage.getItem('storeData'));
     },
     deleteItem: function (id) {
         this.items = this.items.filter(function (item) { return item.id !== id; });
@@ -15,12 +23,6 @@ var zap = {
         console.log(index);
         if (index >= 0) {
             this.items[index].title = itemEdited;
-        }
-    },
-    removeItems: function (itemTitle) {
-        var index = this.items.findIndex(function (item) { return item.title === itemTitle; });
-        if (index >= 0) {
-            this.items.splice(index, 1);
         }
     },
     newItems: function (price) {
@@ -39,12 +41,6 @@ var zap = {
         var items = this.items;
         this.renderItemsList(domElement, items);
     },
-    filterItemsByMaxPrice: function (price) {
-        return this.items.filter(function (item) { return item.price < price; });
-    },
-    renderFilter: function (domElement, filtered) {
-        this.renderItemsList(domElement, filtered);
-    },
     renderItemsList: function (domElement, list) {
         var html = '';
         list.forEach(function (item) {
@@ -60,41 +56,42 @@ function handleaddItems(ev) {
     var description = ev.target.elements.description.value;
     var price = ev.target.elements.price.valueAsNumber;
     var id = uid();
-    zap.addItems({ id: id, select: select, title: title, description: description, price: price });
+    gucci.addItems({ id: id, select: select, title: title, description: description, price: price });
     var rootItems = document.getElementById('rootItems');
-    zap.renderItems(rootItems);
+    gucci.renderItems(rootItems);
     ev.target.reset();
 }
 function handleEditItems(ev, id) {
     console.log(id);
     ev.preventDefault();
     var itemEdited = ev.target.elements.itemEdited.value;
-    zap.editItem(id, itemEdited);
+    gucci.editItem(id, itemEdited);
     var rootItems = document.getElementById('rootItems');
     ev.target.reset();
-    zap.renderItems(rootItems);
+    gucci.renderItems(rootItems);
 }
 function handlesortItemsDesc(ev) {
     var desc = ev.target.value;
-    zap.sortItems('desc');
+    gucci.sortItems('desc');
     var rootItems = document.getElementById('rootItems');
-    zap.renderItems(rootItems);
+    gucci.renderItems(rootItems);
 }
 function handlesortItemsAsc(ev) {
     var desc = ev.target.value;
-    zap.sortItems('asc');
+    gucci.sortItems('asc');
     var rootItems = document.getElementById('rootItems');
-    zap.renderItems(rootItems);
+    gucci.renderItems(rootItems);
 }
 function handleDelete(id) {
     var rootItems = document.getElementById('rootItems');
-    zap.deleteItem(id);
-    zap.renderItems(rootItems);
+    gucci.deleteItem(id);
+    gucci.renderItems(rootItems);
 }
-zap.addItems({ id: " 1", select: 'fashion', title: 'Jacket', description: 'product is an object or system made available for consumer use...<a href="">read more</a>', price: 400 });
-zap.addItems({ id: "2", select: 'games', title: 'Checkmate', description: 'product is an object or system made available for consumer use...<a href="">read more</a>', price: 200 });
-zap.addItems({ id: "3", select: 'fashion', title: 'Jacket', description: 'product is an object or system made available for consumer use...<a href="">read more</a>', price: 500 });
-zap.addItems({ id: "4", select: 'electronics', title: 'iMac', description: 'product is an object or system made available for consumer use...<a href="">read more</a>', price: 2000 });
+gucci.addItems({ id: "1", select: 'fashion', title: 'Jacket', description: 'product is an object or system made available for consumer use...<a href="">read more</a>', price: 400 });
+gucci.addItems({ id: "2", select: 'games', title: 'Checkmate', description: 'product is an object or system made available for consumer use...<a href="">read more</a>', price: 200 });
+gucci.addItems({ id: "3", select: 'fashion', title: 'Jacket', description: 'product is an object or system made available for consumer use...<a href="">read more</a>', price: 500 });
+gucci.addItems({ id: "4", select: 'electronics', title: 'iMac', description: 'product is an object or system made available for consumer use...<a href="">read more</a>', price: 2000 });
 var rootItems = document.getElementById('rootItems');
-zap.renderItems(rootItems);
-console.log(zap);
+gucci.renderItems(rootItems);
+gucci.getData();
+console.log(gucci);

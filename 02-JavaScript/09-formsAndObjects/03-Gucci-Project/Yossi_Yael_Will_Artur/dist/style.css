@@ -17,12 +17,14 @@ div {
   width: 100%;
   height: 100px;
   background-color: #242e31;
-  display: grid;
-  grid-template-columns: 1fr 2fr;
   border-radius: 6px;
   outline: 1px solid #fff;
   outline-offset: -10px;
   border-radius: 6px;
+}
+.headerOwner__btn {
+  padding: 2px;
+  margin: 10px;
 }
 
 .wrapperForms {
