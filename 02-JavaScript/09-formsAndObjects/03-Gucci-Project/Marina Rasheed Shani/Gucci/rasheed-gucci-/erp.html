@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store-ERP</title>
+    <link rel="stylesheet" href="dist/style.css">
+</head>
+<body class="erp">
+    <nav>
+        <a href="./index.html">Store</a>
+        <a href="./erp.html">ERP</a>
+    </nav>
+    <h1>Store ERP</h1>
+    <form onsubmit="handleAddclothes(event)">
+        <input id="itemName" type="text" name="name" placeholder="item-name">
+        <input id="price" type= "number" name="price" placeholder="item-price">
+        <select id="selectDepartment">
+            <option value="" disabled selected>Choose a department</option>
+            <option value="clothes">clothes</option>
+            <option value="watches">watches</option>       
+            <option value="jewelry">jewelry</option>
+            <option value="bags">bags</option>
+        </select>
+        <select id="selectGender">
+            <option value="" disabled selected>Choose a gender</option>
+            <option value="men">men</option>
+            <option value="women">women</option>
+        </select>
+            <select id="selectType">
+                <option value="" disabled selected>Choose a type</option>
+                <option value="t-shirts">t-shirt</option>
+                <option value="pants">women</option>
+                <option value="shoes">women</option>
+                <option value="jewelry">women</option>
+                <option value="watches">women</option>
+                <option value="bags">women</option>
+            </select>
+        <input type="submit" value="add-Product">
+    </form>
+    <script src="dist/index.js"></script>
+</body>
+</html>
