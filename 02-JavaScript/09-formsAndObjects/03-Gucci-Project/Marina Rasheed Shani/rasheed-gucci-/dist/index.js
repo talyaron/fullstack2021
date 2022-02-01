@@ -23,7 +23,7 @@ var gucci = {
     render: function (list, domElement) {
         var html = "";
         list.forEach(function (product) {
-            html += "<div class=\"items\">\n        <p> item : " + product.name + "</p>\n        <img class=\"img-back\" src=\"" + product.img + "\" >\n        <p> price : " + product.price + "$</p>\n       \n        </div>";
+            html += "<div class=\"items\">\n        <p> item : " + product.name + "</p>\n        <img class=\"img\" src=\"" + product.img + "\" >\n        <p> price : " + product.price + "$</p>\n       \n        </div>";
         });
         domElement.innerHTML = html;
     },

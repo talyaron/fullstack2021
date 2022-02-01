@@ -104,77 +104,53 @@ body {
 .catergory__buttons {
   display: inline-flex;
   background-color: beige;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 10em;
+  justify-content: flex-end;
   width: 100vw;
-  height: 10vh;
-  padding-top: 3em;
+  height: 13vh;
 }
 .catergory__buttons--selector {
+  background-color: beige;
   cursor: pointer;
   width: 10em;
-  height: 3em;
-  border: solid 3px black;
-  font-weight: bold;
+}
+.catergory__buttons--selector:hover {
+  background-color: rgba(255, 255, 249, 0.616);
 }
 .catergory__buttons--sortPrice {
   display: inline-flex;
-  gap: 6em;
   width: 25em;
-  height: 3em;
 }
 .catergory__buttons--sortPrice button {
+  background-color: beige;
   cursor: pointer;
-  border: solid 3px black;
-  font-weight: bold;
+}
+.catergory__buttons--sortPrice button:hover {
+  background-color: rgba(255, 255, 249, 0.616);
 }
 .catergory__buttons--lowerThanPrice {
   color: black;
-  margin-left: 5em;
-  padding-top: 5px;
-  font-weight: bold;
+  margin-left: 0;
+  padding-top: 2em;
 }
 .catergory__buttons--lowerThanPrice .inputLowerThan {
   cursor: pointer;
-  border: solid 3px black;
-  font-weight: bold;
+  background-color: beige;
 }
 
 .catergory__items {
-  margin-top: 4em;
+  margin-top: 1em;
   background-color: white;
-  height: 100em;
+  height: 110em;
   text-align: center;
-  gap: 4em;
-  display: inline-grid;
-  grid-template-columns: repeat(3, 30em);
-  grid-template-rows: repeat(4, 25em);
 }
 .catergory__items .items {
   color: black;
   position: relative;
   display: inline-block;
   text-align: center;
+  padding: 3em;
 }
-.catergory__items .items .img-back {
+.catergory__items .items img {
   height: 380px;
   width: 20em;
-}
-.catergory__items .items p {
-  text-align: center;
-}
-.catergory__items .items .img-top {
-  display: none;
-  position: absolute;
-  top: 0;
-  left: 5em;
-  z-index: 1;
-  border: solid 2px black;
-  transition: 10s ease;
-}
-.catergory__items .items:hover .img-top {
-  display: inline;
-  width: 20em;
-  height: 380px;
 }
