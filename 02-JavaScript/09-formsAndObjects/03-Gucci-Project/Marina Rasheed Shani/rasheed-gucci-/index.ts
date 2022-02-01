@@ -60,7 +60,7 @@ const gucci: Store = {
     list.forEach((product) => {
       html += `<div class="items">
         <p> item : ${product.name}</p>
-        <img class="img-back" src="${product.img}" >
+        <img class="img" src="${product.img}" >
         <p> price : ${product.price}$</p>
         <input onclick="handleAddToCart()" id="addToCart" type="button" value="ADD TO CART">
         </div>`;

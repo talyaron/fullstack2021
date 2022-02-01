@@ -118,7 +118,7 @@ body {
 }
 
 //BUTTONS FOR EACH CATERGORY
-$border:solid 3px black;
+
 
 .catergory__name {
   display: inline-flex;
@@ -132,57 +132,64 @@ $border:solid 3px black;
 }
 
 .catergory__buttons {
-
-  display: inline-flex;
+  
+  display:inline-flex;
   background-color: beige;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 10em;
+  justify-content: flex-end;
+  //gap: 10em;
   width: 100vw;
-  height: 10vh;
-  padding-top: 3em;
+  height: 13vh;
+  //padding-top: 3em;
 
 
 
   &--selector {
+    background-color: beige;
     cursor: pointer;
     width: 10em;
-    height: 3em;
-    border: $border;
-    font-weight: bold;
-    //  select>option{
-    //    background-color:red;
-
-    //  }
+    //height: 3em;  
+    
+    
+    &:hover{
+      background-color:rgba(255, 255, 249, 0.616);
+    }
 
 
   }
 
   &--sortPrice {
+    
 
     display: inline-flex;
-    gap: 6em;
+    //gap: 6em;
     width: 25em;
-    height: 3em;
+    //height: 3em;
 
     button {
+      background-color: beige;
       cursor: pointer;
-      border: $border;
-      font-weight: bold;
+      
+      
+      &:hover{
+        background-color:rgba(255, 255, 249, 0.616);
+      }
     }
 
   }
 
   &--lowerThanPrice {
+    
     color: black;
-    margin-left: 5em;
-    padding-top: 5px;
-    font-weight: bold;
+    margin-left: 0;
+    // padding-top: 5px;
+    padding-top: 2em;
+    
+   
 
     .inputLowerThan {
-      cursor: pointer;
-      border: $border;
-      font-weight: bold;
+      cursor: pointer;      
+      background-color: beige;    
+      
 
     }
   }
@@ -190,15 +197,15 @@ $border:solid 3px black;
 }
 
 .catergory__items {
-  margin-top: 4em;
+  margin-top: 1em;
   background-color: white;
-  height: 100em;
+  height: 110em;
   text-align: center;
-  // display:grid;
-  gap: 4em;
-  display: inline-grid;
-  grid-template-columns: repeat(3, 30em);
-  grid-template-rows: repeat(4, 25em);
+  
+  //gap: 4em;
+  // display: inline-grid;
+  // grid-template-columns: repeat(3, 30em);
+  // grid-template-rows: repeat(4, 25em);
 
 
   .items {
@@ -206,38 +213,37 @@ $border:solid 3px black;
     position: relative;
     display: inline-block;
     text-align: center;
+    padding:3em;
 
-    .img-back {
+    img{
       height: 380px;
       width: 20em;
 
     }
 
-    p {
+    // .img-back {
+    //   height: 380px;
+    //   width: 20em;
+    // }
 
-      text-align: center;
+    // p {
+    //   text-align: center;
+    // }
 
-    }
+    // .img-top {
+    //   display: none;
+    //   position: absolute;
+    //   top: 0;
+    //   left: 5em;
+    //   z-index: 1;
+    //   border: solid 2px black;
+    //   transition: 10s ease;
+    // }
 
-
-    .img-top {
-      display: none;
-      position: absolute;
-      top: 0;
-      left: 5em;
-      z-index: 1;
-      border: solid 2px black;
-      transition: 10s ease;
-
-
-    }
-
-    &:hover .img-top {
-
-      display: inline;
-      width: 20em;
-      height: 380px;
-
-    }
+    // &:hover .img-top {
+    //   display: inline;
+    //   width: 20em;
+    //   height: 380px;
+    // }
   }
 }
