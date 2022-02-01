@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @keyframes arrowdown {
   from {
     top: -18px;
@@ -393,4 +394,34 @@ body {
 }
 .popmenu__box__opacity__navbar div:hover {
   cursor: pointer;
+}
+.popmenu__box__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  color: #ffff;
+}
+.popmenu__box__grid .dishes {
+  width: fit-content;
+  border-bottom: 1px solid #363636;
+  padding: 11px;
+}
+.popmenu__box__grid .dishes__title {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.popmenu__box__grid .dishes__title__price {
+  color: #ed3524;
+}
+.popmenu__box__grid .dishes__title__price::before {
+  content: "₪";
+  font-size: 0.75rem;
+  margin-right: 5px;
+}
+.popmenu__box__grid .dishes__desc {
+  font-size: 70%;
+  text-align: left;
+  margin-bottom: 20px;
+  width: 50ch;
 }

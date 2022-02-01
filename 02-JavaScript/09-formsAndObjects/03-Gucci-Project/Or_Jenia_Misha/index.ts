@@ -51,14 +51,14 @@ let sushiMenu: Menu = {
       this.dishes[index] = newDish;
     }
   },
-  // renderDishes(list, domElement) {
-  //   let html = "";
-  //   list.forEach((item) => {
-  //     html += `<div class="card">${item.name}, ${item.price},${item.category}</div>`;
-  //   });
+  renderDishes(list, domElement) {
+    let html = "";
+    list.forEach((item) => {
+      html += `<div class="dishes"> <div class = "dishes__title"> <h3 class ="dishes__title__name">${item.name}</h3> <p class ="dishes__title__price">${item.price}</p></div><p class ="dishes__desc">${item.description}</p></div>`;
+    });
 
-  //   domElement.innerHTML = html;
-  // },
+    domElement.innerHTML = html;
+  },
   storeData() {
     localStorage.setItem("storeData", JSON.stringify(this.dishes));
   },
@@ -87,4 +87,4 @@ function handleAddDish(ev) {
 
 sushiMenu.getData();
 
-// sushiMenu.renderDishes(sushiMenu.dishes, root);
+sushiMenu.renderDishes(sushiMenu.dishes, root);
