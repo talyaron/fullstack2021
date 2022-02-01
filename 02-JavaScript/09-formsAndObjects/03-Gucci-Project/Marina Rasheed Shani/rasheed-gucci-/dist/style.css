@@ -142,20 +142,20 @@ body {
   grid-template-columns: repeat(3, 30em);
   grid-template-rows: repeat(4, 25em);
 }
-.catergory__items .itemSilkDress {
+.catergory__items .items {
   color: black;
   position: relative;
   display: inline-block;
   text-align: center;
 }
-.catergory__items .itemSilkDress .img-back {
+.catergory__items .items .img-back {
   height: 380px;
   width: 20em;
 }
-.catergory__items .itemSilkDress p {
+.catergory__items .items p {
   text-align: center;
 }
-.catergory__items .itemSilkDress .img-top {
+.catergory__items .items .img-top {
   display: none;
   position: absolute;
   top: 0;
@@ -164,7 +164,7 @@ body {
   border: solid 2px black;
   transition: 10s ease;
 }
-.catergory__items .itemSilkDress:hover .img-top {
+.catergory__items .items:hover .img-top {
   display: inline;
   width: 20em;
   height: 380px;

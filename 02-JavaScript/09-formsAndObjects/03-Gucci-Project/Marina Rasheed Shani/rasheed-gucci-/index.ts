@@ -24,6 +24,8 @@ interface Item {
   gender: "men" | "women";
   type: string;
   id?: any;
+  topImg?:any;
+  backImg?:any;
 }
 
 const gucci: Store = {
@@ -51,8 +53,11 @@ const gucci: Store = {
   render(list, domElement) {
     let html = "";
     list.forEach((product) => {
-      html += `<div class='result-card'>
-        <p> item : ${product.name} , price :  ${product.price}$</p>
+      html += `<div class="items">
+        <p> item : ${product.name} , price : ${product.price}$</p>
+        <img class="img-back" src="${product.topImg}" >
+        <img class="img-top" src="${product.backImg}"  >
+       
         </div>`;
     });
     domElement.innerHTML = html;
@@ -63,13 +68,13 @@ const gucci: Store = {
   },
 };
 
-function handleShowItems(){
-  console.log(gucci.items)
-}
+// function handleShowItems(){
+//   console.log(gucci.items)
+// }
 
 gucci.getData();
 
-function handleShowClothes() {
+function handleShowItems() {
   gucci.getData();
   const root = document.getElementById("root");
   gucci.renderAllitems(root);
@@ -100,3 +105,14 @@ function handleRemoveItems(ev) {
 const uid = function () {
   return Date.now().toString(36) + Math.random().toString(36).substr(2);
 };
+
+
+// render(list, domElement) {
+//   let html = "";
+//   list.forEach((product) => {
+//     html += `<div class='result-card'>
+//       <p> item : ${product.name} , price :  ${product.price}$</p>
+//       </div>`;
+//   });
+//   domElement.innerHTML = html;
+// },
