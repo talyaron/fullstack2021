@@ -29,7 +29,7 @@ var sushiMenu = {
     renderDishes: function (list, domElement) {
         var html = "";
         list.forEach(function (item) {
-            html += "<div class=\"card\">" + item.name + ", " + item.price + "," + item.category + "</div>";
+            html += "<div class=\"dishes\"> <div class = \"dishes__title\"> <h3 class =\"dishes__title__name\">" + item.name + "</h3> <p class =\"dishes__title__price\">" + item.price + "</p></div><p class =\"dishes__desc\">" + item.description + "</p></div>";
         });
         domElement.innerHTML = html;
     },
@@ -58,4 +58,4 @@ function handleAddDish(ev) {
     ev.target.reset();
 }
 sushiMenu.getData();
-// sushiMenu.renderDishes(sushiMenu.dishes, root);
+sushiMenu.renderDishes(sushiMenu.dishes, root);

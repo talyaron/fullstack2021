@@ -49,7 +49,16 @@ body {
   font-weight: 300;
   font-size: larger;
   cursor: pointer;
+  opacity: 0;
+  transition: ease 300ms;
+}
+.container__dropdawn.visible {
   opacity: 1;
+  transform: translateY(0px);
+  position: static;
+}
+.container__dropdawn.hidden {
+  opacity: 0;
 }
 .container__main {
   text-align: center;
@@ -137,31 +146,35 @@ body {
   background-color: white;
   height: 100em;
   text-align: center;
-  gap: 2em;
+  gap: 4em;
   display: inline-grid;
   grid-template-columns: repeat(3, 30em);
   grid-template-rows: repeat(4, 25em);
 }
-.catergory__items .itemSilkDress {
+.catergory__items .items {
   color: black;
-}
-.catergory__items .itemSilkDressTest {
-  color: black;
-  width: 100px;
-  height: 200px;
   position: relative;
   display: inline-block;
+  text-align: center;
 }
-.catergory__items .itemSilkDressTest .img-top {
+.catergory__items .items .img-back {
+  height: 380px;
+  width: 20em;
+}
+.catergory__items .items p {
+  text-align: center;
+}
+.catergory__items .items .img-top {
   display: none;
   position: absolute;
-  height: 300px;
   top: 0;
+  left: 5em;
   z-index: 1;
   border: solid 2px black;
+  transition: 10s ease;
 }
-.catergory__items .itemSilkDressTest:hover .img-top {
+.catergory__items .items:hover .img-top {
   display: inline;
   width: 20em;
-  height: 400px;
+  height: 380px;
 }
