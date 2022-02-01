@@ -58,6 +58,7 @@
     margin: 0;
     border: 0;
     box-sizing: border-box;
+    
 
 }
 
@@ -470,7 +471,7 @@ body {
             align-items: center;
             color: rgb(161, 161, 161);
 
-            &__navbar{
+            &__navbar {
                 height: 10%;
                 width: 900px;
                 display: flex;
@@ -479,7 +480,7 @@ body {
                 text-align: center;
                 font-size: 15px;
 
-                div{
+                div {
                     height: 50%;
                     display: flex;
                     justify-content: center;
@@ -488,12 +489,50 @@ body {
                     margin: 5px;
                     padding: 5px;
                     border-bottom: 1px solid grey;
-                    &:hover{
+
+                    &:hover {
                         cursor: pointer;
                     }
                 }
             }
 
+        }
+
+        &__grid {
+            display: grid;
+            grid-template-columns:1fr 1fr;
+            gap: 50px;
+            color: #ffff;
+
+            .dishes {
+                width: fit-content;
+                border-bottom: 1px solid #363636;
+                padding: 11px;
+
+                &__title {
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 10px;
+                    &__price{
+                        color: #ed3524;
+                        &::before{
+                            content:'₪';
+                            font-size: .75rem;
+                            margin-right: 5px;
+                        }
+
+                    }
+
+                    
+                }
+                &__desc{
+                    font-size: 70%;
+                    text-align: left;
+                    margin-bottom: 20px;
+                    width: 50ch;
+                    
+                }
+            }
         }
     }
 }
