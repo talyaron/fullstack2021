@@ -170,6 +170,28 @@ var clothsList = {
     },
     renderCustomerPagePants: function (display, catagory) {
         this.renderCustomerPage(display, catagory);
+    }, SortCustomerPage: function (list, sortValue, display, catagory) {
+        var sortedListCustomer;
+        if (sortValue == "sortLowToHigh") {
+            sortedListCustomer = list.sort(function (a, b) {
+                return a.price - b.price;
+            });
+        }
+        else if (sortValue == "sortHighToLow") {
+            sortedListCustomer = list.sort(function (a, b) {
+                return b.price - a.price;
+            });
+        }
+        else if (sortValue == "sortAtoZ") {
+            sortedListCustomer = list.sort(function (a, b) {
+                return a.brand.toLowerCase() > b.brand.toLowerCase() ? 1 : b.brand.toLowerCase() > a.brand.toLowerCase() ? -1 : 0;
+            });
+        }
+        else if (sortValue == "sortZtoA") {
+            sortedListCustomer = list.sort(function (a, b) { return b.brand.toLowerCase() > a.brand.toLowerCase() ? 1
+                : a.brand.toLowerCase() > b.brand.toLowerCase() ? -1 : 0; });
+        }
+        this.renderCustomerPage(sortedListCustomer, display, catagory);
     }
 };
 function display(ev) {
@@ -219,8 +241,9 @@ function display(ev) {
             }
         }
     }
-    console.log(filterPriceFromInput);
-    console.log(filterPriceUpToInput);
+    console.log(sortOption);
+    // console.log(filterPriceFromInput);
+    // console.log(filterPriceUpToInput);
     var sortOptions = document.querySelectorAll(".main_form-selectCatagory-sortOptions");
     var TshirtsBox = document.getElementById("TshirtsBox");
     var shoesBox = document.getElementById("shoesBox");
@@ -382,7 +405,7 @@ catagoriesBoxes.forEach(function (box) {
     box.addEventListener("click", function (ev) { showOptions(ev, boxId); });
 });
 function showOptions(box, boxId) {
-    var html = "\n    <select class=\"container-select\" name=\"chooseSort\" id=\"" + boxId + "\" onchange=\"handleSort(event)\">\n   <option class=\"\"container-select-Options\" disabled selected>Sort By</option>\n   <option class=\"\"container-select-Options\" value=\"sortAtoZ\">A ---> Z</option>\n   <option class=\"\"container-select-Options\" value=\"sortZtoA\">Z ---> A</option>\n   <option class=\"\"container-select-Options\" value=\"sortLowToHigh\">$ Low to High $</option>\n   <option class=\"\"container-select-Options\" value=\"sortHighToLow\">$ High to Low $</option>\n   </select>   \n   <select class=\"container-select\" name=\"chooseFilter\" id=\"selectFilterBy\" onchange=\"handleFilter(event)\">\n   <option class=\"main_form-select-Options\" disabled selected>Filter By</option>\n   <option class=\"main_form-select-Options\" value=\"brand\">Brand</option>\n   <option class=\"main_form-select-Options\" value=\"size\" >Size</option>\n   <option class=\"main_form-select-Options\" value=\"price\">Price</option>\n   </select> ";
+    var html = "\n    <select class=\"container-select\" name=\"chooseSort\" id=\"" + boxId + "\" onchange=\"handleSort(event)\">\n   <option class=\"\"container-select-Options\" disabled selected>Sort By</option>\n   <option class=\"\"container-select-Options\" value=\"sortAtoZ\">A ---> Z</option>\n   <option class=\"\"container-select-Options\" value=\"sortZtoA\">Z ---> A</option>\n   <option class=\"\"container-select-Options\" value=\"sortLowToHigh\">$ Low to High $</option>\n   <option class=\"\"container-select-Options\" value=\"sortHighToLow\">$ High to Low $</option>\n   </select>   \n   <select class=\"container-select\" name=\"chooseFilter\" id=\"" + boxId + "\" onchange=\"handleFilter(event)\">\n   <option class=\"main_form-select-Options\" disabled selected>Filter By</option>\n   <option class=\"main_form-select-Options\" value=\"brand\">Brand</option>\n   <option class=\"main_form-select-Options\" value=\"size\" >Size</option>\n   <option class=\"main_form-select-Options\" value=\"price\">Price</option>\n   </select> ";
     // const cardImg = document.getElementById('itemImg')
     var sortANDfilterBtnsTshirts = document.getElementById("sortANDfilterBtnsTshirts");
     var sortANDfilterBtnsShoes = document.getElementById("sortANDfilterBtnsShoes");
@@ -416,16 +439,15 @@ function handleSort(ev) {
     var sortValue = ev.target.value;
     var boxId = ev.target.id;
     console.log(boxId);
-    if (sortValue == "sortAtoZ") {
-        console.log("lala");
+    console.log(sortValue);
+    var ListDisplay = document.querySelector('.container_catagories-display');
+    if (boxId == 'Tshirts') {
+        clothsList.SortCustomerPage(clothsList.Tshirts, sortValue, ListDisplay, "Shoes");
     }
-    else if (sortValue == "sortZtoA") {
-        console.log("lili");
+    else if (boxId == "shoes") {
+        clothsList.SortCustomerPage(clothsList.shoes, sortValue, ListDisplay, "Shoes");
     }
-    else if (sortValue == "sortLowToHigh") {
-        console.log("dadad");
-    }
-    else if (sortValue == "sortHighToLow") {
-        console.log("rarara");
+    else if (boxId == "pants") {
+        clothsList.SortCustomerPage(clothsList.pants, sortValue, ListDisplay, "Pants");
     }
 }
