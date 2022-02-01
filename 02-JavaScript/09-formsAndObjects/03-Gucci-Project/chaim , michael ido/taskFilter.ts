@@ -237,7 +237,7 @@ let clothsList: cloths = {
     },
     renderCustomerPagePants(display, catagory) {
         this.renderCustomerPage(display, catagory);
-    }, SortCustomerPage(list , sortValue, display, catagory) {
+    }, SortCustomerPage(list, sortValue, display, catagory) {
         let sortedListCustomer;
         if (sortValue == "sortLowToHigh") {
             sortedListCustomer = list.sort((a, b) => {
@@ -249,14 +249,14 @@ let clothsList: cloths = {
             });
         } else if (sortValue == "sortAtoZ") {
             sortedListCustomer = list.sort((a, b) =>
-                a.brand.toLowerCase() > b.brand.toLowerCase()? 1: b.brand.toLowerCase() > a.brand.toLowerCase()? -1: 0
+                a.brand.toLowerCase() > b.brand.toLowerCase() ? 1 : b.brand.toLowerCase() > a.brand.toLowerCase() ? -1 : 0
             );
         } else if (sortValue == "sortZtoA") {
-            sortedListCustomer = list.sort((a, b) =>b.brand.toLowerCase() > a.brand.toLowerCase() ? 1
-            : a.brand.toLowerCase() > b.brand.toLowerCase()? -1 : 0
+            sortedListCustomer = list.sort((a, b) => b.brand.toLowerCase() > a.brand.toLowerCase() ? 1
+                : a.brand.toLowerCase() > b.brand.toLowerCase() ? -1 : 0
             );
         }
-        this.renderCustomerPage(sortedListCustomer , display , catagory)
+        this.renderCustomerPage(sortedListCustomer, display, catagory)
     }
 }
 
@@ -346,9 +346,9 @@ function display(ev): void {
 
     if (filterBrandInput) {
         if (catagory == "Tshirts") {
-            clothsList.renderByBrand(clothsList.Tshirts,filterBrandInput,TshirtsBox,"Tshirts" );
+            clothsList.renderByBrand(clothsList.Tshirts, filterBrandInput, TshirtsBox, "Tshirts");
         } else if (catagory == "shoes") {
-            clothsList.renderByBrand(clothsList.shoes,filterBrandInput,shoesBox,"shoes");
+            clothsList.renderByBrand(clothsList.shoes, filterBrandInput, shoesBox, "shoes");
         } else if (catagory == "pants") {
             clothsList.renderByBrand(
                 clothsList.pants,
@@ -580,9 +580,9 @@ function handleSort(ev) {
 
     console.log(boxId)
     console.log(sortValue);
-    
+
     const ListDisplay = document.querySelector('.container_catagories-display')
-    
+
     if (boxId == 'Tshirts') {
         clothsList.SortCustomerPage(clothsList.Tshirts, sortValue, ListDisplay, "Shoes")
     } else if (boxId == "shoes") {

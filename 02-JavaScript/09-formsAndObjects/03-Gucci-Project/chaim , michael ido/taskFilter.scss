@@ -200,7 +200,6 @@
 
 // Customer page -----------------------
 
-
 .container {
     max-width: 740px;
     height: 900px;
@@ -296,19 +295,17 @@
             background-size: contain;
             background-repeat: no-repeat;
             &:hover{transform : scale(1.2);
-
             }
         }
-
         &-display {
             width: 100%;
             height: 25%;
             margin-top: 5px;
             border: 1px solid rgb(197, 187, 187);
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
             column-gap: 5px;
-            overflow-X: auto; 
+            overflow-y: auto; 
             white-space: nowrap;
 
             &-card{

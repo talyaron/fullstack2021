@@ -95,5 +95,9 @@
 }
 
 .card {
-  color: red;
+  color: black;
+  width: 130px;
+  height: 130px;
+  border: 1px solid black;
+  background-color: blanchedalmond;
 }
