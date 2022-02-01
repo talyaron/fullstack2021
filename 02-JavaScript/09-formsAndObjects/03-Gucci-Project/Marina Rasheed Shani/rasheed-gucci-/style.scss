@@ -187,17 +187,14 @@ $border:solid 3px black;
 
 
   .itemSilkDress {
-    color: black;
-   
-    //width: 100px;
-    //height: 200px;
+    color: black;   
     position: relative;
     display: inline-block;
     text-align: center;
     .img-back{
       height:380px;
       width: 20em;
-      //margin-left: 10px;
+     
     }
     p{
       
@@ -209,8 +206,7 @@ $border:solid 3px black;
     .img-top {
       display: none;
       position: absolute;
-      //height: 300px;
-      top: 0;
+       top: 0;
       left: 5em;
       z-index: 1;
       border:solid 2px black;
