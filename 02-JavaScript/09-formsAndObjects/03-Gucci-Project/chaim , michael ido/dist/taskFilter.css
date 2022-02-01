@@ -253,7 +253,7 @@
   display: flex;
   flex-direction: column;
   column-gap: 5px;
-  overflow: auto;
+  overflow-y: auto;
   white-space: nowrap;
 }
 .container_catagories-display-card {
