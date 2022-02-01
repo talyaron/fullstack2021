@@ -180,51 +180,50 @@ $border:solid 3px black;
   height: 100em;
   text-align: center;
   // display:grid;
-  gap: 2em;
+  gap: 4em;
   display: inline-grid;
   grid-template-columns: repeat(3, 30em);
   grid-template-rows: repeat(4, 25em);
 
+
   .itemSilkDress {
     color: black;
-
-  }
-
-  // .itemSilkDressTest {
-  //   background: url("https://media.gucci.com/style/DarkGray_South_0_160_316x316/1635527707/664317_Z8AWG_9791_001_100_0000_Light-Belted-optical-print-silk-dress.jpg") no-repeat;
-  //   display: inline-block;
-
-  //   &:hover {
-
-  //     height: 20em;
-  //     background: url("https://media.gucci.com/style/White_South_0_40_632x790/1635527709/664317_Z8AWG_9791_002_100_0000_Light.jpg") no-repeat;
-  //   }
-  // }
-
-  .itemSilkDressTest {
-    color: black;
    
-    width: 100px;
-    height: 200px;
+    //width: 100px;
+    //height: 200px;
     position: relative;
     display: inline-block;
+    text-align: center;
+    .img-back{
+      height:380px;
+      width: 20em;
+      //margin-left: 10px;
+    }
+    p{
+      
+      text-align:center;
+
+    }
     
 
     .img-top {
       display: none;
       position: absolute;
-      height: 300px;
+      //height: 300px;
       top: 0;
-      //left: 0;
+      left: 5em;
       z-index: 1;
       border:solid 2px black;
+      transition: 10s ease;
+      
+     
     }
 
     &:hover .img-top {
+  
       display: inline;
       width: 20em;
-      height: 400px;
-     
+      height:380px;
       
     }
   }
