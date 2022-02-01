@@ -16,7 +16,7 @@ interface gucci {
     deleteItem(id: string);
     editItem(id, itemEdited)
 }
-interface Items {
+interface Items { 
     id: string;
     select: string;
     title: string;
