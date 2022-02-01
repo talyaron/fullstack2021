@@ -1,32 +1,53 @@
+
+
 interface Store {
-  menClothes: Array<Product>;
+  items: Array<Item>;
   storeData();
   getData();
-  addMoremenClothes(item: string, price: number): any;
+  addItems(
+    name: string,
+    price: number,
+    type: string,
+    department: "clothes" | "watches" | "jewelry" | "bags",
+    gender: "men" | "women",
+    id: any
+  ): any;
+  removeItems(itemName: string):any
   render(list: any, domElement: any): any;
-  renderAllmenClothes(domElement: any): any;
+  renderAllitems(domElement: any): any;
 }
 
-interface Product {
+interface Item {
   name: string;
   price: number;
-  id: number;
+  department: "clothes" | "watches" | "jewelry" | "bags";
+  gender: "men" | "women";
+  type: string;
+  id?: any;
 }
 
 const gucci: Store = {
-  menClothes: [],
-
+  items: [],
   storeData() {
-    localStorage.setItem("storeData", JSON.stringify(this.menClothes));
+    localStorage.setItem("storeData", JSON.stringify(this.items));
   },
   getData() {
-    this.menClothes = JSON.parse(localStorage.getItem("storeData"));
+    const clothesStorage = JSON.parse(localStorage.getItem("storeData"));
+    if (Array.isArray(clothesStorage)) {
+      this.items = clothesStorage;
+    }
   },
-
-  addMoremenClothes(item, price) {
-    this.menClothes.push({ item, price });
+  addItems(name, price, department, gender,type, id) {
+    console.log(this);
+    this.items.push({ name, price, department, gender, type });
     this.storeData();
   },
+  removeItems(itemName: string) {
+    const index = this.items.findIndex(item => item.name === itemName);
+    if (index >= 0) {
+        this.items.splice(index, 1)
+    }
+},
   render(list, domElement) {
     let html = "";
     list.forEach((product) => {
@@ -36,29 +57,46 @@ const gucci: Store = {
     });
     domElement.innerHTML = html;
   },
-  renderAllmenClothes(domElement) {
-    const menClothes = this.menClothes;
-    this.render(menClothes, domElement);
+  renderAllitems(domElement) {
+    const items = this.items;
+    this.render(items, domElement);
   },
 };
 
+function handleShowItems(){
+  console.log(gucci.items)
+}
 
 gucci.getData();
 
-
 function handleShowClothes() {
- 
   gucci.getData();
   const root = document.getElementById("root");
-  gucci.renderAllmenClothes(root);
+  gucci.renderAllitems(root);
 }
 
-function handleAddMoreProducts(ev) {
+function handleAddItems(ev) {
   ev.preventDefault();
- 
-  const item = ev.target.item.value;
+  console.dir(ev.target[4].value)
+  const name = ev.target.name.value;
   const price = ev.target.price.value;
-  gucci.addMoremenClothes(item, price);
-  console.log(gucci.menClothes);
+  const department = ev.target[2].value;
+  const gender = ev.target[3].value;
+  const type = ev.target[4].value;
+  let id = uid;
+  gucci.addItems(name, price, department, gender, type, id);
+  console.log(gucci.items);
   gucci.storeData();
 }
+
+function handleRemoveItems(ev) {
+  ev.preventDefault();
+  const name = ev.target.elements.remove.value;
+  gucci.removeItems(name);
+  const root = document.getElementById('root');
+  gucci.renderAllitems(root);
+  gucci.storeData();
+}
+const uid = function () {
+  return Date.now().toString(36) + Math.random().toString(36).substr(2);
+};

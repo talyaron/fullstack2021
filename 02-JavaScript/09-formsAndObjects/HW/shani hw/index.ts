@@ -1,6 +1,6 @@
 interface thePaintings{
     listOfPaintings:Array<painting>;
-    sortByAscending:any;
+    sortByAscending(type:string);
     sortByDescending:any;
     addPainting:any;
     removePaintingByName?:any;
@@ -28,10 +28,10 @@ const myPaintings:thePaintings ={
      {nameOfPainting:"Wheat Field with Cypresses",artist:" Vincent van Gogh",madeIn:1889 }
      
  ],
- sortByAscending(){
+ sortByAscending(type){
      document.getElementById('ascending').addEventListener("click",()=>{
         this.listOfPaintings.sort(function(a, b) {
-            return a.madeIn - b.madeIn;
+            return a[type] - b[type];
         });
         myPaintings.renderListOfPaintings(myPaintings.listOfPaintings);
 
@@ -57,7 +57,9 @@ const myPaintings:thePaintings ={
    
  },
  addPainting(nameOfPainting,artist,madeIn){
+
     const id=uid();
+    
      
     this.listOfPaintings.push({nameOfPainting,artist,madeIn,id})
 
@@ -106,7 +108,7 @@ const myPaintings:thePaintings ={
         //moved them to the bottom so it sort also the added paintings
 myPaintings.addPainting("The Mona Lisa","Leonardo Da Vinci",1503)
 myPaintings.addPainting("Viva la Vida, Watermelons","Frida Kahlo",1954)
-myPaintings.sortByAscending(myPaintings);
+myPaintings.sortByAscending("madeIn");
 myPaintings.sortByDescending(myPaintings);
 myPaintings.removePaintingByName("Wheat Field with Cypresses")
 //myPaintings.removePaintingById("kyumjh549hdf5s03hab")

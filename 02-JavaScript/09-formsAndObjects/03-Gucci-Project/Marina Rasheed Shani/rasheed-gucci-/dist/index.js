@@ -1,14 +1,24 @@
 var gucci = {
-    menClothes: [],
+    items: [],
     storeData: function () {
-        localStorage.setItem("storeData", JSON.stringify(this.menClothes));
+        localStorage.setItem("storeData", JSON.stringify(this.items));
     },
     getData: function () {
-        this.menClothes = JSON.parse(localStorage.getItem("storeData"));
+        var clothesStorage = JSON.parse(localStorage.getItem("storeData"));
+        if (Array.isArray(clothesStorage)) {
+            this.items = clothesStorage;
+        }
     },
-    addMoremenClothes: function (item, price) {
-        this.menClothes.push({ item: item, price: price });
+    addItems: function (name, price, department, gender, type, id) {
+        console.log(this);
+        this.items.push({ name: name, price: price, department: department, gender: gender, type: type });
         this.storeData();
+    },
+    removeItems: function (itemName) {
+        var index = this.items.findIndex(function (item) { return item.name === itemName; });
+        if (index >= 0) {
+            this.items.splice(index, 1);
+        }
     },
     render: function (list, domElement) {
         var html = "";
@@ -17,22 +27,41 @@ var gucci = {
         });
         domElement.innerHTML = html;
     },
-    renderAllmenClothes: function (domElement) {
-        var menClothes = this.menClothes;
-        this.render(menClothes, domElement);
+    renderAllitems: function (domElement) {
+        var items = this.items;
+        this.render(items, domElement);
     }
 };
+function handleShowItems() {
+    console.log(gucci.items);
+}
 gucci.getData();
 function handleShowClothes() {
     gucci.getData();
     var root = document.getElementById("root");
-    gucci.renderAllmenClothes(root);
+    gucci.renderAllitems(root);
 }
-function handleAddMoreProducts(ev) {
+function handleAddItems(ev) {
     ev.preventDefault();
-    var item = ev.target.item.value;
+    console.dir(ev.target[4].value);
+    var name = ev.target.name.value;
     var price = ev.target.price.value;
-    gucci.addMoremenClothes(item, price);
-    console.log(gucci.menClothes);
+    var department = ev.target[2].value;
+    var gender = ev.target[3].value;
+    var type = ev.target[4].value;
+    var id = uid;
+    gucci.addItems(name, price, department, gender, type, id);
+    console.log(gucci.items);
     gucci.storeData();
 }
+function handleRemoveItems(ev) {
+    ev.preventDefault();
+    var name = ev.target.elements.remove.value;
+    gucci.removeItems(name);
+    var root = document.getElementById('root');
+    gucci.renderAllitems(root);
+    gucci.storeData();
+}
+var uid = function () {
+    return Date.now().toString(36) + Math.random().toString(36).substr(2);
+};

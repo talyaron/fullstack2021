@@ -6,11 +6,11 @@ var myPaintings = {
         { nameOfPainting: 'The Waterlily Pond:Green Harmony', artist: "Claude Monet", madeIn: 1899 },
         { nameOfPainting: "Wheat Field with Cypresses", artist: " Vincent van Gogh", madeIn: 1889 }
     ],
-    sortByAscending: function () {
+    sortByAscending: function (type) {
         var _this = this;
         document.getElementById('ascending').addEventListener("click", function () {
             _this.listOfPaintings.sort(function (a, b) {
-                return a.madeIn - b.madeIn;
+                return a[type] - b[type];
             });
             myPaintings.renderListOfPaintings(myPaintings.listOfPaintings);
         });
@@ -56,7 +56,7 @@ var myPaintings = {
 //moved them to the bottom so it sort also the added paintings
 myPaintings.addPainting("The Mona Lisa", "Leonardo Da Vinci", 1503);
 myPaintings.addPainting("Viva la Vida, Watermelons", "Frida Kahlo", 1954);
-myPaintings.sortByAscending(myPaintings);
+myPaintings.sortByAscending("madeIn");
 myPaintings.sortByDescending(myPaintings);
 myPaintings.removePaintingByName("Wheat Field with Cypresses");
 //myPaintings.removePaintingById("kyumjh549hdf5s03hab")

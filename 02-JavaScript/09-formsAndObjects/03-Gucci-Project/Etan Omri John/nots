@@ -1,0 +1,40 @@
+category { 
+    event = onclick
+     tag = <select></select>
+    thriller - onclick? or onsubmit ..
+    History
+    cooking
+    fantasy
+}
+
+filter{
+    event = onclick
+     tag = <select></select>
+    price - lower than price - onclick? or onsubmit ..
+    type - category 
+}
+
+sort by {
+    event = onchange
+     tag = <select></select>
+    price up - Acs - onclick? or onsubmit ..
+    price down - Desc
+    by Date?
+}
+
+menu{
+    scss
+}
+
+book{
+    id: number
+    category: string
+    name: string
+    price: number
+    img: img source
+}
+
+ask about change order?
+
+
+

@@ -401,8 +401,11 @@ body {
 
         img {
 
-            width: 102%;
+            width: 142%;
             height: 102%;
+            position: relative;
+            right: 30px;
+            
   
 
             &:hover {
@@ -423,4 +426,8 @@ body {
         }
 
     }
+}
+#button{
+    width: fit-content;
+    height: fit-content;
 }

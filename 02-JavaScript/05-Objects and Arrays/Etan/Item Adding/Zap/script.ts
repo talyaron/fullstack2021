@@ -110,6 +110,7 @@ let zap: Market = {
       }
     });
   },
+  
   clear() {
     container.forEach((field) => {
       field.innerHTML = "";
@@ -216,7 +217,6 @@ let maxPrice = Math.max.apply(
     return item.price;
   })
 );
-
 // document.getElementById('maxPrice').innerHTML = maxPrice
 let minPrice = Math.min.apply(
   Math,
@@ -224,6 +224,8 @@ let minPrice = Math.min.apply(
     return item.price;
   })
 );
+console.log(maxPrice)
+console.log(minPrice)
 function handleAB(ev) {
   ev.preventDefault();
   const a = ev.target.elements.a.valueAsNumber;
