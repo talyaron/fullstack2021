@@ -3,19 +3,18 @@ const uid = function () {
 };
 
 interface Object {
-    items: Array<namePrice>,
+    items: Array,namePrice>,
     carts:Array<type>
     additems(name: string, price: number),
     sortAsc(),
     sortDes(),
     deleteItem(idItem: string),
     updateItem(idItem:string,newValue:string),
-    addToCarts(cart:any),
+    addToCarts(type:string,:string),
     selectItem(type:"shoes"|"pants"|"hoodie")
     renderAllData(root: any),
     renderAllCarts(root:any),
     render(root: any, list: namePrice),
-
 
 }
 interface type{
@@ -28,6 +27,7 @@ interface namePrice {
     name: string;
     price: number;
     id: string;
+    type:"shoes"|"pants"|"hoodie"
 }
 
 let nikeItems: object = {
@@ -53,8 +53,8 @@ let nikeItems: object = {
         const i =this.items.findIndex(item=>item.idItem===idItem)
         this.items[i].name=newValue
     },
-    addToCarts(cart:string){
-        this.carts.push(cart)
+    addToCarts(type:string){
+        this.carts.push(type)
     },
     renderAllCarts(root:any){
         const list=this.carts;
@@ -64,9 +64,9 @@ let nikeItems: object = {
 
         this.carts.filter(type=>{
         
-      const select = this.carts.type===type
+      
         })
-      console.log(select)
+
     },
     renderAllData(root: any) {
         const list = this.items;
@@ -75,7 +75,7 @@ let nikeItems: object = {
     renderCarts(root,list){
         let htmlCustomer:string="";
         list.forEach(item=> {
-            htmlCustomer+=`<div class= 'card'> <p>${item}</p></div>`
+            htmlCustomer+=`<div class= 'card'><h4>The Item You Want:</h4> <p>${item}</p></div>`
         });
         root.innerHTML = htmlCustomer;
     },
@@ -113,10 +113,7 @@ function handleSubmit(event) {
 function handleAsce() {
     nikeItems.sortAsc()
     const root = document.getElementById('root');
-
     nikeItems.renderAllData(root);
-
-
 }
 function handleDesce() {
     nikeItems.sortDes()
@@ -124,8 +121,6 @@ function handleDesce() {
 
     nikeItems.renderAllData(root);
 }
-
-
 function handleDelete(id) {
     nikeItems.deleteItem(id);
     const root = document.getElementById('root');
@@ -140,8 +135,9 @@ function handleupdate(event,id){
 }
 //customer
 function handleCart(event){
-    const addToCart=event.target.value
-    nikeItems.addToCarts(addToCart)
+    const type=event.target.id
+    console.log(type);
+    nikeItems.addToCarts(type,name)
     const root = document.getElementById('root');
     nikeItems.renderAllCarts(root);
 }

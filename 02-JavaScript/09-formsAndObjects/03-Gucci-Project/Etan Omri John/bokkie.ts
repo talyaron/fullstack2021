@@ -3,7 +3,11 @@ interface BookShop{
     books: Array<book>;
     addItem(category:"thriller" | "history" | "cooking" | "fantasy", name:string, price:number, img:any);
     //render(list: Array<book>, domElement);
-    //renderItem?(domElement: any);
+    //renderItem(domElement: any);
+    //filterByCategory();
+    //filterByPrice();
+    //updateBook();
+    //deleteBook();
     sortItemAsc();
     sortItemDesc();
 
@@ -33,5 +37,13 @@ const bookie: BookShop = {
          this.items.sort((a, b) => { return b.price - a.price });
     },
 }
+
+
+//function handleAddToCart()
+//function handleOpenThis()
+//function handleOpenMenu()
+//function handleCloseMenu()
+//function handleSortDesc()
+//function handleSortAsc(ev)
 
 
