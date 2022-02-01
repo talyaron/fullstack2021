@@ -1,9 +1,17 @@
+
+
 interface Store {
   items: Array<Item>;
-  storeData(): any;
-  getData(): any;
-  addClothes(name: string, price: number, type: string, department: 'clothes' | 'watches' | 'jewelry' | 'bags', gender: 'men' | 'women', id: any): any;
-  removeItems(itemTitle: string):any;
+  storeData();
+  getData();
+  addClothes(
+    name: string,
+    price: number,
+    type: string,
+    department: "clothes" | "watches" | "jewelry" | "bags",
+    gender: "men" | "women",
+    id: any
+  ): any;
   render(list: any, domElement: any): any;
   renderAllitems(domElement: any): any;
 }
@@ -12,11 +20,10 @@ interface Item {
   name: string;
   price: number;
   type?: string;
-  department: 'clothes' | 'watches' | 'jewelry' | 'bags';
-  gender: 'men' | 'women';
+  department: "clothes" | "watches" | "jewelry" | "bags";
+  gender: "men" | "women";
   id?: any;
 }
-
 
 const gucci: Store = {
   items: [],
@@ -31,22 +38,14 @@ const gucci: Store = {
   },
   addClothes(name, price, type, department, gender, id) {
     console.log(this);
-    this.items.push({ name, price, type, department, gender, id });
+    this.items.push({ name, price, type, department, gender });
     this.storeData();
-  },
-  removeItems(itemName) {
-    const index = this.items.findIndex(item => item.name === itemName);
-    if (index >= 0) {
-      this.items.splice(index, 1)
-
-    }
   },
   render(list, domElement) {
     let html = "";
     list.forEach((product) => {
       html += `<div class='result-card'>
-        <p> item : ${product.name} , <img src="" id="imgDisplay">  ${product.price}$</p>
-        
+        <p> item : ${product.name} , price :  ${product.price}$</p>
         </div>`;
     });
     domElement.innerHTML = html;
@@ -54,10 +53,10 @@ const gucci: Store = {
   renderAllitems(domElement) {
     const items = this.items;
     this.render(items, domElement);
-  }
+  },
 };
 
-
+gucci.getData();
 
 function handleShowClothes() {
   gucci.getData();
@@ -67,37 +66,19 @@ function handleShowClothes() {
 
 function handleAddclothes(ev) {
   ev.preventDefault();
-  console.dir(ev.target)
   const name = ev.target.name.value;
   const price = ev.target.price.value;
-  const department = ev.target[2].value;
-  const gender = ev.target[3].value;
-  const type = ev.target[4].value;
-  let id = uid
+  const department = (<HTMLInputElement>(
+    document.getElementById("selectDepartment")
+  )).value;
+  const gender = (<HTMLInputElement>document.getElementById("selectGender"))
+    .value;
+  const type = (<HTMLInputElement>document.getElementById("selectType")).value;
+  let id = uid;
   gucci.addClothes(name, price, department, gender, type, id);
   console.log(gucci.items);
-  ev.target.reset()
   gucci.storeData();
 }
-
-function handleRemoveItems(ev) {
-  ev.preventDefault();
-  const name = ev.target.elements.remove.value;
-  gucci.removeItems(name);
-  const root = document.getElementById('root');
-  gucci.storeData();
-  gucci.renderAllitems(root);
-  console.log(gucci.items);
-  ev.target.reset()
-}
-
-function loadImage(event) {
-  const image = (<HTMLInputElement>document.getElementById("imgDisplay"))
-  image.src = URL.createObjectURL(event.target.files[0]);
-}
-
-
-gucci.getData();
 
 const uid = function () {
   return Date.now().toString(36) + Math.random().toString(36).substr(2);
