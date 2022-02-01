@@ -69,17 +69,17 @@ const gucci: Store = {
   },
 };
 
-// function handleShowItems(){
-//   console.log(gucci.items)
-// }
+function handleShowItems(){
+  console.log(gucci.items)
+}
 
 gucci.getData();
 
-function handleShowItems() {
-  gucci.getData();
-  const root = document.getElementById("root");
-  gucci.renderAllitems(root);
-}
+// function handleShowItems() {
+//   gucci.getData();
+//   const root = document.getElementById("root");
+//   gucci.renderAllitems(root);
+// }
 
 function handleAddItems(ev) {
   ev.preventDefault();

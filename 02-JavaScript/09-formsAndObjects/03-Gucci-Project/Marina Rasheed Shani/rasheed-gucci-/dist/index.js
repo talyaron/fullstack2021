@@ -32,15 +32,15 @@ var gucci = {
         this.render(items, domElement);
     }
 };
-// function handleShowItems(){
-//   console.log(gucci.items)
-// }
-gucci.getData();
 function handleShowItems() {
-    gucci.getData();
-    var root = document.getElementById("root");
-    gucci.renderAllitems(root);
+    console.log(gucci.items);
 }
+gucci.getData();
+// function handleShowItems() {
+//   gucci.getData();
+//   const root = document.getElementById("root");
+//   gucci.renderAllitems(root);
+// }
 function handleAddItems(ev) {
     ev.preventDefault();
     console.dir(ev.target);
