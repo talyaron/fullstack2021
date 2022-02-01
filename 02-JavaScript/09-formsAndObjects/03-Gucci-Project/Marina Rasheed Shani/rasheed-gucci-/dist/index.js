@@ -9,9 +9,10 @@ var gucci = {
             this.items = clothesStorage;
         }
     },
-    addItems: function (name, price, img, department, gender, type, id) {
+    addItems: function (name, price, img, department, gender, type) {
+        var id = uid();
         console.log(this);
-        this.items.push({ name: name, price: price, img: img, department: department, gender: gender, type: type });
+        this.items.push({ name: name, price: price, img: img, department: department, gender: gender, type: type, id: id });
         this.storeData();
     },
     removeItems: function (itemName) {
@@ -23,7 +24,7 @@ var gucci = {
     render: function (list, domElement) {
         var html = "";
         list.forEach(function (product) {
-            html += "<div class=\"items\">\n        <p> item : " + product.name + "</p>\n        <img class=\"img-back\" src=\"" + product.img + "\" >\n        <p> price : " + product.price + "$</p>\n       \n        </div>";
+            html += "<div class=\"items\">\n        <p> item : " + product.name + "</p>\n        <img class=\"img-back\" src=\"" + product.img + "\" >\n        <p> price : " + product.price + "$</p>\n        <input onclick=\"handleAddToCart()\" id=\"addToCart\" type=\"button\" value=\"ADD TO CART\">\n        </div>";
         });
         domElement.innerHTML = html;
     },
@@ -46,14 +47,11 @@ function handleShowItems() {
     console.log(gucci.items);
 }
 gucci.getData();
-// function handleShowItems() {
-//   gucci.getData();
-//   const root = document.getElementById("root");
-//   gucci.renderAllitems(root);
-// }
 function handleAddItems(ev) {
     ev.preventDefault();
     console.dir(ev.target);
+    // const root = document.getElementById('root');
+    // gucci.renderAllitems(root);
     var name = ev.target.name.value;
     var price = ev.target.price.value;
     var img = ev.target[2].value;
@@ -64,6 +62,7 @@ function handleAddItems(ev) {
     gucci.addItems(name, price, img, department, gender, type, id);
     console.log(gucci.items);
     gucci.storeData();
+    ev.target.reset();
 }
 function handleRemoveItems(ev) {
     ev.preventDefault();
@@ -72,6 +71,7 @@ function handleRemoveItems(ev) {
     var root = document.getElementById('root');
     gucci.renderAllitems(root);
     gucci.storeData();
+    ev.target.reset();
 }
 var uid = function () {
     return Date.now().toString(36) + Math.random().toString(36).substr(2);
@@ -100,3 +100,5 @@ navBar.forEach(function (item) {
 function handleNavMouseleave() {
     dropDown.classList.toggle('hidden');
 }
+// const root = document.getElementById('root');
+// gucci.renderAllitems(root);
