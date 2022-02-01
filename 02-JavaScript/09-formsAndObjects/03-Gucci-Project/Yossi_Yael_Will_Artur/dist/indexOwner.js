@@ -1,8 +1,6 @@
 var uid = function () {
     return Date.now().toString(36) + Math.random().toString(36).substr(2);
 };
-<<<<<<< Updated upstream
-=======
 var zap = {
     items: [],
     addItems: function (item) {
@@ -118,4 +116,3 @@ zap.addItems({ id: "4", select: 'electronics', title: 'iMac', description: 'prod
 var rootItems = document.getElementById('rootItems');
 zap.renderItems(rootItems);
 console.log(zap);
->>>>>>> Stashed changes
