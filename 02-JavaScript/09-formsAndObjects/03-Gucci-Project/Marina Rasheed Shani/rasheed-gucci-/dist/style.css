@@ -145,3 +145,22 @@ body {
 .catergory__items .itemSilkDress {
   color: black;
 }
+.catergory__items .itemSilkDressTest {
+  width: 100px;
+  height: 200px;
+  position: relative;
+  display: inline-block;
+}
+.catergory__items .itemSilkDressTest .img-top {
+  display: none;
+  position: absolute;
+  height: 300px;
+  top: 0;
+  z-index: 1;
+  border: solid 2px black;
+}
+.catergory__items .itemSilkDressTest:hover .img-top {
+  display: inline;
+  width: 20em;
+  height: 400px;
+}
