@@ -1,32 +1,22 @@
-<<<<<<< Updated upstream
-.header{
-    display: flex;
-    border: solid black;
-    justify-content: center;
-    &__navbartop
-
-
-    &__Gucci{
-        font-size: 4rem;
-
-    }
+ 
+div{
+    border: 1px solid red;
 }
-=======
- body {
-     width: 1700px;
+
+ .bodyOwner {
+     width: 80%;
      margin-left: auto;
      margin-right: auto;
-     font-size: 24px;
+     font-size: 18px;
      margin-top: 20px;
-     background-color: rgb(240, 254, 255);
+     background-color: rgb(22, 84, 88);
      font-family: Arial, Helvetica, sans-serif;
  }
 
-
- .header {
+ .headerOwner {
      width: 100%;
-     height: 120px;
-     background-color: #5fbedb70;
+     height: 100px;
+     background-color: #242e31;
      display: grid;
      grid-template-columns: 1fr 2fr;
      border-radius: 6px;
@@ -34,74 +24,46 @@
      outline-offset: -10px;
      border-radius: 6px;
 
-     img {
-         width: 60%;
-         height: 80%;
-         object-fit: contain;
-         position: relative;
-         top: -50px;
      }
-
-     .navBar {
-         width: 1200px;
-         color: white;
-         font-size: 28px;
-         text-align: center;
-         padding-top: 42px;
-         padding-right: 40px;
-
-         a {
-             text-decoration: none;
-             color: rgb(255, 255, 255);
-             background-color: rgba(107, 107, 107, 0.109);
-             padding: 14px;
-             border-radius: 6px;
-             word-spacing: 4px;
-             outline: 1px solid #fff;
-             outline-offset: -6px;
-             border-radius: 6px;
-         }
-
-         a:hover {
-             color: #d21ec3;
-             text-decoration: none;
-         }
-     }
- }
-
 
  .wrapperForms {
      display: grid;
-     grid-template-columns: 2fr 1fr 1fr;
-     background-color: #5fbedb70;
-     gap: 18px;
+     grid-template-rows: 2fr 1fr;
+     background-color: #242e31;
      padding: 22px;
-     padding-top: 28px;
      outline: 1px solid #fff;
      outline-offset: -10px;
      border-radius: 6px;
-     height: 200px;
  }
+
+ #formAddItem{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
 
  input,
  #select {
-     min-height: 30px;
+     min-height: 20px;
      border-radius: 4px;
      background-color: #ffffff;
-     font-size: 20px;
+     font-size: 18px;
+     width: 20%;
  }
 
  #select {
-     min-height: 36px;
+     min-height: 30px;
+     width: 20%;
  }
 
  .sortBtns {
-     margin-left: -60px;
+     
      button {
-         min-height: 32px;
+         min-height: 22px;
          border-radius: 4px;
-         font-size: 20px;
-         background-color: #ffffff38;
+         font-size: 18px;
+         background-color: #fdfdfd;
          color: #d21ec3;
          border-color: rgb(255, 255, 255);
          cursor: pointer;
@@ -109,80 +71,60 @@
  }
 
  ::placeholder {
-     font-size: 20px;
+     font-size: 18px;
  }
 
  #addBtn {
-     position: relative;
-     top: -15px;
      background-color: #96c77a;
-     font-size: 20px;
+     font-size: 18px;
      padding: 4px;
      cursor: pointer;
      width: 200px;
      height: 40px;
-
  }
 
- #removeBtn {
-     background-color: #c77ac7;
-     margin-top: 6px;
-     cursor: pointer;
- }
-
- .maxPrice {
-
-     ::placeholder {
-         color: rgb(83, 204, 34);
-         text-align: center;
-     }
-
- }
 
  .card {
-     background-color: #5fbedb70;
-     height: 200px;
+     background-color: #242e31;
      display: grid;
      grid-template-columns: 1fr 1fr 1fr 1fr 0.2fr 0.2fr;
-     gap: 20px;
-     margin-bottom: 30px;
+     gap: 10px;
+     margin-bottom: 10px;
      outline: 1px solid #fff;
      outline-offset: -10px;
      border-radius: 6px;
 
      img {
-         width: 40%;
+         width: 26%;
          object-fit: contain;
          margin-left: auto;
          margin-right: auto;
+         padding: 6%;
      }
  }
 
  .category,
  .title,
  .price {
-     font-size: 26px;
-     background-color: #d21ec3;
-     color: #ffffff;
+     font-size: 18px;
+     background-color: #ffffff;
+     color: #050505;
      border-radius: 4px;
-     height: 30px;
+     height: 20px;
      text-align: center;
-     margin: 20px;
-     padding: 10px;
+     margin: 10px;
+     padding: 4px;
      text-align: start;
  }
 
  .description {
-     font-size: 20px;
-     // background-color: #d21ec3;
+     font-size: 18px;
      color: #ffffff;
-     border: 1px solid #d21ec3;
+     border: 1px solid #ffffff;
      border-radius: 4px;
-     height: 80px;
-     max-width: 300px;
      text-align: center;
-     margin: 20px;
-     margin-top: -12px;
+     margin: 10px;
+     margin-top: -10px;
      padding: 10px;
      text-align: start;
      inline-size: 300px;
@@ -191,22 +133,17 @@
 
  .price {
      text-align: center;
-     font-size: 40px;
+     font-size: 18px;
      font-weight: bold;
-     padding-bottom: 20px;
-     cursor: pointer;
-     transition: all .2s ease-in-out;
  }
 
- .price:hover {
-     transform: scale(1.2);
- }
 
  #textarea {
      width: 382px;
      resize: none;
      border-radius: 6px;
-     margin-top: 10px;
+     height: 80px;
+     font-size: 18px;
  }
 
  .delete {
@@ -226,11 +163,13 @@
 
  .edit {
      text-align: center;
-     padding-top: 20px;
+     padding-top: 100%;
 
      a {
-         color: #d21ec3;
+         color: #ffffff;
          text-decoration: none;
+         border: 1px solid white;
+         padding: 4%;
      }
  }
 
@@ -297,4 +236,3 @@
      content: "";
      cursor: default;
  }
->>>>>>> Stashed changes

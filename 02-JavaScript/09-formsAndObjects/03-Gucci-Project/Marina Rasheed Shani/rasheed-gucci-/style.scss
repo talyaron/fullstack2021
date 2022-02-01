@@ -1,6 +1,7 @@
 .erp {
   background-color: bisque;
 }
+
 // .store{
 //     background-color: rgb(105, 122, 218);
 // }
@@ -22,6 +23,7 @@ body {
     left: 0px;
     padding-bottom: 1em;
     transition: all 0.5s;
+
     &:hover {
       background-color: rgb(31, 30, 30);
     }
@@ -67,6 +69,7 @@ body {
   &__main {
     //   display: block;
     text-align: center;
+
     img {
       background-size: cover;
       background-repeat: no-repeat;
@@ -81,20 +84,148 @@ body {
   }
 
   &__stories {
-      justify-content: center;
-      gap: 2em;
-      display: flex;
-      color: rgb(5, 5, 5);
-      text-align: center;
+    justify-content: center;
+    gap: 2em;
+    display: flex;
+    color: rgb(5, 5, 5);
+    text-align: center;
     font-weight: 300;
     font-size: larger;
   }
 
   &__bottom {
-      background-color: rgb(26, 25, 25);
-      color: white;
-      display: flex;
-      justify-content: space-evenly;
-      margin-top: 2em;
+    background-color: rgb(26, 25, 25);
+    color: white;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 2em;
+  }
+}
+
+//BUTTONS FOR EACH CATERGORY
+$border:solid 3px black;
+
+.catergory__name {
+  display: inline-flex;
+  background-color: white;
+  justify-content: center;
+  font-size: 100%;
+  color: black;
+  width: 100vw;
+  height: 10vh;
+  margin-top: 0.5em;
+}
+
+.catergory__buttons {
+
+  display: inline-flex;
+  background-color: beige;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10em;
+  width: 100vw;
+  height: 10vh;
+  padding-top: 3em;
+
+
+
+  &--selector {
+    cursor: pointer;
+    width: 10em;
+    height: 3em;
+    border: $border;
+    font-weight: bold;
+    //  select>option{
+    //    background-color:red;
+
+    //  }
+
+
+  }
+
+  &--sortPrice {
+
+    display: inline-flex;
+    gap: 6em;
+    width: 25em;
+    height: 3em;
+
+    button {
+      cursor: pointer;
+      border: $border;
+      font-weight: bold;
+    }
+
+  }
+
+  &--lowerThanPrice {
+    color: black;
+    margin-left: 5em;
+    padding-top: 5px;
+    font-weight: bold;
+
+    .inputLowerThan {
+      cursor: pointer;
+      border: $border;
+      font-weight: bold;
+
+    }
+  }
+
+}
+
+.catergory__items {
+  margin-top: 4em;
+  background-color: white;
+  height: 100em;
+  text-align: center;
+  // display:grid;
+  gap: 2em;
+  display: inline-grid;
+  grid-template-columns: repeat(3, 30em);
+  grid-template-rows: repeat(4, 25em);
+
+  .itemSilkDress {
+    color: black;
+
+  }
+
+  // .itemSilkDressTest {
+  //   background: url("https://media.gucci.com/style/DarkGray_South_0_160_316x316/1635527707/664317_Z8AWG_9791_001_100_0000_Light-Belted-optical-print-silk-dress.jpg") no-repeat;
+  //   display: inline-block;
+
+  //   &:hover {
+
+  //     height: 20em;
+  //     background: url("https://media.gucci.com/style/White_South_0_40_632x790/1635527709/664317_Z8AWG_9791_002_100_0000_Light.jpg") no-repeat;
+  //   }
+  // }
+
+  .itemSilkDressTest {
+    color: black;
+   
+    width: 100px;
+    height: 200px;
+    position: relative;
+    display: inline-block;
+    
+
+    .img-top {
+      display: none;
+      position: absolute;
+      height: 300px;
+      top: 0;
+      //left: 0;
+      z-index: 1;
+      border:solid 2px black;
+    }
+
+    &:hover .img-top {
+      display: inline;
+      width: 20em;
+      height: 400px;
+     
+      
+    }
   }
 }
