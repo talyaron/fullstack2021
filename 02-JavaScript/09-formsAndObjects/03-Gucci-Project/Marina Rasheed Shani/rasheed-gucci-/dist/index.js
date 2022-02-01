@@ -9,10 +9,16 @@ var gucci = {
             this.items = clothesStorage;
         }
     },
-    addClothes: function (name, price, type, department, gender, id) {
+    addItems: function (name, price, department, gender, type, id) {
         console.log(this);
-        this.items.push({ name: name, price: price, type: type, department: department, gender: gender });
+        this.items.push({ name: name, price: price, department: department, gender: gender, type: type });
         this.storeData();
+    },
+    removeItems: function (itemName) {
+        var index = this.items.findIndex(function (item) { return item.name === itemName; });
+        if (index >= 0) {
+            this.items.splice(index, 1);
+        }
     },
     render: function (list, domElement) {
         var html = "";
@@ -26,23 +32,34 @@ var gucci = {
         this.render(items, domElement);
     }
 };
+function handleShowItems() {
+    console.log(gucci.items);
+}
 gucci.getData();
 function handleShowClothes() {
     gucci.getData();
     var root = document.getElementById("root");
     gucci.renderAllitems(root);
 }
-function handleAddclothes(ev) {
+function handleAddItems(ev) {
     ev.preventDefault();
+    console.dir(ev.target[4].value);
     var name = ev.target.name.value;
     var price = ev.target.price.value;
-    var department = (document.getElementById("selectDepartment")).value;
-    var gender = document.getElementById("selectGender")
-        .value;
-    var type = document.getElementById("selectType").value;
+    var department = ev.target[2].value;
+    var gender = ev.target[3].value;
+    var type = ev.target[4].value;
     var id = uid;
-    gucci.addClothes(name, price, department, gender, type, id);
+    gucci.addItems(name, price, department, gender, type, id);
     console.log(gucci.items);
+    gucci.storeData();
+}
+function handleRemoveItems(ev) {
+    ev.preventDefault();
+    var name = ev.target.elements.remove.value;
+    gucci.removeItems(name);
+    var root = document.getElementById('root');
+    gucci.renderAllitems(root);
     gucci.storeData();
 }
 var uid = function () {
