@@ -33,7 +33,6 @@ var nikeItems = {
         this.carts.filter(function (type) {
             var select = _this.carts.type === type;
         });
-        console.log(select);
     },
     renderAllData: function (root) {
         var list = this.items;
@@ -42,9 +41,9 @@ var nikeItems = {
     renderCarts: function (root, list) {
         var htmlCustomer = "";
         list.forEach(function (item) {
-            htmlCustomer += "<div class= 'card'> <p>" + item + "</p></div>";
+            htmlCustomer = "<div class= 'card'><h4>The Item You Want:</h4> <p>" + item + "</p></div>";
         });
-        root.innerHTML = htmlCustomer;
+        root.innerHTML += htmlCustomer;
     },
     render: function (root, list) {
         var html = '';

@@ -66,7 +66,7 @@ let nikeItems: object = {
         
       const select = this.carts.type===type
         })
-      console.log(select)
+
     },
     renderAllData(root: any) {
         const list = this.items;
@@ -75,9 +75,9 @@ let nikeItems: object = {
     renderCarts(root,list){
         let htmlCustomer:string="";
         list.forEach(item=> {
-            htmlCustomer+=`<div class= 'card'> <p>${item}</p></div>`
+            htmlCustomer=`<div class= 'card'><h4>The Item You Want:</h4> <p>${item}</p></div>`
         });
-        root.innerHTML = htmlCustomer;
+        root.innerHTML += htmlCustomer;
     },
     render(root: any, list) {
         let html: string = '';
