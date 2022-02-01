@@ -48,7 +48,7 @@ var zap = {
     renderItemsList: function (domElement, list) {
         var html = '';
         list.forEach(function (item) {
-            html += "<div class='card'>\n            <div class=\"category\">&#9632; " + item.select + "</div>\n            <div>\n            <div class=\"title\">" + item.title + "</div>\n            <div class=\"description\">" + item.description + "</div>\n            </div>\n            <div class=\"price\">&#8362;" + item.price + "</div>\n            <div class=\"itemPic\">\n            <img src=\"" + item.select + ".png\" alt=\"\">\n            <hr>\n            </div>\n            <div class=\"edit\"><a href=\"#editPopUP\">Edit</a></div>\n            <div class=\"popUpbox\" id=\"editPopUP\">\n            <figure>\n                <a href=\"#\" class=\"close\"></a>\n                <figcaption>\n                <form id=\"formAdd\" onsubmit=\"handleEditItems(event, '" + item.id + "')\">\n              <input type=\"text\" name=\"itemEdited\" placeholder=\"Edit title\">\n                <input type=\"submit\" value=\"SAVE\">\n            </form>\n                </figcaption>\n            </figure>\n            </div>\n            <div class=\"delete\">\n            <button onclick=\"handleDelete('" + item.id + "')\"><span style=\"color: #d21ec3;\">X</span></button>\n            </div>\n            </div>";
+            html += "<div class='card'>\n            <div class=\"category\">" + item.select + "</div>\n            <div>\n            <div class=\"title\">" + item.title + "</div>\n            <div class=\"description\">" + item.description + "</div>\n            </div>\n            <div class=\"price\">&#8362;" + item.price + "</div>\n            <div class=\"itemPic\">\n            <img src=\"" + item.select + ".png\" alt=\"\">\n            <hr>\n            </div>\n            <div class=\"edit\"><a href=\"#editPopUP\">Edit</a></div>\n            <div class=\"popUpbox\" id=\"editPopUP\">\n            <figure>\n                <a href=\"#\" class=\"close\"></a>\n                <figcaption>\n                <form id=\"formAdd\" onsubmit=\"handleEditItems(event, '" + item.id + "')\">\n              <input type=\"text\" name=\"itemEdited\" placeholder=\"Edit title\">\n                <input type=\"submit\" value=\"SAVE\">\n            </form>\n                </figcaption>\n            </figure>\n            </div>\n            <div class=\"delete\">\n            <button onclick=\"handleDelete('" + item.id + "')\"><span style=\"color: #fdfdfd;\">X</span></button>\n            </div>\n            </div>";
         });
         domElement.innerHTML = html;
     }
@@ -74,13 +74,6 @@ function handleEditItems(ev, id) {
     ev.target.reset();
     zap.renderItems(rootItems);
 }
-function handleremoveItems(ev) {
-    ev.preventDefault();
-    var title = ev.target.elements.remove.value;
-    zap.removeItems(title);
-    var rootItems = document.getElementById('rootItems');
-    zap.renderItems(rootItems);
-}
 function handlesortItemsDesc(ev) {
     var desc = ev.target.value;
     zap.sortItems('desc');
@@ -92,17 +85,6 @@ function handlesortItemsAsc(ev) {
     zap.sortItems('asc');
     var rootItems = document.getElementById('rootItems');
     zap.renderItems(rootItems);
-}
-function handleFilter(e) {
-    var price = e.target.valueAsNumber;
-    var rootItems = document.getElementById('rootItems');
-    if (price) {
-        var filtered = zap.filterItemsByMaxPrice(price);
-        zap.renderFilter(rootItems, filtered);
-    }
-    else {
-        zap.renderItems(rootItems);
-    }
 }
 function handleDelete(id) {
     var rootItems = document.getElementById('rootItems');

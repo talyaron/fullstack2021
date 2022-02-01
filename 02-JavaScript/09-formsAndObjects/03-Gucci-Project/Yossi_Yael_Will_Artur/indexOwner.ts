@@ -73,7 +73,7 @@ const zap: zap = {
         let html = '';
         list.forEach(item => {
             html += `<div class='card'>
-            <div class="category">&#9632; ${item.select}</div>
+            <div class="category">${item.select}</div>
             <div>
             <div class="title">${item.title}</div>
             <div class="description">${item.description}</div>
@@ -96,7 +96,7 @@ const zap: zap = {
             </figure>
             </div>
             <div class="delete">
-            <button onclick="handleDelete('${item.id}')"><span style="color: #d21ec3;">X</span></button>
+            <button onclick="handleDelete('${item.id}')"><span style="color: #fdfdfd;">X</span></button>
             </div>
             </div>`
         })
@@ -128,14 +128,6 @@ function handleEditItems(ev, id) {
     zap.renderItems(rootItems);
 }
 
-function handleremoveItems(ev) {
-    ev.preventDefault();
-    const title = ev.target.elements.remove.value;
-    zap.removeItems(title);
-    const rootItems = document.getElementById('rootItems');
-    zap.renderItems(rootItems);
-}
-
 
 function handlesortItemsDesc(ev) {
     const desc = ev.target.value;
@@ -150,16 +142,6 @@ function handlesortItemsAsc(ev) {
     zap.renderItems(rootItems);
 }
 
-function handleFilter(e) {
-    const price = e.target.valueAsNumber;
-    const rootItems = document.getElementById('rootItems');
-    if (price) {
-        const filtered = zap.filterItemsByMaxPrice(price);
-        zap.renderFilter(rootItems, filtered);
-    } else {
-        zap.renderItems(rootItems);
-    }
-}
 
 function handleDelete(id) {
     const rootItems = document.getElementById('rootItems');
