@@ -31,9 +31,14 @@ var gucci = {
         var items = this.items;
         this.render(items, domElement);
     },
-    sortByAscending: function (type) {
-        this.storeData.sort(function (a, b) {
-            return a[type] - b[type];
+    sortByAscending: function (price) {
+        this.items.sort(function (a, b) {
+            return a.price - b.price;
+        });
+    },
+    sortByDescending: function (price) {
+        this.items.sort(function (a, b) {
+            return b.price - a.price;
         });
     }
 };
@@ -73,6 +78,11 @@ var uid = function () {
 };
 function handlePriceAsc(price) {
     gucci.sortByAscending(price);
+    var root = document.getElementById('root');
+    gucci.renderAllitems(root);
+}
+function handlePriceDesc(price) {
+    gucci.sortByDescending(price);
     var root = document.getElementById('root');
     gucci.renderAllitems(root);
 }

@@ -10,6 +10,11 @@
 </head>
 
 <body>
+    
+    <nav>
+        <a href="./index.html">Store</a>
+        <a href="./erp.html">ERP</a>
+    </nav>
 
 
     <div class="container">
@@ -127,8 +132,8 @@
             </select>
 
             <div class="catergory__buttons--sortPrice">
-                <button type="button" id="ascending" onclick="handlePriceAsc(event)">Sort by highest to lowest</button>
-                <button type="button" id="descending" onclick="handlePriceDesc(event)">Sort by lowest to highest</button>
+                <button type="button" id="ascending" onclick="handlePriceAsc(event)">Sort by  lowest to highest</button>
+                <button type="button" id="descending" onclick="handlePriceDesc(event)">Sort by highest to lowest  </button>
             </div>
 
             <div class="catergory__buttons--lowerThanPrice">
@@ -155,7 +160,15 @@
                 
 
             </div>
-          
+            <div class="itemSilkDress">
+                <img src="https://media.gucci.com/style/DarkGray_South_0_160_316x316/1635527707/664317_Z8AWG_9791_001_100_0000_Light-Belted-optical-print-silk-dress.jpg" class="img-back"alt="Card Back">
+                <img src="https://media.gucci.com/style/White_South_0_40_632x790/1635527709/664317_Z8AWG_9791_002_100_0000_Light.jpg" class="img-top" alt="Card Front">
+                <p>Belted optical print silk dress</p>
+                <p>4,980</p>
+                
+
+            </div>
+           
             <div class="itemSilkDress">
                 <img src="https://media.gucci.com/style/DarkGray_South_0_160_316x316/1635527707/664317_Z8AWG_9791_001_100_0000_Light-Belted-optical-print-silk-dress.jpg" class="img-back"alt="Card Back">
                 <img src="https://media.gucci.com/style/White_South_0_40_632x790/1635527709/664317_Z8AWG_9791_002_100_0000_Light.jpg" class="img-top" alt="Card Front">
@@ -164,9 +177,9 @@
                 
 
             </div>-->
-            <div onmouseover="handleShowItems()">Show Products</div>
-            <!-- why do i have this here -->
 
+
+            <div onmouseover="handleShowItems()">Show Products</div>
             <div id="root"></div>
 
 
@@ -239,12 +252,8 @@
 
     </div>
 
-    <nav>
-        <a href="./index.html">Store</a>
-        <a href="./erp.html">ERP</a>
-    </nav>
     <script src="dist/index.js"></script>
-    <!-- <h1>Store</h1>
+    
     
     
 

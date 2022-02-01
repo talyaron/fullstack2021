@@ -16,7 +16,8 @@ interface Store {
   removeItems(itemName: string): any
   render(list: any, domElement: any): any;
   renderAllitems(domElement: any): any;
-  sortByAscending(type:string);
+  sortByAscending?(price:number);
+  sortByDescending?(price:number);
 }
 
 interface Item {
@@ -68,9 +69,14 @@ const gucci: Store = {
     const items = this.items;
     this.render(items, domElement);
   },
-  sortByAscending(type){
-    this.storeData.sort((a,b)=>{
-      return a[type]-b[type];
+  sortByAscending(price){
+    this.items.sort((a,b)=>{
+      return a.price-b.price;
+    })
+  },
+  sortByDescending(price){
+    this.items.sort((a,b)=>{
+      return b.price-a.price;
     })
   },
 };
@@ -116,11 +122,16 @@ const uid = function () {
 };
 
 function handlePriceAsc(price){
-  gucci.sortByAscending(price)
+  gucci.sortByAscending(price);
   const root = document.getElementById('root');
   gucci.renderAllitems(root);
 }
+function handlePriceDesc(price){
+  gucci.sortByDescending(price);
+  const root=document.getElementById('root');
+  gucci.renderAllitems(root);
 
+}
 
 
 
