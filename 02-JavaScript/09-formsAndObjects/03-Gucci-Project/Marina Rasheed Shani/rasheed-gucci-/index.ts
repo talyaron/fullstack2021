@@ -14,6 +14,7 @@ interface Store {
     id: any
   ): any;
   removeItems(itemName: string): any
+  updateItems(newPrice:number,itemName:string):any
   render(list: any, domElement: any): any;
   renderAllitems(domElement: any): any;
   sortByAscending?(price: number);
@@ -23,7 +24,7 @@ interface Store {
 interface Item {
   name: string;
   price: number;
-  img?: any;
+  img: any;
   department: "clothes" | "watches" | "jewelry" | "bags";
   gender: "men" | "women";
   type: string;
@@ -45,19 +46,26 @@ const gucci: Store = {
   },
   addItems(name, price, img, department, gender, type) {
     const id = uid()
-    console.log(this);
-    this.items.push({ name, price, img, department, gender, type,id});
+    this.items.push({ name, price, img, department, gender, type, id});
     this.storeData();
   },
   removeItems(itemName: string) {
     const index = this.items.findIndex(item => item.name === itemName);
     if (index >= 0) {
       this.items.splice(index, 1)
+      this.storeData();
+    }
+  },
+  updateItems(newPrice, itemName) {
+    const index =  this.items.findIndex(item => item.name === itemName);
+    if (index >= 0){
+    this.items[index].price = newPrice;
+    this.storeData();
     }
   },
   render(list, domElement) {
     let html = "";
-    list.forEach((product) => {
+    list.forEach((product:any) => {
       html += `<div class="items">
         <p> item : ${product.name}</p>
         <img class="img" src="${product.img}" >
@@ -68,7 +76,6 @@ const gucci: Store = {
     domElement.innerHTML = html;
   },
   renderAllitems(domElement) {
-    
     const items = this.items;
     this.render(items, domElement);
   },
@@ -84,21 +91,29 @@ const gucci: Store = {
   },
 };
 
+function handleUpdate(ev) {
+  ev.preventDefault();
+
+  const root = document.getElementById('root');
+  gucci.renderAllitems(root);
+const itemName =  ev.target.elements.itemName.value
+  const NewPrice = ev.target.elements.update.value;
+  gucci.updateItems(NewPrice,itemName)
+  gucci.storeData();
+}
+  
+
 
 
 function handleShowItems() {
   console.log(gucci.items)
 }
 
-gucci.getData();
+
 
 
 function handleAddItems(ev) {
   ev.preventDefault();
-  console.dir(ev.target)
-
-  // const root = document.getElementById('root');
-  // gucci.renderAllitems(root);
 
   const name = ev.target.name.value;
   const price = ev.target.price.value;
@@ -108,6 +123,9 @@ function handleAddItems(ev) {
   const type = ev.target[5].value;
   let id = uid;
   gucci.addItems(name, price, img, department, gender, type, id);
+
+  const root = document.getElementById('root');
+  gucci.renderAllitems(root);
   console.log(gucci.items);
   gucci.storeData();
 
@@ -164,7 +182,9 @@ function handleNavMouseleave() {
   dropDown.classList.toggle('hidden')
 }
 
+gucci.getData();
 
 
-// const root = document.getElementById('root');
-// gucci.renderAllitems(root);
+
+const root = document.getElementById('root');
+gucci.renderAllitems(root);
