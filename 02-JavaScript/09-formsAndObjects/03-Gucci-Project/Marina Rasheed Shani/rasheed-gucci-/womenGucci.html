@@ -113,12 +113,11 @@
         <div class="dropdawn"></div>
         <div class="dropdawn"></div>
 
-        <div class="catergory__name">
-            <h1>WOMEN</h1>
-        </div>
-
 
         <div class="catergory__buttons">
+            <div class="catergory__name">
+                <h3><span>READY-TO-WEAR FOR WOMEN</span> | Clothes for Women</h3>
+            </div>
                     
 
             <div class="catergory__buttons--lowerThanPrice">
@@ -128,7 +127,7 @@
 
 
             <select class="catergory__buttons--selector" onchange='handleSelect(event)'>
-                <option value="" disabled selected>Choose a type</option>
+                <option value="" disabled selected>Category</option>
                 <option value="all">ALL</option>
                 <option value="dresses">DRESSES</option>
                 <option value="pants">PANTS</option>
@@ -136,8 +135,8 @@
             </select>
 
             <div class="catergory__buttons--sortPrice">
-                <button type="button" id="ascending" onclick="handlePriceAsc(event)">Sort by lowest to highest</button>
-                <button type="button" id="descending" onclick="handlePriceDesc(event)">Sort by highest to lowest
+                <button type="button" id="ascending" onclick="handlePriceAsc(event)">Price-Low to High</button>
+                <button type="button" id="descending" onclick="handlePriceDesc(event)">Price-High to Low
                 </button>
             </div>
 
