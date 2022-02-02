@@ -3,18 +3,18 @@ const uid = function () {
 };
 
 interface Object {
-    items: Array,namePrice>,
-    carts:Array<type>
+    items: Array<namePrice>,
+    carts:Array<type>,
     additems(name: string, price: number),
     sortAsc(),
     sortDes(),
     deleteItem(idItem: string),
     updateItem(idItem:string,newValue:string),
-    addToCarts(type:string,:string),
+    addToCarts(type:string),
     selectItem(type:"shoes"|"pants"|"hoodie")
     renderAllData(root: any),
     renderAllCarts(root:any),
-    render(root: any, list: namePrice),
+    render(root: any, list: any),
 
 }
 interface type{
@@ -137,7 +137,7 @@ function handleupdate(event,id){
 function handleCart(event){
     const type=event.target.id
     console.log(type);
-    nikeItems.addToCarts(type,name)
+    nikeItems.addToCarts(type)
     const root = document.getElementById('root');
     nikeItems.renderAllCarts(root);
 }

@@ -1,20 +1,6 @@
 var uid = function () {
     return Date.now().toString(36) + Math.random().toString(36).substr(2);
 };
-namePrice > ,
-    carts;
-Array < type >
-    additems(name, string, price, number),
-    sortAsc(),
-    sortDes(),
-    deleteItem(idItem, string),
-    updateItem(idItem, string, newValue, string),
-    addToCarts(type, string, string),
-    selectItem(type, "shoes" | "pants" | "hoodie");
-renderAllData(root, any),
-    renderAllCarts(root, any),
-    render(root, any, list, namePrice),
-;
 var nikeItems = {
     items: [],
     carts: [],
@@ -100,7 +86,7 @@ function handleupdate(event, id) {
 function handleCart(event) {
     var type = event.target.id;
     console.log(type);
-    nikeItems.addToCarts(type, name);
+    nikeItems.addToCarts(type);
     var root = document.getElementById('root');
     nikeItems.renderAllCarts(root);
 }
