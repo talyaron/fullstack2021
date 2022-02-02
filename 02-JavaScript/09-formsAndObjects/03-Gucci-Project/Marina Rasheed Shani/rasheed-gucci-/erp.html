@@ -51,7 +51,7 @@
         <input id="removeBtn" type="submit" value="remove">
     </form>
     <div>-------------------------------------------------------------------------------------------------------------</div>
-    <form onsubmit="handleUpdate(event)">
+    <form onsubmit="handleUpdate(event , '${product.id}')">
         <input type="text" type="itemName" name="itemName"placeholder="write item name to update">
         <input class='tsInput'  type="number" name="update" placeholder="Update Price">
         <input class='tsBtn' name="submit" value="Update" type="submit">
