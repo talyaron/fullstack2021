@@ -42,7 +42,7 @@ let aviator: aviator = {
                     <div class="category-wrapper__card__price">${item.price}</div>
                     
                     
-                    <button class='add1' onclick="handleaddcart(event)" style="cursor: pointer;color:black">add to cart<i class="fab fa-opencart"></i></button>
+                    <button class='add1' onclick="handleaddcart(event,'${item.id}')" style="cursor: pointer;color:black">add to cart<i class="fab fa-opencart"></i></button>
                 </div>`
         });
 
@@ -54,9 +54,10 @@ let aviator: aviator = {
 
         this.filteritems.forEach(item => {
             html2 += `<div class='cart'>
-           ${item.img}
+            <img src="${item.img}">
+           
         
-           <button  onclick='handleDelete(${item.id})' style="width:50px ;"'><i class="far fa-trash-alt"></i> Delete</button>
+           <button  onclick='handleDelete("${item.id}")' style="width:50px ;"'><i class="far fa-trash-alt"></i> Delete</button>
             </div>`
         });
         domElement.innerHTML = html2
@@ -76,19 +77,24 @@ let aviator: aviator = {
 
     getdata() {
         this.items = JSON.parse(localStorage.getItem('storeData'))
+        
+        
     },
     deleteItem(id) {
-        this.filteritems.filter(item => item.id !== id);
+        this.filteritems = this.filteritems.filter(item => item.id !== id);
+        this.renderitemcart(cart);
+        console.log(this.filteritems);
+        
     },
 
 }
 let cartItems:number = 0;
-function handleaddcart(ev) {
-    console.dir(ev)
-    const img = (ev.path[1].innerHTML)
-    const name = (ev.target.parentElement.firstElementChild.textContent)
-    const price = (ev.target.previousElementSibling.textContent)
-    aviator.additem({ img, name, price })
+function handleaddcart(ev, itemToAddId) {
+    // console.dir(ev)
+    const itemToAdd = aviator.items.filter(item => item.id == itemToAddId)[0];
+    console.log(itemToAdd);
+    
+    aviator.additem(itemToAdd);
     const cart = document.getElementById('cart')
     aviator.renderitemcart(cart)
     //andrew's addition
@@ -112,7 +118,6 @@ function handlesortitemacs(ev) {
 }
 
 function handleDelete(id) {
-    console.dir('id')
     console.log(id)
     aviator.deleteItem(id)
     aviator.renderitemcart(cart);
@@ -124,4 +129,7 @@ const rootitems = document.getElementById('main')
 aviator.renderitem(rootitems)
 
 const cart = document.getElementById('cart')
-aviator.renderitemcart(cart)
+// aviator.renderitemcart(cart)
+
+
+
