@@ -1,75 +1,170 @@
+
+
 interface Store {
-  menClothes: Array<menClothes>;
+  items: Array<Item>;
   storeData();
   getData();
-  addClothes(name: string, price: number): any;
+  addItems(
+    name: string,
+    price: number,
+    img: any,
+    department: "clothes" | "watches" | "jewelry" | "bags",
+    gender: "men" | "women",
+    type: string,
+    id: any
+  ): any;
+  removeItems(itemName: string): any
   render(list: any, domElement: any): any;
-  renderAllmenClothes(domElement: any): any;
+  renderAllitems(domElement: any): any;
+  sortByAscending?(price: number);
+  sortByDescending?(price: number);
 }
 
-interface menClothes {
+interface Item {
   name: string;
   price: number;
-  type?: "menClother" | "Watches";
-  id?: number;
+  img?: any;
+  department: "clothes" | "watches" | "jewelry" | "bags";
+  gender: "men" | "women";
+  type: string;
+  id?: any;
+
+
 }
 
 const gucci: Store = {
-  menClothes: [],
+  items: [],
   storeData() {
-    localStorage.setItem("storeData", JSON.stringify(this.menClothes));
+    localStorage.setItem("storeData", JSON.stringify(this.items));
   },
   getData() {
     const clothesStorage = JSON.parse(localStorage.getItem("storeData"));
     if (Array.isArray(clothesStorage)) {
-      this.menClothes = clothesStorage;
+      this.items = clothesStorage;
     }
   },
-  addClothes(name, price) {
+  addItems(name, price, img, department, gender, type) {
+    const id = uid()
     console.log(this);
-    this.menClothes.push({ name, price });
+    this.items.push({ name, price, img, department, gender, type,id});
     this.storeData();
+  },
+  removeItems(itemName: string) {
+    const index = this.items.findIndex(item => item.name === itemName);
+    if (index >= 0) {
+      this.items.splice(index, 1)
+    }
   },
   render(list, domElement) {
     let html = "";
     list.forEach((product) => {
-      html += `<div class='result-card'>
-        <p> item : ${product.name} , price :  ${product.price}$</p>
+      html += `<div class="items">
+        <p> item : ${product.name}</p>
+        <img class="img" src="${product.img}" >
+        <p> price : ${product.price}$</p>
+        <input onclick="handleAddToCart()" id="addToCart" type="button" value="ADD TO CART">
         </div>`;
     });
     domElement.innerHTML = html;
   },
-  renderAllmenClothes(domElement) {
-    const menClothes = this.menClothes;
-    this.render(menClothes, domElement);
+  renderAllitems(domElement) {
+    
+    const items = this.items;
+    this.render(items, domElement);
+  },
+  sortByAscending(price) {
+    this.items.sort((a, b) => {
+      return a.price - b.price;
+    })
+  },
+  sortByDescending(price) {
+    this.items.sort((a, b) => {
+      return b.price - a.price;
+    })
   },
 };
 
-gucci.getData();
 
-function handleShowClothes() {
-  gucci.getData();
-  const root = document.getElementById("root");
-  gucci.renderAllmenClothes(root);
+
+function handleShowItems() {
+  console.log(gucci.items)
 }
 
-function handleAddclothes(ev) {
+gucci.getData();
+
+
+function handleAddItems(ev) {
   ev.preventDefault();
+  console.dir(ev.target)
+
+  // const root = document.getElementById('root');
+  // gucci.renderAllitems(root);
 
   const name = ev.target.name.value;
   const price = ev.target.price.value;
-  gucci.addClothes(name, price);
-  console.log(gucci.menClothes);
+  const img = ev.target[2].value;
+  const department = ev.target[3].value;
+  const gender = ev.target[4].value;
+  const type = ev.target[5].value;
+  let id = uid;
+  gucci.addItems(name, price, img, department, gender, type, id);
+  console.log(gucci.items);
   gucci.storeData();
+
+  ev.target.reset();
 }
 
-// gucci.addClothes('T-Shirt' , 552)
-// gucci.addClothes('Pants' , 552)
-// gucci.addClothes('Jeans' , 552)
-// gucci.addClothes('T-Shirt' , 552)
-// gucci.addClothes('T-Shirt' , 552)
-// gucci.addClothes('T-Shirt' , 552)
-// gucci.addClothes('T-Shirt' , 552)
-// gucci.addClothes('T-Shirt' , 552)
-// gucci.addClothes('T-Shirt' , 552)
-// gucci.addClothes('T-Shirt' , 552)
+function handleRemoveItems(ev) {
+  ev.preventDefault();
+  const name = ev.target.elements.remove.value;
+  gucci.removeItems(name);
+  const root = document.getElementById('root');
+  gucci.renderAllitems(root);
+  gucci.storeData();
+  ev.target.reset();
+}
+const uid = function () {
+  return Date.now().toString(36) + Math.random().toString(36).substr(2);
+};
+
+function handlePriceAsc(price) {
+  gucci.sortByAscending(price);
+  const root = document.getElementById('root');
+  gucci.renderAllitems(root);
+}
+function handlePriceDesc(price) {
+  gucci.sortByDescending(price);
+  const root = document.getElementById('root');
+  gucci.renderAllitems(root);
+
+}
+
+
+
+
+
+
+
+let navBar = document.querySelectorAll('.container__navBar__catergory');
+navBar.forEach(item => {
+  item.addEventListener('mouseover', handleNavMouseover)
+});
+
+let dropDown = document.querySelector('.container__dropdawn')
+function handleNavMouseover() {
+  dropDown.classList.toggle('visible')
+}
+
+
+
+navBar.forEach(item => {
+  item.addEventListener('mouseleave', handleNavMouseleave)
+})
+function handleNavMouseleave() {
+  dropDown.classList.toggle('hidden')
+}
+
+
+
+// const root = document.getElementById('root');
+// gucci.renderAllitems(root);

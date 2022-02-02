@@ -3,6 +3,7 @@ var uid = function () {
 };
 var nikeItems = {
     items: [],
+    carts: [],
     additems: function (name, price) {
         var idItem = uid();
         this.items.push({ name: name, price: price, idItem: idItem });
@@ -20,9 +21,27 @@ var nikeItems = {
         var i = this.items.findIndex(function (item) { return item.idItem === idItem; });
         this.items[i].name = newValue;
     },
+    addToCarts: function (type) {
+        this.carts.push(type);
+    },
+    renderAllCarts: function (root) {
+        var list = this.carts;
+        this.renderCarts(root, list);
+    },
+    selectItem: function (type) {
+        this.carts.filter(function (type) {
+        });
+    },
     renderAllData: function (root) {
         var list = this.items;
         this.render(root, list);
+    },
+    renderCarts: function (root, list) {
+        var htmlCustomer = "";
+        list.forEach(function (item) {
+            htmlCustomer += "<div class= 'card'><h4>The Item You Want:</h4> <p>" + item + "</p></div>";
+        });
+        root.innerHTML = htmlCustomer;
     },
     render: function (root, list) {
         var html = '';
@@ -62,4 +81,15 @@ function handleupdate(event, id) {
     nikeItems.updateItem(id, updateditem);
     var root = document.getElementById('root');
     nikeItems.renderAllData(root);
+}
+//customer
+function handleCart(event) {
+    var type = event.target.id;
+    console.log(type);
+    nikeItems.addToCarts(type);
+    var root = document.getElementById('root');
+    nikeItems.renderAllCarts(root);
+}
+function handleSelect(event) {
+    var select = event.target.value;
 }

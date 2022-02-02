@@ -1,52 +1,104 @@
 var gucci = {
-    menClothes: [],
+    items: [],
     storeData: function () {
-        localStorage.setItem("storeData", JSON.stringify(this.menClothes));
+        localStorage.setItem("storeData", JSON.stringify(this.items));
     },
     getData: function () {
         var clothesStorage = JSON.parse(localStorage.getItem("storeData"));
         if (Array.isArray(clothesStorage)) {
-            this.menClothes = clothesStorage;
+            this.items = clothesStorage;
         }
     },
-    addClothes: function (name, price) {
+    addItems: function (name, price, img, department, gender, type) {
+        var id = uid();
         console.log(this);
-        this.menClothes.push({ name: name, price: price });
+        this.items.push({ name: name, price: price, img: img, department: department, gender: gender, type: type, id: id });
         this.storeData();
+    },
+    removeItems: function (itemName) {
+        var index = this.items.findIndex(function (item) { return item.name === itemName; });
+        if (index >= 0) {
+            this.items.splice(index, 1);
+        }
     },
     render: function (list, domElement) {
         var html = "";
         list.forEach(function (product) {
-            html += "<div class='result-card'>\n        <p> item : " + product.name + " , price :  " + product.price + "$</p>\n        </div>";
+            html += "<div class=\"items\">\n        <p> item : " + product.name + "</p>\n        <img class=\"img\" src=\"" + product.img + "\" >\n        <p> price : " + product.price + "$</p>\n        <input onclick=\"handleAddToCart()\" id=\"addToCart\" type=\"button\" value=\"ADD TO CART\">\n        </div>";
         });
         domElement.innerHTML = html;
     },
-    renderAllmenClothes: function (domElement) {
-        var menClothes = this.menClothes;
-        this.render(menClothes, domElement);
+    renderAllitems: function (domElement) {
+        var items = this.items;
+        this.render(items, domElement);
+    },
+    sortByAscending: function (price) {
+        this.items.sort(function (a, b) {
+            return a.price - b.price;
+        });
+    },
+    sortByDescending: function (price) {
+        this.items.sort(function (a, b) {
+            return b.price - a.price;
+        });
     }
 };
-gucci.getData();
-function handleShowClothes() {
-    gucci.getData();
-    var root = document.getElementById("root");
-    gucci.renderAllmenClothes(root);
+function handleShowItems() {
+    console.log(gucci.items);
 }
-function handleAddclothes(ev) {
+gucci.getData();
+function handleAddItems(ev) {
     ev.preventDefault();
+    console.dir(ev.target);
+    // const root = document.getElementById('root');
+    // gucci.renderAllitems(root);
     var name = ev.target.name.value;
     var price = ev.target.price.value;
-    gucci.addClothes(name, price);
-    console.log(gucci.menClothes);
+    var img = ev.target[2].value;
+    var department = ev.target[3].value;
+    var gender = ev.target[4].value;
+    var type = ev.target[5].value;
+    var id = uid;
+    gucci.addItems(name, price, img, department, gender, type, id);
+    console.log(gucci.items);
     gucci.storeData();
+    ev.target.reset();
 }
-// gucci.addClothes('T-Shirt' , 552)
-// gucci.addClothes('Pants' , 552)
-// gucci.addClothes('Jeans' , 552)
-// gucci.addClothes('T-Shirt' , 552)
-// gucci.addClothes('T-Shirt' , 552)
-// gucci.addClothes('T-Shirt' , 552)
-// gucci.addClothes('T-Shirt' , 552)
-// gucci.addClothes('T-Shirt' , 552)
-// gucci.addClothes('T-Shirt' , 552)
-// gucci.addClothes('T-Shirt' , 552)
+function handleRemoveItems(ev) {
+    ev.preventDefault();
+    var name = ev.target.elements.remove.value;
+    gucci.removeItems(name);
+    var root = document.getElementById('root');
+    gucci.renderAllitems(root);
+    gucci.storeData();
+    ev.target.reset();
+}
+var uid = function () {
+    return Date.now().toString(36) + Math.random().toString(36).substr(2);
+};
+function handlePriceAsc(price) {
+    gucci.sortByAscending(price);
+    var root = document.getElementById('root');
+    gucci.renderAllitems(root);
+}
+function handlePriceDesc(price) {
+    gucci.sortByDescending(price);
+    var root = document.getElementById('root');
+    gucci.renderAllitems(root);
+}
+var navBar = document.querySelectorAll('.container__navBar__catergory');
+navBar.forEach(function (item) {
+    item.addEventListener('mouseover', handleNavMouseover);
+});
+var dropDown = document.querySelector('.container__dropdawn');
+function handleNavMouseover() {
+    dropDown.classList.toggle('visible');
+}
+navBar.forEach(function (item) {
+    item.addEventListener('mouseleave', handleNavMouseleave);
+});
+function handleNavMouseleave() {
+    dropDown.classList.toggle('hidden');
+}
+// const root = document.getElementById('root');
+// gucci.renderAllitems(root);
