@@ -213,6 +213,9 @@ body {
 #cart .cart {
   background-color: #d2d2d3;
   border-radius: 10px;
+  position: relative;
+  left: 7%;
+  margin-bottom: 5%;
 }
 #cart .h2 {
   color: brown;

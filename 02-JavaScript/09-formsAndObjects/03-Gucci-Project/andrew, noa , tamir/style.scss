@@ -241,8 +241,11 @@ body {
     .cart {
         background-color: rgb(210, 210, 211);
         border-radius: 10px;
+        position: relative;
+        left: 7%;
+          margin-bottom: 5%;
     }
-
+    
     gap: 5px;
     width: 280px;
     display: grid;
