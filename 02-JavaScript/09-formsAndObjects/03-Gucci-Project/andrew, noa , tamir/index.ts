@@ -68,6 +68,7 @@ let aviator: aviator = {
         this.items.sort((a, b) => { return b.price - a.price })
     },
 }
+let cartItems:number = 0;
 function handleaddcart(ev) {
     const img = (ev.path[1].innerHTML)
     const name = (ev.target.parentElement.firstElementChild.textContent)
@@ -75,6 +76,14 @@ function handleaddcart(ev) {
     aviator.additem({ img, name, price })
     const cart = document.getElementById('cart')
     aviator.renderitemcart(cart)
+    //andrew's addition
+    const cartIcon = document.querySelector("#cart-icon");
+    cartIcon.classList.add("pulse");
+    setTimeout(()=>{cartIcon.classList.remove("pulse")}, 1000);
+    const cartNumber = document.querySelector('.header__cart-notification')
+    cartItems++;
+    cartNumber.innerHTML = `${cartItems}`;
+    //
 }
 function handlesortitem(ev) {
     ev.preventDefault();

@@ -32,6 +32,7 @@ var aviator = {
         this.items.sort(function (a, b) { return b.price - a.price; });
     }
 };
+var cartItems = 0;
 function handleaddcart(ev) {
     var img = (ev.path[1].innerHTML);
     var name = (ev.target.parentElement.firstElementChild.textContent);
@@ -39,6 +40,14 @@ function handleaddcart(ev) {
     aviator.additem({ img: img, name: name, price: price });
     var cart = document.getElementById('cart');
     aviator.renderitemcart(cart);
+    //andrew's addition
+    var cartIcon = document.querySelector("#cart-icon");
+    cartIcon.classList.add("pulse");
+    setTimeout(function () { cartIcon.classList.remove("pulse"); }, 1000);
+    var cartNumber = document.querySelector('.header__cart-notification');
+    cartItems++;
+    cartNumber.innerHTML = "" + cartItems;
+    //
 }
 function handlesortitem(ev) {
     ev.preventDefault();

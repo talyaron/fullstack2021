@@ -43,5 +43,11 @@ function handleCurrencyOptionClick(ev){
     });
     
 }
+document.querySelectorAll(".category-wrapper__card__price").forEach(price => {
+    price.classList.add("USD");
+});
+
+
+
 
 
