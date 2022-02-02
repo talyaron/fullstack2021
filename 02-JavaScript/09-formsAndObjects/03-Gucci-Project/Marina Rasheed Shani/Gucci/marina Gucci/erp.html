@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>erp</title>
+    <link rel="stylesheet" href="dist/gucci.css">
+</head>
+
+<body class="erp">
+
+    <nav>
+        <a href="./gucci.html">Store</a>
+        <a href="./erp.html">ERP</a>
+    </nav>
+
+    <h1>Store ERP</h1>
+    <!-- <button onclick="handleAddProducts()">Add Products</button>
+    <button onclick="handleShowProducts()">Show Products</button>
+    <button onclick="handleGetProducts()">Get Products</button> -->
+
+    <form onsubmit="handleAddNewItemSubmit(event)">
+        <input id="itemName" type="text" name="title" placeholder="title">
+        <input id="price" type="number" name="price" placeholder="price">
+        <input id="category" type="text" name="category" placeholder="category">
+        <!-- The id was the same in price and category. This is why the price value was undefuned -->
+        <input type="submit" value="add item">
+    </form>
+
+
+    <!-- <form onsubmit="handleSubmit(event)" class="lookig_for">
+        <input  type="text" name="title" id="title"
+            placeholder="Enter description here">
+        <input  type="text" name="title" id="title"
+            placeholder="Enter category here">
+        <input type="number" name="price" id="price" placeholder="Enter price here">
+        <button id="btn_submit" type="submit">Add an item</button>
+    </form>
+
+    <div class="delete">
+        <input  type="text" name="delete" id="delete"
+            placeholder="Enter an item to delete">
+        <button  onclick="handleDelete(event)" id="delete" type="submit">Delete an
+            item</button>
+    </div>
+
+    <form onsubmit="handleUpdate(event)">
+        <input type="text" name="newName" placeholder="new name">
+        <button type="submit">Update</button>
+    </form>
+
+
+    <input class="sortPrice" onkeyup="handleFilter(event)" type="number" name="filter_price" id="filter_price"
+        placeholder="Enter a price here">
+
+    <div class="sort">
+        <button class="ascending" onclick="handlePriceAscen()" id="btn_submit" type="submit">Sort by price up</button>
+
+        <button class="descending" onclick="handlePriseDescen()" id="btn_submit" type="submit">Sort by price
+            down</button>
+    </div> -->
+
+    <div id="root"></div>
+    <script src="dist/gucci.js"></script>
+
+</body>
+
+</html>

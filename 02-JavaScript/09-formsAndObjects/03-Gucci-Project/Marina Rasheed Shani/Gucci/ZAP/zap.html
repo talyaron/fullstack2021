@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <title>zap</title>
+    <link rel="stylesheet" href="dist/zap.css">
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="header_wrapper">
+            <img src="img\zap.png" width="90" height="85" alt="">
+            <form onkeyup="HandleTopSearch (event)">
+                <input class="search" type="text" name="search" id="search">
+            </form>
+            <a itemprop="url" href="https://www.zap.co.il/">
+                <img itemprop="logo" src="https://img.zap.co.il/imgs/newui/zapnewlogo.png" width="138" height="54">
+            </a>
+        </div>
+    </div>
+
+    <div class="SubMenuItem">
+        <div>zap cars</div>
+        <div>discounts</div>
+        <div>other</div>
+        <div>health & beauty</div>
+        <div>children</div>
+        <div>sport</div>
+        <div>home & garden</div>
+        <div class="subMenuComputer" onclick="handleShowComputers(event)">computers</div>
+        <div class="subMenuElectronics" onclick="handleShowElectronics(event)">electronics</div>
+        <div class="SubMenuItem__selection">
+            <select name="" id="" onchange='handleSelect(event)'>
+                <option value="" disabled selected>all categories</option>
+                <option value="all">Show all</option>
+                <option value="computer">Computers</option>
+                <option value="electronics">Viewing and audio systems</option>
+            </select>
+        </div>
+    </div>
+    <div class="popupTextOver">
+        <p class="guest_mouseover" style="font-size: smaller;">Hello, guest! </p>
+        <p class="login" style="font-size: smaller; color: rgb(56, 108, 187); text-decoration: underline; ">Login</p>
+    </div>
+
+    <div style="visibility: hidden;" class="popup_wrapper">
+        <div class="popup">
+            <div style="color: rgb(70, 68, 68)" class="popup_close">x</div>
+            <div class="popup_content">
+                <h2 style="color: crimson;">Hello Guest</h2>
+                <p style="color: rgb(70, 68, 68)">It is always better to login...<br>Please do.</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="searchResut">
+        <p>Filter search results by category </p>
+    </div>
+
+    <div class="resultCategory">
+        <p class="category">computers(150)</p>
+        <p class="category">Portable and wireless speakers(247)</p>
+        <p class="category">USB portable memories(751)</p>
+        <p class="category">Portable audio systems(293)</p>
+        <p class="category">mobile computers(412)</p>
+        <p class="category">hard drives(135)</p>
+        <p class="category">Portable audio systems and computer memories(318)</p>
+        <p class="category">Portable chargers / backup batteries(214)</p>
+        <p class="category">Cellphone accessories(322)</p>
+    </div>
+
+
+    <form onsubmit="handleSubmit(event)" class="lookig_for">
+        <input style="width: 15%; height: 3em;" type="text" name="title" id="title"
+            placeholder="Enter description here">
+        <input style="width: 15%; height: 3em;" type="number" name="price" id="price" placeholder="Enter price here">
+        <button style="width: 5%; height: 3em;" id="btn_submit" type="submit">Add an item</button>
+    </form>
+
+    <div class="delete">
+        <input style="width: 15%; height: 3em;" type="text" name="delete" id="delete"
+            placeholder="Enter an item to delete">
+        <button style="width: 5%; height: 3em;" id="delete" type="submit" value="Delete an item">Delete an item</button>
+    </div>
+
+
+    <input class="sortPrice" style="width: 15%; height: 3em;" onkeyup="handleFilter(event)" type="number"
+        name="filter_price" id="filter_price" placeholder="Enter a price here">
+
+    <div class="sort">
+        <button class="ascending" style="width: 5%; height: 3em;" onclick="handlePriceAscen()" id="btn_submit"
+            type="submit">Sort by price <ion-icon name="arrow-up-outline"></ion-icon></button>
+
+        <button class="descending" style="width: 5%; height: 3em;" onclick="handlePriseDescen()" id="btn_submit"
+            type="submit">Sort by price <ion-icon name="arrow-down-outline"></ion-icon></button>
+    </div>
+
+    <!-- <div id="rootComputer"></div> -->
+    <div id="root"></div>
+
+    <script src="dist/zap.js"></script>
+
+</body>
+
+</html>

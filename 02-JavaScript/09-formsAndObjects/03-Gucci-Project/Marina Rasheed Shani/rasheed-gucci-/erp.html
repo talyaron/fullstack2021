@@ -16,6 +16,7 @@
     </nav>
     <h1>Store ERP</h1>
     <input type="button" value="showItems" onclick="handleShowItems()">
+    <div>-------------------------------------------------------------------------------------------------------------</div>
     <form onsubmit="handleAddItems(event)">
         <input id="itemName" type="text" name="name" placeholder="item-name">
         <input id="price" type="number" name="price" placeholder="item-price">
@@ -44,10 +45,17 @@
         </select>
         <input type="submit" value="add-Product">
     </form>
+    <div>-------------------------------------------------------------------------------------------------------------</div>
     <form onsubmit="handleRemoveItems(event)">
         <input type="text" name="remove" id="remove" placeholder="Enter item Name to Remove">
         <input id="removeBtn" type="submit" value="remove">
     </form>
+    <div>-------------------------------------------------------------------------------------------------------------</div>
+    <form onsubmit="handleUpdate(event , '${product.id}')">
+        <input type="text" type="itemName" name="itemName"placeholder="write item name to update">
+        <input class='tsInput'  type="number" name="update" placeholder="Update Price">
+        <input class='tsBtn' name="submit" value="Update" type="submit">
+        </form>
     <script src="dist/index.js"></script>
 </body>
 

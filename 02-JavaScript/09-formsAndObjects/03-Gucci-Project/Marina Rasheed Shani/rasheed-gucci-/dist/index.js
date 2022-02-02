@@ -11,7 +11,6 @@ var gucci = {
     },
     addItems: function (name, price, img, department, gender, type) {
         var id = uid();
-        console.log(this);
         this.items.push({ name: name, price: price, img: img, department: department, gender: gender, type: type, id: id });
         this.storeData();
     },
@@ -19,6 +18,16 @@ var gucci = {
         var index = this.items.findIndex(function (item) { return item.name === itemName; });
         if (index >= 0) {
             this.items.splice(index, 1);
+            this.storeData();
+        }
+    },
+    updateItems: function (id, newPrice, itemName) {
+        itemName = this.items.name;
+        var index = this.items.findIndex(function (item) { return item.id === id; });
+        if (index >= 0) {
+            this.items[index].price = newPrice;
+            // this.items[index].name = itemName;
+            this.storeData();
         }
     },
     render: function (list, domElement) {
@@ -43,15 +52,20 @@ var gucci = {
         });
     }
 };
+function handleUpdate(ev, id) {
+    ev.preventDefault();
+    var root = document.getElementById('root');
+    gucci.renderAllitems(root);
+    var itemName = ev.target.elements.itemName.value;
+    var NewPrice = ev.target.elements.update.value;
+    gucci.updateItems(id, NewPrice, itemName);
+    gucci.storeData();
+}
 function handleShowItems() {
     console.log(gucci.items);
 }
-gucci.getData();
 function handleAddItems(ev) {
     ev.preventDefault();
-    console.dir(ev.target);
-    // const root = document.getElementById('root');
-    // gucci.renderAllitems(root);
     var name = ev.target.name.value;
     var price = ev.target.price.value;
     var img = ev.target[2].value;
@@ -60,6 +74,8 @@ function handleAddItems(ev) {
     var type = ev.target[5].value;
     var id = uid;
     gucci.addItems(name, price, img, department, gender, type, id);
+    var root = document.getElementById('root');
+    gucci.renderAllitems(root);
     console.log(gucci.items);
     gucci.storeData();
     ev.target.reset();
@@ -100,5 +116,6 @@ navBar.forEach(function (item) {
 function handleNavMouseleave() {
     dropDown.classList.toggle('hidden');
 }
-// const root = document.getElementById('root');
-// gucci.renderAllitems(root);
+gucci.getData();
+var root = document.getElementById('root');
+gucci.renderAllitems(root);
