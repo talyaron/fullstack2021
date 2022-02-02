@@ -21,10 +21,12 @@ var gucci = {
             this.storeData();
         }
     },
-    updateItems: function (newPrice, itemName) {
-        var index = this.items.findIndex(function (item) { return item.name === itemName; });
+    updateItems: function (id, newPrice, itemName) {
+        itemName = this.items.name;
+        var index = this.items.findIndex(function (item) { return item.id === id; });
         if (index >= 0) {
             this.items[index].price = newPrice;
+            // this.items[index].name = itemName;
             this.storeData();
         }
     },
@@ -50,13 +52,13 @@ var gucci = {
         });
     }
 };
-function handleUpdate(ev) {
+function handleUpdate(ev, id) {
     ev.preventDefault();
     var root = document.getElementById('root');
     gucci.renderAllitems(root);
     var itemName = ev.target.elements.itemName.value;
     var NewPrice = ev.target.elements.update.value;
-    gucci.updateItems(NewPrice, itemName);
+    gucci.updateItems(id, NewPrice, itemName);
     gucci.storeData();
 }
 function handleShowItems() {

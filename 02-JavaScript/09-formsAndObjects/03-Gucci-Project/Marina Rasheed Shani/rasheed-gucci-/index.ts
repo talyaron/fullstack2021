@@ -14,7 +14,7 @@ interface Store {
     id: any
   ): any;
   removeItems(itemName: string): any
-  updateItems(newPrice:number,itemName:string):any
+  updateItems(id:any,newPrice:number,itemName:string):any
   render(list: any, domElement: any): any;
   renderAllitems(domElement: any): any;
   sortByAscending?(price: number);
@@ -56,10 +56,12 @@ const gucci: Store = {
       this.storeData();
     }
   },
-  updateItems(newPrice, itemName) {
-    const index =  this.items.findIndex(item => item.name === itemName);
+  updateItems(id,newPrice, itemName) {
+    itemName = this.items.name
+    const index =  this.items.findIndex(item => item.id === id);
     if (index >= 0){
     this.items[index].price = newPrice;
+    // this.items[index].name = itemName;
     this.storeData();
     }
   },
@@ -91,14 +93,14 @@ const gucci: Store = {
   },
 };
 
-function handleUpdate(ev) {
+function handleUpdate(ev, id) {
   ev.preventDefault();
 
   const root = document.getElementById('root');
   gucci.renderAllitems(root);
 const itemName =  ev.target.elements.itemName.value
   const NewPrice = ev.target.elements.update.value;
-  gucci.updateItems(NewPrice,itemName)
+  gucci.updateItems(id,NewPrice,itemName)
   gucci.storeData();
 }
   
