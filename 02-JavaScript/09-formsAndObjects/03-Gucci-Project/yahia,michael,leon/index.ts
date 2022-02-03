@@ -143,7 +143,6 @@ function handleCart(event){
 }
 
 function handleSelect(event){
-const select=event.target.value
 
     
 }
