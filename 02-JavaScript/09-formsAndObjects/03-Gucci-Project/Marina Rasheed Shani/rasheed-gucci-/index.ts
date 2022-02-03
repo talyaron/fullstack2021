@@ -36,7 +36,9 @@ interface Item {
 }
 
 const gucci: Store = {
-  items: [],
+  items: [{
+    name:"red dress",price: 400,img: "https://media.gucci.com/style/DarkGray_South_0_160_316x316/1638431131/680136_ZJT72_9900_001_100_0000_Light-Lam-floral-lace-dress.jpg", department:"clothes",gender:"women", type:"dress"
+  }],
   storeData() {
     localStorage.setItem("storeData", JSON.stringify(this.items));
   },
@@ -138,6 +140,7 @@ function handleAddItems(ev) {
   let id = uid;
   gucci.addItems(name, price, img, department, gender, type, id);
 
+
   const root = document.getElementById('root');
   gucci.renderAllitems(root);
   console.log(gucci.items);
@@ -145,6 +148,7 @@ function handleAddItems(ev) {
 
   ev.target.reset();
 }
+
 
 function handleRemoveItems(ev) {
   ev.preventDefault();
@@ -216,3 +220,7 @@ gucci.getData();
 
 const root = document.getElementById('root');
 gucci.renderAllitems(root);
+
+const id=uid()
+
+// gucci.addItems("red dress", 400, "https://media.gucci.com/style/DarkGray_South_0_160_316x316/1638431131/680136_ZJT72_9900_001_100_0000_Light-Lam-floral-lace-dress.jpg", "clothes","women", "dress", id);
