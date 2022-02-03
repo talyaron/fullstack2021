@@ -43,5 +43,20 @@ function handleCurrencyOptionClick(ev){
     });
     
 }
+document.querySelectorAll(".category-wrapper__card__price").forEach(price => {
+    price.classList.add("USD");
+});
+
+const cartIcon = document.querySelector("#cart-icon");
+cartIcon.addEventListener('click',handleCartClick);
+
+function handleCartClick(){
+    const cart:any = document.querySelector(".wow");
+    cart.classList.toggle("visible");
+    console.log(cart.classList);
+    
+}
+
+
 
 

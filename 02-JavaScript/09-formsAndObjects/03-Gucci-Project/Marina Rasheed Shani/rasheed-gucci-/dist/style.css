@@ -8,7 +8,8 @@ body {
   background-size: contain;
   background-repeat: no-repeat;
   font-family: "Montserrat", sans-serif;
-  color: white;
+  color: "whiblackte";
+  margin: 0px;
 }
 
 .container__navBar {
@@ -24,6 +25,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: white;
 }
 .container__navBar__title__help {
   display: flex;
@@ -50,7 +52,7 @@ body {
   font-size: larger;
   cursor: pointer;
   opacity: 0;
-  transition: ease 300ms;
+  transition: ease 3ms;
 }
 .container__dropdawn.visible {
   opacity: 1;
@@ -62,6 +64,7 @@ body {
 }
 .container__main {
   text-align: center;
+  background-color: #e7e7e7;
 }
 .container__main img {
   background-size: cover;
@@ -90,55 +93,73 @@ body {
   margin-top: 2em;
 }
 
-.catergory__name {
-  display: inline-flex;
-  background-color: white;
-  justify-content: center;
-  font-size: 100%;
-  color: black;
-  width: 100vw;
-  height: 10vh;
-  margin-top: 0.5em;
-}
-
 .catergory__buttons {
-  display: inline-flex;
-  background-color: beige;
+  display: flex;
+  background-color: #ffffff;
   justify-content: flex-end;
-  width: 100vw;
-  height: 13vh;
+  gap: 2px;
+  width: 100%;
+  height: 12vh;
+}
+.catergory__buttons .catergory__name {
+  background-color: #ffffff;
+  font-weight: 800;
+  font-size: 11px;
+  color: rgba(0, 0, 0, 0.384);
+  width: 60vw;
+  padding-top: 2em;
+  text-align: left;
+  padding-left: 0.5em;
+}
+.catergory__buttons .catergory__name span:hover {
+  color: black;
 }
 .catergory__buttons--selector {
-  background-color: beige;
+  background-color: #ffffff;
   cursor: pointer;
-  width: 10em;
+  width: 15;
+  border: none;
+  font-size: 12px;
+  letter-spacing: 1px;
 }
 .catergory__buttons--selector:hover {
-  background-color: rgba(255, 255, 249, 0.616);
+  background-color: rgba(207, 207, 194, 0.425);
+  border-right: 0.5px solid #c4c3c3;
+  border-left: 0.5px solid #c4c3c3;
 }
 .catergory__buttons--sortPrice {
   display: inline-flex;
-  width: 25em;
+  gap: 1px;
+  width: 15em;
 }
 .catergory__buttons--sortPrice button {
-  background-color: beige;
+  background-color: #ffffff;
   cursor: pointer;
+  border: none;
+  font-size: 12px;
+  letter-spacing: 1px;
 }
 .catergory__buttons--sortPrice button:hover {
-  background-color: rgba(255, 255, 249, 0.616);
+  background-color: rgba(207, 207, 194, 0.425);
+  border-right: 0.5px solid #c4c3c3;
+  border-left: 0.5px solid #c4c3c3;
 }
 .catergory__buttons--lowerThanPrice {
   color: black;
   margin-left: 0;
   padding-top: 2em;
+  text-align: center;
+  letter-spacing: 1px;
+  font-size: 12px;
 }
 .catergory__buttons--lowerThanPrice .inputLowerThan {
   cursor: pointer;
-  background-color: beige;
+  margin-top: 0.5em;
+  background-color: #ffffff;
+  border: 1px solid #c4c3c3;
 }
 
 .catergory__items {
-  margin-top: 1em;
   background-color: white;
   height: 110em;
   text-align: center;
@@ -153,4 +174,7 @@ body {
 .catergory__items .items img {
   height: 380px;
   width: 20em;
+}
+.catergory__items .items p {
+  letter-spacing: 2px;
 }

@@ -13,7 +13,8 @@ body {
   background-repeat: no-repeat;
 
   font-family: "Montserrat", sans-serif;
-  color: white;
+   color: 'whiblackte';
+  margin:0px;
   //   height: 200vh;
 }
 
@@ -33,6 +34,7 @@ body {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      color: white;
 
       &__help {
         display: flex;
@@ -64,7 +66,7 @@ body {
     font-size: larger;
     cursor: pointer;
     opacity: 0;
-    transition: ease 300ms;
+    transition: ease 3ms;
     // transform: translateY(0px);
     // visibility: hidden;
 
@@ -84,6 +86,7 @@ body {
   &__main {
     //   display: block;
     text-align: center;
+    background-color: rgb(231, 231, 231);
 
     img {
       background-size: cover;
@@ -119,77 +122,111 @@ body {
 
 //BUTTONS FOR EACH CATERGORY
 
-
-.catergory__name {
-  display: inline-flex;
-  background-color: white;
-  justify-content: center;
-  font-size: 100%;
-  color: black;
-  width: 100vw;
-  height: 10vh;
-  margin-top: 0.5em;
-}
+$background-color:#ffffff;
 
 .catergory__buttons {
-  
-  display:inline-flex;
-  background-color: beige;
+
+  display: flex;
+  background-color: $background-color;
   justify-content: flex-end;
-  //gap: 10em;
-  width: 100vw;
-  height: 13vh;
+  gap: 2px;
+  width: 100%;
+  height: 12vh;
   //padding-top: 3em;
+  
+  
+  
+
+  .catergory__name {
+    //display: inline-flex;
+    background-color: $background-color;
+    //background-color: aqua;
+    //justify-content: flex-start;
+    font-weight: 800;
+    font-size: 11px;
+    color: rgba(0, 0, 0, 0.384);
+    width: 60vw;
+    //height: 10vh;
+    padding-top: 2em;
+    text-align: left;
+    
+
+    padding-left: 0.5em;
+
+    span:hover {
+      color: rgb(0, 0, 0);
+    }
+  }
+
 
 
 
   &--selector {
-    background-color: beige;
+    background-color: $background-color;
     cursor: pointer;
-    width: 10em;
+    width: 15;
     //height: 3em;  
-    
-    
-    &:hover{
-      background-color:rgba(255, 255, 249, 0.616);
+    border: none;
+    font-size:12px;
+    letter-spacing: 1px;
+
+    &:hover {
+      background-color:  rgba(207, 207, 194, 0.425);
+      border-right: 0.5px solid rgb(196, 195, 195);
+      border-left: 0.5px solid rgb(196, 195, 195);
+
     }
 
 
   }
 
   &--sortPrice {
-    
+
 
     display: inline-flex;
-    //gap: 6em;
-    width: 25em;
+    gap: 1px;
+    width: 15em;
     //height: 3em;
 
+
     button {
-      background-color: beige;
+      background-color: $background-color;
       cursor: pointer;
+      border: none;
+      font-size:12px;
+      letter-spacing: 1px;
       
-      
-      &:hover{
-        background-color:rgba(255, 255, 249, 0.616);
+
+
+      &:hover {
+        background-color: rgba(207, 207, 194, 0.425);
+        border-right: 0.5px solid rgb(196, 195, 195);
+        border-left: 0.5px solid rgb(196, 195, 195);
+
       }
     }
 
   }
 
   &--lowerThanPrice {
-    
+
     color: black;
     margin-left: 0;
     // padding-top: 5px;
     padding-top: 2em;
+    text-align:center;
+    letter-spacing: 1px;
+    font-size:12px;
     
-   
+
+
 
     .inputLowerThan {
-      cursor: pointer;      
-      background-color: beige;    
-      
+      cursor: pointer;
+      margin-top:0.5em;
+      background-color: $background-color;
+      border: 1px solid rgb(196, 195, 195);
+
 
     }
   }
@@ -197,11 +234,11 @@ body {
 }
 
 .catergory__items {
-  margin-top: 1em;
+  //margin-top: 1em;
   background-color: white;
   height: 110em;
   text-align: center;
-  
+
   //gap: 4em;
   // display: inline-grid;
   // grid-template-columns: repeat(3, 30em);
@@ -213,12 +250,15 @@ body {
     position: relative;
     display: inline-block;
     text-align: center;
-    padding:3em;
+    padding: 3em;
 
-    img{
+    img {
       height: 380px;
       width: 20em;
 
+    }
+    p{
+      letter-spacing:2px;
     }
 
     // .img-back {
