@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZAP</title>
+    <link rel="stylesheet" href="dist/style.css">
+</head>
+<body>
+    <h1>ZAP</h1>
+
+    <form onsubmit='handleAddItem(event)' class="wrapper__Form">
+        <div><input type="text" name="name" placeholder="name of item" required class="wrapper__filed" style="width: 23.5%;"></div>
+        <div><input type="number" name="price" placeholder="price of item" required class="wrapper__filed" style="width: 19.1%;">
+        <select id="type" name="type" onchange="" class="wrapper__filed" required>
+            <option value="" disabled selected>Category of item</option>
+            <option value="Movie">Movie</option>
+            <option value="Book">Book</option>
+            <option value="Clothes">Clothes</option>
+          </select></div>
+
+        <div><input type="submit" value="ADD item" class="wrapper__button" style="width: 12.2%;"></div>
+    </form>
+
+    <div>
+        <button type="button" onclick="handleAsc(event)" id="ascending" class="wrapper__button">Sort price: lowest</button>
+        <button type="button" onclick="handleDesc(event)" id="descending" class="wrapper__button">Sort price: highest</button>
+    </div>
+
+    <select name="" id="" onchange='handleSelectSort(event)' class="wrapper__filed">
+        <option value="all">Show all</option>
+        <option value="Movie">Movies</option>
+        <option value="Book">Books</option>
+        <option value="Clothes">Clothes</option>
+    </select>
+    
+    <div class="wrapper">
+        <div id="root" class="wrapper__ItemsList"></div>
+    </div>
+    <script src="dist/index.js"></script>
+</body>
+</html>
