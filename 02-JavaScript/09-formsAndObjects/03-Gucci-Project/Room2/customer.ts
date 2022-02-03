@@ -38,7 +38,7 @@ interface shop {
         let html = ''
         this.products.forEach(item => {
             html += `<div class="item">
-            <img src=""/>
+            <p><img src="${item.picture}" style="width: 200px; height: 200px;"></p>
             <p>${item.title}</p>
             <p> size: ${item.shoeSize}</p>
             <p> price: ${item.price}
