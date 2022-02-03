@@ -55,6 +55,7 @@
 
 body {
   font-family: "Barlow Condensed", sans-serif;
+  overflow-x: hidden;
 }
 
 .homeopacity {
@@ -143,6 +144,9 @@ body {
   height: 5px;
   background-color: #202020;
   margin: 5px;
+}
+.navbar .burger:hover {
+  cursor: pointer;
 }
 
 .footer {
@@ -454,6 +458,10 @@ body {
   .navbar .burger {
     display: block;
   }
+  .navbar .burger div {
+    width: 40px;
+    transform-origin: center;
+  }
   .navbar .navtags {
     background-color: #EBEBEB;
     position: absolute;
@@ -462,6 +470,13 @@ body {
     left: 0px;
     width: 25%;
     height: 500px;
+    transform: translateX(-100%);
+  }
+  .navbar .navtags .navtags-active {
+    transform: translateX(0%);
+  }
+  .navbar .navtags li {
+    opacity: 0;
   }
   .navbar .fulogo {
     display: none;
