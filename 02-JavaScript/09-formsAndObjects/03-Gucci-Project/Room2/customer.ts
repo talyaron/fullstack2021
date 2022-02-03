@@ -8,16 +8,18 @@ interface shop {
     renderAdidas(domElement: any);
     renderFilter(domElement, filterd);
     filterItems(highPrice?: number, lowPrice?:number),
-    shoeSizeFilter(price);
+    renderAll(domElement),
+    shoeSizeFilter(size);
     sortItemsAsc();
     sortItemsDsc();
     sortByGender(item);
     sortByColor(color);
+    sortByType(type);
   }
   
   interface product {
       title:string;
-      type:string;
+      type:"Sneakers" | "Boots" | "Hi Tops" | "Flip Flops";
       picture:string;
       price:number;
       color:string;
@@ -36,7 +38,7 @@ interface shop {
         let html = ''
         this.products.forEach(item => {
             html += `<div class="item">
-            <img src=""/>
+            <p><img src="${item.picture}" style="width: 200px; height: 200px;"></p>
             <p>${item.title}</p>
             <p> size: ${item.shoeSize}</p>
             <p> price: ${item.price}
@@ -51,11 +53,15 @@ interface shop {
        
         
     },
+    renderAll(domElement){
+        const computers = this.products;
+        this.renderAdidas(domElement, computers)
+    },
     filterItems(highPrice, lowPrice){
         return this.products.filter((item) => item.price >= lowPrice && item.price <= highPrice);
     },
-    shoeSizeFilter(price){
-        return this.products.filter((item)=> item.price === price);
+    shoeSizeFilter(size){
+        return this.products.filter((item)=> item.size === size);
     },
     sortItemsAsc(){
         this.products.sort((x, y)=> y.price -x.price);
@@ -69,7 +75,9 @@ interface shop {
     sortByColor(color){
         return this.products.filter((element)=> element.color === color);
     },
-
+    sortByType(type){
+        return this.products.filter((element)=> element.type === type);
+    }
   }
  function handleCart(ev){
     //  const title = ev.target.elements.
@@ -90,17 +98,45 @@ interface shop {
         }
   }
   function handleSort(ev){
+   const sort = ev.target.value;
+  ev.preventDefault();
+  const root = document.getElementById("root");
+   if(sort === this.product.sortItemsAsc()){
 
+    
+   Adidas.renderAll(root);
+   }
+   else{
+    Adidas.renderAll(root);
+   }
   }
 function handleType(ev){
-
+    const type = ev.target.value;
+    ev.preventDefault();
+    const root = document.getElementById("root");
+    // if(type === " ")
+    return Adidas.renderFilter(root, Adidas.sortByType(type));
 }
 function handleColor(ev){
-
+    const color = ev.target.value;
+    ev.preventDefault();
+    const root = document.getElementById("root");
+    // if(type === " ")
+    return Adidas.renderFilter(root, Adidas.sortByColor(color));
 }
 function handleGender(ev){
+    const gender = ev.target.value;
+    ev.preventDefault();
+    const root = document.getElementById("root");
+    // if(type === " ")
 
+    return Adidas.renderFilter(root, Adidas.sortByGender(gender));
 }
 function handleShoeSize(ev){
-    
+    const size = ev.target.value;
+    ev.preventDefault();
+    const root = document.getElementById("root");
+    Adidas.renderFilter(root, Adidas.shoeSizeFilter(size));
+    // if(type === " ")
+    //Adidas.shoeSizeFilter(size);
 }

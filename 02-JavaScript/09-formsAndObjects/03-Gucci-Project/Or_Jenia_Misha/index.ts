@@ -2,29 +2,16 @@ const uid = function () {
   return Date.now().toString(36) + Math.random().toString(36).substr(2);
 };
 
-const navSlide = () => {
-
-  const burger = document.querySelector('.burger');
-  const nav = document.querySelector('.navtags');
-
-  burger.addEventListener('click', () => {
-    nav.classList.toggle('navtags-active');
-  });
-
-}
-
-navSlide();
-
-
 interface Menu {
   dishes: Array<Dish>;
 
-  addDish?(name: string, price: number, description: string, category: string);
-  removeDish?(id: string);
-  updateDish?(id: string, newDish: Dish);
-  renderDishes?(list: any, domElement: any);
-  storeData?();
-  getData?();
+  addDish(name: string, price: number, description: string, category: string);
+  removeDish(id: string);
+  updateDish(id: string, newDish: Dish);
+  renderDishesStore(list: any, domElement: any);
+  renderDishesERP(list: any, domElement: any);
+  storeData();
+  getData();
 }
 
 interface Dish {
@@ -51,7 +38,6 @@ let sushiMenu: Menu = {
     let id = uid();
     this.dishes.push({ id, name, price, description, category });
     this.storeData();
-    this.getData();
   },
 
   removeDish(id) {
@@ -65,26 +51,68 @@ let sushiMenu: Menu = {
       this.dishes[index] = newDish;
     }
   },
-  renderDishes(list, domElement) {
+
+  renderDishesStore(list, domElement) {
     let html = "";
+
     list.forEach((item) => {
-      html += `<div class="dishes"> <div class = "dishes__title"> <h3 class ="dishes__title__name">${item.name}</h3> <p class ="dishes__title__price">${item.price}</p></div><p class ="dishes__desc">${item.description}</p></div>`;
+      html += `<div class="dishes"> 
+      
+      <div class = "dishes__title"> 
+         <h3 class ="dishes__title__name">${item.name}</h3> 
+         <p class ="dishes__title__price">${item.price}</p>
+      </div>
+         <p class ="dishes__desc">${item.description}</p>
+      </div>`;
     });
 
     domElement.innerHTML = html;
   },
+
+  renderDishesERP(list, domElement) {
+    let html = `<form onsubmit="handleDeleteDish(event)"> <input type="submit" value="delete"></input>`;
+
+    list.forEach((item) => {
+      html += `<div class="dishesERP"> 
+        <input type="checkbox"></input>
+         <h3 class ="dishesERP__title__name">${item.name}</h3> 
+         <p class ="dishesERP__desc">${item.description}</p>
+         <p class ="dishesERP__title__price">${item.price}</p>
+         
+      </div>`;
+    });
+
+    html += `</form>`;
+
+    domElement.innerHTML = html;
+  },
+
   storeData() {
     localStorage.setItem("storeData", JSON.stringify(this.dishes));
   },
+
   getData() {
     const dishes = JSON.parse(localStorage.getItem("storeData"));
     if (dishes && Array.isArray(dishes)) {
-      this.dishes= dishes;
+      this.dishes = dishes;
     }
   },
 };
-const root = document.getElementById("root");
-sushiMenu.renderDishes(sushiMenu.dishes, root);
+
+renderSushiMenu();
+
+function renderSushiMenu() {
+  const rootStore = document.getElementById("rootStore");
+  const rootERP = document.getElementById("rootERP");
+
+  if (rootStore) {
+    sushiMenu.renderDishesStore(sushiMenu.dishes, rootStore);
+  }
+
+  if (rootERP) {
+    sushiMenu.renderDishesERP(sushiMenu.dishes, rootERP);
+  }
+}
 
 function handleAddDish(ev) {
   ev.preventDefault();
@@ -94,11 +122,35 @@ function handleAddDish(ev) {
   const dishCategory = (<HTMLSelectElement>document.getElementById("category"))
     .value;
   sushiMenu.addDish(dishName, dishPrice, dishDesc, dishCategory);
-  const root = document.getElementById("root");
-  sushiMenu.renderDishes(sushiMenu.dishes, root);
+  renderSushiMenu();
   ev.target.reset();
+}
+
+function handleDeleteDish(ev) {
+  ev.preventDefault();
+  console.log(ev);
+  for(let i = 0; i<ev.target.length; i++){
+    console.dir(ev.target[i]);
+    
+  }
+  
 }
 
 sushiMenu.getData();
 
-sushiMenu.renderDishes(sushiMenu.dishes, root);
+// sushiMenu.renderDishesStore(sushiMenu.dishes, root);
+
+// ---- CSS MANIPULATION --- //
+
+function navSlide() {
+
+  const burger = document.querySelector(".burger");
+  const nav = document.querySelector(".navtags");
+  if (burger && nav) {
+    burger.addEventListener("click", () => {
+      nav.classList.toggle("navtags-active");
+    });
+  }
+}
+
+navSlide();
