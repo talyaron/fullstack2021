@@ -89,12 +89,20 @@
 .main_form-filterInputs {
   box-shadow: rgba(6, 61, 97, 0.85) 0px 30px 60px -12px inset, rgba(16, 63, 85, 0.5) 0px 18px 36px -30px inset;
   height: 30%;
-  overflow: auto;
-  white-space: nowrap;
 }
 .main_form-filterInputs-option {
   font-size: 15px;
   background-color: #037043;
+}
+.main_form-filterInputsCustomer {
+  box-shadow: rgba(6, 61, 97, 0.85) 0px 30px 60px -12px inset, rgba(16, 63, 85, 0.5) 0px 18px 36px -30px inset;
+  height: 70%;
+  margin-left: 25px;
+  margin-top: -20px;
+  color: aliceblue;
+}
+.main_form-filterInputsCustomer::placeholder {
+  color: aliceblue;
 }
 .main_displayLists {
   background-color: white;

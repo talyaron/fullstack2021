@@ -108,6 +108,7 @@ var clothsList = {
     },
     deleteItemPants: function (id) {
         this.pants = this.pants.filter(function (item) { return item.id !== id; });
+        JSON.parse(window.localStorage.getItem(''));
     },
     filterByBrand: function (list, filterBrandInput) {
         return list.filter(function (item) { return item.brand === filterBrandInput; });
@@ -196,7 +197,7 @@ var clothsList = {
 };
 function display(ev) {
     ev.preventDefault();
-    // console.log(ev.target);
+    console.log(ev.target);
     // receiving inputs values ----------
     // console.log(clothsList.Tshirts);
     console.log(clothsList.Tshirts);
@@ -242,12 +243,14 @@ function display(ev) {
         }
     }
     console.log(sortOption);
-    // console.log(filterPriceFromInput);
-    // console.log(filterPriceUpToInput);
+    clothsList.getDataTshirts();
+    clothsList.getDataShoes();
+    clothsList.getDataPants();
     var sortOptions = document.querySelectorAll(".main_form-selectCatagory-sortOptions");
     var TshirtsBox = document.getElementById("TshirtsBox");
     var shoesBox = document.getElementById("shoesBox");
     var pantsBox = document.getElementById("pantsBox");
+    console.log(sortOptions.length);
     // clothsList.renderBySize(clothsList.Tshirts, filterSizeInput, TshirtsBox, "Tshirts")
     // console.log(clothsList.renderBySize(clothsList.Tshirts, filterSizeInput, TshirtsBox, "Tshirts"))
     // add function ---------------
@@ -351,8 +354,9 @@ function filterOptionsDisplay(btn) {
     }
     options.innerHTML = html;
 }
-function deleteCard(id) {
+function deleteCard(id, ev) {
     console.log(id);
+    ev.preventDefault();
     var TshirtsBox = document.getElementById("TshirtsBox");
     var shoesBox = document.getElementById("shoesBox");
     var pantsBox = document.getElementById("pantsBox");
@@ -405,7 +409,7 @@ catagoriesBoxes.forEach(function (box) {
     box.addEventListener("click", function (ev) { showOptions(ev, boxId); });
 });
 function showOptions(box, boxId) {
-    var html = "\n    <select class=\"container-select\" name=\"chooseSort\" id=\"" + boxId + "\" onchange=\"handleSort(event)\">\n   <option class=\"\"container-select-Options\" disabled selected>Sort By</option>\n   <option class=\"\"container-select-Options\" value=\"sortAtoZ\">A ---> Z</option>\n   <option class=\"\"container-select-Options\" value=\"sortZtoA\">Z ---> A</option>\n   <option class=\"\"container-select-Options\" value=\"sortLowToHigh\">$ Low to High $</option>\n   <option class=\"\"container-select-Options\" value=\"sortHighToLow\">$ High to Low $</option>\n   </select>   \n   <select class=\"container-select\" name=\"chooseFilter\" id=\"" + boxId + "\" onchange=\"handleFilter(event)\">\n   <option class=\"main_form-select-Options\" disabled selected>Filter By</option>\n   <option class=\"main_form-select-Options\" value=\"brand\">Brand</option>\n   <option class=\"main_form-select-Options\" value=\"size\" >Size</option>\n   <option class=\"main_form-select-Options\" value=\"price\">Price</option>\n   </select> ";
+    var html = "\n    <select class=\"container-select\" name=\"chooseSort\" id=\"" + boxId + "\" onchange=\"handleSort(event)\">\n   <option class=\"\"container-select-Options\" disabled selected>Sort By</option>\n   <option class=\"\"container-select-Options\" value=\"sortAtoZ\">A ---> Z</option>\n   <option class=\"\"container-select-Options\" value=\"sortZtoA\">Z ---> A</option>\n   <option class=\"\"container-select-Options\" value=\"sortLowToHigh\">$ Low to High $</option>\n   <option class=\"\"container-select-Options\" value=\"sortHighToLow\">$ High to Low $</option>\n   </select>   \n   <select class=\"container-select\" name=\"chooseFilter\" id=\"" + boxId + "\" onchange=\"handleFilter(event)\">\n   <option class=\"main_form-select-Options\" disabled selected>Filter By</option>\n   <option class=\"main_form-select-Options\" id=\"filterBrandOption\" value=\"brand\">Brand</option>\n   <option class=\"main_form-select-Options\" id=\"filterSizeOption\" value=\"size\">Size</option>\n   <option class=\"main_form-select-Options\" id=\"filterPriceOption\" value=\"price\">Price</option>\n   </select> ";
     // const cardImg = document.getElementById('itemImg')
     var sortANDfilterBtnsTshirts = document.getElementById("sortANDfilterBtnsTshirts");
     var sortANDfilterBtnsShoes = document.getElementById("sortANDfilterBtnsShoes");
@@ -449,5 +453,52 @@ function handleSort(ev) {
     }
     else if (boxId == "pants") {
         clothsList.SortCustomerPage(clothsList.pants, sortValue, ListDisplay, "Pants");
+    }
+}
+function handleFilter(ev) {
+    var boxId = ev.target.id;
+    var filterBy = ev.target.value;
+    var displayBoxes = document.querySelectorAll('.container_sortANDfilterBtns-box');
+    var filterBrandOption = document.getElementById('filterBrandOption');
+    var filterSizeOption = document.getElementById('filterSizeOption');
+    var filterPriceOption = document.getElementById('filterPriceOption');
+    var sortANDfilterBtnsTshirts = document.getElementById("sortANDfilterBtnsTshirts");
+    var sortANDfilterBtnsShoes = document.getElementById("sortANDfilterBtnsShoes");
+    var sortANDfilterBtnsPants = document.getElementById("sortANDfilterBtnsPants");
+    var catagory;
+    console.log();
+    // console.log(filterBy);
+    if (boxId == "Tshirts") {
+        if (filterBy == "brand") {
+            sortANDfilterBtnsTshirts.innerHTML = "<input type=\"text\" class=\"main_form-filterInputsCustomer\" placeholder=\"type brand...\">";
+        }
+        else if (filterBy == "size") {
+            sortANDfilterBtnsTshirts.innerHTML = "<input type=\"text\" class=\"main_form-filterInputsCustomer\" placeholder=\"type size...\">";
+        }
+        else if (filterBy == "price") {
+            sortANDfilterBtnsTshirts.innerHTML = "<input type=\"number\" class=\"main_form-filterInputsCustomer\" placeholder=\"from...\"><input class=\"main_form-filterInputsCustomer\" type=\"number\" placeholder=\"up to...\">";
+        }
+    }
+    else if (boxId == "shoes") {
+        if (filterBy == "brand") {
+            sortANDfilterBtnsShoes.innerHTML = "<input type=\"text\" class=\"main_form-filterInputsCustomer\" placeholder=\"type brand...\">";
+        }
+        else if (filterBy == "size") {
+            sortANDfilterBtnsShoes.innerHTML = "<input type=\"text\" class=\"main_form-filterInputsCustomer\" placeholder=\"type size...\">";
+        }
+        else if (filterBy == "price") {
+            sortANDfilterBtnsShoes.innerHTML = "<input type=\"number\" class=\"main_form-filterInputsCustomer\" placeholder=\"from...\"><input class=\"main_form-filterInputsCustomer\" type=\"number\" placeholder=\"up to...\">";
+        }
+    }
+    else if (boxId == "pants") {
+        if (filterBy == "brand") {
+            sortANDfilterBtnsPants.innerHTML = "<input type=\"text\" class=\"main_form-filterInputsCustomer\" placeholder=\"type brand...\">";
+        }
+        else if (filterBy == "size") {
+            sortANDfilterBtnsPants.innerHTML = "<input type=\"text\" class=\"main_form-filterInputsCustomer\" placeholder=\"type size...\">";
+        }
+        else if (filterBy == "price") {
+            sortANDfilterBtnsPants.innerHTML = "<input type=\"number\" class=\"main_form-filterInputsCustomer\" placeholder=\"from...\"><input class=\"main_form-filterInputsCustomer\" type=\"number\" placeholder=\"up to...\">";
+        }
     }
 }
