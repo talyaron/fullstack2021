@@ -58,7 +58,7 @@
     margin: 0;
     border: 0;
     box-sizing: border-box;
-    
+    transition: all 0.7s;
 
 }
 
@@ -100,6 +100,7 @@ body {
 
 
 .navbar {
+
     position: fixed;
     top: 3em;
     display: flex;
@@ -111,8 +112,14 @@ body {
     z-index: 2;
     font-size: 18px;
 
+    .mlogo{
+        display: none;
+        img{
+            height: 80px;
+        }
+    }
 
-    ul {
+    .navtags {
 
         list-style-type: none;
         display: flex;
@@ -123,7 +130,7 @@ body {
 
         li {
             padding: 5px;
-
+            font-weight: bold;
             &:hover {
                 cursor: pointer;
                 box-shadow: 0 0 0 1px rgb(0, 0, 0);
@@ -158,6 +165,18 @@ body {
             &:hover {
                 box-shadow: 0 0 0 1px rgb(0, 0, 0);
             }
+        }
+    }
+
+    .burger{
+        
+        display: none;
+
+        div{
+            width: 30px;
+            height: 5px;
+            background-color: #202020 ;
+            margin: 5px;
         }
     }
 
@@ -535,4 +554,48 @@ body {
             }
         }
     }
+}
+
+@media screen and (max-width: 1200px){
+
+   
+
+    .navbar{
+
+        top: 0px;
+        height: 90px;
+        width: 100%;
+        padding: 1em;
+        justify-content: flex-start;
+
+        .burger{
+            display: block;
+        }
+
+        .navtags{
+
+            background-color: #EBEBEB;
+            position: absolute;
+            flex-direction: column;
+            top: 80px;
+            left: 0px;
+            width: 25%;
+            height: 500px;
+
+        }
+
+        .fulogo{
+            display: none;
+        }
+
+        .mlogo{
+            display: block;
+            position: absolute;
+            left: 50%;
+        }
+    
+    }
+
+   
+    
 }
