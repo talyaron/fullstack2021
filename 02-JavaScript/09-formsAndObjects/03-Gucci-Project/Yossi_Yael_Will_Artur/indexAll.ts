@@ -5,18 +5,17 @@ const uid = function () {
 interface gucci {
     id?: number;
     items: Array<Items>;
-    addItems(item: Items);
-    storeData();
-    getData();
+    addItems(select:string, title:string, description:string, price:number);
     deleteItem(id: string);
-    renderItems(domElement: any);
+    renderItems(domElement: any, list);
     newItems(price: number);
     sortItems(orderBy?: string);
-    renderItemsList(domElement: any, filtered: Array<Items>);
     deleteItem(id: string);
-    editItem(id, itemEdited)
+    editItem(id:any, itemEdited:string)
+    storeData();
+    getData();
 }
-interface Items { 
+interface Items {
     id: string;
     select: string;
     title: string;
@@ -26,34 +25,39 @@ interface Items {
 
 
 const gucci: gucci = {
-    items: [],
-    addItems(item: Items) {
-        this.items.push(item);
+    items: [
+        {
+            id: uid(),
+            select: 'electronics',
+            title: 'iMAC',
+            description: '',
+            price: 300
+        }
+    ],
+
+    addItems(select, title, description, price) {
+        let id = uid();
+        this.items.push({ id, select, title, description, price });
         this.storeData();
-        this.getData()
+        this.getData();
     },
-    storeData(){
-        localStorage.setItem('storeData', JSON.stringify(this.items))
-    },
-    getData(){
-        this.items = JSON.parse(localStorage.getItem('storeData'));
-        
-      },
+
     deleteItem(id) {
         this.items = this.items.filter(item => item.id !== id);
     },
 
     editItem(id, itemEdited) {
-        console.log(id)
         const index = this.items.findIndex((item) => item.id === id);
-        console.log(index)
+
         if (index >= 0) {
             this.items[index].title = itemEdited;
         }
     },
+
     newItems(price): Array<Items> {
         return this.items.filter((item) => { return item.price > price })
     },
+
     sortItems(orderBy = 'asc') {
         if (orderBy === 'asc') {
             this.items.sort((a, b) => { return a.price - b.price })
@@ -61,12 +65,19 @@ const gucci: gucci = {
             this.items.sort((a, b) => { return b.price - a.price })
         }
     },
-    renderItems(domElement) {
-        const items = this.items
-        this.renderItemsList(domElement, items)
+
+    storeData() {
+        localStorage.setItem('storeData', JSON.stringify(this.items))
     },
 
-    renderItemsList(domElement, list) {
+    getData() {
+        const items = JSON.parse(localStorage.getItem("storeData"));
+        if (items) {
+            this.items = items;
+        }
+    },
+
+    renderItems(list, domElement) {
         let html = '';
         list.forEach(item => {
             html += `<div class='card'>
@@ -97,7 +108,7 @@ const gucci: gucci = {
             </div>
             </div>`
         })
-        domElement.innerHTML = html
+        domElement.innerHTML = html;
     }
 }
 
@@ -107,50 +118,44 @@ function handleaddItems(ev) {
     const title = ev.target.elements.title.value;
     const description = ev.target.elements.description.value;
     const price: number = ev.target.elements.price.valueAsNumber;
-    const id = uid()
-    gucci.addItems({ id, select, title, description, price });
+    gucci.addItems(select, title, description, price);
     const rootItems = document.getElementById('rootItems');
-    gucci.renderItems(rootItems);
+    gucci.renderItems(gucci.items, rootItems);
     ev.target.reset();
 }
 
 function handleEditItems(ev, id) {
-    console.log(id)
     ev.preventDefault();
     const itemEdited = ev.target.elements.itemEdited.value;
     gucci.editItem(id, itemEdited);
     const rootItems = document.getElementById('rootItems');
     ev.target.reset();
-    gucci.renderItems(rootItems);
+    gucci.renderItems(gucci.items, rootItems);
 }
 
 function handlesortItemsDesc(ev) {
     const desc = ev.target.value;
     gucci.sortItems('desc');
     const rootItems = document.getElementById('rootItems');
-    gucci.renderItems(rootItems);
+    gucci.renderItems(gucci.items, rootItems);
 }
+
 function handlesortItemsAsc(ev) {
     const desc = ev.target.value;
     gucci.sortItems('asc');
     const rootItems = document.getElementById('rootItems');
-    gucci.renderItems(rootItems);
+    gucci.renderItems(gucci.items, rootItems);
 }
 
 function handleDelete(id) {
     const rootItems = document.getElementById('rootItems');
     gucci.deleteItem(id)
-    gucci.renderItems(rootItems)
+    gucci.renderItems(gucci.items, rootItems)
 }
 
-gucci.addItems({ id: "1", select: 'fashion', title: 'Jacket', description: 'product is an object or system made available for consumer use...<a href="">read more</a>', price: 400 });
-gucci.addItems({ id: "2", select: 'games', title: 'Checkmate', description: 'product is an object or system made available for consumer use...<a href="">read more</a>', price: 200 });
-gucci.addItems({ id: "3", select: 'fashion', title: 'Jacket', description: 'product is an object or system made available for consumer use...<a href="">read more</a>', price: 500 });
-gucci.addItems({ id: "4", select: 'electronics', title: 'iMac', description: 'product is an object or system made available for consumer use...<a href="">read more</a>', price: 2000 });
-
 const rootItems = document.getElementById('rootItems');
-gucci.renderItems(rootItems);
-gucci.getData();
 
-console.log(gucci);
+gucci.getData();
+gucci.renderItems(gucci.items, rootItems);
+// console.log(gucci);
 

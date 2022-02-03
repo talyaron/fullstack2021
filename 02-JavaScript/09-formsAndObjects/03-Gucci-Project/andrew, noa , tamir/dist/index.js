@@ -5,7 +5,7 @@ var aviator = {
         var html = '';
         html += "<div class=\"category-wrapper\">";
         this.items.forEach(function (item) {
-            html += "\n                <div class=\"category-wrapper__title\">DOUGLAS</div>\n                <div class=\"category-wrapper__card\">\n                    <div class='category-wrapper__card__img'> <img src=\"" + item.img + "\"></div>\n                    <div class=\"category-wrapper__card__name\" >" + item.name + " </div>\n                    <div class=\"category-wrapper__card__price\">" + item.price + "</div>\n                    \n                    \n                    <button class='add1' onclick=\"handleaddcart(event)\" style=\"cursor: pointer;color:black\">add to cart<i class=\"fab fa-opencart\"></i></button>\n                </div>";
+            html += "\n                <div class=\"category-wrapper__title\">DOUGLAS</div>\n                <div class=\"category-wrapper__card\">\n                    <div class='category-wrapper__card__img'> <img src=\"" + item.img + "\"></div>\n                    <div class=\"category-wrapper__card__name\" >" + item.name + " </div>\n                    <div class=\"category-wrapper__card__price\">" + item.price + "</div>\n                    \n                    \n                    <button class='add1' onclick=\"handleaddcart(event,'" + item.id + "')\" style=\"cursor: pointer;color:black\">add to cart<i class=\"fab fa-opencart\"></i></button>\n                </div>";
         });
         domElement.innerHTML = html;
     },
@@ -13,7 +13,7 @@ var aviator = {
     renderitemcart: function (domElement) {
         var html2 = '';
         this.filteritems.forEach(function (item) {
-            html2 += "<div class='cart'>\n           " + item.img + "\n        \n           <button  onclick='handleDelete(" + item.id + ")' style=\"width:50px ;\"'><i class=\"far fa-trash-alt\"></i> Delete</button>\n            </div>";
+            html2 += "<div class='cart'>\n            <img src=\"" + item.img + "\">\n           \n        \n           <button  onclick='handleDelete(\"" + item.id + "\")' style=\"width:50px ;\"'><i class=\"far fa-trash-alt\"></i> Delete</button>\n            </div>";
         });
         domElement.innerHTML = html2;
     },
@@ -30,16 +30,17 @@ var aviator = {
         this.items = JSON.parse(localStorage.getItem('storeData'));
     },
     deleteItem: function (id) {
-        this.filteritems.filter(function (item) { return item.id !== id; });
+        this.filteritems = this.filteritems.filter(function (item) { return item.id !== id; });
+        this.renderitemcart(cart);
+        console.log(this.filteritems);
     }
 };
 var cartItems = 0;
-function handleaddcart(ev) {
-    console.dir(ev);
-    var img = (ev.path[1].innerHTML);
-    var name = (ev.target.parentElement.firstElementChild.textContent);
-    var price = (ev.target.previousElementSibling.textContent);
-    aviator.additem({ img: img, name: name, price: price });
+function handleaddcart(ev, itemToAddId) {
+    // console.dir(ev)
+    var itemToAdd = aviator.items.filter(function (item) { return item.id == itemToAddId; })[0];
+    console.log(itemToAdd);
+    aviator.additem(itemToAdd);
     var cart = document.getElementById('cart');
     aviator.renderitemcart(cart);
     //andrew's addition
@@ -62,7 +63,6 @@ function handlesortitemacs(ev) {
     aviator.renderitem(rootitems);
 }
 function handleDelete(id) {
-    console.dir('id');
     console.log(id);
     aviator.deleteItem(id);
     aviator.renderitemcart(cart);
@@ -71,4 +71,4 @@ aviator.getdata();
 var rootitems = document.getElementById('main');
 aviator.renderitem(rootitems);
 var cart = document.getElementById('cart');
-aviator.renderitemcart(cart);
+// aviator.renderitemcart(cart)

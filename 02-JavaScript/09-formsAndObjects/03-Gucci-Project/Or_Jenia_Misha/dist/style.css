@@ -50,10 +50,12 @@
   margin: 0;
   border: 0;
   box-sizing: border-box;
+  transition: all 0.7s;
 }
 
 body {
   font-family: "Barlow Condensed", sans-serif;
+  overflow-x: hidden;
 }
 
 .homeopacity {
@@ -93,7 +95,13 @@ body {
   z-index: 2;
   font-size: 18px;
 }
-.navbar ul {
+.navbar .mlogo {
+  display: none;
+}
+.navbar .mlogo img {
+  height: 80px;
+}
+.navbar .navtags {
   list-style-type: none;
   display: flex;
   justify-content: space-between;
@@ -101,31 +109,44 @@ body {
   align-items: center;
   padding: 1em;
 }
-.navbar ul li {
+.navbar .navtags li {
   padding: 5px;
+  font-weight: bold;
 }
-.navbar ul li:hover {
+.navbar .navtags li:hover {
   cursor: pointer;
   box-shadow: 0 0 0 1px black;
 }
-.navbar ul .fulogo:hover,
-.navbar ul .smedia:hover {
+.navbar .navtags .fulogo:hover,
+.navbar .navtags .smedia:hover {
   box-shadow: 0 0 0 0px black;
 }
-.navbar ul img {
+.navbar .navtags img {
   height: 130px;
 }
-.navbar ul .smedia {
+.navbar .navtags .smedia {
   font-size: 24px;
 }
-.navbar ul .smedia i {
+.navbar .navtags .smedia i {
   margin-inline: 0.2em;
 }
-.navbar ul i {
+.navbar .navtags i {
   padding: 0.2em;
 }
-.navbar ul i:hover {
+.navbar .navtags i:hover {
   box-shadow: 0 0 0 1px black;
+}
+.navbar .burger {
+  display: none;
+}
+.navbar .burger div {
+  width: 30px;
+  height: 5px;
+  background-color: #202020;
+  margin: 5px;
+}
+.navbar .burger:hover {
+  cursor: pointer;
 }
 
 .footer {
@@ -424,4 +445,45 @@ body {
   text-align: left;
   margin-bottom: 20px;
   width: 50ch;
+}
+
+@media screen and (max-width: 1200px) {
+  .navbar {
+    top: 0px;
+    height: 90px;
+    width: 100%;
+    padding: 1em;
+    justify-content: flex-start;
+  }
+  .navbar .burger {
+    display: block;
+  }
+  .navbar .burger div {
+    width: 40px;
+    transform-origin: center;
+  }
+  .navbar .navtags {
+    background-color: #EBEBEB;
+    position: absolute;
+    flex-direction: column;
+    top: 80px;
+    left: 0px;
+    width: 25%;
+    height: 500px;
+    transform: translateX(-100%);
+  }
+  .navbar .navtags .navtags-active {
+    transform: translateX(0%);
+  }
+  .navbar .navtags li {
+    opacity: 0;
+  }
+  .navbar .fulogo {
+    display: none;
+  }
+  .navbar .mlogo {
+    display: block;
+    position: absolute;
+    left: 50%;
+  }
 }
