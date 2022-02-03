@@ -21,17 +21,15 @@ var nikeItems = {
         var i = this.items.findIndex(function (item) { return item.idItem === idItem; });
         this.items[i].name = newValue;
     },
-    addToCarts: function (cart) {
-        this.carts.push(cart);
+    addToCarts: function (type) {
+        this.carts.push(type);
     },
     renderAllCarts: function (root) {
         var list = this.carts;
         this.renderCarts(root, list);
     },
     selectItem: function (type) {
-        var _this = this;
         this.carts.filter(function (type) {
-            var select = _this.carts.type === type;
         });
     },
     renderAllData: function (root) {
@@ -41,9 +39,9 @@ var nikeItems = {
     renderCarts: function (root, list) {
         var htmlCustomer = "";
         list.forEach(function (item) {
-            htmlCustomer = "<div class= 'card'><h4>The Item You Want:</h4> <p>" + item + "</p></div>";
+            htmlCustomer += "<div class= 'card'><h4>The Item You Want:</h4> <p>" + item + "</p></div>";
         });
-        root.innerHTML += htmlCustomer;
+        root.innerHTML = htmlCustomer;
     },
     render: function (root, list) {
         var html = '';
@@ -86,8 +84,9 @@ function handleupdate(event, id) {
 }
 //customer
 function handleCart(event) {
-    var addToCart = event.target.value;
-    nikeItems.addToCarts(addToCart);
+    var type = event.target.id;
+    console.log(type);
+    nikeItems.addToCarts(type);
     var root = document.getElementById('root');
     nikeItems.renderAllCarts(root);
 }

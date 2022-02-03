@@ -1,6 +1,14 @@
 var uid = function () {
     return Date.now().toString(36) + Math.random().toString(36).substr(2);
 };
+var navSlide = function () {
+    var burger = document.querySelector('.burger');
+    var nav = document.querySelector('.navtags');
+    burger.addEventListener('click', function () {
+        nav.classList.toggle('navtags-active');
+    });
+};
+navSlide();
 var sushiMenu = {
     dishes: [
         {
@@ -29,7 +37,7 @@ var sushiMenu = {
     renderDishes: function (list, domElement) {
         var html = "";
         list.forEach(function (item) {
-            html += "<div class=\"card\">" + item.name + ", " + item.price + "," + item.category + "</div>";
+            html += "<div class=\"dishes\"> <div class = \"dishes__title\"> <h3 class =\"dishes__title__name\">" + item.name + "</h3> <p class =\"dishes__title__price\">" + item.price + "</p></div><p class =\"dishes__desc\">" + item.description + "</p></div>";
         });
         domElement.innerHTML = html;
     },
@@ -58,4 +66,4 @@ function handleAddDish(ev) {
     ev.target.reset();
 }
 sushiMenu.getData();
-// sushiMenu.renderDishes(sushiMenu.dishes, root);
+sushiMenu.renderDishes(sushiMenu.dishes, root);

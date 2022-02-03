@@ -1,3 +1,4 @@
+var _a;
 /* this is meant to seperate each letter in a fancy class */
 var text = document.querySelector(".fancy");
 var strText = text.textContent;
@@ -115,5 +116,5 @@ myForm.addEventListener("submit", function (e) {
     e.preventDefault(newBox());
     closeModal(modal);
 });
-console.log?.(color.value);
+(_a = console.log) === null || _a === void 0 ? void 0 : _a.call(console, color.value);
 console.log(daysLeft.value);

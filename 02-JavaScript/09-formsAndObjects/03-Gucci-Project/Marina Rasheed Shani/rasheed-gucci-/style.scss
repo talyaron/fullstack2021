@@ -13,7 +13,8 @@ body {
   background-repeat: no-repeat;
 
   font-family: "Montserrat", sans-serif;
-  color: white;
+   color: 'whiblackte';
+  margin:0px;
   //   height: 200vh;
 }
 
@@ -33,6 +34,7 @@ body {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      color: white;
 
       &__help {
         display: flex;
@@ -63,12 +65,28 @@ body {
     font-weight: 300;
     font-size: larger;
     cursor: pointer;
-    opacity: 1;
+    opacity: 0;
+    transition: ease 3ms;
+    // transform: translateY(0px);
+    // visibility: hidden;
+
+    &.visible {
+      opacity: 1;
+      transform: translateY(0px);
+      position: static;
+
+
+    }
+    &.hidden{
+      opacity: 0;
+      
+    }
   }
 
   &__main {
     //   display: block;
     text-align: center;
+    background-color: rgb(231, 231, 231);
 
     img {
       background-size: cover;
@@ -103,71 +121,112 @@ body {
 }
 
 //BUTTONS FOR EACH CATERGORY
-$border:solid 3px black;
 
-.catergory__name {
-  display: inline-flex;
-  background-color: white;
-  justify-content: center;
-  font-size: 100%;
-  color: black;
-  width: 100vw;
-  height: 10vh;
-  margin-top: 0.5em;
-}
+$background-color:#ffffff;
 
 .catergory__buttons {
 
-  display: inline-flex;
-  background-color: beige;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 10em;
-  width: 100vw;
-  height: 10vh;
-  padding-top: 3em;
+  display: flex;
+  background-color: $background-color;
+  justify-content: flex-end;
+  gap: 2px;
+  width: 100%;
+  height: 12vh;
+  //padding-top: 3em;
+  
+  
+  
+
+  .catergory__name {
+    //display: inline-flex;
+    background-color: $background-color;
+    //background-color: aqua;
+    //justify-content: flex-start;
+    font-weight: 800;
+    font-size: 11px;
+    color: rgba(0, 0, 0, 0.384);
+    width: 60vw;
+    //height: 10vh;
+    padding-top: 2em;
+    text-align: left;
+    
+
+    padding-left: 0.5em;
+
+    span:hover {
+      color: rgb(0, 0, 0);
+    }
+  }
+
 
 
 
   &--selector {
+    background-color: $background-color;
     cursor: pointer;
-    width: 10em;
-    height: 3em;
-    border: $border;
-    font-weight: bold;
-    //  select>option{
-    //    background-color:red;
+    width: 15;
+    //height: 3em;  
+    border: none;
+    font-size:12px;
+    letter-spacing: 1px;
 
-    //  }
+    &:hover {
+      background-color:  rgba(207, 207, 194, 0.425);
+      border-right: 0.5px solid rgb(196, 195, 195);
+      border-left: 0.5px solid rgb(196, 195, 195);
+
+    }
 
 
   }
 
   &--sortPrice {
 
+
     display: inline-flex;
-    gap: 6em;
-    width: 25em;
-    height: 3em;
+    gap: 1px;
+    width: 15em;
+    //height: 3em;
+
 
     button {
+      background-color: $background-color;
       cursor: pointer;
-      border: $border;
-      font-weight: bold;
+      border: none;
+      font-size:12px;
+      letter-spacing: 1px;
+      
+
+
+      &:hover {
+        background-color: rgba(207, 207, 194, 0.425);
+        border-right: 0.5px solid rgb(196, 195, 195);
+        border-left: 0.5px solid rgb(196, 195, 195);
+
+      }
     }
 
   }
 
   &--lowerThanPrice {
+
     color: black;
-    margin-left: 5em;
-    padding-top: 5px;
-    font-weight: bold;
+    margin-left: 0;
+    // padding-top: 5px;
+    padding-top: 2em;
+    text-align:center;
+    letter-spacing: 1px;
+    font-size:12px;
+    
+
+
 
     .inputLowerThan {
       cursor: pointer;
-      border: $border;
-      font-weight: bold;
+      margin-top:0.5em;
+      background-color: $background-color;
+      border: 1px solid rgb(196, 195, 195);
+
 
     }
   }
@@ -175,57 +234,56 @@ $border:solid 3px black;
 }
 
 .catergory__items {
-  margin-top: 4em;
+  //margin-top: 1em;
   background-color: white;
-  height: 100em;
+  height: 110em;
   text-align: center;
-  // display:grid;
-  gap: 2em;
-  display: inline-grid;
-  grid-template-columns: repeat(3, 30em);
-  grid-template-rows: repeat(4, 25em);
 
-  .itemSilkDress {
+  //gap: 4em;
+  // display: inline-grid;
+  // grid-template-columns: repeat(3, 30em);
+  // grid-template-rows: repeat(4, 25em);
+
+
+  .items {
     color: black;
-
-  }
-
-  // .itemSilkDressTest {
-  //   background: url("https://media.gucci.com/style/DarkGray_South_0_160_316x316/1635527707/664317_Z8AWG_9791_001_100_0000_Light-Belted-optical-print-silk-dress.jpg") no-repeat;
-  //   display: inline-block;
-
-  //   &:hover {
-
-  //     height: 20em;
-  //     background: url("https://media.gucci.com/style/White_South_0_40_632x790/1635527709/664317_Z8AWG_9791_002_100_0000_Light.jpg") no-repeat;
-  //   }
-  // }
-
-  .itemSilkDressTest {
-    color: black;
-   
-    width: 100px;
-    height: 200px;
     position: relative;
     display: inline-block;
-    
+    text-align: center;
+    padding: 3em;
 
-    .img-top {
-      display: none;
-      position: absolute;
-      height: 300px;
-      top: 0;
-      //left: 0;
-      z-index: 1;
-      border:solid 2px black;
-    }
-
-    &:hover .img-top {
-      display: inline;
+    img {
+      height: 380px;
       width: 20em;
-      height: 400px;
-     
-      
+
     }
+    p{
+      letter-spacing:2px;
+    }
+
+    // .img-back {
+    //   height: 380px;
+    //   width: 20em;
+    // }
+
+    // p {
+    //   text-align: center;
+    // }
+
+    // .img-top {
+    //   display: none;
+    //   position: absolute;
+    //   top: 0;
+    //   left: 5em;
+    //   z-index: 1;
+    //   border: solid 2px black;
+    //   transition: 10s ease;
+    // }
+
+    // &:hover .img-top {
+    //   display: inline;
+    //   width: 20em;
+    //   height: 380px;
+    // }
   }
 }

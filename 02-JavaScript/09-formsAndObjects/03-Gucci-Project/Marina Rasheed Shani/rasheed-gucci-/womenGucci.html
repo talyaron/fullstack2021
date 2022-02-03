@@ -11,6 +11,11 @@
 
 <body>
 
+    <nav>
+        <a href="./index.html">Store</a>
+        <a href="./erp.html">ERP</a>
+    </nav>
+
 
     <div class="container">
 
@@ -108,59 +113,61 @@
         <div class="dropdawn"></div>
         <div class="dropdawn"></div>
 
-        <div class="catergory__name">
-            <h1>WOMEN</h1>
-        </div>
-
 
         <div class="catergory__buttons">
+            <div class="catergory__name">
+                <h3><span>READY-TO-WEAR FOR WOMEN</span> | Clothes for Women</h3>
+            </div>
+                    
 
-            
+             <div class="catergory__buttons--lowerThanPrice">
+                 <label>Show price lower than</label>
+                 <input class="inputLowerThan" type='number' onkeyup="handleFilterByPrice(event)" placeholder="number">
+             </div>
 
 
             <select class="catergory__buttons--selector" onchange='handleSelect(event)'>
-                <option value="" disabled selected>Choose a type</option>
+                <option value="" disabled selected>Category</option>
                 <option value="all">ALL</option>
-                <option value="dresses">Dresses</option>
+                <option value="dresses">DRESSES</option>
                 <option value="pants">PANTS</option>
                 <option value="shirts">SHIRT</option>
             </select>
 
             <div class="catergory__buttons--sortPrice">
-                <button type="button" id="ascending" onclick="handlePriceAsc()">Sort by highest to lowest</button>
-                <button type="button" id="descending" onclick="handlePriceDesc()">Sort by lowest to highest</button>
+                <button type="button" id="ascending" onclick="handlePriceAsc(event)">Price-Low to High</button>
+                <button type="button" id="descending" onclick="handlePriceDesc(event)">Price-High to Low
+                </button>
             </div>
 
-            <div class="catergory__buttons--lowerThanPrice">
-                <label>Show price lower than</label>
-                <input class="inputLowerThan" type='number' onkeyup="handleInput(event)" placeholder="number">
-            </div>
+
 
         </div>
         <div class="catergory__items">
-            <div class="itemSilkDress">
-                <img src="https://media.gucci.com/style/DarkGray_South_0_160_316x316/1635527707/664317_Z8AWG_9791_001_100_0000_Light-Belted-optical-print-silk-dress.jpg">
-                <p>Belted optical print silk dress</p>
-                <p>4,980</p>
-            </div>
-            <div class="itemSilkDress">
-                <img src="https://media.gucci.com/style/DarkGray_South_0_160_316x316/1635527707/664317_Z8AWG_9791_001_100_0000_Light-Belted-optical-print-silk-dress.jpg">
-                <p>Belted optical print silk dress</p>
-                <p>4,980</p>
-            </div>
-            <div class="itemSilkDress">
-                <img src="https://media.gucci.com/style/DarkGray_South_0_160_316x316/1635527707/664317_Z8AWG_9791_001_100_0000_Light-Belted-optical-print-silk-dress.jpg">
-                <p>Belted optical print silk dress</p>
-                <p>4,980</p>
-            </div>
-            <div class="itemSilkDressTest">
-                <img src="https://media.gucci.com/style/DarkGray_South_0_160_316x316/1635527707/664317_Z8AWG_9791_001_100_0000_Light-Belted-optical-print-silk-dress.jpg" alt="Card Back">
-                <p>Belted optical print silk dress</p>
-                <p>4,980</p>
+
+            <!-- <div class="itemSilkDress">
+                <img src="https://media.gucci.com/style/DarkGray_South_0_160_316x316/1635527707/664317_Z8AWG_9791_001_100_0000_Light-Belted-optical-print-silk-dress.jpg" class="img-back"alt="Card Back">
                 <img src="https://media.gucci.com/style/White_South_0_40_632x790/1635527709/664317_Z8AWG_9791_002_100_0000_Light.jpg" class="img-top" alt="Card Front">
+                <p>Belted optical print silk dress</p>
+                <p>4,980</p>
+                
 
             </div>
-           
+            
+            <div class="itemSilkDress">
+                <img src="https://media.gucci.com/style/DarkGray_South_0_160_316x316/1635527707/664317_Z8AWG_9791_001_100_0000_Light-Belted-optical-print-silk-dress.jpg" class="img-back"alt="Card Back">
+                <img src="https://media.gucci.com/style/White_South_0_40_632x790/1635527709/664317_Z8AWG_9791_002_100_0000_Light.jpg" class="img-top" alt="Card Front">
+                <p>Belted optical print silk dress</p>
+                <p>4,980</p>
+                
+
+            </div>-->
+
+
+            
+    <div id="root"></div>
+
+
 
 
         </div>
@@ -172,6 +179,7 @@
                 <p>Gucci Services</p>
                 <p>Gucci Osteria Beverly Hills<br> da Massimo Bottura</p>
                 <p>Book An Appointment</p>
+                
             </div>
 
             <div class="bottom_help">
@@ -230,13 +238,10 @@
 
     </div>
 
-    <nav>
-        <a href="./index.html">Store</a>
-        <a href="./erp.html">ERP</a>
-    </nav>
-    <!-- <h1>Store</h1>
-    <div onmouseover="handleShowClothes()">Show Products</div> -->
-    <div id="root"></div>
+    <script src="dist/index.js"></script>
+
+
+
 
 </body>
 

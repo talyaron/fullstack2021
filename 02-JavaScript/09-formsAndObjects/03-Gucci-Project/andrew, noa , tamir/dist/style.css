@@ -24,7 +24,7 @@ body {
   z-index: 20;
   top: 0px;
   left: 0px;
-  height: 45px;
+  height: 90px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -48,11 +48,32 @@ body {
   cursor: pointer;
   color: var(--main-color-purple1);
 }
+.header__wrapper .pulse {
+  animation: pulse 1000ms ease;
+}
+.header__cart-notification {
+  background-color: var(--main-color-gray2);
+  border-radius: 5px;
+  text-align: center;
+  width: 20px;
+  height: 20px;
+  position: fixed;
+  top: 15px;
+  right: 4px;
+}
 
+@keyframes pulse {
+  70% {
+    box-shadow: 0px 0px 20px 10px var(--main-color-purple1), inset 0px 0px 20px 10px var(--main-color-purple1);
+  }
+  100% {
+    box-shadow: 0px;
+  }
+}
 .currency-selector {
   z-index: 10;
   position: sticky;
-  top: 45px;
+  top: 90px;
   left: 240px;
   padding: 5px;
   width: 300px;
@@ -97,7 +118,7 @@ body {
   justify-content: center;
   align-items: center;
   margin-block: 10px;
-  padding-top: 50px;
+  padding-top: 80px;
 }
 .nav-bar__item {
   margin-inline: 15px;
@@ -213,6 +234,9 @@ body {
 #cart .cart {
   background-color: #d2d2d3;
   border-radius: 10px;
+  position: relative;
+  left: 7%;
+  margin-bottom: 5%;
 }
 #cart .h2 {
   color: brown;
@@ -230,6 +254,14 @@ body {
   border: 2px solid black;
   border-radius: 20px;
   box-shadow: black 20px 20px 20px;
+  background: var(--main-color-gray3);
+  position: fixed;
+  top: 80px;
+  right: 0px;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(-30px);
+  transition: ease 500ms;
 }
 .wow__title {
   text-align: center;
@@ -237,6 +269,11 @@ body {
 }
 .wow img {
   border-radius: 40px;
+}
+.wow.visible {
+  opacity: 1;
+  transform: translateY(0px);
+  pointer-events: all;
 }
 
 #root .card {
