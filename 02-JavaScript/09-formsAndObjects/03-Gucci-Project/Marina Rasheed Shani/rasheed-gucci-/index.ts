@@ -19,6 +19,7 @@ interface Store {
   sortByAscending?(price: number);
   sortByDescending?(price: number);
   renderMaxPrice(filtered: Array<Item>, domElement);
+  filterByItems(deparetment:string,gender:string,type:string)
 }
 
 interface Item {
@@ -106,6 +107,14 @@ const gucci: Store = {
       return b.price - a.price;
     });
   },
+  filterByItems(department,gender,type){
+    return this.items.filter((item)=>item.department === department);
+    return this.items.filter((item)=>item.gender === gender);
+    return this.items.filter((item)=>item.type === type);
+
+  },
+
+
 };
 
 function handleUpdate(ev, id) {

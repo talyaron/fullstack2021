@@ -63,6 +63,11 @@ var gucci = {
         this.items.sort(function (a, b) {
             return b.price - a.price;
         });
+    },
+    filterByItems: function (department, gender, type) {
+        return this.items.filter(function (item) { return item.department === department; });
+        return this.items.filter(function (item) { return item.gender === gender; });
+        return this.items.filter(function (item) { return item.type === type; });
     }
 };
 function handleUpdate(ev, id) {
