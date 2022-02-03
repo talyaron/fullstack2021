@@ -2,8 +2,6 @@ const uid = function () {
   return Date.now().toString(36) + Math.random().toString(36).substr(2);
 };
 
-
-
 interface Menu {
   dishes: Array<Dish>;
 
@@ -55,7 +53,6 @@ let sushiMenu: Menu = {
   },
 
   renderDishesStore(list, domElement) {
-
     let html = "";
 
     list.forEach((item) => {
@@ -85,7 +82,7 @@ let sushiMenu: Menu = {
       </div>`;
     });
 
-    html += `</form>`
+    html += `</form>`;
 
     domElement.innerHTML = html;
   },
@@ -100,18 +97,22 @@ let sushiMenu: Menu = {
       this.dishes = dishes;
     }
   },
-
 };
 
-const rootStore = document.getElementById("rootStore");
-const rootERP = document.getElementById("rootERP");
+renderSushiMenu();
 
+function renderSushiMenu() {
+  const rootStore = document.getElementById("rootStore");
+  const rootERP = document.getElementById("rootERP");
 
-console.log(rootStore);
+  if (rootStore) {
+    sushiMenu.renderDishesStore(sushiMenu.dishes, rootStore);
+  }
 
-sushiMenu.renderDishesStore(sushiMenu.dishes, rootStore);
-sushiMenu.renderDishesERP(sushiMenu.dishes, rootERP);
-
+  if (rootERP) {
+    sushiMenu.renderDishesERP(sushiMenu.dishes, rootERP);
+  }
+}
 
 function handleAddDish(ev) {
   ev.preventDefault();
@@ -121,38 +122,26 @@ function handleAddDish(ev) {
   const dishCategory = (<HTMLSelectElement>document.getElementById("category"))
     .value;
   sushiMenu.addDish(dishName, dishPrice, dishDesc, dishCategory);
-  const rootStore = document.getElementById("rootStore");
-  const rootERP = document.getElementById("rootERP");
-  sushiMenu.renderDishesStore(sushiMenu.dishes, rootStore);
-  sushiMenu.renderDishesERP(sushiMenu.dishes, rootERP);
+  renderSushiMenu();
   ev.target.reset();
 }
 
-function handleDeleteDish(ev){
-
+function handleDeleteDish(ev) {
   ev.preventDefault();
-
-
 }
 
 sushiMenu.getData();
 
-
-
 // sushiMenu.renderDishesStore(sushiMenu.dishes, root);
-
 
 // ---- CSS MANIPULATION --- //
 
 function navSlide() {
-
-  const burger = document.querySelector('.burger');
-  const nav = document.querySelector('.navtags');
-
-  burger.addEventListener('click', () => {
-    nav.classList.toggle('navtags-active');
+  const burger = document.querySelector(".burger");
+  const nav = document.querySelector(".navtags");
+  burger.addEventListener("click", () => {
+    nav.classList.toggle("navtags-active");
   });
-
 }
 
 navSlide();
