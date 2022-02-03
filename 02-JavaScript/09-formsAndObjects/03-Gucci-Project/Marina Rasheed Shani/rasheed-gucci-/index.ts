@@ -26,15 +26,15 @@ interface Item {
   price: number;
   img: any;
   department: "clothes" | "watches" | "jewelry" | "bags";
-  category: string;
-  subCategory: string;
   gender: "men" | "women";
   type: string;
   id?: any;
 }
 
 const gucci: Store = {
-  items: [],
+  items: [
+    { name:"red dress",price: 400,img: "https://media.gucci.com/style/DarkGray_South_0_160_316x316/1638431131/680136_ZJT72_9900_001_100_0000_Light-Lam-floral-lace-dress.jpg", department:"clothes",gender:"women", type:"dress" }
+  ],
   storeData() {
     localStorage.setItem("storeData", JSON.stringify(this.items));
   },
