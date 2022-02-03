@@ -115,26 +115,28 @@ function handleType(ev){
     ev.preventDefault();
     const root = document.getElementById("root");
     // if(type === " ")
-    return Adidas.renderFilter(root, type);
+    return Adidas.renderFilter(root, Adidas.sortByType(type));
 }
 function handleColor(ev){
     const color = ev.target.value;
     ev.preventDefault();
     const root = document.getElementById("root");
     // if(type === " ")
-    return Adidas.renderFilter(root, color);
+    return Adidas.renderFilter(root, Adidas.sortByColor(color));
 }
 function handleGender(ev){
     const gender = ev.target.value;
     ev.preventDefault();
     const root = document.getElementById("root");
     // if(type === " ")
-    return Adidas.renderFilter(root, gender);
+
+    return Adidas.renderFilter(root, Adidas.sortByGender(gender));
 }
 function handleShoeSize(ev){
     const size = ev.target.value;
     ev.preventDefault();
     const root = document.getElementById("root");
+    Adidas.renderFilter(root, Adidas.shoeSizeFilter(size));
     // if(type === " ")
-    return Adidas.renderFilter(root, size);
+    //Adidas.shoeSizeFilter(size);
 }
