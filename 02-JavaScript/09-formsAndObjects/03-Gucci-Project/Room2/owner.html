@@ -7,9 +7,29 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <form onsubmit='handleAddItem(event)'>
+        <div><input type="text" name="title" placeholder="name of item" required ></div>
+        <div><input type="text" name="picture" placeholder="picture of item" required></div>
+        <div><input type="number" name="price" placeholder="price of item" required>
+            <div><input type="text" name="color" placeholder="color of item" required></div>
+            <div><input type="text" name="description" placeholder="description of item" required ></div>
+            <div><input type="number" name="shoeSize" placeholder="shoe Size of item" required >
 
+        <select name="category" onchange=""required>
+            <option value="" disabled selected>Category of item</option>
+            <option value="Sneakers">Sneakers</option>
+            <option value="Boots">Boots</option>
+            <option value="Hi Tops">Hi Tops</option>
+            <option value="Flip Flops">Flip Flops</option>
+          </select></div>
 
-    <script src="dist/owner.js"></script>
+        <div><input type="submit" value="ADD item"></div>
+    </form>
+<br>
+    <div>
+        <div id="root"></div>
+    </div>
+
+    <script src="dist/index.js"></script>
 </body>
 </html>
