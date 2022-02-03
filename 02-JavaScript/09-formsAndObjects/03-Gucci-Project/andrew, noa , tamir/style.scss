@@ -26,7 +26,7 @@ body {
     z-index: 20;
     top: 0px;
     left: 0px;
-    height: 45px;
+    height: 90px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -42,7 +42,6 @@ body {
         display: flex;
         justify-content: space-around;
         align-items: center;
-
         // width: 200px;
         &__item {
             width: fit-content;
@@ -53,13 +52,34 @@ body {
                 color: var(--main-color-purple1)
             }
         }
+        .pulse{
+            animation: pulse 1000ms ease;
+        }
+    }
+    &__cart-notification{
+        // border: 1px solid var(--main-color-purple1);
+        background-color: var(--main-color-gray2);
+        border-radius: 5px;
+        text-align: center;
+        width: 20px;
+        height: 20px;
+        position: fixed;
+        top: 15px;
+        right: 4px;
     }
 }
+
+@keyframes pulse {
+       0% {}
+       70% {box-shadow: 0px 0px 20px 10px var(--main-color-purple1), inset 0px 0px 20px 10px var(--main-color-purple1);}
+       100% {box-shadow:0px;} 
+}
+
 .currency-selector{
     // border: 1px solid red;
     z-index: 10;
     position: sticky;
-    top: 45px;
+    top: 90px;
     left: 240px;
     padding: 5px;
     width: 300px;
@@ -107,7 +127,7 @@ body {
     justify-content: center;
     align-items: center;
     margin-block: 10px;
-    padding-top: 50px;
+    padding-top: 80px;
 
     &__item {
         margin-inline: 15px;
@@ -215,8 +235,20 @@ body {
 
         &__price {
             color: black;
+        }
+        .USD{
             &::after{
                 content: ' $';
+            }
+        }
+        .EUR{
+            &::after{
+                content: ' €';
+            }
+        }
+        .GBP{
+            &::after{
+                content: ' £';
             }
         }
     }
@@ -229,8 +261,11 @@ body {
     .cart {
         background-color: rgb(210, 210, 211);
         border-radius: 10px;
+        position: relative;
+        left: 7%;
+          margin-bottom: 5%;
     }
-
+    
     gap: 5px;
     width: 280px;
     display: grid;
@@ -269,4 +304,34 @@ body {
         border-radius: 40px;
     }
 
+}
+
+////OWNER
+#root{
+
+    .card{
+        display: flex;
+        align-items: center;
+        p{
+            border: 1px solid black;
+            width: 400px;
+            margin-inline: 20px;
+        }
+        img{
+            width: 75px;
+        }
+    }
+}
+
+.updateForm{
+    position: fixed;
+    bottom: 10px;
+    z-index: 1;
+    background-color: var(--main-color-purple1);
+    transition: ease 0.5s;
+    transform: translateY(60px);
+    
+}
+.visableForm{
+    transform: translateY(0px);
 }

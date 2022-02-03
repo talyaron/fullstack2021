@@ -1,3 +1,4 @@
+@charset "UTF-8";
 :root {
   --main-color-purple1: #C21E86;
   --main-color-purple2: #8E1562;
@@ -23,7 +24,7 @@ body {
   z-index: 20;
   top: 0px;
   left: 0px;
-  height: 45px;
+  height: 90px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -47,11 +48,32 @@ body {
   cursor: pointer;
   color: var(--main-color-purple1);
 }
+.header__wrapper .pulse {
+  animation: pulse 1000ms ease;
+}
+.header__cart-notification {
+  background-color: var(--main-color-gray2);
+  border-radius: 5px;
+  text-align: center;
+  width: 20px;
+  height: 20px;
+  position: fixed;
+  top: 15px;
+  right: 4px;
+}
 
+@keyframes pulse {
+  70% {
+    box-shadow: 0px 0px 20px 10px var(--main-color-purple1), inset 0px 0px 20px 10px var(--main-color-purple1);
+  }
+  100% {
+    box-shadow: 0px;
+  }
+}
 .currency-selector {
   z-index: 10;
   position: sticky;
-  top: 45px;
+  top: 90px;
   left: 240px;
   padding: 5px;
   width: 300px;
@@ -96,7 +118,7 @@ body {
   justify-content: center;
   align-items: center;
   margin-block: 10px;
-  padding-top: 50px;
+  padding-top: 80px;
 }
 .nav-bar__item {
   margin-inline: 15px;
@@ -191,8 +213,14 @@ body {
 .category-wrapper__card__price {
   color: black;
 }
-.category-wrapper__card__price::after {
+.category-wrapper__card .USD::after {
   content: " $";
+}
+.category-wrapper__card .EUR::after {
+  content: " €";
+}
+.category-wrapper__card .GBP::after {
+  content: " £";
 }
 
 #cart {
@@ -206,6 +234,9 @@ body {
 #cart .cart {
   background-color: #d2d2d3;
   border-radius: 10px;
+  position: relative;
+  left: 7%;
+  margin-bottom: 5%;
 }
 #cart .h2 {
   color: brown;
@@ -230,4 +261,30 @@ body {
 }
 .wow img {
   border-radius: 40px;
+}
+
+#root .card {
+  display: flex;
+  align-items: center;
+}
+#root .card p {
+  border: 1px solid black;
+  width: 400px;
+  margin-inline: 20px;
+}
+#root .card img {
+  width: 75px;
+}
+
+.updateForm {
+  position: fixed;
+  bottom: 10px;
+  z-index: 1;
+  background-color: var(--main-color-purple1);
+  transition: ease 0.5s;
+  transform: translateY(60px);
+}
+
+.visableForm {
+  transform: translateY(0px);
 }
