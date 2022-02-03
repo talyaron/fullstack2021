@@ -1,3 +1,7 @@
+const uid = function(){
+    return Date.now().toString(36) + Math.random().toString(36).substr(2);
+};
+
 interface shop {
     products: Array<product>;
     addCartItem(products:product);
@@ -19,6 +23,6 @@ interface shop {
       shoeSize:number;
   }
 
- const Adidas:shop = {
+//  const Adidas:shop = {
 
-  }
+//   }
