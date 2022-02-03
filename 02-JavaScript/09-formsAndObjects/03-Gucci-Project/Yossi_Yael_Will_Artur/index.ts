@@ -1,1 +1,3 @@
-innerHeight
+interface Gucci{
+    
+}

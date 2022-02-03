@@ -479,6 +479,7 @@ body {
     &__x {
         font-size: 75px;
         text-shadow: 0px 0px 3px black;
+        cursor: pointer;
     }
 
     &__box {
@@ -486,10 +487,11 @@ body {
         width: 960px;
         height: 700px;
         background-image: url("https://images3.alphacoders.com/929/thumb-1920-92919.jpg");
+        overflow: scroll;
         @include backgroundsettings();
 
         &__opacity {
-            height: 100%;
+            height: fit-content;
             width: 100%;
             background-color: rgba(0, 0, 0, 0.856);
             display: flex;
@@ -611,13 +613,15 @@ body {
             height: 500px;
             transform: translateX(-100%);
 
-            .navtags-active{
-                transform: translateX(0%);
-            }
+            
 
             li{
                 opacity: 0;
             }
+        }
+
+        .navtags-active{
+            transform: translateX(0%);
         }
 
         .fulogo {

@@ -441,7 +441,7 @@ function activeBtns(btn): void {
         </select> `;
     } else if (id == "filter") {
         html = `
-        <input class="main_form-filter-btn" type="button" name="filterBrand" id="filterBrand" value="By Brand" >
+        <input class="main_form-filter-btn" type="button" name="filterBr and" id="filterBrand" value="By Brand" >
         <input class="main_form-filter-btn" type="button" name="filterSize" id="filterSize" value="By Size" >
         <input class="main_form-filter-btn" type="button" name="filterPrice" id="filterPrice" value="By Price" > `;
     }

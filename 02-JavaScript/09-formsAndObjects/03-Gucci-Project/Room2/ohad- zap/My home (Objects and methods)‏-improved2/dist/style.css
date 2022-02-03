@@ -1,0 +1,43 @@
+body {
+  background-color: #c0b19d;
+}
+body h1 {
+  text-align: center;
+  text-decoration: underline;
+  color: red;
+}
+
+.wrapper {
+  width: 33%;
+  height: fit-content;
+  background-color: coral;
+}
+.wrapper__ItemsList {
+  position: relative;
+  top: 5%;
+  left: 1%;
+  font-size: x-large;
+}
+.wrapper__filed {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+  font-size: large;
+}
+.wrapper__button {
+  background-color: #4a41cc;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px -1px;
+  cursor: pointer;
+  border-radius: 7px;
+}
+.wrapper__button:hover {
+  background-color: #7169e2;
+}
