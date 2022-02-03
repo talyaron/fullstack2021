@@ -9,7 +9,7 @@ interface shop {
     renderFilter(domElement, filterd);
     filterItems(highPrice?: number, lowPrice?:number),
     renderAll(domElement),
-    shoeSizeFilter(price);
+    shoeSizeFilter(size);
     sortItemsAsc();
     sortItemsDsc();
     sortByGender(item);
@@ -60,8 +60,8 @@ interface shop {
     filterItems(highPrice, lowPrice){
         return this.products.filter((item) => item.price >= lowPrice && item.price <= highPrice);
     },
-    shoeSizeFilter(price){
-        return this.products.filter((item)=> item.price === price);
+    shoeSizeFilter(size){
+        return this.products.filter((item)=> item.size === size);
     },
     sortItemsAsc(){
         this.products.sort((x, y)=> y.price -x.price);

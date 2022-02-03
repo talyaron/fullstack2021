@@ -24,8 +24,8 @@ var Adidas = {
     filterItems: function (highPrice, lowPrice) {
         return this.products.filter(function (item) { return item.price >= lowPrice && item.price <= highPrice; });
     },
-    shoeSizeFilter: function (price) {
-        return this.products.filter(function (item) { return item.price === price; });
+    shoeSizeFilter: function (size) {
+        return this.products.filter(function (item) { return item.size === size; });
     },
     sortItemsAsc: function () {
         this.products.sort(function (x, y) { return y.price - x.price; });
