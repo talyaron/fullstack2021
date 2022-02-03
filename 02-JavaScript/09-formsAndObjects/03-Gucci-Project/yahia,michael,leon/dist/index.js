@@ -91,5 +91,4 @@ function handleCart(event) {
     nikeItems.renderAllCarts(root);
 }
 function handleSelect(event) {
-    var select = event.target.value;
 }
