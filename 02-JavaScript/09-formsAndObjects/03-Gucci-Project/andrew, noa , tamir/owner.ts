@@ -205,3 +205,11 @@ function handleUpdate(ev) {
 }
 
 stock.addItem({ name: 'DOUGLAS DAY 41', price: 45, img: `https://aviatorwatch.swiss/assets/catalog/douglas-day-date-41/AVIATOR-WATCH--DOUGLAS-DAY-DATE-41--V.3.35.0.278.4.webp`, group: "AUTOMATIC WATCHES", Collection: "BRISTOL", function: "Chronograph", movement: "Quartz", case: "Gold PVD", diameter: "42 mm", dial: "Ivory", bracelet: "Leather", id: 0 })
+stock.addItem({ name: 'DOUGLAS DC-3', price: 35, img: `https://aviatorwatch.swiss/assets/catalog/douglas-dc-3/AVIATOR-WATCH--DOUGLAS-DC-3--V.3.32.0.232.4.webp`, group: "CLASSIC WATCHES", Collection: "MOONFLIGHT", function: "Chronograph", movement: "Automatic", case: "Black PVD", diameter: "36 mm", dial: "Black", bracelet: "Leather", id: 0 })
+stock.addItem({ name: 'AIRACOBRA P42', price: 60, img: `https://aviatorwatch.swiss/assets/catalog/airacobra-p42/AVIATOR-WATCH--AIRACOBRA-P42--V.1.22.0.190.5.webp`, group: "NEW RELEASES", Collection: "AIRCOBRA", function: "Day / Date", movement: "Quartz", case: "Stainless Steel", diameter: "42 mm", dial: "Ivory", bracelet: "Steel", id: 0 })
+stock.addItem({ name: 'MIG-29 SMT', price: 90, img: `https://aviatorwatch.swiss/assets/catalog/mig-29-smt/AVIATOR-WATCH--MIG-29-SMT--M.2.30.5.215.6.webp`, group: "SPORT WATCHES", Collection: "MIG", function: "Chronograph", movement: "Quartz", case: "Black PVD", diameter: "47 mm", dial: "Red", bracelet: "Rubber", id: 0 })
+stock.addItem({ name: 'DOUGLAS MOONFLIGHT', price: 75, img: `https://aviatorwatch.swiss/assets/catalog/douglas-moonflight/AVIATOR-WATCH--DOUGLAS-MOONFLIGHT--V.1.33.0.261.4.webp`, group: "LADIES WATCHES", Collection: "MOONFLIGHT", function: "Moonphase", movement: "Quartz", case: "Stainless Steel", diameter: "36 mm", dial: "Green", bracelet: "Leather", id: 0 })
+stock.addItem({ name: 'BRISTOL SCOUT', price: 125, img: `https://aviatorwatch.swiss/assets/catalog/bristol-scout/AVIATOR-WATCH--BRISTOL-SCOUT--V.3.18.8.162.4.webp`, group: "MILITRY WATCHES", Collection: "BRISTOL", function: "Small Second", movement: "Automatic", case: "Brown PVD", diameter: "46 mm", dial: "Black", bracelet: "Leather", id: 0 })
+
+
+stock.storeData();

@@ -108,7 +108,6 @@ var clothsList = {
     },
     deleteItemPants: function (id) {
         this.pants = this.pants.filter(function (item) { return item.id !== id; });
-        JSON.parse(window.localStorage.getItem(''));
     },
     filterByBrand: function (list, filterBrandInput) {
         return list.filter(function (item) { return item.brand === filterBrandInput; });
@@ -200,7 +199,6 @@ function display(ev) {
     console.log(ev.target);
     // receiving inputs values ----------
     // console.log(clothsList.Tshirts);
-    console.log(clothsList.Tshirts);
     var catagory;
     var brand;
     var price;
@@ -354,9 +352,8 @@ function filterOptionsDisplay(btn) {
     }
     options.innerHTML = html;
 }
-function deleteCard(id, ev) {
+function deleteCard(id) {
     console.log(id);
-    ev.preventDefault();
     var TshirtsBox = document.getElementById("TshirtsBox");
     var shoesBox = document.getElementById("shoesBox");
     var pantsBox = document.getElementById("pantsBox");
@@ -442,17 +439,17 @@ function showOptions(box, boxId) {
 function handleSort(ev) {
     var sortValue = ev.target.value;
     var boxId = ev.target.id;
-    console.log(boxId);
-    console.log(sortValue);
-    var ListDisplay = document.querySelector('.container_catagories-display');
-    if (boxId == 'Tshirts') {
-        clothsList.SortCustomerPage(clothsList.Tshirts, sortValue, ListDisplay, "Shoes");
+    if (sortValue == "sortAtoZ") {
+        console.log('lala');
     }
-    else if (boxId == "shoes") {
-        clothsList.SortCustomerPage(clothsList.shoes, sortValue, ListDisplay, "Shoes");
+    else if (sortValue == "sortZtoA") {
+        console.log('lili');
     }
-    else if (boxId == "pants") {
-        clothsList.SortCustomerPage(clothsList.pants, sortValue, ListDisplay, "Pants");
+    else if (sortValue == "sortLowToHigh") {
+        console.log('dadad');
+    }
+    else if (sortValue == "sortHighToLow") {
+        console.log('rarara');
     }
 }
 function handleFilter(ev) {
