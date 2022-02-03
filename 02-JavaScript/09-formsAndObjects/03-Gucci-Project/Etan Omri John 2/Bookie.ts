@@ -27,6 +27,7 @@ interface book{
     name: string;
     price:number;
     img: any;
+    year?:number;
 }
 
 const bookie: BookShop = {
