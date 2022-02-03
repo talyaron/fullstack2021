@@ -146,7 +146,7 @@ let clothsList: cloths = {
     SortPants(sortOption, display, catagory) {
         this.Sort(this.pants, catagory, sortOption, display);
     },
-    deleteItemTshirts(id) {
+    deleteItemTshirts(id){
         this.Tshirts = this.Tshirts.filter((item) => item.id !== id);
     },
     deleteItemShoes(id) {
@@ -154,8 +154,6 @@ let clothsList: cloths = {
     },
     deleteItemPants(id) {
         this.pants = this.pants.filter((item) => item.id !== id)
-        JSON.parse(window.localStorage.getItem(''));
-
     },
     filterByBrand(list, filterBrandInput) {
         return list.filter((item) => item.brand === filterBrandInput);
@@ -452,10 +450,8 @@ function filterOptionsDisplay(btn): void {
     options.innerHTML = html;
 }
 
-function deleteCard(id, ev) {
+function deleteCard(id) {
     console.log(id);
-
-    ev.preventDefault()
 
     const TshirtsBox = document.getElementById("TshirtsBox");
     const shoesBox = document.getElementById("shoesBox");
