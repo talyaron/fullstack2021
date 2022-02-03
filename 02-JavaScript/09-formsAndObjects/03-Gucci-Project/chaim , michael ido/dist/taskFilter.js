@@ -327,7 +327,7 @@ function activeBtns(btn) {
         html = " \n         <select class=\"main_form-selectCatagory\" name=\"chooseSort\" id=\"selectCatagory\">\n        <option class=\"main_form-selectCatagory-sortOptions\" disabled selected>Sort By</option>\n        <option class=\"main_form-selectCatagory-sortOptions\" value=\"sortAtoZ\">A ---> Z</option>\n        <option class=\"main_form-selectCatagory-sortOptions\" value=\"sortZtoA\">Z ---> A</option>\n        <option class=\"main_form-selectCatagory-sortOptions\" value=\"sortLowToHigh\">Price Low to High</option>\n        <option class=\"main_form-selectCatagory-sortOptions\" value=\"sortHighToLow\">Price High to Low</option>\n        </select> ";
     }
     else if (id == "filter") {
-        html = "\n        <input class=\"main_form-filter-btn\" type=\"button\" name=\"filterBrand\" id=\"filterBrand\" value=\"By Brand\" >\n        <input class=\"main_form-filter-btn\" type=\"button\" name=\"filterSize\" id=\"filterSize\" value=\"By Size\" >\n        <input class=\"main_form-filter-btn\" type=\"button\" name=\"filterPrice\" id=\"filterPrice\" value=\"By Price\" > ";
+        html = "\n        <input class=\"main_form-filter-btn\" type=\"button\" name=\"filterBr and\" id=\"filterBrand\" value=\"By Brand\" >\n        <input class=\"main_form-filter-btn\" type=\"button\" name=\"filterSize\" id=\"filterSize\" value=\"By Size\" >\n        <input class=\"main_form-filter-btn\" type=\"button\" name=\"filterPrice\" id=\"filterPrice\" value=\"By Price\" > ";
     }
     options.innerHTML = html;
     var filterBtns = document.querySelectorAll(".main_form-filter-btn");

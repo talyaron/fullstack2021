@@ -13,7 +13,7 @@ body {
   background-repeat: no-repeat;
 
   font-family: "Montserrat", sans-serif;
-  color: white;
+   color: 'whiblackte';
   margin:0px;
   //   height: 200vh;
 }
@@ -34,6 +34,7 @@ body {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      color: white;
 
       &__help {
         display: flex;
@@ -65,7 +66,7 @@ body {
     font-size: larger;
     cursor: pointer;
     opacity: 0;
-    transition: ease 300ms;
+    transition: ease 3ms;
     // transform: translateY(0px);
     // visibility: hidden;
 
@@ -85,6 +86,7 @@ body {
   &__main {
     //   display: block;
     text-align: center;
+    background-color: rgb(231, 231, 231);
 
     img {
       background-size: cover;

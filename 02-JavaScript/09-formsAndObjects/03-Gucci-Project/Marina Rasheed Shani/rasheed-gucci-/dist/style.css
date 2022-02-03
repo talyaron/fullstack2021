@@ -8,7 +8,7 @@ body {
   background-size: contain;
   background-repeat: no-repeat;
   font-family: "Montserrat", sans-serif;
-  color: white;
+  color: "whiblackte";
   margin: 0px;
 }
 
@@ -25,6 +25,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: white;
 }
 .container__navBar__title__help {
   display: flex;
@@ -51,7 +52,7 @@ body {
   font-size: larger;
   cursor: pointer;
   opacity: 0;
-  transition: ease 300ms;
+  transition: ease 3ms;
 }
 .container__dropdawn.visible {
   opacity: 1;
@@ -63,6 +64,7 @@ body {
 }
 .container__main {
   text-align: center;
+  background-color: #e7e7e7;
 }
 .container__main img {
   background-size: cover;

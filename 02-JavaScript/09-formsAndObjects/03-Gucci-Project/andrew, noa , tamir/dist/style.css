@@ -254,6 +254,14 @@ body {
   border: 2px solid black;
   border-radius: 20px;
   box-shadow: black 20px 20px 20px;
+  background: var(--main-color-gray3);
+  position: fixed;
+  top: 80px;
+  right: 0px;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(-30px);
+  transition: ease 500ms;
 }
 .wow__title {
   text-align: center;
@@ -261,6 +269,11 @@ body {
 }
 .wow img {
   border-radius: 40px;
+}
+.wow.visible {
+  opacity: 1;
+  transform: translateY(0px);
+  pointer-events: all;
 }
 
 #root .card {

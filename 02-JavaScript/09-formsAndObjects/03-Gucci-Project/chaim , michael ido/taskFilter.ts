@@ -267,7 +267,7 @@ function display(ev): void {
     // receiving inputs values ----------
 
     // console.log(clothsList.Tshirts);
-    console.log(clothsList.Tshirts);
+
     let catagory;
     let brand;
     let price: number;
@@ -441,7 +441,7 @@ function activeBtns(btn): void {
         </select> `;
     } else if (id == "filter") {
         html = `
-        <input class="main_form-filter-btn" type="button" name="filterBrand" id="filterBrand" value="By Brand" >
+        <input class="main_form-filter-btn" type="button" name="filterBr and" id="filterBrand" value="By Brand" >
         <input class="main_form-filter-btn" type="button" name="filterSize" id="filterSize" value="By Size" >
         <input class="main_form-filter-btn" type="button" name="filterPrice" id="filterPrice" value="By Price" > `;
     }
@@ -578,16 +578,13 @@ function handleSort(ev) {
     const sortValue = ev.target.value;
     const boxId = ev.target.id
 
-    console.log(boxId)
-    console.log(sortValue);
-
-    const ListDisplay = document.querySelector('.container_catagories-display')
-
-    if (boxId == 'Tshirts') {
-        clothsList.SortCustomerPage(clothsList.Tshirts, sortValue, ListDisplay, "Shoes")
-    } else if (boxId == "shoes") {
-        clothsList.SortCustomerPage(clothsList.shoes, sortValue, ListDisplay, "Shoes")
-    } else if (boxId == "pants") {
-        clothsList.SortCustomerPage(clothsList.pants, sortValue, ListDisplay, "Pants")
+    if (sortValue == "sortAtoZ"){
+        console.log('lala');
+    } else if (sortValue == "sortZtoA") {
+        console.log('lili');
+    } else if (sortValue == "sortLowToHigh") {
+        console.log('dadad');
+    } else if (sortValue == "sortHighToLow") {
+        console.log('rarara');
     }
 }
