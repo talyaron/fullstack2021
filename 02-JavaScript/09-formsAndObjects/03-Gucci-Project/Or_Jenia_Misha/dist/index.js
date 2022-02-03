@@ -50,11 +50,17 @@ var sushiMenu = {
         }
     }
 };
-var rootStore = document.getElementById("rootStore");
-var rootERP = document.getElementById("rootERP");
-console.log(rootStore);
-sushiMenu.renderDishesStore(sushiMenu.dishes, rootStore);
-sushiMenu.renderDishesERP(sushiMenu.dishes, rootERP);
+renderSushiMenu();
+function renderSushiMenu() {
+    var rootStore = document.getElementById("rootStore");
+    var rootERP = document.getElementById("rootERP");
+    if (rootStore) {
+        sushiMenu.renderDishesStore(sushiMenu.dishes, rootStore);
+    }
+    if (rootERP) {
+        sushiMenu.renderDishesERP(sushiMenu.dishes, rootERP);
+    }
+}
 function handleAddDish(ev) {
     ev.preventDefault();
     var dishName = ev.target.elements.name.value;
@@ -63,10 +69,7 @@ function handleAddDish(ev) {
     var dishCategory = document.getElementById("category")
         .value;
     sushiMenu.addDish(dishName, dishPrice, dishDesc, dishCategory);
-    var rootStore = document.getElementById("rootStore");
-    var rootERP = document.getElementById("rootERP");
-    sushiMenu.renderDishesStore(sushiMenu.dishes, rootStore);
-    sushiMenu.renderDishesERP(sushiMenu.dishes, rootERP);
+    renderSushiMenu();
     ev.target.reset();
 }
 function handleDeleteDish(ev) {
@@ -76,10 +79,10 @@ sushiMenu.getData();
 // sushiMenu.renderDishesStore(sushiMenu.dishes, root);
 // ---- CSS MANIPULATION --- //
 function navSlide() {
-    var burger = document.querySelector('.burger');
-    var nav = document.querySelector('.navtags');
-    burger.addEventListener('click', function () {
-        nav.classList.toggle('navtags-active');
+    var burger = document.querySelector(".burger");
+    var nav = document.querySelector(".navtags");
+    burger.addEventListener("click", function () {
+        nav.classList.toggle("navtags-active");
     });
 }
 navSlide();
