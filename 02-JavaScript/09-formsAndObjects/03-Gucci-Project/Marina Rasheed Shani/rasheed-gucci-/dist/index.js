@@ -1,8 +1,5 @@
 var gucci = {
-    items: [{
-            name: "red dress", price: 400, img: "https://media.gucci.com/style/DarkGray_South_0_160_316x316/1638431131/680136_ZJT72_9900_001_100_0000_Light-Lam-floral-lace-dress.jpg", department: "clothes", gender: "women", type: "dress"
-        }
-    ],
+    items: [],
     storeData: function () {
         localStorage.setItem("storeData", JSON.stringify(this.items));
     },
@@ -63,7 +60,7 @@ var gucci = {
 };
 function handleUpdate(ev, id) {
     ev.preventDefault();
-    var root = document.getElementById('root');
+    var root = document.getElementById("root");
     gucci.renderAllitems(root);
     var itemName = ev.target.elements.itemName.value;
     var NewPrice = ev.target.elements.update.value;
@@ -72,6 +69,18 @@ function handleUpdate(ev, id) {
 }
 function handleShowItems() {
     console.log(gucci.items);
+}
+function handleShowDropDown(ev) {
+    console.log(ev);
+    var id = ev.target.id;
+    var dropDown = document.getElementById(id + "-dropdown");
+    if (ev.type === "mouseleave") {
+        // dropDown.classList.replace("show", "hide");
+    }
+    else if (ev.type === "mouseenter") {
+        //all dropdowns class hide
+        dropDown.classList.replace("hide", "show");
+    }
 }
 function handleAddItems(ev) {
     ev.preventDefault();
@@ -83,7 +92,7 @@ function handleAddItems(ev) {
     var type = ev.target[5].value;
     var id = uid;
     gucci.addItems(name, price, img, department, gender, type, id);
-    var root = document.getElementById('root');
+    var root = document.getElementById("root");
     gucci.renderAllitems(root);
     console.log(gucci.items);
     gucci.storeData();
@@ -93,7 +102,7 @@ function handleRemoveItems(ev) {
     ev.preventDefault();
     var name = ev.target.elements.remove.value;
     gucci.removeItems(name);
-    var root = document.getElementById('root');
+    var root = document.getElementById("root");
     gucci.renderAllitems(root);
     gucci.storeData();
     ev.target.reset();
@@ -103,12 +112,12 @@ var uid = function () {
 };
 function handlePriceAsc(price) {
     gucci.sortByAscending(price);
-    var root = document.getElementById('root');
+    var root = document.getElementById("root");
     gucci.renderAllitems(root);
 }
 function handlePriceDesc(price) {
     gucci.sortByDescending(price);
-    var root = document.getElementById('root');
+    var root = document.getElementById("root");
     gucci.renderAllitems(root);
 }
 function handleFilterByPrice(ev) {
@@ -123,22 +132,20 @@ function handleFilterByPrice(ev) {
         gucci.renderAllitems(root);
     }
 }
-var navBar = document.querySelectorAll('.container__navBar__catergory');
-navBar.forEach(function (item) {
-    item.addEventListener('mouseover', handleNavMouseover);
-});
-var dropDown = document.querySelector('.container__dropdawn');
-function handleNavMouseover() {
-    dropDown.classList.toggle('visible');
-}
-navBar.forEach(function (item) {
-    item.addEventListener('mouseleave', handleNavMouseleave);
-});
-function handleNavMouseleave() {
-    dropDown.classList.toggle('hidden');
-}
+// let navBar = document.querySelectorAll('.container__navBar__catergory');
+// navBar.forEach(item => {
+//   item.addEventListener('mouseover', handleNavMouseover)
+// });
+// let dropDown = document.querySelector('.container__dropdawn')
+// function handleNavMouseover() {
+//   dropDown.classList.toggle('visible')
+// }
+// navBar.forEach(item => {
+//   item.addEventListener('mouseleave', handleNavMouseleave)
+// })
+// function handleNavMouseleave() {
+//   dropDown.classList.toggle('hidden')
+// }
 gucci.getData();
-var root = document.getElementById('root');
+var root = document.getElementById("root");
 gucci.renderAllitems(root);
-var id = uid();
-// gucci.addItems("red dress", 400, "https://media.gucci.com/style/DarkGray_South_0_160_316x316/1638431131/680136_ZJT72_9900_001_100_0000_Light-Lam-floral-lace-dress.jpg", "clothes","women", "dress", id);
