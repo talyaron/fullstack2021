@@ -1,5 +1,3 @@
-
-
 interface Store {
   items: Array<Item>;
   storeData();
@@ -31,12 +29,18 @@ interface Item {
   gender: "men" | "women";
   type: string;
   id?: any;
-
-
 }
 
 const gucci: Store = {
-  items: [],
+  items: [
+    { name:"red dress",price: 4000,img: "https://media.gucci.com/style/DarkGray_South_0_160_316x316/1638431131/680136_ZJT72_9900_001_100_0000_Light-Lam-floral-lace-dress.jpg", department:"clothes",gender:"women", type:"dress" },
+    { name:"green dress",price: 3000,img: "https://media.gucci.com/style/DarkGray_South_0_160_316x316/1638431131/680136_ZJT72_9900_001_100_0000_Light-Lam-floral-lace-dress.jpg", department:"clothes",gender:"women", type:"dress" },
+    { name:"red pants",price:1580 ,img: "https://media.gucci.com/style/DarkGray_South_0_160_316x316/1638431131/680136_ZJT72_9900_001_100_0000_Light-Lam-floral-lace-dress.jpg", department:"clothes",gender:"women", type:"pants" },
+    { name:"gold shoes",price: 7000,img: "https://media.gucci.com/style/DarkGray_South_0_160_316x316/1638431131/680136_ZJT72_9900_001_100_0000_Light-Lam-floral-lace-dress.jpg", department:"clothes",gender:"men", type:"shoes" },
+    { name:"yellow shirt",price:801,img: "https://media.gucci.com/style/DarkGray_South_0_160_316x316/1638431131/680136_ZJT72_9900_001_100_0000_Light-Lam-floral-lace-dress.jpg", department:"clothes",gender:"men", type:"t-shirt" },
+    { name:"ring",price:6900,img: "https://media.gucci.com/style/DarkGray_South_0_160_316x316/1638431131/680136_ZJT72_9900_001_100_0000_Light-Lam-floral-lace-dress.jpg", department:"jewelry",gender:"women", type:"ring" },
+    
+  ],
   storeData() {
     localStorage.setItem("storeData", JSON.stringify(this.items));
   },
@@ -66,7 +70,6 @@ const gucci: Store = {
   renderMaxPrice(filtered, domElement) {
     this.render(filtered, domElement);
   },
-
 
   updateItems(id, newPrice, itemName) {
     itemName = this.items.name;
@@ -108,23 +111,31 @@ const gucci: Store = {
 function handleUpdate(ev, id) {
   ev.preventDefault();
 
-  const root = document.getElementById('root');
+  const root = document.getElementById("root");
   gucci.renderAllitems(root);
-const itemName =  ev.target.elements.itemName.value
+  const itemName = ev.target.elements.itemName.value;
   const NewPrice = ev.target.elements.update.value;
-  gucci.updateItems(id,NewPrice,itemName)
+  gucci.updateItems(id, NewPrice, itemName);
   gucci.storeData();
 }
-  
-
-
 
 function handleShowItems() {
-  console.log(gucci.items)
+  console.log(gucci.items);
 }
 
-
-
+function handleShowDropDown(ev) {
+  console.log(ev);
+ 
+  const id = ev.target.id;
+  
+  const dropDown = document.getElementById(`${id}-dropdown`);
+  if (ev.type === "mouseleave") {
+    // dropDown.classList.replace("show", "hide");
+  } else if (ev.type === "mouseenter") {
+    //all dropdowns class hide
+    dropDown.classList.replace("hide", "show");
+  }
+}
 
 function handleAddItems(ev) {
   ev.preventDefault();
@@ -138,7 +149,7 @@ function handleAddItems(ev) {
   let id = uid;
   gucci.addItems(name, price, img, department, gender, type, id);
 
-  const root = document.getElementById('root');
+  const root = document.getElementById("root");
   gucci.renderAllitems(root);
   console.log(gucci.items);
   gucci.storeData();
@@ -150,7 +161,7 @@ function handleRemoveItems(ev) {
   ev.preventDefault();
   const name = ev.target.elements.remove.value;
   gucci.removeItems(name);
-  const root = document.getElementById('root');
+  const root = document.getElementById("root");
   gucci.renderAllitems(root);
   gucci.storeData();
   ev.target.reset();
@@ -161,17 +172,14 @@ const uid = function () {
 
 function handlePriceAsc(price) {
   gucci.sortByAscending(price);
-  const root = document.getElementById('root');
+  const root = document.getElementById("root");
   gucci.renderAllitems(root);
 }
 function handlePriceDesc(price) {
   gucci.sortByDescending(price);
-  const root = document.getElementById('root');
+  const root = document.getElementById("root");
   gucci.renderAllitems(root);
-
 }
-
-
 
 function handleFilterByPrice(ev) {
   ev.preventDefault();
@@ -185,34 +193,24 @@ function handleFilterByPrice(ev) {
   }
 }
 
+// let navBar = document.querySelectorAll('.container__navBar__catergory');
+// navBar.forEach(item => {
+//   item.addEventListener('mouseover', handleNavMouseover)
+// });
 
+// let dropDown = document.querySelector('.container__dropdawn')
+// function handleNavMouseover() {
+//   dropDown.classList.toggle('visible')
+// }
 
-
-
-
-
-let navBar = document.querySelectorAll('.container__navBar__catergory');
-navBar.forEach(item => {
-  item.addEventListener('mouseover', handleNavMouseover)
-});
-
-let dropDown = document.querySelector('.container__dropdawn')
-function handleNavMouseover() {
-  dropDown.classList.toggle('visible')
-}
-
-
-
-navBar.forEach(item => {
-  item.addEventListener('mouseleave', handleNavMouseleave)
-})
-function handleNavMouseleave() {
-  dropDown.classList.toggle('hidden')
-}
+// navBar.forEach(item => {
+//   item.addEventListener('mouseleave', handleNavMouseleave)
+// })
+// function handleNavMouseleave() {
+//   dropDown.classList.toggle('hidden')
+// }
 
 gucci.getData();
 
-
-
-const root = document.getElementById('root');
+const root = document.getElementById("root");
 gucci.renderAllitems(root);

@@ -93,7 +93,6 @@
                 // margin-left: 150px;
                 border: 3px solid white;
                 box-shadow: rgba(16, 119, 56, 0.55) 0px 30px 60px -12px inset, rgba(119, 85, 12, 1.5) 0px 18px 36px -30px inset;
-
             }
         }
 
@@ -106,13 +105,23 @@
         &-filterInputs {
             box-shadow: rgba(6, 61, 97, 0.85) 0px 30px 60px -12px inset, rgba(16, 63, 85, 0.5) 0px 18px 36px -30px inset;
             height: 30%;
-            overflow: auto;
-            white-space: nowrap;
+           
 
             &-option {
                 font-size: 15px;
                 background-color: #037043;
             }
+        }
+        &-filterInputsCustomer{
+            box-shadow: rgba(6, 61, 97, 0.85) 0px 30px 60px -12px inset, rgba(16, 63, 85, 0.5) 0px 18px 36px -30px inset;
+            height: 70%;
+            margin-left: 25px;
+            margin-top: -20px;
+            color: aliceblue;
+            &::placeholder{
+                color: aliceblue;
+            }
+           
         }
     }
 
@@ -151,7 +160,7 @@
 
             &-card {
                 height: 100%;
-                background-color: rgb(78, 76, 76);
+                background-color: rgb(15, 14, 14);
                 width: 50%;
                 row-gap: 5px;
                 text-align: center;
@@ -215,7 +224,7 @@
             coral,
             transparent);
     background-blend-mode: screen;
-}
+
 
 // background-color: rgb(46, 127, 141);
 
