@@ -1,5 +1,7 @@
 var gucci = {
-    items: [],
+    items: [{
+            name: "red dress", price: 400, img: "https://media.gucci.com/style/DarkGray_South_0_160_316x316/1638431131/680136_ZJT72_9900_001_100_0000_Light-Lam-floral-lace-dress.jpg", department: "clothes", gender: "women", type: "dress"
+        }],
     storeData: function () {
         localStorage.setItem("storeData", JSON.stringify(this.items));
     },
@@ -137,3 +139,5 @@ function handleNavMouseleave() {
 gucci.getData();
 var root = document.getElementById('root');
 gucci.renderAllitems(root);
+var id = uid();
+// gucci.addItems("red dress", 400, "https://media.gucci.com/style/DarkGray_South_0_160_316x316/1638431131/680136_ZJT72_9900_001_100_0000_Light-Lam-floral-lace-dress.jpg", "clothes","women", "dress", id);
