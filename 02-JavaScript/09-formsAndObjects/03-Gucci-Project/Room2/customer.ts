@@ -8,16 +8,18 @@ interface shop {
     renderAdidas(domElement: any);
     renderFilter(domElement, filterd);
     filterItems(highPrice?: number, lowPrice?:number),
+    renderAll(domElement),
     shoeSizeFilter(price);
     sortItemsAsc();
     sortItemsDsc();
     sortByGender(item);
     sortByColor(color);
+    sortByType(type);
   }
   
   interface product {
       title:string;
-      type:string;
+      type:"Sneakers" | "Boots" | "Hi Tops" | "Flip Flops";
       picture:string;
       price:number;
       color:string;
@@ -51,6 +53,10 @@ interface shop {
        
         
     },
+    renderAll(domElement){
+        const computers = this.products;
+        this.renderAdidas(domElement, computers)
+    },
     filterItems(highPrice, lowPrice){
         return this.products.filter((item) => item.price >= lowPrice && item.price <= highPrice);
     },
@@ -69,7 +75,9 @@ interface shop {
     sortByColor(color){
         return this.products.filter((element)=> element.color === color);
     },
-
+    sortByType(type){
+        return this.products.filter((element)=> element.type === type);
+    }
   }
  function handleCart(ev){
     //  const title = ev.target.elements.
@@ -90,17 +98,43 @@ interface shop {
         }
   }
   function handleSort(ev){
+   const sort = ev.target.value;
+  ev.preventDefault();
+  const root = document.getElementById("root");
+   if(sort === this.product.sortItemsAsc()){
 
+    
+   Adidas.renderAll(root);
+   }
+   else{
+    Adidas.renderAll(root);
+   }
   }
 function handleType(ev){
-
+    const type = ev.target.value;
+    ev.preventDefault();
+    const root = document.getElementById("root");
+    // if(type === " ")
+    return Adidas.renderFilter(root, type);
 }
 function handleColor(ev){
-
+    const color = ev.target.value;
+    ev.preventDefault();
+    const root = document.getElementById("root");
+    // if(type === " ")
+    return Adidas.renderFilter(root, color);
 }
 function handleGender(ev){
-
+    const gender = ev.target.value;
+    ev.preventDefault();
+    const root = document.getElementById("root");
+    // if(type === " ")
+    return Adidas.renderFilter(root, gender);
 }
 function handleShoeSize(ev){
-    
+    const size = ev.target.value;
+    ev.preventDefault();
+    const root = document.getElementById("root");
+    // if(type === " ")
+    return Adidas.renderFilter(root, size);
 }
