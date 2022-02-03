@@ -1,5 +1,3 @@
-
-
 interface Store {
   items: Array<Item>;
   storeData();
@@ -28,11 +26,11 @@ interface Item {
   price: number;
   img: any;
   department: "clothes" | "watches" | "jewelry" | "bags";
+  category: string;
+  subCategory: string;
   gender: "men" | "women";
   type: string;
   id?: any;
-
-
 }
 
 const gucci: Store = {
@@ -66,7 +64,6 @@ const gucci: Store = {
   renderMaxPrice(filtered, domElement) {
     this.render(filtered, domElement);
   },
-
 
   updateItems(id, newPrice, itemName) {
     itemName = this.items.name;
@@ -108,23 +105,31 @@ const gucci: Store = {
 function handleUpdate(ev, id) {
   ev.preventDefault();
 
-  const root = document.getElementById('root');
+  const root = document.getElementById("root");
   gucci.renderAllitems(root);
-const itemName =  ev.target.elements.itemName.value
+  const itemName = ev.target.elements.itemName.value;
   const NewPrice = ev.target.elements.update.value;
-  gucci.updateItems(id,NewPrice,itemName)
+  gucci.updateItems(id, NewPrice, itemName);
   gucci.storeData();
 }
-  
-
-
 
 function handleShowItems() {
-  console.log(gucci.items)
+  console.log(gucci.items);
 }
 
-
-
+function handleShowDropDown(ev) {
+  console.log(ev);
+ 
+  const id = ev.target.id;
+  
+  const dropDown = document.getElementById(`${id}-dropdown`);
+  if (ev.type === "mouseleave") {
+    // dropDown.classList.replace("show", "hide");
+  } else if (ev.type === "mouseenter") {
+    //all dropdowns class hide
+    dropDown.classList.replace("hide", "show");
+  }
+}
 
 function handleAddItems(ev) {
   ev.preventDefault();
@@ -138,7 +143,7 @@ function handleAddItems(ev) {
   let id = uid;
   gucci.addItems(name, price, img, department, gender, type, id);
 
-  const root = document.getElementById('root');
+  const root = document.getElementById("root");
   gucci.renderAllitems(root);
   console.log(gucci.items);
   gucci.storeData();
@@ -150,7 +155,7 @@ function handleRemoveItems(ev) {
   ev.preventDefault();
   const name = ev.target.elements.remove.value;
   gucci.removeItems(name);
-  const root = document.getElementById('root');
+  const root = document.getElementById("root");
   gucci.renderAllitems(root);
   gucci.storeData();
   ev.target.reset();
@@ -161,17 +166,14 @@ const uid = function () {
 
 function handlePriceAsc(price) {
   gucci.sortByAscending(price);
-  const root = document.getElementById('root');
+  const root = document.getElementById("root");
   gucci.renderAllitems(root);
 }
 function handlePriceDesc(price) {
   gucci.sortByDescending(price);
-  const root = document.getElementById('root');
+  const root = document.getElementById("root");
   gucci.renderAllitems(root);
-
 }
-
-
 
 function handleFilterByPrice(ev) {
   ev.preventDefault();
@@ -185,34 +187,24 @@ function handleFilterByPrice(ev) {
   }
 }
 
+// let navBar = document.querySelectorAll('.container__navBar__catergory');
+// navBar.forEach(item => {
+//   item.addEventListener('mouseover', handleNavMouseover)
+// });
 
+// let dropDown = document.querySelector('.container__dropdawn')
+// function handleNavMouseover() {
+//   dropDown.classList.toggle('visible')
+// }
 
-
-
-
-
-let navBar = document.querySelectorAll('.container__navBar__catergory');
-navBar.forEach(item => {
-  item.addEventListener('mouseover', handleNavMouseover)
-});
-
-let dropDown = document.querySelector('.container__dropdawn')
-function handleNavMouseover() {
-  dropDown.classList.toggle('visible')
-}
-
-
-
-navBar.forEach(item => {
-  item.addEventListener('mouseleave', handleNavMouseleave)
-})
-function handleNavMouseleave() {
-  dropDown.classList.toggle('hidden')
-}
+// navBar.forEach(item => {
+//   item.addEventListener('mouseleave', handleNavMouseleave)
+// })
+// function handleNavMouseleave() {
+//   dropDown.classList.toggle('hidden')
+// }
 
 gucci.getData();
 
-
-
-const root = document.getElementById('root');
+const root = document.getElementById("root");
 gucci.renderAllitems(root);

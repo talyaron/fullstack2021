@@ -65,22 +65,12 @@ body {
     font-weight: 300;
     font-size: larger;
     cursor: pointer;
-    opacity: 0;
+    
     transition: ease 3ms;
     // transform: translateY(0px);
     // visibility: hidden;
 
-    &.visible {
-      opacity: 1;
-      transform: translateY(0px);
-      position: static;
-
-
-    }
-    &.hidden{
-      opacity: 0;
-      
-    }
+    
   }
 
   &__main {
@@ -286,4 +276,12 @@ $background-color:#ffffff;
     //   height: 380px;
     // }
   }
+}
+
+.hide{
+  display: none;
+}
+
+.show{
+  display: block;
 }

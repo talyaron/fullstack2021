@@ -51,16 +51,7 @@ body {
   font-weight: 300;
   font-size: larger;
   cursor: pointer;
-  opacity: 0;
   transition: ease 3ms;
-}
-.container__dropdawn.visible {
-  opacity: 1;
-  transform: translateY(0px);
-  position: static;
-}
-.container__dropdawn.hidden {
-  opacity: 0;
 }
 .container__main {
   text-align: center;
@@ -177,4 +168,12 @@ body {
 }
 .catergory__items .items p {
   letter-spacing: 2px;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
 }
