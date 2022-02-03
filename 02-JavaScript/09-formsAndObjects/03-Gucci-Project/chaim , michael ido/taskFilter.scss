@@ -3,17 +3,30 @@
 }
 
 .main {
-    max-width: 300px;
-    height: 700px;
+    max-width: 100%;
+    height: 50%;
     // border: 3px solid black;
     margin: auto;
     background-image:
         linear-gradient(90deg, rgb(70, 74, 75), rgba(160, 167, 166, 0)),
         repeating-linear-gradient(-45deg, #57779b, #1b7557 1.5px, #456bb3 2px, #422dbd 4px);
 
+    &-header {
+        font-size: 10vh;
+        color: darkgoldenrod;
+        text-decoration: underline;
+        text-align: center;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        background-color:silver;
+        transition: all 2s;
+        cursor: pointer;
+    }
+
     &_form {
         height: 300px;
         max-width: 300px;
+        margin-right: auto;
+        margin-left: auto;
         // border: 3px solid red;
         display: grid;
         grid-template-columns: repeat(3, 33%);
@@ -25,6 +38,7 @@
             display: flex;
             flex-direction: row;
             justify-content: space-around;
+               
 
             &-Btn {
                 box-shadow: rgba(38, 168, 21, 0.55) 0px 30px 60px -12px inset, rgba(119, 85, 33, 1.5) 0px 18px 36px -30px inset;
@@ -37,20 +51,21 @@
         }
 
         &-selectCatagory {
-            font-size: 15px;
+            font-size: 30px;
             font-weight: bold;
             box-shadow: rgba(102, 122, 153, 0.85) 0px 30px 60px -12px inset, rgba(77, 76, 74, 0.5) 0px 18px 36px -30px inset;
-            height: 4vh;
+            height: 6vh;
             text-align: center;
             -webkit-appearance: none;
             -moz-appearance: none;
-            appearance: none;
             width: 100%;
             background: rgb(8, 95, 55);
             color: rgb(241, 234, 234);
             grid-column: 1/4;
             font-weight: bold;
-
+            cursor: pointer;
+            
+            
             &-options {
                 font-size: 15px;
                 border: 10px solid black;
@@ -73,6 +88,7 @@
 
             &-btn {
                 width: 33%;
+                cursor: pointer;
                 box-shadow: rgba(68, 66, 68, 0.75) 0px 30px 60px -12px inset, rgba(183, 96, 199, 0.8) 0px 18px 36px -10px inset;
             }
         }
@@ -308,21 +324,21 @@
             overflow: auto;
             white-space: nowrap;
 
-            &-card{
+            &-card {
                 border-bottom: 5px solid rgb(0, 0, 0);
                 box-sizing: content-box;
                 box-shadow: rgba(110, 111, 112, 0.55) 0px 30px 60px 80px inset, rgba(12, 24, 94, 0.75) 0px 18px 36px 30px inset;
                 height: 100%;
                 width: 100%;
                 display: grid;
-                grid-template-columns: repeat(2,50%);
+                grid-template-columns: repeat(2, 50%);
 
-                &-details{
+                &-details {
                     height: 100%;
                     grid-column: 1/2;
                 }
 
-                &-img{
+                &-img {
                     height: 100%;
                     grid-column: 2/3;
                     // border-left: 1px dotted black;
@@ -332,6 +348,7 @@
                 }
             }
         }
+
         .Tshirts {
             background-image: url("https://www.buytshirtdesigns.net/wp-content/uploads/2020/02/20-Gym-T-shirts-600x450.jpg");
         }
@@ -352,17 +369,18 @@
         flex-direction: row;
         justify-content: space-between;
         margin-top: 15px;
-        
+
         &-box {
             height: 80%;
             width: 30%;
             margin: auto;
         }
     }
-    &-select{
+
+    &-select {
         font-size: 12px;
         font-weight: bold;
-        box-shadow: rgba(40, 40, 41, 0.85) 0px 30px 60px -12px inset,rgba(25, 34, 153, 0.8) 0px 18px 36px 30px inset;
+        box-shadow: rgba(40, 40, 41, 0.85) 0px 30px 60px -12px inset, rgba(25, 34, 153, 0.8) 0px 18px 36px 30px inset;
         height: 4vh;
         text-align: center;
         appearance: none;
@@ -370,13 +388,13 @@
         background: rgb(50, 86, 185);
         color: rgb(255, 255, 255);
         font-weight: bold;
-        margin:auto;
+        margin: auto;
 
-        &-options{
+        &-options {
             font-size: 10px;
             display: inline-block;
             font-family: 'Times New Roman', Times, serif;
-            
+
         }
     }
 }
