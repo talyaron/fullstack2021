@@ -33,11 +33,11 @@ interface Item {
 
 const gucci: Store = {
   items: [
-    { name:"red dress",price: 4000,img: "https://media.gucci.com/style/DarkGray_South_0_160_316x316/1638431131/680136_ZJT72_9900_001_100_0000_Light-Lam-floral-lace-dress.jpg", department:"clothes",gender:"women", type:"dress" },
-    { name:"green dress",price: 3000,img: "https://media.gucci.com/style/DarkGray_South_0_160_316x316/1638431131/680136_ZJT72_9900_001_100_0000_Light-Lam-floral-lace-dress.jpg", department:"clothes",gender:"women", type:"dress" },
-    { name:"red pants",price:1580 ,img: "https://media.gucci.com/style/DarkGray_South_0_160_316x316/1638431131/680136_ZJT72_9900_001_100_0000_Light-Lam-floral-lace-dress.jpg", department:"clothes",gender:"women", type:"pants" },
+    { name:"red dress",price: 4000,img: "https://media.gucci.com/style/DarkGray_South_0_160_316x316/1614852904/662248_ZFP42_6325_001_100_0000_Light-2015-Re-Edition-floral-print-dress.jpg", department:"clothes",gender:"women", type:"dress" },
+    { name:"white dress",price: 3000,img: "https://media.gucci.com/style/DarkGray_South_0_160_316x316/1638431131/680136_ZJT72_9900_001_100_0000_Light-Lam-floral-lace-dress.jpg", department:"clothes",gender:"women", type:"dress" },
+    { name:"red green pants",price:1580 ,img: "https://media.gucci.com/style/DarkGray_South_0_160_316x316/1638553515/663766_ZLX45_3475_001_100_0000_Light-The-North-Face-x-Gucci-pant.jpg", department:"clothes",gender:"men", type:"pants" },
     { name:"gold shoes",price: 7000,img: "https://media.gucci.com/style/DarkGray_South_0_160_316x316/1638431131/680136_ZJT72_9900_001_100_0000_Light-Lam-floral-lace-dress.jpg", department:"clothes",gender:"men", type:"shoes" },
-    { name:"yellow shirt",price:801,img: "https://media.gucci.com/style/DarkGray_South_0_160_316x316/1638431131/680136_ZJT72_9900_001_100_0000_Light-Lam-floral-lace-dress.jpg", department:"clothes",gender:"men", type:"t-shirt" },
+    { name:"green shirt",price:801,img: "https://media.gucci.com/style/DarkGray_South_0_160_316x316/1634749231/653380_XJDF8_3495_001_100_0000_Light-Cotton-piquet-polo-with-Interlocking-G.jpg", department:"clothes",gender:"men", type:"t-shirt" },
     { name:"ring",price:6900,img: "https://media.gucci.com/style/DarkGray_South_0_160_316x316/1638431131/680136_ZJT72_9900_001_100_0000_Light-Lam-floral-lace-dress.jpg", department:"jewelry",gender:"women", type:"ring" },
     
   ],
