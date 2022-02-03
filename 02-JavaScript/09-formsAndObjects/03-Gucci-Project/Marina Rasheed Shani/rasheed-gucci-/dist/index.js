@@ -21,6 +21,12 @@ var gucci = {
             this.storeData();
         }
     },
+    filterMaxPrice: function (price) {
+        return this.items.filter(function (item) { return item.price < price; });
+    },
+    renderMaxPrice: function (filtered, domElement) {
+        this.render(filtered, domElement);
+    },
     updateItems: function (id, newPrice, itemName) {
         itemName = this.items.name;
         var index = this.items.findIndex(function (item) { return item.id === id; });
@@ -101,6 +107,18 @@ function handlePriceDesc(price) {
     gucci.sortByDescending(price);
     var root = document.getElementById('root');
     gucci.renderAllitems(root);
+}
+function handleFilterByPrice(ev) {
+    ev.preventDefault();
+    var price = ev.target.valueAsNumber;
+    var root = document.querySelector("#root");
+    if (price) {
+        var filtered = gucci.filterMaxPrice(price);
+        gucci.renderMaxPrice(filtered, root);
+    }
+    else {
+        gucci.renderAllitems(root);
+    }
 }
 var navBar = document.querySelectorAll('.container__navBar__catergory');
 navBar.forEach(function (item) {
