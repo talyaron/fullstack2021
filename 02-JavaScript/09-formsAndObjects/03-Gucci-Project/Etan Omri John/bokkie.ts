@@ -8,6 +8,7 @@ interface BookShop{
     //filterByPrice();
     //updateBook();
     //deleteBook();
+    //changeOrder()
     sortItemAsc();
     sortItemDesc();
 

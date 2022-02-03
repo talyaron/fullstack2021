@@ -13,17 +13,20 @@ interface Store {
     type: string,
     id: any
   ): any;
-  removeItems(itemName: string): any
+  removeItems(itemName: string): any;
+  updateItems(id: any, newPrice: number, itemName: string): any;
+  filterMaxPrice(price: number);
   render(list: any, domElement: any): any;
   renderAllitems(domElement: any): any;
   sortByAscending?(price: number);
   sortByDescending?(price: number);
+  renderMaxPrice(filtered: Array<Item>, domElement);
 }
 
 interface Item {
   name: string;
   price: number;
-  img?: any;
+  img: any;
   department: "clothes" | "watches" | "jewelry" | "bags";
   gender: "men" | "women";
   type: string;
@@ -44,45 +47,75 @@ const gucci: Store = {
     }
   },
   addItems(name, price, img, department, gender, type) {
-    const id = uid()
-    console.log(this);
-    this.items.push({ name, price, img, department, gender, type,id});
+    const id = uid();
+    this.items.push({ name, price, img, department, gender, type, id });
     this.storeData();
   },
   removeItems(itemName: string) {
-    const index = this.items.findIndex(item => item.name === itemName);
+    const index = this.items.findIndex((item) => item.name === itemName);
     if (index >= 0) {
-      this.items.splice(index, 1)
+      this.items.splice(index, 1);
+      this.storeData();
+    }
+  },
+
+  filterMaxPrice(price) {
+    return this.items.filter((item) => item.price < price);
+  },
+
+  renderMaxPrice(filtered, domElement) {
+    this.render(filtered, domElement);
+  },
+
+
+  updateItems(id, newPrice, itemName) {
+    itemName = this.items.name;
+    const index = this.items.findIndex((item) => item.id === id);
+    if (index >= 0) {
+      this.items[index].price = newPrice;
+      // this.items[index].name = itemName;
+      this.storeData();
     }
   },
   render(list, domElement) {
     let html = "";
-    list.forEach((product) => {
+    list.forEach((product: any) => {
       html += `<div class="items">
-        <p> item : ${product.name}</p>
+        <p>${product.name}</p>
         <img class="img" src="${product.img}" >
-        <p> price : ${product.price}$</p>
+        <p>${product.price}$</p>
         <input onclick="handleAddToCart()" id="addToCart" type="button" value="ADD TO CART">
         </div>`;
     });
     domElement.innerHTML = html;
   },
   renderAllitems(domElement) {
-    
     const items = this.items;
     this.render(items, domElement);
   },
   sortByAscending(price) {
     this.items.sort((a, b) => {
       return a.price - b.price;
-    })
+    });
   },
   sortByDescending(price) {
     this.items.sort((a, b) => {
       return b.price - a.price;
-    })
+    });
   },
 };
+
+function handleUpdate(ev, id) {
+  ev.preventDefault();
+
+  const root = document.getElementById('root');
+  gucci.renderAllitems(root);
+const itemName =  ev.target.elements.itemName.value
+  const NewPrice = ev.target.elements.update.value;
+  gucci.updateItems(id,NewPrice,itemName)
+  gucci.storeData();
+}
+  
 
 
 
@@ -90,15 +123,11 @@ function handleShowItems() {
   console.log(gucci.items)
 }
 
-gucci.getData();
+
 
 
 function handleAddItems(ev) {
   ev.preventDefault();
-  console.dir(ev.target)
-
-  // const root = document.getElementById('root');
-  // gucci.renderAllitems(root);
 
   const name = ev.target.name.value;
   const price = ev.target.price.value;
@@ -108,6 +137,9 @@ function handleAddItems(ev) {
   const type = ev.target[5].value;
   let id = uid;
   gucci.addItems(name, price, img, department, gender, type, id);
+
+  const root = document.getElementById('root');
+  gucci.renderAllitems(root);
   console.log(gucci.items);
   gucci.storeData();
 
@@ -141,6 +173,20 @@ function handlePriceDesc(price) {
 
 
 
+function handleFilterByPrice(ev) {
+  ev.preventDefault();
+  const price = ev.target.valueAsNumber;
+  const root = document.querySelector("#root");
+  if (price) {
+    const filtered = gucci.filterMaxPrice(price);
+    gucci.renderMaxPrice(filtered, root);
+  } else {
+    gucci.renderAllitems(root);
+  }
+}
+
+
+
 
 
 
@@ -164,7 +210,9 @@ function handleNavMouseleave() {
   dropDown.classList.toggle('hidden')
 }
 
+gucci.getData();
 
 
-// const root = document.getElementById('root');
-// gucci.renderAllitems(root);
+
+const root = document.getElementById('root');
+gucci.renderAllitems(root);

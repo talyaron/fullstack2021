@@ -2,6 +2,20 @@ const uid = function () {
   return Date.now().toString(36) + Math.random().toString(36).substr(2);
 };
 
+const navSlide = () => {
+
+  const burger = document.querySelector('.burger');
+  const nav = document.querySelector('.navtags');
+
+  burger.addEventListener('click', () => {
+    nav.classList.toggle('navtags-active');
+  });
+
+}
+
+navSlide();
+
+
 interface Menu {
   dishes: Array<Dish>;
 
