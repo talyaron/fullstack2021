@@ -3,7 +3,7 @@ const uid = function () {
 };
 
 interface Object {
-    items: Array<namePrice>,
+    items: Array<namePrice> 
     additems(name: string, price: number),
     sortAsc(),
     sortDes(),
@@ -49,7 +49,7 @@ let nikeItems: object = {
         const i =this.items.findIndex(item=>item.idItem===idItem)
         this.items[i].name=newValue
     },
-    renderAllData(root: any) {
+    renderAllData(root: any) {  
         const list = this.items;
 
         this.render(root, list)
@@ -73,15 +73,15 @@ let nikeItems: object = {
 
 function handleSubmit(event) {
     event.preventDefault();
-    const name = event.target.elements.description.value
-    const price = event.target.elements.price.value
+    const name = event.target.elements.description.value 
+    const price = event.target.elements.price.value 
     nikeItems.additems(name, price)
 
     const root = document.getElementById('root');
     nikeItems.renderAllData(root);
 
 
-    event.target.reset()
+    event.target.reset() // poner el tu pajina 
 
 }
 

@@ -97,3 +97,41 @@
 .card {
   color: red;
 }
+
+.middle_header {
+  display: flex;
+  background-color: #d1b489;
+  justify-content: space-between;
+}
+.middle_header-item {
+  background-color: #d1abab;
+  width: 200px;
+  height: 100px;
+}
+.middle_header-item:hover {
+  border: 1px solid black;
+}
+.middle_main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.middle_main-img {
+  width: 100px;
+  height: 100px;
+  flex: 1 0 200px;
+}
+.middle_pictuire {
+  display: grid;
+}
+.middle_pictuire-bigPicture {
+  grid-column: 1/7;
+  grid-row: 1/7;
+}
+
+h2 {
+  background-color: cadetblue;
+  text-align: center;
+  font-size: 10rem;
+  width: fit-content;
+}

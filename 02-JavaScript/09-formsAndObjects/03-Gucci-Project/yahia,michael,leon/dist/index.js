@@ -39,7 +39,7 @@ function handleSubmit(event) {
     nikeItems.additems(name, price);
     var root = document.getElementById('root');
     nikeItems.renderAllData(root);
-    event.target.reset();
+    event.target.reset(); // poner el tu pajina 
 }
 function handleAsce() {
     nikeItems.sortAsc();
