@@ -70,14 +70,14 @@ let sushiMenu: Menu = {
   },
 
   renderDishesERP(list, domElement) {
-    let html = "<form onsubmit=`handleDeleteDish(event)`>";
+    let html = `<form onsubmit="handleDeleteDish(event)"> <input type="submit" value="delete"></input>`;
 
     list.forEach((item) => {
-      html += `<div class="dishes"> 
+      html += `<div class="dishesERP"> 
         <input type="checkbox"></input>
-         <h3 class ="dishes__title__name">${item.name}</h3> 
-         <p class ="dishes__desc">${item.description}</p>
-         <p class ="dishes__title__price">${item.price}</p>
+         <h3 class ="dishesERP__title__name">${item.name}</h3> 
+         <p class ="dishesERP__desc">${item.description}</p>
+         <p class ="dishesERP__title__price">${item.price}</p>
          
       </div>`;
     });
@@ -128,6 +128,12 @@ function handleAddDish(ev) {
 
 function handleDeleteDish(ev) {
   ev.preventDefault();
+  console.log(ev);
+  for(let i = 0; i<ev.target.length; i++){
+    console.dir(ev.target[i]);
+    
+  }
+  
 }
 
 sushiMenu.getData();
@@ -137,11 +143,14 @@ sushiMenu.getData();
 // ---- CSS MANIPULATION --- //
 
 function navSlide() {
+
   const burger = document.querySelector(".burger");
   const nav = document.querySelector(".navtags");
-  burger.addEventListener("click", () => {
-    nav.classList.toggle("navtags-active");
-  });
+  if (burger && nav) {
+    burger.addEventListener("click", () => {
+      nav.classList.toggle("navtags-active");
+    });
+  }
 }
 
 navSlide();

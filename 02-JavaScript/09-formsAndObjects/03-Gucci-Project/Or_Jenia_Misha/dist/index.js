@@ -33,9 +33,9 @@ var sushiMenu = {
         domElement.innerHTML = html;
     },
     renderDishesERP: function (list, domElement) {
-        var html = "<form onsubmit=`handleDeleteDish(event)`>";
+        var html = "<form onsubmit=\"handleDeleteDish(event)\"> <input type=\"submit\" value=\"delete\"></input>";
         list.forEach(function (item) {
-            html += "<div class=\"dishes\"> \n        <input type=\"checkbox\"></input>\n         <h3 class =\"dishes__title__name\">" + item.name + "</h3> \n         <p class =\"dishes__desc\">" + item.description + "</p>\n         <p class =\"dishes__title__price\">" + item.price + "</p>\n         \n      </div>";
+            html += "<div class=\"dishesERP\"> \n        <input type=\"checkbox\"></input>\n         <h3 class =\"dishesERP__title__name\">" + item.name + "</h3> \n         <p class =\"dishesERP__desc\">" + item.description + "</p>\n         <p class =\"dishesERP__title__price\">" + item.price + "</p>\n         \n      </div>";
         });
         html += "</form>";
         domElement.innerHTML = html;
@@ -74,6 +74,10 @@ function handleAddDish(ev) {
 }
 function handleDeleteDish(ev) {
     ev.preventDefault();
+    console.log(ev);
+    for (var i = 0; i < ev.target.length; i++) {
+        console.dir(ev.target[i]);
+    }
 }
 sushiMenu.getData();
 // sushiMenu.renderDishesStore(sushiMenu.dishes, root);
@@ -81,8 +85,10 @@ sushiMenu.getData();
 function navSlide() {
     var burger = document.querySelector(".burger");
     var nav = document.querySelector(".navtags");
-    burger.addEventListener("click", function () {
-        nav.classList.toggle("navtags-active");
-    });
+    if (burger && nav) {
+        burger.addEventListener("click", function () {
+            nav.classList.toggle("navtags-active");
+        });
+    }
 }
 navSlide();
