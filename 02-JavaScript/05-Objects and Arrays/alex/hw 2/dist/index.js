@@ -1,4 +1,4 @@
-var myome = {
+var myHome = {
     books: ["darkness", " apocalypse", "darling days"],
     clothes: ["shirt", "pants", "leggings"],
     movies: ["where the wild things are", "anger", "soundless"],
