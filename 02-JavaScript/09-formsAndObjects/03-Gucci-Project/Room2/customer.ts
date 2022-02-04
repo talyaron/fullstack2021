@@ -9,7 +9,7 @@ interface shop {
     renderFilter(domElement, filterd);
     filterItems(highPrice?: number, lowPrice?:number),
     renderAll(domElement),
-    shoeSizeFilter(price);
+    shoeSizeFilter(size);
     sortItemsAsc();
     sortItemsDsc();
     sortByGender(item);
@@ -60,8 +60,8 @@ interface shop {
     filterItems(highPrice, lowPrice){
         return this.products.filter((item) => item.price >= lowPrice && item.price <= highPrice);
     },
-    shoeSizeFilter(price){
-        return this.products.filter((item)=> item.price === price);
+    shoeSizeFilter(size){
+        return this.products.filter((item)=> item.size === size);
     },
     sortItemsAsc(){
         this.products.sort((x, y)=> y.price -x.price);
@@ -115,26 +115,28 @@ function handleType(ev){
     ev.preventDefault();
     const root = document.getElementById("root");
     // if(type === " ")
-    return Adidas.renderFilter(root, type);
+    return Adidas.renderFilter(root, Adidas.sortByType(type));
 }
 function handleColor(ev){
     const color = ev.target.value;
     ev.preventDefault();
     const root = document.getElementById("root");
     // if(type === " ")
-    return Adidas.renderFilter(root, color);
+    return Adidas.renderFilter(root, Adidas.sortByColor(color));
 }
 function handleGender(ev){
     const gender = ev.target.value;
     ev.preventDefault();
     const root = document.getElementById("root");
     // if(type === " ")
-    return Adidas.renderFilter(root, gender);
+
+    return Adidas.renderFilter(root, Adidas.sortByGender(gender));
 }
 function handleShoeSize(ev){
     const size = ev.target.value;
     ev.preventDefault();
     const root = document.getElementById("root");
+    Adidas.renderFilter(root, Adidas.shoeSizeFilter(size));
     // if(type === " ")
-    return Adidas.renderFilter(root, size);
+    //Adidas.shoeSizeFilter(size);
 }

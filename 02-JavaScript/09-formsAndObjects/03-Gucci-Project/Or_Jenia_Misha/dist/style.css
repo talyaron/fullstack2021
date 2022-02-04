@@ -45,14 +45,6 @@
     left: 0%;
   }
 }
-* {
-  padding: 0;
-  margin: 0;
-  border: 0;
-  box-sizing: border-box;
-  transition: all 0.7s;
-}
-
 body {
   font-family: "Barlow Condensed", sans-serif;
   overflow-x: hidden;

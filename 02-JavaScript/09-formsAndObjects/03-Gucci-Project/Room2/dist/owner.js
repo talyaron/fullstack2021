@@ -13,9 +13,22 @@ var Adidas = {
     render: function (list, domElement) {
         var html = '';
         list.forEach(function (product) {
-            html += "<div style=\"width: 35%;border: 1px solid red\">\n          <p><b>Title: </b> " + product.title + "</p>\n          <p><b> Price: </b> " + product.price + "\u20AA</p>\n          <p><b> picture: </b> </p>\n          <p><img src=\"" + product.picture + "\" style=\"width: 200px; height: 200px;\"></p>\n          <p><b> Color: </b> " + product.color + "</p>\n          <p><b> Description: </b> " + product.description + "</p>\n          <p><b> Size: </b> " + product.shoeSize + "</p>\n          <p><b> category: </b> " + product.category + "</p>\n          <button onclick=\"handleDelete('" + product.id + "')\">Delete</button>\n          </div>";
+            html += "<div style=\"width: 35%;border: 1px solid red\">\n          <p><b>Title: </b> " + product.title + "</p>\n          <p><b> Price: </b> " + product.price + "\u20AA</p>\n          <p><b> picture: </b> </p>\n          <p><img src=\"" + product.picture + "\" style=\"width: 200px; height: 200px;\"></p>\n          <p><b> Color: </b> " + product.color + "</p>\n          <p><b> Description: </b> " + product.description + "</p>\n          <p><b> Size: </b> " + product.shoeSize + "</p>\n          <p><b> category: </b> " + product.category + "</p>\n          <button onclick=\"handleDelete('" + product.id + "')\">Delete</button>\n          <button onclick=\"handleUpdate(event,'" + product.id + "')\"> Edit</button>\n          </div>";
         });
         domElement.innerHTML = html;
+    },
+    updateItem: function () {
+        var index = this.product.findIndex(function (item) { return item.id === id; });
+        if (index >= 0) {
+            this.product[index].title = newTitle;
+            this.product[index].price = newPrice;
+            this.product[index].category = newCategory;
+            this.product[index].picture = newPicture;
+            this.product[index].color = newColor;
+            this.product[index].description = newDescription;
+            this.product[index].shoeSize = newShoeSize;
+            this.product[index].id = newId;
+        }
     },
     renderAllData: function (domElement) {
         this.render(this.products, domElement);
@@ -24,6 +37,12 @@ var Adidas = {
 Adidas.addItem('superstar shoes', 200, 'Sneakers', 'https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg', 'red', 'B-ball legend. Street symbol. Cultural icon. Still going strong after five decades, the adidas Superstar Shoes have millions of stories to tell. Smooth leather combines with serrated 3-Stripes and the authentic rubber shell toe. Ready for the next fifty years of iconic adidas style? Lets do it.', 44);
 var root = document.getElementById('root');
 Adidas.renderAllData(root);
+function handleUpdate(event, id) {
+    event.preventDefault();
+    var newTitle = ev.target.elements.newName.value;
+    var newPrice = ev.target.elements.newPrice.valueAsNumber;
+    Adidas.updateItem(id);
+}
 function handleAddItem(ev) {
     ev.preventDefault();
     var title = ev.target.elements.title.value;
