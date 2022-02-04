@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./dist/myBookie.css">
+    <script src="https://kit.fontawesome.com/01fab75280.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="wrapper">
+        <h1 class="primeryTitle">myBookie <i class="fas fa-book-open"></i></h1>
+        <form data-addingItemForm onSubmit="handleAddItem(event)">
+            <input data-bookTitle type="text" name="title" placeholder="Book Title">
+            <select data-bookCategory name="category" id="category">
+                <option disabled selected value="choose">Choose the category</option>
+                <option value="thriller">Thriller</option>
+                <option value="history">History</option>
+                <option value="cooking">Cooking</option>
+                <option value="fantasy">Fantasy</option>
+            </select>
+            <input data-bookTitle type="number" name="price" placeholder="Insert a price">
+            
+            <input data-bookYear type="number" name="year" placeholder="Year written">
+            <input data-bookId type="text" name="id" value="iud">
+            <input data-bookImage onchange="showPreviewImage(event)" type="file" name="image" id='image' accept="image/png, image/gif, image/jpeg" />
+            <div data-bookImage-preview>
+            </div>
+            <input type="submit" value="add">
+        </form>
+    </div>
+</body>
+<script src="./dist/Bookie.js"></script>
+
+</html>

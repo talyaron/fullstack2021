@@ -2,6 +2,7 @@ interface aviator {
 
     items: Array<newItem>
     filteritems: Array<newItem>
+    cartItems:number
     additem(newItem)
     renderitem(domElement: any)
     renderitemcart(domElement)
@@ -29,6 +30,7 @@ interface newItem {
 let aviator: aviator = {
     items: [],
     filteritems: [],
+    cartItems : 0,
 
     renderitem(domElement) {
         let html = '';
@@ -84,11 +86,14 @@ let aviator: aviator = {
         this.filteritems = this.filteritems.filter(item => item.id !== id);
         this.renderitemcart(cart);
         console.log(this.filteritems);
+
+        this.cartItems--;
+        document.querySelector('.header__cart-notification').innerHTML = `${this.cartItems}`;
         
     },
 
 }
-let cartItems:number = 0;
+// let cartItems:number = 0;
 function handleaddcart(ev, itemToAddId) {
     // console.dir(ev)
     const itemToAdd = aviator.items.filter(item => item.id == itemToAddId)[0];
@@ -102,8 +107,8 @@ function handleaddcart(ev, itemToAddId) {
     cartIcon.classList.add("pulse");
     setTimeout(()=>{cartIcon.classList.remove("pulse")}, 1000);
     const cartNumber = document.querySelector('.header__cart-notification')
-    cartItems++;
-    cartNumber.innerHTML = `${cartItems}`;
+    aviator.cartItems++;
+    cartNumber.innerHTML = `${aviator.cartItems}`;
     //
 }
 function handlesortitem(ev) {
