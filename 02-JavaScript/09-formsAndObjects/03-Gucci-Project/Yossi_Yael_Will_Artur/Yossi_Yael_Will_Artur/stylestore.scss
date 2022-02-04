@@ -1,28 +1,68 @@
+body {
+    font-family: 'Roboto', sans-serif;
+
+}
+
 .main {
 
 
     display: grid;
 
-    grid-template-rows:repeat(2,40vh);
-    grid-template-columns: repeat(4,25%);
+    grid-template-rows: repeat(2, 60vh);
+    grid-template-columns: repeat(4, 25%);
 
     background-size: cover;
     cursor: pointer;
     background-repeat: no-repeat;
-    transition: all 2s ease-out;
-    gap: 1px;
+    gap: 3px;
 
     &__item {
         background-size: cover;
         cursor: pointer;
         background-repeat: no-repeat;
-        transition: all 5s ease-out;
+        opacity: 0.8;
+
+        .price {
+            visibility: hidden;
+            
+            
+
+        }
+
+        .buy-now {
+            visibility: hidden;
+            
+
+            
+
+
+
+        }
+
+
+        &:hover {
+            opacity: 1;
+
+            .price {
+                visibility: visible;
+
+
+
+            }
+
+            .buy-now {
+                visibility: visible;
+
+            }
+
+        }
+
+
 
 
     }
-
-
 }
+
 
 .pic1 {
 
@@ -30,6 +70,11 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+
+    &:hover {
+        background-image: url(https://media.gucci.com/style/White_South_0_160_316x316/1569334504/609929_I1600_8489_002_100_0000_Light.jpg);
+    }
+
 }
 
 .pic2 {
@@ -38,6 +83,10 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+
+    &:hover {
+        background-image: url(https://media.gucci.com/style/White_South_0_160_316x316/1634917513/681613_ICXA0_8489_002_100_0000_Light.jpg);
+    }
 }
 
 .pic3 {
@@ -46,6 +95,10 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+
+    &:hover {
+        background-image: url(https://media.gucci.com/style/White_South_0_160_316x316/1634251529/692073_IC1A0_8521_002_100_0000_Light.jpg);
+    }
 }
 
 .pic4 {
@@ -54,6 +107,10 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+
+    &:hover {
+        background-image: url(https://media.gucci.com/style/White_South_0_160_316x316/1634838347/692078_ICZA0_8521_002_100_0000_Light.jpg);
+    }
 }
 
 .pic5 {
@@ -62,6 +119,10 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+
+    &:hover {
+        background-image: url(https://media.gucci.com/style/White_South_0_160_316x316/1613583906/663937_I1600_1108_002_100_0000_Light.jpg);
+    }
 }
 
 .pic6 {
@@ -70,6 +131,10 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+
+    &:hover {
+        background-image: url(https://media.gucci.com/style/White_South_0_160_316x316/1613583906/663937_I1600_1108_002_100_0000_Light.jpg);
+    }
 }
 
 .pic7 {
@@ -78,22 +143,31 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+
+    &:hover {
+        background-image: url(https://media.gucci.com/style/White_South_0_160_316x316/1627490710/686947_ICXA0_8183_002_100_0000_Light.jpg);
+    }
 }
-.pic8{
+
+.pic8 {
 
     background-image: url(https://media.gucci.com/style/DarkGray_Center_0_0_800x800/1630075503/663941_I1600_8512_001_100_0000_Light-Gucci-Dive-watch-45mm.jpg);
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;}
+    background-repeat: no-repeat;
 
-
-    .bigpic{
-        margin-top: 5px;
-        width: 100%;
-        height: 300px;
-        background-image: url(https://media.gucci.com/content/HomepageVideoBackgroundStandard_1300x758/1636100137/HomepageVideoBackgroundStandard_Love-Parade-showspace-02_001_Default.jpg);
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+    &:hover {
+        background-image: url(https://media.gucci.com/style/White_South_0_160_316x316/1567584906/596512_I1600_8504_002_100_0000_Light.jpg);
     }
-    
+}
+
+
+.bigpic {
+    margin-top: 5px;
+    width: 100%;
+    height: 400px;
+    background-image: url(https://media.gucci.com/content/HomepageVideoBackgroundStandard_1300x758/1636100137/HomepageVideoBackgroundStandard_Love-Parade-showspace-02_001_Default.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}

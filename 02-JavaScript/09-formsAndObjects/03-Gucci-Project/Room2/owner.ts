@@ -10,6 +10,8 @@ interface shop {
   render(list: Array<product>, domElement: any);
   renderAllData(domElement: any);
   deleteItem(id:string);
+  updateItem(title:string, price:number,category:string, picture:string, color:string,description:string, shoeSize:number, id:number  );
+
 }
 
 interface product {
@@ -45,10 +47,24 @@ const Adidas:shop = {
           <p><b> Size: </b> ${product.shoeSize}</p>
           <p><b> category: </b> ${product.category}</p>
           <button onclick="handleDelete('${product.id}')">Delete</button>
+          <button onclick="handleUpdate(event,'${product.id}')"> Edit</button>
           </div>`
       })
 
       domElement.innerHTML = html;
+  },
+  updateItem(){
+    const index = this.product.findIndex((item)=> item.id===id);
+    if (index >= 0) {
+      this.product[index].title = newTitle;
+      this.product[index].price = newPrice;
+      this.product[index].category = newCategory;
+      this.product[index].picture = newPicture;
+      this.product[index].color = newColor;
+      this.product[index].description = newDescription;
+      this.product[index].shoeSize = newShoeSize;
+      this.product[index].id = newId; 
+    }
   },
   renderAllData(domElement) {
       this.render(this.products, domElement);
@@ -59,7 +75,13 @@ const root = document.getElementById('root');
 Adidas.renderAllData(root)
 
 
+function handleUpdate(event, id){
+  event.preventDefault();
+  const newTitle:string = ev.target.elements.newName.value;
+ const newPrice:number = ev.target.elements.newPrice.valueAsNumber;
+    Adidas.updateItem(id, )
 
+}
 
 function handleAddItem(ev){
   ev.preventDefault();
