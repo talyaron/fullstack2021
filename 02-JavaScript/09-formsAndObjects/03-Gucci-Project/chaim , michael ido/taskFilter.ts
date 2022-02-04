@@ -225,7 +225,7 @@ let clothsList: cloths = {
     },
     renderCustomerPagePants(display, catagory) {
         this.renderCustomerPage(display, catagory);
-    }, SortCustomerPage(list, sortValue, display, catagory) {
+    },SortCustomerPage(list, sortValue, display, catagory) {
         let sortedListCustomer;
         if (sortValue == "sortLowToHigh") {
             sortedListCustomer = list.sort((a, b) => {
@@ -556,20 +556,19 @@ function handleSort(ev) {
 
     const sortValue = ev.target.value;
     const boxId = ev.target.id
-
-    if (sortValue == "sortAtoZ"){
-        console.log('lala');
-    } else if (sortValue == "sortZtoA") {
-        console.log('lili');
-    } else if (sortValue == "sortLowToHigh") {
-        console.log('dadad');
-    } else if (sortValue == "sortHighToLow") {
-        console.log('rarara');
-    }
+    const display = document.querySelector(".container_catagories-display");
+    
+    if (boxId == "Tshirts"){
+        clothsList.SortCustomerPage(clothsList.Tshirts , sortValue, display, "Tshirts")
+    } else if (boxId == "shoes") {
+        clothsList.SortCustomerPage(clothsList.shoes , sortValue, display, "Shoes")
+    } else if (boxId == "pants") {
+        clothsList.SortCustomerPage(clothsList.pants , sortValue, display, "Pants")
+    } 
 }
 
 
-function handleFilter(ev) {
+function handleFilter(ev){
 
     const boxId = ev.target.id
     const filterBy = ev.target.value
@@ -581,12 +580,9 @@ function handleFilter(ev) {
     const sortANDfilterBtnsTshirts = document.getElementById("sortANDfilterBtnsTshirts");
     const sortANDfilterBtnsShoes = document.getElementById("sortANDfilterBtnsShoes");
     const sortANDfilterBtnsPants = document.getElementById("sortANDfilterBtnsPants");
-    let catagory;
-    console.log();
 
-    // console.log(filterBy);
     if (boxId == "Tshirts") {
-        if (filterBy == "brand") {
+        if (filterBy == "brand"){
             sortANDfilterBtnsTshirts.innerHTML = `<input type="text" class="main_form-filterInputsCustomer" placeholder="type brand...">`
         } else if (filterBy == "size") {
             sortANDfilterBtnsTshirts.innerHTML = `<input type="text" class="main_form-filterInputsCustomer" placeholder="type size...">`
@@ -601,9 +597,7 @@ function handleFilter(ev) {
         if (filterBy == "brand") {
             sortANDfilterBtnsPants.innerHTML = `<input type="text" class="main_form-filterInputsCustomer" placeholder="type brand...">`
         } else if (filterBy == "size") {
-            sortANDfilterBtnsPants.innerHTML = `<input type="text" class="main_form-filterInputsCustomer" placeholder="type size...">`
+            sortANDfilterBtnsPants.innerHTML = `<input type="number" class="main_form-filterInputsCustomer" placeholder="type size...">`
         } else if (filterBy == "price") { sortANDfilterBtnsPants.innerHTML = `<input type="number" class="main_form-filterInputsCustomer" placeholder="from..."><input class="main_form-filterInputsCustomer" type="number" placeholder="up to...">` }
     }
-
-
 }

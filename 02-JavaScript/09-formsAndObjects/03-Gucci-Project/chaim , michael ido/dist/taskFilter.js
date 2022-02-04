@@ -439,17 +439,15 @@ function showOptions(box, boxId) {
 function handleSort(ev) {
     var sortValue = ev.target.value;
     var boxId = ev.target.id;
-    if (sortValue == "sortAtoZ") {
-        console.log('lala');
+    var display = document.querySelector(".container_catagories-display");
+    if (boxId == "Tshirts") {
+        clothsList.SortCustomerPage(clothsList.Tshirts, sortValue, display, "Tshirts");
     }
-    else if (sortValue == "sortZtoA") {
-        console.log('lili');
+    else if (boxId == "shoes") {
+        clothsList.SortCustomerPage(clothsList.shoes, sortValue, display, "Shoes");
     }
-    else if (sortValue == "sortLowToHigh") {
-        console.log('dadad');
-    }
-    else if (sortValue == "sortHighToLow") {
-        console.log('rarara');
+    else if (boxId == "pants") {
+        clothsList.SortCustomerPage(clothsList.pants, sortValue, display, "Pants");
     }
 }
 function handleFilter(ev) {
@@ -462,9 +460,6 @@ function handleFilter(ev) {
     var sortANDfilterBtnsTshirts = document.getElementById("sortANDfilterBtnsTshirts");
     var sortANDfilterBtnsShoes = document.getElementById("sortANDfilterBtnsShoes");
     var sortANDfilterBtnsPants = document.getElementById("sortANDfilterBtnsPants");
-    var catagory;
-    console.log();
-    // console.log(filterBy);
     if (boxId == "Tshirts") {
         if (filterBy == "brand") {
             sortANDfilterBtnsTshirts.innerHTML = "<input type=\"text\" class=\"main_form-filterInputsCustomer\" placeholder=\"type brand...\">";
@@ -492,7 +487,7 @@ function handleFilter(ev) {
             sortANDfilterBtnsPants.innerHTML = "<input type=\"text\" class=\"main_form-filterInputsCustomer\" placeholder=\"type brand...\">";
         }
         else if (filterBy == "size") {
-            sortANDfilterBtnsPants.innerHTML = "<input type=\"text\" class=\"main_form-filterInputsCustomer\" placeholder=\"type size...\">";
+            sortANDfilterBtnsPants.innerHTML = "<input type=\"number\" class=\"main_form-filterInputsCustomer\" placeholder=\"type size...\">";
         }
         else if (filterBy == "price") {
             sortANDfilterBtnsPants.innerHTML = "<input type=\"number\" class=\"main_form-filterInputsCustomer\" placeholder=\"from...\"><input class=\"main_form-filterInputsCustomer\" type=\"number\" placeholder=\"up to...\">";
