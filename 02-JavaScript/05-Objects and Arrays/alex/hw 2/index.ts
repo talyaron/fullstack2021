@@ -6,7 +6,7 @@ interface myStuff {
     removeItems?: any;
 }
 
-const myHome: myStuff = {
+const myome: myStuff = {
     books: ["darkness", " apocalypse", "darling days"],
     clothes: ["shirt", "pants", "leggings"],
     movies: ["where the wild things are", "anger", "soundless"],
