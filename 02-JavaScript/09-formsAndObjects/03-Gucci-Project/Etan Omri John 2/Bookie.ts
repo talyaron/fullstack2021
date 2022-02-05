@@ -10,9 +10,10 @@ function handleTop(ev) {
 }
 
 interface BookShop {
-  id: number;
+  id: any;
   books: Array<book>;
   addItem(
+    id: any,
     category: "thriller" | "history" | "cooking" | "fantasy",
     name: string,
     price: number,
@@ -30,7 +31,7 @@ interface BookShop {
 }
 
 interface book {
-  id: number;
+  id: any;
   category: "thriller" | "history" | "cooking" | "fantasy";
   title: string;
   price: number;
@@ -58,6 +59,7 @@ const bookie: BookShop = {
     });
   },
 };
+
 // addingForm.onsubmit(function(e) {})
 
 //function handleAddToCart()
@@ -66,10 +68,34 @@ const bookie: BookShop = {
 //function handleCloseMenu()
 //function handleSortDesc()
 //function handleSortAsc(ev)
+function makeId(book: book) {
+  if (book.id === "uid"){
+  let uid = Math.random().toString(36).slice(-8);
+  book.id = uid;
+}else {return}
 
+}
+function addItem(shop: BookShop, ev: any) {
+  let id = ev.target.elements.id.value;
+  let category = ev.target.elements.category.value;
+  let title = ev.target.elements.title.value;
+  let price = ev.target.elements.price.value;
+  let img = ev.target.elements.image.files[0]?.name;
+  let year = ev.target.elements.year.value;
+  let book = { id, category, title, price, img, year };
+  let newBook:book = book
+  makeId(newBook);
+  shop.books.push(newBook);
+}
 function handleAddItem(ev: any) {
   ev.preventDefault();
-  console.dir(ev.target);
+  addItem(bookie, ev);
+  ev.target.reset();
+  console.dir(bookie);
+  // how to use localStorage:
+  window.localStorage.setItem('shop', JSON.stringify(bookie))
+  let shopRetreval = localStorage.getItem('shop')
+  console.log('retrievedObject: ', JSON.parse(shopRetreval));
 }
 
 function showPreviewImage(ev: any) {
@@ -80,5 +106,5 @@ function showPreviewImage(ev: any) {
   console.dir(preview);
   console.dir(imgLink);
   imagePreview.innerHTML = preview;
-
 }
+
