@@ -1,6 +1,7 @@
 var aviator = {
     items: [],
     filteritems: [],
+    cartItems: 0,
     renderitem: function (domElement) {
         var html = '';
         html += "<div class=\"category-wrapper\">";
@@ -33,9 +34,11 @@ var aviator = {
         this.filteritems = this.filteritems.filter(function (item) { return item.id !== id; });
         this.renderitemcart(cart);
         console.log(this.filteritems);
+        this.cartItems--;
+        document.querySelector('.header__cart-notification').innerHTML = "" + this.cartItems;
     }
 };
-var cartItems = 0;
+// let cartItems:number = 0;
 function handleaddcart(ev, itemToAddId) {
     // console.dir(ev)
     var itemToAdd = aviator.items.filter(function (item) { return item.id == itemToAddId; })[0];
@@ -48,8 +51,8 @@ function handleaddcart(ev, itemToAddId) {
     cartIcon.classList.add("pulse");
     setTimeout(function () { cartIcon.classList.remove("pulse"); }, 1000);
     var cartNumber = document.querySelector('.header__cart-notification');
-    cartItems++;
-    cartNumber.innerHTML = "" + cartItems;
+    aviator.cartItems++;
+    cartNumber.innerHTML = "" + aviator.cartItems;
     //
 }
 function handlesortitem(ev) {

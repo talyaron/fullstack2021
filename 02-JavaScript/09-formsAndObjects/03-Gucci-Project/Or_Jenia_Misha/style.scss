@@ -479,6 +479,7 @@ body {
     &__x {
         font-size: 75px;
         text-shadow: 0px 0px 3px black;
+        cursor: pointer;
     }
 
     &__box {
@@ -486,10 +487,11 @@ body {
         width: 960px;
         height: 700px;
         background-image: url("https://images3.alphacoders.com/929/thumb-1920-92919.jpg");
+        overflow: scroll;
         @include backgroundsettings();
 
         &__opacity {
-            height: 100%;
+            height: fit-content;
             width: 100%;
             background-color: rgba(0, 0, 0, 0.856);
             display: flex;
@@ -587,16 +589,7 @@ body {
                 transform-origin: center;
             }
 
-            // .line1{
-            //     transform: rotate(45deg);
-            // }
-            // .line3{
-            //     transform: rotate(-45deg);
-            // }
-
-            // .line2 {
-            //     display: none;
-            // }
+            
 
         }
 
@@ -611,12 +604,35 @@ body {
             height: 500px;
             transform: translateX(-100%);
 
-            .navtags-active{
-                transform: translateX(0%);
-            }
-
             li{
                 opacity: 0;
+            }            
+
+
+        }
+
+        .navtags-active{
+
+            transform: translateX(0%);
+            li{
+                opacity: 1;
+            } 
+
+        }
+
+        .burger-active{
+
+            .line1{
+                transform: rotate(45deg) translateY(10px);
+
+            }
+            .line3{
+                transform: rotate(-45deg) translate(-5px,-8px);
+            }
+
+            .line2 {
+                opacity: 0;
+                // display: none;
             }
         }
 
