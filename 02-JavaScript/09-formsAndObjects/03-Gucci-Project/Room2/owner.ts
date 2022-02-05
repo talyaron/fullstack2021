@@ -51,7 +51,7 @@ const Adidas: shop = {
   deleteItem(id) {
     this.products = this.products.filter((product) => product.id !== id);
   },
-  render( list, domElement) {
+  render(list, domElement) {
     let html = "";
     this.products.forEach(product => {
       html += `<div style="width: 35%;border: 1px solid red">
@@ -65,7 +65,6 @@ const Adidas: shop = {
           <p><b> category: </b> ${product.category}</p>
 
           <form onsubmit="handleUpdate(event, '${product.id}')">
-
           <input type="text" name="newTitle" placeholder="new title" value="${product.title}">
           <input type="number" name="newPrice" placeholder="new price" value="${product.price}">
           <input type="text" name="newCategory" placeholder="new category" value="${product.category}">
@@ -73,11 +72,9 @@ const Adidas: shop = {
           <input type="text" name="newColor" placeholder="new color" value="${product.color}">
           <input type="text" name="newDescription" placeholder="new description" value="${product.description}">
           <input type="number" name="newShoeSize" placeholder="new shoeSize" value="${product.shoeSize}">
-          
           <button type="submit">Update</button>
-
           </form>
-
+          
           <button onclick="handleDelete('${product.id}')">Delete</button>
 
           </div>`;
@@ -87,7 +84,7 @@ const Adidas: shop = {
   },
   updateItem(id, newTitle, newPrice, newCategory, newPicture, newColor, newDescription, newShoeSize) {
     const index = this.products.findIndex((product) => product.id === id);
-    if (index > 0) {
+    if (index >= 0) {
       this.products[index].title = newTitle;
       this.products[index].price = newPrice;
       this.products[index].category = newCategory;
@@ -116,7 +113,7 @@ function handleAddItem(ev) {
   Adidas.addItem(title, price, category, picture, color, description, shoeSize);
   Adidas.renderAllData(root);
   ev.target.reset(); //reset the form fileds
-  console.log(category);
+  // console.log(category);
 }
 
 function handleDelete(id) {
