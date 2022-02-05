@@ -1,6 +1,7 @@
 body{
   width: 100%;
-  
+  display: flex;
+  flex-direction: column;
 }
 .header {
 width: 100%;
@@ -11,7 +12,7 @@ flex-direction: column;
   // grid-template-rows: 1fr;
   align-items: center;
   height: 9vh;
-  &__sotr{
+  &__sort{
       margin-bottom: 70px;
   
   }
@@ -27,7 +28,6 @@ flex-direction: column;
   margin-bottom: 30px;
   p{
    transition:  ease 1s;
-
     color: white;
     font-size: 10px;
     line-height: 10px;
@@ -41,6 +41,8 @@ flex-direction: column;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  width: 100%;
+  border-bottom: solid rgb(199, 199, 199) 1px ;
   &__side--menu{
     margin-top: 10px;
     display: flex;
@@ -77,12 +79,11 @@ flex-direction: column;
     }
   }
 &--logo {
-//   float: left;
-//  height: 70px;
+  width: 90px;
+  height: 90px;
   img{
-    transform: scale(1.5);
- height: 25%;
- width: 25%;
+ height: 100%;
+ width: 100%;
   }
 }
 
@@ -160,6 +161,7 @@ flex-direction: column;
   grid-template-rows: repeat(3, 1fr);
   grid-template-columns: repeat(4, 1fr);
   position: relative;
+  margin-top: 200px;
   &__item {
     width: 300px;
     height: 420px;
