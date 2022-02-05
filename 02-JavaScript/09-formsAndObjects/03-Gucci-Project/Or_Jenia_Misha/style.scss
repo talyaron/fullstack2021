@@ -174,7 +174,7 @@ body {
     .burger {
 
         display: none;
-        
+
         div {
             width: 30px;
             height: 5px;
@@ -182,7 +182,7 @@ body {
             margin: 5px;
         }
 
-        &:hover{
+        &:hover {
             cursor: pointer;
         }
     }
@@ -316,15 +316,17 @@ body {
     }
 
     &__images {
+
         font-size: 1.5rem;
         margin-top: 50px;
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 75px;
+        width: 90%;
 
         &__box__image {
-            width: fit-content;
+            width: 100%;
             overflow: hidden;
 
         }
@@ -570,8 +572,6 @@ body {
 
 @media screen and (max-width: 1200px) {
 
-
-
     .navbar {
 
         top: 0px;
@@ -589,7 +589,7 @@ body {
                 transform-origin: center;
             }
 
-            
+
 
         }
 
@@ -604,35 +604,36 @@ body {
             height: 500px;
             transform: translateX(-100%);
 
-            li{
+            li {
                 opacity: 0;
-            }            
+            }
 
 
         }
 
-        .navtags-active{
+        .navtags-active {
 
             transform: translateX(0%);
-            li{
+
+            li {
                 opacity: 1;
-            } 
+            }
 
         }
 
-        .burger-active{
+        .burger-active {
 
-            .line1{
+            .line1 {
                 transform: rotate(45deg) translateY(10px);
 
             }
-            .line3{
-                transform: rotate(-45deg) translate(-5px,-8px);
+
+            .line3 {
+                transform: rotate(-45deg) translate(-5px, -8px);
             }
 
             .line2 {
                 opacity: 0;
-                // display: none;
             }
         }
 
@@ -643,11 +644,49 @@ body {
         .mlogo {
             display: block;
             position: absolute;
-            left: 50%;
+            left: 45%;
         }
 
     }
 
+    .menu {
 
+        &__box {
+            width: 1000px;
+            height: 80%;
+        }
+
+    }
+
+}
+
+@media screen and (max-width: 1000px) {
+    .home{
+        &__title{
+            font-size: 50px;
+        }
+    }
+.menuopacity{
+    height: 200vh;
+    .menu {
+
+        justify-content: space-between;
+
+        &__box {
+            width: 900px;
+            height: 80%;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(6, 1fr);
+        }
+
+        .picwrap {
+          img{
+            height: 300px;
+            width: 300px;
+          }
+        }
+
+    }
+}
 
 }

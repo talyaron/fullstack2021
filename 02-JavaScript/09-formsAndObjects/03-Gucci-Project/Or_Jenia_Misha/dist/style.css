@@ -253,9 +253,10 @@ body {
   align-items: center;
   justify-content: center;
   gap: 75px;
+  width: 90%;
 }
 .lobby__images__box__image {
-  width: fit-content;
+  width: 100%;
   overflow: hidden;
 }
 .lobby__images p {
@@ -498,6 +499,33 @@ body {
   .navbar .mlogo {
     display: block;
     position: absolute;
-    left: 50%;
+    left: 45%;
+  }
+
+  .menu__box {
+    width: 1000px;
+    height: 80%;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .home__title {
+    font-size: 50px;
+  }
+
+  .menuopacity {
+    height: 200vh;
+  }
+  .menuopacity .menu {
+    justify-content: space-between;
+  }
+  .menuopacity .menu__box {
+    width: 900px;
+    height: 80%;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+  }
+  .menuopacity .menu .picwrap img {
+    height: 300px;
+    width: 300px;
   }
 }
