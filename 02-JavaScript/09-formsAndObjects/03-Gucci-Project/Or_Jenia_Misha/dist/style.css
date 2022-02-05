@@ -253,9 +253,10 @@ body {
   align-items: center;
   justify-content: center;
   gap: 75px;
+  width: 90%;
 }
 .lobby__images__box__image {
-  width: fit-content;
+  width: 100%;
   overflow: hidden;
 }
 .lobby__images p {

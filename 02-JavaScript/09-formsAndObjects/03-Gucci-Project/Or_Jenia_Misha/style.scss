@@ -316,15 +316,17 @@ body {
     }
 
     &__images {
+
         font-size: 1.5rem;
         margin-top: 50px;
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 75px;
+        width: 90%;
 
         &__box__image {
-            width: fit-content;
+            width: 100%;
             overflow: hidden;
 
         }
