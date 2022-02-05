@@ -5,11 +5,12 @@
 body {
   width: 100%;
   background-image: url("https://media.gucci.com/content/HeroBigStandard_3200x1520/1643384764/HeroBigStandard_VDAY-2022-043-new_001_Default.jpg");
-  background-size: contain;
+  background-size: 100% 100%;
   background-repeat: no-repeat;
   font-family: "Montserrat", sans-serif;
   color: "whiblackte";
   margin: 0px;
+  height: 73vh;
 }
 
 .container__navBar {
@@ -32,35 +33,49 @@ body {
   gap: 0.4em;
   font-size: smaller;
 }
-.container__navBar ul {
-  display: flex;
-  justify-content: center;
+.container__navBar2 {
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bolder;
+  opacity: 0.7;
 }
-.container__navBar ul a {
-  color: white;
+.container__navBar2 ul {
+  display: inline-flex;
+  list-style: none;
+  color: black;
+}
+.container__navBar2 ul li {
+  width: 120px;
+  margin: 15px;
+  padding: 15px;
+}
+.container__navBar2 ul li a {
   text-decoration: none;
-  margin-inline: 20px;
-  font-size: smaller;
-}
-.container__dropdawn {
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
-  background-color: beige;
   color: #050505;
-  font-weight: 300;
-  font-size: larger;
-  cursor: pointer;
-  opacity: 0;
-  transition: ease 3ms;
 }
-.container__dropdawn.visible {
-  opacity: 1;
+.container__navBar2__dropdown {
+  display: none;
+  width: 130vh;
+  padding: 20px;
+  font-family: "Montserrat", sans-serif;
+  transition: ease 3s;
   transform: translateY(0px);
-  position: static;
 }
-.container__dropdawn.hidden {
-  opacity: 0;
+.container__navBar2__dropdown ul {
+  width: 196vh;
+  height: auto;
+  margin-left: -450px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: beige;
+}
+.container__navBar2__dropdown ul li {
+  color: #050505;
+}
+.container__navBar2__dropdown ul li :hover {
+  text-decoration: underline;
+  cursor: pointer;
 }
 .container__main {
   text-align: center;
@@ -177,4 +192,19 @@ body {
 }
 .catergory__items .items p {
   letter-spacing: 2px;
+}
+
+.active,
+.container__navBar2 ul li a:hover {
+  color: black;
+  border-radius: 3px;
+}
+
+.container__navBar2 ul li:hover .container__navBar2__dropdown {
+  display: block;
+  margin-top: 15px;
+  margin-left: -15px;
+  position: absolute;
+  transition: ease 3ms;
+  transform: translateY(-20px);
 }

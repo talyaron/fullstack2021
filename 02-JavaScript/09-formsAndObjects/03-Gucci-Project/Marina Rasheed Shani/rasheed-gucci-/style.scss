@@ -2,35 +2,33 @@
   background-color: bisque;
 }
 
-// .store{
-//     background-color: rgb(105, 122, 218);
-// }
 body {
-  //   border: 1px solid grey;
+  
   width: 100%;
   background-image: url("https://media.gucci.com/content/HeroBigStandard_3200x1520/1643384764/HeroBigStandard_VDAY-2022-043-new_001_Default.jpg");
-  background-size: contain;
+  background-size: 100% 100%;
   background-repeat: no-repeat;
-
   font-family: "Montserrat", sans-serif;
-   color: 'whiblackte';
-  margin:0px;
-  //   height: 200vh;
+  color: 'whiblackte';
+  margin: 0px;
+  height: 73vh;
 }
 
 .container {
+
   &__navBar {
     top: 0px;
     left: 0px;
     padding-bottom: 1em;
     transition: all 0.5s;
 
+
+
     &:hover {
       background-color: rgb(31, 30, 30);
     }
 
     &__title {
-      // border: 1px solid grey;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -42,49 +40,85 @@ body {
         font-size: smaller;
       }
     }
-
-    ul {
-      display: flex;
-      justify-content: center;
-
-      a {
-        color: white;
-        text-decoration: none;
-        margin-inline: 20px;
-        font-size: smaller;
-      }
-    }
   }
 
-  &__dropdawn {
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    background-color: beige;
-    color: rgb(5, 5, 5);
-    font-weight: 300;
-    font-size: larger;
-    cursor: pointer;
-    opacity: 0;
-    transition: ease 3ms;
-    // transform: translateY(0px);
-    // visibility: hidden;
+  &__navBar2 {
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bolder;
+    opacity: 0.7;
 
-    &.visible {
-      opacity: 1;
+    
+
+
+    ul {
+      display: inline-flex;
+      list-style: none;
+      color: black;
+
+
+
+      li {
+        width: 120px;
+        margin: 15px;
+        padding: 15px;
+
+        a {
+          text-decoration: none;
+          color: rgb(5, 5, 5);
+
+        }
+      }
+    }
+
+    &__dropdown {
+      display: none;
+      width: 130vh;
+      padding: 20px;
+      font-family: "Montserrat", sans-serif;
+      transition: ease 3s;
       transform: translateY(0px);
-      position: static;
+       
 
 
-    }
-    &.hidden{
-      opacity: 0;
+
+
+
+
+      ul {
+
+
+        width: 196vh;
+        height: auto;
+        margin-left: -450px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        background-color: beige;
+        
+       
       
+
+
+
+        li {
+
+          color: rgb(5, 5, 5);
+
+          :hover {
+            text-decoration: underline;
+            cursor: pointer;
+          }
+        }
+
+      }
+
+
     }
+
   }
 
   &__main {
-    //   display: block;
     text-align: center;
     background-color: rgb(231, 231, 231);
 
@@ -132,24 +166,19 @@ $background-color:#ffffff;
   gap: 2px;
   width: 100%;
   height: 12vh;
-  //padding-top: 3em;
-  
-  
-  
+
+
+
 
   .catergory__name {
-    //display: inline-flex;
     background-color: $background-color;
-    //background-color: aqua;
-    //justify-content: flex-start;
     font-weight: 800;
     font-size: 11px;
     color: rgba(0, 0, 0, 0.384);
     width: 60vw;
-    //height: 10vh;
     padding-top: 2em;
     text-align: left;
-    
+
 
     padding-left: 0.5em;
 
@@ -165,13 +194,12 @@ $background-color:#ffffff;
     background-color: $background-color;
     cursor: pointer;
     width: 15;
-    //height: 3em;  
     border: none;
-    font-size:12px;
+    font-size: 12px;
     letter-spacing: 1px;
 
     &:hover {
-      background-color:  rgba(207, 207, 194, 0.425);
+      background-color: rgba(207, 207, 194, 0.425);
       border-right: 0.5px solid rgb(196, 195, 195);
       border-left: 0.5px solid rgb(196, 195, 195);
 
@@ -186,16 +214,15 @@ $background-color:#ffffff;
     display: inline-flex;
     gap: 1px;
     width: 15em;
-    //height: 3em;
 
 
     button {
       background-color: $background-color;
       cursor: pointer;
       border: none;
-      font-size:12px;
+      font-size: 12px;
       letter-spacing: 1px;
-      
+
 
 
       &:hover {
@@ -212,18 +239,17 @@ $background-color:#ffffff;
 
     color: black;
     margin-left: 0;
-    // padding-top: 5px;
     padding-top: 2em;
-    text-align:center;
+    text-align: center;
     letter-spacing: 1px;
-    font-size:12px;
-    
+    font-size: 12px;
+
 
 
 
     .inputLowerThan {
       cursor: pointer;
-      margin-top:0.5em;
+      margin-top: 0.5em;
       background-color: $background-color;
       border: 1px solid rgb(196, 195, 195);
 
@@ -234,16 +260,9 @@ $background-color:#ffffff;
 }
 
 .catergory__items {
-  //margin-top: 1em;
   background-color: white;
   height: 110em;
   text-align: center;
-
-  //gap: 4em;
-  // display: inline-grid;
-  // grid-template-columns: repeat(3, 30em);
-  // grid-template-rows: repeat(4, 25em);
-
 
   .items {
     color: black;
@@ -257,33 +276,25 @@ $background-color:#ffffff;
       width: 20em;
 
     }
-    p{
-      letter-spacing:2px;
+
+    p {
+      letter-spacing: 2px;
     }
-
-    // .img-back {
-    //   height: 380px;
-    //   width: 20em;
-    // }
-
-    // p {
-    //   text-align: center;
-    // }
-
-    // .img-top {
-    //   display: none;
-    //   position: absolute;
-    //   top: 0;
-    //   left: 5em;
-    //   z-index: 1;
-    //   border: solid 2px black;
-    //   transition: 10s ease;
-    // }
-
-    // &:hover .img-top {
-    //   display: inline;
-    //   width: 20em;
-    //   height: 380px;
-    // }
   }
+}
+
+.active,
+.container__navBar2 ul li a:hover {
+  color: black;
+  border-radius: 3px;
+
+}
+
+.container__navBar2 ul li:hover .container__navBar2__dropdown {
+  display: block;
+  margin-top: 15px;
+  margin-left: -15px;
+  position: absolute;
+  transition: ease 3ms;
+      transform: translateY(-20px);
 }
