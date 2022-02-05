@@ -14,6 +14,7 @@ flex-direction: column;
   height: 9vh;
   &__sort{
       margin-bottom: 70px;
+      margin-top: 120px;
   
   }
 .usp__bar{
@@ -132,7 +133,10 @@ flex-direction: column;
   //   }
   // }
 }
-
+.wrraper{
+  display: flex;
+  flex-direction: column;
+}
 .breadCrumbs {
   ul {
     list-style: none;
@@ -161,7 +165,6 @@ flex-direction: column;
   grid-template-rows: repeat(3, 1fr);
   grid-template-columns: repeat(4, 1fr);
   position: relative;
-  margin-top: 200px;
   &__item {
     width: 300px;
     height: 420px;
