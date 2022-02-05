@@ -46,7 +46,8 @@ body {
     text-align: center;
     font-family: "Montserrat", sans-serif;
     font-weight: bolder;
-    opacity: 0.7;
+    opacity: 1;
+    
 
     
 
@@ -154,7 +155,7 @@ body {
   }
 }
 
-//BUTTONS FOR EACH CATERGORY
+//BUTTONS FOR EACH CATERGORY and template for each catergory's page
 
 $background-color:#ffffff;
 
@@ -297,4 +298,5 @@ $background-color:#ffffff;
   position: absolute;
   transition: ease 3ms;
       transform: translateY(-20px);
+  
 }
