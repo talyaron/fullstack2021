@@ -51,7 +51,7 @@ const Adidas: shop = {
   deleteItem(id) {
     this.products = this.products.filter((product) => product.id !== id);
   },
-  render( list, domElement) {
+  render(list, domElement) {
     let html = "";
     this.products.forEach(product => {
       html += `<div style="width: 35%;border: 1px solid red">
@@ -65,7 +65,6 @@ const Adidas: shop = {
           <p><b> category: </b> ${product.category}</p>
 
           <form onsubmit="handleUpdate(event, '${product.id}')">
-
           <input type="text" name="newTitle" placeholder="new title" value="${product.title}">
           <input type="number" name="newPrice" placeholder="new price" value="${product.price}">
           <input type="text" name="newCategory" placeholder="new category" value="${product.category}">
@@ -73,12 +72,9 @@ const Adidas: shop = {
           <input type="text" name="newColor" placeholder="new color" value="${product.color}">
           <input type="text" name="newDescription" placeholder="new description" value="${product.description}">
           <input type="number" name="newShoeSize" placeholder="new shoeSize" value="${product.shoeSize}">
-          
-
-          </form>
           <button type="submit">Update</button>
-
-
+          </form>
+          
           <button onclick="handleDelete('${product.id}')">Delete</button>
 
           </div>`;
@@ -88,7 +84,6 @@ const Adidas: shop = {
   },
   updateItem(id, newTitle, newPrice, newCategory, newPicture, newColor, newDescription, newShoeSize) {
     const index = this.products.findIndex((product) => product.id === id);
-
     if (index >= 0) {
       this.products[index].title = newTitle;
       this.products[index].price = newPrice;
@@ -97,7 +92,6 @@ const Adidas: shop = {
       this.products[index].color = newColor;
       this.products[index].description = newDescription;
       this.products[index].shoeSize = newShoeSize;
-      console.log(index)
     }
   },
   renderAllData(domElement) {
@@ -119,7 +113,7 @@ function handleAddItem(ev) {
   Adidas.addItem(title, price, category, picture, color, description, shoeSize);
   Adidas.renderAllData(root);
   ev.target.reset(); //reset the form fileds
-  console.log(category);
+  // console.log(category);
 }
 
 function handleDelete(id) {
@@ -145,15 +139,6 @@ function handleUpdate(ev: any, itemId: number) {
   Adidas.renderAllData(root);
 }
 
-Adidas.addItem(
-  "superstar shoes",
-  200,
-  "Sneakers",
-  "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg",
-  "red",
-  "B-ball legend. Street symbol. Cultural icon. Still going strong after five decades, the adidas Superstar Shoes have millions of stories to tell. Smooth leather combines with serrated 3-Stripes and the authentic rubber shell toe. Ready for the next fifty years of iconic adidas style? Lets do it.",
-  44
-);
 Adidas.addItem(
   "superstar shoes",
   200,
