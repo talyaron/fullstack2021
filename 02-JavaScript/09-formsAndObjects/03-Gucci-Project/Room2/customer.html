@@ -14,6 +14,7 @@
 </head>
 
 <body>
+
     <div class="header">
         <div class="usp__bar">
             <div class="usp__bar--item">
@@ -60,10 +61,11 @@
 
             <select onchange="handlePriceRange(event)">
                 <option value="" disabled selected>price</option>
+                <input type="range" min="1" max="100" value="50">
 
-                <option value="priceRange">
+                <!-- <option value="priceRange">
                     price range
-                </option>
+                </option> -->
             </select>
 
             <select onchange="handleShoeSize(event)">
@@ -98,15 +100,7 @@
                 <option value="flip flops"> </option>
 
             </select>
-            <select onchange="handleSort(event)">
-                <option value="" disabled selected>sort</option>
-
-                <option value="startPosition"> </option>
-                <option value="letterAsc"> </option>
-                <option value="letterDsc"> </option>
-                <option value="priceAsc"> </option>
-                <option value="priceDsc"> </option>
-            </select>
+          
 
         </div>
 
@@ -548,6 +542,8 @@
         </div>
     </div>
     <div class="footer">
+  
+
         <div class="footer__top">
             <h4>JOIN OUR CREATORS CLUB & GET 15% OFF</h4>
             <button>
@@ -556,6 +552,15 @@
             </button>
         </div>
         <div class="footer__container">
+      
+            <select onchange="handleSort(event)">
+                <option value="" disabled selected>sort</option>
+                <option value="startPosition">gfud </option>
+                <option value="letterAsc">tdyer </option>
+                <option value="letterDsc"> hrte</option>
+                <option value="priceAsc"> jhet</option>
+                <option value="priceDsc"> jyt</option>
+            </select>
 
         </div>
         <div class="footer__lower">

@@ -74,9 +74,10 @@ const Adidas: shop = {
           <input type="text" name="newDescription" placeholder="new description" value="${product.description}">
           <input type="number" name="newShoeSize" placeholder="new shoeSize" value="${product.shoeSize}">
           
-          <button type="submit">Update</button>
 
           </form>
+          <button type="submit">Update</button>
+
 
           <button onclick="handleDelete('${product.id}')">Delete</button>
 
@@ -87,7 +88,8 @@ const Adidas: shop = {
   },
   updateItem(id, newTitle, newPrice, newCategory, newPicture, newColor, newDescription, newShoeSize) {
     const index = this.products.findIndex((product) => product.id === id);
-    if (index > 0) {
+
+    if (index >= 0) {
       this.products[index].title = newTitle;
       this.products[index].price = newPrice;
       this.products[index].category = newCategory;
@@ -95,6 +97,7 @@ const Adidas: shop = {
       this.products[index].color = newColor;
       this.products[index].description = newDescription;
       this.products[index].shoeSize = newShoeSize;
+      console.log(index)
     }
   },
   renderAllData(domElement) {
@@ -142,6 +145,15 @@ function handleUpdate(ev: any, itemId: number) {
   Adidas.renderAllData(root);
 }
 
+Adidas.addItem(
+  "superstar shoes",
+  200,
+  "Sneakers",
+  "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg",
+  "red",
+  "B-ball legend. Street symbol. Cultural icon. Still going strong after five decades, the adidas Superstar Shoes have millions of stories to tell. Smooth leather combines with serrated 3-Stripes and the authentic rubber shell toe. Ready for the next fifty years of iconic adidas style? Lets do it.",
+  44
+);
 Adidas.addItem(
   "superstar shoes",
   200,
