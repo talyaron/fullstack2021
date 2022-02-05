@@ -634,7 +634,6 @@ body {
 
             .line2 {
                 opacity: 0;
-                // display: none;
             }
         }
 
@@ -645,7 +644,7 @@ body {
         .mlogo {
             display: block;
             position: absolute;
-            left: 50%;
+            left: 45%;
         }
 
     }
@@ -662,13 +661,32 @@ body {
 }
 
 @media screen and (max-width: 1000px) {
-
+    .home{
+        &__title{
+            font-size: 50px;
+        }
+    }
+.menuopacity{
+    height: 200vh;
     .menu {
+
+        justify-content: space-between;
 
         &__box {
             width: 900px;
             height: 80%;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(6, 1fr);
+        }
+
+        .picwrap {
+          img{
+            height: 300px;
+            width: 300px;
+          }
         }
 
     }
+}
+
 }

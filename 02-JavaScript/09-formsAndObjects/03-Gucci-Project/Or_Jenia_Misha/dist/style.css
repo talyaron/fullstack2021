@@ -499,7 +499,7 @@ body {
   .navbar .mlogo {
     display: block;
     position: absolute;
-    left: 50%;
+    left: 45%;
   }
 
   .menu__box {
@@ -508,8 +508,24 @@ body {
   }
 }
 @media screen and (max-width: 1000px) {
-  .menu__box {
+  .home__title {
+    font-size: 50px;
+  }
+
+  .menuopacity {
+    height: 200vh;
+  }
+  .menuopacity .menu {
+    justify-content: space-between;
+  }
+  .menuopacity .menu__box {
     width: 900px;
     height: 80%;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+  }
+  .menuopacity .menu .picwrap img {
+    height: 300px;
+    width: 300px;
   }
 }
