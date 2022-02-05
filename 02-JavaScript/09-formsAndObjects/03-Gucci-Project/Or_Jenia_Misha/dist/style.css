@@ -500,4 +500,15 @@ body {
     position: absolute;
     left: 50%;
   }
+
+  .menu__box {
+    width: 1000px;
+    height: 80%;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .menu__box {
+    width: 900px;
+    height: 80%;
+  }
 }
