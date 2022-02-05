@@ -45,6 +45,14 @@
     left: 0%;
   }
 }
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+  transition: all 0.7s;
+}
+
 body {
   font-family: "Barlow Condensed", sans-serif;
   overflow-x: hidden;
@@ -471,6 +479,18 @@ body {
   }
   .navbar .navtags-active {
     transform: translateX(0%);
+  }
+  .navbar .navtags-active li {
+    opacity: 1;
+  }
+  .navbar .burger-active .line1 {
+    transform: rotate(45deg) translateY(10px);
+  }
+  .navbar .burger-active .line3 {
+    transform: rotate(-45deg) translate(-5px, -8px);
+  }
+  .navbar .burger-active .line2 {
+    opacity: 0;
   }
   .navbar .fulogo {
     display: none;

@@ -53,14 +53,14 @@
 }
 
 
-// * {
-//     padding: 0;
-//     margin: 0;
-//     border: 0;
-//     box-sizing: border-box;
-//     transition: all 0.7s;
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+    transition: all 0.7s;
 
-// }
+}
 
 body {
     font-family: 'Barlow Condensed', sans-serif;
@@ -589,16 +589,7 @@ body {
                 transform-origin: center;
             }
 
-            // .line1{
-            //     transform: rotate(45deg);
-            // }
-            // .line3{
-            //     transform: rotate(-45deg);
-            // }
-
-            // .line2 {
-            //     display: none;
-            // }
+            
 
         }
 
@@ -613,15 +604,36 @@ body {
             height: 500px;
             transform: translateX(-100%);
 
-            
-
             li{
                 opacity: 0;
-            }
+            }            
+
+
         }
 
         .navtags-active{
+
             transform: translateX(0%);
+            li{
+                opacity: 1;
+            } 
+
+        }
+
+        .burger-active{
+
+            .line1{
+                transform: rotate(45deg) translateY(10px);
+
+            }
+            .line3{
+                transform: rotate(-45deg) translate(-5px,-8px);
+            }
+
+            .line2 {
+                opacity: 0;
+                // display: none;
+            }
         }
 
         .fulogo {
