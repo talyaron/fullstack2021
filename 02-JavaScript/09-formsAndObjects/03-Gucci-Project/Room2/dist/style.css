@@ -1,5 +1,7 @@
 body {
   width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .header {
@@ -36,6 +38,8 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  width: 100%;
+  border-bottom: solid #c7c7c7 1px;
 }
 .header__inner__side--menu {
   margin-top: 10px;
@@ -69,17 +73,20 @@ body {
   background-color: #e9ecef;
   border: none;
 }
+.header__inner--logo {
+  width: 90px;
+  height: 90px;
+}
 .header__inner--logo img {
-  transform: scale(1.5);
-  height: 25%;
-  width: 25%;
+  height: 100%;
+  width: 100%;
 }
 .header__inner--nav {
   font-size: 20px;
   font-family: Arial, Helvetica, sans-serif;
   display: flex;
   bottom: 30px;
-  gap: 10px;
+  gap: 40px;
   justify-content: center;
 }
 .header__inner--nav .dropdown-men {
@@ -122,6 +129,7 @@ body {
   grid-template-rows: repeat(3, 1fr);
   grid-template-columns: repeat(4, 1fr);
   position: relative;
+  margin-top: 200px;
 }
 .cards__item {
   width: 300px;

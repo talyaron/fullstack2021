@@ -8,7 +8,7 @@
   --small-icon: 1em;
   --genergal-text-color: #e5dfd9;
   --footer-color: rgb(147, 147, 147);
-  --footer-background-color:#1b1b1b;
+  --footer-background-color: #1b1b1b;
 }
 
 html,
@@ -64,8 +64,97 @@ footer {
   color: var(--footer-color);
   width: 100vw;
   display: grid;
-  grid-template-areas: "1" "3" "2" "4" "5" "6" "7" "8" "9";
+  grid-template-areas: "1" "3" "2" "4" "5" "6" "7";
   background-color: var(--footer-background-color);
+}
+@media only screen and (min-width: 768px) {
+  footer {
+    position: relative;
+    height: 100%;
+    grid-template-columns: 25% 25% 50%;
+    grid-template-rows: 30vh 15vh 15vh 10vh;
+  }
+  footer *, footer * > * {
+    padding: 0;
+    margin: 0;
+  }
+  footer [data-1] {
+    grid-column: 3/4;
+    grid-row: 3/5;
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    transform: translate(-25%, -25%);
+    display: flex;
+    flex-direction: column;
+  }
+  footer [data-1] div {
+    color: var(--genergal-text-color);
+    font-size: 0.8em;
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content: baseline;
+    align-items: baseline;
+    margin-top: 1em;
+    padding: 0.3em;
+  }
+  footer [data-1] div img {
+    width: 0.9em;
+    transform: rotate(180deg);
+  }
+  footer [data-1] div input {
+    display: block;
+    background-color: black;
+    border: black solid;
+  }
+  footer [data-2] {
+    padding: 0 0 0 1em;
+    grid-column: 1/2;
+    grid-row: 1/4;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 1em;
+  }
+  footer [data-2]:before {
+    padding: 1em;
+    content: "EXCLUSIVE SERVICES";
+  }
+  footer [data-2] > div {
+    text-align: baseline;
+    padding: 0 0 0 1em;
+  }
+  footer [data-4] {
+    display: flex;
+    justify-content: space-around;
+    grid-column: 2/4;
+    grid-row: 1/3;
+  }
+  footer [data-5] {
+    grid-column: 1/3;
+    grid-row: 4/6;
+  }
+  footer [data-6] {
+    grid-column: 3/4;
+    grid-row: 5/6;
+  }
+  footer [data-7] {
+    grid-column: 1/4;
+    grid-row: 6/7;
+  }
+  footer [data-3] {
+    display: none;
+  }
+  footer [class^=fa] {
+    opacity: 0;
+  }
+  footer i {
+    opacity: 0;
+  }
+  footer ::after {
+    opacity: 0;
+  }
 }
 footer svg {
   padding-right: 0.2rem;
@@ -76,15 +165,17 @@ footer [class^=secondaryNav__] {
   padding: 1rem 0.5rem 1rem 0.5rem;
   border-bottom: 0.1em solid rgba(238, 238, 238, 0.119);
 }
+@media only screen and (min-width: 768px) {
+  footer [class^=secondaryNav__] {
+    border-bottom: 0;
+  }
+}
 footer [class^=secondaryNav__] :last-child {
   border: none;
 }
 footer [class^=secondaryNav__] i {
   position: absolute;
   right: 0.4rem;
-}
-footer .secondaryNav :last-child {
-  border: none;
 }
 footer .secondaryNav__withIcons {
   width: index;
@@ -95,13 +186,33 @@ footer .secondaryNav__locator {
   color: var(--footer-color);
 }
 @media only screen and (min-width: 768px) {
-  footer .secondaryNav__locator span {
+  footer .secondaryNav__locator > svg {
     display: none;
+    height: var(--small-icon);
+    margin-right: 0.2rem;
   }
 }
-footer .secondaryNav__locator span svg {
-  height: var(--small-icon);
-  margin-right: 0.2rem;
+footer .secondaryNav ul > li {
+  font-size: 0.8em;
+  color: var(--genergal-text-color);
+  list-style: none;
+  display: none;
+}
+@media only screen and (min-width: 768px) {
+  footer .secondaryNav ul > li {
+    padding: 0.5em 0 0 0em;
+    display: flex;
+    flex-direction: column;
+    display: block;
+  }
+}
+footer .secondaryNav ul :first-child {
+  padding: 0 0 1em 0;
+}
+@media only screen and (min-width: 768px) {
+  footer .secondaryNav ul {
+    justify-content: space-evenly;
+  }
 }
 footer .secondaryNav__services {
   fill: var(--footer-color);
@@ -129,6 +240,7 @@ footer .secondaryNav__ostria::after {
 }
 footer .secondaryNav__appointment {
   fill: var(--footer-color);
+  border: none;
 }
 footer .secondaryNav__appointment::after {
   margin-right: 0.4rem;
@@ -168,7 +280,8 @@ footer .footer__credit {
   font-size: 0.8em;
 }
 
-#osteria svg, #garden svg {
+#osteria svg,
+#garden svg {
   height: var(--bottom-logo-size-noContainer);
   width: var(--bottom-logo-size-noContainer);
 }
@@ -176,9 +289,12 @@ footer .footer__credit {
 [data-1] {
   grid-area: 1;
 }
+[data-1] div {
+  display: none;
+}
 
-[data-3] {
-  grid-area: 3;
+[data-2] {
+  grid-area: 2;
 }
 
 [data-4] {
@@ -187,6 +303,7 @@ footer .footer__credit {
 
 [data-5] {
   grid-area: 5;
+  padding-top: 0 !important;
 }
 
 [data-6] {
@@ -197,17 +314,9 @@ footer .footer__credit {
   grid-area: 7;
 }
 
-[data-8] {
-  grid-area: 8;
-}
-
-[data-9] {
-  grid-area: 9;
-}
-
-[data-div] {
+[data-3] {
   background-color: black;
   height: 1rem;
   width: 100vw;
-  grid-area: 2;
+  grid-area: 3;
 }

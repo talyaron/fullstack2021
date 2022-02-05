@@ -5,7 +5,7 @@ const uid = function(){
 interface shop {
     products: Array<product>;
     addCartItem(products:product);
-    renderAdidas(domElement: any);
+    renderAdidas(list:any, domElement: any);
     renderFilter(domElement, filterd);
     filterItems(highPrice?: number, lowPrice?:number),
     renderAll(domElement),
@@ -34,7 +34,7 @@ interface shop {
         const id = uid;
         this.products.push(products, id);
     },
-    renderAdidas(domElement){
+    renderAdidas(list, domElement){
         let html = ''
         this.products.forEach(item => {
             html += `<div class="item">
