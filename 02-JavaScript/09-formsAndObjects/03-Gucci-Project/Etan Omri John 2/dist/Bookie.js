@@ -1,7 +1,7 @@
 var addingForm = document.querySelector("[data-addingItemForm]");
 var bookTitle = document.querySelector("[data-bookTitle]");
 var imagePreview = document.querySelector("[data-bookImage-preview]");
-console.dir(imagePreview);
+console.log("🚀 ~ file: Bookie.ts ~ line 4 ~ imagePreview", imagePreview);
 var backToTop = document.querySelector("[data-back-to-top]");
 function handleTop(ev) {
     ev.preventDefault();
