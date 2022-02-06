@@ -22,30 +22,35 @@ var nikeItems = {
         this.items[i].name = newValue;
     },
     addToCarts: function (type) {
-        this.carts.push(type);
+        this.carts.push({ name: type });
     },
-    renderAllCarts: function (root1) {
+    renderAllCarts: function (root) {
         var list = this.carts;
-        this.renderCarts(root1, list);
+        this.renderCarts(root, list);
     },
     selectItem: function (type) {
-        return this.carts.filter(function (item) { item.type === type; });
+        return this.carts.filter(function (item) { return item.type === type; });
     },
     renderAllData: function (root) {
         var list = this.items;
         this.render(root, list);
     },
+    renderSelctedItem: function (root1, type) {
+        var selected = this.selectItem(type);
+        this.renderCarts(root1, type);
+    },
     renderCarts: function (root1, list) {
+        console.log(list);
         var htmlCustomer = "";
-        list.forEach(function (item) {
-            htmlCustomer += "<div class= 'card1'><h4>The Item You Want:</h4> <p>" + item.name + "</p></div>";
+        list.forEach(function (type) {
+            htmlCustomer += "<div class= 'card1'><h4>The Item You Want:</h4> <p>" + type.name + "</p></div>";
         });
         root1.innerHTML = htmlCustomer;
     },
     render: function (root, list) {
         var html = '';
         list.forEach(function (item) {
-            html += "<div class = 'card'> <p>" + item.name + ": " + item.price + "</p>\n            <button onclick=\"handleDelete('" + item.idItem + "')\">delete</button>\n            <form onsubmit=\"handleupdate(event,'" + item.idItem + "')\">\n            <input type=\"text\" name=\"nameUpdate\" placeholder=\"change item\">\n            <input type=\"submit\" value=\"submit\">\n            </form>\n            </div>";
+            html += "<div class = 'card'> <p>" + item.name + "</p>\n            <button onclick=\"handleDelete('" + item.idItem + "')\">delete</button>\n            <form onsubmit=\"handleupdate(event,'" + item.idItem + "')\">\n            <input type=\"text\" name=\"nameUpdate\" placeholder=\"change item\">\n            <input type=\"submit\" value=\"submit\">\n            </form>\n            </div>";
         });
         root.innerHTML = html;
     }
@@ -57,7 +62,7 @@ function handleSubmit(event) {
     nikeItems.additems(name, price);
     var root = document.getElementById('root');
     nikeItems.renderAllData(root);
-    event.target.reset();
+    event.target.reset(); // poner el tu pajina 
 }
 function handleAsce() {
     nikeItems.sortAsc();
@@ -83,28 +88,26 @@ function handleupdate(event, id) {
 }
 //customer
 function handleCart(event) {
+    console.log(event.target.id);
     var shoes = event.target.id;
     nikeItems.addToCarts(shoes);
-    var root1 = document.getElementById('root1');
-    nikeItems.renderAllCarts(root1);
+    var rooto = document.getElementById('root1');
+    nikeItems.renderAllCarts(rooto);
 }
 function handlehoodie(ev) {
-    var hoodie = ev.target.value;
+    var hoodie = ev.target.id;
+    console.log(hoodie);
     nikeItems.addToCarts(hoodie);
-    var root1 = document.getElementById('root1');
-    nikeItems.renderAllCarts(root1);
+    var rooto = document.getElementById('root1');
+    nikeItems.renderAllCarts(rooto);
 }
-function handleSelect(ev) {
-    var theType = ev.target.value;
+function handleSelect(event) {
+    var type = event.target.value;
     var root1 = document.getElementById('root1');
-    var selected;
-    if (theType === "all") {
+    if (type === "all") {
         nikeItems.renderAllCarts(root1);
-        console.log(nikeItems.carts);
     }
     else {
-        selected = nikeItems.selectItem(theType);
-        console.log(nikeItems.carts);
+        nikeItems.renderSelctedItem(root1);
     }
-    nikeItems.renderCarts(root1, selected);
 }

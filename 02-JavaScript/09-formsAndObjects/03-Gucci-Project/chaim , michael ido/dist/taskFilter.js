@@ -1,9 +1,6 @@
 var itemId = function () {
     return Date.now().toString(36) + Math.random().toString(36).substr(2);
 };
-// { brand: 'nike', size: ' medium', price: 450 }, { brand: 'adidas', size: ' medium', price: 220 }
-// { brand: 'diesel', size: ' 42', price: 900 }, { brand: 'levis', size: ' 42', price: 400 }
-// { brand: 'diesel', size: ' 42', price: 900 }, { brand: 'levis', size: ' 42', price: 400 }
 var clothsList = {
     Tshirts: [
         { id: "lala", brand: "allstains", size: "medium", price: 450 },
@@ -23,6 +20,7 @@ var clothsList = {
         { id: "five", brand: "adidas", size: "45", price: 650 },
         { id: "six", brand: "nike", size: "45", price: 1500 },
     ],
+    shoppingCart: [],
     addTshirt: function (brand, size, price, catagory) {
         var id = itemId();
         if (catagory == "Tshirts") {
@@ -125,9 +123,7 @@ var clothsList = {
         this.render(filteredBySize, display, catagory);
     },
     filterByPrice: function (list, filterPriceFromInput, filterPriceUpToInput) {
-        return list.filter(function (item) {
-            return filterPriceFromInput < item.price && item.price < filterPriceUpToInput;
-        });
+        return list.filter(function (item) { return filterPriceFromInput < item.price && item.price < filterPriceUpToInput; });
     },
     renderByPrice: function (list, filterPriceFromInput, filterPriceUpToInput, display, catagory) {
         var filteredByPrice = this.filterByPrice(list, filterPriceFromInput, filterPriceUpToInput);
@@ -158,7 +154,7 @@ var clothsList = {
     renderCustomerPage: function (list, display, catagory) {
         var html = "";
         list.forEach(function (element) {
-            html += " \n                <div class=\"container_catagories-display-card\">\n                <div class=\"container_catagories-display-card-details\">\n                <h3 class=\"container_catagories-display-card-head\">" + element.brand + " " + catagory + "</h3>\n                <p class=\"container_catagories-display-card-para\"> Size : " + element.size + "</p>\n               <p class=\"container_catagories-display-card-para\"> Price : " + element.price + " </p>\n               <button class=\"container_catagories-display-card-btn\" onclick=\"addToCart('" + element.id + "')\">Add To Cart</button>\n               </div>\n               <div id=\"itemImg\" class=\"container_catagories-display-card-img\"></div>\n               </div>\n                ";
+            html += " \n                <div class=\"container_catagories-display-card\">\n                <div class=\"container_catagories-display-card-details\">\n                <h3 class=\"container_catagories-display-card-head\">" + element.brand + " " + catagory + "</h3>\n                <p class=\"container_catagories-display-card-para\"> Size : " + element.size + "</p>\n               <p class=\"container_catagories-display-card-para\"> Price : " + element.price + " </p>\n               <button class=\"container_catagories-display-card-btn\" name='" + catagory + "' onclick=\"addToCart(event ,'" + element.id + "')\">Add To Cart</button>\n               </div>\n               <div id=\"itemImg\" class=\"container_catagories-display-card-img\"></div>\n               </div>\n                ";
         });
         display.innerHTML = html;
     },
@@ -192,6 +188,30 @@ var clothsList = {
                 : a.brand.toLowerCase() > b.brand.toLowerCase() ? -1 : 0; });
         }
         this.renderCustomerPage(sortedListCustomer, display, catagory);
+    }, renderCustomerByBrand: function (list, inputBrand, display, catagory) {
+        var filteredByBrand = this.filterByBrand(list, inputBrand);
+        this.renderCustomerPage(filteredByBrand, display, catagory);
+    }, renderCustomerBySize: function (list, inputSize, display, catagory) {
+        var filteredBySize = this.filterBySize(list, inputSize);
+        this.renderCustomerPage(filteredBySize, display, catagory);
+    }, renderCustomerByPrice: function (list, inputFrom, inputUpTo, display, catagory) {
+        var filteredCustomerByPrice = this.filterByPrice(list, inputFrom, inputUpTo);
+        this.renderCustomerPage(filteredCustomerByPrice, display, catagory);
+    }, addToCart: function (id, catagory) {
+        var itemToCart;
+        if (catagory == "Tshirts") {
+            itemToCart = this.Tshirts.filter(function (item) { return item.id === id; });
+            itemToCart[0].id = catagory;
+        }
+        else if (catagory == "shoes") {
+            itemToCart = this.shoes.filter(function (item) { return item.id === id; });
+            itemToCart[0].id = catagory;
+        }
+        else if (catagory == "pants") {
+            itemToCart = this.pants.filter(function (item) { return item.id === id; });
+            itemToCart[0].id = catagory;
+        }
+        this.shoppingCart.push(itemToCart);
     }
 };
 function display(ev) {
@@ -419,83 +439,150 @@ function showOptions(box, boxId) {
         sortANDfilterBtnsShoes.innerHTML = "";
         clothsList.getDataTshirts();
         sortANDfilterBtnsTshirts.innerHTML = html;
-        clothsList.renderCustomerPage(clothsList.Tshirts, display, "Tshirt");
+        clothsList.renderCustomerPage(clothsList.Tshirts, display, id);
     }
     else if (id == "shoes") {
         sortANDfilterBtnsPants.innerHTML = "";
         sortANDfilterBtnsTshirts.innerHTML = "";
         clothsList.getDataShoes();
-        clothsList.renderCustomerPage(clothsList.shoes, display, "Shoes");
+        clothsList.renderCustomerPage(clothsList.shoes, display, id);
         sortANDfilterBtnsShoes.innerHTML = html;
     }
     else if (id == "pants") {
         sortANDfilterBtnsTshirts.innerHTML = "";
         sortANDfilterBtnsShoes.innerHTML = "";
         clothsList.getDataPants();
-        clothsList.renderCustomerPage(clothsList.pants, display, "Pants");
+        clothsList.renderCustomerPage(clothsList.pants, display, id);
         sortANDfilterBtnsPants.innerHTML = html;
     }
 }
 function handleSort(ev) {
     var sortValue = ev.target.value;
     var boxId = ev.target.id;
-    if (sortValue == "sortAtoZ") {
-        console.log('lala');
+    var display = document.querySelector(".container_catagories-display");
+    if (boxId == "Tshirts") {
+        clothsList.SortCustomerPage(clothsList.Tshirts, sortValue, display, boxId);
     }
-    else if (sortValue == "sortZtoA") {
-        console.log('lili');
+    else if (boxId == "shoes") {
+        clothsList.SortCustomerPage(clothsList.shoes, sortValue, display, boxId);
     }
-    else if (sortValue == "sortLowToHigh") {
-        console.log('dadad');
-    }
-    else if (sortValue == "sortHighToLow") {
-        console.log('rarara');
+    else if (boxId == "pants") {
+        clothsList.SortCustomerPage(clothsList.pants, sortValue, display, boxId);
     }
 }
+// showing filter input options
 function handleFilter(ev) {
     var boxId = ev.target.id;
     var filterBy = ev.target.value;
-    var displayBoxes = document.querySelectorAll('.container_sortANDfilterBtns-box');
-    var filterBrandOption = document.getElementById('filterBrandOption');
-    var filterSizeOption = document.getElementById('filterSizeOption');
-    var filterPriceOption = document.getElementById('filterPriceOption');
     var sortANDfilterBtnsTshirts = document.getElementById("sortANDfilterBtnsTshirts");
     var sortANDfilterBtnsShoes = document.getElementById("sortANDfilterBtnsShoes");
     var sortANDfilterBtnsPants = document.getElementById("sortANDfilterBtnsPants");
-    var catagory;
-    console.log();
-    // console.log(filterBy);
     if (boxId == "Tshirts") {
         if (filterBy == "brand") {
-            sortANDfilterBtnsTshirts.innerHTML = "<input type=\"text\" class=\"main_form-filterInputsCustomer\" placeholder=\"type brand...\">";
+            sortANDfilterBtnsTshirts.innerHTML = "\n            <form class=\"container_sortANDfilterBtns-box_form\" onsubmit=\"displayFilter(event)\">\n            <input  class=\"container_sortANDfilterBtns-box_form-filterInput\" type=\"text\" id=\"" + boxId + "\" name=\"inputBrand\" placeholder=\"type brand...\" required>\n            <button class=\"container_sortANDfilterBtns-box_form-submit\" type=\"submit\">Filter</button></form>";
         }
         else if (filterBy == "size") {
-            sortANDfilterBtnsTshirts.innerHTML = "<input type=\"text\" class=\"main_form-filterInputsCustomer\" placeholder=\"type size...\">";
+            sortANDfilterBtnsTshirts.innerHTML = "\n            <form class=\"container_sortANDfilterBtns-box_form\" onsubmit=\"displayFilter(event)\">\n            <input  class=\"container_sortANDfilterBtns-box_form-filterInput\" type=\"text\" id=\"" + boxId + "\" name=\"inputSize\" placeholder=\"type size...\" required>\n            <button class=\"container_sortANDfilterBtns-box_form-submit\" type=\"submit\">Filter</button></form>";
         }
         else if (filterBy == "price") {
-            sortANDfilterBtnsTshirts.innerHTML = "<input type=\"number\" class=\"main_form-filterInputsCustomer\" placeholder=\"from...\"><input class=\"main_form-filterInputsCustomer\" type=\"number\" placeholder=\"up to...\">";
+            sortANDfilterBtnsTshirts.innerHTML = "\n            <form class=\"container_sortANDfilterBtns-box_form\" onsubmit=\"displayFilter(event)\">\n            <input  class=\"container_sortANDfilterBtns-box_form-filterInput\" type=\"number\" id=\"" + boxId + "\" name=\"inputFrom\" placeholder=\"From...\" required>\n            <input class=\"container_sortANDfilterBtns-box_form-filterInput\" type=\"number\" id=\"" + boxId + "\" name=\"inputUpTo\" placeholder=\"Up to...\" required >\n            <button class=\"container_sortANDfilterBtns-box_form-submit\" type=\"submit\">Filter</button></form>\n            ";
         }
     }
     else if (boxId == "shoes") {
         if (filterBy == "brand") {
-            sortANDfilterBtnsShoes.innerHTML = "<input type=\"text\" class=\"main_form-filterInputsCustomer\" placeholder=\"type brand...\">";
+            sortANDfilterBtnsShoes.innerHTML = "\n            <form class=\"container_sortANDfilterBtns-box_form\" onsubmit=\"displayFilter(event)\">\n            <input  class=\"container_sortANDfilterBtns-box_form-filterInput\" type=\"text\" id=\"" + boxId + "\" name=\"inputBrand\" placeholder=\"type brand...\" required>\n            <button class=\"container_sortANDfilterBtns-box_form-submit\" type=\"submit\">Filter</button></form>\n            ";
         }
         else if (filterBy == "size") {
-            sortANDfilterBtnsShoes.innerHTML = "<input type=\"text\" class=\"main_form-filterInputsCustomer\" placeholder=\"type size...\">";
+            sortANDfilterBtnsShoes.innerHTML = "\n            <form class=\"container_sortANDfilterBtns-box_form\" onsubmit=\"displayFilter(event)\">\n            <input  class=\"container_sortANDfilterBtns-box_form-filterInput\" type=\"text\" id=\"" + boxId + "\" name=\"inputSize\" placeholder=\"type size...\" required>\n            <button class=\"container_sortANDfilterBtns-box_form-submit\" type=\"submit\">Filter</button></form>";
         }
         else if (filterBy == "price") {
-            sortANDfilterBtnsShoes.innerHTML = "<input type=\"number\" class=\"main_form-filterInputsCustomer\" placeholder=\"from...\"><input class=\"main_form-filterInputsCustomer\" type=\"number\" placeholder=\"up to...\">";
+            sortANDfilterBtnsShoes.innerHTML = "\n            <form class=\"container_sortANDfilterBtns-box_form\" onsubmit=\"displayFilter(event)\">\n            <input class=\"container_sortANDfilterBtns-box_form-filterInput\" type=\"number\" id=\"" + boxId + "\" name=\"inputFrom\" placeholder=\"From...\" required>\n            <input class=\"container_sortANDfilterBtns-box_form-filterInput\" type=\"number\" id=\"" + boxId + "\" name=\"inputUpTo\" placeholder=\"UP to...\" required>\n            <button class=\"container_sortANDfilterBtns-box_form-submit\" type=\"submit\">Filter</button></form>";
         }
     }
     else if (boxId == "pants") {
         if (filterBy == "brand") {
-            sortANDfilterBtnsPants.innerHTML = "<input type=\"text\" class=\"main_form-filterInputsCustomer\" placeholder=\"type brand...\">";
+            sortANDfilterBtnsPants.innerHTML = "<form class=\"container_sortANDfilterBtns-box_form\" onsubmit=\"displayFilter(event)\">\n            <input  class=\"container_sortANDfilterBtns-box_form-filterInput\" type=\"text\" id=\"" + boxId + "\" name=\"inputBrand\" placeholder=\"type brand...\" required>\n            <button class=\"container_sortANDfilterBtns-box_form-submit\" type=\"submit\">Filter</button></form>";
         }
         else if (filterBy == "size") {
-            sortANDfilterBtnsPants.innerHTML = "<input type=\"text\" class=\"main_form-filterInputsCustomer\" placeholder=\"type size...\">";
+            sortANDfilterBtnsPants.innerHTML = "<form class=\"container_sortANDfilterBtns-box_form\" onsubmit=\"displayFilter(event)\">\n            <input  class=\"container_sortANDfilterBtns-box_form-filterInput\" type=\"text\" id=\"" + boxId + "\" name=\"inputSize\" placeholder=\"type brand...\" required>\n            <button class=\"container_sortANDfilterBtns-box_form-submit\" type=\"submit\">Filter</button></form>";
         }
         else if (filterBy == "price") {
-            sortANDfilterBtnsPants.innerHTML = "<input type=\"number\" class=\"main_form-filterInputsCustomer\" placeholder=\"from...\"><input class=\"main_form-filterInputsCustomer\" type=\"number\" placeholder=\"up to...\">";
+            sortANDfilterBtnsPants.innerHTML = "<form class=\"container_sortANDfilterBtns-box_form\" onsubmit=\"displayFilter(event)\">\n            <input class=\"container_sortANDfilterBtns-box_form-filterInput\" type=\"number\" id=\"" + boxId + "\" name=\"inputFrom\" placeholder=\"From...\" required>\n            <input class=\"container_sortANDfilterBtns-box_form-filterInput\" type=\"number\" id=\"" + boxId + "\" name=\"inputUpTo\" placeholder=\"Up to...\" required>\n            <button class=\"container_sortANDfilterBtns-box_form-submit\" type=\"submit\">Filter</button></form>";
         }
     }
+}
+// display after filtered
+function displayFilter(ev) {
+    ev.preventDefault();
+    // console.log(ev.target);
+    var display = document.querySelector('.container_catagories-display');
+    var filterType = ev.target.name;
+    var InputFilterValue = ev.target.value;
+    var boxId;
+    var inputFrom;
+    var inputUpTo;
+    var inputBrand;
+    var inputSize;
+    for (var _i = 0, _a = ev.target; _i < _a.length; _i++) {
+        var field = _a[_i];
+        if (field.name == "inputFrom") {
+            inputFrom = field.value;
+            boxId = field.id;
+        }
+        else if (field.name == "inputUpTo") {
+            inputUpTo = field.value;
+            boxId = field.id;
+        }
+        else if (field.name == "inputBrand") {
+            inputBrand = field.value;
+            boxId = field.id;
+        }
+        else if (field.name == "inputSize") {
+            inputSize = field.value;
+            boxId = field.id;
+        }
+    }
+    console.log(inputBrand);
+    console.log(boxId);
+    if (boxId == "Tshirts") {
+        if (inputBrand) {
+            clothsList.renderCustomerByBrand(clothsList.Tshirts, inputBrand, display, boxId);
+        }
+        else if (inputSize) {
+            clothsList.renderCustomerBySize(clothsList.Tshirts, inputSize, display, boxId);
+        }
+        else if (inputFrom && inputUpTo) {
+            clothsList.renderCustomerByPrice(clothsList.Tshirts, inputFrom, inputUpTo, display, boxId);
+        }
+    }
+    else if (boxId == "shoes") {
+        if (inputBrand) {
+            clothsList.renderCustomerByBrand(clothsList.shoes, inputBrand, display, boxId);
+        }
+        else if (inputSize) {
+            clothsList.renderCustomerBySize(clothsList.shoes, inputSize, display, boxId);
+        }
+        else if (inputFrom && inputUpTo) {
+            clothsList.renderCustomerByPrice(clothsList.shoes, inputFrom, inputUpTo, display, boxId);
+        }
+    }
+    else if (boxId == "pants") {
+        if (inputBrand) {
+            clothsList.renderCustomerByBrand(clothsList.pants, inputBrand, display, boxId);
+        }
+        else if (inputSize) {
+            clothsList.renderCustomerBySize(clothsList.pants, inputSize, display, boxId);
+        }
+        else if (inputFrom && inputUpTo) {
+            clothsList.renderCustomerByPrice(clothsList.pants, inputFrom, inputUpTo, display, boxId);
+        }
+    }
+}
+function addToCart(ev, id) {
+    var catagory = ev.target.name;
+    clothsList.addToCart(id, catagory);
+    // clothsList.addToCartShoes(id)
+    // clothsList.addToCartPants(id)
+    console.log(catagory);
+    console.log(clothsList);
 }
