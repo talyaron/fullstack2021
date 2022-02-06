@@ -100,11 +100,18 @@
         align-items: center;
     }
 }
+.card{
+    color: rgb(0, 0, 0);
+    width: 130px;
+    height: 130px;
+    border: 1px solid black;
+    background-color: blanchedalmond;
+}
 
 .card {
     color: red
 }
-
+/////////////////////////////////////////////////
 .middle {
 
     &_header {
@@ -115,8 +122,9 @@
 
         &-item {
             background-color: rgb(209, 171, 171);
-            width: 200px;
-            height: 100px;
+            text-align: center;
+            width: 100px;
+            height: 55px;
 
             &:hover {
                 border: 1px solid black;
@@ -127,24 +135,17 @@
     &_main {
 
         display: flex;
-        justify-content: space-between;
+        border: 1px solid black;
+        justify-content: space-between; // no esta fusionado
         align-items: center;
 
         &-img {
-            width: 100px;
-            height: 100px;
-            flex: 1 0 200px;
+            width: 5%;
+            height: 5%;
+            flex: 1 0 ;  
         }
     }
 
-    &_pictuire {
-        display: grid;
-
-        &-bigPicture {
-            grid-column: 1/7;//no se q paso aqui
-            grid-row: 1/7;//la mismo
-        }
-    }
 }
 h2{
     background-color: cadetblue;
@@ -152,3 +153,5 @@ h2{
     font-size: 10rem;
     width: fit-content  ;
 }
+
+

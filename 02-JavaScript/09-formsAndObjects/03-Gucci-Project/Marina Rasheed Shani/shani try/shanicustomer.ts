@@ -7,8 +7,9 @@ interface gucci {
     renderfilterByType(type: "jewelry" | "bag",domElement:any), 
     sortByAscending: any,
     sortByDescending: any,
-    filterLowerThan?(input: number),
-    removeItemById:any
+    filterLowerThan(input: number),
+    removeItemById:any;
+    //updateItem?:any
     
     
 
@@ -36,15 +37,16 @@ const gucciStore: gucci = {
     addItem(nameOfItem,price,type){
         const id=uid();
         this.listOfItems.push({nameOfItem,price,id,type});
-
+       
     },
     render(list,domElement){
         let html="";
         list.forEach(item=>{
             html+=`<div class="item">
-            <h3>${item.nameOfItem}</h3>
+            <p>${item.nameOfItem}</p>
             <p>${item.type}</p>
-            <h3>${item.price}</h3>      
+            <p>${item.price}</p> 
+            <hr>     
             </div>`
         });
         domElement.innerHTML=html;    
@@ -69,12 +71,14 @@ const gucciStore: gucci = {
         this.listOfItems.sort((a,b)=>{return b.price-a.price})
     },
     filterLowerThan(input) {
-        this.listOfItems.filter(item => item.price < Number(input))
+
+      return this.listOfItems.filter(item => item.price < Number(input))
         
     },
     removeItemById(id){
         this.listOfItems=this.listOfItems.filter(item=>item.id !==id)   
-     },
+    },
+
 
     
 
@@ -88,13 +92,36 @@ gucciStore.addItem("solid gold fannypack",100000,"bag")
 
 gucciStore.sortByAscending()
 gucciStore.sortByDescending()
-console.log(gucciStore.listOfItems)
-//console.log(gucciStore)
+//console.log(gucciStore.listOfItems)
+console.log(gucciStore)
 
 const root=document.getElementById('root')
 gucciStore.renderAllData(root)
 
 //gucciStore.renderfilterByType("jewelry",root)
+
+function handleSubmit(ev) {
+    ev.preventDefault();
+    console.log(ev.target.elements.nameOfItem.value)
+    const nameOfItem = ev.target.elements.nameOfItem.value;
+    const price: number = ev.target.elements.price.valueAsNumber;
+    const type = ev.target.elements.type.value;
+
+    gucciStore.addItem(nameOfItem,price,type);
+    const root=document.getElementById('root')
+    gucciStore.renderAllData(root);
+
+
+
+
+
+    ev.target.reset();
+}
+
+
+
+
+
 
 function handleSelect(ev){
     console.dir(ev)
@@ -121,6 +148,13 @@ function handlePriceAsc(ev){
 }
 function handlePriceDesc(ev){
     gucciStore.sortByDescending()
+    const root=document.getElementById('root')
+    gucciStore.renderAllData(root);
+
+}
+
+function handleInput(ev){
+    gucciStore.filterLowerThan(ev.target.value)
     const root=document.getElementById('root')
     gucciStore.renderAllData(root);
 

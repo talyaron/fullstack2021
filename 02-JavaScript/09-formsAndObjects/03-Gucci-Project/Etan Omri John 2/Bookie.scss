@@ -1,0 +1,25 @@
+body {
+    margin:0;
+}
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+.wrapper{
+    display: grid;
+}
+.navBar{
+&__menu{
+    margin: .5rem .5rem ;
+&-icon{
+    width: 1.5rem;
+    height: 1.5rem;
+}
+&-selection{
+    display: flex;
+}
+}
+}
+
+[data-add-to-bag]{
+    //for js and animation
+}

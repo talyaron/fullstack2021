@@ -8,30 +8,33 @@ interface Object {
     sortAsc(),
     sortDes(),
     deleteItem(idItem: string),
-    updateItem(idItem:string,newValue:string)
-    renderAllData(root: any)
-    render(root: any, list: namePrice),
-
+    updateItem(idItem:string,newValue:string),
+    addToCarts(type:string),
+    selectItem(type:"shoes"|"pants"|"hoodie")
+    renderAllData(root: any),
+    renderAllCarts(root:any),
+    render(root: any, list: any),
 
 }
+interface type{
+    type:"shoes"|"pants"|"hoodie"
+    name:string
+}
+
 
 interface namePrice {
     name: string;
     price: number;
     id: string;
+    type:"shoes"|"pants"|"hoodie"
 }
 
 let nikeItems: object = {
     items: [],
+    carts:[],
     additems(name, price) {
-
-
         const idItem = uid();
-
-        this.items.push({ name, price, idItem })
-        
-
-
+        this.items.push({ name, price, idItem })   
     },
     sortAsc() {
         this.items.sort((a, b) => a.price - b.price)
@@ -49,10 +52,31 @@ let nikeItems: object = {
         const i =this.items.findIndex(item=>item.idItem===idItem)
         this.items[i].name=newValue
     },
-    renderAllData(root: any) {  
-        const list = this.items;
+    addToCarts(type:string){
+        this.carts.push(type)
+    },
+    renderAllCarts(root:any){
+        const list=this.carts;
+        this.renderCarts(root,list)
+    },
+    selectItem(type){
 
+        this.carts.filter(type=>{
+        
+      
+        })
+
+    },
+    renderAllData(root: any) {
+        const list = this.items;
         this.render(root, list)
+    },
+    renderCarts(root,list){
+        let htmlCustomer:string="";
+        list.forEach(item=> {
+            htmlCustomer+=`<div class= 'card'><h4>The Item You Want:</h4> <p>${item}</p></div>`
+        });
+        root.innerHTML = htmlCustomer;
     },
     render(root: any, list) {
         let html: string = '';
@@ -88,10 +112,7 @@ function handleSubmit(event) {
 function handleAsce() {
     nikeItems.sortAsc()
     const root = document.getElementById('root');
-
     nikeItems.renderAllData(root);
-
-
 }
 function handleDesce() {
     nikeItems.sortDes()
@@ -99,10 +120,7 @@ function handleDesce() {
 
     nikeItems.renderAllData(root);
 }
-
-
 function handleDelete(id) {
-
     nikeItems.deleteItem(id);
     const root = document.getElementById('root');
     nikeItems.renderAllData(root);
@@ -113,4 +131,18 @@ function handleupdate(event,id){
     nikeItems.updateItem(id,updateditem)
     const root = document.getElementById('root');
     nikeItems.renderAllData(root);
+}
+//customer
+function handleCart(event){
+    const type=event.target.id
+    console.log(type);
+    nikeItems.addToCarts(type)
+    const root = document.getElementById('root');
+    nikeItems.renderAllCarts(root);
+}
+
+function handleSelect(event){
+const select=event.target.value
+
+    
 }

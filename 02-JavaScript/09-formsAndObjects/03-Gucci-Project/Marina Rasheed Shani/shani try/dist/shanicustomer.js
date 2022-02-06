@@ -13,7 +13,7 @@ var gucciStore = {
     render: function (list, domElement) {
         var html = "";
         list.forEach(function (item) {
-            html += "<div class=\"item\">\n            <h3>" + item.nameOfItem + "</h3>\n            <p>" + item.type + "</p>\n            <h3>" + item.price + "</h3>      \n            </div>";
+            html += "<div class=\"item\">\n            <p>" + item.nameOfItem + "</p>\n            <p>" + item.type + "</p>\n            <p>" + item.price + "</p> \n            <hr>     \n            </div>";
         });
         domElement.innerHTML = html;
     },
@@ -34,7 +34,7 @@ var gucciStore = {
         this.listOfItems.sort(function (a, b) { return b.price - a.price; });
     },
     filterLowerThan: function (input) {
-        this.listOfItems.filter(function (item) { return item.price < Number(input); });
+        return this.listOfItems.filter(function (item) { return item.price < Number(input); });
     },
     removeItemById: function (id) {
         this.listOfItems = this.listOfItems.filter(function (item) { return item.id !== id; });
@@ -46,11 +46,22 @@ gucciStore.addItem("silver diamond ring ", 1000, "jewelry");
 gucciStore.addItem("solid gold fannypack", 100000, "bag");
 gucciStore.sortByAscending();
 gucciStore.sortByDescending();
-console.log(gucciStore.listOfItems);
-//console.log(gucciStore)
+//console.log(gucciStore.listOfItems)
+console.log(gucciStore);
 var root = document.getElementById('root');
 gucciStore.renderAllData(root);
 //gucciStore.renderfilterByType("jewelry",root)
+function handleSubmit(ev) {
+    ev.preventDefault();
+    console.log(ev.target.elements.nameOfItem.value);
+    var nameOfItem = ev.target.elements.nameOfItem.value;
+    var price = ev.target.elements.price.valueAsNumber;
+    var type = ev.target.elements.type.value;
+    gucciStore.addItem(nameOfItem, price, type);
+    var root = document.getElementById('root');
+    gucciStore.renderAllData(root);
+    ev.target.reset();
+}
 function handleSelect(ev) {
     console.dir(ev);
     var type = ev.target.value;
@@ -69,6 +80,11 @@ function handlePriceAsc(ev) {
 }
 function handlePriceDesc(ev) {
     gucciStore.sortByDescending();
+    var root = document.getElementById('root');
+    gucciStore.renderAllData(root);
+}
+function handleInput(ev) {
+    gucciStore.filterLowerThan(ev.target.value);
     var root = document.getElementById('root');
     gucciStore.renderAllData(root);
 }

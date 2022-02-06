@@ -19,6 +19,33 @@ currencyOption.forEach(function (currency) {
 });
 function handleCurrencyOptionClick(ev) {
     var id = ev.target.id;
+    var prices = document.querySelectorAll(".category-wrapper__card__price");
     console.log(id);
     currencyButton.innerHTML = "ISRAEL (" + id + ")";
+    prices.forEach(function (price) {
+        switch (id) {
+            case "USD":
+                price.classList.add("USD");
+                price.classList.remove("EUR", "GBP");
+                break;
+            case "EUR":
+                price.classList.add("EUR");
+                price.classList.remove("USD", "GBP");
+                break;
+            case "GBP":
+                price.classList.add("GBP");
+                price.classList.remove("EUR", "USD");
+                break;
+        }
+    });
+}
+document.querySelectorAll(".category-wrapper__card__price").forEach(function (price) {
+    price.classList.add("USD");
+});
+var cartIcon = document.querySelector("#cart-icon");
+cartIcon.addEventListener('click', handleCartClick);
+function handleCartClick() {
+    var cart = document.querySelector(".wow");
+    cart.classList.toggle("visible");
+    console.log(cart.classList);
 }

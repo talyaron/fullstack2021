@@ -1,5 +1,5 @@
 interface shop {
-    id: number
+    id?: number
     items: Array<Item>;
     tempItems?: Array<Item>;
     addItem(description: string, price: number, type: "computer" | "kitchen accessory" | "smartphone");

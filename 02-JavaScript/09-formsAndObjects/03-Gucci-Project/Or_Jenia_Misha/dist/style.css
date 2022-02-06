@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @keyframes arrowdown {
   from {
     top: -18px;
@@ -36,15 +37,25 @@
     background-position: center center;
   }
 }
+@keyframes slide {
+  0% {
+    left: 500%;
+  }
+  100% {
+    left: 0%;
+  }
+}
 * {
   padding: 0;
   margin: 0;
   border: 0;
   box-sizing: border-box;
+  transition: all 0.7s;
 }
 
 body {
   font-family: "Barlow Condensed", sans-serif;
+  overflow-x: hidden;
 }
 
 .homeopacity {
@@ -84,7 +95,13 @@ body {
   z-index: 2;
   font-size: 18px;
 }
-.navbar ul {
+.navbar .mlogo {
+  display: none;
+}
+.navbar .mlogo img {
+  height: 80px;
+}
+.navbar .navtags {
   list-style-type: none;
   display: flex;
   justify-content: space-between;
@@ -92,31 +109,44 @@ body {
   align-items: center;
   padding: 1em;
 }
-.navbar ul li {
+.navbar .navtags li {
   padding: 5px;
+  font-weight: bold;
 }
-.navbar ul li:hover {
+.navbar .navtags li:hover {
   cursor: pointer;
   box-shadow: 0 0 0 1px black;
 }
-.navbar ul .fulogo:hover,
-.navbar ul .smedia:hover {
+.navbar .navtags .fulogo:hover,
+.navbar .navtags .smedia:hover {
   box-shadow: 0 0 0 0px black;
 }
-.navbar ul img {
+.navbar .navtags img {
   height: 130px;
 }
-.navbar ul .smedia {
+.navbar .navtags .smedia {
   font-size: 24px;
 }
-.navbar ul .smedia i {
+.navbar .navtags .smedia i {
   margin-inline: 0.2em;
 }
-.navbar ul i {
+.navbar .navtags i {
   padding: 0.2em;
 }
-.navbar ul i:hover {
+.navbar .navtags i:hover {
   box-shadow: 0 0 0 1px black;
+}
+.navbar .burger {
+  display: none;
+}
+.navbar .burger div {
+  width: 30px;
+  height: 5px;
+  background-color: #202020;
+  margin: 5px;
+}
+.navbar .burger:hover {
+  cursor: pointer;
 }
 
 .footer {
@@ -125,7 +155,7 @@ body {
   display: flex;
   width: 95%;
   justify-content: space-between;
-  color: white;
+  color: #EBEBEB;
 }
 .footer .footer__whatsapp {
   display: flex;
@@ -185,7 +215,7 @@ body {
 .lobby {
   min-height: 100vh;
   background-color: #0c0b0b;
-  color: white;
+  color: #EBEBEB;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -247,7 +277,7 @@ body {
 .menuopacity {
   background-color: rgba(0, 0, 0, 0.858);
   height: 100vh;
-  width: 100%;
+  width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -263,16 +293,18 @@ body {
   background-position: center center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  align-items: space-around;
   text-align: center;
   min-height: 100vh;
   color: #EBEBEB;
 }
 .menu__title {
-  margin-top: 2rem;
   font-size: 3rem;
   font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .menu__title::after {
   content: "";
@@ -283,28 +315,42 @@ body {
   margin: 2px auto 0;
 }
 .menu__box {
+  position: relative;
+  top: 2em;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(3, 1fr);
   align-items: center;
-  width: 65%;
+  width: 1200px;
+  height: 75%;
 }
 .menu__cell {
-  margin-top: 2rem;
-  width: 10rem;
-  height: 12rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
+  gap: 0.8em;
 }
 .menu__cell .picwrap {
+  transition: all 0.6s ease-in-out;
   height: 10rem;
   width: 10rem;
   overflow: hidden;
   border-radius: 100%;
   border: 5px solid #1c1c1c;
 }
+.menu__cell .picwrap:hover {
+  border: 5px solid #353535;
+}
 .menu__cell img {
-  width: 102%;
+  width: 142%;
   height: 102%;
+  position: relative;
+  right: 30px;
   transition: all 0.6s ease-in-out;
 }
 .menu__cell img:hover {
@@ -317,4 +363,127 @@ body {
 .menu__cell p {
   padding-top: 0.8rem;
   text-shadow: 1px 1px 3px black;
+}
+
+.popmenu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #EBEBEB;
+}
+.popmenu__x {
+  font-size: 75px;
+  text-shadow: 0px 0px 3px black;
+}
+.popmenu__box {
+  width: 960px;
+  height: 700px;
+  background-image: url("https://images3.alphacoders.com/929/thumb-1920-92919.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center center;
+}
+.popmenu__box__opacity {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.856);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #a1a1a1;
+}
+.popmenu__box__opacity__navbar {
+  height: 10%;
+  width: 900px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 15px;
+}
+.popmenu__box__opacity__navbar div {
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  margin: 5px;
+  padding: 5px;
+  border-bottom: 1px solid grey;
+}
+.popmenu__box__opacity__navbar div:hover {
+  cursor: pointer;
+}
+.popmenu__box__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  color: #ffff;
+}
+.popmenu__box__grid .dishes {
+  width: fit-content;
+  border-bottom: 1px solid #363636;
+  padding: 11px;
+}
+.popmenu__box__grid .dishes__title {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.popmenu__box__grid .dishes__title__price {
+  color: #ed3524;
+}
+.popmenu__box__grid .dishes__title__price::before {
+  content: "₪";
+  font-size: 0.75rem;
+  margin-right: 5px;
+}
+.popmenu__box__grid .dishes__desc {
+  font-size: 70%;
+  text-align: left;
+  margin-bottom: 20px;
+  width: 50ch;
+}
+
+@media screen and (max-width: 1200px) {
+  .navbar {
+    top: 0px;
+    height: 90px;
+    width: 100%;
+    padding: 1em;
+    justify-content: flex-start;
+  }
+  .navbar .burger {
+    display: block;
+  }
+  .navbar .burger div {
+    width: 40px;
+    transform-origin: center;
+  }
+  .navbar .navtags {
+    background-color: #EBEBEB;
+    position: absolute;
+    flex-direction: column;
+    top: 80px;
+    left: 0px;
+    width: 25%;
+    height: 500px;
+    transform: translateX(-100%);
+  }
+  .navbar .navtags .navtags-active {
+    transform: translateX(0%);
+  }
+  .navbar .navtags li {
+    opacity: 0;
+  }
+  .navbar .fulogo {
+    display: none;
+  }
+  .navbar .mlogo {
+    display: block;
+    position: absolute;
+    left: 50%;
+  }
 }

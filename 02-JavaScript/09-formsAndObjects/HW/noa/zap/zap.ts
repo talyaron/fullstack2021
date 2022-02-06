@@ -76,6 +76,7 @@ const ZapList: Zap = {
     this.products.filter((product) => {
       return product.price <= pricenum;
     });
+    this.renderZaplist(this.products, rootHTML);
   },
 
   deleteItem(id) {
