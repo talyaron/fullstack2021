@@ -5,7 +5,7 @@ const uid = function () {
 interface Object {
     items: Array<namePrice>,
     carts: Array<type>,
-    additems(name: string, price: number),
+    additems(name: string, price: number,type:string),
     sortAsc(),
     sortDes(),
     deleteItem(idItem: string),
@@ -23,10 +23,6 @@ interface type {
     name: string
 }
 
-// carts = [{ type: "shoes", name: "shoes" },
-// { type: "hoodie", name: "hoodie" }
-// ]
-
 interface namePrice {
     name: string;
     price: number;
@@ -37,9 +33,9 @@ interface namePrice {
 let nikeItems: object = {
     items: [],
     carts: [],
-    additems(name, price) {
+    additems(name, price,type) {
         const idItem = uid();
-        this.items.push({ name, price, idItem })
+        this.items.push({ name, price,type, idItem })
     },
     sortAsc() {
         this.items.sort((a, b) => a.price - b.price)
@@ -73,8 +69,8 @@ let nikeItems: object = {
     },
     renderCarts(root1, list) {
         let htmlCustomer: string = "";
-        list.forEach(item => {
-            htmlCustomer += `<div class= 'card1'><h4>The Item You Want:</h4> <p>${item.name}</p></div>`
+        list.forEach(type => {
+            htmlCustomer += `<div class= 'card1'><h4>The Item You Want:</h4> <p>${type.name}</p></div>`
         });
         root1.innerHTML = htmlCustomer;
     },
@@ -82,7 +78,7 @@ let nikeItems: object = {
         let html: string = '';
 
         list.forEach(item => {
-            html += `<div class = 'card'> <p>${item.name}: ${item.price}</p>
+            html += `<div class = 'card'> <p>${item.name}</p>
             <button onclick="handleDelete('${item.idItem}')">delete</button>
             <form onsubmit="handleupdate(event,'${item.idItem}')">
             <input type="text" name="nameUpdate" placeholder="change item">
@@ -136,8 +132,8 @@ function handleupdate(event, id) {
 function handleCart(event) {
     const shoes = event.target.id
     nikeItems.addToCarts(shoes)
-    const root1 = document.getElementById('root1');
-    nikeItems.renderAllCarts(root1);
+    const rooto = document.getElementById('root1');
+    nikeItems.renderAllCarts(rooto);
 }
 
 function handlehoodie(ev) {
@@ -155,10 +151,10 @@ function handleSelect(ev) {
     let selected;
     if (theType === "all") {
         nikeItems.renderAllCarts(root1);
-        console.log(nikeItems.carts)
+        
     } else {
          selected = nikeItems.selectItem(theType)
-        console.log(nikeItems.carts)
+       
     
     }
     nikeItems.renderCarts(root1,selected)
