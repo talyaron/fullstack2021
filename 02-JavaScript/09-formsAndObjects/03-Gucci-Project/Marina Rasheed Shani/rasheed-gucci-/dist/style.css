@@ -3,14 +3,10 @@
 }
 
 body {
-  width: 100%;
-  background-image: url("https://media.gucci.com/content/HeroBigStandard_3200x1520/1643384764/HeroBigStandard_VDAY-2022-043-new_001_Default.jpg");
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
   font-family: "Montserrat", sans-serif;
   color: "whiblackte";
-  margin: 0px;
-  height: 73vh;
+  margin: 0;
+  width: 100%;
 }
 
 .container__navBar {
@@ -35,14 +31,10 @@ body {
 }
 .container__navBar2 {
   text-align: center;
-  font-family: "Montserrat", sans-serif;
-  font-weight: bolder;
-  opacity: 1;
 }
 .container__navBar2 ul {
   display: inline-flex;
   list-style: none;
-  color: black;
 }
 .container__navBar2 ul li {
   width: 120px;
@@ -51,15 +43,15 @@ body {
 }
 .container__navBar2 ul li a {
   text-decoration: none;
-  color: #050505;
+  color: #ffffff;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 900;
 }
 .container__navBar2__dropdown {
   display: none;
   width: 130vh;
   padding: 20px;
-  font-family: "Montserrat", sans-serif;
-  transition: ease 3s;
-  transform: translateY(0px);
+  opacity: 0.4;
 }
 .container__navBar2__dropdown ul {
   width: 196vh;
@@ -68,14 +60,17 @@ body {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  background-color: beige;
-}
-.container__navBar2__dropdown ul li {
-  color: #050505;
+  background-color: #141010;
 }
 .container__navBar2__dropdown ul li :hover {
   text-decoration: underline;
   cursor: pointer;
+}
+.container__navBar2__dropdown ul li a {
+  color: #ffffff;
+  font-size: large;
+  font-weight: bolder;
+  font-family: "Montserrat", sans-serif;
 }
 .container__main {
   text-align: center;
@@ -196,8 +191,8 @@ body {
 
 .active,
 .container__navBar2 ul li a:hover {
-  color: black;
   border-radius: 3px;
+  color: #ffffff;
 }
 
 .container__navBar2 ul li:hover .container__navBar2__dropdown {
@@ -205,6 +200,11 @@ body {
   margin-top: 15px;
   margin-left: -15px;
   position: absolute;
-  transition: ease 3ms;
   transform: translateY(-20px);
+}
+
+.sub-container {
+  background-image: url("https://media.gucci.com/content/HeroBigStandard_3200x1520/1643384764/HeroBigStandard_VDAY-2022-043-new_001_Default.jpg");
+  height: 100vh;
+  margin: 0;
 }
