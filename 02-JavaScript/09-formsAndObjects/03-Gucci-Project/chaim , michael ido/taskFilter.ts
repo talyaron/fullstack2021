@@ -41,6 +41,8 @@ interface cloths {
     renderCustomerBySize(list, inputBrand, display, catagory)
     renderCustomerByPrice(list, inputFrom, inputUpTo, display, catagory)
     addToCart(id, catagory)
+    renderShoppingCart(display, catagory)
+    deleteItemFromCard(id)
 }
 interface item {
     id?: any;
@@ -158,14 +160,14 @@ let clothsList: cloths = {
         this.pants = this.pants.filter((item) => item.id !== id)
     },
     filterByBrand(list, filterBrandInput) {
-        return list.filter((item) => item.brand === filterBrandInput);
+        return list.filter((item) => item.brand.toLowerCase() === filterBrandInput);
     },
     renderByBrand(list, filterBrandInput, display, catagory) {
         const filteredByBrand = this.filterByBrand(list, filterBrandInput);
         this.render(filteredByBrand, display, catagory);
     },
     filterBySize(list, filterSizeInput) {
-        return list.filter((item) => item.size === filterSizeInput);
+        return list.filter((item) => item.toLowerCase() === filterSizeInput);
     },
     renderBySize(list, filterSizeInput, display, catagory) {
         const filteredBySize = this.filterBySize(list, filterSizeInput);
@@ -256,22 +258,39 @@ let clothsList: cloths = {
         const filteredCustomerByPrice = this.filterByPrice(list, inputFrom, inputUpTo);
         this.renderCustomerPage(filteredCustomerByPrice, display, catagory)
     }, addToCart(id, catagory) {
-        let itemToCart:item;
+        let itemToCart: item;
         if (catagory == "Tshirts") {
             itemToCart = this.Tshirts.filter((item) => item.id === id)
-            itemToCart[0].id = catagory
+            // itemToCart[0].id = catagory
         } else if (catagory == "shoes") {
             itemToCart = this.shoes.filter((item) => item.id === id)
-            itemToCart[0].id = catagory
-        } else if(catagory == "pants") {
+            // itemToCart[0].id = catagory
+        } else if (catagory == "pants") {
             itemToCart = this.pants.filter((item) => item.id === id)
-            itemToCart[0].id = catagory
+            // itemToCart[0].id = catagory
         }
         this.shoppingCart.push(itemToCart)
+    },renderShoppingCart(display, catagory){
+        let html;
+        this.shoppingCart.forEach((item) => {
+            html = ` 
+            <div class="container_catagories-ShoppingCart_display-item">
+                <h1 class="container_catagories-ShoppingCart_display-item-header">${item[0].brand} ${catagory}</h1>
+                <p class="container_catagories-ShoppingCart_display-item-sizeAndPrice">size: ${item[0].size}</p>
+                <p class="container_catagories-ShoppingCart_display-item-sizeAndPrice">price: ${item[0].price}</p>
+                <button class="container_catagories-ShoppingCart_display-item-deleteBtn" name="${catagory}" type="button" onclick="deleteItem(event,'${item[0].id}')">delete from cart</button>
+            </div>
         
-        
+            `
+        })
+        display.innerHTML += html
+    
+    },deleteItemFromCard(id){
+        this.shoppingCart = this.shoppingCart.filter((item) => item[0].id !== id)
     }
 }
+
+
 function display(ev): void {
     ev.preventDefault();
     console.log(ev.target);
@@ -639,7 +658,7 @@ function handleFilter(ev) {
 // display after filtered
 
 
-function displayFilter(ev) {
+function displayFilter(ev){
 
     ev.preventDefault()
 
@@ -662,18 +681,15 @@ function displayFilter(ev) {
             inputUpTo = field.value
             boxId = field.id
         } else if (field.name == "inputBrand") {
-            inputBrand = field.value
+            inputBrand = field.value.toLowerCase()
             boxId = field.id
         } else if (field.name == "inputSize") {
-            inputSize = field.value
+            inputSize = field.value.toLowerCase()
             boxId = field.id
         }
     }
     console.log(inputBrand);
     console.log(boxId);
-
-
-
     if (boxId == "Tshirts") {
         if (inputBrand) {
             clothsList.renderCustomerByBrand(clothsList.Tshirts, inputBrand, display, boxId)
@@ -691,9 +707,9 @@ function displayFilter(ev) {
             clothsList.renderCustomerByPrice(clothsList.shoes, inputFrom, inputUpTo, display, boxId)
         }
     } else if (boxId == "pants") {
-        if (inputBrand) {
+        if (inputBrand){
             clothsList.renderCustomerByBrand(clothsList.pants, inputBrand, display, boxId)
-        } else if (inputSize) {
+        } else if (inputSize){
             clothsList.renderCustomerBySize(clothsList.pants, inputSize, display, boxId)
         } else if (inputFrom && inputUpTo) {
             clothsList.renderCustomerByPrice(clothsList.pants, inputFrom, inputUpTo, display, boxId)
@@ -703,12 +719,30 @@ function displayFilter(ev) {
 
 function addToCart(ev, id) {
 
-
     let catagory = ev.target.name
+    
+    
+    const display = document.querySelector('.container_catagories-ShoppingCart_display')
 
-    clothsList.addToCart(id,catagory)
-    // clothsList.addToCartShoes(id)
-    // clothsList.addToCartPants(id)
+    clothsList.addToCart(id, catagory)
     console.log(catagory);
     console.log(clothsList);
+    console.log(clothsList.shoppingCart);
+    console.log(clothsList.shoppingCart);
+    
+
+    clothsList.renderShoppingCart(display, catagory)
+}
+
+function deleteItem(ev , id){
+
+    console.log(id);
+    
+    const display = document.querySelector('.container_catagories-ShoppingCart_display')
+    const catagory = ev.target.name
+    console.log(catagory);
+    
+    clothsList.deleteItemFromCard(id)
+    
+
 }

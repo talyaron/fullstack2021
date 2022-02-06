@@ -108,14 +108,14 @@ var clothsList = {
         this.pants = this.pants.filter(function (item) { return item.id !== id; });
     },
     filterByBrand: function (list, filterBrandInput) {
-        return list.filter(function (item) { return item.brand === filterBrandInput; });
+        return list.filter(function (item) { return item.brand.toLowerCase() === filterBrandInput; });
     },
     renderByBrand: function (list, filterBrandInput, display, catagory) {
         var filteredByBrand = this.filterByBrand(list, filterBrandInput);
         this.render(filteredByBrand, display, catagory);
     },
     filterBySize: function (list, filterSizeInput) {
-        return list.filter(function (item) { return item.size === filterSizeInput; });
+        return list.filter(function (item) { return item.toLowerCase() === filterSizeInput; });
     },
     renderBySize: function (list, filterSizeInput, display, catagory) {
         var filteredBySize = this.filterBySize(list, filterSizeInput);
@@ -201,17 +201,25 @@ var clothsList = {
         var itemToCart;
         if (catagory == "Tshirts") {
             itemToCart = this.Tshirts.filter(function (item) { return item.id === id; });
-            itemToCart[0].id = catagory;
+            // itemToCart[0].id = catagory
         }
         else if (catagory == "shoes") {
             itemToCart = this.shoes.filter(function (item) { return item.id === id; });
-            itemToCart[0].id = catagory;
+            // itemToCart[0].id = catagory
         }
         else if (catagory == "pants") {
             itemToCart = this.pants.filter(function (item) { return item.id === id; });
-            itemToCart[0].id = catagory;
+            // itemToCart[0].id = catagory
         }
         this.shoppingCart.push(itemToCart);
+    }, renderShoppingCart: function (display, catagory) {
+        var html;
+        this.shoppingCart.forEach(function (item) {
+            html = " \n            <div class=\"container_catagories-ShoppingCart_display-item\">\n                <h1 class=\"container_catagories-ShoppingCart_display-item-header\">" + item[0].brand + " " + catagory + "</h1>\n                <p class=\"container_catagories-ShoppingCart_display-item-sizeAndPrice\">size: " + item[0].size + "</p>\n                <p class=\"container_catagories-ShoppingCart_display-item-sizeAndPrice\">price: " + item[0].price + "</p>\n                <button class=\"container_catagories-ShoppingCart_display-item-deleteBtn\" name=\"" + catagory + "\" type=\"button\" onclick=\"deleteItem(event,'" + item[0].id + "')\">delete from cart</button>\n            </div>\n        \n            ";
+        });
+        display.innerHTML += html;
+    }, deleteItemFromCard: function (id) {
+        this.shoppingCart = this.shoppingCart.filter(function (item) { return item[0].id !== id; });
     }
 };
 function display(ev) {
@@ -534,11 +542,11 @@ function displayFilter(ev) {
             boxId = field.id;
         }
         else if (field.name == "inputBrand") {
-            inputBrand = field.value;
+            inputBrand = field.value.toLowerCase();
             boxId = field.id;
         }
         else if (field.name == "inputSize") {
-            inputSize = field.value;
+            inputSize = field.value.toLowerCase();
             boxId = field.id;
         }
     }
@@ -580,9 +588,18 @@ function displayFilter(ev) {
 }
 function addToCart(ev, id) {
     var catagory = ev.target.name;
+    var display = document.querySelector('.container_catagories-ShoppingCart_display');
     clothsList.addToCart(id, catagory);
-    // clothsList.addToCartShoes(id)
-    // clothsList.addToCartPants(id)
     console.log(catagory);
     console.log(clothsList);
+    console.log(clothsList.shoppingCart);
+    console.log(clothsList.shoppingCart);
+    clothsList.renderShoppingCart(display, catagory);
+}
+function deleteItem(ev, id) {
+    console.log(id);
+    var display = document.querySelector('.container_catagories-ShoppingCart_display');
+    var catagory = ev.target.name;
+    console.log(catagory);
+    clothsList.deleteItemFromCard(id);
 }
