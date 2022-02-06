@@ -101,3 +101,41 @@
   border: 1px solid black;
   background-color: blanchedalmond;
 }
+
+.card {
+  color: red;
+}
+
+.middle_header {
+  display: flex;
+  background-color: #d1b489;
+  justify-content: space-between;
+}
+.middle_header-item {
+  background-color: #d1abab;
+  text-align: center;
+  width: 100px;
+  height: 55px;
+  position: relative;
+}
+.middle_header-item:hover {
+  border: 1px solid black;
+}
+.middle_main {
+  display: flex;
+  border: 1px solid black;
+  justify-content: space-between;
+  align-items: center;
+}
+.middle_main-img {
+  width: 5%;
+  height: 5%;
+  flex: 1 0;
+}
+
+h2 {
+  background-color: cadetblue;
+  text-align: center;
+  font-size: 10rem;
+  width: fit-content;
+}
