@@ -320,6 +320,7 @@ body {
         font-size: 1.5rem;
         margin-top: 50px;
         display: flex;
+        flex-wrap: wrap;
         align-items: center;
         justify-content: center;
         gap: 75px;
@@ -471,12 +472,23 @@ body {
 // ----------- POPMENU ----------- // 
 
 .popmenu {
+    opacity: 0;
+    position: fixed;
+    display: block;
 
+    z-index: 10;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     color: #EBEBEB;
+    height: 90%; 
+    &-active{
+        opacity: 1;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }  
 
     &__x {
         font-size: 75px;
@@ -486,20 +498,27 @@ body {
 
     &__box {
 
-        width: 960px;
-        height: 700px;
-        background-image: url("https://images3.alphacoders.com/929/thumb-1920-92919.jpg");
-        overflow: scroll;
+        width: 100%;
+        height: 100%;
+        // background-size: cover;
+        // background-image: url("http://en.fusushi.co.il/warehouse/temp/fu/popup.jpg");
+        overflow-x: hidden;
+        overflow-y: scroll;
         @include backgroundsettings();
 
         &__opacity {
-            height: fit-content;
+            padding: 20px;
+            // height: 100%;
             width: 100%;
             background-color: rgba(0, 0, 0, 0.856);
             display: flex;
             flex-direction: column;
             align-items: center;
             color: rgb(161, 161, 161);
+            background-size: cover;
+            background-image: url("http://en.fusushi.co.il/warehouse/temp/fu/popup.jpg");
+
+            
 
             &__navbar {
                 height: 10%;
@@ -661,32 +680,34 @@ body {
 }
 
 @media screen and (max-width: 1000px) {
-    .home{
-        &__title{
+    .home {
+        &__title {
             font-size: 50px;
         }
     }
-.menuopacity{
-    height: 200vh;
-    .menu {
 
-        justify-content: space-between;
+    .menuopacity {
+        height: 200vh;
 
-        &__box {
-            width: 900px;
-            height: 80%;
-            grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: repeat(6, 1fr);
+        .menu {
+
+            justify-content: space-between;
+
+            &__box {
+                width: 900px;
+                height: 80%;
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: repeat(6, 1fr);
+            }
+
+            .picwrap {
+                img {
+                    height: 300px;
+                    width: 300px;
+                }
+            }
+
         }
-
-        .picwrap {
-          img{
-            height: 300px;
-            width: 300px;
-          }
-        }
-
     }
-}
 
 }

@@ -129,16 +129,17 @@ function handleAddDish(ev) {
 function handleDeleteDish(ev) {
   ev.preventDefault();
   console.log(ev);
-  for(let i = 0; i<ev.target.length; i++){
+  for (let i = 0; i < ev.target.length; i++) {
     console.dir(ev.target[i]);
-    
+
   }
-  
+
 }
 
 sushiMenu.getData();
+const rootStore = document.getElementById("rootStore");
 
-// sushiMenu.renderDishesStore(sushiMenu.dishes, root);
+sushiMenu.renderDishesStore(sushiMenu.dishes, rootStore);
 
 // ---- CSS MANIPULATION --- //
 
@@ -153,5 +154,18 @@ function navSlide() {
     });
   }
 }
+function popMenuActive() {
+  const menuCell = document.querySelectorAll(".menu__cell");
+  const pop = document.querySelector(".popmenu");
+  if (menuCell && pop) {
+    menuCell.forEach((cell) => {
+      cell.addEventListener("click", () => {
+        pop.classList.toggle("popmenu-active");
+      });
+    }
+
+  }
+}
+popMenuActive()
 
 navSlide();
