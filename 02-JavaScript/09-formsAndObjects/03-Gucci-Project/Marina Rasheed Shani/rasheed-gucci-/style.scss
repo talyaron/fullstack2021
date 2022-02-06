@@ -47,6 +47,12 @@ body {
     font-family: "Montserrat", sans-serif;
     font-weight: bolder;
     opacity: 1;
+    transition: all 1s;
+    
+    &:hover{
+      background-color: rgb(31, 30, 30);
+      
+    }
     
 
     
@@ -287,8 +293,9 @@ $background-color:#ffffff;
 
 .active,
 .container__navBar2 ul li a:hover {
-  color: black;
+  color: white;
   border-radius: 3px;
+  
 
 }
 
@@ -299,6 +306,7 @@ $background-color:#ffffff;
   position: absolute;
   transition: ease 3ms;
       transform: translateY(-20px);
+      z-index: 1;
     
   
 }

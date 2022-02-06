@@ -38,6 +38,10 @@ body {
   font-family: "Montserrat", sans-serif;
   font-weight: bolder;
   opacity: 1;
+  transition: all 1s;
+}
+.container__navBar2:hover {
+  background-color: #1f1e1e;
 }
 .container__navBar2 ul {
   display: inline-flex;
@@ -196,7 +200,7 @@ body {
 
 .active,
 .container__navBar2 ul li a:hover {
-  color: black;
+  color: white;
   border-radius: 3px;
 }
 
@@ -207,4 +211,5 @@ body {
   position: absolute;
   transition: ease 3ms;
   transform: translateY(-20px);
+  z-index: 1;
 }
