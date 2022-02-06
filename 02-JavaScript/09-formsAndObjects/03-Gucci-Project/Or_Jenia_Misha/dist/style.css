@@ -375,18 +375,20 @@ body {
 .popmenu__x {
   font-size: 75px;
   text-shadow: 0px 0px 3px black;
+  cursor: pointer;
 }
 .popmenu__box {
   width: 960px;
   height: 700px;
   background-image: url("https://images3.alphacoders.com/929/thumb-1920-92919.jpg");
+  overflow: scroll;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
   background-position: center center;
 }
 .popmenu__box__opacity {
-  height: 100%;
+  height: fit-content;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.856);
   display: flex;
@@ -472,10 +474,22 @@ body {
     height: 500px;
     transform: translateX(-100%);
   }
-  .navbar .navtags .navtags-active {
+  .navbar .navtags li {
+    opacity: 0;
+  }
+  .navbar .navtags-active {
     transform: translateX(0%);
   }
-  .navbar .navtags li {
+  .navbar .navtags-active li {
+    opacity: 1;
+  }
+  .navbar .burger-active .line1 {
+    transform: rotate(45deg) translateY(10px);
+  }
+  .navbar .burger-active .line3 {
+    transform: rotate(-45deg) translate(-5px, -8px);
+  }
+  .navbar .burger-active .line2 {
     opacity: 0;
   }
   .navbar .fulogo {
@@ -484,6 +498,33 @@ body {
   .navbar .mlogo {
     display: block;
     position: absolute;
-    left: 50%;
+    left: 45%;
+  }
+
+  .menu__box {
+    width: 1000px;
+    height: 80%;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .home__title {
+    font-size: 50px;
+  }
+
+  .menuopacity {
+    height: 200vh;
+  }
+  .menuopacity .menu {
+    justify-content: space-between;
+  }
+  .menuopacity .menu__box {
+    width: 900px;
+    height: 80%;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+  }
+  .menuopacity .menu .picwrap img {
+    height: 300px;
+    width: 300px;
   }
 }
