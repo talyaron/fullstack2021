@@ -18,11 +18,6 @@ body {
     transition: all 0.5s;
 
 
-
-    &:hover {
-      background-color: rgb(31, 30, 30);
-    }
-
     &__title {
       display: flex;
       justify-content: space-between;
