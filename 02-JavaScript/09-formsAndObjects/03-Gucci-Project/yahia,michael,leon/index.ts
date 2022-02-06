@@ -60,16 +60,15 @@ let nikeItems: object = {
         this.renderCarts(root, list)
     },
     selectItem(type) {
-
-        this.carts.filter(type => {
-
-
-        })
-
+         return this.carts.filter(item => item.type === type)  
     },
     renderAllData(root: any) {
         const list = this.items;
         this.render(root, list)
+    },
+    renderSelctedItem(root1,type){
+         const selected=this.selectItem(type)
+         this.renderCarts(root1,type)
     },
     renderCarts(root1, list) {
      
@@ -153,22 +152,15 @@ function handlehoodie(ev){
 }
 
 function handleSelect(event) {
-    const select = event.target.value
-
-    function handleSelect(ev) {
-        const theType = ev.target.value
-
-        const root1 = document.getElementById('root1');
-        let selected;
-        if (theType === "all") {
+    const type = event.target.value;
+    const root1 = document.getElementById('root1');
+        
+        if (type === "all") {
             nikeItems.renderAllCarts(root1);
 
         } else {
-            selected = nikeItems.selectItem(theType)
-
-
-        }
-        nikeItems.renderAllCarts(root1)
-    }
+            
+            nikeItems.renderSelctedItem(root1)}
 
 }
+

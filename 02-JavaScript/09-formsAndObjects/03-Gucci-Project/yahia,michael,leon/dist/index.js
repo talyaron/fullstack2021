@@ -29,12 +29,15 @@ var nikeItems = {
         this.renderCarts(root, list);
     },
     selectItem: function (type) {
-        this.carts.filter(function (type) {
-        });
+        return this.carts.filter(function (item) { return item.type === type; });
     },
     renderAllData: function (root) {
         var list = this.items;
         this.render(root, list);
+    },
+    renderSelctedItem: function (root1, type) {
+        var selected = this.selectItem(type);
+        this.renderCarts(root1, type);
     },
     renderCarts: function (root1, list) {
         console.log(list);
@@ -99,17 +102,12 @@ function handlehoodie(ev) {
     nikeItems.renderAllCarts(rooto);
 }
 function handleSelect(event) {
-    var select = event.target.value;
-    function handleSelect(ev) {
-        var theType = ev.target.value;
-        var root1 = document.getElementById('root1');
-        var selected;
-        if (theType === "all") {
-            nikeItems.renderAllCarts(root1);
-        }
-        else {
-            selected = nikeItems.selectItem(theType);
-        }
+    var type = event.target.value;
+    var root1 = document.getElementById('root1');
+    if (type === "all") {
         nikeItems.renderAllCarts(root1);
+    }
+    else {
+        nikeItems.renderSelctedItem(root1);
     }
 }
