@@ -3,8 +3,9 @@ const uid = function () {
 };
 
 interface Object {
-    items: Array<namePrice> 
-    additems(name: string, price: number),
+    items: Array<namePrice>,
+    carts: Array<type>,
+    additems(name: string, price: number,type:string),
     sortAsc(),
     sortDes(),
     deleteItem(idItem: string),
@@ -21,7 +22,6 @@ interface type{
     name:string
 }
 
-
 interface namePrice {
     name: string;
     price: number;
@@ -31,10 +31,10 @@ interface namePrice {
 
 let nikeItems: object = {
     items: [],
-    carts:[],
-    additems(name, price) {
+    carts: [],
+    additems(name, price,type) {
         const idItem = uid();
-        this.items.push({ name, price, idItem })   
+        this.items.push({ name, price,type, idItem })
     },
     sortAsc() {
         this.items.sort((a, b) => a.price - b.price)
@@ -71,10 +71,10 @@ let nikeItems: object = {
         const list = this.items;
         this.render(root, list)
     },
-    renderCarts(root,list){
-        let htmlCustomer:string="";
-        list.forEach(item=> {
-            htmlCustomer+=`<div class= 'card'><h4>The Item You Want:</h4> <p>${item}</p></div>`
+    renderCarts(root1, list) {
+        let htmlCustomer: string = "";
+        list.forEach(type => {
+            htmlCustomer += `<div class= 'card1'><h4>The Item You Want:</h4> <p>${type.name}</p></div>`
         });
         root.innerHTML = htmlCustomer;
     },
@@ -82,7 +82,7 @@ let nikeItems: object = {
         let html: string = '';
 
         list.forEach(item => {
-            html += `<div class = 'card'> <p>${item.name}: ${item.price}</p>
+            html += `<div class = 'card'> <p>${item.name}</p>
             <button onclick="handleDelete('${item.idItem}')">delete</button>
             <form onsubmit="handleupdate(event,'${item.idItem}')">
             <input type="text" name="nameUpdate" placeholder="change item">
@@ -133,16 +133,30 @@ function handleupdate(event,id){
     nikeItems.renderAllData(root);
 }
 //customer
-function handleCart(event){
-    const type=event.target.id
-    console.log(type);
-    nikeItems.addToCarts(type)
-    const root = document.getElementById('root');
-    nikeItems.renderAllCarts(root);
+function handleCart(event) {
+    const shoes = event.target.id
+    nikeItems.addToCarts(shoes)
+    const rooto = document.getElementById('root1');
+    nikeItems.renderAllCarts(rooto);
 }
 
 function handleSelect(event){
 const select=event.target.value
 
+function handleSelect(ev) {
+    const theType = ev.target.value
+   
+    const root1 = document.getElementById('root1');
+    let selected;
+    if (theType === "all") {
+        nikeItems.renderAllCarts(root1);
+        
+    } else {
+         selected = nikeItems.selectItem(theType)
+       
+    
+    }
+    nikeItems.renderCarts(root1,selected)
+    
     
 }
