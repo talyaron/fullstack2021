@@ -24,23 +24,24 @@ var nikeItems = {
     addToCarts: function (type) {
         this.carts.push(type);
     },
-    renderAllCarts: function (root1) {
+    renderAllCarts: function (root) {
         var list = this.carts;
-        this.renderCarts(root1, list);
+        this.renderCarts(root, list);
     },
     selectItem: function (type) {
-        return this.carts.filter(function (item) { item.type === type; });
+        this.carts.filter(function (type) {
+        });
     },
     renderAllData: function (root) {
         var list = this.items;
         this.render(root, list);
     },
-    renderCarts: function (root1, list) {
+    renderCarts: function (root, list) {
         var htmlCustomer = "";
         list.forEach(function (item) {
-            htmlCustomer += "<div class= 'card1'><h4>The Item You Want:</h4> <p>" + item.name + "</p></div>";
+            htmlCustomer += "<div class= 'card'><h4>The Item You Want:</h4> <p>" + item + "</p></div>";
         });
-        root1.innerHTML = htmlCustomer;
+        root.innerHTML = htmlCustomer;
     },
     render: function (root, list) {
         var html = '';
@@ -83,28 +84,12 @@ function handleupdate(event, id) {
 }
 //customer
 function handleCart(event) {
-    var shoes = event.target.id;
-    nikeItems.addToCarts(shoes);
-    var root1 = document.getElementById('root1');
-    nikeItems.renderAllCarts(root1);
+    var type = event.target.id;
+    console.log(type);
+    nikeItems.addToCarts(type);
+    var root = document.getElementById('root');
+    nikeItems.renderAllCarts(root);
 }
-function handlehoodie(ev) {
-    var hoodie = ev.target.value;
-    nikeItems.addToCarts(hoodie);
-    var root1 = document.getElementById('root1');
-    nikeItems.renderAllCarts(root1);
-}
-function handleSelect(ev) {
-    var theType = ev.target.value;
-    var root1 = document.getElementById('root1');
-    var selected;
-    if (theType === "all") {
-        nikeItems.renderAllCarts(root1);
-        console.log(nikeItems.carts);
-    }
-    else {
-        selected = nikeItems.selectItem(theType);
-        console.log(nikeItems.carts);
-    }
-    nikeItems.renderCarts(root1, selected);
+function handleSelect(event) {
+    var select = event.target.value;
 }

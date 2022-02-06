@@ -125,6 +125,7 @@
             text-align: center;
             width: 100px;
             height: 55px;
+            position: relative;
 
             &:hover {
                 border: 1px solid black;
@@ -139,7 +140,7 @@
         justify-content: space-between; // no esta fusionado
         align-items: center;
 
-        &-img {
+        &-img { // pq no No funciona el porcentaje
             width: 5%;
             height: 5%;
             flex: 1 0 ;  

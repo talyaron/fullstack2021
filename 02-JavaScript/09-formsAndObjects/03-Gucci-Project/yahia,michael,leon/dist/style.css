@@ -116,6 +116,7 @@
   text-align: center;
   width: 100px;
   height: 55px;
+  position: relative;
 }
 .middle_header-item:hover {
   border: 1px solid black;
