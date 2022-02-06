@@ -91,6 +91,13 @@ function handleCart(event) {
     var rooto = document.getElementById('root1');
     nikeItems.renderAllCarts(rooto);
 }
+function handlehoodie(ev) {
+    var hoodie = ev.target.id;
+    console.log(hoodie);
+    nikeItems.addToCarts(hoodie);
+    var rooto = document.getElementById('root1');
+    nikeItems.renderAllCarts(rooto);
+}
 function handleSelect(event) {
     var select = event.target.value;
     function handleSelect(ev) {

@@ -11,14 +11,14 @@ interface Object {
     deleteItem(idItem: string),
     updateItem(idItem: string, newValue: string),
     addToCarts(type: string),
-    selectItem(type: "shoes" | "pants" | "hoodie")
+    selectItem(type: "shoes"|"hoodie")
     renderAllData(root: any),
     renderAllCarts(root: any),
     render(root: any, list: any),
 
 }
 interface type {
-    type: "shoes" | "pants" | "hoodie"
+    type: "shoes"|"hoodie"
     name: string
 }
 
@@ -26,7 +26,7 @@ interface namePrice {
     name: string;
     price: number;
     id: string;
-    type: "shoes" | "pants" | "hoodie"
+    type: "shoes"|"hoodie"
 }
 
 let nikeItems: object = {
@@ -142,6 +142,14 @@ function handleCart(event) {
     nikeItems.addToCarts(shoes)
     const rooto = document.getElementById('root1');
     nikeItems.renderAllCarts(rooto);
+}
+function handlehoodie(ev){
+    const hoodie=ev.target.id
+    console.log(hoodie);
+    nikeItems.addToCarts(hoodie)
+    const rooto = document.getElementById('root1');
+    nikeItems.renderAllCarts(rooto);
+    
 }
 
 function handleSelect(event) {
