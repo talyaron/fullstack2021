@@ -79,6 +79,30 @@ var Adidas = {
     },
     renderAllData: function (domElement) {
         this.render(this.products, domElement);
+    },
+    filterItems: function (highPrice, lowPrice) {
+        return this.products.filter(function (item) { return item.price >= lowPrice && item.price <= highPrice; });
+    },
+    shoeSizeFilter: function (size) {
+        return this.products.filter(function (item) { return item.size === size; });
+    },
+    sortItemsAsc: function () {
+        this.products.sort(function (x, y) { return y.price - x.price; });
+    },
+    sortItemsDsc: function () {
+        this.products.sort(function (x, y) { return x.price - y.price; });
+    },
+    sortByGender: function (item) {
+        return this.products.filter(function (element) { return element.gender === item; });
+    },
+    sortByColor: function (color) {
+        return this.products.filter(function (element) { return element.color === color; });
+    },
+    sortByType: function (category) {
+        return this.products.filter(function (element) { return element.category === category; });
+    },
+    renderFilter: function (domElement, filterd) {
+        this.renderAdidas(domElement, filterd);
     }
 };
 function handleAddItem(ev) {
@@ -116,6 +140,63 @@ function handleUpdate(ev, itemId) {
     var root = document.getElementById("rootOwner");
     Adidas.updateItem(itemId, newTitle, newPrice, newCategory, newPictureFront, newPictureBack, newColor, newDescription, newShoeSize);
     Adidas.renderAllData(root);
+}
+function handlePriceRange(ev) {
+    var root = document.getElementById("rootCart");
+    var priceLow = ev.target.valueAsNumber;
+    var priceHigh = ev.target.valueAsNumber;
+    if (priceLow && priceHigh) {
+        // console.log(price) + `price`;
+        var filterd = Adidas.filterItems(priceLow && priceHigh);
+        console.log(filterd);
+        Adidas.renderFilter(root, filterd);
+    }
+    else {
+        this.renderAll();
+    }
+}
+function handleSort(ev) {
+    var sort = ev.target.value;
+    ev.preventDefault();
+    var root = document.getElementById("rootCustomer");
+    if (sort === ev.target.value.priceAsc) {
+        Adidas.renderAllData(this.sortItemsAsc(root));
+    }
+    else if (sort === ev.target.value.priceDsc) {
+        Adidas.renderAllData(this.sortItemsDsc(root));
+    }
+    else if (sort === ev.target.value.startPosition) {
+        ev.target.reset();
+    }
+}
+function handleType(ev) {
+    var type = ev.target.value;
+    ev.preventDefault();
+    var root = document.getElementById("rootCustomer");
+    // if(type === " ")
+    return Adidas.renderFilter(root, Adidas.sortByType(type));
+}
+function handleColor(ev) {
+    var color = ev.target.value;
+    ev.preventDefault();
+    var root = document.getElementById("rootCustomer");
+    // if(type === " ")
+    return Adidas.renderFilter(root, Adidas.sortByColor(color));
+}
+function handleGender(ev) {
+    var gender = ev.target.value;
+    ev.preventDefault();
+    var root = document.getElementById("rootCustomer");
+    // if(type === " ")
+    return Adidas.renderFilter(root, Adidas.sortByGender(gender));
+}
+function handleShoeSize(ev) {
+    var size = ev.target.value;
+    ev.preventDefault();
+    var root = document.getElementById("rootCustomer");
+    Adidas.renderFilter(root, Adidas.shoeSizeFilter(size));
+    // if(type === " ")
+    //Adidas.shoeSizeFilter(size);
 }
 Adidas.addItem("superstar shoes", 200, "Sneakers", "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg", "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg", "red", "B-ball legend. Street symbol. Cultural icon. Still going strong after five decades, the adidas Superstar Shoes have millions of stories to tell. Smooth leather combines with serrated 3-Stripes and the authentic rubber shell toe. Ready for the next fifty years of iconic adidas style? Lets do it.", 44);
 Adidas.addItem("superstar shoes", 300, "Sneakers", "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg", "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg", "red", "B-ball legend. Street symbol. Cultural icon. Still going strong after five decades, the adidas Superstar Shoes have millions of stories to tell. Smooth leather combines with serrated 3-Stripes and the authentic rubber shell toe. Ready for the next fifty years of iconic adidas style? Lets do it.", 44);
