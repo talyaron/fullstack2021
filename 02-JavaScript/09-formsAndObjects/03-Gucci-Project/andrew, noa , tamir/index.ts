@@ -50,7 +50,7 @@ let aviator: aviator = {
 
         domElement.innerHTML = html
     },
-    // <i class="fab fa-opencart"></i>
+    
     renderitemcart(domElement) {
         let html2 = '';
 
@@ -78,9 +78,7 @@ let aviator: aviator = {
     },
 
     getdata() {
-        this.items = JSON.parse(localStorage.getItem('storeData'))
-        
-        
+        this.items = JSON.parse(localStorage.getItem('storeData'))  
     },
     deleteItem(id) {
         this.filteritems = this.filteritems.filter(item => item.id !== id);
@@ -93,9 +91,8 @@ let aviator: aviator = {
     },
 
 }
-// let cartItems:number = 0;
+
 function handleaddcart(ev, itemToAddId) {
-    // console.dir(ev)
     const itemToAdd = aviator.items.filter(item => item.id == itemToAddId)[0];
     console.log(itemToAdd);
     
@@ -111,19 +108,16 @@ function handleaddcart(ev, itemToAddId) {
     cartNumber.innerHTML = `${aviator.cartItems}`;
     //
 }
-function handlesortitem(ev) {
-    ev.preventDefault();
+function handlesortitem(ev) {   
     aviator.sortitemup()
     aviator.renderitem(rootitems)
 }
 function handlesortitemacs(ev) {
-    ev.preventDefault();
     aviator.sortitemdown()
     aviator.renderitem(rootitems)
 }
 
 function handleDelete(id) {
-    console.log(id)
     aviator.deleteItem(id)
     aviator.renderitemcart(cart);
 }
@@ -134,7 +128,14 @@ const rootitems = document.getElementById('main')
 aviator.renderitem(rootitems)
 
 const cart = document.getElementById('cart')
-// aviator.renderitemcart(cart)
+aviator.renderitemcart(cart)
 
 
+let filters = document.querySelectorAll('.per');
+filters.forEach(item=>{
+    item.addEventListener('click',handelfilters)
+})
 
+function handelfilters(){
+    
+}

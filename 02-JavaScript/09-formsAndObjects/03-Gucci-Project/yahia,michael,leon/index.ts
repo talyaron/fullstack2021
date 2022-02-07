@@ -3,7 +3,7 @@ const uid = function () {
 };
 
 interface Object {
-    items: Array<namePrice>,
+    items: Array<item>,
     carts: Array<type>,
     additems(name: string, price: number),
     sortAsc(),
@@ -12,6 +12,7 @@ interface Object {
     updateItem(idItem: string, newValue: string),
     addToCarts(type: string),
     selectItem(type: "shoes"|"hoodie")
+    renderSelctedItem(root1:any,type:"shoes"|"hoodie"),
     renderAllData(root: any),
     renderAllCarts(root: any),
     render(root: any, list: any),
@@ -22,7 +23,7 @@ interface type {
     name: string
 }
 
-interface namePrice {
+interface item {
     name: string;
     price: number;
     id: string;
@@ -55,10 +56,7 @@ let nikeItems: object = {
     addToCarts(type:type) {
         this.carts.push({name:type})
     },
-    renderAllCarts(root: any) {
-        const list = this.carts;
-        this.renderCarts(root, list)
-    },
+   
     selectItem(type) {
          return this.carts.filter(item => item.type === type)  
     },
@@ -68,7 +66,11 @@ let nikeItems: object = {
     },
     renderSelctedItem(root1,type){
          const selected=this.selectItem(type)
-         this.renderCarts(root1,type)
+         this.renderCarts(root1,selected)
+    },
+    renderAllCarts(root1) {
+        this.renderCarts(root1, this.carts)
+
     },
     renderCarts(root1, list) {
      
@@ -160,7 +162,7 @@ function handleSelect(event) {
 
         } else {
             
-            nikeItems.renderSelctedItem(root1)}
+            nikeItems.renderSelctedItem(root1,type)}
 
 }
 

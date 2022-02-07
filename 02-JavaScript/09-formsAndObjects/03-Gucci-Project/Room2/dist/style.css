@@ -2,6 +2,7 @@ body {
   width: 100%;
   display: flex;
   flex-direction: column;
+  margin: 0;
 }
 
 .header {
@@ -9,11 +10,22 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 9vh;
+  height: 40vh;
 }
 .header__sort {
   margin-bottom: 70px;
-  margin-top: 120px;
+  border-bottom: solid #c7c7c7 1px;
+  border-top: solid #c7c7c7 1px;
+}
+.header__sort select {
+  border: none;
+  height: 44px;
+  padding: 10px;
+  font-size: 20px;
+  margin: 7px;
+}
+.header__sort select:hover {
+  border: solid 1px black;
 }
 .header .usp__bar {
   display: flex;
@@ -41,6 +53,8 @@ body {
   justify-content: space-between;
   width: 100%;
   border-bottom: solid #c7c7c7 1px;
+  align-items: baseline;
+  height: 107px;
 }
 .header__inner__side--menu {
   margin-top: 10px;
@@ -55,7 +69,7 @@ body {
   transition: ease 1s;
 }
 .header__inner__side--menu i:hover {
-  text-shadow: 0 0 15px #383838;
+  text-shadow: 0 0 15px #770b0b;
 }
 .header__inner--searchBar {
   padding: 2px;
@@ -64,11 +78,10 @@ body {
   margin-right: -385px;
   height: 30px;
   transition: border ease 1s;
-  border: solid thin #e9ecef;
   background-color: #e9ecef;
 }
 .header__inner--searchBar:hover {
-  border: 1px solid black;
+  border: solid black 1px;
 }
 .header__inner--searchBar input {
   background-color: #e9ecef;
@@ -90,47 +103,75 @@ body {
   gap: 40px;
   justify-content: center;
 }
-.header__inner--nav .dropdown-men {
-  display: none;
-  position: absolute;
-  background-color: #f70808;
-  min-width: 100%;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-}
-.header__inner--nav .nav__item--man:hover .dropdown-men {
-  display: block;
-}
-.header__inner--nav a {
+.header__inner--nav .nav__item {
   text-decoration: none;
   color: black;
+  padding-bottom: 10px;
 }
-.header__inner--nav a:hover {
-  border-bottom: 2px solid black;
+.header__inner--nav .nav__item:hover {
+  border-bottom: solid black 3px;
 }
 
-.wrraper {
+.container {
+  background-size: cover;
+  background-image: url(https://st-adidas-isr.mncdn.com/content/uploads/2022_hp/january/predator/d.webp);
+  width: 100%;
+  height: 648px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+}
+.container h2 {
+  margin-left: 70px;
+  font-size: 50px;
+}
+.container p {
+  margin-left: 70px;
 }
 
-.breadCrumbs ul {
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  padding-left: 150px;
+  padding-right: 150px;
+}
+.wrapper--header h1 {
+  font-size: 50px;
+}
+.wrapper--header p {
+  width: 60%;
+}
+.wrapper--header .breadCrumbs ul {
   list-style: none;
   display: flex;
   flex-direction: row;
-  text-decoration: none;
+  align-items: baseline;
+  padding: 0;
+}
+.wrapper--header .breadCrumbs ul li {
+  display: flex;
+  flex-direction: row;
   list-style: none;
 }
-.breadCrumbs ul li a {
+.wrapper--header .breadCrumbs ul li a {
   text-decoration: none;
   color: black;
 }
-.breadCrumbs ul li:active {
+.wrapper--header .breadCrumbs ul li a:hover {
+  background-color: #000;
+  color: white;
+}
+.wrapper--header .breadCrumbs ul li:nth-child(1) {
+  font-size: 12px;
+}
+.wrapper--header .breadCrumbs ul li:nth-child(2) {
+  margin-right: 5px;
+  font-weight: bold;
   text-decoration: underline;
+  font-size: 25px;
 }
 
 .cards {
-  padding-left: 150px;
-  padding-right: 150px;
   display: grid;
   grid-template-rows: repeat(3, 1fr);
   grid-template-columns: repeat(4, 1fr);

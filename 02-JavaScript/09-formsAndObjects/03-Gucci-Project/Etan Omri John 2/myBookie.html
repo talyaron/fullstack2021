@@ -40,9 +40,21 @@
             <div class="table">
                 <table>
                     <label for="ownerSort">sort things out for your comfort</label>
-                    <select name="ownerSort" id="ownerSort"></select>
+                    <select name="ownerSort" id="ownerSort">
+                        <option disabled selected value="None">Choose</option>
+                        <option value="Asc">Ascending</option>
+                        <option value="Desc">Descending</option>
+                    </select>
                     <label for="customerSort">sort how others would see your shop</label>
-                    <select name="customerSort" id="customerSort"></select>
+                    <select name="customerSort" id="customerSort">
+                        <option disabled selected value="None">Choose</option>
+                        <option value="Asc">Ascending</option>
+                        <option value="Desc">Descending</option>
+                    </select>
+                    <lable for="updateBookByID">type the id of the book you would like to update:</lable>
+                    <select onchange="handleUpdate(event)" data-update-book-by-id name="updateBookByID" id="updateBookByID">
+                    </select>
+
                 </table>
             </div>
         </div>
