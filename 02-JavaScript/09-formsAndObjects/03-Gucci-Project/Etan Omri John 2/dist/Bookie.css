@@ -320,3 +320,20 @@ footer .footer__credit {
   width: 100vw;
   grid-area: 3;
 }
+
+.rootBooks {
+  display: grid;
+  gap: 10px;
+  color: #1b1b1b;
+  background-color: #c8ad7f;
+  justify-content: space-between;
+  grid-template-columns: repeat(2, 1fr);
+}
+.rootBooks__card {
+  background-color: whitesmoke;
+  display: grid;
+  border: solid 2px grey;
+}
+.rootBooks__card svg {
+  height: 20px;
+}
