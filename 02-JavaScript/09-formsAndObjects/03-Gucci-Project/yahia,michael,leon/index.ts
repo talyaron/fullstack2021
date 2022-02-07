@@ -58,6 +58,8 @@ let nikeItems: object = {
     },
    
     selectItem(type) {
+        console.log(type);
+        
          return this.carts.filter(item => item.type === type)  
     },
     renderAllData(root: any) {
@@ -65,16 +67,17 @@ let nikeItems: object = {
         this.render(root, list)
     },
     renderSelctedItem(root1,type){
-         const selected=this.selectItem(type)
+         let selected=this.selectItem(type)
          this.renderCarts(root1,selected)
+         
     },
     renderAllCarts(root1) {
         this.renderCarts(root1, this.carts)
 
     },
     renderCarts(root1, list) {
-     
-        console.log(list);
+        // console.log(root1,list);
+        
         let htmlCustomer: string = "";
         list.forEach(type => {
             htmlCustomer += `<div class= 'card1'><h4>The Item You Want:</h4> <p>${type.name}</p></div>`
@@ -138,7 +141,7 @@ function handleupdate(event, id) {
 //customer
 function handleCart(event) {
     
-    console.log(event.target.id);
+    
     const shoes = event.target.id
     nikeItems.addToCarts(shoes)
     const rooto = document.getElementById('root1');
@@ -146,7 +149,7 @@ function handleCart(event) {
 }
 function handlehoodie(ev){
     const hoodie=ev.target.id
-    console.log(hoodie);
+  
     nikeItems.addToCarts(hoodie)
     const rooto = document.getElementById('root1');
     nikeItems.renderAllCarts(rooto);
