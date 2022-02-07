@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="dist/style.css">
 </head>
 
-<body>
+<body onload="handleGetData('owner')">
     <form onsubmit='handleAddItem(event)'>
         <div><input type="text" name="title" placeholder="name of item" required></div>
         <div><input type="text" name="picture" placeholder="picture of item" required></div>
@@ -33,12 +33,12 @@
     </form>
     <br>
 
-    <div id="root">
+    <div id="rootOwner">
         
     </div>
 
 
-    <script src="dist/owner.js"></script>
+    <script src="dist/index.js"></script>
 </body>
 
 </html>
