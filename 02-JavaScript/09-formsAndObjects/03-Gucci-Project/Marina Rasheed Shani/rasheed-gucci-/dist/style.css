@@ -51,9 +51,9 @@ body {
   opacity: 0.4;
 }
 .container__navBar2__dropdown ul {
-  width: 196vh;
+  width: 180vh;
   height: auto;
-  margin-left: -450px;
+  margin-left: -200px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
