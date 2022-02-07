@@ -147,7 +147,7 @@ body {
         font-size: 1.2rem;
         // border: 1px solid red;
         width: 100px;
-
+        text-align: center;
         &:hover {
             cursor: pointer;
             color: var(--main-color-purple1)
@@ -324,11 +324,11 @@ body {
 #root{
 
     .card{
-        display: flex;
+        display: grid;
+        grid-template-columns: repeat(13, 1fr);
         align-items: center;
         p{
             border: 1px solid black;
-            width: 400px;
             margin-inline: 20px;
         }
         img{
@@ -348,4 +348,13 @@ body {
 }
 .visableForm{
     transform: translateY(0px);
+}
+#footer{
+    width: 100vw;
+    height: 100px;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    background-color: var(--main-color-purple3);
+
 }

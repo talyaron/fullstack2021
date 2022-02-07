@@ -17,6 +17,7 @@ interface shop {
   deleteItem(id: number);
   render(list: Array<product>, domElement: any);
   renderAllData(domElement: any);
+
   deleteItem(id: number);
   updateItem(
     id: number,
@@ -54,17 +55,25 @@ const Adidas: shop = {
   render(list, domElement) {
     let html = "";
     this.products.forEach(product => {
-      html += `<div style="width: 35%;border: 1px solid red">
+      html +=
+
+        `<div style="width: 35%;border: 1px solid green">
           <p><b>Title: </b> ${product.title}</p>
           <p><b> Price: </b> ${product.price}₪</p>
-          <p><b> picture: </b> </p>
+          <p><b> picture: </b> <div class="cards__item">
+          <div class="picture">
+              <img src="${product.picture}">
+   
+</div>   </p>
           <p><img src="${product.picture}" style="width: 200px; height: 200px;"></p>
           <p><b> Color: </b> ${product.color}</p>
           <p><b> Description: </b> ${product.description}</p>
           <p><b> Size: </b> ${product.shoeSize}</p>
           <p><b> category: </b> ${product.category}</p>
 
+
           <form onsubmit="handleUpdate(event, '${product.id}') ">
+
           <input type="text" name="newTitle" placeholder="new title" value="${product.title}">
           <input type="number" name="newPrice" placeholder="new price" value="${product.price}">
           <input type="text" name="newCategory" placeholder="new category" value="${product.category}">
@@ -121,6 +130,8 @@ function handleAddItem(ev) {
   Adidas.renderAllData(root);
   ev.target.reset(); //reset the form fileds
   // console.log(category);
+  localStorage.setItem("products", `${this.products}`);
+  localStorage.setItem("Adidas", JSON.stringify(Adidas));
 }
 
 function handleDelete(id) {

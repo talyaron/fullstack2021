@@ -1,20 +1,29 @@
 * {
     box-sizing: border-box;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Arimo', sans-serif;
 }
 
 .main {
-    max-width: 300px;
-    height: 700px;
+    // max-width: 300px;
+    height: 1000px;
     // border: 3px solid black;
     margin: auto;
     background-image:
         linear-gradient(90deg, rgb(70, 74, 75), rgba(160, 167, 166, 0)),
-        repeating-linear-gradient(-45deg, #57779b, #1b7557 1.5px, #456bb3 2px, #422dbd 4px);
+        repeating-linear-gradient(-45deg, #1b4677, #1b7557 1.5px, #456bb3 2px, #422dbd 4px);
+       
+        &-header{
+            text-decoration: underline;
+            font-size: 20vh;
+            color:sienna;
+            text-align: center;
+            font-family:sans-serif;
+            font-family: 'Arimo', sans-serif;
+        }
 
     &_form {
-        height: 300px;
-        max-width: 300px;
+        height: 700px;
+        // max-width: 300px;
         // border: 3px solid red;
         display: grid;
         grid-template-columns: repeat(3, 33%);
@@ -30,27 +39,29 @@
             &-Btn {
                 box-shadow: rgba(38, 168, 21, 0.55) 0px 30px 60px -12px inset, rgba(119, 85, 33, 1.5) 0px 18px 36px -30px inset;
                 grid-column: 2/3;
+                color: brown;
                 width: 45%;
                 border-radius: 40px;
                 font-weight: 1000;
-                font-size: 15px;
+                font-size: 7vh;
+                cursor: pointer;
             }
         }
 
         &-selectCatagory {
-            font-size: 15px;
             font-weight: bold;
-            box-shadow: rgba(102, 122, 153, 0.85) 0px 30px 60px -12px inset, rgba(77, 76, 74, 0.5) 0px 18px 36px -30px inset;
-            height: 4vh;
+            box-shadow: rgba(153, 135, 102, 0.85) 0px 30px 60px -12px inset, rgba(77, 76, 74, 0.5) 0px 18px 36px -30px inset;
+            height: 10vh;
             text-align: center;
             -webkit-appearance: none;
             -moz-appearance: none;
             appearance: none;
             width: 100%;
-            background: rgb(8, 95, 55);
-            color: rgb(241, 234, 234);
+            background: burlywood;
             grid-column: 1/4;
             font-weight: bold;
+            cursor: pointer;
+            font-size: 7vh;
 
             &-options {
                 font-size: 15px;
@@ -74,7 +85,11 @@
 
             &-btn {
                 width: 33%;
-                box-shadow: rgba(68, 66, 68, 0.75) 0px 30px 60px -12px inset, rgba(183, 96, 199, 0.8) 0px 18px 36px -10px inset;
+                box-shadow: rgba(218, 88, 88, 0.75) 0px 30px 60px -12px inset, rgba(183, 96, 199, 0.8) 0px 18px 36px -10px inset;
+                font-size: 5vh;
+                cursor: pointer;
+    
+
             }
         }
 
@@ -99,8 +114,10 @@
         &-filter-btn {
             width: 40%;
             height: 33%;
-            box-shadow: rgba(68, 66, 68, 0.75) 0px 30px 60px -12px inset, rgba(24, 102, 107, 0.8) 0px 18px 36px -10px inset;
+            box-shadow: rgba(68, 67, 66, 0.75) 0px 30px 60px -12px inset, rgba(24, 102, 107, 0.8) 0px 18px 36px -10px inset;
+        font-size: 5vh;
         }
+
 
         &-filterInputs {
             box-shadow: rgba(6, 61, 97, 0.85) 0px 30px 60px -12px inset, rgba(16, 63, 85, 0.5) 0px 18px 36px -30px inset;
@@ -113,6 +130,21 @@
             }
         }
 
+<<<<<<< HEAD
+        &-filterInputsCustomer {
+            box-shadow: rgba(6, 61, 97, 0.85) 0px 30px 60px -12px inset, rgba(16, 63, 85, 0.5) 0px 18px 36px -30px inset;
+            height: 70%;
+            margin-left: 25px;
+            margin-top: -20px;
+            color: aliceblue;
+
+            &::placeholder {
+                color: aliceblue;
+            }
+
+        }
+=======
+>>>>>>> 1112443108cadce6408bfdfd157b9c61846d53c6
     }
 
     &_displayLists {
@@ -141,16 +173,17 @@
         &-box {
             height: 100%;
             width: 100%;
-            // border-bottom: 1px solid rgb(0, 0, 0);
+            border-bottom: 10px solid(0, 0, 0);
             display: flex;
             flex-direction: row;
             column-gap: 3px;
-            overflow: auto;
+            overflow-x: auto;
             white-space: nowrap;
+
 
             &-card {
                 height: 100%;
-                background-color: rgb(15, 14, 14);
+                background-color: rgb(15, 8, 8);
                 width: 50%;
                 row-gap: 5px;
                 text-align: center;
@@ -176,6 +209,7 @@
                     margin-top: 10px;
                     font-size: 12px;
                     color: rgb(255, 255, 255);
+                font-size: 3vh;
                 }
             }
         }
@@ -185,6 +219,8 @@
         height: 33%;
         background-color: rgb(82, 59, 85);
         color: rgb(255, 255, 255);
+        font-size: 4vh;
+        text-align: center;
 
         &::placeholder {
             color: rgb(255, 250, 250);
@@ -219,7 +255,11 @@
     // background-color: rgb(46, 127, 141);
 
     &_header {
+<<<<<<< HEAD
+        // background-color: rgb(46, 127, 141);
+=======
         // background-color:rgb(46 , 127 , 141);
+>>>>>>> 1112443108cadce6408bfdfd157b9c61846d53c6
         display: grid;
         grid-template-columns: repeat(12, 1fr);
         grid-template-rows: repeat(5, 1fr);
@@ -243,7 +283,11 @@
         &-search {
             height: 10vh;
             grid-row: 1/4;
+<<<<<<< HEAD
+            grid-column: 2/8;
+=======
             grid-column: 3/7;
+>>>>>>> 1112443108cadce6408bfdfd157b9c61846d53c6
             justify-content: center;
             margin-top: 1vh;
 
@@ -253,13 +297,23 @@
                 align-self: center;
                 background-color: blanchedalmond;
                 border-radius: 10px;
+<<<<<<< HEAD
+
+=======
+>>>>>>> 1112443108cadce6408bfdfd157b9c61846d53c6
             }
         }
 
         &_menu {
+<<<<<<< HEAD
+            grid-column: 8/13;
+            height: 10vh;
+            grid-row: 1/4;
+=======
             grid-column: 7/13;
             height: 8vh;
             grid-row: 1;
+>>>>>>> 1112443108cadce6408bfdfd157b9c61846d53c6
             display: flex;
             column-gap: 1rem;
 
@@ -270,11 +324,30 @@
                 width: 25%;
                 border: none;
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> 1112443108cadce6408bfdfd157b9c61846d53c6
                 & p {
                     font-size: 12px;
                 }
             }
         }
+<<<<<<< HEAD
+    }
+
+    &-imgsBox {
+        background-image: url(https://s18670.pcdn.co/wp-content/uploads/Top-20-Teacher-T-Shirts-on-Etsy.png);
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        margin: auto;
+        width: 100%;
+        height: 35%;
+        margin-top: 10px;
+    }
+
+=======
 
         &-dropDown {
             grid-column: 7/13;
@@ -314,6 +387,7 @@
         margin-top: 10px;
     }
 
+>>>>>>> 1112443108cadce6408bfdfd157b9c61846d53c6
     &_catagories {
         display: flex;
         justify-content: space-around;
@@ -330,6 +404,33 @@
             background-size: contain;
             background-repeat: no-repeat;
 
+<<<<<<< HEAD
+            &:hover {
+                transform: scale(1.2);
+            }
+        }
+
+        &-display {
+            width: 100%;
+            height: 25%;
+            margin-top: 5px;
+            border: 1px solid rgb(197, 187, 187);
+            display: flex;
+            flex-direction: column;
+            column-gap: 5px;
+            overflow-y: auto;
+            white-space: nowrap;
+
+            &-card {
+                border-bottom: 5px solid rgb(0, 0, 0);
+                box-sizing: content-box;
+                box-shadow: rgba(110, 111, 112, 0.55) 0px 30px 60px 80px inset, rgba(12, 24, 94, 0.75) 0px 18px 36px 30px inset;
+                height: 100%;
+                width: 100%;
+                display: grid;
+                grid-template-columns: repeat(2, 50%);
+
+=======
             // &:hover {
             //     transform: scale(1.2);
             // }
@@ -360,11 +461,23 @@
                 display: grid;
                 grid-template-columns: repeat(2, 50%);
 
+>>>>>>> 1112443108cadce6408bfdfd157b9c61846d53c6
                 &-details {
                     height: 100%;
                     grid-column: 1/2;
                     text-align: center;
                 }
+<<<<<<< HEAD
+
+                &-img {
+                    height: 100%;
+                    grid-column: 2/3;
+                    border-left: 1px dotted black;
+                    background-position: center;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+=======
+>>>>>>> 1112443108cadce6408bfdfd157b9c61846d53c6
 
                 &-img {
                     height: 100%;
@@ -375,7 +488,10 @@
                     background-repeat: no-repeat;
 
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> 1112443108cadce6408bfdfd157b9c61846d53c6
                 }
             }
         }
@@ -405,6 +521,8 @@
             height: 80%;
             width: 30%;
             margin: auto;
+<<<<<<< HEAD
+=======
 
             &_form {
                 width: 100%;
@@ -434,6 +552,7 @@
                     background-color: rgb(107, 68, 46);
                 }
             }
+>>>>>>> 1112443108cadce6408bfdfd157b9c61846d53c6
         }
     }
 
