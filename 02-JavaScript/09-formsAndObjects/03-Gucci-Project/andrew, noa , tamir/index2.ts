@@ -1,4 +1,4 @@
-let filterBar = document.querySelectorAll('.filter-bar__item');
+let filterBar = document.querySelectorAll('.drop');
 filterBar.forEach(item => {
     item.addEventListener('click',handleNavClick)
 

@@ -60,7 +60,7 @@ let stock: aviator = {
     renderStock(items) {
         let HTML = '';
         items.forEach(item => {
-            HTML += ` <div class="card"
+            HTML += ` <div class="card">
             <p> name: ${item.name}</p>
             <p> price: ${item.price}</p>
             <img src="${item.img}">

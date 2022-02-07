@@ -54,7 +54,8 @@ const Adidas: shop = {
   render(list, domElement) {
     let html = "";
     this.products.forEach(product => {
-      html += `<div style="width: 35%;border: 1px solid red">
+      html +=
+        `<div style="width: 35%;border: 1px solid red">
           <p><b>Title: </b> ${product.title}</p>
           <p><b> Price: </b> ${product.price}₪</p>
           <p><b> picture: </b> </p>
@@ -64,7 +65,9 @@ const Adidas: shop = {
           <p><b> Size: </b> ${product.shoeSize}</p>
           <p><b> category: </b> ${product.category}</p>
 
+
           <form onsubmit="handleUpdate(event, '${product.id}') ">
+
           <input type="text" name="newTitle" placeholder="new title" value="${product.title}">
           <input type="number" name="newPrice" placeholder="new price" value="${product.price}">
           <input type="text" name="newCategory" placeholder="new category" value="${product.category}">
@@ -121,6 +124,7 @@ function handleAddItem(ev) {
   Adidas.renderAllData(root);
   ev.target.reset(); //reset the form fileds
   // console.log(category);
+  localStorage.setItem("Adidas", JSON.stringify(Adidas.products));
 }
 
 function handleDelete(id) {
@@ -145,6 +149,7 @@ function handleUpdate(ev: any, itemId: number) {
   Adidas.updateItem(itemId, newTitle, newPrice, newCategory, newPicture, newColor, newDescription, newShoeSize);
   Adidas.renderAllData(root);
 
+  
 }
 
 Adidas.addItem(
@@ -158,7 +163,7 @@ Adidas.addItem(
 );
 Adidas.addItem(
   "superstar shoes",
-  200,
+  300,
   "Sneakers",
   "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg",
   "red",
@@ -167,7 +172,7 @@ Adidas.addItem(
 );
 Adidas.addItem(
   "superstar shoes",
-  200,
+  100,
   "Sneakers",
   "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg",
   "red",

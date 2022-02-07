@@ -7,6 +7,17 @@ function handleTop(ev) {
     ev.preventDefault();
     document.documentElement.scrollTop = 0;
 }
+function hideTopBtn() {
+    var rootElement = document.documentElement;
+    var topTotal = rootElement.scrollHeight - rootElement.clientHeight;
+    if ((rootElement.scrollTop / topTotal) > 0.80) {
+        backToTop.classList.remove("hidden");
+    }
+    else {
+        backToTop.classList.add("hidden");
+    }
+}
+document.addEventListener("scroll", hideTopBtn);
 var bookie = {
     id: 0,
     books: [{ id: 1, category: "thriller", title: 'okay', price: 19.99, year: 1998 }],
@@ -66,7 +77,6 @@ function handleAddItem(ev) {
     localStorage.setItem("Bookie shop", JSON.stringify(localBookie));
     ev.target.reset();
     console.log(localBookie);
-    makeAnOption(localBookie, selectRoot, descPrice);
     // localBookie.makeOptions(ev)
     // how to use localStorage:
     //   window.localStorage.setItem("Bookie shop", JSON.stringify(bookie));
