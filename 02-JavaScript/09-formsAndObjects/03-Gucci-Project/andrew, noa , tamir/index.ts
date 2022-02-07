@@ -2,10 +2,10 @@ interface aviator {
 
     items: Array<newItem>
     filteritems: Array<newItem>
-    cartItems:number
     additem(newItem)
     renderitem(domElement: any)
     renderitemcart(domElement)
+    renderCartCount()
     sortitemup();
     sortitemdown()
     getdata()
@@ -30,7 +30,6 @@ interface newItem {
 let aviator: aviator = {
     items: [],
     filteritems: [],
-    cartItems : 0,
 
     renderitem(domElement) {
         let html = '';
@@ -64,9 +63,11 @@ let aviator: aviator = {
         });
         domElement.innerHTML = html2
     },
+
+    renderCartCount() {
+        document.querySelector('.header__cart-notification').innerHTML = `${this.filteritems.length}`;
+    },
     
-
-
     additem(newItem) {
         this.filteritems.push(newItem)
     },
@@ -87,7 +88,7 @@ let aviator: aviator = {
 
         this.cartItems--;
         document.querySelector('.header__cart-notification').innerHTML = `${this.cartItems}`;
-        
+        this.renderCartCount();
     },
 
 }
@@ -99,13 +100,10 @@ function handleaddcart(ev, itemToAddId) {
     aviator.additem(itemToAdd);
     const cart = document.getElementById('cart')
     aviator.renderitemcart(cart)
-    //andrew's addition
     const cartIcon = document.querySelector("#cart-icon");
     cartIcon.classList.add("pulse");
     setTimeout(()=>{cartIcon.classList.remove("pulse")}, 1000);
-    const cartNumber = document.querySelector('.header__cart-notification')
-    aviator.cartItems++;
-    cartNumber.innerHTML = `${aviator.cartItems}`;
+    aviator.renderCartCount();
     //
 }
 function handlesortitem(ev) {   
