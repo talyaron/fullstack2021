@@ -58,6 +58,17 @@ body {
   overflow-x: hidden;
 }
 
+.blurwrapper {
+  position: fixed;
+  height: 100vh;
+  background-color: #000000a8;
+  z-index: -3;
+  width: 100vw;
+}
+.blurwrapper-active {
+  z-index: 5;
+}
+
 .homeopacity {
   background-color: rgba(0, 0, 0, 0.308);
   min-height: 100vh;
@@ -370,8 +381,11 @@ body {
 .popmenu {
   opacity: 0;
   position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: block;
-  z-index: 10;
+  z-index: -5;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -380,10 +394,9 @@ body {
   height: 90%;
 }
 .popmenu-active {
+  transition: opacity 1s;
   opacity: 1;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  z-index: 6;
 }
 .popmenu__x {
   font-size: 75px;

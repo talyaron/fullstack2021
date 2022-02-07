@@ -18,8 +18,8 @@ var Adidas = {
         this.renderAdidas(domElement, filterd);
     },
     renderAll: function (domElement) {
-        var computers = this.products;
-        this.renderAdidas(domElement, computers);
+        var product = this.products;
+        this.renderAdidas(domElement, product);
     },
     filterItems: function (highPrice, lowPrice) {
         return this.products.filter(function (item) { return item.price >= lowPrice && item.price <= highPrice; });
@@ -70,7 +70,7 @@ function handleSort(ev) {
     else if (sort === ev.target.value.priceDsc) {
         Adidas.renderAll(this.sortItemsDsc(root));
     }
-    else {
+    else if (sort === ev.target.value.startPosition) {
         ev.target.reset();
     }
 }
@@ -106,6 +106,8 @@ function handleShoeSize(ev) {
 function getData() {
     this.products = +localStorage.getItem("products");
     console.log(JSON.parse(localStorage.getItem("Adidas")));
+    var root = document.querySelector('picture');
+    Adidas.renderAll(root);
 }
 getData();
 console.log(this.products);

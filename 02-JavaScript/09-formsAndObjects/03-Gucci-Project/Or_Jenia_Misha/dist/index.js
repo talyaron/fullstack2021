@@ -94,12 +94,23 @@ function navSlide() {
     }
 }
 function popMenuActive() {
-    var menuCell = document.querySelectorAll(".menu__cell");
+    var picWrap = document.querySelectorAll(".picwrap");
     var pop = document.querySelector(".popmenu");
-    if (menuCell && pop) {
-        menuCell.forEach(function (cell) {
+    var close = document.querySelector(".popmenu__x");
+    var blur = document.querySelector(".blurwrapper");
+    if (picWrap && pop && close && blur) {
+        blur.addEventListener("click", function () {
+            pop.classList.toggle("popmenu-active");
+            blur.classList.toggle("blurwrapper-active");
+        });
+        close.addEventListener("click", function () {
+            pop.classList.toggle("popmenu-active");
+            blur.classList.toggle("blurwrapper-active");
+        });
+        picWrap.forEach(function (cell) {
             cell.addEventListener("click", function () {
                 pop.classList.toggle("popmenu-active");
+                blur.classList.toggle("blurwrapper-active");
             });
         });
     }
