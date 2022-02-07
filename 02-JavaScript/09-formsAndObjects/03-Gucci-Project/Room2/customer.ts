@@ -8,7 +8,7 @@ interface shop {
     renderAdidas(list:any, domElement: any);
     renderFilter(domElement, filterd);
     filterItems(highPrice?: number, lowPrice?:number),
-    renderAll(domElement),
+    renderAll( domElement),
     shoeSizeFilter(size);
     sortItemsAsc();
     sortItemsDsc();
@@ -55,8 +55,10 @@ interface shop {
         
     },
     renderAll(domElement){
-        const computers = this.products;
-        this.renderAdidas(domElement, computers)
+        const product = this.products;
+        this.renderAdidas(domElement, product)
+
+
     },
     filterItems(highPrice, lowPrice){
         return this.products.filter((item) => item.price >= lowPrice && item.price <= highPrice);
@@ -148,8 +150,10 @@ function handleShoeSize(ev){
 function getData() {
     this.products = +localStorage.getItem("products");
     console.log(JSON.parse(localStorage.getItem("Adidas")));
+    const root = document.querySelector('picture');
+Adidas.renderAll(root)
   }
   
   getData();
-  
+    
   console.log(this.products);
