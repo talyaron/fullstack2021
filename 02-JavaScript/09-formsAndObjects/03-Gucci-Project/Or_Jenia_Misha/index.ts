@@ -138,7 +138,9 @@ function handleDeleteDish(ev) {
 
 sushiMenu.getData();
 
-// sushiMenu.renderDishesStore(sushiMenu.dishes, root);
+const rootStore = document.getElementById("rootStore");
+
+sushiMenu.renderDishesStore(sushiMenu.dishes, rootStore);
 
 // ---- CSS MANIPULATION --- //
 
@@ -153,5 +155,37 @@ function navSlide() {
     });
   }
 }
+
+function popMenuActive() {
+
+  const picWrap = document.querySelectorAll(".picwrap");
+  const pop = document.querySelector(".popmenu");
+  const close = document.querySelector(".popmenu__x")
+  const blur = document.querySelector(".blurwrapper")
+
+  if (picWrap && pop && close && blur) {
+
+    blur.addEventListener("click", () => {
+      pop.classList.toggle("popmenu-active");
+      blur.classList.toggle("blurwrapper-active")
+    });
+
+    close.addEventListener("click", () => {
+      pop.classList.toggle("popmenu-active");
+      blur.classList.toggle("blurwrapper-active")
+    });
+
+    picWrap.forEach((cell) => {
+
+      cell.addEventListener("click", () => {
+        pop.classList.toggle("popmenu-active");
+        blur.classList.toggle("blurwrapper-active")
+      });
+
+    }
+  }
+}
+
+popMenuActive()
 
 navSlide();

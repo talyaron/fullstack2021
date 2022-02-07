@@ -136,6 +136,7 @@ body {
   margin-inline: 20px;
   font-size: 1.2rem;
   width: 100px;
+  text-align: center;
 }
 .filter-bar__item:hover {
   cursor: pointer;
@@ -277,16 +278,21 @@ body {
 }
 
 #root .card {
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(13, 1fr);
+  align-items: right;
+  border: 1px solid black;
 }
 #root .card p {
-  border: 1px solid black;
-  width: 400px;
   margin-inline: 20px;
 }
 #root .card img {
-  width: 75px;
+  width: 70px;
+  height: auto;
+}
+#root .card > * {
+  margin: 10px;
+  height: 40px;
 }
 
 .updateForm {

@@ -34,7 +34,7 @@ body {
     width: 99vw;
     background-color: var(--main-color-light-gray2);
 
-    svg{
+    svg {
         fill: var(--card-color);
     }
 
@@ -42,21 +42,25 @@ body {
         display: flex;
         justify-content: space-around;
         align-items: center;
+
         // width: 200px;
         &__item {
             width: fit-content;
             margin-inline: 20px;
             font-size: 1rem;
+
             &:hover {
                 cursor: pointer;
                 color: var(--main-color-purple1)
             }
         }
-        .pulse{
+
+        .pulse {
             animation: pulse 1000ms ease;
         }
     }
-    &__cart-notification{
+
+    &__cart-notification {
         // border: 1px solid var(--main-color-purple1);
         background-color: var(--main-color-gray2);
         border-radius: 5px;
@@ -70,12 +74,18 @@ body {
 }
 
 @keyframes pulse {
-       0% {}
-       70% {box-shadow: 0px 0px 20px 10px var(--main-color-purple1), inset 0px 0px 20px 10px var(--main-color-purple1);}
-       100% {box-shadow:0px;} 
+    0% {}
+
+    70% {
+        box-shadow: 0px 0px 20px 10px var(--main-color-purple1), inset 0px 0px 20px 10px var(--main-color-purple1);
+    }
+
+    100% {
+        box-shadow: 0px;
+    }
 }
 
-.currency-selector{
+.currency-selector {
     // border: 1px solid red;
     z-index: 10;
     position: sticky;
@@ -101,22 +111,26 @@ body {
         pointer-events: all;
     }
 
-    p{
+    p {
         text-align: center;
     }
-    .currency{
+
+    .currency {
         display: flex;
         justify-content: center;
         align-items: center;
-        &:hover{
+
+        &:hover {
             cursor: pointer;
         }
-        img{
+
+        img {
             width: 50px;
             height: 30px;
             margin-left: 15px;
         }
-        *{
+
+        * {
             pointer-events: none;
         }
     }
@@ -147,6 +161,7 @@ body {
         font-size: 1.2rem;
         // border: 1px solid red;
         width: 100px;
+        text-align: center;
 
         &:hover {
             cursor: pointer;
@@ -174,6 +189,7 @@ body {
         transform: translateY(0px);
         position: static;
     }
+
     &__group {
         width: 100px;
         // border: 1px solid red;
@@ -236,18 +252,21 @@ body {
         &__price {
             color: black;
         }
-        .USD{
-            &::after{
+
+        .USD {
+            &::after {
                 content: ' $';
             }
         }
-        .EUR{
-            &::after{
+
+        .EUR {
+            &::after {
                 content: ' €';
             }
         }
-        .GBP{
-            &::after{
+
+        .GBP {
+            &::after {
                 content: ' £';
             }
         }
@@ -263,9 +282,9 @@ body {
         border-radius: 10px;
         position: relative;
         left: 7%;
-          margin-bottom: 5%;
+        margin-bottom: 5%;
     }
-    
+
     gap: 5px;
     width: 280px;
     display: grid;
@@ -313,7 +332,7 @@ body {
     transform: translateY(-30px);
     transition: ease 500ms;
 
-    &.visible{
+    &.visible {
         opacity: 1;
         transform: translateY(0px);
         pointer-events: all;
@@ -321,40 +340,52 @@ body {
 }
 
 ////OWNER
-#root{
+#root {
 
-    .card{
-        display: flex;
-        align-items: center;
-        p{
-            border: 1px solid black;
-            width: 400px;
+    .card {
+        display: grid;
+        grid-template-columns: repeat(13, 1fr);
+        align-items: right;
+
+        border: 1px solid black;
+
+        p {
+
             margin-inline: 20px;
         }
-        img{
-            width: 75px;
+
+        img {
+            width: 70px;
+            height: auto;
+        }
+
+        >*{
+            margin: 10px;
+            height: 40px;
         }
     }
 }
 
-.updateForm{
+.updateForm {
     position: fixed;
     bottom: 10px;
     z-index: 1;
     background-color: var(--main-color-purple1);
     transition: ease 0.5s;
     transform: translateY(60px);
-    
+
 }
-.visableForm{
+
+.visableForm {
     transform: translateY(0px);
 }
-#footer{
+
+#footer {
     width: 100vw;
     height: 100px;
     position: fixed;
     bottom: 0px;
     left: 0px;
     background-color: var(--main-color-purple3);
-    
+
 }
