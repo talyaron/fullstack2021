@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="dist/style.css">
 </head>
 
-<body>
+<body onload="handleRenderByDepartment('bags')">
 
 
     <div class="container">
@@ -241,10 +241,10 @@
 
             <select class="catergory__buttons--selector" onchange='handleSelect(event)'>
                 <option value="" disabled selected>Category</option>
-                <option value="all">ALL</option>
-                <option value="dresses">DRESSES</option>
-                <option value="pants">PANTS</option>
-                <option value="shirts">SHIRT</option>
+                <option value="allBags">ALL</option>
+                <option value="purses">PURSES</option>
+                <option value="backpack">BACKPACK</option>
+                
             </select>
 
             <div class="catergory__buttons--sortPrice">
