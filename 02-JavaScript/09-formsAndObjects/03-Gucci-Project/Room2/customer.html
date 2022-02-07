@@ -30,14 +30,10 @@
         <div class="header__inner">
             <div class="header__inner--logo"><img src="images/adidasLogo.png" alt="" /></div>
             <div class="header__inner--nav">
-                <a class="nav__item--man" href="">MEN</a>
-                <div class="dropdown-men">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
-                </div>
-                <a href="">WOMEN</a>
-                <a href="">KIDS</a>
+                <a class="nav__item" href="">MEN</a>
+
+                <a class="nav__item" href="">WOMEN</a>
+                <a class="nav__item" href="">KIDS</a>
             </div>
             <div class="header__inner--searchBar">
                 <input type="text" placeholder="Search.." name="search" />
@@ -117,17 +113,28 @@
 
     </select>
    -->
-    <!-- <div class="breadCrumbs">
-        <a href="">back</a>
-        <ul>
-            <li id="home"><a href="#"> Home /</a></li>
-            <li><a href="#"> Men /</a></li>
-            <li><a href="#">Shoes/</a></li>
-        </ul>
-    </div>
+    <!-- 
     <h1></h1> -->
 
     <div class="wrapper">
+        <div class="wrapper--header">
+            <div class="breadCrumbs">
+                <ul>
+                    <li>
+                        <p>
+                            << &nbsp;&nbsp;</p>
+                    </li>
+                    <li><a href="#"> back</a></li>
+                    <li id="home"><a href="#">&nbsp;&nbsp; Home &nbsp;/</a></li>
+                    <li><a href="#"> &nbsp; Men &nbsp;/</a></li>
+                    <li><a href="#"> &nbsp;Shoes</a></li>
+                </ul>
+            </div>
+            <h1>MEN'S SHOES </h1>
+            <p>Shop adidas for all styles of men's shoes including casual sneakers, high-performance running shoes, and
+                comfy slides. Browse styles for women and kids here.
+            </p>
+        </div>
         <div class="header__sort">
 
             <select onchange="handlePriceRange(event)">
