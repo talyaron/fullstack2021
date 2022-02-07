@@ -1,11 +1,12 @@
 var aviator = {
     items: [],
     cartItems: [],
-    renderitem: function (domElement, list) {
+    itemsToRender: [],
+    renderitem: function (domElement) {
         var html = '';
         html += "<div class=\"category-wrapper\">";
-        list.forEach(function (item) {
-            html += "\n                <div class=\"category-wrapper__title\">DOUGLAS</div>\n                <div class=\"category-wrapper__card\">\n                    <div class='category-wrapper__card__img'> <img src=\"" + item.img + "\"></div>\n                    <div class=\"category-wrapper__card__name\" >" + item.name + " </div>\n                    <div class=\"category-wrapper__card__price\">" + item.price + "</div>\n                    \n                    \n                    <button class='add1' onclick=\"handleaddcart(event,'" + item.id + "')\" style=\"cursor: pointer;color:black\">add to cart<i class=\"fab fa-opencart\"></i></button>\n                </div>";
+        this.itemsToRender.forEach(function (item) {
+            html += "\n                <div class=\"category-wrapper__title\">All Watches</div>\n                <div class=\"category-wrapper__card\">\n                    <div class='category-wrapper__card__img'> <img src=\"" + item.img + "\"></div>\n                    <div class=\"category-wrapper__card__name\" >" + item.name + " </div>\n                    <div class=\"category-wrapper__card__price\">" + item.price + "</div>\n                    \n                    \n                    <button class='add1' onclick=\"handleaddcart(event,'" + item.id + "')\" style=\"cursor: pointer;color:black\">add to cart<i class=\"fab fa-opencart\"></i></button>\n                </div>";
         });
         domElement.innerHTML = html;
     },
@@ -23,10 +24,10 @@ var aviator = {
         this.cartItems.push(newItem);
     },
     sortitemup: function () {
-        this.items.sort(function (a, b) { return a.price - b.price; });
+        this.itemsToRender.sort(function (a, b) { return a.price - b.price; });
     },
     sortitemdown: function () {
-        this.items.sort(function (a, b) { return b.price - a.price; });
+        this.itemsToRender.sort(function (a, b) { return b.price - a.price; });
     },
     getdata: function () {
         this.items = JSON.parse(localStorage.getItem('storeData'));
@@ -52,7 +53,8 @@ var aviator = {
                 break;
         }
         ;
-        this.renderitem(document.getElementById('main'), filteredItems);
+        aviator.itemsToRender = filteredItems;
+        this.renderitem(document.getElementById('main'));
     }
 };
 function handleaddcart(ev, itemToAddId) {
@@ -65,23 +67,23 @@ function handleaddcart(ev, itemToAddId) {
     setTimeout(function () { cartIcon.classList.remove("pulse"); }, 1000);
     aviator.renderCartCount();
     setTimeout(function () { cartIcon.classList.remove("pulse"); }, 1000);
-    //
 }
 function handlesortitem(ev) {
     aviator.sortitemup();
-    aviator.renderitem(rootitems, aviator.items);
+    aviator.renderitem(rootitems);
 }
 function handlesortitemacs(ev) {
     aviator.sortitemdown();
-    aviator.renderitem(rootitems, aviator.items);
+    aviator.renderitem(rootitems);
 }
 function handleDelete(id) {
     aviator.deleteItem(id);
     aviator.renderitemcart(cart);
 }
 aviator.getdata();
+aviator.itemsToRender = aviator.items;
 var rootitems = document.getElementById('main');
-aviator.renderitem(rootitems, aviator.items);
+aviator.renderitem(rootitems);
 var cart = document.getElementById('cart');
 aviator.renderitemcart(cart);
 var filters = document.querySelectorAll('.filter');
@@ -92,4 +94,8 @@ function handelfilters(ev) {
     console.log(ev.target.innerText);
     aviator.filterItems(ev.target.innerText);
 }
+document.querySelector('.filter-bar__item').addEventListener('click', function () {
+    aviator.itemsToRender = aviator.items;
+    aviator.renderitem(document.getElementById('main'));
+});
 // console.dir(ev.target.innerText)

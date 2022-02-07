@@ -125,6 +125,7 @@ const litlife = {
 
   getData() {
     const booksStorage = JSON.parse(localStorage.getItem("storeData"));
+    return booksStorage
   },
 
   addBook(title, autor, genre, year, grade, img) {
@@ -133,7 +134,7 @@ const litlife = {
     this.storeData();
   },
 
-  deleteBook(bookName)
+  deleteBook(bookName) { },
 
   render(list, domElement) {
     let html = " ";
@@ -174,6 +175,7 @@ litlife.getData();
 const root = document.querySelector(".root");
 litlife.renderAllBooks(root);
 
+console.log(litlife.getData());
 // LOCAL STORAGE TEST
 // let data: number = 0;
 

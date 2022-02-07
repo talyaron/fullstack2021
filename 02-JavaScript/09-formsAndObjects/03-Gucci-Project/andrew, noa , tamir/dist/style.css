@@ -136,6 +136,7 @@ body {
   margin-inline: 20px;
   font-size: 1.2rem;
   width: 100px;
+  text-align: center;
 }
 .filter-bar__item:hover {
   cursor: pointer;
@@ -277,12 +278,12 @@ body {
 }
 
 #root .card {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(13, 1fr);
   align-items: center;
 }
 #root .card p {
   border: 1px solid black;
-  width: 400px;
   margin-inline: 20px;
 }
 #root .card img {

@@ -89,12 +89,14 @@ var litlife = {
     },
     getData: function () {
         var booksStorage = JSON.parse(localStorage.getItem("storeData"));
+        return booksStorage;
     },
     addBook: function (title, autor, genre, year, grade, img) {
         var id = uid();
         this.books.push({ title: title, autor: autor, genre: genre, year: year, grade: grade, img: img, id: id });
         this.storeData();
     },
+    deleteBook: function (bookName) { },
     render: function (list, domElement) {
         var html = " ";
         list.forEach(function (book) {
@@ -125,6 +127,7 @@ function handleAddBook(e) {
 litlife.getData();
 var root = document.querySelector(".root");
 litlife.renderAllBooks(root);
+console.log(litlife.getData());
 // LOCAL STORAGE TEST
 // let data: number = 0;
 // function handleUpdateData(e) {

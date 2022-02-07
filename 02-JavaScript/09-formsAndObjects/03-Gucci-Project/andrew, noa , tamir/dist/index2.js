@@ -1,4 +1,4 @@
-var filterBar = document.querySelectorAll('.filter-bar__item');
+var filterBar = document.querySelectorAll('.drop');
 filterBar.forEach(function (item) {
     item.addEventListener('click', handleNavClick);
 });
