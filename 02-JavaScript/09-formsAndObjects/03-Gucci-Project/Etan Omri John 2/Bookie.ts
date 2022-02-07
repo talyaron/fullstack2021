@@ -14,8 +14,8 @@ interface BookShop {
   id: any;
   books: Array<book>;
   addItem(ev: any)
-    //render(list: Array<book>, domElement);
-    //renderItem(domElement: any);
+    render(list: Array<book>, domElement);
+    renderItem(domElement: any);
     //filterByCategory();
     //filterByPrice();
     //updateBook();
@@ -61,6 +61,40 @@ interface BookShop {
         return b.price - a.price;
       });
     },
+    renderItem(domElement){
+      let html = '';
+        html += `<div class="rootBooks">`;
+        this.books.forEach(item => {
+            html += `
+            <div class="rootBooks__card">
+                <button class="rootBooks__card__bag" data-add-to-bag><svg xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 15 14">
+                        <symbol viewBox="0 0 15 14" id="svg-icon-shopping-bag">
+                            <title>shopping-bag</title>
+                            <g fill="currentColor">
+                                <path
+                                    d="M13,4.2h-2.4l0-2c0-1.1-1.3-2-3-2s-3,0.8-3,2l0,2H1.9c-1,0-1.6,0.5-1.6,1.2l0.5,7.8h13.4l0.6-7.7&#10;&#9;&#9;&#9;C14.8,4.7,14,4.2,13,4.2z M6.1,2.2c0.1-0.1,0.6-0.5,1.5-0.5c0.9,0,1.4,0.3,1.5,0.5l0,2h-3L6.1,2.2z M12.8,11.7H2.2L1.8,5.8&#10;&#9;&#9;&#9;c0,0,0.1,0,0.1,0H13c0.1,0,0.2,0,0.2,0L12.8,11.7z" />
+                            </g>
+                        </symbol>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-icon-shopping-bag" />
+                    </svg></button>
+                <i class="rootBooks__card__heart"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 13.5">
+                        <symbol viewBox="0 0 15 13.5" id="svg-icon-saved-items">
+                            <title>saved-items</title>
+                            <g fill="currentColor">
+                                <path
+                                    d="M12.5,5.3l-5,5.2l-5-5.3c0,0-0.8-0.9-0.8-1.5c0-1,0.8-1.8,1.7-1.8c0.6,0,1.1,0.3,1.4,0.9l2.6,2.7l2.7-2.8l0,0&#10;&#9;&#9;&#9;c0.3-0.5,0.8-0.9,1.5-0.9c0.9,0,1.7,0.8,1.7,1.8C13.4,4.4,12.5,5.3,12.5,5.3 M11.5,0c-1.1,0-2.1,0.6-2.7,1.5L7.5,2.8L6.2,1.5&#10;&#9;&#9;&#9;C5.6,0.6,4.6,0,3.5,0C1.5,0,0,1.7,0,3.8c0,1.2,0.5,2.3,1.4,3l1.3,1.4l4.9,5.3l0,0l0,0l4.9-5.3l1.2-1.4C14.5,6.1,15,5,15,3.8&#10;&#9;&#9;&#9;C15,1.7,13.5,0,11.5,0" />
+                            </g>
+                        </symbol>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-icon-saved-items" />
+                    </svg></i>
+                <img src="${item.img}" alt="" class="rootBooks__card__img">
+                <div class="rootBooks__card__title">${item.title}</div>
+                <div class="rootBooks__card__price">${item.price}</div>
+            </div>`
+        });
+        domElement.innerHTML = html
+    }
   };
   let localBookie = bookie
   
@@ -146,3 +180,4 @@ let descYear = (a, b) => {
 makeAnOption(localBookie, selectRoot, descPrice)
 console.log(parsedBookie)
 console.log(localBookie)
+
