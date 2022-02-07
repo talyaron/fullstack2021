@@ -2,10 +2,11 @@ interface aviator {
 
     items: Array<newItem>
     filteritems: Array<newItem>
-    cartItems:number
+    cartItems: number
     additem(newItem)
     renderitem(domElement: any)
     renderitemcart(domElement)
+    renderCartCount()
     sortitemup();
     sortitemdown()
     getdata()
@@ -30,7 +31,7 @@ interface newItem {
 let aviator: aviator = {
     items: [],
     filteritems: [],
-    cartItems : 0,
+    cartItems: 0,
 
     renderitem(domElement) {
         let html = '';
@@ -50,7 +51,7 @@ let aviator: aviator = {
 
         domElement.innerHTML = html
     },
-    
+
     renderitemcart(domElement) {
         let html2 = '';
 
@@ -64,9 +65,13 @@ let aviator: aviator = {
         });
         domElement.innerHTML = html2
     },
+
+
+
+    renderCartCount() {
+        document.querySelector('.header__cart-notification').innerHTML = `${this.filteritems.length}`;
+    },
     
-
-
     additem(newItem) {
         this.filteritems.push(newItem)
     },
@@ -78,7 +83,7 @@ let aviator: aviator = {
     },
 
     getdata() {
-        this.items = JSON.parse(localStorage.getItem('storeData'))  
+        this.items = JSON.parse(localStorage.getItem('storeData'))
     },
     deleteItem(id) {
         this.filteritems = this.filteritems.filter(item => item.id !== id);
@@ -87,28 +92,28 @@ let aviator: aviator = {
 
         this.cartItems--;
         document.querySelector('.header__cart-notification').innerHTML = `${this.cartItems}`;
-        
+        this.renderCartCount();
+
     },
 
 }
 
 function handleaddcart(ev, itemToAddId) {
     const itemToAdd = aviator.items.filter(item => item.id == itemToAddId)[0];
-    console.log(itemToAdd);
-    
     aviator.additem(itemToAdd);
     const cart = document.getElementById('cart')
     aviator.renderitemcart(cart)
-    //andrew's addition
     const cartIcon = document.querySelector("#cart-icon");
     cartIcon.classList.add("pulse");
     setTimeout(()=>{cartIcon.classList.remove("pulse")}, 1000);
+    aviator.renderCartCount();
+    setTimeout(() => { cartIcon.classList.remove("pulse") }, 1000);
     const cartNumber = document.querySelector('.header__cart-notification')
     aviator.cartItems++;
     cartNumber.innerHTML = `${aviator.cartItems}`;
     //
 }
-function handlesortitem(ev) {   
+function handlesortitem(ev) {
     aviator.sortitemup()
     aviator.renderitem(rootitems)
 }
@@ -132,10 +137,15 @@ aviator.renderitemcart(cart)
 
 
 let filters = document.querySelectorAll('.per');
-filters.forEach(item=>{
-    item.addEventListener('click',handelfilters)
+filters.forEach(item => {
+    item.addEventListener('click', handelfilters)
 })
 
-function handelfilters(){
-    
+function handelfilters(ev) {
+    const values = ev.target.innerText
+    console.log(values);
+     
 }
+
+
+// console.dir(ev.target.innerText)
