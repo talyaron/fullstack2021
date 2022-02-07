@@ -110,9 +110,9 @@ interface shop {
      else if(sort === ev.target.value.priceDsc){
       Adidas.renderAll(this.sortItemsDsc(root));
      }
-     else{
-      ev.target.reset();
-     }
+     else if(sort === ev.target.value.startPosition){
+        ev.target.reset();
+       }
   }
 function handleType(ev){
     const type = ev.target.value;

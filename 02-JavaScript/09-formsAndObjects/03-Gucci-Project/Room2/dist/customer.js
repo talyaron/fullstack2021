@@ -70,7 +70,7 @@ function handleSort(ev) {
     else if (sort === ev.target.value.priceDsc) {
         Adidas.renderAll(this.sortItemsDsc(root));
     }
-    else {
+    else if (sort === ev.target.value.startPosition) {
         ev.target.reset();
     }
 }
