@@ -123,6 +123,8 @@ function handleAddBook(e) {
     litlife.storeData();
 }
 litlife.getData();
+var root = document.querySelector(".root");
+litlife.renderAllBooks(root);
 // LOCAL STORAGE TEST
 // let data: number = 0;
 // function handleUpdateData(e) {

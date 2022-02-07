@@ -3,9 +3,9 @@ const uid = function () {
 };
 
 interface Store {
-  Books: Array<Book>;
-  storeData();
-  getData();
+  Books: Array<Book>,
+  storeData(),
+  getData(),
   addBook(
     title: string,
     autor: string,
@@ -19,19 +19,20 @@ interface Store {
     grade: number,
     img: any,
     id: string
-  );
-  render(list: any, domElement: any);
-  renderAllBooks(domElement: any);
+  ),
+  deleteBook(bookName: string),
+  render(list: any, domElement: any),
+  renderAllBooks(domElement: any),
 }
 
 interface Book {
-  title: string;
-  autor: string;
-  genre: "science fiction" | "detective" | "prose" | "adventures" | "children";
-  year: number;
-  grade: number;
-  img: any;
-  id?: string;
+  title: string,
+  autor: string,
+  genre: "science fiction" | "detective" | "prose" | "adventures" | "children",
+  year: number,
+  grade: number,
+  img: any,
+  id?: string
 }
 
 const litlife = {
@@ -132,6 +133,8 @@ const litlife = {
     this.storeData();
   },
 
+  deleteBook(bookName)
+
   render(list, domElement) {
     let html = " ";
     list.forEach((book: any) => {
@@ -168,6 +171,8 @@ function handleAddBook(e) {
 }
 
 litlife.getData();
+const root = document.querySelector(".root");
+litlife.renderAllBooks(root);
 
 // LOCAL STORAGE TEST
 // let data: number = 0;
