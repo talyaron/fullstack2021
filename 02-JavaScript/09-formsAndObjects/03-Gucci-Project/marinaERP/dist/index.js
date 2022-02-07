@@ -98,7 +98,7 @@ var litlife = {
     render: function (list, domElement) {
         var html = " ";
         list.forEach(function (book) {
-            html += "<div class=\"item\">\n           <p>" + book.title + "</p>\n           <img class=\"img\" src=\"" + book.img + "\">\n           <p>" + book.price + "$</p>\n           </div>";
+            html += "<div class=\"item\">\n           <p>" + book.title + "</p>\n           <img class=\"img\" src=\"" + book.img + "\">\n           <p>" + book.year + "</p>\n           </div>";
         });
         domElement.innerHTML = html;
     },
@@ -117,7 +117,7 @@ function handleAddBook(e) {
     var year = e.target.year.valueAsNumber;
     var grade = e.target.grade.valueAsNumber;
     var img = e.target.img.value;
-    litlife.addBook(title, autor, genre, year, grade, img, id);
+    litlife.addBook(title, autor, genre, year, grade, img);
     var root = document.querySelector(".root");
     litlife.renderAllBooks(root);
     litlife.storeData();

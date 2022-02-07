@@ -138,7 +138,7 @@ const litlife = {
       html += `<div class="item">
            <p>${book.title}</p>
            <img class="img" src="${book.img}">
-           <p>${book.price}$</p>
+           <p>${book.year}</p>
            </div>`;
     });
     domElement.innerHTML = html;
@@ -161,7 +161,7 @@ function handleAddBook(e) {
   const year = e.target.year.valueAsNumber;
   const grade = e.target.grade.valueAsNumber;
   const img = e.target.img.value;
-  litlife.addBook(title, autor, genre, year, grade, img, id);
+  litlife.addBook(title, autor, genre, year, grade, img);
   const root = document.querySelector(".root");
   litlife.renderAllBooks(root);
   litlife.storeData();
