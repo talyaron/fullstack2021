@@ -349,3 +349,12 @@ body {
 .visableForm{
     transform: translateY(0px);
 }
+#footer{
+    width: 100vw;
+    height: 100px;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    background-color: var(--main-color-purple3);
+    
+}
