@@ -45,12 +45,15 @@
     left: 0%;
   }
 }
+* {
+  transition: all 0.7s;
+}
+
 #bodystore {
   padding: 0;
   margin: 0;
   border: 0;
   box-sizing: border-box;
-  transition: all 0.7s;
   font-family: "Barlow Condensed", sans-serif;
   overflow-x: hidden;
 }
