@@ -8,7 +8,7 @@ interface Store {
     Books: Array<Book>,
     storeData(),
     getData(),
-    addBook(title: string, autor: string,, genre: string,, year: number, grade: number, img: any, id: string), 
+    addBook(title: string, autor: string, genre: string, year: number, grade: number, img: any, id: string), 
     render(list: any, domElement: any),
     renderAllBooks(domElement: any),
 }
