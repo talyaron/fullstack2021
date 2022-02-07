@@ -7,7 +7,7 @@ var Adidas = {
         var id = uid;
         this.products.push(products, id);
     },
-    renderAdidas: function (domElement) {
+    renderAdidas: function (list, domElement) {
         var html = '';
         this.products.forEach(function (item) {
             html += "<div class=\"item\">\n            <p><img src=\"" + item.picture + "\" style=\"width: 200px; height: 200px;\"></p>\n            <p>" + item.title + "</p>\n            <p> size: " + item.shoeSize + "</p>\n            <p> price: " + item.price + "\n            <button onclick=\"handleDelete('" + item.id + "')\">Delete</button>\n            </div>";
@@ -76,26 +76,27 @@ function handleType(ev) {
     ev.preventDefault();
     var root = document.getElementById("root");
     // if(type === " ")
-    return Adidas.renderFilter(root, type);
+    return Adidas.renderFilter(root, Adidas.sortByType(type));
 }
 function handleColor(ev) {
     var color = ev.target.value;
     ev.preventDefault();
     var root = document.getElementById("root");
     // if(type === " ")
-    return Adidas.renderFilter(root, color);
+    return Adidas.renderFilter(root, Adidas.sortByColor(color));
 }
 function handleGender(ev) {
     var gender = ev.target.value;
     ev.preventDefault();
     var root = document.getElementById("root");
     // if(type === " ")
-    return Adidas.renderFilter(root, gender);
+    return Adidas.renderFilter(root, Adidas.sortByGender(gender));
 }
 function handleShoeSize(ev) {
     var size = ev.target.value;
     ev.preventDefault();
     var root = document.getElementById("root");
+    Adidas.renderFilter(root, Adidas.shoeSizeFilter(size));
     // if(type === " ")
-    return Adidas.renderFilter(root, size);
+    //Adidas.shoeSizeFilter(size);
 }

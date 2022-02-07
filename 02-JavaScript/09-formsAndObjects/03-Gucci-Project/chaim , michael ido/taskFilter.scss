@@ -130,6 +130,7 @@
             }
         }
 
+<<<<<<< HEAD
         &-filterInputsCustomer {
             box-shadow: rgba(6, 61, 97, 0.85) 0px 30px 60px -12px inset, rgba(16, 63, 85, 0.5) 0px 18px 36px -30px inset;
             height: 70%;
@@ -142,6 +143,8 @@
             }
 
         }
+=======
+>>>>>>> 1112443108cadce6408bfdfd157b9c61846d53c6
     }
 
     &_displayLists {
@@ -252,7 +255,11 @@
     // background-color: rgb(46, 127, 141);
 
     &_header {
+<<<<<<< HEAD
         // background-color: rgb(46, 127, 141);
+=======
+        // background-color:rgb(46 , 127 , 141);
+>>>>>>> 1112443108cadce6408bfdfd157b9c61846d53c6
         display: grid;
         grid-template-columns: repeat(12, 1fr);
         grid-template-rows: repeat(5, 1fr);
@@ -276,7 +283,11 @@
         &-search {
             height: 10vh;
             grid-row: 1/4;
+<<<<<<< HEAD
             grid-column: 2/8;
+=======
+            grid-column: 3/7;
+>>>>>>> 1112443108cadce6408bfdfd157b9c61846d53c6
             justify-content: center;
             margin-top: 1vh;
 
@@ -286,14 +297,23 @@
                 align-self: center;
                 background-color: blanchedalmond;
                 border-radius: 10px;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1112443108cadce6408bfdfd157b9c61846d53c6
             }
         }
 
         &_menu {
+<<<<<<< HEAD
             grid-column: 8/13;
             height: 10vh;
             grid-row: 1/4;
+=======
+            grid-column: 7/13;
+            height: 8vh;
+            grid-row: 1;
+>>>>>>> 1112443108cadce6408bfdfd157b9c61846d53c6
             display: flex;
             column-gap: 1rem;
 
@@ -304,9 +324,53 @@
                 width: 25%;
                 border: none;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1112443108cadce6408bfdfd157b9c61846d53c6
                 & p {
                     font-size: 12px;
+                }
+            }
+        }
+<<<<<<< HEAD
+    }
+
+    &-imgsBox {
+        background-image: url(https://s18670.pcdn.co/wp-content/uploads/Top-20-Teacher-T-Shirts-on-Etsy.png);
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        margin: auto;
+        width: 100%;
+        height: 35%;
+        margin-top: 10px;
+    }
+
+=======
+
+        &-dropDown {
+            grid-column: 7/13;
+            grid-row: 2;
+            border: 3px solid red;
+            height: 20vh;
+            display: grid;
+            grid-template-columns: repeat(4, 25%);
+
+            &-box {
+                border: 2px solid black;
+
+                &-item {
+                    width: 100%;
+                    height: 35%;
+                    border-bottom: 1px solid rgb(86, 86, 224);
+                    background-color: rgb(212, 211, 201);
+                }
+
+                &-signInInput {
+                    box-shadow: rgba(97, 88, 6, 0.85) 0px 30px 60px -12px inset, rgba(85, 216, 96, 0.5) 0px 18px 36px -30px inset;
+                    height: 20%;
+                    width: 100%;
                 }
             }
         }
@@ -323,6 +387,7 @@
         margin-top: 10px;
     }
 
+>>>>>>> 1112443108cadce6408bfdfd157b9c61846d53c6
     &_catagories {
         display: flex;
         justify-content: space-around;
@@ -339,6 +404,7 @@
             background-size: contain;
             background-repeat: no-repeat;
 
+<<<<<<< HEAD
             &:hover {
                 transform: scale(1.2);
             }
@@ -364,11 +430,54 @@
                 display: grid;
                 grid-template-columns: repeat(2, 50%);
 
+=======
+            // &:hover {
+            //     transform: scale(1.2);
+            // }
+
+            &-form {
+                border: 3px solid red;
+
+            }
+        }
+
+        &-display {
+            width: 100%;
+            height: 25%;
+            margin-top: 5px;
+            border: 1px solid rgb(197, 187, 187);
+            display: flex;
+            flex-direction: column;
+            column-gap: 5px;
+            overflow-y: auto;
+            white-space: nowrap;
+
+            &-card {
+                border-bottom: 5px solid rgb(0, 0, 0);
+                box-sizing: content-box;
+                box-shadow: rgba(110, 111, 112, 0.55) 0px 30px 60px 80px inset, rgba(12, 24, 94, 0.75) 0px 18px 36px 30px inset;
+                height: 100%;
+                width: 100%;
+                display: grid;
+                grid-template-columns: repeat(2, 50%);
+
+>>>>>>> 1112443108cadce6408bfdfd157b9c61846d53c6
                 &-details {
                     height: 100%;
                     grid-column: 1/2;
                     text-align: center;
                 }
+<<<<<<< HEAD
+
+                &-img {
+                    height: 100%;
+                    grid-column: 2/3;
+                    border-left: 1px dotted black;
+                    background-position: center;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+=======
+>>>>>>> 1112443108cadce6408bfdfd157b9c61846d53c6
 
                 &-img {
                     height: 100%;
@@ -379,7 +488,10 @@
                     background-repeat: no-repeat;
 
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> 1112443108cadce6408bfdfd157b9c61846d53c6
                 }
             }
         }
@@ -409,6 +521,38 @@
             height: 80%;
             width: 30%;
             margin: auto;
+<<<<<<< HEAD
+=======
+
+            &_form {
+                width: 100%;
+                height: 7vh;
+
+
+                &-filterInput {
+                    box-shadow: rgba(6, 61, 97, 0.85) 0px 30px 60px -12px inset, rgba(16, 63, 85, 0.5) 0px 18px 36px -30px inset;
+                    height: 3vh;
+                    width: 60%;
+                    color: rgb(240, 232, 218);
+                    font-size: 15px;
+                    border-radius: 5px;
+
+                    &::placeholder {
+                        color: rgb(240, 232, 218);
+                    }
+                }
+
+                &-submit {
+                    width: 5vw;
+                    border-radius: 15px;
+                    color: rgb(255, 255, 255);
+                    font-weight: 1000;
+                    box-shadow: rgba(33, 13, 87, 0.75) 0px 54px 55px, rgba(32, 161, 101, 0.72) 0px -12px 30px,
+                    rgba(53, 100, 187, 0.82) 0px 4px 6px, rgba(101, 42, 136, 0.77) 0px 12px 13px, rgba(52, 88, 136, 0.99) 0px -3px 5px;
+                    background-color: rgb(107, 68, 46);
+                }
+            }
+>>>>>>> 1112443108cadce6408bfdfd157b9c61846d53c6
         }
     }
 

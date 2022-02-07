@@ -20,10 +20,25 @@
             <a href="customer.html" class="container_header-logo"></a> 
              <div class="container_header-search"><input type="search" placeholder="Search for a product"></div>
              <div class="container_header_menu">
-                <button class="container_header_menu-btn"><i class="fas fa-bell fa-2x"></i><p>Notifications</p></button>
-               <button class="container_header_menu-btn"><i class="fas fa-user-tie fa-2x"></i><p>Sign In</p></button>
-               <button class="container_header_menu-btn"><i class="fas fa-truck-loading fa-2x"></i><p>Your orders</p></button>
-               <button class="container_header_menu-btn"><i class="fas fa-shopping-cart fa-2x" onclick="displayCart()"></i><p>Shopping cart</p></button>
+                <button class="container_header_menu-btn" onclick="showNotifications()"><i class="fas fa-bell fa-2x"></i><p class="btnDiscription">Notifications</p></button>
+               <button class="container_header_menu-btn" onclick="signIn()"><i class="fas fa-user-tie fa-2x" ></i><p class="btnDiscription">Sign In</p></button>
+               <button class="container_header_menu-btn" onclick="showOrders()"><i class="fas fa-truck-loading fa-2x" ></i><p class="btnDiscription">Your orders</p></button>
+               <button class="container_header_menu-btn" onclick="displayCart()"><i class="fas fa-shopping-cart fa-2x" ></i><p class="btnDiscription">Shopping cart</p></button>
+             </div>
+             <div class="container_header-dropDown">
+                 <div style="background-color: gray; " id="notifications" class="container_header-dropDown-box">
+                    <p style="font-size: 12px">no notifications found</p>
+                 </div>
+                 <div id="signIn" class="container_header-dropDown-box">
+                     <input class="container_header-dropDown-box-signInInput" type="email" name="UserName" id="userName" placeholder="User Name" >
+                     <input class="container_header-dropDown-box-signInInput" type="password" name="password" id="password" placeholder="Password">
+                 </div>
+                 <div  id="yourOrders" class="container_header-dropDown-box"><p style="font-size: 12px">no Orders yet...</p></div>
+                 <div id="ShoppingCart" class="container_header-dropDown-box">
+                     <div class="container_header-dropDown-box-item">
+
+                     </div>
+                 </div>
              </div>             
          </div>
          <div class="container-imgsBox" id="ImgsBox"></div>
@@ -34,7 +49,7 @@
             <div id="pants" class="container_catagories-box pants"></div>  
          </div>
 
-         <div class="container_sortANDfilterBtns">
+         <div class="container_sortANDfilterBtns" >
              <div id="sortANDfilterBtnsTshirts" class="container_sortANDfilterBtns-box"></div>
              <div id="sortANDfilterBtnsShoes"  class="container_sortANDfilterBtns-box"></div>
              <div id="sortANDfilterBtnsPants"  class="container_sortANDfilterBtns-box"></div>
@@ -47,6 +62,8 @@
          </div>
 
 
+         <!-- <form class="container_sortANDfilterBtns-box_form" onsubmit="displayFilter(event)"></form> -->
+         <!-- <button class="main_form-filterInputsCustomer-submit" type="submit">search</button> -->
 
 </div>
 <script src="dist/taskFilter.js"></script>

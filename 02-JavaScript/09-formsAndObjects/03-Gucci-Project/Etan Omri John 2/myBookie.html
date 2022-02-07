@@ -17,24 +17,47 @@
 <body>
     <div class="wrapper">
         <h1 class="primeryTitle">myBookie <i class="fas fa-book-open"></i></h1>
-        <form data-addingItemForm onSubmit="handleAddItem(event)">
-            <input data-bookTitle type="text" name="title" placeholder="Book Title">
-            <select data-bookCategory name="category" id="category">
-                <option disabled selected value="choose">Choose the category</option>
-                <option value="thriller">Thriller</option>
-                <option value="history">History</option>
-                <option value="cooking">Cooking</option>
-                <option value="fantasy">Fantasy</option>
-            </select>
-            <input data-bookTitle type="number" name="price" placeholder="Insert a price">
-            
-            <input data-bookYear type="number" name="year" placeholder="Year written">
-            <input data-bookId type="text" name="id" value="iud">
-            <input data-bookImage onchange="showPreviewImage(event)" type="file" name="image" id='image' accept="image/png, image/gif, image/jpeg" />
-            <div data-bookImage-preview>
+        <div class="wrapper__content">
+            <form data-addingItemForm onSubmit="handleAddItem(event)">
+                <input data-bookTitle type="text" name="title" placeholder="Book Title">
+                <select data-bookCategory name="category" id="category">
+                    <option disabled selected value="None">Choose the category</option>
+                    <option value="thriller">Thriller</option>
+                    <option value="history">History</option>
+                    <option value="cooking">Cooking</option>
+                    <option value="fantasy">Fantasy</option>
+                </select>
+                <input data-bookTitle type="number" name="price" placeholder="Insert a price">
+
+                <input data-bookYear type="number" name="year" placeholder="Year written">
+                <input data-bookId type="text" name="id" value="uid">
+                <input data-bookImage onchange="showPreviewImage(event)" type="file" name="image" id='image'
+                    accept="image/png, image/gif, image/jpeg" />
+                <div data-bookImage-preview>
+                </div>
+                <input type="submit" value="add">
+            </form>
+            <div class="table">
+                <table>
+                    <label for="ownerSort">sort things out for your comfort</label>
+                    <select name="ownerSort" id="ownerSort">
+                        <option disabled selected value="None">Choose</option>
+                        <option value="Asc">Ascending</option>
+                        <option value="Desc">Descending</option>
+                    </select>
+                    <label for="customerSort">sort how others would see your shop</label>
+                    <select name="customerSort" id="customerSort">
+                        <option disabled selected value="None">Choose</option>
+                        <option value="Asc">Ascending</option>
+                        <option value="Desc">Descending</option>
+                    </select>
+                    <lable for="updateBookByID">type the id of the book you would like to update:</lable>
+                    <select onchange="handleUpdate(event)" data-update-book-by-id name="updateBookByID" id="updateBookByID">
+                    </select>
+
+                </table>
             </div>
-            <input type="submit" value="add">
-        </form>
+        </div>
     </div>
 </body>
 <script src="./dist/Bookie.js"></script>

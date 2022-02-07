@@ -3,7 +3,9 @@
   font-size: 1.5rem;
 }
 
+html,
 body {
+  width: 100%;
   margin: 0;
   scroll-behavior: smooth;
 }
@@ -28,19 +30,37 @@ body {
   transform: translate(-50%, -50%);
   font-size: clamp(4vw, 6vw, 8vw);
   .primeryTitle {
-      color: var(--primeryColor);
-      margin: 0;
+    color: var(--primeryColor);
+    margin: 0;
     width: fit-content;
   }
-  form{
-      gap: 3vh;
-      display: flex;
-      flex-direction: column;
-      flex-grow: 2;
+  &__content {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  form {
+    width: 40%;
+    gap: 3vh;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 2;
+  }
+  .table {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    padding: 1rem;
+    font-size: .5em;
+    table {
+      width: 80%;
+    }
   }
 }
 
-img{
-    width:auto;
-    height: 15vh;
+img {
+  width: auto;
+  height: 15vh;
 }

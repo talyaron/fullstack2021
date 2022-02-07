@@ -14,6 +14,7 @@
 </head>
 
 <body>
+
     <div class="header">
         <div class="usp__bar">
             <div class="usp__bar--item">
@@ -29,14 +30,10 @@
         <div class="header__inner">
             <div class="header__inner--logo"><img src="images/adidasLogo.png" alt="" /></div>
             <div class="header__inner--nav">
-                <a class="nav__item--man" href="">MEN</a>
-                <div class="dropdown-men">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
-                </div>
-                <a href="">WOMEN</a>
-                <a href="">KIDS</a>
+                <a class="nav__item" href="">MEN</a>
+
+                <a class="nav__item" href="">WOMEN</a>
+                <a class="nav__item" href="">KIDS</a>
             </div>
             <div class="header__inner--searchBar">
                 <input type="text" placeholder="Search.." name="search" />
@@ -55,498 +52,572 @@
                 </div>
             </div>
         </div>
-
-
+    </div>
 
     </div>
 
-    <div class="breadCrumbs">
-        <a href="">back</a>
-        <ul>
-            <li id="home"><a href="#"> Home /</a></li>
-            <li><a href="#"> Men /</a></li>
-            <li><a href="#">Shoes/</a></li>
-        </ul>
-    </div>
-    <h1></h1>
-    <div class="header__sort">
-
-        <select onchange="handlePriceRange(event)">
-            <option value="" disabled selected>price</option>
-
-            <option value="priceRange">
-                price range
-            </option>
-        </select>
-
-        <select onchange="handleShoeSize(event)">
-            <option value="" disabled selected>shoe</option>
-
-            <option value="shoeSize">
-                shoe size
-                <input type="range">
-            </option>
-        </select>
-
-        <select onchange="handleGender(event)">
-            <option value="" disabled selected>gender</option>
-
-            <option value="gender">
-                gender
-        </select>
-
-        <select onchange="handleColor(event)">
-            <option value="" disabled selected>color</option>
-
-            <option value="color">
-                color
-        </select>
-
-        <select onchange="handleType(event)">
-            <option value="" disabled selected>type</option>
-
-            <option value="sneakers"> </option>
-            <option value="boots"> </option>
-            <option value="hi tops"> </option>
-            <option value="flip flops"> </option>
-
-        </select>
-        <select onchange="handleSort(event)">
-            <option value="" disabled selected>sort</option>
-
-            <option value="startPosition"> </option>
-            <option value="letterAsc"> </option>
-            <option value="letterDsc"> </option>
-            <option value="priceAsc"> </option>
-            <option value="priceDsc"> </option>
-        </select>
-
+    <div class="container">
+        <h2><strong>THIS IS POWER</strong></h2>
+        <p>The new Predator Edge football boots.</p>
     </div>
 
-    <div class="cards">
 
-        <div class="cards__item">
 
-            <div class="picture">
-                <i class="far fa-heart"></i>
 
-                <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095730_ultraboost-22-shoes_gx5462_side-lateral-center-view.jpeg"
-                    alt="Card Back">
 
-                <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095732_ultraboost-22-shoes_gx5462_top-portrait-view.jpeg"
-                    class="img-top" alt="Card Front">
+
+
+
+
+
+
+
+
+
+    <!-- <select onchange="handlePriceRange(event)">
+        <option value="" disabled selected>price</option>
+        <input type="range" min="1" max="100" value="50">
+
+        <option value="priceRange">
+            price range
+        </option>
+    </select>
+
+    <select onchange="handleShoeSize(event)">
+        <option value="" disabled selected>shoe</option>
+
+        <option value="shoeSize">
+            shoe size
+            <input type="range">
+        </option>
+    </select>
+
+    <select onchange="handleGender(event)">
+        <option value="" disabled selected>gender</option>
+
+        <option value="gender">
+            gender
+    </select>
+
+    <select onchange="handleColor(event)">
+        <option value="" disabled selected>color</option>
+
+        <option value="color">
+            color
+    </select>
+
+    <select onchange="handleType(event)">
+        <option value="" disabled selected>type</option>
+
+        <option value="sneakers"> </option>
+        <option value="boots"> </option>
+        <option value="hi tops"> </option>
+        <option value="flip flops"> </option>
+
+    </select>
+   -->
+    <!-- 
+    <h1></h1> -->
+
+    <div class="wrapper">
+        <div class="wrapper--header">
+            <div class="breadCrumbs">
+                <ul>
+                    <li>
+                        <p>
+                            << &nbsp;&nbsp;</p>
+                    </li>
+                    <li><a href="#"> back</a></li>
+                    <li id="home"><a href="#">&nbsp;&nbsp; Home &nbsp;/</a></li>
+                    <li><a href="#"> &nbsp; Men &nbsp;/</a></li>
+                    <li><a href="#"> &nbsp;Shoes</a></li>
+                </ul>
             </div>
-            <div class="color">
-                <div class="color--item"></div>
-                <div class="color--item"></div>
-            </div>
-            <div class="description">
-                <p>4DFWD Pulse Shoes</p>
-                <p>Men's Running</p>
-                <p>₪ 299.90</p>
-            </div>
+            <h1>MEN'S SHOES </h1>
+            <p>Shop adidas for all styles of men's shoes including casual sneakers, high-performance running shoes, and
+                comfy slides. Browse styles for women and kids here.
+            </p>
         </div>
-        <div class="cards__item">
+        <div class="header__sort">
 
-            <div class="picture">
-                <i class="far fa-heart"></i>
+            <select onchange="handlePriceRange(event)">
+                <option value="" disabled selected>price</option>
 
-                <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095730_ultraboost-22-shoes_gx5462_side-lateral-center-view.jpeg"
-                    alt="Card Back">
+                <option value="priceRange">
+                    price range
+                </option>
+            </select>
 
-                <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095732_ultraboost-22-shoes_gx5462_top-portrait-view.jpeg"
-                    class="img-top" alt="Card Front">
-            </div>
-            <div class="color">
-                <div class="color--item"></div>
-                <div class="color--item"></div>
-            </div>
-            <div class="description">
-                <p>4DFWD Pulse Shoes</p>
-                <p>Men's Running</p>
-                <p>₪ 299.90</p>
-            </div>
+            <select onchange="handleShoeSize(event)">
+                <option value="" disabled selected>shoe</option>
+
+                <option value="shoeSize">
+                    shoe size
+                    <input type="range">
+                </option>
+            </select>
+
+            <select onchange="handleGender(event)">
+                <option value="" disabled selected>gender</option>
+
+                <option value="gender">
+                    gender
+            </select>
+
+            <select onchange="handleColor(event)">
+                <option value="" disabled selected>color</option>
+
+                <option value="color">
+                    color
+            </select>
+
+            <select onchange="handleType(event)">
+                <option value="" disabled selected>type</option>
+
+                <option value="sneakers"> </option>
+                <option value="boots"> </option>
+                <option value="hi tops"> </option>
+                <option value="flip flops"> </option>
+
+            </select>
+            <select onchange="handleSort(event)">
+                <option value="" disabled selected>sort</option>
+
+                <option value="startPosition"> </option>
+                <option value="letterAsc"> </option>
+                <option value="letterDsc"> </option>
+                <option value="priceAsc"> </option>
+                <option value="priceDsc"> </option>
+            </select>
+
         </div>
-        <div class="cards__item">
+        <div class="cards">
 
-            <div class="picture">
-                <i class="far fa-heart"></i>
+            <div class="cards__item">
 
-                <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095730_ultraboost-22-shoes_gx5462_side-lateral-center-view.jpeg"
-                    alt="Card Back">
+                <div class="picture">
+                    <i class="far fa-heart"></i>
 
-                <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095732_ultraboost-22-shoes_gx5462_top-portrait-view.jpeg"
-                    class="img-top" alt="Card Front">
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095730_ultraboost-22-shoes_gx5462_side-lateral-center-view.jpeg"
+                        alt="Card Back">
+
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095732_ultraboost-22-shoes_gx5462_top-portrait-view.jpeg"
+                        class="img-top" alt="Card Front">
+                </div>
+                <div class="color">
+                    <div class="color--item"></div>
+                    <div class="color--item"></div>
+                </div>
+                <div class="description">
+                    <p>4DFWD Pulse Shoes</p>
+                    <p>Men's Running</p>
+                    <p>₪ 299.90</p>
+                </div>
             </div>
-            <div class="color">
-                <div class="color--item"></div>
-                <div class="color--item"></div>
-            </div>
-            <div class="description">
-                <p>4DFWD Pulse Shoes</p>
-                <p>Men's Running</p>
-                <p>₪ 299.90</p>
-            </div>
-        </div>
-        <div class="cards__item">
+            <div class="cards__item">
 
-            <div class="picture">
-                <i class="far fa-heart"></i>
+                <div class="picture">
+                    <i class="far fa-heart"></i>
 
-                <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095730_ultraboost-22-shoes_gx5462_side-lateral-center-view.jpeg"
-                    alt="Card Back">
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095730_ultraboost-22-shoes_gx5462_side-lateral-center-view.jpeg"
+                        alt="Card Back">
 
-                <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095732_ultraboost-22-shoes_gx5462_top-portrait-view.jpeg"
-                    class="img-top" alt="Card Front">
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095732_ultraboost-22-shoes_gx5462_top-portrait-view.jpeg"
+                        class="img-top" alt="Card Front">
+                </div>
+                <div class="color">
+                    <div class="color--item"></div>
+                    <div class="color--item"></div>
+                </div>
+                <div class="description">
+                    <p>4DFWD Pulse Shoes</p>
+                    <p>Men's Running</p>
+                    <p>₪ 299.90</p>
+                </div>
             </div>
-            <div class="color">
-                <div class="color--item"></div>
-                <div class="color--item"></div>
-            </div>
-            <div class="description">
-                <p>4DFWD Pulse Shoes</p>
-                <p>Men's Running</p>
-                <p>₪ 299.90</p>
-            </div>
-        </div>
-        <div class="cards__item">
+            <div class="cards__item">
 
-            <div class="picture">
-                <i class="far fa-heart"></i>
+                <div class="picture">
+                    <i class="far fa-heart"></i>
 
-                <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095730_ultraboost-22-shoes_gx5462_side-lateral-center-view.jpeg"
-                    alt="Card Back">
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095730_ultraboost-22-shoes_gx5462_side-lateral-center-view.jpeg"
+                        alt="Card Back">
 
-                <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095732_ultraboost-22-shoes_gx5462_top-portrait-view.jpeg"
-                    class="img-top" alt="Card Front">
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095732_ultraboost-22-shoes_gx5462_top-portrait-view.jpeg"
+                        class="img-top" alt="Card Front">
+                </div>
+                <div class="color">
+                    <div class="color--item"></div>
+                    <div class="color--item"></div>
+                </div>
+                <div class="description">
+                    <p>4DFWD Pulse Shoes</p>
+                    <p>Men's Running</p>
+                    <p>₪ 299.90</p>
+                </div>
             </div>
-            <div class="color">
-                <div class="color--item"></div>
-                <div class="color--item"></div>
-            </div>
-            <div class="description">
-                <p>4DFWD Pulse Shoes</p>
-                <p>Men's Running</p>
-                <p>₪ 299.90</p>
-            </div>
-        </div>
-        <div class="cards__item">
+            <div class="cards__item">
 
-            <div class="picture">
-                <i class="far fa-heart"></i>
+                <div class="picture">
+                    <i class="far fa-heart"></i>
 
-                <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095730_ultraboost-22-shoes_gx5462_side-lateral-center-view.jpeg"
-                    alt="Card Back">
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095730_ultraboost-22-shoes_gx5462_side-lateral-center-view.jpeg"
+                        alt="Card Back">
 
-                <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095732_ultraboost-22-shoes_gx5462_top-portrait-view.jpeg"
-                    class="img-top" alt="Card Front">
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095732_ultraboost-22-shoes_gx5462_top-portrait-view.jpeg"
+                        class="img-top" alt="Card Front">
+                </div>
+                <div class="color">
+                    <div class="color--item"></div>
+                    <div class="color--item"></div>
+                </div>
+                <div class="description">
+                    <p>4DFWD Pulse Shoes</p>
+                    <p>Men's Running</p>
+                    <p>₪ 299.90</p>
+                </div>
             </div>
-            <div class="color">
-                <div class="color--item"></div>
-                <div class="color--item"></div>
-            </div>
-            <div class="description">
-                <p>4DFWD Pulse Shoes</p>
-                <p>Men's Running</p>
-                <p>₪ 299.90</p>
-            </div>
-        </div>
-        <div class="cards__item">
+            <div class="cards__item">
 
-            <div class="picture">
-                <i class="far fa-heart"></i>
+                <div class="picture">
+                    <i class="far fa-heart"></i>
 
-                <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095730_ultraboost-22-shoes_gx5462_side-lateral-center-view.jpeg"
-                    alt="Card Back">
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095730_ultraboost-22-shoes_gx5462_side-lateral-center-view.jpeg"
+                        alt="Card Back">
 
-                <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095732_ultraboost-22-shoes_gx5462_top-portrait-view.jpeg"
-                    class="img-top" alt="Card Front">
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095732_ultraboost-22-shoes_gx5462_top-portrait-view.jpeg"
+                        class="img-top" alt="Card Front">
+                </div>
+                <div class="color">
+                    <div class="color--item"></div>
+                    <div class="color--item"></div>
+                </div>
+                <div class="description">
+                    <p>4DFWD Pulse Shoes</p>
+                    <p>Men's Running</p>
+                    <p>₪ 299.90</p>
+                </div>
             </div>
-            <div class="color">
-                <div class="color--item"></div>
-                <div class="color--item"></div>
-            </div>
-            <div class="description">
-                <p>4DFWD Pulse Shoes</p>
-                <p>Men's Running</p>
-                <p>₪ 299.90</p>
-            </div>
-        </div>
-        <div class="cards__item">
+            <div class="cards__item">
 
-            <div class="picture">
-                <i class="far fa-heart"></i>
+                <div class="picture">
+                    <i class="far fa-heart"></i>
 
-                <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095730_ultraboost-22-shoes_gx5462_side-lateral-center-view.jpeg"
-                    alt="Card Back">
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095730_ultraboost-22-shoes_gx5462_side-lateral-center-view.jpeg"
+                        alt="Card Back">
 
-                <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095732_ultraboost-22-shoes_gx5462_top-portrait-view.jpeg"
-                    class="img-top" alt="Card Front">
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095732_ultraboost-22-shoes_gx5462_top-portrait-view.jpeg"
+                        class="img-top" alt="Card Front">
+                </div>
+                <div class="color">
+                    <div class="color--item"></div>
+                    <div class="color--item"></div>
+                </div>
+                <div class="description">
+                    <p>4DFWD Pulse Shoes</p>
+                    <p>Men's Running</p>
+                    <p>₪ 299.90</p>
+                </div>
             </div>
-            <div class="color">
-                <div class="color--item"></div>
-                <div class="color--item"></div>
-            </div>
-            <div class="description">
-                <p>4DFWD Pulse Shoes</p>
-                <p>Men's Running</p>
-                <p>₪ 299.90</p>
-            </div>
-        </div>
-        <div class="cards__item">
+            <div class="cards__item">
 
-            <div class="picture">
-                <i class="far fa-heart"></i>
+                <div class="picture">
+                    <i class="far fa-heart"></i>
 
-                <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095730_ultraboost-22-shoes_gx5462_side-lateral-center-view.jpeg"
-                    alt="Card Back">
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095730_ultraboost-22-shoes_gx5462_side-lateral-center-view.jpeg"
+                        alt="Card Back">
 
-                <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095732_ultraboost-22-shoes_gx5462_top-portrait-view.jpeg"
-                    class="img-top" alt="Card Front">
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095732_ultraboost-22-shoes_gx5462_top-portrait-view.jpeg"
+                        class="img-top" alt="Card Front">
+                </div>
+                <div class="color">
+                    <div class="color--item"></div>
+                    <div class="color--item"></div>
+                </div>
+                <div class="description">
+                    <p>4DFWD Pulse Shoes</p>
+                    <p>Men's Running</p>
+                    <p>₪ 299.90</p>
+                </div>
             </div>
-            <div class="color">
-                <div class="color--item"></div>
-                <div class="color--item"></div>
-            </div>
-            <div class="description">
-                <p>4DFWD Pulse Shoes</p>
-                <p>Men's Running</p>
-                <p>₪ 299.90</p>
-            </div>
-        </div>
-        <div class="cards__item">
+            <div class="cards__item">
 
-            <div class="picture">
-                <i class="far fa-heart"></i>
+                <div class="picture">
+                    <i class="far fa-heart"></i>
 
-                <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095730_ultraboost-22-shoes_gx5462_side-lateral-center-view.jpeg"
-                    alt="Card Back">
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095730_ultraboost-22-shoes_gx5462_side-lateral-center-view.jpeg"
+                        alt="Card Back">
 
-                <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095732_ultraboost-22-shoes_gx5462_top-portrait-view.jpeg"
-                    class="img-top" alt="Card Front">
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095732_ultraboost-22-shoes_gx5462_top-portrait-view.jpeg"
+                        class="img-top" alt="Card Front">
+                </div>
+                <div class="color">
+                    <div class="color--item"></div>
+                    <div class="color--item"></div>
+                </div>
+                <div class="description">
+                    <p>4DFWD Pulse Shoes</p>
+                    <p>Men's Running</p>
+                    <p>₪ 299.90</p>
+                </div>
             </div>
-            <div class="color">
-                <div class="color--item"></div>
-                <div class="color--item"></div>
-            </div>
-            <div class="description">
-                <p>4DFWD Pulse Shoes</p>
-                <p>Men's Running</p>
-                <p>₪ 299.90</p>
-            </div>
-        </div>
-        <div class="cards__item">
+            <div class="cards__item">
 
-            <div class="picture">
-                <i class="far fa-heart"></i>
+                <div class="picture">
+                    <i class="far fa-heart"></i>
 
-                <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095730_ultraboost-22-shoes_gx5462_side-lateral-center-view.jpeg"
-                    alt="Card Back">
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095730_ultraboost-22-shoes_gx5462_side-lateral-center-view.jpeg"
+                        alt="Card Back">
 
-                <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095732_ultraboost-22-shoes_gx5462_top-portrait-view.jpeg"
-                    class="img-top" alt="Card Front">
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095732_ultraboost-22-shoes_gx5462_top-portrait-view.jpeg"
+                        class="img-top" alt="Card Front">
+                </div>
+                <div class="color">
+                    <div class="color--item"></div>
+                    <div class="color--item"></div>
+                </div>
+                <div class="description">
+                    <p>4DFWD Pulse Shoes</p>
+                    <p>Men's Running</p>
+                    <p>₪ 299.90</p>
+                </div>
             </div>
-            <div class="color">
-                <div class="color--item"></div>
-                <div class="color--item"></div>
-            </div>
-            <div class="description">
-                <p>4DFWD Pulse Shoes</p>
-                <p>Men's Running</p>
-                <p>₪ 299.90</p>
-            </div>
-        </div>
-        <div class="cards__item">
+            <div class="cards__item">
 
-            <div class="picture">
-                <i class="far fa-heart"></i>
+                <div class="picture">
+                    <i class="far fa-heart"></i>
 
-                <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095730_ultraboost-22-shoes_gx5462_side-lateral-center-view.jpeg"
-                    alt="Card Back">
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095730_ultraboost-22-shoes_gx5462_side-lateral-center-view.jpeg"
+                        alt="Card Back">
 
-                <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095732_ultraboost-22-shoes_gx5462_top-portrait-view.jpeg"
-                    class="img-top" alt="Card Front">
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095732_ultraboost-22-shoes_gx5462_top-portrait-view.jpeg"
+                        class="img-top" alt="Card Front">
+                </div>
+                <div class="color">
+                    <div class="color--item"></div>
+                    <div class="color--item"></div>
+                </div>
+                <div class="description">
+                    <p>4DFWD Pulse Shoes</p>
+                    <p>Men's Running</p>
+                    <p>₪ 299.90</p>
+                </div>
             </div>
-            <div class="color">
-                <div class="color--item"></div>
-                <div class="color--item"></div>
-            </div>
-            <div class="description">
-                <p>4DFWD Pulse Shoes</p>
-                <p>Men's Running</p>
-                <p>₪ 299.90</p>
-            </div>
-        </div>
-        <div class="cards__item">
+            <div class="cards__item">
 
-            <div class="picture">
-                <i class="far fa-heart"></i>
+                <div class="picture">
+                    <i class="far fa-heart"></i>
 
-                <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095730_ultraboost-22-shoes_gx5462_side-lateral-center-view.jpeg"
-                    alt="Card Back">
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095730_ultraboost-22-shoes_gx5462_side-lateral-center-view.jpeg"
+                        alt="Card Back">
 
-                <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095732_ultraboost-22-shoes_gx5462_top-portrait-view.jpeg"
-                    class="img-top" alt="Card Front">
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095732_ultraboost-22-shoes_gx5462_top-portrait-view.jpeg"
+                        class="img-top" alt="Card Front">
+                </div>
+                <div class="color">
+                    <div class="color--item"></div>
+                    <div class="color--item"></div>
+                </div>
+                <div class="description">
+                    <p>4DFWD Pulse Shoes</p>
+                    <p>Men's Running</p>
+                    <p>₪ 299.90</p>
+                </div>
             </div>
-            <div class="color">
-                <div class="color--item"></div>
-                <div class="color--item"></div>
-            </div>
-            <div class="description">
-                <p>4DFWD Pulse Shoes</p>
-                <p>Men's Running</p>
-                <p>₪ 299.90</p>
-            </div>
-        </div>
-        <div class="cards__item">
+            <div class="cards__item">
 
-            <div class="picture">
-                <i class="far fa-heart"></i>
+                <div class="picture">
+                    <i class="far fa-heart"></i>
 
-                <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095730_ultraboost-22-shoes_gx5462_side-lateral-center-view.jpeg"
-                    alt="Card Back">
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095730_ultraboost-22-shoes_gx5462_side-lateral-center-view.jpeg"
+                        alt="Card Back">
 
-                <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095732_ultraboost-22-shoes_gx5462_top-portrait-view.jpeg"
-                    class="img-top" alt="Card Front">
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095732_ultraboost-22-shoes_gx5462_top-portrait-view.jpeg"
+                        class="img-top" alt="Card Front">
+                </div>
+                <div class="color">
+                    <div class="color--item"></div>
+                    <div class="color--item"></div>
+                </div>
+                <div class="description">
+                    <p>4DFWD Pulse Shoes</p>
+                    <p>Men's Running</p>
+                    <p>₪ 299.90</p>
+                </div>
             </div>
-            <div class="color">
-                <div class="color--item"></div>
-                <div class="color--item"></div>
-            </div>
-            <div class="description">
-                <p>4DFWD Pulse Shoes</p>
-                <p>Men's Running</p>
-                <p>₪ 299.90</p>
-            </div>
-        </div>
-        <div class="cards__item">
+            <div class="cards__item">
 
-            <div class="picture">
-                <i class="far fa-heart"></i>
+                <div class="picture">
+                    <i class="far fa-heart"></i>
 
-                <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095730_ultraboost-22-shoes_gx5462_side-lateral-center-view.jpeg"
-                    alt="Card Back">
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095730_ultraboost-22-shoes_gx5462_side-lateral-center-view.jpeg"
+                        alt="Card Back">
 
-                <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095732_ultraboost-22-shoes_gx5462_top-portrait-view.jpeg"
-                    class="img-top" alt="Card Front">
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095732_ultraboost-22-shoes_gx5462_top-portrait-view.jpeg"
+                        class="img-top" alt="Card Front">
+                </div>
+                <div class="color">
+                    <div class="color--item"></div>
+                    <div class="color--item"></div>
+                </div>
+                <div class="description">
+                    <p>4DFWD Pulse Shoes</p>
+                    <p>Men's Running</p>
+                    <p>₪ 299.90</p>
+                </div>
             </div>
-            <div class="color">
-                <div class="color--item"></div>
-                <div class="color--item"></div>
-            </div>
-            <div class="description">
-                <p>4DFWD Pulse Shoes</p>
-                <p>Men's Running</p>
-                <p>₪ 299.90</p>
-            </div>
-        </div>
-        <div class="cards__item">
+            <div class="cards__item">
 
-            <div class="picture">
-                <i class="far fa-heart"></i>
+                <div class="picture">
+                    <i class="far fa-heart"></i>
 
-                <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095730_ultraboost-22-shoes_gx5462_side-lateral-center-view.jpeg"
-                    alt="Card Back">
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095730_ultraboost-22-shoes_gx5462_side-lateral-center-view.jpeg"
+                        alt="Card Back">
 
-                <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095732_ultraboost-22-shoes_gx5462_top-portrait-view.jpeg"
-                    class="img-top" alt="Card Front">
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095732_ultraboost-22-shoes_gx5462_top-portrait-view.jpeg"
+                        class="img-top" alt="Card Front">
+                </div>
+                <div class="color">
+                    <div class="color--item"></div>
+                    <div class="color--item"></div>
+                </div>
+                <div class="description">
+                    <p>4DFWD Pulse Shoes</p>
+                    <p>Men's Running</p>
+                    <p>₪ 299.90</p>
+                </div>
             </div>
-            <div class="color">
-                <div class="color--item"></div>
-                <div class="color--item"></div>
-            </div>
-            <div class="description">
-                <p>4DFWD Pulse Shoes</p>
-                <p>Men's Running</p>
-                <p>₪ 299.90</p>
-            </div>
-        </div>
-        <div class="cards__item">
+            <div class="cards__item">
 
-            <div class="picture">
-                <i class="far fa-heart"></i>
+                <div class="picture">
+                    <i class="far fa-heart"></i>
 
-                <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095730_ultraboost-22-shoes_gx5462_side-lateral-center-view.jpeg"
-                    alt="Card Back">
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095730_ultraboost-22-shoes_gx5462_side-lateral-center-view.jpeg"
+                        alt="Card Back">
 
-                <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095732_ultraboost-22-shoes_gx5462_top-portrait-view.jpeg"
-                    class="img-top" alt="Card Front">
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095732_ultraboost-22-shoes_gx5462_top-portrait-view.jpeg"
+                        class="img-top" alt="Card Front">
+                </div>
+                <div class="color">
+                    <div class="color--item"></div>
+                    <div class="color--item"></div>
+                </div>
+                <div class="description">
+                    <p>4DFWD Pulse Shoes</p>
+                    <p>Men's Running</p>
+                    <p>₪ 299.90</p>
+                </div>
             </div>
-            <div class="color">
-                <div class="color--item"></div>
-                <div class="color--item"></div>
-            </div>
-            <div class="description">
-                <p>4DFWD Pulse Shoes</p>
-                <p>Men's Running</p>
-                <p>₪ 299.90</p>
-            </div>
-        </div>
-        <div class="cards__item">
+            <div class="cards__item">
 
-            <div class="picture">
-                <i class="far fa-heart"></i>
+                <div class="picture">
+                    <i class="far fa-heart"></i>
 
-                <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095730_ultraboost-22-shoes_gx5462_side-lateral-center-view.jpeg"
-                    alt="Card Back">
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095730_ultraboost-22-shoes_gx5462_side-lateral-center-view.jpeg"
+                        alt="Card Back">
 
-                <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095732_ultraboost-22-shoes_gx5462_top-portrait-view.jpeg"
-                    class="img-top" alt="Card Front">
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095732_ultraboost-22-shoes_gx5462_top-portrait-view.jpeg"
+                        class="img-top" alt="Card Front">
+                </div>
+                <div class="color">
+                    <div class="color--item"></div>
+                    <div class="color--item"></div>
+                </div>
+                <div class="description">
+                    <p>4DFWD Pulse Shoes</p>
+                    <p>Men's Running</p>
+                    <p>₪ 299.90</p>
+                </div>
             </div>
-            <div class="color">
-                <div class="color--item"></div>
-                <div class="color--item"></div>
-            </div>
-            <div class="description">
-                <p>4DFWD Pulse Shoes</p>
-                <p>Men's Running</p>
-                <p>₪ 299.90</p>
-            </div>
-        </div>
-        <div class="cards__item">
+            <div class="cards__item">
 
-            <div class="picture">
-                <i class="far fa-heart"></i>
+                <div class="picture">
+                    <i class="far fa-heart"></i>
 
-                <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095730_ultraboost-22-shoes_gx5462_side-lateral-center-view.jpeg"
-                    alt="Card Back">
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095730_ultraboost-22-shoes_gx5462_side-lateral-center-view.jpeg"
+                        alt="Card Back">
 
-                <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095732_ultraboost-22-shoes_gx5462_top-portrait-view.jpeg"
-                    class="img-top" alt="Card Front">
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095732_ultraboost-22-shoes_gx5462_top-portrait-view.jpeg"
+                        class="img-top" alt="Card Front">
+                </div>
+                <div class="color">
+                    <div class="color--item"></div>
+                    <div class="color--item"></div>
+                </div>
+                <div class="description">
+                    <p>4DFWD Pulse Shoes</p>
+                    <p>Men's Running</p>
+                    <p>₪ 299.90</p>
+                </div>
             </div>
-            <div class="color">
-                <div class="color--item"></div>
-                <div class="color--item"></div>
-            </div>
-            <div class="description">
-                <p>4DFWD Pulse Shoes</p>
-                <p>Men's Running</p>
-                <p>₪ 299.90</p>
-            </div>
-        </div>
-        <div class="cards__item">
+            <div class="cards__item">
 
-            <div class="picture">
-                <i class="far fa-heart"></i>
+                <div class="picture">
+                    <i class="far fa-heart"></i>
 
-                <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095730_ultraboost-22-shoes_gx5462_side-lateral-center-view.jpeg"
-                    alt="Card Back">
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095730_ultraboost-22-shoes_gx5462_side-lateral-center-view.jpeg"
+                        alt="Card Back">
 
-                <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095732_ultraboost-22-shoes_gx5462_top-portrait-view.jpeg"
-                    class="img-top" alt="Card Front">
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095732_ultraboost-22-shoes_gx5462_top-portrait-view.jpeg"
+                        class="img-top" alt="Card Front">
+                </div>
+                <div class="color">
+                    <div class="color--item"></div>
+                    <div class="color--item"></div>
+                </div>
+                <div class="description">
+                    <p>4DFWD Pulse Shoes</p>
+                    <p>Men's Running</p>
+                    <p>₪ 299.90</p>
+                </div>
             </div>
-            <div class="color">
-                <div class="color--item"></div>
-                <div class="color--item"></div>
+            <div class="cards__item">
+
+                <div class="picture">
+                    <i class="far fa-heart"></i>
+
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095730_ultraboost-22-shoes_gx5462_side-lateral-center-view.jpeg"
+                        alt="Card Back">
+
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095732_ultraboost-22-shoes_gx5462_top-portrait-view.jpeg"
+                        class="img-top" alt="Card Front">
+                </div>
+                <div class="color">
+                    <div class="color--item"></div>
+                    <div class="color--item"></div>
+                </div>
+                <div class="description">
+                    <p>4DFWD Pulse Shoes</p>
+                    <p>Men's Running</p>
+                    <p>₪ 299.90</p>
+                </div>
             </div>
-            <div class="description">
-                <p>4DFWD Pulse Shoes</p>
-                <p>Men's Running</p>
-                <p>₪ 299.90</p>
+            <div class="cards__item">
+
+                <div class="picture">
+                    <i class="far fa-heart"></i>
+
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095730_ultraboost-22-shoes_gx5462_side-lateral-center-view.jpeg"
+                        alt="Card Back">
+
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095732_ultraboost-22-shoes_gx5462_top-portrait-view.jpeg"
+                        class="img-top" alt="Card Front">
+                </div>
+                <div class="color">
+                    <div class="color--item"></div>
+                    <div class="color--item"></div>
+                </div>
+                <div class="description">
+                    <p>4DFWD Pulse Shoes</p>
+                    <p>Men's Running</p>
+                    <p>₪ 299.90</p>
+                </div>
             </div>
         </div>
     </div>
     <div class="footer">
+
+
         <div class="footer__top">
             <h4>JOIN OUR CREATORS CLUB & GET 15% OFF</h4>
             <button>

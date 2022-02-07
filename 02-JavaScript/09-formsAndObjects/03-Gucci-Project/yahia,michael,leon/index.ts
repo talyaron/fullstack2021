@@ -3,7 +3,7 @@ const uid = function () {
 };
 
 interface Object {
-    items: Array<namePrice>,
+    items: Array<item>,
     carts: Array<type>,
     additems(name: string, price: number),
     sortAsc(),
@@ -11,27 +11,23 @@ interface Object {
     deleteItem(idItem: string),
     updateItem(idItem: string, newValue: string),
     addToCarts(type: string),
-    selectItem(type: "shoes" | "hoodie")
+    selectItem(type: "shoes"|"hoodie")
+    renderSelctedItem(root1:any,type:"shoes"|"hoodie"),
     renderAllData(root: any),
-    renderAllCarts(root1: any),
-    renderCarts(root1:any,list:type),
+    renderAllCarts(root: any),
     render(root: any, list: any),
 
 }
 interface type {
-    type: "shoes" | "hoodie"
+    type: "shoes"|"hoodie"
     name: string
 }
 
-// carts = [{ type: "shoes", name: "shoes" },
-// { type: "hoodie", name: "hoodie" }
-// ]
-
-interface namePrice {
+interface item {
     name: string;
     price: number;
     id: string;
-    type: "shoes" | "hoodie"
+    type: "shoes"|"hoodie"
 }
 
 let nikeItems: object = {
@@ -57,24 +53,31 @@ let nikeItems: object = {
         const i = this.items.findIndex(item => item.idItem === idItem)
         this.items[i].name = newValue
     },
-    addToCarts(type: string) {
-        this.carts.push(type)
+    addToCarts(type:type) {
+        this.carts.push({name:type})
     },
-    renderAllCarts(root1: any) {
-        const list = this.carts;
-        this.renderCarts(root1, list)
-    },
+   
     selectItem(type) {
-        return this.carts.filter(item => { item.type === type })
+         return this.carts.filter(item => item.type === type)  
     },
     renderAllData(root: any) {
         const list = this.items;
         this.render(root, list)
     },
+    renderSelctedItem(root1,type){
+         const selected=this.selectItem(type)
+         this.renderCarts(root1,selected)
+    },
+    renderAllCarts(root1) {
+        this.renderCarts(root1, this.carts)
+
+    },
     renderCarts(root1, list) {
+     
+        console.log(list);
         let htmlCustomer: string = "";
-        list.forEach(item => {
-            htmlCustomer += `<div class= 'card1'><h4>The Item You Want:</h4> <p>${item.name}</p></div>`
+        list.forEach(type => {
+            htmlCustomer += `<div class= 'card1'><h4>The Item You Want:</h4> <p>${type.name}</p></div>`
         });
         root1.innerHTML = htmlCustomer;
     },
@@ -82,7 +85,7 @@ let nikeItems: object = {
         let html: string = '';
 
         list.forEach(item => {
-            html += `<div class = 'card'> <p>${item.name}: ${item.price}</p>
+            html += `<div class = 'card'> <p>${item.name}</p>
             <button onclick="handleDelete('${item.idItem}')">delete</button>
             <form onsubmit="handleupdate(event,'${item.idItem}')">
             <input type="text" name="nameUpdate" placeholder="change item">
@@ -105,7 +108,7 @@ function handleSubmit(event) {
     nikeItems.renderAllData(root);
 
 
-    event.target.reset()
+    event.target.reset() // poner el tu pajina 
 
 }
 
@@ -134,34 +137,32 @@ function handleupdate(event, id) {
 }
 //customer
 function handleCart(event) {
+    
+    console.log(event.target.id);
     const shoes = event.target.id
     nikeItems.addToCarts(shoes)
-    const root1 = document.getElementById('root1');
-    nikeItems.renderAllCarts(root1);
+    const rooto = document.getElementById('root1');
+    nikeItems.renderAllCarts(rooto);
 }
-
-function handlehoodie(ev) {
-    const hoodie = ev.target.value
+function handlehoodie(ev){
+    const hoodie=ev.target.id
+    console.log(hoodie);
     nikeItems.addToCarts(hoodie)
+    const rooto = document.getElementById('root1');
+    nikeItems.renderAllCarts(rooto);
+    
+}
+
+function handleSelect(event) {
+    const type = event.target.value;
     const root1 = document.getElementById('root1');
-    nikeItems.renderAllCarts(root1);
+        
+        if (type === "all") {
+            nikeItems.renderAllCarts(root1);
+
+        } else {
+            
+            nikeItems.renderSelctedItem(root1,type)}
 
 }
 
-function handleSelect(ev) {
-    const theType = ev.target.value
-   
-    const root1 = document.getElementById('root1');
-    let selected;
-    if (theType === "all") {
-        nikeItems.renderAllCarts(root1);
-        console.log(nikeItems.carts)
-    } else {
-         selected = nikeItems.selectItem(theType)
-        console.log(nikeItems.carts)
-    
-    }
-    nikeItems.renderCarts(root1,selected)
-    
-    
-}

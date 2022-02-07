@@ -149,6 +149,7 @@ function navSlide() {
   if (burger && nav) {
     burger.addEventListener("click", () => {
       nav.classList.toggle("navtags-active");
+      burger.classList.toggle("burger-active");
     });
   }
 }
