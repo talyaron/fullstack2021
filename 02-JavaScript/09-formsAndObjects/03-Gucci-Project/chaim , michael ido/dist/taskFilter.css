@@ -1,17 +1,23 @@
 * {
   box-sizing: border-box;
-  font-family: "Ubuntu", sans-serif;
+  font-family: "Arimo", sans-serif;
 }
 
 .main {
-  max-width: 300px;
-  height: 700px;
+  height: 1000px;
   margin: auto;
-  background-image: linear-gradient(90deg, #464a4b, rgba(160, 167, 166, 0)), repeating-linear-gradient(-45deg, #57779b, #1b7557 1.5px, #456bb3 2px, #422dbd 4px);
+  background-image: linear-gradient(90deg, #464a4b, rgba(160, 167, 166, 0)), repeating-linear-gradient(-45deg, #1b4677, #1b7557 1.5px, #456bb3 2px, #422dbd 4px);
+}
+.main-header {
+  text-decoration: underline;
+  font-size: 20vh;
+  color: sienna;
+  text-align: center;
+  font-family: sans-serif;
+  font-family: "Arimo", sans-serif;
 }
 .main_form {
-  height: 300px;
-  max-width: 300px;
+  height: 700px;
   display: grid;
   grid-template-columns: repeat(3, 33%);
   grid-template-rows: repeat(10, 1fr);
@@ -26,25 +32,27 @@
 .main_form_btns-Btn {
   box-shadow: rgba(38, 168, 21, 0.55) 0px 30px 60px -12px inset, #775521 0px 18px 36px -30px inset;
   grid-column: 2/3;
+  color: brown;
   width: 45%;
   border-radius: 40px;
   font-weight: 1000;
-  font-size: 15px;
+  font-size: 7vh;
+  cursor: pointer;
 }
 .main_form-selectCatagory {
-  font-size: 15px;
   font-weight: bold;
-  box-shadow: rgba(102, 122, 153, 0.85) 0px 30px 60px -12px inset, rgba(77, 76, 74, 0.5) 0px 18px 36px -30px inset;
-  height: 4vh;
+  box-shadow: rgba(153, 135, 102, 0.85) 0px 30px 60px -12px inset, rgba(77, 76, 74, 0.5) 0px 18px 36px -30px inset;
+  height: 10vh;
   text-align: center;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   width: 100%;
-  background: #085f37;
-  color: #f1eaea;
+  background: burlywood;
   grid-column: 1/4;
   font-weight: bold;
+  cursor: pointer;
+  font-size: 7vh;
 }
 .main_form-selectCatagory-options {
   font-size: 15px;
@@ -65,7 +73,9 @@
 }
 .main_form-actions-btn {
   width: 33%;
-  box-shadow: rgba(68, 66, 68, 0.75) 0px 30px 60px -12px inset, rgba(183, 96, 199, 0.8) 0px 18px 36px -10px inset;
+  box-shadow: rgba(218, 88, 88, 0.75) 0px 30px 60px -12px inset, rgba(183, 96, 199, 0.8) 0px 18px 36px -10px inset;
+  font-size: 5vh;
+  cursor: pointer;
 }
 .main_form-displayOptions {
   grid-row: 5/9;
@@ -84,7 +94,8 @@
 .main_form-filter-btn {
   width: 40%;
   height: 33%;
-  box-shadow: rgba(68, 66, 68, 0.75) 0px 30px 60px -12px inset, rgba(24, 102, 107, 0.8) 0px 18px 36px -10px inset;
+  box-shadow: rgba(68, 67, 66, 0.75) 0px 30px 60px -12px inset, rgba(24, 102, 107, 0.8) 0px 18px 36px -10px inset;
+  font-size: 5vh;
 }
 .main_form-filterInputs {
   box-shadow: rgba(6, 61, 97, 0.85) 0px 30px 60px -12px inset, rgba(16, 63, 85, 0.5) 0px 18px 36px -30px inset;
@@ -127,15 +138,16 @@
 .main_scrollmenu-box {
   height: 100%;
   width: 100%;
+  border-bottom: 10px solid(0, 0, 0);
   display: flex;
   flex-direction: row;
   column-gap: 3px;
-  overflow: auto;
+  overflow-x: auto;
   white-space: nowrap;
 }
 .main_scrollmenu-box-card {
   height: 100%;
-  background-color: #0f0e0e;
+  background-color: #0f0808;
   width: 50%;
   row-gap: 5px;
   text-align: center;
@@ -157,11 +169,14 @@
   margin-top: 10px;
   font-size: 12px;
   color: white;
+  font-size: 3vh;
 }
 .main_add {
   height: 33%;
   background-color: #523b55;
   color: white;
+  font-size: 4vh;
+  text-align: center;
 }
 .main_add::placeholder {
   color: snow;
