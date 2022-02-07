@@ -100,3 +100,9 @@ function handleShoeSize(ev) {
     // if(type === " ")
     //Adidas.shoeSizeFilter(size);
 }
+function getData() {
+    this.products = +localStorage.getItem("products");
+    console.log(JSON.parse(localStorage.getItem("Adidas")));
+}
+getData();
+console.log(this.products);
