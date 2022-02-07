@@ -268,28 +268,8 @@ let clothsList: cloths = {
             itemToCart[0].id = catagory
         }
         this.shoppingCart.push(itemToCart)
-<<<<<<< Updated upstream
         
         
-=======
-    }, renderShoppingCart(display, catagory) {
-        let html;
-        this.shoppingCart.forEach((item) => {
-            html = ` 
-            <div class="container_catagories-ShoppingCart_display-item">
-                <h1 class="container_catagories-ShoppingCart_display-item-header">${item[0].brand} ${catagory}</h1>
-                <p class="container_catagories-ShoppingCart_display-item-sizeAndPrice">size: ${item[0].size}</p>
-                <p class="container_catagories-ShoppingCart_display-item-sizeAndPrice">price: ${item[0].price}</p>
-                <button class="container_catagories-ShoppingCart_display-item-deleteBtn" name="${catagory}" type="button" onclick="deleteItem(event,'${item[0].id}')">delete from cart</button>
-            </div>
-        
-            `
-        })
-        display.innerHTML += html
-
-    }, deleteItemFromCard(id) {
-        this.shoppingCart = this.shoppingCart.filter((item) => item[0].id !== id)
->>>>>>> Stashed changes
     }
 }
 function display(ev): void {
@@ -725,37 +705,10 @@ function addToCart(ev, id) {
 
 
     let catagory = ev.target.name
-<<<<<<< Updated upstream
-=======
-
-
-    const display = document.querySelector('.container_catagories-ShoppingCart_display')
->>>>>>> Stashed changes
 
     clothsList.addToCart(id,catagory)
     // clothsList.addToCartShoes(id)
     // clothsList.addToCartPants(id)
     console.log(catagory);
     console.log(clothsList);
-<<<<<<< Updated upstream
-=======
-    console.log(clothsList.shoppingCart);
-    console.log(clothsList.shoppingCart);
-
-
-    clothsList.renderShoppingCart(display, catagory)
-}
-
-function deleteItem(ev, id) {
-
-    console.log(id);
-
-    const display = document.querySelector('.container_catagories-ShoppingCart_display')
-    const catagory = ev.target.name
-    console.log(catagory);
-
-    clothsList.deleteItemFromCard(id)
-
-
->>>>>>> Stashed changes
 }

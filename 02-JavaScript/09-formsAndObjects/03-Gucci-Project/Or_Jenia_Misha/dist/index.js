@@ -80,7 +80,8 @@ function handleDeleteDish(ev) {
     }
 }
 sushiMenu.getData();
-// sushiMenu.renderDishesStore(sushiMenu.dishes, root);
+var rootStore = document.getElementById("rootStore");
+sushiMenu.renderDishesStore(sushiMenu.dishes, rootStore);
 // ---- CSS MANIPULATION --- //
 function navSlide() {
     var burger = document.querySelector(".burger");
@@ -92,4 +93,16 @@ function navSlide() {
         });
     }
 }
+function popMenuActive() {
+    var menuCell = document.querySelectorAll(".menu__cell");
+    var pop = document.querySelector(".popmenu");
+    if (menuCell && pop) {
+        menuCell.forEach(function (cell) {
+            cell.addEventListener("click", function () {
+                pop.classList.toggle("popmenu-active");
+            });
+        });
+    }
+}
+popMenuActive();
 navSlide();

@@ -24,8 +24,33 @@ var litlife = {
         var id = uid();
         this.books.push({ title: title, autor: autor, genre: genre, year: year, grade: grade, img: img, id: id });
         this.storeData();
+    },
+    render: function (list, domElement) {
+        var html = " ";
+        list.forEach(function (book) {
+            html += "<div class=\"item\">\n           <p>" + book.title + "</p>\n           <img class=\"img\" src=\"" + book.img + "\">\n           <p>" + book.price + "$</p>\n           </div>";
+        });
+        domElement.innerHTML = html;
+    },
+    renderAllBooks: function (domElement) {
+        var items = this.books;
+        this.render(items, domElement);
     }
 };
+function handleAddBook(e) {
+    e.preventDefault();
+    var id = uid();
+    var title = e.target.title.value;
+    var autor = e.target.autor.value;
+    var genre = e.target.genre.value;
+    var year = e.target.year.valueAsNumber;
+    var grade = e.target.grade.valueAsNumber;
+    var img = e.target.img.value;
+    addBook(title, autor, genre, year, grade, img, id);
+    var root = document.querySelector('.root');
+    renderAllBooks();
+    litlife.storeData();
+}
 litlife.getData();
 // LOCAL STORAGE TEST
 // let data: number = 0;
