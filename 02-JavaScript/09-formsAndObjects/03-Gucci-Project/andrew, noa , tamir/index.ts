@@ -156,4 +156,3 @@ document.querySelector('.filter-bar__item').addEventListener('click', () => {
 });
 
 
-// console.dir(ev.target.innerText)

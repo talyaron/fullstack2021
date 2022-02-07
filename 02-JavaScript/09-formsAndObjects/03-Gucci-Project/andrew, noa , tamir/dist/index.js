@@ -98,4 +98,3 @@ document.querySelector('.filter-bar__item').addEventListener('click', function (
     aviator.itemsToRender = aviator.items;
     aviator.renderitem(document.getElementById('main'));
 });
-// console.dir(ev.target.innerText)
