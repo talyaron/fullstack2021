@@ -252,6 +252,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 75px;
   width: 90%;
 }
@@ -367,11 +368,22 @@ body {
 }
 
 .popmenu {
+  opacity: 0;
+  position: fixed;
+  display: block;
+  z-index: 10;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   color: #EBEBEB;
+  height: 90%;
+}
+.popmenu-active {
+  opacity: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 .popmenu__x {
   font-size: 75px;
@@ -379,23 +391,25 @@ body {
   cursor: pointer;
 }
 .popmenu__box {
-  width: 960px;
-  height: 700px;
-  background-image: url("https://images3.alphacoders.com/929/thumb-1920-92919.jpg");
-  overflow: scroll;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
   background-position: center center;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 .popmenu__box__opacity {
-  height: fit-content;
+  padding: 20px;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.856);
   display: flex;
   flex-direction: column;
   align-items: center;
   color: #a1a1a1;
+  background-size: cover;
+  background-image: url("http://en.fusushi.co.il/warehouse/temp/fu/popup.jpg");
 }
 .popmenu__box__opacity__navbar {
   height: 10%;

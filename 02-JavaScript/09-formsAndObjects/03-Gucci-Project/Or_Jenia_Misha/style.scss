@@ -322,6 +322,7 @@ body {
         display: flex;
         align-items: center;
         justify-content: center;
+        flex-wrap: wrap;
         gap: 75px;
         width: 90%;
 
@@ -472,11 +473,24 @@ body {
 
 .popmenu {
 
+    opacity: 0;
+    position: fixed;
+    display: block;
+    z-index: 10;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     color: #EBEBEB;
+    height: 90%; 
+
+    &-active{
+
+        opacity: 1;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }  
 
     &__x {
         font-size: 75px;
@@ -486,20 +500,32 @@ body {
 
     &__box {
 
-        width: 960px;
-        height: 700px;
-        background-image: url("https://images3.alphacoders.com/929/thumb-1920-92919.jpg");
-        overflow: scroll;
+        // width: 960px;
+        // height: 700px;
+        // background-image: url("http://www.fusushi.co.il/warehouse/temp/fu/popup.jpg");
+        // overflow: scroll;
         @include backgroundsettings();
+        width: 100%;
+        height: 100%;
+        // background-size: cover;
+        // background-image: url("http://en.fusushi.co.il/warehouse/temp/fu/popup.jpg");
+        overflow-x: hidden;
+        overflow-y: scroll;
 
         &__opacity {
-            height: fit-content;
+            // height: fit-content;
+            padding: 20px;
+            // height: 100%;
             width: 100%;
             background-color: rgba(0, 0, 0, 0.856);
             display: flex;
             flex-direction: column;
             align-items: center;
             color: rgb(161, 161, 161);
+            background-size: cover;
+            background-image: url("http://en.fusushi.co.il/warehouse/temp/fu/popup.jpg");
+
+            
 
             &__navbar {
                 height: 10%;
