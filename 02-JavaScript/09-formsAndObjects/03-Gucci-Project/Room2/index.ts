@@ -26,8 +26,10 @@ interface shop {
     newPicture: string,
     newColor: string,
     newDescription: string,
-    newShoeSize: number,
+    newShoeSize: number
   );
+  getData();
+  setData();
 }
 
 interface product {
@@ -44,18 +46,37 @@ interface product {
 const Adidas: shop = {
   // id:0,
   products: [],
+  getData() {
+    const products = JSON.parse(localStorage.getItem("Adidas"));
+    if (products) {
+      this.products = products;
+    }
+  },
+  setData(){
+    localStorage.setItem("Adidas", JSON.stringify(this.products));
+  },
   addItem(title, price, category, picture, color, description, shoeSize) {
     const id = uid();
-    this.products.push({ id, title, price, category, picture, color, description, shoeSize });
+    this.products.push({
+      id,
+      title,
+      price,
+      category,
+      picture,
+      color,
+      description,
+      shoeSize,
+    });
+    this.setData()
   },
   deleteItem(id) {
     this.products = this.products.filter((product) => product.id !== id);
+    this.setData()
   },
   render(list, domElement) {
     let html = "";
-    this.products.forEach(product => {
-      html +=
-        `<div style="width: 35%;border: 1px solid red">
+    this.products.forEach((product) => {
+      html += `<div style="width: 35%;border: 1px solid red">
           <p><b>Title: </b> ${product.title}</p>
           <p><b> Price: </b> ${product.price}₪</p>
           <p><b> picture: </b> </p>
@@ -83,15 +104,23 @@ const Adidas: shop = {
 
           </div>`;
     });
-    const button = document.getElementById('button');
+    const button = document.getElementById("button");
     console.log(button);
 
     domElement.innerHTML = html;
   },
-  updateItem(id, newTitle, newPrice, newCategory, newPicture, newColor, newDescription, newShoeSize) {
+  updateItem(
+    id,
+    newTitle,
+    newPrice,
+    newCategory,
+    newPicture,
+    newColor,
+    newDescription,
+    newShoeSize
+  ) {
     const index = this.products.findIndex((product) => product.id === id);
     if (index >= 0) {
-
       this.products[index].title = newTitle;
       this.products[index].price = newPrice;
       this.products[index].category = newCategory;
@@ -100,14 +129,13 @@ const Adidas: shop = {
       this.products[index].description = newDescription;
       this.products[index].shoeSize = newShoeSize;
       console.log(index);
-
+      this.setData()
     }
   },
   renderAllData(domElement) {
     this.render(this.products, domElement);
   },
 };
-
 
 function handleAddItem(ev) {
   ev.preventDefault();
@@ -120,11 +148,11 @@ function handleAddItem(ev) {
   const shoeSize = ev.target.elements.shoeSize.valueAsNumber;
 
   Adidas.addItem(title, price, category, picture, color, description, shoeSize);
-  const root = document.getElementById('root');
+  const root = document.getElementById("root");
   Adidas.renderAllData(root);
   ev.target.reset(); //reset the form fileds
   // console.log(category);
-  localStorage.setItem("Adidas", JSON.stringify(Adidas.products));
+  
 }
 
 function handleDelete(id) {
@@ -146,10 +174,17 @@ function handleUpdate(ev: any, itemId: number) {
   const newShoeSize: number = ev.target.elements.newShoeSize.valueAsNumber;
 
   const root = document.getElementById("root");
-  Adidas.updateItem(itemId, newTitle, newPrice, newCategory, newPicture, newColor, newDescription, newShoeSize);
+  Adidas.updateItem(
+    itemId,
+    newTitle,
+    newPrice,
+    newCategory,
+    newPicture,
+    newColor,
+    newDescription,
+    newShoeSize
+  );
   Adidas.renderAllData(root);
-
-  
 }
 
 Adidas.addItem(
@@ -179,5 +214,22 @@ Adidas.addItem(
   "B-ball legend. Street symbol. Cultural icon. Still going strong after five decades, the adidas Superstar Shoes have millions of stories to tell. Smooth leather combines with serrated 3-Stripes and the authentic rubber shell toe. Ready for the next fifty years of iconic adidas style? Lets do it.",
   44
 );
-const root = document.getElementById("root");
-Adidas.renderAllData(root);
+
+function handleGetData(page: string) {
+  try {
+    console.log(page);
+    Adidas.getData();
+    console.log(Adidas)
+    if (page === "owner") {
+      const root = document.getElementById("rootOwner");
+      Adidas.renderAllData(root);
+    } else if (page === "customer") {
+      const root = document.getElementById("rootCustomer");
+      Adidas.renderAllData(root);
+    } else {
+      throw new Error(`page is not found (${page})`);
+    }
+  } catch (err) {
+    console.log(err);
+  }
+}
