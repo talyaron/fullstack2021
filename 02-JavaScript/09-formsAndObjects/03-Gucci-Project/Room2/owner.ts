@@ -17,7 +17,6 @@ interface shop {
   deleteItem(id: number);
   render(list: Array<product>, domElement: any);
   renderAllData(domElement: any);
-
   deleteItem(id: number);
   updateItem(
     id: number,
@@ -56,15 +55,10 @@ const Adidas: shop = {
     let html = "";
     this.products.forEach(product => {
       html +=
-
-        `<div style="width: 35%;border: 1px solid green">
+        `<div style="width: 35%;border: 1px solid red">
           <p><b>Title: </b> ${product.title}</p>
           <p><b> Price: </b> ${product.price}₪</p>
-          <p><b> picture: </b> <div class="cards__item">
-          <div class="picture">
-              <img src="${product.picture}">
-   
-</div>   </p>
+          <p><b> picture: </b> </p>
           <p><img src="${product.picture}" style="width: 200px; height: 200px;"></p>
           <p><b> Color: </b> ${product.color}</p>
           <p><b> Description: </b> ${product.description}</p>
@@ -130,8 +124,7 @@ function handleAddItem(ev) {
   Adidas.renderAllData(root);
   ev.target.reset(); //reset the form fileds
   // console.log(category);
-  localStorage.setItem("products", `${this.products}`);
-  localStorage.setItem("Adidas", JSON.stringify(Adidas));
+  localStorage.setItem("Adidas", JSON.stringify(Adidas.products));
 }
 
 function handleDelete(id) {
@@ -156,6 +149,7 @@ function handleUpdate(ev: any, itemId: number) {
   Adidas.updateItem(itemId, newTitle, newPrice, newCategory, newPicture, newColor, newDescription, newShoeSize);
   Adidas.renderAllData(root);
 
+  
 }
 
 Adidas.addItem(
@@ -169,7 +163,7 @@ Adidas.addItem(
 );
 Adidas.addItem(
   "superstar shoes",
-  200,
+  300,
   "Sneakers",
   "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg",
   "red",
@@ -178,7 +172,7 @@ Adidas.addItem(
 );
 Adidas.addItem(
   "superstar shoes",
-  200,
+  100,
   "Sneakers",
   "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg",
   "red",
