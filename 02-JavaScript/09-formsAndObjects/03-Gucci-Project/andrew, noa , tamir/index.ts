@@ -2,15 +2,16 @@ interface aviator {
 
     items: Array<newItem>
     cartItems: Array<newItem>
+    itemsToRender: Array<newItem>
     additem(newItem)
-    renderitem(domElement: any , list)
-    renderitemcart(domElement )
+    renderitem(domElement: any)
+    renderitemcart(domElement)
     renderCartCount()
     sortitemup();
     sortitemdown()
     getdata()
-    deleteItem(id:string)
-    filterItems(category:string)
+    deleteItem(id: string)
+    filterItems(category: string)
 }
 interface newItem {
     name: string
@@ -31,14 +32,16 @@ interface newItem {
 let aviator: aviator = {
     items: [],
     cartItems: [],
-    
 
-    renderitem(domElement , list) {
+    itemsToRender: [],
+
+
+    renderitem(domElement) {
         let html = '';
         html += `<div class="category-wrapper">`;
-        list.forEach(item => {
+        this.itemsToRender.forEach(item => {
             html += `
-                <div class="category-wrapper__title">DOUGLAS</div>
+                <div class="category-wrapper__title">All Watches</div>
                 <div class="category-wrapper__card">
                     <div class='category-wrapper__card__img'> <img src="${item.img}"></div>
                     <div class="category-wrapper__card__name" >${item.name} </div>
@@ -48,7 +51,6 @@ let aviator: aviator = {
                     <button class='add1' onclick="handleaddcart(event,'${item.id}')" style="cursor: pointer;color:black">add to cart<i class="fab fa-opencart"></i></button>
                 </div>`
         });
-
         domElement.innerHTML = html
     },
 
@@ -71,15 +73,15 @@ let aviator: aviator = {
     renderCartCount() {
         document.querySelector('.header__cart-notification').innerHTML = `${this.cartItems.length}`;
     },
-    
+
     additem(newItem) {
         this.cartItems.push(newItem)
     },
     sortitemup() {
-        this.items.sort((a, b) => { return a.price - b.price })
+        this.itemsToRender.sort((a, b) => { return a.price - b.price })
     },
     sortitemdown() {
-        this.items.sort((a, b) => { return b.price - a.price })
+        this.itemsToRender.sort((a, b) => { return b.price - a.price })
     },
 
     getdata() {
@@ -92,16 +94,16 @@ let aviator: aviator = {
         this.renderCartCount();
 
     },
-    filterItems(category){
-        const keys= Object.keys(this.items[0])
+    filterItems(category) {
+        const keys = Object.keys(this.items[0])
         let filteredItems = [];
-        for(let i = 3; i < keys.length; i++){
+        for (let i = 3; i < keys.length; i++) {
             filteredItems = this.items.filter(item => item[keys[i]] == category);
             if (filteredItems.length != 0) break;
         };
-        this.renderitem(document.getElementById('main') , filteredItems);
+        aviator.itemsToRender = filteredItems;
+        this.renderitem(document.getElementById('main'));
     }
-
 }
 
 function handleaddcart(ev, itemToAddId) {
@@ -111,18 +113,17 @@ function handleaddcart(ev, itemToAddId) {
     aviator.renderitemcart(cart)
     const cartIcon = document.querySelector("#cart-icon");
     cartIcon.classList.add("pulse");
-    setTimeout(()=>{cartIcon.classList.remove("pulse")}, 1000);
+    setTimeout(() => { cartIcon.classList.remove("pulse") }, 1000);
     aviator.renderCartCount();
     setTimeout(() => { cartIcon.classList.remove("pulse") }, 1000);
-    //
 }
 function handlesortitem(ev) {
     aviator.sortitemup()
-    aviator.renderitem(rootitems , aviator.items)
+    aviator.renderitem(rootitems)
 }
 function handlesortitemacs(ev) {
     aviator.sortitemdown()
-    aviator.renderitem(rootitems , aviator.items)
+    aviator.renderitem(rootitems)
 }
 
 function handleDelete(id) {
@@ -130,10 +131,11 @@ function handleDelete(id) {
     aviator.renderitemcart(cart);
 }
 
-aviator.getdata()
+aviator.getdata();
+aviator.itemsToRender = aviator.items;
 
 const rootitems = document.getElementById('main')
-aviator.renderitem(rootitems , aviator.items)
+aviator.renderitem(rootitems)
 
 const cart = document.getElementById('cart')
 aviator.renderitemcart(cart)
@@ -148,6 +150,9 @@ function handelfilters(ev) {
     console.log(ev.target.innerText);
     aviator.filterItems(ev.target.innerText);
 }
+document.querySelector('.filter-bar__item').addEventListener('click', () => {
+    aviator.itemsToRender = aviator.items;
+    aviator.renderitem(document.getElementById('main'))
+});
 
 
-// console.dir(ev.target.innerText)

@@ -1,13 +1,13 @@
-const uid = function(){
+const uid = function () {
     return Date.now().toString(36) + Math.random().toString(36).substr(2);
 };
 
 interface shop {
     products: Array<product>;
-    addCartItem(products:product);
-    renderAdidas(list:any, domElement: any);
+    addCartItem(products: product);
+    renderAdidas(list: any, domElement: any);
     renderFilter(domElement, filterd);
-    filterItems(highPrice?: number, lowPrice?:number),
+    filterItems(highPrice?: number, lowPrice?: number),
     renderAll(domElement),
     shoeSizeFilter(size);
     sortItemsAsc();
@@ -16,26 +16,26 @@ interface shop {
     sortByColor(color);
     sortByType(type);
     getData()
-  }
-  
-  interface product {
-      title:string;
-      type:"Sneakers" | "Boots" | "Hi Tops" | "Flip Flops";
-      picture:string;
-      price:number;
-      color:string;
-      description:string;
-      shoeSize:number;
-      gender:string;
-  }
+}
 
- const Adidas:shop = {
-    products:[],
-    addCartItem(products:product){
+interface product {
+    title: string;
+    type: "Sneakers" | "Boots" | "Hi Tops" | "Flip Flops";
+    picture: string;
+    price: number;
+    color: string;
+    description: string;
+    shoeSize: number;
+    gender: string;
+}
+
+const Adidas: shop = {
+    products: [],
+    addCartItem(products: product) {
         const id = uid;
         this.products.push(products, id);
     },
-    renderAdidas(list, domElement){
+    renderAdidas(list, domElement) {
         let html = ''
         this.products.forEach(item => {
             html += `<div class="item">
@@ -50,85 +50,89 @@ interface shop {
         domElement.innerHTML = html;
     },
     renderFilter(domElement, filterd) {
-        this.renderAdidas( domElement, filterd);
-       
-        
+        this.renderAdidas(domElement, filterd);
+
+
     },
-    renderAll(domElement){
-        const computers = this.products;
-        this.renderAdidas(domElement, computers)
+    renderAll(domElement) {
+        const product = this.products;
+        this.renderAdidas(domElement, product)
+
+
     },
-    filterItems(highPrice, lowPrice){
+    filterItems(highPrice, lowPrice) {
         return this.products.filter((item) => item.price >= lowPrice && item.price <= highPrice);
     },
-    shoeSizeFilter(size){
-        return this.products.filter((item)=> item.size === size);
+    shoeSizeFilter(size) {
+        return this.products.filter((item) => item.size === size);
     },
-    sortItemsAsc(){
-        this.products.sort((x, y)=> y.price -x.price);
+    sortItemsAsc() {
+        this.products.sort((x, y) => y.price - x.price);
     },
-    sortItemsDsc(){
-        this.products.sort((x, y)=>x.price - y.price);
+    sortItemsDsc() {
+        this.products.sort((x, y) => x.price - y.price);
     },
-    sortByGender(item){
-        return this.products.filter((element)=> element.gender === item);
+    sortByGender(item) {
+        return this.products.filter((element) => element.gender === item);
     },
-    sortByColor(color){
-        return this.products.filter((element)=> element.color === color);
+    sortByColor(color) {
+        return this.products.filter((element) => element.color === color);
     },
-    sortByType(type){
-        return this.products.filter((element)=> element.type === type);
-    }
-  }
- function handleCart(ev){
+    sortByType(type) {
+        return this.products.filter((element) => element.type === type);
+    },
+    getData()
+
+}
+function handleCart(ev) {
     //  const title = ev.target.elements.
- }
-  function handlePriceRange(ev){
+}
+function handlePriceRange(ev) {
     const root = document.getElementById("rootCart");
-      const priceLow = ev.target.valueAsNumber;
-      const priceHigh = ev.target.valueAsNumber;
-      if(priceLow && priceHigh){
-  
-       // console.log(price) + `price`;
+    const priceLow = ev.target.valueAsNumber;
+    const priceHigh = ev.target.valueAsNumber;
+    if (priceLow && priceHigh) {
+
+        // console.log(price) + `price`;
         const filterd = Adidas.filterItems(priceLow && priceHigh)
         console.log(filterd)
-        
+
         Adidas.renderFilter(root, filterd);
-        } else {
-          this.renderAll();
-        }
-  }
-  function handleSort(ev){
+    } else {
+        this.renderAll();
+    }
+}
+function handleSort(ev) {
     const sort = ev.target.value;
     ev.preventDefault();
     const root = document.getElementById("root");
-     if(sort === ev.target.value.priceAsc){
-  
-      
-     Adidas.renderAll(this.sortItemsAsc(root));
-     }
-     else if(sort === ev.target.value.priceDsc){
-      Adidas.renderAll(this.sortItemsDsc(root));
-     }
-     else if(sort === ev.target.value.startPosition){
+    if (sort === ev.target.value.priceAsc) {
+
+
+        Adidas.renderAll(this.sortItemsAsc(root));
+    }
+    else if (sort === ev.target.value.priceDsc) {
+        Adidas.renderAll(this.sortItemsDsc(root));
+    }
+    else if (sort === ev.target.value.startPosition) {
         ev.target.reset();
-       }
-  }
-function handleType(ev){
+    }
+}
+function handleType(ev) {
     const type = ev.target.value;
     ev.preventDefault();
     const root = document.getElementById("root");
     // if(type === " ")
     return Adidas.renderFilter(root, Adidas.sortByType(type));
 }
-function handleColor(ev){
+function handleColor(ev) {
     const color = ev.target.value;
     ev.preventDefault();
     const root = document.getElementById("root");
     // if(type === " ")
     return Adidas.renderFilter(root, Adidas.sortByColor(color));
 }
-function handleGender(ev){
+function handleGender(ev) {
     const gender = ev.target.value;
     ev.preventDefault();
     const root = document.getElementById("root");
@@ -136,7 +140,7 @@ function handleGender(ev){
 
     return Adidas.renderFilter(root, Adidas.sortByGender(gender));
 }
-function handleShoeSize(ev){
+function handleShoeSize(ev) {
     const size = ev.target.value;
     ev.preventDefault();
     const root = document.getElementById("root");
@@ -148,8 +152,10 @@ function handleShoeSize(ev){
 function getData() {
     this.products = +localStorage.getItem("products");
     console.log(JSON.parse(localStorage.getItem("Adidas")));
-  }
-  
-  getData();
-  
-  console.log(this.products);
+    const root = document.getElementById("root");
+    Adidas.renderAll(root)
+}
+
+getData();
+
+console.log(this.product);

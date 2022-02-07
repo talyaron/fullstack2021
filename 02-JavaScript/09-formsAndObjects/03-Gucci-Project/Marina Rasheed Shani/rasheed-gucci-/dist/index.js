@@ -1,14 +1,15 @@
 var gucci = {
     items: [
-        { name: "Retro tweed dress with velvet trims", price: 3800, img: "https://media.gucci.com/style/DarkGray_South_0_160_316x316/1632265215/674469_ZAH8I_6535_001_100_0000_Light-Retro-tweed-dress-with-velvet-trims.jpg", department: "clothes", gender: "women", type: "dresses" },
-        { name: "Pleated dress with chevron vintage Web", price: 5980, img: "//media.gucci.com/style/DarkGray_South_0_160_316x316/1634249776/669260_ZAH0J_9782_001_100_0000_Light-Pleated-dress-with-chevron-vintage-Web.jpg", department: "clothes", gender: "women", type: "dresses" },
-        { name: "The North Face x Gucci pant", price: 950, img: "https://media.gucci.com/style/DarkGray_South_0_160_316x316/1638553515/663766_ZLX45_3475_001_100_0000_Light-The-North-Face-x-Gucci-pant.jpg", department: "clothes", gender: "men", type: "pants" },
+        { name: "Retro tweed dress", price: 3800, img: "https://media.gucci.com/style/DarkGray_South_0_160_316x316/1632265215/674469_ZAH8I_6535_001_100_0000_Light-Retro-tweed-dress-with-velvet-trims.jpg", department: "clothes", gender: "women", type: "dresses" },
+        { name: "Pleated dress ", price: 5980, img: "//media.gucci.com/style/DarkGray_South_0_160_316x316/1634249776/669260_ZAH0J_9782_001_100_0000_Light-Pleated-dress-with-chevron-vintage-Web.jpg", department: "clothes", gender: "women", type: "dresses" },
+        { name: "The North Face x", price: 950, img: "https://media.gucci.com/style/DarkGray_South_0_160_316x316/1638553515/663766_ZLX45_3475_001_100_0000_Light-The-North-Face-x-Gucci-pant.jpg", department: "clothes", gender: "men", type: "pants" },
         { name: "Gucci Jordaan crocodile loafer", price: 3200, img: "//media.gucci.com/style/DarkGray_South_0_160_470x470/1459942203/406994_EC200_1000_001_100_0000_Light.jpg", department: "clothes", gender: "men", type: "shoes" },
-        { name: "Cotton piquet polo with Interlocking G", price: 690, img: "https://media.gucci.com/style/DarkGray_South_0_160_316x316/1634749231/653380_XJDF8_3495_001_100_0000_Light-Cotton-piquet-polo-with-Interlocking-G.jpg", department: "clothes", gender: "men", type: "shirts" },
-        { name: "Double G flower ring", price: 390, img: "https://media.gucci.com/style/DarkGray_South_0_160_316x316/1522084508/527394_J8474_8517_001_100_0000_Light-Double-G-flower-ring.jpg", department: "jewelry", gender: "women", type: "rings" },
-        { name: "Gucci Diana small crocodile tote bag", price: 35000, img: "https://media.gucci.com/style/DarkGray_South_0_160_316x316/1618321510/660195_EZINT_2582_001_067_0000_Light-Gucci-Diana-small-crocodile-tote-bag.jpg", department: "bags", gender: "women", type: "bags" },
-        { name: "Grip watch, 38mm", price: 1900, img: "https://media.gucci.com/style/DarkGray_South_0_160_316x316/1567584905/596509_I8600_8740_001_100_0000_Light-Grip-watch-38mm.jpg", department: "watches", gender: "men", type: "watch" },
-        { name: "Leather ankle boot with belt", price: 1190, img: "https://media.gucci.com/style/DarkGray_South_0_160_316x316/1537468210/550036_DKS00_1000_001_100_0000_Light-Leather-ankle-boot-with-belt.jpg", department: "shoes", gender: "women", type: "shoes" }
+        { name: "Cotton piquet polo ", price: 690, img: "https://media.gucci.com/style/DarkGray_South_0_160_316x316/1634749231/653380_XJDF8_3495_001_100_0000_Light-Cotton-piquet-polo-with-Interlocking-G.jpg", department: "clothes", gender: "men", type: "shirts" },
+        { name: "Double G flower", price: 390, img: "https://media.gucci.com/style/DarkGray_South_0_160_316x316/1522084508/527394_J8474_8517_001_100_0000_Light-Double-G-flower-ring.jpg", department: "jewelry", type: "rings" },
+        { name: "Gucci Diana small crocodile", price: 35000, img: "https://media.gucci.com/style/DarkGray_South_0_160_316x316/1618321510/660195_EZINT_2582_001_067_0000_Light-Gucci-Diana-small-crocodile-tote-bag.jpg", department: "bags", type: "purses" },
+        { name: "Grip watch, 38mm", price: 1900, img: "https://media.gucci.com/style/DarkGray_South_0_160_316x316/1567584905/596509_I8600_8740_001_100_0000_Light-Grip-watch-38mm.jpg", department: "watches", type: "rolex" },
+        { name: "Leather ankle boot with belt", price: 1190, img: "https://media.gucci.com/style/DarkGray_South_0_160_316x316/1537468210/550036_DKS00_1000_001_100_0000_Light-Leather-ankle-boot-with-belt.jpg", department: "shoes", gender: "women", type: "boots" },
+        { name: "Baby cat print linen coat", price: 1150, img: "https://media.gucci.com/style/DarkGray_South_0_160_316x316/1634315425/680518_ZAIDY_9376_001_100_0000_Light-Baby-cat-print-cotton-dress.jpg", department: "children", type: "clothes" }
     ],
     storeData: function () {
         localStorage.setItem("storeData", JSON.stringify(this.items));
@@ -166,13 +167,53 @@ function handleFilterByPrice(ev) {
 function handleSelect(ev) {
     var type = ev.target.value;
     var root = document.getElementById("root");
-    if (type === "all") {
-        gucci.renderAllitems(root);
+    if (type === "allWomen") {
+        handleRenderByGender("women");
     }
     else {
         gucci.renderByType(type, root);
     }
+    if (type === "allChildren") {
+        handleRenderByDepartment("children");
+    }
+    else {
+        gucci.renderByType(type, root);
+    }
+    if (type === "allMen") {
+        handleRenderByGender("men");
+    }
+    else {
+        gucci.renderByType(type, root);
+    }
+    // if (type === "allWatches") {
+    //   handleRenderByDepartment("watches")
+    // }
+    // else {
+    //   gucci.renderByType(type, root);
+    // }
+    // if (type === "allJewelry") {
+    //   handleRenderByDepartment("jewelry")
+    // }
+    // else {
+    //   gucci.renderByType(type, root);
+    // }
+    // if (type === "allBags") {
+    //   handleRenderByDepartment("bags")
+    // }
+    // else {
+    //   gucci.renderByType(type, root);
+    // }
 }
-gucci.getData();
-var root = document.getElementById("root");
-gucci.renderAllitems(root);
+// gucci.getData();
+// const root = document.getElementById("root");
+// gucci.renderAllitems(root);
+function handleRenderByGender(gender) {
+    var root = document.getElementById("root");
+    gucci.getData();
+    gucci.renderByGender(gender, root);
+}
+function handleRenderByDepartment(department) {
+    var root = document.getElementById("root");
+    gucci.getData();
+    gucci.renderByDepartment(department, root);
+}
