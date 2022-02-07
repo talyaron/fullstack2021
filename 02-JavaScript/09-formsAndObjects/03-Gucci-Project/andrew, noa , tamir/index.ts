@@ -97,11 +97,8 @@ let aviator: aviator = {
         let filteredItems = [];
         for(let i = 3; i < keys.length; i++){
             filteredItems = this.items.filter(item => item[keys[i]] == category);
-            if ( this.items[keys[i]] == category) {
-                console.log(filteredItems);
-            }
+            if (filteredItems.length != 0) break;
         };
-        // console.log(filteredItems);
         this.renderitem(document.getElementById('main') , filteredItems);
     }
 
