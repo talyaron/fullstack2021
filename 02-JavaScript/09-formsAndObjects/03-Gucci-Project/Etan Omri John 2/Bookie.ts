@@ -9,7 +9,16 @@ function handleTop(ev) {
   ev.preventDefault();
   document.documentElement.scrollTop = 0;
 }
-
+function hideTopBtn(){
+  let rootElement = document.documentElement;
+  let topTotal = rootElement.scrollHeight - rootElement.clientHeight;
+  if ((rootElement.scrollTop / topTotal) > 0.80) {
+    backToTop.classList.remove("hidden");
+  } else {
+    backToTop.classList.add("hidden");
+  }
+}
+document.addEventListener("scroll", hideTopBtn)
 interface BookShop {
   id: any;
   books: Array<book>;
@@ -93,7 +102,7 @@ interface BookShop {
     localStorage.setItem("Bookie shop", JSON.stringify(localBookie))
     ev.target.reset();
     console.log(localBookie);
-    makeAnOption(localBookie, selectRoot, descPrice)
+
     // localBookie.makeOptions(ev)
     // how to use localStorage:
     //   window.localStorage.setItem("Bookie shop", JSON.stringify(bookie));
