@@ -1,16 +1,16 @@
 interface aviator {
 
     items: Array<newItem>
-    filteritems: Array<newItem>
-    cartItems: number
+    cartItems: Array<newItem>
     additem(newItem)
-    renderitem(domElement: any)
-    renderitemcart(domElement)
+    renderitem(domElement: any , list)
+    renderitemcart(domElement )
     renderCartCount()
     sortitemup();
     sortitemdown()
     getdata()
-    deleteItem(id)
+    deleteItem(id:string)
+    filterItems(category:string)
 }
 interface newItem {
     name: string
@@ -30,13 +30,13 @@ interface newItem {
 
 let aviator: aviator = {
     items: [],
-    filteritems: [],
-    cartItems: 0,
+    cartItems: [],
+    
 
-    renderitem(domElement) {
+    renderitem(domElement , list) {
         let html = '';
         html += `<div class="category-wrapper">`;
-        this.items.forEach(item => {
+        list.forEach(item => {
             html += `
                 <div class="category-wrapper__title">DOUGLAS</div>
                 <div class="category-wrapper__card">
@@ -55,7 +55,7 @@ let aviator: aviator = {
     renderitemcart(domElement) {
         let html2 = '';
 
-        this.filteritems.forEach(item => {
+        this.cartItems.forEach(item => {
             html2 += `<div class='cart'>
             <img src="${item.img}">
            
@@ -69,11 +69,11 @@ let aviator: aviator = {
 
 
     renderCartCount() {
-        document.querySelector('.header__cart-notification').innerHTML = `${this.filteritems.length}`;
+        document.querySelector('.header__cart-notification').innerHTML = `${this.cartItems.length}`;
     },
     
     additem(newItem) {
-        this.filteritems.push(newItem)
+        this.cartItems.push(newItem)
     },
     sortitemup() {
         this.items.sort((a, b) => { return a.price - b.price })
@@ -86,15 +86,21 @@ let aviator: aviator = {
         this.items = JSON.parse(localStorage.getItem('storeData'))
     },
     deleteItem(id) {
-        this.filteritems = this.filteritems.filter(item => item.id !== id);
+        this.cartItems = this.cartItems.filter(item => item.id !== id);
         this.renderitemcart(cart);
-        console.log(this.filteritems);
-
-        this.cartItems--;
-        document.querySelector('.header__cart-notification').innerHTML = `${this.cartItems}`;
+        console.log(this.cartItems);
         this.renderCartCount();
 
     },
+    filterItems(category){
+        const keys= Object.keys(this.items[0])
+        let filteredItems = [];
+        for(let i = 3; i < keys.length; i++){
+            filteredItems = this.items.filter(item => item[keys[i]] == category);
+            if (filteredItems.length != 0) break;
+        };
+        this.renderitem(document.getElementById('main') , filteredItems);
+    }
 
 }
 
@@ -108,18 +114,15 @@ function handleaddcart(ev, itemToAddId) {
     setTimeout(()=>{cartIcon.classList.remove("pulse")}, 1000);
     aviator.renderCartCount();
     setTimeout(() => { cartIcon.classList.remove("pulse") }, 1000);
-    const cartNumber = document.querySelector('.header__cart-notification')
-    aviator.cartItems++;
-    cartNumber.innerHTML = `${aviator.cartItems}`;
     //
 }
 function handlesortitem(ev) {
     aviator.sortitemup()
-    aviator.renderitem(rootitems)
+    aviator.renderitem(rootitems , aviator.items)
 }
 function handlesortitemacs(ev) {
     aviator.sortitemdown()
-    aviator.renderitem(rootitems)
+    aviator.renderitem(rootitems , aviator.items)
 }
 
 function handleDelete(id) {
@@ -130,21 +133,20 @@ function handleDelete(id) {
 aviator.getdata()
 
 const rootitems = document.getElementById('main')
-aviator.renderitem(rootitems)
+aviator.renderitem(rootitems , aviator.items)
 
 const cart = document.getElementById('cart')
 aviator.renderitemcart(cart)
 
 
-let filters = document.querySelectorAll('.per');
+let filters = document.querySelectorAll('.filter');
 filters.forEach(item => {
     item.addEventListener('click', handelfilters)
 })
 
 function handelfilters(ev) {
-    const values = ev.target.innerText
-    console.log(values);
-     
+    console.log(ev.target.innerText);
+    aviator.filterItems(ev.target.innerText);
 }
 
 
