@@ -39,7 +39,6 @@ var aviator = {
 };
 function handleaddcart(ev, itemToAddId) {
     var itemToAdd = aviator.items.filter(function (item) { return item.id == itemToAddId; })[0];
-    console.log(itemToAdd);
     aviator.additem(itemToAdd);
     var cart = document.getElementById('cart');
     aviator.renderitemcart(cart);
@@ -73,5 +72,8 @@ var filters = document.querySelectorAll('.per');
 filters.forEach(function (item) {
     item.addEventListener('click', handelfilters);
 });
-function handelfilters() {
+function handelfilters(ev) {
+    var values = ev.target.innerText;
+    console.log(values);
 }
+// console.dir(ev.target.innerText)
