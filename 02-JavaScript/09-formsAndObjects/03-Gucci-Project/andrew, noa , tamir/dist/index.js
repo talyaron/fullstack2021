@@ -1,7 +1,6 @@
 var aviator = {
     items: [],
     filteritems: [],
-    cartItems: 0,
     renderitem: function (domElement) {
         var html = '';
         html += "<div class=\"category-wrapper\">";
@@ -16,6 +15,9 @@ var aviator = {
             html2 += "<div class='cart'>\n            <img src=\"" + item.img + "\">\n           \n        \n           <button  onclick='handleDelete(\"" + item.id + "\")' style=\"width:50px ;\"'><i class=\"far fa-trash-alt\"></i> Delete</button>\n            </div>";
         });
         domElement.innerHTML = html2;
+    },
+    renderCartCount: function () {
+        document.querySelector('.header__cart-notification').innerHTML = "" + this.filteritems.length;
     },
     additem: function (newItem) {
         this.filteritems.push(newItem);
@@ -35,21 +37,18 @@ var aviator = {
         console.log(this.filteritems);
         this.cartItems--;
         document.querySelector('.header__cart-notification').innerHTML = "" + this.cartItems;
+        this.renderCartCount();
     }
 };
 function handleaddcart(ev, itemToAddId) {
     var itemToAdd = aviator.items.filter(function (item) { return item.id == itemToAddId; })[0];
-    console.log(itemToAdd);
     aviator.additem(itemToAdd);
     var cart = document.getElementById('cart');
     aviator.renderitemcart(cart);
-    //andrew's addition
     var cartIcon = document.querySelector("#cart-icon");
     cartIcon.classList.add("pulse");
     setTimeout(function () { cartIcon.classList.remove("pulse"); }, 1000);
-    var cartNumber = document.querySelector('.header__cart-notification');
-    aviator.cartItems++;
-    cartNumber.innerHTML = "" + aviator.cartItems;
+    aviator.renderCartCount();
     //
 }
 function handlesortitem(ev) {
@@ -73,5 +72,8 @@ var filters = document.querySelectorAll('.per');
 filters.forEach(function (item) {
     item.addEventListener('click', handelfilters);
 });
-function handelfilters() {
+function handelfilters(ev) {
+    var values = ev.target.innerText;
+    console.log(values);
 }
+// console.dir(ev.target.innerText)
