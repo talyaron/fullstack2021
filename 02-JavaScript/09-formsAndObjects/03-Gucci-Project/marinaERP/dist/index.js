@@ -89,7 +89,9 @@ var litlife = {
     },
     getData: function () {
         var booksStorage = JSON.parse(localStorage.getItem("storeData"));
-        return booksStorage;
+        if (booksStorage) {
+            this.books = booksStorage;
+        }
     },
     addBook: function (title, autor, genre, year, grade, img) {
         var id = uid();

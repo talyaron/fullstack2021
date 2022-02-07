@@ -125,7 +125,10 @@ const litlife = {
 
   getData() {
     const booksStorage = JSON.parse(localStorage.getItem("storeData"));
-    return booksStorage;
+    if(booksStorage){
+      this.books = booksStorage;
+    }
+    
   },
 
   addBook(title, autor, genre, year, grade, img) {
