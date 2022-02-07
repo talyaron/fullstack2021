@@ -99,17 +99,20 @@ interface shop {
         }
   }
   function handleSort(ev){
-   const sort = ev.target.value;
-  ev.preventDefault();
-  const root = document.getElementById("root");
-   if(sort === this.product.sortItemsAsc()){
-
-    
-   Adidas.renderAll(root);
-   }
-   else{
-    Adidas.renderAll(root);
-   }
+    const sort = ev.target.value;
+    ev.preventDefault();
+    const root = document.getElementById("root");
+     if(sort === ev.target.value.priceAsc){
+  
+      
+     Adidas.renderAll(this.sortItemsAsc(root));
+     }
+     else if(sort === ev.target.value.priceDsc){
+      Adidas.renderAll(this.sortItemsDsc(root));
+     }
+     else{
+      ev.target.reset();
+     }
   }
 function handleType(ev){
     const type = ev.target.value;

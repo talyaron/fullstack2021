@@ -64,11 +64,14 @@ function handleSort(ev) {
     var sort = ev.target.value;
     ev.preventDefault();
     var root = document.getElementById("root");
-    if (sort === this.product.sortItemsAsc()) {
-        Adidas.renderAll(root);
+    if (sort === ev.target.value.priceAsc) {
+        Adidas.renderAll(this.sortItemsAsc(root));
+    }
+    else if (sort === ev.target.value.priceDsc) {
+        Adidas.renderAll(this.sortItemsDsc(root));
     }
     else {
-        Adidas.renderAll(root);
+        ev.target.reset();
     }
 }
 function handleType(ev) {

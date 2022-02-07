@@ -42,16 +42,16 @@ var aviator = {
         var filteredItems = [];
         var _loop_1 = function (i) {
             filteredItems = this_1.items.filter(function (item) { return item[keys[i]] == category; });
-            if (this_1.items[keys[i]] == category) {
-                console.log(filteredItems);
-            }
+            if (filteredItems.length != 0)
+                return "break";
         };
         var this_1 = this;
         for (var i = 3; i < keys.length; i++) {
-            _loop_1(i);
+            var state_1 = _loop_1(i);
+            if (state_1 === "break")
+                break;
         }
         ;
-        // console.log(filteredItems);
         this.renderitem(document.getElementById('main'), filteredItems);
     }
 };
