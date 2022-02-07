@@ -121,6 +121,8 @@ function handleAddItem(ev) {
   Adidas.renderAllData(root);
   ev.target.reset(); //reset the form fileds
   // console.log(category);
+  sessionStorage.setItem("products", `${this.products}`);
+  sessionStorage.setItem("Adidas", JSON.stringify(Adidas));
 }
 
 function handleDelete(id) {
