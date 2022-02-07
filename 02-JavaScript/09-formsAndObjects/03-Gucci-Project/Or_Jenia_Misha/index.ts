@@ -158,19 +158,31 @@ function navSlide() {
 
 function popMenuActive() {
 
-  const menuCell = document.querySelectorAll(".menu__cell");
+  const picWrap = document.querySelectorAll(".picwrap");
   const pop = document.querySelector(".popmenu");
+  const close = document.querySelector(".popmenu__x")
+  const blur = document.querySelector(".blurwrapper")
 
-  if (menuCell && pop) {
+  if (picWrap && pop && close && blur) {
 
-    menuCell.forEach((cell) => {
+    blur.addEventListener("click", () => {
+      pop.classList.toggle("popmenu-active");
+      blur.classList.toggle("blurwrapper-active")
+    });
+
+    close.addEventListener("click", () => {
+      pop.classList.toggle("popmenu-active");
+      blur.classList.toggle("blurwrapper-active")
+    });
+
+    picWrap.forEach((cell) => {
 
       cell.addEventListener("click", () => {
         pop.classList.toggle("popmenu-active");
+        blur.classList.toggle("blurwrapper-active")
       });
 
     }
-
   }
 }
 
