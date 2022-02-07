@@ -8,8 +8,9 @@ interface Store {
     Books: Array<Book>,
     storeData(),
     getData(),
-    addBook(title, autor, genre, year, grade, img, id), 
-    render(domElement),
+    addBook(title: string, autor: string,, genre: string,, year: number, grade: number, img: any, id: string), 
+    render(list: any, domElement: any),
+    renderAllBooks(domElement: any),
 }
 
 interface Book {
@@ -19,7 +20,7 @@ interface Book {
     year: number,
     grade: number,
     img: any,
-    id?: any
+    id?: string
 
 }
 
@@ -50,9 +51,41 @@ const litlife = {
         const id = uid();
         this.books.push({title, autor, genre, year, grade, img, id});
         this.storeData()
-    }
+    },
     
-    render (domElement)
+    render(list, domElement) {
+        let html = " ";
+        list.forEach((book: any) => {
+           html += `<div class="item">
+           <p>${book.title}</p>
+           <img class="img" src="${book.img}">
+           <p>${book.price}$</p>
+           </div>`;
+        })
+        domElement.innerHTML = html;
+    },
+
+    renderAllBooks(domElement) {
+        const items = this.books;
+        this.render(items, domElement)
+    },
+    
+
+}
+
+function handleAddBook(e) {
+    e.preventDefault();
+    let id = uid();
+    const title = e.target.title.value;
+    const autor = e.target.autor.value;
+    const genre = e.target.genre.value;
+    const year = e.target.year.valueAsNumber;
+    const grade = e.target.grade.valueAsNumber;
+    const img = e.target.img.value;
+    addBook(title, autor, genre, year, grade, img, id); 
+    const root = document.querySelector('.root');
+    renderAllBooks();
+    litlife.storeData();
 
 }
 

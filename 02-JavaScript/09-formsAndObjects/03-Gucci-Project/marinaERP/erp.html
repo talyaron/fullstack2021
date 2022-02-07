@@ -26,9 +26,10 @@
     <h1 class="title" >ERP</h1>
 
 
-    <form class="form" onsubmit ="handleSubmit(event)" >
-        <input type="text" name="title" id="title" placeholder="Book title" >
-        <input type="text" name="autor" id="autor" placeholder="Book autor" >
+    <form class="form" onsubmit ="handleAddBook(event)" >
+        <input type="text" name="title" id="title" placeholder="Title" >
+        <input type="text" name="autor" id="autor" placeholder="Autor" >
+        <input type="text" name="img" id="img" placeholder="Image adress">
         <!-- <input type="text" name="genre" id="genre" placeholder="Book genre" > -->
         <select name="genre" id="" >
             <option value="genre" disabled selected>genre</option>
@@ -39,8 +40,8 @@
             <option value="children">children</option>
         </select>
         <input type="number" name="year" id="year" placeholder="Year of publishing" >
-        <input type="number" name="grade" id="grade" placeholder="Book grade" >
-        <input type="submit" name="grade" id="grade" value="Add a book" >
+        <input type="number" name="grade" id="grade" placeholder="Grade" >
+        <input type="submit" name="submit" id="" value="Add a book" >
     </form>
 
 
@@ -48,7 +49,7 @@
     <!-- <input type="number" name="number" id="" onkeyup="handleUpdateData(event)">
     <button onclick="handleAddDataToStorage()" >Add data to storage</button> -->
 
-    <div id="id">root</div>
+    <div class="root" ></div>
     <script src="dist/index.js"></script>
 </body>
 </html>
