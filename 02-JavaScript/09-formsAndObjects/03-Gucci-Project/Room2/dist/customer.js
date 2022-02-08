@@ -18,8 +18,8 @@ var Adidas = {
         this.renderAdidas(domElement, filterd);
     },
     renderAll: function (domElement) {
-        var computers = this.products;
-        this.renderAdidas(domElement, computers);
+        var product = this.products;
+        this.renderAdidas(domElement, product);
     },
     filterItems: function (highPrice, lowPrice) {
         return this.products.filter(function (item) { return item.price >= lowPrice && item.price <= highPrice; });
@@ -64,11 +64,14 @@ function handleSort(ev) {
     var sort = ev.target.value;
     ev.preventDefault();
     var root = document.getElementById("root");
-    if (sort === this.product.sortItemsAsc()) {
-        Adidas.renderAll(root);
+    if (sort === ev.target.value.priceAsc) {
+        Adidas.renderAll(this.sortItemsAsc(root));
     }
-    else {
-        Adidas.renderAll(root);
+    else if (sort === ev.target.value.priceDsc) {
+        Adidas.renderAll(this.sortItemsDsc(root));
+    }
+    else if (sort === ev.target.value.startPosition) {
+        ev.target.reset();
     }
 }
 function handleType(ev) {
@@ -100,3 +103,11 @@ function handleShoeSize(ev) {
     // if(type === " ")
     //Adidas.shoeSizeFilter(size);
 }
+function getData() {
+    this.products = +localStorage.getItem("products");
+    console.log(JSON.parse(localStorage.getItem("Adidas")));
+    var root = document.getElementById("root");
+    Adidas.renderAll(root);
+}
+getData();
+console.log(this.product);

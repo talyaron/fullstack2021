@@ -4,7 +4,7 @@ var uid = function () {
 var sushiMenu = {
     dishes: [
         {
-            id: "a1",
+            id: uid(),
             name: "Maguro Nigiri",
             price: 70,
             description: "Rice fingers with red tuna tataki with foie gras and a drizzle of teriyaki. 5 pcs",
@@ -18,6 +18,7 @@ var sushiMenu = {
     },
     removeDish: function (id) {
         this.dishes = this.dishes.filter(function (dish) { return dish.id !== id; });
+        this.storeData();
     },
     updateDish: function (id, newDish) {
         var index = this.dishes.findIndex(function (dish) { return dish.id === id; });
@@ -35,7 +36,7 @@ var sushiMenu = {
     renderDishesERP: function (list, domElement) {
         var html = "<form onsubmit=\"handleDeleteDish(event)\"> <input type=\"submit\" value=\"delete\"></input>";
         list.forEach(function (item) {
-            html += "<div class=\"dishesERP\"> \n        <input type=\"checkbox\"></input>\n         <h3 class =\"dishesERP__title__name\">" + item.name + "</h3> \n         <p class =\"dishesERP__desc\">" + item.description + "</p>\n         <p class =\"dishesERP__title__price\">" + item.price + "</p>\n         \n      </div>";
+            html += "<div class=\"dishesERP\"> \n        <input type=\"checkbox\" id=" + item.id + "></input>\n         <h3 class =\"dishesERP__title__name\">" + item.name + "</h3> \n         <p class =\"dishesERP__desc\">" + item.description + "</p>\n         <p class =\"dishesERP__title__price\">" + item.price + "</p>\n         <p class =\"dishesERP__title__price\">" + item.id + "</p>\n         \n      </div>";
         });
         html += "</form>";
         domElement.innerHTML = html;
@@ -50,6 +51,7 @@ var sushiMenu = {
         }
     }
 };
+sushiMenu.getData();
 renderSushiMenu();
 function renderSushiMenu() {
     var rootStore = document.getElementById("rootStore");
@@ -74,13 +76,17 @@ function handleAddDish(ev) {
 }
 function handleDeleteDish(ev) {
     ev.preventDefault();
-    console.log(ev);
-    for (var i = 0; i < ev.target.length; i++) {
-        console.dir(ev.target[i]);
+    for (var i = 1; i < ev.target.length; i++) {
+        if (ev.target[i].checked === true) {
+            sushiMenu.removeDish(ev.target[i].id);
+        }
     }
+    renderSushiMenu();
 }
-sushiMenu.getData();
-// sushiMenu.renderDishesStore(sushiMenu.dishes, root);
+var rootStore = document.getElementById("rootStore");
+if (rootStore) {
+    sushiMenu.renderDishesStore(sushiMenu.dishes, rootStore);
+}
 // ---- CSS MANIPULATION --- //
 function navSlide() {
     var burger = document.querySelector(".burger");
@@ -92,4 +98,31 @@ function navSlide() {
         });
     }
 }
+function popMenuActive() {
+    var picWrap = document.querySelectorAll(".picwrap");
+    var pop = document.querySelector(".popmenu");
+    var close = document.querySelector(".popmenu__x");
+    var blur = document.querySelector(".blurwrapper");
+    var overflow = document.querySelector("body");
+    if (picWrap && pop && close && blur && overflow) {
+        blur.addEventListener("click", function () {
+            pop.classList.toggle("popmenu-active");
+            blur.classList.toggle("blurwrapper-active");
+            overflow.classList.toggle("body-active");
+        });
+        close.addEventListener("click", function () {
+            pop.classList.toggle("popmenu-active");
+            blur.classList.toggle("blurwrapper-active");
+            overflow.classList.toggle("body-active");
+        });
+        picWrap.forEach(function (cell) {
+            cell.addEventListener("click", function () {
+                pop.classList.toggle("popmenu-active");
+                blur.classList.toggle("blurwrapper-active");
+                overflow.classList.toggle("body-active");
+            });
+        });
+    }
+}
+popMenuActive();
 navSlide();

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERP</title>
+    <link rel="stylesheet" href="dist/style.css">
+    <style>
+        body {
+           background: crimson;
+           color: white;
+           margin: 5em;
+        }
+
+
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="./store.html">Store</a>
+        <a href="./erp.html">ERP</a>
+    </nav>
+    <h1 class="title" >ERP</h1>
+
+
+    <form class="form" onsubmit ="handleAddBook(event)" >
+        <input type="text" name="title" id="title" placeholder="Title" >
+        <input type="text" name="autor" id="autor" placeholder="Autor" >
+        <input type="text" name="img" id="img" placeholder="Image adress">
+        <!-- <input type="text" name="genre" id="genre" placeholder="Book genre" > -->
+        <select name="genre" id="" >
+            <option value="genre" disabled selected>genre</option>
+            <option value="science fiction">science fiction</option>
+            <option value="detective">detective</option>
+            <option value="prose">prose</option>
+            <option value="adventures">adventures</option>
+            <option value="children">children</option>
+        </select>
+        <input type="number" name="year" id="year" placeholder="Year of publishing" >
+        <input type="number" name="grade" id="grade" placeholder="Grade" >
+        <input type="submit" name="submit" id="" value="Add a book" >
+    </form>
+
+
+    <!-- LOCAL STORAGE TEST-->
+    <!-- <input type="number" name="number" id="" onkeyup="handleUpdateData(event)">
+    <button onclick="handleAddDataToStorage()" >Add data to storage</button> -->
+
+    <div class="root" ></div>
+    <script src="dist/index.js"></script>
+</body>
+</html>

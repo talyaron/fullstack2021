@@ -6,14 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Customer</title>
+    <title>ADIDAS</title>
     <link rel="icon" href=images/adidasLogo.png type="image/x-icon">
 
     <link rel="stylesheet" href="dist/style.css" />
     <script src="https://kit.fontawesome.com/01fab75280.js" crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body onload="handleGetData('customer')">
 
     <div class="header">
         <div class="usp__bar">
@@ -30,14 +30,10 @@
         <div class="header__inner">
             <div class="header__inner--logo"><img src="images/adidasLogo.png" alt="" /></div>
             <div class="header__inner--nav">
-                <a class="nav__item--man" href="">MEN</a>
-                <div class="dropdown-men">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
-                </div>
-                <a href="">WOMEN</a>
-                <a href="">KIDS</a>
+                <a class="nav__item" href="">MEN</a>
+
+                <a class="nav__item" href="">WOMEN</a>
+                <a class="nav__item" href="">KIDS</a>
             </div>
             <div class="header__inner--searchBar">
                 <input type="text" placeholder="Search.." name="search" />
@@ -56,66 +52,92 @@
                 </div>
             </div>
         </div>
-
-
-            <select onchange="handlePriceRange(event)">
-                <option value="" disabled selected>price</option>
-                <input type="range" min="1" max="100" value="50">
-
-                <!-- <option value="priceRange">
-                    price range
-                </option> -->
-            </select>
-
-            <select onchange="handleShoeSize(event)">
-                <option value="" disabled selected>shoe</option>
-
-                <option value="shoeSize">
-                    shoe size
-                    <input type="range">
-                </option>
-            </select>
-
-            <select onchange="handleGender(event)">
-                <option value="" disabled selected>gender</option>
-
-                <option value="gender">
-                    gender
-            </select>
-
-            <select onchange="handleColor(event)">
-                <option value="" disabled selected>color</option>
-
-                <option value="color">
-                    color
-            </select>
-
-            <select onchange="handleType(event)">
-                <option value="" disabled selected>type</option>
-
-                <option value="sneakers"> </option>
-                <option value="boots"> </option>
-                <option value="hi tops"> </option>
-                <option value="flip flops"> </option>
-
-            </select>
-          
-
-        </div>
+    </div>
 
     </div>
 
-    <!-- <div class="breadCrumbs">
-        <a href="">back</a>
-        <ul>
-            <li id="home"><a href="#"> Home /</a></li>
-            <li><a href="#"> Men /</a></li>
-            <li><a href="#">Shoes/</a></li>
-        </ul>
+    <div class="container">
+        <h2><strong>THIS IS POWER</strong></h2>
+        <p>The new Predator Edge football boots.</p>
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <select onchange="handlePriceRange(event)">
+        <option value="" disabled selected>price</option>
+        <input type="range" min="1" max="100" value="50">
+
+        <option value="priceRange">
+            price range
+        </option>
+    </select>
+
+    <select onchange="handleShoeSize(event)">
+        <option value="" disabled selected>shoe</option>
+
+        <option value="shoeSize">
+            shoe size
+            <input type="range">
+        </option>
+    </select>
+
+    <select onchange="handleGender(event)">
+        <option value="" disabled selected>gender</option>
+
+        <option value="gender">
+            gender
+    </select>
+
+    <select onchange="handleColor(event)">
+        <option value="" disabled selected>color</option>
+
+        <option value="color">
+            color
+    </select>
+
+    <select onchange="handleType(event)">
+        <option value="" disabled selected>type</option>
+
+        <option value="sneakers"> </option>
+        <option value="boots"> </option>
+        <option value="hi tops"> </option>
+        <option value="flip flops"> </option>
+
+    </select>
+   -->
+    <!-- 
     <h1></h1> -->
 
     <div class="wrapper">
+        <div class="wrapper--header">
+            <div class="breadCrumbs">
+                <ul>
+                    <li>
+                        <p>
+                            << &nbsp;&nbsp;</p>
+                    </li>
+                    <li><a href="#"> back</a></li>
+                    <li id="home"><a href="#">&nbsp;&nbsp; Home &nbsp;/</a></li>
+                    <li><a href="#"> &nbsp; Men &nbsp;/</a></li>
+                    <li><a href="#"> &nbsp;Shoes</a></li>
+                </ul>
+            </div>
+            <h1>MEN'S SHOES </h1>
+            <p>Shop adidas for all styles of men's shoes including casual sneakers, high-performance running shoes, and
+                comfy slides. Browse styles for women and kids here.
+            </p>
+        </div>
         <div class="header__sort">
 
             <select onchange="handlePriceRange(event)">
@@ -164,8 +186,8 @@
                 <option value="startPosition"> </option>
                 <option value="letterAsc"> </option>
                 <option value="letterDsc"> </option>
-                <option value="priceAsc"> </option>
-                <option value="priceDsc"> </option>
+                <option value="priceAsc">high to low </option>
+                <option value="priceDsc" >low to high </option>
             </select>
 
         </div>
@@ -197,10 +219,10 @@
                 <div class="picture">
                     <i class="far fa-heart"></i>
 
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095730_ultraboost-22-shoes_gx5462_side-lateral-center-view.jpeg"
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0086954_x-speedflow1-messi-firm-ground-boots_fy6879_side-lateral-center-view.jpeg"
                         alt="Card Back">
 
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095732_ultraboost-22-shoes_gx5462_top-portrait-view.jpeg"
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0086956_x-speedflow1-messi-firm-ground-boots_fy6879_top-portrait-view.jpeg"
                         class="img-top" alt="Card Front">
                 </div>
                 <div class="color">
@@ -218,10 +240,10 @@
                 <div class="picture">
                     <i class="far fa-heart"></i>
 
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095730_ultraboost-22-shoes_gx5462_side-lateral-center-view.jpeg"
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0096747_adistar-shoes_gx3000_side-lateral-center-view.jpeg"
                         alt="Card Back">
 
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095732_ultraboost-22-shoes_gx5462_top-portrait-view.jpeg"
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0096748_adistar-shoes_gx3000_top-portrait-view.jpeg"
                         class="img-top" alt="Card Front">
                 </div>
                 <div class="color">
@@ -239,10 +261,10 @@
                 <div class="picture">
                     <i class="far fa-heart"></i>
 
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095730_ultraboost-22-shoes_gx5462_side-lateral-center-view.jpeg"
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0097622_ultraboost-50-dna-shoes_gz0442_side-lateral-center-view.jpeg"
                         alt="Card Back">
 
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095732_ultraboost-22-shoes_gx5462_top-portrait-view.jpeg"
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0097623_ultraboost-50-dna-shoes_gz0442_top-portrait-view.jpeg"
                         class="img-top" alt="Card Front">
                 </div>
                 <div class="color">
@@ -260,10 +282,10 @@
                 <div class="picture">
                     <i class="far fa-heart"></i>
 
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095730_ultraboost-22-shoes_gx5462_side-lateral-center-view.jpeg"
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0076111_xz-0006-inside-out.jpeg"
                         alt="Card Back">
 
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095732_ultraboost-22-shoes_gx5462_top-portrait-view.jpeg"
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0076112_xz-0006-inside-out.jpeg"
                         class="img-top" alt="Card Front">
                 </div>
                 <div class="color">
@@ -281,10 +303,10 @@
                 <div class="picture">
                     <i class="far fa-heart"></i>
 
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095730_ultraboost-22-shoes_gx5462_side-lateral-center-view.jpeg"
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0098107_superstar-shoes_gy3415_side-lateral-center-view.jpeg"
                         alt="Card Back">
 
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095732_ultraboost-22-shoes_gx5462_top-portrait-view.jpeg"
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0098108_superstar-shoes_gy3415_top-portrait-view.jpeg"
                         class="img-top" alt="Card Front">
                 </div>
                 <div class="color">
@@ -302,10 +324,10 @@
                 <div class="picture">
                     <i class="far fa-heart"></i>
 
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095730_ultraboost-22-shoes_gx5462_side-lateral-center-view.jpeg"
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0087969_jeremy-scott-forum-dipped-low-shoes_gz8818_side-lateral-center-view.jpeg"
                         alt="Card Back">
 
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095732_ultraboost-22-shoes_gx5462_top-portrait-view.jpeg"
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0087970_jeremy-scott-forum-dipped-low-shoes_gz8818_top-portrait-view.jpeg"
                         class="img-top" alt="Card Front">
                 </div>
                 <div class="color">
@@ -323,10 +345,10 @@
                 <div class="picture">
                     <i class="far fa-heart"></i>
 
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095730_ultraboost-22-shoes_gx5462_side-lateral-center-view.jpeg"
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0088779_predator-freak1-firm-ground-boots_fy6263_side-lateral-center-view.jpeg"
                         alt="Card Back">
 
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095732_ultraboost-22-shoes_gx5462_top-portrait-view.jpeg"
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0088780_predator-freak1-firm-ground-boots_fy6263_top-portrait-view.jpeg"
                         class="img-top" alt="Card Front">
                 </div>
                 <div class="color">
@@ -344,10 +366,10 @@
                 <div class="picture">
                     <i class="far fa-heart"></i>
 
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095730_ultraboost-22-shoes_gx5462_side-lateral-center-view.jpeg"
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0086259_eq21-run-shoes_h68075_side-lateral-center-view.jpeg"
                         alt="Card Back">
 
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095732_ultraboost-22-shoes_gx5462_top-portrait-view.jpeg"
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0086260_eq21-run-shoes_h68075_top-portrait-view.jpeg"
                         class="img-top" alt="Card Front">
                 </div>
                 <div class="color">
@@ -365,10 +387,10 @@
                 <div class="picture">
                     <i class="far fa-heart"></i>
 
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095730_ultraboost-22-shoes_gx5462_side-lateral-center-view.jpeg"
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0087999_jeremy-scott-forum-dipped-shoes_q46124_side-lateral-center-view.jpeg"
                         alt="Card Back">
 
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095732_ultraboost-22-shoes_gx5462_top-portrait-view.jpeg"
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0088000_jeremy-scott-forum-dipped-shoes_q46124_top-portrait-view.jpeg"
                         class="img-top" alt="Card Front">
                 </div>
                 <div class="color">
@@ -386,10 +408,10 @@
                 <div class="picture">
                     <i class="far fa-heart"></i>
 
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095730_ultraboost-22-shoes_gx5462_side-lateral-center-view.jpeg"
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0077940_continental-80-stripes-shoes_fx5090_side-lateral-center-view.jpeg"
                         alt="Card Back">
 
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095732_ultraboost-22-shoes_gx5462_top-portrait-view.jpeg"
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0077941_continental-80-stripes-shoes_fx5090_top-portrait-view.jpeg"
                         class="img-top" alt="Card Front">
                 </div>
                 <div class="color">
@@ -407,10 +429,10 @@
                 <div class="picture">
                     <i class="far fa-heart"></i>
 
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095730_ultraboost-22-shoes_gx5462_side-lateral-center-view.jpeg"
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0087481_kf-forum-low-benchmate-shoes.jpeg"
                         alt="Card Back">
 
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095732_ultraboost-22-shoes_gx5462_top-portrait-view.jpeg"
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0087482_kf-forum-low-benchmate-shoes.jpeg"
                         class="img-top" alt="Card Front">
                 </div>
                 <div class="color">
@@ -428,10 +450,10 @@
                 <div class="picture">
                     <i class="far fa-heart"></i>
 
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095730_ultraboost-22-shoes_gx5462_side-lateral-center-view.jpeg"
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0067366_adilette-slides_g55376_side-lateral-center-view.jpeg"
                         alt="Card Back">
 
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095732_ultraboost-22-shoes_gx5462_top-portrait-view.jpeg"
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0067368_adilette-slides_g55376_top-portrait-view.jpeg"
                         class="img-top" alt="Card Front">
                 </div>
                 <div class="color">
@@ -449,10 +471,10 @@
                 <div class="picture">
                     <i class="far fa-heart"></i>
 
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095730_ultraboost-22-shoes_gx5462_side-lateral-center-view.jpeg"
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0085691_gazelle-vintage-shoes_h02897_side-lateral-center-view.jpeg"
                         alt="Card Back">
 
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095732_ultraboost-22-shoes_gx5462_top-portrait-view.jpeg"
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0085692_gazelle-vintage-shoes_h02897_top-portrait-view.jpeg"
                         class="img-top" alt="Card Front">
                 </div>
                 <div class="color">
@@ -470,10 +492,10 @@
                 <div class="picture">
                     <i class="far fa-heart"></i>
 
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095730_ultraboost-22-shoes_gx5462_side-lateral-center-view.jpeg"
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0075638_adidas-zx-8000-x-lego-shoes_fy7082_side-lateral-center-view.jpeg"
                         alt="Card Back">
 
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095732_ultraboost-22-shoes_gx5462_top-portrait-view.jpeg"
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0075639_adidas-zx-8000-x-lego-shoes_fy7082_top-portrait-view.jpegg"
                         class="img-top" alt="Card Front">
                 </div>
                 <div class="color">
@@ -491,10 +513,10 @@
                 <div class="picture">
                     <i class="far fa-heart"></i>
 
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095730_ultraboost-22-shoes_gx5462_side-lateral-center-view.jpeg"
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0090909_geodiver-primeblue-shoes_h01780_side-lateral-center-view.jpeg"
                         alt="Card Back">
 
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095732_ultraboost-22-shoes_gx5462_top-portrait-view.jpeg"
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0090910_geodiver-primeblue-shoes_h01780_top-portrait-view.jpeg"
                         class="img-top" alt="Card Front">
                 </div>
                 <div class="color">
@@ -512,10 +534,10 @@
                 <div class="picture">
                     <i class="far fa-heart"></i>
 
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095730_ultraboost-22-shoes_gx5462_side-lateral-center-view.jpeg"
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0096268_terrex-free-hiker-primeblue-hiking-shoes_gw2810_side-lateral-center-view.jpeg"
                         alt="Card Back">
 
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095732_ultraboost-22-shoes_gx5462_top-portrait-view.jpeg"
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0096269_terrex-free-hiker-primeblue-hiking-shoes_gw2810_top-portrait-view.jpeg"
                         class="img-top" alt="Card Front">
                 </div>
                 <div class="color">
@@ -533,10 +555,10 @@
                 <div class="picture">
                     <i class="far fa-heart"></i>
 
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095730_ultraboost-22-shoes_gx5462_side-lateral-center-view.jpeg"
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0061069_stan-smith-shoes_fx5502_side-lateral-center-view.jpeg"
                         alt="Card Back">
 
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095732_ultraboost-22-shoes_gx5462_top-portrait-view.jpeg"
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0061070_stan-smith-shoes_fx5502_top-portrait-view.jpeg"
                         class="img-top" alt="Card Front">
                 </div>
                 <div class="color">
@@ -554,10 +576,10 @@
                 <div class="picture">
                     <i class="far fa-heart"></i>
 
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095730_ultraboost-22-shoes_gx5462_side-lateral-center-view.jpeg"
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0079357_zx-2k-boost-pure-shoes_gz7731_side-lateral-center-view.jpeg"
                         alt="Card Back">
 
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095732_ultraboost-22-shoes_gx5462_top-portrait-view.jpeg"
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0079358_zx-2k-boost-pure-shoes_gz7731_top-portrait-view.jpeg"
                         class="img-top" alt="Card Front">
                 </div>
                 <div class="color">
@@ -575,10 +597,10 @@
                 <div class="picture">
                     <i class="far fa-heart"></i>
 
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095730_ultraboost-22-shoes_gx5462_side-lateral-center-view.jpeg"
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0074576_4d-fusio-shoes.jpeg"
                         alt="Card Back">
 
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095732_ultraboost-22-shoes_gx5462_top-portrait-view.jpeg"
+                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0074577_4d-fusio-shoes.jpeg"
                         class="img-top" alt="Card Front">
                 </div>
                 <div class="color">
@@ -594,7 +616,7 @@
         </div>
     </div>
     <div class="footer">
-  
+
 
         <div class="footer__top">
             <h4>JOIN OUR CREATORS CLUB & GET 15% OFF</h4>
@@ -613,7 +635,13 @@
     <div id="rootCart"></div>
     <div id="wishList"></div>
 
-    <script src="dist/customer.js"> </script>
+    <div id="rootCustomer">
+        
+    </div>
+
+
+    <script src="dist/index.js"> </script>
+   
 </body>
 
 </html>

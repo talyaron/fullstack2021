@@ -6,16 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="dist/style.css">
 </head>
 
-<body>
+<body onload="handleGetData('owner')">
     <form onsubmit='handleAddItem(event)'>
         <div><input type="text" name="title" placeholder="name of item" required></div>
-        <div><input type="text" name="picture" placeholder="picture of item" required></div>
-        <div><input type="number" name="price" placeholder="price of item" required>
-            <div><input type="text" name="color" placeholder="color of item" required></div>
-            <div><input type="text" name="description" placeholder="description of item" required></div>
-            <div><input type="number" name="shoeSize" placeholder="shoe Size of item" required>
+        <div><input type="text" name="pictureFront" placeholder="picture front of item" required></div>
+        <div><input type="text" name="pictureBack" placeholder="picture back of item" required></div>
+        <div><input type="number" name="price" placeholder="price of item" required></div>
+        <div><input type="text" name="color" placeholder="color of item" required></div>
+        <div><input type="text" name="description" placeholder="description of item" required></div>
+        <div><input type="number" name="shoeSize" placeholder="shoe Size of item" required>
 
                 <select name="category" onchange="" required>
                     <option value="" disabled selected>Category of item</option>
@@ -31,11 +33,13 @@
             </div>
     </form>
     <br>
-    <div>
-        <div id="root"></div>
+
+    <div id="rootOwner">
+        
     </div>
 
-    <script src="dist/owner.js"></script>
+
+    <script src="dist/index.js"></script>
 </body>
 
 </html>

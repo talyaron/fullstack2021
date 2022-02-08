@@ -25,7 +25,7 @@ interface Dish {
 let sushiMenu: Menu = {
   dishes: [
     {
-      id: "a1",
+      id: uid(),
       name: "Maguro Nigiri",
       price: 70,
       description:
@@ -42,6 +42,7 @@ let sushiMenu: Menu = {
 
   removeDish(id) {
     this.dishes = this.dishes.filter((dish) => dish.id !== id);
+    this.storeData();
   },
 
   updateDish(id, newDish) {
@@ -70,14 +71,17 @@ let sushiMenu: Menu = {
   },
 
   renderDishesERP(list, domElement) {
+
     let html = `<form onsubmit="handleDeleteDish(event)"> <input type="submit" value="delete"></input>`;
 
     list.forEach((item) => {
+
       html += `<div class="dishesERP"> 
-        <input type="checkbox"></input>
+        <input type="checkbox" id=${item.id}></input>
          <h3 class ="dishesERP__title__name">${item.name}</h3> 
          <p class ="dishesERP__desc">${item.description}</p>
          <p class ="dishesERP__title__price">${item.price}</p>
+         <p class ="dishesERP__title__price">${item.id}</p>
          
       </div>`;
     });
@@ -99,9 +103,12 @@ let sushiMenu: Menu = {
   },
 };
 
+sushiMenu.getData();
+
 renderSushiMenu();
 
 function renderSushiMenu() {
+
   const rootStore = document.getElementById("rootStore");
   const rootERP = document.getElementById("rootERP");
 
@@ -112,6 +119,7 @@ function renderSushiMenu() {
   if (rootERP) {
     sushiMenu.renderDishesERP(sushiMenu.dishes, rootERP);
   }
+
 }
 
 function handleAddDish(ev) {
@@ -127,18 +135,27 @@ function handleAddDish(ev) {
 }
 
 function handleDeleteDish(ev) {
+
   ev.preventDefault();
-  console.log(ev);
-  for(let i = 0; i<ev.target.length; i++){
-    console.dir(ev.target[i]);
-    
+
+  for (let i = 1; i < ev.target.length; i++) {
+
+    if(ev.target[i].checked === true){
+      sushiMenu.removeDish(ev.target[i].id);
+    }
   }
-  
+
+  renderSushiMenu();
+
 }
 
-sushiMenu.getData();
 
-// sushiMenu.renderDishesStore(sushiMenu.dishes, root);
+
+const rootStore = document.getElementById("rootStore");
+
+if (rootStore) {
+  sushiMenu.renderDishesStore(sushiMenu.dishes, rootStore);
+}
 
 // ---- CSS MANIPULATION --- //
 
@@ -153,5 +170,41 @@ function navSlide() {
     });
   }
 }
+
+function popMenuActive() {
+
+  const picWrap = document.querySelectorAll(".picwrap");
+  const pop = document.querySelector(".popmenu");
+  const close = document.querySelector(".popmenu__x")
+  const blur = document.querySelector(".blurwrapper")
+  const overflow = document.querySelector("body")
+
+  if (picWrap && pop && close && blur && overflow) {
+
+    blur.addEventListener("click", () => {
+      pop.classList.toggle("popmenu-active");
+      blur.classList.toggle("blurwrapper-active")
+      overflow.classList.toggle("body-active")
+    });
+
+    close.addEventListener("click", () => {
+      pop.classList.toggle("popmenu-active");
+      blur.classList.toggle("blurwrapper-active")
+      overflow.classList.toggle("body-active")
+    });
+
+    picWrap.forEach((cell) => {
+
+      cell.addEventListener("click", () => {
+        pop.classList.toggle("popmenu-active");
+        blur.classList.toggle("blurwrapper-active")
+        overflow.classList.toggle("body-active")
+      });
+
+    })
+  }
+}
+
+popMenuActive()
 
 navSlide();

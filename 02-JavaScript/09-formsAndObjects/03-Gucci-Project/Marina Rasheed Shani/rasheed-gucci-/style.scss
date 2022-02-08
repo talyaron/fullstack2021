@@ -1,32 +1,22 @@
 .erp {
   background-color: bisque;
 }
-
 body {
-  
-  width: 100%;
-  background-image: url("https://media.gucci.com/content/HeroBigStandard_3200x1520/1643384764/HeroBigStandard_VDAY-2022-043-new_001_Default.jpg");
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
   font-family: "Montserrat", sans-serif;
   color: 'whiblackte';
-  margin: 0px;
-  height: 73vh;
+  margin: 0;
+  width: 100%;
+ 
 }
 
 .container {
-
   &__navBar {
+   
     top: 0px;
     left: 0px;
     padding-bottom: 1em;
     transition: all 0.5s;
 
-
-
-    &:hover {
-      background-color: rgb(31, 30, 30);
-    }
 
     &__title {
       display: flex;
@@ -44,18 +34,20 @@ body {
 
   &__navBar2 {
     text-align: center;
-    font-family: "Montserrat", sans-serif;
-    font-weight: bolder;
-    opacity: 1;
-    
 
-    
+
+
+
+
+
 
 
     ul {
       display: inline-flex;
       list-style: none;
-      color: black;
+
+
+
 
 
 
@@ -64,10 +56,14 @@ body {
         margin: 15px;
         padding: 15px;
 
+
         a {
           text-decoration: none;
-          color: rgb(5, 5, 5);
-          
+          color: #ffffff;
+          font-family: "Montserrat", sans-serif;
+          font-weight: 900;
+
+
 
         }
       }
@@ -77,10 +73,9 @@ body {
       display: none;
       width: 130vh;
       padding: 20px;
-      font-family: "Montserrat", sans-serif;
-      transition: ease 3s;
-      transform: translateY(0px);
-       
+      opacity: 0.4;
+
+
 
 
 
@@ -90,26 +85,36 @@ body {
       ul {
 
 
-        width: 196vh;
+        width: 180vh;
         height: auto;
-        margin-left: -450px;
+        margin-left: -200px;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        background-color: beige;
-        
+        background-color: #141010;
        
-      
+        
+
+
+
 
 
 
         li {
 
-          color: rgb(5, 5, 5);
-
           :hover {
             text-decoration: underline;
             cursor: pointer;
+            
+            
+          }
+
+          a{
+            color: #ffffff;
+            font-size: large;
+            font-weight: bolder;
+            font-family: "Montserrat", sans-serif;
+            
           }
         }
 
@@ -145,6 +150,7 @@ body {
     text-align: center;
     font-weight: 300;
     font-size: larger;
+    
   }
 
   &__bottom {
@@ -271,7 +277,8 @@ $background-color:#ffffff;
     position: relative;
     display: inline-block;
     text-align: center;
-    padding: 3em;
+    padding:1px;
+    border:none;
 
     img {
       height: 380px;
@@ -287,8 +294,8 @@ $background-color:#ffffff;
 
 .active,
 .container__navBar2 ul li a:hover {
-  color: black;
   border-radius: 3px;
+  color: #ffffff;
 
 }
 
@@ -297,8 +304,20 @@ $background-color:#ffffff;
   margin-top: 15px;
   margin-left: -15px;
   position: absolute;
-  transition: ease 3ms;
-      transform: translateY(-20px);
-    
+ 
+  transform: translateY(-20px);;
+}
+
+.sub-container{
+  background-image: url("https://media.gucci.com/content/HeroBigStandard_3200x1520/1643384764/HeroBigStandard_VDAY-2022-043-new_001_Default.jpg");
+  height: 100vh;
+  margin: 0;
+  
   
 }
+
+// @media only screen and (max-width: 1380px) {
+//   body{
+    
+//   }
+// }
