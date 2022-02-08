@@ -1,0 +1,48 @@
+form {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: 10%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+form p {
+  font-weight: bold;
+  margin: 7px;
+}
+form input {
+  border: none;
+  box-shadow: 1px 0.5px 2px rgba(0, 0, 0, 0.678);
+  margin: 7px;
+  border-radius: 3px;
+}
+form input[type=radio] {
+  box-shadow: none;
+}
+form input[type=submit] {
+  background-color: orange;
+  border-radius: 5px;
+  border-color: #f3f3b4;
+  border-width: 10px;
+}
+form .name {
+  display: flex;
+}
+form .radio {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 10% 80%;
+  margin: 5px;
+}
+form .radio #Amount {
+  display: none;
+  grid-column: 1/3;
+  width: 100%;
+}
+form .clear {
+  box-shadow: 1px 0.5px 2px rgba(0, 0, 0, 0.678);
+  width: 50%;
+  align-self: center;
+  background-color: #3131c2;
+  border-radius: 5px;
+  margin: 5px;
+}
