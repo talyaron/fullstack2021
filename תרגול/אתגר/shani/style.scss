@@ -1,0 +1,53 @@
+form {
+
+    margin-top:100px;
+    
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(2, 300px);
+    justify-content: center;
+    //   grid-template-rows: 20px;
+
+
+
+}
+
+input {
+    border: none;
+    border-bottom: 2px solid black;
+    padding:5px;
+    margin:10px;
+
+
+    &[type="number"],&[type="email"] {
+        grid-column: 1/3;
+    }
+
+
+
+   
+
+
+}
+
+// .colorRadio{
+//  // display:grid;
+//   //grid-template-columns: 100px;
+//   //grid-template-rows:repeat(1,100px) ;
+
+// //   input[type="submit"]{
+// //     grid-column:1/4;
+// //   }
+
+// }
+
+.clickGreen{
+    display:none;
+}
+.clickRed{
+    display:none;
+}
+.clickBlue{
+    display:none;
+}
+

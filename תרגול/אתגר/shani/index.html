@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="dist/style.css">
+</head>
+
+<body>
+    <form>
+        <input type="text" id="fName" name="fName" placeholder="First Name" />
+        <input type="text" id="lName" name="lName" placeholder="Last Name">
+        <input type="number" id="socialSecurityNum" name="socialSecurityNum" placeholder="Social Security Number">
+        <input type="number" id="phoneNum" name="phoneNum" placeholder="Mobile Phone Number">
+        <input type="email" id="email" name="email" placeholder="Email">
+        <div class="colorRadio">
+            <label>Pick Color</label>
+           
+                <input type="radio" name="colors" id="green" checked>
+                <label for="colors">GREEN</label>
+           
+
+            <input type="radio" name="colors" id="blue">
+            <label for="colors">BLUE</label>
+
+            <input type="radio" name="colors" id="red">
+            <label for="colors">RED</label>
+
+            <input type="submit">
+        </div>
+
+        <input type="text" value="green" class="clickGreen" placeholder="explain why you chose GREEN">
+        <input type="text" value="red" class="clickRed" placeholder="explain why you chose RED">
+        <input type="text" value="blue"class="clickBlue" placeholder="explain why you chose BLUE">
+
+
+    </form>
+    <script src="dist/index.js"></script>
+</body>
+
+</html>
