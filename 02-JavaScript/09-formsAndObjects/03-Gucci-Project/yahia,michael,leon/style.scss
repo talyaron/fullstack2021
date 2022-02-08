@@ -147,6 +147,15 @@
         }
     }
 
+    &_picture{
+        display: grid;
+         
+        &-item{
+            width: 40px;
+            height: 40px;
+        }
+    }
+
 }
 h2{
     background-color: cadetblue;
