@@ -125,7 +125,10 @@ const litlife = {
 
   getData() {
     const booksStorage = JSON.parse(localStorage.getItem("storeData"));
-    return booksStorage
+    if(booksStorage){
+      this.books = booksStorage;
+    }
+    
   },
 
   addBook(title, autor, genre, year, grade, img) {
@@ -143,14 +146,15 @@ const litlife = {
            <p>${book.title}</p>
            <img class="img" src="${book.img}">
            <p>${book.year}</p>
+           <p>${book.grade}</p>
            </div>`;
     });
     domElement.innerHTML = html;
   },
 
   renderAllBooks(domElement) {
-    const items = this.books;
-    this.render(items, domElement);
+    const list = this.books;
+    this.render(list, domElement);
   },
 };
 
@@ -175,6 +179,8 @@ const root = document.querySelector(".root");
 litlife.renderAllBooks(root);
 
 console.log(litlife.getData());
+
+
 // LOCAL STORAGE TEST
 // let data: number = 0;
 

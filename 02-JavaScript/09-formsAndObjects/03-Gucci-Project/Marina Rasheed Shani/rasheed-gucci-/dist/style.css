@@ -176,7 +176,8 @@ body {
   position: relative;
   display: inline-block;
   text-align: center;
-  padding: 3em;
+  padding: 1px;
+  border: none;
 }
 .catergory__items .items img {
   height: 380px;

@@ -85,7 +85,7 @@ console.log(this.carts)
     let html: string = "";
 
     list.forEach((item) => {
-      html += `<div class = 'card'> <p>${item.name}</p>
+      html += `<div class = 'card'> <p>${item.name}:${item.price}</p>
             <button onclick="handleDelete('${item.idItem}')">delete</button>
             <form onsubmit="handleupdate(event,'${item.idItem}')">
             <input type="text" name="nameUpdate" placeholder="change item">

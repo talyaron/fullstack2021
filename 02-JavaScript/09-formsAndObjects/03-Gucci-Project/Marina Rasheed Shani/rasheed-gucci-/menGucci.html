@@ -14,11 +14,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Montserrat:wght@100;200&display=swap"
         rel="stylesheet">
 
-    <title>Women Gucci</title>
+    <title>Men Gucci</title>
     <link rel="stylesheet" href="dist/style.css">
 </head>
 
-<body>
+<body onload="handleRenderByGender('men')">
 
 
 
@@ -232,7 +232,7 @@
         </div>
         <div class="catergory__buttons">
             <div class="catergory__name">
-                <h3><span>READY-TO-WEAR FOR WOMEN</span> | Clothes for Women</h3>
+                <h3><span> MEN </span> | Ready-to-wear for Men</h3>
             </div>
 
 
@@ -244,9 +244,10 @@
 
             <select class="catergory__buttons--selector" onchange='handleSelect(event)'>
                 <option value="" disabled selected>Category</option>
-                <option value="all">ALL</option>
+                <option value="allMen">ALL</option>
                 <option value="pants">PANTS</option>
                 <option value="shirts">SHIRT</option>
+                <option value="shoes">SHOES</option>
             </select>
 
             <div class="catergory__buttons--sortPrice">

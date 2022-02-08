@@ -89,7 +89,9 @@ var litlife = {
     },
     getData: function () {
         var booksStorage = JSON.parse(localStorage.getItem("storeData"));
-        return booksStorage;
+        if (booksStorage) {
+            this.books = booksStorage;
+        }
     },
     addBook: function (title, autor, genre, year, grade, img) {
         var id = uid();
@@ -100,13 +102,13 @@ var litlife = {
     render: function (list, domElement) {
         var html = " ";
         list.forEach(function (book) {
-            html += "<div class=\"item\">\n           <p>" + book.title + "</p>\n           <img class=\"img\" src=\"" + book.img + "\">\n           <p>" + book.year + "</p>\n           </div>";
+            html += "<div class=\"item\">\n           <p>" + book.title + "</p>\n           <img class=\"img\" src=\"" + book.img + "\">\n           <p>" + book.year + "</p>\n           <p>" + book.grade + "</p>\n           </div>";
         });
         domElement.innerHTML = html;
     },
     renderAllBooks: function (domElement) {
-        var items = this.books;
-        this.render(items, domElement);
+        var list = this.books;
+        this.render(list, domElement);
     }
 };
 function handleAddBook(e) {

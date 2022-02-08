@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="dist/style.css">
 </head>
 
-<body>
+<body onload="handleRenderByGender('women')" >
 
 
 
@@ -232,7 +232,7 @@
 
         <div class="catergory__buttons">
             <div class="catergory__name">
-                <h3><span>READY-TO-WEAR FOR WOMEN</span> | Clothes for Women</h3>
+                <h3><span> WOMEN </span> | Ready-to-wear for Women</h3>
             </div>
 
 
@@ -242,11 +242,13 @@
             </div>
 
 
-            <select class="catergory__buttons--selector" onchange='handleSelect(event)'>
+            <select class="catergory__buttons--selector" onchange='handleSelect(event)' data-gender="women">
                 <option value="" disabled selected>Category</option>
-                <option value="all">ALL</option>
+                <option value="allWomen">ALL</option>
                 <option value="dresses">DRESSES</option>
-                <option value="pants">PANTS</option>
+                <option value="sweaters">SWEATERS</option>
+                <option value="boots">BOOTS</option>
+                
                
             </select>
 
