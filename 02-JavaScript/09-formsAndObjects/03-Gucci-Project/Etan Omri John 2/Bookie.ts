@@ -164,7 +164,7 @@ interface BookShop {
   localStorage.setItem("Bookie shop", JSON.stringify(localBookie))
   const stringBookie = localStorage.getItem("Bookie shop")
 let parsedBookie = JSON.parse(stringBookie)
-
+console.log(parsedBookie)
 let ascPrice =(a:book,b:book)=>{
   return a.price - b.price
 }

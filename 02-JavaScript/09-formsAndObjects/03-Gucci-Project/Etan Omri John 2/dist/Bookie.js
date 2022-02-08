@@ -99,6 +99,7 @@ function handleUpdate(ev) {
 localStorage.setItem("Bookie shop", JSON.stringify(localBookie));
 var stringBookie = localStorage.getItem("Bookie shop");
 var parsedBookie = JSON.parse(stringBookie);
+console.log(parsedBookie);
 var ascPrice = function (a, b) {
     return a.price - b.price;
 };

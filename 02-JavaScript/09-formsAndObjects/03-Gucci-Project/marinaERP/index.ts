@@ -162,7 +162,6 @@ function handleAddBook(e) {
   e.preventDefault();
   let id = uid();
   console.log(e.target);
-
   const title = e.target.title.value;
   const autor = e.target.autor.value;
   const genre = e.target.genre.value;
