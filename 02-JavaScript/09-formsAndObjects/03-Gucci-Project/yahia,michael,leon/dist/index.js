@@ -7,6 +7,7 @@ var nikeItems = {
     additems: function (name, price) {
         var idItem = uid();
         this.items.push({ name: name, price: price, idItem: idItem });
+        localStorage.setItem('item', JSON.stringify(this.items));
     },
     sortAsc: function () {
         this.items.sort(function (a, b) { return a.price - b.price; });
@@ -25,8 +26,8 @@ var nikeItems = {
         this.carts.push({ name: name, type: type });
     },
     selectItem: function (type) {
-        console.log('selectItem', type);
-        console.log(this.carts);
+        // console.log('selectItem', type);
+        // console.log(this.carts)
         return this.carts.filter(function (item) { return item.type === type; });
     },
     renderAllData: function (root) {
@@ -57,6 +58,11 @@ var nikeItems = {
             html += "<div class = 'card'> <p>" + item.name + ":" + item.price + "</p>\n            <button onclick=\"handleDelete('" + item.idItem + "')\">delete</button>\n            <form onsubmit=\"handleupdate(event,'" + item.idItem + "')\">\n            <input type=\"text\" name=\"nameUpdate\" placeholder=\"change item\">\n            <input type=\"submit\" value=\"submit\">\n            </form>\n            </div>";
         });
         root.innerHTML = html;
+    },
+    getData: function () {
+        var listmichael = JSON.parse(localStorage.getItem('item'));
+        var root = document.getElementById("root");
+        this.render(root, listmichael);
     }
 };
 function handleSubmit(event) {
@@ -89,6 +95,9 @@ function handleupdate(event, id) {
     nikeItems.updateItem(id, updateditem);
     var root = document.getElementById("root");
     nikeItems.renderAllData(root);
+}
+function handleGetProduct() {
+    nikeItems.getData();
 }
 //customer
 function handleCart(event) {
