@@ -1,7 +1,7 @@
 form {
   display: flex;
   flex-direction: column;
-  width: 400px;
+  width: 500px;
   margin: 10%;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
@@ -12,6 +12,7 @@ form p {
 form input {
   border: none;
   box-shadow: 1px 0.5px 2px rgba(0, 0, 0, 0.507);
+  border-bottom: 1.5px solid black;
   margin: 7px;
   width: 96%;
   border-radius: 3px;
@@ -23,7 +24,13 @@ form input[type=submit] {
   background-color: orange;
   border-radius: 5px;
   border-color: #f3f3b4;
-  border-width: 10px;
+  border-width: 1px;
+}
+form input[type=checkbox] {
+  box-shadow: none;
+  margin-right: 0px;
+  margin-left: 25px;
+  width: 40%;
 }
 form .name {
   display: flex;
@@ -46,4 +53,14 @@ form .clear {
   background-color: #3131c2;
   border-radius: 5px;
   margin: 5px;
+  color: whitesmoke;
+}
+form .checkbox {
+  display: grid;
+  grid-template-columns: 10% 90%;
+  margin: 5px;
+  display: none;
+}
+form .checkbox .tax {
+  display: none;
 }

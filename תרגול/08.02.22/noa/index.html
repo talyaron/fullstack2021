@@ -37,27 +37,43 @@
 
         <p>Employment type:</p>
         <div class="radio">
-            <input type="radio" name="radio" id="Employee" value="Employee">
+            <input type="radio" name="Employment" id="Employee" value="Employee">
             <label for="Employee">Employee</label>
 
 
-            <input type="radio" name="radio" id="Independent" value="Independent" >
+            <input type="radio" name="Employment" id="Independent" value="Independent">
             <label for="Independent">Independent</label>
         </div>
         <p>Withdrawal type:</p>
         <div class="radio">
-            <input type="radio" name="radio" id="Full Withdrawal" value="Full Withdrawal" >
+            <input type="radio" name="Withdrawal" id="Full Withdrawal" value="Full Withdrawal">
             <label for="Full Withdrawal">Full withdrawal</label>
 
-            <input type="radio" name="radio" id="Partial Withdrawal" value="Partial Withdrawal">
+            <input type="radio" name="Withdrawal" id="Partial Withdrawal" value="Partial Withdrawal">
             <label for="Partial Withdrawal">Partial withdrawal</label>
 
-            <input type="text" name="" id="Amount" placeholder="Amount" >
+            <input type="text" name="" id="Amount" placeholder="Amount">
 
-            <input type="radio" name="radio" id="Autometed Monthly Withdrawal" value="Autometed Monthly Withdrawal">
+            <input type="radio" name="Withdrawal" id="Autometed Monthly Withdrawal"
+                value="Autometed Monthly Withdrawal">
             <label for="Autometed Monthly Withdrawal">Autometed monthly withdrawal</label>
         </div>
-            <button class="clear">Clear Form</button>
+        <div class="checkbox">
+            <input type="checkbox" id="Payment withdrawal" value="Payment withdrawal">
+            <label for="Payment withdrawal">Payment withdrawal</label>
+            <div class="tax">
+                <input class="tax1" type="checkbox" id="Eligible for Tax Refund" value="Eligible for Tax Refund">
+                <label class="tax1" for="Eligible for Tax Refund">Eligible for Tax Refund</label>
+
+                <input class="tax1" type="checkbox" id="Not Eligible for Tax Refund" value="Not Eligible for Tax Refund">
+                <label class="tax1" for="Not Eligible for Tax Refund">Not Eligible for Tax Refund</label>
+            </div>
+            <input type="checkbox" id="Corresponding to loan" value="Corresponding to loan">
+            <label for="Corresponding to loan">Corresponding to loan</label>
+
+        </div>
+
+        <button class="clear">Clear Form</button>
         <input type="submit" value="Send Form">
     </form>
 
