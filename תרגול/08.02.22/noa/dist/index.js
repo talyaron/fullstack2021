@@ -26,11 +26,17 @@ for (var i = 0; i < checkboxinput.length; i++) {
     checkboxinput[i].addEventListener('click', function (ev) {
         if (ev.target.value == 'Payment withdrawal') {
             tax.style.cssText =
-                "  grid-column: 1/3;\n            display: flex;\n            margin-left: 20px;\n            margin-top: 10px;";
+                "grid-column: 1/3;\n            display: flex;\n            margin-left: 10px;\n            margin-top: 10px;\n            margin-bottom: 10px;";
         }
         else if (ev.target.value == 'Corresponding to loan') {
             tax.style.display = 'none';
             checkboxinput[0].checked = false;
+        }
+        if (ev.target.value == 'Eligible for Tax Refund') {
+            checkboxinput[2].checked = false;
+        }
+        else if (ev.target.value == 'Not Eligible for Tax Refund') {
+            checkboxinput[1].checked = false;
         }
     });
 }
