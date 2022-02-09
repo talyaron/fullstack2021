@@ -8,12 +8,12 @@ interface gucci {
     addItems(select, title, description, price);
     deleteItem(id: string);
     renderItems(domElement: any, list);
-    newItems(price: number);
     sortItems(orderBy?: string);
     deleteItem(id: string);
-    editItem(id, itemEdited)
+    editItem(id, title, price)
     storeData();
     getData();
+    getDataStore(list, rootItemsStore);
 
 }
 interface Items {
@@ -26,40 +26,32 @@ interface Items {
 
 
 const gucci: gucci = {
-    items: [
-        {
-            id: uid(),
-            select: 'Samsung',
-            title: 'Edje',
-            description: 'The best watch on the market 2022, now in a new design and gifts!',
-            price: 300
-        }
-    ],
+    items: [],
+
     addItems(select, title, description, price) {
+
         let id = uid();
         this.items.push({ id, select, title, description, price });
         this.storeData();
         this.getData();
     },
 
-    editItem(id, itemEdited) {
+    editItem(id, title, price) {
         const index = this.items.findIndex((item) => item.id === id);
 
         if (index >= 0) {
-            this.items[index].title = itemEdited;
+            this.items[index].title = title;
+            this.items[index].price = price;
         }
-    },
-
-    newItems(price): Array<Items> {
-        return this.items.filter((item) => { return item.price > price })
     },
 
     sortItems(orderBy = 'asc') {
         if (orderBy === 'asc') {
-            this.items.sort((a, b) => { return a.price - b.price })
-        } else if (orderBy === 'desc') {
             this.items.sort((a, b) => { return b.price - a.price })
+        } else if (orderBy === 'desc') {
+            this.items.sort((a, b) => { return a.price - b.price })
         }
+
     },
 
     storeData() {
@@ -73,47 +65,64 @@ const gucci: gucci = {
         }
     },
 
+
     deleteItem(id) {
         this.items = this.items.filter(item => item.id !== id);
-        const filtered = this.items.filter(item => item.id !== id);
-        localStorage.setItem('storeData', JSON.stringify(filtered));
+        localStorage.setItem('storeData', JSON.stringify(this.items));
     },
-
 
     renderItems(list, domElement) {
         let html = '';
         list.forEach(item => {
-            html += `<div class='card'>
+            html +=
+                `<div class='containerCard'>
+            <div class='card'>
             <div class="category">${item.select}</div>
             <div>
             <div class="title">${item.title}</div>
             <div class="description">${item.description}</div>
             </div>
             <div class="price">&#8362;${item.price}</div>
+
+            <div class="main__item pic${item.select} "></div>
             <div class="itemPic">
-            <img src="${item.select}.png" alt="">
+            <img src="${item.select}.jpg" alt="">
             <hr>
             </div>
-            <div class="edit"><a href="#editPopUP">Edit</a></div>
-            <div class="popUpbox" id="editPopUP">
-            <figure>
-                <a href="#" class="close"></a>
-                <figcaption>
-                <form id="formAdd" onsubmit="handleEditItems(event, '${item.id}')">
-              <input type="text" name="itemEdited" placeholder="Edit title">
-                <input type="submit" value="SAVE">
-            </form>
-                </figcaption>
-            </figure>
-            </div>
+
             <div class="delete">
-            <button onclick="handleDelete('${item.id}')"><span style="color: #fdfdfd;">X</span></button>
+            <button onclick="handleDelete('${item.id}')"><span style="color: #ff0000;">Delete</span></button>
             </div>
-            </div>`
+            </div>
+         
+            <div class="edit">
+            <form id="formAdd" onsubmit="handleEditItems(event, '${item.id}')">
+            <input type="text" name="title" placeholder="Edit title" value="${item.title}">
+            <input type="number" name="price" placeholder="Edit price" value="${item.price}">
+            <input type="submit" id="update" value="UPDATE">
+            </form>
+            </div>
+            </div>
+            <br>`
         })
+        localStorage.setItem('storeData', JSON.stringify(this.items))
+
         domElement.innerHTML = html;
-    }
+    },
+
+    getDataStore(list, rootItemsStore) {
+        let htmlStore = '';
+        list.forEach(item => {
+            htmlStore +=
+                `<div class="main__item pic${item.select} ">
+                <button class="buy-now" type="buttom"><i class="fas fa-shopping-cart"></i>Buy now</button>
+                <span class="price">price:&#36;${item.price}</span>
+            </div>`})
+
+        rootItemsStore.innerHTML = htmlStore;
+    },
 }
+
 
 function handleaddItems(ev) {
     ev.preventDefault();
@@ -130,39 +139,43 @@ function handleaddItems(ev) {
 function handleEditItems(ev, id) {
     console.log(id)
     ev.preventDefault();
-    const itemEdited = ev.target.elements.itemEdited.value;
-    gucci.editItem(id, itemEdited);
+    const title = ev.target.elements.title.value;
+    const price: number = ev.target.elements.price.valueAsNumber;
+    gucci.editItem(id, title, price);
     const rootItems = document.getElementById('rootItems');
     ev.target.reset();
     gucci.renderItems(gucci.items, rootItems);
 }
 
 function handlesortItemsDesc(ev) {
-    const desc = ev.target.value;
     gucci.sortItems('desc');
-    const rootItems = document.getElementById('rootItems');
-    gucci.renderItems(gucci.items, rootItems);
+    const rootItemsStore = document.getElementById('rootItemsStore');
+    gucci.getDataStore(gucci.items, rootItemsStore);
 }
 function handlesortItemsAsc(ev) {
-    const desc = ev.target.value;
     gucci.sortItems('asc');
-    const rootItems = document.getElementById('rootItems');
-    gucci.renderItems(gucci.items, rootItems);
+    const rootItemsStore = document.getElementById('rootItemsStore');
+    gucci.getDataStore(gucci.items, rootItemsStore);
 }
 
 function handleDelete(id) {
     const rootItems = document.getElementById('rootItems');
     gucci.deleteItem(id)
-
     gucci.renderItems(gucci.items, rootItems)
-
 }
 
 
-const rootItems = document.getElementById('rootItems');
-
 gucci.getData();
-gucci.renderItems(gucci.items, rootItems);
+gucci.storeData()
 
-// console.log(gucci);
+function rendrOwenerItems(){
+    const rootItems = document.getElementById('rootItems');
+    gucci.renderItems(gucci.items, rootItems);
+}
+
+function handleRenderAllItems(){
+    gucci.getData();
+    const rootItemsStore = document.getElementById('rootItemsStore')
+    gucci.getDataStore(gucci.items, rootItemsStore);
+}
 

@@ -9,10 +9,10 @@
     <title>gucci owner</title>
 </head>
 
-    <body class="bodyOwner">
+<body class="bodyOwner" onload="rendrOwenerItems()">
     <div class="headerOwner">
-        <button class="headerOwner__btn"><a href="indexStore.html">store</a></button>
-        <button class="headerOwner__btn"><a href="indexOwner.html">owner</a></button>
+        <button class="headerOwner__btn"><a href="./indexStore.html">store</a></button>
+        <button class="headerOwner__btn"><a href="./indexOwner.html">owner</a></button>
     </div>
     <hr>
 
@@ -20,10 +20,15 @@
         <div>
             <form id="formAddItem" onsubmit='handleaddItems(event)'>
                 <select name="select" id="select">
-                    <option>select category</option>
-                    <option>electronics</option>
-                    <option>fashion</option>
-                    <option>games</option>
+                    <option>Select category</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
                 </select>
                 <input type="text" name="title" placeholder="Item name" required>
                 <input type='number' name="price" placeholder="Price of item" required>
@@ -32,17 +37,12 @@
                 <input id="addBtn" type="submit" value="ADD ITEM">
             </form>
         </div>
-        <div class="sortBtns">
-            <button onclick="handlesortItemsDesc(event)" name="desc" value="desc"><span
-                    style="color: rgb(101, 151, 0);"> Lower price first</span></button>
-            <button onclick="handlesortItemsAsc(event)" name="asc" value="asc"><span style="color: rgb(221, 0, 11);">
-                    Higher price first</span></button>
-        </div>
     </div>
     <br>
     <hr>
     <div id="rootItems"></div>
     <hr>
+
     <script src="dist/indexAll.js"></script>
 </body>
 

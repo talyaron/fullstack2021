@@ -2,15 +2,7 @@ var uid = function () {
     return Date.now().toString(36) + Math.random().toString(36).substr(2);
 };
 var gucci = {
-    items: [
-        {
-            id: uid(),
-            select: 'Samsung',
-            title: 'Edje',
-            description: 'The best watch on the market 2022, now in a new design and gifts!',
-            price: 300
-        }
-    ],
+    items: [],
     addItems: function (select, title, description, price) {
         var id = uid();
         this.items.push({ id: id, select: select, title: title, description: description, price: price });
@@ -24,9 +16,6 @@ var gucci = {
             this.items[index].price = price;
         }
     },
-    // newItems(price): Array<Items> {
-    //     return this.items.filter((item) => { return item.price > price })
-    // },
     sortItems: function (orderBy) {
         if (orderBy === void 0) { orderBy = 'asc'; }
         if (orderBy === 'asc') {
@@ -64,7 +53,6 @@ var gucci = {
             htmlStore +=
                 "<div class=\"main__item pic" + item.select + " \">\n                <button class=\"buy-now\" type=\"buttom\"><i class=\"fas fa-shopping-cart\"></i>Buy now</button>\n                <span class=\"price\">price:&#36;" + item.price + "</span>\n            </div>";
         });
-        localStorage.setItem('storeData', JSON.stringify(this.items));
         rootItemsStore.innerHTML = htmlStore;
     }
 };
@@ -90,13 +78,11 @@ function handleEditItems(ev, id) {
     gucci.renderItems(gucci.items, rootItems);
 }
 function handlesortItemsDesc(ev) {
-    // const desc = ev.target.value;
     gucci.sortItems('desc');
     var rootItemsStore = document.getElementById('rootItemsStore');
     gucci.getDataStore(gucci.items, rootItemsStore);
 }
 function handlesortItemsAsc(ev) {
-    // const desc = ev.target.value;
     gucci.sortItems('asc');
     var rootItemsStore = document.getElementById('rootItemsStore');
     gucci.getDataStore(gucci.items, rootItemsStore);
@@ -106,20 +92,14 @@ function handleDelete(id) {
     gucci.deleteItem(id);
     gucci.renderItems(gucci.items, rootItems);
 }
-var rootItems = document.getElementById('rootItems');
-var rootItemsStore = document.getElementById('rootItemsStore');
 gucci.getData();
 gucci.storeData();
-gucci.renderItems(gucci.items, rootItems);
-gucci.getDataStore(gucci.items, rootItemsStore);
-// let htmlStore = '';
-// list.forEach(item => {
-//     htmlStore += `<div class='main'>
-//     <div>${item.select}</div>
-//     <div>${item.title}</div>
-//     <div>${item.description}</div>
-//     <div>&#8362;${item.price}</div>
-//     <div>
-//     <img src="${item.select}.jpg" alt="">
-//     <hr>
-//     </div>`})
+function rendrOwenerItems() {
+    var rootItems = document.getElementById('rootItems');
+    gucci.renderItems(gucci.items, rootItems);
+}
+function handleRenderAllItems() {
+    gucci.getData();
+    var rootItemsStore = document.getElementById('rootItemsStore');
+    gucci.getDataStore(gucci.items, rootItemsStore);
+}
