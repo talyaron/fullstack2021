@@ -162,6 +162,31 @@ body {
   }
 }
 
+
+.active,
+.container__navBar2 ul li a:hover {
+  border-radius: 3px;
+  color: #ffffff;
+
+}
+
+.container__navBar2 ul li:hover .container__navBar2__dropdown {
+  display: block;
+  margin-top: 15px;
+  margin-left: -15px;
+  position: absolute;
+ 
+  transform: translateY(-20px);;
+}
+
+.sub-container{
+  background-image: url("https://media.gucci.com/content/HeroBigStandard_3200x1520/1643384764/HeroBigStandard_VDAY-2022-043-new_001_Default.jpg");
+  height: 100vh;
+  margin: 0;
+  
+  
+}
+
 //BUTTONS FOR EACH CATERGORY and template for each catergory's page
 
 $background-color:#ffffff;
@@ -292,29 +317,6 @@ $background-color:#ffffff;
   }
 }
 
-.active,
-.container__navBar2 ul li a:hover {
-  border-radius: 3px;
-  color: #ffffff;
-
-}
-
-.container__navBar2 ul li:hover .container__navBar2__dropdown {
-  display: block;
-  margin-top: 15px;
-  margin-left: -15px;
-  position: absolute;
- 
-  transform: translateY(-20px);;
-}
-
-.sub-container{
-  background-image: url("https://media.gucci.com/content/HeroBigStandard_3200x1520/1643384764/HeroBigStandard_VDAY-2022-043-new_001_Default.jpg");
-  height: 100vh;
-  margin: 0;
-  
-  
-}
 
 // @media only screen and (max-width: 1380px) {
 //   body{
