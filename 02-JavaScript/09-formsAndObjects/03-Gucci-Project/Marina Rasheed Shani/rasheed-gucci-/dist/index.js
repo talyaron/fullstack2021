@@ -214,8 +214,41 @@ var gucci = {
             this.storeData();
         }
     },
+    updateItems: function (id, newPrice, itemName) {
+        itemName = this.items.name;
+        var index = this.items.findIndex(function (item) { return item.id === id; });
+        if (index >= 0) {
+            this.items[index].price = newPrice;
+            // this.items[index].name = itemName;
+            this.storeData();
+        }
+    },
     filterMaxPrice: function (price) {
         return this.items.filter(function (item) { return item.price < price; });
+    },
+    sortByAscending: function (price) {
+        this.items.sort(function (a, b) {
+            return a.price - b.price;
+        });
+    },
+    sortByDescending: function (price) {
+        this.items.sort(function (a, b) {
+            return b.price - a.price;
+        });
+    },
+    render: function (list, domElement) {
+        var html = "";
+        list.forEach(function (product) {
+            html += "<div class=\"items\">\n        <p>" + product.name + "</p>\n        <img class=\"img\" src=\"" + product.img + "\" >\n        <p>" + product.price + "$</p>\n        <input onclick=\"handleAddToCart()\" id=\"addToCart\" type=\"button\" value=\"ADD TO CART\">\n        </div>";
+        });
+        domElement.innerHTML = html;
+    },
+    renderAllitems: function (domElement) {
+        var items = this.items;
+        this.render(items, domElement);
+    },
+    renderMaxPrice: function (filtered, domElement) {
+        this.render(filtered, domElement);
     },
     filterByGenderAndTypeAndDepartment: function (type, gender, department) {
         return this.items
@@ -229,28 +262,14 @@ var gucci = {
             .filter(function (item) { return item.type === type; })
             .filter(function (item) { return item.gender === gender; });
     },
-    renderMaxPrice: function (filtered, domElement) {
-        this.render(filtered, domElement);
+    filterByDepartment: function (department) {
+        return this.items.filter(function (item) { return item.department === department; });
     },
-    updateItems: function (id, newPrice, itemName) {
-        itemName = this.items.name;
-        var index = this.items.findIndex(function (item) { return item.id === id; });
-        if (index >= 0) {
-            this.items[index].price = newPrice;
-            // this.items[index].name = itemName;
-            this.storeData();
-        }
+    filterByGender: function (gender) {
+        return this.items.filter(function (item) { return item.gender === gender; });
     },
-    render: function (list, domElement) {
-        var html = "";
-        list.forEach(function (product) {
-            html += "<div class=\"items\">\n        <p>" + product.name + "</p>\n        <img class=\"img\" src=\"" + product.img + "\" >\n        <p>" + product.price + "$</p>\n        <input onclick=\"handleAddToCart()\" id=\"addToCart\" type=\"button\" value=\"ADD TO CART\">\n        </div>";
-        });
-        domElement.innerHTML = html;
-    },
-    renderAllitems: function (domElement) {
-        var items = this.items;
-        this.render(items, domElement);
+    filterByType: function (type) {
+        return this.items.filter(function (item) { return item.type === type; });
     },
     renderByDepartment: function (department, domElement) {
         var filterByDepartment = this.filterByDepartment(department);
@@ -263,52 +282,15 @@ var gucci = {
     renderByType: function (type, domElement) {
         var filterByType = this.filterByType(type);
         this.render(filterByType, domElement);
-    },
-    sortByAscending: function (price) {
-        this.items.sort(function (a, b) {
-            return a.price - b.price;
-        });
-    },
-    sortByDescending: function (price) {
-        this.items.sort(function (a, b) {
-            return b.price - a.price;
-        });
-    },
-    filterByDepartment: function (department) {
-        return this.items.filter(function (item) { return item.department === department; });
-    },
-    filterByGender: function (gender) {
-        return this.items.filter(function (item) { return item.gender === gender; });
-    },
-    filterByType: function (type) {
-        return this.items.filter(function (item) { return item.type === type; });
     }
 };
 gucci.storeData(); /// delete later
-function handleUpdate(ev, id) {
-    ev.preventDefault();
-    var root = document.getElementById("root");
-    gucci.renderAllitems(root);
-    var itemName = ev.target.elements.itemName.value;
-    var NewPrice = ev.target.elements.update.value;
-    gucci.updateItems(id, NewPrice, itemName);
-    gucci.storeData();
-}
 function handleShowItems() {
     console.log(gucci.items);
 }
-function handleShowDropDown(ev) {
-    console.log(ev);
-    var id = ev.target.id;
-    var dropDown = document.getElementById(id + "-dropdown");
-    if (ev.type === "mouseleave") {
-        // dropDown.classList.replace("show", "hide");
-    }
-    else if (ev.type === "mouseenter") {
-        //all dropdowns class hide
-        dropDown.classList.replace("hide", "show");
-    }
-}
+var uid = function () {
+    return Date.now().toString(36) + Math.random().toString(36).substr(2);
+};
 function handleAddItems(ev) {
     ev.preventDefault();
     var name = ev.target.name.value;
@@ -334,18 +316,14 @@ function handleRemoveItems(ev) {
     gucci.storeData();
     ev.target.reset();
 }
-var uid = function () {
-    return Date.now().toString(36) + Math.random().toString(36).substr(2);
-};
-function handlePriceAsc(price) {
-    gucci.sortByAscending(price);
+function handleUpdate(ev, id) {
+    ev.preventDefault();
     var root = document.getElementById("root");
     gucci.renderAllitems(root);
-}
-function handlePriceDesc(price) {
-    gucci.sortByDescending(price);
-    var root = document.getElementById("root");
-    gucci.renderAllitems(root);
+    var itemName = ev.target.elements.itemName.value;
+    var NewPrice = ev.target.elements.update.value;
+    gucci.updateItems(id, NewPrice, itemName);
+    gucci.storeData();
 }
 function handleFilterByPrice(ev) {
     ev.preventDefault();
@@ -358,6 +336,16 @@ function handleFilterByPrice(ev) {
     else {
         gucci.renderAllitems(root);
     }
+}
+function handlePriceAsc(price) {
+    gucci.sortByAscending(price);
+    var root = document.getElementById("root");
+    gucci.renderAllitems(root);
+}
+function handlePriceDesc(price) {
+    gucci.sortByDescending(price);
+    var root = document.getElementById("root");
+    gucci.renderAllitems(root);
 }
 function handleSelect(ev) {
     var gender = ev.target.dataset.gender;
@@ -377,4 +365,16 @@ function handleRenderByDepartment(department) {
     var root = document.getElementById("root");
     gucci.getData();
     gucci.renderByDepartment(department, root);
+}
+function handleShowDropDown(ev) {
+    console.log(ev);
+    var id = ev.target.id;
+    var dropDown = document.getElementById(id + "-dropdown");
+    if (ev.type === "mouseleave") {
+        // dropDown.classList.replace("show", "hide");
+    }
+    else if (ev.type === "mouseenter") {
+        //all dropdowns class hide
+        dropDown.classList.replace("hide", "show");
+    }
 }

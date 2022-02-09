@@ -20,23 +20,25 @@ interface Store {
   removeItems(itemName: string): any;
   updateItems(id: any, newPrice: number, itemName: string): any;
   filterMaxPrice(price: number);
-  render(list: any, domElement: any): any;
-  renderAllitems(domElement: any): any;
-  renderByDepartment(department: string, domElement: any): any;
-  renderByGender(gender: string, domElement: any): any;
-  renderByType(type: string, domElement: any): any;
   sortByAscending(price: number);
   sortByDescending(price: number);
+  render(list: any, domElement: any): any;
+  renderAllitems(domElement: any): any;
   renderMaxPrice(filtered: Array<Item>, domElement);
-  filterByDepartment(department: string);
-  filterByGender(gender: string);
-  filterByType(type: string);
-  filterByGenderAndType(type: string, gender: string);
   filterByGenderAndTypeAndDepartment(
     type: string,
     gender: string,
     department: string
   );
+  filterByGenderAndType(type: string, gender: string);
+  filterByDepartment(department: string);
+  filterByGender(gender: string);
+  filterByType(type: string); 
+  renderByDepartment(department: string, domElement: any): any;
+  renderByGender(gender: string, domElement: any): any;
+  renderByType(type: string, domElement: any): any;  
+  
+  
 }
 
 interface Item {
@@ -150,7 +152,7 @@ const gucci: Store = {
       department: "clothes",
       gender: "men",
       type: "shirts",
-    },   
+    },
     {
       name: "GG kaleidoscope silk bowling shirt",
       price: 1250,
@@ -158,7 +160,7 @@ const gucci: Store = {
       department: "clothes",
       gender: "men",
       type: "shirts",
-    },   
+    },
     {
       name: "Grip watch, 38mm",
       price: 1900,
@@ -215,7 +217,7 @@ const gucci: Store = {
       department: "jewelry",
       type: "earrings",
     },
-    
+
     {
       name: "Gucci Diana small crocodile",
       price: 35000,
@@ -270,9 +272,49 @@ const gucci: Store = {
     }
   },
 
+  updateItems(id, newPrice, itemName) {
+    itemName = this.items.name;
+    const index = this.items.findIndex((item) => item.id === id);
+    if (index >= 0) {
+      this.items[index].price = newPrice;
+      // this.items[index].name = itemName;
+      this.storeData();
+    }
+  },
+
   filterMaxPrice(price) {
     return this.items.filter((item) => item.price < price);
   },
+
+  sortByAscending(price) {
+    this.items.sort((a, b) => {
+      return a.price - b.price;
+    });
+  },
+  sortByDescending(price) {
+    this.items.sort((a, b) => {
+      return b.price - a.price;
+    });
+  },  
+  render(list, domElement) {
+    let html = "";
+    list.forEach((product: any) => {
+      html += `<div class="items">
+        <p>${product.name}</p>
+        <img class="img" src="${product.img}" >
+        <p>${product.price}$</p>
+        <input onclick="handleAddToCart()" id="addToCart" type="button" value="ADD TO CART">
+        </div>`;
+    });
+    domElement.innerHTML = html;
+  },  
+  renderAllitems(domElement) {
+    const items = this.items;
+    this.render(items, domElement);
+  },
+  renderMaxPrice(filtered, domElement) {
+    this.render(filtered, domElement);
+  },  
   filterByGenderAndTypeAndDepartment(type, gender, department) {
     return this.items
       .filter((item) => item.type === type)
@@ -285,35 +327,14 @@ const gucci: Store = {
       .filter((item) => item.type === type)
       .filter((item) => item.gender === gender);
   },
-
-  renderMaxPrice(filtered, domElement) {
-    this.render(filtered, domElement);
+  filterByDepartment(department) {
+    return this.items.filter((item) => item.department === department);
   },
-
-  updateItems(id, newPrice, itemName) {
-    itemName = this.items.name;
-    const index = this.items.findIndex((item) => item.id === id);
-    if (index >= 0) {
-      this.items[index].price = newPrice;
-      // this.items[index].name = itemName;
-      this.storeData();
-    }
+  filterByGender(gender) {
+    return this.items.filter((item) => item.gender === gender);
   },
-  render(list, domElement) {
-    let html = "";
-    list.forEach((product: any) => {
-      html += `<div class="items">
-        <p>${product.name}</p>
-        <img class="img" src="${product.img}" >
-        <p>${product.price}$</p>
-        <input onclick="handleAddToCart()" id="addToCart" type="button" value="ADD TO CART">
-        </div>`;
-    });
-    domElement.innerHTML = html;
-  },
-  renderAllitems(domElement) {
-    const items = this.items;
-    this.render(items, domElement);
+  filterByType(type) {
+    return this.items.filter((item) => item.type === type);
   },
   renderByDepartment(department, domElement) {
     const filterByDepartment = this.filterByDepartment(department);
@@ -327,56 +348,19 @@ const gucci: Store = {
     const filterByType = this.filterByType(type);
     this.render(filterByType, domElement);
   },
-
-  sortByAscending(price) {
-    this.items.sort((a, b) => {
-      return a.price - b.price;
-    });
-  },
-  sortByDescending(price) {
-    this.items.sort((a, b) => {
-      return b.price - a.price;
-    });
-  },
-  filterByDepartment(department) {
-    return this.items.filter((item) => item.department === department);
-  },
-  filterByGender(gender) {
-    return this.items.filter((item) => item.gender === gender);
-  },
-  filterByType(type) {
-    return this.items.filter((item) => item.type === type);
-  },
+  
 };
 gucci.storeData(); /// delete later
-function handleUpdate(ev, id) {
-  ev.preventDefault();
-
-  const root = document.getElementById("root");
-  gucci.renderAllitems(root);
-  const itemName = ev.target.elements.itemName.value;
-  const NewPrice = ev.target.elements.update.value;
-  gucci.updateItems(id, NewPrice, itemName);
-  gucci.storeData();
-}
 
 function handleShowItems() {
   console.log(gucci.items);
 }
 
-function handleShowDropDown(ev) {
-  console.log(ev);
 
-  const id = ev.target.id;
+const uid = function () {
+  return Date.now().toString(36) + Math.random().toString(36).substr(2);
+};
 
-  const dropDown = document.getElementById(`${id}-dropdown`);
-  if (ev.type === "mouseleave") {
-    // dropDown.classList.replace("show", "hide");
-  } else if (ev.type === "mouseenter") {
-    //all dropdowns class hide
-    dropDown.classList.replace("hide", "show");
-  }
-}
 
 function handleAddItems(ev) {
   ev.preventDefault();
@@ -407,20 +391,19 @@ function handleRemoveItems(ev) {
   gucci.storeData();
   ev.target.reset();
 }
-const uid = function () {
-  return Date.now().toString(36) + Math.random().toString(36).substr(2);
-};
 
-function handlePriceAsc(price) {
-  gucci.sortByAscending(price);
+
+function handleUpdate(ev, id) {
+  ev.preventDefault();
+
   const root = document.getElementById("root");
   gucci.renderAllitems(root);
+  const itemName = ev.target.elements.itemName.value;
+  const NewPrice = ev.target.elements.update.value;
+  gucci.updateItems(id, NewPrice, itemName);
+  gucci.storeData();
 }
-function handlePriceDesc(price) {
-  gucci.sortByDescending(price);
-  const root = document.getElementById("root");
-  gucci.renderAllitems(root);
-}
+
 
 function handleFilterByPrice(ev) {
   ev.preventDefault();
@@ -433,6 +416,20 @@ function handleFilterByPrice(ev) {
     gucci.renderAllitems(root);
   }
 }
+
+
+function handlePriceAsc(price) {
+  gucci.sortByAscending(price);
+  const root = document.getElementById("root");
+  gucci.renderAllitems(root);
+}
+
+function handlePriceDesc(price) {
+  gucci.sortByDescending(price);
+  const root = document.getElementById("root");
+  gucci.renderAllitems(root);
+}
+
 
 function handleSelect(ev) {
   const gender = ev.target.dataset.gender;
@@ -458,4 +455,19 @@ function handleRenderByDepartment(department: string) {
   const root = document.getElementById("root");
   gucci.getData();
   gucci.renderByDepartment(department, root);
+}
+
+
+function handleShowDropDown(ev) {
+  console.log(ev);
+
+  const id = ev.target.id;
+
+  const dropDown = document.getElementById(`${id}-dropdown`);
+  if (ev.type === "mouseleave") {
+    // dropDown.classList.replace("show", "hide");
+  } else if (ev.type === "mouseenter") {
+    //all dropdowns class hide
+    dropDown.classList.replace("hide", "show");
+  }
 }
