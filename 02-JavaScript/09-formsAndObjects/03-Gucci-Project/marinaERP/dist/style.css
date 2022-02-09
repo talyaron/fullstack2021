@@ -1,21 +1,204 @@
 .title {
   text-align: center;
+  text-shadow: 2px 10px 30px rgba(51, 37, 85, 0.4);
 }
 
-.form {
+.container {
+  border: 1px solid grey;
+}
+.container__inputs {
+  display: flex;
+  justify-content: center;
+  gap: 1.2em;
+  margin-bottom: 2em;
+}
+.container__inputs__form {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1.5em;
+  gap: 1.2em;
+  margin-bottom: 2em;
 }
-.form input, .form select {
+.container__inputs__form__inp {
   border-radius: 8px;
-  height: 2em;
-  max-width: 11em;
+  height: 2.5em;
+  max-width: 15em;
   border-color: transparent;
   font-size: 1em;
-  box-shadow: 2px 6px 10px rgba(51, 37, 85, 0.4);
+  color: rgba(255, 255, 255, 0.534);
+  letter-spacing: 3px;
+  box-shadow: 2px 10px 30px rgba(51, 37, 85, 0.4);
+  background: rgba(60, 46, 90, 0.671);
 }
-.form select {
-  height: 2.4em;
+.container__inputs__form option {
+  background: rgba(250, 245, 245, 0.2);
+  color: black;
+  font-size: 1/1em;
+}
+.container__inputs__form select {
+  height: 2.8em;
+}
+.container__inputs__form textarea {
+  border-color: transparent;
+  font-size: 1em;
+  color: rgba(255, 255, 255, 0.534);
+  letter-spacing: 3px;
+  box-shadow: 2px 10px 30px rgba(51, 37, 85, 0.4);
+  background: rgba(60, 46, 90, 0.671);
+  height: 10em;
+  border-radius: 8px;
+  inline-size: 25em;
+  text-align: start;
+  overflow-wrap: break-word;
+}
+.container__card {
+  display: inline-flex;
+  padding: 0em 4em;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: rgba(102, 100, 100, 0.123);
+  border-radius: 10px;
+  text-align: center;
+  margin: 2em;
+  box-shadow: 2px 10px 30px rgba(51, 37, 85, 0.4);
+}
+.container__card img {
+  height: 20em;
+  padding: 2em;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.376);
+  box-shadow: 2px 10px 30px rgba(47, 34, 78, 0.4);
+}
+.container__card p {
+  letter-spacing: 2px;
+  font-weight: 500;
+  font-size: large;
+}
+.container__card ion-icon {
+  font-size: 22px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: rgba(3, 9, 15, 0.753);
+  bottom: white;
+  box-shadow: 12px 12px 12px rgba(23, 16, 37, 0.4);
+  border-radius: 8px;
+  margin-bottom: 6px;
+}
+.header__ImgLogo {
+  display: inline-flex;
+  gap: 2em;
+  color: #474646;
+  margin-left: 2em;
+  align-items: center;
+  font-weight: 600;
+}
+.header__title:hover, .header__ImgLogo:hover {
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.534);
+}
+.header__strapImg {
+  width: 100%;
+  height: 20em;
+  opacity: 0.8;
+  border-radius: 8px;
+  box-shadow: 2px 10px 30px rgba(51, 37, 85, 0.4), 6px 6px 6px rgba(23, 16, 37, 0.4);
+}
+.header__navBar {
+  margin-left: 15%;
+}
+.header__navBar ul {
+  display: flex;
+  gap: 4em;
+}
+.header__navBar ul li :hover {
+  cursor: pointer;
+  color: white;
+}
+.header__navBar ul a {
+  text-decoration: none;
+  color: #817e7e;
+  font-size: 1.2em;
+}
+.header__navBar ul .material-icons {
+  color: #817e7e;
+  font-size: 32px;
+}
+.header__navBar ul .material-icons :hover {
+  cursor: pointer;
+  color: white;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 0.5em;
+  align-items: center;
+}
+.buttons input {
+  padding-left: 1em;
+  border-radius: 8px;
+  height: 2.5em;
+  border: none;
+  background-color: rgba(93, 91, 91, 0.205);
+  letter-spacing: 3px;
+  color: #ffffffa2;
+  font-size: 1em;
+  box-shadow: 2px 10px 30px rgba(51, 37, 85, 0.4), 2px 2px 2px rgba(23, 16, 37, 0.4);
+}
+.buttons--sortAutor .button, .buttons--sortYear .button, .buttons--sortRanking .button {
+  cursor: pointer;
+  position: relative;
+  transition-duration: 0.4s;
+  padding: 0em 1em;
+  border-radius: 8px;
+  font-size: 1em;
+  height: 2.7em;
+  border: none;
+  background-color: rgba(93, 91, 91, 0.205);
+  color: rgba(255, 255, 255, 0.349);
+  box-shadow: 2px 10px 30px rgba(51, 37, 85, 0.4), 2px 2px 2px rgba(23, 16, 37, 0.4);
+}
+.buttons--sortAutor .button:hover, .buttons--sortYear .button:hover, .buttons--sortRanking .button:hover {
+  transition-duration: 0.1s;
+  background-color: #3A3A3A;
+}
+.buttons--sortAutor .button:after, .buttons--sortYear .button:after, .buttons--sortRanking .button:after {
+  content: "";
+  display: block;
+  position: absolute;
+  border-radius: 8em;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: all 0.5s;
+  box-shadow: 0 0 10px 30px rgba(255, 255, 255, 0.267);
+}
+.buttons--sortAutor .button:active:after, .buttons--sortYear .button:active:after, .buttons--sortRanking .button:active:after {
+  box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.164);
+  position: absolute;
+  border-radius: 8em;
+  left: 0;
+  top: 0;
+  opacity: 1;
+  transition: 0s;
+}
+.buttons--sortAutor .button:active, .buttons--sortYear .button:active, .buttons--sortRanking .button:active {
+  top: 1px;
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-evenly;
+  border-radius: 8px;
+  background-color: rgba(3, 9, 15, 0.377);
+  color: #817e7e;
+  margin-top: 2em;
+  margin-bottom: 5px;
 }

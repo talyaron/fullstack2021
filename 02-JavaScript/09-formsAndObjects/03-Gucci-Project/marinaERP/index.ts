@@ -3,12 +3,12 @@ const uid = function () {
 };
 
 interface Store {
-  Books: Array<Book>,
-  storeData(),
-  getData(),
+  Books: Array<Book>;
+  storeData();
+  getData();
   addBook(
     title: string,
-    autor: string,
+    author: string,
     genre:
       | "science fiction"
       | "detective"
@@ -16,105 +16,123 @@ interface Store {
       | "adventures"
       | "children",
     year: number,
-    grade: number,
+    rank: number,
     img: any,
+    annotation: string,
     id: string
-  ),
-  deleteBook(bookName: string),
-  render(list: any, domElement: any),
-  renderAllBooks(domElement: any),
+  );
+  deleteBook(bookName: string);
+  sortAscenByAuthor();
+  sortDescenByAuthor();
+  sortAscenByYear();
+  sortDescenByYear();
+  sortAscenByRanking();
+  sortDescenByRanking();
+  filterByYear(year: number);
+  filterByRank(rank: number);
+  filterByGenre(genre: string);
+  filterByAuthor(author: string);
+  filterByTitle(title: string);
+  render(list: any, domElement: any);
+  renderAllBooks(domElement: any);
+  renderFilterByYear(filteredByYear: Array<Book>, domElement);
+  renderFilterByRank(filteredByRank: Array<Book>, domElement);
+  renderFilterByGenre(filteredByGenre: Array<Book>, domElement);
+  renderFilterByAuthor(filteredByAuthor: Array<Book>, domElement);
+  renderFilterByTitle(filteredByTitle: Array<Book>, domElement);
 }
 
 interface Book {
-  title: string,
-  autor: string,
-  genre: "science fiction" | "detective" | "prose" | "adventures" | "children",
-  year: number,
-  grade: number,
-  img: any,
-  id?: string
+  title: string;
+  author: string;
+  genre: "science fiction" | "detective" | "prose" | "adventures" | "children";
+  year: number;
+  rank: number;
+  img: any;
+  annotation?: string;
+  id?: string;
 }
 
-const litlife = {
+const StandartEbooks = {
   books: [
     {
       title: "Hemlock Veils",
-      autor: "Davenport Jennie",
+      author: "Davenport Jennie",
       genre: "science fiction",
       year: 2014,
-      grade: 3.62,
+      rank: 3.62,
       img: "https://litlife.club/data/Book/0/234000/234306/BC3_1422109172.jpg?w=600&h=600&q=90",
     },
     {
       title: "One by One",
-      autor: " Carter Chris",
+      author: "Carter Chris",
       genre: "detective",
       year: 2013,
-      grade: 9.83,
+      rank: 9.83,
       img: "https://litlife.club/data/Book/0/217000/217759/BC3_1410688094.jpg?w=600&h=600&q=90",
     },
     {
       title: "Fight Club",
-      autor: "Palahniuk Chuck",
+      author: "Palahniuk Chuck",
       genre: "prose",
       year: 2009,
-      grade: 9.63,
+      rank: 9.63,
       img: "https://litlife.club/data/Book/0/87000/87828/BC3_1474544490.jpg?w=600&h=600&q=90",
     },
     {
       title: "Ramage",
-      autor: " Pope Dudley",
+      author: "Pope Dudley",
       genre: "adventures",
       year: 2010,
-      grade: 10.0,
+      rank: 10.0,
       img: "https://litlife.club/data/Book/0/119000/119128/BCS_1349028836.jpg?w=600&h=600&q=90",
     },
     {
       title: "Grimms` Fairy Tales",
-      autor: "Davenport Jennie",
+      author: "Davenport Jennie",
       genre: "children",
       year: 1994,
-      grade: 9.5,
+      rank: 9.5,
       img: "https://litlife.club/data/Book/0/0/707/BC3_1386593820.jpg?w=600&h=600&q=90",
     },
     {
       title: "Revelation",
-      autor: "Karpyshyn Drew",
+      author: "Karpyshyn Drew",
       genre: "science fiction",
       year: 2010,
-      grade: 7.8,
+      rank: 7.8,
       img: "https://litlife.club/data/Book/0/91000/91909/BCS_1349020826.jpg?w=600&h=600&q=90",
     },
     {
       title: "Deception Point",
-      autor: " Brown Dan",
+      author: "Brown Dan",
       genre: "detective",
       year: 2010,
-      grade: 9.99,
+      rank: 9.99,
       img: "https://litlife.club/data/Book/0/125000/125823/BCS_1349021980.jpg?w=600&h=600&q=90",
     },
     {
       title: "The Secret History",
-      autor: "Tartt Donna",
+      author: "Tartt Donna",
       genre: "prose",
       year: 2011,
-      grade: 9.89,
+      rank: 9.89,
       img: "https://litlife.club/data/Book/0/94000/94365/BC3_1474425076.jpg?w=600&h=600&q=90",
     },
     {
       title: "Hornblower and the Crisis",
-      autor: "Forester Cecil Scott",
+      author: "Forester Cecil Scott",
       genre: "adventures",
       year: 1990,
-      grade: 0.23,
+      rank: 0.23,
       img: "https://litlife.club/data/Book/0/126000/126284/BCS_1349022091.jpg?w=600&h=600&q=90",
     },
     {
       title: "The Adventures of Huckleberry Finn",
-      autor: "Twain Mark",
+      author: "Twain Mark",
       genre: "children",
       year: 1981,
-      grade: 10.0,
+      rank: 10.0,
       img: "https://litlife.club/data/Book/0/0/755/BC3_1386593870.jpg?w=600&h=600&q=90",
     },
   ],
@@ -125,29 +143,134 @@ const litlife = {
 
   getData() {
     const booksStorage = JSON.parse(localStorage.getItem("storeData"));
-    if(booksStorage){
+    if (booksStorage) {
       this.books = booksStorage;
     }
-    
   },
 
-  addBook(title, autor, genre, year, grade, img) {
+  addBook(title, author, genre, year, rank, img, annotation) {
     const id = uid();
-    this.books.push({ title, autor, genre, year, grade, img, id });
+    this.books.push({ title, author, genre, year, rank, img, annotation, id });
     this.storeData();
   },
 
-  deleteBook(bookName) { },
+  deleteBook(bookName) {
+    const index = this.books.findIndex((book) => book.title === bookName);
+    if (index >= 0) {
+      this.books.splice(index, 1);
+      this.storeData();
+    }
+  },
+
+  // sortAscenByAuthor() {
+  //   this.books = this.books.sort((a, b) => {
+  //     return a.author - b.author;
+  //   });
+  //   console.log(this.books);
+  // },
+
+  sortAscenByAuthor() {
+    this.books = this.books.sort((a, b) => {
+      let authorA = a.author.toLowerCase(),
+        authorB = b.author.toLowerCase();
+      if (authorA < authorB)
+        //sort string ascending
+        return -1;
+      if (authorA > authorB) return 1;
+      return 0; //default return value (no sorting)
+    });
+  },
+
+  sortDescenByAuthor() {
+    this.books = this.books.sort((a, b) => {
+      return b.author - a.author;
+    });
+    console.dir(this);
+  },
+
+  sortAscenByYear() {
+    this.books = this.books.sort((a, b) => {
+      return a.year - b.year;
+    });
+  },
+
+  sortDescenByYear() {
+    this.books = this.books.sort((a, b) => {
+      return b.year - a.year;
+    });
+  },
+
+  sortAscenByRanking() {
+    this.books = this.books.sort((a, b) => {
+      return a.rank - b.rank;
+    });
+  },
+
+  sortDescenByRanking() {
+    this.books = this.books.sort((a, b) => {
+      return b.rank - a.rank;
+    });
+  },
+
+  filterByYear(year) {
+    return this.books.filter((book) => book.year <= year);
+  },
+
+  filterByRank(rank) {
+    return this.books.filter((book) => book.rank <= rank);
+  },
+
+  filterByGenre(genre) {
+    return this.books.filter((book) => book.genre === genre);
+  },
+
+  filterByAuthor(author) {
+    return this.books.filter((book) => book.author === author);
+  },
+
+  filterByTitle(title) {
+    return this.books.filter((book) => book.title === title);
+  },
+
+  renderFilterByTitle(filteredByTitle, domElement) {
+    this.render(filteredByTitle, domElement);
+  },
+
+  renderFilterByAuthor(filteredByAuthor, domElement) {
+    this.render(filteredByAuthor, domElement);
+  },
+
+  renderFilterByGenre(filteredByGenre, domElement) {
+    this.render(filteredByGenre, domElement);
+  },
+
+  renderFilterByRank(filteredByRank, domElement) {
+    this.render(filteredByRank, domElement);
+  },
+
+  renderFilterByYear(filteredByYear, domElement) {
+    this.render(filteredByYear, domElement);
+  },
 
   render(list, domElement) {
     let html = " ";
     list.forEach((book: any) => {
-      html += `<div class="item">
-           <p>${book.title}</p>
-           <img class="img" src="${book.img}">
-           <p>${book.year}</p>
-           <p>${book.grade}</p>
-           </div>`;
+      html += `<div class="container__card">
+                  <h2>${book.title}</h2>
+                  <h3> ${book.author}</h3>      
+                  <img class="img" src="${book.img}">
+                  <p>${book.year} </p> 
+                  <div class="star"
+                  <ion-icon name="star-outline"></ion-icon>
+                  <ion-icon  name="star-outline"></ion-icon>
+                  <ion-icon  name="star-outline"></ion-icon>
+                  <ion-icon  name="star-outline"></ion-icon>
+                  <ion-icon  name="star-outline"></ion-icon>
+                  <ion-icon  name="star-outline"></ion-icon>
+                  </div>
+                  <p> ${book.rank}</p>
+               </div>`;
+      //  <div class="annotation">${book.annotation}</div>
     });
     domElement.innerHTML = html;
   },
@@ -163,23 +286,134 @@ function handleAddBook(e) {
   let id = uid();
   console.log(e.target);
   const title = e.target.title.value;
-  const autor = e.target.autor.value;
+  const author = e.target.author.value;
   const genre = e.target.genre.value;
   const year = e.target.year.valueAsNumber;
-  const grade = e.target.grade.valueAsNumber;
+  const rank = e.target.rank.valueAsNumber;
   const img = e.target.img.value;
-  litlife.addBook(title, autor, genre, year, grade, img);
+  const annotation = e.target.annotation.value;
   const root = document.querySelector(".root");
-  litlife.renderAllBooks(root);
-  litlife.storeData();
+  StandartEbooks.addBook(title, author, genre, year, rank, img, annotation);
+  StandartEbooks.renderAllBooks(root);
+  StandartEbooks.storeData();
 }
 
-litlife.getData();
+function handleDeleteBook(e) {
+  e.preventDefault();
+  console.log(e);
+
+  const name = e.targer.elements.delete.value;
+  const root = document.querySelector(".root");
+  StandartEbooks.deleteBook(bookName);
+  StandartEbooks.renderAllBooks(root);
+  StandartEbooks.storeData();
+}
+
+function handleAuthorAscen() {
+  StandartEbooks.sortAscenByAuthor();
+  const root = document.querySelector(".root");
+  StandartEbooks.renderAllBooks(root);
+}
+
+function handleAuthoreDescen() {
+  StandartEbooks.sortDescenByAuthor();
+  const root = document.querySelector(".root");
+  StandartEbooks.renderAllBooks(root);
+}
+
+function handleYearAscen() {
+  StandartEbooks.sortAscenByYear();
+  const root = document.querySelector(".root");
+  StandartEbooks.renderAllBooks(root);
+}
+
+function handleYearDescen() {
+  StandartEbooks.sortDescenByYear();
+  const root = document.querySelector(".root");
+  StandartEbooks.renderAllBooks(root);
+}
+
+function handleRankingAscen() {
+  StandartEbooks.sortAscenByRanking();
+  const root = document.querySelector(".root");
+  StandartEbooks.renderAllBooks(root);
+}
+
+function handleRankingeDescen() {
+  StandartEbooks.sortDescenByRanking();
+  const root = document.querySelector(".root");
+  StandartEbooks.renderAllBooks(root);
+}
+
+function handleFilterByYear(e) {
+  e.preventDefault();
+  // console.log(e);
+  const year = e.target.valueAsNumber;
+  const root = document.querySelector(".root");
+  if (year) {
+    const filteredByYear = StandartEbooks.filterByYear(year);
+    StandartEbooks.renderFilterByYear(filteredByYear, root);
+  } else {
+    StandartEbooks.renderAllBooks(root);
+  }
+}
+
+function handleFilterByRank(e) {
+  e.preventDefault();
+  const rank = e.target.valueAsNumber;
+  const root = document.querySelector(".root");
+  if (rank) {
+    const filteredByRank = StandartEbooks.filterByRank(rank);
+    StandartEbooks.renderFilterByRank(filteredByRank, root);
+  } else {
+    StandartEbooks.renderAllBooks(root);
+  }
+}
+
+function handleFilterByGenre(e) {
+  e.preventDefault();
+  const genre = e.target.value;
+  const root = document.querySelector(".root");
+  if (genre) {
+    const filterByGenre = StandartEbooks.filterByGenre(genre);
+    StandartEbooks.renderFilterByGenre(filterByGenre, root);
+  } else {
+    StandartEbooks.renderAllBooks(root);
+  }
+}
+
+function handleFilterByAuthor(e) {
+  e.preventDefault();
+  const author = e.target.value;
+  const root = document.querySelector(".root");
+  if (author) {
+    const filterByAuthor = StandartEbooks.filterByAuthor(author);
+    StandartEbooks.renderFilterByAuthor(filterByAuthor, root);
+  } else {
+    StandartEbooks.renderAllBooks(root);
+  }
+}
+
+function handleFilterByTitle(e) {
+  e.preventDefault();
+  const title = e.target.value;
+  const root = document.querySelector(".root");
+  if (title) {
+    const filterByTitle = StandartEbooks.filterByTitle(title);
+    StandartEbooks.renderFilterByTitle(filterByTitle, root);
+  } else {
+    StandartEbooks.renderAllBooks(root);
+  }
+}
+
+StandartEbooks.getData();
 const root = document.querySelector(".root");
-litlife.renderAllBooks(root);
+StandartEbooks.renderAllBooks(root);
 
-console.log(litlife.getData());
-
+function bookName(bookName: any) {
+  throw new Error("Function not implemented.");
+}
+// console.log(StandartEbooks.getData());
 
 // LOCAL STORAGE TEST
 // let data: number = 0;

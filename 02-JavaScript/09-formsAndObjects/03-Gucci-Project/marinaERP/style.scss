@@ -1,26 +1,261 @@
-.title {
-    text-align: center;
-  
+body {
+    // border: 1px solid grey;
+
+
 }
 
-.form {
+// ERP
+.title {
+    text-align: center;
+    text-shadow: 2px 10px 30px rgba(51, 37, 85, 0.4);
+}
+
+.container {
+    border: 1px solid grey;
+
+
+
+    &__inputs {
+        display: flex;
+        justify-content: center;
+        gap: 1.2em;
+        margin-bottom: 2em;
+
+        &__form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.2em;
+            margin-bottom: 2em;
+
+            &__inp {
+                border-radius: 8px;
+                height: 2.5em;
+                max-width: 15em;
+                border-color: transparent;
+                font-size: 1em;
+                color: rgba(255, 255, 255, 0.534);
+                letter-spacing: 3px;
+                box-shadow: 2px 10px 30px rgba(51, 37, 85, 0.4);
+                background: rgba(60, 46, 90, 0.671);
+
+            }
+
+            option {
+                background: rgba(250, 245, 245, 0.2);
+                color: black;
+                font-size: 1/1em;
+            }
+
+            select {
+                height: 2.8em;
+            }
+
+            textarea {
+                border-color: transparent;
+                font-size: 1em;
+                color: rgba(255, 255, 255, 0.534);
+                letter-spacing: 3px;
+                box-shadow: 2px 10px 30px rgba(51, 37, 85, 0.4);
+                background: rgba(60, 46, 90, 0.671);
+                height: 10em;
+                border-radius: 8px;
+                inline-size: 25em;
+                text-align: start;
+                overflow-wrap: break-word;
+            }
+        }
+    }
+
+
+    &__card {
+        display: inline-flex;
+        padding: 0em 4em;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        background-color: rgba(102, 100, 100, 0.123);
+        border-radius: 10px;
+        text-align: center;
+        margin: 2em;
+        box-shadow: 2px 10px 30px rgba(51, 37, 85, 0.4);
+
+        img {
+            height: 20em;
+            padding: 2em;
+            border-radius: 10px;
+            background-color: rgba(0, 0, 0, 0.376);
+            box-shadow: 2px 10px 30px rgba(47, 34, 78, 0.4);
+        }
+
+        p {
+            letter-spacing: 2px;
+            font-weight: 500;
+            font-size: large;
+        }
+
+        ion-icon {
+            font-size: 22px;
+        }
+
+    }
+
+}
+
+
+
+// STORE
+.header {
     display: flex;
-    justify-content:center;
     align-items: center;
-    gap: 1.5em;
-   
+    justify-content: space-evenly;
+    background-color: rgba(3, 9, 15, 0.753);
+    bottom: white;
+    box-shadow: 12px 12px 12px rgba(23, 16, 37, 0.4);
+    border-radius: 8px;
+    margin-bottom: 6px;
 
-    input, select {
+
+    &__ImgLogo {
+        display: inline-flex;
+        gap: 2em;
+        color: rgb(71, 70, 70);
+        margin-left: 2em;
+        align-items: center;
+        font-weight: 600;
+    }
+
+    &__title:hover,
+    &__ImgLogo:hover {
+        cursor: pointer;
+        color: rgba(255, 255, 255, 0.534);
+    }
+
+    &__strapImg {
+        width: 100%;
+        height: 20em;
+        opacity: 0.8;
         border-radius: 8px;
-        height: 2em;
-        max-width: 11em;
-        border-color: transparent;
-        font-size: 1em;
-        box-shadow: 2px 6px 10px rgba(51, 37, 85, 0.4);
-        // background: rgba(51, 37, 85, 0.294);
+        box-shadow: 2px 10px 30px rgba(51, 37, 85, 0.4),
+            6px 6px 6px rgba(23, 16, 37, 0.4);
     }
-    select {
-        height: 2.4em;
 
+    &__navBar {
+        margin-left: 15%;
+
+        ul {
+            display: flex;
+            gap: 4em;
+
+            li {
+                :hover {
+                    cursor: pointer;
+                    color: white;
+                }
+            }
+
+            a {
+                text-decoration: none;
+                color: rgb(129, 126, 126);
+                font-size: 1.2em;
+            }
+
+            .material-icons {
+                color: rgb(129, 126, 126);
+                font-size: 32px;
+
+                :hover {
+                    cursor: pointer;
+                    color: white;
+                }
+            }
+        }
     }
+}
+
+
+
+.buttons {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 0.5em;
+    align-items: center;
+    
+    input {
+        padding-left: 1em;
+        border-radius: 8px;
+        height: 2.5em;
+        border: none;
+        background-color: rgba(93, 91, 91, 0.205);
+        letter-spacing: 3px;
+        color: #ffffffa2;
+        font-size: 1em;
+        box-shadow: 2px 10px 30px rgba(51, 37, 85, 0.4),
+            2px 2px 2px rgba(23, 16, 37, 0.4);
+    }
+
+    &--sortAutor,
+    &--sortYear,
+    &--sortRanking {
+
+        .button {           
+            cursor: pointer;
+            position: relative;
+            transition-duration: 0.4s;
+            padding: 0em 1em;
+            border-radius: 8px;
+            font-size: 1em;
+            height: 2.7em;
+            border: none;
+            background-color: rgba(93, 91, 91, 0.205);
+            color: rgba(255, 255, 255, 0.349);
+            box-shadow: 2px 10px 30px rgba(51, 37, 85, 0.4),
+                2px 2px 2px rgba(23, 16, 37, 0.4);
+
+        }
+
+        .button:hover {
+            transition-duration: 0.1s;
+            background-color: #3A3A3A;
+          }
+          
+          .button:after {
+            content: "";
+            display: block;
+            position: absolute;
+            border-radius: 8em;
+            left: 0;
+            top:0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: all 0.5s;
+            box-shadow: 0 0 10px 30px rgba(255, 255, 255, 0.267);
+          }
+          
+          .button:active:after {
+            box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.164);
+            position: absolute;
+            border-radius: 8em;
+            left: 0;
+            top:0;
+            opacity: 1;
+            transition: 0s;
+          }
+          
+          .button:active {
+            top: 1px;
+          }
+    }
+}
+
+.bottom {
+    display: flex;
+    justify-content: space-evenly;
+    border-radius: 8px;
+    background-color: rgba(3, 9, 15, 0.377);
+    // border-top: solid 3px rgba(0, 0, 0, 0.671);
+    color: rgb(129, 126, 126);
+    margin-top: 2em;
+    margin-bottom: 5px;
 }
