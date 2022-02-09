@@ -382,6 +382,12 @@ footer {
   background-color: rgb(200, 173, 127);
   justify-content: space-between;
   grid-template-columns: repeat(2, 1fr);
+  @media only screen and (min-width: 768px) {
+    .rootBooks{
+      grid-template-columns: 1fr,1fr,1fr,1fr;
+    }
+  }
+  
 
   &__card{
     background-color: whitesmoke;
@@ -398,18 +404,20 @@ footer {
      height: 20px;
    }
     &__img{
-      color: black;
-      padding: 100px;
+      display: block;
+      width: 100%;
+      height: auto;
     }
     &__title{
     font-weight: 900;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     text-transform: uppercase;
     font-size: 30px;
     color: #23211f;
     margin-bottom: 5px;
    }
    &__bag{
-    position: relative;
+    
     color: #FF3100;
     cursor: pointer;
     border: none;
@@ -426,5 +434,6 @@ footer {
    }
     
   }
+  
   
 }

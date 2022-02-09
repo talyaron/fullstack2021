@@ -87,7 +87,7 @@ interface BookShop {
                         </symbol>
                         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-icon-shopping-bag" />
                     </svg></button>
-                <i class="rootBooks__card__heart"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 13.5">
+                <button class="rootBooks__card__heart"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 13.5">
                         <symbol viewBox="0 0 15 13.5" id="svg-icon-saved-items">
                             <title>saved-items</title>
                             <g fill="currentColor">
@@ -96,10 +96,10 @@ interface BookShop {
                             </g>
                         </symbol>
                         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-icon-saved-items" />
-                    </svg></i>
-                <img src="${item.img}" alt="" class="rootBooks__card__img">
-                <div class="rootBooks__card__title">${item.title}</div>
-                <div class="rootBooks__card__price">${item.price}</div>
+                    </svg></button>
+                <img src="" alt="" class="rootBooks__card__img">
+                <div class="rootBooks__card__title">title</div>
+                <div class="rootBooks__card__price">30$</div>
             </div>`
         });
         domElement.innerHTML = html
