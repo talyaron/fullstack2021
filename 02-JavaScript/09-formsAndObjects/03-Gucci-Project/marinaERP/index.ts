@@ -290,7 +290,7 @@ const StandartEbooks = {
                    </div> 
 
                   <p> ${book.rank}</p>
-                  <input  class = "container__card__button" onclick = "handleAddToCard()" id ="addToCard" type ="button" value = "Add to cart">
+                  <input  class = "container__card__addToCardBtn" onclick = "handleAddToCard()" id ="addToCard" type ="button" value = "Add to cart">
                </div>`;
       //  <div class="annotation">${book.annotation}</div>
     });
