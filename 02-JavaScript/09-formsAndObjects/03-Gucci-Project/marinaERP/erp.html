@@ -8,10 +8,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Montserrat:wght@100;200&display=swap"
         rel="stylesheet">
-        <script src="https://kit.fontawesome.com/cec039267b.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/cec039267b.js" crossorigin="anonymous"></script>
     <title>ERP</title>
     <link rel="stylesheet" href="dist/style.css">
     <style>
@@ -34,15 +34,19 @@
 
 
 
-    
+
 
     <div class="container__inputs">
+
         <form class="container__inputs__form" onsubmit="handleAddBook(event)">
-            <input class="container__inputs__form__inp" type="text" name="title" id="title" placeholder="Title">
-            <input class="container__inputs__form__inp" type="text" name="author" id="author" placeholder="Author">
-            <input class="container__inputs__form__inp" type="text" name="img" id="img" placeholder="Image adress">
-            <!-- <input type="text" name="genre" id="genre" placeholder="Book genre" > -->
-            <select class="container__inputs__form__inp" name="genre" id="">
+
+            <div class="container__inputs__form__one" >
+                <input class="container__inputs__form__one__inp" type="text" name="title" id="title" placeholder="Title">
+                <input class="container__inputs__form__one__inp" type="text" name="author" id="author" placeholder="Author">
+                <input class="container__inputs__form__one__inp" type="text" name="img" id="img" placeholder="Image adress">
+                <input class="container__inputs__form__one__inp" type="number" name="price" id="price" placeholder="Price">
+         
+            <select class="container__inputs__form__one__inp" name="genre" id="">
                 <option value="genre" disabled selected>genre</option>
                 <option value="science fiction">science fiction</option>
                 <option value="detective">detective</option>
@@ -50,27 +54,32 @@
                 <option value="adventures">adventures</option>
                 <option value="children">children</option>
             </select>
-            <input class="container__inputs__form__inp" type="number" name="year" id="year"
-                placeholder="Year of publishing">
-            <input class="container__inputs__form__inp" type="number" name="rank" id="rank" placeholder="Rank">
-            <textarea class="inputs__form__inp annotation" name="annotation" id="annotation" maxlength="500" cols="50"
-                rows="10" placeholder="Wright book annotation here"></textarea>
-            <input class="container__inputs__form__inp" type="submit" name="submit" id="" value="Add a book">
+                   
+            </div >
+                <div   class="container__inputs__form__one">
+                    <input class="container__inputs__form__one__inp" type="number" name="year" id="year"
+                    placeholder="Year of publishing">
+                <input class="container__inputs__form__one__inp" type="number" name="rank" id="rank" placeholder="Rank">
+                <textarea class="container__inputs__form__one__inp annotation" name="annotation" id="annotation" maxlength="500"
+                    cols="50" rows="10" placeholder="Wright book annotation here"></textarea>
+                <input class="container__inputs__form__one__inp" type="submit" name="submit" id="" value="Add a book">
+            </div>
         </form>
-    </div>
-    <div class="container__inputs">
-        <form class="inputs__form" onsubmit="handleDeleteBook(event)">
-            <input class="container__inputs__form__inp" type="text" name="delete" id="delete"
-                placeholder="Enter a book title to delete">
-            <input class="container__inputs__form__inp" type="submit" id="deleteBtn" value="delete">
-        </form>
-    </div>
-    <div class="container">
+
     </div>
 
-    <!-- LOCAL STORAGE TEST-->
-    <!-- <input type="number" name="number" id="" onkeyup="handleUpdateData(event)">
-    <button onclick="handleAddDataToStorage()" >Add data to storage</button> -->
+    <div class="container__inputs">
+        <form class="inputs__form" onsubmit="handleDeleteBook(event)">
+            <input class="container__inputs__form__one__inp" type="text" name="delete" id="delete"
+                placeholder="Enter a book title to delete">
+            <input class="container__inputs__form__one__inp" type="submit" id="deleteBtn" value="delete">
+        </form>
+    </div>
+
+
+
+
+    <div class="container"></div>
 
     <div class="root"></div>
     <script src="dist/index.js"></script>
