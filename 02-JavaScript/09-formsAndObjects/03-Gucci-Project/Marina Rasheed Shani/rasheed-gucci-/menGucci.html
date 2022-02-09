@@ -240,21 +240,21 @@
 
             <div class="catergory__buttons--lowerThanPrice">
                 <label>Show price lower than</label>
-                <input class="inputLowerThan" type='number' onkeyup="handleFilterByPrice(event)" placeholder="number">
+                <input class="inputLowerThan" type='number' onkeyup="handleFilterByPrice(event)" placeholder="number" data-gender="men">
             </div>
 
 
-            <select class="catergory__buttons--selector" onchange='handleSelect(event)'>
+            <select class="catergory__buttons--selector" onchange='handleSelect(event)' data-gender="men">
                 <option value="" disabled selected>Category</option>
-                <option value="allMen">ALL</option>
+                <option value="all">ALL</option>
                 <option value="pants">PANTS</option>
                 <option value="shirts">SHIRT</option>
                 <option value="shoes">SHOES</option>
             </select>
 
             <div class="catergory__buttons--sortPrice">
-                <button type="button" id="ascending" onclick="handlePriceAsc(event)">Price-Low to High</button>
-                <button type="button" id="descending" onclick="handlePriceDesc(event)">Price-High to Low
+                <button type="button" id="ascending" onclick="handlePriceAsc(event)" data-gender="men">Price-Low to High</button>
+                <button type="button" id="descending" onclick="handlePriceDesc(event)" data-gender="men">Price-High to Low
                 </button>
             </div>
 

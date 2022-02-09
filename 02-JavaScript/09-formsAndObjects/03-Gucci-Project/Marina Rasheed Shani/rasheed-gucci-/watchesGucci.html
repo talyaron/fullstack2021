@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="dist/style.css">
 </head>
 
-<body onload="handleRenderByDepartment('watches')">
+<body onload="handleRenderByGender('menWatches')">
 
 
 
@@ -240,21 +240,21 @@
 
             <div class="catergory__buttons--lowerThanPrice">
                 <label>Show price lower than</label>
-                <input class="inputLowerThan" type='number' onkeyup="handleFilterByPrice(event)" placeholder="number">
+                <input class="inputLowerThan" type='number' onkeyup="handleFilterByPrice(event)" placeholder="number" data-gender="menWatches">
             </div>
 
 
-            <select class="catergory__buttons--selector" onchange='handleSelect(event)'>
+            <select class="catergory__buttons--selector" onchange='handleSelect(event)' data-gender="menWatches">
                 <option value="" disabled selected>Category</option>
-                <option value="allWatches">ALL</option>
+                <option value="all">ALL</option>
                 <option value="rolex">ROLEX</option>
                 <option value="omega">OMEGA</option>
                
             </select>
 
             <div class="catergory__buttons--sortPrice">
-                <button type="button" id="ascending" onclick="handlePriceAsc(event)">Price-Low to High</button>
-                <button type="button" id="descending" onclick="handlePriceDesc(event)">Price-High to Low
+                <button type="button" id="ascending" onclick="handlePriceAsc(event)" data-gender="menWatches">Price-Low to High</button>
+                <button type="button" id="descending" onclick="handlePriceDesc(event)" data-gender="menWatches">Price-High to Low
                 </button>
             </div>
 
