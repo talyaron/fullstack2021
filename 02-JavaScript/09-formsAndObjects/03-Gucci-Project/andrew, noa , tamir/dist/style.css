@@ -321,5 +321,5 @@ body {
 }
 
 .visableForm {
-  transform: translateY(0px);
+  transform: translateY(-40px);
 }
