@@ -98,8 +98,8 @@ interface BookShop {
                         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-icon-saved-items" />
                     </svg></button>
                 <img src="" alt="" class="rootBooks__card__img">
-                <div class="rootBooks__card__title">title</div>
-                <div class="rootBooks__card__price">30$</div>
+                <div class="rootBooks__card__title">${item.title}</div>
+                <div class="rootBooks__card__price">${item.price}</div>
             </div>`
         });
         domElement.innerHTML = html
