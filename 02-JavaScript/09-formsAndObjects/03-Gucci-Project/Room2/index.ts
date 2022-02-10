@@ -68,6 +68,7 @@ const Adidas: shop = {
   },
   addItem(title, price, category, pictureFront,pictureBack, color, description, shoeSize) {
     const id = uid();
+    this.getData();
     this.products.push({
       id,
       title,
@@ -79,7 +80,7 @@ const Adidas: shop = {
       description,
       shoeSize,
     });
-    this.setData()
+    this.setData();
   },
   deleteItem(id) {
     this.products = this.products.filter((product) => product.id !== id);
@@ -323,36 +324,36 @@ function handleShoeSize(ev) {
   // if(type === " ")
   //Adidas.shoeSizeFilter(size);
 }
-Adidas.addItem(
-  "superstar shoes",
-  200,
-  "Sneakers",
-  "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg",
-  "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg",
-  "red",
-  "B-ball legend. Street symbol. Cultural icon. Still going strong after five decades, the adidas Superstar Shoes have millions of stories to tell. Smooth leather combines with serrated 3-Stripes and the authentic rubber shell toe. Ready for the next fifty years of iconic adidas style? Lets do it.",
-  44
-);
-Adidas.addItem(
-  "superstar shoes",
-  300,
-  "Sneakers",
-  "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg",
-  "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg",
-  "red",
-  "B-ball legend. Street symbol. Cultural icon. Still going strong after five decades, the adidas Superstar Shoes have millions of stories to tell. Smooth leather combines with serrated 3-Stripes and the authentic rubber shell toe. Ready for the next fifty years of iconic adidas style? Lets do it.",
-  44
-);
-Adidas.addItem(
-  "superstar shoes",
-  100,
-  "Sneakers",
-  "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg",
-  "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg",
-  "red",
-  "B-ball legend. Street symbol. Cultural icon. Still going strong after five decades, the adidas Superstar Shoes have millions of stories to tell. Smooth leather combines with serrated 3-Stripes and the authentic rubber shell toe. Ready for the next fifty years of iconic adidas style? Lets do it.",
-  44
-);
+// Adidas.addItem(
+//   "superstar shoes",
+//   200,
+//   "Sneakers",
+//   "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg",
+//   "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg",
+//   "red",
+//   "B-ball legend. Street symbol. Cultural icon. Still going strong after five decades, the adidas Superstar Shoes have millions of stories to tell. Smooth leather combines with serrated 3-Stripes and the authentic rubber shell toe. Ready for the next fifty years of iconic adidas style? Lets do it.",
+//   44
+// );
+// Adidas.addItem(
+//   "superstar shoes",
+//   300,
+//   "Sneakers",
+//   "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg",
+//   "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg",
+//   "red",
+//   "B-ball legend. Street symbol. Cultural icon. Still going strong after five decades, the adidas Superstar Shoes have millions of stories to tell. Smooth leather combines with serrated 3-Stripes and the authentic rubber shell toe. Ready for the next fifty years of iconic adidas style? Lets do it.",
+//   44
+// );
+// Adidas.addItem(
+//   "superstar shoes",
+//   100,
+//   "Sneakers",
+//   "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg",
+//   "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg",
+//   "red",
+//   "B-ball legend. Street symbol. Cultural icon. Still going strong after five decades, the adidas Superstar Shoes have millions of stories to tell. Smooth leather combines with serrated 3-Stripes and the authentic rubber shell toe. Ready for the next fifty years of iconic adidas style? Lets do it.",
+//   44
+// );
 
 function handleGetData(page: string) {
   try {
