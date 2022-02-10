@@ -262,6 +262,7 @@ body {
   &__item {
     width: 300px;
     height: 420px;
+    transition: ease 1s;
 
     &:hover {
       border: 1px solid black;
@@ -274,29 +275,34 @@ body {
       top: 0;
       z-index: 8;
       margin: 10px;
+
+      &:active {
+        background-color: red;
+      }
     }
 
+
     .picture {
+      transition: ease 5s;
+
       width: 303px;
       height: 303px;
       position: relative;
       display: inline-block;
 
       .img-top {
+        transition: ease 5s;
+
         display: none;
         position: absolute;
         top: 0;
         left: 0;
-        z-index: 99;
-      }
-
-      &:hover .img-top .fa-heart {
-        display: inline;
       }
 
       &:hover .img-top {
         display: inline;
       }
+
 
       img {
         display: block;

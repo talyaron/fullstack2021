@@ -205,6 +205,7 @@ body {
 .cards__item {
   width: 300px;
   height: 420px;
+  transition: ease 1s;
 }
 .cards__item:hover {
   border: 1px solid black;
@@ -216,21 +217,22 @@ body {
   z-index: 8;
   margin: 10px;
 }
+.cards__item .fa-heart:active {
+  background-color: red;
+}
 .cards__item .picture {
+  transition: ease 5s;
   width: 303px;
   height: 303px;
   position: relative;
   display: inline-block;
 }
 .cards__item .picture .img-top {
+  transition: ease 5s;
   display: none;
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 99;
-}
-.cards__item .picture:hover .img-top .fa-heart {
-  display: inline;
 }
 .cards__item .picture:hover .img-top {
   display: inline;
