@@ -156,12 +156,24 @@ var StandartEbooks = {
                 return 1;
             return 0; //default return value (no sorting)
         });
+        this.books.forEach(function (book) {
+            console.log(book.author);
+        });
     },
     sortDescenByAuthor: function () {
         this.books = this.books.sort(function (a, b) {
-            return b.author - a.author;
+            var authorA = a.author.toLowerCase(), authorB = b.author.toLowerCase();
+            if (authorA < authorB)
+                //sort string ascending
+                return 1;
+            if (authorA > authorB)
+                return -1;
+            return 0; //default return value (no sorting)
         });
-        console.dir(this);
+        console.log('------');
+        this.books.forEach(function (book) {
+            console.log(book.author);
+        });
     },
     sortAscenByYear: function () {
         this.books = this.books.sort(function (a, b) {
@@ -232,10 +244,10 @@ var StandartEbooks = {
     }
 };
 // doesnt work
-function handleShowAnnotation() {
-    var annotation = document.querySelector('.annotation');
-    StandartEbooks.showAnnotation(annotation);
-}
+// function handleShowAnnotation() {
+//   const annotation: any = document.querySelector('.annotation');
+//   StandartEbooks.showAnnotation(annotation);
+// }
 function handleAddBook(e) {
     e.preventDefault();
     var id = uid();
@@ -248,7 +260,7 @@ function handleAddBook(e) {
     var price = e.target.price.valueAsNumber;
     var img = e.target.img.value;
     var annotation = e.target.annotation.value;
-    var root = document.querySelector(".root");
+    var root = document.querySelector("#root");
     StandartEbooks.addBook(title, author, genre, year, rank, price, img, annotation);
     StandartEbooks.renderAllBooks(root);
     StandartEbooks.storeData();
@@ -256,62 +268,76 @@ function handleAddBook(e) {
 // doesnt work
 function handleDeleteBook(e) {
     e.preventDefault();
-    console.log(e);
-    var title = e.targer.elements["delete"].value;
-    var root = document.querySelector(".root");
-    StandartEbooks.deleteBook(title);
-    StandartEbooks.renderAllBooks(root);
-    StandartEbooks.storeData();
+    try {
+        console.log(e);
+        console.log(e.target.elements["delete"].value);
+        var title = e.target.elements["delete"].value;
+        var root_1 = document.querySelector("#root");
+        if (title) {
+            console.log(title);
+            StandartEbooks.deleteBook(title);
+            StandartEbooks.renderAllBooks(root_1);
+            StandartEbooks.storeData();
+        }
+        else {
+            throw new Error('User didnt write a title');
+        }
+    }
+    catch (err) {
+        console.error(err);
+    }
 }
 // doesnt work
 function handleUpdateBook(e) {
     e.preventDefault();
-    var updateBook = {}, Book;
-    var ditails = Book.ditails;
-    for (var i = 0; i < Book.length; i++) {
-        handleUpdateBook(ditails[i]) = e.target.elements[i].value;
-    }
-    var root = document.querySelector(".root");
-    StandartEbooks.updateBook(updateBook);
-    StandartEbooks.renderAllBooks(root);
 }
 // doesnt work
 function handleAuthorAscen() {
-    StandartEbooks.sortAscenByAuthor();
-    var root = document.querySelector(".root");
-    StandartEbooks.renderAllBooks(root);
+    try {
+        StandartEbooks.sortAscenByAuthor();
+        var root_2 = document.querySelector("#root");
+        StandartEbooks.renderAllBooks(root_2);
+    }
+    catch (err) {
+        console.error(err);
+    }
 }
 // doesnt work
 function handleAuthoreDescen() {
-    StandartEbooks.sortDescenByAuthor();
-    var root = document.querySelector(".root");
-    StandartEbooks.renderAllBooks(root);
+    try {
+        StandartEbooks.sortDescenByAuthor();
+        var root_3 = document.querySelector("#root");
+        StandartEbooks.renderAllBooks(root_3);
+    }
+    catch (err) {
+        console.error(err);
+    }
 }
 function handleYearAscen() {
     StandartEbooks.sortAscenByYear();
-    var root = document.querySelector(".root");
+    var root = document.querySelector("#root");
     StandartEbooks.renderAllBooks(root);
 }
 function handleYearDescen() {
     StandartEbooks.sortDescenByYear();
-    var root = document.querySelector(".root");
+    var root = document.querySelector("#root");
     StandartEbooks.renderAllBooks(root);
 }
 function handleRankingAscen() {
     StandartEbooks.sortAscenByRanking();
-    var root = document.querySelector(".root");
+    var root = document.querySelector("#root");
     StandartEbooks.renderAllBooks(root);
 }
 function handleRankingeDescen() {
     StandartEbooks.sortDescenByRanking();
-    var root = document.querySelector(".root");
+    var root = document.querySelector("#root");
     StandartEbooks.renderAllBooks(root);
 }
 function handleFilterByYear(e) {
     e.preventDefault();
     // console.log(e);
     var year = e.target.valueAsNumber;
-    var root = document.querySelector(".root");
+    var root = document.querySelector("#root");
     if (year) {
         var filteredByYear = StandartEbooks.filterByYear(year);
         StandartEbooks.renderFilterByYear(filteredByYear, root);
@@ -323,7 +349,7 @@ function handleFilterByYear(e) {
 function handleFilterByRank(e) {
     e.preventDefault();
     var rank = e.target.valueAsNumber;
-    var root = document.querySelector(".root");
+    var root = document.querySelector("#root");
     if (rank) {
         var filteredByRank = StandartEbooks.filterByRank(rank);
         StandartEbooks.renderFilterByRank(filteredByRank, root);
@@ -335,7 +361,7 @@ function handleFilterByRank(e) {
 function handleFilterByGenre(e) {
     e.preventDefault();
     var genre = e.target.value;
-    var root = document.querySelector(".root");
+    var root = document.querySelector("#root");
     if (genre) {
         var filterByGenre = StandartEbooks.filterByGenre(genre);
         StandartEbooks.renderFilterByGenre(filterByGenre, root);
@@ -347,7 +373,7 @@ function handleFilterByGenre(e) {
 function handleFilterByAuthor(e) {
     e.preventDefault();
     var author = e.target.value;
-    var root = document.querySelector(".root");
+    var root = document.querySelector("#root");
     if (author) {
         var filterByAuthor = StandartEbooks.filterByAuthor(author);
         StandartEbooks.renderFilterByAuthor(filterByAuthor, root);
@@ -359,7 +385,7 @@ function handleFilterByAuthor(e) {
 function handleFilterByTitle(e) {
     e.preventDefault();
     var title = e.target.value;
-    var root = document.querySelector(".root");
+    var root = document.querySelector("#root");
     if (title) {
         var filterByTitle = StandartEbooks.filterByTitle(title);
         StandartEbooks.renderFilterByTitle(filterByTitle, root);
@@ -369,7 +395,7 @@ function handleFilterByTitle(e) {
     }
 }
 StandartEbooks.getData();
-var root = document.querySelector(".root");
+var root = document.querySelector("#root");
 StandartEbooks.renderAllBooks(root);
 var allstars = document.querySelectorAll('.fa-star');
 allstars.forEach(function (star) {

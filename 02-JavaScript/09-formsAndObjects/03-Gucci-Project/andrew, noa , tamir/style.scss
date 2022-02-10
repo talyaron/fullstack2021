@@ -338,6 +338,21 @@ body {
         pointer-events: all;
     }
 }
+#footer{
+    width: 100vw;
+    height: 50px;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    background-color: var(--main-color-purple3);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    a{
+        color: white;
+        text-decoration: none;
+    }
+}
 
 ////OWNER
 #root {
@@ -380,12 +395,4 @@ body {
     transform: translateY(0px);
 }
 
-#footer {
-    width: 100vw;
-    height: 100px;
-    position: fixed;
-    bottom: 0px;
-    left: 0px;
-    background-color: var(--main-color-purple3);
 
-}
