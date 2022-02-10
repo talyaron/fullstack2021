@@ -338,26 +338,26 @@ $background-color:#ffffff;
 
     }
 
-    
-   
+
+
     .imgBottom {
       display: none;
       position: absolute;
       top: 53px;
       left: 2px;
       z-index: 1;
-      transition: 10s ease;
-      
-     
-      
+
+
+
+
 
 
     }
 
     &:hover .imgBottom {
       display: inline;
-    //   width: 20em;
-    //  height: 380px;
+      //   width: 20em;
+      //  height: 380px;
     }
 
 
@@ -372,8 +372,11 @@ $background-color:#ffffff;
 
 
 
-// @media only screen and (max-width: 1380px) {
-//   body{
+// @media only screen and (max-width: 1024px) {
+//   body {
+
+//     background-color: red;
+
 
 //   }
 // }
