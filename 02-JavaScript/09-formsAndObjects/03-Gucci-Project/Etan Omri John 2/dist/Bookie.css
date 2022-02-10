@@ -374,8 +374,8 @@ footer .footer__credit {
   grid-template-columns: repeat(2, 1fr);
 }
 @media only screen and (min-width: 768px) {
-  .rootBooks .rootBooks {
-    grid-template-columns: 1fr, 1fr, 1fr, 1fr;
+  .rootBooks {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 .rootBooks__card {

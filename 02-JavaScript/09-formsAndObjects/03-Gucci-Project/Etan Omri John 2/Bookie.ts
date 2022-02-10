@@ -2,6 +2,7 @@ const selectRoot = document.querySelector("[data-update-book-by-id]");
 const addingForm = document.querySelector("[data-addingItemForm]");
 const bookTitle = document.querySelector("[data-bookTitle]");
 const imagePreview = document.querySelector("[data-bookImage-preview]");
+const rootBooks = document.querySelector("[data-rootBooks]");
 let backToTop = document.querySelector("[data-back-to-top]");
 
 
@@ -23,7 +24,7 @@ interface BookShop {
   id: any;
   books: Array<book>;
   addItem(ev: any)
-    render(list: Array<book>, domElement);
+    // render(list: Array<book>, domElement);
     renderItem(domElement: any);
     //filterByCategory();
     //filterByPrice();
@@ -46,7 +47,7 @@ interface BookShop {
   
   const bookie: BookShop = {
     id: 0,
-    books: [{id: 1, category: "thriller",title: 'okay',price: 19.99, year:1998}],
+    books: [{id: 1, category: "thriller",title: 'okay',price: 19.99, img: 'https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg',year:1998}, {id: 1, category: "thriller",title: 'okay',price: 19.99, img: 'https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg',year:1998}, {id: 1, category: "thriller",title: 'okay',price: 19.99, img: 'https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg',year:1998}, {id: 1, category: "thriller",title: 'okay',price: 19.99, img: 'https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg',year:1998}, {id: 1, category: "thriller",title: 'okay',price: 19.99, img: 'https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg',year:1998}],
     addItem(ev:any) {
       let id = ev.target.elements.id.value;
   let category = ev.target.elements.category.value;
@@ -72,7 +73,7 @@ interface BookShop {
     },
     renderItem(domElement){
       let html = '';
-        html += `<div class="rootBooks">`;
+
         this.books.forEach(item => {
             html += `
             <div class="rootBooks__card">
@@ -97,7 +98,7 @@ interface BookShop {
                         </symbol>
                         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-icon-saved-items" />
                     </svg></button>
-                <img src="" alt="" class="rootBooks__card__img">
+                <img src='${item.img}' alt="" class="rootBooks__card__img">
                 <div class="rootBooks__card__title">${item.title}</div>
                 <div class="rootBooks__card__price">${item.price}</div>
             </div>`
@@ -127,7 +128,7 @@ interface BookShop {
       return;
     }
   }
-  
+  localBookie.renderItem(rootBooks)
   
   function handleAddItem(ev: any) {
     ev.preventDefault();
@@ -178,12 +179,12 @@ let descYear = (a, b) => {
   return b.price - a.price;
 }
   // create an option to choose and update for each book
-  function makeAnOption(shop: BookShop, root, sortFunc) {
-    root.innerHTML = '';
+  function makeAnOption(shop: BookShop, root:any, sortFunc) {
+    root = '';
     shop.books.sort(sortFunc);
   shop.books.forEach(
     (book) =>
-      (root.innerHTML += `<option value="${book.id}">${book.title}(${book.year})</option>`)
+      (root.textContent += `<option value="${book.id}">${book.title}(${book.year})</option>`)
   );
 }
 makeAnOption(localBookie, selectRoot, descPrice)

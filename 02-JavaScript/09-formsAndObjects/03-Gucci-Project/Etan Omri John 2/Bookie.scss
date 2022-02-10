@@ -384,9 +384,7 @@ footer {
   justify-content: space-between;
   grid-template-columns: repeat(2, 1fr);
   @media only screen and (min-width: 768px) {
-    .rootBooks{
-      grid-template-columns: 1fr,1fr,1fr,1fr;
-    }
+      grid-template-columns: repeat(4,1fr);
   }
   
 
