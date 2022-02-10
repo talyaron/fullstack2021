@@ -106,8 +106,8 @@ function handleShoeSize(ev) {
 function getData() {
     this.products = +localStorage.getItem("products");
     console.log(JSON.parse(localStorage.getItem("Adidas")));
-    var root = document.querySelector('picture');
+    var root = document.getElementById("root");
     Adidas.renderAll(root);
 }
 getData();
-console.log(this.products);
+console.log(this.product);

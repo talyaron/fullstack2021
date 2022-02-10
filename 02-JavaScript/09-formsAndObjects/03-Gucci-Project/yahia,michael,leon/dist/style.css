@@ -10,7 +10,7 @@
 }
 
 .main_navbar {
-  background-color: blanchedalmond;
+  background-color: #e7e4b6;
   display: flex;
   left: 0%;
   top: 0vh;
@@ -94,7 +94,8 @@
   align-items: center;
 }
 
-.card {
+.card1 {
+  font-family: monospace;
   color: black;
   width: 130px;
   height: 130px;
@@ -131,6 +132,13 @@
   width: 5%;
   height: 5%;
   flex: 1 0;
+}
+.middle_picture {
+  display: grid;
+}
+.middle_picture-item {
+  width: 40px;
+  height: 40px;
 }
 
 h2 {

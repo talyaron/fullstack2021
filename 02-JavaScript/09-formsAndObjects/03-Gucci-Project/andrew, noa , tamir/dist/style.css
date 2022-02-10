@@ -296,14 +296,19 @@ body {
 #root .card {
   display: grid;
   grid-template-columns: repeat(13, 1fr);
-  align-items: center;
+  align-items: right;
+  border: 1px solid black;
 }
 #root .card p {
-  border: 1px solid black;
   margin-inline: 20px;
 }
 #root .card img {
-  width: 75px;
+  width: 70px;
+  height: auto;
+}
+#root .card > * {
+  margin: 10px;
+  height: 40px;
 }
 
 .updateForm {

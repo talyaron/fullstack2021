@@ -14,11 +14,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Montserrat:wght@100;200&display=swap"
         rel="stylesheet">
 
-    <title>Women Gucci</title>
+        <link rel="icon" href="https://brandlogos.net/wp-content/uploads/2021/11/gucci-logo.png">
+
+    <title>Jewelry Gucci</title>
     <link rel="stylesheet" href="dist/style.css">
 </head>
 
-<body>
+<body onload="handleRenderByGender('womenJewlery')">
 
 
     <div class="container">
@@ -35,8 +37,8 @@
                         <div class="title__help">English</div>
                         <div class="title__help">Client Services</div>
                     </div>
-                    <div>
-                        <h1 style="font-size: 4em;">GUCCI</h1>
+                    <div class="container__navBar__title--gucci">
+                        <h1 >GUCCI</h1>
                     </div>
 
                     <div class="container__navBar__title__help">
@@ -230,27 +232,28 @@
 
         <div class="catergory__buttons">
             <div class="catergory__name">
-                <h3><span>READY-TO-WEAR FOR WOMEN</span> | Clothes for Women</h3>
+                <h3><span> JEWELRY </span> | Fashion Jewelry</h3>
             </div>
 
 
             <div class="catergory__buttons--lowerThanPrice">
                 <label>Show price lower than</label>
-                <input class="inputLowerThan" type='number' onkeyup="handleFilterByPrice(event)" placeholder="number">
+                <input class="inputLowerThan" type='number' onkeyup="handleFilterByPrice(event)" placeholder="number" data-gender="womenJewlery">
             </div>
 
 
-            <select class="catergory__buttons--selector" onchange='handleSelect(event)'>
+            <select class="catergory__buttons--selector" onchange='handleSelect(event)' data-gender="womenJewlery">
                 <option value="" disabled selected>Category</option>
                 <option value="all">ALL</option>
-                <option value="dresses">DRESSES</option>
-                <option value="pants">PANTS</option>
-                <option value="shirts">SHIRT</option>
+                <option value="rings">RINGS</option>
+                <option value="necklaces">NECKLACES</option>
+                <option value="earrings">EARRINGS</option>
+                
             </select>
 
             <div class="catergory__buttons--sortPrice">
-                <button type="button" id="ascending" onclick="handlePriceAsc(event)">Price-Low to High</button>
-                <button type="button" id="descending" onclick="handlePriceDesc(event)">Price-High to Low
+                <button type="button" id="ascending" onclick="handlePriceAsc(event)" data-gender="womenJewlery">Price-Low to High</button>
+                <button type="button" id="descending" onclick="handlePriceDesc(event)" data-gender="womenJewlery">Price-High to Low
                 </button>
             </div>
 
@@ -323,7 +326,7 @@
 
 
         </div>
-        <p style="background: rgb(26, 25, 25); font-size: small; padding: 2em; margin-top: 0;">© 2016 - 2020 Guccio
+        <p style="background: rgb(26, 25, 25); font-size: small; padding: 2em; margin-top: 0;color:white">© 2016 - 2020 Guccio
             Gucci S.p.A. - All rights reserved. SIAE LICENCE # 2294/I/1936 and 5647/I/1936</p>
 
 
