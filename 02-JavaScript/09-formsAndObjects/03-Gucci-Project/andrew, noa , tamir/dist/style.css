@@ -277,6 +277,22 @@ body {
   pointer-events: all;
 }
 
+#footer {
+  width: 100vw;
+  height: 50px;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  background-color: var(--main-color-purple3);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+#footer a {
+  color: white;
+  text-decoration: none;
+}
+
 #root .card {
   display: grid;
   grid-template-columns: repeat(13, 1fr);
@@ -306,13 +322,4 @@ body {
 
 .visableForm {
   transform: translateY(0px);
-}
-
-#footer {
-  width: 100vw;
-  height: 100px;
-  position: fixed;
-  bottom: 0px;
-  left: 0px;
-  background-color: var(--main-color-purple3);
 }

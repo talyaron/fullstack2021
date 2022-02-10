@@ -21,6 +21,15 @@ var aviator = {
         document.querySelector('.header__cart-notification').innerHTML = "" + this.cartItems.length;
     },
     additem: function (newItem) {
+        this.cartItems.forEach(function (item) {
+            if (item.quantity = 1)
+                ;
+            if (item.id == newItem.id) {
+                item.quantity += 1;
+                console.log(item.quantity);
+                return;
+            }
+        });
         this.cartItems.push(newItem);
     },
     sortitemup: function () {
@@ -55,6 +64,15 @@ var aviator = {
         ;
         aviator.itemsToRender = filteredItems;
         this.renderitem(document.getElementById('main'));
+    },
+    checkOccurrences: function () {
+        var count = [];
+        for (var i = 0; i < this.cartItems.length; i++) {
+            for (var j = 0; j < this.cartItems.length; j++)
+                if (count[i].id != this.cartItems.item.id) {
+                    count.push({ id: this.cartItems.item.id, quantity: 1 });
+                }
+        }
     }
 };
 function handleaddcart(ev, itemToAddId) {

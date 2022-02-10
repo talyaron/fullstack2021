@@ -1,23 +1,12 @@
-* {
-  box-sizing: border-box;
-  font-family: "Arimo", sans-serif;
-}
-
 .main {
-  height: 1000px;
+  max-width: 300px;
+  height: 700px;
   margin: auto;
-  background-image: linear-gradient(90deg, #464a4b, rgba(160, 167, 166, 0)), repeating-linear-gradient(-45deg, #1b4677, #1b7557 1.5px, #456bb3 2px, #422dbd 4px);
-}
-.main-header {
-  text-decoration: underline;
-  font-size: 20vh;
-  color: sienna;
-  text-align: center;
-  font-family: sans-serif;
-  font-family: "Arimo", sans-serif;
+  background-image: linear-gradient(90deg, #464a4b, rgba(160, 167, 166, 0)), repeating-linear-gradient(-45deg, #57779b, #1b7557 1.5px, #456bb3 2px, #422dbd 4px);
 }
 .main_form {
-  height: 700px;
+  height: 300px;
+  max-width: 300px;
   display: grid;
   grid-template-columns: repeat(3, 33%);
   grid-template-rows: repeat(10, 1fr);
@@ -32,27 +21,25 @@
 .main_form_btns-Btn {
   box-shadow: rgba(38, 168, 21, 0.55) 0px 30px 60px -12px inset, #775521 0px 18px 36px -30px inset;
   grid-column: 2/3;
-  color: brown;
   width: 45%;
   border-radius: 40px;
   font-weight: 1000;
-  font-size: 7vh;
-  cursor: pointer;
+  font-size: 15px;
 }
 .main_form-selectCatagory {
+  font-size: 15px;
   font-weight: bold;
-  box-shadow: rgba(153, 135, 102, 0.85) 0px 30px 60px -12px inset, rgba(77, 76, 74, 0.5) 0px 18px 36px -30px inset;
-  height: 10vh;
+  box-shadow: rgba(102, 122, 153, 0.85) 0px 30px 60px -12px inset, rgba(77, 76, 74, 0.5) 0px 18px 36px -30px inset;
+  height: 4vh;
   text-align: center;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   width: 100%;
-  background: burlywood;
+  background: #085f37;
+  color: #f1eaea;
   grid-column: 1/4;
   font-weight: bold;
-  cursor: pointer;
-  font-size: 7vh;
 }
 .main_form-selectCatagory-options {
   font-size: 15px;
@@ -73,9 +60,7 @@
 }
 .main_form-actions-btn {
   width: 33%;
-  box-shadow: rgba(218, 88, 88, 0.75) 0px 30px 60px -12px inset, rgba(183, 96, 199, 0.8) 0px 18px 36px -10px inset;
-  font-size: 5vh;
-  cursor: pointer;
+  box-shadow: rgba(68, 66, 68, 0.75) 0px 30px 60px -12px inset, rgba(183, 96, 199, 0.8) 0px 18px 36px -10px inset;
 }
 .main_form-displayOptions {
   grid-row: 5/9;
@@ -94,8 +79,7 @@
 .main_form-filter-btn {
   width: 40%;
   height: 33%;
-  box-shadow: rgba(68, 67, 66, 0.75) 0px 30px 60px -12px inset, rgba(24, 102, 107, 0.8) 0px 18px 36px -10px inset;
-  font-size: 5vh;
+  box-shadow: rgba(68, 66, 68, 0.75) 0px 30px 60px -12px inset, rgba(24, 102, 107, 0.8) 0px 18px 36px -10px inset;
 }
 .main_form-filterInputs {
   box-shadow: rgba(6, 61, 97, 0.85) 0px 30px 60px -12px inset, rgba(16, 63, 85, 0.5) 0px 18px 36px -30px inset;
@@ -128,16 +112,15 @@
 .main_scrollmenu-box {
   height: 100%;
   width: 100%;
-  border-bottom: 10px solid(0, 0, 0);
   display: flex;
   flex-direction: row;
   column-gap: 3px;
-  overflow-x: auto;
+  overflow: auto;
   white-space: nowrap;
 }
 .main_scrollmenu-box-card {
   height: 100%;
-  background-color: #0f0808;
+  background-color: #0f0e0e;
   width: 50%;
   row-gap: 5px;
   text-align: center;
@@ -159,14 +142,11 @@
   margin-top: 10px;
   font-size: 12px;
   color: white;
-  font-size: 3vh;
 }
 .main_add {
   height: 33%;
   background-color: #523b55;
   color: white;
-  font-size: 4vh;
-  text-align: center;
 }
 .main_add::placeholder {
   color: snow;
@@ -179,7 +159,7 @@
 
 .container {
   max-width: 740px;
-  height: 900px;
+  height: 1800px;
   margin: auto;
   background: linear-gradient(#9df19d, transparent), linear-gradient(90deg, skyblue, transparent), linear-gradient(-90deg, coral, transparent);
   background-blend-mode: screen;
@@ -236,13 +216,13 @@
 .container_header-dropDown {
   grid-column: 7/13;
   grid-row: 2;
-  border: 3px solid red;
   height: 20vh;
   display: grid;
   grid-template-columns: repeat(4, 25%);
 }
 .container_header-dropDown-box {
-  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
 }
 .container_header-dropDown-box-item {
   width: 100%;
@@ -252,8 +232,41 @@
 }
 .container_header-dropDown-box-signInInput {
   box-shadow: rgba(97, 88, 6, 0.85) 0px 30px 60px -12px inset, rgba(85, 216, 96, 0.5) 0px 18px 36px -30px inset;
-  height: 20%;
-  width: 100%;
+  border-radius: 5px;
+  height: 15%;
+  width: 95%;
+}
+.container_header-dropDown-box-signInInput::placeholder {
+  color: black;
+  font-weight: 400;
+  font-size: 14px;
+}
+.container_header-dropDown-box-signInInput-btn {
+  color: #34333b;
+  background-color: #a85bbb;
+  box-shadow: none;
+  width: 95%;
+  border-radius: 5px;
+}
+.container_header-dropDown .notifications {
+  grid-column: 1/2;
+  width: 150%;
+  border-radius: 15px;
+  opacity: 0.7;
+}
+.container_header-dropDown .signIn {
+  grid-column: 2/3;
+  row-gap: 5px;
+}
+.container_header-dropDown .yourOrders {
+  grid-column: 3/4;
+}
+.container_header-dropDown .shoppingCart {
+  grid-column: 4/5;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  white-space: nowrap;
 }
 .container-imgsBox {
   background-image: url(https://s18670.pcdn.co/wp-content/uploads/Top-20-Teacher-T-Shirts-on-Etsy.png);
@@ -285,7 +298,7 @@
 }
 .container_catagories-display {
   width: 100%;
-  height: 25%;
+  height: 20%;
   margin-top: 5px;
   border: 1px solid #c5bbbb;
   display: flex;
@@ -302,6 +315,10 @@
   width: 100%;
   display: grid;
   grid-template-columns: repeat(2, 50%);
+}
+.container_catagories-display-card-btn {
+  width: 50%;
+  box-shadow: rgba(92, 92, 184, 0.25) 0px 30px 60px -12px inset, rgba(49, 141, 46, 0.8) 0px 18px 36px -18px inset;
 }
 .container_catagories-display-card-details {
   height: 100%;
@@ -376,7 +393,52 @@
   margin: auto;
 }
 .container-select-options {
-  font-size: 10px;
+  font-size: 12px;
   display: inline-block;
   font-family: "Times New Roman", Times, serif;
+}
+.container-shoppingCart {
+  width: 100%;
+  height: 30vh;
+}
+.container-shoppingCart_display {
+  height: 100%;
+  border: 3px solid black;
+  width: 50%;
+  display: none;
+  flex-direction: column;
+  overflow-y: scroll;
+  white-space: nowrap;
+}
+.container-shoppingCart_display-item {
+  height: 35%;
+  border-bottom: 1px solid black;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+}
+.container-shoppingCart_display-item-header {
+  font-size: 12px;
+  text-align: center;
+  grid-column: 1/11;
+  grid-row: 1/3;
+}
+.container-shoppingCart_display-item-size {
+  font-size: 10px;
+  grid-column: 1/4;
+  grid-row: 2/5;
+  font-weight: 1000;
+}
+.container-shoppingCart_display-item-price {
+  font-size: 10px;
+  font-weight: 1000;
+  grid-column: 1/4;
+  grid-row: 6/8;
+}
+.container-shoppingCart_display-item-deleteBtn {
+  grid-column: 8/10;
+  grid-row: 4/7;
+  border-radius: 15px;
+  background-color: lightgoldenrodyellow;
+  color: blue;
 }

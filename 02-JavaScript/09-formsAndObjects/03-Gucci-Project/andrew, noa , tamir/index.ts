@@ -12,6 +12,7 @@ interface aviator {
     getdata()
     deleteItem(id: string)
     filterItems(category: string)
+    checkOccurrences(Array)
 }
 interface newItem {
     name: string
@@ -55,6 +56,7 @@ let aviator: aviator = {
     },
 
     renderitemcart(domElement) {
+
         let html2 = '';
 
         this.cartItems.forEach(item => {
@@ -75,6 +77,16 @@ let aviator: aviator = {
     },
 
     additem(newItem) {
+        this.cartItems.forEach(item => {
+            if
+            item.quantity = 1;
+            if(item.id == newItem.id){
+                item.quantity += 1;
+                console.log(item.quantity);
+                
+                return 
+            }
+        });
         this.cartItems.push(newItem)
     },
     sortitemup() {
@@ -103,6 +115,15 @@ let aviator: aviator = {
         };
         aviator.itemsToRender = filteredItems;
         this.renderitem(document.getElementById('main'));
+    },
+    checkOccurrences(){
+        let count = [];
+        for (let i = 0; i < this.cartItems.length; i++){
+            for(let j = 0; j < this.cartItems.length; j++)
+            if(count[i].id != this.cartItems.item.id){
+                count.push({id: this.cartItems.item.id, quantity: 1}) 
+            }
+        }
     }
 }
 
