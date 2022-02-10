@@ -248,6 +248,7 @@ var StandartEbooks = {
     renderAllBooks: function (domElement) {
         var list = this.books;
         this.render(list, domElement);
+        this.renderStore(list, domElement);
     }
 };
 function handleAddBook(e) {

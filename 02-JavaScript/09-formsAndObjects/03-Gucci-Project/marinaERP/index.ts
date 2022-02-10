@@ -367,6 +367,7 @@ const StandartEbooks = {
   renderAllBooks(domElement) {
     const list = this.books;
     this.render(list, domElement);
+    this.renderStore(list, domElement);
   },
 };
 
