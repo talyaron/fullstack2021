@@ -96,7 +96,8 @@ let clothsList: cloths = {
             <p class="main_scrollmenu-box-card-para"> Size : ${element.size}</p>
            <p class="main_scrollmenu-box-card-para"> Price : ${element.price} </p>
            <button class="main_scrollmenu-box-card-btn" onclick="deleteCard('${element.id}')">Delete Item</button>
-           </div> `
+           <button class="main_scrollmenu-box-card-btn" onclick="update('${element.id}')">update item</button>
+           </div>`
         });
         display.innerHTML = html;
     },
