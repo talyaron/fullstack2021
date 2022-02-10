@@ -66,8 +66,8 @@ body {
     background-color: var(--genergal-text-color);
     width: 2em;
     left: 95%;
-    bottom: 50%;
-    z-index: 1;
+    bottom: 70%;
+    z-index: 2;
   }
   .backToTop::after {
     content: "";
@@ -127,6 +127,7 @@ footer {
     display: block;
     background-color: black;
     border: black solid;
+    outline-style: ridge;
   }
   footer [data-2] {
     padding: 0 0 0 1em;
