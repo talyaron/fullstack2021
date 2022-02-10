@@ -50,18 +50,25 @@ body {
   flex-direction: column;
   flex-grow: 2;
 }
-.wrapper .table {
+.wrapper .sorts {
   display: flex;
   flex-direction: column;
   width: 50%;
   padding: 1rem;
   font-size: 0.5em;
 }
-.wrapper .table table {
-  width: 80%;
-}
 
 img {
   width: auto;
   height: 15vh;
+}
+
+table {
+  text-align: center;
+  border: 2px solid #c8c8c8;
+}
+table td,
+table th {
+  border: 1px solid #bebebe;
+  padding: 10px;
 }

@@ -3,14 +3,18 @@ const addingForm = document.querySelector("[data-addingItemForm]");
 const bookTitle = document.querySelector("[data-bookTitle]");
 const imagePreview = document.querySelector("[data-bookImage-preview]");
 const rootBooks = document.querySelector("[data-rootBooks]");
-let backToTop = document.querySelector("[data-back-to-top]");
+const backToTop = document.querySelector("[data-back-to-top]");
+const ownerTable = document.querySelector("[data-toggle-existing]")
 
+// make sure your function is called at the right page!!!
+// if (window.document.title === 'Bookie')
 
 function handleTop(ev) {
   ev.preventDefault();
   document.documentElement.scrollTop = 0;
 }
 function hideTopBtn(){
+  if (window.document.title === 'Bookie'){
   let rootElement = document.documentElement;
   let topTotal = rootElement.scrollHeight - rootElement.clientHeight;
   if ((rootElement.scrollTop / topTotal) > 0.80) {
@@ -18,6 +22,7 @@ function hideTopBtn(){
   } else {
     backToTop.classList.add("hidden");
   }
+}
 }
 document.addEventListener("scroll", hideTopBtn)
 interface BookShop {
@@ -47,7 +52,7 @@ interface BookShop {
   
   const bookie: BookShop = {
     id: 0,
-    books: [{id: 1, category: "thriller",title: 'okay',price: 19.99, img: 'https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg',year:1998}, {id: 1, category: "thriller",title: 'okay',price: 19.99, img: 'https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg',year:1998}, {id: 1, category: "thriller",title: 'okay',price: 19.99, img: 'https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg',year:1998}, {id: 1, category: "thriller",title: 'okay',price: 19.99, img: 'https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg',year:1998}, {id: 1, category: "thriller",title: 'okay',price: 19.99, img: 'https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg',year:1998}],
+    books: [{id: 1, category: "thriller",title: 'bye',price: 19.99, img: 'https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg',year:1998}, {id: 2, category: "thriller",title: 'hi',price: 19.99, img: 'https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg',year:1998}, {id: 3, category: "thriller",title: 'shy',price: 19.99, img: 'https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg',year:1998}, {id: 4, category: "thriller",title: 'okay',price: 19.99, img: 'https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg',year:1998}, {id: 5, category: "thriller",title: 'okay',price: 19.99, img: 'https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg',year:1998}],
     addItem(ev:any) {
       let id = ev.target.elements.id.value;
   let category = ev.target.elements.category.value;
@@ -107,7 +112,7 @@ interface BookShop {
         domElement.innerHTML = html
     }
   };
-  let localBookie = bookie
+
   
   
   
@@ -129,15 +134,15 @@ interface BookShop {
       return;
     }
   }
-  localBookie.renderItem(rootBooks)
+  bookie.renderItem(rootBooks)
   
   function handleAddItem(ev: any) {
     ev.preventDefault();
     console.dir(bookie);
-    localBookie.addItem(ev)
-    localStorage.setItem("Bookie shop", JSON.stringify(localBookie))
+    bookie.addItem(ev)
+    localStorage.setItem("Bookie shop", JSON.stringify(bookie))
     ev.target.reset();
-    console.log(localBookie);
+    console.log(bookie);
 
     // localBookie.makeOptions(ev)
     // how to use localStorage:
@@ -155,18 +160,22 @@ interface BookShop {
     imagePreview.innerHTML = preview;
   }
   
-  function handleUpdate(ev: any) {
-    ev.preventDefault();
-    console.dir(ev.target);
-  }
   
   
   
   
-  localStorage.setItem("Bookie shop", JSON.stringify(localBookie))
-  const stringBookie = localStorage.getItem("Bookie shop")
-let parsedBookie = JSON.parse(stringBookie)
+  
+  localStorage.setItem("Bookie shop", JSON.stringify(bookie))
+let parsedBookie = JSON.parse(localStorage.getItem("Bookie shop"))
 console.log(parsedBookie)
+for (let i in parsedBookie.books) {
+  ownerTable.innerHTML += `<tr>
+  <td> ${parsedBookie.books[i].title}  </td>
+  <td> ${parsedBookie.books[i].year} </td>
+  <td> ${parsedBookie.books[i].price}</td>
+  <td> ${parsedBookie.books[i].updateThis()}
+  </tr>`;
+}
 let ascPrice =(a:book,b:book)=>{
   return a.price - b.price
 }
@@ -177,23 +186,13 @@ let ascYear =(a:book,b:book)=>{
   return a.year - b.year
 }
 let descYear = (a, b) => {
-  return b.price - a.price;
+  return b.year - a.year;
 }
-  // create an option to choose and update for each book
-  function makeAnOption(shop: BookShop, root:any, sortFunc) {
 
-    shop.books.sort(sortFunc);
-  shop.books.forEach(
-    (book) =>
-      (root.innerHTML += `<option value="${book.id}">${book.title}(${book.year})</option>`)
-  );
-}
-localBookie = bookie;
-makeAnOption(localBookie, selectRoot, descPrice)
-console.log(parsedBookie)
-console.log(localBookie)
+
 
 window.onload = function () {
+  if (window.document.title === 'Bookie'){
 	window.addEventListener('scroll', function (e) {
 		if (window.pageYOffset > 100) {
 			document.querySelector("header").classList.add('is-scrolling');
@@ -209,4 +208,5 @@ window.onload = function () {
 		menu_btn.classList.toggle('is-active');
 		mobile_menu.classList.toggle('is-active');
 	});
+  }
 }

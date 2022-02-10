@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>myBookie</title>
     <link rel="stylesheet" href="./dist/myBookie.css">
     <script src="https://kit.fontawesome.com/01fab75280.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,24 +37,25 @@
                 </div>
                 <input type="submit" value="add">
             </form>
-            <div class="table">
-                <table>
-                    <label for="ownerSort">sort things out for your comfort</label>
-                    <select name="ownerSort" id="ownerSort">
-                        <option disabled selected value="None">Choose</option>
-                        <option value="Asc">Ascending</option>
-                        <option value="Desc">Descending</option>
-                    </select>
-                    <label for="customerSort">sort how others would see your shop</label>
-                    <select name="customerSort" id="customerSort">
-                        <option disabled selected value="None">Choose</option>
-                        <option value="Asc">Ascending</option>
-                        <option value="Desc">Descending</option>
-                    </select>
-                    <lable for="updateBookByID">type the id of the book you would like to update:</lable>
-                    <select onchange="handleUpdate(event)" data-update-book-by-id name="updateBookByID" id="updateBookByID">
-                    </select>
-
+            <div class="sorts">
+                <label for="ownerSort">sort things out for your comfort</label>
+                <select onchage="handleOwnerSort(event)" name="ownerSort" id="ownerSort">
+                    <option disabled selected value="None">Choose</option>
+                    <option value="Asc">Ascending</option>
+                    <option value="Desc">Descending</option>
+                </select>
+                <label for="customerSort">sort how others would see your shop</label>
+                <select onchage="handleCustomerSort(event)" name="customerSort" id="customerSort">
+                    <option disabled selected value="None">Choose</option>
+                    <option value="Asc">Ascending</option>
+                    <option value="Desc">Descending</option>
+                </select>
+                <table data-toggle-existing>
+                    <tr>
+                        <th>Title</th>
+                        <th>Year written</th>
+                        <th>price</th>
+                    </tr>
                 </table>
             </div>
         </div>
