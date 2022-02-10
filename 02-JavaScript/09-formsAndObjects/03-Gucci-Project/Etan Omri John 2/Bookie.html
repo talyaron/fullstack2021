@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Bookie</title>
     <script src="https://kit.fontawesome.com/01fab75280.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./dist/Bookie.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,74 +16,75 @@
 
 <body>
     <!--Omri-->
-    <div class="wrapper">
-        <header>
-            <nav class="navBar">
-                <div class="navBar__menu">
-                    <svg class="navBar__menu-icon" data-menu-btn viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet"
-                        focusable="false" class="menu-icon">
-                        <g>
-                            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
-                        </g>
-                    </svg><span> Menu</span>
+    <header>
+        <div class="navBar">
+            <div class="navBar__row1">
+                <div class="navBar__row1__mobile">
+                    <h4>MENU</h4>
+                    <div class="navBar__row1__mobile__humburger">
+                        <div class="navBar__row1__mobile__humburger--bar"></div>
+                    </div>
                 </div>
-                <ul class="navBar__menu-selection">
-                    <li>Books</li>
-                    <li>Hebrew books</li>
-                    <li>Games</li>
-                    <li>Toys</li>
-                    <li>Lifestyle</li>
-                    <li>Health</li>
-                    <li>Camping</li>
-                    <li>Electric</li>
-                    <li>Beauty and Perfume</li>
-                    <li>Home</li>
-                    <li>Gift card</li>
-                    <li>Sale</li>
-                </ul>
-                <span class="navBar__logo">Bookie</span>
-                <ul class="navBar__icons">
-                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 14">
-                            <symbol viewBox="0 0 15 14" id="svg-icon-shopping-bag">
-                                <title>shopping-bag</title>
-                                <g fill="currentColor">
-                                    <path
-                                        d="M13,4.2h-2.4l0-2c0-1.1-1.3-2-3-2s-3,0.8-3,2l0,2H1.9c-1,0-1.6,0.5-1.6,1.2l0.5,7.8h13.4l0.6-7.7&#10;&#9;&#9;&#9;C14.8,4.7,14,4.2,13,4.2z M6.1,2.2c0.1-0.1,0.6-0.5,1.5-0.5c0.9,0,1.4,0.3,1.5,0.5l0,2h-3L6.1,2.2z M12.8,11.7H2.2L1.8,5.8&#10;&#9;&#9;&#9;c0,0,0.1,0,0.1,0H13c0.1,0,0.2,0,0.2,0L12.8,11.7z" />
-                                </g>
-                            </symbol>
-                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-icon-shopping-bag" />
-                        </svg></li>
-                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 20">
-                            <symbol viewBox="0 0 14 20" id="svg-icon-location">
-                                <title>location</title>
-                                <g fill="currentColor">
-                                    <path
-                                        d="M7,10.8c-1.7,0-3-1.4-3-3.2c0-1.8,1.3-3.2,3-3.2c1.7,0,3,1.4,3,3.2C10,9.4,8.7,10.8,7,10.8 M14,7.6&#10;&#9;&#9;&#9;C14,3.4,10.9,0,7,0S0,3.4,0,7.6c0,2.1,0.8,4,2.1,5.4l0,0l5,7l5-7l0,0C13.2,11.6,14,9.7,14,7.6" />
-                                </g>
-                            </symbol>
-                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-icon-location" />
-                        </svg></li>
-                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
-                            <symbol viewBox="0 0 16 16" id="svg-icon-search">
-                                <title>search</title>
-                                <g fill="currentColor">
-                                    <path
-                                        d="M6.3,11C4,11,2.1,9,2.1,6.6c0-2.4,1.9-4.4,4.2-4.4c2.3,0,4.2,2,4.2,4.4C10.6,9,8.7,11,6.3,11 M11.8,10&#10;&#9;&#9;&#9;c0.6-1,0.9-2.2,0.9-3.4C12.7,2.9,9.9,0,6.3,0C2.8,0,0,2.9,0,6.6c0,3.6,2.8,6.6,6.3,6.6c1.4,0,2.8-0.5,3.8-1.3l4.1,4.2l1.8-1.6&#10;&#9;&#9;&#9;L11.8,10z" />
-                                </g>
-                            </symbol>
-                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-icon-search" />
-                        </svg></li>
-                </ul>
-            </nav>
-            <div class="banner">
-                Books for him
+            
+                <div class="navBar__row1__Logo">
+                    <h1><span>BOOKIE</span></h1>
+                </div>
+
+                <div class="navBar__row1__icons">
+                    <h5>Sign In</h5>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 13.5"><symbol viewBox="0 0 15 13.5" id="svg-icon-saved-items"><title>saved-items</title> <g fill="currentColor"> <path d="M12.5,5.3l-5,5.2l-5-5.3c0,0-0.8-0.9-0.8-1.5c0-1,0.8-1.8,1.7-1.8c0.6,0,1.1,0.3,1.4,0.9l2.6,2.7l2.7-2.8l0,0&#10;&#9;&#9;&#9;c0.3-0.5,0.8-0.9,1.5-0.9c0.9,0,1.7,0.8,1.7,1.8C13.4,4.4,12.5,5.3,12.5,5.3 M11.5,0c-1.1,0-2.1,0.6-2.7,1.5L7.5,2.8L6.2,1.5&#10;&#9;&#9;&#9;C5.6,0.6,4.6,0,3.5,0C1.5,0,0,1.7,0,3.8c0,1.2,0.5,2.3,1.4,3l1.3,1.4l4.9,5.3l0,0l0,0l4.9-5.3l1.2-1.4C14.5,6.1,15,5,15,3.8&#10;&#9;&#9;&#9;C15,1.7,13.5,0,11.5,0"/> </g> </symbol><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-icon-saved-items"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 14"><symbol viewBox="0 0 15 14" id="svg-icon-shopping-bag"><title>shopping-bag</title> <g fill="currentColor"> <path d="M13,4.2h-2.4l0-2c0-1.1-1.3-2-3-2s-3,0.8-3,2l0,2H1.9c-1,0-1.6,0.5-1.6,1.2l0.5,7.8h13.4l0.6-7.7&#10;&#9;&#9;&#9;C14.8,4.7,14,4.2,13,4.2z M6.1,2.2c0.1-0.1,0.6-0.5,1.5-0.5c0.9,0,1.4,0.3,1.5,0.5l0,2h-3L6.1,2.2z M12.8,11.7H2.2L1.8,5.8&#10;&#9;&#9;&#9;c0,0,0.1,0,0.1,0H13c0.1,0,0.2,0,0.2,0L12.8,11.7z"/> </g> </symbol><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-icon-shopping-bag"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33 33"><symbol viewBox="0 0 33 33" id="svg-icon-search-circle"><title>search-circle</title> <g id="search-circle-search" fill="currentColor"> <path d="M14.90625,19.2484472 C12.75,19.2484472 10.96875,17.3850932 10.96875,15.1490683 C10.96875,12.9130435 12.75,11.0496894 14.90625,11.0496894 C17.0625,11.0496894 18.84375,12.9130435 18.84375,15.1490683 C18.9375,17.3850932 17.15625,19.2484472 14.90625,19.2484472 Z M20.0625,18.3167702 C20.625,17.3850932 20.90625,16.2670807 20.90625,15.1490683 C20.90625,11.7018634 18.28125,9 14.90625,9 C11.625,9 9,11.7018634 9,15.1490683 C9,18.5031056 11.625,21.2981366 14.90625,21.2981366 C16.21875,21.2981366 17.53125,20.8322981 18.46875,20.0869565 L22.3125,24 L24,22.5093168 L20.0625,18.3167702 Z" id="search-circle-search1"/> <path d="M16.5,0 C7.38644476,0 0,7.38644476 0,16.5 C0,25.6135552 7.38644476,33 16.5,33 C25.6135552,33 33,25.6121856 33,16.5 C33,7.38781439 25.6121856,0 16.5,0 Z M16.5,30.4223458 C8.81086578,30.4223458 2.57765419,24.1905039 2.57765419,16.5 C2.57765419,8.80949614 8.80949614,2.57765419 16.5,2.57765419 C24.1905039,2.57765419 30.4223458,8.80949614 30.4223458,16.5 C30.4223458,24.1905039 24.1891342,30.4223458 16.5,30.4223458 Z" id="search-circle-search2"/> </g> </symbol><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-icon-search-circle"/></svg>
+                </div>
             </div>
-            <div class="filters">
-                <div class="filters__category">Category</div>
-                <div class="filters__filterInput">Filter by budget</div>
-                <div class="filters__sort">Sort by:</div>
+
+        </div>
+            <div class="navBar__options">
+                <a href="#">Books</a>
+                <a href="#">Hebrew books</a>
+                <a href="#">Games</a>
+                <a href="#">Toys</a>
+                <a href="#">Lifestyle</a>
+                <a href="#">Health</a>
+                <a href="#">Camping</a>
+                <a href="#">Electric</a>
+                <a href="#">Beauty and Perfume</a>
+                <a href="#">Gift card</a>
+                <a href="#">Sale</a>
+                <a href="#">Home</a>
             </div>
-        </header>
+        </div>
+    </header>
+    <div class="mobileOptions">
+        <p>Books</p>
+        <p>Hebrew books</p>
+        <p>Games</p>
+        <p>Toys</p>
+        <p>Lifestyle</p>
+        <p>Health</p>
+        <p>Camping</p>
+        <p>Electric</p>
+        <p>Beauty and Perfume</p>
+        <p>Gift card</p>
+        <p>Sale</p>
+        <p>Home</p>
+    </div>
+    <div class="banner">
+        <img src="https://cdn.theculturetrip.com/wp-content/uploads/2016/08/books-768426_960_720-650x433.jpg"" alt="">
+    </div>
+    <div class="filters">
+        <div class="filters__input">
+            <input type="text" name="name" id="name" placeholder="Amount"/>
+        </div>
+
+        <div class="filters__category">Category
+            <svg id="ot-back-arw" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 444.531 444.531" xml:space="preserve"><title>Back Button</title><g><path fill="#656565" d="M213.13,222.409L351.88,83.653c7.05-7.043,10.567-15.657,10.567-25.841c0-10.183-3.518-18.793-10.567-25.835&#10;                    l-21.409-21.416C323.432,3.521,314.817,0,304.637,0s-18.791,3.521-25.841,10.561L92.649,196.425&#10;                    c-7.044,7.043-10.566,15.656-10.566,25.841s3.521,18.791,10.566,25.837l186.146,185.864c7.05,7.043,15.66,10.564,25.841,10.564&#10;                    s18.795-3.521,25.834-10.564l21.409-21.412c7.05-7.039,10.567-15.604,10.567-25.697c0-10.085-3.518-18.746-10.567-25.978&#10;L213.13,222.409z"/></g></svg>
+        </div>
+
+        <div class="filters__sort">Sort by
+            <svg id="ot-back-arw" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 444.531 444.531" xml:space="preserve"><title>Back Button</title><g><path fill="#656565" d="M213.13,222.409L351.88,83.653c7.05-7.043,10.567-15.657,10.567-25.841c0-10.183-3.518-18.793-10.567-25.835&#10;                    l-21.409-21.416C323.432,3.521,314.817,0,304.637,0s-18.791,3.521-25.841,10.561L92.649,196.425&#10;                    c-7.044,7.043-10.566,15.656-10.566,25.841s3.521,18.791,10.566,25.837l186.146,185.864c7.05,7.043,15.66,10.564,25.841,10.564&#10;                    s18.795-3.521,25.834-10.564l21.409-21.412c7.05-7.039,10.567-15.604,10.567-25.697c0-10.085-3.518-18.746-10.567-25.978&#10;L213.13,222.409z"/></g></svg>
+        </div>
+    </div>  
         <!--Omri-->
         <!--John-->
         <div class="rootBooks" data-rootBooks>
@@ -109,7 +110,7 @@
                         </symbol>
                         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-icon-saved-items" />
                     </svg></button>
-                <img src="" alt="" class="rootBooks__card__img">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuaVjRvjIZAO6XIsd0eHS22Q949ke7r-KZFg&usqp=CAU" alt="" class="rootBooks__card__img">
                 <div class="rootBooks__card__title">title</div>
                 <div class="rootBooks__card__price">30$</div>
             </div>
@@ -135,7 +136,7 @@
                         </symbol>
                         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-icon-saved-items" />
                     </svg></button>
-                <img src="" alt="" class="rootBooks__card__img">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuaVjRvjIZAO6XIsd0eHS22Q949ke7r-KZFg&usqp=CAU" alt="" class="rootBooks__card__img">
                 <div class="rootBooks__card__title">title</div>
                 <div class="rootBooks__card__price">30$</div>
             </div>
@@ -161,7 +162,7 @@
                         </symbol>
                         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-icon-saved-items" />
                     </svg></button>
-                <img src="" alt="" class="rootBooks__card__img">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuaVjRvjIZAO6XIsd0eHS22Q949ke7r-KZFg&usqp=CAU" alt="" class="rootBooks__card__img">
                 <div class="rootBooks__card__title">title</div>
                 <div class="rootBooks__card__price">30$</div>
             </div>
@@ -187,7 +188,7 @@
                         </symbol>
                         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-icon-saved-items" />
                     </svg></button>
-                <img src="" alt="" class="rootBooks__card__img">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuaVjRvjIZAO6XIsd0eHS22Q949ke7r-KZFg&usqp=CAU" alt="" class="rootBooks__card__img">
                 <div class="rootBooks__card__title">title</div>
                 <div class="rootBooks__card__price">30$</div>
             </div>
@@ -445,7 +446,6 @@
             </p>
             <div data-3></div>
         </footer>
-    </div>
     <!--Etan-->
 </body>
 <script src="./dist/Bookie.js"></script>

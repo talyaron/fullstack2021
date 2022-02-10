@@ -447,7 +447,7 @@ html {
   text-align: center;
   font-size: 15px;
 }
-.popmenu__box__opacity__navbar div {
+.popmenu__box__opacity__navbar .popCategory {
   height: 50%;
   display: flex;
   justify-content: center;
@@ -457,7 +457,11 @@ html {
   padding: 5px;
   border-bottom: 1px solid grey;
 }
-.popmenu__box__opacity__navbar div:hover {
+.popmenu__box__opacity__navbar .popCategory-active {
+  border-bottom: 1px solid #ed3524;
+  color: white;
+}
+.popmenu__box__opacity__navbar .popCategory:hover {
   cursor: pointer;
 }
 .popmenu__box__grid {

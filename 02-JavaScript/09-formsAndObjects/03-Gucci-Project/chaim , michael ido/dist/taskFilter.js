@@ -151,10 +151,10 @@ var clothsList = {
     getDataPants: function () {
         this.pants = JSON.parse(localStorage.getItem("pantsData"));
     },
-    renderCustomerPage: function (list, display, catagory, background) {
+    renderCustomerPage: function (list, display, catagory, imgCard) {
         var html = "";
         list.forEach(function (element) {
-            html += " \n                <div class=\"container_catagories-display-card\">\n                <div class=\"container_catagories-display-card-details\">\n                <h3 class=\"container_catagories-display-card-head\">" + element.brand + " " + catagory + "</h3>\n                <p class=\"container_catagories-display-card-para\"> Size : " + element.size + "</p>\n               <p class=\"container_catagories-display-card-para\"> Price : " + element.price + " </p>\n               <button class=\"container_catagories-display-card-btn\" name='" + catagory + "' onclick=\"addToCart(event ,'" + element.id + "')\">Add To Cart</button>\n               </div>\n               <div id=\"itemImg\" class=\"container_catagories-display-card-img\"></div>\n               </div>\n                ";
+            html += " \n                <div class=\"container_catagories-display-card\">\n                <div class=\"container_catagories-display-card-details\">\n                <h3 class=\"container_catagories-display-card-head\">" + element.brand + " " + catagory + "</h3>\n                <p class=\"container_catagories-display-card-para\"> Size : " + element.size + "</p>\n               <p class=\"container_catagories-display-card-para\"> Price : " + element.price + " </p>\n               <button class=\"container_catagories-display-card-btn\" name='" + catagory + "' onclick=\"addToCart(event ,'" + element.id + "')\">Add To Cart</button>\n               </div>\n               <div id=\"itemImg\" class=\"container_catagories-display-card-img\" style=\"background-image:url('" + imgCard + "')\"></div>\n               </div>\n                ";
         });
         display.innerHTML = html;
     }, SortCustomerPage: function (list, sortValue, display, catagory) {
