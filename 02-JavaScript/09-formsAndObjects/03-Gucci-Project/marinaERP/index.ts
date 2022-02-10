@@ -512,7 +512,7 @@ function handleFilterByAuthor(e) {
     const filterByAuthor = StandartEbooks.filterByAuthor(author);
     StandartEbooks.renderFilterByAuthor(filterByAuthor, rootStore);
   } else {
-    StandartEbooks.renderAllBooks(rootStoreStore);
+    StandartEbooks.renderAllBooks(rootStore);
   }
 }
 
@@ -522,9 +522,9 @@ function handleFilterByTitle(e) {
   const rootStore = document.querySelector("#rootStoreStore");
   if (title) {
     const filterByTitle = StandartEbooks.filterByTitle(title);
-    StandartEbooks.renderFilterByTitle(filterByTitle, rootStoreStore);
+    StandartEbooks.renderFilterByTitle(filterByTitle, rootStore);
   } else {
-    StandartEbooks.renderAllBooks(rootStoreStore);
+    StandartEbooks.renderAllBooks(rootStore);
   }
 }
 
