@@ -214,38 +214,48 @@ body {
 .category-wrapper__card__price {
   color: black;
 }
-.category-wrapper__card .USD::after {
+
+.USD::after {
   content: " $";
 }
-.category-wrapper__card .EUR::after {
+
+.EUR::after {
   content: " €";
 }
-.category-wrapper__card .GBP::after {
+
+.GBP::after {
   content: " £";
 }
 
-#cart {
+.cart {
+  height: fit-content;
   gap: 5px;
   width: 280px;
-  display: grid;
-  grid-template-columns: repeat(3, 50%);
   margin-top: 10px;
   text-align: center;
 }
-#cart .cart {
+.cart .cart__card {
   background-color: #d2d2d3;
   border-radius: 10px;
   position: relative;
   left: 7%;
   margin-bottom: 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 400px;
+  padding: 5px;
 }
-#cart .h2 {
+.cart .cart__card p {
+  color: black;
+}
+.cart .h2 {
   color: brown;
 }
-#cart img {
+.cart img {
   width: 100px;
 }
-#cart .add1 {
+.cart .add1 {
   display: none;
 }
 

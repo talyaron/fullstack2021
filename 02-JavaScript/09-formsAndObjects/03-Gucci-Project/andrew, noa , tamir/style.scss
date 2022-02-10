@@ -253,42 +253,48 @@ body {
             color: black;
         }
 
-        .USD {
-            &::after {
-                content: ' $';
-            }
-        }
+    }
+}
 
-        .EUR {
-            &::after {
-                content: ' €';
-            }
-        }
+.USD {
+    &::after {
+        content: ' $';
+    }
+}
 
-        .GBP {
-            &::after {
-                content: ' £';
-            }
-        }
+.EUR {
+    &::after {
+        content: ' €';
+    }
+}
+
+.GBP {
+    &::after {
+        content: ' £';
     }
 }
 
 
-
-#cart {
-
-    .cart {
+.cart {
+    height: fit-content;
+    .cart__card {
         background-color: rgb(210, 210, 211);
         border-radius: 10px;
         position: relative;
         left: 7%;
         margin-bottom: 5%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 400px;
+        padding: 5px;
+        p{
+            color: black;
+        }
     }
 
     gap: 5px;
     width: 280px;
-    display: grid;
-    grid-template-columns: repeat(3, 50%);
     margin-top: 10px;
     text-align: center;
 
