@@ -3,7 +3,8 @@ const addingForm = document.querySelector("[data-addingItemForm]");
 const bookTitle = document.querySelector("[data-bookTitle]");
 const imagePreview = document.querySelector("[data-bookImage-preview]");
 const rootBooks = document.querySelector("[data-rootBooks]");
-let backToTop = document.querySelector("[data-back-to-top]");
+const backToTop = document.querySelector("[data-back-to-top]");
+const updateForm = document.querySelector("[data-update-here]")
 
 // make sure your function is called at the right page!!!
 // if (window.document.title === 'Bookie')
@@ -160,14 +161,7 @@ interface BookShop {
     imagePreview.innerHTML = preview;
   }
   
-  function handleID(ev: any) {
-    ev.preventDefault();
-    console.dir(ev.target)
-  }
-  function handleUpdate(ev: any) {
-    ev.preventDefault();
-    console.dir(ev.target);
-  }
+  
   
   
   
@@ -188,6 +182,42 @@ let ascYear =(a:book,b:book)=>{
 let descYear = (a, b) => {
   return b.year - a.year;
 }
+let chosenBook;
+function handleID(ev: any) {
+  ev.preventDefault();
+ let chosenId = ev.target.value
+ for(let item of bookie.books){
+   if(item.id === chosenId)
+  console.log(book)
+  console.log(chosenId)
+ }
+}
+function handleEdit(ev: any) {
+  ev.preventDefault();
+  let book = chosenBook
+  console.dir(ev.target);
+  updateForm.innerHTML = `
+  <form onSubmit="handleUpdate(event)">
+                            <input type="text" name="title" value="${book.title}">
+                            <select data-bookCategory name="category" id="category">
+                                <option disabled selected value="None">Choose the category</option>
+                                <option value="thriller">Thriller</option>
+                                <option value="history">History</option>
+                                <option value="cooking">Cooking</option>
+                                <option value="fantasy">Fantasy</option>
+                            </select>
+                            <input data-bookTitle type="number" name="price" placeholder="Insert a price">
+            
+                            <input data-bookYear type="number" name="year" placeholder="Year written">
+                            <input data-bookId type="text" name="id" value="uid">
+                            <input data-bookImage onchange="showPreviewImage(event)" type="file" name="image" id='image'
+                                accept="image/png, image/gif, image/jpeg" />
+                            <div data-bookImage-preview>
+                            </div>
+                            <input type="submit" value="add">
+                        </form>`
+}
+
   // create an option to choose and update for each book
   function makeAnOption(shop: BookShop,root, sortFunc) {
 if(window.document.title === 'myBookie'){
