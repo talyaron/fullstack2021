@@ -25,7 +25,7 @@ function hideTopBtn() {
 document.addEventListener("scroll", hideTopBtn);
 var bookie = {
     id: 0,
-    books: [{ id: 1, category: "thriller", title: 'okay', price: 19.99, img: 'https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg', year: 1998 }, { id: 1, category: "thriller", title: 'okay', price: 19.99, img: 'https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg', year: 1998 }, { id: 1, category: "thriller", title: 'okay', price: 19.99, img: 'https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg', year: 1998 }, { id: 1, category: "thriller", title: 'okay', price: 19.99, img: 'https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg', year: 1998 }, { id: 1, category: "thriller", title: 'okay', price: 19.99, img: 'https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg', year: 1998 }],
+    books: [{ id: 1, category: "thriller", title: 'okay', price: 19.99, img: 'https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg', year: 1998 }, { id: 2, category: "thriller", title: 'okay', price: 19.99, img: 'https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg', year: 1998 }, { id: 3, category: "thriller", title: 'okay', price: 19.99, img: 'https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg', year: 1998 }, { id: 4, category: "thriller", title: 'okay', price: 19.99, img: 'https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg', year: 1998 }, { id: 5, category: "thriller", title: 'okay', price: 19.99, img: 'https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg', year: 1998 }],
     addItem: function (ev) {
         var _a;
         var id = ev.target.elements.id.value;
@@ -98,6 +98,10 @@ function showPreviewImage(ev) {
     console.dir(preview);
     console.dir(imgLink);
     imagePreview.innerHTML = preview;
+}
+function handleID(ev) {
+    ev.preventDefault();
+    console.dir(ev.target);
 }
 function handleUpdate(ev) {
     ev.preventDefault();

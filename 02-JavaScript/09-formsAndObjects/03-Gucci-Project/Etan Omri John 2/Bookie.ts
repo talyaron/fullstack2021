@@ -51,7 +51,7 @@ interface BookShop {
   
   const bookie: BookShop = {
     id: 0,
-    books: [{id: 1, category: "thriller",title: 'okay',price: 19.99, img: 'https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg',year:1998}, {id: 1, category: "thriller",title: 'okay',price: 19.99, img: 'https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg',year:1998}, {id: 1, category: "thriller",title: 'okay',price: 19.99, img: 'https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg',year:1998}, {id: 1, category: "thriller",title: 'okay',price: 19.99, img: 'https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg',year:1998}, {id: 1, category: "thriller",title: 'okay',price: 19.99, img: 'https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg',year:1998}],
+    books: [{id: 1, category: "thriller",title: 'okay',price: 19.99, img: 'https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg',year:1998}, {id: 2, category: "thriller",title: 'okay',price: 19.99, img: 'https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg',year:1998}, {id: 3, category: "thriller",title: 'okay',price: 19.99, img: 'https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg',year:1998}, {id: 4, category: "thriller",title: 'okay',price: 19.99, img: 'https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg',year:1998}, {id: 5, category: "thriller",title: 'okay',price: 19.99, img: 'https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg',year:1998}],
     addItem(ev:any) {
       let id = ev.target.elements.id.value;
   let category = ev.target.elements.category.value;
@@ -160,6 +160,10 @@ interface BookShop {
     imagePreview.innerHTML = preview;
   }
   
+  function handleID(ev: any) {
+    ev.preventDefault();
+    console.dir(ev.target)
+  }
   function handleUpdate(ev: any) {
     ev.preventDefault();
     console.dir(ev.target);

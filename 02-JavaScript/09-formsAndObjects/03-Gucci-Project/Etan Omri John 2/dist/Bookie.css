@@ -550,7 +550,7 @@ footer .footer__credit {
 }
 .rootBooks__card__title {
   font-weight: 900;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", "Trebuchet MS", sans-serif;
   text-transform: uppercase;
   font-size: 30px;
   color: #23211f;
@@ -562,14 +562,14 @@ footer .footer__credit {
   border: none;
   background: none;
   width: 10px;
-  transition: 0.3s;
+  transition: 0.8s;
 }
 .rootBooks__card__bag:hover {
   color: #4c00ff;
 }
 .rootBooks__card__heart {
   position: relative;
-  left: 270px;
+  left: 85%;
   bottom: 25px;
   color: #FF3100;
   cursor: pointer;
@@ -577,11 +577,6 @@ footer .footer__credit {
   background: none;
   width: 10px;
   transition: 0.3s;
-}
-@media only screen and (min-width: 768px) {
-  .rootBooks__card__heart {
-    left: 300px;
-  }
 }
 .rootBooks__card__heart:hover {
   color: #4c00ff;
