@@ -228,7 +228,7 @@ var StandartEbooks = {
     render: function (list, domElement) {
         var html = " ";
         list.forEach(function (book) {
-            html += "<div class=\"container__card\" onmouseover = \"handleShowAnnotation(event)\" >\n                  <h2>" + book.title + "</h2>\n                  <h3> " + book.author + "</h3>      \n                  <img class=\"img\" src=\"" + book.img + "\">\n                  <p>" + book.year + " &nbsp &nbsp " + book.price + "$</p> \n                  \n                  <div class=\"rating\">                 \n                      <i class=\"far fa-star\" data-number=\"1\"></i>\n                      <i class=\"far fa-star\" data-number=\"2\"></i>\n                       <i class=\"far fa-star\" data-number=\"3\"></i>\n                       <i class=\"far fa-star\" data-number=\"4\"></i>\n                      <i class=\"far fa-star\" data-number=\"5\"></i>\n                   </div> \n\n                  <p> " + book.rank + "</p>\n                  <input  class = \"container__card__addToCardBtn\" onclick = \"handleAddToCard()\" id =\"addToCard\" type =\"button\" value = \"Add to cart\">              \n               </div>",
+            html += "<div class=\"container__card\"  >\n                  <h2>" + book.title + "</h2>\n                  <h3> " + book.author + "</h3>      \n                  <img class=\"img\" src=\"" + book.img + "\">\n                  <p>" + book.year + " &nbsp &nbsp " + book.price + "$</p> \n                  \n                  <div class=\"rating\">                 \n                      <i class=\"far fa-star  \" data-number=\"1\"  id=\"" + book.title + "\" onclick = \"handleStarClick(event)\"></i>\n                      <i class=\"far fa-star  \" data-number=\"2\"  id=\"" + book.title + "\" onclick = \"handleStarClick(event)\"></i>\n                       <i class=\"far fa-star \" data-number=\"3\" id=\"" + book.title + "\" onclick = \"handleStarClick(event)\"></i>\n                       <i class=\"far fa-star \" data-number=\"4\" id=\"" + book.title + "\" onclick = \"handleStarClick(event)\"></i>\n                      <i class=\"far fa-star  \" data-number=\"5\"  id=\"" + book.title + "\" onclick = \"handleStarClick(event)\"></i>\n                   </div> \n\n                  <p> " + book.rank + "</p>\n                  <input  class = \"container__card__addToCardBtn\" onclick = \"handleAddToCard()\" id =\"addToCard\" type =\"button\" value = \"Add to cart\">              \n               </div>",
                 "<div class=\"annotation\">" + book.annotation + "</div>";
             //  <form class="inputs__form" onsubmit="handleUpdateBook(event, ${book.id})">
             //  <input class="container__inputs__form__one__inp" type="text" name="update" id="update"
@@ -397,19 +397,27 @@ function handleFilterByTitle(e) {
 StandartEbooks.getData();
 var root = document.querySelector("#root");
 StandartEbooks.renderAllBooks(root);
+// const starContainer = document.querySelectorAll('.rating')
+// allstars.forEach(star => {
+//   star.onclick = () => {
+//     let starlevel = star.getAttribute('data-number')
+//     allstars.forEach(element => { 
+//     if(starlevel < element.getAttribute('data-number')) {
+//         element.classList.remove('fas')
+//         element.classList.add('far')
+//       } else {
+//         element.classList.remove('far')
+//         element.classList.add('fas')
+//       }
+//     }
+//   }
+// })
 var allstars = document.querySelectorAll('.fa-star');
-allstars.forEach(function (star) {
-    star.onclick = function () {
-        var starlevel = star.getAttribute('data-number');
-        allstars.forEach(function (element) {
-            if (starlevel < element.getAttribute('data-number')) {
-                element.classList.remove('fas');
-                element.classList.add('far');
-            }
-            else {
-                element.classList.remove('far');
-                element.classList.add('fas');
-            }
-        });
-    };
-});
+function handleStarClick(ev) {
+    allstars.forEach(function (star) {
+        if (ev.target.id == star.id && ev.target.dataset.number >= star.dataset.number) {
+            console.log(star.dataset.number);
+            star.classList.add('fas');
+        }
+    });
+}

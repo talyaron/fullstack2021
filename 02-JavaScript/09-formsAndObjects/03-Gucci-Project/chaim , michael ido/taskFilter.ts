@@ -32,7 +32,7 @@ interface cloths {
     getDataTshirts();
     getDataShoes();
     getDataPants();
-    renderCustomerPage(list, display, catagory,background);
+    renderCustomerPage(list, display, catagory,imgCard);
     SortCustomerPage(list, catagory, sortOption, display)
     renderCustomerByBrand(list, inputBrand, display, catagory)
     renderCustomerBySize(list, inputBrand, display, catagory)
@@ -200,7 +200,7 @@ let clothsList: cloths = {
     getDataPants() {
         this.pants = JSON.parse(localStorage.getItem("pantsData"));
     },
-    renderCustomerPage(list, display, catagory, background){
+    renderCustomerPage(list, display, catagory, imgCard){
         let html = "";
         list.forEach((element) => {
             html += ` 
@@ -211,7 +211,7 @@ let clothsList: cloths = {
                <p class="container_catagories-display-card-para"> Price : ${element.price} </p>
                <button class="container_catagories-display-card-btn" name='${catagory}' onclick="addToCart(event ,'${element.id}')">Add To Cart</button>
                </div>
-               <div id="itemImg" class="container_catagories-display-card-img"></div>
+               <div id="itemImg" class="container_catagories-display-card-img" style="background-image:url('${imgCard}')"></div>
                </div>
                 `;
         });
@@ -235,7 +235,7 @@ let clothsList: cloths = {
                 : a.brand.toLowerCase() > b.brand.toLowerCase() ? -1 : 0
             );
         }
-        this.renderCustomerPage(sortedListCustomer, display, catagory)
+        this.renderCustomerPage(sortedListCustomer, display, catagory,)
     }, renderCustomerByBrand(list, inputBrand, display, catagory) {
         const filteredByBrand = this.filterByBrand(list, inputBrand);
         this.renderCustomerPage(filteredByBrand, display, catagory)
@@ -543,7 +543,7 @@ function showOptions(box: any, boxId: string) {
         sortANDfilterBtnsShoes.innerHTML = ``;
         clothsList.getDataTshirts();
         sortANDfilterBtnsTshirts.innerHTML = html;
-        clothsList.renderCustomerPage(clothsList.Tshirts, display, id, "https://i.ebayimg.com/images/g/bWgAAOSwVH5blRYh/s-l300.jpg" );
+        clothsList.renderCustomerPage(clothsList.Tshirts, display, id, "https://i.ebayimg.com/images/g/bWgAAOSwVH5blRYh/s-l300.jpg");
     } else if (id == "shoes") {
         sortANDfilterBtnsPants.innerHTML = ``;
         sortANDfilterBtnsTshirts.innerHTML = ``;
