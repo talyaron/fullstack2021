@@ -194,355 +194,1081 @@
 }
 
 // Customer page -----------------------
+@media only screen and(min-width:768px) {
+    .container {
+        max-width: 740px;
+        height: 250vh;
+        margin: auto;
+        background: linear-gradient(rgb(157, 241, 157),
+                transparent),
+            linear-gradient(90deg,
+                skyblue,
+                transparent),
+            linear-gradient(-90deg,
+                coral,
+                transparent);
+        background-blend-mode: screen;
 
-.container {
-    max-width: 740px;
-    height: 1800px;
-    margin: auto;
-    background: linear-gradient(rgb(157, 241, 157),
-            transparent),
-        linear-gradient(90deg,
-            skyblue,
-            transparent),
-        linear-gradient(-90deg,
-            coral,
-            transparent);
-    background-blend-mode: screen;
-
-    &_header {
-        // background-color:rgb(46 , 127 , 141);
-        display: grid;
-        grid-template-columns: repeat(12, 1fr);
-        grid-template-rows: repeat(5, 1fr);
-        flex-direction: row;
-        margin-top: 10px;
-        height: 12vh;
-        // border: 3px solid blue;
-
-        &-logo {
-            // border: 2px solid red;
-            background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRT2g09MmhCe-sbllbrt4IiSLhWaDxbGMrEegdPhPyT5uIkLMxjR-qAi_-AIvz61Ust4s&usqp=CAU);
-            background-position: center;
-            background-size: contain;
-            background-repeat: no-repeat;
-            grid-row: 1/4;
-            grid-column: 1/2;
-            height: 10vh;
-            margin-top: -1vh;
-        }
-
-        &-search {
-            height: 10vh;
-            grid-row: 1/4;
-            grid-column: 3/7;
-            justify-content: center;
-            margin-top: 1vh;
-
-            & input {
-                width: 100%;
-                height: 50%;
-                align-self: center;
-                background-color: blanchedalmond;
-                border-radius: 10px;
-            }
-        }
-
-        &_menu {
-            grid-column: 7/13;
-            height: 8vh;
-            grid-row: 1;
-            display: flex;
-            column-gap: 1rem;
-
-            &-btn {
-                background-color: transparent;
-                box-shadow: none;
-                display: inline-block;
-                width: 25%;
-                border: none;
-
-                & p {
-                    font-size: 12px;
-                }
-            }
-        }
-
-        &-dropDown {
-            grid-column: 7/13;
-            grid-row: 2;
-            height: 20vh;
+        &_header {
+            // background-color:rgb(46 , 127 , 141);
             display: grid;
-            grid-template-columns: repeat(4, 25%);
+            grid-template-columns: repeat(12, 1fr);
+            grid-template-rows: repeat(5, 1fr);
+            flex-direction: row;
+            margin-top: 10px;
+            height: 12vh;
+            // border: 3px solid blue;
 
-            &-box {
-                display: flex;
-                flex-direction: column;
-                
-                &-item {
-                    width: 100%;
-                    height: 35%;
-                    border-bottom: 1px solid rgb(86, 86, 224);
-                    background-color: rgb(212, 211, 201);
-                }
-                &-signInInput {
-                    box-shadow: rgba(97, 88, 6, 0.85) 0px 30px 60px -12px inset, rgba(85, 216, 96, 0.5) 0px 18px 36px -30px inset;
-                    border-radius: 5px;
-                    height: 15%;
-                    width: 95%;
-
-                    &::placeholder{
-                        color: black;
-                        font-weight: 400;
-                        font-size: 14px;
-                    }
-
-                    &-btn{
-                        color: #34333b;
-                        background-color: rgb(168, 91, 187);
-                        box-shadow: none;
-                        width: 95%;
-                        border-radius: 5px;
-
-                    }
-                }
-            }
-            .notifications{
+            &-logo {
+                // border: 2px solid red;
+                background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRT2g09MmhCe-sbllbrt4IiSLhWaDxbGMrEegdPhPyT5uIkLMxjR-qAi_-AIvz61Ust4s&usqp=CAU);
+                background-position: center;
+                background-size: contain;
+                background-repeat: no-repeat;
+                grid-row: 1/4;
                 grid-column: 1/2;
-                width: 150%;
-                border-radius: 15px;
-                opacity: 0.7;
+                height: 10vh;
+                margin-top: -1vh;
             }
-            .signIn{
-                grid-column: 2/3;
-                row-gap: 5px;
+
+            &-search {
+                height: 10vh;
+                grid-row: 1/4;
+                grid-column: 3/7;
+                justify-content: center;
+                margin-top: 1vh;
+
+                & input {
+                    width: 100%;
+                    height: 50%;
+                    align-self: center;
+                    background-color: blanchedalmond;
+                    border-radius: 10px;
+                }
             }
-            .yourOrders{
-                grid-column: 3/4;
-            }
-            .shoppingCart{
-                grid-column: 4/5;
+
+            &_menu {
+                grid-column: 7/13;
+                height: 8vh;
+                grid-row: 1;
                 display: flex;
-                flex-direction: column;
-                overflow-y: auto;
-                white-space: nowrap;
+                column-gap: 1rem;
+
+                &-btn {
+                    background-color: transparent;
+                    box-shadow: none;
+                    display: inline-block;
+                    width: 25%;
+                    border: none;
+
+                    & p {
+                        font-size: 12px;
+                    }
+                }
+            }
+
+            &-dropDown {
+                grid-column: 7/13;
+                grid-row: 2;
+                height: 20vh;
+                display: grid;
+                grid-template-columns: repeat(4, 25%);
+
+                &-box {
+                    display: flex;
+                    flex-direction: column;
+
+                    &-item {
+                        width: 100%;
+                        height: 35%;
+                        border-bottom: 1px solid rgb(86, 86, 224);
+                        background-color: rgb(212, 211, 201);
+                    }
+
+                    &-signInInput {
+                        box-shadow: rgba(97, 88, 6, 0.85) 0px 30px 60px -12px inset, rgba(85, 216, 96, 0.5) 0px 18px 36px -30px inset;
+                        border-radius: 5px;
+                        height: 15%;
+                        width: 95%;
+
+                        &::placeholder {
+                            color: black;
+                            font-weight: 400;
+                            font-size: 14px;
+                        }
+
+                        &-btn {
+                            color: #34333b;
+                            background-color: rgb(168, 91, 187);
+                            box-shadow: none;
+                            width: 95%;
+                            border-radius: 5px;
+
+                        }
+                    }
+                }
+
+                .notifications {
+                    grid-column: 1/2;
+                    width: 150%;
+                    border-radius: 15px;
+                    opacity: 0.7;
+                }
+
+                .signIn {
+                    grid-column: 2/3;
+                    row-gap: 5px;
+                }
+
+                .yourOrders {
+                    grid-column: 3/4;
+                }
+
+                .shoppingCart {
+                    grid-column: 4/5;
+                    display: flex;
+                    flex-direction: column;
+                    overflow-y: auto;
+                    white-space: nowrap;
+                }
             }
         }
-    }
 
-    &-imgsBox {
-        background-image: url(https://s18670.pcdn.co/wp-content/uploads/Top-20-Teacher-T-Shirts-on-Etsy.png);
-        background-position: center;
-        background-size: contain;
-        background-repeat: no-repeat;
-        margin: auto;
-        width: 100%;
-        height: 35%;
-        margin-top: 10px;
-    }
-    &_catagories {
-        display: flex;
-        justify-content: space-around;
-        width: 100%;
-        flex-direction: row;
-        height: 20%;
-        margin: auto;
-
-        &-box {
-            margin-top: 10px;
-            width: 35%;
-            // border: 1px solid black;
+        &-imgsBox {
+            background-image: url(https://s18670.pcdn.co/wp-content/uploads/Top-20-Teacher-T-Shirts-on-Etsy.png);
             background-position: center;
             background-size: contain;
             background-repeat: no-repeat;
-
-            // &:hover {
-            //     transform: scale(1.2);
-            // }
-
-            &-form {
-                border: 3px solid red;
-
-            }
-        }
-        &-display {
+            margin: auto;
             width: 100%;
-            height: 20%;
-            margin-top: 5px;
-            border: 1px solid rgb(197, 187, 187);
+            height: 35%;
+            margin-top: 10px;
+        }
+
+        &_catagories {
             display: flex;
-            flex-direction: column;
-            column-gap: 5px;
-            overflow-y: auto;
-            white-space: nowrap;
-
-            &-card {
-                border-bottom: 5px solid rgb(0, 0, 0);
-                box-sizing: content-box;
-                box-shadow: rgba(110, 111, 112, 0.55) 0px 30px 60px 80px inset, rgba(12, 24, 94, 0.75) 0px 18px 36px 30px inset;
-                height: 100%;
-                width: 100%;
-                display: grid;
-                grid-template-columns: repeat(2, 50%);
-
-                &-btn{
-                    width: 50%;
-                    box-shadow: rgba(92, 92, 184, 0.25) 0px 30px 60px -12px inset, rgba(49, 141, 46, 0.8) 0px 18px 36px -18px inset;
-                }
-
-                &-details {
-                    height: 100%;
-                    grid-column: 1/2;
-                    text-align: center;
-                }
-
-                &-img {
-                    height: 100%;
-                    grid-column: 2/3;
-                    border-left: 1px dotted black;
-                    background-position: center;
-                    background-size: contain;
-                    background-repeat: no-repeat;
-
-
-
-                }
-            }
-        }
-
-        .Tshirts {
-            background-image: url("https://www.buytshirtdesigns.net/wp-content/uploads/2020/02/20-Gym-T-shirts-600x450.jpg");
-        }
-
-        .shoes {
-            background-image: url("https://thumbs.dreamstime.com/b/various-types-shoes-vector-graphics-silhouettes-various-types-shoes-vector-graphics-silhouettes-shoes-men-200369007.jpg");
-        }
-
-        .pants {
-            background-image: url("https://media.istockphoto.com/vectors/set-of-trousers-for-business-man-vector-id818252146?k=20&m=818252146&s=612x612&w=0&h=zA3CDwVXCfKAgIZ1FxkyfvGLRgKX_aentNe9AwmNDJw=");
-        }
-
-
-    }
-
-    &_sortANDfilterBtns {
-        height: 7vh;
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        margin-top: 15px;
-
-        &-box {
-            height: 80%;
-            width: 30%;
+            justify-content: space-around;
+            width: 100%;
+            flex-direction: row;
+            height: 20%;
             margin: auto;
 
-            &_form {
+            &-box {
+                margin-top: 10px;
+                width: 35%;
+                // border: 1px solid black;
+                background-position: center;
+                background-size: contain;
+                background-repeat: no-repeat;
+
+                // &:hover {
+                //     transform: scale(1.2);
+                // }
+
+                &-form {
+                    border: 3px solid red;
+
+                }
+            }
+
+            &-display {
                 width: 100%;
-                height: 7vh;
+                height: 20%;
+                margin-top: 5px;
+                border: 1px solid rgb(197, 187, 187);
+                display: flex;
+                flex-direction: column;
+                column-gap: 5px;
+                overflow-y: auto;
+                white-space: nowrap;
+
+                &-card {
+                    border-bottom: 5px solid rgb(0, 0, 0);
+                    box-sizing: content-box;
+                    box-shadow: rgba(110, 111, 112, 0.55) 0px 30px 60px 80px inset, rgba(12, 24, 94, 0.75) 0px 18px 36px 30px inset;
+                    height: 100%;
+                    width: 100%;
+                    display: grid;
+                    grid-template-columns: repeat(2, 50%);
+
+                    &-btn {
+                        width: 50%;
+                        box-shadow: rgba(92, 92, 184, 0.25) 0px 30px 60px -12px inset, rgba(49, 141, 46, 0.8) 0px 18px 36px -18px inset;
+                    }
+
+                    &-details {
+                        height: 100%;
+                        grid-column: 1/2;
+                        text-align: center;
+                    }
+
+                    &-img {
+                        height: 100%;
+                        grid-column: 2/3;
+                        border-left: 1px dotted black;
+                        background-position: center;
+                        background-size: contain;
+                        background-repeat: no-repeat;
 
 
-                &-filterInput {
-                    box-shadow: rgba(6, 61, 97, 0.85) 0px 30px 60px -12px inset, rgba(16, 63, 85, 0.5) 0px 18px 36px -30px inset;
-                    height: 3vh;
-                    width: 60%;
-                    color: rgb(240, 232, 218);
-                    font-size: 15px;
-                    border-radius: 5px;
 
-                    &::placeholder {
+                    }
+                }
+            }
+
+            .Tshirts {
+                background-image: url("https://www.buytshirtdesigns.net/wp-content/uploads/2020/02/20-Gym-T-shirts-600x450.jpg");
+            }
+
+            .shoes {
+                background-image: url("https://png.pngtree.com/png-clipart/20190516/original/pngtree-sporty-shoes-png-image_4261724.jpg");
+            }
+
+            .pants {
+                background-image: url("https://media.istockphoto.com/vectors/set-of-trousers-for-business-man-vector-id818252146?k=20&m=818252146&s=612x612&w=0&h=zA3CDwVXCfKAgIZ1FxkyfvGLRgKX_aentNe9AwmNDJw=");
+            }
+
+
+        }
+
+        &_sortANDfilterBtns {
+            height: 7vh;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-top: 15px;
+
+            &-box {
+                height: 80%;
+                width: 30%;
+                margin: auto;
+
+                &_form {
+                    width: 100%;
+                    height: 7vh;
+
+
+                    &-filterInput {
+                        box-shadow: rgba(6, 61, 97, 0.85) 0px 30px 60px -12px inset, rgba(16, 63, 85, 0.5) 0px 18px 36px -30px inset;
+                        height: 3vh;
+                        width: 60%;
                         color: rgb(240, 232, 218);
+                        font-size: 15px;
+                        border-radius: 5px;
+
+                        &::placeholder {
+                            color: rgb(240, 232, 218);
+                        }
+                    }
+
+                    &-submit {
+                        width: 5vw;
+                        border-radius: 15px;
+                        color: rgb(255, 255, 255);
+                        font-weight: 1000;
+                        box-shadow: rgba(33, 13, 87, 0.75) 0px 54px 55px, rgba(32, 161, 101, 0.72) 0px -12px 30px,
+                            rgba(53, 100, 187, 0.82) 0px 4px 6px, rgba(101, 42, 136, 0.77) 0px 12px 13px, rgba(52, 88, 136, 0.99) 0px -3px 5px;
+                        background-color: rgb(107, 68, 46);
+                    }
+                }
+            }
+        }
+
+        &-select {
+            border-radius: 15%;
+            font-size: 12px;
+            font-weight: bold;
+            box-shadow: rgba(40, 40, 41, 0.85) 0px 30px 60px -12px inset, rgba(25, 34, 153, 0.8) 0px 18px 36px 30px inset;
+            height: 4vh;
+            text-align: center;
+            appearance: none;
+            width: 45%;
+            background: rgb(50, 86, 185);
+            color: rgb(255, 255, 255);
+            font-weight: bold;
+            margin: auto;
+
+            &-options {
+                font-size: 12px;
+                display: inline-block;
+                font-family: 'Times New Roman', Times, serif;
+            }
+        }
+
+        &-shoppingCart {
+            width: 100%;
+            // border: 3px solid red;
+            height: 30vh;
+
+
+            &_display {
+                height: 100%;
+                border: 3px solid black;
+                width: 50%;
+                display: none;
+                flex-direction: column;
+                overflow-y: scroll;
+                white-space: nowrap;
+
+                &-item {
+                    height: 35%;
+                    border-bottom: 1px solid black;
+                    display: grid;
+                    grid-template-columns: repeat(10, 1fr);
+                    grid-template-rows: repeat(10, 1fr);
+
+                    &-header {
+                        font-size: 12px;
+                        text-align: center;
+                        grid-column: 1/11;
+                        grid-row: 1/3;
+                        // border: 5px solid yellow;
+                    }
+
+                    &-size {
+                        font-size: 10px;
+                        grid-column: 1/4;
+                        grid-row: 2/5;
+                        font-weight: 1000;
+                    }
+
+                    &-price {
+                        font-size: 10px;
+                        font-weight: 1000;
+                        grid-column: 1/4;
+                        grid-row: 6/8;
+                    }
+
+                    &-deleteBtn {
+
+                        grid-column: 8/10;
+                        grid-row: 4/7;
+                        border-radius: 15px;
+                        background-color: lightgoldenrodyellow;
+                        color: blue;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and(min-width:1200px) {
+    .container {
+        max-width: 1200px;
+        height: 250vh;
+        margin: auto;
+        background: linear-gradient(rgb(157, 241, 157),
+                transparent),
+            linear-gradient(90deg,
+                skyblue,
+                transparent),
+            linear-gradient(-90deg,
+                coral,
+                transparent);
+        background-blend-mode: screen;
+
+        &_header {
+            // background-color:rgb(46 , 127 , 141);
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-template-rows: repeat(5, 1fr);
+            flex-direction: row;
+            margin-top: 10px;
+            height: 12vh;
+            // border: 3px solid blue;
+
+            &-logo {
+                // border: 2px solid red;
+                background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRT2g09MmhCe-sbllbrt4IiSLhWaDxbGMrEegdPhPyT5uIkLMxjR-qAi_-AIvz61Ust4s&usqp=CAU);
+                background-position: center;
+                background-size: contain;
+                background-repeat: no-repeat;
+                grid-row: 1/4;
+                grid-column: 1/2;
+                height: 10vh;
+                margin-top: -1vh;
+            }
+
+            &-search {
+                height: 10vh;
+                grid-row: 1/4;
+                grid-column: 3/7;
+                justify-content: center;
+                margin-top: 1vh;
+
+                & input {
+                    width: 100%;
+                    height: 50%;
+                    align-self: center;
+                    background-color: blanchedalmond;
+                    border-radius: 10px;
+                }
+            }
+
+            &_menu {
+                grid-column: 7/13;
+                height: 8vh;
+                grid-row: 1;
+                display: flex;
+                column-gap: 1rem;
+
+                &-btn {
+                    background-color: transparent;
+                    box-shadow: none;
+                    display: inline-block;
+                    width: 25%;
+                    border: none;
+
+                    & p {
+                        font-size: 12px;
+                    }
+                }
+            }
+
+            &-dropDown {
+                grid-column: 7/13;
+                grid-row: 2;
+                height: 20vh;
+                display: grid;
+                grid-template-columns: repeat(4, 25%);
+
+                &-box {
+                    display: flex;
+                    flex-direction: column;
+
+                    &-item {
+                        width: 100%;
+                        height: 35%;
+                        border-bottom: 1px solid rgb(86, 86, 224);
+                        background-color: rgb(212, 211, 201);
+                    }
+
+                    &-signInInput {
+                        box-shadow: rgba(97, 88, 6, 0.85) 0px 30px 60px -12px inset, rgba(85, 216, 96, 0.5) 0px 18px 36px -30px inset;
+                        border-radius: 5px;
+                        height: 15%;
+                        width: 95%;
+
+                        &::placeholder {
+                            color: black;
+                            font-weight: 400;
+                            font-size: 14px;
+                        }
+
+                        &-btn {
+                            color: #34333b;
+                            background-color: rgb(168, 91, 187);
+                            box-shadow: none;
+                            width: 95%;
+                            border-radius: 5px;
+
+                        }
                     }
                 }
 
-                &-submit {
-                    width: 5vw;
+                .notifications {
+                    grid-column: 1/2;
+                    width: 150%;
                     border-radius: 15px;
-                    color: rgb(255, 255, 255);
-                    font-weight: 1000;
-                    box-shadow: rgba(33, 13, 87, 0.75) 0px 54px 55px, rgba(32, 161, 101, 0.72) 0px -12px 30px,
-                        rgba(53, 100, 187, 0.82) 0px 4px 6px, rgba(101, 42, 136, 0.77) 0px 12px 13px, rgba(52, 88, 136, 0.99) 0px -3px 5px;
-                    background-color: rgb(107, 68, 46);
+                    opacity: 0.7;
+                }
+
+                .signIn {
+                    grid-column: 2/3;
+                    row-gap: 5px;
+                }
+
+                .yourOrders {
+                    grid-column: 3/4;
+                }
+
+                .shoppingCart {
+                    grid-column: 4/5;
+                    display: flex;
+                    flex-direction: column;
+                    overflow-y: auto;
+                    white-space: nowrap;
                 }
             }
         }
-    }
 
-    &-select {
-        border-radius: 15%;
-        font-size: 12px;
-        font-weight: bold;
-        box-shadow: rgba(40, 40, 41, 0.85) 0px 30px 60px -12px inset, rgba(25, 34, 153, 0.8) 0px 18px 36px 30px inset;
-        height: 4vh;
-        text-align: center;
-        appearance: none;
-        width: 45%;
-        background: rgb(50, 86, 185);
-        color: rgb(255, 255, 255);
-        font-weight: bold;
-        margin: auto;
+        &-imgsBox {
+            background-image: url(https://s18670.pcdn.co/wp-content/uploads/Top-20-Teacher-T-Shirts-on-Etsy.png);
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            margin: auto;
+            width: 100%;
+            height: 35%;
+            margin-top: 10px;
+        }
 
-        &-options {
+        &_catagories {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            flex-direction: row;
+            height: 20%;
+            margin: auto;
+
+            &-box {
+                margin-top: 10px;
+                width: 35%;
+                // border: 1px solid black;
+                background-position: center;
+                background-size: contain;
+                background-repeat: no-repeat;
+
+                // &:hover {
+                //     transform: scale(1.2);
+                // }
+
+                &-form {
+                    border: 3px solid red;
+
+                }
+            }
+
+            &-display {
+                width: 100%;
+                height: 20%;
+                margin-top: 5px;
+                border: 1px solid rgb(197, 187, 187);
+                display: flex;
+                flex-direction: column;
+                column-gap: 5px;
+                overflow-y: auto;
+                white-space: nowrap;
+
+                &-card {
+                    border-bottom: 5px solid rgb(0, 0, 0);
+                    box-sizing: content-box;
+                    box-shadow: rgba(110, 111, 112, 0.55) 0px 30px 60px 80px inset, rgba(12, 24, 94, 0.75) 0px 18px 36px 30px inset;
+                    height: 100%;
+                    width: 100%;
+                    display: grid;
+                    grid-template-columns: repeat(2, 50%);
+
+                    &-btn {
+                        width: 50%;
+                        box-shadow: rgba(92, 92, 184, 0.25) 0px 30px 60px -12px inset, rgba(49, 141, 46, 0.8) 0px 18px 36px -18px inset;
+                    }
+
+                    &-details {
+                        height: 100%;
+                        grid-column: 1/2;
+                        text-align: center;
+                    }
+
+                    &-img {
+                        height: 100%;
+                        grid-column: 2/3;
+                        border-left: 1px dotted black;
+                        background-position: center;
+                        background-size: contain;
+                        background-repeat: no-repeat;
+
+
+
+                    }
+                }
+            }
+
+            .Tshirts {
+                background-image: url("https://www.buytshirtdesigns.net/wp-content/uploads/2020/02/20-Gym-T-shirts-600x450.jpg");
+            }
+
+            .shoes {
+                background-image: url("https://png.pngtree.com/png-clipart/20190516/original/pngtree-sporty-shoes-png-image_4261724.jpg");
+            }
+
+            .pants {
+                background-image: url("https://media.istockphoto.com/vectors/set-of-trousers-for-business-man-vector-id818252146?k=20&m=818252146&s=612x612&w=0&h=zA3CDwVXCfKAgIZ1FxkyfvGLRgKX_aentNe9AwmNDJw=");
+            }
+
+
+        }
+
+        &_sortANDfilterBtns {
+            height: 7vh;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-top: 15px;
+
+            &-box {
+                height: 80%;
+                width: 30%;
+                margin: auto;
+
+                &_form {
+                    width: 100%;
+                    height: 7vh;
+
+
+                    &-filterInput {
+                        box-shadow: rgba(6, 61, 97, 0.85) 0px 30px 60px -12px inset, rgba(16, 63, 85, 0.5) 0px 18px 36px -30px inset;
+                        height: 3vh;
+                        width: 60%;
+                        color: rgb(240, 232, 218);
+                        font-size: 15px;
+                        border-radius: 5px;
+
+                        &::placeholder {
+                            color: rgb(240, 232, 218);
+                        }
+                    }
+
+                    &-submit {
+                        width: 5vw;
+                        border-radius: 15px;
+                        color: rgb(255, 255, 255);
+                        font-weight: 1000;
+                        box-shadow: rgba(33, 13, 87, 0.75) 0px 54px 55px, rgba(32, 161, 101, 0.72) 0px -12px 30px,
+                            rgba(53, 100, 187, 0.82) 0px 4px 6px, rgba(101, 42, 136, 0.77) 0px 12px 13px, rgba(52, 88, 136, 0.99) 0px -3px 5px;
+                        background-color: rgb(107, 68, 46);
+                    }
+                }
+            }
+        }
+
+        &-select {
+            border-radius: 15%;
             font-size: 12px;
-            display: inline-block;
-            font-family: 'Times New Roman', Times, serif;
+            font-weight: bold;
+            box-shadow: rgba(40, 40, 41, 0.85) 0px 30px 60px -12px inset, rgba(25, 34, 153, 0.8) 0px 18px 36px 30px inset;
+            height: 4vh;
+            text-align: center;
+            appearance: none;
+            width: 45%;
+            background: rgb(50, 86, 185);
+            color: rgb(255, 255, 255);
+            font-weight: bold;
+            margin: auto;
+
+            &-options {
+                font-size: 12px;
+                display: inline-block;
+                font-family: 'Times New Roman', Times, serif;
+            }
         }
-    }
 
-    &-shoppingCart {
-        width: 100%;
-        // border: 3px solid red;
-        height: 30vh;
-       
+        &-shoppingCart {
+            width: 100%;
+            // border: 3px solid red;
+            height: 30vh;
 
-        &_display {
-            height: 100%;
-            border: 3px solid black;
-            width: 50%;
-            display: none;
-            flex-direction: column;
-            overflow-y: scroll;
-            white-space: nowrap;
-           
-            &-item {
-                height: 35%;
-                border-bottom: 1px solid black;
-                display: grid;
-                grid-template-columns: repeat(10, 1fr);
-                grid-template-rows: repeat(10, 1fr);
 
-                &-header {
-                    font-size: 12px;
-                    text-align: center;
-                    grid-column: 1/11;
-                    grid-row: 1/3;
-                    // border: 5px solid yellow;
-                }
+            &_display {
+                height: 100%;
+                border: 3px solid black;
+                width: 50%;
+                display: none;
+                flex-direction: column;
+                overflow-y: scroll;
+                white-space: nowrap;
 
-                &-size {
-                    font-size: 10px;
-                    grid-column: 1/4;
-                    grid-row: 2/5;
-                    font-weight: 1000;
-                }
+                &-item {
+                    height: 35%;
+                    border-bottom: 1px solid black;
+                    display: grid;
+                    grid-template-columns: repeat(10, 1fr);
+                    grid-template-rows: repeat(10, 1fr);
 
-                &-price {
-                    font-size: 10px;
-                    font-weight: 1000;
-                    grid-column: 1/4;
-                    grid-row: 6/8;
-                }
+                    &-header {
+                        font-size: 12px;
+                        text-align: center;
+                        grid-column: 1/11;
+                        grid-row: 1/3;
+                        // border: 5px solid yellow;
+                    }
 
-                &-deleteBtn {
+                    &-size {
+                        font-size: 10px;
+                        grid-column: 1/4;
+                        grid-row: 2/5;
+                        font-weight: 1000;
+                    }
 
-                    grid-column: 8/10;
-                    grid-row: 4/7;
-                    border-radius: 15px;
-                    background-color: lightgoldenrodyellow;
-                    color: blue;
+                    &-price {
+                        font-size: 10px;
+                        font-weight: 1000;
+                        grid-column: 1/4;
+                        grid-row: 6/8;
+                    }
+
+                    &-deleteBtn {
+
+                        grid-column: 8/10;
+                        grid-row: 4/7;
+                        border-radius: 15px;
+                        background-color: lightgoldenrodyellow;
+                        color: blue;
+                    }
                 }
             }
         }
     }
+}
+@media only screen and(max-width:1440px) {
+    .container {
+        max-width: 1440px;
+        height: 250vh;
+        margin: auto;
+        background: linear-gradient(rgb(157, 241, 157),
+                transparent),
+            linear-gradient(90deg,
+                skyblue,
+                transparent),
+            linear-gradient(-90deg,
+                coral,
+                transparent);
+        background-blend-mode: screen;
 
+        &_header {
+            // background-color:rgb(46 , 127 , 141);
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-template-rows: repeat(5, 1fr);
+            flex-direction: row;
+            margin-top: 10px;
+            height: 12vh;
+            // border: 3px solid blue;
+
+            &-logo {
+                // border: 2px solid red;
+                background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRT2g09MmhCe-sbllbrt4IiSLhWaDxbGMrEegdPhPyT5uIkLMxjR-qAi_-AIvz61Ust4s&usqp=CAU);
+                background-position: center;
+                background-size: contain;
+                background-repeat: no-repeat;
+                grid-row: 1/4;
+                grid-column: 1/2;
+                height: 10vh;
+                margin-top: -1vh;
+            }
+
+            &-search {
+                height: 10vh;
+                grid-row: 1/4;
+                grid-column: 3/7;
+                justify-content: center;
+                margin-top: 1vh;
+
+                & input {
+                    width: 100%;
+                    height: 50%;
+                    align-self: center;
+                    background-color: blanchedalmond;
+                    border-radius: 10px;
+                }
+            }
+
+            &_menu {
+                grid-column: 7/13;
+                height: 8vh;
+                grid-row: 1;
+                display: flex;
+                column-gap: 1rem;
+
+                &-btn {
+                    background-color: transparent;
+                    box-shadow: none;
+                    display: inline-block;
+                    width: 25%;
+                    border: none;
+
+                    & p {
+                        font-size: 12px;
+                    }
+                }
+            }
+
+            &-dropDown {
+                grid-column: 7/13;
+                grid-row: 2;
+                height: 20vh;
+                display: grid;
+                grid-template-columns: repeat(4, 25%);
+
+                &-box {
+                    display: flex;
+                    flex-direction: column;
+
+                    &-item {
+                        width: 100%;
+                        height: 35%;
+                        border-bottom: 1px solid rgb(86, 86, 224);
+                        background-color: rgb(212, 211, 201);
+                    }
+
+                    &-signInInput {
+                        box-shadow: rgba(97, 88, 6, 0.85) 0px 30px 60px -12px inset, rgba(85, 216, 96, 0.5) 0px 18px 36px -30px inset;
+                        border-radius: 5px;
+                        height: 15%;
+                        width: 95%;
+
+                        &::placeholder {
+                            color: black;
+                            font-weight: 400;
+                            font-size: 14px;
+                        }
+
+                        &-btn {
+                            color: #34333b;
+                            background-color: rgb(168, 91, 187);
+                            box-shadow: none;
+                            width: 95%;
+                            border-radius: 5px;
+
+                        }
+                    }
+                }
+
+                .notifications {
+                    grid-column: 1/2;
+                    width: 150%;
+                    border-radius: 15px;
+                    opacity: 0.7;
+                }
+
+                .signIn {
+                    grid-column: 2/3;
+                    row-gap: 5px;
+                }
+
+                .yourOrders {
+                    grid-column: 3/4;
+                }
+
+                .shoppingCart {
+                    grid-column: 4/5;
+                    display: flex;
+                    flex-direction: column;
+                    overflow-y: auto;
+                    white-space: nowrap;
+                }
+            }
+        }
+
+        &-imgsBox {
+            background-image: url(https://s18670.pcdn.co/wp-content/uploads/Top-20-Teacher-T-Shirts-on-Etsy.png);
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            margin: auto;
+            width: 100%;
+            height: 35%;
+            margin-top: 10px;
+        }
+
+        &_catagories {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            flex-direction: row;
+            height: 20%;
+            margin: auto;
+
+            &-box {
+                margin-top: 10px;
+                width: 35%;
+                // border: 1px solid black;
+                background-position: center;
+                background-size: contain;
+                background-repeat: no-repeat;
+
+                // &:hover {
+                //     transform: scale(1.2);
+                // }
+
+                &-form {
+                    border: 3px solid red;
+
+                }
+            }
+
+            &-display {
+                width: 100%;
+                height: 20%;
+                margin-top: 5px;
+                border: 1px solid rgb(197, 187, 187);
+                display: flex;
+                flex-direction: column;
+                column-gap: 5px;
+                overflow-y: auto;
+                white-space: nowrap;
+
+                &-card {
+                    border-bottom: 5px solid rgb(0, 0, 0);
+                    box-sizing: content-box;
+                    box-shadow: rgba(110, 111, 112, 0.55) 0px 30px 60px 80px inset, rgba(12, 24, 94, 0.75) 0px 18px 36px 30px inset;
+                    height: 100%;
+                    width: 100%;
+                    display: grid;
+                    grid-template-columns: repeat(2, 50%);
+
+                    &-btn {
+                        width: 50%;
+                        box-shadow: rgba(92, 92, 184, 0.25) 0px 30px 60px -12px inset, rgba(49, 141, 46, 0.8) 0px 18px 36px -18px inset;
+                    }
+
+                    &-details {
+                        height: 100%;
+                        grid-column: 1/2;
+                        text-align: center;
+                    }
+
+                    &-img {
+                        height: 100%;
+                        grid-column: 2/3;
+                        border-left: 1px dotted black;
+                        background-position: center;
+                        background-size: contain;
+                        background-repeat: no-repeat;
+
+
+
+                    }
+                }
+            }
+
+            .Tshirts {
+                background-image: url("https://www.buytshirtdesigns.net/wp-content/uploads/2020/02/20-Gym-T-shirts-600x450.jpg");
+            }
+
+            .shoes {
+                background-image: url("https://png.pngtree.com/png-clipart/20190516/original/pngtree-sporty-shoes-png-image_4261724.jpg");
+            }
+
+            .pants {
+                background-image: url("https://media.istockphoto.com/vectors/set-of-trousers-for-business-man-vector-id818252146?k=20&m=818252146&s=612x612&w=0&h=zA3CDwVXCfKAgIZ1FxkyfvGLRgKX_aentNe9AwmNDJw=");
+            }
+
+
+        }
+
+        &_sortANDfilterBtns {
+            height: 7vh;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-top: 15px;
+
+            &-box {
+                height: 80%;
+                width: 30%;
+                margin: auto;
+
+                &_form {
+                    width: 100%;
+                    height: 7vh;
+
+
+                    &-filterInput {
+                        box-shadow: rgba(6, 61, 97, 0.85) 0px 30px 60px -12px inset, rgba(16, 63, 85, 0.5) 0px 18px 36px -30px inset;
+                        height: 3vh;
+                        width: 60%;
+                        color: rgb(240, 232, 218);
+                        font-size: 15px;
+                        border-radius: 5px;
+
+                        &::placeholder {
+                            color: rgb(240, 232, 218);
+                        }
+                    }
+
+                    &-submit {
+                        width: 5vw;
+                        border-radius: 15px;
+                        color: rgb(255, 255, 255);
+                        font-weight: 1000;
+                        box-shadow: rgba(33, 13, 87, 0.75) 0px 54px 55px, rgba(32, 161, 101, 0.72) 0px -12px 30px,
+                            rgba(53, 100, 187, 0.82) 0px 4px 6px, rgba(101, 42, 136, 0.77) 0px 12px 13px, rgba(52, 88, 136, 0.99) 0px -3px 5px;
+                        background-color: rgb(107, 68, 46);
+                    }
+                }
+            }
+        }
+
+        &-select {
+            border-radius: 15%;
+            font-size: 12px;
+            font-weight: bold;
+            box-shadow: rgba(40, 40, 41, 0.85) 0px 30px 60px -12px inset, rgba(25, 34, 153, 0.8) 0px 18px 36px 30px inset;
+            height: 4vh;
+            text-align: center;
+            appearance: none;
+            width: 45%;
+            background: rgb(50, 86, 185);
+            color: rgb(255, 255, 255);
+            font-weight: bold;
+            margin: auto;
+
+            &-options {
+                font-size: 12px;
+                display: inline-block;
+                font-family: 'Times New Roman', Times, serif;
+            }
+        }
+
+        &-shoppingCart {
+            width: 100%;
+            // border: 3px solid red;
+            height: 30vh;
+
+
+            &_display {
+                height: 100%;
+                border: 3px solid black;
+                width: 50%;
+                display: none;
+                flex-direction: column;
+                overflow-y: scroll;
+                white-space: nowrap;
+
+                &-item {
+                    height: 35%;
+                    border-bottom: 1px solid black;
+                    display: grid;
+                    grid-template-columns: repeat(10, 1fr);
+                    grid-template-rows: repeat(10, 1fr);
+
+                    &-header {
+                        font-size: 12px;
+                        text-align: center;
+                        grid-column: 1/11;
+                        grid-row: 1/3;
+                        // border: 5px solid yellow;
+                    }
+
+                    &-size {
+                        font-size: 10px;
+                        grid-column: 1/4;
+                        grid-row: 2/5;
+                        font-weight: 1000;
+                    }
+
+                    &-price {
+                        font-size: 10px;
+                        font-weight: 1000;
+                        grid-column: 1/4;
+                        grid-row: 6/8;
+                    }
+
+                    &-deleteBtn {
+
+                        grid-column: 8/10;
+                        grid-row: 4/7;
+                        border-radius: 15px;
+                        background-color: lightgoldenrodyellow;
+                        color: blue;
+                    }
+                }
+            }
+        }
+    }
 }
