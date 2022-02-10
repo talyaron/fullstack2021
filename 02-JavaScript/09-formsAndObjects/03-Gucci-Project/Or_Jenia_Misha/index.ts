@@ -199,7 +199,7 @@ let sushiMenu: Menu = {
       price: 108,
       description:
         "Tempura tofu bites in coconut milk and yellow curry sauce, Thai beans and cauliflower. Served with a side of coconut rice with toasted coconut shavings.",
-      category: "main-dish",
+      category: "main",
     },
     {
       id: uid(),
@@ -207,7 +207,7 @@ let sushiMenu: Menu = {
       price: 104,
       description:
         "Salmon fillet, broccoli, shimeji mushrooms, zucchini, sprouts and shallot flakes in peanut butter and soy sauce.",
-      category: "main-dish",
+      category: "main",
     },
     {
       id: uid(),
@@ -383,7 +383,7 @@ let sushiMenu: Menu = {
       price: 44,
       description:
         "Crispy coated chicken breast mini schnitzels along with steamed rice with ketchup on the side.",
-      category: "kids-menu",
+      category: "kids",
     },
     {
       id: uid(),
@@ -391,7 +391,7 @@ let sushiMenu: Menu = {
       price: 42,
       description:
         "Egg noodles with chicken breast and omelet in sweet soy sauce (half order available - Baby Noodles 29).",
-      category: "kids-menu",
+      category: "kids",
     },
     {
       id: uid(),
@@ -399,7 +399,31 @@ let sushiMenu: Menu = {
       price: 44,
       description:
         "Tempura sweet potato strips Served with sweet & sour sauce.",
-      category: "kids-menu",
+      category: "kids",
+    },
+    {
+      id: uid(),
+      name: "Chicken Little",
+      price: 44,
+      description:
+        "Crispy coated chicken breast mini schnitzels along with steamed rice with ketchup on the side.",
+      category: "gonkan",
+    },
+    {
+      id: uid(),
+      name: "Kid Noodles",
+      price: 42,
+      description:
+        "Egg noodles with chicken breast and omelet in sweet soy sauce (half order available - Baby Noodles 29).",
+      category: "gonkan",
+    },
+    {
+      id: uid(),
+      name: "Tempura Sweet Potato",
+      price: 44,
+      description:
+        "Tempura sweet potato strips Served with sweet & sour sauce.",
+      category: "gonkan",
     },
     {
       id: uid(),
@@ -445,6 +469,7 @@ let sushiMenu: Menu = {
     if (index >= 0) {
       this.dishes[index] = newDish;
     }
+    this.storeData();
   },
   filterByCategory(category) {
     return this.dishes.filter((dish) => dish.category === category);
@@ -475,29 +500,28 @@ let sushiMenu: Menu = {
     list.forEach((item) => {
 
       html += `<div class="dishesERP"> 
-        <input type="checkbox" id=${item.id}></input>
+        <input type="checkbox" id=${item.id}></input></form>
          <h3 class ="dishesERP__title__name">${item.name}</h3> 
          <p class ="dishesERP__desc">${item.description}</p>
-         <p class ="dishesERP__title__price">${item.price}</p>
+         <p class ="dishesERP__title__price">${item.price} ₪</p>
          <p class ="dishesERP__title__price"> id:${item.id}</p>
          <p class ="dishesERP__title__category"> ${item.category}</p>
          <form onsubmit="handleUpdateDish(event)" id="${item.id}">
          <input type="text" name="name" id="" placeholder="Dish Name">
          <input type="number" name="price" id="" placeholder="Dish Price">
          <input type="text" name="description" id="" placeholder="Add Dish description">
-         <select name="category" id="category">
-             <option value="Choose" selected disabled>select option</option>
+         <select name="category" id="updated-category">
+             <option value="Choose" selected disabled>Select category</option>
              <option value="firsts">Firsts</option>
              <option value="soups">Soups</option>
              <option value="salads">Salads</option>
              <option value="buns">Buns</option>
              <option value="robta-yaki">Robta Yaki</option>
              <option value="gyoza">Gyoza</option>
-             <option value="gonkan-maki">Special Gonkan maki</option>
              <option value="inside-out">Inside Out</option>
              <option value="specials">Specials</option>
-             <option value="kids-dishes">Kids Dishes</option>
-             <option value="main-dishes">Main Dishes</option>
+             <option value="kids">Kids Dishes</option>
+             <option value="main">Main Dishes</option>
              <option value="wok">Wok</option>
              <option value="cokctails">Cokctails</option>
              <option value="combinations">Combinations</option>
@@ -505,6 +529,7 @@ let sushiMenu: Menu = {
              <option value="nigiri">Nigiri</option>
              <option value="sandwich-sushi">Sandwich Sushi</option>
              <option value="maki-sushi">Maki Sushi</option>
+             <option value="gonkan">Gonkan Maki</option>
          </select>
          <input type="submit" value="Update">
          </form>
@@ -513,7 +538,7 @@ let sushiMenu: Menu = {
       </div>`;
     });
 
-    html += `</form>`;
+    html += ``;
 
     domElement.innerHTML = html;
   },
@@ -577,14 +602,16 @@ function handleDeleteDish(ev) {
 }
 function handleUpdateDish(ev){
   ev.preventDefault();
-  console.dir(ev);
+  console.dir(ev.target);
   const dishName = ev.target.elements.name.value;
   const dishPrice = ev.target.elements.price.valueAsNumber;
   const dishDesc = ev.target.elements.description.value;
-  const dishCategory = (<HTMLSelectElement>document.getElementById("category")).value;
-  const dishId = ev.target.elements.id.value;
+  const dishCategory = (<HTMLSelectElement>document.getElementById("updated-category")).value;
+  const dishId = ev.target.id;
  const newDish ={id:dishId,name:dishName,price:dishPrice,description:dishDesc,category:dishCategory};
- sushiMenu.updateDish(dishId,newDish); 
+ sushiMenu.updateDish(dishId,newDish);
+ sushiMenu.getData(); 
+ renderSushiMenu();
 
 }
 
@@ -657,7 +684,10 @@ function popNavBarActive() {
       const list = sushiMenu.filterByCategory(category.id);
       renderSushiMenu();
       sushiMenu.renderDishesStore(list, rootStore);
-      category.classList.toggle("popCategory-active");
+      categories.forEach(category =>{
+        category.classList.remove("popCategory-active");
+      })
+      category.classList.add("popCategory-active");
 
     })
   })

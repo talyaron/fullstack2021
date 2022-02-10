@@ -222,7 +222,6 @@ body {
   top: 53px;
   left: 2px;
   z-index: 1;
-  transition: 10s ease;
 }
 .catergory__items .items:hover .imgBottom {
   display: inline;

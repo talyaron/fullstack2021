@@ -9,6 +9,7 @@ interface Object {
   sortAsc();
   sortDes();
   deleteItem(idItem: string);
+  deleteItemCustomer(idItem:string)
   updateItem(idItem: string, newValue: string);
   addToCarts(name: string, type: string);
   selectItem(type: "shoes" | "hoodie");
@@ -46,14 +47,9 @@ let nikeItems: object = {
   },
   deleteItem(idItem) {
     this.items = this.items.filter((item) => item.idItem !== idItem);
-    const ownerRoot = document.getElementById("ownerRoot");
-    const customerRoot = document.getElementById("customerRoot")
-     if (ownerRoot){
-      this.render(ownerRoot,this.items)
-     }
-      if(customerRoot){
-        this.render(customerRoot,this.carts)
-      }   
+  },
+  deleteItemCustomer(idItem) {
+    this.items = this.items.filter((item) => item.idItem !== idItem);
   },
   updateItem(idItem, newValue) {
     const i = this.items.findIndex((item) => item.idItem === idItem);
@@ -87,8 +83,9 @@ let nikeItems: object = {
 
     let htmlCustomer: string = "";
     list.forEach((type) => {
-      htmlCustomer += `<div class= 'card1'><h4>The Item You Want:</h4> <p>${type.name}</p></div>
-      <button onclick="handleDelete('${type.idItem}')">delete</button>`;
+      htmlCustomer += `<div class= 'card1'><h4>The Item You Want:</h4> <p>${type.name}</p>
+      <button onclick="handleDeleteCustomer('${type.idItem}')">delete</button></div>`
+    
     });
     customerRoot.innerHTML = htmlCustomer;
   },
@@ -149,6 +146,13 @@ function handleDelete(id) {
   nikeItems.deleteItem(id);
   const ownerRoot = document.getElementById("ownerRoot");
   nikeItems.renderAllData(ownerRoot);
+}
+
+function handleDeleteCustomer(id){
+  console.log("handleDeleteCustomer");
+nikeItems.deleteItemCustomer(id);
+const customerRoot=document.getElementById("customerRoot");
+nikeItems.render(customerRoot,nikeItems.carts);
 }
 function handleupdate(event, id) {
   event.preventDefault();
