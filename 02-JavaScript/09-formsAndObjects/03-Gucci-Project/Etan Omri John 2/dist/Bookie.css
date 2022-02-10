@@ -23,11 +23,6 @@ body {
   box-sizing: border-box;
 }
 
-.wrapper {
-  display: grid;
-  width: 100vw;
-}
-
 header {
   position: fixed;
   top: 0;
@@ -38,7 +33,7 @@ header {
   opacity: 0.4;
 }
 header .navBar {
-  padding-top: 32px;
+  padding-top: 20px;
   padding-bottom: 10px;
   display: block;
 }
@@ -51,6 +46,7 @@ header .navBar__row1__icons {
   display: flex;
   cursor: pointer;
   margin-top: 10px;
+  align-items: center;
 }
 header .navBar__row1__icons svg {
   width: 60px;

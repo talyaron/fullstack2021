@@ -560,7 +560,7 @@ html{
                 text-align: center;
                 font-size: 15px;
 
-                div {
+                .popCategory {
                     height: 50%;
                     display: flex;
                     justify-content: center;
@@ -569,9 +569,14 @@ html{
                     margin: 5px;
                     padding: 5px;
                     border-bottom: 1px solid grey;
+                    &-active{
+                        border-bottom: 1px solid #ed3524;
+                        color: white;
+                    }
 
                     &:hover {
                         cursor: pointer;
+
                     }
                 }
             }

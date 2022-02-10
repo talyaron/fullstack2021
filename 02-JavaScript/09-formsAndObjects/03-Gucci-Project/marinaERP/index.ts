@@ -187,7 +187,7 @@ const StandartEbooks = {
 
   updateBook(updateBook) {
     const index = this.books.findIndex((book) => book.id === updateBook.id);
-    if(index >= 0) {
+    if (index >= 0) {
       this.books[index].title = updateBook;
     }
     this.storeData();
@@ -196,7 +196,7 @@ const StandartEbooks = {
   showAnnotation(annotation) {
     // const id = uid();
     const index = this.books.findIndex((book) => book.img === annotation);
-    if(index >= 0) {
+    if (index >= 0) {
       const annotation = this.querySelector('.annotation')
       annotation.style.visibility = 'visible';
     }
@@ -308,29 +308,29 @@ const StandartEbooks = {
   render(list, domElement) {
     let html = " ";
     list.forEach((book: any) => {
-      html += `<div class="container__card" onmouseover = "handleShowAnnotation(event)" >
+      html += `<div class="container__card"  >
                   <h2>${book.title}</h2>
                   <h3> ${book.author}</h3>      
                   <img class="img" src="${book.img}">
                   <p>${book.year} &nbsp &nbsp ${book.price}$</p> 
                   
                   <div class="rating">                 
-                      <i class="far fa-star" data-number="1"></i>
-                      <i class="far fa-star" data-number="2"></i>
-                       <i class="far fa-star" data-number="3"></i>
-                       <i class="far fa-star" data-number="4"></i>
-                      <i class="far fa-star" data-number="5"></i>
+                      <i class="far fa-star  " data-number="1"  id="${book.title}" onclick = "handleStarClick(event)"></i>
+                      <i class="far fa-star  " data-number="2"  id="${book.title}" onclick = "handleStarClick(event)"></i>
+                       <i class="far fa-star " data-number="3" id="${book.title}" onclick = "handleStarClick(event)"></i>
+                       <i class="far fa-star " data-number="4" id="${book.title}" onclick = "handleStarClick(event)"></i>
+                      <i class="far fa-star  " data-number="5"  id="${book.title}" onclick = "handleStarClick(event)"></i>
                    </div> 
 
                   <p> ${book.rank}</p>
                   <input  class = "container__card__addToCardBtn" onclick = "handleAddToCard()" id ="addToCard" type ="button" value = "Add to cart">              
                </div>`,
-               `<div class="annotation">${book.annotation}</div>`
-               //  <form class="inputs__form" onsubmit="handleUpdateBook(event, ${book.id})">
-               //  <input class="container__inputs__form__one__inp" type="text" name="update" id="update"
-               //      placeholder="Enter new title">
-               //  <input class="container__inputs__form__one__inp" type="submit" id="updateBtn" value="update">
-               // </form>`
+        `<div class="annotation">${book.annotation}</div>`
+      //  <form class="inputs__form" onsubmit="handleUpdateBook(event, ${book.id})">
+      //  <input class="container__inputs__form__one__inp" type="text" name="update" id="update"
+      //      placeholder="Enter new title">
+      //  <input class="container__inputs__form__one__inp" type="submit" id="updateBtn" value="update">
+      // </form>`
     });
     domElement.innerHTML = html;
   },
@@ -394,7 +394,7 @@ function handleDeleteBook(e) {
 // doesnt work
 function handleUpdateBook(e) {
   e.preventDefault();
- 
+
 }
 
 // doesnt work
@@ -515,26 +515,37 @@ StandartEbooks.renderAllBooks(root);
 
 
 
-const allstars = document.querySelectorAll('.fa-star')
+// const starContainer = document.querySelectorAll('.rating')
 
-allstars.forEach(star => {
+// allstars.forEach(star => {
 
-  star.onclick = () => {
+//   star.onclick = () => {
 
-    let starlevel = star.getAttribute('data-number')
+//     let starlevel = star.getAttribute('data-number')
 
-    allstars.forEach(element => { 
-        
-    if(starlevel < element.getAttribute('data-number')) {
+//     allstars.forEach(element => { 
 
-        element.classList.remove('fas')
-        element.classList.add('far')
+//     if(starlevel < element.getAttribute('data-number')) {
 
-      } else {
-        element.classList.remove('far')
-        element.classList.add('fas')
-      }
-         
+//         element.classList.remove('fas')
+//         element.classList.add('far')
+
+//       } else {
+//         element.classList.remove('far')
+//         element.classList.add('fas')
+//       }
+
+//     }
+//   }
+// })
+const allstars: any = document.querySelectorAll('.fa-star')
+
+function handleStarClick(ev) {
+  allstars.forEach(star => {
+
+    if (ev.target.id == star.id && ev.target.dataset.number >= star.dataset.number){
+      console.log(star.dataset.number);
+      star.classList.add('fas');
     }
-  }
-})
+  });
+}
