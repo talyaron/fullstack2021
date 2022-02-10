@@ -321,6 +321,7 @@ function handleRemoveItems(ev) {
 function handleUpdate(ev, id) {
     ev.preventDefault();
     var root = document.getElementById("root");
+    console.log(root);
     gucci.renderAllitems(root);
     var itemName = ev.target.elements.itemName.value;
     var NewPrice = ev.target.elements.update.value;
