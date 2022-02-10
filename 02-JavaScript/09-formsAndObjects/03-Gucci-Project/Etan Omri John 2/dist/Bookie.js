@@ -26,7 +26,7 @@ function hideTopBtn() {
 document.addEventListener("scroll", hideTopBtn);
 var bookie = {
     id: 0,
-    books: [{ id: 1, category: "thriller", title: 'okay', price: 19.99, img: 'https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg', year: 1998 }, { id: 2, category: "thriller", title: 'okay', price: 19.99, img: 'https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg', year: 1998 }, { id: 3, category: "thriller", title: 'okay', price: 19.99, img: 'https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg', year: 1998 }, { id: 4, category: "thriller", title: 'okay', price: 19.99, img: 'https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg', year: 1998 }, { id: 5, category: "thriller", title: 'okay', price: 19.99, img: 'https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg', year: 1998 }],
+    books: [{ id: 1, category: "thriller", title: 'bye', price: 19.99, img: 'https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg', year: 1998 }, { id: 2, category: "thriller", title: 'hi', price: 19.99, img: 'https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg', year: 1998 }, { id: 3, category: "thriller", title: 'shy', price: 19.99, img: 'https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg', year: 1998 }, { id: 4, category: "thriller", title: 'okay', price: 19.99, img: 'https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg', year: 1998 }, { id: 5, category: "thriller", title: 'okay', price: 19.99, img: 'https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg', year: 1998 }],
     addItem: function (ev) {
         var _a;
         var id = ev.target.elements.id.value;
@@ -116,22 +116,22 @@ var ascYear = function (a, b) {
 var descYear = function (a, b) {
     return b.year - a.year;
 };
-var chosenBook;
+var placeHolderId;
 function handleID(ev) {
     ev.preventDefault();
     var chosenId = ev.target.value;
-    for (var _i = 0, _a = bookie.books; _i < _a.length; _i++) {
-        var item = _a[_i];
-        if (item.id === chosenId)
-            console.log(book);
-        console.log(chosenId);
-    }
+    placeHolderId = chosenId;
 }
 function handleEdit(ev) {
     ev.preventDefault();
-    var book = chosenBook;
-    console.dir(ev.target);
-    updateForm.innerHTML = "\n  <form onSubmit=\"handleUpdate(event)\">\n                            <input type=\"text\" name=\"title\" value=\"" + book.title + "\">\n                            <select data-bookCategory name=\"category\" id=\"category\">\n                                <option disabled selected value=\"None\">Choose the category</option>\n                                <option value=\"thriller\">Thriller</option>\n                                <option value=\"history\">History</option>\n                                <option value=\"cooking\">Cooking</option>\n                                <option value=\"fantasy\">Fantasy</option>\n                            </select>\n                            <input data-bookTitle type=\"number\" name=\"price\" placeholder=\"Insert a price\">\n            \n                            <input data-bookYear type=\"number\" name=\"year\" placeholder=\"Year written\">\n                            <input data-bookId type=\"text\" name=\"id\" value=\"uid\">\n                            <input data-bookImage onchange=\"showPreviewImage(event)\" type=\"file\" name=\"image\" id='image'\n                                accept=\"image/png, image/gif, image/jpeg\" />\n                            <div data-bookImage-preview>\n                            </div>\n                            <input type=\"submit\" value=\"add\">\n                        </form>";
+    console.log(placeHolderId);
+    for (var _i = 0, _a = bookie.books; _i < _a.length; _i++) {
+        var book = _a[_i];
+        if (book.id === placeHolderId) {
+            console.log(bookie.books[book.id]);
+        }
+        updateForm.innerHTML = "\n  <form onSubmit=\"handleUpdate(event)\">\n                            <input type=\"text\" name=\"title\" value=\"" + book.title + "\">\n                            <select data-bookCategory name=\"category\" id=\"category\">\n                                <option disabled selected value=\"None\">Choose the category</option>\n                                <option value=\"thriller\">Thriller</option>\n                                <option value=\"history\">History</option>\n                                <option value=\"cooking\">Cooking</option>\n                                <option value=\"fantasy\">Fantasy</option>\n                            </select>\n                            <input data-bookTitle type=\"number\" name=\"price\" placeholder=\"Insert a price\">\n            \n                            <input data-bookYear type=\"number\" name=\"year\" placeholder=\"Year written\">\n                            <input data-bookId type=\"text\" name=\"id\" value=\"uid\">\n                            <input data-bookImage onchange=\"showPreviewImage(event)\" type=\"file\" name=\"image\" id='image'\n                                accept=\"image/png, image/gif, image/jpeg\" />\n                            <div data-bookImage-preview>\n                            </div>\n                            <input type=\"submit\" value=\"add\">\n                        </form>";
+    }
 }
 // create an option to choose and update for each book
 function makeAnOption(shop, root, sortFunc) {
@@ -145,8 +145,6 @@ function makeAnOption(shop, root, sortFunc) {
 }
 localBookie = bookie;
 makeAnOption(bookie, selectRoot, descYear);
-console.log(parsedBookie);
-console.log(localBookie);
 window.onload = function () {
     if (window.document.title === 'Bookie') {
         window.addEventListener('scroll', function (e) {

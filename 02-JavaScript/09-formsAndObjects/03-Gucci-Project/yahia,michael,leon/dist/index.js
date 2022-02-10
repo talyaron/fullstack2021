@@ -17,14 +17,9 @@ var nikeItems = {
     },
     deleteItem: function (idItem) {
         this.items = this.items.filter(function (item) { return item.idItem !== idItem; });
-        var ownerRoot = document.getElementById("ownerRoot");
-        var customerRoot = document.getElementById("customerRoot");
-        if (ownerRoot) {
-            this.render(ownerRoot, this.items);
-        }
-        if (customerRoot) {
-            this.render(customerRoot, this.carts);
-        }
+    },
+    deleteItemCustomer: function (idItem) {
+        this.items = this.items.filter(function (item) { return item.idItem !== idItem; });
     },
     updateItem: function (idItem, newValue) {
         var i = this.items.findIndex(function (item) { return item.idItem === idItem; });
@@ -56,7 +51,7 @@ var nikeItems = {
         // console.log(customerRoot,list);
         var htmlCustomer = "";
         list.forEach(function (type) {
-            htmlCustomer += "<div class= 'card1'><h4>The Item You Want:</h4> <p>" + type.name + "</p></div>\n      <button onclick=\"handleDelete('" + type.idItem + "')\">delete</button>";
+            htmlCustomer += "<div class= 'card1'><h4>The Item You Want:</h4> <p>" + type.name + "</p>\n      <button onclick=\"handleDeleteCustomer('" + type.idItem + "')\">delete</button></div>";
         });
         customerRoot.innerHTML = htmlCustomer;
     },
@@ -103,6 +98,12 @@ function handleDelete(id) {
     nikeItems.deleteItem(id);
     var ownerRoot = document.getElementById("ownerRoot");
     nikeItems.renderAllData(ownerRoot);
+}
+function handleDeleteCustomer(id) {
+    console.log("handleDeleteCustomer");
+    nikeItems.deleteItemCustomer(id);
+    var customerRoot = document.getElementById("customerRoot");
+    nikeItems.render(customerRoot, nikeItems.carts);
 }
 function handleupdate(event, id) {
     event.preventDefault();
