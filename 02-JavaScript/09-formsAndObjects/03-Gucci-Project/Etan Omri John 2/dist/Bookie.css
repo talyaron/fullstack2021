@@ -136,10 +136,10 @@ header.is-scrolling {
 .mobileOptions.is-active {
   bottom: 0;
 }
-.mobileOptions p {
+.mobileOptions h5 {
   position: relative;
-  height: 55px;
-  font-size: 25px;
+  height: 21px;
+  font-size: 15px;
   text-align: center;
   cursor: pointer;
 }
@@ -242,7 +242,8 @@ footer {
     grid-template-columns: 25% 25% 50%;
     grid-template-rows: 10rem 5rem 5rem 4rem;
   }
-  footer *, footer * > * {
+  footer *,
+footer * > * {
     padding: 0;
     margin: 0;
   }
