@@ -32,8 +32,15 @@ body {
   font-family: Granjon;
   font-weight: lighter;
 }
+.container__navBar:hover {
+  background-color: #141010de;
+}
 .container__navBar2 {
   text-align: center;
+  transition: all 0.5s;
+}
+.container__navBar2:hover {
+  background-color: #141010de;
 }
 .container__navBar2 ul {
   display: inline-flex;
