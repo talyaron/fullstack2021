@@ -7,7 +7,7 @@ var nikeItems = {
     additems: function (name, price) {
         var idItem = uid();
         this.items.push({ name: name, price: price, idItem: idItem });
-        localStorage.setItem('item', JSON.stringify(this.items));
+        localStorage.setItem('storeData', JSON.stringify(this.items));
     },
     sortAsc: function () {
         this.items.sort(function (a, b) { return a.price - b.price; });
@@ -16,6 +16,9 @@ var nikeItems = {
         this.items.sort(function (a, b) { return b.price - a.price; });
     },
     deleteItem: function (idItem) {
+        this.items = this.items.filter(function (item) { return item.idItem !== idItem; });
+    },
+    deleteItemCustomer: function (idItem) {
         this.items = this.items.filter(function (item) { return item.idItem !== idItem; });
     },
     updateItem: function (idItem, newValue) {
@@ -30,29 +33,29 @@ var nikeItems = {
         // console.log(this.carts)
         return this.carts.filter(function (item) { return item.type === type; });
     },
-    renderAllData: function (root) {
+    renderAllData: function (ownerRoot) {
         var list = this.items;
-        this.render(root, list);
+        this.render(ownerRoot, list);
     },
-    renderSelctedItem: function (root1, type) {
-        console.log('at renderSelctedItem type:', type);
+    renderSelctedItem: function (customerRoot, type) {
+        // console.log('at renderSelctedItem type:', type)
         var selected = this.selectItem(type);
-        console.log(selected);
-        this.renderCarts(root1, selected);
+        // console.log(selected)
+        this.renderCarts(customerRoot, selected);
     },
-    renderAllCarts: function (root1) {
-        console.log(this.carts);
-        this.renderCarts(root1, this.carts);
+    renderAllCarts: function (customerRoot) {
+        // console.log(this.carts);
+        this.renderCarts(customerRoot, this.carts);
     },
-    renderCarts: function (root1, list) {
-        // console.log(root1,list);
+    renderCarts: function (customerRoot, list) {
+        // console.log(customerRoot,list);
         var htmlCustomer = "";
         list.forEach(function (type) {
-            htmlCustomer += "<div class= 'card1'><h4>The Item You Want:</h4> <p>" + type.name + "</p></div>";
+            htmlCustomer += "<div class= 'card1'><h4>The Item You Want:</h4> <p>" + type.name + "</p>\n      <button onclick=\"handleDeleteCustomer('" + type.idItem + "')\">delete</button></div>";
         });
-        root1.innerHTML = htmlCustomer;
+        customerRoot.innerHTML = htmlCustomer;
     },
-    render: function (root, root1, list) {
+    render: function (root, list) {
         var html = "";
         list.forEach(function (item) {
             html += "<div class = 'card'> <p>" + item.name + ":" + item.price + "</p>\n            <button onclick=\"handleDelete('" + item.idItem + "')\">delete</button>\n            <form onsubmit=\"handleupdate(event,'" + item.idItem + "')\">\n            <input type=\"text\" name=\"nameUpdate\" placeholder=\"change item\">\n            <input type=\"submit\" value=\"submit\">\n            </form>\n            </div>";
@@ -60,10 +63,16 @@ var nikeItems = {
         root.innerHTML = html;
     },
     getData: function () {
-        var listMichael = JSON.parse(localStorage.getItem('item'));
-        var root = document.getElementById("root");
-        var root1 = document.getElementById("root1");
-        this.render(root, root1, listMichael);
+        var storeData = JSON.parse(localStorage.getItem('storeData'));
+        console.log(storeData);
+        var ownerRoot = document.getElementById("ownerRoot");
+        var customerRoot = document.getElementById("customerRoot");
+        if (ownerRoot) {
+            this.render(ownerRoot, storeData);
+        }
+        if (customerRoot) {
+            this.render(customerRoot, storeData);
+        }
     }
 };
 function handleSubmit(event) {
@@ -71,55 +80,62 @@ function handleSubmit(event) {
     var name = event.target.elements.description.value;
     var price = event.target.elements.price.value;
     nikeItems.additems(name, price);
-    var root = document.getElementById("root");
-    nikeItems.renderAllData(root);
+    var ownerRoot = document.getElementById("ownerRoot");
+    nikeItems.renderAllData(ownerRoot);
     event.target.reset(); // poner el tu pajina
 }
 function handleAsce() {
     nikeItems.sortAsc();
-    var root = document.getElementById("root");
-    nikeItems.renderAllData(root);
+    var ownerRoot = document.getElementById("ownerRoot");
+    nikeItems.renderAllData(ownerRoot);
 }
 function handleDesce() {
     nikeItems.sortDes();
-    var root = document.getElementById("root");
-    nikeItems.renderAllData(root);
+    var ownerRoot = document.getElementById("ownerRoot");
+    nikeItems.renderAllData(ownerRoot);
 }
 function handleDelete(id) {
     nikeItems.deleteItem(id);
-    var root = document.getElementById("root");
-    nikeItems.renderAllData(root);
+    var ownerRoot = document.getElementById("ownerRoot");
+    nikeItems.renderAllData(ownerRoot);
+}
+function handleDeleteCustomer(id) {
+    console.log("handleDeleteCustomer");
+    nikeItems.deleteItemCustomer(id);
+    var customerRoot = document.getElementById("customerRoot");
+    nikeItems.render(customerRoot, nikeItems.carts);
 }
 function handleupdate(event, id) {
     event.preventDefault();
     var updateditem = event.target.elements.nameUpdate.value;
     nikeItems.updateItem(id, updateditem);
-    var root = document.getElementById("root");
-    nikeItems.renderAllData(root);
+    var ownerRoot = document.getElementById("ownerRoot");
+    nikeItems.renderAllData(ownerRoot);
 }
 function handleGetProduct() {
     nikeItems.getData();
+    console.log("handleGetProduct");
 }
 //customer
 function handleCart(event) {
     var shoes = event.target.id;
     nikeItems.addToCarts(shoes, 'shoes');
-    var rooto = document.getElementById("root1");
+    var rooto = document.getElementById("customerRoot");
     nikeItems.renderAllCarts(rooto);
 }
 function handlehoodie(ev) {
     var hoodie = ev.target.id;
     nikeItems.addToCarts(hoodie, 'hoodie');
-    var rooto = document.getElementById("root1");
+    var rooto = document.getElementById("customerRoot");
     nikeItems.renderAllCarts(rooto);
 }
 function handleSelect(event) {
     var type = event.target.value;
-    var root1 = document.getElementById("root1");
+    var customerRoot = document.getElementById("customerRoot");
     if (type === "all") {
-        nikeItems.renderAllCarts(root1);
+        nikeItems.renderAllCarts(customerRoot);
     }
     else {
-        nikeItems.renderSelctedItem(root1, type);
+        nikeItems.renderSelctedItem(customerRoot, type);
     }
 }
