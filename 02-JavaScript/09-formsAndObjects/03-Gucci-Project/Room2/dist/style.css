@@ -227,8 +227,8 @@ body {
   }
 }
 .cards__item {
+  height: fit-content;
   width: 300px;
-  height: 420px;
   transition: ease 1s;
 }
 .cards__item:hover {

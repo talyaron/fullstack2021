@@ -34,14 +34,15 @@ var Adidas = {
         this.setData();
     },
     render: function (list, domElement) {
+        console.log(list);
         var html = "";
         this.products.forEach(function (product) {
-            html += "\n     <div class=\"cards__item\" >\n          <div class=\"picture\">\n          <p><img src=\"" + product.pictureFront + "\"></p>\n          <p><img src=\"" + product.pictureBack + "\" ></p>\n     </div>   \n              \n<div class=\"color\">\n        <p><b> Color: </b> " + product.color + "</p>\n                </div>\n\n                <div class=\"description\">\n               \n                    <p>" + product.title + "</p>\n                    <p>" + product.description + "</p>\n                    <p>" + product.price + "\u20AA</p>\n                   \n                </div>\n\n            </div>\n     \n       \n\n          </div>";
+            html += "\n     <div class=\"cards__item\" >\n\n      <div class=\"picture\">\n          <i class=\"far fa-heart\"></i>\n          <img src=\"" + product.pictureBack + "\" >\n         <img src=\"" + product.pictureFront + "\" class=\"img-top\">\n          </div>\n              \n      <div class=\"color\">\n      <p><b> Color: </b> " + product.color + "</p>\n      </div>\n\n      <div class=\"description\">\n         <p>" + product.title + "</p>\n          <p>" + product.description + "</p>\n          <p>" + product.price + "\u20AA</p> \n      </div>\n          </div>   ";
+            console.log("render");
         });
-        var button = document.getElementById("button");
-        console.log(button);
+        // const button = document.getElementById("button");
+        // console.log(button);
         domElement.innerHTML = html;
-        handleGetData("customer");
     },
     updateItem: function (id, newTitle, newPrice, newCategory, newPictureFront, newPictureBack, newColor, newDescription, newShoeSize) {
         var index = this.products.findIndex(function (product) { return product.id === id; });
@@ -83,7 +84,7 @@ var Adidas = {
         return this.products.filter(function (element) { return element.category === category; });
     },
     renderFilter: function (domElement, filterd) {
-        this.renderAdidas(domElement, filterd);
+        this.render(domElement, filterd);
     }
 };
 function handleAddItem(ev) {
@@ -150,6 +151,8 @@ function handleSort(ev) {
     else if (sort === ev.target.value.startPosition) {
         ev.target.reset();
     }
+    console.log(sort);
+    this.setData();
 }
 function handleType(ev) {
     var type = ev.target.value;
@@ -180,41 +183,14 @@ function handleShoeSize(ev) {
     // if(type === " ")
     //Adidas.shoeSizeFilter(size);
 }
-// Adidas.addItem(
-//   "superstar shoes",
-//   200,
-//   "Sneakers",
-//   "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg",
-//   "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg",
-//   "red",
-//   "B-ball legend. Street symbol. Cultural icon. Still going strong after five decades, the adidas Superstar Shoes have millions of stories to tell. Smooth leather combines with serrated 3-Stripes and the authentic rubber shell toe. Ready for the next fifty years of iconic adidas style? Lets do it.",
-//   44
-// );
-// Adidas.addItem(
-//   "superstar shoes",
-//   300,
-//   "Sneakers",
-//   "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg",
-//   "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg",
-//   "red",
-//   "B-ball legend. Street symbol. Cultural icon. Still going strong after five decades, the adidas Superstar Shoes have millions of stories to tell. Smooth leather combines with serrated 3-Stripes and the authentic rubber shell toe. Ready for the next fifty years of iconic adidas style? Lets do it.",
-//   44
-// );
-// Adidas.addItem(
-//   "superstar shoes",
-//   100,
-//   "Sneakers",
-//   "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg",
-//   "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg",
-//   "red",
-//   "B-ball legend. Street symbol. Cultural icon. Still going strong after five decades, the adidas Superstar Shoes have millions of stories to tell. Smooth leather combines with serrated 3-Stripes and the authentic rubber shell toe. Ready for the next fifty years of iconic adidas style? Lets do it.",
-//   44
-// );
+Adidas.addItem("superstar shoes", 200, "Sneakers", "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg", "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg", "red", "B-ball legend. Street symbol. Cultural icon. Still going strong after five decades, the adidas Superstar Shoes have millions of stories to tell. Smooth leather combines with serrated 3-Stripes and the authentic rubber shell toe. Ready for the next fifty years of iconic adidas style? Lets do it.", 44);
+Adidas.addItem("superstar shoes", 300, "Sneakers", "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg", "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg", "red", "B-ball legend. Street symbol. Cultural icon. Still going strong after five decades, the adidas Superstar Shoes have millions of stories to tell. Smooth leather combines with serrated 3-Stripes and the authentic rubber shell toe. Ready for the next fifty years of iconic adidas style? Lets do it.", 44);
+Adidas.addItem("superstar shoes", 100, "Sneakers", "https://st-adidas-isr.mncdn.com/content/images/thumbs/0086954_x-speedflow1-messi-firm-ground-boots_fy6879_side-lateral-center-view.jpeg", "https://st-adidas-isr.mncdn.com/content/images/thumbs/0086956_x-speedflow1-messi-firm-ground-boots_fy6879_top-portrait-view.jpeg", "red", "B-ball legend. Street symbol. Cultural icon. Still going strong after five decades, the adidas Superstar Shoes have millions of stories to tell. Smooth leather combines with serrated 3-Stripes and the authentic rubber shell toe. Ready for the next fifty years of iconic adidas style? Lets do it.", 44);
 function handleGetData(page) {
     try {
-        console.log(page);
+        // console.log(page);
         Adidas.getData();
-        console.log(Adidas);
+        // console.log(Adidas);
         if (page === "owner") {
             var root = document.getElementById("rootOwner");
             Adidas.renderAllData(root);
