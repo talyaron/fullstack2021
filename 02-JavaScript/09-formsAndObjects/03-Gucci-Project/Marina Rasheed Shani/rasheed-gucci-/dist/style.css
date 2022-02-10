@@ -26,6 +26,12 @@ body {
   gap: 0.4em;
   font-size: smaller;
 }
+.container__navBar__title--gucci {
+  font-size: 1em;
+  letter-spacing: 12px;
+  font-family: Granjon;
+  font-weight: lighter;
+}
 .container__navBar2 {
   text-align: center;
 }
