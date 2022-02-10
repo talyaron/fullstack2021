@@ -4,7 +4,7 @@ const bookTitle = document.querySelector("[data-bookTitle]");
 const imagePreview = document.querySelector("[data-bookImage-preview]");
 const rootBooks = document.querySelector("[data-rootBooks]");
 const backToTop = document.querySelector("[data-back-to-top]");
-const updateForm = document.querySelector("[data-update-here]")
+const ownerTable = document.querySelector("[data-toggle-existing]")
 
 // make sure your function is called at the right page!!!
 // if (window.document.title === 'Bookie')
@@ -64,7 +64,6 @@ interface BookShop {
   let newBook: book = book;
   makeId(newBook);
   this.books.push(newBook);
-  makeAnOption(bookie,selectRoot,  descYear)
     },
     sortItemAsc() {
       this.items.sort((a, b) => {
@@ -113,7 +112,7 @@ interface BookShop {
         domElement.innerHTML = html
     }
   };
-  let localBookie = bookie
+
   
   
   
@@ -135,7 +134,7 @@ interface BookShop {
       return;
     }
   }
-  localBookie.renderItem(rootBooks)
+  bookie.renderItem(rootBooks)
   
   function handleAddItem(ev: any) {
     ev.preventDefault();
@@ -166,10 +165,17 @@ interface BookShop {
   
   
   
-  localStorage.setItem("Bookie shop", JSON.stringify(localBookie))
-  const stringBookie = localStorage.getItem("Bookie shop")
-let parsedBookie = JSON.parse(stringBookie)
+  localStorage.setItem("Bookie shop", JSON.stringify(bookie))
+let parsedBookie = JSON.parse(localStorage.getItem("Bookie shop"))
 console.log(parsedBookie)
+for (let i in parsedBookie.books) {
+  ownerTable.innerHTML += `<tr>
+  <td> ${parsedBookie.books[i].title}  </td>
+  <td> ${parsedBookie.books[i].year} </td>
+  <td> ${parsedBookie.books[i].price}</td>
+  <td> ${parsedBookie.books[i].updateThis()}
+  </tr>`;
+}
 let ascPrice =(a:book,b:book)=>{
   return a.price - b.price
 }
@@ -182,59 +188,6 @@ let ascYear =(a:book,b:book)=>{
 let descYear = (a, b) => {
   return b.year - a.year;
 }
-let placeHolderId ;
-function handleID(ev: any) {
-  ev.preventDefault();
-  let chosenId = ev.target.value
-  placeHolderId = chosenId
-  console.log(chosenId)
-}
-function handleEdit(ev: any) {
-  ev.preventDefault();
-  console.log(placeHolderId);
-  for(let book of bookie.books){
-    if(book.id === placeHolderId){
-      
-      console.log(book)
-
-    }
-  
-  updateForm.innerHTML = `
-  <form onSubmit="handleUpdate(event)">
-                            <input type="text" name="title" value="${book.title}">
-                            <select data-bookCategory name="category" id="category">
-                                <option disabled selected value="None">Choose the category</option>
-                                <option value="thriller">Thriller</option>
-                                <option value="history">History</option>
-                                <option value="cooking">Cooking</option>
-                                <option value="fantasy">Fantasy</option>
-                            </select>
-                            <input data-bookTitle type="number" name="price" placeholder="Insert a price">
-            
-                            <input data-bookYear type="number" name="year" placeholder="Year written">
-                            <input data-bookId type="text" name="id" value="uid">
-                            <input data-bookImage onchange="showPreviewImage(event)" type="file" name="image" id='image'
-                                accept="image/png, image/gif, image/jpeg" />
-                            <div data-bookImage-preview>
-                            </div>
-                            <input type="submit" value="add">
-                        </form>`
-}}
-
-  // create an option to choose and update for each book
-  function makeAnOption(shop: BookShop,root, sortFunc) {
-if(window.document.title === 'myBookie'){
-  root.innerHTML = ''
-  shop.books.sort(sortFunc);
-  shop.books.forEach(
-    (book) =>
-      root.innerHTML += `<option value="${book.id}">${book.title}(${book.year})</option>`
-  );
-}
-}
-
-localBookie = bookie;
-makeAnOption(bookie,selectRoot,  descYear)
 
 
 
