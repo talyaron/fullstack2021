@@ -76,130 +76,42 @@
         </div>
 
 
-        <div class="navBarSort">
-            <div>
-                <ul class="navBarSort__items">
-                    <li class="nav-item">JEWELRY & WATCHES| Watches</li>
-                    <li class="nav-item">Category |Line |Sort by:Lower price | Higher price</li>
-                </ul>
-            </div>
-
-            <div class="sortBtns">
-                <button onclick="handlesortItemsDesc(event)" name="desc" value="desc"><span style="color: #659700;">
-                        Lower
-                        price first</span></button>
-                <button onclick="handlesortItemsAsc(event)" name="asc" value="asc"><span style="color: #dd000b;">
-                        Higher price first</span></button>
-            </div>
-        </div>
-
     </div>
 
     <div class="showcase">
-        <video class="video" src="images/gucci3.mp4" autoplay loop muted></video>
+        <video class="video" src="images/gucciMovei.mp4" autoplay loop muted></video>
         <div class="overlay"></div>
         <div class="showcaseText">
             <h1>MEN'S WATCHES</h1>
         </div>
     </div>
+    <div class="navBarSort">
 
-    <div class="wrapper">
-        <!-- class='htmlStore'  -->
-
-        <div class='main' id="rootItemsStore">
-
-            <!-- <div class="main">
-
-            <div class="main__item pic1 ">
-                <button class="buy-now" type="buttom"><i class="fas fa-shopping-cart"></i>Buy now</button>
-                <span class="price">price:500$</span>
+        <div class="navBarSort__items">
+            <div class="nav-item-left">WATCHES</div>
+            <div class="nav-item-left">Watches For Men</div>
+            <div></div>
+            <div class="nav-item-right">Category <i class="fas fa-chevron-down" style="color: #b4b4b4;"></i></div>
+            <div class="nav-item-right">Line <i class="fas fa-chevron-down" style="color: #b4b4b4;"></i></div>
+            <div class="sortPopUp">
+                <div class="popup" onclick="myFunction()">Sort By <i class="fas fa-chevron-down"
+                        style="color: #b4b4b4;"></i>
+                    <span class="popuptext" id="myPopup">
+                        <div class="sortBtns">
+                            <button onclick="handlesortItemsDesc(event)" name="desc" value="desc">Lower price
+                                first</button>
+                            <button onclick="handlesortItemsAsc(event)" name="asc" value="asc">Higher price
+                                first</button>
+                        </div>
+                    </span>
+                </div>
             </div>
-
-            <div class="main__item pic2">
-                <button class="buy-now" type="buttom"><i class="fas fa-shopping-cart"></i>Buy now</button>
-                <span class="price">price:500$</span>
-            </div>
-
-            <div class="main__item pic3">
-                <button class="buy-now" type="buttom"><i class="fas fa-shopping-cart"></i>Buy now</button>
-                <span class="price">price:500$</span>
-            </div>
-
-            <div class="main__item pic4">
-                <button class="buy-now" type="buttom"><i class="fas fa-shopping-cart"></i>Buy now</button>
-                <span class="price">price:500$</span>
-            </div>
-
-            <div class="main__item pic5">
-                <button class="buy-now" type="buttom"><i class="fas fa-shopping-cart"></i>Buy now</button>
-                <span class="price">price:500$</span>
-            </div>
-
-            <div class="main__item pic6">
-                <button class="buy-now" type="buttom"><i class="fas fa-shopping-cart"></i>Buy now</button>
-                <span class="price">price:500$</span>
-            </div>
-
-            <div class="main__item pic7">
-                <button class="buy-now" type="buttom"><i class="fas fa-shopping-cart"></i>Buy now</button>
-                <span class="price">price:500$</span>
-            </div>
-
-            <div class="main__item pic8">
-                <button class="buy-now" type="buttom"><i class="fas fa-shopping-cart"></i>Buy now</button>
-                <span class="price">price:500$</span>
-            </div>
-
-        </div> -->
-
-
-
-            <!-- <div class="main">
-
-            <div class="main__item pic1 ">
-                <button class="buy-now" type="buttom"><i class="fas fa-shopping-cart"></i>Buy now</button>
-                <span class="price">price:500$</span>
-            </div>
-
-            <div class="main__item pic2">
-                <button class="buy-now" type="buttom"><i class="fas fa-shopping-cart"></i>Buy now</button>
-                <span class="price">price:500$</span>
-            </div>
-
-            <div class="main__item pic3">
-                <button class="buy-now" type="buttom"><i class="fas fa-shopping-cart"></i>Buy now</button>
-                <span class="price">price:500$</span>
-            </div>
-
-            <div class="main__item pic4">
-                <button class="buy-now" type="buttom"><i class="fas fa-shopping-cart"></i>Buy now</button>
-                <span class="price">price:500$</span>
-            </div>
-
-            <div class="main__item pic5">
-                <button class="buy-now" type="buttom"><i class="fas fa-shopping-cart"></i>Buy now</button>
-                <span class="price">price:500$</span>
-            </div>
-
-            <div class="main__item pic6">
-                <button class="buy-now" type="buttom"><i class="fas fa-shopping-cart"></i>Buy now</button>
-                <span class="price">price:500$</span>
-            </div>
-
-            <div class="main__item pic7">
-                <button class="buy-now" type="buttom"><i class="fas fa-shopping-cart"></i>Buy now</button>
-                <span class="price">price:500$</span>
-            </div>
-
-            <div class="main__item pic8">
-                <button class="buy-now" type="buttom"><i class="fas fa-shopping-cart"></i>Buy now</button>
-                <span class="price">price:500$</span>
-            </div>
-
-
-        </div> -->
-
         </div>
+
+    </div>
+    <div class="wrapper">
+
+        <div class='main' id="rootItemsStore"></div>
 
         <!-- end rootItemsStore -->
 
