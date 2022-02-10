@@ -412,12 +412,27 @@ footer .footer__credit {
   border: none;
   background: none;
   width: 10px;
+  transition: 0.3s;
+}
+.rootBooks__card__bag:hover {
+  color: #4c00ff;
 }
 .rootBooks__card__heart {
   position: relative;
+  left: 270px;
+  bottom: 25px;
   color: #FF3100;
   cursor: pointer;
   border: none;
   background: none;
   width: 10px;
+  transition: 0.3s;
+}
+@media only screen and (min-width: 768px) {
+  .rootBooks__card__heart {
+    left: 300px;
+  }
+}
+.rootBooks__card__heart:hover {
+  color: #4c00ff;
 }

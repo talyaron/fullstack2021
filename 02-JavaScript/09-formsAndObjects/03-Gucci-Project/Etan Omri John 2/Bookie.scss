@@ -422,14 +422,27 @@ footer {
     border: none;
     background: none;
     width: 10px;
+    transition: 0.3s;
+    &:hover{
+      color: #4c00ff;
+    }
    }
    &__heart{
     position: relative;
+    @media only screen and (min-width: 768px) {
+    left: 300px;
+    }
+    left: 270px;
+    bottom: 25px;
     color: #FF3100;
     cursor: pointer;
     border: none;
     background: none;
     width: 10px;
+    transition: 0.3s;
+    &:hover{
+      color: #4c00ff;
+    }
    }
     
   }
