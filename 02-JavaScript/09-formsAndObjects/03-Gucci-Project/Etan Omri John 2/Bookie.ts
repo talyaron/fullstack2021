@@ -195,10 +195,12 @@ if(window.document.title === 'myBookie'){
   );
 }
 }
+
 localBookie = bookie;
 makeAnOption(bookie,selectRoot,  descYear)
 console.log(parsedBookie)
 console.log(localBookie)
+
 
 window.onload = function () {
   if (window.document.title === 'Bookie'){
@@ -219,4 +221,3 @@ window.onload = function () {
 	});
   }
 }
-console.log()
