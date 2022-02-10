@@ -14,8 +14,8 @@ interface gucci {
     storeData();
     getData();
     getDataStore(list, rootItemsStore);
-
 }
+
 interface Items {
     id: string;
     select: string;
@@ -29,7 +29,6 @@ const gucci: gucci = {
     items: [],
 
     addItems(select, title, description, price) {
-
         let id = uid();
         this.items.push({ id, select, title, description, price });
         this.storeData();
@@ -38,7 +37,6 @@ const gucci: gucci = {
 
     editItem(id, title, price) {
         const index = this.items.findIndex((item) => item.id === id);
-
         if (index >= 0) {
             this.items[index].title = title;
             this.items[index].price = price;
@@ -51,7 +49,6 @@ const gucci: gucci = {
         } else if (orderBy === 'desc') {
             this.items.sort((a, b) => { return a.price - b.price })
         }
-
     },
 
     storeData() {
@@ -76,34 +73,31 @@ const gucci: gucci = {
         list.forEach(item => {
             html +=
                 `<div class='containerCard'>
-            <div class='card'>
-            <div class="category">${item.select}</div>
-            <div>
-            <div class="title">${item.title}</div>
-            <div class="description">${item.description}</div>
-            </div>
-            <div class="price">&#36;${item.price}</div>
-
-            <div class="main__item pic${item.select} "></div>
-            <div class="itemPic">
-            <img src="${item.select}.jpg" alt="">
-            <hr>
-            </div>
-
-            <div class="delete">
-            <button onclick="handleDelete('${item.id}')"><span style="color: #ff0000;">Delete</span></button>
-            </div>
-            </div>
-         
-            <div class="edit">
-            <form id="formAdd" onsubmit="handleEditItems(event, '${item.id}')">
-            <input type="text" name="title" placeholder="Edit title" value="${item.title}">
-            <input type="number" name="price" placeholder="Edit price" value="${item.price}">
-            <input type="submit" id="update" value="UPDATE">
-            </form>
-            </div>
-            </div>
-            <br>`
+                    <div class='card'>
+                        <div class="category">${item.select}</div>
+                        <div class="title">${item.title}</div>
+                        <div class="description">${item.description}</div>
+                        <div class="price">&#36;${item.price}</div>
+                        <div class="imgPic">
+                          <div class="main__item pic${item.select} "></div>
+                        </div>
+                        <div class="itemPicLine">
+                            <img src="${item.select}.jpg" alt="">
+                            <hr>
+                        </div>
+                        <div class="delete">
+                         <button onclick="handleDelete('${item.id}')"><span style="color: #ff0000;">Delete</span></button>
+                        </div>
+                        <div class="edit">
+                            <form id="formAdd" onsubmit="handleEditItems(event, '${item.id}')">
+                            <input type="text" name="title" placeholder="Edit title" value="${item.title}">
+                            <input type="number" name="price" placeholder="Edit price" value="${item.price}">
+                            <input type="submit" id="update" value="UPDATE">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <br>`
         })
         localStorage.setItem('storeData', JSON.stringify(this.items))
 
@@ -121,7 +115,7 @@ const gucci: gucci = {
             </div>`})
 
         rootItemsStore.innerHTML = htmlStore;
-    },
+    },    
 }
 
 
@@ -180,3 +174,18 @@ function handleRenderAllItems(){
     gucci.getDataStore(gucci.items, rootItemsStore);
 }
 
+ // When the user clicks on div, open the popup
+ function myFunction() {
+    var popup = document.getElementById("myPopup");
+    popup.classList.toggle("show");
+}
+
+const numb=213231221;
+
+function separator(numb) {
+    var str = numb.toString().split(".");
+    str[0] = str[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return str.join(".");
+}
+
+console.log(separator(numb))

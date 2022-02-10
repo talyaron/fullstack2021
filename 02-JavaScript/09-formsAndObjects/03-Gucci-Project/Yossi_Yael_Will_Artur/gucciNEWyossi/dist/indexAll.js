@@ -42,7 +42,7 @@ var gucci = {
         var html = '';
         list.forEach(function (item) {
             html +=
-                "<div class='containerCard'>\n            <div class='card'>\n            <div class=\"category\">" + item.select + "</div>\n            <div>\n            <div class=\"title\">" + item.title + "</div>\n            <div class=\"description\">" + item.description + "</div>\n            </div>\n            <div class=\"price\">&#36;" + item.price + "</div>\n\n            <div class=\"main__item pic" + item.select + " \"></div>\n            <div class=\"itemPic\">\n            <img src=\"" + item.select + ".jpg\" alt=\"\">\n            <hr>\n            </div>\n\n            <div class=\"delete\">\n            <button onclick=\"handleDelete('" + item.id + "')\"><span style=\"color: #ff0000;\">Delete</span></button>\n            </div>\n            </div>\n         \n            <div class=\"edit\">\n            <form id=\"formAdd\" onsubmit=\"handleEditItems(event, '" + item.id + "')\">\n            <input type=\"text\" name=\"title\" placeholder=\"Edit title\" value=\"" + item.title + "\">\n            <input type=\"number\" name=\"price\" placeholder=\"Edit price\" value=\"" + item.price + "\">\n            <input type=\"submit\" id=\"update\" value=\"UPDATE\">\n            </form>\n            </div>\n            </div>\n            <br>";
+                "<div class='containerCard'>\n                    <div class='card'>\n                        <div class=\"category\">" + item.select + "</div>\n                        <div class=\"title\">" + item.title + "</div>\n                        <div class=\"description\">" + item.description + "</div>\n                        <div class=\"price\">&#36;" + item.price + "</div>\n                        <div class=\"imgPic\">\n                          <div class=\"main__item pic" + item.select + " \"></div>\n                        </div>\n                        <div class=\"itemPicLine\">\n                            <img src=\"" + item.select + ".jpg\" alt=\"\">\n                            <hr>\n                        </div>\n                        <div class=\"delete\">\n                         <button onclick=\"handleDelete('" + item.id + "')\"><span style=\"color: #ff0000;\">Delete</span></button>\n                        </div>\n                        <div class=\"edit\">\n                            <form id=\"formAdd\" onsubmit=\"handleEditItems(event, '" + item.id + "')\">\n                            <input type=\"text\" name=\"title\" placeholder=\"Edit title\" value=\"" + item.title + "\">\n                            <input type=\"number\" name=\"price\" placeholder=\"Edit price\" value=\"" + item.price + "\">\n                            <input type=\"submit\" id=\"update\" value=\"UPDATE\">\n                            </form>\n                        </div>\n                    </div>\n                </div>\n                <br>";
         });
         localStorage.setItem('storeData', JSON.stringify(this.items));
         domElement.innerHTML = html;
@@ -103,3 +103,15 @@ function handleRenderAllItems() {
     var rootItemsStore = document.getElementById('rootItemsStore');
     gucci.getDataStore(gucci.items, rootItemsStore);
 }
+// When the user clicks on div, open the popup
+function myFunction() {
+    var popup = document.getElementById("myPopup");
+    popup.classList.toggle("show");
+}
+var numb = 213231221;
+function separator(numb) {
+    var str = numb.toString().split(".");
+    str[0] = str[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return str.join(".");
+}
+console.log(separator(numb));
