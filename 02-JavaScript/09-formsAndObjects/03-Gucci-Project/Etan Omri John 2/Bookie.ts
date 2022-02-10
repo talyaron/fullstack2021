@@ -52,7 +52,7 @@ interface BookShop {
   
   const bookie: BookShop = {
     id: 0,
-    books: [{id: 1, category: "thriller",title: 'okay',price: 19.99, img: 'https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg',year:1998}, {id: 2, category: "thriller",title: 'okay',price: 19.99, img: 'https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg',year:1998}, {id: 3, category: "thriller",title: 'okay',price: 19.99, img: 'https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg',year:1998}, {id: 4, category: "thriller",title: 'okay',price: 19.99, img: 'https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg',year:1998}, {id: 5, category: "thriller",title: 'okay',price: 19.99, img: 'https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg',year:1998}],
+    books: [{id: 1, category: "thriller",title: 'bye',price: 19.99, img: 'https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg',year:1998}, {id: 2, category: "thriller",title: 'hi',price: 19.99, img: 'https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg',year:1998}, {id: 3, category: "thriller",title: 'shy',price: 19.99, img: 'https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg',year:1998}, {id: 4, category: "thriller",title: 'okay',price: 19.99, img: 'https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg',year:1998}, {id: 5, category: "thriller",title: 'okay',price: 19.99, img: 'https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg',year:1998}],
     addItem(ev:any) {
       let id = ev.target.elements.id.value;
   let category = ev.target.elements.category.value;
@@ -182,20 +182,22 @@ let ascYear =(a:book,b:book)=>{
 let descYear = (a, b) => {
   return b.year - a.year;
 }
-let chosenBook;
+let placeHolderId ;
 function handleID(ev: any) {
   ev.preventDefault();
- let chosenId = ev.target.value
- for(let item of bookie.books){
-   if(item.id === chosenId)
-  console.log(book)
-  console.log(chosenId)
- }
+  let chosenId = ev.target.value
+  placeHolderId = chosenId
 }
 function handleEdit(ev: any) {
   ev.preventDefault();
-  let book = chosenBook
-  console.dir(ev.target);
+  console.log(placeHolderId);
+  for(let book of bookie.books){
+    if(book.id === placeHolderId){
+      
+      console.log(bookie.books[book.id])
+
+    }
+  
   updateForm.innerHTML = `
   <form onSubmit="handleUpdate(event)">
                             <input type="text" name="title" value="${book.title}">
@@ -216,7 +218,7 @@ function handleEdit(ev: any) {
                             </div>
                             <input type="submit" value="add">
                         </form>`
-}
+}}
 
   // create an option to choose and update for each book
   function makeAnOption(shop: BookShop,root, sortFunc) {
@@ -232,8 +234,7 @@ if(window.document.title === 'myBookie'){
 
 localBookie = bookie;
 makeAnOption(bookie,selectRoot,  descYear)
-console.log(parsedBookie)
-console.log(localBookie)
+
 
 
 window.onload = function () {
