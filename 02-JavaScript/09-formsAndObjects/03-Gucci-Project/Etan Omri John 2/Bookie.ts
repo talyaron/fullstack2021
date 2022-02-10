@@ -187,6 +187,7 @@ function handleID(ev: any) {
   ev.preventDefault();
   let chosenId = ev.target.value
   placeHolderId = chosenId
+  console.log(chosenId)
 }
 function handleEdit(ev: any) {
   ev.preventDefault();
@@ -194,7 +195,7 @@ function handleEdit(ev: any) {
   for(let book of bookie.books){
     if(book.id === placeHolderId){
       
-      console.log(bookie.books[book.id])
+      console.log(book)
 
     }
   

@@ -121,6 +121,7 @@ function handleID(ev) {
     ev.preventDefault();
     var chosenId = ev.target.value;
     placeHolderId = chosenId;
+    console.log(chosenId);
 }
 function handleEdit(ev) {
     ev.preventDefault();
@@ -128,7 +129,7 @@ function handleEdit(ev) {
     for (var _i = 0, _a = bookie.books; _i < _a.length; _i++) {
         var book = _a[_i];
         if (book.id === placeHolderId) {
-            console.log(bookie.books[book.id]);
+            console.log(book);
         }
         updateForm.innerHTML = "\n  <form onSubmit=\"handleUpdate(event)\">\n                            <input type=\"text\" name=\"title\" value=\"" + book.title + "\">\n                            <select data-bookCategory name=\"category\" id=\"category\">\n                                <option disabled selected value=\"None\">Choose the category</option>\n                                <option value=\"thriller\">Thriller</option>\n                                <option value=\"history\">History</option>\n                                <option value=\"cooking\">Cooking</option>\n                                <option value=\"fantasy\">Fantasy</option>\n                            </select>\n                            <input data-bookTitle type=\"number\" name=\"price\" placeholder=\"Insert a price\">\n            \n                            <input data-bookYear type=\"number\" name=\"year\" placeholder=\"Year written\">\n                            <input data-bookId type=\"text\" name=\"id\" value=\"uid\">\n                            <input data-bookImage onchange=\"showPreviewImage(event)\" type=\"file\" name=\"image\" id='image'\n                                accept=\"image/png, image/gif, image/jpeg\" />\n                            <div data-bookImage-preview>\n                            </div>\n                            <input type=\"submit\" value=\"add\">\n                        </form>";
     }
