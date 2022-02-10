@@ -22,7 +22,8 @@
 
 <body onload="handleRenderByGender('women')" >
 
-
+    <!-- <div class="cart" style="position:sticky;width:300px;height:400px;background-color: green;top:30vh;z-index: 1;">    
+    </div> -->
 
     <div class="container">
 
@@ -240,13 +241,13 @@
 
             <div class="catergory__buttons--lowerThanPrice">
                 <label>Show price lower than</label>
-                <input class="inputLowerThan" type='number' onkeyup="handleFilterByPrice(event)" placeholder="number">
+                <input class="inputLowerThan" type='number' onkeyup="handleFilterByPrice(event)" placeholder="number" data-gender="women">
             </div>
 
 
-            <select class="catergory__buttons--selector" onchange='handleSelect(event)' data-gender="women">
+            <select class="catergory__buttons--selector" onchange='handleSelect(event)' data-gender="women" >
                 <option value="" disabled selected>Category</option>
-                <option value="allWomen">ALL</option>
+                <option value="all">ALL</option>
                 <option value="dresses">DRESSES</option>
                 <option value="sweaters">SWEATERS</option>
                 <option value="boots">BOOTS</option>
@@ -255,8 +256,8 @@
             </select>
 
             <div class="catergory__buttons--sortPrice">
-                <button type="button" id="ascending" onclick="handlePriceAsc(event)">Price-Low to High</button>
-                <button type="button" id="descending" onclick="handlePriceDesc(event)">Price-High to Low
+                <button type="button" id="ascending" onclick="handlePriceAsc(event)" data-gender="women">Price-Low to High</button>
+                <button type="button" id="descending" onclick="handlePriceDesc(event)" data-gender="women">Price-High to Low
                 </button>
             </div>
 
@@ -274,6 +275,7 @@
 
 
         </div>
+        
 
 
         <div class="container__bottom">
@@ -329,7 +331,7 @@
 
 
         </div>
-        <p style="background: rgb(26, 25, 25); font-size: small; padding: 2em; margin-top: 0;">© 2016 - 2020 Guccio
+        <p style="background: rgb(26, 25, 25); font-size: small; padding: 2em; margin-top: 0;color:white">© 2016 - 2020 Guccio
             Gucci S.p.A. - All rights reserved. SIAE LICENCE # 2294/I/1936 and 5647/I/1936</p>
 
 
@@ -340,6 +342,7 @@
 
 
     </div>
+    
 
     <script src="dist/index.js"></script>
 

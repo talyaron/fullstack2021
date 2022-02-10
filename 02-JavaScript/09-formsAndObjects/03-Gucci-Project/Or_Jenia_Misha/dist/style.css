@@ -45,6 +45,10 @@
     left: 0%;
   }
 }
+html {
+  scroll-behavior: smooth;
+}
+
 * {
   transition: all 0.7s;
 }
@@ -123,6 +127,10 @@
   width: 100%;
   align-items: center;
   padding: 1em;
+}
+.navbar .navtags a {
+  color: inherit;
+  text-decoration: inherit;
 }
 .navbar .navtags li {
   padding: 5px;
@@ -566,4 +574,9 @@
   .home__title {
     font-size: 40px;
   }
+}
+.dishesERP {
+  border: 1px solid black;
+  width: 50%;
+  padding: 5px;
 }

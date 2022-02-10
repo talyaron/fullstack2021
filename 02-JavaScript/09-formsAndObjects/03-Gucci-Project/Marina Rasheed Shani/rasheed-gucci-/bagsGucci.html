@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="dist/style.css">
 </head>
 
-<body onload="handleRenderByDepartment('bags')">
+<body onload="handleRenderByGender('womenBags')">
 
 
     <div class="container">
@@ -237,13 +237,13 @@
 
             <div class="catergory__buttons--lowerThanPrice">
                 <label>Show price lower than</label>
-                <input class="inputLowerThan" type='number' onkeyup="handleFilterByPrice(event)" placeholder="number">
+                <input class="inputLowerThan" type='number' onkeyup="handleFilterByPrice(event)" placeholder="number" data-gender="womenBags">
             </div>
 
 
-            <select class="catergory__buttons--selector" onchange='handleSelect(event)'>
+            <select class="catergory__buttons--selector" onchange='handleSelect(event)' data-gender="womenBags">
                 <option value="" disabled selected>Category</option>
-                <option value="allBags">ALL</option>
+                <option value="all">ALL</option>
                 <option value="purses">PURSES</option>
                 <option value="backpack">BACKPACK</option>
                 
@@ -251,8 +251,8 @@
             </select>
 
             <div class="catergory__buttons--sortPrice">
-                <button type="button" id="ascending" onclick="handlePriceAsc(event)">Price-Low to High</button>
-                <button type="button" id="descending" onclick="handlePriceDesc(event)">Price-High to Low
+                <button type="button" id="ascending" onclick="handlePriceAsc(event)" data-gender="womenBags">Price-Low to High</button>
+                <button type="button" id="descending" onclick="handlePriceDesc(event)" data-gender="womenBags">Price-High to Low
                 </button>
             </div>
 
@@ -325,7 +325,7 @@
 
 
         </div>
-        <p style="background: rgb(26, 25, 25); font-size: small; padding: 2em; margin-top: 0;">© 2016 - 2020 Guccio
+        <p style="background: rgb(26, 25, 25); font-size: small; padding: 2em; margin-top: 0;color:white">© 2016 - 2020 Guccio
             Gucci S.p.A. - All rights reserved. SIAE LICENCE # 2294/I/1936 and 5647/I/1936</p>
 
 

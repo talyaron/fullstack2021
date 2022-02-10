@@ -372,6 +372,11 @@ footer .footer__credit {
   justify-content: space-between;
   grid-template-columns: repeat(2, 1fr);
 }
+@media only screen and (min-width: 768px) {
+  .rootBooks .rootBooks {
+    grid-template-columns: 1fr, 1fr, 1fr, 1fr;
+  }
+}
 .rootBooks__card {
   background-color: whitesmoke;
   display: grid;
@@ -388,18 +393,19 @@ footer .footer__credit {
   height: 20px;
 }
 .rootBooks__card__img {
-  color: black;
-  padding: 100px;
+  display: block;
+  width: 100%;
+  height: auto;
 }
 .rootBooks__card__title {
   font-weight: 900;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   text-transform: uppercase;
   font-size: 30px;
   color: #23211f;
   margin-bottom: 5px;
 }
 .rootBooks__card__bag {
-  position: relative;
   color: #FF3100;
   cursor: pointer;
   border: none;
