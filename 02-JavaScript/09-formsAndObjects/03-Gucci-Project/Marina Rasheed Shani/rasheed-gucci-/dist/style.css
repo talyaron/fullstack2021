@@ -26,8 +26,21 @@ body {
   gap: 0.4em;
   font-size: smaller;
 }
+.container__navBar__title--gucci {
+  font-size: 1em;
+  letter-spacing: 12px;
+  font-family: Granjon;
+  font-weight: lighter;
+}
+.container__navBar:hover {
+  background-color: #141010de;
+}
 .container__navBar2 {
   text-align: center;
+  transition: all 0.5s;
+}
+.container__navBar2:hover {
+  background-color: #141010de;
 }
 .container__navBar2 ul {
   display: inline-flex;

@@ -232,10 +232,10 @@ var StandartEbooks = {
     }
 };
 // doesnt work
-function handleShowAnnotation() {
-    var annotation = document.querySelector('.annotation');
-    StandartEbooks.showAnnotation(annotation);
-}
+// function handleShowAnnotation() {
+//   const annotation: any = document.querySelector('.annotation');
+//   StandartEbooks.showAnnotation(annotation);
+// }
 function handleAddBook(e) {
     e.preventDefault();
     var id = uid();
@@ -266,14 +266,6 @@ function handleDeleteBook(e) {
 // doesnt work
 function handleUpdateBook(e) {
     e.preventDefault();
-    var updateBook = {}, Book;
-    var ditails = Book.ditails;
-    for (var i = 0; i < Book.length; i++) {
-        handleUpdateBook(ditails[i]) = e.target.elements[i].value;
-    }
-    var root = document.querySelector(".root");
-    StandartEbooks.updateBook(updateBook);
-    StandartEbooks.renderAllBooks(root);
 }
 // doesnt work
 function handleAuthorAscen() {
