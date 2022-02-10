@@ -51,6 +51,9 @@
         left: 0%;
     }
 }
+html{
+    scroll-behavior: smooth;
+}
 
 *{
     transition: all 0.7s;
@@ -147,6 +150,10 @@
         width: 100%;
         align-items: center;
         padding: 1em;
+        a {
+            color: inherit; 
+            text-decoration: inherit; 
+          }
 
         li {
             padding: 5px;

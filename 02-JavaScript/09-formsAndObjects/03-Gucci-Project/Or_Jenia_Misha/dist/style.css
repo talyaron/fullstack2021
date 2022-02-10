@@ -45,6 +45,10 @@
     left: 0%;
   }
 }
+html {
+  scroll-behavior: smooth;
+}
+
 * {
   transition: all 0.7s;
 }
@@ -123,6 +127,10 @@
   width: 100%;
   align-items: center;
   padding: 1em;
+}
+.navbar .navtags a {
+  color: inherit;
+  text-decoration: inherit;
 }
 .navbar .navtags li {
   padding: 5px;
