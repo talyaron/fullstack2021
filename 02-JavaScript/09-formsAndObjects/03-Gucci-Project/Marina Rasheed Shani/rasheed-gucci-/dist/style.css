@@ -209,12 +209,23 @@ body {
   position: relative;
   display: inline-block;
   text-align: center;
-  padding: 1px;
+  padding: 2px;
   border: none;
 }
 .catergory__items .items img {
   height: 380px;
   width: 20em;
+}
+.catergory__items .items .imgBottom {
+  display: none;
+  position: absolute;
+  top: 53px;
+  left: 2px;
+  z-index: 1;
+  transition: 10s ease;
+}
+.catergory__items .items:hover .imgBottom {
+  display: inline;
 }
 .catergory__items .items p {
   letter-spacing: 2px;

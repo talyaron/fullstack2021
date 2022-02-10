@@ -1,17 +1,18 @@
 .erp {
   background-color: bisque;
 }
+
 body {
   font-family: "Montserrat", sans-serif;
   color: 'whiblackte';
   margin: 0;
   width: 100%;
- 
+
 }
 
 .container {
   &__navBar {
-   
+
     top: 0px;
     left: 0px;
     padding-bottom: 1em;
@@ -30,25 +31,27 @@ body {
         font-size: smaller;
       }
 
-      &--gucci{
+      &--gucci {
         font-size: 1em;
-        letter-spacing:12px;
-        font-family:Granjon;
-        font-weight:lighter;
-        
+        letter-spacing: 12px;
+        font-family: Granjon;
+        font-weight: lighter;
+
       }
     }
-    &:hover{
+
+    &:hover {
       background-color: #141010de;
     }
   }
 
-  
+
 
   &__navBar2 {
     text-align: center;
     transition: all 0.5s;
-    &:hover{
+
+    &:hover {
       background-color: #141010de;
     }
 
@@ -63,7 +66,7 @@ body {
       display: inline-flex;
       list-style: none;
 
-      
+
 
 
 
@@ -93,7 +96,7 @@ body {
       width: 130vh;
       padding: 20px;
       opacity: 0.7;
-      
+
 
 
 
@@ -112,8 +115,8 @@ body {
         flex-direction: row;
         flex-wrap: wrap;
         background-color: #141010;
-       
-        
+
+
 
 
 
@@ -125,16 +128,16 @@ body {
           :hover {
             text-decoration: underline;
             cursor: pointer;
-            
-            
+
+
           }
 
-          a{
+          a {
             color: #ffffff;
             font-size: large;
             font-weight: bolder;
             font-family: "Montserrat", sans-serif;
-            
+
           }
         }
 
@@ -170,7 +173,7 @@ body {
     text-align: center;
     font-weight: 300;
     font-size: larger;
-    
+
   }
 
   &__bottom {
@@ -195,17 +198,18 @@ body {
   margin-top: 15px;
   margin-left: -15px;
   position: absolute;
- 
-  transform: translateY(-20px);;
-  
+
+  transform: translateY(-20px);
+  ;
+
 }
 
-.sub-container{
+.sub-container {
   background-image: url("https://media.gucci.com/content/HeroBigStandard_3200x1520/1643384764/HeroBigStandard_VDAY-2022-043-new_001_Default.jpg");
   height: 100vh;
   margin: 0;
-  
-  
+
+
 }
 
 //BUTTONS FOR EACH CATERGORY and template for each catergory's page
@@ -318,19 +322,52 @@ $background-color:#ffffff;
   height: 110em;
   text-align: center;
 
+
   .items {
     color: black;
     position: relative;
     display: inline-block;
     text-align: center;
-    padding:1px;
-    border:none;
+    padding: 2px;
+    border: none;
+
 
     img {
       height: 380px;
       width: 20em;
 
     }
+
+    
+    // .imgBottom {
+    //   height: 380px;
+    //   width: 20em;
+
+    // }
+
+    .imgBottom {
+      display: none;
+      position: absolute;
+      top: 53px;
+      left: 2px;
+      z-index: 1;
+      transition: 10s ease;
+      
+     
+      
+
+
+    }
+
+    &:hover .imgBottom {
+      display: inline;
+    //   width: 20em;
+    //  height: 380px;
+    }
+
+
+
+
 
     p {
       letter-spacing: 2px;
@@ -339,8 +376,9 @@ $background-color:#ffffff;
 }
 
 
+
 // @media only screen and (max-width: 1380px) {
 //   body{
-    
+
 //   }
 // }
