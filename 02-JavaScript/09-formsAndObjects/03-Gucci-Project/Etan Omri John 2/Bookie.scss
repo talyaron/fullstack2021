@@ -21,10 +21,7 @@ body {
 *::after {
   box-sizing: border-box;
 }
-.wrapper {
-  display: grid;
-  width: 100vw;
-}
+
 header {
 
   position: fixed;
@@ -36,7 +33,7 @@ header {
   opacity: .4;
 
   .navBar {
-      padding-top: 32px;
+      padding-top: 20px;
       padding-bottom: 10px;
       display: block;
 
@@ -49,6 +46,7 @@ header {
               display: flex;
               cursor: pointer;
               margin-top: 10px;
+              align-items: center;
 
               svg {
                   width: 60px;
