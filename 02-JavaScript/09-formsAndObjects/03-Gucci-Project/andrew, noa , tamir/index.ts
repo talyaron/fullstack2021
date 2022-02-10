@@ -3,6 +3,7 @@ interface aviator {
     items: Array<newItem>
     cartItems: Array<newItem>
     itemsToRender: Array<newItem>
+    currency:string
     additem(newItem)
     renderitem(domElement: any)
     renderitemcart(domElement)
@@ -12,7 +13,6 @@ interface aviator {
     getdata()
     deleteItem(id: string)
     filterItems(category: string)
-    checkOccurrences(Array)
 }
 interface newItem {
     name: string
@@ -33,8 +33,8 @@ interface newItem {
 let aviator: aviator = {
     items: [],
     cartItems: [],
-
     itemsToRender: [],
+    currency: "USD",
 
 
     renderitem(domElement) {
@@ -53,6 +53,7 @@ let aviator: aviator = {
                 </div>`
         });
         domElement.innerHTML = html
+        setCurrency()
     },
 
     renderitemcart(domElement) {
@@ -60,14 +61,18 @@ let aviator: aviator = {
         let html2 = '';
 
         this.cartItems.forEach(item => {
-            html2 += `<div class='cart'>
+            html2 += `<div class='cart__card'>
             <img src="${item.img}">
+            <p class="cart__card--name">${item.name}</p>
+            <p class="cart__card--price">${item.price}</p>
+            <p class="cart__card--quantity">${item.quantity}</p>
            
         
            <button  onclick='handleDelete("${item.id}")' style="width:50px ;"'><i class="far fa-trash-alt"></i> Delete</button>
             </div>`
         });
         domElement.innerHTML = html2
+        setCurrency()
     },
 
 
@@ -77,17 +82,18 @@ let aviator: aviator = {
     },
 
     additem(newItem) {
+        let isAdded = false;
+        if(!newItem.quantity) newItem.quantity = 1;
         this.cartItems.forEach(item => {
-            if
-            item.quantity = 1;
             if(item.id == newItem.id){
                 item.quantity += 1;
                 console.log(item.quantity);
-                
-                return 
+                isAdded = true;
+                return;
             }
         });
-        this.cartItems.push(newItem)
+        if(isAdded) return;
+        this.cartItems.push(newItem);
     },
     sortitemup() {
         this.itemsToRender.sort((a, b) => { return a.price - b.price })
@@ -115,22 +121,13 @@ let aviator: aviator = {
         };
         aviator.itemsToRender = filteredItems;
         this.renderitem(document.getElementById('main'));
-    },
-    checkOccurrences(){
-        let count = [];
-        for (let i = 0; i < this.cartItems.length; i++){
-            for(let j = 0; j < this.cartItems.length; j++)
-            if(count[i].id != this.cartItems.item.id){
-                count.push({id: this.cartItems.item.id, quantity: 1}) 
-            }
-        }
     }
 }
 
 function handleaddcart(ev, itemToAddId) {
     const itemToAdd = aviator.items.filter(item => item.id == itemToAddId)[0];
     aviator.additem(itemToAdd);
-    const cart = document.getElementById('cart')
+    const cart = document.querySelector('.cart')
     aviator.renderitemcart(cart)
     const cartIcon = document.querySelector("#cart-icon");
     cartIcon.classList.add("pulse");
@@ -158,7 +155,7 @@ aviator.itemsToRender = aviator.items;
 const rootitems = document.getElementById('main')
 aviator.renderitem(rootitems)
 
-const cart = document.getElementById('cart')
+const cart = document.querySelector('.cart')
 aviator.renderitemcart(cart)
 
 
@@ -175,5 +172,118 @@ document.querySelector('.filter-bar__item').addEventListener('click', () => {
     aviator.itemsToRender = aviator.items;
     aviator.renderitem(document.getElementById('main'))
 });
+//////////////// from index2 ///////////////////////////////////////////////////////////////////////////
+let filterBar = document.querySelectorAll('.drop');
+filterBar.forEach(item => {
+    item.addEventListener('click', handleNavClick)
+
+});
+let filterDropBar = document.querySelector('.filter-dropbar');
+function handleNavClick() {
+    filterDropBar.classList.toggle("visible");
+    console.log('click');
+}
+
+let currencyButton = document.querySelector('#currency-button');
+let currencySelector = document.querySelector('.currency-selector');
+let currencyOption = document.querySelectorAll('.currency');
+currencyButton.addEventListener('click', handleCurrencySelectorClick);
+function handleCurrencySelectorClick() {
+    currencySelector.classList.toggle("visible");
+}
+currencyOption.forEach(currency => {
+    currency.addEventListener('click', handleCurrencyOptionClick)
+
+});
+
+function setCurrency() {
+    switch (aviator.currency) {
+        case "USD":
+            swichToUsd()
+            break;
+        case "EUR":
+            swichToEur()
+            break;
+        case "GBP":
+            swichToGbp()
+            break;
+    }
+}
+
+function swichToUsd() {
+    let prices: any = document.querySelectorAll(".category-wrapper__card__price");
+    let cartPrices: any = document.querySelectorAll(".cart__card--price");
+    prices.forEach(price => {
+        price.classList.add("USD");
+        price.classList.remove("EUR", "GBP");
+    });
+    cartPrices.forEach(price => {
+        price.classList.add("USD");
+        price.classList.remove("EUR", "GBP");
+    });
+};
+function swichToEur() {
+    let prices: any = document.querySelectorAll(".category-wrapper__card__price");
+    let cartPrices: any = document.querySelectorAll(".cart__card--price");
+    prices.forEach(price => {
+        price.classList.add("EUR");
+        price.classList.remove("USD", "GBP");
+    });
+    cartPrices.forEach(price => {
+        price.classList.add("EUR");
+        price.classList.remove("USD", "GBP");
+    });
+};
+function swichToGbp() {
+    let prices: any = document.querySelectorAll(".category-wrapper__card__price");
+    let cartPrices: any = document.querySelectorAll(".cart__card--price");
+    prices.forEach(price => {
+        price.classList.add("GBP");
+        price.classList.remove("EUR", "USD");
+    });
+    cartPrices.forEach(price => {
+        price.classList.add("GBP");
+        price.classList.remove("EUR", "USD");
+    });
+};
+
+function handleCurrencyOptionClick(ev) {
+    let id = ev.target.id;
+    console.log(id);
+    currencyButton.innerHTML = `ISRAEL (${id})`;
+    switch (id) {
+        case "USD":
+            aviator.currency = "USD"
+            break;
+        case "EUR":
+            aviator.currency = "EUR"
+            break;
+        case "GBP":
+            aviator.currency = "GBP"
+            break;
+    }
+    setCurrency()
+}
+document.querySelectorAll(".category-wrapper__card__price").forEach(price => {
+    price.classList.add("USD");
+});
+document.querySelectorAll(".cart__card--price").forEach(price => {
+    price.classList.add("USD");
+});
+
+const cartIcon = document.querySelector("#cart-icon");
+cartIcon.addEventListener('click', handleCartClick);
+
+function handleCartClick() {
+    const cart: any = document.querySelector(".wow");
+    cart.classList.toggle("visible");
+    console.log(cart.classList);
+
+}
+
+
+
+
+
 
 
