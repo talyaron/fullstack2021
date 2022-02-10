@@ -80,13 +80,17 @@ header.is-scrolling {
   header .navBar__options {
     display: none;
   }
+  header .navBar__row1__icons h5 {
+    display: none;
+  }
   header .navBar__row1__mobile {
     display: flex;
     padding-left: 5px;
     gap: 10px;
+    align-items: center;
   }
   header .navBar__row1__mobile h4 {
-    margin-top: 6px;
+    margin-top: 22px;
   }
   header .navBar__row1__mobile__humburger {
     display: block;
@@ -125,9 +129,8 @@ header.is-scrolling {
   width: 100%;
   display: block;
   z-index: 98;
-  padding-top: 50px;
   background-color: rgba(255, 255, 255, 0.87);
-  opacity: 0.98;
+  opacity: 1;
   transition: 0.4s;
 }
 .mobileOptions.is-active {
@@ -136,7 +139,6 @@ header.is-scrolling {
 .mobileOptions p {
   position: relative;
   height: 55px;
-  padding-top: 5vh;
   font-size: 25px;
   text-align: center;
   cursor: pointer;
@@ -548,7 +550,7 @@ footer .footer__credit {
 }
 .rootBooks__card__title {
   font-weight: 900;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", "Trebuchet MS", sans-serif;
   text-transform: uppercase;
   font-size: 30px;
   color: #23211f;
@@ -560,14 +562,14 @@ footer .footer__credit {
   border: none;
   background: none;
   width: 10px;
-  transition: 0.3s;
+  transition: 0.8s;
 }
 .rootBooks__card__bag:hover {
   color: #4c00ff;
 }
 .rootBooks__card__heart {
   position: relative;
-  left: 270px;
+  left: 85%;
   bottom: 25px;
   color: #FF3100;
   cursor: pointer;
@@ -575,11 +577,6 @@ footer .footer__credit {
   background: none;
   width: 10px;
   transition: 0.3s;
-}
-@media only screen and (min-width: 768px) {
-  .rootBooks__card__heart {
-    left: 300px;
-  }
 }
 .rootBooks__card__heart:hover {
   color: #4c00ff;
