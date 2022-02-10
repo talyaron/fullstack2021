@@ -331,11 +331,11 @@ const StandartEbooks = {
 
 
 // doesnt work
-function handleShowAnnotation() {
-  const annotation: any = document.querySelector('.annotation');
-  StandartEbooks.showAnnotation(annotation);
+// function handleShowAnnotation() {
+//   const annotation: any = document.querySelector('.annotation');
+//   StandartEbooks.showAnnotation(annotation);
 
-}
+// }
 
 
 
@@ -371,14 +371,7 @@ function handleDeleteBook(e) {
 // doesnt work
 function handleUpdateBook(e) {
   e.preventDefault();
-  let updateBook = {}: Book;
-  const ditails = Book.ditails;
-    for (let i = 0; i < Book.length; i++) {
-        handleUpdateBook(ditails[i]) = e.target.elements[i].value;
-    } 
-  const root = document.querySelector(".root");
-  StandartEbooks.updateBook(updateBook);
-  StandartEbooks.renderAllBooks(root);   
+ 
 }
 
 // doesnt work
