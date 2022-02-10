@@ -75,6 +75,7 @@ interface BookShop {
       let html = '';
 
         this.books.forEach(item => {
+          domElement ='';
             html += `
             <div class="rootBooks__card">
                 <button class="rootBooks__card__bag" data-add-to-bag><svg xmlns="http://www.w3.org/2000/svg"
@@ -180,13 +181,14 @@ let descYear = (a, b) => {
 }
   // create an option to choose and update for each book
   function makeAnOption(shop: BookShop, root:any, sortFunc) {
-    root = '';
+
     shop.books.sort(sortFunc);
   shop.books.forEach(
     (book) =>
-      (root.textContent += `<option value="${book.id}">${book.title}(${book.year})</option>`)
+      (root.innerHTML += `<option value="${book.id}">${book.title}(${book.year})</option>`)
   );
 }
+localBookie = bookie;
 makeAnOption(localBookie, selectRoot, descPrice)
 console.log(parsedBookie)
 console.log(localBookie)
