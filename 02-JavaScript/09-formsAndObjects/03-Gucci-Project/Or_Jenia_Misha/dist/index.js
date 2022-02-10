@@ -155,14 +155,14 @@ var sushiMenu = {
             name: "Sea Bream",
             price: 108,
             description: "Tempura tofu bites in coconut milk and yellow curry sauce, Thai beans and cauliflower. Served with a side of coconut rice with toasted coconut shavings.",
-            category: "main-dish"
+            category: "main"
         },
         {
             id: uid(),
             name: "Steamd salmon",
             price: 104,
             description: "Salmon fillet, broccoli, shimeji mushrooms, zucchini, sprouts and shallot flakes in peanut butter and soy sauce.",
-            category: "main-dish"
+            category: "main"
         },
         {
             id: uid(),
@@ -316,21 +316,42 @@ var sushiMenu = {
             name: "Chicken Little",
             price: 44,
             description: "Crispy coated chicken breast mini schnitzels along with steamed rice with ketchup on the side.",
-            category: "kids-menu"
+            category: "kids"
         },
         {
             id: uid(),
             name: "Kid Noodles",
             price: 42,
             description: "Egg noodles with chicken breast and omelet in sweet soy sauce (half order available - Baby Noodles 29).",
-            category: "kids-menu"
+            category: "kids"
         },
         {
             id: uid(),
             name: "Tempura Sweet Potato",
             price: 44,
             description: "Tempura sweet potato strips Served with sweet & sour sauce.",
-            category: "kids-menu"
+            category: "kids"
+        },
+        {
+            id: uid(),
+            name: "Chicken Little",
+            price: 44,
+            description: "Crispy coated chicken breast mini schnitzels along with steamed rice with ketchup on the side.",
+            category: "gonkan"
+        },
+        {
+            id: uid(),
+            name: "Kid Noodles",
+            price: 42,
+            description: "Egg noodles with chicken breast and omelet in sweet soy sauce (half order available - Baby Noodles 29).",
+            category: "gonkan"
+        },
+        {
+            id: uid(),
+            name: "Tempura Sweet Potato",
+            price: 44,
+            description: "Tempura sweet potato strips Served with sweet & sour sauce.",
+            category: "gonkan"
         },
         {
             id: uid(),
@@ -368,6 +389,7 @@ var sushiMenu = {
         if (index >= 0) {
             this.dishes[index] = newDish;
         }
+        this.storeData();
     },
     filterByCategory: function (category) {
         return this.dishes.filter(function (dish) { return dish.category === category; });
@@ -382,9 +404,9 @@ var sushiMenu = {
     renderDishesERP: function (list, domElement) {
         var html = "<form onsubmit=\"handleDeleteDish(event)\"> <input type=\"submit\" value=\"delete\"></input>";
         list.forEach(function (item) {
-            html += "<div class=\"dishesERP\"> \n        <input type=\"checkbox\" id=" + item.id + "></input>\n         <h3 class =\"dishesERP__title__name\">" + item.name + "</h3> \n         <p class =\"dishesERP__desc\">" + item.description + "</p>\n         <p class =\"dishesERP__title__price\">" + item.price + "</p>\n         <p class =\"dishesERP__title__price\"> id:" + item.id + "</p>\n         <p class =\"dishesERP__title__category\"> " + item.category + "</p>\n         <form onsubmit=\"handleUpdateDish(event)\" id=\"" + item.id + "\">\n         <input type=\"text\" name=\"name\" id=\"\" placeholder=\"Dish Name\">\n         <input type=\"number\" name=\"price\" id=\"\" placeholder=\"Dish Price\">\n         <input type=\"text\" name=\"description\" id=\"\" placeholder=\"Add Dish description\">\n         <select name=\"category\" id=\"category\">\n             <option value=\"Choose\" selected disabled>select option</option>\n             <option value=\"firsts\">Firsts</option>\n             <option value=\"soups\">Soups</option>\n             <option value=\"salads\">Salads</option>\n             <option value=\"buns\">Buns</option>\n             <option value=\"robta-yaki\">Robta Yaki</option>\n             <option value=\"gyoza\">Gyoza</option>\n             <option value=\"gonkan-maki\">Special Gonkan maki</option>\n             <option value=\"inside-out\">Inside Out</option>\n             <option value=\"specials\">Specials</option>\n             <option value=\"kids-dishes\">Kids Dishes</option>\n             <option value=\"main-dishes\">Main Dishes</option>\n             <option value=\"wok\">Wok</option>\n             <option value=\"cokctails\">Cokctails</option>\n             <option value=\"combinations\">Combinations</option>\n             <option value=\"sashimi\">Sashimi</option>\n             <option value=\"nigiri\">Nigiri</option>\n             <option value=\"sandwich-sushi\">Sandwich Sushi</option>\n             <option value=\"maki-sushi\">Maki Sushi</option>\n         </select>\n         <input type=\"submit\" value=\"Update\">\n         </form>\n\n         \n      </div>";
+            html += "<div class=\"dishesERP\"> \n        <input type=\"checkbox\" id=" + item.id + "></input></form>\n         <h3 class =\"dishesERP__title__name\">" + item.name + "</h3> \n         <p class =\"dishesERP__desc\">" + item.description + "</p>\n         <p class =\"dishesERP__title__price\">" + item.price + " \u20AA</p>\n         <p class =\"dishesERP__title__price\"> id:" + item.id + "</p>\n         <p class =\"dishesERP__title__category\"> " + item.category + "</p>\n         <form onsubmit=\"handleUpdateDish(event)\" id=\"" + item.id + "\">\n         <input type=\"text\" name=\"name\" id=\"\" placeholder=\"Dish Name\">\n         <input type=\"number\" name=\"price\" id=\"\" placeholder=\"Dish Price\">\n         <input type=\"text\" name=\"description\" id=\"\" placeholder=\"Add Dish description\">\n         <select name=\"category\" id=\"updated-category\">\n             <option value=\"Choose\" selected disabled>Select category</option>\n             <option value=\"firsts\">Firsts</option>\n             <option value=\"soups\">Soups</option>\n             <option value=\"salads\">Salads</option>\n             <option value=\"buns\">Buns</option>\n             <option value=\"robta-yaki\">Robta Yaki</option>\n             <option value=\"gyoza\">Gyoza</option>\n             <option value=\"inside-out\">Inside Out</option>\n             <option value=\"specials\">Specials</option>\n             <option value=\"kids\">Kids Dishes</option>\n             <option value=\"main\">Main Dishes</option>\n             <option value=\"wok\">Wok</option>\n             <option value=\"cokctails\">Cokctails</option>\n             <option value=\"combinations\">Combinations</option>\n             <option value=\"sashimi\">Sashimi</option>\n             <option value=\"nigiri\">Nigiri</option>\n             <option value=\"sandwich-sushi\">Sandwich Sushi</option>\n             <option value=\"maki-sushi\">Maki Sushi</option>\n             <option value=\"gonkan\">Gonkan Maki</option>\n         </select>\n         <input type=\"submit\" value=\"Update\">\n         </form>\n\n         \n      </div>";
         });
-        html += "</form>";
+        html += "";
         domElement.innerHTML = html;
     },
     storeData: function () {
@@ -431,14 +453,16 @@ function handleDeleteDish(ev) {
 }
 function handleUpdateDish(ev) {
     ev.preventDefault();
-    console.dir(ev);
+    console.dir(ev.target);
     var dishName = ev.target.elements.name.value;
     var dishPrice = ev.target.elements.price.valueAsNumber;
     var dishDesc = ev.target.elements.description.value;
-    var dishCategory = document.getElementById("category").value;
-    var dishId = ev.target.elements.id.value;
+    var dishCategory = document.getElementById("updated-category").value;
+    var dishId = ev.target.id;
     var newDish = { id: dishId, name: dishName, price: dishPrice, description: dishDesc, category: dishCategory };
     sushiMenu.updateDish(dishId, newDish);
+    sushiMenu.getData();
+    renderSushiMenu();
 }
 var rootStore = document.getElementById("rootStore");
 if (rootStore) {
@@ -493,7 +517,10 @@ function popNavBarActive() {
             var list = sushiMenu.filterByCategory(category.id);
             renderSushiMenu();
             sushiMenu.renderDishesStore(list, rootStore);
-            category.classList.toggle("popCategory-active");
+            categories.forEach(function (category) {
+                category.classList.remove("popCategory-active");
+            });
+            category.classList.add("popCategory-active");
         });
     });
 }
