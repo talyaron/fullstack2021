@@ -32,8 +32,8 @@ interface cloths {
     getDataTshirts();
     getDataShoes();
     getDataPants();
-    renderCustomerPage(list, display, catagory,imgCard);
-    SortCustomerPage(list, catagory, sortOption, display)
+    renderCustomerPage(list, display, catagory, imgCard);
+    SortCustomerPage(list, catagory, sortOption, display , imgCard)
     renderCustomerByBrand(list, inputBrand, display, catagory)
     renderCustomerBySize(list, inputBrand, display, catagory)
     renderCustomerByPrice(list, inputFrom, inputUpTo, display, catagory)
@@ -147,7 +147,7 @@ let clothsList: cloths = {
     SortPants(sortOption, display, catagory) {
         this.Sort(this.pants, catagory, sortOption, display);
     },
-    deleteItemTshirts(id) {
+    deleteItemTshirts(id){
         this.Tshirts = this.Tshirts.filter((item) => item.id !== id);
     },
     deleteItemShoes(id) {
@@ -200,7 +200,7 @@ let clothsList: cloths = {
     getDataPants() {
         this.pants = JSON.parse(localStorage.getItem("pantsData"));
     },
-    renderCustomerPage(list, display, catagory, imgCard){
+    renderCustomerPage(list, display, catagory, imgCard) {
         let html = "";
         list.forEach((element) => {
             html += ` 
@@ -216,7 +216,7 @@ let clothsList: cloths = {
                 `;
         });
         display.innerHTML = html;
-    }, SortCustomerPage(list, sortValue, display, catagory) {
+    }, SortCustomerPage(list, sortValue, display, catagory , imgCard) {
         let sortedListCustomer;
         if (sortValue == "sortLowToHigh") {
             sortedListCustomer = list.sort((a, b) => {
@@ -456,7 +456,7 @@ function filterOptionsDisplay(btn): void {
     options.innerHTML = html;
 }
 
-function deleteCard(id) {
+function deleteCard(id){
     console.log(id);
 
     const TshirtsBox = document.getElementById("TshirtsBox");
@@ -554,7 +554,7 @@ function showOptions(box: any, boxId: string) {
         sortANDfilterBtnsTshirts.innerHTML = ``;
         sortANDfilterBtnsShoes.innerHTML = ``;
         clothsList.getDataPants();
-        clothsList.renderCustomerPage(clothsList.pants, display, id, "");
+        clothsList.renderCustomerPage(clothsList.pants, display, id, "https://assets.ajio.com/medias/sys_master/root/h89/hbe/13459792265246/-473Wx593H-440995277-olive-MODEL2.jpg");
         sortANDfilterBtnsPants.innerHTML = html;
     }
 }
@@ -565,11 +565,11 @@ function handleSort(ev) {
     const display = document.querySelector(".container_catagories-display");
 
     if (boxId == "Tshirts") {
-        clothsList.SortCustomerPage(clothsList.Tshirts, sortValue, display, boxId)
+        clothsList.SortCustomerPage(clothsList.Tshirts, sortValue, display, boxId , "https://i.ebayimg.com/images/g/bWgAAOSwVH5blRYh/s-l300.jpg" )
     } else if (boxId == "shoes") {
-        clothsList.SortCustomerPage(clothsList.shoes, sortValue, display, boxId)
+        clothsList.SortCustomerPage(clothsList.shoes, sortValue, display, boxId , "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/lead-image-shoes-01-1634132850.png?crop=1.00xw:1.00xh;0,0&resize=480:*")
     } else if (boxId == "pants") {
-        clothsList.SortCustomerPage(clothsList.pants, sortValue, display, boxId)
+        clothsList.SortCustomerPage(clothsList.pants, sortValue, display, boxId , "https://assets.ajio.com/medias/sys_master/root/h89/hbe/13459792265246/-473Wx593H-440995277-olive-MODEL2.jpg")
     }
 }
 
@@ -721,27 +721,27 @@ function showDropDown(ev) {
     console.log(id);
     let html;
 
-    if(id == "notificationsBtn"){
+    if (id == "notificationsBtn") {
         html = `<div id="notifications" class="container_header-dropDown-box notifications" ">
         <p style="font-size: 10px; font-weight:bold">no notifications found</p>
      </div> `
 
-    }else if(id == "signInBtn"){
+    } else if (id == "signInBtn") {
         html = `<div id="signIn" class="container_header-dropDown-box signIn">
         <input class="container_header-dropDown-box-signInInput" type="email" name="UserName" id="userName" placeholder="User Name" >
         <input class="container_header-dropDown-box-signInInput" type="password" name="password" id="password" placeholder="Password">
         <button type="button" class="container_header-dropDown-box-signInInput-btn">Sign In</button>
     </div>`
-    }else if(id == "yourOrdersBtn"){
+    } else if (id == "yourOrdersBtn") {
         html = `<div id="yourOrders" class="container_header-dropDown-box yourOrders">
         <p style="font-size: 12px">no Orders yet...</p>
        </div>`
-    }else if(id == "shoppingCartBtn"){
+    } else if (id == "shoppingCartBtn") {
         html = `<div id="shoppingCart" class="container_header-dropDown-box shoppingCart"></div>`
     }
 
     const shoppingCartdisplay = document.getElementById('shoppingCart')
 
-    
+
     dropDownDisplay.innerHTML = html;
 }
