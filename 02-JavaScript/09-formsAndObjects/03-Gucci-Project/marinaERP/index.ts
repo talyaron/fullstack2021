@@ -220,13 +220,25 @@ const StandartEbooks = {
       if (authorA > authorB) return 1;
       return 0; //default return value (no sorting)
     });
+    this.books.forEach(book=>{
+      console.log(book.author)
+    })
   },
 
   sortDescenByAuthor() {
     this.books = this.books.sort((a, b) => {
-      return b.author - a.author;
+      let authorA = a.author.toLowerCase(),
+        authorB = b.author.toLowerCase();
+      if (authorA < authorB)
+        //sort string ascending
+        return 1;
+      if (authorA > authorB) return -1;
+      return 0; //default return value (no sorting)
     });
-    console.dir(this);
+    console.log('------')
+    this.books.forEach(book=>{
+      console.log(book.author)
+    })
   },
 
   sortAscenByYear() {
@@ -351,7 +363,7 @@ function handleAddBook(e) {
   const price = e.target.price.valueAsNumber;
   const img = e.target.img.value;
   const annotation = e.target.annotation.value;
-  const root = document.querySelector(".root");
+  const root = document.querySelector("#root");
   StandartEbooks.addBook(title, author, genre, year, rank, price, img, annotation);
   StandartEbooks.renderAllBooks(root);
   StandartEbooks.storeData();
@@ -359,13 +371,24 @@ function handleAddBook(e) {
 
 // doesnt work
 function handleDeleteBook(e) {
-  e.preventDefault();
-  console.log(e);
-  const title = e.targer.elements.delete.value;
-  const root = document.querySelector(".root");
-  StandartEbooks.deleteBook(title);
-  StandartEbooks.renderAllBooks(root);
-  StandartEbooks.storeData();
+  e.preventDefault()
+  try{
+    console.log(e);
+    console.log(e.target.elements.delete.value)
+    const title = e.target.elements.delete.value;
+      const root = document.querySelector("#root");
+  if(title){
+    console.log(title);
+
+    StandartEbooks.deleteBook(title);
+    StandartEbooks.renderAllBooks(root);
+    StandartEbooks.storeData();
+  } else {
+    throw new Error('User didnt write a title')
+  }
+  } catch(err){
+    console.error(err)
+  }
 }
 
 // doesnt work
@@ -376,39 +399,47 @@ function handleUpdateBook(e) {
 
 // doesnt work
 function handleAuthorAscen() {
+  try{
   StandartEbooks.sortAscenByAuthor();
-  const root = document.querySelector(".root");
+  const root = document.querySelector("#root");
   StandartEbooks.renderAllBooks(root);
+  } catch(err){
+    console.error(err)
+  }
 }
 
 // doesnt work
 function handleAuthoreDescen() {
+  try{
   StandartEbooks.sortDescenByAuthor();
-  const root = document.querySelector(".root");
+  const root = document.querySelector("#root");
   StandartEbooks.renderAllBooks(root);
+} catch(err){
+  console.error(err)
+}
 }
 
 function handleYearAscen() {
   StandartEbooks.sortAscenByYear();
-  const root = document.querySelector(".root");
+  const root = document.querySelector("#root");
   StandartEbooks.renderAllBooks(root);
 }
 
 function handleYearDescen() {
   StandartEbooks.sortDescenByYear();
-  const root = document.querySelector(".root");
+  const root = document.querySelector("#root");
   StandartEbooks.renderAllBooks(root);
 }
 
 function handleRankingAscen() {
   StandartEbooks.sortAscenByRanking();
-  const root = document.querySelector(".root");
+  const root = document.querySelector("#root");
   StandartEbooks.renderAllBooks(root);
 }
 
 function handleRankingeDescen() {
   StandartEbooks.sortDescenByRanking();
-  const root = document.querySelector(".root");
+  const root = document.querySelector("#root");
   StandartEbooks.renderAllBooks(root);
 }
 
@@ -416,7 +447,7 @@ function handleFilterByYear(e) {
   e.preventDefault();
   // console.log(e);
   const year = e.target.valueAsNumber;
-  const root = document.querySelector(".root");
+  const root = document.querySelector("#root");
   if (year) {
     const filteredByYear = StandartEbooks.filterByYear(year);
     StandartEbooks.renderFilterByYear(filteredByYear, root);
@@ -428,7 +459,7 @@ function handleFilterByYear(e) {
 function handleFilterByRank(e) {
   e.preventDefault();
   const rank = e.target.valueAsNumber;
-  const root = document.querySelector(".root");
+  const root = document.querySelector("#root");
   if (rank) {
     const filteredByRank = StandartEbooks.filterByRank(rank);
     StandartEbooks.renderFilterByRank(filteredByRank, root);
@@ -440,7 +471,7 @@ function handleFilterByRank(e) {
 function handleFilterByGenre(e) {
   e.preventDefault();
   const genre = e.target.value;
-  const root = document.querySelector(".root");
+  const root = document.querySelector("#root");
   if (genre) {
     const filterByGenre = StandartEbooks.filterByGenre(genre);
     StandartEbooks.renderFilterByGenre(filterByGenre, root);
@@ -452,7 +483,7 @@ function handleFilterByGenre(e) {
 function handleFilterByAuthor(e) {
   e.preventDefault();
   const author = e.target.value;
-  const root = document.querySelector(".root");
+  const root = document.querySelector("#root");
   if (author) {
     const filterByAuthor = StandartEbooks.filterByAuthor(author);
     StandartEbooks.renderFilterByAuthor(filterByAuthor, root);
@@ -464,7 +495,7 @@ function handleFilterByAuthor(e) {
 function handleFilterByTitle(e) {
   e.preventDefault();
   const title = e.target.value;
-  const root = document.querySelector(".root");
+  const root = document.querySelector("#root");
   if (title) {
     const filterByTitle = StandartEbooks.filterByTitle(title);
     StandartEbooks.renderFilterByTitle(filterByTitle, root);
@@ -474,7 +505,7 @@ function handleFilterByTitle(e) {
 }
 
 StandartEbooks.getData();
-const root = document.querySelector(".root");
+const root = document.querySelector("#root");
 StandartEbooks.renderAllBooks(root);
 
 
