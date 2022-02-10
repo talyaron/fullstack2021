@@ -627,3 +627,17 @@ body {
   width: 15px;
   border: none;
 }
+
+#submit2 {
+  font-size: 20px;
+  color: black;
+  width: 40px;
+  padding: 1px;
+  background-color: white;
+  font-weight: 1000;
+  border-radius: 0%;
+  opacity: 0.8;
+}
+#submit2 :hover {
+  opacity: 1;
+}
