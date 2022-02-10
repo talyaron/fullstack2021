@@ -28,15 +28,165 @@ body {
   width: 100vw;
 }
 
-.navBar__menu {
-  margin: 0.5rem 0.5rem;
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 99;
+  color: #fff;
+  background: black;
+  opacity: 0.4;
 }
-.navBar__menu-icon {
-  width: 1.5rem;
-  height: 1.5rem;
+header .navBar {
+  padding-top: 32px;
+  padding-bottom: 10px;
+  display: block;
 }
-.navBar__menu-selection {
+header .navBar__row1 {
   display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+}
+header .navBar__row1__icons {
+  display: flex;
+  cursor: pointer;
+  margin-top: 10px;
+}
+header .navBar__row1__icons svg {
+  width: 60px;
+  height: 20px;
+}
+header .navBar__row1__mobile {
+  display: none;
+}
+header .navBar__options {
+  display: flex;
+  flex-wrap: wrap;
+  font-weight: bold;
+  justify-content: center;
+  padding-top: 30px;
+  padding-bottom: 10px;
+  gap: 5px;
+}
+header .navBar__options a {
+  text-decoration: none;
+  padding-right: 10px;
+  font: 1.2em sans-serif;
+  color: inherit;
+}
+header .navBar__mobileOptions {
+  display: none;
+}
+header.is-scrolling {
+  opacity: 1;
+}
+@media only screen and (max-width: 1024px) {
+  header .navBar__options {
+    display: none;
+  }
+  header .navBar__row1__mobile {
+    display: flex;
+    padding-left: 5px;
+    gap: 10px;
+  }
+  header .navBar__row1__mobile h4 {
+    margin-top: 6px;
+  }
+  header .navBar__row1__mobile__humburger {
+    display: block;
+    width: 30px;
+    cursor: pointer;
+    appearance: none;
+    background: none;
+    outline: none;
+    border: none;
+  }
+  header .navBar__row1__mobile__humburger--bar, header .navBar__row1__mobile__humburger:after, header .navBar__row1__mobile__humburger:before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 4px;
+    border-radius: 5px;
+    background-color: #fff;
+    margin: 0.3rem 0px;
+    transition: 0.4s;
+  }
+  header .navBar__row1__mobile__humburger.is-active::before {
+    transform: rotate(-45deg) translate(-6px, 7px);
+  }
+  header .navBar__row1__mobile__humburger.is-active::after {
+    transform: rotate(45deg) translate(-5px, -7px);
+  }
+  header .navBar__row1__mobile__humburger.is-active header .navBar__row1__mobile__humburger--bar {
+    opacity: 0;
+  }
+}
+
+.mobileOptions {
+  position: fixed;
+  bottom: 100%;
+  left: 0;
+  width: 100%;
+  display: block;
+  z-index: 98;
+  padding-top: 50px;
+  background-color: rgba(255, 255, 255, 0.87);
+  opacity: 0.98;
+  transition: 0.4s;
+}
+.mobileOptions.is-active {
+  bottom: 0;
+}
+.mobileOptions p {
+  position: relative;
+  height: 55px;
+  padding-top: 5vh;
+  font-size: 25px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.banner {
+  position: relative;
+  opacity: 0.8;
+}
+.banner img {
+  width: 100%;
+  height: auto;
+  max-height: 65vh;
+}
+
+.filters {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr repeat(2, 1fr);
+  grid-template-rows: 50px;
+  justify-content: center;
+  align-items: center;
+}
+.filters svg {
+  width: 15px;
+  transform: rotate(-90deg);
+  margin-left: 6px;
+  cursor: pointer;
+}
+.filters__category {
+  display: flex;
+  justify-content: center;
+}
+.filters__sort {
+  display: flex;
+  justify-content: center;
+}
+.filters__input {
+  margin: auto;
+}
+@media only screen and (max-width: 600px) {
+  .filters {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 50px);
+    justify-content: space-between;
+  }
 }
 
 .backToTop {
