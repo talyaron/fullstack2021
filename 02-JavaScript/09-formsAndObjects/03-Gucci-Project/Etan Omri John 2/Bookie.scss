@@ -95,13 +95,23 @@ header {
           }
 
           &__row1 {
+
+            
+            &__icons{
+
+              h5{
+                display: none;
+              }
+              
+             }
               &__mobile {
                   display: flex;
                   padding-left: 5px;
                   gap: 10px;
+                  align-items: center;
 
                   h4 {
-                      margin-top: 6px;
+                      margin-top: 22px;
                   }
 
                   &__humburger {
@@ -153,9 +163,8 @@ header {
   width: 100%;
   display: block;
   z-index: 98;
-  padding-top: 50px;
   background-color: rgba(255, 255, 255, .87);
-  opacity: .98;
+  opacity: 1;
   transition: 0.4s;
 
   &.is-active {
@@ -165,7 +174,6 @@ header {
   p {
       position: relative;
       height: 55px;
-      padding-top: 5vh;
       font-size: 25px;
       text-align: center;
       cursor: pointer;
