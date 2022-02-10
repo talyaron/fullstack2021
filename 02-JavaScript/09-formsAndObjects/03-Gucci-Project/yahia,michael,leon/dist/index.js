@@ -34,34 +34,37 @@ var nikeItems = {
         var list = this.items;
         this.render(root, list);
     },
-    renderSelctedItem: function (root1, type)         var selected = this.carts;
-    this.renderCarts(root1, selected);
-},
+    renderSelctedItem: function (root1, type) {
+        console.log('at renderSelctedItem type:', type);
+        var selected = this.selectItem(type);
+        console.log(selected);
+        this.renderCarts(root1, selected);
     },
-renderAllCarts: function (root1) {
-    console.log(this.carts);
-    this.renderCarts(root1, this.carts);
-},
-renderCarts: function (root1, list) {
-    // console.log(root1,list);
->>>>>>> 09113c74ae28d371e682ccef45921d91f2033e14
-    var htmlCustomer = "";
-    list.forEach(function (type) {
-        htmlCustomer += "<div class= 'card1'><h4>The Item You Want:</h4> <p>" + type.name + "</p></div>";
+    renderAllCarts: function (root1) {
+        console.log(this.carts);
+        this.renderCarts(root1, this.carts);
+    },
+    renderCarts: function (root1, list) {
+        // console.log(root1,list);
+        var htmlCustomer = "";
+        list.forEach(function (type) {
+            htmlCustomer += "<div class= 'card1'><h4>The Item You Want:</h4> <p>" + type.name + "</p></div>";
+        });
         root1.innerHTML = htmlCustomer;
     },
-        render: function (root, list) {
-            var html = "";
-            list.forEach(function (item) {
-                html += "<div class = 'card'> <p>" + item.name + ":" + item.price + "</p>\n            <button onclick=\"handleDelete('" + item.idItem + "')\">delete</button>\n            <form onsubmit=\"handleupdate(event,'" + item.idItem + "')\">\n            <input type=\"text\" name=\"nameUpdate\" placeholder=\"change item\">\n            <input type=\"submit\" value=\"submit\">\n            </form>\n            </div>";
-            });
-            root.innerHTML = html;
-        },
-        getData: function () {
-            var listmichael = JSON.parse(localStorage.getItem('item'));
-            var root = document.getElementById("root");
-            this.render(root, listmichael);
-        }
+    render: function (root, root1, list) {
+        var html = "";
+        list.forEach(function (item) {
+            html += "<div class = 'card'> <p>" + item.name + ":" + item.price + "</p>\n            <button onclick=\"handleDelete('" + item.idItem + "')\">delete</button>\n            <form onsubmit=\"handleupdate(event,'" + item.idItem + "')\">\n            <input type=\"text\" name=\"nameUpdate\" placeholder=\"change item\">\n            <input type=\"submit\" value=\"submit\">\n            </form>\n            </div>";
+        });
+        root.innerHTML = html;
+    },
+    getData: function () {
+        var listMichael = JSON.parse(localStorage.getItem('item'));
+        var root = document.getElementById("root");
+        var root1 = document.getElementById("root1");
+        this.render(root, root1, listMichael);
+    }
 };
 function handleSubmit(event) {
     event.preventDefault();
@@ -99,10 +102,6 @@ function handleGetProduct() {
 }
 //customer
 function handleCart(event) {
-<<<<<<< HEAD
-    // console.log(event.target.id);
-=======
->>>>>>> 09113c74ae28d371e682ccef45921d91f2033e14
     var shoes = event.target.id;
     nikeItems.addToCarts(shoes, 'shoes');
     var rooto = document.getElementById("root1");
@@ -110,30 +109,17 @@ function handleCart(event) {
 }
 function handlehoodie(ev) {
     var hoodie = ev.target.id;
-<<<<<<< HEAD
-    // console.log(hoodie);
-    nikeItems.addToCarts(hoodie);
-    var rooto = document.getElementById('root1');
-=======
     nikeItems.addToCarts(hoodie, 'hoodie');
     var rooto = document.getElementById("root1");
->>>>>>> 09113c74ae28d371e682ccef45921d91f2033e14
     nikeItems.renderAllCarts(rooto);
 }
 function handleSelect(event) {
-    console.log(event.target.value);
     var type = event.target.value;
     var root1 = document.getElementById("root1");
     if (type === "all") {
         nikeItems.renderAllCarts(root1);
     }
     else {
-<<<<<<< HEAD
-        nikeItems.selectItem(type);
-        console.log(nikeItems.carts);
-        // nikeItems.renderAllData(root1)
-=======
         nikeItems.renderSelctedItem(root1, type);
->>>>>>> 09113c74ae28d371e682ccef45921d91f2033e14
     }
 }
