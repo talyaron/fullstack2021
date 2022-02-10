@@ -95,13 +95,23 @@ header {
           }
 
           &__row1 {
+
+            
+            &__icons{
+
+              h5{
+                display: none;
+              }
+              
+             }
               &__mobile {
                   display: flex;
                   padding-left: 5px;
                   gap: 10px;
+                  align-items: center;
 
                   h4 {
-                      margin-top: 6px;
+                      margin-top: 22px;
                   }
 
                   &__humburger {
@@ -153,9 +163,8 @@ header {
   width: 100%;
   display: block;
   z-index: 98;
-  padding-top: 50px;
   background-color: rgba(255, 255, 255, .87);
-  opacity: .98;
+  opacity: 1;
   transition: 0.4s;
 
   &.is-active {
@@ -165,7 +174,6 @@ header {
   p {
       position: relative;
       height: 55px;
-      padding-top: 5vh;
       font-size: 25px;
       text-align: center;
       cursor: pointer;
@@ -576,21 +584,48 @@ footer {
     display: grid;
     border: solid 2px grey;
     background: #f5f5f5;
-    box-shadow: 0;
-    transform: scale(0.95);
-    transition: box-shadow 0.5s, transform 0.5s;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
     overflow: hidden;
     border-radius: 5px;
     padding: 25px;
     text-align: center;
-    z-index: 2;
+    z-index: 1;
    svg{
      height: 20px;
    }
+   &:after{
+    @media only screen and (min-width: 768px){
+    content: "";
+    border-radius: 5px;
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+   }
+   &:hover{
+    @media only screen and (min-width: 768px){
+    transform: scale(1.25, 1.25);
+    }
+   }
+   &:hover:after{
+    @media only screen and (min-width: 768px){
+    opacity: 1;
+    background-color: rgb(200, 173, 127);
+    }
+
+
+   }
     &__img{
-      display: block;
       width: 100%;
       height: auto;
+      margin: 0 auto;
+      
     }
     &__title{
     font-weight: 900;
@@ -609,7 +644,7 @@ footer {
     width: 10px;
     transition: 0.8s;
     &:hover{
-      color: #4c00ff;
+      color: black;
     }
    }
    &__heart{
@@ -621,9 +656,9 @@ footer {
     border: none;
     background: none;
     width: 10px;
-    transition: 0.3s;
+    transition: 0.8s;
     &:hover{
-      color: #4c00ff;
+      color: black;
     }
    }
     
