@@ -8,6 +8,7 @@ interface Menu {
   addDish(name: string, price: number, description: string, category: string);
   removeDish(id: string);
   updateDish(id: string, newDish: Dish);
+  filterByCategory(category: string);
   renderDishesStore(list: any, domElement: any);
   renderDishesERP(list: any, domElement: any);
   storeData();
@@ -150,7 +151,7 @@ let sushiMenu: Menu = {
       price: 60,
       description:
         "Glazed with miso, served with grilled vegetables and ponzu sauce.",
-      category: "robta yaki",
+      category: "robta-yaki",
     },
     {
       id: uid(),
@@ -158,7 +159,7 @@ let sushiMenu: Menu = {
       price: 60,
       description:
         "Thai satay sauce, serve with grilled vegetables and ponzu sauce.",
-      category: "robta yaki",
+      category: "robta-yaki",
     },
     {
       id: uid(),
@@ -166,7 +167,7 @@ let sushiMenu: Menu = {
       price: 60,
       description:
         "In Korean barbecue glaze, serve with grilled vegetables and ponzu sauce.",
-      category: "robta yaki",
+      category: "robta-yaki",
     },
     {
       id: uid(),
@@ -198,7 +199,7 @@ let sushiMenu: Menu = {
       price: 108,
       description:
         "Tempura tofu bites in coconut milk and yellow curry sauce, Thai beans and cauliflower. Served with a side of coconut rice with toasted coconut shavings.",
-      category: "main dish",
+      category: "main-dish",
     },
     {
       id: uid(),
@@ -206,7 +207,7 @@ let sushiMenu: Menu = {
       price: 104,
       description:
         "Salmon fillet, broccoli, shimeji mushrooms, zucchini, sprouts and shallot flakes in peanut butter and soy sauce.",
-      category: "main dish",
+      category: "main-dish",
     },
     {
       id: uid(),
@@ -214,7 +215,7 @@ let sushiMenu: Menu = {
       price: 62,
       description:
         "Shrimp tempura, spicy tuna and avocado topped with seared salmon.",
-      category: "inside out",
+      category: "inside-out",
     },
     {
       id: uid(),
@@ -222,7 +223,7 @@ let sushiMenu: Menu = {
       price: 64,
       description:
         "Baked salmon, spicy mayonnaise, steamed shrimp, avocado and lettuce topped with tempura flakes.",
-      category: "inside out",
+      category: "inside-out",
     },
     {
       id: uid(),
@@ -230,7 +231,7 @@ let sushiMenu: Menu = {
       price: 64,
       description:
         "Spicy Yellow Tail and avocado topped with crunchy beetroot chips.",
-      category: "inside out",
+      category: "inside-out",
     },
     {
       id: uid(),
@@ -262,7 +263,7 @@ let sushiMenu: Menu = {
       price: 40,
       description:
         "Roll wrapped in nori filled with fish / seafood / vegetables and rice. 6 pcs",
-      category: "maki sushi",
+      category: "maki-sushi",
     },
     {
       id: uid(),
@@ -270,7 +271,7 @@ let sushiMenu: Menu = {
       price: 34,
       description:
         "Japanese omelet & cucumber Maki Roll wrapped in nori filled with fish / seafood / vegetables and rice. 6 pcs",
-      category: "maki sushi",
+      category: "maki-sushi",
     },
     {
       id: uid(),
@@ -278,7 +279,7 @@ let sushiMenu: Menu = {
       price: 40,
       description:
         "Roll wrapped in nori filled with fish / seafood / vegetables and rice. 6 pcs",
-      category: "maki sushi",
+      category: "maki-sushi",
     },
     {
       id: uid(),
@@ -286,7 +287,7 @@ let sushiMenu: Menu = {
       price: 56,
       description:
         "Topped with black sesame.",
-      category: "sandwich sushi",
+      category: "sandwich-sushi",
     },
     {
       id: uid(),
@@ -294,7 +295,7 @@ let sushiMenu: Menu = {
       price: 56,
       description:
         "Spicy salmon and avocado topped with tempura flakes.",
-      category: "sandwich sushi",
+      category: "sandwich-sushi",
     },
     {
       id: uid(),
@@ -302,7 +303,7 @@ let sushiMenu: Menu = {
       price: 62,
       description:
         "Salmon, avocado and hard cheese fried in tempura, topped with teriyaki sauce.",
-      category: "sandwich sushi",
+      category: "sandwich-sushi",
     },
     {
       id: uid(),
@@ -325,7 +326,7 @@ let sushiMenu: Menu = {
       name: "Red Tuna Nigiri",
       price: 40,
       description:
-      "Rice fingers with fish / vegetable. (2 pcs)",
+        "Rice fingers with fish / vegetable. (2 pcs)",
       category: "nigiri",
     },
     {
@@ -382,7 +383,7 @@ let sushiMenu: Menu = {
       price: 44,
       description:
         "Crispy coated chicken breast mini schnitzels along with steamed rice with ketchup on the side.",
-      category: "kids menu",
+      category: "kids-menu",
     },
     {
       id: uid(),
@@ -390,7 +391,7 @@ let sushiMenu: Menu = {
       price: 42,
       description:
         "Egg noodles with chicken breast and omelet in sweet soy sauce (half order available - Baby Noodles 29).",
-      category: "kids menu",
+      category: "kids-menu",
     },
     {
       id: uid(),
@@ -398,7 +399,7 @@ let sushiMenu: Menu = {
       price: 44,
       description:
         "Tempura sweet potato strips Served with sweet & sour sauce.",
-      category: "kids menu",
+      category: "kids-menu",
     },
     {
       id: uid(),
@@ -426,7 +427,7 @@ let sushiMenu: Menu = {
     },
 
   ],
-  
+
   addDish(name, price, description, category) {
     let id = uid();
     this.dishes.push({ id, name, price, description, category });
@@ -444,6 +445,10 @@ let sushiMenu: Menu = {
     if (index >= 0) {
       this.dishes[index] = newDish;
     }
+  },
+  filterByCategory(category) {
+    return this.dishes.filter((dish) => dish.category === category);
+
   },
 
   renderDishesStore(list, domElement) {
@@ -475,6 +480,35 @@ let sushiMenu: Menu = {
          <p class ="dishesERP__desc">${item.description}</p>
          <p class ="dishesERP__title__price">${item.price}</p>
          <p class ="dishesERP__title__price"> id:${item.id}</p>
+         <p class ="dishesERP__title__category"> ${item.category}</p>
+         <form onsubmit="handleUpdateDish(event)" id="${item.id}">
+         <input type="text" name="name" id="" placeholder="Dish Name">
+         <input type="number" name="price" id="" placeholder="Dish Price">
+         <input type="text" name="description" id="" placeholder="Add Dish description">
+         <select name="category" id="category">
+             <option value="Choose" selected disabled>select option</option>
+             <option value="firsts">Firsts</option>
+             <option value="soups">Soups</option>
+             <option value="salads">Salads</option>
+             <option value="buns">Buns</option>
+             <option value="robta-yaki">Robta Yaki</option>
+             <option value="gyoza">Gyoza</option>
+             <option value="gonkan-maki">Special Gonkan maki</option>
+             <option value="inside-out">Inside Out</option>
+             <option value="specials">Specials</option>
+             <option value="kids-dishes">Kids Dishes</option>
+             <option value="main-dishes">Main Dishes</option>
+             <option value="wok">Wok</option>
+             <option value="cokctails">Cokctails</option>
+             <option value="combinations">Combinations</option>
+             <option value="sashimi">Sashimi</option>
+             <option value="nigiri">Nigiri</option>
+             <option value="sandwich-sushi">Sandwich Sushi</option>
+             <option value="maki-sushi">Maki Sushi</option>
+         </select>
+         <input type="submit" value="Update">
+         </form>
+
          
       </div>`;
     });
@@ -495,13 +529,12 @@ let sushiMenu: Menu = {
     }
   },
 };
-sushiMenu.storeData();
-sushiMenu.getData();
+
 
 renderSushiMenu();
 
 function renderSushiMenu() {
-
+  sushiMenu.getData();
   const rootStore = document.getElementById("rootStore");
   const rootERP = document.getElementById("rootERP");
 
@@ -523,6 +556,7 @@ function handleAddDish(ev) {
   const dishCategory = (<HTMLSelectElement>document.getElementById("category"))
     .value;
   sushiMenu.addDish(dishName, dishPrice, dishDesc, dishCategory);
+
   renderSushiMenu();
   ev.target.reset();
 }
@@ -533,7 +567,7 @@ function handleDeleteDish(ev) {
 
   for (let i = 1; i < ev.target.length; i++) {
 
-    if(ev.target[i].checked === true){
+    if (ev.target[i].checked === true) {
       sushiMenu.removeDish(ev.target[i].id);
     }
   }
@@ -541,7 +575,18 @@ function handleDeleteDish(ev) {
   renderSushiMenu();
 
 }
+function handleUpdateDish(ev){
+  ev.preventDefault();
+  console.dir(ev);
+  const dishName = ev.target.elements.name.value;
+  const dishPrice = ev.target.elements.price.valueAsNumber;
+  const dishDesc = ev.target.elements.description.value;
+  const dishCategory = (<HTMLSelectElement>document.getElementById("category")).value;
+  const dishId = ev.target.elements.id.value;
+ const newDish ={id:dishId,name:dishName,price:dishPrice,description:dishDesc,category:dishCategory};
+ sushiMenu.updateDish(dishId,newDish); 
 
+}
 
 
 const rootStore = document.getElementById("rootStore");
@@ -589,6 +634,9 @@ function popMenuActive() {
     picWrap.forEach((cell) => {
 
       cell.addEventListener("click", () => {
+        const list = sushiMenu.filterByCategory(cell.id);
+        renderSushiMenu();
+        sushiMenu.renderDishesStore(list, rootStore);
         pop.classList.toggle("popmenu-active");
         blur.classList.toggle("blurwrapper-active")
         overflow.classList.toggle("body-active")
@@ -601,3 +649,18 @@ function popMenuActive() {
 popMenuActive()
 
 navSlide();
+
+function popNavBarActive() {
+  const categories = document.querySelectorAll(".popCategory");
+  categories.forEach(category => {
+    category.addEventListener("click", () => {
+      const list = sushiMenu.filterByCategory(category.id);
+      renderSushiMenu();
+      sushiMenu.renderDishesStore(list, rootStore);
+      category.classList.toggle("popCategory-active");
+
+    })
+  })
+}
+popNavBarActive();
+
