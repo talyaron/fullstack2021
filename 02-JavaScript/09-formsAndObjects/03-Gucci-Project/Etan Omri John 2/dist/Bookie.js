@@ -4,7 +4,7 @@ var bookTitle = document.querySelector("[data-bookTitle]");
 var imagePreview = document.querySelector("[data-bookImage-preview]");
 var rootBooks = document.querySelector("[data-rootBooks]");
 var backToTop = document.querySelector("[data-back-to-top]");
-var updateForm = document.querySelector("[data-update-here]");
+var ownerTable = document.querySelector("[data-toggle-existing]");
 // make sure your function is called at the right page!!!
 // if (window.document.title === 'Bookie')
 function handleTop(ev) {
@@ -26,7 +26,7 @@ function hideTopBtn() {
 document.addEventListener("scroll", hideTopBtn);
 var bookie = {
     id: 0,
-    books: [{ id: 1, category: "thriller", title: 'okay', price: 19.99, img: 'https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg', year: 1998 }, { id: 2, category: "thriller", title: 'okay', price: 19.99, img: 'https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg', year: 1998 }, { id: 3, category: "thriller", title: 'okay', price: 19.99, img: 'https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg', year: 1998 }, { id: 4, category: "thriller", title: 'okay', price: 19.99, img: 'https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg', year: 1998 }, { id: 5, category: "thriller", title: 'okay', price: 19.99, img: 'https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg', year: 1998 }],
+    books: [{ id: 1, category: "thriller", title: 'bye', price: 19.99, img: 'https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg', year: 1998 }, { id: 2, category: "thriller", title: 'hi', price: 19.99, img: 'https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg', year: 1998 }, { id: 3, category: "thriller", title: 'shy', price: 19.99, img: 'https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg', year: 1998 }, { id: 4, category: "thriller", title: 'okay', price: 19.99, img: 'https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg', year: 1998 }, { id: 5, category: "thriller", title: 'okay', price: 19.99, img: 'https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg', year: 1998 }],
     addItem: function (ev) {
         var _a;
         var id = ev.target.elements.id.value;
@@ -39,7 +39,6 @@ var bookie = {
         var newBook = book;
         makeId(newBook);
         this.books.push(newBook);
-        makeAnOption(bookie, selectRoot, descYear);
     },
     sortItemAsc: function () {
         this.items.sort(function (a, b) {
@@ -60,7 +59,6 @@ var bookie = {
         domElement.innerHTML = html;
     }
 };
-var localBookie = bookie;
 // addingForm.onsubmit(function(e) {})
 //function handleAddToCart()
 //function handleOpenThis()
@@ -77,7 +75,7 @@ function makeId(book) {
         return;
     }
 }
-localBookie.renderItem(rootBooks);
+bookie.renderItem(rootBooks);
 function handleAddItem(ev) {
     ev.preventDefault();
     console.dir(bookie);
@@ -100,10 +98,12 @@ function showPreviewImage(ev) {
     console.dir(imgLink);
     imagePreview.innerHTML = preview;
 }
-localStorage.setItem("Bookie shop", JSON.stringify(localBookie));
-var stringBookie = localStorage.getItem("Bookie shop");
-var parsedBookie = JSON.parse(stringBookie);
+localStorage.setItem("Bookie shop", JSON.stringify(bookie));
+var parsedBookie = JSON.parse(localStorage.getItem("Bookie shop"));
 console.log(parsedBookie);
+for (var i in parsedBookie.books) {
+    ownerTable.innerHTML += "<tr>\n  <td> " + parsedBookie.books[i].title + "  </td>\n  <td> " + parsedBookie.books[i].year + " </td>\n  <td> " + parsedBookie.books[i].price + "</td>\n  <td> " + parsedBookie.books[i].updateThis() + "\n  </tr>";
+}
 var ascPrice = function (a, b) {
     return a.price - b.price;
 };
@@ -116,37 +116,6 @@ var ascYear = function (a, b) {
 var descYear = function (a, b) {
     return b.year - a.year;
 };
-var chosenBook;
-function handleID(ev) {
-    ev.preventDefault();
-    var chosenId = ev.target.value;
-    for (var _i = 0, _a = bookie.books; _i < _a.length; _i++) {
-        var item = _a[_i];
-        if (item.id === chosenId)
-            console.log(book);
-        console.log(chosenId);
-    }
-}
-function handleEdit(ev) {
-    ev.preventDefault();
-    var book = chosenBook;
-    console.dir(ev.target);
-    updateForm.innerHTML = "\n  <form onSubmit=\"handleUpdate(event)\">\n                            <input type=\"text\" name=\"title\" value=\"" + book.title + "\">\n                            <select data-bookCategory name=\"category\" id=\"category\">\n                                <option disabled selected value=\"None\">Choose the category</option>\n                                <option value=\"thriller\">Thriller</option>\n                                <option value=\"history\">History</option>\n                                <option value=\"cooking\">Cooking</option>\n                                <option value=\"fantasy\">Fantasy</option>\n                            </select>\n                            <input data-bookTitle type=\"number\" name=\"price\" placeholder=\"Insert a price\">\n            \n                            <input data-bookYear type=\"number\" name=\"year\" placeholder=\"Year written\">\n                            <input data-bookId type=\"text\" name=\"id\" value=\"uid\">\n                            <input data-bookImage onchange=\"showPreviewImage(event)\" type=\"file\" name=\"image\" id='image'\n                                accept=\"image/png, image/gif, image/jpeg\" />\n                            <div data-bookImage-preview>\n                            </div>\n                            <input type=\"submit\" value=\"add\">\n                        </form>";
-}
-// create an option to choose and update for each book
-function makeAnOption(shop, root, sortFunc) {
-    if (window.document.title === 'myBookie') {
-        root.innerHTML = '';
-        shop.books.sort(sortFunc);
-        shop.books.forEach(function (book) {
-            return root.innerHTML += "<option value=\"" + book.id + "\">" + book.title + "(" + book.year + ")</option>";
-        });
-    }
-}
-localBookie = bookie;
-makeAnOption(bookie, selectRoot, descYear);
-console.log(parsedBookie);
-console.log(localBookie);
 window.onload = function () {
     if (window.document.title === 'Bookie') {
         window.addEventListener('scroll', function (e) {

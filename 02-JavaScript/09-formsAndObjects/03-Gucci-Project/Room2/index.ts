@@ -96,38 +96,41 @@ const Adidas: shop = {
     this.setData();
   },
   render(list, domElement) {
+    console.log(list);
+
     let html = "";
     this.products.forEach((product) => {
       html += `
      <div class="cards__item" >
-          <div class="picture">
-          <p><img src="${product.pictureFront}"></p>
-          <p><img src="${product.pictureBack}" ></p>
-     </div>   
+
+      <div class="picture">
+          <i class="far fa-heart"></i>
+          <img src="${product.pictureBack}" >
+         <img src="${product.pictureFront}" class="img-top">
+          </div>
               
-<div class="color">
-        <p><b> Color: </b> ${product.color}</p>
-                </div>
+      <div class="color">
+      <p><b> Color: </b> ${product.color}</p>
+      </div>
 
-                <div class="description">
-               
-                    <p>${product.title}</p>
-                    <p>${product.description}</p>
-                    <p>${product.price}₪</p>
-                   
-                </div>
+      <div class="description">
+         <p>${product.title}</p>
+          <p>${product.description}</p>
+          <p>${product.price}₪</p> 
+      </div>
+          </div>   `
 
-            </div>
-     
-       
 
-          </div>`;
+        ;
+
+      console.log("render");
+
     });
-    const button = document.getElementById("button");
-    console.log(button);
+
+    // const button = document.getElementById("button");
+    // console.log(button);
 
     domElement.innerHTML = html;
-    handleGetData("customer")
   },
   updateItem(
     id,
@@ -181,7 +184,7 @@ const Adidas: shop = {
     return this.products.filter((element) => element.category === category);
   },
   renderFilter(domElement, filterd) {
-    this.renderAdidas(domElement, filterd);
+    this.render(domElement, filterd);
   },
 };
 
@@ -271,6 +274,8 @@ function handleSort(ev) {
   } else if (sort === ev.target.value.startPosition) {
     ev.target.reset();
   }
+  console.log(sort);
+  this.setData();
 }
 function handleType(ev) {
   const type = ev.target.value;
@@ -302,42 +307,42 @@ function handleShoeSize(ev) {
   // if(type === " ")
   //Adidas.shoeSizeFilter(size);
 }
-// Adidas.addItem(
-//   "superstar shoes",
-//   200,
-//   "Sneakers",
-//   "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg",
-//   "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg",
-//   "red",
-//   "B-ball legend. Street symbol. Cultural icon. Still going strong after five decades, the adidas Superstar Shoes have millions of stories to tell. Smooth leather combines with serrated 3-Stripes and the authentic rubber shell toe. Ready for the next fifty years of iconic adidas style? Lets do it.",
-//   44
-// );
-// Adidas.addItem(
-//   "superstar shoes",
-//   300,
-//   "Sneakers",
-//   "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg",
-//   "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg",
-//   "red",
-//   "B-ball legend. Street symbol. Cultural icon. Still going strong after five decades, the adidas Superstar Shoes have millions of stories to tell. Smooth leather combines with serrated 3-Stripes and the authentic rubber shell toe. Ready for the next fifty years of iconic adidas style? Lets do it.",
-//   44
-// );
-// Adidas.addItem(
-//   "superstar shoes",
-//   100,
-//   "Sneakers",
-//   "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg",
-//   "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg",
-//   "red",
-//   "B-ball legend. Street symbol. Cultural icon. Still going strong after five decades, the adidas Superstar Shoes have millions of stories to tell. Smooth leather combines with serrated 3-Stripes and the authentic rubber shell toe. Ready for the next fifty years of iconic adidas style? Lets do it.",
-//   44
-// );
+Adidas.addItem(
+  "superstar shoes",
+  200,
+  "Sneakers",
+  "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg",
+  "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg",
+  "red",
+  "B-ball legend. Street symbol. Cultural icon. Still going strong after five decades, the adidas Superstar Shoes have millions of stories to tell. Smooth leather combines with serrated 3-Stripes and the authentic rubber shell toe. Ready for the next fifty years of iconic adidas style? Lets do it.",
+  44
+);
+Adidas.addItem(
+  "superstar shoes",
+  300,
+  "Sneakers",
+  "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg",
+  "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg",
+  "red",
+  "B-ball legend. Street symbol. Cultural icon. Still going strong after five decades, the adidas Superstar Shoes have millions of stories to tell. Smooth leather combines with serrated 3-Stripes and the authentic rubber shell toe. Ready for the next fifty years of iconic adidas style? Lets do it.",
+  44
+);
+Adidas.addItem(
+  "superstar shoes",
+  100,
+  "Sneakers",
+  "https://st-adidas-isr.mncdn.com/content/images/thumbs/0086954_x-speedflow1-messi-firm-ground-boots_fy6879_side-lateral-center-view.jpeg",
+  "https://st-adidas-isr.mncdn.com/content/images/thumbs/0086956_x-speedflow1-messi-firm-ground-boots_fy6879_top-portrait-view.jpeg",
+  "red",
+  "B-ball legend. Street symbol. Cultural icon. Still going strong after five decades, the adidas Superstar Shoes have millions of stories to tell. Smooth leather combines with serrated 3-Stripes and the authentic rubber shell toe. Ready for the next fifty years of iconic adidas style? Lets do it.",
+  44
+);
 
 function handleGetData(page: string) {
   try {
-    console.log(page);
+    // console.log(page);
     Adidas.getData();
-    console.log(Adidas);
+    // console.log(Adidas);
     if (page === "owner") {
       const root = document.getElementById("rootOwner");
       Adidas.renderAllData(root);

@@ -23,7 +23,9 @@ interface Store {
     id: string
   );
   deleteBook(title: string),
-  updateBook(updateBook),
+  updateBook(title: string, price: number, id: string),
+  deleteByID(id: string),
+  addToCard(book: Book),
   showAnnotation(annotation: string),
   sortAscenByAuthor(),
   sortDescenByAuthor(),
@@ -34,8 +36,13 @@ interface Store {
   filterByGenre(genre: string),
   filterByAuthor(author: string),
   filterByTitle(title: string),
+  // render(list: any,root),
+  // renderERP(list: any, rootERP),
+  // renderAllBooks(root, rootERP),
+  renderAddToCard(list: any, domElement),
   render(list: any, domElement: any),
-  renderAllBooks(domElement: any),
+  renderERP(list: any, domElement: any),
+  // renderAllBooks(domElement: any), 
   renderFilterByYear(filteredByYear: Array<Book>, domElement),
   renderFilterByRank(filteredByRank: Array<Book>, domElement),
   renderFilterByGenre(filteredByGenre: Array<Book>, domElement),
@@ -185,31 +192,25 @@ const StandartEbooks = {
     this.storeData();
   },
 
-  updateBook(updateBook) {
-    const index = this.books.findIndex((book) => book.id === updateBook.id);
+  deleteByID(id) {
+    this.books = this.books.filter(book => book.id !== id);
+    localStorage.setItem('storeData', JSON.stringify(this.books));
+},
+
+  updateBook(title, price, id) {
+    const index = this.books.findIndex((book) => book.id === id);
     if (index >= 0) {
-      this.books[index].title = updateBook;
+      this.books[index].title = title;
+      this.books[index].price = price;
     }
     this.storeData();
   },
 
-  showAnnotation(annotation) {
-    // const id = uid();
-    const index = this.books.findIndex((book) => book.img === annotation);
-    if (index >= 0) {
-      const annotation = this.querySelector('.annotation')
-      annotation.style.visibility = 'visible';
-    }
-
+  addToCard(book: Book) {
+   
   },
 
-  // sortAscenByAuthor() {
-  //   this.books = this.books.sort((a, b) => {
-  //     return a.author - b.author;
-  //   });
-  //   console.log(this.books);
-  // },
-
+ 
   sortAscenByAuthor() {
     this.books = this.books.sort((a, b) => {
       let authorA = a.author.toLowerCase(),
@@ -306,48 +307,119 @@ const StandartEbooks = {
   },
 
   render(list, domElement) {
-    let html = " ";
+    let htmlStore = '';
     list.forEach((book: any) => {
-      html += `<div class="container__card"  >
+      htmlStore += 
+             `<div class="container__card">
                   <h2>${book.title}</h2>
-                  <h3> ${book.author}</h3>      
+                  <h3>${book.author}</h3>      
                   <img class="img" src="${book.img}">
-                  <p>${book.year} &nbsp &nbsp ${book.price}$</p> 
-                  
+                  <p>${book.year} &nbsp &nbsp ${book.price}$</p>
                   <div class="rating">                 
-                      <i class="far fa-star  " data-number="1"  id="${book.title}" onclick = "handleStarClick(event)"></i>
-                      <i class="far fa-star  " data-number="2"  id="${book.title}" onclick = "handleStarClick(event)"></i>
+                      <i class="far fa-star  " data-number="1" id="${book.title}" onclick = "handleStarClick(event)"></i>
+                      <i class="far fa-star  " data-number="2" id="${book.title}" onclick = "handleStarClick(event)"></i>
                        <i class="far fa-star " data-number="3" id="${book.title}" onclick = "handleStarClick(event)"></i>
                        <i class="far fa-star " data-number="4" id="${book.title}" onclick = "handleStarClick(event)"></i>
-                      <i class="far fa-star  " data-number="5"  id="${book.title}" onclick = "handleStarClick(event)"></i>
-                   </div> 
-
+                      <i class="far fa-star  " data-number="5" id="${book.title}" onclick = "handleStarClick(event)"></i>
+                   </div>                   
                   <p> ${book.rank}</p>
-                  <input  class = "container__card__addToCardBtn" onclick = "handleAddToCard()" id ="addToCard" type ="button" value = "Add to cart">              
-               </div>`,
-        `<div class="annotation">${book.annotation}</div>`
-      //  <form class="inputs__form" onsubmit="handleUpdateBook(event, ${book.id})">
-      //  <input class="container__inputs__form__one__inp" type="text" name="update" id="update"
-      //      placeholder="Enter new title">
-      //  <input class="container__inputs__form__one__inp" type="submit" id="updateBtn" value="update">
-      // </form>`
-    });
-    domElement.innerHTML = html;
+                  <input  class = "container__card__addToCardBtn" onclick = "handleAddToCard(event)" id ="addToCard" type ="button" value = "Add to cart">
+               </div>`  
+
+    });  
+   
+    
+    domElement.innerHTML = htmlStore;
+
   },
 
-  renderAllBooks(domElement) {
-    const list = this.books;
-    this.render(list, domElement);
-  },
+
+  renderERP(list, domElement) {
+    let html = " ";
+    list.forEach((book: any) => {
+      html += 
+             `<div class="containerERP">
+             <div class='card'>
+    
+                  <div class="imgToEdit">
+                    <div class="title">${book.title}</div>
+                    <div class="img"><img src="${book.img}.jpg" alt=""></div>
+                      <div class="rating">                 
+                          <i class="far fa-star  " data-number="1" id="${book.title}" onclick = "handleStarClick(event)"></i>
+                          <i class="far fa-star  " data-number="2" id="${book.title}" onclick = "handleStarClick(event)"></i>
+                          <i class="far fa-star " data-number="3" id="${book.title}" onclick = "handleStarClick(event)"></i>
+                          <i class="far fa-star " data-number="4" id="${book.title}" onclick = "handleStarClick(event)"></i>
+                          <i class="far fa-star  " data-number="5" id="${book.title}" onclick = "handleStarClick(event)"></i>
+                      </div>
+                  </div>
+
+                  <div class="author">${book.author}</div>
+                  <div class="genre">${book.genre}</div>
+                  <div class="year">${book.year}</div>
+                  <div class="rank">${book.rank}</div>
+                  <div class="rank">${book.rank}</div>
+                   
+                  
+             </div>               
+             <div class="delete">
+                  <button onclick="handleDeleteByID('${book.id}')"><span style ="color: grey;">Delete book</span></button>
+             </div>
+             <div class="update">
+                  <form id="formAdd" onsubmit="handleUpdateBook(event, '${book.id}')">
+                       <input type="text" name="title" placeholder="Edit title" value="${book.title}">
+                       <input type="number" name="price" placeholder="Edit price" value="${book.price}">
+                       <input type="submit" id="update" value="Update book">
+                  </form>
+              </div>          
+         </div>`
+               
+
+               
+           
+    });
+   
+
+    domElement.innerHTML = html;
+  }
+
+  // renderAddToCard(list, domElement) {
+  //   let htmlCard = " ";
+  //   list.forEach((book:any) => {
+      
+  //     htmlCard += `<div> </div>`
+  //   });
+  //   domElement.innerHTML = htmlCard;
+  // },
+
+
+  // renderAllBooks(domElement) {
+  //   const list = this.books;
+  //   this.render(list, domElement);
+  //   this.renderERP(list, domElement);
+  //   this.renderCard(list, domElement);
+  // },
+
 };
 
+const allstars: any = document.querySelectorAll('.fa-star')
+function handleStarClick(ev) {
 
-// doesnt work
-// function handleShowAnnotation() {
-//   const annotation: any = document.querySelector('.annotation');
-//   StandartEbooks.showAnnotation(annotation);
+  allstars.forEach(star => {
 
-// }
+    if (ev.target.id == star.id && ev.target.dataset.number >= star.dataset.number) {
+
+      console.log(star.dataset.number);
+      star.classList.add('fas');
+
+    } else if (ev.target.id == star.id && ev.target.dataset.number < star.dataset.number) {
+      star.classList.remove('fas');
+    } else {
+      return 0;
+    }
+  });
+}
+
+
 
 
 
@@ -364,24 +436,32 @@ function handleAddBook(e) {
   const img = e.target.img.value;
   const annotation = e.target.annotation.value;
   const root = document.querySelector("#root");
+  const rootERP = document.querySelector("#rootERP");
   StandartEbooks.addBook(title, author, genre, year, rank, price, img, annotation);
-  StandartEbooks.renderAllBooks(root);
+  // StandartEbooks.renderAllBooks(rootERP);
+  StandartEbooks.render(rootERP, root);
   StandartEbooks.storeData();
+  e.target.reset();
 }
 
-// doesnt work
+
+
+
 function handleDeleteBook(e) {
   e.preventDefault()
   try{
     console.log(e);
     console.log(e.target.elements.delete.value)
     const title = e.target.elements.delete.value;
-      const root = document.querySelector("#root");
+      // const root = document.querySelector("#root");
+      const rootERP = document.querySelector("#rootERP");
   if(title){
     console.log(title);
 
     StandartEbooks.deleteBook(title);
-    StandartEbooks.renderAllBooks(root);
+    // StandartEbooks.renderAllBooks(root);
+    // StandartEbooks.renderAllBooks(rootERP);
+    StandartEbooks.renderERP(rootERP, StandartEbooks.books);
     StandartEbooks.storeData();
   } else {
     throw new Error('User didnt write a title')
@@ -391,29 +471,48 @@ function handleDeleteBook(e) {
   }
 }
 
-// doesnt work
-function handleUpdateBook(e) {
-  e.preventDefault();
-
+function handleDeleteByID(id) {
+  const rootERP = document.getElementById('rootERP');
+  StandartEbooks.deleteByID(id)
+  StandartEbooks.renderERP(StandartEbooks.books, rootERP)
 }
 
-// doesnt work
+
+
+function handleUpdateBook(e, id) {
+  e.preventDefault();
+  const title = e.target.elements.title.value;
+  const price = e.target.elements.price.valueAsNumber;
+  StandartEbooks.updateBook(title, price, id);
+  const rootERP = document.querySelector("#rootERP");
+  StandartEbooks.renderERP(StandartEbooks.books, rootERP);
+  // StandartEbooks.renderAllBooks(rootERP)
+  e.target.reset();
+}
+
+// function handleAddToCard() {
+
+// }
+
+
 function handleAuthorAscen() {
   try{
   StandartEbooks.sortAscenByAuthor();
   const root = document.querySelector("#root");
-  StandartEbooks.renderAllBooks(root);
+  // StandartEbooks.renderAllBooks(root);
+  StandartEbooks.render(StandartEbooks.books, root);
   } catch(err){
     console.error(err)
   }
 }
 
-// doesnt work
+
 function handleAuthoreDescen() {
   try{
   StandartEbooks.sortDescenByAuthor();
   const root = document.querySelector("#root");
-  StandartEbooks.renderAllBooks(root);
+  // StandartEbooks.renderAllBooks(root);
+  StandartEbooks.render(StandartEbooks.books, root);
 } catch(err){
   console.error(err)
 }
@@ -422,25 +521,29 @@ function handleAuthoreDescen() {
 function handleYearAscen() {
   StandartEbooks.sortAscenByYear();
   const root = document.querySelector("#root");
-  StandartEbooks.renderAllBooks(root);
+  // StandartEbooks.renderAllBooks(root);
+  StandartEbooks.render(StandartEbooks.books, root);
 }
 
 function handleYearDescen() {
   StandartEbooks.sortDescenByYear();
   const root = document.querySelector("#root");
-  StandartEbooks.renderAllBooks(root);
+  // StandartEbooks.renderAllBooks(root);
+  StandartEbooks.render(StandartEbooks.books, root);
 }
 
 function handleRankingAscen() {
   StandartEbooks.sortAscenByRanking();
   const root = document.querySelector("#root");
-  StandartEbooks.renderAllBooks(root);
+  // StandartEbooks.renderAllBooks(root);
+  StandartEbooks.render(StandartEbooks.books, root);
 }
 
 function handleRankingeDescen() {
   StandartEbooks.sortDescenByRanking();
   const root = document.querySelector("#root");
-  StandartEbooks.renderAllBooks(root);
+  // StandartEbooks.renderAllBooks(root);
+  StandartEbooks.render(StandartEbooks.books, root);
 }
 
 function handleFilterByYear(e) {
@@ -452,7 +555,8 @@ function handleFilterByYear(e) {
     const filteredByYear = StandartEbooks.filterByYear(year);
     StandartEbooks.renderFilterByYear(filteredByYear, root);
   } else {
-    StandartEbooks.renderAllBooks(root);
+    // StandartEbooks.renderAllBooks(root);
+    StandartEbooks.render(StandartEbooks.books, root);
   }
 }
 
@@ -464,7 +568,8 @@ function handleFilterByRank(e) {
     const filteredByRank = StandartEbooks.filterByRank(rank);
     StandartEbooks.renderFilterByRank(filteredByRank, root);
   } else {
-    StandartEbooks.renderAllBooks(root);
+    // StandartEbooks.renderAllBooks(root);
+    StandartEbooks.render(StandartEbooks.books, root);
   }
 }
 
@@ -476,7 +581,8 @@ function handleFilterByGenre(e) {
     const filterByGenre = StandartEbooks.filterByGenre(genre);
     StandartEbooks.renderFilterByGenre(filterByGenre, root);
   } else {
-    StandartEbooks.renderAllBooks(root);
+    // StandartEbooks.renderAllBooks(root);
+    StandartEbooks.render(StandartEbooks.books,root);
   }
 }
 
@@ -488,7 +594,8 @@ function handleFilterByAuthor(e) {
     const filterByAuthor = StandartEbooks.filterByAuthor(author);
     StandartEbooks.renderFilterByAuthor(filterByAuthor, root);
   } else {
-    StandartEbooks.renderAllBooks(root);
+    // StandartEbooks.renderAllBooks(root);
+    StandartEbooks.render(StandartEbooks.books,root);
   }
 }
 
@@ -500,52 +607,23 @@ function handleFilterByTitle(e) {
     const filterByTitle = StandartEbooks.filterByTitle(title);
     StandartEbooks.renderFilterByTitle(filterByTitle, root);
   } else {
-    StandartEbooks.renderAllBooks(root);
+    // StandartEbooks.renderAllBooks(root);
+    StandartEbooks.render(StandartEbooks.books,root);
   }
 }
 
-StandartEbooks.getData();
+
 const root = document.querySelector("#root");
-StandartEbooks.renderAllBooks(root);
+const rootERP = document.querySelector("#rootERP");
+StandartEbooks.renderERP(root, rootERP);
+
+
+
+
+StandartEbooks.getData();
+StandartEbooks.storeData();
 
 
 
 
 
-
-
-
-// const starContainer = document.querySelectorAll('.rating')
-
-// allstars.forEach(star => {
-
-//   star.onclick = () => {
-
-//     let starlevel = star.getAttribute('data-number')
-
-//     allstars.forEach(element => { 
-
-//     if(starlevel < element.getAttribute('data-number')) {
-
-//         element.classList.remove('fas')
-//         element.classList.add('far')
-
-//       } else {
-//         element.classList.remove('far')
-//         element.classList.add('fas')
-//       }
-
-//     }
-//   }
-// })
-const allstars: any = document.querySelectorAll('.fa-star')
-
-function handleStarClick(ev) {
-  allstars.forEach(star => {
-
-    if (ev.target.id == star.id && ev.target.dataset.number >= star.dataset.number){
-      console.log(star.dataset.number);
-      star.classList.add('fas');
-    }
-  });
-}

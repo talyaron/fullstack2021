@@ -20,7 +20,7 @@
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <title>STORE</title>
+    <title>Card</title>
     <link rel="stylesheet" href="dist/style.css">
     <style>
         body {
@@ -30,8 +30,8 @@
             font-family: 'Montserrat', sans-serif;
         }
     </style>
-</head>
 
+</head>
 <body>
     <div class="header">
 
@@ -43,14 +43,14 @@
 
         <div class="header__navBar">
             <ul>
-                <li> <a href="">HOME</a></li>
+                <li> <a href="./store.html">HOME</a></li>
                 <li> <a href="">SCIENCE FICTION</a></li>
                 <li><a href="">DETECTIVE</a></li>
                 <li><a href="">PROSE</a></li>
                 <li><a href="">ADVENTURE</a></li>
                 <li><a href="">CHILDREN</a></li>
-                <a href="./card.html" <span  class="material-icons">shopping_cart</span></a>              
-                <a href="./erp.html" <span class="material-icons">view_headline</span></a>              
+                <span class="material-icons">shopping_cart</span>
+                <a href="./erp.html" <span class="material-icons">view_headline</span></a>
                 <!-- <span class="material-icons">view_headline</span> -->
             </ul>
         </div>
@@ -59,6 +59,11 @@
     <img class="header__strapImg"
         src="https://d1hbl61hovme3a.cloudfront.net/se3/NET/SE3_hero_banner_Adult-Librarians.jpg" alt="">
 
+
+
+
+
+        
     <div class="buttons">
 
         <input class="filterByYear button " type='number' onkeyup="handleFilterByYear(event)"
@@ -97,8 +102,35 @@
 
     </div>
 
+
+
+
+
+
+
+    <div class="container__card">
+        <h2>${book.title}</h2>
+        <h3>${book.author}</h3>      
+        <img class="img" src="${book.img}">
+        <p>${book.year} &nbsp &nbsp ${book.price}$</p>
+        <div class="rating">                 
+            <i class="far fa-star  " data-number="1" id="${book.title}" onclick = "handleStarClick(event)"></i>
+            <i class="far fa-star  " data-number="2" id="${book.title}" onclick = "handleStarClick(event)"></i>
+             <i class="far fa-star " data-number="3" id="${book.title}" onclick = "handleStarClick(event)"></i>
+             <i class="far fa-star " data-number="4" id="${book.title}" onclick = "handleStarClick(event)"></i>
+            <i class="far fa-star  " data-number="5" id="${book.title}" onclick = "handleStarClick(event)"></i>
+         </div>                   
+        <p> ${book.rank}</p>
+        <input  class = "container__card__addToCardBtn" onclick = "handleAddToCard()" id ="addToCard" type ="button" value = "Add to cart">
+     </div>
+
+
+
+
+    
+
   
-    <div id="root"></div>
+    <div id="rootCard"></div>
 
 
     <div class="bottom">
@@ -151,12 +183,13 @@
 
     </div>
     <p style="color: rgb(129, 126, 126); border-radius: 8px; background-color: rgba(3, 9, 15, 0.377); font-size: small; padding: 2em; margin-top: 0;">© 2016 - 2020 Standart Books S.p.A. - All rights reserved. SIAE LICENCE # 2294/I/1936 and 5647/I/1936</p>
+    
 
 
 
-  
+   
+
     
     <script src="dist/index.js"></script>
 </body>
-
 </html>
