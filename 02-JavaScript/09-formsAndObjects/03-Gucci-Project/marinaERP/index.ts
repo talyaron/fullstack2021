@@ -207,6 +207,12 @@ const StandartEbooks:Store = {
   },
 
   addToCard(book: Book) {
+    const index= this.books.findIndex((book)=> book.id === id);
+    if (index >= 0) {
+      this.books[index].id = id;
+    }
+    this.storeData();
+
    
   },
 
@@ -490,7 +496,10 @@ function handleUpdateBook(e, id) {
   e.target.reset();
 }
 
-// function handleAddToCard() {
+// function handleAddToCard(ev) {
+//   StandartEbooks.addToCard();
+//   const rootCard=document.getElementById('rootCard')
+//   StandartEbooks
 
 // }
 
