@@ -46,8 +46,8 @@ interface BookShop {
   renderItem(domElement: any);
   //filterByCategory();
   //filterByPrice();
-  updateBook(Id);
-  //deleteBook();
+  updateBook(Id, priceChange);
+  deleteBook(Id);
   //changeOrder()
   sortItemAsc();
   sortItemDesc();
@@ -70,47 +70,47 @@ const bookie: BookShop = {
       category: "thriller",
       title: "bye",
       price: 3,
-      img: "https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg",
+      img: "Bye.jpeg",
       year: 1998,
     },
     {
       id: 2,
       category: "thriller",
-      title: "hi",
+      title: "outsider",
       price: 154,
-      img: "https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg",
+      img: "outsider.jpeg",
       year: 2000,
     },
     {
       id: 3,
       category: "thriller",
-      title: "shy",
+      title: "The Little Prince",
       price: 12,
-      img: "https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg",
+      img: "the little prince.jpg",
       year: 1999,
     },
     {
       id: 4,
       category: "thriller",
-      title: "okay",
+      title: "Star wars",
       price: 18,
-      img: "https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg",
+      img: "Star Wars.jpg",
       year: 2001,
     },
     {
       id: 5,
       category: "thriller",
-      title: "okay",
+      title: "Harry Potter",
       price: 35,
-      img: "https://static-cse.canva.com/blob/142541/Yellow-Surgeon-Creative-Book-Cover.jpg",
+      img: "Harry Potter.jpg",
       year: 1995,
     },
   ],
   addItem(ev: any) {
-    let id = ev.target.elements.id.value;
+    let id = +ev.target.elements.id.value || ev.target.elements.id.value;
     let category = ev.target.elements.category.value;
     let title = ev.target.elements.title.value;
-    let price = ev.target.elements.price.value;
+    let price = +ev.target.elements.price.value;
     let img = ev.target.elements.image.files[0]?.name;
     let year = ev.target.elements.year.value;
     let book = { id, category, title, price, img, year };
@@ -131,11 +131,11 @@ const bookie: BookShop = {
     });
   },
   renderItem(domElement) {
-    let html = "";
-
-    this.books.forEach((item) => {
-      domElement = "";
-      html += `
+    if (window.document.title === "Bookie") {
+      let html = "";
+      this.books.forEach((item) => {
+        domElement.innerHTML = "";
+        html += `
             <div class="rootBooks__card">
                 <button class="rootBooks__card__bag" data-add-to-bag><svg xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 15 14">
@@ -158,15 +158,31 @@ const bookie: BookShop = {
                         </symbol>
                         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-icon-saved-items" />
                     </svg></button>
-                <img src='${item.img}' alt="" class="rootBooks__card__img">
+                <img src="Images/${item.img}" alt="" class="rootBooks__card__img">
                 <div class="rootBooks__card__title">${item.title}</div>
-                <div class="rootBooks__card__price">${item.price}</div>
+                <div class="rootBooks__card__price">${item.price}$</div>
             </div>`;
-    });
-    domElement.innerHTML = html;
+      });
+      domElement.innerHTML = html;
+    }
   },
-  updateBook(book) {
-    console.log(book.id);
+  updateBook(id, priceChange) {
+    let storage = this.books;
+    storage.forEach((book) => {
+      if (book.id === id || book.id === +id)
+        console.log(book, "this is it"),
+         book.price = +priceChange;
+    });
+    showLocalToOwner(bookie, ascPrice);
+  },
+  deleteBook(id) {
+    this.books = this.books.filter((book) => book.id !== id);
+    let bookie = JSON.parse(localStorage.getItem("Bookie shop"));
+    localStorage.setItem("Bookie shop", JSON.stringify(bookie));
+    bookie.books = bookie.books.filter((book) => book.id !== id);
+    bookie.books = bookie.books;
+    localStorage.setItem("Bookie shop", JSON.stringify(bookie));
+    showLocalToOwner(bookie, ascYear);
   },
 };
 
@@ -179,8 +195,8 @@ const bookie: BookShop = {
 //function handleSortDesc()
 //function handleSortAsc(ev)
 function makeId(book: book) {
+  let uid = Math.random().toString(36).slice(-8);
   if (book.id === "uid") {
-    let uid = Math.random().toString(36).slice(-8);
     book.id = uid;
   } else {
     return;
@@ -190,59 +206,64 @@ bookie.renderItem(rootBooks);
 
 function handleAddItem(ev: any) {
   ev.preventDefault();
-  console.dir(bookie);
   bookie.addItem(ev);
   localStorage.setItem("Bookie shop", JSON.stringify(bookie));
   ev.target.reset();
-  console.log(bookie);
-
-  // localBookie.makeOptions(ev)
-  // how to use localStorage:
-  //   window.localStorage.setItem("Bookie shop", JSON.stringify(bookie));
-  // let shopRetreval = localStorage.getItem("Bookie shop");
-  // console.log("retrievedShop: ", JSON.parse(shopRetreval));
 }
 function showPreviewImage(ev: any) {
   const imagePreview = document.querySelector("[data-bookImage-preview]");
   const imgLink = ev.target.files[0].name;
   const preview = `<img src="./Images/${imgLink}" alt="">`;
-  console.dir(imagePreview);
-  console.dir(preview);
-  console.dir(imgLink);
   imagePreview.innerHTML = preview;
 }
 
 function showLocalToOwner(shop: BookShop, sortFunc) {
-
-  
   shop.books.sort(sortFunc);
   localStorage.setItem("Bookie shop", JSON.stringify(shop));
-  let parsedBookie = JSON.parse(localStorage.getItem("Bookie shop"));
-  console.log(parsedBookie);
-  
+  let bookie = JSON.parse(localStorage.getItem("Bookie shop"));
   ownerTable.innerHTML = `<tr>
+  <th>ID</th>
+  <th>Category</th>
   <th>Title</th>
-  <th>Year written</th>
   <th>price</th>
+  <th>Img</th>
+  <th>Year</th>
 </tr>`;
-  for (let i in parsedBookie.books) {
+  for (let book in bookie.books) {
     ownerTable.innerHTML += `<tr>
-  <td contenteditable="true"> ${parsedBookie.books[i].title}  </td>
-  <td contenteditable="true"> ${parsedBookie.books[i].year} </td>
-  <td contenteditable="true"> ${parsedBookie.books[i].price}</td>
-  <td> <button onclick="bookie.updateBook(${parsedBookie.books[i]})"></button></td>
+  <td> ${bookie.books[book].id}  </td>
+  <td> ${bookie.books[book].category}  </td>
+  <td> ${bookie.books[book].title} </td>
+  <td> ${bookie.books[book].price}</td>
+  <td> <img src="./Images/${bookie.books[book].img}" alt=""></td>
+  <td> ${bookie.books[book].year}</td>
+  <td data-delete-update> 
+  <a onclick="handleDelete(event)">Delete</a>
+  <a onclick="handleEdit(event)">Change Price</a>
+  <input data-priceChange type="number" name="priceChange" placeholder="${bookie.books[book].price}" value="${bookie.books[book].price}">
+  </td>
   </tr>`;
   }
 }
 
+function handleEdit(ev) {
+  let data = ev.target.parentElement.parentElement.cells;
+  let id = data[0].textContent.replaceAll(/\s/g,'');
+  let priceChange = data[6].children.priceChange.valueAsNumber;
+  bookie.updateBook(id, priceChange);
+}
+function handleDelete(ev) {
+  let data = ev.target.parentElement.parentElement.cells;
+  let id = +data[0].textContent || data[0].textContent.replaceAll(/\s/g,'');
+  bookie.deleteBook(id);
+}
+
 function handleOwnerSort(ev: any) {
   ev.preventDefault();
-  const choice = `${ev.target.value}`;
-  console.log(choice);
-  
+  const choice = ev.target.value;
+  console.dir(choice);
   showLocalToOwner(bookie, choice);
 }
-showLocalToOwner(bookie, ascYear);
 
 window.onload = function () {
   if (window.document.title === "Bookie") {
@@ -262,4 +283,5 @@ window.onload = function () {
       mobile_menu.classList.toggle("is-active");
     });
   }
+  showLocalToOwner(bookie, descYear);
 };
