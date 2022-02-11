@@ -39,13 +39,14 @@ interface cloths {
     renderCustomerByPrice(list, inputFrom, inputUpTo, display, catagory)
     addToCart(id, catagory)
     renderShoppingCart(display, catagory)
-    deleteItemFromCard(id)
+    deleteItemFromShoppingCart(id)
 }
 interface item {
     id?: any;
     brand: string;
     size: string;
     price: number;
+    name?:any
 }
 
 let clothsList: cloths = {
@@ -245,20 +246,20 @@ let clothsList: cloths = {
     }, renderCustomerByPrice(list, inputFrom, inputUpTo, display, catagory) {
         const filteredCustomerByPrice = this.filterByPrice(list, inputFrom, inputUpTo);
         this.renderCustomerPage(filteredCustomerByPrice, display, catagory)
-    }, addToCart(id, catagory) {
-        let itemToCart;
+    },addToCart(id, catagory) {
+        let itemToCart
         if (catagory == "Tshirts") {
             itemToCart = this.Tshirts.filter((item) => item.id === id)
-            itemToCart[0].id = catagory
+            itemToCart[0].name = catagory
         } else if (catagory == "shoes") {
             itemToCart = this.shoes.filter((item) => item.id === id)
-            itemToCart[0].id = catagory
+            itemToCart[0].name = catagory
         } else if (catagory == "pants") {
             itemToCart = this.pants.filter((item) => item.id === id)
-            itemToCart[0].id = catagory
+            itemToCart[0].name = catagory
         }
         this.shoppingCart.push(itemToCart)
-    }, renderShoppingCart(display, catagory) {
+    },renderShoppingCart(display, catagory){
         const shoppingCartDisplay = document.querySelector('.container-shoppingCart_display') as HTMLDivElement
         shoppingCartDisplay.style.display = "flex"
         let html;
@@ -268,13 +269,14 @@ let clothsList: cloths = {
                 <h1 class="container-shoppingCart_display-item-header">${item[0].brand} ${catagory}</h1>
                 <p class="container-shoppingCart_display-item-size">size: ${item[0].size}</p>
                 <p class="container-shoppingCart_display-item-price">price: ${item[0].price}</p>
-                <button class="container-shoppingCart_display-item-deleteBtn" name="${catagory}" type="button" onclick="deleteItem(event,'${item[0].id}')">remove</button>
+                <button class="container-shoppingCart_display-item-deleteBtn" name="${catagory}" id="${item[0].id}" type="button" onclick="deleteItem(event)">remove</button>
             </div>`
         });
         display.innerHTML += html
 
-    }, deleteItemFromCard(id) {
+    }, deleteItemFromShoppingCart(id){
         this.shoppingCart = this.shoppingCart.filter((item) => item[0].id !== id)
+        console.log(this.shoppingCart);
     }
 }
 function display(ev): void {
@@ -702,7 +704,7 @@ function displayFilter(ev) {
     }
 }
 
-function addToCart(ev, id) {
+function addToCart(ev, id){
 
     const display = document.querySelector('.container-shoppingCart_display')
     let catagory = ev.target.name
@@ -734,14 +736,26 @@ function showDropDown(ev) {
     </div>`
     } else if (id == "yourOrdersBtn") {
         html = `<div id="yourOrders" class="container_header-dropDown-box yourOrders">
-        <p style="font-size: 12px">no Orders yet...</p>
+        <p style="font-size: 12px;position: absolute;">no Orders yet...</p>
        </div>`
-    } else if (id == "shoppingCartBtn") {
+    } else if (id == "shoppingCartBtn"){
         html = `<div id="shoppingCart" class="container_header-dropDown-box shoppingCart"></div>`
     }
-
     const shoppingCartdisplay = document.getElementById('shoppingCart')
-
-
     dropDownDisplay.innerHTML = html;
 }
+function deleteItem(ev){
+
+    const display = document.getElementById('shoppingCartDisplay')
+    console.log(display);
+    
+    const catagory = ev.target.name
+    const id = ev.target.id
+    console.log(id);
+    console.log(catagory);
+
+    clothsList.deleteItemFromShoppingCart(id)
+    console.log(clothsList.shoppingCart);
+    // clothsList.renderShoppingCart(display , catagory)
+}
+
