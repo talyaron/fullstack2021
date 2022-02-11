@@ -3,7 +3,7 @@ const uid = function () {
 };
 
 interface Store {
-  Books: Array<Book>,
+  books: Array<Book>,
   storeData(),
   getData(),
   addBook(
@@ -62,7 +62,7 @@ interface Book {
   id?: string
 }
 
-const StandartEbooks = {
+const StandartEbooks:Store = {
   books: [
     {
       title: "Hemlock Veils",
