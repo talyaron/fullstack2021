@@ -39,16 +39,18 @@
             </form>
             <div class="sorts">
                 <label for="ownerSort">sort things out for your comfort</label>
-                <select onchage="handleOwnerSort(event)" name="ownerSort" id="ownerSort">
+                <select onchange="handleOwnerSort(event)" name="ownerSort" id="ownerSort">
                     <option disabled selected value="None">Choose</option>
-                    <option value="Asc">Ascending</option>
-                    <option value="Desc">Descending</option>
+                    <option value="ascYear">Ascending - Years</option>
+                    <option value="descYear">Descending - Years</option>
+                    <option value="sortItemAsc">Ascending - Prices</option>
+                    <option value="sortItemDesc">Descending - Prices</option>
                 </select>
                 <label for="customerSort">sort how others would see your shop</label>
                 <select onchage="handleCustomerSort(event)" name="customerSort" id="customerSort">
                     <option disabled selected value="None">Choose</option>
-                    <option value="Asc">Ascending</option>
-                    <option value="Desc">Descending</option>
+                    <option value="ascYear">Ascending</option>
+                    <option value="descYear">Descending</option>
                 </select>
                 <table data-toggle-existing>
                     <tr>
@@ -56,6 +58,7 @@
                         <th>Year written</th>
                         <th>price</th>
                     </tr>
+                
                 </table>
             </div>
         </div>
