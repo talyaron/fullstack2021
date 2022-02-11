@@ -192,15 +192,15 @@ var clothsList = {
         var itemToCart;
         if (catagory == "Tshirts") {
             itemToCart = this.Tshirts.filter(function (item) { return item.id === id; });
-            itemToCart[0].id = catagory;
+            itemToCart[0].name = catagory;
         }
         else if (catagory == "shoes") {
             itemToCart = this.shoes.filter(function (item) { return item.id === id; });
-            itemToCart[0].id = catagory;
+            itemToCart[0].name = catagory;
         }
         else if (catagory == "pants") {
             itemToCart = this.pants.filter(function (item) { return item.id === id; });
-            itemToCart[0].id = catagory;
+            itemToCart[0].name = catagory;
         }
         this.shoppingCart.push(itemToCart);
     }, renderShoppingCart: function (display, catagory) {
@@ -208,11 +208,12 @@ var clothsList = {
         shoppingCartDisplay.style.display = "flex";
         var html;
         this.shoppingCart.forEach(function (item) {
-            html = " \n            <div class=\"container-shoppingCart_display-item\">\n                <h1 class=\"container-shoppingCart_display-item-header\">" + item[0].brand + " " + catagory + "</h1>\n                <p class=\"container-shoppingCart_display-item-size\">size: " + item[0].size + "</p>\n                <p class=\"container-shoppingCart_display-item-price\">price: " + item[0].price + "</p>\n                <button class=\"container-shoppingCart_display-item-deleteBtn\" name=\"" + catagory + "\" type=\"button\" onclick=\"deleteItem(event,'" + item[0].id + "')\">remove</button>\n            </div>";
+            html = " \n            <div class=\"container-shoppingCart_display-item\">\n                <h1 class=\"container-shoppingCart_display-item-header\">" + item[0].brand + " " + catagory + "</h1>\n                <p class=\"container-shoppingCart_display-item-size\">size: " + item[0].size + "</p>\n                <p class=\"container-shoppingCart_display-item-price\">price: " + item[0].price + "</p>\n                <button class=\"container-shoppingCart_display-item-deleteBtn\" name=\"" + catagory + "\" id=\"" + item[0].id + "\" type=\"button\" onclick=\"deleteItem(event)\">remove</button>\n            </div>";
         });
         display.innerHTML += html;
-    }, deleteItemFromCard: function (id) {
+    }, deleteItemFromShoppingCart: function (id) {
         this.shoppingCart = this.shoppingCart.filter(function (item) { return item[0].id !== id; });
+        console.log(this.shoppingCart);
     }
 };
 function display(ev) {
@@ -599,11 +600,22 @@ function showDropDown(ev) {
         html = "<div id=\"signIn\" class=\"container_header-dropDown-box signIn\">\n        <input class=\"container_header-dropDown-box-signInInput\" type=\"email\" name=\"UserName\" id=\"userName\" placeholder=\"User Name\" >\n        <input class=\"container_header-dropDown-box-signInInput\" type=\"password\" name=\"password\" id=\"password\" placeholder=\"Password\">\n        <button type=\"button\" class=\"container_header-dropDown-box-signInInput-btn\">Sign In</button>\n    </div>";
     }
     else if (id == "yourOrdersBtn") {
-        html = "<div id=\"yourOrders\" class=\"container_header-dropDown-box yourOrders\">\n        <p style=\"font-size: 12px\">no Orders yet...</p>\n       </div>";
+        html = "<div id=\"yourOrders\" class=\"container_header-dropDown-box yourOrders\">\n        <p style=\"font-size: 12px;position: absolute;\">no Orders yet...</p>\n       </div>";
     }
     else if (id == "shoppingCartBtn") {
         html = "<div id=\"shoppingCart\" class=\"container_header-dropDown-box shoppingCart\"></div>";
     }
     var shoppingCartdisplay = document.getElementById('shoppingCart');
     dropDownDisplay.innerHTML = html;
+}
+function deleteItem(ev) {
+    var display = document.getElementById('shoppingCartDisplay');
+    console.log(display);
+    var catagory = ev.target.name;
+    var id = ev.target.id;
+    console.log(id);
+    console.log(catagory);
+    clothsList.deleteItemFromShoppingCart(id);
+    console.log(clothsList.shoppingCart);
+    // clothsList.renderShoppingCart(display , catagory)
 }
