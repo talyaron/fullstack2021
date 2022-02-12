@@ -118,7 +118,7 @@ const Adidas: shop = {
      <div class="cards__item" >
 
       <div class="picture">
-          <i class="far fa-heart" id="" onclick="handleFindIndex(id)"></i>
+          <i class="far fa-heart"  onclick="handleFindIndex(id)"></i>
           <img src="${product.pictureBack}" >
          <img src="${product.pictureFront}" class="img-top">
           </div>
@@ -201,21 +201,25 @@ const Adidas: shop = {
     this.render(domElement, filterd);
   },
   // addWishList(id){
-    
+
   //     const index = this.products.findIndex((product) => product.id === id);
   //     if (index >= 0) {
-     
+
   //       console.log(index);
   //       this.setData();
   //     }
   // },
-FindIndex(id){
-  const index = this.products.findIndex((product) => product.id === id);
-  if (index >= 0) {
-    console.log(index);
-    this.setData();
+  FindIndex(id) {
+    // console.log(id);
+
+    // const id = uid();
+    const index = this.products.findIndex((product) => product.id === id);
+    if (index >= 0) {
+      Adidas.products[index]
+      console.log(index);
+      this.setData();
+    }
   }
-}
 
 };
 
@@ -224,15 +228,12 @@ FindIndex(id){
 // const wish = ev.target.value;
 // Adidas.addWishList()
 // }
-function handleFindIndex(id){
-  const index = this.products.findIndex((product) => product.id === id);
-  if (index >= 0) {
-    console.log(index);
-    this.setData();
-  
+function handleFindIndex(id) {
 
-  
-  
+    Adidas.FindIndex(id)
+    const root = document.getElementById("rootWishList")
+    Adidas.renderAllData(root)
+  }
 }
 
 
@@ -297,6 +298,7 @@ function handleUpdate(ev: any, itemId: number) {
   );
   Adidas.renderAllData(root);
 }
+
 function handlePriceRange(ev) {
   const root = document.getElementById("rootCart");
   const priceLow = ev.target.valueAsNumber;
@@ -312,6 +314,8 @@ function handlePriceRange(ev) {
   }
 }
 function handleSort(ev) {
+
+
   const sort = ev.target.value;
   ev.preventDefault();
   const root = document.getElementById("rootCards");
@@ -323,7 +327,7 @@ function handleSort(ev) {
     ev.target.reset();
   }
   console.log(sort);
-  this.setData();
+  Adidas.setData();
 }
 function handleType(ev) {
   const type = ev.target.value;
