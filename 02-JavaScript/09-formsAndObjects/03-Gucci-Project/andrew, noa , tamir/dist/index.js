@@ -5,9 +5,9 @@ var aviator = {
     currency: "USD",
     renderitem: function (domElement) {
         var html = '';
-        html += "<div class=\"category-wrapper\">";
+        html += "<div class=\"category-wrapper\">\n                 <div class=\"category-wrapper__title\">All Watches</div>";
         this.itemsToRender.forEach(function (item) {
-            html += "\n                <div class=\"category-wrapper__title\">All Watches</div>\n                <div class=\"category-wrapper__card\">\n                    <div class='category-wrapper__card__img'> <img src=\"" + item.img + "\"></div>\n                    <div class=\"category-wrapper__card__name\" >" + item.name + " </div>\n                    <div class=\"category-wrapper__card__price\">" + item.price + "</div>\n                    \n                    \n                    <button class='add1' onclick=\"handleaddcart(event,'" + item.id + "')\" style=\"cursor: pointer;color:black\">add to cart<i class=\"fab fa-opencart\"></i></button>\n                </div>";
+            html += "\n                <div class=\"category-wrapper__card\">\n                    <div class='category-wrapper__card__img'> <img src=\"" + item.img + "\"></div>\n                    <div class=\"category-wrapper__card__name\" >" + item.name + " </div>\n                    <div class=\"category-wrapper__card__price\">" + item.price + "</div>\n                    \n                    \n                    <button class='add1' onclick=\"handleaddcart(event,'" + item.id + "')\" style=\"cursor: pointer;color:black\">add to cart<i class=\"fab fa-opencart\"></i></button>\n                </div>";
         });
         domElement.innerHTML = html;
         setCurrency();
@@ -15,7 +15,7 @@ var aviator = {
     renderitemcart: function (domElement) {
         var html2 = '';
         this.cartItems.forEach(function (item) {
-            html2 += "<div class='cart__card'>\n            <img src=\"" + item.img + "\">\n            <p class=\"cart__card--name\">" + item.name + "</p>\n            <p class=\"cart__card--price\">" + item.price + "</p>\n            <p class=\"cart__card--quantity\">" + item.quantity + "</p>\n           \n        \n           <button  onclick='handleDelete(\"" + item.id + "\")' style=\"width:50px ;\"'><i class=\"far fa-trash-alt\"></i> Delete</button>\n            </div>";
+            html2 += "<div class='cart__card'>\n            <img src=\"" + item.img + "\">\n            <p class=\"cart__card--name\">" + item.name + "</p>\n            <p class=\"cart__card--price\">" + item.price + "</p>\n            <button id=\"add_one\" onclick='handleQuantity(event, \"" + item.id + "\")'>\u25B2</button>\n            <p class=\"cart__card--quantity\">" + item.quantity + "</p>\n            <button id=\"remove_one\" onclick='handleQuantity(event, \"" + item.id + "\")'>\u25BC</button>\n           \n        \n           <button  onclick='handleDelete(\"" + item.id + "\")' style=\"width:50px ;\"'><i class=\"far fa-trash-alt\"></i> Delete</button>\n            </div>";
         });
         domElement.innerHTML = html2;
         setCurrency();
@@ -54,6 +54,17 @@ var aviator = {
         console.log(this.cartItems);
         this.renderCartCount();
     },
+    addOneItem: function (id) {
+        var index = this.cartItems.findIndex(function (item) { return item.id == id; });
+        this.cartItems[index].quantity++;
+    },
+    removeOneItem: function (id) {
+        var index = this.cartItems.findIndex(function (item) { return item.id == id; });
+        if (this.cartItems[index].quantity <= 1)
+            this.deleteItem(id);
+        else
+            this.cartItems[index].quantity--;
+    },
     filterItems: function (category) {
         var keys = Object.keys(this.items[0]);
         var filteredItems = [];
@@ -71,6 +82,7 @@ var aviator = {
         ;
         aviator.itemsToRender = filteredItems;
         this.renderitem(document.getElementById('main'));
+        document.querySelector(".category-wrapper__title").innerHTML = category;
     }
 };
 function handleaddcart(ev, itemToAddId) {
@@ -215,4 +227,15 @@ function handleCartClick() {
     var cart = document.querySelector(".wow");
     cart.classList.toggle("visible");
     console.log(cart.classList);
+}
+function handleQuantity(ev, id) {
+    switch (ev.target.id) {
+        case "add_one":
+            aviator.addOneItem(id);
+            break;
+        case "remove_one":
+            aviator.removeOneItem(id);
+            break;
+    }
+    aviator.renderitemcart(cart);
 }

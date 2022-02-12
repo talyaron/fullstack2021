@@ -303,7 +303,7 @@ body {
     }
 
     img {
-        width: 100px;
+        width: 80px;
     }
 
     .add1 {
@@ -312,7 +312,7 @@ body {
 }
 
 .wow {
-    margin-top: 10px;
+    padding-block: 10px;
     width: 450px;
     border: 2px solid black;
     border-radius: 20px;
@@ -324,13 +324,19 @@ body {
         color: rgb(238, 238, 238);
 
     }
+    &__total{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        font-size: 1.2rem;
 
+    }
     img {
         border-radius: 40px;
     }
 
     position: fixed;
-    top: 80px;
+    top: 90px;
     right: 0px;
     pointer-events: none;
 
@@ -389,7 +395,9 @@ body {
 
 .updateForm {
     position: fixed;
-    bottom: 10px;
+    bottom: 50px;
+    left: 0px;
+    width: 100vw;
     z-index: 1;
     background-color: var(--main-color-purple1);
     transition: ease 0.5s;

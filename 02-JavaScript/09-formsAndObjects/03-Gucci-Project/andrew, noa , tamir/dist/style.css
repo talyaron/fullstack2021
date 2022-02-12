@@ -253,21 +253,21 @@ body {
   color: brown;
 }
 .cart img {
-  width: 100px;
+  width: 80px;
 }
 .cart .add1 {
   display: none;
 }
 
 .wow {
-  margin-top: 10px;
+  padding-block: 10px;
   width: 450px;
   border: 2px solid black;
   border-radius: 20px;
   box-shadow: black 20px 20px 20px;
   background: var(--main-color-gray3);
   position: fixed;
-  top: 80px;
+  top: 90px;
   right: 0px;
   pointer-events: none;
   opacity: 0;
@@ -277,6 +277,12 @@ body {
 .wow__title {
   text-align: center;
   color: #eeeeee;
+}
+.wow__total {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 1.2rem;
 }
 .wow img {
   border-radius: 40px;
@@ -323,7 +329,9 @@ body {
 
 .updateForm {
   position: fixed;
-  bottom: 10px;
+  bottom: 50px;
+  left: 0px;
+  width: 100vw;
   z-index: 1;
   background-color: var(--main-color-purple1);
   transition: ease 0.5s;
