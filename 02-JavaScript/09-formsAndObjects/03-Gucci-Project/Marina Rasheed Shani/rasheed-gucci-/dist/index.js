@@ -233,9 +233,10 @@ var gucci = {
     updateItems: function (id, newPrice, itemName) {
         itemName = this.items.name;
         var index = this.items.findIndex(function (item) { return item.id === id; });
+        //const index = this.items.findIndex((item) => item.name === itemName);
         if (index >= 0) {
+            //this.items[index].name = itemName;
             this.items[index].price = newPrice;
-            // this.items[index].name = itemName;
             this.storeData();
         }
     },
@@ -305,7 +306,7 @@ function handleAddItems(ev) {
     gucci.addItems(name, price, imgTop, imgBottom, gender, type, id);
     var root = document.getElementById("root");
     gucci.renderAllitems(root);
-    //gucci.renderFilterByGenderAndType(gender,type,root)
+    //gucci.renderByGender(gender,root)
     console.log(gucci.items);
     gucci.storeData();
     ev.target.reset();
