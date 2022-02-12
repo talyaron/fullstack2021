@@ -151,10 +151,10 @@
             <select onchange="handleSort(event)">
                 <option value="" disabled selected>sort</option>
 
-                <option value="startPosition"> </option>
+                <option value="startPosition" > </option>
                 <option value="letterAsc"> </option>
                 <option value="letterDsc"> </option>
-                <option value="priceAsc">high to low </option>
+                <option value="priceAsc"  onchange="handleSort(event)">high to low </option>
                 <option value="priceDsc">low to high </option>
             </select>
 
