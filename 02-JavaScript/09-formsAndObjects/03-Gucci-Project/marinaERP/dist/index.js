@@ -138,6 +138,11 @@ var StandartEbooks = {
         this.storeData();
     },
     addToCard: function (book) {
+        var index = this.books.findIndex(function (book) { return book.id === id; });
+        if (index >= 0) {
+            this.books[index].id = id;
+        }
+        this.storeData();
     },
     sortAscenByAuthor: function () {
         this.books = this.books.sort(function (a, b) {
@@ -322,7 +327,10 @@ function handleUpdateBook(e, id) {
     // StandartEbooks.renderAllBooks(rootERP)
     e.target.reset();
 }
-// function handleAddToCard() {
+// function handleAddToCard(ev) {
+//   StandartEbooks.addToCard();
+//   const rootCard=document.getElementById('rootCard')
+//   StandartEbooks
 // }
 function handleAuthorAscen() {
     try {
