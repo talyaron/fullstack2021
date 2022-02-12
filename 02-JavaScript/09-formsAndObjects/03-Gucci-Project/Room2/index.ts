@@ -5,6 +5,7 @@ const uid = function () {
 interface shop {
   id?: number;
   products: Array<product>;
+  // wishList: Array<product>;
   addItem(
     title: string,
     price: number,
@@ -40,7 +41,17 @@ interface shop {
   renderFilter(domElement, filterd);
   getData();
   setData();
-  cartItems()
+  addWishList(
+    title: string,
+    price: number,
+    category: "Sneakers" | "Boots" | "Hi Tops" | "Flip Flops",
+    pictureFront: string,
+    pictureBack: string,
+    color: string,
+    description: string,
+    shoeSize: number
+  );
+  FindIndex(id);
 }
 
 interface product {
@@ -55,9 +66,11 @@ interface product {
   shoeSize: number;
 }
 
+
 const Adidas: shop = {
   // id:0,
   products: [],
+  // wishList: [],
   getData() {
     const products = JSON.parse(localStorage.getItem("Adidas"));
     if (products) {
@@ -105,7 +118,7 @@ const Adidas: shop = {
      <div class="cards__item" >
 
       <div class="picture">
-          <i class="far fa-heart"></i>
+          <i class="far fa-heart" id="" onclick="handleFindIndex(id)"></i>
           <img src="${product.pictureBack}" >
          <img src="${product.pictureFront}" class="img-top">
           </div>
@@ -187,7 +200,41 @@ const Adidas: shop = {
   renderFilter(domElement, filterd) {
     this.render(domElement, filterd);
   },
+  // addWishList(id){
+    
+  //     const index = this.products.findIndex((product) => product.id === id);
+  //     if (index >= 0) {
+     
+  //       console.log(index);
+  //       this.setData();
+  //     }
+  // },
+FindIndex(id){
+  const index = this.products.findIndex((product) => product.id === id);
+  if (index >= 0) {
+    console.log(index);
+    this.setData();
+  }
+}
+
 };
+
+
+// function HandleWishList(ev) {
+// const wish = ev.target.value;
+// Adidas.addWishList()
+// }
+function handleFindIndex(id){
+  const index = this.products.findIndex((product) => product.id === id);
+  if (index >= 0) {
+    console.log(index);
+    this.setData();
+  
+
+  
+  
+}
+
 
 function handleAddItem(ev) {
   ev.preventDefault();
