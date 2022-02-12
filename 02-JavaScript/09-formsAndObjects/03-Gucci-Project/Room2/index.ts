@@ -9,6 +9,7 @@ interface shop {
   addItem(
     title: string,
     price: number,
+    gender:string,
     category: "Sneakers" | "Boots" | "Hi Tops" | "Flip Flops",
     pictureFront: string,
     pictureBack: string,
@@ -24,6 +25,7 @@ interface shop {
     id: number,
     newTitle: string,
     newPrice: number,
+    newGender:string,
     newCategory: string,
     newPictureFront: string,
     newPictureBack: string,
@@ -38,7 +40,7 @@ interface shop {
   sortByColor(color);
   sortByType(type);
   filterItems(highPrice?: number, lowPrice?: number);
-  renderFilter(domElement, filterd);
+  renderFilter( filterd: Array<product>, domElement);
   getData();
   setData();
   addWishList(
@@ -58,12 +60,14 @@ interface product {
   id: number;
   title: string;
   price: number;
+  gender:string;
   category: "Sneakers" | "Boots" | "Hi Tops" | "Flip Flops";
   pictureFront: string;
   pictureBack: string;
   color: string;
   description: string;
   shoeSize: number;
+  
 }
 
 
@@ -83,6 +87,7 @@ const Adidas: shop = {
   addItem(
     title,
     price,
+    gender,
     category,
     pictureFront,
     pictureBack,
@@ -96,6 +101,7 @@ const Adidas: shop = {
       id,
       title,
       price,
+      gender,
       category,
       pictureFront,
       pictureBack,
@@ -150,6 +156,7 @@ const Adidas: shop = {
     id,
     newTitle,
     newPrice,
+    newGender,
     newCategory,
     newPictureFront,
     newPictureBack,
@@ -161,6 +168,7 @@ const Adidas: shop = {
     if (index >= 0) {
       this.products[index].title = newTitle;
       this.products[index].price = newPrice;
+      this.products[index].gender = newGender;
       this.products[index].category = newCategory;
       this.products[index].pictureFront = newPictureFront;
       this.products[index].pictureBack = newPictureBack;
@@ -197,8 +205,10 @@ const Adidas: shop = {
   sortByType(category) {
     return this.products.filter((element) => element.category === category);
   },
-  renderFilter(domElement, filterd) {
-    this.render(domElement, filterd);
+  renderFilter(filterd, domElement) {
+    console.log(filterd);
+    
+    this.render(filterd, domElement);
   },
   // addWishList(id){
 
@@ -241,6 +251,7 @@ function handleAddItem(ev) {
   ev.preventDefault();
   const title = ev.target.elements.title.value;
   const price = ev.target.elements.price.valueAsNumber;
+  const gender = ev.target.elements.title.value;
   const category = ev.target.elements.category.value;
   const pictureFront = ev.target.elements.pictureFront.value;
   const pictureBack = ev.target.elements.pictureBack.value;
@@ -252,6 +263,7 @@ function handleAddItem(ev) {
     title,
     price,
     category,
+    gender,
     pictureFront,
     pictureBack,
     color,
@@ -277,6 +289,7 @@ function handleUpdate(ev: any, itemId: number) {
 
   const newTitle: string = ev.target.elements.newTitle.value;
   const newPrice: number = ev.target.elements.newPrice.valueAsNumber;
+  const newGender:string = ev.target.elements.newGender.value;
   const newCategory: string = ev.target.elements.newCategory.value;
   const newPictureFront: string = ev.target.elements.newPictureFront.value;
   const newPictureBack: string = ev.target.elements.newPictureBack.value;
@@ -289,6 +302,7 @@ function handleUpdate(ev: any, itemId: number) {
     itemId,
     newTitle,
     newPrice,
+    newGender,
     newCategory,
     newPictureFront,
     newPictureBack,
@@ -308,7 +322,7 @@ function handlePriceRange(ev) {
     const filterd = Adidas.filterItems(priceLow && priceHigh);
     console.log(filterd);
 
-    Adidas.renderFilter(root, filterd);
+    Adidas.renderFilter(filterd, root);
   } else {
     this.renderAll();
   }
@@ -339,24 +353,67 @@ function handleSort(ev) {
 function handleType(ev) {
   const type = ev.target.value;
   ev.preventDefault();
+  console.log(type);
+  
   const root = document.getElementById("rootCustomer");
-  // if(type === " ")
-  return Adidas.renderFilter(root, Adidas.sortByType(type));
+  if(type === "Sneakers"){
+    console.log(type);
+    
+// Adidas.sortByType(type)
+//      Adidas.renderAllData(root);
+Adidas.renderFilter(Adidas.sortByType(type), root);
+  }
+  else if(type === "Boots"){
+  //   console.log(type);
+  //  Adidas.sortByType(type)
+  //    Adidas.renderAllData(root);
+  Adidas.renderFilter(Adidas.sortByType(type), root);
+  }
+  else if(type === "Hi Tops"){
+  //   console.log(type);
+  //  Adidas.sortByType(type)
+  //    Adidas.renderAllData(root);
+  Adidas.renderFilter(Adidas.sortByType(type), root);
+  }
+  else if(type === "Flip Flops"){
+  //   console.log(type);
+  //  Adidas.sortByType(type)
+  //    Adidas.renderAllData(root);
+  Adidas.renderFilter(Adidas.sortByType(type), root);
+  }
+
+    //  Adidas.sortByType(type)
+    //  Adidas.renderAllData(root);
+
+// Adidas.renderFilter(Adidas.sortByType(type), root);
 }
 function handleColor(ev) {
   const color = ev.target.value;
   ev.preventDefault();
   const root = document.getElementById("rootCustomer");
   // if(type === " ")
-  return Adidas.renderFilter(root, Adidas.sortByColor(color));
+  return Adidas.renderFilter(Adidas.sortByColor(color), root );
 }
 function handleGender(ev) {
   const gender = ev.target.value;
   ev.preventDefault();
   const root = document.getElementById("rootCustomer");
-  // if(type === " ")
+  
+  if(gender === "men"){
+    console.log(gender);
+    
+    Adidas.renderFilter(Adidas.sortByGender(gender), root)
+  }
+  else if(gender === "women"){
+    console.log(gender);
+    Adidas.renderFilter(Adidas.sortByGender(gender), root)
 
-  return Adidas.renderFilter(root, Adidas.sortByGender(gender));
+  }
+  else if(gender === "unisex"){
+    console.log(gender);
+    Adidas.renderFilter(Adidas.sortByGender(gender), root)
+
+  }
 }
 function handleShoeSize(ev) {
   const size = ev.target.value;
@@ -369,6 +426,7 @@ function handleShoeSize(ev) {
 Adidas.addItem(
   "superstar shoes",
   200,
+  "men",
   "Sneakers",
   "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg",
   "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg",
@@ -379,7 +437,8 @@ Adidas.addItem(
 Adidas.addItem(
   "superstar shoes",
   300,
-  "Sneakers",
+  "women",
+  "Boots",
   "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg",
   "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg",
   "red",
@@ -389,7 +448,8 @@ Adidas.addItem(
 Adidas.addItem(
   "superstar shoes",
   100,
-  "Sneakers",
+  "unisex",
+  "Hi Tops",
   "https://st-adidas-isr.mncdn.com/content/images/thumbs/0086954_x-speedflow1-messi-firm-ground-boots_fy6879_side-lateral-center-view.jpeg",
   "https://st-adidas-isr.mncdn.com/content/images/thumbs/0086956_x-speedflow1-messi-firm-ground-boots_fy6879_top-portrait-view.jpeg",
   "red",
