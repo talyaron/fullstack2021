@@ -300,7 +300,7 @@ function handleUpdate(ev: any, itemId: number) {
 }
 
 function handlePriceRange(ev) {
-  const root = document.getElementById("rootCart");
+  const root = document.getElementById("rootCustomer");
   const priceLow = ev.target.valueAsNumber;
   const priceHigh = ev.target.valueAsNumber;
   if (priceLow && priceHigh) {
@@ -315,16 +315,23 @@ function handlePriceRange(ev) {
 }
 function handleSort(ev) {
 
-
-  const sort = ev.target.value;
   ev.preventDefault();
-  const root = document.getElementById("rootCards");
-  if (sort === ev.target.value.priceAsc) {
-    Adidas.renderAllData(this.sortItemsAsc(root));
-  } else if (sort === ev.target.value.priceDsc) {
-    Adidas.renderAllData(this.sortItemsDsc(root));
-  } else if (sort === ev.target.value.startPosition) {
-    ev.target.reset();
+  const sort= ev.target.value;
+  const root = document.getElementById("rootCustomer");
+  if(sort ==="startPosition"){
+      
+
+  Adidas.renderAllData(root);
+  }
+  else if(sort === "priceAsc"){
+       Adidas.sortItemsAsc();
+ 
+  Adidas.renderAllData(root);
+  }
+  else if(sort === "priceDsc"){
+           Adidas.sortItemsDsc();
+ 
+  Adidas.renderAllData(root);
   }
   console.log(sort);
   Adidas.setData();
@@ -332,21 +339,21 @@ function handleSort(ev) {
 function handleType(ev) {
   const type = ev.target.value;
   ev.preventDefault();
-  const root = document.getElementById("rootCards");
+  const root = document.getElementById("rootCustomer");
   // if(type === " ")
   return Adidas.renderFilter(root, Adidas.sortByType(type));
 }
 function handleColor(ev) {
   const color = ev.target.value;
   ev.preventDefault();
-  const root = document.getElementById("rootCards");
+  const root = document.getElementById("rootCustomer");
   // if(type === " ")
   return Adidas.renderFilter(root, Adidas.sortByColor(color));
 }
 function handleGender(ev) {
   const gender = ev.target.value;
   ev.preventDefault();
-  const root = document.getElementById("rootCards");
+  const root = document.getElementById("rootCustomer");
   // if(type === " ")
 
   return Adidas.renderFilter(root, Adidas.sortByGender(gender));
@@ -354,7 +361,7 @@ function handleGender(ev) {
 function handleShoeSize(ev) {
   const size = ev.target.value;
   ev.preventDefault();
-  const root = document.getElementById("rootCards");
+  const root = document.getElementById("rootCustomer");
   Adidas.renderFilter(root, Adidas.shoeSizeFilter(size));
   // if(type === " ")
   //Adidas.shoeSizeFilter(size);
@@ -399,7 +406,7 @@ function handleGetData(page: string) {
       const root = document.getElementById("rootOwner");
       Adidas.renderAllData(root);
     } else if (page === "customer") {
-      const root = document.getElementById("rootCards");
+      const root = document.getElementById("rootCustomer");
       Adidas.renderAllData(root);
     } else {
       throw new Error(`page is not found (${page})`);
@@ -418,7 +425,7 @@ function handleGetData(page: string) {
 //       const root = document.getElementById("rootOwner");
 //       Adidas.renderAllData(root);
 //     } else if (page === "customer") {
-//       const root = document.getElementById("rootCards");
+//       const root = document.getElementById("rootCustomer");
 //       Adidas.renderAllData(root);
 //     } else {
 //       throw new Error(`page is not found (${page})`);
