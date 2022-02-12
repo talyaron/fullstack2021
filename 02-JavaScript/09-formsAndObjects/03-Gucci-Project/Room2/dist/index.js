@@ -152,7 +152,7 @@ function handleUpdate(ev, itemId) {
     Adidas.renderAllData(root);
 }
 function handlePriceRange(ev) {
-    var root = document.getElementById("rootCart");
+    var root = document.getElementById("rootCustomer");
     var priceLow = ev.target.valueAsNumber;
     var priceHigh = ev.target.valueAsNumber;
     if (priceLow && priceHigh) {
@@ -166,7 +166,6 @@ function handlePriceRange(ev) {
     }
 }
 function handleSort(ev) {
-    var sort = ev.target.value;
     ev.preventDefault();
     var sort = ev.target.value;
     var root = document.getElementById("rootCustomer");
@@ -187,28 +186,28 @@ function handleSort(ev) {
 function handleType(ev) {
     var type = ev.target.value;
     ev.preventDefault();
-    var root = document.getElementById("rootCards");
+    var root = document.getElementById("rootCustomer");
     // if(type === " ")
     return Adidas.renderFilter(root, Adidas.sortByType(type));
 }
 function handleColor(ev) {
     var color = ev.target.value;
     ev.preventDefault();
-    var root = document.getElementById("rootCards");
+    var root = document.getElementById("rootCustomer");
     // if(type === " ")
     return Adidas.renderFilter(root, Adidas.sortByColor(color));
 }
 function handleGender(ev) {
     var gender = ev.target.value;
     ev.preventDefault();
-    var root = document.getElementById("rootCards");
+    var root = document.getElementById("rootCustomer");
     // if(type === " ")
     return Adidas.renderFilter(root, Adidas.sortByGender(gender));
 }
 function handleShoeSize(ev) {
     var size = ev.target.value;
     ev.preventDefault();
-    var root = document.getElementById("rootCards");
+    var root = document.getElementById("rootCustomer");
     Adidas.renderFilter(root, Adidas.shoeSizeFilter(size));
     // if(type === " ")
     //Adidas.shoeSizeFilter(size);
@@ -226,7 +225,7 @@ function handleGetData(page) {
             Adidas.renderAllData(root);
         }
         else if (page === "customer") {
-            var root = document.getElementById("rootCards");
+            var root = document.getElementById("rootCustomer");
             Adidas.renderAllData(root);
         }
         else {
@@ -246,7 +245,7 @@ function handleGetData(page) {
 //       const root = document.getElementById("rootOwner");
 //       Adidas.renderAllData(root);
 //     } else if (page === "customer") {
-//       const root = document.getElementById("rootCards");
+//       const root = document.getElementById("rootCustomer");
 //       Adidas.renderAllData(root);
 //     } else {
 //       throw new Error(`page is not found (${page})`);
