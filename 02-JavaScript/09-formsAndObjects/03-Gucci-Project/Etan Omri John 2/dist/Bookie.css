@@ -606,3 +606,10 @@ footer .footer__credit {
 .rootBooks__card__heart:hover {
   color: black;
 }
+
+[role="navigation between pages"] {
+  z-index: 100;
+  position: absolute;
+  top: 0;
+  left: 0;
+}

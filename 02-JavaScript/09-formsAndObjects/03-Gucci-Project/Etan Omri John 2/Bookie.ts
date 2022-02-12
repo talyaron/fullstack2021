@@ -118,7 +118,7 @@ const bookie: BookShop = {
     let newBook: book = book;
     makeId(newBook);
     this.books.push(newBook);
-    showLocalToOwner(bookie, ascYear);
+    showLocalToOwner(ascYear);
   },
   sortItemAsc() {
     this.items.sort((a, b) => {
@@ -176,7 +176,7 @@ const bookie: BookShop = {
          book.price = +priceChange;
     });
     console.log(bookie)
-    showLocalToOwner(bookie, ascPrice)
+    showLocalToOwner(ascYear)
     localStorage.setItem('Bookie shop', JSON.stringify(bookie))
     bookie.renderItem(rootBooks)
   },
@@ -186,7 +186,7 @@ const bookie: BookShop = {
     localStorage.setItem("Bookie shop", JSON.stringify(bookie));
     console.log(JSON.parse(localStorage.getItem("Bookie shop")));
     console.log(bookie)
-    showLocalToOwner(bookie, ascYear);
+    showLocalToOwner(ascYear);
     bookie.renderItem(rootBooks)
   },
 };
@@ -222,11 +222,12 @@ function showPreviewImage(ev: any) {
   imagePreview.innerHTML = preview;
 }
 
-function showLocalToOwner(shop: BookShop, sortFunc) {
+function showLocalToOwner(sortFunc) {
   if (window.document.title === "myBookie") {
-  shop.books.sort(sortFunc);
-  localStorage.setItem("Bookie shop", JSON.stringify(shop));
-  let bookie = JSON.parse(localStorage.getItem("Bookie shop"));
+
+  bookie.books.sort(sortFunc);
+  localStorage.setItem("Bookie shop", JSON.stringify(bookie));
+  JSON.parse(localStorage.getItem("Bookie shop"));
   ownerTable.innerHTML = `<tr>
   <th>ID</th>
   <th>Category</th>
@@ -234,6 +235,7 @@ function showLocalToOwner(shop: BookShop, sortFunc) {
   <th>price</th>
   <th>Img</th>
   <th>Year</th>
+  <th>Functions</th>
 </tr>`;
   for (let book in bookie.books) {
     ownerTable.innerHTML += `<tr>
@@ -267,10 +269,45 @@ function handleDelete(ev) {
 }
 
 function handleOwnerSort(ev: any) {
+  if (window.document.title === "myBookie")
   ev.preventDefault();
-  const choice = ev.target.value;
-  console.dir(choice);
-  showLocalToOwner(bookie, choice);
+  let sortFunc = ev.target.value;
+  if (sortFunc === 'ascYear'){
+    showLocalToOwner(ascYear)
+    return
+  }
+  if(sortFunc === 'descYear'){
+    showLocalToOwner(descYear)
+    return
+  }
+  if(sortFunc === 'ascPrice'){
+    showLocalToOwner(ascPrice)
+    return
+  }
+  showLocalToOwner(descPrice)
+}
+
+function handleCustomerSort(ev: any) {
+  if (window.document.title === "Bookie")
+  ev.preventDefault();
+  let sortFunc = ev.target.value;
+  if (sortFunc === 'ascYear'){
+    bookie.books.sort(ascYear)
+    bookie.renderItem(rootBooks)
+    return
+  }
+  if(sortFunc === 'descYear'){
+    bookie.books.sort(descYear)
+    bookie.renderItem(rootBooks)
+    return
+  }
+  if(sortFunc === 'ascPrice'){
+    bookie.books.sort(ascPrice)
+    bookie.renderItem(rootBooks)
+    return
+  }
+  bookie.books.sort(descPrice)
+  bookie.renderItem(rootBooks)
 }
 
 window.onload = function () {
@@ -291,5 +328,5 @@ window.onload = function () {
       mobile_menu.classList.toggle("is-active");
     });
   }
-  showLocalToOwner(bookie, descYear);
+  showLocalToOwner(undefined);
 };

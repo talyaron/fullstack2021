@@ -96,7 +96,7 @@ var bookie = {
         var newBook = book;
         makeId(newBook);
         this.books.push(newBook);
-        showLocalToOwner(bookie, ascYear);
+        showLocalToOwner(ascYear);
     },
     sortItemAsc: function () {
         this.items.sort(function (a, b) {
@@ -127,7 +127,7 @@ var bookie = {
                     book.price = +priceChange;
         });
         console.log(bookie);
-        showLocalToOwner(bookie, ascPrice);
+        showLocalToOwner(ascYear);
         localStorage.setItem('Bookie shop', JSON.stringify(bookie));
         bookie.renderItem(rootBooks);
     },
@@ -137,7 +137,7 @@ var bookie = {
         localStorage.setItem("Bookie shop", JSON.stringify(bookie));
         console.log(JSON.parse(localStorage.getItem("Bookie shop")));
         console.log(bookie);
-        showLocalToOwner(bookie, ascYear);
+        showLocalToOwner(ascYear);
         bookie.renderItem(rootBooks);
     }
 };
@@ -170,14 +170,14 @@ function showPreviewImage(ev) {
     var preview = "<img src=\"./Images/" + imgLink + "\" alt=\"\">";
     imagePreview.innerHTML = preview;
 }
-function showLocalToOwner(shop, sortFunc) {
+function showLocalToOwner(sortFunc) {
     if (window.document.title === "myBookie") {
-        shop.books.sort(sortFunc);
-        localStorage.setItem("Bookie shop", JSON.stringify(shop));
-        var bookie_1 = JSON.parse(localStorage.getItem("Bookie shop"));
-        ownerTable.innerHTML = "<tr>\n  <th>ID</th>\n  <th>Category</th>\n  <th>Title</th>\n  <th>price</th>\n  <th>Img</th>\n  <th>Year</th>\n</tr>";
-        for (var book in bookie_1.books) {
-            ownerTable.innerHTML += "<tr>\n  <td> " + bookie_1.books[book].id + "  </td>\n  <td> " + bookie_1.books[book].category + "  </td>\n  <td> " + bookie_1.books[book].title + " </td>\n  <td> " + bookie_1.books[book].price + "</td>\n  <td> <img src=\"./Images/" + bookie_1.books[book].img + "\" alt=\"\"></td>\n  <td> " + bookie_1.books[book].year + "</td>\n  <td data-delete-update> \n  <a onclick=\"handleDelete(event)\">Delete</a>\n  <a onclick=\"handleEdit(event)\">Change Price</a>\n  <input data-priceChange type=\"number\" name=\"priceChange\" placeholder=\"" + bookie_1.books[book].price + "\" value=\"" + bookie_1.books[book].price + "\">\n  </td>\n  </tr>";
+        bookie.books.sort(sortFunc);
+        localStorage.setItem("Bookie shop", JSON.stringify(bookie));
+        JSON.parse(localStorage.getItem("Bookie shop"));
+        ownerTable.innerHTML = "<tr>\n  <th>ID</th>\n  <th>Category</th>\n  <th>Title</th>\n  <th>price</th>\n  <th>Img</th>\n  <th>Year</th>\n  <th>Functions</th>\n</tr>";
+        for (var book in bookie.books) {
+            ownerTable.innerHTML += "<tr>\n  <td> " + bookie.books[book].id + "  </td>\n  <td> " + bookie.books[book].category + "  </td>\n  <td> " + bookie.books[book].title + " </td>\n  <td> " + bookie.books[book].price + "</td>\n  <td> <img src=\"./Images/" + bookie.books[book].img + "\" alt=\"\"></td>\n  <td> " + bookie.books[book].year + "</td>\n  <td data-delete-update> \n  <a onclick=\"handleDelete(event)\">Delete</a>\n  <a onclick=\"handleEdit(event)\">Change Price</a>\n  <input data-priceChange type=\"number\" name=\"priceChange\" placeholder=\"" + bookie.books[book].price + "\" value=\"" + bookie.books[book].price + "\">\n  </td>\n  </tr>";
         }
     }
 }
@@ -194,10 +194,44 @@ function handleDelete(ev) {
     bookie.deleteBook(id);
 }
 function handleOwnerSort(ev) {
-    ev.preventDefault();
-    var choice = ev.target.value;
-    console.dir(choice);
-    showLocalToOwner(bookie, choice);
+    if (window.document.title === "myBookie")
+        ev.preventDefault();
+    var sortFunc = ev.target.value;
+    if (sortFunc === 'ascYear') {
+        showLocalToOwner(ascYear);
+        return;
+    }
+    if (sortFunc === 'descYear') {
+        showLocalToOwner(descYear);
+        return;
+    }
+    if (sortFunc === 'ascPrice') {
+        showLocalToOwner(ascPrice);
+        return;
+    }
+    showLocalToOwner(descPrice);
+}
+function handleCustomerSort(ev) {
+    if (window.document.title === "Bookie")
+        ev.preventDefault();
+    var sortFunc = ev.target.value;
+    if (sortFunc === 'ascYear') {
+        bookie.books.sort(ascYear);
+        bookie.renderItem(rootBooks);
+        return;
+    }
+    if (sortFunc === 'descYear') {
+        bookie.books.sort(descYear);
+        bookie.renderItem(rootBooks);
+        return;
+    }
+    if (sortFunc === 'ascPrice') {
+        bookie.books.sort(ascPrice);
+        bookie.renderItem(rootBooks);
+        return;
+    }
+    bookie.books.sort(descPrice);
+    bookie.renderItem(rootBooks);
 }
 window.onload = function () {
     if (window.document.title === "Bookie") {
@@ -216,5 +250,5 @@ window.onload = function () {
             mobile_menu_1.classList.toggle("is-active");
         });
     }
-    showLocalToOwner(bookie, descYear);
+    showLocalToOwner(undefined);
 };
