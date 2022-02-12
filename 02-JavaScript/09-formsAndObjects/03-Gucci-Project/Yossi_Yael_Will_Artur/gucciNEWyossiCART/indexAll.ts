@@ -44,9 +44,9 @@ const gucci: gucci = {
 
 
     addItemsCart(Items){
-        console.log(Items)
-  
         this.cartItems.push(Items)
+        console.log(this.cartItems); // ok
+        
     },
 
 
@@ -140,7 +140,8 @@ const gucci: gucci = {
 
     renderitemcart(list, rootItemsStoreCart) {
         let htmlCart = '';
-
+        console.log(list);
+        
         list.forEach(item => {
             htmlCart += `<div class='rootItemsStoreCart'>
             <div class="title">${item.title}</div>
@@ -162,12 +163,12 @@ function handleaddItems(ev) {
     gucci.renderItems(gucci.items, rootItems);
     ev.target.reset();
 }
-
+//////////////////////////////////////////
 function handleaddItemsCart(ev,cartItemId) {
     const cartItem = gucci.items.filter(item => item.id == cartItemId)[0];
     gucci.addItemsCart(cartItem);
     const rootItemsStoreCart = document.getElementById('rootItemsStoreCart');
-    gucci.renderitemcart(cartItem, rootItemsStoreCart);
+    gucci.renderitemcart(gucci.cartItems, rootItemsStoreCart);
 }
 
 

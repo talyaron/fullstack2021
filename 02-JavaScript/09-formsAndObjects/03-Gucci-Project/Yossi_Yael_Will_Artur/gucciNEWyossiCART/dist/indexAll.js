@@ -11,8 +11,8 @@ var gucci = {
         this.getData();
     },
     addItemsCart: function (Items) {
-        console.log(Items);
         this.cartItems.push(Items);
+        console.log(this.cartItems); // ok
     },
     editItem: function (id, title, price) {
         var index = this.items.findIndex(function (item) { return item.id === id; });
@@ -64,6 +64,7 @@ var gucci = {
     },
     renderitemcart: function (list, rootItemsStoreCart) {
         var htmlCart = '';
+        console.log(list);
         list.forEach(function (item) {
             htmlCart += "<div class='rootItemsStoreCart'>\n            <div class=\"title\">" + item.title + "</div>\n            </div>";
         });
@@ -81,11 +82,12 @@ function handleaddItems(ev) {
     gucci.renderItems(gucci.items, rootItems);
     ev.target.reset();
 }
+//////////////////////////////////////////
 function handleaddItemsCart(ev, cartItemId) {
     var cartItem = gucci.items.filter(function (item) { return item.id == cartItemId; })[0];
     gucci.addItemsCart(cartItem);
     var rootItemsStoreCart = document.getElementById('rootItemsStoreCart');
-    gucci.renderitemcart(cartItem, rootItemsStoreCart);
+    gucci.renderitemcart(gucci.cartItems, rootItemsStoreCart);
 }
 function handleEditItems(ev, id) {
     console.log(id);
