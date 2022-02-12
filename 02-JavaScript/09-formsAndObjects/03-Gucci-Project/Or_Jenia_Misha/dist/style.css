@@ -581,9 +581,19 @@ html {
     flex-wrap: wrap;
   }
 }
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 850px) {
   .home__title {
     font-size: 40px;
+  }
+
+  .menuopacity .menu__box {
+    width: 90%;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+  }
+  .menuopacity .menu__cell .picwrap {
+    width: 70%;
+    height: 50%;
   }
 }
 .dishesERP {
