@@ -302,7 +302,9 @@ input,
 
 //  // STORE========================== END YOSSI
 
-.header {
+// start yael====================================================================================================
+.container__header {
+
     color: #fff;
     display: block;
     max-height: 120px;
@@ -334,26 +336,33 @@ input,
     &__middle {
         display: flex;
         align-items: space-around;
-        gap: 31.5%;
-        padding-left: 5.5%;
+        gap: 28.5%;
+        padding-left: 1.5%;
+        padding-right:  1.5%;
         padding-top: 0.5%;
 
         &__icons__right {
             display: flex;
             gap: 23px;
+            flex-wrap:nowrap;
 
             &__bag {
 
                 display: flex;
                 justify-content: space-between;
                 gap: 5px;
+                flex-wrap: nowrap;
             }
 
             .sign,
             .bag {
+                display: flex;
+                flex-wrap: nowrap;
+
                 position: relative;
                 bottom: 10px;
-                font-size: small;
+                font-size: 70%;
+                
             }
         }
 
@@ -361,11 +370,12 @@ input,
             position: relative;
             top: 1px;
             display: flex;
-            gap: 3px;
+            gap: 20px;
+            left: 10px;
 
             &__lang {
                 position: relative;
-                left: 10px;
+                // left: 8px;
                 display: flex;
                 justify-content: space-evenly;
                 gap: 10px;
@@ -374,14 +384,14 @@ input,
             .country {
                 position: relative;
                 bottom: 10px;
-                font-size: small;
+                font-size: 70%;
             }
 
             .lang,
             .services {
                 position: relative;
                 bottom: 10px;
-                font-size: small;
+                font-size: 70%;
             }
 
         }
@@ -393,7 +403,42 @@ input,
         }
 
     }
+// ==========================================================================================================
+.container{
+&__navBarBottom {
+    text-align: center;
+    font-size: 70%;
+    transition: 0.5s;
 
+    &:hover {
+      background-color: #141010de;
+      
+
+      
+    }
+
+    ul {
+      display: inline-flex;
+      list-style: none;
+
+      li {
+        width: 120px;
+        margin: 15px;
+        padding: 15px;
+
+
+        a {
+          text-decoration: none;
+          color: #ffffff;
+       //   font-family: "Montserrat", sans-serif;
+         // font-weight: 900;
+        }
+      }
+    }
+  }
+}
+
+//=============================================================================================================
     &__navBarBottom {
         display: flex;
         justify-content: center;
@@ -401,14 +446,18 @@ input,
         &__navbar-nav {
             display: flex;
             justify-content: space-between;
-            width: 55%;
+            width: 100%;
             font-size: small;
             list-style: none;
             position: relative;
-            font-weight: bold;
+            //font-weight: bold;
             letter-spacing: 2px;
         }
     }
+    font-family: "Montserrat", sans-serif;
+    font-weight:100;
+
+
 }
 
 .navBarSort {
@@ -438,6 +487,7 @@ input,
     justify-content: end;
     margin-right: 24px;
 }
+//=============================================================================================================
 
 // end yael==============================
 
