@@ -6,16 +6,17 @@ const rootBooks = document.querySelector("[data-rootBooks]");
 const backToTop = document.querySelector("[data-back-to-top]");
 const ownerTable = document.querySelector("[data-toggle-existing]");
 
-const ascPrice = (a, b) => {
+function ascPrice(a, b) {
+
   return a.price - b.price;
 };
-const descPrice = (a, b) => {
+function descPrice(a, b) {
   return b.price - a.price;
 };
-const ascYear = (a, b) => {
+function ascYear(a, b) {
   return a.year - b.year;
 };
-const descYear = (a, b) => {
+function descYear(a, b) {
   return b.year - a.year;
 };
 
@@ -132,8 +133,10 @@ const bookie: BookShop = {
   },
   renderItem(domElement) {
     if (window.document.title === "Bookie") {
+      bookie.books = JSON.parse(localStorage.getItem("Bookie shop")).books;
+      console.log(bookie)
       let html = "";
-      this.books.forEach((item) => {
+      bookie.books.forEach((item) => {
         domElement.innerHTML = "";
         html += `
             <div class="rootBooks__card">
@@ -158,7 +161,7 @@ const bookie: BookShop = {
                         </symbol>
                         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-icon-saved-items" />
                     </svg></button>
-                <img src="Images/${item.img}" alt="" class="rootBooks__card__img">
+                <img src="./Images/${item.img}" alt="" class="rootBooks__card__img">
                 <div class="rootBooks__card__title">${item.title}</div>
                 <div class="rootBooks__card__price">${item.price}$</div>
             </div>`;
@@ -167,22 +170,24 @@ const bookie: BookShop = {
     }
   },
   updateBook(id, priceChange) {
-    let storage = this.books;
-    storage.forEach((book) => {
+    this.books.forEach((book) => {
       if (book.id === id || book.id === +id)
         console.log(book, "this is it"),
          book.price = +priceChange;
     });
-    showLocalToOwner(bookie, ascPrice);
+    console.log(bookie)
+    showLocalToOwner(bookie, ascPrice)
+    localStorage.setItem('Bookie shop', JSON.stringify(bookie))
+    bookie.renderItem(rootBooks)
   },
   deleteBook(id) {
-    this.books = this.books.filter((book) => book.id !== id);
-    let bookie = JSON.parse(localStorage.getItem("Bookie shop"));
-    localStorage.setItem("Bookie shop", JSON.stringify(bookie));
+    // this.books = this.books.filter((book) => book.id !== id);
     bookie.books = bookie.books.filter((book) => book.id !== id);
-    bookie.books = bookie.books;
     localStorage.setItem("Bookie shop", JSON.stringify(bookie));
+    console.log(JSON.parse(localStorage.getItem("Bookie shop")));
+    console.log(bookie)
     showLocalToOwner(bookie, ascYear);
+    bookie.renderItem(rootBooks)
   },
 };
 
@@ -218,6 +223,7 @@ function showPreviewImage(ev: any) {
 }
 
 function showLocalToOwner(shop: BookShop, sortFunc) {
+  if (window.document.title === "myBookie") {
   shop.books.sort(sortFunc);
   localStorage.setItem("Bookie shop", JSON.stringify(shop));
   let bookie = JSON.parse(localStorage.getItem("Bookie shop"));
@@ -245,12 +251,14 @@ function showLocalToOwner(shop: BookShop, sortFunc) {
   </tr>`;
   }
 }
+}
 
 function handleEdit(ev) {
   let data = ev.target.parentElement.parentElement.cells;
   let id = data[0].textContent.replaceAll(/\s/g,'');
   let priceChange = data[6].children.priceChange.valueAsNumber;
   bookie.updateBook(id, priceChange);
+  bookie.renderItem(rootBooks)
 }
 function handleDelete(ev) {
   let data = ev.target.parentElement.parentElement.cells;
