@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>myBookie</title>
     <link rel="stylesheet" href="./dist/myBookie.css">
     <script src="https://kit.fontawesome.com/01fab75280.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,7 +19,9 @@
         <h1 class="primeryTitle">myBookie <i class="fas fa-book-open"></i></h1>
         <div class="wrapper__content">
             <form data-addingItemForm onSubmit="handleAddItem(event)">
-                <input data-bookTitle type="text" name="title" placeholder="Book Title">
+                <fieldset>
+                    <legend>Enter a new book:</legend>
+                <input data-bookId type="text" name="id" value="uid">
                 <select data-bookCategory name="category" id="category">
                     <option disabled selected value="None">Choose the category</option>
                     <option value="thriller">Thriller</option>
@@ -27,34 +29,36 @@
                     <option value="cooking">Cooking</option>
                     <option value="fantasy">Fantasy</option>
                 </select>
+                <input data-bookTitle type="text" name="title" placeholder="Book Title">
                 <input data-bookTitle type="number" name="price" placeholder="Insert a price">
 
-                <input data-bookYear type="number" name="year" placeholder="Year written">
-                <input data-bookId type="text" name="id" value="uid">
                 <input data-bookImage onchange="showPreviewImage(event)" type="file" name="image" id='image'
-                    accept="image/png, image/gif, image/jpeg" />
+                accept="image/png, image/gif, image/jpeg" />
+                <input data-bookYear type="number" name="year" placeholder="Year written">
                 <div data-bookImage-preview>
                 </div>
                 <input type="submit" value="add">
+            </fieldset>
             </form>
-            <div class="table">
-                <table>
-                    <label for="ownerSort">sort things out for your comfort</label>
-                    <select name="ownerSort" id="ownerSort">
-                        <option disabled selected value="None">Choose</option>
-                        <option value="Asc">Ascending</option>
-                        <option value="Desc">Descending</option>
-                    </select>
-                    <label for="customerSort">sort how others would see your shop</label>
-                    <select name="customerSort" id="customerSort">
-                        <option disabled selected value="None">Choose</option>
-                        <option value="Asc">Ascending</option>
-                        <option value="Desc">Descending</option>
-                    </select>
-                    <lable for="updateBookByID">type the id of the book you would like to update:</lable>
-                    <select onchange="handleUpdate(event)" data-update-book-by-id name="updateBookByID" id="updateBookByID">
-                    </select>
-
+            <div class="sorts">
+                <label for="ownerSort">sort things out for your comfort</label>
+                <select onchange="handleOwnerSort(event)" name="ownerSort" id="ownerSort">
+                    <option disabled selected value="None">Choose</option>
+                    <option value="ascYear">Ascending - Years</option>
+                    <option value="descYear">Descending - Years</option>
+                    <option value="bookie.sortItemAsc()">Ascending - Prices</option>
+                    <option value="sortItemDesc">Descending - Prices</option>
+                </select>
+                <label for="customerSort">sort how others would see your shop</label>
+                <select onchage="handleCustomerSort(event)" name="customerSort" id="customerSort">
+                    <option disabled selected value="None">Choose</option>
+                    <option value="ascYear">Ascending</option>
+                    <option value="descYear">Descending</option>
+                </select>
+                
+                <table data-toggle-existing>
+                    
+                
                 </table>
             </div>
         </div>

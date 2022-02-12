@@ -1,0 +1,21 @@
+body{
+    display: flex;
+    justify-content: center;
+    
+}
+form{
+    display: grid;
+    border-bottom-color: black;
+    width: 30%;
+
+
+}
+
+input {
+
+    &[input = "submit"]{
+        // border:none;
+        // margin:0%;
+        // border-radius: 0.2rem;
+    }
+}

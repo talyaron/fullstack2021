@@ -5,7 +5,7 @@
 
 html,
 body {
-  width: 100%;
+  width: clamp(90vw, 80vw, 100vw);
   margin: 0;
   scroll-behavior: smooth;
 }
@@ -19,7 +19,7 @@ body {
 .wrapper {
   margin: 0;
   padding: 0;
-  width: clamp(80vw, 90vw, 100vw);
+  width: 80vw;
   height: 90vh;
   position: absolute;
   display: flex;
@@ -44,24 +44,44 @@ body {
   justify-content: space-between;
 }
 .wrapper form {
-  width: 40%;
+  width: fit-content;
   gap: 3vh;
   display: flex;
   flex-direction: column;
   flex-grow: 2;
 }
-.wrapper .table {
+.wrapper .sorts {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 100%;
   padding: 1rem;
   font-size: 0.5em;
-}
-.wrapper .table table {
-  width: 80%;
 }
 
 img {
   width: auto;
   height: 15vh;
+}
+
+table {
+  font-size: clamp(1em, 2.5vw, 2em);
+  text-align: center;
+  border: 2px solid #c8c8c8;
+  width: 100%;
+}
+table td,
+table th {
+  border: 1px solid #bebebe;
+  padding: 10px;
+}
+table [data-update] {
+  display: flex;
+  flex-direction: column;
+}
+table a {
+  font-size: clamp(0.5em, 1.25vw, 1em);
+}
+
+legend {
+  font-size: clamp(0.5em, 1.25vw, 1em);
 }

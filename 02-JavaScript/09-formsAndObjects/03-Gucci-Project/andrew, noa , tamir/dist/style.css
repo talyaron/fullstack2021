@@ -124,6 +124,45 @@ body {
   margin-inline: 15px;
 }
 
+.scene .carousel {
+  --main-angle-deg: 72deg;
+  --main-pic-width: 60vw;
+  margin-block: 100px;
+  perspective: 1000px;
+  width: 100vw;
+  position: relative;
+  height: 55vw;
+  animation: rotate linear infinite 20s;
+  transform-style: preserve-3d;
+}
+.scene .carousel img {
+  width: 100%;
+  position: absolute;
+}
+.scene .carousel #pic1 {
+  transform: rotateY(calc(var(--main-angle-deg)*1)) translateZ(68.57142857vw);
+}
+.scene .carousel #pic2 {
+  transform: rotateY(calc(var(--main-angle-deg)*2)) translateZ(68.57142857vw);
+}
+.scene .carousel #pic3 {
+  transform: rotateY(calc(var(--main-angle-deg)*3)) translateZ(68.57142857vw);
+}
+.scene .carousel #pic4 {
+  transform: rotateY(calc(var(--main-angle-deg)*4)) translateZ(68.57142857vw);
+}
+.scene .carousel #pic5 {
+  transform: rotateY(calc(var(--main-angle-deg)*5)) translateZ(68.57142857vw);
+}
+
+@keyframes rotate {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
 .filter-bar {
   display: flex;
   justify-content: center;
@@ -214,50 +253,60 @@ body {
 .category-wrapper__card__price {
   color: black;
 }
-.category-wrapper__card .USD::after {
+
+.USD::after {
   content: " $";
 }
-.category-wrapper__card .EUR::after {
+
+.EUR::after {
   content: " €";
 }
-.category-wrapper__card .GBP::after {
+
+.GBP::after {
   content: " £";
 }
 
-#cart {
+.cart {
+  height: fit-content;
   gap: 5px;
   width: 280px;
-  display: grid;
-  grid-template-columns: repeat(3, 50%);
   margin-top: 10px;
   text-align: center;
 }
-#cart .cart {
+.cart .cart__card {
   background-color: #d2d2d3;
   border-radius: 10px;
   position: relative;
   left: 7%;
   margin-bottom: 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 400px;
+  padding: 5px;
 }
-#cart .h2 {
+.cart .cart__card p {
+  color: black;
+}
+.cart .h2 {
   color: brown;
 }
-#cart img {
-  width: 100px;
+.cart img {
+  width: 80px;
 }
-#cart .add1 {
+.cart .add1 {
   display: none;
 }
 
 .wow {
-  margin-top: 10px;
+  padding-block: 10px;
   width: 450px;
   border: 2px solid black;
   border-radius: 20px;
   box-shadow: black 20px 20px 20px;
   background: var(--main-color-gray3);
   position: fixed;
-  top: 80px;
+  top: 90px;
   right: 0px;
   pointer-events: none;
   opacity: 0;
@@ -267,6 +316,12 @@ body {
 .wow__title {
   text-align: center;
   color: #eeeeee;
+}
+.wow__total {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 1.2rem;
 }
 .wow img {
   border-radius: 40px;
@@ -313,7 +368,9 @@ body {
 
 .updateForm {
   position: fixed;
-  bottom: 10px;
+  bottom: 50px;
+  left: 0px;
+  width: 100vw;
   z-index: 1;
   background-color: var(--main-color-purple1);
   transition: ease 0.5s;
@@ -321,5 +378,5 @@ body {
 }
 
 .visableForm {
-  transform: translateY(-40px);
+  transform: translateY(0px);
 }

@@ -151,22 +151,13 @@ var clothsList = {
     getDataPants: function () {
         this.pants = JSON.parse(localStorage.getItem("pantsData"));
     },
-    renderCustomerPage: function (list, display, catagory) {
+    renderCustomerPage: function (list, display, catagory, imgCard) {
         var html = "";
         list.forEach(function (element) {
-            html += " \n                <div class=\"container_catagories-display-card\">\n                <div class=\"container_catagories-display-card-details\">\n                <h3 class=\"container_catagories-display-card-head\">" + element.brand + " " + catagory + "</h3>\n                <p class=\"container_catagories-display-card-para\"> Size : " + element.size + "</p>\n               <p class=\"container_catagories-display-card-para\"> Price : " + element.price + " </p>\n               <button class=\"container_catagories-display-card-btn\" name='" + catagory + "' onclick=\"addToCart(event ,'" + element.id + "')\">Add To Cart</button>\n               </div>\n               <div id=\"itemImg\" class=\"container_catagories-display-card-img\"></div>\n               </div>\n                ";
+            html += " \n                <div class=\"container_catagories-display-card\">\n                <div class=\"container_catagories-display-card-details\">\n                <h3 class=\"container_catagories-display-card-head\">" + element.brand + " " + catagory + "</h3>\n                <p class=\"container_catagories-display-card-para\"> Size : " + element.size + "</p>\n               <p class=\"container_catagories-display-card-para\"> Price : " + element.price + " </p>\n               <button class=\"container_catagories-display-card-btn\" name='" + catagory + "' onclick=\"addToCart(event ,'" + element.id + "')\">Add To Cart</button>\n               </div>\n               <div id=\"itemImg\" class=\"container_catagories-display-card-img\" style=\"background-image:url('" + imgCard + "')\"></div>\n               </div>\n                ";
         });
         display.innerHTML = html;
-    },
-    renderCustomerPageTshirts: function (display, catagory) {
-        this.renderCustomerPage(display, catagory);
-    },
-    renderCustomerPageShoes: function (display, catagory) {
-        this.renderCustomerPage(display, catagory);
-    },
-    renderCustomerPagePants: function (display, catagory) {
-        this.renderCustomerPage(display, catagory);
-    }, SortCustomerPage: function (list, sortValue, display, catagory) {
+    }, SortCustomerPage: function (list, sortValue, display, catagory, imgCard) {
         var sortedListCustomer;
         if (sortValue == "sortLowToHigh") {
             sortedListCustomer = list.sort(function (a, b) {
@@ -201,24 +192,34 @@ var clothsList = {
         var itemToCart;
         if (catagory == "Tshirts") {
             itemToCart = this.Tshirts.filter(function (item) { return item.id === id; });
-            itemToCart[0].id = catagory;
+            itemToCart[0].name = catagory;
         }
         else if (catagory == "shoes") {
             itemToCart = this.shoes.filter(function (item) { return item.id === id; });
-            itemToCart[0].id = catagory;
+            itemToCart[0].name = catagory;
         }
         else if (catagory == "pants") {
             itemToCart = this.pants.filter(function (item) { return item.id === id; });
-            itemToCart[0].id = catagory;
+            itemToCart[0].name = catagory;
         }
         this.shoppingCart.push(itemToCart);
+    }, renderShoppingCart: function (display, catagory) {
+        var shoppingCartDisplay = document.querySelector('.container-shoppingCart_display');
+        shoppingCartDisplay.style.display = "flex";
+        var html;
+        this.shoppingCart.forEach(function (item) {
+            html = " \n            <div class=\"container-shoppingCart_display-item\">\n                <h1 class=\"container-shoppingCart_display-item-header\">" + item[0].brand + " " + catagory + "</h1>\n                <p class=\"container-shoppingCart_display-item-size\">size: " + item[0].size + "</p>\n                <p class=\"container-shoppingCart_display-item-price\">price: " + item[0].price + "</p>\n                <button class=\"container-shoppingCart_display-item-deleteBtn\" name=\"" + catagory + "\" id=\"" + item[0].id + "\" type=\"button\" onclick=\"deleteItem(event)\">remove</button>\n            </div>";
+        });
+        display.innerHTML += html;
+    }, deleteItemFromShoppingCart: function (id) {
+        this.shoppingCart = this.shoppingCart.filter(function (item) { return item[0].id !== id; });
+        console.log(this.shoppingCart);
     }
 };
 function display(ev) {
     ev.preventDefault();
     console.log(ev.target);
     // receiving inputs values ----------
-    // console.log(clothsList.Tshirts);
     var catagory;
     var brand;
     var price;
@@ -439,20 +440,20 @@ function showOptions(box, boxId) {
         sortANDfilterBtnsShoes.innerHTML = "";
         clothsList.getDataTshirts();
         sortANDfilterBtnsTshirts.innerHTML = html;
-        clothsList.renderCustomerPage(clothsList.Tshirts, display, id);
+        clothsList.renderCustomerPage(clothsList.Tshirts, display, id, "https://i.ebayimg.com/images/g/bWgAAOSwVH5blRYh/s-l300.jpg");
     }
     else if (id == "shoes") {
         sortANDfilterBtnsPants.innerHTML = "";
         sortANDfilterBtnsTshirts.innerHTML = "";
         clothsList.getDataShoes();
-        clothsList.renderCustomerPage(clothsList.shoes, display, id);
+        clothsList.renderCustomerPage(clothsList.shoes, display, id, "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/lead-image-shoes-01-1634132850.png?crop=1.00xw:1.00xh;0,0&resize=480:*");
         sortANDfilterBtnsShoes.innerHTML = html;
     }
     else if (id == "pants") {
         sortANDfilterBtnsTshirts.innerHTML = "";
         sortANDfilterBtnsShoes.innerHTML = "";
         clothsList.getDataPants();
-        clothsList.renderCustomerPage(clothsList.pants, display, id);
+        clothsList.renderCustomerPage(clothsList.pants, display, id, "https://assets.ajio.com/medias/sys_master/root/h89/hbe/13459792265246/-473Wx593H-440995277-olive-MODEL2.jpg");
         sortANDfilterBtnsPants.innerHTML = html;
     }
 }
@@ -461,13 +462,13 @@ function handleSort(ev) {
     var boxId = ev.target.id;
     var display = document.querySelector(".container_catagories-display");
     if (boxId == "Tshirts") {
-        clothsList.SortCustomerPage(clothsList.Tshirts, sortValue, display, boxId);
+        clothsList.SortCustomerPage(clothsList.Tshirts, sortValue, display, boxId, "https://i.ebayimg.com/images/g/bWgAAOSwVH5blRYh/s-l300.jpg");
     }
     else if (boxId == "shoes") {
-        clothsList.SortCustomerPage(clothsList.shoes, sortValue, display, boxId);
+        clothsList.SortCustomerPage(clothsList.shoes, sortValue, display, boxId, "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/lead-image-shoes-01-1634132850.png?crop=1.00xw:1.00xh;0,0&resize=480:*");
     }
     else if (boxId == "pants") {
-        clothsList.SortCustomerPage(clothsList.pants, sortValue, display, boxId);
+        clothsList.SortCustomerPage(clothsList.pants, sortValue, display, boxId, "https://assets.ajio.com/medias/sys_master/root/h89/hbe/13459792265246/-473Wx593H-440995277-olive-MODEL2.jpg");
     }
 }
 // showing filter input options
@@ -579,10 +580,42 @@ function displayFilter(ev) {
     }
 }
 function addToCart(ev, id) {
+    var display = document.querySelector('.container-shoppingCart_display');
     var catagory = ev.target.name;
     clothsList.addToCart(id, catagory);
-    // clothsList.addToCartShoes(id)
-    // clothsList.addToCartPants(id)
+    console.log(clothsList.shoppingCart);
     console.log(catagory);
     console.log(clothsList);
+    clothsList.renderShoppingCart(display, catagory);
+}
+function showDropDown(ev) {
+    var dropDownDisplay = document.querySelector('.container_header-dropDown');
+    var id = ev.target.id;
+    console.log(id);
+    var html;
+    if (id == "notificationsBtn") {
+        html = "<div id=\"notifications\" class=\"container_header-dropDown-box notifications\" \">\n        <p style=\"font-size: 10px; font-weight:bold\">no notifications found</p>\n     </div> ";
+    }
+    else if (id == "signInBtn") {
+        html = "<div id=\"signIn\" class=\"container_header-dropDown-box signIn\">\n        <input class=\"container_header-dropDown-box-signInInput\" type=\"email\" name=\"UserName\" id=\"userName\" placeholder=\"User Name\" >\n        <input class=\"container_header-dropDown-box-signInInput\" type=\"password\" name=\"password\" id=\"password\" placeholder=\"Password\">\n        <button type=\"button\" class=\"container_header-dropDown-box-signInInput-btn\">Sign In</button>\n    </div>";
+    }
+    else if (id == "yourOrdersBtn") {
+        html = "<div id=\"yourOrders\" class=\"container_header-dropDown-box yourOrders\">\n        <p style=\"font-size: 12px;position: absolute;\">no Orders yet...</p>\n       </div>";
+    }
+    else if (id == "shoppingCartBtn") {
+        html = "<div id=\"shoppingCart\" class=\"container_header-dropDown-box shoppingCart\"></div>";
+    }
+    var shoppingCartdisplay = document.getElementById('shoppingCart');
+    dropDownDisplay.innerHTML = html;
+}
+function deleteItem(ev) {
+    var display = document.getElementById('shoppingCartDisplay');
+    console.log(display);
+    var catagory = ev.target.name;
+    var id = ev.target.id;
+    console.log(id);
+    console.log(catagory);
+    clothsList.deleteItemFromShoppingCart(id);
+    console.log(clothsList.shoppingCart);
+    // clothsList.renderShoppingCart(display , catagory)
 }

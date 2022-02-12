@@ -18,12 +18,14 @@
     </nav>
     <h1>Store ERP</h1>
     <input type="button" value="showItems" onclick="handleShowItems()">
-    <div>-------------------------------------------------------------------------------------------------------------</div>
+    <div>-------------------------------------------------------------------------------------------------------------
+    </div>
     <form onsubmit="handleAddItems(event)">
         <input id="itemName" type="text" name="name" placeholder="item-name">
         <input id="price" type="number" name="price" placeholder="item-price">
-        <input type="text" name="img" id="img" placeholder="img">
-        
+        <input type="text" name="imgTop" id="img" placeholder="img on top">
+        <input type="text" name="imgBottom" id="img" placeholder="img shown when hovered">
+
         <!-- <select id="selectDepartment">
             <option value="" disabled selected>Choose a department</option>
             <option value="clothes">clothes</option>
@@ -35,29 +37,39 @@
             <option value="" disabled selected>Choose a gender</option>
             <option value="men">men</option>
             <option value="women">women</option>
+            <option value="children">children</option>
+            <option value="menWatches">men watches</option>
+            <option value="womenJewlery">women jewelry</option>
+            <option value="womenBags">women bags</option>
+
         </select>
         <select id="selectType">
             <option value="" disabled selected>Choose a type</option>
             <option value="t-shirts">shirt</option>
-            <option value="pants">dress</option>
-            <option value="shoes">pants</option>
+            <option value="dress">dress</option>
+            <option value="pants">pants</option>
             <option value="jewelry">jewelry</option>
             <option value="watches">watches</option>
             <option value="bags">bags</option>
         </select>
         <input type="submit" value="add-Product">
     </form>
-    <div>-------------------------------------------------------------------------------------------------------------</div>
+    <div>-------------------------------------------------------------------------------------------------------------
+    </div>
     <form onsubmit="handleRemoveItems(event)">
         <input type="text" name="remove" id="remove" placeholder="Enter item Name to Remove">
         <input id="removeBtn" type="submit" value="remove">
     </form>
-    <div>-------------------------------------------------------------------------------------------------------------</div>
+    <div>-------------------------------------------------------------------------------------------------------------
+    </div>
+
+    <div id="root"></div>
+    <!-- //needed cause the handle update didnt even have a root when i did console.log(root) -->
     <form onsubmit="handleUpdate(event , '${product.id}')">
-        <input type="text" type="itemName" name="itemName"placeholder="write item name to update">
-        <input class='tsInput'  type="number" name="update" placeholder="Update Price">
+        <input type="text" type="itemName" name="itemName" placeholder="write item name to update">
+        <input class='tsInput' type="number" name="update" placeholder="Update Price">
         <input class='tsBtn' name="submit" value="Update" type="submit">
-        </form>
+    </form>
     <script src="dist/index.js"></script>
 </body>
 
