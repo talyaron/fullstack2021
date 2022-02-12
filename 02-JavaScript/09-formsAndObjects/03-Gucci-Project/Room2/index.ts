@@ -406,7 +406,7 @@ function handleGetData(page: string) {
       const root = document.getElementById("rootOwner");
       Adidas.renderAllData(root);
     } else if (page === "customer") {
-      const root = document.getElementById("rootCards");
+      const root = document.getElementById("rootCustomer");
       Adidas.renderAllData(root);
     } else {
       throw new Error(`page is not found (${page})`);

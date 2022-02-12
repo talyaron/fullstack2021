@@ -225,7 +225,7 @@ function handleGetData(page) {
             Adidas.renderAllData(root);
         }
         else if (page === "customer") {
-            var root = document.getElementById("rootCards");
+            var root = document.getElementById("rootCustomer");
             Adidas.renderAllData(root);
         }
         else {
