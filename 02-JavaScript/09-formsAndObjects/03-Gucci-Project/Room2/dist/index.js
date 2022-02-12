@@ -164,20 +164,20 @@ function handleFindIndex(id) {
         }
     }
     function handleSort(ev) {
-        var sort = ev.target.value;
         ev.preventDefault();
-        var root = document.getElementById("rootCards");
-        if (sort === ev.target.value.priceAsc) {
-            Adidas.renderAllData(this.sortItemsAsc(root));
+        var sort = ev.target.value;
+        var root = document.getElementById("rootCustomer");
+        if (sort === "startPosition") {
+            Adidas.renderAllData(root);
         }
-        else if (sort === ev.target.value.priceDsc) {
-            Adidas.renderAllData(this.sortItemsDsc(root));
+        else if (sort === "priceAsc") {
+            Adidas.sortItemsAsc();
+            Adidas.renderAllData(root);
         }
-        else if (sort === ev.target.value.startPosition) {
-            ev.target.reset();
+        else if (sort === "priceDsc") {
+            Adidas.sortItemsDsc();
+            Adidas.renderAllData(root);
         }
-        console.log(sort);
-        this.setData();
     }
     function handleType(ev) {
         var type = ev.target.value;

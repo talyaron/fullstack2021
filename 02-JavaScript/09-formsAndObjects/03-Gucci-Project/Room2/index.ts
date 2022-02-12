@@ -312,18 +312,24 @@ function handlePriceRange(ev) {
   }
 }
 function handleSort(ev) {
-  const sort = ev.target.value;
   ev.preventDefault();
-  const root = document.getElementById("rootCards");
-  if (sort === ev.target.value.priceAsc) {
-    Adidas.renderAllData(this.sortItemsAsc(root));
-  } else if (sort === ev.target.value.priceDsc) {
-    Adidas.renderAllData(this.sortItemsDsc(root));
-  } else if (sort === ev.target.value.startPosition) {
-    ev.target.reset();
+  const sort= ev.target.value;
+  const root = document.getElementById("rootCustomer");
+  if(sort ==="startPosition"){
+      
+
+  Adidas.renderAllData(root);
   }
-  console.log(sort);
-  this.setData();
+  else if(sort === "priceAsc"){
+       Adidas.sortItemsAsc();
+ 
+  Adidas.renderAllData(root);
+  }
+  else if(sort === "priceDsc"){
+           Adidas.sortItemsDsc();
+ 
+  Adidas.renderAllData(root);
+  }
 }
 function handleType(ev) {
   const type = ev.target.value;
