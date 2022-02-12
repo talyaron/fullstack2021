@@ -373,14 +373,16 @@ function handleAddItems(ev) {
   const name = ev.target.name.value;
   const price = ev.target.price.value;
   const imgTop = ev.target[2].value;
-  const imgBottom = ev.target[2].value;
-  const gender = ev.target[3].value;
-  const type = ev.target[4].value;
+  const imgBottom = ev.target[3].value;
+  const gender = ev.target[4].value;
+  const type = ev.target[5].value;
   let id = uid;
   gucci.addItems(name, price, imgTop,imgBottom, gender, type, id);
 
   const root = document.getElementById("root");
   gucci.renderAllitems(root);
+    //gucci.renderFilterByGenderAndType(gender,type,root)
+
   console.log(gucci.items);
   gucci.storeData();
 
