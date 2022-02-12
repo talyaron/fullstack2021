@@ -40,6 +40,7 @@ interface shop {
   renderFilter(domElement, filterd);
   getData();
   setData();
+  cartItems()
 }
 
 interface product {
@@ -357,21 +358,21 @@ function handleGetData(page: string) {
   }
 }
 
-function handleSetData(page: string) {
-  try {
-    console.log(page);
-    Adidas.setData();
-    console.log(Adidas);
-    if (page === "owner") {
-      const root = document.getElementById("rootOwner");
-      Adidas.renderAllData(root);
-    } else if (page === "customer") {
-      const root = document.getElementById("rootCards");
-      Adidas.renderAllData(root);
-    } else {
-      throw new Error(`page is not found (${page})`);
-    }
-  } catch (err) {
-    console.log(err);
-  }
-}
+// function handleSetData(page: string) {
+//   try {
+//     console.log(page);
+//     Adidas.setData();
+//     console.log(Adidas);
+//     if (page === "owner") {
+//       const root = document.getElementById("rootOwner");
+//       Adidas.renderAllData(root);
+//     } else if (page === "customer") {
+//       const root = document.getElementById("rootCards");
+//       Adidas.renderAllData(root);
+//     } else {
+//       throw new Error(`page is not found (${page})`);
+//     }
+//   } catch (err) {
+//     console.log(err);
+//   }
+// }
