@@ -307,6 +307,9 @@ function handleQuantity(ev, id) {
     aviator.renderitemcart(cart);
 }
 
+function handleRotate() {
+    document.querySelector(".carousel").classList.toggle("rotate");
+}
 
 
 
