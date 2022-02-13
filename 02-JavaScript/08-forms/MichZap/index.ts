@@ -1,21 +1,27 @@
+const itemId = function () {
+    return Date.now().toString(36) + Math.random().toString(36).substr(2);
+};
 interface ItemsForSale {
     items: Array<Item>;
     sortPrice(orderBy?: number)
     renderItems(domElement: any)
-    addItems(item: Item)
+    addItems(itemName,itemPrice)
     removeItems(itemName: string)
     
+
 }
 interface Item {
     itemName: string;
     itemPrice: number;
+    id:any;
 
 }
 const Items: ItemsForSale = {
     items: [],
 
-    addItems(item: Item) {
-        this.items.push(item);
+    addItems(itemName,itemPrice) {
+        const id = itemId();
+        this.items.push(itemName,itemPrice,id);
 
     },
     removeItems(itemName: string) {
@@ -29,14 +35,14 @@ const Items: ItemsForSale = {
         let html = '';
         this.items.forEach(item => {
             html += `<div class='card'>
-        <p>${item.itemName},${item.itemPrice}</p></div> 
-        <input type="button" value="delete">`
+        <p>${Items.itemName},${Items.itemPrice}</p></div> 
+        <input type="button" value="delete" onclick="deleteItem(event)">`
         })
         domElement.innerHTML = html
     },
 
-    sortPrice(){
-        this.items.sort((a,b)=> {return a.itemPrice-b.itemPrice})
+    sortPrice() {
+        this.items.sort((a, b) => { return a.itemPrice - b.itemPrice })
     }
 
 }
@@ -50,17 +56,22 @@ function handleSubmit(ev) {
     const itemName = ev.target.elements.itemName.value
     const itemPrice: number = ev.target.elements.itemPrice.valueAsNumber
 
-    Items.addItems({ itemName, itemPrice });
+    Items.addItems( itemName, itemPrice);
     const rootItems = document.getElementById('rootItems');
     Items.renderItems(rootItems);
+    
 
     ev.target.reset();
 
 
 }
-Items.addItems({ itemName: 'bbb', itemPrice: 12 });
-Items.addItems({ itemName: 'ccc', itemPrice: 4444 });
-Items.addItems({ itemName: 'eee', itemPrice: 5 });
+
+// function deleteItem(ev){
+//     e
+// }
+Items.addItems(  'bbb',  12 );
+Items.addItems(  'ccc',  4444 );
+Items.addItems(  'eee', 5);
 // Items.removeItems('ccc');
 
 
