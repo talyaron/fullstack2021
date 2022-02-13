@@ -170,6 +170,8 @@ function handleGetProduct() {
 //customer
 function handleCart(event) {
   const shoes = event.target.id;
+  console.log(shoes);
+  
   nikeItems.addToCarts(shoes, 'shoes');
   const rooto = document.getElementById("customerRoot");
   nikeItems.renderAllCarts(rooto);
