@@ -1,0 +1,63 @@
+.color {
+  display: grid;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.color a {
+  justify-self: center;
+}
+.color input {
+  justify-self: center;
+}
+
+.wrapper--backEnd,
+.wrapper--frontEnd {
+  display: grid;
+  grid-template-columns: 150px 300px 150px;
+  grid-template-rows: 250px 150px 350px 250px 250px;
+  justify-content: center;
+}
+
+.box {
+  border: 1px solid black;
+}
+.box.box1, .box.box2, .box.box9 {
+  grid-column: span 3;
+}
+
+.container {
+  border: 1px solid black;
+}
+.container.container1, .container.container2, .container.container9 {
+  grid-column: span 3;
+}
+
+#imgBox {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#title {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 850px;
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  margin-top: 35px;
+}
+.card .card--hebrewCard {
+  direction: rtl;
+  font-family: "Heebo", sans-serif;
+}
+.card .card--englishCard {
+  direction: ltr;
+  font-family: "Poppins", sans-serif;
+}
+
+.red {
+  color: red;
+}
