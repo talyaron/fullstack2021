@@ -47,6 +47,7 @@ var nikeItems = {
         // console.log(this.carts);
         this.renderCarts(customerRoot, this.carts);
     },
+<<<<<<< Updated upstream
     renderCarts: function (customerRoot, list) {
         // console.log(customerRoot,list);
         var htmlCustomer = "";
@@ -73,6 +74,37 @@ var nikeItems = {
         if (customerRoot) {
             this.render(customerRoot, storeData);
         }
+=======
+    renderSelctedItem: function (root1, type) {
+        console.log('at renderSelctedItem type:', type);
+        var selected = this.selectItem(type);
+        console.log(selected);
+        this.renderCarts(root1, selected);
+    },
+    renderAllCarts: function (root1) {
+        console.log(this.carts);
+        this.renderCarts(root1, this.carts);
+    },
+    renderCarts: function (root1, list) {
+        // console.log(root1,list);
+        var htmlCustomer = "";
+        list.forEach(function (type) {
+            htmlCustomer += "<div class= 'card1'><h4>The Item You Want:</h4> <p>" + type.name + "</p></div>";
+        });
+        root1.innerHTML = htmlCustomer;
+    },
+    render: function (root, list) {
+        var html = "";
+        list.forEach(function (item) {
+            html += "<div class = 'card'> <p>" + item.name + ":" + item.price + "</p>\n            <button onclick=\"handleDelete('" + item.idItem + "')\">delete</button>\n            <form onsubmit=\"handleupdate(event,'" + item.idItem + "')\">\n            <input type=\"text\" name=\"nameUpdate\" placeholder=\"change item\">\n            <input type=\"submit\" value=\"submit\">\n            </form>\n            </div>";
+        });
+        root.innerHTML = html;
+    },
+    getData: function () {
+        var listmichael = JSON.parse(localStorage.getItem('item'));
+        var root = document.getElementById("root");
+        this.render(root, listmichael);
+>>>>>>> Stashed changes
     }
 };
 function handleSubmit(event) {
@@ -126,7 +158,11 @@ function handleCart(event) {
 function handlehoodie(ev) {
     var hoodie = ev.target.id;
     nikeItems.addToCarts(hoodie, 'hoodie');
+<<<<<<< Updated upstream
     var rooto = document.getElementById("customerRoot");
+=======
+    var rooto = document.getElementById("root1");
+>>>>>>> Stashed changes
     nikeItems.renderAllCarts(rooto);
 }
 function handleSelect(event) {
@@ -136,6 +172,10 @@ function handleSelect(event) {
         nikeItems.renderAllCarts(customerRoot);
     }
     else {
+<<<<<<< Updated upstream
         nikeItems.renderSelctedItem(customerRoot, type);
+=======
+        nikeItems.renderSelctedItem(root1, type);
+>>>>>>> Stashed changes
     }
 }
