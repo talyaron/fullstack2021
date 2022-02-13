@@ -230,14 +230,15 @@ var gucci = {
             this.storeData();
         }
     },
-    updateItems: function (id, newPrice, itemName) {
-        itemName = this.items.name;
-        var index = this.items.findIndex(function (item) { return item.id === id; });
-        //const index = this.items.findIndex((item) => item.name === itemName);
+    updateItems: function (newPrice, itemName) {
+        //const index = this.items.findIndex((item) => item.id === id);
+        var index = this.items.findIndex(function (item) { return item.name === itemName; });
+        console.log(index);
         if (index >= 0) {
-            //this.items[index].name = itemName;
+            this.items[index].name = itemName;
             this.items[index].price = newPrice;
             this.storeData();
+            this.getData();
         }
     },
     filterMaxPriceAndGender: function (gender, price) {
@@ -257,8 +258,8 @@ var gucci = {
     },
     render: function (list, domElement) {
         var html = "";
-        list.forEach(function (product) {
-            html += "<div class=\"items\">\n        <p>" + product.name + "</p>\n        <img class=\"imgTop\" src=\"" + product.imgTop + "\" >\n        <img class=\"imgBottom\" src=\"" + product.imgBottom + "\" >\n        <p>" + product.price + "$</p>\n        <input onclick=\"handleAddToCart()\" id=\"addToCart\" type=\"button\" value=\"ADD TO CART\">\n        </div>";
+        list.forEach(function (item) {
+            html += "<div class=\"items\">\n        <p>" + item.name + "</p>\n        <img class=\"imgTop\" src=\"" + item.imgTop + "\" >\n        <img class=\"imgBottom\" src=\"" + item.imgBottom + "\" >\n        <p>" + item.price + "$</p>\n        <input onclick=\"handleAddToCart()\" id=\"addToCart\" type=\"button\" value=\"ADD TO CART\">\n        </div>";
         });
         domElement.innerHTML = html;
     },
@@ -287,7 +288,7 @@ var gucci = {
         this.render(filterByGender, domElement);
     }
 };
-gucci.storeData(); /// delete later
+//gucci.storeData(); /// delete later
 function handleShowItems() {
     console.log(gucci.items);
 }
@@ -305,29 +306,31 @@ function handleAddItems(ev) {
     var id = uid;
     gucci.addItems(name, price, imgTop, imgBottom, gender, type, id);
     var root = document.getElementById("root");
-    gucci.renderAllitems(root);
-    //gucci.renderByGender(gender,root)
-    console.log(gucci.items);
+    gucci.renderFilterByGenderAndType(gender, type, root);
+    gucci.getData();
     gucci.storeData();
     ev.target.reset();
 }
+gucci.getData();
 function handleRemoveItems(ev) {
     ev.preventDefault();
     var name = ev.target.elements.remove.value;
     gucci.removeItems(name);
     var root = document.getElementById("root");
-    gucci.renderAllitems(root);
+    console.log();
+    gucci.render(gucci.items, root);
     gucci.storeData();
     ev.target.reset();
 }
-function handleUpdate(ev, id) {
+function handleUpdate(ev) {
     ev.preventDefault();
     var root = document.getElementById("root");
-    console.log(root);
-    gucci.renderAllitems(root);
     var itemName = ev.target.elements.itemName.value;
-    var NewPrice = ev.target.elements.update.value;
-    gucci.updateItems(id, NewPrice, itemName);
+    var newPrice = ev.target.elements.newPrice.value;
+    console.log(ev.target.elements.newPrice.value);
+    gucci.updateItems(newPrice, itemName);
+    gucci.render(gucci.items, root);
+    gucci.getData();
     gucci.storeData();
 }
 function handleFilterByPrice(ev) {

@@ -26,13 +26,7 @@
         <input type="text" name="imgTop" id="img" placeholder="img on top">
         <input type="text" name="imgBottom" id="img" placeholder="img shown when hovered">
 
-        <!-- <select id="selectDepartment">
-            <option value="" disabled selected>Choose a department</option>
-            <option value="clothes">clothes</option>
-            <option value="watches">watches</option>
-            <option value="jewelry">jewelry</option>
-            <option value="bags">bags</option>
-        </select> -->
+     
         <select id="selectGender">
             <option value="" disabled selected>Choose a gender</option>
             <option value="men">men</option>
@@ -45,14 +39,26 @@
         </select>
         <select id="selectType">
             <option value="" disabled selected>Choose a type</option>
-            <option value="t-shirts">shirt</option>
-            <option value="dress">dress</option>
-            <option value="pants">pants</option>
-            <option value="jewelry">jewelry</option>
-            <option value="watches">watches</option>
+            <option value="sweaters">sweater</option>
+            <option value="dresses">dress</option>
+            <option value="boots">boots</option>
+            <option value="clothes">clothes</option>
+            <option value="hats">hat</option>
             <option value="bags">bags</option>
+            <option value="hats">hat</option>
+            <option value="pants">pants</option>
+            <option value="shoes">shoes</option>
+            <option value="shirts">shirt</option>
+            <option value="rolex">rolex</option>
+            <option value="omega">omega</option>
+            <option value="rings">ring</option>
+            <option value="necklaces">necklace</option>
+            <option value="earrings">earrings</option>
+            <option value="purses">purse</option>
+            <option value="backpack">backpack</option>
+            
         </select>
-        <input type="submit" value="add-Product">
+        <input type="submit" value="add-item">
     </form>
     <div>-------------------------------------------------------------------------------------------------------------
     </div>
@@ -65,9 +71,9 @@
 
     <div id="root"></div>
     <!-- //needed cause the handle update didnt even have a root when i did console.log(root) -->
-    <form onsubmit="handleUpdate(event , '${product.id}')">
+    <form onsubmit="handleUpdate(event)">
         <input type="text" type="itemName" name="itemName" placeholder="write item name to update">
-        <input class='tsInput' type="number" name="update" placeholder="Update Price">
+        <input class='tsInput' type="number" name="newPrice" placeholder="Update Price">
         <input class='tsBtn' name="submit" value="Update" type="submit">
     </form>
     <script src="dist/index.js"></script>
