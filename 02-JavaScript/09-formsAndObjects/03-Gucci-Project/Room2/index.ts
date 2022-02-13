@@ -54,6 +54,7 @@ interface shop {
     shoeSize: number
   );
   FindIndex(id);
+  handleOwner();
 }
 
 interface product {
@@ -138,8 +139,19 @@ const Adidas: shop = {
           <p>${product.description}</p>
           <p>${product.price}₪</p> 
       </div>
-          </div>   `
-
+          </div>   
+          <form onsubmit="handleUpdate(event, '${product.id}')">
+          <input type="text" name="newTitle" placeholder="new title" value="${product.title}">
+          <input type="number" name="newPrice" placeholder="new price" value="${product.price}">
+          <input type="text" name="newCategory" placeholder="new category" value="${product.category}">
+          <input type="text" name="newPicture" placeholder="new picture" value="${product.picture}">
+          <input type="text" name="newColor" placeholder="new color" value="${product.color}">
+          <input type="text" name="newDescription" placeholder="new description" value="${product.description}">
+          <input type="number" name="newShoeSize" placeholder="new shoeSize" value="${product.shoeSize}">
+          <button type="submit">Update</button>
+          </form>
+          
+          <button onclick="handleDelete('${product.id}')">Delete</button>`;
 
         ;
 
@@ -150,6 +162,28 @@ const Adidas: shop = {
     // const button = document.getElementById("button");
     // console.log(button);
 
+    domElement.innerHTML = html;
+  },
+  handleOwner(list, domElement) {
+    console.log(list);
+
+    let html = "";
+    this.products.forEach((product) => {
+      html += `<form onsubmit="handleUpdate(event, '${product.id}')">
+          <input type="text" name="newTitle" placeholder="new title" value="${product.title}">
+          <input type="number" name="newPrice" placeholder="new price" value="${product.price}">
+          <input type="text" name="newCategory" placeholder="new category" value="${product.category}">
+          <input type="text" name="newPicture" placeholder="new picture" value="${product.picture}">
+          <input type="text" name="newColor" placeholder="new color" value="${product.color}">
+          <input type="text" name="newDescription" placeholder="new description" value="${product.description}">
+          <input type="number" name="newShoeSize" placeholder="new shoeSize" value="${product.shoeSize}">
+          <button type="submit">Update</button>
+          </form>
+          
+          <button onclick="handleDelete('${product.id}')">Delete</button>`;
+
+      console.log("render");
+    }
     domElement.innerHTML = html;
   },
   updateItem(
@@ -233,18 +267,31 @@ const Adidas: shop = {
 
 };
 
+function handleOwner(page: string) {
 
-// function HandleWishList(ev) {
-// const wish = ev.target.value;
-// Adidas.addWishList()
-// }
-function handleFindIndex(id) {
+  if (page === "owner") {
+    const root = document.getElementById("rootOwner");
+    Adidas.handleOwner(root);
+  } else if (page === "customer") {
+    const root = document.getElementById("rootCards");
+    Adidas.renderAllData(root);
+  }
+}
+
+
+
+
+  // function HandleWishList(ev) {
+  // const wish = ev.target.value;
+  // Adidas.addWishList()
+  // }
+  function handleFindIndex(id) {
 
     Adidas.FindIndex(id)
     const root = document.getElementById("rootWishList")
     Adidas.renderAllData(root)
   }
-}
+
 
 
 function handleAddItem(ev) {

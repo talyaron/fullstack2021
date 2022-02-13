@@ -39,12 +39,21 @@ var Adidas = {
         console.log(list);
         var html = "";
         this.products.forEach(function (product) {
-            html += "\n     <div class=\"cards__item\" >\n\n      <div class=\"picture\">\n          <i class=\"far fa-heart\"  onclick=\"handleFindIndex(id)\"></i>\n          <img src=\"" + product.pictureBack + "\" >\n         <img src=\"" + product.pictureFront + "\" class=\"img-top\">\n          </div>\n              \n      <div class=\"color\">\n      <p><b> Color: </b> " + product.color + "</p>\n      </div>\n\n      <div class=\"description\">\n         <p>" + product.title + "</p>\n          <p>" + product.description + "</p>\n          <p>" + product.price + "\u20AA</p> \n      </div>\n          </div>   ";
+            html += "\n     <div class=\"cards__item\" >\n\n      <div class=\"picture\">\n          <i class=\"far fa-heart\"  onclick=\"handleFindIndex(id)\"></i>\n          <img src=\"" + product.pictureBack + "\" >\n         <img src=\"" + product.pictureFront + "\" class=\"img-top\">\n          </div>\n              \n      <div class=\"color\">\n      <p><b> Color: </b> " + product.color + "</p>\n      </div>\n\n      <div class=\"description\">\n         <p>" + product.title + "</p>\n          <p>" + product.description + "</p>\n          <p>" + product.price + "\u20AA</p> \n      </div>\n          </div>   \n          <form onsubmit=\"handleUpdate(event, '" + product.id + "')\">\n          <input type=\"text\" name=\"newTitle\" placeholder=\"new title\" value=\"" + product.title + "\">\n          <input type=\"number\" name=\"newPrice\" placeholder=\"new price\" value=\"" + product.price + "\">\n          <input type=\"text\" name=\"newCategory\" placeholder=\"new category\" value=\"" + product.category + "\">\n          <input type=\"text\" name=\"newPicture\" placeholder=\"new picture\" value=\"" + product.picture + "\">\n          <input type=\"text\" name=\"newColor\" placeholder=\"new color\" value=\"" + product.color + "\">\n          <input type=\"text\" name=\"newDescription\" placeholder=\"new description\" value=\"" + product.description + "\">\n          <input type=\"number\" name=\"newShoeSize\" placeholder=\"new shoeSize\" value=\"" + product.shoeSize + "\">\n          <button type=\"submit\">Update</button>\n          </form>\n          \n          <button onclick=\"handleDelete('" + product.id + "')\">Delete</button>";
+            ;
             console.log("render");
         });
         // const button = document.getElementById("button");
         // console.log(button);
         domElement.innerHTML = html;
+    },
+    handleOwner: function (list, domElement) {
+        console.log(list);
+        var html = "";
+        this.products.forEach(function (product) {
+            html += "<form onsubmit=\"handleUpdate(event, '" + product.id + "')\">\n          <input type=\"text\" name=\"newTitle\" placeholder=\"new title\" value=\"" + product.title + "\">\n          <input type=\"number\" name=\"newPrice\" placeholder=\"new price\" value=\"" + product.price + "\">\n          <input type=\"text\" name=\"newCategory\" placeholder=\"new category\" value=\"" + product.category + "\">\n          <input type=\"text\" name=\"newPicture\" placeholder=\"new picture\" value=\"" + product.picture + "\">\n          <input type=\"text\" name=\"newColor\" placeholder=\"new color\" value=\"" + product.color + "\">\n          <input type=\"text\" name=\"newDescription\" placeholder=\"new description\" value=\"" + product.description + "\">\n          <input type=\"number\" name=\"newShoeSize\" placeholder=\"new shoeSize\" value=\"" + product.shoeSize + "\">\n          <button type=\"submit\">Update</button>\n          </form>\n          \n          <button onclick=\"handleDelete('" + product.id + "')\">Delete</button>";
+            console.log("render");
+        }, domElement.innerHTML = html);
     },
     updateItem: function (id, newTitle, newPrice, newGender, newCategory, newPictureFront, newPictureBack, newColor, newDescription, newShoeSize) {
         var index = this.products.findIndex(function (product) { return product.id === id; });
@@ -108,6 +117,16 @@ var Adidas = {
         }
     }
 };
+function handleOwner(page) {
+    if (page === "owner") {
+        var root = document.getElementById("rootOwner");
+        Adidas.handleOwner(root);
+    }
+    else if (page === "customer") {
+        var root = document.getElementById("rootCards");
+        Adidas.renderAllData(root);
+    }
+}
 // function HandleWishList(ev) {
 // const wish = ev.target.value;
 // Adidas.addWishList()
