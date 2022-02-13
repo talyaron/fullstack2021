@@ -71,11 +71,12 @@ const StandartEbooks= {
     {
       title: "The Three-Body Problem",
       author: "Liu Cixin",
-      genre: "science fiction",
+      genre: "science fictionscience fiction",
       year: 2008,
       rank: 4.07,
       price: 15,
       img: "https://images-na.ssl-images-amazon.com/images/I/919XM42JQlL.jpg",
+      id: uid
     },
     {
       title: "One by One",
@@ -85,6 +86,7 @@ const StandartEbooks= {
       rank: 9.83,
       price: 28,
       img: "https://litlife.club/data/Book/0/217000/217759/BC3_1410688094.jpg?w=600&h=600&q=90",
+      id: uid
     },
     {
       title: "Fight Club",
@@ -94,6 +96,7 @@ const StandartEbooks= {
       rank: 9.63,
       price: 17,
       img: "https://litlife.club/data/Book/0/87000/87828/BC3_1474544490.jpg?w=600&h=600&q=90",
+      id: uid
     },
     {
       title: "Ramage",
@@ -103,6 +106,7 @@ const StandartEbooks= {
       rank: 10.0,
       price: 34,
       img: "https://litlife.club/data/Book/0/119000/119128/BCS_1349028836.jpg?w=600&h=600&q=90",
+      id: uid
     },
     {
       title: "Grimms` Fairy Tales",
@@ -112,6 +116,7 @@ const StandartEbooks= {
       rank: 9.5,
       price: 32,
       img: "https://litlife.club/data/Book/0/0/707/BC3_1386593820.jpg?w=600&h=600&q=90",
+      id: uid
     },
     {
       title: "The Caller",
@@ -121,6 +126,7 @@ const StandartEbooks= {
       rank: 9.59,
       price: 44,
       img: "https://images-na.ssl-images-amazon.com/images/I/81-7W7KGYQL.jpg",
+      id: uid
     },
 
     {
@@ -131,6 +137,7 @@ const StandartEbooks= {
       rank: 7.8,
       price: 21,
       img: "https://litlife.club/data/Book/0/91000/91909/BCS_1349020826.jpg?w=600&h=600&q=90",
+      id: uid
     },
     {
       title: "Deception Point",
@@ -140,6 +147,7 @@ const StandartEbooks= {
       rank: 9.99,
       price: 39,
       img: "https://litlife.club/data/Book/0/125000/125823/BCS_1349021980.jpg?w=600&h=600&q=90",
+      id: uid
     },
     {
       title: "The Secret History",
@@ -149,6 +157,7 @@ const StandartEbooks= {
       rank: 9.89,
       price: 41,
       img: "https://litlife.club/data/Book/0/94000/94365/BC3_1474425076.jpg?w=600&h=600&q=90",
+      id: uid
     },
     {
       title: "Hornblower and the Crisis",
@@ -158,6 +167,7 @@ const StandartEbooks= {
       rank: 0.23,
       price: 10,
       img: "https://litlife.club/data/Book/0/126000/126284/BCS_1349022091.jpg?w=600&h=600&q=90",
+      id: uid
     },
     {
       title: "The Adventures of Huckleberry Finn",
@@ -167,9 +177,8 @@ const StandartEbooks= {
       rank: 10.0,
       price: 43,
       img: "https://litlife.club/data/Book/0/0/755/BC3_1386593870.jpg?w=600&h=600&q=90",
-      annotation:
-        "Book Description Hilariously picaresque, epic in scope, alive with the poetry and vigor of the American people, Mark Twain's story about a young boy and his journey down the Mississippi was the first great novel to speak in a truly American voice. Influencing subsequent generations of writers — from Sherwood Anderson to Twain's fellow Missourian, T.S. Eliot, from Ernest Hemingway and William Faulkner to J.D. Salinger — Huckleberry Finn, like the river which flows through its pages, is one of the great sources which nourished and still nourishes the literature of America.",
-    },
+      id: uid
+    } 
   ],
 
   storeData() {
@@ -235,10 +244,9 @@ const StandartEbooks= {
       let authorA = a.author.toLowerCase(),
         authorB = b.author.toLowerCase();
       if (authorA < authorB)
-        //sort string ascending
         return -1;
       if (authorA > authorB) return 1;
-      return 0; //default return value (no sorting)
+      return 0; 
     });
     this.books.forEach((book) => {
       console.log(book.author);
@@ -250,10 +258,9 @@ const StandartEbooks= {
       let authorA = a.author.toLowerCase(),
         authorB = b.author.toLowerCase();
       if (authorA < authorB)
-        //sort string ascending
         return 1;
       if (authorA > authorB) return -1;
-      return 0; //default return value (no sorting)
+      return 0; 
     });
     console.log("------");
     this.books.forEach((book) => {
@@ -495,7 +502,6 @@ function handleAddBook(e) {
   const price = e.target.price.valueAsNumber;
   const img = e.target.img.value;
   const annotation = e.target.annotation.value;
-  // const root = document.querySelector("#root");
   const rootERP = document.querySelector("#rootERP");
   StandartEbooks.addBook(
     title,
@@ -507,8 +513,7 @@ function handleAddBook(e) {
     img,
     annotation,
   );
-  // StandartEbooks.renderAllBooks(rootERP);
-  StandartEbooks.render(rootERP, root);
+  StandartEbooks.render(rootERP, StandartEbooks.books);
   StandartEbooks.storeData();
   e.target.reset();
 }
@@ -519,14 +524,11 @@ function handleDeleteBook(e) {
     console.log(e);
     console.log(e.target.elements.delete.value);
     const title = e.target.elements.delete.value;
-    // const root = document.querySelector("#root");
     const rootERP = document.querySelector("#rootERP");
     if (title) {
       console.log(title);
 
       StandartEbooks.deleteBook(title);
-      // StandartEbooks.renderAllBooks(root);
-      // StandartEbooks.renderAllBooks(rootERP);
       StandartEbooks.renderERP(rootERP, StandartEbooks.books);
       StandartEbooks.storeData();
     } else {
@@ -555,7 +557,6 @@ function handleUpdateBook(e, id) {
   StandartEbooks.updateBook(id, title, price);
   StandartEbooks.renderERP(StandartEbooks.books, rootERP);
   StandartEbooks.storeData();
-  // StandartEbooks.renderAllBooks(rootERP)
   e.target.reset();
 }
 
@@ -663,6 +664,24 @@ function handleSelectByGenre(e) {
   }
 }
 
+
+// const navFilters = document.querySelectorAll('.genreNav');
+
+// navFilters.forEach(navFilter => {
+//   const genre = e.target.value;
+//   const root = document.querySelector("#root");
+
+//   if(navFilter.textContent.includes('error')) {
+//     navFilter.classList.add('error');
+//   } else if (navFilter.textContent.includes('success')) {
+//     navFilter.classList.add('success')
+//   }
+// });
+
+
+
+
+
 function handleFilterByAuthor(e) {
   e.preventDefault();
   const author = e.target.value;
@@ -707,7 +726,7 @@ StandartEbooks.storeData();
 
 
 
-const scrollToTopBtn = document.querySelector(".scrollToTopBtn");
+const scrollToTopBtn = document.querySelector("#scrollToTopBtn");
 const rootElement = document.documentElement;
 
 function handleScroll() {
@@ -733,6 +752,8 @@ function scrollToTop() {
 }
 scrollToTopBtn.addEventListener("click", scrollToTop);
 document.addEventListener("scroll", handleScroll);
+
+
 
 
 

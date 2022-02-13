@@ -6,7 +6,7 @@ var StandartEbooks = {
         {
             title: "The Three-Body Problem",
             author: "Liu Cixin",
-            genre: "science fiction",
+            genre: "science fictionscience fiction",
             year: 2008,
             rank: 4.07,
             price: 15,
@@ -266,8 +266,13 @@ StandartEbooks.getData();
 StandartEbooks.storeData();
 var allstars = document.querySelectorAll(".fa-star");
 var rating = document.querySelector('.rating');
+// const allstars = null;
+// if (Array.isArray(allstars)) {
+//   allstars.forEach(element => {
+//     console.log(element);
+//   });
+// }
 function handleStarClick(e) {
-    console.log(e.target);
     allstars.forEach(function (star) {
         if (e.target.id == star.id &&
             e.target.dataset.number >= star.dataset.number) {
@@ -282,15 +287,8 @@ function handleStarClick(e) {
             return 0;
         }
         console.log(star);
-        console.log(e.target);
     });
 }
-// const allstars = null;
-// if (Array.isArray(allstars)) {
-//   allstars.forEach(element => {
-//     console.log(element);
-//   });
-// }
 function renderOwener() {
     StandartEbooks.getData();
     var rootERP = document.getElementById("rootERP");
@@ -350,14 +348,12 @@ function handleDeleteBook(e) {
         console.error(err);
     }
 }
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 function handleDeleteByID(id) {
     console.log(id);
     var rootERP = document.getElementById("rootERP");
     StandartEbooks.deleteByID(id);
     StandartEbooks.renderERP(StandartEbooks.books, rootERP);
 }
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 function handleUpdateBook(e, id) {
     e.preventDefault();
     console.log(id);
@@ -497,26 +493,25 @@ var rootERP = document.querySelector("#rootERP");
 // StandartEbooks.renderERP(root, rootERP);
 StandartEbooks.getData();
 StandartEbooks.storeData();
-var scrollToTopBtn = document.querySelector(".scrollToTopBtn");
-var rootElement = document.documentElement;
-function handleScroll() {
-    // Do something on scroll
-    var scrollTotal = rootElement.scrollHeight - rootElement.clientHeight;
-    if (rootElement.scrollTop / scrollTotal > 0.8) {
-        // Show button
-        scrollToTopBtn.classList.add("showBtn");
-    }
-    else {
-        // Hide button
-        scrollToTopBtn.classList.remove("showBtn");
-    }
-}
-function scrollToTop() {
-    // Scroll to top logic
-    rootElement.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
-}
-scrollToTopBtn.addEventListener("click", scrollToTop);
-document.addEventListener("scroll", handleScroll);
+// const scrollToTopBtn = document.querySelector(".scrollToTopBtn");
+// const rootElement = document.documentElement;
+// function handleScroll() {
+//   // Do something on scroll
+//   const scrollTotal = rootElement.scrollHeight - rootElement.clientHeight;
+//   if (rootElement.scrollTop / scrollTotal > 0.8) {
+//     // Show button
+//     scrollToTopBtn.classList.add("showBtn");
+//   } else {
+//     // Hide button
+//     scrollToTopBtn.classList.remove("showBtn");
+//   }
+// }
+// function scrollToTop() {
+//   // Scroll to top logic
+//   rootElement.scrollTo({
+//     top: 0,
+//     behavior: "smooth"
+//   });
+// }
+// scrollToTopBtn.addEventListener("click", scrollToTop);
+// document.addEventListener("scroll", handleScroll);

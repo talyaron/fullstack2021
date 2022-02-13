@@ -30,20 +30,20 @@
     <div class="header">
 
         <div class="header__ImgLogo">
-            <img style="height: 7em; " class="headerNav__logo"
+            <img style="height: 7em;" class="headerNav__logo"
                 src="https://portjefflibrary.org/wp-content/uploads/2015/11/PJFL-logo-2015-v3-black.png" alt="">
             <h1 class="header__title">STANDART <br> EBOOKS</h1>
         </div>
 
         <div class="header__navBar">
-            <!-- <ul> -->
-            <ul onclick="handleSelectByGenre(event)">
-                <li> <a href="">HOME</a></li>
-                <li value="ScienceF"><a href="">SCIENCE FICTION</a></li>
-                <li value="detective"><a href="">DETECTIVE</a></a></li>
-                <li value="adventures"><a href="">ADVENTURE</a></li>
-                <li value="children"><a href="">CHILDREN</a></li>
-                <li value="all"><a href="">ALL BOOKS</a></li>
+            <ul>
+            <!-- <ul onclick="handleSelectByGenre(event)"> -->
+                <li><a href="">HOME</a></li>
+                <li class="genreNav scienceF"  id="scienceF" data-genreFilter="scienceF"  value="scienceF"><a href="">SCIENCE FICTION</a></li>
+                <li class="genreNav detective" id="detective" data-genreFilter="detective"  value="detective"><a href="">DETECTIVE</a></a></li>
+                <li class="genreNav adventures" id="adventures" class="genreNav"  data-genreFilter="adventures"  value="adventures"><a href="">ADVENTURE</a></li>
+                <li class="genreNav children" id="children" data-genreFilter="children" value="children"><a href="">CHILDREN</a></li>
+                <li class="genreNav all" id="all" data-genreFilter="all" value="all"><a href="">ALL BOOKS</a></li>
             </ul>
             <a href="./card.html" <span class="material-icons">shopping_cart</span></a>
             <a href="./erp.html" <span class="material-icons">view_headline</span></a>
