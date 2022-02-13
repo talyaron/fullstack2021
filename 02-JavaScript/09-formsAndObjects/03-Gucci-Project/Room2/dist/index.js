@@ -4,6 +4,7 @@ var uid = function () {
 var Adidas = {
     // id:0,
     products: [],
+    // wishList: [],
     getData: function () {
         var products = JSON.parse(localStorage.getItem("Adidas"));
         if (products) {
@@ -13,12 +14,14 @@ var Adidas = {
     setData: function () {
         localStorage.setItem("Adidas", JSON.stringify(this.products));
     },
-    addItem: function (title, price, category, pictureFront, pictureBack, color, description, shoeSize) {
+    addItem: function (title, price, gender, category, pictureFront, pictureBack, color, description, shoeSize) {
         var id = uid();
+        this.getData();
         this.products.push({
             id: id,
             title: title,
             price: price,
+            gender: gender,
             category: category,
             pictureFront: pictureFront,
             pictureBack: pictureBack,
@@ -33,40 +36,31 @@ var Adidas = {
         this.setData();
     },
     render: function (list, domElement) {
+        console.log(list);
         var html = "";
         this.products.forEach(function (product) {
-            html +=
-                //     `
-                //     <div class="cards__item">
-                //     <div class="picture">
-                //         <i class="far fa-heart"></i>
-                //         <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095730_ultraboost-22-shoes_gx5462_side-lateral-center-view.jpeg"
-                //             alt="Card Back">
-                //         <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095732_ultraboost-22-shoes_gx5462_top-portrait-view.jpeg"
-                //             class="img-top" alt="Card Front">
-                //     </div>
-                //     <div class="color">
-                //         <div class="color--item"></div>
-                //         <div class="color--item"></div>
-                //     </div>
-                //     <div class="description">
-                //         <p>4DFWD Pulse Shoes</p>
-                //         <p>Men's Running</p>
-                //         <p>₪ 299.90</p>
-                //     </div>
-                // </div>
-                //     `
-                "<div style=\"width: 35%;border: 1px solid red\">\n          <p><b>Title: </b> " + product.title + "</p>\n          <p><b> Price: </b> " + product.price + "\u20AA</p>\n          <p><b> picture: </b> </p>\n          <p><img src=\"" + product.picture + "\" style=\"width: 200px; height: 200px;\"></p>\n          <p><b> Color: </b> " + product.color + "</p>\n          <p><b> Description: </b> " + product.description + "</p>\n          <p><b> Size: </b> " + product.shoeSize + "</p>\n          <p><b> category: </b> " + product.category + "</p>\n\n\n          <form onsubmit=\"handleUpdate(event, '" + product.id + "') \">\n\n          <input type=\"text\" name=\"newTitle\" placeholder=\"new title\" value=\"" + product.title + "\">\n          <input type=\"number\" name=\"newPrice\" placeholder=\"new price\" value=\"" + product.price + "\">\n          <input type=\"text\" name=\"newCategory\" placeholder=\"new category\" value=\"" + product.category + "\">\n          <input type=\"text\" name=\"newPictureFront\" placeholder=\"new picture Front\" value=\"" + product.pictureFront + "\">\n          <input type=\"text\" name=\"newPictureBack\" placeholder=\"new picture Back\" value=\"" + product.pictureBack + "\">\n          <input type=\"text\" name=\"newColor\" placeholder=\"new color\" value=\"" + product.color + "\">\n          <input type=\"text\" name=\"newDescription\" placeholder=\"new description\" value=\"" + product.description + "\">\n          <input type=\"number\" name=\"newShoeSize\" placeholder=\"new shoeSize\" value=\"" + product.shoeSize + "\">\n          <button id =\"button\" type=\"submit\">Update</button>\n\n          </form>\n\n          <button onclick=\"handleDelete('" + product.id + "')\">Delete</button>\n\n          </div>";
+            html += "\n     <div class=\"cards__item\" >\n\n      <div class=\"picture\">\n          <i class=\"far fa-heart\"  onclick=\"handleFindIndex(id)\"></i>\n          <img src=\"" + product.pictureBack + "\" >\n         <img src=\"" + product.pictureFront + "\" class=\"img-top\">\n          </div>\n              \n      <div class=\"color\">\n      <p><b> Color: </b> " + product.color + "</p>\n      </div>\n\n      <div class=\"description\">\n         <p>" + product.title + "</p>\n          <p>" + product.description + "</p>\n          <p>" + product.price + "\u20AA</p> \n      </div>\n          </div>   \n          <form onsubmit=\"handleUpdate(event, '" + product.id + "')\">\n          <input type=\"text\" name=\"newTitle\" placeholder=\"new title\" value=\"" + product.title + "\">\n          <input type=\"number\" name=\"newPrice\" placeholder=\"new price\" value=\"" + product.price + "\">\n          <input type=\"text\" name=\"newCategory\" placeholder=\"new category\" value=\"" + product.category + "\">\n          <input type=\"text\" name=\"newPicture\" placeholder=\"new picture\" value=\"" + product.picture + "\">\n          <input type=\"text\" name=\"newColor\" placeholder=\"new color\" value=\"" + product.color + "\">\n          <input type=\"text\" name=\"newDescription\" placeholder=\"new description\" value=\"" + product.description + "\">\n          <input type=\"number\" name=\"newShoeSize\" placeholder=\"new shoeSize\" value=\"" + product.shoeSize + "\">\n          <button type=\"submit\">Update</button>\n          </form>\n          \n          <button onclick=\"handleDelete('" + product.id + "')\">Delete</button>";
+            ;
+            console.log("render");
         });
-        var button = document.getElementById("button");
-        console.log(button);
+        // const button = document.getElementById("button");
+        // console.log(button);
         domElement.innerHTML = html;
     },
-    updateItem: function (id, newTitle, newPrice, newCategory, newPictureFront, newPictureBack, newColor, newDescription, newShoeSize) {
+    handleOwner: function (list, domElement) {
+        console.log(list);
+        var html = "";
+        this.products.forEach(function (product) {
+            html += "<form onsubmit=\"handleUpdate(event, '" + product.id + "')\">\n          <input type=\"text\" name=\"newTitle\" placeholder=\"new title\" value=\"" + product.title + "\">\n          <input type=\"number\" name=\"newPrice\" placeholder=\"new price\" value=\"" + product.price + "\">\n          <input type=\"text\" name=\"newCategory\" placeholder=\"new category\" value=\"" + product.category + "\">\n          <input type=\"text\" name=\"newPicture\" placeholder=\"new picture\" value=\"" + product.picture + "\">\n          <input type=\"text\" name=\"newColor\" placeholder=\"new color\" value=\"" + product.color + "\">\n          <input type=\"text\" name=\"newDescription\" placeholder=\"new description\" value=\"" + product.description + "\">\n          <input type=\"number\" name=\"newShoeSize\" placeholder=\"new shoeSize\" value=\"" + product.shoeSize + "\">\n          <button type=\"submit\">Update</button>\n          </form>\n          \n          <button onclick=\"handleDelete('" + product.id + "')\">Delete</button>";
+            console.log("render");
+        }, domElement.innerHTML = html);
+    },
+    updateItem: function (id, newTitle, newPrice, newGender, newCategory, newPictureFront, newPictureBack, newColor, newDescription, newShoeSize) {
         var index = this.products.findIndex(function (product) { return product.id === id; });
         if (index >= 0) {
             this.products[index].title = newTitle;
             this.products[index].price = newPrice;
+            this.products[index].gender = newGender;
             this.products[index].category = newCategory;
             this.products[index].pictureFront = newPictureFront;
             this.products[index].pictureBack = newPictureBack;
@@ -101,25 +95,64 @@ var Adidas = {
     sortByType: function (category) {
         return this.products.filter(function (element) { return element.category === category; });
     },
-    renderFilter: function (domElement, filterd) {
-        this.renderAdidas(domElement, filterd);
+    renderFilter: function (filterd, domElement) {
+        console.log(filterd);
+        this.render(filterd, domElement);
+    },
+    // addWishList(id){
+    //     const index = this.products.findIndex((product) => product.id === id);
+    //     if (index >= 0) {
+    //       console.log(index);
+    //       this.setData();
+    //     }
+    // },
+    FindIndex: function (id) {
+        // console.log(id);
+        // const id = uid();
+        var index = this.products.findIndex(function (product) { return product.id === id; });
+        if (index >= 0) {
+            Adidas.products[index];
+            console.log(index);
+            this.setData();
+        }
     }
 };
+function handleOwner(page) {
+    if (page === "owner") {
+        var root = document.getElementById("rootOwner");
+        Adidas.handleOwner(root);
+    }
+    else if (page === "customer") {
+        var root = document.getElementById("rootCards");
+        Adidas.renderAllData(root);
+    }
+}
+// function HandleWishList(ev) {
+// const wish = ev.target.value;
+// Adidas.addWishList()
+// }
+function handleFindIndex(id) {
+    Adidas.FindIndex(id);
+    var root = document.getElementById("rootWishList");
+    Adidas.renderAllData(root);
+}
 function handleAddItem(ev) {
     ev.preventDefault();
     var title = ev.target.elements.title.value;
     var price = ev.target.elements.price.valueAsNumber;
+    var gender = ev.target.elements.title.value;
     var category = ev.target.elements.category.value;
     var pictureFront = ev.target.elements.pictureFront.value;
     var pictureBack = ev.target.elements.pictureBack.value;
     var color = ev.target.elements.color.value;
     var description = ev.target.elements.description.value;
     var shoeSize = ev.target.elements.shoeSize.valueAsNumber;
-    Adidas.addItem(title, price, category, pictureFront, pictureBack, color, description, shoeSize);
+    Adidas.addItem(title, price, category, gender, pictureFront, pictureBack, color, description, shoeSize);
     var root = document.getElementById("rootOwner");
     Adidas.renderAllData(root);
     ev.target.reset(); //reset the form fileds
     // console.log(category);
+    Adidas.setData();
 }
 function handleDelete(id) {
     console.log(id);
@@ -131,6 +164,7 @@ function handleUpdate(ev, itemId) {
     ev.preventDefault();
     var newTitle = ev.target.elements.newTitle.value;
     var newPrice = ev.target.elements.newPrice.valueAsNumber;
+    var newGender = ev.target.elements.newGender.value;
     var newCategory = ev.target.elements.newCategory.value;
     var newPictureFront = ev.target.elements.newPictureFront.value;
     var newPictureBack = ev.target.elements.newPictureBack.value;
@@ -138,57 +172,97 @@ function handleUpdate(ev, itemId) {
     var newDescription = ev.target.elements.newDescription.value;
     var newShoeSize = ev.target.elements.newShoeSize.valueAsNumber;
     var root = document.getElementById("rootOwner");
-    Adidas.updateItem(itemId, newTitle, newPrice, newCategory, newPictureFront, newPictureBack, newColor, newDescription, newShoeSize);
+    Adidas.updateItem(itemId, newTitle, newPrice, newGender, newCategory, newPictureFront, newPictureBack, newColor, newDescription, newShoeSize);
     Adidas.renderAllData(root);
 }
 function handlePriceRange(ev) {
-    var root = document.getElementById("rootCart");
+    var root = document.getElementById("rootCustomer");
     var priceLow = ev.target.valueAsNumber;
     var priceHigh = ev.target.valueAsNumber;
     if (priceLow && priceHigh) {
         // console.log(price) + `price`;
         var filterd = Adidas.filterItems(priceLow && priceHigh);
         console.log(filterd);
-        Adidas.renderFilter(root, filterd);
+        Adidas.renderFilter(filterd, root);
     }
     else {
         this.renderAll();
     }
 }
 function handleSort(ev) {
-    var sort = ev.target.value;
     ev.preventDefault();
+    var sort = ev.target.value;
     var root = document.getElementById("rootCustomer");
-    if (sort === ev.target.value.priceAsc) {
-        Adidas.renderAllData(this.sortItemsAsc(root));
+    if (sort === "startPosition") {
+        Adidas.renderAllData(root);
     }
-    else if (sort === ev.target.value.priceDsc) {
-        Adidas.renderAllData(this.sortItemsDsc(root));
+    else if (sort === "priceAsc") {
+        Adidas.sortItemsAsc();
+        Adidas.renderAllData(root);
     }
-    else if (sort === ev.target.value.startPosition) {
-        ev.target.reset();
+    else if (sort === "priceDsc") {
+        Adidas.sortItemsDsc();
+        Adidas.renderAllData(root);
     }
+    console.log(sort);
+    Adidas.setData();
 }
 function handleType(ev) {
     var type = ev.target.value;
     ev.preventDefault();
+    console.log(type);
     var root = document.getElementById("rootCustomer");
-    // if(type === " ")
-    return Adidas.renderFilter(root, Adidas.sortByType(type));
+    if (type === "Sneakers") {
+        console.log(type);
+        // Adidas.sortByType(type)
+        //      Adidas.renderAllData(root);
+        Adidas.renderFilter(Adidas.sortByType(type), root);
+    }
+    else if (type === "Boots") {
+        //   console.log(type);
+        //  Adidas.sortByType(type)
+        //    Adidas.renderAllData(root);
+        Adidas.renderFilter(Adidas.sortByType(type), root);
+    }
+    else if (type === "Hi Tops") {
+        //   console.log(type);
+        //  Adidas.sortByType(type)
+        //    Adidas.renderAllData(root);
+        Adidas.renderFilter(Adidas.sortByType(type), root);
+    }
+    else if (type === "Flip Flops") {
+        //   console.log(type);
+        //  Adidas.sortByType(type)
+        //    Adidas.renderAllData(root);
+        Adidas.renderFilter(Adidas.sortByType(type), root);
+    }
+    //  Adidas.sortByType(type)
+    //  Adidas.renderAllData(root);
+    // Adidas.renderFilter(Adidas.sortByType(type), root);
 }
 function handleColor(ev) {
     var color = ev.target.value;
     ev.preventDefault();
     var root = document.getElementById("rootCustomer");
     // if(type === " ")
-    return Adidas.renderFilter(root, Adidas.sortByColor(color));
+    return Adidas.renderFilter(Adidas.sortByColor(color), root);
 }
 function handleGender(ev) {
     var gender = ev.target.value;
     ev.preventDefault();
     var root = document.getElementById("rootCustomer");
-    // if(type === " ")
-    return Adidas.renderFilter(root, Adidas.sortByGender(gender));
+    if (gender === "men") {
+        console.log(gender);
+        Adidas.renderFilter(Adidas.sortByGender(gender), root);
+    }
+    else if (gender === "women") {
+        console.log(gender);
+        Adidas.renderFilter(Adidas.sortByGender(gender), root);
+    }
+    else if (gender === "unisex") {
+        console.log(gender);
+        Adidas.renderFilter(Adidas.sortByGender(gender), root);
+    }
 }
 function handleShoeSize(ev) {
     var size = ev.target.value;
@@ -198,14 +272,14 @@ function handleShoeSize(ev) {
     // if(type === " ")
     //Adidas.shoeSizeFilter(size);
 }
-Adidas.addItem("superstar shoes", 200, "Sneakers", "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg", "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg", "red", "B-ball legend. Street symbol. Cultural icon. Still going strong after five decades, the adidas Superstar Shoes have millions of stories to tell. Smooth leather combines with serrated 3-Stripes and the authentic rubber shell toe. Ready for the next fifty years of iconic adidas style? Lets do it.", 44);
-Adidas.addItem("superstar shoes", 300, "Sneakers", "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg", "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg", "red", "B-ball legend. Street symbol. Cultural icon. Still going strong after five decades, the adidas Superstar Shoes have millions of stories to tell. Smooth leather combines with serrated 3-Stripes and the authentic rubber shell toe. Ready for the next fifty years of iconic adidas style? Lets do it.", 44);
-Adidas.addItem("superstar shoes", 100, "Sneakers", "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg", "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg", "red", "B-ball legend. Street symbol. Cultural icon. Still going strong after five decades, the adidas Superstar Shoes have millions of stories to tell. Smooth leather combines with serrated 3-Stripes and the authentic rubber shell toe. Ready for the next fifty years of iconic adidas style? Lets do it.", 44);
+Adidas.addItem("superstar shoes", 200, "men", "Sneakers", "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg", "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg", "red", "B-ball legend. Street symbol. Cultural icon. Still going strong after five decades, the adidas Superstar Shoes have millions of stories to tell. Smooth leather combines with serrated 3-Stripes and the authentic rubber shell toe. Ready for the next fifty years of iconic adidas style? Lets do it.", 44);
+Adidas.addItem("superstar shoes", 300, "women", "Boots", "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg", "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg", "red", "B-ball legend. Street symbol. Cultural icon. Still going strong after five decades, the adidas Superstar Shoes have millions of stories to tell. Smooth leather combines with serrated 3-Stripes and the authentic rubber shell toe. Ready for the next fifty years of iconic adidas style? Lets do it.", 44);
+Adidas.addItem("superstar shoes", 100, "unisex", "Hi Tops", "https://st-adidas-isr.mncdn.com/content/images/thumbs/0086954_x-speedflow1-messi-firm-ground-boots_fy6879_side-lateral-center-view.jpeg", "https://st-adidas-isr.mncdn.com/content/images/thumbs/0086956_x-speedflow1-messi-firm-ground-boots_fy6879_top-portrait-view.jpeg", "red", "B-ball legend. Street symbol. Cultural icon. Still going strong after five decades, the adidas Superstar Shoes have millions of stories to tell. Smooth leather combines with serrated 3-Stripes and the authentic rubber shell toe. Ready for the next fifty years of iconic adidas style? Lets do it.", 44);
 function handleGetData(page) {
     try {
-        console.log(page);
+        // console.log(page);
         Adidas.getData();
-        console.log(Adidas);
+        // console.log(Adidas);
         if (page === "owner") {
             var root = document.getElementById("rootOwner");
             Adidas.renderAllData(root);
@@ -222,3 +296,21 @@ function handleGetData(page) {
         console.log(err);
     }
 }
+// function handleSetData(page: string) {
+//   try {
+//     console.log(page);
+//     Adidas.setData();
+//     console.log(Adidas);
+//     if (page === "owner") {
+//       const root = document.getElementById("rootOwner");
+//       Adidas.renderAllData(root);
+//     } else if (page === "customer") {
+//       const root = document.getElementById("rootCustomer");
+//       Adidas.renderAllData(root);
+//     } else {
+//       throw new Error(`page is not found (${page})`);
+//     }
+//   } catch (err) {
+//     console.log(err);
+//   }
+// }

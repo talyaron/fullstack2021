@@ -31,20 +31,7 @@
                 <i id="shoppingCartBtn" class="fas fa-shopping-cart fa-2x"></i><p id="shoppingCartBtn" class="btnDiscription">Shopping cart</p></button>
              </div>
              <div class="container_header-dropDown">
-                 <!-- <div id="notifications" class="container_header-dropDown-box notifications" style="background-color: gray;">
-                    <p style="font-size: 12px">no notifications found</p>
-                 </div> -->
-                 <!-- <div id="signIn" class="container_header-dropDown-box signIn">
-                     <input class="container_header-dropDown-box-signInInput" type="email" name="UserName" id="userName" placeholder="User Name" >
-                     <input class="container_header-dropDown-box-signInInput" type="password" name="password" id="password" placeholder="Password">
-                     <button type="button" class="singIn-btn">Sign In</button>
-                 </div> -->
-                 <!-- <div id="yourOrders" class="container_header-dropDown-box yourOrders">
-                     <p style="font-size: 12px">no Orders yet...</p>
-                    </div> -->
-                 <!-- <div id="shoppingCart" class="container_header-dropDown-box shoppingCart">
-                     <div class="container_header-dropDown-box-item"></div>
-                 </div> -->
+                 <div class="container_header-dropDown-totalCart"></div>
              </div>             
          </div>
          <div class="container-imgsBox" id="ImgsBox"></div>
@@ -82,7 +69,11 @@
 >>>>>>> Stashed changes
 =======
  <div class="container-shoppingCart">
-    <div class="container-shoppingCart_display"></div>
+    <div id="shoppingCartDisplay" class="container-shoppingCart_display"></div>
+    <div class="container-shoppingCart-orderAndTotal">
+        <p class="totalCart"></p>
+        <button type="button" class="container-shoppingCart-orderAndTotal-btn">Order now</button>
+    </div>
  </div>
          
 >>>>>>> 3c608791b25a27aa87b11e7cdc53551addfe70e4

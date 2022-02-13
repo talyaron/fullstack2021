@@ -5,7 +5,7 @@
 
 html,
 body {
-  width: 100%;
+  width:clamp(90vw, 80vw, 100vw );
   margin: 0;
   scroll-behavior: smooth;
 }
@@ -18,7 +18,7 @@ body {
 .wrapper {
   margin: 0;
   padding: 0;
-  width: clamp(80vw, 90vw, 100vw);
+  max-width:80vw;
   height: 90vh;
   position: absolute;
   display: flex;
@@ -42,25 +42,61 @@ body {
     justify-content: space-between;
   }
   form {
-    width: 40%;
-    gap: 3vh;
+    fieldset{
+    width: fit-content;
+    margin:0;
     display: flex;
     flex-direction: column;
-    flex-grow: 2;
-  }
-  .table {
+    height: fit-content;
+  }}
+  .sorts {
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width:50%;
     padding: 1rem;
-    font-size: .5em;
-    table {
-      width: 80%;
-    }
+    font-size: 0.5em;
   }
 }
 
 img {
   width: auto;
-  height: 15vh;
+  max-height: 15vh;
+}
+
+table {
+
+  font-size: clamp(.5em, 1.25vw, 1em); 
+  text-align: center;
+  border: 2px solid rgb(200, 200, 200);
+  border-collapse:collapse;
+width:clamp(40vw, 45vw, 50vw);
+  td,
+  th {
+    border: 1px solid rgb(190, 190, 190);
+    padding: 10px;
+  }
+  [data-delete-update]{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+  a{
+    font-size: clamp(.5em, 1.25vw, 1em);
+    cursor: pointer;
+  }
+  
+}
+
+legend{
+  font-size:clamp(.5em, 1.25vw, 1em);
+}
+@media only screen and (max-width:768px){
+  
+}
+[role="navigation between pages"]{
+    z-index: 100;
+    position:absolute;
+    top: 0;
+    left: 0;
 }

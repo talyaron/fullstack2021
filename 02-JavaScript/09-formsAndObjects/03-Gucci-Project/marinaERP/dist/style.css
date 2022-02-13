@@ -3,28 +3,28 @@
   text-shadow: 2px 10px 30px rgba(51, 37, 85, 0.4);
 }
 
-.container {
+.containerERP {
   display: flex;
 }
-.container__inputs {
+.containerERP__inputs {
   display: flex;
   justify-content: center;
-  gap: 2em;
+  gap: 1em;
 }
-.container__inputs__form {
+.containerERP__inputs__form {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 1.5em;
+  gap: 1em;
   margin-bottom: 2em;
 }
-.container__inputs__form__one {
+.containerERP__inputs__form__one {
   display: flex;
   flex-direction: column;
   padding: 4em;
-  gap: 2em;
+  gap: 1em;
 }
-.container__inputs__form__one__inp {
+.containerERP__inputs__form__one__inp {
   border-radius: 8px;
   height: 2.5em;
   max-width: fit-content;
@@ -35,15 +35,15 @@
   box-shadow: 2px 10px 30px rgba(51, 37, 85, 0.4);
   background: rgba(60, 46, 90, 0.671);
 }
-.container__inputs__form__one option {
+.containerERP__inputs__form__one option {
   background: rgba(250, 245, 245, 0.2);
   color: black;
   font-size: 1/1em;
 }
-.container__inputs__form__one select {
+.containerERP__inputs__form__one select {
   height: 2.8em;
 }
-.container__inputs__form__one textarea {
+.containerERP__inputs__form__one textarea {
   border-color: transparent;
   font-size: 1em;
   color: rgba(255, 255, 255, 0.534);
@@ -56,61 +56,30 @@
   text-align: start;
   overflow-wrap: break-word;
 }
-.container__card {
-  position: relative;
-  display: inline-flex;
-  padding: 0em 4em;
-  flex-direction: column;
-  justify-content: space-evenly;
+.containerERP__content {
+  display: flex;
   align-items: center;
-  background-color: rgba(102, 100, 100, 0.123);
-  border-radius: 10px;
-  text-align: center;
-  margin: 2em;
+  padding: 3em;
+  justify-content: space-evenly;
   box-shadow: 2px 10px 30px rgba(51, 37, 85, 0.4);
 }
-.container__card__addToCardBtn {
-  position: relative;
-  transition: all ease-in-out 0.3s;
-  cursor: pointer;
-  padding: 0em 1em;
-  border-radius: 8px;
-  font-size: 1em;
-  height: 2.7em;
-  border: none;
-  background-color: rgba(93, 91, 91, 0.205);
-  color: rgba(255, 255, 255, 0.349);
-  box-shadow: 2px 10px 30px rgba(51, 37, 85, 0.4), 2px 2px 2px rgba(18, 12, 29, 0.459);
+.containerERP__content__cardERP {
+  display: flex;
+  flex-direction: row;
+}
+.containerERP__content__cardERP img {
+  width: 10em;
+}
+.containerERP__content__cardERP strong {
+  display: block;
   margin-bottom: 1em;
-}
-.container__card__addToCardBtn:hover {
-  transition: all ease-in-out 0.3s;
-  background-color: #3a3a3a;
-}
-.container__card__addToCardBtn:active {
-  top: 1.5px;
-  transition: all ease-in-out 0.3s;
-}
-.container__card img {
-  height: 20em;
-  padding: 2em;
-  border-radius: 10px;
-  background-color: rgba(0, 0, 0, 0.376);
-  box-shadow: 2px 10px 30px rgba(47, 34, 78, 0.4);
-}
-.container__card p {
-  letter-spacing: 2px;
-  font-weight: 500;
-  font-size: large;
-}
-
-.annotation {
-  height: 20em;
-  padding: 2em;
-  border-radius: 10px;
+  margin-left: 2em;
+  font-size: 1.1em;
+  text-align: left;
 }
 
 .header {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -141,10 +110,24 @@
 }
 .header__navBar {
   margin-left: 15%;
+  display: flex;
+  align-items: center;
+}
+.header__navBar .material-icons {
+  color: #817e7e;
+  font-size: 26px;
+  text-decoration: none;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+.header__navBar .material-icons :hover {
+  cursor: pointer;
+  color: white;
 }
 .header__navBar ul {
   display: flex;
   gap: 4em;
+  margin-right: 3em;
 }
 .header__navBar ul li :hover {
   cursor: pointer;
@@ -154,10 +137,6 @@
   text-decoration: none;
   color: #817e7e;
   font-size: 1.2em;
-}
-.header__navBar ul .material-icons {
-  color: #817e7e;
-  font-size: 26px;
 }
 .header__navBar ul :hover {
   cursor: pointer;
@@ -181,7 +160,7 @@
   font-size: 1em;
   box-shadow: 2px 10px 30px rgba(51, 37, 85, 0.4), 2px 2px 2px rgba(23, 16, 37, 0.4);
 }
-.buttons--sortAutor .button, .buttons--sortYear .button, .buttons--sortRanking .button {
+.buttons--sortAutor .button, .buttons--sortYear .button, .buttons--sortRanking .button, .buttons--scrollToTopBtn .button {
   cursor: pointer;
   position: relative;
   transition-duration: 0.4s;
@@ -194,11 +173,11 @@
   color: rgba(255, 255, 255, 0.349);
   box-shadow: 2px 10px 30px rgba(51, 37, 85, 0.4), 2px 2px 2px rgba(23, 16, 37, 0.4);
 }
-.buttons--sortAutor .button:hover, .buttons--sortYear .button:hover, .buttons--sortRanking .button:hover {
+.buttons--sortAutor .button:hover, .buttons--sortYear .button:hover, .buttons--sortRanking .button:hover, .buttons--scrollToTopBtn .button:hover {
   transition-duration: 0.1s;
   background-color: #3a3a3a;
 }
-.buttons--sortAutor .button:after, .buttons--sortYear .button:after, .buttons--sortRanking .button:after {
+.buttons--sortAutor .button:after, .buttons--sortYear .button:after, .buttons--sortRanking .button:after, .buttons--scrollToTopBtn .button:after {
   content: "";
   display: block;
   position: absolute;
@@ -211,7 +190,7 @@
   transition: all 0.5s;
   box-shadow: 0 0 10px 30px rgba(255, 255, 255, 0.267);
 }
-.buttons--sortAutor .button:active:after, .buttons--sortYear .button:active:after, .buttons--sortRanking .button:active:after {
+.buttons--sortAutor .button:active:after, .buttons--sortYear .button:active:after, .buttons--sortRanking .button:active:after, .buttons--scrollToTopBtn .button:active:after {
   box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.164);
   position: absolute;
   border-radius: 8em;
@@ -220,8 +199,71 @@
   opacity: 1;
   transition: 0s;
 }
-.buttons--sortAutor .button:active, .buttons--sortYear .button:active, .buttons--sortRanking .button:active {
+.buttons--sortAutor .button:active, .buttons--sortYear .button:active, .buttons--sortRanking .button:active, .buttons--scrollToTopBtn .button:active {
   top: 1px;
+}
+
+.card {
+  position: relative;
+  display: inline-flex;
+  padding: 0em 4em;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: rgba(102, 100, 100, 0.123);
+  border-radius: 10px;
+  text-align: center;
+  margin: 2em;
+  box-shadow: 2px 10px 30px rgba(51, 37, 85, 0.4);
+}
+.card__addToCardBtn {
+  position: relative;
+  transition: all ease-in-out 0.3s;
+  cursor: pointer;
+  padding: 0em 1em;
+  border-radius: 8px;
+  font-size: 1em;
+  height: 2.7em;
+  border: none;
+  background-color: rgba(93, 91, 91, 0.205);
+  color: rgba(255, 255, 255, 0.349);
+  box-shadow: 2px 10px 30px rgba(51, 37, 85, 0.4), 2px 2px 2px rgba(18, 12, 29, 0.459);
+  margin-bottom: 1em;
+}
+.card__addToCardBtn:hover {
+  transition: all ease-in-out 0.3s;
+  background-color: #3a3a3a;
+}
+.card__addToCardBtn:active {
+  top: 1.5px;
+  transition: all ease-in-out 0.3s;
+}
+.card img {
+  height: 20em;
+  padding: 2em;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.376);
+  box-shadow: 2px 10px 30px rgba(47, 34, 78, 0.4);
+}
+.card p {
+  letter-spacing: 2px;
+  font-weight: 500;
+  font-size: large;
+}
+
+.annotation {
+  display: none;
+}
+.annotation img {
+  height: 20em;
+  padding: 2em;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.376);
+  box-shadow: 2px 10px 30px rgba(47, 34, 78, 0.4);
+}
+.annotation p {
+  letter-spacing: 2px;
+  color: white;
 }
 
 .bottom {
@@ -229,7 +271,13 @@
   justify-content: space-evenly;
   border-radius: 8px;
   background-color: rgba(3, 9, 15, 0.377);
+  margin-top: 2em;
+  margin-bottom: 5px;
+}
+.bottom a, .bottom p {
+  text-decoration: none;
   color: #817e7e;
+  display: flex;
   margin-top: 2em;
   margin-bottom: 5px;
 }

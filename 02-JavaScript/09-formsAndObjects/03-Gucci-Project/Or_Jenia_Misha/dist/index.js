@@ -113,21 +113,21 @@ var sushiMenu = {
             name: "Salmon Yakitori",
             price: 60,
             description: "Glazed with miso, served with grilled vegetables and ponzu sauce.",
-            category: "robta yaki"
+            category: "robta-yaki"
         },
         {
             id: uid(),
             name: "Chicken pullet satay Yakitori",
             price: 60,
             description: "Thai satay sauce, serve with grilled vegetables and ponzu sauce.",
-            category: "robta yaki"
+            category: "robta-yaki"
         },
         {
             id: uid(),
             name: "Chopped chicken barbecue pullet Yakitori",
             price: 60,
             description: "In Korean barbecue glaze, serve with grilled vegetables and ponzu sauce.",
-            category: "robta yaki"
+            category: "robta-yaki"
         },
         {
             id: uid(),
@@ -155,35 +155,35 @@ var sushiMenu = {
             name: "Sea Bream",
             price: 108,
             description: "Tempura tofu bites in coconut milk and yellow curry sauce, Thai beans and cauliflower. Served with a side of coconut rice with toasted coconut shavings.",
-            category: "main dish"
+            category: "main"
         },
         {
             id: uid(),
             name: "Steamd salmon",
             price: 104,
             description: "Salmon fillet, broccoli, shimeji mushrooms, zucchini, sprouts and shallot flakes in peanut butter and soy sauce.",
-            category: "main dish"
+            category: "main"
         },
         {
             id: uid(),
             name: "Thai Roll",
             price: 62,
             description: "Shrimp tempura, spicy tuna and avocado topped with seared salmon.",
-            category: "inside out"
+            category: "inside-out"
         },
         {
             id: uid(),
             name: "Sake Yaki Roll",
             price: 64,
             description: "Baked salmon, spicy mayonnaise, steamed shrimp, avocado and lettuce topped with tempura flakes.",
-            category: "inside out"
+            category: "inside-out"
         },
         {
             id: uid(),
             name: "Purple Rain",
             price: 64,
             description: "Spicy Yellow Tail and avocado topped with crunchy beetroot chips.",
-            category: "inside out"
+            category: "inside-out"
         },
         {
             id: uid(),
@@ -211,42 +211,42 @@ var sushiMenu = {
             name: "Salmon Avocad",
             price: 40,
             description: "Roll wrapped in nori filled with fish / seafood / vegetables and rice. 6 pcs",
-            category: "maki sushi"
+            category: "maki-sushi"
         },
         {
             id: uid(),
             name: "Tamago",
             price: 34,
             description: "Japanese omelet & cucumber Maki Roll wrapped in nori filled with fish / seafood / vegetables and rice. 6 pcs",
-            category: "maki sushi"
+            category: "maki-sushi"
         },
         {
             id: uid(),
             name: "Tempura Shrimp",
             price: 40,
             description: "Roll wrapped in nori filled with fish / seafood / vegetables and rice. 6 pcs",
-            category: "maki sushi"
+            category: "maki-sushi"
         },
         {
             id: uid(),
             name: "Salmon & Avocado Sandwich",
             price: 56,
             description: "Topped with black sesame.",
-            category: "sandwich sushi"
+            category: "sandwich-sushi"
         },
         {
             id: uid(),
             name: "Spicy Salmon Sandwich",
             price: 56,
             description: "Spicy salmon and avocado topped with tempura flakes.",
-            category: "sandwich sushi"
+            category: "sandwich-sushi"
         },
         {
             id: uid(),
             name: "Fu Cheese Sandwich",
             price: 62,
             description: "Salmon, avocado and hard cheese fried in tempura, topped with teriyaki sauce.",
-            category: "sandwich sushi"
+            category: "sandwich-sushi"
         },
         {
             id: uid(),
@@ -316,21 +316,42 @@ var sushiMenu = {
             name: "Chicken Little",
             price: 44,
             description: "Crispy coated chicken breast mini schnitzels along with steamed rice with ketchup on the side.",
-            category: "kids menu"
+            category: "kids"
         },
         {
             id: uid(),
             name: "Kid Noodles",
             price: 42,
             description: "Egg noodles with chicken breast and omelet in sweet soy sauce (half order available - Baby Noodles 29).",
-            category: "kids menu"
+            category: "kids"
         },
         {
             id: uid(),
             name: "Tempura Sweet Potato",
             price: 44,
             description: "Tempura sweet potato strips Served with sweet & sour sauce.",
-            category: "kids menu"
+            category: "kids"
+        },
+        {
+            id: uid(),
+            name: "Chicken Little",
+            price: 44,
+            description: "Crispy coated chicken breast mini schnitzels along with steamed rice with ketchup on the side.",
+            category: "gonkan"
+        },
+        {
+            id: uid(),
+            name: "Kid Noodles",
+            price: 42,
+            description: "Egg noodles with chicken breast and omelet in sweet soy sauce (half order available - Baby Noodles 29).",
+            category: "gonkan"
+        },
+        {
+            id: uid(),
+            name: "Tempura Sweet Potato",
+            price: 44,
+            description: "Tempura sweet potato strips Served with sweet & sour sauce.",
+            category: "gonkan"
         },
         {
             id: uid(),
@@ -368,6 +389,10 @@ var sushiMenu = {
         if (index >= 0) {
             this.dishes[index] = newDish;
         }
+        this.storeData();
+    },
+    filterByCategory: function (category) {
+        return this.dishes.filter(function (dish) { return dish.category === category; });
     },
     renderDishesStore: function (list, domElement) {
         var html = "";
@@ -379,9 +404,9 @@ var sushiMenu = {
     renderDishesERP: function (list, domElement) {
         var html = "<form onsubmit=\"handleDeleteDish(event)\"> <input type=\"submit\" value=\"delete\"></input>";
         list.forEach(function (item) {
-            html += "<div class=\"dishesERP\"> \n        <input type=\"checkbox\" id=" + item.id + "></input>\n         <h3 class =\"dishesERP__title__name\">" + item.name + "</h3> \n         <p class =\"dishesERP__desc\">" + item.description + "</p>\n         <p class =\"dishesERP__title__price\">" + item.price + "</p>\n         <p class =\"dishesERP__title__price\"> id:" + item.id + "</p>\n         \n      </div>";
+            html += "<div class=\"dishesERP\"> \n        <input type=\"checkbox\" id=" + item.id + "></input></form>\n         <h3 class =\"dishesERP__title__name\">" + item.name + "</h3> \n         <p class =\"dishesERP__desc\">" + item.description + "</p>\n         <p class =\"dishesERP__title__price\">" + item.price + " \u20AA</p>\n         <p class =\"dishesERP__title__price\"> id:" + item.id + "</p>\n         <p class =\"dishesERP__title__category\"> " + item.category + "</p>\n         <form onsubmit=\"handleUpdateDish(event)\" id=\"" + item.id + "\">\n         <input type=\"text\" name=\"name\" id=\"\" placeholder=\"Dish Name\">\n         <input type=\"number\" name=\"price\" id=\"\" placeholder=\"Dish Price\">\n         <input type=\"text\" name=\"description\" id=\"\" placeholder=\"Add Dish description\">\n         <select name=\"category\" id=\"updated-category\">\n             <option value=\"Choose\" selected disabled>Select category</option>\n             <option value=\"firsts\">Firsts</option>\n             <option value=\"soups\">Soups</option>\n             <option value=\"salads\">Salads</option>\n             <option value=\"buns\">Buns</option>\n             <option value=\"robta-yaki\">Robta Yaki</option>\n             <option value=\"gyoza\">Gyoza</option>\n             <option value=\"inside-out\">Inside Out</option>\n             <option value=\"specials\">Specials</option>\n             <option value=\"kids\">Kids Dishes</option>\n             <option value=\"main\">Main Dishes</option>\n             <option value=\"wok\">Wok</option>\n             <option value=\"cokctails\">Cokctails</option>\n             <option value=\"combinations\">Combinations</option>\n             <option value=\"sashimi\">Sashimi</option>\n             <option value=\"nigiri\">Nigiri</option>\n             <option value=\"sandwich-sushi\">Sandwich Sushi</option>\n             <option value=\"maki-sushi\">Maki Sushi</option>\n             <option value=\"gonkan\">Gonkan Maki</option>\n         </select>\n         <input type=\"submit\" value=\"Update\">\n         </form>\n\n         \n      </div>";
         });
-        html += "</form>";
+        html += "";
         domElement.innerHTML = html;
     },
     storeData: function () {
@@ -394,10 +419,9 @@ var sushiMenu = {
         }
     }
 };
-sushiMenu.storeData();
-sushiMenu.getData();
 renderSushiMenu();
 function renderSushiMenu() {
+    sushiMenu.getData();
     var rootStore = document.getElementById("rootStore");
     var rootERP = document.getElementById("rootERP");
     if (rootStore) {
@@ -425,6 +449,19 @@ function handleDeleteDish(ev) {
             sushiMenu.removeDish(ev.target[i].id);
         }
     }
+    renderSushiMenu();
+}
+function handleUpdateDish(ev) {
+    ev.preventDefault();
+    console.dir(ev.target);
+    var dishName = ev.target.elements.name.value;
+    var dishPrice = ev.target.elements.price.valueAsNumber;
+    var dishDesc = ev.target.elements.description.value;
+    var dishCategory = document.getElementById("updated-category").value;
+    var dishId = ev.target.id;
+    var newDish = { id: dishId, name: dishName, price: dishPrice, description: dishDesc, category: dishCategory };
+    sushiMenu.updateDish(dishId, newDish);
+    sushiMenu.getData();
     renderSushiMenu();
 }
 var rootStore = document.getElementById("rootStore");
@@ -461,6 +498,9 @@ function popMenuActive() {
         });
         picWrap.forEach(function (cell) {
             cell.addEventListener("click", function () {
+                var list = sushiMenu.filterByCategory(cell.id);
+                renderSushiMenu();
+                sushiMenu.renderDishesStore(list, rootStore);
                 pop.classList.toggle("popmenu-active");
                 blur.classList.toggle("blurwrapper-active");
                 overflow.classList.toggle("body-active");
@@ -470,3 +510,18 @@ function popMenuActive() {
 }
 popMenuActive();
 navSlide();
+function popNavBarActive() {
+    var categories = document.querySelectorAll(".popCategory");
+    categories.forEach(function (category) {
+        category.addEventListener("click", function () {
+            var list = sushiMenu.filterByCategory(category.id);
+            renderSushiMenu();
+            sushiMenu.renderDishesStore(list, rootStore);
+            categories.forEach(function (category) {
+                category.classList.remove("popCategory-active");
+            });
+            category.classList.add("popCategory-active");
+        });
+    });
+}
+popNavBarActive();

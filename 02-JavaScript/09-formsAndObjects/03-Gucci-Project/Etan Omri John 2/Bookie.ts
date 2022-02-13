@@ -2,79 +2,143 @@ const selectRoot = document.querySelector("[data-update-book-by-id]");
 const addingForm = document.querySelector("[data-addingItemForm]");
 const bookTitle = document.querySelector("[data-bookTitle]");
 const imagePreview = document.querySelector("[data-bookImage-preview]");
-let backToTop = document.querySelector("[data-back-to-top]");
+const rootBooks = document.querySelector("[data-rootBooks]");
+const backToTop = document.querySelector("[data-back-to-top]");
+const ownerTable = document.querySelector("[data-toggle-existing]");
 
+function ascPrice(a, b) {
+
+  return a.price - b.price;
+};
+function descPrice(a, b) {
+  return b.price - a.price;
+};
+function ascYear(a, b) {
+  return a.year - b.year;
+};
+function descYear(a, b) {
+  return b.year - a.year;
+};
+
+// make sure your function is called at the right page!!!
+// if (window.document.title === 'Bookie')
 
 function handleTop(ev) {
   ev.preventDefault();
   document.documentElement.scrollTop = 0;
 }
-function hideTopBtn(){
-  let rootElement = document.documentElement;
-  let topTotal = rootElement.scrollHeight - rootElement.clientHeight;
-  if ((rootElement.scrollTop / topTotal) > 0.80) {
-    backToTop.classList.remove("hidden");
-  } else {
-    backToTop.classList.add("hidden");
+function hideTopBtn() {
+  if (window.document.title === "Bookie") {
+    let rootElement = document.documentElement;
+    let topTotal = rootElement.scrollHeight - rootElement.clientHeight;
+    if (rootElement.scrollTop / topTotal > 0.8) {
+      backToTop.classList.remove("hidden");
+    } else {
+      backToTop.classList.add("hidden");
+    }
   }
 }
-document.addEventListener("scroll", hideTopBtn)
+document.addEventListener("scroll", hideTopBtn);
 interface BookShop {
   id: any;
   books: Array<book>;
-  addItem(ev: any)
-    render(list: Array<book>, domElement);
-    renderItem(domElement: any);
-    //filterByCategory();
-    //filterByPrice();
-    //updateBook();
-    //deleteBook();
-    //changeOrder()
-    sortItemAsc();
-    sortItemDesc();
-    
-  }
-  
-  interface book {
-    id: any;
-    category: "thriller" | "history" | "cooking" | "fantasy";
-    title: string;
-    price: number;
-    img?: any;
-    year?: number;
-  }
-  
-  const bookie: BookShop = {
-    id: 0,
-    books: [{id: 1, category: "thriller",title: 'okay',price: 19.99, year:1998}],
-    addItem(ev:any) {
-      let id = ev.target.elements.id.value;
-  let category = ev.target.elements.category.value;
-  let title = ev.target.elements.title.value;
-  let price = ev.target.elements.price.value;
-  let img = ev.target.elements.image.files[0]?.name;
-  let year = ev.target.elements.year.value;
-  let book = { id, category, title, price, img, year };
-  let newBook: book = book;
-  makeId(newBook);
-  this.books.push(newBook);
+  addItem(ev: any);
+  // render(list: Array<book>, domElement);
+  renderItem(domElement: any);
+  //filterByCategory();
+  //filterByPrice();
+  updateBook(Id, priceChange);
+  deleteBook(Id);
+  //changeOrder()
+  sortItemAsc();
+  sortItemDesc();
+}
+
+interface book {
+  id: any;
+  category: "thriller" | "history" | "cooking" | "fantasy";
+  title: string;
+  price: number;
+  img?: any;
+  year?: number;
+}
+
+const bookie: BookShop = {
+  id: 0,
+  books: [
+    {
+      id: 1,
+      category: "thriller",
+      title: "bye",
+      price: 3,
+      img: "Bye.jpeg",
+      year: 1998,
     },
-    sortItemAsc() {
-      this.items.sort((a, b) => {
-        return a.price - b.price;
-      });
+    {
+      id: 2,
+      category: "thriller",
+      title: "outsider",
+      price: 154,
+      img: "outsider.jpeg",
+      year: 2000,
     },
-    
-    sortItemDesc() {
-      this.items.sort((a, b) => {
-        return b.price - a.price;
-      });
+    {
+      id: 3,
+      category: "thriller",
+      title: "The Little Prince",
+      price: 12,
+      img: "the little prince.jpg",
+      year: 1999,
     },
-    renderItem(domElement){
-      let html = '';
-        html += `<div class="rootBooks">`;
-        this.books.forEach(item => {
-            html += `
+    {
+      id: 4,
+      category: "thriller",
+      title: "Star wars",
+      price: 18,
+      img: "Star Wars.jpg",
+      year: 2001,
+    },
+    {
+      id: 5,
+      category: "thriller",
+      title: "Harry Potter",
+      price: 35,
+      img: "Harry Potter.jpg",
+      year: 1995,
+    },
+  ],
+  addItem(ev: any) {
+    let id = +ev.target.elements.id.value || ev.target.elements.id.value;
+    let category = ev.target.elements.category.value;
+    let title = ev.target.elements.title.value;
+    let price = +ev.target.elements.price.value;
+    let img = ev.target.elements.image.files[0]?.name;
+    let year = ev.target.elements.year.value;
+    let book = { id, category, title, price, img, year };
+    let newBook: book = book;
+    makeId(newBook);
+    this.books.push(newBook);
+    showLocalToOwner(ascYear);
+  },
+  sortItemAsc() {
+    this.items.sort((a, b) => {
+      return a.price - b.price;
+    });
+  },
+
+  sortItemDesc() {
+    this.items.sort((a, b) => {
+      return b.price - a.price;
+    });
+  },
+  renderItem(domElement) {
+    if (window.document.title === "Bookie") {
+      bookie.books = JSON.parse(localStorage.getItem("Bookie shop")).books;
+      console.log(bookie)
+      let html = "";
+      bookie.books.forEach((item) => {
+        domElement.innerHTML = "";
+        html += `
             <div class="rootBooks__card">
                 <button class="rootBooks__card__bag" data-add-to-bag><svg xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 15 14">
@@ -97,96 +161,172 @@ interface BookShop {
                         </symbol>
                         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-icon-saved-items" />
                     </svg></button>
-                <img src="" alt="" class="rootBooks__card__img">
+                <img src="./Images/${item.img}" alt="" class="rootBooks__card__img">
                 <div class="rootBooks__card__title">${item.title}</div>
-                <div class="rootBooks__card__price">${item.price}</div>
-            </div>`
-        });
-        domElement.innerHTML = html
+                <div class="rootBooks__card__price">${item.price}$</div>
+            </div>`;
+      });
+      domElement.innerHTML = html;
     }
-  };
-  let localBookie = bookie
-  
-  
-  
-  
-  
-  // addingForm.onsubmit(function(e) {})
-  
-  //function handleAddToCart()
-  //function handleOpenThis()
-  //function handleOpenMenu()
-  //function handleCloseMenu()
-  //function handleSortDesc()
-  //function handleSortAsc(ev)
-  function makeId(book: book) {
-    if (book.id === "uid") {
-      let uid = Math.random().toString(36).slice(-8);
-      book.id = uid;
-    } else {
-      return;
-    }
-  }
-  
-  
-  function handleAddItem(ev: any) {
-    ev.preventDefault();
-    console.dir(bookie);
-    localBookie.addItem(ev)
-    localStorage.setItem("Bookie shop", JSON.stringify(localBookie))
-    ev.target.reset();
-    console.log(localBookie);
+  },
+  updateBook(id, priceChange) {
+    this.books.forEach((book) => {
+      if (book.id === id || book.id === +id)
+        console.log(book, "this is it"),
+         book.price = +priceChange;
+    });
+    console.log(bookie)
+    showLocalToOwner(ascYear)
+    localStorage.setItem('Bookie shop', JSON.stringify(bookie))
+    bookie.renderItem(rootBooks)
+  },
+  deleteBook(id) {
+    // this.books = this.books.filter((book) => book.id !== id);
+    bookie.books = bookie.books.filter((book) => book.id !== id);
+    localStorage.setItem("Bookie shop", JSON.stringify(bookie));
+    console.log(JSON.parse(localStorage.getItem("Bookie shop")));
+    console.log(bookie)
+    showLocalToOwner(ascYear);
+    bookie.renderItem(rootBooks)
+  },
+};
 
-    // localBookie.makeOptions(ev)
-    // how to use localStorage:
-    //   window.localStorage.setItem("Bookie shop", JSON.stringify(bookie));
-    // let shopRetreval = localStorage.getItem("Bookie shop");
-    // console.log("retrievedShop: ", JSON.parse(shopRetreval));
-  }
-  function showPreviewImage(ev: any) {
-    const imagePreview = document.querySelector("[data-bookImage-preview]");
-    const imgLink = ev.target.files[0].name;
-    const preview = `<img src="./Images/${imgLink}" alt="">`;
-    console.dir(imagePreview);
-    console.dir(preview);
-    console.dir(imgLink);
-    imagePreview.innerHTML = preview;
-  }
-  
-  function handleUpdate(ev: any) {
-    ev.preventDefault();
-    console.dir(ev.target);
-  }
-  
-  
-  
-  
-  localStorage.setItem("Bookie shop", JSON.stringify(localBookie))
-  const stringBookie = localStorage.getItem("Bookie shop")
-let parsedBookie = JSON.parse(stringBookie)
-console.log(parsedBookie)
-let ascPrice =(a:book,b:book)=>{
-  return a.price - b.price
-}
-let descPrice = (a, b) => {
-  return b.price - a.price;
-}
-let ascYear =(a:book,b:book)=>{
-  return a.year - b.year
-}
-let descYear = (a, b) => {
-  return b.price - a.price;
-}
-  // create an option to choose and update for each book
-  function makeAnOption(shop: BookShop, root, sortFunc) {
-    root.innerHTML = '';
-    shop.books.sort(sortFunc);
-  shop.books.forEach(
-    (book) =>
-      (root.innerHTML += `<option value="${book.id}">${book.title}(${book.year})</option>`)
-  );
-}
-makeAnOption(localBookie, selectRoot, descPrice)
-console.log(parsedBookie)
-console.log(localBookie)
+// addingForm.onsubmit(function(e) {})
 
+//function handleAddToCart()
+//function handleOpenThis()
+//function handleOpenMenu()
+//function handleCloseMenu()
+//function handleSortDesc()
+//function handleSortAsc(ev)
+function makeId(book: book) {
+  let uid = Math.random().toString(36).slice(-8);
+  if (book.id === "uid") {
+    book.id = uid;
+  } else {
+    return;
+  }
+}
+bookie.renderItem(rootBooks);
+
+function handleAddItem(ev: any) {
+  ev.preventDefault();
+  bookie.addItem(ev);
+  localStorage.setItem("Bookie shop", JSON.stringify(bookie));
+  ev.target.reset();
+}
+function showPreviewImage(ev: any) {
+  const imagePreview = document.querySelector("[data-bookImage-preview]");
+  const imgLink = ev.target.files[0].name;
+  const preview = `<img src="./Images/${imgLink}" alt="">`;
+  imagePreview.innerHTML = preview;
+}
+
+function showLocalToOwner(sortFunc) {
+  if (window.document.title === "myBookie") {
+
+  bookie.books.sort(sortFunc);
+  localStorage.setItem("Bookie shop", JSON.stringify(bookie));
+  JSON.parse(localStorage.getItem("Bookie shop"));
+  ownerTable.innerHTML = `<tr>
+  <th>ID</th>
+  <th>Category</th>
+  <th>Title</th>
+  <th>price</th>
+  <th>Img</th>
+  <th>Year</th>
+  <th>Functions</th>
+</tr>`;
+  for (let book in bookie.books) {
+    ownerTable.innerHTML += `<tr>
+  <td> ${bookie.books[book].id}  </td>
+  <td> ${bookie.books[book].category}  </td>
+  <td> ${bookie.books[book].title} </td>
+  <td> ${bookie.books[book].price}</td>
+  <td> <img src="./Images/${bookie.books[book].img}" alt=""></td>
+  <td> ${bookie.books[book].year}</td>
+  <td data-delete-update> 
+  <a onclick="handleDelete(event)">Delete</a>
+  <a onclick="handleEdit(event)">Change Price</a>
+  <input data-priceChange type="number" name="priceChange" placeholder="${bookie.books[book].price}" value="${bookie.books[book].price}">
+  </td>
+  </tr>`;
+  }
+}
+}
+
+function handleEdit(ev) {
+  let data = ev.target.parentElement.parentElement.cells;
+  let id = data[0].textContent.replaceAll(/\s/g,'');
+  let priceChange = data[6].children.priceChange.valueAsNumber;
+  bookie.updateBook(id, priceChange);
+  bookie.renderItem(rootBooks)
+}
+function handleDelete(ev) {
+  let data = ev.target.parentElement.parentElement.cells;
+  let id = +data[0].textContent || data[0].textContent.replaceAll(/\s/g,'');
+  bookie.deleteBook(id);
+}
+
+function handleOwnerSort(ev: any) {
+  if (window.document.title === "myBookie")
+  ev.preventDefault();
+  let sortFunc = ev.target.value;
+  if (sortFunc === 'ascYear'){
+    showLocalToOwner(ascYear)
+    return
+  }
+  if(sortFunc === 'descYear'){
+    showLocalToOwner(descYear)
+    return
+  }
+  if(sortFunc === 'ascPrice'){
+    showLocalToOwner(ascPrice)
+    return
+  }
+  showLocalToOwner(descPrice)
+}
+
+function handleCustomerSort(ev: any) {
+  if (window.document.title === "Bookie")
+  ev.preventDefault();
+  let sortFunc = ev.target.value;
+  if (sortFunc === 'ascYear'){
+    bookie.books.sort(ascYear)
+    bookie.renderItem(rootBooks)
+    return
+  }
+  if(sortFunc === 'descYear'){
+    bookie.books.sort(descYear)
+    bookie.renderItem(rootBooks)
+    return
+  }
+  if(sortFunc === 'ascPrice'){
+    bookie.books.sort(ascPrice)
+    bookie.renderItem(rootBooks)
+    return
+  }
+  bookie.books.sort(descPrice)
+  bookie.renderItem(rootBooks)
+}
+
+window.onload = function () {
+  if (window.document.title === "Bookie") {
+    window.addEventListener("scroll", function (e) {
+      if (window.pageYOffset > 100) {
+        document.querySelector("header").classList.add("is-scrolling");
+      } else {
+        document.querySelector("header").classList.remove("is-scrolling");
+      }
+    });
+
+    const menu_btn = document.querySelector(".navBar__row1__mobile__humburger");
+    const mobile_menu = document.querySelector(".mobileOptions");
+
+    menu_btn.addEventListener("click", function () {
+      menu_btn.classList.toggle("is-active");
+      mobile_menu.classList.toggle("is-active");
+    });
+  }
+  showLocalToOwner(undefined);
+};
