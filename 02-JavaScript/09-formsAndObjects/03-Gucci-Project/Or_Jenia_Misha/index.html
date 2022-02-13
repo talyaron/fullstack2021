@@ -13,16 +13,22 @@
     <link rel="shortcut icon" sizes="16x16" type="image/x-icon"
         href="http://www.fusushi.co.il/warehouse/dynamic/50900.png">
     <script src="https://kit.fontawesome.com/e87667ff79.js" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/17bc989cf6.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="dist/style.css">
     <title>Fu - Sushi Restaurant in Tel-Aviv</title>
 </head>
 
 <body id="bodystore">
+
     <div class="blurwrapper"></div>
+
     <section class='home' id="home">
         <div class="homeopacity">
-            <div class="cartIcon" id="cartIcon"><i class="fa-cart-shopping"></i></div>
+
+            <section class="cart">
+            <div class="cart__close">X</div>
+            <div class="cart__box" id="cartIcon"></div>
+            </section>
+
             <nav class="navbar">
 
                 <div class="burger">
@@ -226,28 +232,6 @@
         </div>
 
     </section>
-    <section class = "cartPop">
-        <div class = "cart">
-            <h3 class = "cart__header">Your Cart</h3>
-            <div class ="cart__cell" id="rootCart">
-                
-            </div>
-
-
-        </div>
-
-
-
-
-
-
-
-
-
-
-    </section>
-
-
 
     <script src='dist/index.js'></script>
 </body>
