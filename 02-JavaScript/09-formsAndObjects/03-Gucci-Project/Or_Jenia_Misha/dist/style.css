@@ -596,6 +596,28 @@ html {
     height: 50%;
   }
 }
+.cartIcon {
+  width: 50px;
+  height: 50px;
+  border-radius: 20%;
+  background-color: #EBEBEB;
+  position: fixed;
+  right: 8%;
+  top: 5.5%;
+  cursor: pointer;
+}
+
+.cart {
+  position: fixed;
+  width: 250px;
+  height: 400px;
+  background-color: #EBEBEB;
+  top: 12%;
+  right: 3%;
+  border-radius: 10px;
+  padding: 5px;
+}
+
 .dishesERP {
   border: 1px solid black;
   width: 50%;
