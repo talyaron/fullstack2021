@@ -71,7 +71,7 @@ const StandartEbooks= {
     {
       title: "The Three-Body Problem",
       author: "Liu Cixin",
-      genre: "science fictionscience fiction",
+      genre: "science fiction",
       year: 2008,
       rank: 4.07,
       price: 15,
