@@ -100,7 +100,8 @@ var StandartEbooks = {
             year: 1981,
             rank: 10.0,
             price: 43,
-            img: "https://litlife.club/data/Book/0/0/755/BC3_1386593870.jpg?w=600&h=600&q=90"
+            img: "https://litlife.club/data/Book/0/0/755/BC3_1386593870.jpg?w=600&h=600&q=90",
+            annotation: "Book Description Hilariously picaresque, epic in scope, alive with the poetry and vigor of the American people, Mark Twain's story about a young boy and his journey down the Mississippi was the first great novel to speak in a truly American voice. Influencing subsequent generations of writers — from Sherwood Anderson to Twain's fellow Missourian, T.S. Eliot, from Ernest Hemingway and William Faulkner to J.D. Salinger — Huckleberry Finn, like the river which flows through its pages, is one of the great sources which nourished and still nourishes the literature of America."
         },
     ],
     storeData: function () {
@@ -117,11 +118,26 @@ var StandartEbooks = {
         this.books.push({ title: title, author: author, genre: genre, year: year, rank: rank, price: price, img: img, annotation: annotation, id: id });
         this.storeData();
     },
-    deleteBook: function (bookName) {
-        var index = this.books.findIndex(function (book) { return book.title === bookName; });
+    deleteBook: function (title) {
+        var index = this.books.findIndex(function (book) { return book.title === title; });
         if (index >= 0) {
             this.books.splice(index, 1);
-            this.storeData();
+        }
+        this.storeData();
+    },
+    updateBook: function (updateBook) {
+        var index = this.books.findIndex(function (book) { return book.id === updateBook.id; });
+        if (index >= 0) {
+            this.books[index].title = updateBook;
+        }
+        this.storeData();
+    },
+    showAnnotation: function (annotation) {
+        // const id = uid();
+        var index = this.books.findIndex(function (book) { return book.img === annotation; });
+        if (index >= 0) {
+            var annotation_1 = this.querySelector('.annotation');
+            annotation_1.style.visibility = 'visible';
         }
     },
     // sortAscenByAuthor() {
@@ -140,12 +156,24 @@ var StandartEbooks = {
                 return 1;
             return 0; //default return value (no sorting)
         });
+        this.books.forEach(function (book) {
+            console.log(book.author);
+        });
     },
     sortDescenByAuthor: function () {
         this.books = this.books.sort(function (a, b) {
-            return b.author - a.author;
+            var authorA = a.author.toLowerCase(), authorB = b.author.toLowerCase();
+            if (authorA < authorB)
+                //sort string ascending
+                return 1;
+            if (authorA > authorB)
+                return -1;
+            return 0; //default return value (no sorting)
         });
-        console.dir(this);
+        console.log('------');
+        this.books.forEach(function (book) {
+            console.log(book.author);
+        });
     },
     sortAscenByYear: function () {
         this.books = this.books.sort(function (a, b) {
@@ -200,8 +228,13 @@ var StandartEbooks = {
     render: function (list, domElement) {
         var html = " ";
         list.forEach(function (book) {
-            html += "<div class=\"container__card\">\n                  <h2>" + book.title + "</h2>\n                  <h3> " + book.author + "</h3>      \n                  <img class=\"img\" src=\"" + book.img + "\">\n                  <p>" + book.year + " &nbsp &nbsp " + book.price + "$</p> \n                  \n                  <div class=\"rating\">                 \n                      <i class=\"far fa-star\" data-num=\"1\"></i>\n                      <i class=\"far fa-star\" data-num=\"2\"></i>\n                       <i class=\"far fa-star\" data-num=\"3\"></i>\n                       <i class=\"far fa-star\" data-num=\"4\"></i>\n                      <i class=\"far fa-star\" data-num=\"5\"></i>\n                   </div> \n\n                  <p> " + book.rank + "</p>\n                  <input  class = \"container__card__addToCardBtn\" onclick = \"handleAddToCard()\" id =\"addToCard\" type =\"button\" value = \"Add to cart\">\n               </div>";
-            //  <div class="annotation">${book.annotation}</div>
+            html += "<div class=\"container__card\" onmouseover = \"handleShowAnnotation(event)\" >\n                  <h2>" + book.title + "</h2>\n                  <h3> " + book.author + "</h3>      \n                  <img class=\"img\" src=\"" + book.img + "\">\n                  <p>" + book.year + " &nbsp &nbsp " + book.price + "$</p> \n                  \n                  <div class=\"rating\">                 \n                      <i class=\"far fa-star\" data-number=\"1\"></i>\n                      <i class=\"far fa-star\" data-number=\"2\"></i>\n                       <i class=\"far fa-star\" data-number=\"3\"></i>\n                       <i class=\"far fa-star\" data-number=\"4\"></i>\n                      <i class=\"far fa-star\" data-number=\"5\"></i>\n                   </div> \n\n                  <p> " + book.rank + "</p>\n                  <input  class = \"container__card__addToCardBtn\" onclick = \"handleAddToCard()\" id =\"addToCard\" type =\"button\" value = \"Add to cart\">              \n               </div>",
+                "<div class=\"annotation\">" + book.annotation + "</div>";
+            //  <form class="inputs__form" onsubmit="handleUpdateBook(event, ${book.id})">
+            //  <input class="container__inputs__form__one__inp" type="text" name="update" id="update"
+            //      placeholder="Enter new title">
+            //  <input class="container__inputs__form__one__inp" type="submit" id="updateBtn" value="update">
+            // </form>`
         });
         domElement.innerHTML = html;
     },
@@ -210,6 +243,11 @@ var StandartEbooks = {
         this.render(list, domElement);
     }
 };
+// doesnt work
+// function handleShowAnnotation() {
+//   const annotation: any = document.querySelector('.annotation');
+//   StandartEbooks.showAnnotation(annotation);
+// }
 function handleAddBook(e) {
     e.preventDefault();
     var id = uid();
@@ -222,55 +260,84 @@ function handleAddBook(e) {
     var price = e.target.price.valueAsNumber;
     var img = e.target.img.value;
     var annotation = e.target.annotation.value;
-    var root = document.querySelector(".root");
+    var root = document.querySelector("#root");
     StandartEbooks.addBook(title, author, genre, year, rank, price, img, annotation);
     StandartEbooks.renderAllBooks(root);
     StandartEbooks.storeData();
 }
+// doesnt work
 function handleDeleteBook(e) {
     e.preventDefault();
-    console.log(e);
-    var name = e.targer.elements["delete"].value;
-    var root = document.querySelector(".root");
-    StandartEbooks.deleteBook(bookName);
-    StandartEbooks.renderAllBooks(root);
-    StandartEbooks.storeData();
+    try {
+        console.log(e);
+        console.log(e.target.elements["delete"].value);
+        var title = e.target.elements["delete"].value;
+        var root_1 = document.querySelector("#root");
+        if (title) {
+            console.log(title);
+            StandartEbooks.deleteBook(title);
+            StandartEbooks.renderAllBooks(root_1);
+            StandartEbooks.storeData();
+        }
+        else {
+            throw new Error('User didnt write a title');
+        }
+    }
+    catch (err) {
+        console.error(err);
+    }
 }
+// doesnt work
+function handleUpdateBook(e) {
+    e.preventDefault();
+}
+// doesnt work
 function handleAuthorAscen() {
-    StandartEbooks.sortAscenByAuthor();
-    var root = document.querySelector(".root");
-    StandartEbooks.renderAllBooks(root);
+    try {
+        StandartEbooks.sortAscenByAuthor();
+        var root_2 = document.querySelector("#root");
+        StandartEbooks.renderAllBooks(root_2);
+    }
+    catch (err) {
+        console.error(err);
+    }
 }
+// doesnt work
 function handleAuthoreDescen() {
-    StandartEbooks.sortDescenByAuthor();
-    var root = document.querySelector(".root");
-    StandartEbooks.renderAllBooks(root);
+    try {
+        StandartEbooks.sortDescenByAuthor();
+        var root_3 = document.querySelector("#root");
+        StandartEbooks.renderAllBooks(root_3);
+    }
+    catch (err) {
+        console.error(err);
+    }
 }
 function handleYearAscen() {
     StandartEbooks.sortAscenByYear();
-    var root = document.querySelector(".root");
+    var root = document.querySelector("#root");
     StandartEbooks.renderAllBooks(root);
 }
 function handleYearDescen() {
     StandartEbooks.sortDescenByYear();
-    var root = document.querySelector(".root");
+    var root = document.querySelector("#root");
     StandartEbooks.renderAllBooks(root);
 }
 function handleRankingAscen() {
     StandartEbooks.sortAscenByRanking();
-    var root = document.querySelector(".root");
+    var root = document.querySelector("#root");
     StandartEbooks.renderAllBooks(root);
 }
 function handleRankingeDescen() {
     StandartEbooks.sortDescenByRanking();
-    var root = document.querySelector(".root");
+    var root = document.querySelector("#root");
     StandartEbooks.renderAllBooks(root);
 }
 function handleFilterByYear(e) {
     e.preventDefault();
     // console.log(e);
     var year = e.target.valueAsNumber;
-    var root = document.querySelector(".root");
+    var root = document.querySelector("#root");
     if (year) {
         var filteredByYear = StandartEbooks.filterByYear(year);
         StandartEbooks.renderFilterByYear(filteredByYear, root);
@@ -282,7 +349,7 @@ function handleFilterByYear(e) {
 function handleFilterByRank(e) {
     e.preventDefault();
     var rank = e.target.valueAsNumber;
-    var root = document.querySelector(".root");
+    var root = document.querySelector("#root");
     if (rank) {
         var filteredByRank = StandartEbooks.filterByRank(rank);
         StandartEbooks.renderFilterByRank(filteredByRank, root);
@@ -294,7 +361,7 @@ function handleFilterByRank(e) {
 function handleFilterByGenre(e) {
     e.preventDefault();
     var genre = e.target.value;
-    var root = document.querySelector(".root");
+    var root = document.querySelector("#root");
     if (genre) {
         var filterByGenre = StandartEbooks.filterByGenre(genre);
         StandartEbooks.renderFilterByGenre(filterByGenre, root);
@@ -306,7 +373,7 @@ function handleFilterByGenre(e) {
 function handleFilterByAuthor(e) {
     e.preventDefault();
     var author = e.target.value;
-    var root = document.querySelector(".root");
+    var root = document.querySelector("#root");
     if (author) {
         var filterByAuthor = StandartEbooks.filterByAuthor(author);
         StandartEbooks.renderFilterByAuthor(filterByAuthor, root);
@@ -318,7 +385,7 @@ function handleFilterByAuthor(e) {
 function handleFilterByTitle(e) {
     e.preventDefault();
     var title = e.target.value;
-    var root = document.querySelector(".root");
+    var root = document.querySelector("#root");
     if (title) {
         var filterByTitle = StandartEbooks.filterByTitle(title);
         StandartEbooks.renderFilterByTitle(filterByTitle, root);
@@ -328,17 +395,14 @@ function handleFilterByTitle(e) {
     }
 }
 StandartEbooks.getData();
-var root = document.querySelector(".root");
+var root = document.querySelector("#root");
 StandartEbooks.renderAllBooks(root);
-function bookName(bookName) {
-    throw new Error("Function not implemented.");
-}
 var allstars = document.querySelectorAll('.fa-star');
 allstars.forEach(function (star) {
     star.onclick = function () {
-        var starlevel = star.getAttribute('data-num');
+        var starlevel = star.getAttribute('data-number');
         allstars.forEach(function (element) {
-            if (starlevel < element.getAttribute('data-num')) {
+            if (starlevel < element.getAttribute('data-number')) {
                 element.classList.remove('fas');
                 element.classList.add('far');
             }

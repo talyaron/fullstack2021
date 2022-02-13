@@ -67,8 +67,8 @@ body {
     background-color:var(--genergal-text-color);
     width: 2em;
     left: 95%;
-    bottom: 50%;
-    z-index: 1;
+    bottom: 70%;
+    z-index: 2;
     &::after{
       content:""
     }
@@ -130,6 +130,7 @@ footer {
       display: block;
       background-color:black;
       border:black solid;
+      outline-style:ridge;
     }
   }
   }

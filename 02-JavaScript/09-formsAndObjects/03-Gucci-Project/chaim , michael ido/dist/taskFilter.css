@@ -73,7 +73,7 @@
 }
 .main_form-actions-btn {
   width: 33%;
-  box-shadow: rgba(218, 88, 88, 0.75) 0px 30px 60px -12px inset, rgba(183, 96, 199, 0.8) 0px 18px 36px -10px inset;
+  box-shadow: rgba(114, 57, 57, 0.75) 0px 30px 60px -12px inset, rgba(183, 96, 199, 0.8) 0px 18px 36px -10px inset;
   font-size: 5vh;
   cursor: pointer;
 }
@@ -129,7 +129,6 @@
 .main_scrollmenu {
   display: flex;
   flex-direction: column;
-  height: 60vh;
   margin-top: 5px;
   border-top: 1px solid #46404a;
   border-bottom: 1px solid #46404a;
@@ -146,10 +145,11 @@
   white-space: nowrap;
 }
 .main_scrollmenu-box-card {
-  height: 100%;
-  background-color: #0f0808;
-  width: 50%;
+  height: fit-content;
+  background-color: #0f0809;
+  min-width: 25%;
   row-gap: 5px;
+  font-size: 20px;
   text-align: center;
   border: 1px solid #fdfcfc;
 }

@@ -60,8 +60,8 @@
                     <input class="container__inputs__form__one__inp" type="number" name="year" id="year"
                     placeholder="Year of publishing">
                 <input class="container__inputs__form__one__inp" type="number" name="rank" id="rank" placeholder="Rank">
-                <textarea class="container__inputs__form__one__inp annotation" name="annotation" id="annotation" maxlength="500"
-                    cols="50" rows="10" placeholder="Wright book annotation here"></textarea>
+                <textarea class="container__inputs__form__one__inp annotation" name="annotation" id="annotation" maxlength="2000"
+                    cols="200" rows="200" placeholder="Wright book annotation here"></textarea>
                 <input class="container__inputs__form__one__inp" type="submit" name="submit" id="" value="Add a book">
             </div>
         </form>
@@ -71,9 +71,16 @@
     <div class="container__inputs">
         <form class="inputs__form" onsubmit="handleDeleteBook(event)">
             <input class="container__inputs__form__one__inp" type="text" name="delete" id="delete"
-                placeholder="Enter a book title to delete">
+                placeholder="Enter title to delete">
             <input class="container__inputs__form__one__inp" type="submit" id="deleteBtn" value="delete">
         </form>
+
+        <!-- <form class="inputs__form" onsubmit="handleUpdateBook(event, `${book.id}`)">
+            <input class="container__inputs__form__one__inp" type="text" name="update" id="update"
+                placeholder="Enter new title">
+            <input class="container__inputs__form__one__inp" type="submit" id="updateBtn" value="update">
+        </form> -->
+
     </div>
 
 
@@ -81,7 +88,7 @@
 
     <div class="container"></div>
 
-    <div class="root"></div>
+    <div id="root"></div>
     <script src="dist/index.js"></script>
 </body>
 

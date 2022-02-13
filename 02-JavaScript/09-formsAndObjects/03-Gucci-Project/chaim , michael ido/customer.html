@@ -9,6 +9,7 @@
     <title>customer page</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Ubuntu:wght@300&display=swap" rel="stylesheet">
 </head>
 <style>
    
@@ -20,25 +21,30 @@
             <a href="customer.html" class="container_header-logo"></a> 
              <div class="container_header-search"><input type="search" placeholder="Search for a product"></div>
              <div class="container_header_menu">
-                <button class="container_header_menu-btn" onclick="showNotifications()"><i class="fas fa-bell fa-2x"></i><p class="btnDiscription">Notifications</p></button>
-               <button class="container_header_menu-btn" onclick="signIn()"><i class="fas fa-user-tie fa-2x" ></i><p class="btnDiscription">Sign In</p></button>
-               <button class="container_header_menu-btn" onclick="showOrders()"><i class="fas fa-truck-loading fa-2x" ></i><p class="btnDiscription">Your orders</p></button>
-               <button class="container_header_menu-btn" onclick="displayCart()"><i class="fas fa-shopping-cart fa-2x" ></i><p class="btnDiscription">Shopping cart</p></button>
+                <button id="notificationsBtn" class="container_header_menu-btn" onclick="showDropDown(event)">
+                    <i id="notificationsBtn" class="fas fa-bell fa-2x" onclick="showDropDown(event)"></i><p id="notificationsBtn" class="btnDiscription">Notifications</p></button>
+               <button id="signInBtn" class="container_header_menu-btn" onclick="showDropDown(event)">
+                <i id="signInBtn" class="fas fa-user-tie fa-2x" onclick="showDropDown(event)"></i><p id="signInBtn" class="btnDiscription">Sign In</p></button>
+               <button id="yourOrdersBtn" class="container_header_menu-btn" onclick="showDropDown(event)">
+                <i id="yourOrdersBtn" class="fas fa-truck-loading fa-2x" onclick="showDropDown(event)"></i><p id="yourOrdersBtn" class="btnDiscription">Your orders</p></button>
+               <button id="shoppingCartBtn" class="container_header_menu-btn" onclick="showDropDown(event)">
+                <i id="shoppingCartBtn" class="fas fa-shopping-cart fa-2x"></i><p id="shoppingCartBtn" class="btnDiscription">Shopping cart</p></button>
              </div>
              <div class="container_header-dropDown">
-                 <div style="background-color: gray; " id="notifications" class="container_header-dropDown-box">
+                 <!-- <div id="notifications" class="container_header-dropDown-box notifications" style="background-color: gray;">
                     <p style="font-size: 12px">no notifications found</p>
-                 </div>
-                 <div id="signIn" class="container_header-dropDown-box">
+                 </div> -->
+                 <!-- <div id="signIn" class="container_header-dropDown-box signIn">
                      <input class="container_header-dropDown-box-signInInput" type="email" name="UserName" id="userName" placeholder="User Name" >
                      <input class="container_header-dropDown-box-signInInput" type="password" name="password" id="password" placeholder="Password">
-                 </div>
-                 <div  id="yourOrders" class="container_header-dropDown-box"><p style="font-size: 12px">no Orders yet...</p></div>
-                 <div id="ShoppingCart" class="container_header-dropDown-box">
-                     <div class="container_header-dropDown-box-item">
-
-                     </div>
-                 </div>
+                     <button type="button" class="singIn-btn">Sign In</button>
+                 </div> -->
+                 <!-- <div id="yourOrders" class="container_header-dropDown-box yourOrders">
+                     <p style="font-size: 12px">no Orders yet...</p>
+                    </div> -->
+                 <!-- <div id="shoppingCart" class="container_header-dropDown-box shoppingCart">
+                     <div class="container_header-dropDown-box-item"></div>
+                 </div> -->
              </div>             
          </div>
          <div class="container-imgsBox" id="ImgsBox"></div>
@@ -51,16 +57,12 @@
 
          <div class="container_sortANDfilterBtns" >
              <div id="sortANDfilterBtnsTshirts" class="container_sortANDfilterBtns-box"></div>
-             <div id="sortANDfilterBtnsShoes"  class="container_sortANDfilterBtns-box"></div>
-             <div id="sortANDfilterBtnsPants"  class="container_sortANDfilterBtns-box"></div>
+             <div id="sortANDfilterBtnsShoes" class="container_sortANDfilterBtns-box"></div>
+             <div id="sortANDfilterBtnsPants" class="container_sortANDfilterBtns-box"></div>
          </div>
-         <div class="container_catagories-display">
-             <!-- <div class="container_catagories-display-card"> -->
-                 <!-- <div class="container_catagories-display-card-details"></div>
-               <div id="itemImg" class="container_catagories-display-card-img"></div> -->
-             <!-- </div> -->
-         </div>
+         <div class="container_catagories-display"></div>
 
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 
          <!-- <form class="container_sortANDfilterBtns-box_form" onsubmit="displayFilter(event)"></form> -->
@@ -78,6 +80,12 @@
          </div>
          
 >>>>>>> Stashed changes
+=======
+ <div class="container-shoppingCart">
+    <div class="container-shoppingCart_display"></div>
+ </div>
+         
+>>>>>>> 3c608791b25a27aa87b11e7cdc53551addfe70e4
 </div>
 <script src="dist/taskFilter.js"></script>
  

@@ -85,10 +85,9 @@
 
             &-btn {
                 width: 33%;
-                box-shadow: rgba(218, 88, 88, 0.75) 0px 30px 60px -12px inset, rgba(183, 96, 199, 0.8) 0px 18px 36px -10px inset;
+                box-shadow: rgba(114, 57, 57, 0.75) 0px 30px 60px -12px inset, rgba(183, 96, 199, 0.8) 0px 18px 36px -10px inset;
                 font-size: 5vh;
                 cursor: pointer;
-
 
             }
         }
@@ -159,7 +158,7 @@
     &_scrollmenu {
         display: flex;
         flex-direction: column;
-        height: 60vh;
+      //  height: 60vh;
         margin-top: 5px;
         border-top: 1px solid rgb(70, 64, 74);
         border-bottom: 1px solid rgb(70, 64, 74);
@@ -169,7 +168,7 @@
 
         &-box {
             height: 100%;
-            width: 100%;
+           width: 100%;
             border-bottom: 10px solid(0, 0, 0);
             display: flex;
             flex-direction: row;
@@ -180,10 +179,11 @@
 
 
             &-card {
-                height: 100%;
-                background-color: rgb(15, 8, 8);
-                width: 50%;
+                height: fit-content;
+                background-color: rgb(15, 8, 9);
+               min-width: 25%;
                 row-gap: 5px;
+                font-size: 20px;
                 text-align: center;
                 border: 1px solid rgb(253, 252, 252);
 
@@ -493,3 +493,4 @@
         }
     }
 }
+

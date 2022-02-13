@@ -1,0 +1,390 @@
+* {
+  box-sizing: border-box;
+  font-family: "Arimo", sans-serif;
+}
+
+.main {
+  height: 1000px;
+  margin: auto;
+  background-image: linear-gradient(90deg, #464a4b, rgba(160, 167, 166, 0)), repeating-linear-gradient(-45deg, #1b4677, #1b7557 1.5px, #456bb3 2px, #422dbd 4px);
+}
+.main-header {
+  text-decoration: underline;
+  font-size: 20vh;
+  color: sienna;
+  text-align: center;
+  font-family: sans-serif;
+  font-family: "Arimo", sans-serif;
+}
+.main_form {
+  height: 700px;
+  display: grid;
+  grid-template-columns: repeat(3, 33%);
+  grid-template-rows: repeat(10, 1fr);
+}
+.main_form_btns {
+  grid-column: 1/4;
+  grid-row: 9/11;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.main_form_btns-Btn {
+  box-shadow: rgba(38, 168, 21, 0.55) 0px 30px 60px -12px inset, #775521 0px 18px 36px -30px inset;
+  grid-column: 2/3;
+  color: brown;
+  width: 45%;
+  border-radius: 40px;
+  font-weight: 1000;
+  font-size: 7vh;
+  cursor: pointer;
+}
+.main_form-selectCatagory {
+  font-weight: bold;
+  box-shadow: rgba(153, 135, 102, 0.85) 0px 30px 60px -12px inset, rgba(77, 76, 74, 0.5) 0px 18px 36px -30px inset;
+  height: 10vh;
+  text-align: center;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 100%;
+  background: burlywood;
+  grid-column: 1/4;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 7vh;
+}
+.main_form-selectCatagory-options {
+  font-size: 15px;
+  border: 10px solid black;
+  font-weight: 400;
+  display: inline-block;
+  text-decoration-style: underline;
+}
+.main_form-selectCatagory-sortOptions {
+  height: 5vh;
+}
+.main_form-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  grid-column: 1/4;
+  grid-row: 3;
+}
+.main_form-actions-btn {
+  width: 33%;
+  box-shadow: rgba(114, 57, 57, 0.75) 0px 30px 60px -12px inset, rgba(183, 96, 199, 0.8) 0px 18px 36px -10px inset;
+  font-size: 5vh;
+  cursor: pointer;
+}
+.main_form-displayOptions {
+  grid-row: 5/9;
+  grid-column: 1/4;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.main_form-displayOptions-filterOptions {
+  justify-self: start;
+  height: 30%;
+  width: 100%;
+  border: 3px solid white;
+  box-shadow: rgba(16, 119, 56, 0.55) 0px 30px 60px -12px inset, #77550c 0px 18px 36px -30px inset;
+}
+.main_form-filter-btn {
+  width: 40%;
+  height: 33%;
+  box-shadow: rgba(68, 67, 66, 0.75) 0px 30px 60px -12px inset, rgba(24, 102, 107, 0.8) 0px 18px 36px -10px inset;
+  font-size: 5vh;
+}
+.main_form-filterInputs {
+  box-shadow: rgba(6, 61, 97, 0.85) 0px 30px 60px -12px inset, rgba(16, 63, 85, 0.5) 0px 18px 36px -30px inset;
+  height: 30%;
+}
+.main_form-filterInputs-option {
+  font-size: 15px;
+  background-color: #037043;
+}
+.main_form-filterInputsCustomer {
+  box-shadow: rgba(6, 61, 97, 0.85) 0px 30px 60px -12px inset, rgba(16, 63, 85, 0.5) 0px 18px 36px -30px inset;
+  height: 70%;
+  margin-left: 25px;
+  margin-top: -20px;
+  color: aliceblue;
+}
+.main_form-filterInputsCustomer::placeholder {
+  color: aliceblue;
+}
+.main_displayLists {
+  background-color: white;
+  overflow: auto;
+  white-space: nowrap;
+  border: 3px solid black;
+  margin-top: 5px;
+  height: 42vh;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+.main_scrollmenu {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px;
+  border-top: 1px solid #46404a;
+  border-bottom: 1px solid #46404a;
+  background-image: linear-gradient(90deg, #464a4b, rgba(160, 167, 166, 0)), repeating-linear-gradient(-45deg, #57779b, #1b7557 1.5px, #456bb3 2px, #422dbd 4px);
+}
+.main_scrollmenu-box {
+  height: 100%;
+  width: 100%;
+  border-bottom: 10px solid(0, 0, 0);
+  display: flex;
+  flex-direction: row;
+  column-gap: 3px;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.main_scrollmenu-box-card {
+  height: fit-content;
+  background-color: #0f0809;
+  min-width: 25%;
+  row-gap: 5px;
+  font-size: 20px;
+  text-align: center;
+  border: 1px solid #fdfcfc;
+}
+.main_scrollmenu-box-card-btn {
+  width: 100%;
+  font-size: 10px;
+  border-radius: 15px;
+  color: chocolate;
+  background: black;
+}
+.main_scrollmenu-box-card-head {
+  color: chocolate;
+  font-weight: 1000;
+}
+.main_scrollmenu-box-card-para {
+  margin-top: 8px;
+  font-size: 16px;
+  color: white;
+}
+.main_add {
+  height: 33%;
+  background-color: #523b55;
+  color: white;
+  font-size: 4vh;
+  text-align: center;
+}
+.main_add::placeholder {
+  color: snow;
+}
+.main_sortBtn {
+  height: 25%;
+  background-color: #523b55;
+  color: white;
+}
+
+.container {
+  max-width: 740px;
+  height: 900px;
+  margin: auto;
+  background: linear-gradient(#9df19d, transparent), linear-gradient(90deg, skyblue, transparent), linear-gradient(-90deg, coral, transparent);
+  background-blend-mode: screen;
+}
+.container_header {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  flex-direction: row;
+  margin-top: 10px;
+  height: 12vh;
+}
+.container_header-logo {
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRT2g09MmhCe-sbllbrt4IiSLhWaDxbGMrEegdPhPyT5uIkLMxjR-qAi_-AIvz61Ust4s&usqp=CAU);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  grid-row: 1/4;
+  grid-column: 1/2;
+  height: 10vh;
+  margin-top: -1vh;
+}
+.container_header-search {
+  height: 10vh;
+  grid-row: 1/4;
+  grid-column: 3/7;
+  justify-content: center;
+  margin-top: 1vh;
+}
+.container_header-search input {
+  width: 100%;
+  height: 50%;
+  align-self: center;
+  background-color: blanchedalmond;
+  border-radius: 10px;
+}
+.container_header_menu {
+  grid-column: 7/13;
+  height: 8vh;
+  grid-row: 1;
+  display: flex;
+  column-gap: 1rem;
+}
+.container_header_menu-btn {
+  background-color: transparent;
+  box-shadow: none;
+  display: inline-block;
+  width: 25%;
+  border: none;
+}
+.container_header_menu-btn p {
+  font-size: 12px;
+}
+.container_header-dropDown {
+  grid-column: 7/13;
+  grid-row: 2;
+  border: 3px solid red;
+  height: 20vh;
+  display: grid;
+  grid-template-columns: repeat(4, 25%);
+}
+.container_header-dropDown-box {
+  border: 2px solid black;
+}
+.container_header-dropDown-box-item {
+  width: 100%;
+  height: 35%;
+  border-bottom: 1px solid #5656e0;
+  background-color: #d4d3c9;
+}
+.container_header-dropDown-box-signInInput {
+  box-shadow: rgba(97, 88, 6, 0.85) 0px 30px 60px -12px inset, rgba(85, 216, 96, 0.5) 0px 18px 36px -30px inset;
+  height: 20%;
+  width: 100%;
+}
+.container-imgsBox {
+  background-image: url(https://s18670.pcdn.co/wp-content/uploads/Top-20-Teacher-T-Shirts-on-Etsy.png);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin: auto;
+  width: 100%;
+  height: 35%;
+  margin-top: 10px;
+}
+.container_catagories {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  flex-direction: row;
+  height: 20%;
+  margin: auto;
+}
+.container_catagories-box {
+  margin-top: 10px;
+  width: 35%;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.container_catagories-box-form {
+  border: 3px solid red;
+}
+.container_catagories-display {
+  width: 100%;
+  height: 25%;
+  margin-top: 5px;
+  border: 1px solid #c5bbbb;
+  display: flex;
+  flex-direction: column;
+  column-gap: 5px;
+  overflow-y: auto;
+  white-space: nowrap;
+}
+.container_catagories-display-card {
+  border-bottom: 5px solid black;
+  box-sizing: content-box;
+  box-shadow: rgba(110, 111, 112, 0.55) 0px 30px 60px 80px inset, rgba(12, 24, 94, 0.75) 0px 18px 36px 30px inset;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+}
+.container_catagories-display-card-details {
+  height: 100%;
+  grid-column: 1/2;
+  text-align: center;
+}
+.container_catagories-display-card-img {
+  height: 100%;
+  grid-column: 2/3;
+  border-left: 1px dotted black;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.container_catagories .Tshirts {
+  background-image: url("https://www.buytshirtdesigns.net/wp-content/uploads/2020/02/20-Gym-T-shirts-600x450.jpg");
+}
+.container_catagories .shoes {
+  background-image: url("https://thumbs.dreamstime.com/b/various-types-shoes-vector-graphics-silhouettes-various-types-shoes-vector-graphics-silhouettes-shoes-men-200369007.jpg");
+}
+.container_catagories .pants {
+  background-image: url("https://media.istockphoto.com/vectors/set-of-trousers-for-business-man-vector-id818252146?k=20&m=818252146&s=612x612&w=0&h=zA3CDwVXCfKAgIZ1FxkyfvGLRgKX_aentNe9AwmNDJw=");
+}
+.container_sortANDfilterBtns {
+  height: 7vh;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+.container_sortANDfilterBtns-box {
+  height: 80%;
+  width: 30%;
+  margin: auto;
+}
+.container_sortANDfilterBtns-box_form {
+  width: 100%;
+  height: 7vh;
+}
+.container_sortANDfilterBtns-box_form-filterInput {
+  box-shadow: rgba(6, 61, 97, 0.85) 0px 30px 60px -12px inset, rgba(16, 63, 85, 0.5) 0px 18px 36px -30px inset;
+  height: 3vh;
+  width: 60%;
+  color: #f0e8da;
+  font-size: 15px;
+  border-radius: 5px;
+}
+.container_sortANDfilterBtns-box_form-filterInput::placeholder {
+  color: #f0e8da;
+}
+.container_sortANDfilterBtns-box_form-submit {
+  width: 5vw;
+  border-radius: 15px;
+  color: white;
+  font-weight: 1000;
+  box-shadow: rgba(33, 13, 87, 0.75) 0px 54px 55px, rgba(32, 161, 101, 0.72) 0px -12px 30px, rgba(53, 100, 187, 0.82) 0px 4px 6px, rgba(101, 42, 136, 0.77) 0px 12px 13px, rgba(52, 88, 136, 0.99) 0px -3px 5px;
+  background-color: #6b442e;
+}
+.container-select {
+  border-radius: 15%;
+  font-size: 12px;
+  font-weight: bold;
+  box-shadow: rgba(40, 40, 41, 0.85) 0px 30px 60px -12px inset, rgba(25, 34, 153, 0.8) 0px 18px 36px 30px inset;
+  height: 4vh;
+  text-align: center;
+  appearance: none;
+  width: 45%;
+  background: #3256b9;
+  color: white;
+  font-weight: bold;
+  margin: auto;
+}
+.container-select-options {
+  font-size: 10px;
+  display: inline-block;
+  font-family: "Times New Roman", Times, serif;
+}
