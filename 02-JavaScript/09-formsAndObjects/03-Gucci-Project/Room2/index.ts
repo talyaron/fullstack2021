@@ -159,7 +159,7 @@ const Adidas: shop = {
 
       console.log("render");
 
-    });
+    })
     
 
     // const button = document.getElementById("button");
