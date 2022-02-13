@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,18 +8,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Montserrat:wght@100;200&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
     <script src="https://kit.fontawesome.com/cec039267b.js" crossorigin="anonymous"></script>
-
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    
     <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Montserrat:wght@100;200&display=swap"
         rel="stylesheet">
-
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <title>Card</title>
+    <title>CARD</title>
     <link rel="stylesheet" href="dist/style.css">
     <style>
         body {
@@ -30,9 +25,9 @@
             font-family: 'Montserrat', sans-serif;
         }
     </style>
-
 </head>
-<body>
+
+<body class="cardPage" onload="renderCard()">
     <div class="header">
 
         <div class="header__ImgLogo">
@@ -42,28 +37,22 @@
         </div>
 
         <div class="header__navBar">
-            <ul>
-                <li> <a href="./store.html">HOME</a></li>
-                <li> <a href="">SCIENCE FICTION</a></li>
-                <li><a href="">DETECTIVE</a></li>
-                <li><a href="">PROSE</a></li>
-                <li><a href="">ADVENTURE</a></li>
-                <li><a href="">CHILDREN</a></li>
-                <span class="material-icons">shopping_cart</span>
-                <a href="./erp.html" <span class="material-icons">view_headline</span></a>
-                <!-- <span class="material-icons">view_headline</span> -->
+            <!-- <ul> -->
+            <ul onclick="handleSelectByGenre(event)" >
+                <li> <a href="">HOME</a></li>
+                <li  value="ScienceF"><a href="">SCIENCE FICTION</a></li>
+                <li  value="detective"><a href="">DETECTIVE</a></a></li>
+                <li  value="adventures"><a href="">ADVENTURE</a></li>
+                <li  value="children"><a href="">CHILDREN</a></li>
+                <li  value="all" ><a href="">ALL BOOKS</a></li>
             </ul>
+                <a href="./card.html" <span  class="material-icons">shopping_cart</span></a>              
+                <a href="./erp.html" <span class="material-icons">view_headline</span></a>                        
         </div>
-
     </div>
     <img class="header__strapImg"
         src="https://d1hbl61hovme3a.cloudfront.net/se3/NET/SE3_hero_banner_Adult-Librarians.jpg" alt="">
 
-
-
-
-
-        
     <div class="buttons">
 
         <input class="filterByYear button " type='number' onkeyup="handleFilterByYear(event)"
@@ -76,101 +65,73 @@
         <input class="filterByGenre button " type='text' onkeyup="handleFilterByGenre(event)"
             placeholder="Looking for genre">
 
-
         <div class="buttons--sortAutor">
-            <button class="button" type="submit" id="ascenAuthor" onclick="handleAuthorAscen()">  Author  A  <ion-icon
-                    name="arrow-forward-outline"></ion-icon>  Z </button>
-            <button class="button" type="submit" id="descenAuthor" onclick="handleAuthoreDescen()"> Author  A <ion-icon
+            <button class="button" type="submit" id="ascenAuthor" onclick="handleAuthorAscen()"> Author A <ion-icon
+                    name="arrow-forward-outline"></ion-icon> Z </button>
+            <button class="button" type="submit" id="descenAuthor" onclick="handleAuthoreDescen()"> Author A <ion-icon
                     name="arrow-back-outline"></ion-icon>
-                 Z </button>
+                Z </button>
         </div>
 
         <div class="buttons--sortYear">
-            <button class="button" type="submit" id="ascenYear" onclick="handleYearAscen()"> Year  <ion-icon
+            <button class="button" type="submit" id="ascenYear" onclick="handleYearAscen()"> Year <ion-icon
                     name="arrow-up-outline"></ion-icon> </button>
-            <button class="button" type="submit" id="descenYear" onclick="handleYearDescen()"> Year  <ion-icon
+            <button class="button" type="submit" id="descenYear" onclick="handleYearDescen()"> Year <ion-icon
                     name="arrow-down-outline"></ion-icon> </button>
         </div>
 
-
         <div class="buttons--sortRanking">
             <button class="button" type="submit" id="ascenRanking" onclick="handleRankingAscen()"> Ranking
-                <ion-icon name="arrow-up-outline"></ion-icon> </button>
+                <ion-icon name="arrow-up-outline"></ion-icon>
+            </button>
             <button class="button" type="submit" id="descenRanking" onclick="handleRankingeDescen()"> Ranking
-                <ion-icon name="arrow-down-outline"></ion-icon> </button>
+                <ion-icon name="arrow-down-outline"></ion-icon>
+            </button>
         </div>
-
     </div>
 
 
-
-
-
-
-
-    <div class="container__card">
-        <h2>${book.title}</h2>
-        <h3>${book.author}</h3>      
-        <img class="img" src="${book.img}">
-        <p>${book.year} &nbsp &nbsp ${book.price}$</p>
-        <div class="rating">                 
-            <i class="far fa-star  " data-number="1" id="${book.title}" onclick = "handleStarClick(event)"></i>
-            <i class="far fa-star  " data-number="2" id="${book.title}" onclick = "handleStarClick(event)"></i>
-             <i class="far fa-star " data-number="3" id="${book.title}" onclick = "handleStarClick(event)"></i>
-             <i class="far fa-star " data-number="4" id="${book.title}" onclick = "handleStarClick(event)"></i>
-            <i class="far fa-star  " data-number="5" id="${book.title}" onclick = "handleStarClick(event)"></i>
-         </div>                   
-        <p> ${book.rank}</p>
-        <input  class = "container__card__addToCardBtn" onclick = "handleAddToCard()" id ="addToCard" type ="button" value = "Add to cart">
-     </div>
-
-
-
-
-    
-
-  
     <div id="rootCard"></div>
 
 
     <div class="bottom">
         <div class="bottom__services">
-            <p style="font-size: large;">EXCLUSIVE SERVICES</p>
-            <p>Standart Books Services</p>
-            <p>Standart Books An Appointment</p>
+            <a href="" style="font-size: large;">EXCLUSIVE SERVICES</a>
+            <a href="">Standart Books Services</a>
+            <a href="">Standart Books An Appointment</a>
         </div>
 
         <div class="bottom__help">
-            <p style="font-size: large;">NEED HELP?</p>
-            <p>Contact Us</p>
-            <p>Shipping Services</p>
-            <p>Payment Options</p>
-            <p>Unsubscribe</p>
+            <a href="" style="font-size: large;">NEED HELP?</a>
+            <a href="">Contact Us</a>
+            <a href="">Shipping Services</a>
+            <a href="">Payment Options</a>
+            <a href="">Unsubscribe</a>
         </div>
 
         <div class="bottom__company">
-            <p style="font-size: large;">THE COMPANY</p>
-            <p>About Standart Books</p>
-            <p>Standart Books Equilibrium</p>
-            <p>Code of Ethics</p>
-            <p>Careers</p>
-            <p>Privacy & Cookies</p>
-            <p>Corporate Information</p>
+            <a href="" style="font-size: large;">THE COMPANY</a>
+            <a href="">About Standart Books</a>
+            <a href="">Standart Books Equilibrium</a>
+            <a href="">Code of Ethics</a>
+            <a href="">Careers</a>
+            <a href="">Privacy & Cookies</a>
+            <a href="">Corporate Information</a>
         </div>
 
         <div class="bottom__find">
-            <p style="font-size: large;">FIND US ON</p>
-            <p>Facebook</p>
-            <p>Twitter</p>
-            <p>Instagram</p>
-            <p>Instagram Beauty</p>
-            <p>YouTube</p>
-            <p>Pinterest</p>
-            <p>Snapchat</p>
+            <a href="" style="font-size: large;">FIND US ON</a>
+            <a href="">Facebook</a>
+            <a href="">Twitter</a>
+            <a href="">Instagram</a>
+            <a href="">YouTube</a>
+            <a href="">Pinterest</a>
+            <a href="">Snapchat</a>
+            <a href="">Unsubscribe</a>
         </div>
 
         <div class="bottom__sign">
-            <p style="font-size: large;">SIGN UP FOR STANDART BOOKS UPDATES</p>
+            <a href="" style="font-size: large;">SIGN UP FOR STANDART BOOKS UPDATES</a>
             <p>By entering your email address<br> below, you consent to receiving<br> our newsletter with access<br>
                 to our latest collections,<br> events and initiatives. More<br> details on this are provided<br> in
                 our Privacy Policy</p>
@@ -178,18 +139,11 @@
             <p>STORE LOCATOR</p>
             <input type="text" name="" id="" placeholder="City, Region, Contry">
         </div>
-
-
-
     </div>
     <p style="color: rgb(129, 126, 126); border-radius: 8px; background-color: rgba(3, 9, 15, 0.377); font-size: small; padding: 2em; margin-top: 0;">© 2016 - 2020 Standart Books S.p.A. - All rights reserved. SIAE LICENCE # 2294/I/1936 and 5647/I/1936</p>
-    
 
 
-
-   
-
-    
     <script src="dist/index.js"></script>
 </body>
+
 </html>

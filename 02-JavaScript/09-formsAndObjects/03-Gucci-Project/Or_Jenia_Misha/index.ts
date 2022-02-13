@@ -694,3 +694,8 @@ function popNavBarActive() {
 }
 popNavBarActive();
 
+
+function popCartActive(){
+  const cart = document.getElementById("cartIcon");
+  // cart.addEventListener("click")
+} 

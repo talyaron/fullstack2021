@@ -5,9 +5,12 @@ const uid = function () {
 interface shop {
   id?: number;
   products: Array<product>;
+  wishlist:Array<any>;
+  // wishList: Array<product>;
   addItem(
     title: string,
     price: number,
+    gender:string,
     category: "Sneakers" | "Boots" | "Hi Tops" | "Flip Flops",
     pictureFront: string,
     pictureBack: string,
@@ -23,6 +26,7 @@ interface shop {
     id: number,
     newTitle: string,
     newPrice: number,
+    newGender:string,
     newCategory: string,
     newPictureFront: string,
     newPictureBack: string,
@@ -37,7 +41,7 @@ interface shop {
   sortByColor(color);
   sortByType(type);
   filterItems(highPrice?: number, lowPrice?: number);
-  renderFilter(domElement, filterd);
+  renderFilter( filterd: Array<product>, domElement);
   getData();
   setData();
   cartItems();
@@ -47,17 +51,21 @@ interface product {
   id: number;
   title: string;
   price: number;
+  gender:string;
   category: "Sneakers" | "Boots" | "Hi Tops" | "Flip Flops";
   pictureFront: string;
   pictureBack: string;
   color: string;
   description: string;
   shoeSize: number;
+  
 }
+
 
 const Adidas: shop = {
   // id:0,
-  products: [],
+  products: [], wishlist:[],
+  // wishList: [],
   getData() {
     const products = JSON.parse(localStorage.getItem("Adidas"));
     if (products) {
@@ -70,6 +78,7 @@ const Adidas: shop = {
   addItem(
     title,
     price,
+    gender,
     category,
     pictureFront,
     pictureBack,
@@ -83,6 +92,7 @@ const Adidas: shop = {
       id,
       title,
       price,
+      gender,
       category,
       pictureFront,
       pictureBack,
@@ -101,6 +111,10 @@ const Adidas: shop = {
 
     let html = "";
     this.products.forEach((product) => {
+      let text=document.URL;
+      let resultCustomer = text.substring(22, 35);
+      let resultOwner = text.substring(22, 35);
+      if(resultCustomer=="customer.html"){
       html += `
      <div class="cards__item" >
 
@@ -127,8 +141,8 @@ const Adidas: shop = {
       console.log("render");
     });
 
-    // const button = document.getElementById("button");
-    // console.log(button);
+    const button = document.getElementById("button");
+    console.log(button);
 
     domElement.innerHTML = html;
   },
@@ -136,6 +150,7 @@ const Adidas: shop = {
     id,
     newTitle,
     newPrice,
+    newGender,
     newCategory,
     newPictureFront,
     newPictureBack,
@@ -147,6 +162,7 @@ const Adidas: shop = {
     if (index >= 0) {
       this.products[index].title = newTitle;
       this.products[index].price = newPrice;
+      this.products[index].gender = newGender;
       this.products[index].category = newCategory;
       this.products[index].pictureFront = newPictureFront;
       this.products[index].pictureBack = newPictureBack;
@@ -183,15 +199,32 @@ const Adidas: shop = {
   sortByType(category) {
     return this.products.filter((element) => element.category === category);
   },
-  renderFilter(domElement, filterd) {
-    this.render(domElement, filterd);
+  renderFilter(filterd, domElement) {
+    console.log(filterd);
+    
+    this.render(filterd, domElement);
   },
+  WishList(id){
+    const index = this.products.findIndex((product) => product.id === id);
+    //console.log(`The index:${index}.`)
+    //console.log(`The id: ${id}.`)
+    let item;
+    item= Adidas.products[index]
+    this.wishlist.push(item);
+    console.log(Adidas.wishlist)
+    
+    
+}
 };
+
+
+
 
 function handleAddItem(ev) {
   ev.preventDefault();
   const title = ev.target.elements.title.value;
   const price = ev.target.elements.price.valueAsNumber;
+  const gender = ev.target.elements.title.value;
   const category = ev.target.elements.category.value;
   const pictureFront = ev.target.elements.pictureFront.value;
   const pictureBack = ev.target.elements.pictureBack.value;
@@ -203,6 +236,7 @@ function handleAddItem(ev) {
     title,
     price,
     category,
+    gender,
     pictureFront,
     pictureBack,
     color,
@@ -228,6 +262,7 @@ function handleUpdate(ev: any, itemId: number) {
 
   const newTitle: string = ev.target.elements.newTitle.value;
   const newPrice: number = ev.target.elements.newPrice.valueAsNumber;
+  const newGender:string = ev.target.elements.newGender.value;
   const newCategory: string = ev.target.elements.newCategory.value;
   const newPictureFront: string = ev.target.elements.newPictureFront.value;
   const newPictureBack: string = ev.target.elements.newPictureBack.value;
@@ -240,6 +275,7 @@ function handleUpdate(ev: any, itemId: number) {
     itemId,
     newTitle,
     newPrice,
+    newGender,
     newCategory,
     newPictureFront,
     newPictureBack,
@@ -249,8 +285,9 @@ function handleUpdate(ev: any, itemId: number) {
   );
   Adidas.renderAllData(root);
 }
+
 function handlePriceRange(ev) {
-  const root = document.getElementById("rootCart");
+  const root = document.getElementById("rootCustomer");
   const priceLow = ev.target.valueAsNumber;
   const priceHigh = ev.target.valueAsNumber;
   if (priceLow && priceHigh) {
@@ -258,58 +295,116 @@ function handlePriceRange(ev) {
     const filterd = Adidas.filterItems(priceLow && priceHigh);
     console.log(filterd);
 
-    Adidas.renderFilter(root, filterd);
+    Adidas.renderFilter(filterd, root);
   } else {
     this.renderAll();
   }
 }
 function handleSort(ev) {
-  const sort = ev.target.value;
+
   ev.preventDefault();
-  const root = document.getElementById("rootCards");
-  if (sort === ev.target.value.priceAsc) {
-    Adidas.renderAllData(this.sortItemsAsc(root));
-  } else if (sort === ev.target.value.priceDsc) {
-    Adidas.renderAllData(this.sortItemsDsc(root));
-  } else if (sort === ev.target.value.startPosition) {
-    ev.target.reset();
+  const sort= ev.target.value;
+  const root = document.getElementById("rootCustomer");
+  if(sort ==="startPosition"){
+      
+
+  Adidas.renderAllData(root);
+  }
+  else if(sort === "priceAsc"){
+       Adidas.sortItemsAsc();
+ 
+  Adidas.renderAllData(root);
+  }
+  else if(sort === "priceDsc"){
+           Adidas.sortItemsDsc();
+ 
+  Adidas.renderAllData(root);
   }
   console.log(sort);
-  this.setData();
+  Adidas.setData();
 }
 function handleType(ev) {
   const type = ev.target.value;
   ev.preventDefault();
-  const root = document.getElementById("rootCards");
-  // if(type === " ")
-  return Adidas.renderFilter(root, Adidas.sortByType(type));
+  console.log(type);
+  
+  const root = document.getElementById("rootCustomer");
+  if(type === "Sneakers"){
+    console.log(type);
+    
+// Adidas.sortByType(type)
+//      Adidas.renderAllData(root);
+Adidas.renderFilter(Adidas.sortByType(type), root);
+  }
+  else if(type === "Boots"){
+  //   console.log(type);
+  //  Adidas.sortByType(type)
+  //    Adidas.renderAllData(root);
+  Adidas.renderFilter(Adidas.sortByType(type), root);
+  }
+  else if(type === "Hi Tops"){
+  //   console.log(type);
+  //  Adidas.sortByType(type)
+  //    Adidas.renderAllData(root);
+  Adidas.renderFilter(Adidas.sortByType(type), root);
+  }
+  else if(type === "Flip Flops"){
+  //   console.log(type);
+  //  Adidas.sortByType(type)
+  //    Adidas.renderAllData(root);
+  Adidas.renderFilter(Adidas.sortByType(type), root);
+  }
+
+    //  Adidas.sortByType(type)
+    //  Adidas.renderAllData(root);
+
+// Adidas.renderFilter(Adidas.sortByType(type), root);
 }
 function handleColor(ev) {
   const color = ev.target.value;
   ev.preventDefault();
-  const root = document.getElementById("rootCards");
+  const root = document.getElementById("rootCustomer");
   // if(type === " ")
-  return Adidas.renderFilter(root, Adidas.sortByColor(color));
+  return Adidas.renderFilter(Adidas.sortByColor(color), root );
 }
 function handleGender(ev) {
   const gender = ev.target.value;
   ev.preventDefault();
-  const root = document.getElementById("rootCards");
-  // if(type === " ")
+  const root = document.getElementById("rootCustomer");
+  
+  if(gender === "men"){
+    console.log(gender);
+    
+    Adidas.renderFilter(Adidas.sortByGender(gender), root)
+  }
+  else if(gender === "women"){
+    console.log(gender);
+    Adidas.renderFilter(Adidas.sortByGender(gender), root)
 
-  return Adidas.renderFilter(root, Adidas.sortByGender(gender));
+  }
+  else if(gender === "unisex"){
+    console.log(gender);
+    Adidas.renderFilter(Adidas.sortByGender(gender), root)
+
+  }
 }
 function handleShoeSize(ev) {
   const size = ev.target.value;
   ev.preventDefault();
-  const root = document.getElementById("rootCards");
-  Adidas.renderFilter(root, Adidas.shoeSizeFilter(size));
+  const root = document.getElementById("rootCustomer");
+  Adidas.renderFilter(Adidas.shoeSizeFilter(size),root);
   // if(type === " ")
   //Adidas.shoeSizeFilter(size);
 }
+
+function handleIndex(id) {
+  Adidas.WishList(id);
+}
+
 Adidas.addItem(
   "superstar shoes",
   200,
+  "men",
   "Sneakers",
   "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg",
   "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg",
@@ -320,7 +415,8 @@ Adidas.addItem(
 Adidas.addItem(
   "superstar shoes",
   300,
-  "Sneakers",
+  "women",
+  "Boots",
   "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg",
   "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg",
   "red",
@@ -330,7 +426,8 @@ Adidas.addItem(
 Adidas.addItem(
   "superstar shoes",
   100,
-  "Sneakers",
+  "unisex",
+  "Hi Tops",
   "https://st-adidas-isr.mncdn.com/content/images/thumbs/0086954_x-speedflow1-messi-firm-ground-boots_fy6879_side-lateral-center-view.jpeg",
   "https://st-adidas-isr.mncdn.com/content/images/thumbs/0086956_x-speedflow1-messi-firm-ground-boots_fy6879_top-portrait-view.jpeg",
   "red",
@@ -347,7 +444,7 @@ function handleGetData(page: string) {
       const root = document.getElementById("rootOwner");
       Adidas.renderAllData(root);
     } else if (page === "customer") {
-      const root = document.getElementById("rootCards");
+      const root = document.getElementById("rootCustomer");
       Adidas.renderAllData(root);
     } else {
       throw new Error(`page is not found (${page})`);
@@ -366,7 +463,7 @@ function handleGetData(page: string) {
 //       const root = document.getElementById("rootOwner");
 //       Adidas.renderAllData(root);
 //     } else if (page === "customer") {
-//       const root = document.getElementById("rootCards");
+//       const root = document.getElementById("rootCustomer");
 //       Adidas.renderAllData(root);
 //     } else {
 //       throw new Error(`page is not found (${page})`);

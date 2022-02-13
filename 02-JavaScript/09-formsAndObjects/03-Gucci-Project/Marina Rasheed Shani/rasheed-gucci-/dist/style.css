@@ -32,15 +32,9 @@ body {
   font-family: Granjon;
   font-weight: lighter;
 }
-.container__navBar:hover {
-  background-color: #141010de;
-}
 .container__navBar2 {
   text-align: center;
   transition: all 0.5s;
-}
-.container__navBar2:hover {
-  background-color: #141010de;
 }
 .container__navBar2 ul {
   display: inline-flex;
@@ -122,8 +116,7 @@ body {
 .container__navBar2 ul li:hover .container__navBar2__dropdown {
   display: block;
   margin-top: 15px;
-  margin-left: -15px;
-  position: absolute;
+  border: solid black 2px;
   transform: translateY(-20px);
 }
 
@@ -219,11 +212,11 @@ body {
 .catergory__items .items .imgBottom {
   display: none;
   position: absolute;
-  top: 53px;
   left: 2px;
   z-index: 1;
 }
 .catergory__items .items:hover .imgBottom {
+  height: 380px;
   display: inline;
 }
 .catergory__items .items p {

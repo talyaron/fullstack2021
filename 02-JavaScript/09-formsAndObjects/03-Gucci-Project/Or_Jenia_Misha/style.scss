@@ -51,11 +51,12 @@
         left: 0%;
     }
 }
-html{
+
+html {
     scroll-behavior: smooth;
 }
 
-*{
+* {
     transition: all 0.7s;
 }
 
@@ -150,10 +151,11 @@ html{
         width: 100%;
         align-items: center;
         padding: 1em;
+
         a {
-            color: inherit; 
-            text-decoration: inherit; 
-          }
+            color: inherit;
+            text-decoration: inherit;
+        }
 
         li {
             padding: 5px;
@@ -511,7 +513,7 @@ html{
     flex-direction: column;
     color: #EBEBEB;
     height: 90%;
-    
+
 
     &-active {
         transition: opacity 1s;
@@ -555,7 +557,7 @@ html{
                 height: 10%;
                 width: 900px;
                 display: flex;
-                
+
                 justify-content: center;
                 align-items: center;
                 text-align: center;
@@ -570,7 +572,8 @@ html{
                     margin: 5px;
                     padding: 5px;
                     border-bottom: 1px solid grey;
-                    &-active{
+
+                    &-active {
                         border-bottom: 1px solid #ed3524;
                         color: white;
                     }
@@ -749,12 +752,13 @@ html{
         }
 
     }
-    
-    .popmenu__box__grid{
+
+    .popmenu__box__grid {
         grid-template-columns: 1fr;
-        
+
     }
-    .popmenu__box__opacity__navbar{
+
+    .popmenu__box__opacity__navbar {
         flex-wrap: wrap;
     }
 
@@ -784,31 +788,62 @@ html{
             }
 
 
-            &__cell{
-            //    width:100%;
-               .picwrap{
-                   width: 70%;
-                   height: 50%;
-            //        img{
-            //            width: 70%;
-            //        }
-               }
+            &__cell {
+
+                //    width:100%;
+                .picwrap {
+                    width: 70%;
+                    height: 50%;
+                    //        img{
+                    //            width: 70%;
+                    //        }
+                }
             }
-        // }
+
+            // }
 
         }
 
     }
 }
 
+// ///////////////////////////// Cart///////////////////////////////////
+
+.cartIcon {
+    width: 50px;
+    height: 50px;
+    border-radius: 20%;
+    background-color: #EBEBEB;
+    position: fixed;
+    right: 8%;
+    top: 5.5%;
+    cursor: pointer;
+}
+
+.cart {
+    position: fixed;
+    // opacity: 0;
+    width: 250px;
+    height: 400px;
+    background-color:#EBEBEB;
+    top: 12%;
+    right: 3%;
+    border-radius:10px;
+    padding: 5px;
+
+
+
+}
+
+
+
+
 
 
 
 ///////////////////////// ERP //////////////////////////////////////
-.dishesERP{
+.dishesERP {
     border: 1px solid black;
     width: 50%;
-    padding:5px;
+    padding: 5px;
 }
-
-    
