@@ -526,6 +526,17 @@ function popNavBarActive() {
 }
 popNavBarActive();
 function popCartActive() {
-    var cart = document.getElementById("cartIcon");
-    // cart.addEventListener("click")
+    var cart = document.querySelector(".cart__box");
+    var cartClose = document.querySelector(".cart__close");
+    console.log(cartClose);
+    cart.addEventListener("click", function () {
+        cart.classList.add("cart__box-active");
+    });
+    cartClose.addEventListener("click", function () {
+        cart.classList.remove("cart__box-active");
+    });
+    // if("cart__box-active"){
+    //   cartClose.style.
+    // }
 }
+popCartActive();

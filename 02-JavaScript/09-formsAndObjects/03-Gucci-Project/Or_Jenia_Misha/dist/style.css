@@ -596,26 +596,35 @@ html {
     height: 50%;
   }
 }
-.cartIcon {
-  width: 50px;
-  height: 50px;
-  border-radius: 20%;
-  background-color: #EBEBEB;
-  position: fixed;
-  right: 8%;
-  top: 5.5%;
-  cursor: pointer;
+.cart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  top: 3%;
+  right: 5%;
 }
 
-.cart {
-  position: fixed;
+.cart__box {
+  width: 50px;
+  height: 50px;
+  border-radius: 8%;
+  background-color: #EBEBEB;
+  cursor: pointer;
+  color: white;
+  z-index: 7;
+}
+.cart__box-active {
   width: 250px;
   height: 400px;
-  background-color: #EBEBEB;
-  top: 12%;
-  right: 3%;
-  border-radius: 10px;
-  padding: 5px;
+}
+
+.cart__close {
+  font-size: 20px;
+  color: red;
+  cursor: pointer;
+  opacity: 0;
 }
 
 .dishesERP {
