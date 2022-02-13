@@ -5,6 +5,7 @@ const uid = function () {
 interface shop {
   id?: number;
   products: Array<product>;
+  wishlist:Array<any>;
   // wishList: Array<product>;
   addItem(
     title: string,
@@ -43,18 +44,7 @@ interface shop {
   renderFilter( filterd: Array<product>, domElement);
   getData();
   setData();
-  addWishList(
-    title: string,
-    price: number,
-    category: "Sneakers" | "Boots" | "Hi Tops" | "Flip Flops",
-    pictureFront: string,
-    pictureBack: string,
-    color: string,
-    description: string,
-    shoeSize: number
-  );
-  FindIndex(id);
-  handleOwner();
+  WishList(id)
 }
 
 interface product {
@@ -74,7 +64,7 @@ interface product {
 
 const Adidas: shop = {
   // id:0,
-  products: [],
+  products: [], wishlist:[],
   // wishList: [],
   getData() {
     const products = JSON.parse(localStorage.getItem("Adidas"));
@@ -121,11 +111,12 @@ const Adidas: shop = {
 
     let html = "";
     this.products.forEach((product) => {
+      if(document.URL=="http://127.0.0.1:5501/customer.html"){
       html += `
      <div class="cards__item" >
 
       <div class="picture">
-          <i class="far fa-heart"  onclick="handleFindIndex(id)"></i>
+          <i class="far fa-heart"  onclick="handleIndex('${product.id}')"></i>
           <img src="${product.pictureBack}" >
          <img src="${product.pictureFront}" class="img-top">
           </div>
@@ -139,51 +130,41 @@ const Adidas: shop = {
           <p>${product.description}</p>
           <p>${product.price}₪</p> 
       </div>
-          </div>   
-          <form onsubmit="handleUpdate(event, '${product.id}')">
-          <input type="text" name="newTitle" placeholder="new title" value="${product.title}">
-          <input type="number" name="newPrice" placeholder="new price" value="${product.price}">
-          <input type="text" name="newCategory" placeholder="new category" value="${product.category}">
-          <input type="text" name="newPicture" placeholder="new picture" value="${product.picture}">
-          <input type="text" name="newColor" placeholder="new color" value="${product.color}">
-          <input type="text" name="newDescription" placeholder="new description" value="${product.description}">
-          <input type="number" name="newShoeSize" placeholder="new shoeSize" value="${product.shoeSize}">
-          <button type="submit">Update</button>
-          </form>
-          
-          <button onclick="handleDelete('${product.id}')">Delete</button>`;
+          </div>   `
+          ;
+    }
 
-        ;
+    else if(document.URL=="http://127.0.0.1:5501/owner.html"){
+      html += `
+     <div class="cards__item" >
+
+      <div class="picture">
+          <i class="far fa-heart"  onclick="handleIndex('${product.id}')"></i>
+          <img src="${product.pictureBack}" >
+         <img src="${product.pictureFront}" class="img-top">
+          </div>
+              
+      <div class="color">
+      <p><b> Color: </b> ${product.color}</p>
+      </div>
+
+      <div class="description">
+         <p>${product.title}</p>
+          <p>${product.description}</p>
+          <p>${product.price}₪</p> 
+      </div>
+      <button onclick="handleDelete('${product.id}')">Delete</button>
+          </div>   `
+    }
 
       console.log("render");
 
-    });
+    })
+    
 
     // const button = document.getElementById("button");
     // console.log(button);
 
-    domElement.innerHTML = html;
-  },
-  handleOwner(list, domElement) {
-    console.log(list);
-
-    let html = "";
-    this.products.forEach((product) => {
-      html += `<form onsubmit="handleUpdate(event, '${product.id}')">
-          <input type="text" name="newTitle" placeholder="new title" value="${product.title}">
-          <input type="number" name="newPrice" placeholder="new price" value="${product.price}">
-          <input type="text" name="newCategory" placeholder="new category" value="${product.category}">
-          <input type="text" name="newPicture" placeholder="new picture" value="${product.picture}">
-          <input type="text" name="newColor" placeholder="new color" value="${product.color}">
-          <input type="text" name="newDescription" placeholder="new description" value="${product.description}">
-          <input type="number" name="newShoeSize" placeholder="new shoeSize" value="${product.shoeSize}">
-          <button type="submit">Update</button>
-          </form>
-          
-          <button onclick="handleDelete('${product.id}')">Delete</button>`;
-
-      console.log("render");
-    }
     domElement.innerHTML = html;
   },
   updateItem(
@@ -244,53 +225,17 @@ const Adidas: shop = {
     
     this.render(filterd, domElement);
   },
-  // addWishList(id){
-
-  //     const index = this.products.findIndex((product) => product.id === id);
-  //     if (index >= 0) {
-
-  //       console.log(index);
-  //       this.setData();
-  //     }
-  // },
-  FindIndex(id) {
-    // console.log(id);
-
-    // const id = uid();
+  WishList(id){
     const index = this.products.findIndex((product) => product.id === id);
-    if (index >= 0) {
-      Adidas.products[index]
-      console.log(index);
-      this.setData();
-    }
-  }
-
+    //console.log(`The index:${index}.`)
+    //console.log(`The id: ${id}.`)
+    let item;
+    item= Adidas.products[index]
+    this.wishlist.push(item);
+    console.log(Adidas.wishlist)
+}
 };
 
-function handleOwner(page: string) {
-
-  if (page === "owner") {
-    const root = document.getElementById("rootOwner");
-    Adidas.handleOwner(root);
-  } else if (page === "customer") {
-    const root = document.getElementById("rootCards");
-    Adidas.renderAllData(root);
-  }
-}
-
-
-
-
-  // function HandleWishList(ev) {
-  // const wish = ev.target.value;
-  // Adidas.addWishList()
-  // }
-  function handleFindIndex(id) {
-
-    Adidas.FindIndex(id)
-    const root = document.getElementById("rootWishList")
-    Adidas.renderAllData(root)
-  }
 
 
 
@@ -466,10 +411,15 @@ function handleShoeSize(ev) {
   const size = ev.target.value;
   ev.preventDefault();
   const root = document.getElementById("rootCustomer");
-  Adidas.renderFilter(root, Adidas.shoeSizeFilter(size));
+  Adidas.renderFilter(Adidas.shoeSizeFilter(size),root);
   // if(type === " ")
   //Adidas.shoeSizeFilter(size);
 }
+
+function handleIndex(id) {
+  Adidas.WishList(id);
+}
+
 Adidas.addItem(
   "superstar shoes",
   200,
