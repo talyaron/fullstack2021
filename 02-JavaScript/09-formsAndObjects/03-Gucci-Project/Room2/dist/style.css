@@ -234,16 +234,6 @@ body {
 .cards__item:hover {
   border: 1px solid black;
 }
-.cards__item .fa-heart {
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: 8;
-  margin: 10px;
-}
-.cards__item .fa-heart:active {
-  background-color: red;
-}
 .cards__item .picture {
   transition: ease 5s;
   width: 303px;

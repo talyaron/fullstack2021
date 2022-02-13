@@ -40,7 +40,7 @@ interface shop {
   renderFilter(domElement, filterd);
   getData();
   setData();
-  cartItems()
+  cartItems();
 }
 
 interface product {
@@ -105,7 +105,10 @@ const Adidas: shop = {
      <div class="cards__item" >
 
       <div class="picture">
-          <i class="far fa-heart"></i>
+      <i class="far fa-heart"></i>
+      <i class="fa-thin fa-cart-circle-plus"></i>
+
+
           <img src="${product.pictureBack}" >
          <img src="${product.pictureFront}" class="img-top">
           </div>
@@ -119,13 +122,9 @@ const Adidas: shop = {
           <p>${product.description}</p>
           <p>${product.price}₪</p> 
       </div>
-          </div>   `
-
-
-        ;
+          </div>   `;
 
       console.log("render");
-
     });
 
     // const button = document.getElementById("button");
