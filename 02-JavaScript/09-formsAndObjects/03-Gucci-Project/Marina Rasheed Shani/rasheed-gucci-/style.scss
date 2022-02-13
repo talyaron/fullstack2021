@@ -321,6 +321,7 @@ $background-color:#ffffff;
   background-color: white;
   height: 110em;
   text-align: center;
+  
 
 
   .items {
@@ -329,12 +330,14 @@ $background-color:#ffffff;
     display: inline-block;
     text-align: center;
     padding: 2px;
-    border: none;
+    border:none;
+    
 
 
     img {
-      height: 380px;
+      height:380px;
       width: 20em;
+      border: solid black 2px;
 
     }
 
@@ -355,7 +358,9 @@ $background-color:#ffffff;
     }
 
     &:hover .imgBottom {
+      height:380px;
       display: inline;
+      
       //   width: 20em;
       //  height: 380px;
     }
