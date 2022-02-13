@@ -215,12 +215,11 @@ body {
 .catergory__items .items img {
   height: 380px;
   width: 20em;
-  border: solid black 2px;
 }
 .catergory__items .items .imgBottom {
   display: none;
   position: absolute;
-  top: 53px;
+  top: 65px;
   left: 2px;
   z-index: 1;
 }
