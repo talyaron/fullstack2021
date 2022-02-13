@@ -219,11 +219,11 @@ body {
 .catergory__items .items .imgBottom {
   display: none;
   position: absolute;
-  top: 53px;
   left: 2px;
   z-index: 1;
 }
 .catergory__items .items:hover .imgBottom {
+  height: 380px;
   display: inline;
 }
 .catergory__items .items p {
