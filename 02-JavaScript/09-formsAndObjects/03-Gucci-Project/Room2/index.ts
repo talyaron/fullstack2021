@@ -111,7 +111,10 @@ const Adidas: shop = {
 
     let html = "";
     this.products.forEach((product) => {
-      if(document.URL=="http://127.0.0.1:5501/customer.html"){
+      let text=document.URL;
+      let resultCustomer = text.substring(22, 34);
+      let resultOwner = text.substring(22, 35);
+      if(resultCustomer=="customer.html"){
       html += `
      <div class="cards__item" >
 
@@ -132,9 +135,12 @@ const Adidas: shop = {
       </div>
           </div>   `
           ;
+          
+          console.log("render");
+          console.log(resultOwner);
     }
 
-    else if(document.URL=="http://127.0.0.1:5501/owner.html"){
+    else if(resultOwner=="owner.html"){
       html += `
      <div class="cards__item" >
 
@@ -158,12 +164,13 @@ const Adidas: shop = {
     }
 
       console.log("render");
+      console.log(resultOwner);
 
     })
     
 
-    // const button = document.getElementById("button");
-    // console.log(button);
+    const button = document.getElementById("button");
+    console.log(button);
 
     domElement.innerHTML = html;
   },
@@ -233,6 +240,8 @@ const Adidas: shop = {
     item= Adidas.products[index]
     this.wishlist.push(item);
     console.log(Adidas.wishlist)
+    
+    
 }
 };
 
