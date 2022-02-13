@@ -710,9 +710,9 @@ function popCartActive(){
     cart.classList.remove("cart__box-active")
   })
 
-  if("cart__box-active"){
-    cartClose.style.
-  }
+  // if("cart__box-active"){
+  //   cartClose.style.
+  // }
 
 } 
 
