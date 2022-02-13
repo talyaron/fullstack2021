@@ -111,6 +111,8 @@ const Adidas: shop = {
 
     let html = "";
     this.products.forEach((product) => {
+
+      if(document.URL=="http://127.0.0.1:5501/Room2/customer.html"){
       html += `
      <div class="cards__item" >
 
@@ -130,9 +132,30 @@ const Adidas: shop = {
           <p>${product.price}₪</p> 
       </div>
           </div>   `
+    }
 
+    else if(document.URL=="http://127.0.0.1:5501/Room2/owner.html"){
+      html += `
+     <div class="cards__item" >
 
-        ;
+      <div class="picture">
+          <i class="far fa-heart"  onclick="handleIndex('${product.id}')"></i>
+          <img src="${product.pictureBack}" >
+         <img src="${product.pictureFront}" class="img-top">
+          </div>
+              
+      <div class="color">
+      <p><b> Color: </b> ${product.color}</p>
+      </div>
+
+      <div class="description">
+         <p>${product.title}</p>
+          <p>${product.description}</p>
+          <p>${product.price}₪</p> 
+      </div>
+      <button onclick="handleDelete('${product.id}')">Delete</button>
+          </div>   `
+    }
 
       console.log("render");
 
