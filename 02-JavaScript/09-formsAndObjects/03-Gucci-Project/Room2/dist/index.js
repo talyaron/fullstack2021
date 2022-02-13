@@ -40,18 +40,16 @@ var Adidas = {
         var html = "";
         this.products.forEach(function (product) {
             var text = document.URL;
-            var resultCustomer = text.substring(22, 34);
+            var resultCustomer = text.substring(22, 35);
             var resultOwner = text.substring(22, 35);
             if (resultCustomer == "customer.html") {
                 html += "\n     <div class=\"cards__item\" >\n\n      <div class=\"picture\">\n          <i class=\"far fa-heart\"  onclick=\"handleIndex('" + product.id + "')\"></i>\n          <img src=\"" + product.pictureBack + "\" >\n         <img src=\"" + product.pictureFront + "\" class=\"img-top\">\n          </div>\n              \n      <div class=\"color\">\n      <p><b> Color: </b> " + product.color + "</p>\n      </div>\n\n      <div class=\"description\">\n         <p>" + product.title + "</p>\n          <p>" + product.description + "</p>\n          <p>" + product.price + "\u20AA</p> \n      </div>\n          </div>   ";
                 console.log("render");
-                console.log(resultOwner);
             }
             else if (resultOwner == "owner.html") {
                 html += "\n     <div class=\"cards__item\" >\n\n      <div class=\"picture\">\n          <i class=\"far fa-heart\"  onclick=\"handleIndex('" + product.id + "')\"></i>\n          <img src=\"" + product.pictureBack + "\" >\n         <img src=\"" + product.pictureFront + "\" class=\"img-top\">\n          </div>\n              \n      <div class=\"color\">\n      <p><b> Color: </b> " + product.color + "</p>\n      </div>\n\n      <div class=\"description\">\n         <p>" + product.title + "</p>\n          <p>" + product.description + "</p>\n          <p>" + product.price + "\u20AA</p> \n      </div>\n      <button onclick=\"handleDelete('" + product.id + "')\">Delete</button>\n          </div>   ";
             }
             console.log("render");
-            console.log(resultOwner);
         });
         var button = document.getElementById("button");
         console.log(button);
