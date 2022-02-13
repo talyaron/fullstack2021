@@ -135,9 +135,8 @@ const Adidas: shop = {
       </div>
           </div>   `
           ;
-          
           console.log("render");
-    
+          console.log(resultOwner);
     }
 
     else if(resultOwner=="owner.html"){
@@ -159,12 +158,26 @@ const Adidas: shop = {
           <p>${product.description}</p>
           <p>${product.price}₪</p> 
       </div>
+
+      <form onsubmit="handleUpdate(event, '${product.id}')">
+      <input type="text" name="newTitle" placeholder="new title" value="${product.title}">
+      <input type="number" name="newPrice" placeholder="new price" value="${product.price}">
+      <input type="text" name="newCategory" placeholder="new category" value="${product.category}">
+      <input type="text" name="newPictureFront" placeholder="new picture front" value="${product.pictureFront}">
+      <input type="text" name="newPictureBack" placeholder="new picture back" value="${product.pictureBack}">
+      <input type="text" name="newColor" placeholder="new color" value="${product.color}">
+      <input type="text" name="newGender" placeholder="new gender" value="${product.gender}">
+      <input type="text" name="newDescription" placeholder="new description" value="${product.description}">
+      <input type="number" name="newShoeSize" placeholder="new shoeSize" value="${product.shoeSize}">
+      <button type="submit">Update</button>
+      </form>
+
       <button onclick="handleDelete('${product.id}')">Delete</button>
           </div>   `
     }
 
       console.log("render");
-     
+      console.log(resultOwner);
 
     })
     
@@ -240,6 +253,7 @@ const Adidas: shop = {
     item= Adidas.products[index]
     this.wishlist.push(item);
     console.log(Adidas.wishlist)
+    
     
 }
 };
