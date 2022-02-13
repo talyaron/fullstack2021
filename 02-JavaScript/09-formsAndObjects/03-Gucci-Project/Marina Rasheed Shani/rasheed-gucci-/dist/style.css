@@ -219,7 +219,6 @@ body {
 .catergory__items .items .imgBottom {
   display: none;
   position: absolute;
-  top: 65px;
   left: 2px;
   z-index: 1;
 }
