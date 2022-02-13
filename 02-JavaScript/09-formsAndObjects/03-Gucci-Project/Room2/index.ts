@@ -131,6 +131,7 @@ const Adidas: shop = {
           <p>${product.price}₪</p> 
       </div>
           </div>   `
+          ;
     }
 
     else if(document.URL=="http://127.0.0.1:5501/owner.html"){
