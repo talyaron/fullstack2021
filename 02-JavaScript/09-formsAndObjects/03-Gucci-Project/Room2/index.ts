@@ -5,6 +5,7 @@ const uid = function () {
 interface shop {
   id?: number;
   products: Array<product>;
+  wishlist:Array<any>;
   // wishList: Array<product>;
   addItem(
     title: string,
@@ -43,6 +44,7 @@ interface shop {
   renderFilter( filterd: Array<product>, domElement);
   getData();
   setData();
+<<<<<<< HEAD
   addWishList(
     title: string,
     price: number,
@@ -55,6 +57,9 @@ interface shop {
   );
   FindIndex(id);
   handleOwner();
+=======
+  WishList(id)
+>>>>>>> 67c6f9fb2a3876d35e3ce64f42e9056e3e95ddfb
 }
 
 interface product {
@@ -74,7 +79,7 @@ interface product {
 
 const Adidas: shop = {
   // id:0,
-  products: [],
+  products: [], wishlist:[],
   // wishList: [],
   getData() {
     const products = JSON.parse(localStorage.getItem("Adidas"));
@@ -121,11 +126,12 @@ const Adidas: shop = {
 
     let html = "";
     this.products.forEach((product) => {
+      if(document.URL=="http://127.0.0.1:5501/customer.html"){
       html += `
      <div class="cards__item" >
 
       <div class="picture">
-          <i class="far fa-heart"  onclick="handleFindIndex(id)"></i>
+          <i class="far fa-heart"  onclick="handleIndex('${product.id}')"></i>
           <img src="${product.pictureBack}" >
          <img src="${product.pictureFront}" class="img-top">
           </div>
@@ -153,11 +159,29 @@ const Adidas: shop = {
           
           <button onclick="handleDelete('${product.id}')">Delete</button>`;
 
-        ;
+      <div class="picture">
+          <i class="far fa-heart"  onclick="handleIndex('${product.id}')"></i>
+          <img src="${product.pictureBack}" >
+         <img src="${product.pictureFront}" class="img-top">
+          </div>
+              
+      <div class="color">
+      <p><b> Color: </b> ${product.color}</p>
+      </div>
+
+      <div class="description">
+         <p>${product.title}</p>
+          <p>${product.description}</p>
+          <p>${product.price}₪</p> 
+      </div>
+      <button onclick="handleDelete('${product.id}')">Delete</button>
+          </div>   `
+    }
 
       console.log("render");
 
     });
+    
 
     // const button = document.getElementById("button");
     // console.log(button);
@@ -244,27 +268,15 @@ const Adidas: shop = {
     
     this.render(filterd, domElement);
   },
-  // addWishList(id){
-
-  //     const index = this.products.findIndex((product) => product.id === id);
-  //     if (index >= 0) {
-
-  //       console.log(index);
-  //       this.setData();
-  //     }
-  // },
-  FindIndex(id) {
-    // console.log(id);
-
-    // const id = uid();
+  WishList(id){
     const index = this.products.findIndex((product) => product.id === id);
-    if (index >= 0) {
-      Adidas.products[index]
-      console.log(index);
-      this.setData();
-    }
-  }
-
+    //console.log(`The index:${index}.`)
+    //console.log(`The id: ${id}.`)
+    let item;
+    item= Adidas.products[index]
+    this.wishlist.push(item);
+    console.log(Adidas.wishlist)
+}
 };
 
 function handleOwner(page: string) {
@@ -279,6 +291,7 @@ function handleOwner(page: string) {
 }
 
 
+<<<<<<< HEAD
 
 
   // function HandleWishList(ev) {
@@ -292,6 +305,8 @@ function handleOwner(page: string) {
     Adidas.renderAllData(root)
   }
 
+=======
+>>>>>>> 67c6f9fb2a3876d35e3ce64f42e9056e3e95ddfb
 
 
 function handleAddItem(ev) {
@@ -466,10 +481,15 @@ function handleShoeSize(ev) {
   const size = ev.target.value;
   ev.preventDefault();
   const root = document.getElementById("rootCustomer");
-  Adidas.renderFilter(root, Adidas.shoeSizeFilter(size));
+  Adidas.renderFilter(Adidas.shoeSizeFilter(size),root);
   // if(type === " ")
   //Adidas.shoeSizeFilter(size);
 }
+
+function handleIndex(id) {
+  Adidas.WishList(id);
+}
+
 Adidas.addItem(
   "superstar shoes",
   200,
