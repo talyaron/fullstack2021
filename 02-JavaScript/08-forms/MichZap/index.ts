@@ -5,24 +5,21 @@ interface ItemsForSale {
     items: Array<Item>;
     sortPrice(orderBy?: number)
     renderItems(domElement: any)
-    addItems(itemName,itemPrice)
+    addItems(item: Item)
     removeItems(itemName: string)
-    
-
+    deleteItem(id)
 }
 interface Item {
     itemName: string;
     itemPrice: number;
-    id:any;
-
+    id?: any;
 }
 const Items: ItemsForSale = {
     items: [],
 
-    addItems(itemName,itemPrice) {
+    addItems(item: Item) {
         const id = itemId();
-        this.items.push(itemName,itemPrice,id);
-
+        this.items.push(item);
     },
     removeItems(itemName: string) {
         const index = this.items.findIndex(item => item.itemName === itemName);
@@ -35,20 +32,19 @@ const Items: ItemsForSale = {
         let html = '';
         this.items.forEach(item => {
             html += `<div class='card'>
-        <p>${Items.itemName},${Items.itemPrice}</p></div> 
-        <input type="button" value="delete" onclick="deleteItem(event)">`
+        <p>${item.itemName},${item.itemPrice}</p></div> 
+        <input type="button" value="delete" id="${item.id}" onclick="deleteItem(event)">`
         })
         domElement.innerHTML = html
     },
 
     sortPrice() {
         this.items.sort((a, b) => { return a.itemPrice - b.itemPrice })
+    },deleteItem(id){
+       this.items =  this.items.filter((item)=> item.id !== id)
     }
 
 }
-
-
-
 
 function handleSubmit(ev) {
     ev.preventDefault();
@@ -56,26 +52,29 @@ function handleSubmit(ev) {
     const itemName = ev.target.elements.itemName.value
     const itemPrice: number = ev.target.elements.itemPrice.valueAsNumber
 
-    Items.addItems( itemName, itemPrice);
+    Items.addItems({ itemName, itemPrice });
     const rootItems = document.getElementById('rootItems');
     Items.renderItems(rootItems);
-    
-
+    console.log(Items);
     ev.target.reset();
 
 
 }
 
-// function deleteItem(ev){
-//     e
-// }
-Items.addItems(  'bbb',  12 );
-Items.addItems(  'ccc',  4444 );
-Items.addItems(  'eee', 5);
+function deleteItem(ev){
+    const id = ev.target.id
+    console.log(id);
+    
+}
+Items.addItems({ itemName: 'bbb', itemPrice: 12, id: "lala" });
+Items.addItems({ itemName: 'ccc', itemPrice: 5, id: "baba" });
+Items.addItems({ itemName: 'fff', itemPrice: 34, id: "koko" });
+
+
 // Items.removeItems('ccc');
 
 
 
 // Items.sortPrice();
-// console.log(Items)
+// console.log(Items);
 
