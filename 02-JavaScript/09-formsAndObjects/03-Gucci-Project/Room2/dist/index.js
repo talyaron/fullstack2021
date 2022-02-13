@@ -39,10 +39,10 @@ var Adidas = {
         console.log(list);
         var html = "";
         this.products.forEach(function (product) {
-            if (document.URL == "http://127.0.0.1:5501/Room2/customer.html") {
+            if (document.URL == "http://127.0.0.1:5501/customer.html") {
                 html += "\n     <div class=\"cards__item\" >\n\n      <div class=\"picture\">\n          <i class=\"far fa-heart\"  onclick=\"handleIndex('" + product.id + "')\"></i>\n          <img src=\"" + product.pictureBack + "\" >\n         <img src=\"" + product.pictureFront + "\" class=\"img-top\">\n          </div>\n              \n      <div class=\"color\">\n      <p><b> Color: </b> " + product.color + "</p>\n      </div>\n\n      <div class=\"description\">\n         <p>" + product.title + "</p>\n          <p>" + product.description + "</p>\n          <p>" + product.price + "\u20AA</p> \n      </div>\n          </div>   ";
             }
-            else if (document.URL == "http://127.0.0.1:5501/Room2/owner.html") {
+            else if (document.URL == "http://127.0.0.1:5501/owner.html") {
                 html += "\n     <div class=\"cards__item\" >\n\n      <div class=\"picture\">\n          <i class=\"far fa-heart\"  onclick=\"handleIndex('" + product.id + "')\"></i>\n          <img src=\"" + product.pictureBack + "\" >\n         <img src=\"" + product.pictureFront + "\" class=\"img-top\">\n          </div>\n              \n      <div class=\"color\">\n      <p><b> Color: </b> " + product.color + "</p>\n      </div>\n\n      <div class=\"description\">\n         <p>" + product.title + "</p>\n          <p>" + product.description + "</p>\n          <p>" + product.price + "\u20AA</p> \n      </div>\n      <button onclick=\"handleDelete('" + product.id + "')\">Delete</button>\n          </div>   ";
             }
             console.log("render");

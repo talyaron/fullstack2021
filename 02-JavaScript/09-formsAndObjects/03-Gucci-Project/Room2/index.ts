@@ -111,8 +111,7 @@ const Adidas: shop = {
 
     let html = "";
     this.products.forEach((product) => {
-
-      if(document.URL=="http://127.0.0.1:5501/Room2/customer.html"){
+      if(document.URL=="http://127.0.0.1:5501/customer.html"){
       html += `
      <div class="cards__item" >
 
@@ -134,7 +133,7 @@ const Adidas: shop = {
           </div>   `
     }
 
-    else if(document.URL=="http://127.0.0.1:5501/Room2/owner.html"){
+    else if(document.URL=="http://127.0.0.1:5501/owner.html"){
       html += `
      <div class="cards__item" >
 
