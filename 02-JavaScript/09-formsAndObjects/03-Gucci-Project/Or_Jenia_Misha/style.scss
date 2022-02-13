@@ -717,6 +717,7 @@ html{
 }
 
 @media screen and (max-width: 1000px) {
+
     .home {
         &__title {
             font-size: 50px;
@@ -724,6 +725,7 @@ html{
     }
 
     .menuopacity {
+
         height: 200vh;
 
         .menu {
@@ -761,11 +763,41 @@ html{
 
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 850px) {
+
     .home {
+
         &__title {
             font-size: 40px;
         }
+
+    }
+
+    .menuopacity {
+
+        .menu {
+
+            &__box {
+                width: 90%;
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: repeat(6, 1fr);
+            }
+
+
+            &__cell{
+            //    width:100%;
+               .picwrap{
+                   width: 70%;
+                   height: 50%;
+            //        img{
+            //            width: 70%;
+            //        }
+               }
+            }
+        // }
+
+        }
+
     }
 }
 

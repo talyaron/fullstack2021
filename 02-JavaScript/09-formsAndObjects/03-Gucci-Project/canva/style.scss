@@ -1,0 +1,82 @@
+.color {
+    display: grid;
+    justify-content: center;
+    margin-bottom: 20px;
+
+    a{
+        justify-self: center;
+    }
+
+    input{
+        justify-self: center;
+    }
+}
+
+.wrapper--backEnd,
+.wrapper--frontEnd {
+    display: grid;
+    grid-template-columns: 150px 300px 150px;
+    grid-template-rows: 250px 150px 350px 250px 250px;
+    justify-content: center;
+}
+
+.box {
+    border: 1px solid black;
+
+    &.box1,
+    &.box2,
+    &.box9 {
+        grid-column: span 3;
+    }
+}
+
+.container {
+    border: 1px solid black;
+
+    &.container1,
+    &.container2,
+    &.container9 {
+        grid-column: span 3;
+    }
+}
+
+
+#imgBox{
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#title{
+    display: flex;
+    flex-direction: column;
+    margin: 10px 850px;
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    margin-top: 35px;
+
+    .card--hebrewCard{
+        direction: rtl;
+        font-family: 'Heebo', sans-serif;
+    }
+
+    .card--englishCard {
+        direction: ltr;
+        font-family: 'Poppins', sans-serif;;
+    }
+}
+
+.red{
+    color: red;
+}
+
+
+
+
+
+
+
+

@@ -115,7 +115,7 @@
   display: flex;
   flex-direction: row;
   column-gap: 3px;
-  overflow: auto;
+  overflow-x: auto;
   white-space: nowrap;
 }
 .main_scrollmenu-box-card {
@@ -135,7 +135,7 @@
 }
 .main_scrollmenu-box-card-head {
   color: chocolate;
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 1000;
 }
 .main_scrollmenu-box-card-para {
@@ -158,9 +158,9 @@
 }
 
 .container {
-  max-width: 740px;
-  height: 1800px;
-  margin: auto;
+  width: 100%;
+  height: 2100px;
+  max-height: fit-content;
   background: linear-gradient(#9df19d, transparent), linear-gradient(90deg, skyblue, transparent), linear-gradient(-90deg, coral, transparent);
   background-blend-mode: screen;
 }
@@ -180,12 +180,11 @@
   grid-row: 1/4;
   grid-column: 1/2;
   height: 10vh;
-  margin-top: -1vh;
 }
 .container_header-search {
-  height: 10vh;
+  height: 15vh;
   grid-row: 1/4;
-  grid-column: 3/7;
+  grid-column: 3/9;
   justify-content: center;
   margin-top: 1vh;
 }
@@ -197,25 +196,24 @@
   border-radius: 10px;
 }
 .container_header_menu {
-  grid-column: 7/13;
+  grid-column: 9/13;
   height: 8vh;
   grid-row: 1;
   display: flex;
-  column-gap: 1rem;
 }
 .container_header_menu-btn {
   background-color: transparent;
   box-shadow: none;
   display: inline-block;
-  width: 25%;
+  width: 100%;
   border: none;
 }
 .container_header_menu-btn p {
   font-size: 12px;
 }
 .container_header-dropDown {
-  grid-column: 7/13;
-  grid-row: 2;
+  grid-column: 9/13;
+  grid-row: 2/3;
   height: 20vh;
   display: grid;
   grid-template-columns: repeat(4, 25%);
@@ -223,36 +221,72 @@
 .container_header-dropDown-box {
   display: flex;
   flex-direction: column;
+  text-align: center;
 }
 .container_header-dropDown-box-item {
   width: 100%;
-  height: 35%;
+  height: 40%;
+  display: grid;
+  grid-template-columns: repeat(4, 25%);
+  grid-template-rows: repeat(4, 25%);
   border-bottom: 1px solid #5656e0;
   background-color: #d4d3c9;
 }
+.container_header-dropDown-box-item-header {
+  grid-row: 1;
+  grid-column: 2/4;
+  font-size: 13px;
+  font-weight: 1000;
+  text-align: center;
+}
+.container_header-dropDown-box-item-size {
+  text-align: start;
+  grid-row: 2;
+  font-weight: 1000;
+  font-size: 11px;
+}
+.container_header-dropDown-box-item-price {
+  text-align: start;
+  grid-row: 3;
+  grid-column: 1/2;
+  font-weight: 1000;
+  font-size: 11px;
+}
+.container_header-dropDown-box-item-deleteBtn {
+  grid-row: 3/5;
+  grid-column: 4/5;
+  height: 100%;
+  font-size: 10px;
+  border-radius: 10px;
+  background-color: antiquewhite;
+}
 .container_header-dropDown-box-signInInput {
-  box-shadow: rgba(97, 88, 6, 0.85) 0px 30px 60px -12px inset, rgba(85, 216, 96, 0.5) 0px 18px 36px -30px inset;
+  box-shadow: rgba(112, 134, 233, 0.35) 0px 30px 60px -12px inset, rgba(59, 101, 163, 0.5) 0px 18px 36px -30px inset;
   border-radius: 5px;
-  height: 15%;
-  width: 95%;
+  height: 10%;
+  width: 70%;
+  align-self: center;
 }
 .container_header-dropDown-box-signInInput::placeholder {
   color: black;
-  font-weight: 400;
-  font-size: 14px;
+  font-weight: 700;
+  font-size: 10px;
 }
 .container_header-dropDown-box-signInInput-btn {
   color: #34333b;
-  background-color: #a85bbb;
+  background-color: #3dcf56;
   box-shadow: none;
-  width: 95%;
+  width: 75%;
   border-radius: 5px;
+  align-self: center;
+  height: 2.5vh;
+  font-size: 10px;
 }
 .container_header-dropDown .notifications {
+  box-shadow: rgba(235, 155, 179, 0.35) 0px 30px 60px -12px inset, rgba(163, 77, 81, 0.5) 0px 18px 36px -30px inset;
   grid-column: 1/2;
-  width: 150%;
   border-radius: 15px;
-  opacity: 0.7;
+  opacity: 0.8;
 }
 .container_header-dropDown .signIn {
   grid-column: 2/3;
@@ -260,13 +294,17 @@
 }
 .container_header-dropDown .yourOrders {
   grid-column: 3/4;
+  box-shadow: rgba(70, 97, 218, 0.35) 0px 30px 60px -12px inset, rgba(59, 101, 163, 0.5) 0px 18px 36px -30px inset;
 }
 .container_header-dropDown .shoppingCart {
-  grid-column: 4/5;
+  grid-column: 3/5;
+  height: 80%;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  overflow-y: auto;
+  overflow: auto;
   white-space: nowrap;
+  box-shadow: rgba(53, 146, 118, 0.35) 0px 30px 60px -12px inset, rgba(183, 194, 211, 0.5) 0px 18px 36px -30px inset;
 }
 .container-imgsBox {
   background-image: url(https://s18670.pcdn.co/wp-content/uploads/Top-20-Teacher-T-Shirts-on-Etsy.png);
@@ -275,7 +313,7 @@
   background-repeat: no-repeat;
   margin: auto;
   width: 100%;
-  height: 35%;
+  height: 25%;
   margin-top: 10px;
 }
 .container_catagories {
@@ -283,7 +321,7 @@
   justify-content: space-around;
   width: 100%;
   flex-direction: row;
-  height: 20%;
+  height: 15%;
   margin: auto;
 }
 .container_catagories-box {
@@ -310,7 +348,7 @@
 .container_catagories-display-card {
   border-bottom: 5px solid black;
   box-sizing: content-box;
-  box-shadow: rgba(110, 111, 112, 0.55) 0px 30px 60px 80px inset, rgba(12, 24, 94, 0.75) 0px 18px 36px 30px inset;
+  box-shadow: rgba(110, 112, 110, 0.55) 0px 30px 60px 80px inset, rgba(69, 202, 28, 0.75) 0px 18px 36px 30px inset;
   height: 100%;
   width: 100%;
   display: grid;
@@ -361,8 +399,8 @@
 }
 .container_sortANDfilterBtns-box_form-filterInput {
   box-shadow: rgba(6, 61, 97, 0.85) 0px 30px 60px -12px inset, rgba(16, 63, 85, 0.5) 0px 18px 36px -30px inset;
-  height: 3vh;
-  width: 60%;
+  height: 2vh;
+  width: 35%;
   color: #f0e8da;
   font-size: 15px;
   border-radius: 5px;
@@ -377,10 +415,11 @@
   font-weight: 1000;
   box-shadow: rgba(33, 13, 87, 0.75) 0px 54px 55px, rgba(32, 161, 101, 0.72) 0px -12px 30px, rgba(53, 100, 187, 0.82) 0px 4px 6px, rgba(101, 42, 136, 0.77) 0px 12px 13px, rgba(52, 88, 136, 0.99) 0px -3px 5px;
   background-color: #6b442e;
+  justify-self: center;
 }
 .container-select {
   border-radius: 15%;
-  font-size: 12px;
+  font-size: 15px;
   font-weight: bold;
   box-shadow: rgba(40, 40, 41, 0.85) 0px 30px 60px -12px inset, rgba(25, 34, 153, 0.8) 0px 18px 36px 30px inset;
   height: 4vh;
@@ -393,19 +432,22 @@
   margin: auto;
 }
 .container-select-options {
-  font-size: 12px;
   display: inline-block;
   font-family: "Times New Roman", Times, serif;
 }
 .container-shoppingCart {
+  margin-top: 20px;
   width: 100%;
-  height: 30vh;
+  height: 60vh;
+  display: none;
+  grid-template-columns: repeat(5, 20%);
+  grid-template-rows: repeat(10, 10%);
 }
 .container-shoppingCart_display {
-  height: 100%;
-  border: 3px solid black;
-  width: 50%;
-  display: none;
+  border: 1px solid #757373;
+  grid-column: 2/5;
+  grid-row: 2/7;
+  display: flex;
   flex-direction: column;
   overflow-y: scroll;
   white-space: nowrap;
@@ -413,27 +455,28 @@
 .container-shoppingCart_display-item {
   height: 35%;
   border-bottom: 1px solid black;
+  justify-self: auto;
   display: grid;
   grid-template-columns: repeat(10, 1fr);
   grid-template-rows: repeat(10, 1fr);
 }
 .container-shoppingCart_display-item-header {
-  font-size: 12px;
+  font-size: 20px;
   text-align: center;
   grid-column: 1/11;
   grid-row: 1/3;
 }
 .container-shoppingCart_display-item-size {
-  font-size: 10px;
+  font-size: 17px;
   grid-column: 1/4;
-  grid-row: 2/5;
+  grid-row: 1/4;
   font-weight: 1000;
 }
 .container-shoppingCart_display-item-price {
-  font-size: 10px;
+  font-size: 15px;
   font-weight: 1000;
   grid-column: 1/4;
-  grid-row: 6/8;
+  grid-row: 4/6;
 }
 .container-shoppingCart_display-item-deleteBtn {
   grid-column: 8/10;
@@ -441,4 +484,11 @@
   border-radius: 15px;
   background-color: lightgoldenrodyellow;
   color: blue;
+}
+.container-shoppingCart-orderAndTotal {
+  grid-row: 8/9;
+  grid-column: 3;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }

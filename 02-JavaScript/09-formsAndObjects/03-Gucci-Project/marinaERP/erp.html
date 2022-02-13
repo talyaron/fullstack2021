@@ -24,30 +24,24 @@
     </style>
 </head>
 
-<body>
-
+<body class="owner" onload="renderOwener()">
     <nav>
-        <a href="./store.html">Store</a>
-        <a href="./erp.html">ERP</a>
-        <a href="./card.html">ERP</a>
+        <strong> <a href="./store.html">STORE</a></strong  >
+        <strong> <a href="./card.html">CARD</a></strong>
     </nav>
     <h1 class="title">ERP</h1>
 
+    <div class="containerERP__inputs">
 
+        <form class="containerERP__inputs__form" onsubmit="handleAddBook(event)">
 
-
-
-    <div class="container__inputs">
-
-        <form class="container__inputs__form" onsubmit="handleAddBook(event)">
-
-            <div class="container__inputs__form__one" >
-                <input class="container__inputs__form__one__inp" type="text" name="title" id="title" placeholder="Title">
-                <input class="container__inputs__form__one__inp" type="text" name="author" id="author" placeholder="Author">
-                <input class="container__inputs__form__one__inp" type="text" name="img" id="img" placeholder="Image adress">
-                <input class="container__inputs__form__one__inp" type="number" name="price" id="price" placeholder="Price">
+            <div class="containerERP__inputs__form__one" >
+                <input class="containerERP__inputs__form__one__inp" type="text" name="title" id="title" placeholder="Title">
+                <input class="containerERP__inputs__form__one__inp" type="text" name="author" id="author" placeholder="Author">
+                <input class="containerERP__inputs__form__one__inp" type="text" name="img" id="img" placeholder="Image adress">
+                <input class="containerERP__inputs__form__one__inp" type="number" name="price" id="price" placeholder="Price">
          
-            <select class="container__inputs__form__one__inp" name="genre" id="">
+            <select class="containerERP__inputs__form__one__inp" name="genre" id="">
                 <option value="genre" disabled selected>genre</option>
                 <option value="science fiction">science fiction</option>
                 <option value="detective">detective</option>
@@ -57,37 +51,28 @@
             </select>
                    
             </div >
-                <div   class="container__inputs__form__one">
-                    <input class="container__inputs__form__one__inp" type="number" name="year" id="year"
+                <div   class="containerERP__inputs__form__one">
+                    <input class="containerERP__inputs__form__one__inp" type="number" name="year" id="year"
                     placeholder="Year of publishing">
-                <input class="container__inputs__form__one__inp" type="number" name="rank" id="rank" placeholder="Rank">
-                <textarea class="container__inputs__form__one__inp annotation" name="annotation" id="annotation" maxlength="2000"
+                <input class="containerERP__inputs__form__one__inp" type="number" name="rank" id="rank" placeholder="Rank">
+                <textarea class="containerERP__inputs__form__one__inp annotation" name="annotation" id="annotation" maxlength="2000"
                     cols="200" rows="200" placeholder="Wright book annotation here"></textarea>
-                <input class="container__inputs__form__one__inp" type="submit" name="submit" id="" value="Add a book">
+                <input class="containerERP__inputs__form__one__inp" type="submit" name="submit" id="" value="Add a book">
             </div>
         </form>
 
     </div>
 
-    <div class="container__inputs">
-        <form class="inputs__form" onsubmit="handleDeleteBook(event)">
-            <input class="container__inputs__form__one__inp" type="text" name="delete" id="delete"
+    <div class="containerERP__inputs">
+        <form class="inputs__form" onsubmit="handleDeleteBook(event)" style= "margin-bottom: 1em;"  >
+            <input class="containerERP__inputs__form__one__inp" type="text" name="delete" id="delete"
                 placeholder="Enter title to delete">
-            <input class="container__inputs__form__one__inp" type="submit" id="deleteBtn" value="delete">
+            <input class="containerERP__inputs__form__one__inp" type="submit" id="deleteBtn" value="delete">
         </form>
-
-        <!-- <form class="inputs__form" onsubmit="handleUpdateBook(event, `${book.id}`)">
-            <input class="container__inputs__form__one__inp" type="text" name="update" id="update"
-                placeholder="Enter new title">
-            <input class="container__inputs__form__one__inp" type="submit" id="updateBtn" value="update">
-        </form> -->
-
     </div>
 
 
-
-
-    <div class="container"></div>
+    <div class="containerERP"></div>
 
     <div id="rootERP"></div>
     <script src="dist/index.js"></script>

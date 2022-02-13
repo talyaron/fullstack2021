@@ -16,7 +16,6 @@
     <div class="header">
         <div class="header__wrapper">
             <div class="header__wrapper__item">CONTACT US</div>
-            <div class="header__wrapper__item">+972-545123456</div>
             <div class="header__wrapper__item" id="currency-button">ISRAEL (USD)</div>
             <div class="header__wrapper__item">EN</div>
         </div>
@@ -57,6 +56,9 @@
         <div class="nav-bar__item">CUSTOMER SERVICE</div>
         <div class="nav-bar__item">SEARCH</div>
     </div>
+
+    <img id="banner" src="https://aviatorwatch.swiss/assets/banners/brand/about/aviation/PILOT_TESTED_1280px.webp" alt="">
+
     <div class="filter-bar">
         <div class="filter-bar__item">All Watches</div>
         <div class="filter-bar__item drop">Group</div>
@@ -69,7 +71,22 @@
         <div class="filter-bar__item drop">Bracelet</div>
         <div class="filter-bar__item drop">Sort by</div>
     </div>
-
+    <div class="scene">
+        <div class="carousel rotate" >
+            <img id="pic1" 
+                src="https://aviatorwatch.swiss/assets/banners/home/mig29/AVIATOR-WATCH--MIG-29-SMT_1600px.webp" alt="">
+            <img id="pic2"
+                src="https://aviatorwatch.swiss/assets/banners/home/airacobra/AVIATOR-WATCH--AIRACOBRA_1600px.webp"
+                alt="">
+            <img id="pic3"
+                src="https://aviatorwatch.swiss/assets/banners/home/bristol/AVIATOR-WATCH--BRISTOL_1600px.webp" alt="">
+            <img id="pic4"
+                src="https://aviatorwatch.swiss/assets/banners/home/dc3/AVIATOR-WATCH--DOUGLAS-DC-3_2560px.webp" alt="">
+            <img id="pic5"
+                src="https://aviatorwatch.swiss/assets/banners/home/daydate41/AVIATOR-WATCH--DOUGLAS-DAY-DATE-41--V.3.35.2.279.4_1600px.webp">
+        </div>
+    </div>
+    
     <div class="filter-dropbar">
         <div class="filter-dropbar__group"></div>
         <div class="filter-dropbar__group">
@@ -147,12 +164,14 @@
     <div class='wow'>
         <h2 class='wow__title'>your items redy to delivery:</h2>
         <div class='cart'></div>
+        <div class='wow__total'>your total is: <button>Check Out</button></div>
+
     </div>
 
     <div id="footer">
         <a href="owner.html">Owner Page</a>
         <p>Created by Andrew Noa & Tamir</p>
-        <p>Aviator Watch S.A.
+        <p onclick="handleRotate()">Aviator Watch S.A.
             Chemin du val, 2
             CH-2900 Porrentruy
             Switzerland</p>

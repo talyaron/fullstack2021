@@ -282,9 +282,11 @@ const gucci: Store = {
   updateItems(id, newPrice, itemName) {
     itemName = this.items.name;
     const index = this.items.findIndex((item) => item.id === id);
+    //const index = this.items.findIndex((item) => item.name === itemName);
     if (index >= 0) {
+     //this.items[index].name = itemName;
       this.items[index].price = newPrice;
-      // this.items[index].name = itemName;
+      
       this.storeData();
     }
   },
@@ -373,14 +375,17 @@ function handleAddItems(ev) {
   const name = ev.target.name.value;
   const price = ev.target.price.value;
   const imgTop = ev.target[2].value;
-  const imgBottom = ev.target[2].value;
-  const gender = ev.target[3].value;
-  const type = ev.target[4].value;
+  const imgBottom = ev.target[3].value;
+  const gender = ev.target[4].value;
+  const type = ev.target[5].value;
   let id = uid;
   gucci.addItems(name, price, imgTop,imgBottom, gender, type, id);
 
   const root = document.getElementById("root");
   gucci.renderAllitems(root);
+  //gucci.renderByGender(gender,root)
+  
+
   console.log(gucci.items);
   gucci.storeData();
 
@@ -404,6 +409,7 @@ function handleUpdate(ev, id) {
   const root = document.getElementById("root");
   console.log(root)
   gucci.renderAllitems(root);
+  
   const itemName = ev.target.elements.itemName.value;
   const NewPrice = ev.target.elements.update.value;
   gucci.updateItems(id, NewPrice, itemName);
