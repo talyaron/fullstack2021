@@ -5,12 +5,13 @@ const uid = function () {
 interface shop {
   id?: number;
   products: Array<product>;
+  wishlist:Array<any>;
   // wishList: Array<product>;
   addItem(
     title: string,
     price: number,
     gender:string,
-    category: "Sneakers" | "Boots" | "Hi Tops" | "Flip Flops",
+    category: "sneakers" | "boots" | "hi tops" | "flip flops",
     pictureFront: string,
     pictureBack: string,
     color: string,
@@ -43,17 +44,7 @@ interface shop {
   renderFilter( filterd: Array<product>, domElement);
   getData();
   setData();
-  addWishList(
-    title: string,
-    price: number,
-    category: "Sneakers" | "Boots" | "Hi Tops" | "Flip Flops",
-    pictureFront: string,
-    pictureBack: string,
-    color: string,
-    description: string,
-    shoeSize: number
-  );
-  FindIndex(id);
+  cartItems();
 }
 
 interface product {
@@ -61,7 +52,7 @@ interface product {
   title: string;
   price: number;
   gender:string;
-  category: "Sneakers" | "Boots" | "Hi Tops" | "Flip Flops";
+  category: "sneakers" | "boots" | "hi tops" | "flip flops";
   pictureFront: string;
   pictureBack: string;
   color: string;
@@ -73,7 +64,7 @@ interface product {
 
 const Adidas: shop = {
   // id:0,
-  products: [],
+  products: [], wishlist:[],
   // wishList: [],
   getData() {
     const products = JSON.parse(localStorage.getItem("Adidas"));
@@ -120,11 +111,18 @@ const Adidas: shop = {
 
     let html = "";
     this.products.forEach((product) => {
+      let text=document.URL;
+      let resultCustomer = text.substring(22, 35);
+      let resultOwner = text.substring(22, 35);
+      if(resultCustomer=="customer.html"){
       html += `
      <div class="cards__item" >
 
       <div class="picture">
-          <i class="far fa-heart"  onclick="handleFindIndex(id)"></i>
+      <i class="far fa-heart"></i>
+      <i class="fa-thin fa-cart-circle-plus"></i>
+
+
           <img src="${product.pictureBack}" >
          <img src="${product.pictureFront}" class="img-top">
           </div>
@@ -138,17 +136,13 @@ const Adidas: shop = {
           <p>${product.description}</p>
           <p>${product.price}₪</p> 
       </div>
-          </div>   `
-
-
-        ;
+          </div>   `;
 
       console.log("render");
-
     });
 
-    // const button = document.getElementById("button");
-    // console.log(button);
+    const button = document.getElementById("button");
+    console.log(button);
 
     domElement.innerHTML = html;
   },
@@ -210,41 +204,20 @@ const Adidas: shop = {
     
     this.render(filterd, domElement);
   },
-  // addWishList(id){
-
-  //     const index = this.products.findIndex((product) => product.id === id);
-  //     if (index >= 0) {
-
-  //       console.log(index);
-  //       this.setData();
-  //     }
-  // },
-  FindIndex(id) {
-    // console.log(id);
-
-    // const id = uid();
+  WishList(id){
     const index = this.products.findIndex((product) => product.id === id);
-    if (index >= 0) {
-      Adidas.products[index]
-      console.log(index);
-      this.setData();
-    }
-  }
-
+    //console.log(`The index:${index}.`)
+    //console.log(`The id: ${id}.`)
+    let item;
+    item= Adidas.products[index]
+    this.wishlist.push(item);
+    console.log(Adidas.wishlist)
+    
+    
+}
 };
 
 
-// function HandleWishList(ev) {
-// const wish = ev.target.value;
-// Adidas.addWishList()
-// }
-function handleFindIndex(id) {
-
-    Adidas.FindIndex(id)
-    const root = document.getElementById("rootWishList")
-    Adidas.renderAllData(root)
-  }
-}
 
 
 function handleAddItem(ev) {
@@ -356,26 +329,26 @@ function handleType(ev) {
   console.log(type);
   
   const root = document.getElementById("rootCustomer");
-  if(type === "Sneakers"){
+  if(type === "sneakers"){
     console.log(type);
     
 // Adidas.sortByType(type)
 //      Adidas.renderAllData(root);
 Adidas.renderFilter(Adidas.sortByType(type), root);
   }
-  else if(type === "Boots"){
+  else if(type === "boots"){
   //   console.log(type);
   //  Adidas.sortByType(type)
   //    Adidas.renderAllData(root);
   Adidas.renderFilter(Adidas.sortByType(type), root);
   }
-  else if(type === "Hi Tops"){
+  else if(type === "hi tops"){
   //   console.log(type);
   //  Adidas.sortByType(type)
   //    Adidas.renderAllData(root);
   Adidas.renderFilter(Adidas.sortByType(type), root);
   }
-  else if(type === "Flip Flops"){
+  else if(type === "flip flops"){
   //   console.log(type);
   //  Adidas.sortByType(type)
   //    Adidas.renderAllData(root);
@@ -419,15 +392,20 @@ function handleShoeSize(ev) {
   const size = ev.target.value;
   ev.preventDefault();
   const root = document.getElementById("rootCustomer");
-  Adidas.renderFilter(root, Adidas.shoeSizeFilter(size));
+  Adidas.renderFilter(Adidas.shoeSizeFilter(size),root);
   // if(type === " ")
   //Adidas.shoeSizeFilter(size);
 }
+
+function handleIndex(id) {
+  Adidas.WishList(id);
+}
+
 Adidas.addItem(
   "superstar shoes",
   200,
   "men",
-  "Sneakers",
+  "sneakers",
   "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg",
   "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg",
   "red",
@@ -438,7 +416,7 @@ Adidas.addItem(
   "superstar shoes",
   300,
   "women",
-  "Boots",
+  "boots",
   "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg",
   "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg",
   "red",
@@ -449,7 +427,7 @@ Adidas.addItem(
   "superstar shoes",
   100,
   "unisex",
-  "Hi Tops",
+  "hi tops",
   "https://st-adidas-isr.mncdn.com/content/images/thumbs/0086954_x-speedflow1-messi-firm-ground-boots_fy6879_side-lateral-center-view.jpeg",
   "https://st-adidas-isr.mncdn.com/content/images/thumbs/0086956_x-speedflow1-messi-firm-ground-boots_fy6879_top-portrait-view.jpeg",
   "red",

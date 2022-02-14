@@ -6,11 +6,12 @@ var StandartEbooks = {
         {
             title: "The Three-Body Problem",
             author: "Liu Cixin",
-            genre: "science fiction",
+            genre: "scienceF",
             year: 2008,
             rank: 4.07,
             price: 15,
-            img: "https://images-na.ssl-images-amazon.com/images/I/919XM42JQlL.jpg"
+            img: "https://images-na.ssl-images-amazon.com/images/I/919XM42JQlL.jpg",
+            id: uid()
         },
         {
             title: "One by One",
@@ -19,7 +20,8 @@ var StandartEbooks = {
             year: 2013,
             rank: 9.83,
             price: 28,
-            img: "https://litlife.club/data/Book/0/217000/217759/BC3_1410688094.jpg?w=600&h=600&q=90"
+            img: "https://litlife.club/data/Book/0/217000/217759/BC3_1410688094.jpg?w=600&h=600&q=90",
+            id: uid()
         },
         {
             title: "Fight Club",
@@ -28,7 +30,8 @@ var StandartEbooks = {
             year: 2009,
             rank: 9.63,
             price: 17,
-            img: "https://litlife.club/data/Book/0/87000/87828/BC3_1474544490.jpg?w=600&h=600&q=90"
+            img: "https://litlife.club/data/Book/0/87000/87828/BC3_1474544490.jpg?w=600&h=600&q=90",
+            id: uid()
         },
         {
             title: "Ramage",
@@ -37,7 +40,8 @@ var StandartEbooks = {
             year: 2010,
             rank: 10.0,
             price: 34,
-            img: "https://litlife.club/data/Book/0/119000/119128/BCS_1349028836.jpg?w=600&h=600&q=90"
+            img: "https://litlife.club/data/Book/0/119000/119128/BCS_1349028836.jpg?w=600&h=600&q=90",
+            id: uid()
         },
         {
             title: "Grimms` Fairy Tales",
@@ -46,7 +50,8 @@ var StandartEbooks = {
             year: 1994,
             rank: 9.5,
             price: 32,
-            img: "https://litlife.club/data/Book/0/0/707/BC3_1386593820.jpg?w=600&h=600&q=90"
+            img: "https://litlife.club/data/Book/0/0/707/BC3_1386593820.jpg?w=600&h=600&q=90",
+            id: uid()
         },
         {
             title: "The Caller",
@@ -55,16 +60,18 @@ var StandartEbooks = {
             year: 2017,
             rank: 9.59,
             price: 44,
-            img: "https://images-na.ssl-images-amazon.com/images/I/81-7W7KGYQL.jpg"
+            img: "https://images-na.ssl-images-amazon.com/images/I/81-7W7KGYQL.jpg",
+            id: uid()
         },
         {
             title: "Revelation",
             author: "Karpyshyn Drew",
-            genre: "science fiction",
+            genre: "scienceF",
             year: 2010,
             rank: 7.8,
             price: 21,
-            img: "https://litlife.club/data/Book/0/91000/91909/BCS_1349020826.jpg?w=600&h=600&q=90"
+            img: "https://litlife.club/data/Book/0/91000/91909/BCS_1349020826.jpg?w=600&h=600&q=90",
+            id: uid()
         },
         {
             title: "Deception Point",
@@ -73,7 +80,8 @@ var StandartEbooks = {
             year: 2010,
             rank: 9.99,
             price: 39,
-            img: "https://litlife.club/data/Book/0/125000/125823/BCS_1349021980.jpg?w=600&h=600&q=90"
+            img: "https://litlife.club/data/Book/0/125000/125823/BCS_1349021980.jpg?w=600&h=600&q=90",
+            id: uid()
         },
         {
             title: "The Secret History",
@@ -82,7 +90,8 @@ var StandartEbooks = {
             year: 2011,
             rank: 9.89,
             price: 41,
-            img: "https://litlife.club/data/Book/0/94000/94365/BC3_1474425076.jpg?w=600&h=600&q=90"
+            img: "https://litlife.club/data/Book/0/94000/94365/BC3_1474425076.jpg?w=600&h=600&q=90",
+            id: uid()
         },
         {
             title: "Hornblower and the Crisis",
@@ -91,7 +100,8 @@ var StandartEbooks = {
             year: 1990,
             rank: 0.23,
             price: 10,
-            img: "https://litlife.club/data/Book/0/126000/126284/BCS_1349022091.jpg?w=600&h=600&q=90"
+            img: "https://litlife.club/data/Book/0/126000/126284/BCS_1349022091.jpg?w=600&h=600&q=90",
+            id: uid()
         },
         {
             title: "The Adventures of Huckleberry Finn",
@@ -101,8 +111,8 @@ var StandartEbooks = {
             rank: 10.0,
             price: 43,
             img: "https://litlife.club/data/Book/0/0/755/BC3_1386593870.jpg?w=600&h=600&q=90",
-            annotation: "Book Description Hilariously picaresque, epic in scope, alive with the poetry and vigor of the American people, Mark Twain's story about a young boy and his journey down the Mississippi was the first great novel to speak in a truly American voice. Influencing subsequent generations of writers — from Sherwood Anderson to Twain's fellow Missourian, T.S. Eliot, from Ernest Hemingway and William Faulkner to J.D. Salinger — Huckleberry Finn, like the river which flows through its pages, is one of the great sources which nourished and still nourishes the literature of America."
-        },
+            id: uid()
+        }
     ],
     storeData: function () {
         localStorage.setItem("storeData", JSON.stringify(this.books));
@@ -139,16 +149,26 @@ var StandartEbooks = {
         this.books = this.books.filter(function (book) { return book.id !== id; });
         localStorage.setItem("storeData", JSON.stringify(this.books));
     },
-    updateBook: function (id, title, price) {
+    updateBook: function (id, genre, title, price) {
         var index = this.books.findIndex(function (book) { return book.id === id; });
         if (index >= 0) {
-            // this.books[index].img = img;
+            this.books[index].genre = genre;
             this.books[index].title = title;
             this.books[index].price = price;
         }
         this.storeData();
     },
-    addToCard: function (book, id) {
+    // updateBook(id, img, genre, title, price) {
+    //   const index = this.books.findIndex((book) => book.id === id);
+    //   if (index >= 0) {
+    //     this.books[index].img = img;
+    //     this.books[index].genre = genre;
+    //     this.books[index].title = title;
+    //     this.books[index].price = price;
+    //   }
+    //   this.storeData();
+    // },
+    addToCard: function (id) {
         var index = this.books.findIndex(function (book) { return book.id === id; });
         if (index >= 0) {
             this.books[index].id = id;
@@ -159,11 +179,10 @@ var StandartEbooks = {
         this.books = this.books.sort(function (a, b) {
             var authorA = a.author.toLowerCase(), authorB = b.author.toLowerCase();
             if (authorA < authorB)
-                //sort string ascending
                 return -1;
             if (authorA > authorB)
                 return 1;
-            return 0; //default return value (no sorting)
+            return 0;
         });
         this.books.forEach(function (book) {
             console.log(book.author);
@@ -173,11 +192,10 @@ var StandartEbooks = {
         this.books = this.books.sort(function (a, b) {
             var authorA = a.author.toLowerCase(), authorB = b.author.toLowerCase();
             if (authorA < authorB)
-                //sort string ascending
                 return 1;
             if (authorA > authorB)
                 return -1;
-            return 0; //default return value (no sorting)
+            return 0;
         });
         console.log("------");
         this.books.forEach(function (book) {
@@ -237,21 +255,21 @@ var StandartEbooks = {
     render: function (list, domElement) {
         var htmlStore = "";
         list.forEach(function (book) {
-            htmlStore += "<div class=\"card\">\n                  <h2>" + book.title + "</h2>\n                  <h3>" + book.author + "</h3>      \n                  <img class=\"img\" src=\"" + book.img + "\">\n                  <p>" + book.year + " &nbsp &nbsp " + book.price + "$</p>\n                  <div class=\"rating\">                 \n                      <i class=\"far fa-star  \" data-number=\"1\" id=\"" + book.title + "\" onclick = \"handleStarClick(event)\"></i>\n                      <i class=\"far fa-star  \" data-number=\"2\" id=\"" + book.title + "\" onclick = \"handleStarClick(event)\"></i>\n                       <i class=\"far fa-star \" data-number=\"3\" id=\"" + book.title + "\" onclick = \"handleStarClick(event)\"></i>\n                       <i class=\"far fa-star \" data-number=\"4\" id=\"" + book.title + "\" onclick = \"handleStarClick(event)\"></i>\n                      <i class=\"far fa-star  \" data-number=\"5\" id=\"" + book.title + "\" onclick = \"handleStarClick(event)\"></i>\n                   </div>                   \n                  <p> " + book.rank + "</p>\n                  <input  class = \"card__addToCardBtn\" onclick = \"handleAddToCard(event)\" id =\"addToCard\" type =\"button\" value = \"Add to cart\">\n               </div>";
+            htmlStore += "<div class=\"card\">\n                  <h2>" + book.title + "</h2>\n                  <h3>" + book.author + "</h3>      \n                  <img class=\"img\" src=\"" + book.img + "\">\n                  <p>" + book.year + " &nbsp &nbsp " + book.price + "$</p>\n                  <div class=\"rating\">                 \n                      <i class=\"far fa-star  \" data-number=\"1\" id=\"" + book.id + "\" onclick = \"handleStarClick(event)\"></i>\n                      <i class=\"far fa-star  \" data-number=\"2\" id=\"" + book.id + "\" onclick = \"handleStarClick(event)\"></i>\n                      <i class=\"far fa-star \" data-number=\"3\" id=\"" + book.id + "\" onclick = \"handleStarClick(event)\"></i>\n                      <i class=\"far fa-star \" data-number=\"4\" id=\"" + book.id + "\" onclick = \"handleStarClick(event)\"></i>\n                      <i class=\"far fa-star  \" data-number=\"5\" id=\"" + book.id + "\" onclick = \"handleStarClick(event)\"></i>\n                   </div>                   \n                  <p> " + book.rank + "</p>\n                  <input  class = \"card__addToCardBtn\" onclick = \"handleAddToCard(event)\" id =\"addToCard\" type =\"button\" value = \"Add to cart\">\n               </div>";
         });
         domElement.innerHTML = htmlStore;
     },
     renderERP: function (list, domElement) {
         var html = " ";
         list.forEach(function (book) {
-            html += "<div class=\"containerERP__content\">\n      \n                  <div class='containerERP__content__cardERP'> \n\n                      <div class='containerERP__content__cardERP__img'> \n                         <img src=\"" + book.img + ".jpg\" alt=\"\">  \n                      </div> \n                      \n                       <div class='containerERP__content__cardERP__info'>  \n                             <strong class=\"tistrongtle\">" + book.title + "</strong>                                \n                             <strong class=\"author\">" + book.author + "</strong>\n                             <strong class=\"genre\">" + book.genre + "</strong>\n                             <strong class=\"year\">" + book.year + "</strong>\n                             <strong class=\"rank\">" + book.rank + "</strong>             \n                        </div> \n                  </div>\n                   <div class=\"containerERP__content__erpBtn\">      \n                         <div class=\"content__erpBtn__delete\" style= \"margin-bottom: 1em;\" >\n                               <button class=\"containerERP__inputs__form__one__inp\"  onclick=\"handleDeleteByID('" + book.id + "')\"><span style =\"color: grey;\">Delete book</span></button>\n                         </div> \n                         <input class=\"containerERP__inputs__form__one__inp\"  type=\"file\" id=\"file\" name=\"file\" accept=\"image/png, image/jpeg\"  style= \"margin-bottom: 1em;\"  >\n                         <div class=\"content__erpBtn__update\">\n                             <form id=\"formAdd\" onsubmit=\"handleUpdateBook(event, '" + book.id + "')\">\n                                  <select class=\"containerERP__inputs__form__one__inp\" name=\"genre\" id=\"\">\n                                      <option value=\"genre\" disabled selected>genre</option>\n                                      <option value=\"science fiction\">science fiction</option>\n                                      <option value=\"detective\">detective</option>\n                                      <option value=\"prose\">prose</option>\n                                      <option value=\"adventures\">adventures</option>\n                                      <option value=\"children\">children</option>\n                                   </select>  \n                                 <input class=\"containerERP__inputs__form__one__inp\"  type=\"text\" name=\"title\" placeholder=\"Edit title\" value=\"" + book.title + "\">\n                                 <input class=\"containerERP__inputs__form__one__inp\"  type=\"number\" name=\"price\" placeholder=\"Edit price\" value=\"" + book.price + "\">\n                                 <input class=\"containerERP__inputs__form__one__inp\"  type=\"submit\" id=\"update\" value=\"Update book\">\n                             </form>\n                         </div> \n                    </div>          \n               </div>";
+            html += "<div class=\"containerERP__content\">\n      \n                  <div class='containerERP__content__cardERP'> \n\n                      <div class='containerERP__content__cardERP__img'> \n                         <img src=\"" + book.img + ".jpg\" alt=\"\">  \n                      </div> \n                      \n                       <div class='containerERP__content__cardERP__info'>  \n                             <strong class=\"title\">" + book.title + "</strong>                                \n                             <strong class=\"author\">" + book.author + "</strong>\n                             <strong class=\"genre\">" + book.genre + "</strong>\n                             <strong class=\"year\">" + book.year + "</strong>\n                             <strong class=\"rank\">" + book.rank + "</strong>             \n                        </div> \n                  </div>\n                   <div class=\"containerERP__content__erpBtn\">      \n                         <div class=\"content__erpBtn__delete\" style= \"margin-bottom: 1em;\" >\n                               <button class=\"containerERP__inputs__form__one__inp\"  onclick=\"handleDeleteByID('" + book.id + "')\"><span style =\"color: grey;\">Delete book</span></button>\n                         </div> \n                         <input class=\"containerERP__inputs__form__one__inp\"  type=\"file\" id=\"file\" name=\"file\" accept=\"image/png, image/jpeg, image/jpg\"  style= \"margin-bottom: 1em;\"  >\n                         <div class=\"content__erpBtn__update\">\n                             <form id=\"formAdd\" onsubmit=\"handleUpdateBook(event, '" + book.id + "')\">\n                                  <select class=\"containerERP__inputs__form__one__inp\" name=\"genre\" id=\"\">\n                                      <option value=\"genre\" disabled selected>genre</option>\n                                      <option value=\"scienceF\">scienceF</option>\n                                      <option value=\"detective\">detective</option>\n                                      <option value=\"prose\">prose</option>\n                                      <option value=\"adventures\">adventures</option>\n                                      <option value=\"children\">children</option>\n                                   </select>  \n                                 <input class=\"containerERP__inputs__form__one__inp\"  type=\"text\" name=\"title\" placeholder=\"Edit title\" value=\"" + book.title + "\">\n                                 <input class=\"containerERP__inputs__form__one__inp\"  type=\"number\" name=\"price\" placeholder=\"Edit price\" value=\"" + book.price + "\">\n                                 <input class=\"containerERP__inputs__form__one__inp\"  type=\"submit\" id=\"update\" value=\"Update book\">\n                             </form>\n                         </div> \n                    </div>          \n               </div>";
         });
         domElement.innerHTML = html;
     },
     renderAddToCard: function (list, domElement) {
         var htmlCard = " ";
         list.forEach(function (book) {
-            htmlCard += "<div class=\"card\">\n                       <h2>" + book.title + "</h2>\n                       <h3>" + book.author + "</h3>      \n                        <img class=\"img\" src=\"" + book.img + "\">\n                        <strong>" + book.year + " &nbsp &nbsp " + book.price + "$</strong>\n                             <div class=\"rating\">                 \n                                  <i class=\"far fa-star  \" data-number=\"1\" id=\"" + book.title + "\" onclick = \"handleStarClick(event)\"></i>\n                                  <i class=\"far fa-star  \" data-number=\"2\" id=\"" + book.title + "\" onclick = \"handleStarClick(event)\"></i>\n                                  <i class=\"far fa-star \" data-number=\"3\" id=\"" + book.title + "\" onclick = \"handleStarClick(event)\"></i>\n                                  <i class=\"far fa-star \" data-number=\"4\" id=\"" + book.title + "\" onclick = \"handleStarClick(event)\"></i>\n                                  <i class=\"far fa-star  \" data-number=\"5\" id=\"" + book.title + "\" onclick = \"handleStarClick(event)\"></i>\n                             </div>                   \n                          <strong> " + book.rank + "</strong>\n                          <input  class = \"container__card__addToCardBtn\" onclick = \"handleAddToCard(event)\" id =\"addToCard\" type =\"button\" value = \"Add to cart\">\n                   </div>";
+            htmlCard += "<div class=\"card\">\n                       <h2>" + book.title + "</h2>\n                       <h3>" + book.author + "</h3>      \n                        <img class=\"img\" src=\"" + book.img + "\">\n                        <strong>" + book.year + " &nbsp &nbsp " + book.price + "$</strong>\n                             <div class=\"rating\">                 \n                                  <i class=\"far fa-star  \" data-number=\"1\" id=\"" + book.id + "\" onclick = \"handleStarClick(event)\"></i>\n                                  <i class=\"far fa-star  \" data-number=\"2\" id=\"" + book.id + "\" onclick = \"handleStarClick(event)\"></i>\n                                  <i class=\"far fa-star \" data-number=\"3\" id=\"" + book.id + "\" onclick = \"handleStarClick(event)\"></i>\n                                  <i class=\"far fa-star \" data-number=\"4\" id=\"" + book.id + "\" onclick = \"handleStarClick(event)\"></i>\n                                  <i class=\"far fa-star  \" data-number=\"5\" id=\"" + book.id + "\" onclick = \"handleStarClick(event)\"></i>\n                             </div>                   \n                          <strong> " + book.rank + "</strong>\n                          <input  class = \"container__card__addToCardBtn\" onclick = \"handleAddToCard(event)\" id =\"addToCard\" type =\"button\" value = \"Add to cart\">\n                   </div>";
         });
         domElement.innerHTML = htmlCard;
     },
@@ -267,6 +285,8 @@ StandartEbooks.storeData();
 var allstars = document.querySelectorAll(".fa-star");
 var rating = document.querySelector('.rating');
 function handleStarClick(e) {
+    StandartEbooks.getData();
+    StandartEbooks.storeData();
     console.log(e.target);
     allstars.forEach(function (star) {
         if (e.target.id == star.id &&
@@ -285,10 +305,25 @@ function handleStarClick(e) {
         console.log(e.target);
     });
 }
-// const allstars = null;
-// if (Array.isArray(allstars)) {
-//   allstars.forEach(element => {
-//     console.log(element);
+// function handleStarClick(e) {
+//   console.log(e.target);
+//   allstars.forEach((star) => {
+//     if (
+//       e.target.id == star.id &&
+//       e.target.dataset.number >= star.dataset.number
+//     ) {
+//       console.log(star.dataset.number);
+//       star.classList.add("fas");
+//     } else if (
+//       e.target.id == star.id &&
+//       e.target.dataset.number < star.dataset.number
+//     ) {
+//       star.classList.remove("fas");
+//     } else {
+//       return 0;
+//     }
+//     console.log(star);
+//     console.log(e.target);
 //   });
 // }
 function renderOwener() {
@@ -318,11 +353,9 @@ function handleAddBook(e) {
     var price = e.target.price.valueAsNumber;
     var img = e.target.img.value;
     var annotation = e.target.annotation.value;
-    // const root = document.querySelector("#root");
     var rootERP = document.querySelector("#rootERP");
     StandartEbooks.addBook(title, author, genre, year, rank, price, img, annotation);
-    // StandartEbooks.renderAllBooks(rootERP);
-    StandartEbooks.render(rootERP, root);
+    StandartEbooks.render(rootERP, StandartEbooks.books);
     StandartEbooks.storeData();
     e.target.reset();
 }
@@ -332,13 +365,10 @@ function handleDeleteBook(e) {
         console.log(e);
         console.log(e.target.elements["delete"].value);
         var title = e.target.elements["delete"].value;
-        // const root = document.querySelector("#root");
         var rootERP_1 = document.querySelector("#rootERP");
         if (title) {
             console.log(title);
             StandartEbooks.deleteBook(title);
-            // StandartEbooks.renderAllBooks(root);
-            // StandartEbooks.renderAllBooks(rootERP);
             StandartEbooks.renderERP(rootERP_1, StandartEbooks.books);
             StandartEbooks.storeData();
         }
@@ -350,32 +380,33 @@ function handleDeleteBook(e) {
         console.error(err);
     }
 }
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 function handleDeleteByID(id) {
     console.log(id);
     var rootERP = document.getElementById("rootERP");
     StandartEbooks.deleteByID(id);
     StandartEbooks.renderERP(StandartEbooks.books, rootERP);
 }
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 function handleUpdateBook(e, id) {
     e.preventDefault();
     console.log(id);
+    // console.log(e.target.elements.img);
     // const img = e.target.elements.img.value;
+    var genre = e.target.genre.value;
     var title = e.target.elements.title.value;
     var price = e.target.elements.price.valueAsNumber;
     var rootERP = document.querySelector("#rootERP");
-    StandartEbooks.updateBook(id, title, price);
+    // StandartEbooks.updateBook(id, genre, img, title, price);
+    StandartEbooks.updateBook(id, genre, title, price);
     StandartEbooks.renderERP(StandartEbooks.books, rootERP);
     StandartEbooks.storeData();
-    // StandartEbooks.renderAllBooks(rootERP)
     e.target.reset();
 }
-// function handleAddToCard(ev) {
-//   StandartEbooks.addToCard();
-//   const rootCard=document.getElementById('rootCard')
-//   StandartEbooks
-// }
+function handleAddToCard(id) {
+    console.log(id);
+    var rootCard = document.getElementById('rootCard');
+    StandartEbooks.addToCard(id);
+    StandartEbooks.renderAddToCard(StandartEbooks.books, rootCard);
+}
 function handleAuthorAscen() {
     try {
         StandartEbooks.sortAscenByAuthor();
@@ -457,7 +488,8 @@ function handleSelectByGenre(e) {
     e.preventDefault();
     console.log(e.target);
     console.log(e);
-    var genre = e.target.value;
+    // debugger;
+    var genre = e.target.id;
     var root = document.querySelector("#root");
     if (genre === "all") {
         StandartEbooks.render(StandartEbooks.books, root);
@@ -465,6 +497,10 @@ function handleSelectByGenre(e) {
     else {
         console.log(genre);
         var filterByGenre = StandartEbooks.filterByGenre(genre);
+        var a = StandartEbooks.books.filter(function (item) {
+            return item.genre === genre;
+        });
+        console.log('ghgjg..........', filterByGenre, genre, a);
         StandartEbooks.renderFilterByGenre(filterByGenre, root);
     }
 }
@@ -497,26 +533,25 @@ var rootERP = document.querySelector("#rootERP");
 // StandartEbooks.renderERP(root, rootERP);
 StandartEbooks.getData();
 StandartEbooks.storeData();
-var scrollToTopBtn = document.querySelector(".scrollToTopBtn");
-var rootElement = document.documentElement;
-function handleScroll() {
-    // Do something on scroll
-    var scrollTotal = rootElement.scrollHeight - rootElement.clientHeight;
-    if (rootElement.scrollTop / scrollTotal > 0.8) {
-        // Show button
-        scrollToTopBtn.classList.add("showBtn");
-    }
-    else {
-        // Hide button
-        scrollToTopBtn.classList.remove("showBtn");
-    }
-}
-function scrollToTop() {
-    // Scroll to top logic
-    rootElement.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
-}
-scrollToTopBtn.addEventListener("click", scrollToTop);
-document.addEventListener("scroll", handleScroll);
+// const scrollToTopBtn = document.querySelector("#scrollToTopBtn");
+// const rootElement = document.documentElement;
+// function handleScroll() {
+//   // Do something on scroll
+//   const scrollTotal = rootElement.scrollHeight - rootElement.clientHeight;
+//   if (rootElement.scrollTop / scrollTotal > 0.8) {
+//     // Show button
+//     scrollToTopBtn.classList.add("showBtn");
+//   } else {
+//     // Hide button
+//     scrollToTopBtn.classList.remove("showBtn");
+//   }
+// }
+// function scrollToTop() {
+//   // Scroll to top logic
+//   rootElement.scrollTo({
+//     top: 0,
+//     behavior: "smooth"
+//   });
+// }
+// scrollToTopBtn.addEventListener("click", scrollToTop);
+// document.addEventListener("scroll", handleScroll);

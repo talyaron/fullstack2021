@@ -37,7 +37,7 @@ header:hover {
   opacity: 1;
 }
 header .navBar {
-  padding-top: 20px;
+  padding-top: 10px;
   padding-bottom: 10px;
   display: block;
 }
@@ -64,7 +64,7 @@ header .navBar__options {
   flex-wrap: wrap;
   font-weight: bold;
   justify-content: center;
-  padding-top: 30px;
+  padding-top: 8px;
   padding-bottom: 10px;
   gap: 5px;
 }
@@ -160,35 +160,21 @@ header.is-scrolling {
 
 .filters {
   position: relative;
-  display: grid;
-  grid-template-columns: 1fr repeat(2, 1fr);
-  grid-template-rows: 50px;
-  justify-content: center;
-  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: end;
+  padding: 0.5rem;
+  gap: 1rem;
 }
-.filters svg {
-  width: 15px;
-  transform: rotate(-90deg);
-  margin-left: 6px;
+.filters__category, .filters__sort {
+  background: none;
+  border: none;
+  text-decoration: none;
   cursor: pointer;
 }
-.filters__category {
-  display: flex;
-  justify-content: center;
-}
 .filters__sort {
-  display: flex;
-  justify-content: center;
-}
-.filters__input {
-  margin: auto;
-}
-@media only screen and (max-width: 600px) {
-  .filters {
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(2, 50px);
-    justify-content: space-between;
-  }
+  width: 80px;
 }
 
 .backToTop {

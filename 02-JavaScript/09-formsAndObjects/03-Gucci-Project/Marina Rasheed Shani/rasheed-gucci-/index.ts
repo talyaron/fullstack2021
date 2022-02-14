@@ -12,7 +12,7 @@ interface Store {
     id: any
   ): any;
   removeItems(itemName: string): any;
-  updateItems(id: any, newPrice: number, itemName: string): any;
+  updateItems( newPrice: number, itemName: string): any;
   filterMaxPriceAndGender(gender: string, price: number);
   sortByAscending(price: number);
   sortByDescending(price: number);
@@ -121,7 +121,7 @@ const gucci: Store = {
       type: "pants",
     },
     {
-      name: "Gucci Jordaan crocodile loafer",
+      name: "Gucci crocodile loafer",
       price: 3200,
       imgTop: "//media.gucci.com/style/DarkGray_South_0_160_470x470/1459942203/406994_EC200_1000_001_100_0000_Light.jpg",
       imgBottom: "https://media.gucci.com/style/White_South_0_160_540x540/1459942203/406994_EC200_1000_002_100_0000_Light.jpg",
@@ -177,7 +177,7 @@ const gucci: Store = {
       type: "rolex",
     },
     {
-      name: "Gucci Tiger G-Timeless, 38 mm",
+      name: "Gucci Tiger, 38 mm",
       price: 1020,
       imgTop: "https://media.gucci.com/style/DarkGray_South_0_160_316x316/1634838345/692078_ICZA0_8521_001_100_0000_Light-Gucci-Tiger-G-Timeless-watch-38-mm.jpg",
       imgBottom: "https://media.gucci.com/style/White_South_0_160_540x540/1634838347/692078_ICZA0_8521_002_100_0000_Light.jpg",
@@ -279,16 +279,19 @@ const gucci: Store = {
     }
   },
 
-  updateItems(id, newPrice, itemName) {
-    itemName = this.items.name;
-    const index = this.items.findIndex((item) => item.id === id);
-    //const index = this.items.findIndex((item) => item.name === itemName);
+  updateItems( newPrice, itemName) {
+    //const index = this.items.findIndex((item) => item.id === id);
+    const index = this.items.findIndex((item) => item.name === itemName);
+    console.log(index)
     if (index >= 0) {
-     //this.items[index].name = itemName;
+      this.items[index].name = itemName;
       this.items[index].price = newPrice;
       
       this.storeData();
+      this.getData();
+      
     }
+    
   },
 
   filterMaxPriceAndGender(gender, price) {
@@ -315,12 +318,12 @@ const gucci: Store = {
   },
   render(list, domElement) {
     let html = "";
-    list.forEach((product: any) => {
+    list.forEach((item: any) => {
       html += `<div class="items">
-        <p>${product.name}</p>
-        <img class="imgTop" src="${product.imgTop}" >
-        <img class="imgBottom" src="${product.imgBottom}" >
-        <p>${product.price}$</p>
+        <p>${item.name}</p>
+        <img class="imgTop" src="${item.imgTop}" >
+        <img class="imgBottom" src="${item.imgBottom}" >
+        <p>${item.price}$</p>
         <input onclick="handleAddToCart()" id="addToCart" type="button" value="ADD TO CART">
         </div>`;
     });
@@ -356,7 +359,7 @@ const gucci: Store = {
 
 
 };
-gucci.storeData(); /// delete later
+//gucci.storeData(); /// delete later
 
 
 function handleShowItems() {
@@ -371,7 +374,7 @@ const uid = function () {
 
 function handleAddItems(ev) {
   ev.preventDefault();
-
+  
   const name = ev.target.name.value;
   const price = ev.target.price.value;
   const imgTop = ev.target[2].value;
@@ -381,38 +384,51 @@ function handleAddItems(ev) {
   let id = uid;
   gucci.addItems(name, price, imgTop,imgBottom, gender, type, id);
 
-  const root = document.getElementById("root");
-  gucci.renderAllitems(root);
-  //gucci.renderByGender(gender,root)
+  const root = document.getElementById("root"); 
+  
+   
+  gucci.renderFilterByGenderAndType(gender,type,root)  ;
+
   
 
-  console.log(gucci.items);
+  gucci.getData();
   gucci.storeData();
-
   ev.target.reset();
 }
+
+gucci.getData();
 
 function handleRemoveItems(ev) {
   ev.preventDefault();
   const name = ev.target.elements.remove.value;
   gucci.removeItems(name);
   const root = document.getElementById("root");
-  gucci.renderAllitems(root);
+
+  console.log()
+
+  gucci.render(gucci.items,root);
   gucci.storeData();
   ev.target.reset();
 }
 
 
-function handleUpdate(ev, id) {
+function handleUpdate(ev) {
   ev.preventDefault();
    
   const root = document.getElementById("root");
-  console.log(root)
-  gucci.renderAllitems(root);
+  
+  
   
   const itemName = ev.target.elements.itemName.value;
-  const NewPrice = ev.target.elements.update.value;
-  gucci.updateItems(id, NewPrice, itemName);
+  
+  const newPrice = ev.target.elements.newPrice.value;
+  console.log(ev.target.elements.newPrice.value)
+
+  
+  gucci.updateItems( newPrice, itemName);
+
+  gucci.render(gucci.items,root);
+  gucci.getData();
   gucci.storeData();
 }
 
