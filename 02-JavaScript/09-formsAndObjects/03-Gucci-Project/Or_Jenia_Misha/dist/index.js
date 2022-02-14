@@ -525,7 +525,3 @@ function popNavBarActive() {
     });
 }
 popNavBarActive();
-function popCartActive() {
-    var cart = document.getElementById("cartIcon");
-    // cart.addEventListener("click")
-}
