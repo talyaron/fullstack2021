@@ -32,6 +32,7 @@ header {
   color: #fff;
   background: var(--header-background-color);
   opacity: 0.4;
+  transition: opacity 0.35s ease-in-out;
 }
 header:hover {
   opacity: 1;

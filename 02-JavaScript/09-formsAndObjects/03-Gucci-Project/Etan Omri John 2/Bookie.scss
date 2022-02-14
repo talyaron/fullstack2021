@@ -26,7 +26,6 @@ body {
 }
 
 header {
-
   position: fixed;
   top: 0;
   width: 100%;
@@ -34,6 +33,7 @@ header {
   color: #fff;
   background: var(--header-background-color);
   opacity: .4;
+  transition: opacity .35s ease-in-out;
   &:hover{
     opacity:1;
   }
@@ -42,11 +42,15 @@ header {
     padding-top: 10px;
     padding-bottom: 10px;
     display: block;
-
+    
+    
+    
     &__row1 {
       display: flex;
       flex-wrap: nowrap;
       justify-content: space-around;
+      
+      
 
       &__icons {
         display: flex;
@@ -101,7 +105,7 @@ header {
       }
 
       &__row1 {
-
+        
 
         &__icons {
 
