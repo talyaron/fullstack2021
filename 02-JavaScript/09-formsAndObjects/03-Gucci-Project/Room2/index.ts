@@ -11,7 +11,7 @@ interface shop {
     title: string,
     price: number,
     gender:string,
-    category: "Sneakers" | "Boots" | "Hi Tops" | "Flip Flops",
+    category: "sneakers" | "boots" | "hi tops" | "flip flops",
     pictureFront: string,
     pictureBack: string,
     color: string,
@@ -52,7 +52,7 @@ interface product {
   title: string;
   price: number;
   gender:string;
-  category: "Sneakers" | "Boots" | "Hi Tops" | "Flip Flops";
+  category: "sneakers" | "boots" | "hi tops" | "flip flops";
   pictureFront: string;
   pictureBack: string;
   color: string;
@@ -405,7 +405,7 @@ Adidas.addItem(
   "superstar shoes",
   200,
   "men",
-  "Sneakers",
+  "sneakers",
   "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg",
   "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg",
   "red",
@@ -416,7 +416,7 @@ Adidas.addItem(
   "superstar shoes",
   300,
   "women",
-  "Boots",
+  "boots",
   "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg",
   "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg",
   "red",
@@ -427,7 +427,7 @@ Adidas.addItem(
   "superstar shoes",
   100,
   "unisex",
-  "Hi Tops",
+  "hi tops",
   "https://st-adidas-isr.mncdn.com/content/images/thumbs/0086954_x-speedflow1-messi-firm-ground-boots_fy6879_side-lateral-center-view.jpeg",
   "https://st-adidas-isr.mncdn.com/content/images/thumbs/0086956_x-speedflow1-messi-firm-ground-boots_fy6879_top-portrait-view.jpeg",
   "red",
