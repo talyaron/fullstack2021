@@ -40,7 +40,7 @@ body {
       }
     }
 
-    
+
   }
 
 
@@ -49,7 +49,7 @@ body {
     text-align: center;
     transition: all 0.5s;
 
-   
+
 
 
 
@@ -60,7 +60,7 @@ body {
     ul {
       display: inline-flex;
       list-style: none;
-      
+
 
 
 
@@ -73,7 +73,7 @@ body {
         width: 120px;
         margin: 15px;
         padding: 15px;
-        
+
 
 
         a {
@@ -81,7 +81,7 @@ body {
           color: #ffffff;
           font-family: "Montserrat", sans-serif;
           font-weight: 900;
-          
+
 
 
 
@@ -126,7 +126,7 @@ body {
           :hover {
             text-decoration: underline;
             cursor: pointer;
-            
+
 
 
           }
@@ -197,7 +197,7 @@ body {
   margin-top: 15px;
   //margin-left: -15px;
   //position: absolute;
-  border:solid black 2px;
+  // border:solid black 2px;
 
   transform: translateY(-20px);
   ;
@@ -205,8 +205,11 @@ body {
 }
 
 .sub-container {
-  background-image: url("https://media.gucci.com/content/HeroBigStandard_3200x1520/1643384764/HeroBigStandard_VDAY-2022-043-new_001_Default.jpg");
-  height: 100vh;
+  
+  background-image: url("../../imgBG/gucciBG.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 90vh;
   margin: 0;
 
 
@@ -319,9 +322,9 @@ $background-color:#ffffff;
 
 .catergory__items {
   background-color: white;
-  height: 110em;
+  height: 80em;
   text-align: center;
-  
+
 
 
   .items {
@@ -331,11 +334,11 @@ $background-color:#ffffff;
     text-align: center;
     padding: 2px;
     border: none;
-    
+
 
 
     img {
-      height:380px;
+      height: 380px;
       width: 20em;
 
     }
@@ -357,11 +360,9 @@ $background-color:#ffffff;
     }
 
     &:hover .imgBottom {
-      height:380px;
+      height: 380px;
       display: inline;
-      
-      //   width: 20em;
-      //  height: 380px;
+
     }
 
 
@@ -376,11 +377,84 @@ $background-color:#ffffff;
 
 
 
-// @media only screen and (max-width: 1024px) {
-//   body {
-
-//     background-color: red;
+@media only screen and (max-width: 1024px) {
+  body {
 
 
-//   }
-// }
+    background-color: red;
+    //used so i know when im on the width i need.
+
+    .catergory__items {
+      background-color: white;
+      height: 90em;
+      text-align: center;
+
+      .items {
+
+        .imgTop {
+          height: 350px;
+          width: 18em;
+
+
+        }
+
+        .imgBottom {
+          width: 18em;
+          height: 10px;
+
+        }
+
+        &:hover .imgBottom {
+          height: 350px;
+          //display: inline;
+
+
+        }
+      }
+
+    }
+
+  }
+
+
+  .sub-container {
+    
+    height: 70vh;
+    margin: 0;
+    
+
+
+  }
+
+
+  // .container {
+  //   &__main {
+
+
+  //     img {
+  //       background-size: cover;
+  //       background-repeat: no-repeat;
+  //     }
+
+  //     button {
+  //       background-color: black;
+  //       color: blanchedalmond;
+  //       padding: 0.5em 2em;
+  //       margin-bottom: 1.5em;
+  //     }
+  //   }
+
+  //   &__stories {
+  //     justify-content: center;
+  //     gap: 2em;
+  //     display: flex;
+  //     color: rgb(5, 5, 5);
+  //     text-align: center;
+  //     font-weight: 300;
+  //     font-size: larger;
+
+  //   }
+    
+    
+  // }
+}

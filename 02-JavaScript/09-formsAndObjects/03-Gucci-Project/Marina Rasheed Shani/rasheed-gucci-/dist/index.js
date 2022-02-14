@@ -81,7 +81,7 @@ var gucci = {
             type: "pants"
         },
         {
-            name: "Gucci Jordaan crocodile loafer",
+            name: "Gucci crocodile loafer",
             price: 3200,
             imgTop: "//media.gucci.com/style/DarkGray_South_0_160_470x470/1459942203/406994_EC200_1000_001_100_0000_Light.jpg",
             imgBottom: "https://media.gucci.com/style/White_South_0_160_540x540/1459942203/406994_EC200_1000_002_100_0000_Light.jpg",
@@ -137,7 +137,7 @@ var gucci = {
             type: "rolex"
         },
         {
-            name: "Gucci Tiger G-Timeless, 38 mm",
+            name: "Gucci Tiger, 38 mm",
             price: 1020,
             imgTop: "https://media.gucci.com/style/DarkGray_South_0_160_316x316/1634838345/692078_ICZA0_8521_001_100_0000_Light-Gucci-Tiger-G-Timeless-watch-38-mm.jpg",
             imgBottom: "https://media.gucci.com/style/White_South_0_160_540x540/1634838347/692078_ICZA0_8521_002_100_0000_Light.jpg",

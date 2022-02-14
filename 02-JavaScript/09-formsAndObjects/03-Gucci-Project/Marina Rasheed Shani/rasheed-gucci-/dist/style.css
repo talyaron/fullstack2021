@@ -116,13 +116,14 @@ body {
 .container__navBar2 ul li:hover .container__navBar2__dropdown {
   display: block;
   margin-top: 15px;
-  border: solid black 2px;
   transform: translateY(-20px);
 }
 
 .sub-container {
-  background-image: url("https://media.gucci.com/content/HeroBigStandard_3200x1520/1643384764/HeroBigStandard_VDAY-2022-043-new_001_Default.jpg");
-  height: 100vh;
+  background-image: url("../../imgBG/gucciBG.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 90vh;
   margin: 0;
 }
 
@@ -194,7 +195,7 @@ body {
 
 .catergory__items {
   background-color: white;
-  height: 110em;
+  height: 80em;
   text-align: center;
 }
 .catergory__items .items {
@@ -221,4 +222,31 @@ body {
 }
 .catergory__items .items p {
   letter-spacing: 2px;
+}
+
+@media only screen and (max-width: 1024px) {
+  body {
+    background-color: red;
+  }
+  body .catergory__items {
+    background-color: white;
+    height: 90em;
+    text-align: center;
+  }
+  body .catergory__items .items .imgTop {
+    height: 350px;
+    width: 18em;
+  }
+  body .catergory__items .items .imgBottom {
+    width: 18em;
+    height: 10px;
+  }
+  body .catergory__items .items:hover .imgBottom {
+    height: 350px;
+  }
+
+  .sub-container {
+    height: 70vh;
+    margin: 0;
+  }
 }
