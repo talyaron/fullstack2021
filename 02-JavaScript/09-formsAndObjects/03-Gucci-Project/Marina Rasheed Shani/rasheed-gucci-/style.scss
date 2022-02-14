@@ -205,8 +205,11 @@ body {
 }
 
 .sub-container {
-  background-image: url("https://media.gucci.com/content/HeroBigStandard_3200x1520/1643384764/HeroBigStandard_VDAY-2022-043-new_001_Default.jpg");
-  height: 100vh;
+  
+  background-image: url("../../imgBG/gucciBG.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 90vh;
   margin: 0;
 
 
@@ -360,8 +363,6 @@ $background-color:#ffffff;
       height: 380px;
       display: inline;
 
-      //   width: 20em;
-      //  height: 380px;
     }
 
 
@@ -381,6 +382,7 @@ $background-color:#ffffff;
 
 
     background-color: red;
+    //used so i know when im on the width i need.
 
     .catergory__items {
       background-color: white;
@@ -405,7 +407,7 @@ $background-color:#ffffff;
         &:hover .imgBottom {
           height: 350px;
           //display: inline;
-          
+
 
         }
       }
@@ -413,4 +415,46 @@ $background-color:#ffffff;
     }
 
   }
+
+
+  .sub-container {
+    
+    height: 70vh;
+    margin: 0;
+    
+
+
+  }
+
+
+  // .container {
+  //   &__main {
+
+
+  //     img {
+  //       background-size: cover;
+  //       background-repeat: no-repeat;
+  //     }
+
+  //     button {
+  //       background-color: black;
+  //       color: blanchedalmond;
+  //       padding: 0.5em 2em;
+  //       margin-bottom: 1.5em;
+  //     }
+  //   }
+
+  //   &__stories {
+  //     justify-content: center;
+  //     gap: 2em;
+  //     display: flex;
+  //     color: rgb(5, 5, 5);
+  //     text-align: center;
+  //     font-weight: 300;
+  //     font-size: larger;
+
+  //   }
+    
+    
+  // }
 }

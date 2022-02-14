@@ -120,8 +120,10 @@ body {
 }
 
 .sub-container {
-  background-image: url("https://media.gucci.com/content/HeroBigStandard_3200x1520/1643384764/HeroBigStandard_VDAY-2022-043-new_001_Default.jpg");
-  height: 100vh;
+  background-image: url("../../imgBG/gucciBG.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 90vh;
   margin: 0;
 }
 
@@ -241,5 +243,10 @@ body {
   }
   body .catergory__items .items:hover .imgBottom {
     height: 350px;
+  }
+
+  .sub-container {
+    height: 70vh;
+    margin: 0;
   }
 }
