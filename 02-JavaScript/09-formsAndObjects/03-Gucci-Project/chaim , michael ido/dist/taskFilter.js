@@ -37,7 +37,6 @@ var clothsList = {
         var id = itemId();
         if (catagory == "pants") {
             this.pants.push({ id: id, brand: brand, size: size, price: price });
-            console.log(this);
         }
     },
     render: function (list, display, catagory) {
@@ -78,15 +77,11 @@ var clothsList = {
             });
         }
         else if (sortOption == "sortZtoA") {
-            sortedList = list.sort(function (a, b) {
-                return b.brand.toLowerCase() > a.brand.toLowerCase()
-                    ? 1
-                    : a.brand.toLowerCase() > b.brand.toLowerCase()
-                        ? -1
-                        : 0;
-            });
+            sortedList = list.sort(function (a, b) { return b.brand.toLowerCase() > a.brand.toLowerCase() ? 1
+                : a.brand.toLowerCase() > b.brand.toLowerCase()
+                    ? -1
+                    : 0; });
         }
-        console.log(sortedList);
         this.render(sortedList, display, catagory);
     },
     SortTshirts: function (sortOption, display, catagory) {
@@ -119,7 +114,6 @@ var clothsList = {
     },
     renderBySize: function (list, filterSizeInput, display, catagory) {
         var filteredBySize = this.filterBySize(list, filterSizeInput);
-        console.log(filteredBySize);
         this.render(filteredBySize, display, catagory);
     },
     filterByPrice: function (list, filterPriceFromInput, filterPriceUpToInput) {
@@ -127,7 +121,6 @@ var clothsList = {
     },
     renderByPrice: function (list, filterPriceFromInput, filterPriceUpToInput, display, catagory) {
         var filteredByPrice = this.filterByPrice(list, filterPriceFromInput, filterPriceUpToInput);
-        console.log(filteredByPrice);
         this.render(filteredByPrice, display, catagory);
     },
     storeDataTshirts: function () {
@@ -178,41 +171,63 @@ var clothsList = {
             sortedListCustomer = list.sort(function (a, b) { return b.brand.toLowerCase() > a.brand.toLowerCase() ? 1
                 : a.brand.toLowerCase() > b.brand.toLowerCase() ? -1 : 0; });
         }
-        this.renderCustomerPage(sortedListCustomer, display, catagory);
-    }, renderCustomerByBrand: function (list, inputBrand, display, catagory) {
+        this.renderCustomerPage(sortedListCustomer, display, catagory, imgCard);
+    }, renderCustomerByBrand: function (list, inputBrand, display, catagory, imgCard) {
         var filteredByBrand = this.filterByBrand(list, inputBrand);
-        this.renderCustomerPage(filteredByBrand, display, catagory);
-    }, renderCustomerBySize: function (list, inputSize, display, catagory) {
+        this.renderCustomerPage(filteredByBrand, display, catagory, imgCard);
+    }, renderCustomerBySize: function (list, inputSize, display, catagory, imgCard) {
         var filteredBySize = this.filterBySize(list, inputSize);
-        this.renderCustomerPage(filteredBySize, display, catagory);
-    }, renderCustomerByPrice: function (list, inputFrom, inputUpTo, display, catagory) {
+        this.renderCustomerPage(filteredBySize, display, catagory, imgCard);
+    }, renderCustomerByPrice: function (list, inputFrom, inputUpTo, display, catagory, imgCard) {
         var filteredCustomerByPrice = this.filterByPrice(list, inputFrom, inputUpTo);
-        this.renderCustomerPage(filteredCustomerByPrice, display, catagory);
+        this.renderCustomerPage(filteredCustomerByPrice, display, catagory, imgCard);
     }, addToCart: function (id, catagory) {
+        var itemArr;
         var itemToCart;
         if (catagory == "Tshirts") {
-            itemToCart = this.Tshirts.filter(function (item) { return item.id === id; });
-            itemToCart[0].id = catagory;
+            itemArr = this.Tshirts.filter(function (item) { return item.id == id; });
+            itemToCart = itemArr[0];
+            itemToCart.name = catagory;
         }
         else if (catagory == "shoes") {
-            itemToCart = this.shoes.filter(function (item) { return item.id === id; });
-            itemToCart[0].id = catagory;
+            itemArr = this.shoes.filter(function (item) { return item.id == id; });
+            itemToCart = itemArr[0];
+            itemToCart.name = catagory;
         }
         else if (catagory == "pants") {
-            itemToCart = this.pants.filter(function (item) { return item.id === id; });
-            itemToCart[0].id = catagory;
+            itemArr = this.pants.filter(function (item) { return item.id == id; });
+            itemToCart = itemArr[0];
+            itemToCart.name = catagory;
         }
         this.shoppingCart.push(itemToCart);
-    }, renderShoppingCart: function (display, catagory) {
-        var shoppingCartDisplay = document.querySelector('.container-shoppingCart_display');
-        shoppingCartDisplay.style.display = "flex";
-        var html;
-        this.shoppingCart.forEach(function (item) {
-            html = " \n            <div class=\"container-shoppingCart_display-item\">\n                <h1 class=\"container-shoppingCart_display-item-header\">" + item[0].brand + " " + catagory + "</h1>\n                <p class=\"container-shoppingCart_display-item-size\">size: " + item[0].size + "</p>\n                <p class=\"container-shoppingCart_display-item-price\">price: " + item[0].price + "</p>\n                <button class=\"container-shoppingCart_display-item-deleteBtn\" name=\"" + catagory + "\" type=\"button\" onclick=\"deleteItem(event,'" + item[0].id + "')\">remove</button>\n            </div>";
+        console.log(this.shoppingCart);
+    }, renderShoppingCart: function (list, display, catagory) {
+        var shoppingCartDisplay = document.querySelector('.container-shoppingCart');
+        if (this.shoppingCart.length > 0) {
+            shoppingCartDisplay.style.display = "grid";
+        }
+        else {
+            shoppingCartDisplay.style.display = "none";
+        }
+        var html = "";
+        list.forEach(function (item) {
+            html += " \n            <div class=\"container-shoppingCart_display-item\">\n                <h1 class=\"container-shoppingCart_display-item-header\">" + item.brand + " " + catagory + "</h1>\n                <p class=\"container-shoppingCart_display-item-size\">size: " + item.size + "</p>\n                <p class=\"container-shoppingCart_display-item-price\">price: " + item.price + "</p>\n                <button class=\"container-shoppingCart_display-item-deleteBtn\" name=\"" + catagory + "\" id=\"" + item.id + "\" type=\"button\" onclick=\"deleteItemFromCart(event)\">remove</button>\n            </div>";
         });
-        display.innerHTML += html;
-    }, deleteItemFromCard: function (id) {
-        this.shoppingCart = this.shoppingCart.filter(function (item) { return item[0].id !== id; });
+        display.innerHTML = html;
+    }, deleteItemFromShoppingCart: function (id) {
+        this.shoppingCart = this.shoppingCart.filter(function (item) { return item.id !== id; });
+    }, TotalCartPrice: function (list, display) {
+        var sum = 0;
+        list.forEach(function (item) {
+            sum += item.price;
+        });
+        display.textContent = "Total : " + sum;
+    }, renderCartDropDown: function (display) {
+        var html = '';
+        this.shoppingCart.forEach(function (item) {
+            html += "\n                <div class=\"container_header-dropDown-box-item\">\n                <h1 class=\"container_header-dropDown-box-item-header\">" + item.brand + " " + item.name + "</h1>\n                <p class=\"container_header-dropDown-box-item-size\">size: " + item.size + "</p>\n                <p class=\"container_header-dropDown-box-item-price\">price: " + item.price + "</p>\n                <button class=\"container_header-dropDown-box-item-deleteBtn\" name=\"" + item.name + "\" id=\"" + item.id + "\" type=\"button\" onclick=\"deleteItemFromCart(event)\">remove</button>\n                </div>";
+        });
+        display.innerHTML = html;
     }
 };
 function display(ev) {
@@ -260,7 +275,6 @@ function display(ev) {
             }
         }
     }
-    console.log(sortOption);
     clothsList.getDataTshirts();
     clothsList.getDataShoes();
     clothsList.getDataPants();
@@ -268,9 +282,6 @@ function display(ev) {
     var TshirtsBox = document.getElementById("TshirtsBox");
     var shoesBox = document.getElementById("shoesBox");
     var pantsBox = document.getElementById("pantsBox");
-    console.log(sortOptions.length);
-    // clothsList.renderBySize(clothsList.Tshirts, filterSizeInput, TshirtsBox, "Tshirts")
-    // console.log(clothsList.renderBySize(clothsList.Tshirts, filterSizeInput, TshirtsBox, "Tshirts"))
     // add function ---------------
     if (brand && size && price) {
         clothsList.addTshirt(brand, size, price, catagory);
@@ -317,7 +328,6 @@ function display(ev) {
         }
     }
     else if (filterPriceFromInput && filterPriceUpToInput) {
-        console.log("lala");
         if (catagory == "Tshirts") {
             clothsList.renderByPrice(clothsList.Tshirts, filterPriceFromInput, filterPriceUpToInput, TshirtsBox, "Tshirts");
         }
@@ -359,7 +369,6 @@ function activeBtns(btn) {
 // display filter options -----------------------
 function filterOptionsDisplay(btn) {
     var id = btn.target.id;
-    // console.log(id);
     var html;
     if (id == "filterBrand") {
         html = "\n        <input type\"text\" class=\"main_form-filterInputs\" name=\"selectFilterBrand\" placeholder = \"type Brand\" required>";
@@ -373,7 +382,6 @@ function filterOptionsDisplay(btn) {
     options.innerHTML = html;
 }
 function deleteCard(id) {
-    console.log(id);
     var TshirtsBox = document.getElementById("TshirtsBox");
     var shoesBox = document.getElementById("shoesBox");
     var pantsBox = document.getElementById("pantsBox");
@@ -403,16 +411,13 @@ function changingImgsBox() {
     var ImgsBox = document.getElementById("ImgsBox");
     var background;
     if (count == 1) {
-        background =
-            "url(https://s18670.pcdn.co/wp-content/uploads/Top-20-Teacher-T-Shirts-on-Etsy.png)";
+        background = "url(https://s18670.pcdn.co/wp-content/uploads/Top-20-Teacher-T-Shirts-on-Etsy.png)";
     }
     else if (count == 2) {
-        background =
-            "url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqrhcOcZCZbfuu4U9-6j0d66_c8hEInD5rvW0arp8TU9D9eR6cziUe3TFP0rw4AkoShM0&usqp=CAU)";
+        background = "url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqrhcOcZCZbfuu4U9-6j0d66_c8hEInD5rvW0arp8TU9D9eR6cziUe3TFP0rw4AkoShM0&usqp=CAU)";
     }
     else if (count == 3) {
-        background =
-            "url(https://a.espncdn.com/photo/2019/0715/Sneaker%20Center.jpg)";
+        background = "url(https://a.espncdn.com/photo/2019/0715/Sneaker%20Center.jpg)";
     }
     else {
         count = 0;
@@ -434,7 +439,6 @@ function showOptions(box, boxId) {
     var display = document.querySelector(".container_catagories-display");
     var id = box.target.id;
     if (id == "Tshirts") {
-        // console.log(cardImg);
         sortANDfilterBtnsPants.innerHTML = "";
         sortANDfilterBtnsShoes.innerHTML = "";
         clothsList.getDataTshirts();
@@ -496,7 +500,7 @@ function handleFilter(ev) {
             sortANDfilterBtnsShoes.innerHTML = "\n            <form class=\"container_sortANDfilterBtns-box_form\" onsubmit=\"displayFilter(event)\">\n            <input  class=\"container_sortANDfilterBtns-box_form-filterInput\" type=\"text\" id=\"" + boxId + "\" name=\"inputSize\" placeholder=\"type size...\" required>\n            <button class=\"container_sortANDfilterBtns-box_form-submit\" type=\"submit\">Filter</button></form>";
         }
         else if (filterBy == "price") {
-            sortANDfilterBtnsShoes.innerHTML = "\n            <form class=\"container_sortANDfilterBtns-box_form\" onsubmit=\"displayFilter(event)\">\n            <input class=\"container_sortANDfilterBtns-box_form-filterInput\" type=\"number\" id=\"" + boxId + "\" name=\"inputFrom\" placeholder=\"From...\" required>\n            <input class=\"container_sortANDfilterBtns-box_form-filterInput\" type=\"number\" id=\"" + boxId + "\" name=\"inputUpTo\" placeholder=\"UP to...\" required>\n            <button class=\"container_sortANDfilterBtns-box_form-submit\" type=\"submit\">Filter</button></form>";
+            sortANDfilterBtnsShoes.innerHTML = "\n            <form class=\"container_sortANDfilterBtns-box_form\" onsubmit=\"displayFilter(event)\">\n            <input class=\"container_sortANDfilterBtns-box_form-filterInput\" type=\"number\" id=\"" + boxId + "\" name=\"inputFrom\" placeholder=\"From...\" required>\n            <input class=\"container_sortANDfilterBtns-box_form-filterInput\" type=\"number\" id=\"" + boxId + "\" name=\"inputUpTo\" placeholder=\"Up to...\" required>\n            <button class=\"container_sortANDfilterBtns-box_form-submit\" type=\"submit\">Filter</button></form>";
         }
     }
     else if (boxId == "pants") {
@@ -514,10 +518,9 @@ function handleFilter(ev) {
 // display after filtered
 function displayFilter(ev) {
     ev.preventDefault();
-    // console.log(ev.target);
     var display = document.querySelector('.container_catagories-display');
-    var filterType = ev.target.name;
-    var InputFilterValue = ev.target.value;
+    // const filterType = ev.target.name;
+    // const InputFilterValue = ev.target.value;
     var boxId;
     var inputFrom;
     var inputUpTo;
@@ -542,68 +545,81 @@ function displayFilter(ev) {
             boxId = field.id;
         }
     }
-    console.log(inputBrand);
-    console.log(boxId);
     if (boxId == "Tshirts") {
         if (inputBrand) {
-            clothsList.renderCustomerByBrand(clothsList.Tshirts, inputBrand, display, boxId);
+            clothsList.renderCustomerByBrand(clothsList.Tshirts, inputBrand, display, boxId, "https://i.ebayimg.com/images/g/bWgAAOSwVH5blRYh/s-l300.jpg");
         }
         else if (inputSize) {
-            clothsList.renderCustomerBySize(clothsList.Tshirts, inputSize, display, boxId);
+            clothsList.renderCustomerBySize(clothsList.Tshirts, inputSize, display, boxId, "https://i.ebayimg.com/images/g/bWgAAOSwVH5blRYh/s-l300.jpg");
         }
         else if (inputFrom && inputUpTo) {
-            clothsList.renderCustomerByPrice(clothsList.Tshirts, inputFrom, inputUpTo, display, boxId);
+            clothsList.renderCustomerByPrice(clothsList.Tshirts, inputFrom, inputUpTo, display, boxId, "https://i.ebayimg.com/images/g/bWgAAOSwVH5blRYh/s-l300.jpg");
         }
     }
     else if (boxId == "shoes") {
         if (inputBrand) {
-            clothsList.renderCustomerByBrand(clothsList.shoes, inputBrand, display, boxId);
+            clothsList.renderCustomerByBrand(clothsList.shoes, inputBrand, display, boxId, "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/lead-image-shoes-01-1634132850.png?crop=1.00xw:1.00xh;0,0&resize=480:*");
         }
         else if (inputSize) {
-            clothsList.renderCustomerBySize(clothsList.shoes, inputSize, display, boxId);
+            clothsList.renderCustomerBySize(clothsList.shoes, inputSize, display, boxId, "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/lead-image-shoes-01-1634132850.png?crop=1.00xw:1.00xh;0,0&resize=480:*");
         }
         else if (inputFrom && inputUpTo) {
-            clothsList.renderCustomerByPrice(clothsList.shoes, inputFrom, inputUpTo, display, boxId);
+            clothsList.renderCustomerByPrice(clothsList.shoes, inputFrom, inputUpTo, display, boxId, "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/lead-image-shoes-01-1634132850.png?crop=1.00xw:1.00xh;0,0&resize=480:*");
         }
     }
     else if (boxId == "pants") {
         if (inputBrand) {
-            clothsList.renderCustomerByBrand(clothsList.pants, inputBrand, display, boxId);
+            clothsList.renderCustomerByBrand(clothsList.pants, inputBrand, display, boxId, "https://assets.ajio.com/medias/sys_master/root/h89/hbe/13459792265246/-473Wx593H-440995277-olive-MODEL2.jpg");
         }
         else if (inputSize) {
-            clothsList.renderCustomerBySize(clothsList.pants, inputSize, display, boxId);
+            clothsList.renderCustomerBySize(clothsList.pants, inputSize, display, boxId, "https://assets.ajio.com/medias/sys_master/root/h89/hbe/13459792265246/-473Wx593H-440995277-olive-MODEL2.jpg");
         }
         else if (inputFrom && inputUpTo) {
-            clothsList.renderCustomerByPrice(clothsList.pants, inputFrom, inputUpTo, display, boxId);
+            clothsList.renderCustomerByPrice(clothsList.pants, inputFrom, inputUpTo, display, boxId, "https://assets.ajio.com/medias/sys_master/root/h89/hbe/13459792265246/-473Wx593H-440995277-olive-MODEL2.jpg");
         }
     }
 }
 function addToCart(ev, id) {
+    var displayTotal = document.querySelector('.totalCart');
     var display = document.querySelector('.container-shoppingCart_display');
     var catagory = ev.target.name;
     clothsList.addToCart(id, catagory);
-    console.log(clothsList.shoppingCart);
-    console.log(catagory);
-    console.log(clothsList);
-    clothsList.renderShoppingCart(display, catagory);
+    clothsList.renderShoppingCart(clothsList.shoppingCart, display, catagory);
+    clothsList.TotalCartPrice(clothsList.shoppingCart, displayTotal);
 }
 function showDropDown(ev) {
     var dropDownDisplay = document.querySelector('.container_header-dropDown');
     var id = ev.target.id;
-    console.log(id);
     var html;
+    var htmlCart;
     if (id == "notificationsBtn") {
-        html = "<div id=\"notifications\" class=\"container_header-dropDown-box notifications\" \">\n        <p style=\"font-size: 10px; font-weight:bold\">no notifications found</p>\n     </div> ";
+        html = "<div id=\"notifications\" class=\"container_header-dropDown-box notifications\" \">\n        <p style=\"font-size: 12px; font-weight:1000;height:200%;\">No new notifications</p>\n     </div> ";
     }
     else if (id == "signInBtn") {
         html = "<div id=\"signIn\" class=\"container_header-dropDown-box signIn\">\n        <input class=\"container_header-dropDown-box-signInInput\" type=\"email\" name=\"UserName\" id=\"userName\" placeholder=\"User Name\" >\n        <input class=\"container_header-dropDown-box-signInInput\" type=\"password\" name=\"password\" id=\"password\" placeholder=\"Password\">\n        <button type=\"button\" class=\"container_header-dropDown-box-signInInput-btn\">Sign In</button>\n    </div>";
     }
     else if (id == "yourOrdersBtn") {
-        html = "<div id=\"yourOrders\" class=\"container_header-dropDown-box yourOrders\">\n        <p style=\"font-size: 12px\">no Orders yet...</p>\n       </div>";
+        html = "<div id=\"yourOrders\" class=\"container_header-dropDown-box yourOrders\">\n        <p style=\"font-size: 12px;font-weight:bold\">No Orders yet...</p>\n       </div>";
     }
     else if (id == "shoppingCartBtn") {
-        html = "<div id=\"shoppingCart\" class=\"container_header-dropDown-box shoppingCart\"></div>";
+        html = '<div id="shoppingCart" class="container_header-dropDown-box shoppingCart"></div>';
     }
-    var shoppingCartdisplay = document.getElementById('shoppingCart');
     dropDownDisplay.innerHTML = html;
+    var dropDownCart = document.querySelector('.shoppingCart');
+    clothsList.renderCartDropDown(dropDownCart);
+}
+function deleteItemFromCart(ev) {
+    var displayShoppingCart = document.querySelector('.container-shoppingCart_display');
+    var dropDownCart = document.querySelector('.shoppingCart');
+    var displayTotal = document.querySelector('.totalCart');
+    var catagory = ev.target.name;
+    var id = ev.target.id;
+    console.log(id);
+    console.log(catagory);
+    clothsList.deleteItemFromShoppingCart(id);
+    displayShoppingCart.innerHTML = '';
+    console.log(clothsList.shoppingCart);
+    clothsList.renderShoppingCart(clothsList.shoppingCart, displayShoppingCart, catagory);
+    clothsList.renderCartDropDown(dropDownCart);
+    clothsList.TotalCartPrice(clothsList.shoppingCart, displayTotal);
 }

@@ -3,7 +3,7 @@ interface aviator {
     items: Array<newItem>
     cartItems: Array<newItem>
     itemsToRender: Array<newItem>
-    currency:string
+    currency: string
     additem(newItem)
     renderitem(domElement: any)
     renderitemcart(domElement)
@@ -12,6 +12,8 @@ interface aviator {
     sortitemdown()
     getdata()
     deleteItem(id: string)
+    addOneItem(id: string)
+    removeOneItem(id: string)
     filterItems(category: string)
 }
 interface newItem {
@@ -39,10 +41,10 @@ let aviator: aviator = {
 
     renderitem(domElement) {
         let html = '';
-        html += `<div class="category-wrapper">`;
+        html += `<div class="category-wrapper">
+                 <div class="category-wrapper__title">All Watches</div>`;
         this.itemsToRender.forEach(item => {
             html += `
-                <div class="category-wrapper__title">All Watches</div>
                 <div class="category-wrapper__card">
                     <div class='category-wrapper__card__img'> <img src="${item.img}"></div>
                     <div class="category-wrapper__card__name" >${item.name} </div>
@@ -59,23 +61,27 @@ let aviator: aviator = {
     renderitemcart(domElement) {
 
         let html2 = '';
+        let total= 0;
 
         this.cartItems.forEach(item => {
             html2 += `<div class='cart__card'>
             <img src="${item.img}">
             <p class="cart__card--name">${item.name}</p>
             <p class="cart__card--price">${item.price}</p>
+            <button id="add_one" onclick='handleQuantity(event, "${item.id}")'>▲</button>
             <p class="cart__card--quantity">${item.quantity}</p>
+            <button id="remove_one" onclick='handleQuantity(event, "${item.id}")'>▼</button>
            
         
            <button  onclick='handleDelete("${item.id}")' style="width:50px ;"'><i class="far fa-trash-alt"></i> Delete</button>
             </div>`
+            total += item.price;
         });
         domElement.innerHTML = html2
+
+        document.querySelector("#total").innerHTML = `${total}`;
         setCurrency()
     },
-
-
 
     renderCartCount() {
         document.querySelector('.header__cart-notification').innerHTML = `${this.cartItems.length}`;
@@ -83,16 +89,16 @@ let aviator: aviator = {
 
     additem(newItem) {
         let isAdded = false;
-        if(!newItem.quantity) newItem.quantity = 1;
+        if (!newItem.quantity) newItem.quantity = 1;
         this.cartItems.forEach(item => {
-            if(item.id == newItem.id){
+            if (item.id == newItem.id) {
                 item.quantity += 1;
                 console.log(item.quantity);
                 isAdded = true;
                 return;
             }
         });
-        if(isAdded) return;
+        if (isAdded) return;
         this.cartItems.push(newItem);
     },
     sortitemup() {
@@ -112,6 +118,15 @@ let aviator: aviator = {
         this.renderCartCount();
 
     },
+    addOneItem(id) {
+        const index = this.cartItems.findIndex(item => item.id == id)
+        this.cartItems[index].quantity++;
+    },
+    removeOneItem(id) {
+        const index = this.cartItems.findIndex(item => item.id == id)
+        if (this.cartItems[index].quantity <= 1) this.deleteItem(id);
+        else this.cartItems[index].quantity--;
+    },
     filterItems(category) {
         const keys = Object.keys(this.items[0])
         let filteredItems = [];
@@ -121,6 +136,7 @@ let aviator: aviator = {
         };
         aviator.itemsToRender = filteredItems;
         this.renderitem(document.getElementById('main'));
+        document.querySelector(".category-wrapper__title").innerHTML = category;
     }
 }
 
@@ -281,6 +297,21 @@ function handleCartClick() {
 
 }
 
+function handleQuantity(ev, id) {
+    switch (ev.target.id) {
+        case "add_one":
+            aviator.addOneItem(id);
+            break;
+        case "remove_one":
+            aviator.removeOneItem(id);
+            break;
+    }
+    aviator.renderitemcart(cart);
+}
+
+function handleRotate() {
+    document.querySelector(".carousel").classList.toggle("rotate");
+}
 
 
 

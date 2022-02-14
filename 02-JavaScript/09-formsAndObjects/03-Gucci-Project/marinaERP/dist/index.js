@@ -4,13 +4,13 @@ var uid = function () {
 var StandartEbooks = {
     books: [
         {
-            title: "Hemlock Veils",
-            author: "Davenport Jennie",
-            genre: "science fiction",
-            year: 2014,
-            rank: 3.62,
+            title: "The Three-Body Problem",
+            author: "Liu Cixin",
+            genre: "science fictionscience fiction",
+            year: 2008,
+            rank: 4.07,
             price: 15,
-            img: "https://litlife.club/data/Book/0/234000/234306/BC3_1422109172.jpg?w=600&h=600&q=90"
+            img: "https://images-na.ssl-images-amazon.com/images/I/919XM42JQlL.jpg"
         },
         {
             title: "One by One",
@@ -55,7 +55,7 @@ var StandartEbooks = {
             year: 2017,
             rank: 9.59,
             price: 44,
-            img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQg0qX-IoJ1JM2tnDq2uuAddWLNtVo5MSU72zXtTBJm8O9CET4_"
+            img: "https://images-na.ssl-images-amazon.com/images/I/81-7W7KGYQL.jpg"
         },
         {
             title: "Revelation",
@@ -115,7 +115,17 @@ var StandartEbooks = {
     },
     addBook: function (title, author, genre, year, rank, price, img, annotation) {
         var id = uid();
-        this.books.push({ title: title, author: author, genre: genre, year: year, rank: rank, price: price, img: img, annotation: annotation, id: id });
+        this.books.push({
+            title: title,
+            author: author,
+            genre: genre,
+            year: year,
+            rank: rank,
+            price: price,
+            img: img,
+            annotation: annotation,
+            id: id
+        });
         this.storeData();
     },
     deleteBook: function (title) {
@@ -125,21 +135,26 @@ var StandartEbooks = {
         }
         this.storeData();
     },
-    updateBook: function (updateBook) {
-        var index = this.books.findIndex(function (book) { return book.id === updateBook.id; });
+    deleteByID: function (id) {
+        this.books = this.books.filter(function (book) { return book.id !== id; });
+        localStorage.setItem("storeData", JSON.stringify(this.books));
+    },
+    updateBook: function (id, title, price) {
+        var index = this.books.findIndex(function (book) { return book.id === id; });
         if (index >= 0) {
-            this.books[index].title = updateBook;
+            // this.books[index].img = img;
+            this.books[index].title = title;
+            this.books[index].price = price;
         }
         this.storeData();
     },
-    // showAnnotation(annotation) {
-    //   // const id = uid();
-    //   const index = this.books.findIndex((book) => book.img === annotation);
-    //   if (index >= 0) {
-    //     const annotation = this.querySelector('.annotation')
-    //     annotation.style.visibility = 'visible';
-    //   }
-    // },
+    addToCard: function (book, id) {
+        var index = this.books.findIndex(function (book) { return book.id === id; });
+        if (index >= 0) {
+            this.books[index].id = id;
+        }
+        this.storeData();
+    },
     sortAscenByAuthor: function () {
         this.books = this.books.sort(function (a, b) {
             var authorA = a.author.toLowerCase(), authorB = b.author.toLowerCase();
@@ -164,7 +179,7 @@ var StandartEbooks = {
                 return -1;
             return 0; //default return value (no sorting)
         });
-        console.log('------');
+        console.log("------");
         this.books.forEach(function (book) {
             console.log(book.author);
         });
@@ -220,7 +235,7 @@ var StandartEbooks = {
         this.render(filteredByYear, domElement);
     },
     render: function (list, domElement) {
-        var html = " ";
+        var htmlStore = "";
         list.forEach(function (book) {
             html += "<div class=\"container__cardOwner\"  >\n                  <h2>" + book.title + "</h2>\n                  <h3> " + book.author + "</h3>      \n                  <img class=\"img\" src=\"" + book.img + "\">\n                  <p>" + book.year + " &nbsp &nbsp " + book.price + "$</p> \n                  \n                  <div class=\"rating\">                 \n                      <i class=\"far fa-star  \" data-number=\"1\"  id=\"" + book.title + "\" onclick = \"handleStarClick(event)\"></i>\n                      <i class=\"far fa-star  \" data-number=\"2\"  id=\"" + book.title + "\" onclick = \"handleStarClick(event)\"></i>\n                       <i class=\"far fa-star \" data-number=\"3\" id=\"" + book.title + "\" onclick = \"handleStarClick(event)\"></i>\n                       <i class=\"far fa-star \" data-number=\"4\" id=\"" + book.title + "\" onclick = \"handleStarClick(event)\"></i>\n                      <i class=\"far fa-star  \" data-number=\"5\"  id=\"" + book.title + "\" onclick = \"handleStarClick(event)\"></i>\n                   </div> \n\n                  <p> " + book.rank + "</p>\n                  <input  class = \"container__card__addToCardBtn\" onclick=\"handleAddToCard()\" id =\"addToCard\" type =\"button\" value = \"Add to cart\">              \n               </div>",
                 "<div class=\"annotation\">" + book.annotation + "</div>";
@@ -230,27 +245,71 @@ var StandartEbooks = {
             //  <input class="container__inputs__form__one__inp" type="submit" id="updateBtn" value="update">
             // </form>`
         });
-        domElement.innerHTML = html;
+        domElement.innerHTML = htmlStore;
     },
-    renderStore: function (list, domElement) {
+    renderERP: function (list, domElement) {
         var html = " ";
         list.forEach(function (book) {
-            html += "<div class=\"container__card\"  >\n                  <h2>" + book.title + "</h2>\n                  <h3> " + book.author + "</h3>      \n                  <img class=\"img\" src=\"" + book.img + "\">\n                  <p>" + book.year + " &nbsp &nbsp " + book.price + "$</p> \n                  \n                  <div class=\"rating\">                 \n                      <i class=\"far fa-star  \" data-number=\"1\"  id=\"" + book.title + "\" onclick = \"handleStarClick(event)\"></i>\n                      <i class=\"far fa-star  \" data-number=\"2\"  id=\"" + book.title + "\" onclick = \"handleStarClick(event)\"></i>\n                       <i class=\"far fa-star \" data-number=\"3\" id=\"" + book.title + "\" onclick = \"handleStarClick(event)\"></i>\n                       <i class=\"far fa-star \" data-number=\"4\" id=\"" + book.title + "\" onclick = \"handleStarClick(event)\"></i>\n                      <i class=\"far fa-star  \" data-number=\"5\"  id=\"" + book.title + "\" onclick = \"handleStarClick(event)\"></i>\n                   </div> \n\n                  <p> " + book.rank + "</p>\n                  <input  class = \"container__card__addToCardBtn\" onclick = \"handleAddToCard()\" id =\"addToCard\" type =\"button\" value = \"Add to cart\">              \n               </div>",
-                "<div class=\"annotation\">" + book.annotation + "</div>";
-            //  <form class="inputs__form" onsubmit="handleUpdateBook(event, ${book.id})">
-            //  <input class="container__inputs__form__one__inp" type="text" name="update" id="update"
-            //      placeholder="Enter new title">
-            //  <input class="container__inputs__form__one__inp" type="submit" id="updateBtn" value="update">
-            // </form>`
+            html += "<div class=\"containerERP__content\">\n      \n                  <div class='containerERP__content__cardERP'> \n\n                      <div class='containerERP__content__cardERP__img'> \n                         <img src=\"" + book.img + ".jpg\" alt=\"\">  \n                      </div> \n                      \n                       <div class='containerERP__content__cardERP__info'>  \n                             <strong class=\"tistrongtle\">" + book.title + "</strong>                                \n                             <strong class=\"author\">" + book.author + "</strong>\n                             <strong class=\"genre\">" + book.genre + "</strong>\n                             <strong class=\"year\">" + book.year + "</strong>\n                             <strong class=\"rank\">" + book.rank + "</strong>             \n                        </div> \n                  </div>\n                   <div class=\"containerERP__content__erpBtn\">      \n                         <div class=\"content__erpBtn__delete\" style= \"margin-bottom: 1em;\" >\n                               <button class=\"containerERP__inputs__form__one__inp\"  onclick=\"handleDeleteByID('" + book.id + "')\"><span style =\"color: grey;\">Delete book</span></button>\n                         </div> \n                         <input class=\"containerERP__inputs__form__one__inp\"  type=\"file\" id=\"file\" name=\"file\" accept=\"image/png, image/jpeg\"  style= \"margin-bottom: 1em;\"  >\n                         <div class=\"content__erpBtn__update\">\n                             <form id=\"formAdd\" onsubmit=\"handleUpdateBook(event, '" + book.id + "')\">\n                                  <select class=\"containerERP__inputs__form__one__inp\" name=\"genre\" id=\"\">\n                                      <option value=\"genre\" disabled selected>genre</option>\n                                      <option value=\"science fiction\">science fiction</option>\n                                      <option value=\"detective\">detective</option>\n                                      <option value=\"prose\">prose</option>\n                                      <option value=\"adventures\">adventures</option>\n                                      <option value=\"children\">children</option>\n                                   </select>  \n                                 <input class=\"containerERP__inputs__form__one__inp\"  type=\"text\" name=\"title\" placeholder=\"Edit title\" value=\"" + book.title + "\">\n                                 <input class=\"containerERP__inputs__form__one__inp\"  type=\"number\" name=\"price\" placeholder=\"Edit price\" value=\"" + book.price + "\">\n                                 <input class=\"containerERP__inputs__form__one__inp\"  type=\"submit\" id=\"update\" value=\"Update book\">\n                             </form>\n                         </div> \n                    </div>          \n               </div>";
         });
         domElement.innerHTML = html;
+    },
+    renderAddToCard: function (list, domElement) {
+        var htmlCard = " ";
+        list.forEach(function (book) {
+            htmlCard += "<div class=\"card\">\n                       <h2>" + book.title + "</h2>\n                       <h3>" + book.author + "</h3>      \n                        <img class=\"img\" src=\"" + book.img + "\">\n                        <strong>" + book.year + " &nbsp &nbsp " + book.price + "$</strong>\n                             <div class=\"rating\">                 \n                                  <i class=\"far fa-star  \" data-number=\"1\" id=\"" + book.title + "\" onclick = \"handleStarClick(event)\"></i>\n                                  <i class=\"far fa-star  \" data-number=\"2\" id=\"" + book.title + "\" onclick = \"handleStarClick(event)\"></i>\n                                  <i class=\"far fa-star \" data-number=\"3\" id=\"" + book.title + "\" onclick = \"handleStarClick(event)\"></i>\n                                  <i class=\"far fa-star \" data-number=\"4\" id=\"" + book.title + "\" onclick = \"handleStarClick(event)\"></i>\n                                  <i class=\"far fa-star  \" data-number=\"5\" id=\"" + book.title + "\" onclick = \"handleStarClick(event)\"></i>\n                             </div>                   \n                          <strong> " + book.rank + "</strong>\n                          <input  class = \"container__card__addToCardBtn\" onclick = \"handleAddToCard(event)\" id =\"addToCard\" type =\"button\" value = \"Add to cart\">\n                   </div>";
+        });
+        domElement.innerHTML = htmlCard;
     },
     renderAllBooks: function (domElement) {
         var list = this.books;
         this.render(list, domElement);
-        this.renderStore(list, domElement);
+        this.renderERP(list, domElement);
+        this.renderAddToCar(list, domElement);
     }
 };
+StandartEbooks.getData();
+StandartEbooks.storeData();
+var allstars = document.querySelectorAll(".fa-star");
+var rating = document.querySelector('.rating');
+// const allstars = null;
+// if (Array.isArray(allstars)) {
+//   allstars.forEach(element => {
+//     console.log(element);
+//   });
+// }
+function handleStarClick(e) {
+    allstars.forEach(function (star) {
+        if (e.target.id == star.id &&
+            e.target.dataset.number >= star.dataset.number) {
+            console.log(star.dataset.number);
+            star.classList.add("fas");
+        }
+        else if (e.target.id == star.id &&
+            e.target.dataset.number < star.dataset.number) {
+            star.classList.remove("fas");
+        }
+        else {
+            return 0;
+        }
+        console.log(star);
+    });
+}
+function renderOwener() {
+    StandartEbooks.getData();
+    var rootERP = document.getElementById("rootERP");
+    StandartEbooks.renderERP(StandartEbooks.books, rootERP);
+}
+function renderCustomer() {
+    StandartEbooks.getData();
+    var root = document.querySelector("#root");
+    StandartEbooks.render(StandartEbooks.books, root);
+}
+function renderAddToCard() {
+    StandartEbooks.getData();
+    var rootCard = document.querySelector(".rootCard");
+    StandartEbooks.renderAddToCard(StandartEbooks.books, rootCard);
+}
 function handleAddBook(e) {
     e.preventDefault();
     var id = uid();
@@ -263,12 +322,13 @@ function handleAddBook(e) {
     var price = e.target.price.valueAsNumber;
     var img = e.target.img.value;
     var annotation = e.target.annotation.value;
-    var root = document.querySelector("#root");
-    var rootStore = document.querySelector("#rootStore");
+    // const root = document.querySelector("#root");
+    var rootERP = document.querySelector("#rootERP");
     StandartEbooks.addBook(title, author, genre, year, rank, price, img, annotation);
-    StandartEbooks.renderAllBooks(root);
-    StandartEbooks.renderAllBooks(rootStore);
+    // StandartEbooks.renderAllBooks(rootERP);
+    StandartEbooks.render(rootERP, root);
     StandartEbooks.storeData();
+    e.target.reset();
 }
 function handleDeleteBook(e) {
     e.preventDefault();
@@ -276,29 +336,53 @@ function handleDeleteBook(e) {
         console.log(e);
         console.log(e.target.elements["delete"].value);
         var title = e.target.elements["delete"].value;
-        var root_1 = document.querySelector("#root");
+        // const root = document.querySelector("#root");
+        var rootERP_1 = document.querySelector("#rootERP");
         if (title) {
             console.log(title);
             StandartEbooks.deleteBook(title);
-            StandartEbooks.renderAllBooks(root_1);
+            // StandartEbooks.renderAllBooks(root);
+            // StandartEbooks.renderAllBooks(rootERP);
+            StandartEbooks.renderERP(rootERP_1, StandartEbooks.books);
             StandartEbooks.storeData();
         }
         else {
-            throw new Error('User didnt write a title');
+            throw new Error("User didnt write a title");
         }
     }
     catch (err) {
         console.error(err);
     }
 }
-// function handleUpdateBook(e) {
-//   e.preventDefault();
+function handleDeleteByID(id) {
+    console.log(id);
+    var rootERP = document.getElementById("rootERP");
+    StandartEbooks.deleteByID(id);
+    StandartEbooks.renderERP(StandartEbooks.books, rootERP);
+}
+function handleUpdateBook(e, id) {
+    e.preventDefault();
+    console.log(id);
+    // const img = e.target.elements.img.value;
+    var title = e.target.elements.title.value;
+    var price = e.target.elements.price.valueAsNumber;
+    var rootERP = document.querySelector("#rootERP");
+    StandartEbooks.updateBook(id, title, price);
+    StandartEbooks.renderERP(StandartEbooks.books, rootERP);
+    StandartEbooks.storeData();
+    // StandartEbooks.renderAllBooks(rootERP)
+    e.target.reset();
+}
+// function handleAddToCard(ev) {
+//   StandartEbooks.addToCard();
+//   const rootCard=document.getElementById('rootCard')
+//   StandartEbooks
 // }
 function handleAuthorAscen() {
     try {
         StandartEbooks.sortAscenByAuthor();
-        var rootStore_1 = document.querySelector("#rootStore");
-        StandartEbooks.renderAllBooks(rootStore_1);
+        var root_1 = document.querySelector("#root");
+        StandartEbooks.render(StandartEbooks.books, root_1);
     }
     catch (err) {
         console.error(err);
@@ -307,8 +391,8 @@ function handleAuthorAscen() {
 function handleAuthoreDescen() {
     try {
         StandartEbooks.sortDescenByAuthor();
-        var rootStore_2 = document.querySelector("#rootStore");
-        StandartEbooks.renderAllBooks(rootStore_2);
+        var root_2 = document.querySelector("#root");
+        StandartEbooks.render(StandartEbooks.books, root_2);
     }
     catch (err) {
         console.error(err);
@@ -316,102 +400,124 @@ function handleAuthoreDescen() {
 }
 function handleYearAscen() {
     StandartEbooks.sortAscenByYear();
-    var rootStore = document.querySelector("#rootStore");
-    StandartEbooks.renderAllBooks(rootStore);
+    var root = document.querySelector("#root");
+    StandartEbooks.render(StandartEbooks.books, root);
 }
 function handleYearDescen() {
     StandartEbooks.sortDescenByYear();
-    var rootStore = document.querySelector("#rootStore");
-    StandartEbooks.renderAllBooks(rootStore);
+    var root = document.querySelector("#root");
+    StandartEbooks.render(StandartEbooks.books, root);
 }
 function handleRankingAscen() {
     StandartEbooks.sortAscenByRanking();
-    var rootStore = document.querySelector("#rootStore");
-    StandartEbooks.renderAllBooks(rootStore);
+    var root = document.querySelector("#root");
+    StandartEbooks.render(StandartEbooks.books, root);
 }
 function handleRankingeDescen() {
     StandartEbooks.sortDescenByRanking();
-    var rootStore = document.querySelector("#rootStore");
-    StandartEbooks.renderAllBooks(rootStore);
+    var root = document.querySelector("#root");
+    StandartEbooks.render(StandartEbooks.books, root);
 }
 function handleFilterByYear(e) {
     e.preventDefault();
-    // console.log(e);
     var year = e.target.valueAsNumber;
-    var rootStore = document.querySelector("#rootStore");
+    var root = document.querySelector("#root");
     if (year) {
         var filteredByYear = StandartEbooks.filterByYear(year);
-        StandartEbooks.renderFilterByYear(filteredByYear, rootStore);
+        StandartEbooks.renderFilterByYear(filteredByYear, root);
     }
     else {
-        StandartEbooks.renderAllBooks(rootStore);
+        StandartEbooks.render(StandartEbooks.books, root);
     }
 }
 function handleFilterByRank(e) {
     e.preventDefault();
     var rank = e.target.valueAsNumber;
-    var rootStore = document.querySelector("#rootStore");
+    var root = document.querySelector("#root");
     if (rank) {
         var filteredByRank = StandartEbooks.filterByRank(rank);
-        StandartEbooks.renderFilterByRank(filteredByRank, rootStore);
+        StandartEbooks.renderFilterByRank(filteredByRank, root);
     }
     else {
-        StandartEbooks.renderAllBooks(rootStore);
+        StandartEbooks.render(StandartEbooks.books, root);
     }
 }
 function handleFilterByGenre(e) {
     e.preventDefault();
     var genre = e.target.value;
-    var rootStore = document.querySelector("#rootStore");
+    var root = document.querySelector("#root");
     if (genre) {
         var filterByGenre = StandartEbooks.filterByGenre(genre);
-        StandartEbooks.renderFilterByGenre(filterByGenre, rootStore);
+        StandartEbooks.renderFilterByGenre(filterByGenre, root);
     }
     else {
-        StandartEbooks.renderAllBooks(rootStore);
+        StandartEbooks.render(StandartEbooks.books, root);
+    }
+}
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+function handleSelectByGenre(e) {
+    e.preventDefault();
+    console.log(e.target);
+    console.log(e);
+    var genre = e.target.value;
+    var root = document.querySelector("#root");
+    if (genre === "all") {
+        StandartEbooks.render(StandartEbooks.books, root);
+    }
+    else {
+        console.log(genre);
+        var filterByGenre = StandartEbooks.filterByGenre(genre);
+        StandartEbooks.renderFilterByGenre(filterByGenre, root);
     }
 }
 function handleFilterByAuthor(e) {
     e.preventDefault();
     var author = e.target.value;
-    var rootStore = document.querySelector("#rootStore");
+    var root = document.querySelector("#root");
     if (author) {
         var filterByAuthor = StandartEbooks.filterByAuthor(author);
-        StandartEbooks.renderFilterByAuthor(filterByAuthor, rootStore);
+        StandartEbooks.renderFilterByAuthor(filterByAuthor, root);
     }
     else {
-        StandartEbooks.renderAllBooks(rootStore);
+        StandartEbooks.render(StandartEbooks.books, root);
     }
 }
 function handleFilterByTitle(e) {
     e.preventDefault();
     var title = e.target.value;
-    var rootStore = document.querySelector("#rootStoreStore");
+    var root = document.querySelector("#root");
     if (title) {
         var filterByTitle = StandartEbooks.filterByTitle(title);
-        StandartEbooks.renderFilterByTitle(filterByTitle, rootStore);
+        StandartEbooks.renderFilterByTitle(filterByTitle, root);
     }
     else {
-        StandartEbooks.renderAllBooks(rootStore);
+        StandartEbooks.render(StandartEbooks.books, root);
     }
 }
-StandartEbooks.getData();
 var root = document.querySelector("#root");
-var rootStore = document.querySelector("#rootStore");
-StandartEbooks.renderAllBooks(root);
-StandartEbooks.renderAllBooks(rootStore);
-var allstars = document.querySelectorAll('.fa-star');
-function handleStarClick(ev) {
-    allstars.forEach(function (star) {
-        if (ev.target.id == star.id && ev.target.dataset.number >= star.dataset.number) {
-            console.log(star.dataset.number);
-            star.classList.add('fas');
-        }
-        else if (ev.target.id == star.id && ev.target.dataset.number < star.dataset.number) {
-            star.classList.remove('fas');
-        }
-        else {
-            return 0;
-        }
-    });
-}
+var rootERP = document.querySelector("#rootERP");
+// StandartEbooks.renderERP(root, rootERP);
+StandartEbooks.getData();
+StandartEbooks.storeData();
+// const scrollToTopBtn = document.querySelector(".scrollToTopBtn");
+// const rootElement = document.documentElement;
+// function handleScroll() {
+//   // Do something on scroll
+//   const scrollTotal = rootElement.scrollHeight - rootElement.clientHeight;
+//   if (rootElement.scrollTop / scrollTotal > 0.8) {
+//     // Show button
+//     scrollToTopBtn.classList.add("showBtn");
+//   } else {
+//     // Hide button
+//     scrollToTopBtn.classList.remove("showBtn");
+//   }
+// }
+// function scrollToTop() {
+//   // Scroll to top logic
+//   rootElement.scrollTo({
+//     top: 0,
+//     behavior: "smooth"
+//   });
+// }
+// scrollToTopBtn.addEventListener("click", scrollToTop);
+// document.addEventListener("scroll", handleScroll);
