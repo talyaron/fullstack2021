@@ -14,26 +14,6 @@ body {
   height: 26vh;
 
   &__sort {
-    details {
-      display: inline-block;
-      border: none;
-      height: 44px;
-      padding: 10px;
-      font-size: 20px;
-      margin: 7px;
-
-      input {
-        position: absolute;
-        height: 90px;
-        width: 40px;
-        background-color: #ede734;
-      }
-
-      &:hover {
-        border: solid 1px black;
-      }
-    }
-
     margin-bottom: 70px;
 
     border-bottom: solid rgb(199, 199, 199) 1px;
