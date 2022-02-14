@@ -230,7 +230,7 @@ var gucci = {
             this.storeData();
         }
     },
-    updateItems: function (newPrice, itemName) {
+    updateItems: function (itemName, newPrice) {
         //const index = this.items.findIndex((item) => item.id === id);
         var index = this.items.findIndex(function (item) { return item.name === itemName; });
         console.log(index);
@@ -238,7 +238,7 @@ var gucci = {
             this.items[index].name = itemName;
             this.items[index].price = newPrice;
             this.storeData();
-            this.getData();
+            // this.getData();
         }
     },
     filterMaxPriceAndGender: function (gender, price) {
@@ -325,10 +325,11 @@ function handleRemoveItems(ev) {
 function handleUpdate(ev) {
     ev.preventDefault();
     var root = document.getElementById("root");
+    console.dir(ev.target.elements.itemName.value);
     var itemName = ev.target.elements.itemName.value;
     var newPrice = ev.target.elements.newPrice.value;
     console.log(ev.target.elements.newPrice.value);
-    gucci.updateItems(newPrice, itemName);
+    gucci.updateItems(itemName, newPrice);
     gucci.render(gucci.items, root);
     gucci.getData();
     gucci.storeData();

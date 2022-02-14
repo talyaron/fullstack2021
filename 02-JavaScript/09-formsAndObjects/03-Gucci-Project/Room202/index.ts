@@ -112,9 +112,10 @@ const Adidas: shop = {
     let html = "";
     this.products.forEach((product) => {
       let text = document.URL;
-      let resultCustomer = text.substring(28, 36);
-      let resultOwner = text.substring(28, 33);
-      if (resultCustomer == "customer") {
+      //let resultCustomer = text.substring(22, 35);
+      //let resultOwner = text.substring(22, 35);
+      let resultCustomer = text.search("Blue");
+      if (text.search("Customer")) {
         html += `
      <div class="cards__item" >
 
@@ -136,10 +137,9 @@ const Adidas: shop = {
           </div>   `
           ;
         console.log("render");
-        console.log(resultOwner);
       }
 
-      else if (resultOwner == "owner") {
+      else  if (text.search("owner")) {
         html += `
      <div class="cards__item" >
 
@@ -177,7 +177,6 @@ const Adidas: shop = {
       }
 
       console.log("render");
-      console.log(resultOwner);
 
     })
 
@@ -253,6 +252,7 @@ const Adidas: shop = {
     item = Adidas.products[index]
     this.wishlist.push(item);
     console.log(Adidas.wishlist)
+
 
   }
 };

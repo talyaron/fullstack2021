@@ -279,7 +279,7 @@ const gucci: Store = {
     }
   },
 
-  updateItems( newPrice, itemName) {
+  updateItems( itemName,newPrice) {
     //const index = this.items.findIndex((item) => item.id === id);
     const index = this.items.findIndex((item) => item.name === itemName);
     console.log(index)
@@ -288,7 +288,7 @@ const gucci: Store = {
       this.items[index].price = newPrice;
       
       this.storeData();
-      this.getData();
+      // this.getData();
       
     }
     
@@ -416,6 +416,7 @@ function handleUpdate(ev) {
   ev.preventDefault();
    
   const root = document.getElementById("root");
+  console.dir(ev.target.elements.itemName.value)
   
   
   
@@ -425,7 +426,7 @@ function handleUpdate(ev) {
   console.log(ev.target.elements.newPrice.value)
 
   
-  gucci.updateItems( newPrice, itemName);
+  gucci.updateItems(itemName,newPrice);
   
   gucci.render(gucci.items,root);
   gucci.getData();

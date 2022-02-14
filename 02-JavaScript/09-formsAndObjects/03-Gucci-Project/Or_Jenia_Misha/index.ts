@@ -694,27 +694,3 @@ function popNavBarActive() {
 }
 popNavBarActive();
 
-
-function popCartActive(){
-
-  const cart = document.querySelector(".cart__box");
-  const cartClose = document.querySelector(".cart__close")
-  console.log(cartClose);
-  
-  
-  cart.addEventListener("click", () => {
-    cart.classList.add("cart__box-active")
-  })
-
-  cartClose.addEventListener("click", () => {
-    cart.classList.remove("cart__box-active")
-  })
-
-  // if("cart__box-active"){
-  //   cartClose.style.
-  // }
-
-} 
-
-
-popCartActive();
