@@ -410,8 +410,9 @@ function handleAddToCard(id) {
         console.log(id);
         var rootCard = document.getElementById("rootCard");
         if (!rootCard)
-            throw new Error('"rootCard" was not found on the DOM');
-        console.log(rootCard);
+            throw new Error('no "rootCard" in DOM');
+        if (!id)
+            throw new Error('no Id in handleAddToCard');
         StandartEbooks.addToCard(id);
         StandartEbooks.renderAddToCard(StandartEbooks.books, rootCard);
     }
@@ -440,9 +441,14 @@ function handleAuthoreDescen() {
     }
 }
 function handleYearAscen() {
-    StandartEbooks.sortAscenByYear();
-    var root = document.querySelector("#root");
-    StandartEbooks.render(StandartEbooks.books, root);
+    try {
+        StandartEbooks.sortAscenByYear();
+        var root_3 = document.querySelector("#root");
+        StandartEbooks.render(StandartEbooks.books, root_3);
+    }
+    catch (error) {
+        console.error(error);
+    }
 }
 function handleYearDescen() {
     StandartEbooks.sortDescenByYear();

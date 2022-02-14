@@ -34,10 +34,19 @@ function handleSearchMovie(ev) {
     var root = document.querySelector('#root');
     root.innerHTML = '';
     if (search.length > 0) {
-        movies.forEach(function (movie) {
-            if (regex.test(movie.title)) {
-                root.innerHTML += "<p>" + movie.title + " was created in " + movie.year + "</p>";
-            }
+        // movies.forEach(movie => {
+        //     if (regex.test(movie.title)) {
+        //         root.innerHTML += `<p>${movie.title} was created in ${movie.year}</p>`
+        //     }
+        // })
+        var foundMovies = movies.filter(function (movie) {
+            if (regex.test(movie.title))
+                return true;
         });
+        var html = foundMovies.map(function (movie) {
+            return "<p>" + movie.title + "</p>";
+        }).join('');
+        root.innerHTML = html;
+        console.log(foundMovies);
     }
 }

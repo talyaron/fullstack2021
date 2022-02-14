@@ -38,10 +38,22 @@ function handleSearchMovie(ev) {
 
     if (search.length > 0) {
 
-        movies.forEach(movie => {
-            if (regex.test(movie.title)) {
-                root.innerHTML += `<p>${movie.title} was created in ${movie.year}</p>`
-            }
+        // movies.forEach(movie => {
+        //     if (regex.test(movie.title)) {
+        //         root.innerHTML += `<p>${movie.title} was created in ${movie.year}</p>`
+        //     }
+        // })
+
+        const foundMovies = movies.filter(movie=>{
+            if (regex.test(movie.title))return true;         
         })
+
+        const html = foundMovies.map(movie=>{
+            return `<p>${movie.title}</p>`
+        }).join('');
+
+        root.innerHTML = html
+
+        console.log(foundMovies)
     }
 }
