@@ -66,7 +66,7 @@ var gucci = {
         var htmlCart = '';
         console.log(list);
         list.forEach(function (item) {
-            htmlCart += "<div class='rootItemsStoreCart'>\n            <div class=\"title\">" + item.title + "</div>\n            </div>";
+            htmlCart += "<div class='rootItemsStoreCart1' >\n            <div class=\"title\">" + item.title + "</div>\n            </div>\n            <div class=\"imgPic\">\n            <div class=\"main__item pic" + item.select + " \";\n            \"></div>\n          </div>\n          <span class=\"price\">&#36;" + item.price + "</span>\n          ";
         });
         rootItemsStoreCart.innerHTML = htmlCart;
     }
