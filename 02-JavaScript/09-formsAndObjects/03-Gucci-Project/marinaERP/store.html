@@ -36,15 +36,15 @@
         </div>
 
         <div class="header__navBar">
-            <ul>
-            <!-- <ul onclick="handleSelectByGenre(event)"> -->
-                <li><a href="">HOME</a></li>
-                <li class="genreNav scienceF"  id="scienceF" data-genreFilter="scienceF"  value="scienceF"><a href="">SCIENCE FICTION</a></li>
-                <li class="genreNav detective" id="detective" data-genreFilter="detective"  value="detective"><a href="">DETECTIVE</a></a></li>
-                <li class="genreNav adventures" id="adventures" class="genreNav"  data-genreFilter="adventures"  value="adventures"><a href="">ADVENTURE</a></li>
-                <li class="genreNav children" id="children" data-genreFilter="children" value="children"><a href="">CHILDREN</a></li>
-                <li class="genreNav all" id="all" data-genreFilter="all" value="all"><a href="">ALL BOOKS</a></li>
-            </ul>
+                <ul >
+                    <li><a href="./store.html">HOME</a></li>
+                    <li onclick="handleSelectByGenre(event)" class="genreNav scienceF"  id="scienceF" data-genreFilter="scienceF"  value="scienceF">SCIENCE FICTION</li>
+                    <li  onclick="handleSelectByGenre(event)" class="genreNav detective" id="detective" data-genreFilter="detective"  value="detective">DETECTIVE</li>
+                    <li  onclick="handleSelectByGenre(event)" class="genreNav adventures" id="adventures" class="genreNav"  data-genreFilter="adventures"  value="adventures">ADVENTURE</li>
+                    <li  onclick="handleSelectByGenre(event)" class="genreNav prose" id="prose" class="genreNav"  data-genreFilter="prose"  value="prose">PROSE</li>
+                    <li onclick="handleSelectByGenre(event)"  class="genreNav children" id="children" data-genreFilter="children" value="children">CHILDREN</li>
+                    <li  onclick="handleSelectByGenre(event)" class="genreNav all" id="all" data-genreFilter="all" value="all">ALL BOOKS</li>
+                </ul>
             <a href="./card.html" <span class="material-icons">shopping_cart</span></a>
             <a href="./erp.html" <span class="material-icons">view_headline</span></a>
         </div>
@@ -62,8 +62,8 @@
             placeholder="Looking for title">
         <input class="filterByAuthor button " type='text' onkeyup="handleFilterByAuthor(event)"
             placeholder="Looking for author">
-        <input class="filterByGenre button " type='text' onkeyup="handleFilterByGenre(event)"
-            placeholder="Looking for genre">
+        <!-- <input class="filterByGenre button " type='text' onkeyup="handleFilterByGenre(event)"
+            placeholder="Looking for genre"> -->
 
         <div class="buttons--sortAutor">
             <button class="button" type="submit" id="ascenAuthor" onclick="handleAuthorAscen()"> Author A <ion-icon
