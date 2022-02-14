@@ -112,7 +112,7 @@ var StandartEbooks = {
             price: 43,
             img: "https://litlife.club/data/Book/0/0/755/BC3_1386593870.jpg?w=600&h=600&q=90",
             id: uid()
-        }
+        },
     ],
     storeData: function () {
         localStorage.setItem("storeData", JSON.stringify(this.books));
@@ -255,7 +255,13 @@ var StandartEbooks = {
     render: function (list, domElement) {
         var htmlStore = "";
         list.forEach(function (book) {
-            htmlStore += "<div class=\"card\">\n                  <h2>" + book.title + "</h2>\n                  <h3>" + book.author + "</h3>      \n                  <img class=\"img\" src=\"" + book.img + "\">\n                  <p>" + book.year + " &nbsp &nbsp " + book.price + "$</p>\n                  <div class=\"rating\">                 \n                      <i class=\"far fa-star  \" data-number=\"1\" id=\"" + book.id + "\" onclick = \"handleStarClick(event)\"></i>\n                      <i class=\"far fa-star  \" data-number=\"2\" id=\"" + book.id + "\" onclick = \"handleStarClick(event)\"></i>\n                      <i class=\"far fa-star \" data-number=\"3\" id=\"" + book.id + "\" onclick = \"handleStarClick(event)\"></i>\n                      <i class=\"far fa-star \" data-number=\"4\" id=\"" + book.id + "\" onclick = \"handleStarClick(event)\"></i>\n                      <i class=\"far fa-star  \" data-number=\"5\" id=\"" + book.id + "\" onclick = \"handleStarClick(event)\"></i>\n                   </div>                   \n                  <p> " + book.rank + "</p>\n                  <input  class = \"card__addToCardBtn\" onclick = \"handleAddToCard(event)\" id =\"addToCard\" type =\"button\" value = \"Add to cart\">\n               </div>";
+            (htmlStore += "<div class=\"card\">\n                  <h2>" + book.title + "</h2>\n                  <h3>" + book.author + "</h3>      \n                  <img class=\"img\" src=\"" + book.img + "\">\n                  <p>" + book.year + " &nbsp &nbsp " + book.price + "$</p>\n                  <div class=\"rating\">                 \n                      <i class=\"far fa-star  \" data-number=\"1\" id=\"" + book.id + "\" onclick = \"handleStarClick(event)\"></i>\n                      <i class=\"far fa-star  \" data-number=\"2\" id=\"" + book.id + "\" onclick = \"handleStarClick(event)\"></i>\n                      <i class=\"far fa-star \" data-number=\"3\" id=\"" + book.id + "\" onclick = \"handleStarClick(event)\"></i>\n                      <i class=\"far fa-star \" data-number=\"4\" id=\"" + book.id + "\" onclick = \"handleStarClick(event)\"></i>\n                      <i class=\"far fa-star  \" data-number=\"5\" id=\"" + book.id + "\" onclick = \"handleStarClick(event)\"></i>\n                   </div>                   \n                  <p> " + book.rank + "</p>\n                  <input  class = \"container__card__addToCardBtn\" onclick=\"handleAddToCard()\" id =\"addToCard\" type =\"button\" value = \"Add to cart\">              \n               </div>"),
+                "<div class=\"annotation\">" + book.annotation + "</div>";
+            //  <form class="inputs__form" onsubmit="handleUpdateBook(event, ${book.id})">
+            //  <input class="container__inputs__form__one__inp" type="text" name="update" id="update"
+            //      placeholder="Enter new title">
+            //  <input class="container__inputs__form__one__inp" type="submit" id="updateBtn" value="update">
+            // </form>`
         });
         domElement.innerHTML = htmlStore;
     },
@@ -283,7 +289,7 @@ var StandartEbooks = {
 StandartEbooks.getData();
 StandartEbooks.storeData();
 var allstars = document.querySelectorAll(".fa-star");
-var rating = document.querySelector('.rating');
+var rating = document.querySelector(".rating");
 function handleStarClick(e) {
     console.log(e.target);
     allstars.forEach(function (star) {
@@ -378,14 +384,12 @@ function handleDeleteBook(e) {
         console.error(err);
     }
 }
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 function handleDeleteByID(id) {
     console.log(id);
     var rootERP = document.getElementById("rootERP");
     StandartEbooks.deleteByID(id);
     StandartEbooks.renderERP(StandartEbooks.books, rootERP);
 }
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 function handleUpdateBook(e, id) {
     e.preventDefault();
     console.log(id);
@@ -402,10 +406,18 @@ function handleUpdateBook(e, id) {
     e.target.reset();
 }
 function handleAddToCard(id) {
-    console.log(id);
-    var rootCard = document.getElementById('rootCard');
-    StandartEbooks.addToCard(id);
-    StandartEbooks.renderAddToCard(StandartEbooks.books, rootCard);
+    try {
+        console.log(id);
+        var rootCard = document.getElementById("rootCard");
+        if (!rootCard)
+            throw new Error('"rootCard" was not found on the DOM');
+        console.log(rootCard);
+        StandartEbooks.addToCard(id);
+        StandartEbooks.renderAddToCard(StandartEbooks.books, rootCard);
+    }
+    catch (err) {
+        console.error(err);
+    }
 }
 function handleAuthorAscen() {
     try {
@@ -499,20 +511,10 @@ function handleSelectByGenre(e) {
         var a = StandartEbooks.books.filter(function (item) {
             return item.genre === genre;
         });
-        console.log('ghgjg..........', filterByGenre, genre, a);
+        console.log("ghgjg..........", filterByGenre, genre, a);
         StandartEbooks.renderFilterByGenre(filterByGenre, root);
     }
 }
-// const navFilters = document.querySelectorAll('.genreNav');
-// navFilters.forEach(navFilter => {
-//   const genre = e.target.value;
-//   const root = document.querySelector("#root");
-//   if(navFilter.textContent.includes('error')) {
-//     navFilter.classList.add('error');
-//   } else if (navFilter.textContent.includes('success')) {
-//     navFilter.classList.add('success')
-//   }
-// });
 function handleFilterByAuthor(e) {
     e.preventDefault();
     var author = e.target.value;
