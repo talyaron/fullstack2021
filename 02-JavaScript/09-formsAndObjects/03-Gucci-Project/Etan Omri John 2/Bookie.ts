@@ -46,14 +46,14 @@ interface BookShop {
   addItem(ev: any);
   // render(list: Array<book>, domElement);
   renderItem(domElement: any);
-  renterTempItem(domElement: any)
+  renderTempItem(domElement: any)
   //filterByCategory();
   //filterByPrice();
   updateBook(Id, priceChange);
   deleteBook(Id);
   //changeOrder()
-  sortItemAsc();
-  sortItemDesc();
+  sortBooksAsc();
+  sortBooksDesc();
 }
 
 interface book {
@@ -125,14 +125,14 @@ const bookie: BookShop = {
     this.books.push(newBook);
     showLocalToOwner(ascYear);
   },
-  sortItemAsc() {
-    this.items.sort((a, b) => {
+  sortBooksAsc() {
+    this.books.sort((a, b) => {
       return a.price - b.price;
     });
   },
 
-  sortItemDesc() {
-    this.items.sort((a, b) => {
+  sortBooksDesc() {
+    this.books.sort((a, b) => {
       return b.price - a.price;
     });
   },
@@ -175,10 +175,10 @@ const bookie: BookShop = {
     }
   },
 
-  renterTempItem(domElement) {
+  renderTempItem(domElement) {
     if (window.document.title === "Bookie") {
-      bookie.books = JSON.parse(localStorage.getItem("Bookie shop")).books;
-      console.log(bookie)
+      // bookie.books = JSON.parse(localStorage.getItem("Bookie shop")).books;
+      // console.log(bookie)
       let html = "";
       bookie.tempBooks.forEach((item) => {
         domElement.innerHTML = "";
@@ -381,14 +381,26 @@ function handleSelect(ev){
 };
 
 function handleSort(ev){
-  console.dir(ev);
+  ev.preventDefault();
+
+  if(ev.target.value === 'sortAsc'){
+  bookie.sortBooksAsc();
+  bookie.tempBooks = bookie.books;
+  bookie.renderTempItem(rootBooks);
+  }
+
+  else if (ev.target.value === 'sortDesc'){
+    bookie.sortBooksDesc();
+    bookie.tempBooks = bookie.books;
+    bookie.renderTempItem(rootBooks);
+  }
 };
 
 function handleAmount(ev){
   const amonut = ev.target.valueAsNumber;
   bookie.tempBooks = bookie.books.filter(book => { return book.price < amonut })
   if(bookie.tempBooks.length > 0){
-    bookie.renterTempItem(rootBooks);
+    bookie.renderTempItem(rootBooks);
   }
   else{
     bookie.renderItem(rootBooks);

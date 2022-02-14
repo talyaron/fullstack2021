@@ -99,13 +99,13 @@ var bookie = {
         this.books.push(newBook);
         showLocalToOwner(ascYear);
     },
-    sortItemAsc: function () {
-        this.items.sort(function (a, b) {
+    sortBooksAsc: function () {
+        this.books.sort(function (a, b) {
             return a.price - b.price;
         });
     },
-    sortItemDesc: function () {
-        this.items.sort(function (a, b) {
+    sortBooksDesc: function () {
+        this.books.sort(function (a, b) {
             return b.price - a.price;
         });
     },
@@ -121,10 +121,10 @@ var bookie = {
             domElement.innerHTML = html_1;
         }
     },
-    renterTempItem: function (domElement) {
+    renderTempItem: function (domElement) {
         if (window.document.title === "Bookie") {
-            bookie.books = JSON.parse(localStorage.getItem("Bookie shop")).books;
-            console.log(bookie);
+            // bookie.books = JSON.parse(localStorage.getItem("Bookie shop")).books;
+            // console.log(bookie)
             var html_2 = "";
             bookie.tempBooks.forEach(function (item) {
                 domElement.innerHTML = "";
@@ -270,14 +270,24 @@ function handleSelect(ev) {
 }
 ;
 function handleSort(ev) {
-    console.dir(ev);
+    ev.preventDefault();
+    if (ev.target.value === 'sortAsc') {
+        bookie.sortBooksAsc();
+        bookie.tempBooks = bookie.books;
+        bookie.renderTempItem(rootBooks);
+    }
+    else if (ev.target.value === 'sortDesc') {
+        bookie.sortBooksDesc();
+        bookie.tempBooks = bookie.books;
+        bookie.renderTempItem(rootBooks);
+    }
 }
 ;
 function handleAmount(ev) {
     var amonut = ev.target.valueAsNumber;
     bookie.tempBooks = bookie.books.filter(function (book) { return book.price < amonut; });
     if (bookie.tempBooks.length > 0) {
-        bookie.renterTempItem(rootBooks);
+        bookie.renderTempItem(rootBooks);
     }
     else {
         bookie.renderItem(rootBooks);
