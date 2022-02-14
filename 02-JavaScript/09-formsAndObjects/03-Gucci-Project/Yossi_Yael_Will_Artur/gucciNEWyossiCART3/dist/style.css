@@ -1,0 +1,749 @@
+.bodyOwner {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 16px;
+  margin-top: 20px;
+  background-color: #165458;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.headerOwner {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.logoOwner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logoOwner img {
+  width: 30%;
+  border: 12px solid #b4a628;
+  padding: 3%;
+}
+
+.headerOwner {
+  width: 100%;
+  height: 100px;
+  background-color: #242e31;
+}
+.headerOwner__btn {
+  padding: 4px;
+  margin: 10px;
+  font-size: 14px;
+  background-color: #ffffff;
+  border-radius: 2px;
+  border: none;
+}
+.headerOwner a {
+  color: #866f20;
+  text-decoration: none;
+}
+
+.wrapperForms {
+  background-color: #242e31;
+  padding: 4px;
+}
+
+#formAddItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+input,
+#select {
+  min-height: 20px;
+  border-radius: 2px;
+  background-color: #ffffff;
+  font-size: 14px;
+  width: 20%;
+}
+
+#select {
+  min-height: 30px;
+  width: 20%;
+}
+
+.sortBtns button {
+  min-height: 40px;
+  border: none;
+  color: #5a5a5a;
+  cursor: pointer;
+  font-size: 10px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #b9b9b9;
+}
+
+.arrow {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+::placeholder {
+  font-size: 16px;
+}
+
+#addBtn {
+  background-color: #2b922b;
+  padding: 4px;
+  cursor: pointer;
+  width: 200px;
+  height: 40px;
+}
+
+.containerCard {
+  border: 2px solid #b3b3b3;
+}
+
+.card {
+  background-color: #242e31;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 0.2fr 0.2fr 0.2fr 3fr;
+  gap: 10px;
+  margin-bottom: 2px;
+}
+.card img {
+  width: 26%;
+  object-fit: contain;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 6%;
+}
+.card .imgPic {
+  width: 10em;
+}
+
+.category,
+.title,
+.price {
+  background-color: #ffffff;
+  color: #050505;
+  border-radius: 2px;
+  text-align: center;
+  margin: 10px;
+  padding: 4px;
+  text-align: start;
+  font-weight: bold;
+  background-color: #ffffff;
+}
+
+.price {
+  height: 30px;
+}
+
+.description {
+  font-size: 18px;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  border-radius: 2px;
+  text-align: center;
+  margin: 10px;
+  margin-top: 10px;
+  padding: 10px;
+  text-align: start;
+  inline-size: 310px;
+  overflow-wrap: break-word;
+  height: 60px;
+}
+
+.price {
+  text-align: center;
+  font-size: 20px;
+}
+
+#textarea {
+  width: 382px;
+  resize: none;
+  border-radius: 2px;
+  height: 80px;
+  font-size: 18px;
+}
+
+.delete {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+}
+.delete button {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: solid 1px white;
+  cursor: pointer;
+  padding: 6px;
+  font-size: 18px;
+}
+
+.edit {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  background-color: #242e31;
+}
+.edit a {
+  color: #ffffff;
+  text-decoration: none;
+  border: 1px solid white;
+  padding: 4%;
+}
+.edit input {
+  color: #077207;
+  font-size: 16px;
+  width: 10em;
+}
+.edit #update {
+  font-size: 1em;
+  font-weight: bold;
+  width: 6em;
+  background-color: #2b922b;
+  color: #ffffff;
+  border: none;
+  margin-top: 10px;
+}
+
+.itemPicLine {
+  display: flex;
+  width: 10%;
+}
+
+.header {
+  color: #fff;
+  display: block;
+  height: 120px;
+  background: linear-gradient(to top, transparent, #181818);
+}
+.header:hover {
+  background-color: #000000;
+  transition: 0.4s;
+}
+.header img {
+  width: 9.4%;
+  height: 9.4%;
+}
+.header__navBarTop button {
+  background-color: transparent;
+  border: none;
+}
+.header__navBarTop a {
+  text-decoration: none;
+  color: white;
+}
+.header__middle {
+  display: flex;
+  align-items: space-around;
+  gap: 31.5%;
+  margin: auto;
+  padding-top: 0.5%;
+  padding-bottom: 0.5%;
+  width: 98%;
+}
+.header__middle img {
+  width: 12%;
+}
+.header__middle__icons__right {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 23px;
+  font-size: 13px;
+}
+.header__middle__icons__left {
+  position: relative;
+  top: 1px;
+  display: flex;
+  gap: 3px;
+}
+.header__middle__icons__left__lang {
+  position: relative;
+  left: 10px;
+  display: flex;
+  justify-content: space-evenly;
+  gap: 10px;
+}
+.header__middle__icons__left .country {
+  position: relative;
+  bottom: 10px;
+  font-size: small;
+}
+.header__middle__icons__left .lang,
+.header__middle__icons__left .services {
+  position: relative;
+  bottom: 10px;
+  font-size: small;
+}
+.header__middle__title {
+  position: relative;
+  bottom: 30px;
+}
+.header__navBarBottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  align-items: center;
+  margin-top: 20px;
+}
+.header__navBarBottom__navbar-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  word-spacing: 16px;
+}
+.header__navBarBottom__navbar-nav a {
+  text-decoration: none;
+  color: white;
+}
+
+.navBarSort {
+  margin: 24px 0px;
+}
+.navBarSort__items {
+  display: grid;
+  grid-template-columns: 0.2fr 10fr 1fr 0.8fr 0.5fr 0.8fr;
+  align-items: center;
+  color: #000000;
+}
+.navBarSort__items .nav-item-left {
+  padding-left: 2em;
+  border-right: 1px solid lightgray;
+  padding-right: 10px;
+  color: #505050;
+}
+.navBarSort__items .nav-item-right {
+  margin-left: 2em;
+  border-right: 1px solid gray;
+  cursor: pointer;
+  color: #000000;
+}
+
+.sortPopUp {
+  display: flex;
+  justify-content: end;
+  margin-right: 24px;
+}
+
+.showcase {
+  right: 0;
+  width: 100%;
+  min-height: 62vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 6%;
+  color: #ffffff;
+}
+.showcase h1 {
+  font-size: 66px;
+  font-weight: 200;
+}
+
+.showcase video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 85%;
+  object-fit: cover;
+  opacity: 0.8;
+  z-index: -2;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 0%;
+  margin: 0;
+  padding: 0;
+}
+
+.main {
+  display: grid;
+  grid-template-rows: repeat(2, 60vh);
+  grid-template-columns: repeat(4, 24.8%);
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-left: 1%;
+  padding-right: 1%;
+  gap: 3px;
+}
+.main__item {
+  background-size: cover;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  opacity: 0.8;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 90%;
+  line-height: 2;
+}
+.main__item .title {
+  visibility: hidden;
+}
+.main__item .price {
+  visibility: hidden;
+}
+.main__item .buy-now {
+  visibility: hidden;
+}
+.main__item:hover {
+  opacity: 1;
+}
+.main__item:hover .title {
+  visibility: visible;
+  color: #353535;
+  font-weight: 300;
+  font-size: 20px;
+  padding-top: 2%;
+}
+.main__item:hover .price {
+  visibility: visible;
+  color: #7a7a7a;
+  font-weight: 200;
+  padding-bottom: 2%;
+}
+.main__item:hover .buy-now {
+  visibility: visible;
+}
+
+.picTimeless-40mm {
+  background-image: url(https://media.gucci.com/style/DarkGray_Center_0_0_800x800/1569334504/609929_I1600_8489_001_100_0000_Light-G-Timeless-watch-40mm.jpg);
+  background-size: 80%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #e6e6e6;
+}
+.picTimeless-40mm:hover {
+  background-image: url(https://media.gucci.com/style/White_South_0_160_316x316/1569334504/609929_I1600_8489_002_100_0000_Light.jpg);
+  background-color: #ffffff;
+  background-color: #ffffff;
+}
+
+.picTimeless-38mm {
+  background-image: url(https://media.gucci.com/style/DarkGray_Center_0_0_800x800/1634917510/681613_ICXA0_8489_001_100_0000_Light-G-Timeless-watch-38mm.jpg);
+  background-size: 80%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #e6e6e6;
+}
+.picTimeless-38mm:hover {
+  background-image: url(https://media.gucci.com/style/White_South_0_160_316x316/1634917513/681613_ICXA0_8489_002_100_0000_Light.jpg);
+  background-color: #ffffff;
+}
+
+.picTiger1-38mm {
+  background-image: url(https://media.gucci.com/style/DarkGray_Center_0_0_800x800/1634251528/692073_IC1A0_8521_001_100_0000_Light-Gucci-Tiger-G-Timeless-watch-38-mm.jpg);
+  background-size: 80%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #e6e6e6;
+}
+.picTiger1-38mm:hover {
+  background-image: url(https://media.gucci.com/style/White_South_0_160_316x316/1634251529/692073_IC1A0_8521_002_100_0000_Light.jpg);
+  background-color: #ffffff;
+}
+
+.picTiger2-38mm {
+  background-image: url(https://media.gucci.com/style/DarkGray_Center_0_0_800x800/1634838345/692078_ICZA0_8521_001_100_0000_Light-Gucci-Tiger-G-Timeless-watch-38-mm.jpg);
+  background-size: 80%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #e6e6e6;
+}
+.picTiger2-38mm:hover {
+  background-image: url(https://media.gucci.com/style/White_South_0_160_316x316/1634838347/692078_ICZA0_8521_002_100_0000_Light.jpg);
+  background-color: #ffffff;
+}
+
+.picTimeless-Automatic-38mm {
+  background-image: url(https://media.gucci.com/style/DarkGray_Center_0_0_800x800/1619420411/676167_I1600_8512_001_100_0000_Light-G-Timeless-Automatic-38-mm.jpg);
+  background-size: 80%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #e6e6e6;
+}
+.picTimeless-Automatic-38mm:hover {
+  background-image: url(https://media.gucci.com/style/White_South_0_160_316x316/1613583906/663937_I1600_1108_002_100_0000_Light.jpg);
+  background-color: #ffffff;
+}
+
+.picDive-40mm {
+  background-image: url(https://media.gucci.com/style/DarkGray_Center_0_0_800x800/1613583905/663937_I1600_1108_001_100_0000_Light-Gucci-Dive-watch-40mm.jpg);
+  background-size: 80%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #e6e6e6;
+}
+.picDive-40mm:hover {
+  background-image: url(https://media.gucci.com/style/White_South_0_160_316x316/1613583906/663937_I1600_1108_002_100_0000_Light.jpg);
+  background-color: #ffffff;
+}
+
+.picLimited-Dive-40mm {
+  background-image: url(https://media.gucci.com/style/DarkGray_Center_0_0_800x800/1627490710/686947_ICXA0_8183_001_100_0000_Light-Limited-Edition-Gucci-Dive-40mm.jpg);
+  background-size: 80%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #e6e6e6;
+}
+.picLimited-Dive-40mm:hover {
+  background-image: url(https://media.gucci.com/style/White_South_0_160_316x316/1627490710/686947_ICXA0_8183_002_100_0000_Light.jpg);
+  background-color: #ffffff;
+}
+
+.picDive-45mm {
+  background-image: url(https://media.gucci.com/style/DarkGray_Center_0_0_800x800/1630075503/663941_I1600_8512_001_100_0000_Light-Gucci-Dive-watch-45mm.jpg);
+  background-size: 80%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #e6e6e6;
+}
+.picDive-45mm:hover {
+  background-image: url(https://media.gucci.com/style/White_South_0_160_316x316/1567584906/596512_I1600_8504_002_100_0000_Light.jpg);
+  background-color: #ffffff;
+}
+
+.bigpic {
+  margin-top: 5px;
+  width: 100%;
+  height: 400px;
+  background-image: url(https://media.gucci.com/content/HomepageVideoBackgroundStandard_1300x758/1636100137/HomepageVideoBackgroundStandard_Love-Parade-showspace-02_001_Default.jpg);
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.footer {
+  color: white;
+  background-color: #1b1b1b;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  padding-top: 8%;
+  padding-left: 1%;
+  padding-right: 1%;
+  padding-left: 15%;
+  padding-right: 15%;
+}
+
+.footer__section {
+  list-style: none;
+  padding-top: 5px;
+  line-height: 2;
+  word-spacing: 2px;
+}
+.footer__section h4 {
+  font-weight: lighter;
+  color: #c4c4c4;
+}
+
+.footerSide h4 {
+  font-weight: lighter;
+  color: #c4c4c4;
+}
+.footerSide p {
+  font-size: 10px;
+  color: #c4c4c4;
+  line-height: 2;
+  word-spacing: 2px;
+}
+.footerSide input[type=text],
+.footerSide input textarea {
+  color: white;
+  background-color: #000000;
+  border: none;
+  width: 60%;
+}
+.footerSide input[type=email],
+.footerSide input textarea {
+  color: white;
+  background-color: #000000;
+  border: none;
+  width: 60%;
+}
+.footerSide button[type=submit],
+.footerSide button {
+  color: white;
+  background-color: #000000;
+  width: 15px;
+  border: none;
+}
+
+.popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* The actual popup */
+.popuptext {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.popup .popuptext {
+  visibility: hidden;
+  width: 8em;
+  height: 6em;
+  background-color: #ffffff;
+  color: #9c9c9c;
+  border: 1px solid lightgray;
+  text-align: center;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  top: 38px;
+  left: 2.8em;
+  margin-left: -80px;
+}
+
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #b6b6b6 transparent transparent transparent;
+}
+
+.popup .show {
+  visibility: visible;
+  animation: fadeIn 0.2s;
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.rootItemsStoreCart {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.sortPopUpBag {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border: 4px solid maroon;
+  align-items: center;
+  width: 90%;
+  margin: auto;
+  border-radius: 4px;
+}
+.sortPopUpBag .imgCart {
+  width: 3em;
+  object-fit: contain;
+}
+
+.popupBag {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+.popupBag .basket {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+/* The actual popupBag */
+.popupBagtext {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.popupBagtext h2 {
+  font-weight: lighter;
+  background-color: maroon;
+  color: #ffffff;
+  padding: 2%;
+}
+.popupBagtext .payNow {
+  background-color: #000000;
+  width: 80%;
+  margin: auto;
+  margin-top: 4%;
+  color: #ffffff;
+}
+
+.popupBag .popupBagtext {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  visibility: hidden;
+  width: 20em;
+  background-color: #ffffff;
+  color: #9c9c9c;
+  border: 1px solid lightgray;
+  text-align: center;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  top: 40px;
+  left: -1.5em;
+  margin-left: -80px;
+}
+
+.popupBag .popupBagtext::after {
+  content: "";
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  transform: rotate(180deg);
+  border-color: white transparent transparent transparent;
+}
+
+.popupBag .show {
+  visibility: visible;
+  animation: fadeIn 0.2s;
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

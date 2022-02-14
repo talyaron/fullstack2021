@@ -121,7 +121,7 @@ const gucci: Store = {
       type: "pants",
     },
     {
-      name: "Gucci Jordaan crocodile loafer",
+      name: "Gucci crocodile loafer",
       price: 3200,
       imgTop: "//media.gucci.com/style/DarkGray_South_0_160_470x470/1459942203/406994_EC200_1000_001_100_0000_Light.jpg",
       imgBottom: "https://media.gucci.com/style/White_South_0_160_540x540/1459942203/406994_EC200_1000_002_100_0000_Light.jpg",
@@ -177,7 +177,7 @@ const gucci: Store = {
       type: "rolex",
     },
     {
-      name: "Gucci Tiger G-Timeless, 38 mm",
+      name: "Gucci Tiger, 38 mm",
       price: 1020,
       imgTop: "https://media.gucci.com/style/DarkGray_South_0_160_316x316/1634838345/692078_ICZA0_8521_001_100_0000_Light-Gucci-Tiger-G-Timeless-watch-38-mm.jpg",
       imgBottom: "https://media.gucci.com/style/White_South_0_160_540x540/1634838347/692078_ICZA0_8521_002_100_0000_Light.jpg",
@@ -279,7 +279,7 @@ const gucci: Store = {
     }
   },
 
-  updateItems( itemName,newPrice) {
+  updateItems( newPrice, itemName) {
     //const index = this.items.findIndex((item) => item.id === id);
     const index = this.items.findIndex((item) => item.name === itemName);
     console.log(index)
@@ -288,7 +288,7 @@ const gucci: Store = {
       this.items[index].price = newPrice;
       
       this.storeData();
-      // this.getData();
+      this.getData();
       
     }
     
@@ -416,7 +416,6 @@ function handleUpdate(ev) {
   ev.preventDefault();
    
   const root = document.getElementById("root");
-  console.dir(ev.target.elements.itemName.value)
   
   
   
@@ -426,8 +425,8 @@ function handleUpdate(ev) {
   console.log(ev.target.elements.newPrice.value)
 
   
-  gucci.updateItems(itemName,newPrice);
-  
+  gucci.updateItems( newPrice, itemName);
+
   gucci.render(gucci.items,root);
   gucci.getData();
   gucci.storeData();
