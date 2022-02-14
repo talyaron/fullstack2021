@@ -566,12 +566,12 @@ function handleUpdateBook(e, id) {
   e.target.reset();
 }
 
-// function handleAddToCard(ev) {
-//   StandartEbooks.addToCard();
-//   const rootCard=document.getElementById('rootCard')
-//   StandartEbooks
+function handleAddToCard(ev) {
+  StandartEbooks.addToCard();
+  const rootCard=document.getElementById('rootCard')
+  StandartEbooks
 
-// }
+}
 
 function handleAuthorAscen() {
   try {
