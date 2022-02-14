@@ -6,11 +6,12 @@ var StandartEbooks = {
         {
             title: "The Three-Body Problem",
             author: "Liu Cixin",
-            genre: "science fictionscience fiction",
+            genre: "scienceF",
             year: 2008,
             rank: 4.07,
             price: 15,
-            img: "https://images-na.ssl-images-amazon.com/images/I/919XM42JQlL.jpg"
+            img: "https://images-na.ssl-images-amazon.com/images/I/919XM42JQlL.jpg",
+            id: uid()
         },
         {
             title: "One by One",
@@ -19,7 +20,8 @@ var StandartEbooks = {
             year: 2013,
             rank: 9.83,
             price: 28,
-            img: "https://litlife.club/data/Book/0/217000/217759/BC3_1410688094.jpg?w=600&h=600&q=90"
+            img: "https://litlife.club/data/Book/0/217000/217759/BC3_1410688094.jpg?w=600&h=600&q=90",
+            id: uid()
         },
         {
             title: "Fight Club",
@@ -28,7 +30,8 @@ var StandartEbooks = {
             year: 2009,
             rank: 9.63,
             price: 17,
-            img: "https://litlife.club/data/Book/0/87000/87828/BC3_1474544490.jpg?w=600&h=600&q=90"
+            img: "https://litlife.club/data/Book/0/87000/87828/BC3_1474544490.jpg?w=600&h=600&q=90",
+            id: uid()
         },
         {
             title: "Ramage",
@@ -37,7 +40,8 @@ var StandartEbooks = {
             year: 2010,
             rank: 10.0,
             price: 34,
-            img: "https://litlife.club/data/Book/0/119000/119128/BCS_1349028836.jpg?w=600&h=600&q=90"
+            img: "https://litlife.club/data/Book/0/119000/119128/BCS_1349028836.jpg?w=600&h=600&q=90",
+            id: uid()
         },
         {
             title: "Grimms` Fairy Tales",
@@ -46,7 +50,8 @@ var StandartEbooks = {
             year: 1994,
             rank: 9.5,
             price: 32,
-            img: "https://litlife.club/data/Book/0/0/707/BC3_1386593820.jpg?w=600&h=600&q=90"
+            img: "https://litlife.club/data/Book/0/0/707/BC3_1386593820.jpg?w=600&h=600&q=90",
+            id: uid()
         },
         {
             title: "The Caller",
@@ -55,16 +60,18 @@ var StandartEbooks = {
             year: 2017,
             rank: 9.59,
             price: 44,
-            img: "https://images-na.ssl-images-amazon.com/images/I/81-7W7KGYQL.jpg"
+            img: "https://images-na.ssl-images-amazon.com/images/I/81-7W7KGYQL.jpg",
+            id: uid()
         },
         {
             title: "Revelation",
             author: "Karpyshyn Drew",
-            genre: "science fiction",
+            genre: "scienceF",
             year: 2010,
             rank: 7.8,
             price: 21,
-            img: "https://litlife.club/data/Book/0/91000/91909/BCS_1349020826.jpg?w=600&h=600&q=90"
+            img: "https://litlife.club/data/Book/0/91000/91909/BCS_1349020826.jpg?w=600&h=600&q=90",
+            id: uid()
         },
         {
             title: "Deception Point",
@@ -73,7 +80,8 @@ var StandartEbooks = {
             year: 2010,
             rank: 9.99,
             price: 39,
-            img: "https://litlife.club/data/Book/0/125000/125823/BCS_1349021980.jpg?w=600&h=600&q=90"
+            img: "https://litlife.club/data/Book/0/125000/125823/BCS_1349021980.jpg?w=600&h=600&q=90",
+            id: uid()
         },
         {
             title: "The Secret History",
@@ -82,7 +90,8 @@ var StandartEbooks = {
             year: 2011,
             rank: 9.89,
             price: 41,
-            img: "https://litlife.club/data/Book/0/94000/94365/BC3_1474425076.jpg?w=600&h=600&q=90"
+            img: "https://litlife.club/data/Book/0/94000/94365/BC3_1474425076.jpg?w=600&h=600&q=90",
+            id: uid()
         },
         {
             title: "Hornblower and the Crisis",
@@ -91,7 +100,8 @@ var StandartEbooks = {
             year: 1990,
             rank: 0.23,
             price: 10,
-            img: "https://litlife.club/data/Book/0/126000/126284/BCS_1349022091.jpg?w=600&h=600&q=90"
+            img: "https://litlife.club/data/Book/0/126000/126284/BCS_1349022091.jpg?w=600&h=600&q=90",
+            id: uid()
         },
         {
             title: "The Adventures of Huckleberry Finn",
@@ -101,8 +111,8 @@ var StandartEbooks = {
             rank: 10.0,
             price: 43,
             img: "https://litlife.club/data/Book/0/0/755/BC3_1386593870.jpg?w=600&h=600&q=90",
-            annotation: "Book Description Hilariously picaresque, epic in scope, alive with the poetry and vigor of the American people, Mark Twain's story about a young boy and his journey down the Mississippi was the first great novel to speak in a truly American voice. Influencing subsequent generations of writers — from Sherwood Anderson to Twain's fellow Missourian, T.S. Eliot, from Ernest Hemingway and William Faulkner to J.D. Salinger — Huckleberry Finn, like the river which flows through its pages, is one of the great sources which nourished and still nourishes the literature of America."
-        },
+            id: uid()
+        }
     ],
     storeData: function () {
         localStorage.setItem("storeData", JSON.stringify(this.books));
@@ -148,7 +158,7 @@ var StandartEbooks = {
         }
         this.storeData();
     },
-    addToCard: function (book, id) {
+    addToCard: function (id) {
         var index = this.books.findIndex(function (book) { return book.id === id; });
         if (index >= 0) {
             this.books[index].id = id;
@@ -159,11 +169,10 @@ var StandartEbooks = {
         this.books = this.books.sort(function (a, b) {
             var authorA = a.author.toLowerCase(), authorB = b.author.toLowerCase();
             if (authorA < authorB)
-                //sort string ascending
                 return -1;
             if (authorA > authorB)
                 return 1;
-            return 0; //default return value (no sorting)
+            return 0;
         });
         this.books.forEach(function (book) {
             console.log(book.author);
@@ -173,11 +182,10 @@ var StandartEbooks = {
         this.books = this.books.sort(function (a, b) {
             var authorA = a.author.toLowerCase(), authorB = b.author.toLowerCase();
             if (authorA < authorB)
-                //sort string ascending
                 return 1;
             if (authorA > authorB)
                 return -1;
-            return 0; //default return value (no sorting)
+            return 0;
         });
         console.log("------");
         this.books.forEach(function (book) {
@@ -244,7 +252,7 @@ var StandartEbooks = {
     renderERP: function (list, domElement) {
         var html = " ";
         list.forEach(function (book) {
-            html += "<div class=\"containerERP__content\">\n      \n                  <div class='containerERP__content__cardERP'> \n\n                      <div class='containerERP__content__cardERP__img'> \n                         <img src=\"" + book.img + ".jpg\" alt=\"\">  \n                      </div> \n                      \n                       <div class='containerERP__content__cardERP__info'>  \n                             <strong class=\"tistrongtle\">" + book.title + "</strong>                                \n                             <strong class=\"author\">" + book.author + "</strong>\n                             <strong class=\"genre\">" + book.genre + "</strong>\n                             <strong class=\"year\">" + book.year + "</strong>\n                             <strong class=\"rank\">" + book.rank + "</strong>             \n                        </div> \n                  </div>\n                   <div class=\"containerERP__content__erpBtn\">      \n                         <div class=\"content__erpBtn__delete\" style= \"margin-bottom: 1em;\" >\n                               <button class=\"containerERP__inputs__form__one__inp\"  onclick=\"handleDeleteByID('" + book.id + "')\"><span style =\"color: grey;\">Delete book</span></button>\n                         </div> \n                         <input class=\"containerERP__inputs__form__one__inp\"  type=\"file\" id=\"file\" name=\"file\" accept=\"image/png, image/jpeg\"  style= \"margin-bottom: 1em;\"  >\n                         <div class=\"content__erpBtn__update\">\n                             <form id=\"formAdd\" onsubmit=\"handleUpdateBook(event, '" + book.id + "')\">\n                                  <select class=\"containerERP__inputs__form__one__inp\" name=\"genre\" id=\"\">\n                                      <option value=\"genre\" disabled selected>genre</option>\n                                      <option value=\"science fiction\">science fiction</option>\n                                      <option value=\"detective\">detective</option>\n                                      <option value=\"prose\">prose</option>\n                                      <option value=\"adventures\">adventures</option>\n                                      <option value=\"children\">children</option>\n                                   </select>  \n                                 <input class=\"containerERP__inputs__form__one__inp\"  type=\"text\" name=\"title\" placeholder=\"Edit title\" value=\"" + book.title + "\">\n                                 <input class=\"containerERP__inputs__form__one__inp\"  type=\"number\" name=\"price\" placeholder=\"Edit price\" value=\"" + book.price + "\">\n                                 <input class=\"containerERP__inputs__form__one__inp\"  type=\"submit\" id=\"update\" value=\"Update book\">\n                             </form>\n                         </div> \n                    </div>          \n               </div>";
+            html += "<div class=\"containerERP__content\">\n      \n                  <div class='containerERP__content__cardERP'> \n\n                      <div class='containerERP__content__cardERP__img'> \n                         <img src=\"" + book.img + ".jpg\" alt=\"\">  \n                      </div> \n                      \n                       <div class='containerERP__content__cardERP__info'>  \n                             <strong class=\"title\">" + book.title + "</strong>                                \n                             <strong class=\"author\">" + book.author + "</strong>\n                             <strong class=\"genre\">" + book.genre + "</strong>\n                             <strong class=\"year\">" + book.year + "</strong>\n                             <strong class=\"rank\">" + book.rank + "</strong>             \n                        </div> \n                  </div>\n                   <div class=\"containerERP__content__erpBtn\">      \n                         <div class=\"content__erpBtn__delete\" style= \"margin-bottom: 1em;\" >\n                               <button class=\"containerERP__inputs__form__one__inp\"  onclick=\"handleDeleteByID('" + book.id + "')\"><span style =\"color: grey;\">Delete book</span></button>\n                         </div> \n                         <input class=\"containerERP__inputs__form__one__inp\"  type=\"file\" id=\"file\" name=\"file\" accept=\"image/png, image/jpeg\"  style= \"margin-bottom: 1em;\"  >\n                         <div class=\"content__erpBtn__update\">\n                             <form id=\"formAdd\" onsubmit=\"handleUpdateBook(event, '" + book.id + "')\">\n                                  <select class=\"containerERP__inputs__form__one__inp\" name=\"genre\" id=\"\">\n                                      <option value=\"genre\" disabled selected>genre</option>\n                                      <option value=\"scienceF\">scienceF</option>\n                                      <option value=\"detective\">detective</option>\n                                      <option value=\"prose\">prose</option>\n                                      <option value=\"adventures\">adventures</option>\n                                      <option value=\"children\">children</option>\n                                   </select>  \n                                 <input class=\"containerERP__inputs__form__one__inp\"  type=\"text\" name=\"title\" placeholder=\"Edit title\" value=\"" + book.title + "\">\n                                 <input class=\"containerERP__inputs__form__one__inp\"  type=\"number\" name=\"price\" placeholder=\"Edit price\" value=\"" + book.price + "\">\n                                 <input class=\"containerERP__inputs__form__one__inp\"  type=\"submit\" id=\"update\" value=\"Update book\">\n                             </form>\n                         </div> \n                    </div>          \n               </div>";
         });
         domElement.innerHTML = html;
     },
@@ -266,13 +274,8 @@ StandartEbooks.getData();
 StandartEbooks.storeData();
 var allstars = document.querySelectorAll(".fa-star");
 var rating = document.querySelector('.rating');
-// const allstars = null;
-// if (Array.isArray(allstars)) {
-//   allstars.forEach(element => {
-//     console.log(element);
-//   });
-// }
 function handleStarClick(e) {
+    console.log(e.target);
     allstars.forEach(function (star) {
         if (e.target.id == star.id &&
             e.target.dataset.number >= star.dataset.number) {
@@ -287,6 +290,7 @@ function handleStarClick(e) {
             return 0;
         }
         console.log(star);
+        console.log(e.target);
     });
 }
 function renderOwener() {
@@ -316,11 +320,9 @@ function handleAddBook(e) {
     var price = e.target.price.valueAsNumber;
     var img = e.target.img.value;
     var annotation = e.target.annotation.value;
-    // const root = document.querySelector("#root");
     var rootERP = document.querySelector("#rootERP");
     StandartEbooks.addBook(title, author, genre, year, rank, price, img, annotation);
-    // StandartEbooks.renderAllBooks(rootERP);
-    StandartEbooks.render(rootERP, root);
+    StandartEbooks.render(rootERP, StandartEbooks.books);
     StandartEbooks.storeData();
     e.target.reset();
 }
@@ -330,13 +332,10 @@ function handleDeleteBook(e) {
         console.log(e);
         console.log(e.target.elements["delete"].value);
         var title = e.target.elements["delete"].value;
-        // const root = document.querySelector("#root");
         var rootERP_1 = document.querySelector("#rootERP");
         if (title) {
             console.log(title);
             StandartEbooks.deleteBook(title);
-            // StandartEbooks.renderAllBooks(root);
-            // StandartEbooks.renderAllBooks(rootERP);
             StandartEbooks.renderERP(rootERP_1, StandartEbooks.books);
             StandartEbooks.storeData();
         }
@@ -364,14 +363,14 @@ function handleUpdateBook(e, id) {
     StandartEbooks.updateBook(id, title, price);
     StandartEbooks.renderERP(StandartEbooks.books, rootERP);
     StandartEbooks.storeData();
-    // StandartEbooks.renderAllBooks(rootERP)
     e.target.reset();
 }
-// function handleAddToCard(ev) {
-//   StandartEbooks.addToCard();
-//   const rootCard=document.getElementById('rootCard')
-//   StandartEbooks
-// }
+function handleAddToCard(id) {
+    console.log(id);
+    var rootCard = document.getElementById('rootCard');
+    StandartEbooks.addToCard(id);
+    StandartEbooks.renderAddToCard(StandartEbooks.books, rootCard);
+}
 function handleAuthorAscen() {
     try {
         StandartEbooks.sortAscenByAuthor();
@@ -453,7 +452,8 @@ function handleSelectByGenre(e) {
     e.preventDefault();
     console.log(e.target);
     console.log(e);
-    var genre = e.target.value;
+    // debugger;
+    var genre = e.target.id;
     var root = document.querySelector("#root");
     if (genre === "all") {
         StandartEbooks.render(StandartEbooks.books, root);
@@ -461,6 +461,10 @@ function handleSelectByGenre(e) {
     else {
         console.log(genre);
         var filterByGenre = StandartEbooks.filterByGenre(genre);
+        var a = StandartEbooks.books.filter(function (item) {
+            return item.genre === genre;
+        });
+        console.log('ghgjg..........', filterByGenre, genre, a);
         StandartEbooks.renderFilterByGenre(filterByGenre, root);
     }
 }
@@ -493,7 +497,7 @@ var rootERP = document.querySelector("#rootERP");
 // StandartEbooks.renderERP(root, rootERP);
 StandartEbooks.getData();
 StandartEbooks.storeData();
-// const scrollToTopBtn = document.querySelector(".scrollToTopBtn");
+// const scrollToTopBtn = document.querySelector("#scrollToTopBtn");
 // const rootElement = document.documentElement;
 // function handleScroll() {
 //   // Do something on scroll
