@@ -23,8 +23,8 @@ interface Store {
     id: string
   );
   deleteBook(title: string);
-  // updateBook(img: any, title: string, price: number, id: string);
-  updateBook(title: string, price: number, id: string);
+  // updateBook(genre: string, img: any, title: string, price: number, id: string);
+  updateBook(genre: string, title: string, price: number, id: string);
   deleteByID(id: string);
   addToCard(id: string);
   sortAscenByAuthor();
@@ -217,15 +217,27 @@ const StandartEbooks= {
     localStorage.setItem("storeData", JSON.stringify(this.books));
   },
 
-  updateBook(id, title, price) {
+  
+  updateBook(id, genre, title, price) {
     const index = this.books.findIndex((book) => book.id === id);
     if (index >= 0) {
-      // this.books[index].img = img;
+      this.books[index].genre = genre;
       this.books[index].title = title;
       this.books[index].price = price;
     }
     this.storeData();
   },
+
+  // updateBook(id, img, genre, title, price) {
+  //   const index = this.books.findIndex((book) => book.id === id);
+  //   if (index >= 0) {
+  //     this.books[index].img = img;
+  //     this.books[index].genre = genre;
+  //     this.books[index].title = title;
+  //     this.books[index].price = price;
+  //   }
+  //   this.storeData();
+  // },
 
   addToCard(id) {
     const index = this.books.findIndex((book) => book.id === id);
@@ -337,11 +349,11 @@ const StandartEbooks= {
                   <img class="img" src="${book.img}">
                   <p>${book.year} &nbsp &nbsp ${book.price}$</p>
                   <div class="rating">                 
-                      <i class="far fa-star  " data-number="1" id="${book.title}" onclick = "handleStarClick(event)"></i>
-                      <i class="far fa-star  " data-number="2" id="${book.title}" onclick = "handleStarClick(event)"></i>
-                       <i class="far fa-star " data-number="3" id="${book.title}" onclick = "handleStarClick(event)"></i>
-                       <i class="far fa-star " data-number="4" id="${book.title}" onclick = "handleStarClick(event)"></i>
-                      <i class="far fa-star  " data-number="5" id="${book.title}" onclick = "handleStarClick(event)"></i>
+                      <i class="far fa-star  " data-number="1" id="${book.id}" onclick = "handleStarClick(event)"></i>
+                      <i class="far fa-star  " data-number="2" id="${book.id}" onclick = "handleStarClick(event)"></i>
+                      <i class="far fa-star " data-number="3" id="${book.id}" onclick = "handleStarClick(event)"></i>
+                      <i class="far fa-star " data-number="4" id="${book.id}" onclick = "handleStarClick(event)"></i>
+                      <i class="far fa-star  " data-number="5" id="${book.id}" onclick = "handleStarClick(event)"></i>
                    </div>                   
                   <p> ${book.rank}</p>
                   <input  class = "card__addToCardBtn" onclick = "handleAddToCard(event)" id ="addToCard" type ="button" value = "Add to cart">
@@ -374,7 +386,7 @@ const StandartEbooks= {
                          <div class="content__erpBtn__delete" style= "margin-bottom: 1em;" >
                                <button class="containerERP__inputs__form__one__inp"  onclick="handleDeleteByID('${book.id}')"><span style ="color: grey;">Delete book</span></button>
                          </div> 
-                         <input class="containerERP__inputs__form__one__inp"  type="file" id="file" name="file" accept="image/png, image/jpeg"  style= "margin-bottom: 1em;"  >
+                         <input class="containerERP__inputs__form__one__inp"  type="file" id="file" name="file" accept="image/png, image/jpeg, image/jpg"  style= "margin-bottom: 1em;"  >
                          <div class="content__erpBtn__update">
                              <form id="formAdd" onsubmit="handleUpdateBook(event, '${book.id}')">
                                   <select class="containerERP__inputs__form__one__inp" name="genre" id="">
@@ -406,11 +418,11 @@ const StandartEbooks= {
                         <img class="img" src="${book.img}">
                         <strong>${book.year} &nbsp &nbsp ${book.price}$</strong>
                              <div class="rating">                 
-                                  <i class="far fa-star  " data-number="1" id="${book.title}" onclick = "handleStarClick(event)"></i>
-                                  <i class="far fa-star  " data-number="2" id="${book.title}" onclick = "handleStarClick(event)"></i>
-                                  <i class="far fa-star " data-number="3" id="${book.title}" onclick = "handleStarClick(event)"></i>
-                                  <i class="far fa-star " data-number="4" id="${book.title}" onclick = "handleStarClick(event)"></i>
-                                  <i class="far fa-star  " data-number="5" id="${book.title}" onclick = "handleStarClick(event)"></i>
+                                  <i class="far fa-star  " data-number="1" id="${book.id}" onclick = "handleStarClick(event)"></i>
+                                  <i class="far fa-star  " data-number="2" id="${book.id}" onclick = "handleStarClick(event)"></i>
+                                  <i class="far fa-star " data-number="3" id="${book.id}" onclick = "handleStarClick(event)"></i>
+                                  <i class="far fa-star " data-number="4" id="${book.id}" onclick = "handleStarClick(event)"></i>
+                                  <i class="far fa-star  " data-number="5" id="${book.id}" onclick = "handleStarClick(event)"></i>
                              </div>                   
                           <strong> ${book.rank}</strong>
                           <input  class = "container__card__addToCardBtn" onclick = "handleAddToCard(event)" id ="addToCard" type ="button" value = "Add to cart">
@@ -433,10 +445,9 @@ StandartEbooks.storeData();
 const allstars: any = document.querySelectorAll(".fa-star");
 const rating: any = document.querySelector('.rating')
 
-
-
 function handleStarClick(e) {
-
+  StandartEbooks.getData();
+  StandartEbooks.storeData();
   console.log(e.target);
 
   allstars.forEach((star) => {
@@ -459,6 +470,31 @@ function handleStarClick(e) {
   });
 
 }
+
+// function handleStarClick(e) {
+
+//   console.log(e.target);
+
+//   allstars.forEach((star) => {
+//     if (
+//       e.target.id == star.id &&
+//       e.target.dataset.number >= star.dataset.number
+//     ) {
+//       console.log(star.dataset.number);
+//       star.classList.add("fas");
+//     } else if (
+//       e.target.id == star.id &&
+//       e.target.dataset.number < star.dataset.number
+//     ) {
+//       star.classList.remove("fas");
+//     } else {
+//       return 0;
+//     }
+//     console.log(star);
+//     console.log(e.target);
+//   });
+
+// }
 
 
 function renderOwener() {
@@ -539,11 +575,14 @@ function handleDeleteByID(id) {
 function handleUpdateBook(e, id) {
   e.preventDefault();
   console.log(id);
+  // console.log(e.target.elements.img);
   // const img = e.target.elements.img.value;
+  const genre = e.target.genre.value;
   const title = e.target.elements.title.value;
   const price = e.target.elements.price.valueAsNumber;
   const rootERP = document.querySelector("#rootERP");
-  StandartEbooks.updateBook(id, title, price);
+  // StandartEbooks.updateBook(id, genre, img, title, price);
+  StandartEbooks.updateBook(id, genre, title, price);
   StandartEbooks.renderERP(StandartEbooks.books, rootERP);
   StandartEbooks.storeData();
   e.target.reset();
