@@ -81,7 +81,7 @@ var gucci = {
             type: "pants"
         },
         {
-            name: "Gucci crocodile loafer",
+            name: "Gucci Jordaan crocodile loafer",
             price: 3200,
             imgTop: "//media.gucci.com/style/DarkGray_South_0_160_470x470/1459942203/406994_EC200_1000_001_100_0000_Light.jpg",
             imgBottom: "https://media.gucci.com/style/White_South_0_160_540x540/1459942203/406994_EC200_1000_002_100_0000_Light.jpg",
@@ -137,7 +137,7 @@ var gucci = {
             type: "rolex"
         },
         {
-            name: "Gucci Tiger, 38 mm",
+            name: "Gucci Tiger G-Timeless, 38 mm",
             price: 1020,
             imgTop: "https://media.gucci.com/style/DarkGray_South_0_160_316x316/1634838345/692078_ICZA0_8521_001_100_0000_Light-Gucci-Tiger-G-Timeless-watch-38-mm.jpg",
             imgBottom: "https://media.gucci.com/style/White_South_0_160_540x540/1634838347/692078_ICZA0_8521_002_100_0000_Light.jpg",
@@ -230,7 +230,7 @@ var gucci = {
             this.storeData();
         }
     },
-    updateItems: function (newPrice, itemName) {
+    updateItems: function (itemName, newPrice) {
         //const index = this.items.findIndex((item) => item.id === id);
         var index = this.items.findIndex(function (item) { return item.name === itemName; });
         console.log(index);
@@ -238,7 +238,7 @@ var gucci = {
             this.items[index].name = itemName;
             this.items[index].price = newPrice;
             this.storeData();
-            this.getData();
+            // this.getData();
         }
     },
     filterMaxPriceAndGender: function (gender, price) {
@@ -325,10 +325,11 @@ function handleRemoveItems(ev) {
 function handleUpdate(ev) {
     ev.preventDefault();
     var root = document.getElementById("root");
+    console.dir(ev.target.elements.itemName.value);
     var itemName = ev.target.elements.itemName.value;
     var newPrice = ev.target.elements.newPrice.value;
     console.log(ev.target.elements.newPrice.value);
-    gucci.updateItems(newPrice, itemName);
+    gucci.updateItems(itemName, newPrice);
     gucci.render(gucci.items, root);
     gucci.getData();
     gucci.storeData();

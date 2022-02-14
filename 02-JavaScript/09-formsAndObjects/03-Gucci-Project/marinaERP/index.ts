@@ -10,7 +10,7 @@ interface Store {
     title: string,
     author: string,
     genre:
-      | "scienceF"
+      | "science fiction"
       | "detective"
       | "prose"
       | "adventures"
@@ -23,10 +23,11 @@ interface Store {
     id: string
   );
   deleteBook(title: string);
-  // updateBook(genre: string, img: any, title: string, price: number, id: string);
-  updateBook(genre: string, title: string, price: number, id: string);
+  // updateBook(img: any, title: string, price: number, id: string);
+  updateBook(title: string, price: number, id: string);
   deleteByID(id: string);
-  addToCard(id: string);
+  addToCard(book: any);
+  // showAnnotation(annotation: string);
   sortAscenByAuthor();
   sortDescenByAuthor();
   sortAscenByRanking();
@@ -38,9 +39,12 @@ interface Store {
   filterByGenre(genre: string);
   filterByAuthor(author: string);
   filterByTitle(title: string);
+  // render(list: any,root),
+  // renderERP(list: any, rootERP),
+  // renderAllBooks(root, rootERP),
+  renderAddToCard(list: any, domElement);
   render(list: any, domElement: any);
   renderERP(list: any, domElement: any);
-  renderAddToCard(list: any, domElement);
   renderAllBooks(domElement: any);
   renderFilterByYear(filteredByYear: Array<Book>, domElement);
   renderFilterByRank(filteredByRank: Array<Book>, domElement);
@@ -53,7 +57,7 @@ interface Store {
 interface Book {
   title: string;
   author: string;
-  genre: "scienceF" | "detective" | "prose" | "adventures" | "children";
+  genre: "science fiction" | "detective" | "prose" | "adventures" | "children";
   year: number;
   rank: number;
   price: number;
@@ -67,12 +71,12 @@ const StandartEbooks= {
     {
       title: "The Three-Body Problem",
       author: "Liu Cixin",
-      genre: "scienceF",
+      genre: "science fictionscience fiction",
       year: 2008,
       rank: 4.07,
       price: 15,
       img: "https://images-na.ssl-images-amazon.com/images/I/919XM42JQlL.jpg",
-      id: uid()
+      id: uid
     },
     {
       title: "One by One",
@@ -82,7 +86,7 @@ const StandartEbooks= {
       rank: 9.83,
       price: 28,
       img: "https://litlife.club/data/Book/0/217000/217759/BC3_1410688094.jpg?w=600&h=600&q=90",
-      id: uid()
+      id: uid
     },
     {
       title: "Fight Club",
@@ -92,7 +96,7 @@ const StandartEbooks= {
       rank: 9.63,
       price: 17,
       img: "https://litlife.club/data/Book/0/87000/87828/BC3_1474544490.jpg?w=600&h=600&q=90",
-      id: uid()
+      id: uid
     },
     {
       title: "Ramage",
@@ -102,7 +106,7 @@ const StandartEbooks= {
       rank: 10.0,
       price: 34,
       img: "https://litlife.club/data/Book/0/119000/119128/BCS_1349028836.jpg?w=600&h=600&q=90",
-      id: uid()
+      id: uid
     },
     {
       title: "Grimms` Fairy Tales",
@@ -112,7 +116,7 @@ const StandartEbooks= {
       rank: 9.5,
       price: 32,
       img: "https://litlife.club/data/Book/0/0/707/BC3_1386593820.jpg?w=600&h=600&q=90",
-      id: uid()
+      id: uid
     },
     {
       title: "The Caller",
@@ -122,18 +126,18 @@ const StandartEbooks= {
       rank: 9.59,
       price: 44,
       img: "https://images-na.ssl-images-amazon.com/images/I/81-7W7KGYQL.jpg",
-      id: uid()
+      id: uid
     },
 
     {
       title: "Revelation",
       author: "Karpyshyn Drew",
-      genre: "scienceF",
+      genre: "science fiction",
       year: 2010,
       rank: 7.8,
       price: 21,
       img: "https://litlife.club/data/Book/0/91000/91909/BCS_1349020826.jpg?w=600&h=600&q=90",
-      id: uid()
+      id: uid
     },
     {
       title: "Deception Point",
@@ -143,7 +147,7 @@ const StandartEbooks= {
       rank: 9.99,
       price: 39,
       img: "https://litlife.club/data/Book/0/125000/125823/BCS_1349021980.jpg?w=600&h=600&q=90",
-      id: uid()
+      id: uid
     },
     {
       title: "The Secret History",
@@ -153,7 +157,7 @@ const StandartEbooks= {
       rank: 9.89,
       price: 41,
       img: "https://litlife.club/data/Book/0/94000/94365/BC3_1474425076.jpg?w=600&h=600&q=90",
-      id: uid()
+      id: uid
     },
     {
       title: "Hornblower and the Crisis",
@@ -163,7 +167,7 @@ const StandartEbooks= {
       rank: 0.23,
       price: 10,
       img: "https://litlife.club/data/Book/0/126000/126284/BCS_1349022091.jpg?w=600&h=600&q=90",
-      id: uid()
+      id: uid
     },
     {
       title: "The Adventures of Huckleberry Finn",
@@ -173,7 +177,7 @@ const StandartEbooks= {
       rank: 10.0,
       price: 43,
       img: "https://litlife.club/data/Book/0/0/755/BC3_1386593870.jpg?w=600&h=600&q=90",
-      id: uid()
+      id: uid
     } 
   ],
 
@@ -217,29 +221,17 @@ const StandartEbooks= {
     localStorage.setItem("storeData", JSON.stringify(this.books));
   },
 
-  
-  updateBook(id, genre, title, price) {
+  updateBook(id, title, price) {
     const index = this.books.findIndex((book) => book.id === id);
     if (index >= 0) {
-      this.books[index].genre = genre;
+      // this.books[index].img = img;
       this.books[index].title = title;
       this.books[index].price = price;
     }
     this.storeData();
   },
 
-  // updateBook(id, img, genre, title, price) {
-  //   const index = this.books.findIndex((book) => book.id === id);
-  //   if (index >= 0) {
-  //     this.books[index].img = img;
-  //     this.books[index].genre = genre;
-  //     this.books[index].title = title;
-  //     this.books[index].price = price;
-  //   }
-  //   this.storeData();
-  // },
-
-  addToCard(id) {
+  addToCard(book: Book, id) {
     const index = this.books.findIndex((book) => book.id === id);
     if (index >= 0) {
       this.books[index].id = id;
@@ -349,11 +341,11 @@ const StandartEbooks= {
                   <img class="img" src="${book.img}">
                   <p>${book.year} &nbsp &nbsp ${book.price}$</p>
                   <div class="rating">                 
-                      <i class="far fa-star  " data-number="1" id="${book.id}" onclick = "handleStarClick(event)"></i>
-                      <i class="far fa-star  " data-number="2" id="${book.id}" onclick = "handleStarClick(event)"></i>
-                      <i class="far fa-star " data-number="3" id="${book.id}" onclick = "handleStarClick(event)"></i>
-                      <i class="far fa-star " data-number="4" id="${book.id}" onclick = "handleStarClick(event)"></i>
-                      <i class="far fa-star  " data-number="5" id="${book.id}" onclick = "handleStarClick(event)"></i>
+                      <i class="far fa-star  " data-number="1" id="${book.title}" onclick = "handleStarClick(event)"></i>
+                      <i class="far fa-star  " data-number="2" id="${book.title}" onclick = "handleStarClick(event)"></i>
+                       <i class="far fa-star " data-number="3" id="${book.title}" onclick = "handleStarClick(event)"></i>
+                       <i class="far fa-star " data-number="4" id="${book.title}" onclick = "handleStarClick(event)"></i>
+                      <i class="far fa-star  " data-number="5" id="${book.title}" onclick = "handleStarClick(event)"></i>
                    </div>                   
                   <p> ${book.rank}</p>
                   <input  class = "card__addToCardBtn" onclick = "handleAddToCard(event)" id ="addToCard" type ="button" value = "Add to cart">
@@ -375,7 +367,7 @@ const StandartEbooks= {
                       </div> 
                       
                        <div class='containerERP__content__cardERP__info'>  
-                             <strong class="title">${book.title}</strong>                                
+                             <strong class="tistrongtle">${book.title}</strong>                                
                              <strong class="author">${book.author}</strong>
                              <strong class="genre">${book.genre}</strong>
                              <strong class="year">${book.year}</strong>
@@ -386,12 +378,12 @@ const StandartEbooks= {
                          <div class="content__erpBtn__delete" style= "margin-bottom: 1em;" >
                                <button class="containerERP__inputs__form__one__inp"  onclick="handleDeleteByID('${book.id}')"><span style ="color: grey;">Delete book</span></button>
                          </div> 
-                         <input class="containerERP__inputs__form__one__inp"  type="file" id="file" name="file" accept="image/png, image/jpeg, image/jpg"  style= "margin-bottom: 1em;"  >
+                         <input class="containerERP__inputs__form__one__inp"  type="file" id="file" name="file" accept="image/png, image/jpeg"  style= "margin-bottom: 1em;"  >
                          <div class="content__erpBtn__update">
                              <form id="formAdd" onsubmit="handleUpdateBook(event, '${book.id}')">
                                   <select class="containerERP__inputs__form__one__inp" name="genre" id="">
                                       <option value="genre" disabled selected>genre</option>
-                                      <option value="scienceF">scienceF</option>
+                                      <option value="science fiction">science fiction</option>
                                       <option value="detective">detective</option>
                                       <option value="prose">prose</option>
                                       <option value="adventures">adventures</option>
@@ -418,11 +410,11 @@ const StandartEbooks= {
                         <img class="img" src="${book.img}">
                         <strong>${book.year} &nbsp &nbsp ${book.price}$</strong>
                              <div class="rating">                 
-                                  <i class="far fa-star  " data-number="1" id="${book.id}" onclick = "handleStarClick(event)"></i>
-                                  <i class="far fa-star  " data-number="2" id="${book.id}" onclick = "handleStarClick(event)"></i>
-                                  <i class="far fa-star " data-number="3" id="${book.id}" onclick = "handleStarClick(event)"></i>
-                                  <i class="far fa-star " data-number="4" id="${book.id}" onclick = "handleStarClick(event)"></i>
-                                  <i class="far fa-star  " data-number="5" id="${book.id}" onclick = "handleStarClick(event)"></i>
+                                  <i class="far fa-star  " data-number="1" id="${book.title}" onclick = "handleStarClick(event)"></i>
+                                  <i class="far fa-star  " data-number="2" id="${book.title}" onclick = "handleStarClick(event)"></i>
+                                  <i class="far fa-star " data-number="3" id="${book.title}" onclick = "handleStarClick(event)"></i>
+                                  <i class="far fa-star " data-number="4" id="${book.title}" onclick = "handleStarClick(event)"></i>
+                                  <i class="far fa-star  " data-number="5" id="${book.title}" onclick = "handleStarClick(event)"></i>
                              </div>                   
                           <strong> ${book.rank}</strong>
                           <input  class = "container__card__addToCardBtn" onclick = "handleAddToCard(event)" id ="addToCard" type ="button" value = "Add to cart">
@@ -445,9 +437,10 @@ StandartEbooks.storeData();
 const allstars: any = document.querySelectorAll(".fa-star");
 const rating: any = document.querySelector('.rating')
 
+
+
 function handleStarClick(e) {
-  StandartEbooks.getData();
-  StandartEbooks.storeData();
+
   console.log(e.target);
 
   allstars.forEach((star) => {
@@ -471,31 +464,13 @@ function handleStarClick(e) {
 
 }
 
-// function handleStarClick(e) {
+// const allstars = null;
 
-//   console.log(e.target);
-
-//   allstars.forEach((star) => {
-//     if (
-//       e.target.id == star.id &&
-//       e.target.dataset.number >= star.dataset.number
-//     ) {
-//       console.log(star.dataset.number);
-//       star.classList.add("fas");
-//     } else if (
-//       e.target.id == star.id &&
-//       e.target.dataset.number < star.dataset.number
-//     ) {
-//       star.classList.remove("fas");
-//     } else {
-//       return 0;
-//     }
-//     console.log(star);
-//     console.log(e.target);
+// if (Array.isArray(allstars)) {
+//   allstars.forEach(element => {
+//     console.log(element);
 //   });
-
 // }
-
 
 function renderOwener() {
   StandartEbooks.getData();
@@ -563,7 +538,7 @@ function handleDeleteBook(e) {
     console.error(err);
   }
 }
-
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 function handleDeleteByID(id) {
   console.log(id);
  
@@ -571,29 +546,26 @@ function handleDeleteByID(id) {
   StandartEbooks.deleteByID(id);
   StandartEbooks.renderERP(StandartEbooks.books, rootERP);
 }
-
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 function handleUpdateBook(e, id) {
   e.preventDefault();
   console.log(id);
-  // console.log(e.target.elements.img);
   // const img = e.target.elements.img.value;
-  const genre = e.target.genre.value;
   const title = e.target.elements.title.value;
   const price = e.target.elements.price.valueAsNumber;
   const rootERP = document.querySelector("#rootERP");
-  // StandartEbooks.updateBook(id, genre, img, title, price);
-  StandartEbooks.updateBook(id, genre, title, price);
+  StandartEbooks.updateBook(id, title, price);
   StandartEbooks.renderERP(StandartEbooks.books, rootERP);
   StandartEbooks.storeData();
   e.target.reset();
 }
 
-function handleAddToCard(id) {
-  console.log(id);
-  const rootCard = document.getElementById('rootCard');
-  StandartEbooks.addToCard(id); 
-  StandartEbooks.renderAddToCard(StandartEbooks.books, rootCard)
-}
+// function handleAddToCard(ev) {
+//   StandartEbooks.addToCard();
+//   const rootCard=document.getElementById('rootCard')
+//   StandartEbooks
+
+// }
 
 function handleAuthorAscen() {
   try {
@@ -678,31 +650,36 @@ function handleFilterByGenre(e) {
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 function handleSelectByGenre(e) {
   e.preventDefault();
-  
   console.log(e.target);
   console.log(e);
-  // debugger;
-  const genre = e.target.id;
+  
+  const genre = e.target.value;
   const root = document.querySelector("#root");
   if (genre === "all") {
     StandartEbooks.render(StandartEbooks.books, root);
   } else {
     console.log(genre);
-    
     const filterByGenre = StandartEbooks.filterByGenre(genre);
-    const a = StandartEbooks.books.filter((item) => {
-      return item.genre === genre
-
-    })
-    
-    
-
-    console.log('ghgjg..........',filterByGenre, genre, a);
     StandartEbooks.renderFilterByGenre(filterByGenre, root);
   }
-  
-  
 }
+
+
+// const navFilters = document.querySelectorAll('.genreNav');
+
+// navFilters.forEach(navFilter => {
+//   const genre = e.target.value;
+//   const root = document.querySelector("#root");
+
+//   if(navFilter.textContent.includes('error')) {
+//     navFilter.classList.add('error');
+//   } else if (navFilter.textContent.includes('success')) {
+//     navFilter.classList.add('success')
+//   }
+// });
+
+
+
 
 
 function handleFilterByAuthor(e) {
@@ -749,32 +726,32 @@ StandartEbooks.storeData();
 
 
 
-// const scrollToTopBtn = document.querySelector("#scrollToTopBtn");
-// const rootElement = document.documentElement;
+const scrollToTopBtn = document.querySelector("#scrollToTopBtn");
+const rootElement = document.documentElement;
 
-// function handleScroll() {
-//   // Do something on scroll
-//   const scrollTotal = rootElement.scrollHeight - rootElement.clientHeight;
-//   if (rootElement.scrollTop / scrollTotal > 0.8) {
-//     // Show button
-//     scrollToTopBtn.classList.add("showBtn");
-//   } else {
-//     // Hide button
-//     scrollToTopBtn.classList.remove("showBtn");
-//   }
+function handleScroll() {
+  // Do something on scroll
+  const scrollTotal = rootElement.scrollHeight - rootElement.clientHeight;
+  if (rootElement.scrollTop / scrollTotal > 0.8) {
+    // Show button
+    scrollToTopBtn.classList.add("showBtn");
+  } else {
+    // Hide button
+    scrollToTopBtn.classList.remove("showBtn");
+  }
   
   
-// }
+}
 
-// function scrollToTop() {
-//   // Scroll to top logic
-//   rootElement.scrollTo({
-//     top: 0,
-//     behavior: "smooth"
-//   });
-// }
-// scrollToTopBtn.addEventListener("click", scrollToTop);
-// document.addEventListener("scroll", handleScroll);
+function scrollToTop() {
+  // Scroll to top logic
+  rootElement.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+}
+scrollToTopBtn.addEventListener("click", scrollToTop);
+document.addEventListener("scroll", handleScroll);
 
 
 
