@@ -264,8 +264,13 @@ body {
   width: 250px;
   border-radius: 20px;
   border: 3px solid #161811;
+  box-shadow: 5px 5px 10px black;
   margin: 20px;
   padding-block: 10px;
+  transition: ease 300ms;
+}
+.category-wrapper__card:hover {
+  transform: scale(1.1);
 }
 .category-wrapper__card img {
   width: 200px;
