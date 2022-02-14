@@ -329,26 +329,26 @@ function handleType(ev) {
   console.log(type);
   
   const root = document.getElementById("rootCustomer");
-  if(type === "Sneakers"){
+  if(type === "sneakers"){
     console.log(type);
     
 // Adidas.sortByType(type)
 //      Adidas.renderAllData(root);
 Adidas.renderFilter(Adidas.sortByType(type), root);
   }
-  else if(type === "Boots"){
+  else if(type === "boots"){
   //   console.log(type);
   //  Adidas.sortByType(type)
   //    Adidas.renderAllData(root);
   Adidas.renderFilter(Adidas.sortByType(type), root);
   }
-  else if(type === "Hi Tops"){
+  else if(type === "hi tops"){
   //   console.log(type);
   //  Adidas.sortByType(type)
   //    Adidas.renderAllData(root);
   Adidas.renderFilter(Adidas.sortByType(type), root);
   }
-  else if(type === "Flip Flops"){
+  else if(type === "flip flops"){
   //   console.log(type);
   //  Adidas.sortByType(type)
   //    Adidas.renderAllData(root);
