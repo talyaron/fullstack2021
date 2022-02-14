@@ -151,6 +151,25 @@ body {
     text-align: center;
     background-color: rgb(231, 231, 231);
 
+    .gucci{
+      color:black;
+      &--Aria{
+        font-size:smaller;
+
+      }
+      &--Title{
+        font-size: 3em;
+
+      }
+      &--imgBeforeStories{
+        width: 100%;
+        margin-bottom: 10em;
+
+      }
+    }
+
+   
+
     img {
       background-size: cover;
       background-repeat: no-repeat;
@@ -173,6 +192,32 @@ body {
     font-weight: 300;
     font-size: larger;
 
+    &__left{
+      .stories__left__bag{
+        margin-bottom: 5.5em;
+  
+      }
+    }
+    .stories__middle{
+      margin-right: 1em;
+      margin-top: -9.7em;
+       &__title{
+
+        font-size: 3em;
+        color: black; 
+
+       }
+    }
+
+    &__right{
+      .stories__right__gucci{
+        margin-bottom: 4.2em;
+
+      }
+
+    }
+    
+
   }
 
   &__bottom {
@@ -181,6 +226,21 @@ body {
     display: flex;
     justify-content: space-evenly;
     margin-top: 2em;
+
+    &__title{    
+    font-size: large;  
+    }
+    
+  
+  }
+
+  .gucciRights{
+    background: rgb(26, 25, 25);
+     font-size: small;
+      padding: 2em; 
+      margin-top: 0;
+      color:white;
+
   }
 }
 
@@ -385,9 +445,9 @@ $background-color:#ffffff;
     //used so i know when im on the width i need.
 
     .catergory__items {
-      background-color: white;
+      
       height: 90em;
-      text-align: center;
+      
 
       .items {
 
@@ -395,66 +455,72 @@ $background-color:#ffffff;
           height: 350px;
           width: 18em;
 
-
         }
 
         .imgBottom {
           width: 18em;
           height: 10px;
-
         }
 
         &:hover .imgBottom {
           height: 350px;
           //display: inline;
 
+        }
+      }
+    }
+  }
+
+
+  .sub-container {    
+    height: 70vh;
+    margin: 0;   
+
+
+  }
+
+  .container {
+    &__main {
+
+      .gucci{
+        color:black;
+        &--Aria{
+          font-size:smaller;
+
+        }
+        &--Title{
+          font-size: 3em;
 
         }
       }
 
+
+      
+      .mainpageImg{
+        width: 100%; 
+        margin-bottom: 10em;
+
+      }
+
+      button {
+        background-color: black;
+        color: blanchedalmond;
+        padding: 0.5em 2em;
+        margin-bottom: 1.5em;
+      }
     }
 
+    // &__stories {
+    //   justify-content: center;
+    //   gap: 2em;
+    //   display: flex;
+    //   color: rgb(5, 5, 5);
+    //   text-align: center;
+    //   font-weight: 300;
+    //   font-size: larger;
+
+    // }
+    
+    
   }
-
-
-  .sub-container {
-    
-    height: 70vh;
-    margin: 0;
-    
-
-
-  }
-
-
-  // .container {
-  //   &__main {
-
-
-  //     img {
-  //       background-size: cover;
-  //       background-repeat: no-repeat;
-  //     }
-
-  //     button {
-  //       background-color: black;
-  //       color: blanchedalmond;
-  //       padding: 0.5em 2em;
-  //       margin-bottom: 1.5em;
-  //     }
-  //   }
-
-  //   &__stories {
-  //     justify-content: center;
-  //     gap: 2em;
-  //     display: flex;
-  //     color: rgb(5, 5, 5);
-  //     text-align: center;
-  //     font-weight: 300;
-  //     font-size: larger;
-
-  //   }
-    
-    
-  // }
 }

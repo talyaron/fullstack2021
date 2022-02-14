@@ -80,6 +80,19 @@ body {
   text-align: center;
   background-color: #e7e7e7;
 }
+.container__main .gucci {
+  color: black;
+}
+.container__main .gucci--Aria {
+  font-size: smaller;
+}
+.container__main .gucci--Title {
+  font-size: 3em;
+}
+.container__main .gucci--imgBeforeStories {
+  width: 100%;
+  margin-bottom: 10em;
+}
 .container__main img {
   background-size: cover;
   background-repeat: no-repeat;
@@ -99,12 +112,36 @@ body {
   font-weight: 300;
   font-size: larger;
 }
+.container__stories__left .stories__left__bag {
+  margin-bottom: 5.5em;
+}
+.container__stories .stories__middle {
+  margin-right: 1em;
+  margin-top: -9.7em;
+}
+.container__stories .stories__middle__title {
+  font-size: 3em;
+  color: black;
+}
+.container__stories__right .stories__right__gucci {
+  margin-bottom: 4.2em;
+}
 .container__bottom {
   background-color: #1a1919;
   color: white;
   display: flex;
   justify-content: space-evenly;
   margin-top: 2em;
+}
+.container__bottom__title {
+  font-size: large;
+}
+.container .gucciRights {
+  background: #1a1919;
+  font-size: small;
+  padding: 2em;
+  margin-top: 0;
+  color: white;
 }
 
 .active,
@@ -229,9 +266,7 @@ body {
     background-color: red;
   }
   body .catergory__items {
-    background-color: white;
     height: 90em;
-    text-align: center;
   }
   body .catergory__items .items .imgTop {
     height: 350px;
@@ -248,5 +283,25 @@ body {
   .sub-container {
     height: 70vh;
     margin: 0;
+  }
+
+  .container__main .gucci {
+    color: black;
+  }
+  .container__main .gucci--Aria {
+    font-size: smaller;
+  }
+  .container__main .gucci--Title {
+    font-size: 3em;
+  }
+  .container__main .mainpageImg {
+    width: 100%;
+    margin-bottom: 10em;
+  }
+  .container__main button {
+    background-color: black;
+    color: blanchedalmond;
+    padding: 0.5em 2em;
+    margin-bottom: 1.5em;
   }
 }

@@ -14,14 +14,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Montserrat:wght@100;200&display=swap"
         rel="stylesheet">
 
-        <link rel="icon" href="https://brandlogos.net/wp-content/uploads/2021/11/gucci-logo.png">
+    <link rel="icon" href="https://brandlogos.net/wp-content/uploads/2021/11/gucci-logo.png">
 
     <title>Women Gucci</title>
     <link rel="stylesheet" href="dist/style.css">
 </head>
 
-<body onload="handleRenderByGender('women')" >
-<!-- 
+<body onload="handleRenderByGender('women')">
+    <!-- 
     <div class="cart" style="position:sticky;width:300px;height:400px;background-color: green;top:30vh;z-index: 1;">    
     </div> -->
 
@@ -30,7 +30,7 @@
 
         <div class="sub-container">
 
-            
+
             <div class="container__navBar">
 
                 <div class="container__navBar__title">
@@ -42,7 +42,7 @@
                         <div class="title__help">Client Services</div>
                     </div>
                     <div class="container__navBar__title--gucci">
-                        <h1 >GUCCI</h1>
+                        <h1>GUCCI</h1>
                     </div>
 
                     <div class="container__navBar__title__help">
@@ -108,12 +108,12 @@
                                 <li><a href="">
                                         Clutches
                                     </a></li>
-                     
+
                             </ul>
                         </div>
                     </li>
                     <li class="active"><a href="childrenGucci.html" class="container__navBar2__catergory">CHILDREN </a>
-                        <div class="container__navBar2__dropdown" id='children-dropdown' >
+                        <div class="container__navBar2__dropdown" id='children-dropdown'>
                             <ul>
                                 <li><a href="">BABY (0-36 month)</a></li>
                                 <li><a href="">View all</a></li>
@@ -143,7 +143,7 @@
 
 
                     <li class="active"><a href="menGucci.html" class="container__navBar2__catergory">MEN</a>
-                        <div class="container__navBar2__dropdown" id='children-dropdown' >
+                        <div class="container__navBar2__dropdown" id='children-dropdown'>
                             <ul>
                                 <li><a href=""><span> ARRIVALS</span></a></li>
                                 <li><a href="">View all</a></li>
@@ -173,13 +173,13 @@
                                 <li><a href="">Sandals</a></li>
                                 <li><a href="">Driving Shoes</a></li>
                                 <li><a href="">Ballet Flats</a></li>
-                              
-                           
+
+
                             </ul>
                         </div>
                     </li>
                     <li class="active"><a href="watchesGucci.html" class="container__navBar2__catergory">WATCHES</a>
-                        <div class="container__navBar2__dropdown" id='watches-dropdown' >
+                        <div class="container__navBar2__dropdown" id='watches-dropdown'>
                             <ul>
 
                                 <li><a href=""><span>WATCES</span></a></li>
@@ -193,7 +193,7 @@
                         </div>
                     </li>
                     <li class="active"><a href="jewelryGucci.html" class="container__navBar2__catergory">JEWELRY</a>
-                        <div class="container__navBar2__dropdown" id='jewelry-dropdown' >
+                        <div class="container__navBar2__dropdown" id='jewelry-dropdown'>
                             <ul>
                                 <li><a href=""><span>JUWELRY</span></a></li>
                                 <li><a href="">View all</a></li>
@@ -210,7 +210,7 @@
                         </div>
                     </li>
                     <li class="active"><a href="bagsGucci.html" class="container__navBar2__catergory">HANDBAGS</a>
-                        <div class="container__navBar2__dropdown" id='bags-dropdown' >
+                        <div class="container__navBar2__dropdown" id='bags-dropdown'>
                             <ul>
                                 <li><a href=""><span>HANDBAGS</span></a></li>
                                 <li><a href="">View all</a></li>
@@ -243,23 +243,26 @@
 
             <div class="catergory__buttons--lowerThanPrice">
                 <label>Show price lower than</label>
-                <input class="inputLowerThan" type='number' onkeyup="handleFilterByPrice(event)" placeholder="number" data-gender="women">
+                <input class="inputLowerThan" type='number' onkeyup="handleFilterByPrice(event)" placeholder="number"
+                    data-gender="women">
             </div>
 
 
-            <select class="catergory__buttons--selector" onchange='handleSelect(event)' data-gender="women" >
+            <select class="catergory__buttons--selector" onchange='handleSelect(event)' data-gender="women">
                 <option value="" disabled selected>Category</option>
                 <option value="all">ALL</option>
                 <option value="dresses">DRESSES</option>
                 <option value="sweaters">SWEATERS</option>
                 <option value="boots">BOOTS</option>
-                
-               
+
+
             </select>
 
             <div class="catergory__buttons--sortPrice">
-                <button type="button" id="ascending" onclick="handlePriceAsc(event)" data-gender="women">Price-Low to High</button>
-                <button type="button" id="descending" onclick="handlePriceDesc(event)" data-gender="women">Price-High to Low
+                <button type="button" id="ascending" onclick="handlePriceAsc(event)" data-gender="women">Price-Low to
+                    High</button>
+                <button type="button" id="descending" onclick="handlePriceDesc(event)" data-gender="women">Price-High to
+                    Low
                 </button>
             </div>
 
@@ -277,7 +280,7 @@
 
 
         </div>
-        
+
 
 
         <div class="container__bottom">
@@ -333,7 +336,8 @@
 
 
         </div>
-        <p style="background: rgb(26, 25, 25); font-size: small; padding: 2em; margin-top: 0;color:white">© 2016 - 2020 Guccio
+        <p style="background: rgb(26, 25, 25); font-size: small; padding: 2em; margin-top: 0;color:white">© 2016 - 2020
+            Guccio
             Gucci S.p.A. - All rights reserved. SIAE LICENCE # 2294/I/1936 and 5647/I/1936</p>
 
 
@@ -344,7 +348,7 @@
 
 
     </div>
-    
+
 
     <script src="dist/index.js"></script>
 
