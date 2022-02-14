@@ -17,7 +17,7 @@ var aviator = {
         var total = 0;
         this.cartItems.forEach(function (item) {
             html2 += "<div class='cart__card'>\n            <img src=\"" + item.img + "\">\n            <p class=\"cart__card--name\">" + item.name + "</p>\n            <p class=\"cart__card--price\">" + item.price + "</p>\n            <button id=\"add_one\" onclick='handleQuantity(event, \"" + item.id + "\")'>\u25B2</button>\n            <p class=\"cart__card--quantity\">" + item.quantity + "</p>\n            <button id=\"remove_one\" onclick='handleQuantity(event, \"" + item.id + "\")'>\u25BC</button>\n           \n        \n           <button  onclick='handleDelete(\"" + item.id + "\")' style=\"width:50px ;\"'><i class=\"far fa-trash-alt\"></i> Delete</button>\n            </div>";
-            total += item.price;
+            total += (item.price * item.quantity);
         });
         domElement.innerHTML = html2;
         document.querySelector("#total").innerHTML = "" + total;
@@ -184,6 +184,8 @@ function swichToUsd() {
         price.classList.add("USD");
         price.classList.remove("EUR", "GBP");
     });
+    document.querySelector("#total").classList.add("USD");
+    document.querySelector("#total").classList.remove("EUR", "GBP");
 }
 ;
 function swichToEur() {
@@ -197,6 +199,8 @@ function swichToEur() {
         price.classList.add("EUR");
         price.classList.remove("USD", "GBP");
     });
+    document.querySelector("#total").classList.add("EUR");
+    document.querySelector("#total").classList.remove("USD", "GBP");
 }
 ;
 function swichToGbp() {
@@ -210,6 +214,8 @@ function swichToGbp() {
         price.classList.add("GBP");
         price.classList.remove("EUR", "USD");
     });
+    document.querySelector("#total").classList.add("GBP");
+    document.querySelector("#total").classList.remove("EUR", "USD");
 }
 ;
 function handleCurrencyOptionClick(ev) {
