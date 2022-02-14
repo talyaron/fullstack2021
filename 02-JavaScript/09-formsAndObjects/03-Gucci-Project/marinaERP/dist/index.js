@@ -112,7 +112,7 @@ var StandartEbooks = {
             price: 43,
             img: "https://litlife.club/data/Book/0/0/755/BC3_1386593870.jpg?w=600&h=600&q=90",
             id: uid()
-        }
+        },
     ],
     storeData: function () {
         localStorage.setItem("storeData", JSON.stringify(this.books));
@@ -121,6 +121,15 @@ var StandartEbooks = {
         var booksStorage = JSON.parse(localStorage.getItem("storeData"));
         if (booksStorage) {
             this.books = booksStorage;
+        }
+    },
+    storeCardData: function () {
+        localStorage.setItem("storeCardData", JSON.stringify(this.books));
+    },
+    getCardData: function () {
+        var booksCardStorage = JSON.parse(localStorage.getItem("storeCardData"));
+        if (booksCardStorage) {
+            this.books = booksCardStorage;
         }
     },
     addBook: function (title, author, genre, year, rank, price, img, annotation) {
@@ -255,7 +264,13 @@ var StandartEbooks = {
     render: function (list, domElement) {
         var htmlStore = "";
         list.forEach(function (book) {
-            htmlStore += "<div class=\"card\">\n                  <h2>" + book.title + "</h2>\n                  <h3>" + book.author + "</h3>      \n                  <img class=\"img\" src=\"" + book.img + "\">\n                  <p>" + book.year + " &nbsp &nbsp " + book.price + "$</p>\n                  <div class=\"rating\">                 \n                      <i class=\"far fa-star  \" data-number=\"1\" id=\"" + book.id + "\" onclick = \"handleStarClick(event)\"></i>\n                      <i class=\"far fa-star  \" data-number=\"2\" id=\"" + book.id + "\" onclick = \"handleStarClick(event)\"></i>\n                      <i class=\"far fa-star \" data-number=\"3\" id=\"" + book.id + "\" onclick = \"handleStarClick(event)\"></i>\n                      <i class=\"far fa-star \" data-number=\"4\" id=\"" + book.id + "\" onclick = \"handleStarClick(event)\"></i>\n                      <i class=\"far fa-star  \" data-number=\"5\" id=\"" + book.id + "\" onclick = \"handleStarClick(event)\"></i>\n                   </div>                   \n                  <p> " + book.rank + "</p>\n                  <input  class = \"card__addToCardBtn\" onclick = \"handleAddToCard(event)\" id =\"addToCard\" type =\"button\" value = \"Add to cart\">\n               </div>";
+            (htmlStore += "<div class=\"card\">\n                  <h2>" + book.title + "</h2>\n                  <h3>" + book.author + "</h3>      \n                  <img class=\"img\" src=\"" + book.img + "\">\n                  <p>" + book.year + " &nbsp &nbsp " + book.price + "$</p>\n                  <div class=\"rating\">                 \n                      <i class=\"far fa-star  \" data-number=\"1\" id=\"" + book.id + "\" onclick = \"handleStarClick(event)\"></i>\n                      <i class=\"far fa-star  \" data-number=\"2\" id=\"" + book.id + "\" onclick = \"handleStarClick(event)\"></i>\n                      <i class=\"far fa-star \" data-number=\"3\" id=\"" + book.id + "\" onclick = \"handleStarClick(event)\"></i>\n                      <i class=\"far fa-star \" data-number=\"4\" id=\"" + book.id + "\" onclick = \"handleStarClick(event)\"></i>\n                      <i class=\"far fa-star  \" data-number=\"5\" id=\"" + book.id + "\" onclick = \"handleStarClick(event)\"></i>\n                   </div>                   \n                  <p> " + book.rank + "</p>\n                  <input  class = \"container__card__addToCardBtn\" onclick=\"handleAddToCard()\" id =\"addToCard\" type =\"button\" value = \"Add to cart\">              \n               </div>"),
+                "<div class=\"annotation\">" + book.annotation + "</div>";
+            //  <form class="inputs__form" onsubmit="handleUpdateBook(event, ${book.id})">
+            //  <input class="container__inputs__form__one__inp" type="text" name="update" id="update"
+            //      placeholder="Enter new title">
+            //  <input class="container__inputs__form__one__inp" type="submit" id="updateBtn" value="update">
+            // </form>`
         });
         domElement.innerHTML = htmlStore;
     },
@@ -282,8 +297,10 @@ var StandartEbooks = {
 };
 StandartEbooks.getData();
 StandartEbooks.storeData();
+StandartEbooks.storeCardData();
+StandartEbooks.getCardData();
 var allstars = document.querySelectorAll(".fa-star");
-var rating = document.querySelector('.rating');
+var rating = document.querySelector(".rating");
 function handleStarClick(e) {
     console.log(e.target);
     allstars.forEach(function (star) {
@@ -335,7 +352,8 @@ function renderCustomer() {
     StandartEbooks.render(StandartEbooks.books, root);
 }
 function renderAddToCard() {
-    StandartEbooks.getData();
+    StandartEbooks.storeCardData();
+    StandartEbooks.getCardData();
     var rootCard = document.querySelector(".rootCard");
     StandartEbooks.renderAddToCard(StandartEbooks.books, rootCard);
 }
@@ -353,7 +371,7 @@ function handleAddBook(e) {
     var annotation = e.target.annotation.value;
     var rootERP = document.querySelector("#rootERP");
     StandartEbooks.addBook(title, author, genre, year, rank, price, img, annotation);
-    StandartEbooks.render(rootERP, StandartEbooks.books);
+    StandartEbooks.render(StandartEbooks.books, rootERP);
     StandartEbooks.storeData();
     e.target.reset();
 }
@@ -367,7 +385,7 @@ function handleDeleteBook(e) {
         if (title) {
             console.log(title);
             StandartEbooks.deleteBook(title);
-            StandartEbooks.renderERP(rootERP_1, StandartEbooks.books);
+            StandartEbooks.renderERP(StandartEbooks.books, rootERP_1);
             StandartEbooks.storeData();
         }
         else {
@@ -378,14 +396,12 @@ function handleDeleteBook(e) {
         console.error(err);
     }
 }
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 function handleDeleteByID(id) {
     console.log(id);
     var rootERP = document.getElementById("rootERP");
     StandartEbooks.deleteByID(id);
     StandartEbooks.renderERP(StandartEbooks.books, rootERP);
 }
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 function handleUpdateBook(e, id) {
     e.preventDefault();
     console.log(id);
@@ -402,10 +418,18 @@ function handleUpdateBook(e, id) {
     e.target.reset();
 }
 function handleAddToCard(id) {
-    console.log(id);
-    var rootCard = document.getElementById('rootCard');
-    StandartEbooks.addToCard(id);
-    StandartEbooks.renderAddToCard(StandartEbooks.books, rootCard);
+    try {
+        console.log(id);
+        var rootCard_1 = document.getElementById("rootCard");
+        if (!rootCard_1)
+            throw new Error('"rootCard" was not found on the DOM');
+        console.log(rootCard_1);
+        StandartEbooks.addToCard(id);
+        StandartEbooks.renderAddToCard(StandartEbooks.books, rootCard_1);
+    }
+    catch (err) {
+        console.error(err);
+    }
 }
 function handleAuthorAscen() {
     try {
@@ -428,9 +452,14 @@ function handleAuthoreDescen() {
     }
 }
 function handleYearAscen() {
-    StandartEbooks.sortAscenByYear();
-    var root = document.querySelector("#root");
-    StandartEbooks.render(StandartEbooks.books, root);
+    try {
+        StandartEbooks.sortAscenByYear();
+        var root_3 = document.querySelector("#root");
+        StandartEbooks.render(StandartEbooks.books, root_3);
+    }
+    catch (error) {
+        console.error(error);
+    }
 }
 function handleYearDescen() {
     StandartEbooks.sortDescenByYear();
@@ -499,20 +528,10 @@ function handleSelectByGenre(e) {
         var a = StandartEbooks.books.filter(function (item) {
             return item.genre === genre;
         });
-        console.log('ghgjg..........', filterByGenre, genre, a);
+        console.log("ghgjg..........", filterByGenre, genre, a);
         StandartEbooks.renderFilterByGenre(filterByGenre, root);
     }
 }
-// const navFilters = document.querySelectorAll('.genreNav');
-// navFilters.forEach(navFilter => {
-//   const genre = e.target.value;
-//   const root = document.querySelector("#root");
-//   if(navFilter.textContent.includes('error')) {
-//     navFilter.classList.add('error');
-//   } else if (navFilter.textContent.includes('success')) {
-//     navFilter.classList.add('success')
-//   }
-// });
 function handleFilterByAuthor(e) {
     e.preventDefault();
     var author = e.target.value;
@@ -539,9 +558,11 @@ function handleFilterByTitle(e) {
 }
 var root = document.querySelector("#root");
 var rootERP = document.querySelector("#rootERP");
-// StandartEbooks.renderERP(root, rootERP);
+var rootCard = document.querySelector("#rootCard");
 StandartEbooks.getData();
 StandartEbooks.storeData();
+StandartEbooks.storeCardData();
+StandartEbooks.getCardData();
 // const scrollToTopBtn = document.querySelector("#scrollToTopBtn");
 // const rootElement = document.documentElement;
 // function handleScroll() {
