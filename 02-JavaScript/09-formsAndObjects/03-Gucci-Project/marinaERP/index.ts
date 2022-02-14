@@ -6,6 +6,8 @@ interface Store {
   books: Array<Book>;
   storeData();
   getData();
+  storeCardData();
+  getCardData();
   addBook(
     title: string,
     author: string,
@@ -179,6 +181,17 @@ const StandartEbooks = {
     const booksStorage = JSON.parse(localStorage.getItem("storeData"));
     if (booksStorage) {
       this.books = booksStorage;
+    }
+  },
+
+  storeCardData() {
+    localStorage.setItem("storeCardData", JSON.stringify(this.books));
+  },
+
+  getCardData() {
+    const booksCardStorage = JSON.parse(localStorage.getItem("storeCardData"));
+    if (booksCardStorage) {
+      this.books = booksCardStorage;
     }
   },
 
@@ -439,6 +452,8 @@ const StandartEbooks = {
 
 StandartEbooks.getData();
 StandartEbooks.storeData();
+StandartEbooks.storeCardData();
+StandartEbooks.getCardData();
 
 const allstars: any = document.querySelectorAll(".fa-star");
 const rating: any = document.querySelector(".rating");
@@ -504,7 +519,8 @@ function renderCustomer() {
 }
 
 function renderAddToCard() {
-  StandartEbooks.getData();
+  StandartEbooks.storeCardData();
+  StandartEbooks.getCardData();
   const rootCard = document.querySelector(".rootCard");
   StandartEbooks.renderAddToCard(StandartEbooks.books, rootCard);
 }
@@ -532,7 +548,7 @@ function handleAddBook(e) {
     img,
     annotation
   );
-  StandartEbooks.render(rootERP, StandartEbooks.books);
+  StandartEbooks.render(StandartEbooks.books, rootERP);
   StandartEbooks.storeData();
   e.target.reset();
 }
@@ -548,7 +564,7 @@ function handleDeleteBook(e) {
       console.log(title);
 
       StandartEbooks.deleteBook(title);
-      StandartEbooks.renderERP(rootERP, StandartEbooks.books);
+      StandartEbooks.renderERP(StandartEbooks.books, rootERP);
       StandartEbooks.storeData();
     } else {
       throw new Error("User didnt write a title");
@@ -731,10 +747,12 @@ function handleFilterByTitle(e) {
 
 const root = document.querySelector("#root");
 const rootERP = document.querySelector("#rootERP");
-// StandartEbooks.renderERP(root, rootERP);
+const rootCard = document.querySelector("#rootCard");
 
 StandartEbooks.getData();
 StandartEbooks.storeData();
+StandartEbooks.storeCardData();
+StandartEbooks.getCardData();
 
 // const scrollToTopBtn = document.querySelector("#scrollToTopBtn");
 // const rootElement = document.documentElement;
