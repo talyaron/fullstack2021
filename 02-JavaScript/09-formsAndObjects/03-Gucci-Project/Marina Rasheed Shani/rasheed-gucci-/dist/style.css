@@ -381,6 +381,7 @@ body {
     font-size: 2em;
   }
   .container__main .gucci--mainPageImg {
+    margin-top: 5px;
     width: 40vh;
   }
   .container__stories {
