@@ -173,9 +173,6 @@ header.is-scrolling {
   text-decoration: none;
   cursor: pointer;
 }
-.filters__sort {
-  width: 80px;
-}
 
 .backToTop {
   width: 100vw;

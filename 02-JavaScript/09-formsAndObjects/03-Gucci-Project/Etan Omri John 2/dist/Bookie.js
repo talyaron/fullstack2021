@@ -77,7 +77,7 @@ var bookie = {
         },
         {
             id: 5,
-            category: "thriller",
+            category: "fantasy",
             title: "Harry Potter",
             price: 35,
             img: "Harry Potter.jpg",
@@ -154,13 +154,6 @@ var bookie = {
         bookie.renderItem(rootBooks);
     }
 };
-// addingForm.onsubmit(function(e) {})
-//function handleAddToCart()
-//function handleOpenThis()
-//function handleOpenMenu()
-//function handleCloseMenu()
-//function handleSortDesc()
-//function handleSortAsc(ev)
 function makeId(book) {
     var uid = Math.random().toString(36).slice(-8);
     if (book.id === "uid") {
@@ -266,7 +259,25 @@ window.onload = function () {
     showLocalToOwner(undefined);
 };
 function handleSelect(ev) {
-    console.dir(ev);
+    ev.preventDefault();
+    var category = ev.target.value;
+    if (category === 'all') {
+        bookie.tempBooks = bookie.books;
+        bookie.renderTempItem(rootBooks);
+    }
+    else if (category === 'thriller') {
+        bookie.tempBooks = bookie.books.filter(function (book) { return book.category === category; });
+    }
+    else if (category === 'history') {
+        bookie.tempBooks = bookie.books.filter(function (book) { return book.category === category; });
+    }
+    else if (category === 'cooking') {
+        bookie.tempBooks = bookie.books.filter(function (book) { return book.category === category; });
+    }
+    else if (category === 'fantasy') {
+        bookie.tempBooks = bookie.books.filter(function (book) { return book.category === category; });
+    }
+    bookie.renderTempItem(rootBooks);
 }
 ;
 function handleSort(ev) {
