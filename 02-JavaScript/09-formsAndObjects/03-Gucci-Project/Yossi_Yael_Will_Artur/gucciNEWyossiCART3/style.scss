@@ -1,0 +1,977 @@
+//  div {
+//      border: 1px solid red;
+//  }
+
+.bodyOwner {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 16px;
+    margin-top: 20px;
+    background-color: #165458;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.headerOwner {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.logoOwner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+        width: 30%;
+        border: 12px solid rgb(180, 166, 40);
+        padding: 3%;
+    }
+
+}
+
+.headerOwner {
+    width: 100%;
+    height: 100px;
+    background-color: #242e31;
+
+    &__btn {
+        padding: 4px;
+        margin: 10px;
+        font-size: 14px;
+        background-color: #ffffff;
+        border-radius: 2px;
+        border: none;
+    }
+
+    a {
+        color: rgb(134, 111, 32);
+        text-decoration: none;
+
+    }
+}
+
+.wrapperForms {
+    // display: grid;
+    // grid-template-rows: 2fr 1fr;
+    background-color: #242e31;
+    padding: 4px;
+}
+
+#formAddItem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+input,
+#select {
+    min-height: 20px;
+    border-radius: 2px;
+    background-color: #ffffff;
+    font-size: 14px;
+    width: 20%;
+}
+
+#select {
+    min-height: 30px;
+    width: 20%;
+}
+
+.sortBtns {
+
+    button {
+        min-height: 40px;
+        border: none;
+        color: rgb(90, 90, 90);
+        cursor: pointer;
+        font-size: 10px;
+        background-color: #ffffff;
+        border-bottom: 1px solid rgb(185, 185, 185);
+    }
+}
+
+.arrow {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+
+::placeholder {
+    font-size: 16px;
+}
+
+#addBtn {
+    background-color: #2b922b;
+    padding: 4px;
+    cursor: pointer;
+    width: 200px;
+    height: 40px;
+}
+
+.containerCard {
+    border: 2px solid #b3b3b3;
+}
+
+.card {
+    background-color: #242e31;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 0.2fr 0.2fr 0.2fr 3fr;
+    gap: 10px;
+    margin-bottom: 2px;
+
+    img {
+        width: 26%;
+        object-fit: contain;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 6%;
+    }
+
+    .imgPic {
+        width: 10em;
+    }
+}
+
+.category,
+.title,
+.price {
+    background-color: #ffffff;
+    color: #050505;
+    border-radius: 2px;
+
+    text-align: center;
+    margin: 10px;
+    padding: 4px;
+    text-align: start;
+    font-weight: bold;
+    background-color: #ffffff;
+}
+
+.price {
+    height: 30px;
+}
+
+.description {
+    font-size: 18px;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    border-radius: 2px;
+    text-align: center;
+    margin: 10px;
+    margin-top: 10px;
+    padding: 10px;
+    text-align: start;
+    inline-size: 310px;
+    overflow-wrap: break-word;
+    height: 60px;
+}
+
+.price {
+    text-align: center;
+    font-size: 20px;
+}
+
+
+#textarea {
+    width: 382px;
+    resize: none;
+    border-radius: 2px;
+    height: 80px;
+    font-size: 18px;
+}
+
+.delete {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+
+
+    button {
+        background-color: transparent;
+        background-repeat: no-repeat;
+        border: solid 1px white;
+        cursor: pointer;
+        padding: 6px;
+        font-size: 18px;
+    }
+}
+
+.edit {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    background-color: #242e31;
+
+
+    a {
+        color: #ffffff;
+        text-decoration: none;
+        border: 1px solid white;
+        padding: 4%;
+    }
+
+    input {
+        color: #077207;
+        font-size: 16px;
+        width: 10em;
+
+    }
+
+    #update {
+        font-size: 1em;
+        font-weight: bold;
+        width: 6em;
+        background-color: #2b922b;
+        color: #ffffff;
+        border: none;
+        margin-top: 10px;
+    }
+}
+
+.itemPicLine {
+    display: flex;
+    width: 10%;
+}
+
+
+
+//  // STORE========================== END YOSSI
+
+.header {
+    color: #fff;
+    display: block;
+    height: 120px;
+    background: linear-gradient(to top, transparent, #181818);
+
+    &:hover {
+        background-color: #000000;
+        transition: 0.4s;
+    }
+
+    img {
+        width: 9.4%;
+        height: 9.4%;
+    }
+
+    &__navBarTop {
+
+        button {
+            background-color: transparent;
+            border: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+    }
+
+    &__middle {
+        display: flex;
+        align-items: space-around;
+        gap: 31.5%;
+        margin: auto;
+        padding-top: 0.5%;
+        padding-bottom: 0.5%;
+        width: 98%;
+
+        img {
+            width: 12%;
+            // object-fit: contain;
+        }
+
+        &__icons__right {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 23px;
+            font-size: 13px;
+
+            &__bag {
+
+                //   display: flex;
+                //   justify-content: space-between;
+                //   gap: 5px;
+                //   width: 140px;
+                //   display: grid;
+                //   grid-template-columns: 1fr 1fr;
+            }
+
+            .sign {
+               
+            }
+        }
+
+        &__icons__left {
+            position: relative;
+            top: 1px;
+            display: flex;
+            gap: 3px;
+
+            &__lang {
+                position: relative;
+                left: 10px;
+                display: flex;
+                justify-content: space-evenly;
+                gap: 10px;
+            }
+
+            .country {
+                position: relative;
+                bottom: 10px;
+                font-size: small;
+            }
+
+            .lang,
+            .services {
+                position: relative;
+                bottom: 10px;
+                font-size: small;
+            }
+        }
+
+        &__title {
+            position: relative;
+            bottom: 30px;
+        }
+    }
+
+    &__navBarBottom {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: auto;
+        align-items: center;
+        margin-top: 20px;
+
+
+        &__navbar-nav {
+            display: flex;
+            justify-content: space-between;
+            //  display: inline-block;
+            gap: 30px;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            word-spacing: 16px;
+
+
+            a {
+                text-decoration: none;
+                color: white;
+                //  display: inline-block;
+
+
+            }
+
+        }
+
+    }
+
+}
+
+//  #a:hover~#blockMenu {
+//      display: block;
+
+
+
+//  }
+
+//  #blockMenu {
+//      display: none;
+//      width: 184%;
+//      height: 400px;
+//      margin-left: -409px;
+//      margin-top: 44px;
+//      background-color: #ffffff;
+//      color: rgb(0, 0, 0);
+//      // visibility: visible;
+//      animation: blockMenuFade 0.8s;
+//      padding: 4%;
+
+
+//  }
+
+//  @keyframes blockMenuFade {
+//      0% {
+//          opacity: 0;
+//          height: 200px;
+//      }
+
+//      30% {
+//          opacity: 0;
+//          height: 200px;
+//      }
+
+//      60% {
+//          opacity: 0;
+//          height: 200px;
+//      }
+
+//      70% {
+//          opacity: 0;
+//          height: 200px;
+//      }
+
+//      100% {
+//          opacity: 1;
+//          height: 400px;
+//      }
+//  }
+
+//  .blockMenuLinks {
+//      display: grid;
+//      grid-template-columns: 0.5fr 0.5fr 0.5fr 0.5fr;
+//      font-size: 14px;
+//      list-style: none;
+//      z-index: 10;
+
+//  }
+
+.navBarSort {
+    margin: 24px 0px;
+
+    &__items {
+        display: grid;
+        grid-template-columns: 0.2fr 10fr 1fr 0.8fr 0.5fr 0.8fr;
+        align-items: center;
+        color: #000000;
+
+        .nav-item-left {
+            padding-left: 2em;
+            border-right: 1px solid lightgray;
+            padding-right: 10px;
+            color: #505050;
+        }
+
+        .nav-item-right {
+            margin-left: 2em;
+            border-right: 1px solid gray;
+            cursor: pointer;
+            color: #000000;
+        }
+    }
+}
+
+.sortPopUp {
+    display: flex;
+    justify-content: end;
+    margin-right: 24px;
+}
+
+// end yael==============================
+
+
+.showcase {
+    right: 0;
+    width: 100%;
+    min-height: 62vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 6%;
+    color: #ffffff;
+
+    h1 {
+        font-size: 66px;
+        font-weight: 200;
+        //  padding-bottom: 30%;
+        //  position: absolute;
+        //  left: 34%;
+        //  top: 340px;
+    }
+
+}
+
+.showcase video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 85%;
+    object-fit: cover;
+    opacity: 0.8;
+    z-index: -2;
+}
+
+
+
+// STORE==========================ARTUR
+
+// div {
+//     border: 1px solid red;
+// }
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 0%;
+    margin: 0;
+    padding: 0;
+
+}
+
+
+.main {
+    display: grid;
+    grid-template-rows: repeat(2, 60vh);
+    grid-template-columns: repeat(4, 24.8%);
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-left: 1%;
+    padding-right: 1%;
+    gap: 3px;
+
+    &__item {
+        background-size: cover;
+        cursor: pointer;
+        background-repeat: no-repeat;
+        opacity: 0.8;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 90%;
+        line-height: 2;
+
+        .title {
+            visibility: hidden;
+        }
+
+        .price {
+            visibility: hidden;
+        }
+
+        .buy-now {
+            visibility: hidden;
+        }
+
+        &:hover {
+            opacity: 1;
+
+            .title {
+                visibility: visible;
+                color: #353535;
+                font-weight: 300;
+                font-size: 20px;
+                padding-top: 2%;
+            }
+
+            .price {
+                visibility: visible;
+                color: #7a7a7a;
+                font-weight: 200;
+                padding-bottom: 2%;
+            }
+
+            .buy-now {
+                visibility: visible;
+            }
+        }
+    }
+}
+
+
+.picTimeless-40mm {
+    background-image: url(https://media.gucci.com/style/DarkGray_Center_0_0_800x800/1569334504/609929_I1600_8489_001_100_0000_Light-G-Timeless-watch-40mm.jpg);
+    background-size: 80%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #e6e6e6;
+
+    &:hover {
+        background-image: url(https://media.gucci.com/style/White_South_0_160_316x316/1569334504/609929_I1600_8489_002_100_0000_Light.jpg);
+        background-color: #ffffff;
+        background-color: #ffffff;
+    }
+}
+
+.picTimeless-38mm {
+    background-image: url(https://media.gucci.com/style/DarkGray_Center_0_0_800x800/1634917510/681613_ICXA0_8489_001_100_0000_Light-G-Timeless-watch-38mm.jpg);
+    background-size: 80%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #e6e6e6;
+
+    &:hover {
+        background-image: url(https://media.gucci.com/style/White_South_0_160_316x316/1634917513/681613_ICXA0_8489_002_100_0000_Light.jpg);
+        background-color: #ffffff;
+    }
+}
+
+.picTiger1-38mm {
+    background-image: url(https://media.gucci.com/style/DarkGray_Center_0_0_800x800/1634251528/692073_IC1A0_8521_001_100_0000_Light-Gucci-Tiger-G-Timeless-watch-38-mm.jpg);
+    background-size: 80%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #e6e6e6;
+
+    &:hover {
+        background-image: url(https://media.gucci.com/style/White_South_0_160_316x316/1634251529/692073_IC1A0_8521_002_100_0000_Light.jpg);
+        background-color: #ffffff;
+    }
+}
+
+.picTiger2-38mm {
+    background-image: url(https://media.gucci.com/style/DarkGray_Center_0_0_800x800/1634838345/692078_ICZA0_8521_001_100_0000_Light-Gucci-Tiger-G-Timeless-watch-38-mm.jpg);
+    background-size: 80%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #e6e6e6;
+
+    &:hover {
+        background-image: url(https://media.gucci.com/style/White_South_0_160_316x316/1634838347/692078_ICZA0_8521_002_100_0000_Light.jpg);
+        background-color: #ffffff;
+    }
+}
+
+.picTimeless-Automatic-38mm {
+    background-image: url(https://media.gucci.com/style/DarkGray_Center_0_0_800x800/1619420411/676167_I1600_8512_001_100_0000_Light-G-Timeless-Automatic-38-mm.jpg);
+    background-size: 80%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #e6e6e6;
+
+    &:hover {
+        background-image: url(https://media.gucci.com/style/White_South_0_160_316x316/1613583906/663937_I1600_1108_002_100_0000_Light.jpg);
+        background-color: #ffffff;
+    }
+}
+
+.picDive-40mm {
+    background-image: url(https://media.gucci.com/style/DarkGray_Center_0_0_800x800/1613583905/663937_I1600_1108_001_100_0000_Light-Gucci-Dive-watch-40mm.jpg);
+    background-size: 80%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #e6e6e6;
+
+    &:hover {
+        background-image: url(https://media.gucci.com/style/White_South_0_160_316x316/1613583906/663937_I1600_1108_002_100_0000_Light.jpg);
+        background-color: #ffffff;
+    }
+}
+
+.picLimited-Dive-40mm {
+    background-image: url(https://media.gucci.com/style/DarkGray_Center_0_0_800x800/1627490710/686947_ICXA0_8183_001_100_0000_Light-Limited-Edition-Gucci-Dive-40mm.jpg);
+    background-size: 80%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #e6e6e6;
+
+    &:hover {
+        background-image: url(https://media.gucci.com/style/White_South_0_160_316x316/1627490710/686947_ICXA0_8183_002_100_0000_Light.jpg);
+        background-color: #ffffff;
+    }
+}
+
+.picDive-45mm {
+    background-image: url(https://media.gucci.com/style/DarkGray_Center_0_0_800x800/1630075503/663941_I1600_8512_001_100_0000_Light-Gucci-Dive-watch-45mm.jpg);
+    background-size: 80%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #e6e6e6;
+
+    &:hover {
+        background-image: url(https://media.gucci.com/style/White_South_0_160_316x316/1567584906/596512_I1600_8504_002_100_0000_Light.jpg);
+        background-color: #ffffff;
+    }
+}
+
+
+.bigpic {
+    margin-top: 5px;
+    width: 100%;
+    height: 400px;
+    background-image: url(https://media.gucci.com/content/HomepageVideoBackgroundStandard_1300x758/1636100137/HomepageVideoBackgroundStandard_Love-Parade-showspace-02_001_Default.jpg);
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+// WILL=========================================:
+
+.footer {
+    color: white;
+    background-color: #1b1b1b;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    padding-top: 8%;
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-left: 15%;
+    padding-right: 15%;
+}
+
+.footer__section {
+    list-style: none;
+    padding-top: 5px;
+    line-height: 2;
+    word-spacing: 2px;
+
+    h4 {
+        font-weight: lighter;
+        color: rgb(196, 196, 196);
+    }
+
+}
+
+.footerSide {
+
+    h4 {
+        font-weight: lighter;
+        color: rgb(196, 196, 196);
+    }
+
+    p {
+        font-size: 10px;
+        color: rgb(196, 196, 196);
+        line-height: 2;
+        word-spacing: 2px;
+    }
+
+    input {
+
+        &[type="text"],
+        textarea {
+            color: white;
+            background-color: #000000;
+            border: none;
+            width: 60%;
+
+
+        }
+
+        &[type="email"],
+        textarea {
+            color: white;
+            background-color: #000000;
+            border: none;
+            width: 60%;
+        }
+    }
+
+    button[type="submit"],
+    button {
+        color: white;
+        background-color: #000000;
+        width: 15px;
+        border: none;
+    }
+}
+
+
+
+
+
+// sort pop up============
+
+.popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+/* The actual popup */
+
+.popuptext {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.popup .popuptext {
+    visibility: hidden;
+    width: 8em;
+    height: 6em;
+    background-color: #ffffff;
+    color: rgb(156, 156, 156);
+    border: 1px solid lightgray;
+    text-align: center;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    top: 38px;
+    left: 2.8em;
+    margin-left: -80px;
+}
+
+// Popup arrow:
+.popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: rgb(182, 182, 182) transparent transparent transparent;
+}
+
+// Popup hide and show:
+.popup .show {
+    visibility: visible;
+    animation: fadeIn 0.2s;
+}
+
+// Popup animation:
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+// END sort pop up============
+
+.rootItemsStoreCart {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+
+}
+
+.sortPopUpBag {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    border: 4px solid maroon;
+    align-items: center;
+    width: 90%;
+    margin: auto;
+    border-radius: 4px;
+
+
+    .imgCart {
+        width: 3em;
+        object-fit: contain;
+    }
+
+}
+
+// sort pop up BAG============
+
+.popupBag {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+
+    .basket {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+
+}
+
+/* The actual popupBag */
+
+.popupBagtext {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    h2 {
+        font-weight: lighter;
+        background-color: maroon;
+        color: #ffffff;
+        padding: 2%;
+    }
+
+    .payNow {
+        background-color: #000000;
+        width: 80%;
+        margin: auto;
+        margin-top: 4%;
+        color: #ffffff;
+    }
+
+}
+
+.popupBag .popupBagtext {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    visibility: hidden;
+    width: 20em;
+    // height: 6em;
+    background-color: #ffffff;
+    color: rgb(156, 156, 156);
+    border: 1px solid lightgray;
+    text-align: center;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    top: 40px;
+    left: -1.5em;
+    margin-left: -80px;
+
+
+
+}
+
+// PopupBag arrow:
+.popupBag .popupBagtext::after {
+    content: "";
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    transform: rotate(180deg);
+    border-color: rgb(255, 255, 255) transparent transparent transparent;
+}
+
+// PopupBag hide and show:
+.popupBag .show {
+    visibility: visible;
+    animation: fadeIn 0.2s;
+}
+
+// PopupBag animation:
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+// END sort pop up============
