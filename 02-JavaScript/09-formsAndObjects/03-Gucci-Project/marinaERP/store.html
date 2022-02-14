@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -36,15 +37,21 @@
         </div>
 
         <div class="header__navBar">
-                <ul >
-                    <li><a href="./store.html">HOME</a></li>
-                    <li onclick="handleSelectByGenre(event)" class="genreNav scienceF"  id="scienceF" data-genreFilter="scienceF"  value="scienceF">SCIENCE FICTION</li>
-                    <li  onclick="handleSelectByGenre(event)" class="genreNav detective" id="detective" data-genreFilter="detective"  value="detective">DETECTIVE</li>
-                    <li  onclick="handleSelectByGenre(event)" class="genreNav adventures" id="adventures" class="genreNav"  data-genreFilter="adventures"  value="adventures">ADVENTURE</li>
-                    <li  onclick="handleSelectByGenre(event)" class="genreNav prose" id="prose" class="genreNav"  data-genreFilter="prose"  value="prose">PROSE</li>
-                    <li onclick="handleSelectByGenre(event)"  class="genreNav children" id="children" data-genreFilter="children" value="children">CHILDREN</li>
-                    <li  onclick="handleSelectByGenre(event)" class="genreNav all" id="all" data-genreFilter="all" value="all">ALL BOOKS</li>
-                </ul>
+            <ul>
+                <li><a href="./store.html">HOME</a></li>
+                <li onclick="handleSelectByGenre(event)" class="genreNav scienceF" id="scienceF"
+                    data-genreFilter="scienceF" value="scienceF">SCIENCE FICTION</li>
+                <li onclick="handleSelectByGenre(event)" class="genreNav detective" id="detective"
+                    data-genreFilter="detective" value="detective">DETECTIVE</li>
+                <li onclick="handleSelectByGenre(event)" class="genreNav adventures" id="adventures" class="genreNav"
+                    data-genreFilter="adventures" value="adventures">ADVENTURE</li>
+                <li onclick="handleSelectByGenre(event)" class="genreNav prose" id="prose" class="genreNav"
+                    data-genreFilter="prose" value="prose">PROSE</li>
+                <li onclick="handleSelectByGenre(event)" class="genreNav children" id="children"
+                    data-genreFilter="children" value="children">CHILDREN</li>
+                <li onclick="handleSelectByGenre(event)" class="genreNav all" id="all" data-genreFilter="all"
+                    value="all">ALL BOOKS</li>
+            </ul>
             <a href="./card.html" <span class="material-icons">shopping_cart</span></a>
             <a href="./erp.html" <span class="material-icons">view_headline</span></a>
         </div>
@@ -62,6 +69,7 @@
             placeholder="Looking for title">
         <input class="filterByAuthor button " type='text' onkeyup="handleFilterByAuthor(event)"
             placeholder="Looking for author">
+        <input class="search" type="search" placeholder="Search book" onkeyup="handleSearchBook(event)">
         <!-- <input class="filterByGenre button " type='text' onkeyup="handleFilterByGenre(event)"
             placeholder="Looking for genre"> -->
 
@@ -92,6 +100,7 @@
 
 
     <div id="root"></div>
+    <div id="rootCard"></div>
 
     <div class="buttons--scrollToTopBtn" style="display: flex; justify-content: center;">
         <button class="button" id="scrollToTopBtn" style="display: inline-; justify-content: center;">Back to

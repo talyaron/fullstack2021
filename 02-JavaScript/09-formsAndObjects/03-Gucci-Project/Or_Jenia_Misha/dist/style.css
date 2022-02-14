@@ -51,6 +51,7 @@ html {
 
 * {
   transition: all 0.7s;
+  box-sizing: border-box;
 }
 
 #bodystore {
@@ -596,6 +597,46 @@ html {
     height: 50%;
   }
 }
+.cart {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  top: 4%;
+  right: 1%;
+  z-index: 10;
+  height: 420px;
+  width: 300px;
+}
+.cart-active {
+  top: 13%;
+}
+.cart-active__close {
+  opacity: 1;
+  color: white;
+}
+.cart__box {
+  padding: 1em;
+  display: flex;
+  justify-content: center;
+  background-color: #EBEBEB;
+  border-radius: 10%;
+  width: 50px;
+  height: 50px;
+}
+.cart__box-active {
+  position: absolute;
+  width: 300px;
+  height: 400px;
+}
+.cart__box img {
+  width: 40px;
+  height: 30px;
+  cursor: pointer;
+}
+.cart__close {
+  opacity: 0;
+}
+
 .dishesERP {
   border: 1px solid black;
   width: 50%;

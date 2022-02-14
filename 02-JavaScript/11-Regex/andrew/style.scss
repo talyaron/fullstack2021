@@ -1,0 +1,24 @@
+input{
+    margin-inline: 200px;
+    margin-block: 50px;
+    font-size: 3rem;
+    height: 3rem;
+}
+
+#list{
+    display: flex;
+    // flex-direction: column;
+    align-items: center;
+    #card{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        background-color: #aaa;
+        border-radius: 10px;
+        border: 2px solid black;
+        width: 200px;
+        height: 500px;
+        margin: 20px;
+    }
+}

@@ -694,3 +694,22 @@ function popNavBarActive() {
 }
 popNavBarActive();
 
+function popCartActive() {
+ 
+  const cartBox = document.querySelector(".cart__box");
+  const cartImg = document.querySelector(".cart__img");
+  const cartClose = document.querySelector(".cart__close");
+  const cart = document.querySelector(".cart");
+
+  cartImg.addEventListener("click", function () {
+      cartBox.classList.add("cart__box-active");
+      cart.classList.add("cart-active");
+  });
+
+  cartClose.addEventListener("click", function () {
+      cartBox.classList.remove("cart__box-active");
+  });
+
+}
+
+popCartActive();

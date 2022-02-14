@@ -6,15 +6,12 @@ interface Store {
   books: Array<Book>;
   storeData();
   getData();
+  storeCardData();
+  getCardData();
   addBook(
     title: string,
     author: string,
-    genre:
-      | "scienceF"
-      | "detective"
-      | "prose"
-      | "adventures"
-      | "children",
+    genre: "scienceF" | "detective" | "prose" | "adventures" | "children",
     year: number,
     rank: number,
     price: number,
@@ -23,7 +20,6 @@ interface Store {
     id: string
   );
   deleteBook(title: string);
-  // updateBook(genre: string, img: any, title: string, price: number, id: string);
   updateBook(genre: string, title: string, price: number, id: string);
   deleteByID(id: string);
   addToCard(id: string);
@@ -47,7 +43,6 @@ interface Store {
   renderFilterByGenre(filteredByGenre: Array<Book>, domElement);
   renderFilterByAuthor(filteredByAuthor: Array<Book>, domElement);
   renderFilterByTitle(filteredByTitle: Array<Book>, domElement);
-  
 }
 
 interface Book {
@@ -62,7 +57,7 @@ interface Book {
   id?: string;
 }
 
-const StandartEbooks= {
+const StandartEbooks = {
   books: [
     {
       title: "The Three-Body Problem",
@@ -72,7 +67,7 @@ const StandartEbooks= {
       rank: 4.07,
       price: 15,
       img: "https://images-na.ssl-images-amazon.com/images/I/919XM42JQlL.jpg",
-      id: uid()
+      id: uid(),
     },
     {
       title: "One by One",
@@ -82,7 +77,7 @@ const StandartEbooks= {
       rank: 9.83,
       price: 28,
       img: "https://litlife.club/data/Book/0/217000/217759/BC3_1410688094.jpg?w=600&h=600&q=90",
-      id: uid()
+      id: uid(),
     },
     {
       title: "Fight Club",
@@ -92,7 +87,7 @@ const StandartEbooks= {
       rank: 9.63,
       price: 17,
       img: "https://litlife.club/data/Book/0/87000/87828/BC3_1474544490.jpg?w=600&h=600&q=90",
-      id: uid()
+      id: uid(),
     },
     {
       title: "Ramage",
@@ -102,7 +97,7 @@ const StandartEbooks= {
       rank: 10.0,
       price: 34,
       img: "https://litlife.club/data/Book/0/119000/119128/BCS_1349028836.jpg?w=600&h=600&q=90",
-      id: uid()
+      id: uid(),
     },
     {
       title: "Grimms` Fairy Tales",
@@ -112,7 +107,7 @@ const StandartEbooks= {
       rank: 9.5,
       price: 32,
       img: "https://litlife.club/data/Book/0/0/707/BC3_1386593820.jpg?w=600&h=600&q=90",
-      id: uid()
+      id: uid(),
     },
     {
       title: "The Caller",
@@ -122,7 +117,7 @@ const StandartEbooks= {
       rank: 9.59,
       price: 44,
       img: "https://images-na.ssl-images-amazon.com/images/I/81-7W7KGYQL.jpg",
-      id: uid()
+      id: uid(),
     },
 
     {
@@ -133,7 +128,7 @@ const StandartEbooks= {
       rank: 7.8,
       price: 21,
       img: "https://litlife.club/data/Book/0/91000/91909/BCS_1349020826.jpg?w=600&h=600&q=90",
-      id: uid()
+      id: uid(),
     },
     {
       title: "Deception Point",
@@ -143,7 +138,7 @@ const StandartEbooks= {
       rank: 9.99,
       price: 39,
       img: "https://litlife.club/data/Book/0/125000/125823/BCS_1349021980.jpg?w=600&h=600&q=90",
-      id: uid()
+      id: uid(),
     },
     {
       title: "The Secret History",
@@ -153,7 +148,7 @@ const StandartEbooks= {
       rank: 9.89,
       price: 41,
       img: "https://litlife.club/data/Book/0/94000/94365/BC3_1474425076.jpg?w=600&h=600&q=90",
-      id: uid()
+      id: uid(),
     },
     {
       title: "Hornblower and the Crisis",
@@ -163,7 +158,7 @@ const StandartEbooks= {
       rank: 0.23,
       price: 10,
       img: "https://litlife.club/data/Book/0/126000/126284/BCS_1349022091.jpg?w=600&h=600&q=90",
-      id: uid()
+      id: uid(),
     },
     {
       title: "The Adventures of Huckleberry Finn",
@@ -173,8 +168,8 @@ const StandartEbooks= {
       rank: 10.0,
       price: 43,
       img: "https://litlife.club/data/Book/0/0/755/BC3_1386593870.jpg?w=600&h=600&q=90",
-      id: uid()
-    } 
+      id: uid(),
+    },
   ],
 
   storeData() {
@@ -185,6 +180,17 @@ const StandartEbooks= {
     const booksStorage = JSON.parse(localStorage.getItem("storeData"));
     if (booksStorage) {
       this.books = booksStorage;
+    }
+  },
+
+  storeCardData() {
+    localStorage.setItem("storeCardData", JSON.stringify(this.books));
+  },
+
+  getCardData() {
+    const booksCardStorage = JSON.parse(localStorage.getItem("storeCardData"));
+    if (booksCardStorage) {
+      this.books = booksCardStorage;
     }
   },
 
@@ -217,7 +223,6 @@ const StandartEbooks= {
     localStorage.setItem("storeData", JSON.stringify(this.books));
   },
 
-  
   updateBook(id, genre, title, price) {
     const index = this.books.findIndex((book) => book.id === id);
     if (index >= 0) {
@@ -227,17 +232,6 @@ const StandartEbooks= {
     }
     this.storeData();
   },
-
-  // updateBook(id, img, genre, title, price) {
-  //   const index = this.books.findIndex((book) => book.id === id);
-  //   if (index >= 0) {
-  //     this.books[index].img = img;
-  //     this.books[index].genre = genre;
-  //     this.books[index].title = title;
-  //     this.books[index].price = price;
-  //   }
-  //   this.storeData();
-  // },
 
   addToCard(id) {
     const index = this.books.findIndex((book) => book.id === id);
@@ -251,10 +245,9 @@ const StandartEbooks= {
     this.books = this.books.sort((a, b) => {
       let authorA = a.author.toLowerCase(),
         authorB = b.author.toLowerCase();
-      if (authorA < authorB)
-        return -1;
+      if (authorA < authorB) return -1;
       if (authorA > authorB) return 1;
-      return 0; 
+      return 0;
     });
     this.books.forEach((book) => {
       console.log(book.author);
@@ -265,10 +258,9 @@ const StandartEbooks= {
     this.books = this.books.sort((a, b) => {
       let authorA = a.author.toLowerCase(),
         authorB = b.author.toLowerCase();
-      if (authorA < authorB)
-        return 1;
+      if (authorA < authorB) return 1;
       if (authorA > authorB) return -1;
-      return 0; 
+      return 0;
     });
     console.log("------");
     this.books.forEach((book) => {
@@ -356,14 +348,8 @@ const StandartEbooks= {
                       <i class="far fa-star  " data-number="5" id="${book.id}" onclick = "handleStarClick(event)"></i>
                    </div>                   
                   <p> ${book.rank}</p>
-                  <input  class = "container__card__addToCardBtn" onclick="handleAddToCard()" id ="addToCard" type ="button" value = "Add to cart">              
-               </div>`,
-        `<div class="annotation">${book.annotation}</div>`
-      //  <form class="inputs__form" onsubmit="handleUpdateBook(event, ${book.id})">
-      //  <input class="container__inputs__form__one__inp" type="text" name="update" id="update"
-      //      placeholder="Enter new title">
-      //  <input class="container__inputs__form__one__inp" type="submit" id="updateBtn" value="update">
-      // </form>`
+                  <input  class = "card__addToCardBtn" onclick="handleAddToCard()" id ="addToCard" type ="button" value = "Add to cart">              
+               </div>`;
     });
 
     domElement.innerHTML = htmlStore;
@@ -392,7 +378,7 @@ const StandartEbooks= {
                          <div class="content__erpBtn__delete" style= "margin-bottom: 1em;" >
                                <button class="containerERP__inputs__form__one__inp"  onclick="handleDeleteByID('${book.id}')"><span style ="color: grey;">Delete book</span></button>
                          </div> 
-                         <input class="containerERP__inputs__form__one__inp"  type="file" id="file" name="file" accept="image/png, image/jpeg, image/jpg"  style= "margin-bottom: 1em;"  >
+                       
                          <div class="content__erpBtn__update">
                              <form id="formAdd" onsubmit="handleUpdateBook(event, '${book.id}')">
                                   <select class="containerERP__inputs__form__one__inp" name="genre" id="">
@@ -428,10 +414,10 @@ const StandartEbooks= {
                                   <i class="far fa-star  " data-number="2" id="${book.id}" onclick = "handleStarClick(event)"></i>
                                   <i class="far fa-star " data-number="3" id="${book.id}" onclick = "handleStarClick(event)"></i>
                                   <i class="far fa-star " data-number="4" id="${book.id}" onclick = "handleStarClick(event)"></i>
-                                  <i class="far fa-star  " data-number="5" id="${book.id}" onclick = "handleStarClick(event)"></i>
+                                  <i class="far fa-star  " data-number="5" id="${book.iidd}" onclick = "handleStarClick(event)"></i>
                              </div>                   
                           <strong> ${book.rank}</strong>
-                          <input  class = "container__card__addToCardBtn" onclick = "handleAddToCard(event)" id ="addToCard" type ="button" value = "Add to cart">
+                          <input  class = "card__addToCardBtn" onclick = "handleAddToCard(event)" id ="addToCard" type ="button" value = "Add to cart">
                    </div>`;
     });
 
@@ -448,12 +434,13 @@ const StandartEbooks= {
 
 StandartEbooks.getData();
 StandartEbooks.storeData();
+StandartEbooks.storeCardData();
+StandartEbooks.getCardData();
 
 const allstars: any = document.querySelectorAll(".fa-star");
-const rating: any = document.querySelector('.rating')
+const rating: any = document.querySelector(".rating");
 
 function handleStarClick(e) {
-  
   console.log(e.target);
 
   allstars.forEach((star) => {
@@ -474,34 +461,7 @@ function handleStarClick(e) {
     console.log(star);
     console.log(e.target);
   });
-
 }
-
-// function handleStarClick(e) {
-
-//   console.log(e.target);
-
-//   allstars.forEach((star) => {
-//     if (
-//       e.target.id == star.id &&
-//       e.target.dataset.number >= star.dataset.number
-//     ) {
-//       console.log(star.dataset.number);
-//       star.classList.add("fas");
-//     } else if (
-//       e.target.id == star.id &&
-//       e.target.dataset.number < star.dataset.number
-//     ) {
-//       star.classList.remove("fas");
-//     } else {
-//       return 0;
-//     }
-//     console.log(star);
-//     console.log(e.target);
-//   });
-
-// }
-
 
 function renderOwener() {
   StandartEbooks.getData();
@@ -516,7 +476,8 @@ function renderCustomer() {
 }
 
 function renderAddToCard() {
-  StandartEbooks.getData();
+  StandartEbooks.storeCardData();
+  StandartEbooks.getCardData();
   const rootCard = document.querySelector(".rootCard");
   StandartEbooks.renderAddToCard(StandartEbooks.books, rootCard);
 }
@@ -542,9 +503,9 @@ function handleAddBook(e) {
     rank,
     price,
     img,
-    annotation,
+    annotation
   );
-  StandartEbooks.render(rootERP, StandartEbooks.books);
+  StandartEbooks.render(StandartEbooks.books, rootERP);
   StandartEbooks.storeData();
   e.target.reset();
 }
@@ -560,7 +521,7 @@ function handleDeleteBook(e) {
       console.log(title);
 
       StandartEbooks.deleteBook(title);
-      StandartEbooks.renderERP(rootERP, StandartEbooks.books);
+      StandartEbooks.renderERP(StandartEbooks.books, rootERP);
       StandartEbooks.storeData();
     } else {
       throw new Error("User didnt write a title");
@@ -572,7 +533,6 @@ function handleDeleteBook(e) {
 
 function handleDeleteByID(id) {
   console.log(id);
- 
   const rootERP = document.getElementById("rootERP");
   StandartEbooks.deleteByID(id);
   StandartEbooks.renderERP(StandartEbooks.books, rootERP);
@@ -581,13 +541,10 @@ function handleDeleteByID(id) {
 function handleUpdateBook(e, id) {
   e.preventDefault();
   console.log(id);
-  // console.log(e.target.elements.img);
-  // const img = e.target.elements.img.value;
   const genre = e.target.genre.value;
   const title = e.target.elements.title.value;
   const price = e.target.elements.price.valueAsNumber;
   const rootERP = document.querySelector("#rootERP");
-  // StandartEbooks.updateBook(id, genre, img, title, price);
   StandartEbooks.updateBook(id, genre, title, price);
   StandartEbooks.renderERP(StandartEbooks.books, rootERP);
   StandartEbooks.storeData();
@@ -595,10 +552,18 @@ function handleUpdateBook(e, id) {
 }
 
 function handleAddToCard(id) {
-  console.log(id);
-  const rootCard = document.getElementById('rootCard');
-  StandartEbooks.addToCard(id); 
-  StandartEbooks.renderAddToCard(StandartEbooks.books, rootCard)
+  try {
+    console.log(id);
+    const rootCard = document.getElementById("rootCard");
+
+    if (!rootCard) throw new Error('no "rootCard" in DOM');
+    if (!id) throw new Error("no Id in handleAddToCard");
+
+    StandartEbooks.addToCard(id);
+    StandartEbooks.renderAddToCard(StandartEbooks.books, rootCard);
+  } catch (err) {
+    console.error(err);
+  }
 }
 
 function handleAuthorAscen() {
@@ -681,10 +646,9 @@ function handleFilterByGenre(e) {
   }
 }
 
-
 function handleSelectByGenre(e) {
   e.preventDefault();
-  
+
   console.log(e.target);
   console.log(e);
   // debugger;
@@ -694,18 +658,16 @@ function handleSelectByGenre(e) {
     StandartEbooks.render(StandartEbooks.books, root);
   } else {
     console.log(genre);
-    
+
     const filterByGenre = StandartEbooks.filterByGenre(genre);
     const a = StandartEbooks.books.filter((item) => {
-      return item.genre === genre
-    })
-    
-    console.log('ghgjg..........',filterByGenre, genre, a);
+      return item.genre === genre;
+    });
+
+    console.log("ghgjg..........", filterByGenre, genre, a);
     StandartEbooks.renderFilterByGenre(filterByGenre, root);
   }
-  
 }
-
 
 function handleFilterByAuthor(e) {
   e.preventDefault();
@@ -731,25 +693,42 @@ function handleFilterByTitle(e) {
   }
 }
 
+function handleSearchBook(e) {
+  e.preventDefault();
+  const title = e.target.value;
+  const search = e.target.value;
+  const regex = new RegExp(search, "i");
+  const root = document.querySelector("#root");
+  root.innerHTML = "";
+
+  if (search.length > 0) {
+    const foundBook = StandartEbooks.books.filter((book) => {
+      if (regex.test(book.title)) return true;
+      const filterByTitle = StandartEbooks.filterByTitle(title);
+      StandartEbooks.renderFilterByTitle(filterByTitle, root);
+    });
+    const html = foundBook
+      .map((book) => {
+        return `<p>${book.title}</p>`;
+      })
+      .join("");
+
+    root.innerHTML = html;
+    console.log(foundBook);
+
+  } else {
+    StandartEbooks.render(StandartEbooks.books, root)
+  }
+}
+
 const root = document.querySelector("#root");
 const rootERP = document.querySelector("#rootERP");
-// StandartEbooks.renderERP(root, rootERP);
+const rootCard = document.querySelector("#rootCard");
 
 StandartEbooks.getData();
 StandartEbooks.storeData();
-
-
-
-
-
-
-
-
-
-
-
-
-
+StandartEbooks.storeCardData();
+StandartEbooks.getCardData();
 
 // const scrollToTopBtn = document.querySelector("#scrollToTopBtn");
 // const rootElement = document.documentElement;
@@ -764,8 +743,7 @@ StandartEbooks.storeData();
 //     // Hide button
 //     scrollToTopBtn.classList.remove("showBtn");
 //   }
-  
-  
+
 // }
 
 // function scrollToTop() {
@@ -777,10 +755,3 @@ StandartEbooks.storeData();
 // }
 // scrollToTopBtn.addEventListener("click", scrollToTop);
 // document.addEventListener("scroll", handleScroll);
-
-
-
-
-
-
-
