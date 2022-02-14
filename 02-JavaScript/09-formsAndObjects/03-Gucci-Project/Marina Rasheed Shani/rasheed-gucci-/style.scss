@@ -166,6 +166,11 @@ body {
         margin-bottom: 10em;
 
       }
+      // &--mainPageImg{
+      //   width:130vh;          
+
+      // }
+
     }
 
    
@@ -184,6 +189,7 @@ body {
   }
 
   &__stories {
+    margin-top:20px;
     justify-content: center;
     gap: 2em;
     display: flex;
@@ -437,17 +443,14 @@ $background-color:#ffffff;
 
 
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 770px) {
   body {
-
 
     background-color: red;
     //used so i know when im on the width i need.
 
-    .catergory__items {
-      
-      height: 90em;
-      
+    .catergory__items {      
+      height: 120em;      
 
       .items {
 
@@ -471,7 +474,6 @@ $background-color:#ffffff;
     }
   }
 
-
   .sub-container {    
     height: 70vh;
     margin: 0;   
@@ -490,37 +492,48 @@ $background-color:#ffffff;
         }
         &--Title{
           font-size: 3em;
+        }
+
+        &--mainPageImg{
+          width:60vh;          
 
         }
       }
 
+     
+    }
+    &__stories{
+    gap:0px;
+      &__left{
+        img{
+          width:210px;
+        }
+        .stories__left__bag{
+          margin-bottom: 5.2em;
+    
+        }
+      }   
 
-      
-      .mainpageImg{
-        width: 100%; 
-        margin-bottom: 10em;
+     .stories__middle{
+      margin-right: 0em;     
+
+    
+     }
+     &__right{
+      img{
+        width:210px;
+      }
+      .stories__right__gucci{
+        margin-bottom: 4em;
 
       }
-
-      button {
-        background-color: black;
-        color: blanchedalmond;
-        padding: 0.5em 2em;
-        margin-bottom: 1.5em;
-      }
+     
     }
 
-    // &__stories {
-    //   justify-content: center;
-    //   gap: 2em;
-    //   display: flex;
-    //   color: rgb(5, 5, 5);
-    //   text-align: center;
-    //   font-weight: 300;
-    //   font-size: larger;
-
-    // }
-    
-    
   }
+  }
+
+  
 }
+
+
