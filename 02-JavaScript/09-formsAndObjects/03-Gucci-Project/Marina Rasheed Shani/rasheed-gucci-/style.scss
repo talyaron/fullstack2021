@@ -166,10 +166,10 @@ body {
         margin-bottom: 10em;
 
       }
-      // &--mainPageImg{
-      //   width:130vh;          
+      &--mainPageImg{
+        width:100vh;          
 
-      // }
+      }
 
     }
 
@@ -484,6 +484,10 @@ $background-color:#ffffff;
   .container {
     &__main {
 
+      img{
+        width:50%;
+      }
+
       .gucci{
         color:black;
         &--Aria{
@@ -506,7 +510,7 @@ $background-color:#ffffff;
     gap:0px;
       &__left{
         img{
-          width:210px;
+          width:160px;
         }
         .stories__left__bag{
           margin-bottom: 5.2em;
@@ -521,7 +525,7 @@ $background-color:#ffffff;
      }
      &__right{
       img{
-        width:210px;
+        width:160px;
       }
       .stories__right__gucci{
         margin-bottom: 4em;

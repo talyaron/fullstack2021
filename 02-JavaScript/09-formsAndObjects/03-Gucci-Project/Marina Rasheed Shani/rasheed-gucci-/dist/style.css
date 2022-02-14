@@ -93,6 +93,9 @@ body {
   width: 100%;
   margin-bottom: 10em;
 }
+.container__main .gucci--mainPageImg {
+  width: 100vh;
+}
 .container__main img {
   background-size: cover;
   background-repeat: no-repeat;
@@ -286,6 +289,9 @@ body {
     margin: 0;
   }
 
+  .container__main img {
+    width: 50%;
+  }
   .container__main .gucci {
     color: black;
   }
@@ -302,7 +308,7 @@ body {
     gap: 0px;
   }
   .container__stories__left img {
-    width: 210px;
+    width: 160px;
   }
   .container__stories__left .stories__left__bag {
     margin-bottom: 5.2em;
@@ -311,7 +317,7 @@ body {
     margin-right: 0em;
   }
   .container__stories__right img {
-    width: 210px;
+    width: 160px;
   }
   .container__stories__right .stories__right__gucci {
     margin-bottom: 4em;
