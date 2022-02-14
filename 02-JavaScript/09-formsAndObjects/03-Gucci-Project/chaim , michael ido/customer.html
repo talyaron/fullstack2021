@@ -19,7 +19,14 @@
     <div class="container">
         <div class="container_header">
             <a href="customer.html" class="container_header-logo"></a> 
-             <div class="container_header-search"><input type="search" placeholder="Search for a product"></div>
+             <div class="container_header-search">
+                 <datalist class="container_header-search-dataList">
+                <!-- <option class="container_header-search-dataList-options" disabled>Choose Catagory</option>
+                <option class="container_header-search-dataList-options" value="Tshirts">Tshirts</option>
+                <option class="container_header-search-dataList-options" value="shoes">Shoes</option>
+                <option class="container_header-search-dataList-options" value="pants">Pants</option> -->
+             </datalist>
+            </div>
              <div class="container_header_menu">
                 <button id="notificationsBtn" class="container_header_menu-btn" onclick="showDropDown(event)">
                     <i id="notificationsBtn" class="fas fa-bell fa-2x" onclick="showDropDown(event)"></i><p id="notificationsBtn" class="btnDiscription">Notifications</p></button>
