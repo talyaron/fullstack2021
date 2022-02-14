@@ -285,8 +285,8 @@ StandartEbooks.storeData();
 var allstars = document.querySelectorAll(".fa-star");
 var rating = document.querySelector('.rating');
 function handleStarClick(e) {
-    StandartEbooks.getData();
-    StandartEbooks.storeData();
+    // StandartEbooks.getData();
+    // StandartEbooks.storeData();
     console.log(e.target);
     allstars.forEach(function (star) {
         if (e.target.id == star.id &&

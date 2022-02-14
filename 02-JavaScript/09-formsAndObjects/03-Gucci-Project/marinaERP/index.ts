@@ -446,8 +446,8 @@ const allstars: any = document.querySelectorAll(".fa-star");
 const rating: any = document.querySelector('.rating')
 
 function handleStarClick(e) {
-  StandartEbooks.getData();
-  StandartEbooks.storeData();
+  // StandartEbooks.getData();
+  // StandartEbooks.storeData();
   console.log(e.target);
 
   allstars.forEach((star) => {
