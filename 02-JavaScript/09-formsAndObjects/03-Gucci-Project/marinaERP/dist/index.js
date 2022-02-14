@@ -123,6 +123,15 @@ var StandartEbooks = {
             this.books = booksStorage;
         }
     },
+    storeCardData: function () {
+        localStorage.setItem("storeCardData", JSON.stringify(this.books));
+    },
+    getCardData: function () {
+        var booksCardStorage = JSON.parse(localStorage.getItem("storeCardData"));
+        if (booksCardStorage) {
+            this.books = booksCardStorage;
+        }
+    },
     addBook: function (title, author, genre, year, rank, price, img, annotation) {
         var id = uid();
         this.books.push({
@@ -288,6 +297,8 @@ var StandartEbooks = {
 };
 StandartEbooks.getData();
 StandartEbooks.storeData();
+StandartEbooks.storeCardData();
+StandartEbooks.getCardData();
 var allstars = document.querySelectorAll(".fa-star");
 var rating = document.querySelector(".rating");
 function handleStarClick(e) {
@@ -341,7 +352,8 @@ function renderCustomer() {
     StandartEbooks.render(StandartEbooks.books, root);
 }
 function renderAddToCard() {
-    StandartEbooks.getData();
+    StandartEbooks.storeCardData();
+    StandartEbooks.getCardData();
     var rootCard = document.querySelector(".rootCard");
     StandartEbooks.renderAddToCard(StandartEbooks.books, rootCard);
 }
@@ -359,7 +371,7 @@ function handleAddBook(e) {
     var annotation = e.target.annotation.value;
     var rootERP = document.querySelector("#rootERP");
     StandartEbooks.addBook(title, author, genre, year, rank, price, img, annotation);
-    StandartEbooks.render(rootERP, StandartEbooks.books);
+    StandartEbooks.render(StandartEbooks.books, rootERP);
     StandartEbooks.storeData();
     e.target.reset();
 }
@@ -373,7 +385,7 @@ function handleDeleteBook(e) {
         if (title) {
             console.log(title);
             StandartEbooks.deleteBook(title);
-            StandartEbooks.renderERP(rootERP_1, StandartEbooks.books);
+            StandartEbooks.renderERP(StandartEbooks.books, rootERP_1);
             StandartEbooks.storeData();
         }
         else {
@@ -408,12 +420,12 @@ function handleUpdateBook(e, id) {
 function handleAddToCard(id) {
     try {
         console.log(id);
-        var rootCard = document.getElementById("rootCard");
-        if (!rootCard)
+        var rootCard_1 = document.getElementById("rootCard");
+        if (!rootCard_1)
             throw new Error('"rootCard" was not found on the DOM');
-        console.log(rootCard);
+        console.log(rootCard_1);
         StandartEbooks.addToCard(id);
-        StandartEbooks.renderAddToCard(StandartEbooks.books, rootCard);
+        StandartEbooks.renderAddToCard(StandartEbooks.books, rootCard_1);
     }
     catch (err) {
         console.error(err);
@@ -541,9 +553,11 @@ function handleFilterByTitle(e) {
 }
 var root = document.querySelector("#root");
 var rootERP = document.querySelector("#rootERP");
-// StandartEbooks.renderERP(root, rootERP);
+var rootCard = document.querySelector("#rootCard");
 StandartEbooks.getData();
 StandartEbooks.storeData();
+StandartEbooks.storeCardData();
+StandartEbooks.getCardData();
 // const scrollToTopBtn = document.querySelector("#scrollToTopBtn");
 // const rootElement = document.documentElement;
 // function handleScroll() {
