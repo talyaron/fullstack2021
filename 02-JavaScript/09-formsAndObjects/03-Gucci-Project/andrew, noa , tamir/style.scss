@@ -150,6 +150,10 @@ body {
 
     &__item {
         margin-inline: 15px;
+        &:hover {
+            cursor: pointer;
+            color: var(--main-color-purple1)
+        }
     }
 }
 
