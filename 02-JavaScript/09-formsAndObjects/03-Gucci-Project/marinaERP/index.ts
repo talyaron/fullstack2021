@@ -20,7 +20,6 @@ interface Store {
     id: string
   );
   deleteBook(title: string);
-  // updateBook(genre: string, img: any, title: string, price: number, id: string);
   updateBook(genre: string, title: string, price: number, id: string);
   deleteByID(id: string);
   addToCard(id: string);
@@ -234,17 +233,6 @@ const StandartEbooks = {
     this.storeData();
   },
 
-  // updateBook(id, img, genre, title, price) {
-  //   const index = this.books.findIndex((book) => book.id === id);
-  //   if (index >= 0) {
-  //     this.books[index].img = img;
-  //     this.books[index].genre = genre;
-  //     this.books[index].title = title;
-  //     this.books[index].price = price;
-  //   }
-  //   this.storeData();
-  // },
-
   addToCard(id) {
     const index = this.books.findIndex((book) => book.id === id);
     if (index >= 0) {
@@ -347,7 +335,7 @@ const StandartEbooks = {
   render(list, domElement) {
     let htmlStore = "";
     list.forEach((book: any) => {
-      (htmlStore += `<div class="card">
+      htmlStore += `<div class="card">
                   <h2>${book.title}</h2>
                   <h3>${book.author}</h3>      
                   <img class="img" src="${book.img}">
@@ -360,14 +348,8 @@ const StandartEbooks = {
                       <i class="far fa-star  " data-number="5" id="${book.id}" onclick = "handleStarClick(event)"></i>
                    </div>                   
                   <p> ${book.rank}</p>
-                  <input  class = "container__card__addToCardBtn" onclick="handleAddToCard()" id ="addToCard" type ="button" value = "Add to cart">              
-               </div>`),
-        `<div class="annotation">${book.annotation}</div>`;
-      //  <form class="inputs__form" onsubmit="handleUpdateBook(event, ${book.id})">
-      //  <input class="container__inputs__form__one__inp" type="text" name="update" id="update"
-      //      placeholder="Enter new title">
-      //  <input class="container__inputs__form__one__inp" type="submit" id="updateBtn" value="update">
-      // </form>`
+                  <input  class = "card__addToCardBtn" onclick="handleAddToCard()" id ="addToCard" type ="button" value = "Add to cart">              
+               </div>`;
     });
 
     domElement.innerHTML = htmlStore;
@@ -396,7 +378,7 @@ const StandartEbooks = {
                          <div class="content__erpBtn__delete" style= "margin-bottom: 1em;" >
                                <button class="containerERP__inputs__form__one__inp"  onclick="handleDeleteByID('${book.id}')"><span style ="color: grey;">Delete book</span></button>
                          </div> 
-                         <input class="containerERP__inputs__form__one__inp"  type="file" id="file" name="file" accept="image/png, image/jpeg, image/jpg"  style= "margin-bottom: 1em;"  >
+                       
                          <div class="content__erpBtn__update">
                              <form id="formAdd" onsubmit="handleUpdateBook(event, '${book.id}')">
                                   <select class="containerERP__inputs__form__one__inp" name="genre" id="">
@@ -432,10 +414,10 @@ const StandartEbooks = {
                                   <i class="far fa-star  " data-number="2" id="${book.id}" onclick = "handleStarClick(event)"></i>
                                   <i class="far fa-star " data-number="3" id="${book.id}" onclick = "handleStarClick(event)"></i>
                                   <i class="far fa-star " data-number="4" id="${book.id}" onclick = "handleStarClick(event)"></i>
-                                  <i class="far fa-star  " data-number="5" id="${book.id}" onclick = "handleStarClick(event)"></i>
+                                  <i class="far fa-star  " data-number="5" id="${book.iidd}" onclick = "handleStarClick(event)"></i>
                              </div>                   
                           <strong> ${book.rank}</strong>
-                          <input  class = "container__card__addToCardBtn" onclick = "handleAddToCard(event)" id ="addToCard" type ="button" value = "Add to cart">
+                          <input  class = "card__addToCardBtn" onclick = "handleAddToCard(event)" id ="addToCard" type ="button" value = "Add to cart">
                    </div>`;
     });
 
@@ -480,31 +462,6 @@ function handleStarClick(e) {
     console.log(e.target);
   });
 }
-
-// function handleStarClick(e) {
-
-//   console.log(e.target);
-
-//   allstars.forEach((star) => {
-//     if (
-//       e.target.id == star.id &&
-//       e.target.dataset.number >= star.dataset.number
-//     ) {
-//       console.log(star.dataset.number);
-//       star.classList.add("fas");
-//     } else if (
-//       e.target.id == star.id &&
-//       e.target.dataset.number < star.dataset.number
-//     ) {
-//       star.classList.remove("fas");
-//     } else {
-//       return 0;
-//     }
-//     console.log(star);
-//     console.log(e.target);
-//   });
-
-// }
 
 function renderOwener() {
   StandartEbooks.getData();
@@ -576,7 +533,6 @@ function handleDeleteBook(e) {
 
 function handleDeleteByID(id) {
   console.log(id);
-
   const rootERP = document.getElementById("rootERP");
   StandartEbooks.deleteByID(id);
   StandartEbooks.renderERP(StandartEbooks.books, rootERP);
@@ -585,13 +541,10 @@ function handleDeleteByID(id) {
 function handleUpdateBook(e, id) {
   e.preventDefault();
   console.log(id);
-  // console.log(e.target.elements.img);
-  // const img = e.target.elements.img.value;
   const genre = e.target.genre.value;
   const title = e.target.elements.title.value;
   const price = e.target.elements.price.valueAsNumber;
   const rootERP = document.querySelector("#rootERP");
-  // StandartEbooks.updateBook(id, genre, img, title, price);
   StandartEbooks.updateBook(id, genre, title, price);
   StandartEbooks.renderERP(StandartEbooks.books, rootERP);
   StandartEbooks.storeData();
@@ -602,9 +555,9 @@ function handleAddToCard(id) {
   try {
     console.log(id);
     const rootCard = document.getElementById("rootCard");
-    
-    if(!rootCard) throw new Error('no "rootCard" in DOM');
-    if(!id) throw new Error('no Id in handleAddToCard');
+
+    if (!rootCard) throw new Error('no "rootCard" in DOM');
+    if (!id) throw new Error("no Id in handleAddToCard");
 
     StandartEbooks.addToCard(id);
     StandartEbooks.renderAddToCard(StandartEbooks.books, rootCard);
@@ -634,14 +587,9 @@ function handleAuthoreDescen() {
 }
 
 function handleYearAscen() {
-  try {
-    StandartEbooks.sortAscenByYear();
-    const root = document.querySelector("#root");
-    StandartEbooks.render(StandartEbooks.books, root);
-  } catch (error) {
-    console.error(error)
-  }
- 
+  StandartEbooks.sortAscenByYear();
+  const root = document.querySelector("#root");
+  StandartEbooks.render(StandartEbooks.books, root);
 }
 
 function handleYearDescen() {
@@ -742,6 +690,34 @@ function handleFilterByTitle(e) {
     StandartEbooks.renderFilterByTitle(filterByTitle, root);
   } else {
     StandartEbooks.render(StandartEbooks.books, root);
+  }
+}
+
+function handleSearchBook(e) {
+  e.preventDefault();
+  const title = e.target.value;
+  const search = e.target.value;
+  const regex = new RegExp(search, "i");
+  const root = document.querySelector("#root");
+  root.innerHTML = "";
+
+  if (search.length > 0) {
+    const foundBook = StandartEbooks.books.filter((book) => {
+      if (regex.test(book.title)) return true;
+      const filterByTitle = StandartEbooks.filterByTitle(title);
+      StandartEbooks.renderFilterByTitle(filterByTitle, root);
+    });
+    const html = foundBook
+      .map((book) => {
+        return `<p>${book.title}</p>`;
+      })
+      .join("");
+
+    root.innerHTML = html;
+    console.log(foundBook);
+
+  } else {
+    StandartEbooks.render(StandartEbooks.books, root)
   }
 }
 

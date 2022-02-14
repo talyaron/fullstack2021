@@ -167,16 +167,6 @@ var StandartEbooks = {
         }
         this.storeData();
     },
-    // updateBook(id, img, genre, title, price) {
-    //   const index = this.books.findIndex((book) => book.id === id);
-    //   if (index >= 0) {
-    //     this.books[index].img = img;
-    //     this.books[index].genre = genre;
-    //     this.books[index].title = title;
-    //     this.books[index].price = price;
-    //   }
-    //   this.storeData();
-    // },
     addToCard: function (id) {
         var index = this.books.findIndex(function (book) { return book.id === id; });
         if (index >= 0) {
@@ -264,27 +254,21 @@ var StandartEbooks = {
     render: function (list, domElement) {
         var htmlStore = "";
         list.forEach(function (book) {
-            (htmlStore += "<div class=\"card\">\n                  <h2>" + book.title + "</h2>\n                  <h3>" + book.author + "</h3>      \n                  <img class=\"img\" src=\"" + book.img + "\">\n                  <p>" + book.year + " &nbsp &nbsp " + book.price + "$</p>\n                  <div class=\"rating\">                 \n                      <i class=\"far fa-star  \" data-number=\"1\" id=\"" + book.id + "\" onclick = \"handleStarClick(event)\"></i>\n                      <i class=\"far fa-star  \" data-number=\"2\" id=\"" + book.id + "\" onclick = \"handleStarClick(event)\"></i>\n                      <i class=\"far fa-star \" data-number=\"3\" id=\"" + book.id + "\" onclick = \"handleStarClick(event)\"></i>\n                      <i class=\"far fa-star \" data-number=\"4\" id=\"" + book.id + "\" onclick = \"handleStarClick(event)\"></i>\n                      <i class=\"far fa-star  \" data-number=\"5\" id=\"" + book.id + "\" onclick = \"handleStarClick(event)\"></i>\n                   </div>                   \n                  <p> " + book.rank + "</p>\n                  <input  class = \"container__card__addToCardBtn\" onclick=\"handleAddToCard()\" id =\"addToCard\" type =\"button\" value = \"Add to cart\">              \n               </div>"),
-                "<div class=\"annotation\">" + book.annotation + "</div>";
-            //  <form class="inputs__form" onsubmit="handleUpdateBook(event, ${book.id})">
-            //  <input class="container__inputs__form__one__inp" type="text" name="update" id="update"
-            //      placeholder="Enter new title">
-            //  <input class="container__inputs__form__one__inp" type="submit" id="updateBtn" value="update">
-            // </form>`
+            htmlStore += "<div class=\"card\">\n                  <h2>" + book.title + "</h2>\n                  <h3>" + book.author + "</h3>      \n                  <img class=\"img\" src=\"" + book.img + "\">\n                  <p>" + book.year + " &nbsp &nbsp " + book.price + "$</p>\n                  <div class=\"rating\">                 \n                      <i class=\"far fa-star  \" data-number=\"1\" id=\"" + book.id + "\" onclick = \"handleStarClick(event)\"></i>\n                      <i class=\"far fa-star  \" data-number=\"2\" id=\"" + book.id + "\" onclick = \"handleStarClick(event)\"></i>\n                      <i class=\"far fa-star \" data-number=\"3\" id=\"" + book.id + "\" onclick = \"handleStarClick(event)\"></i>\n                      <i class=\"far fa-star \" data-number=\"4\" id=\"" + book.id + "\" onclick = \"handleStarClick(event)\"></i>\n                      <i class=\"far fa-star  \" data-number=\"5\" id=\"" + book.id + "\" onclick = \"handleStarClick(event)\"></i>\n                   </div>                   \n                  <p> " + book.rank + "</p>\n                  <input  class = \"card__addToCardBtn\" onclick=\"handleAddToCard()\" id =\"addToCard\" type =\"button\" value = \"Add to cart\">              \n               </div>";
         });
         domElement.innerHTML = htmlStore;
     },
     renderERP: function (list, domElement) {
         var html = " ";
         list.forEach(function (book) {
-            html += "<div class=\"containerERP__content\">\n      \n                  <div class='containerERP__content__cardERP'> \n\n                      <div class='containerERP__content__cardERP__img'> \n                         <img src=\"" + book.img + ".jpg\" alt=\"\">  \n                      </div> \n                      \n                       <div class='containerERP__content__cardERP__info'>  \n                             <strong class=\"title\">" + book.title + "</strong>                                \n                             <strong class=\"author\">" + book.author + "</strong>\n                             <strong class=\"genre\">" + book.genre + "</strong>\n                             <strong class=\"year\">" + book.year + "</strong>\n                             <strong class=\"rank\">" + book.rank + "</strong>             \n                        </div> \n                  </div>\n                   <div class=\"containerERP__content__erpBtn\">      \n                         <div class=\"content__erpBtn__delete\" style= \"margin-bottom: 1em;\" >\n                               <button class=\"containerERP__inputs__form__one__inp\"  onclick=\"handleDeleteByID('" + book.id + "')\"><span style =\"color: grey;\">Delete book</span></button>\n                         </div> \n                         <input class=\"containerERP__inputs__form__one__inp\"  type=\"file\" id=\"file\" name=\"file\" accept=\"image/png, image/jpeg, image/jpg\"  style= \"margin-bottom: 1em;\"  >\n                         <div class=\"content__erpBtn__update\">\n                             <form id=\"formAdd\" onsubmit=\"handleUpdateBook(event, '" + book.id + "')\">\n                                  <select class=\"containerERP__inputs__form__one__inp\" name=\"genre\" id=\"\">\n                                      <option value=\"genre\" disabled selected>genre</option>\n                                      <option value=\"scienceF\">scienceF</option>\n                                      <option value=\"detective\">detective</option>\n                                      <option value=\"prose\">prose</option>\n                                      <option value=\"adventures\">adventures</option>\n                                      <option value=\"children\">children</option>\n                                   </select>  \n                                 <input class=\"containerERP__inputs__form__one__inp\"  type=\"text\" name=\"title\" placeholder=\"Edit title\" value=\"" + book.title + "\">\n                                 <input class=\"containerERP__inputs__form__one__inp\"  type=\"number\" name=\"price\" placeholder=\"Edit price\" value=\"" + book.price + "\">\n                                 <input class=\"containerERP__inputs__form__one__inp\"  type=\"submit\" id=\"update\" value=\"Update book\">\n                             </form>\n                         </div> \n                    </div>          \n               </div>";
+            html += "<div class=\"containerERP__content\">\n      \n                  <div class='containerERP__content__cardERP'> \n\n                      <div class='containerERP__content__cardERP__img'> \n                         <img src=\"" + book.img + ".jpg\" alt=\"\">  \n                      </div> \n                      \n                       <div class='containerERP__content__cardERP__info'>  \n                             <strong class=\"title\">" + book.title + "</strong>                                \n                             <strong class=\"author\">" + book.author + "</strong>\n                             <strong class=\"genre\">" + book.genre + "</strong>\n                             <strong class=\"year\">" + book.year + "</strong>\n                             <strong class=\"rank\">" + book.rank + "</strong>             \n                        </div> \n                  </div>\n                   <div class=\"containerERP__content__erpBtn\">      \n                         <div class=\"content__erpBtn__delete\" style= \"margin-bottom: 1em;\" >\n                               <button class=\"containerERP__inputs__form__one__inp\"  onclick=\"handleDeleteByID('" + book.id + "')\"><span style =\"color: grey;\">Delete book</span></button>\n                         </div> \n                       \n                         <div class=\"content__erpBtn__update\">\n                             <form id=\"formAdd\" onsubmit=\"handleUpdateBook(event, '" + book.id + "')\">\n                                  <select class=\"containerERP__inputs__form__one__inp\" name=\"genre\" id=\"\">\n                                      <option value=\"genre\" disabled selected>genre</option>\n                                      <option value=\"scienceF\">scienceF</option>\n                                      <option value=\"detective\">detective</option>\n                                      <option value=\"prose\">prose</option>\n                                      <option value=\"adventures\">adventures</option>\n                                      <option value=\"children\">children</option>\n                                   </select>  \n                                 <input class=\"containerERP__inputs__form__one__inp\"  type=\"text\" name=\"title\" placeholder=\"Edit title\" value=\"" + book.title + "\">\n                                 <input class=\"containerERP__inputs__form__one__inp\"  type=\"number\" name=\"price\" placeholder=\"Edit price\" value=\"" + book.price + "\">\n                                 <input class=\"containerERP__inputs__form__one__inp\"  type=\"submit\" id=\"update\" value=\"Update book\">\n                             </form>\n                         </div> \n                    </div>          \n               </div>";
         });
         domElement.innerHTML = html;
     },
     renderAddToCard: function (list, domElement) {
         var htmlCard = " ";
         list.forEach(function (book) {
-            htmlCard += "<div class=\"card\">\n                       <h2>" + book.title + "</h2>\n                       <h3>" + book.author + "</h3>      \n                        <img class=\"img\" src=\"" + book.img + "\">\n                        <strong>" + book.year + " &nbsp &nbsp " + book.price + "$</strong>\n                             <div class=\"rating\">                 \n                                  <i class=\"far fa-star  \" data-number=\"1\" id=\"" + book.id + "\" onclick = \"handleStarClick(event)\"></i>\n                                  <i class=\"far fa-star  \" data-number=\"2\" id=\"" + book.id + "\" onclick = \"handleStarClick(event)\"></i>\n                                  <i class=\"far fa-star \" data-number=\"3\" id=\"" + book.id + "\" onclick = \"handleStarClick(event)\"></i>\n                                  <i class=\"far fa-star \" data-number=\"4\" id=\"" + book.id + "\" onclick = \"handleStarClick(event)\"></i>\n                                  <i class=\"far fa-star  \" data-number=\"5\" id=\"" + book.id + "\" onclick = \"handleStarClick(event)\"></i>\n                             </div>                   \n                          <strong> " + book.rank + "</strong>\n                          <input  class = \"container__card__addToCardBtn\" onclick = \"handleAddToCard(event)\" id =\"addToCard\" type =\"button\" value = \"Add to cart\">\n                   </div>";
+            htmlCard += "<div class=\"card\">\n                       <h2>" + book.title + "</h2>\n                       <h3>" + book.author + "</h3>      \n                        <img class=\"img\" src=\"" + book.img + "\">\n                        <strong>" + book.year + " &nbsp &nbsp " + book.price + "$</strong>\n                             <div class=\"rating\">                 \n                                  <i class=\"far fa-star  \" data-number=\"1\" id=\"" + book.id + "\" onclick = \"handleStarClick(event)\"></i>\n                                  <i class=\"far fa-star  \" data-number=\"2\" id=\"" + book.id + "\" onclick = \"handleStarClick(event)\"></i>\n                                  <i class=\"far fa-star \" data-number=\"3\" id=\"" + book.id + "\" onclick = \"handleStarClick(event)\"></i>\n                                  <i class=\"far fa-star \" data-number=\"4\" id=\"" + book.id + "\" onclick = \"handleStarClick(event)\"></i>\n                                  <i class=\"far fa-star  \" data-number=\"5\" id=\"" + book.iidd + "\" onclick = \"handleStarClick(event)\"></i>\n                             </div>                   \n                          <strong> " + book.rank + "</strong>\n                          <input  class = \"card__addToCardBtn\" onclick = \"handleAddToCard(event)\" id =\"addToCard\" type =\"button\" value = \"Add to cart\">\n                   </div>";
         });
         domElement.innerHTML = htmlCard;
     },
@@ -320,27 +304,6 @@ function handleStarClick(e) {
         console.log(e.target);
     });
 }
-// function handleStarClick(e) {
-//   console.log(e.target);
-//   allstars.forEach((star) => {
-//     if (
-//       e.target.id == star.id &&
-//       e.target.dataset.number >= star.dataset.number
-//     ) {
-//       console.log(star.dataset.number);
-//       star.classList.add("fas");
-//     } else if (
-//       e.target.id == star.id &&
-//       e.target.dataset.number < star.dataset.number
-//     ) {
-//       star.classList.remove("fas");
-//     } else {
-//       return 0;
-//     }
-//     console.log(star);
-//     console.log(e.target);
-//   });
-// }
 function renderOwener() {
     StandartEbooks.getData();
     var rootERP = document.getElementById("rootERP");
@@ -405,13 +368,10 @@ function handleDeleteByID(id) {
 function handleUpdateBook(e, id) {
     e.preventDefault();
     console.log(id);
-    // console.log(e.target.elements.img);
-    // const img = e.target.elements.img.value;
     var genre = e.target.genre.value;
     var title = e.target.elements.title.value;
     var price = e.target.elements.price.valueAsNumber;
     var rootERP = document.querySelector("#rootERP");
-    // StandartEbooks.updateBook(id, genre, img, title, price);
     StandartEbooks.updateBook(id, genre, title, price);
     StandartEbooks.renderERP(StandartEbooks.books, rootERP);
     StandartEbooks.storeData();
@@ -422,8 +382,9 @@ function handleAddToCard(id) {
         console.log(id);
         var rootCard_1 = document.getElementById("rootCard");
         if (!rootCard_1)
-            throw new Error('"rootCard" was not found on the DOM');
-        console.log(rootCard_1);
+            throw new Error('no "rootCard" in DOM');
+        if (!id)
+            throw new Error("no Id in handleAddToCard");
         StandartEbooks.addToCard(id);
         StandartEbooks.renderAddToCard(StandartEbooks.books, rootCard_1);
     }
@@ -452,14 +413,9 @@ function handleAuthoreDescen() {
     }
 }
 function handleYearAscen() {
-    try {
-        StandartEbooks.sortAscenByYear();
-        var root_3 = document.querySelector("#root");
-        StandartEbooks.render(StandartEbooks.books, root_3);
-    }
-    catch (error) {
-        console.error(error);
-    }
+    StandartEbooks.sortAscenByYear();
+    var root = document.querySelector("#root");
+    StandartEbooks.render(StandartEbooks.books, root);
 }
 function handleYearDescen() {
     StandartEbooks.sortDescenByYear();
@@ -551,6 +507,32 @@ function handleFilterByTitle(e) {
     if (title) {
         var filterByTitle = StandartEbooks.filterByTitle(title);
         StandartEbooks.renderFilterByTitle(filterByTitle, root);
+    }
+    else {
+        StandartEbooks.render(StandartEbooks.books, root);
+    }
+}
+function handleSearchBook(e) {
+    e.preventDefault();
+    var title = e.target.value;
+    var search = e.target.value;
+    var regex = new RegExp(search, "i");
+    var root = document.querySelector("#root");
+    root.innerHTML = "";
+    if (search.length > 0) {
+        var foundBook = StandartEbooks.books.filter(function (book) {
+            if (regex.test(book.title))
+                return true;
+            var filterByTitle = StandartEbooks.filterByTitle(title);
+            StandartEbooks.renderFilterByTitle(filterByTitle, root);
+        });
+        var html = foundBook
+            .map(function (book) {
+            return "<p>" + book.title + "</p>";
+        })
+            .join("");
+        root.innerHTML = html;
+        console.log(foundBook);
     }
     else {
         StandartEbooks.render(StandartEbooks.books, root);
