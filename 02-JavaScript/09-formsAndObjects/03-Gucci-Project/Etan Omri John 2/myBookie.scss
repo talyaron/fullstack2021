@@ -18,7 +18,7 @@ body {
 .wrapper {
   margin: 0;
   padding: 0;
-  width:80vw;
+  max-width:80vw;
   height: 90vh;
   position: absolute;
   display: flex;
@@ -42,16 +42,17 @@ body {
     justify-content: space-between;
   }
   form {
+    fieldset{
     width: fit-content;
-    gap: 3vh;
+    margin:0;
     display: flex;
     flex-direction: column;
-    flex-grow: 2;
-  }
+    height: fit-content;
+  }}
   .sorts {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width:50%;
     padding: 1rem;
     font-size: 0.5em;
   }
@@ -59,29 +60,43 @@ body {
 
 img {
   width: auto;
-  height: 15vh;
+  max-height: 15vh;
 }
 
 table {
-  font-size: clamp(1em, 2.5vw, 2em); 
+
+  font-size: clamp(.5em, 1.25vw, 1em); 
   text-align: center;
   border: 2px solid rgb(200, 200, 200);
-  width: 100%;
+  border-collapse:collapse;
+width:clamp(40vw, 45vw, 50vw);
   td,
   th {
     border: 1px solid rgb(190, 190, 190);
     padding: 10px;
   }
-  [data-update]{
+  [data-delete-update]{
+    justify-content: center;
+    align-items: center;
     display: flex;
     flex-direction: column;
   }
   a{
     font-size: clamp(.5em, 1.25vw, 1em);
+    cursor: pointer;
   }
   
 }
 
 legend{
   font-size:clamp(.5em, 1.25vw, 1em);
+}
+@media only screen and (max-width:768px){
+  
+}
+[role="navigation between pages"]{
+    z-index: 100;
+    position:absolute;
+    top: 0;
+    left: 0;
 }

@@ -61,6 +61,7 @@ let aviator: aviator = {
     renderitemcart(domElement) {
 
         let html2 = '';
+        let total= 0;
 
         this.cartItems.forEach(item => {
             html2 += `<div class='cart__card'>
@@ -74,12 +75,13 @@ let aviator: aviator = {
         
            <button  onclick='handleDelete("${item.id}")' style="width:50px ;"'><i class="far fa-trash-alt"></i> Delete</button>
             </div>`
+            total += item.price;
         });
         domElement.innerHTML = html2
+
+        document.querySelector("#total").innerHTML = `${total}`;
         setCurrency()
     },
-
-
 
     renderCartCount() {
         document.querySelector('.header__cart-notification').innerHTML = `${this.cartItems.length}`;
@@ -307,6 +309,9 @@ function handleQuantity(ev, id) {
     aviator.renderitemcart(cart);
 }
 
+function handleRotate() {
+    document.querySelector(".carousel").classList.toggle("rotate");
+}
 
 
 

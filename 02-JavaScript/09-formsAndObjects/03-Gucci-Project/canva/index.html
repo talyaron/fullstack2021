@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="dist/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;600;700;800;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <title>backEnd</title>
+</head>
+
+<body>
+
+
+
+    <div class="color">
+        <a href="canva.html">Canva</a>
+        <h1>Please chose a color to your appPress layout</h1>
+        <input type="color" name="color" onchange="handleColor(event)">
+    </div>
+
+    <input type="file" name="pic" id="picInput">
+
+    <form id="title" onsubmit="handleTitle(event)">
+        <input type="text" name="titleText" placeholder="Please Enter Title" required>
+        <!-- <input type="number" name="fontSize" placeholder="Please Enter Font Size" required> -->
+
+        <select name="fontSize" id="" required>
+            <option value="" disabled selected>Please select Font Size</option>
+            <option value="large">large</option>
+            <option value="x-large">x-large</option>
+            <option value="xx-large">xx-large</option>
+        </select>
+
+
+        <input type="color" name="colorTitle" placeholder="Please Enter Title Color" required>
+
+        <select name="language" id="">
+            <option value="" disabled selected>Please select language</option>
+            <option value="hebrew">Hebrew</option>
+            <option value="english">English</option>
+
+        </select>
+
+
+        <input type="submit">
+    </form>
+
+
+
+    <div class="wrapper--backEnd">
+        <div class="box box1" id="imgBox">1</div>
+        <div class="box box2" id="titleBox">2</div>
+        <div class="box box3">3</div>
+        <div class="box box4">4</div>
+        <div class="box box5">5</div>
+        <div class="box box6">6</div>
+        <div class="box box7">7</div>
+        <div class="box box8">8</div>
+        <div class="box box9">9</div>
+    </div>
+
+
+    <script src="dist/index.js"></script>
+</body>
+
+</html>

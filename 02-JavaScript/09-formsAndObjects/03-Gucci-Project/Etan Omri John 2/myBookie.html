@@ -15,6 +15,10 @@
 </head>
 
 <body>
+    <nav role="navigation between pages">
+        <a href="./Bookie.html">Store</a>
+        <a href="./myBookie.html">Owner</a>
+    </nav>
     <div class="wrapper">
         <h1 class="primeryTitle">myBookie <i class="fas fa-book-open"></i></h1>
         <div class="wrapper__content">
@@ -46,14 +50,17 @@
                     <option disabled selected value="None">Choose</option>
                     <option value="ascYear">Ascending - Years</option>
                     <option value="descYear">Descending - Years</option>
-                    <option value="bookie.sortItemAsc()">Ascending - Prices</option>
-                    <option value="sortItemDesc">Descending - Prices</option>
+                    <option value="ascPrice">Ascending - Prices</option>
+                    <option value="descPrice">Descending - Prices</option>
                 </select>
                 <label for="customerSort">sort how others would see your shop</label>
                 <select onchage="handleCustomerSort(event)" name="customerSort" id="customerSort">
                     <option disabled selected value="None">Choose</option>
-                    <option value="ascYear">Ascending</option>
-                    <option value="descYear">Descending</option>
+                    <option value="ascYear">Ascending - Years</option>
+                    <option value="descYear">Descending - Years</option>
+                    <option value="ascPrice">Ascending - Prices</option>
+                    <option value="descPrice">Descending - Prices</option>
+
                 </select>
                 
                 <table data-toggle-existing>

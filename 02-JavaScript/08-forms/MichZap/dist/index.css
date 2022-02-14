@@ -3,6 +3,8 @@ form.form1 {
 }
 
 #rootItems {
+  width: 35vw;
+  height: auto;
   position: absolute;
   margin-left: 30vw;
   background-color: lightseagreen;

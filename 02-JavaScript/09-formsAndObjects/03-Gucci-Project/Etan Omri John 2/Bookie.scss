@@ -9,6 +9,7 @@
   --genergal-text-color: #e5dfd9;
   --footer-color: rgb(147, 147, 147);
   --footer-background-color: #1b1b1b;
+  --header-background-color: #1b1b1b;
 }
 
 // makes everything have 0 margin for style start:
@@ -25,24 +26,31 @@ body {
 }
 
 header {
-
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 99;
   color: #fff;
-  background: black;
+  background: var(--header-background-color);
   opacity: .4;
+  transition: opacity .35s ease-in-out;
+  &:hover{
+    opacity:1;
+  }
 
   .navBar {
     padding-top: 20px;
     padding-bottom: 10px;
     display: block;
-
+    
+    
+    
     &__row1 {
       display: flex;
       flex-wrap: nowrap;
       justify-content: space-around;
+      
+      
 
       &__icons {
         display: flex;
@@ -97,7 +105,7 @@ header {
       }
 
       &__row1 {
-
+        
 
         &__icons {
 
@@ -735,4 +743,10 @@ footer {
   }
 
 
+}
+  [role="navigation between pages"]{
+
+    position:absolute;
+    top: 0;
+    left: 0;
 }

@@ -14,10 +14,13 @@ var aviator = {
     },
     renderitemcart: function (domElement) {
         var html2 = '';
+        var total = 0;
         this.cartItems.forEach(function (item) {
             html2 += "<div class='cart__card'>\n            <img src=\"" + item.img + "\">\n            <p class=\"cart__card--name\">" + item.name + "</p>\n            <p class=\"cart__card--price\">" + item.price + "</p>\n            <button id=\"add_one\" onclick='handleQuantity(event, \"" + item.id + "\")'>\u25B2</button>\n            <p class=\"cart__card--quantity\">" + item.quantity + "</p>\n            <button id=\"remove_one\" onclick='handleQuantity(event, \"" + item.id + "\")'>\u25BC</button>\n           \n        \n           <button  onclick='handleDelete(\"" + item.id + "\")' style=\"width:50px ;\"'><i class=\"far fa-trash-alt\"></i> Delete</button>\n            </div>";
+            total += item.price;
         });
         domElement.innerHTML = html2;
+        document.querySelector("#total").innerHTML = "" + total;
         setCurrency();
     },
     renderCartCount: function () {
@@ -238,4 +241,7 @@ function handleQuantity(ev, id) {
             break;
     }
     aviator.renderitemcart(cart);
+}
+function handleRotate() {
+    document.querySelector(".carousel").classList.toggle("rotate");
 }
