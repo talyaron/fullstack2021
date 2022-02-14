@@ -29,8 +29,7 @@ form input[type=submit] {
 form input[type=checkbox] {
   box-shadow: none;
   margin-right: 0px;
-  margin-left: 25px;
-  width: 40%;
+  margin-left: 15px;
 }
 form .name {
   display: flex;
@@ -38,7 +37,7 @@ form .name {
 form .radio {
   width: 100%;
   display: grid;
-  grid-template-columns: 10% 80%;
+  grid-template-columns: 10% 90%;
   margin: 5px;
 }
 form .radio #Amount {
@@ -57,10 +56,16 @@ form .clear {
 }
 form .checkbox {
   display: grid;
-  grid-template-columns: 10% 90%;
+  grid-template-columns: 15% 80%;
   margin: 5px;
   display: none;
 }
 form .checkbox .tax {
   display: none;
+  grid-column: 1/3;
+  margin: 7px;
+  margin-left: 35px;
+}
+form .checkbox .tax .tax1 {
+  width: 15%;
 }
