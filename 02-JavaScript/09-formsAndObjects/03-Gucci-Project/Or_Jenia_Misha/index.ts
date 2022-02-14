@@ -695,16 +695,19 @@ function popNavBarActive() {
 popNavBarActive();
 
 function popCartActive() {
+ 
+  const cartBox = document.querySelector(".cart__box");
+  const cartImg = document.querySelector(".cart__img");
+  const cartClose = document.querySelector(".cart__close");
+  const cart = document.querySelector(".cart");
 
-  var cart = document.querySelector(".cart__box");
-  var cartClose = document.querySelector(".cart__close");
-
-  cart.addEventListener("click", function () {
-      cart.classList.add("cart__box-active");
+  cartImg.addEventListener("click", function () {
+      cartBox.classList.add("cart__box-active");
+      cart.classList.add("cart-active");
   });
 
   cartClose.addEventListener("click", function () {
-      cart.classList.remove("cart__box-active");
+      cartBox.classList.remove("cart__box-active");
   });
 
 }
