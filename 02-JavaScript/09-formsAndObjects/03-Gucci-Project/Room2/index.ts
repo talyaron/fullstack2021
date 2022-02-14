@@ -5,13 +5,13 @@ const uid = function () {
 interface shop {
   id?: number;
   products: Array<product>;
-  wishlist:Array<any>;
+  wishlist: Array<any>;
   // wishList: Array<product>;
   addItem(
     title: string,
     price: number,
-    gender:string,
-    category: "sneakers" | "boots" | "hi tops" | "flip flops",
+    gender: string,
+    category: "Sneakers" | "Boots" | "Hi Tops" | "Flip Flops",
     pictureFront: string,
     pictureBack: string,
     color: string,
@@ -26,7 +26,7 @@ interface shop {
     id: number,
     newTitle: string,
     newPrice: number,
-    newGender:string,
+    newGender: string,
     newCategory: string,
     newPictureFront: string,
     newPictureBack: string,
@@ -41,30 +41,30 @@ interface shop {
   sortByColor(color);
   sortByType(type);
   filterItems(highPrice?: number, lowPrice?: number);
-  renderFilter( filterd: Array<product>, domElement);
+  renderFilter(filterd: Array<product>, domElement);
   getData();
   setData();
-  cartItems();
+  WishList(id)
 }
 
 interface product {
   id: number;
   title: string;
   price: number;
-  gender:string;
-  category: "sneakers" | "boots" | "hi tops" | "flip flops";
+  gender: string;
+  category: "Sneakers" | "Boots" | "Hi Tops" | "Flip Flops";
   pictureFront: string;
   pictureBack: string;
   color: string;
   description: string;
   shoeSize: number;
-  
+
 }
 
 
 const Adidas: shop = {
   // id:0,
-  products: [], wishlist:[],
+  products: [], wishlist: [],
   // wishList: [],
   getData() {
     const products = JSON.parse(localStorage.getItem("Adidas"));
@@ -111,18 +111,15 @@ const Adidas: shop = {
 
     let html = "";
     this.products.forEach((product) => {
-      let text=document.URL;
+      let text = document.URL;
       let resultCustomer = text.substring(22, 35);
       let resultOwner = text.substring(22, 35);
-      if(resultCustomer=="customer.html"){
-      html += `
+      if (resultCustomer == "customer.html") {
+        html += `
      <div class="cards__item" >
 
       <div class="picture">
-      <i class="far fa-heart"></i>
-      <i class="fa-thin fa-cart-circle-plus"></i>
-
-
+          <i class="far fa-heart"  onclick="handleIndex('${product.id}')"></i>
           <img src="${product.pictureBack}" >
          <img src="${product.pictureFront}" class="img-top">
           </div>
@@ -136,10 +133,54 @@ const Adidas: shop = {
           <p>${product.description}</p>
           <p>${product.price}₪</p> 
       </div>
-          </div>   `;
+          </div>   `
+          ;
+        console.log("render");
+        console.log(resultOwner);
+      }
+
+      else if (resultOwner == "owner.html") {
+        html += `
+     <div class="cards__item" >
+
+      <div class="picture">
+          <i class="far fa-heart"  onclick="handleIndex('${product.id}')"></i>
+          <img src="${product.pictureBack}" >
+         <img src="${product.pictureFront}" class="img-top">
+          </div>
+              
+      <div class="color">
+      <p><b> Color: </b> ${product.color}</p>
+      </div>
+
+      <div class="description">
+         <p>${product.title}</p>
+          <p>${product.description}</p>
+          <p>${product.price}₪</p> 
+      </div>
+
+      <form onsubmit="handleUpdate(event, '${product.id}')">
+      <input type="text" name="newTitle" placeholder="new title" value="${product.title}">
+      <input type="number" name="newPrice" placeholder="new price" value="${product.price}">
+      <input type="text" name="newCategory" placeholder="new category" value="${product.category}">
+      <input type="text" name="newPictureFront" placeholder="new picture front" value="${product.pictureFront}">
+      <input type="text" name="newPictureBack" placeholder="new picture back" value="${product.pictureBack}">
+      <input type="text" name="newColor" placeholder="new color" value="${product.color}">
+      <input type="text" name="newGender" placeholder="new gender" value="${product.gender}">
+      <input type="text" name="newDescription" placeholder="new description" value="${product.description}">
+      <input type="number" name="newShoeSize" placeholder="new shoeSize" value="${product.shoeSize}">
+      <button type="submit">Update</button>
+      </form>
+
+      <button onclick="handleDelete('${product.id}')">Delete</button>
+          </div>   `
+      }
 
       console.log("render");
-    });
+      console.log(resultOwner);
+
+    })
+
 
     const button = document.getElementById("button");
     console.log(button);
@@ -201,20 +242,20 @@ const Adidas: shop = {
   },
   renderFilter(filterd, domElement) {
     console.log(filterd);
-    
+
     this.render(filterd, domElement);
   },
-  WishList(id){
+  WishList(id) {
     const index = this.products.findIndex((product) => product.id === id);
     //console.log(`The index:${index}.`)
     //console.log(`The id: ${id}.`)
     let item;
-    item= Adidas.products[index]
+    item = Adidas.products[index]
     this.wishlist.push(item);
     console.log(Adidas.wishlist)
-    
-    
-}
+
+
+  }
 };
 
 
@@ -262,7 +303,7 @@ function handleUpdate(ev: any, itemId: number) {
 
   const newTitle: string = ev.target.elements.newTitle.value;
   const newPrice: number = ev.target.elements.newPrice.valueAsNumber;
-  const newGender:string = ev.target.elements.newGender.value;
+  const newGender: string = ev.target.elements.newGender.value;
   const newCategory: string = ev.target.elements.newCategory.value;
   const newPictureFront: string = ev.target.elements.newPictureFront.value;
   const newPictureBack: string = ev.target.elements.newPictureBack.value;
@@ -303,22 +344,22 @@ function handlePriceRange(ev) {
 function handleSort(ev) {
 
   ev.preventDefault();
-  const sort= ev.target.value;
+  const sort = ev.target.value;
   const root = document.getElementById("rootCustomer");
-  if(sort ==="startPosition"){
-      
+  if (sort === "startPosition") {
 
-  Adidas.renderAllData(root);
+
+    Adidas.renderAllData(root);
   }
-  else if(sort === "priceAsc"){
-       Adidas.sortItemsAsc();
- 
-  Adidas.renderAllData(root);
+  else if (sort === "priceAsc") {
+    Adidas.sortItemsAsc();
+
+    Adidas.renderAllData(root);
   }
-  else if(sort === "priceDsc"){
-           Adidas.sortItemsDsc();
- 
-  Adidas.renderAllData(root);
+  else if (sort === "priceDsc") {
+    Adidas.sortItemsDsc();
+
+    Adidas.renderAllData(root);
   }
   console.log(sort);
   Adidas.setData();
@@ -327,62 +368,62 @@ function handleType(ev) {
   const type = ev.target.value;
   ev.preventDefault();
   console.log(type);
-  
+
   const root = document.getElementById("rootCustomer");
-  if(type === "sneakers"){
+  if (type === "Sneakers") {
     console.log(type);
-    
-// Adidas.sortByType(type)
-//      Adidas.renderAllData(root);
-Adidas.renderFilter(Adidas.sortByType(type), root);
-  }
-  else if(type === "boots"){
-  //   console.log(type);
-  //  Adidas.sortByType(type)
-  //    Adidas.renderAllData(root);
-  Adidas.renderFilter(Adidas.sortByType(type), root);
-  }
-  else if(type === "hi tops"){
-  //   console.log(type);
-  //  Adidas.sortByType(type)
-  //    Adidas.renderAllData(root);
-  Adidas.renderFilter(Adidas.sortByType(type), root);
-  }
-  else if(type === "flip flops"){
-  //   console.log(type);
-  //  Adidas.sortByType(type)
-  //    Adidas.renderAllData(root);
-  Adidas.renderFilter(Adidas.sortByType(type), root);
-  }
 
+    // Adidas.sortByType(type)
+    //      Adidas.renderAllData(root);
+    Adidas.renderFilter(Adidas.sortByType(type), root);
+  }
+  else if (type === "Boots") {
+    //   console.log(type);
     //  Adidas.sortByType(type)
-    //  Adidas.renderAllData(root);
+    //    Adidas.renderAllData(root);
+    Adidas.renderFilter(Adidas.sortByType(type), root);
+  }
+  else if (type === "Hi Tops") {
+    //   console.log(type);
+    //  Adidas.sortByType(type)
+    //    Adidas.renderAllData(root);
+    Adidas.renderFilter(Adidas.sortByType(type), root);
+  }
+  else if (type === "Flip Flops") {
+    //   console.log(type);
+    //  Adidas.sortByType(type)
+    //    Adidas.renderAllData(root);
+    Adidas.renderFilter(Adidas.sortByType(type), root);
+  }
 
-// Adidas.renderFilter(Adidas.sortByType(type), root);
+  //  Adidas.sortByType(type)
+  //  Adidas.renderAllData(root);
+
+  // Adidas.renderFilter(Adidas.sortByType(type), root);
 }
 function handleColor(ev) {
   const color = ev.target.value;
   ev.preventDefault();
   const root = document.getElementById("rootCustomer");
   // if(type === " ")
-  return Adidas.renderFilter(Adidas.sortByColor(color), root );
+  return Adidas.renderFilter(Adidas.sortByColor(color), root);
 }
 function handleGender(ev) {
   const gender = ev.target.value;
   ev.preventDefault();
   const root = document.getElementById("rootCustomer");
-  
-  if(gender === "men"){
+
+  if (gender === "men") {
     console.log(gender);
-    
+
     Adidas.renderFilter(Adidas.sortByGender(gender), root)
   }
-  else if(gender === "women"){
+  else if (gender === "women") {
     console.log(gender);
     Adidas.renderFilter(Adidas.sortByGender(gender), root)
 
   }
-  else if(gender === "unisex"){
+  else if (gender === "unisex") {
     console.log(gender);
     Adidas.renderFilter(Adidas.sortByGender(gender), root)
 
@@ -392,7 +433,7 @@ function handleShoeSize(ev) {
   const size = ev.target.value;
   ev.preventDefault();
   const root = document.getElementById("rootCustomer");
-  Adidas.renderFilter(Adidas.shoeSizeFilter(size),root);
+  Adidas.renderFilter(Adidas.shoeSizeFilter(size), root);
   // if(type === " ")
   //Adidas.shoeSizeFilter(size);
 }
@@ -405,7 +446,7 @@ Adidas.addItem(
   "superstar shoes",
   200,
   "men",
-  "sneakers",
+  "Sneakers",
   "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg",
   "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg",
   "red",
@@ -416,7 +457,7 @@ Adidas.addItem(
   "superstar shoes",
   300,
   "women",
-  "boots",
+  "Boots",
   "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg",
   "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg",
   "red",
@@ -427,7 +468,7 @@ Adidas.addItem(
   "superstar shoes",
   100,
   "unisex",
-  "hi tops",
+  "Hi Tops",
   "https://st-adidas-isr.mncdn.com/content/images/thumbs/0086954_x-speedflow1-messi-firm-ground-boots_fy6879_side-lateral-center-view.jpeg",
   "https://st-adidas-isr.mncdn.com/content/images/thumbs/0086956_x-speedflow1-messi-firm-ground-boots_fy6879_top-portrait-view.jpeg",
   "red",

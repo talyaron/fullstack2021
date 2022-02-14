@@ -26,7 +26,6 @@ body {
 }
 
 header {
-
   position: fixed;
   top: 0;
   width: 100%;
@@ -34,19 +33,24 @@ header {
   color: #fff;
   background: var(--header-background-color);
   opacity: .4;
+  transition: opacity .35s ease-in-out;
   &:hover{
     opacity:1;
   }
 
   .navBar {
-    padding-top: 10px;
+    padding-top: 20px;
     padding-bottom: 10px;
     display: block;
-
+    
+    
+    
     &__row1 {
       display: flex;
       flex-wrap: nowrap;
       justify-content: space-around;
+      
+      
 
       &__icons {
         display: flex;
@@ -71,7 +75,7 @@ header {
       flex-wrap: wrap;
       font-weight: bold;
       justify-content: center;
-      padding-top: 8px;
+      padding-top: 30px;
       padding-bottom: 10px;
       gap: 5px;
 
@@ -101,7 +105,7 @@ header {
       }
 
       &__row1 {
-
+        
 
         &__icons {
 
@@ -200,24 +204,42 @@ header {
 
 .filters {
   position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  justify-content: end;
-  padding: .5rem;
-  gap: 1rem;
+  display: grid;
+  grid-template-columns: 1fr repeat(2, 1fr);
+  grid-template-rows: 50px;
+  justify-content: center;
+  align-items: center;
 
-  &__category,&__sort{
-    background: none;
-    border: none;
-    text-decoration: none;
+
+  svg {
+    width: 15px;
+    transform: rotate(-90deg);
+    margin-left: 6px;
     cursor: pointer;
   }
 
-  &__sort{
-    width: 80px;
+  &__category {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__sort {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__input {
+    margin: auto;
+  }
+
+  @media only screen and (max-width: 600px) {
+
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 50px);
+    justify-content: space-between;
   }
 }
+
 [data-add-to-bag] {
   //for js and animation
 }

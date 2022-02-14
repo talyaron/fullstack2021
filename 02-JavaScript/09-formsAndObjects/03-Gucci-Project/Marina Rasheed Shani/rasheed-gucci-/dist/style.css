@@ -32,9 +32,15 @@ body {
   font-family: Granjon;
   font-weight: lighter;
 }
+.container__navBar:hover {
+  background-color: #141010de;
+}
 .container__navBar2 {
   text-align: center;
   transition: all 0.5s;
+}
+.container__navBar2:hover {
+  background-color: #141010de;
 }
 .container__navBar2 ul {
   display: inline-flex;
@@ -80,22 +86,6 @@ body {
   text-align: center;
   background-color: #e7e7e7;
 }
-.container__main .gucci {
-  color: black;
-}
-.container__main .gucci--Aria {
-  font-size: smaller;
-}
-.container__main .gucci--Title {
-  font-size: 3em;
-}
-.container__main .gucci--imgBeforeStories {
-  width: 100%;
-  margin-bottom: 10em;
-}
-.container__main .gucci--mainPageImg {
-  width: 100vh;
-}
 .container__main img {
   background-size: cover;
   background-repeat: no-repeat;
@@ -107,7 +97,6 @@ body {
   margin-bottom: 1.5em;
 }
 .container__stories {
-  margin-top: 20px;
   justify-content: center;
   gap: 2em;
   display: flex;
@@ -116,36 +105,12 @@ body {
   font-weight: 300;
   font-size: larger;
 }
-.container__stories__left .stories__left__bag {
-  margin-bottom: 5.5em;
-}
-.container__stories .stories__middle {
-  margin-right: 1em;
-  margin-top: -9.7em;
-}
-.container__stories .stories__middle__title {
-  font-size: 3em;
-  color: black;
-}
-.container__stories__right .stories__right__gucci {
-  margin-bottom: 4.2em;
-}
 .container__bottom {
   background-color: #1a1919;
   color: white;
   display: flex;
   justify-content: space-evenly;
   margin-top: 2em;
-}
-.container__bottom__title {
-  font-size: large;
-}
-.container .gucciRights {
-  background: #1a1919;
-  font-size: small;
-  padding: 2em;
-  margin-top: 0;
-  color: white;
 }
 
 .active,
@@ -157,14 +122,14 @@ body {
 .container__navBar2 ul li:hover .container__navBar2__dropdown {
   display: block;
   margin-top: 15px;
+  margin-left: -15px;
+  position: absolute;
   transform: translateY(-20px);
 }
 
 .sub-container {
-  background-image: url("../../imgBG/gucciBG.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 90vh;
+  background-image: url("https://media.gucci.com/content/HeroBigStandard_3200x1520/1643384764/HeroBigStandard_VDAY-2022-043-new_001_Default.jpg");
+  height: 100vh;
   margin: 0;
 }
 
@@ -236,7 +201,7 @@ body {
 
 .catergory__items {
   background-color: white;
-  height: 80em;
+  height: 110em;
   text-align: center;
 }
 .catergory__items .items {
@@ -254,158 +219,13 @@ body {
 .catergory__items .items .imgBottom {
   display: none;
   position: absolute;
+  top: 53px;
   left: 2px;
   z-index: 1;
 }
 .catergory__items .items:hover .imgBottom {
-  height: 380px;
   display: inline;
 }
 .catergory__items .items p {
   letter-spacing: 2px;
-}
-
-@media only screen and (max-width: 1024px) {
-  body {
-    background-color: red;
-  }
-  body .catergory__items {
-    height: 120em;
-  }
-  body .catergory__items .items .imgTop {
-    height: 350px;
-    width: 18em;
-  }
-  body .catergory__items .items .imgBottom {
-    width: 18em;
-    height: 10px;
-  }
-  body .catergory__items .items:hover .imgBottom {
-    height: 350px;
-  }
-
-  .sub-container {
-    height: 70vh;
-    margin: 0;
-  }
-
-  .container__main img {
-    width: 50%;
-  }
-  .container__main .gucci {
-    color: black;
-  }
-  .container__main .gucci--Aria {
-    font-size: smaller;
-  }
-  .container__main .gucci--Title {
-    font-size: 3em;
-  }
-  .container__main .gucci--mainPageImg {
-    width: 60vh;
-  }
-  .container__stories {
-    gap: 0px;
-  }
-  .container__stories__left img {
-    width: 160px;
-  }
-  .container__stories__left .stories__left__bag {
-    margin-bottom: 5.2em;
-  }
-  .container__stories .stories__middle {
-    margin-right: 0em;
-  }
-  .container__stories__right img {
-    width: 160px;
-  }
-  .container__stories__right .stories__right__gucci {
-    margin-bottom: 4em;
-  }
-}
-@media only screen and (max-width: 600px) {
-  body {
-    background-color: green;
-  }
-  body .catergory__buttons {
-    height: 15vh;
-  }
-  body .catergory__buttons .catergory__name {
-    display: none;
-  }
-  body .catergory__buttons--selector {
-    font-size: 11px;
-  }
-  body .catergory__buttons--sortPrice button {
-    font-size: 10px;
-  }
-  body .catergory__buttons--lowerThanPrice {
-    font-size: 10px;
-  }
-  body .catergory__buttons--lowerThanPrice .inputLowerThan {
-    width: 100px;
-  }
-  body .catergory__items {
-    height: 200em;
-  }
-  body .catergory__items .items .imgTop {
-    height: 350px;
-    width: 18em;
-  }
-  body .catergory__items .items .imgBottom {
-    width: 18em;
-    height: 10px;
-  }
-  body .catergory__items .items:hover .imgBottom {
-    height: 350px;
-  }
-
-  .sub-container {
-    height: 70vh;
-    margin: 0;
-  }
-
-  .container__navBar {
-    font-size: smaller;
-  }
-  .container__main img {
-    width: 50%;
-  }
-  .container__main .gucci {
-    color: black;
-  }
-  .container__main .gucci--Aria {
-    font-size: smaller;
-  }
-  .container__main .gucci--Title {
-    font-size: 2em;
-  }
-  .container__main .gucci--mainPageImg {
-    margin-top: 5px;
-    width: 40vh;
-  }
-  .container__stories {
-    gap: 0px;
-  }
-  .container__stories__left {
-    display: none;
-  }
-  .container__stories .stories__middle {
-    margin-right: 0em;
-  }
-  .container__stories .stories__middle img {
-    width: 100%;
-  }
-  .container__stories__right {
-    display: none;
-  }
-  .container__bottom {
-    font-size: 10px;
-  }
-  .container__bottom__title {
-    font-size: small;
-  }
-  .container__bottom input {
-    width: 100px;
-  }
 }

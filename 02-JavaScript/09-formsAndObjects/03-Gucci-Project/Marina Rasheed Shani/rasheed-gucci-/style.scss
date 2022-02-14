@@ -40,7 +40,9 @@ body {
       }
     }
 
-
+    &:hover {
+      background-color: #141010de;
+    }
   }
 
 
@@ -49,6 +51,9 @@ body {
     text-align: center;
     transition: all 0.5s;
 
+    &:hover {
+      background-color: #141010de;
+    }
 
 
 
@@ -68,12 +73,10 @@ body {
 
 
 
-
       li {
         width: 120px;
         margin: 15px;
         padding: 15px;
-
 
 
         a {
@@ -81,7 +84,6 @@ body {
           color: #ffffff;
           font-family: "Montserrat", sans-serif;
           font-weight: 900;
-
 
 
 
@@ -128,7 +130,6 @@ body {
             cursor: pointer;
 
 
-
           }
 
           a {
@@ -151,30 +152,6 @@ body {
     text-align: center;
     background-color: rgb(231, 231, 231);
 
-    .gucci{
-      color:black;
-      &--Aria{
-        font-size:smaller;
-
-      }
-      &--Title{
-        font-size: 3em;
-
-      }
-      &--imgBeforeStories{
-        width: 100%;
-        margin-bottom: 10em;
-
-      }
-      &--mainPageImg{
-        width:100vh;          
-
-      }
-
-    }
-
-   
-
     img {
       background-size: cover;
       background-repeat: no-repeat;
@@ -189,7 +166,6 @@ body {
   }
 
   &__stories {
-    margin-top:20px;
     justify-content: center;
     gap: 2em;
     display: flex;
@@ -197,32 +173,6 @@ body {
     text-align: center;
     font-weight: 300;
     font-size: larger;
-
-    &__left{
-      .stories__left__bag{
-        margin-bottom: 5.5em;
-  
-      }
-    }
-    .stories__middle{
-      margin-right: 1em;
-      margin-top: -9.7em;
-       &__title{
-
-        font-size: 3em;
-        color: black; 
-
-       }
-    }
-
-    &__right{
-      .stories__right__gucci{
-        margin-bottom: 4.2em;
-
-      }
-
-    }
-    
 
   }
 
@@ -232,21 +182,6 @@ body {
     display: flex;
     justify-content: space-evenly;
     margin-top: 2em;
-
-    &__title{    
-    font-size: large;  
-    }
-    
-  
-  }
-
-  .gucciRights{
-    background: rgb(26, 25, 25);
-     font-size: small;
-      padding: 2em; 
-      margin-top: 0;
-      color:white;
-
   }
 }
 
@@ -261,9 +196,8 @@ body {
 .container__navBar2 ul li:hover .container__navBar2__dropdown {
   display: block;
   margin-top: 15px;
-  //margin-left: -15px;
-  //position: absolute;
-  // border:solid black 2px;
+  margin-left: -15px;
+  position: absolute;
 
   transform: translateY(-20px);
   ;
@@ -271,11 +205,8 @@ body {
 }
 
 .sub-container {
-  
-  background-image: url("../../imgBG/gucciBG.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 90vh;
+  background-image: url("https://media.gucci.com/content/HeroBigStandard_3200x1520/1643384764/HeroBigStandard_VDAY-2022-043-new_001_Default.jpg");
+  height: 100vh;
   margin: 0;
 
 
@@ -388,9 +319,8 @@ $background-color:#ffffff;
 
 .catergory__items {
   background-color: white;
-  height: 80em;
+  height: 110em;
   text-align: center;
-
 
 
   .items {
@@ -400,7 +330,6 @@ $background-color:#ffffff;
     text-align: center;
     padding: 2px;
     border: none;
-
 
 
     img {
@@ -414,7 +343,7 @@ $background-color:#ffffff;
     .imgBottom {
       display: none;
       position: absolute;
-      // top: 65px;
+      top: 53px;
       left: 2px;
       z-index: 1;
 
@@ -426,9 +355,9 @@ $background-color:#ffffff;
     }
 
     &:hover .imgBottom {
-      height: 380px;
       display: inline;
-
+      //   width: 20em;
+      //  height: 380px;
     }
 
 
@@ -443,257 +372,11 @@ $background-color:#ffffff;
 
 
 
-@media only screen and (max-width: 1024px) {
-  body {
+// @media only screen and (max-width: 1024px) {
+//   body {
 
-    background-color: red;
-    //used so i know when im on the width i need.
-
-    .catergory__items {      
-      height: 120em;      
-
-      .items {
-
-        .imgTop {
-          height: 350px;
-          width: 18em;
-
-        }
-
-        .imgBottom {
-          width: 18em;
-          height: 10px;
-        }
-
-        &:hover .imgBottom {
-          height: 350px;
-          //display: inline;
-
-        }
-      }
-    }
-  }
-
-  .sub-container {    
-    height: 70vh;
-    margin: 0;   
+//     background-color: red;
 
 
-  }
-
-  .container {
-    &__main {
-
-      img{
-        width:50%;
-      }
-
-      .gucci{
-        color:black;
-        &--Aria{
-          font-size:smaller;
-
-        }
-        &--Title{
-          font-size: 3em;
-        }
-
-        &--mainPageImg{
-          width:60vh;          
-
-        }
-      }
-
-     
-    }
-    &__stories{
-    gap:0px;
-      &__left{
-        img{
-          width:160px;
-        }
-        .stories__left__bag{
-          margin-bottom: 5.2em;
-    
-        }
-      }   
-
-     .stories__middle{
-      margin-right: 0em;     
-
-    
-     }
-     &__right{
-      img{
-        width:160px;
-      }
-      .stories__right__gucci{
-        margin-bottom: 4em;
-
-      }
-     
-    }
-
-  }
-  }
-
-  
-}
-
-
-@media only screen and (max-width:600px) {
-  body {
-
-    background-color: green;
-    //used so i know when im on the width i need.
-
-    .catergory__buttons{
-      height: 15vh;
-      
-      .catergory__name{
-        display:none;
-      }
-
-    &--selector{
-      font-size:11px;
-    }
-
-    &--sortPrice{
-      button{
-        font-size:10px;
-      }
-    }
-
-     &--lowerThanPrice {
-     font-size:10px;
-      .inputLowerThan {
-        
-        width:100px;
-  
-      } 
-     }
-
-    }
-
-    
-
-    
-
-    .catergory__items {      
-      height: 200em;      
-
-      .items {
-
-        .imgTop {
-          height: 350px;
-          width: 18em;
-
-        }
-
-        .imgBottom {
-          width: 18em;
-          height: 10px;
-        }
-
-        &:hover .imgBottom {
-          height: 350px;
-          //display: inline;
-
-        }
-      }
-    }
-  }
-
-  .sub-container {    
-    height: 70vh;
-    margin: 0;   
-
-
-  }
-
-  .container {
-
-    &__navBar{
-      font-size:smaller;
-      
-    }
-    &__main {
-
-      img{
-        width:50%;
-      }
-      .gucci{
-        color:black;
-        &--Aria{
-          font-size:smaller;
-
-        }
-        &--Title{
-          font-size: 2em;
-        }
-
-        &--mainPageImg{
-          margin-top:5px;
-          width:40vh;          
-
-        }
-      }
-
-     
-    }
-    &__stories{
-    gap:0px;
-      &__left{
-        // img{
-        //   width:210px;
-        // }
-        // .stories__left__bag{
-        //   margin-bottom: 5.2em;
-    
-        // }
-        display:none;
-      }   
-
-     .stories__middle{
-      margin-right: 0em;     
-      img{
-        width:100%;
-      }
-
-    
-     }
-     &__right{
-      // img{
-      //   width:210px;
-      // }
-      // .stories__right__gucci{
-      //   margin-bottom: 4em;
-
-      // }
-      display:none;
-     
-    }
-
-  }
-
-  &__bottom {
-   
-    font-size:10px;
-
-    &__title{    
-    font-size: small;  
-    }
-
-    input{
-      width:100px;
-    }
-    
-  
-  }
-  }
- 
-
-  
-}
-
-
+//   }
+// }
