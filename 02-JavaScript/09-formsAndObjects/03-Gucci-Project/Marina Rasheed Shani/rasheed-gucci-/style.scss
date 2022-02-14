@@ -611,9 +611,13 @@ $background-color:#ffffff;
 
     &__navBar{
       font-size:smaller;
+      
     }
     &__main {
 
+      img{
+        width:50%;
+      }
       .gucci{
         color:black;
         &--Aria{
@@ -621,11 +625,11 @@ $background-color:#ffffff;
 
         }
         &--Title{
-          font-size: 3em;
+          font-size: 2em;
         }
 
         &--mainPageImg{
-          width:60vh;          
+          width:40vh;          
 
         }
       }
@@ -635,28 +639,33 @@ $background-color:#ffffff;
     &__stories{
     gap:0px;
       &__left{
-        img{
-          width:210px;
-        }
-        .stories__left__bag{
-          margin-bottom: 5.2em;
+        // img{
+        //   width:210px;
+        // }
+        // .stories__left__bag{
+        //   margin-bottom: 5.2em;
     
-        }
+        // }
+        display:none;
       }   
 
      .stories__middle{
       margin-right: 0em;     
+      img{
+        width:100%;
+      }
 
     
      }
      &__right{
-      img{
-        width:210px;
-      }
-      .stories__right__gucci{
-        margin-bottom: 4em;
+      // img{
+      //   width:210px;
+      // }
+      // .stories__right__gucci{
+      //   margin-bottom: 4em;
 
-      }
+      // }
+      display:none;
      
     }
 

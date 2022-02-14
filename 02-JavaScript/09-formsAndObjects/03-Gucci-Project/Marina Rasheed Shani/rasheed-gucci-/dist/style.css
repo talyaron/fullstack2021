@@ -362,6 +362,9 @@ body {
   .container__navBar {
     font-size: smaller;
   }
+  .container__main img {
+    width: 50%;
+  }
   .container__main .gucci {
     color: black;
   }
@@ -369,28 +372,25 @@ body {
     font-size: smaller;
   }
   .container__main .gucci--Title {
-    font-size: 3em;
+    font-size: 2em;
   }
   .container__main .gucci--mainPageImg {
-    width: 60vh;
+    width: 40vh;
   }
   .container__stories {
     gap: 0px;
   }
-  .container__stories__left img {
-    width: 210px;
-  }
-  .container__stories__left .stories__left__bag {
-    margin-bottom: 5.2em;
+  .container__stories__left {
+    display: none;
   }
   .container__stories .stories__middle {
     margin-right: 0em;
   }
-  .container__stories__right img {
-    width: 210px;
+  .container__stories .stories__middle img {
+    width: 100%;
   }
-  .container__stories__right .stories__right__gucci {
-    margin-bottom: 4em;
+  .container__stories__right {
+    display: none;
   }
   .container__bottom {
     font-size: 10px;
