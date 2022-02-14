@@ -596,6 +596,25 @@ html {
     height: 50%;
   }
 }
+.cart {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  top: 4%;
+  right: 5%;
+  z-index: 10;
+}
+.cart__box {
+  background-color: #EBEBEB;
+  border-radius: 10%;
+  width: 50px;
+  height: 50px;
+}
+.cart__close {
+  opacity: 0;
+}
+
 .dishesERP {
   border: 1px solid black;
   width: 50%;
