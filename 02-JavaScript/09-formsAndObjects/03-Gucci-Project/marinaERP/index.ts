@@ -356,8 +356,14 @@ const StandartEbooks= {
                       <i class="far fa-star  " data-number="5" id="${book.id}" onclick = "handleStarClick(event)"></i>
                    </div>                   
                   <p> ${book.rank}</p>
-                  <input  class = "card__addToCardBtn" onclick = "handleAddToCard(event)" id ="addToCard" type ="button" value = "Add to cart">
-               </div>`;
+                  <input  class = "container__card__addToCardBtn" onclick="handleAddToCard()" id ="addToCard" type ="button" value = "Add to cart">              
+               </div>`,
+        `<div class="annotation">${book.annotation}</div>`
+      //  <form class="inputs__form" onsubmit="handleUpdateBook(event, ${book.id})">
+      //  <input class="container__inputs__form__one__inp" type="text" name="update" id="update"
+      //      placeholder="Enter new title">
+      //  <input class="container__inputs__form__one__inp" type="submit" id="updateBtn" value="update">
+      // </form>`
     });
 
     domElement.innerHTML = htmlStore;
@@ -428,6 +434,7 @@ const StandartEbooks= {
                           <input  class = "container__card__addToCardBtn" onclick = "handleAddToCard(event)" id ="addToCard" type ="button" value = "Add to cart">
                    </div>`;
     });
+
     domElement.innerHTML = htmlCard;
   },
 
@@ -446,8 +453,7 @@ const allstars: any = document.querySelectorAll(".fa-star");
 const rating: any = document.querySelector('.rating')
 
 function handleStarClick(e) {
-  StandartEbooks.getData();
-  StandartEbooks.storeData();
+  
   console.log(e.target);
 
   allstars.forEach((star) => {
@@ -675,7 +681,7 @@ function handleFilterByGenre(e) {
   }
 }
 
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
 function handleSelectByGenre(e) {
   e.preventDefault();
   
@@ -692,15 +698,11 @@ function handleSelectByGenre(e) {
     const filterByGenre = StandartEbooks.filterByGenre(genre);
     const a = StandartEbooks.books.filter((item) => {
       return item.genre === genre
-
     })
     
-    
-
     console.log('ghgjg..........',filterByGenre, genre, a);
     StandartEbooks.renderFilterByGenre(filterByGenre, root);
   }
-  
   
 }
 

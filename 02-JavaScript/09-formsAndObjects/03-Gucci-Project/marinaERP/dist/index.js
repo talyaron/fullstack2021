@@ -285,8 +285,6 @@ StandartEbooks.storeData();
 var allstars = document.querySelectorAll(".fa-star");
 var rating = document.querySelector('.rating');
 function handleStarClick(e) {
-    StandartEbooks.getData();
-    StandartEbooks.storeData();
     console.log(e.target);
     allstars.forEach(function (star) {
         if (e.target.id == star.id &&
@@ -380,12 +378,14 @@ function handleDeleteBook(e) {
         console.error(err);
     }
 }
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 function handleDeleteByID(id) {
     console.log(id);
     var rootERP = document.getElementById("rootERP");
     StandartEbooks.deleteByID(id);
     StandartEbooks.renderERP(StandartEbooks.books, rootERP);
 }
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 function handleUpdateBook(e, id) {
     e.preventDefault();
     console.log(id);
@@ -483,7 +483,6 @@ function handleFilterByGenre(e) {
         StandartEbooks.render(StandartEbooks.books, root);
     }
 }
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 function handleSelectByGenre(e) {
     e.preventDefault();
     console.log(e.target);
@@ -504,6 +503,16 @@ function handleSelectByGenre(e) {
         StandartEbooks.renderFilterByGenre(filterByGenre, root);
     }
 }
+// const navFilters = document.querySelectorAll('.genreNav');
+// navFilters.forEach(navFilter => {
+//   const genre = e.target.value;
+//   const root = document.querySelector("#root");
+//   if(navFilter.textContent.includes('error')) {
+//     navFilter.classList.add('error');
+//   } else if (navFilter.textContent.includes('success')) {
+//     navFilter.classList.add('success')
+//   }
+// });
 function handleFilterByAuthor(e) {
     e.preventDefault();
     var author = e.target.value;
