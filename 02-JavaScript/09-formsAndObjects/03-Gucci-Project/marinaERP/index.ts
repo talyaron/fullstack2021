@@ -428,6 +428,7 @@ const StandartEbooks= {
                           <input  class = "container__card__addToCardBtn" onclick = "handleAddToCard(event)" id ="addToCard" type ="button" value = "Add to cart">
                    </div>`;
     });
+
     domElement.innerHTML = htmlCard;
   },
 
@@ -446,8 +447,7 @@ const allstars: any = document.querySelectorAll(".fa-star");
 const rating: any = document.querySelector('.rating')
 
 function handleStarClick(e) {
-  StandartEbooks.getData();
-  StandartEbooks.storeData();
+  
   console.log(e.target);
 
   allstars.forEach((star) => {
@@ -675,7 +675,7 @@ function handleFilterByGenre(e) {
   }
 }
 
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
 function handleSelectByGenre(e) {
   e.preventDefault();
   
@@ -692,15 +692,11 @@ function handleSelectByGenre(e) {
     const filterByGenre = StandartEbooks.filterByGenre(genre);
     const a = StandartEbooks.books.filter((item) => {
       return item.genre === genre
-
     })
     
-    
-
     console.log('ghgjg..........',filterByGenre, genre, a);
     StandartEbooks.renderFilterByGenre(filterByGenre, root);
   }
-  
   
 }
 
