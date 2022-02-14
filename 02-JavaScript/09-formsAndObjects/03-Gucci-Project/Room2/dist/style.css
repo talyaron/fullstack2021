@@ -17,6 +17,23 @@ body {
   border-bottom: solid #c7c7c7 1px;
   border-top: solid #c7c7c7 1px;
 }
+.header__sort details {
+  display: inline-block;
+  border: none;
+  height: 44px;
+  padding: 10px;
+  font-size: 20px;
+  margin: 7px;
+}
+.header__sort details input {
+  position: absolute;
+  height: 90px;
+  width: 40px;
+  background-color: #ede734;
+}
+.header__sort details:hover {
+  border: solid 1px black;
+}
 .header__sort select {
   border: none;
   height: 44px;
