@@ -443,7 +443,7 @@ $background-color:#ffffff;
 
 
 
-@media only screen and (max-width: 770px) {
+@media only screen and (max-width: 1024px) {
   body {
 
     background-color: red;
@@ -532,6 +532,152 @@ $background-color:#ffffff;
 
   }
   }
+
+  
+}
+
+
+@media only screen and (max-width:600px) {
+  body {
+
+    background-color: green;
+    //used so i know when im on the width i need.
+
+    .catergory__buttons{
+      height: 15vh;
+      
+      .catergory__name{
+        display:none;
+      }
+
+    &--selector{
+      font-size:11px;
+    }
+
+    &--sortPrice{
+      button{
+        font-size:10px;
+      }
+    }
+
+     &--lowerThanPrice {
+     font-size:10px;
+      .inputLowerThan {
+        
+        width:100px;
+  
+      } 
+     }
+
+    }
+
+    
+
+    
+
+    .catergory__items {      
+      height: 200em;      
+
+      .items {
+
+        .imgTop {
+          height: 350px;
+          width: 18em;
+
+        }
+
+        .imgBottom {
+          width: 18em;
+          height: 10px;
+        }
+
+        &:hover .imgBottom {
+          height: 350px;
+          //display: inline;
+
+        }
+      }
+    }
+  }
+
+  .sub-container {    
+    height: 70vh;
+    margin: 0;   
+
+
+  }
+
+  .container {
+
+    &__navBar{
+      font-size:smaller;
+    }
+    &__main {
+
+      .gucci{
+        color:black;
+        &--Aria{
+          font-size:smaller;
+
+        }
+        &--Title{
+          font-size: 3em;
+        }
+
+        &--mainPageImg{
+          width:60vh;          
+
+        }
+      }
+
+     
+    }
+    &__stories{
+    gap:0px;
+      &__left{
+        img{
+          width:210px;
+        }
+        .stories__left__bag{
+          margin-bottom: 5.2em;
+    
+        }
+      }   
+
+     .stories__middle{
+      margin-right: 0em;     
+
+    
+     }
+     &__right{
+      img{
+        width:210px;
+      }
+      .stories__right__gucci{
+        margin-bottom: 4em;
+
+      }
+     
+    }
+
+  }
+
+  &__bottom {
+   
+    font-size:10px;
+
+    &__title{    
+    font-size: small;  
+    }
+
+    input{
+      width:100px;
+    }
+    
+  
+  }
+  }
+ 
 
   
 }
