@@ -694,4 +694,19 @@ function popNavBarActive() {
 }
 popNavBarActive();
 
+function popCartActive() {
 
+  var cart = document.querySelector(".cart__box");
+  var cartClose = document.querySelector(".cart__close");
+
+  cart.addEventListener("click", function () {
+      cart.classList.add("cart__box-active");
+  });
+
+  cartClose.addEventListener("click", function () {
+      cart.classList.remove("cart__box-active");
+  });
+
+}
+
+popCartActive();

@@ -596,6 +596,18 @@ html {
     height: 50%;
   }
 }
+.cart {
+  position: fixed;
+  top: 5%;
+  right: 5%;
+  z-index: 10;
+}
+.cart__box {
+  background-color: #EBEBEB;
+  width: 50px;
+  height: 50px;
+}
+
 .dishesERP {
   border: 1px solid black;
   width: 50%;
