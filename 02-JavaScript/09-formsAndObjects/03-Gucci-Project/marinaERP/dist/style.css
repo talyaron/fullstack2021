@@ -78,7 +78,56 @@
   text-align: left;
 }
 
+.card {
+  position: relative;
+  display: inline-flex;
+  padding: 0em 4em;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: rgba(102, 100, 100, 0.123);
+  border-radius: 10px;
+  text-align: center;
+  margin: 2em;
+  box-shadow: 2px 10px 30px rgba(51, 37, 85, 0.4);
+}
+.card__addToCardBtn {
+  position: relative;
+  transition: all ease-in-out 0.3s;
+  cursor: pointer;
+  padding: 0em 1em;
+  border-radius: 8px;
+  font-size: 1em;
+  height: 2.7em;
+  border: none;
+  background-color: rgba(93, 91, 91, 0.205);
+  color: rgba(255, 255, 255, 0.349);
+  box-shadow: 2px 10px 30px rgba(51, 37, 85, 0.4), 2px 2px 2px rgba(18, 12, 29, 0.459);
+  margin-bottom: 1em;
+}
+.card__addToCardBtn:hover {
+  transition: all ease-in-out 0.3s;
+  background-color: #3a3a3a;
+}
+.card__addToCardBtn:active {
+  top: 1.5px;
+  transition: all ease-in-out 0.3s;
+}
+.card img {
+  height: 20em;
+  padding: 2em;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.376);
+  box-shadow: 2px 10px 30px rgba(47, 34, 78, 0.4);
+}
+.card p {
+  letter-spacing: 2px;
+  font-weight: 500;
+  font-size: large;
+}
+
 .header {
+  padding-right: 5em;
   width: 100%;
   display: flex;
   align-items: center;
@@ -117,26 +166,24 @@
   color: #817e7e;
   font-size: 26px;
   text-decoration: none;
-  margin-left: 1em;
-  margin-right: 1em;
+  margin-left: 1.5em;
 }
 .header__navBar .material-icons :hover {
   cursor: pointer;
   color: white;
 }
 .header__navBar ul {
-  display: flex;
-  gap: 4em;
-  margin-right: 3em;
+  display: inline-flex;
+  gap: 5em;
 }
 .header__navBar ul li :hover {
   cursor: pointer;
   color: white;
 }
-.header__navBar ul a {
+.header__navBar ul a, .header__navBar ul li {
   text-decoration: none;
   color: #817e7e;
-  font-size: 1.2em;
+  font-size: 1.1em;
 }
 .header__navBar ul :hover {
   cursor: pointer;
@@ -201,69 +248,6 @@
 }
 .buttons--sortAutor .button:active, .buttons--sortYear .button:active, .buttons--sortRanking .button:active, .buttons--scrollToTopBtn .button:active {
   top: 1px;
-}
-
-.card {
-  position: relative;
-  display: inline-flex;
-  padding: 0em 4em;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  background-color: rgba(102, 100, 100, 0.123);
-  border-radius: 10px;
-  text-align: center;
-  margin: 2em;
-  box-shadow: 2px 10px 30px rgba(51, 37, 85, 0.4);
-}
-.card__addToCardBtn {
-  position: relative;
-  transition: all ease-in-out 0.3s;
-  cursor: pointer;
-  padding: 0em 1em;
-  border-radius: 8px;
-  font-size: 1em;
-  height: 2.7em;
-  border: none;
-  background-color: rgba(93, 91, 91, 0.205);
-  color: rgba(255, 255, 255, 0.349);
-  box-shadow: 2px 10px 30px rgba(51, 37, 85, 0.4), 2px 2px 2px rgba(18, 12, 29, 0.459);
-  margin-bottom: 1em;
-}
-.card__addToCardBtn:hover {
-  transition: all ease-in-out 0.3s;
-  background-color: #3a3a3a;
-}
-.card__addToCardBtn:active {
-  top: 1.5px;
-  transition: all ease-in-out 0.3s;
-}
-.card img {
-  height: 20em;
-  padding: 2em;
-  border-radius: 10px;
-  background-color: rgba(0, 0, 0, 0.376);
-  box-shadow: 2px 10px 30px rgba(47, 34, 78, 0.4);
-}
-.card p {
-  letter-spacing: 2px;
-  font-weight: 500;
-  font-size: large;
-}
-
-.annotation {
-  display: none;
-}
-.annotation img {
-  height: 20em;
-  padding: 2em;
-  border-radius: 10px;
-  background-color: rgba(0, 0, 0, 0.376);
-  box-shadow: 2px 10px 30px rgba(47, 34, 78, 0.4);
-}
-.annotation p {
-  letter-spacing: 2px;
-  color: white;
 }
 
 .bottom {
