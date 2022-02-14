@@ -39,7 +39,7 @@ header {
   }
 
   .navBar {
-    padding-top: 20px;
+    padding-top: 10px;
     padding-bottom: 10px;
     display: block;
 
@@ -71,7 +71,7 @@ header {
       flex-wrap: wrap;
       font-weight: bold;
       justify-content: center;
-      padding-top: 30px;
+      padding-top: 8px;
       padding-bottom: 10px;
       gap: 5px;
 
@@ -200,42 +200,24 @@ header {
 
 .filters {
   position: relative;
-  display: grid;
-  grid-template-columns: 1fr repeat(2, 1fr);
-  grid-template-rows: 50px;
-  justify-content: center;
-  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: end;
+  padding: .5rem;
+  gap: 1rem;
 
-
-  svg {
-    width: 15px;
-    transform: rotate(-90deg);
-    margin-left: 6px;
+  &__category,&__sort{
+    background: none;
+    border: none;
+    text-decoration: none;
     cursor: pointer;
   }
 
-  &__category {
-    display: flex;
-    justify-content: center;
-  }
-
-  &__sort {
-    display: flex;
-    justify-content: center;
-  }
-
-  &__input {
-    margin: auto;
-  }
-
-  @media only screen and (max-width: 600px) {
-
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(2, 50px);
-    justify-content: space-between;
+  &__sort{
+    width: 80px;
   }
 }
-
 [data-add-to-bag] {
   //for js and animation
 }

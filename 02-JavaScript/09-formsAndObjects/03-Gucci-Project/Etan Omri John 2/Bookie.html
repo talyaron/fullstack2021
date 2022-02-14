@@ -77,25 +77,32 @@
         <img src="https://cdn.theculturetrip.com/wp-content/uploads/2016/08/books-768426_960_720-650x433.jpg"" alt="">
     </div>
     <div class="filters">
-        <div class="filters__input">
-            <input type="text" name="name" id="name" placeholder="Amount"/>
+   
+        <div class="filters__input" onkeyup="handleAmount(event)">
+            <input type="number" name="name" id="name" placeholder="Amount"/>
         </div>
 
-        <div class="filters__category">Category
-            <svg id="ot-back-arw" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 444.531 444.531" xml:space="preserve"><title>Back Button</title><g><path fill="#656565" d="M213.13,222.409L351.88,83.653c7.05-7.043,10.567-15.657,10.567-25.841c0-10.183-3.518-18.793-10.567-25.835&#10;                    l-21.409-21.416C323.432,3.521,314.817,0,304.637,0s-18.791,3.521-25.841,10.561L92.649,196.425&#10;                    c-7.044,7.043-10.566,15.656-10.566,25.841s3.521,18.791,10.566,25.837l186.146,185.864c7.05,7.043,15.66,10.564,25.841,10.564&#10;                    s18.795-3.521,25.834-10.564l21.409-21.412c7.05-7.039,10.567-15.604,10.567-25.697c0-10.085-3.518-18.746-10.567-25.978&#10;L213.13,222.409z"/></g></svg>
-        </div>
+        
+            <select class="filters__category" onclick="handleSelect(event)">
+                <option value="" disabled selected>Category</option>
+                <option value="all">Show all</option>
+                <option value="thriller">Thrillers</option>
+                <option value="history">History</option>
+                <option value="cooking">Cooking</option>
+                <option value="fantasyg">Fantasyg</option>
+            </select>
 
-        <div class="filters__sort">Sort by
-            <svg id="ot-back-arw" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 444.531 444.531" xml:space="preserve"><title>Back Button</title><g><path fill="#656565" d="M213.13,222.409L351.88,83.653c7.05-7.043,10.567-15.657,10.567-25.841c0-10.183-3.518-18.793-10.567-25.835&#10;                    l-21.409-21.416C323.432,3.521,314.817,0,304.637,0s-18.791,3.521-25.841,10.561L92.649,196.425&#10;                    c-7.044,7.043-10.566,15.656-10.566,25.841s3.521,18.791,10.566,25.837l186.146,185.864c7.05,7.043,15.66,10.564,25.841,10.564&#10;                    s18.795-3.521,25.834-10.564l21.409-21.412c7.05-7.039,10.567-15.604,10.567-25.697c0-10.085-3.518-18.746-10.567-25.978&#10;L213.13,222.409z"/></g></svg>
-        </div>
+            <select class="filters__sort" onclick="handleSort(event)">
+                <option value="" disabled selected>Sort By</option>
+                <option value="sortAsc">price - High To Low</option>
+                <option value="sortDesc">price - Low To High</option>
+            </select>
+        
     </div>  
         <!--Omri-->
         <!--John-->
         <div class="rootBooks" data-rootBooks>
-            
-            
-            
-            
+
         </div>
         <!--John-->
         <!--Etan-->
