@@ -112,10 +112,9 @@ const Adidas: shop = {
     let html = "";
     this.products.forEach((product) => {
       let text = document.URL;
-      //let resultCustomer = text.substring(22, 35);
-      //let resultOwner = text.substring(22, 35);
-      let resultCustomer = text.search("Blue");
-      if (text.search("Customer")) {
+      let customer = text.includes("customer")
+      let owner = text.includes("owner")
+      if (customer) {
         html += `
      <div class="cards__item" >
 
@@ -139,7 +138,7 @@ const Adidas: shop = {
         console.log("render");
       }
 
-      else  if (text.search("owner")) {
+      else  if (owner) {
         html += `
      <div class="cards__item" >
 
