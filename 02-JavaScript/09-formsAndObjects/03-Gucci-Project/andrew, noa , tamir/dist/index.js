@@ -125,6 +125,17 @@ function handelfilters(ev) {
     console.log(ev.target.innerText);
     aviator.filterItems(ev.target.innerText);
 }
+function handleSearch(ev) {
+    var searchTerm = ev.target.value;
+    var regEx = new RegExp(searchTerm, "i");
+    aviator.itemsToRender = [];
+    aviator.items.forEach(function (item) {
+        if (regEx.test(item.name)) {
+            aviator.itemsToRender.push(item);
+        }
+    });
+    aviator.renderitem(document.getElementById('main'));
+}
 document.querySelector('.filter-bar__item').addEventListener('click', function () {
     aviator.itemsToRender = aviator.items;
     aviator.renderitem(document.getElementById('main'));
