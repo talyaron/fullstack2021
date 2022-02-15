@@ -49,27 +49,29 @@ body {
     left: 0px;
     padding-bottom: 1em;
     transition: all 0.5s;
+     
 
+    &__title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
 
-    // &__title {
-    //   display: flex;
-    //   justify-content: space-between;
-    //   align-items: center;
-    //   color: white;
-
-    //   &__help {
-    //     display: flex;
-    //     // gap: 1px;
-    //     font-size: smaller;
-    //   }
+      &__help {
+        display: flex;
+        // gap: 1px;
+        font-size: smaller;
+      }
 
     &--gucci {
       font-size: 1em;
       letter-spacing: 12px;
       font-family: Granjon;
       font-weight: lighter;
+      justify-content: center;
 
     }
+  }
   }
 
 

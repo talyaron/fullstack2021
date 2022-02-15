@@ -42,11 +42,22 @@ body {
   padding-bottom: 1em;
   transition: all 0.5s;
 }
-.container__navBar--gucci {
+.container__navBar__title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+.container__navBar__title__help {
+  display: flex;
+  font-size: smaller;
+}
+.container__navBar__title--gucci {
   font-size: 1em;
   letter-spacing: 12px;
   font-family: Granjon;
   font-weight: lighter;
+  justify-content: center;
 }
 .container__navBar2 {
   transition: all 0.5s;
