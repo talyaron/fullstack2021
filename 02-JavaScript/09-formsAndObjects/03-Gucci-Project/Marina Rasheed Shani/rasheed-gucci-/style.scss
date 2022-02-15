@@ -10,6 +10,39 @@ body {
 
 }
 
+.cart{
+  position:sticky;
+  z-index:1;
+  height:1px;  
+  top:30vh;
+  width:55px;
+  align-self: center;
+  
+  ion-icon{
+    height:10vh;
+    width:50px;
+    border-radius: 10px;
+  border:solid 1px rgba(128, 128, 128, 0.699);
+  text-align:center;
+  background-color: rgb(245, 234, 234);
+  }
+
+  &--opened{
+    background-color: green;
+    width:800px;
+    height:800px;
+    z-index: 2;
+    display:none;
+    margin-left:0px;
+   
+  }
+  // &:hover .cart--opened{
+  //   display:inline-block;
+  // }
+
+
+}
+
 .container {
   &__navBar {
 
