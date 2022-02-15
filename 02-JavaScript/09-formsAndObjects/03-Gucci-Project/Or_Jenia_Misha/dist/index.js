@@ -435,8 +435,11 @@ var sushiMenu = {
         domElement.innerHTML = html;
     },
     sumCartPrice: function (list) {
-        list.forEach(function (item) {
+        var sum = 0;
+        list.forEach(function (dish) {
+            sum += dish.price * dish.quantity;
         });
+        return sum;
     },
     storeData: function () {
         localStorage.setItem("storeData", JSON.stringify(this.dishes));
@@ -584,8 +587,18 @@ function handleAddToCart(ev) {
     var cartRoot = document.getElementById("cart__root");
     sushiMenu.addCartDish(sushiMenu.dishes[index]);
     sushiMenu.renderCart(sushiMenu.cartDishes, cartRoot);
+    totalPrice(sushiMenu.cartDishes);
 }
+function totalPrice(list) {
+    var sumCartAdd = 0;
+    var sumCart = sushiMenu.sumCartPrice(list);
+    sumCartAdd += sumCart;
+    var totalPriceRoot = document.querySelector(".totalprice");
+    totalPriceRoot.innerHTML = "Total Price " + sumCartAdd + "\u20AA";
+}
+totalPrice(sushiMenu.cartDishes);
 function handleDeleteFromCart(ev) {
     var idFromCart = ev.target.id;
     sushiMenu.removeCartDish(idFromCart);
+    totalPrice(sushiMenu.cartDishes);
 }

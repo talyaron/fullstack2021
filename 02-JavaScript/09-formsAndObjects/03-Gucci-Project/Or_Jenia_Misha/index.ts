@@ -474,7 +474,7 @@ let sushiMenu: Menu = {
 
     const cartIndex = sushiMenu.cartDishes.findIndex((dish) => dish.id === cartObj.id);
 
-    if (cartIndex<0){
+    if (cartIndex < 0) {
       cartObj.quantity = 1;
       this.cartDishes.push(cartObj)
     }
@@ -594,12 +594,19 @@ let sushiMenu: Menu = {
     domElement.innerHTML = html;
   },
 
-  sumCartPrice(list){
-    list.forEach((item) => {
+  sumCartPrice(list) {
 
-      
+    let sum = 0;
+
+    list.forEach((dish) => {
+
+      sum += dish.price * dish.quantity;
+
     })
-  }
+
+    return sum;
+
+  },
 
   storeData() {
     localStorage.setItem("storeData", JSON.stringify(this.dishes));
@@ -783,7 +790,6 @@ function handlePlaceOrder(ev) {
   window.alert("bo lo nagzim...");
 }
 
-
 function handleAddToCart(ev) {
 
   const idToCart = ev.target.id;
@@ -791,14 +797,30 @@ function handleAddToCart(ev) {
   const cartRoot = document.getElementById("cart__root")
 
   sushiMenu.addCartDish(sushiMenu.dishes[index]);
-  sushiMenu.renderCart(sushiMenu.cartDishes, cartRoot)
+  sushiMenu.renderCart(sushiMenu.cartDishes, cartRoot);
+
+  totalPrice(sushiMenu.cartDishes);
 
 }
+
+function totalPrice(list){
+
+let sumCartAdd = 0;
+let sumCart = sushiMenu.sumCartPrice(list);
+sumCartAdd += sumCart;
+
+const totalPriceRoot = document.querySelector(".totalprice");
+
+totalPriceRoot.innerHTML = `Total Price ${sumCartAdd}₪`;
+
+}
+
+totalPrice(sushiMenu.cartDishes);
 
 function handleDeleteFromCart(ev) {
 
   const idFromCart = ev.target.id;
-
   sushiMenu.removeCartDish(idFromCart);
+  totalPrice(sushiMenu.cartDishes);
 
 }
