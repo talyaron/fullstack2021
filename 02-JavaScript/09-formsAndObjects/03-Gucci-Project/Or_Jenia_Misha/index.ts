@@ -600,7 +600,7 @@ function handleDeleteDish(ev) {
   renderSushiMenu();
 
 }
-function handleUpdateDish(ev){
+function handleUpdateDish(ev) {
   ev.preventDefault();
   console.dir(ev.target);
   const dishName = ev.target.elements.name.value;
@@ -608,10 +608,10 @@ function handleUpdateDish(ev){
   const dishDesc = ev.target.elements.description.value;
   const dishCategory = (<HTMLSelectElement>document.getElementById("updated-category")).value;
   const dishId = ev.target.id;
- const newDish ={id:dishId,name:dishName,price:dishPrice,description:dishDesc,category:dishCategory};
- sushiMenu.updateDish(dishId,newDish);
- sushiMenu.getData(); 
- renderSushiMenu();
+  const newDish = { id: dishId, name: dishName, price: dishPrice, description: dishDesc, category: dishCategory };
+  sushiMenu.updateDish(dishId, newDish);
+  sushiMenu.getData();
+  renderSushiMenu();
 
 }
 
@@ -684,7 +684,7 @@ function popNavBarActive() {
       const list = sushiMenu.filterByCategory(category.id);
       renderSushiMenu();
       sushiMenu.renderDishesStore(list, rootStore);
-      categories.forEach(category =>{
+      categories.forEach(category => {
         category.classList.remove("popCategory-active");
       })
       category.classList.add("popCategory-active");
@@ -695,19 +695,25 @@ function popNavBarActive() {
 popNavBarActive();
 
 function popCartActive() {
- 
+
   const cartBox = document.querySelector(".cart__box");
   const cartImg = document.querySelector(".cart__img");
   const cartClose = document.querySelector(".cart__close");
   const cart = document.querySelector(".cart");
+  const cartFooter = document.querySelector(".cart__footer");
 
   cartImg.addEventListener("click", function () {
-      cartBox.classList.add("cart__box-active");
-      cart.classList.add("cart-active");
+    cart.classList.add("cart-active");
+    cartBox.classList.add("cart__box-active");
+    cartClose.classList.add("cart__close-active");
+    cartFooter.classList.add("cart__footer-active");
   });
 
   cartClose.addEventListener("click", function () {
-      cartBox.classList.remove("cart__box-active");
+    cart.classList.remove("cart-active");
+    cartBox.classList.remove("cart__box-active");
+    cartClose.classList.remove("cart__close-active");
+    cartFooter.classList.remove("cart__footer-active");
   });
 
 }

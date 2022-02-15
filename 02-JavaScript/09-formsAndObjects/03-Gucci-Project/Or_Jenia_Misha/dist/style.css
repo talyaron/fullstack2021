@@ -601,40 +601,69 @@ html {
   position: fixed;
   display: flex;
   flex-direction: column;
-  top: 4%;
-  right: 1%;
+  justify-content: space-between;
+  top: 6.1%;
+  right: 5%;
   z-index: 10;
-  height: 420px;
-  width: 300px;
+  height: 50px;
+  width: 50px;
+}
+.cart .footer {
+  display: none;
+}
+.cart .footer-active {
+  display: block;
+}
+.cart__close {
+  display: none;
+}
+.cart__close-active {
+  display: block;
+  color: black;
+  position: absolute;
+  right: 3%;
+  cursor: pointer;
 }
 .cart-active {
-  top: 13%;
-}
-.cart-active__close {
-  opacity: 1;
-  color: white;
+  top: 12%;
+  height: 420px;
+  width: 300px;
 }
 .cart__box {
   padding: 1em;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   background-color: #EBEBEB;
-  border-radius: 10%;
+  border-radius: 1%;
   width: 50px;
-  height: 50px;
+  height: 60px;
 }
 .cart__box-active {
   position: absolute;
   width: 300px;
   height: 400px;
 }
+.cart__box .cart__footer form {
+  display: flex;
+  justify-content: center;
+  display: none;
+  gap: 0.5em;
+}
+.cart__box .cart__footer form input {
+  width: 35px;
+}
+.cart__box .cart__footer form button {
+  width: 60px;
+}
+.cart__box .cart__footer-active form {
+  display: flex;
+}
 .cart__box img {
   width: 40px;
   height: 30px;
   cursor: pointer;
-}
-.cart__close {
-  opacity: 0;
 }
 
 .dishesERP {
