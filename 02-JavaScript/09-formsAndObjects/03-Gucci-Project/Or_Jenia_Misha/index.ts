@@ -8,11 +8,13 @@ interface Menu {
   addDish(name: string, price: number, description: string, category: string);
   addCartDish(cartObj)
   removeDish(id: string);
+  removeCartDish(id: string);
   updateDish(id: string, newDish: Dish);
   filterByCategory(category: string);
   renderDishesStore(list: any, domElement: any);
   renderDishesERP(list: any, domElement: any);
   renderCart(list: any, domElement: any);
+  sumCartPrice(list)
   storeData();
   getData();
 }
@@ -23,6 +25,7 @@ interface Dish {
   price: number;
   description: string;
   category: string;
+  quantity?: number;
 }
 
 let sushiMenu: Menu = {
@@ -456,7 +459,7 @@ let sushiMenu: Menu = {
 
   cartDishes: [
 
-    
+
   ],
 
   addDish(name, price, description, category) {
@@ -465,13 +468,33 @@ let sushiMenu: Menu = {
     this.storeData();
   },
 
-  addCartDish(cartObj){
-    this.cartDishes.push(cartObj)
+  addCartDish(cartObj) {
+
+    let quantity;
+
+    const cartIndex = sushiMenu.cartDishes.findIndex((dish) => dish.id === cartObj.id);
+
+    if (cartIndex<0){
+      cartObj.quantity = 1;
+      this.cartDishes.push(cartObj)
+    }
+
+    else {
+      this.cartDishes[cartIndex].quantity += 1;
+    }
+
   },
 
   removeDish(id) {
     this.dishes = this.dishes.filter((dish) => dish.id !== id);
     this.storeData();
+  },
+
+  removeCartDish(id) {
+    const cartRoot = document.getElementById("cart__root")
+    this.cartDishes = this.cartDishes.filter((dish) => dish.id !== id);
+    this.storeData();
+    this.renderCart(sushiMenu.cartDishes, cartRoot)
   },
 
   updateDish(id, newDish) {
@@ -482,6 +505,7 @@ let sushiMenu: Menu = {
     }
     this.storeData();
   },
+
   filterByCategory(category) {
     return this.dishes.filter((dish) => dish.category === category);
 
@@ -562,14 +586,20 @@ let sushiMenu: Menu = {
     list.forEach((item) => {
       html += `<div class="cart__dishes" id = "${item.id}"> 
       
-      <div class = "dishes__title"> 
-         <h3 class ="dishes__title__name">${item.name}&nbsp</h3> 
-         <p class ="dishes__title__price">${item.price}</p>
-      </div>`;
+         <h3 class ="dishes__title__name">${item.name}&nbsp qnt: ${item.quantity}</h3> 
+         <p class ="dishes__title__price">${item.price}₪ <button onclick="handleDeleteFromCart(event)" id="${item.id}">-</button></p>
+         </div>`;
     });
 
     domElement.innerHTML = html;
   },
+
+  sumCartPrice(list){
+    list.forEach((item) => {
+
+      
+    })
+  }
 
   storeData() {
     localStorage.setItem("storeData", JSON.stringify(this.dishes));
@@ -748,26 +778,27 @@ function popCartActive() {
 
 popCartActive();
 
-function handlePlaceOrder(ev){
+function handlePlaceOrder(ev) {
   ev.preventDefault();
   window.alert("bo lo nagzim...");
 }
 
 
-function handleAddToCart(ev){
-  // try{
+function handleAddToCart(ev) {
+
   const idToCart = ev.target.id;
   const index = sushiMenu.dishes.findIndex((dish) => dish.id === idToCart);
   const cartRoot = document.getElementById("cart__root")
 
   sushiMenu.addCartDish(sushiMenu.dishes[index]);
+  sushiMenu.renderCart(sushiMenu.cartDishes, cartRoot)
 
-  sushiMenu.renderCart(sushiMenu.cartDishes,cartRoot)
+}
 
-  // }
-  // catch{
-  //   console.log('error');
-    
-  // }
-  
+function handleDeleteFromCart(ev) {
+
+  const idFromCart = ev.target.id;
+
+  sushiMenu.removeCartDish(idFromCart);
+
 }

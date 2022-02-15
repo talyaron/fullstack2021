@@ -639,19 +639,22 @@ html {
     height: 50px;
     width: 50px;
 
-    .footer{
-            display: none;
+    &__body {
 
-            &-active{
-                display: block;
-            }
+        overflow-y: scroll;
+
+        .cart__dishes {
+            width: 260px;
+            display: flex;
+            justify-content: space-between;
+        }
     }
 
-    &__close{
+    &__close {
 
         display: none;
 
-        &-active{
+        &-active {
             display: block;
             color: rgb(0, 0, 0);
             position: absolute;
@@ -684,22 +687,26 @@ html {
             height: 400px;
         }
 
-        .cart__footer{
-            form{
-            display: flex;
-            justify-content: center;
-            display: none;
-            gap: 0.5em;
-            input{
-                width: 35px;
-            }
-            button{
-                width: 60px;
-            }
+        .cart__footer {
+
+            form {
+                padding: 0.3em;
+                display: flex;
+                justify-content: center;
+                display: none;
+                gap: 0.5em;
+
+                input {
+                    width: 35px;
+                }
+
+                button {
+                    width: 60px;
+                }
             }
 
-            &-active{
-                form{
+            &-active {
+                form {
                     display: flex;
                 }
             }

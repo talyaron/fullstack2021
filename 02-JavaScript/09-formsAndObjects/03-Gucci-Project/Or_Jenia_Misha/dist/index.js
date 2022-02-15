@@ -382,11 +382,25 @@ var sushiMenu = {
         this.storeData();
     },
     addCartDish: function (cartObj) {
-        this.cartDishes.push(cartObj);
+        var quantity;
+        var cartIndex = sushiMenu.cartDishes.findIndex(function (dish) { return dish.id === cartObj.id; });
+        if (cartIndex < 0) {
+            cartObj.quantity = 1;
+            this.cartDishes.push(cartObj);
+        }
+        else {
+            this.cartDishes[cartIndex].quantity += 1;
+        }
     },
     removeDish: function (id) {
         this.dishes = this.dishes.filter(function (dish) { return dish.id !== id; });
         this.storeData();
+    },
+    removeCartDish: function (id) {
+        var cartRoot = document.getElementById("cart__root");
+        this.cartDishes = this.cartDishes.filter(function (dish) { return dish.id !== id; });
+        this.storeData();
+        this.renderCart(sushiMenu.cartDishes, cartRoot);
     },
     updateDish: function (id, newDish) {
         var index = this.dishes.findIndex(function (dish) { return dish.id === id; });
@@ -416,9 +430,13 @@ var sushiMenu = {
     renderCart: function (list, domElement) {
         var html = "";
         list.forEach(function (item) {
-            html += "<div class=\"cart__dishes\" id = \"" + item.id + "\"> \n      \n      <div class = \"dishes__title\"> \n         <h3 class =\"dishes__title__name\">" + item.name + "&nbsp</h3> \n         <p class =\"dishes__title__price\">" + item.price + "</p>\n      </div>";
+            html += "<div class=\"cart__dishes\" id = \"" + item.id + "\"> \n      \n         <h3 class =\"dishes__title__name\">" + item.name + "&nbsp qnt: " + item.quantity + "</h3> \n         <p class =\"dishes__title__price\">" + item.price + "\u20AA <button onclick=\"handleDeleteFromCart(event)\" id=\"" + item.id + "\">-</button></p>\n         </div>";
         });
         domElement.innerHTML = html;
+    },
+    sumCartPrice: function (list) {
+        list.forEach(function (item) {
+        });
     },
     storeData: function () {
         localStorage.setItem("storeData", JSON.stringify(this.dishes));
@@ -561,14 +579,13 @@ function handlePlaceOrder(ev) {
     window.alert("bo lo nagzim...");
 }
 function handleAddToCart(ev) {
-    // try{
     var idToCart = ev.target.id;
     var index = sushiMenu.dishes.findIndex(function (dish) { return dish.id === idToCart; });
     var cartRoot = document.getElementById("cart__root");
     sushiMenu.addCartDish(sushiMenu.dishes[index]);
     sushiMenu.renderCart(sushiMenu.cartDishes, cartRoot);
-    // }
-    // catch{
-    //   console.log('error');
-    // }
+}
+function handleDeleteFromCart(ev) {
+    var idFromCart = ev.target.id;
+    sushiMenu.removeCartDish(idFromCart);
 }
