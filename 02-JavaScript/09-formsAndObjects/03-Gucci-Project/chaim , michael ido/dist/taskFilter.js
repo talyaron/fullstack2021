@@ -211,21 +211,21 @@ var clothsList = {
         }
         var html = "";
         list.forEach(function (item) {
-            html += " \n            <div class=\"container-shoppingCart_display-item\">\n                <h1 class=\"container-shoppingCart_display-item-header\">" + item.brand + " " + catagory + "</h1>\n                <p class=\"container-shoppingCart_display-item-size\">size: " + item.size + "</p>\n                <p class=\"container-shoppingCart_display-item-price\">price: " + item.price + "</p>\n                <button class=\"container-shoppingCart_display-item-deleteBtn\" name=\"" + catagory + "\" id=\"" + item.id + "\" type=\"button\" onclick=\"deleteItemFromCart(event)\">remove</button>\n            </div>";
+            html += " \n            <div class=\"container-shoppingCart_display-item\">\n                <h1 class=\"container-shoppingCart_display-item-header\">" + item.brand + " " + item.name + "</h1>\n                <p class=\"container-shoppingCart_display-item-size\">size: " + item.size + "</p>\n                <p class=\"container-shoppingCart_display-item-price\">price: " + item.price + "</p>\n                <button class=\"container-shoppingCart_display-item-deleteBtn\" name=\"" + catagory + "\" id=\"" + item.id + "\" type=\"button\" onclick=\"deleteItemFromCart(event)\">remove</button>\n            </div>";
         });
         display.innerHTML = html;
     }, deleteItemFromShoppingCart: function (id) {
         this.shoppingCart = this.shoppingCart.filter(function (item) { return item.id !== id; });
-    }, TotalCartPrice: function (list, display) {
+    }, TotalCartPrice: function (display) {
         var sum = 0;
-        list.forEach(function (item) {
+        this.shoppingCart.forEach(function (item) {
             sum += item.price;
         });
         display.textContent = "Total : " + sum;
     }, renderCartDropDown: function (display) {
         var html = '';
         this.shoppingCart.forEach(function (item) {
-            html += "\n                <div class=\"container_header-dropDown-box-item\">\n                <h1 class=\"container_header-dropDown-box-item-header\">" + item.brand + " " + item.name + "</h1>\n                <p class=\"container_header-dropDown-box-item-size\">size: " + item.size + "</p>\n                <p class=\"container_header-dropDown-box-item-price\">price: " + item.price + "</p>\n                <button class=\"container_header-dropDown-box-item-deleteBtn\" name=\"" + item.name + "\" id=\"" + item.id + "\" type=\"button\" onclick=\"deleteItemFromCart(event)\">remove</button>\n                </div>";
+            html += "\n                <div class=\"container_header-dropDown-box-item\">\n                <h1 class=\"container_header-dropDown-box-item-header\">" + item.brand + " " + item.name + "</h1>\n                <p class=\"container_header-dropDown-box-item-size\">size: " + item.size + "</p>\n                <p class=\"container_header-dropDown-box-item-price\">price: " + item.price + "</p>\n                <button class=\"container_header-dropDown-box-item-deleteBtn\" lang=\"dropDown\" name=\"" + item.name + "\" id=\"" + item.id + "\" type=\"button\" onclick=\"deleteItemFromCart(event)\">remove</button>\n                </div>";
         });
         display.innerHTML = html;
     }
@@ -585,7 +585,7 @@ function addToCart(ev, id) {
     var catagory = ev.target.name;
     clothsList.addToCart(id, catagory);
     clothsList.renderShoppingCart(clothsList.shoppingCart, display, catagory);
-    clothsList.TotalCartPrice(clothsList.shoppingCart, displayTotal);
+    clothsList.TotalCartPrice(displayTotal);
 }
 function showDropDown(ev) {
     var dropDownDisplay = document.querySelector('.container_header-dropDown');
@@ -614,12 +614,27 @@ function deleteItemFromCart(ev) {
     var displayTotal = document.querySelector('.totalCart');
     var catagory = ev.target.name;
     var id = ev.target.id;
-    console.log(id);
-    console.log(catagory);
+    var lang = ev.target.lang;
     clothsList.deleteItemFromShoppingCart(id);
     displayShoppingCart.innerHTML = '';
     console.log(clothsList.shoppingCart);
     clothsList.renderShoppingCart(clothsList.shoppingCart, displayShoppingCart, catagory);
-    clothsList.renderCartDropDown(dropDownCart);
-    clothsList.TotalCartPrice(clothsList.shoppingCart, displayTotal);
+    if (lang == "dropDown") {
+        clothsList.renderCartDropDown(dropDownCart);
+    }
+    clothsList.TotalCartPrice(displayTotal);
 }
+function creatDataList() {
+    var dataList = document.querySelector('.container_header-search-dataList');
+    dataList.innerHTML = "";
+}
+// const display = document.querySelector(".container_catagories-display");
+// try{
+//     if(typeof inputSearch !== 'string') throw new Error('no found')
+//     switch(inputSearch){
+//     case "Tshirts":
+//         clothsList.renderCustomerPage(clothsList.Tshirts, display, "Tshirts", imgCard)
+//     }
+// }
+// } catch (error) {
+// }

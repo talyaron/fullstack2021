@@ -69,14 +69,13 @@
     <div>-------------------------------------------------------------------------------------------------------------
     </div>
 
-   
+    <div id="root"></div>
     <!-- //needed cause the handle update didnt even have a root when i did console.log(root) -->
     <form onsubmit="handleUpdate(event)">
-        <input class='tsInput' type="itemName" name="itemName" placeholder="write item name to update">
+        <input type="text" type="itemName" name="itemName" placeholder="write item name to update">
         <input class='tsInput' type="number" name="newPrice" placeholder="Update Price">
         <input class='tsBtn' name="submit" value="Update" type="submit">
     </form>
-    <div id="root"></div>
     <script src="dist/index.js"></script>
 </body>
 

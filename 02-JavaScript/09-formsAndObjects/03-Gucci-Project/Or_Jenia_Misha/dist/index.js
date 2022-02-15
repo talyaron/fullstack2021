@@ -525,3 +525,17 @@ function popNavBarActive() {
     });
 }
 popNavBarActive();
+function popCartActive() {
+    var cartBox = document.querySelector(".cart__box");
+    var cartImg = document.querySelector(".cart__img");
+    var cartClose = document.querySelector(".cart__close");
+    var cart = document.querySelector(".cart");
+    cartImg.addEventListener("click", function () {
+        cartBox.classList.add("cart__box-active");
+        cart.classList.add("cart-active");
+    });
+    cartClose.addEventListener("click", function () {
+        cartBox.classList.remove("cart__box-active");
+    });
+}
+popCartActive();
