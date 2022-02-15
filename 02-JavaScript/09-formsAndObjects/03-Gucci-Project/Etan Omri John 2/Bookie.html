@@ -77,13 +77,15 @@
         <img src="https://cdn.theculturetrip.com/wp-content/uploads/2016/08/books-768426_960_720-650x433.jpg"" alt="">
     </div>
     <div class="filters">
-   
+        <div class="filter__search">
+            <input type="search" id="search" placeholder="Search">
+        </div>
         <div class="filters__input" onkeyup="handleAmount(event)">
             <input type="number" name="name" id="name" placeholder="Amount"/>
         </div>
 
         
-            <select class="filters__category" onclick="handleSelect(event)">
+            <select class="filters__category" onchange="handleSelect(event)">
                 <option value="" disabled selected>Category</option>
                 <option value="all">Show all</option>
                 <option value="thriller">Thrillers</option>

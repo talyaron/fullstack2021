@@ -406,7 +406,7 @@ body {
   z-index: 1;
   background-color: var(--main-color-purple1);
   transition: ease 0.5s;
-  transform: translateY(60px);
+  transform: translateY(100px);
 }
 
 .visableForm {
