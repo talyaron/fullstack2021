@@ -19,6 +19,9 @@ body {
   top: 30vh;
   width: 55px;
   align-self: center;
+ 
+  
+  
 
   ion-icon {
     height: 10vh;
@@ -28,18 +31,29 @@ body {
     text-align: center;
     background-color: rgb(245, 234, 234);
   }
+  
 
-  &--opened {
-    background-color: green;
-    width: 800px;
-    height: 800px;
-    z-index: 2;
-    display: none;
-    margin-left: 0px;
-  }
+
 
 
 }
+
+
+.showCart {
+  background-color: green;
+  margin-left:100px;
+  width: 80vw;
+  height:100vh;
+  z-index: 1;
+  display:none;
+  
+  
+
+ 
+  
+
+}
+
 
 .container {
   width: 100%;
