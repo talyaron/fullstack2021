@@ -147,7 +147,7 @@ body {
       ul {
 
 
-        margin-left: -200px;
+        margin-left: -450px;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
@@ -505,7 +505,13 @@ $background-color:#ffffff;
 @media only screen and (max-width: 1024px) {
   body {
 
-
+    .container__navBar2__dropdown{
+      ul{
+        margin-left:-150px;
+        
+      }
+      
+    }
     .catergory__items {
       height: 120em;
 
@@ -608,6 +614,14 @@ $background-color:#ffffff;
 
 @media only screen and (max-width:600px) {
   body {
+
+    .container__navBar2__dropdown{
+      ul{
+        margin-left:-100px;
+        
+      }
+      
+    }
 
     .catergory__buttons {
       height: 15vh;
