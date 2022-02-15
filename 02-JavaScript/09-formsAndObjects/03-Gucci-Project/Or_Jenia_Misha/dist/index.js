@@ -530,12 +530,18 @@ function popCartActive() {
     var cartImg = document.querySelector(".cart__img");
     var cartClose = document.querySelector(".cart__close");
     var cart = document.querySelector(".cart");
+    var cartForm = document.querySelector(".cartform");
     cartImg.addEventListener("click", function () {
-        cartBox.classList.add("cart__box-active");
         cart.classList.add("cart-active");
+        cartBox.classList.add("cart__box-active");
+        cartClose.classList.add("cart__close-active");
+        cartClose.classList.add("cartform-active");
     });
     cartClose.addEventListener("click", function () {
+        cart.classList.remove("cart-active");
         cartBox.classList.remove("cart__box-active");
+        cartClose.classList.remove("cart__close-active");
+        cartForm.classList.remove("cartform-active");
     });
 }
 popCartActive();
