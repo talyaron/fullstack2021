@@ -11,7 +11,10 @@ interface Store {
     type: string,
     id: any
   ): any;
+  cartItems: Array<any>;
   removeItems(itemName: string): any;
+  addToCart?(addedItems:any):any;
+  renderAddToCart?(domElement:any):any;
   updateItems( newPrice: number, itemName: string): any;
   filterMaxPriceAndGender(gender: string, price: number);
   sortByAscending(price: number);
@@ -23,7 +26,7 @@ interface Store {
   renderFilterByGenderAndType(filterGender: any, filterType: any, domElement: any): any;
   filterByGender(gender: string);
   renderByGender(gender: string, domElement: any): any;
-
+  
 
 
 }
@@ -257,6 +260,7 @@ const gucci: Store = {
 
 
   ],
+  cartItems: [],
   storeData() {
     localStorage.setItem("storeData", JSON.stringify(this.items));
   },
@@ -277,6 +281,30 @@ const gucci: Store = {
       this.items.splice(index, 1);
       this.storeData();
     }
+  },
+  addToCart(newItem){
+    const id=uid();
+    
+    this.items.forEach(item => item.id === newItem );
+    this.cartItems.push(newItem);
+    
+    
+  },
+  renderAddToCart(domElement){
+    let cartHtml="";
+    this.cartItems.forEach(item=>{
+      cartHtml+=`<div class="cartItems">
+      <p>${item.name}</p>
+      <img class="imgTop" src="${item.imgTop}" >
+      <p>${item.price}$</p>
+      </div>`;
+
+      domElement.innerHTML=cartHtml;
+
+    })
+    
+    
+  
   },
 
   updateItems( newPrice, itemName) {
@@ -324,7 +352,7 @@ const gucci: Store = {
         <img class="imgTop" src="${item.imgTop}" >
         <img class="imgBottom" src="${item.imgBottom}" >
         <p>${item.price}$</p>
-        <input onclick="handleAddToCart()" id="addToCart" type="button" value="ADD TO CART">
+        <input onclick="handleAddToCart('${item.id}')" id="addToCart" type="button" value="ADD TO CART">
         </div>`;
     });
     domElement.innerHTML = html;
@@ -356,6 +384,7 @@ const gucci: Store = {
     const filterByGender = this.filterByGender(gender);
     this.render(filterByGender, domElement);
   },
+  
 
 
 };
@@ -501,5 +530,40 @@ function handleRenderByGender(gender: string) {
   gucci.renderByGender(gender, root);
 }
 
+function handleShowCart(){
+  
+
+  const cartRoot=document.getElementById("cartRoot");
+  
+  if(cartRoot.style.display==="none"){
+
+    cartRoot.style.display="block"
+
+  }
+  else{
+    cartRoot.style.display="none"
+  }
+  
+  
+
+}
+
+function handleAddToCart(addedItemsId){
+  const cartRoot=document.getElementById('cartRoot');
+  
+
+  
+    const addedItems=gucci.items.filter(item=>item.id = addedItemsId);
+    gucci.addToCart(addedItems);
+  
+  
+  //console.log(addedItems)
+  
+  
+  gucci.renderAddToCart(cartRoot)
+  
+  
+
+}
 
 
