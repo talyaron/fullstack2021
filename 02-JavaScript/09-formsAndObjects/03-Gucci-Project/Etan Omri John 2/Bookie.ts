@@ -170,6 +170,7 @@ const bookie: BookShop = {
   },
   renderItem(domElement) {
     if (window.document.title === "Bookie") {
+      localStorage.setItem('Bookie shop', JSON.stringify(bookie))
       bookie.books = JSON.parse(localStorage.getItem("Bookie shop")).books;
       console.log(bookie)
       let html = "";
@@ -209,8 +210,8 @@ const bookie: BookShop = {
 
   renderTempItem(domElement) {
     if (window.document.title === "Bookie") {
-      // bookie.books = JSON.parse(localStorage.getItem("Bookie shop")).books;
-      // console.log(bookie)
+      bookie.books = JSON.parse(localStorage.getItem("Bookie shop")).books;
+      console.log(bookie)
       let html = "";
       bookie.tempBooks.forEach((item) => {
         domElement.innerHTML = "";

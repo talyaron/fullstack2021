@@ -143,6 +143,7 @@ var bookie = {
     },
     renderItem: function (domElement) {
         if (window.document.title === "Bookie") {
+            localStorage.setItem('Bookie shop', JSON.stringify(bookie));
             bookie.books = JSON.parse(localStorage.getItem("Bookie shop")).books;
             console.log(bookie);
             var html_1 = "";
@@ -155,8 +156,8 @@ var bookie = {
     },
     renderTempItem: function (domElement) {
         if (window.document.title === "Bookie") {
-            // bookie.books = JSON.parse(localStorage.getItem("Bookie shop")).books;
-            // console.log(bookie)
+            bookie.books = JSON.parse(localStorage.getItem("Bookie shop")).books;
+            console.log(bookie);
             var html_2 = "";
             bookie.tempBooks.forEach(function (item) {
                 domElement.innerHTML = "";
