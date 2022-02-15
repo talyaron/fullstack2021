@@ -9,6 +9,31 @@ body {
   width: 100%;
 }
 
+.cart {
+  position: sticky;
+  z-index: 1;
+  height: 1px;
+  top: 30vh;
+  width: 55px;
+  align-self: center;
+}
+.cart ion-icon {
+  height: 10vh;
+  width: 50px;
+  border-radius: 10px;
+  border: solid 1px rgba(128, 128, 128, 0.699);
+  text-align: center;
+  background-color: #f5eaea;
+}
+.cart--opened {
+  background-color: green;
+  width: 800px;
+  height: 800px;
+  z-index: 2;
+  display: none;
+  margin-left: 0px;
+}
+
 .container__navBar {
   top: 0px;
   left: 0px;
