@@ -602,16 +602,16 @@ html {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  top: 12%;
-  right: 2.5%;
+  top: 6.1%;
+  right: 5%;
   z-index: 10;
   height: 50px;
   width: 50px;
 }
-.cart form {
+.cart .footer {
   display: none;
 }
-.cart form-active {
+.cart .footer-active {
   display: block;
 }
 .cart__close {
@@ -632,8 +632,10 @@ html {
 .cart__box {
   padding: 1em;
   display: flex;
-  justify-content: center;
-  background-color: #2a2a2a;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #EBEBEB;
   border-radius: 1%;
   width: 50px;
   height: 60px;
@@ -642,6 +644,21 @@ html {
   position: absolute;
   width: 300px;
   height: 400px;
+}
+.cart__box .cart__footer form {
+  display: flex;
+  justify-content: center;
+  display: none;
+  gap: 0.5em;
+}
+.cart__box .cart__footer form input {
+  width: 35px;
+}
+.cart__box .cart__footer form button {
+  width: 60px;
+}
+.cart__box .cart__footer-active form {
+  display: flex;
 }
 .cart__box img {
   width: 40px;
