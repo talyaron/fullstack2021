@@ -625,6 +625,96 @@ html {
     }
 }
 
+///////////////////////// CART //////////////////////////////////
+
+.cart {
+
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    top: 5.7%;
+    right: 5%;
+    z-index: 10;
+    height: 50px;
+    width: 50px;
+
+    .footer{
+            display: none;
+
+            &-active{
+                display: block;
+            }
+    }
+
+    &__close{
+
+        display: none;
+
+        &-active{
+            display: block;
+            color: rgb(0, 0, 0);
+            position: absolute;
+            right: 3%;
+            cursor: pointer;
+        }
+    }
+
+    &-active {
+        top: 12%;
+        height: 420px;
+        width: 280px;
+    }
+
+    &__box {
+
+        padding: 1em;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #EBEBEB;
+        border-radius: 1%;
+        width: 50px;
+        height: 60px;
+
+        &-active {
+            position: absolute;
+            width: 300px;
+            height: 400px;
+        }
+
+        .cart__footer{
+            form{
+            display: flex;
+            justify-content: center;
+            display: none;
+            gap: 0.5em;
+            input{
+                width: 35px;
+            }
+            button{
+                width: 60px;
+            }
+            }
+
+            &-active{
+                form{
+                    display: flex;
+                }
+            }
+        }
+
+        img {
+            width: 40px;
+            height: 30px;
+            cursor: pointer;
+        }
+    }
+}
+
+//////////////////////////// RESPONSIVENESS /////////////////////////
+
 @media screen and (max-width: 1200px) {
 
     .navbar {
@@ -797,93 +887,7 @@ html {
 }
 
 
-///////////////////////// CART //////////////////////////////////
 
-.cart {
-
-    position: fixed;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    top: 6.1%;
-    right: 5%;
-    z-index: 10;
-    height: 50px;
-    width: 50px;
-
-    .footer{
-            display: none;
-
-            &-active{
-                display: block;
-            }
-    }
-
-    &__close{
-
-        display: none;
-
-        &-active{
-            display: block;
-            color: rgb(0, 0, 0);
-            position: absolute;
-            right: 3%;
-            cursor: pointer;
-        }
-    }
-
-    &-active {
-        top: 12%;
-        height: 420px;
-        width: 300px;
-    }
-
-    &__box {
-
-        padding: 1em;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        background-color: #EBEBEB;
-        border-radius: 1%;
-        width: 50px;
-        height: 60px;
-
-        &-active {
-            position: absolute;
-            width: 300px;
-            height: 400px;
-        }
-
-        .cart__footer{
-            form{
-            display: flex;
-            justify-content: center;
-            display: none;
-            gap: 0.5em;
-            input{
-                width: 35px;
-            }
-            button{
-                width: 60px;
-            }
-            }
-
-            &-active{
-                form{
-                    display: flex;
-                }
-            }
-        }
-
-        img {
-            width: 40px;
-            height: 30px;
-            cursor: pointer;
-        }
-    }
-}
 
 ///////////////////////// ERP ///////////////////////////////////
 

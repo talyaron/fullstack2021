@@ -375,10 +375,14 @@ var sushiMenu = {
             category: "cocktails"
         },
     ],
+    cartDishes: [],
     addDish: function (name, price, description, category) {
         var id = uid();
         this.dishes.push({ id: id, name: name, price: price, description: description, category: category });
         this.storeData();
+    },
+    addCartDish: function (cartObj) {
+        this.cartDishes.push(cartObj);
     },
     removeDish: function (id) {
         this.dishes = this.dishes.filter(function (dish) { return dish.id !== id; });
@@ -397,7 +401,7 @@ var sushiMenu = {
     renderDishesStore: function (list, domElement) {
         var html = "";
         list.forEach(function (item) {
-            html += "<div class=\"dishes\"> \n      \n      <div class = \"dishes__title\"> \n         <h3 class =\"dishes__title__name\">" + item.name + "</h3> \n         <p class =\"dishes__title__price\">" + item.price + "</p>\n      </div>\n         <p class =\"dishes__desc\">" + item.description + "</p>\n      </div>";
+            html += "<div class=\"dishes\" id = \"" + item.id + "\"> \n      \n      <div class = \"dishes__title\"> \n         <h3 class =\"dishes__title__name\">" + item.name + "&nbsp</h3> \n         <p class =\"dishes__title__price\">" + item.price + " <button onclick=\"handleAddToCart(event)\" id=\"" + item.id + "\">+</button> </p>\n      </div>\n         <p class =\"dishes__desc\">" + item.description + "</p>\n      </div>";
         });
         domElement.innerHTML = html;
     },
@@ -407,6 +411,13 @@ var sushiMenu = {
             html += "<div class=\"dishesERP\"> \n        <input type=\"checkbox\" id=" + item.id + "></input></form>\n         <h3 class =\"dishesERP__title__name\">" + item.name + "</h3> \n         <p class =\"dishesERP__desc\">" + item.description + "</p>\n         <p class =\"dishesERP__title__price\">" + item.price + " \u20AA</p>\n         <p class =\"dishesERP__title__price\"> id:" + item.id + "</p>\n         <p class =\"dishesERP__title__category\"> " + item.category + "</p>\n         <form onsubmit=\"handleUpdateDish(event)\" id=\"" + item.id + "\">\n         <input type=\"text\" name=\"name\" id=\"\" placeholder=\"Dish Name\">\n         <input type=\"number\" name=\"price\" id=\"\" placeholder=\"Dish Price\">\n         <input type=\"text\" name=\"description\" id=\"\" placeholder=\"Add Dish description\">\n         <select name=\"category\" id=\"updated-category\">\n             <option value=\"Choose\" selected disabled>Select category</option>\n             <option value=\"firsts\">Firsts</option>\n             <option value=\"soups\">Soups</option>\n             <option value=\"salads\">Salads</option>\n             <option value=\"buns\">Buns</option>\n             <option value=\"robta-yaki\">Robta Yaki</option>\n             <option value=\"gyoza\">Gyoza</option>\n             <option value=\"inside-out\">Inside Out</option>\n             <option value=\"specials\">Specials</option>\n             <option value=\"kids\">Kids Dishes</option>\n             <option value=\"main\">Main Dishes</option>\n             <option value=\"wok\">Wok</option>\n             <option value=\"cokctails\">Cokctails</option>\n             <option value=\"combinations\">Combinations</option>\n             <option value=\"sashimi\">Sashimi</option>\n             <option value=\"nigiri\">Nigiri</option>\n             <option value=\"sandwich-sushi\">Sandwich Sushi</option>\n             <option value=\"maki-sushi\">Maki Sushi</option>\n             <option value=\"gonkan\">Gonkan Maki</option>\n         </select>\n         <input type=\"submit\" value=\"Update\">\n         </form>\n\n         \n      </div>";
         });
         html += "";
+        domElement.innerHTML = html;
+    },
+    renderCart: function (list, domElement) {
+        var html = "";
+        list.forEach(function (item) {
+            html += "<div class=\"cart__dishes\" id = \"" + item.id + "\"> \n      \n      <div class = \"dishes__title\"> \n         <h3 class =\"dishes__title__name\">" + item.name + "&nbsp</h3> \n         <p class =\"dishes__title__price\">" + item.price + "</p>\n      </div>";
+        });
         domElement.innerHTML = html;
     },
     storeData: function () {
@@ -545,3 +556,19 @@ function popCartActive() {
     });
 }
 popCartActive();
+function handlePlaceOrder(ev) {
+    ev.preventDefault();
+    window.alert("bo lo nagzim...");
+}
+function handleAddToCart(ev) {
+    // try{
+    var idToCart = ev.target.id;
+    var index = sushiMenu.dishes.findIndex(function (dish) { return dish.id === idToCart; });
+    var cartRoot = document.getElementById("cart__root");
+    sushiMenu.addCartDish(sushiMenu.dishes[index]);
+    sushiMenu.renderCart(sushiMenu.cartDishes, cartRoot);
+    // }
+    // catch{
+    //   console.log('error');
+    // }
+}

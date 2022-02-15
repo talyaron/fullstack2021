@@ -4,13 +4,15 @@ const uid = function () {
 
 interface Menu {
   dishes: Array<Dish>;
-
+  cartDishes: Array<Dish>;
   addDish(name: string, price: number, description: string, category: string);
+  addCartDish(cartObj)
   removeDish(id: string);
   updateDish(id: string, newDish: Dish);
   filterByCategory(category: string);
   renderDishesStore(list: any, domElement: any);
   renderDishesERP(list: any, domElement: any);
+  renderCart(list: any, domElement: any);
   storeData();
   getData();
 }
@@ -452,10 +454,19 @@ let sushiMenu: Menu = {
 
   ],
 
+  cartDishes: [
+
+    
+  ],
+
   addDish(name, price, description, category) {
     let id = uid();
     this.dishes.push({ id, name, price, description, category });
     this.storeData();
+  },
+
+  addCartDish(cartObj){
+    this.cartDishes.push(cartObj)
   },
 
   removeDish(id) {
@@ -480,11 +491,11 @@ let sushiMenu: Menu = {
     let html = "";
 
     list.forEach((item) => {
-      html += `<div class="dishes"> 
+      html += `<div class="dishes" id = "${item.id}"> 
       
       <div class = "dishes__title"> 
-         <h3 class ="dishes__title__name">${item.name}</h3> 
-         <p class ="dishes__title__price">${item.price}</p>
+         <h3 class ="dishes__title__name">${item.name}&nbsp</h3> 
+         <p class ="dishes__title__price">${item.price} <button onclick="handleAddToCart(event)" id="${item.id}">+</button> </p>
       </div>
          <p class ="dishes__desc">${item.description}</p>
       </div>`;
@@ -492,6 +503,7 @@ let sushiMenu: Menu = {
 
     domElement.innerHTML = html;
   },
+
 
   renderDishesERP(list, domElement) {
 
@@ -539,6 +551,22 @@ let sushiMenu: Menu = {
     });
 
     html += ``;
+
+    domElement.innerHTML = html;
+  },
+
+
+  renderCart(list, domElement) {
+    let html = "";
+
+    list.forEach((item) => {
+      html += `<div class="cart__dishes" id = "${item.id}"> 
+      
+      <div class = "dishes__title"> 
+         <h3 class ="dishes__title__name">${item.name}&nbsp</h3> 
+         <p class ="dishes__title__price">${item.price}</p>
+      </div>`;
+    });
 
     domElement.innerHTML = html;
   },
@@ -719,3 +747,27 @@ function popCartActive() {
 }
 
 popCartActive();
+
+function handlePlaceOrder(ev){
+  ev.preventDefault();
+  window.alert("bo lo nagzim...");
+}
+
+
+function handleAddToCart(ev){
+  // try{
+  const idToCart = ev.target.id;
+  const index = sushiMenu.dishes.findIndex((dish) => dish.id === idToCart);
+  const cartRoot = document.getElementById("cart__root")
+
+  sushiMenu.addCartDish(sushiMenu.dishes[index]);
+
+  sushiMenu.renderCart(sushiMenu.cartDishes,cartRoot)
+
+  // }
+  // catch{
+  //   console.log('error');
+    
+  // }
+  
+}

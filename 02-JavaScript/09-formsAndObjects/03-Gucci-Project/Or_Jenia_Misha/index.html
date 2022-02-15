@@ -29,9 +29,9 @@
                     <div class="cart__img">
                         <img src="img/cart.png" alt="">
                     </div>
-                    <div class="cart__body" id="cart_root"></div>
+                    <div class="cart__body" id="cart__root"></div>
                     <div class="cart__footer">
-                        <form onsubmit="HandlePlaceOrder()" class="cartform">
+                        <form onsubmit="HandlePlaceOrder(event)" class="cartform">
                             <label class="diners">Diners&nbsp<input type="number" class="dinersqnt"></input></label>
                             <div class="totalprice"> Total Price : 0₪ </div>
                             <button type="submit">PLACE ORDER</button>
