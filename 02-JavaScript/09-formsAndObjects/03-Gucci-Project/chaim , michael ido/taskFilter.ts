@@ -40,7 +40,7 @@ interface cloths {
     addToCart(id, catagory)
     renderShoppingCart(list, display, catagory)
     deleteItemFromShoppingCart(id)
-    TotalCartPrice( display)
+    TotalCartPrice(display)
     renderCartDropDown(display)
 }
 interface item {
@@ -49,6 +49,11 @@ interface item {
     size: string;
     price: number;
     name?: any
+}
+enum searchList {
+    Tshirts = "Tshirts",
+    shoes = "Shoes",
+    pants = "Pants",
 }
 
 let clothsList: cloths = {
@@ -710,18 +715,18 @@ function addToCart(ev, id) {
     const displayTotal = document.querySelector('.totalCart')
     const display = document.querySelector('.container-shoppingCart_display')
     let catagory = ev.target.name
-    
-    
+
+
     clothsList.addToCart(id, catagory)
     clothsList.renderShoppingCart(clothsList.shoppingCart, display, catagory)
-    clothsList.TotalCartPrice( displayTotal)
+    clothsList.TotalCartPrice(displayTotal)
 }
 
 function showDropDown(ev) {
     const dropDownDisplay = document.querySelector('.container_header-dropDown')
     const id = ev.target.id;
 
-    let html;
+    let html = '';
     let htmlCart;
 
     if (id == "notificationsBtn") {
@@ -739,11 +744,13 @@ function showDropDown(ev) {
         <p style="font-size: 12px;font-weight:bold">No Orders yet...</p>
        </div>`
     } else if (id == "shoppingCartBtn") {
-        html = '<div id="shoppingCart" class="container_header-dropDown-box shoppingCart"></div>'
+        html = '<div id="shoppingCart" class="container_header-dropDown-box shoppingCart">Your cart is empty..</div>'
     }
     dropDownDisplay.innerHTML = html;
-    const dropDownCart = document.querySelector('.shoppingCart')
-    clothsList.renderCartDropDown(dropDownCart)
+    if (id == "shoppingCartBtn") {
+        const dropDownCart = document.querySelector('.shoppingCart')
+        clothsList.renderCartDropDown(dropDownCart)
+    }
 }
 
 function deleteItemFromCart(ev) {
@@ -754,12 +761,14 @@ function deleteItemFromCart(ev) {
     const catagory = ev.target.name
     const id = ev.target.id
     const lang = ev.target.lang
+    console.log(lang);
+
 
     clothsList.deleteItemFromShoppingCart(id)
     displayShoppingCart.innerHTML = '';
     console.log(clothsList.shoppingCart)
     clothsList.renderShoppingCart(clothsList.shoppingCart, displayShoppingCart, catagory)
-    if(lang == "dropDown"){
+    if (lang == "dropDown") {
         clothsList.renderCartDropDown(dropDownCart)
     }
     clothsList.TotalCartPrice(displayTotal)
@@ -775,17 +784,47 @@ function deleteItemFromCart(ev) {
 function creatDataList() {
 
     const dataList = document.querySelector('.container_header-search-dataList')
-    dataList.innerHTML = ``
+    dataList.innerHTML = `
+    <option class="container_header-search-dataList-options" value="${searchList.Tshirts}"></option>
+    <option class="container_header-search-dataList-options" value="${searchList.shoes}"></option>
+    <option class="container_header-search-dataList-options" value="${searchList.pants}"></option>`
+}
+creatDataList()
 
-    
+document.querySelector('.container_header-search-input').addEventListener('change', scrollPage)
+
+
+function scrollPage(ev) {
+
+    ev.preventDefault()
+    const itemMenu = document.querySelector('.container-imgsBox')
+    const display = document.querySelector('.container-shoppingCart_display')
+    console.log(itemMenu);
+
+    const value = ev.target.value
+    console.log(value);
+
+    itemMenu.scrollTop += 50;
+
+
+
+    // switch (value) {
+    //     case 'Tshirts':
+    //         itemMenu.scrollTop += 50;
+    //         clothsList.renderShoppingCart(display)
+    //         break;
+
+    //     case 'Shoes':
+    //         itemMenu.scrollTop = 50;
+    //         break;
+            
+    //     case 'Pants':
+    //         itemMenu.scrollTop = 50;
+    //         break;
+    // }
 }
 
-// const display = document.querySelector(".container_catagories-display");
-
-// try{
-//     if(typeof inputSearch !== 'string') throw new Error('no found')
-    
-
+<<<<<<< HEAD
 //     switch(inputSearch){
 //     case "Tshirts":
 //         clothsList.renderCustomerPage(clothsList.Tshirts, display, "Tshirts", imgCard)
@@ -795,3 +834,5 @@ function creatDataList() {
     
 // }
 >>>>>>> f93371b2ccd0b58cbaf400e095b00c916370e898
+=======
+>>>>>>> 48a4fcc0231b5b6916e2de615f6d7474385dd6c5

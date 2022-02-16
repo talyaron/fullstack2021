@@ -31,6 +31,44 @@ body {
     text-align: center;
     background-color: rgb(245, 234, 234);
   }
+
+  .showCart {
+    
+    margin-left:100px;
+    width: 80vw;
+    height:50vh;
+    z-index: 1;
+    display:none;
+    border-radius:5px;
+    background-color:#ccc5c5ce;
+
+    
+    .cartItems{
+      margin:10px;
+      padding: 2px;
+      position: relative;
+    display: inline-block;
+
+     img {
+      height: 90px;
+      width: 80px;
+      border:solid 1px grey;
+
+     }
+     p {
+      letter-spacing: 1px;
+      font-size: 11px;
+      padding-left:7px;
+    }
+    
+    }
+  
+  
+   
+    
+  
+  }  
+
   
 
 
@@ -39,29 +77,18 @@ body {
 }
 
 
-.showCart {
-  background-color: green;
-  margin-left:100px;
-  width: 80vw;
-  height:100vh;
-  z-index: 1;
-  display:none;
-  
-  
-
- 
-  
-
-}
 
 
 .container {
   width: 100%;
 
+
+ 
+
   &__navBar {
     top: 0px;
     left: 0px;
-    padding-bottom: 1em;
+    //padding-bottom: 1em;
     transition: all 0.5s;
      
 
@@ -322,6 +349,7 @@ body {
 .container__navBar2 ul li a:hover {
   border-radius: 3px;
   color: #ffffff;
+  
 
 }
 
@@ -333,7 +361,7 @@ body {
   // border:solid black 2px;
 
   transform: translateY(-20px);
-  ;
+  
 
 }
 
@@ -344,6 +372,14 @@ body {
   background-repeat: no-repeat;
   height: 90vh;
   margin: 0;
+
+  &__hover{
+    transition: all 0.5s;
+    &:hover{
+      background-color: rgba(0, 0, 0, 0.856);
+    }
+
+  }
 
 
 }
@@ -369,9 +405,10 @@ $background-color:#ffffff;
     font-weight: 800;
     font-size: 11px;
     color: rgba(0, 0, 0, 0.384);
-    width: 60vw;
+    width: 40vw;
     padding-top: 2em;
     text-align: left;
+    justify-content: flex-start;
 
 
 
@@ -381,14 +418,13 @@ $background-color:#ffffff;
       color: rgb(0, 0, 0);
     }
   }
-
-
+  
 
 
   &--selector {
     background-color: $background-color;
     cursor: pointer;
-    width: 15px;
+    width: 100px;
     border: none;
     font-size: 12px;
     letter-spacing: 1px;
@@ -433,11 +469,13 @@ $background-color:#ffffff;
   &--lowerThanPrice {
 
     color: black;
-    margin-left: 0;
+    // margin-left: 1px;
+    padding-right: 20px;
     padding-top: 2em;
     text-align: center;
     letter-spacing: 1px;
     font-size: 12px;
+    
 
 
 
@@ -451,6 +489,34 @@ $background-color:#ffffff;
 
     }
   }
+  
+  &--searchItem{
+    color: black;
+    padding-right: 20px;
+    padding-top: 2em;
+    text-align: center;
+    letter-spacing: 1px;
+    font-size: 12px;
+    
+
+    .inputSearch{
+      cursor: pointer;
+      margin-top: 0.5em;
+      background-color: $background-color;
+      border: 1px solid rgb(196, 195, 195);
+
+    
+      
+    
+      
+    }
+  }
+  
+
+  
+
+
+
 
 }
 
@@ -504,6 +570,22 @@ $background-color:#ffffff;
 
     }
 
+    #addToCart[type=button]{
+      font-size:12px;
+      letter-spacing: 2px;
+      border-radius: 3px;
+      border: 0.5px solid rgb(196, 195, 195);
+      background-color: $background-color;
+      color:#141010cc;
+      &:hover {
+        background-color: rgba(207, 207, 194, 0.425);
+        border: 0.5px solid rgb(156, 153, 153);
+        
+
+      }
+
+    }
+
 
 
 
@@ -513,6 +595,7 @@ $background-color:#ffffff;
     }
   }
 }
+
 
 
 
@@ -658,6 +741,15 @@ $background-color:#ffffff;
         font-size: 10px;
 
         .inputLowerThan {
+
+          width: 100px;
+
+        }
+      }
+      &--searchItem {
+        font-size: 10px;
+
+        .inputSearch {
 
           width: 100px;
 

@@ -573,7 +573,6 @@ let sushiMenu: Menu = {
            <h3 class ="dishesERP__title__name">${item.name}</h3> 
            <p class ="dishesERP__desc">${item.description}</p>
            <p class ="dishesERP__title__price">${item.price} ₪</p>
-           <p class ="dishesERP__title__price"> id:${item.id}</p>
            <p class ="dishesERP__title__category"> ${item.category}</p>
            <form onsubmit="handleUpdateDish(event)" id="${item.id}">
            <input type="text" name="name" id="" placeholder="Dish Name">

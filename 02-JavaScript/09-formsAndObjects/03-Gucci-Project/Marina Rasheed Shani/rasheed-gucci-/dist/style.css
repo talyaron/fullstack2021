@@ -24,14 +24,30 @@ body {
   text-align: center;
   background-color: #f5eaea;
 }
-
-.showCart {
-  background-color: green;
+.cart .showCart {
   margin-left: 100px;
   width: 80vw;
-  height: 100vh;
+  height: 50vh;
   z-index: 1;
   display: none;
+  border-radius: 5px;
+  background-color: #ccc5c5ce;
+}
+.cart .showCart .cartItems {
+  margin: 10px;
+  padding: 2px;
+  position: relative;
+  display: inline-block;
+}
+.cart .showCart .cartItems img {
+  height: 90px;
+  width: 80px;
+  border: solid 1px grey;
+}
+.cart .showCart .cartItems p {
+  letter-spacing: 1px;
+  font-size: 11px;
+  padding-left: 7px;
 }
 
 .container {
@@ -40,7 +56,6 @@ body {
 .container__navBar {
   top: 0px;
   left: 0px;
-  padding-bottom: 1em;
   transition: all 0.5s;
 }
 .container__navBar__title {
@@ -194,6 +209,12 @@ body {
   height: 90vh;
   margin: 0;
 }
+.sub-container__hover {
+  transition: all 0.5s;
+}
+.sub-container__hover:hover {
+  background-color: rgba(0, 0, 0, 0.856);
+}
 
 .catergory__buttons {
   display: flex;
@@ -208,9 +229,10 @@ body {
   font-weight: 800;
   font-size: 11px;
   color: rgba(0, 0, 0, 0.384);
-  width: 60vw;
+  width: 40vw;
   padding-top: 2em;
   text-align: left;
+  justify-content: flex-start;
   padding-left: 0.5em;
 }
 .catergory__buttons .catergory__name span:hover {
@@ -219,7 +241,7 @@ body {
 .catergory__buttons--selector {
   background-color: #ffffff;
   cursor: pointer;
-  width: 15px;
+  width: 100px;
   border: none;
   font-size: 12px;
   letter-spacing: 1px;
@@ -248,13 +270,27 @@ body {
 }
 .catergory__buttons--lowerThanPrice {
   color: black;
-  margin-left: 0;
+  padding-right: 20px;
   padding-top: 2em;
   text-align: center;
   letter-spacing: 1px;
   font-size: 12px;
 }
 .catergory__buttons--lowerThanPrice .inputLowerThan {
+  cursor: pointer;
+  margin-top: 0.5em;
+  background-color: #ffffff;
+  border: 1px solid #c4c3c3;
+}
+.catergory__buttons--searchItem {
+  color: black;
+  padding-right: 20px;
+  padding-top: 2em;
+  text-align: center;
+  letter-spacing: 1px;
+  font-size: 12px;
+}
+.catergory__buttons--searchItem .inputSearch {
   cursor: pointer;
   margin-top: 0.5em;
   background-color: #ffffff;
@@ -287,6 +323,18 @@ body {
 .catergory__items .items:hover .imgBottom {
   height: 380px;
   display: inline;
+}
+.catergory__items .items #addToCart[type=button] {
+  font-size: 12px;
+  letter-spacing: 2px;
+  border-radius: 3px;
+  border: 0.5px solid #c4c3c3;
+  background-color: #ffffff;
+  color: #141010cc;
+}
+.catergory__items .items #addToCart[type=button]:hover {
+  background-color: rgba(207, 207, 194, 0.425);
+  border: 0.5px solid #9c9999;
 }
 .catergory__items .items p {
   letter-spacing: 2px;
@@ -370,6 +418,12 @@ body {
     font-size: 10px;
   }
   body .catergory__buttons--lowerThanPrice .inputLowerThan {
+    width: 100px;
+  }
+  body .catergory__buttons--searchItem {
+    font-size: 10px;
+  }
+  body .catergory__buttons--searchItem .inputSearch {
     width: 100px;
   }
   body .catergory__items {

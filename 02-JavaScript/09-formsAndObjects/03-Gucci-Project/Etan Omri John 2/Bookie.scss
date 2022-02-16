@@ -24,7 +24,7 @@ body {
 *::after {
   box-sizing: border-box;
 }
-
+//Omri ---------------------->
 header {
 
   position: fixed;
@@ -34,6 +34,7 @@ header {
   color: #fff;
   background: var(--header-background-color);
   opacity: .4;
+ transition: opacity .25s ease-in-out;
   &:hover{
     opacity:1;
   }
@@ -95,7 +96,7 @@ header {
 
   @media only screen and (max-width: 1024px) {
     .navBar {
-
+      font-size: clamp(.8em, 1.25vw, 1.3em);
       &__options {
         display: none;
       }
@@ -142,7 +143,6 @@ header {
               margin: .3rem 0px;
               transition: 0.4s;
             }
-
             &.is-active::before {
               transform: rotate(-45deg) translate(-6px, 7px);
             }
@@ -151,9 +151,15 @@ header {
               transform: rotate(45deg) translate(-5px, -7px);
             }
 
-            &.is-active &--bar {
+            &.is-active {
+              .navBar__row1__mobile__humburger--bar {
               opacity: 0;
             }
+          }
+            // didnt work with BEM
+            // &.is-active &--bar {
+            //   opacity: 0;
+            // }
           }
         }
 
@@ -215,10 +221,119 @@ header {
   }
 
 }
-[data-add-to-bag] {
-  //for js and animation
-}
+// John ---------------------->
+.rootBooks {
+  display: grid;
+  width: 100%;
+  gap: 10px;
+  color: #1b1b1b;
+  background-color: rgb(200, 173, 127);
+  justify-content: space-between;
+  grid-template-columns: repeat(2, 1fr);
 
+  @media only screen and (min-width: 768px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+
+  &__card {
+    background-color: whitesmoke;
+    display: grid;
+    border: solid 2px grey;
+    background: #f5f5f5;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    overflow: hidden;
+    border-radius: 5px;
+    padding: 25px;
+    text-align: center;
+    z-index: 1;
+
+    svg {
+      height: 20px;
+    }
+
+    &:after {
+      @media only screen and (min-width: 768px) {
+        content: "";
+        border-radius: 5px;
+        position: absolute;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        opacity: 0;
+        transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+      }
+    }
+
+    &:hover {
+      @media only screen and (min-width: 768px) {
+        transform: scale(1.25, 1.25);
+      }
+    }
+
+    &:hover:after {
+      @media only screen and (min-width: 768px) {
+        opacity: 1;
+        background-color: rgb(200, 173, 127);
+      }
+
+
+    }
+
+    &__img {
+      width: 100%;
+      height: auto;
+      margin: 0 auto;
+
+    }
+
+    &__title {
+      font-weight: 900;
+      font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+      text-transform: uppercase;
+      font-size: 30px;
+      color: #23211f;
+      margin-bottom: 5px;
+    }
+
+    &__bag {
+
+      color: #FF3100;
+      cursor: pointer;
+      border: none;
+      background: none;
+      width: 10px;
+      transition: 0.8s;
+
+      &:hover {
+        color: black;
+      }
+    }
+
+    &__heart {
+      position: relative;
+      left: 85%;
+      bottom: 25px;
+      color: #FF3100;
+      cursor: pointer;
+      border: none;
+      background: none;
+      width: 10px;
+      transition: 0.8s;
+
+      &:hover {
+        color: black;
+      }
+    }
+
+  }
+
+
+}
+// Etan ---------------------->
 .backToTop {
   width: 100vw;
   font-size: 0.6em;
@@ -608,117 +723,7 @@ footer {
   grid-area: 3;
 }
 
-.rootBooks {
-  display: grid;
-  width: 100%;
-  gap: 10px;
-  color: #1b1b1b;
-  background-color: rgb(200, 173, 127);
-  justify-content: space-between;
-  grid-template-columns: repeat(2, 1fr);
 
-  @media only screen and (min-width: 768px) {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-
-  &__card {
-    background-color: whitesmoke;
-    display: grid;
-    border: solid 2px grey;
-    background: #f5f5f5;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-    overflow: hidden;
-    border-radius: 5px;
-    padding: 25px;
-    text-align: center;
-    z-index: 1;
-
-    svg {
-      height: 20px;
-    }
-
-    &:after {
-      @media only screen and (min-width: 768px) {
-        content: "";
-        border-radius: 5px;
-        position: absolute;
-        z-index: -1;
-        width: 100%;
-        height: 100%;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        opacity: 0;
-        transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-      }
-    }
-
-    &:hover {
-      @media only screen and (min-width: 768px) {
-        transform: scale(1.25, 1.25);
-      }
-    }
-
-    &:hover:after {
-      @media only screen and (min-width: 768px) {
-        opacity: 1;
-        background-color: rgb(200, 173, 127);
-      }
-
-
-    }
-
-    &__img {
-      width: 100%;
-      height: auto;
-      margin: 0 auto;
-
-    }
-
-    &__title {
-      font-weight: 900;
-      font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
-      text-transform: uppercase;
-      font-size: 30px;
-      color: #23211f;
-      margin-bottom: 5px;
-    }
-
-    &__bag {
-
-      color: #FF3100;
-      cursor: pointer;
-      border: none;
-      background: none;
-      width: 10px;
-      transition: 0.8s;
-
-      &:hover {
-        color: black;
-      }
-    }
-
-    &__heart {
-      position: relative;
-      left: 85%;
-      bottom: 25px;
-      color: #FF3100;
-      cursor: pointer;
-      border: none;
-      background: none;
-      width: 10px;
-      transition: 0.8s;
-
-      &:hover {
-        color: black;
-      }
-    }
-
-  }
-
-
-}
   [role="navigation between pages"]{
 
     position:absolute;
