@@ -393,7 +393,6 @@ function handleAmount(ev) {
     var amount = ev.target.valueAsNumber;
     bookie.sortBooksAsc();
     var minPrice = bookie.books[0].price;
-    console.log(minPrice);
     bookie.tempBooks = bookie.books.filter(function (book) {
         return book.price < amount;
     });

@@ -489,7 +489,6 @@ function handleAmount(ev) {
   const amount = ev.target.valueAsNumber;
   bookie.sortBooksAsc()
   const minPrice = bookie.books[0].price;
-  console.log(minPrice)
   bookie.tempBooks = bookie.books.filter((book) => {
     return book.price < amount;
   });

@@ -120,10 +120,10 @@ header.is-scrolling {
     transition: 0.4s;
   }
   header .navBar__row1__mobile__humburger.is-active::before {
-    transform: rotate(-45deg) translate(-6px, 7px);
+    transform: rotate(-45deg) translate(-7px, 7px);
   }
   header .navBar__row1__mobile__humburger.is-active::after {
-    transform: rotate(45deg) translate(-5px, -7px);
+    transform: rotate(45deg) translate(-6px, -7px);
   }
   header .navBar__row1__mobile__humburger.is-active .navBar__row1__mobile__humburger--bar {
     opacity: 0;
