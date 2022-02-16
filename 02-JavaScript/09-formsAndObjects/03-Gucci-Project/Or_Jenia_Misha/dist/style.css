@@ -500,14 +500,15 @@ html {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  top: 5.7%;
-  right: 5%;
+  top: 5.55%;
+  right: 2%;
   z-index: 10;
   height: 50px;
   width: 50px;
 }
 .cart__body {
   overflow-y: scroll;
+  height: 80%;
 }
 .cart__body .cart__dishes {
   width: 260px;
@@ -567,7 +568,16 @@ html {
   cursor: pointer;
 }
 
+@media screen and (max-width: 1300px) {
+  .cart {
+    top: 11.5%;
+  }
+}
 @media screen and (max-width: 1200px) {
+  .cart {
+    top: 1.7%;
+  }
+
   .navbar {
     top: 0px;
     height: 90px;
