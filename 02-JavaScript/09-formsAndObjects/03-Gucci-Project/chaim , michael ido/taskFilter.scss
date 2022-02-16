@@ -198,7 +198,10 @@
 
                 &-head {
                     color: chocolate;
+<<<<<<< HEAD
+=======
                     font-size: 15px;
+>>>>>>> 15c2850735dd6669670116489b6279590acc1d87
                     font-weight: 1000;
                 }
 
@@ -235,14 +238,18 @@
 // Customer page -----------------------
 
 .container {
+<<<<<<< HEAD
     max-width: 740px;
     height: 900px;
     // border: 3px solid red;
     margin: auto;
+=======
     width: 100%;
     height: 2100px;
     max-height: fit-content;
-
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 15c2850735dd6669670116489b6279590acc1d87
     background: linear-gradient(rgb(157, 241, 157),
             transparent),
         linear-gradient(90deg,
@@ -252,12 +259,24 @@
             coral,
             transparent);
     background-blend-mode: screen;
+=======
+   
+>>>>>>> f93371b2ccd0b58cbaf400e095b00c916370e898
 
 
     // background-color: rgb(46, 127, 141);
+=======
+
+>>>>>>> 48a4fcc0231b5b6916e2de615f6d7474385dd6c5
 
     &_header {
+<<<<<<< HEAD
+     // background-color: rgb(46, 127, 141);
+       // background-color:rgb(46 , 127 , 141);
+       display: grid;
+=======
         display: grid;
+>>>>>>> 15c2850735dd6669670116489b6279590acc1d87
         grid-template-columns: repeat(12, 1fr);
         grid-template-rows: repeat(5, 1fr);
         flex-direction: row;
@@ -313,23 +332,29 @@
         }
     
         &-dropDown {
+<<<<<<< HEAD
             grid-column: 7/13;
             grid-row: 2;
             border: 3px solid red;
+=======
             grid-column: 9/13;
             grid-row: 2/3;
+>>>>>>> 15c2850735dd6669670116489b6279590acc1d87
             height: 20vh;
             display: grid;
             grid-template-columns: repeat(4, 25%);
 
             &-box {
-
+<<<<<<< HEAD
                 border: 2px solid black;
+=======
                 display: flex;
                 flex-direction: column;
                 text-align: center;
                 // border-radius: 15px;
-   &-item {
+>>>>>>> 15c2850735dd6669670116489b6279590acc1d87
+
+                &-item {
                     width: 100%;
                     height: 40%;
                     display: grid;
@@ -372,11 +397,13 @@
                 }
 
                 &-signInInput {
+<<<<<<< HEAD
                     box-shadow: rgba(97, 88, 6, 0.85) 0px 30px 60px -12px inset, rgba(85, 216, 96, 0.5) 0px 18px 36px -30px inset;
                     height: 20%;
                     width: 100%;
                 }
             }
+=======
                     box-shadow: rgba(112, 134, 233, 0.35) 0px 30px 60px -12px inset, rgba(59, 101, 163, 0.5) 0px 18px 36px -30px inset;
                     border-radius: 5px;
                     height: 10%;
@@ -430,6 +457,7 @@
                 white-space: nowrap;
                 box-shadow: rgba(53, 146, 118, 0.35) 0px 30px 60px -12px inset, rgba(183, 194, 211, 0.5) 0px 18px 36px -30px inset;
             }
+>>>>>>> 15c2850735dd6669670116489b6279590acc1d87
         }
     }
 
@@ -469,9 +497,11 @@
 
         &-display {
             width: 100%;
+<<<<<<< HEAD
             height: 25%;
+=======
             height: 45%;
-
+>>>>>>> 48a4fcc0231b5b6916e2de615f6d7474385dd6c5
             margin-top: 5px;
             border: 1px solid rgb(197, 187, 187);
             display: flex;
@@ -488,6 +518,11 @@
                 width: 100%;
                 display: grid;
                 grid-template-columns: repeat(2, 50%);
+
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
 
                 &-btn,
                 input[type="submit"] {
@@ -508,7 +543,7 @@
                     transition: all .4s ease-in-out;
                 }
 
-
+>>>>>>> 48a4fcc0231b5b6916e2de615f6d7474385dd6c5
                 &-btn {
                     border-radius: 0px;
                     text-decoration: none;
@@ -535,7 +570,9 @@
                     transition: all .4s ease-in-out;
                 }
 
-
+<<<<<<< HEAD
+>>>>>>> 15c2850735dd6669670116489b6279590acc1d87
+=======
                 &-btn,
                 input[type="submit"] {
                     border: solid 2px #1f1f1f;
@@ -560,6 +597,8 @@
                 }
 
 
+
+>>>>>>> 48a4fcc0231b5b6916e2de615f6d7474385dd6c5
                 &-details {
                     height: 100%;
                     grid-column: 1/2;
@@ -659,9 +698,12 @@
         margin: auto;
 
         &-options {
+<<<<<<< HEAD
             font-size: 10px;
             display: inline-block;
             font-family: 'Times New Roman', Times, serif;
+
+=======
             display: inline-block;
             font-family: 'Times New Roman', Times, serif;
         }
@@ -790,7 +832,33 @@
                 }
 
             }
+>>>>>>> 15c2850735dd6669670116489b6279590acc1d87
         }
+<<<<<<< HEAD
+
+        &-orderAndTotal {
+            // border: 3px solid black;
+            grid-row: 8/9;
+            grid-column: 3;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+=======
+>>>>>>> 61634a2a80fc58273c8fd90af34d2dfe50a9db40
     }
 }
 
+<<<<<<< HEAD
+=======
+    &-orderAndTotal {
+        // border: 3px solid black;
+        grid-row: 8/9;
+        grid-column: 3;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+}
+
+>>>>>>> 48a4fcc0231b5b6916e2de615f6d7474385dd6c5
