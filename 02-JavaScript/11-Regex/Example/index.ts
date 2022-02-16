@@ -13,7 +13,6 @@ if(regexAE2.test(string)){
 } else {
     console.log(`we dont have "${searchTerm}" in string`)
 }
-
 if(string.match(regexAE2)){
     console.log(`we have "${searchTerm}" in string`)
 } else {
