@@ -774,13 +774,7 @@ function deleteItemFromCart(ev) {
     clothsList.TotalCartPrice(displayTotal)
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-    dropDownDisplay.innerHTML = html;
-}
-=======
->>>>>>> 15c2850735dd6669670116489b6279590acc1d87
-=======
+
 function creatDataList() {
 
     const dataList = document.querySelector('.container_header-search-dataList')
@@ -824,7 +818,7 @@ function scrollPage(ev) {
     // }
 }
 
-<<<<<<< HEAD
+
 //     switch(inputSearch){
 //     case "Tshirts":
 //         clothsList.renderCustomerPage(clothsList.Tshirts, display, "Tshirts", imgCard)
@@ -833,6 +827,4 @@ function scrollPage(ev) {
 // } catch (error) {
     
 // }
->>>>>>> f93371b2ccd0b58cbaf400e095b00c916370e898
-=======
->>>>>>> 48a4fcc0231b5b6916e2de615f6d7474385dd6c5
+
