@@ -182,7 +182,7 @@ function handlePriceRange(ev) {
         Adidas.renderFilter(filterd, root);
     }
     else {
-        this.renderAll();
+        this.renderAllData();
     }
 }
 function handleSort(ev) {
