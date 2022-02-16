@@ -120,17 +120,16 @@ const bookie: BookShop = {
   ],
 
   tempBooks: [],
-// John ------------------------>
+  // John ------------------------>
   renderItem(domElement) {
     if (window.document.title === "Bookie") {
       bookie.books = JSON.parse(localStorage.getItem("Bookie shop")).books;
-      console.log(bookie);
       let html = "";
       bookie.books.forEach((item) => {
         domElement.innerHTML = "";
         html += `
             <div class="rootBooks__card">
-                <button class="rootBooks__card__bag" data-add-to-bag><svg xmlns="http://www.w3.org/2000/svg"
+                <button class="rootBooks__card__bag" onclick='handleAddToCart(event)'><svg xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 15 14">
                         <symbol viewBox="0 0 15 14" id="svg-icon-shopping-bag">
                             <title>shopping-bag</title>
@@ -178,7 +177,7 @@ const bookie: BookShop = {
       if (book.id === id || book.id === +id)
         console.log(book, "this is it"), (book.price = +priceChange);
     });
-    console.log(bookie);
+
     showLocalToOwner(ascYear);
     localStorage.setItem("Bookie shop", JSON.stringify(bookie));
     bookie.renderItem(rootBooks);
@@ -187,21 +186,18 @@ const bookie: BookShop = {
     // this.books = this.books.filter((book) => book.id !== id);
     bookie.books = bookie.books.filter((book) => book.id !== id);
     localStorage.setItem("Bookie shop", JSON.stringify(bookie));
-    console.log(JSON.parse(localStorage.getItem("Bookie shop")));
-    console.log(bookie);
     showLocalToOwner(ascYear);
     bookie.renderItem(rootBooks);
   },
   // Omri ------------------------>
   renderTempItem(domElement) {
     if (window.document.title === "Bookie") {
-      console.log(bookie);
       let html = "";
       bookie.tempBooks.forEach((item) => {
         domElement.innerHTML = "";
         html += `
             <div class="rootBooks__card">
-                <button class="rootBooks__card__bag" data-add-to-bag><svg xmlns="http://www.w3.org/2000/svg"
+                <button class="rootBooks__card__bag" onclick='handleAddToCart(event)'><svg xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 15 14">
                         <symbol viewBox="0 0 15 14" id="svg-icon-shopping-bag">
                             <title>shopping-bag</title>
@@ -251,6 +247,8 @@ const imagePreview = document.querySelector("[data-bookImage-preview]");
 const rootBooks = document.querySelector("[data-rootBooks]");
 const backToTop = document.querySelector("[data-back-to-top]");
 const ownerTable = document.querySelector("[data-toggle-existing]");
+const addToCart = document.querySelector("[data-add-to-cart]");
+const cart = document.querySelector("[data-cart]");
 
 function ascPrice(a, b) {
   return a.price - b.price;
@@ -273,7 +271,7 @@ function hideTopBtn() {
   if (window.document.title === "Bookie") {
     let rootElement = document.documentElement;
     let topTotal = rootElement.scrollHeight - rootElement.clientHeight;
-    if (rootElement.scrollTop / topTotal > 0.8) {
+    if (rootElement.scrollTop / topTotal > 0.5) {
       backToTop.classList.remove("hidden");
     } else {
       backToTop.classList.add("hidden");
@@ -377,11 +375,10 @@ function handleOwnerSort(ev: any) {
   }
 }
 
-console.log(descYear);
 function handleCustomerSort(ev: any) {
   if (window.document.title === "Bookie") ev.preventDefault();
   let sortFunc = ev.target.value;
-  console.log(sortFunc);
+
   if (sortFunc === "ascYear") {
     bookie.books.sort(ascYear);
   }
@@ -396,6 +393,14 @@ function handleCustomerSort(ev: any) {
   }
   localStorage.setItem("Bookie shop", JSON.stringify(bookie));
   bookie.renderItem(rootBooks);
+}
+
+let count = 0;
+function handleAddToCart(ev) {
+  ev.preventDefault();
+  count++;
+  cart.innerHTML = count.toString();
+  // console.log(ev.target.parentElement.parentElement)
 }
 // Omri & Etan ------------------------->
 function handleSearch(ev) {
