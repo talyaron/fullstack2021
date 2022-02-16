@@ -487,10 +487,16 @@ function handleSort(ev) {
 
 function handleAmount(ev) {
   const amount = ev.target.valueAsNumber;
+  bookie.sortBooksAsc()
+  const minPrice = bookie.books[0].price;
+  console.log(minPrice)
   bookie.tempBooks = bookie.books.filter((book) => {
     return book.price < amount;
   });
-  if (bookie.tempBooks.length > 0) {
+  if (amount < minPrice){
+    rootBooks.innerHTML = 'No books found';
+  }
+  else if (bookie.tempBooks.length > 0 ) {
     bookie.renderTempItem(rootBooks);
   } else {
     bookie.renderItem(rootBooks);
