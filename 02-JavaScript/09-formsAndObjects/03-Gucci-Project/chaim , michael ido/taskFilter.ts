@@ -789,24 +789,30 @@ document.querySelector('.container_header-search-input').addEventListener('chang
 function scrollPage(ev) {
 
     ev.preventDefault()
-    const itemMenu = document.querySelector('.container_catagories-display')
+    const itemMenu = document.querySelector('.container-imgsBox')
+    const display = document.querySelector('.container-shoppingCart_display')
     console.log(itemMenu);
 
     const value = ev.target.value
     console.log(value);
 
-    switch (value) {
-        case 'Tshirts':
-            itemMenu.scrollTop = 50;
-            break;
+    itemMenu.scrollTop += 50;
 
-        case 'Shoes':
-            itemMenu.scrollTop = 50;
-            break;
+
+
+    // switch (value) {
+    //     case 'Tshirts':
+    //         itemMenu.scrollTop += 50;
+    //         clothsList.renderShoppingCart(display)
+    //         break;
+
+    //     case 'Shoes':
+    //         itemMenu.scrollTop = 50;
+    //         break;
             
-        case 'Pants':
-            itemMenu.scrollTop = 50;
-            break;
-    }
+    //     case 'Pants':
+    //         itemMenu.scrollTop = 50;
+    //         break;
+    // }
 }
 
