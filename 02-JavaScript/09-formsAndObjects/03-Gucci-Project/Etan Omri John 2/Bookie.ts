@@ -1,60 +1,15 @@
-const selectRoot = document.querySelector("[data-update-book-by-id]");
-const addingForm = document.querySelector("[data-addingItemForm]");
-const bookTitle = document.querySelector("[data-bookTitle]");
-const imagePreview = document.querySelector("[data-bookImage-preview]");
-const rootBooks = document.querySelector("[data-rootBooks]");
-const backToTop = document.querySelector("[data-back-to-top]");
-const ownerTable = document.querySelector("[data-toggle-existing]");
-
-function ascPrice(a, b) {
-  return a.price - b.price;
-}
-function descPrice(a, b) {
-  return b.price - a.price;
-}
-function ascYear(a, b) {
-  return a.year - b.year;
-}
-function descYear(a, b) {
-  return b.year - a.year;
-}
-
-// make sure your function is called at the right page!!!
-// if (window.document.title === 'Bookie')
-
-function handleTop(ev) {
-  ev.preventDefault();
-  document.documentElement.scrollTop = 0;
-}
-function hideTopBtn() {
-  if (window.document.title === "Bookie") {
-    let rootElement = document.documentElement;
-    let topTotal = rootElement.scrollHeight - rootElement.clientHeight;
-    if (rootElement.scrollTop / topTotal > 0.8) {
-      backToTop.classList.remove("hidden");
-    } else {
-      backToTop.classList.add("hidden");
-    }
-  }
-}
-document.addEventListener("scroll", hideTopBtn);
 interface BookShop {
   id: any;
   books: Array<book>;
   tempBooks: Array<book>;
   addItem(ev: any);
-  // render(list: Array<book>, domElement);
   renderItem(domElement: any);
   renderTempItem(domElement: any);
-  //filterByCategory();
-  //filterByPrice();
   updateBook(Id, priceChange);
   deleteBook(Id);
-  //changeOrder()
   sortBooksAsc();
   sortBooksDesc();
 }
-
 interface book {
   id: any;
   category: "thriller" | "history" | "cooking" | "fantasy";
@@ -63,7 +18,6 @@ interface book {
   img?: any;
   year?: number;
 }
-
 const bookie: BookShop = {
   id: 0,
   books: [
@@ -102,10 +56,10 @@ const bookie: BookShop = {
     {
       id: 5,
       category: "fantasy",
-      title: "Harry Potter",
+      title: "Harry Potter 2",
       price: 35,
-      img: "Harry Potter.jpg",
-      year: 1995,
+      img: "Harry Potter 2.jpg",
+      year: 2001,
     },
     {
       id: 6,
@@ -139,34 +93,34 @@ const bookie: BookShop = {
       img: "lotr.jpg",
       year: 1954,
     },
+    {
+      id: 11,
+      category: "history",
+      title: "The Art of War",
+      price: 199,
+      img: "The Art of War.jpg",
+      year: 2005,
+    },
+    {
+      id: 12,
+      category: "fantasy",
+      title: "Harry Potter",
+      price: 107,
+      img: "Harry Potter.jpg",
+      year: 1998,
+    },
+    {
+      id: 13,
+      category: "cooking",
+      title: "Taste of Home - Instant Pot Cookbook",
+      price: 25,
+      img: "Taste-of-Home-Instant-Pot_Cookbook_Cover.jpg",
+      year: 2019,
+    },
   ],
 
   tempBooks: [],
-
-  addItem(ev: any) {
-    let id = +ev.target.elements.id.value || ev.target.elements.id.value;
-    let category = ev.target.elements.category.value;
-    let title = ev.target.elements.title.value;
-    let price = +ev.target.elements.price.value;
-    let img = ev.target.elements.image.files[0]?.name;
-    let year = ev.target.elements.year.value;
-    let book = { id, category, title, price, img, year };
-    let newBook: book = book;
-    makeId(newBook);
-    this.books.push(newBook);
-    showLocalToOwner(ascYear);
-  },
-  sortBooksAsc() {
-    this.books.sort((a, b) => {
-      return a.price - b.price;
-    });
-  },
-
-  sortBooksDesc() {
-    this.books.sort((a, b) => {
-      return b.price - a.price;
-    });
-  },
+// John ------------------------>
   renderItem(domElement) {
     if (window.document.title === "Bookie") {
       bookie.books = JSON.parse(localStorage.getItem("Bookie shop")).books;
@@ -205,10 +159,42 @@ const bookie: BookShop = {
       domElement.innerHTML = html;
     }
   },
-
+  // Etan ------------------------>
+  addItem(ev: any) {
+    let id = +ev.target.elements.id.value || ev.target.elements.id.value;
+    let category = ev.target.elements.category.value;
+    let title = ev.target.elements.title.value;
+    let price = +ev.target.elements.price.value;
+    let img = ev.target.elements.image.files[0]?.name;
+    let year = ev.target.elements.year.value;
+    let book = { id, category, title, price, img, year };
+    let newBook: book = book;
+    makeId(newBook);
+    this.books.push(newBook);
+    showLocalToOwner(ascYear);
+  },
+  updateBook(id, priceChange) {
+    this.books.forEach((book) => {
+      if (book.id === id || book.id === +id)
+        console.log(book, "this is it"), (book.price = +priceChange);
+    });
+    console.log(bookie);
+    showLocalToOwner(ascYear);
+    localStorage.setItem("Bookie shop", JSON.stringify(bookie));
+    bookie.renderItem(rootBooks);
+  },
+  deleteBook(id) {
+    // this.books = this.books.filter((book) => book.id !== id);
+    bookie.books = bookie.books.filter((book) => book.id !== id);
+    localStorage.setItem("Bookie shop", JSON.stringify(bookie));
+    console.log(JSON.parse(localStorage.getItem("Bookie shop")));
+    console.log(bookie);
+    showLocalToOwner(ascYear);
+    bookie.renderItem(rootBooks);
+  },
+  // Omri ------------------------>
   renderTempItem(domElement) {
     if (window.document.title === "Bookie") {
-      // bookie.books = JSON.parse(localStorage.getItem("Bookie shop")).books;
       console.log(bookie);
       let html = "";
       bookie.tempBooks.forEach((item) => {
@@ -244,27 +230,57 @@ const bookie: BookShop = {
       domElement.innerHTML = html;
     }
   },
-
-  updateBook(id, priceChange) {
-    this.books.forEach((book) => {
-      if (book.id === id || book.id === +id)
-        console.log(book, "this is it"), (book.price = +priceChange);
+  sortBooksAsc() {
+    this.books.sort((a, b) => {
+      return a.price - b.price;
     });
-    console.log(bookie);
-    showLocalToOwner(ascYear);
-    localStorage.setItem("Bookie shop", JSON.stringify(bookie));
-    bookie.renderItem(rootBooks);
   },
-  deleteBook(id) {
-    // this.books = this.books.filter((book) => book.id !== id);
-    bookie.books = bookie.books.filter((book) => book.id !== id);
-    localStorage.setItem("Bookie shop", JSON.stringify(bookie));
-    console.log(JSON.parse(localStorage.getItem("Bookie shop")));
-    console.log(bookie);
-    showLocalToOwner(ascYear);
-    bookie.renderItem(rootBooks);
+
+  sortBooksDesc() {
+    this.books.sort((a, b) => {
+      return b.price - a.price;
+    });
   },
 };
+/// Mixed work end ------------------------>
+// Etan --------------->
+const selectRoot = document.querySelector("[data-update-book-by-id]");
+const addingForm = document.querySelector("[data-addingItemForm]");
+const bookTitle = document.querySelector("[data-bookTitle]");
+const imagePreview = document.querySelector("[data-bookImage-preview]");
+const rootBooks = document.querySelector("[data-rootBooks]");
+const backToTop = document.querySelector("[data-back-to-top]");
+const ownerTable = document.querySelector("[data-toggle-existing]");
+
+function ascPrice(a, b) {
+  return a.price - b.price;
+}
+function descPrice(a, b) {
+  return b.price - a.price;
+}
+function ascYear(a, b) {
+  return a.year - b.year;
+}
+function descYear(a, b) {
+  return b.year - a.year;
+}
+
+function handleTop(ev) {
+  ev.preventDefault();
+  document.documentElement.scrollTop = 0;
+}
+function hideTopBtn() {
+  if (window.document.title === "Bookie") {
+    let rootElement = document.documentElement;
+    let topTotal = rootElement.scrollHeight - rootElement.clientHeight;
+    if (rootElement.scrollTop / topTotal > 0.8) {
+      backToTop.classList.remove("hidden");
+    } else {
+      backToTop.classList.add("hidden");
+    }
+  }
+}
+document.addEventListener("scroll", hideTopBtn);
 
 function makeId(book: book) {
   let uid = Math.random().toString(36).slice(-8);
@@ -355,50 +371,54 @@ function handleOwnerSort(ev: any) {
         return showLocalToOwner(descPrice);
     }
     showLocalToOwner(descYear);
-    // if (window.document.title === "myBookie")
-    // ev.preventDefault();
-    // let sortFunc = ev.target.value;
-    // if (sortFunc === 'ascYear'){
-    //   showLocalToOwner(ascYear)
-    //   return
-    // }
-    // if(sortFunc === 'descYear'){
-    //   showLocalToOwner(descYear)
-    //   return
-    // }
-    // if(sortFunc === 'ascPrice'){
-    //   showLocalToOwner(ascPrice)
-    //   return
-    // }
-    // showLocalToOwner(descPrice)
   } catch (error) {
     console.error(error);
     alert(error.message);
   }
 }
 
+console.log(descYear);
 function handleCustomerSort(ev: any) {
   if (window.document.title === "Bookie") ev.preventDefault();
   let sortFunc = ev.target.value;
+  console.log(sortFunc);
   if (sortFunc === "ascYear") {
     bookie.books.sort(ascYear);
-    bookie.renderItem(rootBooks);
-    return;
   }
   if (sortFunc === "descYear") {
     bookie.books.sort(descYear);
-    bookie.renderItem(rootBooks);
-    return;
   }
   if (sortFunc === "ascPrice") {
     bookie.books.sort(ascPrice);
-    bookie.renderItem(rootBooks);
-    return;
   }
-  bookie.books.sort(descPrice);
+  if (sortFunc === "descPrice") {
+    bookie.books.sort(descPrice);
+  }
+  localStorage.setItem("Bookie shop", JSON.stringify(bookie));
   bookie.renderItem(rootBooks);
 }
-
+// Omri & Etan ------------------------->
+function handleSearch(ev) {
+  ev.preventDefault();
+  const searchTerm = ev.target.value;
+  const regex = new RegExp(searchTerm, "i");
+  bookie.tempBooks = JSON.parse(localStorage.getItem("Bookie shop")).books;
+  try {
+    if (searchTerm.length > 0) {
+      bookie.tempBooks = bookie.tempBooks.filter((book) => {
+        if (regex.test(book.title)) return true;
+      });
+      localStorage.setItem("Bookie shop", JSON.stringify(bookie));
+      bookie.renderTempItem(rootBooks);
+      return;
+    }
+    bookie.renderItem(rootBooks);
+  } catch (error) {
+    console.error(error);
+  }
+}
+// Etan done ------------------------->
+// Omri ------------------------->
 window.onload = function () {
   if (window.document.title === "Bookie") {
     window.addEventListener("scroll", function (e) {
@@ -422,10 +442,9 @@ window.onload = function () {
 
 function handleSelect(ev) {
   ev.preventDefault();
-  bookie.books = JSON.parse(localStorage.getItem("Bookie shop")).books;
   const category = ev.target.value;
   if (category === "all") {
-   bookie.tempBooks = bookie.books;
+    bookie.tempBooks = bookie.books;
     bookie.renderTempItem(rootBooks);
   } else if (category === "thriller") {
     bookie.tempBooks = bookie.books.filter((book) => {
@@ -462,9 +481,9 @@ function handleSort(ev) {
 }
 
 function handleAmount(ev) {
-  const amonut = ev.target.valueAsNumber;
+  const amount = ev.target.valueAsNumber;
   bookie.tempBooks = bookie.books.filter((book) => {
-    return book.price < amonut;
+    return book.price < amount;
   });
   if (bookie.tempBooks.length > 0) {
     bookie.renderTempItem(rootBooks);
@@ -472,3 +491,4 @@ function handleAmount(ev) {
     bookie.renderItem(rootBooks);
   }
 }
+// Omri end ------------------------->
