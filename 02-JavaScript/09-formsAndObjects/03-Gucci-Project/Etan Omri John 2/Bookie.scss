@@ -143,11 +143,11 @@ header {
               transition: 0.4s;
             }
             &.is-active::before {
-              transform: rotate(-45deg) translate(-6px, 7px);
+              transform: rotate(-45deg) translate(-7px, 7px);
             }
 
             &.is-active::after {
-              transform: rotate(45deg) translate(-5px, -7px);
+              transform: rotate(45deg) translate(-6px, -7px);
             }
 
             &.is-active {
