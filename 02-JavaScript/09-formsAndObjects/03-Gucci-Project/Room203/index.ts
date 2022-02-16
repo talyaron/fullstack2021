@@ -44,7 +44,9 @@ interface shop {
   renderFilter(filterd: Array<product>, domElement);
   getData();
   setData();
-  WishList(id)
+  WishList(id);
+  shoeRender(id);
+
 }
 
 interface product {
@@ -65,7 +67,7 @@ interface product {
 const Adidas: shop = {
   // id:0,
   products: [], wishlist: [],
-  // wishList: [],
+  shoeRender(id): [],
   getData() {
     const products = JSON.parse(localStorage.getItem("Adidas"));
     if (products) {
@@ -135,7 +137,6 @@ const Adidas: shop = {
       </div>
           </div>   `
           ;
-        console.log("render");
       }
 
       else  if (owner) {
@@ -175,7 +176,6 @@ const Adidas: shop = {
           </div>   `
       }
 
-      console.log("render");
 
     })
 
@@ -239,7 +239,7 @@ const Adidas: shop = {
     return this.products.filter((element) => element.category === category);
   },
   renderFilter(filterd, domElement) {
-    console.log(filterd);
+    // console.log(filterd);
 
     this.render(filterd, domElement);
   },
@@ -253,10 +253,42 @@ const Adidas: shop = {
     console.log(Adidas.wishlist)
 
 
+  },
+  shoeRender(id) {
+    const index = this.products.findIndex((product) => product.id === id);
+    //console.log(`The index:${index}.`)
+    //console.log(`The id: ${id}.`)
+    let item;
+    item = Adidas.products[index]
+    this.wishlist.push(item);
+    console.log(Adidas.wishlist)
+
+
   }
 };
 
+function handleSearchProduct(ev) {
+  const search = ev.target.value;
+  const regex = new RegExp(search, 'i')
+  const root = document.getElementById('rootSearch');
+  root.innerHTML = ''
 
+  if (search.length > 0) {
+
+  
+      const foundProducts = Adidas.products.filter(product=>{
+          if (regex.test(product.title))return true;         
+      })
+
+      const html = foundProducts.map(product=>{
+          return `<p>${product.title}</p>`
+      }).join('');
+
+      root.innerHTML = html
+
+      console.log(foundProducts)
+  }
+}
 
 
 function handleAddItem(ev) {
@@ -428,13 +460,17 @@ function handleGender(ev) {
   }
 }
 function handleShoeSize(ev) {
-  const size = ev.target.value;
+  let size = ev.target.valueAsNumber;
   ev.preventDefault();
   const root = document.getElementById("rootCustomer");
   Adidas.renderFilter(Adidas.shoeSizeFilter(size), root);
-  // if(type === " ")
-  //Adidas.shoeSizeFilter(size);
+  if(size === this.shoeSize)
+  Adidas.shoeSizeFilter(size);
+  console.log(size);
+
 }
+
+
 
 function handleIndex(id) {
   Adidas.WishList(id);

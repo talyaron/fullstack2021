@@ -4,7 +4,6 @@ var uid = function () {
 var Adidas = {
     // id:0,
     products: [], wishlist: [],
-    // wishList: [],
     getData: function () {
         var products = JSON.parse(localStorage.getItem("Adidas"));
         if (products) {
@@ -44,12 +43,10 @@ var Adidas = {
             var owner = text.includes("owner");
             if (customer) {
                 html += "\n     <div class=\"cards__item\" >\n\n      <div class=\"picture\">\n          <i class=\"far fa-heart\"  onclick=\"handleIndex('" + product.id + "')\"></i>\n          <img src=\"" + product.pictureBack + "\" >\n         <img src=\"" + product.pictureFront + "\" class=\"img-top\">\n          </div>\n              \n      <div class=\"color\">\n      <p><b> Color: </b> " + product.color + "</p>\n      </div>\n\n      <div class=\"description\">\n         <p>" + product.title + "</p>\n          <p>" + product.description + "</p>\n          <p>" + product.price + "\u20AA</p> \n      </div>\n          </div>   ";
-                console.log("render");
             }
             else if (owner) {
                 html += "\n     <div class=\"cards__item\" >\n\n      <div class=\"picture\">\n          <i class=\"far fa-heart\"  onclick=\"handleIndex('" + product.id + "')\"></i>\n          <img src=\"" + product.pictureBack + "\" >\n         <img src=\"" + product.pictureFront + "\" class=\"img-top\">\n          </div>\n              \n      <div class=\"color\">\n      <p><b> Color: </b> " + product.color + "</p>\n      </div>\n\n      <div class=\"description\">\n         <p>" + product.title + "</p>\n          <p>" + product.description + "</p>\n          <p>" + product.price + "\u20AA</p> \n      </div>\n\n      <form onsubmit=\"handleUpdate(event, '" + product.id + "')\">\n      <input type=\"text\" name=\"newTitle\" placeholder=\"new title\" value=\"" + product.title + "\">\n      <input type=\"number\" name=\"newPrice\" placeholder=\"new price\" value=\"" + product.price + "\">\n      <input type=\"text\" name=\"newCategory\" placeholder=\"new category\" value=\"" + product.category + "\">\n      <input type=\"text\" name=\"newPictureFront\" placeholder=\"new picture front\" value=\"" + product.pictureFront + "\">\n      <input type=\"text\" name=\"newPictureBack\" placeholder=\"new picture back\" value=\"" + product.pictureBack + "\">\n      <input type=\"text\" name=\"newColor\" placeholder=\"new color\" value=\"" + product.color + "\">\n      <input type=\"text\" name=\"newGender\" placeholder=\"new gender\" value=\"" + product.gender + "\">\n      <input type=\"text\" name=\"newDescription\" placeholder=\"new description\" value=\"" + product.description + "\">\n      <input type=\"number\" name=\"newShoeSize\" placeholder=\"new shoeSize\" value=\"" + product.shoeSize + "\">\n      <button type=\"submit\">Update</button>\n      </form>\n\n      <button onclick=\"handleDelete('" + product.id + "')\">Delete</button>\n          </div>   ";
             }
-            console.log("render");
         });
         var button = document.getElementById("button");
         console.log(button);
@@ -96,7 +93,7 @@ var Adidas = {
         return this.products.filter(function (element) { return element.category === category; });
     },
     renderFilter: function (filterd, domElement) {
-        console.log(filterd);
+        // console.log(filterd);
         this.render(filterd, domElement);
     },
     WishList: function (id) {
@@ -107,8 +104,34 @@ var Adidas = {
         item = Adidas.products[index];
         this.wishlist.push(item);
         console.log(Adidas.wishlist);
+    },
+    shoeRender: function (id) {
+        var index = this.products.findIndex(function (product) { return product.id === id; });
+        //console.log(`The index:${index}.`)
+        //console.log(`The id: ${id}.`)
+        var item;
+        item = Adidas.products[index];
+        this.wishlist.push(item);
+        console.log(Adidas.wishlist);
     }
 };
+function handleSearchProduct(ev) {
+    var search = ev.target.value;
+    var regex = new RegExp(search, 'i');
+    var root = document.getElementById('rootSearch');
+    root.innerHTML = '';
+    if (search.length > 0) {
+        var foundProducts = Adidas.products.filter(function (product) {
+            if (regex.test(product.title))
+                return true;
+        });
+        var html = foundProducts.map(function (product) {
+            return "<p>" + product.title + "</p>";
+        }).join('');
+        root.innerHTML = html;
+        console.log(foundProducts);
+    }
+}
 function handleAddItem(ev) {
     ev.preventDefault();
     var title = ev.target.elements.title.value;
@@ -238,12 +261,13 @@ function handleGender(ev) {
     }
 }
 function handleShoeSize(ev) {
-    var size = ev.target.value;
+    var size = ev.target.valueAsNumber;
     ev.preventDefault();
     var root = document.getElementById("rootCustomer");
     Adidas.renderFilter(Adidas.shoeSizeFilter(size), root);
-    // if(type === " ")
-    //Adidas.shoeSizeFilter(size);
+    if (size === this.shoeSize)
+        Adidas.shoeSizeFilter(size);
+    console.log(size);
 }
 function handleIndex(id) {
     Adidas.WishList(id);
