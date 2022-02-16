@@ -669,8 +669,19 @@ html {
     height: 50%;
   }
 }
+#rootERP {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
 .dishesERP {
   border: 1px solid black;
-  width: 50%;
+  width: 200px;
   padding: 5px;
+}
+.dishesERP form {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
 }
