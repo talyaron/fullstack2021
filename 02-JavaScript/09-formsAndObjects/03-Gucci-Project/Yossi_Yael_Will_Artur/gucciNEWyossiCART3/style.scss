@@ -293,19 +293,7 @@ input,
             gap: 23px;
             font-size: 13px;
 
-            &__bag {
-
-                //   display: flex;
-                //   justify-content: space-between;
-                //   gap: 5px;
-                //   width: 140px;
-                //   display: grid;
-                //   grid-template-columns: 1fr 1fr;
-            }
-
-            .sign {
-               
-            }
+            
         }
 
         &__icons__left {
@@ -463,6 +451,10 @@ input,
     display: flex;
     justify-content: end;
     margin-right: 24px;
+}
+#search,#root{
+    width: 100px;
+    height: auto;
 }
 
 // end yael==============================

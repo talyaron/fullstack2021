@@ -4,11 +4,39 @@
 
 body {
   font-family: "Montserrat", sans-serif;
-  color: "whiblackte";
   margin: 0;
   width: 100%;
 }
 
+.cart {
+  position: sticky;
+  z-index: 1;
+  height: 1px;
+  top: 30vh;
+  width: 55px;
+  align-self: center;
+}
+.cart ion-icon {
+  height: 10vh;
+  width: 50px;
+  border-radius: 10px;
+  border: solid 1px rgba(128, 128, 128, 0.699);
+  text-align: center;
+  background-color: #f5eaea;
+}
+
+.showCart {
+  background-color: green;
+  margin-left: 100px;
+  width: 80vw;
+  height: 100vh;
+  z-index: 1;
+  display: none;
+}
+
+.container {
+  width: 100%;
+}
 .container__navBar {
   top: 0px;
   left: 0px;
@@ -23,7 +51,6 @@ body {
 }
 .container__navBar__title__help {
   display: flex;
-  gap: 0.4em;
   font-size: smaller;
 }
 .container__navBar__title--gucci {
@@ -31,18 +58,19 @@ body {
   letter-spacing: 12px;
   font-family: Granjon;
   font-weight: lighter;
+  justify-content: center;
 }
 .container__navBar2 {
-  text-align: center;
   transition: all 0.5s;
+  text-align: center;
 }
 .container__navBar2 ul {
   display: inline-flex;
   list-style: none;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .container__navBar2 ul li {
-  width: 120px;
-  margin: 15px;
   padding: 15px;
 }
 .container__navBar2 ul li a {
@@ -53,14 +81,11 @@ body {
 }
 .container__navBar2__dropdown {
   display: none;
-  width: 130vh;
   padding: 20px;
   opacity: 0.7;
 }
 .container__navBar2__dropdown ul {
-  width: 180vh;
-  height: auto;
-  margin-left: -200px;
+  margin-left: -450px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -120,7 +145,6 @@ body {
   margin-bottom: 5.5em;
 }
 .container__stories .stories__middle {
-  margin-right: 1em;
   margin-top: -9.7em;
 }
 .container__stories .stories__middle__title {
@@ -146,6 +170,7 @@ body {
   padding: 2em;
   margin-top: 0;
   color: white;
+  margin-top: 0.1em;
 }
 
 .active,
@@ -157,11 +182,13 @@ body {
 .container__navBar2 ul li:hover .container__navBar2__dropdown {
   display: block;
   margin-top: 15px;
+  margin-left: 15px;
+  position: absolute;
   transform: translateY(-20px);
 }
 
 .sub-container {
-  background-image: url("../../imgBG/gucciBG.jpg");
+  background-image: url("https://onemillionluxury.com/wp-content/uploads/IllustriousNewHermitcrab-size_restricted.gif");
   background-size: cover;
   background-repeat: no-repeat;
   height: 90vh;
@@ -192,7 +219,7 @@ body {
 .catergory__buttons--selector {
   background-color: #ffffff;
   cursor: pointer;
-  width: 15;
+  width: 15px;
   border: none;
   font-size: 12px;
   letter-spacing: 1px;
@@ -238,6 +265,8 @@ body {
   background-color: white;
   height: 80em;
   text-align: center;
+  display: flex;
+  flex-wrap: wrap;
 }
 .catergory__items .items {
   color: black;
@@ -266,8 +295,8 @@ body {
 }
 
 @media only screen and (max-width: 1024px) {
-  body {
-    background-color: red;
+  body .container__navBar2__dropdown ul {
+    margin-left: -150px;
   }
   body .catergory__items {
     height: 120em;
@@ -324,8 +353,8 @@ body {
   }
 }
 @media only screen and (max-width: 600px) {
-  body {
-    background-color: green;
+  body .container__navBar2__dropdown ul {
+    margin-left: -100px;
   }
   body .catergory__buttons {
     height: 15vh;

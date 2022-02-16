@@ -625,6 +625,103 @@ html {
     }
 }
 
+///////////////////////// CART //////////////////////////////////
+
+.cart {
+
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    top: 5.7%;
+    right: 5%;
+    z-index: 10;
+    height: 50px;
+    width: 50px;
+
+    &__body {
+
+        overflow-y: scroll;
+
+        .cart__dishes {
+            width: 260px;
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
+    &__close {
+
+        display: none;
+
+        &-active {
+            display: block;
+            color: rgb(0, 0, 0);
+            position: absolute;
+            right: 3%;
+            cursor: pointer;
+        }
+    }
+
+    &-active {
+        top: 12%;
+        height: 420px;
+        width: 280px;
+    }
+
+    &__box {
+
+        padding: 1em;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #EBEBEB;
+        border-radius: 1%;
+        width: 50px;
+        height: 60px;
+
+        &-active {
+            position: absolute;
+            width: 300px;
+            height: 400px;
+        }
+
+        .cart__footer {
+
+            form {
+                padding: 0.3em;
+                display: flex;
+                justify-content: center;
+                display: none;
+                gap: 0.5em;
+
+                input {
+                    width: 35px;
+                }
+
+                button {
+                    width: 60px;
+                }
+            }
+
+            &-active {
+                form {
+                    display: flex;
+                }
+            }
+        }
+
+        img {
+            width: 40px;
+            height: 30px;
+            cursor: pointer;
+        }
+    }
+}
+
+//////////////////////////// RESPONSIVENESS /////////////////////////
+
 @media screen and (max-width: 1200px) {
 
     .navbar {
@@ -797,60 +894,26 @@ html {
 }
 
 
-///////////////////////// CART //////////////////////////////////
 
-.cart {
-
-    position: fixed;
-    display: flex;
-    flex-direction: column;
-    top: 4%;
-    right: 1%;
-    z-index: 10;
-    height: 420px;
-    width: 300px;
-
-    &-active{
-        top: 13%;
-        &__close{
-            opacity: 1;
-            color: white;
-        }
-    }
-
-    &__box {
-
-        padding: 1em;
-        display: flex;
-        justify-content: center;
-        background-color: #EBEBEB;
-        border-radius: 10%;
-        width: 50px;
-        height: 50px;
-
-        &-active {
-            position: absolute;
-            width: 300px;
-            height: 400px;
-        }
-
-        img {
-            width: 40px;
-            height: 30px;
-            cursor: pointer;
-        }
-    }
-
-    &__close {
-        opacity: 0;
-    }
-}
 
 ///////////////////////// ERP ///////////////////////////////////
 
+#rootERP {
+    display: flex;
+    flex-wrap: wrap;
+    gap:10px;
+
+}
 
 .dishesERP {
     border: 1px solid black;
-    width: 50%;
+    width: 200px;
     padding: 5px;
+
+    form {
+
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr
+    }
 }

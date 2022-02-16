@@ -331,6 +331,11 @@ input,
   margin-right: 24px;
 }
 
+#search, #root {
+  width: 100px;
+  height: auto;
+}
+
 .showcase {
   right: 0;
   width: 100%;

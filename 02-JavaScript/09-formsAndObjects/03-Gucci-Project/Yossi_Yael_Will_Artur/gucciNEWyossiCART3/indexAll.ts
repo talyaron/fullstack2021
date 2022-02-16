@@ -205,6 +205,34 @@ function handleDelete(id) {
     gucci.renderItems(gucci.items, rootItems)
 }
 
+//==================serach function//===========================================
+function handleSearch(ev){
+    const searchTerm=ev.target.value;
+    const regex=new RegExp(searchTerm,'i'); 
+    const root=document.querySelector('#root');
+    const items = JSON.parse(localStorage.getItem("storeData"));
+    console.log(items);
+
+    root.innerHTML='';
+    if (searchTerm.length>0){
+        const foundItem=items.map(itemS=>{
+            if (regex.test(itemS)){
+                return itemS;
+            }
+        })
+        localStorage.setItem('storeData', JSON.stringify(foundItem));
+
+        console.log(foundItem);
+
+    }
+   
+}
+
+
+
+
+
+//==================serach function//===========================================
 
 gucci.getData();
 gucci.storeData()

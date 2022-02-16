@@ -209,6 +209,7 @@ var gucci = {
             type: "backpack"
         },
     ],
+    cartItems: [],
     storeData: function () {
         localStorage.setItem("storeData", JSON.stringify(this.items));
     },
@@ -230,6 +231,18 @@ var gucci = {
             this.storeData();
         }
     },
+    addToCart: function (newItem) {
+        var id = uid();
+        this.items.forEach(function (item) { return item.id === newItem; });
+        this.cartItems.push(newItem);
+    },
+    renderAddToCart: function (domElement) {
+        var cartHtml = "";
+        this.cartItems.forEach(function (item) {
+            cartHtml += "<div class=\"cartItems\">\n      <p>" + item.name + "</p>\n      <img class=\"imgTop\" src=\"" + item.imgTop + "\" >\n      <p>" + item.price + "$</p>\n      </div>";
+            domElement.innerHTML = cartHtml;
+        });
+    },
     updateItems: function (newPrice, itemName) {
         //const index = this.items.findIndex((item) => item.id === id);
         var index = this.items.findIndex(function (item) { return item.name === itemName; });
@@ -240,6 +253,11 @@ var gucci = {
             this.storeData();
             this.getData();
         }
+    },
+    filterByItemNameAndGender: function (gender, itemName) {
+        return this.items
+            .filter(function (item) { return item.gender === gender; })
+            .filter(function (item) { return item.name === itemName; });
     },
     filterMaxPriceAndGender: function (gender, price) {
         return this.items
@@ -259,13 +277,16 @@ var gucci = {
     render: function (list, domElement) {
         var html = "";
         list.forEach(function (item) {
-            html += "<div class=\"items\">\n        <p>" + item.name + "</p>\n        <img class=\"imgTop\" src=\"" + item.imgTop + "\" >\n        <img class=\"imgBottom\" src=\"" + item.imgBottom + "\" >\n        <p>" + item.price + "$</p>\n        <input onclick=\"handleAddToCart()\" id=\"addToCart\" type=\"button\" value=\"ADD TO CART\">\n        </div>";
+            html += "<div class=\"items\">\n        <p>" + item.name + "</p>\n        <img class=\"imgTop\" src=\"" + item.imgTop + "\" >\n        <img class=\"imgBottom\" src=\"" + item.imgBottom + "\" >\n        <p>" + item.price + "$</p>\n        <input onclick=\"handleAddToCart('" + item.id + "')\" id=\"addToCart\" type=\"button\" value=\"ADD TO CART\">\n        </div>";
         });
         domElement.innerHTML = html;
     },
     renderAllitems: function (domElement) {
         var items = this.items;
         this.render(items, domElement);
+    },
+    renderFilterByItemName: function (filteredByItemName, domElement) {
+        this.render(filteredByItemName, domElement);
     },
     renderMaxPrice: function (filtered, domElement) {
         this.render(filtered, domElement);
@@ -375,4 +396,47 @@ function handleRenderByGender(gender) {
     var root = document.getElementById("root");
     gucci.getData();
     gucci.renderByGender(gender, root);
+}
+function handleShowCart() {
+    var cartRoot = document.getElementById("cartRoot");
+    if (cartRoot.style.display === "none") {
+        cartRoot.style.display = "block";
+    }
+    else {
+        cartRoot.style.display = "none";
+    }
+}
+function handleAddToCart(addedItemsId) {
+    var cartRoot = document.getElementById('cartRoot');
+    var addedItems = gucci.items.filter(function (item) { return item.id = addedItemsId; });
+    gucci.addToCart(addedItems);
+    //console.log(addedItems)
+    gucci.renderAddToCart(cartRoot);
+}
+function handleSearch(ev) {
+    //const name= ev.target.value;
+    var searchTerm = ev.target.value;
+    console.log(searchTerm);
+    var regExp = new RegExp(searchTerm, 'i');
+    var root = document.getElementById("root");
+    var gender = ev.target.dataset.gender;
+    root.innerHTML = "";
+    console.log(gender);
+    if (searchTerm.length > 0) {
+        var foundItem = gucci.items.filter(function (item) {
+            if (regExp.test(item.name))
+                return true;
+            var filteredByItemName = gucci.filterByItemNameAndGender(gender, searchTerm);
+            gucci.renderFilterByItemName(filteredByItemName, root);
+        });
+        var html = foundItem
+            .map(function (item) {
+            return "<div class=\"items\">\n      <p>" + item.name + "</p>\n      <img class=\"imgTop\" src=\"" + item.imgTop + "\" >\n      <img class=\"imgBottom\" src=\"" + item.imgBottom + "\" >\n      <p>" + item.price + "$</p>\n      <input onclick=\"handleAddToCart('" + item.id + "')\" id=\"addToCart\" type=\"button\" value=\"ADD TO CART\">\n      </div>";
+        })
+            .join("");
+        root.innerHTML = html;
+    }
+    else {
+        gucci.renderByGender(gender, root);
+    }
 }

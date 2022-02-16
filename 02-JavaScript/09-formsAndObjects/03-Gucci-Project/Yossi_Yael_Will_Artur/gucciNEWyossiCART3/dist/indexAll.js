@@ -115,6 +115,25 @@ function handleDelete(id) {
     gucci.deleteItem(id);
     gucci.renderItems(gucci.items, rootItems);
 }
+//==================serach function//===========================================
+function handleSearch(ev) {
+    var searchTerm = ev.target.value;
+    var regex = new RegExp(searchTerm, 'i');
+    var root = document.querySelector('#root');
+    var items = JSON.parse(localStorage.getItem("storeData"));
+    console.log(items);
+    root.innerHTML = '';
+    if (searchTerm.length > 0) {
+        var foundItem = items.map(function (itemS) {
+            if (regex.test(itemS)) {
+                return itemS;
+            }
+        });
+        localStorage.setItem('storeData', JSON.stringify(foundItem));
+        console.log(foundItem);
+    }
+}
+//==================serach function//===========================================
 gucci.getData();
 gucci.storeData();
 function rendrOwenerItems() {

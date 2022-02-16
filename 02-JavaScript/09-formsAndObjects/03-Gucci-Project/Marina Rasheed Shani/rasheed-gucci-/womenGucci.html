@@ -21,9 +21,12 @@
 </head>
 
 <body onload="handleRenderByGender('women')">
-    <!-- 
-    <div class="cart" style="position:sticky;width:300px;height:400px;background-color: green;top:30vh;z-index: 1;">    
-    </div> -->
+   
+    <div class="cart" id="cart" onclick="handleShowCart()"><ion-icon name="bag-handle-outline" ></ion-icon>
+        <div class="showCart" id="cartRoot" >hello</div>
+    </div>
+    
+    
 
     <div class="container">
 
@@ -240,6 +243,11 @@
                 <h3><span> WOMEN </span> | Ready-to-wear for Women</h3>
             </div>
 
+            <div class="category__buttons--searchItem">
+                <input class="inputSearch" type="search"  placeholder="search for item" onkeyup="handleSearch(event)" data-gender="women">
+
+            </div>
+
 
             <div class="catergory__buttons--lowerThanPrice">
                 <label>Show price lower than</label>
@@ -322,7 +330,7 @@
                 <p>Snapchat</p>
             </div>
 
-            <div class="bottom_sign">
+            <!-- <div class="bottom_sign">
                 <p class="container__bottom__title">SIGN UP FOR GUCCI UPDATES</p>
                 <p>By entering your email address<br> below, you consent to receiving<br> our newsletter with access<br>
                     to our latest collections,<br> events and initiatives. More<br> details on this are provided<br> in
@@ -330,7 +338,7 @@
                 <input type="email" name="" id="" placeholder="Email Address"><br>
                 <p>STORE LOCATOR</p>
                 <input type="text" name="" id="" placeholder="City, Region, Country">
-            </div>
+            </div> -->
 
 
 
@@ -338,7 +346,7 @@
         <p class="gucciRights" >© 2016 - 2020 Guccio
             Gucci S.p.A. - All rights reserved. SIAE LICENCE # 2294/I/1936 and 5647/I/1936</p>
 
-
+     
 
     </div>
    

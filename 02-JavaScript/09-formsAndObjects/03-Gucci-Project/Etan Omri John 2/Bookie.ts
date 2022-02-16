@@ -108,6 +108,38 @@ const bookie: BookShop = {
       img: "Harry Potter.jpg",
       year: 1995,
     },
+    {
+      id: 6,
+      category: "history",
+      title: "The Cruisades",
+      price: 57,
+      img: "cuisades.jpg",
+      year: 2011,
+    },
+    {
+      id: 8,
+      category: "cooking",
+      title: "Home Cooking",
+      price: 66,
+      img: "homecooking.jpg",
+      year: 2013,
+    },
+    {
+      id: 9,
+      category: "cooking",
+      title: "The Confortable Kitchen",
+      price: 35,
+      img: "cook.jpg",
+      year: 2012,
+    },
+    {
+      id: 10,
+      category: "fantasy",
+      title: "Lord of the Rings",
+      price: 97,
+      img: "lotr.jpg",
+      year: 1954,
+    },
   ],
 
   tempBooks: [],
@@ -138,6 +170,7 @@ const bookie: BookShop = {
   },
   renderItem(domElement) {
     if (window.document.title === "Bookie") {
+      localStorage.setItem('Bookie shop', JSON.stringify(bookie))
       bookie.books = JSON.parse(localStorage.getItem("Bookie shop")).books;
       console.log(bookie)
       let html = "";
@@ -177,8 +210,8 @@ const bookie: BookShop = {
 
   renderTempItem(domElement) {
     if (window.document.title === "Bookie") {
-      // bookie.books = JSON.parse(localStorage.getItem("Bookie shop")).books;
-      // console.log(bookie)
+      bookie.books = JSON.parse(localStorage.getItem("Bookie shop")).books;
+      console.log(bookie)
       let html = "";
       bookie.tempBooks.forEach((item) => {
         domElement.innerHTML = "";
