@@ -329,81 +329,101 @@ function handleSearch(ev) {
 // Etan done ------------------------->
 // Omri ------------------------->
 window.onload = function () {
-    if (window.document.title === "Bookie") {
-        window.addEventListener("scroll", function (e) {
-            if (window.pageYOffset > 100) {
-                document.querySelector("header").classList.add("is-scrolling");
-            }
-            else {
-                document.querySelector("header").classList.remove("is-scrolling");
-            }
-        });
-        var menu_btn_1 = document.querySelector(".navBar__row1__mobile__humburger");
-        var mobile_menu_1 = document.querySelector(".mobileOptions");
-        menu_btn_1.addEventListener("click", function () {
-            menu_btn_1.classList.toggle("is-active");
-            mobile_menu_1.classList.toggle("is-active");
-        });
+    try {
+        if (window.document.title === "Bookie") {
+            window.addEventListener("scroll", function (e) {
+                if (window.pageYOffset > 100) {
+                    document.querySelector("header").classList.add("is-scrolling");
+                }
+                else {
+                    document.querySelector("header").classList.remove("is-scrolling");
+                }
+            });
+            var menu_btn_1 = document.querySelector(".navBar__row1__mobile__humburger");
+            var mobile_menu_1 = document.querySelector(".mobileOptions");
+            menu_btn_1.addEventListener("click", function () {
+                menu_btn_1.classList.toggle("is-active");
+                mobile_menu_1.classList.toggle("is-active");
+            });
+        }
+        showLocalToOwner(undefined);
     }
-    showLocalToOwner(undefined);
+    catch (error) {
+        console.error(error);
+    }
 };
 function handleSelect(ev) {
     ev.preventDefault();
-    var category = ev.target.value;
-    if (category === "all") {
-        bookie.tempBooks = bookie.books;
+    try {
+        var category_1 = ev.target.value;
+        if (category_1 === "all") {
+            bookie.tempBooks = bookie.books;
+            bookie.renderTempItem(rootBooks);
+        }
+        else if (category_1 === "thriller") {
+            bookie.tempBooks = bookie.books.filter(function (book) {
+                return book.category === category_1;
+            });
+        }
+        else if (category_1 === "history") {
+            bookie.tempBooks = bookie.books.filter(function (book) {
+                return book.category === category_1;
+            });
+        }
+        else if (category_1 === "cooking") {
+            bookie.tempBooks = bookie.books.filter(function (book) {
+                return book.category === category_1;
+            });
+        }
+        else if (category_1 === "fantasy") {
+            bookie.tempBooks = bookie.books.filter(function (book) {
+                return book.category === category_1;
+            });
+        }
         bookie.renderTempItem(rootBooks);
     }
-    else if (category === "thriller") {
-        bookie.tempBooks = bookie.books.filter(function (book) {
-            return book.category === category;
-        });
+    catch (error) {
+        console.error(error);
     }
-    else if (category === "history") {
-        bookie.tempBooks = bookie.books.filter(function (book) {
-            return book.category === category;
-        });
-    }
-    else if (category === "cooking") {
-        bookie.tempBooks = bookie.books.filter(function (book) {
-            return book.category === category;
-        });
-    }
-    else if (category === "fantasy") {
-        bookie.tempBooks = bookie.books.filter(function (book) {
-            return book.category === category;
-        });
-    }
-    bookie.renderTempItem(rootBooks);
 }
 function handleSort(ev) {
     ev.preventDefault();
-    if (ev.target.value === "sortAsc") {
-        bookie.sortBooksAsc();
-        bookie.tempBooks = bookie.books;
-        bookie.renderTempItem(rootBooks);
+    try {
+        if (ev.target.value === "sortAsc") {
+            bookie.sortBooksAsc();
+            bookie.tempBooks = bookie.books;
+            bookie.renderTempItem(rootBooks);
+        }
+        else if (ev.target.value === "sortDesc") {
+            bookie.sortBooksDesc();
+            bookie.tempBooks = bookie.books;
+            bookie.renderTempItem(rootBooks);
+        }
     }
-    else if (ev.target.value === "sortDesc") {
-        bookie.sortBooksDesc();
-        bookie.tempBooks = bookie.books;
-        bookie.renderTempItem(rootBooks);
+    catch (error) {
+        console.error(error);
     }
 }
 function handleAmount(ev) {
-    var amount = ev.target.valueAsNumber;
-    bookie.sortBooksAsc();
-    var minPrice = bookie.books[0].price;
-    bookie.tempBooks = bookie.books.filter(function (book) {
-        return book.price < amount;
-    });
-    if (amount < minPrice) {
-        rootBooks.innerHTML = 'No books found';
+    try {
+        var amount_1 = ev.target.valueAsNumber;
+        bookie.sortBooksAsc();
+        var minPrice = bookie.books[0].price;
+        bookie.tempBooks = bookie.books.filter(function (book) {
+            return book.price < amount_1;
+        });
+        if (amount_1 < minPrice) {
+            rootBooks.innerHTML = 'No books found';
+        }
+        else if (bookie.tempBooks.length > 0) {
+            bookie.renderTempItem(rootBooks);
+        }
+        else {
+            bookie.renderItem(rootBooks);
+        }
     }
-    else if (bookie.tempBooks.length > 0) {
-        bookie.renderTempItem(rootBooks);
-    }
-    else {
-        bookie.renderItem(rootBooks);
+    catch (error) {
+        console.error(error);
     }
 }
 // Omri end ------------------------->
