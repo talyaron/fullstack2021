@@ -658,5 +658,9 @@ function scrollPage(ev) {
     //     case 'Pants':
     //         itemMenu.scrollTop = 50;
     //         break;
-    // }
+    // }    
+}
+function thankYou() {
+    var shoppingCartDisplay = document.querySelector('.container-shoppingCart');
+    shoppingCartDisplay.innerHTML = '<p style="width:100vw;text-align:center;font-size:30px">Thank you for your order</p>';
 }
