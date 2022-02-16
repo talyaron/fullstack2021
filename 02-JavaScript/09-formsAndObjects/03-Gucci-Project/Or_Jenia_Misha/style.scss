@@ -902,13 +902,17 @@ html {
     display: flex;
     flex-wrap: wrap;
     gap:10px;
+    margin-top: 1em;
 
 }
 
 .dishesERP {
+
     border: 1px solid black;
     width: 200px;
+    height: 450px;
     padding: 5px;
+    background-color: gainsboro ;
 
     form {
 
