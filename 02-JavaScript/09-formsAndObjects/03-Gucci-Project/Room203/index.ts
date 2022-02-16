@@ -6,6 +6,7 @@ interface shop {
   id?: number;
   products: Array<product>;
   wishlist: Array<any>;
+ 
   // wishList: Array<product>;
   addItem(
     title: string,
@@ -67,7 +68,7 @@ interface product {
 const Adidas: shop = {
   // id:0,
   products: [], wishlist: [],
-  shoeRender(id): [],
+  
   getData() {
     const products = JSON.parse(localStorage.getItem("Adidas"));
     if (products) {
@@ -102,6 +103,7 @@ const Adidas: shop = {
       description,
       shoeSize,
     });
+
     this.setData();
   },
   deleteItem(id) {
@@ -109,7 +111,7 @@ const Adidas: shop = {
     this.setData();
   },
   render(list, domElement) {
-    console.log(list);
+   console.log(list);
 
     let html = "";
     this.products.forEach((product) => {
@@ -117,6 +119,7 @@ const Adidas: shop = {
       let customer = text.includes("customer")
       let owner = text.includes("owner")
       if (customer) {
+         
         html += `
      <div class="cards__item" >
 
@@ -180,8 +183,8 @@ const Adidas: shop = {
     })
 
 
-    const button = document.getElementById("button");
-    console.log(button);
+   // const button = document.getElementById("button");
+    //console.log(button);
 
     domElement.innerHTML = html;
   },
@@ -221,7 +224,7 @@ const Adidas: shop = {
     );
   },
   shoeSizeFilter(size) {
-    return this.products.filter((item) => item.size === size);
+    return this.products =  this.products.filter((item) => item.shoeSize === size);
   },
   sortItemsAsc() {
     this.products.sort((x, y) => y.price - x.price);
@@ -230,16 +233,17 @@ const Adidas: shop = {
     this.products.sort((x, y) => x.price - y.price);
   },
   sortByGender(item) {
-    return this.products.filter((element) => element.gender === item);
+return this.products = this.products.filter((element) => element.gender === item);
   },
   sortByColor(color) {
-    return this.products.filter((element) => element.color === color);
+    return this.products =  this.products.filter((element) => element.color === color);
   },
   sortByType(category) {
-    return this.products.filter((element) => element.category === category);
+    return this.products = this.products.filter((element) => element.category === category);
   },
   renderFilter(filterd, domElement) {
     // console.log(filterd);
+
 
     this.render(filterd, domElement);
   },
@@ -266,6 +270,7 @@ const Adidas: shop = {
 
   }
 };
+
 
 function handleSearchProduct(ev) {
   const search = ev.target.value;
@@ -402,10 +407,10 @@ function handleType(ev) {
   const root = document.getElementById("rootCustomer");
   if (type === "Sneakers") {
     console.log(type);
-
+    Adidas.render(Adidas.sortByType(type), root);
     // Adidas.sortByType(type)
     //      Adidas.renderAllData(root);
-    Adidas.renderFilter(Adidas.sortByType(type), root);
+   // Adidas.renderFilter(Adidas.sortByType(type), root);
   }
   else if (type === "Boots") {
     //   console.log(type);
@@ -458,15 +463,30 @@ function handleGender(ev) {
     Adidas.renderFilter(Adidas.sortByGender(gender), root)
 
   }
+  else{
+    Adidas.renderAllData(root);
+  }
 }
 function handleShoeSize(ev) {
-  let size = ev.target.valueAsNumber;
+  const size = ev.target.value;
   ev.preventDefault();
   const root = document.getElementById("rootCustomer");
-  Adidas.renderFilter(Adidas.shoeSizeFilter(size), root);
-  if(size === this.shoeSize)
-  Adidas.shoeSizeFilter(size);
-  console.log(size);
+
+  if (size === "30") {
+    console.log(size);
+
+    Adidas.renderFilter(Adidas.shoeSizeFilter(size), root)
+  }
+  else if (size === "40") {
+    console.log(size);
+    Adidas.renderFilter(Adidas.shoeSizeFilter(size), root)
+
+  }
+  else if (size === "44") {
+    console.log(size);
+    Adidas.renderFilter(Adidas.shoeSizeFilter(size), root)
+
+  }
 
 }
 
@@ -485,7 +505,7 @@ Adidas.addItem(
   "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg",
   "red",
   "B-ball legend. Street symbol. Cultural icon. Still going strong after five decades, the adidas Superstar Shoes have millions of stories to tell. Smooth leather combines with serrated 3-Stripes and the authentic rubber shell toe. Ready for the next fifty years of iconic adidas style? Lets do it.",
-  44
+  30
 );
 Adidas.addItem(
   "superstar shoes",
@@ -496,7 +516,7 @@ Adidas.addItem(
   "https://st-adidas-isr.mncdn.com/content/images/thumbs/0002509_superstar-shoes_eg4957_side-lateral-center-view.jpeg",
   "red",
   "B-ball legend. Street symbol. Cultural icon. Still going strong after five decades, the adidas Superstar Shoes have millions of stories to tell. Smooth leather combines with serrated 3-Stripes and the authentic rubber shell toe. Ready for the next fifty years of iconic adidas style? Lets do it.",
-  44
+  40
 );
 Adidas.addItem(
   "superstar shoes",
