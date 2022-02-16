@@ -254,6 +254,11 @@ var gucci = {
             this.getData();
         }
     },
+    filterByItemNameAndGender: function (gender, itemName) {
+        return this.items
+            .filter(function (item) { return item.gender === gender; })
+            .filter(function (item) { return item.name === itemName; });
+    },
     filterMaxPriceAndGender: function (gender, price) {
         return this.items
             .filter(function (item) { return item.gender === gender; })
@@ -279,6 +284,9 @@ var gucci = {
     renderAllitems: function (domElement) {
         var items = this.items;
         this.render(items, domElement);
+    },
+    renderFilterByItemName: function (filteredByItemName, domElement) {
+        this.render(filteredByItemName, domElement);
     },
     renderMaxPrice: function (filtered, domElement) {
         this.render(filtered, domElement);
@@ -404,4 +412,31 @@ function handleAddToCart(addedItemsId) {
     gucci.addToCart(addedItems);
     //console.log(addedItems)
     gucci.renderAddToCart(cartRoot);
+}
+function handleSearch(ev) {
+    //const name= ev.target.value;
+    var searchTerm = ev.target.value;
+    console.log(searchTerm);
+    var regExp = new RegExp(searchTerm, 'i');
+    var root = document.getElementById("root");
+    var gender = ev.target.dataset.gender;
+    root.innerHTML = "";
+    console.log(gender);
+    if (searchTerm.length > 0) {
+        var foundItem = gucci.items.filter(function (item) {
+            if (regExp.test(item.name))
+                return true;
+            var filteredByItemName = gucci.filterByItemNameAndGender(gender, searchTerm);
+            gucci.renderFilterByItemName(filteredByItemName, root);
+        });
+        var html = foundItem
+            .map(function (item) {
+            return "<div class=\"items\">\n      <p>" + item.name + "</p>\n      <img class=\"imgTop\" src=\"" + item.imgTop + "\" >\n      <img class=\"imgBottom\" src=\"" + item.imgBottom + "\" >\n      <p>" + item.price + "$</p>\n      <input onclick=\"handleAddToCart('" + item.id + "')\" id=\"addToCart\" type=\"button\" value=\"ADD TO CART\">\n      </div>";
+        })
+            .join("");
+        root.innerHTML = html;
+    }
+    else {
+        gucci.renderByGender(gender, root);
+    }
 }
