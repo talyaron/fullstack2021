@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="dist/style.css">
+    <title>gucci owner</title>
+</head>
+
+<body class="bodyOwner" onload="rendrOwenerItems()">
+    <div class="headerOwner">
+        <div class="nvaStoreOwner">
+            <button class="headerOwner__btn"><a href="./indexStore.html">store</a></button>
+            <button class="headerOwner__btn"><a href="./indexOwner.html">owner</a></button>
+        </div>
+        <div class="logoOwner"><img src="images/logoWhite.png" alt=""></div>
+        <div></div>
+    </div>
+    <hr>
+
+    <div class="wrapperForms">
+        <div>
+            <form id="formAddItem" onsubmit='handleaddItems(event)'>
+                <select name="select" id="select">
+                    <option>Select item</option>
+                    <option>Timeless-40mm</option>
+                    <option>Timeless-38mm</option>
+                    <option>Tiger1-38mm</option>
+                    <option>Tiger2-38mm</option>
+                    <option>Timeless-Automatic-38mm</option>
+                    <option>Dive-40mm</option>
+                    <option>Limited-Dive-40mm</option>
+                    <option>Dive-45mm</option>
+                </select>
+                <!-- <input type="text" name="title" placeholder="Item name" value="MEN'S" required> -->
+                <input type='number' name="price" placeholder="Price of item" required>
+                <textarea id="textarea" maxlength="80" name="description" rows="4" cols="50"
+                    placeholder="Item description (max 80 charecters)"></textarea>
+                <input id="addBtn" type="submit" value="ADD ITEM">
+            </form>
+        </div>
+    </div>
+    <br>
+    <hr>
+    <div id="rootItems"></div>
+    <hr>
+
+    <script src="dist/indexAll.js"></script>
+</body>
+
+</html>

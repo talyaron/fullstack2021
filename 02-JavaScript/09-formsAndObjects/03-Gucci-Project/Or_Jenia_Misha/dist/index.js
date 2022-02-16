@@ -273,21 +273,21 @@ var sushiMenu = {
             id: uid(),
             name: "Sea Bass Sashimi",
             price: 54,
-            description: "Raw fish filet sliced thick\finely - 3\5 pcs",
+            description: "Raw fish filet sliced thick/finely - 3/5 pcs",
             category: "sashimi"
         },
         {
             id: uid(),
             name: "Salmon Sashimi",
             price: 52,
-            description: "Raw fish filet sliced thick\finely - 3\5 pcs",
+            description: "Raw fish filet sliced thick/finely - 3/5 pcs",
             category: "sashimi"
         },
         {
             id: uid(),
             name: "Yellow Tail Sashimi",
             price: 56,
-            description: "Raw fish filet sliced thick\finely - 3\5 pcs",
+            description: "Raw fish filet sliced thick/finely - 3/5 pcs",
             category: "sashimi"
         },
         {
@@ -375,167 +375,371 @@ var sushiMenu = {
             category: "cocktails"
         },
     ],
+    cartDishes: [],
     addDish: function (name, price, description, category) {
-        var id = uid();
-        this.dishes.push({ id: id, name: name, price: price, description: description, category: category });
-        this.storeData();
+        try {
+            var id = uid();
+            this.dishes.push({ id: id, name: name, price: price, description: description, category: category });
+            this.storeData();
+        }
+        catch (error) {
+            console.error(error);
+        }
+    },
+    addCartDish: function (cartObj) {
+        try {
+            var quantity = void 0;
+            var cartIndex = sushiMenu.cartDishes.findIndex(function (dish) { return dish.id === cartObj.id; });
+            if (cartIndex < 0) {
+                cartObj.quantity = 1;
+                this.cartDishes.push(cartObj);
+            }
+            else {
+                this.cartDishes[cartIndex].quantity += 1;
+            }
+        }
+        catch (error) {
+            console.error(error);
+        }
     },
     removeDish: function (id) {
-        this.dishes = this.dishes.filter(function (dish) { return dish.id !== id; });
-        this.storeData();
+        try {
+            this.dishes = this.dishes.filter(function (dish) { return dish.id !== id; });
+            this.storeData();
+        }
+        catch (error) {
+            console.error(error);
+        }
+    },
+    removeCartDish: function (id) {
+        try {
+            var cartRoot = document.getElementById("cart__root");
+            this.cartDishes = this.cartDishes.filter(function (dish) { return dish.id !== id; });
+            this.storeData();
+            this.renderCart(sushiMenu.cartDishes, cartRoot);
+        }
+        catch (error) {
+            console.error(error);
+        }
     },
     updateDish: function (id, newDish) {
-        var index = this.dishes.findIndex(function (dish) { return dish.id === id; });
-        if (index >= 0) {
-            this.dishes[index] = newDish;
+        try {
+            var index = this.dishes.findIndex(function (dish) { return dish.id === id; });
+            if (index >= 0) {
+                this.dishes[index] = newDish;
+            }
+            this.storeData();
         }
-        this.storeData();
+        catch (error) {
+            console.error(error);
+        }
     },
     filterByCategory: function (category) {
-        return this.dishes.filter(function (dish) { return dish.category === category; });
+        try {
+            return this.dishes.filter(function (dish) { return dish.category === category; });
+        }
+        catch (error) {
+            console.error(error);
+        }
     },
     renderDishesStore: function (list, domElement) {
-        var html = "";
-        list.forEach(function (item) {
-            html += "<div class=\"dishes\"> \n      \n      <div class = \"dishes__title\"> \n         <h3 class =\"dishes__title__name\">" + item.name + "</h3> \n         <p class =\"dishes__title__price\">" + item.price + "</p>\n      </div>\n         <p class =\"dishes__desc\">" + item.description + "</p>\n      </div>";
-        });
-        domElement.innerHTML = html;
+        try {
+            var html_1 = "";
+            list.forEach(function (item) {
+                html_1 += "<div class=\"dishes\" id = \"" + item.id + "\"> \n        \n        <div class = \"dishes__title\"> \n           <h3 class =\"dishes__title__name\">" + item.name + "&nbsp</h3> \n           <p class =\"dishes__title__price\">" + item.price + " <button onclick=\"handleAddToCart(event)\" id=\"" + item.id + "\">+</button> </p>\n        </div>\n           <p class =\"dishes__desc\">" + item.description + "</p>\n        </div>";
+            });
+            domElement.innerHTML = html_1;
+        }
+        catch (error) {
+            console.error(error);
+        }
     },
     renderDishesERP: function (list, domElement) {
-        var html = "<form onsubmit=\"handleDeleteDish(event)\"> <input type=\"submit\" value=\"delete\"></input>";
-        list.forEach(function (item) {
-            html += "<div class=\"dishesERP\"> \n        <input type=\"checkbox\" id=" + item.id + "></input></form>\n         <h3 class =\"dishesERP__title__name\">" + item.name + "</h3> \n         <p class =\"dishesERP__desc\">" + item.description + "</p>\n         <p class =\"dishesERP__title__price\">" + item.price + " \u20AA</p>\n         <p class =\"dishesERP__title__price\"> id:" + item.id + "</p>\n         <p class =\"dishesERP__title__category\"> " + item.category + "</p>\n         <form onsubmit=\"handleUpdateDish(event)\" id=\"" + item.id + "\">\n         <input type=\"text\" name=\"name\" id=\"\" placeholder=\"Dish Name\">\n         <input type=\"number\" name=\"price\" id=\"\" placeholder=\"Dish Price\">\n         <input type=\"text\" name=\"description\" id=\"\" placeholder=\"Add Dish description\">\n         <select name=\"category\" id=\"updated-category\">\n             <option value=\"Choose\" selected disabled>Select category</option>\n             <option value=\"firsts\">Firsts</option>\n             <option value=\"soups\">Soups</option>\n             <option value=\"salads\">Salads</option>\n             <option value=\"buns\">Buns</option>\n             <option value=\"robta-yaki\">Robta Yaki</option>\n             <option value=\"gyoza\">Gyoza</option>\n             <option value=\"inside-out\">Inside Out</option>\n             <option value=\"specials\">Specials</option>\n             <option value=\"kids\">Kids Dishes</option>\n             <option value=\"main\">Main Dishes</option>\n             <option value=\"wok\">Wok</option>\n             <option value=\"cokctails\">Cokctails</option>\n             <option value=\"combinations\">Combinations</option>\n             <option value=\"sashimi\">Sashimi</option>\n             <option value=\"nigiri\">Nigiri</option>\n             <option value=\"sandwich-sushi\">Sandwich Sushi</option>\n             <option value=\"maki-sushi\">Maki Sushi</option>\n             <option value=\"gonkan\">Gonkan Maki</option>\n         </select>\n         <input type=\"submit\" value=\"Update\">\n         </form>\n\n         \n      </div>";
-        });
-        html += "";
-        domElement.innerHTML = html;
+        try {
+            var html_2 = "<form onsubmit=\"handleDeleteDish(event)\"> <input type=\"submit\" value=\"delete\"></input>";
+            list.forEach(function (item) {
+                html_2 += "<div class=\"dishesERP\"> \n          <input type=\"checkbox\" id=" + item.id + "></input></form>\n           <h3 class =\"dishesERP__title__name\">" + item.name + "</h3> \n           <p class =\"dishesERP__desc\">" + item.description + "</p>\n           <p class =\"dishesERP__title__price\">" + item.price + " \u20AA</p>\n           <p class =\"dishesERP__title__category\"> " + item.category + "</p>\n           <form onsubmit=\"handleUpdateDish(event)\" id=\"" + item.id + "\">\n           <input type=\"text\" name=\"name\" id=\"\" placeholder=\"Dish Name\">\n           <input type=\"number\" name=\"price\" id=\"\" placeholder=\"Dish Price\">\n           <input type=\"text\" name=\"description\" id=\"\" placeholder=\"Add Dish description\">\n           <select name=\"category\" id=\"updated-category\">\n               <option value=\"Choose\" selected disabled>Select category</option>\n               <option value=\"firsts\">Firsts</option>\n               <option value=\"soups\">Soups</option>\n               <option value=\"salads\">Salads</option>\n               <option value=\"buns\">Buns</option>\n               <option value=\"robta-yaki\">Robta Yaki</option>\n               <option value=\"gyoza\">Gyoza</option>\n               <option value=\"inside-out\">Inside Out</option>\n               <option value=\"specials\">Specials</option>\n               <option value=\"kids\">Kids Dishes</option>\n               <option value=\"main\">Main Dishes</option>\n               <option value=\"wok\">Wok</option>\n               <option value=\"cokctails\">Cokctails</option>\n               <option value=\"combinations\">Combinations</option>\n               <option value=\"sashimi\">Sashimi</option>\n               <option value=\"nigiri\">Nigiri</option>\n               <option value=\"sandwich-sushi\">Sandwich Sushi</option>\n               <option value=\"maki-sushi\">Maki Sushi</option>\n               <option value=\"gonkan\">Gonkan Maki</option>\n           </select>\n           <input type=\"submit\" value=\"Update\">\n           </form>\n  \n           \n        </div>";
+            });
+            html_2 += "";
+            domElement.innerHTML = html_2;
+        }
+        catch (error) {
+            console.error(error);
+        }
+    },
+    renderCart: function (list, domElement) {
+        try {
+            var html_3 = "";
+            list.forEach(function (item) {
+                html_3 += "<div class=\"cart__dishes\" id = \"" + item.id + "\"> \n        \n           <h3 class =\"dishes__title__name\">" + item.name + "&nbsp qnt: " + item.quantity + "</h3> \n           <p class =\"dishes__title__price\">" + item.price + "\u20AA <button onclick=\"handleDeleteFromCart(event)\" id=\"" + item.id + "\">-</button></p>\n           </div>";
+            });
+            domElement.innerHTML = html_3;
+        }
+        catch (error) {
+            console.error(error);
+        }
+    },
+    sumCartPrice: function (list) {
+        try {
+            var sum_1 = 0;
+            list.forEach(function (dish) {
+                sum_1 += dish.price * dish.quantity;
+            });
+            return sum_1;
+        }
+        catch (error) {
+            console.error(error);
+        }
     },
     storeData: function () {
-        localStorage.setItem("storeData", JSON.stringify(this.dishes));
+        try {
+            localStorage.setItem("storeData", JSON.stringify(this.dishes));
+        }
+        catch (error) {
+            console.error(error);
+        }
     },
     getData: function () {
-        var dishes = JSON.parse(localStorage.getItem("storeData"));
-        if (dishes && Array.isArray(dishes)) {
-            this.dishes = dishes;
+        try {
+            var dishes = JSON.parse(localStorage.getItem("storeData"));
+            if (dishes && Array.isArray(dishes)) {
+                this.dishes = dishes;
+            }
+        }
+        catch (error) {
+            console.error(error);
         }
     }
 };
 renderSushiMenu();
 function renderSushiMenu() {
-    sushiMenu.getData();
-    var rootStore = document.getElementById("rootStore");
-    var rootERP = document.getElementById("rootERP");
-    if (rootStore) {
-        sushiMenu.renderDishesStore(sushiMenu.dishes, rootStore);
+    try {
+        sushiMenu.getData();
+        var rootStore_1 = document.getElementById("rootStore");
+        var rootERP = document.getElementById("rootERP");
+        if (rootStore_1) {
+            sushiMenu.renderDishesStore(sushiMenu.dishes, rootStore_1);
+        }
+        if (rootERP) {
+            sushiMenu.renderDishesERP(sushiMenu.dishes, rootERP);
+        }
     }
-    if (rootERP) {
-        sushiMenu.renderDishesERP(sushiMenu.dishes, rootERP);
+    catch (error) {
+        console.error(error);
     }
 }
 function handleAddDish(ev) {
-    ev.preventDefault();
-    var dishName = ev.target.elements.name.value;
-    var dishPrice = ev.target.elements.price.valueAsNumber;
-    var dishDesc = ev.target.elements.description.value;
-    var dishCategory = document.getElementById("category")
-        .value;
-    sushiMenu.addDish(dishName, dishPrice, dishDesc, dishCategory);
-    renderSushiMenu();
-    ev.target.reset();
+    try {
+        ev.preventDefault();
+        var dishName = ev.target.elements.name.value;
+        var dishPrice = ev.target.elements.price.valueAsNumber;
+        var dishDesc = ev.target.elements.description.value;
+        var dishCategory = document.getElementById("category")
+            .value;
+        sushiMenu.addDish(dishName, dishPrice, dishDesc, dishCategory);
+        renderSushiMenu();
+        ev.target.reset();
+    }
+    catch (error) {
+        console.error(error);
+    }
 }
 function handleDeleteDish(ev) {
-    ev.preventDefault();
-    for (var i = 1; i < ev.target.length; i++) {
-        if (ev.target[i].checked === true) {
-            sushiMenu.removeDish(ev.target[i].id);
+    try {
+        ev.preventDefault();
+        for (var i = 1; i < ev.target.length; i++) {
+            if (ev.target[i].checked === true) {
+                sushiMenu.removeDish(ev.target[i].id);
+            }
         }
+        renderSushiMenu();
     }
-    renderSushiMenu();
+    catch (error) {
+        console.error(error);
+    }
 }
 function handleUpdateDish(ev) {
-    ev.preventDefault();
-    console.dir(ev.target);
-    var dishName = ev.target.elements.name.value;
-    var dishPrice = ev.target.elements.price.valueAsNumber;
-    var dishDesc = ev.target.elements.description.value;
-    var dishCategory = document.getElementById("updated-category").value;
-    var dishId = ev.target.id;
-    var newDish = { id: dishId, name: dishName, price: dishPrice, description: dishDesc, category: dishCategory };
-    sushiMenu.updateDish(dishId, newDish);
-    sushiMenu.getData();
-    renderSushiMenu();
+    try {
+        ev.preventDefault();
+        console.dir(ev.target);
+        var dishName = ev.target.elements.name.value;
+        var dishPrice = ev.target.elements.price.valueAsNumber;
+        var dishDesc = ev.target.elements.description.value;
+        var dishCategory = document.getElementById("updated-category").value;
+        var dishId = ev.target.id;
+        var newDish = { id: dishId, name: dishName, price: dishPrice, description: dishDesc, category: dishCategory };
+        sushiMenu.updateDish(dishId, newDish);
+        sushiMenu.getData();
+        renderSushiMenu();
+    }
+    catch (error) {
+        console.error(error);
+    }
 }
 var rootStore = document.getElementById("rootStore");
 if (rootStore) {
     sushiMenu.renderDishesStore(sushiMenu.dishes, rootStore);
 }
+function handleSearch(ev) {
+    try {
+        var searchTerm = ev.target.value;
+        var regex_1 = new RegExp(searchTerm, "i");
+        var html_4 = "";
+        var root = document.querySelector("#rootERP");
+        if (searchTerm == 0) {
+            renderSushiMenu();
+            return;
+        }
+        sushiMenu.dishes.forEach(function (item) {
+            if (regex_1.test(item.name)) {
+                html_4 += "<div class=\"dishesERP\"> \n        <input type=\"checkbox\" id=" + item.id + "></input></form>\n         <h3 class =\"dishesERP__title__name\">" + item.name + "</h3> \n         <p class =\"dishesERP__desc\">" + item.description + "</p>\n         <p class =\"dishesERP__title__price\">" + item.price + " \u20AA</p>\n         <p class =\"dishesERP__title__price\"> id:" + item.id + "</p>\n         <p class =\"dishesERP__title__category\"> " + item.category + "</p>\n         <form onsubmit=\"handleUpdateDish(event)\" id=\"" + item.id + "\">\n         <input type=\"text\" name=\"name\" id=\"\" placeholder=\"Dish Name\">\n         <input type=\"number\" name=\"price\" id=\"\" placeholder=\"Dish Price\">\n         <input type=\"text\" name=\"description\" id=\"\" placeholder=\"Add Dish description\">\n         <select name=\"category\" id=\"updated-category\">\n             <option value=\"Choose\" selected disabled>Select category</option>\n             <option value=\"firsts\">Firsts</option>\n             <option value=\"soups\">Soups</option>\n             <option value=\"salads\">Salads</option>\n             <option value=\"buns\">Buns</option>\n             <option value=\"robta-yaki\">Robta Yaki</option>\n             <option value=\"gyoza\">Gyoza</option>\n             <option value=\"inside-out\">Inside Out</option>\n             <option value=\"specials\">Specials</option>\n             <option value=\"kids\">Kids Dishes</option>\n             <option value=\"main\">Main Dishes</option>\n             <option value=\"wok\">Wok</option>\n             <option value=\"cokctails\">Cokctails</option>\n             <option value=\"combinations\">Combinations</option>\n             <option value=\"sashimi\">Sashimi</option>\n             <option value=\"nigiri\">Nigiri</option>\n             <option value=\"sandwich-sushi\">Sandwich Sushi</option>\n             <option value=\"maki-sushi\">Maki Sushi</option>\n             <option value=\"gonkan\">Gonkan Maki</option>\n         </select>\n         <input type=\"submit\" value=\"Update\">\n         </form>\n\n         \n      </div>";
+            }
+        });
+        root.innerHTML = html_4;
+    }
+    catch (error) {
+        console.error(error);
+    }
+}
 // ---- CSS MANIPULATION --- //
 function navSlide() {
-    var burger = document.querySelector(".burger");
-    var nav = document.querySelector(".navtags");
-    if (burger && nav) {
-        burger.addEventListener("click", function () {
-            nav.classList.toggle("navtags-active");
-            burger.classList.toggle("burger-active");
-        });
+    try {
+        var burger_1 = document.querySelector(".burger");
+        var nav_1 = document.querySelector(".navtags");
+        if (burger_1 && nav_1) {
+            burger_1.addEventListener("click", function () {
+                nav_1.classList.toggle("navtags-active");
+                burger_1.classList.toggle("burger-active");
+            });
+        }
+    }
+    catch (error) {
+        console.error(error);
     }
 }
 function popMenuActive() {
-    var picWrap = document.querySelectorAll(".picwrap");
-    var pop = document.querySelector(".popmenu");
-    var close = document.querySelector(".popmenu__x");
-    var blur = document.querySelector(".blurwrapper");
-    var overflow = document.querySelector("body");
-    if (picWrap && pop && close && blur && overflow) {
-        blur.addEventListener("click", function () {
-            pop.classList.toggle("popmenu-active");
-            blur.classList.toggle("blurwrapper-active");
-            overflow.classList.toggle("body-active");
-        });
-        close.addEventListener("click", function () {
-            pop.classList.toggle("popmenu-active");
-            blur.classList.toggle("blurwrapper-active");
-            overflow.classList.toggle("body-active");
-        });
-        picWrap.forEach(function (cell) {
-            cell.addEventListener("click", function () {
-                var list = sushiMenu.filterByCategory(cell.id);
-                renderSushiMenu();
-                sushiMenu.renderDishesStore(list, rootStore);
-                pop.classList.toggle("popmenu-active");
-                blur.classList.toggle("blurwrapper-active");
-                overflow.classList.toggle("body-active");
+    try {
+        var picWrap = document.querySelectorAll(".picwrap");
+        var pop_1 = document.querySelector(".popmenu");
+        var close = document.querySelector(".popmenu__x");
+        var blur_1 = document.querySelector(".blurwrapper");
+        var overflow_1 = document.querySelector("body");
+        if (picWrap && pop_1 && close && blur_1 && overflow_1) {
+            blur_1.addEventListener("click", function () {
+                pop_1.classList.toggle("popmenu-active");
+                blur_1.classList.toggle("blurwrapper-active");
+                overflow_1.classList.toggle("body-active");
             });
-        });
+            close.addEventListener("click", function () {
+                pop_1.classList.toggle("popmenu-active");
+                blur_1.classList.toggle("blurwrapper-active");
+                overflow_1.classList.toggle("body-active");
+            });
+            picWrap.forEach(function (cell) {
+                cell.addEventListener("click", function () {
+                    var list = sushiMenu.filterByCategory(cell.id);
+                    renderSushiMenu();
+                    sushiMenu.renderDishesStore(list, rootStore);
+                    pop_1.classList.toggle("popmenu-active");
+                    blur_1.classList.toggle("blurwrapper-active");
+                    overflow_1.classList.toggle("body-active");
+                });
+            });
+        }
+    }
+    catch (error) {
+        console.error(error);
     }
 }
 popMenuActive();
 navSlide();
 function popNavBarActive() {
-    var categories = document.querySelectorAll(".popCategory");
-    categories.forEach(function (category) {
-        category.addEventListener("click", function () {
-            var list = sushiMenu.filterByCategory(category.id);
-            renderSushiMenu();
-            sushiMenu.renderDishesStore(list, rootStore);
-            categories.forEach(function (category) {
-                category.classList.remove("popCategory-active");
+    try {
+        var categories_1 = document.querySelectorAll(".popCategory");
+        categories_1.forEach(function (category) {
+            category.addEventListener("click", function () {
+                var list = sushiMenu.filterByCategory(category.id);
+                renderSushiMenu();
+                sushiMenu.renderDishesStore(list, rootStore);
+                categories_1.forEach(function (category) {
+                    category.classList.remove("popCategory-active");
+                });
+                category.classList.add("popCategory-active");
             });
-            category.classList.add("popCategory-active");
         });
-    });
+    }
+    catch (error) {
+        console.error(error);
+    }
 }
 popNavBarActive();
 function popCartActive() {
-    var cartBox = document.querySelector(".cart__box");
-    var cartImg = document.querySelector(".cart__img");
-    var cartClose = document.querySelector(".cart__close");
-    var cart = document.querySelector(".cart");
-    cartImg.addEventListener("click", function () {
-        cartBox.classList.add("cart__box-active");
-        cart.classList.add("cart-active");
-    });
-    cartClose.addEventListener("click", function () {
-        cartBox.classList.remove("cart__box-active");
-    });
+    try {
+        var cartBox_1 = document.querySelector(".cart__box");
+        var cartImg = document.querySelector(".cart__img");
+        var cartClose_1 = document.querySelector(".cart__close");
+        var cart_1 = document.querySelector(".cart");
+        var cartFooter_1 = document.querySelector(".cart__footer");
+        cartImg.addEventListener("click", function () {
+            cart_1.classList.add("cart-active");
+            cartBox_1.classList.add("cart__box-active");
+            cartClose_1.classList.add("cart__close-active");
+            cartFooter_1.classList.add("cart__footer-active");
+        });
+        cartClose_1.addEventListener("click", function () {
+            cart_1.classList.remove("cart-active");
+            cartBox_1.classList.remove("cart__box-active");
+            cartClose_1.classList.remove("cart__close-active");
+            cartFooter_1.classList.remove("cart__footer-active");
+        });
+    }
+    catch (error) {
+        console.error(error);
+    }
 }
 popCartActive();
+function handlePlaceOrder(ev) {
+    try {
+        ev.preventDefault();
+        window.alert("bo lo nagzim...");
+    }
+    catch (error) {
+        console.error(error);
+    }
+}
+function handleAddToCart(ev) {
+    try {
+        var idToCart_1 = ev.target.id;
+        var index = sushiMenu.dishes.findIndex(function (dish) { return dish.id === idToCart_1; });
+        var cartRoot = document.getElementById("cart__root");
+        sushiMenu.addCartDish(sushiMenu.dishes[index]);
+        sushiMenu.renderCart(sushiMenu.cartDishes, cartRoot);
+        totalPrice(sushiMenu.cartDishes);
+    }
+    catch (error) {
+        console.error(error);
+    }
+}
+function totalPrice(list) {
+    try {
+        var sumCartAdd = 0;
+        var sumCart = sushiMenu.sumCartPrice(list);
+        sumCartAdd += sumCart;
+        var totalPriceRoot = document.querySelector(".totalprice");
+        totalPriceRoot.innerHTML = "Total Price " + sumCartAdd + "\u20AA";
+    }
+    catch (error) {
+        console.error(error);
+    }
+}
+totalPrice(sushiMenu.cartDishes);
+function handleDeleteFromCart(ev) {
+    try {
+        var idFromCart = ev.target.id;
+        sushiMenu.removeCartDish(idFromCart);
+        totalPrice(sushiMenu.cartDishes);
+    }
+    catch (error) {
+        console.error(error);
+    }
+}

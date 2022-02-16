@@ -209,6 +209,7 @@ var gucci = {
             type: "backpack"
         },
     ],
+    cartItems: [],
     storeData: function () {
         localStorage.setItem("storeData", JSON.stringify(this.items));
     },
@@ -230,7 +231,19 @@ var gucci = {
             this.storeData();
         }
     },
-    updateItems: function (newPrice, itemName) {
+    addToCart: function (newItem) {
+        var id = uid();
+        this.items.forEach(function (item) { return item.id === newItem; });
+        this.cartItems.push(newItem);
+    },
+    renderAddToCart: function (domElement) {
+        var cartHtml = "";
+        this.cartItems.forEach(function (item) {
+            cartHtml += "<div class=\"cartItems\">\n      <p>" + item.name + "</p>\n      <img class=\"imgTop\" src=\"" + item.imgTop + "\" >\n      <p>" + item.price + "$</p>\n      </div>";
+            domElement.innerHTML = cartHtml;
+        });
+    },
+    updateItems: function (itemName, newPrice) {
         //const index = this.items.findIndex((item) => item.id === id);
         var index = this.items.findIndex(function (item) { return item.name === itemName; });
         console.log(index);
@@ -240,6 +253,11 @@ var gucci = {
             this.storeData();
             this.getData();
         }
+    },
+    filterByItemNameAndGender: function (gender, itemName) {
+        return this.items
+            .filter(function (item) { return item.gender === gender; })
+            .filter(function (item) { return item.name === itemName; });
     },
     filterMaxPriceAndGender: function (gender, price) {
         return this.items
@@ -259,13 +277,16 @@ var gucci = {
     render: function (list, domElement) {
         var html = "";
         list.forEach(function (item) {
-            html += "<div class=\"items\">\n        <p>" + item.name + "</p>\n        <img class=\"imgTop\" src=\"" + item.imgTop + "\" >\n        <img class=\"imgBottom\" src=\"" + item.imgBottom + "\" >\n        <p>" + item.price + "$</p>\n        <input onclick=\"handleAddToCart()\" id=\"addToCart\" type=\"button\" value=\"ADD TO CART\">\n        </div>";
+            html += "<div class=\"items\">\n        <p>" + item.name + "</p>\n        <img class=\"imgTop\" src=\"" + item.imgTop + "\" >\n        <img class=\"imgBottom\" src=\"" + item.imgBottom + "\" >\n        <p>" + item.price + "$</p>\n        <input onclick=\"handleAddToCart('" + item.id + "')\" id=\"addToCart\" type=\"button\" value=\"ADD TO CART\">\n        </div>";
         });
         domElement.innerHTML = html;
     },
     renderAllitems: function (domElement) {
         var items = this.items;
         this.render(items, domElement);
+    },
+    renderFilterByItemName: function (filteredByItemName, domElement) {
+        this.render(filteredByItemName, domElement);
     },
     renderMaxPrice: function (filtered, domElement) {
         this.render(filtered, domElement);
@@ -297,82 +318,191 @@ var uid = function () {
 };
 function handleAddItems(ev) {
     ev.preventDefault();
-    var name = ev.target.name.value;
-    var price = ev.target.price.value;
-    var imgTop = ev.target[2].value;
-    var imgBottom = ev.target[3].value;
-    var gender = ev.target[4].value;
-    var type = ev.target[5].value;
-    var id = uid;
-    gucci.addItems(name, price, imgTop, imgBottom, gender, type, id);
-    var root = document.getElementById("root");
-    gucci.renderFilterByGenderAndType(gender, type, root);
-    gucci.getData();
-    gucci.storeData();
-    ev.target.reset();
+    try {
+        var name = ev.target.name.value;
+        var price = ev.target.price.value;
+        var imgTop = ev.target[2].value;
+        var imgBottom = ev.target[3].value;
+        var gender = ev.target[4].value;
+        var type = ev.target[5].value;
+        var id = uid;
+        var root = document.getElementById("root");
+        gucci.getData();
+        gucci.storeData();
+        ev.target.reset();
+        if (!root)
+            throw new Error("no root in DOM");
+        gucci.addItems(name, price, imgTop, imgBottom, gender, type, id);
+        gucci.renderFilterByGenderAndType(gender, type, root);
+    }
+    catch (error) {
+        console.error(error);
+    }
 }
 gucci.getData();
 function handleRemoveItems(ev) {
     ev.preventDefault();
-    var name = ev.target.elements.remove.value;
-    gucci.removeItems(name);
-    var root = document.getElementById("root");
-    console.log();
-    gucci.render(gucci.items, root);
-    gucci.storeData();
-    ev.target.reset();
+    try {
+        var name = ev.target.elements.remove.value;
+        var root = document.getElementById("root");
+        gucci.storeData();
+        ev.target.reset();
+        if (!root)
+            throw new Error("no root in DOM");
+        gucci.removeItems(name);
+        gucci.render(gucci.items, root);
+    }
+    catch (error) {
+        console.error(error);
+    }
 }
 function handleUpdate(ev) {
     ev.preventDefault();
-    var root = document.getElementById("root");
-    var itemName = ev.target.elements.itemName.value;
-    var newPrice = ev.target.elements.newPrice.value;
-    console.log(ev.target.elements.newPrice.value);
-    gucci.updateItems(newPrice, itemName);
-    gucci.render(gucci.items, root);
-    gucci.getData();
-    gucci.storeData();
+    try {
+        var itemName = ev.target.elements.itemName.value;
+        var newPrice = ev.target.elements.newPrice.value;
+        console.log(ev.target.elements.newPrice.value);
+        var root = document.getElementById("root");
+        gucci.getData();
+        gucci.storeData();
+        ev.target.reset();
+        if (!root)
+            throw new Error("no root in DOM");
+        // if(!itemName) throw new Error ('newPrice was not caught');
+        // if(!newPrice) throw new Error ('newItem was not caught');
+        gucci.updateItems(itemName, newPrice);
+        gucci.render(gucci.items, root);
+    }
+    catch (error) {
+        console.error(error);
+    }
 }
 function handleFilterByPrice(ev) {
     ev.preventDefault();
-    var price = ev.target.valueAsNumber;
-    var gender = ev.target.dataset.gender;
-    var root = document.querySelector("#root");
-    var filtered = gucci.filterMaxPriceAndGender(gender, price);
-    if (price) {
-        gucci.renderMaxPrice(filtered, root);
+    try {
+        var price = ev.target.valueAsNumber;
+        var gender = ev.target.dataset.gender;
+        var root = document.querySelector("#root");
+        var filtered = gucci.filterMaxPriceAndGender(gender, price);
+        if (!root)
+            throw new Error("no root in DOM");
+        if (price) {
+            gucci.renderMaxPrice(filtered, root);
+        }
+        else {
+            gucci.renderByGender(gender, root);
+        }
     }
-    else {
-        gucci.renderByGender(gender, root);
+    catch (error) {
+        console.error(error);
     }
 }
 function handlePriceAsc(ev, price) {
-    gucci.sortByAscending(price);
     var root = document.getElementById("root");
     var gender = ev.target.dataset.gender;
-    console.dir(ev);
+    gucci.sortByAscending(price);
     gucci.renderByGender(gender, root);
 }
 function handlePriceDesc(ev, price) {
     gucci.sortByDescending(price);
     var root = document.getElementById("root");
     var gender = ev.target.dataset.gender;
-    console.dir(ev);
     gucci.renderByGender(gender, root);
 }
 function handleSelect(ev) {
-    var gender = ev.target.dataset.gender;
-    var type = ev.target.value;
-    var root = document.getElementById("root");
-    if (type === "all") {
-        gucci.renderByGender(gender, root);
+    try {
+        var gender = ev.target.dataset.gender;
+        var type = ev.target.value;
+        var root = document.getElementById("root");
+        if (!root)
+            throw new Error("no root in DOM");
+        if (type === "all") {
+            gucci.renderByGender(gender, root);
+        }
+        else {
+            gucci.renderFilterByGenderAndType(type, gender, root);
+        }
     }
-    else {
-        gucci.renderFilterByGenderAndType(type, gender, root);
+    catch (error) {
+        console.error(error);
     }
 }
 function handleRenderByGender(gender) {
-    var root = document.getElementById("root");
-    gucci.getData();
-    gucci.renderByGender(gender, root);
+    try {
+        var root = document.getElementById("root");
+        gucci.getData();
+        if (!gender)
+            throw new Error("gender was not caught in handleRenderByGender");
+        if (!root)
+            throw new Error("no root in DOM");
+        gucci.renderByGender(gender, root);
+    }
+    catch (error) {
+        console.error(error);
+    }
+}
+function handleShowCart() {
+    try {
+        var cartRoot = document.getElementById("cartRoot");
+        if (!cartRoot)
+            throw new Error("no cartRoot in DOM");
+        if (cartRoot.style.display === "none") {
+            cartRoot.style.display = "block";
+        }
+        else {
+            cartRoot.style.display = "none";
+        }
+    }
+    catch (error) {
+        console.error(error);
+    }
+}
+function handleAddToCart(addedItemsId) {
+    try {
+        var cartRoot = document.getElementById("cartRoot");
+        var addedItems = gucci.items.filter(function (item) { return (item.id = addedItemsId); });
+        // if(!addedItems) throw new Error ('addedItems wasnt caught in handleAddCart');
+        // if(!addedItemsId) throw new Error ('addedItemsId wasnt caught in handleAddCart');
+        if (!cartRoot)
+            throw new Error("no cartRoot in DOM");
+        gucci.addToCart(addedItems);
+        gucci.renderAddToCart(cartRoot);
+    }
+    catch (error) {
+        console.error(error);
+    }
+}
+function handleSearch(ev) {
+    //const name= ev.target.value;
+    try {
+        var searchTerm_1 = ev.target.value;
+        console.log(searchTerm_1);
+        var root_1 = document.getElementById("root");
+        var gender_1 = ev.target.dataset.gender;
+        var regExp_1 = new RegExp(searchTerm_1, "i");
+        if (!root_1)
+            throw new Error("no root in DOM");
+        root_1.innerHTML = "";
+        console.log(gender_1);
+        if (searchTerm_1.length > 0) {
+            var foundItem = gucci.items.filter(function (item) {
+                if (regExp_1.test(item.name))
+                    return true;
+                var filteredByItemName = gucci.filterByItemNameAndGender(gender_1, searchTerm_1);
+                gucci.renderFilterByItemName(filteredByItemName, root_1);
+            });
+            var html = foundItem
+                .map(function (item) {
+                return "<div class=\"items\">\n        <p>" + item.name + "</p>\n        <img class=\"imgTop\" src=\"" + item.imgTop + "\" >\n        <img class=\"imgBottom\" src=\"" + item.imgBottom + "\" >\n        <p>" + item.price + "$</p>\n        <input onclick=\"handleAddToCart('" + item.id + "')\" id=\"addToCart\" type=\"button\" value=\"ADD TO CART\">\n        </div>";
+            })
+                .join("");
+            root_1.innerHTML = html;
+        }
+        else {
+            gucci.renderByGender(gender_1, root_1);
+        }
+    }
+    catch (error) {
+        console.error(error);
+    }
 }

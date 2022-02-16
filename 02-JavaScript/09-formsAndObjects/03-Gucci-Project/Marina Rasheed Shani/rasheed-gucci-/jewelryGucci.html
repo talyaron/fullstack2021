@@ -22,21 +22,29 @@
 
 <body onload="handleRenderByGender('womenJewlery')">
 
+    <div class="cart" id="cart" onclick="handleShowCart()">
+        <ion-icon name="bag-handle-outline"></ion-icon>
+        <div class="showCart" id="cartRoot">hello</div>
+    </div>
+
+
 
     <div class="container">
 
 
         <div class="sub-container">
+
+            <div class="sub-container__hover">
             <div class="container__navBar">
 
                 <div class="container__navBar__title">
-                    <!-- <div class="container__navBar__title__help">
+                    <div class="container__navBar__title__help">
                         <div class="title__help">
                             <ion-icon name="location-outline"></ion-icon>United States
                         </div>
                         <div class="title__help">English</div>
                         <div class="title__help">Client Services</div>
-                    </div> -->
+                    </div>
                     <div class="container__navBar__title--gucci">
                         <h1 >GUCCI</h1>
                     </div>
@@ -228,6 +236,7 @@
                     </li>
                 </ul>
             </div>
+         </div>
         </div>
 
         <div class="catergory__buttons">
@@ -238,7 +247,15 @@
 
             <div class="catergory__buttons--lowerThanPrice">
                 <label>Show price lower than</label>
-                <input class="inputLowerThan" type='number' onkeyup="handleFilterByPrice(event)" placeholder="number" data-gender="womenJewlery">
+                <input class="inputLowerThan" type='number' onkeyup="handleFilterByPrice(event)" placeholder="price..." data-gender="womenJewlery">
+            </div>
+
+             
+            <div class="catergory__buttons--searchItem">
+                <label>Search for item</label>
+                <input class="inputSearch" type="search"  onkeyup="handleSearch(event)" placeholder="search..." 
+                data-gender="womenJewlery">
+
             </div>
 
 
