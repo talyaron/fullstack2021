@@ -19,7 +19,7 @@ interface Store {
   ): any;
   cartItems: Array<Item>;
   removeItems(itemName: string): any;
-  addToCart?(addedItems: any): any;
+  addToCart?(newItem:any,name:string,imgTop:string,price:number): any;
   renderAddToCart?(domElement: any): any;
   updateItems(itemName: string, newPrice: number): any;
   filterByItemNameAndGender(gender: string, itemName: string): any;
@@ -342,11 +342,11 @@ const gucci: Store = {
       this.storeData();
     }
   },
-  addToCart(newItem) {
+  addToCart(newItem,name,imgTop,price) {
     const id = uid();
 
     this.items.forEach((item) => item.id === newItem);
-    this.cartItems.push(newItem);
+    this.cartItems.push({name,imgTop,price});
   },
   renderAddToCart(domElement) {
     let cartHtml = "";
@@ -607,17 +607,28 @@ function handleAddToCart(addedItemsId) {
   try {
     const cartRoot = document.getElementById("cartRoot");
     const addedItems = gucci.items.filter((item) => (item.id = addedItemsId));
+    const id=uid();
+    const index = this.items.findIndex((item) => item.id === addedItemsId.id);
 
-    // if(!addedItems) throw new Error ('addedItems wasnt caught in handleAddCart');
-    // if(!addedItemsId) throw new Error ('addedItemsId wasnt caught in handleAddCart');
+    const name=gucci.items[index].name;
+    const imgTop=gucci.items[index].imgTop;
+    const price=gucci.items[index].price;
+
+      gucci.addToCart(addedItems,name,imgTop,price);
+      gucci.renderAddToCart(cartRoot);
+    
+  
     if (!cartRoot) throw new Error("no cartRoot in DOM");
-
-    gucci.addToCart(addedItems);
-    gucci.renderAddToCart(cartRoot);
+    
+    
+    
   } catch (error) {
     console.error(error);
   }
 }
+
+
+
 
 function handleSearch(ev) {
   //const name= ev.target.value;
@@ -637,11 +648,10 @@ function handleSearch(ev) {
     if (searchTerm.length > 0) {
       const foundItem = gucci.items.filter((item) => {
         if (regExp.test(item.name)) return true;
-        const filteredByItemName = gucci.filterByItemNameAndGender(
-          gender,
-          searchTerm
-        );
+        const filteredByItemName = gucci.filterByItemNameAndGender(gender,searchTerm);
         gucci.renderFilterByItemName(filteredByItemName, root);
+
+        
       });
       const html = foundItem
         .map((item) => {
@@ -655,6 +665,8 @@ function handleSearch(ev) {
         })
         .join("");
       root.innerHTML = html;
+
+      console.log(foundItem)
     } else {
       gucci.renderByGender(gender, root);
     }

@@ -103,11 +103,10 @@ var bookie = {
     renderItem: function (domElement) {
         if (window.document.title === "Bookie") {
             bookie.books = JSON.parse(localStorage.getItem("Bookie shop")).books;
-            console.log(bookie);
             var html_1 = "";
             bookie.books.forEach(function (item) {
                 domElement.innerHTML = "";
-                html_1 += "\n            <div class=\"rootBooks__card\">\n                <button class=\"rootBooks__card__bag\" data-add-to-bag><svg xmlns=\"http://www.w3.org/2000/svg\"\n                        viewBox=\"0 0 15 14\">\n                        <symbol viewBox=\"0 0 15 14\" id=\"svg-icon-shopping-bag\">\n                            <title>shopping-bag</title>\n                            <g fill=\"currentColor\">\n                                <path\n                                    d=\"M13,4.2h-2.4l0-2c0-1.1-1.3-2-3-2s-3,0.8-3,2l0,2H1.9c-1,0-1.6,0.5-1.6,1.2l0.5,7.8h13.4l0.6-7.7&#10;&#9;&#9;&#9;C14.8,4.7,14,4.2,13,4.2z M6.1,2.2c0.1-0.1,0.6-0.5,1.5-0.5c0.9,0,1.4,0.3,1.5,0.5l0,2h-3L6.1,2.2z M12.8,11.7H2.2L1.8,5.8&#10;&#9;&#9;&#9;c0,0,0.1,0,0.1,0H13c0.1,0,0.2,0,0.2,0L12.8,11.7z\" />\n                            </g>\n                        </symbol>\n                        <use xmlns:xlink=\"http://www.w3.org/1999/xlink\" xlink:href=\"#svg-icon-shopping-bag\" />\n                    </svg></button>\n                <button class=\"rootBooks__card__heart\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 15 13.5\">\n                        <symbol viewBox=\"0 0 15 13.5\" id=\"svg-icon-saved-items\">\n                            <title>saved-items</title>\n                            <g fill=\"currentColor\">\n                                <path\n                                    d=\"M12.5,5.3l-5,5.2l-5-5.3c0,0-0.8-0.9-0.8-1.5c0-1,0.8-1.8,1.7-1.8c0.6,0,1.1,0.3,1.4,0.9l2.6,2.7l2.7-2.8l0,0&#10;&#9;&#9;&#9;c0.3-0.5,0.8-0.9,1.5-0.9c0.9,0,1.7,0.8,1.7,1.8C13.4,4.4,12.5,5.3,12.5,5.3 M11.5,0c-1.1,0-2.1,0.6-2.7,1.5L7.5,2.8L6.2,1.5&#10;&#9;&#9;&#9;C5.6,0.6,4.6,0,3.5,0C1.5,0,0,1.7,0,3.8c0,1.2,0.5,2.3,1.4,3l1.3,1.4l4.9,5.3l0,0l0,0l4.9-5.3l1.2-1.4C14.5,6.1,15,5,15,3.8&#10;&#9;&#9;&#9;C15,1.7,13.5,0,11.5,0\" />\n                            </g>\n                        </symbol>\n                        <use xmlns:xlink=\"http://www.w3.org/1999/xlink\" xlink:href=\"#svg-icon-saved-items\" />\n                    </svg></button>\n                <img src=\"./Images/" + item.img + "\" alt=\"\" class=\"rootBooks__card__img\">\n                <div class=\"rootBooks__card__title\">" + item.title + "</div>\n                <div class=\"rootBooks__card__price\">" + item.price + "$</div>\n            </div>";
+                html_1 += "\n            <div class=\"rootBooks__card\">\n                <button class=\"rootBooks__card__bag\" onclick='handleAddToCart(event)'><svg xmlns=\"http://www.w3.org/2000/svg\"\n                        viewBox=\"0 0 15 14\">\n                        <symbol viewBox=\"0 0 15 14\" id=\"svg-icon-shopping-bag\">\n                            <title>shopping-bag</title>\n                            <g fill=\"currentColor\">\n                                <path\n                                    d=\"M13,4.2h-2.4l0-2c0-1.1-1.3-2-3-2s-3,0.8-3,2l0,2H1.9c-1,0-1.6,0.5-1.6,1.2l0.5,7.8h13.4l0.6-7.7&#10;&#9;&#9;&#9;C14.8,4.7,14,4.2,13,4.2z M6.1,2.2c0.1-0.1,0.6-0.5,1.5-0.5c0.9,0,1.4,0.3,1.5,0.5l0,2h-3L6.1,2.2z M12.8,11.7H2.2L1.8,5.8&#10;&#9;&#9;&#9;c0,0,0.1,0,0.1,0H13c0.1,0,0.2,0,0.2,0L12.8,11.7z\" />\n                            </g>\n                        </symbol>\n                        <use xmlns:xlink=\"http://www.w3.org/1999/xlink\" xlink:href=\"#svg-icon-shopping-bag\" />\n                    </svg></button>\n                <button class=\"rootBooks__card__heart\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 15 13.5\">\n                        <symbol viewBox=\"0 0 15 13.5\" id=\"svg-icon-saved-items\">\n                            <title>saved-items</title>\n                            <g fill=\"currentColor\">\n                                <path\n                                    d=\"M12.5,5.3l-5,5.2l-5-5.3c0,0-0.8-0.9-0.8-1.5c0-1,0.8-1.8,1.7-1.8c0.6,0,1.1,0.3,1.4,0.9l2.6,2.7l2.7-2.8l0,0&#10;&#9;&#9;&#9;c0.3-0.5,0.8-0.9,1.5-0.9c0.9,0,1.7,0.8,1.7,1.8C13.4,4.4,12.5,5.3,12.5,5.3 M11.5,0c-1.1,0-2.1,0.6-2.7,1.5L7.5,2.8L6.2,1.5&#10;&#9;&#9;&#9;C5.6,0.6,4.6,0,3.5,0C1.5,0,0,1.7,0,3.8c0,1.2,0.5,2.3,1.4,3l1.3,1.4l4.9,5.3l0,0l0,0l4.9-5.3l1.2-1.4C14.5,6.1,15,5,15,3.8&#10;&#9;&#9;&#9;C15,1.7,13.5,0,11.5,0\" />\n                            </g>\n                        </symbol>\n                        <use xmlns:xlink=\"http://www.w3.org/1999/xlink\" xlink:href=\"#svg-icon-saved-items\" />\n                    </svg></button>\n                <img src=\"./Images/" + item.img + "\" alt=\"\" class=\"rootBooks__card__img\">\n                <div class=\"rootBooks__card__title\">" + item.title + "</div>\n                <div class=\"rootBooks__card__price\">" + item.price + "$</div>\n            </div>";
             });
             domElement.innerHTML = html_1;
         }
@@ -132,7 +131,6 @@ var bookie = {
             if (book.id === id || book.id === +id)
                 console.log(book, "this is it"), (book.price = +priceChange);
         });
-        console.log(bookie);
         showLocalToOwner(ascYear);
         localStorage.setItem("Bookie shop", JSON.stringify(bookie));
         bookie.renderItem(rootBooks);
@@ -141,19 +139,16 @@ var bookie = {
         // this.books = this.books.filter((book) => book.id !== id);
         bookie.books = bookie.books.filter(function (book) { return book.id !== id; });
         localStorage.setItem("Bookie shop", JSON.stringify(bookie));
-        console.log(JSON.parse(localStorage.getItem("Bookie shop")));
-        console.log(bookie);
         showLocalToOwner(ascYear);
         bookie.renderItem(rootBooks);
     },
     // Omri ------------------------>
     renderTempItem: function (domElement) {
         if (window.document.title === "Bookie") {
-            console.log(bookie);
             var html_2 = "";
             bookie.tempBooks.forEach(function (item) {
                 domElement.innerHTML = "";
-                html_2 += "\n            <div class=\"rootBooks__card\">\n                <button class=\"rootBooks__card__bag\" data-add-to-bag><svg xmlns=\"http://www.w3.org/2000/svg\"\n                        viewBox=\"0 0 15 14\">\n                        <symbol viewBox=\"0 0 15 14\" id=\"svg-icon-shopping-bag\">\n                            <title>shopping-bag</title>\n                            <g fill=\"currentColor\">\n                                <path\n                                    d=\"M13,4.2h-2.4l0-2c0-1.1-1.3-2-3-2s-3,0.8-3,2l0,2H1.9c-1,0-1.6,0.5-1.6,1.2l0.5,7.8h13.4l0.6-7.7&#10;&#9;&#9;&#9;C14.8,4.7,14,4.2,13,4.2z M6.1,2.2c0.1-0.1,0.6-0.5,1.5-0.5c0.9,0,1.4,0.3,1.5,0.5l0,2h-3L6.1,2.2z M12.8,11.7H2.2L1.8,5.8&#10;&#9;&#9;&#9;c0,0,0.1,0,0.1,0H13c0.1,0,0.2,0,0.2,0L12.8,11.7z\" />\n                            </g>\n                        </symbol>\n                        <use xmlns:xlink=\"http://www.w3.org/1999/xlink\" xlink:href=\"#svg-icon-shopping-bag\" />\n                    </svg></button>\n                <button class=\"rootBooks__card__heart\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 15 13.5\">\n                        <symbol viewBox=\"0 0 15 13.5\" id=\"svg-icon-saved-items\">\n                            <title>saved-items</title>\n                            <g fill=\"currentColor\">\n                                <path\n                                    d=\"M12.5,5.3l-5,5.2l-5-5.3c0,0-0.8-0.9-0.8-1.5c0-1,0.8-1.8,1.7-1.8c0.6,0,1.1,0.3,1.4,0.9l2.6,2.7l2.7-2.8l0,0&#10;&#9;&#9;&#9;c0.3-0.5,0.8-0.9,1.5-0.9c0.9,0,1.7,0.8,1.7,1.8C13.4,4.4,12.5,5.3,12.5,5.3 M11.5,0c-1.1,0-2.1,0.6-2.7,1.5L7.5,2.8L6.2,1.5&#10;&#9;&#9;&#9;C5.6,0.6,4.6,0,3.5,0C1.5,0,0,1.7,0,3.8c0,1.2,0.5,2.3,1.4,3l1.3,1.4l4.9,5.3l0,0l0,0l4.9-5.3l1.2-1.4C14.5,6.1,15,5,15,3.8&#10;&#9;&#9;&#9;C15,1.7,13.5,0,11.5,0\" />\n                            </g>\n                        </symbol>\n                        <use xmlns:xlink=\"http://www.w3.org/1999/xlink\" xlink:href=\"#svg-icon-saved-items\" />\n                    </svg></button>\n                <img src=\"./Images/" + item.img + "\" alt=\"\" class=\"rootBooks__card__img\">\n                <div class=\"rootBooks__card__title\">" + item.title + "</div>\n                <div class=\"rootBooks__card__price\">" + item.price + "$</div>\n            </div>";
+                html_2 += "\n            <div class=\"rootBooks__card\">\n                <button class=\"rootBooks__card__bag\" onclick='handleAddToCart(event)'><svg xmlns=\"http://www.w3.org/2000/svg\"\n                        viewBox=\"0 0 15 14\">\n                        <symbol viewBox=\"0 0 15 14\" id=\"svg-icon-shopping-bag\">\n                            <title>shopping-bag</title>\n                            <g fill=\"currentColor\">\n                                <path\n                                    d=\"M13,4.2h-2.4l0-2c0-1.1-1.3-2-3-2s-3,0.8-3,2l0,2H1.9c-1,0-1.6,0.5-1.6,1.2l0.5,7.8h13.4l0.6-7.7&#10;&#9;&#9;&#9;C14.8,4.7,14,4.2,13,4.2z M6.1,2.2c0.1-0.1,0.6-0.5,1.5-0.5c0.9,0,1.4,0.3,1.5,0.5l0,2h-3L6.1,2.2z M12.8,11.7H2.2L1.8,5.8&#10;&#9;&#9;&#9;c0,0,0.1,0,0.1,0H13c0.1,0,0.2,0,0.2,0L12.8,11.7z\" />\n                            </g>\n                        </symbol>\n                        <use xmlns:xlink=\"http://www.w3.org/1999/xlink\" xlink:href=\"#svg-icon-shopping-bag\" />\n                    </svg></button>\n                <button class=\"rootBooks__card__heart\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 15 13.5\">\n                        <symbol viewBox=\"0 0 15 13.5\" id=\"svg-icon-saved-items\">\n                            <title>saved-items</title>\n                            <g fill=\"currentColor\">\n                                <path\n                                    d=\"M12.5,5.3l-5,5.2l-5-5.3c0,0-0.8-0.9-0.8-1.5c0-1,0.8-1.8,1.7-1.8c0.6,0,1.1,0.3,1.4,0.9l2.6,2.7l2.7-2.8l0,0&#10;&#9;&#9;&#9;c0.3-0.5,0.8-0.9,1.5-0.9c0.9,0,1.7,0.8,1.7,1.8C13.4,4.4,12.5,5.3,12.5,5.3 M11.5,0c-1.1,0-2.1,0.6-2.7,1.5L7.5,2.8L6.2,1.5&#10;&#9;&#9;&#9;C5.6,0.6,4.6,0,3.5,0C1.5,0,0,1.7,0,3.8c0,1.2,0.5,2.3,1.4,3l1.3,1.4l4.9,5.3l0,0l0,0l4.9-5.3l1.2-1.4C14.5,6.1,15,5,15,3.8&#10;&#9;&#9;&#9;C15,1.7,13.5,0,11.5,0\" />\n                            </g>\n                        </symbol>\n                        <use xmlns:xlink=\"http://www.w3.org/1999/xlink\" xlink:href=\"#svg-icon-saved-items\" />\n                    </svg></button>\n                <img src=\"./Images/" + item.img + "\" alt=\"\" class=\"rootBooks__card__img\">\n                <div class=\"rootBooks__card__title\">" + item.title + "</div>\n                <div class=\"rootBooks__card__price\">" + item.price + "$</div>\n            </div>";
             });
             domElement.innerHTML = html_2;
         }
@@ -178,6 +173,8 @@ var imagePreview = document.querySelector("[data-bookImage-preview]");
 var rootBooks = document.querySelector("[data-rootBooks]");
 var backToTop = document.querySelector("[data-back-to-top]");
 var ownerTable = document.querySelector("[data-toggle-existing]");
+var addToCart = document.querySelector("[data-add-to-cart]");
+var cart = document.querySelector("[data-cart]");
 function ascPrice(a, b) {
     return a.price - b.price;
 }
@@ -198,7 +195,7 @@ function hideTopBtn() {
     if (window.document.title === "Bookie") {
         var rootElement = document.documentElement;
         var topTotal = rootElement.scrollHeight - rootElement.clientHeight;
-        if (rootElement.scrollTop / topTotal > 0.8) {
+        if (rootElement.scrollTop / topTotal > 0.5) {
             backToTop.classList.remove("hidden");
         }
         else {
@@ -281,12 +278,10 @@ function handleOwnerSort(ev) {
         alert(error.message);
     }
 }
-console.log(descYear);
 function handleCustomerSort(ev) {
     if (window.document.title === "Bookie")
         ev.preventDefault();
     var sortFunc = ev.target.value;
-    console.log(sortFunc);
     if (sortFunc === "ascYear") {
         bookie.books.sort(ascYear);
     }
@@ -301,6 +296,13 @@ function handleCustomerSort(ev) {
     }
     localStorage.setItem("Bookie shop", JSON.stringify(bookie));
     bookie.renderItem(rootBooks);
+}
+var count = 0;
+function handleAddToCart(ev) {
+    ev.preventDefault();
+    count++;
+    cart.innerHTML = count.toString();
+    // console.log(ev.target.parentElement.parentElement)
 }
 // Omri & Etan ------------------------->
 function handleSearch(ev) {
