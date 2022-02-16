@@ -199,7 +199,7 @@
     width: 100%;
     height: 2100px;
     max-height: fit-content;
-   
+
 
     &_header {
         display: grid;
@@ -312,6 +312,7 @@
                         background-color: antiquewhite;
                     }
                 }
+
                 &-signInInput {
                     box-shadow: rgba(112, 134, 233, 0.35) 0px 30px 60px -12px inset, rgba(59, 101, 163, 0.5) 0px 18px 36px -30px inset;
                     border-radius: 5px;
@@ -396,7 +397,7 @@
             background-size: contain;
             background-repeat: no-repeat;
 
-           
+
             &-form {
                 border: 3px solid red;
 
@@ -405,7 +406,7 @@
 
         &-display {
             width: 100%;
-            height: 20%;
+            height: 45%;
             margin-top: 5px;
             border: 1px solid rgb(197, 187, 187);
             display: flex;
@@ -416,17 +417,83 @@
 
             &-card {
                 border-bottom: 5px solid rgb(0, 0, 0);
-                box-sizing: content-box;
-                box-shadow: rgba(110, 112, 110, 0.55) 0px 30px 60px 80px inset, rgba(69, 202, 28, 0.75) 0px 18px 36px 30px inset;
+                // box-sizing: content-box;
+                box-shadow: rgba(243, 247, 243, 0.55) 0px 30px 60px 80px inset, rgba(239, 250, 235, 0.75) 0px 18px 36px 30px inset;
                 height: 100%;
                 width: 100%;
                 display: grid;
                 grid-template-columns: repeat(2, 50%);
 
-                &-btn {
-                    width: 50%;
-                    box-shadow: rgba(92, 92, 184, 0.25) 0px 30px 60px -12px inset, rgba(49, 141, 46, 0.8) 0px 18px 36px -18px inset;
+
+                &-btn,
+                input[type="submit"] {
+                    cursor: pointer;
+                    border-radius: 0px;
+                    text-decoration: none;
+                    padding: 12px 18px;
+                    font-size: 12px;
+                    line-height: 19px;
+                    text-transform: uppercase;
+                    font-family: 'Montserrat', sans-serif;
+                    font-weight: 400;
+                    letter-spacing: 3px;
+                    -webkit-transition: all .4s ease-in-out;
+                    -moz-transition: all .4s ease-in-out;
+                    -ms-transition: all .4s ease-in-out;
+                    -o-transition: all .4s ease-in-out;
+                    transition: all .4s ease-in-out;
                 }
+
+                &-btn {
+                    border-radius: 0px;
+                    text-decoration: none;
+                    padding: 14px 21px;
+                    font-size: 13px;
+                    line-height: 25px;
+                    text-transform: uppercase;
+                    font-family: 'Montserrat', sans-serif;
+                    font-weight: 400;
+                    letter-spacing: 3px;
+                    -webkit-transition: all .4s ease-in-out;
+                    -moz-transition: all .4s ease-in-out;
+                    -ms-transition: all .4s ease-in-out;
+                    -o-transition: all .4s ease-in-out;
+                    transition: all .4s ease-in-out;
+                }
+
+                &-btn:hover,
+                input[type="submit"]:hover {
+                    -webkit-transition: all .4s ease-in-out;
+                    -moz-transition: all .4s ease-in-out;
+                    -ms-transition: all .4s ease-in-out;
+                    -o-transition: all .4s ease-in-out;
+                    transition: all .4s ease-in-out;
+                }
+
+                &-btn,
+                input[type="submit"] {
+                    border: solid 2px #1f1f1f;
+                    background: transparent;
+                    color: #1f1f1f;
+                }
+
+                &-btn:hover,
+                input[type="submit"]:hover,
+                .btn-dark.active {
+                    border: solid 2px #1f1f1f;
+                    background: #1f1f1f;
+                    color: #fff;
+                }
+
+                &-btn-color {
+                    background: transparent;
+                }
+
+                &-btn-color:hover {
+                    color: #fff;
+                }
+
+
 
                 &-details {
                     height: 100%;
@@ -508,16 +575,24 @@
     }
 
     &-select {
-        border-radius: 15%;
-        font-size: 15px;
-        font-weight: bold;
-        box-shadow: rgba(40, 40, 41, 0.85) 0px 30px 60px -12px inset, rgba(25, 34, 153, 0.8) 0px 18px 36px 30px inset;
-        height: 4vh;
-        text-align: center;
-        appearance: none;
+        cursor: pointer;
+        border-radius: 0;
+        padding: 12px 18px;
+        font-size: 16px;
+        line-height: 19px;
+        text-transform: uppercase;
+                    font-family: 'Montserrat', sans-serif;
+                    font-weight: 400;
+                    letter-spacing: 3px;
+                    -webkit-transition: all .4s ease-in-out;
+                    -moz-transition: all .4s ease-in-out;
+                    -ms-transition: all .4s ease-in-out;
+                    -o-transition: all .4s ease-in-out;
+                    transition: all .4s ease-in-out;
+       
         width: 45%;
-        background: rgb(50, 86, 185);
-        color: rgb(255, 255, 255);
+        background: rgb(253, 253, 253);
+   
         font-weight: bold;
         margin: auto;
 
@@ -530,7 +605,7 @@
     &-shoppingCart {
         margin-top: 20px;
         width: 100%;
-        height: 60vh;
+        height: 90vh;
         display: none;
         grid-template-columns: repeat(5, 20%);
         grid-template-rows: repeat(10, 10%);
@@ -545,7 +620,7 @@
             white-space: nowrap;
 
             &-item {
-                height: 35%;
+                height: 45%;
                 border-bottom: 1px solid black;
                 justify-self: auto;
                 display: grid;
@@ -574,23 +649,92 @@
                     grid-row: 4/6;
                 }
 
-                &-deleteBtn {
+                &-deleteBtn,
+                input[type="submit"] {
                     grid-column: 8/10;
-                    grid-row: 4/7;
-                    border-radius: 15px;
-                    background-color: lightgoldenrodyellow;
-                    color: blue;
+                    grid-row: 4/8;
+
                 }
+
+                &-deleteBtn {
+                    cursor: pointer;
+                    border-radius: 0%;
+                    text-decoration: none;
+                    padding: 12px 18px;
+                    font-size: 12px;
+                    line-height: 19px;
+                    text-transform: uppercase;
+                    font-family: 'Montserrat', sans-serif;
+                    font-weight: 400;
+                    letter-spacing: 3px;
+                    -webkit-transition: all .4s ease-in-out;
+                    -moz-transition: all .4s ease-in-out;
+                    -ms-transition: all .4s ease-in-out;
+                    -o-transition: all .4s ease-in-out;
+                    transition: all .4s ease-in-out;
+                }
+
+                &-deleteBtn {
+                    border-radius: 0;
+                    text-decoration: none;
+                    padding: 14px 21px;
+                    font-size: 13px;
+                    line-height: 25px;
+                    text-transform: uppercase;
+                    font-family: 'Montserrat', sans-serif;
+                    font-weight: 400;
+                    letter-spacing: 3px;
+                    -webkit-transition: all .4s ease-in-out;
+                    -moz-transition: all .4s ease-in-out;
+                    -ms-transition: all .4s ease-in-out;
+                    -o-transition: all .4s ease-in-out;
+                    transition: all .4s ease-in-out;
+                }
+
+                &-deleteBtn:hover,
+                input[type="submit"]:hover {
+                    -webkit-transition: all .4s ease-in-out;
+                    -moz-transition: all .4s ease-in-out;
+                    -ms-transition: all .4s ease-in-out;
+                    -o-transition: all .4s ease-in-out;
+                    transition: all .4s ease-in-out;
+                }
+
+                &-deleteBtn,
+                input[type="submit"] {
+
+                    border: solid 2px #1f1f1f;
+                    background: transparent;
+                    color: #1f1f1f;
+                }
+
+                &-deleteBtn:hover,
+                input[type="submit"]:hover,
+                .deleteBtn-dark.active {
+                    border: solid 2px #1f1f1f;
+                    background: #1f1f1f;
+                    color: #fff;
+                }
+
+                &-deleteBtn-color {
+                    background: transparent;
+                }
+
+                &-deleteBtn-color:hover {
+                    color: #fff;
+                }
+
             }
-        }
-        &-orderAndTotal {
-            // border: 3px solid black;
-            grid-row: 8/9;
-            grid-column: 3;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-around;
         }
     }
 
+    &-orderAndTotal {
+        // border: 3px solid black;
+        grid-row: 8/9;
+        grid-column: 3;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
 }
+
