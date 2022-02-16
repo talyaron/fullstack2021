@@ -330,10 +330,8 @@ function handleAddItems(ev) {
         gucci.getData();
         gucci.storeData();
         ev.target.reset();
-        if (!name)
-            throw new Error('no name in handleAddItems');
         if (!root)
-            throw new Error('no root in DOM');
+            throw new Error("no root in DOM");
         gucci.addItems(name, price, imgTop, imgBottom, gender, type, id);
         gucci.renderFilterByGenderAndType(gender, type, root);
     }
@@ -350,7 +348,7 @@ function handleRemoveItems(ev) {
         gucci.storeData();
         ev.target.reset();
         if (!root)
-            throw new Error('no root in DOM');
+            throw new Error("no root in DOM");
         gucci.removeItems(name);
         gucci.render(gucci.items, root);
     }
@@ -369,7 +367,7 @@ function handleUpdate(ev) {
         gucci.storeData();
         ev.target.reset();
         if (!root)
-            throw new Error('no root in DOM');
+            throw new Error("no root in DOM");
         // if(!itemName) throw new Error ('newPrice was not caught');
         // if(!newPrice) throw new Error ('newItem was not caught');
         gucci.updateItems(itemName, newPrice);
@@ -387,7 +385,7 @@ function handleFilterByPrice(ev) {
         var root = document.querySelector("#root");
         var filtered = gucci.filterMaxPriceAndGender(gender, price);
         if (!root)
-            throw new Error('no root in DOM');
+            throw new Error("no root in DOM");
         if (price) {
             gucci.renderMaxPrice(filtered, root);
         }
@@ -417,7 +415,7 @@ function handleSelect(ev) {
         var type = ev.target.value;
         var root = document.getElementById("root");
         if (!root)
-            throw new Error('no root in DOM');
+            throw new Error("no root in DOM");
         if (type === "all") {
             gucci.renderByGender(gender, root);
         }
@@ -434,9 +432,9 @@ function handleRenderByGender(gender) {
         var root = document.getElementById("root");
         gucci.getData();
         if (!gender)
-            throw new Error('gender was not caught in handleRenderByGender');
+            throw new Error("gender was not caught in handleRenderByGender");
         if (!root)
-            throw new Error('no root in DOM');
+            throw new Error("no root in DOM");
         gucci.renderByGender(gender, root);
     }
     catch (error) {
@@ -447,7 +445,7 @@ function handleShowCart() {
     try {
         var cartRoot = document.getElementById("cartRoot");
         if (!cartRoot)
-            throw new Error('no cartRoot in DOM');
+            throw new Error("no cartRoot in DOM");
         if (cartRoot.style.display === "none") {
             cartRoot.style.display = "block";
         }
@@ -461,12 +459,12 @@ function handleShowCart() {
 }
 function handleAddToCart(addedItemsId) {
     try {
-        var cartRoot = document.getElementById('cartRoot');
-        var addedItems = gucci.items.filter(function (item) { return item.id = addedItemsId; });
+        var cartRoot = document.getElementById("cartRoot");
+        var addedItems = gucci.items.filter(function (item) { return (item.id = addedItemsId); });
         // if(!addedItems) throw new Error ('addedItems wasnt caught in handleAddCart');
         // if(!addedItemsId) throw new Error ('addedItemsId wasnt caught in handleAddCart');
         if (!cartRoot)
-            throw new Error('no cartRoot in DOM');
+            throw new Error("no cartRoot in DOM");
         gucci.addToCart(addedItems);
         gucci.renderAddToCart(cartRoot);
     }
@@ -481,9 +479,9 @@ function handleSearch(ev) {
         console.log(searchTerm_1);
         var root_1 = document.getElementById("root");
         var gender_1 = ev.target.dataset.gender;
-        var regExp_1 = new RegExp(searchTerm_1, 'i');
+        var regExp_1 = new RegExp(searchTerm_1, "i");
         if (!root_1)
-            throw new Error('no root in DOM');
+            throw new Error("no root in DOM");
         root_1.innerHTML = "";
         console.log(gender_1);
         if (searchTerm_1.length > 0) {
