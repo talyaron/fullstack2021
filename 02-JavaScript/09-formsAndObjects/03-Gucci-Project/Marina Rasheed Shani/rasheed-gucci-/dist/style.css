@@ -56,7 +56,6 @@ body {
 .container__navBar {
   top: 0px;
   left: 0px;
-  padding-bottom: 1em;
   transition: all 0.5s;
 }
 .container__navBar__title {
@@ -209,6 +208,12 @@ body {
   background-repeat: no-repeat;
   height: 90vh;
   margin: 0;
+}
+.sub-container__hover {
+  transition: all 0.5s;
+}
+.sub-container__hover:hover {
+  background-color: rgba(0, 0, 0, 0.856);
 }
 
 .catergory__buttons {
