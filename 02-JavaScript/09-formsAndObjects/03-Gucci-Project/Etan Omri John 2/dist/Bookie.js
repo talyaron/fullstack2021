@@ -8,19 +8,15 @@ var ownerTable = document.querySelector("[data-toggle-existing]");
 function ascPrice(a, b) {
     return a.price - b.price;
 }
-;
 function descPrice(a, b) {
     return b.price - a.price;
 }
-;
 function ascYear(a, b) {
     return a.year - b.year;
 }
-;
 function descYear(a, b) {
     return b.year - a.year;
 }
-;
 // make sure your function is called at the right page!!!
 // if (window.document.title === 'Bookie')
 function handleTop(ev) {
@@ -111,7 +107,6 @@ var bookie = {
     },
     renderItem: function (domElement) {
         if (window.document.title === "Bookie") {
-            localStorage.setItem('Bookie shop', JSON.stringify(bookie));
             bookie.books = JSON.parse(localStorage.getItem("Bookie shop")).books;
             console.log(bookie);
             var html_1 = "";
@@ -124,7 +119,7 @@ var bookie = {
     },
     renderTempItem: function (domElement) {
         if (window.document.title === "Bookie") {
-            bookie.books = JSON.parse(localStorage.getItem("Bookie shop")).books;
+            // bookie.books = JSON.parse(localStorage.getItem("Bookie shop")).books;
             console.log(bookie);
             var html_2 = "";
             bookie.tempBooks.forEach(function (item) {
@@ -137,12 +132,11 @@ var bookie = {
     updateBook: function (id, priceChange) {
         this.books.forEach(function (book) {
             if (book.id === id || book.id === +id)
-                console.log(book, "this is it"),
-                    book.price = +priceChange;
+                console.log(book, "this is it"), (book.price = +priceChange);
         });
         console.log(bookie);
         showLocalToOwner(ascYear);
-        localStorage.setItem('Bookie shop', JSON.stringify(bookie));
+        localStorage.setItem("Bookie shop", JSON.stringify(bookie));
         bookie.renderItem(rootBooks);
     },
     deleteBook: function (id) {
@@ -190,49 +184,76 @@ function showLocalToOwner(sortFunc) {
 }
 function handleEdit(ev) {
     var data = ev.target.parentElement.parentElement.cells;
-    var id = data[0].textContent.replaceAll(/\s/g, '');
+    var id = data[0].textContent.replaceAll(/\s/g, "");
     var priceChange = data[6].children.priceChange.valueAsNumber;
     bookie.updateBook(id, priceChange);
     bookie.renderItem(rootBooks);
 }
 function handleDelete(ev) {
     var data = ev.target.parentElement.parentElement.cells;
-    var id = +data[0].textContent || data[0].textContent.replaceAll(/\s/g, '');
+    var id = +data[0].textContent || data[0].textContent.replaceAll(/\s/g, "");
     bookie.deleteBook(id);
 }
+var Sorts;
+(function (Sorts) {
+    Sorts["ascYear"] = "ascYear";
+    Sorts["descYear"] = "descYear";
+    Sorts["ascPrice"] = "ascPrice";
+    Sorts["descPrice"] = "descPrice";
+})(Sorts || (Sorts = {}));
 function handleOwnerSort(ev) {
-    if (window.document.title === "myBookie")
-        ev.preventDefault();
     var sortFunc = ev.target.value;
-    if (sortFunc === 'ascYear') {
-        showLocalToOwner(ascYear);
-        return;
-    }
-    if (sortFunc === 'descYear') {
+    if (window.document.title !== "myBookie")
+        throw new Error("not this page");
+    try {
+        switch (sortFunc) {
+            case (sortFunc = Sorts.ascYear):
+                return showLocalToOwner(ascYear);
+            case Sorts.descYear:
+                return showLocalToOwner(descYear);
+            case Sorts.ascPrice:
+                return showLocalToOwner(ascPrice);
+            case Sorts.descPrice:
+                return showLocalToOwner(descPrice);
+        }
         showLocalToOwner(descYear);
-        return;
+        // if (window.document.title === "myBookie")
+        // ev.preventDefault();
+        // let sortFunc = ev.target.value;
+        // if (sortFunc === 'ascYear'){
+        //   showLocalToOwner(ascYear)
+        //   return
+        // }
+        // if(sortFunc === 'descYear'){
+        //   showLocalToOwner(descYear)
+        //   return
+        // }
+        // if(sortFunc === 'ascPrice'){
+        //   showLocalToOwner(ascPrice)
+        //   return
+        // }
+        // showLocalToOwner(descPrice)
     }
-    if (sortFunc === 'ascPrice') {
-        showLocalToOwner(ascPrice);
-        return;
+    catch (error) {
+        console.error(error);
+        alert(error.message);
     }
-    showLocalToOwner(descPrice);
 }
 function handleCustomerSort(ev) {
     if (window.document.title === "Bookie")
         ev.preventDefault();
     var sortFunc = ev.target.value;
-    if (sortFunc === 'ascYear') {
+    if (sortFunc === "ascYear") {
         bookie.books.sort(ascYear);
         bookie.renderItem(rootBooks);
         return;
     }
-    if (sortFunc === 'descYear') {
+    if (sortFunc === "descYear") {
         bookie.books.sort(descYear);
         bookie.renderItem(rootBooks);
         return;
     }
-    if (sortFunc === 'ascPrice') {
+    if (sortFunc === "ascPrice") {
         bookie.books.sort(ascPrice);
         bookie.renderItem(rootBooks);
         return;
@@ -261,43 +282,52 @@ window.onload = function () {
 };
 function handleSelect(ev) {
     ev.preventDefault();
+    bookie.books = JSON.parse(localStorage.getItem("Bookie shop")).books;
     var category = ev.target.value;
-    if (category === 'all') {
+    if (category === "all") {
         bookie.tempBooks = bookie.books;
         bookie.renderTempItem(rootBooks);
     }
-    else if (category === 'thriller') {
-        bookie.tempBooks = bookie.books.filter(function (book) { return book.category === category; });
+    else if (category === "thriller") {
+        bookie.tempBooks = bookie.books.filter(function (book) {
+            return book.category === category;
+        });
     }
-    else if (category === 'history') {
-        bookie.tempBooks = bookie.books.filter(function (book) { return book.category === category; });
+    else if (category === "history") {
+        bookie.tempBooks = bookie.books.filter(function (book) {
+            return book.category === category;
+        });
     }
-    else if (category === 'cooking') {
-        bookie.tempBooks = bookie.books.filter(function (book) { return book.category === category; });
+    else if (category === "cooking") {
+        bookie.tempBooks = bookie.books.filter(function (book) {
+            return book.category === category;
+        });
     }
-    else if (category === 'fantasy') {
-        bookie.tempBooks = bookie.books.filter(function (book) { return book.category === category; });
+    else if (category === "fantasy") {
+        bookie.tempBooks = bookie.books.filter(function (book) {
+            return book.category === category;
+        });
     }
     bookie.renderTempItem(rootBooks);
 }
-;
 function handleSort(ev) {
     ev.preventDefault();
-    if (ev.target.value === 'sortAsc') {
+    if (ev.target.value === "sortAsc") {
         bookie.sortBooksAsc();
         bookie.tempBooks = bookie.books;
         bookie.renderTempItem(rootBooks);
     }
-    else if (ev.target.value === 'sortDesc') {
+    else if (ev.target.value === "sortDesc") {
         bookie.sortBooksDesc();
         bookie.tempBooks = bookie.books;
         bookie.renderTempItem(rootBooks);
     }
 }
-;
 function handleAmount(ev) {
     var amonut = ev.target.valueAsNumber;
-    bookie.tempBooks = bookie.books.filter(function (book) { return book.price < amonut; });
+    bookie.tempBooks = bookie.books.filter(function (book) {
+        return book.price < amonut;
+    });
     if (bookie.tempBooks.length > 0) {
         bookie.renderTempItem(rootBooks);
     }
@@ -305,4 +335,3 @@ function handleAmount(ev) {
         bookie.renderItem(rootBooks);
     }
 }
-;
