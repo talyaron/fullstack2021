@@ -15,7 +15,7 @@ interface Store {
   removeItems(itemName: string): any;
   addToCart?(addedItems:any):any;
   renderAddToCart?(domElement:any):any;
-  updateItems( newPrice: number, itemName: string): any;
+  updateItems(itemName: string,newPrice: number): any;
   filterByItemNameAndGender(gender:string,itemName:string):any;
   filterMaxPriceAndGender(gender: string, price: number);
   sortByAscending(price: number);
@@ -310,7 +310,7 @@ const gucci: Store = {
   
   },
 
-  updateItems( newPrice, itemName) {
+  updateItems(itemName,newPrice) {
     //const index = this.items.findIndex((item) => item.id === id);
     const index = this.items.findIndex((item) => item.name === itemName);
     console.log(index)
@@ -417,74 +417,93 @@ const uid = function () {
 
 function handleAddItems(ev) {
   ev.preventDefault();
-  
+  try{
   const name = ev.target.name.value;
   const price = ev.target.price.value;
   const imgTop = ev.target[2].value;
   const imgBottom = ev.target[3].value;
   const gender = ev.target[4].value;
   const type = ev.target[5].value;
-  let id = uid;
-  gucci.addItems(name, price, imgTop,imgBottom, gender, type, id);
-
-  const root = document.getElementById("root"); 
-  
-   
-  gucci.renderFilterByGenderAndType(gender,type,root)  ;
-
-  
-
+  let id = uid;  
+  const root = document.getElementById("root");   
   gucci.getData();
   gucci.storeData();
   ev.target.reset();
+
+  if(!name) throw new Error ('no name in handleAddItems');
+  if (!root) throw new Error('no root in DOM');
+
+  gucci.addItems(name, price, imgTop,imgBottom, gender, type, id);
+  gucci.renderFilterByGenderAndType(gender,type,root);
+
+  } catch(error){ 
+    console.error(error)
+
+  }
+  
 }
 
 gucci.getData();
 
 function handleRemoveItems(ev) {
   ev.preventDefault();
-  const name = ev.target.elements.remove.value;
-  gucci.removeItems(name);
+  try{    
+  const name = ev.target.elements.remove.value;  
   const root = document.getElementById("root");
-
-  console.log()
-
-  gucci.render(gucci.items,root);
   gucci.storeData();
   ev.target.reset();
+
+  if (!root) throw new Error('no root in DOM');
+  gucci.removeItems(name);
+  gucci.render(gucci.items,root);
+
+ }catch(error){
+   console.error(error)
+ } 
+ 
 }
 
 
 function handleUpdate(ev) {
   ev.preventDefault();
-   
-  const root = document.getElementById("root");
   
-  
-  
-  const itemName = ev.target.elements.itemName.value;
-  
+  try{
+  const itemName = ev.target.elements.itemName.value;  
   const newPrice = ev.target.elements.newPrice.value;
-  console.log(ev.target.elements.newPrice.value)
-
+ 
   
-  gucci.updateItems( newPrice, itemName);
-
-  gucci.render(gucci.items,root);
+  console.log(ev.target.elements.newPrice.value)
+  const root = document.getElementById("root");  
   gucci.getData();
   gucci.storeData();
+  ev.target.reset();
+
+  if (!root) throw new Error('no root in DOM');
+  // if(!itemName) throw new Error ('newPrice was not caught');
+  // if(!newPrice) throw new Error ('newItem was not caught');
+  
+  gucci.updateItems( itemName,newPrice,);
+  gucci.render(gucci.items,root);
+  
+  }catch(error){
+    console.error(error)
+  }
+  
+
+  
+ 
 }
 
 
 function handleFilterByPrice(ev) {
   ev.preventDefault();
-
+  try{
   const price = ev.target.valueAsNumber;
   const gender = ev.target.dataset.gender;
   const root = document.querySelector("#root");
   const filtered = gucci.filterMaxPriceAndGender(gender, price);
 
-
+  if(!root) throw new Error ('no root in DOM');
 
   if (price) {
 
@@ -493,24 +512,30 @@ function handleFilterByPrice(ev) {
   } else {
     gucci.renderByGender(gender, root);
   }
+
+  }catch(error){
+  console.error(error)
+  }
+  
+
+
+  
 }
 
 
 function handlePriceAsc(ev, price) {
-  gucci.sortByAscending(price);
+  
   const root = document.getElementById("root");
-
-  const gender = ev.target.dataset.gender;
-  console.dir(ev)
-  gucci.renderByGender(gender, root);
+  const gender = ev.target.dataset.gender;  
+  gucci.sortByAscending(price);
+  gucci.renderByGender(gender, root); 
+  
 }
 
 function handlePriceDesc(ev, price) {
   gucci.sortByDescending(price);
   const root = document.getElementById("root");
-
   const gender = ev.target.dataset.gender;
-  console.dir(ev)
   gucci.renderByGender(gender, root);
 }
 
@@ -520,102 +545,140 @@ function handlePriceDesc(ev, price) {
 
 
 function handleSelect(ev) {
+   try{
+    const gender = ev.target.dataset.gender;
+    const type = ev.target.value;
+    const root = document.getElementById("root");
+  
+  
+    if(!root) throw new Error ('no root in DOM');
 
-  const gender = ev.target.dataset.gender;
-  const type = ev.target.value;
-  const root = document.getElementById("root");
+    if (type === "all") {
+      gucci.renderByGender(gender, root)
+  
+    } else {
+      gucci.renderFilterByGenderAndType(type, gender, root)
+  
+    }
 
-
-
-  if (type === "all") {
-    gucci.renderByGender(gender, root)
-
-  } else {
-    gucci.renderFilterByGenderAndType(type, gender, root)
-
-  }
+   }catch(error){
+    console.error(error)
+   }
+  
 
 }
 
 
 function handleRenderByGender(gender: string) {
-  const root = document.getElementById("root");
+
+  try{
+    const root = document.getElementById("root");
   gucci.getData();
+
+
+  if(!gender) throw new Error ('gender was not caught in handleRenderByGender');
+  if(!root) throw new Error ('no root in DOM');
   gucci.renderByGender(gender, root);
+   
+
+  }catch(error){
+    console.error(error)
+   }
+  
 }
 
 function handleShowCart(){
+  try{
+     const cartRoot=document.getElementById("cartRoot");
+
+     if(!cartRoot) throw new Error ('no cartRoot in DOM');
   
+    if(cartRoot.style.display==="none"){
 
-  const cartRoot=document.getElementById("cartRoot");
+     cartRoot.style.display="block"
+
+    }
+    else{
+     cartRoot.style.display="none"
+    }
+
+  }catch(error){
+    console.error(error);
+  }
   
-  if(cartRoot.style.display==="none"){
-
-    cartRoot.style.display="block"
-
-  }
-  else{
-    cartRoot.style.display="none"
-  }
   
   
 
 }
 
 function handleAddToCart(addedItemsId){
-  const cartRoot=document.getElementById('cartRoot');
+
+  try{
+    const cartRoot=document.getElementById('cartRoot');  
+    const addedItems=gucci.items.filter(item=>item.id = addedItemsId);
+    
+    // if(!addedItems) throw new Error ('addedItems wasnt caught in handleAddCart');
+    // if(!addedItemsId) throw new Error ('addedItemsId wasnt caught in handleAddCart');
+    if(!cartRoot) throw new Error ('no cartRoot in DOM');
+    
+    gucci.addToCart(addedItems);   
+    gucci.renderAddToCart(cartRoot);
+
+  }catch(error){
+    console.error(error);
+  }
+  
   
 
-  
-    const addedItems=gucci.items.filter(item=>item.id = addedItemsId);
-    gucci.addToCart(addedItems);
-  
-  
-  //console.log(addedItems)
-  
-  
-  gucci.renderAddToCart(cartRoot)
-  
-  
+ 
 
 }
 
 function handleSearch(ev){
   //const name= ev.target.value;
-  const searchTerm=ev.target.value;
-  console.log(searchTerm)
-  const regExp= new RegExp(searchTerm,'i');
-  const root = document.getElementById("root");
-  const gender = ev.target.dataset.gender;
-  root.innerHTML="";
+  try{
+    const searchTerm=ev.target.value;
+    console.log(searchTerm)    
+    const root = document.getElementById("root");
+    const gender = ev.target.dataset.gender;
+    const regExp= new RegExp(searchTerm,'i');
 
-  console.log(gender)
 
-  if (searchTerm.length > 0){
-    const foundItem=gucci.items.filter((item)=>{
-      if (regExp.test(item.name)) return true;
-      const filteredByItemName= gucci.filterByItemNameAndGender(gender,searchTerm);
-      gucci.renderFilterByItemName(filteredByItemName,root)
-
+    if(!root) throw new Error ('no root in DOM');
+    
+    root.innerHTML="";
+  
+    console.log(gender)
+  
+    if (searchTerm.length > 0){
+      const foundItem=gucci.items.filter((item)=>{
+        if (regExp.test(item.name)) return true;
+        const filteredByItemName= gucci.filterByItemNameAndGender(gender,searchTerm);
+        gucci.renderFilterByItemName(filteredByItemName,root)
+  
+        
+       
+      });
+      const html= foundItem
+       .map((item)=>{
+        return `<div class="items">
+        <p>${item.name}</p>
+        <img class="imgTop" src="${item.imgTop}" >
+        <img class="imgBottom" src="${item.imgBottom}" >
+        <p>${item.price}$</p>
+        <input onclick="handleAddToCart('${item.id}')" id="addToCart" type="button" value="ADD TO CART">
+        </div>`;
+      })
+      .join("");
+      root.innerHTML = html;
       
-     
-    });
-    const html=foundItem
-     .map((item)=>{
-      return `<div class="items">
-      <p>${item.name}</p>
-      <img class="imgTop" src="${item.imgTop}" >
-      <img class="imgBottom" src="${item.imgBottom}" >
-      <p>${item.price}$</p>
-      <input onclick="handleAddToCart('${item.id}')" id="addToCart" type="button" value="ADD TO CART">
-      </div>`;
-    })
-    .join("");
-    root.innerHTML = html;
-    
-  }else{
-    
-    gucci.renderByGender(gender, root)
+    }else{
+      
+      gucci.renderByGender(gender, root)
+    }
+  
+  }catch(error){
+    console.error(error)
   }
 
 

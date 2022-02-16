@@ -265,8 +265,6 @@ body {
   background-color: white;
   height: 80em;
   text-align: center;
-  display: flex;
-  flex-wrap: wrap;
 }
 .catergory__items .items {
   color: black;
