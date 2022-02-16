@@ -3,9 +3,8 @@ var itemId = function () {
 };
 var Items = {
     items: [],
-    addItems: function (itemName, itemPrice) {
-        var id = itemId();
-        this.items.push(itemName, itemPrice, id);
+    addItems: function (item) {
+        this.items.push(item);
     },
     removeItems: function (itemName) {
         var index = this.items.findIndex(function (item) { return item.itemName === itemName; });
@@ -16,7 +15,7 @@ var Items = {
     renderItems: function (domElement) {
         var html = '';
         this.items.forEach(function (item) {
-            html += "<div class='card'>\n        <p>" + Items.itemName + "," + Items.itemPrice + "</p></div> \n        <input type=\"button\" value=\"delete\" onclick=\"deleteItem(event)\">";
+            html += "<div class='card'>\n        <p>" + item.itemName + "," + item.itemPrice + "</p></div> \n        <input type=\"button\" value=\"delete\" onclick=\"deleteItem(event)\">";
         });
         domElement.innerHTML = html;
     },
@@ -29,17 +28,17 @@ function handleSubmit(ev) {
     console.dir(ev.target);
     var itemName = ev.target.elements.itemName.value;
     var itemPrice = ev.target.elements.itemPrice.valueAsNumber;
-    Items.addItems(itemName, itemPrice);
+    Items.addItems({ itemName: itemName, itemPrice: itemPrice });
     var rootItems = document.getElementById('rootItems');
     Items.renderItems(rootItems);
     ev.target.reset();
 }
-// function deleteItem(ev){
-//     e
-// }
-Items.addItems('bbb', 12);
-Items.addItems('ccc', 4444);
-Items.addItems('eee', 5);
+function deleteItem(ev) {
+    e;
+}
+Items.addItems({ itemName: 'bbb', itemPrice: 12 });
+Items.addItems({ itemName: 'ccc', itemPrice: 4444 });
+Items.addItems({ itemName: 'eee', itemPrice: 5 });
 // Items.removeItems('ccc');
 // Items.sortPrice();
 // console.log(Items)

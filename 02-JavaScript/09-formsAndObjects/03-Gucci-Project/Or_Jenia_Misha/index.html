@@ -21,6 +21,25 @@
     <div class="blurwrapper"></div>
     <section class='home' id="home">
         <div class="homeopacity">
+
+            <div class="cart">
+
+                <div class="cart__box">
+                    <div class="cart__close">X</div>
+                    <div class="cart__img">
+                        <img src="img/cart.png" alt="">
+                    </div>
+                    <div class="cart__body" id="cart__root"></div>
+                    <div class="cart__footer">
+                        <form onsubmit="HandlePlaceOrder(event)" class="cartform">
+                            <label class="diners">Diners&nbsp<input type="number" class="dinersqnt"></input></label>
+                            <div class="totalprice"></div>
+                            <button type="submit">PLACE ORDER</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
             <nav class="navbar">
 
                 <div class="burger">
@@ -36,22 +55,27 @@
                     <li><a href="#aboutus">About Us</a></li>
                     <li>Order Online</li>
                     <li>Table Reservation</li>
-                    <li class='fulogo'><img src="http://en.fusushi.co.il/warehouse/dynamic/55246.png" alt=""></li>
+                    <li class='fulogo'><a href="#home"><img src="http://en.fusushi.co.il/warehouse/dynamic/55246.png"
+                                alt=""></a></li>
                     <li><a href="#menu">Menus</a></li>
                     <li>Gallery</li>
                     <li>Contact US</li>
                     <li>Gift Card</li>
-                    <li class='smedia'><a href="https://www.facebook.com/pages/Fu-Sushi-Tel-Aviv/259322450761653"><i class="fab fa-facebook"></i></a><a href="https://www.instagram.com/fusushitlv/"></i><i class="fab fa-instagram"``></a></i></li>
+                    <li class='smedia'><a href="https://www.facebook.com/pages/Fu-Sushi-Tel-Aviv/259322450761653"><i
+                                class="fab fa-facebook"></i></a><a href="https://www.instagram.com/fusushitlv/"></i><i
+                                class="fab fa-instagram" ``></a></i></li>
                 </ul>
 
             </nav>
 
-            <H1 class="home__title" >ASIAN KITCHEN & SUSHI BAR</H1>
+            <H1 class="home__title">ASIAN KITCHEN & SUSHI BAR</H1>
 
             <div class="footer">
                 <div class="footer__whatsapp">
                     <p>Chat with the restaurant</p>
-                    <div class="wapic"><a href="https://api.whatsapp.com/send/?phone=%2B972502671666textapp_absent=0"><img src="img/whatsapp.png" alt='chat with restaurant' draggable="false"></a></div>
+                    <div class="wapic"><a
+                            href="https://api.whatsapp.com/send/?phone=%2B972502671666textapp_absent=0"><img
+                                src="img/whatsapp.png" alt='chat with restaurant' draggable="false"></a></div>
                 </div>
                 <div class="footer__arrowpics">
                     <div class="footer__arrowpics__pics"><i class="far fa-circle"></i><i class="far fa-circle"></i><i
@@ -97,75 +121,93 @@
             <h2 class="menu__title">Menu</h2>
             <div class="menu__box">
                 <div class="menu__cell">
-                    <div class="picwrap" id="firsts"><img src="http://www.fusushi.co.il/warehouse/dynamic/51708.jpg" alt=""></div>
+                    <div class="picwrap" id="firsts"><img src="http://www.fusushi.co.il/warehouse/dynamic/51708.jpg"
+                            alt=""></div>
                     <p>Firsts</p>
                 </div>
                 <div class="menu__cell">
-                    <div class="picwrap" id="soups"><img src="http://www.fusushi.co.il/warehouse/dynamic/50867.jpg" alt=""></div>
+                    <div class="picwrap" id="soups"><img src="http://www.fusushi.co.il/warehouse/dynamic/50867.jpg"
+                            alt=""></div>
                     <p>Soups</p>
                 </div>
                 <div class="menu__cell">
-                    <div class="picwrap" id="salads"><img src="http://www.fusushi.co.il/warehouse/dynamic/50866.jpg" alt=""></div>
+                    <div class="picwrap" id="salads"><img src="http://www.fusushi.co.il/warehouse/dynamic/50866.jpg"
+                            alt=""></div>
                     <p>Salads</p>
                 </div>
                 <div class="menu__cell">
-                    <div class="picwrap" id="buns"><img src="http://www.fusushi.co.il/warehouse/dynamic/91136.jpg" alt=""></div>
+                    <div class="picwrap" id="buns"><img src="http://www.fusushi.co.il/warehouse/dynamic/91136.jpg"
+                            alt=""></div>
                     <p>Buns</p>
                 </div>
                 <div class="menu__cell">
-                    <div class="picwrap" id="robta-yaki"> <img src="http://www.fusushi.co.il/warehouse/dynamic/92764.jpg" alt=""></div>
+                    <div class="picwrap" id="robta-yaki"> <img
+                            src="http://www.fusushi.co.il/warehouse/dynamic/92764.jpg" alt=""></div>
                     <p>Robta Yaki</p>
                 </div>
                 <div class="menu__cell">
-                    <div class="picwrap" id="gyoza"><img src="http://www.fusushi.co.il/warehouse/dynamic/91137.jpg" alt=""></div>
+                    <div class="picwrap" id="gyoza"><img src="http://www.fusushi.co.il/warehouse/dynamic/91137.jpg"
+                            alt=""></div>
                     <p>Gyoza</p>
                 </div>
                 <div class="menu__cell">
-                    <div class="picwrap" id="gonkan"> <img src="http://www.fusushi.co.il/warehouse/dynamic/91138.jpg" alt=""></div>
+                    <div class="picwrap" id="gonkan"> <img src="http://www.fusushi.co.il/warehouse/dynamic/91138.jpg"
+                            alt=""></div>
                     <p>Gonkan maki</p>
                 </div>
                 <div class="menu__cell">
-                    <div class="picwrap" id="inside-out"><img src="http://www.fusushi.co.il/warehouse/dynamic/51711.jpg" alt=""></div>
+                    <div class="picwrap" id="inside-out"><img src="http://www.fusushi.co.il/warehouse/dynamic/51711.jpg"
+                            alt=""></div>
                     <p>Inside Out</p>
                 </div>
                 <div class="menu__cell">
-                    <div class="picwrap" id="specials"><img src="http://www.fusushi.co.il/warehouse/dynamic/51710.jpg" alt=""></div>
+                    <div class="picwrap" id="specials"><img src="http://www.fusushi.co.il/warehouse/dynamic/51710.jpg"
+                            alt=""></div>
                     <p>Specials</p>
                 </div>
                 <div class="menu__cell">
-                    <div class="picwrap" id="kids"><img src="http://www.fusushi.co.il/warehouse/dynamic/74627.jpg" alt=""></div>
+                    <div class="picwrap" id="kids"><img src="http://www.fusushi.co.il/warehouse/dynamic/74627.jpg"
+                            alt=""></div>
                     <p>Kids Dishes</p>
                 </div>
                 <div class="menu__cell">
-                    <div class="picwrap" id="main"> <img src="http://www.fusushi.co.il/warehouse/dynamic/92765.jpg" alt=""></div>
+                    <div class="picwrap" id="main"> <img src="http://www.fusushi.co.il/warehouse/dynamic/92765.jpg"
+                            alt=""></div>
                     <p>Main Dishes</p>
                 </div>
                 <div class="menu__cell">
-                    <div class="picwrap" id="wok"><img src="http://www.fusushi.co.il/warehouse/dynamic/50868.jpg" alt=""></div>
+                    <div class="picwrap" id="wok"><img src="http://www.fusushi.co.il/warehouse/dynamic/50868.jpg"
+                            alt=""></div>
                     <p>Wok</p>
                 </div>
                 <div class="menu__cell">
-                    <div class="picwrap" id="cocktails"><img src="http://www.fusushi.co.il/warehouse/dynamic/91376.jpg" alt=""></div>
+                    <div class="picwrap" id="cocktails"><img src="http://www.fusushi.co.il/warehouse/dynamic/91376.jpg"
+                            alt=""></div>
                     <p>Cocktails</p>
                 </div>
                 <div class="menu__cell">
-                    <div class="picwrap" id="combinations"><img src="http://www.fusushi.co.il/warehouse/dynamic/50881.jpg" alt=""></div>
+                    <div class="picwrap" id="combinations"><img
+                            src="http://www.fusushi.co.il/warehouse/dynamic/50881.jpg" alt=""></div>
                     <p>Combinations</p>
                 </div>
                 <div class="menu__cell">
-                    <div class="picwrap" id="sashimi"> <img src="http://www.fusushi.co.il/warehouse/dynamic/50879.jpg" alt=""></div>
+                    <div class="picwrap" id="sashimi"> <img src="http://www.fusushi.co.il/warehouse/dynamic/50879.jpg"
+                            alt=""></div>
                     <p>Sashimi</p>
                 </div>
                 <div class="menu__cell">
-                    <div class="picwrap" id="nigiri"> <img src="http://www.fusushi.co.il/warehouse/dynamic/50877.jpg" alt=""></div>
+                    <div class="picwrap" id="nigiri"> <img src="http://www.fusushi.co.il/warehouse/dynamic/50877.jpg"
+                            alt=""></div>
                     <p>Nigiri</p>
                 </div>
                 <div class="menu__cell">
-                    <div class="picwrap" id="sandwich-sushi"> <img src="http://www.fusushi.co.il/warehouse/dynamic/50875.jpg" alt=""></div>
+                    <div class="picwrap" id="sandwich-sushi"> <img
+                            src="http://www.fusushi.co.il/warehouse/dynamic/50875.jpg" alt=""></div>
                     <p>Sandwich Sushi</p>
                 </div>
                 <div class="menu__cell">
-                    <div class="picwrap" id="maki-sushi"> <img src="http://www.fusushi.co.il/warehouse/dynamic/50871.jpg" alt=""></div>
+                    <div class="picwrap" id="maki-sushi"> <img
+                            src="http://www.fusushi.co.il/warehouse/dynamic/50871.jpg" alt=""></div>
                     <p>Maki Sushi</p>
                 </div>
 
@@ -230,4 +272,3 @@
 </body>
 
 </html>
-

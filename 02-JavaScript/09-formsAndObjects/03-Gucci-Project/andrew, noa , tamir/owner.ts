@@ -1,14 +1,14 @@
 console.log('owner')
 
-interface aviator {
-    items: Array<newItem>
+interface Aviator {
+    items: Array<NewItem>
     addItem(newItem)
     deleteItem(id)
     updateItem(item)
     renderStock(items)
     storeData()
 }
-interface newItem {
+interface NewItem {
     name: string
     price: number
     img: string
@@ -28,25 +28,37 @@ const uid = function () {
     return Date.now().toString(36) + Math.random().toString(36).substr(2);
 };
 
-let stock: aviator = {
+let stock: Aviator = {
     items: [],
     addItem(newItem) {
-        newItem.id = uid();
-        this.items.push(newItem)
-        console.log(this.items)
-        this.renderStock(this.items)
-        this.storeData();
-    },
+        try {
+            newItem.id = uid();
+            this.items.push(newItem);
+            console.log(this.items);
+            this.renderStock(this.items);
+            this.storeData();
 
+            if (!uid)  throw new Error("no id");
+        }
+        catch (error) {
+            console.error(error);
+        }
+    },
     storeData() {
-        localStorage.setItem('storeData', JSON.stringify(this.items))
+        localStorage.setItem('storeData', JSON.stringify(this.items));
     },
-
     deleteItem(id) {
-        this.items = this.items.filter((item) => item.id !== id);
-        this.storeData();
-    },
+        try {
+            if (!id) throw new Error("no id")
 
+            this.items = this.items.filter((item) => item.id !== id);
+            this.storeData();
+        }
+         catch (error) {
+            console.error(error)
+        }
+
+    },
     updateItem(updatedItem) {
         //find index
         const index = this.items.findIndex((item) => item.id === updatedItem.id);
@@ -56,7 +68,6 @@ let stock: aviator = {
         }
         this.storeData();
     },
-
     renderStock(items) {
         let HTML = '';
         items.forEach(item => {
@@ -74,9 +85,9 @@ let stock: aviator = {
             <p> bracelet: ${item.bracelet}</p>
             <button onclick="handleDelete('${item.id}')">Delete</button>
             <button onclick="handleEdit('${item.id}')">Edit</button>
-           </div> `
+           </div> `;
         });
-        const rootHTML = document.getElementById('root')
+        const rootHTML = document.getElementById('root');
         rootHTML.innerHTML = HTML;
     }
 }
@@ -84,13 +95,12 @@ let stock: aviator = {
 function handleSubmit(ev) {
     ev.preventDefault();
     const newItem = { name: "", price: 0, img: "", group: "", Collection: "", function: "", movement: "", case: "", diameter: "", dial: "", bracelet: "", id: 0 };
-    const keys=Object.keys(newItem)
-    for(let i=0; i<keys.length;i++){
-        newItem[keys[i]]= ev.target.elements[i].value;
+    const keys = Object.keys(newItem)
+    for (let i = 0; i < keys.length; i++) {
+        newItem[keys[i]] = ev.target.elements[i].value;
     }
-  
-  
-  
+
+    stock.addItem(newItem);
     // for (let field of ev.target) {
     //     let name = field.name;
     //     switch (name) {
@@ -130,8 +140,6 @@ function handleSubmit(ev) {
     //     }
 
     // }
-    stock.addItem(newItem);
-
 }
 
 function handleDelete(id) {
@@ -144,9 +152,9 @@ function handleEdit(id) {
     form.classList.add('visableForm')
     let EditedItem: any = stock.items.filter((item) => item.id === id)[0];
     console.log(EditedItem);
-  
-    const keys= Object.keys(EditedItem)
-    for (let i = 0; i <keys.length; i++) {
+
+    const keys = Object.keys(EditedItem)
+    for (let i = 0; i < keys.length; i++) {
         form[i].value = EditedItem[keys[i]]
 
     }

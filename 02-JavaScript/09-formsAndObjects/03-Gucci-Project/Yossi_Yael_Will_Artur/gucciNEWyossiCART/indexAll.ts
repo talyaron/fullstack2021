@@ -143,9 +143,15 @@ const gucci: gucci = {
         console.log(list);
         
         list.forEach(item => {
-            htmlCart += `<div class='rootItemsStoreCart'>
+            htmlCart += `<div class='rootItemsStoreCart1' >
             <div class="title">${item.title}</div>
-            </div>`
+            </div>
+            <div class="imgPic">
+            <div class="main__item pic${item.select} ";
+            "></div>
+          </div>
+          <span class="price">&#36;${item.price}</span>
+          `
         });
         rootItemsStoreCart.innerHTML = htmlCart
     },

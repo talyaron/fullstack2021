@@ -129,6 +129,10 @@ body {
 .nav-bar__item {
   margin-inline: 15px;
 }
+.nav-bar__item:hover {
+  cursor: pointer;
+  color: var(--main-color-purple1);
+}
 
 .scene {
   position: absolute;
@@ -264,8 +268,13 @@ body {
   width: 250px;
   border-radius: 20px;
   border: 3px solid #161811;
+  box-shadow: 5px 5px 10px black;
   margin: 20px;
   padding-block: 10px;
+  transition: ease 300ms;
+}
+.category-wrapper__card:hover {
+  transform: scale(1.1);
 }
 .category-wrapper__card img {
   width: 200px;
@@ -397,7 +406,7 @@ body {
   z-index: 1;
   background-color: var(--main-color-purple1);
   transition: ease 0.5s;
-  transform: translateY(60px);
+  transform: translateY(100px);
 }
 
 .visableForm {

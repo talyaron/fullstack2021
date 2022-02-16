@@ -40,9 +40,10 @@ interface cloths {
     addToCart(id, catagory)
     renderShoppingCart(display, catagory)
     deleteItemFromCard(id)
-    changeItemTshirt(id, Card)
-    changeItempants(id, Card)
-    changeItemshoes(id, Card)
+    update(brand, size, Price)
+    updateItemTshirt(id)
+    updateItempants(id)
+    updateItemshoes(id)
 }
 interface item {
     id?: any;
@@ -163,13 +164,13 @@ let clothsList: cloths = {
     deleteItemPants(id) {
         this.pants = this.pants.filter((item) => item.id !== id)
     },
-    changeItemTshirt(id) {
+    updateItemTshirt(id) {
         this.Tshirts = this.Tshirts.update((item) => item.id !== id);
     },
-    changeItempants(id) {
+    updateItempants(id) {
         this.Tshirts = this.pants.update((item) => item.id !== id);
     },
-    changeItemshoes(id) {
+    updateItemshoes(id) {
         this.Tshirts = this.shoes.update((item) => item.id !== id);
     },
 
@@ -195,6 +196,30 @@ let clothsList: cloths = {
         const filteredByPrice = this.filterByPrice(list, filterPriceFromInput, filterPriceUpToInput);
         console.log(filteredByPrice);
         this.render(filteredByPrice, display, catagory);
+    },
+    
+    updateBrand(list, updateBrandInput){
+        return list.update((item) => item.size === updateBrandInput);
+    },
+    renderBrand(list, updateBrandInput, display, catagory) {
+        const updateByBrand = this.updateBrand(list, updateBrandInput);
+        this.render(updateByBrand, display, catagory);
+    },
+    updateSize(list, updateSizeInput) {
+        return list.update((item) => item.size === updateSizeInput);
+    },
+    renderSize(list, updateSizeInput, display, catagory) {
+        const updateSize = this.updateSize(list, updateSizeInput);
+        console.log(updateSize);
+        this.render(updateSize, display, catagory);
+    },
+    updatePrice(list, updatePriceFromInput, updatePriceUpToInput) {
+        return list.filter((item) => updatePriceFromInput < item.price && item.price < updatePriceUpToInput);
+    },
+    renderPrice(list, updatePriceFromInput, updatePriceUpToInput, display, catagory) {
+        const updatedByPrice = this.updateByPrice(list, updatePriceFromInput, updatePriceUpToInput);
+        console.log(updatedByPrice);
+        this.render(updatedByPrice, display, catagory);
     },
     storeDataTshirts() {
         localStorage.setItem("TshirtsData", JSON.stringify(this.Tshirts));
@@ -571,7 +596,7 @@ function showOptions(box: any, boxId: string) {
     let id = box.target.id;
     if (id == "Tshirts") {
         // console.log(cardImg);
-        sortANDfilterBtnsPants.innerHTML = ``;
+        sortANDfilterBtnsPants.innerHTML = ``;90
         sortANDfilterBtnsShoes.innerHTML = ``;
         clothsList.getDataTshirts();
         sortANDfilterBtnsTshirts.innerHTML = html;

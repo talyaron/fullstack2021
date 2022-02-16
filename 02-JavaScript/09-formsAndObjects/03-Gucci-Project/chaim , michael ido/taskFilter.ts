@@ -40,7 +40,7 @@ interface cloths {
     addToCart(id, catagory)
     renderShoppingCart(list, display, catagory)
     deleteItemFromShoppingCart(id)
-    TotalCartPrice(list, display)
+    TotalCartPrice( display)
     renderCartDropDown(display)
 }
 interface item {
@@ -268,7 +268,7 @@ let clothsList: cloths = {
         list.forEach((item) => {
             html += ` 
             <div class="container-shoppingCart_display-item">
-                <h1 class="container-shoppingCart_display-item-header">${item.brand} ${catagory}</h1>
+                <h1 class="container-shoppingCart_display-item-header">${item.brand} ${item.name}</h1>
                 <p class="container-shoppingCart_display-item-size">size: ${item.size}</p>
                 <p class="container-shoppingCart_display-item-price">price: ${item.price}</p>
                 <button class="container-shoppingCart_display-item-deleteBtn" name="${catagory}" id="${item.id}" type="button" onclick="deleteItemFromCart(event)">remove</button>
@@ -277,9 +277,9 @@ let clothsList: cloths = {
         display.innerHTML = html
     }, deleteItemFromShoppingCart(id) {
         this.shoppingCart = this.shoppingCart.filter((item) => item.id !== id)
-    }, TotalCartPrice(list, display) {
+    }, TotalCartPrice(display) {
         let sum = 0;
-        list.forEach((item) => {
+        this.shoppingCart.forEach((item) => {
             sum += item.price;
         })
         display.textContent = `Total : ${sum}`;
@@ -291,7 +291,7 @@ let clothsList: cloths = {
                 <h1 class="container_header-dropDown-box-item-header">${item.brand} ${item.name}</h1>
                 <p class="container_header-dropDown-box-item-size">size: ${item.size}</p>
                 <p class="container_header-dropDown-box-item-price">price: ${item.price}</p>
-                <button class="container_header-dropDown-box-item-deleteBtn" name="${item.name}" id="${item.id}" type="button" onclick="deleteItemFromCart(event)">remove</button>
+                <button class="container_header-dropDown-box-item-deleteBtn" lang="dropDown" name="${item.name}" id="${item.id}" type="button" onclick="deleteItemFromCart(event)">remove</button>
                 </div>`
         }
         )
@@ -710,16 +710,14 @@ function addToCart(ev, id) {
     const displayTotal = document.querySelector('.totalCart')
     const display = document.querySelector('.container-shoppingCart_display')
     let catagory = ev.target.name
-
+    
+    
     clothsList.addToCart(id, catagory)
-
     clothsList.renderShoppingCart(clothsList.shoppingCart, display, catagory)
-    clothsList.TotalCartPrice(clothsList.shoppingCart, displayTotal)
+    clothsList.TotalCartPrice( displayTotal)
 }
 
 function showDropDown(ev) {
-
-
     const dropDownDisplay = document.querySelector('.container_header-dropDown')
     const id = ev.target.id;
 
@@ -753,22 +751,47 @@ function deleteItemFromCart(ev) {
     const displayShoppingCart = document.querySelector('.container-shoppingCart_display') as HTMLDivElement
     const dropDownCart = document.querySelector('.shoppingCart')
     const displayTotal = document.querySelector('.totalCart')
-
     const catagory = ev.target.name
     const id = ev.target.id
-    console.log(id);
-    console.log(catagory);
+    const lang = ev.target.lang
 
     clothsList.deleteItemFromShoppingCart(id)
     displayShoppingCart.innerHTML = '';
     console.log(clothsList.shoppingCart)
     clothsList.renderShoppingCart(clothsList.shoppingCart, displayShoppingCart, catagory)
-    clothsList.renderCartDropDown(dropDownCart)
-    clothsList.TotalCartPrice(clothsList.shoppingCart, displayTotal)
+    if(lang == "dropDown"){
+        clothsList.renderCartDropDown(dropDownCart)
+    }
+    clothsList.TotalCartPrice(displayTotal)
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     dropDownDisplay.innerHTML = html;
 }
 =======
 >>>>>>> 15c2850735dd6669670116489b6279590acc1d87
+=======
+function creatDataList() {
+
+    const dataList = document.querySelector('.container_header-search-dataList')
+    dataList.innerHTML = ``
+
+    
+}
+
+// const display = document.querySelector(".container_catagories-display");
+
+// try{
+//     if(typeof inputSearch !== 'string') throw new Error('no found')
+    
+
+//     switch(inputSearch){
+//     case "Tshirts":
+//         clothsList.renderCustomerPage(clothsList.Tshirts, display, "Tshirts", imgCard)
+//     }
+// }
+// } catch (error) {
+    
+// }
+>>>>>>> f93371b2ccd0b58cbaf400e095b00c916370e898
