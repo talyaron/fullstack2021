@@ -1,6 +1,12 @@
 var itemId = function () {
     return Date.now().toString(36) + Math.random().toString(36).substr(2);
 };
+var searchList;
+(function (searchList) {
+    searchList["Tshirts"] = "Tshirts";
+    searchList["shoes"] = "Shoes";
+    searchList["pants"] = "Pants";
+})(searchList || (searchList = {}));
 var clothsList = {
     Tshirts: [
         { id: "lala", brand: "allstains", size: "medium", price: 450 },
@@ -590,7 +596,7 @@ function addToCart(ev, id) {
 function showDropDown(ev) {
     var dropDownDisplay = document.querySelector('.container_header-dropDown');
     var id = ev.target.id;
-    var html;
+    var html = '';
     var htmlCart;
     if (id == "notificationsBtn") {
         html = "<div id=\"notifications\" class=\"container_header-dropDown-box notifications\" \">\n        <p style=\"font-size: 12px; font-weight:1000;height:200%;\">No new notifications</p>\n     </div> ";
@@ -602,11 +608,13 @@ function showDropDown(ev) {
         html = "<div id=\"yourOrders\" class=\"container_header-dropDown-box yourOrders\">\n        <p style=\"font-size: 12px;font-weight:bold\">No Orders yet...</p>\n       </div>";
     }
     else if (id == "shoppingCartBtn") {
-        html = '<div id="shoppingCart" class="container_header-dropDown-box shoppingCart"></div>';
+        html = '<div id="shoppingCart" class="container_header-dropDown-box shoppingCart">Your cart is empty..</div>';
     }
     dropDownDisplay.innerHTML = html;
-    var dropDownCart = document.querySelector('.shoppingCart');
-    clothsList.renderCartDropDown(dropDownCart);
+    if (id == "shoppingCartBtn") {
+        var dropDownCart = document.querySelector('.shoppingCart');
+        clothsList.renderCartDropDown(dropDownCart);
+    }
 }
 function deleteItemFromCart(ev) {
     var displayShoppingCart = document.querySelector('.container-shoppingCart_display');
@@ -615,6 +623,7 @@ function deleteItemFromCart(ev) {
     var catagory = ev.target.name;
     var id = ev.target.id;
     var lang = ev.target.lang;
+    console.log(lang);
     clothsList.deleteItemFromShoppingCart(id);
     displayShoppingCart.innerHTML = '';
     console.log(clothsList.shoppingCart);
@@ -626,15 +635,25 @@ function deleteItemFromCart(ev) {
 }
 function creatDataList() {
     var dataList = document.querySelector('.container_header-search-dataList');
-    dataList.innerHTML = "";
+    dataList.innerHTML = "\n    <option class=\"container_header-search-dataList-options\" value=\"" + searchList.Tshirts + "\"></option>\n    <option class=\"container_header-search-dataList-options\" value=\"" + searchList.shoes + "\"></option>\n    <option class=\"container_header-search-dataList-options\" value=\"" + searchList.pants + "\"></option>";
 }
-// const display = document.querySelector(".container_catagories-display");
-// try{
-//     if(typeof inputSearch !== 'string') throw new Error('no found')
-//     switch(inputSearch){
-//     case "Tshirts":
-//         clothsList.renderCustomerPage(clothsList.Tshirts, display, "Tshirts", imgCard)
-//     }
-// }
-// } catch (error) {
-// }
+creatDataList();
+document.querySelector('.container_header-search-input').addEventListener('change', scrollPage);
+function scrollPage(ev) {
+    ev.preventDefault();
+    var itemMenu = document.querySelector('.container_catagories-display');
+    console.log(itemMenu);
+    var value = ev.target.value;
+    console.log(value);
+    switch (value) {
+        case 'Tshirts':
+            itemMenu.scrollTop = 50;
+            break;
+        case 'Shoes':
+            itemMenu.scrollTop = 50;
+            break;
+        case 'Pants':
+            itemMenu.scrollTop = 50;
+            break;
+    }
+}

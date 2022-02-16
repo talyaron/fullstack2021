@@ -226,13 +226,11 @@
             height: 15vh;
             grid-row: 1/4;
             grid-column: 3/9;
-            justify-content: center;
             margin-top: 1vh;
 
-            & input {
-                width: 100%;
-                height: 50%;
-                align-self: center;
+            &-input {
+                width: 90%;
+                height: 40%;
                 background-color: blanchedalmond;
                 border-radius: 10px;
             }
@@ -312,6 +310,7 @@
                         background-color: antiquewhite;
                     }
                 }
+
                 &-signInInput {
                     box-shadow: rgba(112, 134, 233, 0.35) 0px 30px 60px -12px inset, rgba(59, 101, 163, 0.5) 0px 18px 36px -30px inset;
                     border-radius: 5px;
@@ -396,7 +395,7 @@
             background-size: contain;
             background-repeat: no-repeat;
 
-           
+
             &-form {
                 border: 3px solid red;
 
@@ -583,6 +582,7 @@
                 }
             }
         }
+
         &-orderAndTotal {
             // border: 3px solid black;
             grid-row: 8/9;
