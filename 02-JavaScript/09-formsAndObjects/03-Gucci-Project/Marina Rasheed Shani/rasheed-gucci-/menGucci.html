@@ -21,7 +21,11 @@
 </head>
 
 <body onload="handleRenderByGender('men')">
-
+    
+    <div class="cart" id="cart" onclick="handleShowCart()">
+        <ion-icon name="bag-handle-outline"></ion-icon>
+        <div class="showCart" id="cartRoot">hello</div>
+    </div>
 
 
 
@@ -237,15 +241,17 @@
                 <h3><span> MEN </span> | Ready-to-wear for Men</h3>
             </div>
 
-            <div class="category__buttons--searchItem">
-                <input class="inputSearch" type="search"  placeholder="search for item" onkeyup="handleSearch(event)" data-gender="men">
-
-            </div>
-
 
             <div class="catergory__buttons--lowerThanPrice">
                 <label>Show price lower than</label>
-                <input class="inputLowerThan" type='number' onkeyup="handleFilterByPrice(event)" placeholder="number" data-gender="men">
+                <input class="inputLowerThan" type='number' onkeyup="handleFilterByPrice(event)" placeholder="price..." data-gender="men">
+            </div>
+
+            <div class="catergory__buttons--searchItem">
+                <label>Search for item</label>
+                <input class="inputSearch" type="search"  onkeyup="handleSearch(event)" placeholder="search..." 
+                data-gender="men">
+
             </div>
 
 
