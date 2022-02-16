@@ -114,7 +114,13 @@
 
             <div class="nav-item-right">Category <i class="fas fa-chevron-down" style="color: #b4b4b4;"></i></div>
             <div class="nav-item-right">Line <i class="fas fa-chevron-down" style="color: #b4b4b4;"></i></div>
+            
             <div class="sortPopUp">
+
+                <!-- input user search -->
+                <input type="search" id="search" placeholder="enter item to search" onkeyup="handleSearch(event)">
+                <div id="root"></div>
+                <!-- input user search -->
                 <div class="popup" onclick="myFunction()">Sort By <i class="fas fa-chevron-down"
                         style="color: #b4b4b4;"></i>
                     <span class="popuptext" id="myPopup">
