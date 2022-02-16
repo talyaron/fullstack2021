@@ -21,12 +21,13 @@
 </head>
 
 <body onload="handleRenderByGender('women')">
-   
-    <div class="cart" id="cart" onclick="handleShowCart()"><ion-icon name="bag-handle-outline" ></ion-icon>
-        <div class="showCart" id="cartRoot" >hello</div>
+
+    <div class="cart" id="cart" onclick="handleShowCart()">
+        <ion-icon name="bag-handle-outline"></ion-icon>
+        <div class="showCart" id="cartRoot">hello</div>
     </div>
-    
-    
+
+
 
     <div class="container">
 
@@ -243,17 +244,20 @@
                 <h3><span> WOMEN </span> | Ready-to-wear for Women</h3>
             </div>
 
-            <div class="category__buttons--searchItem">
-                <input class="inputSearch" type="search"  placeholder="search for item" onkeyup="handleSearch(event)" data-gender="women">
-
-            </div>
-
 
             <div class="catergory__buttons--lowerThanPrice">
                 <label>Show price lower than</label>
-                <input class="inputLowerThan" type='number' onkeyup="handleFilterByPrice(event)" placeholder="number"
+                <input class="inputLowerThan" type='number' onkeyup="handleFilterByPrice(event)" placeholder="price..."
                     data-gender="women">
             </div>
+            
+            <div class="catergory__buttons--searchItem">
+                <label>Search for item</label>
+                <input class="inputSearch" type="search"  onkeyup="handleSearch(event)" placeholder="search..." 
+                data-gender="women">
+
+            </div>
+
 
 
             <select class="catergory__buttons--selector" onchange='handleSelect(event)' data-gender="women">
@@ -343,13 +347,13 @@
 
 
         </div>
-        <p class="gucciRights" >© 2016 - 2020 Guccio
+        <p class="gucciRights">© 2016 - 2020 Guccio
             Gucci S.p.A. - All rights reserved. SIAE LICENCE # 2294/I/1936 and 5647/I/1936</p>
 
-     
+
 
     </div>
-   
+
 
     <script src="dist/index.js"></script>
 

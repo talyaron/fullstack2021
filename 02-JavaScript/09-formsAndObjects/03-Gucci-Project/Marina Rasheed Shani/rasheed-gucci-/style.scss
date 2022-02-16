@@ -369,9 +369,10 @@ $background-color:#ffffff;
     font-weight: 800;
     font-size: 11px;
     color: rgba(0, 0, 0, 0.384);
-    width: 60vw;
+    width: 40vw;
     padding-top: 2em;
     text-align: left;
+    justify-content: flex-start;
 
 
 
@@ -381,14 +382,13 @@ $background-color:#ffffff;
       color: rgb(0, 0, 0);
     }
   }
-
-
+  
 
 
   &--selector {
     background-color: $background-color;
     cursor: pointer;
-    width: 15px;
+    width: 100px;
     border: none;
     font-size: 12px;
     letter-spacing: 1px;
@@ -433,11 +433,13 @@ $background-color:#ffffff;
   &--lowerThanPrice {
 
     color: black;
-    margin-left: 0;
+    // margin-left: 1px;
+    padding-right: 20px;
     padding-top: 2em;
     text-align: center;
     letter-spacing: 1px;
     font-size: 12px;
+    
 
 
 
@@ -451,6 +453,34 @@ $background-color:#ffffff;
 
     }
   }
+  
+  &--searchItem{
+    color: black;
+    padding-right: 20px;
+    padding-top: 2em;
+    text-align: center;
+    letter-spacing: 1px;
+    font-size: 12px;
+    
+
+    .inputSearch{
+      cursor: pointer;
+      margin-top: 0.5em;
+      background-color: $background-color;
+      border: 1px solid rgb(196, 195, 195);
+
+    
+      
+    
+      
+    }
+  }
+  
+
+  
+
+
+
 
 }
 
@@ -458,8 +488,8 @@ $background-color:#ffffff;
   background-color: white;
   height: 80em;
   text-align: center;
-  display: flex;
-  flex-wrap: wrap;
+  //display: flex;
+ // flex-wrap: wrap;
 
 
 
@@ -658,6 +688,15 @@ $background-color:#ffffff;
         font-size: 10px;
 
         .inputLowerThan {
+
+          width: 100px;
+
+        }
+      }
+      &--searchItem {
+        font-size: 10px;
+
+        .inputSearch {
 
           width: 100px;
 
