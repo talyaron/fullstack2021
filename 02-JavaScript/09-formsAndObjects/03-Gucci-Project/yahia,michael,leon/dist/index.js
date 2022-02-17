@@ -82,7 +82,7 @@ function handleSubmit(event) {
     nikeItems.additems(name, price);
     var ownerRoot = document.getElementById("ownerRoot");
     nikeItems.renderAllData(ownerRoot);
-    event.target.reset(); // poner el tu pajina
+    event.target.reset();
 }
 function handleAsce() {
     nikeItems.sortAsc();
