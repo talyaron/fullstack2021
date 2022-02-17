@@ -3,6 +3,12 @@ body {
   display: flex;
   flex-direction: column;
   margin: 0;
+  @import url('https://fonts.googleapis.com/css2?family=Convergence&family=Dosis:wght@200;400&family=Inter&family=Italianno&family=Shippori+Antique+B1&display=swap');
+  font-family: 'Convergence', sans-serif;
+  font-family: 'Dosis', sans-serif;
+  font-family: 'Inter', sans-serif;
+  font-family: 'Italianno', cursive;
+  font-family: 'Shippori Antique B1', sans-serif;
 }
 
 .header {
@@ -11,7 +17,7 @@ body {
   flex-direction: column;
 
   align-items: center;
-  height: 26vh;
+  height: 179px;
 
   &__sort {
     margin-bottom: 70px;
@@ -76,10 +82,88 @@ body {
 
       i {
         transition: ease 1s;
+        width: 50px;
 
         &:hover {
           text-shadow: 0 0 15px rgb(119, 11, 11);
         }
+
+
+        a {
+          // position: relative;
+          top: 100px;
+
+          margin-left: -30px;
+          width: 60px;
+          font-size: 12px;
+          padding: 20px;
+          border-radius: 10px;
+
+          text-decoration: none;
+          // font-weight: bold;
+          color: black;
+        }
+
+
+
+        #popup {
+          position: relative;
+
+          width: 200px;
+          right: 220px;
+          background-color: #EFF1F3;
+          color: black;
+          top: 20px;
+          right: 200px;
+          opacity: 0;
+          padding: 20px;
+          border-style: solid;
+          border-radius: 15px;
+          transition: all 1s;
+          -webkit-transition: all 1s;
+          height: fit-content;
+          display: flex;
+          flex-direction: column;
+          z-index: 1;
+
+          .cards__item {
+            width: 80px;
+            height: 90px;
+            font-size: 10px;
+
+            .picture {
+              width: 80px;
+              height: 80px;
+
+            }
+
+            .description,
+            .color {
+              display: none;
+            }
+          }
+        }
+
+        #popup:target {
+          opacity: 1;
+
+        }
+
+
+        #close {
+          position: absolute;
+          left: 93%;
+          top: 12px;
+          font-size: 10px;
+          z-index: 1;
+          padding: 0;
+        }
+
+        #close:hover {
+
+          color: #b11919;
+        }
+
       }
 
     }
@@ -93,6 +177,17 @@ body {
       transition: border ease 1s;
       // border: solid thin #e9ecef;
       background-color: #e9ecef;
+      position: relative;
+      bottom: 0px;
+
+      @media only screen and (max-width: 150ch) {
+
+        left: 91px;
+        position: relative;
+        bottom: 98px;
+      }
+
+
 
       &:hover {
         border: solid black 1px;
@@ -300,17 +395,25 @@ body {
 
     }
 
-    .fa-heart {
+    i:nth-child(1) {
+      --fa-animation-duration: 0.5s;
+      right: 35px;
+    }
+
+    i {
       position: absolute;
       right: 0;
       top: 0;
       z-index: 8;
       margin: 10px;
 
+
+
       &:active {
-        background-color: red;
+        color: red;
       }
     }
+
 
 
     .picture {

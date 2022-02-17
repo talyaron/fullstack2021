@@ -10,10 +10,13 @@
     <link rel="icon" href=images/adidasLogo.png type="image/x-icon">
 
     <link rel="stylesheet" href="dist/style.css" />
-    <script src="https://kit.fontawesome.com/01fab75280.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/3afc4faf2f.js" crossorigin="anonymous"></script>
+
+    <!-- <script src="https://kit.fontawesome.com/01fab75280.js" crossorigin="anonymous"></script> -->
 </head>
 
 <body onload="handleGetData('customer')">
+    <div id="rootWish" style="position: absolute; left: 350px;"></div>
 
     <div class="header">
         <div class="usp__bar">
@@ -36,10 +39,10 @@
                 <a class="nav__item" href="">KIDS</a>
             </div>
             <div class="header__inner--searchBar">
-                <input type="text" placeholder="Search.." name="search"onkeyup="handleSearchProduct(event)" />
+                <input type="text" placeholder="Search.." name="search" onkeyup="handleSearchProduct(event)" />
                 <i class="fa fa-search"></i>
             </div>
-            <div id="rootSearch">
+            <div id="rootSearch" style="color: gold; position: relative;">
 
             </div>
             <div class="header__inner__side--menu">
@@ -50,7 +53,20 @@
                     <i class="far fa-heart"></i>
                 </div>
                 <div class="cart__item">
-                    <i onclick="handleCart(event)" class="fas fa-shopping-bag"></i>
+                    <i onclick="handleCart(event)" class="fas fa-shopping-bag">
+                        <a href="#popup"></a>
+
+                        <div id="popup" style="text-align:center;">
+                            <a id="close" href="#">X</a>
+
+
+                            <div id="rootCart">
+                            </div>
+
+
+
+                        </div>
+                    </i>
 
                 </div>
             </div>
@@ -119,27 +135,27 @@
                 </option>
             </select>
 
-      
 
-    
-    
-            <select onchange="handleShoeSize(event)" >
+
+
+
+            <select onchange="handleShoeSize(event)">
                 <option value="" disabled selected>shoe size</option>
                 <option value="thirty">35</option>
                 <option value="forty">40</option>
                 <option value="fortyFour">44</option>
-        
+
             </select>
 
             <select onchange="handleGender(event)">
                 <option value="" disabled selected>gender</option>
 
                 <option value="gender">
-                    <option value="women">women </option>
-                    <option value="men">men </option>
-                    <option value="unisex">unisex </option>
-                    <option value="all">all</option>
-                </select>
+                <option value="women">women </option>
+                <option value="men">men </option>
+                <option value="unisex">unisex </option>
+                <option value="all">all</option>
+            </select>
 
             <select onchange="handleColor(event)">
                 <option value="" disabled selected>color</option>
@@ -150,7 +166,7 @@
                 <option value="orange">orange</option>
                 <option value="white">white </option>
                 <option value="multi">multi</option>
-                    
+
             </select>
 
             <select onchange="handleType(event)">
@@ -165,7 +181,7 @@
             <select onchange="handleSort(event)">
                 <option value="" disabled selected>sort</option>
 
-                <option value="startPosition" > </option>
+                <option value="startPosition"> </option>
                 <option value="letterAsc"> </option>
                 <option value="letterDsc"> </option>
                 <option value="priceAsc">high to low </option>
@@ -174,11 +190,11 @@
 
         </div>
         <!-- <div id="rootCards" > -->
-            <div id="rootCustomer"class="cards">
+        <div id="rootCustomer" class="cards">
 
-            </div>
+        </div>
 
-            <!-- <div class="cards__item">
+        <!-- <div class="cards__item">
 
                 <div class="picture">
                  
@@ -803,7 +819,7 @@
 
 
         <div id="wishListRoot">
-    
+
         </div>
         <script src="dist/index.js"> </script>
 

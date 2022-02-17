@@ -19,8 +19,6 @@ interface Store {
   ): any;
   cartItems: Array<Item>;
   removeItems(itemName: string): any;
-  addToCart?(newItem:any,name:string,imgTop:string,price:number): any;
-  renderAddToCart?(domElement: any): any;
   updateItems(itemName: string, newPrice: number): any;
   filterByItemNameAndGender(gender: string, itemName: string): any;
   filterMaxPriceAndGender(gender: string, price: number);
@@ -46,12 +44,12 @@ interface Item {
   imgTop: any;
   imgBottom: any;
   gender:
-    | "men"
-    | "women"
-    | "children"
-    | "menWatches"
-    | "womenJewlery"
-    | "womenBags";
+  | "men"
+  | "women"
+  | "children"
+  | "menWatches"
+  | "womenJewlery"
+  | "womenBags";
   type: string;
   id?: any;
 }
@@ -67,6 +65,8 @@ const gucci: Store = {
         "https://media.gucci.com/style/White_South_0_40_632x790/1608574504/644564_XKBNZ_6176_002_100_0000_Light.jpg",
       gender: "women",
       type: "dresses",
+      id:0
+      
     },
     {
       name: "Pleated dress ",
@@ -77,6 +77,7 @@ const gucci: Store = {
         "https://media.gucci.com/style/White_South_0_160_540x540/1634249778/669260_ZAH0J_9782_002_100_0000_Light.jpg",
       gender: "women",
       type: "dresses",
+      id:1
     },
     {
       name: "Silk mohair sweater  ",
@@ -87,6 +88,7 @@ const gucci: Store = {
         "https://media.gucci.com/style/White_South_0_160_540x540/1640195129/670625_XKB1V_1043_002_100_0000_Light.jpg",
       gender: "women",
       type: "sweaters",
+      id:2
     },
     {
       name: "Leather ankle boot with belt",
@@ -97,6 +99,7 @@ const gucci: Store = {
         "https://media.gucci.com/style/White_South_0_160_540x540/1537468210/550036_DKS00_1000_002_100_0000_Light.jpg",
       gender: "women",
       type: "boots",
+      id:3
     },
     {
       name: "Women's ankle boot ",
@@ -107,6 +110,7 @@ const gucci: Store = {
         "https://media.gucci.com/style/White_South_0_160_540x540/1633042815/670407_JCCP0_3154_002_100_0000_Light.jpg",
       gender: "women",
       type: "boots",
+      id:4
     },
     {
       name: "Baby cat print linen coat",
@@ -117,6 +121,7 @@ const gucci: Store = {
         "https://media.gucci.com/style/White_South_0_160_540x540/1635528628/680534_XWARS_9376_002_100_0000_Light.jpg",
       gender: "children",
       type: "clothes",
+      id:5
     },
     {
       name: "Double G cotton jacket",
@@ -127,6 +132,7 @@ const gucci: Store = {
         "https://media.gucci.com/style/White_South_0_160_540x540/1633043710/671075_XWARC_3472_002_100_0000_Light.jpg",
       gender: "children",
       type: "clothes",
+      id:6
     },
     {
       name: "GG cotton hat with ear flaps",
@@ -137,6 +143,7 @@ const gucci: Store = {
         "https://media.gucci.com/style/White_South_0_160_540x540/1632819610/683064_3HAG1_4969_002_100_0000_Light.jpg",
       gender: "children",
       type: "hats",
+      id:7
     },
     {
       name: "Straw effect hat with ribbon",
@@ -147,6 +154,7 @@ const gucci: Store = {
         "https://media.gucci.com/style/White_South_0_160_540x540/1634251520/684920_3HAHA_9266_002_100_0000_Light.jpg",
       gender: "children",
       type: "hats",
+      id:8
     },
     {
       name: "The North Face x",
@@ -157,6 +165,7 @@ const gucci: Store = {
         "https://media.gucci.com/style/White_South_0_160_540x540/1638553518/663766_ZLX45_3475_002_100_0000_Light.jpg",
       gender: "men",
       type: "pants",
+      id:9
     },
     {
       name: "Gucci crocodile loafer",
@@ -167,6 +176,7 @@ const gucci: Store = {
         "https://media.gucci.com/style/White_South_0_160_540x540/1459942203/406994_EC200_1000_002_100_0000_Light.jpg",
       gender: "men",
       type: "shoes",
+      id:10
     },
     {
       name: "GG leather pant",
@@ -177,6 +187,7 @@ const gucci: Store = {
         "https://media.gucci.com/style/White_South_0_160_540x540/1636738258/669071_XNAPN_1000_002_100_0000_Light.jpg",
       gender: "men",
       type: "pants",
+      id:11
     },
     {
       name: "Cotton piquet polo ",
@@ -187,6 +198,7 @@ const gucci: Store = {
         "https://media.gucci.com/style/White_South_0_160_540x540/1634749233/653380_XJDF8_3495_002_100_0000_Light.jpg",
       gender: "men",
       type: "shirts",
+      id:12
     },
     {
       name: "GG kaleidoscope silk shirt",
@@ -197,6 +209,7 @@ const gucci: Store = {
         "https://media.gucci.com/style/White_South_0_160_540x540/1638550833/675446_ZAH3W_1128_002_100_0000_Light.jpg",
       gender: "men",
       type: "shirts",
+      id:13
     },
     {
       name: "Grip watch, 38mm",
@@ -207,6 +220,7 @@ const gucci: Store = {
         "https://media.gucci.com/style/White_South_0_160_540x540/1567584905/596509_I8600_8740_002_100_0000_Light.jpg",
       gender: "menWatches",
       type: "rolex",
+      id:14
     },
     {
       name: "Grip watch, 35mm",
@@ -217,6 +231,7 @@ const gucci: Store = {
         "https://media.gucci.com/style/White_South_0_160_540x540/1567584903/584271_ICBA0_8576_002_100_0000_Light.jpg",
       gender: "menWatches",
       type: "omega",
+      id:15
     },
     {
       name: "GUCCI 25H watch, 40mm",
@@ -227,6 +242,7 @@ const gucci: Store = {
         "https://media.gucci.com/style/White_South_0_160_540x540/1627285508/673127_I1600_1108_002_100_0000_Light.jpg",
       gender: "menWatches",
       type: "rolex",
+      id:16
     },
     {
       name: "Gucci Tiger, 38 mm",
@@ -237,6 +253,7 @@ const gucci: Store = {
         "https://media.gucci.com/style/White_South_0_160_540x540/1634838347/692078_ICZA0_8521_002_100_0000_Light.jpg",
       gender: "menWatches",
       type: "omega",
+      id:17
     },
     {
       name: "Double G flower",
@@ -247,6 +264,7 @@ const gucci: Store = {
         "https://media.gucci.com/style/White_South_0_160_540x540/1522084508/527394_J8474_8517_002_100_0000_Light.jpg",
       gender: "womenJewlery",
       type: "rings",
+      id:18
     },
     {
       name: "Beaded necklace with flower",
@@ -257,6 +275,7 @@ const gucci: Store = {
         "https://media.gucci.com/style/White_South_0_160_540x540/1626885905/675291_J1D50_8061_002_100_0000_Light.jpg",
       gender: "womenJewlery",
       type: "necklaces",
+      id:19
     },
     {
       name: "Lion head ring with crystal",
@@ -267,6 +286,7 @@ const gucci: Store = {
         "https://media.gucci.com/style/White_South_0_160_540x540/1628098206/675305_I6658_8489_002_100_0000_Light.jpg",
       gender: "womenJewlery",
       type: "rings",
+      id:20
     },
     {
       name: "Interlocking G crystal hoops",
@@ -277,6 +297,7 @@ const gucci: Store = {
         "https://media.gucci.com/style/White_South_0_160_540x540/1629877505/680275_J3F42_8162_002_100_0000_Light.jpg",
       gender: "womenJewlery",
       type: "earrings",
+      id:21
     },
 
     {
@@ -288,6 +309,7 @@ const gucci: Store = {
         "https://media.gucci.com/style/White_South_0_160_540x540/1618321510/660195_EZINT_2582_002_067_0000_Light.jpg",
       gender: "womenBags",
       type: "purses",
+      id:22
     },
     {
       name: "Backpack with Interlocking G",
@@ -298,6 +320,7 @@ const gucci: Store = {
         "https://media.gucci.com/style/White_South_0_160_540x540/1632265210/674147_UQHGE_8679_002_081_0000_Light.jpg",
       gender: "womenBags",
       type: "backpack",
+      id:23
     },
     {
       name: "Valentine's Day small heart",
@@ -308,6 +331,7 @@ const gucci: Store = {
         "https://media.gucci.com/style/White_South_0_160_316x316/1638433872/678131_UP2AV_5575_006_060_0000_Light.jpg",
       gender: "womenBags",
       type: "purses",
+      id:24
     },
     {
       name: "Ophidia GG small backpack",
@@ -318,16 +342,23 @@ const gucci: Store = {
         "https://media.gucci.com/style/White_South_0_160_540x540/1533573917/547965_9U8BT_8994_002_089_0000_Light.jpg",
       gender: "womenBags",
       type: "backpack",
+      id:25
     },
   ],
   cartItems: [],
   storeData() {
     localStorage.setItem("storeData", JSON.stringify(this.items));
+    
+
+    
+    
   },
   getData() {
     const clothesStorage = JSON.parse(localStorage.getItem("storeData"));
     if (Array.isArray(clothesStorage)) {
       this.items = clothesStorage;
+      
+      
     }
   },
   addItems(name, price, imgTop, imgBottom, gender, type) {
@@ -342,42 +373,23 @@ const gucci: Store = {
       this.storeData();
     }
   },
-  addToCart(newItem,name,imgTop,price) {
-    const id = uid();
-
-    this.items.forEach((item) => item.id === newItem);
-    this.cartItems.push({name,imgTop,price});
-  },
-  renderAddToCart(domElement) {
-    let cartHtml = "";
-    this.cartItems.forEach((item) => {
-      cartHtml += `<div class="cartItems">
-      <p>${item.name}</p>
-      <img class="imgTop" src="${item.imgTop}" >
-      <p>${item.price}$</p>
-      </div>`;
-
-      domElement.innerHTML = cartHtml;
-    });
-  },
-
   updateItems(itemName, newPrice) {
-    //const index = this.items.findIndex((item) => item.id === id);
     
+
     const index = this.items.findIndex((item) => item.name === itemName);
     console.log(index);
 
-     
+
 
     if (index >= 0) {
-        this.items[index].name = itemName;
-        this.items[index].price = newPrice;
-  
-        this.storeData();
-        this.getData();
+      this.items[index].name = itemName;
+      this.items[index].price = newPrice;
+
+      this.storeData();
+      this.getData();
     }
-   
-    
+
+
   },
   filterByItemNameAndGender(gender, itemName) {
     return this.items
@@ -409,7 +421,7 @@ const gucci: Store = {
         <img class="imgTop" src="${item.imgTop}" >
         <img class="imgBottom" src="${item.imgBottom}" >
         <p>${item.price}$</p>
-        <input onclick="handleAddToCart('${item.id}')" id="addToCart" type="button" value="ADD TO CART">
+        <button class="cartButton" onclick="addToCart(${item.id})">Add To Cart</button>
         </div>`;
     });
     domElement.innerHTML = html;
@@ -445,7 +457,7 @@ const gucci: Store = {
     this.render(filterByGender, domElement);
   },
 };
-//gucci.storeData(); /// delete later
+
 
 function handleShowItems() {
   console.log(gucci.items);
@@ -479,7 +491,69 @@ function handleAddItems(ev) {
   }
 }
 
-gucci.getData();
+
+
+function addToCart(id){
+  console.log(id)
+if (gucci.cartItems.some((item) => item.id === id)){
+  alert("Item Already in Cart")
+} else{
+  const product = gucci.items.find((item) => item.id === id)
+  gucci.cartItems.push({...product})
+}
+
+  
+
+  console.log(gucci.cartItems)
+
+  updateCart()
+  
+  
+  
+  
+
+
+}
+
+function removeItemFromCart(id){
+  gucci.cartItems = gucci.cartItems.filter((item) => item.id !== id)
+
+  updateCart()
+
+}
+
+const cartRoot = document.getElementById("cartRoot");
+
+function renderCartItems(){
+  cartRoot.innerHTML = "";
+  gucci.cartItems.forEach((item) => {
+    
+    cartRoot.innerHTML +=
+    `<div class="cartItems">
+   
+                <p>${item.name}</p>
+                <img src="${item.imgTop}" alt="${item.name}">      
+                <p>${item.price}$</p>
+                <button class="cartButton" onclick="removeItemFromCart(${item.id})">Remove Item</button>
+            
+        </div>`
+      ;
+
+  });
+ 
+  
+
+  
+}
+
+
+function updateCart(){
+  renderCartItems();
+
+}
+
+
+
 
 function handleRemoveItems(ev) {
   ev.preventDefault();
@@ -587,47 +661,22 @@ function handleRenderByGender(gender: string) {
   }
 }
 
-function handleShowCart() {
-  try {
-    const cartRoot = document.getElementById("cartRoot");
+// function handleShowCart() {
+//   try {
+//     const cartRoot = document.getElementById("cartRoot");
 
-    if (!cartRoot) throw new Error("no cartRoot in DOM");
+//     if (!cartRoot) throw new Error("no cartRoot in DOM");
 
-    if (cartRoot.style.display === "none") {
-      cartRoot.style.display = "block";
-    } else {
-      cartRoot.style.display = "none";
-    }
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-function handleAddToCart(addedItemsId) {
-  try {
-    const cartRoot = document.getElementById("cartRoot");
-    const addedItems = gucci.items.filter((item) => (item.id = addedItemsId));
-    const id=uid();
-    const index = this.items.findIndex((item) => item.id === addedItemsId.id);
-
-    const name=gucci.items[index].name;
-    const imgTop=gucci.items[index].imgTop;
-    const price=gucci.items[index].price;
-
-      gucci.addToCart(addedItems,name,imgTop,price);
-      gucci.renderAddToCart(cartRoot);
-    
-  
-    if (!cartRoot) throw new Error("no cartRoot in DOM");
-    
-    
-    
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-
+//     if (cartRoot.style.display === "none") {
+//       cartRoot.style.display = "block";
+//     } 
+//     else {
+//       cartRoot.style.display = "none";
+//     }
+//   } catch (error) {
+//     console.error(error);
+//   }
+// }
 
 
 function handleSearch(ev) {
@@ -648,19 +697,19 @@ function handleSearch(ev) {
     if (searchTerm.length > 0) {
       const foundItem = gucci.items.filter((item) => {
         if (regExp.test(item.name)) return true;
-        const filteredByItemName = gucci.filterByItemNameAndGender(gender,searchTerm);
+        const filteredByItemName = gucci.filterByItemNameAndGender(gender, searchTerm);
         gucci.renderFilterByItemName(filteredByItemName, root);
 
-        
+
       });
       const html = foundItem
         .map((item) => {
           return `<div class="items">
         <p>${item.name}</p>
         <img class="imgTop" src="${item.imgTop}" >
-        <img class="imgBottom" src="${item.imgBottom}" >
+        <img class="imgBottom" src="${item.imgBottom}" >        
         <p>${item.price}$</p>
-        <input onclick="handleAddToCart('${item.id}')" id="addToCart" type="button" value="ADD TO CART">
+        <button class="cartButton" onclick="addToCart(${item.id})">Add To Cart</button>
         </div>`;
         })
         .join("");
@@ -674,3 +723,6 @@ function handleSearch(ev) {
     console.error(error);
   }
 }
+
+
+
