@@ -202,33 +202,19 @@ function handleUpdate(ev, itemId) {
     Adidas.updateItem(itemId, newTitle, newPrice, newGender, newCategory, newPictureFront, newPictureBack, newColor, newDescription, newShoeSize);
     Adidas.renderAllData(root);
 }
-function handlePriceRange(ev) {
-    var root = document.getElementById("rootCustomer");
-    var priceLow = ev.target.valueAsNumber;
-    var priceHigh = ev.target.valueAsNumber;
-    if (priceLow && priceHigh) {
-        // console.log(price) + `price`;
-        var filterd = Adidas.filterItems(priceLow && priceHigh);
-        console.log(filterd);
-        Adidas.renderFilter(filterd, root);
-    }
-    else {
-        this.renderAllData();
-    }
-}
 function handleSort(ev) {
     ev.preventDefault();
     var sort = ev.target.value;
     var root = document.getElementById("rootCustomer");
-    if (sort === "startPosition") {
-        Adidas.renderAllData(root);
-    }
-    else if (sort === "priceAsc") {
+    if (sort === "priceAsc") {
         Adidas.sortItemsAsc();
         Adidas.renderAllData(root);
     }
     else if (sort === "priceDsc") {
         Adidas.sortItemsDsc();
+        Adidas.renderAllData(root);
+    }
+    else {
         Adidas.renderAllData(root);
     }
     console.log(sort);
@@ -264,6 +250,9 @@ function handleType(ev) {
         //    Adidas.renderAllData(root);
         Adidas.renderFilter(Adidas.sortByType(type), root);
     }
+    else {
+        Adidas.renderAllData(root);
+    }
     //  Adidas.sortByType(type)
     //  Adidas.renderAllData(root);
     // Adidas.renderFilter(Adidas.sortByType(type), root);
@@ -272,8 +261,15 @@ function handleColor(ev) {
     var color = ev.target.value;
     ev.preventDefault();
     var root = document.getElementById("rootCustomer");
-    // if(type === " ")
-    return Adidas.renderFilter(Adidas.sortByColor(color), root);
+    if (color === "red") {
+        return Adidas.renderFilter(Adidas.sortByColor(color), root);
+    }
+    else if (color === "blue") {
+        return Adidas.renderFilter(Adidas.sortByColor(color), root);
+    }
+    else {
+        Adidas.renderAllData(root);
+    }
 }
 function handleGender(ev) {
     var gender = ev.target.value;
@@ -325,7 +321,7 @@ function handleCart(id) {
     Adidas.renderAllCart(root);
 }
 Adidas.addItem("superstar shoes", 300, "women", "Boots", "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/c8953617284f4c47b613acbb011e74ee_9366/Supernova_Shoes_Black_S42722_02_standard.jpg", "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/69cbc73d0cb846889f89acbb011e68cb_9366/Supernova_Shoes_Black_S42722_01_standard.jpg", "red", "B-ball legend. Street symbol. Cultural icon. Still going strong after five decades, the adidas Superstar Shoes have millions of stories to tell. Smooth leather combines with serrated 3-Stripes and the authentic rubber shell toe. Ready for the next fifty years of iconic adidas style? Lets do it.", 40);
-Adidas.addItem("superstar shoes", 100, "unisex", "Hi Tops", "https://st-adidas-isr.mncdn.com/content/images/thumbs/0086956_x-speedflow1-messi-firm-ground-boots_fy6879_top-portrait-view.jpeg", "https://st-adidas-isr.mncdn.com/content/images/thumbs/0086954_x-speedflow1-messi-firm-ground-boots_fy6879_side-lateral-center-view.jpeg", "red", "B-ball legend. Street symbol. Cultural icon. Still going strong after five decades, the adidas Superstar Shoes have millions of stories to tell. Smooth leather combines with serrated 3-Stripes and the authentic rubber shell toe. Ready for the next fifty years of iconic adidas style? Lets do it.", 44);
+Adidas.addItem("superstar shoes", 100, "unisex", "Hi Tops", "https://st-adidas-isr.mncdn.com/content/images/thumbs/0086956_x-speedflow1-messi-firm-ground-boots_fy6879_top-portrait-view.jpeg", "https://st-adidas-isr.mncdn.com/content/images/thumbs/0086954_x-speedflow1-messi-firm-ground-boots_fy6879_side-lateral-center-view.jpeg", "blue", "B-ball legend. Street symbol. Cultural icon. Still going strong after five decades, the adidas Superstar Shoes have millions of stories to tell. Smooth leather combines with serrated 3-Stripes and the authentic rubber shell toe. Ready for the next fifty years of iconic adidas style? Lets do it.", 44);
 function handleGetData(page) {
     try {
         // console.log(page);

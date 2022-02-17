@@ -296,7 +296,7 @@ const Adidas: shop = {
     this.products.sort((x, y) => x.price - y.price);
   },
   sortByGender(item) {
-    return  this.products.filter(
+    return this.products.filter(
       (element) => element.gender === item
     );
   },
@@ -431,33 +431,20 @@ function handleUpdate(ev: any, itemId: number) {
   Adidas.renderAllData(root);
 }
 
-function handlePriceRange(ev) {
-  const root = document.getElementById("rootCustomer");
-  const priceLow = ev.target.valueAsNumber;
-  const priceHigh = ev.target.valueAsNumber;
-  if (priceLow && priceHigh) {
-    // console.log(price) + `price`;
-    const filterd = Adidas.filterItems(priceLow && priceHigh);
-    console.log(filterd);
 
-    Adidas.renderFilter(filterd, root);
-  } else {
-    this.renderAllData();
-  }
-}
 function handleSort(ev) {
   ev.preventDefault();
   const sort = ev.target.value;
   const root = document.getElementById("rootCustomer");
-  if (sort === "startPosition") {
-    Adidas.renderAllData(root);
-  } else if (sort === "priceAsc") {
+  if (sort === "priceAsc") {
     Adidas.sortItemsAsc();
 
     Adidas.renderAllData(root);
   } else if (sort === "priceDsc") {
     Adidas.sortItemsDsc();
 
+    Adidas.renderAllData(root);
+  } else {
     Adidas.renderAllData(root);
   }
   console.log(sort);
@@ -491,6 +478,9 @@ function handleType(ev) {
     //    Adidas.renderAllData(root);
     Adidas.renderFilter(Adidas.sortByType(type), root);
   }
+  else {
+    Adidas.renderAllData(root);
+  }
 
   //  Adidas.sortByType(type)
   //  Adidas.renderAllData(root);
@@ -501,9 +491,16 @@ function handleColor(ev) {
   const color = ev.target.value;
   ev.preventDefault();
   const root = document.getElementById("rootCustomer");
-  // if(type === " ")
-  return Adidas.renderFilter(Adidas.sortByColor(color), root);
+  if (color === "red") {
+    return Adidas.renderFilter(Adidas.sortByColor(color), root);
+  } 
+  else if (color === "blue") {
+    return Adidas.renderFilter(Adidas.sortByColor(color), root);
+  } else {
+    Adidas.renderAllData(root);
+  }
 }
+
 function handleGender(ev) {
   const gender = ev.target.value;
   ev.preventDefault();
@@ -575,7 +572,7 @@ Adidas.addItem(
   "https://st-adidas-isr.mncdn.com/content/images/thumbs/0086956_x-speedflow1-messi-firm-ground-boots_fy6879_top-portrait-view.jpeg",
   "https://st-adidas-isr.mncdn.com/content/images/thumbs/0086954_x-speedflow1-messi-firm-ground-boots_fy6879_side-lateral-center-view.jpeg",
 
-  "red",
+  "blue",
   "B-ball legend. Street symbol. Cultural icon. Still going strong after five decades, the adidas Superstar Shoes have millions of stories to tell. Smooth leather combines with serrated 3-Stripes and the authentic rubber shell toe. Ready for the next fifty years of iconic adidas style? Lets do it.",
   44
 );
