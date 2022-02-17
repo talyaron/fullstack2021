@@ -642,23 +642,22 @@ document.querySelector('.container_header-search-input').addEventListener('chang
 function scrollPage(ev) {
     ev.preventDefault();
     var itemMenu = document.querySelector('.container-imgsBox');
-    var display = document.querySelector('.container-shoppingCart_display');
+    var display = document.querySelector('.container_catagories-display');
     console.log(itemMenu);
     var value = ev.target.value;
     console.log(value);
     itemMenu.scrollTop += 50;
-    // switch (value) {
-    //     case 'Tshirts':
-    //         itemMenu.scrollTop += 50;
-    //         clothsList.renderShoppingCart(display)
-    //         break;
-    //     case 'Shoes':
-    //         itemMenu.scrollTop = 50;
-    //         break;
-    //     case 'Pants':
-    //         itemMenu.scrollTop = 50;
-    //         break;
-    // }    
+    switch (value) {
+        case 'Tshirts':
+            clothsList.renderCustomerPage(clothsList.Tshirts, display, value, "https://i.ebayimg.com/images/g/bWgAAOSwVH5blRYh/s-l300.jpg");
+            break;
+        case 'Shoes':
+            clothsList.renderCustomerPage(clothsList.shoes, display, value, "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/lead-image-shoes-01-1634132850.png?crop=1.00xw:1.00xh;0,0&resize=480:*");
+            break;
+        case 'Pants':
+            clothsList.renderCustomerPage(clothsList.pants, display, value, "https://assets.ajio.com/medias/sys_master/root/h89/hbe/13459792265246/-473Wx593H-440995277-olive-MODEL2.jpg");
+            break;
+    }
 }
 function thankYou() {
     var shoppingCartDisplay = document.querySelector('.container-shoppingCart');
