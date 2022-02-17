@@ -601,7 +601,6 @@
   color: #fff;
 }
 .container-shoppingCart-orderAndTotal {
-  border: 3px solid black;
   grid-row: 7;
   grid-column: 3;
   display: flex;
