@@ -95,23 +95,20 @@ body {
 
           margin-left: -30px;
           width: 60px;
-          font-size: 16px;
+          font-size: 12px;
           padding: 20px;
           border-radius: 10px;
-          font-family: arial;
+
           text-decoration: none;
           // font-weight: bold;
           color: black;
         }
 
-        #button:hover {
-          background-color: #EFF1F3;
-          color: #D77A61;
-        }
+
 
         #popup {
           position: relative;
-          height: 300px;
+
           width: 200px;
           right: 220px;
           background-color: #EFF1F3;
@@ -124,6 +121,27 @@ body {
           border-radius: 15px;
           transition: all 1s;
           -webkit-transition: all 1s;
+          height: fit-content;
+          display: flex;
+          flex-direction: column;
+          z-index: 1;
+
+          .cards__item {
+            width: 80px;
+            height: 90px;
+            font-size: 10px;
+
+            .picture {
+              width: 80px;
+              height: 80px;
+
+            }
+
+            .description,
+            .color {
+              display: none;
+            }
+          }
         }
 
         #popup:target {
