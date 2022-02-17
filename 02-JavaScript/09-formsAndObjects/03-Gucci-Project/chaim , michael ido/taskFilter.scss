@@ -1,6 +1,7 @@
 .main {
-    max-width: 300px;
+    max-width: 700px;
     height: 700px;
+    justify-content: center;
     // border: 3px solid black;
     margin: auto;
     background-image:
@@ -8,6 +9,7 @@
         repeating-linear-gradient(-45deg, #57779b, #1b7557 1.5px, #456bb3 2px, #422dbd 4px);
 
     &_form {
+        margin: auto;
         height: 300px;
         max-width: 300px;
         // border: 3px solid red;
@@ -718,9 +720,6 @@
 
             }
         }
-
-    
-
     &-orderAndTotal {
         grid-row: 7;
         grid-column: 3;
