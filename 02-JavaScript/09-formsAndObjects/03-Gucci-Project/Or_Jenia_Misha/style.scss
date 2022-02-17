@@ -647,6 +647,10 @@ html {
 
 
         .cart__dishes {
+
+            span{
+                color: rgb(163, 72, 72);
+            }
             width: 260px;
             display: flex;
             justify-content: space-between;
@@ -680,7 +684,7 @@ html {
         justify-content: space-between;
         align-items: center;
         background-color: #EBEBEB;
-        border-radius: 1%;
+        border-radius: 5%;
         width: 50px;
         height: 60px;
 
@@ -936,4 +940,8 @@ html {
         grid-template-columns: 1fr;
         grid-template-rows: 1fr
     }
+}
+
+#addDishForm{
+    margin-bottom: 2em;
 }

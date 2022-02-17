@@ -38,7 +38,7 @@
 
         <div class="header__navBar">
             <ul>
-                <li><a href="./store.html">HOME</a></li>
+                <li style="font-size: 1em;"><a href="./store.html">HOME</a></li>
                 <li onclick="handleSelectByGenre(event)" class="genreNav scienceF" id="scienceF"
                     data-genreFilter="scienceF" value="scienceF">SCIENCE FICTION</li>
                 <li onclick="handleSelectByGenre(event)" class="genreNav detective" id="detective"
@@ -52,7 +52,7 @@
                 <li onclick="handleSelectByGenre(event)" class="genreNav all" id="all" data-genreFilter="all"
                     value="all">ALL BOOKS</li>
             </ul>
-            <a href="./card.html" <span class="material-icons">shopping_cart</span></a>
+            <a href="./cart.html" <span class="material-icons">shopping_cart</span></a>
             <a href="./erp.html" <span class="material-icons">view_headline</span></a>
         </div>
 
@@ -100,7 +100,71 @@
 
 
     <div id="root"></div>
-    <div id="rootCard"></div>
+    <div id="rootCart"></div>
+
+
+
+
+    <div class="cart">
+        <h2  class="bookTitle" >test</h2>
+        <h3>test test</h3>
+        <img class="img" src="https://picsum.photos/536/354">            
+        <p class="price" >$87</p>
+        <div class="rating">                 
+            <i class="far fa-star" data-number="1" id="${book.id}" onclick = "handleStarClick(event)"></i>
+            <i class="far fa-star" data-number="2" id="${book.id}" onclick = "handleStarClick(event)"></i>
+            <i class="far fa-star" data-number="3" id="${book.id}" onclick = "handleStarClick(event)"></i>
+            <i class="far fa-star" data-number="4" id="${book.id}" onclick = "handleStarClick(event)"></i>
+            <i class="far fa-star" data-number="5" id="${book.id}" onclick = "handleStarClick(event)"></i>
+         </div>             
+        <p>5.8</p>
+        <input  class = "cart__addToCartBtn"  id ="addToCart" type ="button" value = "Add to cart">              
+     </div>
+
+
+
+   
+<div class="productcont">
+      
+        <div class="cart-container">
+          <h2>Cart</h2>
+          <div id="alerts"></div>
+          <table>
+            <thead>
+              <tr>
+              <th><strong>Book</strong></th>
+              <th><strong>Price</strong></th>
+            </tr>
+            </thead>
+            <tbody id="carttable">
+            </tbody>
+          </table>
+          <hr>
+          <table id="carttotals">
+            <tr>
+              <td><strong>Items</strong></td>
+              <td><strong>Total</strong></td>
+            </tr>
+            <tr>
+              <td>x <span id="itemsquantity">0</span></td>
+             
+              <td>$<span id="total">0</span></td>
+            </tr></table>
+            
+          <div class="cart-buttons">  
+            <button class = "cart__addToCartBtn" id="emptycart">Empty Cart</button>
+            <button  class = "cart__addToCartBtn" id="checkout">Checkout</button>
+          </div>
+        </div>
+</div>
+
+
+
+
+
+
+
+
 
     <div class="buttons--scrollToTopBtn" style="display: flex; justify-content: center;">
         <button class="button" id="scrollToTopBtn" style="display: inline-; justify-content: center;">Back to

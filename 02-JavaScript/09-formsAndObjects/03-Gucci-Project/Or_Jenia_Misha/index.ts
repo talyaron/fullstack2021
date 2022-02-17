@@ -563,19 +563,18 @@ let sushiMenu: Menu = {
 
 
   renderDishesERP(list, domElement) {
-    try {
-      
+
       let html = `<form onsubmit="handleDeleteDish(event)"> <input type="submit" value="delete"></input>`;
 
       list.forEach((item) => {
 
         html += `<div class="dishesERP"> 
-          <input type="checkbox" id=${item.id}></input>
+          <input type="checkbox" id=${item.id}></input></form>
            <h3 class ="dishesERP__title__name">${item.name}</h3> 
            <p class ="dishesERP__desc">${item.description}</p>
            <p class ="dishesERP__title__price">${item.price} ₪</p>
            <p class ="dishesERP__title__category"> ${item.category}</p>
-           </form>
+           
           <form onsubmit="handleUpdateDish(event)" id="${item.id}">
            <input type="text" name="name" id="" placeholder="Dish Name">
            <input type="number" name="price" id="" placeholder="Dish Price">
@@ -608,13 +607,7 @@ let sushiMenu: Menu = {
         </div>`;
       });
 
-      // html += ``;
-
       domElement.innerHTML = html;
-
-    } catch (error) {
-      console.error(error);
-    }
 
   },
 
@@ -626,7 +619,7 @@ let sushiMenu: Menu = {
       list.forEach((item) => {
         html += `<div class="cart__dishes" id = "${item.id}"> 
         
-           <h3 class ="dishes__title__name">${item.name}&nbsp qnt: ${item.quantity}</h3> 
+           <h3 class ="dishes__title__name">${item.name}&nbsp <span>Qnt</span>: ${item.quantity}</h3> 
            <p class ="dishes__title__price">${item.price}₪ <button onclick="handleDeleteFromCart(event)" id="${item.id}">-</button></p>
            </div>`;
       });
@@ -721,10 +714,13 @@ function handleAddDish(ev) {
 }
 
 function handleDeleteDish(ev) {
-  try {
-    ev.preventDefault();
+
+  ev.preventDefault();
+    console.dir(ev.target);
     
     for (let i = 1; i < ev.target.length; i++) {
+
+      console.log(ev.target[i].checked)
       if (ev.target[i].checked === true) {
         sushiMenu.removeDish(ev.target[i].id);
       }
@@ -732,15 +728,13 @@ function handleDeleteDish(ev) {
 
     renderSushiMenu();
 
-  } catch (error) {
-    console.error(error);
-  }
-
-
 }
 function handleUpdateDish(ev) {
+
+  ev.preventDefault();
+
   try {
-    ev.preventDefault();
+    
     const dishName = ev.target.elements.name.value;
     const dishPrice = ev.target.elements.price.valueAsNumber;
     const dishDesc = ev.target.elements.description.value;
