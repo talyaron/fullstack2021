@@ -161,7 +161,7 @@ const Adidas: shop = {
          <p>${product.title}</p>
           <p>${product.description}</p>
           <p>${product.price}₪</p> 
-      </div>
+      </div>;
 
       <form onsubmit="handleUpdate(event, '${product.id}')">
       <input type="text" name="newTitle" placeholder="new title" value="${product.title}">
@@ -296,19 +296,19 @@ const Adidas: shop = {
     this.products.sort((x, y) => x.price - y.price);
   },
   sortByGender(item) {
-    return (this.products = this.products.filter(
+    return  this.products.filter(
       (element) => element.gender === item
-    ));
+    );
   },
   sortByColor(color) {
-    return (this.products = this.products.filter(
+    return this.products.filter(
       (element) => element.color === color
-    ));
+    );
   },
   sortByType(category) {
-    return (this.products = this.products.filter(
+    return this.products.filter(
       (element) => element.category === category
-    ));
+    );
   },
   renderFilter(filterd, domElement) {
     // console.log(filterd);
@@ -555,17 +555,6 @@ function handleCart(id) {
   Adidas.renderAllCart(root);
 }
 
-Adidas.addItem(
-  "superstar shoes",
-  200,
-  "men",
-  "Sneakers",
-  "https://st-adidas-isr.mncdn.com/content/images/thumbs/0095730_ultraboost-22-shoes_gx5462_side-lateral-center-view.jpeg",
-  "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/666c4ff90e5c4c8fb23cada300ec0645_9366/ZX_1K_Boost_Shoes_Grey_H00430_02_standard.jpg",
-  "red",
-  "B-ball legend. Street symbol. Cultural icon. Still going strong after five decades, the adidas Superstar Shoes have millions of stories to tell. Smooth leather combines with serrated 3-Stripes and the authentic rubber shell toe. Ready for the next fifty years of iconic adidas style? Lets do it.",
-  30
-);
 Adidas.addItem(
   "superstar shoes",
   300,

@@ -386,7 +386,7 @@ html {
 
 .menuopacity {
     background-color: rgba(0, 0, 0, 0.858);
-    height: 100vh;
+    height: 130vh;
     width: 100vw;
     display: flex;
     flex-direction: column;
@@ -406,12 +406,13 @@ html {
     flex-direction: column;
     align-items: space-around;
     text-align: center;
-    min-height: 100vh;
+    height: fit-content;
     color: #EBEBEB;
 
 
     &__title {
-
+        position: relative;
+        top: 10px;
         font-size: 3rem;
         font-weight: 600;
         display: flex;
@@ -431,7 +432,7 @@ html {
 
     &__box {
         position: relative;
-        top: 2em;
+        top: -0.3em;
         display: grid;
         grid-template-columns: repeat(6, 1fr);
         grid-template-rows: repeat(3, 1fr);
@@ -449,7 +450,7 @@ html {
         align-items: center;
         justify-content: center;
         width: 100%;
-        height: 100%;
+        height: 230px;
         overflow: hidden;
         gap: 0.8em;
 
@@ -457,7 +458,7 @@ html {
 
         .picwrap {
             transition: all 0.6s ease-in-out;
-            height: 10rem;
+            min-height: 130px;
             width: 10rem;
             overflow: hidden;
             border-radius: 100%;
@@ -835,7 +836,7 @@ html {
 
     .menuopacity {
 
-        height: 200vh;
+        height: 250vh;
 
         .menu {
 
@@ -920,10 +921,12 @@ html {
 }
 
 .dishesERP {
-
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     border: 1px solid black;
     width: 200px;
-    height: 450px;
+    height: 480px;
     padding: 5px;
     background-color: gainsboro ;
 
