@@ -456,25 +456,19 @@ var sushiMenu = {
         }
     },
     renderDishesERP: function (list, domElement) {
-        try {
-            var html_2 = "<form onsubmit=\"handleDeleteDish(event)\"> <input type=\"submit\" value=\"delete\"></input>";
-            list.forEach(function (item) {
-                html_2 += "<div class=\"dishesERP\"> \n          <input type=\"checkbox\" id=" + item.id + "></input></form>\n           <h3 class =\"dishesERP__title__name\">" + item.name + "</h3> \n           <p class =\"dishesERP__desc\">" + item.description + "</p>\n           <p class =\"dishesERP__title__price\">" + item.price + " \u20AA</p>\n           <p class =\"dishesERP__title__category\"> " + item.category + "</p>\n           <form onsubmit=\"handleUpdateDish(event)\" id=\"" + item.id + "\">\n           <input type=\"text\" name=\"name\" id=\"\" placeholder=\"Dish Name\">\n           <input type=\"number\" name=\"price\" id=\"\" placeholder=\"Dish Price\">\n           <input type=\"text\" name=\"description\" id=\"\" placeholder=\"Add Dish description\">\n           <select name=\"category\" id=\"updated-category\">\n               <option value=\"Choose\" selected disabled>Select category</option>\n               <option value=\"firsts\">Firsts</option>\n               <option value=\"soups\">Soups</option>\n               <option value=\"salads\">Salads</option>\n               <option value=\"buns\">Buns</option>\n               <option value=\"robta-yaki\">Robta Yaki</option>\n               <option value=\"gyoza\">Gyoza</option>\n               <option value=\"inside-out\">Inside Out</option>\n               <option value=\"specials\">Specials</option>\n               <option value=\"kids\">Kids Dishes</option>\n               <option value=\"main\">Main Dishes</option>\n               <option value=\"wok\">Wok</option>\n               <option value=\"cokctails\">Cokctails</option>\n               <option value=\"combinations\">Combinations</option>\n               <option value=\"sashimi\">Sashimi</option>\n               <option value=\"nigiri\">Nigiri</option>\n               <option value=\"sandwich-sushi\">Sandwich Sushi</option>\n               <option value=\"maki-sushi\">Maki Sushi</option>\n               <option value=\"gonkan\">Gonkan Maki</option>\n           </select>\n           <input type=\"submit\" value=\"Update\">\n           </form>\n  \n           \n        </div>";
-            });
-            html_2 += "";
-            domElement.innerHTML = html_2;
-        }
-        catch (error) {
-            console.error(error);
-        }
+        var html = "<form onsubmit=\"handleDeleteDish(event)\"> <input type=\"submit\" value=\"delete\"></input>";
+        list.forEach(function (item) {
+            html += "<div class=\"dishesERP\"> \n          <input type=\"checkbox\" id=" + item.id + "></input>\n           <h3 class =\"dishesERP__title__name\">" + item.name + "</h3> \n           <p class =\"dishesERP__desc\">" + item.description + "</p>\n           <p class =\"dishesERP__title__price\">" + item.price + " \u20AA</p>\n           <p class =\"dishesERP__title__category\"> " + item.category + "</p>\n          </form>\n          <form onsubmit=\"handleUpdateDish(event)\" id=\"" + item.id + "\">\n           <input type=\"text\" name=\"name\" id=\"\" placeholder=\"Dish Name\">\n           <input type=\"number\" name=\"price\" id=\"\" placeholder=\"Dish Price\">\n           <input type=\"text\" name=\"description\" id=\"\" placeholder=\"Add Dish description\">\n           <select name=\"category\" id=\"updated-category\">\n               <option value=\"Choose\" selected disabled>Select category</option>\n               <option value=\"firsts\">Firsts</option>\n               <option value=\"soups\">Soups</option>\n               <option value=\"salads\">Salads</option>\n               <option value=\"buns\">Buns</option>\n               <option value=\"robta-yaki\">Robta Yaki</option>\n               <option value=\"gyoza\">Gyoza</option>\n               <option value=\"inside-out\">Inside Out</option>\n               <option value=\"specials\">Specials</option>\n               <option value=\"kids\">Kids Dishes</option>\n               <option value=\"main\">Main Dishes</option>\n               <option value=\"wok\">Wok</option>\n               <option value=\"cokctails\">Cokctails</option>\n               <option value=\"combinations\">Combinations</option>\n               <option value=\"sashimi\">Sashimi</option>\n               <option value=\"nigiri\">Nigiri</option>\n               <option value=\"sandwich-sushi\">Sandwich Sushi</option>\n               <option value=\"maki-sushi\">Maki Sushi</option>\n               <option value=\"gonkan\">Gonkan Maki</option>\n           </select>\n           <input type=\"submit\" value=\"Update\">\n           </form>\n  \n           \n        </div>";
+        });
+        domElement.innerHTML = html;
     },
     renderCart: function (list, domElement) {
         try {
-            var html_3 = "";
+            var html_2 = "";
             list.forEach(function (item) {
-                html_3 += "<div class=\"cart__dishes\" id = \"" + item.id + "\"> \n        \n           <h3 class =\"dishes__title__name\">" + item.name + "&nbsp qnt: " + item.quantity + "</h3> \n           <p class =\"dishes__title__price\">" + item.price + "\u20AA <button onclick=\"handleDeleteFromCart(event)\" id=\"" + item.id + "\">-</button></p>\n           </div>";
+                html_2 += "<div class=\"cart__dishes\" id = \"" + item.id + "\"> \n        \n           <h3 class =\"dishes__title__name\">" + item.name + "&nbsp <span>Qnt</span>: " + item.quantity + "</h3> \n           <p class =\"dishes__title__price\">" + item.price + "\u20AA <button onclick=\"handleDeleteFromCart(event)\" id=\"" + item.id + "\">-</button></p>\n           </div>";
             });
-            domElement.innerHTML = html_3;
+            domElement.innerHTML = html_2;
         }
         catch (error) {
             console.error(error);
@@ -546,30 +540,40 @@ function handleAddDish(ev) {
     }
 }
 function handleDeleteDish(ev) {
-    try {
-        ev.preventDefault();
-        for (var i = 1; i < ev.target.length; i++) {
-            if (ev.target[i].checked === true) {
-                sushiMenu.removeDish(ev.target[i].id);
-            }
+    ev.preventDefault();
+    console.dir(ev.target);
+    for (var i = 1; i < ev.target.length; i++) {
+        console.log(ev.target[i].checked);
+        if (ev.target[i].checked === true) {
+            sushiMenu.removeDish(ev.target[i].id);
         }
-        renderSushiMenu();
     }
-    catch (error) {
-        console.error(error);
-    }
+    renderSushiMenu();
 }
 function handleUpdateDish(ev) {
+    ev.preventDefault();
     try {
-        ev.preventDefault();
-        console.dir(ev.target);
         var dishName = ev.target.elements.name.value;
         var dishPrice = ev.target.elements.price.valueAsNumber;
         var dishDesc = ev.target.elements.description.value;
         var dishCategory = document.getElementById("updated-category").value;
-        var dishId = ev.target.id;
-        var newDish = { id: dishId, name: dishName, price: dishPrice, description: dishDesc, category: dishCategory };
-        sushiMenu.updateDish(dishId, newDish);
+        var dishId_1 = ev.target.id;
+        var index = sushiMenu.dishes.findIndex(function (dish) { return dish.id === dishId_1; });
+        var newDish = { id: dishId_1, name: dishName, price: dishPrice, description: dishDesc, category: dishCategory };
+        if (!dishName) {
+            newDish.name = sushiMenu.dishes[index].name;
+        }
+        if (!dishPrice) {
+            newDish.price = sushiMenu.dishes[index].price;
+        }
+        if (!dishDesc) {
+            newDish.description = sushiMenu.dishes[index].description;
+        }
+        console.log(dishCategory);
+        if (dishCategory === 'Choose') {
+            newDish.category = sushiMenu.dishes[index].category;
+        }
+        sushiMenu.updateDish(dishId_1, newDish);
         sushiMenu.getData();
         renderSushiMenu();
     }
@@ -585,7 +589,7 @@ function handleSearch(ev) {
     try {
         var searchTerm = ev.target.value;
         var regex_1 = new RegExp(searchTerm, "i");
-        var html = "";
+        var html_3 = "";
         var root = document.querySelector("#rootERP");
         if (searchTerm == 0) {
             renderSushiMenu();
@@ -593,11 +597,10 @@ function handleSearch(ev) {
         }
         sushiMenu.dishes.forEach(function (item) {
             if (regex_1.test(item.name)) {
-                var html_4 = "<form onsubmit=\"handleDeleteDish(event)\"> <input type=\"submit\" value=\"delete\"></input>";
-                html_4 += "<div class=\"dishesERP\"> \n          <input type=\"checkbox\" id=" + item.id + "></input></form>\n           <h3 class =\"dishesERP__title__name\">" + item.name + "</h3> \n           <p class =\"dishesERP__desc\">" + item.description + "</p>\n           <p class =\"dishesERP__title__price\">" + item.price + " \u20AA</p>\n           <p class =\"dishesERP__title__category\"> " + item.category + "</p>\n           <form onsubmit=\"handleUpdateDish(event)\" id=\"" + item.id + "\">\n           <input type=\"text\" name=\"name\" id=\"\" placeholder=\"Dish Name\">\n           <input type=\"number\" name=\"price\" id=\"\" placeholder=\"Dish Price\">\n           <input type=\"text\" name=\"description\" id=\"\" placeholder=\"Add Dish description\">\n           <select name=\"category\" id=\"updated-category\">\n               <option value=\"Choose\" selected disabled>Select category</option>\n               <option value=\"firsts\">Firsts</option>\n               <option value=\"soups\">Soups</option>\n               <option value=\"salads\">Salads</option>\n               <option value=\"buns\">Buns</option>\n               <option value=\"robta-yaki\">Robta Yaki</option>\n               <option value=\"gyoza\">Gyoza</option>\n               <option value=\"inside-out\">Inside Out</option>\n               <option value=\"specials\">Specials</option>\n               <option value=\"kids\">Kids Dishes</option>\n               <option value=\"main\">Main Dishes</option>\n               <option value=\"wok\">Wok</option>\n               <option value=\"cokctails\">Cokctails</option>\n               <option value=\"combinations\">Combinations</option>\n               <option value=\"sashimi\">Sashimi</option>\n               <option value=\"nigiri\">Nigiri</option>\n               <option value=\"sandwich-sushi\">Sandwich Sushi</option>\n               <option value=\"maki-sushi\">Maki Sushi</option>\n               <option value=\"gonkan\">Gonkan Maki</option>\n           </select>\n           <input type=\"submit\" value=\"Update\">\n           </form>\n  \n           \n        </div>";
+                html_3 += "<div class=\"dishesERP\"> \n        <input type=\"checkbox\" id=" + item.id + "></input></form>\n         <h3 class =\"dishesERP__title__name\">" + item.name + "</h3> \n         <p class =\"dishesERP__desc\">" + item.description + "</p>\n         <p class =\"dishesERP__title__price\">" + item.price + " \u20AA</p>\n         <p class =\"dishesERP__title__category\"> " + item.category + "</p>\n         <form onsubmit=\"handleUpdateDish(event)\" id=\"" + item.id + "\">\n         <input type=\"text\" name=\"name\" id=\"\" placeholder=\"Dish Name\">\n         <input type=\"number\" name=\"price\" id=\"\" placeholder=\"Dish Price\">\n         <input type=\"text\" name=\"description\" id=\"\" placeholder=\"Add Dish description\">\n         <select name=\"category\" id=\"updated-category\">\n             <option value=\"Choose\" selected disabled>Select category</option>\n             <option value=\"firsts\">Firsts</option>\n             <option value=\"soups\">Soups</option>\n             <option value=\"salads\">Salads</option>\n             <option value=\"buns\">Buns</option>\n             <option value=\"robta-yaki\">Robta Yaki</option>\n             <option value=\"gyoza\">Gyoza</option>\n             <option value=\"inside-out\">Inside Out</option>\n             <option value=\"specials\">Specials</option>\n             <option value=\"kids\">Kids Dishes</option>\n             <option value=\"main\">Main Dishes</option>\n             <option value=\"wok\">Wok</option>\n             <option value=\"cokctails\">Cokctails</option>\n             <option value=\"combinations\">Combinations</option>\n             <option value=\"sashimi\">Sashimi</option>\n             <option value=\"nigiri\">Nigiri</option>\n             <option value=\"sandwich-sushi\">Sandwich Sushi</option>\n             <option value=\"maki-sushi\">Maki Sushi</option>\n             <option value=\"gonkan\">Gonkan Maki</option>\n         </select>\n         <input type=\"submit\" value=\"Update\">\n         </form>\n\n         \n      </div>";
             }
         });
-        root.innerHTML = html;
+        root.innerHTML = html_3;
     }
     catch (error) {
         console.error(error);
@@ -682,18 +685,21 @@ function popCartActive() {
         var cartClose_1 = document.querySelector(".cart__close");
         var cart_1 = document.querySelector(".cart");
         var cartFooter_1 = document.querySelector(".cart__footer");
-        if (cartBox_1 && cartImg && cartClose_1 && cart_1 && cartFooter_1) {
+        var cartQnt_1 = document.querySelector(".cart__box__Qnt");
+        if (cartBox_1 && cartImg && cartClose_1 && cart_1 && cartFooter_1 && cartQnt_1) {
             cartImg.addEventListener("click", function () {
                 cart_1.classList.add("cart-active");
                 cartBox_1.classList.add("cart__box-active");
                 cartClose_1.classList.add("cart__close-active");
                 cartFooter_1.classList.add("cart__footer-active");
+                cartQnt_1.style.display = 'none';
             });
             cartClose_1.addEventListener("click", function () {
                 cart_1.classList.remove("cart-active");
                 cartBox_1.classList.remove("cart__box-active");
                 cartClose_1.classList.remove("cart__close-active");
                 cartFooter_1.classList.remove("cart__footer-active");
+                cartQnt_1.style.display = 'block';
             });
         }
     }
@@ -703,9 +709,9 @@ function popCartActive() {
 }
 popCartActive();
 function handlePlaceOrder(ev) {
+    ev.preventDefault();
     try {
-        ev.preventDefault();
-        window.alert("bo lo nagzim...");
+        window.alert("place order");
     }
     catch (error) {
         console.error(error);
@@ -716,6 +722,14 @@ function handleAddToCart(ev) {
         var idToCart_1 = ev.target.id;
         var index = sushiMenu.dishes.findIndex(function (dish) { return dish.id === idToCart_1; });
         var cartRoot = document.getElementById("cart__root");
+        var cartQnt = document.querySelector("cart__box_Qnt");
+        // let cartQntCount = 0;
+        // if(cartQntCount === 0 ){
+        //   cartQnt.style.display = 'none';
+        // }
+        // else{
+        // cartQnt.innerHTML = `${cartQntCount+1}`;
+        // }
         sushiMenu.addCartDish(sushiMenu.dishes[index]);
         sushiMenu.renderCart(sushiMenu.cartDishes, cartRoot);
         totalPrice(sushiMenu.cartDishes);

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,7 +14,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Montserrat:wght@100;200&display=swap"
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <title>STORE</title>
+
+
+    
+
+    <title>CART</title>
     <link rel="stylesheet" href="dist/style.css">
     <style>
         body {
@@ -27,35 +30,28 @@
     </style>
 </head>
 
-<body class="custom" onload="renderCustomer()">
+<body class="cartPage" onload="renderAddToCart()">
     <div class="header">
 
         <div class="header__ImgLogo">
-            <img style="height: 7em;" class="headerNav__logo"
+            <img style="height: 7em; " class="headerNav__logo"
                 src="https://portjefflibrary.org/wp-content/uploads/2015/11/PJFL-logo-2015-v3-black.png" alt="">
-            <h1 class="header__title">STANDART <br> EBOOKS</h1>
+            <h1 class="header__title">   STANDART <br> EBOOKS</a></h1>
         </div>
 
         <div class="header__navBar">
-            <ul>
-                <li style="font-size: 1em;"><a href="./store.html">HOME</a></li>
-                <li onclick="handleSelectByGenre(event)" class="genreNav scienceF" id="scienceF"
-                    data-genreFilter="scienceF" value="scienceF">SCIENCE FICTION</li>
-                <li onclick="handleSelectByGenre(event)" class="genreNav detective" id="detective"
-                    data-genreFilter="detective" value="detective">DETECTIVE</li>
-                <li onclick="handleSelectByGenre(event)" class="genreNav adventures" id="adventures" class="genreNav"
-                    data-genreFilter="adventures" value="adventures">ADVENTURE</li>
-                <li onclick="handleSelectByGenre(event)" class="genreNav prose" id="prose" class="genreNav"
-                    data-genreFilter="prose" value="prose">PROSE</li>
-                <li onclick="handleSelectByGenre(event)" class="genreNav children" id="children"
-                    data-genreFilter="children" value="children">CHILDREN</li>
-                <li onclick="handleSelectByGenre(event)" class="genreNav all" id="all" data-genreFilter="all"
-                    value="all">ALL BOOKS</li>
+            <ul >
+                <li style="font-size: 1em;" ><a href="./store.html">HOME</a></li>
+                <li onclick="handleSelectByGenre(event)" class="genreNav scienceF"  id="scienceF" data-genreFilter="scienceF"  value="scienceF">SCIENCE FICTION</li>
+                <li onclick="handleSelectByGenre(event)" class="genreNav detective" id="detective" data-genreFilter="detective"  value="detective">DETECTIVE</li>
+                <li onclick="handleSelectByGenre(event)" class="genreNav adventures" id="adventures" class="genreNav"  data-genreFilter="adventures"  value="adventures">ADVENTURE</li>
+                <li onclick="handleSelectByGenre(event)" class="genreNav prose" id="prose" class="genreNav"  data-genreFilter="prose"  value="prose">PROSE</li>
+                <li onclick="handleSelectByGenre(event)" class="genreNav children" id="children" data-genreFilter="children" value="children">CHILDREN</li>
+                <li onclick="handleSelectByGenre(event)" class="genreNav all" id="all" data-genreFilter="all" value="all">ALL BOOKS</li>
             </ul>
             <a href="./cart.html" <span class="material-icons">shopping_cart</span></a>
             <a href="./erp.html" <span class="material-icons">view_headline</span></a>
         </div>
-
     </div>
     <img class="header__strapImg"
         src="https://d1hbl61hovme3a.cloudfront.net/se3/NET/SE3_hero_banner_Adult-Librarians.jpg" alt="">
@@ -69,7 +65,6 @@
             placeholder="Looking for title">
         <input class="filterByAuthor button " type='text' onkeyup="handleFilterByAuthor(event)"
             placeholder="Looking for author">
-        <input class="search" type="search" placeholder="Search book" onkeyup="handleSearchBook(event)">
         <!-- <input class="filterByGenre button " type='text' onkeyup="handleFilterByGenre(event)"
             placeholder="Looking for genre"> -->
 
@@ -78,7 +73,7 @@
                     name="arrow-forward-outline"></ion-icon> Z </button>
             <button class="button" type="submit" id="descenAuthor" onclick="handleAuthoreDescen()"> Author A <ion-icon
                     name="arrow-back-outline"></ion-icon>
-            </button>
+                  </button>
         </div>
 
         <div class="buttons--sortYear">
@@ -98,73 +93,8 @@
         </div>
     </div>
 
-
     <div id="root"></div>
     <div id="rootCart"></div>
-
-
-
-
-    <div class="cart">
-        <h2  class="bookTitle" >test</h2>
-        <h3>test test</h3>
-        <img class="img" src="https://picsum.photos/536/354">            
-        <p class="price" >$87</p>
-        <div class="rating">                 
-            <i class="far fa-star" data-number="1" id="${book.id}" onclick = "handleStarClick(event)"></i>
-            <i class="far fa-star" data-number="2" id="${book.id}" onclick = "handleStarClick(event)"></i>
-            <i class="far fa-star" data-number="3" id="${book.id}" onclick = "handleStarClick(event)"></i>
-            <i class="far fa-star" data-number="4" id="${book.id}" onclick = "handleStarClick(event)"></i>
-            <i class="far fa-star" data-number="5" id="${book.id}" onclick = "handleStarClick(event)"></i>
-         </div>             
-        <p>5.8</p>
-        <input  class = "cart__addToCartBtn"  id ="addToCart" type ="button" value = "Add to cart">              
-     </div>
-
-
-
-   
-<div class="productcont">
-      
-        <div class="cart-container">
-          <h2>Cart</h2>
-          <div id="alerts"></div>
-          <table>
-            <thead>
-              <tr>
-              <th><strong>Book</strong></th>
-              <th><strong>Price</strong></th>
-            </tr>
-            </thead>
-            <tbody id="carttable">
-            </tbody>
-          </table>
-          <hr>
-          <table id="carttotals">
-            <tr>
-              <td><strong>Items</strong></td>
-              <td><strong>Total</strong></td>
-            </tr>
-            <tr>
-              <td>x <span id="itemsquantity">0</span></td>
-             
-              <td>$<span id="total">0</span></td>
-            </tr></table>
-            
-          <div class="cart-buttons">  
-            <button class = "cart__addToCartBtn" id="emptycart">Empty Cart</button>
-            <button  class = "cart__addToCartBtn" id="checkout">Checkout</button>
-          </div>
-        </div>
-</div>
-
-
-
-
-
-
-
-
 
     <div class="buttons--scrollToTopBtn" style="display: flex; justify-content: center;">
         <button class="button" id="scrollToTopBtn" style="display: inline-; justify-content: center;">Back to
@@ -217,10 +147,7 @@
             <input type="text" name="" id="" placeholder="City, Region, Contry">
         </div>
     </div>
-    <p
-        style="color: rgb(129, 126, 126); border-radius: 8px; background-color: rgba(3, 9, 15, 0.377); font-size: small; padding: 2em; margin-top: 0;">
-        © 2016 - 2020 Standart Books S.p.A. - All rights reserved. SIAE LICENCE # 2294/I/1936 and 5647/I/1936</p>
-
+    <p style="color: rgb(129, 126, 126); border-radius: 8px; background-color: rgba(3, 9, 15, 0.377); font-size: small; padding: 2em; margin-top: 0;">© 2016 - 2020 Standart Books S.p.A. - All rights reserved. SIAE LICENCE # 2294/I/1936 and 5647/I/1936</p>
 
 
     <script src="dist/index.js"></script>

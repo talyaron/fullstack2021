@@ -41,7 +41,7 @@
                 <input type="text" placeholder="Search.." name="search" onkeyup="handleSearchProduct(event)" />
                 <i class="fa fa-search"></i>
             </div>
-            <div id="rootSearch">
+            <div id="rootSearch" style="color: gold; position: relative;">
 
             </div>
             <div class="header__inner__side--menu">
@@ -59,8 +59,11 @@
                             <a id="close" href="#">X</a>
 
 
-                            <br>
-                            <br>
+                            <div id="rootCart">
+                            </div>
+
+
+
                         </div>
                     </i>
 
@@ -78,29 +81,14 @@
         <div class="box">
             <img src="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/ivy-park-lockup-160_tcm221-840962.png"
                 alt="">
-            <h1>lorem</h1>
+            <h1>Adidas</h1>
             <button>
-                <p>lorem</p>
+                <p>Adidas</p>
                 <i class="fas fa-arrow-right"></i>
             </button>
         </div>
 
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     <div class="wrapper">
         <div class="wrapper--header">
@@ -122,31 +110,10 @@
             </p>
         </div>
         <div class="header__sort">
-
-            <select onchange="handlePriceRange(event)">
-                <option value="" disabled selected>price</option>
-
-                <option value="priceRange">
-                    <input type="range">
-                </option>
-            </select>
-
-
-
-
-
-            <select onchange="handleShoeSize(event)">
-                <option value="" disabled selected>shoe size</option>
-                <option value="thirty">35</option>
-                <option value="forty">40</option>
-                <option value="fortyFour">44</option>
-
-            </select>
-
+            
             <select onchange="handleGender(event)">
                 <option value="" disabled selected>gender</option>
-
-                <option value="gender">
+              
                 <option value="women">women </option>
                 <option value="men">men </option>
                 <option value="unisex">unisex </option>
@@ -162,26 +129,27 @@
                 <option value="orange">orange</option>
                 <option value="white">white </option>
                 <option value="multi">multi</option>
+                <option value="All">All </option>
+
 
             </select>
 
             <select onchange="handleType(event)">
                 <option value="" disabled selected>type</option>
 
-                <option value="Sneakers"> </option>
-                <option value="Boots"> </option>
-                <option value="Hi Tops"> </option>
-                <option value="Flip Flops"> </option>
+                <option value="Sneakers">Sneakers </option>
+                <option value="Boots">Boots </option>
+                <option value="Hi Tops">Hi Tops </option>
+                <option value="Flip Flops">Flip Flops </option>
+                <option value="All">All </option>
 
             </select>
             <select onchange="handleSort(event)">
                 <option value="" disabled selected>sort</option>
-
-                <option value="startPosition"> </option>
-                <option value="letterAsc"> </option>
-                <option value="letterDsc"> </option>
                 <option value="priceAsc">high to low </option>
                 <option value="priceDsc">low to high </option>
+                <option value="All">Default</option>
+
             </select>
 
         </div>
@@ -190,430 +158,7 @@
 
         </div>
 
-        <!-- <div class="cards__item">
 
-                <div class="picture">
-                 
-
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095730_ultraboost-22-shoes_gx5462_side-lateral-center-view.jpeg"
-                        alt="Card Back">
-
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0095732_ultraboost-22-shoes_gx5462_top-portrait-view.jpeg"
-                        class="img-top" alt="Card Front">
-                </div>
-                
-                <div class="color">
-                    <div class="color--item"></div>
-                    <div class="color--item"></div>
-                </div>
-                <div class="description">
-                    <p>4DFWD Pulse Shoes</p>
-                    <p>Men's Running</p>
-                    <p>₪ 299.90</p>
-                </div>
-            </div> 
-            <div class="cards__item">
-
-                <div class="picture">
-                    <i class="far fa-heart"></i>
-
-
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0086954_x-speedflow1-messi-firm-ground-boots_fy6879_side-lateral-center-view.jpeg"
-                        alt="Card Back">
-
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0086956_x-speedflow1-messi-firm-ground-boots_fy6879_top-portrait-view.jpeg"
-                        class="img-top" alt="Card Front">
-                </div>
-                <div class="color">
-                    <div class="color--item"></div>
-                    <div class="color--item"></div>
-                </div>
-                <div class="description">
-                    <p>4DFWD Pulse Shoes</p>
-                    <p>Men's Running</p>
-                    <p>₪ 299.90</p>
-                </div>
-            </div>
-            <div class="cards__item">
-
-                <div class="picture">
-                    <i class="far fa-heart"></i>
-
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0096747_adistar-shoes_gx3000_side-lateral-center-view.jpeg"
-                        alt="">
-
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0096748_adistar-shoes_gx3000_top-portrait-view.jpeg"
-                        class="img-top" alt="Card Front">
-                </div>
-                <div class="color">
-                    <div class="color--item"></div>
-                    <div class="color--item"></div>
-                </div>
-                <div class="description">
-                    <p>4DFWD Pulse Shoes</p>
-                    <p>Men's Running</p>
-                    <p>₪ 299.90</p>
-                </div>
-            </div>
-            <div class="cards__item">
-
-                <div class="picture">
-                    <i class="far fa-heart"></i>
-
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0097622_ultraboost-50-dna-shoes_gz0442_side-lateral-center-view.jpeg"
-                        alt="Card Back">
-
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0097623_ultraboost-50-dna-shoes_gz0442_top-portrait-view.jpeg"
-                        class="img-top" alt="Card Front">
-                </div>
-                <div class="color">
-                    <div class="color--item"></div>
-                    <div class="color--item"></div>
-                </div>
-                <div class="description">
-                    <p>4DFWD Pulse Shoes</p>
-                    <p>Men's Running</p>
-                    <p>₪ 299.90</p>
-                </div>
-            </div>
-            <div class="cards__item">
-
-                <div class="picture">
-                    <i class="far fa-heart"></i>
-
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0076111_xz-0006-inside-out.jpeg"
-                        alt="Card Back">
-
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0076112_xz-0006-inside-out.jpeg"
-                        class="img-top" alt="Card Front">
-                </div>
-                <div class="color">
-                    <div class="color--item"></div>
-                    <div class="color--item"></div>
-                </div>
-                <div class="description">
-                    <p>4DFWD Pulse Shoes</p>
-                    <p>Men's Running</p>
-                    <p>₪ 299.90</p>
-                </div>
-            </div>
-            <div class="cards__item">
-
-                <div class="picture">
-                    <i class="far fa-heart"></i>
-
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0098107_superstar-shoes_gy3415_side-lateral-center-view.jpeg"
-                        alt="Card Back">
-
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0098108_superstar-shoes_gy3415_top-portrait-view.jpeg"
-                        class="img-top" alt="Card Front">
-                </div>
-                <div class="color">
-                    <div class="color--item"></div>
-                    <div class="color--item"></div>
-                </div>
-                <div class="description">
-                    <p>4DFWD Pulse Shoes</p>
-                    <p>Men's Running</p>
-                    <p>₪ 299.90</p>
-                </div>
-            </div>
-            <div class="cards__item">
-
-                <div class="picture">
-                    <i class="far fa-heart"></i>
-
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0087969_jeremy-scott-forum-dipped-low-shoes_gz8818_side-lateral-center-view.jpeg"
-                        alt="Card Back">
-
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0087970_jeremy-scott-forum-dipped-low-shoes_gz8818_top-portrait-view.jpeg"
-                        class="img-top" alt="Card Front">
-                </div>
-                <div class="color">
-                    <div class="color--item"></div>
-                    <div class="color--item"></div>
-                </div>
-                <div class="description">
-                    <p>4DFWD Pulse Shoes</p>
-                    <p>Men's Running</p>
-                    <p>₪ 299.90</p>
-                </div>
-            </div>
-            <div class="cards__item">
-
-                <div class="picture">
-                    <i class="far fa-heart"></i>
-
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0088779_predator-freak1-firm-ground-boots_fy6263_side-lateral-center-view.jpeg"
-                        alt="Card Back">
-
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0088780_predator-freak1-firm-ground-boots_fy6263_top-portrait-view.jpeg"
-                        class="img-top" alt="Card Front">
-                </div>
-                <div class="color">
-                    <div class="color--item"></div>
-                    <div class="color--item"></div>
-                </div>
-                <div class="description">
-                    <p>4DFWD Pulse Shoes</p>
-                    <p>Men's Running</p>
-                    <p>₪ 299.90</p>
-                </div>
-            </div>
-            <div class="cards__item">
-
-                <div class="picture">
-                    <i class="far fa-heart"></i>
-
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0086259_eq21-run-shoes_h68075_side-lateral-center-view.jpeg"
-                        alt="Card Back">
-
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0086260_eq21-run-shoes_h68075_top-portrait-view.jpeg"
-                        class="img-top" alt="Card Front">
-                </div>
-                <div class="color">
-                    <div class="color--item"></div>
-                    <div class="color--item"></div>
-                </div>
-                <div class="description">
-                    <p>4DFWD Pulse Shoes</p>
-                    <p>Men's Running</p>
-                    <p>₪ 299.90</p>
-                </div>
-            </div>
-            <div class="cards__item">
-
-                <div class="picture">
-                    <i class="far fa-heart"></i>
-
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0087999_jeremy-scott-forum-dipped-shoes_q46124_side-lateral-center-view.jpeg"
-                        alt="Card Back">
-
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0088000_jeremy-scott-forum-dipped-shoes_q46124_top-portrait-view.jpeg"
-                        class="img-top" alt="Card Front">
-                </div>
-                <div class="color">
-                    <div class="color--item"></div>
-                    <div class="color--item"></div>
-                </div>
-                <div class="description">
-                    <p>4DFWD Pulse Shoes</p>
-                    <p>Men's Running</p>
-                    <p>₪ 299.90</p>
-                </div>
-            </div>
-            <div class="cards__item">
-
-                <div class="picture">
-                    <i class="far fa-heart"></i>
-
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0077940_continental-80-stripes-shoes_fx5090_side-lateral-center-view.jpeg"
-                        alt="Card Back">
-
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0077941_continental-80-stripes-shoes_fx5090_top-portrait-view.jpeg"
-                        class="img-top" alt="Card Front">
-                </div>
-                <div class="color">
-                    <div class="color--item"></div>
-                    <div class="color--item"></div>
-                </div>
-                <div class="description">
-                    <p>4DFWD Pulse Shoes</p>
-                    <p>Men's Running</p>
-                    <p>₪ 299.90</p>
-                </div>
-            </div>
-            <div class="cards__item">
-
-                <div class="picture">
-                    <i class="far fa-heart"></i>
-
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0087481_kf-forum-low-benchmate-shoes.jpeg"
-                        alt="Card Back">
-
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0087482_kf-forum-low-benchmate-shoes.jpeg"
-                        class="img-top" alt="Card Front">
-                </div>
-                <div class="color">
-                    <div class="color--item"></div>
-                    <div class="color--item"></div>
-                </div>
-                <div class="description">
-                    <p>4DFWD Pulse Shoes</p>
-                    <p>Men's Running</p>
-                    <p>₪ 299.90</p>
-                </div>
-            </div>
-            <div class="cards__item">
-
-                <div class="picture">
-                    <i class="far fa-heart"></i>
-
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0067366_adilette-slides_g55376_side-lateral-center-view.jpeg"
-                        alt="Card Back">
-
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0067368_adilette-slides_g55376_top-portrait-view.jpeg"
-                        class="img-top" alt="Card Front">
-                </div>
-                <div class="color">
-                    <div class="color--item"></div>
-                    <div class="color--item"></div>
-                </div>
-                <div class="description">
-                    <p>4DFWD Pulse Shoes</p>
-                    <p>Men's Running</p>
-                    <p>₪ 299.90</p>
-                </div>
-            </div>
-            <div class="cards__item">
-
-                <div class="picture">
-                    <i class="far fa-heart"></i>
-
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0085691_gazelle-vintage-shoes_h02897_side-lateral-center-view.jpeg"
-                        alt="Card Back">
-
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0085692_gazelle-vintage-shoes_h02897_top-portrait-view.jpeg"
-                        class="img-top" alt="Card Front">
-                </div>
-                <div class="color">
-                    <div class="color--item"></div>
-                    <div class="color--item"></div>
-                </div>
-                <div class="description">
-                    <p>4DFWD Pulse Shoes</p>
-                    <p>Men's Running</p>
-                    <p>₪ 299.90</p>
-                </div>
-            </div>
-            <div class="cards__item">
-
-                <div class="picture">
-                    <i class="far fa-heart"></i>
-
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0075638_adidas-zx-8000-x-lego-shoes_fy7082_side-lateral-center-view.jpeg"
-                        alt="Card Back">
-
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0075639_adidas-zx-8000-x-lego-shoes_fy7082_top-portrait-view.jpegg"
-                        class="img-top" alt="Card Front">
-                </div>
-                <div class="color">
-                    <div class="color--item"></div>
-                    <div class="color--item"></div>
-                </div>
-                <div class="description">
-                    <p>4DFWD Pulse Shoes</p>
-                    <p>Men's Running</p>
-                    <p>₪ 299.90</p>
-                </div>
-            </div>
-            <div class="cards__item">
-
-                <div class="picture">
-                    <i class="far fa-heart"></i>
-
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0090909_geodiver-primeblue-shoes_h01780_side-lateral-center-view.jpeg"
-                        alt="Card Back">
-
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0090910_geodiver-primeblue-shoes_h01780_top-portrait-view.jpeg"
-                        class="img-top" alt="Card Front">
-                </div>
-                <div class="color">
-                    <div class="color--item"></div>
-                    <div class="color--item"></div>
-                </div>
-                <div class="description">
-                    <p>4DFWD Pulse Shoes</p>
-                    <p>Men's Running</p>
-                    <p>₪ 299.90</p>
-                </div>
-            </div>
-            <div class="cards__item">
-
-                <div class="picture">
-                    <i class="far fa-heart"></i>
-
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0096268_terrex-free-hiker-primeblue-hiking-shoes_gw2810_side-lateral-center-view.jpeg"
-                        alt="Card Back">
-
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0096269_terrex-free-hiker-primeblue-hiking-shoes_gw2810_top-portrait-view.jpeg"
-                        class="img-top" alt="Card Front">
-                </div>
-                <div class="color">
-                    <div class="color--item"></div>
-                    <div class="color--item"></div>
-                </div>
-                <div class="description">
-                    <p>4DFWD Pulse Shoes</p>
-                    <p>Men's Running</p>
-                    <p>₪ 299.90</p>
-                </div>
-            </div>
-            <div class="cards__item">
-
-                <div class="picture">
-                    <i class="far fa-heart"></i>
-
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0061069_stan-smith-shoes_fx5502_side-lateral-center-view.jpeg"
-                        alt="Card Back">
-
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0061070_stan-smith-shoes_fx5502_top-portrait-view.jpeg"
-                        class="img-top" alt="Card Front">
-                </div>
-                <div class="color">
-                    <div class="color--item"></div>
-                    <div class="color--item"></div>
-                </div>
-                <div class="description">
-                    <p>4DFWD Pulse Shoes</p>
-                    <p>Men's Running</p>
-                    <p>₪ 299.90</p>
-                </div>
-            </div>
-            <div class="cards__item">
-
-                <div class="picture">
-                    <i class="far fa-heart"></i>
-
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0079357_zx-2k-boost-pure-shoes_gz7731_side-lateral-center-view.jpeg"
-                        alt="Card Back">
-
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0079358_zx-2k-boost-pure-shoes_gz7731_top-portrait-view.jpeg"
-                        class="img-top" alt="Card Front">
-                </div>
-                <div class="color">
-                    <div class="color--item"></div>
-                    <div class="color--item"></div>
-                </div>
-                <div class="description">
-                    <p>4DFWD Pulse Shoes</p>
-                    <p>Men's Running</p>
-                    <p>₪ 299.90</p>
-                </div>
-            </div>
-            <div class="cards__item">
-
-                <div class="picture">
-                    <i class="far fa-heart"></i>
-
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0074576_4d-fusio-shoes.jpeg"
-                        alt="Card Back">
-
-                    <img src="https://st-adidas-isr.mncdn.com/content/images/thumbs/0074577_4d-fusio-shoes.jpeg"
-                        class="img-top" alt="Card Front">
-                </div>
-                <div class="color">
-                    <div class="color--item"></div>
-                    <div class="color--item"></div>
-                </div>
-                <div class="description">
-                    <p>4DFWD Pulse Shoes</p>
-                    <p>Men's Running</p>
-                    <p>₪ 299.90</p>
-                </div>
-            </div>
-        </div> -->
-        <!-- </div> -->
         <div class="footer">
 
 
@@ -624,173 +169,7 @@
                     <i class="fas fa-arrow-right"></i>
                 </button>
             </div>
-            <div class="footer__container">
-                <ul class="footer--group">
-                    <li class="footer--headline">lorem</li>
-                    <li>
-                        <p>lorem</p>
-                    </li>
-                    <li>
-                        <p>lorem</p>
-                    </li>
-                    <li>
-                        <p>lorem</p>
-                    </li>
-                    <li>
-                        <p>lorem</p>
-                    </li>
-                    <li>
-                        <p>lorem</p>
-                    </li>
-                    <li>
-                        <p>lorem</p>
-                    </li>
-                    <li>
-                        <p>lorem</p>
-                    </li>
-                    <li>
-                        <p>lorem</p>
-                    </li>
-                    <li>
-                        <p>lorem</p>
-                    </li>
-                    <li>
-                        <p>lorem</p>
-                    </li>
-                </ul>
-                <ul class="footer--group">
-                    <li class="footer--headline">lorem</li>
-                    <li>
-                        <p>lorem</p>
-                    </li>
-                    <li>
-                        <p>lorem</p>
-                    </li>
-                    <li>
-                        <p>lorem</p>
-                    </li>
-                    <li>
-                        <p>lorem</p>
-                    </li>
-                    <li>
-                        <p>lorem</p>
-                    </li>
-                    <li>
-                        <p>lorem</p>
-                    </li>
-                    <li>
-                        <p>lorem</p>
-                    </li>
-                    <li>
-                        <p>lorem</p>
-                    </li>
-                    <li>
-                        <p>lorem</p>
-                    </li>
-                    <li>
-                        <p>lorem</p>
-                    </li>
-                </ul>
-                <ul class="footer--group">
-                    <li class="footer--headline">lorem</li>
-                    <li>
-                        <p>lorem</p>
-                    </li>
-                    <li>
-                        <p>lorem</p>
-                    </li>
-                    <li>
-                        <p>lorem</p>
-                    </li>
-                    <li>
-                        <p>lorem</p>
-                    </li>
-                    <li>
-                        <p>lorem</p>
-                    </li>
-                    <li>
-                        <p>lorem</p>
-                    </li>
-                    <li>
-                        <p>lorem</p>
-                    </li>
-                    <li>
-                        <p>lorem</p>
-                    </li>
-                    <li>
-                        <p>lorem</p>
-                    </li>
-                    <li>
-                        <p>lorem</p>
-                    </li>
-                </ul>
-                <ul class="footer--group">
-                    <li class="footer--headline">lorem</li>
-                    <li>
-                        <p>lorem</p>
-                    </li>
-                    <li>
-                        <p>lorem</p>
-                    </li>
-                    <li>
-                        <p>lorem</p>
-                    </li>
-                    <li>
-                        <p>lorem</p>
-                    </li>
-                    <li>
-                        <p>lorem</p>
-                    </li>
-                    <li>
-                        <p>lorem</p>
-                    </li>
-                    <li>
-                        <p>lorem</p>
-                    </li>
-                    <li>
-                        <p>lorem</p>
-                    </li>
-                    <li>
-                        <p>lorem</p>
-                    </li>
-                    <li>
-                        <p>lorem</p>
-                    </li>
-                </ul>
-                <ul class="footer--group">
-                    <li class="footer--headline">lorem</li>
-                    <li>
-                        <p>lorem</p>
-                    </li>
-                    <li>
-                        <p>lorem</p>
-                    </li>
-                    <li>
-                        <p>lorem</p>
-                    </li>
-                    <li>
-                        <p>lorem</p>
-                    </li>
-                    <li>
-                        <p>lorem</p>
-                    </li>
-                    <li>
-                        <p>lorem</p>
-                    </li>
-                    <li>
-                        <p>lorem</p>
-                    </li>
-                    <li>
-                        <p>lorem</p>
-                    </li>
-                    <li>
-                        <p>lorem</p>
-                    </li>
-                    <li>
-                        <p>lorem</p>
-                    </li>
-                </ul>
-            </div>
+            
             <div class="footer__lower">
                 <ul>
                     <li>
@@ -810,13 +189,7 @@
             </div>
         </div>
 
-        <div id="rootCart"></div>
-        <div id="rootWishList"></div>
-
-
-        <div id="wishListRoot">
-
-        </div>
+  
         <script src="dist/index.js"> </script>
 
 </body>
