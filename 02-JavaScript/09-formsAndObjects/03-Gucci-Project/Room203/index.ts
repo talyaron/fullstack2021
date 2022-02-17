@@ -557,17 +557,6 @@ function handleCart(id) {
 
 Adidas.addItem(
   "superstar shoes",
-  200,
-  "men",
-  "Sneakers",
-  "https://st-adidas-isr.mncdn.com/content/images/thumbs/0095730_ultraboost-22-shoes_gx5462_side-lateral-center-view.jpeg",
-  "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/666c4ff90e5c4c8fb23cada300ec0645_9366/ZX_1K_Boost_Shoes_Grey_H00430_02_standard.jpg",
-  "red",
-  "B-ball legend. Street symbol. Cultural icon. Still going strong after five decades, the adidas Superstar Shoes have millions of stories to tell. Smooth leather combines with serrated 3-Stripes and the authentic rubber shell toe. Ready for the next fifty years of iconic adidas style? Lets do it.",
-  30
-);
-Adidas.addItem(
-  "superstar shoes",
   300,
   "women",
   "Boots",
