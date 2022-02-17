@@ -19,7 +19,7 @@ interface Store {
   ): any;
   cartItems: Array<Item>;
   removeItems(itemName: string): any;
-  addToCart?(newItem:any,name:string,imgTop:string,price:number): any;
+  addToCart?(id:any , newItem:any): any;
   renderAddToCart?(domElement: any): any;
   updateItems(itemName: string, newPrice: number): any;
   filterByItemNameAndGender(gender: string, itemName: string): any;
@@ -342,11 +342,10 @@ const gucci: Store = {
       this.storeData();
     }
   },
-  addToCart(newItem,name,imgTop,price) {
-    const id = uid();
+  addToCart(id, newItem) {
 
-    this.items.forEach((item) => item.id === newItem);
-    this.cartItems.push({name,imgTop,price});
+    this.items.forEach((item) => item.id === id);
+    this.cartItems.push(id,newItem);
   },
   renderAddToCart(domElement) {
     let cartHtml = "";
@@ -409,7 +408,7 @@ const gucci: Store = {
         <img class="imgTop" src="${item.imgTop}" >
         <img class="imgBottom" src="${item.imgBottom}" >
         <p>${item.price}$</p>
-        <input onclick="handleAddToCart('${item.id}')" id="addToCart" type="button" value="ADD TO CART">
+        <input onclick="handleAddToCart(event,'${item.id}')" id="addToCart" type="button" value="ADD TO CART">
         </div>`;
     });
     domElement.innerHTML = html;
@@ -608,13 +607,9 @@ function handleAddToCart(addedItemsId) {
     const cartRoot = document.getElementById("cartRoot");
     const addedItems = gucci.items.filter((item) => (item.id = addedItemsId));
     const id=uid();
-    const index = this.items.findIndex((item) => item.id === addedItemsId.id);
+    // const index = this.items.findIndex((item) => item.id === addedItemsId.id);
 
-    const name=gucci.items[index].name;
-    const imgTop=gucci.items[index].imgTop;
-    const price=gucci.items[index].price;
-
-      gucci.addToCart(addedItems,name,imgTop,price);
+      gucci.addToCart(addedItems);
       gucci.renderAddToCart(cartRoot);
     
   
