@@ -291,23 +291,6 @@ function handleGender(ev) {
         Adidas.renderAllData(root);
     }
 }
-function handleShoeSize(ev) {
-    var size = ev.target.value;
-    ev.preventDefault();
-    var root = document.getElementById("rootCustomer");
-    if (size === "30") {
-        console.log(size);
-        Adidas.renderFilter(Adidas.shoeSizeFilter(size), root);
-    }
-    else if (size === "40") {
-        console.log(size);
-        Adidas.renderFilter(Adidas.shoeSizeFilter(size), root);
-    }
-    else if (size === "44") {
-        console.log(size);
-        Adidas.renderFilter(Adidas.shoeSizeFilter(size), root);
-    }
-}
 function handleWishList(id) {
     //console.log(id);
     var root = document.getElementById("rootWish");
