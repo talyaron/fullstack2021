@@ -10,7 +10,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 26vh;
+  height: 179px;
 }
 .header__sort {
   margin-bottom: 70px;
@@ -67,9 +67,55 @@ body {
 }
 .header__inner__side--menu i {
   transition: ease 1s;
+  width: 50px;
 }
 .header__inner__side--menu i:hover {
   text-shadow: 0 0 15px #770b0b;
+}
+.header__inner__side--menu i a {
+  top: 100px;
+  margin-left: -30px;
+  width: 60px;
+  font-size: 16px;
+  padding: 20px;
+  border-radius: 10px;
+  font-family: arial;
+  text-decoration: none;
+  color: black;
+}
+.header__inner__side--menu i #button:hover {
+  background-color: #EFF1F3;
+  color: #D77A61;
+}
+.header__inner__side--menu i #popup {
+  position: relative;
+  height: 300px;
+  width: 200px;
+  right: 220px;
+  background-color: #EFF1F3;
+  color: black;
+  top: 20px;
+  right: 200px;
+  opacity: 0;
+  padding: 20px;
+  border-style: solid;
+  border-radius: 15px;
+  transition: all 1s;
+  -webkit-transition: all 1s;
+}
+.header__inner__side--menu i #popup:target {
+  opacity: 1;
+}
+.header__inner__side--menu i #close {
+  position: absolute;
+  left: 93%;
+  top: 12px;
+  font-size: 10px;
+  z-index: 1;
+  padding: 0;
+}
+.header__inner__side--menu i #close:hover {
+  color: #b11919;
 }
 .header__inner--searchBar {
   padding: 2px;
@@ -79,6 +125,15 @@ body {
   height: 30px;
   transition: border ease 1s;
   background-color: #e9ecef;
+  position: relative;
+  bottom: 0px;
+}
+@media only screen and (max-width: 150ch) {
+  .header__inner--searchBar {
+    left: 91px;
+    position: relative;
+    bottom: 98px;
+  }
 }
 .header__inner--searchBar:hover {
   border: solid black 1px;
@@ -234,15 +289,19 @@ body {
 .cards__item:hover {
   border: 1px solid black;
 }
-.cards__item .fa-heart {
+.cards__item i:nth-child(1) {
+  --fa-animation-duration: 0.5s;
+  right: 35px;
+}
+.cards__item i {
   position: absolute;
   right: 0;
   top: 0;
   z-index: 8;
   margin: 10px;
 }
-.cards__item .fa-heart:active {
-  background-color: red;
+.cards__item i:active {
+  color: red;
 }
 .cards__item .picture {
   transition: ease 5s;
