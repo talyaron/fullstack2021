@@ -16,6 +16,8 @@
 </head>
 
 <body onload="handleGetData('customer')">
+    <div  id="rootCart"></div>
+    <div  id="rootWish" style="position: absolute; left: 350px;"></div>
 
     <div class="header">
         <div class="usp__bar">
@@ -41,7 +43,7 @@
                 <input type="text" placeholder="Search.." name="search" onkeyup="handleSearchProduct(event)" />
                 <i class="fa fa-search"></i>
             </div>
-            <div id="rootSearch">
+            <div id="rootSearch" style="color: gold; position: relative;">
 
             </div>
             <div class="header__inner__side--menu">
@@ -57,6 +59,7 @@
 
                         <div id="popup" style="text-align:center;">
                             <a id="close" href="#">X</a>
+                            
 
 
                             <br>
