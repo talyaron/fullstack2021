@@ -58,7 +58,7 @@
   font-weight: 400;
   display: inline-block;
   text-decoration-style: underline;
-  font-size: 5vh;
+  font-size: 3vh;
 }
 .main_form-selectCatagory-sortOptions {
   height: 5vh;
@@ -98,6 +98,7 @@
   cursor: pointer;
 }
 .main_form :hover {
+  -webkit-transform: scale(1);
   transform: scale(1.05);
 }
 .main_form-filterInputs {
@@ -198,9 +199,6 @@
   max-width: 740px;
   height: 900px;
   margin: auto;
-  width: 100%;
-  height: 2100px;
-  max-height: fit-content;
   background: linear-gradient(#9df19d, transparent), linear-gradient(90deg, skyblue, transparent), linear-gradient(-90deg, coral, transparent);
   background-blend-mode: screen;
 }
@@ -220,30 +218,34 @@
   grid-row: 1/4;
   grid-column: 1/2;
   height: 10vh;
+  margin-top: -1vh;
 }
 .container_header-search {
-  height: 15vh;
+  height: 10vh;
   grid-row: 1/4;
-  grid-column: 3/9;
+  grid-column: 3/7;
+  justify-content: center;
   margin-top: 1vh;
 }
-.container_header-search-input {
-  width: 90%;
-  height: 40%;
+.container_header-search input {
+  width: 100%;
+  height: 50%;
+  align-self: center;
   background-color: blanchedalmond;
   border-radius: 10px;
 }
 .container_header_menu {
-  grid-column: 9/13;
+  grid-column: 7/13;
   height: 8vh;
   grid-row: 1;
   display: flex;
+  column-gap: 1rem;
 }
 .container_header_menu-btn {
   background-color: transparent;
   box-shadow: none;
   display: inline-block;
-  width: 100%;
+  width: 25%;
   border: none;
 }
 .container_header_menu-btn p {
@@ -262,86 +264,14 @@
 }
 .container_header-dropDown-box-item {
   width: 100%;
-  height: 40%;
-  display: grid;
-  grid-template-columns: repeat(4, 25%);
-  grid-template-rows: repeat(4, 25%);
+  height: 35%;
   border-bottom: 1px solid #5656e0;
   background-color: #d4d3c9;
 }
-.container_header-dropDown-box-item-header {
-  grid-row: 1;
-  grid-column: 2/4;
-  font-size: 13px;
-  font-weight: 1000;
-  text-align: center;
-}
-.container_header-dropDown-box-item-size {
-  text-align: start;
-  grid-row: 2;
-  font-weight: 1000;
-  font-size: 11px;
-}
-.container_header-dropDown-box-item-price {
-  text-align: start;
-  grid-row: 3;
-  grid-column: 1/2;
-  font-weight: 1000;
-  font-size: 11px;
-}
-.container_header-dropDown-box-item-deleteBtn {
-  grid-row: 3/5;
-  grid-column: 4/5;
-  height: 100%;
-  font-size: 10px;
-  border-radius: 10px;
-  background-color: antiquewhite;
-}
 .container_header-dropDown-box-signInInput {
-  box-shadow: rgba(112, 134, 233, 0.35) 0px 30px 60px -12px inset, rgba(59, 101, 163, 0.5) 0px 18px 36px -30px inset;
-  border-radius: 5px;
-  height: 10%;
-  width: 70%;
-  align-self: center;
-}
-.container_header-dropDown-box-signInInput::placeholder {
-  color: black;
-  font-weight: 700;
-  font-size: 10px;
-}
-.container_header-dropDown-box-signInInput-btn {
-  color: #34333b;
-  background-color: #3dcf56;
-  box-shadow: none;
-  width: 75%;
-  border-radius: 5px;
-  align-self: center;
-  height: 2.5vh;
-  font-size: 10px;
-}
-.container_header-dropDown .notifications {
-  box-shadow: rgba(235, 155, 179, 0.35) 0px 30px 60px -12px inset, rgba(163, 77, 81, 0.5) 0px 18px 36px -30px inset;
-  grid-column: 1/2;
-  border-radius: 15px;
-  opacity: 0.8;
-}
-.container_header-dropDown .signIn {
-  grid-column: 2/3;
-  row-gap: 5px;
-}
-.container_header-dropDown .yourOrders {
-  grid-column: 3/4;
-  box-shadow: rgba(70, 97, 218, 0.35) 0px 30px 60px -12px inset, rgba(59, 101, 163, 0.5) 0px 18px 36px -30px inset;
-}
-.container_header-dropDown .shoppingCart {
-  grid-column: 3/5;
-  height: 80%;
+  box-shadow: rgba(97, 88, 6, 0.85) 0px 30px 60px -12px inset, rgba(85, 216, 96, 0.5) 0px 18px 36px -30px inset;
+  height: 20%;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  overflow: auto;
-  white-space: nowrap;
-  box-shadow: rgba(53, 146, 118, 0.35) 0px 30px 60px -12px inset, rgba(183, 194, 211, 0.5) 0px 18px 36px -30px inset;
 }
 .container-imgsBox {
   background-image: url(https://s18670.pcdn.co/wp-content/uploads/Top-20-Teacher-T-Shirts-on-Etsy.png);
@@ -350,7 +280,7 @@
   background-repeat: no-repeat;
   margin: auto;
   width: 100%;
-  height: 25%;
+  height: 35%;
   margin-top: 10px;
 }
 .container_catagories {
@@ -358,7 +288,7 @@
   justify-content: space-around;
   width: 100%;
   flex-direction: row;
-  height: 15%;
+  height: 20%;
   margin: auto;
 }
 .container_catagories-box {
@@ -373,7 +303,7 @@
 }
 .container_catagories-display {
   width: 100%;
-  height: 45%;
+  height: 25%;
   margin-top: 5px;
   border: 1px solid #c5bbbb;
   display: flex;
@@ -384,72 +314,12 @@
 }
 .container_catagories-display-card {
   border-bottom: 5px solid black;
-  box-shadow: rgba(243, 247, 243, 0.55) 0px 30px 60px 80px inset, rgba(239, 250, 235, 0.75) 0px 18px 36px 30px inset;
+  box-sizing: content-box;
+  box-shadow: rgba(110, 111, 112, 0.55) 0px 30px 60px 80px inset, rgba(12, 24, 94, 0.75) 0px 18px 36px 30px inset;
   height: 100%;
   width: 100%;
   display: grid;
   grid-template-columns: repeat(2, 50%);
-}
-.container_catagories-display-card-btn,
-.container_catagories-display-card input[type=submit] {
-  cursor: pointer;
-  border-radius: 0px;
-  text-decoration: none;
-  padding: 12px 18px;
-  font-size: 12px;
-  line-height: 19px;
-  text-transform: uppercase;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 400;
-  letter-spacing: 3px;
-  -webkit-transition: all 0.4s ease-in-out;
-  -moz-transition: all 0.4s ease-in-out;
-  -ms-transition: all 0.4s ease-in-out;
-  -o-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out;
-}
-.container_catagories-display-card-btn {
-  border-radius: 0px;
-  text-decoration: none;
-  padding: 14px 21px;
-  font-size: 13px;
-  line-height: 25px;
-  text-transform: uppercase;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 400;
-  letter-spacing: 3px;
-  -webkit-transition: all 0.4s ease-in-out;
-  -moz-transition: all 0.4s ease-in-out;
-  -ms-transition: all 0.4s ease-in-out;
-  -o-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out;
-}
-.container_catagories-display-card-btn:hover,
-.container_catagories-display-card input[type=submit]:hover {
-  -webkit-transition: all 0.4s ease-in-out;
-  -moz-transition: all 0.4s ease-in-out;
-  -ms-transition: all 0.4s ease-in-out;
-  -o-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out;
-}
-.container_catagories-display-card-btn,
-.container_catagories-display-card input[type=submit] {
-  border: solid 2px #1f1f1f;
-  background: transparent;
-  color: #1f1f1f;
-}
-.container_catagories-display-card-btn:hover,
-.container_catagories-display-card input[type=submit]:hover,
-.container_catagories-display-card .btn-dark.active {
-  border: solid 2px #1f1f1f;
-  background: #1f1f1f;
-  color: #fff;
-}
-.container_catagories-display-card-btn-color {
-  background: transparent;
-}
-.container_catagories-display-card-btn-color:hover {
-  color: #fff;
 }
 .container_catagories-display-card-details {
   height: 100%;
@@ -465,13 +335,13 @@
   background-repeat: no-repeat;
 }
 .container_catagories .Tshirts {
-  background-image: url("https://iheartcraftythings.com/wp-content/uploads/2021/06/4-27.jpg");
+  background-image: url("https://www.buytshirtdesigns.net/wp-content/uploads/2020/02/20-Gym-T-shirts-600x450.jpg");
 }
 .container_catagories .shoes {
-  background-image: url("https://iheartcraftythings.com/wp-content/uploads/2021/05/Shoes5.jpg");
+  background-image: url("https://thumbs.dreamstime.com/b/various-types-shoes-vector-graphics-silhouettes-various-types-shoes-vector-graphics-silhouettes-shoes-men-200369007.jpg");
 }
 .container_catagories .pants {
-  background-image: url("https://iheartcraftythings.com/wp-content/uploads/2021/10/5-33.jpg");
+  background-image: url("https://media.istockphoto.com/vectors/set-of-trousers-for-business-man-vector-id818252146?k=20&m=818252146&s=612x612&w=0&h=zA3CDwVXCfKAgIZ1FxkyfvGLRgKX_aentNe9AwmNDJw=");
 }
 .container_sortANDfilterBtns {
   height: 7vh;
@@ -492,8 +362,8 @@
 }
 .container_sortANDfilterBtns-box_form-filterInput {
   box-shadow: rgba(6, 61, 97, 0.85) 0px 30px 60px -12px inset, rgba(16, 63, 85, 0.5) 0px 18px 36px -30px inset;
-  height: 2vh;
-  width: 35%;
+  height: 3vh;
+  width: 60%;
   color: #f0e8da;
   font-size: 15px;
   border-radius: 5px;
@@ -508,137 +378,23 @@
   font-weight: 1000;
   box-shadow: rgba(33, 13, 87, 0.75) 0px 54px 55px, rgba(32, 161, 101, 0.72) 0px -12px 30px, rgba(53, 100, 187, 0.82) 0px 4px 6px, rgba(101, 42, 136, 0.77) 0px 12px 13px, rgba(52, 88, 136, 0.99) 0px -3px 5px;
   background-color: #6b442e;
-  justify-self: center;
 }
 .container-select {
-  cursor: pointer;
-  border-radius: 0;
-  padding: 12px 18px;
-  font-size: 16px;
-  line-height: 19px;
-  text-transform: uppercase;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 400;
-  letter-spacing: 3px;
-  -webkit-transition: all 0.4s ease-in-out;
-  -moz-transition: all 0.4s ease-in-out;
-  -ms-transition: all 0.4s ease-in-out;
-  -o-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out;
+  border-radius: 15%;
+  font-size: 12px;
+  font-weight: bold;
+  box-shadow: rgba(40, 40, 41, 0.85) 0px 30px 60px -12px inset, rgba(25, 34, 153, 0.8) 0px 18px 36px 30px inset;
+  height: 4vh;
+  text-align: center;
+  appearance: none;
   width: 45%;
-  background: #fdfdfd;
+  background: #3256b9;
+  color: white;
   font-weight: bold;
   margin: auto;
 }
 .container-select-options {
+  font-size: 10px;
   display: inline-block;
   font-family: "Times New Roman", Times, serif;
-}
-.container-shoppingCart {
-  margin-top: 20px;
-  width: 100%;
-  height: 90vh;
-  display: none;
-  grid-template-columns: repeat(5, 20%);
-  grid-template-rows: repeat(10, 10%);
-}
-.container-shoppingCart_display {
-  border: 1px solid #757373;
-  grid-column: 2/5;
-  grid-row: 2/7;
-  display: flex;
-  flex-direction: column;
-  overflow-y: scroll;
-  white-space: nowrap;
-}
-.container-shoppingCart_display-item {
-  height: 45%;
-  border-bottom: 1px solid black;
-  justify-self: auto;
-  display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  grid-template-rows: repeat(10, 1fr);
-}
-.container-shoppingCart_display-item-header {
-  font-size: 20px;
-  text-align: center;
-  grid-column: 1/11;
-  grid-row: 1/3;
-}
-.container-shoppingCart_display-item-size {
-  font-size: 17px;
-  grid-column: 1/4;
-  grid-row: 1/4;
-  font-weight: 1000;
-}
-.container-shoppingCart_display-item-price {
-  font-size: 15px;
-  font-weight: 1000;
-  grid-column: 1/4;
-  grid-row: 4/6;
-}
-.container-shoppingCart_display-item-deleteBtn,
-.container-shoppingCart_display-item input[type=submit] {
-  grid-column: 8/10;
-  grid-row: 4/8;
-}
-.container-shoppingCart_display-item-deleteBtn {
-  cursor: pointer;
-  border-radius: 0%;
-  text-decoration: none;
-  padding: 12px 18px;
-  font-size: 12px;
-  line-height: 19px;
-  text-transform: uppercase;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 400;
-  letter-spacing: 3px;
-  -webkit-transition: all 0.4s ease-in-out;
-  -moz-transition: all 0.4s ease-in-out;
-  -ms-transition: all 0.4s ease-in-out;
-  -o-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out;
-}
-.container-shoppingCart_display-item-deleteBtn {
-  border-radius: 0;
-  text-decoration: none;
-  padding: 14px 21px;
-  font-size: 13px;
-  line-height: 25px;
-  text-transform: uppercase;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 400;
-  letter-spacing: 3px;
-  -webkit-transition: all 0.4s ease-in-out;
-  -moz-transition: all 0.4s ease-in-out;
-  -ms-transition: all 0.4s ease-in-out;
-  -o-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out;
-}
-.container-shoppingCart_display-item-deleteBtn:hover,
-.container-shoppingCart_display-item input[type=submit]:hover {
-  -webkit-transition: all 0.4s ease-in-out;
-  -moz-transition: all 0.4s ease-in-out;
-  -ms-transition: all 0.4s ease-in-out;
-  -o-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out;
-}
-.container-shoppingCart_display-item-deleteBtn,
-.container-shoppingCart_display-item input[type=submit] {
-  border: solid 2px #1f1f1f;
-  background: transparent;
-  color: #1f1f1f;
-}
-.container-shoppingCart_display-item-deleteBtn:hover,
-.container-shoppingCart_display-item input[type=submit]:hover,
-.container-shoppingCart_display-item .deleteBtn-dark.active {
-  border: solid 2px #1f1f1f;
-  background: #1f1f1f;
-  color: #fff;
-}
-.container-shoppingCart_display-item-deleteBtn-color {
-  background: transparent;
-}
-.container-shoppingCart_display-item-deleteBtn-color:hover {
-  color: #fff;
 }

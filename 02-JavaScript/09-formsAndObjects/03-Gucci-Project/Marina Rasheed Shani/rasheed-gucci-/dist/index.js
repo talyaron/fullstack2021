@@ -231,10 +231,10 @@ var gucci = {
             this.storeData();
         }
     },
-    addToCart: function (newItem) {
+    addToCart: function (newItem, name, imgTop, price) {
         var id = uid();
         this.items.forEach(function (item) { return item.id === newItem; });
-        this.cartItems.push(newItem);
+        this.cartItems.push({ name: name, imgTop: imgTop, price: price });
     },
     renderAddToCart: function (domElement) {
         var cartHtml = "";
@@ -461,12 +461,15 @@ function handleAddToCart(addedItemsId) {
     try {
         var cartRoot = document.getElementById("cartRoot");
         var addedItems = gucci.items.filter(function (item) { return (item.id = addedItemsId); });
-        // if(!addedItems) throw new Error ('addedItems wasnt caught in handleAddCart');
-        // if(!addedItemsId) throw new Error ('addedItemsId wasnt caught in handleAddCart');
+        var id = uid();
+        var index = this.items.findIndex(function (item) { return item.id === addedItemsId.id; });
+        var name = gucci.items[index].name;
+        var imgTop = gucci.items[index].imgTop;
+        var price = gucci.items[index].price;
+        gucci.addToCart(addedItems, name, imgTop, price);
+        gucci.renderAddToCart(cartRoot);
         if (!cartRoot)
             throw new Error("no cartRoot in DOM");
-        gucci.addToCart(addedItems);
-        gucci.renderAddToCart(cartRoot);
     }
     catch (error) {
         console.error(error);
@@ -497,6 +500,7 @@ function handleSearch(ev) {
             })
                 .join("");
             root_1.innerHTML = html;
+            console.log(foundItem);
         }
         else {
             gucci.renderByGender(gender_1, root_1);

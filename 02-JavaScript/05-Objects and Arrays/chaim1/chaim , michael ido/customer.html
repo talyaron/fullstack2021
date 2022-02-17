@@ -12,17 +12,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Ubuntu:wght@300&display=swap" rel="stylesheet">
 </head>
 <style>
+   
+    
 </style>
 <body onload="set_timeImgs()">
     <div class="container">
         <div class="container_header">
             <a href="customer.html" class="container_header-logo"></a> 
-             <div class="container_header-search">
-                <label class="container_header-search-label" for="searchOptions"></label>
-                <input  list="search" name="searchOptions" class="container_header-search-input" placeholder="Search here..." >
-                 <datalist id="search" class="container_header-search-dataList" > 
-             </datalist>
-            </div>
+             <div class="container_header-search"><input type="search" placeholder="Search for a product"></div>
              <div class="container_header_menu">
                 <button id="notificationsBtn" class="container_header_menu-btn" onclick="showDropDown(event)">
                     <i id="notificationsBtn" class="fas fa-bell fa-2x" onclick="showDropDown(event)"></i><p id="notificationsBtn" class="btnDiscription">Notifications</p></button>
@@ -31,12 +28,23 @@
                <button id="yourOrdersBtn" class="container_header_menu-btn" onclick="showDropDown(event)">
                 <i id="yourOrdersBtn" class="fas fa-truck-loading fa-2x" onclick="showDropDown(event)"></i><p id="yourOrdersBtn" class="btnDiscription">Your orders</p></button>
                <button id="shoppingCartBtn" class="container_header_menu-btn" onclick="showDropDown(event)">
-                <i id="shoppingCartBtn" class="fas fa-shopping-cart fa-2x" onclick="showDropDown(event)"></i>
-                <p id="shoppingCartBtn" class="btnDiscription">Shopping cart</p>
-            </button>
+                <i id="shoppingCartBtn" class="fas fa-shopping-cart fa-2x"></i><p id="shoppingCartBtn" class="btnDiscription">Shopping cart</p></button>
              </div>
              <div class="container_header-dropDown">
-                 <div class="container_header-dropDown-totalCart"></div>
+                 <!-- <div id="notifications" class="container_header-dropDown-box notifications" style="background-color: gray;">
+                    <p style="font-size: 12px">no notifications found</p>
+                 </div> -->
+                 <!-- <div id="signIn" class="container_header-dropDown-box signIn">
+                     <input class="container_header-dropDown-box-signInInput" type="email" name="UserName" id="userName" placeholder="User Name" >
+                     <input class="container_header-dropDown-box-signInInput" type="password" name="password" id="password" placeholder="Password">
+                     <button type="button" class="singIn-btn">Sign In</button>
+                 </div> -->
+                 <!-- <div id="yourOrders" class="container_header-dropDown-box yourOrders">
+                     <p style="font-size: 12px">no Orders yet...</p>
+                    </div> -->
+                 <!-- <div id="shoppingCart" class="container_header-dropDown-box shoppingCart">
+                     <div class="container_header-dropDown-box-item"></div>
+                 </div> -->
              </div>             
          </div>
          <div class="container-imgsBox" id="ImgsBox"></div>
@@ -54,6 +62,13 @@
          </div>
          <div class="container_catagories-display"></div>
 
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+
+         <!-- <form class="container_sortANDfilterBtns-box_form" onsubmit="displayFilter(event)"></form> -->
+         <!-- <button class="main_form-filterInputsCustomer-submit" type="submit">search</button> -->
+
+=======
          <div class="container_catagories-ShoppingCart">
                 <div class="container_catagories-ShoppingCart_display">
                     <!-- <div class="container_catagories-ShoppingCart_display-item">
@@ -64,16 +79,13 @@
                 </div>
          </div>
          
-
+>>>>>>> Stashed changes
+=======
  <div class="container-shoppingCart">
-    <div id="shoppingCartDisplay" class="container-shoppingCart_display"></div>
-    <div class="container-shoppingCart-orderAndTotal">
-        <p class="totalCart"></p>
-        <button type="button" class="container-shoppingCart-orderAndTotal-btn">Order now</button>
-    </div>
+    <div class="container-shoppingCart_display"></div>
  </div>
          
-
+>>>>>>> 3c608791b25a27aa87b11e7cdc53551addfe70e4
 </div>
 <script src="dist/taskFilter.js"></script>
  
