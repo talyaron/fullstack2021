@@ -24,8 +24,8 @@ interface shop {
   renderWish(list: Array<product>, domElement: any);
   renderCart(list: Array<product>, domElement: any);
   renderAllData(domElement: any);
-  renderAllWish(domElement)
-  renderAllCart(domElement)
+  renderAllWish(domElement);
+  renderAllCart(domElement);
   deleteItem(id: number);
   updateItem(
     id: number,
@@ -191,7 +191,7 @@ const Adidas: shop = {
 
     let html = "";
     this.wishlistArr.forEach((product) => {
-        html += `
+      html += `
      <div class="cards__item" >
 
       <div class="picture">
@@ -210,9 +210,7 @@ const Adidas: shop = {
       <p> ${product.color}</p>
       </div>
           </div>   `;
-      
     });
-
 
     domElement.innerHTML = html;
   },
@@ -221,7 +219,7 @@ const Adidas: shop = {
 
     let html = "";
     this.cartArr.forEach((product) => {
-        html += `
+      html += `
      <div class="cards__item" >
 
       <div class="picture">
@@ -238,9 +236,7 @@ const Adidas: shop = {
       <p> ${product.color}</p>
       </div>
           </div>   `;
-      
     });
-
 
     domElement.innerHTML = html;
   },
@@ -274,7 +270,6 @@ const Adidas: shop = {
   renderAllData(domElement) {
     this.render(this.products, domElement);
   },
-
 
   renderAllWish(domElement) {
     this.renderWish(this.wishlistArr, domElement);
@@ -335,7 +330,6 @@ const Adidas: shop = {
     item = Adidas.products[index];
     this.cartArr.push(item);
   },
-
 
   shoeRender(id) {
     const index = this.products.findIndex((product) => product.id === id);
@@ -567,7 +561,7 @@ Adidas.addItem(
   "men",
   "Sneakers",
   "https://st-adidas-isr.mncdn.com/content/images/thumbs/0095730_ultraboost-22-shoes_gx5462_side-lateral-center-view.jpeg",
-  "https://st-adidas-isr.mncdn.com/content/images/thumbs/0095732_ultraboost-22-shoes_gx5462_top-portrait-view.jpeg",
+  "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/666c4ff90e5c4c8fb23cada300ec0645_9366/ZX_1K_Boost_Shoes_Grey_H00430_02_standard.jpg",
   "red",
   "B-ball legend. Street symbol. Cultural icon. Still going strong after five decades, the adidas Superstar Shoes have millions of stories to tell. Smooth leather combines with serrated 3-Stripes and the authentic rubber shell toe. Ready for the next fifty years of iconic adidas style? Lets do it.",
   30
@@ -577,9 +571,9 @@ Adidas.addItem(
   300,
   "women",
   "Boots",
-  
-  "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/69cbc73d0cb846889f89acbb011e68cb_9366/Supernova_Shoes_Black_S42722_01_standard.jpg",
   "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/c8953617284f4c47b613acbb011e74ee_9366/Supernova_Shoes_Black_S42722_02_standard.jpg",
+
+  "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/69cbc73d0cb846889f89acbb011e68cb_9366/Supernova_Shoes_Black_S42722_01_standard.jpg",
   "red",
   "B-ball legend. Street symbol. Cultural icon. Still going strong after five decades, the adidas Superstar Shoes have millions of stories to tell. Smooth leather combines with serrated 3-Stripes and the authentic rubber shell toe. Ready for the next fifty years of iconic adidas style? Lets do it.",
   40
@@ -589,8 +583,9 @@ Adidas.addItem(
   100,
   "unisex",
   "Hi Tops",
-  "https://st-adidas-isr.mncdn.com/content/images/thumbs/0086954_x-speedflow1-messi-firm-ground-boots_fy6879_side-lateral-center-view.jpeg",
   "https://st-adidas-isr.mncdn.com/content/images/thumbs/0086956_x-speedflow1-messi-firm-ground-boots_fy6879_top-portrait-view.jpeg",
+  "https://st-adidas-isr.mncdn.com/content/images/thumbs/0086954_x-speedflow1-messi-firm-ground-boots_fy6879_side-lateral-center-view.jpeg",
+
   "red",
   "B-ball legend. Street symbol. Cultural icon. Still going strong after five decades, the adidas Superstar Shoes have millions of stories to tell. Smooth leather combines with serrated 3-Stripes and the authentic rubber shell toe. Ready for the next fifty years of iconic adidas style? Lets do it.",
   44
