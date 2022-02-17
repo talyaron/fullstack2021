@@ -564,17 +564,17 @@ let sushiMenu: Menu = {
 
   renderDishesERP(list, domElement) {
 
-      let html = `<form onsubmit="handleDeleteDish(event)"> <input type="submit" value="delete"></input>`;
+    let html = `<form onsubmit="handleDeleteDish(event)"> <input type="submit" value="delete"></input>`;
 
-      list.forEach((item) => {
+    list.forEach((item) => {
 
-        html += `<div class="dishesERP"> 
-          <input type="checkbox" id=${item.id}></input></form>
+      html += `<div class="dishesERP"> 
+          <input type="checkbox" id=${item.id}></input>
            <h3 class ="dishesERP__title__name">${item.name}</h3> 
            <p class ="dishesERP__desc">${item.description}</p>
            <p class ="dishesERP__title__price">${item.price} ₪</p>
            <p class ="dishesERP__title__category"> ${item.category}</p>
-           
+          </form>
           <form onsubmit="handleUpdateDish(event)" id="${item.id}">
            <input type="text" name="name" id="" placeholder="Dish Name">
            <input type="number" name="price" id="" placeholder="Dish Price">
@@ -605,9 +605,9 @@ let sushiMenu: Menu = {
   
            
         </div>`;
-      });
+    });
 
-      domElement.innerHTML = html;
+    domElement.innerHTML = html;
 
   },
 
@@ -716,17 +716,17 @@ function handleAddDish(ev) {
 function handleDeleteDish(ev) {
 
   ev.preventDefault();
-    console.dir(ev.target);
-    
-    for (let i = 1; i < ev.target.length; i++) {
+  console.dir(ev.target);
 
-      console.log(ev.target[i].checked)
-      if (ev.target[i].checked === true) {
-        sushiMenu.removeDish(ev.target[i].id);
-      }
+  for (let i = 1; i < ev.target.length; i++) {
+
+    console.log(ev.target[i].checked)
+    if (ev.target[i].checked === true) {
+      sushiMenu.removeDish(ev.target[i].id);
     }
+  }
 
-    renderSushiMenu();
+  renderSushiMenu();
 
 }
 function handleUpdateDish(ev) {
@@ -734,7 +734,7 @@ function handleUpdateDish(ev) {
   ev.preventDefault();
 
   try {
-    
+
     const dishName = ev.target.elements.name.value;
     const dishPrice = ev.target.elements.price.valueAsNumber;
     const dishDesc = ev.target.elements.description.value;
@@ -742,24 +742,24 @@ function handleUpdateDish(ev) {
     const dishId = ev.target.id;
 
     const index = sushiMenu.dishes.findIndex((dish) => dish.id === dishId);
-    
+
     const newDish = { id: dishId, name: dishName, price: dishPrice, description: dishDesc, category: dishCategory };
 
-    if(!dishName) {
+    if (!dishName) {
       newDish.name = sushiMenu.dishes[index].name
     }
 
-    if(!dishPrice) {
+    if (!dishPrice) {
       newDish.price = sushiMenu.dishes[index].price
     }
 
-    if(!dishDesc) {
+    if (!dishDesc) {
       newDish.description = sushiMenu.dishes[index].description
     }
 
     console.log(dishCategory);
 
-    if(dishCategory === 'Choose') {
+    if (dishCategory === 'Choose') {
       newDish.category = sushiMenu.dishes[index].category
     }
 
@@ -831,7 +831,7 @@ function handleSearch(ev) {
       }
     })
     root.innerHTML = html;
-    
+
   } catch (error) {
     console.error(error);
   }
@@ -931,14 +931,16 @@ function popCartActive() {
     const cartClose = document.querySelector(".cart__close");
     const cart: any = document.querySelector(".cart");
     const cartFooter: any = document.querySelector(".cart__footer");
+    const cartQnt: any = document.querySelector(".cart__box__Qnt")
 
-    if (cartBox && cartImg && cartClose && cart && cartFooter) {
-      
+    if (cartBox && cartImg && cartClose && cart && cartFooter && cartQnt) {
+
       cartImg.addEventListener("click", function () {
         cart.classList.add("cart-active");
         cartBox.classList.add("cart__box-active");
         cartClose.classList.add("cart__close-active");
         cartFooter.classList.add("cart__footer-active");
+        cartQnt.style.display = 'none';
       });
 
       cartClose.addEventListener("click", function () {
@@ -946,6 +948,7 @@ function popCartActive() {
         cartBox.classList.remove("cart__box-active");
         cartClose.classList.remove("cart__close-active");
         cartFooter.classList.remove("cart__footer-active");
+        cartQnt.style.display = 'block';
       });
 
     }
@@ -960,13 +963,14 @@ function popCartActive() {
 popCartActive();
 
 function handlePlaceOrder(ev) {
-  try {
+  ev.preventDefault();
 
-    ev.preventDefault();
-    window.alert("bo lo nagzim...");
+  try {
+    window.alert("place order");
   } catch (error) {
     console.error(error);
   }
+
 }
 
 function handleAddToCart(ev) {
@@ -974,6 +978,16 @@ function handleAddToCart(ev) {
     const idToCart = ev.target.id;
     const index = sushiMenu.dishes.findIndex((dish) => dish.id === idToCart);
     const cartRoot = document.getElementById("cart__root")
+    const cartQnt: any = document.querySelector("cart__box_Qnt")
+    
+    // let cartQntCount = 0;
+
+    // if(cartQntCount === 0 ){
+    //   cartQnt.style.display = 'none';
+    // }
+    // else{
+    // cartQnt.innerHTML = `${cartQntCount+1}`;
+    // }
 
     sushiMenu.addCartDish(sushiMenu.dishes[index]);
     sushiMenu.renderCart(sushiMenu.cartDishes, cartRoot);
@@ -994,8 +1008,8 @@ function totalPrice(list) {
 
     const totalPriceRoot = document.querySelector(".totalprice");
 
-    if(totalPriceRoot){
-    totalPriceRoot.innerHTML = `Total Price ${sumCartAdd}₪`;
+    if (totalPriceRoot) {
+      totalPriceRoot.innerHTML = `Total Price ${sumCartAdd}₪`;
     }
 
   } catch (error) {
