@@ -161,7 +161,7 @@ const Adidas: shop = {
          <p>${product.title}</p>
           <p>${product.description}</p>
           <p>${product.price}₪</p> 
-      </div>
+      </div>;
 
       <form onsubmit="handleUpdate(event, '${product.id}')">
       <input type="text" name="newTitle" placeholder="new title" value="${product.title}">
@@ -296,19 +296,19 @@ const Adidas: shop = {
     this.products.sort((x, y) => x.price - y.price);
   },
   sortByGender(item) {
-    return (this.products = this.products.filter(
+    return  this.products.filter(
       (element) => element.gender === item
-    ));
+    );
   },
   sortByColor(color) {
-    return (this.products = this.products.filter(
+    return this.products.filter(
       (element) => element.color === color
-    ));
+    );
   },
   sortByType(category) {
-    return (this.products = this.products.filter(
+    return this.products.filter(
       (element) => element.category === category
-    ));
+    );
   },
   renderFilter(filterd, domElement) {
     // console.log(filterd);
