@@ -3,6 +3,12 @@ body {
   display: flex;
   flex-direction: column;
   margin: 0;
+  @import url("https://fonts.googleapis.com/css2?family=Convergence&family=Dosis:wght@200;400&family=Inter&family=Italianno&family=Shippori+Antique+B1&display=swap");
+  font-family: "Convergence", sans-serif;
+  font-family: "Dosis", sans-serif;
+  font-family: "Inter", sans-serif;
+  font-family: "Italianno", cursive;
+  font-family: "Shippori Antique B1", sans-serif;
 }
 
 .header {
