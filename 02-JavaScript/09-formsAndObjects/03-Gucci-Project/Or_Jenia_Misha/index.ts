@@ -5,6 +5,7 @@ const uid = function () {
 interface Menu {
   dishes: Array<Dish>;
   cartDishes: Array<Dish>;
+  searchDishes: Array<Dish>;
   addDish(name: string, price: number, description: string, category: string);
   addCartDish(cartObj)
   removeDish(id: string);
@@ -457,10 +458,9 @@ let sushiMenu: Menu = {
 
   ],
 
-  cartDishes: [
+  cartDishes: [],
 
-
-  ],
+  searchDishes: [],
 
   addDish(name, price, description, category) {
     try {
@@ -563,7 +563,7 @@ let sushiMenu: Menu = {
 
 
   renderDishesERP(list, domElement) {
-    try {
+
       let html = `<form onsubmit="handleDeleteDish(event)"> <input type="submit" value="delete"></input>`;
 
       list.forEach((item) => {
@@ -574,7 +574,8 @@ let sushiMenu: Menu = {
            <p class ="dishesERP__desc">${item.description}</p>
            <p class ="dishesERP__title__price">${item.price} ₪</p>
            <p class ="dishesERP__title__category"> ${item.category}</p>
-           <form onsubmit="handleUpdateDish(event)" id="${item.id}">
+           
+          <form onsubmit="handleUpdateDish(event)" id="${item.id}">
            <input type="text" name="name" id="" placeholder="Dish Name">
            <input type="number" name="price" id="" placeholder="Dish Price">
            <input type="text" name="description" id="" placeholder="Add Dish description">
@@ -606,13 +607,7 @@ let sushiMenu: Menu = {
         </div>`;
       });
 
-      html += ``;
-
       domElement.innerHTML = html;
-
-    } catch (error) {
-      console.error(error);
-    }
 
   },
 
@@ -624,7 +619,7 @@ let sushiMenu: Menu = {
       list.forEach((item) => {
         html += `<div class="cart__dishes" id = "${item.id}"> 
         
-           <h3 class ="dishes__title__name">${item.name}&nbsp qnt: ${item.quantity}</h3> 
+           <h3 class ="dishes__title__name">${item.name}&nbsp <span>Qnt</span>: ${item.quantity}</h3> 
            <p class ="dishes__title__price">${item.price}₪ <button onclick="handleDeleteFromCart(event)" id="${item.id}">-</button></p>
            </div>`;
       });
@@ -719,11 +714,13 @@ function handleAddDish(ev) {
 }
 
 function handleDeleteDish(ev) {
-  try {
-    ev.preventDefault();
 
+  ev.preventDefault();
+    console.dir(ev.target);
+    
     for (let i = 1; i < ev.target.length; i++) {
 
+      console.log(ev.target[i].checked)
       if (ev.target[i].checked === true) {
         sushiMenu.removeDish(ev.target[i].id);
       }
@@ -731,30 +728,49 @@ function handleDeleteDish(ev) {
 
     renderSushiMenu();
 
-  } catch (error) {
-    console.error(error);
-  }
-
-
 }
 function handleUpdateDish(ev) {
+
+  ev.preventDefault();
+
   try {
-    ev.preventDefault();
-    console.dir(ev.target);
+    
     const dishName = ev.target.elements.name.value;
     const dishPrice = ev.target.elements.price.valueAsNumber;
     const dishDesc = ev.target.elements.description.value;
     const dishCategory = (<HTMLSelectElement>document.getElementById("updated-category")).value;
     const dishId = ev.target.id;
+
+    const index = sushiMenu.dishes.findIndex((dish) => dish.id === dishId);
+    
     const newDish = { id: dishId, name: dishName, price: dishPrice, description: dishDesc, category: dishCategory };
+
+    if(!dishName) {
+      newDish.name = sushiMenu.dishes[index].name
+    }
+
+    if(!dishPrice) {
+      newDish.price = sushiMenu.dishes[index].price
+    }
+
+    if(!dishDesc) {
+      newDish.description = sushiMenu.dishes[index].description
+    }
+
+    console.log(dishCategory);
+
+    if(dishCategory === 'Choose') {
+      newDish.category = sushiMenu.dishes[index].category
+    }
+
     sushiMenu.updateDish(dishId, newDish);
     sushiMenu.getData();
     renderSushiMenu();
-    
+
   } catch (error) {
     console.error(error);
   }
-  
+
 }
 
 
@@ -763,6 +779,7 @@ const rootStore = document.getElementById("rootStore");
 if (rootStore) {
   sushiMenu.renderDishesStore(sushiMenu.dishes, rootStore);
 }
+
 function handleSearch(ev) {
   try {
     const searchTerm = ev.target.value;
@@ -780,7 +797,6 @@ function handleSearch(ev) {
          <h3 class ="dishesERP__title__name">${item.name}</h3> 
          <p class ="dishesERP__desc">${item.description}</p>
          <p class ="dishesERP__title__price">${item.price} ₪</p>
-         <p class ="dishesERP__title__price"> id:${item.id}</p>
          <p class ="dishesERP__title__category"> ${item.category}</p>
          <form onsubmit="handleUpdateDish(event)" id="${item.id}">
          <input type="text" name="name" id="" placeholder="Dish Name">
@@ -815,8 +831,6 @@ function handleSearch(ev) {
       }
     })
     root.innerHTML = html;
-
-    
     
   } catch (error) {
     console.error(error);
@@ -910,26 +924,31 @@ function popNavBarActive() {
 popNavBarActive();
 
 function popCartActive() {
+
   try {
     const cartBox = document.querySelector(".cart__box");
     const cartImg = document.querySelector(".cart__img");
     const cartClose = document.querySelector(".cart__close");
-    const cart = document.querySelector(".cart");
-    const cartFooter = document.querySelector(".cart__footer");
+    const cart: any = document.querySelector(".cart");
+    const cartFooter: any = document.querySelector(".cart__footer");
 
-    cartImg.addEventListener("click", function () {
-      cart.classList.add("cart-active");
-      cartBox.classList.add("cart__box-active");
-      cartClose.classList.add("cart__close-active");
-      cartFooter.classList.add("cart__footer-active");
-    });
+    if (cartBox && cartImg && cartClose && cart && cartFooter) {
+      
+      cartImg.addEventListener("click", function () {
+        cart.classList.add("cart-active");
+        cartBox.classList.add("cart__box-active");
+        cartClose.classList.add("cart__close-active");
+        cartFooter.classList.add("cart__footer-active");
+      });
 
-    cartClose.addEventListener("click", function () {
-      cart.classList.remove("cart-active");
-      cartBox.classList.remove("cart__box-active");
-      cartClose.classList.remove("cart__close-active");
-      cartFooter.classList.remove("cart__footer-active");
-    });
+      cartClose.addEventListener("click", function () {
+        cart.classList.remove("cart-active");
+        cartBox.classList.remove("cart__box-active");
+        cartClose.classList.remove("cart__close-active");
+        cartFooter.classList.remove("cart__footer-active");
+      });
+
+    }
 
   } catch (error) {
     console.error(error);
@@ -975,7 +994,9 @@ function totalPrice(list) {
 
     const totalPriceRoot = document.querySelector(".totalprice");
 
+    if(totalPriceRoot){
     totalPriceRoot.innerHTML = `Total Price ${sumCartAdd}₪`;
+    }
 
   } catch (error) {
     console.error(error);

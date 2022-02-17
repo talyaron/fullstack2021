@@ -38,6 +38,7 @@
                     <h5>Sign In</h5>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 13.5"><symbol viewBox="0 0 15 13.5" id="svg-icon-saved-items"><title>saved-items</title> <g fill="currentColor"> <path d="M12.5,5.3l-5,5.2l-5-5.3c0,0-0.8-0.9-0.8-1.5c0-1,0.8-1.8,1.7-1.8c0.6,0,1.1,0.3,1.4,0.9l2.6,2.7l2.7-2.8l0,0&#10;&#9;&#9;&#9;c0.3-0.5,0.8-0.9,1.5-0.9c0.9,0,1.7,0.8,1.7,1.8C13.4,4.4,12.5,5.3,12.5,5.3 M11.5,0c-1.1,0-2.1,0.6-2.7,1.5L7.5,2.8L6.2,1.5&#10;&#9;&#9;&#9;C5.6,0.6,4.6,0,3.5,0C1.5,0,0,1.7,0,3.8c0,1.2,0.5,2.3,1.4,3l1.3,1.4l4.9,5.3l0,0l0,0l4.9-5.3l1.2-1.4C14.5,6.1,15,5,15,3.8&#10;&#9;&#9;&#9;C15,1.7,13.5,0,11.5,0"/> </g> </symbol><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-icon-saved-items"/></svg>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 14"><symbol viewBox="0 0 15 14" id="svg-icon-shopping-bag"><title>shopping-bag</title> <g fill="currentColor"> <path d="M13,4.2h-2.4l0-2c0-1.1-1.3-2-3-2s-3,0.8-3,2l0,2H1.9c-1,0-1.6,0.5-1.6,1.2l0.5,7.8h13.4l0.6-7.7&#10;&#9;&#9;&#9;C14.8,4.7,14,4.2,13,4.2z M6.1,2.2c0.1-0.1,0.6-0.5,1.5-0.5c0.9,0,1.4,0.3,1.5,0.5l0,2h-3L6.1,2.2z M12.8,11.7H2.2L1.8,5.8&#10;&#9;&#9;&#9;c0,0,0.1,0,0.1,0H13c0.1,0,0.2,0,0.2,0L12.8,11.7z"/> </g> </symbol><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-icon-shopping-bag"/></svg>
+                    <div data-cart></div>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33 33"><symbol viewBox="0 0 33 33" id="svg-icon-search-circle"><title>search-circle</title> <g id="search-circle-search" fill="currentColor"> <path d="M14.90625,19.2484472 C12.75,19.2484472 10.96875,17.3850932 10.96875,15.1490683 C10.96875,12.9130435 12.75,11.0496894 14.90625,11.0496894 C17.0625,11.0496894 18.84375,12.9130435 18.84375,15.1490683 C18.9375,17.3850932 17.15625,19.2484472 14.90625,19.2484472 Z M20.0625,18.3167702 C20.625,17.3850932 20.90625,16.2670807 20.90625,15.1490683 C20.90625,11.7018634 18.28125,9 14.90625,9 C11.625,9 9,11.7018634 9,15.1490683 C9,18.5031056 11.625,21.2981366 14.90625,21.2981366 C16.21875,21.2981366 17.53125,20.8322981 18.46875,20.0869565 L22.3125,24 L24,22.5093168 L20.0625,18.3167702 Z" id="search-circle-search1"/> <path d="M16.5,0 C7.38644476,0 0,7.38644476 0,16.5 C0,25.6135552 7.38644476,33 16.5,33 C25.6135552,33 33,25.6121856 33,16.5 C33,7.38781439 25.6121856,0 16.5,0 Z M16.5,30.4223458 C8.81086578,30.4223458 2.57765419,24.1905039 2.57765419,16.5 C2.57765419,8.80949614 8.80949614,2.57765419 16.5,2.57765419 C24.1905039,2.57765419 30.4223458,8.80949614 30.4223458,16.5 C30.4223458,24.1905039 24.1891342,30.4223458 16.5,30.4223458 Z" id="search-circle-search2"/> </g> </symbol><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-icon-search-circle"/></svg>
                 </div>
             </div>
@@ -78,7 +79,7 @@
     </div>
     <div class="filters">
         <div class="filter__search">
-            <input type="search" id="search" placeholder="Search">
+            <input type="search" id="search" placeholder="Search" onkeyup="handleSearch(event)">
         </div>
         <div class="filters__input" onkeyup="handleAmount(event)">
             <input type="number" name="name" id="name" placeholder="Amount"/>
@@ -269,7 +270,8 @@
                     <li>Snapchat</li>
                     <i class="fas fa-plus"></i></ul>
             </nav>
-            <ul data-5 class="secondaryNav__signUp">SIGN UP FOR GUCCI UPDATES <i class="fas fa-plus"></i></ul>
+            <ul data-5 class="secondaryNav__signUp">SIGN UP FOR GUCCI UPDATES <i class="fas fa-plus"></i>
+            </ul>
             <ul data-6 class="footer__svgs">
                 <div class="footer__svgs-equilibrium">
                     <span>
