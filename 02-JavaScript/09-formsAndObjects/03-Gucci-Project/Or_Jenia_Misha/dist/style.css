@@ -302,7 +302,7 @@ html {
 
 .menuopacity {
   background-color: rgba(0, 0, 0, 0.858);
-  height: 120vh;
+  height: 125vh;
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -689,9 +689,12 @@ html {
 }
 
 .dishesERP {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   border: 1px solid black;
   width: 200px;
-  height: 450px;
+  height: 480px;
   padding: 5px;
   background-color: gainsboro;
 }

@@ -570,12 +570,13 @@ let sushiMenu: Menu = {
       list.forEach((item) => {
 
         html += `<div class="dishesERP"> 
-          <input type="checkbox" id=${item.id}></input></form>
+          <input type="checkbox" id=${item.id}></input>
            <h3 class ="dishesERP__title__name">${item.name}</h3> 
            <p class ="dishesERP__desc">${item.description}</p>
            <p class ="dishesERP__title__price">${item.price} ₪</p>
            <p class ="dishesERP__title__category"> ${item.category}</p>
-           <form onsubmit="handleUpdateDish(event)" id="${item.id}">
+           </form>
+          <form onsubmit="handleUpdateDish(event)" id="${item.id}">
            <input type="text" name="name" id="" placeholder="Dish Name">
            <input type="number" name="price" id="" placeholder="Dish Price">
            <input type="text" name="description" id="" placeholder="Add Dish description">
@@ -607,7 +608,7 @@ let sushiMenu: Menu = {
         </div>`;
       });
 
-      html += ``;
+      // html += ``;
 
       domElement.innerHTML = html;
 
@@ -722,9 +723,8 @@ function handleAddDish(ev) {
 function handleDeleteDish(ev) {
   try {
     ev.preventDefault();
-
+    
     for (let i = 1; i < ev.target.length; i++) {
-
       if (ev.target[i].checked === true) {
         sushiMenu.removeDish(ev.target[i].id);
       }
@@ -741,13 +741,34 @@ function handleDeleteDish(ev) {
 function handleUpdateDish(ev) {
   try {
     ev.preventDefault();
-    console.dir(ev.target);
     const dishName = ev.target.elements.name.value;
     const dishPrice = ev.target.elements.price.valueAsNumber;
     const dishDesc = ev.target.elements.description.value;
     const dishCategory = (<HTMLSelectElement>document.getElementById("updated-category")).value;
     const dishId = ev.target.id;
+
+    const index = sushiMenu.dishes.findIndex((dish) => dish.id === dishId);
+    
     const newDish = { id: dishId, name: dishName, price: dishPrice, description: dishDesc, category: dishCategory };
+
+    if(!dishName) {
+      newDish.name = sushiMenu.dishes[index].name
+    }
+
+    if(!dishPrice) {
+      newDish.price = sushiMenu.dishes[index].price
+    }
+
+    if(!dishDesc) {
+      newDish.description = sushiMenu.dishes[index].description
+    }
+
+    console.log(dishCategory);
+
+    if(dishCategory === 'Choose') {
+      newDish.category = sushiMenu.dishes[index].category
+    }
+
     sushiMenu.updateDish(dishId, newDish);
     sushiMenu.getData();
     renderSushiMenu();
@@ -777,50 +798,46 @@ function handleSearch(ev) {
     }
     sushiMenu.dishes.forEach(item => {
       if (regex.test(item.name)) {
-
-        let html = `<form onsubmit="handleDeleteDish(event)"> <input type="submit" value="delete"></input>`;
         html += `<div class="dishesERP"> 
-          <input type="checkbox" id=${item.id}></input></form>
-           <h3 class ="dishesERP__title__name">${item.name}</h3> 
-           <p class ="dishesERP__desc">${item.description}</p>
-           <p class ="dishesERP__title__price">${item.price} ₪</p>
-           <p class ="dishesERP__title__category"> ${item.category}</p>
-           <form onsubmit="handleUpdateDish(event)" id="${item.id}">
-           <input type="text" name="name" id="" placeholder="Dish Name">
-           <input type="number" name="price" id="" placeholder="Dish Price">
-           <input type="text" name="description" id="" placeholder="Add Dish description">
-           <select name="category" id="updated-category">
-               <option value="Choose" selected disabled>Select category</option>
-               <option value="firsts">Firsts</option>
-               <option value="soups">Soups</option>
-               <option value="salads">Salads</option>
-               <option value="buns">Buns</option>
-               <option value="robta-yaki">Robta Yaki</option>
-               <option value="gyoza">Gyoza</option>
-               <option value="inside-out">Inside Out</option>
-               <option value="specials">Specials</option>
-               <option value="kids">Kids Dishes</option>
-               <option value="main">Main Dishes</option>
-               <option value="wok">Wok</option>
-               <option value="cokctails">Cokctails</option>
-               <option value="combinations">Combinations</option>
-               <option value="sashimi">Sashimi</option>
-               <option value="nigiri">Nigiri</option>
-               <option value="sandwich-sushi">Sandwich Sushi</option>
-               <option value="maki-sushi">Maki Sushi</option>
-               <option value="gonkan">Gonkan Maki</option>
-           </select>
-           <input type="submit" value="Update">
-           </form>
-  
-           
-        </div>`
+        <input type="checkbox" id=${item.id}></input></form>
+         <h3 class ="dishesERP__title__name">${item.name}</h3> 
+         <p class ="dishesERP__desc">${item.description}</p>
+         <p class ="dishesERP__title__price">${item.price} ₪</p>
+         <p class ="dishesERP__title__category"> ${item.category}</p>
+         <form onsubmit="handleUpdateDish(event)" id="${item.id}">
+         <input type="text" name="name" id="" placeholder="Dish Name">
+         <input type="number" name="price" id="" placeholder="Dish Price">
+         <input type="text" name="description" id="" placeholder="Add Dish description">
+         <select name="category" id="updated-category">
+             <option value="Choose" selected disabled>Select category</option>
+             <option value="firsts">Firsts</option>
+             <option value="soups">Soups</option>
+             <option value="salads">Salads</option>
+             <option value="buns">Buns</option>
+             <option value="robta-yaki">Robta Yaki</option>
+             <option value="gyoza">Gyoza</option>
+             <option value="inside-out">Inside Out</option>
+             <option value="specials">Specials</option>
+             <option value="kids">Kids Dishes</option>
+             <option value="main">Main Dishes</option>
+             <option value="wok">Wok</option>
+             <option value="cokctails">Cokctails</option>
+             <option value="combinations">Combinations</option>
+             <option value="sashimi">Sashimi</option>
+             <option value="nigiri">Nigiri</option>
+             <option value="sandwich-sushi">Sandwich Sushi</option>
+             <option value="maki-sushi">Maki Sushi</option>
+             <option value="gonkan">Gonkan Maki</option>
+         </select>
+         <input type="submit" value="Update">
+         </form>
+
+         
+      </div>`;
       }
     })
-
     root.innerHTML = html;
-
-
+    
   } catch (error) {
     console.error(error);
   }
