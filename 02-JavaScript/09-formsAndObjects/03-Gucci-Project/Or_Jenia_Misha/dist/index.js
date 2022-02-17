@@ -722,14 +722,13 @@ function handleAddToCart(ev) {
         var idToCart_1 = ev.target.id;
         var index = sushiMenu.dishes.findIndex(function (dish) { return dish.id === idToCart_1; });
         var cartRoot = document.getElementById("cart__root");
-        var cartQnt = document.querySelector("cart__box_Qnt");
-        // let cartQntCount = 0;
-        // if(cartQntCount === 0 ){
-        //   cartQnt.style.display = 'none';
-        // }
-        // else{
-        // cartQnt.innerHTML = `${cartQntCount+1}`;
-        // }
+        var cartBox = document.querySelector(".cart__box");
+        if (cartBox.classList.contains("cart__box-click")) {
+            cartBox.classList.remove("cart__box-click");
+        }
+        if (!cartBox.classList.contains("cart__box-click")) {
+            cartBox.classList.add("cart__box-click");
+        }
         sushiMenu.addCartDish(sushiMenu.dishes[index]);
         sushiMenu.renderCart(sushiMenu.cartDishes, cartRoot);
         totalPrice(sushiMenu.cartDishes);
