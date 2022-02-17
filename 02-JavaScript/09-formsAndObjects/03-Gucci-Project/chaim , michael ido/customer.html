@@ -12,19 +12,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Ubuntu:wght@300&display=swap" rel="stylesheet">
 </head>
 <style>
-   
-    
 </style>
 <body onload="set_timeImgs()">
     <div class="container">
         <div class="container_header">
             <a href="customer.html" class="container_header-logo"></a> 
              <div class="container_header-search">
-                 <datalist class="container_header-search-dataList">
-                <!-- <option class="container_header-search-dataList-options" disabled>Choose Catagory</option>
-                <option class="container_header-search-dataList-options" value="Tshirts">Tshirts</option>
-                <option class="container_header-search-dataList-options" value="shoes">Shoes</option>
-                <option class="container_header-search-dataList-options" value="pants">Pants</option> -->
+                <label class="container_header-search-label" for="searchOptions"></label>
+                <input  list="search" name="searchOptions" class="container_header-search-input" placeholder="Search here..." >
+                 <datalist id="search" class="container_header-search-dataList" > 
              </datalist>
             </div>
              <div class="container_header_menu">
@@ -35,7 +31,9 @@
                <button id="yourOrdersBtn" class="container_header_menu-btn" onclick="showDropDown(event)">
                 <i id="yourOrdersBtn" class="fas fa-truck-loading fa-2x" onclick="showDropDown(event)"></i><p id="yourOrdersBtn" class="btnDiscription">Your orders</p></button>
                <button id="shoppingCartBtn" class="container_header_menu-btn" onclick="showDropDown(event)">
-                <i id="shoppingCartBtn" class="fas fa-shopping-cart fa-2x"></i><p id="shoppingCartBtn" class="btnDiscription">Shopping cart</p></button>
+                <i id="shoppingCartBtn" class="fas fa-shopping-cart fa-2x" onclick="showDropDown(event)"></i>
+                <p id="shoppingCartBtn" class="btnDiscription">Shopping cart</p>
+            </button>
              </div>
              <div class="container_header-dropDown">
                  <div class="container_header-dropDown-totalCart"></div>
@@ -56,6 +54,17 @@
          </div>
          <div class="container_catagories-display"></div>
 
+         <div class="container_catagories-ShoppingCart">
+                <div class="container_catagories-ShoppingCart_display">
+                    <!-- <div class="container_catagories-ShoppingCart_display-item">
+                        <h1 class="container_catagories-ShoppingCart_display-item-header">sdasdasdasdasd</h1>
+                        <p class="container_catagories-ShoppingCart_display-item-sizeAndPrice">lalasddasda</p>
+                        <button class="container_catagories-ShoppingCart_display-item-deleteBtn" type="button" onclick="delete(event)"></button>
+                    </div>-->
+                </div>
+         </div>
+         
+
  <div class="container-shoppingCart">
     <div id="shoppingCartDisplay" class="container-shoppingCart_display"></div>
     <div class="container-shoppingCart-orderAndTotal">
@@ -64,6 +73,7 @@
     </div>
  </div>
          
+
 </div>
 <script src="dist/taskFilter.js"></script>
  

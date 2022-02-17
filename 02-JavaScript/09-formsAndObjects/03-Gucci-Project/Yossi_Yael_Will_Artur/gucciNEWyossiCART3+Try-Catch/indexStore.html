@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="dist/style.css">
+    <script src="https://kit.fontawesome.com/d13a0d855d.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
+    <title>Gucci</title>
+</head>
+
+<body onload="handleRenderAllItems()">
+
+
+    <div class="header">
+
+
+
+        <div class="header__navBarTop">
+            <button class="header__navBarTop__btn"><a href="indexStore.html">store</a></button>
+            <button class="header__navBarTop__btn"><a href="indexOwner.html">owner</a></button>
+        </div>
+
+        <div class="header__middle">
+            <div class="header__middle__icons__left">
+                <div class="header__middle__icons__left">
+                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                    <p class="country">United States</p>
+                </div>
+                <div class="header__middle__icons__left__lang">
+
+                    <p class="lang">English</p>
+                    <p class="services">Client Services</p>
+                </div>
+
+            </div>
+
+            <img src="images/logoWhite.png" alt="">
+            <div class="header__middle__icons__right">
+                <p class="sign">sign in</p>
+
+                <i class="fa fa-heart-o" aria-hidden="true"></i>
+
+                <div class="header__middle__icons__right__bag">
+
+                    <div>
+                        <div class="popupBag" onclick="myFunctionBag()">
+                            <div class="basket">
+                                <div><i class="fa fa-shopping-bag" aria-hidden="true"></i></div>
+                                <div class="bag">Bag</div>
+                            </div>
+                            <span class="popupBagtext" id="myPopupBag">
+                                <h2>Shooping Bag</h2>
+                                <div id="rootItemsStoreCart"></div>
+                                <h2 class="payNow">Pay Now</h2>
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="header__middle__icons__right">
+                    <i class="fas fa-search"></i>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="header__navBarBottom">
+
+            <div>
+                <div  class="header__navBarBottom__navbar-nav">
+                    <a id="a" href="#">GIFTS</a>
+                    <a id="a" href="">WHAT'S NEW</a>
+                    <a id="a" href="">HANDBAGS</a>
+                    <a id="a" href="">WOMEN</a>
+                    <a id="a" href="">MEN</a>
+                    <a id="a" href="">MX</a>
+                    <a id="a" href="">CHILDREN</a>
+                    <a id="a" href="">JEWELRY & WATCHES</a>
+                    <a id="a" href="">BEAUTY</a>
+                    <a id="a" href="">DECOR & LIFESTYLE</a>
+                    <a id="a" href="" style="color: greenyellow;">VAULT</a>
+                    <!-- <div id="blockMenu"></div> -->
+                </div>
+                
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <div class="showcase">
+        <video class="video" src="images/gucciMovei.mp4" loop autoplay muted></video>
+        <div class="overlay"></div>
+        <div class="showcaseText">
+            <h1>MEN'S WATCHES</h1>
+        </div>
+    </div>
+    <div class="navBarSort">
+
+        <div class="navBarSort__items">
+            <div class="nav-item-left">WATCHES</div>
+            <div class="nav-item-left">Watches For Men</div>
+            <div></div>
+
+            <div class="nav-item-right">Category <i class="fas fa-chevron-down" style="color: #b4b4b4;"></i></div>
+            <div class="nav-item-right">Line <i class="fas fa-chevron-down" style="color: #b4b4b4;"></i></div>
+            <div class="sortPopUp">
+                <div class="popup" onclick="myFunction()">Sort By <i class="fas fa-chevron-down"
+                        style="color: #b4b4b4;"></i>
+                    <span class="popuptext" id="myPopup">
+                        <div class="sortBtns">
+                            <button onclick="handlesortItemsDesc(event)" name="desc" value="desc">Lower price
+                                first</button>
+                            <button onclick="handlesortItemsAsc(event)" name="asc" value="asc">Higher price
+                                first</button>
+                        </div>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="wrapper">
+
+
+
+        <div class='main' id="rootItemsStore">
+
+
+
+        </div>
+
+        <!-- end rootItemsStore -->
+
+        <div class="bigpic"> </div>
+
+        <div class="footer">
+            <div class="footer__section">
+                <h4>EXCLUSIVE SERVICES</h4>
+                <li>Gucci Services</li>
+                <li>Gucci Osteria Beverly Hills da Massimo Bottura</li>
+                <li>Book An Appointment</li>
+            </div>
+            <div class="footer__section">
+                <h4>NEED HELP?</h4>
+                <li>Contact Us</li>
+                <li>Shipping Services</li>
+                <li>Payment Options</li>
+                <li>Return & Exchanges</li>
+                <li>Product Care</li>
+                <li>FAQs</li>
+                <li>Unsubscribe</li>
+                <li>Sitemap</li>
+            </div>
+            <div class="footer__section">
+                <h4>THE COMPANY</h4>
+                <li>About Gucci</li>
+                <li>Gucci Equilibrium</li>
+                <li>Code of Ethics</li>
+                <li>Gucci Garden</li>
+                <li>Careers</li>
+                <li>Legal</li>
+                <li>Privacy & Cookies</li>
+                <li>Corporate Information</li>
+            </div>
+
+            <div class="footer__section">
+                <h4>FIND US ON</h4>
+                <li>Facebook</li>
+                <li>Twitter</li>
+                <li>Instagram</li>
+                <li>Instagram Beauty</li>
+                <li>Youtube</li>
+                <li>Gucci Podcast</li>
+                <li>Pinterest</li>
+                <li>Snapchat</li>
+            </div>
+            <div class="footerSide">
+                <h4>SIGN UP FOR GUCCI UPDATES</h4>
+                <p>By entering your email address below, you consent to receiving our newsletter with access to our
+                    latest
+                    collections, events and initiatives. More details on this are provided in our Privacy Policy</p>
+                <input type="email" id="email" placeholder="Email Address"><button type="submit">></button>
+                <h4>STORE LOCATOR</h4>
+                <input type="text" id="location" placeholder="City, Region, Country"><button type="submit">></button>
+
+            </div>
+        </div>
+    </div>
+    <script src="dist/indexAll.js"></script>
+</body>
+
+</html>
