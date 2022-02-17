@@ -302,7 +302,7 @@ html {
 
 .menuopacity {
   background-color: rgba(0, 0, 0, 0.858);
-  height: 125vh;
+  height: 130vh;
   width: 100vw;
   display: flex;
   flex-direction: column;
