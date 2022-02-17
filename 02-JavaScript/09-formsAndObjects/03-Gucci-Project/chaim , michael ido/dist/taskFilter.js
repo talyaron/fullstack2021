@@ -48,7 +48,7 @@ var clothsList = {
     render: function (list, display, catagory) {
         var html = "";
         list.forEach(function (element) {
-            html += "<div class=\"main_scrollmenu-box-card\"><h3 class=\"main_scrollmenu-box-card-head\">" + element.brand + " " + catagory + "</h3>\n            <p class=\"main_scrollmenu-box-card-para\"> Size : " + element.size + "</p>\n           <p class=\"main_scrollmenu-box-card-para\"> Price : " + element.price + " </p>\n           <button class=\"main_scrollmenu-box-card-btn\" onclick=\"deleteCard('" + element.id + "')\">Delete Item</button>\n           </div> ";
+            html += "<div class=\"main_scrollmenu-box-card\"><h3 class=\"main_scrollmenu-box-card-head\">" + element.brand + " " + catagory + "</h3>\n            <p class=\"main_scrollmenu-box-card-para\"> Size : " + element.size + "</p>\n           <p class=\"main_scrollmenu-box-card-para\"> Price : " + element.price + " </p>\n           <button class=\"main_scrollmenu-box-card-btn\" onclick=\"deleteCard('" + element.id + "')\">Delete Item</button>\n           <button class=\"main_scrollmenu-box-card-btn\" onclick=\"update('" + element.id + "')\">update item</button>\n           </div>";
         });
         display.innerHTML = html;
     },

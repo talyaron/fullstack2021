@@ -450,24 +450,23 @@
   height: 7vh;
 }
 .container_sortANDfilterBtns-box_form-filterInput {
-  box-shadow: rgba(6, 61, 97, 0.85) 0px 30px 60px -12px inset, rgba(16, 63, 85, 0.5) 0px 18px 36px -30px inset;
-  height: 2vh;
+  box-shadow: rgba(251, 254, 255, 0.85) 0px 30px 60px -12px inset, rgba(16, 63, 85, 0.5) 0px 18px 36px -30px inset;
+  height: 4vh;
   width: 35%;
-  color: #f0e8da;
+  color: #4e4d4a;
   font-size: 15px;
   border-radius: 5px;
 }
 .container_sortANDfilterBtns-box_form-filterInput::placeholder {
-  color: #f0e8da;
+  color: #464544;
 }
 .container_sortANDfilterBtns-box_form-submit {
-  width: 5vw;
-  border-radius: 15px;
-  color: white;
+  width: 7vw;
+  color: #1b1a1a;
   font-weight: 1000;
-  box-shadow: rgba(33, 13, 87, 0.75) 0px 54px 55px, rgba(32, 161, 101, 0.72) 0px -12px 30px, rgba(53, 100, 187, 0.82) 0px 4px 6px, rgba(101, 42, 136, 0.77) 0px 12px 13px, rgba(52, 88, 136, 0.99) 0px -3px 5px;
-  background-color: #6b442e;
+  background-color: #f0e9e9;
   justify-self: center;
+  font-size: 15px;
 }
 .container-select {
   cursor: pointer;
@@ -602,7 +601,6 @@
   color: #fff;
 }
 .container-shoppingCart-orderAndTotal {
-  border: 3px solid black;
   grid-row: 7;
   grid-column: 3;
   display: flex;
