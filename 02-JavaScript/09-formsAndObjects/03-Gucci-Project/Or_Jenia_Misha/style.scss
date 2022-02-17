@@ -678,6 +678,15 @@ html {
 
     &__box {
 
+        &__Qnt{
+            color: red;
+            position: absolute;
+            bottom: -23%;
+            left: 5%;
+            font-weight: 600;
+            display: none;
+        }
+
         padding: 1em;
         display: flex;
         flex-direction: column;
@@ -720,6 +729,8 @@ html {
         }
 
         img {
+            position: relative;
+            bottom: 10%;
             width: 40px;
             height: 30px;
             cursor: pointer;
