@@ -301,7 +301,7 @@ var gucci = {
     render: function (list, domElement) {
         var html = "";
         list.forEach(function (item) {
-            html += "<div class=\"items\">\n        <p>" + item.name + "</p>\n        <img class=\"imgTop\" src=\"" + item.imgTop + "\" >\n        <img class=\"imgBottom\" src=\"" + item.imgBottom + "\" >\n        <p>" + item.price + "$</p>\n        <button class=\"add-to-cart\" onclick=\"addToCart(" + item.id + ")\">Add To Cart</button>\n        </div>";
+            html += "<div class=\"items\">\n        <p>" + item.name + "</p>\n        <img class=\"imgTop\" src=\"" + item.imgTop + "\" >\n        <img class=\"imgBottom\" src=\"" + item.imgBottom + "\" >\n        <p>" + item.price + "$</p>\n        <button class=\"cartButton\" onclick=\"addToCart(" + item.id + ")\">Add To Cart</button>\n        </div>";
         });
         domElement.innerHTML = html;
     },
@@ -333,7 +333,6 @@ var gucci = {
         this.render(filterByGender, domElement);
     }
 };
-//gucci.storeData(); /// delete later
 function handleShowItems() {
     console.log(gucci.items);
 }
@@ -363,7 +362,6 @@ function handleAddItems(ev) {
         console.error(error);
     }
 }
-gucci.getData();
 function addToCart(id) {
     console.log(id);
     if (gucci.cartItems.some(function (item) { return item.id === id; })) {
@@ -382,10 +380,10 @@ function removeItemFromCart(id) {
 }
 var cartRoot = document.getElementById("cartRoot");
 function renderCartItems() {
+    cartRoot.innerHTML = "";
     gucci.cartItems.forEach(function (item) {
-        cartRoot.innerHTML += "";
         cartRoot.innerHTML +=
-            "<div class=\"cart-item\">\n    <button onclick=\"removeItemFromCart(" + item.id + ")\">x</button>\n            <div class=\"item-info\" >\n                <img src=\"" + item.imgTop + "\" alt=\"" + item.name + "\">\n                <h4>" + item.name + "</h4>\n            </div>\n            <div class=\"unit-price\">\n                <small>$</small>" + item.price + "\n            </div>\n        </div>";
+            "<div class=\"cartItems\">\n   \n                <p>" + item.name + "</p>\n                <img src=\"" + item.imgTop + "\" alt=\"" + item.name + "\">      \n                <p>" + item.price + "$</p>\n                <button class=\"cartButton\" onclick=\"removeItemFromCart(" + item.id + ")\">Remove Item</button>\n            \n        </div>";
     });
 }
 function updateCart() {
@@ -492,22 +490,20 @@ function handleRenderByGender(gender) {
         console.error(error);
     }
 }
-function handleShowCart() {
-    try {
-        var cartRoot_1 = document.getElementById("cartRoot");
-        if (!cartRoot_1)
-            throw new Error("no cartRoot in DOM");
-        if (cartRoot_1.style.display === "none") {
-            cartRoot_1.style.display = "block";
-        }
-        else {
-            cartRoot_1.style.display = "none";
-        }
-    }
-    catch (error) {
-        console.error(error);
-    }
-}
+// function handleShowCart() {
+//   try {
+//     const cartRoot = document.getElementById("cartRoot");
+//     if (!cartRoot) throw new Error("no cartRoot in DOM");
+//     if (cartRoot.style.display === "none") {
+//       cartRoot.style.display = "block";
+//     } 
+//     else {
+//       cartRoot.style.display = "none";
+//     }
+//   } catch (error) {
+//     console.error(error);
+//   }
+// }
 function handleSearch(ev) {
     //const name= ev.target.value;
     try {
@@ -529,7 +525,7 @@ function handleSearch(ev) {
             });
             var html = foundItem
                 .map(function (item) {
-                return "<div class=\"items\">\n        <p>" + item.name + "</p>\n        <img class=\"imgTop\" src=\"" + item.imgTop + "\" >\n        <img class=\"imgBottom\" src=\"" + item.imgBottom + "\" >\n        <button class=\"add-to-cart\" onclick=\"addToCart(" + item.id + ")\">Add To Cart</button>\n        <p>" + item.price + "$</p>\n        </div>";
+                return "<div class=\"items\">\n        <p>" + item.name + "</p>\n        <img class=\"imgTop\" src=\"" + item.imgTop + "\" >\n        <img class=\"imgBottom\" src=\"" + item.imgBottom + "\" >        \n        <p>" + item.price + "$</p>\n        <button class=\"cartButton\" onclick=\"addToCart(" + item.id + ")\">Add To Cart</button>\n        </div>";
             })
                 .join("");
             root_1.innerHTML = html;

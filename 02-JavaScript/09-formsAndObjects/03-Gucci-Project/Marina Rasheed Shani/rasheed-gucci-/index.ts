@@ -348,11 +348,17 @@ const gucci: Store = {
   cartItems: [],
   storeData() {
     localStorage.setItem("storeData", JSON.stringify(this.items));
+    
+
+    
+    
   },
   getData() {
     const clothesStorage = JSON.parse(localStorage.getItem("storeData"));
     if (Array.isArray(clothesStorage)) {
       this.items = clothesStorage;
+      
+      
     }
   },
   addItems(name, price, imgTop, imgBottom, gender, type) {
@@ -415,7 +421,7 @@ const gucci: Store = {
         <img class="imgTop" src="${item.imgTop}" >
         <img class="imgBottom" src="${item.imgBottom}" >
         <p>${item.price}$</p>
-        <button class="add-to-cart" onclick="addToCart(${item.id})">Add To Cart</button>
+        <button class="cartButton" onclick="addToCart(${item.id})">Add To Cart</button>
         </div>`;
     });
     domElement.innerHTML = html;
@@ -451,7 +457,7 @@ const gucci: Store = {
     this.render(filterByGender, domElement);
   },
 };
-//gucci.storeData(); /// delete later
+
 
 function handleShowItems() {
   console.log(gucci.items);
@@ -485,7 +491,7 @@ function handleAddItems(ev) {
   }
 }
 
-gucci.getData();
+
 
 function addToCart(id){
   console.log(id)
@@ -501,6 +507,11 @@ if (gucci.cartItems.some((item) => item.id === id)){
   console.log(gucci.cartItems)
 
   updateCart()
+  
+  
+  
+  
+
 
 }
 
@@ -508,32 +519,37 @@ function removeItemFromCart(id){
   gucci.cartItems = gucci.cartItems.filter((item) => item.id !== id)
 
   updateCart()
+
 }
 
 const cartRoot = document.getElementById("cartRoot");
 
 function renderCartItems(){
+  cartRoot.innerHTML = "";
   gucci.cartItems.forEach((item) => {
-    cartRoot.innerHTML += "";
+    
     cartRoot.innerHTML +=
-    `<div class="cart-item">
-    <button onclick="removeItemFromCart(${item.id})">x</button>
-            <div class="item-info" >
-                <img src="${item.imgTop}" alt="${item.name}">
-                <h4>${item.name}</h4>
-            </div>
-            <div class="unit-price">
-                <small>$</small>${item.price}
-            </div>
+    `<div class="cartItems">
+   
+                <p>${item.name}</p>
+                <img src="${item.imgTop}" alt="${item.name}">      
+                <p>${item.price}$</p>
+                <button class="cartButton" onclick="removeItemFromCart(${item.id})">Remove Item</button>
+            
         </div>`
       ;
 
   });
+ 
+  
+
+  
 }
 
 
 function updateCart(){
   renderCartItems();
+
 }
 
 
@@ -645,21 +661,22 @@ function handleRenderByGender(gender: string) {
   }
 }
 
-function handleShowCart() {
-  try {
-    const cartRoot = document.getElementById("cartRoot");
+// function handleShowCart() {
+//   try {
+//     const cartRoot = document.getElementById("cartRoot");
 
-    if (!cartRoot) throw new Error("no cartRoot in DOM");
+//     if (!cartRoot) throw new Error("no cartRoot in DOM");
 
-    if (cartRoot.style.display === "none") {
-      cartRoot.style.display = "block";
-    } else {
-      cartRoot.style.display = "none";
-    }
-  } catch (error) {
-    console.error(error);
-  }
-}
+//     if (cartRoot.style.display === "none") {
+//       cartRoot.style.display = "block";
+//     } 
+//     else {
+//       cartRoot.style.display = "none";
+//     }
+//   } catch (error) {
+//     console.error(error);
+//   }
+// }
 
 
 function handleSearch(ev) {
@@ -690,9 +707,9 @@ function handleSearch(ev) {
           return `<div class="items">
         <p>${item.name}</p>
         <img class="imgTop" src="${item.imgTop}" >
-        <img class="imgBottom" src="${item.imgBottom}" >
-        <button class="add-to-cart" onclick="addToCart(${item.id})">Add To Cart</button>
+        <img class="imgBottom" src="${item.imgBottom}" >        
         <p>${item.price}$</p>
+        <button class="cartButton" onclick="addToCart(${item.id})">Add To Cart</button>
         </div>`;
         })
         .join("");
@@ -706,3 +723,6 @@ function handleSearch(ev) {
     console.error(error);
   }
 }
+
+
+
