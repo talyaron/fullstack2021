@@ -75,7 +75,7 @@ let aviator: aviator = {
         
            <button  onclick='handleDelete("${item.id}")' style="width:50px ;"'><i class="far fa-trash-alt"></i> Delete</button>
             </div>`
-            total += item.price;
+            total += (item.price * item.quantity);
         });
         domElement.innerHTML = html2
 
@@ -184,6 +184,20 @@ function handelfilters(ev) {
     console.log(ev.target.innerText);
     aviator.filterItems(ev.target.innerText);
 }
+
+function handleSearch(ev){
+    const searchTerm = ev.target.value;
+    const regEx = new RegExp(searchTerm,"i");
+    aviator.itemsToRender = [];
+    aviator.items.forEach(item => {
+        
+        if(regEx.test(item.name)){
+            aviator.itemsToRender.push(item);
+        }
+    });
+    aviator.renderitem(document.getElementById('main'));
+}
+
 document.querySelector('.filter-bar__item').addEventListener('click', () => {
     aviator.itemsToRender = aviator.items;
     aviator.renderitem(document.getElementById('main'))
@@ -237,6 +251,8 @@ function swichToUsd() {
         price.classList.add("USD");
         price.classList.remove("EUR", "GBP");
     });
+    document.querySelector("#total").classList.add("USD");
+    document.querySelector("#total").classList.remove("EUR", "GBP");
 };
 function swichToEur() {
     let prices: any = document.querySelectorAll(".category-wrapper__card__price");
@@ -249,6 +265,8 @@ function swichToEur() {
         price.classList.add("EUR");
         price.classList.remove("USD", "GBP");
     });
+    document.querySelector("#total").classList.add("EUR");
+    document.querySelector("#total").classList.remove("USD", "GBP");
 };
 function swichToGbp() {
     let prices: any = document.querySelectorAll(".category-wrapper__card__price");
@@ -261,6 +279,8 @@ function swichToGbp() {
         price.classList.add("GBP");
         price.classList.remove("EUR", "USD");
     });
+    document.querySelector("#total").classList.add("GBP");
+    document.querySelector("#total").classList.remove("EUR", "USD");
 };
 
 function handleCurrencyOptionClick(ev) {

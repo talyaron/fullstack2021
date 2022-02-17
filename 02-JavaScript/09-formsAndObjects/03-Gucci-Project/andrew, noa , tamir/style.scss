@@ -150,6 +150,10 @@ body {
 
     &__item {
         margin-inline: 15px;
+        &:hover {
+            cursor: pointer;
+            color: var(--main-color-purple1)
+        }
     }
 }
 
@@ -457,11 +461,9 @@ body {
         display: grid;
         grid-template-columns: repeat(13, 1fr);
         align-items: right;
-
         border: 1px solid black;
 
         p {
-
             margin-inline: 20px;
         }
 
@@ -485,7 +487,7 @@ body {
     z-index: 1;
     background-color: var(--main-color-purple1);
     transition: ease 0.5s;
-    transform: translateY(60px);
+    transform: translateY(100px);
 
 }
 

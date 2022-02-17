@@ -1,0 +1,190 @@
+.backendBody {
+    font-family: 'Poppins', sans-serif;
+};
+
+.canvaBody {
+    background: rgb(224, 223, 223);
+}
+
+.color {
+    display: grid;
+    justify-content: center;
+    margin-bottom: 20px;
+
+    a {
+        justify-self: center;
+    }
+
+    input {
+        justify-self: center;
+    }
+}
+
+#phone {
+    position: absolute;
+    z-index: -1;
+    left: 50px;
+    top: -200px;
+    width: 1150px;
+    height: 2150px;
+}
+
+.wrapper--backEnd,
+.wrapper--frontEnd {
+    display: grid;
+    grid-template-columns: 50px 500px 50px;
+    grid-template-rows: 250px 150px 350px 250px 250px;
+    justify-content: center;
+}
+
+.wrapper--frontEnd {
+    margin-top: 200px;
+}
+
+.box {
+    border: 1px solid black;
+
+    &.box1,
+    &.box2,
+    &.box9 {
+        grid-column: span 3;
+    }
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+
+    &.container1,
+    &.container2,
+    &.container9 {
+        grid-column: span 3;
+    }
+
+    &.container7{
+        font-family: 'Poppins', sans-serif;
+    }
+
+    &.container9{
+        font-family: 'Poppins', sans-serif;
+        font-size: 3rem;
+        color: #2e0a4d;
+        padding-top:70px;
+        font-weight: 900;
+
+        span {
+            color: #4e164d;
+        }
+    }
+}
+
+#imgBoxIndex {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+#imgContainer{
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    img {
+        margin-top: 20px;
+        width: 50%;
+    }
+}
+
+#title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 15px 150px;
+
+    .inputTitleColor {
+        justify-self: center;
+    }
+}
+
+.card {
+    display: grid;
+    justify-content: center;
+    text-shadow: 2px 2px 5px black;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+
+    &:hover {
+        transform: scale(1.2);
+    }
+
+    .card--hebrewCard {
+        direction: rtl;
+        font-family: 'Heebo', sans-serif;
+        align-self: flex-end;
+        margin-top: 80px;
+    }
+
+    .card--englishCard {
+        direction: ltr;
+        font-family: 'Poppins', sans-serif;
+    }
+}
+
+#btn, #ctn{
+    display: grid;
+    justify-content: center;
+    gap: 10px;
+
+    p{
+        margin: 0 auto;  
+    }
+
+    .btnColor, .ctnColor {
+        margin: 0 auto;
+    }
+}
+
+#ctnBox {
+    width: 99%;
+    height: 99%;
+    text-align: center;
+    font-size: 2rem;
+    border: blue dashed 4px;
+    width: 98%;
+    height: 100%;
+}
+
+.buttonCanva {
+    display: grid;
+    justify-content: center;
+    
+    .button {
+        padding: 20px;
+        border: transparent;
+        box-shadow: 2px 2px 10px black;
+        cursor: pointer;
+        margin-top: 30%;
+        font-weight: bold;
+    }
+
+    button {
+        border: transparent;
+        margin-top: 30%;
+        height: 100px;
+        width: 400px;
+    }
+}
+
+#btnOrCtnCanva1{
+    padding-top: 10px;
+}
+
+
+
+
+
+
+
+
+

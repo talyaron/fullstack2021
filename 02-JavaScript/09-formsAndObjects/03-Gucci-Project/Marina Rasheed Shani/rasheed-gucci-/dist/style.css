@@ -4,15 +4,52 @@
 
 body {
   font-family: "Montserrat", sans-serif;
-  color: "whiblackte";
   margin: 0;
   width: 100%;
 }
 
+.cartSticky {
+  position: sticky;
+  top: 0px;
+  bottom: 0px;
+}
+.cartSticky .showCart {
+  margin: 30px;
+  justify-content: center;
+  z-index: 1;
+  border-radius: 5px;
+  background-color: #ccc5c5ce;
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+}
+.cartSticky .showCart .cartItems {
+  margin: 5px;
+  padding: 2px;
+  display: inline-block;
+}
+.cartSticky .showCart .cartItems img {
+  height: 90px;
+  width: 80px;
+  border: none;
+  border-radius: 5px;
+}
+.cartSticky .showCart .cartItems p {
+  letter-spacing: 1px;
+  font-size: 10px;
+  padding-left: 7px;
+}
+.cartSticky .cartTitle {
+  text-align: center;
+  z-index: 1;
+}
+
+.container {
+  width: 100%;
+}
 .container__navBar {
   top: 0px;
   left: 0px;
-  padding-bottom: 1em;
   transition: all 0.5s;
 }
 .container__navBar__title {
@@ -23,7 +60,6 @@ body {
 }
 .container__navBar__title__help {
   display: flex;
-  gap: 0.4em;
   font-size: smaller;
 }
 .container__navBar__title--gucci {
@@ -31,24 +67,19 @@ body {
   letter-spacing: 12px;
   font-family: Granjon;
   font-weight: lighter;
-}
-.container__navBar:hover {
-  background-color: #141010de;
+  justify-content: center;
 }
 .container__navBar2 {
-  text-align: center;
   transition: all 0.5s;
-}
-.container__navBar2:hover {
-  background-color: #141010de;
+  text-align: center;
 }
 .container__navBar2 ul {
   display: inline-flex;
   list-style: none;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .container__navBar2 ul li {
-  width: 120px;
-  margin: 15px;
   padding: 15px;
 }
 .container__navBar2 ul li a {
@@ -59,14 +90,11 @@ body {
 }
 .container__navBar2__dropdown {
   display: none;
-  width: 130vh;
   padding: 20px;
   opacity: 0.7;
 }
 .container__navBar2__dropdown ul {
-  width: 180vh;
-  height: auto;
-  margin-left: -200px;
+  margin-left: -450px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -86,6 +114,22 @@ body {
   text-align: center;
   background-color: #e7e7e7;
 }
+.container__main .gucci {
+  color: black;
+}
+.container__main .gucci--Aria {
+  font-size: smaller;
+}
+.container__main .gucci--Title {
+  font-size: 3em;
+}
+.container__main .gucci--imgBeforeStories {
+  width: 100%;
+  margin-bottom: 10em;
+}
+.container__main .gucci--mainPageImg {
+  width: 100vh;
+}
 .container__main img {
   background-size: cover;
   background-repeat: no-repeat;
@@ -97,6 +141,7 @@ body {
   margin-bottom: 1.5em;
 }
 .container__stories {
+  margin-top: 20px;
   justify-content: center;
   gap: 2em;
   display: flex;
@@ -105,12 +150,36 @@ body {
   font-weight: 300;
   font-size: larger;
 }
+.container__stories__left .stories__left__bag {
+  margin-bottom: 5.5em;
+}
+.container__stories .stories__middle {
+  margin-top: -9.7em;
+}
+.container__stories .stories__middle__title {
+  font-size: 3em;
+  color: black;
+}
+.container__stories__right .stories__right__gucci {
+  margin-bottom: 4.2em;
+}
 .container__bottom {
   background-color: #1a1919;
   color: white;
   display: flex;
   justify-content: space-evenly;
   margin-top: 2em;
+}
+.container__bottom__title {
+  font-size: large;
+}
+.container .gucciRights {
+  background: #1a1919;
+  font-size: small;
+  padding: 2em;
+  margin-top: 0;
+  color: white;
+  margin-top: 0.1em;
 }
 
 .active,
@@ -122,15 +191,23 @@ body {
 .container__navBar2 ul li:hover .container__navBar2__dropdown {
   display: block;
   margin-top: 15px;
-  margin-left: -15px;
+  margin-left: 15px;
   position: absolute;
   transform: translateY(-20px);
 }
 
 .sub-container {
-  background-image: url("https://media.gucci.com/content/HeroBigStandard_3200x1520/1643384764/HeroBigStandard_VDAY-2022-043-new_001_Default.jpg");
-  height: 100vh;
+  background-image: url("https://onemillionluxury.com/wp-content/uploads/IllustriousNewHermitcrab-size_restricted.gif");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 90vh;
   margin: 0;
+}
+.sub-container__hover {
+  transition: all 0.5s;
+}
+.sub-container__hover:hover {
+  background-color: rgba(0, 0, 0, 0.856);
 }
 
 .catergory__buttons {
@@ -146,9 +223,10 @@ body {
   font-weight: 800;
   font-size: 11px;
   color: rgba(0, 0, 0, 0.384);
-  width: 60vw;
+  width: 40vw;
   padding-top: 2em;
   text-align: left;
+  justify-content: flex-start;
   padding-left: 0.5em;
 }
 .catergory__buttons .catergory__name span:hover {
@@ -157,7 +235,7 @@ body {
 .catergory__buttons--selector {
   background-color: #ffffff;
   cursor: pointer;
-  width: 15;
+  width: 100px;
   border: none;
   font-size: 12px;
   letter-spacing: 1px;
@@ -186,7 +264,7 @@ body {
 }
 .catergory__buttons--lowerThanPrice {
   color: black;
-  margin-left: 0;
+  padding-right: 20px;
   padding-top: 2em;
   text-align: center;
   letter-spacing: 1px;
@@ -198,10 +276,24 @@ body {
   background-color: #ffffff;
   border: 1px solid #c4c3c3;
 }
+.catergory__buttons--searchItem {
+  color: black;
+  padding-right: 20px;
+  padding-top: 2em;
+  text-align: center;
+  letter-spacing: 1px;
+  font-size: 12px;
+}
+.catergory__buttons--searchItem .inputSearch {
+  cursor: pointer;
+  margin-top: 0.5em;
+  background-color: #ffffff;
+  border: 1px solid #c4c3c3;
+}
 
 .catergory__items {
   background-color: white;
-  height: 110em;
+  height: 80em;
   text-align: center;
 }
 .catergory__items .items {
@@ -219,13 +311,176 @@ body {
 .catergory__items .items .imgBottom {
   display: none;
   position: absolute;
-  top: 53px;
   left: 2px;
-  z-index: 1;
 }
 .catergory__items .items:hover .imgBottom {
+  height: 380px;
   display: inline;
 }
 .catergory__items .items p {
   letter-spacing: 2px;
+}
+
+.cartButton {
+  font-size: 12px;
+  letter-spacing: 2px;
+  border-radius: 3px;
+  border: 0.5px solid #c4c3c3;
+  background-color: #ffffff;
+  color: #141010cc;
+}
+.cartButton:hover {
+  background-color: rgba(207, 207, 194, 0.425);
+  border: 0.5px solid #9c9999;
+}
+
+@media only screen and (max-width: 1024px) {
+  body .container__navBar2__dropdown ul {
+    margin-left: -150px;
+  }
+  body .catergory__items {
+    height: 120em;
+  }
+  body .catergory__items .items .imgTop {
+    height: 350px;
+    width: 18em;
+  }
+  body .catergory__items .items .imgBottom {
+    width: 18em;
+    height: 10px;
+  }
+  body .catergory__items .items:hover .imgBottom {
+    height: 350px;
+  }
+
+  .sub-container {
+    height: 70vh;
+    margin: 0;
+  }
+
+  .container__main img {
+    width: 50%;
+  }
+  .container__main .gucci {
+    color: black;
+  }
+  .container__main .gucci--Aria {
+    font-size: smaller;
+  }
+  .container__main .gucci--Title {
+    font-size: 3em;
+  }
+  .container__main .gucci--mainPageImg {
+    width: 60vh;
+  }
+  .container__stories {
+    gap: 0px;
+  }
+  .container__stories__left img {
+    width: 160px;
+  }
+  .container__stories__left .stories__left__bag {
+    margin-bottom: 5.2em;
+  }
+  .container__stories .stories__middle {
+    margin-right: 0em;
+  }
+  .container__stories__right img {
+    width: 160px;
+  }
+  .container__stories__right .stories__right__gucci {
+    margin-bottom: 4em;
+  }
+}
+@media only screen and (max-width: 600px) {
+  body .container__navBar2__dropdown ul {
+    margin-left: -100px;
+  }
+  body .catergory__buttons {
+    height: 15vh;
+  }
+  body .catergory__buttons .catergory__name {
+    display: none;
+  }
+  body .catergory__buttons--selector {
+    font-size: 11px;
+  }
+  body .catergory__buttons--sortPrice button {
+    font-size: 10px;
+  }
+  body .catergory__buttons--lowerThanPrice {
+    font-size: 10px;
+  }
+  body .catergory__buttons--lowerThanPrice .inputLowerThan {
+    width: 100px;
+  }
+  body .catergory__buttons--searchItem {
+    font-size: 10px;
+  }
+  body .catergory__buttons--searchItem .inputSearch {
+    width: 100px;
+  }
+  body .catergory__items {
+    height: 200em;
+  }
+  body .catergory__items .items .imgTop {
+    height: 350px;
+    width: 18em;
+  }
+  body .catergory__items .items .imgBottom {
+    width: 18em;
+    height: 10px;
+  }
+  body .catergory__items .items:hover .imgBottom {
+    height: 350px;
+  }
+
+  .sub-container {
+    height: 70vh;
+    margin: 0;
+  }
+
+  .container__navBar {
+    font-size: smaller;
+  }
+  .container__main img {
+    width: 50%;
+  }
+  .container__main .gucci {
+    color: black;
+  }
+  .container__main .gucci--Aria {
+    font-size: smaller;
+  }
+  .container__main .gucci--Title {
+    font-size: 2em;
+  }
+  .container__main .gucci--mainPageImg {
+    margin-top: 5px;
+    width: 40vh;
+  }
+  .container__stories {
+    gap: 0px;
+  }
+  .container__stories__left {
+    display: none;
+  }
+  .container__stories .stories__middle {
+    margin-right: 0em;
+  }
+  .container__stories .stories__middle img {
+    width: 100%;
+  }
+  .container__stories__right {
+    display: none;
+  }
+  .container__bottom {
+    font-size: 10px;
+  }
+  .container__bottom__title {
+    font-size: small;
+  }
+  .container__bottom input {
+    width: 100px;
+  }
 }

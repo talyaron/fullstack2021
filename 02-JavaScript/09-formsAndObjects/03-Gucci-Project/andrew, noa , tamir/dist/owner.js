@@ -5,18 +5,32 @@ var uid = function () {
 var stock = {
     items: [],
     addItem: function (newItem) {
-        newItem.id = uid();
-        this.items.push(newItem);
-        console.log(this.items);
-        this.renderStock(this.items);
-        this.storeData();
+        try {
+            newItem.id = uid();
+            this.items.push(newItem);
+            console.log(this.items);
+            this.renderStock(this.items);
+            this.storeData();
+            if (!uid)
+                throw new Error("no id");
+        }
+        catch (error) {
+            console.error(error);
+        }
     },
     storeData: function () {
         localStorage.setItem('storeData', JSON.stringify(this.items));
     },
     deleteItem: function (id) {
-        this.items = this.items.filter(function (item) { return item.id !== id; });
-        this.storeData();
+        try {
+            if (!id)
+                throw new Error("no id");
+            this.items = this.items.filter(function (item) { return item.id !== id; });
+            this.storeData();
+        }
+        catch (error) {
+            console.error(error);
+        }
     },
     updateItem: function (updatedItem) {
         //find index
@@ -43,6 +57,7 @@ function handleSubmit(ev) {
     for (var i = 0; i < keys.length; i++) {
         newItem[keys[i]] = ev.target.elements[i].value;
     }
+    stock.addItem(newItem);
     // for (let field of ev.target) {
     //     let name = field.name;
     //     switch (name) {
@@ -81,7 +96,6 @@ function handleSubmit(ev) {
     //             break;
     //     }
     // }
-    stock.addItem(newItem);
 }
 function handleDelete(id) {
     stock.deleteItem(id);
