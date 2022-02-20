@@ -1,9 +1,13 @@
 const express = require('express')
 const app = express()
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 4000
 
-app.get('/', function (req, res) {
-  res.send('Hello World')
+app.get('/',(req, res) => {
+  res.send(`this is the port number: ${port}`)
+  res.sendFile('Bookie.html')
+})
+app.get('/store',(req, res) => {
+  res.render('Bookie.html', {status: 'good'})
 })
 app.get('/get-user',(req, res) => {
     res.send('This is the name of the user')
