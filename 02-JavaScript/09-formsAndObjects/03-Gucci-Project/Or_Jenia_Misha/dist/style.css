@@ -45,6 +45,17 @@
     left: 0%;
   }
 }
+@keyframes border {
+  0% {
+    box-shadow: 0 0 20px red;
+  }
+  50% {
+    box-shadow: 0 0 20px red;
+  }
+  100% {
+    box-shadow: 0 0 20px red;
+  }
+}
 html {
   scroll-behavior: smooth;
 }
@@ -546,18 +557,15 @@ html {
   width: 50px;
   height: 60px;
 }
-.cart__box__Qnt {
-  color: red;
-  position: absolute;
-  bottom: -23%;
-  left: 5%;
-  font-weight: 600;
-  display: none;
-}
 .cart__box-active {
   position: absolute;
   width: 300px;
   height: 400px;
+}
+.cart__box-click {
+  animation-name: border;
+  animation-duration: 1s;
+  animation-direction: alternate;
 }
 .cart__box .cart__footer form {
   padding: 0.3em;
