@@ -16,21 +16,28 @@ var nikeItems = {
         this.items.sort(function (a, b) { return b.price - a.price; });
     },
     deleteItem: function (idItem) {
-        this.items = this.items.filter(function (item) { return item.idItem !== idItem; });
+        var datasOfLocalStorage = JSON.parse(localStorage.getItem("storeData"));
+        var index = datasOfLocalStorage.findIndex(function (data) { return data.idItem === idItem; });
+        if (index >= 0) {
+            console.log("before the delete");
+            console.log(datasOfLocalStorage);
+            var newLocal = datasOfLocalStorage.splice(index, 1);
+            console.log("after the delete ");
+            console.log(newLocal);
+        }
     },
     deleteItemCustomer: function (idItem) {
-        this.carts = this.carts.filter(function (type) { return type.idItem !== idItem; });
+        this.carts = this.carts.filter(function (type) { return type.idCustomer !== idItem; });
     },
     updateItem: function (idItem, newValue) {
         var i = this.items.findIndex(function (item) { return item.idItem === idItem; });
         this.items[i].name = newValue;
     },
     addToCarts: function (name, type) {
-        this.carts.push({ name: name, type: type });
+        var idCustomer = uid();
+        this.carts.push({ idCustomer: idCustomer, name: name, type: type });
     },
     selectItem: function (type) {
-        // console.log('selectItem', type);
-        // console.log(this.carts)
         return this.carts.filter(function (item) { return item.type === type; });
     },
     renderAllData: function (ownerRoot) {
@@ -38,20 +45,16 @@ var nikeItems = {
         this.render(ownerRoot, list);
     },
     renderSelctedItem: function (customerRoot, type) {
-        // console.log('at renderSelctedItem type:', type)
         var selected = this.selectItem(type);
-        // console.log(selected)
         this.renderCarts(customerRoot, selected);
     },
     renderAllCarts: function (customerRoot) {
-        // console.log(this.carts);
         this.renderCarts(customerRoot, this.carts);
     },
     renderCarts: function (customerRoot, list) {
-        // console.log(customerRoot,list);
         var htmlCustomer = "";
         list.forEach(function (type) {
-            htmlCustomer += "<div class= 'card1'><h4>The Item You Want:</h4> <p>" + type.name + "</p>\n      <button onclick=\"handleDeleteCustomer('" + type.idItem + "')\">delete</button></div>";
+            htmlCustomer += "<div class= 'card1'><h4>The Item You Want:</h4> <p>" + type.name + "</p>\n      <button onclick=\"handleDeleteCustomer('" + type.idCustomer + "')\">delete</button></div>";
         });
         customerRoot.innerHTML = htmlCustomer;
     },
@@ -64,7 +67,6 @@ var nikeItems = {
     },
     getData: function () {
         var storeData = JSON.parse(localStorage.getItem('storeData'));
-        console.log(storeData);
         var ownerRoot = document.getElementById("ownerRoot");
         var customerRoot = document.getElementById("customerRoot");
         if (ownerRoot) {
@@ -100,7 +102,7 @@ function handleDelete(id) {
     nikeItems.renderAllData(ownerRoot);
 }
 function handleDeleteCustomer(id) {
-    console.log("handleDeleteCustomer");
+    // console.log(id);
     nikeItems.deleteItemCustomer(id);
     var customerRoot = document.getElementById("customerRoot");
     nikeItems.renderAllCarts(customerRoot);
@@ -114,12 +116,10 @@ function handleupdate(event, id) {
 }
 function handleGetProduct() {
     nikeItems.getData();
-    console.log("handleGetProduct");
 }
 //customer
 function handleCart(event) {
     var shoes = event.target.id;
-    console.log(shoes);
     nikeItems.addToCarts(shoes, 'shoes');
     var rooto = document.getElementById("customerRoot");
     nikeItems.renderAllCarts(rooto);
