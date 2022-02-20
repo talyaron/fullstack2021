@@ -136,7 +136,7 @@ let nikeItems: object = {
 };
 
 function handleSubmit(event) {
-  event.preventDefault();
+event.preventDefault();
   const name = event.target.elements.description.value;
   const price = event.target.elements.price.value;
   nikeItems.additems(name, price);
@@ -144,9 +144,8 @@ function handleSubmit(event) {
   const ownerRoot = document.getElementById("ownerRoot");
   nikeItems.renderAllData(ownerRoot);
 
-  event.target.reset(); // poner el tu pajina
+  event.target.reset();
 }
-
 function handleAsce() {
   nikeItems.sortAsc();
   const ownerRoot = document.getElementById("ownerRoot");

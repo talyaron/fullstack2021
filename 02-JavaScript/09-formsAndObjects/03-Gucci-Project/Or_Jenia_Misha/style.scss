@@ -51,12 +51,29 @@
         left: 0%;
     }
 }
-html{
+
+@keyframes border{
+
+    0% {
+        box-shadow : 0 0 20px red;
+    }
+
+    50% {
+        box-shadow : 0 0 20px red;
+    }
+
+    100%{
+        box-shadow : 0 0 20px red;
+    }
+}
+
+html {
     scroll-behavior: smooth;
 }
 
-*{
+* {
     transition: all 0.7s;
+    box-sizing: border-box;
 }
 
 #bodystore {
@@ -150,10 +167,11 @@ html{
         width: 100%;
         align-items: center;
         padding: 1em;
+
         a {
-            color: inherit; 
-            text-decoration: inherit; 
-          }
+            color: inherit;
+            text-decoration: inherit;
+        }
 
         li {
             padding: 5px;
@@ -383,7 +401,7 @@ html{
 
 .menuopacity {
     background-color: rgba(0, 0, 0, 0.858);
-    height: 100vh;
+    height: 130vh;
     width: 100vw;
     display: flex;
     flex-direction: column;
@@ -403,12 +421,13 @@ html{
     flex-direction: column;
     align-items: space-around;
     text-align: center;
-    min-height: 100vh;
+    height: fit-content;
     color: #EBEBEB;
 
 
     &__title {
-
+        position: relative;
+        top: 10px;
         font-size: 3rem;
         font-weight: 600;
         display: flex;
@@ -428,7 +447,7 @@ html{
 
     &__box {
         position: relative;
-        top: 2em;
+        top: -0.3em;
         display: grid;
         grid-template-columns: repeat(6, 1fr);
         grid-template-rows: repeat(3, 1fr);
@@ -446,7 +465,7 @@ html{
         align-items: center;
         justify-content: center;
         width: 100%;
-        height: 100%;
+        height: 230px;
         overflow: hidden;
         gap: 0.8em;
 
@@ -454,7 +473,7 @@ html{
 
         .picwrap {
             transition: all 0.6s ease-in-out;
-            height: 10rem;
+            min-height: 130px;
             width: 10rem;
             overflow: hidden;
             border-radius: 100%;
@@ -511,7 +530,7 @@ html{
     flex-direction: column;
     color: #EBEBEB;
     height: 90%;
-    
+
 
     &-active {
         transition: opacity 1s;
@@ -546,16 +565,11 @@ html{
             background-position: center;
             min-height: 700px;
 
-            // &__wrapper{
-            //     position: fixed;
-            // }
-
             &__navbar {
-                // position: fixed;
                 height: 10%;
                 width: 900px;
                 display: flex;
-                
+
                 justify-content: center;
                 align-items: center;
                 text-align: center;
@@ -570,7 +584,8 @@ html{
                     margin: 5px;
                     padding: 5px;
                     border-bottom: 1px solid grey;
-                    &-active{
+
+                    &-active {
                         border-bottom: 1px solid #ed3524;
                         color: white;
                     }
@@ -626,7 +641,129 @@ html{
     }
 }
 
+///////////////////////// CART //////////////////////////////////
+
+.cart {
+
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    top: 5.55%;
+    right: 2%;
+    z-index: 10;
+    height: 50px;
+    width: 50px;
+
+    &__body {
+
+        overflow-y: scroll;
+        height: 80%;
+
+
+        .cart__dishes {
+
+            span{
+                color: rgb(163, 72, 72);
+            }
+            width: 260px;
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
+    &__close {
+
+        display: none;
+
+        &-active {
+            display: block;
+            color: rgb(0, 0, 0);
+            position: absolute;
+            right: 3%;
+            cursor: pointer;
+        }
+    }
+
+    &-active {
+        top: 12%;
+        height: 420px;
+        width: 280px;
+    }
+
+    &__box {
+
+        padding: 1em;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #EBEBEB;
+        border-radius: 5%;
+        width: 50px;
+        height: 60px;
+
+        &-active {
+            position: absolute;
+            width: 300px;
+            height: 400px;
+        }
+
+        &-click{
+            animation-name: border;
+            animation-duration: 1s;
+            animation-direction: alternate;
+        }
+
+        .cart__footer {
+
+            form {
+                padding: 0.3em;
+                display: flex;
+                justify-content: center;
+                display: none;
+                gap: 0.5em;
+
+                input {
+                    width: 35px;
+                }
+
+                button {
+                    width: 60px;
+                }
+            }
+
+            &-active {
+                form {
+                    display: flex;
+                }
+            }
+        }
+
+        img {
+            position: relative;
+            bottom: 10%;
+            width: 40px;
+            height: 30px;
+            cursor: pointer;
+        }
+    }
+}
+
+//////////////////////////// RESPONSIVENESS /////////////////////////
+
+@media screen and (max-width: 1300px) {
+    .cart{
+
+        top: 11.5%;
+    }
+}
 @media screen and (max-width: 1200px) {
+
+    .cart{
+
+        top: 1.7%;
+    }
 
     .navbar {
 
@@ -726,7 +863,7 @@ html{
 
     .menuopacity {
 
-        height: 200vh;
+        height: 250vh;
 
         .menu {
 
@@ -749,12 +886,13 @@ html{
         }
 
     }
-    
-    .popmenu__box__grid{
+
+    .popmenu__box__grid {
         grid-template-columns: 1fr;
-        
+
     }
-    .popmenu__box__opacity__navbar{
+
+    .popmenu__box__opacity__navbar {
         flex-wrap: wrap;
     }
 
@@ -784,18 +922,13 @@ html{
             }
 
 
-            &__cell{
-            //    width:100%;
-               .picwrap{
-                   width: 70%;
-                   height: 50%;
-            //        img{
-            //            width: 70%;
-            //        }
-               }
-            }
-        // }
+            &__cell {
 
+                .picwrap {
+                    width: 70%;
+                    height: 50%;
+                }
+            }
         }
 
     }
@@ -804,11 +937,34 @@ html{
 
 
 
-///////////////////////// ERP //////////////////////////////////////
-.dishesERP{
-    border: 1px solid black;
-    width: 50%;
-    padding:5px;
+///////////////////////// ERP ///////////////////////////////////
+
+#rootERP {
+    display: flex;
+    flex-wrap: wrap;
+    gap:10px;
+    margin-top: 1em;
+
 }
 
-    
+.dishesERP {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid black;
+    width: 200px;
+    height: 480px;
+    padding: 5px;
+    background-color: gainsboro ;
+
+    form {
+
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr
+    }
+}
+
+#addDishForm{
+    margin-bottom: 2em;
+}

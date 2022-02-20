@@ -40,7 +40,7 @@ interface cloths {
     addToCart(id, catagory)
     renderShoppingCart(list, display, catagory)
     deleteItemFromShoppingCart(id)
-    TotalCartPrice(list, display)
+    TotalCartPrice(display)
     renderCartDropDown(display)
 }
 interface item {
@@ -49,6 +49,11 @@ interface item {
     size: string;
     price: number;
     name?: any
+}
+enum searchList {
+    Tshirts = "Tshirts",
+    shoes = "Shoes",
+    pants = "Pants",
 }
 
 let clothsList: cloths = {
@@ -97,7 +102,8 @@ let clothsList: cloths = {
             <p class="main_scrollmenu-box-card-para"> Size : ${element.size}</p>
            <p class="main_scrollmenu-box-card-para"> Price : ${element.price} </p>
            <button class="main_scrollmenu-box-card-btn" onclick="deleteCard('${element.id}')">Delete Item</button>
-           </div> `
+           <button class="main_scrollmenu-box-card-btn" onclick="update('${element.id}')">update item</button>
+           </div>`
         });
         display.innerHTML = html;
     },
@@ -267,7 +273,7 @@ let clothsList: cloths = {
         list.forEach((item) => {
             html += ` 
             <div class="container-shoppingCart_display-item">
-                <h1 class="container-shoppingCart_display-item-header">${item.brand} ${catagory}</h1>
+                <h1 class="container-shoppingCart_display-item-header">${item.brand} ${item.name}</h1>
                 <p class="container-shoppingCart_display-item-size">size: ${item.size}</p>
                 <p class="container-shoppingCart_display-item-price">price: ${item.price}</p>
                 <button class="container-shoppingCart_display-item-deleteBtn" name="${catagory}" id="${item.id}" type="button" onclick="deleteItemFromCart(event)">remove</button>
@@ -276,9 +282,9 @@ let clothsList: cloths = {
         display.innerHTML = html
     }, deleteItemFromShoppingCart(id) {
         this.shoppingCart = this.shoppingCart.filter((item) => item.id !== id)
-    }, TotalCartPrice(list, display) {
+    }, TotalCartPrice(display) {
         let sum = 0;
-        list.forEach((item) => {
+        this.shoppingCart.forEach((item) => {
             sum += item.price;
         })
         display.textContent = `Total : ${sum}`;
@@ -290,7 +296,7 @@ let clothsList: cloths = {
                 <h1 class="container_header-dropDown-box-item-header">${item.brand} ${item.name}</h1>
                 <p class="container_header-dropDown-box-item-size">size: ${item.size}</p>
                 <p class="container_header-dropDown-box-item-price">price: ${item.price}</p>
-                <button class="container_header-dropDown-box-item-deleteBtn" name="${item.name}" id="${item.id}" type="button" onclick="deleteItemFromCart(event)">remove</button>
+                <button class="container_header-dropDown-box-item-deleteBtn" lang="dropDown" name="${item.name}" id="${item.id}" type="button" onclick="deleteItemFromCart(event)">remove</button>
                 </div>`
         }
         )
@@ -710,19 +716,17 @@ function addToCart(ev, id) {
     const display = document.querySelector('.container-shoppingCart_display')
     let catagory = ev.target.name
 
-    clothsList.addToCart(id, catagory)
 
+    clothsList.addToCart(id, catagory)
     clothsList.renderShoppingCart(clothsList.shoppingCart, display, catagory)
-    clothsList.TotalCartPrice(clothsList.shoppingCart, displayTotal)
+    clothsList.TotalCartPrice(displayTotal)
 }
 
 function showDropDown(ev) {
-
-
     const dropDownDisplay = document.querySelector('.container_header-dropDown')
     const id = ev.target.id;
 
-    let html;
+    let html = '';
     let htmlCart;
 
     if (id == "notificationsBtn") {
@@ -740,11 +744,13 @@ function showDropDown(ev) {
         <p style="font-size: 12px;font-weight:bold">No Orders yet...</p>
        </div>`
     } else if (id == "shoppingCartBtn") {
-        html = '<div id="shoppingCart" class="container_header-dropDown-box shoppingCart"></div>'
+        html = '<div id="shoppingCart" class="container_header-dropDown-box shoppingCart">Your cart is empty..</div>'
     }
     dropDownDisplay.innerHTML = html;
-    const dropDownCart = document.querySelector('.shoppingCart')
-    clothsList.renderCartDropDown(dropDownCart)
+    if (id == "shoppingCartBtn") {
+        const dropDownCart = document.querySelector('.shoppingCart')
+        clothsList.renderCartDropDown(dropDownCart)
+    }
 }
 
 function deleteItemFromCart(ev) {
@@ -752,17 +758,62 @@ function deleteItemFromCart(ev) {
     const displayShoppingCart = document.querySelector('.container-shoppingCart_display') as HTMLDivElement
     const dropDownCart = document.querySelector('.shoppingCart')
     const displayTotal = document.querySelector('.totalCart')
-
     const catagory = ev.target.name
     const id = ev.target.id
-    console.log(id);
-    console.log(catagory);
+    const lang = ev.target.lang
+    console.log(lang);
+
 
     clothsList.deleteItemFromShoppingCart(id)
     displayShoppingCart.innerHTML = '';
     console.log(clothsList.shoppingCart)
     clothsList.renderShoppingCart(clothsList.shoppingCart, displayShoppingCart, catagory)
-    clothsList.renderCartDropDown(dropDownCart)
-    clothsList.TotalCartPrice(clothsList.shoppingCart, displayTotal)
+    if (lang == "dropDown") {
+        clothsList.renderCartDropDown(dropDownCart)
+    }
+    clothsList.TotalCartPrice(displayTotal)
+}
+
+
+function creatDataList() {
+
+    const dataList = document.querySelector('.container_header-search-dataList')
+    dataList.innerHTML = `
+    <option class="container_header-search-dataList-options" value="${searchList.Tshirts}"></option>
+    <option class="container_header-search-dataList-options" value="${searchList.shoes}"></option>
+    <option class="container_header-search-dataList-options" value="${searchList.pants}"></option>`
+}
+creatDataList()
+
+document.querySelector('.container_header-search-input').addEventListener('change', scrollPage)
+
+
+function scrollPage(ev) {
+
+    ev.preventDefault()
+    const itemMenu = document.querySelector('.container-imgsBox')
+    const display = document.querySelector('.container_catagories-display')
+    console.log(itemMenu);
+
+    const value = ev.target.value
+    console.log(value);
+
+    itemMenu.scrollTop += 50;
+
+    switch (value) {
+        case 'Tshirts':
+            clothsList.renderCustomerPage(clothsList.Tshirts, display, value, "https://i.ebayimg.com/images/g/bWgAAOSwVH5blRYh/s-l300.jpg")
+            break;
+        case 'Shoes':
+            clothsList.renderCustomerPage(clothsList.shoes, display, value,  "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/lead-image-shoes-01-1634132850.png?crop=1.00xw:1.00xh;0,0&resize=480:*")
+            break;
+        case 'Pants':
+            clothsList.renderCustomerPage(clothsList.pants, display, value, "https://assets.ajio.com/medias/sys_master/root/h89/hbe/13459792265246/-473Wx593H-440995277-olive-MODEL2.jpg")
+            break;
+    }    
+}
+function thankYou(){
+    const shoppingCartDisplay = document.querySelector('.container-shoppingCart')
+    shoppingCartDisplay.innerHTML = '<p style="width:100vw;text-align:center;font-size:30px">Thank you for your order</p>'
 }
 

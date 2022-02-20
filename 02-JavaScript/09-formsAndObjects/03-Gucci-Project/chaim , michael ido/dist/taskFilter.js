@@ -1,6 +1,12 @@
 var itemId = function () {
     return Date.now().toString(36) + Math.random().toString(36).substr(2);
 };
+var searchList;
+(function (searchList) {
+    searchList["Tshirts"] = "Tshirts";
+    searchList["shoes"] = "Shoes";
+    searchList["pants"] = "Pants";
+})(searchList || (searchList = {}));
 var clothsList = {
     Tshirts: [
         { id: "lala", brand: "allstains", size: "medium", price: 450 },
@@ -42,7 +48,7 @@ var clothsList = {
     render: function (list, display, catagory) {
         var html = "";
         list.forEach(function (element) {
-            html += "<div class=\"main_scrollmenu-box-card\"><h3 class=\"main_scrollmenu-box-card-head\">" + element.brand + " " + catagory + "</h3>\n            <p class=\"main_scrollmenu-box-card-para\"> Size : " + element.size + "</p>\n           <p class=\"main_scrollmenu-box-card-para\"> Price : " + element.price + " </p>\n           <button class=\"main_scrollmenu-box-card-btn\" onclick=\"deleteCard('" + element.id + "')\">Delete Item</button>\n           </div> ";
+            html += "<div class=\"main_scrollmenu-box-card\"><h3 class=\"main_scrollmenu-box-card-head\">" + element.brand + " " + catagory + "</h3>\n            <p class=\"main_scrollmenu-box-card-para\"> Size : " + element.size + "</p>\n           <p class=\"main_scrollmenu-box-card-para\"> Price : " + element.price + " </p>\n           <button class=\"main_scrollmenu-box-card-btn\" onclick=\"deleteCard('" + element.id + "')\">Delete Item</button>\n           <button class=\"main_scrollmenu-box-card-btn\" onclick=\"update('" + element.id + "')\">update item</button>\n           </div>";
         });
         display.innerHTML = html;
     },
@@ -211,21 +217,21 @@ var clothsList = {
         }
         var html = "";
         list.forEach(function (item) {
-            html += " \n            <div class=\"container-shoppingCart_display-item\">\n                <h1 class=\"container-shoppingCart_display-item-header\">" + item.brand + " " + catagory + "</h1>\n                <p class=\"container-shoppingCart_display-item-size\">size: " + item.size + "</p>\n                <p class=\"container-shoppingCart_display-item-price\">price: " + item.price + "</p>\n                <button class=\"container-shoppingCart_display-item-deleteBtn\" name=\"" + catagory + "\" id=\"" + item.id + "\" type=\"button\" onclick=\"deleteItemFromCart(event)\">remove</button>\n            </div>";
+            html += " \n            <div class=\"container-shoppingCart_display-item\">\n                <h1 class=\"container-shoppingCart_display-item-header\">" + item.brand + " " + item.name + "</h1>\n                <p class=\"container-shoppingCart_display-item-size\">size: " + item.size + "</p>\n                <p class=\"container-shoppingCart_display-item-price\">price: " + item.price + "</p>\n                <button class=\"container-shoppingCart_display-item-deleteBtn\" name=\"" + catagory + "\" id=\"" + item.id + "\" type=\"button\" onclick=\"deleteItemFromCart(event)\">remove</button>\n            </div>";
         });
         display.innerHTML = html;
     }, deleteItemFromShoppingCart: function (id) {
         this.shoppingCart = this.shoppingCart.filter(function (item) { return item.id !== id; });
-    }, TotalCartPrice: function (list, display) {
+    }, TotalCartPrice: function (display) {
         var sum = 0;
-        list.forEach(function (item) {
+        this.shoppingCart.forEach(function (item) {
             sum += item.price;
         });
         display.textContent = "Total : " + sum;
     }, renderCartDropDown: function (display) {
         var html = '';
         this.shoppingCart.forEach(function (item) {
-            html += "\n                <div class=\"container_header-dropDown-box-item\">\n                <h1 class=\"container_header-dropDown-box-item-header\">" + item.brand + " " + item.name + "</h1>\n                <p class=\"container_header-dropDown-box-item-size\">size: " + item.size + "</p>\n                <p class=\"container_header-dropDown-box-item-price\">price: " + item.price + "</p>\n                <button class=\"container_header-dropDown-box-item-deleteBtn\" name=\"" + item.name + "\" id=\"" + item.id + "\" type=\"button\" onclick=\"deleteItemFromCart(event)\">remove</button>\n                </div>";
+            html += "\n                <div class=\"container_header-dropDown-box-item\">\n                <h1 class=\"container_header-dropDown-box-item-header\">" + item.brand + " " + item.name + "</h1>\n                <p class=\"container_header-dropDown-box-item-size\">size: " + item.size + "</p>\n                <p class=\"container_header-dropDown-box-item-price\">price: " + item.price + "</p>\n                <button class=\"container_header-dropDown-box-item-deleteBtn\" lang=\"dropDown\" name=\"" + item.name + "\" id=\"" + item.id + "\" type=\"button\" onclick=\"deleteItemFromCart(event)\">remove</button>\n                </div>";
         });
         display.innerHTML = html;
     }
@@ -585,12 +591,12 @@ function addToCart(ev, id) {
     var catagory = ev.target.name;
     clothsList.addToCart(id, catagory);
     clothsList.renderShoppingCart(clothsList.shoppingCart, display, catagory);
-    clothsList.TotalCartPrice(clothsList.shoppingCart, displayTotal);
+    clothsList.TotalCartPrice(displayTotal);
 }
 function showDropDown(ev) {
     var dropDownDisplay = document.querySelector('.container_header-dropDown');
     var id = ev.target.id;
-    var html;
+    var html = '';
     var htmlCart;
     if (id == "notificationsBtn") {
         html = "<div id=\"notifications\" class=\"container_header-dropDown-box notifications\" \">\n        <p style=\"font-size: 12px; font-weight:1000;height:200%;\">No new notifications</p>\n     </div> ";
@@ -602,11 +608,13 @@ function showDropDown(ev) {
         html = "<div id=\"yourOrders\" class=\"container_header-dropDown-box yourOrders\">\n        <p style=\"font-size: 12px;font-weight:bold\">No Orders yet...</p>\n       </div>";
     }
     else if (id == "shoppingCartBtn") {
-        html = '<div id="shoppingCart" class="container_header-dropDown-box shoppingCart"></div>';
+        html = '<div id="shoppingCart" class="container_header-dropDown-box shoppingCart">Your cart is empty..</div>';
     }
     dropDownDisplay.innerHTML = html;
-    var dropDownCart = document.querySelector('.shoppingCart');
-    clothsList.renderCartDropDown(dropDownCart);
+    if (id == "shoppingCartBtn") {
+        var dropDownCart = document.querySelector('.shoppingCart');
+        clothsList.renderCartDropDown(dropDownCart);
+    }
 }
 function deleteItemFromCart(ev) {
     var displayShoppingCart = document.querySelector('.container-shoppingCart_display');
@@ -614,12 +622,44 @@ function deleteItemFromCart(ev) {
     var displayTotal = document.querySelector('.totalCart');
     var catagory = ev.target.name;
     var id = ev.target.id;
-    console.log(id);
-    console.log(catagory);
+    var lang = ev.target.lang;
+    console.log(lang);
     clothsList.deleteItemFromShoppingCart(id);
     displayShoppingCart.innerHTML = '';
     console.log(clothsList.shoppingCart);
     clothsList.renderShoppingCart(clothsList.shoppingCart, displayShoppingCart, catagory);
-    clothsList.renderCartDropDown(dropDownCart);
-    clothsList.TotalCartPrice(clothsList.shoppingCart, displayTotal);
+    if (lang == "dropDown") {
+        clothsList.renderCartDropDown(dropDownCart);
+    }
+    clothsList.TotalCartPrice(displayTotal);
+}
+function creatDataList() {
+    var dataList = document.querySelector('.container_header-search-dataList');
+    dataList.innerHTML = "\n    <option class=\"container_header-search-dataList-options\" value=\"" + searchList.Tshirts + "\"></option>\n    <option class=\"container_header-search-dataList-options\" value=\"" + searchList.shoes + "\"></option>\n    <option class=\"container_header-search-dataList-options\" value=\"" + searchList.pants + "\"></option>";
+}
+creatDataList();
+document.querySelector('.container_header-search-input').addEventListener('change', scrollPage);
+function scrollPage(ev) {
+    ev.preventDefault();
+    var itemMenu = document.querySelector('.container-imgsBox');
+    var display = document.querySelector('.container_catagories-display');
+    console.log(itemMenu);
+    var value = ev.target.value;
+    console.log(value);
+    itemMenu.scrollTop += 50;
+    switch (value) {
+        case 'Tshirts':
+            clothsList.renderCustomerPage(clothsList.Tshirts, display, value, "https://i.ebayimg.com/images/g/bWgAAOSwVH5blRYh/s-l300.jpg");
+            break;
+        case 'Shoes':
+            clothsList.renderCustomerPage(clothsList.shoes, display, value, "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/lead-image-shoes-01-1634132850.png?crop=1.00xw:1.00xh;0,0&resize=480:*");
+            break;
+        case 'Pants':
+            clothsList.renderCustomerPage(clothsList.pants, display, value, "https://assets.ajio.com/medias/sys_master/root/h89/hbe/13459792265246/-473Wx593H-440995277-olive-MODEL2.jpg");
+            break;
+    }
+}
+function thankYou() {
+    var shoppingCartDisplay = document.querySelector('.container-shoppingCart');
+    shoppingCartDisplay.innerHTML = '<p style="width:100vw;text-align:center;font-size:30px">Thank you for your order</p>';
 }

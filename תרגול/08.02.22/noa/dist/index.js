@@ -3,6 +3,7 @@ var amount = document.getElementById('Amount');
 var checkbox = document.querySelector('.checkbox');
 var checkboxinput = document.querySelectorAll("input[type='checkbox']");
 var tax = document.querySelector('.tax');
+var clearForm = document.querySelector('.clear');
 for (var i = 0; i < radio.length; i++) {
     console.log(radio[i]);
     radio[i].addEventListener('click', function (ev) {
@@ -15,7 +16,7 @@ for (var i = 0; i < radio.length; i++) {
         }
         if (ev.target.value == 'Autometed Monthly Withdrawal') {
             checkbox.style.cssText =
-                "display: grid;\n            grid-template-columns: 20% 80%;\n            margin: 5px;";
+                "display: grid;\n            ";
         }
         else {
             checkbox.style.display = 'none';
@@ -26,7 +27,7 @@ for (var i = 0; i < checkboxinput.length; i++) {
     checkboxinput[i].addEventListener('click', function (ev) {
         if (ev.target.value == 'Payment withdrawal') {
             tax.style.cssText =
-                "grid-column: 1/3;\n            display: flex;\n            margin-left: 10px;\n            margin-top: 10px;\n            margin-bottom: 10px;";
+                "display: flex;";
         }
         else if (ev.target.value == 'Corresponding to loan') {
             tax.style.display = 'none';
@@ -40,3 +41,4 @@ for (var i = 0; i < checkboxinput.length; i++) {
         }
     });
 }
+clearForm.addEventListener('click', function (ev) { return ev.reset(); });
