@@ -1,33 +1,18 @@
-function calc(ev) : void{
+axios.get("/player").then(({ data }) => { console.log(data)})
+
+
+function displayPlayer(ev){
     ev.preventDefault();
+    const display = document.querySelector('.main_inputBox')
+    const year = ev.target.value
+    console.log(year);
 
-    let numberOne
-    let numberTwo
-    let action;
-    let sum = 0;
+    axios.get(`/player?year=${year}`).then(({ data }) => { console.log(data)})
 
-    for(let field of ev.target){
-        if(field.name == "numberOne"){
-            numberOne = field.value
-        }else if(field.name == "numberTwo"){
-            numberTwo = field.value
-        }else if(field.name == "selectAction")
-        action = field.value
-    }
-    if(action == "plus"){
-        sum = numberOne+numberTwo
-    }else if(action == "minus"){
-        sum = numberOne - numberTwo
-    }else if(action == "multi"){
-        sum = numberOne*numberTwo
-    }else if(action == "split"){
-        sum = numberOne/numberTwo
-    }
-    document.querySelector('.result').textContent = `${sum}`
-
-    ev.target.reset()
+    display.innerHTML += `<span class="main_inputBox_input-value">${year}</span>`
 }
-axios.get("/details").then(({data}) =>{console.log(data)})
-  .catch((err) => {
-    console.error(err);
-  });
+
+
+
+
+
