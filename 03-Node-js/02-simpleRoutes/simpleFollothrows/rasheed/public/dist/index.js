@@ -2,7 +2,7 @@ var id = 0;
 axios
     .get("/getMe")
     .then(function (_a) {
-    var data = _a.data;
+    var data = _a[0].data;
     console.log(data);
     id = data[0].id;
     console.log(id);

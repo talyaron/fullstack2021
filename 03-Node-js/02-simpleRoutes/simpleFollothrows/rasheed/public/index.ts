@@ -1,7 +1,7 @@
 let id = 0
 axios
   .get("/getMe")
-  .then(({data}) => {
+  .then(([{data}]) => {
     console.log(data);
     id = data[0].id;
     console.log(id)
