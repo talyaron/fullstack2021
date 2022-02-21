@@ -1,11 +1,14 @@
 import express from 'express';
 const app = express();
-const port = 3001;
+const port = process.env.PORT || 3001;
 
-app.use(express.static('public'))
+app.use(express.static('public')) //middlware
 
-app.get('/', (req, res) => {
-  res.send('Hello World!');
+app.get('/getUsers', (req, res) => { //route
+  setTimeout(()=>{
+    res.send([{name:"Moshe",id:343534}]);
+  },2000)
+  
 });
 
 app.listen(port, () => {
