@@ -30,3 +30,9 @@ function calc(ev) {
     document.querySelector('.result').textContent = "" + sum;
     ev.target.reset();
 }
+axios.get("/details").then(function (_a) {
+    var data = _a.data;
+    console.log(data);
+})["catch"](function (err) {
+    console.error(err);
+});

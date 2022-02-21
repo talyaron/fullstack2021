@@ -27,3 +27,7 @@ function calc(ev) : void{
 
     ev.target.reset()
 }
+axios.get("/details").then(({data}) =>{console.log(data)})
+  .catch((err) => {
+    console.error(err);
+  });
