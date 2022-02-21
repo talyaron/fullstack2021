@@ -9,7 +9,8 @@ app.get("/get-user", (req, res) => {
 
 //route
 app.get("/aaa", (req, res) => {
-  res.send("Hello World");
+  let x = 3*5;
+  res.send(`Hello World ${x}`);
 });
 
 app.listen(port, () => {
