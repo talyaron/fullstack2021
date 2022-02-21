@@ -1,13 +1,9 @@
 const express = require('express')
 const app = express()
 const port = process.env.PORT || 4000
-
-app.get('/',(req, res) => {
-  res.send(`this is the port number: ${port}`)
-  res.sendFile('Bookie.html')
-})
+app.use(express.static('public'))
 app.get('/store',(req, res) => {
-  res.render('Bookie.html', {status: 'good'})
+  res.render('Bookie', {status: 'good'})
 })
 app.get('/get-user',(req, res) => {
     res.send('This is the name of the user')

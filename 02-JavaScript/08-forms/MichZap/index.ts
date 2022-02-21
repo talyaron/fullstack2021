@@ -63,7 +63,11 @@ function handleSubmit(ev) {
 }
 
 function deleteItem(ev){
-    e
+    this.Items.forEach(item => {return this.removeItems
+        
+    });
+    
+    
 }
 Items.addItems({ itemName: 'bbb', itemPrice: 12 });
 Items.addItems({ itemName: 'ccc', itemPrice: 4444 });

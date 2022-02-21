@@ -34,7 +34,10 @@ function handleSubmit(ev) {
     ev.target.reset();
 }
 function deleteItem(ev) {
-    e;
+    var _this = this;
+    this.Items.forEach(function (item) {
+        return _this.removeItems;
+    });
 }
 Items.addItems({ itemName: 'bbb', itemPrice: 12 });
 Items.addItems({ itemName: 'ccc', itemPrice: 4444 });
