@@ -14,7 +14,7 @@ axios
   axios
   .get("/getFriends")
   .then(({data}) => {
-    console.log({data});
+    console.log(data);
     id = data[0].id;
     console.log(id)
   })
