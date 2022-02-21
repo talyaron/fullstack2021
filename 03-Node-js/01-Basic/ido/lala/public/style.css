@@ -1,0 +1,20 @@
+h1{
+    color: rgb(9, 13, 71);
+    font-size: 20px;
+    height: 15vh;
+    width: 50%;
+    border: 1px solid gray;
+    text-align: center;
+    margin: auto;
+    margin-top: 10vh;   
+}
+#select{
+    text-align: center;
+    font-size: 15px;
+}
+.form{
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+    height: 10vh;
+}
