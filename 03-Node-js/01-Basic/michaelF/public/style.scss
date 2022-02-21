@@ -1,0 +1,12 @@
+.container {
+    display: flex;
+    justify-content: center;
+
+    h1 {
+        font-family: sans-serif;
+        color: blueviolet;
+        font-size: 3rem;
+        font-weight: 900;
+        cursor: pointer;
+    }
+}
