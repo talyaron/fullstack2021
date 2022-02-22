@@ -6,7 +6,6 @@ app.use(express.static('public'))
 
 app.get('/me', function (req, res) {
     res.send({name:'tamir',age:'24'})
-    console.log('hey')
 })
 app.get('/friend', function (req, res) {
     res.send({name:'yanir',age:'25'})
