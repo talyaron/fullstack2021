@@ -2,6 +2,6 @@
 
 
 axios
-.get('/getHello').then(({data})=>{
+.get('/getPics').then(({data})=>{
     console.log(data)
 });
