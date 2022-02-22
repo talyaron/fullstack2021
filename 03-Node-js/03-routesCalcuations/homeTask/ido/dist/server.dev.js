@@ -39,7 +39,7 @@ var data = [{
   url: 'https://pbs.twimg.com/media/EoOWLAOXUAEl91o.jpg',
   name: 'Kaká',
   year: '2007',
-  nationality: ' Portugal'
+  nationality: ' Brazil'
 }, {
   url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQc4N57p89RzyGJNa3-OdmbERk2LUAKw2c1jwy3zrg_9H953l4msy76qgZDpugh43AS3lM&usqp=CAU',
   name: 'Cristiano Ronaldo',
