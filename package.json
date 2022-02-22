@@ -16,5 +16,8 @@
     "url": "https://github.com/talyaron/fullstack2021/issues"
   },
   "homepage": "https://github.com/talyaron/fullstack2021#readme",
-  "keywords": []
+  "keywords": [],
+  "dependencies": {
+    "express": "^4.17.3"
+  }
 }

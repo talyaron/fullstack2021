@@ -6,4 +6,14 @@ app.get('/', function (req, res) {
   res.send('Hello World')
 })
 
+
+
 app.listen(port, () => {console.log('server listen on port', port)})
+
+function sayHello(Hello){
+    for(let i = 0; i<10; i++){
+    console.log('hello '+ Hello)
+    }
+}
+
+sayHello("Misha") 
