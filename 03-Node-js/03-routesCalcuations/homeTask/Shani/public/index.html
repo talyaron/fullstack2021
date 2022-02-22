@@ -16,7 +16,7 @@
 
     <label for="photos">Choose a view:</label>
 
-    <select name="photos" id="photoViews">
+    <select onchange="handlePhotoView(ev)" name="photos" id="photoViews">
         <option value="" disabled selected>i am the view</option>
         <option value="beach">Beach</option>
         <option value="mountain">Mountains</option>
