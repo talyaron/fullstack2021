@@ -33,7 +33,7 @@ const Items: ItemsForSale = {
         this.items.forEach(item => {
             html += `<div class='card'>
         <p>${item.itemName},${item.itemPrice}</p></div> 
-        <input type="button" value="delete" onclick="deleteItem(event)">`
+        <input type="button" id="dlt" value="delete" onclick="deleteItem(event)">`
         })
         domElement.innerHTML = html
     },
@@ -62,13 +62,17 @@ function handleSubmit(ev) {
 
 }
 
-function deleteItem(ev){
-    this.Items.forEach(item => {return this.removeItems
-        
-    });
-    
-    
-}
+function deleteItem(ev) {
+    const btn = document.getElementById("btn");
+    console.log(ev)
+
+};
+
+
+// btn.addEventListener('click',deleteItem);
+
+
+
 Items.addItems({ itemName: 'bbb', itemPrice: 12 });
 Items.addItems({ itemName: 'ccc', itemPrice: 4444 });
 Items.addItems({ itemName: 'eee', itemPrice: 5 });
