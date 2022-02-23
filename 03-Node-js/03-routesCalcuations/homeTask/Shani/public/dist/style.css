@@ -35,6 +35,12 @@ body {
   box-shadow: rgba(0, 0, 0, 0.918) 0px 22px 70px 4px;
 }
 
+.rangeSlider {
+  margin-top: 20px;
+}
 .rangeSlider h1 {
   color: #09093d;
+}
+.rangeSlider label {
+  font-weight: bolder;
 }
