@@ -35,6 +35,7 @@ app.get('/getPics', function (req, res) {
   console.log(req.query); //what does req.query show?
 
   var view = req.query.view;
+  var year = req.query.year;
 
   if (view) {
     console.log(view);
@@ -42,14 +43,7 @@ app.get('/getPics', function (req, res) {
       return painting.view === view;
     });
     res.send(filteredPaintingsByView);
-  } else {
-    res.send(data);
-  }
-});
-app.get('/getPicsByYear', function (req, res) {
-  var year = req.query.year;
-
-  if (year) {
+  } else if (year) {
     console.log(year);
     var filteredPaintingsByYear = data.filter(function (painting) {
       return painting.year === year;

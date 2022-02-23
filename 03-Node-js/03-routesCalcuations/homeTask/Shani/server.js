@@ -18,31 +18,23 @@ app.use(express.static('public'))
 app.get('/getPics', function (req, res) {
   console.log(req.query) //what does req.query show?
   const view=req.query.view;
+  const year=req.query.year;
+
 
   if(view){
     console.log(view);
     const filteredPaintingsByView=data.filter((painting)=>painting.view===view);
     res.send(filteredPaintingsByView);
-  }else{
-    res.send(data)
-  }
-  
-  
-})
-
-app.get('/getPicsByYear',function(req,res){
-
-  const year=req.query.year;
-
-  if(year){
+  }else if(year){
     console.log(year);
     const filteredPaintingsByYear=data.filter((painting)=>painting.year===year);
-    res.send(filteredPaintingsByYear)
+    res.send(filteredPaintingsByYear);
+    
   }else{
     res.send(data)
   }
-
-
+  
+  
 })
 
 app.listen(port,()=>{
