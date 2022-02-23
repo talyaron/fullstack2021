@@ -1,0 +1,53 @@
+.main {
+  height: 95vh;
+  width: 100%;
+  border: 1px solid #222121;
+}
+.main_head {
+  font-size: 30px;
+  text-align: center;
+}
+.main_form {
+  background-image: url();
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(5, 20%);
+  grid-template-rows: repeat(2, 50%);
+  width: 70%;
+  height: 30%;
+}
+.main_form-btns {
+  width: 70%;
+  height: 70%;
+  border-radius: 15px;
+  border: 2px black;
+  box-shadow: rgba(153, 69, 69, 0.5);
+}
+.main_display {
+  width: 100%;
+  height: 60%;
+  border: 1px solid #313131;
+  background-color: #515155;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+}
+.main_display-national {
+  justify-self: flex-end;
+  font-size: 25px;
+  color: antiquewhite;
+  max-width: 20ch;
+}
+.main_display_playerName {
+  justify-self: flex-start;
+  font-size: 20px;
+  color: antiquewhite;
+}
+.main_display-year {
+  justify-self: flex-end;
+  font-size: 20px;
+  color: antiquewhite;
+  max-width: 40ch;
+}

@@ -1,10 +1,12 @@
 .main {
-  max-width: 300px;
+  max-width: 700px;
   height: 700px;
+  justify-content: center;
   margin: auto;
   background-image: linear-gradient(90deg, #464a4b, rgba(160, 167, 166, 0)), repeating-linear-gradient(-45deg, #57779b, #1b7557 1.5px, #456bb3 2px, #422dbd 4px);
 }
 .main_form {
+  margin: auto;
   height: 300px;
   max-width: 300px;
   display: grid;
