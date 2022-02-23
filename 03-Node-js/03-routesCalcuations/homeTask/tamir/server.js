@@ -1,0 +1,48 @@
+const express = require('express')
+const app = express()
+const port = process.env.PORT || 3000;
+const work = [{
+        img: 'https://th.bing.com/th/id/OIP.XOgLT3Jo3y9UwP8Z070V4AHaE7?pid=ImgDet&w=1280&h=853&rs=1',
+        view: 'desert',
+        year: 1995
+    },
+    {
+        img: 'https://th.bing.com/th/id/OIP.XOgLT3Jo3y9UwP8Z070V4AHaE7?pid=ImgDet&w=1280&h=853&rs=1',
+        view: 'desert',
+        year: 1997
+    },
+    {
+        img: 'https://th.bing.com/th/id/OIP.q6vwa5u_AtPDbYR7CW3csgHaEo?pid=ImgDet&rs=1',
+        view: 'sea',
+        year: 1999
+    },
+    {
+        img: 'https://usercontent1.hubstatic.com/12512822_f520.jpg',
+        view: 'mountains',
+        year: 2002
+    }
+]
+app.use(express.static("public"));
+
+app.get('/work', function (req, res) {
+    const view = req.query.view;
+    if (view) {
+
+        const filterbyview = work.filter(work => work.view === view);
+
+        res.send(filterbyview)
+    } else {
+        res.send(work)
+    }
+})
+app.get('/work', function (req, res) {
+    const year = req.query.year;
+    if (year) {
+        const newfilters = filterbyview.filter(work => work.year === year)
+        res.send(newfilters)
+    }
+})
+
+app.listen(port, () => {
+    return console.log(`Express is listening at http://localhost:${port}`);
+});

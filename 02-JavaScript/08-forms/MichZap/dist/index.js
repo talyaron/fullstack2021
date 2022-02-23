@@ -15,7 +15,7 @@ var Items = {
     renderItems: function (domElement) {
         var html = '';
         this.items.forEach(function (item) {
-            html += "<div class='card'>\n        <p>" + item.itemName + "," + item.itemPrice + "</p></div> \n        <input type=\"button\" value=\"delete\" onclick=\"deleteItem(event)\">";
+            html += "<div class='card'>\n        <p>" + item.itemName + "," + item.itemPrice + "</p></div> \n        <input type=\"button\" id=\"dlt\" value=\"delete\" onclick=\"deleteItem(event)\">";
         });
         domElement.innerHTML = html;
     },
@@ -34,11 +34,11 @@ function handleSubmit(ev) {
     ev.target.reset();
 }
 function deleteItem(ev) {
-    var _this = this;
-    this.Items.forEach(function (item) {
-        return _this.removeItems;
-    });
+    var btn = document.getElementById("btn");
+    console.log(ev);
 }
+;
+// btn.addEventListener('click',deleteItem);
 Items.addItems({ itemName: 'bbb', itemPrice: 12 });
 Items.addItems({ itemName: 'ccc', itemPrice: 4444 });
 Items.addItems({ itemName: 'eee', itemPrice: 5 });
