@@ -10,10 +10,12 @@
         integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+    <link rel="stylesheet" href="./dist/style.css">
+
 </head>
 
 <body>
-
+    <div class="pictureViews">
     <label for="photos">Choose a Monet painting view:</label>
 
     <select onchange="handlePhotoView(event)" name="photos" id="photoViews">
@@ -25,7 +27,7 @@
         <option value="city">Canal in Amsterdam</option>
     </select>
 
-    <div class="pictureViews">
+    
         <div id="root"></div>
     </div>
 

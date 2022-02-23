@@ -1,0 +1,13 @@
+body {
+  background-image: url("https://64.media.tumblr.com/ad76bfbd8a4c65eb15ce2215a3778f74/tumblr_p5dldn2qo11x6oel3o1_500.gifv");
+  background-size: cover;
+  padding: 0;
+  margin: 0;
+}
+
+.pictureViews {
+  margin-top: 30px;
+  text-align: center;
+  color: white;
+  font-family: LucidaHandwriting;
+}
