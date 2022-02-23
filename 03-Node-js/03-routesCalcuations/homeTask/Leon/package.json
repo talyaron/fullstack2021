@@ -1,6 +1,7 @@
 {
-  "name": "leo",
+  "name": "leon",
   "version": "1.0.0",
+  "description": "",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -11,6 +12,5 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.3"
-  },
-  "description": ""
+  }
 }
