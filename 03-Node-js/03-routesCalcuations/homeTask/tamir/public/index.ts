@@ -4,28 +4,47 @@ axios.get('/work')
     })
 
 function handleselect(ev) {
-    const year = ev.target.valu
-    const img= ev.target.value
     const view = ev.target.value;
     console.log(view)
     if (view) {
-        try {
-            axios.get(`/work?view=${view}&&?img=${img}`)
-                .then(({ data }) => {
-                    console.log(data)
-                    const root = document.getElementById('root')
-                    let html = ''
-                    if (Array.isArray(data)) {
-                        data.forEach(work => {
-                            html += `<p>${work.img}</P>`
-                        })
-                        root.innerHTML = html
-                    }
-                   
-                })
-        } catch (err) {
-            throw new Error("eroor");
 
-        }
+        axios.get(`/work?view=${view}`)
+            .then(({ data }) => {
+                console.log(data)
+                const root = document.getElementById('root')
+                let html = ''
+                if (Array.isArray(data)) {
+                    data.forEach(work => {
+                        html += `
+                            <p><img src="${work.img}" alt="" class='img'></P>`
+                    })
+                    root.innerHTML = html
+                } 
+
+            })
+    }
+
+}
+function handlechenge(ev) {
+    const year = ev
+    console.dir(ev)
+    console.log(year)
+    if (year) {
+        axios.get(`/work?year=${year}`)
+            .then(({ data }) => {
+                console.log()
+                const root2 = document.getElementById('root2')
+                let html = ''
+                if (Array.isArray(data)) {
+                    data.forEach(work => {
+                        html + `
+                            <p><img src="${work.img}" alt="" class='img'></P>`
+                    })
+                    root2.innerHTML = html
+                }
+            })
     }
 }
+
+
+
