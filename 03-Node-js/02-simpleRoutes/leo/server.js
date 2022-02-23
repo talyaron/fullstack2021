@@ -19,7 +19,7 @@ const pictures =[
     app.use(express.static('public'))
 
    app.get('/getPics', function (req, res) {
-    res.send(pictures)
+    
   })
  
 app.listen(port,()=>{
