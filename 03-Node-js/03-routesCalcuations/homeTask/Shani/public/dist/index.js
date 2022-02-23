@@ -25,6 +25,7 @@ function handlePhotoView(ev) {
 function handlePicsByYear(ev) {
     var year = ev.target.value;
     console.log(year);
+    //this is so the year is shown by the value chosen
     var rootYear = document.getElementById('rootYear');
     rootYear.innerHTML = year;
     axios.get("/getPics?year=" + year).then(function (_a) {

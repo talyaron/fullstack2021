@@ -35,6 +35,8 @@ function handlePhotoView(ev){
 function handlePicsByYear(ev){
     const year=ev.target.value;
     console.log(year);
+
+    //this is so the year is shown by the value chosen
     let rootYear=document.getElementById('rootYear');
     rootYear.innerHTML=year;
     
