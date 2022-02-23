@@ -5,26 +5,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Page</title>
+    <title>Claude Monet</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.0/axios.min.js"
         integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+    <link rel="stylesheet" href="./dist/style.css">
+
 </head>
 
 <body>
+    <div class="pictureViews">
+    <label for="photos">Choose a Monet painting view:</label>
 
-    <label for="photos">Choose a view:</label>
-
-    <select onchange="handlePhotoView(ev)" name="photos" id="photoViews">
-        <option value="" disabled selected>i am the view</option>
-        <option value="beach">Beach</option>
-        <option value="mountain">Mountains</option>
-        <option value="desert">Desert</option>
-        <option value="city">City</option>
-        <option value="fields">Field</option>
+    <select onchange="handlePhotoView(event)" name="photos" id="photoViews">
+        <option value="" disabled selected>You are the view</option>
+        <option value="pond"> Waterlily Pond</option>
+        <option value="garden">Garden at Giverny</option>
+        <option value="field">Field of Poppies</option>
+        <option value="beach">Beach in Pourville</option>
+        <option value="city">Canal in Amsterdam</option>
     </select>
 
+    
+        <div id="root"></div>
+    </div>
 
     <script src="./dist/index.js"></script>
 </body>
