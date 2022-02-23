@@ -20,7 +20,10 @@ var pictures = [{
   url: "https://images.pexels.com/photos/962312/pexels-photo-962312.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
 }];
 app.use(express["static"]('public'));
-app.get('/getPics', function (req, res) {});
+app.get('/getPics', function (req, res) {
+  console.log(req.query);
+  var gender = req.query;
+});
 app.listen(port, function () {
   console.log("server listen on port", port);
 });

@@ -2,7 +2,7 @@ const { lookupService } = require('dns')
 const express = require('express')
 const { url } = require('inspector')
 const app = express()
-const port=process.env.PORT||3005
+const port=process.env.PORT||3008
 
 const pictures =[
   {name:`leo`,
@@ -19,8 +19,9 @@ const pictures =[
     app.use(express.static('public'))
 
    app.get('/getPics', function (req, res) {
-    
-  })
+    console.log(req.query);
+    const gender=req.query.
+  )
  
 app.listen(port,()=>{
     console.log(`server listen on port`,port)
