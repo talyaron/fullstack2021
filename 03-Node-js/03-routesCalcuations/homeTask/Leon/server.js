@@ -27,7 +27,6 @@ app.get('/get-pictures', (req,res)=> {
   }
 
 })
-// app.listen(port,()=>{console.log(`server listen on port`);});
 app.listen(port, () => {
   return console.log('server listening at port', port);
 });

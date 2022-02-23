@@ -27,8 +27,7 @@ app.get('/get-pictures', function (req, res) {
   } else if (type === "all") {
     res.send(pictures);
   }
-}); // app.listen(port,()=>{console.log(`server listen on port`);});
-
+});
 app.listen(port, function () {
   return console.log('server listening at port', port);
 });
