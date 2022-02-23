@@ -13,7 +13,7 @@ function handlePhotoView(ev) {
         if (Array.isArray(data)) // this is like try catch to make sure it recieves the array
          {
             data.forEach(function (painting) {
-                html += "<p>" + painting.view + "</p>\n                <img src=" + painting.imgUrl + ">";
+                html += "<h1>" + painting.view + "</h1>\n                <h2>" + painting.name + "</h2>\n                <img src=" + painting.imgUrl + ">";
             });
             root.innerHTML = html;
         }
