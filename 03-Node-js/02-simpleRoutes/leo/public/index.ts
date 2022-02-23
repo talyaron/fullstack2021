@@ -1,5 +1,5 @@
 axios
-  .get("/getMe")
+  .get("/getPics")
   .then(({data}) => {
     console.log(data);
   })
@@ -7,11 +7,4 @@ axios
     console.error(err);
   });
 
-  axios
-  .get("/getMyFriend")
-  .then(({data}) => {
-    console.log(data);
-  })
-  .catch((err) => {
-    console.error(err);
-  });
+  
