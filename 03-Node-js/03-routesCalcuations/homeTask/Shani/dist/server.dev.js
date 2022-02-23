@@ -46,6 +46,19 @@ app.get('/getPics', function (req, res) {
     res.send(data);
   }
 });
+app.get('/getPicsByYear', function (req, res) {
+  var year = req.query.year;
+
+  if (year) {
+    console.log(year);
+    var filteredPaintingsByYear = data.filter(function (painting) {
+      return painting.year === year;
+    });
+    res.send(filteredPaintingsByYear);
+  } else {
+    res.send(data);
+  }
+});
 app.listen(port, function () {
   return console.log("Express is listening to localhost:".concat(port));
 });

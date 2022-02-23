@@ -37,8 +37,16 @@
     </div>
 
     <div class="rangeSlider">
-        <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+        <input type="range" min="1873" max="1900" value="1873" class="slider" id="myRange" onchange="handlePicsByYear(event)">
+
+        <p>The painting was made in:<span id="year"></span></p>
+
+        <div class="chosenPaintingByYear">
+            <div id="rootByYear"></div>
+        </div>
     </div>
+
+    
 
     <script src="./dist/index.js"></script>
 </body>

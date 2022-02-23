@@ -3,13 +3,13 @@ body {
   background-size: cover;
   padding: 0;
   margin: 0;
+  text-align: center;
+  color: white;
+  font-family: "Architects Daughter", cursive;
 }
 
 .pictureViews {
   margin-top: 30px;
-  text-align: center;
-  color: white;
-  font-family: "Architects Daughter", cursive;
   letter-spacing: 4px;
 }
 .pictureViews select {

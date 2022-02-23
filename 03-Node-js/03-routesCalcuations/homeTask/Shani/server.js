@@ -30,6 +30,21 @@ app.get('/getPics', function (req, res) {
   
 })
 
+app.get('/getPicsByYear',function(req,res){
+
+  const year=req.query.year;
+
+  if(year){
+    console.log(year);
+    const filteredPaintingsByYear=data.filter((painting)=>painting.year===year);
+    res.send(filteredPaintingsByYear)
+  }else{
+    res.send(data)
+  }
+
+
+})
+
 app.listen(port,()=>{
     return console.log(`Express is listening to localhost:${port}`)
 })
