@@ -1,0 +1,39 @@
+#sel {
+  position: absolute;
+  left: 39%;
+  font-size: 3em;
+  border-radius: 20px;
+  box-shadow: black 0px 10px 10px;
+  text-align: center;
+}
+
+#root {
+  position: absolute;
+  top: 20%;
+  margin-left: 35%;
+  margin-right: 50%;
+  z-index: -1;
+}
+
+.img {
+  width: 380px;
+  height: 300px;
+}
+
+img {
+  position: absolute;
+  top: 18%;
+  margin-left: 34%;
+  margin-right: 50%;
+  z-index: 1;
+}
+
+.slider {
+  position: absolute;
+  top: 65%;
+  left: 36%;
+  text-align: center;
+}
+.slider__p {
+  font-size: 1.5em;
+}

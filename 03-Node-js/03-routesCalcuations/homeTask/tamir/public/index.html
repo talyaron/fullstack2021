@@ -13,13 +13,21 @@
 </head>
 
 <body>
-    <select onchange="handleselect(event)">
-        <option disabled selected value="">select viwe</option>
+    <select onchange="handleselect(event)" id="sel">
+        <option disabled selected value="">select view</option>
         <option value="desert">desert</option>
         <option value="sea">sea</option>
         <option value="mountains">mountains</option>
     </select>
+    <p class="img"><img src="https://pngimg.com/uploads/window/window_PNG17699.png" alt=""></p>
     <div id="root"></div>
+    <div id="root2"></div>
+    <div class="slider">
+        <p class="slider__p">Choose the year you want to visit</p>
+        <input type="range" min="1990" max="2005" value="1990" oninput="rangeValue.innerText=this.value" onchange="handlechenge(event)">
+        <p id="rangeValue">1990</p>
+    </div>
+
     <script src="dist/index.js"></script>
 </body>
 

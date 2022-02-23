@@ -5,7 +5,7 @@ var express = require('express');
 var app = express();
 var port = process.env.PORT || 3000;
 var work = [{
-  img: 'https://th.bing.com/th/id/OIP.8KR20ISg_Q7kkM6sk_dIIAHaE8?pid=ImgDet&rs=1',
+  img: 'https://th.bing.com/th/id/OIP.XOgLT3Jo3y9UwP8Z070V4AHaE7?pid=ImgDet&w=1280&h=853&rs=1',
   view: 'desert',
   year: 1995
 }, {
@@ -23,17 +23,26 @@ var work = [{
 }];
 app.use(express["static"]("public"));
 app.get('/work', function (req, res) {
-  var year = req.query.year;
-  var img = req.query.img;
   var view = req.query.view;
 
   if (view) {
-    var filterbyview = work.filter(function (work) {
+    var _filterbyview = work.filter(function (work) {
       return work.view === view;
     });
-    res.send(filterbyview);
+
+    res.send(_filterbyview);
   } else {
     res.send(work);
+  }
+});
+app.get('/work', function (req, res) {
+  var year = req.query.year;
+
+  if (year) {
+    var newfilters = filterbyview.filter(function (work) {
+      return work.year === year;
+    });
+    res.send(newfilters);
   }
 });
 app.listen(port, function () {

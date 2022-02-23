@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const port = process.env.PORT || 3000;
 const work = [{
-        img: 'https://th.bing.com/th/id/OIP.8KR20ISg_Q7kkM6sk_dIIAHaE8?pid=ImgDet&rs=1',
+        img: 'https://th.bing.com/th/id/OIP.XOgLT3Jo3y9UwP8Z070V4AHaE7?pid=ImgDet&w=1280&h=853&rs=1',
         view: 'desert',
         year: 1995
     },
@@ -25,11 +25,9 @@ const work = [{
 app.use(express.static("public"));
 
 app.get('/work', function (req, res) {
-    const year=req.query.year;
-    const img =req.query.img;
     const view = req.query.view;
     if (view) {
-        
+
         const filterbyview = work.filter(work => work.view === view);
 
         res.send(filterbyview)
@@ -37,7 +35,13 @@ app.get('/work', function (req, res) {
         res.send(work)
     }
 })
-
+app.get('/work', function (req, res) {
+    const year = req.query.year;
+    if (year) {
+        const newfilters = filterbyview.filter(work => work.year === year)
+        res.send(newfilters)
+    }
+})
 
 app.listen(port, () => {
     return console.log(`Express is listening at http://localhost:${port}`);
