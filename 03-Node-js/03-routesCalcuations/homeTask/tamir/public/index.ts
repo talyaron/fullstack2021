@@ -4,6 +4,7 @@ axios.get('/work')
     })
 
 function handleselect(ev) {
+
     const view = ev.target.value;
     console.log(view)
     if (view) {
@@ -19,32 +20,33 @@ function handleselect(ev) {
                             <p><img src="${work.img}" alt="" class='img'></P>`
                     })
                     root.innerHTML = html
-                } 
+                }else if(html){
 
-            })
-    }
-
-}
-function handlechenge(ev) {
-    const year = ev
-    console.dir(ev)
-    console.log(year)
-    if (year) {
-        axios.get(`/work?year=${year}`)
-            .then(({ data }) => {
-                console.log()
-                const root2 = document.getElementById('root2')
-                let html = ''
-                if (Array.isArray(data)) {
-                    data.forEach(work => {
-                        html + `
-                            <p><img src="${work.img}" alt="" class='img'></P>`
-                    })
-                    root2.innerHTML = html
                 }
+
             })
     }
+
 }
+// function handlechenge(ev) {
+//     const slid =ev.target.value
+//     axios.get(`/work?year=${slid}`)
+//             .then(({ data }) => {
+//                 console.log(data)
+//                 const root = document.getElementById('root')
+//                 let html = ''
+//                 if (Array.isArray(data)) {
+//                     data.forEach(work => {
+//                         html += `
+//                             <p><img src="${work.img}" alt="" class='img'></P>`
+//                     })
+//                     root.innerHTML = html
+//                 }else if(html){
+
+//                 }
+
+//             })
+// }
 
 
 
