@@ -9,7 +9,7 @@ function handleSlider(ev) {
     console.log(year);
 
     const rootSlide = document.querySelector('#rootSlide')
-    rootSlide.innerHTML = year;
+    rootSlide.innerHTML = `year: `+ year;
 
     if(year){
         axios.get(`/getPictures?year=${year}`).then(({data})=>{
@@ -21,7 +21,7 @@ function handleSlider(ev) {
             let html="";
 
             data.forEach((picture)=>{
-                html+= `<p> <img src="${picture.img}"></p>`
+                html+= `<img src="${picture.img}">`
             })
             root.innerHTML=html;
         })

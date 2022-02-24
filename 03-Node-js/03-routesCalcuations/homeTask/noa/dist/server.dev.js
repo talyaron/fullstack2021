@@ -5,20 +5,17 @@ var express = require("express");
 var app = express();
 var port = process.env.PORT || 3001;
 var pictures = [{
-  img: "https://imdmyself.com/wp-content/uploads/2017/11/Pionyi-5.jpg",
-  year: 2000
+  img: "https://www.erclassics.com/media/catalog/product/cache/2/thumbnail/335x224/17f82f742ffe127f42dca9de82fb58b1/p/h/photo_62536.jpg",
+  year: "1950"
 }, {
-  img: "https://imdmyself.com/wp-content/uploads/2017/11/Pionyi-62.jpg",
-  year: 2005
+  img: "https://cdntdreditorials2.azureedge.net/cache/2/e/6/c/0/6/2e6c06cff4b4b2c6d989c5d572982e858d058bfd.jpg",
+  year: "1970"
 }, {
-  img: "https://imdmyself.com/wp-content/uploads/2017/11/Pionyi-9-2.jpg",
-  year: 2010
+  img: "http://img.autoabc.lv/Mercedes-E-klase/Mercedes-E-klase_1989_Sedans_151126104518_3.jpg",
+  year: "1990"
 }, {
-  img: "https://aif-s3.aif.ru/images/012/123/d3a6193d0c8c8ae5e5b03698b08d6884.jpg",
-  year: 2015
-}, {
-  img: "https://p2.tabor.ru/feed/2016-09-01/11722762/152116_760x500.jpg",
-  year: 2020
+  img: "https://media.carzone.co.il/eyJidWNrZXQiOiJjYXJ6b25lLW1lZGlhIiwia2V5IjoiY2Fycy9NZXJjZWRlc19CZW56L01lcmNlZGVzX0JlbnotRV9DbGFzcy1TZWRhbi00ZG9vcnMvNC83OGY2MTgxMC1kZmI1LTExZWEtYjA5YS1kYjA4MGMyMTE0OTUuanBnIiwiZWRpdHMiOnsianBlZyI6eyJxdWFsaXR5Ijo2MCwiZm9yY2UiOnRydWV9LCJyZXNpemUiOnsiaGVpZ2h0IjoyODB9LCJub3JtYWxpemUiOnRydWV9fQ==",
+  year: "2010"
 }];
 app.use(express["static"]("public"));
 app.get("/getPictures", function (req, res) {
