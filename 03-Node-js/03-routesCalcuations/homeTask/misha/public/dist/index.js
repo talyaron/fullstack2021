@@ -1,7 +1,3 @@
-// function handleSlider(ev) {
-//     axios.get(`/get-photos?year=${gender}&stam=123`).then(({ data }) => {
-//     }
-// }
 var slider = document.getElementById("myRange");
 var output = document.getElementById("value");
 output.innerHTML = slider.value;
