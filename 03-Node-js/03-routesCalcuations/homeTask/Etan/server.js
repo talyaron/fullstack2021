@@ -6,76 +6,70 @@ const port = process.env.PORT || 3000
 const imgList = [
     {
         title: 'amsterdam',
-        source: 'amsterdam.JPG',
-        date: '04/09/2016',
-        location: 'Amsterdam, The Tetherlands'
+        source: './source/amsterdam.jpg',
+        date: '2016',
+        location: 'The Netherlands'
     },
     {
         title: 'Flower closeup',
-        source: 'flowers.jpg',
-        date: '19/09/2016',
+        source: './source/flowers.jpg',
+        date: '2016',
         location: 'Singapore'
     },
     {
-        title: '',
-        source: '',
-        date: '',
-        location: ''
+        title: 'Romi and Yair on halloween',
+        source: './source/romiYair.jpg',
+        date: '2021',
+        location: 'New Orleans'
     },
     {
-        title: '',
-        source: '',
-        date: '',
-        location: ''
+        title: 'Talent Show',
+        source: './source/telYehuda.jpg',
+        date: '2015',
+        location: 'New York'
     },
     {
-        title: '',
-        source: '',
-        date: '',
-        location: ''
+        title: 'Road Side',
+        source: './source/roadSide.jpg',
+        date: '2016',
+        location: 'Thailand'
     },
     {
-        title: '',
-        source: '',
-        date: '',
-        location: ''
+        title: 'Training',
+        source: './source/training.jpg',
+        date: '2017',
+        location: 'Israel'
     },
     {
-        title: '',
-        source: '',
-        date: '',
-        location: ''
+        title: 'Vegas Trip',
+        source: './source/vegasTrip.jpg',
+        date: '2022',
+        location: 'Las Vegas'
     },
     {
-        title: '',
-        source: '',
-        date: '',
-        location: ''
+        title: 'Meiji Shrine',
+        source: './source/meijiShrine.jpg',
+        date: '2015',
+        location: 'Japan'
     },
     {
-        title: '',
-        source: '',
-        date: '',
-        location: ''
+        title: 'The disappearing lake',
+        source: './source/agamNeelam.jpg',
+        date: '2017',
+        location: 'Israel'
     },
     {
-        title: '',
-        source: '',
-        date: '',
-        location: ''
-    },
-    {
-        title: '',
-        source: '',
-        date: '',
-        location: ''
+        title: 'Eiffel',
+        source: './source/eiffel.jpg',
+        date: '2014',
+        location: 'France'
     },
 ]
 
 app.use(express.static('public'))
 
-app.get('/', function (req, res) {
-  res.send('Hello World')
+app.get('/photos',(req, res) => {
+  res.send(imgList)
 })
 
-app.listen(port)
+app.listen(port, () => {console.log(`listening on port ${port}`)})
