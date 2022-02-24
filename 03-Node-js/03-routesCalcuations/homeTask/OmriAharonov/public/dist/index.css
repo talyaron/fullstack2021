@@ -1,0 +1,25 @@
+* {
+  background-color: #6f97e2;
+}
+
+.car {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 0.5fr 2fr;
+  justify-items: center;
+}
+.car__header {
+  text-align: center;
+}
+.car__root {
+  width: 50vw;
+  height: 30vh;
+  text-align: center;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  justify-content: center;
+}
+.car__root img {
+  width: 100%;
+  height: auto;
+  padding-top: 0.5rem;
+}
