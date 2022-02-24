@@ -6,7 +6,7 @@ const data = [
     {url : 'https://pbs.twimg.com/media/ELqqfGTWkAEdiod?format=jpg&name=large' , name : 'Andriy Shevchenko', year : '2004', nationality : 'Ukraine' },
     {url : 'https://www.challenges.fr/assets/afp/2018/01/17/98222dd4a009e514508e0d99f5c3d63e35cbc116.jpg' , name : 'Ronaldinho ', year : '2005', nationality : 'Brazil' },
     {url : 'https://preview.redd.it/yzf334toimlz.jpg?width=640&crop=smart&auto=webp&s=c7d75519991a2bdbcc179a5dd4bae3f587135365' , name : 'Fabio Cannavaro', year : '2006', nationality : 'Italy' },
-    {url : 'https://pbs.twimg.com/media/EoOWLAOXUAEl91o.jpg' , name : 'Kaká', year : '2007', nationality : ' Portugal' },
+    {url : 'https://pbs.twimg.com/media/EoOWLAOXUAEl91o.jpg' , name : 'Kaká', year : '2007', nationality : ' Brazil' },
     {url : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQc4N57p89RzyGJNa3-OdmbERk2LUAKw2c1jwy3zrg_9H953l4msy76qgZDpugh43AS3lM&usqp=CAU' , name : 'Cristiano Ronaldo', year : '2008', nationality : 'Portugal' },
     {url : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPe_ImZ4BxLbvdUaOFTfjvGZM9tuSRMCSHe4qPBggjn34B-xyE9J99w-cnZ6cRGcPln6E&usqp=CAU' , name : 'Lionel Messi', year : '2009', nationality : 'Argentina' },
     ]

@@ -1,0 +1,27 @@
+*{
+    background-color: rgb(111, 151, 226);
+}
+.car {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr .5fr 2fr;
+    justify-items: center;
+
+    &__header{
+        text-align: center;
+    }
+
+    &__root {
+        width: 50vw;
+        height: 30vh;
+        text-align: center;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        justify-content: center;
+
+        img {
+            width: 100%;
+            height: auto;
+            padding-top: .5rem;
+        }
+    }
+}

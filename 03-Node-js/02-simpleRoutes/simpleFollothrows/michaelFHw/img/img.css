@@ -1,0 +1,6 @@
+.wrapper {
+    border: 1px solid black;
+    width: 100px;
+    aspect-ratio: 1.5;
+    background-image: url('https://news.artnet.com/app/news-upload/2021/02/female-head-715x1024.jpg');
+}
