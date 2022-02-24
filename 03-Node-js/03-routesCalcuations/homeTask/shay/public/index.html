@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.0/axios.min.js"
+        integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="dist/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <select onchange="handeleSelect(event)">
+        <option value="" disabled selected>year</option>
+        <option value="1990">1990</option>
+        <option value="1995">1995</option>
+        <option value="1998">1998</option>
+        <option value="2003">2003</option>
+        <option value="2006">2006</option>
+        <option value="2016">2016</option>
+    </select>
+
+    <select onchange="handleSelectType(event)">
+        <option value="" disabled selected>movie or tv</option>
+        <option value="tv">tv</option>
+        <option value="movie">movie</option>
+    </select>
+
+    <div id="rootFilter" class="rootFilter"></div>
+
+    <script src="dist/index.js"></script>
+</body>
+
+</html>
