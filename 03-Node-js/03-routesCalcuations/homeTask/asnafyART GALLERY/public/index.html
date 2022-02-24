@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./dist/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.0/axios.min.js"
+        integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>THE FULL STACK ART GALLERY</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="selectWrapper">
+            <h1 class="texture-text">THE FULL STACK ART GALLERY</h1>
+            <select class="select" onchange="handleSelect(event)">
+                <option value="">All Categories</option>
+                <option value="Rembrandt">Rembrandt</option>
+                <option value="Vincent van Gogh">Vincent van Gogh</option>
+                <option value="Francisco Goya">Francisco Goya</option>
+            </select>
+            <div class="slidecontainer">
+                <input type="range" min="1606" max="1889" value="1900" list="tickmarks" name="year" 
+                    onchange="handleSlider(event);">
+                <label for="year" class="yearpic">Year:</label>
+                <div id="rootYear"></div>
+                <datalist id="tickmarks">
+                    <option value="1606" label="1606"></option>
+                    <option value="1635" label="1635"></option>
+                    <option value="1800" label="1800"></option>
+                    <option value="1814" label="1814"></option>
+                    <option value="1887" label="1887"></option>
+                    <option value="1889" label="1889"></option>
+                </datalist>
+            </div>
+        </div>
+        <div id="root"></div>
+    </div>
+    <script src="./dist/index.js"></script>
+</body>
+
+</html>

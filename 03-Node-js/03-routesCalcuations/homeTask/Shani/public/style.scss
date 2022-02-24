@@ -5,7 +5,7 @@ body{
     padding:0;
     margin:0;
     text-align:center;
-    color:white;
+    
     font-family: 'Architects Daughter', cursive;
   
     
@@ -13,7 +13,7 @@ body{
 
 .pictureViews{
     margin-top:30px; 
-    
+    color:white;
     letter-spacing:4px;
     select{
         border:none;
@@ -35,10 +35,21 @@ body{
         transition: 1s;
         background-repeat: no-repeat;
            &:hover{
-            height:400px;
-            width:500px;
+            height:350px;
+            width:450px;
+            color:rgb(34, 34, 100);
              box-shadow: rgba(0, 0, 0, 0.918) 0px 22px 70px 4px;      
             }
     }
    
+}
+
+.rangeSlider{
+    margin-top:20px;
+    h1{
+        color:rgb(9, 9, 61);
+    }
+    label{
+        font-weight:bolder;
+    }
 }
