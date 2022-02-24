@@ -71,22 +71,21 @@ app.get('/', function (req, res) {
   res.send('');
 });
 app.get('/getList', function (req, res) {
-  var price = req.query.price;
-  var category = req.query.category;
-  var name = req.query.name;
-  var regex = new RegExp(name, "i");
-  console.log(price, category, name);
+  console.log(req.query.terms);
+  var terms = JSON.parse(req.query.terms);
+  var regex = new RegExp(terms.searchByName, "i");
+  console.log(terms.searchByName, terms.category, terms.price);
   filteredItems = items.filter(function (item) {
-    return item.price <= price;
+    return item.price <= terms.price;
   });
 
-  if (category != "all") {
+  if (terms.category != "all") {
     filteredItems = filteredItems.filter(function (item) {
-      return item.category == category;
+      return item.category == terms.category;
     });
   }
 
-  if (name) {
+  if (terms.searchByName) {
     filteredItems = filteredItems.filter(function (item) {
       return regex.test(item.name);
     });

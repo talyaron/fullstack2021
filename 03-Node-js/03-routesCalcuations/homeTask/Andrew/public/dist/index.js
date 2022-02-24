@@ -23,7 +23,7 @@ function handleRange(ev) {
 }
 function getFilteredList(terms) {
     axios
-        .get("getList?price=" + terms.price + "&name=" + terms.searchByName + "&category=" + terms.category)
+        .get("getList?terms=" + JSON.stringify(terms))
         .then(function (_a) {
         var data = _a.data;
         filteredItems = data;

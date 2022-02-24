@@ -25,16 +25,15 @@ app.get('/', (req, res) => {
 })
 
 app.get('/getList', (req,res) => {
-    const price = req.query.price;
-    const category = req.query.category;
-    const name = req.query.name;
-    const regex = new RegExp(name, "i")
-    console.log(price, category, name);
-    filteredItems = items.filter(item => item.price <= price);
-    if(category != "all"){
-        filteredItems = filteredItems.filter(item => item.category == category);
+    console.log(req.query.terms);
+    const terms = JSON.parse(req.query.terms);
+    const regex = new RegExp(terms.searchByName, "i")
+    console.log(terms.searchByName, terms.category, terms.price);
+    filteredItems = items.filter(item => item.price <= terms.price);
+    if(terms.category != "all"){
+        filteredItems = filteredItems.filter(item => item.category == terms.category);
     }
-    if(name){
+    if(terms.searchByName){
         filteredItems = filteredItems.filter(item => regex.test(item.name))
     }
 
