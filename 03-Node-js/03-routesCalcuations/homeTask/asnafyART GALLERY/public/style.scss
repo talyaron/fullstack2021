@@ -1,0 +1,86 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+}
+
+.wrapper {
+    width: 80%;
+    margin: auto;
+    border: 1px solid rgb(121, 121, 121);
+    display: flex;
+    flex-direction: column;
+}
+
+img {
+    width: 100%;
+    object-fit: contain;
+    box-shadow: 5px 5px 10px #888888;
+    transition: all .3s ease-in-out;
+    cursor: pointer;
+}
+
+.yearpic {
+    font-size: 16px;
+    padding-left: 20px;
+    margin-top: 4px;
+}
+
+.picture {
+    width: 200px;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+img:hover {
+    transform: scale(1.1);
+}
+
+.pictureText {
+    padding-top: 20px;
+}
+
+#root {
+    display: flex;
+    flex-direction: row;
+}
+
+#rootYear {
+    color: brown;
+}
+
+.selectWrapper {
+    background-color: cadetblue;
+
+    h1 {
+        color: rgb(235, 221, 33);
+        display: flex;
+        justify-content: center;
+        padding: 10px;
+        margin: 0%;
+        border-bottom: 1px solid lightgray;
+    }
+}
+
+.select {
+    margin: 10px;
+    font-size: 20px;
+    height: 30px;
+}
+
+.slidecontainer {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px;
+    display: flex;
+}
+
+.texture-text {
+    background: url(https://m.media-amazon.com/images/I/712dPBLy6JL.jpg) no-repeat center center;
+    background-size: cover;
+    color: #fff;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+}

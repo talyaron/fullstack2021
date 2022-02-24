@@ -1,0 +1,11 @@
+#root, #rootRange{
+    display: flex;
+    gap: 20px;
+    margin-top: 200px;
+}
+
+img {
+    width: 250px;
+    aspect-ratio: 1.5;
+    box-shadow: 3px 3px 10px black;
+}
