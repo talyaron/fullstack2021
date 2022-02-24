@@ -3,7 +3,7 @@
 var express = require('express');
 
 var app = express();
-var port = process.env.PORT || 3007;
+var port = process.env.PORT || 3000;
 var cars = [{
   img: 'https://www.supercars.net/blog/wp-content/uploads/2020/03/x1966_Pontiac_GTO.jpg.pagespeed.ic_.4FnACdskZc.jpg',
   name: 'Pontiac Coupe',
@@ -31,7 +31,16 @@ var cars = [{
 }];
 app.use(express["static"]('public'));
 app.get('/muscleCars', function (req, res) {
-  res.send(cars);
+  var car = req.query.car;
+
+  if (car) {
+    var filterdCar = cars.filter(function (auto) {
+      return auto.name === car;
+    });
+    res.send(filterdCar);
+  } else {
+    res.send(cars);
+  }
 });
 app.listen(port, function () {
   console.log('server listen to port', port);

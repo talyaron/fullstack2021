@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 3007;
+const port = process.env.PORT || 3000;
 
 const cars = [
     {img:'https://www.supercars.net/blog/wp-content/uploads/2020/03/x1966_Pontiac_GTO.jpg.pagespeed.ic_.4FnACdskZc.jpg', name:'Pontiac Coupe', year:1966},
@@ -14,7 +14,13 @@ const cars = [
 app.use(express.static('public'));
 
 app.get('/muscleCars' , (req, res) => {
-    res.send(cars)
+    const car = req.query.car
+    if(car){
+    const filterdCar = cars.filter(auto => auto.name === car); 
+    res.send(filterdCar) 
+    } else{
+        res.send(cars)
+    }
 })
 
 app.listen(port, () => {console.log('server listen to port',port)})

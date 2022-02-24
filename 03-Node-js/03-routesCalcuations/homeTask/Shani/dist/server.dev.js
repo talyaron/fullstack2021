@@ -29,12 +29,23 @@ var data = [{
   view: "city",
   name: "Canal in Amsterdam",
   year: "1874"
+}, {
+  imgUrl: "https://www.claude-monet.com/images/paintings/the-rue-montorgueil-in-paris.jpg",
+  view: "city",
+  name: "Rue Montorgueil (La Rue Montorgueil)",
+  year: "1878"
+}, {
+  imgUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/The_Artist%27s_Garden_in_Argenteuil_%28A_Corner_of_the_Garden_with_Dahlias%29_A12382.jpg/1200px-The_Artist%27s_Garden_in_Argenteuil_%28A_Corner_of_the_Garden_with_Dahlias%29_A12382.jpg",
+  view: "garden",
+  name: "The Garden At Argenteuil Aka The Dahlias",
+  year: "1873"
 }];
 app.use(express["static"]('public'));
 app.get('/getPics', function (req, res) {
   console.log(req.query); //what does req.query show?
 
   var view = req.query.view;
+  var year = req.query.year;
 
   if (view) {
     console.log(view);
@@ -42,6 +53,12 @@ app.get('/getPics', function (req, res) {
       return painting.view === view;
     });
     res.send(filteredPaintingsByView);
+  } else if (year) {
+    console.log(year);
+    var filteredPaintingsByYear = data.filter(function (painting) {
+      return painting.year === year;
+    });
+    res.send(filteredPaintingsByYear);
   } else {
     res.send(data);
   }
