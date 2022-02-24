@@ -81,13 +81,13 @@ app.get('/getList', function (req, res) {
   });
 
   if (category != "all") {
-    filteredItems = items.filter(function (item) {
+    filteredItems = filteredItems.filter(function (item) {
       return item.category == category;
     });
   }
 
   if (name) {
-    filteredItems = items.filter(function (item) {
+    filteredItems = filteredItems.filter(function (item) {
       return regex.test(item.name);
     });
   }

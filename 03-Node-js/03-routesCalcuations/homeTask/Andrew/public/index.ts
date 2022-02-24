@@ -19,6 +19,7 @@ function handleSelector(ev){
 
 function handleRange(ev){
     filterTerms.price = ev.target.value;
+    document.querySelector('#price-show').innerHTML = filterTerms.price+'';
     console.log(filterTerms);
     getFilteredList(filterTerms);
 }
@@ -47,16 +48,5 @@ function renderItems(list) {
     document.querySelector('#main').innerHTML = html;
 };
 
+getFilteredList(filterTerms);
 
-
-
-
-
-
-
-
-// axios
-// .get('getMe')
-// .then(({data}) => {
-//     console.log(data)
-// });

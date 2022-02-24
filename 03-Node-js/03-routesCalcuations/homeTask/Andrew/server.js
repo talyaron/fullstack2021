@@ -32,10 +32,10 @@ app.get('/getList', (req,res) => {
     console.log(price, category, name);
     filteredItems = items.filter(item => item.price <= price);
     if(category != "all"){
-        filteredItems = items.filter(item => item.category == category);
+        filteredItems = filteredItems.filter(item => item.category == category);
     }
     if(name){
-        filteredItems = items.filter(item => regex.test(item.name))
+        filteredItems = filteredItems.filter(item => regex.test(item.name))
     }
 
     res.send(filteredItems);
