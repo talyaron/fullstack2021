@@ -1,9 +1,4 @@
 
-// function handleSlider(ev) {
-
-//     axios.get(`/get-photos?year=${gender}&stam=123`).then(({ data }) => {
-//     }
-// }
 
 let slider:any = document.getElementById("myRange");
 let output:any = document.getElementById("value")

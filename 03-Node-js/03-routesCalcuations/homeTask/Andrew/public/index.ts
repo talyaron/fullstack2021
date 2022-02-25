@@ -26,7 +26,7 @@ function handleRange(ev){
 
 function getFilteredList(terms) {
     axios
-        .get(`getList?price=${terms.price}&name=${terms.searchByName}&category=${terms.category}`)
+        .get(`getList?terms=${JSON.stringify(terms)}`)
         .then(({ data }) => {
             filteredItems = data;
             renderItems(filteredItems)
