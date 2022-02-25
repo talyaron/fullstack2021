@@ -2,3 +2,10 @@ img {
   height: 300px;
   width: auto;
 }
+
+#range {
+  cursor: grab;
+}
+#range:active {
+  cursor: grabbing;
+}
