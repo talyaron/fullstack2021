@@ -1,9 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300&display=swap");
 body {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   box-sizing: border-box;
+  background-image: url("img/clocks.jpeg");
+  font-family: "Barlow Condensed", sans-serif;
+  text-align: center;
 }
 
 .title {
@@ -12,10 +16,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: flex-end;
-}
-.title img {
-  width: 450px;
-  height: 90px;
+  font-size: 60px;
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
 }
 
 .wrapper {
@@ -24,7 +27,7 @@ body {
   justify-content: center;
 }
 .wrapper .search_box {
-  background: grey;
+  background: #f6f6f6;
   position: relative;
   padding: 15px;
   border-radius: 50px;
@@ -44,4 +47,8 @@ body {
 }
 .wrapper input {
   width: 85%;
+  outline: none;
+  background: #f6f6f6;
+  border: 0px;
+  font-size: 24px;
 }
