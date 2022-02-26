@@ -13,20 +13,25 @@ const article=[
 app.use(express.static('public'))
 
 app.get('/getArticle', function (req, res) {
-  const search=req.query.search; //req query is connected to the getArticle?search.
-  const filteredArticle=filteredArticleSearch(search);
-  res.send(filteredArticle);
+  
+    const search=req.query.search; //req query is connected to the getArticle?search.
+    const filteredArticle=filteredArticleSearch(search);
+    res.send(filteredArticle);
+
+ 
 })
 
 function filteredArticleSearch(search){
- if(search){
-  const regex= new RegExp(search,"i");
+  
+  if(search){
+    const regex= new RegExp(search,"i");
   return article.filter((searchedTerm)=> regex.test(searchedTerm.title) || regex.test(searchedTerm.content)) //either it searches in the titles or content
- }
- else{
-   return [];
- }
+  }
+  else{
+    return []
+  }
  
+
 
 }
 
