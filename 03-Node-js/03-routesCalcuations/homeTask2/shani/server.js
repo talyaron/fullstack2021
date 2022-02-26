@@ -7,13 +7,13 @@ const article=[
 {title:"Kids Breakfast Recipes | BBC ood Food",content:"Kids' breakfast recipes · Breakfast bar · Homemade cocoa pops · Blueberry & lemon pancakes · Peanut butter & banana on toast · Breakfast muffins. Set kids up for the day ahead with our children's breakfast recipes. These pancakes, muffins, oat bars and smoothies will satisfy fussy eaters."},
 {title:"Our 60 Best Egg Recipes - Taste of Home",content:" Classic Egg Recipes For Breakfast · Chorizo Scotch quail's eggs · Eggs Florentine pizza · Spanish tortilla · How to make an omelette · Egg custard tarts · "},
 {title:"Lunch Recipes | Allrecipes",content:"Tasty Lunch ideas. From sandwiches to full family lunch meals.Vegetarian and non-vegetarian recipes."},
-{title:"60 Best Vegetarian Meals | The Modern Proper",content:"We’ve rounded up our 60 best vegetarian meals! From a 15-minute mac and cheese to a vegan hummus bowl and everything in between, we know that you’ll find more than a few meatless recipes to love."},
+{title:"60 Best Vegetarian Meals | The Modern Proper",content:"Weve rounded up our 60 best vegetarian meals! From a 15-minute mac and cheese to a vegan hummus bowl and everything in between, we know that you’ll find more than a few meatless recipes to love."},
 {title:"Non-vegetarian recipes | 125 non-vegetarian recipes",content:"Explore popular non-vegetarian Main Course recipes cooked by Ranveer Brar, So you never have to cook boring non-veg Main Course dishes again."},];
 
 app.use(express.static('public'))
 
 app.get('/getArticle', function (req, res) {
-  res.send('Hello World')
+  res.send(article)
 })
 
 app.listen(port,()=>{

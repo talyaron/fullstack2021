@@ -18,14 +18,14 @@ var article = [{
   content: "Tasty Lunch ideas. From sandwiches to full family lunch meals.Vegetarian and non-vegetarian recipes."
 }, {
   title: "60 Best Vegetarian Meals | The Modern Proper",
-  content: "We’ve rounded up our 60 best vegetarian meals! From a 15-minute mac and cheese to a vegan hummus bowl and everything in between, we know that you’ll find more than a few meatless recipes to love."
+  content: "Weve rounded up our 60 best vegetarian meals! From a 15-minute mac and cheese to a vegan hummus bowl and everything in between, we know that you’ll find more than a few meatless recipes to love."
 }, {
   title: "Non-vegetarian recipes | 125 non-vegetarian recipes",
   content: "Explore popular non-vegetarian Main Course recipes cooked by Ranveer Brar, So you never have to cook boring non-veg Main Course dishes again."
 }];
 app.use(express["static"]('public'));
 app.get('/getArticle', function (req, res) {
-  res.send('Hello World');
+  res.send(article);
 });
 app.listen(port, function () {
   return console.log("Express is listening to localHost:".concat(port));
