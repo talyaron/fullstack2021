@@ -1,27 +1,18 @@
 function handleSearch(ev) {
-    var searchParagraph = ev.target.value;
-    var searchTerm = req;
-    var regex = new RegExp(searchTerm, "i");
-    var root = document.querySelector(".article_root");
-}
-function handleRange(ev) {
-    filterTerms.price = ev.target.value;
-    document.querySelector('#price-show').innerHTML = filterTerms.price + '';
-    console.log(filterTerms);
-    getFilteredList(filterTerms);
-}
-function getFilteredList(paragraphs) {
+    var searchTerm = ev.target.value;
     axios
-        .get("get-?terms=" + paragraphs)
+        .get("get-article?terms=" + searchTerm)
         .then(function (_a) {
         var data = _a.data;
-        filteredItems = data;
-        renderItems(filteredItems);
+        console.log(data);
+        renderArticle(data);
     });
 }
-article.forEach(function (paragraph) {
-    if (regex.test(paragraph.title)) {
+function renderArticle(article) {
+    var root = document.querySelector(".article_root");
+    article.forEach(function (paragraph) {
+        var html = "";
         html += "\n        <div id='paragraph'>\n        </div>\n        ";
-    }
-});
-root.innerHTML = html;
+        root.innerHTML = html;
+    });
+}

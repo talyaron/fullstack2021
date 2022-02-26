@@ -61,17 +61,19 @@ app.use(express.static('public')) //connects the public folder
 
 app.get('/get-article', function (req, res) {
 
+    let filteredArticle = [];
     
-    let html = "";
+    const regex = new RegExp(req, "i");
+    
 
     if(searchTerm == 0) {
 
-        root.innerHTML = html;
+        
         return;
     }
     
     
-    res.send(photos);
+    res.send(article);
 });
 
 

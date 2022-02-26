@@ -38,14 +38,14 @@ var article = [{
 app.use(express["static"]('public')); //connects the public folder 
 
 app.get('/get-article', function (req, res) {
-  var html = "";
+  var filteredArticle = [];
+  var regex = new RegExp(req, "i");
 
   if (searchTerm == 0) {
-    root.innerHTML = html;
     return;
   }
 
-  res.send(photos);
+  res.send(article);
 });
 app.listen(port, function () {
   return console.log("Express is listening at http://localhost:".concat(port));
