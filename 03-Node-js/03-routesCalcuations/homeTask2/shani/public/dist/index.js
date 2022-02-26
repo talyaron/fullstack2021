@@ -6,7 +6,7 @@ axios
 function handleSearch(ev) {
     var search = ev.target.value;
     console.log(search);
-    axios.get("/getPics?view=" + search).then(function (_a) {
+    axios.get("/getArticle?search=" + search).then(function (_a) {
         var data = _a.data;
         var rootArticle = document.getElementById('rootArticle');
         var html = "";

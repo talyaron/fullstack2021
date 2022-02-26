@@ -9,7 +9,7 @@ function handleSearch(ev){
     console.log(search);
    
 
-    axios.get(`/getPics?view=${search}`).then(({data})=>{
+    axios.get(`/getArticle?search=${search}`).then(({data})=>{
 
         const rootArticle=document.getElementById('rootArticle');
         let html="";
