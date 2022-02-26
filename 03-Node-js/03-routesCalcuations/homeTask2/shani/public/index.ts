@@ -17,8 +17,10 @@ function handleSearch(ev){
         {
             data.forEach((article)=>{
                 html+=`
-                <h1>${article.title}</h1>
-                <h3>${article.content}</h3>`
+                <div class="articles">
+                <h1 class="title">${article.title}</h1>
+                <h3 class="articleContent">${article.content}</h3>
+                </div>`
                 })
                 rootArticle.innerHTML=html;
         }else{
