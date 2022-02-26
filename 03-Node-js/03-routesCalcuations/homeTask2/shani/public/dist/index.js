@@ -3,3 +3,7 @@ axios
     var data = _a.data;
     console.log(data);
 });
+function handleSearch(ev) {
+    var search = ev.target.value;
+    console.log(search);
+}
