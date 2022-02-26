@@ -25,10 +25,23 @@ var article = [{
 }];
 app.use(express["static"]('public'));
 app.get('/getArticle', function (req, res) {
-  var search = req.query.search;
-  var regex = new RegExp(search, "i", "g");
-  res.send(article);
+  var search = req.query.search; //req query is connected to the getArticle?search.
+
+  var filteredArticle = filteredArticleSearch(search);
+  res.send(filteredArticle);
 });
+
+function filteredArticleSearch(search) {
+  if (search) {
+    var regex = new RegExp(search, "i");
+    return article.filter(function (searchedTerm) {
+      return regex.test(searchedTerm.title) || regex.test(searchedTerm.content);
+    }); //either it searches in the titles or content
+  } else {
+    return [];
+  }
+}
+
 app.listen(port, function () {
   return console.log("Express is listening to localHost:".concat(port));
 });
