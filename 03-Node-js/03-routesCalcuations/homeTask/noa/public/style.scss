@@ -14,7 +14,8 @@ body {
     }
 
     .slider{
-   
+   -webkit-transition: .2s;
+   transition: .2s;
     }
     h2{
         margin: 2px;
@@ -28,7 +29,5 @@ body {
 }
 
 img {
-    width: 70%;
-    
-    
+    width: 500px;
 }
