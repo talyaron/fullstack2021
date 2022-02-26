@@ -40,12 +40,12 @@ app.use(express["static"]('public')); //connects the public folder
 app.get('/get-article', function (req, res) {
   var filteredArticle = [];
   var regex = new RegExp(req, "i");
-
-  if (searchTerm == 0) {
-    return;
-  }
-
-  res.send(article);
+  filteredArticle = article.forEach(function (paragraph) {
+    if (regex.test(paragraph.content)) {
+      filteredArticle.push(paragraph);
+    }
+  });
+  res.send(filteredArticle);
 });
 app.listen(port, function () {
   return console.log("Express is listening at http://localhost:".concat(port));

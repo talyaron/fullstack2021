@@ -21,6 +21,7 @@ function renderArticle(article) {
         
         html += `
         <div id='paragraph'>
+        <p>${paragraph.content}
         </div>
         `
 

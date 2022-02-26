@@ -12,7 +12,7 @@ function renderArticle(article) {
     var root = document.querySelector(".article_root");
     article.forEach(function (paragraph) {
         var html = "";
-        html += "\n        <div id='paragraph'>\n        </div>\n        ";
+        html += "\n        <div id='paragraph'>\n        <p>" + paragraph.content + "\n        </div>\n        ";
         root.innerHTML = html;
     });
 }

@@ -62,18 +62,16 @@ app.use(express.static('public')) //connects the public folder
 app.get('/get-article', function (req, res) {
 
     let filteredArticle = [];
-    
+
     const regex = new RegExp(req, "i");
     
+    filteredArticle = article.forEach(paragraph => {
+        if(regex.test(paragraph.content)){
+            filteredArticle.push(paragraph)
+        }
+    })
 
-    if(searchTerm == 0) {
-
-        
-        return;
-    }
-    
-    
-    res.send(article);
+    res.send(filteredArticle);
 });
 
 
