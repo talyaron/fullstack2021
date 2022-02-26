@@ -13,8 +13,14 @@ const article=[
 app.use(express.static('public'))
 
 app.get('/getArticle', function (req, res) {
+  const search=req.query.search;
+  const regex= new RegExp(search,"i","g");
+
+  
+
   res.send(article)
 })
+
 
 app.listen(port,()=>{
     return console.log(`Express is listening to localHost:${port}`);

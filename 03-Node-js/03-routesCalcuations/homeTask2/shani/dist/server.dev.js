@@ -25,6 +25,8 @@ var article = [{
 }];
 app.use(express["static"]('public'));
 app.get('/getArticle', function (req, res) {
+  var search = req.query.search;
+  var regex = new RegExp(search, "i", "g");
   res.send(article);
 });
 app.listen(port, function () {
