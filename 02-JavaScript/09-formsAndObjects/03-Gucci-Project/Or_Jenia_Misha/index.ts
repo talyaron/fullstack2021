@@ -1,3 +1,6 @@
+import { dir } from "console";
+
+
 const uid = function () {
   return Date.now().toString(36) + Math.random().toString(36).substr(2);
 };
@@ -564,7 +567,7 @@ let sushiMenu: Menu = {
 
   renderDishesERP(list, domElement) {
 
-    let html = `<form onsubmit="handleDeleteDish(event)"> <input type="submit" value="delete"></input>`;
+    let html = `<section class="dishesWrap" > `;
 
     list.forEach((item) => {
 
@@ -574,11 +577,10 @@ let sushiMenu: Menu = {
            <p class ="dishesERP__desc">${item.description}</p>
            <p class ="dishesERP__title__price">${item.price} ₪</p>
            <p class ="dishesERP__title__category"> ${item.category}</p>
-          </form>
           <form onsubmit="handleUpdateDish(event)" id="${item.id}">
-           <input type="text" name="name" id="" placeholder="Dish Name">
-           <input type="number" name="price" id="" placeholder="Dish Price">
-           <input type="text" name="description" id="" placeholder="Add Dish description">
+           <input type="text" name="name" id="" placeholder="Dish Name"/>
+           <input type="number" name="price" id="" placeholder="Dish Price"/>
+           <input type="text" name="description" id="" placeholder="Add Dish description"/>
            <select name="category" id="updated-category">
                <option value="Choose" selected disabled>Select category</option>
                <option value="firsts">Firsts</option>
@@ -600,13 +602,14 @@ let sushiMenu: Menu = {
                <option value="maki-sushi">Maki Sushi</option>
                <option value="gonkan">Gonkan Maki</option>
            </select>
-           <input type="submit" value="Update">
+           <input type="submit" value="Update"/>
            </form>
   
            
         </div>`;
     });
 
+    html += '</section>'
     domElement.innerHTML = html;
 
   },
@@ -713,18 +716,21 @@ function handleAddDish(ev) {
   }
 }
 
-function handleDeleteDish(ev) {
+function log(str) {
+  console.dir(str)
+  console.log(str)
+}
 
-  ev.preventDefault();
-  console.dir(ev.target);
+function handleDeleteDish() {
 
-  for (let i = 1; i < ev.target.length; i++) {
-
-    console.log(ev.target[i].checked)
-    if (ev.target[i].checked === true) {
-      sushiMenu.removeDish(ev.target[i].id);
+  const { children } = document.querySelector('.dishesWrap')
+  Array.from(children).forEach(el => {
+    const { checked ,id} = <HTMLInputElement>el.children[0]
+    if(checked){
+      sushiMenu.removeDish(id)
     }
-  }
+
+  })
 
   renderSushiMenu();
 
@@ -984,8 +990,8 @@ function handleAddToCart(ev) {
       cartBox.classList.remove("cart__box-click");
     }
 
-    if(!cartBox.classList.contains("cart__box-click")){
-    cartBox.classList.add("cart__box-click");
+    if (!cartBox.classList.contains("cart__box-click")) {
+      cartBox.classList.add("cart__box-click");
     }
 
 
