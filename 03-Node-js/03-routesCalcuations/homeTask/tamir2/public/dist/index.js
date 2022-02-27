@@ -4,7 +4,6 @@ axios.get("/tamir")
 });
 function handlefind(ev) {
     var user = ev.target.value;
-    console.log(user);
     axios.get("/tamir?user=" + user)
         .then(function (_a) {
         var data = _a.data;

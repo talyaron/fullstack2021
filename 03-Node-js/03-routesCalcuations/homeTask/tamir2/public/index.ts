@@ -5,9 +5,7 @@ axios.get("/tamir")
     })
 
 function handlefind(ev) {
-    const user = ev.target.value
-    console.log(user);
-
+    const user = ev.target.value;
     axios.get(`/tamir?user=${user}`)
         .then(({ data }) => {
             const root = document.getElementById('root');
@@ -19,6 +17,7 @@ function handlefind(ev) {
                     `
                 })
                 root.innerHTML=html;
+                
             }
 
         })
