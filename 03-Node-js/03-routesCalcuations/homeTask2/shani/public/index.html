@@ -1,17 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Shmoogle</title>
     <link rel="stylesheet" href="dist/style.css">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.0/axios.min.js"
-    integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
+
 <body>
+
+    <div class="shmoogle">
+        <span>S</span>
+        <span>H</span>
+        <span>M</span>
+        <span>O</span>
+        <span>O</span>
+        <span>G</span>
+        <span>L</span>
+        <span>E</span>
+       
+    </div>
+    <div class="aboutShmoogle"><p>This is the original google . Forget what you heard . Shmoogle is the best search engine ever.</p>
+    <p>At the moment we only show food .Enjoy the food search .</p></div>
+
+    <div class="searchForTerm">
+        <input type="search" id="search" placeholder="search" onkeyup='handleSearch(event)'>
+
+    </div>
+
+    <div id="rootArticle"></div>
+
     <script src="./dist/index.js"></script>
 </body>
+
 </html>
