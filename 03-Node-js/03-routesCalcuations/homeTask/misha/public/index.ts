@@ -1,5 +1,4 @@
 
-
 let slider:any = document.getElementById("myRange");
 let output:any = document.getElementById("value")
 
