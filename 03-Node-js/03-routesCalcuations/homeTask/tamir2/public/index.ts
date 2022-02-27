@@ -1,28 +1,24 @@
 axios.get("/tamir")
     .then(({ data }) => {
-        console.log(data)
+
 
     })
 
 function handlefind(ev) {
-    axios.get(`/tamir`)
+    const user = ev.target.value;
+    axios.get(`/tamir?user=${user}`)
         .then(({ data }) => {
-            const user = ev.target.value
-            const rexEa = new RegExp(user, 'i')
-            if (rexEa.test(data)) {
-                document.getElementById('root').innerHTML = `yes ${user}`
-            } else {
-                document.getElementById('root').innerHTML = `no ${user}`
+            const root = document.getElementById('root');
+            let html = '';
+            if (Array.isArray(data)) {
+                data.forEach((data1)=>{
+                    html+=`<h1 class='title'>${data1.title}</h1>
+                    <h3> class='text'>${data1.text}</h3>
+                    `
+                })
+                root.innerHTML=html;
+                
             }
+
         })
-
-
 }
-
-
-
-
-
-
-
-console.log('hay')
