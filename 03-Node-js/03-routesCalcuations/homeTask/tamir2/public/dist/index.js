@@ -4,17 +4,19 @@ axios.get("/tamir")
     console.log(data);
 });
 function handlefind(ev) {
-    axios.get("/tamir")
+    var user = ev.target.value;
+    axios.get("/tamir?user=" + user)
         .then(function (_a) {
         var data = _a.data;
-        var user = ev.target.value;
-        var rexEa = new RegExp(user, 'i');
-        if (rexEa.test(data)) {
-            document.getElementById('root').innerHTML = "yes " + user;
-        }
-        else {
-            document.getElementById('root').innerHTML = "no " + user;
+        console.log(data);
+        var root = document.getElementById('root');
+        var html = '';
+        if (Array.isArray(data)) {
+            data.forEach(function (data1) {
+                html +=
+                    "<div class='grid' style=\"display: grid;grid-template-rows: repeat(1fr)\">\n                    <h3 class='text'>" + data1.text + "</h3>\n                    <h3 class='text'>" + data1.text1 + "</h3>\n                   </div>\n                    ";
+            });
+            root.innerHTML = html;
         }
     });
 }
-console.log('hay');

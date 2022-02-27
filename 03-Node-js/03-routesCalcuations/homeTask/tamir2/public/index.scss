@@ -59,6 +59,7 @@
         width: 78%;
         border: none;
         cursor: text;
+        outline: none;
     }
 
     &__icon {
@@ -98,4 +99,15 @@
     &__len {
         text-decoration: none;
     }
+}
+.text{
+    border: 1px solid rgb(104, 102, 102);
+    width: 20%;
+    border-radius: 40px;
+    width: 37%;
+    position: relative;
+    left: 32%;
+   padding-bottom: 3px;
+    
+    
 }

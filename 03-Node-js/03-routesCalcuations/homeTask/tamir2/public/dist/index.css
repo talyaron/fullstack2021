@@ -45,6 +45,7 @@
   width: 78%;
   border: none;
   cursor: text;
+  outline: none;
 }
 .serch__icon {
   padding-right: 7px;
@@ -77,4 +78,14 @@
 }
 .len__len {
   text-decoration: none;
+}
+
+.text {
+  border: 1px solid #686666;
+  width: 20%;
+  border-radius: 40px;
+  width: 37%;
+  position: relative;
+  left: 32%;
+  padding-bottom: 3px;
 }

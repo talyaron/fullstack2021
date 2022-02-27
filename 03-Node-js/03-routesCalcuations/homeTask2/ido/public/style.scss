@@ -9,15 +9,15 @@
     &_header {
         width: 99%;
         height: 15vh;
-        display: flex;
-        flex-flow: row;
+        display: grid;
+        grid-template-columns: repeat(10 , 10%);
+        height: 10vh;
         justify-content: center;
 
         &-search {
             margin-top: 2vh;
-            height: 50%;
-            width: 50%;
-            background-color: bisque;
+            grid-column: 4/8;
+            background-color: cornflowerblue;
             border-radius: 7px;
 
             &::placeholder {
@@ -82,7 +82,7 @@
 
             &-img {
                 grid-column: 1/5;
-                grid-row: 1/2;
+                grid-row: 1/3;
             }
 
             &:hover {

@@ -5,24 +5,24 @@ axios.get("/tamir")
     })
 
 function handlefind(ev) {
-    axios.get(`/tamir`)
+    const user = ev.target.value;
+    axios.get(`/tamir?user=${user}`)
         .then(({ data }) => {
-            const user = ev.target.value
-            const rexEa = new RegExp(user, 'i')
-            if (rexEa.test(data)) {
-                document.getElementById('root').innerHTML = `yes ${user}`
-            } else {
-                document.getElementById('root').innerHTML = `no ${user}`
+            console.log(data)
+            const root = document.getElementById('root');
+            let html = '';
+            if (Array.isArray(data)) {
+                data.forEach((data1) => {
+                    html += 
+                    `<div class='grid' style="display: grid;grid-template-rows: repeat(1fr)">
+                    <h3 class='text'>${data1.text}</h3>
+                    <h3 class='text'>${data1.text1}</h3>
+                   </div>
+                    `
+                })
+                root.innerHTML = html;
+
             }
+
         })
-
-
 }
-
-
-
-
-
-
-
-console.log('hay')
