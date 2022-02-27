@@ -1,3 +1,5 @@
+"use strict";
+exports.__esModule = true;
 var uid = function () {
     return Date.now().toString(36) + Math.random().toString(36).substr(2);
 };
@@ -456,10 +458,11 @@ var sushiMenu = {
         }
     },
     renderDishesERP: function (list, domElement) {
-        var html = "<form onsubmit=\"handleDeleteDish(event)\"> <input type=\"submit\" value=\"delete\"></input>";
+        var html = "<section class=\"dishesWrap\" > ";
         list.forEach(function (item) {
-            html += "<div class=\"dishesERP\"> \n          <input type=\"checkbox\" id=" + item.id + "></input>\n           <h3 class =\"dishesERP__title__name\">" + item.name + "</h3> \n           <p class =\"dishesERP__desc\">" + item.description + "</p>\n           <p class =\"dishesERP__title__price\">" + item.price + " \u20AA</p>\n           <p class =\"dishesERP__title__category\"> " + item.category + "</p>\n          </form>\n          <form onsubmit=\"handleUpdateDish(event)\" id=\"" + item.id + "\">\n           <input type=\"text\" name=\"name\" id=\"\" placeholder=\"Dish Name\">\n           <input type=\"number\" name=\"price\" id=\"\" placeholder=\"Dish Price\">\n           <input type=\"text\" name=\"description\" id=\"\" placeholder=\"Add Dish description\">\n           <select name=\"category\" id=\"updated-category\">\n               <option value=\"Choose\" selected disabled>Select category</option>\n               <option value=\"firsts\">Firsts</option>\n               <option value=\"soups\">Soups</option>\n               <option value=\"salads\">Salads</option>\n               <option value=\"buns\">Buns</option>\n               <option value=\"robta-yaki\">Robta Yaki</option>\n               <option value=\"gyoza\">Gyoza</option>\n               <option value=\"inside-out\">Inside Out</option>\n               <option value=\"specials\">Specials</option>\n               <option value=\"kids\">Kids Dishes</option>\n               <option value=\"main\">Main Dishes</option>\n               <option value=\"wok\">Wok</option>\n               <option value=\"cokctails\">Cokctails</option>\n               <option value=\"combinations\">Combinations</option>\n               <option value=\"sashimi\">Sashimi</option>\n               <option value=\"nigiri\">Nigiri</option>\n               <option value=\"sandwich-sushi\">Sandwich Sushi</option>\n               <option value=\"maki-sushi\">Maki Sushi</option>\n               <option value=\"gonkan\">Gonkan Maki</option>\n           </select>\n           <input type=\"submit\" value=\"Update\">\n           </form>\n  \n           \n        </div>";
+            html += "<div class=\"dishesERP\"> \n          <input type=\"checkbox\" id=" + item.id + "></input>\n           <h3 class =\"dishesERP__title__name\">" + item.name + "</h3> \n           <p class =\"dishesERP__desc\">" + item.description + "</p>\n           <p class =\"dishesERP__title__price\">" + item.price + " \u20AA</p>\n           <p class =\"dishesERP__title__category\"> " + item.category + "</p>\n          <form onsubmit=\"handleUpdateDish(event)\" id=\"" + item.id + "\">\n           <input type=\"text\" name=\"name\" id=\"\" placeholder=\"Dish Name\"/>\n           <input type=\"number\" name=\"price\" id=\"\" placeholder=\"Dish Price\"/>\n           <input type=\"text\" name=\"description\" id=\"\" placeholder=\"Add Dish description\"/>\n           <select name=\"category\" id=\"updated-category\">\n               <option value=\"Choose\" selected disabled>Select category</option>\n               <option value=\"firsts\">Firsts</option>\n               <option value=\"soups\">Soups</option>\n               <option value=\"salads\">Salads</option>\n               <option value=\"buns\">Buns</option>\n               <option value=\"robta-yaki\">Robta Yaki</option>\n               <option value=\"gyoza\">Gyoza</option>\n               <option value=\"inside-out\">Inside Out</option>\n               <option value=\"specials\">Specials</option>\n               <option value=\"kids\">Kids Dishes</option>\n               <option value=\"main\">Main Dishes</option>\n               <option value=\"wok\">Wok</option>\n               <option value=\"cokctails\">Cokctails</option>\n               <option value=\"combinations\">Combinations</option>\n               <option value=\"sashimi\">Sashimi</option>\n               <option value=\"nigiri\">Nigiri</option>\n               <option value=\"sandwich-sushi\">Sandwich Sushi</option>\n               <option value=\"maki-sushi\">Maki Sushi</option>\n               <option value=\"gonkan\">Gonkan Maki</option>\n           </select>\n           <input type=\"submit\" value=\"Update\"/>\n           </form>\n  \n           \n        </div>";
         });
+        html += '</section>';
         domElement.innerHTML = html;
     },
     renderCart: function (list, domElement) {
@@ -539,15 +542,18 @@ function handleAddDish(ev) {
         console.error(error);
     }
 }
-function handleDeleteDish(ev) {
-    ev.preventDefault();
-    console.dir(ev.target);
-    for (var i = 1; i < ev.target.length; i++) {
-        console.log(ev.target[i].checked);
-        if (ev.target[i].checked === true) {
-            sushiMenu.removeDish(ev.target[i].id);
+function log(str) {
+    console.dir(str);
+    console.log(str);
+}
+function handleDeleteDish() {
+    var children = document.querySelector('.dishesWrap').children;
+    Array.from(children).forEach(function (el) {
+        var _a = el.children[0], checked = _a.checked, id = _a.id;
+        if (checked) {
+            sushiMenu.removeDish(id);
         }
-    }
+    });
     renderSushiMenu();
 }
 function handleUpdateDish(ev) {

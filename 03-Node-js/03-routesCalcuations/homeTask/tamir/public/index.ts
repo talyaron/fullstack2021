@@ -20,10 +20,7 @@ function handleselect(ev) {
                             <p><img src="${work.img}" alt="" class='img'></P>`
                     })
                     root.innerHTML = html
-                }else if(html){
-
                 }
-
             })
     }
 
@@ -42,6 +39,7 @@ function handleselect(ev) {
 //                     })
 //                     root.innerHTML = html
 //                 }else if(html){
+
 
 //                 }
 
