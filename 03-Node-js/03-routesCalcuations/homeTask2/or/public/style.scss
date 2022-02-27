@@ -1,7 +1,8 @@
-.google-pic{
-    margin-top:16vh;
+.google-pic {
+    margin-top: 16vh;
     margin-left: 40.5vw;
 }
+
 #google__search {
     margin-left: 32vw;
     margin-top: 20px;
@@ -16,46 +17,68 @@
 
 
     .search {
-      margin-right: 7px;
-      color: rgba(155, 155, 155, 0.61);
-      cursor: default;
+        margin-right: 7px;
+        color: rgba(155, 155, 155, 0.61);
+        cursor: default;
     }
 
     input {
-      font-size: 16px;
-      outline: none;
-      border: none;
-      width: 30vw;
+        font-size: 16px;
+        outline: none;
+        border: none;
+        width: 30vw;
     }
 }
-.keyboard{
+
+.keyboard {
     margin-left: 10px;
     cursor: pointer;
     color: rgba(48, 48, 48, 0.61);
 
 }
-.mic{
+
+.mic {
     width: 15px;
     margin-left: 5px;
     cursor: pointer;
 
 }
-.buttons{
+
+.buttons {
     display: flex;
     gap: 15px;
     margin-top: 35px;
     margin-left: 40vw;
-    button{
+
+    button {
         cursor: pointer;
         background-color: #f8f9fa;
         border-radius: 4px;
-        border: 1px solid #f8f9fa;
+        border: 1px solid #dadada;
         font-size: 14px;
         color: #3c4043;
         margin: 11px 4px;
         padding: 0 16px;
         height: 36px;
         min-width: 54px;
+    }
+
+}
+
+.rendered-articles {
+    width: 1000px;
+    margin-left: 20vw;
+    font-family: 'Roboto', sans-serif;
+    ;
+
+    &__title {
+        font-weight: bold;
+        font-size: 30px;
+    }
+
+    &__content {
+        font-size: 20px;
+        font-style: italic;
     }
 
 }
