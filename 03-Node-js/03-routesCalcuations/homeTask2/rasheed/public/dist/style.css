@@ -157,14 +157,14 @@ footer a:hover {
   margin-top: 2px;
 }
 
-.searchData {
+.data {
   margin-left: 5px;
   padding: 5px;
 }
-.searchData:hover {
+.data:hover {
   box-shadow: 1px 0px 1px black;
 }
-.searchData h1 {
+.data h1 {
   font-size: 0.7rem;
   cursor: pointer;
 }

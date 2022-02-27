@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const port = process.env.PORT || 3000;
 
-const searchData = [ 
+const data = [ 
   {title: 'Afghanistan', code: 'AF'}, 
   {title: 'Åland Islands', code: 'AX'}, 
   {title: 'Albania', code: 'AL'}, 
@@ -253,17 +253,17 @@ app.use(express.static('public'))
 app.get('/get-users', function (req, res) {
 
   const search = req.query.search;
-  const filteredsearchData = filteredSearchDataSearch(search);
-  res.send(filteredsearchData);
+  const filtereddata = filteredData(search);
+  res.send(filtereddata);
 
 
 })
 
-function filteredSearchDataSearch(search) {
+function filteredData(search) {
 
   if (search) {
     const regex = new RegExp(search, "i");
-    return searchData.filter((searchedTerm) => regex.test(searchedTerm.title) || regex.test(searchedTerm.title)) 
+    return data.filter((searchedTerm) => regex.test(searchedTerm.title) || regex.test(searchedTerm.title)) 
   } else {
     return []
   }

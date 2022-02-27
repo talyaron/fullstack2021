@@ -15,10 +15,10 @@ function handleSearch(ev) {
         root.style.border = '1px solid #ddd'
         root.style.borderRadius = ' 15px'
         let html = "";
-            data.forEach((searchData) => {
+            data.forEach((data) => {
                 html += `
-                <div class="searchData">
-                <h1>${searchData.title}</h1>
+                <div class="data">
+                <h1>${data.title}</h1>
                 </div>`
             });
             root.innerHTML = html;

@@ -12,8 +12,8 @@ function handleSearch(ev) {
         root.style.border = '1px solid #ddd';
         root.style.borderRadius = ' 15px';
         var html = "";
-        data.forEach(function (searchData) {
-            html += "\n                <div class=\"searchData\">\n                <h1>" + searchData.title + "</h1>\n                </div>";
+        data.forEach(function (data) {
+            html += "\n                <div class=\"data\">\n                <h1>" + data.title + "</h1>\n                </div>";
         });
         root.innerHTML = html;
     });

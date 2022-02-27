@@ -4,7 +4,7 @@ var express = require('express');
 
 var app = express();
 var port = process.env.PORT || 3000;
-var searchData = [{
+var data = [{
   title: 'Afghanistan',
   code: 'AF'
 }, {
@@ -737,14 +737,14 @@ var searchData = [{
 app.use(express["static"]('public'));
 app.get('/get-users', function (req, res) {
   var search = req.query.search;
-  var filteredsearchData = filteredSearchDataSearch(search);
-  res.send(filteredsearchData);
+  var filtereddata = filteredData(search);
+  res.send(filtereddata);
 });
 
-function filteredSearchDataSearch(search) {
+function filteredData(search) {
   if (search) {
     var regex = new RegExp(search, "i");
-    return searchData.filter(function (searchedTerm) {
+    return data.filter(function (searchedTerm) {
       return regex.test(searchedTerm.title) || regex.test(searchedTerm.title);
     });
   } else {
