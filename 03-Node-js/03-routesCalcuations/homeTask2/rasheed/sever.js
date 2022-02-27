@@ -263,7 +263,7 @@ function filteredData(search) {
 
   if (search) {
     const regex = new RegExp(search, "i");
-    return data.filter((searchedTerm) => regex.test(searchedTerm.title) || regex.test(searchedTerm.title)) 
+    return data.filter((searchedTerm) => regex.test(searchedTerm.title)) 
   } else {
     return []
   }

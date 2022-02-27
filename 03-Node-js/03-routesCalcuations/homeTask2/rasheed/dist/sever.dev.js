@@ -745,7 +745,7 @@ function filteredData(search) {
   if (search) {
     var regex = new RegExp(search, "i");
     return data.filter(function (searchedTerm) {
-      return regex.test(searchedTerm.title) || regex.test(searchedTerm.title);
+      return regex.test(searchedTerm.title);
     });
   } else {
     return [];

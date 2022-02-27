@@ -87,6 +87,14 @@ body {
 		top: 13px;
 		left: 14px;
 	}
+	&__results {
+		width: 100%;
+		height:120px;
+		border:none;
+		overflow:auto;
+		text-align: start;
+		margin-top: 2px;
+	}
 	&__vs-icon {
 		width: 14px;
 		position: absolute;
@@ -139,14 +147,7 @@ footer {
 	padding-right: 18.7px;
 }
 
-.results {
-	width: 100%;
-	height:120px;
-	border:none;
-	overflow:auto;
-	text-align: start;
-	margin-top: 2px;
-}
+
 .data{
 	
 	margin-left: 5px;
