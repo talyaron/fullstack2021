@@ -1,0 +1,87 @@
+body {
+  padding: 40px;
+  font-family: "Architects Daughter", cursive;
+  font-size: 15px;
+  margin: 0px;
+  padding: 0px;
+}
+
+.searchForTerm {
+  text-align: center;
+}
+
+input[type=search] {
+  width: 500px;
+  height: 30px;
+  border-radius: 5px;
+}
+
+.articles {
+  opacity: 0.7;
+  margin: 20px;
+}
+.articles .title {
+  color: #5bc5e9;
+}
+.articles:hover {
+  opacity: 1;
+  background-color: rgba(201, 196, 196, 0.829);
+}
+
+.shmoogle {
+  font-size: 70px;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: 0.15em;
+  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+  border-right: 0.15em solid orange;
+}
+.shmoogle span:nth-child(1) {
+  color: red;
+}
+.shmoogle span:nth-child(2) {
+  color: green;
+}
+.shmoogle span:nth-child(3) {
+  color: blue;
+}
+.shmoogle span:nth-child(4) {
+  color: #66d3a9;
+}
+.shmoogle span:nth-child(5) {
+  color: orange;
+}
+.shmoogle span:nth-child(6) {
+  color: yellow;
+}
+.shmoogle span:nth-child(7) {
+  color: #9640cf;
+}
+.shmoogle span:nth-child(8) {
+  color: #48cce4;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+@keyframes blink-caret {
+  from, to {
+    border-color: transparent;
+  }
+  10% {
+    border-color: orange;
+  }
+  50% {
+    border-color: transparent;
+  }
+}
+.aboutShmoogle {
+  text-align: center;
+}

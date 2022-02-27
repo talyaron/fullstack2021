@@ -13,7 +13,7 @@ function handleSearch(ev) {
         if (Array.isArray(data)) // this is like try catch to make sure it recieves the array
          {
             data.forEach(function (article) {
-                html += "\n                <h1>" + article.title + "</h1>\n                <h3>" + article.content + "</h3>";
+                html += "\n                <div class=\"articles\">\n                <h1 class=\"title\">" + article.title + "</h1>\n                <h3 class=\"articleContent\">" + article.content + "</h3>\n                </div>";
             });
             rootArticle.innerHTML = html;
         }
