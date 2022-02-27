@@ -13,7 +13,17 @@ var data1 = [{
 }];
 app.use(express["static"]("public"));
 app.get('/tamir', function (req, res) {
-  res.send(data1);
-}), app.listen(port, function () {
+  var user = req.query.user;
+  var filterdata1 = filterduser(user);
+  res.send(filterdata1);
+}), function filterduser(user) {
+  if (user) {
+    var regex = new RegExp(user, "i");
+    return data1.filter(function (user) {
+      return regex.test(user.title) || regex.test(user.text);
+    });
+  }
+};
+app.listen(port, function () {
   return console.log("Express is listening at http://localhost:".concat(port));
 });
