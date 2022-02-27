@@ -5,6 +5,9 @@ var _require = require('express'),
 
 var express = require('express');
 
+var _require2 = require('express/lib/response'),
+    links = _require2.links;
+
 var app = express();
 var port = process.env.PORT || 3000;
 var data1 = [{
@@ -15,6 +18,10 @@ var data1 = [{
   title: 'instegram',
   text: 'instegram',
   text1: 'instafollow'
+}, {
+  title: 'tiktok',
+  text: 'tiktok',
+  text1: 'timbrlend'
 }];
 app.use(express["static"]('public'));
 app.get('/tamir', function (req, res) {
