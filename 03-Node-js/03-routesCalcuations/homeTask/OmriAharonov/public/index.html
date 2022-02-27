@@ -14,7 +14,7 @@
 
 <body>
     <div class="car">
-        <div class="car__header"> <h1>The Car View</h1></div>
+        <div class="car__header"> <h1>60's Muscle Cars</h1></div>
         <select onchange="handelSelectCars(event)">
             <option disabled selected value="">Cars</option>
             <option value="Pontiac Coupe">Pontiac Coupe</option>
@@ -23,7 +23,12 @@
             <option value="Pontiac Firebird">Pontiac Firebird</option>
             <option value="Plymouth Roadrunner">Plymouth Roadrunner</option>
             <option value="Corvette">Corvette</option>
+            <option value="Chevrolet Impala SS">Chevrolet Impala SS</option>
+            <option value="Dodge Dart">Dodge Dart</option>
+            <option value="Ford Galaxie 427">Ford Galaxie 427</option>
+            <option value="Buick Riviera GS">Buick Riviera GS</option>
         </select>
+        <input oninput="handleSlider(event)" type="range" min="1960" max="1969" value=1965 class="car__slider">
         <div class="car__root"></div>
     </div>
     <script src="./dist/index.js"></script>

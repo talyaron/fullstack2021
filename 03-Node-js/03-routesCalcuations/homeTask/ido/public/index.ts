@@ -9,7 +9,6 @@ btns.forEach(btn => {
 function displayPlayer(ev){
     ev.preventDefault()
     
-
     try{ 
         const year = ev.target.value
         const display = document.querySelector('.main_display') as HTMLDivElement

@@ -19,5 +19,8 @@
   "keywords": [],
   "dependencies": {
     "express": "^4.17.3"
+  },
+  "devDependencies": {
+    "package": "^1.0.1"
   }
 }

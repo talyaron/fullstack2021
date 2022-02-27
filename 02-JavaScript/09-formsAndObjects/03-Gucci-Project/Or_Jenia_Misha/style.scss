@@ -549,7 +549,7 @@ html {
         @include backgroundsettings();
         width: 100%;
         height: 100%;
-        overflow: hidden;
+        overflow: scroll;
 
         &__opacity {
 
@@ -567,9 +567,7 @@ html {
 
             &__navbar {
                 height: 10%;
-                width: 900px;
                 display: flex;
-
                 justify-content: center;
                 align-items: center;
                 text-align: center;
@@ -749,6 +747,7 @@ html {
         }
     }
 }
+
 
 //////////////////////////// RESPONSIVENESS /////////////////////////
 
@@ -939,7 +938,7 @@ html {
 
 ///////////////////////// ERP ///////////////////////////////////
 
-#rootERP {
+.dishesWrap {
     display: flex;
     flex-wrap: wrap;
     gap:10px;

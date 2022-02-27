@@ -24,7 +24,6 @@ function handleSearch(ev){
     const regex = new RegExp(searchTerm,'i');
     const root:any = document.querySelector('#root')
     if(regex.test(string)){
-       
         root.innerHTML = `${searchTerm} exists in string`
         root.style.backgroundColor = 'green'
     } else {

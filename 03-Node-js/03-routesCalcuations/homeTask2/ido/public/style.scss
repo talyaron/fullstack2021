@@ -1,0 +1,95 @@
+.main {
+    margin: auto;
+    height: 700px;
+    max-width: 770px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid gray;
+    overflow: auto; 
+
+    &_header {
+        width: 99%;
+        height: 15vh;
+        display: grid;
+        grid-template-columns: repeat(10 , 10%);
+        height: 10vh;
+        justify-content: center;
+
+        &-search {
+            margin-top: 2vh;
+            grid-column: 4/8;
+            background-color: cornflowerblue;
+            border-radius: 7px;
+
+            &::placeholder {
+                color: black;
+            }
+        }
+    }
+
+    &_display {
+        margin: auto;
+        max-height: fit-content;
+        height: 70%;
+        width: 80%;
+        display: grid;
+        grid-template-columns: repeat(3, 30%);
+        grid-template-rows: max-content;
+        justify-content: space-between;
+        
+
+        &-card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+            border: 1px solid black;
+            height: 25vh;
+            margin-top: 5vh;
+            background-color: aliceblue;
+            display: grid;
+            grid-template-columns: repeat(4, 25%);
+            grid-template-rows: repeat(5, 20%);
+
+            &-details {
+                margin-top: 5px;
+                display: grid;
+                grid-column: 1/5;
+                grid-row: 3/5;
+                grid-template-columns: repeat(4 , 25%);
+                grid-template-rows: repeat(4 , 25%);
+
+                .detailsInCard {
+                    width: 100%;
+                    text-align: center;
+                }
+
+                &-title {
+                    font-size: 14px;
+                    grid-column: 1/5;
+                    grid-row: 1;
+                    font-weight: bold;
+                }
+
+                &-description {
+                    font-size: 13px;
+                    grid-column: 1/5;
+                    grid-row: 2;
+                }
+
+                &-price {
+                    grid-column: 1/5;
+                    grid-row: 4;
+                }
+            }
+
+            &-img {
+                grid-column: 1/5;
+                grid-row: 1/3;
+            }
+
+            &:hover {
+                box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+            }
+
+
+        }
+    }
+}
