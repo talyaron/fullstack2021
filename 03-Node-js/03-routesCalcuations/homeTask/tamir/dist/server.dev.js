@@ -28,9 +28,7 @@ var work = [{
 app.use(express["static"]("public"));
 app.get('/work', function (req, res) {
   // const view = req.query.view;
-  var view = req.query.view;
-
-  if (view) {
+  if (view = req.query.view) {
     var filterbyview = work.filter(function (work) {
       return work.view === view;
     });

@@ -11,8 +11,8 @@
 
 <body>
     <a href="./index.html">Store</a>
-    
-    <form onsubmit="handleAddDish(event)" id = "addDishForm ">
+
+    <form onsubmit="handleAddDish(event)" id="addDishForm ">
         <input type="text" name="name" id="" placeholder="Dish Name">
         <input type="number" name="price" id="" placeholder="Dish Price">
         <input type="text" name="description" id="" placeholder="Add Dish description">
@@ -42,13 +42,14 @@
 
     <input type="search" placeholder="Search" id="search" onkeyup="handleSearch(event)">
 
-
+    <button onclick="handleDeleteDish()">delete</button>
 
 
 
     <div id="rootERP"></div>
 
 
+    <script> var exports = {}; </script>
     <script src="dist/index.js"></script>
 </body>
 

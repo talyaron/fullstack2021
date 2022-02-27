@@ -6,12 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./dist/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.0/axios.min.js"
         integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body>
+    <label for="order">Order</label>
+    <input type="range" id="range" name="order" value="0" min="0" max="8" onchange="handleOrderSlider(event)">
+    <div id="root">
+        <h1>הבעל שם טוב - מייסד תורת החסידות</h1>
+        <img src="http://chabadpedia.co.il/images/d/da/%D7%9C%D7%90_%D7%94%D7%91%D7%A2%D7%A9%27%27%D7%98.jpg" alt="">
+    </div>
     <script src="./dist/index.js"></script>
 </body>
 

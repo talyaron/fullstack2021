@@ -19,8 +19,6 @@ function handleselect(ev) {
                 });
                 root.innerHTML = html;
             }
-            else if (html) {
-            }
         });
     }
 }
