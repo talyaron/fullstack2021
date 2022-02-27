@@ -2,37 +2,39 @@ const express = require("express");
 const app = express();
 const port = process.env.PORT || 3002;
 
-app.use(express.static("public"));
-
-const google=[
-    {title:' למה לשלב פעילות גופנית בחיים שלכם?',
-article:'כמעט כל יום מביא איתו מחקר חדש בנושא פעילות גופנית, עם יתרונות וחסרונות חדשים, השפעות שונות ומגוונות על הגוף ולעיתים קרובות – הרבה פרטים מבלבלים. חלק מהמחקרים מראים ללא שום ספק יתרונות משמעותיים וטוענים כי אם אתם מעוניינים לרדת במשקל, אין דרך טובה יותר מאימון פיזי. אחרים לא מראים גישה חד משמעית.'}
+const google = [
+    {
+        title: ' למה לשלב פעילות גופנית בחיים שלכם?',
+        article: 'כמעט כל יום מביא איתו מחקר חדש בנושא פעילות גופנית, עם יתרונות וחסרונות חדשים, השפעות שונות ומגוונות על הגוף ולעיתים קרובות – הרבה פרטים מבלבלים. חלק מהמחקרים מראים ללא שום ספק יתרונות משמעותיים וטוענים כי אם אתם מעוניינים לרדת במשקל, אין דרך טובה יותר מאימון פיזי. אחרים לא מראים גישה חד משמעית.'
+    }
 
 ]
 
+app.use(express.static("public"));
 
+app.get("/get-google", (req, res) => {
 
-app.get("/get-google", (req, res) =>{
-
-function handleSearch(ev){
-    const search= ev.target.value;
-    const regex=new RegExp(search, 'i')
-
-    const searchresult= google.filter(article=>{
-        if(regex.test(article.title)) 
-        res.send(searchresult)
-    })
-}
-
+    const search = req.query.search;
+    console.log(search);
+    const searchreasult = getSearchReasult(search)
+    console.log('p');
+    res.send(searchreasult)
 })
 
+function getSearchReasult(search) {
+    if (search) {
 
+        const regex = new RegExp(search, 'i')
 
+        return google.filter((article) => {
 
-
-
-
-
+            regex.test(article.title)
+        })
+    }
+    else {
+        return []
+    }
+}
 
 
 
