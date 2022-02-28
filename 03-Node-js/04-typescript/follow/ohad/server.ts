@@ -7,7 +7,7 @@ interface Student{
     id:string;
 }
 
-let students:Array<Student> = [{ name: "noa", id: '1' }];
+const students:Array<Student> = [{ name: "noa", id: '1' }];
 
 app.use(express.static("public"));
 app.use(express.json()); //use this to get data (body)
