@@ -1,0 +1,36 @@
+h1 {
+  color: #a5842a;
+  font-family: cursive;
+  font-size: 70px;
+  position: relative;
+  left: 45%;
+}
+
+input[type=search] {
+  width: 500px;
+  height: 30px;
+  position: relative;
+  left: 36%;
+  border-radius: 5px;
+}
+
+.players {
+  border: 2px solid black;
+  position: relative;
+  left: 13%;
+  width: 80%;
+  height: 40%;
+}
+.players .player {
+  color: #ff7f7f;
+}
+.players .team {
+  color: #7700ff;
+}
+.players img {
+  height: 20%;
+  width: 30%;
+  position: relative;
+  left: 50%;
+  margin-top: -90px;
+}
