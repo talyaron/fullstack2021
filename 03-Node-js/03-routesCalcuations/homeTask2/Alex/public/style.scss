@@ -1,0 +1,25 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15%;
+}
+
+.multiColorText {
+    background-image: linear-gradient(
+      to left,
+      rgb(206, 138, 255),
+      rgb(139, 255, 139),
+      rgb(99, 99, 253),
+      rgb(243, 102, 102)
+    );
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+input {
+  color: rgb(209, 86, 14);
+  background-color: rgb(231, 255, 254);
+border: 0px solid;
+
+}
