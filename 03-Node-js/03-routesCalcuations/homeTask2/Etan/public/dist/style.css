@@ -1,0 +1,143 @@
+:root {
+  --text-color: #202124;
+  --sign-in-color: #1b72e8;
+  --svg-color: #73767a;
+  --svg-size: 25px;
+  --search-button-bgcolor: #f8f9fa;
+  --search-button-color: #3c4043;
+  --link-color:#4d5156;
+  --article-text-color:#585b60;
+  --title-color:#1a0eab;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: var(--text-color);
+  height: 100%;
+  width: 100%;
+  font-size: 0.9rem;
+}
+
+.wrapper {
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  place-content: center;
+}
+.wrapper nav {
+  display: flex;
+  flex-direction: row;
+  place-content: space-between;
+}
+.wrapper nav section {
+  display: flex;
+  place-items: center;
+  padding: 0.3em 0.3em;
+}
+.wrapper nav section a {
+  text-decoration: none;
+  padding: 0 0.6rem;
+  color: var(--text-color);
+}
+.wrapper nav section a:hover {
+  text-decoration: underline;
+}
+.wrapper nav section a > svg {
+  width: var(--svg-size);
+  fill: var(--svg-color);
+}
+.wrapper nav section a button {
+  width: 96px;
+  height: 36px;
+  border: none;
+  background-color: var(--sign-in-color);
+  color: white;
+  border-radius: 5px;
+}
+.wrapper nav section a button:hover {
+  cursor: pointer;
+  background-color: #2d7ae6;
+  box-shadow: 0 0 8px 4px rgba(70, 150, 240, 0.25) inset, 0 0 8px 4px rgba(70, 150, 240, 0.25);
+}
+.wrapper search {
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  gap: 2em;
+  position: absolute;
+  top: 43%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.wrapper search .bar {
+  display: flex;
+  flex-direction: row;
+  width: clamp(35vw, 570px, 90vw);
+  height: 3em;
+  border: 0.1px solid #73767ab9;
+  border-radius: 50px;
+  place-items: center;
+}
+.wrapper search .bar:hover {
+  cursor: pointer;
+  box-shadow: 0 0 4px 1px var(--search-button-bgcolor) inset, 0 1px 4px 1px #c9caca;
+}
+.wrapper search .bar_mic svg {
+  width: var(--svg-size);
+  border-left: 0.1px solid #73767ab9;
+  padding: 0.5em;
+}
+.wrapper search .bar_search svg {
+  width: 15px;
+  fill: #abadb0;
+  padding: 1em;
+}
+.wrapper search .bar input {
+  width: 100%;
+  line-height: 2em;
+  font-size: 1.1em;
+  outline: none;
+  border: none;
+}
+.wrapper search .buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+}
+.wrapper search .buttons button {
+  height: 36px;
+  padding: 0.5em 1.2em;
+  border: none;
+  background-color: var(--search-button-bgcolor);
+  color: var(--search-button-color);
+  border-radius: 5px;
+}
+.wrapper search .buttons button:hover {
+  cursor: pointer;
+  border: 0.5px solid #cccaca9d;
+  box-shadow: 1px 1px 1px 1px var(--search-button-bgcolor) inset, 0px 1px 0px 0px #a3a3a3;
+}
+.wrapper articles {
+  box-sizing: border-box;
+  position: absolute;
+  top: 40%;
+  left: 10vw;
+  width: clamp(35vw, 570px, 90vw) dlink;
+  width-color: var(--link-color);
+}
+.wrapper articles h1 {
+  color: var(--title-color);
+}
+.wrapper articles h1:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+.wrapper articles p {
+  color: var(--article-text-color);
+}
