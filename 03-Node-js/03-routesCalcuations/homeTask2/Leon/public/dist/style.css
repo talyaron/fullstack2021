@@ -23,13 +23,16 @@ input[type=search] {
 }
 .players .player {
   color: #ff7f7f;
+  font-size: 30px;
+  font-family: fantasy;
 }
 .players .team {
   color: #7700ff;
+  font-family: sans-serif;
 }
 .players img {
   height: 10%;
-  width: 30%;
+  width: 20%;
   position: relative;
   left: 50%;
   margin-top: -90px;
