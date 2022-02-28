@@ -13,9 +13,9 @@ function handlefind(ev) {
             let html = '';
             if (Array.isArray(data)) {
                 data.forEach((data1) => {
-                    html += 
+                    html = 
                     `<div class='grid' style="display: grid;grid-template-rows: repeat(1fr,1fr)">
-                    <h3 class='grid__text'>${data1.text}</h3>
+                    <h3 class='grid__text'>${data1.title}</h3>
                     <h3 class='grid__text'>${data1.text1}</h3>
                    </div>
                     `

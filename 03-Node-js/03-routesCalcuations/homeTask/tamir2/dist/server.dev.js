@@ -34,7 +34,7 @@ function filterduser(user) {
   if (user) {
     var regex = new RegExp(user, "i");
     return data1.filter(function (user) {
-      return regex.test(user.title) || regex.test(user.text);
+      return regex.test(user.title);
     });
   } else {
     return [];

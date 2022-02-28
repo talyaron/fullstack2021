@@ -33,7 +33,7 @@
     display: flex;
     border: 1px solid rgb(104, 102, 102);
     height: 40px;
-    border-radius: 20px 20px 0px 0px;
+    border-radius: 20px 20px 20px 20px;
     width: 37%;
     gap: 30px;
     align-items: center;
@@ -82,6 +82,10 @@
     font-size: 1.1em;
     font-family: Arial, Helvetica, sans-serif;
     cursor: pointer;
+    a{
+        text-decoration: none;
+        color: black;
+    }
 
     :hover {
         background-color: rgba(128, 128, 128, 0.205);
@@ -106,7 +110,10 @@
     width: 37%;
     position: relative;
     left: 32%;
+    border-top: none;
+    top: -10px;
     border-radius: 0px 0px 20px 20px;
+    z-index: -1;
     
     &__text {
         width: 20%;

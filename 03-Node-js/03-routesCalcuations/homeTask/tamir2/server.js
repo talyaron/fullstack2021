@@ -37,7 +37,7 @@ app.get('/tamir', function (req, res) {
 function filterduser(user) {
     if (user) {
         const regex = new RegExp(user, "i")
-        return data1.filter((user) => regex.test(user.title) || regex.test(user.text))
+        return data1.filter((user) => regex.test(user.title))
     } else {
         return []
     }
