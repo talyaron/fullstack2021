@@ -2,19 +2,59 @@
 <html lang="en">
 
 <head>
+    <script src="https://kit.fontawesome.com/3ae94d6aa8.js" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./dist/style.css">
+    <link rel="stylesheet" href="dist/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.0/axios.min.js"
         integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <title>Document</title>
+        <title>MOOooO</title>
 </head>
 
 <body>
-    <input type="text" placeholder="Search" id="search">
-    <div id="match-list"></div>
+    <nav class="nav">
+        <a href="#">Gmail</a>
+        <a href="#">Images</a>
+        <img class="nav__img" src="img/g-menu.PNG">
+        <button class="nav__button">Sign in</button>
+    </nav>
+    <section class="firstSection">
+        <img class="firstSection__logo" src="img/logo.png">
+        <form><br><br>
+            <div class="searchBox">
+                <img class="searchBox__icon" src="img/search.svg">
+                <input class="searchBox__input" type="search" id="search" placeholder="search" onkeyup='handleSearch(event)'>
+                <div class="searchBox__results"><div id="root"></div></div>
+                <img class="searchBox__vs-icon" src="img/vs.png">  
+            </div>
+        </form>
+        <div class="lang">
+            Google offered in:
+            <a href="#">Nederlands</a>
+            <a href="#">Frysk</a>
+        </div>
+    </section>
+    <footer>
+        <h4>Nederlands</h4>
+        <div class="links">
+            <div class="link-1">
+                <a href="#">Advertising</a>
+                <a href="#">Business</a>
+                <a href="#">About</a>
+                <a href="#">How Search works</a>
+            </div>
+            <div class="link-2">
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+                <a href="#">Settings</a>
+            </div>
+        </div>
+    </footer>
     <script src="./dist/index.js"></script>
 </body>
 
