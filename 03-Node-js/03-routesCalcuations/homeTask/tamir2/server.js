@@ -9,18 +9,15 @@ const port = process.env.PORT || 3000;
 const data1 = [{
     
         title:'facbook',
-        text: 'facebook ',
         text1: 'face-time',
 
     },
     {
         title: 'instegram',
-        text: 'instegram',
         text1: 'instafollow'
     },
     {
         title: 'tiktok',
-        text: 'tiktok',
         text1: 'timbrlend'
     }
 ]
@@ -37,7 +34,7 @@ app.get('/tamir', function (req, res) {
 function filterduser(user) {
     if (user) {
         const regex = new RegExp(user, "i")
-        return data1.filter((user) => regex.test(user.title) || regex.test(user.text))
+        return data1.filter((user) => regex.test(user.title))
     } else {
         return []
     }

@@ -1,5 +1,5 @@
 {
-  "name": "wil",
+  "name": "likegoogle",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -12,5 +12,8 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.3"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.21"
   }
 }

@@ -12,15 +12,12 @@ var app = express();
 var port = process.env.PORT || 3000;
 var data1 = [{
   title: 'facbook',
-  text: 'facebook ',
   text1: 'face-time'
 }, {
   title: 'instegram',
-  text: 'instegram',
   text1: 'instafollow'
 }, {
   title: 'tiktok',
-  text: 'tiktok',
   text1: 'timbrlend'
 }];
 app.use(express["static"]('public'));
@@ -34,7 +31,7 @@ function filterduser(user) {
   if (user) {
     var regex = new RegExp(user, "i");
     return data1.filter(function (user) {
-      return regex.test(user.title) || regex.test(user.text);
+      return regex.test(user.title);
     });
   } else {
     return [];

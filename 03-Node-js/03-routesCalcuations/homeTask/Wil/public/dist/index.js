@@ -1,1 +1,3 @@
-var x = 1;
+function SearchFacts() {
+    var a = document.getElementById("facts");
+}

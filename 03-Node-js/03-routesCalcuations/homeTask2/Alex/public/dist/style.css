@@ -1,0 +1,18 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 15%;
+}
+
+.multiColorText {
+  background-image: linear-gradient(to left, #ce8aff, #8bff8b, #6363fd, #f36666);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+input {
+  color: #d1560e;
+  background-color: #e7fffe;
+  border: 0px solid;
+}
