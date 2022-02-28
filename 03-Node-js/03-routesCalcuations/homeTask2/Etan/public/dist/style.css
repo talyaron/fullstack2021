@@ -5,9 +5,9 @@
   --svg-size: 25px;
   --search-button-bgcolor: #f8f9fa;
   --search-button-color: #3c4043;
-  --link-color:#4d5156;
-  --article-text-color:#585b60;
-  --title-color:#1a0eab;
+  --link-color: #4d5156;
+  --article-text-color: #585b60;
+  --title-color: #1a0eab;
 }
 
 * {
@@ -128,8 +128,23 @@ body {
   position: absolute;
   top: 40%;
   left: 10vw;
-  width: clamp(35vw, 570px, 90vw) dlink;
-  width-color: var(--link-color);
+  width: clamp(35vw, 570px, 90vw);
+}
+.wrapper articles dlink {
+  color: var(--link-color);
+}
+.wrapper articles dlink:hover {
+  cursor: pointer;
+}
+.wrapper articles dlink::after {
+  content: "";
+  margin-left: 1em;
+  display: inline-block;
+  background-image: url(../svg/3_dot.svg);
+  background-size: 1.2em;
+  height: 1.2em;
+  width: 1.2em;
+  fill: var(--svg-color);
 }
 .wrapper articles h1 {
   color: var(--title-color);
