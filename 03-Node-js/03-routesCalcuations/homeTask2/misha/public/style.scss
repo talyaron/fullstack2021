@@ -1,32 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300&display=swap');
+
 body {
+    padding: 0px;
+    border: 0px;
+    min-height: 100vh;
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
     box-sizing: border-box;
+    background-image: url("img/clocks.jpeg");
+    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.336);
+    font-family: 'Barlow Condensed', sans-serif;
+    text-align: center;
 }
 
 .title {
-    height: 50vh;
+    height: 200px;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: flex-end;
-
-    img {
-        width: 450px;
-        height: 90px;
-    }
+    font-size: 60px;
+    color: white;
+    text-shadow: 2px 2px 4px #000000;
+    
 }
 
 .wrapper {
     padding: 2em;
     display: flex;
     justify-content: center;
-    
 
-    .search_box{
-        background:grey;
+
+    .search_box {
+        background: rgb(246, 246, 246);
         position: relative;
         padding: 15px;
         border-radius: 50px;
@@ -34,7 +41,7 @@ body {
         width: 700px;
     }
 
-    .search_box .search_btn{
+    .search_box .search_btn {
         width: 50px;
         height: 50px;
         border-radius: 50%;
@@ -46,7 +53,38 @@ body {
         cursor: pointer;
     }
 
-    input{
+    input {
         width: 85%;
+        outline: none;
+        background: rgb(246, 246, 246);
+        border: 0px;
+        font-size: 24px;
+
+    }
+}
+
+.article_root{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.paragraph{
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    color: white;
+    font-size: 30px;
+    text-shadow: 2px 2px 4px #000000;
+
+    &__title{
+        text-align: center;
+        width: fit-content;
+        border-bottom: 3px solid rgb(255, 255, 255);
+        font-size: 50px;
+        margin-bottom: 2px;
     }
 }

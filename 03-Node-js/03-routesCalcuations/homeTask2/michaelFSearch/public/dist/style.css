@@ -1,0 +1,116 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+}
+body .header {
+  display: flex;
+  justify-content: space-around;
+  background: #20558a;
+  width: 100%;
+}
+body .header .nih {
+  display: flex;
+  flex-direction: row;
+}
+body .header .nih img {
+  padding: 50px 10px 50px 40px;
+}
+body .header .nih .nihTitles {
+  display: flex;
+  flex-direction: column;
+  margin: 40px 0 0 0;
+}
+body .header .nih h1, body .header .nih p {
+  color: white;
+}
+body .header .nih h1 {
+  margin-bottom: 0;
+}
+body .header .nih p {
+  margin-bottom: 50px;
+  margin-top: 5px;
+}
+body .header .log {
+  margin-top: 50px;
+}
+body .header .log h1 {
+  border: white 1px solid;
+  color: white;
+  padding: 10px;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+body .header .log h1:hover {
+  background: #087fe0;
+}
+
+.input {
+  background: #f1f1f1ff;
+  width: 100%;
+  display: flex;
+  gap: 50px;
+  justify-content: center;
+  padding: 30px 0 40px 0;
+  border-bottom: 1px solid #adacac;
+}
+.input input {
+  margin-top: 25px;
+  width: 35%;
+  height: 5vh;
+  box-shadow: 1px 1px 10px black;
+}
+.input img {
+  width: 220px;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  gap: 35px;
+}
+.container .index {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+  top: 20px;
+}
+.container .index input {
+  width: 15px;
+  height: 15px;
+}
+.container .index span {
+  padding-left: 2px;
+}
+.container .card {
+  display: flex;
+  flex-direction: column;
+}
+.container .card h2 {
+  color: #20558a;
+  margin-bottom: 0;
+}
+.container .card h2:hover {
+  color: #163b5f;
+  cursor: pointer;
+}
+.container .card p {
+  margin: 7px auto;
+}
+.container .card p:nth-child(3) {
+  color: green;
+  font-weight: 300;
+}
+
+#root {
+  margin: 20px 200px 20px 500px;
+}
+
+#index {
+  margin-right: 450px;
+  margin-top: 30px;
+}
