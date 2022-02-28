@@ -10,7 +10,8 @@ var teams = [{
   url: "https://upload.wikimedia.org/wikipedia/commons/9/9a/Cristiano_Ronaldo_Portugal.jpg"
 }, {
   player: "Mbape",
-  team: "psg"
+  team: "psg",
+  url: "https://pbs.twimg.com/media/D-Po6M5XYAE9zNp.jpg"
 }, {
   player: "Bale",
   team: "real amdrid",
@@ -18,7 +19,7 @@ var teams = [{
 }, {
   player: "Firmino",
   team: "liverpoll",
-  url: "https://pbs.twimg.com/media/D-Po6M5XYAE9zNp.jpg"
+  url: "https://i2-prod.liverpoolecho.co.uk/incoming/article21342232.ece/ALTERNATES/s1200c/0_GettyImages-1334150468.jpg"
 }, {
   player: "Torres",
   team: "barcelona",
