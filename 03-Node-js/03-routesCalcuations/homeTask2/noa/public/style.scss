@@ -1,0 +1,30 @@
+.wrapper {
+    align-items: center;
+    display:inline-flex;
+    fl
+
+}
+
+
+.search {
+    display: flex;
+    width: 500px;
+    height: 40px;
+    border-radius: 20px;
+    box-shadow: 0.5px 0.5px 4px rgba(121, 118, 118, 0.664);
+
+
+    img {
+        width: fit-content;
+        margin: 10px;
+        margin-right: 20px;
+        margin-left: 20px;
+    }
+
+    input {
+        outline: none;
+        border: none;
+        border-radius: 30%;
+        width: 400px;
+    }
+}
