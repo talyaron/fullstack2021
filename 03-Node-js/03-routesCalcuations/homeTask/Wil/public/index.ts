@@ -1,1 +1,5 @@
-const x=1
+
+function SearchFacts(){
+    let a = document.getElementById("facts");
+
+}
