@@ -12,6 +12,9 @@ async function handleAddStudent(ev) {
   renderData(data);
   ev.target.reset();
 }
+function handleDelete(studnetId){
+    console.log(studnetId)
+}
 
 async function getAllData() {
   const { data } = await axios.get("/get-all-data");
@@ -22,7 +25,7 @@ async function getAllData() {
 function renderData(data: Array<any>) {
   let html = "";
   data.forEach((student) => {
-    html += `<p>${student.name}</p>`;
+    html += `<p>${student.name} <button onclick="handleDelete('${student.id}')">Delete</button></p>`;
   });
   const root = document.querySelector("#root");
   root.innerHTML = html;

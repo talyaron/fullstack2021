@@ -58,6 +58,9 @@ function handleAddStudent(ev) {
         });
     });
 }
+function handleDelete(studnetId) {
+    console.log(studnetId);
+}
 function getAllData() {
     return __awaiter(this, void 0, void 0, function () {
         var data;
@@ -76,7 +79,7 @@ function getAllData() {
 function renderData(data) {
     var html = "";
     data.forEach(function (student) {
-        html += "<p>" + student.name + "</p>";
+        html += "<p>" + student.name + " <button onclick=\"handleDelete('" + student.id + "')\">Delete</button></p>";
     });
     var root = document.querySelector("#root");
     root.innerHTML = html;

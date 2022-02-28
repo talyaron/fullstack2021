@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const app = express_1.default();
 const port = 3000;
-const students = [{ name: "noa", id: '1' }];
+let students = [{ name: "noa", id: '1' }];
 app.use(express_1.default.static("public"));
 app.use(express_1.default.json()); //use this to get data (body)
 app.get("/get-all-data", (req, res) => {
