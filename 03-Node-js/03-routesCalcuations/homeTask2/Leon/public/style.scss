@@ -1,0 +1,40 @@
+h1{
+    color: rgb(165, 132, 42);
+    font-family: cursive;
+    font-size: 70px;
+    position: relative;
+    left: 45%;
+}
+input[type=search]{
+    width:500px;
+    height:30px;
+    position: relative;
+    left: 36%;
+    border-radius:5px;
+}
+
+.players{
+    border: 2px solid black;
+    position: relative;
+    left: 13%;
+    width: 80%;
+    height: 40%;
+    .player{
+        color: rgb(255, 127, 127);
+        font-size: 30px;
+        font-family: fantasy;
+        
+    }
+    .team{
+        color: rgb(119, 0, 255);
+        font-family: sans-serif;
+    }
+    img{
+        height: 10%;
+        width: 20%;
+        position: relative;
+        left: 50%;
+        margin-top:-90px;
+    }
+    
+}
