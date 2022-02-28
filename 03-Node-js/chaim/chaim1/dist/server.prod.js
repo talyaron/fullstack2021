@@ -1,0 +1,1 @@
+"use strict";var express=require("express"),_require=require("express/lib/response"),clearCookie=_require.clearCookie,app=express(),port=process.env.PORT||3e3;app.get("/",function(e,r){r.send("Hello World")}),app.use(express.static("public")),app.listen(port,function(){return console.log("Express is listening at http://localhost:".concat(port))});
