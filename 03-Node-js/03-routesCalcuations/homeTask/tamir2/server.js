@@ -9,18 +9,15 @@ const port = process.env.PORT || 3000;
 const data1 = [{
     
         title:'facbook',
-        text: 'facebook ',
         text1: 'face-time',
 
     },
     {
         title: 'instegram',
-        text: 'instegram',
         text1: 'instafollow'
     },
     {
         title: 'tiktok',
-        text: 'tiktok',
         text1: 'timbrlend'
     }
 ]
