@@ -10,9 +10,9 @@ function handleSearch(ev) {
 }
 function renderArticle(article) {
     var root = document.querySelector(".article_root");
+    var html = "";
     article.forEach(function (paragraph) {
-        var html = "";
-        html += "\n        <div id='paragraph'>\n        <p>" + paragraph.content + "\n        </div>\n        ";
-        root.innerHTML = html;
+        html += "\n        <div class='paragraph'>\n        <p class=\"paragraph__title\">" + paragraph.content_title + "</p>\n        <p>" + paragraph.content + "</p>\n        </div>\n        ";
     });
+    root.innerHTML = html;
 }

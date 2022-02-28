@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.0/axios.min.js"
+        integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://kit.fontawesome.com/07ce8225e4.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="dist/index.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="nav" style="display:flex;gap: 10px;font-size: 1.5em;">
+        <P class="nav__user"><img
+                src="https://th.bing.com/th/id/R.56cb29531c5a7c9bd8507e8898c28dd6?rik=6SPt709wnfRJBg&riu=http%3a%2f%2fwww.droid-life.com%2fwp-content%2fuploads%2f2015%2f09%2fgmail-icon.jpg&ehk=1Mg6ASHbWdpeEYt0I8DCkZFwXY64QNrnUcVqbPBxhPE%3d&risl=&pid=ImgRaw&r=0"
+                alt=""></P>
+        <p class="nav__app"></p>
+        <P class="nav__pic">חיפוש תמונות</P>
+        <p class="nav__gmail">gmail</p>
+    </div>
+    <div class="google">
+        <img
+            src="https://cdn.vox-cdn.com/thumbor/Ous3VQj1sn4tvb3H13rIu8eGoZs=/0x0:2012x1341/1400x788/filters:focal(0x0:2012x1341):format(jpeg)/cdn.vox-cdn.com/uploads/chorus_image/image/47070706/google2.0.0.jpg">
+    </div>
+    <div class="serch">
+        <p class="serch__mic"><img src="https://webstockreview.net/images/microphone-clipart-svg-2.png" alt=""></p>
+        <p class="serch__key"><img
+                src="https://icons.iconarchive.com/icons/google/noto-emoji-objects/1024/62829-keyboard-icon.png" alt="">
+        </p>
+        <input class="serch__text" type="text" onkeyup="handlefind(event)">
+        <p class="serch__icon"><img
+                src="https://th.bing.com/th/id/OIP.S1cKdHRZF-XWzXvFnPQiiAAAAA?pid=ImgDet&w=330&h=347&rs=1" alt=""></p>
+    </div>
+    <div id="root"></div>
+    <div class="opt">
+        <div class="opt__opt1">יותר מזל משכל</div>
+        <div class="opt__opt1">google-חיפוש ב</div>
+    </div>
+    <p class="len">
+        <a class="len__len" href="English">English</a>
+        <a class="len__len" href="العربية">العربية</a>
+        זמינה ב google
+    </p>
+    <div><a href=""></a></div>
+
+    <script src="dist/index.js"></script>
+</body>
+
+</html>
