@@ -12,32 +12,25 @@ const google = [
 
 app.use(express.static("public"));
 
-app.get("/get-google", (req, res) => {
+app.get("/get-google",  (req, res) => {
 
     const search = req.query.search;
-    console.log(search);
+  
     const searchreasult = getSearchReasult(search)
-    console.log('p');
+    
     res.send(searchreasult)
 })
 
 function getSearchReasult(search) {
     if (search) {
-
         const regex = new RegExp(search, 'i')
-
-        return google.filter((article) => {
-
-            regex.test(article.title)
-        })
+        return google.filter((article) => 
+            regex.test(article.title))
     }
     else {
         return []
     }
 }
-
-
-
 
 app.listen(port, () => {
     return console.log(`Express is listening at http://localhost:${port}`);

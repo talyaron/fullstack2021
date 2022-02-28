@@ -11,9 +11,7 @@ var google = [{
 app.use(express["static"]("public"));
 app.get("/get-google", function (req, res) {
   var search = req.query.search;
-  console.log(search);
   var searchreasult = getSearchReasult(search);
-  console.log('p');
   res.send(searchreasult);
 });
 
@@ -21,7 +19,7 @@ function getSearchReasult(search) {
   if (search) {
     var regex = new RegExp(search, 'i');
     return google.filter(function (article) {
-      regex.test(article.title);
+      return regex.test(article.title);
     });
   } else {
     return [];

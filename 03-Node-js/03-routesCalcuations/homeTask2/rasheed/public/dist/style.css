@@ -92,6 +92,14 @@ body {
   top: 13px;
   left: 14px;
 }
+.searchBox__results {
+  width: 100%;
+  height: 120px;
+  border: none;
+  overflow: auto;
+  text-align: start;
+  margin-top: 2px;
+}
 .searchBox__vs-icon {
   width: 14px;
   position: absolute;
@@ -146,15 +154,6 @@ footer a:hover {
 
 .link-2 {
   padding-right: 18.7px;
-}
-
-.results {
-  width: 100%;
-  height: 120px;
-  border: none;
-  overflow: auto;
-  text-align: start;
-  margin-top: 2px;
 }
 
 .data {
