@@ -2,7 +2,32 @@ axios.get("/data").then(function (_a) {
     var data = _a.data;
     console.log(data);
 });
-function renderItems() {
+function time_setImgs() {
+    setInterval(showImgs, 2000);
+}
+function showImgs() {
+    var count = 1;
+    var background;
+    var ImgsBox = document.querySelector(".main_display");
+    axios.get("/changesImgs").then(function (_a) {
+        var data = _a.data;
+        if (count == 1) {
+            background = "url(" + data[0] + ")";
+        }
+        else if (count == 2) {
+            background = "url(" + data[1] + ")";
+        }
+        else if (count == 3) {
+            background = "url(" + data[2] + ")";
+        }
+        else {
+            count = 0;
+        }
+        ImgsBox.style.background = "url(" + background + ")";
+        count++;
+    });
+}
+function renderAllItems() {
     var display = document.querySelector('.main_display');
     var html = '';
     axios.get("/data").then(function (_a) {

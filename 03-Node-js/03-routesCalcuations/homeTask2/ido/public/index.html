@@ -5,22 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./dist/style.css">
+    <script src="https://kit.fontawesome.com/d13a0d855d.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.0/axios.js" integrity="sha512-MNW6IbpNuZZ2VH9ngFhzh6cUt8L/0rSVa60F8L22K1H72ro4Ki3M/816eSDLnhICu7vwH/+/yb8oB3BtBLhMsA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>Document</title>
 </head>
-<body onload="renderItems()">
 
+<body onload="renderAllItems()">
 
-   <div class="main">
+   <div  class="main">
     <div class="main_header">
+        <div class="main_header-logo"></div>
         <input  list="search" name="searchOptions" class="main_header-search" placeholder="Search here..." onkeyup="displayByInput(event)">
          <datalist id="search" class="main_header-search-dataList"> 
      </datalist>
-   
+     <!-- <button class="main_header-btn" onclick="renderAllItems(event)">
+    <i id="notificationsBtn" class="fas fa-bell fa-2x" onclick="renderAllItems(event)"></i><p id="notificationsBtn" class="btnDiscription">Notifications</p></button> -->
     </div>
-    <div class="main_display">
-        
-    </div>
+    <div class="main_display"></div>
 
 
    </div>
