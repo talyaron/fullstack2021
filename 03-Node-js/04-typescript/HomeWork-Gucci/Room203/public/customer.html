@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>ADIDAS</title>
+    <link rel="icon" href=images/adidasLogo.png type="image/x-icon">
+
+    <link rel="stylesheet" href="dist/style.css" />
+    <script src="https://kit.fontawesome.com/3afc4faf2f.js" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.0/axios.min.js" integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- <script src="https://kit.fontawesome.com/01fab75280.js" crossorigin="anonymous"></script> -->
+</head>
+
+<body onload="handleGetData('customer')">
+
+    <div class="header">
+        <div class="usp__bar">
+            <div class="usp__bar--item">
+                <p>NEW STYLES ADDED - UP TO 40% OFF</p>
+            </div>
+            <div class="usp__bar--item">
+                <p>FREE STANDARD SHIPPING & RETURNS | JOIN NOW</p>
+            </div>
+            <div class="usp__bar--item">
+                <p>GIVE OUT-OF-USE GEAR NEW LIFE & GET REWARDED</p>
+            </div>
+        </div>
+        <div class="header__inner">
+            <div class="header__inner--logo"><img src="images/adidasLogo.png" alt="" /></div>
+            <div class="header__inner--nav">
+                <a class="nav__item" href="">MEN</a>
+
+                <a class="nav__item" href="">WOMEN</a>
+                <a class="nav__item" href="">KIDS</a>
+            </div>
+            <div class="header__inner--searchBar">
+                <input type="text" placeholder="Search.." name="search" onkeyup="handleSearchProduct(event)" />
+                <i class="fa fa-search"></i>
+            </div>
+            <div id="rootSearch" style="color: gold; position: relative;">
+
+            </div>
+            <div class="header__inner__side--menu">
+                <div class="profile__item">
+                    <i class="far fa-user-circle"></i>
+                </div>
+                <div class="wishlist__item">
+                    <i class="far fa-heart"></i>
+                </div>
+                <div class="cart__item">
+                    <i onclick="handleCart(event)" class="fas fa-shopping-bag">
+                        <a href="#popup"></a>
+
+                        <div id="popup" style="text-align:center;">
+                            <a id="close" href="#">X</a>
+
+
+                            <div id="rootCart">
+                            </div>
+
+
+
+                        </div>
+                    </i>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+    <div class="container">
+        <video loop="" autoplay="" playsinline=""
+            src="https://brand.assets.adidas.com/video/upload/q_auto,vc_auto/video/upload/ss22-ivp-5-5-launch-hp-mh-d_ykj7ll.mp4">
+        </video>
+        <div class="box">
+            <img src="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/ivy-park-lockup-160_tcm221-840962.png"
+                alt="">
+            <h1>Adidas</h1>
+            <button>
+                <p>Adidas</p>
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+
+    </div>
+
+    <div class="wrapper">
+        <div class="wrapper--header">
+            <div class="breadCrumbs">
+                <ul>
+                    <li>
+                        <p>
+                            << &nbsp;&nbsp;</p>
+                    </li>
+                    <li><a href="#"> back</a></li>
+                    <li id="home"><a href="#">&nbsp;&nbsp; Home &nbsp;/</a></li>
+                    <li><a href="#"> &nbsp; Men &nbsp;/</a></li>
+                    <li><a href="#"> &nbsp;Shoes</a></li>
+                </ul>
+            </div>
+            <h1>MEN'S SHOES </h1>
+            <p>Shop adidas for all styles of men's shoes including casual sneakers, high-performance running shoes, and
+                comfy slides. Browse styles for women and kids here.
+            </p>
+        </div>
+        <div class="header__sort">
+            
+            <select onchange="handleGender(event)">
+                <option value="" disabled selected>gender</option>
+              
+                <option value="women">women </option>
+                <option value="men">men </option>
+                <option value="unisex">unisex </option>
+                <option value="all">all</option>
+            </select>
+
+            <select onchange="handleColor(event)">
+                <option value="" disabled selected>color</option>
+
+                <option value="red">red </option>
+                <option value="blue">blue </option>
+                <option value="black">black </option>
+                <option value="orange">orange</option>
+                <option value="white">white </option>
+                <option value="multi">multi</option>
+                <option value="All">All </option>
+
+
+            </select>
+
+            <select onchange="handleType(event)">
+                <option value="" disabled selected>type</option>
+
+                <option value="Sneakers">Sneakers </option>
+                <option value="Boots">Boots </option>
+                <option value="Hi Tops">Hi Tops </option>
+                <option value="Flip Flops">Flip Flops </option>
+                <option value="All">All </option>
+
+            </select>
+            <select onchange="handleSort(event)">
+                <option value="" disabled selected>sort</option>
+                <option value="priceAsc">high to low </option>
+                <option value="priceDsc">low to high </option>
+                <option value="All">Default</option>
+
+            </select>
+
+        </div>
+        <!-- <div id="rootCards" > -->
+        <div id="rootCustomer" class="cards">
+
+        </div>
+
+
+        <div class="footer">
+
+
+            <div class="footer__top">
+                <h4>JOIN OUR CREATORS CLUB & GET 15% OFF</h4>
+                <button>
+                    <p>SIGN UP FOR FREE</p>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+            
+            <div class="footer__lower">
+                <ul>
+                    <li>
+                        <a href="/us/location-selector.html">
+                            <img src="https://st-adidas-isr.mncdn.com/content/img/site-images/il-flag-original.svg"
+                                alt="">
+                            <span>ISRAEL</span>
+                        </a>
+                    </li>
+                    <li>lorem</li>
+                    <li>lorem</li>
+                    <li>lorem</li>
+                    <li>lorem</li>
+                    <li>lorem</li>
+                </ul>
+
+            </div>
+        </div>
+
+  
+        <script src="./dist/index.js"> </script>
+
+</body>
+
+</html>

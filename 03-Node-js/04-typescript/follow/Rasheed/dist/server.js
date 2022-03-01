@@ -18,6 +18,9 @@ app.post('/add-student', (req, res) => {
     const newStudentName = req.body.name;
     const students = addStudent(newStudentName);
     res.send(students);
+    const deletedId = req.body.id;
+    const newData = deleteStudent(deletedId);
+    res.send(newData);
 });
 function getStudents() {
     return students;
@@ -26,6 +29,11 @@ function addStudent(name) {
     const id = Math.random().toString(36);
     students.push({ name: name, id });
     return students;
+}
+function deleteStudent(id) {
+    const filterdData = students.filter(student => { student.id !== id; });
+    console.log(filterdData);
+    return filterdData;
 }
 app.listen(port, () => {
     return console.log(`Express is listening at http://localhost:${port}`);
