@@ -288,45 +288,43 @@ function renderAllCart(domElement) {
 //     console.log(Adidas.wishlistArr);
 //   },
 // };
-// function handleSearchProduct(ev) {
-//   const search = ev.target.value;
-//   const regex = new RegExp(search, "i");
-//   const root = document.getElementById("rootSearch");
-//   root.innerHTML = "";
-//   if (search.length > 0) {
-//     const foundProducts = Adidas.products.filter((product) => {
-//       if (regex.test(product.title)) return true;
-//     });
-//     const html = foundProducts
-//       .map((product) => {
-//         return `<p>${product.title}</p>`;
-//       })
-//       .join("");
-//     root.innerHTML = html;
-//     console.log(foundProducts);
-//   }
-// }
-function handleGetData(page) {
-    try {
-        // console.log(page);
-        Adidas.getData();
-        // console.log(Adidas);
-        if (page === "owner") {
-            var root = document.getElementById("rootOwner");
-            Adidas.renderAllData(root);
-        }
-        else if (page === "customer") {
-            var root = document.getElementById("rootCustomer");
-            Adidas.renderAllData(root);
-        }
-        else {
-            throw new Error("page is not found (" + page + ")");
-        }
-    }
-    catch (err) {
-        console.log(err);
+function handleSearchProduct(ev) {
+    var search = ev.target.value;
+    var regex = new RegExp(search, "i");
+    var root = document.getElementById("rootSearch");
+    root.innerHTML = "";
+    if (search.length > 0) {
+        var foundProducts = Adidas.products.filter(function (product) {
+            if (regex.test(product.title))
+                return true;
+        });
+        var html = foundProducts
+            .map(function (product) {
+            return "<p>" + product.title + "</p>";
+        })
+            .join("");
+        root.innerHTML = html;
+        console.log(foundProducts);
     }
 }
+// function handleGetData(page: string) {
+//   try {
+//     // console.log(page);
+//     Adidas.getData();
+//     // console.log(Adidas);
+//     if (page === "owner") {
+//       const root = document.getElementById("rootOwner");
+//       Adidas.renderAllData(root);
+//     } else if (page === "customer") {
+//       const root = document.getElementById("rootCustomer");
+//       Adidas.renderAllData(root);
+//     } else {
+//       throw new Error(`page is not found (${page})`);
+//     }
+//   } catch (err) {
+//     console.log(err);
+//   }
+// }
 console.log("start");
 getAllData();
 console.log("end");
@@ -406,29 +404,35 @@ function handleUpdate(ev, itemId) {
 }
 function handleSort(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var sort, data, root;
+        var sort, root, priceAsc, data, priceDsc, data, data;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     ev.preventDefault();
                     sort = ev.target.value;
-                    return [4 /*yield*/, axios.get("/get-all-data")];
+                    root = document.getElementById("rootCustomer");
+                    if (!(sort === "priceAsc")) return [3 /*break*/, 2];
+                    priceAsc = ev.target.value;
+                    return [4 /*yield*/, axios.get("/get-all-data?priceAsc=" + priceAsc)];
                 case 1:
                     data = (_a.sent()).data;
-                    root = document.getElementById("rootCustomer");
-                    if (sort === "priceAsc") {
-                        Adidas.sortItemsAsc();
-                        Adidas.renderAllData(root);
-                    }
-                    else if (sort === "priceDsc") {
-                        Adidas.sortItemsDsc();
-                        Adidas.renderAllData(root);
-                    }
-                    else {
-                        Adidas.renderAllData(root);
-                    }
+                    data.renderAllData(data);
+                    return [3 /*break*/, 6];
+                case 2:
+                    if (!(sort === "priceDsc")) return [3 /*break*/, 4];
+                    priceDsc = ev.target.value;
+                    return [4 /*yield*/, axios.get("/get-all-data?priceDsc=" + priceDsc)];
+                case 3:
+                    data = (_a.sent()).data;
+                    data.renderAllData(data);
+                    return [3 /*break*/, 6];
+                case 4: return [4 /*yield*/, axios.get("/get-all-products")];
+                case 5:
+                    data = (_a.sent()).data;
+                    data.renderAllData(data);
+                    _a.label = 6;
+                case 6:
                     console.log(sort);
-                    Adidas.setData();
                     return [2 /*return*/];
             }
         });
@@ -517,8 +521,28 @@ function handleCart(id) {
     Adidas.Cart(id);
     Adidas.renderAllCart(root);
 }
-Adidas.addItem("superstar shoes", 300, "women", "Boots", "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/c8953617284f4c47b613acbb011e74ee_9366/Supernova_Shoes_Black_S42722_02_standard.jpg", "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/69cbc73d0cb846889f89acbb011e68cb_9366/Supernova_Shoes_Black_S42722_01_standard.jpg", "red", "B-ball legend. Street symbol. Cultural icon. Still going strong after five decades, the adidas Superstar Shoes have millions of stories to tell. Smooth leather combines with serrated 3-Stripes and the authentic rubber shell toe. Ready for the next fifty years of iconic adidas style? Lets do it.", 40);
-Adidas.addItem("superstar shoes", 100, "unisex", "Hi Tops", "https://st-adidas-isr.mncdn.com/content/images/thumbs/0086956_x-speedflow1-messi-firm-ground-boots_fy6879_top-portrait-view.jpeg", "https://st-adidas-isr.mncdn.com/content/images/thumbs/0086954_x-speedflow1-messi-firm-ground-boots_fy6879_side-lateral-center-view.jpeg", "blue", "B-ball legend. Street symbol. Cultural icon. Still going strong after five decades, the adidas Superstar Shoes have millions of stories to tell. Smooth leather combines with serrated 3-Stripes and the authentic rubber shell toe. Ready for the next fifty years of iconic adidas style? Lets do it.", 44);
+// Adidas.addItem(
+//   "superstar shoes",
+//   300,
+//   "women",
+//   "Boots",
+//   "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/c8953617284f4c47b613acbb011e74ee_9366/Supernova_Shoes_Black_S42722_02_standard.jpg",
+//   "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/69cbc73d0cb846889f89acbb011e68cb_9366/Supernova_Shoes_Black_S42722_01_standard.jpg",
+//   "red",
+//   "B-ball legend. Street symbol. Cultural icon. Still going strong after five decades, the adidas Superstar Shoes have millions of stories to tell. Smooth leather combines with serrated 3-Stripes and the authentic rubber shell toe. Ready for the next fifty years of iconic adidas style? Lets do it.",
+//   40
+// );
+// Adidas.addItem(
+//   "superstar shoes",
+//   100,
+//   "unisex",
+//   "Hi Tops",
+//   "https://st-adidas-isr.mncdn.com/content/images/thumbs/0086956_x-speedflow1-messi-firm-ground-boots_fy6879_top-portrait-view.jpeg",
+//   "https://st-adidas-isr.mncdn.com/content/images/thumbs/0086954_x-speedflow1-messi-firm-ground-boots_fy6879_side-lateral-center-view.jpeg",
+//   "blue",
+//   "B-ball legend. Street symbol. Cultural icon. Still going strong after five decades, the adidas Superstar Shoes have millions of stories to tell. Smooth leather combines with serrated 3-Stripes and the authentic rubber shell toe. Ready for the next fifty years of iconic adidas style? Lets do it.",
+//   44
+// );
 // function handleSetData(page: string) {
 //   try {
 //     console.log(page);

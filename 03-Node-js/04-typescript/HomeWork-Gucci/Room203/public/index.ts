@@ -342,47 +342,47 @@
 //   },
 // };
 
-// function handleSearchProduct(ev) {
-//   const search = ev.target.value;
-//   const regex = new RegExp(search, "i");
-//   const root = document.getElementById("rootSearch");
-//   root.innerHTML = "";
+function handleSearchProduct(ev) {
+  const search = ev.target.value;
+  const regex = new RegExp(search, "i");
+  const root = document.getElementById("rootSearch");
+  root.innerHTML = "";
 
-//   if (search.length > 0) {
-//     const foundProducts = Adidas.products.filter((product) => {
-//       if (regex.test(product.title)) return true;
-//     });
+  if (search.length > 0) {
+    const foundProducts = Adidas.products.filter((product) => {
+      if (regex.test(product.title)) return true;
+    });
 
-//     const html = foundProducts
-//       .map((product) => {
-//         return `<p>${product.title}</p>`;
-//       })
-//       .join("");
+    const html = foundProducts
+      .map((product) => {
+        return `<p>${product.title}</p>`;
+      })
+      .join("");
 
-//     root.innerHTML = html;
+    root.innerHTML = html;
 
-//     console.log(foundProducts);
-//   }
-// }
-
-function handleGetData(page: string) {
-  try {
-    // console.log(page);
-    Adidas.getData();
-    // console.log(Adidas);
-    if (page === "owner") {
-      const root = document.getElementById("rootOwner");
-      Adidas.renderAllData(root);
-    } else if (page === "customer") {
-      const root = document.getElementById("rootCustomer");
-      Adidas.renderAllData(root);
-    } else {
-      throw new Error(`page is not found (${page})`);
-    }
-  } catch (err) {
-    console.log(err);
+    console.log(foundProducts);
   }
 }
+
+// function handleGetData(page: string) {
+//   try {
+//     // console.log(page);
+//     Adidas.getData();
+//     // console.log(Adidas);
+//     if (page === "owner") {
+//       const root = document.getElementById("rootOwner");
+//       Adidas.renderAllData(root);
+//     } else if (page === "customer") {
+//       const root = document.getElementById("rootCustomer");
+//       Adidas.renderAllData(root);
+//     } else {
+//       throw new Error(`page is not found (${page})`);
+//     }
+//   } catch (err) {
+//     console.log(err);
+//   }
+// }
 
 
 
@@ -450,21 +450,24 @@ async function handleUpdate(ev: any, itemId: number) {
 async function handleSort(ev) {
   ev.preventDefault();
   const sort = ev.target.value;
-  const { data } = await axios.get("/get-all-data");
+ 
   const root = document.getElementById("rootCustomer");
   if (sort === "priceAsc") {
-    Adidas.sortItemsAsc();
+    const priceAsc = ev.target.value;
+   const { data } = await axios.get(`/get-all-data?priceAsc=${priceAsc}`);
 
-    Adidas.renderAllData(root);
+    data.renderAllData(data);
   } else if (sort === "priceDsc") {
-    Adidas.sortItemsDsc();
+    const priceDsc = ev.target.value;
+   const { data } = await axios.get(`/get-all-data?priceDsc=${priceDsc}`);
 
-    Adidas.renderAllData(root);
+    data.renderAllData(data);
   } else {
-    Adidas.renderAllData(root);
+    const { data } = await axios.get("/get-all-products");
+    data.renderAllData(data);
   }
   console.log(sort);
-  Adidas.setData();
+ 
 }
 function handleType(ev) {
   const type = ev.target.value;
@@ -552,30 +555,30 @@ function handleCart(id) {
   Adidas.renderAllCart(root);
 }
 
-Adidas.addItem(
-  "superstar shoes",
-  300,
-  "women",
-  "Boots",
-  "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/c8953617284f4c47b613acbb011e74ee_9366/Supernova_Shoes_Black_S42722_02_standard.jpg",
+// Adidas.addItem(
+//   "superstar shoes",
+//   300,
+//   "women",
+//   "Boots",
+//   "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/c8953617284f4c47b613acbb011e74ee_9366/Supernova_Shoes_Black_S42722_02_standard.jpg",
 
-  "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/69cbc73d0cb846889f89acbb011e68cb_9366/Supernova_Shoes_Black_S42722_01_standard.jpg",
-  "red",
-  "B-ball legend. Street symbol. Cultural icon. Still going strong after five decades, the adidas Superstar Shoes have millions of stories to tell. Smooth leather combines with serrated 3-Stripes and the authentic rubber shell toe. Ready for the next fifty years of iconic adidas style? Lets do it.",
-  40
-);
-Adidas.addItem(
-  "superstar shoes",
-  100,
-  "unisex",
-  "Hi Tops",
-  "https://st-adidas-isr.mncdn.com/content/images/thumbs/0086956_x-speedflow1-messi-firm-ground-boots_fy6879_top-portrait-view.jpeg",
-  "https://st-adidas-isr.mncdn.com/content/images/thumbs/0086954_x-speedflow1-messi-firm-ground-boots_fy6879_side-lateral-center-view.jpeg",
+//   "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/69cbc73d0cb846889f89acbb011e68cb_9366/Supernova_Shoes_Black_S42722_01_standard.jpg",
+//   "red",
+//   "B-ball legend. Street symbol. Cultural icon. Still going strong after five decades, the adidas Superstar Shoes have millions of stories to tell. Smooth leather combines with serrated 3-Stripes and the authentic rubber shell toe. Ready for the next fifty years of iconic adidas style? Lets do it.",
+//   40
+// );
+// Adidas.addItem(
+//   "superstar shoes",
+//   100,
+//   "unisex",
+//   "Hi Tops",
+//   "https://st-adidas-isr.mncdn.com/content/images/thumbs/0086956_x-speedflow1-messi-firm-ground-boots_fy6879_top-portrait-view.jpeg",
+//   "https://st-adidas-isr.mncdn.com/content/images/thumbs/0086954_x-speedflow1-messi-firm-ground-boots_fy6879_side-lateral-center-view.jpeg",
 
-  "blue",
-  "B-ball legend. Street symbol. Cultural icon. Still going strong after five decades, the adidas Superstar Shoes have millions of stories to tell. Smooth leather combines with serrated 3-Stripes and the authentic rubber shell toe. Ready for the next fifty years of iconic adidas style? Lets do it.",
-  44
-);
+//   "blue",
+//   "B-ball legend. Street symbol. Cultural icon. Still going strong after five decades, the adidas Superstar Shoes have millions of stories to tell. Smooth leather combines with serrated 3-Stripes and the authentic rubber shell toe. Ready for the next fifty years of iconic adidas style? Lets do it.",
+//   44
+// );
 
 
 
