@@ -52,17 +52,38 @@ function getAllStock() {
 getAllStock();
 function handleSubmit(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var newItem, keys, i, data;
+        var uid, newItem, keys, i, data;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     ev.preventDefault();
-                    newItem = { name: "", price: 0, img: "", group: "", Collection: "", "function": "", movement: "", "case": "", diameter: "", dial: "", bracelet: "", id: 0 };
+                    uid = function () {
+                        return Date.now().toString(36) + Math.random().toString(36).substr(2);
+                    };
+                    newItem = { name: "", price: 0, img: "", group: "", Collection: "", "function": "", movement: "", "case": "", diameter: "", dial: "", bracelet: "", id: uid };
+                    newItem.id = uid();
                     keys = Object.keys(newItem);
                     for (i = 0; i < keys.length; i++) {
                         newItem[keys[i]] = ev.target.elements[i].value;
                     }
                     return [4 /*yield*/, axios.post("/add-stock", { newItem: newItem })];
+                case 1:
+                    data = (_a.sent()).data;
+                    console.log(data);
+                    renderStock(data);
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+function handleDelete(id) {
+    return __awaiter(this, void 0, void 0, function () {
+        var data;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    console.log(id);
+                    return [4 /*yield*/, axios.post("/delete-stock", { id: id })];
                 case 1:
                     data = (_a.sent()).data;
                     console.log(data);
