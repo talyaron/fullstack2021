@@ -218,9 +218,7 @@ app.get("/all-books", (req, res) => {
   res.send(bookie);
 
 });
-function getShop() {
-
-  
+function getShop() { 
   return bookie
 }
 

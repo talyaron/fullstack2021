@@ -5,6 +5,31 @@ async function getAllBooks() {
 }
 function appInit() {
 getAllBooks();
+
+try {
+
+  if (window.document.title === "Bookie") {
+    window.addEventListener("scroll", function (e) {
+      if (window.pageYOffset > 100) {
+        document.querySelector("header").classList.add("is-scrolling");
+      } else {
+        document.querySelector("header").classList.remove("is-scrolling");
+      }
+    });
+
+    const menu_btn = document.querySelector(".navBar__row1__mobile__humburger");
+    const mobile_menu = document.querySelector(".mobileOptions");
+
+    menu_btn.addEventListener("click", function () {
+      menu_btn.classList.toggle("is-active");
+      mobile_menu.classList.toggle("is-active");
+    });
+  }
+  //showLocalToOwner(undefined);
+}
+catch (error) {
+  console.error(error);
+}
 }
 
 const selectRoot = document.querySelector("[data-update-book-by-id]");
@@ -181,32 +206,7 @@ function renderItem(data,root) {
 // }
 // // Etan done ------------------------->
 // // Omri ------------------------->
-// window.onload = function () {
-//   try {
 
-//     if (window.document.title === "Bookie") {
-//       window.addEventListener("scroll", function (e) {
-//         if (window.pageYOffset > 100) {
-//           document.querySelector("header").classList.add("is-scrolling");
-//         } else {
-//           document.querySelector("header").classList.remove("is-scrolling");
-//         }
-//       });
-
-//       const menu_btn = document.querySelector(".navBar__row1__mobile__humburger");
-//       const mobile_menu = document.querySelector(".mobileOptions");
-
-//       menu_btn.addEventListener("click", function () {
-//         menu_btn.classList.toggle("is-active");
-//         mobile_menu.classList.toggle("is-active");
-//       });
-//     }
-//     showLocalToOwner(undefined);
-//   }
-//   catch (error) {
-//     console.error(error);
-//   }
-// };
 
 // function handleSelect(ev) {
 //   ev.preventDefault();
