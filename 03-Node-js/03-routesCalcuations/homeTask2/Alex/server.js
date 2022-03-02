@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port =  2000;
+const port = 2000;
 
 const text = [{
         title: 'reguler expressions',
@@ -17,8 +17,8 @@ app.use(express.static("public"));
 
 
 app.get('/getText', (req, res) => {
-const search = req.query.searchTerm;
-const filtered = filterText(search)
+    const search = req.query.searchTerm;
+    const filtered = filterText(search)
     res.send(filtered)
 });
 
@@ -29,7 +29,7 @@ function filterText(event) {
         const regex = new RegExp(event, 'i');
         return text.filter((word) => regex.test(word.title) || regex.test(word.body));
     }
- 
+
 }
 
 app.listen(port, () => {

@@ -3,9 +3,6 @@ function handleSearch(event) {
         var data = _a.data;
         print(data);
     });
-    // const search = event.target.value
-    // const check = filterText(search)
-    // print(check);
 }
 function print(list) {
     var dom = document.querySelector('#root');
