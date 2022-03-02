@@ -48,6 +48,17 @@ function getAllBooks() {
         });
     });
 }
+function appInit() {
+    getAllBooks();
+}
+var selectRoot = document.querySelector("[data-update-book-by-id]");
+var addingForm = document.querySelector("[data-addingItemForm]");
+var bookTitle = document.querySelector("[data-bookTitle]");
+var imagePreview = document.querySelector("[data-bookImage-preview]");
+var addToCart = document.querySelector("[data-add-to-cart]");
+var cart = document.querySelector("[data-cart]");
+var ownerTable = document.querySelector("[data-toggle-existing]");
+var backToTop = document.querySelector("[data-back-to-top]");
 // function handleTop(ev) {
 //   ev.preventDefault();
 //   document.documentElement.scrollTop = 0;
@@ -75,37 +86,6 @@ function getAllBooks() {
 //   const imgLink = ev.target.files[0].name;
 //   const preview = `<img src="./Images/${imgLink}" alt="">`;
 //   imagePreview.innerHTML = preview;
-// }
-// function showLocalToOwner(sortFunc) {
-//   if (window.document.title === "myBookie") {
-//     bookie.books.sort(sortFunc);
-//     localStorage.setItem("Bookie shop", JSON.stringify(bookie));
-//     JSON.parse(localStorage.getItem("Bookie shop"));
-//     ownerTable.innerHTML = `<tr>
-//   <th>ID</th>
-//   <th>Category</th>
-//   <th>Title</th>
-//   <th>price</th>
-//   <th>Img</th>
-//   <th>Year</th>
-//   <th>Functions</th>
-// </tr>`;
-//     for (let book in bookie.books) {
-//       ownerTable.innerHTML += `<tr>
-//   <td> ${bookie.books[book].id}  </td>
-//   <td> ${bookie.books[book].category}  </td>
-//   <td> ${bookie.books[book].title} </td>
-//   <td> ${bookie.books[book].price}</td>
-//   <td> <img src="./Images/${bookie.books[book].img}" alt=""></td>
-//   <td> ${bookie.books[book].year}</td>
-//   <td data-delete-update> 
-//   <a onclick="handleDelete(event)">Delete</a>
-//   <a onclick="handleEdit(event)">Change Price</a>
-//   <input data-priceChange type="number" name="priceChange" placeholder="${bookie.books[book].price}" value="${bookie.books[book].price}">
-//   </td>
-//   </tr>`;
-//     }
-//   }
 // }
 // function handleEdit(ev) {
 //   let data = ev.target.parentElement.parentElement.cells;
