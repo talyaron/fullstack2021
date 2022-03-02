@@ -282,6 +282,11 @@ app.put('/delete-items', (req, res) => {
     const removedItem = removeItems(nameOfRemovedItem);
     res.send(removedItem);
 });
+// app.get('/search-items',(req,res)=>{
+//   const search = req.query.searchTerm;
+//   const filtereditem = filteredItemSearch(search);
+//   res.send(filtereditem);
+// })
 function getItems() {
     return gucci;
 }
@@ -296,6 +301,14 @@ function removeItems(itemName) {
     }
     return gucci;
 }
+// function filteredItemSearch(search){
+//   if (search) {
+//     const regex = new RegExp(search, "i");
+//     return gucci.items.filter((searchedTerm) => regex.test(searchedTerm.name) ) //either it searches in the titles or content
+//   } else {
+//     return []
+//   }
+// }
 function filterByGender(gender) {
     gucci.items.filter((item) => item.gender === gender);
     return gucci;

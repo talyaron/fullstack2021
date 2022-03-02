@@ -118,3 +118,25 @@ function render(data) {
     });
     root.innerHTML = html;
 }
+//category buttons
+// async function handleSearch(ev) {
+//   const searchTerm = ev.target.value;
+//   const {data} = await axios.get('/search-items',{searchTerm});  
+//     const root = document.getElementById("root");
+//     const gender = ev.target.dataset.gender;
+//     let html = "";
+//      if(Array.isArray(data)){
+//        data.forEach((item)=>{
+//          html +=`<div class="items">
+//          <p>${item.name}</p>
+//          <img class="imgTop" src="${item.imgTop}" >
+//          <img class="imgBottom" src="${item.imgBottom}" >        
+//          <p>${item.price}$</p>
+//          <button class="cartButton" onclick="addToCart(${item.id})">Add To Cart</button>
+//          </div>`;
+//        })
+//       root.innerHTML = html;
+//     } else {
+//       render(data);
+//     }
+// }

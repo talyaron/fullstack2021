@@ -1,7 +1,7 @@
 async function getAllStock() {
 
     const { data } = await axios.get("/get-stock")
-    console.log(data)
+    console.log(data);
 
     renderStock(data);
 }
@@ -10,16 +10,30 @@ getAllStock();
 
 async function handleSubmit(ev) {
     ev.preventDefault();
-    const newItem = { name: "", price: 0, img: "", group: "", Collection: "", function: "", movement: "", case: "", diameter: "", dial: "", bracelet: "", id: 0 };
+    const uid = function () {
+        return Date.now().toString(36) + Math.random().toString(36).substr(2);
+      }
+    
+      
+    const newItem = { name: "", price: 0, img: "", group: "", Collection: "", function: "", movement: "", case: "", diameter: "", dial: "", bracelet: "", id:uid  };
+    newItem.id = uid();
     const keys = Object.keys(newItem)
 
     for (let i = 0; i < keys.length; i++) {
         newItem[keys[i]] = ev.target.elements[i].value;
     }
     const { data } = await axios.post("/add-stock", { newItem })
-    console.log(data)
+    console.log(data);
     
-    renderStock(data)
+    renderStock(data);
+}
+
+async function handleDelete(id) {
+    console.log(id);
+    const {data}= await axios.post("/delete-stock", {id})
+    console.log(data);
+    
+    renderStock(data);
 }
 
 function renderStock(data) {
