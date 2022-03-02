@@ -114,11 +114,11 @@
 //     this.products = this.products.filter((product) => product.id !== id);
 //     this.setData();
 //   },
-   function render(list, domElement) {
+   async function render(list, domElement) {
     console.log(list);
-
+    
     let html = "";
-    this.products.forEach((product) => {
+    list.forEach((product) => {
       let text = document.URL;
       let customer = text.includes("customer");
       let owner = text.includes("owner");
@@ -268,7 +268,8 @@
 //     }
 //   },
  async function renderAllData(domElement) {
-    this.render(this.products, domElement);
+  const { data } = await axios.get("/get-all-products");
+    render(data, domElement);
   }
 
  async function renderAllWish(domElement) {
@@ -365,37 +366,35 @@ function handleSearchProduct(ev) {
   }
 }
 
-// function handleGetData(page: string) {
-//   try {
-//     // console.log(page);
-//     Adidas.getData();
-//     // console.log(Adidas);
-//     if (page === "owner") {
-//       const root = document.getElementById("rootOwner");
-//       Adidas.renderAllData(root);
-//     } else if (page === "customer") {
-//       const root = document.getElementById("rootCustomer");
-//       Adidas.renderAllData(root);
-//     } else {
-//       throw new Error(`page is not found (${page})`);
-//     }
-//   } catch (err) {
-//     console.log(err);
-//   }
-// }
+function handleGetData(page: string) {
+  try {
+     console.log("start");
+     getAllData();
+    console.log("end");
+    if (page === "owner") {
+      const root = document.getElementById("rootOwner");
+      renderAllData(root);
+    } else if (page === "customer") {
+      const root = document.getElementById("rootCustomer");
+      renderAllData(root);
+    } else {
+      throw new Error(`page is not found (${page})`);
+    }
+  } catch (err) {
+    console.log(err);
+  }
+}
 
 
 
 
-  console.log("start");
-  getAllData();
-  console.log("end");
 
 
 async function getAllData() {
   const { data } = await axios.get("/get-all-products");
   console.log(data);
-  data.renderAllData(data);
+  const root = document.getElementById("rootCustomer");
+  render(data,root);
 }
 
 
@@ -415,7 +414,7 @@ async function handleAddItem(ev) {
   const { data } = await axios.post("/add-shoes", { title: title,price:price, gender:gender, category:category, pictureFront:pictureFront,pictureBack:pictureBack,color:color, description:description, shoeSize:shoeSize }); //body = data
 
   const root = document.getElementById("rootOwner");
-  data.renderAllData(root);
+  renderAllData(root);
   ev.target.reset(); //reset the form fileds
   // console.log(category);
 }
@@ -443,7 +442,7 @@ async function handleUpdate(ev: any, itemId: number) {
   const { data } = await axios.post("/add-shoes", { newTitle: newTitle,newPrice:newPrice, newGender:newGender, newCategory:newCategory, newPictureFront:newPictureFront,newPictureBack:newPictureBack,newColor:newColor, newDescription:newDescription, newShoeSize:newShoeSize }); //body = data
 
   const root = document.getElementById("rootOwner");
-  data.renderAllData(root);
+  renderAllData(root);
 }
 
 
@@ -456,92 +455,89 @@ async function handleSort(ev) {
     const priceAsc = ev.target.value;
    const { data } = await axios.get(`/get-all-data?priceAsc=${priceAsc}`);
 
-    data.renderAllData(data);
+    render(data,root);
   } else if (sort === "priceDsc") {
     const priceDsc = ev.target.value;
    const { data } = await axios.get(`/get-all-data?priceDsc=${priceDsc}`);
 
-    data.renderAllData(data);
+    render(data,root);
   } else {
     const { data } = await axios.get("/get-all-products");
-    data.renderAllData(data);
+    render(data,root);
   }
   console.log(sort);
  
 }
-function handleType(ev) {
+async function handleType(ev) {
   const type = ev.target.value;
   ev.preventDefault();
   console.log(type);
 
+  
+  const { data } = await axios.get(`/get-all-data?type=${type}`);
   const root = document.getElementById("rootCustomer");
   if (type === "Sneakers") {
+    // const { data } = await axios.get(`/get-all-data?Sneakers=${Sneakers}`);
     console.log(type);
-    Adidas.render(Adidas.sortByType(type), root);
-    // Adidas.sortByType(type)
-    //      Adidas.renderAllData(root);
-    // Adidas.renderFilter(Adidas.sortByType(type), root);
+    render(data, root);
   } else if (type === "Boots") {
-    //   console.log(type);
-    //  Adidas.sortByType(type)
-    //    Adidas.renderAllData(root);
-    Adidas.renderFilter(Adidas.sortByType(type), root);
+    // const { data } = await axios.get(`/get-all-data?Boots=${Boots}`);
+    console.log(type);
+    render(data, root);
+    
   } else if (type === "Hi Tops") {
-    //   console.log(type);
-    //  Adidas.sortByType(type)
-    //    Adidas.renderAllData(root);
-    Adidas.renderFilter(Adidas.sortByType(type), root);
+    // const { data } = await axios.get(`/get-all-data?HiTops=${HiTops}`);
+    console.log(type);
+    render(data, root);
   } else if (type === "Flip Flops") {
-    //   console.log(type);
-    //  Adidas.sortByType(type)
-    //    Adidas.renderAllData(root);
-    Adidas.renderFilter(Adidas.sortByType(type), root);
+    // const { data } = await axios.get(`/get-all-data?FlipFlops=${FlipFlops}`);
+    console.log(type);
+    render(data, root);
   }
   else {
-    Adidas.renderAllData(root);
+    const { data } = await axios.get("/get-all-products");
+    render(data,root);
   }
-
-  //  Adidas.sortByType(type)
-  //  Adidas.renderAllData(root);
-
-  // Adidas.renderFilter(Adidas.sortByType(type), root);
 }
-function handleColor(ev) {
+
+async function handleColor(ev) {
   const color = ev.target.value;
+  const { data } = await axios.get(`/get-all-data?color=${color}`);
   ev.preventDefault();
   const root = document.getElementById("rootCustomer");
   if (color === "red") {
-    return Adidas.renderFilter(Adidas.sortByColor(color), root);
+    render(data,root);
   } 
   else if (color === "blue") {
-    return Adidas.renderFilter(Adidas.sortByColor(color), root);
+    render(data,root);
   } else {
-    Adidas.renderAllData(root);
+    renderAllData(root);
   }
 }
 
-function handleGender(ev) {
+async function handleGender(ev) {
   const gender = ev.target.value;
+  const { data } = await axios.get(`/get-all-data?gender=${gender}`);
   ev.preventDefault();
   const root = document.getElementById("rootCustomer");
 
   if (gender === "men") {
     console.log(gender);
 
-    Adidas.renderFilter(Adidas.sortByGender(gender), root);
+    render(data,root);
   } else if (gender === "women") {
     console.log(gender);
-    Adidas.renderFilter(Adidas.sortByGender(gender), root);
+    render(data,root);
   } else if (gender === "unisex") {
     console.log(gender);
-    Adidas.renderFilter(Adidas.sortByGender(gender), root);
+    render(data,root);
   } else {
-    Adidas.renderAllData(root);
+    renderAllData(root);
   }
 }
 
 
-function handleWishList(id) {
+ function handleWishList(id) {
   //console.log(id);
   const root = document.getElementById("rootWish");
   Adidas.WishList(id);
