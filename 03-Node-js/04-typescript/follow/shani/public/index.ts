@@ -28,7 +28,7 @@ async function handleAddStudent(ev){
 
 async function handleDelete(studentId){
     const {data}=await axios.post('/delete-student',{studentId}); //body=data
-    console.log(studentId);
+    console.log(data);
     renderData(data);
 }
 

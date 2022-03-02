@@ -6,6 +6,8 @@ async function getAllStock() {
     renderStock(data);
 }
 
+getAllStock();
+
 async function handleSubmit(ev) {
     ev.preventDefault();
     const newItem = { name: "", price: 0, img: "", group: "", Collection: "", function: "", movement: "", case: "", diameter: "", dial: "", bracelet: "", id: 0 };
@@ -16,13 +18,13 @@ async function handleSubmit(ev) {
     }
     const { data } = await axios.post("/add-stock", { newItem })
     console.log(data)
-    console.log(data)
-    // renderStock(data)
+    
+    renderStock(data)
 }
 
 function renderStock(data) {
     let HTML = '';
-    data.forEach(item => {
+    data.items.forEach(item => {
         HTML += ` <div class="card">
         <p> name: ${item.name}</p>
         <p> price: ${item.price}</p>

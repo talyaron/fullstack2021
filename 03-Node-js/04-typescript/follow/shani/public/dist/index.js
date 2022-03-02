@@ -85,7 +85,7 @@ function handleDelete(studentId) {
                 case 0: return [4 /*yield*/, axios.post('/delete-student', { studentId: studentId })];
                 case 1:
                     data = (_a.sent()).data;
-                    console.log(studentId);
+                    console.log(data);
                     renderData(data);
                     return [2 /*return*/];
             }
