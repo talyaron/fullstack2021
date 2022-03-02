@@ -240,24 +240,26 @@ function renderItem(data,root) {
 //   }
 // }
 
-// function handleSort(ev) {
-//   ev.preventDefault();
-//   try {
-
-//     if (ev.target.value === "sortAsc") {
-//       bookie.sortBooksAsc();
-//       bookie.tempBooks = bookie.books;
-//       bookie.renderTempItem(rootBooks);
-//     } else if (ev.target.value === "sortDesc") {
-//       bookie.sortBooksDesc();
-//       bookie.tempBooks = bookie.books;
-//       bookie.renderTempItem(rootBooks);
-//     }
-//   }
-//   catch (error) {
-//     console.error(error);
-//   }
-// }
+async function handleSort(ev) {
+  ev.preventDefault();
+  const sort = ev.target.value;
+  console.log(sort)
+  try {
+    // const {data} = await.axios.get("/")
+    // if (ev.target.value === "sortAsc") {
+    //   bookie.sortBooksAsc();
+    //   bookie.tempBooks = bookie.books;
+    //   bookie.renderTempItem(rootBooks);
+    // } else if (ev.target.value === "sortDesc") {
+    //   bookie.sortBooksDesc();
+    //   bookie.tempBooks = bookie.books;
+    //   bookie.renderTempItem(rootBooks);
+    // }
+  }
+  catch (error) {
+    console.error(error);
+  }
+}
 
 // function handleAmount(ev) {
 //   try {

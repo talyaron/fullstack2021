@@ -236,23 +236,32 @@ function renderItem(data, root) {
 //     console.error(error);
 //   }
 // }
-// function handleSort(ev) {
-//   ev.preventDefault();
-//   try {
-//     if (ev.target.value === "sortAsc") {
-//       bookie.sortBooksAsc();
-//       bookie.tempBooks = bookie.books;
-//       bookie.renderTempItem(rootBooks);
-//     } else if (ev.target.value === "sortDesc") {
-//       bookie.sortBooksDesc();
-//       bookie.tempBooks = bookie.books;
-//       bookie.renderTempItem(rootBooks);
-//     }
-//   }
-//   catch (error) {
-//     console.error(error);
-//   }
-// }
+function handleSort(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        var sort;
+        return __generator(this, function (_a) {
+            ev.preventDefault();
+            sort = ev.target.value;
+            console.log(sort);
+            try {
+                // const {data} = await.axios.get("/")
+                // if (ev.target.value === "sortAsc") {
+                //   bookie.sortBooksAsc();
+                //   bookie.tempBooks = bookie.books;
+                //   bookie.renderTempItem(rootBooks);
+                // } else if (ev.target.value === "sortDesc") {
+                //   bookie.sortBooksDesc();
+                //   bookie.tempBooks = bookie.books;
+                //   bookie.renderTempItem(rootBooks);
+                // }
+            }
+            catch (error) {
+                console.error(error);
+            }
+            return [2 /*return*/];
+        });
+    });
+}
 // function handleAmount(ev) {
 //   try {
 //     const amount = ev.target.valueAsNumber;
