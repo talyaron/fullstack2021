@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" href="https://brandlogos.net/wp-content/uploads/2021/11/gucci-logo.png">
+    <title>Store-ERP</title>
+    <link rel="stylesheet" href="dist/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.0/axios.min.js"
+    integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body class="erp">
+    <nav>
+        <a href="./index.html">Store</a>
+        <a href="./erp.html">ERP</a>
+    </nav>
+    <h1>Store ERP</h1>
+    <input type="button" value="showItems" onclick="handleShowItems()">
+    <div>-------------------------------------------------------------------------------------------------------------
+    </div>
+    <form onsubmit="handleAddItems(event)">
+        <input id="itemName" type="text" name="name" placeholder="item-name">
+        <input id="price" type="number" name="price" placeholder="item-price">
+        <input type="text" name="imgTop" id="img" placeholder="img on top">
+        <input type="text" name="imgBottom" id="img" placeholder="img shown when hovered">
+
+     
+        <select id="selectGender">
+            <option value="" disabled selected>Choose a gender</option>
+            <option value="men">men</option>
+            <option value="women">women</option>
+            <option value="children">children</option>
+            <option value="menWatches">men watches</option>
+            <option value="womenJewlery">women jewelry</option>
+            <option value="womenBags">women bags</option>
+
+        </select>
+        <select id="selectType">
+            <option value="" disabled selected>Choose a type</option>
+            <option value="sweaters">sweater</option>
+            <option value="dresses">dress</option>
+            <option value="boots">boots</option>
+            <option value="clothes">clothes</option>
+            <option value="hats">hat</option>
+            <option value="bags">bags</option>
+            <option value="hats">hat</option>
+            <option value="pants">pants</option>
+            <option value="shoes">shoes</option>
+            <option value="shirts">shirt</option>
+            <option value="rolex">rolex</option>
+            <option value="omega">omega</option>
+            <option value="rings">ring</option>
+            <option value="necklaces">necklace</option>
+            <option value="earrings">earrings</option>
+            <option value="purses">purse</option>
+            <option value="backpack">backpack</option>
+            
+        </select>
+        <input type="submit" value="add-item">
+    </form>
+    <div>-------------------------------------------------------------------------------------------------------------
+    </div>
+    <form onsubmit="handleRemoveItems(event)">
+        <input type="text" name="remove" id="remove" placeholder="Enter item Name to Remove">
+        <input id="removeBtn" type="submit" value="remove">
+    </form>
+    <div>-------------------------------------------------------------------------------------------------------------
+    </div>
+
+    <div id="root"></div>
+    <!-- //needed cause the handle update didnt even have a root when i did console.log(root) -->
+    <form onsubmit="handleUpdate(event)">
+        <input class='tsItemInput'type="text" name="itemName" placeholder="write item name to update">
+        <input class='tsInput' type="number" name="newPrice" placeholder="Update Price">
+        <input class='tsBtn' name="submit" value="Update" type="submit">
+    </form>
+    <script src="dist/index.js"></script>
+</body>
+
+</html>
