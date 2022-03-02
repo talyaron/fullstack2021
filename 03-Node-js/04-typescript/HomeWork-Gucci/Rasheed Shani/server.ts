@@ -345,6 +345,13 @@ app.put('/delete-items',(req,res)=>{
   res.send(removedItem);
 });
 
+// app.get('/search-items',(req,res)=>{
+
+//   const search = req.query.searchTerm;
+//   const filtereditem = filteredItemSearch(search);
+//   res.send(filtereditem);
+// })
+
 
 
 function getItems(){
@@ -368,6 +375,14 @@ function  removeItems(itemName: string) {
 
 }
 
+// function filteredItemSearch(search){
+//   if (search) {
+//     const regex = new RegExp(search, "i");
+//     return gucci.items.filter((searchedTerm) => regex.test(searchedTerm.name) ) //either it searches in the titles or content
+//   } else {
+//     return []
+//   }
+// }
 
 
 function filterByGender(gender) {
