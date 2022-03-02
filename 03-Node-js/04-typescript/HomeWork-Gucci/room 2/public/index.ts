@@ -442,7 +442,7 @@ async function handleAddStudent(ev) {
   const color = ev.target.elements.color.value;
   const description = ev.target.elements.description.value;
   const shoeSize = ev.target.elements.shoeSize.valueAsNumber;
-  const { data } = await axios.post("/add-student", { title: title, price:price, gender:gender, category:category,pictureFront:pictureFront, pictureBack:pictureBack,color:color,description:description,shoeSize:shoeSize }); //body = data
+  const { data } = await axios.post("/add-Shoe", { title: title, price:price, gender:gender, category:category,pictureFront:pictureFront, pictureBack:pictureBack,color:color,description:description,shoeSize:shoeSize }); //body = data
   console.log(data);
   ev.target.reset();
   location.reload()  

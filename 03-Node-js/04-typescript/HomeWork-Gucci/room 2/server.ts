@@ -39,7 +39,7 @@ app.get("/get-all-shoes", (req, res) => {
     res.send(shoes);
   });
 
-  app.post("/add-student", (req, res) => {
+  app.post("/add-Shoe", (req, res) => {
     console.log(req.body);
     const newTitle = req.body.title;
     const newPrice = req.body.price;

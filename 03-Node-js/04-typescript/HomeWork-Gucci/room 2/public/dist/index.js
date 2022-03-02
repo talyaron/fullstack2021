@@ -278,7 +278,7 @@ function handleAddStudent(ev) {
                     color = ev.target.elements.color.value;
                     description = ev.target.elements.description.value;
                     shoeSize = ev.target.elements.shoeSize.valueAsNumber;
-                    return [4 /*yield*/, axios.post("/add-student", { title: title, price: price, gender: gender, category: category, pictureFront: pictureFront, pictureBack: pictureBack, color: color, description: description, shoeSize: shoeSize })];
+                    return [4 /*yield*/, axios.post("/add-Shoe", { title: title, price: price, gender: gender, category: category, pictureFront: pictureFront, pictureBack: pictureBack, color: color, description: description, shoeSize: shoeSize })];
                 case 1:
                     data = (_a.sent()).data;
                     console.log(data);
