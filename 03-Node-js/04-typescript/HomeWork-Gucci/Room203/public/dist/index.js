@@ -145,22 +145,28 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 //     this.setData();
 //   },
 function render(list, domElement) {
-    console.log(list);
-    var html = "";
-    this.products.forEach(function (product) {
-        var text = document.URL;
-        var customer = text.includes("customer");
-        var owner = text.includes("owner");
-        if (customer) {
-            html += "\n     <div class=\"cards__item\" >\n\n      <div class=\"picture\">\n      <i class=\"fa-solid fa-heart fa-beat\"  onclick=\"handleWishList('" + product.id + "')\"></i>\n          <i class=\"fa-solid fa-circle-plus fa-beat\"  onclick=\"handleCart('" + product.id + "')\"></i>\n          <img src=\"" + product.pictureBack + "\" >\n         <img src=\"" + product.pictureFront + "\" class=\"img-top\">\n          </div>\n              \n      <div class=\"color\">\n      <p><b> Color: </b> " + product.color + "</p>\n      </div>\n\n      <div class=\"description\">\n         <p>" + product.title + "</p>\n          <p>" + product.description + "</p>\n          <p>" + product.price + "\u20AA</p> \n      </div>\n          </div>   ";
-        }
-        else if (owner) {
-            html += "\n     <div class=\"cards__item\" >\n\n      <div class=\"picture\">\n          <i class=\"far fa-heart\"  onclick=\"handleWishList('" + product.id + "')\"></i>\n          <img src=\"" + product.pictureBack + "\" >\n         <img src=\"" + product.pictureFront + "\" class=\"img-top\">\n          </div>\n              \n      <div class=\"color\">\n      <p><b> Color: </b> " + product.color + "</p>\n      </div>\n\n      <div class=\"description\">\n         <p>" + product.title + "</p>\n          <p>" + product.description + "</p>\n          <p>" + product.price + "\u20AA</p> \n      </div>;\n\n      <form onsubmit=\"handleUpdate(event, '" + product.id + "')\">\n      <input type=\"text\" name=\"newTitle\" placeholder=\"new title\" value=\"" + product.title + "\">\n      <input type=\"number\" name=\"newPrice\" placeholder=\"new price\" value=\"" + product.price + "\">\n      <input type=\"text\" name=\"newCategory\" placeholder=\"new category\" value=\"" + product.category + "\">\n      <input type=\"text\" name=\"newPictureFront\" placeholder=\"new picture front\" value=\"" + product.pictureFront + "\">\n      <input type=\"text\" name=\"newPictureBack\" placeholder=\"new picture back\" value=\"" + product.pictureBack + "\">\n      <input type=\"text\" name=\"newColor\" placeholder=\"new color\" value=\"" + product.color + "\">\n      <input type=\"text\" name=\"newGender\" placeholder=\"new gender\" value=\"" + product.gender + "\">\n      <input type=\"text\" name=\"newDescription\" placeholder=\"new description\" value=\"" + product.description + "\">\n      <input type=\"number\" name=\"newShoeSize\" placeholder=\"new shoeSize\" value=\"" + product.shoeSize + "\">\n      <button type=\"submit\">Update</button>\n      </form>\n\n      <button onclick=\"handleDelete('" + product.id + "')\">Delete</button>\n          </div>   ";
-        }
+    return __awaiter(this, void 0, void 0, function () {
+        var html;
+        return __generator(this, function (_a) {
+            console.log(list);
+            html = "";
+            list.forEach(function (product) {
+                var text = document.URL;
+                var customer = text.includes("customer");
+                var owner = text.includes("owner");
+                if (customer) {
+                    html += "\n     <div class=\"cards__item\" >\n\n      <div class=\"picture\">\n      <i class=\"fa-solid fa-heart fa-beat\"  onclick=\"handleWishList('" + product.id + "')\"></i>\n          <i class=\"fa-solid fa-circle-plus fa-beat\"  onclick=\"handleCart('" + product.id + "')\"></i>\n          <img src=\"" + product.pictureBack + "\" >\n         <img src=\"" + product.pictureFront + "\" class=\"img-top\">\n          </div>\n              \n      <div class=\"color\">\n      <p><b> Color: </b> " + product.color + "</p>\n      </div>\n\n      <div class=\"description\">\n         <p>" + product.title + "</p>\n          <p>" + product.description + "</p>\n          <p>" + product.price + "\u20AA</p> \n      </div>\n          </div>   ";
+                }
+                else if (owner) {
+                    html += "\n     <div class=\"cards__item\" >\n\n      <div class=\"picture\">\n          <i class=\"far fa-heart\"  onclick=\"handleWishList('" + product.id + "')\"></i>\n          <img src=\"" + product.pictureBack + "\" >\n         <img src=\"" + product.pictureFront + "\" class=\"img-top\">\n          </div>\n              \n      <div class=\"color\">\n      <p><b> Color: </b> " + product.color + "</p>\n      </div>\n\n      <div class=\"description\">\n         <p>" + product.title + "</p>\n          <p>" + product.description + "</p>\n          <p>" + product.price + "\u20AA</p> \n      </div>;\n\n      <form onsubmit=\"handleUpdate(event, '" + product.id + "')\">\n      <input type=\"text\" name=\"newTitle\" placeholder=\"new title\" value=\"" + product.title + "\">\n      <input type=\"number\" name=\"newPrice\" placeholder=\"new price\" value=\"" + product.price + "\">\n      <input type=\"text\" name=\"newCategory\" placeholder=\"new category\" value=\"" + product.category + "\">\n      <input type=\"text\" name=\"newPictureFront\" placeholder=\"new picture front\" value=\"" + product.pictureFront + "\">\n      <input type=\"text\" name=\"newPictureBack\" placeholder=\"new picture back\" value=\"" + product.pictureBack + "\">\n      <input type=\"text\" name=\"newColor\" placeholder=\"new color\" value=\"" + product.color + "\">\n      <input type=\"text\" name=\"newGender\" placeholder=\"new gender\" value=\"" + product.gender + "\">\n      <input type=\"text\" name=\"newDescription\" placeholder=\"new description\" value=\"" + product.description + "\">\n      <input type=\"number\" name=\"newShoeSize\" placeholder=\"new shoeSize\" value=\"" + product.shoeSize + "\">\n      <button type=\"submit\">Update</button>\n      </form>\n\n      <button onclick=\"handleDelete('" + product.id + "')\">Delete</button>\n          </div>   ";
+                }
+            });
+            // const button = document.getElementById("button");
+            //console.log(button);
+            domElement.innerHTML = html;
+            return [2 /*return*/];
+        });
     });
-    // const button = document.getElementById("button");
-    //console.log(button);
-    domElement.innerHTML = html;
 }
 function renderWish(list, domElement) {
     //onsole.log(list);
@@ -207,9 +213,15 @@ function renderCart(list, domElement) {
 //   },
 function renderAllData(domElement) {
     return __awaiter(this, void 0, void 0, function () {
+        var data;
         return __generator(this, function (_a) {
-            this.render(this.products, domElement);
-            return [2 /*return*/];
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, axios.get("/get-all-products")];
+                case 1:
+                    data = (_a.sent()).data;
+                    render(data, domElement);
+                    return [2 /*return*/];
+            }
         });
     });
 }
@@ -307,37 +319,38 @@ function handleSearchProduct(ev) {
         console.log(foundProducts);
     }
 }
-// function handleGetData(page: string) {
-//   try {
-//     // console.log(page);
-//     Adidas.getData();
-//     // console.log(Adidas);
-//     if (page === "owner") {
-//       const root = document.getElementById("rootOwner");
-//       Adidas.renderAllData(root);
-//     } else if (page === "customer") {
-//       const root = document.getElementById("rootCustomer");
-//       Adidas.renderAllData(root);
-//     } else {
-//       throw new Error(`page is not found (${page})`);
-//     }
-//   } catch (err) {
-//     console.log(err);
-//   }
-// }
-console.log("start");
-getAllData();
-console.log("end");
+function handleGetData(page) {
+    try {
+        console.log("start");
+        getAllData();
+        console.log("end");
+        if (page === "owner") {
+            var root = document.getElementById("rootOwner");
+            renderAllData(root);
+        }
+        else if (page === "customer") {
+            var root = document.getElementById("rootCustomer");
+            renderAllData(root);
+        }
+        else {
+            throw new Error("page is not found (" + page + ")");
+        }
+    }
+    catch (err) {
+        console.log(err);
+    }
+}
 function getAllData() {
     return __awaiter(this, void 0, void 0, function () {
-        var data;
+        var data, root;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0: return [4 /*yield*/, axios.get("/get-all-products")];
                 case 1:
                     data = (_a.sent()).data;
                     console.log(data);
-                    data.renderAllData(data);
+                    root = document.getElementById("rootCustomer");
+                    render(data, root);
                     return [2 /*return*/];
             }
         });
@@ -363,7 +376,7 @@ function handleAddItem(ev) {
                 case 1:
                     data = (_a.sent()).data;
                     root = document.getElementById("rootOwner");
-                    data.renderAllData(root);
+                    renderAllData(root);
                     ev.target.reset(); //reset the form fileds
                     return [2 /*return*/];
             }
@@ -396,7 +409,7 @@ function handleUpdate(ev, itemId) {
                 case 1:
                     data = (_a.sent()).data;
                     root = document.getElementById("rootOwner");
-                    data.renderAllData(root);
+                    renderAllData(root);
                     return [2 /*return*/];
             }
         });
@@ -416,7 +429,7 @@ function handleSort(ev) {
                     return [4 /*yield*/, axios.get("/get-all-data?priceAsc=" + priceAsc)];
                 case 1:
                     data = (_a.sent()).data;
-                    data.renderAllData(data);
+                    render(data, root);
                     return [3 /*break*/, 6];
                 case 2:
                     if (!(sort === "priceDsc")) return [3 /*break*/, 4];
@@ -424,12 +437,12 @@ function handleSort(ev) {
                     return [4 /*yield*/, axios.get("/get-all-data?priceDsc=" + priceDsc)];
                 case 3:
                     data = (_a.sent()).data;
-                    data.renderAllData(data);
+                    render(data, root);
                     return [3 /*break*/, 6];
                 case 4: return [4 /*yield*/, axios.get("/get-all-products")];
                 case 5:
                     data = (_a.sent()).data;
-                    data.renderAllData(data);
+                    render(data, root);
                     _a.label = 6;
                 case 6:
                     console.log(sort);
@@ -439,75 +452,108 @@ function handleSort(ev) {
     });
 }
 function handleType(ev) {
-    var type = ev.target.value;
-    ev.preventDefault();
-    console.log(type);
-    var root = document.getElementById("rootCustomer");
-    if (type === "Sneakers") {
-        console.log(type);
-        Adidas.render(Adidas.sortByType(type), root);
-        // Adidas.sortByType(type)
-        //      Adidas.renderAllData(root);
-        // Adidas.renderFilter(Adidas.sortByType(type), root);
-    }
-    else if (type === "Boots") {
-        //   console.log(type);
-        //  Adidas.sortByType(type)
-        //    Adidas.renderAllData(root);
-        Adidas.renderFilter(Adidas.sortByType(type), root);
-    }
-    else if (type === "Hi Tops") {
-        //   console.log(type);
-        //  Adidas.sortByType(type)
-        //    Adidas.renderAllData(root);
-        Adidas.renderFilter(Adidas.sortByType(type), root);
-    }
-    else if (type === "Flip Flops") {
-        //   console.log(type);
-        //  Adidas.sortByType(type)
-        //    Adidas.renderAllData(root);
-        Adidas.renderFilter(Adidas.sortByType(type), root);
-    }
-    else {
-        Adidas.renderAllData(root);
-    }
-    //  Adidas.sortByType(type)
-    //  Adidas.renderAllData(root);
-    // Adidas.renderFilter(Adidas.sortByType(type), root);
+    return __awaiter(this, void 0, void 0, function () {
+        var type, data, root, data_1;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    type = ev.target.value;
+                    ev.preventDefault();
+                    console.log(type);
+                    return [4 /*yield*/, axios.get("/get-all-data?type=" + type)];
+                case 1:
+                    data = (_a.sent()).data;
+                    root = document.getElementById("rootCustomer");
+                    if (!(type === "Sneakers")) return [3 /*break*/, 2];
+                    // const { data } = await axios.get(`/get-all-data?Sneakers=${Sneakers}`);
+                    console.log(type);
+                    render(data, root);
+                    return [3 /*break*/, 7];
+                case 2:
+                    if (!(type === "Boots")) return [3 /*break*/, 3];
+                    // const { data } = await axios.get(`/get-all-data?Boots=${Boots}`);
+                    console.log(type);
+                    render(data, root);
+                    return [3 /*break*/, 7];
+                case 3:
+                    if (!(type === "Hi Tops")) return [3 /*break*/, 4];
+                    // const { data } = await axios.get(`/get-all-data?HiTops=${HiTops}`);
+                    console.log(type);
+                    render(data, root);
+                    return [3 /*break*/, 7];
+                case 4:
+                    if (!(type === "Flip Flops")) return [3 /*break*/, 5];
+                    // const { data } = await axios.get(`/get-all-data?FlipFlops=${FlipFlops}`);
+                    console.log(type);
+                    render(data, root);
+                    return [3 /*break*/, 7];
+                case 5: return [4 /*yield*/, axios.get("/get-all-products")];
+                case 6:
+                    data_1 = (_a.sent()).data;
+                    render(data_1, root);
+                    _a.label = 7;
+                case 7: return [2 /*return*/];
+            }
+        });
+    });
 }
 function handleColor(ev) {
-    var color = ev.target.value;
-    ev.preventDefault();
-    var root = document.getElementById("rootCustomer");
-    if (color === "red") {
-        return Adidas.renderFilter(Adidas.sortByColor(color), root);
-    }
-    else if (color === "blue") {
-        return Adidas.renderFilter(Adidas.sortByColor(color), root);
-    }
-    else {
-        Adidas.renderAllData(root);
-    }
+    return __awaiter(this, void 0, void 0, function () {
+        var color, data, root;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    color = ev.target.value;
+                    return [4 /*yield*/, axios.get("/get-all-data?color=" + color)];
+                case 1:
+                    data = (_a.sent()).data;
+                    ev.preventDefault();
+                    root = document.getElementById("rootCustomer");
+                    if (color === "red") {
+                        render(data, root);
+                    }
+                    else if (color === "blue") {
+                        render(data, root);
+                    }
+                    else {
+                        renderAllData(root);
+                    }
+                    return [2 /*return*/];
+            }
+        });
+    });
 }
 function handleGender(ev) {
-    var gender = ev.target.value;
-    ev.preventDefault();
-    var root = document.getElementById("rootCustomer");
-    if (gender === "men") {
-        console.log(gender);
-        Adidas.renderFilter(Adidas.sortByGender(gender), root);
-    }
-    else if (gender === "women") {
-        console.log(gender);
-        Adidas.renderFilter(Adidas.sortByGender(gender), root);
-    }
-    else if (gender === "unisex") {
-        console.log(gender);
-        Adidas.renderFilter(Adidas.sortByGender(gender), root);
-    }
-    else {
-        Adidas.renderAllData(root);
-    }
+    return __awaiter(this, void 0, void 0, function () {
+        var gender, data, root;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    gender = ev.target.value;
+                    return [4 /*yield*/, axios.get("/get-all-data?gender=" + gender)];
+                case 1:
+                    data = (_a.sent()).data;
+                    ev.preventDefault();
+                    root = document.getElementById("rootCustomer");
+                    if (gender === "men") {
+                        console.log(gender);
+                        render(data, root);
+                    }
+                    else if (gender === "women") {
+                        console.log(gender);
+                        render(data, root);
+                    }
+                    else if (gender === "unisex") {
+                        console.log(gender);
+                        render(data, root);
+                    }
+                    else {
+                        renderAllData(root);
+                    }
+                    return [2 /*return*/];
+            }
+        });
+    });
 }
 function handleWishList(id) {
     //console.log(id);
