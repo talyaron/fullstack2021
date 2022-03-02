@@ -95,7 +95,7 @@ var data = [{
   brand: 'nike',
   title: 'Jordan 1 Retro Low',
   description: 'Shadow',
-  price: 10,
+  price: 180,
   freeText: 'nike jordan 1 retro jordan low shadow',
   picUrl: 'https://images.stockx.com/images/Air-Jordan-1-Retro-Low-Golf-Shadow-Product.jpg?fit=fill&bg=FFFFFF&w=140&h=75&auto=compress&trim=color&q=90&dpr=1&updated_at=1645775572&fm=avif'
 }, {
