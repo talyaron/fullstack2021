@@ -234,15 +234,17 @@ app.post("/sort-books", (req,res) => {
 
 app.post("/books-by-category", (req,res) => {
   const category = req.body.category
-  let tempBooks = bookie.tempBooks
+  let result = bookie;
+  
   if(category  === "all"){
     return (bookie)
-  } else if (category === 'thriller'){
-     tempBooks = bookie.books.filter(book => {
-       book.category === category
+  } else if (category){
+    let result = bookie;
+    result.books = bookie.books.filter(book => {
+       return book.category === category
     })
   }
-  res.send(bookie)
+  res.send(result)
 })
 
 // /// Mixed work end ------------------------>

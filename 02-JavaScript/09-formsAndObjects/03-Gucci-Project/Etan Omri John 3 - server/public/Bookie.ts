@@ -241,31 +241,32 @@ document.addEventListener("scroll", hideTopBtn);
 async function handleSelect(ev) {
   ev.preventDefault();
   const category = ev.target.value;
+  console.log(category);
+  
   try {
     const {data} = await axios.post("/books-by-category", {category})
     renderItem(data,rootBooks)
-    // const category = ev.target.value;
     // if (category === "all") {
-    //   bookie.tempBooks = bookie.books;
-    //   bookie.renderTempItem(rootBooks);
+    //   data.tempBooks = data.books;
+    //   data.renderTempItem(rootBooks);
     // } else if (category === "thriller") {
-    //   bookie.tempBooks = bookie.books.filter((book) => {
+    //   data.tempBooks = data.books.filter((book) => {
     //     return book.category === category;
     //   });
     // } else if (category === "history") {
-    //   bookie.tempBooks = bookie.books.filter((book) => {
+    //   data.tempBooks = data.books.filter((book) => {
     //     return book.category === category;
     //   });
     // } else if (category === "cooking") {
-    //   bookie.tempBooks = bookie.books.filter((book) => {
+    //   data.tempBooks = data.books.filter((book) => {
     //     return book.category === category;
     //   });
     // } else if (category === "fantasy") {
-    //   bookie.tempBooks = bookie.books.filter((book) => {
+    //   data.tempBooks = data.books.filter((book) => {
     //     return book.category === category;
     //   });
     // }
-    // bookie.renderTempItem(rootBooks);
+    // data.renderTempItem(rootBooks);
   }
   catch (error) {
     console.error(error);
