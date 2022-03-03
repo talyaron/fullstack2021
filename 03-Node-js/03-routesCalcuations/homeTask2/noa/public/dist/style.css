@@ -1,24 +1,49 @@
 .wrapper {
   align-items: center;
-  display: inline-flex;
+  margin: 10%;
 }
-
-.search {
+.wrapper .google-img {
+  position: relative;
+  right: 30%;
+}
+.wrapper .search {
+  position: relative;
+  right: 21%;
   display: flex;
   width: 500px;
   height: 40px;
   border-radius: 20px;
   box-shadow: 0.5px 0.5px 4px rgba(121, 118, 118, 0.664);
 }
-.search img {
+.wrapper .search img {
   width: fit-content;
   margin: 10px;
   margin-right: 20px;
   margin-left: 20px;
 }
-.search input {
+.wrapper .search input {
   outline: none;
   border: none;
   border-radius: 30%;
   width: 400px;
+}
+.wrapper .card {
+  width: 80%;
+  height: 70px;
+  font-family: Arial, sans-serif;
+  font-weight: normal;
+  word-wrap: break-word;
+}
+.wrapper .card h2 {
+  color: #1a0dab;
+  font-weight: 0px;
+  margin-top: 45px;
+  margin-bottom: 10px;
+}
+.wrapper .card h2:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.wrapper .card p {
+  margin: 0;
 }
