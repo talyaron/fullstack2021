@@ -110,36 +110,16 @@ function handleRemoveItems(ev) {
         });
     });
 }
-function handlePriceAsc(ev) {
-    return __awaiter(this, void 0, void 0, function () {
-        var data;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, axios.get('/get-items-by-ascending')];
-                case 1:
-                    data = (_a.sent()).data;
-                    //const gender = ev.target.dataset.gender;
-                    render(data);
-                    return [2 /*return*/];
-            }
-        });
-    });
-}
-function handlePriceDesc(ev) {
-    return __awaiter(this, void 0, void 0, function () {
-        var data;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, axios.get('/get-items-by-descending')];
-                case 1:
-                    data = (_a.sent()).data;
-                    render(data);
-                    console.log(data);
-                    return [2 /*return*/];
-            }
-        });
-    });
-}
+// async function handlePriceAsc(ev) {
+//   const {data}= await axios.get('/get-items-by-ascending');
+//   //const gender = ev.target.dataset.gender;
+//   render(data);
+// }
+// async function  handlePriceDesc(ev){
+//   const {data}= await axios.get('/get-items-by-descending');
+//   render(data);
+//   console.log(data)
+// }
 function render(data) {
     var root = document.getElementById('root');
     var html = "";
@@ -148,7 +128,7 @@ function render(data) {
     });
     root.innerHTML = html;
 }
-//category buttons
+// category buttons
 // async function handleSearch(ev) {
 //   const searchTerm = ev.target.value;
 //   const {data} = await axios.get('/search-items',{searchTerm});  

@@ -56,18 +56,18 @@ async function handleRemoveItems(ev) {
 }
 
 
-async function handlePriceAsc(ev) {
-  const {data}= await axios.get('/get-items-by-ascending');
-  //const gender = ev.target.dataset.gender;
-  render(data);
-}
+// async function handlePriceAsc(ev) {
+//   const {data}= await axios.get('/get-items-by-ascending');
+//   //const gender = ev.target.dataset.gender;
+//   render(data);
+// }
 
-async function  handlePriceDesc(ev){
-  const {data}= await axios.get('/get-items-by-descending');
-  render(data);
-  console.log(data)
+// async function  handlePriceDesc(ev){
+//   const {data}= await axios.get('/get-items-by-descending');
+//   render(data);
+//   console.log(data)
 
-}
+// }
 
 function render(data) {
   const root=document.getElementById('root');
@@ -89,7 +89,7 @@ function render(data) {
 }
 
 
-//category buttons
+// category buttons
 
 // async function handleSearch(ev) {
 //   const searchTerm = ev.target.value;
