@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="dist/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.0/axios.min.js"
+        integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>Google Search</title>
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="nih">
+            <img src="img/nih.PNG" alt="">
+            <div class="nihTitles">
+                <h1>National Institutes of Health</h1>
+                <p>National Center for Biotechnology Information</p>
+            </div>
+
+        </div>
+        <div class="log">
+            <h1>Log In</h1>
+        </div>
+
+    </div>
+
+    <div class="input">
+        <img src="img/pubmed.PNG" alt="">
+        <input list="articles" class="articles" onkeyup="handleSearch(event)">
+    </div>
+
+    <div class="lowerContainer">
+
+        <button id="add" onclick="handleAdd(event)">Add</button>
+        <button id="remove">Remove</button>
+
+    </div>
+
+    <div id="rootAdd"></div>
+
+
+    <div id="index"></div>
+    <div id="root"></div>
+    <script src="dist/index.js"></script>
+</body>
+
+</html>
