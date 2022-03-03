@@ -67,7 +67,7 @@ function appInit() {
                 mobile_menu_1.classList.toggle("is-active");
             });
         }
-        //showLocalToOwner(undefined);
+        // showLocalToOwner(undefined, ownerTable);
     }
     catch (error) {
         console.error(error);
@@ -93,22 +93,54 @@ function renderItem(data, root) {
         root.innerHTML = html_1;
     }
 }
-// function handleTop(ev) {
-//   ev.preventDefault();
-//   document.documentElement.scrollTop = 0;
-// }
-// function hideTopBtn() {
-//   if (window.document.title === "Bookie") {
-//     let rootElement = document.documentElement;
-//     let topTotal = rootElement.scrollHeight - rootElement.clientHeight;
-//     if (rootElement.scrollTop / topTotal > 0.5) {
-//       backToTop.classList.remove("hidden");
-//     } else {
-//       backToTop.classList.add("hidden");
+// function showLocalToOwner(data, sortFunc) {
+//   if (window.document.title === "myBookie") {
+//     data.books.sort(sortFunc);
+//     // localStorage.setItem("Bookie shop", JSON.stringify(bookie));
+//     // JSON.parse(localStorage.getItem("Bookie shop"));
+//     ownerTable.innerHTML = `<tr>
+//   <th>ID</th>
+//   <th>Category</th>
+//   <th>Title</th>
+//   <th>price</th>
+//   <th>Img</th>
+//   <th>Year</th>
+//   <th>Functions</th>
+// </tr>`;
+//     for (let book in data.books) {
+//       ownerTable.innerHTML += `<tr>
+//   <td> ${data.books[book].id}  </td>
+//   <td> ${data.books[book].category}  </td>
+//   <td> ${data.books[book].title} </td>
+//   <td> ${data.books[book].price}</td>
+//   <td> <img src="./Images/${data.books[book].img}" alt=""></td>
+//   <td> ${data.books[book].year}</td>
+//   <td data-delete-update> 
+//   <a onclick="handleDelete(event)">Delete</a>
+//   <a onclick="handleEdit(event)">Change Price</a>
+//   <input data-priceChange type="number" name="priceChange" placeholder="${data.books[book].price}" value="${data.books[book].price}">
+//   </td>
+//   </tr>`;
 //     }
 //   }
 // }
-// document.addEventListener("scroll", hideTopBtn);
+function handleTop(ev) {
+    ev.preventDefault();
+    document.documentElement.scrollTop = 0;
+}
+function hideTopBtn() {
+    if (window.document.title === "Bookie") {
+        var rootElement = document.documentElement;
+        var topTotal = rootElement.scrollHeight - rootElement.clientHeight;
+        if (rootElement.scrollTop / topTotal > 0.5) {
+            backToTop.classList.remove("hidden");
+        }
+        else {
+            backToTop.classList.add("hidden");
+        }
+    }
+}
+document.addEventListener("scroll", hideTopBtn);
 // function handleAddItem(ev: any) {
 //   ev.preventDefault();
 //   bookie.addItem(ev);

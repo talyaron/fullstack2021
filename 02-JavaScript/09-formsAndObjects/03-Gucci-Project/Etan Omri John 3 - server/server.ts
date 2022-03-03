@@ -216,8 +216,8 @@ app.use(express.json());
 app.get("/all-books", (req, res) => {
   const bookie = getShop();
   res.send(bookie);
-
 });
+
 function getShop() { 
   return bookie
 }
@@ -247,43 +247,13 @@ function makeId(book: book) {
     return;
   }
 }
-// function showLocalToOwner(sortFunc) {
-//   if (window.document.title === "myBookie") {
-//     bookie.books.sort(sortFunc);
-//     localStorage.setItem("Bookie shop", JSON.stringify(bookie));
-//     JSON.parse(localStorage.getItem("Bookie shop"));
-//     ownerTable.innerHTML = `<tr>
-//   <th>ID</th>
-//   <th>Category</th>
-//   <th>Title</th>
-//   <th>price</th>
-//   <th>Img</th>
-//   <th>Year</th>
-//   <th>Functions</th>
-// </tr>`;
-//     for (let book in bookie.books) {
-//       ownerTable.innerHTML += `<tr>
-//   <td> ${bookie.books[book].id}  </td>
-//   <td> ${bookie.books[book].category}  </td>
-//   <td> ${bookie.books[book].title} </td>
-//   <td> ${bookie.books[book].price}</td>
-//   <td> <img src="./Images/${bookie.books[book].img}" alt=""></td>
-//   <td> ${bookie.books[book].year}</td>
-//   <td data-delete-update> 
-//   <a onclick="handleDelete(event)">Delete</a>
-//   <a onclick="handleEdit(event)">Change Price</a>
-//   <input data-priceChange type="number" name="priceChange" placeholder="${bookie.books[book].price}" value="${bookie.books[book].price}">
-//   </td>
-//   </tr>`;
-//     }
-//   }
-// }
-// function showPreviewImage(ev: any) {
-//   const imagePreview = document.querySelector("[data-bookImage-preview]");
-//   const imgLink = ev.target.files[0].name;
-//   const preview = `<img src="./Images/${imgLink}" alt="">`;
-//   imagePreview.innerHTML = preview;
-// }
+
+function showPreviewImage(ev: any) {
+  const imagePreview = document.querySelector("[data-bookImage-preview]");
+  const imgLink = ev.target.files[0].name;
+  const preview = `<img src="./Images/${imgLink}" alt="">`;
+  imagePreview.innerHTML = preview;
+}
 
 app.listen(port, () => {
   return console.log(`Express is listening at http://localhost:${port}`);
