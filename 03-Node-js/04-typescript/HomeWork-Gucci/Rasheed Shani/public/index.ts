@@ -65,6 +65,7 @@ async function handlePriceAsc(ev) {
 async function  handlePriceDesc(ev){
   const {data}= await axios.get('/get-items-by-descending');
   render(data);
+  console.log(data)
 
 }
 

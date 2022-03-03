@@ -134,6 +134,7 @@ function handlePriceDesc(ev) {
                 case 1:
                     data = (_a.sent()).data;
                     render(data);
+                    console.log(data);
                     return [2 /*return*/];
             }
         });
