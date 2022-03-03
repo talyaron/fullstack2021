@@ -244,23 +244,13 @@ function handleSort(ev) {
                 case 0:
                     ev.preventDefault();
                     sort = ev.target.value;
-                    console.log(sort);
                     _a.label = 1;
                 case 1:
                     _a.trys.push([1, 3, , 4]);
-                    return [4 /*yield*/, axios.get("/sort-books")
-                        // if (ev.target.value === "sortAsc") {
-                        //   bookie.sortBooksAsc();
-                        //   bookie.tempBooks = bookie.books;
-                        //   bookie.renderTempItem(rootBooks);
-                        // } else if (ev.target.value === "sortDesc") {
-                        //   bookie.sortBooksDesc();
-                        //   bookie.tempBooks = bookie.books;
-                        //   bookie.renderTempItem(rootBooks);
-                        // }
-                    ];
+                    return [4 /*yield*/, axios.post("/sort-books", { sort: sort })];
                 case 2:
                     data = (_a.sent()).data;
+                    renderItem(data, rootBooks);
                     return [3 /*break*/, 4];
                 case 3:
                     error_1 = _a.sent();

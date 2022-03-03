@@ -196,7 +196,18 @@ app.get("/all-books", (req, res) => {
 function getShop() {
     return bookie;
 }
-app.get("/sort-books");
+app.post("/sort-books", (req, res) => {
+    const sort = req.body.sort;
+    let tempBooks = [];
+    console.log(sort);
+    if (sort === 'sortAsc') {
+        bookie.sortBooksAsc();
+    }
+    else if (sort === 'sortDesc') {
+        bookie.sortBooksDesc();
+    }
+    res.send(bookie);
+});
 // /// Mixed work end ------------------------>
 // // Etan --------------->
 function ascPrice(a, b) {

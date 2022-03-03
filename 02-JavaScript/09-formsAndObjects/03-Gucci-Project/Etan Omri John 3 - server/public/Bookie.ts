@@ -243,18 +243,9 @@ function renderItem(data,root) {
 async function handleSort(ev) {
   ev.preventDefault();
   const sort = ev.target.value;
-  console.log(sort)
   try {
-    const {data} = await axios.get("/sort-books", )
-    // if (ev.target.value === "sortAsc") {
-    //   bookie.sortBooksAsc();
-    //   bookie.tempBooks = bookie.books;
-    //   bookie.renderTempItem(rootBooks);
-    // } else if (ev.target.value === "sortDesc") {
-    //   bookie.sortBooksDesc();
-    //   bookie.tempBooks = bookie.books;
-    //   bookie.renderTempItem(rootBooks);
-    // }
+    const {data} = await axios.post("/sort-books", {sort})
+     renderItem(data,rootBooks)
   }
   catch (error) {
     console.error(error);
