@@ -206,39 +206,34 @@ function renderItem(data, root) {
 // }
 // // Etan done ------------------------->
 // // Omri ------------------------->
-// function handleSelect(ev) {
-//   ev.preventDefault();
-//   try {
-//     const category = ev.target.value;
-//     if (category === "all") {
-//       bookie.tempBooks = bookie.books;
-//       bookie.renderTempItem(rootBooks);
-//     } else if (category === "thriller") {
-//       bookie.tempBooks = bookie.books.filter((book) => {
-//         return book.category === category;
-//       });
-//     } else if (category === "history") {
-//       bookie.tempBooks = bookie.books.filter((book) => {
-//         return book.category === category;
-//       });
-//     } else if (category === "cooking") {
-//       bookie.tempBooks = bookie.books.filter((book) => {
-//         return book.category === category;
-//       });
-//     } else if (category === "fantasy") {
-//       bookie.tempBooks = bookie.books.filter((book) => {
-//         return book.category === category;
-//       });
-//     }
-//     bookie.renderTempItem(rootBooks);
-//   }
-//   catch (error) {
-//     console.error(error);
-//   }
-// }
+function handleSelect(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        var category, data, error_1;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    ev.preventDefault();
+                    category = ev.target.value;
+                    _a.label = 1;
+                case 1:
+                    _a.trys.push([1, 3, , 4]);
+                    return [4 /*yield*/, axios.post("/books-by-category", { category: category })];
+                case 2:
+                    data = (_a.sent()).data;
+                    renderItem(data, rootBooks);
+                    return [3 /*break*/, 4];
+                case 3:
+                    error_1 = _a.sent();
+                    console.error(error_1);
+                    return [3 /*break*/, 4];
+                case 4: return [2 /*return*/];
+            }
+        });
+    });
+}
 function handleSort(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var sort, data, error_1;
+        var sort, data, error_2;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -253,8 +248,8 @@ function handleSort(ev) {
                     renderItem(data, rootBooks);
                     return [3 /*break*/, 4];
                 case 3:
-                    error_1 = _a.sent();
-                    console.error(error_1);
+                    error_2 = _a.sent();
+                    console.error(error_2);
                     return [3 /*break*/, 4];
                 case 4: return [2 /*return*/];
             }
