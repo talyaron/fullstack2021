@@ -48,7 +48,7 @@ async function handleRemoveItems(ev) {
   ev.preventDefault();
   
   const name = ev.target.elements.remove.value;
-  const {data}= await axios.put('/delete-items',{name})
+  const {data}= await axios.post('/delete-items',{name})
   ev.target.reset();
   render(data);
 
@@ -56,6 +56,17 @@ async function handleRemoveItems(ev) {
 }
 
 
+async function handlePriceAsc(ev) {
+  const {data}= await axios.get('/get-items-by-ascending');
+  //const gender = ev.target.dataset.gender;
+  render(data);
+}
+
+async function  handlePriceDesc(ev){
+  const {data}= await axios.get('/get-items-by-descending');
+  render(data);
+
+}
 
 function render(data) {
   const root=document.getElementById('root');

@@ -100,10 +100,39 @@ function handleRemoveItems(ev) {
                 case 0:
                     ev.preventDefault();
                     name = ev.target.elements.remove.value;
-                    return [4 /*yield*/, axios.put('/delete-items', { name: name })];
+                    return [4 /*yield*/, axios.post('/delete-items', { name: name })];
                 case 1:
                     data = (_a.sent()).data;
                     ev.target.reset();
+                    render(data);
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+function handlePriceAsc(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        var data;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, axios.get('/get-items-by-ascending')];
+                case 1:
+                    data = (_a.sent()).data;
+                    //const gender = ev.target.dataset.gender;
+                    render(data);
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+function handlePriceDesc(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        var data;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, axios.get('/get-items-by-descending')];
+                case 1:
+                    data = (_a.sent()).data;
                     render(data);
                     return [2 /*return*/];
             }
