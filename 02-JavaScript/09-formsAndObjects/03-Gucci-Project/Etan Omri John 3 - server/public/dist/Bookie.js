@@ -238,27 +238,36 @@ function renderItem(data, root) {
 // }
 function handleSort(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var sort;
+        var sort, data, error_1;
         return __generator(this, function (_a) {
-            ev.preventDefault();
-            sort = ev.target.value;
-            console.log(sort);
-            try {
-                // const {data} = await.axios.get("/")
-                // if (ev.target.value === "sortAsc") {
-                //   bookie.sortBooksAsc();
-                //   bookie.tempBooks = bookie.books;
-                //   bookie.renderTempItem(rootBooks);
-                // } else if (ev.target.value === "sortDesc") {
-                //   bookie.sortBooksDesc();
-                //   bookie.tempBooks = bookie.books;
-                //   bookie.renderTempItem(rootBooks);
-                // }
+            switch (_a.label) {
+                case 0:
+                    ev.preventDefault();
+                    sort = ev.target.value;
+                    console.log(sort);
+                    _a.label = 1;
+                case 1:
+                    _a.trys.push([1, 3, , 4]);
+                    return [4 /*yield*/, axios.get("/sort-books")
+                        // if (ev.target.value === "sortAsc") {
+                        //   bookie.sortBooksAsc();
+                        //   bookie.tempBooks = bookie.books;
+                        //   bookie.renderTempItem(rootBooks);
+                        // } else if (ev.target.value === "sortDesc") {
+                        //   bookie.sortBooksDesc();
+                        //   bookie.tempBooks = bookie.books;
+                        //   bookie.renderTempItem(rootBooks);
+                        // }
+                    ];
+                case 2:
+                    data = (_a.sent()).data;
+                    return [3 /*break*/, 4];
+                case 3:
+                    error_1 = _a.sent();
+                    console.error(error_1);
+                    return [3 /*break*/, 4];
+                case 4: return [2 /*return*/];
             }
-            catch (error) {
-                console.error(error);
-            }
-            return [2 /*return*/];
         });
     });
 }

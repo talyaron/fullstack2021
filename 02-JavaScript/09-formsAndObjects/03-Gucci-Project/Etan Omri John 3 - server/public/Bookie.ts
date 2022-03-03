@@ -245,7 +245,7 @@ async function handleSort(ev) {
   const sort = ev.target.value;
   console.log(sort)
   try {
-    // const {data} = await.axios.get("/")
+    const {data} = await axios.get("/sort-books", )
     // if (ev.target.value === "sortAsc") {
     //   bookie.sortBooksAsc();
     //   bookie.tempBooks = bookie.books;
