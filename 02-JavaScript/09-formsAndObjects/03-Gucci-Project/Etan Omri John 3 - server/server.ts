@@ -7,7 +7,6 @@ interface BookShop {
   id: any;
   books: Array<book>;
   tempBooks: Array<book>;
-  // renderItem(domElement: any);
   addItem(ev: any);
   renderTempItem(domElement: any);
   updateBook(Id, priceChange);
@@ -221,6 +220,30 @@ app.get("/all-books", (req, res) => {
 function getShop() { 
   return bookie
 }
+
+app.post("/sort-books", (req,res) => {
+  const sort = req.body.sort
+  console.log(sort)
+  if(sort === 'sortAsc'){
+    bookie.sortBooksAsc()
+  } else if(sort === 'sortDesc'){
+    bookie.sortBooksDesc()
+  }
+  res.send(bookie)
+})
+
+app.post("/books-by-category", (req,res) => {
+  const category = req.body.category
+  let tempBooks = bookie.tempBooks
+  if(category  === "all"){
+    return (bookie)
+  } else if (category === 'thriller'){
+     tempBooks = bookie.books.filter(book => {
+       book.category === category
+    })
+  }
+  res.send(bookie)
+})
 
 // /// Mixed work end ------------------------>
 // // Etan --------------->

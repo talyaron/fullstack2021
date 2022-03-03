@@ -238,53 +238,46 @@ document.addEventListener("scroll", hideTopBtn);
 // // Omri ------------------------->
 
 
-// function handleSelect(ev) {
-//   ev.preventDefault();
-//   try {
-
-//     const category = ev.target.value;
-//     if (category === "all") {
-//       bookie.tempBooks = bookie.books;
-//       bookie.renderTempItem(rootBooks);
-//     } else if (category === "thriller") {
-//       bookie.tempBooks = bookie.books.filter((book) => {
-//         return book.category === category;
-//       });
-//     } else if (category === "history") {
-//       bookie.tempBooks = bookie.books.filter((book) => {
-//         return book.category === category;
-//       });
-//     } else if (category === "cooking") {
-//       bookie.tempBooks = bookie.books.filter((book) => {
-//         return book.category === category;
-//       });
-//     } else if (category === "fantasy") {
-//       bookie.tempBooks = bookie.books.filter((book) => {
-//         return book.category === category;
-//       });
-//     }
-//     bookie.renderTempItem(rootBooks);
-//   }
-//   catch (error) {
-//     console.error(error);
-//   }
-// }
+async function handleSelect(ev) {
+  ev.preventDefault();
+  const category = ev.target.value;
+  try {
+    const {data} = await axios.post("/books-by-category", {category})
+    renderItem(data,rootBooks)
+    // const category = ev.target.value;
+    // if (category === "all") {
+    //   bookie.tempBooks = bookie.books;
+    //   bookie.renderTempItem(rootBooks);
+    // } else if (category === "thriller") {
+    //   bookie.tempBooks = bookie.books.filter((book) => {
+    //     return book.category === category;
+    //   });
+    // } else if (category === "history") {
+    //   bookie.tempBooks = bookie.books.filter((book) => {
+    //     return book.category === category;
+    //   });
+    // } else if (category === "cooking") {
+    //   bookie.tempBooks = bookie.books.filter((book) => {
+    //     return book.category === category;
+    //   });
+    // } else if (category === "fantasy") {
+    //   bookie.tempBooks = bookie.books.filter((book) => {
+    //     return book.category === category;
+    //   });
+    // }
+    // bookie.renderTempItem(rootBooks);
+  }
+  catch (error) {
+    console.error(error);
+  }
+}
 
 async function handleSort(ev) {
   ev.preventDefault();
   const sort = ev.target.value;
-  console.log(sort)
   try {
-    // const {data} = await.axios.get("/")
-    // if (ev.target.value === "sortAsc") {
-    //   bookie.sortBooksAsc();
-    //   bookie.tempBooks = bookie.books;
-    //   bookie.renderTempItem(rootBooks);
-    // } else if (ev.target.value === "sortDesc") {
-    //   bookie.sortBooksDesc();
-    //   bookie.tempBooks = bookie.books;
-    //   bookie.renderTempItem(rootBooks);
-    // }
+    const {data} = await axios.post("/sort-books", {sort})
+     renderItem(data,rootBooks)
   }
   catch (error) {
     console.error(error);

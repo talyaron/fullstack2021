@@ -277,11 +277,21 @@ app.post('/add-items', (req, res) => {
     const items = addItems(newItemName, newItemPrice, newItemImgTop, newItemImgBottom, newItemGender, newItemType, newItemId);
     res.send(items);
 });
-app.put('/delete-items', (req, res) => {
+app.post('/delete-items', (req, res) => {
     const nameOfRemovedItem = req.body.name;
     const removedItem = removeItems(nameOfRemovedItem);
     res.send(removedItem);
 });
+// app.get('/get-items-by-ascending',(req,res)=>{
+// const ascendingItems=getItems();
+// const itemsByAscendingOrder=sortByAscending(ascendingItems);
+// res.send(itemsByAscendingOrder)
+// });
+// app.get('/get-items-by-descending',(req,res)=>{
+//   const descendingItems=getItems();
+//   const itemsByDescendingOrder=sortByDescending(descendingItems);
+//   res.send(itemsByDescendingOrder);
+// })
 // app.get('/search-items',(req,res)=>{
 //   const search = req.query.searchTerm;
 //   const filtereditem = filteredItemSearch(search);
@@ -301,6 +311,16 @@ function removeItems(itemName) {
     }
     return gucci;
 }
+// function sortByAscending(price) {
+//   gucci.items.sort((a, b) => {
+//     return a.price - b.price;
+//   });
+// }
+// function sortByDescending(price) {
+//   gucci.items.sort((a, b) => {
+//     return b.price - a.price;
+//   });
+// }
 // function filteredItemSearch(search){
 //   if (search) {
 //     const regex = new RegExp(search, "i");
