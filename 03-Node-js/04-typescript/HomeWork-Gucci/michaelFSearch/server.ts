@@ -115,7 +115,7 @@ app.post('/deleteArticle', (req, res) => {
 
     });
 
-    // res.send(articles)
+    res.send(articles)
 })
 
 function filter(search) {

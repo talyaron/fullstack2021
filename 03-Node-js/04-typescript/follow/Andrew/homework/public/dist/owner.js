@@ -34,139 +34,107 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-function handleShowItems() {
-    return __awaiter(this, void 0, void 0, function () {
-        var data;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, axios.get('/get-all-data')];
-                case 1:
-                    data = (_a.sent()).data;
-                    console.log(data);
-                    return [2 /*return*/];
-            }
+console.log('owner');
+var stock = {
+    renderStock: function (items) {
+        var HTML = '';
+        items.forEach(function (item) {
+            HTML += " <div class=\"card\">\n            <p> name: " + item.name + "</p>\n            <p> price: " + item.price + "</p>\n            <img src=\"" + item.img + "\">\n            <p> group: " + item.group + "</p>\n            <p> collection: " + item.Collection + "</p>\n            <p> function: " + item["function"] + "</p>\n            <p> movement: " + item.movement + "</p>\n            <p> case: " + item["case"] + "</p>\n            <p> diameter: " + item.diameter + "</p>\n            <p> dial: " + item.dial + "</p>\n            <p> bracelet: " + item.bracelet + "</p>\n            <button onclick=\"handleDelete('" + item.id + "')\">Delete</button>\n            <button onclick=\"handleEdit('" + item.id + "')\">Edit</button>\n           </div> ";
         });
-    });
-}
-// function renderByGender() {  
-//   render(gender);
-// }
-function handleRenderByGender(data) {
-    getAllData(data);
-}
-function getAllData(gender) {
+        var rootHTML = document.getElementById('root');
+        rootHTML.innerHTML = HTML;
+    }
+};
+function handleSubmit(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var data;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, axios.get('/get-all-data')];
-                case 1:
-                    data = (_a.sent()).data;
-                    render(data);
-                    return [2 /*return*/];
-            }
-        });
-    });
-}
-function handleAddItems(ev) {
-    return __awaiter(this, void 0, void 0, function () {
-        var name, price, imgTop, imgBottom, gender, type, id, data;
+        var newItem, keys, i, data;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     ev.preventDefault();
-                    name = ev.target.name.value;
-                    price = ev.target.price.value;
-                    imgTop = ev.target[2].value;
-                    imgBottom = ev.target[3].value;
-                    gender = ev.target[4].value;
-                    type = ev.target[5].value;
-                    id = Math.random().toString(36);
-                    return [4 /*yield*/, axios.post('/add-items', { name: name, price: price, imgTop: imgTop, imgBottom: imgBottom, gender: gender, type: type, id: id })];
+                    newItem = { name: "", price: 0, img: "", group: "", Collection: "", "function": "", movement: "", "case": "", diameter: "", dial: "", bracelet: "", id: 0 };
+                    keys = Object.keys(newItem);
+                    for (i = 0; i < keys.length; i++) {
+                        newItem[keys[i]] = ev.target.elements[i].value;
+                    }
+                    return [4 /*yield*/, axios.post('/addItem', { newItem: newItem })];
                 case 1:
                     data = (_a.sent()).data;
-                    ev.target.reset();
-                    render(data);
+                    stock.renderStock(data);
                     return [2 /*return*/];
             }
         });
     });
 }
-function handleRemoveItems(ev) {
+function handleDelete(id) {
     return __awaiter(this, void 0, void 0, function () {
-        var name, data;
+        var data;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, axios["delete"]('/deleteStock', { data: { id: id } })];
+                case 1:
+                    data = (_a.sent()).data;
+                    stock.renderStock(data);
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+function handleEdit(id) {
+    return __awaiter(this, void 0, void 0, function () {
+        var form, data, EditedItem, keys, i;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    form = document.querySelector('.updateForm');
+                    form.classList.add('visableForm');
+                    return [4 /*yield*/, axios.get('/getItems')];
+                case 1:
+                    data = (_a.sent()).data;
+                    EditedItem = data.filter(function (item) { return item.id === id; })[0];
+                    console.log(EditedItem);
+                    keys = Object.keys(EditedItem);
+                    for (i = 0; i < keys.length; i++) {
+                        form[i].value = EditedItem[keys[i]];
+                    }
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+function handleUpdate(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        var updateItem, keys, i, data;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     ev.preventDefault();
-                    name = ev.target.elements.remove.value;
-                    return [4 /*yield*/, axios.post('/delete-items', { name: name })];
+                    updateItem = { name: "", price: 0, img: "", group: "", Collection: "", "function": "", movement: "", "case": "", diameter: "", dial: "", bracelet: "", id: 0 };
+                    keys = Object.keys(updateItem);
+                    for (i = 0; i < Object.keys(updateItem).length; i++) {
+                        updateItem[keys[i]] = ev.target.elements[i].value;
+                    }
+                    return [4 /*yield*/, axios.post('/updateItem', { updateItem: updateItem })];
                 case 1:
                     data = (_a.sent()).data;
-                    ev.target.reset();
-                    render(data);
+                    stock.renderStock(data);
                     return [2 /*return*/];
             }
         });
     });
 }
-function handlePriceAsc(ev) {
+function initSite() {
     return __awaiter(this, void 0, void 0, function () {
         var data;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, axios.get('/get-items-by-ascending')];
+                case 0: return [4 /*yield*/, axios.get('/getItems')];
                 case 1:
                     data = (_a.sent()).data;
-                    //const gender = ev.target.dataset.gender;
-                    render(data);
+                    stock.renderStock(data);
                     return [2 /*return*/];
             }
         });
     });
 }
-function handlePriceDesc(ev) {
-    return __awaiter(this, void 0, void 0, function () {
-        var data;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, axios.get('/get-items-by-descending')];
-                case 1:
-                    data = (_a.sent()).data;
-                    render(data);
-                    console.log(data);
-                    return [2 /*return*/];
-            }
-        });
-    });
-}
-function render(data) {
-    var root = document.getElementById('root');
-    var html = "";
-    data.items.forEach(function (item) {
-        html += "<div class=\"items\">\n      <p>" + item.name + "</p>\n      <img class=\"imgTop\" src=\"" + item.imgTop + "\" >\n      <img class=\"imgBottom\" src=\"" + item.imgBottom + "\" >\n      <p>" + item.price + "$</p>\n      <button class=\"cartButton\" onclick=\"addToCart(" + item.id + ")\">Add To Cart</button>\n      </div>";
-    });
-    root.innerHTML = html;
-}
-//category buttons
-// async function handleSearch(ev) {
-//   const searchTerm = ev.target.value;
-//   const {data} = await axios.get('/search-items',{searchTerm});  
-//     const root = document.getElementById("root");
-//     const gender = ev.target.dataset.gender;
-//     let html = "";
-//      if(Array.isArray(data)){
-//        data.forEach((item)=>{
-//          html +=`<div class="items">
-//          <p>${item.name}</p>
-//          <img class="imgTop" src="${item.imgTop}" >
-//          <img class="imgBottom" src="${item.imgBottom}" >        
-//          <p>${item.price}$</p>
-//          <button class="cartButton" onclick="addToCart(${item.id})">Add To Cart</button>
-//          </div>`;
-//        })
-//       root.innerHTML = html;
-//     } else {
-//       render(data);
-//     }
-// }
+initSite();

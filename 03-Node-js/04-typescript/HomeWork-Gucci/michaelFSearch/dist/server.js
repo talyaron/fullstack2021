@@ -105,7 +105,7 @@ app.post('/deleteArticle', (req, res) => {
     idItem.forEach(element => {
         deleteItem(element);
     });
-    // res.send(articles)
+    res.send(articles);
 });
 function filter(search) {
     if (search) {
