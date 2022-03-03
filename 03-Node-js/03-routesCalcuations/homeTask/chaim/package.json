@@ -1,5 +1,5 @@
 {
-  "name": "chaim1",
+  "name": "chaim",
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
@@ -7,11 +7,10 @@
     "start": "node server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "chaim",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.3",
-    "nodemon": "^2.0.15"
+    "express": "^4.17.3"
   },
   "description": ""
 }
