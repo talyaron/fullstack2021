@@ -313,6 +313,7 @@ app.use(express.json());
       id:25
     },
  ]
+ 
 };
 
 app.get('/get-all-data', (req, res) => {
@@ -345,6 +346,18 @@ app.post('/delete-items',(req,res)=>{
   res.send(removedItem);
 });
 
+app.get('/get-items-by-ascending',(req,res)=>{
+const ascendingItems=getItems();
+const itemsByAscendingOrder=sortByAscending(ascendingItems);
+res.send(itemsByAscendingOrder)
+});
+
+app.get('/get-items-by-descending',(req,res)=>{
+  const descendingItems=getItems();
+  const itemsByDescendingOrder=sortByDescending(descendingItems);
+  res.send(itemsByDescendingOrder);
+})
+
 // app.get('/search-items',(req,res)=>{
 
 //   const search = req.query.searchTerm;
@@ -375,6 +388,17 @@ function  removeItems(itemName: string) {
 
 }
 
+function sortByAscending(price) {
+  gucci.items.sort((a, b) => {
+    return a.price - b.price;
+  });
+}
+
+function sortByDescending(price) {
+  gucci.items.sort((a, b) => {
+    return b.price - a.price;
+  });
+}
 // function filteredItemSearch(search){
 //   if (search) {
 //     const regex = new RegExp(search, "i");

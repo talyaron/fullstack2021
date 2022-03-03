@@ -56,6 +56,17 @@ async function handleRemoveItems(ev) {
 }
 
 
+async function handlePriceAsc(ev) {
+  const {data}= await axios.get('/get-items-by-ascending');
+  //const gender = ev.target.dataset.gender;
+  render(data);
+}
+
+async function  handlePriceDesc(ev){
+  const {data}= await axios.get('/get-items-by-descending');
+  render(data);
+
+}
 
 function render(data) {
   const root=document.getElementById('root');
