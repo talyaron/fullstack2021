@@ -100,7 +100,7 @@ function handleRemoveItems(ev) {
                 case 0:
                     ev.preventDefault();
                     name = ev.target.elements.remove.value;
-                    return [4 /*yield*/, axios.put('/delete-items', { name: name })];
+                    return [4 /*yield*/, axios.post('/delete-items', { name: name })];
                 case 1:
                     data = (_a.sent()).data;
                     ev.target.reset();

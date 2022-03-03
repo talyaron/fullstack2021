@@ -277,7 +277,7 @@ app.post('/add-items', (req, res) => {
     const items = addItems(newItemName, newItemPrice, newItemImgTop, newItemImgBottom, newItemGender, newItemType, newItemId);
     res.send(items);
 });
-app.put('/delete-items', (req, res) => {
+app.post('/delete-items', (req, res) => {
     const nameOfRemovedItem = req.body.name;
     const removedItem = removeItems(nameOfRemovedItem);
     res.send(removedItem);

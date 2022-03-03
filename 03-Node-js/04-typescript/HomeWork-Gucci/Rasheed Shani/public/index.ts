@@ -48,7 +48,7 @@ async function handleRemoveItems(ev) {
   ev.preventDefault();
   
   const name = ev.target.elements.remove.value;
-  const {data}= await axios.put('/delete-items',{name})
+  const {data}= await axios.post('/delete-items',{name})
   ev.target.reset();
   render(data);
 

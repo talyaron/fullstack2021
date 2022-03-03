@@ -339,7 +339,7 @@ app.post('/add-items', (req, res) => {
   res.send(items);
 });
 
-app.put('/delete-items',(req,res)=>{
+app.post('/delete-items',(req,res)=>{
   const nameOfRemovedItem=req.body.name;
   const removedItem=removeItems(nameOfRemovedItem);
   res.send(removedItem);
