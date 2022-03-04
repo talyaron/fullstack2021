@@ -1,0 +1,117 @@
+:root {
+    background: url("https://cutewallpaper.org/21/fantasy-tavern-background/Tavern-by-AnthonyAvon-on-DeviantArt.jpg");
+    background-position: 0px 100px;
+    background-size: cover;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.header {
+    width: 100%;
+    height: 100px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    text-align: center;
+    line-height: 1rem;
+    font-size: 2rem;
+    color: goldenrod;
+    text-shadow: 2px 2px 0px black, -2px -2px 0px black, 0px 0px 10px white, 0px 0px 20px black;
+    background: url("https://aura-print.com/media/wysiwyg/Aura_Print/Media/Blog/AP_Blog_Banner_Personalised_Tarot_Cards.jpg");
+}
+
+.wrapper {
+    margin-top: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .menu {
+        margin-top: 50px;
+        height: 200px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: goldenrod;
+        background: url("https://i.pinimg.com/474x/3e/88/1a/3e881a8127a5f78bc399656f95da3d44--homemade-cards-invitation-ideas.jpg");
+        background-size: 100% 100%;
+        border-radius: 25px;
+        box-shadow: 0px 0px 10px 6px black;
+        padding-block: 80px;
+        padding-inline: 20px;
+
+        label {
+            font-size: 1.4rem;
+        }
+
+        #button {
+            margin-top: 20px;
+        }
+    }
+    .main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            perspective: 1000px;
+            .card{
+                position: relative;
+                height: 300px;
+                aspect-ratio: 0.55;
+                box-shadow: 0px 0px 10px 6px black;
+                border-radius: 10px;
+                margin: 20px;
+                transition: ease 400ms;
+                transform-style: preserve-3d;
+                &--front{
+                    background: url("https://i.imgur.com/ETlethM.jpeg");
+                }
+                &--back{
+                    background: #AAA;
+                    transform: rotateY(180deg);
+                }
+                &--front, &--back{
+                    position: absolute;
+                    background-size: cover;
+                    border-radius: inherit;
+                    height: 300px;
+                    aspect-ratio: 0.55;
+                    backface-visibility: hidden;
+                    pointer-events: none
+                }
+            }
+            .scale{
+                &:hover{
+                    transform: translateZ(50px);
+                }
+            }
+        }
+    }
+    .win{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 300px;
+        width: 400px;
+        color: goldenrod;
+        background: url("https://i.pinimg.com/474x/3e/88/1a/3e881a8127a5f78bc399656f95da3d44--homemade-cards-invitation-ideas.jpg");
+        background-size: 100% 100%;
+        border-radius: 25px;
+        box-shadow: 0px 0px 10px 6px black;
+        line-height: 3em;
+    }
+    .flipped{
+        transform: rotateY(180deg);
+        &:hover{
+            transform: translateZ(50px) rotateY(180deg);
+        }
+    }
+    .in-vis{
+        visibility: hidden;
+        position: absolute;
+        top: 0px;
+    }
+    
+}
