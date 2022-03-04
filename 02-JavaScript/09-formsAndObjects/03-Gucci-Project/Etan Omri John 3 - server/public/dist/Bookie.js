@@ -246,6 +246,7 @@ function handleSelect(ev) {
                 case 0:
                     ev.preventDefault();
                     category = ev.target.value;
+                    console.log(category);
                     _a.label = 1;
                 case 1:
                     _a.trys.push([1, 3, , 4]);

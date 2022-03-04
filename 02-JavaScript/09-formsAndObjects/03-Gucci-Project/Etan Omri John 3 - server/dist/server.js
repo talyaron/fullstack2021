@@ -213,12 +213,12 @@ app.post("/books-by-category", (req, res) => {
     if (category === "all") {
         return (bookie);
     }
-    else if (category === 'thriller') {
+    else if (category) {
         tempBooks = bookie.books.filter(book => {
-            book.category === category;
+            return book.category === category;
         });
     }
-    res.send(bookie);
+    res.send(tempBooks);
 });
 // /// Mixed work end ------------------------>
 // // Etan --------------->
