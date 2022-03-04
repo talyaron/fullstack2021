@@ -26,29 +26,29 @@ const cards = {
     deck: [],
     idKeys: [],
     picUrls: [
-        "https://i.imgur.com/Ihkz0Ky.jpeg",
-        "https://i.imgur.com/ekUCuCO.jpeg",
-        "https://i.imgur.com/sJnuj7r.jpeg",
-        "https://i.imgur.com/dBwvFJZ.jpeg",
-        "https://i.imgur.com/6y7R7dJ.jpeg",
-        "https://i.imgur.com/eX9ck5H.jpeg",
-        "https://i.imgur.com/otslb5L.jpeg",
-        "https://i.imgur.com/Qe1y4n0.jpeg",
-        "https://i.imgur.com/oV0RFkF.jpeg",
-        "https://i.imgur.com/KkSGNs5.jpeg",
-        "https://i.imgur.com/Za8RSRK.jpeg",
-        "https://i.imgur.com/kNInETD.jpeg",
-        "https://i.imgur.com/Y5QkKlG.jpeg",
-        "https://i.imgur.com/vs1Bq98.jpeg",
-        "https://i.imgur.com/zwGyrTb.jpeg",
-        "https://i.imgur.com/gA9gA0C.jpeg",
-        "https://i.imgur.com/DT7PArI.jpeg",
-        "https://i.imgur.com/t4NWx4E.jpeg",
-        "https://i.imgur.com/j5NQ94P.jpeg",
-        "https://i.imgur.com/9VgDgJe.jpeg",
-        "https://i.imgur.com/FZDEbj5.jpeg",
-        "https://i.imgur.com/0oCCX5m.jpeg",
-        "https://i.imgur.com/TH20Y5F.jpeg"
+        "https://i.imgur.com/Ihkz0Ky.jpeg", // The Fool
+        "https://i.imgur.com/0oCCX5m.jpeg", // Judgment
+        "https://i.imgur.com/TH20Y5F.jpeg", // The World
+        "https://i.imgur.com/kNInETD.jpeg", // Wheel of fortune
+        "https://i.imgur.com/j5NQ94P.jpeg", // The Tower
+        "https://i.imgur.com/gA9gA0C.jpeg", // Death
+        "https://i.imgur.com/vs1Bq98.jpeg", // The Hanged Man
+        "https://i.imgur.com/Qe1y4n0.jpeg", // The Lovers
+        "https://i.imgur.com/ekUCuCO.jpeg", // The Magician (ice)
+        "https://i.imgur.com/6y7R7dJ.jpeg", // The Empress
+        "https://i.imgur.com/eX9ck5H.jpeg", // The Emperor
+        "https://i.imgur.com/otslb5L.jpeg", // The Hierophant
+        "https://i.imgur.com/oV0RFkF.jpeg", // The Chariot
+        "https://i.imgur.com/KkSGNs5.jpeg", // Strength
+        "https://i.imgur.com/Za8RSRK.jpeg", // The Hermit
+        "https://i.imgur.com/Y5QkKlG.jpeg", // Justice 
+        "https://i.imgur.com/zwGyrTb.jpeg", // Temperance
+        "https://i.imgur.com/DT7PArI.jpeg", // The Devil
+        "https://i.imgur.com/FZDEbj5.jpeg", // The Moon
+        "https://i.imgur.com/9VgDgJe.jpeg", // The Sun
+        "https://i.imgur.com/t4NWx4E.jpeg", // The Star
+        "https://i.imgur.com/sJnuj7r.jpeg", // The Magician (fire)
+        "https://i.imgur.com/dBwvFJZ.jpeg", // The High Priestess
         // "https://i.imgur.com/ETlethM.jpeg"
     ],
     createDeck(numOfCards) {

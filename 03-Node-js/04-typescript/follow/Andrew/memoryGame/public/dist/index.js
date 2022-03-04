@@ -67,21 +67,21 @@ var gameState = {
             var data;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        console.log(this.cardsInPlay);
-                        this.moves++;
-                        return [4 /*yield*/, axios.get("/getCard?id=" + card.id)];
+                    case 0: return [4 /*yield*/, axios.get("/getCard?id=" + card.id)];
                     case 1:
                         data = (_a.sent()).data;
                         card.childNodes[3].style.backgroundImage = "url(" + data + ")";
                         card.classList.toggle('scale');
                         card.classList.toggle('flipped');
-                        if (this.twoCardsOpen)
+                        if (this.twoCardsOpen) {
                             this.resetCards();
+                        }
                         else if (!this.lastCardId) {
                             this.lastCardId = card.id;
                         }
                         else {
+                            this.moves++;
+                            console.log(this.moves);
                             this.checkPair(card.id);
                             this.lastCardId = "";
                             this.twoCardsOpen = true;
@@ -125,16 +125,21 @@ var gameState = {
     },
     checkWinCondition: function () {
         return __awaiter(this, void 0, void 0, function () {
-            var gameTime, gameTimeMin, gameTimeSec, win;
+            var gameTime, gameTimeMin_1, gameTimeSec_1;
+            var _this = this;
             return __generator(this, function (_a) {
                 if (this.cardsInPlay == 0) {
                     gameTime = performance.now() - this.time;
-                    gameTimeMin = Math.floor(gameTime / 60000);
-                    gameTimeSec = ((gameTime * 1000) % 60).toString().slice(-2);
-                    document.querySelector('.main').classList.toggle('in-vis');
-                    win = document.querySelector('.win');
-                    win.classList.toggle('in-vis');
-                    win.innerHTML = "<h2>Congratulations!</h2>\n                            <h3>You won in " + this.moves / 2 + " turns, <br>\n                            taking you " + gameTimeMin + ":" + gameTimeSec + " seconds.</h3>";
+                    gameTimeMin_1 = Math.floor(gameTime / 60000);
+                    gameTimeSec_1 = (Math.floor((gameTime / 1000) % 60)).toString();
+                    if (parseInt(gameTimeSec_1) < 10)
+                        gameTimeSec_1 = "0" + gameTimeSec_1;
+                    setTimeout(function () {
+                        document.querySelector('.main').classList.toggle('in-vis');
+                        var win = document.querySelector('.win');
+                        win.classList.toggle('in-vis');
+                        win.innerHTML = "<h2>Congratulations!</h2>\n                                <h3>You won in " + _this.moves + " turns, <br>\n                                taking you " + gameTimeMin_1 + ":" + gameTimeSec_1 + " seconds.</h3>";
+                    }, 800);
                 }
                 return [2 /*return*/];
             });
@@ -154,7 +159,6 @@ function handleForm(ev) {
                             gameState.difficulty = checkbox.value;
                     }
                     ;
-                    console.log(gameState.difficulty);
                     switch (gameState.difficulty) {
                         case "easy":
                             gameState.cardsInPlay = 8;
