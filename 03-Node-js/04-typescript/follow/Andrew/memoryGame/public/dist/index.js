@@ -148,7 +148,7 @@ var gameState = {
 };
 function handleForm(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var _i, _a, checkbox, data;
+        var _i, _a, checkbox, grid, data;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
@@ -167,7 +167,9 @@ function handleForm(ev) {
                             gameState.cardsInPlay = 12;
                             break;
                         case "hard":
-                            gameState.cardsInPlay = 16;
+                            gameState.cardsInPlay = 18;
+                            grid = document.querySelector('.cards-grid');
+                            grid.style.gridTemplateColumns = "repeat(6, 1fr)";
                             break;
                     }
                     document.querySelector('.menu').classList.toggle('in-vis');

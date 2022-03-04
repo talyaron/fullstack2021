@@ -74,7 +74,7 @@ app.post('/initGame', (req, res) => {
             cards.createDeck(12);
             break;
         case "hard":
-            cards.createDeck(16);
+            cards.createDeck(18);
             break;
     }
     const cardIds = cards.deck.map(obj => obj.id);

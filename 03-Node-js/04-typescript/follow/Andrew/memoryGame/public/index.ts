@@ -104,7 +104,9 @@ async function handleForm(ev) {
             gameState.cardsInPlay = 12;
             break;
         case "hard":
-            gameState.cardsInPlay = 16;
+            gameState.cardsInPlay = 18;
+            const grid:any = document.querySelector('.cards-grid')
+            grid.style.gridTemplateColumns = "repeat(6, 1fr)"
             break;
     }
 
