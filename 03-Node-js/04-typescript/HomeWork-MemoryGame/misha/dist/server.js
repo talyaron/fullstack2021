@@ -26,8 +26,8 @@ const cards = [
     { name: 'Avril Lavigne', url: 'https://i.pinimg.com/originals/63/07/78/6307783e8b8068692c84a4e276aedf8f.jpg' },
     { name: 'Avril Lavigne', url: 'https://i.pinimg.com/originals/63/07/78/6307783e8b8068692c84a4e276aedf8f.jpg' },
 ];
-app.get('/', (req, res) => {
-    res.send('Hello World!');
+app.get('/get-cards', (req, res) => {
+    res.send(cards);
 });
 app.listen(port, () => {
     return console.log(`Express is listening at http://localhost:${port}`);

@@ -25,8 +25,8 @@ const cards = [
 ]
 
 
-app.get('/', (req, res) => {
-  res.send('Hello World!');
+app.get('/get-cards', (req, res) => {
+  res.send(cards);
 });
 
 app.listen(port, () => {
