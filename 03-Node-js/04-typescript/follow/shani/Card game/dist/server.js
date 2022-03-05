@@ -18,7 +18,7 @@ const cards = [
     { name: "Dobby", imgUrl: "" },
     { name: "Rubeus Hagrid", imgUrl: "" },
 ];
-app.get('/', (req, res) => {
+app.get('/new-game', (req, res) => {
     res.send('Hello World!');
 });
 app.listen(port, () => {
