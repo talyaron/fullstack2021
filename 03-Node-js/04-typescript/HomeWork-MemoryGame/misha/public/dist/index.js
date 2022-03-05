@@ -38,15 +38,19 @@ function log(log) {
     console.log(log);
     console.dir(log);
 }
+function getRootElement() {
+    var rootHTML = document.querySelector(".root");
+    return rootHTML;
+}
 function getCards() {
     return __awaiter(this, void 0, void 0, function () {
-        var cards;
+        var data;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0: return [4 /*yield*/, axios.get('/get-cards')];
                 case 1:
-                    cards = (_a.sent()).cards;
-                    log(cards);
+                    data = (_a.sent()).data;
+                    renderCards(data);
                     return [2 /*return*/];
             }
         });
@@ -54,8 +58,29 @@ function getCards() {
 }
 function handleStart() {
     var startButton = document.querySelector(".startButton");
-    var rootHTML = document.querySelector(".root");
+    var rootHTML = getRootElement();
     startButton.style.display = 'none';
-    rootHTML.style.display = 'grid';
+    rootHTML.style.display = 'flex';
     getCards();
+}
+function renderCards(cards) {
+    for (var i = 0; i < cards.length; i++) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = cards[i];
+        cards[i] = cards[j];
+        cards[j] = temp;
+    }
+    var rootHTML = getRootElement();
+    var html = '<section class="cardsgrid">';
+    var uniqueId = function () {
+        return Date.now().toString(36) + Math.random().toString(36).substr(2);
+    };
+    cards.forEach(function (card) {
+        html += "<div class=\"card\" onclick=\"handleCardClick(event)\" id=\"" + uniqueId + "\">\n\n        <div class=\"card--front\">\n          <div class=\"img\" style=\"background:url(" + card.url + "); background-size:cover; background-position:center;\"></div>\n          <div class=\"card__footer\">" + card.name + "</div>\n        </div>\n\n        <div class=\"card--back\">\n        ?\n        </div>\n\n        </div>";
+    });
+    html += '</section>';
+    rootHTML.innerHTML = html;
+}
+function handleCardClick(ev) {
+    log(ev.path[1].id);
 }

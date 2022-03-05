@@ -9,12 +9,12 @@ const port = 3000;
 app.use(express_1.default.static("public"));
 app.use(express_1.default.json());
 const cards = [
-    { name: 'Kurt Cubain', url: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Flyricstranslate.com%2Fen%2Fkurt-cobain-lyrics.html&psig=AOvVaw34wOUsYeBs0NHVyzu7dmp2&ust=1646560020761000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCPDZl5_YrvYCFQAAAAAdAAAAABAO' },
-    { name: 'Kurt Cubain', url: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Flyricstranslate.com%2Fen%2Fkurt-cobain-lyrics.html&psig=AOvVaw34wOUsYeBs0NHVyzu7dmp2&ust=1646560020761000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCPDZl5_YrvYCFQAAAAAdAAAAABAO' },
+    { name: 'Kurt Cubain', url: 'https://api.time.com/wp-content/uploads/2014/03/3220062.jpg' },
+    { name: 'Kurt Cubain', url: 'https://api.time.com/wp-content/uploads/2014/03/3220062.jpg' },
     { name: 'Janis Joplin', url: 'https://static.wixstatic.com/media/3655b5_131d8f0442c643f683fb57b36a2da944~mv2.jpg/v1/fill/w_635,h_617,al_c,q_90/3655b5_131d8f0442c643f683fb57b36a2da944~mv2.jpg' },
     { name: 'Janis Joplin', url: 'https://static.wixstatic.com/media/3655b5_131d8f0442c643f683fb57b36a2da944~mv2.jpg/v1/fill/w_635,h_617,al_c,q_90/3655b5_131d8f0442c643f683fb57b36a2da944~mv2.jpg' },
-    { name: 'Amy Winehouse', url: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fsoundcloud.com%2Fsaraab-berlin%2Famy-winehouse-back-to-black-saraabb-remix&psig=AOvVaw0cfIpk63bkqJR-_wTwbECp&ust=1646560629296000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCKj8vMParvYCFQAAAAAdAAAAABAP' },
-    { name: 'Amy Winehouse', url: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fsoundcloud.com%2Fsaraab-berlin%2Famy-winehouse-back-to-black-saraabb-remix&psig=AOvVaw0cfIpk63bkqJR-_wTwbECp&ust=1646560629296000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCKj8vMParvYCFQAAAAAdAAAAABAP' },
+    { name: 'Amy Winehouse', url: 'https://cdn.artphotolimited.com/images/60229b05bd40b857475a9987/1000x1000/amy-winehouse-9.jpg' },
+    { name: 'Amy Winehouse', url: 'https://cdn.artphotolimited.com/images/60229b05bd40b857475a9987/1000x1000/amy-winehouse-9.jpg' },
     { name: 'Jim Morrison', url: 'https://rockcelebrities.net/wp-content/uploads/2021/06/jim-morrison-3-1200x900.jpg' },
     { name: 'Jim Morrison', url: 'https://rockcelebrities.net/wp-content/uploads/2021/06/jim-morrison-3-1200x900.jpg' },
     { name: 'Jimi Hendrix', url: 'https://i.guim.co.uk/img/media/bdcb6fedd21de7122fb541b95749b4543254035a/0_204_2572_1543/master/2572.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=11aeffd16b0d57ac0dda0cfb4cd22bf9' },
