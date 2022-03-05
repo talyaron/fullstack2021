@@ -1,0 +1,107 @@
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #f882f8;
+}
+body h1 {
+  font-family: "Mochiy Pop P One", sans-serif;
+  text-align: center;
+  color: #5f065f;
+}
+body form {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+body form input {
+  border-radius: 5px;
+  color: #091fe2;
+  background-color: transparent;
+  border: 1px solid #091fe2;
+}
+body form input::-webkit-input-placeholder {
+  font-family: "Sedgwick Ave", cursive;
+  color: #091fe2;
+  opacity: 1;
+  background-color: transparent;
+}
+body form select {
+  border: 1px solid #091fe2;
+  border-radius: 5px;
+  background: transparent;
+}
+body form select option {
+  font-family: "Sedgwick Ave", cursive;
+  color: #091fe2;
+  background: transparent !important;
+  border-radius: 0 0 5px 5px;
+}
+body form button {
+  border-radius: 5px;
+  color: #091fe2;
+  border: 1px solid #091fe2;
+  background-color: transparent;
+  font-family: "Sedgwick Ave", cursive;
+}
+body .button {
+  display: flex;
+  gap: 10px;
+  padding-top: 10px;
+  text-align: center;
+  justify-content: center;
+}
+body .button button {
+  border-radius: 5px;
+  color: #091fe2;
+  border: 1px solid #091fe2;
+  background-color: transparent;
+  font-family: "Sedgwick Ave", cursive;
+}
+body .filter {
+  padding: 10px 0 50px 0;
+  display: flex;
+  justify-content: center;
+}
+body .filter input {
+  border: 1px solid #091fe2;
+  border-radius: 5px;
+  color: #091fe2;
+  background-color: transparent;
+}
+body .filter input::placeholder {
+  font-family: "Sedgwick Ave", cursive;
+  color: #091fe2;
+  opacity: 1;
+  background-color: transparent;
+}
+body .background {
+  border-radius: 15px;
+  border: 5px solid #e7bf3c;
+  width: 50%;
+  margin: auto;
+}
+body .background #rootZap {
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  gap: 10px;
+}
+body .background #rootZap .card {
+  margin-bottom: 10px;
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: auto;
+}
+body .background #rootZap .card > * {
+  margin-left: 20px;
+}
+body .background #rootZap .card button {
+  border-radius: 5px;
+  color: #091fe2;
+  border: 1px solid #091fe2;
+  background-color: transparent;
+  font-family: "Sedgwick Ave", cursive;
+}

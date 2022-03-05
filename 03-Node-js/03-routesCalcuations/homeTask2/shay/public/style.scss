@@ -1,0 +1,98 @@
+body {
+    background-color: antiquewhite;
+    font-family: 'Roboto', sans-serif;
+    color: #4d345e;
+
+    h1 {
+        text-align: center;
+        color: #4d345e;
+    }
+
+    .search {
+        justify-content: center;
+        padding: 20px 0px;
+        text-align: center;
+        display: flex;
+        gap: 10px;
+        .rangeslider {
+            width: 50%;
+
+            .myslider {
+                -webkit-appearance: none;
+                background-color: transparent;
+                border: 2px solid rgb(245, 166, 62);
+
+                width: 60%;
+                height: 20px;
+                opacity: 2;
+                border-radius: 10px;
+            }
+
+            .myslider:hover {
+                opacity: 1;
+            }
+
+            .myslider::-webkit-slider-thumb {
+                -webkit-appearance: none;
+                cursor: pointer;
+                background: #4d345e;
+                width: 20px;
+                height: 20px;
+                border-radius: 10px;
+            }
+        }
+
+        input[type="text"] {
+            height: 5%;
+            border-radius: 25px;
+            width: 30%;
+            height: 20%;
+            border: 2px solid rgb(245, 166, 62);
+            background-color: transparent;
+            &::placeholder {
+                color: #4d345e;
+            }
+        }
+        select{
+            border-radius: 25px;
+            background-color: transparent;
+            border: 2px solid rgb(245, 166, 62);
+           color: #4d345e;
+           width: 100px;
+           height: 25px;
+        
+          
+        }
+    }
+
+    .rootSearch {
+        width: 100%;
+        display: grid;
+        gap: 5px;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        justify-content: center;
+
+        &__articaleShow {
+            text-align: center;
+            width: 350px;
+            margin: auto;
+            img{
+                width: 200px;
+                height: 300px;
+
+            }
+            h6 {
+                text-align: center;
+                font-size: 16px;
+                word-wrap: break-word;
+                line-height: 150%;
+            }
+
+            p {
+                font-size: 14px;
+            }
+        }
+    }
+
+}

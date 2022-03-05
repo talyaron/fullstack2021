@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google</title>
+    <link rel="stylesheet" href="./dist/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.0/axios.min.js"
+        integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://kit.fontawesome.com/e375e04e9b.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body dir="rtl">
+    <div class="wrapper">
+        <img class="google-img"
+            src="https://www.google.co.il/images/branding/googlelogo/2x/googlelogo_color_160x56dp.png" alt="Google">
+        <div class="search">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-ZV_3-jHW7xikVCzNb0iUXBVEQDj5WaRVmYQp-3QhbJ9FjkwY27W-_Qe897Vw6BG-L8o&usqp=CAU"
+                alt="">
+            <input type="search" name="" id="google" placeholder="אפשר לחפש ב-Google או להקליד כתובת אתר"
+                onkeyup="handleSearch(event)">
+            <img src="./colorful-microphone-icon-vector-6358451.jpg" alt="">
+        </div>
+        <div id="root"></div>
+    </div>
+    <script src="./dist/index.js"></script>
+</body>
+
+</html>

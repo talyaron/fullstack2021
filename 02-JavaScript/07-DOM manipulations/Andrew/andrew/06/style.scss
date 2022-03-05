@@ -1,0 +1,84 @@
+h1 {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 5rem;
+    color: white;
+    text-shadow: 0px 0px 10px black, 0px 0px 25px violet;
+    transform: translateY(50px);
+    white-space: nowrap;
+}
+
+#background {
+    background-image: url("https://media.istockphoto.com/vectors/bright-starry-background-vector-id1082356116?k=20&m=1082356116&s=170667a&w=0&h=mZlTNE92TqdWp0V2yVL8xElNYYz1hHbn75qBw0oWYao=");
+    width: 800px;
+    height: 300px;
+    background-size: 100% 100%;
+    position: relative;
+    overflow: hidden;
+
+    #first-text {
+        opacity: 0;
+        line-height: 190px;
+        animation: ease move-up 2s forwards;
+    }
+
+    #box {
+        width: 0px;
+        aspect-ratio: 1;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        background-clip: content-box;
+        background-color: black;
+        border-radius: 50%;
+        overflow: hidden;
+        animation: ease grow 2s 2s forwards;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        #second-text {
+            margin-top: -60px;
+        }
+
+        img {
+            position: absolute;
+            animation: ease drift 2s 2s forwards;
+            width: 1500px;
+        }
+    }
+}
+
+@keyframes grow {
+    to {
+        width: 1000px;
+        top: calc(50% - 500px);
+        left: calc(50% - 500px);
+    }
+}
+
+@keyframes move-up {
+    50% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-50px);
+    }
+}
+
+@keyframes drift {
+    to {
+        width: 1000px;
+    }
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+    background-color: #777;
+}

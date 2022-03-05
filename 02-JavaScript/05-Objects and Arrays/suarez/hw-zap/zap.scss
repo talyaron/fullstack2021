@@ -1,0 +1,91 @@
+
+* {
+    font-family: 'Outfit', sans-serif;
+    ;
+    font-size: 1.2rem;
+
+}
+
+body {
+    background: rgba(2, 2, 104, 0.315);
+
+    .sort {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 10px;
+
+        button, input {
+            border-radius: 5px;
+            border: solid 2px rgba(185, 4, 4, 0.555);
+
+        }
+    }
+
+    form {
+        padding: 50px;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        
+        input {
+            border: solid 2px rgba(185, 4, 4, 0.555);
+            border-radius: 5px;
+        }
+    }
+    select{
+        border: solid 2px rgba(185, 4, 4, 0.555);
+        border-radius: 5px;
+    }
+    ul {
+        display: flex;
+        justify-content: space-around;
+        li {
+            height: 100%;
+            border-radius: 5px;
+            background: white;
+            list-style-type: none;
+            i{
+                padding-left: 5px;
+                cursor: pointer;
+                &:hover{
+                    color: rgba(185, 4, 4, 0.555);
+                }
+            }
+        }
+    }
+}
+
+#nav{
+ ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color: rgba(185, 4, 4, 0.555);
+
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  li a:hover:not(.active) {
+    background-color: #111;
+  }
+  
+  .active {
+    background-color: #180000;
+  }
+}

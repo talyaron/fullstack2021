@@ -1,0 +1,9 @@
+.item{
+    display: flex;
+    background-color: wheat;
+    margin-bottom: 10px;
+    width: fit-content;
+    >*{
+        margin-left: 20px;
+    }
+}

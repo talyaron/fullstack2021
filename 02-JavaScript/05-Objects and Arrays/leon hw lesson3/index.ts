@@ -10,7 +10,7 @@ const myHome: any = {
     books: [],
     clothes: [],
     movies: [],
-    addItems: function () {
+    addItems: function() {
         this.books.push({ name: `harry potter`, year: `1923` }, { name: `god of war` }),
             this.clothes.push({ name: `jeans` }, { name: `shirt` })
         this.movies.push({ name: `name:fast and furious` }, { name: `the saw` })

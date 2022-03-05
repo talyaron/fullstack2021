@@ -1,0 +1,26 @@
+body {
+  background-color: #ff679a;
+}
+body #rootFilter {
+  padding-top: 20px;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  align-items: center;
+}
+body .rootFilter__card {
+  display: flex;
+  flex-direction: column;
+}
+body .rootFilter__card img {
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+body .rootFilter__card .nameYear p {
+  font-size: 20px;
+  text-align: center;
+  color: #2c0155;
+}

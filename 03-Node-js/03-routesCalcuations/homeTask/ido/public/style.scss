@@ -1,0 +1,58 @@
+.main{
+    height: 95vh;
+    width: 100%;
+    border: 1px solid rgb(34, 33, 33);
+    background-color: rgb(81, 81, 85);
+
+    &_head {
+        font-size: 30px;
+        text-align: center;
+    }
+    &_form{
+        background-image: url();
+        margin: auto;
+        display:grid;
+        grid-template-columns: repeat(5 , 20%);
+        grid-template-rows: repeat(2 , 50%);
+        width: 70%;
+        height: 30%;
+
+        &-btns{
+            width: 70%;
+            height: 70%;
+            border-radius: 15px;
+            border: 2px black;
+            box-shadow: transparentize($color: #994545, $amount: 0.5);
+        }
+    }
+    &_display{
+        width: 100%;
+        height: 60%;
+        border: 1px solid rgb(49, 49, 49);
+        background-color: rgb(81, 81, 85);
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        display: flex;
+        flex-direction: column;
+
+        &-national{
+            justify-self: flex-end;
+            font-size: 25px;
+            color: antiquewhite;
+            max-width: 20ch;
+        }
+
+        &_playerName{
+            justify-self: flex-start;
+            font-size: 20px;
+            color: antiquewhite;
+        }
+        &-year{
+            justify-self: flex-end;
+            font-size: 20px;
+            color: antiquewhite;
+            max-width: 40ch;
+        }
+    }
+}

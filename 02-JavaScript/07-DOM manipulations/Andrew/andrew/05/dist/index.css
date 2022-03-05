@@ -59,6 +59,7 @@ form #submit {
 #output .item {
   display: flex;
   justify-content: space-around;
+  align-items: center;
   border: 1px solid black;
   margin: 20px;
   border-radius: 10px;
@@ -69,4 +70,13 @@ form #submit {
 #output .item:hover {
   transform: scale(1.1) rotateY(0deg);
   margin: 40px;
+}
+#output .item button {
+  height: 40px;
+  background-color: #AAA;
+  border-radius: 5px;
+}
+
+button:hover {
+  cursor: pointer;
 }

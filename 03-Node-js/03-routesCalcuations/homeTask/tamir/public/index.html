@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="dist/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.0/axios.min.js"
+        integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <select onchange="handleselect(event)" id="sel">
+        <option disabled selected value="">select view</option>
+        <option value="desert">desert</option>
+        <option value="sea">sea</option>
+        <option value="mountains">mountains</option>
+    </select>
+    <p class="img"><img src="https://pngimg.com/uploads/window/window_PNG17699.png" alt=""></p>
+    <div id="root"></div>
+    <div class="slider">
+        <p class="slider__p">Choose the year you want to visit</p>
+        <input type="range" min="1990" max="2005" value="1990" oninput="rangeValue.innerText=this.value" onchange="handlechenge(event)">
+        <p id="rangeValue">1990</p>
+    </div>
+
+    <script src="dist/index.js"></script>
+</body>
+
+</html>

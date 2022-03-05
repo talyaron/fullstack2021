@@ -1,27 +1,12 @@
-;
-var fullStackClass = {
-    lessons: [{
-            title: "Object-advanced",
-            grades: []
-        }],
-    NewObj: function (newTitle, newStudents) {
-        this.lessons.push({ title: newTitle, grades: [{}] });
-        for (var j in newStudents) {
-            this.lessons[this.lessons.length - 1].grades[j] = { name: newStudents[j], grade: GetRandomGrade(100, 40) };
-        }
+var myHome = {
+    books: [
+        { name: 'the 5 second rule', author: 'mel robbins' }, { name: 'The Monk Who Sold His Ferrari', author: 'Robin Sharma' }
+    ],
+    clothes: [{ item: 't-shirt', brand: 'castro' }, { item: 'swedder', brand: 'adidas' }],
+    movies: [{ name: 'dont mess with the zohan', category: 'comedy' }],
+    addBook: function (name, author) {
+        this.books.foreach(function (book) {
+        });
     }
 };
-fullStackClass.NewObj();
-var students = ['moshe', 'shron', 'miriam', 'dan', 'levi'];
-function GetRandomGrade(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-function NewGrades(ClassName, nameStudents) {
-    for (var i in nameStudents) {
-        ClassName.lessons[0].grades[i] = { name: nameStudents[i], grade: GetRandomGrade(40, 100)
-        };
-    }
-}
-NewGrades(fullStackClass, students);
-console.log(fullStackClass);
-fullStackClass.NewObj("History", students);
+console.log(myHome);

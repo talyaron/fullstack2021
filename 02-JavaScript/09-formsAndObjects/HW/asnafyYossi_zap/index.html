@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="dist/style.css">
+    <title>ZAP</title>
+</head>
+
+<body>
+    <div class="header">
+        <div>
+            <img src="logo.png" alt="">
+        </div>
+        <div class="navBar">
+            <a href=""> home </a>
+            <a href=""> all products </a>
+            <a href=""> categories </a>
+            <a href=""> on sale! </a>
+            <a href=""> support </a>
+            <a href=""> sign-in </a>
+            <a href=""> log-in </a>
+        </div>
+    </div>
+    <hr>
+
+    <div class="wrapperForms">
+        <div>
+            <form id="formAdd" onsubmit='handleaddItems(event)'>
+                <select name="select" id="select">
+                    <option>select</option>
+                    <option>electronics</option>
+                    <option>fashion</option>
+                    <option>games</option>
+                </select>
+                <input type="text" name="title" placeholder="Item name" required>
+                <input type='number' name="price" placeholder="Price of item" required>
+                <textarea id="textarea" maxlength="80" name="description" rows="4" cols="50"
+                    placeholder="Item description (max 80 charecters)"></textarea>
+                <input id="addBtn" type="submit" value="ADD ITEM">
+                <hr>
+            </form>
+        </div>
+        <div>
+            <form onsubmit="handleremoveItems(event)">
+                <input type="text" name="remove" id="remove" placeholder="Enter item to remove">
+                <input id="removeBtn" type="submit" value="REMOVE ITEM">
+                <hr>
+            </form>
+        </div>
+
+        <div class="maxPrice">
+            <input onkeyup="handleFilter(event)" type="number" id="filter_price" name="filter_price"
+                placeholder="Enter your max price !">
+        </div>
+        <br><br>
+        <div class="sortBtns">
+            <button onclick="handlesortItemsDesc(event)" name="desc" value="desc"><span
+                    style="color: rgb(101, 151, 0);"> Lower price first</span></button>
+            <button onclick="handlesortItemsAsc(event)" name="asc" value="asc"><span style="color: rgb(221, 0, 11);">
+                    Higher price first</span></button>
+        </div>
+    </div>
+    
+    <br>
+    <br>
+    <hr>
+    <div id="rootItems"></div>
+    <hr>
+    <script src="dist/index.js"></script>
+</body>
+
+</html>

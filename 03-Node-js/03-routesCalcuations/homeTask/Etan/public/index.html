@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.0/axios.min.js"
+        integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="./dist/style.css">
+</head>
+
+<body>
+    <label for="places">Choose a location</label>
+    <select onchange="handleLocation(event)" name="places" id="places">
+        <option selected disabled></option>
+        <option value="Israel">Israel</option>
+        <option value="New York">New York</option>
+        <option value="Las Vegas">Las Vegas</option>
+        <option value="New Orleans">New Orleans</option>
+        <option value="Singapore">Singapore</option>
+        <option value="Thailand">Thailand</option>
+        <option value="Japan">Japan</option>
+        <option value="The Netherlands">The Netherlands</option>
+        <option value="France">France</option>
+    </select>
+    <div id="flex">
+       
+    </div>
+</body>
+<script src="./dist/script.js"></script>
+
+</html>

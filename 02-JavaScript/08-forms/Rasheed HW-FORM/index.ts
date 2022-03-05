@@ -15,10 +15,11 @@ function cardDisplay(ev) {
     const inGender = (<HTMLInputElement>document.getElementById("inGender")).value;
     const inNumber = (<HTMLInputElement>document.getElementById("inNumber")).value;
 
-    tById("birth");
+    
     const gender = document.getElementById("gender");
-    const telephone = document.getElementById("telephone")const name = document.getElementById("name");
-    const birth = document.getElemen;
+    const telephone = document.getElementById("telephone")
+    const name = document.getElementById("name");
+    const birth = document.getElementById("birth");;
 
     name.innerHTML = inNameFirst, inNameLast;
     birth.innerHTML = inBirth;

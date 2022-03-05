@@ -67,18 +67,28 @@ header {
   //   color: #385170;
   // }
   #card {
-    height: 30vh;
-    width: 15vw;
+    min-height: 20rem;
+    width: 15rem;
     display: grid;
     overflow-x: hidden;
+    grid-auto-columns: 45% 45% 10%;
     grid-template-areas: 
-    'n n'
-    'd fd'
-    'p sp';
+    'n n x'
+    'd fd fd'
+    'p sp sp';
     color: #9fd3c777;
     background: #353535;
     padding: 0.5rem;
     font-size: 1.2em;
+    i{
+      grid-area: x;
+      align-self: center;
+      &:hover{
+        color: #9fd3c7;
+        cursor: pointer;
+
+      }
+    }
     h1{
       font-size: 1.5em;
       grid-area: n;

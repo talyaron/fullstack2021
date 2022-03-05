@@ -1,0 +1,10 @@
+img{
+    height: 300px;
+    width: auto;
+}
+#range{
+    cursor:grab;
+    &:active{
+        cursor: grabbing;
+    }
+}

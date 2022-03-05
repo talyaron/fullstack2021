@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.0/axios.js"
+        integrity="sha512-MNW6IbpNuZZ2VH9ngFhzh6cUt8L/0rSVa60F8L22K1H72ro4Ki3M/816eSDLnhICu7vwH/+/yb8oB3BtBLhMsA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+    <script src="dist/index.js" defer></script>
+    <link rel="stylesheet" href="dist/style.css">
+</head>
+
+<body>
+    <div id="header">
+        <h1>Bike Gallery</h1>
+        <div id="header__filter">
+            <label for="search">Search:</label>
+            <input type="search" id="search" onkeyup="handleSearch(event)">
+            <label for="bikesType">Type:</label>
+            <select name="bikes" id="bikesType" onchange="handleSelector(event)">
+                <option selected disabled value="select">Select Type</option>
+                <option value="dirt jump">Dirt Jumper</option>
+                <option value="enduro">Enduro</option>
+                <option value="gravel">Gravel</option>
+                <option value="TT">Time Trial</option>
+                <option value="all">All Bikes</option>
+            </select>
+            <label for="price">Price:</label>
+            <input type="range" id="price" name="price" max="13500" min="0" value="13500" step="100"
+                onchange="handleRange(event)">
+            <label for="" id="price-show"></label>
+        </div>
+    </div>
+    <div id="main"></div>
+    <img src="" alt="">
+</body>
+
+</html>

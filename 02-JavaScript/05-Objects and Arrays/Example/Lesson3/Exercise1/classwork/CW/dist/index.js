@@ -1,5 +1,6 @@
 var moviesList = {
-    movies: [{
+    movies: [
+        {
             title: "Looper",
             avarageScore: 7.5,
             price: 10

@@ -1,40 +1,47 @@
 interface zap {
-    items: Array<{ description: string, price: number}>;
+    items: Array<{ description: string, price: number, tel: number }>;
     renderzap?: any
     handlefilter?: any
-    sortzapasc?:any
-    sortzapdesc?:any
+    sortzapasc?: any
+    sortzapdesc?: any
+    pop?: any
+    update:string
 }
 
-const form: zap = {
-    items: [],
 
+const form: any = {
+    items: [],
+    addItem(description, price, tel) {
+        this.items.push({ description, price, tel });
+
+
+        this.items.pop({ description, price, tel });
+
+    },
+ 
     renderzap(array) {
-        let HTML = '';
+        let HTML = ''
         array.forEach(item => {
             HTML += `<li><p>The ${item.description} costs: ${item.price}$</p></li>`
         });
         document.getElementById(`rootList`).innerHTML = HTML
     },
-    sortzapasc() {
-        this.items.sort((a, b) => a.price - b.price)
-    },
-    sortzapdesc() {
-        this.items.sort((a, b) => b.price - a.price)
-    },
-    handlefilter(maxPrice) {
-        if (maxPrice == "") {
-            this.renderList(this.items);
-            return;
+
+
+    handlefilter() {
+        if (this.items.price >= 5000) {
+            console.log(this.item.price);
+            document.write(this.item.price)
         }
-        let newFilter = this.items.filter(item => item.price <= (maxPrice))
+
+        let newFilter = this.items.filter(item => item.price <= (item.Price))
         form.renderzap(newFilter);
         console.log(newFilter)
 
-    },
-
+    }
 }
 form.renderzap(form.items)
+
 
 
 function handleSubmit(ev) {
@@ -43,7 +50,7 @@ function handleSubmit(ev) {
     const description = ev.target.elements.description.value;
     const price = ev.target.elements.price.valueAsNumber;
 
-    form.items.push({ description, price});
+    form.items.push({ description, price });
     form.renderzap(form.items)
     ev.target.reset();
 

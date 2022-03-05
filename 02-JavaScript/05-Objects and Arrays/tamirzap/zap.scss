@@ -1,40 +1,76 @@
-.zap{
-    text-align: center;
+*{
+    width: 80%;
+}
+.zap {
     display: flex;
+    position: relative;
+    left:48%;
     gap: 2px;
-    margin-left: 45%;
+    p{
+        font-size: 1.5em;
+    }
+    
     font-size: 4em;
-    &__p1{
+
+    &__p1 {
         color: green;
     }
-    &__p2{
+
+    &__p2 {
         color: red;
     }
-    &__p3{
+
+    &__p3 {
         color: rgb(0, 26, 255);
     }
 }
-.card{
+
+
+
+.card {
     display: block;
-    border:2px solid black;
+    border: 2px solid black;
     width: 27.1%;
-    margin-left: 35%;
+    position: relative;
+    left:80%;
     margin-top: 10px;
-    background-color: gray;
+    background-color: rgb(245, 245, 245);
     text-align: center;
-    justify-content: space-between;
-    border-radius: 10px;
-    &__span2{
-      padding-right: 65px;
+    border-radius: 5px;
+    padding: 3px;
+    box-shadow: 0px 5px 10px black;
+
+    h3{
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        margin-left: auto;
+        margin-right: auto;
+        
     }
-   
+
 }
+
 .form{
-    margin-left: 35%;
-}
-.sort{
     display: flex;
-    gap: 58px;
-    margin-left: 35%;
+    position: relative;
+    left:50%;
+    width: 50%;
+    gap: 5px;
+    padding-top: 5px;
+}
+.form2{
+    display: flex;
+    position: relative;
+    left:50%;
+    width: 50%;
+    gap: 5px;
+    padding-top: 5px;
+}
+
+.sort {
+    display: flex;
+    position: relative;
+    left:50%;
+    width: 52.6%;
+    gap: 5px;
     padding-top: 5px;
 }

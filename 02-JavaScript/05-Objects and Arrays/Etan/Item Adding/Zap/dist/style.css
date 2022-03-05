@@ -55,15 +55,24 @@ header #filters {
   align-items: flex-start;
 }
 #totalContainer #card {
-  height: 30vh;
-  width: 15vw;
+  min-height: 20rem;
+  width: 15rem;
   display: grid;
   overflow-x: hidden;
-  grid-template-areas: "n n" "d fd" "p sp";
+  grid-auto-columns: 45% 45% 10%;
+  grid-template-areas: "n n x" "d fd fd" "p sp sp";
   color: #9fd3c777;
   background: #353535;
   padding: 0.5rem;
   font-size: 1.2em;
+}
+#totalContainer #card i {
+  grid-area: x;
+  align-self: center;
+}
+#totalContainer #card i:hover {
+  color: #9fd3c7;
+  cursor: pointer;
 }
 #totalContainer #card h1 {
   font-size: 1.5em;

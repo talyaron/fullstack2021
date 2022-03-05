@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="dist/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Sedgwick+Ave&display=swap" rel="stylesheet">    <title>Document</title>
+</head>
+<body>
+   <h1>My Zap Shop</h1>
+    <form onsubmit="handlePriceChange(event)"">
+         <select name="" id="" onchange='handleSelect(event)'>
+        <option value="" disabled selected>Choose a type</option>
+        <option value="all">Show all</option>
+        <option value="computer">Computers</option>
+        <option value="games">Games</option>
+        <option value="movie">Movie or Tv</option>
+    </select>
+        <input type="text" name="title" id="" placeholder="enter the title">
+        <input type="number" name="price" id="" placeholder="enter price">
+        <input type="text" name="type" id="" placeholder="enter the type">
+        <button type="submit" onkclick="addItem()">send</button>
+  
+    </form>
+    <div class="button">
+        <button type="submit" onclick="handleAsc(event)" id="asc">sort ASC</button>
+    <button type="submit" onclick="handleDesc(event)" id="desc">sort DESC</button>
+   </div>
+  <div class="filter">
+     <input type="number" name="filter" onkeyup="handleFilter(event)" placeholder="enter max price" >
+ </div>
+<div class="background">
+<div id="rootZap" ></div></div>
+    <script src="dist/index.js"></script>
+</body>
+</html>
