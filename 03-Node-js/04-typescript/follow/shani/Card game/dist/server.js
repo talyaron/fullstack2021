@@ -19,7 +19,7 @@ const cards = [
     { name: "Rubeus Hagrid", imgUrl: "" },
 ];
 app.get("/new-game", (req, res) => {
-    res.send(cards);
+    res.send("hello world");
 });
 app.listen(port, () => {
     return console.log(`Express is listening at http://localhost:${port}`);

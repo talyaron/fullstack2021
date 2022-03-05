@@ -17,7 +17,7 @@ const cards=[
 ]
 
 app.get("/new-game", (req, res) => {
-  res.send(cards);
+  res.send("hello world");
   
 });
 
