@@ -37,8 +37,24 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 var game = {
     getNewGame: function () {
         return __awaiter(this, void 0, void 0, function () {
+            var data, err_1;
             return __generator(this, function (_a) {
-                return [2 /*return*/];
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        return [4 /*yield*/, axios.get("/new-game")];
+                    case 1:
+                        data = (_a.sent()).data;
+                        console.log(data);
+                        if (Array.isArray(data))
+                            return [2 /*return*/, data];
+                        throw new Error("data is not an array");
+                    case 2:
+                        err_1 = _a.sent();
+                        console.error(err_1);
+                        return [2 /*return*/, []];
+                    case 3: return [2 /*return*/];
+                }
             });
         });
     }
