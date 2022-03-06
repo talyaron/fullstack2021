@@ -8,11 +8,12 @@
     <link rel="stylesheet" href="dist/style.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
-<body>
+<body onload="appInit()">
     <div class="title"> Welcome Muggle</div>
 
     <div><button onclick="handleNewGame(ev)">Begin</button></div>
-
+    
+    <div id="root"></div>
 
     <script src="dist/index.js"></script>
 </body>
