@@ -1,0 +1,11 @@
+#root{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+
+    img{
+        width: 100%;
+        height: auto;
+        padding-top: .5rem;
+    }
+}
