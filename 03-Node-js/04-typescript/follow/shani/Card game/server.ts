@@ -14,10 +14,10 @@ const cards=[
     {name:"Albus Dumbledore",imgUrl:""},
     {name:"Dobby",imgUrl:""},
     {name:"Rubeus Hagrid",imgUrl:""},
-]
+];
 
 app.get("/new-game", (req, res) => {
-  res.send("hello world");
+  res.send(cards);
   
 });
 
