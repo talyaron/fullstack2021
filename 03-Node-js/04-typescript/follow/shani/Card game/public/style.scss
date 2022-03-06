@@ -1,13 +1,66 @@
+@import url('http://fonts.cdnfonts.com/css/harry-potter');
+
 body{
-    background-image: url("https://thumbs.gfycat.com/HardHoarseBarasinga-size_restricted.gif");
-    background-position: center;
+    
+    
+    //background-image: url("https://thumbs.gfycat.com/HardHoarseBarasinga-size_restricted.gif");
     background-repeat: no-repeat;
     background-size: cover;
+    font-family: 'Harry Potter', sans-serif;
+    //box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
 
 .title{
+   // display:none;
+    
+
+    // position: fixed;
+    // margin: 0;
+    // position: absolute;
+    // top: 50%;
+    // left: 50%;
+    // margin-right: -50%;
+    // transform: translate(-50%, -50%);
     text-align:center;
+    
+    font-size:30px; 
+    letter-spacing: 7px;
+   
 }
+
+.button{
+    text-align:center;
+     .startButton{
+    border:none;
+    width:100px;
+    height:60px;
+    border-radius:20px;
+    letter-spacing:2px;
+    text-align:center;
+    // cursor: url("cursor.png"),default;
+    background-color:rgba(126, 20, 20, 0.658);
+    &:hover{
+        cursor:pointer;
+        box-shadow: 5px 1px 40px 20px rgb(116, 79, 37);
+    }
+  }
+}
+ 
+
+
+    
+
+      
 .card{
-    display:none;
+        
+//  background-image: url("https://media.sketchfab.com/models/bde62298ac8640588d5a2928b8e113dc/thumbnails/cea9e18e2bc84efdab1c881a6e6d82c6/a778dd7953b34ab9b9bc92dc2a499598.jpeg");
+ // background-repeat: no-repeat;
+ border:2px solid white;
+ img{
+    width:200px;
+    height:200px;
+    }
 }
+
+   
+

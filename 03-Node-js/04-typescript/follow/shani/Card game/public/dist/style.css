@@ -1,14 +1,37 @@
+@import url("http://fonts.cdnfonts.com/css/harry-potter");
 body {
-  background-image: url("https://thumbs.gfycat.com/HardHoarseBarasinga-size_restricted.gif");
-  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  font-family: "Harry Potter", sans-serif;
 }
 
 .title {
   text-align: center;
+  font-size: 30px;
+  letter-spacing: 7px;
+}
+
+.button {
+  text-align: center;
+}
+.button .startButton {
+  border: none;
+  width: 100px;
+  height: 60px;
+  border-radius: 20px;
+  letter-spacing: 2px;
+  text-align: center;
+  background-color: rgba(126, 20, 20, 0.658);
+}
+.button .startButton:hover {
+  cursor: pointer;
+  box-shadow: 5px 1px 40px 20px #744f25;
 }
 
 .card {
-  display: none;
+  border: 2px solid white;
+}
+.card img {
+  width: 200px;
+  height: 200px;
 }

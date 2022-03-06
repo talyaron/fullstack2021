@@ -44,5 +44,24 @@ function renderGame(data){
 }
 
 
+function handleNewGame(ev){
+    const gameCards:HTMLElement=document.querySelector("#root");
+    const displayCards=gameCards.style.display
+    const startButton=document.querySelector(".openingPage--button");
+    if(displayCards==='block'){
+        gameCards.style.display="none"
+
+    }else{
+       
+
+    }
+   
+   
+    
+    
+
+}
+
+
 
 
