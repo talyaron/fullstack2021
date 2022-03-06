@@ -4,6 +4,7 @@ body {
 }
 
 .openingPage {
+  height: 100%;
   text-align: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -13,7 +14,7 @@ body {
   font-size: 30px;
   letter-spacing: 7px;
 }
-.openingPage button .startButton {
+.openingPage button.startButton {
   border: none;
   width: 100px;
   height: 60px;
@@ -22,7 +23,7 @@ body {
   text-align: center;
   background-color: rgba(126, 20, 20, 0.658);
 }
-.openingPage button .startButton:hover {
+.openingPage button.startButton:hover {
   cursor: pointer;
   box-shadow: 5px 1px 40px 20px #744f25;
 }
@@ -36,17 +37,16 @@ body {
   grid-template-rows: repeat(4, 1f);
   gap: 10px;
 }
-
-.card {
+#root .card {
   margin: 10px;
   padding-top: 5px;
   text-align: center;
   background-repeat: no-repeat;
 }
-.card img {
+#root .card img {
   width: 200px;
   height: 200px;
 }
-.card p {
+#root .card p {
   color: white;
 }
