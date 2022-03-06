@@ -38,9 +38,8 @@ function renderGame(cards){
     //       cards[i] =cards[j];
     //       cards[j] = temp;
     // }
-    
+
     const root=document.querySelector("#root");
-    let html="";
    if(Array.isArray(cards)){
        let html="";
        cards.forEach(card=>{
@@ -53,17 +52,20 @@ function renderGame(cards){
 }
 
 
-function handleNewGame(ev){
+function handleNewGame(){
     const gameCards:HTMLElement=document.querySelector("#root");
     const displayCards=gameCards.style.display
-    const startButton:HTMLElement=document.querySelector(".openingPage--button");
-    if(displayCards==='block'){
-        gameCards.style.display="none"
+    const startButton:HTMLElement=document.querySelector(".startButton");
+    if(displayCards==='none'){
+        startButton.style.display="block";
 
     }else{
-       gameCards.style.display="block"
+       startButton.style.display="none";
+       gameCards.style.display="grid";
 
     }
+   
+    getCards()
    
    
     

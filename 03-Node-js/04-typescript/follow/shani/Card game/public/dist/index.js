@@ -74,7 +74,6 @@ function renderGame(cards) {
     //       cards[j] = temp;
     // }
     var root = document.querySelector("#root");
-    var html = "";
     if (Array.isArray(cards)) {
         var html_1 = "";
         cards.forEach(function (card) {
@@ -83,14 +82,16 @@ function renderGame(cards) {
         root.innerHTML = html_1;
     }
 }
-function handleNewGame(ev) {
+function handleNewGame() {
     var gameCards = document.querySelector("#root");
     var displayCards = gameCards.style.display;
-    var startButton = document.querySelector(".openingPage--button");
-    if (displayCards === 'block') {
-        gameCards.style.display = "none";
+    var startButton = document.querySelector(".startButton");
+    if (displayCards === 'none') {
+        startButton.style.display = "block";
     }
     else {
-        gameCards.style.display = "block";
+        startButton.style.display = "none";
+        gameCards.style.display = "grid";
     }
+    getCards();
 }
