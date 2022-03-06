@@ -14,18 +14,7 @@ let seconds:number = 0;
 let timeStart:boolean = false
 
 
-function shuffle(arr:Array<string>) {
-    let currentIndex = arr.length, temporaryValue, randomIndex;
-    while (currentIndex !== 0) {
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
-        temporaryValue = arr[currentIndex];
-        arr[currentIndex] = arr[randomIndex];
-        arr[randomIndex] = temporaryValue;
 
-    }
-    return arr
-}
 
 function startGame() {
 
@@ -33,7 +22,7 @@ function startGame() {
         const deck = document.querySelector(".deck");
 
         console.log(data);
-        const shuffledDeck = shuffle(data);
+        const shuffledDeck = data;
 
         for (let i = 0; i < shuffledDeck.length; i++) {
             const liTag = (<HTMLInputElement>document.createElement('LI'));

@@ -15,8 +15,20 @@ const deckCards = [
     "NFS.png", "POP.png", "POP.png"
 ];
 app.get('/get-cards', (req, res) => {
-    res.send(deckCards);
+    const shuffledDeck = shuffle(deckCards);
+    res.send(shuffledDeck);
 });
+function shuffle(arr) {
+    let currentIndex = arr.length, temporaryValue, randomIndex;
+    while (currentIndex !== 0) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+        temporaryValue = arr[currentIndex];
+        arr[currentIndex] = arr[randomIndex];
+        arr[randomIndex] = temporaryValue;
+    }
+    return arr;
+}
 app.listen(port, () => {
     return console.log(`Express is listening at http://localhost:${port}`);
 });

@@ -11,23 +11,12 @@ var time;
 var minutes = 0;
 var seconds = 0;
 var timeStart = false;
-function shuffle(arr) {
-    var currentIndex = arr.length, temporaryValue, randomIndex;
-    while (currentIndex !== 0) {
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
-        temporaryValue = arr[currentIndex];
-        arr[currentIndex] = arr[randomIndex];
-        arr[randomIndex] = temporaryValue;
-    }
-    return arr;
-}
 function startGame() {
     axios.get('/get-cards').then(function (_a) {
         var data = _a.data;
         var deck = document.querySelector(".deck");
         console.log(data);
-        var shuffledDeck = shuffle(data);
+        var shuffledDeck = data;
         for (var i = 0; i < shuffledDeck.length; i++) {
             var liTag = document.createElement('LI');
             liTag.classList.add('card');
