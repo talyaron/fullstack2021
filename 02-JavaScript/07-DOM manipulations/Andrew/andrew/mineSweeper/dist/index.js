@@ -1,5 +1,5 @@
 var gameBoard = {
-    // boardMetrix:[],
+    // boardMatrix:[],
     gameInfo: {
         isOn: false,
         revealedCount: 0,
@@ -18,19 +18,29 @@ var gameBoard = {
         for (var i = 0; i < boardMatrix.length; i++) {
             boardMatrix[i] = new Array(boardSize);
         }
-        //randomise
+        //randomize
         var x = Math.random() * boardSize * boardSize;
-        //populate erach cell 
+        var placeMine = false;
+        var test = 0;
+        //populate each cell 
         for (var i = 0; i < boardMatrix.length; i++) {
             for (var j = 0; j < boardMatrix[i].length; j++) {
+                if ((Math.random() * boardSize * boardSize / mineCount) < 1 || (i == 3 && j <= mineCount)) { //adds the mines
+                    placeMine = true;
+                    mineCount--;
+                    test++;
+                }
+                else
+                    placeMine = false;
                 boardMatrix[i][j] = {
                     minesAroundCount: 0,
                     isRevealed: false,
-                    isMine: false,
+                    isMine: placeMine,
                     isMarked: false
                 };
             }
         }
+        console.log(test);
         return boardMatrix;
     }
 };
