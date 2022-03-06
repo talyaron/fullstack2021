@@ -94,17 +94,6 @@ function startRating() {
         starCount--;
     }
 }
-function compareTwo() {
-    if (opened.length === 2) {
-        document.body.style.pointerEvents = "none";
-    }
-    if (opened.length === 2 && opened[0].src === opened[1].src) {
-        match();
-    }
-    else if (opened.length === 2 && opened[0].src !== opened[1].src) {
-        noMatch();
-    }
-}
 function match() {
     setTimeout(function () {
         opened[0].parentElement.classList.add("match");
@@ -126,6 +115,17 @@ function noMatch() {
     }, 700);
     movesCounter();
     startRating();
+}
+function compareTwo() {
+    if (opened.length === 2) {
+        document.body.style.pointerEvents = "none";
+    }
+    if (opened.length === 2 && opened[0].src === opened[1].src) {
+        match();
+    }
+    else if (opened.length === 2 && opened[0].src !== opened[1].src) {
+        noMatch();
+    }
 }
 function addStats() {
     var stats = document.querySelector(".modal-contant");
