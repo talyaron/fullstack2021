@@ -6,8 +6,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const app = express_1.default();
 const port = process.env.PORT || 3000;
-app.use(express_1.default.static("public"));
 app.use(express_1.default.json());
+app.use(express_1.default.static("public"));
 const cards = [
     { name: "Harry Potter", imgUrl: "" },
     { name: "Hermione Granger", imgUrl: "" },
@@ -19,7 +19,7 @@ const cards = [
     { name: "Rubeus Hagrid", imgUrl: "" },
 ];
 app.get("/new-game", (req, res) => {
-    res.send("hello world");
+    res.send(cards);
 });
 app.listen(port, () => {
     return console.log(`Express is listening at http://localhost:${port}`);

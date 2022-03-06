@@ -16,10 +16,33 @@
     
 // }
 
-async function getNewGame(){
-    const { data } = await axios.get("/new-game"); 
-    console.log(data); 
+function appInit(){
+    getCards()
+}
+
+//needed to load on when the page opens
+
+
+async function getCards(){
+    const {data}= await axios.get("/new-game");
+    console.log(data);
+    renderGame(data)
+}
+
+function renderGame(data){
+    const root=document.querySelector("#root");
+    let html="";
+   if(Array.isArray(data)){
+       let html="";
+       data.forEach(card=>{
+           html+=`<div class="card"><img src=${card.imgUrl}> <p>${card.name}</p></div>`
+       })
+       root.innerHTML=html;
+   }
+
 
 }
+
+
 
 

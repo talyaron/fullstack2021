@@ -47,7 +47,11 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 //     }
 // }
-function getNewGame() {
+function appInit() {
+    getCards();
+}
+//needed to load on when the page opens
+function getCards() {
     return __awaiter(this, void 0, void 0, function () {
         var data;
         return __generator(this, function (_a) {
@@ -56,8 +60,20 @@ function getNewGame() {
                 case 1:
                     data = (_a.sent()).data;
                     console.log(data);
+                    renderGame(data);
                     return [2 /*return*/];
             }
         });
     });
+}
+function renderGame(data) {
+    var root = document.querySelector("#root");
+    var html = "";
+    if (Array.isArray(data)) {
+        var html_1 = "";
+        data.forEach(function (card) {
+            html_1 += "<div class=\"card\"><img src=" + card.imgUrl + "> <p>" + card.name + "</p></div>";
+        });
+        root.innerHTML = html_1;
+    }
 }
