@@ -35,9 +35,9 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 function appInit() {
-    getCards();
+    // getCards();
 }
-function getCards() {
+function handleNewGame(ev) {
     return __awaiter(this, void 0, void 0, function () {
         var data;
         return __generator(this, function (_a) {
@@ -56,7 +56,7 @@ function renderNewGame(data) {
     var html = '';
     if (Array.isArray(data)) {
         data.forEach(function (card) {
-            html += "<img src = \"./img/" + card.img + "\">\n            <p>" + card.id + "</p>";
+            html += "<img src = \"./img/" + card.afterFlipImg + "\">";
         });
         root.innerHTML = html;
     }

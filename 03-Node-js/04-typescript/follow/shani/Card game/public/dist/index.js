@@ -77,3 +77,14 @@ function renderGame(data) {
         root.innerHTML = html_1;
     }
 }
+function handleNewGame(ev) {
+    var gameCards = document.querySelector("#root");
+    var displayCards = gameCards.style.display;
+    var startButton = document.querySelector(".openingPage--button");
+    if (displayCards === 'block') {
+        gameCards.style.display = "none";
+    }
+    else {
+        gameCards.style.display = "block";
+    }
+}

@@ -1,8 +1,8 @@
 function appInit() {
-    getCards();
+    // getCards();
 }
 
-async function getCards(){
+async function handleNewGame(ev){
     const {data} = await axios.get("/newGame");
     renderNewGame(data)
 }
@@ -12,8 +12,7 @@ function renderNewGame(data) {
     let html = ''
     if (Array.isArray(data)){
         data.forEach(card => {
-            html += `<img src = "./img/${card.img}">
-            <p>${card.id}</p>`
+            html += `<img src = "./img/${card.afterFlipImg}">`
         })
         root.innerHTML = html
     }
