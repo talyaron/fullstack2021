@@ -85,5 +85,6 @@ function handleNewGame(ev) {
         gameCards.style.display = "none";
     }
     else {
+        gameCards.style.display = "block";
     }
 }

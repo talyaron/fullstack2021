@@ -47,12 +47,12 @@ function renderGame(data){
 function handleNewGame(ev){
     const gameCards:HTMLElement=document.querySelector("#root");
     const displayCards=gameCards.style.display
-    const startButton=document.querySelector(".openingPage--button");
+    const startButton:HTMLElement=document.querySelector(".openingPage--button");
     if(displayCards==='block'){
         gameCards.style.display="none"
 
     }else{
-       
+       gameCards.style.display="block"
 
     }
    
