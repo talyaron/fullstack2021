@@ -66,12 +66,18 @@ function getCards() {
         });
     });
 }
-function renderGame(data) {
+function renderGame(cards) {
+    for (var i = cards.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = cards[i];
+        cards[i] = cards[j];
+        cards[j] = temp;
+    }
     var root = document.querySelector("#root");
     var html = "";
-    if (Array.isArray(data)) {
+    if (Array.isArray(cards)) {
         var html_1 = "";
-        data.forEach(function (card) {
+        cards.forEach(function (card) {
             html_1 += "<div class=\"card\"><img src=" + card.imgUrl + "> <p>" + card.name + "</p></div>";
         });
         root.innerHTML = html_1;

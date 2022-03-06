@@ -29,12 +29,21 @@ async function getCards(){
     renderGame(data)
 }
 
-function renderGame(data){
+function renderGame(cards){
+
+   
+     for (let i = cards.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          const temp = cards[i];
+          cards[i] =cards[j];
+          cards[j] = temp;
+    }
+    
     const root=document.querySelector("#root");
     let html="";
-   if(Array.isArray(data)){
+   if(Array.isArray(cards)){
        let html="";
-       data.forEach(card=>{
+       cards.forEach(card=>{
            html+=`<div class="card"><img src=${card.imgUrl}> <p>${card.name}</p></div>`
        })
        root.innerHTML=html;
