@@ -1,10 +1,13 @@
-import express from 'express';
-const app = express();
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = __importDefault(require("express"));
+const app = express_1.default();
 const port = process.env.PORT || 3000;
-
-app.use(express.static("public"));
-app.use(express.json());
-
+app.use(express_1.default.static("public"));
+app.use(express_1.default.json());
 let img = [
     { src: "https://cdna.wobily.com/media-gallery/ibwodsJ0AT0=/1.png", pairId: 1, id: '' },
     { src: "https://cdna.wobily.com/media-gallery/ibwodsJ0AT0=/1.png", pairId: 1, id: '' },
@@ -18,24 +21,21 @@ let img = [
     { src: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Asian_Elephant1.jpg/250px-Asian_Elephant1.jpg", pairId: 5, id: '' },
     { src: "https://www.lametayel.co.il/limages/4134c5bd12f0b822d00d7056143ade7d.jpg?size=1232x0&type=r", pairId: 6, id: '' },
     { src: "https://www.lametayel.co.il/limages/4134c5bd12f0b822d00d7056143ade7d.jpg?size=1232x0&type=r", pairId: 6, id: '' }
-]
-
-
+];
 app.get('/get-img', (req, res) => {
-//    const cards = shuffleCards(img);
-    res.send(img)
+    const cards = shuffleCards(img);
+    res.send(cards);
 });
-
 function shuffleCards(img) {
-    for (let i = 0; i < img.length; i++) {
-        const j = Math.floor(Math.random() * (i + 1));
-        const temp = img[i];
-        img[i] = img[j];
-        img[j] = temp;
+    var m = img.length, t, i;
+    while (m) {
+        i = Math.floor(Math.random() * m--);
+        t = img[m];
+        img[m] = img[i];
+        img[i] = t;
     }
-
+    return img;
 }
-
 app.listen(port, () => {
     return console.log(`Express is listening at http://localhost:${port}`);
 });

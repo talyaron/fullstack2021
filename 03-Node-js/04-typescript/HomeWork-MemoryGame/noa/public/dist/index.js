@@ -52,8 +52,13 @@ function handleNewGame() {
 function renderGame(data) {
     var html = '';
     data.forEach(function (img) {
-        html += "<div class=\"card\">\n      <div class=\"img\"> <img src=\"" + img.src + "\"> </div>\n       </div>";
+        html += "  <div class=\"card\" onclick=\"handleFlipCard()\">\n  \n           <div class=\"front-card\"><img src=\"" + img.src + "\"></div>\n    \n   </div>";
     });
     var root = document.querySelector("#root");
     root.innerHTML = html;
 }
+function handleFlipCard() {
+    var card = document.querySelector('.card');
+    card.classList.toggle('is-flipped');
+}
+;
