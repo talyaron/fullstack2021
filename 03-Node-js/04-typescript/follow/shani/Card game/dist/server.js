@@ -35,8 +35,18 @@ app.get("/new-game", (req, res) => {
     //     cards[j] = temp;
     //   }
     // }
-    res.send(cards);
+    const shuffledDeck = shuffleCards(cards);
+    res.send(shuffledDeck);
 });
+function shuffleCards(cards) {
+    for (let i = cards.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        const temp = cards[i];
+        cards[i] = cards[j];
+        cards[j] = temp;
+    }
+    return cards;
+}
 app.listen(port, () => {
     return console.log(`Express is listening at http://localhost:${port}`);
 });

@@ -32,12 +32,12 @@ async function getCards(){
 function renderGame(cards){
 
    
-     for (let i = cards.length - 1; i > 0; i--) {
-          const j = Math.floor(Math.random() * (i + 1));
-          const temp = cards[i];
-          cards[i] =cards[j];
-          cards[j] = temp;
-    }
+    //  for (let i = cards.length - 1; i > 0; i--) {
+    //       const j = Math.floor(Math.random() * (i + 1));
+    //       const temp = cards[i];
+    //       cards[i] =cards[j];
+    //       cards[j] = temp;
+    // }
     
     const root=document.querySelector("#root");
     let html="";

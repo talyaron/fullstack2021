@@ -67,12 +67,12 @@ function getCards() {
     });
 }
 function renderGame(cards) {
-    for (var i = cards.length - 1; i > 0; i--) {
-        var j = Math.floor(Math.random() * (i + 1));
-        var temp = cards[i];
-        cards[i] = cards[j];
-        cards[j] = temp;
-    }
+    //  for (let i = cards.length - 1; i > 0; i--) {
+    //       const j = Math.floor(Math.random() * (i + 1));
+    //       const temp = cards[i];
+    //       cards[i] =cards[j];
+    //       cards[j] = temp;
+    // }
     var root = document.querySelector("#root");
     var html = "";
     if (Array.isArray(cards)) {
