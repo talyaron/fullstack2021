@@ -36,8 +36,14 @@ const cards = [
 ]
 
 app.get('/get-cards', (req, res) => {
-    res.send(cards);
+    const shuffledArray = shuffleArray(cards)
+    res.send(shuffledArray);
 });
+
+function shuffleArray(cards) {
+    return cards.sort(() => .5 - Math.random())
+}
+
 
 app.listen(port, () => {
     return console.log(`Express is listening at http://localhost:${port}`);
