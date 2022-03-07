@@ -41,7 +41,6 @@ body {
   background-color: rgba(126, 20, 20, 0.658);
 }
 .openingPage button.startButton:hover {
-  cursor: pointer;
   background-color: #a71c1c;
   box-shadow: 5px 1px 40px 30px rgba(116, 79, 37, 0.849);
 }
