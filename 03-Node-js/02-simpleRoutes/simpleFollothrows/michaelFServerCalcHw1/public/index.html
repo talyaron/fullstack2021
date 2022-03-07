@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.0/axios.min.js" integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>Art</title>
+</head>
+<body>
+
+    <select onchange="handleSelect(event)">
+
+        <option value="" selected disabled >Pleasechoose genre</option>
+        <option value="all">All</option>
+        <option value="cubism">Cubism</option>
+        <option value="dadaism">Hausmann</option>
+        <option value="impressionism">Russell</option>
+        <option value="post-impressionism">Van-Gogh</option>
+        <option value="rococo">Goya</option>
+        
+    </select>
+
+    <div class="slidecontainer" oninput="handleSelect(event)">
+        <input type="range" min="1800" max="1950" value="1875" class="slider" id="myRange">
+        <div id="slideRoot"></div>
+      </div>
+    
+    <div id="root"></div>
+    <script src="index.js"></script>
+</body>
+</html>
