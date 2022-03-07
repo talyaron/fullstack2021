@@ -8,7 +8,7 @@ const app = express_1.default();
 const port = 3000;
 app.use(express_1.default.static("public"));
 app.use(express_1.default.json());
-const cards = [
+const cardsDeck = [
     { name: 'Kurt Cubain', url: 'https://api.time.com/wp-content/uploads/2014/03/3220062.jpg' },
     { name: 'Kurt Cubain', url: 'https://api.time.com/wp-content/uploads/2014/03/3220062.jpg' },
     { name: 'Janis Joplin', url: 'https://static.wixstatic.com/media/3655b5_131d8f0442c643f683fb57b36a2da944~mv2.jpg/v1/fill/w_635,h_617,al_c,q_90/3655b5_131d8f0442c643f683fb57b36a2da944~mv2.jpg' },
@@ -27,8 +27,17 @@ const cards = [
     { name: 'Avril Lavigne', url: 'https://i.pinimg.com/originals/63/07/78/6307783e8b8068692c84a4e276aedf8f.jpg' },
 ];
 app.get('/get-cards', (req, res) => {
-    res.send(cards);
+    shuffleCards(cardsDeck);
+    res.send(cardsDeck);
 });
+function shuffleCards(cards) {
+    for (let i = 0; i < cards.length; i++) {
+        const j = Math.floor(Math.random() * (i + 1));
+        const temp = cards[i];
+        cards[i] = cards[j];
+        cards[j] = temp;
+    }
+}
 app.listen(port, () => {
     return console.log(`Express is listening at http://localhost:${port}`);
 });
