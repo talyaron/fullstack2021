@@ -14,12 +14,13 @@ const singleCards = [
 ];
 
 interface Card {
-  src:string, pairId:number, id?:any
+  src: string;
+  pairId: string;
+  id?: any;
+  skjdhgkjdshgkjsd?: any;
 }
 
-interface DeckOfCards<Card> {
- 
-}
+interface DeckOfCards<Card> {}
 // const cards = [
 //   { src: "./images/1776", id: 1, pairId: 0 },
 //   { src: "./images/Bye", id: 2, pairId: 1 },
@@ -70,23 +71,29 @@ app.get("/new-game", (req, res) => {
   } catch (error) {
     res.send({ error: error.message });
   }
-  function uid() { 
-    return Date.now().toString(36) + Math.random().toString(36).substring(2)
-  };
-  
-  function doubleCards(stringArray:Array<string>) {
-    const cards:Array<Card> = [];
-    stringArray.forEach((url, i) => {
+  function uid() {
+    return Date.now().toString(36) + Math.random().toString(36).substring(2);
+  }
 
-      let tempCard:Card = {src: url, pairId:i};
-      tempCard.id = uid();
-      cards.push(tempCard)
-      let anotherTempCard:Card = {src: url, pairId:i};
-      anotherTempCard.id = uid();
-      cards.push(anotherTempCard)
-    })
-    
-    return cards
+  function doubleCards(stringArray: Array<string>) {
+    let cards: Array<Card> = [];
+    stringArray.forEach((url) => {
+      const tempCard: Card = { src: url, pairId: uid() };
+      const card1 = Object.assign({}, tempCard); //deep copy (copy by value)
+      const card2 = Object.assign({}, tempCard); //deep copy (copy by value)
+      // const card1 = tempCard; //copy by ref
+      // const card2 = tempCard; //copy by ref
+
+      // tempCard.skjdhgkjdshgkjsd = 45;
+      card1.id = uid();
+      card2.id = uid();
+      cards = [...cards, card1, card2];
+      // let anotherTempCard:Card = {src: url, pairId:i};
+      // anotherTempCard.id = uid();
+      // cards.push(anotherTempCard)
+    });
+    console.log(cards);
+    return cards;
   }
 });
 

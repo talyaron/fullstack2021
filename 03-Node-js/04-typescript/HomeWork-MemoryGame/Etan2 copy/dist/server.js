@@ -69,17 +69,23 @@ app.get("/new-game", (req, res) => {
     function uid() {
         return Date.now().toString(36) + Math.random().toString(36).substring(2);
     }
-    ;
     function doubleCards(stringArray) {
-        const cards = [];
-        stringArray.forEach((url, i) => {
-            let tempCard = { src: url, pairId: i };
-            tempCard.id = uid();
-            cards.push(tempCard);
-            let anotherTempCard = { src: url, pairId: i };
-            anotherTempCard.id = uid();
-            cards.push(anotherTempCard);
+        let cards = [];
+        stringArray.forEach((url) => {
+            const tempCard = { src: url, pairId: uid() };
+            const card1 = Object.assign({}, tempCard); //deep copy (copy by value)
+            const card2 = Object.assign({}, tempCard); //deep copy (copy by value)
+            // const card1 = tempCard; //copy by ref
+            // const card2 = tempCard; //copy by ref
+            // tempCard.skjdhgkjdshgkjsd = 45;
+            card1.id = uid();
+            card2.id = uid();
+            cards = [...cards, card1, card2];
+            // let anotherTempCard:Card = {src: url, pairId:i};
+            // anotherTempCard.id = uid();
+            // cards.push(anotherTempCard)
         });
+        console.log(cards);
         return cards;
     }
 });
