@@ -30,12 +30,6 @@ function handleStart() {
 
 function renderCards(cards) {
 
-    for (let i = 0; i < cards.length; i++) {
-        const j = Math.floor(Math.random() * (i + 1));
-        const temp = cards[i];
-        cards[i] = cards[j];
-        cards[j] = temp;
-    }
 
     const rootHTML = getRootElement();
 
