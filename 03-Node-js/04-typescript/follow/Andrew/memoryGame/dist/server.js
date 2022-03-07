@@ -21,8 +21,8 @@ class CardPair {
     }
 }
 const cards = {
-    deck: [],
-    idKeys: [],
+    players: {},
+    leaderBoard: [],
     picUrls: [
         "https://i.imgur.com/Ihkz0Ky.jpeg",
         "https://i.imgur.com/0oCCX5m.jpeg",
@@ -48,53 +48,61 @@ const cards = {
         "https://i.imgur.com/sJnuj7r.jpeg",
         "https://i.imgur.com/dBwvFJZ.jpeg",
     ],
-    createDeck(numOfCards) {
-        [this.idKeys, this.deck] = [[], []];
+    createDeck(numOfCards, id) {
+        this.players[id] = {};
+        this.players[id].deck = [];
+        this.players[id].idKeys = [];
         for (let i = 0; i < numOfCards / 2; i++) {
-            this.idKeys.push(uid()); // creates an id pair for later verification
-            const pair = [this.idKeys[i].substring(0, 5), this.idKeys[i].substring(5, 10)]; // splits the id pair into separated ids for adding a pair of cards to the deck
-            this.deck.push({ id: pair[0], picSRC: this.picUrls[i] }, { id: pair[1], picSRC: this.picUrls[i] });
+            this.players[id].idKeys.push(uid());
+            const pair = [this.players[id].idKeys[i].substring(0, 5), this.players[id].idKeys[i].substring(5, 10)]; // splits the id pair into separated ids for adding a pair of cards to the deck             
+            this.players[id].deck.push({ id: pair[0], picSRC: this.picUrls[i] }, { id: pair[1], picSRC: this.picUrls[i] });
         }
         ;
-        this.shuffleDeck();
+        console.log(this.players);
+        this.shuffleDeck(id);
     },
-    shuffleDeck() {
-        for (let i = 0; i < this.deck.length; i++) {
-            const j = Math.floor(Math.random() * this.deck.length);
-            [this.deck[i], this.deck[j]] = [this.deck[j], this.deck[i]];
+    shuffleDeck(id) {
+        for (let i = 0; i < this.players[id].deck.length; i++) {
+            const j = Math.floor(Math.random() * this.players[id].deck.length);
+            [this.players[id].deck[i], this.players[id].deck[j]] = [this.players[id].deck[j], this.players[id].deck[i]];
         }
     }
 };
 app.post('/initGame', (req, res) => {
+    const playerId = uid();
     switch (req.body.difficulty) {
         case "easy":
-            cards.createDeck(8);
+            cards.createDeck(8, playerId);
             break;
         case "normal":
-            cards.createDeck(12);
+            cards.createDeck(12, playerId);
             break;
         case "hard":
-            cards.createDeck(18);
+            cards.createDeck(18, playerId);
             break;
     }
-    const cardIds = cards.deck.map(obj => obj.id);
+    const cardIds = cards.players[playerId].deck.map(obj => obj.id);
+    cardIds.push(playerId);
     res.send(cardIds);
 });
 app.get('/getCard', (req, res) => {
-    const i = cards.deck.findIndex((card) => card.id == req.query.id);
-    res.send(cards.deck[i].picSRC);
+    const i = cards.players[`${req.query.player}`].deck.findIndex((card) => card.id == req.query.id);
+    res.send(cards.players[`${req.query.player}`].deck[i].picSRC);
 });
 app.get('/checkPair', (req, res) => {
-    console.log(req.query.firstId, req.query.secondId);
+    const id = req.query.playerId;
     const pair1 = req.query.firstId + "" + req.query.secondId;
     const pair2 = req.query.secondId + "" + req.query.firstId;
-    if (cards.idKeys.some((key) => key == pair1 || key == pair2)) {
-        console.log("Pair!");
+    if (cards.players[`${id}`].idKeys.some((key) => key == pair1 || key == pair2)) {
         res.send(true);
     }
     else {
         res.send(false);
     }
+});
+app.post('/endGame', (req, res) => {
+    cards.leaderBoard.push({ name: req.body.name, time: req.body.time, turns: req.body.turns });
+    res.send(cards.leaderBoard);
 });
 app.listen(port, () => {
     return console.log(`Express is listening at http://localhost:${port}`);
