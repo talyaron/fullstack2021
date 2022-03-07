@@ -1,10 +1,17 @@
 let gameStats = {
     count: 0,
+    flipped: 0,
+    flippedIDs: [],
 
 }
+
+function uniqueId() {
+    return Date.now().toString(36) + Math.random().toString(36).substr(2);
+};
+
 function log(log) {
     console.log(log)
-    console.dir(log)
+    // console.dir(log)
 }
 
 function getRootElement() {
@@ -34,15 +41,11 @@ function renderCards(cards) {
 
     let html = '<section class="cardsgrid">';
 
-
-    let uniqueId = function () {
-        return Date.now().toString(36) + Math.random().toString(36).substr(2);
-    };
-
     cards.forEach(card => {
-        html += `<div class="card" onclick="handleCardClick(event)" id="${uniqueId()}">
 
-        <div class="card--back">
+        html += `<div class="card" id="${card.pairID}">
+
+        <div class="card--back"  onclick="handleCardClick(event)" id="${card.pairID}">
         ?
         </div>
 
@@ -66,40 +69,31 @@ function handleCardClick(ev) {
         return 0;
     }
 
-    else{
-        
+    else {
+
         ev.path[1].children[0].style.display = 'none'
+        gameStats.flippedIDs.push(ev.path[1].children[0].id);
+
         ev.path[1].children[1].style.display = 'flex'
 
-        checkFlipped();
+        gameStats.flipped++;
 
-        if (checkFlipped()) {
-            resetCards(ev.path[1])
+        if (gameStats.flipped === 2) {
+            checkFlipped(gameStats.flippedIDs)
+            gameStats.flipped = 0;
+            gameStats.flippedIDs = [];
         }
     }
 
-
 }
 
-function checkFlipped() {
+function checkFlipped(flipped) {
 
-    gameStats.count++
-
-    if (gameStats.count === 2) {
-        gameStats.count = 0;
-        return true;
-    }
+if(flipped[0]===flipped[1]){
+    let cardDelete = <HTMLElement>document.querySelector(`#${flipped[0]}`)
+    cardDelete.style.visibility = 'hidden'
 }
-
-function resetCards(cards) {
-
-    try {
-        for (let i = 1; i < cards.length; i++) {
-            cards.children[0].style.display = 'flex'
-            cards.children[1].style.display = 'none'
-        }
-    }
-    catch (err) {
-        console.error(err.message);
-    }
+else{
+    return false;
+}
 }
