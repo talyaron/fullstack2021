@@ -5,7 +5,7 @@ const game = {
   getCards: async function () {
     try {
       const { data } = await axios.get("/new-game");
-      console.log(data);
+
 
       if (Array.isArray(data)) return data;
     } catch (error) {
@@ -63,7 +63,7 @@ const game = {
           hasFlippedCard = false;
           secondCard = card;
         }
-        console.log(card);
+
 
         return handleCardMatching(firstCard, secondCard, hasFlippedCard);
       }
@@ -88,14 +88,16 @@ function handleCardMatching(firstCard, secondCard, hasFlippedCard) {
   ];
   if (hasFlippedCard !== true) {
     for (let i of pairs) {
+  
       let matchCheck = [firstCard.id, secondCard.id]
       
       
       if(i.toString() === matchCheck.toString()) {
+
         console.log("its a match");
        return; 
       }
-      console.log('nope');
+
       
     }
     setTimeout(() => {

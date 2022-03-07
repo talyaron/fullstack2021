@@ -48,7 +48,6 @@ var game = {
                         return [4 /*yield*/, axios.get("/new-game")];
                     case 1:
                         data = (_a.sent()).data;
-                        console.log(data);
                         if (Array.isArray(data))
                             return [2 /*return*/, data];
                         return [3 /*break*/, 3];
@@ -132,7 +131,6 @@ var game = {
                     hasFlippedCard = false;
                     secondCard = card;
                 }
-                console.log(card);
                 return handleCardMatching(firstCard, secondCard, hasFlippedCard);
             }
             throw new Error("no card was found");
@@ -162,7 +160,6 @@ function handleCardMatching(firstCard, secondCard, hasFlippedCard) {
                 console.log("its a match");
                 return;
             }
-            console.log('nope');
         }
         setTimeout(function () {
             firstCard.classList.toggle("flipped");

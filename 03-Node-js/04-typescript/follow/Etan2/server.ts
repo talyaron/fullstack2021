@@ -23,7 +23,23 @@ const cards = [
   {src: './images/the good surgeon', id: 10, pairId: 7},
 ];
 
-
+const pairs = [
+  [1, 15], [15, 1],
+  [2, 16], [16, 2],
+  [3, 13], [13, 3],
+  [4, 12], [12, 4],
+  [5, 11] ,[11, 5],
+  [6, 9], [9, 6],
+  [7, 14], [14, 7],
+  [8, 10], [10, 8],
+];
+app.get('/isPair', (req, res)=>{
+  try {
+    res.send(pairs)
+  } catch (error) {
+    res.send({error:error.message})
+  }
+})
 app.get('/new-game', (req, res) => {
   try {
     res.send(cards);
