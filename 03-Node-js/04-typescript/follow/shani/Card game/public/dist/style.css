@@ -16,39 +16,44 @@ body {
 .openingPage .title {
   font-size: 30px;
   letter-spacing: 7px;
+  text-shadow: 2px 8px 6px rgba(0, 0, 0, 0.726), 0px -5px 35px black;
+}
+.openingPage button {
+  margin-top: 10px;
 }
 .openingPage button.startButton {
+  font-family: "Harry Potter", sans-serif;
   border: none;
   width: 100px;
   height: 60px;
   border-radius: 20px;
-  letter-spacing: 2px;
+  letter-spacing: 5px;
+  font-weight: bolder;
   text-align: center;
+  box-shadow: 0px -1px 35px rgba(0, 0, 0, 0.658);
   background-color: rgba(126, 20, 20, 0.658);
 }
 .openingPage button.startButton:hover {
   cursor: pointer;
-  box-shadow: 5px 1px 40px 20px #744f25;
+  background-color: #a71c1c;
+  box-shadow: 5px 1px 40px 30px rgba(116, 79, 37, 0.849);
 }
 
 #root {
-  display: none;
   justify-content: center;
-  margin: 20px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(4, 1f);
-  gap: 10px;
+  grid-template-columns: repeat(4, 250px);
+  grid-template-rows: repeat(4, 250px);
+  gap: 3px;
+  column-gap: 3px;
 }
 #root .card {
-  margin: 10px;
-  padding-top: 5px;
+  padding-top: 8px;
   text-align: center;
-  background-repeat: no-repeat;
 }
 #root .card img {
-  width: 200px;
-  height: 200px;
+  width: 180px;
+  height: 180px;
 }
 #root .card p {
   color: white;

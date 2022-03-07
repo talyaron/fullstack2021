@@ -50,7 +50,7 @@ function handleNewGame(){
     let displayCards=gameCards.style.display
     let startButton:HTMLElement=document.querySelector(".startButton");
  
-    if(displayCards==='block'){
+    if(displayCards ==='block'){
         startButton.style.display="none";
         gameCards.style.display="grid";
         title.style.display="none";
