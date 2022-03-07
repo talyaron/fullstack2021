@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,14 +8,25 @@
     <title>Harry Potter Memory Game</title>
     <link rel="stylesheet" href="dist/style.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-</head>
-<body onload="appInit()">
-    <div class="title"> Welcome Muggle</div>
 
-    <div><button onclick="handleNewGame(ev)">Begin</button></div>
+    <link href="http://fonts.cdnfonts.com/css/harry-potter" rel="stylesheet">
     
-    <div id="root"></div>
+</head>
+
+<body onload="appInit()">
+
+
+    <div class="openingPage">
+        <h1 class="title">Welcome Muggle</h1>
+         <button onclick="handleNewGame()" class="startButton">Begin</button>
+    </div>
+
+
+    <div id="root" ></div>
+
+
 
     <script src="dist/index.js"></script>
 </body>
+
 </html>

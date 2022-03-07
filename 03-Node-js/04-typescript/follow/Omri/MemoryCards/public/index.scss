@@ -6,13 +6,13 @@
 //     margin:0 auto;
 // }
 
-html { 
-    background: url(http://cdn.shopify.com/s/files/1/0267/0909/8540/products/4230_145fd6ea-0d1d-4179-8d08-c91b8939466c_1200x1200.jpg?v=1616667468) no-repeat center center fixed; 
+html {
+    background: url(http://cdn.shopify.com/s/files/1/0267/0909/8540/products/4230_145fd6ea-0d1d-4179-8d08-c91b8939466c_1200x1200.jpg?v=1616667468) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-  }
+}
 
 #root {
     display: grid;
@@ -26,4 +26,41 @@ html {
         padding: .9rem;
         gap: 1.5rem;
     }
+
+    .card {
+        margin: 100px auto 0;
+        width: 400px;
+        height: 600px;
+        perspective: 1000px;
+    
+        &__inner {
+            width: 100%;
+            height: 100%;
+            transition: transform 1s;
+            transform-style: preserve-3d;
+            cursor: pointer;
+            position: relative;
+    
+            &.is-flipped {
+                transform: rotateY(180deg);
+            }
+            
+            .card__face {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                -webkit-backface-visibility: hidden;
+                backface-visibility: hidden;
+                overflow: hidden;
+                border-radius: 16px;
+                box-shadow: 0px 3px 18px 3px rgba(0, 0, 0, 0.2);
+              }
+    
+              .card__face--back {
+                background-color: var(--light);
+                transform: rotateY(180deg);
+              }
+        }
+    }
 }
+

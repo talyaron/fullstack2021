@@ -56,8 +56,12 @@ function renderNewGame(data) {
     var html = '';
     if (Array.isArray(data)) {
         data.forEach(function (card) {
-            html += "<img src = \"./img/" + card.afterFlipImg + "\">";
+            html += "    <div class=\"card\">\n            <div class=\"card__inner\">\n                <div class=\"card__face card__face--front\">\n                    <img src=\"./img/" + card.beforeFlipImg + "\">\n                </div>\n                <div class=\"card__face card__face--back\">\n                    <img src=\"./img/" + card.afterFlipImg + "\">\n                </div>\n            </div>\n        </div>";
         });
         root.innerHTML = html;
+        var card_1 = document.querySelector(".card__inner");
+        card_1.addEventListener("click", function (e) {
+            card_1.classList.toggle('is-flipped');
+        });
     }
 }
