@@ -9,13 +9,19 @@
     }
 }
 
+img {
+    border-radius: 10px;
+    width: 200px;
+    height: 150px;
 
+}
 
 #root {
     display: flex;
     flex-wrap: wrap;
-    width: 80%;
+    padding-left: 8%;
     gap: 15px;
+    padding-top: 10px;
 }
 
 .card {
@@ -26,13 +32,13 @@
 
 .card:active {
     transform: scale(.97);
-    transition: transform.2s;
+   transform: rotateY(180deg);
 }
 
 .front__img {
     position: absolute;
     top: 0%;
-    
+
 }
 
 .back__img {}

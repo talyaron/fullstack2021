@@ -9,16 +9,17 @@
 }
 
 img {
-  border-radius: 40px;
+  border-radius: 10px;
   width: 200px;
-  height: 200px;
+  height: 150px;
 }
 
 #root {
   display: flex;
   flex-wrap: wrap;
-  padding-left: 6%;
+  padding-left: 8%;
   gap: 15px;
+  padding-top: 10px;
 }
 
 .card {
@@ -28,7 +29,7 @@ img {
 
 .card:active {
   transform: scale(0.97);
-  transition: transform;
+  transform: rotateY(180deg);
 }
 
 .front__img {

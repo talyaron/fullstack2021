@@ -56,7 +56,7 @@ function renderNewGame(data) {
     var html = '';
     if (Array.isArray(data)) {
         data.forEach(function (card) {
-            html += "    <div class=\"card\">\n            <div class=\"card__inner\">\n                <div class=\"card__face card__face--front\">\n                    <img src=\"./img/" + card.beforeFlipImg + "\">\n                </div>\n                <div class=\"card__face card__face--back\">\n                    <img src=\"./img/" + card.afterFlipImg + "\">\n                </div>\n            </div>\n        </div>";
+            html += "    <div class=\"card\">\n            <div class=\"card__inner\" onclick=\"handleFlip(event)\">\n                <div class=\"card__face card__face--front\">\n                    <img src=\"./img/" + card.afterFlipImg + "\">\n                </div>\n                <div class=\"card__face card__face--back\">\n                    <img src=\"./img/" + card.beforeFlipImg + "\">\n                </div>\n            </div>\n        </div>";
         });
         root.innerHTML = html;
         var card_1 = document.querySelector(".card__inner");
@@ -65,3 +65,9 @@ function renderNewGame(data) {
         });
     }
 }
+// function handleFlip(ev){
+//     const card = document.querySelector(".card__inner");
+//     card.addEventListener("click", function (e) {
+//         card.classList.toggle('is-flipped');
+//       });
+//     }
