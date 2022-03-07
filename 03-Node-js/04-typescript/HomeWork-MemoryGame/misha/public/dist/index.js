@@ -34,6 +34,9 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+var gameStats = {
+    count: 0
+};
 function log(log) {
     console.log(log);
     console.dir(log);
@@ -76,11 +79,39 @@ function renderCards(cards) {
         return Date.now().toString(36) + Math.random().toString(36).substr(2);
     };
     cards.forEach(function (card) {
-        html += "<div class=\"card\" onclick=\"handleCardClick(event)\" id=\"" + uniqueId + "\">\n\n        <div class=\"card--front\">\n          <div class=\"img\" style=\"background:url(" + card.url + "); background-size:cover; background-position:center;\"></div>\n          <div class=\"card__footer\">" + card.name + "</div>\n        </div>\n\n        <div class=\"card--back\">\n        ?\n        </div>\n\n        </div>";
+        html += "<div class=\"card\" onclick=\"handleCardClick(event)\" id=\"" + uniqueId() + "\">\n\n        <div class=\"card--back\">\n        ?\n        </div>\n\n        <div class=\"card--front\">\n          <div class=\"img\" style=\"background:url(" + card.url + "); background-size:cover; background-position:center;\"></div>\n          <div class=\"card__footer\">" + card.name + "</div>\n        </div>\n\n\n        </div>";
     });
     html += '</section>';
     rootHTML.innerHTML = html;
 }
 function handleCardClick(ev) {
-    log(ev.path[1].id);
+    if (ev.path[1].children[0].style.display === 'none') {
+        return 0;
+    }
+    else {
+        ev.path[1].children[0].style.display = 'none';
+        ev.path[1].children[1].style.display = 'flex';
+        checkFlipped();
+        if (checkFlipped()) {
+            resetCards(ev.path[1]);
+        }
+    }
+}
+function checkFlipped() {
+    gameStats.count++;
+    if (gameStats.count === 2) {
+        gameStats.count = 0;
+        return true;
+    }
+}
+function resetCards(cards) {
+    try {
+        for (var i = 1; i < cards.length; i++) {
+            cards.children[0].style.display = 'flex';
+            cards.children[1].style.display = 'none';
+        }
+    }
+    catch (err) {
+        console.error(err.message);
+    }
 }

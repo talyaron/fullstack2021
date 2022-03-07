@@ -1,0 +1,41 @@
+body {
+  display: flex;
+  justify-content: center;
+  margin: 5%;
+  & h1{
+    align-content: center;
+  }
+}
+button {
+  width: 150px;
+  background-color: rgb(109, 49, 49);
+  color: #ebdacc;
+  cursor: pointer;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 3rem;
+}
+button:hover {
+  background-color: #ebdacc;
+  color: rgb(109, 49, 49);
+}
+button:active {
+  position: relative;
+  top: -0.5px;
+}
+
+.cardPack {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  &_cards {
+    background-color: rgb(109, 49, 49);
+    width: 200px;
+    padding: 1rem;
+
+    & img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+  }
+}
