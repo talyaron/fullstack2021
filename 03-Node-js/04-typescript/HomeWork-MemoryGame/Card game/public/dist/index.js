@@ -64,16 +64,28 @@ function renderGame(cards) {
     if (Array.isArray(cards)) {
         var html_1 = "";
         cards.forEach(function (card) {
-            html_1 += "<div  onclick=\"handleFlipCard()\"> <div class=\"card\" class=\"cardBack\">\n           <img src=" + card.imgUrl + "> <p>" + card.name + "</p></div></div>";
+            html_1 += "<div  onclick=\"handleFlipCard()\"> <div class=\"card\">\n           <div class=\"cardFront\">\n           <img src=" + card.imgUrl + "> <p>" + card.name + "</p></div>\n           </div>\n           </div>\n           ";
         });
         root.innerHTML = html_1;
     }
 }
-// function handleFlipCard(){
-//     // const cardBack:HTMLElement=document.querySelector(".cardBack");
+;
+// html+=`<div  onclick="handleFlipCard()"> <div class="card">
+// <div class="cardBack"></div>
+// <div class="cardFront">
+// <img src=${card.imgUrl}> <p>${card.name}</p></div>
+// </div>
+// </div>
+// function handleFlipCard(){    
+//     const cardBack:HTMLElement=document.querySelector(".cardBack");    
 //     // cardBack.style.display="none";
-//     let card:HTMLElement=document.querySelector(".card");
-//     card.style.visibility="visible";
+//     const image = document.createElement('img');
+//     image.src  ="img/BackCard.png";
+//     document.querySelector(".cardBack").appendChild(image);
+//     cardBack.style.gridTemplateColumns=" repeat(4, 250px)"
+//     cardBack.style.gridTemplateRows=" repeat(4, 250px)"
+//     // let card:HTMLElement=document.querySelector(".card");
+//     // card.style.visibility="visible";
 // }
 function handleNewGame() {
     var openingPage = document.querySelector(".openingPage");
