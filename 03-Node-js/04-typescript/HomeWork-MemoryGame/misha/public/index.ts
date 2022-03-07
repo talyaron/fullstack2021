@@ -1,4 +1,7 @@
+let gameStats = {
+    count: 0,
 
+}
 function log(log) {
     console.log(log)
     console.dir(log)
@@ -27,12 +30,6 @@ function handleStart() {
 
 function renderCards(cards) {
 
-    for (let i = 0; i < cards.length; i++) {
-        const j = Math.floor(Math.random() * (i + 1));
-        const temp = cards[i];
-        cards[i] = cards[j];
-        cards[j] = temp;
-    }
 
     const rootHTML = getRootElement();
 
@@ -44,16 +41,17 @@ function renderCards(cards) {
     };
 
     cards.forEach(card => {
-        html += `<div class="card" onclick="handleCardClick(event)" id="${uniqueId}">
+        html += `<div class="card" onclick="handleCardClick(event)" id="${uniqueId()}">
+
+        <div class="card--back">
+        ?
+        </div>
 
         <div class="card--front">
           <div class="img" style="background:url(${card.url}); background-size:cover; background-position:center;"></div>
           <div class="card__footer">${card.name}</div>
         </div>
 
-        <div class="card--back">
-        ?
-        </div>
 
         </div>`
     });
@@ -65,6 +63,44 @@ function renderCards(cards) {
 
 function handleCardClick(ev) {
 
-    log(ev.path[1].id)
+    if (ev.path[1].children[0].style.display === 'none') {
+        return 0;
+    }
 
+    else{
+        
+        ev.path[1].children[0].style.display = 'none'
+        ev.path[1].children[1].style.display = 'flex'
+
+        checkFlipped();
+
+        if (checkFlipped()) {
+            resetCards(ev.path[1])
+        }
+    }
+
+
+}
+
+function checkFlipped() {
+
+    gameStats.count++
+
+    if (gameStats.count === 2) {
+        gameStats.count = 0;
+        return true;
+    }
+}
+
+function resetCards(cards) {
+
+    try {
+        for (let i = 1; i < cards.length; i++) {
+            cards.children[0].style.display = 'flex'
+            cards.children[1].style.display = 'none'
+        }
+    }
+    catch (err) {
+        console.error(err.message);
+    }
 }
