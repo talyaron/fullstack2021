@@ -15,84 +15,112 @@ const cards = [
     {
         id: Math.random().toString(36).slice(-8),
         // pairId:
-        img: "ace of hearts.png"
+        afterFlipImg: "ace of hearts.png",
+        beforeFlipImg: "backSide.png"
     },
     {
         id: Math.random().toString(36).slice(-8),
         // pairId:
-        img: "ace of hearts.png"
+        afterFlipImg: "ace of hearts.png",
+        beforeFlipImg: "backSide.png"
     },
     {
         id: Math.random().toString(36).slice(-8),
         // pairId:
-        img: "Joker.png"
+        afterFlipImg: "Joker.png",
+        beforeFlipImg: "backSide.png"
     },
     {
         id: Math.random().toString(36).slice(-8),
         // pairId:
-        img: "Joker.png"
+        afterFlipImg: "Joker.png",
+        beforeFlipImg: "backSide.png"
     },
     {
         id: Math.random().toString(36).slice(-8),
         // pairId:
-        img: "8 of hearts.png"
+        afterFlipImg: "8 of hearts.png",
+        beforeFlipImg: "backSide.png"
     },
     {
         id: Math.random().toString(36).slice(-8),
         // pairId:
-        img: "8 of hearts.png"
+        afterFlipImg: "8 of hearts.png",
+        beforeFlipImg: "backSide.png"
     },
     {
         id: Math.random().toString(36).slice(-8),
         // pairId:
-        img: "9 of hearts.png"
+        afterFlipImg: "9 of hearts.png",
+        beforeFlipImg: "backSide.png"
     },
     {
         id: Math.random().toString(36).slice(-8),
         // pairId:
-        img: "9 of hearts.png"
+        afterFlipImg: "9 of hearts.png",
+        beforeFlipImg: "backSide.png"
     },
     {
         id: Math.random().toString(36).slice(-8),
         // pairId:
-        img: "10 of hearts.png"
+        afterFlipImg: "10 of hearts.png",
+        beforeFlipImg: "backSide.png"
     },
     {
         id: Math.random().toString(36).slice(-8),
         // pairId:
-        img: "10 of hearts.png"
+        afterFlipImg: "10 of hearts.png",
+        beforeFlipImg: "backSide.png"
     },
     {
         id: Math.random().toString(36).slice(-8),
         // pairId:
-        img: "jack of hearts.png"
+        afterFlipImg: "jack of hearts.png",
+        beforeFlipImg: "backSide.png"
     },
     {
         id: Math.random().toString(36).slice(-8),
         // pairId:
-        img: "jack of hearts.png"
+        afterFlipImg: "jack of hearts.png",
+        beforeFlipImg: "backSide.png"
     },
     {
         id: Math.random().toString(36).slice(-8),
         // pairId:
-        img: "queen of hearts.png"
+        afterFlipImg: "queen of hearts.jpg",
+        beforeFlipImg: "backSide.png"
     },
     {
         id: Math.random().toString(36).slice(-8),
         // pairId:
-        img: "queen of hearts.png"
+        afterFlipImg: "queen of hearts.jpg",
+        beforeFlipImg: "backSide.png"
     },
     {
         id: Math.random().toString(36).slice(-8),
         // pairId:
-        img: "king of hearts.png"
+        afterFlipImg: "king of hearts.png",
+        beforeFlipImg: "backSide.png"
     },
     {
         id: Math.random().toString(36).slice(-8),
         // pairId:
-        img: "king of hearts.png"
+        afterFlipImg: "king of hearts.png",
+        beforeFlipImg: "backSide.png"
     }
 ];
 app.get("/newGame", (req, res) => {
+    shuffleCards(cards);
     res.send(cards);
 });
+function shuffleCards(array) {
+    let currentIndex = array.length, temporaryValue, randomIndex;
+    while (0 !== currentIndex) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+    }
+    return array;
+}

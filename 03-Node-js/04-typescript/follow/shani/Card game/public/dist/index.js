@@ -1,14 +1,3 @@
-// const game={
-//     getNewGame: async function () {
-//     try{
-//        const {data} = await axios.get("/new-game");  
-//        console.log(data);
-//        if(Array.isArray(data)) return data;
-//        throw new Error ("data is not an array");
-//     }catch(err){
-//         console.error(err);
-//         return[]
-//     }
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -45,9 +34,11 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-//     }
-// }
-function getNewGame() {
+function appInit() {
+    getCards();
+}
+//needed to load on when the page opens
+function getCards() {
     return __awaiter(this, void 0, void 0, function () {
         var data;
         return __generator(this, function (_a) {
@@ -56,8 +47,58 @@ function getNewGame() {
                 case 1:
                     data = (_a.sent()).data;
                     console.log(data);
+                    renderGame(data);
                     return [2 /*return*/];
             }
         });
     });
+}
+function renderGame(cards) {
+    //  for (let i = cards.length - 1; i > 0; i--) {
+    //       const j = Math.floor(Math.random() * (i + 1));
+    //       const temp = cards[i];
+    //       cards[i] =cards[j];
+    //       cards[j] = temp;
+    // }
+    var uid = function () {
+        return Date.now().toString(36) + Math.random().toString(36).substr(2);
+    };
+    var root = document.querySelector("#root");
+    if (Array.isArray(cards)) {
+        var html_1 = "";
+        cards.forEach(function (card) {
+            html_1 += "<div class=\"card\" id=" + uid + "><img src=" + card.imgUrl + "> <p>" + card.name + "</p></div>";
+        });
+        root.innerHTML = html_1;
+    }
+}
+function handleNewGame() {
+    var gameCards = document.querySelector("#root");
+    var title = document.querySelector(".title");
+    var displayCards = gameCards.style.display;
+    var startButton = document.querySelector(".startButton");
+    if (displayCards === 'block') {
+        startButton.style.display = "none";
+        gameCards.style.display = "grid";
+        title.style.display = "none";
+        document.body.style.backgroundImage = 'url("https://media.sketchfab.com/models/bde62298ac8640588d5a2928b8e113dc/thumbnails/cea9e18e2bc84efdab1c881a6e6d82c6/a778dd7953b34ab9b9bc92dc2a499598.jpeg")';
+        document.body.style.backgroundRepeat = "no-repeat";
+        document.body.style.backgroundSize = "cover";
+    }
+    else {
+        startButton.style.display = "inline";
+        gameCards.style.display = "none";
+        document.body.style.backgroundImage = 'url("https://thumbs.gfycat.com/HardHoarseBarasinga-size_restricted.gif")';
+        document.body.style.backgroundRepeat = "no-repeat";
+        document.body.style.backgroundSize = "cover";
+    }
+    //gameCards.style.display="none";//makes root disappear
+    //startButton.style.display="none";//button disappears
+    // if(displayCards==='block'){
+    //     startButton.style.display="none";
+    //     gameCards.style.display="grid";
+    // }else{
+    //    startButton.style.display="inline";
+    //    gameCards.style.display="none";
+    // }
 }
