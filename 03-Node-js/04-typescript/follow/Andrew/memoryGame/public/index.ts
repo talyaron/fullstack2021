@@ -1,4 +1,5 @@
 
+
 const gameState = {
     difficulty: "easy",
     cardBackground: "https://i.imgur.com/ETlethM.jpeg",

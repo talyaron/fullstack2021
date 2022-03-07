@@ -67,12 +67,6 @@ function handleStart() {
     getCards();
 }
 function renderCards(cards) {
-    for (var i = 0; i < cards.length; i++) {
-        var j = Math.floor(Math.random() * (i + 1));
-        var temp = cards[i];
-        cards[i] = cards[j];
-        cards[j] = temp;
-    }
     var rootHTML = getRootElement();
     var html = '<section class="cardsgrid">';
     var uniqueId = function () {
