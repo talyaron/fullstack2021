@@ -48,14 +48,16 @@ function handlenewgame() {
         });
     });
 }
+// async function handleflip(ev) {
+//     const { data } = await axios.get('/newgame')
+//     const clas = (ev.path[2])
+// }
 function renderitem(data) {
     var root = document.getElementById('root');
     var html = '';
     data.forEach(function (data) {
-        html += "<div class=\"card\" onclick=\"handleflip(event)\"  >\n        <div class=\"back__img\"><img src =\"" + data.back + "\" ></div>\n        <div class=\"front__img\"><img src =\"" + data.front + "\" ></div>\n        </div>";
+        html += "<div class=\"card\" onclick=\"handleflip(event)\"  >\n        <div class=\"back__img\"><img src =\"" + data.back + "\" ></div>\n        \n        </div>";
     });
     root.innerHTML = html;
 }
-function handleflip(ev) {
-    console.log('hry');
-}
+// <div class="front__img"><img src ="${data.front}" ></div>
