@@ -34,84 +34,48 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var gameStats = {
-    count: 0
-};
-function log(log) {
-    console.log(log);
-    console.dir(log);
-}
-function getRootElement() {
-    var rootHTML = document.querySelector(".root");
-    return rootHTML;
-}
-function getCards() {
+function getAllCards() {
     return __awaiter(this, void 0, void 0, function () {
         var data;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, axios.get('/get-cards')];
+                case 0: return [4 /*yield*/, axios.get("/get-cards")];
                 case 1:
                     data = (_a.sent()).data;
+                    console.log(data);
                     renderCards(data);
                     return [2 /*return*/];
             }
         });
     });
 }
-function handleStart() {
-    var startButton = document.querySelector(".startButton");
-    var rootHTML = getRootElement();
-    startButton.style.display = 'none';
-    rootHTML.style.display = 'flex';
-    getCards();
-}
-function renderCards(cards) {
-    for (var i = 0; i < cards.length; i++) {
-        var j = Math.floor(Math.random() * (i + 1));
-        var temp = cards[i];
-        cards[i] = cards[j];
-        cards[j] = temp;
-    }
-    var rootHTML = getRootElement();
-    var html = '<section class="cardsgrid">';
-    var uniqueId = function () {
-        return Date.now().toString(36) + Math.random().toString(36).substr(2);
-    };
-    cards.forEach(function (card) {
-        html += "<div class=\"card\" onclick=\"handleCardClick(event)\" id=\"" + uniqueId() + "\">\n\n        <div class=\"card--back\">\n        ?\n        </div>\n\n        <div class=\"card--front\">\n          <div class=\"img\" style=\"background:url(" + card.url + "); background-size:cover; background-position:center;\"></div>\n          <div class=\"card__footer\">" + card.name + "</div>\n        </div>\n\n\n        </div>";
+function renderCards(data) {
+    var html = '<section class="game-container">';
+    data.forEach(function (card) {
+        html += "\n      <div class=\"game-container--card\">\n      <img class=\"game-container--card__img\" \n      src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/A_black_image.jpg/640px-A_black_image.jpg\"\n      title=\"?\" onclick=\"src='" + card.url + "' ; title='" + card.name + "';  \n       setTimeout(()=>{\n         src='https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/A_black_image.jpg/640px-A_black_image.jpg' ; title='?'},1300)\">\n         </div>";
     });
+    var root = document.querySelector("#root");
     html += '</section>';
-    rootHTML.innerHTML = html;
+    root.innerHTML = html;
 }
-function handleCardClick(ev) {
-    if (ev.path[1].children[0].style.display === 'none') {
-        return 0;
-    }
-    else {
-        ev.path[1].children[0].style.display = 'none';
-        ev.path[1].children[1].style.display = 'flex';
-        checkFlipped();
-        if (checkFlipped()) {
-            resetCards(ev.path[1]);
-        }
-    }
+function shuffle() {
+    return __awaiter(this, void 0, void 0, function () {
+        var data, shuffledArray;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, axios.get("/get-cards")];
+                case 1:
+                    data = (_a.sent()).data;
+                    shuffledArray = data.sort(function (a, b) { return 0.5 - Math.random(); });
+                    console.log(shuffledArray);
+                    renderCards(shuffledArray);
+                    return [2 /*return*/];
+            }
+        });
+    });
 }
-function checkFlipped() {
-    gameStats.count++;
-    if (gameStats.count === 2) {
-        gameStats.count = 0;
-        return true;
-    }
-}
-function resetCards(cards) {
-    try {
-        for (var i = 1; i < cards.length; i++) {
-            cards.children[0].style.display = 'flex';
-            cards.children[1].style.display = 'none';
-        }
-    }
-    catch (err) {
-        console.error(err.message);
-    }
+function newGame() {
+    var btn = document.getElementById("btn");
+    btn.style.display = "none";
+    shuffle();
 }
