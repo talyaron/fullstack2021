@@ -48,6 +48,7 @@ function handleNewGame(){
 
     let openingPage:HTMLElement=document.querySelector(".openingPage");   
     openingPage.style.display="none"; 
+    getCards()
     // let gameCards:HTMLElement=document.querySelector("#root");
     // let title:HTMLElement=document.querySelector(".title")
     // let displayCards=gameCards.style.display

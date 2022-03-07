@@ -75,6 +75,7 @@ function renderGame(cards) {
 function handleNewGame() {
     var openingPage = document.querySelector(".openingPage");
     openingPage.style.display = "none";
+    getCards();
     // let gameCards:HTMLElement=document.querySelector("#root");
     // let title:HTMLElement=document.querySelector(".title")
     // let displayCards=gameCards.style.display
