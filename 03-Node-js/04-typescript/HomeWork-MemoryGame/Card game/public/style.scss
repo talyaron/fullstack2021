@@ -1,0 +1,112 @@
+@import url('http://fonts.cdnfonts.com/css/harry-potter');
+
+body{   
+ 
+    font-family: 'Harry Potter', sans-serif;
+    //box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    margin:0px;
+    padding:0px;
+}
+.openingPage{
+    
+    text-align:center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("https://thumbs.gfycat.com/HardHoarseBarasinga-size_restricted.gif");
+    height:100%;
+    width:100%;
+    //position: fixed;
+    padding-top:50%;    
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+            
+     
+   
+    
+    .title{     
+      font-size:30px; 
+      letter-spacing: 7px;
+      text-shadow: 2px 8px 6px rgba(0, 0, 0, 0.726),
+      0px -5px 35px rgb(0, 0, 0);
+     
+    }
+
+     
+  button{
+    margin-top:10px;
+  
+    &.startButton{
+    font-family: 'Harry Potter', sans-serif;
+     border:none;
+     width:100px;
+     height:60px;
+     border-radius:20px;
+     letter-spacing:5px;
+     font-weight:bolder;
+     text-align:center;
+     box-shadow: 0px -1px 35px rgba(0, 0, 0, 0.658);
+     background-color:rgba(126, 20, 20, 0.658);
+       &:hover{
+        background-color:rgb(167, 28, 28);
+        box-shadow: 5px 1px 40px 30px rgba(116, 79, 37, 0.849);
+      }
+  }
+ }
+}
+
+
+ 
+
+
+#root{
+    
+    
+  background-image: url("https://media.sketchfab.com/models/bde62298ac8640588d5a2928b8e113dc/thumbnails/cea9e18e2bc84efdab1c881a6e6d82c6/a778dd7953b34ab9b9bc92dc2a499598.jpeg");
+  background-size: cover;
+  height:100%;
+
+  width:100%;
+  justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(4, 250px);
+    grid-template-rows: repeat(4, 250px);
+    gap: 3px;
+    column-gap: 3px;
+   
+    
+  
+
+
+  .card{
+    padding-top:8px;
+    text-align:center;
+    //border:solid 1px black;
+
+    
+    img{
+        width:180px;
+        height:180px;
+        // visibility: hidden;
+    }
+    // .cardBack{
+    //   background: #fff;
+    //   cursor: default;
+    //   transform: rotateY(180deg);
+    //   transition: transform 0.4s linear;
+    //   pointer-events: none;
+    // }
+    p{
+        color:white;
+    }
+  }
+}    
+
+      
+
+
+   
+

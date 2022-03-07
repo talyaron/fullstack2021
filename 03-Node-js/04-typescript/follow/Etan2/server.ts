@@ -42,9 +42,19 @@ app.get('/isPair', (req, res)=>{
 })
 app.get('/new-game', (req, res) => {
   try {
+    shuffleCards(cards)
     res.send(cards);
+
   } catch (error) {
     res.send({error:error.message});
+  }
+
+  function shuffleCards(cards){
+    let shuffled = cards
+    .map((value) => ({ value, sort: Math.random() }))
+    .sort((a, b) => a.sort - b.sort)
+    .map(({ value }) => value);
+  return shuffled
   }
 });
 

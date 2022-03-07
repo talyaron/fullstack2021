@@ -5,24 +5,14 @@ const game = {
   getCards: async function () {
     try {
       const { data } = await axios.get("/new-game");
-
-
       if (Array.isArray(data)) return data;
     } catch (error) {
       console.error(error);
     }
   },
-  shuffleCards: async function () {
-    this.cards = await this.getCards();
-    let shuffled = this.cards
-      .map((value) => ({ value, sort: Math.random() }))
-      .sort((a, b) => a.sort - b.sort)
-      .map(({ value }) => value);
-    return shuffled;
-  },
   renderGame: async function () {
     let html = "";
-    this.cards = await this.shuffleCards();
+    this.cards = await this.getCards();
 
     const emptyWrapper = document.querySelector(".wrapper__empty");
     const wrapper = document.querySelector(".wrapper");
@@ -76,6 +66,7 @@ const game = {
 };
 
 function handleCardMatching(firstCard, secondCard, hasFlippedCard) {
+  let j=0;
   const pairs = [
     [1, 15], [15, 1],
     [2, 16], [16, 2],
@@ -88,14 +79,13 @@ function handleCardMatching(firstCard, secondCard, hasFlippedCard) {
   ];
   if (hasFlippedCard !== true) {
     for (let i of pairs) {
-  
       let matchCheck = [firstCard.id, secondCard.id]
       
       
       if(i.toString() === matchCheck.toString()) {
-
-        console.log("its a match");
-       return; 
+        j++
+        console.log(`its a match! ${j}`);
+       return j; 
       }
 
       
