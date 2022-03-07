@@ -1,0 +1,38 @@
+.game {
+  text-align: center;
+}
+.game__button {
+  position: relative;
+  margin-left: 40%;
+  margin-right: 50%;
+  width: 20%;
+}
+
+img {
+  border-radius: 10px;
+  width: 200px;
+  height: 150px;
+}
+
+#root {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 8%;
+  gap: 15px;
+  padding-top: 10px;
+}
+
+.card {
+  position: relative;
+  transform: scale(1);
+}
+
+.card:active {
+  transform: scale(0.97);
+  transform: rotateY(180deg);
+}
+
+.front__img {
+  position: absolute;
+  top: 0%;
+}
