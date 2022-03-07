@@ -42,3 +42,7 @@ app.patch("/update-product", (req, res) => {
 app.listen(port, () => {
     console.log(`Server listen on port ${port}`);
 });
+const games = {
+    uid: [cards, ...],
+    uid2: [cards, ...]
+};
