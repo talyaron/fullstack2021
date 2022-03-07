@@ -22,15 +22,16 @@ const cardUrls = [
     'https://i.pinimg.com/originals/63/07/78/6307783e8b8068692c84a4e276aedf8f.jpg',
 ];
 function doubleCards(cardUrls) {
-    let tempObj = {};
     let doubleArray = [];
-    for (let i = 0; i < cardUrls.length; i++) {
-        tempObj = { url: cardUrls[i], pairID: uid() };
-        for (let i = 1; i <= 2; i++) {
-            const tempObj2 = { tempObj, : .url, pairID: obj.pairID, uniqueID: uid() };
-            doubleArray.push(tempObj2);
-        }
-    }
+    cardUrls.forEach((url) => {
+        const tempObj = { src: url, pairID: uid() };
+        const card1 = Object.assign({}, tempObj);
+        const card2 = Object.assign({}, tempObj);
+        card1.uniqueID = uid();
+        card2.uniqueID = uid();
+        doubleArray = [...doubleArray, card1, card2];
+    });
+    console.log(doubleArray);
 }
 doubleCards(cardUrls);
 const cardsDeck = [
