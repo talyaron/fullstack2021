@@ -30,8 +30,12 @@ const cards = [
     { picSrc: `http://chabadpedia.co.il/images/thumb/d/d3/%D7%A2%D7%99%D7%93%D7%95%D7%93.jpg/450px-%D7%A2%D7%99%D7%93%D7%95%D7%93.jpg`, name: `הרבי מליובוויטש`, pairId: '8', id: uid() }
 ];
 app.get('/get-cards', (req, res) => {
-    res.send(cards);
+    const shuffledArray = shuffleArray(cards);
+    res.send(shuffledArray);
 });
+function shuffleArray(cards) {
+    return cards.sort(() => .5 - Math.random());
+}
 app.listen(port, () => {
     return console.log(`Express is listening at http://localhost:${port}`);
 });
