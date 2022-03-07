@@ -67,15 +67,20 @@ function renderGame(cards) {
     if (Array.isArray(cards)) {
         var html_1 = "";
         cards.forEach(function (card) {
-            html_1 += "<div class=\"card\" id=" + uid + "><img src=" + card.imgUrl + "> <p>" + card.name + "</p></div>";
+            html_1 += "<div class=\"cardBack\" onclick=\"handleFlipCard()\"> <div class=\"card\" id=" + uid + "><img src=" + card.imgUrl + "> <p>" + card.name + "</p></div></div>";
         });
         root.innerHTML = html_1;
     }
 }
+// function handleFlipCard(){
+//     const cardBack:HTMLElement=document.querySelector(".cardBack");
+//     cardBack.style.display="none";
+//     // let card:HTMLElement=document.querySelector(".card");
+//     // card.style.display="none";
+// }
 function handleNewGame() {
     var openingPage = document.querySelector(".openingPage");
     openingPage.style.display = "none";
-    getCards();
     // let gameCards:HTMLElement=document.querySelector("#root");
     // let title:HTMLElement=document.querySelector(".title")
     // let displayCards=gameCards.style.display

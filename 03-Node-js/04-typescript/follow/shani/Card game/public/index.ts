@@ -32,30 +32,39 @@ function renderGame(cards){
     
        let html="";
        cards.forEach(card=>{
-           html+=`<div class="card" id=${uid}><img src=${card.imgUrl}> <p>${card.name}</p></div>`
+           html+=`<div class="cardBack" onclick="handleFlipCard()"> <div class="card" id=${uid}><img src=${card.imgUrl}> <p>${card.name}</p></div></div>`
        })
        root.innerHTML=html;
       
-   }
-   
-   
+   }  
 
 
 }
+
+// function handleFlipCard(){
+
+    
+//     const cardBack:HTMLElement=document.querySelector(".cardBack");
+    
+//     cardBack.style.display="none";
+
+//     // let card:HTMLElement=document.querySelector(".card");
+//     // card.style.display="none";
+
+// }
 
 
 function handleNewGame(){
 
     let openingPage:HTMLElement=document.querySelector(".openingPage");   
     openingPage.style.display="none"; 
-    getCards()
+    
+
+
     // let gameCards:HTMLElement=document.querySelector("#root");
     // let title:HTMLElement=document.querySelector(".title")
     // let displayCards=gameCards.style.display
     // let startButton:HTMLElement=document.querySelector(".startButton");
-
-
-
    
     // if(displayCards ==='block'){
     //     startButton.style.display="none";
