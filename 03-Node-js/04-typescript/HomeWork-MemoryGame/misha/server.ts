@@ -23,30 +23,22 @@ const cardUrls = [
 function doubleCards(cardUrls) {
 
     let tempObj = {}
+    let doubleArray = []
 
     for (let i = 0; i < cardUrls.length; i++) {
-        tempObj = { url: cardUrls[i], pairID: i+1}
-        doubleImage(tempObj)
+
+        tempObj = { url: cardUrls[i], pairID: uid()}
+
+        for (let i = 1; i <= 2; i++) {
+            const tempObj2 = {tempObj.url, pairID: obj.pairID, uniqueID: uid()}
+            doubleArray.push(tempObj2)
+        }
+
     }
 
 }
 
 doubleCards(cardUrls);
-
-function doubleImage(obj) {
-
-    const doubleArray = []
-
-    for (let i = 1; i <= 2; i++) {
-        const tempObj2 = {url: obj.url, pairID: obj.pairID, uniqueID: uid()}
-        doubleArray.push(tempObj2)
-    }
-    
-    console.log(doubleArray)
-
-   return doubleArray
-    
-}
 
 const cardsDeck = [
     //     { name: 'Kurt Cubain', url: 'https://api.time.com/wp-content/uploads/2014/03/3220062.jpg' },
