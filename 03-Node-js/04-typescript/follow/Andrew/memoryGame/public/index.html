@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="dist/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="dist/index.js" defer></script>
+</head>
+
+<body>
+    <div class="header">
+        <h1>Memory Game</h1>
+    </div>
+    <div class="wrapper">
+        <form class="menu" onsubmit="handleForm(event)">
+            <h2>Select difficulty and press start</h2>
+            <label>
+                <input type="radio" name="radio" checked="checked" value="easy"> Easy (8 cards)
+            </label>
+            <label>
+                <input type="radio" name="radio" value="normal"> Normal (12 cards)
+            </label>
+            <label>
+                <input type="radio" name="radio" value="hard"> Hard (18 cards)
+            </label>
+            <input type="submit" name="start" value="Start" id="button">
+        </form>
+        <div class="main in-vis">
+            <div class="cards-grid">
+                <div class="card" id="">
+                    <div class="card--front"></div>
+                    <div class="card--back"></div>
+                </div>
+            </div>
+        </div>
+        <div class="win in-vis">
+            <h2>Congratulations!</h2>
+            <h3>You won in XX turns, <br> taking you 00:00 seconds.</h3>
+        </div>
+    </div>
+
+</body>
+
+</html>
