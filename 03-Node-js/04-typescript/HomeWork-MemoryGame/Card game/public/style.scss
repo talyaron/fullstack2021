@@ -90,6 +90,14 @@ body{
     img{
         width:180px;
         height:180px;
+        visibility: hidden;
+    }
+    .cardBack{
+      background: #fff;
+      cursor: default;
+      transform: rotateY(180deg);
+      transition: transform 0.4s linear;
+      pointer-events: none;
     }
     p{
         color:white;

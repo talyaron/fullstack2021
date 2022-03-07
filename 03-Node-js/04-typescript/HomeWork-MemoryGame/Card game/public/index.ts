@@ -22,9 +22,7 @@ function renderGame(cards){
     //       cards[i] =cards[j];
     //       cards[j] = temp;
     // }
-   let uid = function(){
-        return Date.now().toString(36) + Math.random().toString(36).substr(2);
-    }
+ 
     
 
     const root=document.querySelector("#root");
@@ -32,7 +30,8 @@ function renderGame(cards){
     
        let html="";
        cards.forEach(card=>{
-           html+=`<div class="cardBack" onclick="handleFlipCard()"> <div class="card" id=${uid}><img src=${card.imgUrl}> <p>${card.name}</p></div></div>`
+           html+=`<div  onclick="handleFlipCard()"> <div class="card" class="cardBack">
+           <img src=${card.imgUrl}> <p>${card.name}</p></div></div>`
        })
        root.innerHTML=html;
       
@@ -41,17 +40,17 @@ function renderGame(cards){
 
 }
 
-// function handleFlipCard(){
+function handleFlipCard(){
 
     
-//     const cardBack:HTMLElement=document.querySelector(".cardBack");
+    // const cardBack:HTMLElement=document.querySelector(".cardBack");
     
-//     cardBack.style.display="none";
+    // cardBack.style.display="none";
 
-//     // let card:HTMLElement=document.querySelector(".card");
-//     // card.style.display="none";
+    let card:HTMLElement=document.querySelector(".card");
+    card.style.visibility="visible";
 
-// }
+}
 
 
 function handleNewGame(){

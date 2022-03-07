@@ -26,6 +26,28 @@ const cards = [
     { name: "Draco Malfoy", pairId: "8", imgUrl: "/img/DracoCard.gif" },
     { name: "Draco Malfoy", pairId: "8", imgUrl: "/img/DracoCard.gif" }
 ];
+// function uid() {
+//   return Date.now().toString(36) + Math.random().toString(36);
+// }
+// const cardUrls=[
+//   "img/HarryCard.gif",
+//   "img/HermioneCard.gif",
+//   "/img/RonCard.gif",
+//   "/img/SnapeCard.gif",
+//   "/img/DumbledoreCard.gif",
+//   "/img/SiriusCard.gif",
+//   "/img/RemusCard.gif",
+//   "/img/DracoCard.gif"
+// ]
+// function doubleCards(cardUrls){
+//   let tempObj={};
+//   for(let i=0; i<cardUrls.length;i++){
+//     tempObj={imgUrl:cardUrls[i],pairId:i+1}
+//   }
+//   //we created for each url to go into an object that gives in pairId and other key and value
+// }
+// doubleCards(cardUrls)
+// //invoking
 app.get("/new-game", (req, res) => {
     const shuffledDeck = shuffleCards(cards);
     res.send(shuffledDeck);
