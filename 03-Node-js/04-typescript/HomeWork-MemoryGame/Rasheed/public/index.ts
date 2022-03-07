@@ -16,24 +16,20 @@ let timeStart:boolean = false
 
 
 
-function startGame() {
+async function startGame() {
 
-    axios.get('/get-cards').then(({ data }) => {
+    const { data } = await axios.get("/get-cards");
         const deck = document.querySelector(".deck");
 
-        console.log(data);
-        const shuffledDeck = data;
-
-        for (let i = 0; i < shuffledDeck.length; i++) {
+        for (let i = 0; i < data.length; i++) {
             const liTag = (<HTMLInputElement>document.createElement('LI'));
             liTag.classList.add('card');
             const addImge = (<HTMLInputElement>document.createElement('IMG'));
             liTag.appendChild(addImge);
-            addImge.setAttribute("src", "img/" + shuffledDeck[i]);
+            addImge.setAttribute("src", "img/" + data[i]);
             addImge.setAttribute("alt", "image of vault boy from fallout");
             deck.appendChild(liTag);
         }
-    });
 
 }
 
