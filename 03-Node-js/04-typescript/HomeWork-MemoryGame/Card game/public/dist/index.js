@@ -69,12 +69,12 @@ function renderGame(cards) {
         root.innerHTML = html_1;
     }
 }
-function handleFlipCard() {
-    // const cardBack:HTMLElement=document.querySelector(".cardBack");
-    // cardBack.style.display="none";
-    var card = document.querySelector(".card");
-    card.style.visibility = "visible";
-}
+// function handleFlipCard(){
+//     // const cardBack:HTMLElement=document.querySelector(".cardBack");
+//     // cardBack.style.display="none";
+//     let card:HTMLElement=document.querySelector(".card");
+//     card.style.visibility="visible";
+// }
 function handleNewGame() {
     var openingPage = document.querySelector(".openingPage");
     openingPage.style.display = "none";

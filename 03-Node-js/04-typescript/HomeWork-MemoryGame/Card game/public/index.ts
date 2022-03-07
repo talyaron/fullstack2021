@@ -40,17 +40,17 @@ function renderGame(cards){
 
 }
 
-function handleFlipCard(){
+// function handleFlipCard(){
 
     
-    // const cardBack:HTMLElement=document.querySelector(".cardBack");
+//     // const cardBack:HTMLElement=document.querySelector(".cardBack");
     
-    // cardBack.style.display="none";
+//     // cardBack.style.display="none";
 
-    let card:HTMLElement=document.querySelector(".card");
-    card.style.visibility="visible";
+//     let card:HTMLElement=document.querySelector(".card");
+//     card.style.visibility="visible";
 
-}
+// }
 
 
 function handleNewGame(){
