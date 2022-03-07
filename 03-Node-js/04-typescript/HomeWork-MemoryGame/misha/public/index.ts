@@ -30,7 +30,6 @@ function handleStart() {
 
 function renderCards(cards) {
 
-
     const rootHTML = getRootElement();
 
     let html = '<section class="cardsgrid">';
