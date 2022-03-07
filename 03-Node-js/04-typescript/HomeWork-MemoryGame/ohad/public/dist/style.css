@@ -1,0 +1,39 @@
+h1 {
+  text-align: center;
+  color: red;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.game-container {
+  margin: 50px auto;
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  grid-template-rows: repeat(3, auto);
+  grid-gap: 10px;
+  justify-content: center;
+  perspective: 500px;
+}
+.game-container--card {
+  width: 150px;
+  height: 150px;
+  background-color: black;
+}
+.game-container--card__img {
+  width: 150px;
+  height: 150px;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+button {
+  background-color: blue;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 22px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
