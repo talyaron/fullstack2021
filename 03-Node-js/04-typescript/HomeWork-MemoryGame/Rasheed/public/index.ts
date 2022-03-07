@@ -27,7 +27,6 @@ async function startGame() {
             const addImge = (<HTMLInputElement>document.createElement('IMG'));
             liTag.appendChild(addImge);
             addImge.setAttribute("src", "img/" + data[i]);
-            addImge.setAttribute("alt", "image of vault boy from fallout");
             deck.appendChild(liTag);
         }
 

@@ -60,23 +60,20 @@ function renderGame(cards) {
     //       cards[i] =cards[j];
     //       cards[j] = temp;
     // }
-    var uid = function () {
-        return Date.now().toString(36) + Math.random().toString(36).substr(2);
-    };
     var root = document.querySelector("#root");
     if (Array.isArray(cards)) {
         var html_1 = "";
         cards.forEach(function (card) {
-            html_1 += "<div class=\"cardBack\" onclick=\"handleFlipCard()\"> <div class=\"card\" id=" + uid + "><img src=" + card.imgUrl + "> <p>" + card.name + "</p></div></div>";
+            html_1 += "<div  onclick=\"handleFlipCard()\"> <div class=\"card\" class=\"cardBack\">\n           <img src=" + card.imgUrl + "> <p>" + card.name + "</p></div></div>";
         });
         root.innerHTML = html_1;
     }
 }
 // function handleFlipCard(){
-//     const cardBack:HTMLElement=document.querySelector(".cardBack");
-//     cardBack.style.display="none";
-//     // let card:HTMLElement=document.querySelector(".card");
-//     // card.style.display="none";
+//     // const cardBack:HTMLElement=document.querySelector(".cardBack");
+//     // cardBack.style.display="none";
+//     let card:HTMLElement=document.querySelector(".card");
+//     card.style.visibility="visible";
 // }
 function handleNewGame() {
     var openingPage = document.querySelector(".openingPage");
