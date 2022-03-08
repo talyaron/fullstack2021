@@ -42,23 +42,27 @@ function renderGame(cards){
 // </div>
 // </div>
 
+function checkMatches(cards){
+    
+}
 
 
-// function handleFlipCard(){    
-//     const cardBack:HTMLElement=document.querySelector(".cardBack");    
-//     // cardBack.style.display="none";
-//     const image = document.createElement('img');
-//     image.src  ="img/BackCard.png";
-//     document.querySelector(".cardBack").appendChild(image);
-//     cardBack.style.gridTemplateColumns=" repeat(4, 250px)"
-//     cardBack.style.gridTemplateRows=" repeat(4, 250px)"
+
+function handleFlipCard(){    
+    // const cardBack:HTMLElement=document.querySelector(".cardBack");    
+    // // cardBack.style.display="none";
+    // const image = document.createElement('img');
+    // image.src  ="img/BackCard.png";
+    // document.querySelector(".cardBack").appendChild(image);
+    // cardBack.style.gridTemplateColumns=" repeat(4, 250px)"
+    // cardBack.style.gridTemplateRows=" repeat(4, 250px)"
 
     
     
-//     // let card:HTMLElement=document.querySelector(".card");
-//     // card.style.visibility="visible";
+    // let card:HTMLElement=document.querySelector(".card");
+    // card.style.visibility="visible";
 
-// }
+}
 
 
 function handleNewGame(){

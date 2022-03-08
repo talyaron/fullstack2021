@@ -89,8 +89,13 @@ body {
 
                 display: none;
             }
+
+            &-matched{
+                visibility: hidden;
+            }
         }
     }
 
     display: none;
 }
+
