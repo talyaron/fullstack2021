@@ -1,0 +1,51 @@
+body {
+  font-family: "Barlow Condensed", sans-serif;
+  background: url(https://i0.wp.com/www.touristisrael.com/wp-content/uploads/2021/02/shutterstock_690424699.jpg?resize=1024%2C683&ssl=1);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center center;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  font-size: 30px;
+  color: white;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  align-items: center;
+}
+.header .start-button {
+  display: flex;
+}
+.header .start-button button {
+  font-size: 45px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.cards {
+  margin-top: 10px;
+  margin-left: 25%;
+  width: fit-content;
+  height: fit-content;
+  border: 5px solid black;
+  background-color: transparent;
+  border-radius: 20px;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(4, 150px);
+  gap: 50px;
+}
+
+.card {
+  cursor: pointer;
+  width: 150px;
+  height: 150px;
+  border-radius: 10px;
+}
+.card .pic {
+  border-radius: 10px;
+  width: 150px;
+  height: 150px;
+}

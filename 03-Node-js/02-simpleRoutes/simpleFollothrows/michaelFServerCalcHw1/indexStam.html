@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.0/axios.min.js" integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>    <title>Client</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <select onchange="handleSelect(event)">
+        <option value="" disabled selected>Please choose your faviourate art</option>
+        <option value="all">All</option>
+        <option value="cubism">Cubism</option>
+        <option value="dadaism">Dadaism</option>
+        <option value="impressionism">Impressionism</option>
+        <option value="post-impressionism">Post-impressionism</option>
+        <option value="rococo">Rococo</option>
+    </select>
+
+    <input type="range" min="1800" max="1950" value="1875" oninput="handleRange(event)">
+
+    
+
+
+
+    <div id="root"></div>
+    <div id="rootRange"></div>
+    <script src="index.js"></script>
+</body>
+</html>

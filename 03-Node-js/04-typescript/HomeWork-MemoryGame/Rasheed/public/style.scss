@@ -1,0 +1,314 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+
+  &::before,
+  &::after {
+    box-sizing: inherit;
+  }
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  background: url(img/ignasi_pattern_s.png);
+  font-family: "open Sans", sans-serif;
+  font-size: 62.5%;
+  letter-spacing: 1.5px;
+  margin: 0;
+  text-align: center;
+  background-image: url(https://media0.giphy.com/media/xTiTnxpQ3ghPiB2Hp6/giphy.gif?cid=ecf05e47cy3mtgysogd281unq2t6c2zses2f6ihe34g64ftn&rid=giphy.gif&ct=g);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 0.5em;
+
+}
+
+ul>il {
+  list-style: none;
+}
+
+.card,
+.reset-btn {
+  cursor: pointer;
+}
+
+.btn {
+  border-radius: 1em;
+  border: none;
+  color: #fff;
+  box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+  padding: 00.8em;
+}
+
+h1 {
+  font-size: 3em;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+h2 {
+  font-size: 2.5em;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+p {
+  font-size: 1.6em;
+}
+
+h3 {
+  font-weight: 400;
+}
+
+.score-panel {
+  font-size: 1.4em;
+  padding: 1em 0 2em;
+  color: white;
+}
+
+.star-rating>li {
+  display: inline-block;
+
+  padding: 0.5em;
+}
+
+.moves-counter {
+  padding: 00.5em;
+}
+
+.reset-btn {
+  background: #000;
+
+}
+
+.timer-container {
+  
+  border-radius: 0.5em;
+  color: #fff;
+  margin: 0.5em;
+  padding: 0.5em;
+}
+
+.timer {
+  font-size: 1.5em;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 99;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(46, 61, 73);
+  background-color: rgba(46, 61, 73, 0.6);
+}
+
+.modal-contant {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url(https://png.pngtree.com/png-clipart/20210426/ourlarge/pngtree-halo-light-effect-png-image_3241110.jpg);
+  margin: 5% auto;
+  border: 0.5em solid #fc4;
+  border-radius: 10px;
+  padding-right: 2em;
+  width: 80%;
+}
+
+.close {
+  align-self: flex-end;
+  color: #28e;
+  font-size: 5em;
+
+  &:hover,
+  &:focus {
+    color: #5cf;
+    text-decoration: none;
+    cursor: pointer;
+  }
+}
+
+.modal-img {
+  display: inline-block;
+  margin: 1em 0 1em;
+  width: 20em;
+}
+
+p.stats {
+  font-weight: 600;
+
+  &:last-child {
+    margin-bottom: 1em;
+  }
+}
+
+.play-agian-btn {
+  background: #28e;
+  margin-bottom: 1em;
+}
+
+.deck {
+  background: linear-gradient(to bottom, #0300b3, #0a078d);
+  border-radius: 1.5em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  height: 35em;
+  margin-bottom: 6em;
+  padding: 0.5em;
+  width: 35em;
+  box-shadow: 5px 2px 20px rgb(248, 248, 248);
+  
+}
+
+.card {
+  box-shadow: 5px 2px 20px rgba(46, 61, 73, 0.5);
+  background-image: url(https://media0.giphy.com/media/xTiTnxpQ3ghPiB2Hp6/giphy.gif?cid=ecf05e47msl6hefkkby0lzzi4iyux3cwve415vxcqdc0enyf&rid=giphy.gif&ct=g);
+  border-radius: 0.9em;
+  height: 7em;
+  width: 7em;
+  &:hover {
+    transform : scale(1.1);
+  }
+
+  
+
+}
+
+img {
+  user-select: none;
+  width: 85%;
+  height:  85%;
+  margin-top: 10px;
+}
+
+.deck {
+  img {
+    visibility: hidden;
+  }
+
+  .card.flip {
+    background: #fff;
+    cursor: default;
+    transform: rotateY(180deg);
+    transition: transform 0.4s linear;
+    pointer-events: none;
+  }
+}
+
+.flip img {
+  background: #fff;
+  visibility: visible;
+}
+
+.deck .card.match {
+  background: #0300b3;
+  visibility: visible;
+  cursor: default;
+  animation: pulse 1s;
+}
+
+.match img {
+  background: #ffffff;
+  border-radius: 1em;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  80% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@media screen and (min-width: 550px) {
+  .deck {
+    height: 50em;
+    padding: 2em;
+    width: 50em;
+  }
+
+  .card {
+    height: 10em;
+    width: 10em;
+  }
+
+  .deck img {
+    width: 9em;
+  }
+
+  .modal-contant h2 {
+    font-size: 4em;
+  }
+
+  .play-agian-btn {
+    font-size: 1.8em;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  h1 {
+    font-size: 6em;
+  }
+
+  p {
+    font-size: 2.3em;
+  }
+
+  .deck {
+    height: 70em;
+    width: 70em;
+  }
+
+  .card {
+    height: 15em;
+    width: 15em;
+  }
+
+  .deck img {
+    width: 13em;
+  }
+
+  .reset-btn {
+    font-size: 1.1em;
+  }
+
+  footer {
+    font-size: 1.2em;
+  }
+
+  .modal-contant h2 {
+    font-size: 5em;
+  }
+
+  .modal-img {
+    width: 30em;
+  }
+
+  .play-agian-btn {
+    font-size: 2em;
+  }
+}
