@@ -29,10 +29,10 @@ app.post('/add-new-game', (req, res) => {
     const newGame = addGame(newGameName);
     res.send(newGame);
 });
-function addGame(name) {
-    games.push({ name });
-    return games;
-}
+// function addGame(name){
+//     games.push({name})
+//     return games
+// }
 app.listen(port, () => {
     return console.log(`Express is listening at http://localhost:${port}`);
 });
