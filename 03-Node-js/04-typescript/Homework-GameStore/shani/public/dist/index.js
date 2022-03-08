@@ -1,7 +1,3 @@
-// const gameWeb={ 
-//  getGames: async function(){
-//     try{
-//         const {data}= await axios.get('/get-games');
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -38,22 +34,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-//     if(Array.isArray(data)) return data;
-//       console.log(data)
-//     }catch(error){
-//         console.error(error)
-//     }
-//  },
-//  renderToDom(){
-//  let html="";
-//  data.forEach(game=>{
-//      html+=`
-//      <div class="game"> <p>${game.name}</p> </div>`
-//  })
-//  let root=document.querySelector("#root")
-//  root.innerHTML=html
-//  },
-// }
 function handleGames() {
     getGames();
 }

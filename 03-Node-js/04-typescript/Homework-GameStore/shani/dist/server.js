@@ -22,6 +22,17 @@ const games = [
 app.get('/get-games', (req, res) => {
     res.send(games);
 });
+app.post('/add-new-game', (req, res) => {
+    const newGameName = req.body.name;
+    // const newStandardEdition=req.body.standardEdition;
+    // const deluxeEdition=req.body.deluxeEdition;
+    const newGame = addGame(newGameName);
+    res.send(newGame);
+});
+function addGame(name) {
+    games.push({ name });
+    return games;
+}
 app.listen(port, () => {
     return console.log(`Express is listening at http://localhost:${port}`);
 });
