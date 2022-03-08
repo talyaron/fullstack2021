@@ -2,7 +2,7 @@ let gameStats = {
     count: 0,
     flipped: 0,
     flippedIDs: [],
-
+    flippedpairIDs: [],
 }
 
 function uniqueId() {
@@ -10,8 +10,8 @@ function uniqueId() {
 };
 
 function log(log) {
-    console.log(log)
-    // console.dir(log)
+    // console.log(log)
+    console.dir(log)
 }
 
 function getRootElement() {
@@ -43,7 +43,7 @@ function renderCards(cards) {
 
     cards.forEach(card => {
 
-        html += `<div class="card" id="${card.pairID}">
+        html += `<div class="card" id="${card.uniqueID}">
 
         <div class="card--back"  onclick="handleCardClick(event)" id="${card.pairID}">
         ?
@@ -72,28 +72,51 @@ function handleCardClick(ev) {
     else {
 
         ev.path[1].children[0].style.display = 'none'
-        gameStats.flippedIDs.push(ev.path[1].children[0].id);
+        gameStats.flippedIDs.push(ev.path[1].id);
+        gameStats.flippedpairIDs.push(ev.path[1].children[0].id);
 
         ev.path[1].children[1].style.display = 'flex'
 
         gameStats.flipped++;
 
         if (gameStats.flipped === 2) {
-            checkFlipped(gameStats.flippedIDs)
+            checkFlipped(gameStats.flippedIDs,gameStats.flippedpairIDs)
             gameStats.flipped = 0;
             gameStats.flippedIDs = [];
+            gameStats.flippedpairIDs = [];
         }
     }
 
 }
 
-function checkFlipped(flipped) {
+function checkFlipped(flipped,flippedPair) {
 
-if(flipped[0]===flipped[1]){
-    let cardDelete = <HTMLElement>document.querySelector(`#${flipped[0]}`)
-    cardDelete.style.visibility = 'hidden'
+    let cardDelete1:any = document.getElementById(flipped[0])
+    let cardDelete2:any = document.getElementById(flipped[1])
+
+if(flippedPair[0]===flippedPair[1]){
+    setTimeout(() => {
+        cardDelete1.classList.add('card-matched')
+        cardDelete2.classList.add('card-matched')
+    }, 1000);
+
 }
 else{
-    return false;
+
+    setTimeout(() => {
+
+        cardDelete1.children[0].style.display = 'flex'
+        cardDelete1.children[1].style.display = 'none'
+        cardDelete2.children[0].style.display = 'flex'
+        cardDelete2.children[1].style.display = 'none'
+
+
+    },1000)
+
 }
+}
+
+// function resetCards(){
+
+    
 }

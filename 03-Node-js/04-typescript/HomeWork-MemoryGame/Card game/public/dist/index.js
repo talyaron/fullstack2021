@@ -70,17 +70,19 @@ function renderGame(cards) {
 // <img src=${card.imgUrl}> <p>${card.name}</p></div>
 // </div>
 // </div>
-// function handleFlipCard(){    
-//     const cardBack:HTMLElement=document.querySelector(".cardBack");    
-//     // cardBack.style.display="none";
-//     const image = document.createElement('img');
-//     image.src  ="img/BackCard.png";
-//     document.querySelector(".cardBack").appendChild(image);
-//     cardBack.style.gridTemplateColumns=" repeat(4, 250px)"
-//     cardBack.style.gridTemplateRows=" repeat(4, 250px)"
-//     // let card:HTMLElement=document.querySelector(".card");
-//     // card.style.visibility="visible";
-// }
+function checkMatches(cards) {
+}
+function handleFlipCard() {
+    // const cardBack:HTMLElement=document.querySelector(".cardBack");    
+    // // cardBack.style.display="none";
+    // const image = document.createElement('img');
+    // image.src  ="img/BackCard.png";
+    // document.querySelector(".cardBack").appendChild(image);
+    // cardBack.style.gridTemplateColumns=" repeat(4, 250px)"
+    // cardBack.style.gridTemplateRows=" repeat(4, 250px)"
+    // let card:HTMLElement=document.querySelector(".card");
+    // card.style.visibility="visible";
+}
 function handleNewGame() {
     var openingPage = document.querySelector(".openingPage");
     openingPage.style.display = "none";
