@@ -15,16 +15,6 @@ async function getCards(){
 
 function renderGame(cards){
 
-   
-    //  for (let i = cards.length - 1; i > 0; i--) {
-    //       const j = Math.floor(Math.random() * (i + 1));
-    //       const temp = cards[i];
-    //       cards[i] =cards[j];
-    //       cards[j] = temp;
-    // }
- 
-    
-
     const root=document.querySelector("#root");
    if(Array.isArray(cards)){
     
@@ -43,6 +33,8 @@ function renderGame(cards){
 
 
 };
+
+
 // html+=`<div  onclick="handleFlipCard()"> <div class="card">
 // <div class="cardBack"></div>
 // <div class="cardFront">
