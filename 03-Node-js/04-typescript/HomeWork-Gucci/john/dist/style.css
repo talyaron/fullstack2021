@@ -1,0 +1,35 @@
+body {
+  background: radial-gradient(#3d3dad, black);
+}
+
+html {
+  min-height: 100vh;
+}
+
+.game__title {
+  color: blueviolet;
+  text-align: center;
+  font-size: 4em;
+}
+.game__info {
+  display: flex;
+  justify-content: space-between;
+  color: blueviolet;
+  font-size: 2em;
+}
+.game__cards {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  grid-gap: 15px;
+  margin: 50px;
+  justify-content: center;
+}
+.game__cards__card {
+  background-color: black;
+  height: 170px;
+  width: 130px;
+}
+.game__cards__card img {
+  height: 170px;
+  width: 130px;
+}
