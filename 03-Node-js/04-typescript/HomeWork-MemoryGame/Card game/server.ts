@@ -53,7 +53,16 @@ function doubleCards(stringArray:Array<string>){
     const tempCard:Card={imgUrl:url,pairId:uid()}; //we built an object
     const card1= Object.assign({},tempCard); //deep copy (copy by value)
     const card2= Object.assign({},tempCard); //deep copy (copy by value)
-  })
+    //copies the same tempcard twice same url and pair id 
+    card1.id=uid();
+    card2.id=uid();
+    //each card adds to themselves their own uid
+    cards=[...cards,card1,card2];
+    //this adds them to the array cards[]
+
+  });
+  console.log(cards)
+  return cards;
 }
 
 
@@ -63,8 +72,8 @@ function doubleCards(stringArray:Array<string>){
 
 app.get("/new-game", (req, res) => {
  
-  const shuffledDeck= shuffleCards(cards)
-  res.send(shuffledDeck);
+  const shuffledDeck= doubleCards(cardUrls)
+  res.send(shuffleCards(shuffledDeck));
   
 });
 
