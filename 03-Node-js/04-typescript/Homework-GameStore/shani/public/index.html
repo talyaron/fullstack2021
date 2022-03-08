@@ -11,11 +11,13 @@
 </head>
 <body onload="handleGames()">
 
-<form>
-    <div class="form__buttons--add" onsubmit="handleAddGame(event)">
-    <input type="text" placeholder="New GAME " class="addGame">
-    <input type="submit" value="add-item">
-    </div>
+<form onsubmit="handleAddGame(event)">
+
+ <input type="text" placeholder="New GAME " name="name" class="addGame">
+ <button type="submit" value="name">ADD</button>
+       
+  
+   
 
     
 
