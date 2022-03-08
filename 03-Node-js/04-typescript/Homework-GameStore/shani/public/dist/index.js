@@ -45,17 +45,35 @@ function getGames() {
                 case 0: return [4 /*yield*/, axios.get('/get-games')];
                 case 1:
                     data = (_a.sent()).data;
-                    console.log(data);
+                    //  console.log(data)
                     renderToDom(data);
                     return [2 /*return*/];
             }
         });
     });
 }
-function renderToDom(games) {
+function handleAddGame(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        var name, data;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    ev.preventDefault();
+                    name = ev.target.elements.name.value;
+                    return [4 /*yield*/, axios.post('/add-new-game', { name: name })];
+                case 1:
+                    data = (_a.sent()).data;
+                    renderToDom(data);
+                    ev.target.reset();
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+function renderToDom(data) {
     var root = document.querySelector("#root");
     var html = "";
-    games.forEach(function (game) {
+    data.forEach(function (game) {
         html += "\n        <div class=\"game\"> <p>" + game.name + "</p> </div>";
     });
     root.innerHTML = html;
