@@ -55,7 +55,7 @@ function renderCards(cardsArray) {
     var root = document.querySelector('#root');
     var html = '<div class="cards">';
     cardsArray.forEach(function (card) {
-        html += "<div class = \"card\" onclick(event)>\n        <div class = \"card-up\">\n        <div class = \"card-pic\" style=\"background:url(" + card.picSrc + "); background-size:cover; background-position:center;\"></div>\n        <div class = \"card-name\">" + card.name + "<div>\n        </div>\n        </div>";
+        html += "<div class = \"card\" onclick=\"handleFlipCard(event)\">\n        <img class=\"pic\" src=\"" + card.picSrc + "\">\n        <div class = \"name\"> " + card.name + "</div>\n        </div>";
     });
     html += "</div>";
     root.innerHTML = html;

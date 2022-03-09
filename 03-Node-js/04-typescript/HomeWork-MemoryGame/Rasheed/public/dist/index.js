@@ -62,7 +62,6 @@ function startGame() {
                         addImge = document.createElement('IMG');
                         liTag.appendChild(addImge);
                         addImge.setAttribute("src", "img/" + data[i]);
-                        addImge.setAttribute("alt", "image of vault boy from fallout");
                         deck.appendChild(liTag);
                     }
                     return [2 /*return*/];

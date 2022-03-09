@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./dist/style2.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.0/axios.min.js"
+        integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://kit.fontawesome.com/76fdd0e120.js" crossorigin="anonymous"></script>
+
+    <title>Document</title>
+</head>
+
+<body onload="handleLoad(event)">
+
+    <ul>
+        <li><a href="./store.html">store</a></li>
+        <li><a href="./index.html">ERP</a></li>
+    </ul>
+
+
+    <div class="container">
+        <div class="header">
+            <h2>Create Acoount</h2>
+        </div>
+            <form class="form" id="form">
+                <div class="form-control">
+                    <label for="">Username</label>
+                    <input type="text" name="" id="username" placeholder="email@email.com">
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Error Message</small>
+                </div>
+
+                <div class="form-control">
+                    <label for="">Email</label>
+                    <input type="email" name="" id="email" placeholder="Hello email@email.com">
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Error Message</small>
+                </div>
+
+                <div class="form-control">
+                    <label for="">Password</label>
+                    <input type="password" name="" id="password" placeholder="password">
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Error Message</small>
+                </div>
+
+                <div class="form-control">
+                    <label for="">Password Check</label>
+                    <input type="password" name="" id="password2" placeholder="password two">
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Error Message</small>
+                </div>
+
+                <button>Submit</button>
+
+            </form>
+
+    </div>
+
+
+
+
+    <div id="root"></div>
+
+
+    <script src="./dist/index.js"></script>
+</body>
+
+</html>

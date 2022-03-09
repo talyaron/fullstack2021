@@ -11,13 +11,12 @@ function renderCards(cardsArray) {
     const root = document.querySelector('#root')
     let html = '<div class="cards">'
     cardsArray.forEach(card => {
-        html += `<div class = "card" onclick(event)>
-        <div class = "card-up">
-        <div class = "card-pic" style="background:url(${card.picSrc}); background-size:cover; background-position:center;"></div>
-        <div class = "card-name">${card.name}<div>
-        </div>
+        html += `<div class = "card" onclick="handleFlipCard(event)">
+        <img class="pic" src="${card.picSrc}">
+        <div class = "name"> ${card.name}</div>
         </div>`
     })
     html += `</div>`
     root.innerHTML = html
 } 
+ 

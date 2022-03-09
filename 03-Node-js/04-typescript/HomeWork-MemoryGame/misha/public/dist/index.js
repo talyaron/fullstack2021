@@ -35,10 +35,17 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 var gameStats = {
-    count: 0
+    count: 0,
+    flipped: 0,
+    flippedIDs: [],
+    flippedpairIDs: []
 };
+function uniqueId() {
+    return Date.now().toString(36) + Math.random().toString(36).substr(2);
+}
+;
 function log(log) {
-    console.log(log);
+    // console.log(log)
     console.dir(log);
 }
 function getRootElement() {
@@ -69,11 +76,8 @@ function handleStart() {
 function renderCards(cards) {
     var rootHTML = getRootElement();
     var html = '<section class="cardsgrid">';
-    var uniqueId = function () {
-        return Date.now().toString(36) + Math.random().toString(36).substr(2);
-    };
     cards.forEach(function (card) {
-        html += "<div class=\"card\" onclick=\"handleCardClick(event)\" id=\"" + uniqueId() + "\">\n\n        <div class=\"card--back\">\n        ?\n        </div>\n\n        <div class=\"card--front\">\n          <div class=\"img\" style=\"background:url(" + card.url + "); background-size:cover; background-position:center;\"></div>\n          <div class=\"card__footer\">" + card.name + "</div>\n        </div>\n\n\n        </div>";
+        html += "<div class=\"card\" id=\"" + card.uniqueID + "\">\n\n        <div class=\"card--back\"  onclick=\"handleCardClick(event)\" id=\"" + card.pairID + "\">\n        ?\n        </div>\n\n        <div class=\"card--front\">\n          <div class=\"img\" style=\"background:url(" + card.url + "); background-size:cover; background-position:center;\"></div>\n          <div class=\"card__footer\">" + card.name + "</div>\n        </div>\n\n\n        </div>";
     });
     html += '</section>';
     rootHTML.innerHTML = html;
@@ -84,28 +88,33 @@ function handleCardClick(ev) {
     }
     else {
         ev.path[1].children[0].style.display = 'none';
+        gameStats.flippedIDs.push(ev.path[1].id);
+        gameStats.flippedpairIDs.push(ev.path[1].children[0].id);
         ev.path[1].children[1].style.display = 'flex';
-        checkFlipped();
-        if (checkFlipped()) {
-            resetCards(ev.path[1]);
+        gameStats.flipped++;
+        if (gameStats.flipped === 2) {
+            checkFlipped(gameStats.flippedIDs, gameStats.flippedpairIDs);
+            gameStats.flipped = 0;
+            gameStats.flippedIDs = [];
+            gameStats.flippedpairIDs = [];
         }
     }
 }
-function checkFlipped() {
-    gameStats.count++;
-    if (gameStats.count === 2) {
-        gameStats.count = 0;
-        return true;
+function checkFlipped(flipped, flippedPair) {
+    var cardDelete1 = document.getElementById(flipped[0]);
+    var cardDelete2 = document.getElementById(flipped[1]);
+    if (flippedPair[0] === flippedPair[1]) {
+        setTimeout(function () {
+            cardDelete1.classList.add('card-matched');
+            cardDelete2.classList.add('card-matched');
+        }, 1000);
     }
-}
-function resetCards(cards) {
-    try {
-        for (var i = 1; i < cards.length; i++) {
-            cards.children[0].style.display = 'flex';
-            cards.children[1].style.display = 'none';
-        }
-    }
-    catch (err) {
-        console.error(err.message);
+    else {
+        setTimeout(function () {
+            cardDelete1.children[0].style.display = 'flex';
+            cardDelete1.children[1].style.display = 'none';
+            cardDelete2.children[0].style.display = 'flex';
+            cardDelete2.children[1].style.display = 'none';
+        }, 1000);
     }
 }
