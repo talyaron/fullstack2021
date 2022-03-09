@@ -61,26 +61,20 @@ async function handleGetGameById(ev){
 async function handleUpdateGame(ev){
     ev.preventDefault();
      const id=ev.target.id;
-    console.log(id)
-    //does this catch the id of the item im updating?
+    //id of the game found
     
     const standardEdition=ev.target.elements.standardEdition.valueAsNumber;
     const deluxeEdition=ev.target.elements.deluxeEdition.valueAsNumber;
     const goldEdition=ev.target.elements.goldEdition.valueAsNumber;
     const bundleEdition=ev.target.elements.bundleEdition.valueAsNumber;
     
-    console.log(standardEdition)
+    
 
     const {data}= await axios.patch('/update-game',{standardEdition,deluxeEdition,goldEdition,bundleEdition,id});
 
     console.log(data)
     
-    renderToDom(data);
-
-    
-
-
-   
+    renderToDom(data);   
 
 }
 
