@@ -48,6 +48,26 @@ async function handleDeleteGame(ev){
 
 }
 
+async function handleUpdateGame(ev){
+    ev.preventDefault();
+    
+    const standardEdition=ev.target.elements.standardEdition.value;
+    const deluxeEdition=ev.target.elements.deluxeEdition.value;
+    const goldEdition=ev.target.elements.goldEdition.value;
+    const bunbleEdtion=ev.target.elements.bunbleEdtion.value;
+
+
+    const {data}= await axios.post('/update-game',{standardEdition,deluxeEdition,goldEdition,bunbleEdtion});
+
+    console.log(data)
+    
+    renderToDom(data);
+
+
+    ev.target.reset();
+
+}
+
 
 
 
@@ -57,7 +77,13 @@ function renderToDom(data){
     let html="";
     data.forEach(game=>{
         html+=`
-        <div class="game" id=${game.id}> <h3>${game.name}</h3> <p>${game.standardEdition}</p>  <p>${game.deluxeEdition}</p> <p>${game.goldEdition}</p> <p>${game.bundleEdition}</p></div>`
+        <form class="game" id=${game.id} onsubmit="handleUpdateGame(ev)">
+         <h3>${game.name}</h3> 
+         <input type="text" placeholder="${game.standardEdition}" value="${game.standardEdition}">  
+         <input type="text" placeholder="${game.deluxeEdition}" value="${game.deluxeEdition}"> 
+         <input type="text" placeholder="${game.goldEdition}" value="${game.goldEdition}"> 
+         <input type="text" placeholder="${game.bundleEdition}"value="${game.bundleEdition}" > 
+        <button type="submit">Update</button></form>`
     })
 
    

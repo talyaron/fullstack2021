@@ -94,11 +94,33 @@ function handleDeleteGame(ev) {
         });
     });
 }
+function handleUpdateGame(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        var standardEdition, deluxeEdition, goldEdition, bunbleEdtion, data;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    ev.preventDefault();
+                    standardEdition = ev.target.elements.standardEdition.value;
+                    deluxeEdition = ev.target.elements.deluxeEdition.value;
+                    goldEdition = ev.target.elements.goldEdition.value;
+                    bunbleEdtion = ev.target.elements.bunbleEdtion.value;
+                    return [4 /*yield*/, axios.post('/update-game', { standardEdition: standardEdition, deluxeEdition: deluxeEdition, goldEdition: goldEdition, bunbleEdtion: bunbleEdtion })];
+                case 1:
+                    data = (_a.sent()).data;
+                    console.log(data);
+                    renderToDom(data);
+                    ev.target.reset();
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
 function renderToDom(data) {
     var root = document.querySelector("#root");
     var html = "";
     data.forEach(function (game) {
-        html += "\n        <div class=\"game\" id=" + game.id + "> <h3>" + game.name + "</h3> <p>" + game.standardEdition + "</p>  <p>" + game.deluxeEdition + "</p> <p>" + game.goldEdition + "</p> <p>" + game.bundleEdition + "</p></div>";
+        html += "\n        <form class=\"game\" id=" + game.id + " onsubmit=\"handleUpdateGame(ev)\">\n         <h3>" + game.name + "</h3> \n         <input type=\"text\" placeholder=\"" + game.standardEdition + "\" value=\"" + game.standardEdition + "\">  \n         <input type=\"text\" placeholder=\"" + game.deluxeEdition + "\" value=\"" + game.deluxeEdition + "\"> \n         <input type=\"text\" placeholder=\"" + game.goldEdition + "\" value=\"" + game.goldEdition + "\"> \n         <input type=\"text\" placeholder=\"" + game.bundleEdition + "\"value=\"" + game.bundleEdition + "\" > \n        <button type=\"submit\">Update</button></form>";
     });
     root.innerHTML = html;
 }
