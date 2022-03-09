@@ -101,7 +101,7 @@ function handleUpdateGame(ev) {
             switch (_a.label) {
                 case 0:
                     ev.preventDefault();
-                    id = ev.target.elements.id.value;
+                    id = ev.target.id;
                     name = ev.target.elements.name.value;
                     standardEdition = ev.target.elements.standardEdition.value;
                     deluxeEdition = ev.target.elements.deluxeEdition.value;
@@ -122,7 +122,7 @@ function renderToDom(data) {
     var root = document.querySelector("#root");
     var html = "";
     data.forEach(function (game) {
-        html += "\n        <form class=\"game\" id=" + game.id + " onsubmit=\"handleUpdateGame(ev)\">\n         <h3 class=\"gameName\">" + game.name + "</h3> \n\n         <label for=\"standardEdition\">Standard Edition:</label>\n         <input type=\"text\" id=\"standardEdition\" placeholder=\"" + game.standardEdition + "\" value=\"" + game.standardEdition + "\">  \n         \n         <label for=\"deluxeEdition\">Deluxe Edition:</label>\n         <input type=\"text\" id=\"deluxeEdition\" placeholder=\"" + game.deluxeEdition + "\" value=\"" + game.deluxeEdition + "\"> \n         \n         <label for=\"goldEdition\">Gold Edition:</label>\n         <input type=\"text\" id=\"goldEdition\" placeholder=\"" + game.goldEdition + "\" value=\"" + game.goldEdition + "\"> \n         \n         <label for=\"bundleEdition\">Bundle Edition:</label>\n         <input type=\"text\" id=\"bundleEdition\" placeholder=\"" + game.bundleEdition + "\"value=\"" + game.bundleEdition + "\" > \n        \n         <button type=\"submit\">Update</button></form>";
+        html += "\n        <form class=\"game\" id=" + game.id + " onsubmit=\"handleUpdateGame(ev)\">\n         <h3 class=\"gameName\">" + game.name + "</h3> \n\n         <label for=\"standardEdition\">Standard Edition:</label>\n         <input type=\"text\" id=\"standardEdition\" placeholder=\"" + game.standardEdition + "\" value=\"" + game.standardEdition + "\">  \n         \n         <label for=\"deluxeEdition\">Deluxe Edition:</label>\n         <input type=\"text\" id=\"deluxeEdition\" placeholder=\"" + game.deluxeEdition + "\" value=\"" + game.deluxeEdition + "\"> \n         \n         <label for=\"goldEdition\">Gold Edition:</label>\n         <input type=\"text\" id=\"goldEdition\" placeholder=\"" + game.goldEdition + "\" value=\"" + game.goldEdition + "\"> \n         \n         <label for=\"bundleEdition\">Bundle Edition:</label>\n         <input type=\"text\" id=\"bundleEdition\" placeholder=\"" + game.bundleEdition + "\"value=\"" + game.bundleEdition + "\" > \n        \n         <button type=\"submit\" value=\"update\">Update</button></form>";
     });
     root.innerHTML = html;
 }

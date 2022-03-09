@@ -50,7 +50,7 @@ async function handleDeleteGame(ev){
 
 async function handleUpdateGame(ev){
     ev.preventDefault();
-    const id=ev.target.elements.id.value;
+    const id=ev.target.id;
     //does this catch the id of the item im updating?
     const name=ev.target.elements.name.value;
     const standardEdition=ev.target.elements.standardEdition.value;
@@ -94,7 +94,7 @@ function renderToDom(data){
          <label for="bundleEdition">Bundle Edition:</label>
          <input type="text" id="bundleEdition" placeholder="${game.bundleEdition}"value="${game.bundleEdition}" > 
         
-         <button type="submit">Update</button></form>`
+         <button type="submit" value="update">Update</button></form>`
     })
 
    
