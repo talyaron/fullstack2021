@@ -12,20 +12,20 @@ h4{
     justify-content: center;
 }
 
-.container {
-    display: grid;
-    grid-template-columns: repeat(3, 100px);
-    grid-template-rows: repeat(4, 50px);
-    justify-content: center;
-    margin-top: 30vh;
+// .container {
+//     display: grid;
+//     grid-template-columns: repeat(3, 100px);
+//     grid-template-rows: repeat(4, 50px);
+//     justify-content: center;
+//     margin-top: 30vh;
 
-    .box{
-        border: 1px solid rgb(55, 123, 226);
-    }
+//     .box{
+//         border: 1px solid rgb(55, 123, 226);
+//     }
 
-    .box1 {
-        grid-column: span 3;
-        display: flex;
-        justify-content: center;
-    }
-}
+//     .box1 {
+//         grid-column: span 3;
+//         display: flex;
+//         justify-content: center;
+//     }
+// }
