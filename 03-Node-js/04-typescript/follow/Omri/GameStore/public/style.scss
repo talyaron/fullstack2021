@@ -22,6 +22,7 @@ body {
 
         h2 {
             text-align: center;
+            margin-top: 50%;
         }
     }
 
@@ -41,13 +42,18 @@ body {
 }
 
 .rootGames{
-
+    width: 90vw;
     .store{
         display: grid;
         grid-template-columns: 1fr;
+        height: auto;
+        justify-content: baseline;
+        align-items: center;
+
 
         &__gamesList{
-            display: flex;
+             display: flex;
+            flex-direction: row;
 
             &--img{
                 width: 50px;

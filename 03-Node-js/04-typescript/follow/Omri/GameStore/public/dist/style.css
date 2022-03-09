@@ -21,6 +21,7 @@ body {
 }
 .manage__header h2 {
   text-align: center;
+  margin-top: 50%;
 }
 .manage__byId {
   justify-self: center;
@@ -33,12 +34,19 @@ body {
   justify-self: center;
 }
 
+.rootGames {
+  width: 90vw;
+}
 .rootGames .store {
   display: grid;
   grid-template-columns: 1fr;
+  height: auto;
+  justify-content: baseline;
+  align-items: center;
 }
 .rootGames .store__gamesList {
   display: flex;
+  flex-direction: row;
 }
 .rootGames .store__gamesList--img {
   width: 50px;
