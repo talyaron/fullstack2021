@@ -45,7 +45,6 @@ function getGames() {
                 case 0: return [4 /*yield*/, axios.get('/get-games')];
                 case 1:
                     data = (_a.sent()).data;
-                    //  console.log(data)
                     renderToDom(data);
                     return [2 /*return*/];
             }
@@ -54,16 +53,41 @@ function getGames() {
 }
 function handleAddGame(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var name, data;
+        var name, standardEdition, deluxeEdition, goldEdition, bunbleEdtion, data;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     ev.preventDefault();
                     name = ev.target.elements.name.value;
-                    return [4 /*yield*/, axios.post('/add-new-game', { name: name })];
+                    standardEdition = ev.target.elements.standardEdition.value;
+                    deluxeEdition = ev.target.elements.deluxeEdition.value;
+                    goldEdition = ev.target.elements.goldEdition.value;
+                    bunbleEdtion = ev.target.elements.bunbleEdtion.value;
+                    return [4 /*yield*/, axios.post('/add-new-game', { name: name, standardEdition: standardEdition, deluxeEdition: deluxeEdition, goldEdition: goldEdition, bunbleEdtion: bunbleEdtion })];
+                case 1:
+                    data = (_a.sent()).data;
+                    console.log(data);
+                    renderToDom(data);
+                    ev.target.reset();
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+function handleDeleteGame(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        var deletename, id, data;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    ev.preventDefault();
+                    deletename = ev.target.elements.name.value;
+                    id = ev.target.id;
+                    return [4 /*yield*/, axios.post('/delete-game', { name: deletename, id: id })];
                 case 1:
                     data = (_a.sent()).data;
                     renderToDom(data);
+                    console.log(data);
                     ev.target.reset();
                     return [2 /*return*/];
             }
@@ -74,7 +98,7 @@ function renderToDom(data) {
     var root = document.querySelector("#root");
     var html = "";
     data.forEach(function (game) {
-        html += "\n        <div class=\"game\"> <p>" + game.name + "</p> </div>";
+        html += "\n        <div class=\"game\" id=" + game.id + "> <h3>" + game.name + "</h3> <p>" + game.standardEdition + "</p>  <p>" + game.deluxeEdition + "</p> <p>" + game.goldEdition + "</p> <p>" + game.bundleEdition + "</p></div>";
     });
     root.innerHTML = html;
 }

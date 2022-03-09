@@ -11,16 +11,18 @@
 </head>
 <body onload="handleGames()">
 
-<form onsubmit="handleAddGame(event)">
+<form onsubmit="handleAddGame(event)"> 
+ <input type="text" placeholder="New Game " name="name" class="addGame">
+ <input type="text" placeholder="New standardEdition " name="standardEdition" class="addstandardEdition">
+ <input type="text" placeholder="New deluxeEdition " name="deluxeEdition" class="adddeluxeEdition">
+ <input type="text" placeholder="New goldEdition " name="goldEdition" class="addgoldEdition">
+ <input type="text" placeholder="New bunbleEdtion " name="bunbleEdtion" class="addbunbleEdtion">
+ <button type="submit" value="add">ADD</button>
+</form>
 
- <input type="text" placeholder="New GAME " name="name" class="addGame">
- <button type="submit" value="name">ADD</button>
-       
-  
-   
-
-    
-
+<form onsubmit="handleDeleteGame(event)"> 
+    <input type="text" placeholder="Delete Game " name="name" class="deleteGame">
+    <button type="submit" value="name">delete</button>
 </form>
 
 
