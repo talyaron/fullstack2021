@@ -76,6 +76,14 @@ const games=deleteGame(nameOfRemovedGame)
 
 })
 
+app.get('/get-game-by-id',(req,res)=>{
+    const searchedId=req.query.id;
+    const games=getGameById(searchedId)
+    res.send(games)
+
+    
+})
+
 app.patch('/update-game',(req,res)=>{
     
     const newStandardEdition=req.body.standardEdition;
@@ -106,6 +114,12 @@ function deleteGame(itemName){
     return games;
 
     
+}
+
+function getGameById(searchedId){
+    const foundGame=games.findIndex((game)=> game.id==searchedId);
+    return(games[foundGame])
+
 }
 
 function updateGame(standardEdition,deluxeEdition,goldEdition,bundleEdition,id){
