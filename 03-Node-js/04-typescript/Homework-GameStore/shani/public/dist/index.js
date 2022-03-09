@@ -45,7 +45,6 @@ function getGames() {
                 case 0: return [4 /*yield*/, axios.get('/get-games')];
                 case 1:
                     data = (_a.sent()).data;
-                    //  console.log(data)
                     renderToDom(data);
                     return [2 /*return*/];
             }
@@ -54,17 +53,82 @@ function getGames() {
 }
 function handleAddGame(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var name, data;
+        var name, standardEdition, deluxeEdition, goldEdition, bundleEdition, data;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     ev.preventDefault();
                     name = ev.target.elements.name.value;
-                    return [4 /*yield*/, axios.post('/add-new-game', { name: name })];
+                    standardEdition = ev.target.elements.standardEdition.value;
+                    deluxeEdition = ev.target.elements.deluxeEdition.value;
+                    goldEdition = ev.target.elements.goldEdition.value;
+                    bundleEdition = ev.target.elements.bundleEdition.value;
+                    return [4 /*yield*/, axios.post('/add-new-game', { name: name, standardEdition: standardEdition, deluxeEdition: deluxeEdition, goldEdition: goldEdition, bundleEdition: bundleEdition })];
+                case 1:
+                    data = (_a.sent()).data;
+                    console.log(data);
+                    renderToDom(data);
+                    ev.target.reset();
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+function handleDeleteGame(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        var deletedGame, data;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    ev.preventDefault();
+                    deletedGame = ev.target.elements["delete"].value;
+                    return [4 /*yield*/, axios.post('/delete-game', { deletedGame: deletedGame })];
                 case 1:
                     data = (_a.sent()).data;
                     renderToDom(data);
+                    console.log(data);
                     ev.target.reset();
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+function handleGetGameById(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        var id, data;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    ev.preventDefault();
+                    id = ev.target.elements.findId.value;
+                    return [4 /*yield*/, axios.get('/get-game-by-id', { id: id })];
+                case 1:
+                    data = (_a.sent()).data;
+                    renderToDom(data);
+                    console.log(data);
+                    ev.target.reset();
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+function handleUpdateGame(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        var id, standardEdition, deluxeEdition, goldEdition, bundleEdition, data;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    ev.preventDefault();
+                    id = ev.target.id;
+                    standardEdition = ev.target.elements.standardEdition.valueAsNumber;
+                    deluxeEdition = ev.target.elements.deluxeEdition.valueAsNumber;
+                    goldEdition = ev.target.elements.goldEdition.valueAsNumber;
+                    bundleEdition = ev.target.elements.bundleEdition.valueAsNumber;
+                    return [4 /*yield*/, axios.patch('/update-game', { standardEdition: standardEdition, deluxeEdition: deluxeEdition, goldEdition: goldEdition, bundleEdition: bundleEdition, id: id })];
+                case 1:
+                    data = (_a.sent()).data;
+                    console.log(data);
+                    renderToDom(data);
                     return [2 /*return*/];
             }
         });
@@ -74,7 +138,7 @@ function renderToDom(data) {
     var root = document.querySelector("#root");
     var html = "";
     data.forEach(function (game) {
-        html += "\n        <div class=\"game\"> <p>" + game.name + "</p> </div>";
+        html += "\n        \n        <form class=\"game\" id=\"" + game.id + "\" onsubmit=\"handleUpdateGame(event)\">\n        <h3 class=\"gameName\">" + game.name + "</h3> \n\n         <label for=\"standardEdition\">Standard Edition:</label>\n         <input type=\"number\" id=\"standardEdition\" name=\"standardEdition\" placeholder=\"" + game.standardEdition + "\" value=\"" + game.standardEdition + "\">  \n         \n         <label for=\"deluxeEdition\">Deluxe Edition:</label>\n         <input type=\"number\" id=\"deluxeEdition\" name=\"deluxeEdition\" placeholder=\"" + game.deluxeEdition + "\" value=\"" + game.deluxeEdition + "\"> \n         \n         <label for=\"goldEdition\">Gold Edition:</label>\n         <input type=\"number\" id=\"goldEdition\" name=\"goldEdition\" placeholder=\"" + game.goldEdition + "\" value=\"" + game.goldEdition + "\"> \n         \n         <label for=\"bundleEdition\">Bundle Edition:</label>\n         <input type=\"number\" id=\"bundleEdition\" name=\"bundleEdition\" placeholder=\"" + game.bundleEdition + "\"value=\"" + game.bundleEdition + "\" > \n        \n         <button type=\"submit\" value=\"update\">Update</button></form>";
     });
     root.innerHTML = html;
 }
