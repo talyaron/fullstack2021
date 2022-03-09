@@ -45,7 +45,7 @@ function getGames() {
                 case 0: return [4 /*yield*/, axios.get("/get-games")];
                 case 1:
                     data = (_a.sent()).data;
-                    rootGames = document.querySelector(".rootGames");
+                    rootGames = document.querySelector(".store__gamesList");
                     if (data) {
                         renderGames(data, rootGames);
                     }
@@ -55,10 +55,10 @@ function getGames() {
     });
 }
 function renderGames(data, root) {
-    var html = "\n        <div class = \"store\">\n            <div class = \"store__header\"><h2>Inventory List</h2></div>\n        </div>";
+    var html = '';
     if (Array.isArray(data)) {
         data.forEach(function (game) {
-            html += "\n            <div class = \"store__gamesList\">\n                <div class = \"store__gamesList--img\"><img src = " + game.img + "><div>\n                <div class = \"store__gamesList--title\">Title: " + game.title + "<div>\n                <div class = \"store__gamesList--price\">price: " + game.price + "<div>\n                <div class = \"store__gamesList--category\">Category: " + game.category + "<div>\n            <div>";
+            html += "\n            <div class = \"store__gamesList\">\n                <div class = \"store__gamesList--img\"><img src = " + game.img + "></div>\n                <div class = \"store__gamesList--title\">Title: " + game.title + "</div>\n                <div class = \"store__gamesList--price\">price: " + game.price + "</div>\n                <div class = \"store__gamesList--category\">Category: " + game.category + "</div>\n            </div>";
         });
         root.innerHTML = html;
     }

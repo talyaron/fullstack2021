@@ -41,28 +41,37 @@ body {
     }
 }
 
-.rootGames{
+
+
+.store {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-columns: auto;
     width: 90vw;
-    .store{
-        display: grid;
-        grid-template-columns: 1fr;
-        height: auto;
-        justify-content: baseline;
-        align-items: center;
+    margin: auto;
+    margin-top: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 2px solid blue;
+
+    &__header {
+        border-bottom: 2px solid blue;
+        text-align: center;
+    }
 
 
-        &__gamesList{
-             display: flex;
-            flex-direction: row;
+    &__gamesList {
+        display: flex;
+        width: 90vw;
+        justify-content: space-between;
+        gap: 50px;
 
-            &--img{
-                width: 50px;
-                height: 40px;
-            }
+        &--img {
+            width: 50px;
+            height: 40px;
+        }
 
-            &--title{
-                text-align: center ;
-            }
+        &--title {
+            text-align: center;
         }
     }
 }
