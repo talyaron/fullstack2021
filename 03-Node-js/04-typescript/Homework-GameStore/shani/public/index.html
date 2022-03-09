@@ -31,9 +31,8 @@
     <button type="submit" value="delete">Delete</button>
 </form>
 
-<form onsubmit="handleGetGameById(event)">
-    <input type="number" placeholder="Place the games ID" name="gamesId">
-    <button type="submit" value="findGameById">Find</button>
+<form onkeyup="handleGetGameById(event)">
+    <input type="number" placeholder="Place the games ID" name="findId" class="findGameById">
 </form>
 
 

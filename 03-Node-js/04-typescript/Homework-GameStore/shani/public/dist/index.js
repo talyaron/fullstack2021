@@ -100,7 +100,7 @@ function handleGetGameById(ev) {
             switch (_a.label) {
                 case 0:
                     ev.preventDefault();
-                    id = ev.target.elements.gamesId.valueAsNumber;
+                    id = ev.target.elements.findId.value;
                     return [4 /*yield*/, axios.get('/get-game-by-id', { id: id })];
                 case 1:
                     data = (_a.sent()).data;

@@ -50,7 +50,7 @@ async function handleDeleteGame(ev){
 
 async function handleGetGameById(ev){
     ev.preventDefault();
-    const id=ev.target.elements.gamesId.valueAsNumber;
+    const id=ev.target.elements.findId.value;
     const {data}= await axios.get('/get-game-by-id',{id})
     renderToDom(data);
     console.log(data)
