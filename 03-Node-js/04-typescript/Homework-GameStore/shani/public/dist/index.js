@@ -93,6 +93,25 @@ function handleDeleteGame(ev) {
         });
     });
 }
+function handleGetGameById(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        var id, data;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    ev.preventDefault();
+                    id = ev.target.elements.gamesId.valueAsNumber;
+                    return [4 /*yield*/, axios.get('/get-game-by-id', { id: id })];
+                case 1:
+                    data = (_a.sent()).data;
+                    renderToDom(data);
+                    console.log(data);
+                    ev.target.reset();
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
 function handleUpdateGame(ev) {
     return __awaiter(this, void 0, void 0, function () {
         var id, standardEdition, deluxeEdition, goldEdition, bundleEdition, data;
@@ -101,12 +120,10 @@ function handleUpdateGame(ev) {
                 case 0:
                     ev.preventDefault();
                     id = ev.target.id;
-                    console.log(id);
                     standardEdition = ev.target.elements.standardEdition.valueAsNumber;
                     deluxeEdition = ev.target.elements.deluxeEdition.valueAsNumber;
                     goldEdition = ev.target.elements.goldEdition.valueAsNumber;
                     bundleEdition = ev.target.elements.bundleEdition.valueAsNumber;
-                    console.log(standardEdition);
                     return [4 /*yield*/, axios.patch('/update-game', { standardEdition: standardEdition, deluxeEdition: deluxeEdition, goldEdition: goldEdition, bundleEdition: bundleEdition, id: id })];
                 case 1:
                     data = (_a.sent()).data;

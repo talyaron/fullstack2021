@@ -51,6 +51,11 @@ app.post('/delete-game', (req, res) => {
     const games = deleteGame(nameOfRemovedGame);
     res.send(games);
 });
+app.get('/get-game-by-id', (req, res) => {
+    const searchedId = req.query.id;
+    const games = getGameById(searchedId);
+    res.send(games);
+});
 app.patch('/update-game', (req, res) => {
     const newStandardEdition = req.body.standardEdition;
     const newdeluxeEdition = req.body.deluxeEdition;
@@ -71,6 +76,10 @@ function deleteGame(itemName) {
         games.splice(index, 1);
     }
     return games;
+}
+function getGameById(searchedId) {
+    const foundGame = games.findIndex((game) => game.id == searchedId);
+    return (games[foundGame]);
 }
 function updateGame(standardEdition, deluxeEdition, goldEdition, bundleEdition, id) {
     const index = games.findIndex((game) => game.id == id);
