@@ -63,7 +63,7 @@ function addGame(name, standardEdition, deluxeEdition, goldEdition, bunbleEdtion
     return games;
 }
 function deleteGame(gameId) {
-    const index = games.findIndex(game => game.id !== gameId);
+    games.filter(game => game.id !== gameId);
     return games;
 }
 function updateGame(standardEdition, deluxeEdition, goldEdition, bunbleEdtion) {
