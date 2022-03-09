@@ -50,14 +50,16 @@ async function handleDeleteGame(ev){
 
 async function handleUpdateGame(ev){
     ev.preventDefault();
-    
+    const id=ev.target.elements.id.value;
+    //does this catch the id of the item im updating?
+    const name=ev.target.elements.name.value;
     const standardEdition=ev.target.elements.standardEdition.value;
     const deluxeEdition=ev.target.elements.deluxeEdition.value;
     const goldEdition=ev.target.elements.goldEdition.value;
     const bundleEdition=ev.target.elements.bundleEdition.value;
 
 
-    const {data}= await axios.post('/update-game',{standardEdition,deluxeEdition,goldEdition,bundleEdition});
+    const {data}= await axios.patch('/update-game',{name,standardEdition,deluxeEdition,goldEdition,bundleEdition,id});
 
     console.log(data)
     

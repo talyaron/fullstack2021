@@ -77,12 +77,13 @@ app.post('/delete-game',(req,res)=>{
 })
 
 app.patch('/update-game',(req,res)=>{
-       
+    const name=req.body.name;  
     const newStandardEdition=req.body.standardEdition;
     const newdeluxeEdition=req.body.deluxeEdition;
     const newgoldEdition=req.body.goldEdition;
     const newbundleEdition=req.body.bundleEdition;
-    const games=updateGame(newStandardEdition,newdeluxeEdition,newgoldEdition,newbundleEdition)
+    const id=req.body.id;
+    const games=updateGame(name,newStandardEdition,newdeluxeEdition,newgoldEdition,newbundleEdition,id)
     res.send(games)
 
 })
@@ -103,9 +104,12 @@ function deleteGame(gameId){
     
 }
 
-function updateGame(standardEdition,deluxeEdition,goldEdition,bundleEdition){
+function updateGame(name,standardEdition,deluxeEdition,goldEdition,bundleEdition,id){
 
-
+const index= games.findIndex((game)=> game.id==id)
+if (index>-1){
+    games[index]={name,standardEdition,deluxeEdition,goldEdition,bundleEdition,id}
+}
 }
 
 app.listen(port, () => {

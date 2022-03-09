@@ -96,16 +96,18 @@ function handleDeleteGame(ev) {
 }
 function handleUpdateGame(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var standardEdition, deluxeEdition, goldEdition, bundleEdition, data;
+        var id, name, standardEdition, deluxeEdition, goldEdition, bundleEdition, data;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     ev.preventDefault();
+                    id = ev.target.elements.id.value;
+                    name = ev.target.elements.name.value;
                     standardEdition = ev.target.elements.standardEdition.value;
                     deluxeEdition = ev.target.elements.deluxeEdition.value;
                     goldEdition = ev.target.elements.goldEdition.value;
                     bundleEdition = ev.target.elements.bundleEdition.value;
-                    return [4 /*yield*/, axios.post('/update-game', { standardEdition: standardEdition, deluxeEdition: deluxeEdition, goldEdition: goldEdition, bundleEdition: bundleEdition })];
+                    return [4 /*yield*/, axios.patch('/update-game', { name: name, standardEdition: standardEdition, deluxeEdition: deluxeEdition, goldEdition: goldEdition, bundleEdition: bundleEdition, id: id })];
                 case 1:
                     data = (_a.sent()).data;
                     console.log(data);
