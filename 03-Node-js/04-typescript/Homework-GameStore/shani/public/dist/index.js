@@ -53,7 +53,7 @@ function getGames() {
 }
 function handleAddGame(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var name, standardEdition, deluxeEdition, goldEdition, bunbleEdtion, data;
+        var name, standardEdition, deluxeEdition, goldEdition, bundleEdition, data;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -62,8 +62,8 @@ function handleAddGame(ev) {
                     standardEdition = ev.target.elements.standardEdition.value;
                     deluxeEdition = ev.target.elements.deluxeEdition.value;
                     goldEdition = ev.target.elements.goldEdition.value;
-                    bunbleEdtion = ev.target.elements.bunbleEdtion.value;
-                    return [4 /*yield*/, axios.post('/add-new-game', { name: name, standardEdition: standardEdition, deluxeEdition: deluxeEdition, goldEdition: goldEdition, bunbleEdtion: bunbleEdtion })];
+                    bundleEdition = ev.target.elements.bundleEdition.value;
+                    return [4 /*yield*/, axios.post('/add-new-game', { name: name, standardEdition: standardEdition, deluxeEdition: deluxeEdition, goldEdition: goldEdition, bundleEdition: bundleEdition })];
                 case 1:
                     data = (_a.sent()).data;
                     console.log(data);
@@ -76,14 +76,13 @@ function handleAddGame(ev) {
 }
 function handleDeleteGame(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var deletename, id, data;
+        var deletedGame, data;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     ev.preventDefault();
-                    deletename = ev.target.elements.name.value;
-                    id = ev.target.id;
-                    return [4 /*yield*/, axios.post('/delete-game', { name: deletename, id: id })];
+                    deletedGame = ev.target.elements["delete"].value;
+                    return [4 /*yield*/, axios.post('/delete-game', { deletedGame: deletedGame })];
                 case 1:
                     data = (_a.sent()).data;
                     renderToDom(data);
@@ -96,21 +95,23 @@ function handleDeleteGame(ev) {
 }
 function handleUpdateGame(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var standardEdition, deluxeEdition, goldEdition, bunbleEdtion, data;
+        var id, standardEdition, deluxeEdition, goldEdition, bundleEdition, data;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     ev.preventDefault();
-                    standardEdition = ev.target.elements.standardEdition.value;
-                    deluxeEdition = ev.target.elements.deluxeEdition.value;
-                    goldEdition = ev.target.elements.goldEdition.value;
-                    bunbleEdtion = ev.target.elements.bunbleEdtion.value;
-                    return [4 /*yield*/, axios.post('/update-game', { standardEdition: standardEdition, deluxeEdition: deluxeEdition, goldEdition: goldEdition, bunbleEdtion: bunbleEdtion })];
+                    id = ev.target.id;
+                    console.log(id);
+                    standardEdition = ev.target.elements.standardEdition.valueAsNumber;
+                    deluxeEdition = ev.target.elements.deluxeEdition.valueAsNumber;
+                    goldEdition = ev.target.elements.goldEdition.valueAsNumber;
+                    bundleEdition = ev.target.elements.bundleEdition.valueAsNumber;
+                    console.log(standardEdition);
+                    return [4 /*yield*/, axios.patch('/update-game', { standardEdition: standardEdition, deluxeEdition: deluxeEdition, goldEdition: goldEdition, bundleEdition: bundleEdition, id: id })];
                 case 1:
                     data = (_a.sent()).data;
                     console.log(data);
                     renderToDom(data);
-                    ev.target.reset();
                     return [2 /*return*/];
             }
         });
@@ -120,7 +121,7 @@ function renderToDom(data) {
     var root = document.querySelector("#root");
     var html = "";
     data.forEach(function (game) {
-        html += "\n        <form class=\"game\" id=" + game.id + " onsubmit=\"handleUpdateGame(ev)\">\n         <h3>" + game.name + "</h3> \n         <input type=\"text\" placeholder=\"" + game.standardEdition + "\" value=\"" + game.standardEdition + "\">  \n         <input type=\"text\" placeholder=\"" + game.deluxeEdition + "\" value=\"" + game.deluxeEdition + "\"> \n         <input type=\"text\" placeholder=\"" + game.goldEdition + "\" value=\"" + game.goldEdition + "\"> \n         <input type=\"text\" placeholder=\"" + game.bundleEdition + "\"value=\"" + game.bundleEdition + "\" > \n        <button type=\"submit\">Update</button></form>";
+        html += "\n        \n        <form class=\"game\" id=\"" + game.id + "\" onsubmit=\"handleUpdateGame(event)\">\n        <h3 class=\"gameName\">" + game.name + "</h3> \n\n         <label for=\"standardEdition\">Standard Edition:</label>\n         <input type=\"number\" id=\"standardEdition\" name=\"standardEdition\" placeholder=\"" + game.standardEdition + "\" value=\"" + game.standardEdition + "\">  \n         \n         <label for=\"deluxeEdition\">Deluxe Edition:</label>\n         <input type=\"number\" id=\"deluxeEdition\" name=\"deluxeEdition\" placeholder=\"" + game.deluxeEdition + "\" value=\"" + game.deluxeEdition + "\"> \n         \n         <label for=\"goldEdition\">Gold Edition:</label>\n         <input type=\"number\" id=\"goldEdition\" name=\"goldEdition\" placeholder=\"" + game.goldEdition + "\" value=\"" + game.goldEdition + "\"> \n         \n         <label for=\"bundleEdition\">Bundle Edition:</label>\n         <input type=\"number\" id=\"bundleEdition\" name=\"bundleEdition\" placeholder=\"" + game.bundleEdition + "\"value=\"" + game.bundleEdition + "\" > \n        \n         <button type=\"submit\" value=\"update\">Update</button></form>";
     });
     root.innerHTML = html;
 }

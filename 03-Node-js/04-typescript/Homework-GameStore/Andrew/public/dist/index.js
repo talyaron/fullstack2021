@@ -34,63 +34,97 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-function handleLoad() {
+// import axios from "axios";
+var games = [];
+function initPage() {
     return __awaiter(this, void 0, void 0, function () {
         var data;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, axios.get('/get-games')];
+                case 0: return [4 /*yield*/, axios.get('/getAllGames')];
                 case 1:
                     data = (_a.sent()).data;
                     renderGames(data);
+                    games = data;
                     return [2 /*return*/];
             }
         });
     });
 }
-function handleAddGame(ev) {
+function renderGames(gameList) {
+    var html = '';
+    gameList.forEach(function (game) {
+        html += "<div class=\"grid__game\">\n                    <p>" + game.name + "</p>\n                    <img src=\"" + game.pic + "\">\n                    <p>" + game.price + "$</p>\n                    <p>copies available:" + game.copiesLeft + "</p>\n                    <button onclick=\"handleEdit('" + game.id + "')\">Update Game</button>\n                    <button onclick=\"handleDelete('" + game.id + "')\">Delete Game</button>\n                </div>";
+    });
+    html += "<div class=\"grid__add\">\n                <form onsubmit=\"handleAdd(event)\">\n                    <label for=\"name\"> Name</label>\n                    <input type=\"text\" name=\"name\" id=\"name\">\n                    <label for=\"pic\"> Image</label>\n                    <input type=\"text\" name=\"pic\" id=\"pic\">\n                    <label for=\"price\"> Price</label>\n                    <input type=\"number\" name=\"price\" id=\"price\">\n                    <input type=\"submit\" value=\"Add\">\n                </form>\n            </div>";
+    document.querySelector('.grid').innerHTML = html;
+}
+function handleEdit(id) {
+    var form = document.querySelector('.edit-form');
+    form.classList.toggle('in-vis');
+    var game = games.filter(function (game) { return game.id == id; })[0];
+    form[0].value = game.name;
+    form[1].value = game.pic;
+    form[2].value = game.price;
+    form[3].value = game.id;
+}
+function handleDelete(id) {
     return __awaiter(this, void 0, void 0, function () {
-        var newName, newPrice, data;
+        var data;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, axios["delete"]('/deleteGame', { data: { id: id } })];
+                case 1:
+                    data = (_a.sent()).data;
+                    renderGames(data);
+                    games = data;
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+function handleSubmit(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        var game, data;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     ev.preventDefault();
-                    newName = ev.target.elements.name.value;
-                    newPrice = ev.target.elements.price.value;
-                    return [4 /*yield*/, axios.post('/add-game', { newName: newName, newPrice: newPrice })];
+                    game = {};
+                    game["name"] = ev.target.name.value;
+                    game["pic"] = ev.target.pic.value;
+                    game["price"] = ev.target.price.value;
+                    game["id"] = ev.target.id.value;
+                    return [4 /*yield*/, axios.post('/editGame', { game: game })];
                 case 1:
                     data = (_a.sent()).data;
                     renderGames(data);
-                    ev.target.reset();
+                    games = data;
+                    document.querySelector('.edit-form').classList.toggle('in-vis');
                     return [2 /*return*/];
             }
         });
     });
 }
-function handleDelete(ev) {
+function handleAdd(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var id, data;
+        var game, data;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    console.log(ev.target.id);
-                    id = ev.target.id;
-                    return [4 /*yield*/, axios.post('/delete-game', { id: id })];
+                    ev.preventDefault();
+                    game = {};
+                    game["name"] = ev.target.name.value;
+                    game["pic"] = ev.target.pic.value;
+                    game["price"] = ev.target.price.value;
+                    return [4 /*yield*/, axios.post('/addGame', { game: game })];
                 case 1:
                     data = (_a.sent()).data;
-                    console.log(data);
                     renderGames(data);
+                    games = data;
                     return [2 /*return*/];
             }
         });
     });
 }
-function renderGames(games) {
-    var root = document.querySelector('#root');
-    var html = "<div class = \"games-grid\">";
-    games.forEach(function (game) {
-        html += "\n        <div class = \"game\">\n          <div class = \"game__name\">" + game.name + "</div>\n          <div class = \"game__price\">" + game.price + "$</div>\n          <div class = \"game__delete\" onclick = \"handleDelete(event)\" id = \"" + game.id + "\">X</div>\n        </div>";
-    });
-    html += "</div>";
-    root.innerHTML = html;
-}
+initPage();
