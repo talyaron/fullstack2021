@@ -12,12 +12,12 @@ let myGames = [
     { name: "Dread Hunger", id: "", standardEdition: 110.95 },
     { name: "The Forest", id: "", standardEdition: 73.95 },
     { name: "ELDEN RING", id: "", standardEdition: 249.00, deluxeEdition: 329.00 },
-    { name: "Dying Light", id: "", standardEdition: 51.69, deluxeEdition: 63.48, bunbleEdtion: 122.32 },
+    { name: "Dying Light", id: "", standardEdition: 51.69, deluxeEdition: 63.48, bundleEdition: 122.32 },
     { name: "Project Zomboid", id: "", standardEdition: 73.95, goldEdition: 224.95 },
     { name: "Sea of Thieves", id: "", standardEdition: 179.00 },
     { name: "Phasmophobia", id: "", standardEdition: 51.95 },
     { name: "Assassin's Creed", id: "", standardEdition: 59.75, deluxeEdition: 74.50, goldEdition: 99.75 },
-    { name: "Fall Guys: Ultimate Knockout", id: "", standardEdition: 29.50, bunbleEdtion: 122.32 }
+    { name: "Fall Guys: Ultimate Knockout", id: "", standardEdition: 29.50, bundleEdition: 122.32 }
 ];
 let games = addedId(myGames);
 function uid() {
@@ -26,7 +26,7 @@ function uid() {
 function addedId(myGames) {
     let gameArray = [];
     myGames.forEach((game) => {
-        const tempObj = { name: game.name, standardEdition: game.standardEdition, deluxeEdition: game.deluxeEdition, goldEdition: game.goldEdition, bunbleEdtion: game.bunbleEdtion };
+        const tempObj = { name: game.name, standardEdition: game.standardEdition, deluxeEdition: game.deluxeEdition, goldEdition: game.goldEdition, bundleEdition: game.bundleEdition };
         const theGame = Object.assign({}, tempObj);
         theGame.id = uid();
         gameArray = [...gameArray, theGame];
@@ -41,8 +41,8 @@ app.post('/add-new-game', (req, res) => {
     const newStandardEdition = req.body.standardEdition;
     const newdeluxeEdition = req.body.deluxeEdition;
     const newgoldEdition = req.body.goldEdition;
-    const newbunbleEdtion = req.body.bunbleEdtion;
-    const games = addGame(newname, newStandardEdition, newdeluxeEdition, newgoldEdition, newbunbleEdtion);
+    const newbundleEdition = req.body.bundleEdition;
+    const games = addGame(newname, newStandardEdition, newdeluxeEdition, newgoldEdition, newbundleEdition);
     res.send(games);
 });
 app.post('/delete-game', (req, res) => {
@@ -54,19 +54,19 @@ app.patch('/update-game', (req, res) => {
     const newStandardEdition = req.body.standardEdition;
     const newdeluxeEdition = req.body.deluxeEdition;
     const newgoldEdition = req.body.goldEdition;
-    const newbunbleEdtion = req.body.bunbleEdtion;
-    const games = updateGame(newStandardEdition, newdeluxeEdition, newgoldEdition, newbunbleEdtion);
+    const newbundleEdition = req.body.bundleEdition;
+    const games = updateGame(newStandardEdition, newdeluxeEdition, newgoldEdition, newbundleEdition);
     res.send(games);
 });
-function addGame(name, standardEdition, deluxeEdition, goldEdition, bunbleEdtion) {
-    games.push({ name, standardEdition, deluxeEdition, goldEdition, bunbleEdtion });
+function addGame(name, standardEdition, deluxeEdition, goldEdition, bundleEdition) {
+    games.push({ name, standardEdition, deluxeEdition, goldEdition, bundleEdition });
     return games;
 }
 function deleteGame(gameId) {
     games.filter(game => game.id !== gameId);
     return games;
 }
-function updateGame(standardEdition, deluxeEdition, goldEdition, bunbleEdtion) {
+function updateGame(standardEdition, deluxeEdition, goldEdition, bundleEdition) {
 }
 app.listen(port, () => {
     return console.log(`Express is listening at http://localhost:${port}`);
