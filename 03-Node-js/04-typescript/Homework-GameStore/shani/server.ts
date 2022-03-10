@@ -77,8 +77,10 @@ const games=deleteGame(nameOfRemovedGame)
 })
 
 app.get('/get-game-by-id',(req,res)=>{
-    const searchedId=req.query.id;
-    const games=getGameById(searchedId)
+ 
+    const {id,x}=req.query;
+    console.log(id,x)
+    const games=getGameById(id)
     res.send(games)
 
     
@@ -117,15 +119,27 @@ function deleteGame(itemName){
     
 }
 
-function getGameById(searchedId){
+function getGameById(id){
+    console.log(id)
+    try{
+        if(id>0){
+            const foundGame=games.findIndex((game)=> game.id==id);
+            // console.log([games[foundGame]])
+            if(foundGame===-1) throw new Error(`there is no id like ${id} `)
+            return [games[foundGame]]
+        }else{
+           
+            console.log(games)
 
-    if(searchedId){
-        const foundGame=games.findIndex((game)=> game.id==searchedId);
-    return(games[foundGame])
-    }else{
-        return games
+            return [games]
+        }
+        
+
+    }catch(error){
+        console.error(error.message)
     }
-    
+
+   
 }
 
 function updateGame(standardEdition,deluxeEdition,goldEdition,bundleEdition,id){

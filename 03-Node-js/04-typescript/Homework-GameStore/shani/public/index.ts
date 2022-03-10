@@ -50,13 +50,18 @@ async function handleDeleteGame(ev){
 
 async function handleGetGameById(ev){
     ev.preventDefault();
-    const id=ev.target.elements.findId.value;
-    const {data}= await axios.get('/get-game-by-id',{id})
+    const id=ev.target.elements.id.valueAsNumber;
+    const x=ev.target.elements.submit.value;
+    console.log(id,x)
+    console.dir(ev.target.elements.id)
+  
+    const {data}= await axios.get(`/get-game-by-id?id=${id}&x=${x}`)
     renderToDom(data);
     console.log(data)
     ev.target.reset();
 
 }
+
 
 async function handleUpdateGame(ev){
     ev.preventDefault();
@@ -92,7 +97,7 @@ function renderToDom(data){
          <h3 class="gameName">${game.name}</h3> 
           
 
-         
+
          <label for="standardEdition">Standard Edition:</label>
          <input type="number" id="standardEdition" name="standardEdition" placeholder="${game.standardEdition}" >  
          
