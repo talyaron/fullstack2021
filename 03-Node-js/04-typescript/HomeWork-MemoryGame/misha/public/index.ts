@@ -1,9 +1,16 @@
 let gameStats = {
     count: 0,
-
+    flipped: 0,
+    flippedIDs: [],
+    flippedpairIDs: [],
 }
+
+function uniqueId() {
+    return Date.now().toString(36) + Math.random().toString(36).substr(2);
+};
+
 function log(log) {
-    console.log(log)
+    // console.log(log)
     console.dir(log)
 }
 
@@ -30,20 +37,15 @@ function handleStart() {
 
 function renderCards(cards) {
 
-
     const rootHTML = getRootElement();
 
     let html = '<section class="cardsgrid">';
 
-
-    let uniqueId = function () {
-        return Date.now().toString(36) + Math.random().toString(36).substr(2);
-    };
-
     cards.forEach(card => {
-        html += `<div class="card" onclick="handleCardClick(event)" id="${uniqueId()}">
 
-        <div class="card--back">
+        html += `<div class="card" id="${card.uniqueID}">
+
+        <div class="card--back"  onclick="handleCardClick(event)" id="${card.pairID}">
         ?
         </div>
 
@@ -67,40 +69,54 @@ function handleCardClick(ev) {
         return 0;
     }
 
-    else{
-        
+    else {
+
         ev.path[1].children[0].style.display = 'none'
+        gameStats.flippedIDs.push(ev.path[1].id);
+        gameStats.flippedpairIDs.push(ev.path[1].children[0].id);
+
         ev.path[1].children[1].style.display = 'flex'
 
-        checkFlipped();
+        gameStats.flipped++;
 
-        if (checkFlipped()) {
-            resetCards(ev.path[1])
+        if (gameStats.flipped === 2) {
+            checkFlipped(gameStats.flippedIDs,gameStats.flippedpairIDs)
+            gameStats.flipped = 0;
+            gameStats.flippedIDs = [];
+            gameStats.flippedpairIDs = [];
         }
     }
 
-
 }
 
-function checkFlipped() {
+function checkFlipped(flipped,flippedPair) {
 
-    gameStats.count++
+    let cardDelete1:any = document.getElementById(flipped[0])
+    let cardDelete2:any = document.getElementById(flipped[1])
 
-    if (gameStats.count === 2) {
-        gameStats.count = 0;
-        return true;
-    }
+if(flippedPair[0]===flippedPair[1]){
+    setTimeout(() => {
+        cardDelete1.classList.add('card-matched')
+        cardDelete2.classList.add('card-matched')
+    }, 1000);
+
+}
+else{
+
+    setTimeout(() => {
+
+        cardDelete1.children[0].style.display = 'flex'
+        cardDelete1.children[1].style.display = 'none'
+        cardDelete2.children[0].style.display = 'flex'
+        cardDelete2.children[1].style.display = 'none'
+
+
+    },1000)
+
+}
 }
 
-function resetCards(cards) {
+// function resetCards(){
 
-    try {
-        for (let i = 1; i < cards.length; i++) {
-            cards.children[0].style.display = 'flex'
-            cards.children[1].style.display = 'none'
-        }
-    }
-    catch (err) {
-        console.error(err.message);
-    }
+    
 }

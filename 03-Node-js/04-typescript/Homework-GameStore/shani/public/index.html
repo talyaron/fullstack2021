@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERP</title>
+    <link rel="stylesheet" href="dist/style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body onload="handleGames()">
+
+<h1 class="erp--title"> ERP</h1>
+
+<form onsubmit="handleAddGame(event)" class="erp__buttons--add"> 
+ <h3>Add a game and its versions </h3>
+ <input type="text" placeholder="New Game " name="name" class="addGame">
+ <input type="text" placeholder="New standardEdition " name="standardEdition" class="addstandardEdition">
+ <input type="text" placeholder="New deluxeEdition " name="deluxeEdition" class="adddeluxeEdition">
+ <input type="text" placeholder="New goldEdition " name="goldEdition" class="addgoldEdition">
+ <input type="text" placeholder="New bundleEdition " name="bundleEdition" class="addbundleEdition">
+ <button type="submit" value="add">ADD</button>
+</form>
+
+
+
+<form onsubmit="handleDeleteGame(event)" class="erp__buttons--delete">
+    <h3>Delete a game</h3> 
+    <input type="text" placeholder="Delete Game " name="delete" class="deleteGame">
+    <button type="submit" value="delete">Delete</button>
+</form>
+
+<form onkeyup="handleGetGameById(event)">
+    <input type="number" placeholder="Place the games ID" name="findId" class="findGameById">
+</form>
+
+
+<div id="root"></div>
+
+<script src="dist/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="dist/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="dist/index.js" defer></script>
+    <script>var exports = {};</script>
+</head>
+
+<body>
+    <a href="/index.html">Client site</a>
+    <div class="grid">
+        <div class="grid__game"></div>
+    </div>
+    <form class="edit-form in-vis" onsubmit="handleSubmit(event)">
+        <label for="name"> Name</label>
+        <input type="text" name="name" id="name">
+        <label for="pic"> Image</label>
+        <input type="text" name="pic" id="pic">
+        <label for="price"> Price</label>
+        <input type="number" name="price" id="price">
+        <label for="id"> id</label>
+        <input type="text" name="ID" id="id" readonly>
+        <input type="submit" value="update">
+    </form>
+</body>
+
+</html>
