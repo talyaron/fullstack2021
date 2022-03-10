@@ -55,7 +55,7 @@ function renderImage(data) {
     console.log(data);
     var html = '';
     data.forEach(function (img) {
-        html += "<div> <img src=\"" + img.image + "\"></div>";
+        html += "<div> <img src=\"" + img.img + "\"></div>";
     });
     var root = document.getElementById('root');
     root.innerHTML = html;

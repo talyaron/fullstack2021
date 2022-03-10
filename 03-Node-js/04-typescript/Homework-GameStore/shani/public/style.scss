@@ -1,5 +1,5 @@
 body{
-    //background-color: rgb(202, 215, 219);
+    background-color: rgb(184, 219, 230);
     font-family:Andale Mono, monospace;
 }
 
@@ -33,6 +33,11 @@ form{
         border-radius: 3px;
         border:1px rgba(61, 60, 60, 0.5) solid;
         font-weight:bolder;
+        
+
+        &::placeholder{
+            color: rgb(0, 0, 0);
+        }
     }
     h3{
         color:rgb(185, 166, 166);
