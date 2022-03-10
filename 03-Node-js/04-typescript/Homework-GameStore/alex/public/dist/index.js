@@ -35,54 +35,33 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 function initApp() {
-    console.log("start");
-    getAllCards();
-    console.log("end");
+    getOwnerGames();
 }
-function handleNewGame(ev) {
-    shuffleCards(ev);
-    console.log('trying');
-}
-var button = document.querySelector('button');
-if (button) {
-    button.addEventListener('click', handleNewGame);
-}
-function shuffleCards(ev) {
-    return __awaiter(this, void 0, void 0, function () {
-        var data, shuffle;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, axios.get("/get-cards")];
-                case 1:
-                    data = (_a.sent()).data;
-                    shuffle = data.sort(function (ev) { return 0.5 - Math.random(); });
-                    console.log(shuffle);
-                    renderCards(shuffle);
-                    return [2 /*return*/];
-            }
-        });
-    });
-}
-function getAllCards() {
+function getOwnerGames() {
     return __awaiter(this, void 0, void 0, function () {
         var data;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, axios.get("/get-cards")];
+                case 0: return [4 /*yield*/, axios.get('/get-games')];
                 case 1:
                     data = (_a.sent()).data;
                     console.log(data);
-                    renderCards(data);
+                    renderGames(data);
                     return [2 /*return*/];
             }
         });
     });
 }
-function renderCards(data) {
-    var html = "";
-    data.forEach(function (card) {
-        html += "\n        <div class=\"cardPack_cards\"> \n        <img src=\"" + card.img + "\"> \n        </div>";
-        var root = document.querySelector(".cardPack");
+function renderGames(data) {
+    var html = '';
+    data.forEach(function (game) {
+        html += "  \n        \n        <table>\n        <tr>\n          <th>Name</th>\n          <th>Release</th>\n          <th>Description</th>\n          <th>Image</th>\n        </tr>\n        <tr>\n        <td>\n        <p contenteditable=\"true\"> \n         <img src=\"" + game.Img + ".jpg\">\n        </p>\n        </td>\n            <td><p contenteditable=\"true\">" + game.Name + "</p></td>\n           \n            <td><p contenteditable=\"true\">" + game.Release + "</p></td>\n            <td><p contenteditable=\"true\">" + game.Description + "</p></td>\n        </tr>\n      </table>\n      <button>save changes</button>\n      ";
+        var root = document.querySelector('#root');
         root.innerHTML = html;
     });
 }
+// function handleSearchGame(ev) {
+//   axios.get(`/get-games?searchGame=${ev.target.value}`).then(({game})=>{
+//     renderGames(game);
+//   })
+// }
