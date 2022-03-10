@@ -14,7 +14,7 @@ const images = [
     { img: "https://m.media-amazon.com/images/I/71zNWbTHzxL._SL1500_.jpg" },
     { img: "https://m.media-amazon.com/images/I/71zNWbTHzxL._SL1500_.jpg" }
 ];
-app.post('/get-picture', (req, res) => {
+app.get('/get-picture', (req, res) => {
     res.send(images);
 });
 app.listen(port, () => {
