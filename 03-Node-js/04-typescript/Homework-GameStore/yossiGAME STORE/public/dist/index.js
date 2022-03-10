@@ -69,15 +69,15 @@ function renderAll(root, games) {
     });
     root.innerHTML = html;
 }
-function handleDelete(ev) {
+function handleDelete(id) {
     return __awaiter(this, void 0, void 0, function () {
-        var id, data, root;
+        var data, root;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    id = ev.target.value;
+                    // const id = ev.target.value
                     console.log(id);
-                    return [4 /*yield*/, axios.post('/delete-game', id)];
+                    return [4 /*yield*/, axios.post('/delete-game', { id: id })];
                 case 1:
                     data = (_a.sent()).data;
                     root = document.querySelector('#root');
