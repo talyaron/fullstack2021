@@ -1,0 +1,62 @@
+body {
+  background-color: #b8dbe6;
+  font-family: Andale Mono, monospace;
+}
+
+.erp--title {
+  text-shadow: 2px 2px 5px #4b4848;
+  color: #302e2e;
+  text-align: center;
+  letter-spacing: 5px;
+}
+.erp__buttons--add {
+  text-align: center;
+}
+.erp__buttons--delete {
+  text-align: center;
+}
+
+form {
+  text-align: center;
+  border-bottom: #302e2e 3px dotted;
+}
+form input {
+  margin: 10px;
+  border-radius: 3px;
+  border: 1px rgba(61, 60, 60, 0.5) solid;
+  font-weight: bolder;
+}
+form input::placeholder {
+  color: black;
+}
+form h3 {
+  color: #b9a6a6;
+}
+form button {
+  cursor: pointer;
+}
+form .gameName {
+  color: black;
+  text-decoration: underline overline #28ff4c;
+}
+form label {
+  font-size: 12px;
+  text-decoration: underline;
+  font-weight: bolder;
+  text-transform: uppercase;
+}
+form label[for=standardEdition] {
+  color: blue;
+}
+form label[for=deluxeEdition] {
+  color: #d400ff;
+}
+form label[for=goldEdition] {
+  color: #ffe02f;
+}
+form label[for=bundleEdition] {
+  color: #ff008c;
+}
+form button {
+  border-radius: 5px;
+}

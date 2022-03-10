@@ -23,7 +23,7 @@ app.post("/add-student", (req, res) => {
     res.send(student);
 });
 function addStudent(name) {
-    const id = Math.random().toString(360);
+    const id = Math.random().toString(36);
     student.push({ name, id });
     return student;
 }
