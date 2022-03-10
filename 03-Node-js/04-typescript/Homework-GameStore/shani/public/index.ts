@@ -69,7 +69,7 @@ async function handleUpdateGame(ev){
     const bundleEdition=ev.target.elements.bundleEdition.valueAsNumber;
     
     
-
+    
     const {data}= await axios.patch('/update-game',{standardEdition,deluxeEdition,goldEdition,bundleEdition,id});
 
     console.log(data)
@@ -89,19 +89,21 @@ function renderToDom(data){
         html+=`
         
         <form class="game" id="${game.id}" onsubmit="handleUpdateGame(event)">
-        <h3 class="gameName">${game.name}</h3> 
+         <h3 class="gameName">${game.name}</h3> 
+          
 
+         
          <label for="standardEdition">Standard Edition:</label>
-         <input type="number" id="standardEdition" name="standardEdition" placeholder="${game.standardEdition}" value="${game.standardEdition}">  
+         <input type="number" id="standardEdition" name="standardEdition" placeholder="${game.standardEdition}" >  
          
          <label for="deluxeEdition">Deluxe Edition:</label>
-         <input type="number" id="deluxeEdition" name="deluxeEdition" placeholder="${game.deluxeEdition}" value="${game.deluxeEdition}"> 
+         <input type="number" id="deluxeEdition" name="deluxeEdition" placeholder="${game.deluxeEdition}" > 
          
          <label for="goldEdition">Gold Edition:</label>
-         <input type="number" id="goldEdition" name="goldEdition" placeholder="${game.goldEdition}" value="${game.goldEdition}"> 
+         <input type="number" id="goldEdition" name="goldEdition" placeholder="${game.goldEdition}" > 
          
          <label for="bundleEdition">Bundle Edition:</label>
-         <input type="number" id="bundleEdition" name="bundleEdition" placeholder="${game.bundleEdition}"value="${game.bundleEdition}" > 
+         <input type="number" id="bundleEdition" name="bundleEdition" placeholder="${game.bundleEdition}" > 
         
          <button type="submit" value="update">Update</button></form>`
     })
