@@ -109,9 +109,9 @@ function renderArticles(root, games) {
 
         if (document.URL.includes("store.html")) {
             games.forEach(game => {
-                html += `<div class="card">
-               <p>${game.name}: ${game.price} ILS</p>
-               <img src="${game.img}">
+                html += `<div class="card" style="margin-right: 100px;">
+               <p style="color: white;">${game.name}: ${game.price} ILS</p>
+               <img src="${game.img}" style="width: 400px; height: 250px;">
                </div>`
             });
         } else {
@@ -226,15 +226,16 @@ function setSuccessFor(input) {
 }
 
 function renderToRegister(usernameValue) {
-    const sucssesToRegister = document.querySelector('#sucssesToRegister')
+    const sucssesToRegister = document.querySelector('#sucssesToRegister')    
 
     let html = `<h1>Welcome ${usernameValue}</h1>`
 
     setTimeout(() => {
         sucssesToRegister.className = 'sucssesToRegister sucess'
         sucssesToRegister.innerHTML = html
+        imgUser.innerHTML 
     }, 2000);
-    console.log(sucssesToRegister);
+
 
 }
 
@@ -254,19 +255,25 @@ async function showLoginForm(event) {
     const loginUserName = event.target.elements.usernameLogin.value
     const passwordValue = event.target.elements.emailLogin.value
     const container2Root = document.querySelector('#container2Root')
+    const imgUser = document.querySelector('.imgUser')
 
     await axios.get(`/get-password-and-username?loginName=${loginUserName}&loginPassword=${passwordValue}`)
         .then(({ data }) => {
 
+            console.log(data.img);
+            
+
             if (data.check === true) {
                 let html = `<h4 style="color:#2ecc71;">Welcome Back ${data.name}!</h4>`
+                let imgHtml = `<img src="${data.img}">`
+
                 container2Root.innerHTML = html
+                // imgUser.innerHTML = imgHtml
 
                 const container = document.querySelector('.container')
                 const container2 = document.querySelector('.container2')
 
-
-
+                
                 setTimeout(() => {
                     container.style.visibility = "hidden"
                     container2.style.visibility = "hidden"
