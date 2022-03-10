@@ -1,4 +1,4 @@
-*{
+* {
     box-sizing: border-box;
 }
 
@@ -11,64 +11,67 @@ body {
     min-height: 100vh;
     margin: 0;
 
-    .container{
+    .container {
         background: #fff;
         border-radius: 5px;
-        box-shadow: 0 2px 5px rgba(0,0,0,.3);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, .3);
         overflow: hidden;
         width: 400px;
         max-width: 100%;
+        position: absolute;
 
-        .header{
+        .header {
             background: #f7f7f7;
             border-bottom: 1px solid #f0f0f0;
 
-            h2{
+            h2 {
                 margin: 20px;
             }
         }
 
-        form{
+        form {
             padding: 30px 40px;
 
-            .form-control{
+            .form-control {
                 margin-bottom: 10px;
                 padding-bottom: 20px;
                 position: relative;
 
-                &.success{
-                    input{
+                &.success {
+                    input {
                         border-color: #2ecc71;
                     }
-                    i.fa-check-circle{
+
+                    i.fa-check-circle {
                         visibility: visible;
                         color: #2ecc71;
                     }
                 }
 
-                &.error{
-                    input{
+                &.error {
+                    input {
                         border-color: #e74c3c;
                     }
-                    i.fa-exclamation-circle{
+
+                    i.fa-exclamation-circle {
                         visibility: visible;
                         color: #e74c3c;
                     }
                 }
 
-                &.error{
-                    small{
+                &.error {
+                    small {
                         visibility: visible;
                         color: #e74c3c;
                     }
                 }
 
-                label{
+                label {
                     display: inline-block;
                     margin-bottom: 5px;
                 }
 
-                input{
+                input {
                     border: 2px solid #f0f0f0;
                     border-radius: 4px;
                     display: block;
@@ -78,7 +81,7 @@ body {
                     width: 100%;
                 }
 
-                i{
+                i {
                     position: absolute;
                     top: 40px;
                     right: 10px;
@@ -86,7 +89,7 @@ body {
 
                 }
 
-                small{
+                small {
                     visibility: hidden;
                     position: absolute;
                     bottom: 0;
@@ -95,7 +98,7 @@ body {
 
             }
 
-            button{
+            button {
                 background: #8e44ad;
                 border: 2px solid #8e44ad;
                 border-radius: 4px;
@@ -107,23 +110,88 @@ body {
                 font-family: inherit;
             }
         }
+
+        .alreadyRegistered {
+            display: flex;
+            justify-content: center;
+            font-family: 'open-sans', sans-serif;
+
+            h4 {
+                color: #8e44ad;
+
+                span {
+                    text-decoration: underline;
+                    color: #133c96;
+                    cursor: pointer;
+                }
+            }
+        }
     }
 }
 
+#sucssesToRegister {
+    &.sucess {
+        background: white;
+        min-width: 250px;
+        min-height: 250px;
+        box-sizing: content-box;
+        font-family: 'open-sans', sans-serif;
+        z-index: 1;
+        margin: auto;
+        border-radius: 4px;
+        border: 3px solid rgb(9, 79, 136);
+        display: flex;
+        justify-content: center;
+        position: absolute;
 
 
+        h1 {
+            margin-top: 40px;
+            padding: 35px;
+            color: #4e58b8;
+        }
+    }
+}
+
+.container2 {
+    visibility: hidden;
+    position: absolute;
 
 
+    .loginForm {
+        background: #fff;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, .3);
+        width: 500px;
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 30px 100px;
+        gap: 10px;
 
 
+        input {
+            border: 2px solid #f0f0f0;
+            border-radius: 4px;
+            display: block;
+            font-family: inherit;
+            font-size: 14px;
+            padding: 10px;
+            width: 100%;
+        }
 
 
+        button {
+            background: #8e44ad;
+            color: #fff;
+            font-family: 'open-sans', sans-serif;
+            border-radius: 4px;
+            cursor: pointer;
+            border: 2px solid #8e44ad;
+            width: 100%;
+            padding: 7px;
+            font-size: 16px;
+        }
+    }
 
-
-
-
-
-
-
-
-
+}

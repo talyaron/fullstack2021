@@ -23,10 +23,16 @@
  <button type="submit" value="add">ADD</button>
 </form>
 
+
+
 <form onsubmit="handleDeleteGame(event)" class="erp__buttons--delete">
     <h3>Delete a game</h3> 
-    <input type="text" placeholder="Delete Game " name="name" class="deleteGame">
-    <button type="submit" value="name">Delete</button>
+    <input type="text" placeholder="Delete Game " name="delete" class="deleteGame">
+    <button type="submit" value="delete">Delete</button>
+</form>
+
+<form onkeyup="handleGetGameById(event)">
+    <input type="number" placeholder="Place the games ID" name="findId" class="findGameById">
 </form>
 
 

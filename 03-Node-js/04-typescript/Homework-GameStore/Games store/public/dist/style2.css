@@ -18,6 +18,7 @@ body .container {
   overflow: hidden;
   width: 400px;
   max-width: 100%;
+  position: absolute;
 }
 body .container .header {
   background: #f7f7f7;
@@ -87,4 +88,73 @@ body .container form button {
   padding: 10px;
   font-size: 16px;
   font-family: inherit;
+}
+body .container .alreadyRegistered {
+  display: flex;
+  justify-content: center;
+  font-family: "open-sans", sans-serif;
+}
+body .container .alreadyRegistered h4 {
+  color: #8e44ad;
+}
+body .container .alreadyRegistered h4 span {
+  text-decoration: underline;
+  color: #133c96;
+  cursor: pointer;
+}
+
+#sucssesToRegister.sucess {
+  background: white;
+  min-width: 250px;
+  min-height: 250px;
+  box-sizing: content-box;
+  font-family: "open-sans", sans-serif;
+  z-index: 1;
+  margin: auto;
+  border-radius: 4px;
+  border: 3px solid #094f88;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+}
+#sucssesToRegister.sucess h1 {
+  margin-top: 40px;
+  padding: 35px;
+  color: #4e58b8;
+}
+
+.container2 {
+  visibility: hidden;
+  position: absolute;
+}
+.container2 .loginForm {
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  width: 500px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 30px 100px;
+  gap: 10px;
+}
+.container2 .loginForm input {
+  border: 2px solid #f0f0f0;
+  border-radius: 4px;
+  display: block;
+  font-family: inherit;
+  font-size: 14px;
+  padding: 10px;
+  width: 100%;
+}
+.container2 .loginForm button {
+  background: #8e44ad;
+  color: #fff;
+  font-family: "open-sans", sans-serif;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 2px solid #8e44ad;
+  width: 100%;
+  padding: 7px;
+  font-size: 16px;
 }

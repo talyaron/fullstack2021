@@ -24,15 +24,15 @@
 
     <div class="container">
         <div class="header">
-            <h2>Create Acoount</h2>
+            <h2>Create Account</h2>
         </div>
             <form class="form" id="form">
                 <div class="form-control">
                     <label for="">Username</label>
-                    <input type="text" name="" id="username" placeholder="email@email.com">
+                    <input type="text" name="" id="username" placeholder="username">
                     <i class="fas fa-check-circle"></i>
                     <i class="fas fa-exclamation-circle"></i>
-                    <small>Error Message</small>
+                    <small></small>
                 </div>
 
                 <div class="form-control">
@@ -40,7 +40,7 @@
                     <input type="email" name="" id="email" placeholder="Hello email@email.com">
                     <i class="fas fa-check-circle"></i>
                     <i class="fas fa-exclamation-circle"></i>
-                    <small>Error Message</small>
+                    <small></small>
                 </div>
 
                 <div class="form-control">
@@ -48,7 +48,7 @@
                     <input type="password" name="" id="password" placeholder="password">
                     <i class="fas fa-check-circle"></i>
                     <i class="fas fa-exclamation-circle"></i>
-                    <small>Error Message</small>
+                    <small></small>
                 </div>
 
                 <div class="form-control">
@@ -56,16 +56,31 @@
                     <input type="password" name="" id="password2" placeholder="password two">
                     <i class="fas fa-check-circle"></i>
                     <i class="fas fa-exclamation-circle"></i>
-                    <small>Error Message</small>
+                    <small></small>
                 </div>
 
                 <button>Submit</button>
+
+                <div class="alreadyRegistered">
+                    <h4>Or click <span onclick="handleLogin()">log-in</span></h4>
+                </div>
+                
 
             </form>
 
     </div>
 
+    <div class="container2" onsubmit="showLoginForm(event)">
+        <form id="loginForm" class="loginForm">
+            <input type="text" name="name" placeholder="username" id="usernameLogin">
+            <input type="password" name="password" placeholder="password" id="emailLogin">
+            <button>Log-in</button>
+            <div id="container2Root"></div>
+        </form>
+        
+    </div>
 
+    <div id="sucssesToRegister"></div>
 
 
     <div id="root"></div>
