@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="dist/style.css">
+</head>
+<body onload="handleOnLoad()">
+    <form class="form vis" onsubmit="handleAddGames(event)">
+    <input type="text" placeholder="new game title" name="title" id="" class = "addNewGame">
+    <input type="number" name="price" id="" class="price" placeholder="mew game price">
+    <input type="text" name="photo" id="" placeholder="new photo">
+    <button type="submit" value="Add">add new game</button>
+    </form>
+<form onsubmit="handleUpdate()">
+
+</form>
+
+    <div id="rootGames" class="rootGames"></div>
+    <script src="dist/index.js"></script>
+</body>
+</html>

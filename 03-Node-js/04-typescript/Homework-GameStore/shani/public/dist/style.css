@@ -1,4 +1,5 @@
 body {
+  background-color: #b8dbe6;
   font-family: Andale Mono, monospace;
 }
 
@@ -24,6 +25,9 @@ form input {
   border-radius: 3px;
   border: 1px rgba(61, 60, 60, 0.5) solid;
   font-weight: bolder;
+}
+form input::placeholder {
+  color: black;
 }
 form h3 {
   color: #b9a6a6;
