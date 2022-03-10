@@ -13,7 +13,7 @@ const images = [
 ]
 
 
-app.post('/get-picture', (req, res) => {
+app.get('/get-picture', (req, res) => {
     res.send(images)
 })
 app.listen(port, () => {

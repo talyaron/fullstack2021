@@ -42,7 +42,7 @@ function getImg() {
         var data;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, axios.post('/get-picture')];
+                case 0: return [4 /*yield*/, axios.get('/get-picture')];
                 case 1:
                     data = (_a.sent()).data;
                     renderImage(data);
@@ -55,7 +55,7 @@ function renderImage(data) {
     console.log(data);
     var html = '';
     data.forEach(function (img) {
-        html += "<div> <img src=\"" + img + "\"></div>";
+        html += "<div> <img src=\"" + img.image + "\"></div>";
     });
     var root = document.getElementById('root');
     root.innerHTML = html;
