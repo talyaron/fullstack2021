@@ -34,8 +34,8 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-// import axios from "axios";
 var games = [];
+var userId = "";
 function initPage() {
     return __awaiter(this, void 0, void 0, function () {
         var data;
@@ -58,6 +58,20 @@ function renderGames(gameList) {
     });
     html += "<div class=\"grid__add\">\n                <form onsubmit=\"handleAdd(event)\">\n                    <label for=\"name\"> Name</label>\n                    <input type=\"text\" name=\"name\" id=\"name\">\n                    <label for=\"pic\"> Image</label>\n                    <input type=\"text\" name=\"pic\" id=\"pic\">\n                    <label for=\"price\"> Price</label>\n                    <input type=\"number\" name=\"price\" id=\"price\">\n                    <input type=\"submit\" value=\"Add\">\n                </form>\n            </div>";
     document.querySelector('.grid').innerHTML = html;
+}
+function renderGamesUser(gameList) {
+    var html = '';
+    gameList.forEach(function (game) {
+        html += "<div class=\"grid__game\">\n                    <p>" + game.name + "</p>\n                    <img src=\"" + game.pic + "\">\n                    <p>" + game.price + "$</p>\n                    <p>copies available:" + game.copiesLeft + "</p>\n                    <button onclick=\"handleRent('" + game.id + "')\">Rent Game</button>\n                </div>";
+    });
+    document.querySelector('.grid').innerHTML = html;
+}
+function renderCart(cart) {
+    var html = '';
+    cart.forEach(function (game) {
+        html += "<div class=\"grid__game\">\n        <p>" + game.name + "</p>\n        <img src=\"" + game.pic + "\">\n        </div>";
+    });
+    document.querySelector('.cart').innerHTML = html;
 }
 function handleEdit(id) {
     var form = document.querySelector('.edit-form');
@@ -127,4 +141,80 @@ function handleAdd(ev) {
         });
     });
 }
-initPage();
+function handleCreate(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        var data;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    ev.preventDefault();
+                    if (!(ev.target.password.value == "" || ev.target.username.value == "")) return [3 /*break*/, 1];
+                    alert("fields must be filled");
+                    return [3 /*break*/, 4];
+                case 1:
+                    if (!(ev.target.password.value != ev.target.passwordRepeat.value)) return [3 /*break*/, 2];
+                    alert("passwords are not the same");
+                    return [3 /*break*/, 4];
+                case 2: return [4 /*yield*/, axios.post('/CreateAccount', { account: { username: ev.target.username.value, password: ev.target.password.value } })];
+                case 3:
+                    data = (_a.sent()).data;
+                    alert(data);
+                    _a.label = 4;
+                case 4: return [2 /*return*/];
+            }
+        });
+    });
+}
+function handleLogin(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        var data;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    ev.preventDefault();
+                    return [4 /*yield*/, axios.post('/logIn', { account: { username: ev.target.logUsername.value, password: ev.target.logPassword.value } })];
+                case 1:
+                    data = (_a.sent()).data;
+                    renderGamesUser(data.games);
+                    games = data;
+                    userId = data.id;
+                    document.querySelector('.menu').classList.add('in-vis');
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+function handleLoginMenu(ev) {
+    document.querySelector('.menu__logIn').classList.toggle('in-vis');
+    document.querySelector('.menu__create').classList.add('in-vis');
+    document.querySelector('.menu__button--create').classList.remove('in-vis');
+    ev.target.classList.toggle('in-vis');
+}
+function handleCreateMenu(ev) {
+    document.querySelector('.menu__create').classList.toggle('in-vis');
+    document.querySelector('.menu__logIn').classList.add('in-vis');
+    document.querySelector('.menu__button--login').classList.remove('in-vis');
+    ev.target.classList.toggle('in-vis');
+}
+function handleRent(id) {
+    return __awaiter(this, void 0, void 0, function () {
+        var data;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, axios.post('/rentGame', { id: id, userId: userId })];
+                case 1:
+                    data = (_a.sent()).data;
+                    if (typeof data === 'string') {
+                        alert(data);
+                    }
+                    else {
+                        renderGamesUser(data.store);
+                        games = data.store;
+                        renderCart(data.cart);
+                    }
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+// initPage();
