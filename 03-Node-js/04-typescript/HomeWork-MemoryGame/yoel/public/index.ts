@@ -13,7 +13,7 @@ function renderImage(data:Array<any>){
     let html = '';
 
     data.forEach(img =>{
-        html += `<div> <img src="${img}"></div>`
+        html += `<div> <img src="${img.img}"></div>`
     })
     const root = document.getElementById('root')
     root.innerHTML = html;
