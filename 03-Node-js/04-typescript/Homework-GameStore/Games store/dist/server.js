@@ -5,7 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const app = express_1.default();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 4000;
 app.use(express_1.default.static("public"));
 app.use(express_1.default.json());
 ;
@@ -40,8 +40,7 @@ app.get('/all-games', (req, res) => {
 });
 app.get('/get-game-by-id', (req, res) => {
     const search = req.query.search;
-    const specificGame = games.getGameById(search);
-    res.send(specificGame);
+    // res.send(specificGame)
 });
 app.post('/add-game', (req, res) => {
     const addGame = req.body.addGame;
@@ -60,8 +59,8 @@ app.patch('/update-game', (req, res) => {
 });
 let users = {
     userData: [
-        { username: 'michael frankel', email: 'miki.frankel@gmail.com', password: 'Blabla' },
-        { username: 'neta frankel', email: 'neta.frankel@gmail.com', password: 'Blibli2' },
+        { username: 'michael', email: 'miki.frankel@gmail.com', password: 'a' },
+        { username: 'neta', email: 'neta.frankel@gmail.com', password: 'Blibli2' },
     ],
     checkIfUserLogedAlready(email) {
         const index = this.userData.findIndex(user => user.email === email);
@@ -74,18 +73,33 @@ let users = {
     },
     addUser(username, email, password) {
         this.userData.push({ username, email, password });
-    }
+    },
+    checkNameAndPassword(name, password) {
+        const index = this.userData.findIndex((user) => user.username === name && user.password === password);
+        if (index !== -1) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    },
 };
 app.post('/add-user', (req, res) => {
     const { username, email, password } = req.body;
     const userInsideOrNot = users.checkIfUserLogedAlready(email);
     if (userInsideOrNot === true) {
         users.addUser(username, email, password);
-        res.send(Object.assign(Object.assign({}, users.userData), { userInsideOrNot }));
+        res.send(Object.assign(Object.assign({}, users.userData), { username, userInsideOrNot }));
     }
     else {
-        console.log("login");
+        res.send(`Hello ${username}, you are alreay registered. Please log in!`);
     }
+});
+app.get('/get-password-and-username', (req, res) => {
+    const loginName = req.query.loginName;
+    const loginPassword = req.query.loginPassword;
+    const checkUserLogin = users.checkNameAndPassword(loginName, loginPassword);
+    res.send({ name: loginName, check: checkUserLogin });
 });
 app.listen(port, () => {
     return console.log(`Express is listening at http://localhost:${port}`);

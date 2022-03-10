@@ -1,0 +1,64 @@
+:root {
+  background: #888;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+.grid__game {
+  width: 250px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background: #555;
+  color: white;
+}
+.grid__game img {
+  width: 200px;
+}
+.grid__add {
+  width: 250px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background: #555;
+  color: white;
+}
+.grid__add form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.grid__add form * {
+  margin-block: 20px;
+}
+
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+  position: fixed;
+  right: 0px;
+  bottom: 0px;
+  background-color: #555;
+  border: 1px solid black;
+}
+
+.in-vis {
+  display: none;
+}
