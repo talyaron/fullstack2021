@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { json } from 'express';
 const app = express();
 const port = process.env.PORT || 3000;
 app.use(express.static("public"));
@@ -27,11 +27,11 @@ app.get('/getAllGames', (req, res) => {
 })
 
 app.delete('/deleteGame', (req, res) => {
-    store.games = store.games.filter( game => game.id != req.body.id)
+    store.games = store.games.filter(game => game.id != req.body.id)
     res.send(store.games);
 })
 
-app.post('/editGame', (req,res) =>{
+app.post('/editGame', (req, res) => {
     const updatedGame = req.body.game
     const i = store.games.findIndex(game => game.id == updatedGame.id)
     store.games[i].name = updatedGame.name;
@@ -40,13 +40,53 @@ app.post('/editGame', (req,res) =>{
     res.send(store.games);
 })
 
-app.post('/addGame', (req,res) =>{
-    
+app.post('/addGame', (req, res) => {
+    const game = req.body.game
+    store.games.push({ id: uid(), name: game.name, price: game.price, pic: game.pic, copiesLeft: 3 })
+    res.send(store.games);
 })
 
 app.get('/', (req, res) => {
     res.send('Hello World!');
 });
+
+app.post('/CreateAccount', (req, res) => {
+    const account = req.body.account;
+    if (store.users.some(user => user.username == account.username)) res.send("Account with this username already exists")
+    else {
+        store.users.push({userId: uid(), username: account.username, password: account.password, cart: [] });
+        res.send("Account was created!");
+        console.log(store.users);
+    }
+})
+
+app.post('/logIn', (req, res) => {
+    const account = req.body.account;
+    const i = store.users.findIndex(user => user.username == account.username)
+    if (i == -1) res.send(`username ${account.username} doesn't exist`)
+    else if (store.users[i].password != account.password) res.send('wrong password')
+    else {
+        res.send({games: store.games, id: store.users[i].userId})
+    }
+})
+
+app.post('/rentGame', (req, res) => {
+    const id = req.body.id
+    const userId = req.body.userId
+    const i = store.games.findIndex(game => game.id == id);
+    const j = store.users.findIndex(user => user.userId == userId)
+    if(store.games[i].copiesLeft <= 0){
+        res.send("no copies left")
+    }
+    else if(store.users[j].cart.length >= 3){
+        res.send("no more space in your games")
+    }
+    else{
+        store.games[i].copiesLeft--;
+        store.users[j].cart.push(store.games[i]) 
+        res.send({store: store.games, cart:store.users[j].cart});
+    }
+})
 
 app.listen(port, () => {
     return console.log(`Express is listening at http://localhost:${port}`);

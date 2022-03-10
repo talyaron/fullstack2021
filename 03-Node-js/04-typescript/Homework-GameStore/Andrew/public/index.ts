@@ -1,5 +1,6 @@
-// import axios from "axios";
+
 let games = [];
+let userId = "";
 
 async function initPage() {
     const { data } = await axios.get('/getAllGames');
@@ -31,6 +32,29 @@ function renderGames(gameList) {
                 </form>
             </div>`
     document.querySelector('.grid').innerHTML = html;
+}
+function renderGamesUser(gameList) {
+    let html = '';
+    gameList.forEach(game => {
+        html += `<div class="grid__game">
+                    <p>${game.name}</p>
+                    <img src="${game.pic}">
+                    <p>${game.price}$</p>
+                    <p>copies available:${game.copiesLeft}</p>
+                    <button onclick="handleRent('${game.id}')">Rent Game</button>
+                </div>`
+    });
+    document.querySelector('.grid').innerHTML = html;
+}
+function renderCart(cart) {
+    let html = '';
+    cart.forEach(game => {
+        html += `<div class="grid__game">
+        <p>${game.name}</p>
+        <img src="${game.pic}">
+        </div>`
+    });
+    document.querySelector('.cart').innerHTML = html;
 }
 
 function handleEdit(id) {
@@ -70,7 +94,56 @@ async function handleAdd(ev) {
     const { data } = await axios.post('/addGame', { game });
     renderGames(data);
     games = data;
-    
+
 }
 
-initPage();
+async function handleCreate(ev) {
+    ev.preventDefault();
+    if (ev.target.password.value == "" || ev.target.username.value == "") {
+        alert("fields must be filled")
+    }
+    else if (ev.target.password.value != ev.target.passwordRepeat.value) {
+        alert("passwords are not the same")
+    }
+    else {
+        const { data } = await axios.post('/CreateAccount', { account: { username: ev.target.username.value, password: ev.target.password.value } })
+        alert(data)
+    }
+}
+async function handleLogin(ev) {
+    ev.preventDefault();
+    const { data } = await axios.post('/logIn', { account: { username: ev.target.logUsername.value, password: ev.target.logPassword.value } })
+    renderGamesUser(data.games);
+    games = data;
+    userId = data.id
+    document.querySelector('.menu').classList.add('in-vis')
+}
+
+function handleLoginMenu(ev) {
+    document.querySelector('.menu__logIn').classList.toggle('in-vis')
+    document.querySelector('.menu__create').classList.add('in-vis')
+    document.querySelector('.menu__button--create').classList.remove('in-vis')
+    ev.target.classList.toggle('in-vis')
+
+}
+
+function handleCreateMenu(ev) {
+    document.querySelector('.menu__create').classList.toggle('in-vis')
+    document.querySelector('.menu__logIn').classList.add('in-vis')
+    document.querySelector('.menu__button--login').classList.remove('in-vis')
+    ev.target.classList.toggle('in-vis')
+}
+
+async function handleRent(id) {
+    const { data } = await axios.post('/rentGame', {id,userId});
+    if(typeof data === 'string'){
+        alert(data)
+    }
+    else{
+        renderGamesUser(data.store);
+        games = data.store;
+        renderCart(data.cart);
+    }
+}
+
+// initPage();
