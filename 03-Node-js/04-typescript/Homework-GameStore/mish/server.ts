@@ -1,6 +1,6 @@
 import express from 'express';
 const app = express();
-const port = 3000;
+const port = 4000;
 
 const games = [
     {name: 'The Sims', price: '60$'},
@@ -12,6 +12,7 @@ const games = [
     {name: 'Dying Light', price: '60$'},
     {name: 'Fall Guys', price: '60$'},
 ]
+
 app.get('/get-games', (req, res) => {
   res.send(games);
 });
