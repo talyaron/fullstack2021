@@ -35,37 +35,28 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 function initApp() {
-    getAllData();
+    getImg();
 }
-function handleAddStudent(ev) {
+function getImg() {
     return __awaiter(this, void 0, void 0, function () {
-        var name, data;
+        var data;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0:
-                    ev.preventDefault();
-                    name = ev.target.elements.name.value;
-                    return [4 /*yield*/, axios.post('/add-student', { name: name, ok: true })];
+                case 0: return [4 /*yield*/, axios.post('/get-picture')];
                 case 1:
                     data = (_a.sent()).data;
-                    renderData(data);
-                    ev.target.reset();
+                    renderImage(data);
                     return [2 /*return*/];
             }
         });
     });
 }
-function getAllData() {
-    axios.get("/get-student").then(function (_a) {
-        var data = _a.data;
-        renderData(data);
-    });
-}
-function renderData(data) {
-    var root = document.getElementById('root');
+function renderImage(data) {
+    console.log(data);
     var html = '';
-    data.forEach(function (student) {
-        html += " <h1> the name is " + student.name + " </h1>";
+    data.forEach(function (img) {
+        html += "<div> <img src=\"" + img + "\"></div>";
     });
+    var root = document.getElementById('root');
     root.innerHTML = html;
 }
