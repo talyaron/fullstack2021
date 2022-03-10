@@ -19,6 +19,7 @@ body {
         width: 400px;
         max-width: 100%;
         position: absolute;
+        bottom: 50px;
 
         .header {
             background: #f7f7f7;
@@ -156,6 +157,7 @@ body {
 .container2 {
     visibility: hidden;
     position: absolute;
+    bottom: 250px;
 
 
     .loginForm {

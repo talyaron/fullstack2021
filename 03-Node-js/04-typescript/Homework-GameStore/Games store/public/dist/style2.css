@@ -19,6 +19,7 @@ body .container {
   width: 400px;
   max-width: 100%;
   position: absolute;
+  bottom: 50px;
 }
 body .container .header {
   background: #f7f7f7;
@@ -126,6 +127,7 @@ body .container .alreadyRegistered h4 span {
 .container2 {
   visibility: hidden;
   position: absolute;
+  bottom: 250px;
 }
 .container2 .loginForm {
   background: #fff;

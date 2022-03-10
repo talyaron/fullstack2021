@@ -8,7 +8,6 @@ async function handleLoad(e) {
                 const root = document.querySelector('#root')
 
                 renderArticles(root, data)
-                // console.log(data);
 
                 if (!root) throw new Error("no root in handleLoad");
 
@@ -42,8 +41,6 @@ async function handleLoad(e) {
         checkInputs(form, username, email, password, password2)
 
     })
-
-
 }
 
 async function handleGetGameById(e) {
@@ -77,11 +74,9 @@ async function handleGetGameById(e) {
         console.error(error.message);
     }
 
-
 }
 
 async function handleaddGame(e) {
-
 
 
     try {
@@ -92,13 +87,9 @@ async function handleaddGame(e) {
         // const {game} =addGame
         // console.log(addGame.price); 
 
-        // if (typeof addGame.game === "string"){
         const { data } = await axios.post('/add-game', { addGame });
-        // console.log(data);
-
 
         if (!data) throw new Error("no data in handleaddGame");
-        //}       
 
         e.target.reset();
 
@@ -115,16 +106,27 @@ function renderArticles(root, games) {
         if (!games || !root) throw new Error("no games || root in renderArticles");
 
         let html = '';
-        games.forEach(game => {
-            html += `<div class="card">
-           <p>${game.name}: ${game.price} ILS</p>
-           </div>
-           <form id="${game.id}" class="updateGame" onsubmit="handleUpdateGame(event)">
-           <input type="text" name="name" id="" placeholder="Please update the Game">
-           <input type="number" name="price" id="" placeholder="Please update the Price">
-           <input type="submit" value="Update">
-           </form>`
-        });
+
+        if (document.URL.includes("store.html")) {
+            games.forEach(game => {
+                html += `<div class="card">
+               <p>${game.name}: ${game.price} ILS</p>
+               <img src="${game.img}">
+               </div>`
+            });
+        } else {
+            games.forEach(game => {
+                html += `<div class="card">
+               <p>${game.name}: ${game.price} ILS</p>
+               </div>
+               <form id="${game.id}" class="updateGame" onsubmit="handleUpdateGame(event)">
+               <input type="text" name="name" id="" placeholder="Please update the Game">
+               <input type="number" name="price" id="" placeholder="Please update the Price">
+               <input type="submit" value="Update">
+               </form>`
+            });
+        }
+
         root.innerHTML = html;
 
     } catch (error) {
@@ -150,19 +152,13 @@ async function handleUpdateGame(e) {
         const root = document.querySelector('#root');
         renderArticles(root, data)
 
-        // if (typeof updateGame.name === 'number'){
-        //}
-
-
         if (!id) throw new Error("no id in handleUpdateGame");
-
 
         e.target.reset();
 
     } catch (error) {
 
     }
-
 }
 
 ///client login
@@ -243,12 +239,11 @@ function renderToRegister(usernameValue) {
 }
 
 function handleLogin() {
+
     const container = document.querySelector('.container')
     const container2 = document.querySelector('.container2')
 
     container2.style.visibility = 'visible'
-
-
 
 }
 

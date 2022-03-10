@@ -14,11 +14,11 @@ app.use(express_1.default.json());
 // }
 let games = {
     gamesData: [
-        { name: 'Airborne Kingdom', price: 74.5, id: 1 },
-        { name: 'Paint Warfare', price: 'Free', id: 2 },
-        { name: 'REBEL', price: 2.5, id: 3 },
-        { name: 'A Musical Story', price: 50.35, id: 4 },
-        { name: 'Automon', price: 29.5, id: 5 },
+        { name: 'Airborne Kingdom', price: 74.5, id: 1, img: 'https://cdn.akamai.steamstatic.com/steam/apps/346330/header.jpg?t=1646853773' },
+        { name: 'Paint Warfare', price: 'Free', id: 2, img: 'https://cdn.akamai.steamstatic.com/steam/apps/346330/header.jpg?t=1646853773' },
+        { name: 'REBEL', price: 2.5, id: 3, img: 'https://cdn.akamai.steamstatic.com/steam/apps/346330/header.jpg?t=1646853773' },
+        { name: 'A Musical Story', price: 50.35, id: 4, img: 'https://cdn.akamai.steamstatic.com/steam/apps/346330/header.jpg?t=1646853773' },
+        { name: 'Automon', price: 29.5, id: 5, img: 'https://cdn.akamai.steamstatic.com/steam/apps/346330/header.jpg?t=1646853773' },
     ],
     getGameById(id) {
         const specificGame = this.gamesData.findIndex((game) => game.id == id);
