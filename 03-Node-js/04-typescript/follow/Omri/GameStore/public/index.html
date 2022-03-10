@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,9 +9,12 @@
     <link rel="stylesheet" href="./dist/style.css">
     <title>Document</title>
 </head>
+
 <body onload="appInit()">
     <div class="manage">
-        <div class="manage__header"><h2>Manage Store</h2></div>
+        <div class="manage__header">
+            <h2>Manage Store</h2>
+        </div>
         <div class="manage__byId">
             Get item by ID:<input type="any" placeholder="Enter Id" onkeyup="handleId(event)">
         </div>
@@ -27,19 +31,23 @@
         <div class="manage__updateGame">
             <h4>Update Game</h4>
             <form class="input" onsubmit="handleUpdatGame(event)">
-                Category: <input type="text" name="category" required>
-                Tilte: <input type="text" name="title" required>
-                Price: <input type="number" name="price" required>
-                Image: <input type="text" name="img" required>
+                game to change: <input type="text" name="titleToUpdate" placeholder="Enter Game Title">
+                Category: <input type="text" name="category">
+                Tilte: <input type="text" name="title">
+                Price: <input type="number" name="price">
+                Image: <input type="text" name="img">
                 <input type="submit" value="Update">
             </form>
         </div>
     </div>
-    <div class = "store">
-        <div class = "store__header"><h2>Inventory List</h2></div>
-        <div class = "store__gamesList"></div>
+    <div class="store">
+        <div class="store__header">
+            <h2>Inventory List</h2>
+        </div>
+        <div class="store__gamesList"></div>
     </div>
     <!-- <div class="rootGames"></div> -->
     <script src="./dist/index.js"></script>
 </body>
+
 </html>
