@@ -2,21 +2,15 @@
 async function handleLoad(e) {
 
     try {
-
         await axios.get(`/all-games`)
             .then(({ data }) => {
                 const root = document.querySelector('#root')
-
                 renderArticles(root, data)
                 // console.log(data);
-
                 if (!root) throw new Error("no root in handleLoad");
-
             })
-
     } catch (error) {
         console.error(error);
-
     }
 }
 
@@ -198,9 +192,7 @@ async function checkInputs() {
         const {userInsideOrNot} = data
         
         if (userInsideOrNot === true){
-            setTimeout(() => {
-                
-            }, timeout);
+           
 
         }
 
