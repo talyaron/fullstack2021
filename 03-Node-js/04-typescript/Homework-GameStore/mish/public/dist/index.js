@@ -42,18 +42,54 @@ function getGames() {
                 case 0: return [4 /*yield*/, axios.get('/get-games')];
                 case 1:
                     data = (_a.sent()).data;
-                    console.log(data);
                     renderGames(data);
                     return [2 /*return*/];
             }
         });
     });
 }
+getGames();
 function renderGames(data) {
     var rootHTML = document.querySelector('.root');
     var html = '';
     data.forEach(function (game) {
-        html += "<div class=\"card\">\n        \n        <p>" + game.name + " : " + game.price + "</p>\n        <button onclick=\"handleDelete\"></button>\n        <button onclick=\"handleUpdate\"></button>\n        \n        </div>";
+        html += "<div class=\"card\">\n        \n        <p>" + game.name + " : " + game.price + "$</p>\n        <button onclick=\"handleDelete(event)\" id=\"" + game.name + "\">delete</button>\n        <form onsubmit=\"handleUpdate(event)\" id=\"" + game.name + "\">\n        <input type=\"text\" id=\"name\" placeholder=\"name\">\n        <input type=\"price\" id=\"price\" placeholder=\"price\">\n        <input type=\"submit\" value=\"update\">\n        </form>\n        </div>";
     });
     rootHTML.innerHTML = html;
+}
+function handleDelete(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        var name, data;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    name = ev.target.id;
+                    return [4 /*yield*/, axios.post('/delete-game', { name: name })];
+                case 1:
+                    data = (_a.sent()).data;
+                    renderGames(data);
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+function handleUpdate(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        var newName, newPrice, gameName, data;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    ev.preventDefault();
+                    console.log(ev);
+                    newName = ev.target.elements.name.value;
+                    newPrice = ev.target.elements.price.value;
+                    gameName = ev.target.id;
+                    return [4 /*yield*/, axios.patch('/update-game', { gameName: gameName, newName: newName, newPrice: newPrice })];
+                case 1:
+                    data = (_a.sent()).data;
+                    renderGames(data);
+                    return [2 /*return*/];
+            }
+        });
+    });
 }
