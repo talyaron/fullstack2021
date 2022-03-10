@@ -57,7 +57,6 @@ function handleLoad(e) {
                             var data = _a.data;
                             var root = document.querySelector('#root');
                             renderArticles(root, data);
-                            // console.log(data);
                             if (!root)
                                 throw new Error("no root in handleLoad");
                         })];
@@ -140,10 +139,8 @@ function handleaddGame(e) {
                     return [4 /*yield*/, axios.post('/add-game', { addGame: addGame })];
                 case 1:
                     data = (_a.sent()).data;
-                    // console.log(data);
                     if (!data)
                         throw new Error("no data in handleaddGame");
-                    //}       
                     e.target.reset();
                     return [3 /*break*/, 3];
                 case 2:
@@ -160,9 +157,16 @@ function renderArticles(root, games) {
         if (!games || !root)
             throw new Error("no games || root in renderArticles");
         var html_1 = '';
-        games.forEach(function (game) {
-            html_1 += "<div class=\"card\">\n           <p>" + game.name + ": " + game.price + " ILS</p>\n           </div>\n           <form id=\"" + game.id + "\" class=\"updateGame\" onsubmit=\"handleUpdateGame(event)\">\n           <input type=\"text\" name=\"name\" id=\"\" placeholder=\"Please update the Game\">\n           <input type=\"number\" name=\"price\" id=\"\" placeholder=\"Please update the Price\">\n           <input type=\"submit\" value=\"Update\">\n           </form>";
-        });
+        if (document.URL.includes("store.html")) {
+            games.forEach(function (game) {
+                html_1 += "<div class=\"card\">\n               <p>" + game.name + ": " + game.price + " ILS</p>\n               <img src=\"" + game.img + "\">\n               </div>";
+            });
+        }
+        else {
+            games.forEach(function (game) {
+                html_1 += "<div class=\"card\">\n               <p>" + game.name + ": " + game.price + " ILS</p>\n               </div>\n               <form id=\"" + game.id + "\" class=\"updateGame\" onsubmit=\"handleUpdateGame(event)\">\n               <input type=\"text\" name=\"name\" id=\"\" placeholder=\"Please update the Game\">\n               <input type=\"number\" name=\"price\" id=\"\" placeholder=\"Please update the Price\">\n               <input type=\"submit\" value=\"Update\">\n               </form>";
+            });
+        }
         root.innerHTML = html_1;
     }
     catch (error) {
@@ -184,8 +188,6 @@ function handleUpdateGame(e) {
                     data = (_a.sent()).data;
                     root = document.querySelector('#root');
                     renderArticles(root, data);
-                    // if (typeof updateGame.name === 'number'){
-                    //}
                     if (!id)
                         throw new Error("no id in handleUpdateGame");
                     e.target.reset();
