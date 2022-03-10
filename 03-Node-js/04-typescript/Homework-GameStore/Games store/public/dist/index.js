@@ -244,11 +244,6 @@ function checkInputs(form, username, email, password, password2) {
                     data = (_a.sent()).data;
                     userInsideOrNot = data.userInsideOrNot;
                     if (userInsideOrNot === true) {
-                        renderToRegister(usernameValue);
-                    }
-                    else {
-                        setErrorFor(password2, data);
-                        handleLogin();
                     }
                     _a.label = 2;
                 case 2: return [2 /*return*/];
