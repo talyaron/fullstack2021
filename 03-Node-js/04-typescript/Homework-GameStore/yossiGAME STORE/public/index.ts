@@ -8,7 +8,7 @@ async function handleLoad(ev) {
 
         renderAll(root, data)
     })
-}
+} 
 
 
 function renderAll(root, games) {
@@ -36,10 +36,10 @@ function renderAll(root, games) {
     root.innerHTML = html;
 }
 
-async function handleDelete(ev) {
-    const id = ev.target.value
+async function handleDelete(id) {
+    // const id = ev.target.value
     console.log(id)
-    const { data } = await axios.post('/delete-game',  id)
+    const { data } = await axios.post('/delete-game', {id})
     const root = document.querySelector('#root')
     renderAll(root, data)
 }

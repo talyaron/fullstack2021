@@ -34,55 +34,30 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-function initApp() {
-    console.log("start");
-    getAllCards();
-    console.log("end");
-}
-function handleNewGame(ev) {
-    shuffleCards(ev);
-    console.log('trying');
-}
-var button = document.querySelector('button');
-if (button) {
-    button.addEventListener('click', handleNewGame);
-}
-function shuffleCards(ev) {
-    return __awaiter(this, void 0, void 0, function () {
-        var data, shuffle;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, axios.get("/get-cards")];
-                case 1:
-                    data = (_a.sent()).data;
-                    shuffle = data.sort(function (ev) { return 0.5 - Math.random(); });
-                    console.log(shuffle);
-                    renderCards(shuffle);
-                    return [2 /*return*/];
-            }
+var gameStore = {
+    gamesList: [],
+    getGames: function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var data;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, axios.get('/all-games')];
+                    case 1:
+                        data = (_a.sent()).data;
+                        this.gamesList = data;
+                        console.log(data);
+                        return [2 /*return*/];
+                }
+            });
         });
-    });
-}
-function getAllCards() {
-    return __awaiter(this, void 0, void 0, function () {
-        var data;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, axios.get("/get-cards")];
-                case 1:
-                    data = (_a.sent()).data;
-                    console.log(data);
-                    renderCards(data);
-                    return [2 /*return*/];
-            }
+    },
+    handleRender: function () {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                return [2 /*return*/];
+            });
         });
-    });
-}
-function renderCards(data) {
-    var html = "";
-    data.forEach(function (card) {
-        html += "\n        <div class=\"cardPack_cards\"> \n        <img src=\"" + card.img + "\"> \n        </div>";
-        var root = document.querySelector(".cardPack");
-        root.innerHTML = html;
-    });
-}
+    }
+};
+gameStore.getGames();
+console.log(gameStore);

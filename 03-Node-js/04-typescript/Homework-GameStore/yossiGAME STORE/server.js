@@ -75,35 +75,30 @@ let games = {
     },
 
     updateGame(name, price, img, id) {
-
         const indexId = this.data.filter((game) => game.id == id)
-
-        console.log(indexId)
-
         indexId.forEach(index => {
             index.name = name
             index.price = price
             index.img = img
         })
-
-        console.log(indexId)
     },
-    getGameById(id) {
 
+    getGameById(id) {
         const gameById = this.data.filter((game) => game.id == id);
         return gameById
     },
-    getGameByPrice(price) {
 
+    getGameByPrice(price) {
         const gameByPrice = this.data.filter((game) => game.price == price);
         return gameByPrice
     },
-    deleteGame(id) {
-        games = this.data.filter((game) => game.id !== id);
-        return games
-    }
 
+    deleteGame(id) {
+        this.data = this.data.filter((game) => game.id != id);
+        return this.data
+    }
 }
+
 app.post('/delete-game', (req, res) => {
     const id = req.body.id;
     games.deleteGame(id)
@@ -120,8 +115,6 @@ app.get('/get-games', (req, res) => {
     res.send(games.data);
 });
 
-
-
 app.patch('/update-game', (req, res) => {
     const {
         name,
@@ -132,12 +125,10 @@ app.patch('/update-game', (req, res) => {
 
     games.updateGame(name, price, img, id);
     res.send(games.data)
-
 })
 
 app.get('/get-games-id', function (req, res) {
     const id = req.query.id;
-
     if (id === '') {
         res.send(games.data)
     }
@@ -154,13 +145,9 @@ app.get('/get-games-price', function (req, res) {
     }
     const gameByPrice = games.getGameByPrice(price)
     res.send(gameByPrice)
-
 })
 
 
 app.listen(port, () => {
     console.log(`app listening on port ${port}`)
 })
-
-
-

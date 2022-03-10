@@ -3,7 +3,7 @@ function initApp(){
 }
 
 async function getImg(){
-    const {data} = await axios.post('/get-picture')
+    const {data} = await axios.get('/get-picture')
 
     renderImage(data);
     

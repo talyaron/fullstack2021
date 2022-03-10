@@ -74,13 +74,11 @@ var games = {
     var indexId = this.data.filter(function (game) {
       return game.id == id;
     });
-    console.log(indexId);
     indexId.forEach(function (index) {
       index.name = name;
       index.price = price;
       index.img = img;
     });
-    console.log(indexId);
   },
   getGameById: function getGameById(id) {
     var gameById = this.data.filter(function (game) {
@@ -95,10 +93,10 @@ var games = {
     return gameByPrice;
   },
   deleteGame: function deleteGame(id) {
-    games = this.data.filter(function (game) {
-      return game.id !== id;
+    this.data = this.data.filter(function (game) {
+      return game.id != id;
     });
-    return games;
+    return this.data;
   }
 };
 app.post('/delete-game', function (req, res) {

@@ -42,7 +42,7 @@ function getImg() {
         var data;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, axios.post('/get-picture')];
+                case 0: return [4 /*yield*/, axios.get('/get-picture')];
                 case 1:
                     data = (_a.sent()).data;
                     renderImage(data);

@@ -1,0 +1,55 @@
+body .form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+  right: 0px;
+  top: 0px;
+  background-color: #f16262;
+  border: 1px solid #cd49f5;
+}
+body .rootGames {
+  padding-top: 100px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  row-gap: 80px;
+}
+body .rootGames--game {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 500px;
+  height: 300px;
+}
+body .rootGames--game img {
+  width: 500px;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+body .rootGames--add {
+  width: 250px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #cd49f5;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background: #f05151;
+  color: white;
+}
+body .rootGames--add form {
+  right: 0px;
+  top: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+body .rootGames--add form * {
+  margin-block: 20px;
+}
