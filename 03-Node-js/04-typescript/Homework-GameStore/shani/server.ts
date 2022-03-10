@@ -91,7 +91,8 @@ app.patch('/update-game',(req,res)=>{
     const newgoldEdition=req.body.goldEdition;
     const newbundleEdition=req.body.bundleEdition;
     const id=req.body.id;
-    const games=updateGame(newStandardEdition,newdeluxeEdition,newgoldEdition,newbundleEdition,id)
+    
+    updateGame(newStandardEdition,newdeluxeEdition,newgoldEdition,newbundleEdition,id)
     res.send(games)
 
 })
@@ -117,17 +118,23 @@ function deleteGame(itemName){
 }
 
 function getGameById(searchedId){
-    const foundGame=games.findIndex((game)=> game.id==searchedId);
-    return(games[foundGame])
 
+    if(searchedId){
+        const foundGame=games.findIndex((game)=> game.id==searchedId);
+    return(games[foundGame])
+    }else{
+        return games
+    }
+    
 }
 
 function updateGame(standardEdition,deluxeEdition,goldEdition,bundleEdition,id){
 
 const index= games.findIndex((game)=> game.id==id)
 if (index>-1){
-    games[index]={standardEdition,deluxeEdition,goldEdition,bundleEdition,id}
-}
+  games[index]={standardEdition,deluxeEdition,goldEdition,bundleEdition,id} 
+    
+ }
 }
 
 app.listen(port, () => {

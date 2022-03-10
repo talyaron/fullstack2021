@@ -14,11 +14,11 @@ app.use(express_1.default.json());
 // }
 let games = {
     gamesData: [
-        { name: 'Airborne Kingdom', price: 74.5, id: 1 },
-        { name: 'Paint Warfare', price: 'Free', id: 2 },
-        { name: 'REBEL', price: 2.5, id: 3 },
-        { name: 'A Musical Story', price: 50.35, id: 4 },
-        { name: 'Automon', price: 29.5, id: 5 },
+        { name: 'Airborne Kingdom', price: 74.5, id: 1, img: 'https://cdn.akamai.steamstatic.com/steam/spotlights/f492d8f69b27d178b78ca160/spotlight_image_english.jpg?t=1646328641' },
+        { name: 'Paint Warfare', price: 'Free', id: 2, img: 'https://cdn.akamai.steamstatic.com/steam/spotlights/dcac02b07ab8031df9c885b1/spotlight_image_english.jpg?t=1646419530' },
+        { name: 'REBEL', price: 2.5, id: 3, img: 'https://cdn.akamai.steamstatic.com/steam/spotlights/91cb3ff06b8df8e0d70726a0/spotlight_image_english.jpg?t=1646432891' },
+        { name: 'A Musical Story', price: 50.35, id: 4, img: 'https://cdn.akamai.steamstatic.com/steam/spotlights/35cbac8a79192bfa95b59ddd/spotlight_image_english.jpg?t=1646437577' },
+        { name: 'Automon', price: 29.5, id: 5, img: 'https://cdn.akamai.steamstatic.com/steam/spotlights/b223800234b836efbb0aaed7/spotlight_image_english.jpg?t=1646673197' },
     ],
     getGameById(id) {
         const specificGame = this.gamesData.findIndex((game) => game.id == id);
@@ -59,8 +59,8 @@ app.patch('/update-game', (req, res) => {
 });
 let users = {
     userData: [
-        { username: 'michael', email: 'miki.frankel@gmail.com', password: 'a' },
-        { username: 'neta', email: 'neta.frankel@gmail.com', password: 'Blibli2' },
+        { username: 'michael', email: 'miki.frankel@gmail.com', password: 'a', img: 'img/michael.png' },
+        { username: 'neta', email: 'neta.frankel@gmail.com', password: 'Blibli2', img: 'img/michael.png' },
     ],
     checkIfUserLogedAlready(email) {
         const index = this.userData.findIndex(user => user.email === email);
