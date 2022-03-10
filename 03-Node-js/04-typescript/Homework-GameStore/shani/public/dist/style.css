@@ -26,6 +26,9 @@ form input {
   border: 1px rgba(61, 60, 60, 0.5) solid;
   font-weight: bolder;
 }
+form input::placeholder {
+  color: black;
+}
 form h3 {
   color: #b9a6a6;
 }
