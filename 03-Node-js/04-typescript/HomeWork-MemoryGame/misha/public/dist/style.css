@@ -79,3 +79,17 @@ body {
 .root .cardsgrid .card-matched {
   visibility: hidden;
 }
+
+.cake {
+  position: absolute;
+  left: 35%;
+  top: 35%;
+  visibility: hidden;
+}
+.cake img {
+  height: 500px;
+  width: 500px;
+}
+.cake-active {
+  visibility: visible;
+}

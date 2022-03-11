@@ -99,3 +99,20 @@ body {
     display: none;
 }
 
+.cake{
+
+    position: absolute;
+    left: 35%;
+    top: 35%;
+
+    img{
+    height: 500px;
+    width: 500px;
+    }
+
+    visibility: hidden;
+    
+    &-active{
+        visibility: visible;
+    }
+}

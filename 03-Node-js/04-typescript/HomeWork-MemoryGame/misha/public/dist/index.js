@@ -38,7 +38,8 @@ var gameStats = {
     count: 0,
     flipped: 0,
     flippedIDs: [],
-    flippedpairIDs: []
+    flippedpairIDs: [],
+    matches: 0
 };
 function uniqueId() {
     return Date.now().toString(36) + Math.random().toString(36).substr(2);
@@ -108,6 +109,13 @@ function checkFlipped(flipped, flippedPair) {
             cardDelete1.classList.add('card-matched');
             cardDelete2.classList.add('card-matched');
         }, 1000);
+        gameStats.matches++;
+        if (gameStats.matches === 8) {
+            setTimeout(function () {
+                var cake = document.querySelector(".cake");
+                cake.style.visibility = 'visible';
+            }, 1050);
+        }
     }
     else {
         setTimeout(function () {
