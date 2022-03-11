@@ -58,7 +58,7 @@ function renderGames(data, root) {
     var html = '';
     if (Array.isArray(data)) {
         data.forEach(function (game) {
-            html += "\n            <div class = \"store__gamesList\">\n                <div class = \"store__gamesList--img\"><img src = " + game.img + "></div>\n                <div class = \"store__gamesList--title\">Title: " + game.title + "</div>\n                <div class = \"store__gamesList--price\">price: " + game.price + "</div>\n                <div class = \"store__gamesList--category\">Category: " + game.category + "</div>\n            </div>";
+            html += "\n            <div class = \"store__gamesList\">\n                <img src = " + game.img + ">\n                <div>\n                    <p>Title: " + game.title + "</p>\n                    <p>price: " + game.price + "</p>\n                    <p>Category: " + game.category + "</p>\n                </div>\n            </div>";
         });
         root.innerHTML = html;
     }

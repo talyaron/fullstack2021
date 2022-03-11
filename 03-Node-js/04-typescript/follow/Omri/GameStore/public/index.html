@@ -12,7 +12,7 @@
     <div class="manage">
         <div class="manage__header"><h2>Manage Store</h2></div>
         <div class="manage__byId">
-            Get item by ID:<input type="any" placeholder="Enter Id" onkeyup="handleId(event)">
+            <h4>Get item by ID:</h4><input type="any" placeholder="Enter Id" onkeyup="handleId(event)">
         </div>
         <div class="manage__addGame">
             <h4>Add Game</h4>
@@ -25,8 +25,8 @@
             </form>
         </div>
         <div class="manage__updateGame">
-            <h4>Update Game</h4>
             <form class="input" onsubmit="handleUpdatGame(event)">
+                <h4>Update Game <input type="text" name="title" placeholder = "Enter game title" required></h4>
                 Category: <input type="text" name="category" required>
                 Tilte: <input type="text" name="title" required>
                 Price: <input type="number" name="price" required>
