@@ -63,3 +63,26 @@ function renderGames(data, root) {
         root.innerHTML = html;
     }
 }
+function handleAddGame(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        var rootGames, title, category, price, img, data;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    ev.preventDefault();
+                    rootGames = document.querySelector(".store__gamesList");
+                    title = ev.target.elements.title.value;
+                    category = ev.target.elements.category.value;
+                    price = ev.target.elements.price.value;
+                    img = ev.target.elements.img.value;
+                    return [4 /*yield*/, axios.post("/add-game", { title: title, category: category, price: price, img: img })];
+                case 1:
+                    data = (_a.sent()).data;
+                    renderGames(data, rootGames);
+                    console.log(data);
+                    console.log(ev);
+                    return [2 /*return*/];
+            }
+        });
+    });
+}

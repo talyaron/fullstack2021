@@ -1,6 +1,6 @@
 import express from 'express';
 const app = express();
-const port = process.env.PORT || 3007;
+const port = process.env.PORT || 3002;
 app.use(express.static("public"));
 app.use(express.json());
 
@@ -8,7 +8,7 @@ interface gameStore{
     games: Array<game>;
     gameById();
     addGame(category: string,title: string,price: number,img: any);
-    updateGame();
+    updateGame(updCategory: string,updTitle: string,updPrice: number,updImg: any);
 }
 
 interface game {
@@ -60,8 +60,8 @@ const gamer: gameStore = {
         this.games.push({id,category,title,price,img})
     },
 
-    updateGame() {
-
+    updateGame(updCategory: string,updTitle: string,updPrice: number,updImg: any) {
+        return
     }
 }
 
@@ -75,6 +75,15 @@ app.get("/get-games", (req, res) => {
     const gamer = getGames();
     res.send(gamer);
   });
+
+  app.post("/add-game", (req,res) =>{
+      const newTitle = req.body.title
+      const newCategory = req.body.category
+      const newPrice = req.body.price
+      const newImg = req.body.img
+     gamer.addGame(newCategory,newTitle,newPrice,newImg);
+      res.send(gamer.games)
+  })
   
 function getGames(){
     return gamer.games

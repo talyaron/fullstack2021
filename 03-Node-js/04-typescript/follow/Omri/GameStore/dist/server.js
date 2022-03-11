@@ -5,7 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const app = express_1.default();
-const port = process.env.PORT || 3007;
+const port = process.env.PORT || 3002;
 app.use(express_1.default.static("public"));
 app.use(express_1.default.json());
 const gamer = {
@@ -45,7 +45,8 @@ const gamer = {
         const id = uid();
         this.games.push({ id, category, title, price, img });
     },
-    updateGame() {
+    updateGame(updCategory, updTitle, updPrice, updImg) {
+        return;
     }
 };
 const uid = function () {
@@ -54,6 +55,14 @@ const uid = function () {
 app.get("/get-games", (req, res) => {
     const gamer = getGames();
     res.send(gamer);
+});
+app.post("/add-game", (req, res) => {
+    const newTitle = req.body.title;
+    const newCategory = req.body.category;
+    const newPrice = req.body.price;
+    const newImg = req.body.img;
+    gamer.addGame(newCategory, newTitle, newPrice, newImg);
+    res.send(gamer.games);
 });
 function getGames() {
     return gamer.games;

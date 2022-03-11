@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,9 +9,12 @@
     <link rel="stylesheet" href="./dist/style.css">
     <title>Document</title>
 </head>
+
 <body onload="appInit()">
     <div class="manage">
-        <div class="manage__header"><h2>Manage Store</h2></div>
+        <div class="manage__header">
+            <h2>Manage Store</h2>
+        </div>
         <div class="manage__byId">
             <h4>Get item by ID:</h4><input type="any" placeholder="Enter Id" onkeyup="handleId(event)">
         </div>
@@ -35,11 +39,14 @@
             </form>
         </div>
     </div>
-    <div class = "store">
-        <div class = "store__header"><h2>Inventory List</h2></div>
-        <div class = "store__gamesList"></div>
+    <div class="store">
+        <div class="store__header">
+            <h2>Inventory List</h2>
+        </div>
+        <div class="store__gamesList"></div>
     </div>
     <!-- <div class="rootGames"></div> -->
     <script src="./dist/index.js"></script>
 </body>
+
 </html>
