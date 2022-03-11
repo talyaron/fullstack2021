@@ -52,8 +52,9 @@ app.post('/delete-game', (req, res) => {
     res.send(games);
 });
 app.get('/get-game-by-id', (req, res) => {
-    const searchedId = req.query.id;
-    const games = getGameById(searchedId);
+    const { id, x } = req.query;
+    console.log(id, x);
+    const games = getGameById(id);
     res.send(games);
 });
 app.patch('/update-game', (req, res) => {
@@ -77,13 +78,23 @@ function deleteGame(itemName) {
     }
     return games;
 }
-function getGameById(searchedId) {
-    if (searchedId) {
-        const foundGame = games.findIndex((game) => game.id == searchedId);
-        return (games[foundGame]);
+function getGameById(id) {
+    console.log(id);
+    try {
+        if (id > 0) {
+            const foundGame = games.findIndex((game) => game.id == id);
+            // console.log([games[foundGame]])
+            if (foundGame === -1)
+                throw new Error(`there is no id like ${id} `);
+            return [games[foundGame]];
+        }
+        else {
+            console.log(games);
+            return [games];
+        }
     }
-    else {
-        return games;
+    catch (error) {
+        console.error(error.message);
     }
 }
 function updateGame(standardEdition, deluxeEdition, goldEdition, bundleEdition, id) {
