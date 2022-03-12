@@ -157,13 +157,14 @@ function renderToGameStore(data){
     data.forEach(storeGame=>{
         html+=`
         <div class="storeGame"> <h1>${storeGame.name}</h1>
-        <img src="${storeGame.imgUrl}" class="front-img">
+        <img src="${storeGame.imgUrl}" class="storeGame__img--front">
+        <img src="${storeGame.gif}" class="storeGame__img--back">
         
-        <div class="editions"> 
-        <h3> Standard Edition ${storeGame.standardEdition} </h3>
-        <h3> Deluxe Edition ${storeGame.deluxeEdition} </h3>
-        <h3> Gold Edition ${storeGame.goldEdition} </h3>
-        <h3> Bundle Edition ${storeGame.bundleEdition} </h3>
+        <div class="storeGame__editions"> 
+        <h3 class="storeGame__editions--standardEdition"> Standard Edition ${storeGame.standardEdition} </h3>
+        <h3 class="storeGame__editions--deluxeEdition"> Deluxe Edition ${storeGame.deluxeEdition} </h3>
+        <h3 class="storeGame__editions--goldEdition"> Gold Edition ${storeGame.goldEdition} </h3>
+        <h3 class="storeGame__editions--bundleEdition"> Bundle Edition ${storeGame.bundleEdition} </h3>
         </div>
         
         </div>
@@ -173,4 +174,3 @@ function renderToGameStore(data){
     root.innerHTML=html;
 }
 
-//<img src="${storeGame.gif}" class="back-img">
