@@ -88,13 +88,14 @@ app.get('/get-game-by-id',(req,res)=>{
 
 app.patch('/update-game',(req,res)=>{
     
-    const newStandardEdition=req.body.standardEdition;
-    const newdeluxeEdition=req.body.deluxeEdition;
-    const newgoldEdition=req.body.goldEdition;
-    const newbundleEdition=req.body.bundleEdition;
-    const id=req.body.id;
+    // const newStandardEdition=req.body.standardEdition;
+    // const newdeluxeEdition=req.body.deluxeEdition;
+    // const newgoldEdition=req.body.goldEdition;
+    // const newbundleEdition=req.body.bundleEdition;
+    // const id=req.body.id;
+    const {standardEdition,deluxeEdition,goldEdition,bundleEdition,id}=req.body
     
-    updateGame(newStandardEdition,newdeluxeEdition,newgoldEdition,newbundleEdition,id)
+    updateGame(standardEdition,deluxeEdition,goldEdition,bundleEdition,id)
     res.send(games)
 
 })
@@ -124,12 +125,12 @@ function getGameById(id){
     try{
         if(id>0){
             const foundGame=games.findIndex((game)=> game.id==id);
-            // console.log([games[foundGame]])
+            
             if(foundGame===-1) throw new Error(`there is no id like ${id} `)
             return [games[foundGame]]
         }else{
            
-            console.log(games)
+            
 
             return [games]
         }
@@ -137,6 +138,7 @@ function getGameById(id){
 
     }catch(error){
         console.error(error.message)
+    
     }
 
    
