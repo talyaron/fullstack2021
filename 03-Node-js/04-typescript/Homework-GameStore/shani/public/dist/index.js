@@ -189,8 +189,7 @@ function renderToGameStore(data) {
     var root = document.querySelector("#root");
     var html = "";
     data.forEach(function (storeGame) {
-        html += "\n        <div class=\"storeGame\"> <h1>" + storeGame.name + "</h1>\n        <img src=\"" + storeGame.imgUrl + "\" class=\"front-img\">\n        \n        <div class=\"editions\"> \n        <h3> Standard Edition " + storeGame.standardEdition + " </h3>\n        <h3> Deluxe Edition " + storeGame.deluxeEdition + " </h3>\n        <h3> Gold Edition " + storeGame.goldEdition + " </h3>\n        <h3> Bundle Edition " + storeGame.bundleEdition + " </h3>\n        </div>\n        \n        </div>\n        ";
+        html += "\n        <div class=\"storeGame\"> <h1>" + storeGame.name + "</h1>\n        <img src=\"" + storeGame.imgUrl + "\" class=\"storeGame__img--front\">\n        <img src=\"" + storeGame.gif + "\" class=\"storeGame__img--back\">\n        \n        <div class=\"storeGame__editions\"> \n        <h3 class=\"storeGame__editions--standardEdition\"> Standard Edition " + storeGame.standardEdition + " </h3>\n        <h3 class=\"storeGame__editions--deluxeEdition\"> Deluxe Edition " + storeGame.deluxeEdition + " </h3>\n        <h3 class=\"storeGame__editions--goldEdition\"> Gold Edition " + storeGame.goldEdition + " </h3>\n        <h3 class=\"storeGame__editions--bundleEdition\"> Bundle Edition " + storeGame.bundleEdition + " </h3>\n        </div>\n        \n        </div>\n        ";
     });
     root.innerHTML = html;
 }
-//<img src="${storeGame.gif}" class="back-img">

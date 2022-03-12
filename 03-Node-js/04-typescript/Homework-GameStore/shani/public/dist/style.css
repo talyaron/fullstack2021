@@ -1,8 +1,8 @@
-body {
+@import url("http://fonts.cdnfonts.com/css/games");
+.erp {
   background-color: #b8dbe6;
   font-family: Andale Mono, monospace;
 }
-
 .erp--title {
   text-shadow: 2px 2px 5px #4b4848;
   color: #302e2e;
@@ -61,13 +61,123 @@ form button {
   border-radius: 5px;
 }
 
+.gamesStore {
+  background-color: #009e89;
+  font-family: "Games", sans-serif;
+  letter-spacing: 3px;
+}
+
+.navBar {
+  display: flex;
+  justify-content: center;
+  background-color: #00ff55;
+  border: 5px solid #044e69;
+  border-radius: 20px;
+  align-items: center;
+}
+.navBar:hover {
+  box-shadow: 0 0 20px #95b7ff;
+  border: 5px solid #f0f7f6;
+}
+.navBar--logo {
+  margin: 5px;
+}
+.navBar--logo img {
+  width: 7vw;
+  height: 15vh;
+}
+.navBar__content ul {
+  display: flex;
+  column-gap: 100px;
+}
+.navBar__content ul li {
+  list-style: none;
+  justify-content: space-between;
+}
+.navBar__content ul li a {
+  text-decoration: none;
+  justify-content: space-between;
+  gap: 100px;
+  font-weight: bolder;
+  color: #0d3544;
+}
+.navBar__content ul li a:hover {
+  color: white;
+}
+
+#root {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+
 .storeGame {
   text-align: center;
+  position: relative;
+  display: inline-block;
 }
-.storeGame .editions {
+.storeGame__img {
+  width: 130px;
+  height: 195px;
+}
+.storeGame__img--front {
+  box-shadow: 0 0 20px #c9daff;
+}
+.storeGame__img--back {
+  width: 460px;
+  height: 215px;
+  position: absolute;
+  left: 145px;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.storeGame__img--back:hover {
+  opacity: 1;
+}
+.storeGame__editions {
   display: grid;
   grid-template-columns: repeat(2, 300px);
   grid-template-rows: repeat(2, 1fr);
   gap: 50px;
   justify-content: center;
+}
+.storeGame__editions--standardEdition {
+  background-color: blue;
+  width: 250px;
+}
+.storeGame__editions--standardEdition:hover {
+  box-shadow: 0px 0px 50px #67d6f1;
+  background-color: rgba(88, 122, 235, 0.747);
+  transform: rotate(5deg);
+  color: white;
+}
+.storeGame__editions--deluxeEdition {
+  background-color: #d400ff;
+  width: 250px;
+}
+.storeGame__editions--deluxeEdition:hover {
+  box-shadow: 0px 0px 50px #f2b0ff;
+  background-color: rgba(225, 119, 247, 0.801);
+  transform: rotate(-5deg);
+  color: white;
+}
+.storeGame__editions--goldEdition {
+  background-color: #ffe02f;
+  width: 250px;
+}
+.storeGame__editions--goldEdition:hover {
+  box-shadow: 0px 0px 50px #ffee8c;
+  background-color: rgba(251, 255, 0, 0.986);
+  transform: rotate(5deg);
+  color: white;
+}
+.storeGame__editions--bundleEdition {
+  background-color: #ff008c;
+  width: 250px;
+}
+.storeGame__editions--bundleEdition:hover {
+  box-shadow: 0px 0px 50px #ff8ecc;
+  background-color: rgba(255, 0, 140, 0.712);
+  transform: rotate(-5deg);
+  color: white;
 }
