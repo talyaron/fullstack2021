@@ -50,15 +50,26 @@ async function handleDeleteGame(ev){
 
 async function handleGetGameById(ev){
     ev.preventDefault();
+    
+    // console.log(id,x)
+    // console.dir(ev.target.elements.id)
+   try{
     const id=ev.target.elements.id.valueAsNumber;
     const x=ev.target.elements.submit.value;
-    console.log(id,x)
-    console.dir(ev.target.elements.id)
-  
-    const {data}= await axios.get(`/get-game-by-id?id=${id}&x=${x}`)
+    const {data}= await axios.get(`/get-game-by-id?id=${id}&x=${x}`);
+    
+    if (data>-1) throw new Error (`there is no id: ${id} `);
+    //how do i get the error message i did in the server to show
     renderToDom(data);
-    console.log(data)
-    ev.target.reset();
+    console.log(data);
+    ev.target.reset();  
+    
+
+   }catch(error){
+       console.error(error)
+   }
+   
+    
 
 }
 

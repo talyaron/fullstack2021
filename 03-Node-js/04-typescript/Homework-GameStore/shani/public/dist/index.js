@@ -95,22 +95,31 @@ function handleDeleteGame(ev) {
 }
 function handleGetGameById(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var id, x, data;
+        var id, x, data, error_1;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     ev.preventDefault();
+                    _a.label = 1;
+                case 1:
+                    _a.trys.push([1, 3, , 4]);
                     id = ev.target.elements.id.valueAsNumber;
                     x = ev.target.elements.submit.value;
-                    console.log(id, x);
-                    console.dir(ev.target.elements.id);
                     return [4 /*yield*/, axios.get("/get-game-by-id?id=" + id + "&x=" + x)];
-                case 1:
+                case 2:
                     data = (_a.sent()).data;
+                    if (data > -1)
+                        throw new Error("there is no id: " + id + " ");
+                    //how do i get the error message i did in the server to show
                     renderToDom(data);
                     console.log(data);
                     ev.target.reset();
-                    return [2 /*return*/];
+                    return [3 /*break*/, 4];
+                case 3:
+                    error_1 = _a.sent();
+                    console.error(error_1);
+                    return [3 /*break*/, 4];
+                case 4: return [2 /*return*/];
             }
         });
     });
