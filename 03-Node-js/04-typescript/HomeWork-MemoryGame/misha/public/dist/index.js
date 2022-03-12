@@ -88,10 +88,12 @@ function handleCardClick(ev) {
         return 0;
     }
     else {
-        ev.path[1].children[0].style.display = 'none';
+        // ev.path[1].children[0].style.display = 'none'
+        var backCard = ev.path[1];
+        backCard.classList.add('card--flip');
         gameStats.flippedIDs.push(ev.path[1].id);
         gameStats.flippedpairIDs.push(ev.path[1].children[0].id);
-        ev.path[1].children[1].style.display = 'flex';
+        // ev.path[1].children[1].style.display = 'flex'
         gameStats.flipped++;
         if (gameStats.flipped === 2) {
             checkFlipped(gameStats.flippedIDs, gameStats.flippedpairIDs);

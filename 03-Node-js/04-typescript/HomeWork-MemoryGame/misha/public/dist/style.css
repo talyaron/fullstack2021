@@ -45,27 +45,39 @@ body {
   height: fit-content;
 }
 .root .cardsgrid .card {
+  position: relative;
   height: 170px;
   width: 120px;
   background-color: grey;
   border-radius: 10px;
   cursor: pointer;
   box-shadow: 4px 4px 4px #000000;
+  transform-style: preserve-3d;
+  transform: all 1s ease;
+  perspective: 1000px;
+}
+.root .cardsgrid .card--flip {
+  transform: rotateY(180deg);
 }
 .root .cardsgrid .card--back {
+  position: absolute;
   height: 100%;
+  width: 100%;
   background: radial-gradient(circle, black 16%, #8e8e8e 100%);
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 60px;
   border-radius: 10px;
+  backface-visibility: hidden;
 }
 .root .cardsgrid .card--front {
-  display: flex;
+  position: absolute;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
   display: none;
 }
 .root .cardsgrid .card--front .img {

@@ -72,11 +72,13 @@ function handleCardClick(ev) {
 
     else {
 
-        ev.path[1].children[0].style.display = 'none'
+        // ev.path[1].children[0].style.display = 'none'
+        let backCard = ev.path[1];
+        backCard.classList.add('card--flip')
         gameStats.flippedIDs.push(ev.path[1].id);
         gameStats.flippedpairIDs.push(ev.path[1].children[0].id);
 
-        ev.path[1].children[1].style.display = 'flex'
+        // ev.path[1].children[1].style.display = 'flex'
 
         gameStats.flipped++;
 
