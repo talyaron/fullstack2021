@@ -20,9 +20,9 @@ const gamer = {
         {
             id: Math.random().toString(36).slice(-8),
             category: 'Action',
-            title: ' The King Of Fighter XV',
-            price: 239,
-            img: 'https://cdn.cloudflare.steamstatic.com/steam/apps/1498570/capsule_184x69.jpg?t=1645084787'
+            title: ' Vermintide 2',
+            price: 110,
+            img: 'https://cdn.cloudflare.steamstatic.com/steam/apps/552500/capsule_231x87.jpg?t=1646836065'
         },
         {
             id: Math.random().toString(36).slice(-8),

@@ -86,3 +86,18 @@ function handleAddGame(ev) {
         });
     });
 }
+function handleUpdatGame(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        var rootGames, oldTitle, title, category, price, img;
+        return __generator(this, function (_a) {
+            ev.preventDefault();
+            rootGames = document.querySelector(".store__gamesList");
+            oldTitle = ev.document.elements.oldTitle.value;
+            title = ev.target.elements.title.value;
+            category = ev.target.elements.category.value;
+            price = ev.target.elements.price.value;
+            img = ev.target.elements.img.value;
+            return [2 /*return*/];
+        });
+    });
+}

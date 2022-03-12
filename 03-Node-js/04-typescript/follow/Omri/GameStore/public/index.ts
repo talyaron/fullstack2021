@@ -42,3 +42,14 @@ async function handleAddGame(ev){
     console.log(data)
     console.log(ev)
 }
+
+async function handleUpdatGame(ev){
+    ev.preventDefault();
+    const rootGames = document.querySelector(".store__gamesList");
+    const oldTitle = ev.document.elements.oldTitle.value;
+    const title = ev.target.elements.title.value;
+    const category = ev.target.elements.category.value;
+    const price = ev.target.elements.price.value;
+    const img = ev.target.elements.img.value;
+    
+}
