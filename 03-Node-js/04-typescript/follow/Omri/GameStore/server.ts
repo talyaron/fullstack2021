@@ -8,7 +8,7 @@ interface gameStore{
     games: Array<game>;
     gameById();
     addGame(category: string,title: string,price: number,img: any);
-    updateGame(updCategory: string,updTitle: string,updPrice: number,updImg: any);
+    updateGame(oldTitle: string,updCategory: string,updTitle: string,updPrice: number,updImg: any);
 }
 
 interface game {
@@ -60,8 +60,12 @@ const gamer: gameStore = {
         this.games.push({id,category,title,price,img})
     },
 
-    updateGame(updCategory: string,updTitle: string,updPrice: number,updImg: any) {
-        return
+    updateGame(oldTitle: string, updCategory: string,updTitle: string,updPrice: number,updImg: any) {
+        this.games.forEach(game => {
+            if(oldTitle === game.title){
+                
+            }
+        })
     }
 }
 
@@ -82,6 +86,16 @@ app.get("/get-games", (req, res) => {
       const newPrice = req.body.price
       const newImg = req.body.img
      gamer.addGame(newCategory,newTitle,newPrice,newImg);
+      res.send(gamer.games)
+  })
+
+  app.patch("/update-game", (req,res) => {
+      const oldTitle = req.body.oldTitle;
+      const title = req.body.title;
+      const category = req.body.category;
+      const price = req.body.price;
+      const img = req.body.img;
+      gamer.updateGame(oldTitle,category,title,price,img)
       res.send(gamer.games)
   })
   

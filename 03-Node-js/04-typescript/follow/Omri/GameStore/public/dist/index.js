@@ -79,8 +79,6 @@ function handleAddGame(ev) {
                 case 1:
                     data = (_a.sent()).data;
                     renderGames(data, rootGames);
-                    console.log(data);
-                    console.log(ev);
                     return [2 /*return*/];
             }
         });
@@ -88,16 +86,23 @@ function handleAddGame(ev) {
 }
 function handleUpdatGame(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var rootGames, oldTitle, title, category, price, img;
+        var rootGames, oldTitle, title, category, price, img, data;
         return __generator(this, function (_a) {
-            ev.preventDefault();
-            rootGames = document.querySelector(".store__gamesList");
-            oldTitle = ev.document.elements.oldTitle.value;
-            title = ev.target.elements.title.value;
-            category = ev.target.elements.category.value;
-            price = ev.target.elements.price.value;
-            img = ev.target.elements.img.value;
-            return [2 /*return*/];
+            switch (_a.label) {
+                case 0:
+                    ev.preventDefault();
+                    rootGames = document.querySelector(".store__gamesList");
+                    oldTitle = ev.target.elements.oldTitle.value;
+                    title = ev.target.elements.title.value;
+                    category = ev.target.elements.category.value;
+                    price = ev.target.elements.price.value;
+                    img = ev.target.elements.img.value;
+                    return [4 /*yield*/, axios.patch("/update-game", { oldTitle: oldTitle, title: title, category: category, price: price, img: img })];
+                case 1:
+                    data = (_a.sent()).data;
+                    renderGames(data, rootGames);
+                    return [2 /*return*/];
+            }
         });
     });
 }

@@ -45,8 +45,11 @@ const gamer = {
         const id = uid();
         this.games.push({ id, category, title, price, img });
     },
-    updateGame(updCategory, updTitle, updPrice, updImg) {
-        return;
+    updateGame(oldTitle, updCategory, updTitle, updPrice, updImg) {
+        this.games.forEach(game => {
+            if (oldTitle === game.title) {
+            }
+        });
     }
 };
 const uid = function () {
@@ -62,6 +65,15 @@ app.post("/add-game", (req, res) => {
     const newPrice = req.body.price;
     const newImg = req.body.img;
     gamer.addGame(newCategory, newTitle, newPrice, newImg);
+    res.send(gamer.games);
+});
+app.patch("/update-game", (req, res) => {
+    const oldTitle = req.body.oldTitle;
+    const title = req.body.title;
+    const category = req.body.category;
+    const price = req.body.price;
+    const img = req.body.img;
+    gamer.updateGame(oldTitle, category, title, price, img);
     res.send(gamer.games);
 });
 function getGames() {

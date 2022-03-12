@@ -39,17 +39,16 @@ async function handleAddGame(ev){
     const img = ev.target.elements.img.value;
     const {data} = await axios.post("/add-game", {title:title, category:category, price:price, img:img});
     renderGames(data,rootGames);
-    console.log(data)
-    console.log(ev)
 }
 
 async function handleUpdatGame(ev){
     ev.preventDefault();
     const rootGames = document.querySelector(".store__gamesList");
-    const oldTitle = ev.document.elements.oldTitle.value;
+    const oldTitle = ev.target.elements.oldTitle.value;
     const title = ev.target.elements.title.value;
     const category = ev.target.elements.category.value;
     const price = ev.target.elements.price.value;
     const img = ev.target.elements.img.value;
-    
+    const {data} = await axios.patch("/update-game", {oldTitle,title,category,price,img});
+    renderGames(data,rootGames);
 }
