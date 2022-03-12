@@ -83,7 +83,7 @@ const games=deleteGame(nameOfRemovedGame)
 app.get('/get-game-by-id',(req,res)=>{
  
     const {id,x}=req.query;
-    console.log(id,x)
+    
     const games=getGameById(id)
     res.send(games)
 
@@ -125,7 +125,7 @@ function deleteGame(itemName){
 }
 
 function getGameById(id){
-    console.log(id)
+    
     try{
         if(id>0){
             const foundGame=games.findIndex((game)=> game.id==id);
