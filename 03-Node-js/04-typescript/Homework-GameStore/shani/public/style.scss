@@ -95,3 +95,19 @@ form{
    
   
 }
+
+// game store scss
+
+
+.storeGame{
+    text-align:center;
+
+    .editions{
+        display:grid;
+        grid-template-columns: repeat(2,300px);
+        grid-template-rows: repeat(2,1fr);
+        gap:50px;
+        //column-gap:5px;
+        justify-content: center;
+    }
+}

@@ -1,18 +1,33 @@
+async function loadErp(){
+    const data= await getGames();
+    renderToERP(data)
+    
 
-async function handleErpLoad(){
-  getGames()
+}
+
+
+async function loadGameStore(){
+    const data= await getGames();
+    renderToGameStore(data)
+    
+}
+
+
+
+function handleErpLoad(){
+  loadErp();
 }
      
 function handleGameStoreLoad(){
-   getGames()
+   loadGameStore();
    
 }
      
 async function getGames(){
     const {data}= await axios.get('/get-games');
-    console.log(data)
+    return data 
     
-    renderToERP(data);
+   
 
 
   
@@ -135,3 +150,27 @@ function renderToERP(data){
    
    
 };
+
+function renderToGameStore(data){
+    const root=document.querySelector("#root");
+    let html="";
+    data.forEach(storeGame=>{
+        html+=`
+        <div class="storeGame"> <h1>${storeGame.name}</h1>
+        <img src="${storeGame.imgUrl}" class="front-img">
+        
+        <div class="editions"> 
+        <h3> Standard Edition ${storeGame.standardEdition} </h3>
+        <h3> Deluxe Edition ${storeGame.deluxeEdition} </h3>
+        <h3> Gold Edition ${storeGame.goldEdition} </h3>
+        <h3> Bundle Edition ${storeGame.bundleEdition} </h3>
+        </div>
+        
+        </div>
+        `
+    })
+
+    root.innerHTML=html;
+}
+
+//<img src="${storeGame.gif}" class="back-img">

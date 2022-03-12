@@ -60,3 +60,14 @@ form label[for=bundleEdition] {
 form button {
   border-radius: 5px;
 }
+
+.storeGame {
+  text-align: center;
+}
+.storeGame .editions {
+  display: grid;
+  grid-template-columns: repeat(2, 300px);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 50px;
+  justify-content: center;
+}
