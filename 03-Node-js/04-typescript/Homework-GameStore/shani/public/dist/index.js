@@ -83,17 +83,19 @@ function getGames() {
 }
 function handleAddGame(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var name, standardEdition, deluxeEdition, goldEdition, bundleEdition, data;
+        var name, frontImg, backImg, standardEdition, deluxeEdition, goldEdition, bundleEdition, data;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     ev.preventDefault();
                     name = ev.target.elements.name.value;
+                    frontImg = ev.target.elements.frontImg.value;
+                    backImg = ev.target.elements.backImg.value;
                     standardEdition = ev.target.elements.standardEdition.value;
                     deluxeEdition = ev.target.elements.deluxeEdition.value;
                     goldEdition = ev.target.elements.goldEdition.value;
                     bundleEdition = ev.target.elements.bundleEdition.value;
-                    return [4 /*yield*/, axios.post('/add-new-game', { name: name, standardEdition: standardEdition, deluxeEdition: deluxeEdition, goldEdition: goldEdition, bundleEdition: bundleEdition })];
+                    return [4 /*yield*/, axios.post('/add-new-game', { name: name, frontImg: frontImg, backImg: backImg, standardEdition: standardEdition, deluxeEdition: deluxeEdition, goldEdition: goldEdition, bundleEdition: bundleEdition })];
                 case 1:
                     data = (_a.sent()).data;
                     console.log(data);
@@ -156,17 +158,20 @@ function handleGetGameById(ev) {
 }
 function handleUpdateGame(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var id, standardEdition, deluxeEdition, goldEdition, bundleEdition, data;
+        var id, name, frontImg, backImg, standardEdition, deluxeEdition, goldEdition, bundleEdition, data;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     ev.preventDefault();
                     id = ev.target.id;
+                    name = ev.target.elements.gameName.value;
+                    frontImg = ev.target.elements.frontImg.value;
+                    backImg = ev.target.elements.backImg.value;
                     standardEdition = ev.target.elements.standardEdition.valueAsNumber;
                     deluxeEdition = ev.target.elements.deluxeEdition.valueAsNumber;
                     goldEdition = ev.target.elements.goldEdition.valueAsNumber;
                     bundleEdition = ev.target.elements.bundleEdition.valueAsNumber;
-                    return [4 /*yield*/, axios.patch('/update-game', { standardEdition: standardEdition, deluxeEdition: deluxeEdition, goldEdition: goldEdition, bundleEdition: bundleEdition, id: id })];
+                    return [4 /*yield*/, axios.patch('/update-game', { name: name, frontImg: frontImg, backImg: backImg, standardEdition: standardEdition, deluxeEdition: deluxeEdition, goldEdition: goldEdition, bundleEdition: bundleEdition, id: id })];
                 case 1:
                     data = (_a.sent()).data;
                     console.log(data);
@@ -180,16 +185,16 @@ function renderToERP(data) {
     var root = document.querySelector("#root");
     var html = "";
     data.forEach(function (game) {
-        html += "\n        \n        <form class=\"game\" id=\"" + game.id + "\" onsubmit=\"handleUpdateGame(event)\">\n         <h3 class=\"gameName\">" + game.name + "</h3> \n          \n\n\n         <label for=\"standardEdition\">Standard Edition:</label>\n         <input type=\"number\" id=\"standardEdition\" name=\"standardEdition\" placeholder=\"" + game.standardEdition + "\" >  \n         \n         <label for=\"deluxeEdition\">Deluxe Edition:</label>\n         <input type=\"number\" id=\"deluxeEdition\" name=\"deluxeEdition\" placeholder=\"" + game.deluxeEdition + "\" > \n         \n         <label for=\"goldEdition\">Gold Edition:</label>\n         <input type=\"number\" id=\"goldEdition\" name=\"goldEdition\" placeholder=\"" + game.goldEdition + "\" > \n         \n         <label for=\"bundleEdition\">Bundle Edition:</label>\n         <input type=\"number\" id=\"bundleEdition\" name=\"bundleEdition\" placeholder=\"" + game.bundleEdition + "\" > \n        \n         <button type=\"submit\" value=\"update\">Update</button></form>";
+        html += "\n        \n        <form class=\"game\" id=\"" + game.id + "\" onsubmit=\"handleUpdateGame(event)\">\n         <h3 class=\"gameName\">" + game.name + "</h3> \n          \n         <label for=\"gameName\">Game Name: </label>\n         <input type=\"text\" id=\"gameName\" name=\"gameName\" placeholder=\"" + game.name + "\" >  \n\n         <label for=\"frontImg\">Front Img Url: </label>\n         <input type=\"text\" id=\"frontImg\" name=\"frontImg\" placeholder=\"" + game.frontImg + "\" >  \n         \n         <label for=\"backImg\">Back Img Url:  </label>\n         <input type=\"text\" id=\"backImg\" name=\"backImg\" placeholder=\"" + game.backImg + "\" >  \n\n         <label for=\"standardEdition\">Standard Edition:  </label>\n         <input type=\"number\" id=\"standardEdition\" name=\"standardEdition\" placeholder=\"" + game.standardEdition + "\" >  \n         <br>\n         <label for=\"deluxeEdition\">Deluxe Edition:  </label>\n         <input type=\"number\" id=\"deluxeEdition\" name=\"deluxeEdition\" placeholder=\"" + game.deluxeEdition + "\" > \n         \n         <label for=\"goldEdition\">Gold Edition:  </label>\n         <input type=\"number\" id=\"goldEdition\" name=\"goldEdition\" placeholder=\"" + game.goldEdition + "\" > \n         \n         <label for=\"bundleEdition\">Bundle Edition:  </label>\n         <input type=\"number\" id=\"bundleEdition\" name=\"bundleEdition\" placeholder=\"" + game.bundleEdition + "\" > \n        \n         <button type=\"submit\" value=\"update\">Update</button></form>";
     });
     root.innerHTML = html;
 }
 ;
 function renderToGameStore(data) {
-    var root = document.querySelector("#root");
+    var rootGameStore = document.querySelector("#rootGameStore");
     var html = "";
     data.forEach(function (storeGame) {
-        html += "\n        <div class=\"storeGame\"> <h1>" + storeGame.name + "</h1>\n        <img src=\"" + storeGame.imgUrl + "\" class=\"storeGame__img--front\">\n        <img src=\"" + storeGame.gif + "\" class=\"storeGame__img--back\">\n        \n        <div class=\"storeGame__editions\"> \n        <h3 class=\"storeGame__editions--standardEdition\"> Standard Edition " + storeGame.standardEdition + " </h3>\n        <h3 class=\"storeGame__editions--deluxeEdition\"> Deluxe Edition " + storeGame.deluxeEdition + " </h3>\n        <h3 class=\"storeGame__editions--goldEdition\"> Gold Edition " + storeGame.goldEdition + " </h3>\n        <h3 class=\"storeGame__editions--bundleEdition\"> Bundle Edition " + storeGame.bundleEdition + " </h3>\n        </div>\n        \n        </div>\n        ";
+        html += "\n        <div class=\"storeGame\"> <h1>" + storeGame.name + "</h1>\n        <img src=\"" + storeGame.frontImg + "\" class=\"storeGame__img--front\">\n        <img src=\"" + storeGame.backImg + "\" class=\"storeGame__img--back\">\n        \n        <div class=\"storeGame__editions\"> \n        <h3 class=\"storeGame__editions--standardEdition\"> Standard Edition " + storeGame.standardEdition + " </h3>\n        <h3 class=\"storeGame__editions--deluxeEdition\"> Deluxe Edition $" + storeGame.deluxeEdition + " </h3>\n        <h3 class=\"storeGame__editions--goldEdition\"> Gold Edition $" + storeGame.goldEdition + " </h3>\n        <h3 class=\"storeGame__editions--bundleEdition\"> Bundle Edition  $" + storeGame.bundleEdition + " </h3>\n        </div>\n        \n        </div>\n        ";
     });
-    root.innerHTML = html;
+    rootGameStore.innerHTML = html;
 }

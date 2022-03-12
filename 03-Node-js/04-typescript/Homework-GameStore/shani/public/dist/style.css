@@ -81,6 +81,7 @@ form button {
 }
 .navBar--logo {
   margin: 5px;
+  animation: logoSlide 1s 1;
 }
 .navBar--logo img {
   width: 7vw;
@@ -105,7 +106,24 @@ form button {
   color: white;
 }
 
-#root {
+@keyframes logoSlide {
+  0% {
+    transform: rotate3d(0, 0, 1, 0deg);
+  }
+  25% {
+    transform: rotate3d(0, 0, 1, 90deg);
+  }
+  50% {
+    transform: rotate3d(0, 0, 1, 180deg);
+  }
+  75% {
+    transform: rotate3d(0, 0, 1, 270deg);
+  }
+  100% {
+    transform: rotate3d(0, 0, 1, 360deg);
+  }
+}
+#rootGameStore {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
@@ -119,11 +137,9 @@ form button {
 .storeGame h1 {
   text-shadow: 2px 2px #b8ff67, 2px 5px #034929, 3px 9px #191f74;
 }
-.storeGame__img {
-  width: 130px;
-  height: 195px;
-}
 .storeGame__img--front {
+  width: 460px;
+  height: 215px;
   box-shadow: 0 0 20px #b8ff67;
 }
 .storeGame__img--back {

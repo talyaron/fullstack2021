@@ -7,9 +7,13 @@
     <title>ERP</title>
     <link rel="stylesheet" href="dist/style.css">
 
+    
+
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body class="erp"onload="handleErpLoad()">
+    
+    
 
     <h1>ERP</h1>
     <ul>
@@ -23,7 +27,9 @@
 
 <form onsubmit="handleAddGame(event)" class="erp__buttons--add"> 
  <h3>Add a game and its versions </h3>
- <input type="text" placeholder="New Game " name="name" class="addGame">
+ <input type="text" placeholder="New Game Name " name="name" class="addGame">
+ <input type="text" placeholder="New Front Image " name="frontImg" class="frontImg">
+ <input type="text" placeholder="New Back Img/Gif " name="backImg" class="backImg">
  <input type="text" placeholder="New standardEdition " name="standardEdition" class="addstandardEdition">
  <input type="text" placeholder="New deluxeEdition " name="deluxeEdition" class="adddeluxeEdition">
  <input type="text" placeholder="New goldEdition " name="goldEdition" class="addgoldEdition">
