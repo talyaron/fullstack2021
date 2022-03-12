@@ -109,13 +109,16 @@ form{
     display:flex;
     justify-content: center;
     background-color:rgb(0, 255, 85);
-    border:5px solid rgb(4, 78, 105);        
+    //border:5px solid rgb(4, 78, 105);    
+    background-image: linear-gradient(to bottom right, rgb(0, 255, 157), yellow);    
     border-radius:20px;
     align-items:center;
+    box-shadow:inset 0px 0px 20px 10px #9ef08e;
     
     &:hover{
-        box-shadow: 0 0 20px #95b7ff;
-        border:5px solid rgb(240, 247, 246);
+        box-shadow: 0 0 20px #8ef0b4;
+        //border:5px solid rgb(240, 247, 246);
+        
 
     }
     
@@ -177,6 +180,10 @@ form{
     text-align:center;
     position: relative;
     display: inline-block;
+    h1{
+        text-shadow: 2px 2px #b8ff67,2px 5px rgb(3, 73, 41),3px 9px rgb(25, 31, 116);
+       // text-shadow: 200px 20px rgb(103, 255, 184);
+    }
 
 
     &__img{
@@ -185,7 +192,7 @@ form{
         
             &--front{
               
-            box-shadow: 0 0 20px #c9daff;    
+            box-shadow: 0 0 20px #b8ff67;    
             }
 
             &--back{
@@ -193,16 +200,15 @@ form{
                 height:215px;
 
                 position: absolute;
-               //top: 0;
-                //right: 0px;
                 left: 145px;
-                //bottom: 0;
-                //object-fit: contain;
                 opacity: 0;
                 transition: opacity .2s;
 
                 &:hover{
+                    box-shadow: 0px 0px 50px #dfffba; 
                     opacity: 1;
+                    //perspective: 1000px;
+                    transform: scale(1.1);
                 }
                   
                
@@ -232,6 +238,7 @@ form{
                 background-color: rgba(88, 122, 235, 0.747);
                 transform:rotate(5deg);
                 color:white;
+                
             }
             
          
