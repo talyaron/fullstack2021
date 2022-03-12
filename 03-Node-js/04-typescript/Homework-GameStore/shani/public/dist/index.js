@@ -34,7 +34,15 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-function handleGames() {
+function handleErpLoad() {
+    return __awaiter(this, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            getGames();
+            return [2 /*return*/];
+        });
+    });
+}
+function handleGameStoreLoad() {
     getGames();
 }
 function getGames() {
@@ -45,7 +53,8 @@ function getGames() {
                 case 0: return [4 /*yield*/, axios.get('/get-games')];
                 case 1:
                     data = (_a.sent()).data;
-                    renderToDom(data);
+                    console.log(data);
+                    renderToERP(data);
                     return [2 /*return*/];
             }
         });
@@ -67,7 +76,7 @@ function handleAddGame(ev) {
                 case 1:
                     data = (_a.sent()).data;
                     console.log(data);
-                    renderToDom(data);
+                    renderToERP(data);
                     ev.target.reset();
                     return [2 /*return*/];
             }
@@ -85,7 +94,7 @@ function handleDeleteGame(ev) {
                     return [4 /*yield*/, axios.post('/delete-game', { deletedGame: deletedGame })];
                 case 1:
                     data = (_a.sent()).data;
-                    renderToDom(data);
+                    renderToERP(data);
                     console.log(data);
                     ev.target.reset();
                     return [2 /*return*/];
@@ -111,7 +120,7 @@ function handleGetGameById(ev) {
                     if (data > -1)
                         throw new Error("there is no id: " + id + " ");
                     //how do i get the error message i did in the server to show
-                    renderToDom(data);
+                    renderToERP(data);
                     console.log(data);
                     ev.target.reset();
                     return [3 /*break*/, 4];
@@ -140,13 +149,13 @@ function handleUpdateGame(ev) {
                 case 1:
                     data = (_a.sent()).data;
                     console.log(data);
-                    renderToDom(data);
+                    renderToERP(data);
                     return [2 /*return*/];
             }
         });
     });
 }
-function renderToDom(data) {
+function renderToERP(data) {
     var root = document.querySelector("#root");
     var html = "";
     data.forEach(function (game) {

@@ -1,12 +1,18 @@
 
-function handleGames(){
+async function handleErpLoad(){
+  getGames()
+}
+     
+function handleGameStoreLoad(){
    getGames()
+   
 }
      
 async function getGames(){
     const {data}= await axios.get('/get-games');
+    console.log(data)
     
-    renderToDom(data);
+    renderToERP(data);
 
 
   
@@ -27,7 +33,7 @@ async function handleAddGame(ev){
 
     console.log(data)
     
-    renderToDom(data);
+    renderToERP(data);
     ev.target.reset();
 
 
@@ -41,7 +47,7 @@ async function handleDeleteGame(ev){
     
     const {data}= await axios.post('/delete-game',{deletedGame});
     
-    renderToDom(data);
+    renderToERP(data);
     console.log(data)
     ev.target.reset();
 
@@ -60,7 +66,7 @@ async function handleGetGameById(ev){
     
     if (data>-1) throw new Error (`there is no id: ${id} `);
     //how do i get the error message i did in the server to show
-    renderToDom(data);
+    renderToERP(data);
     console.log(data);
     ev.target.reset();  
     
@@ -90,14 +96,14 @@ async function handleUpdateGame(ev){
 
     console.log(data)
     
-    renderToDom(data);   
+    renderToERP(data);   
 
 }
 
 
 
 
-function renderToDom(data){
+function renderToERP(data){
 
     let root=document.querySelector("#root");
     let html="";
