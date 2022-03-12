@@ -29,6 +29,9 @@ function handleStart() {
 
     const startButton = <HTMLElement>document.querySelector(".startButton");
     const rootHTML = getRootElement();
+    const attempts = <HTMLElement>document.querySelector(".attempts");
+    attempts.innerHTML = `Attempts: ${gameStats.count} `
+    attempts.style.display = 'block';
     startButton.style.display = 'none';
     rootHTML.style.display = 'flex';
 
@@ -66,6 +69,7 @@ function renderCards(cards) {
 
 function handleCardClick(ev) {
 
+
     if (ev.path[1].children[0].style.display === 'none') {
         return 0;
     }
@@ -73,8 +77,8 @@ function handleCardClick(ev) {
     else {
 
         // ev.path[1].children[0].style.display = 'none'
-        let backCard = ev.path[1];
-        backCard.classList.add('card--flip')
+        let Card = ev.path[1];
+        Card.classList.add('card--flip')
         gameStats.flippedIDs.push(ev.path[1].id);
         gameStats.flippedpairIDs.push(ev.path[1].children[0].id);
 
@@ -83,6 +87,9 @@ function handleCardClick(ev) {
         gameStats.flipped++;
 
         if (gameStats.flipped === 2) {
+            gameStats.count++;
+            const attempts = <HTMLElement>document.querySelector(".attempts");
+            attempts.innerHTML = `Attempts: ${gameStats.count} `
             checkFlipped(gameStats.flippedIDs, gameStats.flippedpairIDs)
             gameStats.flipped = 0;
             gameStats.flippedIDs = [];
@@ -108,9 +115,12 @@ function checkFlipped(flipped, flippedPair) {
 
         if (gameStats.matches === 8) {
             setTimeout(() => {
-                const cake: any = document.querySelector(".cake")
-                cake.style.visibility = 'visible'
-            }, 1050)
+                const cake: any = document.querySelector(".cup")
+                cake.classList.add('cup-active')
+                var audio: any = document.getElementById('cake')
+                var fart = new Audio(audio.children[0].src)
+                fart.play()
+            }, 1500)
 
         }
 
@@ -118,14 +128,9 @@ function checkFlipped(flipped, flippedPair) {
     else {
 
         setTimeout(() => {
-
-            cardDelete1.children[0].style.display = 'flex'
-            cardDelete1.children[1].style.display = 'none'
-            cardDelete2.children[0].style.display = 'flex'
-            cardDelete2.children[1].style.display = 'none'
-
-
-        }, 1000)
+            cardDelete1.classList.remove('card--flip')
+            cardDelete2.classList.remove('card--flip')
+        }, 1500);
 
     }
 }
