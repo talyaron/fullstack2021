@@ -1,5 +1,3 @@
-// function initApp() {
-//   console.log("start");
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -36,103 +34,93 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-//   console.log("end");
+function initApp() {
+    getOwnerGames();
+}
+// function renderGames(data: Array<any>) {
+//   let html = '';
+//   data.forEach((game) => {
+//     html += `  
+//         <table>
+//         <tr>
+//           <th>Image</th>
+//           <th>Name</th>
+//           <th>Release</th>
+//           <th>Description</th>
+//         </tr>
+//         <tr>
+//         <td>
+//         <p contenteditable="true"> 
+//          <img src="${game.Img}.jpg">
+//         </p>
+//         </td>
+//             <td><p contenteditable="true">${game.Name}</p></td>
+//             <td><p contenteditable="true">${game.Release}</p></td>
+//             <td><p contenteditable="true">${game.Description}</p></td>
+//         </tr>
+//       </table>
+//       <button>save changes</button>
+//       `
+//     const root = document.querySelector('#root')
+//     root.innerHTML = html;
+//   })
 // }
-function uniqueId() {
-    return Date.now().toString(36) + Math.random().toString(36).substr(2);
-}
-function handleNewGame() {
+function getOwnerGames() {
     return __awaiter(this, void 0, void 0, function () {
-        var data;
+        var data, error_1;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, axios.get("/newGame")];
+                case 0:
+                    _a.trys.push([0, 2, , 3]);
+                    return [4 /*yield*/, axios.get('/get-games')];
                 case 1:
                     data = (_a.sent()).data;
-                    renderGame(data);
-                    return [2 /*return*/];
+                    if (Array.isArray(data))
+                        return [2 /*return*/, data];
+                    throw new Error("data is not an array");
+                case 2:
+                    error_1 = _a.sent();
+                    console.error(error_1);
+                    return [3 /*break*/, 3];
+                case 3: return [2 /*return*/];
             }
         });
     });
 }
-function getRootElement() {
-    var rootHTML = document.querySelector(".root");
-    return rootHTML;
-}
-function renderGame(data) {
-    console.log(data);
-    var rootHTML = getRootElement();
-    var html = '<section class="cardsgrid">';
-    data.forEach(function (game) {
-        html += "<div class=\"color\" id=\"" + game.uniqueId + "\" >\n     <img class=\"frontCard\" src=\"" + game.photo + "\" id=\"" + game.pairdId + "\" >\n        <img class=\"backCard\" onclick=\"handleFlipedCard()\"  src=\"https://www.cinemascomics.com/wp-content/uploads/2021/05/Un-actor-de-Marvel-Studios-se-quiere-pasar-a-DC-Comics.jpg\">\n        \n        </div>\n      ";
-    });
-    html += "</section>";
-    rootHTML.innerHTML = html;
-}
-var hasFlipped = false;
-var firstCard, secondCard;
-var lockBoard = false;
-function handleFlipedCard() {
+function renderGames() {
     return __awaiter(this, void 0, void 0, function () {
-        var cards;
-        return __generator(this, function (_a) {
-            cards = document.querySelectorAll('.color');
-            cards.forEach(function (card) { return card.addEventListener('click', flipCard); });
-            return [2 /*return*/];
-        });
-    });
-}
-function flipCard() {
-    return __awaiter(this, void 0, void 0, function () {
-        var data;
+        var html, games, root;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, axios.get("/newGame")];
+                case 0:
+                    html = "";
+                    return [4 /*yield*/, getOwnerGames()];
                 case 1:
-                    data = (_a.sent()).data;
-                    this.classList.add('flip');
-                    if (!hasFlipped) {
-                        hasFlipped = true;
-                        firstCard = this;
-                        //  console.log(hasFlipped, firstCard);
-                        return [2 /*return*/];
-                    }
-                    else {
-                        secondCard = this;
-                        checkForMatch();
+                    games = _a.sent();
+                    if (games) {
+                        games.map(function (game) {
+                            html += "\n      <table>\n        <tr>\n          <th>Image</th>\n          <th>Name</th>\n          <th>Release</th>\n          <th>Description</th>\n        </tr>\n        <tr>\n        <td>\n        <p contenteditable=\"true\"> \n         <img src=\"" + game.Img + ".jpg\">\n        </p>\n        </td>\n            <td><p contenteditable=\"true\">" + game.Name + "</p></td>\n            <td><p contenteditable=\"true\">" + game.Release + "</p></td>\n            <td><p contenteditable=\"true\">" + game.Description + "</p></td>\n        </tr>\n      </table>\n      <button>save changes</button>\n      ";
+                        });
+                        root = document.querySelector('#root');
+                        root.innerHTML = html;
                     }
                     return [2 /*return*/];
             }
         });
     });
 }
-function checkForMatch() {
+renderGames();
+function handleSearchGame(event) {
     return __awaiter(this, void 0, void 0, function () {
-        var isMatch;
+        var games;
         return __generator(this, function (_a) {
-            isMatch = firstCard.pairdID === secondCard.pairID;
-            console.log(firstCard, secondCard);
-            console.log(isMatch);
-            isMatch ? disableCards() : unflipCards();
-            return [2 /*return*/];
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, axios.get("/get-search?searchGame=" + event.target.value)];
+                case 1:
+                    games = (_a.sent()).games;
+                    renderGames(games);
+                    return [2 /*return*/];
+            }
         });
     });
-}
-function disableCards() {
-    firstCard.removeEventListener('click', flipCard);
-    secondCard.removeEventListener('click', flipCard);
-    resetBoard();
-}
-function unflipCards() {
-    lockBoard = true;
-    setTimeout(function () {
-        firstCard.classList.remove('flip');
-        secondCard.classList.remove('flip');
-        resetBoard();
-    }, 1500);
-}
-function resetBoard() {
-    var _a, _b;
-    _a = [false, false], hasFlipped = _a[0], lockBoard = _a[1];
-    _b = [null, null], firstCard = _b[0], secondCard = _b[1];
 }

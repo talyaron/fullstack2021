@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 var remembersHTML = document.querySelector('.remembers');
 var remembers = {
-    getRemembers: function () {
+    getData: function () {
         return __awaiter(this, void 0, void 0, function () {
             var data, error_1;
             return __generator(this, function (_a) {
@@ -47,16 +47,76 @@ var remembers = {
                     case 1:
                         data = (_a.sent()).data;
                         console.log(data);
-                        return [3 /*break*/, 3];
+                        if (Array.isArray(data))
+                            return [2 /*return*/, data];
+                        throw new Error("data is not an array");
                     case 2:
                         error_1 = _a.sent();
-                        return [3 /*break*/, 3];
+                        console.error(error_1);
+                        return [2 /*return*/, []];
                     case 3: return [2 /*return*/];
+                }
+            });
+        });
+    },
+    renderTasks: function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var html, tasks;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        html = "";
+                        return [4 /*yield*/, this.getData()];
+                    case 1:
+                        tasks = _a.sent();
+                        if (tasks) {
+                            tasks.map(function (task) {
+                                html += "\n\t\t\t\t<div class=\"remembers__task\">\n\t\t\t\t\t<h2>" + task.title + "</h2>\n        \t\t</div>\n\t\t\t\t";
+                            });
+                            remembersHTML.innerHTML = html;
+                        }
+                        return [2 /*return*/];
+                }
+            });
+        });
+    },
+    renderERPTasks: function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var html, tasks;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        html = "";
+                        return [4 /*yield*/, this.getData()];
+                    case 1:
+                        tasks = _a.sent();
+                        if (tasks) {
+                            tasks.map(function (task) {
+                                html += "\n\t\t\t\t<form class=\"remembers__task\" id=\"" + task.id + "\" >\n\t\t\t\t\t<input type=\"text\" value=\"" + task.title + "\" name=\"title\">\n\t\t\t\t\t<button onclick=\"deleteTask(" + task.id + ")\">Delete task</button>\n\t\t\t\t\t\n        \t\t</form>\n\t\t\t\t";
+                            });
+                            remembersHTML.innerHTML = html;
+                        }
+                        return [2 /*return*/];
                 }
             });
         });
     }
 };
-remembers.getRemembers();
-// async function getData() {
-// }
+function deleteTask(id) {
+    return __awaiter(this, void 0, void 0, function () {
+        var data, ok, tasks;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    console.log(id);
+                    return [4 /*yield*/, axios["delete"]('/deleteTask', { data: { id: id } })];
+                case 1:
+                    data = _a.sent();
+                    ok = data.ok, tasks = data.tasks;
+                    console.log(tasks);
+                    console.log(ok);
+                    return [2 /*return*/];
+            }
+        });
+    });
+}

@@ -1,0 +1,17 @@
+// body {
+//   background-image: url(./images/gameboy-store.jpg);
+// }
+
+table,
+th,
+td {
+  border: 1px solid black;
+  width: 500px;
+  height: 150px;
+}
+
+img {
+  width: 95%;
+  height: 95%;
+  object-fit: cover;
+}
