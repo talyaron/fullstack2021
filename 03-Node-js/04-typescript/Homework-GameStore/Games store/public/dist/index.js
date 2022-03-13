@@ -47,7 +47,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 function handleLoad(e) {
     return __awaiter(this, void 0, void 0, function () {
-        var error_1;
+        var error_1, form, username, email, password, password2, container;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -57,7 +57,6 @@ function handleLoad(e) {
                             var data = _a.data;
                             var root = document.querySelector('#root');
                             renderArticles(root, data);
-                            // console.log(data);
                             if (!root)
                                 throw new Error("no root in handleLoad");
                         })];
@@ -68,7 +67,22 @@ function handleLoad(e) {
                     error_1 = _a.sent();
                     console.error(error_1);
                     return [3 /*break*/, 3];
-                case 3: return [2 /*return*/];
+                case 3:
+                    form = document.getElementById('form');
+                    username = document.getElementById('username');
+                    email = document.getElementById('email');
+                    password = document.getElementById('password');
+                    password2 = document.getElementById('password2');
+                    container = document.querySelector('.container');
+                    container.style.visibility = "hidden";
+                    setTimeout(function () {
+                        container.style.visibility = 'visible';
+                    }, 3000);
+                    form.addEventListener('submit', function (e) {
+                        e.preventDefault();
+                        checkInputs(form, username, email, password, password2);
+                    });
+                    return [2 /*return*/];
             }
         });
     });
@@ -125,10 +139,8 @@ function handleaddGame(e) {
                     return [4 /*yield*/, axios.post('/add-game', { addGame: addGame })];
                 case 1:
                     data = (_a.sent()).data;
-                    // console.log(data);
                     if (!data)
                         throw new Error("no data in handleaddGame");
-                    //}       
                     e.target.reset();
                     return [3 /*break*/, 3];
                 case 2:
@@ -145,9 +157,16 @@ function renderArticles(root, games) {
         if (!games || !root)
             throw new Error("no games || root in renderArticles");
         var html_1 = '';
-        games.forEach(function (game) {
-            html_1 += "<div class=\"card\">\n           <p>" + game.name + ": " + game.price + " ILS</p>\n           </div>\n           <form id=\"" + game.id + "\" class=\"updateGame\" onsubmit=\"handleUpdateGame(event)\">\n           <input type=\"text\" name=\"name\" id=\"\" placeholder=\"Please update the Game\">\n           <input type=\"number\" name=\"price\" id=\"\" placeholder=\"Please update the Price\">\n           <input type=\"submit\" value=\"Update\">\n           </form>";
-        });
+        if (document.URL.includes("store.html")) {
+            games.forEach(function (game) {
+                html_1 += "<div class=\"card\" style=\"margin-right: 100px;\">\n               <p style=\"color: white;\">" + game.name + ": " + game.price + " ILS</p>\n               <img src=\"" + game.img + "\" style=\"width: 400px; height: 250px;\">\n               </div>";
+            });
+        }
+        else {
+            games.forEach(function (game) {
+                html_1 += "<div class=\"card\">\n               <p>" + game.name + ": " + game.price + " ILS</p>\n               </div>\n               <form id=\"" + game.id + "\" class=\"updateGame\" onsubmit=\"handleUpdateGame(event)\">\n               <input type=\"text\" name=\"name\" id=\"\" placeholder=\"Please update the Game\">\n               <input type=\"number\" name=\"price\" id=\"\" placeholder=\"Please update the Price\">\n               <input type=\"submit\" value=\"Update\">\n               </form>";
+            });
+        }
         root.innerHTML = html_1;
     }
     catch (error) {
@@ -169,8 +188,6 @@ function handleUpdateGame(e) {
                     data = (_a.sent()).data;
                     root = document.querySelector('#root');
                     renderArticles(root, data);
-                    // if (typeof updateGame.name === 'number'){
-                    //}
                     if (!id)
                         throw new Error("no id in handleUpdateGame");
                     e.target.reset();
@@ -184,16 +201,7 @@ function handleUpdateGame(e) {
     });
 }
 ///client login
-var form = document.getElementById('form');
-var username = document.getElementById('username');
-var email = document.getElementById('email');
-var password = document.getElementById('password');
-var password2 = document.getElementById('password2');
-form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    checkInputs();
-});
-function checkInputs() {
+function checkInputs(form, username, email, password, password2) {
     return __awaiter(this, void 0, void 0, function () {
         var usernameValue, emailValue, passwordValue, password2Value, data, userInsideOrNot;
         return __generator(this, function (_a) {
@@ -236,8 +244,11 @@ function checkInputs() {
                     data = (_a.sent()).data;
                     userInsideOrNot = data.userInsideOrNot;
                     if (userInsideOrNot === true) {
-                        setTimeout(function () {
-                        }, timeout);
+                        renderToRegister(usernameValue);
+                    }
+                    else {
+                        setErrorFor(password2, data);
+                        handleLogin();
                     }
                     _a.label = 2;
                 case 2: return [2 /*return*/];
@@ -254,4 +265,58 @@ function setErrorFor(input, message) {
 function setSuccessFor(input) {
     var formControl = input.parentElement;
     formControl.className = 'form-control success';
+}
+function renderToRegister(usernameValue) {
+    var sucssesToRegister = document.querySelector('#sucssesToRegister');
+    var html = "<h1>Welcome " + usernameValue + "</h1>";
+    setTimeout(function () {
+        sucssesToRegister.className = 'sucssesToRegister sucess';
+        sucssesToRegister.innerHTML = html;
+        imgUser.innerHTML;
+    }, 2000);
+}
+function handleLogin() {
+    var container = document.querySelector('.container');
+    var container2 = document.querySelector('.container2');
+    container2.style.visibility = 'visible';
+}
+function showLoginForm(event) {
+    return __awaiter(this, void 0, void 0, function () {
+        var loginUserName, passwordValue, container2Root, imgUser;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    event.preventDefault();
+                    loginUserName = event.target.elements.usernameLogin.value;
+                    passwordValue = event.target.elements.emailLogin.value;
+                    container2Root = document.querySelector('#container2Root');
+                    imgUser = document.querySelector('.imgUser');
+                    return [4 /*yield*/, axios.get("/get-password-and-username?loginName=" + loginUserName + "&loginPassword=" + passwordValue)
+                            .then(function (_a) {
+                            var data = _a.data;
+                            console.log(data.img);
+                            if (data.check === true) {
+                                var html = "<h4 style=\"color:#2ecc71;\">Welcome Back " + data.name + "!</h4>";
+                                var imgHtml = "<img src=\"" + data.img + "\">";
+                                container2Root.innerHTML = html;
+                                // imgUser.innerHTML = imgHtml
+                                var container_1 = document.querySelector('.container');
+                                var container2_1 = document.querySelector('.container2');
+                                setTimeout(function () {
+                                    container_1.style.visibility = "hidden";
+                                    container2_1.style.visibility = "hidden";
+                                }, 2000);
+                            }
+                            else {
+                                var html2 = "<h4 style=\"color:red;\">Please Try Again</h4>";
+                                container2Root.innerHTML = html2;
+                            }
+                        })];
+                case 1:
+                    _a.sent();
+                    event.target.reset();
+                    return [2 /*return*/];
+            }
+        });
+    });
 }

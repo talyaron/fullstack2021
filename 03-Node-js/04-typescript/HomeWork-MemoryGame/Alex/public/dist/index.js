@@ -81,7 +81,7 @@ function getAllCards() {
 function renderCards(data) {
     var html = "";
     data.forEach(function (card) {
-        html += "\n      \n        <div class=\"cardPack_cards\"> \n        <img src=\"" + card.img + "\"> \n      \n        </div>";
+        html += "\n        <div class=\"cardPack_cards\"> \n        <img src=\"" + card.img + "\"> \n        </div>";
         var root = document.querySelector(".cardPack");
         root.innerHTML = html;
     });

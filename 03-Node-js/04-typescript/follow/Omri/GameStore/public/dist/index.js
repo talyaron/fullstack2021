@@ -45,7 +45,7 @@ function getGames() {
                 case 0: return [4 /*yield*/, axios.get("/get-games")];
                 case 1:
                     data = (_a.sent()).data;
-                    rootGames = document.querySelector(".rootGames");
+                    rootGames = document.querySelector(".store__gamesList");
                     if (data) {
                         renderGames(data, rootGames);
                     }
@@ -59,11 +59,58 @@ function renderGames(data, root) {
     if (Array.isArray(data)) {
         data.forEach(function (game) {
 <<<<<<< HEAD
+<<<<<<< HEAD
             html += "\n        <div class = \"store\">\n            <div class = \"store__header\"><h2>Inventory List</h2></div>\n            <div class = \"store__gamesList\">\n                <div class = \"store__gamesList--img\"><img src = \"" + game.img + "\"><div>\n                <div class = \"store__gamesList--title\">Title: \"" + game.title + "\"<div>\n                <div class = \"store__gamesList--price\">price: " + game.price + "<div>\n                <div class = \"store__gamesList--category\">Category: \"" + game.category + "\"<div>\n            <div>\n        </div>";
 =======
             html += "\n            <div class = \"store__gamesList\">\n                <div class = \"store__gamesList--img\"><img src = " + game.img + "></div>\n                <div class = \"store__gamesList--title\">Title: " + game.title + "</div>\n                <div class = \"store__gamesList--price\">price: " + game.price + "</div>\n                <div class = \"store__gamesList--category\">Category: " + game.category + "</div>\n            </div>";
 >>>>>>> parent of 98e351d9 (Merge branch 'main' of https://github.com/talyaron/fullstack2021)
+=======
+            html += "\n            <div class = \"store__gamesList\">\n                <img src = " + game.img + ">\n                <div>\n                    <p>Title: " + game.title + "</p>\n                    <p>price: " + game.price + "</p>\n                    <p>Category: " + game.category + "</p>\n                </div>\n            </div>";
+>>>>>>> parent of d2fdcf04 (Merge branch 'main' of https://github.com/talyaron/fullstack2021)
         });
         root.innerHTML = html;
     }
+}
+function handleAddGame(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        var rootGames, title, category, price, img, data;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    ev.preventDefault();
+                    rootGames = document.querySelector(".store__gamesList");
+                    title = ev.target.elements.title.value;
+                    category = ev.target.elements.category.value;
+                    price = ev.target.elements.price.value;
+                    img = ev.target.elements.img.value;
+                    return [4 /*yield*/, axios.post("/add-game", { title: title, category: category, price: price, img: img })];
+                case 1:
+                    data = (_a.sent()).data;
+                    renderGames(data, rootGames);
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+function handleUpdatGame(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        var rootGames, oldTitle, title, category, price, img, data;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    ev.preventDefault();
+                    rootGames = document.querySelector(".store__gamesList");
+                    oldTitle = ev.target.elements.oldTitle.value;
+                    title = ev.target.elements.title.value;
+                    category = ev.target.elements.category.value;
+                    price = ev.target.elements.price.value;
+                    img = ev.target.elements.img.value;
+                    return [4 /*yield*/, axios.patch("/update-game", { oldTitle: oldTitle, title: title, category: category, price: price, img: img })];
+                case 1:
+                    data = (_a.sent()).data;
+                    renderGames(data, rootGames);
+                    return [2 /*return*/];
+            }
+        });
+    });
 }

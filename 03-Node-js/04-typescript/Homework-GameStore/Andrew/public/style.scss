@@ -1,0 +1,107 @@
+:root{
+    background: #888;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    &__game{
+        width: 250px;
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid black;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        background: #555;
+        color: white;
+        img{
+            width: 200px;
+        }
+    }
+    &__add{
+        form{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            *{
+                margin-block: 20px;
+            }
+        }
+        width: 250px;
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid black;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        background: #555;
+        color: white;
+    }
+}
+.edit-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+    position: fixed;
+    right: 0px;
+    bottom: 0px;
+    background-color: #555;
+    border: 1px solid black;
+}
+.menu{
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    *{
+        margin: 10px;
+    }
+    &__logIn{
+        width: 400px;
+        form{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+        }
+    }
+    &__create{
+        width: 400px;
+        form{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+        }
+    }
+    button{
+        background-color: azure;
+    }
+}
+.cart{
+    margin: 50px;
+    display: flex;
+    border: 1px solid black;
+    width: fit-content;
+    height: 200px;
+    img{
+        width: 100px;
+    }
+}
+
+
+
+
+
+
+.in-vis{
+    display: none;
+}

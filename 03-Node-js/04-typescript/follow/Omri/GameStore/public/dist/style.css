@@ -22,9 +22,14 @@ body {
 .manage__header h2 {
   text-align: center;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   margin-top: 50%;
 >>>>>>> parent of 98e351d9 (Merge branch 'main' of https://github.com/talyaron/fullstack2021)
+=======
+  margin-top: 50%;
+  font-weight: 300;
+>>>>>>> parent of d2fdcf04 (Merge branch 'main' of https://github.com/talyaron/fullstack2021)
 }
 .manage__byId {
   justify-self: center;
@@ -38,17 +43,30 @@ body {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 .rootGames .store {
   display: grid;
   grid-template-columns: 1fr;
+=======
+.store {
+  width: 90vw;
+  margin: auto;
+  margin-top: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  border: 2px solid blue;
+>>>>>>> parent of d2fdcf04 (Merge branch 'main' of https://github.com/talyaron/fullstack2021)
 }
-.rootGames .store__gamesList {
-  display: flex;
+.store__header {
+  border-bottom: 2px solid blue;
+  text-align: center;
+  width: 90vw;
 }
-.rootGames .store__gamesList--img {
-  width: 50px;
-  height: 40px;
+.store__gamesList {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
 }
+<<<<<<< HEAD
 .rootGames .store__gamesList--title {
 =======
 .store {
@@ -78,4 +96,11 @@ body {
 .store__gamesList--title {
 >>>>>>> parent of 98e351d9 (Merge branch 'main' of https://github.com/talyaron/fullstack2021)
   text-align: center;
+=======
+.store__gamesList img {
+  width: 300px;
+}
+.store__gamesList p {
+  text-align: left;
+>>>>>>> parent of d2fdcf04 (Merge branch 'main' of https://github.com/talyaron/fullstack2021)
 }

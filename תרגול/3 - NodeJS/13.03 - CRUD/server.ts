@@ -1,6 +1,10 @@
 import express from "express";
 const app = express();
+<<<<<<< HEAD
 const port: number = 3000;
+=======
+const port: number = 30001;
+>>>>>>> parent of d2fdcf04 (Merge branch 'main' of https://github.com/talyaron/fullstack2021)
 app.use(express.json());
 app.use(express.static("public"));
 
@@ -11,14 +15,9 @@ let tasks = [
     { id: "4", title: "four" }
 ]
 
-// app.get(('/'), (req, res)=>{
-//     // req.body // get info client
-//     // req.params // 
-//     // req.query // check if yes or no
-// })
-
-app.get('/getTasks', (req, res) => {
+app.get('/getTask'), (req, res) => {
     res.send(tasks)
+<<<<<<< HEAD
 })
 
 app.delete('/deleteTask', (req, res) => {
@@ -33,6 +32,10 @@ app.delete('/deleteTask', (req, res) => {
 })
 
 
+=======
+}
+>>>>>>> parent of d2fdcf04 (Merge branch 'main' of https://github.com/talyaron/fullstack2021)
 app.listen(port, () => {
     console.log(`Server listen on port http://localhost:${port}`);
 });
+

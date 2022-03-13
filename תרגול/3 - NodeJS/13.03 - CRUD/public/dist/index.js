@@ -35,6 +35,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 var remembersHTML = document.querySelector('.remembers');
+<<<<<<< HEAD
 var remembers = {
     getData: function () {
         return __awaiter(this, void 0, void 0, function () {
@@ -118,5 +119,18 @@ function deleteTask(id) {
                     return [2 /*return*/];
             }
         });
+=======
+function getData() {
+    return __awaiter(this, void 0, void 0, function () {
+        var data;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, axios.get('/getTask')];
+                case 1:
+                    data = (_a.sent()).data;
+                    return [2 /*return*/];
+            }
+        });
+>>>>>>> parent of d2fdcf04 (Merge branch 'main' of https://github.com/talyaron/fullstack2021)
     });
 }

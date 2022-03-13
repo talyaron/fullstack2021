@@ -1,6 +1,10 @@
 {
   "dependencies": {
+<<<<<<< HEAD
     "express": "^4.17.3",
     "init": "^0.1.2"
+=======
+    "express": "^4.17.3"
+>>>>>>> parent of d2fdcf04 (Merge branch 'main' of https://github.com/talyaron/fullstack2021)
   }
 }
