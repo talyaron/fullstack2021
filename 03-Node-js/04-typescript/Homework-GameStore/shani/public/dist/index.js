@@ -83,15 +83,7 @@ function getGames() {
 }
 function handleAddGame(ev) {
     return __awaiter(this, void 0, void 0, function () {
-<<<<<<< HEAD
-<<<<<<< HEAD
-        var name, standardEdition, deluxeEdition, goldEdition, bunbleEdtion, data;
-=======
-        var name, standardEdition, deluxeEdition, goldEdition, bundleEdition, data;
->>>>>>> parent of 98e351d9 (Merge branch 'main' of https://github.com/talyaron/fullstack2021)
-=======
         var name, frontImg, backImg, standardEdition, deluxeEdition, goldEdition, bundleEdition, data;
->>>>>>> parent of d2fdcf04 (Merge branch 'main' of https://github.com/talyaron/fullstack2021)
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -102,18 +94,8 @@ function handleAddGame(ev) {
                     standardEdition = ev.target.elements.standardEdition.value;
                     deluxeEdition = ev.target.elements.deluxeEdition.value;
                     goldEdition = ev.target.elements.goldEdition.value;
-<<<<<<< HEAD
-<<<<<<< HEAD
-                    bunbleEdtion = ev.target.elements.bunbleEdtion.value;
-                    return [4 /*yield*/, axios.post('/add-new-game', { name: name, standardEdition: standardEdition, deluxeEdition: deluxeEdition, goldEdition: goldEdition, bunbleEdtion: bunbleEdtion })];
-=======
-                    bundleEdition = ev.target.elements.bundleEdition.value;
-                    return [4 /*yield*/, axios.post('/add-new-game', { name: name, standardEdition: standardEdition, deluxeEdition: deluxeEdition, goldEdition: goldEdition, bundleEdition: bundleEdition })];
->>>>>>> parent of 98e351d9 (Merge branch 'main' of https://github.com/talyaron/fullstack2021)
-=======
                     bundleEdition = ev.target.elements.bundleEdition.value;
                     return [4 /*yield*/, axios.post('/add-new-game', { name: name, frontImg: frontImg, backImg: backImg, standardEdition: standardEdition, deluxeEdition: deluxeEdition, goldEdition: goldEdition, bundleEdition: bundleEdition })];
->>>>>>> parent of d2fdcf04 (Merge branch 'main' of https://github.com/talyaron/fullstack2021)
                 case 1:
                     data = (_a.sent()).data;
                     console.log(data);
@@ -143,62 +125,14 @@ function handleDeleteGame(ev) {
         });
     });
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-function handleUpdateGame(ev) {
-    return __awaiter(this, void 0, void 0, function () {
-        var standardEdition, deluxeEdition, goldEdition, bunbleEdtion, data;
-=======
-function handleGetGameById(ev) {
-    return __awaiter(this, void 0, void 0, function () {
-        var id, data;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    ev.preventDefault();
-                    id = ev.target.elements.findId.value;
-                    return [4 /*yield*/, axios.get('/get-game-by-id', { id: id })];
-                case 1:
-                    data = (_a.sent()).data;
-                    renderToDom(data);
-                    console.log(data);
-                    ev.target.reset();
-                    return [2 /*return*/];
-            }
-        });
-    });
-}
-function handleUpdateGame(ev) {
-    return __awaiter(this, void 0, void 0, function () {
-        var id, standardEdition, deluxeEdition, goldEdition, bundleEdition, data;
->>>>>>> parent of 98e351d9 (Merge branch 'main' of https://github.com/talyaron/fullstack2021)
-=======
 function handleGetGameById(ev) {
     return __awaiter(this, void 0, void 0, function () {
         var id, x, data, error_1;
->>>>>>> parent of d2fdcf04 (Merge branch 'main' of https://github.com/talyaron/fullstack2021)
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     ev.preventDefault();
-<<<<<<< HEAD
-<<<<<<< HEAD
-                    standardEdition = ev.target.elements.standardEdition.value;
-                    deluxeEdition = ev.target.elements.deluxeEdition.value;
-                    goldEdition = ev.target.elements.goldEdition.value;
-                    bunbleEdtion = ev.target.elements.bunbleEdtion.value;
-                    return [4 /*yield*/, axios.post('/update-game', { standardEdition: standardEdition, deluxeEdition: deluxeEdition, goldEdition: goldEdition, bunbleEdtion: bunbleEdtion })];
-=======
-                    id = ev.target.id;
-                    standardEdition = ev.target.elements.standardEdition.valueAsNumber;
-                    deluxeEdition = ev.target.elements.deluxeEdition.valueAsNumber;
-                    goldEdition = ev.target.elements.goldEdition.valueAsNumber;
-                    bundleEdition = ev.target.elements.bundleEdition.valueAsNumber;
-                    return [4 /*yield*/, axios.patch('/update-game', { standardEdition: standardEdition, deluxeEdition: deluxeEdition, goldEdition: goldEdition, bundleEdition: bundleEdition, id: id })];
->>>>>>> parent of 98e351d9 (Merge branch 'main' of https://github.com/talyaron/fullstack2021)
-=======
                     _a.label = 1;
->>>>>>> parent of d2fdcf04 (Merge branch 'main' of https://github.com/talyaron/fullstack2021)
                 case 1:
                     _a.trys.push([1, 3, , 4]);
                     id = ev.target.elements.id.valueAsNumber;
@@ -211,13 +145,6 @@ function handleGetGameById(ev) {
                     //how do i get the error message i did in the server to show
                     renderToERP(data);
                     console.log(data);
-<<<<<<< HEAD
-                    renderToDom(data);
-<<<<<<< HEAD
-                    ev.target.reset();
-=======
->>>>>>> parent of 98e351d9 (Merge branch 'main' of https://github.com/talyaron/fullstack2021)
-=======
                     ev.target.reset();
                     return [3 /*break*/, 4];
                 case 3:
@@ -249,7 +176,23 @@ function handleUpdateGame(ev) {
                     data = (_a.sent()).data;
                     console.log(data);
                     renderToERP(data);
->>>>>>> parent of d2fdcf04 (Merge branch 'main' of https://github.com/talyaron/fullstack2021)
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+function handleSearchGame(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        var search, data;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    search = ev.target.value;
+                    console.log(search);
+                    return [4 /*yield*/, axios.get("/search-game?search=" + search)];
+                case 1:
+                    data = (_a.sent()).data;
+                    renderToGameStore(data);
                     return [2 /*return*/];
             }
         });
@@ -259,15 +202,7 @@ function renderToERP(data) {
     var root = document.querySelector("#root");
     var html = "";
     data.forEach(function (game) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-        html += "\n        <form class=\"game\" id=" + game.id + " onsubmit=\"handleUpdateGame(ev)\">\n         <h3>" + game.name + "</h3> \n         <input type=\"text\" placeholder=\"" + game.standardEdition + "\" value=\"" + game.standardEdition + "\">  \n         <input type=\"text\" placeholder=\"" + game.deluxeEdition + "\" value=\"" + game.deluxeEdition + "\"> \n         <input type=\"text\" placeholder=\"" + game.goldEdition + "\" value=\"" + game.goldEdition + "\"> \n         <input type=\"text\" placeholder=\"" + game.bundleEdition + "\"value=\"" + game.bundleEdition + "\" > \n        <button type=\"submit\">Update</button></form>";
-=======
-        html += "\n        \n        <form class=\"game\" id=\"" + game.id + "\" onsubmit=\"handleUpdateGame(event)\">\n         <h3 class=\"gameName\">" + game.name + "</h3> \n          \n\n         \n         <label for=\"standardEdition\">Standard Edition:</label>\n         <input type=\"number\" id=\"standardEdition\" name=\"standardEdition\" placeholder=\"" + game.standardEdition + "\" >  \n         \n         <label for=\"deluxeEdition\">Deluxe Edition:</label>\n         <input type=\"number\" id=\"deluxeEdition\" name=\"deluxeEdition\" placeholder=\"" + game.deluxeEdition + "\" > \n         \n         <label for=\"goldEdition\">Gold Edition:</label>\n         <input type=\"number\" id=\"goldEdition\" name=\"goldEdition\" placeholder=\"" + game.goldEdition + "\" > \n         \n         <label for=\"bundleEdition\">Bundle Edition:</label>\n         <input type=\"number\" id=\"bundleEdition\" name=\"bundleEdition\" placeholder=\"" + game.bundleEdition + "\" > \n        \n         <button type=\"submit\" value=\"update\">Update</button></form>";
->>>>>>> parent of 98e351d9 (Merge branch 'main' of https://github.com/talyaron/fullstack2021)
-=======
-        html += "\n        \n        <form class=\"game\" id=\"" + game.id + "\" onsubmit=\"handleUpdateGame(event)\">\n         <h3 class=\"gameName\">" + game.name + "</h3> \n          \n         <label for=\"gameName\">Game Name: </label>\n         <input type=\"text\" id=\"gameName\" name=\"gameName\" placeholder=\"" + game.name + "\" >  \n\n         <label for=\"frontImg\">Front Img Url: </label>\n         <input type=\"text\" id=\"frontImg\" name=\"frontImg\" placeholder=\"" + game.frontImg + "\" >  \n         \n         <label for=\"backImg\">Back Img Url:  </label>\n         <input type=\"text\" id=\"backImg\" name=\"backImg\" placeholder=\"" + game.backImg + "\" >  \n\n         <label for=\"standardEdition\">Standard Edition:  </label>\n         <input type=\"number\" id=\"standardEdition\" name=\"standardEdition\" placeholder=\"" + game.standardEdition + "\" >  \n         <br>\n         <label for=\"deluxeEdition\">Deluxe Edition:  </label>\n         <input type=\"number\" id=\"deluxeEdition\" name=\"deluxeEdition\" placeholder=\"" + game.deluxeEdition + "\" > \n         \n         <label for=\"goldEdition\">Gold Edition:  </label>\n         <input type=\"number\" id=\"goldEdition\" name=\"goldEdition\" placeholder=\"" + game.goldEdition + "\" > \n         \n         <label for=\"bundleEdition\">Bundle Edition:  </label>\n         <input type=\"number\" id=\"bundleEdition\" name=\"bundleEdition\" placeholder=\"" + game.bundleEdition + "\" > \n        \n         <button type=\"submit\" value=\"update\">Update</button></form>";
->>>>>>> parent of d2fdcf04 (Merge branch 'main' of https://github.com/talyaron/fullstack2021)
+        html += "\n\n        \n        <form class=\"game\" id=\"" + game.id + "\" onsubmit=\"handleUpdateGame(event)\">\n         <h3 class=\"gameName\">" + game.name + "</h3>           \n\n         <label for=\"gameName\">Game Name: </label>\n         <input type=\"text\" id=\"gameName\" name=\"gameName\" placeholder=\"" + game.name + "\" required>  \n\n         <label for=\"frontImg\">Front Img Url: </label>\n         <input type=\"text\" id=\"frontImg\" name=\"frontImg\" placeholder=\"" + game.frontImg + "\" required>  \n         \n         <label for=\"backImg\">Back Img Url:  </label>\n         <input type=\"text\" id=\"backImg\" name=\"backImg\" placeholder=\"" + game.backImg + "\" required>  \n          <br>\n         <label for=\"standardEdition\">Standard Edition:  </label>\n         <input type=\"number\" id=\"standardEdition\" name=\"standardEdition\" placeholder=\"" + game.standardEdition + "\" required>  \n        \n         <label for=\"deluxeEdition\">Deluxe Edition:  </label>\n         <input type=\"number\" id=\"deluxeEdition\" name=\"deluxeEdition\" placeholder=\"" + game.deluxeEdition + "\" required > \n         \n         <label for=\"goldEdition\">Gold Edition:  </label>\n         <input type=\"number\" id=\"goldEdition\" name=\"goldEdition\" placeholder=\"" + game.goldEdition + "\" required> \n         \n         <label for=\"bundleEdition\">Bundle Edition:  </label>\n         <input type=\"number\" id=\"bundleEdition\" name=\"bundleEdition\" placeholder=\"" + game.bundleEdition + "\" required> \n        \n         <button type=\"submit\" value=\"update\">Update</button></form>";
     });
     root.innerHTML = html;
 }
@@ -276,7 +211,7 @@ function renderToGameStore(data) {
     var rootGameStore = document.querySelector("#rootGameStore");
     var html = "";
     data.forEach(function (storeGame) {
-        html += "\n        <div class=\"storeGame\"> <h1>" + storeGame.name + "</h1>\n        <img src=\"" + storeGame.frontImg + "\" class=\"storeGame__img--front\">\n        <img src=\"" + storeGame.backImg + "\" class=\"storeGame__img--back\">\n        \n        <div class=\"storeGame__editions\"> \n        <h3 class=\"storeGame__editions--standardEdition\"> Standard Edition " + storeGame.standardEdition + " </h3>\n        <h3 class=\"storeGame__editions--deluxeEdition\"> Deluxe Edition $" + storeGame.deluxeEdition + " </h3>\n        <h3 class=\"storeGame__editions--goldEdition\"> Gold Edition $" + storeGame.goldEdition + " </h3>\n        <h3 class=\"storeGame__editions--bundleEdition\"> Bundle Edition  $" + storeGame.bundleEdition + " </h3>\n        </div>\n        \n        </div>\n        ";
+        html += "\n        <div class=\"storeGame\"> \n        <h1>" + storeGame.name + "</h1>\n        <img src=\"" + storeGame.frontImg + "\" class=\"storeGame__img--front\">\n        <img src=\"" + storeGame.backImg + "\" class=\"storeGame__img--back\">\n        \n        <div class=\"storeGame__editions\"> \n        <h3 class=\"storeGame__editions--standardEdition\"> Standard Edition " + storeGame.standardEdition + " </h3>\n        <h3 class=\"storeGame__editions--deluxeEdition\"> Deluxe Edition $" + storeGame.deluxeEdition + " </h3>\n        <h3 class=\"storeGame__editions--goldEdition\"> Gold Edition $" + storeGame.goldEdition + " </h3>\n        <h3 class=\"storeGame__editions--bundleEdition\"> Bundle Edition  $" + storeGame.bundleEdition + " </h3>\n        </div>\n        \n        </div>\n        ";
     });
     rootGameStore.innerHTML = html;
 }
