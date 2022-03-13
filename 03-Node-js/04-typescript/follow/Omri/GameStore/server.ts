@@ -21,7 +21,7 @@ interface game {
 }
 
 const gamer: gameStore = {
-    tempGames: [],
+     tempGames: [],
     games: [
         {
             id: Math.random().toString(36).slice(-8),
@@ -54,14 +54,13 @@ const gamer: gameStore = {
     ],
 
     gameById(searchTerm) {
-        const regex = new RegExp(searchTerm, "i");
+        const regex = new RegExp(searchTerm, 'i')
         if (searchTerm.length > 0){
-            this.tempGames = this.games.filter(game => {
-                regex.test(game.id);
-                console.log(this.tempGames)
-            })
-        }   else{
-            return this.games
+            this.tempGames = this.games.filter((game) => game.id.match(regex))
+            return this.tempGames;
+        } 
+        else{
+            this.tempGames = []
         }
     },
 
@@ -127,8 +126,12 @@ app.patch("/update-game", (req, res) => {
 app.patch("/getGame-by-id", (req, res) => {
     const searchTerm = req.body.searchTerm
     gamer.gameById(searchTerm);
-    //res.send(gamer.tempGames)
-    // console.log(gamer.tempGames)
+    if(gamer.tempGames.length > 0){
+        res.send(gamer.tempGames)
+    } else{
+        res.send(gamer.games)
+    }
+    
 })
 
 function getGames() {

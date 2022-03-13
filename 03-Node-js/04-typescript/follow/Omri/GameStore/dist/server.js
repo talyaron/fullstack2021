@@ -41,15 +41,13 @@ const gamer = {
         },
     ],
     gameById(searchTerm) {
-        const regex = new RegExp(searchTerm, "i");
+        const regex = new RegExp(searchTerm, 'i');
         if (searchTerm.length > 0) {
-            this.tempGames = this.games.filter(game => {
-                regex.test(game.id);
-                console.log(this.tempGames);
-            });
+            this.tempGames = this.games.filter((game) => game.id.match(regex));
+            return this.tempGames;
         }
         else {
-            return this.games;
+            this.tempGames = [];
         }
     },
     addGame(category, title, price, img) {
@@ -102,8 +100,12 @@ app.patch("/update-game", (req, res) => {
 app.patch("/getGame-by-id", (req, res) => {
     const searchTerm = req.body.searchTerm;
     gamer.gameById(searchTerm);
-    //res.send(gamer.tempGames)
-    // console.log(gamer.tempGames)
+    if (gamer.tempGames.length > 0) {
+        res.send(gamer.tempGames);
+    }
+    else {
+        res.send(gamer.games);
+    }
 });
 function getGames() {
     return gamer.games;
