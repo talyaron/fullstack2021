@@ -7,15 +7,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Steam ERP</title>
     <link rel="stylesheet" href="./dist/style.css">
+    <script src="https://kit.fontawesome.com/8bf1708af2.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 
 <body onload="handleLoadStore()">
     <div class="wrapper">
-        <div class="wrapper_logo">
+        <div class="wrapper_nav">
+            <div class="wrapper_nav-logo">
+            <div class="wrapper_nav-bars">
+                <i class="fas fa-bars"></i>
+            </div>
             <img src="./Images/logo_steam.svg" alt="Steam logo">
         </div>
-        <form onsubmit='handleNewGame(event)'class="wrapper_form">
+        <form onsubmit='handleNewGame(event)'class="wrapper_nav-form">
             <input type="text" placeholder="Game Title" name="title" class="game_title-create">
             <input type="number" placeholder="Game Price" name="price" class="game_price-create">
             <input type="link" placeholder="Game Ref" name="ref" class="game_ref-create">
@@ -24,6 +29,7 @@
             <div class="game_src-preview"></div>
             <input type="submit" value="submit">
         </form>
+    </div>
         <div class="wrapper_table">
             <div class="wrapper_table-top">
                 <p>img</p>

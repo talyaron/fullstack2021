@@ -15,7 +15,7 @@
 }
 
 * {
-  font-size: clamp(15px, 2.5vw, 25px);
+  font-size: clamp(15px, 2.5vw, 18px);
   margin: 0;
   padding: 0;
 }
@@ -24,11 +24,43 @@
   display: none;
 }
 
+html {
+  width: 448px;
+}
+
 body {
-  display: flex;
-  flex-direction: row;
+  position: relative;
 }
 
 .wrapper {
-  padding: 2vw, 5vh;
+  padding: 5vw 2vh;
+  background-color: var(--navbar-background-color);
+}
+.wrapper_nav {
+  display: flex;
+  flex-direction: column;
+}
+.wrapper_nav-logo {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  align-items: center;
+}
+.wrapper_nav-logo img {
+  height: 36px;
+}
+.wrapper_nav-form {
+  display: flex;
+  flex-direction: column;
+}
+.wrapper_table-bottom {
+  display: flex;
+  flex-direction: column;
+}
+.wrapper_table-bottom .game {
+  width: 90vw;
+  overflow-wrap: break-word;
+}
+.wrapper_table-bottom .game_image img {
+  width: 33%;
 }

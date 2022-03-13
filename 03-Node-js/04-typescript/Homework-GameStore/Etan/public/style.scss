@@ -15,18 +15,103 @@
 }
 
 *{
-    font-size: clamp(15px, 2.5vw, 25px);
-    margin: 0;
+    font-size: clamp(15px, 2.5vw, 18px);
+margin:0;
     padding: 0;
+    
 }
 [name="src"]{
 display:none;
 }
+html{
+    width: 448px;
+
+
+
+}
 body{
-    display: flex;
-    flex-direction: row;
+
+    position: relative;
+    // display: flex;
+    // flex-direction: row;
+    // overflow-x:hidden ;
 }
 
 .wrapper{
-padding: 2vw, 5vh
+
+padding:  5vw 2vh;
+background-color: var(--navbar-background-color);
+&_nav{
+    display: flex;
+    flex-direction: column;
+
+    &-logo{
+        display: flex;
+        flex-direction: row;
+        width: 100vw;
+
+        align-items: center;
+        img{
+            height: 36px;
+        }
+        &-bars{
+
+        }
+    }
+    &-form{
+        display: flex;
+        flex-direction: column;
+    .game_title-create{
+
+    }
+    .game_price-create{
+
+    }
+    .game_ref-create{
+
+    }
+    .game_src{
+        &-create{
+        &-button{
+
+        }}
+        &-preview{
+
+        }
+    }
+    }
 }
+&_table{
+    &-top{
+
+    }
+    &-bottom{
+        display: flex;
+        flex-direction: column;
+        .game{
+            width: 90vw;
+            overflow-wrap: break-word;
+            &_image{
+                img{
+                    width: 33%;
+                }
+            }
+            &_ref-wrapper{
+
+            }
+            &_title-update{
+
+            }
+            &_price-update{
+
+            }
+            &_game-id{
+
+            }
+
+        }
+    }
+
+}
+}
+

@@ -84,7 +84,7 @@ function renderAll(gameArray) {
     var html;
     try {
         gameArray.forEach(function (game) {
-            return (html += "<div class=\"game\">\n  <div class=\"game_image\">\n  <img src=\"./images/" + game.src + "\">\n  </div>\n  <div class=\"game_link\">" + game.ref + "</div>\n  <input id='" + game.id + "'type='text' value='" + game.title + "' class=\"game_title-update\">\n  <input id='" + game.id + "'type='number' value='" + game.price + "' class=\"game_price-update\">\n  <input id='" + game.id + "'type='text' value='" + game.id + "' class=\"game_id-update\">\n</div>");
+            return (html += "<div class=\"game\">\n        <a href=\"" + game.ref + "\" class=\"game_ref-wrapper\">\n  <div class=\"game_image\">\n  <img src=\"./images/" + game.src + "\">\n  </div>\n  </a>\n  <input onblur\"changeRef(" + game.id + ")\" id='" + game.id + "' type=\"text\" value=\"" + game.ref + "\" class=\"game_ref\">\n  <input onblur\"changeTitle(" + game.id + ")\" id='" + game.id + "' type='text' value='" + game.title + "' class=\"game_title-update\">\n  <input onblur\"changePrice(" + game.id + ")\" id='" + game.id + "' type='number' value='" + game.price + "' class=\"game_price-update\">\n  <button onclick=\"deleteGame(" + game.id + ")\" id='" + game.id + "' class=\"game_id\">delete</button>\n</div>");
         });
         document.querySelector(".wrapper_table-bottom").innerHTML = html;
     }

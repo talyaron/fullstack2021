@@ -41,13 +41,15 @@ function renderAll(gameArray: Array<Game>) {
     gameArray.forEach(
       (game) =>
         (html += `<div class="game">
+        <a href="${game.ref}" class="game_ref-wrapper">
   <div class="game_image">
   <img src="./images/${game.src}">
   </div>
-  <div class="game_link">${game.ref}</div>
-  <input id='${game.id}'type='text' value='${game.title}' class="game_title-update">
-  <input id='${game.id}'type='number' value='${game.price}' class="game_price-update">
-  <input id='${game.id}'type='text' value='${game.id}' class="game_id-update">
+  </a>
+  <input onblur"changeRef(${game.id})" id='${game.id}' type="text" value="${game.ref}" class="game_ref">
+  <input onblur"changeTitle(${game.id})" id='${game.id}' type='text' value='${game.title}' class="game_title-update">
+  <input onblur"changePrice(${game.id})" id='${game.id}' type='number' value='${game.price}' class="game_price-update">
+  <button onclick="deleteGame(${game.id})" id='${game.id}' class="game_id">delete</button>
 </div>`)
     );
     document.querySelector(".wrapper_table-bottom").innerHTML = html;

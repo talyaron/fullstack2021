@@ -105,6 +105,7 @@ app.patch("/update-game", (req, res) => {
 });
 app.delete("/delete-game", (req, res) => {
   try {
+    
     res.send(games);
   } catch (error) {
     res.send({ error: error.message });
