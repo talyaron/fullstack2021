@@ -5,8 +5,9 @@ app.use(express.static("public"));
 app.use(express.json());
 
 interface gameStore{
+    tempGames: Array<game>;
     games: Array<game>;
-    gameById();
+    gameById(searchTerm);
     addGame(category: string,title: string,price: number,img: any);
     updateGame(oldTitle: string,updCategory: string,updTitle: string,updPrice: number,updImg: any);
 }
@@ -20,6 +21,7 @@ interface game {
 }
 
 const gamer: gameStore = {
+    tempGames: [],
     games: [
         {
             id: Math.random().toString(36).slice(-8),
@@ -51,8 +53,13 @@ const gamer: gameStore = {
         },
     ],
 
-    gameById() {
-
+    gameById(searchTerm) {
+        const regex = new RegExp(searchTerm, "i");
+        // if (searchTerm.length > 0){
+        //     this.tempGames = this.games.filter(game => {
+        //         regex.test(game.id) 
+        //     })
+        // }
     },
 
     addGame(category: string,title: string,price: number,img: any) {
@@ -83,7 +90,6 @@ const gamer: gameStore = {
             }
         })
         
-        // console.log(this.games)
     }
 }
 
@@ -116,6 +122,12 @@ app.get("/get-games", (req, res) => {
       gamer.updateGame(oldTitle,category,title,price,img)
       res.send(gamer.games)
   })
+
+  app.patch("/getGame - by-id", (req,res) => {
+    const searchTerm = req.body.searchTerm
+    gamer.gameById(searchTerm);
+    res.send(gamer.tempGames)
+  })
   
 function getGames(){
     return gamer.games
@@ -124,4 +136,6 @@ function getGames(){
 app.listen(port, () => {
   return console.log(`Express is listening at http://localhost:${port}`);
 });
+
+console.log(gamer.games)
 

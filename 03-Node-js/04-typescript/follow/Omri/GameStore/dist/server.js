@@ -9,6 +9,7 @@ const port = process.env.PORT || 8080;
 app.use(express_1.default.static("public"));
 app.use(express_1.default.json());
 const gamer = {
+    tempGames: [],
     games: [
         {
             id: Math.random().toString(36).slice(-8),
@@ -39,7 +40,13 @@ const gamer = {
             img: 'https://cdn.cloudflare.steamstatic.com/steam/apps/1498570/capsule_184x69.jpg?t=1645084787'
         },
     ],
-    gameById() {
+    gameById(searchTerm) {
+        const regex = new RegExp(searchTerm, "i");
+        // if (searchTerm.length > 0){
+        //     this.tempGames = this.games.filter(game => {
+        //         regex.test(game.id) 
+        //     })
+        // }
     },
     addGame(category, title, price, img) {
         const id = uid();
@@ -64,7 +71,6 @@ const gamer = {
                 }
             }
         });
-        // console.log(this.games)
     }
 };
 const uid = function () {
@@ -91,9 +97,15 @@ app.patch("/update-game", (req, res) => {
     gamer.updateGame(oldTitle, category, title, price, img);
     res.send(gamer.games);
 });
+app.patch("/getGame - by-id", (req, res) => {
+    const searchTerm = req.body.searchTerm;
+    gamer.gameById(searchTerm);
+    res.send(gamer.tempGames);
+});
 function getGames() {
     return gamer.games;
 }
 app.listen(port, () => {
     return console.log(`Express is listening at http://localhost:${port}`);
 });
+console.log(gamer.games);

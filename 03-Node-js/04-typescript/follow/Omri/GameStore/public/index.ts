@@ -10,46 +10,14 @@ async function getGames() {
     }
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-function renderGames(data: Array<any>,root) {
-=======
-function renderGames(data: Array<any>, root) {
->>>>>>> parent of 98e351d9 (Merge branch 'main' of https://github.com/talyaron/fullstack2021)
-=======
 
 
 function renderGames(data: Array<any>, root) {
->>>>>>> parent of d2fdcf04 (Merge branch 'main' of https://github.com/talyaron/fullstack2021)
     let html = '';
     if (Array.isArray(data)) {
         data.forEach(game => {
             html += `
             <div class = "store__gamesList">
-<<<<<<< HEAD
-<<<<<<< HEAD
-                <div class = "store__gamesList--img"><img src = "${game.img}"><div>
-                <div class = "store__gamesList--title">Title: "${game.title}"<div>
-                <div class = "store__gamesList--price">price: ${game.price}<div>
-                <div class = "store__gamesList--category">Category: "${game.category}"<div>
-            <div>
-        </div>`
-        })
-        root.innerHTML = html;
-    }
-    
-=======
-                <div class = "store__gamesList--img"><img src = ${game.img}></div>
-                <div class = "store__gamesList--title">Title: ${game.title}</div>
-                <div class = "store__gamesList--price">price: ${game.price}</div>
-                <div class = "store__gamesList--category">Category: ${game.category}</div>
-            </div>`
-        })
-        root.innerHTML = html;
-    }
-
->>>>>>> parent of 98e351d9 (Merge branch 'main' of https://github.com/talyaron/fullstack2021)
-=======
                 <img src = ${game.img}>
                 <div>
                     <p>Title: ${game.title}</p>
@@ -83,5 +51,12 @@ async function handleUpdatGame(ev){
     const img = ev.target.elements.img.value;
     const {data} = await axios.patch("/update-game", {oldTitle,title,category,price,img});
     renderGames(data,rootGames);
->>>>>>> parent of d2fdcf04 (Merge branch 'main' of https://github.com/talyaron/fullstack2021)
+}
+
+async function handleId(ev){
+    ev.preventDefault()
+    const rootGames =document.querySelector(".store__gamesList")
+    const searchTerm = ev.target.value
+    const {data} = await axios.patch("/getGame - by-id", {searchTerm});
+    renderGames(data,rootGames)
 }
