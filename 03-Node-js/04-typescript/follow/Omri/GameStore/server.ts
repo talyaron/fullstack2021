@@ -31,7 +31,7 @@ const gamer: gameStore = {
         {
             id: Math.random().toString(36).slice(-8),
             category:'Action',
-            title:' Vermintide 2',
+            title:'Vermintide 2 ',
             price: 110,
             img: 'https://cdn.cloudflare.steamstatic.com/steam/apps/552500/capsule_231x87.jpg?t=1646836065'
         },
@@ -63,9 +63,27 @@ const gamer: gameStore = {
     updateGame(oldTitle: string, updCategory: string,updTitle: string,updPrice: number,updImg: any) {
         this.games.forEach(game => {
             if(oldTitle === game.title){
+                console.log(oldTitle)
+                // if(updCategory !== game.category){
+                //     console.log(updCategory)
+                //     game.category = updCategory;
+                // }
                 
+                // if(updTitle !== game.title){
+                //     game.title = updTitle;
+                // }
+
+                // if(updPrice > 0){
+                //     game.price = updPrice;
+                // }
+
+                // if(updImg !== game.img){
+                //     game.img = updImg
+                // }
             }
         })
+        
+        // console.log(this.games)
     }
 }
 
