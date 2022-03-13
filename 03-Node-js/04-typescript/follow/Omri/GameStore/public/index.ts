@@ -23,6 +23,7 @@ function renderGames(data: Array<any>, root) {
                     <p>Title: ${game.title}</p>
                     <p>price: ${game.price}</p>
                     <p>Category: ${game.category}</p>
+                    <p>id: ${game.id}</p>
                 </div>
             </div>`
         })
@@ -57,6 +58,6 @@ async function handleId(ev){
     ev.preventDefault()
     const rootGames =document.querySelector(".store__gamesList")
     const searchTerm = ev.target.value
-    const {data} = await axios.patch("/getGame - by-id", {searchTerm});
+    const {data} = await axios.patch("/getGame-by-id", {searchTerm});
     renderGames(data,rootGames)
 }

@@ -58,7 +58,7 @@ function renderGames(data, root) {
     var html = '';
     if (Array.isArray(data)) {
         data.forEach(function (game) {
-            html += "\n            <div class = \"store__gamesList\">\n                <img src = " + game.img + ">\n                <div>\n                    <p>Title: " + game.title + "</p>\n                    <p>price: " + game.price + "</p>\n                    <p>Category: " + game.category + "</p>\n                </div>\n            </div>";
+            html += "\n            <div class = \"store__gamesList\">\n                <img src = " + game.img + ">\n                <div>\n                    <p>Title: " + game.title + "</p>\n                    <p>price: " + game.price + "</p>\n                    <p>Category: " + game.category + "</p>\n                    <p>id: " + game.id + "</p>\n                </div>\n            </div>";
         });
         root.innerHTML = html;
     }
@@ -115,7 +115,7 @@ function handleId(ev) {
                     ev.preventDefault();
                     rootGames = document.querySelector(".store__gamesList");
                     searchTerm = ev.target.value;
-                    return [4 /*yield*/, axios.patch("/getGame - by-id", { searchTerm: searchTerm })];
+                    return [4 /*yield*/, axios.patch("/getGame-by-id", { searchTerm: searchTerm })];
                 case 1:
                     data = (_a.sent()).data;
                     renderGames(data, rootGames);

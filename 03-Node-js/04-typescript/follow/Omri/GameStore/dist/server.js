@@ -27,26 +27,30 @@ const gamer = {
         },
         {
             id: Math.random().toString(36).slice(-8),
-            category: 'Action',
-            title: 'The King Of Fighter XV',
-            price: 239,
-            img: 'https://cdn.cloudflare.steamstatic.com/steam/apps/1498570/capsule_184x69.jpg?t=1645084787'
+            category: 'Sport',
+            title: 'Grand Mountain Adventure: Wonderlands',
+            price: 80,
+            img: 'https://cdn.cloudflare.steamstatic.com/steam/apps/1247360/capsule_184x69.jpg?t=1646927968'
         },
         {
             id: Math.random().toString(36).slice(-8),
-            category: 'Action',
-            title: 'The King Of Fighter XV',
-            price: 239,
-            img: 'https://cdn.cloudflare.steamstatic.com/steam/apps/1498570/capsule_184x69.jpg?t=1645084787'
+            category: 'Adventure',
+            title: 'Hood: Outlaws & Legends',
+            price: 69,
+            img: 'https://cdn.cloudflare.steamstatic.com/steam/apps/927350/capsule_sm_120.jpg?t=1643817161'
         },
     ],
     gameById(searchTerm) {
         const regex = new RegExp(searchTerm, "i");
-        // if (searchTerm.length > 0){
-        //     this.tempGames = this.games.filter(game => {
-        //         regex.test(game.id) 
-        //     })
-        // }
+        if (searchTerm.length > 0) {
+            this.tempGames = this.games.filter(game => {
+                regex.test(game.id);
+                console.log(this.tempGames);
+            });
+        }
+        else {
+            return this.games;
+        }
     },
     addGame(category, title, price, img) {
         const id = uid();
@@ -55,9 +59,7 @@ const gamer = {
     updateGame(oldTitle, updCategory, updTitle, updPrice, updImg) {
         this.games.forEach(game => {
             if (oldTitle === game.title) {
-                // console.log(oldTitle)
                 if (updCategory !== '') {
-                    console.log(updCategory);
                     game.category = updCategory;
                 }
                 if (updTitle !== '') {
@@ -97,10 +99,11 @@ app.patch("/update-game", (req, res) => {
     gamer.updateGame(oldTitle, category, title, price, img);
     res.send(gamer.games);
 });
-app.patch("/getGame - by-id", (req, res) => {
+app.patch("/getGame-by-id", (req, res) => {
     const searchTerm = req.body.searchTerm;
     gamer.gameById(searchTerm);
-    res.send(gamer.tempGames);
+    //res.send(gamer.tempGames)
+    // console.log(gamer.tempGames)
 });
 function getGames() {
     return gamer.games;
@@ -108,4 +111,3 @@ function getGames() {
 app.listen(port, () => {
     return console.log(`Express is listening at http://localhost:${port}`);
 });
-console.log(gamer.games);

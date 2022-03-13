@@ -58,11 +58,10 @@ body {
         display: grid;
         grid-template-columns: repeat(2,1fr);
         grid-template-rows: 1fr;
-        // border-bottom: 1px solid blue;
-        // border-right: 1px solid blue;
-
+        gap: 10px;
         img {
             width: 300px;
+            height: 150px;
         }
 
         p {
