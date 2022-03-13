@@ -1,24 +1,30 @@
-const { data } = axios.get('/getall')
-console.log(data);
 /// מביאה את כל המידע בכל הטענה מחדש של העמוד
 function handleallgame() {
     getalldata()
-    rendertoscreen(data)
+    rendertoscreen()
 }
-
 // לוקחת את המידע מהשרת
 async function getalldata() {
     const { data } = await axios.get('/getall')
-    console.log(data);
-}
+    console.log(data, '1');
 
-function rendertoscreen(games) {
-    getalldata()
+}
+// מרנדרת את כל המשחקים
+async function rendertoscreen() {
+    const { data } = await axios.get('/getall')
     const root = document.getElementById('root')
-    let html =''
-        games.forEach(game => {
-        html = `<div> hey ${game.name}</div>`
+    let html = ''
+    data.forEach(game => {
+        html += `<div> game name is ${game.name}</div>`
 
     });
     root.innerHTML = html
 }
+
+async function handleid(ev) {
+    const { data } = await axios.get('/getall')
+    console.log(data);
+
+}
+
+

@@ -34,15 +34,47 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var data = axios.get('/getall').data;
-console.log(data);
 /// מביאה את כל המידע בכל הטענה מחדש של העמוד
 function handleallgame() {
     getalldata();
-    rendertoscreen(data);
+    rendertoscreen();
 }
 // לוקחת את המידע מהשרת
 function getalldata() {
+    return __awaiter(this, void 0, void 0, function () {
+        var data;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, axios.get('/getall')];
+                case 1:
+                    data = (_a.sent()).data;
+                    console.log(data, '1');
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+// מרנדרת את כל המשחקים
+function rendertoscreen() {
+    return __awaiter(this, void 0, void 0, function () {
+        var data, root, html;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, axios.get('/getall')];
+                case 1:
+                    data = (_a.sent()).data;
+                    root = document.getElementById('root');
+                    html = '';
+                    data.forEach(function (game) {
+                        html += "<div> game name is " + game.name + "</div>";
+                    });
+                    root.innerHTML = html;
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+function handleid(ev) {
     return __awaiter(this, void 0, void 0, function () {
         var data;
         return __generator(this, function (_a) {
@@ -55,13 +87,4 @@ function getalldata() {
             }
         });
     });
-}
-function rendertoscreen(games) {
-    getalldata();
-    var root = document.getElementById('root');
-    var html = '';
-    games.forEach(function (game) {
-        html = "<div> hey " + game.name + "</div>";
-    });
-    root.innerHTML = html;
 }

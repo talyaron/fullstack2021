@@ -22,6 +22,7 @@ body {
 .manage__header h2 {
   text-align: center;
   margin-top: 50%;
+  font-weight: 300;
 }
 .manage__byId {
   justify-self: center;
@@ -35,9 +36,6 @@ body {
 }
 
 .store {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-columns: auto;
   width: 90vw;
   margin: auto;
   margin-top: 20px;
@@ -47,17 +45,16 @@ body {
 .store__header {
   border-bottom: 2px solid blue;
   text-align: center;
+  width: 90vw;
 }
 .store__gamesList {
-  display: flex;
-  width: 90vw;
-  justify-content: space-between;
-  gap: 50px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
 }
-.store__gamesList--img {
-  width: 50px;
-  height: 40px;
+.store__gamesList img {
+  width: 300px;
 }
-.store__gamesList--title {
-  text-align: center;
+.store__gamesList p {
+  text-align: left;
 }
