@@ -1,18 +1,13 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
+@import url("http://fonts.cdnfonts.com/css/games");
 body {
   background-color: #b8dbe6;
   font-family: Andale Mono, monospace;
 }
 
-=======
-@import url("http://fonts.cdnfonts.com/css/games");
 .erp {
   background-color: #b8dbe6;
   font-family: Andale Mono, monospace;
 }
->>>>>>> parent of d2fdcf04 (Merge branch 'main' of https://github.com/talyaron/fullstack2021)
 .erp--title {
   text-shadow: 2px 2px 5px #4b4848;
   color: #302e2e;
@@ -70,9 +65,6 @@ form label[for=bundleEdition] {
 form button {
   border-radius: 5px;
 }
-<<<<<<< HEAD
->>>>>>> parent of 98e351d9 (Merge branch 'main' of https://github.com/talyaron/fullstack2021)
-=======
 
 .gamesStore {
   background-color: #009e89;
@@ -215,4 +207,3 @@ form button {
   transform: rotate(-5deg);
   color: white;
 }
->>>>>>> parent of d2fdcf04 (Merge branch 'main' of https://github.com/talyaron/fullstack2021)

@@ -1,22 +1,17 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
+
 body{
     background-color: rgb(184, 219, 230);
     font-family:Andale Mono, monospace;
 }
 
 
-.erp{
-   
 
-=======
 
 .erp{
    
     background-color: rgb(184, 219, 230);
     font-family:Andale Mono, monospace;
->>>>>>> parent of d2fdcf04 (Merge branch 'main' of https://github.com/talyaron/fullstack2021)
+
     &--title{
         text-shadow: 2px 2px 5px#4b4848; 
         color: #302e2e;
@@ -38,11 +33,7 @@ body{
 form{
     text-align:center;
     border-bottom: #302e2e 3px dotted;
-<<<<<<< HEAD
-=======
-   
-    
->>>>>>> parent of d2fdcf04 (Merge branch 'main' of https://github.com/talyaron/fullstack2021)
+
     input{
         margin:10px;
         border-radius: 3px;
@@ -110,9 +101,8 @@ form{
    
   
 }
-<<<<<<< HEAD
->>>>>>> parent of 98e351d9 (Merge branch 'main' of https://github.com/talyaron/fullstack2021)
-=======
+
+
 
 // game store scss
 
@@ -190,15 +180,7 @@ form{
 
     }
 }
-// @keyframes logoSlide {
-//     from {
-//       transform: translateX(100%);
-//     }
-  
-//     to {
-//       transform: translateX(0%);
-//     }
-//   }
+
 
 @keyframes logoSlide  {
     0% {
@@ -334,4 +316,4 @@ form{
         }
     }
 }
->>>>>>> parent of d2fdcf04 (Merge branch 'main' of https://github.com/talyaron/fullstack2021)
+
