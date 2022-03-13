@@ -14,6 +14,14 @@ let tasks = [
     { id: "3", title: "three" },
     { id: "4", title: "four" }
 ];
+// app.get(('/'), (req, res)=>{
+//     // req.body // get info client
+//     // req.params // 
+//     // req.query // chech if yes or no
+// })
+app.get('/getTasks', (req, res) => {
+    res.send(tasks);
+});
 app.listen(port, () => {
     console.log(`Server listen on port http://localhost:${port}`);
 });
