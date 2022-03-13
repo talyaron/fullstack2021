@@ -1,6 +1,5 @@
-const remembersHTML:HTMLElement = document.querySelector('.remembers');
+const remembersHTML: HTMLElement = document.querySelector('.remembers');
 
-<<<<<<< HEAD
 const remembers = {
 	getData: async function () {
 		try {
@@ -64,8 +63,3 @@ async function deleteTask(id) {
 }
 
 // }
-=======
-async function getData(){
-    const {data} = await axios.get('/getTask')
-}
->>>>>>> parent of d2fdcf04 (Merge branch 'main' of https://github.com/talyaron/fullstack2021)
