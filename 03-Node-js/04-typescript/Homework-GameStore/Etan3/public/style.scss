@@ -1,0 +1,32 @@
+::root{
+    --navbar-background-color: #181a21;
+    --form-background-right: #0f206d;
+    --form-background-left: #3a6490;
+    --form-search-background-color:#5f849b;
+    --form-text-color: #d8d9d9;
+    --table-background-color-gradient-start: #29475d;
+    --table-background-color-gradient-end: #1b2838;
+    --table-header-background-color: #1b2838;
+    --table-header-text-color:#2f526b;
+    --table-header-focused-background-color: #29475d;
+    --table-header-focused-text-color:#fbfbfc;
+    --game-title-color: #c7d5e0;
+    --game-price-color: #acdbf5;
+}
+
+*{
+    font-size: clamp(15px, 2.5vw, 25px);
+    margin: 0;
+    padding: 0;
+}
+[name="src"]{
+display:none;
+}
+body{
+    display: flex;
+    flex-direction: row;
+}
+
+.wrapper{
+padding: 2vw, 5vh
+}

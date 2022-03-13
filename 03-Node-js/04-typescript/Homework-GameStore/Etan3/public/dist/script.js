@@ -34,30 +34,84 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var gameStore = {
-    gamesList: [],
-    getGames: function () {
-        return __awaiter(this, void 0, void 0, function () {
-            var data;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, axios.get('/all-games')];
-                    case 1:
-                        data = (_a.sent()).data;
-                        this.gamesList = data;
-                        console.log(data);
-                        return [2 /*return*/];
-                }
-            });
+function handleLoadStore() {
+    return __awaiter(this, void 0, void 0, function () {
+        var data;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, axios.get("/all-games")];
+                case 1:
+                    data = (_a.sent()).data;
+                    console.log(data);
+                    data.forEach((function (game) {
+                        game.id = uid();
+                    }));
+                    renderAll(data);
+                    return [2 /*return*/];
+            }
         });
-    },
-    handleRender: function () {
-        return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                return [2 /*return*/];
-            });
+    });
+}
+function handleNewGame(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        var title, price, ref, src, id, data;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    ev.preventDefault();
+                    title = ev.target.title.value;
+                    price = ev.target.price.valueAsNumber;
+                    ref = ev.target.ref.value;
+                    src = ev.target.src.files[0].name;
+                    console.dir(src);
+                    id = uid();
+                    return [4 /*yield*/, axios.post("/new-game", {
+                            src: src,
+                            title: title,
+                            ref: ref,
+                            id: id,
+                            price: price
+                        })];
+                case 1:
+                    data = (_a.sent()).data;
+                    renderAll(data);
+                    return [2 /*return*/];
+            }
         });
+    });
+}
+function renderAll(gameArray) {
+    var html;
+    try {
+        gameArray.forEach(function (game) {
+            return (html += "<div class=\"game\">\n  <div class=\"game_image\">\n  <img src=\"./images/" + game.src + "\">\n  </div>\n  <div class=\"game_link\">" + game.ref + "</div>\n  <input id='" + game.id + "'type='text' value='" + game.title + "' class=\"game_title-update\">\n  <input id='" + game.id + "'type='number' value='" + game.price + "' class=\"game_price-update\">\n  <input id='" + game.id + "'type='text' value='" + game.id + "' class=\"game_id-update\">\n</div>");
+        });
+        document.querySelector(".wrapper_table-bottom").innerHTML = html;
     }
-};
-gameStore.getGames();
-console.log(gameStore);
+    catch (error) {
+        console.error(error);
+    }
+}
+function handleSrcPreview(ev) {
+    var previewContainer = document.querySelector('.game_src-preview');
+    var imageLink = ev.target.files[0].name;
+    var html = "<img src=\"./Images/" + imageLink + "\" alt=\"\">";
+    try {
+        previewContainer.innerHTML = html;
+    }
+    catch (error) {
+        console.error(error);
+    }
+}
+function uid() {
+    return Date.now().toString(36) + Math.random().toString(36).substring(2);
+}
+// //     const gameStore = {
+// //     gamesList: [],
+// //     getGames: async function () {
+// //         this.gamesList = data
+// //         console.log(data);
+// //     },
+// // }
+// // gameStore.getGames()
+// // console.log(gameStore);
