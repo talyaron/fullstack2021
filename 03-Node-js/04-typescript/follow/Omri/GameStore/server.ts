@@ -1,6 +1,6 @@
 import express from 'express';
 const app = express();
-const port = process.env.PORT || 3002;
+const port = process.env.PORT || 8080;
 app.use(express.static("public"));
 app.use(express.json());
 
@@ -24,28 +24,28 @@ const gamer: gameStore = {
         {
             id: Math.random().toString(36).slice(-8),
             category:'Action',
-            title:' The King Of Fighter XV',
+            title:'The King Of Fighter XV',
             price: 239,
             img: 'https://cdn.cloudflare.steamstatic.com/steam/apps/1498570/capsule_184x69.jpg?t=1645084787'
         },
         {
             id: Math.random().toString(36).slice(-8),
             category:'Action',
-            title:'Vermintide 2 ',
+            title:'Vermintide 2',
             price: 110,
             img: 'https://cdn.cloudflare.steamstatic.com/steam/apps/552500/capsule_231x87.jpg?t=1646836065'
         },
         {
             id: Math.random().toString(36).slice(-8),
             category:'Action',
-            title:' The King Of Fighter XV',
+            title:'The King Of Fighter XV',
             price: 239,
             img: 'https://cdn.cloudflare.steamstatic.com/steam/apps/1498570/capsule_184x69.jpg?t=1645084787'
         },
         {
             id: Math.random().toString(36).slice(-8),
             category:'Action',
-            title:' The King Of Fighter XV',
+            title:'The King Of Fighter XV',
             price: 239,
             img: 'https://cdn.cloudflare.steamstatic.com/steam/apps/1498570/capsule_184x69.jpg?t=1645084787'
         },
@@ -63,23 +63,23 @@ const gamer: gameStore = {
     updateGame(oldTitle: string, updCategory: string,updTitle: string,updPrice: number,updImg: any) {
         this.games.forEach(game => {
             if(oldTitle === game.title){
-                console.log(oldTitle)
-                // if(updCategory !== game.category){
-                //     console.log(updCategory)
-                //     game.category = updCategory;
-                // }
+                // console.log(oldTitle)
+                if(updCategory !== ''){
+                    console.log(updCategory)
+                    game.category = updCategory;
+                }
                 
-                // if(updTitle !== game.title){
-                //     game.title = updTitle;
-                // }
+                if(updTitle !== ''){
+                    game.title = updTitle;
+                }
 
-                // if(updPrice > 0){
-                //     game.price = updPrice;
-                // }
+                if(updPrice > 0){
+                    game.price = updPrice;
+                }
 
-                // if(updImg !== game.img){
-                //     game.img = updImg
-                // }
+                if(updImg !== ''){
+                    game.img = updImg
+                }
             }
         })
         

@@ -5,7 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const app = express_1.default();
-const port = process.env.PORT || 3002;
+const port = process.env.PORT || 8080;
 app.use(express_1.default.static("public"));
 app.use(express_1.default.json());
 const gamer = {
@@ -13,28 +13,28 @@ const gamer = {
         {
             id: Math.random().toString(36).slice(-8),
             category: 'Action',
-            title: ' The King Of Fighter XV',
+            title: 'The King Of Fighter XV',
             price: 239,
             img: 'https://cdn.cloudflare.steamstatic.com/steam/apps/1498570/capsule_184x69.jpg?t=1645084787'
         },
         {
             id: Math.random().toString(36).slice(-8),
             category: 'Action',
-            title: 'Vermintide 2 ',
+            title: 'Vermintide 2',
             price: 110,
             img: 'https://cdn.cloudflare.steamstatic.com/steam/apps/552500/capsule_231x87.jpg?t=1646836065'
         },
         {
             id: Math.random().toString(36).slice(-8),
             category: 'Action',
-            title: ' The King Of Fighter XV',
+            title: 'The King Of Fighter XV',
             price: 239,
             img: 'https://cdn.cloudflare.steamstatic.com/steam/apps/1498570/capsule_184x69.jpg?t=1645084787'
         },
         {
             id: Math.random().toString(36).slice(-8),
             category: 'Action',
-            title: ' The King Of Fighter XV',
+            title: 'The King Of Fighter XV',
             price: 239,
             img: 'https://cdn.cloudflare.steamstatic.com/steam/apps/1498570/capsule_184x69.jpg?t=1645084787'
         },
@@ -48,20 +48,20 @@ const gamer = {
     updateGame(oldTitle, updCategory, updTitle, updPrice, updImg) {
         this.games.forEach(game => {
             if (oldTitle === game.title) {
-                console.log(oldTitle);
-                // if(updCategory !== game.category){
-                //     console.log(updCategory)
-                //     game.category = updCategory;
-                // }
-                // if(updTitle !== game.title){
-                //     game.title = updTitle;
-                // }
-                // if(updPrice > 0){
-                //     game.price = updPrice;
-                // }
-                // if(updImg !== game.img){
-                //     game.img = updImg
-                // }
+                // console.log(oldTitle)
+                if (updCategory !== '') {
+                    console.log(updCategory);
+                    game.category = updCategory;
+                }
+                if (updTitle !== '') {
+                    game.title = updTitle;
+                }
+                if (updPrice > 0) {
+                    game.price = updPrice;
+                }
+                if (updImg !== '') {
+                    game.img = updImg;
+                }
             }
         });
         // console.log(this.games)
