@@ -143,25 +143,25 @@ function renderToERP(data){
          <h3 class="gameName">${game.name}</h3>           
 
          <label for="gameName">Game Name: </label>
-         <input type="text" id="gameName" name="gameName" placeholder="${game.name}" >  
+         <input type="text" id="gameName" name="gameName" placeholder="${game.name}" required>  
 
          <label for="frontImg">Front Img Url: </label>
-         <input type="text" id="frontImg" name="frontImg" placeholder="${game.frontImg}" >  
+         <input type="text" id="frontImg" name="frontImg" placeholder="${game.frontImg}" required>  
          
          <label for="backImg">Back Img Url:  </label>
-         <input type="text" id="backImg" name="backImg" placeholder="${game.backImg}" >  
+         <input type="text" id="backImg" name="backImg" placeholder="${game.backImg}" required>  
           <br>
          <label for="standardEdition">Standard Edition:  </label>
-         <input type="number" id="standardEdition" name="standardEdition" placeholder="${game.standardEdition}" >  
+         <input type="number" id="standardEdition" name="standardEdition" placeholder="${game.standardEdition}" required>  
         
          <label for="deluxeEdition">Deluxe Edition:  </label>
-         <input type="number" id="deluxeEdition" name="deluxeEdition" placeholder="${game.deluxeEdition}" > 
+         <input type="number" id="deluxeEdition" name="deluxeEdition" placeholder="${game.deluxeEdition}" required > 
          
          <label for="goldEdition">Gold Edition:  </label>
-         <input type="number" id="goldEdition" name="goldEdition" placeholder="${game.goldEdition}" > 
+         <input type="number" id="goldEdition" name="goldEdition" placeholder="${game.goldEdition}" required> 
          
          <label for="bundleEdition">Bundle Edition:  </label>
-         <input type="number" id="bundleEdition" name="bundleEdition" placeholder="${game.bundleEdition}" > 
+         <input type="number" id="bundleEdition" name="bundleEdition" placeholder="${game.bundleEdition}" required> 
         
          <button type="submit" value="update">Update</button></form>`
     })
