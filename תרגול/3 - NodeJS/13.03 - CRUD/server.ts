@@ -11,6 +11,12 @@ let tasks = [
     { id: "4", title: "four" }
 ]
 
+// app.get(('/'), (req, res)=>{
+//     // req.body // get info client
+//     // req.params // 
+//     // req.query // check if yes or no
+// })
+
 app.get('/getTasks', (req, res) => {
     res.send(tasks)
 })
