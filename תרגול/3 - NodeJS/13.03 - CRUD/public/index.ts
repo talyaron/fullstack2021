@@ -1,5 +1,20 @@
-const remembersHTML:HTMLElement = document.querySelector('.remembers');
+const remembersHTML: HTMLElement = document.querySelector('.remembers')
 
-async function getData(){
-    const {data} = await axios.get('/getTask')
+const remembers = {
+    getRemembers: async function () {
+        try {
+            const { data } = await axios.get('/getTasks')
+            console.log(data)
+        } catch (error) {
+
+        }
+
+
+    }
 }
+
+remembers.getRemembers()
+
+// async function getData() {
+
+// }

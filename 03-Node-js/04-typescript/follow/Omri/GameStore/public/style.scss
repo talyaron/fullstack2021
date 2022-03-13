@@ -15,16 +15,16 @@ body {
     border-radius: 8px;
     font-family: Arial, Helvetica, sans-serif;
 
+
     &__header {
         grid-row: span 3;
         border-right: 2px solid blue;
 
         h2 {
             text-align: center;
-            margin-top: 50%;
-            font-weight: 300;
         }
     }
+
 
     &__byId {
         justify-self: center;
@@ -40,33 +40,23 @@ body {
     }
 }
 
-.store {
-    width: 90vw;
-    margin: auto;
-    margin-top: 20px;
-    font-family: Arial, Helvetica, sans-serif;
-    border: 2px solid blue;
+.rootGames{
 
-    &__header {
-        border-bottom: 2px solid blue;
-        text-align: center;
-        width: 90vw;
-    }
-
-    &__gamesList {
-      
+    .store{
         display: grid;
-        grid-template-columns: repeat(2,1fr);
-        grid-template-rows: 1fr;
-        // border-bottom: 1px solid blue;
-        // border-right: 1px solid blue;
+        grid-template-columns: 1fr;
 
-        img {
-            width: 300px;
-        }
+        &__gamesList{
+            display: flex;
 
-        p {
-            text-align: left;
+            &--img{
+                width: 50px;
+                height: 40px;
+            }
+
+            &--title{
+                text-align: center ;
+            }
         }
     }
 }
