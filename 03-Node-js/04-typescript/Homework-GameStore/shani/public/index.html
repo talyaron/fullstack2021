@@ -10,8 +10,16 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body onload="handleGames()">
+<<<<<<< HEAD
 
 <form onsubmit="handleAddGame(event)"> 
+=======
+
+<h1 class="erp--title"> ERP</h1>
+
+<form onsubmit="handleAddGame(event)" class="erp__buttons--add"> 
+ <h3>Add a game and its versions </h3>
+>>>>>>> parent of 98e351d9 (Merge branch 'main' of https://github.com/talyaron/fullstack2021)
  <input type="text" placeholder="New Game " name="name" class="addGame">
  <input type="text" placeholder="New standardEdition " name="standardEdition" class="addstandardEdition">
  <input type="text" placeholder="New deluxeEdition " name="deluxeEdition" class="adddeluxeEdition">
@@ -20,9 +28,22 @@
  <button type="submit" value="add">ADD</button>
 </form>
 
+<<<<<<< HEAD
 <form onsubmit="handleDeleteGame(event)"> 
     <input type="text" placeholder="Delete Game " name="name" class="deleteGame">
     <button type="submit" value="name">delete</button>
+=======
+
+
+<form onsubmit="handleDeleteGame(event)" class="erp__buttons--delete">
+    <h3>Delete a game</h3> 
+    <input type="text" placeholder="Delete Game " name="delete" class="deleteGame">
+    <button type="submit" value="delete">Delete</button>
+</form>
+
+<form onkeyup="handleGetGameById(event)">
+    <input type="number" placeholder="Place the games ID" name="findId" class="findGameById">
+>>>>>>> parent of 98e351d9 (Merge branch 'main' of https://github.com/talyaron/fullstack2021)
 </form>
 
 

@@ -34,36 +34,34 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-function appInit() {
-    getGames();
+var data = axios.get('/getall').data;
+console.log(data);
+/// מביאה את כל המידע בכל הטענה מחדש של העמוד
+function handleallgame() {
+    getalldata();
+    rendertoscreen(data);
 }
-function getGames() {
+// לוקחת את המידע מהשרת
+function getalldata() {
     return __awaiter(this, void 0, void 0, function () {
-        var data, rootGames;
+        var data;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, axios.get("/get-games")];
+                case 0: return [4 /*yield*/, axios.get('/getall')];
                 case 1:
                     data = (_a.sent()).data;
-                    rootGames = document.querySelector(".rootGames");
-                    if (data) {
-                        renderGames(data, rootGames);
-                    }
+                    console.log(data);
                     return [2 /*return*/];
             }
         });
     });
 }
-function renderGames(data, root) {
+function rendertoscreen(games) {
+    getalldata();
+    var root = document.getElementById('root');
     var html = '';
-    if (Array.isArray(data)) {
-        data.forEach(function (game) {
-<<<<<<< HEAD
-            html += "\n        <div class = \"store\">\n            <div class = \"store__header\"><h2>Inventory List</h2></div>\n            <div class = \"store__gamesList\">\n                <div class = \"store__gamesList--img\"><img src = \"" + game.img + "\"><div>\n                <div class = \"store__gamesList--title\">Title: \"" + game.title + "\"<div>\n                <div class = \"store__gamesList--price\">price: " + game.price + "<div>\n                <div class = \"store__gamesList--category\">Category: \"" + game.category + "\"<div>\n            <div>\n        </div>";
-=======
-            html += "\n            <div class = \"store__gamesList\">\n                <div class = \"store__gamesList--img\"><img src = " + game.img + "></div>\n                <div class = \"store__gamesList--title\">Title: " + game.title + "</div>\n                <div class = \"store__gamesList--price\">price: " + game.price + "</div>\n                <div class = \"store__gamesList--category\">Category: " + game.category + "</div>\n            </div>";
->>>>>>> parent of 98e351d9 (Merge branch 'main' of https://github.com/talyaron/fullstack2021)
-        });
-        root.innerHTML = html;
-    }
+    games.forEach(function (game) {
+        html = "<div> hey " + game.name + "</div>";
+    });
+    root.innerHTML = html;
 }

@@ -53,7 +53,11 @@ function getGames() {
 }
 function handleAddGame(ev) {
     return __awaiter(this, void 0, void 0, function () {
+<<<<<<< HEAD
         var name, standardEdition, deluxeEdition, goldEdition, bunbleEdtion, data;
+=======
+        var name, standardEdition, deluxeEdition, goldEdition, bundleEdition, data;
+>>>>>>> parent of 98e351d9 (Merge branch 'main' of https://github.com/talyaron/fullstack2021)
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -62,8 +66,13 @@ function handleAddGame(ev) {
                     standardEdition = ev.target.elements.standardEdition.value;
                     deluxeEdition = ev.target.elements.deluxeEdition.value;
                     goldEdition = ev.target.elements.goldEdition.value;
+<<<<<<< HEAD
                     bunbleEdtion = ev.target.elements.bunbleEdtion.value;
                     return [4 /*yield*/, axios.post('/add-new-game', { name: name, standardEdition: standardEdition, deluxeEdition: deluxeEdition, goldEdition: goldEdition, bunbleEdtion: bunbleEdtion })];
+=======
+                    bundleEdition = ev.target.elements.bundleEdition.value;
+                    return [4 /*yield*/, axios.post('/add-new-game', { name: name, standardEdition: standardEdition, deluxeEdition: deluxeEdition, goldEdition: goldEdition, bundleEdition: bundleEdition })];
+>>>>>>> parent of 98e351d9 (Merge branch 'main' of https://github.com/talyaron/fullstack2021)
                 case 1:
                     data = (_a.sent()).data;
                     console.log(data);
@@ -94,23 +103,60 @@ function handleDeleteGame(ev) {
         });
     });
 }
+<<<<<<< HEAD
 function handleUpdateGame(ev) {
     return __awaiter(this, void 0, void 0, function () {
         var standardEdition, deluxeEdition, goldEdition, bunbleEdtion, data;
+=======
+function handleGetGameById(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        var id, data;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     ev.preventDefault();
+                    id = ev.target.elements.findId.value;
+                    return [4 /*yield*/, axios.get('/get-game-by-id', { id: id })];
+                case 1:
+                    data = (_a.sent()).data;
+                    renderToDom(data);
+                    console.log(data);
+                    ev.target.reset();
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+function handleUpdateGame(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        var id, standardEdition, deluxeEdition, goldEdition, bundleEdition, data;
+>>>>>>> parent of 98e351d9 (Merge branch 'main' of https://github.com/talyaron/fullstack2021)
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    ev.preventDefault();
+<<<<<<< HEAD
                     standardEdition = ev.target.elements.standardEdition.value;
                     deluxeEdition = ev.target.elements.deluxeEdition.value;
                     goldEdition = ev.target.elements.goldEdition.value;
                     bunbleEdtion = ev.target.elements.bunbleEdtion.value;
                     return [4 /*yield*/, axios.post('/update-game', { standardEdition: standardEdition, deluxeEdition: deluxeEdition, goldEdition: goldEdition, bunbleEdtion: bunbleEdtion })];
+=======
+                    id = ev.target.id;
+                    standardEdition = ev.target.elements.standardEdition.valueAsNumber;
+                    deluxeEdition = ev.target.elements.deluxeEdition.valueAsNumber;
+                    goldEdition = ev.target.elements.goldEdition.valueAsNumber;
+                    bundleEdition = ev.target.elements.bundleEdition.valueAsNumber;
+                    return [4 /*yield*/, axios.patch('/update-game', { standardEdition: standardEdition, deluxeEdition: deluxeEdition, goldEdition: goldEdition, bundleEdition: bundleEdition, id: id })];
+>>>>>>> parent of 98e351d9 (Merge branch 'main' of https://github.com/talyaron/fullstack2021)
                 case 1:
                     data = (_a.sent()).data;
                     console.log(data);
                     renderToDom(data);
+<<<<<<< HEAD
                     ev.target.reset();
+=======
+>>>>>>> parent of 98e351d9 (Merge branch 'main' of https://github.com/talyaron/fullstack2021)
                     return [2 /*return*/];
             }
         });
@@ -120,7 +166,11 @@ function renderToDom(data) {
     var root = document.querySelector("#root");
     var html = "";
     data.forEach(function (game) {
+<<<<<<< HEAD
         html += "\n        <form class=\"game\" id=" + game.id + " onsubmit=\"handleUpdateGame(ev)\">\n         <h3>" + game.name + "</h3> \n         <input type=\"text\" placeholder=\"" + game.standardEdition + "\" value=\"" + game.standardEdition + "\">  \n         <input type=\"text\" placeholder=\"" + game.deluxeEdition + "\" value=\"" + game.deluxeEdition + "\"> \n         <input type=\"text\" placeholder=\"" + game.goldEdition + "\" value=\"" + game.goldEdition + "\"> \n         <input type=\"text\" placeholder=\"" + game.bundleEdition + "\"value=\"" + game.bundleEdition + "\" > \n        <button type=\"submit\">Update</button></form>";
+=======
+        html += "\n        \n        <form class=\"game\" id=\"" + game.id + "\" onsubmit=\"handleUpdateGame(event)\">\n         <h3 class=\"gameName\">" + game.name + "</h3> \n          \n\n         \n         <label for=\"standardEdition\">Standard Edition:</label>\n         <input type=\"number\" id=\"standardEdition\" name=\"standardEdition\" placeholder=\"" + game.standardEdition + "\" >  \n         \n         <label for=\"deluxeEdition\">Deluxe Edition:</label>\n         <input type=\"number\" id=\"deluxeEdition\" name=\"deluxeEdition\" placeholder=\"" + game.deluxeEdition + "\" > \n         \n         <label for=\"goldEdition\">Gold Edition:</label>\n         <input type=\"number\" id=\"goldEdition\" name=\"goldEdition\" placeholder=\"" + game.goldEdition + "\" > \n         \n         <label for=\"bundleEdition\">Bundle Edition:</label>\n         <input type=\"number\" id=\"bundleEdition\" name=\"bundleEdition\" placeholder=\"" + game.bundleEdition + "\" > \n        \n         <button type=\"submit\" value=\"update\">Update</button></form>";
+>>>>>>> parent of 98e351d9 (Merge branch 'main' of https://github.com/talyaron/fullstack2021)
     });
     root.innerHTML = html;
 }
