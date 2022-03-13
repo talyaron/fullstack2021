@@ -18,15 +18,14 @@ app.get("/get-student" , (req ,res)=>{
     res.send(student);
 })
 app.post("/add-student" ,(req , res)=>{
-  
   console.log(req.body);
-  const newStudent = req.body.name;
   
+  const newStudent = req.body.name;
   const student = addStudent(newStudent)
   res.send(student)
 })
 function addStudent(name){
-  const id:string = Math.random().toString(36);
+  const id:string = Math.random().toString(360);
   student.push({name , id})
   return student;
 }

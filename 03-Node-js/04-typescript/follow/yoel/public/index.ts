@@ -5,8 +5,8 @@ async function handleAddStudent(ev) {
     ev.preventDefault();
     const name = ev.target.elements.name.value;
 
-    const {data} = await axios.post('/add-student', {name:name ,ok:true})
-
+    const {data} = await axios.post('/add-student', { name:name})
+    console.log(data);
     
 
     renderData(data)

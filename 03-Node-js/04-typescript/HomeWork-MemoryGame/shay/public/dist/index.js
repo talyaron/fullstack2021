@@ -1,3 +1,5 @@
+// function initApp() {
+//   console.log("start");
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -34,9 +36,10 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-function initApp() {
-    console.log("start");
-    console.log("end");
+//   console.log("end");
+// }
+function uniqueId() {
+    return Date.now().toString(36) + Math.random().toString(36).substr(2);
 }
 function handleNewGame() {
     return __awaiter(this, void 0, void 0, function () {
@@ -46,34 +49,90 @@ function handleNewGame() {
                 case 0: return [4 /*yield*/, axios.get("/newGame")];
                 case 1:
                     data = (_a.sent()).data;
-                    console.log(data);
+                    renderGame(data);
                     return [2 /*return*/];
             }
         });
     });
 }
-function renderStartGame(data) {
-    console.log(data);
-    var html = "";
-    data.forEach(function (game) {
-        html += "<div class=\"root__color\" onclick=\"handleFlipedCard(event)\">\n        <img src=\"https://www.cinemascomics.com/wp-content/uploads/2021/05/Un-actor-de-Marvel-Studios-se-quiere-pasar-a-DC-Comics.jpg\">\n        </div>\n      ";
-    });
-    var root = document.querySelector("#root");
-    root.innerHTML = html;
+function getRootElement() {
+    var rootHTML = document.querySelector(".root");
+    return rootHTML;
 }
 function renderGame(data) {
     console.log(data);
-    var html = "";
+    var rootHTML = getRootElement();
+    var html = '<section class="cardsgrid">';
     data.forEach(function (game) {
-        html += "<div class=\"root__color\" onclick=\"handleFlipedCard(event)\">\n     \n      <div class=\"root__color--backCard\">\n      <img src = \"" + game.photo + "\">\n        </div>\n        </div>\n      ";
+        html += "<div class=\"color\" id=\"" + game.uniqueId + "\" >\n     <img class=\"frontCard\" src=\"" + game.photo + "\" id=\"" + game.pairdId + "\" >\n        <img class=\"backCard\" onclick=\"handleFlipedCard()\"  src=\"https://www.cinemascomics.com/wp-content/uploads/2021/05/Un-actor-de-Marvel-Studios-se-quiere-pasar-a-DC-Comics.jpg\">\n        \n        </div>\n      ";
     });
-    var root = document.querySelector("#root");
-    root.innerHTML = html;
+    html += "</section>";
+    rootHTML.innerHTML = html;
 }
-// async function handleFlipedCard(ev) {
-//     const click = ev.target.value;
-//     if (click){
-//         const cardClicked = document.querySelector('.color');
-//       cardClicked.classList.toggle('isFliped');
-//     }
-// }
+var hasFlipped = false;
+var firstCard, secondCard;
+var lockBoard = false;
+function handleFlipedCard() {
+    return __awaiter(this, void 0, void 0, function () {
+        var cards;
+        return __generator(this, function (_a) {
+            cards = document.querySelectorAll('.color');
+            cards.forEach(function (card) { return card.addEventListener('click', flipCard); });
+            return [2 /*return*/];
+        });
+    });
+}
+function flipCard() {
+    return __awaiter(this, void 0, void 0, function () {
+        var data;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, axios.get("/newGame")];
+                case 1:
+                    data = (_a.sent()).data;
+                    this.classList.add('flip');
+                    if (!hasFlipped) {
+                        hasFlipped = true;
+                        firstCard = this;
+                        //  console.log(hasFlipped, firstCard);
+                        return [2 /*return*/];
+                    }
+                    else {
+                        secondCard = this;
+                        checkForMatch();
+                    }
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+function checkForMatch() {
+    return __awaiter(this, void 0, void 0, function () {
+        var isMatch;
+        return __generator(this, function (_a) {
+            isMatch = firstCard.pairdID === secondCard.pairID;
+            console.log(firstCard, secondCard);
+            console.log(isMatch);
+            isMatch ? disableCards() : unflipCards();
+            return [2 /*return*/];
+        });
+    });
+}
+function disableCards() {
+    firstCard.removeEventListener('click', flipCard);
+    secondCard.removeEventListener('click', flipCard);
+    resetBoard();
+}
+function unflipCards() {
+    lockBoard = true;
+    setTimeout(function () {
+        firstCard.classList.remove('flip');
+        secondCard.classList.remove('flip');
+        resetBoard();
+    }, 1500);
+}
+function resetBoard() {
+    var _a, _b;
+    _a = [false, false], hasFlipped = _a[0], lockBoard = _a[1];
+    _b = [null, null], firstCard = _b[0], secondCard = _b[1];
+}

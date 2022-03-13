@@ -48,40 +48,11 @@ function handleLoad() {
         });
     });
 }
-function handleAddGame(ev) {
-    return __awaiter(this, void 0, void 0, function () {
-        var newName, newPrice, data;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    ev.preventDefault();
-                    newName = ev.target.elements.name.value;
-                    newPrice = ev.target.elements.price.value;
-                    return [4 /*yield*/, axios.post('/add-game', { newName: newName, newPrice: newPrice })];
-                case 1:
-                    data = (_a.sent()).data;
-                    renderGames(data);
-                    ev.target.reset();
-                    return [2 /*return*/];
-            }
-        });
-    });
-}
 function handleDelete(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var id, data;
         return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    console.log(ev.target.id);
-                    id = ev.target.id;
-                    return [4 /*yield*/, axios.post('/delete-game', { id: id })];
-                case 1:
-                    data = (_a.sent()).data;
-                    console.log(data);
-                    renderGames(data);
-                    return [2 /*return*/];
-            }
+            console.log(ev.target.id);
+            return [2 /*return*/];
         });
     });
 }
