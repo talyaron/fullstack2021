@@ -11,6 +11,9 @@ let tasks = [
     { id: "4", title: "four" }
 ]
 
+app.get('/getTask'), (req, res) => {
+    res.send(tasks)
+}
 app.listen(port, () => {
     console.log(`Server listen on port http://localhost:${port}`);
 });
