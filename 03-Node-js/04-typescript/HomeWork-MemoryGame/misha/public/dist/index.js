@@ -38,8 +38,7 @@ var gameStats = {
     count: 0,
     flipped: 0,
     flippedIDs: [],
-    flippedpairIDs: [],
-    matches: 0
+    flippedpairIDs: []
 };
 function uniqueId() {
     return Date.now().toString(36) + Math.random().toString(36).substr(2);
@@ -70,9 +69,6 @@ function getCards() {
 function handleStart() {
     var startButton = document.querySelector(".startButton");
     var rootHTML = getRootElement();
-    var attempts = document.querySelector(".attempts");
-    attempts.innerHTML = "Attempts: " + gameStats.count + " ";
-    attempts.style.display = 'block';
     startButton.style.display = 'none';
     rootHTML.style.display = 'flex';
     getCards();
@@ -91,17 +87,12 @@ function handleCardClick(ev) {
         return 0;
     }
     else {
-        // ev.path[1].children[0].style.display = 'none'
-        var Card = ev.path[1];
-        Card.classList.add('card--flip');
+        ev.path[1].children[0].style.display = 'none';
         gameStats.flippedIDs.push(ev.path[1].id);
         gameStats.flippedpairIDs.push(ev.path[1].children[0].id);
-        // ev.path[1].children[1].style.display = 'flex'
+        ev.path[1].children[1].style.display = 'flex';
         gameStats.flipped++;
         if (gameStats.flipped === 2) {
-            gameStats.count++;
-            var attempts = document.querySelector(".attempts");
-            attempts.innerHTML = "Attempts: " + gameStats.count + " ";
             checkFlipped(gameStats.flippedIDs, gameStats.flippedpairIDs);
             gameStats.flipped = 0;
             gameStats.flippedIDs = [];
@@ -117,21 +108,13 @@ function checkFlipped(flipped, flippedPair) {
             cardDelete1.classList.add('card-matched');
             cardDelete2.classList.add('card-matched');
         }, 1000);
-        gameStats.matches++;
-        if (gameStats.matches === 8) {
-            setTimeout(function () {
-                var cake = document.querySelector(".cup");
-                cake.classList.add('cup-active');
-                var audio = document.getElementById('cake');
-                var fart = new Audio(audio.children[0].src);
-                fart.play();
-            }, 1500);
-        }
     }
     else {
         setTimeout(function () {
-            cardDelete1.classList.remove('card--flip');
-            cardDelete2.classList.remove('card--flip');
-        }, 1500);
+            cardDelete1.children[0].style.display = 'flex';
+            cardDelete1.children[1].style.display = 'none';
+            cardDelete2.children[0].style.display = 'flex';
+            cardDelete2.children[1].style.display = 'none';
+        }, 1000);
     }
 }

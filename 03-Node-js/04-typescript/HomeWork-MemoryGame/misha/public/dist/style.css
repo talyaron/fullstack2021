@@ -29,12 +29,6 @@ body {
   cursor: pointer;
 }
 
-.attempts {
-  display: none;
-  height: 30px;
-  width: 100px;
-}
-
 .root {
   height: fit-content;
   display: flex;
@@ -49,45 +43,30 @@ body {
   gap: 1.5em;
   column-gap: 140px;
   height: fit-content;
-  perspective: 1000px;
 }
 .root .cardsgrid .card {
-  position: relative;
   height: 170px;
   width: 120px;
   background-color: grey;
   border-radius: 10px;
   cursor: pointer;
   box-shadow: 4px 4px 4px #000000;
-  transform-style: preserve-3d;
-  transition: all 1s ease;
-}
-.root .cardsgrid .card-matched {
-  visibility: hidden;
-}
-.root .cardsgrid .card--flip {
-  transform: rotateY(180deg);
-  transition: all 0.5 ease;
 }
 .root .cardsgrid .card--back {
-  position: absolute;
   height: 100%;
-  width: 100%;
   background: radial-gradient(circle, black 16%, #8e8e8e 100%);
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 60px;
   border-radius: 10px;
-  backface-visibility: hidden;
 }
 .root .cardsgrid .card--front {
-  position: absolute;
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  backface-visibility: hidden;
-  transform: rotateY(180deg);
+  display: none;
 }
 .root .cardsgrid .card--front .img {
   background-position: center;
@@ -97,23 +76,6 @@ body {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
-
-.cup {
-  position: absolute;
-  left: 35%;
-  top: 35%;
-  display: none;
-  transform: scale(0, 0);
-}
-.cup img {
-  height: 500px;
-  width: 500px;
-}
-.cup-active {
-  display: block;
-  transition: all 1s ease;
-  transform: scale(1, 1);
-}
-.cup audio {
+.root .cardsgrid .card-matched {
   visibility: hidden;
 }
