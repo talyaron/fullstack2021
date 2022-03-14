@@ -1,0 +1,14 @@
+body {
+  background-color: antiquewhite;
+}
+
+.gameCard {
+  font-family: monospace;
+  font-size: 25px;
+  color: brown;
+}
+
+h1 {
+  font-family: cursive;
+  color: darkblue;
+}

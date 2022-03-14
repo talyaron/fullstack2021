@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./dist/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.0/axios.min.js" integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>Document</title>
+</head>
+<body onload="handleLoad(event)">
+
+
+    <ul>
+        <li><a href="./store.html">store</a></li>
+        <li><a href="./index.html">ERP</a></li>
+    </ul>
+
+    <h1 class="title">shop owner</h1>
+
+    <form class="formId" onsubmit="handleGetGameById(event)">
+        <input type="text" name="id" id="" placeholder="Please enter Serial Number">
+        <input type="submit" value="Find">
+    </form>
+
+    <div id="rootFindGame"></div>
+
+    <form class="addGame" onsubmit="handleaddGame(event)">
+        <input type="text" name="add" id="" placeholder="Please Add a Game">
+        <input type="number" name="price" id="" placeholder="Please Add a Price">
+        <input type="submit" value="Add">
+    </form>
+    
+    <div id="root"></div>
+    <script src="./dist/index.js"></script>
+</body>
+</html>
