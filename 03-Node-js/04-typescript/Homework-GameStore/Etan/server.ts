@@ -11,7 +11,7 @@ interface Game {
   id?: any;
   price?: number;
 }
-const games: Array<Game> = [
+let games: Array<Game> = [
   {
     src: "Atelier Sophie.jpeg",
     title: "Atelier Sophie 2: The Alchemist of the Mysterious Dream",
@@ -70,6 +70,9 @@ app.get("/all-games", (req, res) => {
   // console.log(req.query);
   try {
     const error = "No request was received"
+    games.forEach((game => {
+      game.id = uid()
+    }))
     generatePrice(games)
     if(!req) throw new Error(error);
     res.send(games);
@@ -96,7 +99,24 @@ res.send(games);
     res.send({ error: error.message });
   }
 });
-app.patch("/update-game", (req, res) => {
+app.patch("/update-gameRef", (req, res) => {
+  const {id} = req.body;
+  console.log(id);
+  
+  try {
+    res.send({ok:true, games});
+  } catch (error) {
+    res.send({ error: error.message });
+  }
+});
+app.patch("/update-gameTitle", (req, res) => {
+  try {
+    res.send(games);
+  } catch (error) {
+    res.send({ error: error.message });
+  }
+});
+app.patch("/update-gamePrice", (req, res) => {
   try {
     res.send(games);
   } catch (error) {
@@ -104,15 +124,28 @@ app.patch("/update-game", (req, res) => {
   }
 });
 app.delete("/delete-game", (req, res) => {
+  const {id} = req.body;
+
+  if(!id) throw new Error("no id")
   try {
-    
-    res.send(games);
+    console.log(id);
+    deleteGame(id)
+    res.send({games, ok: true});
   } catch (error) {
     res.send({ error: error.message });
   }
 });
 
+function deleteGame(id){
+  console.log(id);
 
+ games = games.filter(game => game.id != id)
+games.forEach(game =>
+   console.log(`${game.id}`)
+  )
+
+  return games
+}
 function makeNewGame(title, price, ref, src, id){
   games.push({title, price, ref, src, id})
   console.log(games);
@@ -120,6 +153,9 @@ function makeNewGame(title, price, ref, src, id){
   return games
 }
 
+function uid() {
+  return Date.now().toString(36) + Math.random().toString(36).substring(2);
+}
 
 function generatePrice(gameArray:Array<Game>){
 let price;

@@ -43,9 +43,6 @@ function handleLoadStore() {
                 case 1:
                     data = (_a.sent()).data;
                     console.log(data);
-                    data.forEach((function (game) {
-                        game.id = uid();
-                    }));
                     renderAll(data);
                     return [2 /*return*/];
             }
@@ -80,11 +77,49 @@ function handleNewGame(ev) {
         });
     });
 }
+function deleteGame(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        var id, data, ok, games;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    id = ev[0].id;
+                    return [4 /*yield*/, axios["delete"]('/delete-game', { data: { id: id } })];
+                case 1:
+                    data = (_a.sent()).data;
+                    ok = data.ok, games = data.games;
+                    console.log(games);
+                    console.log(ok);
+                    renderAll(games);
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+;
+function changeRef(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        var id, data, ok, games;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    console.dir(ev.target.id);
+                    id = ev.target.id;
+                    return [4 /*yield*/, axios.patch('/update-gameRef', function (req, res) { id; })];
+                case 1:
+                    data = (_a.sent()).data;
+                    ok = data.ok, games = data.games;
+                    console.log({ ok: ok, games: games });
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
 function renderAll(gameArray) {
     var html;
     try {
         gameArray.forEach(function (game) {
-            return (html += "<div class=\"game\">\n        <a href=\"" + game.ref + "\" class=\"game_ref-wrapper\">\n  <div class=\"game_image\">\n  <img src=\"./images/" + game.src + "\">\n  </div>\n  </a>\n  <input onblur\"changeRef(" + game.id + ")\" id='" + game.id + "' type=\"text\" value=\"" + game.ref + "\" class=\"game_ref\">\n  <input onblur\"changeTitle(" + game.id + ")\" id='" + game.id + "' type='text' value='" + game.title + "' class=\"game_title-update\">\n  <input onblur\"changePrice(" + game.id + ")\" id='" + game.id + "' type='number' value='" + game.price + "' class=\"game_price-update\">\n  <button onclick=\"deleteGame(" + game.id + ")\" id='" + game.id + "' class=\"game_id\">delete</button>\n</div>");
+            return (html += "<div class=\"game\">\n        <a href=\"" + game.ref + "\" class=\"game_ref-wrapper\">\n  <div class=\"game_image\">\n  <img src=\"./images/" + game.src + "\">\n  </div>\n  </a>\n  <input onblur=\"changeTitle(event," + game.id + ")\" id='" + game.id + "' type='text' value='" + game.title + "' class=\"game_title-update\">\n  <input onblur=\"changePrice(event," + game.id + ")\" id='" + game.id + "' type='number' value='" + game.price + "' class=\"game_price-update\">\n  <input onblur=\"changeRef(event)\" id='" + game.id + "' type=\"text\" value=\"" + game.ref + "\" class=\"game_ref\">\n  <button onclick=\"deleteGame(" + game.id + ")\" id='" + game.id + "' class=\"game_id\">delete</button>\n</div>");
         });
         document.querySelector(".wrapper_table-bottom").innerHTML = html;
     }
@@ -106,12 +141,3 @@ function handleSrcPreview(ev) {
 function uid() {
     return Date.now().toString(36) + Math.random().toString(36).substring(2);
 }
-// //     const gameStore = {
-// //     gamesList: [],
-// //     getGames: async function () {
-// //         this.gamesList = data
-// //         console.log(data);
-// //     },
-// // }
-// // gameStore.getGames()
-// // console.log(gameStore);
