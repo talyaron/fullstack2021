@@ -1,0 +1,13 @@
+.title {
+  display: flex;
+  justify-content: center;
+}
+
+h4 {
+  color: red;
+}
+
+.formId {
+  display: flex;
+  justify-content: center;
+}

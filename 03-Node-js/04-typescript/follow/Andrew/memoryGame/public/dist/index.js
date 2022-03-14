@@ -35,9 +35,9 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 var gameState = {
+    playerId: "",
     difficulty: "easy",
     cardBackground: "https://i.imgur.com/ETlethM.jpeg",
-    cardIds: [],
     time: 0,
     moves: 0,
     cardsInPlay: 0,
@@ -67,7 +67,7 @@ var gameState = {
             var data;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, axios.get("/getCard?id=" + card.id)];
+                    case 0: return [4 /*yield*/, axios.get("/getCard?id=" + card.id + "&player=" + this.playerId)];
                     case 1:
                         data = (_a.sent()).data;
                         card.childNodes[3].style.backgroundImage = "url(" + data + ")";
@@ -104,7 +104,7 @@ var gameState = {
             var data, cards_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, axios.get("/checkPair?firstId=" + id + "&secondId=" + this.lastCardId)];
+                    case 0: return [4 /*yield*/, axios.get("/checkPair?firstId=" + id + "&secondId=" + this.lastCardId + "&playerId=" + this.playerId)];
                     case 1:
                         data = (_a.sent()).data;
                         if (data) {
@@ -138,8 +138,9 @@ var gameState = {
                         document.querySelector('.main').classList.toggle('in-vis');
                         var win = document.querySelector('.win');
                         win.classList.toggle('in-vis');
-                        win.innerHTML = "<h2>Congratulations!</h2>\n                                <h3>You won in " + _this.moves + " turns, <br>\n                                taking you " + gameTimeMin_1 + ":" + gameTimeSec_1 + " seconds.</h3>";
+                        win.innerHTML = "<h2>Congratulations!</h2>\n                                <h3>You won in " + _this.moves + " turns, <br>\n                                taking you " + gameTimeMin_1 + ":" + gameTimeSec_1 + " seconds.</h3>\n                                <form onsubmit=\"handleWin(event)\">\n                                <label for=\"name\">\n                                <input type=\"text\" name=\"name\" id=\"name\">\n                                </label>\n                                <input type=\"submit\" name=\"start\" value=\"Submit\" id=\"button\">\n                                </form>\n                                ";
                     }, 800);
+                    this.time = gameTime;
                 }
                 return [2 /*return*/];
             });
@@ -177,11 +178,48 @@ function handleForm(ev) {
                     return [4 /*yield*/, axios.post('/initGame', { difficulty: gameState.difficulty })];
                 case 1:
                     data = (_b.sent()).data;
+                    gameState.playerId = data.pop();
                     gameState.renderCards(data);
-                    this.time = performance.now();
+                    gameState.time = performance.now();
                     gameState.playGame();
                     return [2 /*return*/];
             }
         });
     });
+}
+function handleWin(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        var data;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    ev.preventDefault();
+                    return [4 /*yield*/, axios.post('/endGame', { name: ev.target[0].value, id: gameState.playerId, time: gameState.time, turns: gameState.moves })];
+                case 1:
+                    data = (_a.sent()).data;
+                    renderLeaderBoards(data);
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+;
+function renderLeaderBoards(leaderBoard) {
+    console.log(leaderBoard);
+    console.dir(leaderBoard);
+    var html = "";
+    for (var player in leaderBoard) {
+        var time = convertTime(leaderBoard[player].time);
+        html += "<div class=\"player\">\n                <p>" + leaderBoard[player].name + "</p>\n                <p>" + time[0] + ":" + time[1] + "</p>\n                <p>" + leaderBoard[player].turns + "</p>\n                </div>";
+    }
+    document.querySelector('.win').innerHTML = html;
+}
+;
+function convertTime(time) {
+    var convertedTime = [];
+    convertedTime.push(Math.floor(time / 60000));
+    convertedTime.push((Math.floor((time / 1000) % 60)).toString());
+    if (parseInt(convertedTime[1]) < 10)
+        convertedTime[1] = "0" + convertedTime[1];
+    return convertedTime;
 }

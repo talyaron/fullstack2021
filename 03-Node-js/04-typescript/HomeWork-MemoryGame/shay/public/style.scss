@@ -1,0 +1,105 @@
+body {
+    background-image: url("https://static1.cbrimages.com/wordpress/wp-content/uploads/2019/08/Marvel-Vs.-DC.jpg");
+    background-size: cover;
+    font-family: 'Comic Neue', cursive;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+height: fit-content;
+    .head {
+        background: linear-gradient(70deg, rgba(248, 199, 208, 0.548), rgba(214, 192, 255, 0.452));
+        width: 1150px;
+        height: 200px;
+        text-align: center;
+        margin: auto;
+
+        h1 {
+            text-align: center;
+
+            font-size: 72px;
+            background: -webkit-linear-gradient(rgb(255, 0, 0), rgb(0, 57, 180));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+            .marvel {
+                height: 90px;
+                width: 150px;
+            }
+
+            .dc {
+                width: 100px;
+                height: 90px;
+            }
+        }
+    }
+
+    .buttonStyle {
+
+        text-align: center;
+        border-radius: 20px;
+        background: linear-gradient(70deg, rgba(248, 199, 208, 0.548), rgba(214, 192, 255, 0.452));
+        width: 200px;
+        margin: auto;
+        border: 1px solid rgb(92, 62, 109);
+
+        button {
+
+            width: 200px;
+            height: 100px;
+            background-color: transparent;
+            background: -webkit-linear-gradient(rgb(255, 0, 0), rgb(0, 57, 180));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            border: transparent;
+            font-size: 30px;
+            font-weight: bold;
+
+        }
+    }
+
+    .root {
+        height: fit-content;
+        display: flex;
+        justify-content: center;
+
+        .cardsgrid {
+            gap: 5px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+           // perspective: 1000px;
+          //  margin-top: -192px;
+            .flip {
+                transform: rotateY(180deg);
+            }
+
+            .color {
+                width: 300px;
+                height: 200px;
+                cursor: pointer;
+                transform-style: preserve-3d;
+                transition: transform .5s;
+                .backCard {
+                    width: 300px;
+                    height: 200px;
+                    position: relative;
+                    backface-visibility: hidden;
+                  //  margin-top: -300px;
+                }
+
+                .frontCard {
+                    transform: rotateY(180deg);
+                     width: 300px;
+                     height: 200px;
+                    position: absolute;
+                    backface-visibility: hidden;
+
+
+                }
+
+            }
+        }
+    }
+
+
+}

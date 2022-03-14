@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <link rel="stylesheet" href="./dist/style.css">
+  <title>Document</title>
+</head>
+
+<body onload="handleLoadErp()">
+  <div class="container">
+    <div class="container__navbar">
+        <img class="logo" src="https://media.gettyimages.com/vectors/esports-gaming-pc-icon-vector-id1201542734"
+            alt="">
+        <nav>
+            <ul>
+                <li><a href="index.html">Store</a></li>
+                <li><a href="erp.html">Erp</a></li>
+
+            </ul>
+        </nav>
+        <button class="container__log-btn" onclick="document.getElementById('singIN').style.display='block'">Login /
+            SignUp</button>
+    </div>
+
+
+
+    <div>------------------------------------------------------------------------------------</div>
+    <form onsubmit="handleAddGame(event)">
+      <div class="wrapper">
+        <label>Input Title :</label>
+        <input type="text" name="title">
+        <label>Input Price :</label>
+        <input type="text" name="price">
+        <label>Description :</label>
+        <input type="text" name="description">
+        <label>ADD IMG :</label>
+        <input type="text" name="img">
+        <label>Select Type :</label>
+        <select name="selectType" id="selectType">
+          <option value="Choose type" value disabled selected>Choose type</option>
+          <option value="strategy">Strategy</option>
+          <option value="shooter">Shooter</option>
+          <option value="rpg">RPG</option>
+          <option value="survival">Survival</option>
+        </select>
+        <label>Input ID :</label>
+        <input type="text" name="id">
+      </div>
+      <div class="btnwrapper">
+        <input class="btn" type="submit" value="submit">
+      </div>
+    </form>
+  
+
+
+
+  <div id="root"></div>
+  <script src="./dist/index.js"></script>
+</body>
+
+</html>

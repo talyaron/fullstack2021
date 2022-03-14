@@ -26,12 +26,38 @@ const cards = [
     { src: './images/Star Wars', id: 14, pairId: 6 },
     { src: './images/the good surgeon', id: 10, pairId: 7 },
 ];
+const pairs = [
+    [1, 15], [15, 1],
+    [2, 16], [16, 2],
+    [3, 13], [13, 3],
+    [4, 12], [12, 4],
+    [5, 11], [11, 5],
+    [6, 9], [9, 6],
+    [7, 14], [14, 7],
+    [8, 10], [10, 8],
+];
+app.get('/isPair', (req, res) => {
+    try {
+        res.send(pairs);
+    }
+    catch (error) {
+        res.send({ error: error.message });
+    }
+});
 app.get('/new-game', (req, res) => {
     try {
+        shuffleCards(cards);
         res.send(cards);
     }
     catch (error) {
         res.send({ error: error.message });
+    }
+    function shuffleCards(cards) {
+        let shuffled = cards
+            .map((value) => ({ value, sort: Math.random() }))
+            .sort((a, b) => a.sort - b.sort)
+            .map(({ value }) => value);
+        return shuffled;
     }
 });
 app.listen(port, () => {

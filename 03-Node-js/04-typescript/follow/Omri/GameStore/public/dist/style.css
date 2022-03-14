@@ -1,0 +1,62 @@
+body {
+  background-color: darkgoldenrod;
+  margin: 0;
+}
+
+.manage {
+  display: grid;
+  grid-template-columns: 0.5fr 1.5fr;
+  grid-template-rows: repeat(3, 1fr);
+  width: 90vw;
+  height: 50vh;
+  margin: auto;
+  margin-top: 1rem;
+  border: 2px solid blue;
+  border-radius: 8px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.manage__header {
+  grid-row: span 3;
+  border-right: 2px solid blue;
+}
+.manage__header h2 {
+  text-align: center;
+  margin-top: 50%;
+  font-weight: 300;
+}
+.manage__byId {
+  justify-self: center;
+  margin-top: 0.8rem;
+}
+.manage__addGame {
+  justify-self: center;
+}
+.manage__updateGame {
+  justify-self: center;
+}
+
+.store {
+  width: 90vw;
+  margin: auto;
+  margin-top: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  border: 2px solid blue;
+}
+.store__header {
+  border-bottom: 2px solid blue;
+  text-align: center;
+  width: 90vw;
+}
+.store__gamesList {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  gap: 10px;
+}
+.store__gamesList img {
+  width: 300px;
+  height: 150px;
+}
+.store__gamesList p {
+  text-align: left;
+}

@@ -1,0 +1,84 @@
+body {
+  background-image: url("https://static1.cbrimages.com/wordpress/wp-content/uploads/2019/08/Marvel-Vs.-DC.jpg");
+  background-size: cover;
+  font-family: "Comic Neue", cursive;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: fit-content;
+}
+body .head {
+  background: linear-gradient(70deg, rgba(248, 199, 208, 0.548), rgba(214, 192, 255, 0.452));
+  width: 1150px;
+  height: 200px;
+  text-align: center;
+  margin: auto;
+}
+body .head h1 {
+  text-align: center;
+  font-size: 72px;
+  background: -webkit-linear-gradient(red, #0039b4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+body .head h1 .marvel {
+  height: 90px;
+  width: 150px;
+}
+body .head h1 .dc {
+  width: 100px;
+  height: 90px;
+}
+body .buttonStyle {
+  text-align: center;
+  border-radius: 20px;
+  background: linear-gradient(70deg, rgba(248, 199, 208, 0.548), rgba(214, 192, 255, 0.452));
+  width: 200px;
+  margin: auto;
+  border: 1px solid #5c3e6d;
+}
+body .buttonStyle button {
+  width: 200px;
+  height: 100px;
+  background-color: transparent;
+  background: -webkit-linear-gradient(red, #0039b4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  border: transparent;
+  font-size: 30px;
+  font-weight: bold;
+}
+body .root {
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+}
+body .root .cardsgrid {
+  gap: 5px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+body .root .cardsgrid .flip {
+  transform: rotateY(180deg);
+}
+body .root .cardsgrid .color {
+  width: 300px;
+  height: 200px;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+body .root .cardsgrid .color .backCard {
+  width: 300px;
+  height: 200px;
+  position: relative;
+  backface-visibility: hidden;
+}
+body .root .cardsgrid .color .frontCard {
+  transform: rotateY(180deg);
+  width: 300px;
+  height: 200px;
+  position: absolute;
+  backface-visibility: hidden;
+}

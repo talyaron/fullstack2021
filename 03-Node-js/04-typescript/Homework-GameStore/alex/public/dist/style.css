@@ -1,0 +1,12 @@
+table, th, td {
+  border: 1px solid black;
+  width: 500px;
+  height: 150px;
+}
+
+img {
+  position: relative;
+  width: 50%;
+  height: 50%;
+  object-fit: cover;
+}

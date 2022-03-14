@@ -1,0 +1,71 @@
+body {
+    width: 100%;
+    margin: auto;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 20px;
+}
+
+#root {
+    display: grid;
+    width: 800px;
+    margin: auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    border: 4px solid rgb(19, 19, 19);
+    border-radius: 10px;
+    background-color: #acb1b1;
+
+    div {
+        width: 100%;
+        height: 100%;
+
+        img {
+            box-sizing: border-box;
+            object-fit: contain;
+            width: 80%;
+            padding: 4px;
+        }
+    }
+
+    .container {
+        margin: 20px;
+        width: 150px;
+        height: 200px;
+        perspective: 1000px;
+    }
+
+    .card {
+        transition: transform 0.5s;
+        transform-style: preserve-3d;
+        cursor: pointer;
+    }
+
+    .front,
+    .back {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        backface-visibility: hidden;
+        border-radius: 10px;
+    }
+
+    .front {
+        border: 2px solid black;
+        background: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/faa4901c-faff-4f66-bc2d-ff0500d9551a/dazglsi-1d054a7c-0ccc-42e8-9ea7-9c810cefe01a.png/v1/fill/w_400,h_560,strp/fantasy_card_back__1_by_gameliberty_dazglsi-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NTYwIiwicGF0aCI6IlwvZlwvZmFhNDkwMWMtZmFmZi00ZjY2LWJjMmQtZmYwNTAwZDk1NTFhXC9kYXpnbHNpLTFkMDU0YTdjLTBjY2MtNDJlOC05ZWE3LTljODEwY2VmZTAxYS5wbmciLCJ3aWR0aCI6Ijw9NDAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.misctyg7z_NIM1zz-Ccl5cKRZl1zkqEueqjejaeJHLg");
+        background-repeat: no-repeat;
+        background-size: 150px 200px;
+        color: rgb(214, 214, 214);
+    }
+
+    .back {
+        border: 2px solid black;
+        transform: rotateY(180deg);
+    }
+}

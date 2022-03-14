@@ -48,7 +48,6 @@ var game = {
                         return [4 /*yield*/, axios.get("/new-game")];
                     case 1:
                         data = (_a.sent()).data;
-                        console.log(data);
                         if (Array.isArray(data))
                             return [2 /*return*/, data];
                         return [3 /*break*/, 3];
@@ -61,28 +60,6 @@ var game = {
             });
         });
     },
-    shuffleCards: function () {
-        return __awaiter(this, void 0, void 0, function () {
-            var _a, shuffled;
-            return __generator(this, function (_b) {
-                switch (_b.label) {
-                    case 0:
-                        _a = this;
-                        return [4 /*yield*/, this.getCards()];
-                    case 1:
-                        _a.cards = _b.sent();
-                        shuffled = this.cards
-                            .map(function (value) { return ({ value: value, sort: Math.random() }); })
-                            .sort(function (a, b) { return a.sort - b.sort; })
-                            .map(function (_a) {
-                            var value = _a.value;
-                            return value;
-                        });
-                        return [2 /*return*/, shuffled];
-                }
-            });
-        });
-    },
     renderGame: function () {
         return __awaiter(this, void 0, void 0, function () {
             var html, _a, emptyWrapper, wrapper;
@@ -91,7 +68,7 @@ var game = {
                     case 0:
                         html = "";
                         _a = this;
-                        return [4 /*yield*/, this.shuffleCards()];
+                        return [4 /*yield*/, this.getCards()];
                     case 1:
                         _a.cards = _b.sent();
                         emptyWrapper = document.querySelector(".wrapper__empty");
@@ -132,7 +109,6 @@ var game = {
                     hasFlippedCard = false;
                     secondCard = card;
                 }
-                console.log(card);
                 return handleCardMatching(firstCard, secondCard, hasFlippedCard);
             }
             throw new Error("no card was found");
@@ -144,6 +120,7 @@ var game = {
     }
 };
 function handleCardMatching(firstCard, secondCard, hasFlippedCard) {
+    var j = 0;
     var pairs = [
         [1, 15], [15, 1],
         [2, 16], [16, 2],
@@ -159,10 +136,10 @@ function handleCardMatching(firstCard, secondCard, hasFlippedCard) {
             var i = pairs_1[_i];
             var matchCheck = [firstCard.id, secondCard.id];
             if (i.toString() === matchCheck.toString()) {
-                console.log("its a match");
-                return;
+                j++;
+                console.log("its a match! " + j);
+                return j;
             }
-            console.log('nope');
         }
         setTimeout(function () {
             firstCard.classList.toggle("flipped");

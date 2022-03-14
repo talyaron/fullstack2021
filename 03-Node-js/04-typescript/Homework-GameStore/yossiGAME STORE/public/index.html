@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./dist/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.0/axios.min.js"
+        integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>THE FULL STACK ART GALLERY</title>
+</head>
+
+<body onload="handleLoad(event)">
+    <div class="wrapper">
+        <div class="selectWrapper">
+            <a href="">
+                <h1 class="texture-text">GAME STORE ERP</h1>
+            </a>
+
+            <input type="number" class="SearchId" name="id" placeholder="Search By Id" onkeyup="handleSearchId(event)">
+            <input type="number" class="SearchId" name="price" placeholder="Search By Price" onkeyup="handleSearchPrice(event);">
+            <div>
+                <form class="addGame" onsubmit="handleAddGame(event)">
+                    <input type="text" name="name" placeholder="Add Name...">
+                    <input type="number" name="price" placeholder="Add Price...">
+                    <input type="number" name="id" placeholder="Add Id...">
+                    <input type="text" name="img" placeholder="Add img...">
+                    <input class="addeBtn" type="submit" value="Add New Game">
+                </form>
+            </div>
+        </div>
+        <div id="root"></div>
+    </div>
+    <script src="./dist/index.js"></script>
+</body>
+
+</html>
