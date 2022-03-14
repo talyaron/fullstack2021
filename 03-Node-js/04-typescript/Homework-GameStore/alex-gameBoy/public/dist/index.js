@@ -98,7 +98,7 @@ function renderGames() {
                 case 1:
                     games = _a.sent();
                     if (games) {
-                        games.map(function (game) {
+                        games.forEach(function (game) {
                             html += "\n      <table>\n        <tr>\n          <th>Image</th>\n          <th>Name</th>\n          <th>Release</th>\n          <th>Description</th>\n        </tr>\n        <tr>\n        <td>\n        <p contenteditable=\"true\"> \n         <img src=\"" + game.Img + ".jpg\">\n        </p>\n        </td>\n            <td><p contenteditable=\"true\">" + game.Name + "</p></td>\n            <td><p contenteditable=\"true\">" + game.Release + "</p></td>\n            <td><p contenteditable=\"true\">" + game.Description + "</p></td>\n        </tr>\n      </table>\n      <button>save changes</button>\n      ";
                         });
                         root = document.querySelector('#root');
@@ -118,7 +118,7 @@ function handleSearchGame(event) {
                 case 0: return [4 /*yield*/, axios.get("/get-search?searchGame=" + event.target.value)];
                 case 1:
                     games = (_a.sent()).games;
-                    renderGames(games);
+                    renderGames();
                     return [2 /*return*/];
             }
         });

@@ -57,7 +57,7 @@ async function getOwnerGames() {
   const games = await getOwnerGames();
 
   if (games) {
-    games.map(game => {
+    games.forEach(game => {
       html += `
       <table>
         <tr>
@@ -94,6 +94,6 @@ async function handleSearchGame(event) {
   // console.log('sdg')
   const { games } = await axios.get(`/get-search?searchGame=${event.target.value}`)
 
-  renderGames(games);
+  renderGames();
 
 }
