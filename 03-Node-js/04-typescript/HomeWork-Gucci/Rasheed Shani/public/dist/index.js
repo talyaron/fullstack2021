@@ -100,7 +100,7 @@ function handleRemoveItems(ev) {
                 case 0:
                     ev.preventDefault();
                     name = ev.target.elements.remove.value;
-                    return [4 /*yield*/, axios.put('/delete-items', { name: name })];
+                    return [4 /*yield*/, axios.post('/delete-items', { name: name })];
                 case 1:
                     data = (_a.sent()).data;
                     ev.target.reset();
@@ -110,6 +110,16 @@ function handleRemoveItems(ev) {
         });
     });
 }
+// async function handlePriceAsc(ev) {
+//   const {data}= await axios.get('/get-items-by-ascending');
+//   //const gender = ev.target.dataset.gender;
+//   render(data);
+// }
+// async function  handlePriceDesc(ev){
+//   const {data}= await axios.get('/get-items-by-descending');
+//   render(data);
+//   console.log(data)
+// }
 function render(data) {
     var root = document.getElementById('root');
     var html = "";
@@ -118,7 +128,7 @@ function render(data) {
     });
     root.innerHTML = html;
 }
-//category buttons
+// category buttons
 // async function handleSearch(ev) {
 //   const searchTerm = ev.target.value;
 //   const {data} = await axios.get('/search-items',{searchTerm});  

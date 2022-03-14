@@ -12,8 +12,12 @@ const port = process.env.PORT || 3000;
 
 app.use(express.static('public'));
 
-app.get('/musclebooks' , (req, res) => {
+app.get('/get-books' ,function (req, res) {
+    console.log(req.query)
     const books = req.query.books
+    console.log(books)
+
+
     const img = req.query.img
     if(books){
     const filterdbooks = books.filter(auto => auto.name === books); 
@@ -27,4 +31,10 @@ app.get('/musclebooks' , (req, res) => {
     }
 })
 
-app.listen(port, () => {console.log('server listen to port',port)})
+
+app.listen(port, () => {
+    return console.log(`Express is listening at http://localhost:${port}`);
+});
+
+
+
