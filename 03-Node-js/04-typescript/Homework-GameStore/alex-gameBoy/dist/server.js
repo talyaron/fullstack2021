@@ -29,6 +29,7 @@ app.get('/get-games', (req, res) => {
 });
 app.get('/get-search', (req, res) => {
     const search = req.query.searchGame;
+    console.log(req.query);
     const filtered = filterSearch(search);
     res.send(filtered);
 });
@@ -39,19 +40,22 @@ app.delete('/delete-game', (req, res) => {
     console.log(gameBoy);
     res.send({ gameBoy, ok: true });
 });
-function filterSearch(event) {
+function filterSearch(search) {
     try {
-        const search = event.target.value;
+        // const search = event.target.value
+        // console.log(search);
         console.log(search);
         if (search) {
             const regex = new RegExp(search, 'i');
             // return gameBoy.filter((game)=> regex.test(game.Name) || regex.test(game.Description));
             const filtered = gameBoy.filter((game) => regex.test(game.Name) || regex.test(game.Description));
-            console.log(filtered);
+            console.log("filter", filtered);
+            return filtered;
         }
     }
     catch (err) {
-        console.error(Error);
+        console.error(err);
+        return [];
     }
 }
 // const uid = function () {
