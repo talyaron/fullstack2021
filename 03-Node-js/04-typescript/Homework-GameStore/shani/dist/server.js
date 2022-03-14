@@ -52,7 +52,6 @@ app.get('/search-game', (req, res) => {
     const search = req.query.search;
     const filteredGame = filteredGameSearch(search);
     res.send(filteredGame);
-    res.send(games);
 });
 function filteredGameSearch(search) {
     if (search) {
