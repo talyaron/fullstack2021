@@ -27,8 +27,8 @@ function renderGame(data: Array<any>) {
   let html = '<section class="cardsgrid">';
 
   data.forEach((game) => {
-    html += `<div class="color" id="${game.uniqueId}" >
-     <img class="frontCard" src="${game.photo}" id="${game.pairdId}" >
+    html += `<div class="color" id="${game.pairID}">
+     <img class="frontCard" src="${game.photo}"  id="${game.uniqueID}">
         <img class="backCard" onclick="handleFlipedCard()"  src="https://www.cinemascomics.com/wp-content/uploads/2021/05/Un-actor-de-Marvel-Studios-se-quiere-pasar-a-DC-Comics.jpg">
         
         </div>
@@ -42,38 +42,35 @@ function renderGame(data: Array<any>) {
  
   let lockBoard = false;
 async function handleFlipedCard(){
+
+
+
+
   const cards = document.querySelectorAll('.color')
   cards.forEach(card=>card.addEventListener('click',flipCard))
  
-  
 }
 async function flipCard(){
-  const { data } = await axios.get("/newGame");
+  //const { data } = await axios.get("/newGame");
  this.classList.add('flip')
  
   if(!hasFlipped){
     hasFlipped = true;
     firstCard =this;
     
-    
-  //  console.log(hasFlipped, firstCard);
-    return;
   }
   else{
    
     secondCard = this;
- 
- 
-    checkForMatch()
 
-    
+    checkForMatch()
   }
   
 }
 async function checkForMatch(){
 
 
-  let isMatch = firstCard.pairdID === secondCard.pairID;
+  let isMatch = firstCard.id === secondCard.id;
 console.log(firstCard, secondCard);
 
   
