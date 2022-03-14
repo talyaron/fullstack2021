@@ -37,88 +37,68 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 function initApp() {
     getOwnerGames();
 }
-// function renderGames(data: Array<any>) {
-//   let html = '';
-//   data.forEach((game) => {
-//     html += `  
-//         <table>
-//         <tr>
-//           <th>Image</th>
-//           <th>Name</th>
-//           <th>Release</th>
-//           <th>Description</th>
-//         </tr>
-//         <tr>
-//         <td>
-//         <p contenteditable="true"> 
-//          <img src="${game.Img}.jpg">
-//         </p>
-//         </td>
-//             <td><p contenteditable="true">${game.Name}</p></td>
-//             <td><p contenteditable="true">${game.Release}</p></td>
-//             <td><p contenteditable="true">${game.Description}</p></td>
-//         </tr>
-//       </table>
-//       <button>save changes</button>
-//       `
-//     const root = document.querySelector('#root')
-//     root.innerHTML = html;
-//   })
-// }
 function getOwnerGames() {
     return __awaiter(this, void 0, void 0, function () {
-        var data, error_1;
+        var data;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, axios.get('/get-games')];
+                case 1:
+                    data = (_a.sent()).data;
+                    console.log(data);
+                    renderGames(data);
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+function renderGames(data) {
+    var html = '';
+    data.forEach(function (game) {
+        html += "  \n        \n        <table>\n        <tr>\n          <th>Image</th>\n          <th>Name</th>\n          <th>Release</th>\n          <th>Description</th>\n        </tr>\n        <tr>\n        <td>\n        <p contenteditable=\"true\"> \n         <img src=\"" + game.Img + ".jpg\">\n        </p>\n        </td >\n            <td><p contenteditable=\"true\">" + game.Name + "</p></td>\n            <td><p contenteditable=\"true\">" + game.Release + "</p></td>\n            <td><p contenteditable=\"true\">" + game.Description + "</p></td>\n        </tr>\n      </table>\n      <button>save changes</button>\n      <button onclick=\"handleDeleteGames(" + game.id + ")\">delete</button>\n      ";
+        var root = document.querySelector('#root');
+        root.innerHTML = html;
+    });
+}
+function handleSearchGame(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        var name, data, err_1;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     _a.trys.push([0, 2, , 3]);
-                    return [4 /*yield*/, axios.get('/get-games')];
+                    name = ev.target.value;
+                    console.log(ev.target.value);
+                    return [4 /*yield*/, axios.get("/get-search?searchGame=" + name)];
                 case 1:
                     data = (_a.sent()).data;
-                    if (Array.isArray(data))
-                        return [2 /*return*/, data];
-                    throw new Error("data is not an array");
+                    console.log(data);
+                    if (data) {
+                        renderGames(data);
+                    }
+                    return [3 /*break*/, 3];
                 case 2:
-                    error_1 = _a.sent();
-                    console.error(error_1);
+                    err_1 = _a.sent();
+                    console.error(err_1);
                     return [3 /*break*/, 3];
                 case 3: return [2 /*return*/];
             }
         });
     });
 }
-function renderGames() {
+function handleDeleteGames(id) {
     return __awaiter(this, void 0, void 0, function () {
-        var html, games, root;
+        var data, ok, gameBoy;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    html = "";
-                    return [4 /*yield*/, getOwnerGames()];
+                    console.log(id);
+                    return [4 /*yield*/, axios["delete"]('/delete-game', { data: { id: id } })];
                 case 1:
-                    games = _a.sent();
-                    if (games) {
-                        games.map(function (game) {
-                            html += "\n      <table>\n        <tr>\n          <th>Image</th>\n          <th>Name</th>\n          <th>Release</th>\n          <th>Description</th>\n        </tr>\n        <tr>\n        <td>\n        <p contenteditable=\"true\"> \n         <img src=\"" + game.Img + ".jpg\">\n        </p>\n        </td>\n            <td><p contenteditable=\"true\">" + game.Name + "</p></td>\n            <td><p contenteditable=\"true\">" + game.Release + "</p></td>\n            <td><p contenteditable=\"true\">" + game.Description + "</p></td>\n        </tr>\n      </table>\n      <button>save changes</button>\n      ";
-                        });
-                        root = document.querySelector('#root');
-                        root.innerHTML = html;
-                    }
-                    return [2 /*return*/];
-            }
-        });
-    });
-}
-renderGames();
-function handleSearchGame(event) {
-    return __awaiter(this, void 0, void 0, function () {
-        var games;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, axios.get("/get-search?searchGame=" + event.target.value)];
-                case 1:
-                    games = (_a.sent()).games;
-                    renderGames(games);
+                    data = _a.sent();
+                    ok = data.ok, gameBoy = data.gameBoy;
+                    console.log(gameBoy);
+                    console.log(ok);
                     return [2 /*return*/];
             }
         });
