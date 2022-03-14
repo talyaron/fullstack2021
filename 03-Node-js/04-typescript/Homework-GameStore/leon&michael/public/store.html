@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./dist/style2.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.0/axios.min.js"
+        integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://kit.fontawesome.com/76fdd0e120.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+
+    <title>Document</title>
+</head>
+
+<body onload="handleLoad(event)">
+
+    <div class="farDiv">
+        <i class="far fa-2x fa-grin"></i>
+    </div>
+
+
+    <section class="hero">
+        <div class="main-width">
+            <header>
+                <div class="logo">
+                    <h2><a href="#">GameOn</a></h2>
+                </div>
+                <nav>
+                    <ul>
+                        <li class="active"><a href="#">Games</a></li>
+                        <li class="#"><a href="#">Reviews</a></li>
+                        <li class="#"><a href="#">Faq</a></li>
+                        <li class="#"><a href="#">Chat</a></li>
+                        <li class="btn"><a href="#">Download</a></li>
+                    </ul>
+                </nav>
+            </header>
+
+
+            <div class="content">
+
+                <div class="main-text">
+                    <h6>#1 Trending</h6>
+                    <h3>Epic Games</h3><br>
+                    <h1>FORTNITE</h1>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure ab vero voluptatibus pariatur aut
+                        eaque non facilis deserunt iste, dolores, doloribus nobis dolore minus in at voluptatem
+                        exercitationem nulla ratione!
+                        Amet fugit nostrum vel, explicabo eum assumenda excepturi minima sint perspiciatis expedita
+                        voluptatibus nisi exercitationem omnis laudantium nobis. Minima ea, maxime est deleniti officia
+                        consequuntur cum pariatur quis doloribus. Dolorum!</p>
+                    <a href="#">Play Now</a>
+                    <a href="#" class="cta"><i class="fas fa-play"></i>Watch Game Play</a>
+
+                </div>
+
+                <div class="social">
+                    <a href="#"><i class="fas fa-apple-alt"></i></a>
+                    <a href="#"><i class="fas fa-play-circle"></i></a>
+                    <a href="#"><i class="fas fa-boxes"></i></a>
+
+
+                </div>
+
+                <div id="root" class="root"></div>
+
+            </div>
+
+
+
+        </div>
+    </section>
+
+
+    <div class="container">
+        <div class="header">
+            <h2>Create Account</h2>
+        </div>
+        <form class="form" id="form">
+            <div class="form-control">
+                <label for="">Username</label>
+                <input type="text" name="" id="username" placeholder="username">
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small></small>
+            </div>
+
+            <div class="form-control">
+                <label for="">Email</label>
+                <input type="email" name="" id="email" placeholder="Hello email@email.com">
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small></small>
+            </div>
+
+            <div class="form-control">
+                <label for="">Password</label>
+                <input type="password" name="" id="password" placeholder="password">
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small></small>
+            </div>
+
+            <div class="form-control">
+                <label for="">Password Check</label>
+                <input type="password" name="" id="password2" placeholder="password two">
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small></small>
+            </div>
+
+
+            <button>Submit</button>
+
+            <div class="alreadyRegistered">
+                <h4>Or click <span id="clicked" onclick="handleLogin()">log-in</span></h4>
+            </div>
+
+        </form>
+
+        
+
+    </div>
+
+    <div class="container2" onsubmit="showLoginForm(event)">
+        <form id="loginForm" class="loginForm">
+            <input type="text" name="name" placeholder="username" id="usernameLogin">
+            <input type="password" name="password" placeholder="password" id="emailLogin">
+            <button>Log-in</button>
+            <div id="container2Root"></div>
+        </form>
+
+    </div>
+
+    <div id="sucssesToRegister" class="sucssesToRegister"></div>
+
+    <div class="fab"><span>+</span></div>
+
+
+
+    <script src="./dist/index.js"></script>
+</body>
+
+</html>
