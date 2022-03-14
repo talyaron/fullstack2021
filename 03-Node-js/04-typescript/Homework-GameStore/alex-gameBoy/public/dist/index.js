@@ -62,18 +62,26 @@ function renderGames(data) {
 }
 function handleSearchGame(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var name, result;
+        var name, data, err_1;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
+                    _a.trys.push([0, 2, , 3]);
                     name = ev.target.value;
                     console.log(ev.target.value);
                     return [4 /*yield*/, axios.get("/get-search?searchGame=" + name)];
                 case 1:
-                    result = _a.sent();
-                    console.log(result);
-                    renderGames(result);
-                    return [2 /*return*/];
+                    data = (_a.sent()).data;
+                    console.log(data);
+                    if (data) {
+                        renderGames(data);
+                    }
+                    return [3 /*break*/, 3];
+                case 2:
+                    err_1 = _a.sent();
+                    console.error(err_1);
+                    return [3 /*break*/, 3];
+                case 3: return [2 /*return*/];
             }
         });
     });

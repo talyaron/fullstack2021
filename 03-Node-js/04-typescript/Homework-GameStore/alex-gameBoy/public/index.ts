@@ -42,13 +42,20 @@ function renderGames(data: Array<any>) {
 }
 
 async function handleSearchGame(ev) {
+  try{
   const name = ev.target.value;
   console.log(ev.target.value);
-  const result = await axios.get(`/get-search?searchGame=${name}`);
+  const {data} = await axios.get(`/get-search?searchGame=${name}`);
 
-  console.log(result);
+  console.log(data);
+  if(data){
 
-  renderGames(result);
+  renderGames(data);
+  }
+  }catch(err){
+    console.error(err)
+  }
+  
 
 }
 async function handleDeleteGames(id) {
