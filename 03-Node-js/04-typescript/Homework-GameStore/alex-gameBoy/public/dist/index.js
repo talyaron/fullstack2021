@@ -61,12 +61,22 @@ function renderGames(data) {
     });
 }
 function handleSearchGame(ev) {
-    var gameData = axios.get("/get-search?searchGame=" + ev.target.value).then(function (_a) {
-        var game = _a.game;
-        console.log(game);
-    }).gameData;
-    renderGames(gameData);
-    console.log("this " + gameData);
+    return __awaiter(this, void 0, void 0, function () {
+        var name, result;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    name = ev.target.value;
+                    console.log(ev.target.value);
+                    return [4 /*yield*/, axios.get("/get-search?searchGame=" + name)];
+                case 1:
+                    result = _a.sent();
+                    console.log(result);
+                    renderGames(result);
+                    return [2 /*return*/];
+            }
+        });
+    });
 }
 function handleDeleteGames(id) {
     return __awaiter(this, void 0, void 0, function () {

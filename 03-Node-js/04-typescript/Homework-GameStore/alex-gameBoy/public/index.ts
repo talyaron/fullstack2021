@@ -41,14 +41,14 @@ function renderGames(data: Array<any>) {
 
 }
 
-function handleSearchGame(ev) {
+async function handleSearchGame(ev) {
+  const name = ev.target.value;
+  console.log(ev.target.value);
+  const result = await axios.get(`/get-search?searchGame=${name}`);
 
-  const { gameData } = axios.get(`/get-search?searchGame=${ev.target.value}`).then(({ game }) => {
-    console.log(game);
+  console.log(result);
 
-  })
-  renderGames(gameData);
-  console.log(`this ${gameData}`);
+  renderGames(result);
 
 }
 async function handleDeleteGames(id) {
@@ -57,6 +57,6 @@ async function handleDeleteGames(id) {
   const { ok, gameBoy } = data;
   console.log(gameBoy);
   console.log(ok);
-  
-  
+
+
 }
