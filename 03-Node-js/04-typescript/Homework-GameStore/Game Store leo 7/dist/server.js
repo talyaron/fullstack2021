@@ -34,7 +34,7 @@ let games = {
         }
     },
     deleteGame(id) {
-        this.gamesArr = this.gamesArr.filter((game) => game.id === id);
+        this.gamesArr = this.gamesArr.filter((game) => game.id !== id);
         console.log(this.gamesArr);
     }
 };
