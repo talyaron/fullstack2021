@@ -95,7 +95,6 @@ function handleAddGame(event) {
     });
 }
 function renderGames(data) {
-    console.log(data);
     var root = document.querySelector('#root');
     var html = '';
     data.forEach(function (game) {
@@ -109,24 +108,21 @@ function handleupdate(ev) {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    console.log(ev.target);
-                    _a.label = 1;
-                case 1:
-                    _a.trys.push([1, 3, , 4]);
+                    _a.trys.push([0, 2, , 3]);
                     ev.preventDefault();
                     updateGame = { name: ev.target.elements.name.value, price: ev.target.elements.price.valueAsNumber };
                     id = ev.target.id;
                     console.log(id);
                     return [4 /*yield*/, axios.patch("/update-games", __assign(__assign({}, updateGame), { id: id }))];
-                case 2:
+                case 1:
                     data = (_a.sent()).data;
                     renderGames(data);
-                    return [3 /*break*/, 4];
-                case 3:
+                    return [3 /*break*/, 3];
+                case 2:
                     error_3 = _a.sent();
                     console.error(error_3);
-                    return [3 /*break*/, 4];
-                case 4: return [2 /*return*/];
+                    return [3 /*break*/, 3];
+                case 3: return [2 /*return*/];
             }
         });
     });
@@ -138,7 +134,7 @@ function handleDelete(id) {
             switch (_a.label) {
                 case 0:
                     console.log(id);
-                    return [4 /*yield*/, axios["delete"]('/delete-games', { id: id })];
+                    return [4 /*yield*/, axios["delete"]('/delete-games', { data: { id: id } })];
                 case 1:
                     data = (_a.sent()).data;
                     renderGames(data);

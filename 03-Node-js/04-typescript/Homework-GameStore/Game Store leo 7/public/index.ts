@@ -24,7 +24,7 @@ async function handleAddGame(event){
 }
 
 function renderGames(data){
-    console.log(data);
+    
     
 const root=document.querySelector('#root')
 let html=''
@@ -45,7 +45,7 @@ root.innerHTML=html
 
  async function handleupdate(ev){
    
-   console.log(ev.target);
+   
    
      
      try{ ev.preventDefault()
@@ -67,9 +67,7 @@ root.innerHTML=html
 
 async function handleDelete(id) {
     console.log(id);
-    
-    const {data}= await axios.delete('/delete-games', {id});
-
+    const {data}= await axios.delete('/delete-games',{data:{id}});
     renderGames(data)
 }
 

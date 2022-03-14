@@ -48,7 +48,9 @@ updateGame(name,price,id){
   }
 },
 deleteGame(id){
-this.gamesArr=this.gamesArr.filter((game)=>game.id!== id)
+this.gamesArr=this.gamesArr.filter((game)=>game.id! === id)
+console.log(this.gamesArr);
+
 }
 
  }
@@ -71,6 +73,8 @@ app.patch('/update-games',(req,res)=>{
 
 app.delete('/delete-games',(req,res)=>{
   const  id = req.body.id
+  
+  
   games.deleteGame(id)
   res.send(games.gamesArr)
 })
