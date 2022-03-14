@@ -64,7 +64,7 @@ function renderGame(data) {
     var rootHTML = getRootElement();
     var html = '<section class="cardsgrid">';
     data.forEach(function (game) {
-        html += "<div class=\"color\" id=\"" + game.uniqueId + "\" >\n     <img class=\"frontCard\" src=\"" + game.photo + "\" id=\"" + game.pairdId + "\" >\n        <img class=\"backCard\" onclick=\"handleFlipedCard()\"  src=\"https://www.cinemascomics.com/wp-content/uploads/2021/05/Un-actor-de-Marvel-Studios-se-quiere-pasar-a-DC-Comics.jpg\">\n        \n        </div>\n      ";
+        html += "<div class=\"color\" id=\"" + game.pairID + "\">\n     <img class=\"frontCard\" src=\"" + game.photo + "\"  id=\"" + game.uniqueID + "\">\n        <img class=\"backCard\" onclick=\"handleFlipedCard()\"  src=\"https://www.cinemascomics.com/wp-content/uploads/2021/05/Un-actor-de-Marvel-Studios-se-quiere-pasar-a-DC-Comics.jpg\">\n        \n        </div>\n      ";
     });
     html += "</section>";
     rootHTML.innerHTML = html;
@@ -84,25 +84,18 @@ function handleFlipedCard() {
 }
 function flipCard() {
     return __awaiter(this, void 0, void 0, function () {
-        var data;
         return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, axios.get("/newGame")];
-                case 1:
-                    data = (_a.sent()).data;
-                    this.classList.add('flip');
-                    if (!hasFlipped) {
-                        hasFlipped = true;
-                        firstCard = this;
-                        //  console.log(hasFlipped, firstCard);
-                        return [2 /*return*/];
-                    }
-                    else {
-                        secondCard = this;
-                        checkForMatch();
-                    }
-                    return [2 /*return*/];
+            //const { data } = await axios.get("/newGame");
+            this.classList.add('flip');
+            if (!hasFlipped) {
+                hasFlipped = true;
+                firstCard = this;
             }
+            else {
+                secondCard = this;
+                checkForMatch();
+            }
+            return [2 /*return*/];
         });
     });
 }
@@ -110,7 +103,7 @@ function checkForMatch() {
     return __awaiter(this, void 0, void 0, function () {
         var isMatch;
         return __generator(this, function (_a) {
-            isMatch = firstCard.pairdID === secondCard.pairID;
+            isMatch = firstCard.id === secondCard.id;
             console.log(firstCard, secondCard);
             console.log(isMatch);
             isMatch ? disableCards() : unflipCards();

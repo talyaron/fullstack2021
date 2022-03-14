@@ -98,7 +98,7 @@ app.get('/search-game',(req,res)=>{
     res.send(filteredGame);
   
 
-    res.send(games)
+    
 
 })
 
