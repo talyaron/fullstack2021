@@ -1,11 +1,16 @@
+
 body{
-    //background-color: rgb(202, 215, 219);
+    background-color: rgb(184, 219, 230);
     font-family:Andale Mono, monospace;
 }
 
 
+
+
 .erp{
    
+    background-color: rgb(184, 219, 230);
+    font-family:Andale Mono, monospace;
 
     &--title{
         text-shadow: 2px 2px 5px#4b4848; 
@@ -28,11 +33,17 @@ body{
 form{
     text-align:center;
     border-bottom: #302e2e 3px dotted;
+
     input{
         margin:10px;
         border-radius: 3px;
         border:1px rgba(61, 60, 60, 0.5) solid;
         font-weight:bolder;
+        
+
+        &::placeholder{
+            color: rgb(0, 0, 0);
+        }
     }
     h3{
         color:rgb(185, 166, 166);
@@ -90,3 +101,219 @@ form{
    
   
 }
+
+
+
+// game store scss
+
+@import url('http://fonts.cdnfonts.com/css/games');
+
+.gamesStore{
+    background-color: rgb(0, 158, 137);
+    font-family: 'Games', sans-serif;
+    letter-spacing: 3px;
+    
+
+}
+
+.navBar{
+    
+    display:flex;
+    justify-content: center;
+    background-color:rgb(0, 255, 85);
+    //border:5px solid rgb(4, 78, 105);    
+    background-image: linear-gradient(to bottom right, rgb(0, 255, 157), yellow);    
+    border-radius:20px;
+    align-items:center;
+    box-shadow:inset 0px 0px 20px 10px #9ef08e;
+    
+    &:hover{
+        box-shadow: 0 0 20px #8ef0b4;
+        //border:5px solid rgb(240, 247, 246);
+        
+
+    }
+    
+    
+   
+   
+    
+    &--logo{
+        margin:5px;
+        animation: logoSlide 1s 1;
+        img{
+            width:7vw;
+            height:15vh;
+            
+        }
+    }
+    &__content{
+        ul{
+        display:flex;
+        column-gap: 100px;
+        
+       
+        
+        
+        
+        li{
+            list-style: none;            
+            justify-content: space-between;
+            
+            
+            a{
+                text-decoration: none;
+                justify-content: space-between;
+                gap:100px;
+                font-weight:bolder;
+                color:rgb(13, 53, 68);
+               
+                &:hover{
+                    color:white;
+                }
+
+            }
+            
+        }
+        }
+        
+
+    }
+}
+
+
+@keyframes logoSlide  {
+    0% {
+      
+      transform: rotate3d(0, 0, 1, 0deg);
+    }
+    25% {
+      
+      transform: rotate3d(0, 0, 1, 90deg);
+    }
+    50% {
+      
+      transform: rotate3d(0, 0, 1, 180deg);
+    }
+    75% {
+      
+      transform: rotate3d(0, 0, 1, 270deg);
+    }
+    100% {
+      
+      transform: rotate3d(0, 0, 1, 360deg);
+    }
+  }
+
+#rootGameStore{
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(2,1fr);
+
+
+}
+
+.storeGame{
+    
+    text-align:center;
+    position: relative;
+    display: inline-block;
+    h1{
+        text-shadow: 2px 2px #b8ff67,2px 5px rgb(3, 73, 41),3px 9px rgb(25, 31, 116);
+       // text-shadow: 200px 20px rgb(103, 255, 184);
+    }
+
+
+    &__img{
+        
+        
+            &--front{
+                width:460px;
+                height:215px;
+
+            box-shadow: 0 0 20px #b8ff67;    
+            }
+
+            &--back{
+                width:460px;
+                height:215px;
+
+                position: absolute;
+                left: 145px;
+                opacity: 0;
+                transition: opacity .2s;
+
+                &:hover{
+                    box-shadow: 0px 0px 50px #dfffba; 
+                    opacity: 1;
+                    //perspective: 1000px;
+                    transform: scale(1.1);
+                }
+                  
+               
+               
+              
+            }
+        
+    }
+    
+   
+    &__editions{
+        display:grid;        
+        grid-template-columns: repeat(2,300px);
+        grid-template-rows: repeat(2,1fr);
+        gap:50px;
+        justify-content: center;
+       
+
+        
+        
+       
+        &--standardEdition{
+            background-color: blue;
+            width:250px; 
+            &:hover{
+                box-shadow: 0px 0px 50px #67d6f1;
+                background-color: rgba(88, 122, 235, 0.747);
+                transform:rotate(5deg);
+                color:white;
+                
+            }
+            
+         
+        }
+        &--deluxeEdition{
+            background-color: rgb(212, 0, 255);
+            width:250px;
+            &:hover{
+                box-shadow: 0px 0px 50px rgb(242, 176, 255);
+                background-color: rgba(225, 119, 247, 0.801);
+                transform:rotate(-5deg);
+                color:white;
+            }
+        }
+        &--goldEdition{
+            background-color: rgb(255, 224, 47);
+            width:250px;
+           
+            &:hover{
+                box-shadow: 0px 0px 50px rgb(255, 238, 140);
+                background-color: rgba(251, 255, 0, 0.986);
+                transform:rotate(5deg);
+                color:white;
+            }
+        }
+        &--bundleEdition{
+            background-color: rgb(255, 0, 140);
+            width:250px;
+            
+            &:hover{
+                box-shadow: 0px 0px 50px rgb(255, 142, 204);
+                background-color: rgba(255, 0, 140, 0.712);
+                transform:rotate(-5deg);
+                color:white;
+            }
+        }
+    }
+}
+
