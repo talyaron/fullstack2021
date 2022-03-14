@@ -22,15 +22,29 @@ const cards = [
   { name: 'bmw', back: 'https://i0.gmx.at/image/248/32956248,pd=1,f=opengraph/bmw-m5-competition.jpg', front: 'https://th.bing.com/th?id=OIF.UO%2f4eosGnY88kwe14VwbeQ&pid=ImgDet&rs=1' },
   { name: 'bmw', back: 'https://i0.gmx.at/image/248/32956248,pd=1,f=opengraph/bmw-m5-competition.jpg', front: 'https://th.bing.com/th?id=OIF.UO%2f4eosGnY88kwe14VwbeQ&pid=ImgDet&rs=1' },
 ]
+function doublecards(cards){
+if(cards.name===cards.name){
+}
+}
+
 
 app.get('/', (req, res) => {
-  res.send('Hello World!');
+  console.log('hey');
 });
 
 app.get('/newgame', (req, res) => {
   shuffle(cards)
   res.send(cards)
 })
+
+
+
+
+
+
+
+
+
 
 function shuffle(cards) {
   let shuffle = cards.length, temporaryValue, randomIndex;

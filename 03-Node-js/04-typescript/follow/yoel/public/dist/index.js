@@ -45,10 +45,9 @@ function handleAddStudent(ev) {
                 case 0:
                     ev.preventDefault();
                     name = ev.target.elements.name.value;
-                    return [4 /*yield*/, axios.post('/add-student', { name: name })];
+                    return [4 /*yield*/, axios.post('/add-student', { name: name, ok: true })];
                 case 1:
                     data = (_a.sent()).data;
-                    console.log(data);
                     renderData(data);
                     ev.target.reset();
                     return [2 /*return*/];

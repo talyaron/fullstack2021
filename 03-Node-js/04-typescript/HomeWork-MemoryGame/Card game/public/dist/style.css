@@ -61,17 +61,13 @@ body {
   padding-top: 8px;
   text-align: center;
 }
+#root .card .cardBack {
+  width: 180px;
+  height: 180px;
+}
 #root .card img {
   width: 180px;
   height: 180px;
-  visibility: hidden;
-}
-#root .card .cardBack {
-  background: #fff;
-  cursor: default;
-  transform: rotateY(180deg);
-  transition: transform 0.4s linear;
-  pointer-events: none;
 }
 #root .card p {
   color: white;

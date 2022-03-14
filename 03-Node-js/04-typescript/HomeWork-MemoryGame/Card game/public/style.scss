@@ -85,20 +85,24 @@ body{
     padding-top:8px;
     text-align:center;
     //border:solid 1px black;
-
+    .cardBack{
+      width:180px;
+      height:180px;
+      // img: src="img/BackCard.png";
+    }
     
     img{
         width:180px;
         height:180px;
-        visibility: hidden;
+        // visibility: hidden;
     }
-    .cardBack{
-      background: #fff;
-      cursor: default;
-      transform: rotateY(180deg);
-      transition: transform 0.4s linear;
-      pointer-events: none;
-    }
+    // .cardBack{
+    //   background: #fff;
+    //   cursor: default;
+    //   transform: rotateY(180deg);
+    //   transition: transform 0.4s linear;
+    //   pointer-events: none;
+    // }
     p{
         color:white;
     }

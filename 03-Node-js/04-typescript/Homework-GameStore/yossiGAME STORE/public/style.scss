@@ -1,0 +1,155 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 18px;
+    background-color: rgb(29, 33, 33);
+}
+
+// div {
+//     border: 1px solid #f60c0c;
+// }
+
+a {
+    text-decoration: none;
+    color: #bbb8b8;
+}
+
+.wrapper {
+    width: 80%;
+    margin: auto;
+    border: 1px solid rgb(121, 121, 121);
+    display: flex;
+    flex-direction: column;
+}
+
+img {
+    width: 100%;
+    object-fit: contain;
+    box-shadow: 0px 0px 4px #888888;
+    transition: all .3s ease-in-out;
+    cursor: pointer;
+}
+
+.pricepic {
+    padding-left: 20px;
+    margin-top: 4px;
+    color: rgb(255, 255, 255);
+}
+
+.tickmarks {
+    color: rgb(255, 255, 255);
+
+}
+
+.game {
+    width: 200px;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid rgb(121, 121, 121);
+    color: rgb(255, 255, 255);
+}
+
+.addGame {
+    border-bottom: 1px solid lightgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    input {
+        margin: 10px;
+        font-size: 18px;
+        height: 30px;
+        color: chocolate;
+    }
+
+    ::placeholder {
+        padding-left: 14px;
+        font-size: 16px;
+        color: chocolate;
+    }
+    .addeBtn{
+        height: 40px;
+        font-size: 20px;
+        color: #538f17;
+        border: 2px solid #538f17;
+    }
+}
+
+.pictureText {
+    padding-top: 20px;
+}
+
+#root {
+    display: flex;
+
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.selectWrapper {
+    background-color: rgb(0, 0, 0);
+    border-bottom: 1px soloid white;
+
+    h1 {
+        color: rgb(235, 221, 33);
+        display: flex;
+        justify-content: center;
+        padding: 10px;
+        margin: 0%;
+        border-bottom: 1px solid lightgray;
+    }
+}
+
+.SearchId {
+    margin: 10px;
+    font-size: 20px;
+    height: 30px;
+    color: chocolate;
+}
+
+.updateBtn{
+    color: #538f17;
+    font-weight: bold;
+}
+.texture-text {
+    background: url(https://www.schoolsofkingedwardvi.co.uk/wp-content/uploads/2017/08/pixels.png) no-repeat center center;
+    background-size: cover;
+    color: #fff;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+ 
+}
+
+.shine {
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        background: linear-gradient(to right,
+                fade_out(#fff, 1) 0%,
+                fade_out(#fff, 0.7) 100%);
+        content: "";
+        display: block;
+        height: 100%;
+        left: -75%;
+        position: absolute;
+        top: 0;
+        transform: skewX(-25deg);
+        width: 50%;
+        z-index: 2;
+    }
+
+    &:hover,
+    &:focus {
+        &::before {
+            animation: shine 0.85s;
+        }
+    }
+
+    @keyframes shine {
+        100% {
+            left: 125%;
+        }
+    }
+}

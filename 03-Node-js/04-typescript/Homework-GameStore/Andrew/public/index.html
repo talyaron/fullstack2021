@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="dist/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="dist/index.js" defer></script>
+</head>
+<body>
+    <a href="/ERP.html">owner site</a>
+    <div class="menu">
+        <button class="menu__button--login" onclick="handleLoginMenu(event)">Log-In</button>
+        <div class="menu__logIn in-vis">
+            <form onsubmit="handleLogin(event)">
+                <label for="logUsername">Username</label>
+                <input type="text" id="logUsername">
+                <label for="logPassword">Password</label>
+                <input type="password" id="logPassword">
+                <input type="submit" value="Log-In">
+            </form>
+        </div>
+        <button class="menu__button--create" onclick="handleCreateMenu(event)">Create Account</button>
+        <div class="menu__create in-vis">
+            <form onsubmit="handleCreate(event)">
+                <label for="username">Choose a Username</label>
+                <input type="text" id="username">
+                <label for="password">Choose a Password</label>
+                <input type="password" id="password">
+                <label for="passwordRepeat">Type In Password Again</label>
+                <input type="password" id="passwordRepeat">
+                <input type="submit" value="Create Account">
+            </form>
+        </div>
+    </div>
+    <div class="grid">
+        <div class="grid__game"></div>
+    </div>
+    <div class="cart"></div>
+</body>
+</html>
