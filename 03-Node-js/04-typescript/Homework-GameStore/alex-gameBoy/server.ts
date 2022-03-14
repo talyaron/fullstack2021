@@ -9,6 +9,7 @@ app.use(express.json());
 interface Game {
   id?: number;
   Img:string;
+
   Name: string;
   Release: number;
   Description: string;
@@ -49,10 +50,7 @@ let gameBoy: Array<Game> = [
 
 
 
-
-
 app.get('/get-games', (req, res) => {
-  // const games = getAllGames()
   res.send(gameBoy);
 });
 
@@ -60,6 +58,14 @@ app.get('/get-search', (req, res) => {
   const search = req.query.searchGame;
   const filtered = filterSearch(search)
   res.send(filtered);
+});
+
+app.delete('/delete-game', (req, res) => {
+ const {id} = req.body
+ console.log(id)
+ gameBoy = id.filter(game=> game.id != game)
+console.log(gameBoy)
+res.send({gameBoy, ok: true})
 });
 
 
@@ -83,9 +89,6 @@ console.log(search);
 
 
 
-function getAllGames() {
-  return gameBoy;
-}
 
 // const uid = function () {
 //   return Date.now().toString(36) + Math.random().toString(36).substring(2);
