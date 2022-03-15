@@ -36,7 +36,56 @@ app.post("/add-user", async (req, res) => {
 
 app.get("/get-users", async (req, res) => {
   try {
-    res.send({ ok: true });
+
+    const users = await User.find({})
+    res.send({ ok: true, users });
+  } catch (error) {
+    console.log(error.error);
+    res.send({ error: error.message });
+  }
+});
+
+app.patch("/update-user", async (req, res) => {
+  try {
+    const { userId, role } = req.body;
+    if (userId && role) {
+      const users = await User.updateOne({_id:userId},{role: role})
+      res.send({ ok: true, users });
+    } else {
+      throw new Error("userId or role is missing");
+    }
+  } catch (error) {
+    console.log(error.error);
+    res.send({ error: error.message });
+  }
+});
+
+app.patch("/delete-user", async (req, res) => {
+  try {
+    const { userId } = req.body;
+    if (userId) {
+      const users = await User.deleteOne({_id:userId})
+      res.send({ ok: true, users });
+    } else {
+      throw new Error("userId or role is missing");
+    }
+  } catch (error) {
+    console.log(error.error);
+    res.send({ error: error.message });
+  }
+});
+
+
+app.delete("/delete-user", async (req, res) => {
+  try {
+    const { userId } = req.body;
+    console.log(userId)
+    if (userId) {
+      const users = await User.deleteOne({_id:userId})
+      res.send({ ok: true, users });
+    } else {
+      throw new Error("userId or role is missing");
+    }
   } catch (error) {
     console.log(error.error);
     res.send({ error: error.message });

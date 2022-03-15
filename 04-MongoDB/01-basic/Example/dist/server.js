@@ -42,7 +42,57 @@ app.post("/add-user", (req, res) => __awaiter(void 0, void 0, void 0, function* 
 }));
 app.get("/get-users", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        res.send({ ok: true });
+        const users = yield User.find({});
+        res.send({ ok: true, users });
+    }
+    catch (error) {
+        console.log(error.error);
+        res.send({ error: error.message });
+    }
+}));
+app.patch("/update-user", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { userId, role } = req.body;
+        if (userId && role) {
+            const users = yield User.updateOne({ _id: userId }, { role: role });
+            res.send({ ok: true, users });
+        }
+        else {
+            throw new Error("userId or role is missing");
+        }
+    }
+    catch (error) {
+        console.log(error.error);
+        res.send({ error: error.message });
+    }
+}));
+app.patch("/delete-user", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { userId } = req.body;
+        if (userId) {
+            const users = yield User.deleteOne({ _id: userId });
+            res.send({ ok: true, users });
+        }
+        else {
+            throw new Error("userId or role is missing");
+        }
+    }
+    catch (error) {
+        console.log(error.error);
+        res.send({ error: error.message });
+    }
+}));
+app.delete("/delete-user", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { userId } = req.body;
+        console.log(userId);
+        if (userId) {
+            const users = yield User.deleteOne({ _id: userId });
+            res.send({ ok: true, users });
+        }
+        else {
+            throw new Error("userId or role is missing");
+        }
     }
     catch (error) {
         console.log(error.error);
