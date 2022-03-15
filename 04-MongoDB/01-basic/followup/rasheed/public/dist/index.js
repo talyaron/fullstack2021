@@ -34,6 +34,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+var axios;
 function handleRegister(ev) {
     return __awaiter(this, void 0, void 0, function () {
         var _a, username, password, data;
@@ -54,62 +55,4 @@ function handleRegister(ev) {
             }
         });
     });
-}
-function handleUpdate(ev, userId) {
-    return __awaiter(this, void 0, void 0, function () {
-        var role, data;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    console.log(ev, userId);
-                    role = ev.target.value;
-                    return [4 /*yield*/, axios.patch('/update-user', { userId: userId, role: role })];
-                case 1:
-                    data = (_a.sent()).data;
-                    console.log(data);
-                    return [2 /*return*/];
-            }
-        });
-    });
-}
-function handleGetUsers() {
-    return __awaiter(this, void 0, void 0, function () {
-        var data, users;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, axios.get('/get-users')];
-                case 1:
-                    data = (_a.sent()).data;
-                    console.log(data);
-                    users = data.users;
-                    console.log(users);
-                    if (users) {
-                        renderUsers(users);
-                    }
-                    return [2 /*return*/];
-            }
-        });
-    });
-}
-function handleDelete(userId) {
-    return __awaiter(this, void 0, void 0, function () {
-        var data;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, axios["delete"]('/delete-user', { data: { userId: userId } })];
-                case 1:
-                    data = (_a.sent()).data;
-                    console.log(data);
-                    return [2 /*return*/];
-            }
-        });
-    });
-}
-function renderUsers(users) {
-    var html = users.map(function (user) {
-        console.log(user);
-        return "<div>" + user.username + " \n        <input type='text' placeholder='role' value=\"" + user.role + "\" onblur='handleUpdate(event, \"" + user._id + "\")'/>\n        <button onclick='handleDelete(\"" + user._id + "\")'>DELETE</button>\n        </div>";
-    }).join('');
-    console.log(html);
-    document.getElementById('users').innerHTML = html;
 }
