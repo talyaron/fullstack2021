@@ -31,6 +31,7 @@ app.post("/add-user", (req, res) => __awaiter(void 0, void 0, void 0, function* 
         let { username, password } = req.body;
         const newUser = new User({ username, password });
         const result = yield newUser.save();
+        // it sends the info to the database?
         res.send({ result });
     }
     catch (error) {

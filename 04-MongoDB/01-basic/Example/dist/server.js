@@ -18,14 +18,16 @@ const app = express_1.default();
 const port = 3000;
 app.use(express_1.default.static("public"));
 app.use(express_1.default.json());
-mongoose_1.default.connect('mongodb+srv://tal1:rbBnTtoiIia3ddKK@tal-test1.m39if.mongodb.net/fs-2021-oct-test?retryWrites=true&w=majority');
+mongoose_1.default.connect("mongodb+srv://tal1:rbBnTtoiIia3ddKK@tal-test1.m39if.mongodb.net/fs-2021-oct?retryWrites=true&w=majority");
 //create a schema (interface)
 const UserSchema = new mongoose_1.default.Schema({
     username: String,
-    password: String
+    password: String,
+    role: String,
+    phone: String,
 });
 //create a collection
-const User = mongoose_1.default.model('bestusers', UserSchema);
+const User = mongoose_1.default.model("users", UserSchema);
 app.post("/add-user", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         let { username, password } = req.body;
@@ -38,6 +40,65 @@ app.post("/add-user", (req, res) => __awaiter(void 0, void 0, void 0, function* 
         res.send({ error: error.message });
     }
 }));
+app.get("/get-users", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const users = yield User.find({});
+        res.send({ ok: true, users });
+    }
+    catch (error) {
+        console.log(error.error);
+        res.send({ error: error.message });
+    }
+}));
+app.patch("/update-user", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { userId, role } = req.body;
+        if (userId && role) {
+            const users = yield User.updateOne({ _id: userId }, { role: role });
+            res.send({ ok: true, users });
+        }
+        else {
+            throw new Error("userId or role is missing");
+        }
+    }
+    catch (error) {
+        console.log(error.error);
+        res.send({ error: error.message });
+    }
+}));
+app.patch("/delete-user", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { userId } = req.body;
+        if (userId) {
+            const users = yield User.deleteOne({ _id: userId });
+            res.send({ ok: true, users });
+        }
+        else {
+            throw new Error("userId or role is missing");
+        }
+    }
+    catch (error) {
+        console.log(error.error);
+        res.send({ error: error.message });
+    }
+}));
+app.delete("/delete-user", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { userId } = req.body;
+        console.log(userId);
+        if (userId) {
+            const users = yield User.deleteOne({ _id: userId });
+            res.send({ ok: true, users });
+        }
+        else {
+            throw new Error("userId or role is missing");
+        }
+    }
+    catch (error) {
+        console.log(error.error);
+        res.send({ error: error.message });
+    }
+}));
 app.listen(port, () => {
-    return console.log(`Express is listening at http://localhost:${port}`);
+    return console.log(`Server is listening at http://localhost:${port}`);
 });
