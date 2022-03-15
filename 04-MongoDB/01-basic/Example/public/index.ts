@@ -10,3 +10,9 @@ async function handleRegister(ev){
     const {data} = await axios.post('/add-user',{username, password})
     console.log(data)
 }
+
+async function handleGetUsers(){
+  
+    const {data} = await axios.get('/get-users')
+    console.log(data)
+}
