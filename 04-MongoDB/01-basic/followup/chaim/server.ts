@@ -6,12 +6,14 @@ const port: number = 3000;
 app.use(express.static("public"));
 app.use(express.json());
 
-//create a schema (interface)
+
+mongoose.connect('mongodb+srv://chaim14:<password>@cluster0.ar8tn.mongodb.net/myFirstDatabase?retryWrites=true&w=majority');
+
 const UserSchema = new mongoose.Schema({
   username:String,
   password:String
 })
-//create a collection
+
 const User = mongoose.model('bestusers', UserSchema);
 
 
