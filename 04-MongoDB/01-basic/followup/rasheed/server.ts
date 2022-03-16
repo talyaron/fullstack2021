@@ -6,9 +6,11 @@ const port: number = 3000;
 app.use(express.static("public"));
 app.use(express.json());
 
+
 mongoose.connect('mongodb+srv://tal1:rbBnTtoiIia3ddKK@tal-test1.m39if.mongodb.net/fs-2021-oct-test?retryWrites=true&w=majority');
 
-//create a schema (interface)
+// 
+
 const UserSchema = new mongoose.Schema({
   username:String,
   password:String

@@ -6,8 +6,7 @@ const port: number = 3000;
 app.use(express.static("public"));
 app.use(express.json());
 
-
-mongoose.connect('mongodb+srv://chaim14:<password>@cluster0.ar8tn.mongodb.net/myFirstDatabase?retryWrites=true&w=majority');
+mongoose.connect('mongodb+srv://chaim14:82148214@cluster0.ar8tn.mongodb.net/myFirstDatabase?retryWrites=true&w=majority');
 
 const UserSchema = new mongoose.Schema({
   username:String,
@@ -15,7 +14,6 @@ const UserSchema = new mongoose.Schema({
 })
 
 const User = mongoose.model('bestusers', UserSchema);
-
 
 
 app.post("/add-user", async (req, res) => {
