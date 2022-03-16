@@ -27,7 +27,7 @@ function rendertoscreen(games) {
 /// מביאה את כל המידע בכל הטענה מחדש של העמוד
 function handleallgame() {
     getalldata()
-    rendertoscreen()
+
 }
 // לוקחת את המידע מהשרת
 async function getalldata() {
@@ -41,15 +41,15 @@ async function rendertoscreen() {
     const root = document.getElementById('root')
     let html = ''
     data.forEach(game => {
-        html += `<div> game name is ${game.name}</div>`
+        html += `<div onclick="handledelete(event)" id='${game.id}'>  game name is ${game.name}</div>`
 
     });
     root.innerHTML = html
 }
-
-async function handleid(ev) {
-    const { data } = await axios.get('/getall')
-    console.log(data);
+// מוחקת משחק
+async function handledelete(id: string) {
+    const { data } = await axios.delete('/delete-game', { data: { id } })
+    console.log({data} );
 
 }
 
