@@ -6,14 +6,17 @@ const port: number = 3000;
 app.use(express.static("public"));
 app.use(express.json());
 
-mongoose.connect('mongodb+srv://chaim14:82148214@cluster0.ar8tn.mongodb.net/myFirstDatabase?retryWrites=true&w=majority');
 
+mongoose.connect('mongodb+srv://chaim14:82148214@cluster0.ctwuo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority');
+
+//create a schema (interface)
 const UserSchema = new mongoose.Schema({
   username:String,
   password:String
 })
-
+//create a collection
 const User = mongoose.model('bestusers', UserSchema);
+
 
 
 app.post("/add-user", async (req, res) => {
@@ -33,3 +36,4 @@ app.post("/add-user", async (req, res) => {
 app.listen(port, () => {
   return console.log(`Express is listening at http://localhost:${port}`);
 });
+
