@@ -18,19 +18,19 @@ const app = express_1.default();
 const port = 3000;
 app.use(express_1.default.static("public"));
 app.use(express_1.default.json());
-mongoose_1.default.connect('mongodb+srv://tal1:rbBnTtoiIia3ddKK@tal-test1.m39if.mongodb.net/fs-2021-oct-test?retryWrites=true&w=majority');
+mongoose_1.default.connect('mongodb+srv://rasheedj966:rashj050880@cluster0.vtqmf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority');
 // 
-const UserSchema = new mongoose_1.default.Schema({
-    username: String,
-    password: String
+const GamesSchema = new mongoose_1.default.Schema({
+    title: String,
+    type: String,
+    price: Number
 });
-//create a collection
-const User = mongoose_1.default.model('bestusers', UserSchema);
-app.post("/add-user", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const Game = mongoose_1.default.model('GamesStore', GamesSchema);
+app.post("/add-game", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        let { username, password } = req.body;
-        const newUser = new User({ username, password });
-        const result = yield newUser.save();
+        let { title, price, type } = req.body;
+        const newGame = new Game({ title, price, type });
+        const result = yield newGame.save();
         res.send({ result });
     }
     catch (error) {

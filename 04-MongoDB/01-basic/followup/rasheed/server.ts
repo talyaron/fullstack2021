@@ -7,25 +7,26 @@ app.use(express.static("public"));
 app.use(express.json());
 
 
-mongoose.connect('mongodb+srv://tal1:rbBnTtoiIia3ddKK@tal-test1.m39if.mongodb.net/fs-2021-oct-test?retryWrites=true&w=majority');
+mongoose.connect('mongodb+srv://rasheedj966:rashj050880@cluster0.vtqmf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority');
 
 // 
 
-const UserSchema = new mongoose.Schema({
-  username:String,
-  password:String
+const GamesSchema = new mongoose.Schema({
+  title:String,
+  type:String,
+  price:Number
+
 })
-//create a collection
-const User = mongoose.model('bestusers', UserSchema);
+const Game = mongoose.model('GamesStore', GamesSchema);
 
 
 
-app.post("/add-user", async (req, res) => {
+app.post("/add-game", async (req, res) => {
   try {
-    let { username, password } = req.body;
+    let { title, price,type } = req.body;
 
-    const newUser = new User({username, password})
-    const result = await newUser.save()
+    const newGame = new Game({title, price,type})
+    const result = await newGame.save()
 
     res.send({ result });
   } catch (error) {
