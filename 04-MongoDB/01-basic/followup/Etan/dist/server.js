@@ -15,21 +15,57 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const app = express_1.default();
-const port = 3000;
+const port = process.env.PORT || 3000;
 app.use(express_1.default.static("public"));
 app.use(express_1.default.json());
-mongoose_1.default.connect('mongodb+srv://EtanHey:Sjg1mUp0viKZJN4r@cluster0.gedel.mongodb.net/EtansDatabase?retryWrites=true&w=majority');
+mongoose_1.default.connect("mongodb+srv://EtanHey:Sjg1mUp0viKZJN4r@cluster0.gedel.mongodb.net/EtansUserDB?retryWrites=true&w=majority");
 //create a schema (interface)
 const UserSchema = new mongoose_1.default.Schema({
+    firstName: String,
+    lastName: String,
+    birthDate: String,
+    role: String,
     username: String,
-    password: String
+    password: String,
 });
 //create a collection
-const User = mongoose_1.default.model('bestusers', UserSchema);
+const User = mongoose_1.default.model("userList", UserSchema);
+app.get("get-users"), function (req, res) {
+    return __awaiter(this, void 0, void 0, function* () {
+        try {
+            const { logInUsername } = req.query;
+            const { logInPassword } = req.query;
+            console.log({ logInUsername, logInPassword });
+            console.log('hi');
+            const userList = yield User.find({ username: logInUsername, password: logInPassword });
+            res.send({ ok: true, userList });
+        }
+        catch (error) {
+            console.error(error);
+            res.send({ error: error.message });
+        }
+    });
+};
 app.post("/add-user", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        let { username, password } = req.body;
-        const newUser = new User({ username, password });
+        let admin = "EtanHey";
+        let { firstName, lastName, birthDate, role, username, password } = req.body;
+        console.log(birthDate);
+        console.log(role);
+        if (role === admin) {
+            role = "admin";
+        }
+        else {
+            role = "public";
+        }
+        const newUser = new User({
+            firstName,
+            lastName,
+            birthDate,
+            role,
+            username,
+            password,
+        });
         const result = yield newUser.save();
         res.send({ result });
     }
@@ -41,3 +77,4 @@ app.post("/add-user", (req, res) => __awaiter(void 0, void 0, void 0, function* 
 app.listen(port, () => {
     return console.log(`Express is listening at http://localhost:${port}`);
 });
+function logIn(logInUsername, logInPassword) { }
