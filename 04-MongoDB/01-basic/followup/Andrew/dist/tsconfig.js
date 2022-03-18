@@ -1,0 +1,13 @@
+{
+    "compilerOptions";
+    {
+        "module";
+        "commonjs",
+            "esModuleInterop";
+        true,
+            "target";
+        "es6;
+    }
+    "lib";
+    ["es2015"];
+}

@@ -15,28 +15,19 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const app = express_1.default();
-const port = 3000;
+const port = process.env.PORT || 3000;
 app.use(express_1.default.static("public"));
 app.use(express_1.default.json());
-mongoose_1.default.connect('mongodb+srv://rasheedj966:rashj050880@cluster0.vtqmf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority');
-// 
-const GamesSchema = new mongoose_1.default.Schema({
-    title: String,
-    type: String,
-    price: Number
+mongoose_1.default.connect('mongodb+srv://andrewLSHFY:s3Hz4045sYvAzjRn@cluster0.cybvt.mongodb.net/FS2021?retryWrites=true&w=majority');
+const UserSchema = new mongoose_1.default.Schema({
+    username: String,
+    password: String
 });
-const Game = mongoose_1.default.model('GamesStore', GamesSchema);
-app.post("/add-game", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        let { title, price, type } = req.body;
-        const newGame = new Game({ title, price, type });
-        const result = yield newGame.save();
-        res.send({ result });
-    }
-    catch (error) {
-        console.error(error);
-        res.send({ error: error.message });
-    }
+const User = mongoose_1.default.model('users', UserSchema);
+app.post('/add-user', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    let { username, password } = req.body;
+    const newUser = new User({ username, password });
+    const result = yield newUser.save();
 }));
 app.listen(port, () => {
     return console.log(`Express is listening at http://localhost:${port}`);

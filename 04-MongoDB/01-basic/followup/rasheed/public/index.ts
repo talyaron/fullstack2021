@@ -1,13 +1,15 @@
 let axios;
-async function handleRegister(ev){
+async function handleAddGames(ev){
     ev.preventDefault();
-    let {username, password} = ev.target.elements;
-    console.log(username, password)
-    username = username.value;
-    password = password.value;
+    let {title, price,type} = ev.target.elements;
+    console.log(title, price,type)
+    title = title.value;
+    price = price.value;
+    type = type.value
 
-    console.log(username, password)
+    console.log(title, price,type)
 
-    const {data} = await axios.post('/add-user',{username, password});
+    const {data} = await axios.post('/add-game',{title, price,type});
     console.log(data)
+    ev.target.reset();
 }

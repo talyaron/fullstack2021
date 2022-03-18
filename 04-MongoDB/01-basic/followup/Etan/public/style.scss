@@ -1,0 +1,27 @@
+*{
+  margin: 0;  
+  padding: 0;
+}
+
+body{
+    width: 100vw;
+.wrapper{
+  width: 80vw;
+  margin: 10vh auto;
+  #logIn{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    place-items: center;
+    place-content: center;
+  }
+#register{
+  place-items: center;
+  display: flex;
+  display:none;
+    flex-direction: column;
+    width: 100%;
+    
+}
+}
+}

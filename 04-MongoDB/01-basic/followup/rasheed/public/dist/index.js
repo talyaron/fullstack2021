@@ -35,22 +35,24 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 var axios;
-function handleRegister(ev) {
+function handleAddGames(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var _a, username, password, data;
+        var _a, title, price, type, data;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
                     ev.preventDefault();
-                    _a = ev.target.elements, username = _a.username, password = _a.password;
-                    console.log(username, password);
-                    username = username.value;
-                    password = password.value;
-                    console.log(username, password);
-                    return [4 /*yield*/, axios.post('/add-user', { username: username, password: password })];
+                    _a = ev.target.elements, title = _a.title, price = _a.price, type = _a.type;
+                    console.log(title, price, type);
+                    title = title.value;
+                    price = price.value;
+                    type = type.value;
+                    console.log(title, price, type);
+                    return [4 /*yield*/, axios.post('/add-game', { title: title, price: price, type: type })];
                 case 1:
                     data = (_b.sent()).data;
                     console.log(data);
+                    ev.target.reset();
                     return [2 /*return*/];
             }
         });

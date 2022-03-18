@@ -13,25 +13,26 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-const mongoose_1 = __importDefault(require("mongoose"));
 const app = express_1.default();
-const port = 3000;
+const port = process.env.PORT || 3000;
+const mongoose_1 = __importDefault(require("mongoose"));
+mongoose_1.default.connect('mongodb+srv://leon93:ym965874632541@cluster0.umet4.mongodb.net/LeonDB?retryWrites=true&w=majority');
 app.use(express_1.default.static("public"));
 app.use(express_1.default.json());
-mongoose_1.default.connect('mongodb+srv://rasheedj966:rashj050880@cluster0.vtqmf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority');
-// 
-const GamesSchema = new mongoose_1.default.Schema({
-    title: String,
-    type: String,
-    price: Number
+const UserSchema = new mongoose_1.default.Schema({
+    name: String,
+    password: String
 });
-const Game = mongoose_1.default.model('GamesStore', GamesSchema);
-app.post("/add-game", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const User = mongoose_1.default.model('usersDb', UserSchema);
+app.post('/user', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        let { title, price, type } = req.body;
-        const newGame = new Game({ title, price, type });
-        const result = yield newGame.save();
-        res.send({ result });
+        const { name, password } = req.body;
+        const newPrayer = new User({ name, password });
+        const data = yield newPrayer.save();
+        console.log(data);
+        res.send(data);
+        if (!name || !password)
+            throw new Error("No name or password in app.post user");
     }
     catch (error) {
         console.error(error);
