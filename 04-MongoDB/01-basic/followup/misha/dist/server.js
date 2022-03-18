@@ -22,21 +22,31 @@ mongoose_1.default.connect('mongodb+srv://michaeldubovik:michaeldubovik1991@clus
 //create a schema (interface)
 const UserSchema = new mongoose_1.default.Schema({
     username: String,
-    password: String
+    password: String,
+    role: String,
+    phone: String,
 });
 //create a collection
-const User = mongoose_1.default.model('bestusers', UserSchema);
-//   const user1 = new User({username: 'misha', password: '12345'})
-//   user1.save()
+const User = mongoose_1.default.model('myUsers', UserSchema);
 app.post("/add-user", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        let { username, password } = req.body;
-        const newUser = new User({ username, password });
+        let { username, password, role } = req.body;
+        const newUser = new User({ username, password, role });
         const result = yield newUser.save();
         res.send({ result });
     }
     catch (error) {
         console.error(error);
+        res.send({ error: error.message });
+    }
+}));
+app.get("/get-users", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const users = yield User.find({ role: 'admin' });
+        res.send(users);
+    }
+    catch (error) {
+        console.log(error.error);
         res.send({ error: error.message });
     }
 }));
