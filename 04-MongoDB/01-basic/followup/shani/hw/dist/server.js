@@ -46,6 +46,11 @@ app.post("/add-employee", (req, res) => __awaiter(void 0, void 0, void 0, functi
         res.send({ error: error.message });
     }
 }));
+app.get("/get-employee", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    //Employee holds the info
+    const employees = yield Employee.find({});
+    res.send({ theEmployees: employees });
+}));
 app.listen(port, () => {
     return console.log(`Express is listening at http://localhost:${port}`);
 });

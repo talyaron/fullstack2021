@@ -43,6 +43,13 @@ app.post("/add-employee", async(req,res)=>{
     }
 });
 
+app.get("/get-employee",async(req,res)=>{
+
+    //Employee holds the info
+    const employees= await Employee.find({})
+    res.send({theEmployees:employees})
+})
+
 
 
 
