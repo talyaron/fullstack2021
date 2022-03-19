@@ -24,13 +24,15 @@ const UserSchema = new mongoose_1.default.Schema({
     guitarname: String,
     price: String,
     brand: String,
+    file: String,
 });
 //create a collection
 const Guitar = mongoose_1.default.model('myGuitars', UserSchema);
 app.post("/add-guitar", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        let { guitarname, price, brand } = req.body;
-        const newGuitar = new Guitar({ guitarname, price, brand });
+        let { guitarname, price, brand, file } = req.body;
+        console.log(req.body);
+        const newGuitar = new Guitar({ guitarname, price, brand, file });
         const result = yield newGuitar.save();
         res.send({ result });
     }
@@ -56,7 +58,7 @@ app.patch("/update-guitar", (req, res) => __awaiter(void 0, void 0, void 0, func
             const users = yield Guitar.updateOne({ _id: guitarId }, { price: price });
         }
         else {
-            throw new Error("guitarId or role is missing");
+            throw new Error("guitarId or price is missing");
         }
     }
     catch (error) {
@@ -71,7 +73,7 @@ app.delete("/delete-guitar", (req, res) => __awaiter(void 0, void 0, void 0, fun
             res.send({ ok: true, result });
         }
         else {
-            throw new Error("guitarId or role is missing");
+            throw new Error("guitarId or price is missing");
         }
     }
     catch (error) {

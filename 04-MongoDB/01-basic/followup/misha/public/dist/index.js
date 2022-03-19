@@ -36,22 +36,20 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 function handleRegister(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var _a, guitarname, price, brand, data, result, guitars;
+        var _a, guitarname, price, brand, file, data;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
                     ev.preventDefault();
-                    _a = ev.target.elements, guitarname = _a.guitarname, price = _a.price, brand = _a.brand;
+                    _a = ev.target.elements, guitarname = _a.guitarname, price = _a.price, brand = _a.brand, file = _a.file;
                     guitarname = guitarname.value;
                     price = price.value;
                     brand = brand.value;
-                    return [4 /*yield*/, axios.post('/add-guitar', { guitarname: guitarname, price: price, brand: brand })];
+                    file = file.value;
+                    return [4 /*yield*/, axios.post('/add-guitar', { guitarname: guitarname, price: price, brand: brand, file: file })];
                 case 1:
                     data = (_b.sent()).data;
-                    result = data.result;
-                    guitars = [result];
-                    console.log(guitars);
-                    renderGuitars(guitars);
+                    handleGetGuitars();
                     return [2 /*return*/];
             }
         });
@@ -74,7 +72,7 @@ function handleGetGuitars() {
 }
 function renderGuitars(guitars) {
     var html = guitars.map(function (guitar) {
-        return "<div>" + guitar.guitarname + " <input type='text' placeholder='role' value='" + guitar.price + "' onblur='handleUpdate(event, \"" + guitar._id + "\")'>\n        <button onclick='handleDelete(\"" + guitar._id + "\")'>DELETE</button></div>";
+        return "<div>Model: " + guitar.guitarname + " <input type='text' placeholder='price' value='" + guitar.price + "' onblur='handleUpdate(event, \"" + guitar._id + "\")'>\n        Brand: " + guitar.brand + "\n        <img src=\"" + guitar.file + "\"></img>\n        <button onclick='handleDelete(\"" + guitar._id + "\")'>DELETE</button></div>";
     }).join('');
     document.getElementById('guitars').innerHTML = html;
 }
@@ -95,15 +93,15 @@ function handleUpdate(ev, guitarId) {
 }
 function handleDelete(guitarId) {
     return __awaiter(this, void 0, void 0, function () {
-        var data, result, guitars;
+        var data;
         return __generator(this, function (_a) {
-            data = axios["delete"]('/delete-guitar', { data: { guitarId: guitarId } }).data;
-            result = data.result;
-            console.log(result);
-            guitars = [result];
-            console.log(guitars);
-            renderGuitars(guitars);
-            return [2 /*return*/];
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, axios["delete"]('/delete-guitar', { data: { guitarId: guitarId } })];
+                case 1:
+                    data = (_a.sent()).data;
+                    handleGetGuitars();
+                    return [2 /*return*/];
+            }
         });
     });
 }

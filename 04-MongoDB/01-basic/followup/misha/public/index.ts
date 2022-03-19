@@ -2,20 +2,17 @@ async function handleRegister(ev) {
 
     ev.preventDefault();
 
-    let { guitarname, price, brand } = ev.target.elements;
+    let { guitarname, price, brand, file } = ev.target.elements;
 
     guitarname = guitarname.value;
     price = price.value;
-    brand = brand.value
+    brand = brand.value;
+    file = file.value;
 
-    const { data } = await axios.post('/add-guitar', { guitarname, price, brand })
-    const {result} = data;
-    
-    const guitars = [result]
+    const { data } = await axios.post('/add-guitar', { guitarname, price, brand, file })
 
-    console.log(guitars)
-    renderGuitars(guitars);
 
+    handleGetGuitars()
 }
 
 async function handleGetGuitars() {
@@ -28,10 +25,11 @@ async function handleGetGuitars() {
 }
 
 function renderGuitars(guitars) {
- 
 
     const html = guitars.map(guitar => {
-        return `<div>${guitar.guitarname} <input type='text' placeholder='role' value='${guitar.price}' onblur='handleUpdate(event, "${guitar._id}")'>
+        return `<div>Model: ${guitar.guitarname} <input type='text' placeholder='price' value='${guitar.price}' onblur='handleUpdate(event, "${guitar._id}")'>
+        Brand: ${guitar.brand}
+        <img src="${guitar.file}"></img>
         <button onclick='handleDelete("${guitar._id}")'>DELETE</button></div>`
     }).join('');
 
@@ -46,13 +44,8 @@ async function handleUpdate(ev, guitarId) {
 
 async function handleDelete(guitarId) {
 
-    const { data } = axios.delete('/delete-guitar', { data: { guitarId } })
+    const {data} = await axios.delete('/delete-guitar', { data: { guitarId } })
 
-    const {result} = data;
-    
-    console.log(result)
-    const guitars = [result]
+    handleGetGuitars()
 
-    console.log(guitars)
-    renderGuitars(guitars)
 }

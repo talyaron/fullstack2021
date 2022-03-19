@@ -13,14 +13,16 @@ const UserSchema = new mongoose.Schema({
   guitarname: String,
   price: String,
   brand: String,
+  file: String,
 })
 //create a collection
 const Guitar = mongoose.model('myGuitars', UserSchema);
 
 app.post("/add-guitar", async (req, res) => {
   try {
-    let { guitarname, price, brand } = req.body;
-    const newGuitar = new Guitar({ guitarname, price, brand })
+    let { guitarname, price, brand, file } = req.body;
+    console.log(req.body)
+    const newGuitar = new Guitar({ guitarname, price, brand, file })
     const result = await newGuitar.save()
 
     res.send({ result });
@@ -52,7 +54,7 @@ app.patch("/update-guitar", async (req, res) => {
       const users = await Guitar.updateOne({ _id: guitarId }, { price: price })
     }
     else {
-      throw new Error("guitarId or role is missing");
+      throw new Error("guitarId or price is missing");
     }
   } catch (error) {
     res.send({ error: error.massage });
@@ -67,7 +69,7 @@ app.delete("/delete-guitar", async (req, res) => {
       const result = await Guitar.deleteOne({ _id: guitarId })
       res.send({ ok: true, result })
     } else{
-      throw new Error("guitarId or role is missing");        
+      throw new Error("guitarId or price is missing");        
     }
   
   }catch (error){
