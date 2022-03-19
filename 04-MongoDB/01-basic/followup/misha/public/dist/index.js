@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 function handleRegister(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var _a, guitarname, price, brand, data;
+        var _a, guitarname, price, brand, data, result, guitars;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
@@ -45,11 +45,13 @@ function handleRegister(ev) {
                     guitarname = guitarname.value;
                     price = price.value;
                     brand = brand.value;
-                    console.log(guitarname, price, brand);
                     return [4 /*yield*/, axios.post('/add-guitar', { guitarname: guitarname, price: price, brand: brand })];
                 case 1:
                     data = (_b.sent()).data;
-                    renderGuitars(data);
+                    result = data.result;
+                    guitars = [result];
+                    console.log(guitars);
+                    renderGuitars(guitars);
                     return [2 /*return*/];
             }
         });
@@ -57,21 +59,20 @@ function handleRegister(ev) {
 }
 function handleGetGuitars() {
     return __awaiter(this, void 0, void 0, function () {
-        var data, users;
+        var data, guitars;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0: return [4 /*yield*/, axios.get('/get-guitars')];
                 case 1:
                     data = (_a.sent()).data;
-                    users = data;
-                    renderGuitars(data);
+                    guitars = data;
+                    renderGuitars(guitars);
                     return [2 /*return*/];
             }
         });
     });
 }
 function renderGuitars(guitars) {
-    console.log(guitars);
     var html = guitars.map(function (guitar) {
         return "<div>" + guitar.guitarname + " <input type='text' placeholder='role' value='" + guitar.price + "' onblur='handleUpdate(event, \"" + guitar._id + "\")'>\n        <button onclick='handleDelete(\"" + guitar._id + "\")'>DELETE</button></div>";
     }).join('');
@@ -83,7 +84,6 @@ function handleUpdate(ev, guitarId) {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    console.log('handle');
                     price = ev.target.value;
                     return [4 /*yield*/, axios.patch('/update-guitar', { guitarId: guitarId, price: price })];
                 case 1:
@@ -95,9 +95,14 @@ function handleUpdate(ev, guitarId) {
 }
 function handleDelete(guitarId) {
     return __awaiter(this, void 0, void 0, function () {
-        var data;
+        var data, result, guitars;
         return __generator(this, function (_a) {
             data = axios["delete"]('/delete-guitar', { data: { guitarId: guitarId } }).data;
+            result = data.result;
+            console.log(result);
+            guitars = [result];
+            console.log(guitars);
+            renderGuitars(guitars);
             return [2 /*return*/];
         });
     });

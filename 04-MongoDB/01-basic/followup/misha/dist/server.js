@@ -29,9 +29,8 @@ const UserSchema = new mongoose_1.default.Schema({
 const Guitar = mongoose_1.default.model('myGuitars', UserSchema);
 app.post("/add-guitar", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        let { username, password, role } = req.body;
-        console.log(username, password, role);
-        const newGuitar = new Guitar({ username, password, role });
+        let { guitarname, price, brand } = req.body;
+        const newGuitar = new Guitar({ guitarname, price, brand });
         const result = yield newGuitar.save();
         res.send({ result });
     }
@@ -65,12 +64,11 @@ app.patch("/update-guitar", (req, res) => __awaiter(void 0, void 0, void 0, func
     }
 }));
 app.delete("/delete-guitar", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    console.log(req.body);
     try {
         const { guitarId } = req.body;
         if (guitarId) {
-            const guitars = yield Guitar.deleteOne({ _id: guitarId });
-            res.send({ ok: true, guitars });
+            const result = yield Guitar.deleteOne({ _id: guitarId });
+            res.send({ ok: true, result });
         }
         else {
             throw new Error("guitarId or role is missing");

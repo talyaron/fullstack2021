@@ -1,30 +1,35 @@
-async function  handleRegister(ev){
+async function handleRegister(ev) {
 
     ev.preventDefault();
-    let {guitarname, price, brand} = ev.target.elements;
+
+    let { guitarname, price, brand } = ev.target.elements;
 
     guitarname = guitarname.value;
     price = price.value;
     brand = brand.value
 
-    console.log(guitarname,price,brand)
-    const {data} = await axios.post('/add-guitar', {guitarname, price, brand})
+    const { data } = await axios.post('/add-guitar', { guitarname, price, brand })
+    const {result} = data;
+    
+    const guitars = [result]
 
-    renderGuitars(data);
-
-}
-
-async function handleGetGuitars(){
-
-    const {data} = await axios.get('/get-guitars')
-
-    const users = data
-
-    renderGuitars(data);
-}
-
-function renderGuitars(guitars){
     console.log(guitars)
+    renderGuitars(guitars);
+
+}
+
+async function handleGetGuitars() {
+
+    const { data } = await axios.get('/get-guitars')
+
+    const guitars = data
+
+    renderGuitars(guitars);
+}
+
+function renderGuitars(guitars) {
+ 
+
     const html = guitars.map(guitar => {
         return `<div>${guitar.guitarname} <input type='text' placeholder='role' value='${guitar.price}' onblur='handleUpdate(event, "${guitar._id}")'>
         <button onclick='handleDelete("${guitar._id}")'>DELETE</button></div>`
@@ -34,13 +39,20 @@ function renderGuitars(guitars){
 
 }
 
-async function handleUpdate(ev, guitarId){
-    console.log('handle')
+async function handleUpdate(ev, guitarId) {
     const price = ev.target.value;
-    const {data} = await axios.patch('/update-guitar', {guitarId, price})
+    const { data } = await axios.patch('/update-guitar', { guitarId, price })
 }
 
-async function handleDelete(guitarId){
+async function handleDelete(guitarId) {
+
+    const { data } = axios.delete('/delete-guitar', { data: { guitarId } })
+
+    const {result} = data;
     
-    const {data} = axios.delete('/delete-guitar',{data:{guitarId}})
+    console.log(result)
+    const guitars = [result]
+
+    console.log(guitars)
+    renderGuitars(guitars)
 }

@@ -19,9 +19,8 @@ const Guitar = mongoose.model('myGuitars', UserSchema);
 
 app.post("/add-guitar", async (req, res) => {
   try {
-    let { username, password, role } = req.body;
-    console.log(username, password,role)
-    const newGuitar = new Guitar({ username, password, role })
+    let { guitarname, price, brand } = req.body;
+    const newGuitar = new Guitar({ guitarname, price, brand })
     const result = await newGuitar.save()
 
     res.send({ result });
@@ -62,12 +61,11 @@ app.patch("/update-guitar", async (req, res) => {
 })
 
 app.delete("/delete-guitar", async (req, res) => {
-  console.log(req.body)
   try {
     const { guitarId } = req.body
     if (guitarId) {
-      const guitars = await Guitar.deleteOne({ _id: guitarId })
-      res.send({ ok: true, guitars })
+      const result = await Guitar.deleteOne({ _id: guitarId })
+      res.send({ ok: true, result })
     } else{
       throw new Error("guitarId or role is missing");        
     }
