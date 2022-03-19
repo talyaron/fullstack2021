@@ -51,6 +51,23 @@ app.get("/get-employee", (req, res) => __awaiter(void 0, void 0, void 0, functio
     const employees = yield Employee.find({});
     res.send({ theEmployees: employees });
 }));
+app.patch("/update-role", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { employeeId, role } = req.body;
+        if (employeeId && role) {
+            //we found the user by its id and then we update the role
+            const employees = yield Employee.updateOne({ _id: employeeId }, { role: role });
+            res.send({ theEmployees: employees });
+        }
+        else {
+            throw new Error("employeeId or role is missing");
+        }
+    }
+    catch (error) {
+        console.error(error.message);
+        res.send({ error: error.message });
+    }
+}));
 app.listen(port, () => {
     return console.log(`Express is listening at http://localhost:${port}`);
 });

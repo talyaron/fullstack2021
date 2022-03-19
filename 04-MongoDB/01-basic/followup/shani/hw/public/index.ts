@@ -18,6 +18,15 @@ async function handleGetEmployees(){
     renderEmployees(theEmployees)
 }
 
+
+async function handleUpdateRole(ev,employeeId){
+   console.log(ev,employeeId)
+   const role=ev.target.value;
+   const {data}=await axios.patch("/update-role",{employeeId,role});
+   console.log(data)
+}
+
+
 function renderEmployees(theEmployees){
     let html="";
 

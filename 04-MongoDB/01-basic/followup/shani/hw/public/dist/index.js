@@ -69,6 +69,23 @@ function handleGetEmployees() {
         });
     });
 }
+function handleUpdateRole(ev, employeeId) {
+    return __awaiter(this, void 0, void 0, function () {
+        var role, data;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    console.log(ev, employeeId);
+                    role = ev.target.value;
+                    return [4 /*yield*/, axios.patch("/update-role", { employeeId: employeeId, role: role })];
+                case 1:
+                    data = (_a.sent()).data;
+                    console.log(data);
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
 function renderEmployees(theEmployees) {
     var html = "";
     theEmployees.forEach(function (employee) {

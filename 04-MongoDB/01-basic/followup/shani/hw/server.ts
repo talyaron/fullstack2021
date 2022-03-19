@@ -50,6 +50,22 @@ app.get("/get-employee",async(req,res)=>{
     res.send({theEmployees:employees})
 })
 
+app.patch("/update-role",async(req,res)=>{
+    try{
+        const {employeeId,role}=req.body;
+        if(employeeId && role){
+            //we found the user by its id and then we update the role
+            const employees= await Employee.updateOne({_id:employeeId},{role:role})
+            res.send({theEmployees:employees})
+        }else{
+            throw new Error("employeeId or role is missing")
+        }
+    }catch(error){
+        console.error(error.message);
+        res.send({error:error.message})
+    }
+})
+
 
 
 
