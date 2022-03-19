@@ -35,20 +35,40 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 var axios;
+function hanleGetGames() {
+    return __awaiter(this, void 0, void 0, function () {
+        var data, ok, games;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, axios.get('/get-game')];
+                case 1:
+                    data = (_a.sent()).data;
+                    console.log(data);
+                    ok = data.ok, games = data.games;
+                    console.log(games);
+                    if (games) {
+                        renderGames(games);
+                    }
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
 function handleAddGames(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var _a, title, price, type, data;
+        var _a, title, img, price, type, data;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
                     ev.preventDefault();
-                    _a = ev.target.elements, title = _a.title, price = _a.price, type = _a.type;
-                    console.log(title, price, type);
+                    _a = ev.target.elements, title = _a.title, img = _a.img, price = _a.price, type = _a.type;
+                    console.log(title, img, price, type);
                     title = title.value;
+                    img = img.value;
                     price = price.value;
                     type = type.value;
-                    console.log(title, price, type);
-                    return [4 /*yield*/, axios.post('/add-game', { title: title, price: price, type: type })];
+                    console.log(title, img, price, type);
+                    return [4 /*yield*/, axios.post('/add-game', { title: title, img: img, price: price, type: type })];
                 case 1:
                     data = (_b.sent()).data;
                     console.log(data);
@@ -57,4 +77,40 @@ function handleAddGames(ev) {
             }
         });
     });
+}
+function handleDelete(gameId) {
+    return __awaiter(this, void 0, void 0, function () {
+        var data;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, axios["delete"]('/delete-game', { data: { gameId: gameId } })];
+                case 1:
+                    data = (_a.sent()).data;
+                    console.log(data);
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+function handleUpdate(ev, gameId) {
+    return __awaiter(this, void 0, void 0, function () {
+        var newPrice, data;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    newPrice = ev.target.value;
+                    return [4 /*yield*/, axios.patch('/update-game', { gameId: gameId, newPrice: newPrice })];
+                case 1:
+                    data = (_a.sent()).data;
+                    console.log(data);
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+function renderGames(games) {
+    var html = games.map(function (game) {
+        return "<div> " + game.title + "\n        <input type=\"number\" name=\"newPrice\" placeholder=\"price\" value=\"" + game.price + "\" onblur='handleUpdate(event, \"" + game._id + "\")'>\n        <button onclick='handleDelete(\"" + game._id + "\")'>DELETE</button>\n        </div>";
+    }).join('');
+    document.getElementById('games').innerHTML = html;
 }
