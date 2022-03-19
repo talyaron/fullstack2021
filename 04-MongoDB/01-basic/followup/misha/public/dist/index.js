@@ -36,34 +36,67 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 function handleRegister(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var _a, username, password, role, data;
+        var _a, guitarname, price, brand, data;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
-                    _a = ev.target.elements, username = _a.username, password = _a.password, role = _a.role;
-                    username = username.value;
-                    password = password.value;
-                    role = role.value;
-                    return [4 /*yield*/, axios.post('/add-user', { username: username, password: password, role: role })];
+                    _a = ev.target.elements, guitarname = _a.guitarname, price = _a.price, brand = _a.brand;
+                    guitarname = guitarname.value;
+                    price = price.value;
+                    brand = brand.value;
+                    return [4 /*yield*/, axios.post('/add-guitar', { guitarname: guitarname, price: price, brand: brand })];
                 case 1:
                     data = (_b.sent()).data;
+                    renderGuitars(data);
                     return [2 /*return*/];
             }
         });
     });
 }
-function handleGetUsers() {
+function handleGetGuitars() {
     return __awaiter(this, void 0, void 0, function () {
         var data, users;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, axios.get('/get-users')];
+                case 0: return [4 /*yield*/, axios.get('/get-guitars')];
                 case 1:
                     data = (_a.sent()).data;
                     users = data;
-                    console.log(users);
+                    renderGuitars(data);
                     return [2 /*return*/];
             }
+        });
+    });
+}
+function renderGuitars(guitars) {
+    console.log(guitars);
+    var html = guitars.map(function (guitar) {
+        return "<div>" + guitar.guitarname + " <input type='text' placeholder='role' value='" + guitar.price + "' onblur='handleUpdate(event, \"" + guitar._id + "\")'>\n        <button onclick='handleDelete(\"" + guitar._id + "\")'>DELETE</button></div>";
+    }).join('');
+    document.getElementById('guitars').innerHTML = html;
+}
+function handleUpdate(ev, guitarId) {
+    return __awaiter(this, void 0, void 0, function () {
+        var price, data;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    console.log('handle');
+                    price = ev.target.value;
+                    return [4 /*yield*/, axios.patch('/update-guitar', { guitarId: guitarId, price: price })];
+                case 1:
+                    data = (_a.sent()).data;
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+function handleDelete(guitarId) {
+    return __awaiter(this, void 0, void 0, function () {
+        var data;
+        return __generator(this, function (_a) {
+            data = axios["delete"]('/delete-guitar', { data: { guitarId: guitarId } }).data;
+            return [2 /*return*/];
         });
     });
 }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,23 +8,32 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <title>Document</title>
 </head>
+
 <body>
     <form id='register' onsubmit="handleRegister(event)">
 
-    <input type="text" name="username" placeholder="user name">
-    <input type="text" name="password" placeholder="password" autocomplete="current-password">
-    <select name = "role" id="role">
-        <option value='public'>Public</option>
-        <option value='admin'>Admin</option>
-    </select>
-    <input type="submit" value="Register">
-    
+        <input type="file" name="file" id="file" />
+        <input type="text" name="guitar name" placeholder="guitarname">
+        <input type="text" name="price" placeholder="price" autocomplete="current-password">
+        <select name="brand" id="brand">
+            <option value='public'>Fender</option>
+            <option value='admin'>Gibson</option>
+            <option value='admin'>Ibanez</option>
+            <option value='admin'>Charvel</option>
+        </select>
+        <input type="submit" value="Add Guitar">
+
     </form>
+
 
     <button onclick="handleGetUsers()">Get Users</button>
 
+    <div id="guitars">
+
+    </div>
 
 
     <script src="./dist/index.js"></script>
 </body>
+
 </html>

@@ -16,14 +16,14 @@ const UserSchema = new mongoose.Schema({
   phone: String,
 })
 //create a collection
-const User = mongoose.model('myUsers', UserSchema);
+const Guitar = mongoose.model('myGuitars', UserSchema);
 
 app.post("/add-user", async (req, res) => {
   try {
     let { username, password, role } = req.body;
 
-    const newUser = new User({ username, password, role })
-    const result = await newUser.save()
+    const newGuitar = new Guitar({ username, password, role })
+    const result = await newGuitar.save()
 
     res.send({ result });
   } catch (error) {
@@ -33,20 +33,51 @@ app.post("/add-user", async (req, res) => {
 });
 
 
-app.get("/get-users", async (req,res) => {
+app.get("/get-users", async (req, res) => {
+  try {
 
-  try{
-
-    const users = await User.find({role: 'admin'})
-    res.send(users)
+    const guitars = await User.find({})
+    res.send(guitars)
 
   }
-  catch(error){
+  catch (error) {
     console.log(error.error);
-    res.send({error: error.message})
+    res.send({ error: error.message })
   }
 })
 
+app.patch("/update-guitar", async (req, res) => {
+  try {
+
+    const { guitarId, price } = req.body;
+    if (guitarId && price) {
+      const users = await User.updateOne({ _id: guitarId }, { price: price })
+    }
+    else {
+      throw new Error("guitarId or role is missing");
+    }
+  } catch (error) {
+    res.send({ error: error.massage });
+  }
+  
+})
+
+app.delete("/delete-guitar", async (req, res) => {
+  console.log(req.body)
+  try {
+    const { userId } = req.body
+    if (userId) {
+      const users = await User.deleteOne({ _id: userId })
+      res.send({ ok: true, users })
+    } else{
+      throw new Error("guitarId or role is missing");        
+    }
+  
+  }catch (error){
+    console.log(error.error)
+    res.send({error: error.message})
+  }
+});
 
 app.listen(port, () => {
   return console.log(`Express is listening at http://localhost:${port}`);

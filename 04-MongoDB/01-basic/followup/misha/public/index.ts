@@ -1,20 +1,44 @@
 async function  handleRegister(ev){
 
-    let {username, password, role} = ev.target.elements;
+    let {guitarname, price, brand} = ev.target.elements;
 
-    username = username.value;
-    password = password.value;
-    role = role.value
+    guitarname = guitarname.value;
+    price = price.value;
+    brand = brand.value
 
-    const {data} = await axios.post('/add-user', {username, password, role})
+    const {data} = await axios.post('/add-guitar', {guitarname, price, brand})
+
+    renderGuitars(data);
 
 }
 
-async function handleGetUsers(){
+async function handleGetGuitars(){
 
-    const {data} = await axios.get('/get-users')
+    const {data} = await axios.get('/get-guitars')
 
     const users = data
 
-    console.log(users)
+    renderGuitars(data);
+}
+
+function renderGuitars(guitars){
+    console.log(guitars)
+    const html = guitars.map(guitar => {
+        return `<div>${guitar.guitarname} <input type='text' placeholder='role' value='${guitar.price}' onblur='handleUpdate(event, "${guitar._id}")'>
+        <button onclick='handleDelete("${guitar._id}")'>DELETE</button></div>`
+    }).join('');
+
+    document.getElementById('guitars').innerHTML = html;
+
+}
+
+async function handleUpdate(ev, guitarId){
+    console.log('handle')
+    const price = ev.target.value;
+    const {data} = await axios.patch('/update-guitar', {guitarId, price})
+}
+
+async function handleDelete(guitarId){
+    
+    const {data} = axios.delete('/delete-guitar',{data:{guitarId}})
 }

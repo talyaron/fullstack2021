@@ -27,12 +27,12 @@ const UserSchema = new mongoose_1.default.Schema({
     phone: String,
 });
 //create a collection
-const User = mongoose_1.default.model('myUsers', UserSchema);
+const Guitar = mongoose_1.default.model('myGuitars', UserSchema);
 app.post("/add-user", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         let { username, password, role } = req.body;
-        const newUser = new User({ username, password, role });
-        const result = yield newUser.save();
+        const newGuitar = new Guitar({ username, password, role });
+        const result = yield newGuitar.save();
         res.send({ result });
     }
     catch (error) {
@@ -42,8 +42,39 @@ app.post("/add-user", (req, res) => __awaiter(void 0, void 0, void 0, function* 
 }));
 app.get("/get-users", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const users = yield User.find({ role: 'admin' });
-        res.send(users);
+        const guitars = yield User.find({});
+        res.send(guitars);
+    }
+    catch (error) {
+        console.log(error.error);
+        res.send({ error: error.message });
+    }
+}));
+app.patch("/update-guitar", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { guitarId, price } = req.body;
+        if (guitarId && price) {
+            const users = yield User.updateOne({ _id: guitarId }, { price: price });
+        }
+        else {
+            throw new Error("guitarId or role is missing");
+        }
+    }
+    catch (error) {
+        res.send({ error: error.massage });
+    }
+}));
+app.delete("/delete-guitar", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    console.log(req.body);
+    try {
+        const { userId } = req.body;
+        if (userId) {
+            const users = yield User.deleteOne({ _id: userId });
+            res.send({ ok: true, users });
+        }
+        else {
+            throw new Error("guitarId or role is missing");
+        }
     }
     catch (error) {
         console.log(error.error);
