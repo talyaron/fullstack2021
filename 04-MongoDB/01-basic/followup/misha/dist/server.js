@@ -21,16 +21,16 @@ app.use(express_1.default.json());
 mongoose_1.default.connect('mongodb+srv://michaeldubovik:michaeldubovik1991@cluster0.y9ozg.mongodb.net/myFirstDatabase?retryWrites=true&w=majority');
 //create a schema (interface)
 const UserSchema = new mongoose_1.default.Schema({
-    username: String,
-    password: String,
-    role: String,
-    phone: String,
+    guitarname: String,
+    price: String,
+    brand: String,
 });
 //create a collection
 const Guitar = mongoose_1.default.model('myGuitars', UserSchema);
-app.post("/add-user", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+app.post("/add-guitar", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         let { username, password, role } = req.body;
+        console.log(username, password, role);
         const newGuitar = new Guitar({ username, password, role });
         const result = yield newGuitar.save();
         res.send({ result });
@@ -40,9 +40,9 @@ app.post("/add-user", (req, res) => __awaiter(void 0, void 0, void 0, function* 
         res.send({ error: error.message });
     }
 }));
-app.get("/get-users", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+app.get("/get-guitars", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const guitars = yield User.find({});
+        const guitars = yield Guitar.find({});
         res.send(guitars);
     }
     catch (error) {
@@ -54,7 +54,7 @@ app.patch("/update-guitar", (req, res) => __awaiter(void 0, void 0, void 0, func
     try {
         const { guitarId, price } = req.body;
         if (guitarId && price) {
-            const users = yield User.updateOne({ _id: guitarId }, { price: price });
+            const users = yield Guitar.updateOne({ _id: guitarId }, { price: price });
         }
         else {
             throw new Error("guitarId or role is missing");
@@ -67,10 +67,10 @@ app.patch("/update-guitar", (req, res) => __awaiter(void 0, void 0, void 0, func
 app.delete("/delete-guitar", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     console.log(req.body);
     try {
-        const { userId } = req.body;
-        if (userId) {
-            const users = yield User.deleteOne({ _id: userId });
-            res.send({ ok: true, users });
+        const { guitarId } = req.body;
+        if (guitarId) {
+            const guitars = yield Guitar.deleteOne({ _id: guitarId });
+            res.send({ ok: true, guitars });
         }
         else {
             throw new Error("guitarId or role is missing");

@@ -10,18 +10,17 @@ mongoose.connect('mongodb+srv://michaeldubovik:michaeldubovik1991@cluster0.y9ozg
 
 //create a schema (interface)
 const UserSchema = new mongoose.Schema({
-  username: String,
-  password: String,
-  role: String,
-  phone: String,
+  guitarname: String,
+  price: String,
+  brand: String,
 })
 //create a collection
 const Guitar = mongoose.model('myGuitars', UserSchema);
 
-app.post("/add-user", async (req, res) => {
+app.post("/add-guitar", async (req, res) => {
   try {
     let { username, password, role } = req.body;
-
+    console.log(username, password,role)
     const newGuitar = new Guitar({ username, password, role })
     const result = await newGuitar.save()
 
@@ -33,10 +32,10 @@ app.post("/add-user", async (req, res) => {
 });
 
 
-app.get("/get-users", async (req, res) => {
+app.get("/get-guitars", async (req, res) => {
   try {
 
-    const guitars = await User.find({})
+    const guitars = await Guitar.find({})
     res.send(guitars)
 
   }
@@ -51,7 +50,7 @@ app.patch("/update-guitar", async (req, res) => {
 
     const { guitarId, price } = req.body;
     if (guitarId && price) {
-      const users = await User.updateOne({ _id: guitarId }, { price: price })
+      const users = await Guitar.updateOne({ _id: guitarId }, { price: price })
     }
     else {
       throw new Error("guitarId or role is missing");
@@ -65,10 +64,10 @@ app.patch("/update-guitar", async (req, res) => {
 app.delete("/delete-guitar", async (req, res) => {
   console.log(req.body)
   try {
-    const { userId } = req.body
-    if (userId) {
-      const users = await User.deleteOne({ _id: userId })
-      res.send({ ok: true, users })
+    const { guitarId } = req.body
+    if (guitarId) {
+      const guitars = await Guitar.deleteOne({ _id: guitarId })
+      res.send({ ok: true, guitars })
     } else{
       throw new Error("guitarId or role is missing");        
     }

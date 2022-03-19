@@ -40,10 +40,12 @@ function handleRegister(ev) {
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
+                    ev.preventDefault();
                     _a = ev.target.elements, guitarname = _a.guitarname, price = _a.price, brand = _a.brand;
                     guitarname = guitarname.value;
                     price = price.value;
                     brand = brand.value;
+                    console.log(guitarname, price, brand);
                     return [4 /*yield*/, axios.post('/add-guitar', { guitarname: guitarname, price: price, brand: brand })];
                 case 1:
                     data = (_b.sent()).data;

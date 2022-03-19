@@ -1,11 +1,13 @@
 async function  handleRegister(ev){
 
+    ev.preventDefault();
     let {guitarname, price, brand} = ev.target.elements;
 
     guitarname = guitarname.value;
     price = price.value;
     brand = brand.value
 
+    console.log(guitarname,price,brand)
     const {data} = await axios.post('/add-guitar', {guitarname, price, brand})
 
     renderGuitars(data);
