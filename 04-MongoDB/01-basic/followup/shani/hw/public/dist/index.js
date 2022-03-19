@@ -60,7 +60,6 @@ function handleGetEmployees() {
                 case 0: return [4 /*yield*/, axios.get("/get-employee")];
                 case 1:
                     data = (_a.sent()).data;
-                    console.log(data);
                     theEmployees = data.theEmployees;
                     console.log({ theEmployees: theEmployees });
                     renderEmployees(theEmployees);
@@ -71,7 +70,7 @@ function handleGetEmployees() {
 }
 function handleUpdateRole(ev, employeeId) {
     return __awaiter(this, void 0, void 0, function () {
-        var role, data;
+        var role, data, theEmployees;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -80,6 +79,8 @@ function handleUpdateRole(ev, employeeId) {
                     return [4 /*yield*/, axios.patch("/update-role", { employeeId: employeeId, role: role })];
                 case 1:
                     data = (_a.sent()).data;
+                    theEmployees = data.theEmployees;
+                    //renderEmployees(theEmployees)
                     console.log(data);
                     return [2 /*return*/];
             }
@@ -89,7 +90,7 @@ function handleUpdateRole(ev, employeeId) {
 function renderEmployees(theEmployees) {
     var html = "";
     theEmployees.forEach(function (employee) {
-        html += "<div class=\"employee\">        \n        Name:" + employee.firstName + " " + employee.lastName + "\n        <input type=\"text\" placeholder=\"role\" value=\"" + employee.role + "\" onblur=\"handleUpdateRole(event,\"" + employee._id + "\")\">\n         </div>";
+        html += "<div class=\"employee\">        \n        Name:" + employee.firstName + " " + employee.lastName + "\n        <input type=\"text\" placeholder=\"role\" value=\"" + employee.role + "\" onblur=\"handleUpdateRole(event,'" + employee._id + "')\">\n         </div>";
     });
     document.getElementById('rootEdit').innerHTML = html;
 }

@@ -61,7 +61,7 @@ app.patch("/update-role",async(req,res)=>{
             throw new Error("employeeId or role is missing")
         }
     }catch(error){
-        console.error(error.message);
+        console.log(error.error);
         res.send({error:error.message})
     }
 })

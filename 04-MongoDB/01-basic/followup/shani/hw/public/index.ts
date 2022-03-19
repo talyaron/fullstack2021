@@ -12,7 +12,7 @@ async function handleAddEmployee(ev){
 
 async function handleGetEmployees(){
     const {data}= await axios.get("/get-employee");
-    console.log(data);
+    // console.log(data);
     const{theEmployees}=data;
     console.log({theEmployees})
     renderEmployees(theEmployees)
@@ -23,6 +23,8 @@ async function handleUpdateRole(ev,employeeId){
    console.log(ev,employeeId)
    const role=ev.target.value;
    const {data}=await axios.patch("/update-role",{employeeId,role});
+   const{theEmployees}=data;
+   //renderEmployees(theEmployees)
    console.log(data)
 }
 
@@ -33,7 +35,7 @@ function renderEmployees(theEmployees){
     theEmployees.forEach(employee=>{
         html+=`<div class="employee">        
         Name:${employee.firstName} ${employee.lastName}
-        <input type="text" placeholder="role" value="${employee.role}" onblur="handleUpdateRole(event,"${employee._id}")">
+        <input type="text" placeholder="role" value="${employee.role}" onblur="handleUpdateRole(event,'${employee._id}')">
          </div>`
     })
 

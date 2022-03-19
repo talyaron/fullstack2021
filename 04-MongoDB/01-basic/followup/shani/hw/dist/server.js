@@ -64,7 +64,7 @@ app.patch("/update-role", (req, res) => __awaiter(void 0, void 0, void 0, functi
         }
     }
     catch (error) {
-        console.error(error.message);
+        console.log(error.error);
         res.send({ error: error.message });
     }
 }));
