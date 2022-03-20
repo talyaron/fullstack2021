@@ -18,6 +18,14 @@ async function handleGetEmployees(){
     renderEmployees(theEmployees)
 }
 
+async function handleGetSalesman(){
+    const {data}= await axios.get("/get-salesman");
+    // console.log(data);
+    const{theEmployees}=data;
+    console.log({theEmployees})
+    renderEmployees(theEmployees)
+}
+
 
 async function handleUpdateRole(ev,employeeId){
    console.log(ev,employeeId)

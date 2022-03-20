@@ -10,7 +10,10 @@ body {
 }
 .dunderMifflin__logo--title {
   transform: rotate(-10deg);
-  padding-bottom: 30px;
+  padding-bottom: 60px;
+}
+.dunderMifflin__addEmployee {
+  margin-top: 100px;
 }
 .dunderMifflin__addEmployee--firstName {
   width: 200px;

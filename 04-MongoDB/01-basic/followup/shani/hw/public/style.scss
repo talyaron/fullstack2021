@@ -11,12 +11,12 @@ body{
     padding-bottom:5px;
     &--title{
         transform: rotate(-10deg);
-        padding-bottom:30px;
+        padding-bottom:60px;
     }
 }
     
   &__addEmployee{
-    
+    margin-top:100px;
      &--firstName{
          width:200px;
      }
