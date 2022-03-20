@@ -34,111 +34,125 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-function handleAddEmployee(ev) {
+function loadPage(ev) {
+    handleGetAllUsers(ev);
+}
+function handleRegister(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var _a, firstName, lastName, imgUrl, role, data;
+        var _a, username, password, role, img, data;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
                     ev.preventDefault();
-                    _a = ev.target.elements, firstName = _a.firstName, lastName = _a.lastName, imgUrl = _a.imgUrl, role = _a.role;
-                    return [4 /*yield*/, axios.post("/add-employee", { firstName: firstName.value, lastName: lastName.value, imgUrl: imgUrl.value, role: role.value })];
+                    _a = ev.target.elements, username = _a.username, password = _a.password, role = _a.role, img = _a.img;
+                    username = username.value;
+                    password = password.value;
+                    role = role.value;
+                    img = img.value;
+                    return [4 /*yield*/, axios.post('/add-user', { username: username, password: password, role: role, img: img })];
                 case 1:
                     data = (_b.sent()).data;
                     console.log(data);
-                    ev.target.reset();
+                    this.handleGetAllUsers();
                     return [2 /*return*/];
             }
         });
     });
 }
-function handleGetEmployees() {
+function handleGetAllUsers(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var data, theEmployees;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, axios.get("/get-employee")];
+                case 0: return [4 /*yield*/, axios.get('/get-all-users').then(function (_a) {
+                        var data = _a.data;
+                        console.log(data);
+                        var root = document.querySelector('#root');
+                        renderAll(root, data);
+                    })];
                 case 1:
-                    data = (_a.sent()).data;
-                    theEmployees = data.theEmployees;
-                    console.log({ theEmployees: theEmployees });
-                    renderEmployees(theEmployees);
+                    _a.sent();
                     return [2 /*return*/];
             }
         });
     });
 }
-function handleGetSalesman() {
+function handleGetUserByRole(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var data, theEmployees;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, axios.get("/get-salesman")];
+                case 0: return [4 /*yield*/, axios.get('/get-user-by-role').then(function (_a) {
+                        var data = _a.data;
+                        console.log(data);
+                        var root = document.querySelector('#root');
+                        renderAll(root, data);
+                    })];
                 case 1:
-                    data = (_a.sent()).data;
-                    theEmployees = data.theEmployees;
-                    console.log({ theEmployees: theEmployees });
-                    renderEmployees(theEmployees);
+                    _a.sent();
                     return [2 /*return*/];
             }
         });
     });
 }
-function handleGetUseless() {
-    return __awaiter(this, void 0, void 0, function () {
-        var data, theEmployees;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, axios.get("/get-useless")];
-                case 1:
-                    data = (_a.sent()).data;
-                    theEmployees = data.theEmployees;
-                    console.log({ theEmployees: theEmployees });
-                    renderEmployees(theEmployees);
-                    return [2 /*return*/];
-            }
-        });
-    });
-}
-function handleUpdateRole(ev, employeeId) {
+function handleUpdateRole(ev, userId) {
     return __awaiter(this, void 0, void 0, function () {
         var role, data;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    console.log(ev, employeeId);
+                    console.log(ev, userId);
                     role = ev.target.value;
-                    return [4 /*yield*/, axios.patch("/update-role", { employeeId: employeeId, role: role })];
+                    return [4 /*yield*/, axios.patch('/update-user-role', { userId: userId, role: role })];
                 case 1:
                     data = (_a.sent()).data;
-                    //    const{theEmployees}=data;
-                    //    //renderEmployees(theEmployees)
-                    console.log(data);
+                    loadPage(ev);
                     return [2 /*return*/];
             }
         });
     });
 }
-function handleDeleteEmployee(employeeId) {
+function handleUpdateName(ev, userId) {
+    return __awaiter(this, void 0, void 0, function () {
+        var username, data;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    console.log(ev, userId);
+                    username = ev.target.value;
+                    return [4 /*yield*/, axios.patch('/update-user-name', { userId: userId, username: username })];
+                case 1:
+                    data = (_a.sent()).data;
+                    loadPage(ev);
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+function handleDelete(userId) {
     return __awaiter(this, void 0, void 0, function () {
         var data;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0:
-                    console.log(employeeId);
-                    return [4 /*yield*/, axios["delete"]("/delete-employee", { data: { employeeId: employeeId } })];
+                case 0: return [4 /*yield*/, axios["delete"]('/delete-user', { data: { userId: userId } })];
                 case 1:
                     data = (_a.sent()).data;
-                    console.log(data);
+                    this.handleGetAllUsers();
                     return [2 /*return*/];
             }
         });
     });
 }
-function renderEmployees(theEmployees) {
-    var html = "";
-    theEmployees.forEach(function (employee) {
-        html += "<div class=\"employee__card\"> \n       <h3> Role:" + employee.role + " </h3>\n        <img src=\"" + employee.imgUrl + "\">  \n            \n        <p><span>First Name:" + employee.firstName + "</span> Last Name:" + employee.lastName + "</p>\n        <div class=\"employee__card--edit\">\n        <hr>\n        <p >Edit:</p>\n        <input type=\"text\" placeholder=\"role\" value=\"" + employee.role + "\" onblur=\"handleUpdateRole(event,'" + employee._id + "')\">        \n        <button onclick=\"handleDeleteEmployee('" + employee._id + "')\">X</button>\n        </div>\n        </div>\n         ";
+function renderAll(root, data) {
+    var html = '';
+    data.forEach(function (user) {
+        html += "<div class=\"user\">\n        <div class=\"product\"><span style=\"color: #000;\"></span>" + user.username + "</div>\n        <div class=\"price\"><span style=\"color: #000;\"></span>" + user.role + "</div>\n        <div><img src=\"" + user.img + "\" alt=\"https://gameforge.com/de-DE/littlegames/includes/images/games/10343_5eb3f0ec15588.jpg\"></div>\n        <div><input type=\"text\" placeholder=\"username\" value=\"" + user.username + "\" onblur=\"handleUpdateName(event, '" + user._id + "')\"/></div>\n        <div><input type=\"text\" placeholder=\"role\" value=\"" + user.role + "\" onblur=\"handleUpdateRole(event, '" + user._id + "')\"/></div>\n        \n        <div><button onclick=\"handleDelete('" + user._id + "')\">DELETE</button></div>\n        </div>\n        ";
     });
-    document.getElementById('rootEdit').innerHTML = html;
+    root.innerHTML = html;
 }
+// async function handleGetUserByRole(ev) {
+//     let role = ev.target.elements.role.value
+//     await axios.get('/get-user-by-role').then(({ data }) => {
+//         console.log(data)
+//         const root = document.querySelector('#root');
+//         renderAll(root, data);
+//     })
+// }

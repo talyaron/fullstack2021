@@ -50,6 +50,20 @@ app.get("/get-employee",async(req,res)=>{
     res.send({theEmployees:employees})
 })
 
+app.get("/get-salesman",async(req,res)=>{
+
+    //Employee holds the info
+    const salesman= await Employee.find({role:"Salesman"})
+    res.send({theEmployees:salesman})
+})
+
+app.get("/get-useless",async(req,res)=>{
+
+    //Employee holds the info
+    const useless= await Employee.find({firstName:"Toby"})
+    res.send({theEmployees:useless})
+})
+
 app.patch("/update-role",async(req,res)=>{
     try{
         const {employeeId,role}=req.body;
@@ -65,6 +79,22 @@ app.patch("/update-role",async(req,res)=>{
         res.send({error:error.message})
     }
 })
+
+app.delete("/delete-employee", async(req,res)=>{
+    try{
+        const{employeeId}=req.body;
+        if(employeeId){
+            const deletedEmployee= await Employee.deleteOne({_id:employeeId})
+            res.send({theDeletedEmployee:deletedEmployee})
+        }else{
+            throw new Error("employeeId is missing")
+        }
+
+    }catch(error){
+        console.log(error.error);
+        res.send({error:error.message})
+    }
+});
 
 
 

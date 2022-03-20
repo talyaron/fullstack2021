@@ -51,6 +51,16 @@ app.get("/get-employee", (req, res) => __awaiter(void 0, void 0, void 0, functio
     const employees = yield Employee.find({});
     res.send({ theEmployees: employees });
 }));
+app.get("/get-salesman", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    //Employee holds the info
+    const salesman = yield Employee.find({ role: "Salesman" });
+    res.send({ theEmployees: salesman });
+}));
+app.get("/get-useless", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    //Employee holds the info
+    const useless = yield Employee.find({ firstName: "Toby" });
+    res.send({ theEmployees: useless });
+}));
 app.patch("/update-role", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { employeeId, role } = req.body;
@@ -61,6 +71,22 @@ app.patch("/update-role", (req, res) => __awaiter(void 0, void 0, void 0, functi
         }
         else {
             throw new Error("employeeId or role is missing");
+        }
+    }
+    catch (error) {
+        console.log(error.error);
+        res.send({ error: error.message });
+    }
+}));
+app.delete("/delete-employee", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { employeeId } = req.body;
+        if (employeeId) {
+            const deletedEmployee = yield Employee.deleteOne({ _id: employeeId });
+            res.send({ theDeletedEmployee: deletedEmployee });
+        }
+        else {
+            throw new Error("employeeId is missing");
         }
     }
     catch (error) {
