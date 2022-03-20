@@ -40,12 +40,17 @@ function renderEmployees(theEmployees){
     let html="";
 
     theEmployees.forEach(employee=>{
-        html+=`<div class="employee"> 
-        Role:${employee.role} 
-        <img src="${employee.imgUrl}">      
-        Name:${employee.firstName} ${employee.lastName}
+        html+=`<div class="employee__card"> 
+       <h3> Role:${employee.role} </h3>
+        <img src="${employee.imgUrl}">  
+            
+        <p><span>First Name:${employee.firstName}</span> Last Name:${employee.lastName}</p>
+        <div class="employee__card--edit">
+        <hr>
+        <p >Edit:</p>
         <input type="text" placeholder="role" value="${employee.role}" onblur="handleUpdateRole(event,'${employee._id}')">        
-        <button onclick="handleDeleteEmployee('${employee._id}')">delete</button>
+        <button onclick="handleDeleteEmployee('${employee._id}')">X</button>
+        </div>
         </div>
          `
     })

@@ -1,0 +1,102 @@
+body{
+   font-family:"Lucida Sans Typewriter"; 
+   background-color: rgb(164, 164, 255);
+   text-align:center;
+}
+
+.dunderMifflin{
+
+&__logo{
+    margin-top:px;
+    padding-bottom:5px;
+    &--title{
+        transform: rotate(-10deg);
+        padding-bottom:30px;
+    }
+}
+    
+  &__addEmployee{
+    
+     &--firstName{
+         width:200px;
+     }
+     &--lastName{
+        width:200px;
+    }
+    &--imgUrl{
+        width:400px;
+    }
+    &--role{
+        width:200px;
+    }
+    
+  }
+
+  &__showEmployees{
+    
+    background-color: rgb(89, 206, 89);
+    margin-top:20px;
+    width:100px;
+   
+
+  }
+}
+
+input{
+    border:2px solid grey;
+}
+
+
+
+
+#rootEdit{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 500px);
+    
+}
+.employee__card{
+    margin-top:30px;
+    border:1px solid grey;
+    border-radius:6px;
+    height:450px;
+    width:700px;
+    justify-self: center;
+    letter-spacing: 2px;
+   
+
+   p{
+       margin-top:30px;
+       span{
+           padding:10px;
+       }
+   }
+    img{
+        width:300px;
+        height:170px;
+        outline:black solid 1px;
+    }
+
+    &--edit{
+        padding-top:35px;
+        button{
+            
+            position:relative;  
+            left:220px;   
+            bottom:400px; 
+            border-radius: 50%;
+            cursor:pointer;
+            
+            &:hover{
+                background-color: blue;
+                
+            }  
+            &:active{
+                background-color: red;
+            } 
+            
+          
+        }
+       
+    }
+}

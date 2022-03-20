@@ -106,7 +106,7 @@ function handleDeleteEmployee(employeeId) {
 function renderEmployees(theEmployees) {
     var html = "";
     theEmployees.forEach(function (employee) {
-        html += "<div class=\"employee\"> \n        Role:" + employee.role + " \n        <img src=\"" + employee.imgUrl + "\">      \n        Name:" + employee.firstName + " " + employee.lastName + "\n        <input type=\"text\" placeholder=\"role\" value=\"" + employee.role + "\" onblur=\"handleUpdateRole(event,'" + employee._id + "')\">        \n        <button onclick=\"handleDeleteEmployee('" + employee._id + "')\">delete</button>\n        </div>\n         ";
+        html += "<div class=\"employee__card\"> \n       <h3> Role:" + employee.role + " </h3>\n        <img src=\"" + employee.imgUrl + "\">  \n            \n        <p><span>First Name:" + employee.firstName + "</span> Last Name:" + employee.lastName + "</p>\n        <div class=\"employee__card--edit\">\n        <hr>\n        <p >Edit:</p>\n        <input type=\"text\" placeholder=\"role\" value=\"" + employee.role + "\" onblur=\"handleUpdateRole(event,'" + employee._id + "')\">        \n        <button onclick=\"handleDeleteEmployee('" + employee._id + "')\">X</button>\n        </div>\n        </div>\n         ";
     });
     document.getElementById('rootEdit').innerHTML = html;
 }
