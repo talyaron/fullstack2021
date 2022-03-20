@@ -11,6 +11,7 @@ body {
 .dunderMifflin__logo--title {
   transform: rotate(-10deg);
   padding-bottom: 60px;
+  color: red;
 }
 .dunderMifflin__addEmployee {
   margin-top: 100px;
@@ -31,6 +32,9 @@ body {
   background-color: #59ce59;
   margin-top: 20px;
   width: 100px;
+}
+.dunderMifflin__showEmployees--useless {
+  background-color: grey;
 }
 
 input {

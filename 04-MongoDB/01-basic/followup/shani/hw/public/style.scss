@@ -12,6 +12,7 @@ body{
     &--title{
         transform: rotate(-10deg);
         padding-bottom:60px;
+        color:red;
     }
 }
     
@@ -37,9 +38,15 @@ body{
     background-color: rgb(89, 206, 89);
     margin-top:20px;
     width:100px;
+
+    &--useless{
+        background-color:grey;
+      
+    }
    
 
   }
+ 
 }
 
 input{

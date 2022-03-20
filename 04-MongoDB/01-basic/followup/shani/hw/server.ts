@@ -57,6 +57,13 @@ app.get("/get-salesman",async(req,res)=>{
     res.send({theEmployees:salesman})
 })
 
+app.get("/get-useless",async(req,res)=>{
+
+    //Employee holds the info
+    const useless= await Employee.find({firstName:"Toby"})
+    res.send({theEmployees:useless})
+})
+
 app.patch("/update-role",async(req,res)=>{
     try{
         const {employeeId,role}=req.body;

@@ -84,6 +84,22 @@ function handleGetSalesman() {
         });
     });
 }
+function handleGetUseless() {
+    return __awaiter(this, void 0, void 0, function () {
+        var data, theEmployees;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, axios.get("/get-useless")];
+                case 1:
+                    data = (_a.sent()).data;
+                    theEmployees = data.theEmployees;
+                    console.log({ theEmployees: theEmployees });
+                    renderEmployees(theEmployees);
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
 function handleUpdateRole(ev, employeeId) {
     return __awaiter(this, void 0, void 0, function () {
         var role, data;

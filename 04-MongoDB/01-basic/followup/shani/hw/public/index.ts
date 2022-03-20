@@ -26,6 +26,14 @@ async function handleGetSalesman(){
     renderEmployees(theEmployees)
 }
 
+async function handleGetUseless(){
+    const {data}= await axios.get("/get-useless");
+    // console.log(data);
+    const{theEmployees}=data;
+    console.log({theEmployees})
+    renderEmployees(theEmployees)
+}
+
 
 async function handleUpdateRole(ev,employeeId){
    console.log(ev,employeeId)
