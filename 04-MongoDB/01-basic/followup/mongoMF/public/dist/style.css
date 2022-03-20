@@ -7,6 +7,11 @@ body {
   justify-content: center;
 }
 
+.card {
+  display: flex;
+  gap: 10px;
+}
+
 .getGabai {
   justify-self: center;
   width: 100px;
@@ -14,6 +19,10 @@ body {
 
 .rootGabai {
   display: flex;
-  gap: 40px;
   margin-left: 320px;
+}
+
+.cardGabai {
+  justify-self: stretch;
+  width: 100%;
 }
