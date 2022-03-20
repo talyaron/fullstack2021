@@ -35,14 +35,30 @@ const GameSchema = new mongoose.Schema({
   
   });
 
-  app.get('get-games',async(req,res)=>{
+  app.get('/get-games',async(req,res)=>{
     try{
       const games=await Game.find({})
-      res.send({ok:games})
+      console.log(games);
+      
+      res.send({games})
     }
     catch (error){
       console.log(error);
       res.send({error:error.message})
+    }
+  })
+
+  app.patch('/update-games',async (req,res)=>{
+    try{
+      const {gameId,type}=req.body;
+      if({gameId && type}){
+        const games = await Game.updateOne({_id:gameId},{type:type})
+        res.send(games);
+      }
+      else{
+        throw new console.error();
+        
+      }
     }
   })
   

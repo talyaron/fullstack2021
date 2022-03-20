@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 function handleSubmit(e) {
     return __awaiter(this, void 0, void 0, function () {
-        var _a, name, type, data, games, root;
+        var _a, name, type, data, games;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
@@ -47,8 +47,6 @@ function handleSubmit(e) {
                 case 1:
                     data = (_b.sent()).data;
                     games = data.games;
-                    root = document.querySelector('#root');
-                    renderGames(games, root);
                     return [2 /*return*/];
             }
         });
@@ -56,25 +54,41 @@ function handleSubmit(e) {
 }
 function handleGetGames() {
     return __awaiter(this, void 0, void 0, function () {
-        var data, games, root;
+        var data, games;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0: return [4 /*yield*/, axios.get('/get-games')];
                 case 1:
                     data = (_a.sent()).data;
                     games = data.games;
-                    console.log(data);
-                    root = document.querySelector('#root');
-                    renderGames(games, root);
+                    console.log(games);
+                    renderGames(games);
                     return [2 /*return*/];
             }
         });
     });
 }
-function renderGames(games, root) {
+function handleupdate(event, gameId) {
+    return __awaiter(this, void 0, void 0, function () {
+        var type, data;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    type = event.target.value;
+                    return [4 /*yield*/, axios.patch('/update-games', { gameId: gameId, type: type })];
+                case 1:
+                    data = (_a.sent()).data;
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+function renderGames(games) {
+    var root = document.querySelector('#root');
     try {
         var html = games.map(function (theGame) {
-            return "<div class=\"card\"><h2>" + theGame.name + " " + theGame.type + "</h2></div>";
+            console.log(theGame);
+            return "<div class=\"card\"><h2>" + theGame.name + " " + theGame.type + "</h2></div>\n            <input type='text' placeholder='type' value=\"" + theGame.type + "\" onblur='handleupdate(event,\"" + theGame._id + "\")/>";
         }).join('');
         root.innerHTML = html;
         if (!root)

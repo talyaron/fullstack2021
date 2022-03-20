@@ -39,16 +39,32 @@ app.post('/game', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         res.send({ error: error.message });
     }
 }));
-app.get('get-games', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+app.get('/get-games', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const games = yield Game.find({});
-        res.send({ ok: games });
+        console.log(games);
+        res.send({ games });
     }
     catch (error) {
         console.log(error);
         res.send({ error: error.message });
     }
 }));
+app.patch('/update-games', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { gameId, type } = req.body;
+        if ({ gameId } && type)
+            ;
+    }
+    finally { }
+}));
+{
+    const games = await Game.updateOne({ _id: gameId }, { type: type });
+    res.send(games);
+}
+{
+    throw new console.error();
+}
 app.listen(port, () => {
     return console.log(`Express is listening at http://localhost:${port}`);
 });
