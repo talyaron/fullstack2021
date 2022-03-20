@@ -1,0 +1,20 @@
+*{
+    margin-top: 5vh;
+}
+
+body {
+    display: grid;
+    justify-content: center;
+ 
+}
+
+.getGabai{
+    justify-self: center;
+    width: 100px;
+}
+
+.rootGabai{
+    display: flex;
+    gap: 40px;
+    margin-left: 320px;
+}
