@@ -43,12 +43,8 @@ function hanleGetGames() {
                 case 0: return [4 /*yield*/, axios.get('/get-game')];
                 case 1:
                     data = (_a.sent()).data;
-                    console.log(data);
                     ok = data.ok, games = data.games;
-                    console.log(games);
-                    if (games) {
-                        renderGames(games);
-                    }
+                    renderGames(games);
                     return [2 /*return*/];
             }
         });
@@ -67,11 +63,9 @@ function handleAddGames(ev) {
                     img = img.value;
                     price = price.value;
                     type = type.value;
-                    console.log(title, img, price, type);
                     return [4 /*yield*/, axios.post('/add-game', { title: title, img: img, price: price, type: type })];
                 case 1:
                     data = (_b.sent()).data;
-                    console.log(data);
                     ev.target.reset();
                     return [2 /*return*/];
             }
@@ -86,7 +80,6 @@ function handleDelete(gameId) {
                 case 0: return [4 /*yield*/, axios["delete"]('/delete-game', { data: { gameId: gameId } })];
                 case 1:
                     data = (_a.sent()).data;
-                    console.log(data);
                     return [2 /*return*/];
             }
         });
@@ -94,15 +87,18 @@ function handleDelete(gameId) {
 }
 function handleUpdate(ev, gameId) {
     return __awaiter(this, void 0, void 0, function () {
-        var newPrice, data;
+        var newTitle, newPrice, newImg, newType, data;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    newPrice = ev.target.value;
-                    return [4 /*yield*/, axios.patch('/update-game', { gameId: gameId, newPrice: newPrice })];
+                    ev.preventDefault();
+                    newTitle = ev.target.elements[0].value;
+                    newPrice = ev.target.elements[1].value;
+                    newImg = ev.target.elements[2].value;
+                    newType = ev.target.elements[3].value;
+                    return [4 /*yield*/, axios.patch('/update-game', { gameId: gameId, newTitle: newTitle, newPrice: newPrice })];
                 case 1:
                     data = (_a.sent()).data;
-                    console.log(data);
                     return [2 /*return*/];
             }
         });
@@ -110,7 +106,7 @@ function handleUpdate(ev, gameId) {
 }
 function renderGames(games) {
     var html = games.map(function (game) {
-        return "<div> " + game.title + "\n        <input type=\"number\" name=\"newPrice\" placeholder=\"price\" value=\"" + game.price + "\" onblur='handleUpdate(event, \"" + game._id + "\")'>\n        <button onclick='handleDelete(\"" + game._id + "\")'>DELETE</button>\n        </div>";
+        return "<div>\n        <form onsubmit='handleUpdate(event, \"" + game._id + "\")'>\n        <input type=\"text\" name=\"newTitle\" value=\"" + game.title + "\">\n        <input type=\"number\" name=\"newPrice\" value=\"" + game.price + "\">\n        <input type=\"text\" name=\"newImg\" value=\"" + game.img + "\">\n        <input type=\"text\" name=\"newType\" value=\"" + game.type + "\">\n        <input type=\"submit\" value=\"Update\">\n    </form>\n        <button onclick='handleDelete(\"" + game._id + "\")'>DELETE</button>\n        </div>";
     }).join('');
     document.getElementById('games').innerHTML = html;
 }
