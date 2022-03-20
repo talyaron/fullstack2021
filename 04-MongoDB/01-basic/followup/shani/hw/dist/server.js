@@ -68,6 +68,22 @@ app.patch("/update-role", (req, res) => __awaiter(void 0, void 0, void 0, functi
         res.send({ error: error.message });
     }
 }));
+app.delete("/delete-employee", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { employeeId } = req.body;
+        if (employeeId) {
+            const deletedEmployee = yield Employee.deleteOne({ _id: employeeId });
+            res.send({ theDeletedEmployee: deletedEmployee });
+        }
+        else {
+            throw new Error("employeeId is missing");
+        }
+    }
+    catch (error) {
+        console.log(error.error);
+        res.send({ error: error.message });
+    }
+}));
 app.listen(port, () => {
     return console.log(`Express is listening at http://localhost:${port}`);
 });

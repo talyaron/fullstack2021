@@ -21,7 +21,15 @@
         <input type="submit" value="submit">
     </form>
 
+ 
     <button onclick="handleGetEmployees()">SHOW EMPLOYEES</button>
+
+    <select onchange="handleGetByRole(event)"name="type" id="type">
+        <option value="select" disabled selected>Select type</option>
+        <option value="rpg">RPG</option>
+        <option value="shooter">Shooter</option>
+        <option value="survival">Survival</option>
+    </select>
 
     <div id="rootEdit"></div>
 

@@ -66,6 +66,22 @@ app.patch("/update-role",async(req,res)=>{
     }
 })
 
+app.delete("/delete-employee", async(req,res)=>{
+    try{
+        const{employeeId}=req.body;
+        if(employeeId){
+            const deletedEmployee= await Employee.deleteOne({_id:employeeId})
+            res.send({theDeletedEmployee:deletedEmployee})
+        }else{
+            throw new Error("employeeId is missing")
+        }
+
+    }catch(error){
+        console.log(error.error);
+        res.send({error:error.message})
+    }
+});
+
 
 
 

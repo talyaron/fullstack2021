@@ -70,7 +70,7 @@ function handleGetEmployees() {
 }
 function handleUpdateRole(ev, employeeId) {
     return __awaiter(this, void 0, void 0, function () {
-        var role, data, theEmployees;
+        var role, data;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -79,8 +79,24 @@ function handleUpdateRole(ev, employeeId) {
                     return [4 /*yield*/, axios.patch("/update-role", { employeeId: employeeId, role: role })];
                 case 1:
                     data = (_a.sent()).data;
-                    theEmployees = data.theEmployees;
-                    //renderEmployees(theEmployees)
+                    //    const{theEmployees}=data;
+                    //    //renderEmployees(theEmployees)
+                    console.log(data);
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+function handleDeleteEmployee(employeeId) {
+    return __awaiter(this, void 0, void 0, function () {
+        var data;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    console.log(employeeId);
+                    return [4 /*yield*/, axios["delete"]("/delete-employee", { data: { employeeId: employeeId } })];
+                case 1:
+                    data = (_a.sent()).data;
                     console.log(data);
                     return [2 /*return*/];
             }
@@ -90,7 +106,7 @@ function handleUpdateRole(ev, employeeId) {
 function renderEmployees(theEmployees) {
     var html = "";
     theEmployees.forEach(function (employee) {
-        html += "<div class=\"employee\">        \n        Name:" + employee.firstName + " " + employee.lastName + "\n        <input type=\"text\" placeholder=\"role\" value=\"" + employee.role + "\" onblur=\"handleUpdateRole(event,'" + employee._id + "')\">\n         </div>";
+        html += "<div class=\"employee\"> \n        Role:" + employee.role + " \n        <img src=\"" + employee.imgUrl + "\">      \n        Name:" + employee.firstName + " " + employee.lastName + "\n        <input type=\"text\" placeholder=\"role\" value=\"" + employee.role + "\" onblur=\"handleUpdateRole(event,'" + employee._id + "')\">        \n        <button onclick=\"handleDeleteEmployee('" + employee._id + "')\">delete</button>\n        </div>\n         ";
     });
     document.getElementById('rootEdit').innerHTML = html;
 }
