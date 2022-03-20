@@ -1,0 +1,40 @@
+body {
+  color: palevioletred;
+  font-size: 20px;
+}
+
+input {
+  color: purple;
+  font-size: 22px;
+}
+
+.user {
+  background-color: cadetblue;
+  border-radius: 10px;
+  width: 300px;
+  height: 400px;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+  align-items: center;
+  border: 1px solid gray;
+  padding: 10px;
+  margin: 10px;
+}
+.user img {
+  width: 100%;
+  object-fit: contain;
+}
+.user .product,
+.user .price {
+  justify-content: center;
+  color: black;
+}
+
+div {
+  border: 1px solid red;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+}
