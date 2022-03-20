@@ -9,6 +9,15 @@
     <title>Document</title>
 </head>
 <body>
+    <div class="myGames">
+        <header><h1>My Games</h1></header>
+        <form class="myGames__input" onsubmit="handleAddGame(event)">
+            Tilte: <input type="text" name="title" required>
+            Image: <input type="text" name="img" required>
+            <input type="submit" value="ADD">
+        </form>
+        <div class="myGames__list"></div>
+    </div>
     <script src="./dist/index.js"></script>
 </body>
 </html>
