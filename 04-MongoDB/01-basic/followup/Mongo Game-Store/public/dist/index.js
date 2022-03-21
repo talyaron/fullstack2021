@@ -88,7 +88,7 @@ function renderGames(games) {
     try {
         var html = games.map(function (theGame) {
             console.log(theGame);
-            return "<div class=\"card\"><h2>" + theGame.name + " " + theGame.type + "</h2></div>\n            <input type='text' placeholder='type' value=\"" + theGame.type + "\" onblur='handleupdate(event,\"" + theGame._id + "\")/>";
+            return "<div class=\"card\"><h2>" + theGame.name + " " + theGame.type + "</h2></div>\n            <div><input type='text' placeholder='type' value='" + theGame.type + "' onblur='handleupdate(event,\"" + theGame._id + "\")'/></div>";
         }).join('');
         root.innerHTML = html;
         if (!root)

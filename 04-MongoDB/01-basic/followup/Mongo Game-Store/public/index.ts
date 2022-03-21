@@ -35,7 +35,7 @@ function renderGames(games) {
             console.log(theGame);
             
             return `<div class="card"><h2>${theGame.name} ${theGame.type}</h2></div>
-            <input type='text' placeholder='type' value="${theGame.type}" onblur='handleupdate(event,"${theGame._id}")/>`  
+            <div><input type='text' placeholder='type' value='${theGame.type}' onblur='handleupdate(event,"${theGame._id}")'/></div>`  
         }).join('')
   
         root.innerHTML = html
