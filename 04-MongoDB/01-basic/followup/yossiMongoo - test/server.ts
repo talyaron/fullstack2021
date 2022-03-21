@@ -1,7 +1,7 @@
 import express from "express";
 import mongoose from 'mongoose';
 const app = express();
-const port: number = 3002;
+const port: number = 3003;
 
 app.use(express.static("public"));
 app.use(express.json());
@@ -10,23 +10,23 @@ app.use(express.json());
 mongoose.connect('mongodb+srv://asnafy:AS8oeaVFbMLK3Wop@cluster0.xgv3d.mongodb.net/yossi-test?retryWrites=true&w=majority');
 
 //create a schema (interface)
-const UserSchema = new mongoose.Schema({
-  username: String,
-  password: String,
-  role: String,
+const ProductSchema = new mongoose.Schema({
+  category: String,
+  name: String,
+  price: String,
   img: String
-})
+}) 
 //create a collection
-const User = mongoose.model('user', UserSchema);
+const Product = mongoose.model('product', ProductSchema);
 
 
 
-app.post("/add-user", async (req, res) => {
+app.post("/add-product", async (req, res) => {
   try {
-    let { username, password, role, img } = req.body;
-    if (username && password && role && img) {
-      const newUser = new User({ username, password, role, img })
-      const result = await newUser.save()
+    let {category, name, price, img } = req.body;
+    if (category && name && price && img) {
+      const newProduct = new Product({category, name, price, img })
+      const result = await newProduct.save()
 
       res.send({ result });
     }
@@ -37,34 +37,39 @@ app.post("/add-user", async (req, res) => {
 });
 
 
-app.get('/get-all-users', async (req, res) => {
-  const users = await User.find({})
-  res.send(users);
+app.get('/get-all-products', async (req, res) => {
+  const products = await Product.find({})
+  res.send(products);
 });
 
-app.get('/get-user-by-role', async (req, res) => {
-  const users = await User.find({ role: 'privet' })
-  res.send(users);
+app.get('/get-product-by-israeli', async (req, res) => {
+  const products = await Product.find({ category: 'Israeli' })
+  res.send(products);
+});
+
+app.get('/get-product-by-american', async (req, res) => {
+  const products = await Product.find({ category: 'American' })
+  res.send(products);
 });
 
 
-app.patch('/update-user-role', async (req, res) => {
-  const { userId, role } = req.body;
-  const users = await User.updateOne({ _id: userId }, { role: role })
-  res.send(users);
+app.patch('/update-product-price', async (req, res) => {
+  const { productId, price } = req.body;
+  const products = await Product.updateOne({ _id: productId }, { price: price })
+  res.send(products);
 })
 
-app.patch('/update-user-name', async (req, res) => {
-  const { userId, username } = req.body;
-  const users = await User.updateOne({ _id: userId }, { username: username })
-  res.send(users);
+app.patch('/update-product-name', async (req, res) => {
+  const { productId, name } = req.body;
+  const products = await Product.updateOne({ _id: productId }, { name: name })
+  res.send(products);
 })
 
-app.delete('/delete-user', async (req, res) => {
-  const {userId} = req.body;
+app.delete('/delete-product', async (req, res) => {
+  const {productId} = req.body;
 
-  const users = await User.deleteOne({ _id: userId });
-  res.send(users)
+  const products = await Product.deleteOne({ _id: productId });
+  res.send(products)
 })
 
 

@@ -15,25 +15,25 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const app = express_1.default();
-const port = 3002;
+const port = 3003;
 app.use(express_1.default.static("public"));
 app.use(express_1.default.json());
 mongoose_1.default.connect('mongodb+srv://asnafy:AS8oeaVFbMLK3Wop@cluster0.xgv3d.mongodb.net/yossi-test?retryWrites=true&w=majority');
 //create a schema (interface)
-const UserSchema = new mongoose_1.default.Schema({
-    username: String,
-    password: String,
-    role: String,
+const ProductSchema = new mongoose_1.default.Schema({
+    category: String,
+    name: String,
+    price: String,
     img: String
 });
 //create a collection
-const User = mongoose_1.default.model('user', UserSchema);
-app.post("/add-user", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const Product = mongoose_1.default.model('product', ProductSchema);
+app.post("/add-product", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        let { username, password, role, img } = req.body;
-        if (username && password && role && img) {
-            const newUser = new User({ username, password, role, img });
-            const result = yield newUser.save();
+        let { category, name, price, img } = req.body;
+        if (category && name && price && img) {
+            const newProduct = new Product({ category, name, price, img });
+            const result = yield newProduct.save();
             res.send({ result });
         }
     }
@@ -42,28 +42,32 @@ app.post("/add-user", (req, res) => __awaiter(void 0, void 0, void 0, function* 
         res.send({ error: error.message });
     }
 }));
-app.get('/get-all-users', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const users = yield User.find({});
-    res.send(users);
+app.get('/get-all-products', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const products = yield Product.find({});
+    res.send(products);
 }));
-app.get('/get-user-by-role', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const users = yield User.find({ role: 'privet' });
-    res.send(users);
+app.get('/get-product-by-israeli', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const products = yield Product.find({ category: 'Israeli' });
+    res.send(products);
 }));
-app.patch('/update-user-role', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { userId, role } = req.body;
-    const users = yield User.updateOne({ _id: userId }, { role: role });
-    res.send(users);
+app.get('/get-product-by-american', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const products = yield Product.find({ category: 'American' });
+    res.send(products);
 }));
-app.patch('/update-user-name', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { userId, username } = req.body;
-    const users = yield User.updateOne({ _id: userId }, { username: username });
-    res.send(users);
+app.patch('/update-product-price', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { productId, price } = req.body;
+    const products = yield Product.updateOne({ _id: productId }, { price: price });
+    res.send(products);
 }));
-app.delete('/delete-user', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { userId } = req.body;
-    const users = yield User.deleteOne({ _id: userId });
-    res.send(users);
+app.patch('/update-product-name', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { productId, name } = req.body;
+    const products = yield Product.updateOne({ _id: productId }, { name: name });
+    res.send(products);
+}));
+app.delete('/delete-product', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { productId } = req.body;
+    const products = yield Product.deleteOne({ _id: productId });
+    res.send(products);
 }));
 app.listen(port, () => {
     return console.log(`Express is listening at http://localhost:${port}`);

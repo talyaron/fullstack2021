@@ -35,35 +35,35 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 function loadPage(ev) {
-    handleGetAllUsers(ev);
+    handleGetAllProducts(ev);
 }
 function handleRegister(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var _a, username, password, role, img, data;
+        var _a, category, name, price, img, data;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
                     ev.preventDefault();
-                    _a = ev.target.elements, username = _a.username, password = _a.password, role = _a.role, img = _a.img;
-                    username = username.value;
-                    password = password.value;
-                    role = role.value;
+                    _a = ev.target.elements, category = _a.category, name = _a.name, price = _a.price, img = _a.img;
+                    category = category.value;
+                    name = name.value;
+                    price = price.value;
                     img = img.value;
-                    return [4 /*yield*/, axios.post('/add-user', { username: username, password: password, role: role, img: img })];
+                    return [4 /*yield*/, axios.post('/add-product', { category: category, name: name, price: price, img: img })];
                 case 1:
                     data = (_b.sent()).data;
                     console.log(data);
-                    this.handleGetAllUsers();
+                    this.handleGetAllProducts();
                     return [2 /*return*/];
             }
         });
     });
 }
-function handleGetAllUsers(ev) {
+function handleGetAllProducts(ev) {
     return __awaiter(this, void 0, void 0, function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, axios.get('/get-all-users').then(function (_a) {
+                case 0: return [4 /*yield*/, axios.get('/get-all-products').then(function (_a) {
                         var data = _a.data;
                         console.log(data);
                         var root = document.querySelector('#root');
@@ -76,11 +76,11 @@ function handleGetAllUsers(ev) {
         });
     });
 }
-function handleGetUserByRole(ev) {
+function handleGetProductByNameIsraeli(ev) {
     return __awaiter(this, void 0, void 0, function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, axios.get('/get-user-by-role').then(function (_a) {
+                case 0: return [4 /*yield*/, axios.get('/get-product-by-israeli').then(function (_a) {
                         var data = _a.data;
                         console.log(data);
                         var root = document.querySelector('#root');
@@ -93,15 +93,32 @@ function handleGetUserByRole(ev) {
         });
     });
 }
-function handleUpdateRole(ev, userId) {
+function handleGetProductByNameAmerican(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var role, data;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, axios.get('/get-product-by-american').then(function (_a) {
+                        var data = _a.data;
+                        console.log(data);
+                        var root = document.querySelector('#root');
+                        renderAll(root, data);
+                    })];
+                case 1:
+                    _a.sent();
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+function handleUpdatePrice(ev, productId) {
+    return __awaiter(this, void 0, void 0, function () {
+        var price, data;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    console.log(ev, userId);
-                    role = ev.target.value;
-                    return [4 /*yield*/, axios.patch('/update-user-role', { userId: userId, role: role })];
+                    console.log(ev, productId);
+                    price = ev.target.value;
+                    return [4 /*yield*/, axios.patch('/update-product-price', { productId: productId, price: price })];
                 case 1:
                     data = (_a.sent()).data;
                     loadPage(ev);
@@ -110,15 +127,15 @@ function handleUpdateRole(ev, userId) {
         });
     });
 }
-function handleUpdateName(ev, userId) {
+function handleUpdateName(ev, productId) {
     return __awaiter(this, void 0, void 0, function () {
-        var username, data;
+        var name, data;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    console.log(ev, userId);
-                    username = ev.target.value;
-                    return [4 /*yield*/, axios.patch('/update-user-name', { userId: userId, username: username })];
+                    console.log(ev, productId);
+                    name = ev.target.value;
+                    return [4 /*yield*/, axios.patch('/update-product-name', { productId: productId, name: name })];
                 case 1:
                     data = (_a.sent()).data;
                     loadPage(ev);
@@ -127,15 +144,15 @@ function handleUpdateName(ev, userId) {
         });
     });
 }
-function handleDelete(userId) {
+function handleDelete(productId) {
     return __awaiter(this, void 0, void 0, function () {
         var data;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, axios["delete"]('/delete-user', { data: { userId: userId } })];
+                case 0: return [4 /*yield*/, axios["delete"]('/delete-product', { data: { productId: productId } })];
                 case 1:
                     data = (_a.sent()).data;
-                    this.handleGetAllUsers();
+                    this.handleGetAllProducts();
                     return [2 /*return*/];
             }
         });
@@ -143,16 +160,8 @@ function handleDelete(userId) {
 }
 function renderAll(root, data) {
     var html = '';
-    data.forEach(function (user) {
-        html += "<div class=\"user\">\n        <div class=\"product\"><span style=\"color: #000;\"></span>" + user.username + "</div>\n        <div class=\"price\"><span style=\"color: #000;\"></span>" + user.role + "</div>\n        <div><img src=\"" + user.img + "\" alt=\"https://gameforge.com/de-DE/littlegames/includes/images/games/10343_5eb3f0ec15588.jpg\"></div>\n        <div><input type=\"text\" placeholder=\"username\" value=\"" + user.username + "\" onblur=\"handleUpdateName(event, '" + user._id + "')\"/></div>\n        <div><input type=\"text\" placeholder=\"role\" value=\"" + user.role + "\" onblur=\"handleUpdateRole(event, '" + user._id + "')\"/></div>\n        \n        <div><button onclick=\"handleDelete('" + user._id + "')\">DELETE</button></div>\n        </div>\n        ";
+    data.forEach(function (product) {
+        html += "<div class=\"product\">\n        <div class=\"productName\"><span style=\"color: #000;\"></span>" + product.name + "</div>\n        <div class=\"productprice\"><span style=\"color: #000;\"></span>" + product.price + "&#8362;\n        </div>\n        <div><img src=\"" + product.img + "\" alt=\"\"></div>\n        <div><input type=\"text\" placeholder=\"name\" value=\"" + product.name + "\" onblur=\"handleUpdateName(event, '" + product._id + "')\"/></div>\n        <div><input type=\"text\" placeholder=\"price\" value=\"" + product.price + "\" onblur=\"handleUpdatePrice(event, '" + product._id + "')\"/></div>\n        \n        <div><button onclick=\"handleDelete('" + product._id + "')\">DELETE</button></div>\n        </div>\n        ";
     });
     root.innerHTML = html;
 }
-// async function handleGetUserByRole(ev) {
-//     let role = ev.target.elements.role.value
-//     await axios.get('/get-user-by-role').then(({ data }) => {
-//         console.log(data)
-//         const root = document.querySelector('#root');
-//         renderAll(root, data);
-//     })
-// }

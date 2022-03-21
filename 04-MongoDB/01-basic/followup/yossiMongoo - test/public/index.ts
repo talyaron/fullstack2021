@@ -1,92 +1,83 @@
 function loadPage(ev){
-    handleGetAllUsers(ev)
+    handleGetAllProducts(ev)
 }
 
 async function handleRegister(ev) {
     ev.preventDefault();
-    let { username, password, role, img } = ev.target.elements;
-    username = username.value;
-    password = password.value;
-    role = role.value;
+    let { category, name, price, img } = ev.target.elements;
+    category = category.value
+    name = name.value;
+    price = price.value;
     img = img.value;
 
-    const { data } = await axios.post('/add-user', { username, password, role, img })
+    const { data } = await axios.post('/add-product', { category, name, price, img })
     console.log(data)
-    this.handleGetAllUsers()
+    this.handleGetAllProducts()
 }
 
 
-async function handleGetAllUsers(ev) {
-    await axios.get('/get-all-users').then(({ data }) => {
+async function handleGetAllProducts(ev) {
+    await axios.get('/get-all-products').then(({ data }) => {
         console.log(data)
         const root = document.querySelector('#root');
         renderAll(root, data);
     })
 }
 
-async function handleGetUserByRole(ev) {
-    await axios.get('/get-user-by-role').then(({ data }) => {
+async function handleGetProductByNameIsraeli(ev) {
+    await axios.get('/get-product-by-israeli').then(({ data }) => {
         console.log(data)
         const root = document.querySelector('#root');
         renderAll(root, data);
     })
 }
 
-async function handleUpdateRole(ev, userId) {
-    console.log(ev, userId)
-    const role = ev.target.value;
-    const { data } = await axios.patch('/update-user-role', { userId, role })
-    loadPage(ev)
-    // this.handleGetAllUsers()
-    // const root = document.querySelector('#root');
-    // renderAll(root, data);
+async function handleGetProductByNameAmerican(ev) {
+    await axios.get('/get-product-by-american').then(({ data }) => {
+        console.log(data)
+        const root = document.querySelector('#root');
+        renderAll(root, data);
+    })
 }
 
-async function handleUpdateName(ev, userId) {
-    console.log(ev, userId)
-    const username = ev.target.value;
-    const { data } = await axios.patch('/update-user-name', { userId, username })
+async function handleUpdatePrice(ev, productId) {
+    console.log(ev, productId)
+    const price = ev.target.value;
+    const { data } = await axios.patch('/update-product-price', { productId, price })
     loadPage(ev)
-    // this.handleGetAllUsers()
-    // const root = document.querySelector('#root');
-    // renderAll(root, data);
+
 }
 
-async function handleDelete(userId) {
-    const { data } = await axios.delete('/delete-user', {data:{userId}})
-    this.handleGetAllUsers()
+async function handleUpdateName(ev, productId) {
+    console.log(ev, productId)
+    const name = ev.target.value;
+    const { data } = await axios.patch('/update-product-name', { productId, name })
+    loadPage(ev)
+
+}
+
+async function handleDelete(productId) {
+    const { data } = await axios.delete('/delete-product', {data:{productId}})
+    this.handleGetAllProducts()
 }
 
 
 function renderAll(root, data) {
     
     let html = '';
-    data.forEach(user => {
-        html += `<div class="user">
-        <div class="product"><span style="color: #000;"></span>${user.username}</div>
-        <div class="price"><span style="color: #000;"></span>${user.role}</div>
-        <div><img src="${user.img}" alt="https://gameforge.com/de-DE/littlegames/includes/images/games/10343_5eb3f0ec15588.jpg"></div>
-        <div><input type="text" placeholder="username" value="${user.username}" onblur="handleUpdateName(event, '${user._id}')"/></div>
-        <div><input type="text" placeholder="role" value="${user.role}" onblur="handleUpdateRole(event, '${user._id}')"/></div>
+    data.forEach(product => {
+        html += `<div class="product">
+        <div class="productName"><span style="color: #000;"></span>${product.name}</div>
+        <div class="productprice"><span style="color: #000;"></span>${product.price}&#8362;
+        </div>
+        <div><img src="${product.img}" alt=""></div>
+        <div><input type="text" placeholder="name" value="${product.name}" onblur="handleUpdateName(event, '${product._id}')"/></div>
+        <div><input type="text" placeholder="price" value="${product.price}" onblur="handleUpdatePrice(event, '${product._id}')"/></div>
         
-        <div><button onclick="handleDelete('${user._id}')">DELETE</button></div>
+        <div><button onclick="handleDelete('${product._id}')">DELETE</button></div>
         </div>
         `
     });
     
     root.innerHTML = html;
 }
-
-
-
-
-// async function handleGetUserByRole(ev) {
-
-//     let role = ev.target.elements.role.value
-
-//     await axios.get('/get-user-by-role').then(({ data }) => {
-//         console.log(data)
-//         const root = document.querySelector('#root');
-//         renderAll(root, data);
-//     })
-// }
