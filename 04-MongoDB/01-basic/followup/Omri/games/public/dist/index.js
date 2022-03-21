@@ -79,7 +79,7 @@ function renderGames(games) {
     var rootGames = document.querySelector('.myGames__list');
     if (games) {
         games.forEach(function (game) {
-            html += "<h4>" + game.title + "</h4>\n                <img src = " + game.img + ">\n                <form onsubmit = \"handleUpdate(event, \"" + game._id + "\")\">\n                <input type = 'text' name = 'newImg' placeholder = 'Update Image'>\n                <input type=\"submit\" value=\"UPDATE\">\n                </form>";
+            html += "\n                <h4>" + game.title + "</h4>\n                <input type = 'text' name = 'newImg' placeholder = 'Update Image' onblur = 'handleUpdate(event, \"" + game._id + "\")'>\n                <img src = " + game.img + ">\n                <button onclick='handleDelete(\"" + game._id + "\")'> Delete Game </button>\n                ";
         });
         rootGames.innerHTML = html;
     }
@@ -92,6 +92,21 @@ function handleUpdate(ev, gameId) {
                 case 0:
                     newImg = ev.target.value;
                     return [4 /*yield*/, axios.patch('/update-game', { gameId: gameId, newImg: newImg })];
+                case 1:
+                    data = (_a.sent()).data;
+                    games = data.games;
+                    renderGames(games);
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+function handleDelete(gameId) {
+    return __awaiter(this, void 0, void 0, function () {
+        var data, games;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, axios["delete"]('/delete-game', { data: { gameId: gameId } })];
                 case 1:
                     data = (_a.sent()).data;
                     games = data.games;

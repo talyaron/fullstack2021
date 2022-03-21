@@ -1,7 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 const app = express();
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 3003;
 
 app.use(express.static("public"));
 app.use(express.json());
@@ -42,10 +42,11 @@ app.post('/add-game', async (req, res) => {
 
 app.patch("/update-game", async (req, res) =>{
     try {
-        const {gameId, newImg} = req.body;
-        if(gameId && newImg){
+        const gameId = req.body.gameId;
+        const newImg = req.body.newImg;
+        if({gameId, newImg}){
             const result = await Game.updateOne({_id:gameId},{img:newImg});
-            const games = await Game.find({})
+            const games = await Game.find({});
             res.send({ok: true, result, games});
         } else{
             throw new Error("Something went wrong");
@@ -54,6 +55,22 @@ app.patch("/update-game", async (req, res) =>{
         console.error(error);
         res.send({error: error.message});
     }
+});
+
+app.delete('/delete-game', async (req,res) => {
+   try {
+    const {gameId} = req.body;
+    if(gameId){
+        const result = await Game.deleteOne({_id:gameId});
+        const games = await Game.find({});
+        res.send({ok:true,result,games})
+    } else{
+        throw new Error('Game ID is missing')
+    }
+   } catch (error) {
+       console.error(error);
+       res.send({error: error.message})
+   }
 });
 
 

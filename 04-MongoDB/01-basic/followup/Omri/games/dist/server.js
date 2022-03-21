@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const app = express_1.default();
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 3003;
 app.use(express_1.default.static("public"));
 app.use(express_1.default.json());
 mongoose_1.default.connect('mongodb+srv://OmriAharonov:moIIfkRPSJr5kmM0@cluster0.kv5s6.mongodb.net/myFirstDatabase?retryWrites=true&w=majority');
@@ -51,14 +51,32 @@ app.post('/add-game', (req, res) => __awaiter(void 0, void 0, void 0, function* 
 }));
 app.patch("/update-game", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { gameId, newImg } = req.body;
-        if (gameId && newImg) {
+        const gameId = req.body.gameId;
+        const newImg = req.body.newImg;
+        if ({ gameId, newImg }) {
             const result = yield Game.updateOne({ _id: gameId }, { img: newImg });
             const games = yield Game.find({});
             res.send({ ok: true, result, games });
         }
         else {
             throw new Error("Something went wrong");
+        }
+    }
+    catch (error) {
+        console.error(error);
+        res.send({ error: error.message });
+    }
+}));
+app.delete('/delete-game', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { gameId } = req.body;
+        if (gameId) {
+            const result = yield Game.deleteOne({ _id: gameId });
+            const games = yield Game.find({});
+            res.send({ ok: true, result, games });
+        }
+        else {
+            throw new Error('Game ID is missing');
         }
     }
     catch (error) {
