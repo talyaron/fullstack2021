@@ -34,59 +34,94 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+function loadPage(ev) {
+    handleGetAllUsers(ev);
+}
 function handleRegister(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var _a, username, password, data;
+        var _a, username, password, role, img, data;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
                     ev.preventDefault();
-                    _a = ev.target.elements, username = _a.username, password = _a.password;
-                    console.log(username, password);
+                    _a = ev.target.elements, username = _a.username, password = _a.password, role = _a.role, img = _a.img;
                     username = username.value;
                     password = password.value;
-                    console.log(username, password);
-                    return [4 /*yield*/, axios.post('/add-user', { username: username, password: password })];
+                    role = role.value;
+                    img = img.value;
+                    return [4 /*yield*/, axios.post('/add-user', { username: username, password: password, role: role, img: img })];
                 case 1:
                     data = (_b.sent()).data;
                     console.log(data);
+                    this.handleGetAllUsers();
                     return [2 /*return*/];
             }
         });
     });
 }
-function handleUpdate(ev, _a) {
-    var userId = _a.userId;
+function handleGetAllUsers(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, axios.get('/get-all-users').then(function (_a) {
+                        var data = _a.data;
+                        console.log(data);
+                        var root = document.querySelector('#root');
+                        renderAll(root, data);
+                    })];
+                case 1:
+                    _a.sent();
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+function handleGetUserByRole(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, axios.get('/get-user-by-role').then(function (_a) {
+                        var data = _a.data;
+                        console.log(data);
+                        var root = document.querySelector('#root');
+                        renderAll(root, data);
+                    })];
+                case 1:
+                    _a.sent();
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+function handleUpdateRole(ev, userId) {
     return __awaiter(this, void 0, void 0, function () {
         var role, data;
-        return __generator(this, function (_b) {
-            switch (_b.label) {
+        return __generator(this, function (_a) {
+            switch (_a.label) {
                 case 0:
                     console.log(ev, userId);
                     role = ev.target.value;
-                    return [4 /*yield*/, axios.patch('/update-user', { userId: userId, role: role })];
+                    return [4 /*yield*/, axios.patch('/update-user-role', { userId: userId, role: role })];
                 case 1:
-                    data = (_b.sent()).data;
-                    console.log(data);
+                    data = (_a.sent()).data;
+                    loadPage(ev);
                     return [2 /*return*/];
             }
         });
     });
 }
-function handleGetUsers() {
+function handleUpdateName(ev, userId) {
     return __awaiter(this, void 0, void 0, function () {
-        var data, ok, users;
+        var username, data;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, axios.get('/get-users')];
+                case 0:
+                    console.log(ev, userId);
+                    username = ev.target.value;
+                    return [4 /*yield*/, axios.patch('/update-user-name', { userId: userId, username: username })];
                 case 1:
                     data = (_a.sent()).data;
-                    console.log(data);
-                    ok = data.ok, users = data.users;
-                    console.log({ ok: ok, users: users });
-                    if (users) {
-                        renderUsers(users);
-                    }
+                    loadPage(ev);
                     return [2 /*return*/];
             }
         });
@@ -100,17 +135,24 @@ function handleDelete(userId) {
                 case 0: return [4 /*yield*/, axios["delete"]('/delete-user', { data: { userId: userId } })];
                 case 1:
                     data = (_a.sent()).data;
-                    console.log(data);
+                    this.handleGetAllUsers();
                     return [2 /*return*/];
             }
         });
     });
 }
-function renderUsers(users) {
-    var html = users.map(function (user) {
-        console.log(user);
-        return "<div>" + user.username + " \n        <input type='text' placeholder='role' value=\"" + user.role + "\" onblur='handleUpdate(event, \"" + user._id + "\")'/>\n        <button onclick='handleDelete(\"" + user._id + "\")'>DELETE</button>\n        </div>";
-    }).join('');
-    console.log(html);
-    document.getElementById('users').innerHTML = html;
+function renderAll(root, data) {
+    var html = '';
+    data.forEach(function (user) {
+        html += "<div class=\"user\">\n        <div class=\"product\"><span style=\"color: #000;\"></span>" + user.username + "</div>\n        <div class=\"price\"><span style=\"color: #000;\"></span>" + user.role + "</div>\n        <div><img src=\"" + user.img + "\" alt=\"https://gameforge.com/de-DE/littlegames/includes/images/games/10343_5eb3f0ec15588.jpg\"></div>\n        <div><input type=\"text\" placeholder=\"username\" value=\"" + user.username + "\" onblur=\"handleUpdateName(event, '" + user._id + "')\"/></div>\n        <div><input type=\"text\" placeholder=\"role\" value=\"" + user.role + "\" onblur=\"handleUpdateRole(event, '" + user._id + "')\"/></div>\n        \n        <div><button onclick=\"handleDelete('" + user._id + "')\">DELETE</button></div>\n        </div>\n        ";
+    });
+    root.innerHTML = html;
 }
+// async function handleGetUserByRole(ev) {
+//     let role = ev.target.elements.role.value
+//     await axios.get('/get-user-by-role').then(({ data }) => {
+//         console.log(data)
+//         const root = document.querySelector('#root');
+//         renderAll(root, data);
+//     })
+// }

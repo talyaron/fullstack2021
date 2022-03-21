@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="dist/style.css">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.js"
         integrity="sha512-MNW6IbpNuZZ2VH9ngFhzh6cUt8L/0rSVa60F8L22K1H72ro4Ki3M/816eSDLnhICu7vwH/+/yb8oB3BtBLhMsA=="
@@ -13,23 +14,32 @@
 </head>
 <body>
 
-    <form onsubmit="handleAddEmployee(event)">
-        <input type="text" name="firstName" class="firstName" placeholder="employee first name">
-        <input type="text" name="lastName" class="lastName" placeholder="employee last name">
-        <input type="text" name="imgUrl" class="imgUrl" placeholder="employee photo">
-        <input type="text" name="role" class="role" placeholder="employee role">
-        <input type="submit" value="submit">
+    <img class="dunderMifflin__logo"  src="logo.png">
+    <h1  class="dunderMifflin__logo--title">EMPLOYEES</h1>
+
+    <form class="dunderMifflin__addEmployee" onsubmit="handleAddEmployee(event)">
+        <label for="firstName">First Name:</label>
+        <input  class="dunderMifflin__addEmployee--firstName"type="text" name="firstName"  id="firstName" placeholder="employee first name">
+        <label for="lastName">Last Name:</label>
+        <input class="dunderMifflin__addEmployee--lasttName" type="text" name="lastName"  id="lastName" placeholder="employee last name">
+        <label for="imgUrl">Img Url:</label>
+        <input class="dunderMifflin__addEmployee--imgUrl" type="text" name="imgUrl" id="imgUrl" placeholder="employee photo">
+        <label for="role">Role:</label>
+        <input class="dunderMifflin__addEmployee--role"type="text" name="role"  id="role" placeholder="employee role">
+        
+        <input class="dunderMifflin__addEmployee--submit" type="submit" value="submit">
     </form>
 
  
-    <button onclick="handleGetEmployees()">SHOW EMPLOYEES</button>
-
-    <select onchange="handleGetByRole(event)"name="type" id="type">
+    <button class="dunderMifflin__showEmployees" onclick="handleGetEmployees()">SHOW EMPLOYEES</button>
+    <button class="dunderMifflin__showEmployees--salesman" onclick="handleGetSalesman()">SHOW SALESMAN</button>
+    <button class="dunderMifflin__showEmployees--useless" onclick="handleGetUseless()">show useless employee</button>
+    <!-- <select onchange="handleGetByRole(event)"name="type" id="type">
         <option value="select" disabled selected>Select type</option>
         <option value="rpg">RPG</option>
         <option value="shooter">Shooter</option>
         <option value="survival">Survival</option>
-    </select>
+    </select> -->
 
     <div id="rootEdit"></div>
 

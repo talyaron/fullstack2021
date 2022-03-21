@@ -32,7 +32,6 @@ app.post('/add-prayer', (req, res) => __awaiter(void 0, void 0, void 0, function
         const { name, family, role, kids, birth } = req.body;
         const newPrayer = new Prayer({ name, family, role, kids, birth });
         const prayers = yield newPrayer.save();
-        console.log({ ok: true, prayers });
         res.send({ ok: true, prayers });
         if (!name || !family || !role || !kids || !birth)
             throw new Error("no name, family, role, kids, birth in app.post/add-prayer");
@@ -60,6 +59,32 @@ app.get('/get-gabaim', (req, res) => __awaiter(void 0, void 0, void 0, function*
     catch (error) {
         console.error(error);
         res.send({ error: 'error in app.get/get-gabaim' });
+    }
+}));
+app.delete('/delete-prayer', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { id } = req.body;
+        const prayers = yield Prayer.deleteOne({ _id: id });
+        res.send({ ok: true, prayers });
+        if (!id)
+            throw new Error("no id in delete-prayer");
+    }
+    catch (error) {
+        console.error(error.message);
+        res.send({ error: error.message });
+    }
+}));
+app.patch('/update-gabaim', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { name, family, kids, birth, id } = req.body;
+        const gabaim = yield Prayer.updateOne({ _id: id }, { name, family, kids, birth });
+        res.send({ ok: true, gabaim });
+        if (!req.body)
+            throw new Error("no req.body in app.patch/update-gabaim");
+    }
+    catch (error) {
+        console.error(error.message);
+        res.send({ error: error.message });
     }
 }));
 app.listen(port, () => {
