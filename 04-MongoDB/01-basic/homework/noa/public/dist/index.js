@@ -34,31 +34,19 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-function handleNewGame() {
+var game = [
+    { title: "Potato Flowers in Full Bloom", img: "https://cdn.akamai.steamstatic.com/steam/apps/1601280/capsule_184x69.jpg?t=1646902448", price: 60.25 },
+    { title: "The Last Cube", img: "https://cdn.akamai.steamstatic.com/steam/apps/903630/capsule_184x69.jpg?t=1646899317", price: 66.55 },
+    { title: "Divinity Chronicles: Journey to the West", img: "https://cdn.akamai.steamstatic.com/steam/apps/1449070/capsule_184x69.jpg?t=1646899087", price: 50.35 },
+    { title: "Iron Lung", img: "https://cdn.akamai.steamstatic.com/steam/apps/1846170/capsule_184x69.jpg?t=1646889949", price: 19.75 }
+];
+function handleGames() {
     return __awaiter(this, void 0, void 0, function () {
         var data;
         return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, axios.get('/get-img')];
-                case 1:
-                    data = (_a.sent()).data;
-                    console.log(data);
-                    renderGame(data);
-                    return [2 /*return*/];
-            }
+            data = axios.post('/get-games', { game: game }).data;
+            console.log(data);
+            return [2 /*return*/];
         });
     });
 }
-function renderGame(data) {
-    var html = '';
-    data.forEach(function (img) {
-        html += "  <div class=\"card\" onclick=\"handleFlipCard()\">\n        \n           <div class=\"front-card\"><img src=\"" + img.src + "\"></div>\n            <div class=\"back-card\"></div>\n   </div>";
-    });
-    var root = document.querySelector("#root");
-    root.innerHTML = html;
-}
-function handleFlipCard() {
-    var card = document.querySelector('.card');
-    card.classList.toggle('is-flipped');
-}
-;
