@@ -2,14 +2,58 @@ body {
   background-color: aliceblue;
 }
 
+h1 {
+  font-family: fantasy;
+  color: burlywood;
+  text-align: center;
+  font-size: 80px;
+}
+
 input {
   font-family: cursive;
   font-size: 17px;
 }
 
+#form {
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+}
+
+button {
+  width: 100px;
+  font-size: large;
+  border: 2px solid #afaf3e;
+  border-radius: 13px;
+  margin-top: 5px;
+  background-color: #bbf8f8;
+}
+
 .card {
   width: 350px;
-  font-family: sans-serif;
-  color: #2525ac;
+  font-family: monospace;
+  color: #4d1d27;
   border: 2px solid black;
+}
+.card h2 {
+  border-bottom: 3px solid #d31818;
+  color: #353530;
+}
+.card img {
+  object-fit: contain;
+  width: 270px;
+  height: 270px;
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+}
+.card img:hover {
+  transform: scale(1.07);
+}
+
+#root {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
