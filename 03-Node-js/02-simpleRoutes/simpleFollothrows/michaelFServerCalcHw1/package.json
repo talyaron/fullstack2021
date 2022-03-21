@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD:03-Node-js/03-routesCalcuations/homeTask/chaim/package.json
+  "name": "chaim",
+=======
   "name": "michaelfservercalchw",
+>>>>>>> 6118222de05ed4693814ca4f4cfd867e71d3ac50:03-Node-js/02-simpleRoutes/simpleFollothrows/michaelFServerCalcHw1/package.json
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -8,7 +12,7 @@
     "start": "node server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "chaim",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.3"

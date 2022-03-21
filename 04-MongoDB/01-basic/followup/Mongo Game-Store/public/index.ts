@@ -28,6 +28,7 @@ async function handleupdate(event,gameId){
 
 async function handleDelete(gameId){
     const {data} = await axios.delete('/delete-games',{data:{gameId}})
+    handleGetGames()
 }
 
 function renderGames(games) {

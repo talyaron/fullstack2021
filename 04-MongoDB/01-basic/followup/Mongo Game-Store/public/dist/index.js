@@ -92,6 +92,7 @@ function handleDelete(gameId) {
                 case 0: return [4 /*yield*/, axios["delete"]('/delete-games', { data: { gameId: gameId } })];
                 case 1:
                     data = (_a.sent()).data;
+                    handleGetGames();
                     return [2 /*return*/];
             }
         });
