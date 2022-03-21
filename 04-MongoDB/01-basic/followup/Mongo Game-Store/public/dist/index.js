@@ -36,13 +36,13 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 function handleSubmit(e) {
     return __awaiter(this, void 0, void 0, function () {
-        var _a, name, type, data, games;
+        var _a, name, type, img, data, games;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
                     e.preventDefault();
-                    _a = e.target.elements, name = _a.name, type = _a.type;
-                    return [4 /*yield*/, axios.post('/game', { name: name.value, type: type.value })];
+                    _a = e.target.elements, name = _a.name, type = _a.type, img = _a.img;
+                    return [4 /*yield*/, axios.post('/game', { name: name.value, type: type.value, img: img.value })];
                 case 1:
                     data = (_b.sent()).data;
                     games = data.games;
@@ -102,7 +102,7 @@ function renderGames(games) {
     try {
         var html = games.map(function (theGame) {
             // console.log(theGame);
-            return "<div class=\"card\"><h2>" + theGame.name + " :" + theGame.type + "</h2></div>\n            <div><input type='text' placeholder='type' value='" + theGame.type + "' onblur='handleupdate(event,\"" + theGame._id + "\")'/></div>\n            <button onclick='handleDelete(\"" + theGame._id + "\")'>Delete</button>\n            <div><img src=\"" + theGame.img + "\" alt=\"https://gameforge.com/de-DE/littlegames/includes/images/games/10343_5eb3f0ec15588.jpg\"></div>";
+            return "<div class=\"card\"><h2>" + theGame.name + " :" + theGame.type + "</h2>\n            <div><input type='text' placeholder='type' value='" + theGame.type + "' onblur='handleupdate(event,\"" + theGame._id + "\")'/></div>\n            <button onclick='handleDelete(\"" + theGame._id + "\")'>Delete</button>\n            <div><img src=\"" + theGame.img + "\" alt=\"\"></div></div>";
         }).join('');
         root.innerHTML = html;
         if (!root)

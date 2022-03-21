@@ -14,7 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const app = express_1.default();
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 3007;
 const mongoose_1 = __importDefault(require("mongoose"));
 mongoose_1.default.connect('mongodb+srv://leon93:ym965874632541@cluster0.umet4.mongodb.net/myFirstDatabase?retryWrites=true&w=majorit');
 app.use(express_1.default.static("public"));
@@ -58,8 +58,8 @@ app.patch('/update-games', (req, res) => __awaiter(void 0, void 0, void 0, funct
 }));
 app.delete('/delete-games', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { gameId } = req.body;
-    const Games = yield Game.deleteOne({ _id: gameId });
-    res.send(Games);
+    const games = yield Game.deleteOne({ _id: gameId });
+    res.send(games);
 }));
 app.listen(port, () => {
     return console.log(`Express is listening at http://localhost:${port}`);

@@ -1,6 +1,6 @@
 import express from 'express';
 const app = express();
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 3007;
 
 import  mongoose from 'mongoose'
 
@@ -21,7 +21,7 @@ const GameSchema = new mongoose.Schema({
 
     try {
         const {name, type,img} = req.body
-        const newGame = new Game({name, type,img})
+        const newGame = new Game({name,type,img})
         const games = await newGame.save()
         console.log(games);
         
@@ -59,8 +59,8 @@ const GameSchema = new mongoose.Schema({
   
     app.delete('/delete-games',async(req,res)=>{
      const{gameId}=req.body;
-     const Games=await Game.deleteOne({_id:gameId})
-     res.send(Games)
+     const games=await Game.deleteOne({_id:gameId})
+     res.send(games)
     })
 
 
