@@ -22,7 +22,7 @@ const UserSchema = new mongoose.Schema({
 //create a collection
 const User = mongoose.model("userList", UserSchema);
 
-app.get("get-users"), async function (req, res) {
+app.get("/get-users", async function (req, res) {
     try {
       const {logInUsername} = req.query;
       const {logInPassword} = req.query;
@@ -36,7 +36,7 @@ app.get("get-users"), async function (req, res) {
       console.error(error);
       res.send({ error: error.message });
     }
-  };
+  });
 
 
 
