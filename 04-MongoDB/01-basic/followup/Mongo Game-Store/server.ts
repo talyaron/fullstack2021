@@ -1,6 +1,6 @@
 import express from 'express';
 const app = express();
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 3007;
 
 import  mongoose from 'mongoose'
 
@@ -11,7 +11,8 @@ app.use(express.json());
 
 const GameSchema = new mongoose.Schema({
     name: String,
-    type: String
+    type: String,
+    img: String
   })
 
   const Game = mongoose.model('gamesDb', GameSchema)
@@ -19,8 +20,8 @@ const GameSchema = new mongoose.Schema({
   app.post('/game', async (req, res) => {
 
     try {
-        const {name, type} = req.body
-        const newGame = new Game({name, type})
+        const {name, type,img} = req.body
+        const newGame = new Game({name,type,img})
         const games = await newGame.save()
         console.log(games);
         
@@ -49,19 +50,18 @@ const GameSchema = new mongoose.Schema({
   })
 
   app.patch('/update-games',async (req,res)=>{
-    try{
-      const {gameId,type}=req.body;
-      if({gameId && type}){
-        const games = await Game.updateOne({_id:gameId},{type:type})
-        res.send(games);
-      }
-      else{
-        throw new console.error();
-        
-      }
-    }
-  })
+    
+      const {gameId,type}= req.body;
+      const games= await Game.updateOne({_id:gameId},{type:type})
+      res.send(games) 
+    
+    })
   
+    app.delete('/delete-games',async(req,res)=>{
+     const{gameId}=req.body;
+     const games=await Game.deleteOne({_id:gameId})
+     res.send(games)
+    })
 
 
 app.listen(port, () => {

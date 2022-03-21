@@ -21,10 +21,8 @@ const EmployeeSchema = new mongoose.Schema({
 //'DunderMifflinEmployee', is my collection and it will work by the EmployeeSchema template 
 const Employee= mongoose.model('DunderMifflinEmployee', EmployeeSchema)
 
-// app.get("/get-employees", async(req,res)=>{
 
-// })
-
+//start with add so you can see if it shows on the page or add from the mongodb
 app.post("/add-employee", async(req,res)=>{
     try{
         const{firstName,lastName,imgUrl,role}=req.body;
@@ -45,9 +43,23 @@ app.post("/add-employee", async(req,res)=>{
 
 app.get("/get-employee",async(req,res)=>{
 
-    //Employee holds the info
+    //Employee holds the info. when the{} are empty it means it shows everything
     const employees= await Employee.find({})
     res.send({theEmployees:employees})
+})
+
+app.get("/get-salesman",async(req,res)=>{
+
+    //Employee holds the info. it is finding here everything with the role of salesman
+    const salesman= await Employee.find({role:"Salesman"})
+    res.send({theEmployees:salesman})
+})
+
+app.get("/get-useless",async(req,res)=>{
+
+    //Employee holds the info. here is finding here everything with the name toby
+    const useless= await Employee.find({firstName:"Toby"})
+    res.send({theEmployees:useless})
 })
 
 app.patch("/update-role",async(req,res)=>{
@@ -65,6 +77,23 @@ app.patch("/update-role",async(req,res)=>{
         res.send({error:error.message})
     }
 })
+
+app.delete("/delete-employee", async(req,res)=>{
+    try{
+        const{employeeId}=req.body;
+        if(employeeId){
+            //deletes by the id 
+            const deletedEmployee= await Employee.deleteOne({_id:employeeId})
+            res.send({theDeletedEmployee:deletedEmployee})
+        }else{
+            throw new Error("employeeId is missing")
+        }
+
+    }catch(error){
+        console.log(error.error);
+        res.send({error:error.message})
+    }
+});
 
 
 

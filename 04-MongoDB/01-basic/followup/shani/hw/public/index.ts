@@ -18,25 +18,55 @@ async function handleGetEmployees(){
     renderEmployees(theEmployees)
 }
 
+async function handleGetSalesman(){
+    const {data}= await axios.get("/get-salesman");
+    // console.log(data);
+    const{theEmployees}=data;
+    console.log({theEmployees})
+    renderEmployees(theEmployees)
+}
+
+async function handleGetUseless(){
+    const {data}= await axios.get("/get-useless");
+    // console.log(data);
+    const{theEmployees}=data;
+    console.log({theEmployees})
+    renderEmployees(theEmployees)
+}
+
 
 async function handleUpdateRole(ev,employeeId){
    console.log(ev,employeeId)
    const role=ev.target.value;
    const {data}=await axios.patch("/update-role",{employeeId,role});
-   const{theEmployees}=data;
-   //renderEmployees(theEmployees)
    console.log(data)
 }
+
+async function handleDeleteEmployee(employeeId){
+    console.log(employeeId)
+   
+    const {data}=await axios.delete("/delete-employee",{data:{employeeId}});
+    console.log(data)
+ }
 
 
 function renderEmployees(theEmployees){
     let html="";
 
     theEmployees.forEach(employee=>{
-        html+=`<div class="employee">        
-        Name:${employee.firstName} ${employee.lastName}
-        <input type="text" placeholder="role" value="${employee.role}" onblur="handleUpdateRole(event,'${employee._id}')">
-         </div>`
+        html+=`<div class="employee__card"> 
+       <h3> Role:${employee.role} </h3>
+        <img src="${employee.imgUrl}">  
+            
+        <p><span>First Name:${employee.firstName}</span> Last Name:${employee.lastName}</p>
+        <div class="employee__card--edit">
+        <hr>
+        <p >Edit:</p>
+        <input type="text" placeholder="role" value="${employee.role}" onblur="handleUpdateRole(event,'${employee._id}')">        
+        <button onclick="handleDeleteEmployee('${employee._id}')">X</button>
+        </div>
+        </div>
+         `
     })
 
     document.getElementById('rootEdit').innerHTML=html

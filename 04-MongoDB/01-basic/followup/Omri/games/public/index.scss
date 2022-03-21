@@ -1,0 +1,35 @@
+body {
+    margin: 0;
+}
+
+.myGames {
+    header {
+        text-align: center;
+        font-style: italic;
+    }
+
+    &__input {
+        input {
+            justify-content: center;
+        }
+    }
+
+    &__list {
+        display: grid;
+        grid-template-rows: 1fr;
+        img {
+            width: 500px;
+            height: 300px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        input{
+            width: 200px;
+        }
+
+        button{
+            width:150px;
+        }
+    }
+}
