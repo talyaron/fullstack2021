@@ -42,7 +42,6 @@ function handleSubmit(e) {
                 case 0:
                     e.preventDefault();
                     _a = e.target.elements, name = _a.name, type = _a.type;
-                    console.log(name.value, type.value);
                     return [4 /*yield*/, axios.post('/game', { name: name.value, type: type.value })];
                 case 1:
                     data = (_b.sent()).data;
@@ -61,7 +60,7 @@ function handleGetGames() {
                 case 1:
                     data = (_a.sent()).data;
                     games = data.games;
-                    console.log(games);
+                    // console.log(games);
                     renderGames(games);
                     return [2 /*return*/];
             }
@@ -75,7 +74,22 @@ function handleupdate(event, gameId) {
             switch (_a.label) {
                 case 0:
                     type = event.target.value;
-                    return [4 /*yield*/, axios.patch('/update-games', { gameId: gameId, type: type })];
+                    return [4 /*yield*/, axios.patch('/update-games', { gameId: gameId, type: type })
+                        // console.log(data);
+                    ];
+                case 1:
+                    data = (_a.sent()).data;
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+function handleDelete(gameId) {
+    return __awaiter(this, void 0, void 0, function () {
+        var data;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, axios["delete"]('/delete-games', { data: { gameId: gameId } })];
                 case 1:
                     data = (_a.sent()).data;
                     return [2 /*return*/];
@@ -87,8 +101,8 @@ function renderGames(games) {
     var root = document.querySelector('#root');
     try {
         var html = games.map(function (theGame) {
-            console.log(theGame);
-            return "<div class=\"card\"><h2>" + theGame.name + " " + theGame.type + "</h2></div>\n            <div><input type='text' placeholder='type' value='" + theGame.type + "' onblur='handleupdate(event,\"" + theGame._id + "\")'/></div>";
+            // console.log(theGame);
+            return "<div class=\"card\"><h2>" + theGame.name + " :" + theGame.type + "</h2></div>\n            <div><input type='text' placeholder='type' value='" + theGame.type + "' onblur='handleupdate(event,\"" + theGame._id + "\")'/></div>\n            <button onclick='handleDelete(\"" + theGame._id + "\")'>Delete</button>\n            <div><img src=\"" + theGame.img + "\" alt=\"https://gameforge.com/de-DE/littlegames/includes/images/games/10343_5eb3f0ec15588.jpg\"></div>";
         }).join('');
         root.innerHTML = html;
         if (!root)

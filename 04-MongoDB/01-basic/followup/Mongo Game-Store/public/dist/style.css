@@ -1,0 +1,15 @@
+body {
+  background-color: aliceblue;
+}
+
+input {
+  font-family: cursive;
+  font-size: 17px;
+}
+
+.card {
+  width: 350px;
+  font-family: sans-serif;
+  color: #2525ac;
+  border: 2px solid black;
+}

@@ -5,13 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.min.js" integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="dist/style.css">
     <title>Document</title>
 </head>
 <body>
     <form id="form" onsubmit="handleSubmit(event)">
         <input type="text" name="name" id="name" placeholder="name">
         <input type="text" name="type" id="type" placeholder="type">
-        <input type="submit" value="submit">
+        <input type="text" name="img" id="img" placeholder="add img">
+        <input type="submit" value="ADD GAME">
     </form>
     <button onclick="handleGetGames()">Get Games</button>
     <div id="root"></div>
