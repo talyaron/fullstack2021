@@ -14,8 +14,10 @@
 <body>
     <form id="register" onsubmit="handleRegister(event)">
         <input type="text" name="username" placeholder="user name">
-        <input type="password" name="password" placeholder="password">
+        <input type="password" name="password" autocomplete="current-password" placeholder="password">
         <input type="submit" value="Register">
+    <button onclick="handleGetUsers()">GET USERS</button>
+    <div id="users"></div>
     </form>
     <script src="dist/index.min.js"></script>
 </body>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.js"
+        integrity="sha512-MNW6IbpNuZZ2VH9ngFhzh6cUt8L/0rSVa60F8L22K1H72ro4Ki3M/816eSDLnhICu7vwH/+/yb8oB3BtBLhMsA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="dist/style.css">
+</head>
+
+<body onload="loadPage(event)">
+    <h1>My First Data Server</h1>
+    <form id="register" onsubmit="handleRegister(event)">
+        <input type="text" name="username" placeholder="user name">
+        <input type="password" name="password" placeholder="password">
+        <input type="text" name="role" placeholder="role">
+        <input type="text" name="img" placeholder="Add img...">
+        <input type="submit" value="Register">
+    </form>
+
+    <button onclick="handleGetAllUsers(event)">Get All Users</button>
+    <button onclick="handleGetUserByRole(event)">Get Privet User</button>
+    <!-- 
+    <form id="GetUserByRole" onsubmit="handleGetUserByRole(event)">
+        <input type="text" name="role" placeholder="role">
+        <input type="submit" value="Get User By Role">
+    </form> -->
+
+
+
+
+    <div id="users"></div>
+    
+    <div id="root"></div>
+    <script src="./dist/index.js"></script>
+</body>
+
+</html>

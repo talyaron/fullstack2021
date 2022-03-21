@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="./dist/index.css">
+    <title>Document</title>
+</head>
+<body onload="appInit()">
+    <div class="myGames">
+        <header><h1>My Games</h1></header>
+
+        <form class="myGames__input" onsubmit="handleAddGame(event)">
+            Tilte: <input type="text" name="title" required>
+            Image: <input type="text" name="img" required>
+            <input type="submit" value="ADD">
+        </form>
+
+        <div class="myGames__list"></div>
+    </div>
+    <script src="./dist/index.js"></script>
+</body>
+</html>

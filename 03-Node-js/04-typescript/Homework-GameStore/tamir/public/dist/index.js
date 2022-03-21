@@ -45,8 +45,11 @@ function handleallgame() {
 /// מביאה את כל המידע בכל הטענה מחדש של העמוד
 function handleallgame() {
     getalldata();
+<<<<<<< Updated upstream
     rendertoscreen();
 >>>>>>> parent of d2fdcf04 (Merge branch 'main' of https://github.com/talyaron/fullstack2021)
+=======
+>>>>>>> Stashed changes
 }
 // לוקחת את המידע מהשרת
 function getalldata() {
@@ -89,7 +92,7 @@ function rendertoscreen() {
                     root = document.getElementById('root');
                     html = '';
                     data.forEach(function (game) {
-                        html += "<div> game name is " + game.name + "</div>";
+                        html += "<div onclick=\"handledelete(event)\" id='" + game.id + "'>  game name is " + game.name + "</div>";
                     });
                     root.innerHTML = html;
                     return [2 /*return*/];
@@ -97,15 +100,16 @@ function rendertoscreen() {
         });
     });
 }
-function handleid(ev) {
+// מוחקת משחק
+function handledelete(id) {
     return __awaiter(this, void 0, void 0, function () {
         var data;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, axios.get('/getall')];
+                case 0: return [4 /*yield*/, axios["delete"]('/delete-game', { data: { id: id } })];
                 case 1:
                     data = (_a.sent()).data;
-                    console.log(data);
+                    console.log({ data: data });
                     return [2 /*return*/];
             }
         });

@@ -1,12 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <title>Document</title>
 </head>
-<body>
-    <script src="dist/index.ts"></script>
+
+<body onload="handleGetGuitars()">
+    <form id='register' onsubmit="handleRegister(event)">
+
+        <input type="file" name="file" id="file" />
+        <input type="text" name="guitarname" placeholder="guitar name" required>
+        <input type="text" name="price" placeholder="price">
+        <select name="brand" id="brand">
+            <option value='Fender'>Fender</option>
+            <option value='Gibson'>Gibson</option>
+            <option value='Ibanez'>Ibanez</option>
+            <option value='Charvel'>Charvel</option>
+        </select>
+        <input type="submit" value="Add Guitar">
+
+    </form>
+
+
+    <!-- <button onclick="handleGetGuitars()">Get Users</button> -->
+
+    <div id="guitars">
+
+    </div>
+
+
+    <script src="./dist/index.js"></script>
 </body>
+
 </html>

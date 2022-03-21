@@ -55,3 +55,62 @@ function handleRegister(ev) {
         });
     });
 }
+function handleUpdate(ev, _a) {
+    var userId = _a.userId;
+    return __awaiter(this, void 0, void 0, function () {
+        var role, data;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
+                case 0:
+                    console.log(ev, userId);
+                    role = ev.target.value;
+                    return [4 /*yield*/, axios.patch('/update-user', { userId: userId, role: role })];
+                case 1:
+                    data = (_b.sent()).data;
+                    console.log(data);
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+function handleGetUsers() {
+    return __awaiter(this, void 0, void 0, function () {
+        var data, ok, users;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, axios.get('/get-users')];
+                case 1:
+                    data = (_a.sent()).data;
+                    console.log(data);
+                    ok = data.ok, users = data.users;
+                    console.log({ ok: ok, users: users });
+                    if (users) {
+                        renderUsers(users);
+                    }
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+function handleDelete(userId) {
+    return __awaiter(this, void 0, void 0, function () {
+        var data;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, axios["delete"]('/delete-user', { data: { userId: userId } })];
+                case 1:
+                    data = (_a.sent()).data;
+                    console.log(data);
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+function renderUsers(users) {
+    var html = users.map(function (user) {
+        console.log(user);
+        return "<div>" + user.username + " \n        <input type='text' placeholder='role' value=\"" + user.role + "\" onblur='handleUpdate(event, \"" + user._id + "\")'/>\n        <button onclick='handleDelete(\"" + user._id + "\")'>DELETE</button>\n        </div>";
+    }).join('');
+    console.log(html);
+    document.getElementById('users').innerHTML = html;
+}
