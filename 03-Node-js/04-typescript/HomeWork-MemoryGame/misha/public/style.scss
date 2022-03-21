@@ -11,6 +11,7 @@ body {
     flex-direction: column;
     align-items: center;
     font-family: 'Syne Mono', monospace;
+
 }
 
 .title {
@@ -34,8 +35,14 @@ body {
     }
 }
 
+.attempts{
+    display: none;
+    height: 30px;
+    width: 100px;
+}
+
 .root {
-    
+
     height: fit-content;
     display: flex;
     justify-content: center;
@@ -49,34 +56,54 @@ body {
         gap: 1.5em;
         column-gap: 140px;
         height: fit-content;
+        perspective: 1000px;
+
+        
 
         .card {
+            position: relative;
             height: 170px;
             width: 120px;
             background-color: grey;
             border-radius: 10px;
             cursor: pointer;
             box-shadow: 4px 4px 4px #000000;
+            transform-style: preserve-3d;
+            transition: all 1s ease;
+
+
+            &-matched {
+                visibility: hidden;
+            }
             
+            &--flip {
+                transform: rotateY(180deg);
+                transition: all 0.5 ease;
+            }
 
             &--back {
+
+                position: absolute;
                 height: 100%;
-                background: radial-gradient(circle, rgba(0,0,0,1) 16%, rgba(142,142,142,1) 100%);
+                width: 100%;
+                background: radial-gradient(circle, rgba(0, 0, 0, 1) 16%, rgba(142, 142, 142, 1) 100%);
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 font-size: 60px;
                 border-radius: 10px;
+                backface-visibility: hidden;
+
             }
 
             &--front {
 
-                display: flex;
+                position: absolute;
                 flex-direction: column;
                 align-items: center;
                 justify-content: space-between;
-
-
+                backface-visibility: hidden;
+                transform: rotateY(180deg);
 
                 .img {
                     background-position: center;
@@ -87,15 +114,38 @@ body {
                     border-top-right-radius: 10px;
                 }
 
-                display: none;
             }
 
-            &-matched{
-                visibility: hidden;
-            }
         }
     }
 
     display: none;
 }
 
+.cup {
+
+    position: absolute;
+    left: 35%;
+    top: 35%;
+
+    img {
+        height: 500px;
+        width: 500px;
+    }
+
+
+    display: none;
+    transform: scale(0,0);
+
+    &-active {
+        display: block;
+        transition: all 1s ease;
+        transform: scale(1,1);
+    }
+
+    audio{
+        visibility: hidden;
+    }
+
+
+}

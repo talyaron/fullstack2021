@@ -1,0 +1,29 @@
+.side {
+  position: relative;
+  background-color: pink;
+  height: 100%;
+  width: 30%;
+  left: 0px;
+}
+
+.up {
+  position: relative;
+  background-color: red;
+  height: 60%;
+  width: 70%;
+}
+
+.down {
+  position: absolute;
+  display: flex;
+  left: 30%;
+  top: 61%;
+}
+.down__down1 {
+  height: 30%;
+  background-color: black;
+}
+.down__down2 {
+  height: 30%;
+  background-color: yellow;
+}

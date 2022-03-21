@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.min.js" integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="dist/style.css">
+    <title>Game Store</title>
+</head>
+<body onload="handleLoad()">
+
+    <h1>Please choose game to add:</h1>
+    <form onsubmit="handleAddGame(event)">
+        <input type="text" placeholder="Enter Game Name" name="name" class="name">
+        <input type="number" placeholder="Enter Price" name="price" class="price">
+        <input type="submit" placeholder="ADD" value="ADD">
+    </form>
+    <br>
+    <div id="root"></div>
+    <script src="dist/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+body{
+    background-color: aliceblue;
+}
+
+h1{
+    font-family: fantasy;
+    color: burlywood;
+    text-align: center;
+    font-size: 80px;
+}
+input{
+    font-family:cursive;
+    font-size: 17px;
+}
+#form{
+border: 2px solid black;
+display: flex;
+flex-direction: column;
+width: 350px;
+}
+button{
+    width: 100px;
+    font-size: large;
+    border: 2px solid rgb(175, 175, 62);
+    border-radius: 13px;
+    margin-top: 5px;
+    background-color: rgb(187, 248, 248);
+}
+.card{
+    width: 350px;
+    font-family:monospace;
+    color: rgb(77, 29, 39);
+    border: 2px solid black;
+    h2{
+        border-bottom: 3px solid rgb(211, 24, 24);
+        color: rgb(53, 53, 48);
+    }
+    img{object-fit: contain;
+        width: 270px;
+        height: 270px;
+        transition: all .5s ease-in-out;
+        cursor: pointer;
+    }
+    img:hover {
+        transform: scale(1.07);
+    }
+}
+
+#root {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}

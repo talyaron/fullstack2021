@@ -3,6 +3,7 @@ let gameStats = {
     flipped: 0,
     flippedIDs: [],
     flippedpairIDs: [],
+    matches: 0,
 }
 
 function uniqueId() {
@@ -28,6 +29,9 @@ function handleStart() {
 
     const startButton = <HTMLElement>document.querySelector(".startButton");
     const rootHTML = getRootElement();
+    const attempts = <HTMLElement>document.querySelector(".attempts");
+    attempts.innerHTML = `Attempts: ${gameStats.count} `
+    attempts.style.display = 'block';
     startButton.style.display = 'none';
     rootHTML.style.display = 'flex';
 
@@ -65,22 +69,28 @@ function renderCards(cards) {
 
 function handleCardClick(ev) {
 
+
     if (ev.path[1].children[0].style.display === 'none') {
         return 0;
     }
 
     else {
 
-        ev.path[1].children[0].style.display = 'none'
+        // ev.path[1].children[0].style.display = 'none'
+        let Card = ev.path[1];
+        Card.classList.add('card--flip')
         gameStats.flippedIDs.push(ev.path[1].id);
         gameStats.flippedpairIDs.push(ev.path[1].children[0].id);
 
-        ev.path[1].children[1].style.display = 'flex'
+        // ev.path[1].children[1].style.display = 'flex'
 
         gameStats.flipped++;
 
         if (gameStats.flipped === 2) {
-            checkFlipped(gameStats.flippedIDs,gameStats.flippedpairIDs)
+            gameStats.count++;
+            const attempts = <HTMLElement>document.querySelector(".attempts");
+            attempts.innerHTML = `Attempts: ${gameStats.count} `
+            checkFlipped(gameStats.flippedIDs, gameStats.flippedpairIDs)
             gameStats.flipped = 0;
             gameStats.flippedIDs = [];
             gameStats.flippedpairIDs = [];
@@ -89,34 +99,39 @@ function handleCardClick(ev) {
 
 }
 
-function checkFlipped(flipped,flippedPair) {
+function checkFlipped(flipped, flippedPair) {
 
-    let cardDelete1:any = document.getElementById(flipped[0])
-    let cardDelete2:any = document.getElementById(flipped[1])
+    let cardDelete1: any = document.getElementById(flipped[0])
+    let cardDelete2: any = document.getElementById(flipped[1])
 
-if(flippedPair[0]===flippedPair[1]){
-    setTimeout(() => {
-        cardDelete1.classList.add('card-matched')
-        cardDelete2.classList.add('card-matched')
-    }, 1000);
+    if (flippedPair[0] === flippedPair[1]) {
 
+        setTimeout(() => {
+            cardDelete1.classList.add('card-matched')
+            cardDelete2.classList.add('card-matched')
+        }, 1000);
+
+        gameStats.matches++;
+
+        if (gameStats.matches === 8) {
+            setTimeout(() => {
+                const cake: any = document.querySelector(".cup")
+                cake.classList.add('cup-active')
+                var audio: any = document.getElementById('cake')
+                var fart = new Audio(audio.children[0].src)
+                fart.play()
+            }, 1500)
+
+        }
+
+    }
+    else {
+
+        setTimeout(() => {
+            cardDelete1.classList.remove('card--flip')
+            cardDelete2.classList.remove('card--flip')
+        }, 1500);
+
+    }
 }
-else{
 
-    setTimeout(() => {
-
-        cardDelete1.children[0].style.display = 'flex'
-        cardDelete1.children[1].style.display = 'none'
-        cardDelete2.children[0].style.display = 'flex'
-        cardDelete2.children[1].style.display = 'none'
-
-
-    },1000)
-
-}
-}
-
-// function resetCards(){
-
-    
-}

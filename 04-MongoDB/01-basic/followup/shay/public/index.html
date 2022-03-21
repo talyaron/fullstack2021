@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.js"
+    integrity="sha512-MNW6IbpNuZZ2VH9ngFhzh6cUt8L/0rSVa60F8L22K1H72ro4Ki3M/816eSDLnhICu7vwH/+/yb8oB3BtBLhMsA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hurricane&family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="dist/style.css">
+    <title>Document</title>
+</head>
+<body onload="handleLoadSongs()">
+    <form id="register" onsubmit="handleAddSong(event)">
+        <input type="text" name="song" placeholder="song name">
+        <input type="text" name="singer" placeholder="singer name">
+        
+<select name="type">
+    <option value="rbnb">r-bnb</option>
+    <option value="pop">pop</option>
+    <option value="soul">soul</option>
+    <option value="country">country</option>
+    <option value="oldies">oldies</option>
+    <option value="jazz">jazz</option>
+    <option value="all">all</option>
+    </select>
+
+        <input type="text" name="photo" id="" placeholder="song photo">
+        <input type="number" name="year" id="" placeholder="year of the song">
+        
+        <input type="submit" value="add">
+    </form>
+    
+    <select onchange="handleGetByType()">
+        <option value="rbnb">r-bnb</option>
+        <option value="pop">pop</option>
+        <option value="soul">soul</option>
+        <option value="country">country</option>
+        <option value="oldies">oldies</option>
+        <option value="jazz">jazz</option>
+        <option value="all">all</option>
+        </select>
+    <div id="song"></div>
+    <script src="dist/index.js"></script>
+</body>
+</html>

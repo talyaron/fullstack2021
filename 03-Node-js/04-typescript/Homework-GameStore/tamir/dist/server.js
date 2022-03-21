@@ -11,7 +11,7 @@ app.use(express_1.default.json());
 let uid = function () {
     return Date.now().toString(36) + Math.random().toString(36).substr(2);
 };
-const games = [
+let games = [
     { name: 'tamir', id: uid() },
     { name: 'aviel', id: uid() },
     { name: 'yosi', id: uid() },
@@ -21,15 +21,15 @@ const games = [
 app.get('/getall', (req, res) => {
     res.send(games);
 });
-// app.get('/', (req, res) => {
-//     res.send('Hello World!');
-//   });
-//   app.get('/', (req, res) => {
-//     res.send('Hello World!');
-//   });
-//   app.get('/', (req, res) => {
-//     res.send('Hello World!');
-//   });
+app.delete('/delete-game', (req, res) => {
+    const { id } = req.body;
+    if (id) {
+        const index = games.findIndex((game) => game.id === id);
+        console.log(index);
+        games = games.filter((game) => game.id !== id);
+    }
+    res.send({});
+});
 app.listen(port, () => {
     return console.log(`Express is listening at http://localhost:${port}`);
 });

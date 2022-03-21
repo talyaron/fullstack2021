@@ -1,4 +1,8 @@
 {
     "liveServer.settings.port": 5502,
-    "compile-hero.disable-compile-files-on-did-save-code": false
+    "compile-hero.disable-compile-files-on-did-save-code": false,
+    "cSpell.ignoreWords": [
+        "LSHFY",
+        "cybvt"
+    ]
 }
