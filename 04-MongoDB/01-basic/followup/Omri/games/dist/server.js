@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const app = express_1.default();
-const port = process.env.PORT || 3002;
+const port = process.env.PORT || 8080;
 app.use(express_1.default.static("public"));
 app.use(express_1.default.json());
 mongoose_1.default.connect('mongodb+srv://OmriAharonov:moIIfkRPSJr5kmM0@cluster0.kv5s6.mongodb.net/myFirstDatabase?retryWrites=true&w=majority');
@@ -24,13 +24,41 @@ const GameSechma = new mongoose_1.default.Schema({
     img: String
 });
 const Game = mongoose_1.default.model('myGames', GameSechma);
+app.get('/get-games', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const games = yield Game.find({});
+        res.send({ ok: true, games });
+    }
+    catch (error) {
+        console.log(error.error);
+        res.send({ error: error.message });
+    }
+}));
 app.post('/add-game', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         let { title, img } = req.body;
         if ({ title, img }) {
             const newGame = new Game({ title, img });
             const result = yield newGame.save();
-            res.send(result);
+            const games = yield Game.find({});
+            res.send({ result, games });
+        }
+    }
+    catch (error) {
+        console.error(error);
+        res.send({ error: error.message });
+    }
+}));
+app.patch("/update-game", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { gameId, newImg } = req.body;
+        if (gameId && newImg) {
+            const result = yield Game.updateOne({ _id: gameId }, { img: newImg });
+            const games = yield Game.find({});
+            res.send({ ok: true, result, games });
+        }
+        else {
+            throw new Error("Something went wrong");
         }
     }
     catch (error) {

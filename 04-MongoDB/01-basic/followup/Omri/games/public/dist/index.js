@@ -34,9 +34,29 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+function appInit() {
+    getGames();
+}
+function getGames() {
+    return __awaiter(this, void 0, void 0, function () {
+        var data, ok, games;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, axios.get("/get-games")];
+                case 1:
+                    data = (_a.sent()).data;
+                    ok = data.ok, games = data.games;
+                    if (games) {
+                        renderGames(games);
+                    }
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
 function handleAddGame(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var _a, title, img, data;
+        var _a, title, img, data, games;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
@@ -47,7 +67,35 @@ function handleAddGame(ev) {
                     return [4 /*yield*/, axios.post('/add-game', { title: title, img: img })];
                 case 1:
                     data = (_b.sent()).data;
-                    console.log(data);
+                    games = data.games;
+                    renderGames(games);
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+function renderGames(games) {
+    var html = '';
+    var rootGames = document.querySelector('.myGames__list');
+    if (games) {
+        games.forEach(function (game) {
+            html += "<h4>" + game.title + "</h4>\n                <img src = " + game.img + ">\n                <form onsubmit = \"handleUpdate(event, \"" + game._id + "\")\">\n                <input type = 'text' name = 'newImg' placeholder = 'Update Image'>\n                <input type=\"submit\" value=\"UPDATE\">\n                </form>";
+        });
+        rootGames.innerHTML = html;
+    }
+}
+function handleUpdate(ev, gameId) {
+    return __awaiter(this, void 0, void 0, function () {
+        var newImg, data, games;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    newImg = ev.target.value;
+                    return [4 /*yield*/, axios.patch('/update-game', { gameId: gameId, newImg: newImg })];
+                case 1:
+                    data = (_a.sent()).data;
+                    games = data.games;
+                    renderGames(games);
                     return [2 /*return*/];
             }
         });
