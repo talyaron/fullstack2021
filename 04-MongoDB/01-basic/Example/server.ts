@@ -36,7 +36,8 @@ app.post("/add-user", async (req, res) => {
 
 app.get("/get-users", async (req, res) => {
   try {
-    res.send({ ok: true });
+    const users = await User.find({})
+    res.send({ ok: true, users });
   } catch (error) {
     console.log(error.error);
     res.send({ error: error.message });

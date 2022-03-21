@@ -42,7 +42,8 @@ app.post("/add-user", (req, res) => __awaiter(void 0, void 0, void 0, function* 
 }));
 app.get("/get-users", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        res.send({ ok: true });
+        const users = yield User.find({});
+        res.send({ ok: true, users });
     }
     catch (error) {
         console.log(error.error);
