@@ -25,12 +25,12 @@ function renderGames(games) {
     const rootGames = document.querySelector('.myGames__list');
     if (games) {
         games.forEach(game => {
-            html += `<h4>${game.title}</h4>
+            html += `
+                <h4>${game.title}</h4>
+                <input type = 'text' name = 'newImg' placeholder = 'Update Image' onblur = 'handleUpdate(event, "${game._id}")'>
                 <img src = ${game.img}>
-                <form onsubmit = "handleUpdate(event, "${game._id}")">
-                <input type = 'text' name = 'newImg' placeholder = 'Update Image'>
-                <input type="submit" value="UPDATE">
-                </form>`
+                <button onclick='handleDelete("${game._id}")'> Delete Game </button>
+                `
         })
 
         rootGames.innerHTML = html;
@@ -42,5 +42,10 @@ async function handleUpdate(ev, gameId) {
     const { data } = await axios.patch('/update-game', { gameId, newImg });
     const {games} = data;
     renderGames(games);
-    
+}
+
+async function handleDelete(gameId){
+    const {data} = await axios.delete('/delete-game', {data:{gameId}})
+    const {games} = data;
+    renderGames(games)
 }

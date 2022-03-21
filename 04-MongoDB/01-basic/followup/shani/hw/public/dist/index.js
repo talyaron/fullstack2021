@@ -111,8 +111,6 @@ function handleUpdateRole(ev, employeeId) {
                     return [4 /*yield*/, axios.patch("/update-role", { employeeId: employeeId, role: role })];
                 case 1:
                     data = (_a.sent()).data;
-                    //    const{theEmployees}=data;
-                    //    //renderEmployees(theEmployees)
                     console.log(data);
                     return [2 /*return*/];
             }

@@ -1,0 +1,27 @@
+body {
+  margin: 0;
+}
+
+.myGames header {
+  text-align: center;
+  font-style: italic;
+}
+.myGames__input input {
+  justify-content: center;
+}
+.myGames__list {
+  display: grid;
+  grid-template-rows: 1fr;
+}
+.myGames__list img {
+  width: 500px;
+  height: 300px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.myGames__list input {
+  width: 200px;
+}
+.myGames__list button {
+  width: 150px;
+}

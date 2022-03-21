@@ -14,20 +14,21 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const app = express_1.default();
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 3007;
 const mongoose_1 = __importDefault(require("mongoose"));
-mongoose_1.default.connect('mongodb+srv://leon93:ym965874632541@cluster0.umet4.mongodb.net/myFirstDatabase?retryWrites=true&w=majorit');
+mongoose_1.default.connect('mongodb+srv://leon93:ym965874632541@cluster0.umet4.mongodb.net/myFirstDatabase?retryWrites=true');
 app.use(express_1.default.static("public"));
 app.use(express_1.default.json());
 const GameSchema = new mongoose_1.default.Schema({
     name: String,
-    type: String
+    type: String,
+    img: String
 });
 const Game = mongoose_1.default.model('gamesDb', GameSchema);
 app.post('/game', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { name, type } = req.body;
-        const newGame = new Game({ name, type });
+        const { name, type, img } = req.body;
+        const newGame = new Game({ name, type, img });
         const games = yield newGame.save();
         console.log(games);
         res.send({ games });
@@ -42,7 +43,6 @@ app.post('/game', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
 app.get('/get-games', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const games = yield Game.find({});
-        console.log(games);
         res.send({ games });
     }
     catch (error) {
@@ -50,8 +50,22 @@ app.get('/get-games', (req, res) => __awaiter(void 0, void 0, void 0, function* 
         res.send({ error: error.message });
     }
 }));
-// app.patch('/update-games',async (req,res)=>{
-//   })
+app.patch('/update-games', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { gameId, type } = req.body;
+    const games = yield Game.updateOne({ _id: gameId }, { type: type });
+    res.send(games);
+}));
+app.delete('/delete-games', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { gameId } = req.body;
+        const games = yield Game.deleteOne({ _id: gameId });
+        res.send(games);
+    }
+    catch (err) {
+        console.log(err);
+        res.send({ error: err.message });
+    }
+}));
 app.listen(port, () => {
     return console.log(`Express is listening at http://localhost:${port}`);
 });
