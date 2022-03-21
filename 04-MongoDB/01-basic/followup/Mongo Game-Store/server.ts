@@ -48,19 +48,8 @@ const GameSchema = new mongoose.Schema({
     }
   })
 
-  app.patch('/update-games',async (req,res)=>{
-    try{
-      const {gameId,type}=req.body;
-      if({gameId && type}){
-        const games = await Game.updateOne({_id:gameId},{type:type})
-        res.send(games);
-      }
-      else{
-        throw new console.error();
-        
-      }
-    }
-  })
+  // app.patch('/update-games',async (req,res)=>{
+  //   })
   
 
 

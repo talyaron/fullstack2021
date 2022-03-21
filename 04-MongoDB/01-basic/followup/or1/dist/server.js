@@ -18,14 +18,14 @@ const app = express_1.default();
 const port = 3000;
 app.use(express_1.default.static("public"));
 app.use(express_1.default.json());
-mongoose_1.default.connect('mongodb+srv://OrA99:134679852Or@cluster0.r0go0.mongodb.net/myFirstDatabase?retryWrites=true&w=majority');
+mongoose_1.default.connect('mongodb+srv://OrA99:134679852Or@cluster0.r0go0.mongodb.net/data?retryWrites=true&w=majority');
 //create a schema (interface)
 const UserSchema = new mongoose_1.default.Schema({
     username: String,
     password: String
 });
 //create a collection
-const User = mongoose_1.default.model('bestusers', UserSchema);
+const User = mongoose_1.default.model('games', UserSchema);
 app.post("/add-user", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         let { username, password } = req.body;
