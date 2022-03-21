@@ -11,7 +11,7 @@ async function handleRegister(ev){
     console.log(data)
 }
 
-async function handleUpdate(ev, userId){
+async function handleUpdate(ev, {userId}){
     console.log(ev, userId)
     const role  = ev.target.value;
     const {data} = await axios.patch('/update-user', {userId, role});

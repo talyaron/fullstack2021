@@ -21,22 +21,63 @@ app.use(express_1.default.json());
 mongoose_1.default.connect('mongodb+srv://michaeldubovik:michaeldubovik1991@cluster0.y9ozg.mongodb.net/myFirstDatabase?retryWrites=true&w=majority');
 //create a schema (interface)
 const UserSchema = new mongoose_1.default.Schema({
-    username: String,
-    password: String
+    guitarname: String,
+    price: String,
+    brand: String,
+    file: String,
 });
 //create a collection
-const User = mongoose_1.default.model('bestusers', UserSchema);
-//   const user1 = new User({username: 'misha', password: '12345'})
-//   user1.save()
-app.post("/add-user", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const Guitar = mongoose_1.default.model('myGuitars', UserSchema);
+app.post("/add-guitar", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        let { username, password } = req.body;
-        const newUser = new User({ username, password });
-        const result = yield newUser.save();
+        let { guitarname, price, brand, file } = req.body;
+        console.log(req.body);
+        const newGuitar = new Guitar({ guitarname, price, brand, file });
+        const result = yield newGuitar.save();
         res.send({ result });
     }
     catch (error) {
         console.error(error);
+        res.send({ error: error.message });
+    }
+}));
+app.get("/get-guitars", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const guitars = yield Guitar.find({});
+        res.send(guitars);
+    }
+    catch (error) {
+        console.log(error.error);
+        res.send({ error: error.message });
+    }
+}));
+app.patch("/update-guitar", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { guitarId, price } = req.body;
+        if (guitarId && price) {
+            const users = yield Guitar.updateOne({ _id: guitarId }, { price: price });
+        }
+        else {
+            throw new Error("guitarId or price is missing");
+        }
+    }
+    catch (error) {
+        res.send({ error: error.massage });
+    }
+}));
+app.delete("/delete-guitar", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { guitarId } = req.body;
+        if (guitarId) {
+            const result = yield Guitar.deleteOne({ _id: guitarId });
+            res.send({ ok: true, result });
+        }
+        else {
+            throw new Error("guitarId or price is missing");
+        }
+    }
+    catch (error) {
+        console.log(error.error);
         res.send({ error: error.message });
     }
 }));

@@ -35,26 +35,78 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 var axios;
+function hanleGetGames() {
+    return __awaiter(this, void 0, void 0, function () {
+        var data, ok, games;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, axios.get('/get-game')];
+                case 1:
+                    data = (_a.sent()).data;
+                    ok = data.ok, games = data.games;
+                    renderGames(games);
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
 function handleAddGames(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var _a, title, price, type, data;
+        var _a, title, img, price, type, data;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
                     ev.preventDefault();
-                    _a = ev.target.elements, title = _a.title, price = _a.price, type = _a.type;
-                    console.log(title, price, type);
+                    _a = ev.target.elements, title = _a.title, img = _a.img, price = _a.price, type = _a.type;
+                    console.log(title, img, price, type);
                     title = title.value;
+                    img = img.value;
                     price = price.value;
                     type = type.value;
-                    console.log(title, price, type);
-                    return [4 /*yield*/, axios.post('/add-game', { title: title, price: price, type: type })];
+                    return [4 /*yield*/, axios.post('/add-game', { title: title, img: img, price: price, type: type })];
                 case 1:
                     data = (_b.sent()).data;
-                    console.log(data);
                     ev.target.reset();
                     return [2 /*return*/];
             }
         });
     });
+}
+function handleDelete(gameId) {
+    return __awaiter(this, void 0, void 0, function () {
+        var data;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, axios["delete"]('/delete-game', { data: { gameId: gameId } })];
+                case 1:
+                    data = (_a.sent()).data;
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+function handleUpdate(ev, gameId) {
+    return __awaiter(this, void 0, void 0, function () {
+        var newTitle, newPrice, newImg, newType, data;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    ev.preventDefault();
+                    newTitle = ev.target.elements[0].value;
+                    newPrice = ev.target.elements[1].value;
+                    newImg = ev.target.elements[2].value;
+                    newType = ev.target.elements[3].value;
+                    return [4 /*yield*/, axios.patch('/update-game', { gameId: gameId, newTitle: newTitle, newPrice: newPrice })];
+                case 1:
+                    data = (_a.sent()).data;
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+function renderGames(games) {
+    var html = games.map(function (game) {
+        return "<div>\n        <form onsubmit='handleUpdate(event, \"" + game._id + "\")'>\n        <input type=\"text\" name=\"newTitle\" value=\"" + game.title + "\">\n        <input type=\"number\" name=\"newPrice\" value=\"" + game.price + "\">\n        <input type=\"text\" name=\"newImg\" value=\"" + game.img + "\">\n        <input type=\"text\" name=\"newType\" value=\"" + game.type + "\">\n        <input type=\"submit\" value=\"Update\">\n    </form>\n        <button onclick='handleDelete(\"" + game._id + "\")'>DELETE</button>\n        </div>";
+    }).join('');
+    document.getElementById('games').innerHTML = html;
 }
