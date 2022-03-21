@@ -1,40 +1,110 @@
 body {
-  color: palevioletred;
+  font-family: sans-serif;
+  width: 90%;
+  background-color: white;
+  color: white;
   font-size: 20px;
+  margin: auto;
+  background-image: url("../../images/1.jpg");
+  background-size: contain;
+}
+body h1 {
+  font-size: 60px;
+}
+body button {
+  font-size: large;
+  padding: 4px;
+  margin-top: 4px;
+  border: 2px solid #ff9100;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+.header {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: 7fr 1fr;
+}
+.header img {
+  width: 32%;
+  object-fit: contain;
+  margin-top: 60px;
+  border: 3px dotted white;
+  padding: 8px;
+}
+
+.nav {
+  margin-bottom: 20px;
+  background-color: #ffffff9d;
+  padding: 10px 10px;
+  border-radius: 2px;
 }
 
 input {
-  color: purple;
+  color: black;
   font-size: 22px;
 }
 
-.user {
-  background-color: cadetblue;
+.submit {
+  cursor: pointer;
+}
+
+.product {
+  background-color: #f6f6f6;
   border-radius: 10px;
   width: 300px;
   height: 400px;
   display: grid;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
   align-items: center;
-  border: 1px solid gray;
+  border: 2px dotted #ff9100;
   padding: 10px;
   margin: 10px;
+  box-shadow: 0px 0px 6px white;
 }
-.user img {
+.product img {
   width: 100%;
+  max-height: 200px;
   object-fit: contain;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
 }
-.user .product,
-.user .price {
+.product img:hover {
+  transform: scale(1.05);
+}
+.product .productName,
+.product .productprice {
+  display: flex;
   justify-content: center;
-  color: black;
+  color: white;
+  background-color: #ff9100a8;
+  border-radius: 2px;
 }
-
-div {
-  border: 1px solid red;
+.product .productName {
+  color: #000;
+  font-size: larger;
 }
 
 #root {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+footer {
+  width: 100%;
+  height: 100PX;
+  background-color: #ff9100;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  border-radius: 4px;
+  margin-top: 20px;
 }

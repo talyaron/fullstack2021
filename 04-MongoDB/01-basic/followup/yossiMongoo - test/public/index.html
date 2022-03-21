@@ -13,29 +13,34 @@
 </head>
 
 <body onload="loadPage(event)">
-    <h1>My First Data Server</h1>
-    <form id="register" onsubmit="handleRegister(event)">
-        <input type="text" name="username" placeholder="user name">
-        <input type="password" name="password" placeholder="password">
-        <input type="text" name="role" placeholder="role">
-        <input type="text" name="img" placeholder="Add img...">
-        <input type="submit" value="Register">
-    </form>
+    <div class="header">
+        <h1><a href=""><span
+                    style="color: red; border: 3px dotted white; background-color: rgba(255, 255, 255, 0.24); font-weight: bolder; padding: 4px;">
+                    F<span style="color: #ffffff;">&</span>S</span></a> Restaurant<span
+                style="color: red; font-weight: bolder;">S</span></h1>
+        <img style="background-color: #ffffff9d;" src="./images/logo.png" alt="">
+    </div>
+    <div class="nav">
+        <form id="register" onsubmit="handleRegister(event)">
+            <input type="text" name="category" placeholder="category">
+            <input type="text" name="name" placeholder="name">
+            <input type="text" name="price" placeholder="price">
+            <input type="text" name="img" placeholder="Add img..." value="\images\kabab.png">
+            <input class="submit" type="submit" value="Add Product">
+        </form>
 
-    <button onclick="handleGetAllUsers(event)">Get All Users</button>
-    <button onclick="handleGetUserByRole(event)">Get Privet User</button>
-    <!-- 
-    <form id="GetUserByRole" onsubmit="handleGetUserByRole(event)">
-        <input type="text" name="role" placeholder="role">
-        <input type="submit" value="Get User By Role">
-    </form> -->
-
-
-
-
-    <div id="users"></div>
-    
+        <button onclick="handleGetAllProducts(event)">Get <span style="color: #ff9100; font-weight: bold;">
+                All</span> Products</button>
+        <button onclick="handleGetProductByNameIsraeli(event)">Get <span
+                style="color: #ff0000; font-weight: bold;">Israeli</span> Food</button>
+        <button onclick="handleGetProductByNameAmerican(event)">Get <span
+                style="color: #ff0000; font-weight: bold;">American</span> Food</button>
+    </div>
     <div id="root"></div>
+
+    <footer>
+        <p>&copy; Copyright F&S 2022. All Rights Reserved.</p>
+    </footer>
     <script src="./dist/index.js"></script>
 </body>
 
