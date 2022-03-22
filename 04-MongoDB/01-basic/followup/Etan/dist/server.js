@@ -30,7 +30,7 @@ const UserSchema = new mongoose_1.default.Schema({
 });
 //create a collection
 const User = mongoose_1.default.model("userList", UserSchema);
-app.get("get-users"), function (req, res) {
+app.get("/get-users", function (req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             const { logInUsername } = req.query;
@@ -45,7 +45,7 @@ app.get("get-users"), function (req, res) {
             res.send({ error: error.message });
         }
     });
-};
+});
 app.post("/add-user", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         let admin = "EtanHey";

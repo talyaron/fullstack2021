@@ -20,6 +20,7 @@ async function handleAddGames(ev) {
 
 async function handleDelete(gameId) {
     const { data } = await axios.delete('/delete-game', { data: { gameId } });
+    hanleGetGames()
 }
 
 async function handleUpdate(ev, gameId) {
@@ -29,6 +30,7 @@ async function handleUpdate(ev, gameId) {
     const newImg = ev.target.elements[2].value;
     const newType = ev.target.elements[3].value;
     const { data } = await axios.patch('/update-game', { gameId, newTitle, newPrice });
+    hanleGetGames()
 }
 
 function renderGames(games) {

@@ -16,7 +16,7 @@ const express_1 = __importDefault(require("express"));
 const app = express_1.default();
 const port = process.env.PORT || 3007;
 const mongoose_1 = __importDefault(require("mongoose"));
-mongoose_1.default.connect('mongodb+srv://leon93:ym965874632541@cluster0.umet4.mongodb.net/myFirstDatabase?retryWrites=true&w=majorit');
+mongoose_1.default.connect('mongodb+srv://leon93:ym965874632541@cluster0.umet4.mongodb.net/myFirstDatabase?retryWrites=true');
 app.use(express_1.default.static("public"));
 app.use(express_1.default.json());
 const GameSchema = new mongoose_1.default.Schema({
@@ -43,7 +43,6 @@ app.post('/game', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
 app.get('/get-games', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const games = yield Game.find({});
-        console.log(games);
         res.send({ games });
     }
     catch (error) {
@@ -57,9 +56,15 @@ app.patch('/update-games', (req, res) => __awaiter(void 0, void 0, void 0, funct
     res.send(games);
 }));
 app.delete('/delete-games', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { gameId } = req.body;
-    const games = yield Game.deleteOne({ _id: gameId });
-    res.send(games);
+    try {
+        const { gameId } = req.body;
+        const games = yield Game.deleteOne({ _id: gameId });
+        res.send(games);
+    }
+    catch (err) {
+        console.log(err);
+        res.send({ error: err.message });
+    }
 }));
 app.listen(port, () => {
     return console.log(`Express is listening at http://localhost:${port}`);
