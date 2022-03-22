@@ -18,12 +18,13 @@ const app = express_1.default();
 const port = process.env.PORT || 3000;
 app.use(express_1.default.static("public"));
 app.use(express_1.default.json());
-mongoose_1.default.connect('mongodb+srv://tamirdadon:dxxKHjvIQY64qBIK@cluster0.ldffz.mongodb.net/myFirstDatabase?retryWrites=true&w=majority');
+mongoose_1.default.connect('mongodb+srv://tamirdadon:58TBW6FoKudca2MY@cluster0.ldffz.mongodb.net/myFirstDatabase?retryWrites=true&w=majority');
 app.use(express_1.default.static('public'));
 app.use(express_1.default.json());
 const UserSchema = new mongoose_1.default.Schema({
     username: String,
-    password: String
+    password: String,
+    role: String,
 });
 const User = mongoose_1.default.model('bestusers', UserSchema);
 app.post("/add-user", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -38,9 +39,27 @@ app.post("/add-user", (req, res) => __awaiter(void 0, void 0, void 0, function* 
         res.send({ error: error.message });
     }
 }));
-app.get('/', (req, res) => {
-    res.send('Hello World!');
-});
+app.post("/get-users", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const users = yield User.find({});
+        res.send({ users });
+    }
+    catch (error) {
+        console.log(error.error);
+        res.send({ error: error.message });
+    }
+}));
+app.delete("/delete-user", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { userId } = req.body;
+    if (userId) {
+        const users = yield User.deleteOne({ _id: userId });
+        res.send({ users });
+        console.log(users);
+    }
+    else {
+        console.log('no good');
+    }
+}));
 app.listen(port, () => {
     return console.log(`Express is listening at http://localhost:${port}`);
 });

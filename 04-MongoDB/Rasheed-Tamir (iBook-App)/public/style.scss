@@ -112,13 +112,16 @@ img {
     margin-top: 50px;
     margin-bottom: 50px;
     justify-content: center;
-
+    
+    
     &__content {
         width: 450px;
         height: 600px;
         position: relative;
         perspective: 1500px;
         margin-left: 300px;
+        
+
 
         &__pageFlip {
             width: 100%;
@@ -132,6 +135,8 @@ img {
             transition: 0.5s;
             color: #000;
             box-shadow: 37px 34px 23px 11px rgba(0, 0, 0, 0.3);
+            
+            
 
             &-back {
                 position: absolute;
@@ -378,7 +383,7 @@ p {
 }
 
 #glow {
-    animation: neon6 1.5s ease-in-out infinite alternate;
+    animation: neon6 0.5s ease-in-out infinite alternate;
 
 }
 

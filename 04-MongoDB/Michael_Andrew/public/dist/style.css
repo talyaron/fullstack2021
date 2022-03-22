@@ -1,0 +1,129 @@
+@charset "UTF-8";
+:root {
+  --main-color-1: #89c2d9;
+  --main-color-2: #468faf;
+  --main-color-3: #2a6f97;
+  --main-color-4: #01497c;
+  --main-color-5: #012a4a;
+  --main-color-text: #111;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: var(--main-color-3);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 72px;
+  border-bottom: 5px solid var(--main-color-5);
+  background-color: var(--main-color-2);
+}
+.header__logo {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 347px;
+}
+.header__logo .material-icons {
+  color: #2a7cda;
+  font-size: 2.5rem;
+  padding-left: 20px;
+}
+.header__logo h2 {
+  font-family: "Poppins", sans-serif;
+  color: #03035f;
+  font-size: 2.5rem;
+}
+.header__logo:hover {
+  cursor: pointer;
+}
+.header__searchbar {
+  width: 765px;
+  display: flex;
+  align-items: center;
+}
+.header__searchbar form {
+  display: flex;
+  align-items: center;
+}
+.header__searchbar form .material-icons {
+  color: #e5e8eb;
+  position: absolute;
+}
+.header__searchbar form input {
+  border: 1px solid #e5e8eb;
+  font-size: 25px;
+  border-radius: 10px;
+  width: 597px;
+  height: 45px;
+  padding-left: 25px;
+  transition: all 0.4s;
+}
+.header__searchbar form input:active {
+  border: 1px solid #e5e8eb;
+  box-shadow: 1px 1px 50px #929292;
+}
+.header__searchbar form ::placeholder {
+  color: #8a8282;
+}
+.header__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--main-color-text);
+  width: auto;
+  padding: 0 10px;
+}
+.header__item p {
+  font-weight: bold;
+  letter-spacing: 0.75px;
+}
+.header__item span {
+  font-size: 2.5rem;
+}
+.header__item:hover {
+  cursor: pointer;
+  background-color: var(--main-color-1);
+}
+
+.side-bar {
+  color: white;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  top: 77px;
+  left: 0px;
+  height: calc(100vh - 72px);
+  width: 200px;
+  background-color: var(--main-color-4);
+}
+.side-bar__item {
+  position: relative;
+  height: 3em;
+  line-height: 3em;
+  text-align: center;
+  border: 2px solid var(--main-color-5);
+}
+.side-bar__item::before {
+  content: "➤";
+  position: absolute;
+  left: 10px;
+}
+.side-bar__item:hover {
+  cursor: pointer;
+}
+
+.main {
+  background-color: var(--main-color-1);
+  border-radius: 20px;
+  height: calc(95vh - 100px);
+  margin-top: 100px;
+  margin-right: 50px;
+  margin-left: 250px;
+}
