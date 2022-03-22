@@ -25,12 +25,10 @@ body {
   height: 40px;
 }
 .navigation form {
-  padding: 1px;
-  border: grey 1px solid;
+  border: grey 0.5px solid;
   width: 700px;
   height: 50px;
   border-radius: 50px;
-  text-align: center;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -39,23 +37,33 @@ body {
   font-size: 12px;
   font-weight: bold;
 }
+.navigation form .form--searchLocation {
+  padding-left: 20px;
+  height: 48px;
+  border-radius: 28px;
+  border: solid 1px white;
+}
 .navigation form .form--searchLocation:hover {
   border: solid 1px #e2e2e2;
   background-color: #e2e2e2;
-  border-radius: 10px;
 }
 .navigation form .form--searchLocation input {
-  border: solid 1px white;
+  border: none;
   border-radius: 10px;
 }
 .navigation form .form--searchLocation input:hover {
   border: none;
   background-color: #e2e2e2;
 }
+.navigation form .form--checkIn {
+  height: 50px;
+  width: 120px;
+  padding-left: 20px;
+  border-radius: 28px;
+}
 .navigation form .form--checkIn:hover {
   border: solid 1px #e2e2e2;
   background-color: #e2e2e2;
-  border-radius: 10px;
 }
 .navigation form .form--checkIn button {
   border-radius: 10px;
@@ -65,10 +73,15 @@ body {
 .navigation form .form--checkIn button:hover {
   background-color: #e2e2e2;
 }
+.navigation form .form--checkOut {
+  height: 50px;
+  width: 120px;
+  padding-left: 20px;
+  border-radius: 28px;
+}
 .navigation form .form--checkOut:hover {
   border: solid 1px #e2e2e2;
   background-color: #e2e2e2;
-  border-radius: 10px;
 }
 .navigation form .form--checkOut button {
   border-radius: 10px;
@@ -78,10 +91,15 @@ body {
 .navigation form .form--checkOut button:hover {
   background-color: #e2e2e2;
 }
+.navigation form .form--guests {
+  height: 50px;
+  width: 150px;
+  padding-left: 20px;
+  border-radius: 28px;
+}
 .navigation form .form--guests:hover {
   border: solid 1px #e2e2e2;
   background-color: #e2e2e2;
-  border-radius: 10px;
 }
 .navigation form .form--guests button {
   border-radius: 10px;
@@ -95,9 +113,10 @@ body {
   background-color: #FF385C;
   border: 1px #FF385C solid;
   border-radius: 50px;
-  width: 36px;
-  height: 30px;
-  padding-top: 5px;
+  width: 34px;
+  height: 32px;
+  text-align: center;
+  margin-right: 3px;
   transition: ease 1s;
 }
 .navigation form .form--searchIcon:hover {
