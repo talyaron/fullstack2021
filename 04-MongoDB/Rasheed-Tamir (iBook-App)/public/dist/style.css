@@ -354,7 +354,7 @@ p {
 }
 
 #glow {
-  animation: neon6 1.5s ease-in-out infinite alternate;
+  animation: neon6 0.5s ease-in-out infinite alternate;
 }
 
 @keyframes neon6 {
