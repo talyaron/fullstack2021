@@ -1,0 +1,74 @@
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.header {
+  display: flex;
+  width: 100%;
+  height: 72px;
+}
+.header .header__logo,
+.header .header__searchbar,
+.header .header__item {
+  border: 1px black solid;
+}
+.header .header__logo {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 347px;
+}
+.header .header__logo .material-icons {
+  color: #2a7cda;
+  font-size: 2.5rem;
+  padding-left: 20px;
+}
+.header .header__logo h2 {
+  font-family: "Poppins", sans-serif;
+  color: #03035f;
+  font-size: 2.5rem;
+}
+.header .header__searchbar {
+  width: 765px;
+  display: flex;
+  align-items: center;
+}
+.header .header__searchbar form {
+  display: flex;
+  align-items: center;
+}
+.header .header__searchbar form .material-icons {
+  color: #e5e8eb;
+  position: absolute;
+}
+.header .header__searchbar form input {
+  border: 1px solid #e5e8eb;
+  font-size: 25px;
+  border-radius: 10px;
+  width: 597px;
+  height: 45px;
+  padding-left: 25px;
+  transition: all 0.4s;
+}
+.header .header__searchbar form input:active {
+  border: 1px solid #e5e8eb;
+  box-shadow: 1px 1px 50px #929292;
+}
+.header .header__searchbar form ::placeholder {
+  color: #8a8282;
+}
+.header .header__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #5c5a5a;
+  width: 72px;
+  padding: 0 10px;
+}
+.header .header__item p {
+  font-weight: bold;
+  letter-spacing: 0.75px;
+}
+.header .header__item span {
+  font-size: 2.5rem;
+}
