@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
+body {
+  background-color: #8143bb;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  font-family: "Ubuntu", sans-serif;
+}
+
+nav ul {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  height: 65px;
+  background-color: black;
+  color: white;
+}
+
+nav ul li {
+  padding: 0 12px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  font-weight: bolder;
+  font-size: 1.3rem;
+}
+
+.brand img {
+  width: 44px;
+  padding: 0 8px;
+}
+
+.Daily_mix_container {
+  min-height: 72vh;
+  background-color: black;
+  color: white;
+  font-family: "Varela Round", sans-serif;
+  display: flex;
+  margin: 10px auto;
+  width: 70%;
+  border-radius: 12px;
+  padding: 34px;
+  background-image: url("img/bg.jpg");
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+.Daily_mix_container ._dailymix {
+  margin-top: 80px;
+  margin-left: -230px;
+  width: 145px;
+  height: 20px;
+  gap: 10px;
+  padding: 3vw;
+  border: 2px solid white;
+}
+.Daily_mix_container ._dailymix img {
+  height: 30px;
+  width: 30px;
+}
+.Daily_mix_container ._dailymix1 {
+  margin-left: 80px;
+  grid-row: 3/3;
+  width: 140px;
+  height: 13px;
+  padding: 3vw;
+  border: 2px solid white;
+}
+
+.bottom {
+  position: sticky;
+  bottom: 0;
+  height: 130px;
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.icons {
+  margin-top: 14px;
+}
+
+.icons i {
+  cursor: pointer;
+}
+
+.songInfo {
+  position: absolute;
+  left: 10vw;
+  font-family: "Varela Round", sans-serif;
+}
+
+.songInfo img {
+  opacity: 0;
+  transition: opacity 0.4s ease-in;
+}

@@ -4,10 +4,43 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/36261c0ffe.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./dist/style.css">
     <title>Home</title>
 </head>
 <body>
-    
+    <nav>
+        <ul>
+            <li class="brand"><img src="img/logo.png" alt="Spotify"> Spotify</li>
+            <li> Home</li>
+            <li>Search</li>
+            <li>Library</li>
+            <li>Create Playlist</li>
+            <li>Liked Songs</li>
+        </ul>
+    </nav>
+    <div class="Daily_mix_container">
+            <h1>Good Evening</h1>
+          <div class="_dailymix"> <img src="https://pbs.twimg.com/media/CtcVNESWIAEYGWI.jpg" alt=""> Songs You Liked</div>
+          <div class="_dailymix"> Daily mix 1</div>
+          <div class="_dailymix">Daily mix 2</div>
+          <div class="_dailymix1">Daily mix 3</div>
+          <div class="_dailymix1">Daily mix 4</div>
+          <div class="_dailymix1">Discover weekly</div>
+    </div>
+
+
+    <div class="bottom">
+        <input type="range" name="range" id="myProgressBar" min="0" value="0" max="100">
+        <div class="icons">
+            <!-- fontawesome icons -->
+            <i class="fas fa-3x fa-step-backward" id="previous"></i>
+            <i class="far fa-3x fa-play-circle" id="masterPlay"></i>
+            <i class="fas fa-3x fa-step-forward" id="next"></i> 
+        </div>
+        <div class="songInfo">
+            <img src="img/playing.gif" width="42px" alt="" id="gif"> <span id="masterSongName">Warriyo - Mortals [NCS Release]</span>
+        </div>
+    </div>
 </body>
 </html>
