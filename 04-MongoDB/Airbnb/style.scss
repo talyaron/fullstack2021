@@ -2,6 +2,7 @@ body{
     font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
     margin:0px;
     padding:0px;
+    
 }
 
 
@@ -34,36 +35,42 @@ body{
     }
 
     form{
-        
+        padding:2px;
         border:grey 0.5px solid;
         width:700px;
         height:50px;
         border-radius:50px;
         display:flex;
-        
         justify-content: space-between;
-        //gap:1px;
         align-items:center;
-        label{
-            //padding-left:20px;
+        letter-spacing:0.5px;
+        transition: ease 0.5s;
+        &:hover{box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;}
+
+      
+       
+        label{         
             font-size:12px;
-            font-weight:bold;
-            
+            font-weight:bold;            
           
 
         }       
 
 
-       .form{ 
-        
+       .form{
+       
         
         
         &--searchLocation{
             padding-left:20px;
             height:48px;
             border-radius:28px;
+            // border-top-left-radius:28px;
+            // border-bottom-left-radius:28px;
+            // border-top-right-radius:18px;
+            // border-bottom-right-radius:18px;
             border:solid 1px white;
-            //margin-right:4px;
+            
             
                        
             &:hover{
@@ -71,14 +78,17 @@ body{
                 border:solid 1px rgb(226, 226, 226);
                 background-color: rgb(226, 226, 226);
                 
+                
                
             }
             input{
                 border:none;
-                border-radius:10px;
+                border-radius:28px;
+                
                 &:hover{
-                    border:none;
+                    
                     background-color: rgb(226, 226, 226);
+                    
     
                 }    
                 
@@ -92,7 +102,7 @@ body{
             width:120px;
             padding-left:20px;
             border-radius:28px;
-            //margin-right:10px;
+            
 
             &:hover{
                 
@@ -163,24 +173,22 @@ body{
 
         }
         &--searchIcon{
-            background-color: #FF385C;
-            border:1px #FF385C solid;
+            background-color: #38ffe4;
+            border:1px #38ffe4;
             border-radius:50px;
             width:34px;
             height:32px;
             text-align:center;
-           // margin-bottom:40px;
-           //padding-left:3px;
-            //padding-top:5px;
-            //padding-left:5px;
-            margin-right:3px;
-            transition: ease 1s;
+            margin-right:5px;
+            
+            transition: ease 2s;
             &:hover{
-                background-color: #b31a36;
+                background-color: #056155;
 
             }
 
             input[type="image"]{
+                margin-right:3px;
                 width:25px;
                 height:25px;
                 
@@ -191,9 +199,34 @@ body{
 
        }
     }
-   
+    &--greeting{
+        font-weight:bold;
+        letter-spacing:0.5px;
+    }
+   &--user{
+       text-align: right;
+      // border:1px solid grey;
+       width:60px;       
+       padding-top:3px;
+       height:auto;
+       border-radius:28px;
+       background-color: #38ffe4;
+       transition: ease 0.5s;
+        &:hover{box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 5px;}
+       
+       
+       img{
+           margin:5px;
+           width:25px;
+           height:25px;
+           transition: ease 1s;
+        }
+      
+   }
 }
 
 
 //mainpage -index.html
+
+
 
