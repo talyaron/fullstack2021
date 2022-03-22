@@ -25,6 +25,7 @@ body {
   height: 40px;
 }
 .navigation form {
+  padding: 1px;
   border: grey 1px solid;
   width: 700px;
   height: 50px;
@@ -51,17 +52,44 @@ body {
   border: none;
   background-color: #e2e2e2;
 }
-.navigation form .form--checkIn {
+.navigation form .form--checkIn:hover {
+  border: solid 1px #e2e2e2;
+  background-color: #e2e2e2;
+  border-radius: 10px;
+}
+.navigation form .form--checkIn button {
+  border-radius: 10px;
   border: none;
   background-color: white;
 }
-.navigation form .form--checkOut {
+.navigation form .form--checkIn button:hover {
+  background-color: #e2e2e2;
+}
+.navigation form .form--checkOut:hover {
+  border: solid 1px #e2e2e2;
+  background-color: #e2e2e2;
+  border-radius: 10px;
+}
+.navigation form .form--checkOut button {
+  border-radius: 10px;
   border: none;
   background-color: white;
 }
-.navigation form .form--guests {
+.navigation form .form--checkOut button:hover {
+  background-color: #e2e2e2;
+}
+.navigation form .form--guests:hover {
+  border: solid 1px #e2e2e2;
+  background-color: #e2e2e2;
+  border-radius: 10px;
+}
+.navigation form .form--guests button {
+  border-radius: 10px;
   border: none;
   background-color: white;
+}
+.navigation form .form--guests button:hover {
+  background-color: #e2e2e2;
 }
 .navigation form .form--searchIcon {
   background-color: #FF385C;

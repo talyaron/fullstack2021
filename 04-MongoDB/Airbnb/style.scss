@@ -34,7 +34,7 @@ body{
     }
 
     form{
-        //padding:1px;
+        padding:1px;
         border:grey 1px solid;
         width:700px;
         height:50px;
@@ -48,14 +48,16 @@ body{
             font-weight:bold;
           
 
-        }
-
-        
+        }       
 
 
        .form{ 
+
+        
         &--searchLocation{
+                       
             &:hover{
+                
                 border:solid 1px rgb(226, 226, 226);
                 background-color: rgb(226, 226, 226);
                 border-radius:10px;
@@ -67,30 +69,70 @@ body{
                     border:none;
                     background-color: rgb(226, 226, 226);
     
-                }
-              
+                }    
                 
                 
             }
-
         }
            
         
         &--checkIn{
-            border:none;
-            background-color:white;
+
+            &:hover{
+                
+                border:solid 1px rgb(226, 226, 226);
+                background-color: rgb(226, 226, 226);
+                border-radius:10px;
+            }
+            button{
+                border-radius:10px;
+                border:none;
+                background-color:white;
+                &:hover{
+                    
+                    background-color: rgb(226, 226, 226);
+    
+                }   
+            }
+          
           
         }
         &--checkOut{
-            border:none;
-            background-color:white;
-           
+            &:hover{
+                
+                border:solid 1px rgb(226, 226, 226);
+                background-color: rgb(226, 226, 226);
+                border-radius:10px;
+            }
+            button{
+                border-radius:10px;
+                border:none;
+                background-color:white;
+                &:hover{
+                    
+                    background-color: rgb(226, 226, 226);
+    
+                }   
+            }
 
         }
         &--guests{
-            border:none;
-            background-color:white;
-          
+            &:hover{
+                
+                border:solid 1px rgb(226, 226, 226);
+                background-color: rgb(226, 226, 226);
+                border-radius:10px;
+            }
+            button{
+                border-radius:10px;
+                border:none;
+                background-color:white;
+                &:hover{
+                    
+                    background-color: rgb(226, 226, 226);
+    
+                }   
+            }
 
         }
         &--searchIcon{
@@ -119,5 +161,7 @@ body{
     }
    
 }
+
+
 //mainpage -index.html
 
