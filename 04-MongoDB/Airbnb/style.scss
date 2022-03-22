@@ -1,0 +1,33 @@
+body{
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+    margin:0px;
+    padding:0px;
+}
+
+
+//navigationBar
+.navigation{
+    outline:black solid 1px;
+    height:80px;
+    display:flex;
+    flex-direction: column;
+    ul{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        list-style: none;
+        cursor: pointer;
+    }
+    &--logo{
+        font-weight:bolder;
+        img{
+            width:35px;
+            height:40px;
+        }
+    
+         
+    }
+   
+}
+//mainpage -index.html
+
