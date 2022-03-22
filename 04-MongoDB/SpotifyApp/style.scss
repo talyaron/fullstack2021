@@ -1,0 +1,140 @@
+//fonts from google
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+//Home
+body{
+    background-color: rgb(129, 67, 187);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+nav{
+    font-family: 'Ubuntu', sans-serif;
+}
+
+nav ul{
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    height: 65px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+nav ul li{
+    padding: 0 12px;
+}
+.brand {
+    display: flex;
+    align-items: center;
+    font-weight: bolder;
+    font-size: 1.3rem;
+}
+.brand img{
+    width: 44px;
+    padding: 0 8px;
+}
+
+.Daily_mix_container{
+    min-height: 72vh;
+    background-color: black;
+    color: white;
+   font-family: 'Varela Round', sans-serif;
+   display: flex;
+   margin: 10px auto;
+   width: 70%;
+   border-radius: 12px;
+   padding: 34px;
+   background-image: url('img/bg.jpg');
+   display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    ._dailymix{
+        
+        cursor: pointer;
+        margin-top: 80px;
+        margin-left: -240px;
+        width: 165px;
+       height: 30px;
+        gap: 10px;
+        padding: 3vw;
+        border: 2px solid white;
+        img{ position: relative;
+            top: -30px;
+            left: -28px;
+            height: 80px;
+            width: 84px;
+            border-radius: 4px;
+        }
+        h4{position: relative;
+            top: -90px;
+            left: 65px;
+        }
+       
+    }
+    ._dailymix1{
+        cursor: pointer;
+        text-align:left;
+        margin-top: -90px;
+        margin-left: 60px;
+        grid-row: 3/3;
+        width: 160px;
+        height: 30px;
+         padding: 3vw;
+         border: 2px solid white;
+         img{ position: relative;
+            top: -30px;
+            left: -28px;
+            height: 80px;
+            width: 84px;
+            border-radius: 4px;
+        }
+        h4{position: relative;
+            top: -90px;
+            left: 65px;
+        }
+    }
+}
+.bottom{
+    position: sticky;
+    bottom: 0;
+    height: 130px;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; 
+    
+}
+
+.icons{
+    margin-top: 14px; 
+}
+.icons i{
+    cursor: pointer;
+}
+
+
+.songInfo{
+    position: absolute;
+    left: 10vw;
+    font-family: 'Varela Round', sans-serif;
+}
+
+.songInfo img{
+    opacity: 0;
+    transition: opacity 0.4s ease-in;
+}
+
+//library
+
+
+
+
+
+//search

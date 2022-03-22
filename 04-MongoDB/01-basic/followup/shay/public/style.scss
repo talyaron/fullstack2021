@@ -1,0 +1,94 @@
+body{
+    font-family: 'Josefin Sans', sans-serif;
+    background: linear-gradient(to right, rgb(75, 75, 247), pink);
+    form{
+        select{
+            font-family: 'Josefin Sans', sans-serif;
+            background-color: transparent;
+            border: 1px solid black;
+            border-radius: 5px;
+            option{
+                font-family: 'Josefin Sans', sans-serif;
+                background-color: transparent;
+                border: 1px solid black;
+                border-radius: 0, 0, 5px, 5px;
+            }
+        }
+        input{
+            font-family: 'Josefin Sans', sans-serif;
+          background-color: transparent;
+          border: 1px solid black;
+          border-radius: 5px;
+        } 
+            ::placeholder{
+                font-family: 'Josefin Sans', sans-serif;
+              color: black;
+          }
+    }
+    #song{
+        text-align: center;
+        margin: auto;
+        padding-top: 20px;
+        width: 500px;
+display: flex;
+column-gap: 25px;
+        .songs{
+            text-align: center;
+            gap: 3px;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(3, 1fr);
+            img{
+                width: 250px;
+                height: 200px;
+            }
+            .description{
+                margin-top: -10px;
+                gap: 3px;
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(4, 50px);
+            h2{
+                font-family: 'Hurricane', cursive;
+                color: black;
+            }
+            h3{
+                color: black;
+            }
+            h4{
+                color: black;
+            }
+            h5{
+                color: black;
+            }
+        }
+        .change{
+            gap: 2px;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(5, 1fr);
+        input{
+            font-family: 'Josefin Sans', sans-serif;
+            width: 100%;
+            height: 25%;
+            background-color: transparent;
+            border: 1px solid black;
+            border-radius: 5px;
+            ::placeholder{
+                text-align: center;
+                font-family: 'Josefin Sans', sans-serif;
+            }
+        }
+    }
+            button{
+                font-family: 'Josefin Sans', sans-serif;
+                width: 100px;
+                height: 30px;
+                background-color: transparent;
+                border: 1px solid black;
+                border-radius: 5px;
+            }
+        
+        }
+    }
+}

@@ -46,11 +46,11 @@ function handleShowAll(ev) {
                     _a.label = 1;
                 case 1:
                     _a.trys.push([1, 3, , 4]);
-                    console.log(ev, 'hello 1');
-                    return [4 /*yield*/, axios.get("get-users?logInUsername=" + logInUsername + "&logInPassword=" + logInPassword)];
+                    console.log(ev, "hello 1");
+                    return [4 /*yield*/, axios.get("/get-users?logInUsername=" + logInUsername + "&logInPassword=" + logInPassword)];
                 case 2:
                     data = (_a.sent()).data;
-                    console.log(ev, 'hello 2');
+                    console.log(ev, "hello 2");
                     if (data > -1)
                         throw new Error("we dont have a user with username " + logInUsername);
                     return [3 /*break*/, 4];
@@ -68,7 +68,7 @@ function renderUsers(list) {
     list.forEach(function (user) {
         html += "<div id='" + user.id + "' class='user'>\n    <h1 class='card_user-name'>" + user.username + "</h1> <p class='card_user-role'>" + user.role + "</p>\n    <div class='card_personal'>\n    <p>" + user.firstName + "</p>  <p>" + user.lastName + "</p>\n    </div>\n    <p>" + user.birthDate + "</p>\n    <input type='password' class='card_user-password' value='" + user.password + "'>\n    </div>";
     });
-    document.querySelector('.empty').innerHTML = html;
+    document.querySelector(".empty").innerHTML = html;
 }
 function handleRegister(ev) {
     return __awaiter(this, void 0, void 0, function () {
@@ -87,7 +87,14 @@ function handleRegister(ev) {
                     username = username.value;
                     password = password.value;
                     console.log(birthDate);
-                    return [4 /*yield*/, axios.post("/add-user", { firstName: firstName, lastName: lastName, birthDate: birthDate, role: role, username: username, password: password })];
+                    return [4 /*yield*/, axios.post("/add-user", {
+                            firstName: firstName,
+                            lastName: lastName,
+                            birthDate: birthDate,
+                            role: role,
+                            username: username,
+                            password: password
+                        })];
                 case 1:
                     data = (_b.sent()).data;
                     console.log(data);

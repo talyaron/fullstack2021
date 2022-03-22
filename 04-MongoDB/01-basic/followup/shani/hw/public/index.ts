@@ -39,8 +39,6 @@ async function handleUpdateRole(ev,employeeId){
    console.log(ev,employeeId)
    const role=ev.target.value;
    const {data}=await axios.patch("/update-role",{employeeId,role});
-//    const{theEmployees}=data;
-//    //renderEmployees(theEmployees)
    console.log(data)
 }
 

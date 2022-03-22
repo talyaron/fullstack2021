@@ -5,42 +5,90 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="dist/style.css">
     <title>Document</title>
 </head>
 
 <body>
-    <div class="game">
-        <h1 class="game__title">Memory Game</h1>
-        <div class="game__info">
-            <div class="game__info__time">
-                Time <span id="timeRemain">100</span>
-            </div>
-            <div class="game__info__flip">
-                Flips <span id="flips">0</span>
-            </div>
+    <div class="container">
+        <header>
+          <h1>Memory Game</h1>
+        </header>
+      
+        <section class="score-panel">
+          <span class="moves">0</span> Move(s)
+          <div class="timer"></div>
+         <div class="restart" onclick=startGame()></div>
+        </section>
+      
+        <ul class="deck" id="card-deck">
+          <li class="card" type="athens">
+            <img src="photos/athens.jpg" alt="">
+          </li>
+          <li class="card" type="crete">
+            <img src="photos/crete.jpg" alt="">
+          </li>
+          <li class="card match" type="maldives">
+            <img src="photos/maldives.jpg" alt="">
+          </li>
+          <li class="card" type="milan">
+            <img src="photos/milan.jpg" alt="">
+          </li>
+          <li class="card" type="paphos">
+            <img src="photos/paphos.jpg" alt="">
+          </li>
+          <li class="card match" type="paris">
+            <img src="photos/paris.jpg" alt="">
+          </li>
+          <li class="card" type="rhodes">
+            <img src="photos/rhodes.jpg" alt="">
+          </li>
+          <li class="card" type="santorini">
+            <img src="photos/santorini.jpg" alt="">
+          </li>
+          <li class="card" type="athens">
+            <img src="photos/athens.jpg" alt="">
+          </li>
+          <li class="card" type="crete">
+            <img src="photos/crete.jpg" alt="">
+          </li>
+          <li class="card match" type="maldives">
+            <img src="photos/maldives.jpg" alt="">
+          </li>
+          <li class="card" type="milan">
+            <img src="photos/milan.jpg" alt="">
+          </li>
+          <li class="card open show" type="paphos">
+            <img src="photos/paphos.jpg" alt="">
+          </li>
+          <li class="card match" type="paris">
+            <img src="photos/paris.jpg" alt="">
+          </li>
+          <li class="card" type="rhodes">
+            <img src="photos/rhodes.jpg" alt="">
+          </li>
+          <li class="card" type="santorini">
+            <img src="photos/santorini.jpg" alt="">
+          </li>
+        </ul>
+      
+        <div id="popup1" class="overlay">
+          <div class="popup">
+            <h2>Congratulations </h2>
+            <a class="close" href=#>×</a>
+            <div class="content-1">
+              Congratulations
+           
+            <button id="play-again" onclick="playAgain()">
+              Play again 😄</a>
+            </button>
+          </div>
         </div>
-        <div class="game__cards">
-            <div class="game__cards__card"><img src="inter.jpg" alt=""></div>
-            <div class="game__cards__card"><img src="inter.jpg" alt=""></div>
-            <div class="game__cards__card"><img src="inter.jpg" alt=""></div>
-            <div class="game__cards__card"><img src="inter.jpg" alt=""></div>
-            <div class="game__cards__card"><img src="inter.jpg" alt=""></div>
-            <div class="game__cards__card"><img src="inter.jpg" alt=""></div>
-            <div class="game__cards__card"><img src="inter.jpg" alt=""></div>
-            <div class="game__cards__card"><img src="inter.jpg" alt=""></div>
-            <div class="game__cards__card"><img src="inter.jpg" alt=""></div>
-            <div class="game__cards__card"><img src="inter.jpg" alt=""></div>
-            <div class="game__cards__card"><img src="inter.jpg" alt=""></div>
-            <div class="game__cards__card"><img src="inter.jpg" alt=""></div>
-            <div class="game__cards__card"><img src="inter.jpg" alt=""></div>
-            <div class="game__cards__card"><img src="inter.jpg" alt=""></div>
-            <div class="game__cards__card"><img src="inter.jpg" alt=""></div>
-            <div class="game__cards__card"><img src="inter.jpg" alt=""></div>
-        </div>
+      
+      </div>
 
-
-
+<script src="index.js"></script>
 </body>
 
 </html>
