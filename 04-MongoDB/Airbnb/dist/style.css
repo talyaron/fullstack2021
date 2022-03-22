@@ -9,18 +9,55 @@ body {
   height: 80px;
   display: flex;
   flex-direction: column;
+  padding: 8px;
 }
 .navigation ul {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   list-style: none;
   cursor: pointer;
 }
-.navigation--logo {
-  font-weight: bolder;
-}
 .navigation--logo img {
-  width: 35px;
+  position: relative;
+  bottom: -10px;
+  width: 130px;
   height: 40px;
+}
+.navigation form {
+  padding: 3px;
+  border: grey 1px solid;
+  width: 700px;
+  height: 50px;
+  border-radius: 50px;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.navigation form label {
+  font-size: 12px;
+  font-weight: bold;
+}
+.navigation form .form {
+  position: relative;
+}
+.navigation form .form--searchLocation {
+  border: none;
+}
+.navigation form .form--checkIn {
+  border: none;
+  background-color: white;
+}
+.navigation form .form--checkOut {
+  border: none;
+  background-color: white;
+}
+.navigation form .form--guests {
+  border: none;
+  background-color: white;
+}
+.navigation form .form--searchIcon input[type=image] {
+  width: 20px;
+  height: 20px;
 }

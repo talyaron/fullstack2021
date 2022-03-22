@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,13 +9,39 @@
 
     <link rel="stylesheet" href="dist/style.css">
 </head>
+
 <body>
     <nav class="navigation">
         <ul>
-            <li class="navigation--logo"><img src="images/logo.png"  >airbnb</li>
-            <li class="navigation--search">search</li>
+            <li class="navigation--logo"><img src="images/logoTitle.png" alt="airbnb"></li>
+            <li class="navigation--search">
+                <form>
+
+                    <label for="searchLocation">Location 
+                        <input class="form--searchLocation" id="searchLocation" type="text"
+                            placeholder="Where are you going?">
+                    </label>
+
+                    <label for="checkIn">Check in
+                    <button class="form--checkIn" id="checkIn">Add dates</button>
+                    </label>
+
+                    <label for="checkOut">Check in
+                    <button class="form--checkOut" id="checkOut">Add dates</button>
+                    </label>
+
+                    <label for="guests">Guests
+                    <button class="form--guests" id="guests">Add guests</button>
+                    </label>
+
+                    <a href="" class="form--searchIcon"><input type="image" src="images/searchIcon.png"></a>
+
+
+                </form>
+            </li>
             <li class="navigation--user">user</li>
         </ul>
     </nav>
 </body>
+
 </html>
