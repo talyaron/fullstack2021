@@ -4,11 +4,50 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Main Page</title>
 
     <link rel="stylesheet" href="dist/style.css">
 </head>
-<body>
- 
+<body class="mainPage">
+ <!-- <section >
+  <div class="mainPage__imageCarousel">
+    <button class="mainPage__imageCarousel--prev">&#8656;</button>
+    <button class="mainPage__imageCarousel--next">&#8658;</button>
+   <ul>
+    <li class="mainPage__imageCarousel--slide" data-active>
+      <img src="images/airbnbView1.jpg" alt="Mountain view">
+    </li>
+    <li class="mainPage__imageCarousel--slide">
+      <img src="images/airbnbView2.jpg" alt="Paris Eiffel Tower view">
+    </li>
+    <li class="mainPage__imageCarousel--slide">
+      <img src="images/airbnbView3.jpg" alt="Rome Colosseum view">
+    </li>
+   </ul>
+   
+  </div>
+ </section> 
+  </div>
+-->
+
+ <div class="slider">
+   <div class="images">
+     <input type="radio" name="slide" id="img1">
+     <input type="radio" name="slide" id="img2">
+     <input type="radio" name="slide" id="img3">
+
+     <img src="images/airbnbView1.jpg" class="m1" alt="img1">
+     <img src="images/airbnbView2.jpg" class="m1" alt="img2">
+     <img src="images/airbnbView3.jpg" class="m1" alt="img3">
+   </div>
+   <div class="dots">
+     <label for="img1"></label>
+     <label for="img2"></label>
+     <label for="img3"></label>
+
+   </div>  
+  
+
+ </div>
 </body>
 </html>
