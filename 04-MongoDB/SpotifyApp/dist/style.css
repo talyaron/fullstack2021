@@ -20,6 +20,7 @@ nav ul {
   height: 65px;
   background-color: black;
   color: white;
+  cursor: pointer;
 }
 
 nav ul li {
@@ -54,25 +55,51 @@ nav ul li {
   grid-template-rows: repeat(3, 1fr);
 }
 .Daily_mix_container ._dailymix {
+  cursor: pointer;
   margin-top: 80px;
-  margin-left: -230px;
-  width: 145px;
-  height: 20px;
+  margin-left: -240px;
+  width: 165px;
+  height: 30px;
   gap: 10px;
   padding: 3vw;
   border: 2px solid white;
 }
 .Daily_mix_container ._dailymix img {
-  height: 30px;
-  width: 30px;
+  position: relative;
+  top: -30px;
+  left: -28px;
+  height: 80px;
+  width: 84px;
+  border-radius: 4px;
+}
+.Daily_mix_container ._dailymix h4 {
+  position: relative;
+  top: -90px;
+  left: 65px;
 }
 .Daily_mix_container ._dailymix1 {
-  margin-left: 80px;
+  cursor: pointer;
+  text-align: left;
+  margin-top: -90px;
+  margin-left: 60px;
   grid-row: 3/3;
-  width: 140px;
-  height: 13px;
+  width: 160px;
+  height: 30px;
   padding: 3vw;
   border: 2px solid white;
+}
+.Daily_mix_container ._dailymix1 img {
+  position: relative;
+  top: -30px;
+  left: -28px;
+  height: 80px;
+  width: 84px;
+  border-radius: 4px;
+}
+.Daily_mix_container ._dailymix1 h4 {
+  position: relative;
+  top: -90px;
+  left: 65px;
 }
 
 .bottom {
