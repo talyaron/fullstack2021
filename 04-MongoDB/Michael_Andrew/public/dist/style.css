@@ -7,6 +7,8 @@
   --main-color-5: #012a4a;
   --main-color-text: #111;
   --load-time: 500ms;
+  --load-item-time: 600ms;
+  --main__card-load-delay: calc(var(--load-time) + var(--load-item-time));
 }
 
 body {
@@ -82,6 +84,10 @@ body {
   width: auto;
   padding: 0 10px;
   transition: all 0.5s;
+  animation: header-item-load var(--load-item-time) ease-in;
+  animation-delay: var(--load-item-time);
+  animation-fill-mode: forwards;
+  transform: scale(0);
 }
 .header__item p {
   font-weight: bold;
@@ -94,7 +100,17 @@ body {
   cursor: pointer;
   background-color: var(--main-color-1);
 }
-
+@keyframes header-item-load {
+  0% {
+    transform: scale(0);
+  }
+  90% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 @keyframes header-load {
   0% {
     transform: translateY(-100%);
@@ -103,6 +119,7 @@ body {
     transform: translateY(0);
   }
 }
+
 .side-bar {
   color: white;
   position: fixed;
@@ -147,6 +164,10 @@ body {
 .main .main__card {
   display: flex;
   flex-direction: column;
+  animation: main__card-load 300ms ease-in var(--main__card-load-delay);
+  animation-fill-mode: forwards;
+  transform: translateY(-20px);
+  opacity: 0;
 }
 .main .main__card:hover {
   box-shadow: 10px 10px 60px 10px rgba(121, 121, 121, 0.3);
@@ -164,4 +185,14 @@ body {
   border: #999999 1px solid;
   border-top: none;
   height: 25%;
+}
+@keyframes main__card-load {
+  0% {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
 }

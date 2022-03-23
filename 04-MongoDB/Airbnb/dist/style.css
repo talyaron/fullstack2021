@@ -155,40 +155,52 @@ body {
   transition: ease 1s;
 }
 
-.mainPage {
-  box-sizing: border-box;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.mainPage .slider {
-  position: relative;
-  width: 60%;
+.mainPage__imageCarousel {
   overflow: hidden;
+  margin-left: 10%;
+  margin-right: 10%;
 }
-.mainPage .images {
+.mainPage__imageCarousel figure {
+  position: relative;
+  width: 500%;
+  margin: 0;
+  animation: 20s slider infinite;
   display: flex;
-  width: 100%;
 }
-.mainPage .images img {
-  height: 400px;
-  width: 100%;
-  transition: all 0.15s ease;
+.mainPage__imageCarousel figure img {
+  padding-top: 1%;
+  padding-bottom: 1%;
+  width: 20%;
+  object-fit: cover;
+  object-position: center;
 }
-.mainPage .images input {
-  display: none;
-}
-.mainPage .images .dots {
-  display: flex;
-  justify-content: center;
-  margin: 5px;
-}
-.mainPage .images .dots label {
-  height: 100px;
-  width: 20px;
-  border-radius: 50%;
-  border: solid black 3px;
-  cursor: pointer;
-  transition: all 0.15s ease;
+
+@keyframes slider {
+  0% {
+    left: 0;
+  }
+  20% {
+    left: 0;
+  }
+  25% {
+    left: -100%;
+  }
+  45% {
+    left: -100%;
+  }
+  50% {
+    left: -200%;
+  }
+  70% {
+    left: -200%;
+  }
+  75% {
+    left: -300%;
+  }
+  95% {
+    left: -300%;
+  }
+  100% {
+    left: -400%;
+  }
 }
