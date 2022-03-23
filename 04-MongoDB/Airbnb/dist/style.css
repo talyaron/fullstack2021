@@ -155,23 +155,22 @@ body {
   transition: ease 1s;
 }
 
-.slider {
+.mainPage__imageCarousel {
   overflow: hidden;
+  margin-left: 10%;
+  margin-right: 10%;
 }
-.slider figure {
+.mainPage__imageCarousel figure {
   position: relative;
   width: 500%;
-  height: 20%;
   margin: 0;
-  left: 0;
   animation: 20s slider infinite;
+  display: flex;
 }
-.slider figure img {
+.mainPage__imageCarousel figure img {
   padding-top: 1%;
   padding-bottom: 1%;
   width: 20%;
-  height: 95vh;
-  float: left;
   object-fit: cover;
   object-position: center;
 }
