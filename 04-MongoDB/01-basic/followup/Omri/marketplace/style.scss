@@ -22,9 +22,12 @@
         
 
         &--icons{
+        
             i{
-                width: 10px;
-                height: 20px;
+            font-size: 35px;
+            color: white;
+            margin-left: 5%;
+            margin-top: 3%;
             }
         }
 
@@ -54,7 +57,6 @@
             grid-template-rows: auto;
             background-color: #251f41; 
             border-top-right-radius: 8px;
-            border-bottom-right-radius: 8px; 
             overflow: scroll;
           
             &--item{
@@ -104,7 +106,8 @@
             }
 
             h4{
-                padding: 10%;
+                // padding: 10%;
+                margin-top: 30%;
                 font-family: 'Permanent Marker', cursive;
                 color: #d0cedb;
                 cursor: pointer;
