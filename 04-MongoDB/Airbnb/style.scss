@@ -240,7 +240,48 @@ body{
         font-weight: bolder;
         font-size: large;
     }   
-      
+    
+    
+    img{
+        //padding-left:20%;
+        width:30px;
+        height:30px;
+    }
+    &__about{
+        
+        
+        &--twitter{
+            img{
+                transition:  .4s ease;
+                &:hover{
+                    border-radius: 10px;
+                    background-color: rgb(43, 178, 223);
+                }
+            }
+            
+        }
+        &--facebook{
+            img{
+                transition:  .4s ease;
+                &:hover{
+                    border-radius: 10px;
+                    background-color: rgb(37, 54, 212);
+                }
+            }
+            
+        }
+        &--instagram{
+            img{
+                transition:  .4s ease;
+                &:hover{
+                    border-radius: 10px;
+                    background-color: rgb(250, 96, 255);
+                }
+            }
+            
+        }
+    }
+    
       
   
 }
@@ -256,7 +297,8 @@ body{
     text-align: left;
     margin-left:5px;
     font-weight: lighter;
-    
+       
+
   
 }
 
