@@ -100,7 +100,6 @@ body {
   cursor: pointer;
   background-color: var(--main-color-1);
 }
-
 @keyframes header-item-load {
   0% {
     transform: scale(0);
@@ -120,6 +119,7 @@ body {
     transform: translateY(0);
   }
 }
+
 .side-bar {
   color: white;
   position: fixed;
@@ -186,7 +186,6 @@ body {
   border-top: none;
   height: 25%;
 }
-
 @keyframes main__card-load {
   0% {
     transform: translateY(-20px);
