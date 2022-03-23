@@ -56,14 +56,14 @@ nav ul li a i:hover {
   flex-direction: row;
   justify-content: space-between;
   padding-inline: 2rem;
-  max-width: 100vw;
+  max-width: 100vw-;
 }
 #control__back, #control__filter {
   background-color: gainsboro;
   border-radius: 5px;
   padding: 12px;
 }
-#control__mytasks {
+#control__recent {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -71,7 +71,7 @@ nav ul li a i:hover {
   flex-direction: row;
   right: 20vw;
 }
-#control__mytasks-square {
+#control__recent-square {
   align-self: center;
   margin-left: 1rem;
   padding: 0.8ch 1.3ch;
@@ -118,18 +118,15 @@ nav ul li a i:hover {
     animation: pulse 0.5s infinite alternate;
   }
 
-  .hidden {
-    top: 0;
-    display: inline;
-  }
-
   #control {
     max-width: 100vw;
+    max-height: 100%;
+    position: relative;
   }
   #control__back, #control__filter {
     padding-top: 10vh;
   }
-  #control__mytasks {
+  #control__recent {
     position: absolute;
     top: 10vh;
   }
