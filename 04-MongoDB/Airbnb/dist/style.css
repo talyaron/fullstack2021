@@ -166,6 +166,31 @@ body {
   font-weight: bolder;
   font-size: large;
 }
+.bottomBar img {
+  width: 30px;
+  height: 30px;
+}
+.bottomBar__about--twitter img {
+  transition: 0.4s ease;
+}
+.bottomBar__about--twitter img:hover {
+  border-radius: 10px;
+  background-color: #2bb2df;
+}
+.bottomBar__about--facebook img {
+  transition: 0.4s ease;
+}
+.bottomBar__about--facebook img:hover {
+  border-radius: 10px;
+  background-color: #2536d4;
+}
+.bottomBar__about--instagram img {
+  transition: 0.4s ease;
+}
+.bottomBar__about--instagram img:hover {
+  border-radius: 10px;
+  background-color: #fa60ff;
+}
 
 .airbnbRights {
   background: #eeebeb;
