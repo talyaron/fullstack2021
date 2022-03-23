@@ -102,6 +102,38 @@ nav ul li {
   left: 65px;
 }
 
+.your_top_mixes {
+  position: relative;
+  left: 150px;
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  height: 100px;
+  color: white;
+  font-family: "Varela Round", sans-serif;
+}
+.your_top_mixes .mixes {
+  cursor: pointer;
+  border-radius: 4px;
+  border: 3px solid white;
+  width: 200px;
+  height: 90px;
+  margin-right: 100px;
+}
+.your_top_mixes .mixes h4 {
+  position: relative;
+  top: -30px;
+  text-align: right;
+}
+.your_top_mixes .mixes img {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  height: 80px;
+  width: 84px;
+  border-radius: 4px;
+}
+
 .bottom {
   position: sticky;
   bottom: 0;
