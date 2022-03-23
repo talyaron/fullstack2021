@@ -155,6 +155,25 @@ body {
   transition: ease 1s;
 }
 
+.container__bottom {
+  background-color: #1a1919;
+  color: white;
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 2em;
+}
+.container__bottom__title {
+  font-size: large;
+}
+.container .gucciRights {
+  background: #1a1919;
+  font-size: small;
+  padding: 2em;
+  margin-top: 0;
+  color: white;
+  margin-top: 0.1em;
+}
+
 .mainPage {
   margin-left: 5%;
   margin-right: 5%;
