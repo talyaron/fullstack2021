@@ -156,22 +156,28 @@ body {
 }
 
 .bottomBar {
-  background-color: #1a1919;
-  color: white;
+  background-color: #eeebeb;
+  color: black;
   display: flex;
   justify-content: space-evenly;
   margin-top: 2em;
 }
 .bottomBar__title {
+  font-weight: bolder;
   font-size: large;
 }
-.bottomBar .airbnbRights {
-  background: #1a1919;
-  font-size: small;
+
+.airbnbRights {
+  background: #eeebeb;
+  font-size: medium;
+  letter-spacing: 1px;
   padding: 2em;
   margin-top: 0;
-  color: white;
-  margin-top: 0.1em;
+  border-top: solid lightgrey 1px;
+  color: black;
+  text-align: left;
+  margin-left: 5px;
+  font-weight: lighter;
 }
 
 .mainPage {
