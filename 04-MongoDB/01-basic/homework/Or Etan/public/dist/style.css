@@ -256,7 +256,11 @@ body {
   align-items: center;
   justify-content: space-between;
 }
-#landing-home .recent__title:hover {
+#landing-home .recent__title a {
+  text-decoration: none;
+  color: black;
+}
+#landing-home .recent__title a:hover {
   cursor: pointer;
 }
 #landing__task {
@@ -264,9 +268,10 @@ body {
 }
 #landing__task-next {
   margin: 2rem;
-  width: 100vw-margin;
+  width: 100vw;
 }
-#landing__task-next .task, #landing__task-next * {
+#landing__task-next .task,
+#landing__task-next * {
   width: 100%;
 }
 #landing__task-count {
@@ -520,4 +525,19 @@ main {
     transform: rotate(360deg) translate(-165px) rotate(-360deg);
     opacity: 1;
   }
+}
+#control__list {
+  height: 90vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#control__list ul {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+#control__list ul li {
+  text-decoration: none;
 }

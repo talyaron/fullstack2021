@@ -156,6 +156,7 @@ body {
       }
     }
   }
+
   &-home {
     background: white;
     padding: 30px;
@@ -297,11 +298,20 @@ body {
       align-items: center;
       justify-content: space-between;
 
-      &:hover {
-        cursor: pointer;
+      a {
+        text-decoration: none;
+        color: black;
+
+        &:hover {
+          cursor: pointer;
+        }
       }
+
+
     }
   }
+
+
 
   //------------Etan
   //----- already created description boxes
@@ -310,12 +320,15 @@ body {
 
     &-next {
       margin: 2rem;
-      width: 100vw-2rem;
-      .task, *{
+      width: 100vw;
+
+      .task,
+      * {
         width: 100%;
 
       }
     }
+
     &-count {
       display: flex;
       flex-direction: row;
@@ -474,6 +487,7 @@ body {
             margin-top: 0.5ch;
           }
         }
+
         &__countdown {
           width: auto;
           height: 4ch;
@@ -518,7 +532,7 @@ body {
         flex-direction: column;
         align-content: center;
 
-        & > h3,
+        &>h3,
         p {
           margin: 0.1rem;
           padding: 0;
@@ -566,7 +580,7 @@ main {
 .black {
   background-color: black;
 
-  & > p {
+  &>p {
     color: rgb(255, 255, 255);
   }
 }
@@ -597,8 +611,26 @@ main {
     transform: rotate(0deg) translate(-165px) rotate(0deg);
     opacity: 1;
   }
+
   100% {
     transform: rotate(360deg) translate(-165px) rotate(-360deg);
     opacity: 1;
+  }
+}
+
+#control__list {
+  height: 90vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    li{
+      text-decoration: none;
+    }
   }
 }
