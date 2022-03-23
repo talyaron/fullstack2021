@@ -71,12 +71,10 @@ function handledelet(userId) {
         var data;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0:
-                    console.log(userId);
-                    return [4 /*yield*/, axios["delete"]('/delete-user', { data: { userId: userId } })];
+                case 0: return [4 /*yield*/, axios["delete"]('/delete-user', { data: { userId: userId } })];
                 case 1:
                     data = (_a.sent()).data;
-                    console.log(data);
+                    handleGetUsers();
                     return [2 /*return*/];
             }
         });

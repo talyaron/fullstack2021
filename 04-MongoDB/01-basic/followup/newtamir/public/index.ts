@@ -15,10 +15,8 @@ async function handleGetUsers() {
 
 }
 async function handledelet(userId) {
-    console.log(userId);
-    
     const { data } = await axios.delete('/delete-user', { data: { userId } })
-    console.log(data);
+    handleGetUsers()
 } 
 
 
