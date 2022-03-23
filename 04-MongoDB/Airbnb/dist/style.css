@@ -155,17 +155,17 @@ body {
   transition: ease 1s;
 }
 
-.container__bottom {
+.bottomBar {
   background-color: #1a1919;
   color: white;
   display: flex;
   justify-content: space-evenly;
   margin-top: 2em;
 }
-.container__bottom__title {
+.bottomBar__title {
   font-size: large;
 }
-.container .gucciRights {
+.bottomBar .airbnbRights {
   background: #1a1919;
   font-size: small;
   padding: 2em;

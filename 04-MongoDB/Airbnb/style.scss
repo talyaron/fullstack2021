@@ -226,24 +226,22 @@ body{
 }
 
 //bottom of page
-.container{
-    &__bottom {
-        background-color: rgb(26, 25, 25);
-        color: white;
-        display: flex;
-        justify-content: space-evenly;
-        margin-top: 2em;
+.bottomBar{
+   
+    background-color: rgb(26, 25, 25);
+    color: white;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 2em;
       
       
       
-        &__title {
+     &__title {
           font-size: large;
-        }
+        }   
       
       
-      }
-      
-      .gucciRights {
+    .airbnbRights {
         background: rgb(26, 25, 25);
         font-size: small;
         padding: 2em;
@@ -252,7 +250,7 @@ body{
         color: white;
         margin-top: 0.1em;
       
-      }
+    }
 }
 
 
