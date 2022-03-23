@@ -6,8 +6,8 @@
 }
 
 body {
-  margin: auto;
-  padding: auto;
+  margin: 0;
+  padding: 0;
   height: 100vh;
   display: flex;
   flex-wrap: wrap;
@@ -139,6 +139,10 @@ img {
   right: 13px;
   cursor: pointer;
   color: #000;
+  opacity: 0.5;
+}
+.book__content__pageFlip-back-btn:hover {
+  transform: scale(1.4);
 }
 .book__content__pageFlip-front {
   position: absolute;
@@ -160,6 +164,10 @@ img {
   right: 13px;
   cursor: pointer;
   color: #000;
+  opacity: 0.5;
+}
+.book__content__pageFlip-front-btn:hover {
+  transform: scale(1.4);
 }
 
 #cover {

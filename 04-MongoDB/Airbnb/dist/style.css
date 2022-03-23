@@ -154,3 +154,118 @@ body {
   height: 25px;
   transition: ease 1s;
 }
+
+.container__bottom {
+  background-color: #1a1919;
+  color: white;
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 2em;
+}
+.container__bottom__title {
+  font-size: large;
+}
+.container .gucciRights {
+  background: #1a1919;
+  font-size: small;
+  padding: 2em;
+  margin-top: 0;
+  color: white;
+  margin-top: 0.1em;
+}
+
+.mainPage {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+.mainPage__imageCarousel {
+  border-radius: 10%;
+  overflow: hidden;
+}
+.mainPage__imageCarousel figure {
+  position: relative;
+  width: 500%;
+  margin: 0;
+  animation: 20s slider infinite;
+  display: flex;
+}
+.mainPage__imageCarousel figure img {
+  width: 20%;
+  object-fit: cover;
+  object-position: center;
+}
+.mainPage__citySuggestions {
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+.mainPage__citySuggestions__cards {
+  height: 50vh;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: space-between;
+}
+.mainPage__citySuggestions__cards__card {
+  border-radius: 10px;
+  width: 70vw;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.mainPage__citySuggestions__cards__card img {
+  background-color: #38ffe4;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  width: 100%;
+  height: 50%;
+}
+.mainPage__citySuggestions__cards__card .description {
+  text-align: left;
+  padding-left: 5px;
+  color: white;
+}
+.mainPage__citySuggestions__cards__card .description h3 {
+  font-weight: lighter;
+}
+.mainPage__citySuggestions__cards__card:nth-child(1) {
+  background-color: #2e7fca;
+}
+.mainPage__citySuggestions__cards__card:nth-child(2) {
+  background-color: #183755;
+}
+.mainPage__citySuggestions__cards__card:nth-child(3) {
+  background-color: #3537a3;
+}
+.mainPage__citySuggestions__cards__card:nth-child(4) {
+  background-color: #2c2d69;
+}
+
+@keyframes slider {
+  0% {
+    left: 0;
+  }
+  20% {
+    left: 0;
+  }
+  25% {
+    left: -100%;
+  }
+  45% {
+    left: -100%;
+  }
+  50% {
+    left: -200%;
+  }
+  70% {
+    left: -200%;
+  }
+  75% {
+    left: -300%;
+  }
+  95% {
+    left: -300%;
+  }
+  100% {
+    left: -400%;
+  }
+}
