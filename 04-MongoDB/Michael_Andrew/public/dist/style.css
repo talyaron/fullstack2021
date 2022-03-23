@@ -6,6 +6,7 @@
   --main-color-4: #01497c;
   --main-color-5: #012a4a;
   --main-color-text: #111;
+  --load-time: 500ms;
 }
 
 body {
@@ -23,7 +24,7 @@ body {
   height: 72px;
   border-bottom: 5px solid var(--main-color-5);
   background-color: var(--main-color-2);
-  animation: header-load 500ms ease-in;
+  animation: header-load var(--load-time) ease-in;
 }
 .header__logo {
   display: flex;
