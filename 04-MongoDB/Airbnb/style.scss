@@ -228,79 +228,6 @@ body{
 
 //mainpage -index.html
 
-// .mainPage{
-//     &__imageCarousel{
-//         width:100vw;
-//         height:100vh;
-//         position:relative;
-//         list-style: none;
-//         button{
-//             position:absolute;
-//             background:none;
-//             border:none;
-//             font-size:4rem;            
-//             z-index: 2;
-//             top:25%;
-//             transform:translateY(-25%);
-//             color:rgba(255,255,255,.5);
-//             cursor:pointer;
-//             //border-radius: .25rem;
-//             padding:0 .5rem;
-//             background-color: rgba(0,0,0, .1);
-          
-//         }
-//         // &--prev{
-            
-//         // }
-//         // &--next{
-            
-//         // }
-//         &--slide{
-//             position:absolute;
-//             inset:0;
-//             opacity:0;
-//             img{
-//               display:block;
-//               width:50%;
-//               height:50%;
-//               object-fit:cover;
-//               object-position: center;
-
-//             }
-//             &[data-active]{
-//                 opacity:1;
-//             }
-
-//         }
-//     }
-
-// }
-
-// .mainPage{
-//     &__imageCarousel{
-//         box-sizing:border-box;
-//         display:flex;
-//         justify-content: center;
-//         align-items: center;
-//         position: relative;
-//          width:60%;
-//         overflow:hidden;
-
-//         img{
-//             width:100vw;
-//         height:60vh;
-//         object-fit:cover;
-//         object-position: center;
-//         transition: all 0.15s ease;
-//         }
-//         &--images{
-//             display:flex;
-           
-            
-//         }
-        
-//     }
-// }
 
 .mainPage{
     &__imageCarousel{
@@ -309,9 +236,7 @@ body{
         //width:fit-content; 
         //width:70%;
         margin-left:10%;
-        margin-right:10%;
-       
-        
+        margin-right:10%;      
 
         
         figure{
@@ -321,7 +246,7 @@ body{
             margin:0;
             animation:20s slider infinite;
             display:flex;
-                img{
+            img{
                 padding-top:1%;
                 padding-bottom:1%;
                 width:20%;                
@@ -332,8 +257,9 @@ body{
                 //position: relative;
                 //float:left;
                 object-fit:cover;
-                object-position: center;  
-                }
+    
+               object-position: center;  
+            }
     }   }
 } 
 
