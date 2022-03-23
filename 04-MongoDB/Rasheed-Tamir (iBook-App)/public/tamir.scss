@@ -1,0 +1,87 @@
+.navbar {
+    position: relative;
+    left: 10%;
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+
+
+    &__sign {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        height: 20px;
+        width: 10%;
+        border: 1px solid rgba(0, 0, 0, 0.336);
+        text-align: center;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    &__logo {
+        padding-top: 1%;
+        height: 20px;
+        width: 10%;
+        font-size: 1.8em;
+        font-weight: bold;
+        font-family: Arial, Helvetica, sans-serif;
+        color: rgba(255, 0, 0, 0.671);
+        cursor: pointer;
+    }
+}
+
+.login {
+    width: 500px;
+    position: relative;
+    left: 10%;
+    font-size: 1.7em;
+
+    &__h1 {
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+
+    &__h3 {
+        font-size: 0.8em;
+    }
+
+    &__span {
+        color: red;
+    }
+
+    &__input {
+        height: 40px;
+        width: 70%;
+    }
+
+    &__b {
+        background-color: rgba(255, 0, 0, 0.753);
+        height: 30px;
+        width: 68%;
+        text-align: center;
+        padding: 10px;
+        font-weight: bold;
+        color: white;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        margin-top: 10px;
+    }
+
+    &__h5 {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 0.8em;
+        position: relative;
+        left: 35%;
+    }
+
+    &__google {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        height: 40px;
+        width: 70%;
+        border: 1px solid rgba(0, 0, 0, 0.377);
+        text-align: center;
+        padding-top: 3%;
+    }
+
+    &__img {
+        width: 10%;
+    }
+
+}
