@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>FUNDLE</title>
+  <link rel="stylesheet" href="dist/style.css">
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="app.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/v4-shims.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+
+<body>
+  <div class="wrapper">
+    <div></div>
+    <div class="column-left">
+      <div class="column-left__top">
+        <div class="menu"><img src="./images/menu.png" alt=""></div>
+        <div class="setting"><img src="./images/setting.png" alt=""></div>
+      </div>
+      <div class="column-left__middle">
+        <button>
+          <h2>THEME</h2>
+        </button>
+        <button>
+          <h2>LANGUAGE</h2>
+        </button>
+        <button>
+          <h2>SIGN-IN</h2>
+        </button>
+        <button>
+          <h2>REGISTER</h2>
+        </button>
+        <button class="fundlenation">
+          <h2>FUNDLE-NATION</h2>
+        </button>
+      </div>
+      <div class="help-me">
+        <h2>HELP ME!</h2>
+      </div>
+      <div class="column-left__bottom">
+        <div class="youtube">
+          <div class="random-sequence">
+            <h2>PLAY RANDOM SEQUENCE</h2>
+          </div>
+          <div class="youtube-icon"><img src="./images/youtube.png" alt=""></i></div>
+        </div>
+        <div class="thoughts">
+          <div>
+            <h2>Write your nearest thought...</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="column-center">
+      <div class="column-center__top">
+        <h1><span style="color: #349915;">F</span>UNDL<span style="color: #dfbc48;">E</span></h1>
+      </div>
+      <div class="column-center__middle">
+        <div class="column-center__middle__game-area">
+          <div class="column-center__middle__game-area__cubes">
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+          <div>4</div>
+          <div>5</div>
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+          <div>4</div>
+          <div>5</div>
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+          <div>4</div>
+          <div>5</div>
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+          <div>4</div>
+          <div>5</div>
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+          <div>4</div>
+          <div>5</div>
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+          <div>4</div>
+          <div>5</div>
+        </div>
+          <div class="column-center__middle__game-area__keyboard">
+            <div>Q</div>
+          <div>W</div>
+          <div>E</div>
+          <div>R</div>
+          <div>T</div>
+          <div>Y</div>
+          <div>U</div>
+          <div>I</div>
+          <div>O</div>
+          <div>P</div>
+          <div>A</div>
+          <div>S</div>
+          <div>D</div>
+          <div>F</div>
+          <div>G</div>
+          <div>H</div>
+          <div>J</div>
+          <div>K</div>
+          <div>L</div>
+          <div>-</div>
+          <div>ENT</div>
+          <div>Z</div>
+          <div>X</div>
+          <div>C</div>
+          <div>V</div>
+          <div>B</div>
+          <div>N</div>
+          <div>M</div>
+          <div>DEL</div>
+          
+          
+          </div>
+        </div>
+      </div>
+      <div class="column-center__bottom"></div>
+    </div>
+
+    <div class="column-right">
+      <div class="column-right__top"><button>SHARE <i class="fa-solid fa-share-nodes"></i></button></div>
+      <div class="your-stats">
+        <h2>YOUR STATS</h2>
+      </div>
+      <div class="column-right__middle">
+        <div class="line-1"></div>
+        <div class="line-2">STATISTICS</div>
+        <div class="line-3">1 <h5>Played</h5> 100<h5>Win%</h5> 1<h5>Streak</h5> 1<h5>Streaks</h5>
+        </div>
+        <div class="line-4">GUESS DISTREBUTION</div>
+        <div class="line-5">
+          <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li class="green-line">4</li>
+            <li>5</li>
+            <li>6</li>
+          </ul>
+        </div>
+        <div class="line-6">
+          <div class="next-fundle">
+            <div>NEXT-FUNDLE</div>
+            <div>00:03:53</div>
+          </div>
+          <div class="share-stats"><button>SHARE <i class="fa-solid fa-share-nodes"></i></button></div>
+        </div>
+
+      </div>
+      <div class="your-stats">
+        <h2>ALL STATS</h2>
+      </div>
+      <div class="column-right__middle">
+        <div class="line-1"></div>
+        <div class="line-2">STATISTICS</div>
+        <div class="line-3">1 <h5>Played</h5> 100<h5>Win%</h5> 1<h5>Streak</h5> 1<h5>Streaks</h5>
+        </div>
+        <div class="line-4">GUESS DISTREBUTION</div>
+        <div class="line-5">
+          <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li class="green-line">4</li>
+            <li>5</li>
+            <li>6</li>
+          </ul>
+        </div>
+        <div class="line-6">
+          <div class="next-fundle">
+            <div>NEXT-FUNDLE</div>
+            <div>00:03:53</div>
+          </div>
+          <div class="share-stats"><button>SHARE <i class="fa-solid fa-share-nodes"></i></button></div>
+        </div>
+
+      </div>
+    </div>
+    <div></div>
+  </div>
+</body>
+
+</html>
