@@ -23,6 +23,7 @@ body {
   height: 72px;
   border-bottom: 5px solid var(--main-color-5);
   background-color: var(--main-color-2);
+  animation: header-load 500ms ease-in;
 }
 .header__logo {
   display: flex;
@@ -93,6 +94,14 @@ body {
   background-color: var(--main-color-1);
 }
 
+@keyframes header-load {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
 .side-bar {
   color: white;
   position: fixed;
