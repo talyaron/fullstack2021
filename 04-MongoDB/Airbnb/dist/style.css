@@ -60,6 +60,21 @@ body {
 .navigation form .form--searchLocation input:hover {
   background-color: #e2e2e2;
 }
+.navigation form .form--searchLocation .dropdown {
+  display: none;
+  position: relative;
+  background-color: #f1f1f1;
+  font-size: 12px;
+  border-radius: 10px;
+  min-width: 160px;
+  top: 15px;
+  padding: 5px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+.navigation form .form--searchLocation:hover .dropdown {
+  display: block;
+}
 .navigation form .form--checkIn {
   height: 50px;
   width: 120px;
@@ -77,6 +92,21 @@ body {
 }
 .navigation form .form--checkIn button:hover {
   background-color: #e2e2e2;
+}
+.navigation form .form--checkIn .dropdown {
+  display: none;
+  position: relative;
+  background-color: #f1f1f1;
+  font-size: 12px;
+  border-radius: 10px;
+  min-width: 160px;
+  top: 15px;
+  padding: 5px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+.navigation form .form--checkIn:hover .dropdown {
+  display: block;
 }
 .navigation form .form--checkOut {
   height: 50px;
@@ -96,6 +126,21 @@ body {
 .navigation form .form--checkOut button:hover {
   background-color: #e2e2e2;
 }
+.navigation form .form--checkOut .dropdown {
+  display: none;
+  position: relative;
+  background-color: #f1f1f1;
+  font-size: 12px;
+  border-radius: 10px;
+  min-width: 160px;
+  top: 15px;
+  padding: 5px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+.navigation form .form--checkOut:hover .dropdown {
+  display: block;
+}
 .navigation form .form--guests {
   height: 50px;
   width: 150px;
@@ -113,6 +158,21 @@ body {
 }
 .navigation form .form--guests button:hover {
   background-color: #e2e2e2;
+}
+.navigation form .form--guests .dropdown {
+  display: none;
+  position: relative;
+  background-color: #f1f1f1;
+  font-size: 12px;
+  border-radius: 10px;
+  min-width: 160px;
+  top: 15px;
+  padding: 5px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+.navigation form .form--guests:hover .dropdown {
+  display: block;
 }
 .navigation form .form--searchIcon {
   background-color: #38ffe4;

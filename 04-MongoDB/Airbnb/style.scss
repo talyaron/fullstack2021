@@ -94,6 +94,21 @@ body{
                 
                 
             }
+            .dropdown{
+                display: none;
+                position: relative;
+                background-color: #f1f1f1;
+                font-size:12px;
+                border-radius: 10px;
+                min-width: 160px;
+                top:15px;
+                padding:5px;
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                z-index: 1;
+                                  
+                
+            }
+            &:hover .dropdown{display:block;}
         }
            
         
@@ -120,6 +135,20 @@ body{
     
                 }   
             }
+            .dropdown{
+                display: none;
+                position: relative;
+                background-color: #f1f1f1;
+                font-size:12px;
+                border-radius: 10px;
+                min-width: 160px;
+                top:15px;
+                padding:5px;
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                z-index: 1;                      
+                
+            }
+            &:hover .dropdown{display:block;}
           
           
         }
@@ -145,6 +174,20 @@ body{
     
                 }   
             }
+            .dropdown{
+                display: none;
+                position: relative;
+                background-color: #f1f1f1;
+                font-size:12px;
+                border-radius: 10px;
+                min-width: 160px;
+                top:15px;
+                padding:5px;
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                z-index: 1;                      
+                
+            }
+            &:hover .dropdown{display:block;}
 
         }
         &--guests{
@@ -158,8 +201,10 @@ body{
                 
                 border:solid 1px rgb(226, 226, 226);
                 background-color: rgb(226, 226, 226);
+
                 
             }
+           
             button{
                 border-radius:10px;
                 border:none;
@@ -167,9 +212,24 @@ body{
                 &:hover{
                     
                     background-color: rgb(226, 226, 226);
-    
+                    
                 }   
             }
+            .dropdown{
+            display: none;
+            position: relative;
+            background-color: #f1f1f1;
+            font-size:12px;
+            border-radius: 10px;
+            min-width: 160px;
+            top:15px;
+            padding:5px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;                      
+            
+            }
+            &:hover .dropdown{display:block;}
+
 
         }
         &--searchIcon{
@@ -194,6 +254,8 @@ body{
                 
 
             }
+            
+            
           
         }
 
@@ -221,8 +283,8 @@ body{
            height:25px;
            transition: ease 1s;
         }
-      
-   }
+    }
+  
 }
 
 //@media only screen and (max-width:600px)
