@@ -35,8 +35,14 @@ body {
 .login {
   width: 500px;
   position: relative;
-  left: 10%;
+  left: 9%;
   font-size: 1.7em;
+}
+.login__newimg {
+  position: absolute;
+  left: 105%;
+  width: 94%;
+  top: 3%;
 }
 .login__h1 {
   color: white;
@@ -91,6 +97,7 @@ body {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  gap: 5px;
 }
 .login__p {
   color: white;
