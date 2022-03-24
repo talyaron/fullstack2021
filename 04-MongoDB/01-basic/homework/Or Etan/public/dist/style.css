@@ -265,10 +265,10 @@ body {
 }
 #landing__task {
   overflow-y: hidden;
+  max-width: 100%;
 }
 #landing__task-next {
   margin: 2rem;
-  width: 100vw;
 }
 #landing__task-next .task,
 #landing__task-next * {
@@ -473,11 +473,11 @@ main {
   background-color: none;
 }
 
-.blue {
+.inProgress {
   background-color: #a7ebf2;
 }
 
-.orange {
+.toDo {
   background-color: #f2b694;
 }
 
