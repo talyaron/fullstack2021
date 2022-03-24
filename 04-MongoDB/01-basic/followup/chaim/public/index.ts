@@ -15,10 +15,8 @@ async function handleUpdate(ev, {userId}){
     console.log(ev, userId)
     const role  = ev.target.value;
     const {data} = await axios.patch('/update-user', {userId, role});
-    console.log(data)
-   
+    console.log(data)  
 }
-
 async function handleGetUsers(){
   
     const {data} = await axios.get('/get-users')
@@ -49,3 +47,4 @@ function renderUsers(users){
 
     document.getElementById('users').innerHTML = html;
 }
+
