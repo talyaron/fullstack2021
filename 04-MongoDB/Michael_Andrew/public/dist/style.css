@@ -156,10 +156,10 @@ body {
   margin-left: 250px;
   display: grid;
   grid-template-columns: repeat(3, 20vw);
-  grid-template-rows: repeat(2, 35vh);
+  grid-template-rows: repeat(2, 38vh);
   justify-content: center;
   align-content: center;
-  gap: 20px;
+  gap: 15px;
 }
 .main .main__card {
   display: flex;
@@ -167,10 +167,14 @@ body {
   animation: main__card-load 300ms ease-in var(--main__card-load-delay);
   animation-fill-mode: forwards;
   transform: translateY(-20px);
+  cursor: pointer;
   opacity: 0;
 }
 .main .main__card:hover {
   box-shadow: 10px 10px 60px 10px rgba(121, 121, 121, 0.3);
+}
+.main .main__card:hover .main__card__discription .main__card__discription__lower .main__card__buyNow {
+  visibility: visible;
 }
 .main .main__card .main__card__img {
   background-image: url("https://lh3.googleusercontent.com/bs1sJSRwSjcmdkeSFtHsb25xIfA6YnQPnxE09Of2k47HKHRBFXxcsjpiamwKmHKAt20M5SdmK4irpJ50J_Nvf3vIHldgvKDJ39i3TQ=w353");
@@ -185,6 +189,74 @@ body {
   border: #999999 1px solid;
   border-top: none;
   height: 25%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.main .main__card .main__card__discription .main__card__discription__upper {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px rgba(138, 135, 135, 0.1) solid;
+}
+.main .main__card .main__card__discription .main__card__discription__upper p {
+  font-size: 0.7rem;
+}
+.main .main__card .main__card__discription .main__card__discription__upper .main__card__author {
+  margin-left: 10px;
+}
+.main .main__card .main__card__discription .main__card__discription__upper .main__card__author p:nth-child(1) {
+  margin: 6px 0 2px 0;
+}
+.main .main__card .main__card__discription .main__card__discription__upper .main__card__author p:nth-child(2) {
+  margin: 5px 0;
+  font-weight: bold;
+}
+.main .main__card .main__card__discription .main__card__discription__upper .main__card__price {
+  margin-right: 10px;
+  text-align: right;
+}
+.main .main__card .main__card__discription .main__card__discription__upper .main__card__price p:nth-child(1) {
+  margin: 6px 0 1px 0;
+}
+.main .main__card .main__card__discription .main__card__discription__upper .main__card__price p:nth-child(2) {
+  margin: 2px 0;
+  font-weight: bold;
+}
+.main .main__card .main__card__discription .main__card__discription__upper .main__card__price p:nth-child(3) {
+  margin: 2px 0;
+}
+.main .main__card .main__card__discription .main__card__discription__lower {
+  display: flex;
+  justify-content: space-between;
+  transition: all 1s;
+  font-size: 0.7rem;
+}
+.main .main__card .main__card__discription .main__card__discription__lower .main__card__buyNow {
+  visibility: hidden;
+  margin-left: 10px;
+  color: #1a6ae2;
+  font-weight: bold;
+  font-size: 0.8rem;
+  position: relative;
+  bottom: 15px;
+}
+.main .main__card .main__card__discription .main__card__discription__lower .main__card__likes p {
+  position: relative;
+  bottom: 22px;
+  right: 10px;
+}
+.main .main__card .main__card__discription .main__card__discription__lower .main__card__likes p:hover::before {
+  content: "♡ ";
+  font-size: 1.2rem;
+  color: red;
+  position: relative;
+  top: 3px;
+}
+.main .main__card .main__card__discription .main__card__discription__lower .main__card__likes p::before {
+  content: "♡ ";
+  font-size: 1.2rem;
+  color: #696969;
+  position: relative;
+  top: 3px;
 }
 @keyframes main__card-load {
   0% {
