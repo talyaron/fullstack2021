@@ -167,6 +167,7 @@ body {
   animation: main__card-load 300ms ease-in var(--main__card-load-delay);
   animation-fill-mode: forwards;
   transform: translateY(-20px);
+  cursor: pointer;
   opacity: 0;
 }
 .main .main__card:hover {
