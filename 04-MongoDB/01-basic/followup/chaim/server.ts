@@ -1,21 +1,19 @@
 import express from "express";
 import mongoose from "mongoose";
 const app = express();
-const port: number = 3000;
+const port = process.env.PORT || 3000;
 
 app.use(express.static("public"));
 app.use(express.json());
 
-mongoose.connect('mongodb+srv://chaim14:82148214@cluster0.ar8tn.mongodb.net/myFirstDatabase?retryWrites=true&w=majority');
+mongoose.connect('mongodb+srv://chaim14:82148214cc@cluster0.ar8tn.mongodb.net/myFirstDatabase?retryWrites=true&w=majority');
 
-//create a schema (interface)
 const UserSchema = new mongoose.Schema({
   username: String,
   password: String,
   role: String,
   phone: String,
 });
-//create a collection
 const User = mongoose.model("users", UserSchema);
 
 app.post("/add-user", async (req, res) => {
