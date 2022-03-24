@@ -305,9 +305,6 @@ nav ul li {
 .searchPage__bottomBar--player audio {
   width: 550px;
 }
-.searchPage__bottomBar--albumInfo {
-  border: 2px solid #dd6fc2;
-}
 .searchPage__bottomBar--albumInfo--pic img {
   height: 60px;
   width: 60px;
