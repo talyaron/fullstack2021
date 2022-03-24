@@ -184,10 +184,10 @@ body {
     margin-left: 250px;
     display: grid;
     grid-template-columns: repeat(3, 20vw);
-    grid-template-rows: repeat(2, 35vh);
+    grid-template-rows: repeat(2, 38vh);
     justify-content: center;
     align-content: center;
-    gap: 20px;
+    gap: 15px;
 
     .main__card {
         display: flex;
@@ -199,6 +199,18 @@ body {
 
         &:hover {
             box-shadow: 10px 10px 60px 10px rgba(121, 121, 121, 0.3);
+
+            .main__card__discription {
+                .main__card__discription__lower {
+                    .main__card__buyNow {
+                        visibility: visible;
+                    }
+                }
+
+            }
+
+
+
         }
 
         .main__card__img {
@@ -210,13 +222,103 @@ body {
             height: 75%;
             border-top-left-radius: 10px;
             border-top-right-radius: 10px;
-
         }
 
         .main__card__discription {
             border: rgb(153, 153, 153) 1px solid;
             border-top: none;
             height: 25%;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+
+            .main__card__discription__upper {
+                display: flex;
+                justify-content: space-between;
+                border-bottom: 1px rgb(138, 135, 135, 0.1) solid;
+
+                p {
+                    font-size: 0.7rem;
+                }
+
+                .main__card__author {
+                    margin-left: 10px;
+
+                    p:nth-child(1) {
+                        margin: 6px 0 2px 0;
+                    }
+
+                    p:nth-child(2) {
+                        margin: 5px 0;
+                        font-weight: bold;
+                    }
+
+                }
+
+                .main__card__price {
+                    margin-right: 10px;
+                    text-align: right;
+
+                    p:nth-child(1) {
+                        margin: 6px 0 1px 0;
+                    }
+
+                    p:nth-child(2) {
+                        margin: 2px 0;
+                        font-weight: bold;
+                    }
+
+                    p:nth-child(3) {
+                        margin: 2px 0;
+                    }
+                }
+
+            }
+
+            .main__card__discription__lower {
+                display: flex;
+                justify-content: space-between;
+                transition: all 1s;
+                font-size: .7rem;
+
+                .main__card__buyNow {
+                    visibility: hidden;
+                    margin-left: 10px;
+                    color: rgb(26, 106, 226);
+                    font-weight: bold;
+                    font-size: .8rem;
+                    position: relative;
+                    bottom: 15px;
+                   
+                }
+
+                .main__card__likes{
+
+                    p{
+                        position: relative;
+                        bottom: 22px;
+                        right: 10px;
+
+                        &:hover::before{
+                            content: '♡ ';  
+                            font-size: 1.2rem;
+                            color: red;
+                            position: relative;
+                            top: 3px;
+                        }
+
+                        &::before{
+                            content: '♡ ';  
+                            font-size: 1.2rem;
+                            color: #696969;
+                            position: relative;
+                            top: 3px;
+
+                        }
+                    }
+                    
+
+                }
+            }
         }
 
     }
