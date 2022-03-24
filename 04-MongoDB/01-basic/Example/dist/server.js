@@ -18,7 +18,11 @@ const app = express_1.default();
 const port = 3000;
 app.use(express_1.default.static("public"));
 app.use(express_1.default.json());
-mongoose_1.default.connect('mongodb+srv://tal1:rbBnTtoiIia3ddKK@tal-test1.m39if.mongodb.net/fs-2021-oct-test?retryWrites=true&w=majority');
+mongoose_1.default.connect("mongodb+srv://tal1:rbBnTtoiIia3ddKK@tal-test1.m39if.mongodb.net/fs-2021-oct?retryWrites=true&w=majority").then(res => {
+    console.log("Connected to DB");
+}).catch(err => {
+    console.error(err.message);
+});
 //create a schema (interface)
 const UserSchema = new mongoose_1.default.Schema({
     username: String,
