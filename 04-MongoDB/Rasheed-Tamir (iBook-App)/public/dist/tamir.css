@@ -41,34 +41,47 @@
 .login__span {
   color: red;
 }
+.login__in {
+  display: flex;
+  width: 90%;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
 .login__input {
-  height: 40px;
+  border: none;
   width: 70%;
+  border-radius: 5px;
 }
 .login__b {
+  font-size: 0.6em;
+  border-radius: 5px;
   background-color: rgba(255, 0, 0, 0.753);
-  height: 30px;
-  width: 68%;
+  width: 35%;
   text-align: center;
-  padding: 10px;
+  padding: 15px;
   font-weight: bold;
   color: white;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  margin-top: 10px;
+  margin: 2px;
+  cursor: pointer;
 }
 .login__h5 {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 0.8em;
   position: relative;
-  left: 35%;
+  left: 40%;
 }
 .login__google {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  height: 40px;
-  width: 70%;
-  border: 1px solid rgba(0, 0, 0, 0.377);
-  text-align: center;
-  padding-top: 3%;
+  display: flex;
+  width: 90%;
+  border: 1px solid gray;
+  border-radius: 5px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.login__p {
+  font-size: 0.7em;
 }
 .login__img {
   width: 10%;
