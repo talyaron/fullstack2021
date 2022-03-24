@@ -7,6 +7,4 @@
 // function checkAuction(){
 //     //check for auctions
 // }
-
 // Init()
-
