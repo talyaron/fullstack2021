@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="./dist/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <form id="logIn" onsubmit="handleShowAll(event)">
+        <input type="text" name="logInUsername" id="logInUsername">
+        <input type="password" name="logInPassword" id="logInPassword">
+        <input type="submit" value="Show me all of them!">
+        <button onclick="document.querySelector('#register').style.display='flex'">Register</button>
+        </form>
+    <form id="register" onsubmit="handleRegister(event)">
+        <div id="register_personal">
+            <input type="text" name="firstName" placeholder="First Name">
+            <input type="text" name="lastName" placeholder="Last Name">
+            <input type="date" name="birthDate">
+        </div>
+        <input type="password" name="role" placeholder="Admin Password">
+        <div id="register_login">
+            <input type="text" name="username" placeholder="username">
+        <input type="password" name="password" placeholder="password">
+        </div>
+        <input onclick="document.querySelector('#register').style.display='none'" type="submit" value="Register">
+    </form>
+    <div class="empty"></div>
+</div>
+</body>
+<script src="./dist/script.js"></script>
+
+</html>

@@ -52,7 +52,7 @@ function handleNewGame() {
 function renderGame(data) {
     var html = '';
     data.forEach(function (img) {
-        html += "  <div class=\"card\" onclick=\"handleFlipCard()\">\n  \n           <div class=\"front-card\"><img src=\"" + img.src + "\"></div>\n    \n   </div>";
+        html += "  <div class=\"card\" onclick=\"handleFlipCard()\">\n        \n           <div class=\"front-card\"><img src=\"" + img.src + "\"></div>\n            <div class=\"back-card\"></div>\n   </div>";
     });
     var root = document.querySelector("#root");
     root.innerHTML = html;

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,14 +8,26 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.js"
         integrity="sha512-MNW6IbpNuZZ2VH9ngFhzh6cUt8L/0rSVa60F8L22K1H72ro4Ki3M/816eSDLnhICu7vwH/+/yb8oB3BtBLhMsA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <title>Document</title>
+    <title>Game Store</title>
 </head>
+
 <body>
-    <form id="register" onsubmit="handleRegister(event)">
-        <input type="text" name="username" placeholder="user name">
-        <input type="password" name="password" placeholder="password">
-        <input type="submit" value="Register">
+    
+    <form id="addGames" onsubmit="handleAddGames(event)">
+        <input type="text" name="title" placeholder="title">
+        <input type="text" name="img" placeholder="img">
+        <input type="number" name="price" placeholder="price">
+        <select name="type" id="type">
+            <option value="select" disabled selected>Select type</option>
+            <option value="rpg">RPG</option>
+            <option value="shooter">Shooter</option>
+            <option value="survival">Survival</option>
+        </select>
+        <input type="submit" value="submit">
     </form>
+    <button onclick="hanleGetGames()">Get Games</button>
+    <div id="games"></div>
     <script src="./dist/index.js"></script>
 </body>
+
 </html>

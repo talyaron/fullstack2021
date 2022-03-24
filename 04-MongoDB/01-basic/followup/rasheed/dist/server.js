@@ -18,25 +18,33 @@ const app = express_1.default();
 const port = 3000;
 app.use(express_1.default.static("public"));
 app.use(express_1.default.json());
-mongoose_1.default.connect('mongodb+srv://tal1:rbBnTtoiIia3ddKK@tal-test1.m39if.mongodb.net/fs-2021-oct-test?retryWrites=true&w=majority');
-// 
-const UserSchema = new mongoose_1.default.Schema({
-    username: String,
-    password: String
+mongoose_1.default.connect('mongodb+srv://rasheedj966:rashj050880@cluster0.vtqmf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority');
+const GamesSchema = new mongoose_1.default.Schema({
+    title: String,
+    img: String,
+    type: String,
+    price: Number
 });
-//create a collection
-const User = mongoose_1.default.model('bestusers', UserSchema);
-app.post("/add-user", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        let { username, password } = req.body;
-        const newUser = new User({ username, password });
-        const result = yield newUser.save();
-        res.send({ result });
-    }
-    catch (error) {
-        console.error(error);
-        res.send({ error: error.message });
-    }
+const Game = mongoose_1.default.model('GamesStore', GamesSchema);
+app.get("/get-game", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const games = yield Game.find({});
+    res.send({ ok: true, games });
+}));
+app.post("/add-game", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    let { title, img, price, type } = req.body;
+    const newGame = new Game({ title, img, price, type });
+    const result = yield newGame.save();
+    res.send({ result });
+}));
+app.delete("/delete-game", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { gameId } = req.body;
+    const games = yield Game.deleteOne({ _id: gameId });
+    res.send({ ok: true, games });
+}));
+app.patch("/update-game", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { gameId, newTitle, newPrice } = req.body;
+    const games = yield Game.updateOne({ _id: gameId }, { title: newTitle }, { price: newPrice });
+    res.send({ ok: true, games });
 }));
 app.listen(port, () => {
     return console.log(`Express is listening at http://localhost:${port}`);

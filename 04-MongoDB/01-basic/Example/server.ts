@@ -6,9 +6,7 @@ const port: number = 3000;
 app.use(express.static("public"));
 app.use(express.json());
 
-mongoose.connect(
-  "mongodb+srv://tal1:rbBnTtoiIia3ddKK@tal-test1.m39if.mongodb.net/fs-2021-oct?retryWrites=true&w=majority"
-);
+mongoose.connect('mongodb+srv://tal1:rbBnTtoiIia3ddKK@tal-test1.m39if.mongodb.net/fs-2021-oct-test?retryWrites=true&w=majority');
 
 //create a schema (interface)
 const UserSchema = new mongoose.Schema({
@@ -38,6 +36,53 @@ app.get("/get-users", async (req, res) => {
   try {
     const users = await User.find({})
     res.send({ ok: true, users });
+  } catch (error) {
+    console.log(error.error);
+    res.send({ error: error.message });
+  }
+});
+
+app.patch("/update-user", async (req, res) => {
+  try {
+    const { userId, role } = req.body;
+    if (userId && role) {
+      const users = await User.updateOne({_id:userId},{role: role})
+      res.send({ ok: true, users });
+    } else {
+      throw new Error("userId or role is missing");
+    }
+  } catch (error) {
+    console.log(error.error);
+    res.send({ error: error.message });
+  }
+});
+
+app.patch("/delete-user", async (req, res) => {
+  try {
+    const { userId } = req.body;
+    if (userId) {
+      const users = await User.deleteOne({_id:userId})
+      res.send({ ok: true, users });
+    } else {
+      throw new Error("userId or role is missing");
+    }
+  } catch (error) {
+    console.log(error.error);
+    res.send({ error: error.message });
+  }
+});
+
+
+app.delete("/delete-user", async (req, res) => {
+  try {
+    const { userId } = req.body;
+    console.log(userId)
+    if (userId) {
+      const users = await User.deleteOne({_id:userId})
+      res.send({ ok: true, users });
+    } else {
+      throw new Error("userId or role is missing");
+    }
   } catch (error) {
     console.log(error.error);
     res.send({ error: error.message });

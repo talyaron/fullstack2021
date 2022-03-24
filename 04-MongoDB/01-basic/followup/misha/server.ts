@@ -6,33 +6,78 @@ const port: number = 3000;
 app.use(express.static("public"));
 app.use(express.json());
 
-mongoose.connect('mongodb+srv://tal1:rbBnTtoiIia3ddKK@tal-test1.m39if.mongodb.net/fs-2021-oct-test?retryWrites=true&w=majority');
+mongoose.connect('mongodb+srv://michaeldubovik:michaeldubovik1991@cluster0.y9ozg.mongodb.net/myFirstDatabase?retryWrites=true&w=majority');
 
 //create a schema (interface)
 const UserSchema = new mongoose.Schema({
-    username:String,
-    password:String
-  })
-  //create a collection
-  const User = mongoose.model('bestusers', UserSchema);
-  
+  guitarname: String,
+  price: String,
+  brand: String,
+  file: String,
+})
+//create a collection
+const Guitar = mongoose.model('myGuitars', UserSchema);
 
-  
-app.post("/add-user", async (req, res) => {
-    try {
-      let { username, password } = req.body;
-  
-      const newUser = new User({username, password})
-      const result = await newUser.save()
-  
-      res.send({ result });
-    } catch (error) {
-      console.error(error);
-      res.send({ error: error.message });
+app.post("/add-guitar", async (req, res) => {
+  try {
+    let { guitarname, price, brand, file } = req.body;
+    console.log(req.body)
+    const newGuitar = new Guitar({ guitarname, price, brand, file })
+    const result = await newGuitar.save()
+
+    res.send({ result });
+  } catch (error) {
+    console.error(error);
+    res.send({ error: error.message });
+  }
+});
+
+
+app.get("/get-guitars", async (req, res) => {
+  try {
+
+    const guitars = await Guitar.find({})
+    res.send(guitars)
+
+  }
+  catch (error) {
+    console.log(error.error);
+    res.send({ error: error.message })
+  }
+})
+
+app.patch("/update-guitar", async (req, res) => {
+  try {
+
+    const { guitarId, price } = req.body;
+    if (guitarId && price) {
+      const users = await Guitar.updateOne({ _id: guitarId }, { price: price })
     }
-  });
+    else {
+      throw new Error("guitarId or price is missing");
+    }
+  } catch (error) {
+    res.send({ error: error.massage });
+  }
   
-  app.listen(port, () => {
-    return console.log(`Express is listening at http://localhost:${port}`);
-  });
+})
+
+app.delete("/delete-guitar", async (req, res) => {
+  try {
+    const { guitarId } = req.body
+    if (guitarId) {
+      const result = await Guitar.deleteOne({ _id: guitarId })
+      res.send({ ok: true, result })
+    } else{
+      throw new Error("guitarId or price is missing");        
+    }
   
+  }catch (error){
+    console.log(error.error)
+    res.send({error: error.message})
+  }
+});
+
+app.listen(port, () => {
+  return console.log(`Express is listening at http://localhost:${port}`);
+});

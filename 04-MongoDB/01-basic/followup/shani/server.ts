@@ -24,7 +24,7 @@ app.post("/add-user", async (req, res) => {
   
       const newUser = new User({username, password})
       const result = await newUser.save()
-  
+      // it sends the info to the database?
       res.send({ result });
     } catch (error) {
       console.error(error);

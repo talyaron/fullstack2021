@@ -7,7 +7,7 @@ app.use(express.static("public"));
 app.use(express.json());
 
 
-mongoose.connect('mongodb+srv://OrA99:134679852Or@cluster0.r0go0.mongodb.net/myFirstDatabase?retryWrites=true&w=majority');
+mongoose.connect('mongodb+srv://OrA99:134679852Or@cluster0.r0go0.mongodb.net/data?retryWrites=true&w=majority');
 
 //create a schema (interface)
 const UserSchema = new mongoose.Schema({
@@ -15,7 +15,7 @@ const UserSchema = new mongoose.Schema({
   password:String
 })
 //create a collection
-const User = mongoose.model('bestusers', UserSchema);
+const User = mongoose.model('games', UserSchema);
 
 
 
