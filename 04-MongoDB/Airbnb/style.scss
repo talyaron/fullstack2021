@@ -225,6 +225,9 @@ body{
    }
 }
 
+//@media only screen and (max-width:600px)
+//@media only screen and (max-width: 1024px)
+
 //bottom of page
 .bottomBar{
    
@@ -315,9 +318,30 @@ body{
         //display:block;  
         //width:fit-content; 
         //width:70%;
-      
-
+       
+        &--title {
+            position:absolute;
+            color:white;
+            // #38ffe4
+            //top:0%;
+            //font-size:40px;
+            font-size: calc(1.5rem + 1vw);
+            margin: 0;
+            top: 50%;
+            left: 50%;
+            //text-align: center;
+            margin-right: -50%;
+            transform: translate(-50%, -50%);
+            text-shadow:   0 5px 15px rgba(0, 0, 0, 0.884);
+            transition: .4s ease;
+           
+            &:hover{
+                color:black;
+                text-shadow: white 1px 0 10px;
+                
+            }
         
+        }      
         figure{
             position:relative;
             //position: absolute;
@@ -329,16 +353,9 @@ body{
             img{
                 //padding-top:1%;
                 //padding-bottom:1%;
-                width:20%;                
-               // height:10%;          
-                //height: calc(100vh - 10px);
-                //justify-content: center;
-                //align-items: center;
-                //position: relative;
-                //float:left;
-                object-fit:cover;
-    
-               object-position: center;  
+                width:20%;         
+                object-fit:cover;    
+                object-position: center;  
             }
     }   }
  
@@ -348,8 +365,7 @@ body{
         margin-bottom:10%;
 
             &__cards{
-                //background-color: green;
-                //height:100vh;
+               
                 height:50vh;
                 display:flex;
                 flex-direction: row;
@@ -367,6 +383,14 @@ body{
                     display:flex;
                     flex-direction: column;
                     gap:15px;
+                    
+                    transition:  0.3s ease-in-out;
+                    //transform-style: preserve-3d;
+                    &:hover{
+                        transform: scale(1.1);
+                        z-index:2;
+                        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.884);
+                    }
                    
                     img{
                         background-color: #38ffe4;
