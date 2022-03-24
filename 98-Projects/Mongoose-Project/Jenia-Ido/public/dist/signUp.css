@@ -167,7 +167,7 @@ body .main_display-signInForm-submit:active {
 }
 @keyframes signUpContinue {
   0% {
-    transform: translateX(0);
+    transform: translateX(0px);
   }
   100% {
     transform: translateX(350px);
