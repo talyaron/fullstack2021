@@ -1,0 +1,28 @@
+* {
+  margin-top: 5vh;
+}
+
+body {
+  display: grid;
+  justify-content: center;
+}
+
+.card {
+  display: flex;
+  gap: 10px;
+}
+
+.getGabai {
+  justify-self: center;
+  width: 100px;
+}
+
+.rootGabai {
+  display: flex;
+  margin-left: 320px;
+}
+
+.cardGabai {
+  justify-self: stretch;
+  width: 100%;
+}

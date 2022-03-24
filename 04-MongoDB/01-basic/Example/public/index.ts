@@ -16,15 +16,14 @@ async function handleUpdate(ev, userId){
     const role  = ev.target.value;
     const {data} = await axios.patch('/update-user', {userId, role});
     console.log(data)
-   
 }
 
 async function handleGetUsers(){
   
     const {data} = await axios.get('/get-users')
     console.log(data)
-    const {users} = data;
-    console.log(users)
+    const {ok,users} = data;
+    console.log({ok, users})
     if(users){
         renderUsers(users);
     }

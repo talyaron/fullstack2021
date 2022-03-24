@@ -74,15 +74,15 @@ function handleUpdate(ev, userId) {
 }
 function handleGetUsers() {
     return __awaiter(this, void 0, void 0, function () {
-        var data, users;
+        var data, ok, users;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0: return [4 /*yield*/, axios.get('/get-users')];
                 case 1:
                     data = (_a.sent()).data;
                     console.log(data);
-                    users = data.users;
-                    console.log(users);
+                    ok = data.ok, users = data.users;
+                    console.log({ ok: ok, users: users });
                     if (users) {
                         renderUsers(users);
                     }

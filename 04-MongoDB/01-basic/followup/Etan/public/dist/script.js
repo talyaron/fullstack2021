@@ -34,19 +34,67 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+function handleShowAll(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        var logInUsername, logInPassword, data, error_1;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    ev.preventDefault();
+                    logInUsername = ev.target.logInUsername.value;
+                    logInPassword = ev.target.logInPassword.value;
+                    _a.label = 1;
+                case 1:
+                    _a.trys.push([1, 3, , 4]);
+                    console.log(ev, "hello 1");
+                    return [4 /*yield*/, axios.get("/get-users?logInUsername=" + logInUsername + "&logInPassword=" + logInPassword)];
+                case 2:
+                    data = (_a.sent()).data;
+                    console.log(ev, "hello 2");
+                    if (data > -1)
+                        throw new Error("we dont have a user with username " + logInUsername);
+                    return [3 /*break*/, 4];
+                case 3:
+                    error_1 = _a.sent();
+                    console.error(error_1);
+                    return [3 /*break*/, 4];
+                case 4: return [2 /*return*/];
+            }
+        });
+    });
+}
+function renderUsers(list) {
+    var html;
+    list.forEach(function (user) {
+        html += "<div id='" + user.id + "' class='user'>\n    <h1 class='card_user-name'>" + user.username + "</h1> <p class='card_user-role'>" + user.role + "</p>\n    <div class='card_personal'>\n    <p>" + user.firstName + "</p>  <p>" + user.lastName + "</p>\n    </div>\n    <p>" + user.birthDate + "</p>\n    <input type='password' class='card_user-password' value='" + user.password + "'>\n    </div>";
+    });
+    document.querySelector(".empty").innerHTML = html;
+}
 function handleRegister(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var _a, username, password, data;
+        var _a, firstName, lastName, birthDate, role, username, password, data;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
                     ev.preventDefault();
-                    _a = ev.target.elements, username = _a.username, password = _a.password;
+                    console.log(ev.target.elements);
+                    _a = ev.target.elements, firstName = _a.firstName, lastName = _a.lastName, birthDate = _a.birthDate, role = _a.role, username = _a.username, password = _a.password;
                     console.log(username, password);
+                    firstName = firstName.value;
+                    lastName = lastName.value;
+                    birthDate = birthDate.value;
+                    role = role.value;
                     username = username.value;
                     password = password.value;
-                    console.log(username, password);
-                    return [4 /*yield*/, axios.post('/add-user', { username: username, password: password })];
+                    console.log(birthDate);
+                    return [4 /*yield*/, axios.post("/add-user", {
+                            firstName: firstName,
+                            lastName: lastName,
+                            birthDate: birthDate,
+                            role: role,
+                            username: username,
+                            password: password
+                        })];
                 case 1:
                     data = (_b.sent()).data;
                     console.log(data);
