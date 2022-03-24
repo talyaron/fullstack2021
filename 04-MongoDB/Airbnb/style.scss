@@ -225,6 +225,9 @@ body{
    }
 }
 
+//@media only screen and (max-width:600px)
+//@media only screen and (max-width: 1024px)
+
 //bottom of page
 .bottomBar{
    
@@ -381,8 +384,8 @@ body{
                     flex-direction: column;
                     gap:15px;
                     
-                    transition: box-shadow 0.3s ease-in-out;
-                    transform-style: preserve-3d;
+                    transition:  0.3s ease-in-out;
+                    //transform-style: preserve-3d;
                     &:hover{
                         transform: scale(1.1);
                         z-index:2;
