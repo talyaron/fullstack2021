@@ -55,18 +55,17 @@ function handleRegister(ev) {
         });
     });
 }
-function handleUpdate(ev, _a) {
-    var userId = _a.userId;
+function handleUpdate(ev, userId) {
     return __awaiter(this, void 0, void 0, function () {
         var role, data;
-        return __generator(this, function (_b) {
-            switch (_b.label) {
+        return __generator(this, function (_a) {
+            switch (_a.label) {
                 case 0:
                     console.log(ev, userId);
                     role = ev.target.value;
                     return [4 /*yield*/, axios.patch('/update-user', { userId: userId, role: role })];
                 case 1:
-                    data = (_b.sent()).data;
+                    data = (_a.sent()).data;
                     console.log(data);
                     return [2 /*return*/];
             }

@@ -40,7 +40,6 @@ function handleregister(ev) {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    ev.preventDefault();
                     username = ev.target.elements.username.value;
                     password = ev.target.elements.password.value;
                     return [4 /*yield*/, axios.post('/add-user', { username: username, password: password })];
@@ -51,4 +50,42 @@ function handleregister(ev) {
             }
         });
     });
+}
+function handleGetUsers() {
+    return __awaiter(this, void 0, void 0, function () {
+        var data, users;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, axios.post('/get-users')];
+                case 1:
+                    data = (_a.sent()).data;
+                    users = data.users;
+                    renderUsers(users);
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+function handledelet(userId) {
+    return __awaiter(this, void 0, void 0, function () {
+        var data;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, axios["delete"]('/delete-user', { data: { userId: userId } })];
+                case 1:
+                    data = (_a.sent()).data;
+                    handleGetUsers();
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+function renderUsers(users) {
+    console.log(users);
+    var root = document.getElementById('users');
+    var html = '';
+    users.forEach(function (user) {
+        html += "<div>my name i " + user.username + "<button onclick= \"handledelet('" + user._id + "')\">delete</button></div>";
+    });
+    root.innerHTML = html;
 }

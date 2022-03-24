@@ -53,6 +53,8 @@ nav ul {
 .hidden {
   display: none;
   top: 10%;
+  
+
 }
 
 #control {
@@ -62,7 +64,7 @@ nav ul {
   flex-direction: row;
   justify-content: space-between;
   padding-inline: 2rem;
-  max-width: 100vw;
+  max-width: 100vw-2rem;
 
   &__back,
   &__filter {
@@ -72,7 +74,7 @@ nav ul {
 
   }
 
-  &__mytasks {
+  &__recent {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -139,20 +141,18 @@ nav ul {
     }
   }
 }
-  .hidden {
-    top: 0;
-    display: inline;
-  }
 
   #control {
     max-width: 100vw;
+    max-height: 100%;
+    position: relative;
 
     &__back,
     &__filter {
       padding-top: 10vh;
     }
 
-    &__mytasks {
+    &__recent {
       position: absolute;
       top: 10vh;
     }
