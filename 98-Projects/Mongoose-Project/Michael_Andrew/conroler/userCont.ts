@@ -1,5 +1,40 @@
 import User from '../model/userModel'
 
+export const addUser = async (req, res) => {
+
+    try {
+
+        const { userName, email, password, url } = req.body
+
+        //andrew - first i used find to check if the user registered in the past
+        const userFind = await User.find({ email })
+
+        //if no - it adds his name to mongo
+
+        if (userFind.length > 0) {
+            res.send('Already registered in the past, please log in')//needs to initiate pop up login
+        } else if (userFind.length === 0) {
+
+            //andrew - i added 20$ for starter
+            const fund = 20;
+
+            const newUser = new User({ userName, email, password, url, fund })
+            const users = await newUser.save()
+
+            res.send({ ok: true, users })
+
+        }
+
+        if (!req.body) throw new Error("no req.body in app.post'/users/add-user'");
+
+    } catch (error) {
+        console.error(error.message);
+        res.send({ error: error.message })
+
+    }
+
+}
+
 export const findUser = async (req, res) => {
 
     try {
@@ -30,40 +65,5 @@ export const findUser = async (req, res) => {
 
 
 
-
-}
-
-export const addUser = async (req, res) => {
-
-    try {
-
-        const { userName, email, password, url } = req.body
-
-        //andrew - first i used find to check if the user registered in the past
-        const userFind = await User.find({ email })
-
-        //if no - it adds his name to mongo
-
-        if (userFind.length > 0) {
-            res.send('Already registered in the past, please log in')
-        } else if (userFind.length === 0) {
-
-            //andrew - i added 20$ for starter
-            const fund = 20;
-
-            const newUser = new User({ userName, email, password, url, fund })
-            const users = await newUser.save()
-
-            res.send({ ok: true, users })
-
-        }
-
-        if (!req.body) throw new Error("no req.body in app.post'/users/add-user'");
-
-    } catch (error) {
-        console.error(error.message);
-        res.send({ error: error.message })
-
-    }
 
 }

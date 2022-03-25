@@ -36,10 +36,47 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.addUser = exports.findUser = void 0;
+exports.findUser = exports.addUser = void 0;
 var userModel_1 = require("../model/userModel");
+exports.addUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _a, userName, email, password, url, userFind, fund, newUser, users, error_1;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
+            case 0:
+                _b.trys.push([0, 5, , 6]);
+                _a = req.body, userName = _a.userName, email = _a.email, password = _a.password, url = _a.url;
+                return [4 /*yield*/, userModel_1["default"].find({ email: email })
+                    //if no - it adds his name to mongo
+                ];
+            case 1:
+                userFind = _b.sent();
+                if (!(userFind.length > 0)) return [3 /*break*/, 2];
+                res.send('Already registered in the past, please log in'); //needs to initiate pop up login
+                return [3 /*break*/, 4];
+            case 2:
+                if (!(userFind.length === 0)) return [3 /*break*/, 4];
+                fund = 20;
+                newUser = new userModel_1["default"]({ userName: userName, email: email, password: password, url: url, fund: fund });
+                return [4 /*yield*/, newUser.save()];
+            case 3:
+                users = _b.sent();
+                res.send({ ok: true, users: users });
+                _b.label = 4;
+            case 4:
+                if (!req.body)
+                    throw new Error("no req.body in app.post'/users/add-user'");
+                return [3 /*break*/, 6];
+            case 5:
+                error_1 = _b.sent();
+                console.error(error_1.message);
+                res.send({ error: error_1.message });
+                return [3 /*break*/, 6];
+            case 6: return [2 /*return*/];
+        }
+    });
+}); };
 exports.findUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, loginEmail, loginPassword, oldUser, error_1;
+    var _a, loginEmail, loginPassword, oldUser, error_2;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
@@ -58,48 +95,11 @@ exports.findUser = function (req, res) { return __awaiter(void 0, void 0, void 0
                     throw new Error("no req.body in app.post'/users/log-user'");
                 return [3 /*break*/, 3];
             case 2:
-                error_1 = _b.sent();
-                console.error(error_1.message);
-                res.send({ error: error_1.message });
-                return [3 /*break*/, 3];
-            case 3: return [2 /*return*/];
-        }
-    });
-}); };
-exports.addUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, userName, email, password, url, userFind, fund, newUser, users, error_2;
-    return __generator(this, function (_b) {
-        switch (_b.label) {
-            case 0:
-                _b.trys.push([0, 5, , 6]);
-                _a = req.body, userName = _a.userName, email = _a.email, password = _a.password, url = _a.url;
-                return [4 /*yield*/, userModel_1["default"].find({ email: email })
-                    //if no - it adds his name to mongo
-                ];
-            case 1:
-                userFind = _b.sent();
-                if (!(userFind.length > 0)) return [3 /*break*/, 2];
-                res.send('Already registered in the past, please log in');
-                return [3 /*break*/, 4];
-            case 2:
-                if (!(userFind.length === 0)) return [3 /*break*/, 4];
-                fund = 20;
-                newUser = new userModel_1["default"]({ userName: userName, email: email, password: password, url: url, fund: fund });
-                return [4 /*yield*/, newUser.save()];
-            case 3:
-                users = _b.sent();
-                res.send({ ok: true, users: users });
-                _b.label = 4;
-            case 4:
-                if (!req.body)
-                    throw new Error("no req.body in app.post'/users/add-user'");
-                return [3 /*break*/, 6];
-            case 5:
                 error_2 = _b.sent();
                 console.error(error_2.message);
                 res.send({ error: error_2.message });
-                return [3 /*break*/, 6];
-            case 6: return [2 /*return*/];
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
         }
     });
 }); };
