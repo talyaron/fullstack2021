@@ -13,6 +13,7 @@ const UserSchema = new mongoose.Schema({
     password: String
 })
 
+
 const user = mongoose.model('users', UserSchema)
 
 app.post('/add-user', async (req, res) => {
