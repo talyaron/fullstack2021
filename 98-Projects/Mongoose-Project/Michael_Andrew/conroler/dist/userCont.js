@@ -89,7 +89,7 @@ exports.findUser = function (req, res) { return __awaiter(void 0, void 0, void 0
                     res.send('Wrong email/password');
                 }
                 else if (oldUser.length > 0) {
-                    res.send({ ok: true, oldUser: oldUser });
+                    res.send({ oldUser: oldUser });
                 }
                 if (!req.body)
                     throw new Error("no req.body in app.post'/users/log-user'");

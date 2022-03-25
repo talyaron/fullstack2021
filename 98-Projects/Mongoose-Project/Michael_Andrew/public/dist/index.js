@@ -56,7 +56,6 @@ function OpenSIgnUpForm(e) {
                     return [4 /*yield*/, axios.post('/users/add-user', { userName: userName, email: email, password: password, password2: password2, url: url })];
                 case 2:
                     data = (_a.sent()).data;
-                    console.log(data);
                     return [3 /*break*/, 4];
                 case 3: throw new Error("passwords are NOT matched");
                 case 4:
@@ -91,7 +90,7 @@ function handleLogInForm(e) {
                     return [4 /*yield*/, axios.get("/users/log-user?loginEmail=" + email + "&loginPassword=" + password)];
                 case 2:
                     data = (_a.sent()).data;
-                    console.log(data);
+                    userLogedIn.addlogData(data);
                     if (!email || !password)
                         throw new Error("no email || password in handleLogInForm");
                     return [3 /*break*/, 4];
@@ -106,3 +105,11 @@ function handleLogInForm(e) {
         });
     });
 }
+var userLogedIn = {
+    logData: [],
+    addlogData: function (data) {
+        // const uid = Date.now().toString(36) + Math.random().toString(36).substr(2);
+        this.logData.push(data);
+        console.log(this.logData);
+    }
+};

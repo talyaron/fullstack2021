@@ -2,7 +2,7 @@
 exports.__esModule = true;
 var mongoose_1 = require("mongoose");
 var artSchema = new mongoose_1["default"].Schema({
-    udserName: String,
+    userName: String,
     email: String,
     password: String,
     url: String,
