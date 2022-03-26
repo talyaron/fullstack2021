@@ -111,6 +111,9 @@ body {
             justify-content: space-around;
             align-content: space-around;
             background-color: var(--main-color-5);
+            z-index: 1;
+            animation: header-item-load var(--load-item-time) ease-in;
+
             
         }
         .in-vis{
