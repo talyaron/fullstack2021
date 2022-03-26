@@ -141,7 +141,7 @@ nav ul li {
   display: flex;
   flex-direction: row;
   width: 80%;
-  height: 100px;
+  height: 200px;
   color: black;
   font-family: "Varela Round", sans-serif;
 }
@@ -151,7 +151,7 @@ nav ul li {
   border: 3px solid #0e0e0e;
   width: 200px;
   height: 90px;
-  margin-right: 100px;
+  margin-right: 200px;
 }
 .your_top_mixes .mixes h4 {
   position: relative;
@@ -215,61 +215,25 @@ nav ul li {
   display: flex;
   gap: 1em;
 }
-.searchPage__main--history--1 {
-  width: 100px;
-  height: 100px;
+.searchPage__main--history--1, .searchPage__main--history--2, .searchPage__main--history--3, .searchPage__main--history--4, .searchPage__main--history--5, .searchPage__main--history--6, .searchPage__main--history--7, .searchPage__main--history--8 {
+  width: 150px;
+  height: 200px;
   background-color: #2f323d;
   border-radius: 0.5em;
+  padding: 15px;
 }
-.searchPage__main--history--2 {
-  width: 100px;
-  height: 100px;
-  background-color: #2f323d;
-  border-radius: 0.5em;
-}
-.searchPage__main--history--3 {
-  width: 100px;
-  height: 100px;
-  background-color: #2f323d;
-  border-radius: 0.5em;
-}
-.searchPage__main--history--4 {
-  width: 100px;
-  height: 100px;
-  background-color: #2f323d;
-  border-radius: 0.5em;
-}
-.searchPage__main--history--5 {
-  width: 100px;
-  height: 100px;
-  background-color: #2f323d;
-  border-radius: 0.5em;
-}
-.searchPage__main--history--6 {
-  width: 100px;
-  height: 100px;
-  background-color: #2f323d;
-  border-radius: 0.5em;
-}
-.searchPage__main--history--7 {
-  width: 100px;
-  height: 100px;
-  background-color: #2f323d;
-  border-radius: 0.5em;
-}
-.searchPage__main--history--8 {
-  width: 100px;
-  height: 100px;
-  background-color: #2f323d;
-  border-radius: 0.5em;
+.searchPage__main--history--1 img, .searchPage__main--history--2 img, .searchPage__main--history--3 img, .searchPage__main--history--4 img, .searchPage__main--history--5 img, .searchPage__main--history--6 img, .searchPage__main--history--7 img, .searchPage__main--history--8 img {
+  justify-items: center;
 }
 .searchPage__sideBar {
   grid-column: 1/1;
   grid-row: 1/3;
+  border: 2px solid #b3ff39;
   background-color: #0c0b0b;
 }
 .searchPage__sideBar--nav {
   display: flex;
+  border: 2px solid #a9aca5;
   flex-direction: column;
   padding: 15%;
   line-height: 2.5em;
@@ -282,9 +246,13 @@ nav ul li {
 }
 .searchPage__searchBar {
   grid-column-start: span 2;
+  border: 2px solid #31e0ff;
   display: flex;
   justify-content: space-around;
   padding: 20px;
+}
+.searchPage__searchBar--search {
+  border: 2px solid #31e0ff;
 }
 .searchPage__searchBar--search input {
   border-radius: 15px;
@@ -292,18 +260,26 @@ nav ul li {
   width: 350px;
 }
 .searchPage__searchBar--nav {
+  border: 2px solid #31e0ff;
   color: white;
 }
 .searchPage__bottomBar {
   padding: 15px;
+  border: 2px solid #dd6fc2;
   grid-row: 3;
   grid-column: 1/span 3;
   background-color: #272727;
   display: flex;
   gap: 350px;
 }
+.searchPage__bottomBar--player {
+  border: 2px solid #dd6fc2;
+}
 .searchPage__bottomBar--player audio {
   width: 550px;
+}
+.searchPage__bottomBar--albumInfo {
+  border: 2px solid #dd6fc2;
 }
 .searchPage__bottomBar--albumInfo--pic img {
   height: 60px;
