@@ -28,17 +28,26 @@ app.get('/', (req, res) => {
     res.send('Hello World!');
 });
 const PlacesSchema = new mongoose_1.default.Schema({
-    location: String,
-    price: String,
+    name: String,
+    summary: String,
     checkIn: String,
     checkOut: String,
-    amountGuest: Number,
-    type: String,
-    kitchen: String,
+    accommodates: Number,
+    amenities: Array,
+    bedrooms: Number,
     beds: Number,
-    wifi: String,
-    beach: String,
-    cancle: String
+    number_of_reviews: Number,
+    price: Number,
+    cancle: String,
+    bathrooms: Number,
+    images: String,
+    host: Object,
+    space: String,
+    description: String,
+    bed_type: String,
+    reviews: Array,
+    cancellation_policy: String,
+    address: Object
 });
 const userSchema = new mongoose_1.default.Schema({
     name: String,
@@ -58,18 +67,29 @@ app.get('/getPlaces', (req, res) => __awaiter(void 0, void 0, void 0, function* 
 }));
 app.post('/addPlaces', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        let { location, price, checkIn, checkOut, amountGuest, type, kitchen, beds, wifi, beach, cancle } = req.body;
-        const newPlace = new Places({ location,
-            price,
+        let { name, summary, checkIn, checkOut, accommodates, amenities, bedrooms, beds, number_of_reviews, price, cancle, bathrooms, images, host, space, description, bed_type, reviews, cancellation_policy, address } = req.body;
+        const newPlace = new Places({
+            name,
+            summary,
             checkIn,
             checkOut,
-            amountGuest,
-            type,
-            kitchen,
+            accommodates,
+            amenities,
+            bedrooms,
             beds,
-            wifi,
-            beach,
-            cancle });
+            number_of_reviews,
+            price,
+            cancle,
+            bathrooms,
+            images,
+            host,
+            space,
+            description,
+            bed_type,
+            reviews,
+            cancellation_policy,
+            address
+        });
         const result = yield newPlace.save();
         res.send({ ok: true, result });
     }
