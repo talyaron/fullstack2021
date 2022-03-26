@@ -1,12 +1,17 @@
 
 import express from 'express';
 import mongoose from "mongoose";
+import path from 'path'
 // import axios from "axios";
 const app = express();
 const port = process.env.PORT || 3000;
 app.use(express.static("public"));
 app.use(express.json());
 mongoose.connect('mongodb+srv://shay:shayFoyer1994@cluster0.xyd5y.mongodb.net/sample_airbnb?retryWrites=true&w=majority')
+
+app.set('view engine', 'ejs')//connectiong ejs
+console.log(app.get('view engine'))
+app.set('views',path.resolve(__dirname,'pages'))
 
 app.get('/', (req, res) => {
   res.send('Hello World!');
@@ -129,18 +134,18 @@ app.get('/goToPlace',(req,res)=>{
 })
 app.post('/findPlaceMap', async(req,res)=>{
     let coordinates:Array<any> = req.body;
-    const center: google.maps.LatLngLiteral = {lat: 30, lng: -110};
-    initMap(center)
+  //  const center: google.maps.LatLngLiteral = {lat: 30, lng: -110};
+   // initMap(center)
     res.send(coordinates);
 });
-let map: google.maps.Map;
+// let map: google.maps.Map;
 
-function initMap(center): void {
-  map = new google.maps.Map(document.getElementById("map") as HTMLElement, {
-    center,
-    zoom: 8
-  });
-}
+// function initMap(center): void {
+//   map = new google.maps.Map(document.getElementById("map") as HTMLElement, {
+//     center,
+//     zoom: 8
+//   });
+// }
 app.listen(port, () => {
   return console.log(`Express is listening at http://localhost:${port}`);
 });
