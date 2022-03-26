@@ -17,8 +17,8 @@ export const addUser = async (req, res) => {
 
             //andrew - i added 20$ for starter
             const fund = 20;
-            const collection = [];
-            const newUser = new User({ userName, email, password, url, fund, collection })
+            const artCollection = [];
+            const newUser = new User({ userName, email, password, url, fund, artCollection })
             const users = await newUser.save()
 
             res.send({ ok: true, users })
@@ -63,7 +63,7 @@ export const addArtToUser = async (req, res) => {
     const r = await User.updateOne(
         { _id: user._id },
         {
-            $push: { collection: [newArt] }
+            $push: { artCollection: newArt }
         }
     );
     console.log(r);
