@@ -1,21 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300&display=swap');
-
+// div{
+//     border: 1px solid red;
+// }
 body {
     margin: 0;
     padding: 0;
     font-family: montserrat;
     background: linear-gradient(120deg, #2980b9, #8e44ad);
     height: 100vh;
-    overflow: hidden;
+    overflow: scroll;
     font-family: 'Montserrat Alternates', sans-serif;
 }
 
-.center {
+.loginwrapper, .registerwrapper{
+
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 400px;
+    height: fit-content;
     background: white;
     border-radius: 10px;
 
@@ -45,7 +49,7 @@ body {
                 outline: none; 
                 &:focus ~ label,
                 &:valid ~ label{
-                    top: -5px;
+                    top: -10px;
                     color: #2691d9;
                 }
 
@@ -115,12 +119,22 @@ body {
         text-align: center;
         font-size: 16px;
         color: #666666;
+        
         a{
             color: #2691d9;
             text-decoration: none;
             &:hover{
                 text-decoration: underline;
+                cursor: pointer;
             }
         }
     }
 }
+
+.registerwrapper{
+    display: none;
+}
+
+// .loginwrapper{
+//     display: none;
+// }
