@@ -36,25 +36,44 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 function handleRegister(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var _a, username, password, confirmPassword, email, confirmEmail;
+        var _a, username, password, confirmPassword, email, confirmEmail, data;
         return __generator(this, function (_b) {
             try {
-                ev.preventDeafult();
+                ev.preventDefault();
                 _a = ev.target.elements, username = _a.username, password = _a.password, confirmPassword = _a.confirmPassword, email = _a.email, confirmEmail = _a.confirmEmail;
-                console.log(username, password, confirmPassword, email, confirmEmail);
-                // if (password !== confirmPassword) {
-                //     window.alert('passwords dont match')
-                // }
-                // if (email !== confirmEmail) {
-                //     window.alert('emails dont match')
-                // }
-                // if (password === confirmPassword && email === confirmEmail) {
-                //     const {data} = axios.post('/add-user', {username, password, email})
-                //     return data
-                // }
+                username = username.value;
+                password = password.value;
+                confirmPassword = confirmPassword.value;
+                email = email.value;
+                confirmEmail = confirmEmail.value;
+                if (password !== confirmPassword) {
+                    window.alert('passwords dont match');
+                }
+                if (email !== confirmEmail) {
+                    window.alert('emails dont match');
+                }
+                if (password === confirmPassword && email === confirmEmail) {
+                    data = axios.post('/add-user', { username: username, password: password, email: email }).data;
+                    return [2 /*return*/, data];
+                }
             }
-            catch (_c) {
+            catch (error) {
+                console.log(error);
             }
+            return [2 /*return*/];
+        });
+    });
+}
+function handleLogin(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        var _a, username, password, data;
+        return __generator(this, function (_b) {
+            ev.preventDefault();
+            _a = ev.target.elements, username = _a.username, password = _a.password;
+            username = username.value;
+            password = password.value;
+            data = axios.get("/get-user?username=" + username + "&password=" + password).data;
+            console.log(data);
             return [2 /*return*/];
         });
     });

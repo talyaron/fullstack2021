@@ -18,13 +18,13 @@
             <form  onsubmit="handleLogin(event)">
 
                 <div class="txt_field">
-                    <input type="text" required>
+                    <input type="text" name='username' required>
                     <span></span>
                     <label for="Username">Username</label>
                 </div>
 
                 <div class="txt_field">
-                    <input type="text" required>
+                    <input type="text" name='password' required>
                     <span></span>
                     <label for="password">Password</label>
                 </div>
@@ -68,9 +68,9 @@
                 </div>
 
                 <div class="txt_field">
-                    <input type="text" required>
+                    <input type="text" name='confirmEmail' required>
                     <span></span>
-                    <label for="confirmEmail" name='confirmEmail'>Confirm Email Address</label>
+                    <label for="confirmEmail">Confirm Email Address</label>
                 </div>
 
                 <input type="submit" value="Register" class="submit">

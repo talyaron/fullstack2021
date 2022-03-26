@@ -23,10 +23,13 @@ const FundleUser = mongoose.model('FundleUsers', UserSchema);
 
 app.post("/add-user", async (req, res) => {
   try {
-    let { username, password, email} = req.body;
-    console.log(req.body)
-    const newGuitar = new FundleUser({ username, password, email})
-    const result = await newGuitar.save()
+    let { username, password, email } = req.body;
+    let played: 0;
+    let wins: 0;
+    let current_strike: 0;
+    let max_strike: 0;
+    const newFundleUser = new FundleUser({ username, password, email, played, wins, current_strike, max_strike })
+    const result = await newFundleUser.save()
 
     res.send({ result });
   } catch (error) {
@@ -37,10 +40,24 @@ app.post("/add-user", async (req, res) => {
 
 app.get("/get-user", async (req, res) => {
   try {
-    let {username, password} = req.body
-    const user = await FundleUser.find({username: username, password: password})
-    res.send(user)
+    console.log(req.body)
+    let { username, password } = req.body
+    console.log(username,password)
+    const userMatch = await FundleUser.find({ username: username, password: password })
 
+    if (userMatch) {
+      res.send(userMatch)
+    }
+    else{
+    const noPass = await FundleUser.find({ username: username })
+    if (noPass){
+      res.send("password doesn't match")
+    }
+    else{
+      res.send("username doesn't exist")
+    }
+    }
+    
   }
   catch (error) {
     console.log(error.error);
