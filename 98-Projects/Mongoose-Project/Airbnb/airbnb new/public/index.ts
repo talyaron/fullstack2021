@@ -4,6 +4,8 @@ async function loadPlaces(){
     
   //  renderAirbnb(data);
 }
+
+
 async function handleGoToPlace(placeId){
   const {data} = await axios.get('/goToPlace',{data:{placeId}})
   renderPlace(data)
