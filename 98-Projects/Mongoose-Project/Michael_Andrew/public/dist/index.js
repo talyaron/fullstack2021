@@ -34,7 +34,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-function OpenSIgnUpForm(e) {
+function OpenSignUpForm(e) {
     return __awaiter(this, void 0, void 0, function () {
         var newUser, userName, email, password, password2, url, data, error_1;
         return __generator(this, function (_a) {
@@ -91,6 +91,8 @@ function handleLogInForm(e) {
                 case 2:
                     data = (_a.sent()).data;
                     userLogedIn.addlogData(data);
+                    site.user = data.oldUser[0];
+                    localStorage.setItem('user', JSON.stringify(site.user));
                     if (!email || !password)
                         throw new Error("no email || password in handleLogInForm");
                     return [3 /*break*/, 4];
@@ -99,12 +101,121 @@ function handleLogInForm(e) {
                     console.error(error_2.message);
                     return [3 /*break*/, 4];
                 case 4:
+                    if (window.location.pathname.split("/").pop() == 'register.html')
+                        window.location.href = "./account_page.html";
                     e.target.reset();
+                    document.querySelector('.sign-in-form').classList.toggle('in-vis');
                     return [2 /*return*/];
             }
         });
     });
 }
+function handleAccount() {
+    var popUP = document.querySelector('.sign-in-form');
+    if (site.user.userName) {
+        popUP.innerHTML = "<p>Hi " + site.user.userName + "</p><button onclick=\"handleLogOut()\">Log Out</button>";
+    }
+    popUP.classList.toggle('in-vis');
+}
+function handleLogOut() {
+    site.user = {};
+    localStorage.clear();
+    if (window.location.pathname.split("/").pop() == 'account_page.html')
+        window.location.href = "./register.html";
+    else
+        location.reload();
+}
+function handleOnLoad() {
+    var user = JSON.parse(localStorage.getItem('user'));
+    if (user)
+        site.user = user;
+    if (window.location.pathname.split("/").pop() == 'account_page.html') {
+        var main = document.querySelector('.main-account');
+        main.innerHTML = "<h2>welcome back " + site.user.userName + "!</h2>\n                        <img src=\"" + site.user.url + "\">\n                        <h3>" + site.user.email + "</h3>\n                        <h3>Funds: " + site.user.fund + " BTC</h3>";
+    }
+}
+function handleAccountRedirect() {
+    if (site.user.userName)
+        window.location.href = "./account_page.html";
+    else
+        window.location.href = "./register.html";
+}
+function handleAccountOption(ev) {
+    var page = ev.target.id;
+    var html = '';
+    var main = document.querySelector('.main-account');
+    switch (page) {
+        case 'main':
+            handleOnLoad();
+            return;
+        case 'settings':
+            html = "<h2>Account Settings</h2>\n            <form onsubmit=\"handleSettingsForm(event)\">\n                <input type=\"text\" name=\"userName\" value=\"" + site.user.userName + "\">\n                <input type=\"submit\" value=\"update username\">\n            </form>\n            <form onsubmit=\"handleSettingsForm(event)\">\n                <input type=\"text\" name=\"email\" value=\"" + site.user.email + "\">\n                <input type=\"submit\" value=\"update email\">\n            </form>\n            <form onsubmit=\"handleSettingsForm(event)\">\n                <input type=\"text\" name=\"url\" value=\"" + site.user.url + "\">\n                <input type=\"submit\" value=\"update profile picture\">\n            </form>\n            <form onsubmit=\"handleSettingsForm(event)\">\n                <label for=\"oldPassword\">Old password</label>\n                <input type=\"text\" name=\"oldPassword\" value=\"\">\n                <label for=\"password\">New password</label>\n                <input type=\"text\" name=\"password\" value=\"\">\n                <label for=\"password2\">Confirm new password</label>\n                <input type=\"text\" name=\"password2\" value=\"\">\n                <input type=\"submit\" value=\"update password\">\n            </form>";
+            break;
+        case 'stats':
+            html = "<h1>Statistics</h1>";
+            break;
+        case 'create':
+            html = "<h1>Add New Art!</h1>\n                    <h3>use the form below to add a new art to your collection, the cost of adding a new art is 3 BTC</h3>\n                    <h3>Funds: " + site.user.fund + " BTC</h3>\n                    <form onsubmit=\"handleAddArt(event)\">\n                        <label for=\"url\">Copy Image URL to here:</label>\n                        <input type=\"text\" name=\"url\">\n                        <label for=\"name\">Create a name for your Art:</label>\n                        <input type=\"text\" name=\"name\">\n                        <input type=\"submit\">\n                    </form>\n                    ";
+            break;
+        case 'sale':
+            html = "<h1>These are the items you listed for sale</h1>";
+            break;
+    }
+    main.innerHTML = html;
+}
+function handleSettingsForm(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        var toBeUpdated, value;
+        return __generator(this, function (_a) {
+            ev.preventDefault();
+            toBeUpdated = ev.target[0].name;
+            value = ev.target[0].value;
+            console.log(toBeUpdated);
+            if (toBeUpdated == 'password') {
+                if (value == site.user.password) {
+                    if (ev.target[1].value == ev.target[2].value) {
+                        site.user[toBeUpdated] = ev.target[1].value;
+                        axios.patch('/users/update-user', { user: site.user });
+                        localStorage.setItem('user', JSON.stringify(site.user));
+                    }
+                    else {
+                        // add alert passwords do not match
+                    }
+                }
+                else {
+                    // add alert wrong password
+                }
+            }
+            else {
+                site.user[toBeUpdated] = value;
+                axios.patch('/users/update-user', { user: site.user });
+                localStorage.setItem('user', JSON.stringify(site.user));
+            }
+            return [2 /*return*/];
+        });
+    });
+}
+function handleAddArt(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        var newArt;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    ev.preventDefault();
+                    newArt = { name: ev.target.name.value, url: ev.target.url.value, author: site.user.username };
+                    return [4 /*yield*/, axios.post('/users/add-art', { newArt: newArt })];
+                case 1:
+                    _a.sent();
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+// volatile database for current user and etc'
+var site = {
+    user: {}
+};
+// didn't understand what you did here ¯\_(ツ)_/¯
 var userLogedIn = {
     logData: [],
     addlogData: function (data) {

@@ -36,10 +36,10 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.findUser = exports.addUser = void 0;
+exports.updateUser = exports.findUser = exports.addUser = void 0;
 var userModel_1 = require("../model/userModel");
 exports.addUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, userName, email, password, url, userFind, fund, newUser, users, error_1;
+    var _a, userName, email, password, url, userFind, fund, collection, newUser, users, error_1;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
@@ -56,7 +56,8 @@ exports.addUser = function (req, res) { return __awaiter(void 0, void 0, void 0,
             case 2:
                 if (!(userFind.length === 0)) return [3 /*break*/, 4];
                 fund = 20;
-                newUser = new userModel_1["default"]({ userName: userName, email: email, password: password, url: url, fund: fund });
+                collection = [];
+                newUser = new userModel_1["default"]({ userName: userName, email: email, password: password, url: url, fund: fund, collection: collection });
                 return [4 /*yield*/, newUser.save()];
             case 3:
                 users = _b.sent();
@@ -100,6 +101,19 @@ exports.findUser = function (req, res) { return __awaiter(void 0, void 0, void 0
                 res.send({ error: error_2.message });
                 return [3 /*break*/, 3];
             case 3: return [2 /*return*/];
+        }
+    });
+}); };
+exports.updateUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var user;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                user = req.body.user;
+                return [4 /*yield*/, userModel_1["default"].updateOne({ _id: user._id }, user)];
+            case 1:
+                _a.sent();
+                return [2 /*return*/];
         }
     });
 }); };

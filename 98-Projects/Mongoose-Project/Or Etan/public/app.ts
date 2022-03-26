@@ -134,3 +134,4 @@ myForm.addEventListener("submit", (e:any) => {
 
 console.log?.(color.value)
 console.log(daysLeft.value)
+
