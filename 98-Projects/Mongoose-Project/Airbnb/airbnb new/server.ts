@@ -6,8 +6,8 @@ const app = express();
 const port = process.env.PORT || 3000;
 app.use(express.static("public"));
 app.use(express.json());
-//mongoose.connect("mongodb+srv://shay:shayFoyer1994@cluster0.xyd5y.mongodb.net/sample_airbnb?retryWrites=true&w=majority");
-mongoose.connect('mongodb+srv://ShaniRom:ynbUaPL3oHZKGl8a@cluster0.vh1hg.mongodb.net/sample_airbnb?retryWrites=true&w=majority');
+mongoose.connect("mongodb+srv://shay:shayFoyer1994@cluster0.xyd5y.mongodb.net/sample_airbnb?retryWrites=true&w=majority");
+//mongoose.connect('mongodb+srv://ShaniRom:ynbUaPL3oHZKGl8a@cluster0.vh1hg.mongodb.net/sample_airbnb?retryWrites=true&w=majority');
 
 app.set("view engine", "ejs"); //connectiong ejs
 console.log(app.get("view engine"));
@@ -176,7 +176,7 @@ app.post("/findPlaceMap", async (req, res) => {
 
 
        // ---- search in navigation bar---------
-       
+
 // app.get('/search-city',(req,res)=>{
 //     const search=req.query.search;
 //     const filteredCity=filteredCitySearch(search);
