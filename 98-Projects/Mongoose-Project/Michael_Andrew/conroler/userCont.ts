@@ -47,9 +47,9 @@ export const findUser = async (req, res) => {
 
             res.send('Wrong email/password');
 
-        } else if (oldUser.length > 0) {
+        } else if (oldUser.length > 0) {            
 
-            res.send({ ok: true, oldUser })
+            res.send({ oldUser })
 
         }
 

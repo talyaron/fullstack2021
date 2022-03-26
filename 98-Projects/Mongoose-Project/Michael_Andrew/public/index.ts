@@ -12,7 +12,6 @@ async function OpenSIgnUpForm(e) {
         if (password === password2) {
 
             const { data } = await axios.post('/users/add-user', { userName, email, password, password2, url })
-            console.log(data);
 
         } else {
             throw new Error("passwords are NOT matched");
@@ -43,7 +42,9 @@ async function handleLogInForm(e) {
         password = password.value.split(' ').join('');
 
         const { data } = await axios.get(`/users/log-user?loginEmail=${email}&loginPassword=${password}`)
-        console.log(data);
+
+        userLogedIn.addlogData(data)
+
 
         if (!email || !password) throw new Error("no email || password in handleLogInForm");
 
@@ -52,11 +53,34 @@ async function handleLogInForm(e) {
 
     }
 
-
     e.target.reset();
-
-
 }
+
+
+
+interface UserData {
+    logData: Array<logInfo>;
+    addlogData(userName: String): Object;
+}
+
+interface logInfo {
+    data: Object;
+    id: String;
+}
+
+let userLogedIn = {
+    logData: [],
+    addlogData(data) {
+        // const uid = Date.now().toString(36) + Math.random().toString(36).substr(2);
+        this.logData.push(data)
+        console.log(this.logData);
+
+    },
+}
+
+
+
+
 
 
 

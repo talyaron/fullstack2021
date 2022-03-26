@@ -34,28 +34,17 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-function handleRegister(ev) {
+function loadPlaces() {
     return __awaiter(this, void 0, void 0, function () {
-        var _a, username, password, confirmPassword, email, confirmEmail;
-        return __generator(this, function (_b) {
-            try {
-                ev.preventDeafult();
-                _a = ev.target.elements, username = _a.username, password = _a.password, confirmPassword = _a.confirmPassword, email = _a.email, confirmEmail = _a.confirmEmail;
-                console.log(username, password, confirmPassword, email, confirmEmail);
-                // if (password !== confirmPassword) {
-                //     window.alert('passwords dont match')
-                // }
-                // if (email !== confirmEmail) {
-                //     window.alert('emails dont match')
-                // }
-                // if (password === confirmPassword && email === confirmEmail) {
-                //     const {data} = axios.post('/add-user', {username, password, email})
-                //     return data
-                // }
+        var data;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, axios.get('/getPlaces')];
+                case 1:
+                    data = (_a.sent()).data;
+                    console.log(data);
+                    return [2 /*return*/];
             }
-            catch (_c) {
-            }
-            return [2 /*return*/];
         });
     });
 }

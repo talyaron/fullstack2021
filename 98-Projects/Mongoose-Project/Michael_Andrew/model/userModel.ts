@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 const artSchema = new mongoose.Schema({
-    udserName: String,
+    userName: String,
     email: String,
     password: String,
     url: String,
