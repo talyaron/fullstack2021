@@ -5,10 +5,8 @@ var router = express_1["default"].Router();
 var userCont_1 = require("../conroler/userCont");
 var userCont_2 = require("../conroler/userCont");
 var userCont_3 = require("../conroler/userCont");
-var userCont_4 = require("../conroler/userCont");
 router
     .post('/add-user', userCont_1.addUser)
     .get('/log-user', userCont_2.findUser)
-    .patch('/update-user', userCont_3.updateUser)
-    .post('/add-art', userCont_4.addArtToUser);
+    .patch('/update-user', userCont_3.updateUser);
 exports["default"] = router;
