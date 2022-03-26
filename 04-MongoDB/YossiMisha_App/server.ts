@@ -38,7 +38,7 @@ app.post("/add-user", async (req, res) => {
   }
 });
 
-app.get("/get-user", async(req, res) => {
+app.get("/get-user", async (req, res) => {
   try {
 
     let { username, password } = req.query
@@ -48,19 +48,19 @@ app.get("/get-user", async(req, res) => {
     console.log(userMatch)
 
     if (userMatch) {
-      res.send({user: userMatch})
+      res.send({ user: userMatch })
     }
 
-    else{
-    const noPass = await FundleUser.find({ username: username })
-    if (noPass){
-      res.send("password doesn't match")
+    else {
+      const noPass = await FundleUser.find({ username: username })
+      if (noPass) {
+        res.send("password doesn't match")
+      }
+      else {
+        res.send("username doesn't exist")
+      }
     }
-    else{
-      res.send("username doesn't exist")
-    }
-    }
-    
+
   }
   catch (error) {
     console.log(error.error);
