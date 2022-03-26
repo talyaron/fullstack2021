@@ -11,6 +11,7 @@ const port = process.env.PORT || 3000;
 app.use(express_1.default.static("public"));
 app.use(express_1.default.json());
 mongoose_1.default.connect('mongodb+srv://alexroz:KwBuns8lVDNUTHhq@cluster0.x62d1.mongodb.net/spotifyApp?retryWrites=true&w=majority');
+mongoose_1.default.connect('mongodb+srv://leon93:ym965874632541@cluster0.umet4.mongodb.net/spotifyApp?retryWrites=true&w=majority');
 const UserSchema = new mongoose_1.default.Schema({
     searches: String,
     topGenres: String,

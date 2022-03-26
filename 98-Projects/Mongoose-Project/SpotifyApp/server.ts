@@ -7,6 +7,7 @@ app.use(express.static("public"));
 app.use(express.json());
 
 mongoose.connect('mongodb+srv://alexroz:KwBuns8lVDNUTHhq@cluster0.x62d1.mongodb.net/spotifyApp?retryWrites=true&w=majority')
+mongoose.connect('mongodb+srv://leon93:ym965874632541@cluster0.umet4.mongodb.net/spotifyApp?retryWrites=true&w=majority')
 const UserSchema = new mongoose.Schema({
   searches: String,
   topGenres: String,
