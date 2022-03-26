@@ -1,4 +1,4 @@
-const books = [
+var books = [
     {
         id: "firstBook",
         coverImg: "https://kbimages1-a.akamaihd.net/93affabc-5161-421e-80d5-4477a07b8cee/1200/1200/False/harry-potter-and-the-philosopher-s-stone-3.jpg",
@@ -18,7 +18,7 @@ const books = [
         fourthPageChapter: "Chapter Two",
         fourthPageHeadLine: "The Vanishing Glass",
         fourthPageContent: "Nearly ten years had passed since the Dursleys had woken up to find their nephew on the front step but Privet Drive had hardly changed at all.The sun rose on the same tidy front gardens and lit up the brass numberfour on the Dursleys front door; it crept into their living room,which was almost exactly the same as it had been on the night whenMr. Dursley had seen that fateful news report about the owls. Only the photographs on the mantelpiece really showed how much time hadpassed. Ten years ago there had been lots of pictures of whatlooked like a large pink beach ball wearing different-coloredbonnets  but Dudley Dursley was no longer a baby, and now the photographs showed a large blond boy riding his first",
-        backCoverImg: "https://fadutown.com/wp-content/uploads/2020/08/51kdIBI0MlL.jpg",  
+        backCoverImg: "https://fadutown.com/wp-content/uploads/2020/08/51kdIBI0MlL.jpg"
     },
     {
         id: "secendBook",
@@ -39,8 +39,7 @@ const books = [
         fourthPageChapter: "Chapter Two",
         fourthPageHeadLine: "The Vanishing Glass",
         fourthPageContent: "Nearly ten years had passed since the Dursleys had woken up to find their nephew on the front step but Privet Drive had hardly changed at all.The sun rose on the same tidy front gardens and lit up the brass numberfour on the Dursleys front door; it crept into their living room,which was almost exactly the same as it had been on the night whenMr. Dursley had seen that fateful news report about the owls. Only the photographs on the mantelpiece really showed how much time hadpassed. Ten years ago there had been lots of pictures of whatlooked like a large pink beach ball wearing different-coloredbonnets  but Dudley Dursley was no longer a baby, and now the photographs showed a large blond boy riding his first",
-
-        backCoverImg: "https://m.media-amazon.com/images/I/5191isFAtRL._AC_SY1000_.jpg",  
+        backCoverImg: "https://m.media-amazon.com/images/I/5191isFAtRL._AC_SY1000_.jpg"
     },
     {
         id: "thirdBook",
@@ -61,7 +60,7 @@ const books = [
         fourthPageChapter: "Chapter Two",
         fourthPageHeadLine: "The Vanishing Glass",
         fourthPageContent: "Nearly ten years had passed since the Dursleys had woken up to find their nephew on the front step but Privet Drive had hardly changed at all.The sun rose on the same tidy front gardens and lit up the brass numberfour on the Dursleys front door; it crept into their living room,which was almost exactly the same as it had been on the night whenMr. Dursley had seen that fateful news report about the owls. Only the photographs on the mantelpiece really showed how much time hadpassed. Ten years ago there had been lots of pictures of whatlooked like a large pink beach ball wearing different-coloredbonnets  but Dudley Dursley was no longer a baby, and now the photographs showed a large blond boy riding his first",
-        backCoverImg: "https://ae01.alicdn.com/kf/Ub9c6e192ad3249df824101dc585c140cz/HARRY-POTTER-3-PRISONER-BLOOMSBURY-3-7.jpg",  
+        backCoverImg: "https://ae01.alicdn.com/kf/Ub9c6e192ad3249df824101dc585c140cz/HARRY-POTTER-3-PRISONER-BLOOMSBURY-3-7.jpg"
     },
     {
         id: "fourthBook",
@@ -82,112 +81,29 @@ const books = [
         fourthPageChapter: "Chapter Two",
         fourthPageHeadLine: "The Vanishing Glass",
         fourthPageContent: "Nearly ten years had passed since the Dursleys had woken up to find their nephew on the front step but Privet Drive had hardly changed at all.The sun rose on the same tidy front gardens and lit up the brass numberfour on the Dursleys front door; it crept into their living room,which was almost exactly the same as it had been on the night whenMr. Dursley had seen that fateful news report about the owls. Only the photographs on the mantelpiece really showed how much time hadpassed. Ten years ago there had been lots of pictures of whatlooked like a large pink beach ball wearing different-coloredbonnets  but Dudley Dursley was no longer a baby, and now the photographs showed a large blond boy riding his first",
-        backCoverImg: "https://m.media-amazon.com/images/I/519o4XzV0EL._AC_SY1000_.jpg",  
+        backCoverImg: "https://m.media-amazon.com/images/I/519o4XzV0EL._AC_SY1000_.jpg"
     }
 ];
-
 function filterByid(id) {
-    return books.filter((book) => book.id === id);
-  }
-
+    return books.filter(function (book) { return book.id === id; });
+}
 function renderByid(id, domElement) {
-    const filterById = filterByid(id);
+    var filterById = filterByid(id);
     renderBooks(filterById, domElement);
-  }
-
-function renderBooks(list,domEle) {
-    let html = '';
-    list.forEach(book => {
-        html += ` 
-        <input type="checkbox" id="first-check1">
-        <input type="checkbox" id="first-check2">
-        <input type="checkbox" id="first-check3">
-        <input type="checkbox" id="first-check4">
-        <input type="checkbox" id="first-check5">
-        <input type="checkbox" id="secend-check1">
-        <input type="checkbox" id="secend-check2">
-        <input type="checkbox" id="secend-check3">
-        <input type="checkbox" id="secend-check4">
-        <input type="checkbox" id="secend-check5">
-
-        <div class="book__content">
-            <div class="book__content__pageFlip" id="first-page1">
-                <div class="book__content__pageFlip-back">
-                    <img src="${book.firstPageImg}">
-                    <label class="book__content__pageFlip-back-btn" for="first-check1">
-                        <<</label>
-
-                </div>
-                <div class="book__content__pageFlip-front">
-                    <img id="cover" src="${book.coverImg}">
-                    <label class="book__content__pageFlip-front-btn" id="glow" for="first-check1">Read</label>
-                </div>
-            </div>
-            <div class="book__content__pageFlip" id="first-page2">
-                <div class="book__content__pageFlip-back">
-                    <img src="${book.secendPageImg}">
-                    <label class="book__content__pageFlip-back-btn" for="first-check2">
-                        <<</label>
-                </div>
-                <div  class="book__content__pageFlip-front">
-                    <h1> ${book.firstPageChapter}</h1>
-                    <h2> ${book.firstPageHeadLine}</h2>
-                    <p> ${book.firstPageContent}</p>
-                    <label class="book__content__pageFlip-front-btn" for="first-check2">>></label>
-                </div>
-            </div>
-            <div class="book__content__pageFlip" id="first-page3">
-            <div class="book__content__pageFlip-back">
-                <img src="${book.thirdPageImg}">
-                <label class="book__content__pageFlip-back-btn" for="first-check3">
-                    <<</label>
-            </div>
-            <div class="book__content__pageFlip-front">
-                <h1> ${book.secendPageChapter}</h1>
-                <h2> ${book.secendPageHeadLine}</h2>
-                <p>${book.secendPageContent}</p>
-                <label class="book__content__pageFlip-front-btn" for="first-check3">>></label>
-            </div>
-        </div>
-        <div class="book__content__pageFlip" id="first-page4">
-            <div class="book__content__pageFlip-back">
-                <img src="${book.fourthPageImg}">
-                <label class="book__content__pageFlip-back-btn" for="first-check4">
-                    <<</label>
-            </div>
-            <div class="book__content__pageFlip-front">
-                <h1>  ${book.thirdPageChapter}</h1>
-                <h2> ${book.thirdPageHeadLine}</h2>
-                <p>${book.thirdPageContent}.</p>
-                <label class="book__content__pageFlip-front-btn" for="first-check4">>></label>
-            </div>
-        </div>
-        <div class="book__content__pageFlip" id="first-page5">
-            <div class="book__content__pageFlip-back">
-                <img src="${book.backCoverImg}">
-                <label class="book__content__pageFlip-back-btn" for="first-check5">
-                    <<</label>
-            </div>
-            <div class="book__content__pageFlip-front">
-                <h1>  ${book.fourthPageChapter}</h1>
-                <h2> ${book.fourthPageHeadLine}</h2>
-                <p>${book.fourthPageContent}</p>
-                <label class="book__content__pageFlip-front-btn" for="first-check5">>></label>
-            </div>
-        </div>
-    </div>
-</div>`
-    })
+}
+function renderBooks(list, domEle) {
+    var html = '';
+    list.forEach(function (book) {
+        html += " \n        <input type=\"checkbox\" id=\"first-check1\">\n        <input type=\"checkbox\" id=\"first-check2\">\n        <input type=\"checkbox\" id=\"first-check3\">\n        <input type=\"checkbox\" id=\"first-check4\">\n        <input type=\"checkbox\" id=\"first-check5\">\n        <input type=\"checkbox\" id=\"secend-check1\">\n        <input type=\"checkbox\" id=\"secend-check2\">\n        <input type=\"checkbox\" id=\"secend-check3\">\n        <input type=\"checkbox\" id=\"secend-check4\">\n        <input type=\"checkbox\" id=\"secend-check5\">\n\n        <div class=\"book__content\">\n            <div class=\"book__content__pageFlip\" id=\"first-page1\">\n                <div class=\"book__content__pageFlip-back\">\n                    <img src=\"" + book.firstPageImg + "\">\n                    <label class=\"book__content__pageFlip-back-btn\" for=\"first-check1\">\n                        <<</label>\n\n                </div>\n                <div class=\"book__content__pageFlip-front\">\n                    <img id=\"cover\" src=\"" + book.coverImg + "\">\n                    <label class=\"book__content__pageFlip-front-btn\" id=\"glow\" for=\"first-check1\">Read</label>\n                </div>\n            </div>\n            <div class=\"book__content__pageFlip\" id=\"first-page2\">\n                <div class=\"book__content__pageFlip-back\">\n                    <img src=\"" + book.secendPageImg + "\">\n                    <label class=\"book__content__pageFlip-back-btn\" for=\"first-check2\">\n                        <<</label>\n                </div>\n                <div  class=\"book__content__pageFlip-front\">\n                    <h1> " + book.firstPageChapter + "</h1>\n                    <h2> " + book.firstPageHeadLine + "</h2>\n                    <p> " + book.firstPageContent + "</p>\n                    <label class=\"book__content__pageFlip-front-btn\" for=\"first-check2\">>></label>\n                </div>\n            </div>\n            <div class=\"book__content__pageFlip\" id=\"first-page3\">\n            <div class=\"book__content__pageFlip-back\">\n                <img src=\"" + book.thirdPageImg + "\">\n                <label class=\"book__content__pageFlip-back-btn\" for=\"first-check3\">\n                    <<</label>\n            </div>\n            <div class=\"book__content__pageFlip-front\">\n                <h1> " + book.secendPageChapter + "</h1>\n                <h2> " + book.secendPageHeadLine + "</h2>\n                <p>" + book.secendPageContent + "</p>\n                <label class=\"book__content__pageFlip-front-btn\" for=\"first-check3\">>></label>\n            </div>\n        </div>\n        <div class=\"book__content__pageFlip\" id=\"first-page4\">\n            <div class=\"book__content__pageFlip-back\">\n                <img src=\"" + book.fourthPageImg + "\">\n                <label class=\"book__content__pageFlip-back-btn\" for=\"first-check4\">\n                    <<</label>\n            </div>\n            <div class=\"book__content__pageFlip-front\">\n                <h1>  " + book.thirdPageChapter + "</h1>\n                <h2> " + book.thirdPageHeadLine + "</h2>\n                <p>" + book.thirdPageContent + ".</p>\n                <label class=\"book__content__pageFlip-front-btn\" for=\"first-check4\">>></label>\n            </div>\n        </div>\n        <div class=\"book__content__pageFlip\" id=\"first-page5\">\n            <div class=\"book__content__pageFlip-back\">\n                <img src=\"" + book.backCoverImg + "\">\n                <label class=\"book__content__pageFlip-back-btn\" for=\"first-check5\">\n                    <<</label>\n            </div>\n            <div class=\"book__content__pageFlip-front\">\n                <h1>  " + book.fourthPageChapter + "</h1>\n                <h2> " + book.fourthPageHeadLine + "</h2>\n                <p>" + book.fourthPageContent + "</p>\n                <label class=\"book__content__pageFlip-front-btn\" for=\"first-check5\">>></label>\n            </div>\n        </div>\n    </div>\n</div>";
+    });
     domEle.innerHTML = html;
 }
-
-const firstBook = document.getElementById("firstBook");
-const secendBook = document.getElementById("secendBook");
-const thirdBook = document.getElementById("thirdBook");
-const fourthBook = document.getElementById("fourthBook");
-
+var firstBook = document.getElementById("firstBook");
+var secendBook = document.getElementById("secendBook");
+var thirdBook = document.getElementById("thirdBook");
+var fourthBook = document.getElementById("fourthBook");
 // renderBook(books,root);
-renderByid("firstBook",firstBook);
-renderByid("secendBook",secendBook);
-renderByid("thirdBook",thirdBook);
-renderByid("fourthBook",fourthBook);
+renderByid("firstBook", firstBook);
+renderByid("secendBook", secendBook);
+renderByid("thirdBook", thirdBook);
+renderByid("fourthBook", fourthBook);
