@@ -10,17 +10,16 @@ const port = process.env.PORT || 3000;
 app.use(express_1.default.static("public"));
 app.use(express_1.default.json());
 mongoose_1.default.connect('mongodb+srv://michaeldubovik:michaeldubovik1991@cluster0.y9ozg.mongodb.net/myFirstDatabase?retryWrites=true&w=majority');
-//create a schema (interface)
 const UserSchema = new mongoose_1.default.Schema({
     username: String,
     password: String,
     email: String,
-    wins: String,
-    loses: String,
-    attempts: String,
+    played: Number,
+    wins: Number,
+    current_strike: Number,
+    max_strike: Number,
 });
-//create a collection
-const BSUser = mongoose_1.default.model('battleShipUsers', UserSchema);
+const BSUser = mongoose_1.default.model('WordleUsers', UserSchema);
 app.listen(port, () => {
     return console.log(`Express is listening at http://localhost:${port}`);
 });

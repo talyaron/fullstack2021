@@ -8,17 +8,18 @@ app.use(express.json());
 
 mongoose.connect('mongodb+srv://michaeldubovik:michaeldubovik1991@cluster0.y9ozg.mongodb.net/myFirstDatabase?retryWrites=true&w=majority');
 
-//create a schema (interface)
+
 const UserSchema = new mongoose.Schema({
   username: String,
   password: String,
   email: String,
-  wins: String,
-  loses: String,
-  attempts: String,
+  played: Number,
+  wins: Number,
+  current_strike: Number,
+  max_strike: Number,
 })
-//create a collection
-const BSUser = mongoose.model('battleShipUsers', UserSchema);
+
+const BSUser = mongoose.model('WordleUsers', UserSchema);
 
 app.listen(port, () => {
   return console.log(`Express is listening at http://localhost:${port}`);
