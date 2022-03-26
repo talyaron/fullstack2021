@@ -60,21 +60,6 @@ body {
 .navigation form .form--searchLocation input:hover {
   background-color: #e2e2e2;
 }
-.navigation form .form--searchLocation .dropdown {
-  display: none;
-  position: relative;
-  background-color: #f1f1f1;
-  font-size: 12px;
-  border-radius: 10px;
-  min-width: 160px;
-  top: 15px;
-  padding: 5px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-}
-.navigation form .form--searchLocation:hover .dropdown {
-  display: block;
-}
 .navigation form .form--checkIn {
   height: 50px;
   width: 120px;
@@ -166,10 +151,25 @@ body {
   font-size: 12px;
   border-radius: 10px;
   min-width: 160px;
+  height: 250px;
   top: 15px;
   padding: 5px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
+  padding: 15px;
+}
+.navigation form .form--guests .dropdown label {
+  font-size: 14px;
+}
+.navigation form .form--guests .dropdown label span {
+  font-weight: lighter;
+  color: #9e9797;
+}
+.navigation form .form--guests .dropdown input[type=number] {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 50%;
+  border: none;
 }
 .navigation form .form--guests:hover .dropdown {
   display: block;
