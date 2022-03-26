@@ -1,10 +1,12 @@
+import axios from "axios";
+
 async function loadPlaces(){
     const {data} = await axios.get('/getPlaces')
     console.log(data);
     
   //  renderAirbnb(data);
 }
-
+//loadPlaces()
 
 async function handleGoToPlace(placeId){
   const {data} = await axios.get('/goToPlace',{data:{placeId}})
@@ -345,3 +347,35 @@ catch (error) {
 
 }
 }
+     
+
+
+               // ---- search in navigation bar---------
+
+
+// async function handleSearchCity(ev){
+//     const search=ev.target.value;
+//     console.log(search);
+//     const {data}= await axios.get(`/search-city?search=${search}`);
+//     //renderToGameStore(data);
+//     console.log(data)
+
+// }
+async function handleNavFilter(ev){
+    ev.preventDefault();
+    ev.target.reset();
+  
+
+}
+
+async function handleSearchCity(ev){
+    const search=ev.target.value;
+    console.log(search);
+    const {data}=await axios.get(`/search-city?search=${search}`);
+    const{city}=data;
+    console.log({city})
+
+
+
+}
+

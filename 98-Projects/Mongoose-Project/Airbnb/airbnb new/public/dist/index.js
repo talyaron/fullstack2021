@@ -1,3 +1,4 @@
+"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -34,12 +35,14 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+exports.__esModule = true;
+var axios_1 = require("axios");
 function loadPlaces() {
     return __awaiter(this, void 0, void 0, function () {
         var data;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, axios.get('/getPlaces')];
+                case 0: return [4 /*yield*/, axios_1["default"].get('/getPlaces')];
                 case 1:
                     data = (_a.sent()).data;
                     console.log(data);
@@ -48,12 +51,13 @@ function loadPlaces() {
         });
     });
 }
+//loadPlaces()
 function handleGoToPlace(placeId) {
     return __awaiter(this, void 0, void 0, function () {
         var data;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, axios.get('/goToPlace', { data: { placeId: placeId } })];
+                case 0: return [4 /*yield*/, axios_1["default"].get('/goToPlace', { data: { placeId: placeId } })];
                 case 1:
                     data = (_a.sent()).data;
                     renderPlace(data);
@@ -74,4 +78,39 @@ function renderPlace(data) {
     catch (error) {
         console.error(error.message);
     }
+}
+// ---- search in navigation bar---------
+// async function handleSearchCity(ev){
+//     const search=ev.target.value;
+//     console.log(search);
+//     const {data}= await axios.get(`/search-city?search=${search}`);
+//     //renderToGameStore(data);
+//     console.log(data)
+// }
+function handleNavFilter(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            ev.preventDefault();
+            ev.target.reset();
+            return [2 /*return*/];
+        });
+    });
+}
+function handleSearchCity(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        var search, data, city;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    search = ev.target.value;
+                    console.log(search);
+                    return [4 /*yield*/, axios_1["default"].get("/search-city?search=" + search)];
+                case 1:
+                    data = (_a.sent()).data;
+                    city = data.city;
+                    console.log({ city: city });
+                    return [2 /*return*/];
+            }
+        });
+    });
 }

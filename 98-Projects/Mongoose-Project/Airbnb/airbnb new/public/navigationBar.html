@@ -17,10 +17,10 @@
         <ul>
             <li class="navigation--logo"><img src="images/logoTitle.png" alt="airbnb"></li>
             <li class="navigation--search">
-                <form class="form">
+                <form class="form" onsubmit="handleNavFilter(event)">
                     <div class="form--searchLocation">
                         <label for="searchLocation">Location <br>
-                            <input id="searchLocation" type="text" placeholder="Where are you going?">
+                            <input onkeyup="handleSearchCity(event)" id="searchLocation" type="text" placeholder="Where are you going?">
                         </label>
                    
                     </div>
@@ -88,7 +88,7 @@
                     </div>
 
 
-                    <a href="" class="form--searchIcon"><input type="image" src="images/searchIcon.png"></a>
+                    <a href="" class="form--searchIcon"><input type="submit" ><img src="images/searchIcon.png"></a>
 
 
                 </form>
