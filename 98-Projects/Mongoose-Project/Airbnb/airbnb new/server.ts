@@ -1,17 +1,12 @@
 
 import express from 'express';
 import mongoose from "mongoose";
-import path from 'path'
 // import axios from "axios";
 const app = express();
 const port = process.env.PORT || 3000;
 app.use(express.static("public"));
 app.use(express.json());
 mongoose.connect('mongodb+srv://shay:shayFoyer1994@cluster0.xyd5y.mongodb.net/sample_airbnb?retryWrites=true&w=majority')
-
-app.set('view engine', 'ejs')//connectiong ejs
-console.log(app.get('view engine'))
-app.set('views',path.resolve(__dirname,'pages'))
 
 app.get('/', (req, res) => {
   res.send('Hello World!');

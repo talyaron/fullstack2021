@@ -14,16 +14,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const mongoose_1 = __importDefault(require("mongoose"));
-const path_1 = __importDefault(require("path"));
 // import axios from "axios";
 const app = express_1.default();
 const port = process.env.PORT || 3000;
 app.use(express_1.default.static("public"));
 app.use(express_1.default.json());
 mongoose_1.default.connect('mongodb+srv://shay:shayFoyer1994@cluster0.xyd5y.mongodb.net/sample_airbnb?retryWrites=true&w=majority');
-app.set('view engine', 'ejs'); //connectiong ejs
-console.log(app.get('view engine'));
-app.set('views', path_1.default.resolve(__dirname, 'pages'));
 app.get('/', (req, res) => {
     res.send('Hello World!');
 });
