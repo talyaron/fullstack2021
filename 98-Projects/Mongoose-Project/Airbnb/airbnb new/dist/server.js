@@ -14,27 +14,41 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const mongoose_1 = __importDefault(require("mongoose"));
+const path_1 = __importDefault(require("path"));
 // import axios from "axios";
 const app = express_1.default();
 const port = process.env.PORT || 3000;
 app.use(express_1.default.static("public"));
 app.use(express_1.default.json());
 mongoose_1.default.connect('mongodb+srv://shay:shayFoyer1994@cluster0.xyd5y.mongodb.net/sample_airbnb?retryWrites=true&w=majority');
+mongoose_1.default.connect('mongodb+srv://ShaniRom:ynbUaPL3oHZKGl8a@cluster0.vh1hg.mongodb.net/sample_airbnb?retryWrites=true&w=majority');
+app.set('view engine', 'ejs'); //connectiong ejs
+console.log(app.get('view engine'));
+app.set('views', path_1.default.resolve(__dirname, 'pages'));
 app.get('/', (req, res) => {
     res.send('Hello World!');
 });
 const PlacesSchema = new mongoose_1.default.Schema({
-    location: String,
-    price: String,
+    name: String,
+    summary: String,
     checkIn: String,
     checkOut: String,
-    amountGuest: Number,
-    type: String,
-    kitchen: String,
+    accommodates: Number,
+    amenities: Array,
+    bedrooms: Number,
     beds: Number,
-    wifi: String,
-    beach: String,
-    cancle: String
+    number_of_reviews: Number,
+    price: Number,
+    cancle: String,
+    bathrooms: Number,
+    images: String,
+    host: Object,
+    space: String,
+    description: String,
+    bed_type: String,
+    reviews: Array,
+    cancellation_policy: String,
+    address: Object
 });
 const userSchema = new mongoose_1.default.Schema({
     name: String,
@@ -54,18 +68,29 @@ app.get('/getPlaces', (req, res) => __awaiter(void 0, void 0, void 0, function* 
 }));
 app.post('/addPlaces', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        let { location, price, checkIn, checkOut, amountGuest, type, kitchen, beds, wifi, beach, cancle } = req.body;
-        const newPlace = new Places({ location,
-            price,
+        let { name, summary, checkIn, checkOut, accommodates, amenities, bedrooms, beds, number_of_reviews, price, cancle, bathrooms, images, host, space, description, bed_type, reviews, cancellation_policy, address } = req.body;
+        const newPlace = new Places({
+            name,
+            summary,
             checkIn,
             checkOut,
-            amountGuest,
-            type,
-            kitchen,
+            accommodates,
+            amenities,
+            bedrooms,
             beds,
-            wifi,
-            beach,
-            cancle });
+            number_of_reviews,
+            price,
+            cancle,
+            bathrooms,
+            images,
+            host,
+            space,
+            description,
+            bed_type,
+            reviews,
+            cancellation_policy,
+            address
+        });
         const result = yield newPlace.save();
         res.send({ ok: true, result });
     }
@@ -107,6 +132,35 @@ app.post('/addUsers', (req, res) => __awaiter(void 0, void 0, void 0, function* 
 // }).catch(function (error) {
 //   console.error(error);
 // });
+app.get('/goToPlace', (req, res) => {
+    try {
+        const { placeId } = req.body;
+        const __id = req.body;
+        if (__id == placeId) {
+            res.send(placeId);
+        }
+        else {
+            throw new Error("placeId is not the same as the __id");
+        }
+    }
+    catch (error) {
+        console.log(error.error);
+        res.send({ error: error.massage });
+    }
+});
+app.post('/findPlaceMap', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    let coordinates = req.body;
+    //  const center: google.maps.LatLngLiteral = {lat: 30, lng: -110};
+    // initMap(center)
+    res.send(coordinates);
+}));
+// let map: google.maps.Map;
+// function initMap(center): void {
+//   map = new google.maps.Map(document.getElementById("map") as HTMLElement, {
+//     center,
+//     zoom: 8
+//   });
+// }
 app.listen(port, () => {
     return console.log(`Express is listening at http://localhost:${port}`);
 });
