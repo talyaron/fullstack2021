@@ -34,6 +34,18 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+function handleNotAMember() {
+    var register = document.querySelector(".registerwrapper");
+    var login = document.querySelector(".loginwrapper");
+    register.style.display = 'block';
+    login.style.display = 'none';
+}
+function handleAlreadyAMember() {
+    var register = document.querySelector(".registerwrapper");
+    var login = document.querySelector(".loginwrapper");
+    register.style.display = 'none';
+    login.style.display = 'block';
+}
 function handleRegister(ev) {
     return __awaiter(this, void 0, void 0, function () {
         var _a, username, password, confirmPassword, email, confirmEmail, data;
@@ -68,13 +80,18 @@ function handleLogin(ev) {
     return __awaiter(this, void 0, void 0, function () {
         var _a, username, password, data;
         return __generator(this, function (_b) {
-            ev.preventDefault();
-            _a = ev.target.elements, username = _a.username, password = _a.password;
-            username = username.value;
-            password = password.value;
-            data = axios.get("/get-user?username=" + username + "&password=" + password).data;
-            console.log(data);
-            return [2 /*return*/];
+            switch (_b.label) {
+                case 0:
+                    ev.preventDefault();
+                    _a = ev.target.elements, username = _a.username, password = _a.password;
+                    username = username.value;
+                    password = password.value;
+                    return [4 /*yield*/, axios.get("/get-user?username=" + username + "&password=" + password)];
+                case 1:
+                    data = (_b.sent()).data;
+                    console.log(data);
+                    return [2 /*return*/];
+            }
         });
     });
 }
