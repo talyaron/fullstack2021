@@ -134,18 +134,18 @@ app.get('/goToPlace',(req,res)=>{
 })
 app.post('/findPlaceMap', async(req,res)=>{
     let coordinates:Array<any> = req.body;
-    const center: google.maps.LatLngLiteral = {lat: 30, lng: -110};
-    initMap(center)
+  //  const center: google.maps.LatLngLiteral = {lat: 30, lng: -110};
+   // initMap(center)
     res.send(coordinates);
 });
-let map: google.maps.Map;
+// let map: google.maps.Map;
 
-function initMap(center): void {
-  map = new google.maps.Map(document.getElementById("map") as HTMLElement, {
-    center,
-    zoom: 8
-  });
-}
+// function initMap(center): void {
+//   map = new google.maps.Map(document.getElementById("map") as HTMLElement, {
+//     center,
+//     zoom: 8
+//   });
+// }
 app.listen(port, () => {
   return console.log(`Express is listening at http://localhost:${port}`);
 });

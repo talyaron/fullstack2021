@@ -129,17 +129,17 @@ app.get('/goToPlace', (req, res) => {
 });
 app.post('/findPlaceMap', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     let coordinates = req.body;
-    const center = { lat: 30, lng: -110 };
-    initMap(center);
+    //  const center: google.maps.LatLngLiteral = {lat: 30, lng: -110};
+    // initMap(center)
     res.send(coordinates);
 }));
-let map;
-function initMap(center) {
-    map = new google.maps.Map(document.getElementById("map"), {
-        center,
-        zoom: 8
-    });
-}
+// let map: google.maps.Map;
+// function initMap(center): void {
+//   map = new google.maps.Map(document.getElementById("map") as HTMLElement, {
+//     center,
+//     zoom: 8
+//   });
+// }
 app.listen(port, () => {
     return console.log(`Express is listening at http://localhost:${port}`);
 });
