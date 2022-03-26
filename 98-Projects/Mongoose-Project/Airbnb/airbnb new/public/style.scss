@@ -385,14 +385,16 @@ body{
 
 .mainPage{
     margin-left:5%;
-    margin-right:5%;     
+    margin-right:5%;  
+      
     &__imageCarousel{
         border-radius: 10%;
         overflow:hidden;
         //display:block;  
         //width:fit-content; 
         //width:70%;
-       
+        margin-left:5%;
+        margin-right:5%;  
         &--title {
             position:absolute;
             color:white;
@@ -437,6 +439,8 @@ body{
     &__citySuggestions{
         margin-top:10%;        
         margin-bottom:10%;
+        margin-left:5%;
+        margin-right:5%;  
 
             &__cards{
                
@@ -446,7 +450,7 @@ body{
                 gap:10px;
                 justify-content: space-between;
                 //align-content: center;
-                
+               
                 
             
                 &__card{

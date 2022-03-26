@@ -274,6 +274,8 @@ body {
 .mainPage__imageCarousel {
   border-radius: 10%;
   overflow: hidden;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 .mainPage__imageCarousel--title {
   position: absolute;
@@ -306,6 +308,8 @@ body {
 .mainPage__citySuggestions {
   margin-top: 10%;
   margin-bottom: 10%;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 .mainPage__citySuggestions__cards {
   height: 50vh;
