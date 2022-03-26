@@ -47,12 +47,12 @@ app.post("/add-user", (req, res) => __awaiter(void 0, void 0, void 0, function* 
 }));
 app.get("/get-user", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        console.log(req.body);
-        let { username, password } = req.body;
+        let { username, password } = req.query;
         console.log(username, password);
         const userMatch = yield FundleUser.find({ username: username, password: password });
+        console.log(userMatch);
         if (userMatch) {
-            res.send(userMatch);
+            res.send({ user: userMatch });
         }
         else {
             const noPass = yield FundleUser.find({ username: username });

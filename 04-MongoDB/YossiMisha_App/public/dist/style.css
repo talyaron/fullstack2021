@@ -9,7 +9,7 @@ body {
   font-family: "Montserrat Alternates", sans-serif;
 }
 
-.center {
+.loginwrapper, .registerwrapper {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -19,20 +19,20 @@ body {
   background: white;
   border-radius: 10px;
 }
-.center h1 {
+.loginwrapper h1, .registerwrapper h1 {
   text-align: center;
   padding: 0 0 20px 0;
   border-bottom: 1px solid silver;
 }
-.center form {
+.loginwrapper form, .registerwrapper form {
   padding: 0 40px;
   box-sizing: border-box;
 }
-.center form .txt_field {
+.loginwrapper form .txt_field, .registerwrapper form .txt_field {
   position: relative;
   margin: 30px 0;
 }
-.center form .txt_field input {
+.loginwrapper form .txt_field input, .registerwrapper form .txt_field input {
   width: 100%;
   padding: 0 5px;
   height: 20px;
@@ -41,15 +41,15 @@ body {
   background: none;
   outline: none;
 }
-.center form .txt_field input:focus ~ label, .center form .txt_field input:valid ~ label {
+.loginwrapper form .txt_field input:focus ~ label, .loginwrapper form .txt_field input:valid ~ label, .registerwrapper form .txt_field input:focus ~ label, .registerwrapper form .txt_field input:valid ~ label {
   top: -10px;
   color: #2691d9;
 }
-.center form .txt_field input:focus ~ span::before, .center form .txt_field input:valid ~ span::before {
+.loginwrapper form .txt_field input:focus ~ span::before, .loginwrapper form .txt_field input:valid ~ span::before, .registerwrapper form .txt_field input:focus ~ span::before, .registerwrapper form .txt_field input:valid ~ span::before {
   width: 100%;
   color: #2691d9;
 }
-.center form .txt_field label {
+.loginwrapper form .txt_field label, .registerwrapper form .txt_field label {
   position: absolute;
   top: 50%;
   left: 5px;
@@ -59,7 +59,7 @@ body {
   pointer-events: none;
   transition: 0.5s;
 }
-.center form .txt_field span::before {
+.loginwrapper form .txt_field span::before, .registerwrapper form .txt_field span::before {
   content: "";
   position: absolute;
   top: 25px;
@@ -69,15 +69,15 @@ body {
   background: #2691d9;
   transition: 0.5s;
 }
-.center .pass {
+.loginwrapper .pass, .registerwrapper .pass {
   margin: -5px 0 20px 5x;
   color: #a6a6a6;
   cursor: pointer;
 }
-.center .pass:hover {
+.loginwrapper .pass:hover, .registerwrapper .pass:hover {
   text-decoration: underline;
 }
-.center .submit {
+.loginwrapper .submit, .registerwrapper .submit {
   position: relative;
   top: 20px;
   width: 100%;
@@ -91,24 +91,25 @@ body {
   cursor: pointer;
   outline: none;
 }
-.center .submit:hover {
+.loginwrapper .submit:hover, .registerwrapper .submit:hover {
   border-color: #2691d9;
   transition: 0.5s;
 }
-.center .signup_link {
+.loginwrapper .signup_link, .registerwrapper .signup_link {
   margin: 30px 0;
   text-align: center;
   font-size: 16px;
   color: #666666;
 }
-.center .signup_link a {
+.loginwrapper .signup_link a, .registerwrapper .signup_link a {
   color: #2691d9;
   text-decoration: none;
 }
-.center .signup_link a:hover {
+.loginwrapper .signup_link a:hover, .registerwrapper .signup_link a:hover {
   text-decoration: underline;
+  cursor: pointer;
 }
 
-.register {
-  position: relative;
+.registerwrapper {
+  display: none;
 }

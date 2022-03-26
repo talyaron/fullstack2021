@@ -38,16 +38,19 @@ app.post("/add-user", async (req, res) => {
   }
 });
 
-app.get("/get-user", async (req, res) => {
+app.get("/get-user", async(req, res) => {
   try {
-    console.log(req.body)
-    let { username, password } = req.body
-    console.log(username,password)
+
+    let { username, password } = req.query
+    console.log(username, password)
+
     const userMatch = await FundleUser.find({ username: username, password: password })
+    console.log(userMatch)
 
     if (userMatch) {
-      res.send(userMatch)
+      res.send({user: userMatch})
     }
+
     else{
     const noPass = await FundleUser.find({ username: username })
     if (noPass){
