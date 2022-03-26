@@ -20,13 +20,13 @@ const app = express_1.default();
 const port = process.env.PORT || 3000;
 app.use(express_1.default.static("public"));
 app.use(express_1.default.json());
-mongoose_1.default.connect('mongodb+srv://shay:shayFoyer1994@cluster0.xyd5y.mongodb.net/sample_airbnb?retryWrites=true&w=majority');
-mongoose_1.default.connect('mongodb+srv://ShaniRom:ynbUaPL3oHZKGl8a@cluster0.vh1hg.mongodb.net/sample_airbnb?retryWrites=true&w=majority');
-app.set('view engine', 'ejs'); //connectiong ejs
-console.log(app.get('view engine'));
-app.set('views', path_1.default.resolve(__dirname, 'pages'));
-app.get('/', (req, res) => {
-    res.send('Hello World!');
+mongoose_1.default.connect("mongodb+srv://shay:shayFoyer1994@cluster0.xyd5y.mongodb.net/sample_airbnb?retryWrites=true&w=majority");
+//mongoose.connect('mongodb+srv://ShaniRom:ynbUaPL3oHZKGl8a@cluster0.vh1hg.mongodb.net/sample_airbnb?retryWrites=true&w=majority');
+app.set("view engine", "ejs"); //connectiong ejs
+console.log(app.get("view engine"));
+app.set("views", path_1.default.resolve(__dirname, "pages"));
+app.get("/", (req, res) => {
+    res.send("Hello World!");
 });
 const PlacesSchema = new mongoose_1.default.Schema({
     name: String,
@@ -48,27 +48,30 @@ const PlacesSchema = new mongoose_1.default.Schema({
     bed_type: String,
     reviews: Array,
     cancellation_policy: String,
-    address: Object
+    address: Object,
 });
+const { MongoClient } = require("mongodb");
+const url = "mongodb://localhost:27017";
+const client = new MongoClient(url);
 const userSchema = new mongoose_1.default.Schema({
     name: String,
-    password: String
+    password: String,
 });
-const Users = mongoose_1.default.model('users', userSchema);
-const Places = mongoose_1.default.model('listingsAndReviews', PlacesSchema);
-app.get('/getPlaces', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const Users = mongoose_1.default.model("users", userSchema);
+const Places = mongoose_1.default.model("listingsAndReviews", PlacesSchema);
+app.get("/getPlaces", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const places = yield Places.find({});
         res.send({ ok: true, places });
     }
     catch (error) {
         console.error(error);
-        res.send({ error: 'error in app.get/getPlaces' });
+        res.send({ error: "error in app.get/getPlaces" });
     }
 }));
-app.post('/addPlaces', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+app.post("/addPlaces", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        let { name, summary, checkIn, checkOut, accommodates, amenities, bedrooms, beds, number_of_reviews, price, cancle, bathrooms, images, host, space, description, bed_type, reviews, cancellation_policy, address } = req.body;
+        let { name, summary, checkIn, checkOut, accommodates, amenities, bedrooms, beds, number_of_reviews, price, cancle, bathrooms, images, host, space, description, bed_type, reviews, cancellation_policy, address, } = req.body;
         const newPlace = new Places({
             name,
             summary,
@@ -89,7 +92,7 @@ app.post('/addPlaces', (req, res) => __awaiter(void 0, void 0, void 0, function*
             bed_type,
             reviews,
             cancellation_policy,
-            address
+            address,
         });
         const result = yield newPlace.save();
         res.send({ ok: true, result });
@@ -99,7 +102,7 @@ app.post('/addPlaces', (req, res) => __awaiter(void 0, void 0, void 0, function*
         res.send({ error: error.massage });
     }
 }));
-app.post('/addUsers', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+app.post("/addUsers", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         let { user, password } = req.body;
         const newUser = new Users({ user, password });
@@ -132,7 +135,7 @@ app.post('/addUsers', (req, res) => __awaiter(void 0, void 0, void 0, function* 
 // }).catch(function (error) {
 //   console.error(error);
 // });
-app.get('/goToPlace', (req, res) => {
+app.get("/goToPlace", (req, res) => {
     try {
         const { placeId } = req.body;
         const __id = req.body;
@@ -148,7 +151,7 @@ app.get('/goToPlace', (req, res) => {
         res.send({ error: error.massage });
     }
 });
-app.post('/findPlaceMap', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+app.post("/findPlaceMap", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     let coordinates = req.body;
     //  const center: google.maps.LatLngLiteral = {lat: 30, lng: -110};
     // initMap(center)
@@ -160,6 +163,26 @@ app.post('/findPlaceMap', (req, res) => __awaiter(void 0, void 0, void 0, functi
 //     center,
 //     zoom: 8
 //   });
+// }
+// ---- search in navigation bar---------
+// app.get('/search-city',(req,res)=>{
+//     const search=req.query.search;
+//     const filteredCity=filteredCitySearch(search);
+//     res.send(filteredCity)
+// })
+app.get('/search-city', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const search = req.query.search;
+    const filteredCity = yield Places.find({ address: search });
+    console.log(filteredCity);
+    //res.send({city:filteredCity})
+}));
+// function filteredCitySearch(search) {
+//     if (search) {
+//       const regex = new RegExp(search, "i");
+//       return data.filter((searchedTerm) => regex.test(searchedTerm.address.country));
+//     } else {
+//       return data
+//     }
 // }
 app.listen(port, () => {
     return console.log(`Express is listening at http://localhost:${port}`);

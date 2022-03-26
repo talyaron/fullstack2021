@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;900&family=Shadows+Into+Light&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="dist/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.min.js" integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./dist/index.js" defer></script>
+    <title>Account</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+
+<body onload="handleOnLoad()">
+    <div class="header">
+        <div class="header__logo">
+            <span class="material-icons"><a href="./index.html">palette</a></span>
+            <h2><a href="./index.html">ArtNFT</a></h2>
+        </div>
+        <div class="header__searchbar">
+            <form id="search" onsubmit="handleSearch(event)">
+                <span class="material-icons">search</span>
+                <input type="search" name="search" placeholder="         Search Items, Collections, Accounts">
+            </form>
+        </div>
+        <div class="header__item">
+            <p>Explore</p>
+        </div>
+        <div class="header__item">
+            <p>Stats</p>
+        </div>
+        <div class="header__item">
+            <p>Resources</p>
+        </div>
+        <div class="header__item">
+            <p>Create</p>
+        </div>
+        <div class="header__item" id="sign-in">
+            <span class="material-icons" onclick="handleAccount()">
+                account_circle
+            </span>
+            <form class="sign-in-form in-vis" onsubmit="handleLogInForm(event)">
+                <input type="email" name="email" placeholder="email" required>
+                <input type="password" name="password" placeholder="password" required>
+                <input type="submit" value="log-in">
+                <a href="./account_page.html">sign-up</a>
+            </form>
+        </div>
+        <div class="header__item">
+            <span class="material-icons" onclick="handleAccountRedirect()">
+                 account_balance_wallet
+            </span>
+        </div>
+    </div>
+    <div class="side-bar">
+        <div class="side-bar__item" id="main" onclick="handleAccountOption(event)">Main</div>
+        <div class="side-bar__item" id="settings" onclick="handleAccountOption(event)">Settings</div>
+        <div class="side-bar__item" id="stats" onclick="handleAccountOption(event)">Personal Stats</div>
+        <div class="side-bar__item" id="create" onclick="handleAccountOption(event)">Create New Art</div>
+        <div class="side-bar__item" id="sale" onclick="handleAccountOption(event)">My Items For Sale</div>
+    </div>
+    <div class="main-account">
+        <h2>Account Settings</h2>
+        <form onsubmit="handleSettingsForm(event)">
+            <input type="text" name="username" value="">
+            <input type="submit" value="update username">
+        </form>
+        <form onsubmit="handleSettingsForm(event)">
+            <input type="text" name="email" value="">
+            <input type="submit" value="update email">
+        </form>
+        <form onsubmit="handleSettingsForm(event)">
+            <input type="text" name="pic" value="">
+            <input type="submit" value="update profile picture">
+        </form>
+        <form onsubmit="handleSettingsForm(event)">
+            <label for="password">Old password</label>
+            <input type="text" name="password" value="">
+            <label for="password2">New password</label>
+            <input type="text" name="password2" value="">
+            <label for="password3">Confirm new password</label>
+            <input type="text" name="password3" value="">
+            <input type="submit" value="update password">
+        </form>
+
+    
+
+        <!-- <form onsubmit="OpenSignUpForm(event)">
+            <input type="text" name="userName" placeholder="userName" required>
+            <input type="email" name="email" placeholder="email" required>
+            <input type="password" name="password" placeholder="password" required>
+            <input type="password" name="password2" placeholder="password again" required>
+            <input type="url" name="url" placeholder="url" required>
+            <input type="submit" value="Register">
+        </form> -->
+
+
+        
+    </div>
+    <div class="footer"></div>
+
+    <!-- <script src="./dist/index.js"></script> -->
+</body>
+
+</html>

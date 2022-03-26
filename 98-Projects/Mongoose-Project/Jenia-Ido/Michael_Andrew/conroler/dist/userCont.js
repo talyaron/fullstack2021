@@ -36,10 +36,10 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.addArtToUser = exports.updateUser = exports.findUser = exports.addUser = void 0;
+exports.updateUser = exports.findUser = exports.addUser = void 0;
 var userModel_1 = require("../model/userModel");
 exports.addUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, userName, email, password, url, userFind, fund, artCollection, newUser, users, error_1;
+    var _a, userName, email, password, url, userFind, fund, collection, newUser, users, error_1;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
@@ -56,8 +56,8 @@ exports.addUser = function (req, res) { return __awaiter(void 0, void 0, void 0,
             case 2:
                 if (!(userFind.length === 0)) return [3 /*break*/, 4];
                 fund = 20;
-                artCollection = [];
-                newUser = new userModel_1["default"]({ userName: userName, email: email, password: password, url: url, fund: fund, artCollection: artCollection });
+                collection = [];
+                newUser = new userModel_1["default"]({ userName: userName, email: email, password: password, url: url, fund: fund, collection: collection });
                 return [4 /*yield*/, newUser.save()];
             case 3:
                 users = _b.sent();
@@ -113,23 +113,6 @@ exports.updateUser = function (req, res) { return __awaiter(void 0, void 0, void
                 return [4 /*yield*/, userModel_1["default"].updateOne({ _id: user._id }, user)];
             case 1:
                 _a.sent();
-                return [2 /*return*/];
-        }
-    });
-}); };
-// doesn't work ¯\_(⊙_ʖ⊙)_/¯ cant interact in any way with an Array
-exports.addArtToUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, newArt, user, r;
-    return __generator(this, function (_b) {
-        switch (_b.label) {
-            case 0:
-                _a = req.body, newArt = _a.newArt, user = _a.user;
-                return [4 /*yield*/, userModel_1["default"].updateOne({ _id: user._id }, {
-                        $push: { artCollection: newArt }
-                    })];
-            case 1:
-                r = _b.sent();
-                console.log(r);
                 return [2 /*return*/];
         }
     });

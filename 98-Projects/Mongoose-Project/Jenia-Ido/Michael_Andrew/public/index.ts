@@ -170,9 +170,8 @@ async function handleSettingsForm(ev) {
 
 async function handleAddArt(ev) {
     ev.preventDefault()
-    const newArt = { name: ev.target.name.value, url: ev.target.url.value, author: site.user.userName};
-    await axios.post('/users/add-art', {newArt, user: site.user});
-
+    const newArt = { name: ev.target.name.value, url: ev.target.url.value, author: site.user.username};
+    await axios.post('/users/add-art', {newArt})
 }
 
 interface UserData {
