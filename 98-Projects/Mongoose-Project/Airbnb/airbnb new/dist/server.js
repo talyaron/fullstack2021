@@ -107,6 +107,35 @@ app.post('/addUsers', (req, res) => __awaiter(void 0, void 0, void 0, function* 
 // }).catch(function (error) {
 //   console.error(error);
 // });
+app.get('/goToPlace', (req, res) => {
+    try {
+        const { placeId } = req.body;
+        const __id = req.body;
+        if (__id == placeId) {
+            res.send(placeId);
+        }
+        else {
+            throw new Error("placeId is not the same as the __id");
+        }
+    }
+    catch (error) {
+        console.log(error.error);
+        res.send({ error: error.massage });
+    }
+});
+app.post('/findPlaceMap', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    let coordinates = req.body;
+    const center = { lat: 30, lng: -110 };
+    initMap(center);
+    res.send(coordinates);
+}));
+let map;
+function initMap(center) {
+    map = new google.maps.Map(document.getElementById("map"), {
+        center,
+        zoom: 8
+    });
+}
 app.listen(port, () => {
     return console.log(`Express is listening at http://localhost:${port}`);
 });

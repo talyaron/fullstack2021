@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
      <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,20 +15,102 @@
     <title>Document</title>
 </head>
 <body>
-<div class="navigator">
-    <div class="navigator--logo">
-        <img src="https://theislandnow.com/wp-content/uploads/2017/10/airbnblogo.png" alt="">
-    </div>
-    <div class="navigator--search">
-        <input type="search" name="searchBar" id="" placeholder="start searching">
-        <div class="search"><i class="fa-solid fa-magnifying-glass"></i></div>
-    </div>
-    <div class="navigator--user">
-       <img src="https://i.pinimg.com/736x/b8/69/5f/b8695f007aea9a08a0419479217ca6aa.jpg" alt="">
+    <nav class="navigation">
+        <ul>
+            <li class="navigation--logo"><img src="images/logoTitle.png" alt="airbnb"></li>
+            <li class="navigation--search">
+                <form class="form">
+                    <div class="form--searchLocation">
+                        <label for="searchLocation">Location <br>
+                            <input id="searchLocation" type="text" placeholder="Where are you going?">
+                        </label>
+                        <div class="dropdown">
+                            <p>Adults
+                                Ages 13 or above</p>
+                            <p>Children
+                                Ages 2–12</p>
+                            <p>Infants
+                                Under 2</p>
+                            <p>
+                                Pets
+                                Bringing a service animal?
+                            </p>
 
-    </div>
-</div>
-<div class="mainUpper">
+                        </div>
+                    </div>
+
+                    <div class="form--checkIn">
+                        <label for="checkIn">Check in <br>
+                            <button id="checkIn">Add dates</button>
+                        </label>
+                        <div class="dropdown">
+                            <p>Adults
+                                Ages 13 or above</p>
+                            <p>Children
+                                Ages 2–12</p>
+                            <p>Infants
+                                Under 2</p>
+                            <p>
+                                Pets
+                                Bringing a service animal?
+                            </p>
+
+                        </div>
+                    </div>
+
+                    <div class="form--checkOut">
+                        <label for="checkOut">Check out<br>
+                            <button id="checkOut">Add dates</button>
+                        </label>
+                        <div class="dropdown">
+                            <p>Adults
+                                Ages 13 or above</p>
+                            <p>Children
+                                Ages 2–12</p>
+                            <p>Infants
+                                Under 2</p>
+                            <p>
+                                Pets
+                                Bringing a service animal?
+                            </p>
+
+                        </div>
+                    </div>
+
+                    <div class="form--guests">
+                        <label for="guests">Guests<br>
+                            <button id="guests">Add guests</button>
+                        </label>
+                        <div class="dropdown">
+                            <p>Adults
+                                Ages 13 or above</p>
+                            <p>Children
+                                Ages 2–12</p>
+                            <p>Infants
+                                Under 2</p>
+                            <p>
+                                Pets
+                                Bringing a service animal?
+                            </p>
+
+                        </div>
+                    </div>
+
+
+                    <a href="" class="form--searchIcon"><input type="image" src="images/searchIcon.png" ></a>
+
+
+                </form>
+            </li>
+            <li class="navigation--greeting">Welcome!</li>
+
+            <li class="navigation--user"><img src="images/visitorProfile.png">
+            </li>
+        </ul>
+    </nav>
+
+<div id="rootPlace">    
+ <!-- <div class="mainUpper">
     <div class="maiUpper__title">
         <h1>Amazing 1 BDR W/ balcony on Sheinkin st</h1>
         <h6><span><i class="fa-solid fa-star fa-xs"></i></span>4.6 35 review Tel Aviv District</h6>
@@ -284,7 +366,9 @@ Carbon monoxide alarm not reported Show more
         <p>Add your trip dates to get the cancellation details for this stay.</p>
         <button>add dates</button>
     </div>
+</div>  -->
 </div>
+<div id="map"></div>
 <script src="dist/index.js"></script>
 <script
 src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap&v=weekly"

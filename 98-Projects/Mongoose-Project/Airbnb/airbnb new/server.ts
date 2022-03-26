@@ -110,6 +110,37 @@ catch(error){
 // }).catch(function (error) {
 //   console.error(error);
 // });
+app.get('/goToPlace',(req,res)=>{
+    try{
+    const {placeId} =req.body;
+    const __id =req.body
+    if(__id == placeId){
+        res.send(placeId)
+    }
+    else{
+        throw new Error("placeId is not the same as the __id");
+      }
+    }
+    catch(error){
+        console.log(error.error);
+        res.send({error:error.massage})
+        
+      }
+})
+app.post('/findPlaceMap', async(req,res)=>{
+    let coordinates:Array<any> = req.body;
+    const center: google.maps.LatLngLiteral = {lat: 30, lng: -110};
+    initMap(center)
+    res.send(coordinates);
+});
+let map: google.maps.Map;
+
+function initMap(center): void {
+  map = new google.maps.Map(document.getElementById("map") as HTMLElement, {
+    center,
+    zoom: 8
+  });
+}
 app.listen(port, () => {
   return console.log(`Express is listening at http://localhost:${port}`);
 });
