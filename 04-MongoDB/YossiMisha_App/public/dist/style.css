@@ -5,7 +5,7 @@ body {
   font-family: montserrat;
   background: linear-gradient(120deg, #2980b9, #8e44ad);
   height: 100vh;
-  overflow: hidden;
+  overflow: scroll;
   font-family: "Montserrat Alternates", sans-serif;
 }
 
@@ -15,6 +15,7 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 400px;
+  height: fit-content;
   background: white;
   border-radius: 10px;
 }
@@ -41,7 +42,7 @@ body {
   outline: none;
 }
 .center form .txt_field input:focus ~ label, .center form .txt_field input:valid ~ label {
-  top: -5px;
+  top: -10px;
   color: #2691d9;
 }
 .center form .txt_field input:focus ~ span::before, .center form .txt_field input:valid ~ span::before {
@@ -106,4 +107,8 @@ body {
 }
 .center .signup_link a:hover {
   text-decoration: underline;
+}
+
+.register {
+  position: relative;
 }

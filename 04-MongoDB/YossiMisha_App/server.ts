@@ -19,7 +19,35 @@ const UserSchema = new mongoose.Schema({
   max_strike: Number,
 })
 
-const BSUser = mongoose.model('WordleUsers', UserSchema);
+const FundleUser = mongoose.model('FundleUsers', UserSchema);
+
+app.post("/add-user", async (req, res) => {
+  try {
+    let { username, password, email} = req.body;
+    console.log(req.body)
+    const newGuitar = new FundleUser({ username, password, email})
+    const result = await newGuitar.save()
+
+    res.send({ result });
+  } catch (error) {
+    console.error(error);
+    res.send({ error: error.message });
+  }
+});
+
+app.get("/get-user", async (req, res) => {
+  try {
+    let {username, password} = req.body
+    const user = await FundleUser.find({username: username, password: password})
+    res.send(user)
+
+  }
+  catch (error) {
+    console.log(error.error);
+    res.send({ error: error.message })
+  }
+})
+
 
 app.listen(port, () => {
   return console.log(`Express is listening at http://localhost:${port}`);
