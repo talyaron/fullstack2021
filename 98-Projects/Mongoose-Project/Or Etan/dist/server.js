@@ -9,7 +9,7 @@ const app = express_1.default();
 const port = 3000;
 app.use(express_1.default.static("public"));
 app.use(express_1.default.json());
-mongoose_1.default.connect('mongodb+srv://EtanHey:NI2nXMDwLdTiRScP@cluster0.gedel.mongodb.net/OrEtan?retryWrites=true')
+mongoose_1.default.connect('mongodb+srv://OrA99:134679852Or@cluster0.r0go0.mongodb.net/OrEtan?retryWrites=true&w=majority')
     .then(() => { console.log('connect to Mongoose'); })
     .catch(err => { console.log(err.message); });
 const UserSchema = new mongoose_1.default.Schema({

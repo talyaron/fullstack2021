@@ -6,7 +6,7 @@ const port: number = 3000;
 app.use(express.static("public"));
 app.use(express.json());
 
-mongoose.connect('mongodb+srv://EtanHey:NI2nXMDwLdTiRScP@cluster0.gedel.mongodb.net/OrEtan?retryWrites=true')
+mongoose.connect('mongodb+srv://OrA99:134679852Or@cluster0.r0go0.mongodb.net/OrEtan?retryWrites=true&w=majority')
 .then(()=>{console.log('connect to Mongoose')})
 .catch(err=>{console.log(err.message)})
 
