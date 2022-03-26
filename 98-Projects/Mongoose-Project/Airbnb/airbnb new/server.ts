@@ -40,6 +40,9 @@ const PlacesSchema = new mongoose.Schema({
     address:Object
     
 })
+const { MongoClient } = require('mongodb');
+const url = 'mongodb://localhost:27017';
+const client = new MongoClient(url);
 
 const userSchema = new mongoose.Schema({
     name:String,

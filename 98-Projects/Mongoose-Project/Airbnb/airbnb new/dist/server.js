@@ -50,6 +50,9 @@ const PlacesSchema = new mongoose_1.default.Schema({
     cancellation_policy: String,
     address: Object
 });
+const { MongoClient } = require('mongodb');
+const url = 'mongodb://localhost:27017';
+const client = new MongoClient(url);
 const userSchema = new mongoose_1.default.Schema({
     name: String,
     password: String
