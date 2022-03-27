@@ -25,12 +25,15 @@ const userSchema = new mongoose_1.default.Schema({
 });
 const User = mongoose_1.default.model('Users', userSchema);
 const Images = mongoose_1.default.model('images', imageSchema);
+mongoose_1.default.connect('mongodb+srv://igino11:kktgqbLMCE3mtTN6@cluster0.zfewx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority');
 app.patch('/get-addNewUser', (req, res) => {
     const { newUser } = req.body;
+    const newImgs = { email: newUser.email, password: newUser.password, url: ['https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png'] };
     const user = new User(newUser);
-    const newImgs = {};
-    // console.log(newUser);
+    const userImgs = new Images(newImgs);
+    console.log(userImgs);
     console.log(user);
+    res.send(userImgs);
 });
 app.listen(port, () => {
     return console.log(`Express is listening at http://localhost:${port}`);
