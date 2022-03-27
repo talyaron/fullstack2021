@@ -1,7 +1,7 @@
 const forms = {
     renderSignUpFormfirstPage: function (display: any) {
         display.innerHTML = `
-        <form action="public/profile.html" method="get" id="firstPage" class="main_display-signUpForm" onsubmit="newUserDetails(event)" style="animation: signUpAnimation 2s 1s forwards;">
+        <form id="firstPage" class="main_display-signUpForm" onsubmit="newUserDetails(event)" style="animation: signUpAnimation 2s 1s forwards;">
 <h1 class="main_display-signUpForm-header">enter details and create account</h1>
 <label class="" style="color:white;">birthday: </label>
 <input type="date" name="birthDay" id="birthDay" style="background-color:gray";>
@@ -66,8 +66,6 @@ async function newUserDetails(ev) {
     let birthday, firstName, lastName, country, gender, password, email;
     // var birthday = new Date(birthdayInput);
 
-
-
     for (let field of ev.target) {
         if (field.name !== "submit") {
             if (field.name == "birthDay") {
@@ -90,7 +88,9 @@ async function newUserDetails(ev) {
     console.log(birthday);
     const newUser: User = { firstName, lastName, birthday, country, password, email, gender }
     const { data } = await axios.patch('/get-addNewUser', { newUser });
-
+    console.log(data);
+    
+    
 }
 
 function creatNewUser(ev) {

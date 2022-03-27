@@ -20,11 +20,15 @@ const userSchema = new mongoose.Schema({
     email: String,
     gender: String,
 })
-const Users = mongoose.model('Users',userSchema);
+const User = mongoose.model('Users',userSchema);
 const Images = mongoose.model('images',imageSchema);
 
 app.patch('/get-addNewUser', (req, res) => {
-  const newUser = req.body
+  const {newUser} = req.body;
+  const user = new User(newUser)
+  const newImgs = {}
+  // console.log(newUser);
+  console.log(user);
   
   
 });

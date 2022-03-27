@@ -75,17 +75,14 @@ body {
             grid-template-columns: repeat(10, 1fr);
             grid-template-rows: repeat(10, 1fr);
             max-height: fit-content;
-            border-bottom: 2px solid rgb(156, 155, 160);
+            // border-bottom: 2px solid rgb(156, 155, 160);
             // border: 2px solid red;
-
-           
 
             &-signUpForm {
                 width: 20vw;
                 display: flex;
                 flex-direction: column;
                 row-gap: 2vh;
-                // position: relative;
                 font-family: Arial;
                 // border: 2px solid red;
                 margin-left: -50px;
@@ -93,8 +90,6 @@ body {
                 // border: 2px solid red;
 
                 
-
-
                 &-input {
                     box-shadow: rgba(54, 53, 52, 0.35) 0px 30px 60px 30px inset, rgba(139, 139, 148, 0.3) 0px 18px 36px 18px inset;
                     width: 100%;
@@ -119,7 +114,7 @@ body {
                     font-style: italic;
                     font-size: 17px;
                     box-shadow: rgba(54, 53, 52, 0.35) 0px 30px 60px 30px inset, rgba(139, 139, 148, 0.3) 0px 18px 36px 18px inset;
-                    width: 105%;
+                    width: 95%;
                     border-radius: 5px;
 
                     & option {

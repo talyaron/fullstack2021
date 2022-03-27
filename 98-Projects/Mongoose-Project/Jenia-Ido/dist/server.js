@@ -23,10 +23,14 @@ const userSchema = new mongoose_1.default.Schema({
     email: String,
     gender: String,
 });
-const Users = mongoose_1.default.model('Users', userSchema);
+const User = mongoose_1.default.model('Users', userSchema);
 const Images = mongoose_1.default.model('images', imageSchema);
 app.patch('/get-addNewUser', (req, res) => {
-    const newUser = req.body;
+    const { newUser } = req.body;
+    const user = new User(newUser);
+    const newImgs = {};
+    // console.log(newUser);
+    console.log(user);
 });
 app.listen(port, () => {
     return console.log(`Express is listening at http://localhost:${port}`);
