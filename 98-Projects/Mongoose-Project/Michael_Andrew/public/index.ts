@@ -50,7 +50,9 @@ async function handleLogInForm(e) {
     }
     if (window.location.pathname.split("/").pop() == 'register.html') window.location.href = "./account_page.html"
     e.target.reset();
-    document.querySelector('.sign-in-form').classList.toggle('in-vis');
+    const signIn = document.querySelector('.sign-in-form')
+    signIn.classList.toggle('in-vis');
+
 }
 
 function handleAccount() {
@@ -189,16 +191,19 @@ const site = {
     user: {}
 }
 
-// didn't understand what you did here ¯\_(ツ)_/¯
+//sideBar
 
-let userLogedIn = {
-    logData: [],
-    addlogData(data) {
-        // const uid = Date.now().toString(36) + Math.random().toString(36).substr(2);
-        this.logData.push(data)
-        console.log(this.logData);
+function handleStatusClick () {
 
-    },
+    document.querySelector('.status-buttons').classList.toggle('toggle');
+    
+}
+
+function handleOnSale(){
+
+    const onSale = document.querySelector('.onSale')
+    onSale.classList.toggle('hidden');
+    
 }
 
 

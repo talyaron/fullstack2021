@@ -12,12 +12,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="./dist/style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.min.js" integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.min.js"
+        integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>Art</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 
-<body  onload="handleOnLoad()">
+<body onload="handleOnLoad()">
 
     <div class="header">
         <div class="header__logo">
@@ -30,7 +32,7 @@
                 <input type="search" name="search" placeholder="         Search Items, Collections, Accounts">
             </form>
         </div>
-        <div class="header__item">
+        <div class="header__item" id="exploreItem">
             <p>Explore</p>
         </div>
         <div class="header__item">
@@ -46,7 +48,7 @@
             <span class="material-icons" onclick="handleAccount()">
                 account_circle
             </span>
-            <form class="sign-in-form in-vis" onsubmit="handleLogInForm(event)">
+            <form class="sign-in-form in-vis" id="signIn" onsubmit="handleLogInForm(event)">
                 <input type="email" name="email" placeholder="email" required>
                 <input type="password" name="password" placeholder="password" required>
                 <input type="submit" value="log-in">
@@ -55,21 +57,44 @@
         </div>
         <div class="header__item">
             <span class="material-icons" onclick="handleAccountRedirect()">
-                 account_balance_wallet
+                account_balance_wallet
             </span>
         </div>
-        
+
     </div>
 
 
     <div class="side-bar">
         <div class="side-bar__item">Filter</div>
-        <div class="side-bar__item">Status</div>
+        <div class="side-bar__item" onclick="handleStatusClick()">
+            Status
+        </div>
+
+        <div class="status-buttons toggle" id="statusBar">
+            <button>Buy Now</button>
+            <button>Auction</button>
+            <button>New</button>
+            <button>Has Offers</button>
+        </div>
+
+
+
+
         <div class="side-bar__item">Price</div>
         <div class="side-bar__item">Collections</div>
         <div class="side-bar__item">Chains</div>
         <div class="side-bar__item">Categories</div>
-        <div class="side-bar__item">On Sale In</div>
+        <div class="side-bar__item" onclick="handleOnSale()">On Sale In</div>
+        <div class="onSale hidden">
+            
+            <input type="search" name="filter" class="filter" placeholder="Filter">
+            <input type="checkbox" name="EATH" class="EATH">
+            <input type="checkbox" name="WEATH" class="WEATH">
+
+        </div>
+
+
+
 
     </div>
 
@@ -224,7 +249,7 @@
     </div>
 
 
-<script src="./dist/index.js"></script>
+    <script src="./dist/index.js"></script>
 </body>
 
 </html>
