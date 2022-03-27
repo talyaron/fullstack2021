@@ -6,7 +6,7 @@ app.use(express.static("public"));
 app.use(express.json());
 
 const imageSchema = new mongoose.Schema({
-  url:Array,
+  url:[String],
   email:String,
   password:String,
 })
@@ -21,10 +21,11 @@ const userSchema = new mongoose.Schema({
     gender: String,
 })
 const Users = mongoose.model('Users',userSchema);
+const Images = mongoose.model('images',imageSchema);
 
 app.patch('/get-addNewUser', (req, res) => {
   const newUser = req.body
-  console.log(newUser);
+  
   
 });
 
