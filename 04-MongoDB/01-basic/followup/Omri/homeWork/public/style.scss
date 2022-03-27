@@ -1,0 +1,128 @@
+*{
+    padding: 0;
+    margin: 0;
+    ::-webkit-scrollbar {
+        width: 0px;
+      }
+    
+}
+
+
+.mainPage{
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 10vh 80vh 10vh;
+    background-color: #19162b;
+
+    &__header{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows:1fr;
+        
+
+        &--icons{
+        
+            i{
+            font-size: 35px;
+            color: white;
+            margin-left: 5%;
+            margin-top: 3%;
+            }
+        }
+
+        &--title{
+            text-align: center;
+            padding: .8rem;
+            font-family: 'Courgette', cursive;
+            color: #d114a9;
+        }
+
+        &--welcome{
+            text-align: end;
+            padding: 1.2rem;
+            font-family: 'Barlow', sans-serif;
+            color: #585568;
+        }
+    }
+
+    &__middle{
+        display: grid;
+        grid-template-columns: 80% 20%;
+        grid-template-rows: 1fr;
+
+        &--products{
+            display: grid;
+            grid-template-columns:repeat(4, 1fr);
+            grid-template-rows: auto;
+            background-color: #251f41; 
+            border-top-right-radius: 8px;
+            overflow: scroll;
+          
+            &--item{
+                width: 250px;
+                direction: rtl;
+                font-size: x-large;
+                margin-top: 30px;
+                margin-left: auto;
+                margin-right: auto;
+    
+                img{
+                    width: 100%;
+                    border-radius: 4px;
+                }
+            }
+        }
+
+        &--categories{
+            display: block;
+            text-align: center;
+            padding: 3%;
+            background-color: #19162b;
+
+
+            &__filed{
+                width: 90%;
+                height: 20px;
+                border: 1px solid black;
+                padding: 5px;
+                color: black;
+                font-size: x-large;
+                margin-top: 7px;
+                margin-left: 8px;
+            }
+
+            &__btn{
+                background-color: #4a41cc;
+                border: none;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                font-size: 16px;
+                border-radius: 7px;
+                margin-left: 8px;
+                margin-top: 17px;
+                cursor: pointer;
+            }
+
+            h4{
+                // padding: 10%;
+                margin-top: 30%;
+                font-family: 'Permanent Marker', cursive;
+                color: #d0cedb;
+                cursor: pointer;
+            }
+        }
+    }
+
+    &__footer{
+        background-color: #19162b;
+    }
+
+    img{
+        width: 250px;
+        height: 250px;
+    }
+}
+
+
