@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const app = express_1.default();
-const port = process.env.PORT || 3005;
+const port = process.env.PORT || 3010;
 app.use(express_1.default.static("public"));
 app.use(express_1.default.json());
 const imageSchema = new mongoose_1.default.Schema({
@@ -35,6 +35,24 @@ const userSchema = new mongoose_1.default.Schema({
 const User = mongoose_1.default.model('Users', userSchema);
 const Images = mongoose_1.default.model('images', imageSchema);
 mongoose_1.default.connect('mongodb+srv://igino11:kktgqbLMCE3mtTN6@cluster0.zfewx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority');
+app.get('/get-user', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const email = req.query.email;
+        console.log(email);
+        const password = req.query.password;
+        console.log(password);
+        const userData = yield User.find({ email: email });
+        const userImgs = yield Images.find({ email: email });
+        if (password === userData[0].password) {
+            res.send({ ok: true, userData, userImgs });
+        }
+        else
+            throw new Error("password not correct");
+    }
+    catch (err) {
+        res.send({ error: err.message, ok: false });
+    }
+}));
 app.post('/get-addNewUser', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { newUser } = req.body;
     const newImgs = { email: newUser.email, password: newUser.password, url: ['https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png'] };
