@@ -34,48 +34,21 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-function handleGetSearch() {
-    // const { data } = await axios.get('/get-music')
-    // console.log(data);
-    // const { ok, options } = data;
-    // console.log({ ok, options });
-}
-function handleRegistration(ev) {
+function handleRegister(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var _a, name, password, data;
+        var _a, username, password, data;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
                     ev.preventDefault();
-                    _a = ev.target.elements, name = _a.name, password = _a.password;
-                    console.log(name, password);
-                    name = name.value;
+                    _a = ev.target.elements, username = _a.username, password = _a.password;
+                    console.log(username, password);
+                    username = username.value;
                     password = password.value;
-                    console.log(name, password);
-                    return [4 /*yield*/, axios.post('/spotifyUser/reg-user', { name: name, password: password })];
+                    console.log(username, password);
+                    return [4 /*yield*/, axios.post('/add-user', { username: username, password: password })];
                 case 1:
                     data = (_b.sent()).data;
-                    console.log(data);
-                    return [2 /*return*/];
-            }
-        });
-    });
-}
-function handleLogIn(ev) {
-    return __awaiter(this, void 0, void 0, function () {
-        var _a, name, password, data;
-        return __generator(this, function (_b) {
-            switch (_b.label) {
-                case 0:
-                    ev.preventDefault();
-                    _a = ev.target.elements, name = _a.name, password = _a.password;
-                    name = name.value;
-                    password = password.value;
-                    console.log(name, password);
-                    return [4 /*yield*/, axios.post('/spotifyUser/sign-user', { name: name, password: password })];
-                case 1:
-                    data = (_b.sent()).data;
-                    console.log(data);
                     return [2 /*return*/];
             }
         });

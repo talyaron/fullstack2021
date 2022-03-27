@@ -123,9 +123,7 @@ exports.addArtToUser = function (req, res) { return __awaiter(void 0, void 0, vo
         switch (_b.label) {
             case 0:
                 _a = req.body, newArt = _a.newArt, user = _a.user;
-                return [4 /*yield*/, userModel_1["default"].updateOne({ _id: user._id }, {
-                        $push: { artCollection: newArt }
-                    })];
+                return [4 /*yield*/, userModel_1["default"].updateOne({ _id: user._id }, { $push: { artCollection: newArt } })];
             case 1:
                 r = _b.sent();
                 console.log(r);

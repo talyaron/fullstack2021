@@ -38,9 +38,29 @@ const PlacesSchema = new mongoose.Schema({
   cancellation_policy: String,
   address: Object,
 });
-const { MongoClient } = require("mongodb");
-const url = "mongodb://localhost:27017";
+const { MongoClient } = require('mongodb');
+const url = 'mongodb://localhost:27017/example';
 const client = new MongoClient(url);
+const dbName = 'myProject';
+
+async function main() {
+  // Use connect method to connect to the server
+  await client.connect();
+  console.log('Connected successfully to server');
+  const db = client.db(dbName);
+  const collection = db.collection('documents');
+  const findResult = await collection.find({}).toArray();
+  // the following code examples can be pasted here...
+    console.log(findResult);
+    
+  return 'done.';
+}
+
+main()
+  .then(console.log)
+  .catch(console.error)
+  .finally(() => client.close());
+
 
 const userSchema = new mongoose.Schema({
   name: String,
@@ -182,10 +202,16 @@ app.post("/findPlaceMap", async (req, res) => {
 //     const filteredCity=filteredCitySearch(search);
 //     res.send(filteredCity)
 // })
-app.get('/search-city', async(req,res)=>{
+app.get('/search-airbnb', async(req,res)=>{
     const search=req.query.search;
-    const filteredCity=await Places.find({address:search});
-    console.log(filteredCity)
+    const checkIn=req.query.checkIn;
+    const checkOut=req.query.checkOut;
+    const adults=req.query.adults;
+    const children=req.query.children;
+    const infants=req.query.infants;
+    const pets=req.query.pets;
+    const foundLocation=await Places.find({address:search});
+    console.log(foundLocation)
     //res.send({city:filteredCity})
 })
 

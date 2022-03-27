@@ -72,19 +72,32 @@ function handleLogin(ev) {
     });
 }
 function handleRegister(ev) {
-    ev.preventDefault();
-    var _a = ev.target.elements, firstName = _a.firstName, lastName = _a.lastName, email = _a.email, password = _a.password, role = _a.role;
-    firstName = firstName.value;
-    lastName = lastName.value;
-    email = email.value;
-    password = password.value;
-    role = role.value;
-    var data = axios.post("/add-user", {
-        firstName: firstName,
-        lastName: lastName,
-        email: email,
-        password: password,
-        role: role
-    }).data;
-    console.log(data);
+    return __awaiter(this, void 0, void 0, function () {
+        var _a, firstName, lastName, email, password, role, gender, data;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
+                case 0:
+                    ev.preventDefault();
+                    _a = ev.target.elements, firstName = _a.firstName, lastName = _a.lastName, email = _a.email, password = _a.password, role = _a.role, gender = _a.gender;
+                    firstName = firstName.value;
+                    lastName = lastName.value;
+                    email = email.value;
+                    password = password.value;
+                    role = role.value;
+                    gender = gender.value;
+                    return [4 /*yield*/, axios.post("/add-user", {
+                            firstName: firstName,
+                            lastName: lastName,
+                            email: email,
+                            password: password,
+                            role: role,
+                            gender: gender
+                        })];
+                case 1:
+                    data = (_b.sent()).data;
+                    console.log(data);
+                    return [2 /*return*/];
+            }
+        });
+    });
 }
