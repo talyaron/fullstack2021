@@ -6,7 +6,7 @@ const port = process.env.PORT || 3000;
 app.use(express.static("public"));
 app.use(express.json());
 
-mongoose.connect('mongodb+srv://alexroz:Rmd3yuY2HtsotTxD@cluster0.x62d1.mongodb.net/spotifyApp?retryWrites=true&w=majority')
+mongoose.connect('mongodb+srv://alexroz:Uou8wsRDp2J0FImM@cluster0.x62d1.mongodb.net/spotifyApp?retryWrites=true&w=majority')
 
 const UserSchema = new mongoose.Schema({
   searches: String,

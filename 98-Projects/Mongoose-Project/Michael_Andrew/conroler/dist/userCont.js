@@ -117,7 +117,6 @@ exports.updateUser = function (req, res) { return __awaiter(void 0, void 0, void
         }
     });
 }); };
-// doesn't work ¯\_(⊙_ʖ⊙)_/¯ cant interact in any way with an Array
 exports.addArtToUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var _a, newArt, user, r;
     return __generator(this, function (_b) {
