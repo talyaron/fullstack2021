@@ -42,7 +42,7 @@ function getItems() {
         var data, ok, items;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, axios.get("/getItems")];
+                case 0: return [4 /*yield*/, axios.get('/marketPlaces/getItems')];
                 case 1:
                     data = (_a.sent()).data;
                     ok = data.ok, items = data.items;

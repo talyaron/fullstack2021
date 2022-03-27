@@ -3,7 +3,7 @@ function appInit() {
 }
 
 async function getItems() {
-    const {data} = await axios.get("/getItems");
+    const {data} = await axios.get('/marketPlaces/getItems');
     const {ok, items} = data;
     if(items){
         renderItemsMain(items);
