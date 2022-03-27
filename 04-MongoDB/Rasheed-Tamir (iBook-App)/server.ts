@@ -5,34 +5,36 @@ const port = process.env.PORT || 3000;
 app.use(express.static("public"));
 app.use(express.json());
 
-// mongoose.connect('mongodb+srv://rasheedj966:rashj050880@cluster0.vtqmf.mongodb.net/test?retryWrites=true&w=majority');
 
-// const GamesSchema = new mongoose.Schema({
-//   id:String,
-//   coverImg: String,
-//   firstPageImg: String,
-//   firstPageChapter: String,
-//   firstPageHeadLine: String,
-//   firstPageContent:String,
-//   secendPageImg: String,
-//   secendPageChapter: String,
-//   secendPageHeadLine: String,
-//   secendPageContent:String,
-//   thirdPageImg: String,
-//   thirdPageChapter: String,
-//   thirdPageHeadLine: String,
-//   thirdPageContent:String,
-//   fourthPageImg: String,
-//   fourthPageChapter: String,
-//   fourthPageHeadLine: String,
-//   fourthPageContent:String,
-//   backCoverImg:String
+mongoose.connect('mongodb+srv://rasheedj966:rashj050880@cluster0.vtqmf.mongodb.net/Books?retryWrites=true&w=majority');
+
+
+const BooksSchema = new mongoose.Schema({
+  coverImg: String,
+  firstPageImg: String,
+  firstPageChapter: String,
+  firstPageHeadLine: String,
+  firstPageContent:String,
+  secendPageImg: String,
+  secendPageChapter: String,
+  secendPageHeadLine: String,
+  secendPageContent:String,
+  thirdPageImg: String,
+  thirdPageChapter: String,
+  thirdPageHeadLine: String,
+  thirdPageContent:String,
+  fourthPageImg: String,
+  fourthPageChapter: String,
+  fourthPageHeadLine: String,
+  fourthPageContent:String,
+  backCoverImg:String
   
-// });
+});
+const Book = mongoose.model('BookStore', BooksSchema);
 
 let books = [
   {
-      id: "firstBook",
+     
       coverImg: "https://kbimages1-a.akamaihd.net/93affabc-5161-421e-80d5-4477a07b8cee/1200/1200/False/harry-potter-and-the-philosopher-s-stone-3.jpg",
       firstPageImg: "https://images-na.ssl-images-amazon.com/images/I/81iqZ2HHD-L.jpg",
       firstPageChapter: "Chapter Two",
@@ -53,7 +55,7 @@ let books = [
       backCoverImg: "https://fadutown.com/wp-content/uploads/2020/08/51kdIBI0MlL.jpg",  
   },
   {
-      id: "secendBook",
+     
       coverImg: "https://images-na.ssl-images-amazon.com/images/I/91HHqVTAJQL.jpg",
       firstPageImg: "https://pictures.abebooks.com/isbn/9780747538486-fr.jpg",
       firstPageChapter: "Chapter Two",
@@ -75,7 +77,7 @@ let books = [
       backCoverImg: "https://m.media-amazon.com/images/I/5191isFAtRL._AC_SY1000_.jpg",  
   },
   {
-      id: "thirdBook",
+      
       coverImg: "https://img1.od-cdn.com/ImageType-100/3450-1/%7B93EF5C03-43F3-4050-A6DE-9E377FD107D9%7DImg100.jpg",
       firstPageImg: "https://images-na.ssl-images-amazon.com/images/I/81lAPl9Fl0L.jpg",
       firstPageChapter: "Chapter Two",
@@ -96,7 +98,7 @@ let books = [
       backCoverImg: "https://ae01.alicdn.com/kf/Ub9c6e192ad3249df824101dc585c140cz/HARRY-POTTER-3-PRISONER-BLOOMSBURY-3-7.jpg",  
   },
   {
-      id: "fourthBook",
+      
       coverImg: "https://images-na.ssl-images-amazon.com/images/I/81t2CVWEsUL.jpg",
       firstPageImg: "https://m.media-amazon.com/images/I/51Vjb2qJwzL.jpg",
       firstPageChapter: "Chapter Two",
@@ -118,22 +120,13 @@ let books = [
   }
 ];
 
-// const Book = mongoose.model('GamesStore', GamesSchema);
+
 
 app.get("/get-books", async (req, res) => {
-  // const booksArr = await Book.find({books})
-  const filterdBooks = filterByid(books)
-  res.send({ ok: true, filterdBooks });
+  // const books = await Book.find({})
+
+  res.send(books);
 });
-
-function filterByid(id) {
-books.filter((book) => book.id === id);
-return books;
-
-}
-
-
-
 
 
 app.listen(port, () => {
