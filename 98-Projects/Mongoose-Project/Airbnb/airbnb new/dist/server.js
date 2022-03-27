@@ -170,10 +170,16 @@ app.post("/findPlaceMap", (req, res) => __awaiter(void 0, void 0, void 0, functi
 //     const filteredCity=filteredCitySearch(search);
 //     res.send(filteredCity)
 // })
-app.get('/search-city', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+app.get('/search-airbnb', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const search = req.query.search;
-    const filteredCity = yield Places.find({ address: search });
-    console.log(filteredCity);
+    const checkIn = req.query.checkIn;
+    const checkOut = req.query.checkOut;
+    const adults = req.query.adults;
+    const children = req.query.children;
+    const infants = req.query.infants;
+    const pets = req.query.pets;
+    const foundLocation = yield Places.find({ address: search });
+    console.log(foundLocation);
     //res.send({city:filteredCity})
 }));
 // function filteredCitySearch(search) {

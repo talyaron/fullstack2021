@@ -182,10 +182,16 @@ app.post("/findPlaceMap", async (req, res) => {
 //     const filteredCity=filteredCitySearch(search);
 //     res.send(filteredCity)
 // })
-app.get('/search-city', async(req,res)=>{
+app.get('/search-airbnb', async(req,res)=>{
     const search=req.query.search;
-    const filteredCity=await Places.find({address:search});
-    console.log(filteredCity)
+    const checkIn=req.query.checkIn;
+    const checkOut=req.query.checkOut;
+    const adults=req.query.adults;
+    const children=req.query.children;
+    const infants=req.query.infants;
+    const pets=req.query.pets;
+    const foundLocation=await Places.find({address:search});
+    console.log(foundLocation)
     //res.send({city:filteredCity})
 })
 
