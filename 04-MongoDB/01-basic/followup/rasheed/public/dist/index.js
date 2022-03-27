@@ -80,6 +80,7 @@ function handleDelete(gameId) {
                 case 0: return [4 /*yield*/, axios["delete"]('/delete-game', { data: { gameId: gameId } })];
                 case 1:
                     data = (_a.sent()).data;
+                    hanleGetGames();
                     return [2 /*return*/];
             }
         });
@@ -99,6 +100,7 @@ function handleUpdate(ev, gameId) {
                     return [4 /*yield*/, axios.patch('/update-game', { gameId: gameId, newTitle: newTitle, newPrice: newPrice })];
                 case 1:
                     data = (_a.sent()).data;
+                    hanleGetGames();
                     return [2 /*return*/];
             }
         });

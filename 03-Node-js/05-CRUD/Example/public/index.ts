@@ -49,7 +49,7 @@ async function deleteGame(id: string) {
 }
 
 function renderToDOM(element: Element, games: Array<any>) {
-    console.log(games)
+  console.log(games)
   let html = "";
   games.forEach((game) => {
     html += `<p>${game.title} <input id="${game.id}" type='text' value='${game.title}' onchange="handleUpdateGame(event)" /></p>`;
@@ -62,11 +62,11 @@ async function handleUpdateGame(ev) {
   try {
     const id = ev.target.id;
     const value = ev.target.value;
-  
+
     const { data } = await axios.patch("/update-game", { id, title: value });
     const { error, results } = data;
     if (error) throw new Error(error);
-   
+
     const root: Element = document.querySelector("#root");
     renderToDOM(root, results);
   } catch (err) {
