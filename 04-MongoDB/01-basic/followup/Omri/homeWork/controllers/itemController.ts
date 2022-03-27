@@ -5,6 +5,7 @@ export async function getItems(req, res) {
     try {
         const marketItems = await Market.find({});
         const userItems = await User.find({});
+        // console.log(marketItems);
         res.send({ok:true, marketItems, userItems});
     } catch (error) {
         console.log(error.error);

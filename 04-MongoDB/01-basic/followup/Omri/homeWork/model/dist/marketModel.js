@@ -7,5 +7,5 @@ var marketSechma = new mongoose_1["default"].Schema({
     Price: Number,
     img: String
 });
-var Market = mongoose_1["default"].model('marketPlaces', marketSechma);
-exports["default"] = (Market);
+var Market = mongoose_1["default"].model("marketItems", marketSechma);
+exports["default"] = Market;

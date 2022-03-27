@@ -7,6 +7,6 @@ const marketSechma = new mongoose.Schema({
     img: String
 });
 
-const Market = mongoose.model('marketPlaces', marketSechma);
+const Market = mongoose.model("marketItems", marketSechma);
 
-export default (Market);
+export default Market;

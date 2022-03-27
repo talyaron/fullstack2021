@@ -3,10 +3,12 @@ function appInit() {
 }
 
 async function getItems() {
-    const {data} = await axios.get('/marketPlaces/getItems');
-    const {ok, items} = data;
-    if(items){
-        renderItemsMain(items);
+    const {data} = await axios.get('/marketItems/getItems');
+    console.log(data);
+    const {marketItems} = data;
+    console.log(marketItems)
+    if(marketItems){
+        renderItemsMain(marketItems);
     }
 }
 
@@ -19,7 +21,7 @@ function renderItemsMain(items){
             <div class="mainPage__middle--products--item">
                 <img src="${item.img}">
                 <h4>${item.description}</h4>
-                <p>${item.price}</p>
+                <p>${item.price}$</p>
             </div>
             `
         })

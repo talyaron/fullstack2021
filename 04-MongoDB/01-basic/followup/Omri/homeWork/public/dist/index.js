@@ -39,15 +39,17 @@ function appInit() {
 }
 function getItems() {
     return __awaiter(this, void 0, void 0, function () {
-        var data, ok, items;
+        var data, marketItems;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, axios.get('/marketPlaces/getItems')];
+                case 0: return [4 /*yield*/, axios.get('/marketItems/getItems')];
                 case 1:
                     data = (_a.sent()).data;
-                    ok = data.ok, items = data.items;
-                    if (items) {
-                        renderItemsMain(items);
+                    console.log(data);
+                    marketItems = data.marketItems;
+                    console.log(marketItems);
+                    if (marketItems) {
+                        renderItemsMain(marketItems);
                     }
                     return [2 /*return*/];
             }
@@ -59,7 +61,7 @@ function renderItemsMain(items) {
     var rootItems = document.querySelector('.mainPage__middle--products');
     if (items) {
         items.forEach(function (item) {
-            html += "\n            <div class=\"mainPage__middle--products--item\">\n                <img src=\"" + item.img + "\">\n                <h4>" + item.description + "</h4>\n                <p>" + item.price + "</p>\n            </div>\n            ";
+            html += "\n            <div class=\"mainPage__middle--products--item\">\n                <img src=\"" + item.img + "\">\n                <h4>" + item.description + "</h4>\n                <p>" + item.price + "$</p>\n            </div>\n            ";
         });
         rootItems.innerHTML = html;
     }

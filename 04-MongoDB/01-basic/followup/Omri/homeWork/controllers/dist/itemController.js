@@ -52,6 +52,7 @@ function getItems(req, res) {
                     return [4 /*yield*/, userModel_1["default"].find({})];
                 case 2:
                     userItems = _a.sent();
+                    // console.log(marketItems);
                     res.send({ ok: true, marketItems: marketItems, userItems: userItems });
                     return [3 /*break*/, 4];
                 case 3:

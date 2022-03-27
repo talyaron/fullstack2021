@@ -16,7 +16,7 @@ mongoose_1.default.connect('mongodb+srv://OmriAharonov:hYYFfWDZwNqMjKAe@cluster0
     console.error(err.message);
 });
 const itemRoutes_1 = __importDefault(require("./routes/itemRoutes"));
-app.use("/marketPlaces", itemRoutes_1.default);
+app.use("/marketItems", itemRoutes_1.default);
 app.listen(port, () => {
     return console.log(`Server is listening at http://localhost:${port}`);
 });

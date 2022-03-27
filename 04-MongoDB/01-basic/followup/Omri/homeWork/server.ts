@@ -15,7 +15,7 @@ mongoose.connect('mongodb+srv://OmriAharonov:hYYFfWDZwNqMjKAe@cluster0.kv5s6.mon
   });
 
 import itemRoutes from "./routes/itemRoutes";
-app.use("/marketPlaces",itemRoutes)
+app.use("/marketItems",itemRoutes)
 
 app.listen(port, () => {
     return console.log(`Server is listening at http://localhost:${port}`);
