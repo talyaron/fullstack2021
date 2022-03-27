@@ -1,9 +1,26 @@
 import express from 'express';
-// import mongoose from "mongoose";
+import mongoose from "mongoose";
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3005;
 app.use(express.static("public"));
 app.use(express.json());
+
+const imageSchema = new mongoose.Schema({
+  url:Array,
+  email:String,
+  password:String,
+})
+
+const userSchema = new mongoose.Schema({
+  firstName: String,
+    lastName: String,
+    birthday: String,
+    country: String,
+    password: String,
+    email: String,
+    gender: String,
+})
+const Users = mongoose.model('Users',userSchema);
 
 app.patch('/get-addNewUser', (req, res) => {
   const newUser = req.body

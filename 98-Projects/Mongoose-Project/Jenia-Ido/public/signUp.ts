@@ -1,7 +1,7 @@
 const forms = {
     renderSignUpFormfirstPage: function (display: any) {
         display.innerHTML = `
-        <form id="firstPage" class="main_display-signUpForm" onsubmit="newUserDetails(event)" style="animation: signUpAnimation 2s 1s forwards;">
+        <form action="public/profile.html" method="get" id="firstPage" class="main_display-signUpForm" onsubmit="newUserDetails(event)" style="animation: signUpAnimation 2s 1s forwards;">
 <h1 class="main_display-signUpForm-header">enter details and create account</h1>
 <label class="" style="color:white;">birthday: </label>
 <input type="date" name="birthDay" id="birthDay" style="background-color:gray";>
@@ -13,10 +13,10 @@ const forms = {
         <option value="male">Male</option>
         <option value="female">Female</option>
         </select>  
-<input class="main_display-signUpForm-input" type="password" name="password" id="password" placeholder="Create Password..." >
-<input class="main_display-signUpForm-input" type="password" name="passwordConfirm" id="passwordConfirm" placeholder="confirm password..." >
-<input class="main_display-signUpForm-input" type="email" name="email" id="email" placeholder=" Enter email...">
-<input class="main_display-signUpForm-submit" name="submit" type="submit" value="Go to profile" >
+<input class="main_display-signUpForm-input" type="password" name="password" id="password" placeholder="Create Password..." required>
+<input class="main_display-signUpForm-input" type="password" name="passwordConfirm" id="passwordConfirm" placeholder="confirm password..." required>
+<input class="main_display-signUpForm-input" type="email" name="email" id="email" placeholder=" Enter email..." required>
+<input class="main_display-signUpForm-submit" name="submit" type="submit" value="Go to profile">
 </form>`
     }, renderSignIn: function (display) {
         display.innerHTML = `
@@ -155,6 +155,27 @@ function HandleSettingsMenu(){
     
 }
 
+// function handleUpdateProfilePic(id){
+
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ///////////////////////////////////// render test
 function handleClick(){
     const test = {
         id:"1245",
