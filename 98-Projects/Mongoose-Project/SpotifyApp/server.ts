@@ -8,6 +8,9 @@ app.use(express.json());
 
 mongoose.connect('mongodb+srv://alexroz:Uou8wsRDp2J0FImM@cluster0.x62d1.mongodb.net/spotifyApp?retryWrites=true&w=majority')
 
+import userRoute from "./routes/userRoute";
+app.use("/spotifyUser", userRoute);
+
 const UserSchema = new mongoose.Schema({
   searches: String,
   topGenres: String,

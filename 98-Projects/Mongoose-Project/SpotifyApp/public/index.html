@@ -1,66 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/36261c0ffe.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./dist/style.css">
+    <title>Document</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.js"
-    integrity="sha512-MNW6IbpNuZZ2VH9ngFhzh6cUt8L/0rSVa60F8L22K1H72ro4Ki3M/816eSDLnhICu7vwH/+/yb8oB3BtBLhMsA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <title>Home</title>
+        integrity="sha512-MNW6IbpNuZZ2VH9ngFhzh6cUt8L/0rSVa60F8L22K1H72ro4Ki3M/816eSDLnhICu7vwH/+/yb8oB3BtBLhMsA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
+
 <body>
-    <nav>
-        <ul>
-            <li class="brand"><img src="img/logo.png" alt="Spotify"> Spotify</li>
-            <li> Home</li>
-            <li>Search</li>
-            <li> <a href="library.html"></a> Library</li>
-            <li>Create Playlist</li>
-            <li>Liked Songs</li>
-        </ul>
-        <div class="dropdown_profile">
-            <button class="dropbtn">Profile</button>
-            <div class="dropdown-content">
-              <a href="#">Account</a>
-              <a href="#">Log out</a>
-            </div>
-          </div>
-        </div>
-    </nav>
-    <div class="Daily_mix_container">
-            <h1>Good Evening</h1>
-          <div class="_dailymix"> <img src="https://pbs.twimg.com/media/CtcVNESWIAEYGWI.jpg" alt=""> <h4>Songs You Liked</h4></div>
-          <div class="_dailymix"> <img src="https://dailymix-images.scdn.co/v2/img/ab6761610000e5eb8e0147d29ac3c4f161924696/1/en/large" alt=""><h4>Daily mix 1</h4> </div>
-          <div class="_dailymix"> <img src="https://dailymix-images.scdn.co/v2/img/ab6761610000e5ebb72801394d45c260142de432/2/en/large" alt=""><h4>Daily mix 2</h4> </div>
-          <div class="_dailymix1"> <img src="https://i.pinimg.com/736x/39/eb/54/39eb546a73cd6e804c67d20b980d24cd.jpg" alt=""><h4> Daily mix 3</h4></div>
-          <div class="_dailymix1"> <img src="https://dailymix-images.scdn.co/v2/img/ab6761610000e5eb4e110e42acc02ed4d2eb411b/4/en/large" alt=""> <h4>Daily mix 4</h4></div>
-          <div class="_dailymix1"> <img src="https://newjams-images.scdn.co/image/ab676477000033ad/dt/v3/discover-weekly/HbWVNBzUTkrVrcpnFG_paxiOM2CpnroFezHp3oAIppamu6giXSs-qj7EJ8xC7lYdDqtfX6vWoryPF2S6_iQJKNiBsnkdRzyslWVqdDbNKl1CuCo484r2SZN7iIgvljr-jH_5htldMivwvcl7XtI5_n11H_JLn36TsBDzdnfHZoCJ8girZmZvG0qug0tC1qLi4VW-1Re698OcBjDdGOceKvC5JIzoxvEbaDaWMj6TFQMNlwmyZhper51kBiloMu-bGZ6Eg_aaSpaSyhEr5d2BIDPUEsSCRAR5-aJ5lsFQDTQgvgtWRB9hYSdXWX5EHTK3ksY8VLiNZebFoE5siOii-yX4wZl1XFMvRk9kxlJO0tT9YpAITqXU75YEoKRASKPFbFnBTvQuG5FKS1tMxXkToQ==/MjM6NzA6NDBUMzAtMjAtMg==" alt=""> <h4>Discover weekly</h4></div>
-    </div>
+  
+    <form id="regestration" onsubmit="handleRegistration(event)">
+        <input type="name" name="name" placeholder="name" required>
+        <input type="password" name="password" placeholder="password" required>
+        <input type="submit" value="Register">
 
-    <div class="your_top_mixes">
-        <h2>Your Top Mixes</h2>
-        <div class="mixes"> <img src="https://i.scdn.co/image/ab67706f00000003d7d03d21a8cbc3fcbbc1c46f" alt=""> <h4>90s'</h4> </div>
-        <div class="mixes"> <img src="https://i.scdn.co/image/ab67706f000000037cbb81c27e061f161cef07d4" alt="">  <h4>80s'</h4></div>
-        <div class="mixes"> <img src="https://i.scdn.co/image/ab67706f00000003ccd0d6170bb5d56a78ff8d3e" alt="">  <h4>chill mix</h4></div>
-   </div>
-    
+    </form>
+    <form id="login" onsubmit="handleLogIn(event)">
+        <input type="name" name="name" placeholder="name" required>
+        <input type="password" name="password" placeholder="password" required>
+        <input type="submit" value="Log In">
 
-
-    <div class="bottom">
-        <input type="range" name="range" id="myProgressBar" min="0" value="0" max="100">
-        <div class="icons">
-            <!-- fontawesome icons -->
-            <i class="fas fa-3x fa-step-backward" id="previous"></i>
-            <i class="far fa-3x fa-play-circle" id="masterPlay"></i>
-            <i class="fas fa-3x fa-step-forward" id="next"></i> 
-        </div>
-        <div class="songInfo">
-            <img src="img/playing.gif" width="42px" alt="" id="gif"> <span id="masterSongName">Warriyo - Mortals [NCS Release]</span>
-        </div>
-    </div>
+    </form>
+    <div id="books"></div>
     <script src="./dist/index.js"></script>
 </body>
+
 </html>
