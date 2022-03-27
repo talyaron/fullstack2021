@@ -25,20 +25,22 @@ async function handleLogin(ev) {
   });
 }
 
- function handleRegister(ev) {
+ async function handleRegister(ev) {
   ev.preventDefault();
-  let { firstName, lastName, email, password, role } = ev.target.elements;
+  let { firstName, lastName, email, password, role , gender} = ev.target.elements;
   firstName = firstName.value;
   lastName = lastName.value;
   email = email.value;
   password = password.value;
   role = role.value;
-  const { data } =  axios.post("/add-user", {
+  gender = gender.value
+  const {data}  = await axios.post("/add-user", {
     firstName,
     lastName,
     email,
     password,
     role,
+    gender
   });
 
   console.log(data);

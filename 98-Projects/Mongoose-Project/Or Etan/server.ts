@@ -6,7 +6,7 @@ const port: number = 3000;
 app.use(express.static("public"));
 app.use(express.json());
 
-mongoose.connect('mongodb+srv://EtanHey:NI2nXMDwLdTiRScP@cluster0.gedel.mongodb.net/OrEtan?retryWrites=true&w=majority')
+mongoose.connect('mongodb+srv://OrA99:134679852Or@cluster0.r0go0.mongodb.net/OrEtan?retryWrites=true&w=majority')
 
 .then(()=>{console.log('connect to Mongoose')})
 .catch(err=>{console.log(err.message)})
@@ -17,18 +17,21 @@ const UserSchema = new mongoose.Schema({
   role: String,
   firstName: String,
   lastName: String,
-  img: String,
+  gender: String,
 });
 
 const user = mongoose.model("users", UserSchema);
 
 app.post("/add-user", async (req, res) => {
+  console.log(req.body)
   try {
-    let { firstName, lastName, email, password, role } = req.body
+    let { firstName, lastName, email, password, role, gender } = req.body
 
-    const newUser = new user({ firstName, lastName, email, password, role })
+    const newUser = new user({ firstName, lastName, email, password, role, gender })
+    console.log(newUser)
     const result = await newUser.save();
     res.send({ result });
+    console.log(result)
   } catch (error) {
 
     console.error(error);

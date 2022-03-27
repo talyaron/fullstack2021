@@ -19,13 +19,16 @@
 <body>
     <div id="landing">
     <section id="register">
-    <form name='register' onsubmit="handleRegister(ev)">
+    <form name='register' onsubmit="handleRegister(event)">
             <input type="text" name="firstName" id="firstName" placeholder="First Name">
             <input type="text" name="lastName" id="lastName" placeholder="Last Name">
             <input type="email" name="email" id="email" placeholder="Email">
             <input type="password" name="verifiedPassword" id="password" placeholder="Enter your password">
             <input type="text" name="role" id="role" placeholder="Whats your occupation?">
-            <input type="file" name="" id="">
+            <select name="gender" id="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
             <input id="signUp" type="submit">
     </form>
 </section>
