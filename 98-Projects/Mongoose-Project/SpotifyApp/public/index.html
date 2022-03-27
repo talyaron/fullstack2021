@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./dist/style.css" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.js"
+    integrity="sha512-MNW6IbpNuZZ2VH9ngFhzh6cUt8L/0rSVa60F8L22K1H72ro4Ki3M/816eSDLnhICu7vwH/+/yb8oB3BtBLhMsA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>Search</title>
 </head>
 
@@ -24,7 +27,7 @@
                 <i class="material-icons" style="font-size: 28px">arrow_forward_ios</i>
             </div>
             <div class="searchPage__searchBar--search">
-                <input type="search" name="search music" id="" placeholder="search music" />
+                <input type="search" onchange="handleGetSearch()" name="search music" id="" placeholder="search music" />
             </div>
 
 
