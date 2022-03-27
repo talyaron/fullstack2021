@@ -76,3 +76,51 @@ function renderData(data) {
     var root = document.querySelector('#root');
     root.innerHTML = html;
 }
+function setFormMessage(formElement, type, message) {
+    var messageElement = formElement.querySelector(".form__message");
+    messageElement.textContent = message;
+    messageElement.classList.remove("form__message--success", "form__message--error");
+    messageElement.classList.add("form__message--" + type);
+}
+function setInputError(inputElement, message) {
+    inputElement.classList.add("form__input--error");
+    inputElement.parentElement.querySelector(".form__input-error-message").textContent = message;
+}
+function clearInputError(inputElement) {
+    inputElement.classList.remove("form__input--error");
+    inputElement.parentElement.querySelector(".form__input-error-message").textContent = "";
+}
+document.addEventListener("DOMContentLoaded", function () {
+    var loginForm = document.querySelector("#login");
+    var createAccountForm = document.querySelector("#createAccount");
+    document.querySelector("#linkCreateAccount").addEventListener("click", function (e) {
+        e.preventDefault();
+        loginForm.classList.add("form--hidden");
+        createAccountForm.classList.remove("form--hidden");
+    });
+    document.querySelector("#linkLogin").addEventListener("click", function (e) {
+        e.preventDefault();
+        loginForm.classList.remove("form--hidden");
+        createAccountForm.classList.add("form--hidden");
+    });
+    loginForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        setFormMessage(loginForm, "error", "Invalid username/password combination");
+    });
+    document.querySelectorAll(".form__input").forEach(function (inputElement) {
+        inputElement.addEventListener("blur", function (ev) {
+            if (ev.target.id === "signupUsername" && ev.target.value.length > 0 && ev.target.value.length < 10) {
+                setInputError(inputElement, "Username must be at least 10 characters in length");
+            }
+        });
+        inputElement.addEventListener("input", function (e) {
+            clearInputError(inputElement);
+        });
+    });
+});
+var modal = document.getElementById('singIN');
+window.onclick = function (event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+};
