@@ -10,22 +10,33 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cabin+Condensed&family=Shadows+Into+Light&display=swap"
         rel="stylesheet">
-        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Asar&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/17bc989cf6.js" crossorigin="anonymous"></script>
     <title>Login</title>
 </head>
 
 <body>
-    
-    <section class="profile">
+    <!-- <section class="profile">
+        <nav class="profile__navBar--top">
+            <i class="fas fa-arrow-left fa-xs"></i>
+            <i class="fas fa-wrench fa-xs" onclick="HandleSettingsMenu()"></i>
+        </nav>
+       <nav class="settings">
+           <ul>
+               <li onclick="handleUpdateUser()">update</li>
+               <li onclick="handleUpdateProfilePic()">update profile pic</li>
+               <li class="delete" onclick="handleDeleteProfile()">delete User</li>
+           </ul>
+       </nav> -->
+        <!-- 
 
         <div class="profile__navBar--top">
             <i class="fas fa-arrow-left fa-xs"></i>
             
         </div>
         <div class="profile__header">
-            <div class="profile__imgBorder">
+            <div class="profile__imgBorder" style="background-image: url();">
                 <img src="https://pbs.twimg.com/profile_images/1478141668159148033/IOD8SZvx_400x400.jpg" alt="">
             </div>
             <div class="profile__name">Jason Kid</div>
@@ -47,7 +58,7 @@
     <div class="profileIcon"><i class="fas fa-user"></i></div>
     <div class="compassIcon"><i class="fas fa-compass"></i></div>
     <div class="heartIcon"><i class="fas fa-heart"></i></div>
-</div>
+ </div> -->
 
 
 
@@ -56,9 +67,9 @@
 
 
     </section>
-
-
-
+    <button onclick="handleClick();">render</a></button>
+    <div id="root"></div>
+    <script src="dist/signUp.js"></script>
 </body>
 
 </html>
