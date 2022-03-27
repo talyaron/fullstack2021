@@ -21,11 +21,11 @@ function renderData(data: Array<any>) {
     data.forEach((book) => {
         html += `
                 <div id="book" class="book">
-                <input type="checkbox" id="check1">
-                <input type="checkbox" id="check2">
-                <input type="checkbox" id="check3">
-                <input type="checkbox" id="check4">
-                <input type="checkbox" id="check5">
+                <input  class="check" type="checkbox" id="check1">
+                <input  class="check" type="checkbox" id="check2">
+                <input  class="check" type="checkbox" id="check3">
+                <input  class="check" type="checkbox" id="check4">
+                <input  class="check" type="checkbox" id="check5">
 
                     <div class="book__content">
                         <div class="book__content__pageFlip" id="page1">
