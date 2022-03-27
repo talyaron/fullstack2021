@@ -71,8 +71,56 @@ function handleLoadBooks() {
 function renderData(data) {
     var html = "";
     data.forEach(function (book) {
-        html += "\n                <div id=\"book\" class=\"book\">\n                <input type=\"checkbox\" id=\"check1\">\n                <input type=\"checkbox\" id=\"check2\">\n                <input type=\"checkbox\" id=\"check3\">\n                <input type=\"checkbox\" id=\"check4\">\n                <input type=\"checkbox\" id=\"check5\">\n\n                    <div class=\"book__content\">\n                        <div class=\"book__content__pageFlip\" id=\"page1\">\n                            <div class=\"book__content__pageFlip-back\">\n                            <img src=\"" + book.firstPageImg + "\">\n                            <label class=\"book__content__pageFlip-back-btn\" for=\"check1\">\n                                <<</label>\n        \n                            </div>\n                            <div class=\"book__content__pageFlip-front\">\n                            <img id=\"cover\" src=\"" + book.coverImg + "\">\n                            <label class=\"book__content__pageFlip-front-btn\" id=\"glow\" for=\"check1\">Read</label>\n                        </div>\n                    </div>\n                    <div class=\"book__content__pageFlip\" id=\"page2\">\n                        <div class=\"book__content__pageFlip-back\">\n                            <img src=\"" + book.secendPageImg + "\">\n                            <label class=\"book__content__pageFlip-back-btn\" for=\"check2\">\n                                <<</label>\n                        </div>\n                        <div  class=\"book__content__pageFlip-front\">\n                            <h1> " + book.firstPageChapter + "</h1>\n                            <h2> " + book.firstPageHeadLine + "</h2>\n                            <p> " + book.firstPageContent + "</p>\n                            <label class=\"book__content__pageFlip-front-btn\" for=\"check2\">>></label>\n                        </div>\n                    </div>\n                    <div class=\"book__content__pageFlip\" id=\"page3\">\n                    <div class=\"book__content__pageFlip-back\">\n                        <img src=\"" + book.thirdPageImg + "\">\n                        <label class=\"book__content__pageFlip-back-btn\" for=\"check3\">\n                            <<</label>\n                    </div>\n                    <div class=\"book__content__pageFlip-front\">\n                        <h1> " + book.secendPageChapter + "</h1>\n                        <h2> " + book.secendPageHeadLine + "</h2>\n                        <p>" + book.secendPageContent + "</p>\n                        <label class=\"book__content__pageFlip-front-btn\" for=\"check3\">>></label>\n                    </div>\n                </div>\n                <div class=\"book__content__pageFlip\" id=\"page4\">\n                    <div class=\"book__content__pageFlip-back\">\n                        <img src=\"" + book.fourthPageImg + "\">\n                        <label class=\"book__content__pageFlip-back-btn\" for=\"check4\">\n                            <<</label>\n                    </div>\n                    <div class=\"book__content__pageFlip-front\">\n                        <h1>  " + book.thirdPageChapter + "</h1>\n                        <h2> " + book.thirdPageHeadLine + "</h2>\n                        <p>" + book.thirdPageContent + ".</p>\n                        <label class=\"book__content__pageFlip-front-btn\" for=\"check4\">>></label>\n                    </div>\n                </div>\n                <div class=\"book__content__pageFlip\" id=\"page5\">\n                    <div class=\"book__content__pageFlip-back\">\n                        <img src=\"" + book.backCoverImg + "\">\n                        <label class=\"book__content__pageFlip-back-btn\" for=\"check5\">\n                            <<</label>\n                    </div>\n                    <div class=\"book__content__pageFlip-front\">\n                        <h1>  " + book.fourthPageChapter + "</h1>\n                        <h2> " + book.fourthPageHeadLine + "</h2>\n                        <p>" + book.fourthPageContent + "</p>\n                        <label class=\"book__content__pageFlip-front-btn\" for=\"check5\">>></label>\n                </div>\n            </div>\n        </div>\n        </div>";
+        html += "\n                <div id=\"book\" class=\"book\">\n                <input  class=\"check\" type=\"checkbox\" id=\"check1\">\n                <input  class=\"check\" type=\"checkbox\" id=\"check2\">\n                <input  class=\"check\" type=\"checkbox\" id=\"check3\">\n                <input  class=\"check\" type=\"checkbox\" id=\"check4\">\n                <input  class=\"check\" type=\"checkbox\" id=\"check5\">\n\n                    <div class=\"book__content\">\n                        <div class=\"book__content__pageFlip\" id=\"page1\">\n                            <div class=\"book__content__pageFlip-back\">\n                            <img src=\"" + book.firstPageImg + "\">\n                            <label class=\"book__content__pageFlip-back-btn\" for=\"check1\">\n                                <<</label>\n        \n                            </div>\n                            <div class=\"book__content__pageFlip-front\">\n                            <img id=\"cover\" src=\"" + book.coverImg + "\">\n                            <label class=\"book__content__pageFlip-front-btn\" id=\"glow\" for=\"check1\">Read</label>\n                        </div>\n                    </div>\n                    <div class=\"book__content__pageFlip\" id=\"page2\">\n                        <div class=\"book__content__pageFlip-back\">\n                            <img src=\"" + book.secendPageImg + "\">\n                            <label class=\"book__content__pageFlip-back-btn\" for=\"check2\">\n                                <<</label>\n                        </div>\n                        <div  class=\"book__content__pageFlip-front\">\n                            <h1> " + book.firstPageChapter + "</h1>\n                            <h2> " + book.firstPageHeadLine + "</h2>\n                            <p> " + book.firstPageContent + "</p>\n                            <label class=\"book__content__pageFlip-front-btn\" for=\"check2\">>></label>\n                        </div>\n                    </div>\n                    <div class=\"book__content__pageFlip\" id=\"page3\">\n                    <div class=\"book__content__pageFlip-back\">\n                        <img src=\"" + book.thirdPageImg + "\">\n                        <label class=\"book__content__pageFlip-back-btn\" for=\"check3\">\n                            <<</label>\n                    </div>\n                    <div class=\"book__content__pageFlip-front\">\n                        <h1> " + book.secendPageChapter + "</h1>\n                        <h2> " + book.secendPageHeadLine + "</h2>\n                        <p>" + book.secendPageContent + "</p>\n                        <label class=\"book__content__pageFlip-front-btn\" for=\"check3\">>></label>\n                    </div>\n                </div>\n                <div class=\"book__content__pageFlip\" id=\"page4\">\n                    <div class=\"book__content__pageFlip-back\">\n                        <img src=\"" + book.fourthPageImg + "\">\n                        <label class=\"book__content__pageFlip-back-btn\" for=\"check4\">\n                            <<</label>\n                    </div>\n                    <div class=\"book__content__pageFlip-front\">\n                        <h1>  " + book.thirdPageChapter + "</h1>\n                        <h2> " + book.thirdPageHeadLine + "</h2>\n                        <p>" + book.thirdPageContent + ".</p>\n                        <label class=\"book__content__pageFlip-front-btn\" for=\"check4\">>></label>\n                    </div>\n                </div>\n                <div class=\"book__content__pageFlip\" id=\"page5\">\n                    <div class=\"book__content__pageFlip-back\">\n                        <img src=\"" + book.backCoverImg + "\">\n                        <label class=\"book__content__pageFlip-back-btn\" for=\"check5\">\n                            <<</label>\n                    </div>\n                    <div class=\"book__content__pageFlip-front\">\n                        <h1>  " + book.fourthPageChapter + "</h1>\n                        <h2> " + book.fourthPageHeadLine + "</h2>\n                        <p>" + book.fourthPageContent + "</p>\n                        <label class=\"book__content__pageFlip-front-btn\" for=\"check5\">>></label>\n                </div>\n            </div>\n        </div>\n        </div>";
     });
     var root = document.querySelector('#root');
     root.innerHTML = html;
 }
+function setFormMessage(formElement, type, message) {
+    var messageElement = formElement.querySelector(".form__message");
+    messageElement.textContent = message;
+    messageElement.classList.remove("form__message--success", "form__message--error");
+    messageElement.classList.add("form__message--" + type);
+}
+function setInputError(inputElement, message) {
+    inputElement.classList.add("form__input--error");
+    inputElement.parentElement.querySelector(".form__input-error-message").textContent = message;
+}
+function clearInputError(inputElement) {
+    inputElement.classList.remove("form__input--error");
+    inputElement.parentElement.querySelector(".form__input-error-message").textContent = "";
+}
+document.addEventListener("DOMContentLoaded", function () {
+    var loginForm = document.querySelector("#login");
+    var createAccountForm = document.querySelector("#createAccount");
+    document.querySelector("#linkCreateAccount").addEventListener("click", function (e) {
+        e.preventDefault();
+        loginForm.classList.add("form--hidden");
+        createAccountForm.classList.remove("form--hidden");
+    });
+    document.querySelector("#linkLogin").addEventListener("click", function (e) {
+        e.preventDefault();
+        loginForm.classList.remove("form--hidden");
+        createAccountForm.classList.add("form--hidden");
+    });
+    loginForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        setFormMessage(loginForm, "error", "Invalid username/password combination");
+    });
+    document.querySelectorAll(".form__input").forEach(function (inputElement) {
+        inputElement.addEventListener("blur", function (ev) {
+            if (ev.target.id === "signupUsername" && ev.target.value.length > 0 && ev.target.value.length < 10) {
+                setInputError(inputElement, "Username must be at least 10 characters in length");
+            }
+        });
+        inputElement.addEventListener("input", function (e) {
+            clearInputError(inputElement);
+        });
+    });
+});
+var modal = document.getElementById('singIN');
+window.onclick = function (event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+};

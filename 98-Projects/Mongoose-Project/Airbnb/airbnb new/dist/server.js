@@ -50,9 +50,27 @@ const PlacesSchema = new mongoose_1.default.Schema({
     cancellation_policy: String,
     address: Object,
 });
-const { MongoClient } = require("mongodb");
-const url = "mongodb://localhost:27017";
+const { MongoClient } = require('mongodb');
+const url = 'mongodb://localhost:27017/example';
 const client = new MongoClient(url);
+const dbName = 'myProject';
+function main() {
+    return __awaiter(this, void 0, void 0, function* () {
+        // Use connect method to connect to the server
+        yield client.connect();
+        console.log('Connected successfully to server');
+        const db = client.db(dbName);
+        const collection = db.collection('documents');
+        const findResult = yield collection.find({}).toArray();
+        // the following code examples can be pasted here...
+        console.log(findResult);
+        return 'done.';
+    });
+}
+main()
+    .then(console.log)
+    .catch(console.error)
+    .finally(() => client.close());
 const userSchema = new mongoose_1.default.Schema({
     name: String,
     password: String,
@@ -170,10 +188,16 @@ app.post("/findPlaceMap", (req, res) => __awaiter(void 0, void 0, void 0, functi
 //     const filteredCity=filteredCitySearch(search);
 //     res.send(filteredCity)
 // })
-app.get('/search-city', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+app.get('/search-airbnb', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const search = req.query.search;
-    const filteredCity = yield Places.find({ address: search });
-    console.log(filteredCity);
+    const checkIn = req.query.checkIn;
+    const checkOut = req.query.checkOut;
+    const adults = req.query.adults;
+    const children = req.query.children;
+    const infants = req.query.infants;
+    const pets = req.query.pets;
+    const foundLocation = yield Places.find({ address: search });
+    console.log(foundLocation);
     //res.send({city:filteredCity})
 }));
 // function filteredCitySearch(search) {

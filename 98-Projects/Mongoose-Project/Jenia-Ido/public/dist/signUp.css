@@ -63,7 +63,6 @@ body .main_display {
   grid-template-columns: repeat(10, 1fr);
   grid-template-rows: repeat(10, 1fr);
   max-height: fit-content;
-  border-bottom: 2px solid #9c9ba0;
 }
 body .main_display-signUpForm {
   width: 20vw;
@@ -95,7 +94,7 @@ body .main_display-signUpForm select {
   font-style: italic;
   font-size: 17px;
   box-shadow: rgba(54, 53, 52, 0.35) 0px 30px 60px 30px inset, rgba(139, 139, 148, 0.3) 0px 18px 36px 18px inset;
-  width: 105%;
+  width: 95%;
   border-radius: 5px;
 }
 body .main_display-signUpForm select option {

@@ -4,3 +4,30 @@ function handleGetSearch() {
     // const { ok, options } = data;
     // console.log({ ok, options });
 }
+
+async function handleRegistration(ev) {
+    ev.preventDefault();
+    let { name, password } = ev.target.elements;
+    console.log(name, password)
+    name = name.value;
+    password = password.value;
+
+
+    console.log(name, password)
+
+    const { data } = await axios.post('/spotifyUser/reg-user', { name, password })
+    console.log(data)
+}
+
+async function handleLogIn(ev) {
+    ev.preventDefault();
+    let { name, password } = ev.target.elements;
+
+    name = name.value;
+    password = password.value;
+
+    console.log(name, password)
+
+    const { data } = await axios.post('/spotifyUser/sign-user', { name, password })
+    console.log(data)
+}

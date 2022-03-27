@@ -361,21 +361,33 @@ catch (error) {
 //     console.log(data)
 
 // }
-async function handleNavFilter(ev){
+function handleFindAirbnb(ev){
     ev.preventDefault();
+    const search=ev.target.elements.searchLocation.value;
+    const checkIn=ev.target.elements.checkIn.value;
+    const checkOut=ev.target.elements.checkOut.value;
+    const adults=ev.target.elements.checkOut.value;
+    const children=ev.target.elements.children.value;
+    const infants=ev.target.elements.infants.value;
+    const pets=ev.target.elements.pets.value;
+
+    const {data}= await axios.get('/search-airbnb', {
+        search,checkIn,checkOut,adults,children,infants,pets
+    })
+    console.log(data)
     ev.target.reset();
   
 
 }
 
-async function handleSearchCity(ev){
-    const search=ev.target.value;
-    console.log(search);
-    const {data}=await axios.get(`/search-city?search=${search}`);
-    const{city}=data;
-    console.log({city})
+// async function handleSearchCity(ev){
+//     const search=ev.target.value;
+//     console.log(search);
+//     const {data}=await axios.get(`'/search-airbnb'?search=${search}`);
+//     const{city}=data;
+//     console.log({city})
 
 
 
-}
+// }
 
