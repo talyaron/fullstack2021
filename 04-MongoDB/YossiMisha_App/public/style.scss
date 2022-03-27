@@ -12,7 +12,7 @@ body {
     font-family: 'Montserrat Alternates', sans-serif;
 }
 
-.center{
+.loginwrapper, .registerwrapper{
 
     position: absolute;
     top: 50%;
@@ -119,16 +119,22 @@ body {
         text-align: center;
         font-size: 16px;
         color: #666666;
+        
         a{
             color: #2691d9;
             text-decoration: none;
             &:hover{
                 text-decoration: underline;
+                cursor: pointer;
             }
         }
     }
 }
 
-.register{
-    position: relative;
+.registerwrapper{
+    display: none;
 }
+
+// .loginwrapper{
+//     display: none;
+// }

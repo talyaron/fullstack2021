@@ -12,36 +12,9 @@
 </head>
 
 <body>
-    <div class="center">
-        <div class='login'>
+    <div class="loginwrapper">
             <h1>Login</h1>
-            <form  onsubmit="handleLogin(event)">
-
-                <div class="txt_field">
-                    <input type="text" required>
-                    <span></span>
-                    <label for="Username">Username</label>
-                </div>
-
-                <div class="txt_field">
-                    <input type="text" required>
-                    <span></span>
-                    <label for="password">Password</label>
-                </div>
-
-                <div class="pass">Forgot Password?</div>
-                <input type="submit" value="Login" class="submit">
-                <div class="signup_link">
-                    Not a member? <a href="#">Signup</a>
-                </div>
-
-            </form>
-        </div>
-
-        <div class='register'>
-            <h1>Register</h1>
-
-            <form onsubmit="handleRegister(event)">
+            <form onsubmit="handleLogin(event)">
 
                 <div class="txt_field">
                     <input type="text" name='username' required>
@@ -55,33 +28,58 @@
                     <label for="password">Password</label>
                 </div>
 
-                <div class="txt_field">
-                    <input type="text" name='confirmPassword' required>
-                    <span></span>
-                    <label for="confirmPassword">Confirm Password</label>
-                </div>
-
-                <div class="txt_field">
-                    <input type="text" name='email' required>
-                    <span></span>
-                    <label for="email">Email Address</label>
-                </div>
-
-                <div class="txt_field">
-                    <input type="text" required>
-                    <span></span>
-                    <label for="confirmEmail" name='confirmEmail'>Confirm Email Address</label>
-                </div>
-
-                <input type="submit" value="Register" class="submit">
-
+                <div class="pass">Forgot Password?</div>
+                <input type="submit" value="Login" class="submit">
                 <div class="signup_link">
-                    Already a member? <a href="#">Login</a>
+                    Not a member? <a onclick="handleNotAMember()">Signup</a>
                 </div>
-
 
             </form>
-        </div>
+    </div>
+
+    <div class='registerwrapper'>
+        <h1>Register</h1>
+
+        <form onsubmit="handleRegister(event)">
+
+            <div class="txt_field">
+                <input type="text" name='username' required>
+                <span></span>
+                <label for="Username">Username</label>
+            </div>
+
+            <div class="txt_field">
+                <input type="text" name='password' required>
+                <span></span>
+                <label for="password">Password</label>
+            </div>
+
+            <div class="txt_field">
+                <input type="text" name='confirmPassword' required>
+                <span></span>
+                <label for="confirmPassword">Confirm Password</label>
+            </div>
+
+            <div class="txt_field">
+                <input type="text" name='email' required>
+                <span></span>
+                <label for="email">Email Address</label>
+            </div>
+
+            <div class="txt_field">
+                <input type="text" name='confirmEmail' required>
+                <span></span>
+                <label for="confirmEmail">Confirm Email Address</label>
+            </div>
+
+            <input type="submit" value="Register" class="submit">
+
+            <div class="signup_link">
+                Already a member? <a onclick="handleAlreadyAMember()">Login</a>
+            </div>
+
+
+        </form>
     </div>
     <script src="./dist/index.js"></script>
 </body>

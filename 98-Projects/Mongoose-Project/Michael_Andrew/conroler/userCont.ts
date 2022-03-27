@@ -17,8 +17,8 @@ export const addUser = async (req, res) => {
 
             //andrew - i added 20$ for starter
             const fund = 20;
-
-            const newUser = new User({ userName, email, password, url, fund })
+            const artCollection = [];
+            const newUser = new User({ userName, email, password, url, fund, artCollection })
             const users = await newUser.save()
 
             res.send({ ok: true, users })
@@ -36,34 +36,35 @@ export const addUser = async (req, res) => {
 }
 
 export const findUser = async (req, res) => {
-
     try {
-
         const { loginEmail, loginPassword } = req.query;
-
         const oldUser = await User.find({ email: loginEmail, password: loginPassword })
-
         if (oldUser.length === 0) {
-
             res.send('Wrong email/password');
-
-        } else if (oldUser.length > 0) {            
-
+        } else if (oldUser.length > 0) {
             res.send({ oldUser })
-
         }
-
         if (!req.body) throw new Error("no req.body in app.post'/users/log-user'");
-
-
     } catch (error) {
         console.error(error.message);
         res.send({ error: error.message })
-
     }
+}
+
+export const updateUser = async (req, res) => {
+    const { user } = req.body;
+    await User.updateOne({ _id: user._id }, user);
+}
 
 
-
-
-
+// doesn't work ¯\_(⊙_ʖ⊙)_/¯ cant interact in any way with an Array
+export const addArtToUser = async (req, res) => {
+    const { newArt, user } = req.body;
+    const r = await User.updateOne(
+        { _id: user._id },
+        {
+            $push: { artCollection: newArt }
+        }
+    );
+    console.log(r);
 }

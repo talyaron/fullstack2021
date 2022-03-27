@@ -82,6 +82,35 @@ body {
 .header__searchbar form ::placeholder {
   color: #8a8282;
 }
+.header #sign-in {
+  position: relative;
+}
+.header #sign-in p {
+  color: white;
+}
+.header #sign-in form {
+  position: absolute;
+  top: 75px;
+  left: -70px;
+  width: 150px;
+  height: 100px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-content: space-around;
+  background-color: var(--main-color-5);
+  z-index: 1;
+  animation: header-item-load var(--load-item-time) ease-in;
+}
+.header #sign-in .in-vis {
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(-70px);
+}
+.header #sign-in a {
+  color: white;
+}
 .header__item {
   display: flex;
   align-items: center;
@@ -155,6 +184,26 @@ body {
 }
 .side-bar__item:hover {
   cursor: pointer;
+}
+
+.main-account {
+  background-color: var(--main-color-1);
+  border-radius: 20px;
+  height: calc(95vh - 100px);
+  margin-top: 100px;
+  margin-right: 50px;
+  margin-left: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.main-account img {
+  width: 250px;
+}
+.main-account form {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
 }
 
 .main {

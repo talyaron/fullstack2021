@@ -17,24 +17,12 @@
         <ul>
             <li class="navigation--logo"><img src="images/logoTitle.png" alt="airbnb"></li>
             <li class="navigation--search">
-                <form class="form">
+                <form class="form" onsubmit="handleNavFilter(event)">
                     <div class="form--searchLocation">
                         <label for="searchLocation">Location <br>
-                            <input id="searchLocation" type="text" placeholder="Where are you going?">
+                            <input onkeyup="handleSearchCity(event)" id="searchLocation" type="text" placeholder="Where are you going?">
                         </label>
-                        <div class="dropdown">
-                            <p>Adults
-                                Ages 13 or above</p>
-                            <p>Children
-                                Ages 2–12</p>
-                            <p>Infants
-                                Under 2</p>
-                            <p>
-                                Pets
-                                Bringing a service animal?
-                            </p>
-
-                        </div>
+                   
                     </div>
 
                     <div class="form--checkIn">
@@ -80,22 +68,27 @@
                             <button id="guests">Add guests</button>
                         </label>
                         <div class="dropdown">
-                            <p>Adults
-                                Ages 13 or above</p>
-                            <p>Children
-                                Ages 2–12</p>
-                            <p>Infants
-                                Under 2</p>
-                            <p>
-                                Pets
-                                Bringing a service animal?
-                            </p>
+                            <label for="adults">Adults:
+                               <span>Ages 13 or above</span> </label>
+                            <input type="number" id="adults" name="quantity" min="0" max="10" placeholder="0">
+                             
+                            <label for="children">Children:
+                               <span>Ages 2–12</span> </label> 
+                            <input type="number" id="children" name="quantity" min="0" max="10" placeholder="0">
+                           
+                            <label for="infants">Infants:
+                                <span>Under 2</span></label>
+                            <input type="number" id="infants" name="quantity" min="0" max="10" placeholder="0">
+                            
+                            <label for="pets">Pets:</label>
+                            <input type="number" id="pets" name="quantity" min="0" max="5" placeholder="0">
+                            
 
                         </div>
                     </div>
 
 
-                    <a href="" class="form--searchIcon"><input type="image" src="images/searchIcon.png" ></a>
+                    <a href="" class="form--searchIcon"><input type="submit" ><img src="images/searchIcon.png"></a>
 
 
                 </form>
