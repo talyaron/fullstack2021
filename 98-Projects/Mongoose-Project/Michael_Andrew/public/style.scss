@@ -38,7 +38,7 @@ body {
             font-size: 2.5rem;
             padding-left: 20px;
 
-            a{
+            a {
                 text-decoration: none;
                 color: rgb(42, 124, 218);
             }
@@ -49,7 +49,7 @@ body {
             font-family: 'Poppins', sans-serif;
             font-size: 2.5rem;
 
-            a{
+            a {
                 text-decoration: none;
                 color: rgb(3, 3, 95);
             }
@@ -94,12 +94,15 @@ body {
             }
         }
     }
-    #sign-in{
+
+    #sign-in {
         position: relative;
-        p{
+
+        p {
             color: white;
         }
-        form{
+
+        form {
             position: absolute;
             top: 75px;
             left: -70px;
@@ -114,14 +117,16 @@ body {
             z-index: 1;
             animation: header-item-load var(--load-item-time) ease-in;
 
-            
+
         }
-        .in-vis{
+
+        .in-vis {
             pointer-events: none;
             opacity: 0;
             transform: translateY(-70px);
         }
-        a{
+
+        a {
             color: white;
         }
     }
@@ -138,6 +143,7 @@ body {
         animation-delay: var(--load-item-time);
         animation-fill-mode: forwards;
         transform: scale(0);
+
         .material-icons {
             a {
                 text-decoration: none;
@@ -218,8 +224,83 @@ body {
         &:hover {
             cursor: pointer;
         }
+
+
     }
+
+    .onSale {
+        display: flex;
+        flex-direction: column;
+        transition: all .5s;
+
+        &.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        input:nth-child(1) {
+            align-self: center;
+            width: 100px;
+            transform: translateY(15px);
+
+        }
+
+
+        .EATH {
+            margin-left: 60px;
+            transform: translateY(30px);
+
+
+            &::after {
+                content: 'EATH';
+                color: white;
+                margin-left: 30px;
+
+            }
+
+        }
+
+        .WEATH {
+            margin-left: 60px;
+            transform: translateY(35px);
+
+            &::after {
+                content: 'WEATH';
+                color: white;
+                margin-left: 30px;
+            }
+
+        }
+
+    }
+
+
+    .status-buttons {
+        display: grid;
+        grid-template-columns: repeat(2, 80px);
+        grid-template-rows: repeat(2, 30px);
+        justify-content: center;
+        gap: 5px;
+        padding: 20px;
+
+        button {
+            border-radius: 10px;
+        }
+
+        &.toggle {
+            display: none;
+        }
+
+    }
+
+
+
+
+
+
+
 }
+
 .main-account {
     background-color: var(--main-color-1);
     border-radius: 20px;
@@ -230,17 +311,20 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+
     // text-align: center;
     // justify-content: center;
-    img{
+    img {
         width: 250px;
     }
-    form{
+
+    form {
         display: flex;
         flex-direction: column;
         margin: 20px;
     }
 }
+
 .main {
     background-color: var(--main-color-1);
     border-radius: 20px;
@@ -263,6 +347,7 @@ body {
         transform: translateY(-20px);
         cursor: pointer;
         opacity: 0;
+
 
         &:hover {
             box-shadow: 10px 10px 60px 10px rgba(121, 121, 121, 0.3);
