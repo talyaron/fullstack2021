@@ -14,21 +14,22 @@
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
     <title>Register</title>
+    <link rel="stylesheet" href="./dist/style.css">
 </head>
 <body>
+    <div id="landing">
     <section id="register">
-    <form name='register' onsubmit="handleRegister(event)">
+    <form name='register' onsubmit="handleRegister(ev)">
             <input type="text" name="firstName" id="firstName" placeholder="First Name">
             <input type="text" name="lastName" id="lastName" placeholder="Last Name">
             <input type="email" name="email" id="email" placeholder="Email">
             <input type="password" name="verifiedPassword" id="password" placeholder="Enter your password">
             <input type="text" name="role" id="role" placeholder="Whats your occupation?">
             <input type="file" name="" id="">
-            <a  onclick="document.querySelector('#signUp').click()"> Sign Up!
-            </a>
-            <input style="display:none" id="signUp" type="submit" value="Sign up!">
+            <input id="signUp" type="submit">
     </form>
 </section>
+</div>
 </body>
 <script src="./dist/index.js">
 </script>

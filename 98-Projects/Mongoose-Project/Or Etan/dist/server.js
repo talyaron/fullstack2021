@@ -30,7 +30,19 @@ const UserSchema = new mongoose_1.default.Schema({
     lastName: String,
     img: String,
 });
-const User = mongoose_1.default.model("users", UserSchema);
+const user = mongoose_1.default.model("users", UserSchema);
+app.post("/add-user", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        let { firstName, lastName, email, password, role } = req.body;
+        const newUser = new user({ firstName, lastName, email, password, role });
+        const result = yield newUser.save();
+        res.send({ result });
+    }
+    catch (error) {
+        console.error(error);
+        res.send({ error: error.message });
+    }
+}));
 const TaskSchema = new mongoose_1.default.Schema({
     title: String,
     description: String,
@@ -38,13 +50,18 @@ const TaskSchema = new mongoose_1.default.Schema({
     location: String,
     date: Date,
 });
-const Task = mongoose_1.default.model("tasks", TaskSchema);
-router.post("/log-in", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const task = mongoose_1.default.model("tasks", TaskSchema);
+app.post("/log-in", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     let { email, password } = req.body;
     try {
-        const users = yield User.find({ email: email, password: password }).collation({ locale: 'en_US', strength: 1 });
+        const users = yield user.find({ email: email }).collation({ locale: 'en_US', strength: 1 });
+        const verifiedUser = yield user.find({ email: email, password: password }).collation({ locale: 'en_US', strength: 1 });
         if (users.length > 0) {
-            res.send({ ok: true, users });
+            if (verifiedUser.length === 1) {
+                res.send({ ok: true, users, verifiedUser });
+                return;
+            }
+            res.send({ aUser: true });
         }
         else {
             res.send({ ok: false });

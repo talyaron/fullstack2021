@@ -36,43 +36,55 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 function handleLogin(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var email, password, data;
+        var email, password, userData, data;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     ev.preventDefault();
                     email = ev.target.elements.email.value;
                     password = ev.target.elements.password.value;
-                    console.log(email);
-                    return [4 /*yield*/, axios.post("/log-in", { email: email, password: password })];
+                    userData = {
+                        email: email,
+                        password: password
+                    };
+                    return [4 /*yield*/, axios.post("/log-in", userData).then(function (response) {
+                            var status = response.data.ok;
+                            var userExists = response.data.aUser;
+                            var verifiedUser = response.data.verifiedUser;
+                            var verifiedUserId = response.data.verifiedUser[0]._id;
+                            var html = "";
+                            if (status) {
+                                window.location.href = "/home-or.html?id=" + verifiedUserId;
+                                console.log({ status: status });
+                                console.log(verifiedUser);
+                                console.log(verifiedUserId);
+                            }
+                            else if (userExists) {
+                                console.log({ userExists: userExists });
+                                // document.get
+                            }
+                        })];
                 case 1:
-                    data = (_a.sent()).data;
-                    console.log(data);
+                    data = _a.sent();
                     return [2 /*return*/];
             }
         });
     });
 }
-;
 function handleRegister(ev) {
-    return __awaiter(this, void 0, void 0, function () {
-        var _a, firstName, lastName, email, password, role, data;
-        return __generator(this, function (_b) {
-            switch (_b.label) {
-                case 0:
-                    ev.preventDefault();
-                    _a = ev.target.elements, firstName = _a.firstName, lastName = _a.lastName, email = _a.email, password = _a.password, role = _a.role;
-                    firstName = firstName.value;
-                    lastName = lastName.value;
-                    email = email.value;
-                    password = password.value;
-                    role = role.value;
-                    return [4 /*yield*/, axios.post('/add-user', { firstName: firstName, lastName: lastName, email: email, password: password, role: role })];
-                case 1:
-                    data = (_b.sent()).data;
-                    console.log(data);
-                    return [2 /*return*/];
-            }
-        });
-    });
+    ev.preventDefault();
+    var _a = ev.target.elements, firstName = _a.firstName, lastName = _a.lastName, email = _a.email, password = _a.password, role = _a.role;
+    firstName = firstName.value;
+    lastName = lastName.value;
+    email = email.value;
+    password = password.value;
+    role = role.value;
+    var data = axios.post("/add-user", {
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        password: password,
+        role: role
+    }).data;
+    console.log(data);
 }
