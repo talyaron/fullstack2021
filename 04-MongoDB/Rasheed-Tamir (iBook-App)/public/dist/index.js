@@ -1,109 +1,78 @@
-var books = [
-    {
-        id: "firstBook",
-        coverImg: "https://kbimages1-a.akamaihd.net/93affabc-5161-421e-80d5-4477a07b8cee/1200/1200/False/harry-potter-and-the-philosopher-s-stone-3.jpg",
-        firstPageImg: "https://images-na.ssl-images-amazon.com/images/I/81iqZ2HHD-L.jpg",
-        firstPageChapter: "Chapter Two",
-        firstPageHeadLine: "The Vanishing Glass",
-        firstPageContent: "Nearly ten years had passed since the Dursleys had woken up to find their nephew on the front step but Privet Drive had hardly changed at all.The sun rose on the same tidy front gardens and lit up the brass numberfour on the Dursleys front door; it crept into their living room,which was almost exactly the same as it had been on the night whenMr. Dursley had seen that fateful news report about the owls. Only the photographs on the mantelpiece really showed how much time hadpassed. Ten years ago there had been lots of pictures of whatlooked like a large pink beach ball wearing different-coloredbonnets  but Dudley Dursley was no longer a baby, and now the photographs showed a large blond boy riding his first",
-        secendPageImg: "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9781/4088/9781408845646.jpg",
-        secendPageChapter: "Chapter Two",
-        secendPageHeadLine: "The Vanishing Glass",
-        secendPageContent: "Nearly ten years had passed since the Dursleys had woken up to find their nephew on the front step but Privet Drive had hardly changed at all.The sun rose on the same tidy front gardens and lit up the brass numberfour on the Dursleys front door; it crept into their living room,which was almost exactly the same as it had been on the night whenMr. Dursley had seen that fateful news report about the owls. Only the photographs on the mantelpiece really showed how much time hadpassed. Ten years ago there had been lots of pictures of whatlooked like a large pink beach ball wearing different-coloredbonnets  but Dudley Dursley was no longer a baby, and now the photographs showed a large blond boy riding his first",
-        thirdPageImg: "https://i.guim.co.uk/img/static/sys-images/Guardian/Pix/pictures/2015/5/20/1432157330734/3223f1e3-ed48-414f-b9f6-00c1470e33e9-1623x2040.jpeg?width=445&quality=45&auto=format&fit=max&dpr=2&s=d679e69b7eb9826bd65caf6ac20e582c",
-        thirdPageChapter: "Chapter Two",
-        thirdPageHeadLine: "The Vanishing Glass",
-        thirdPageContent: "Nearly ten years had passed since the Dursleys had woken up to find their nephew on the front step but Privet Drive had hardly changed at all.The sun rose on the same tidy front gardens and lit up the brass numberfour on the Dursleys front door; it crept into their living room,which was almost exactly the same as it had been on the night whenMr. Dursley had seen that fateful news report about the owls. Only the photographs on the mantelpiece really showed how much time hadpassed. Ten years ago there had been lots of pictures of whatlooked like a large pink beach ball wearing different-coloredbonnets  but Dudley Dursley was no longer a baby, and now the photographs showed a large blond boy riding his first",
-        fourthPageImg: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd8J8TqNILqRSZC32ky2a6GXf4EhxYWziunw&usqp=CAU",
-        fourthPageChapter: "Chapter Two",
-        fourthPageHeadLine: "The Vanishing Glass",
-        fourthPageContent: "Nearly ten years had passed since the Dursleys had woken up to find their nephew on the front step but Privet Drive had hardly changed at all.The sun rose on the same tidy front gardens and lit up the brass numberfour on the Dursleys front door; it crept into their living room,which was almost exactly the same as it had been on the night whenMr. Dursley had seen that fateful news report about the owls. Only the photographs on the mantelpiece really showed how much time hadpassed. Ten years ago there had been lots of pictures of whatlooked like a large pink beach ball wearing different-coloredbonnets  but Dudley Dursley was no longer a baby, and now the photographs showed a large blond boy riding his first",
-        backCoverImg: "https://fadutown.com/wp-content/uploads/2020/08/51kdIBI0MlL.jpg"
-    },
-    {
-        id: "secendBook",
-        coverImg: "https://images-na.ssl-images-amazon.com/images/I/91HHqVTAJQL.jpg",
-        firstPageImg: "https://pictures.abebooks.com/isbn/9780747538486-fr.jpg",
-        firstPageChapter: "Chapter Two",
-        firstPageHeadLine: "The Vanishing Glass",
-        firstPageContent: "Nearly ten years had passed since the Dursleys had woken up to find their nephew on the front step but Privet Drive had hardly changed at all.The sun rose on the same tidy front gardens and lit up the brass numberfour on the Dursleys front door; it crept into their living room,which was almost exactly the same as it had been on the night whenMr. Dursley had seen that fateful news report about the owls. Only the photographs on the mantelpiece really showed how much time hadpassed. Ten years ago there had been lots of pictures of whatlooked like a large pink beach ball wearing different-coloredbonnets  but Dudley Dursley was no longer a baby, and now the photographs showed a large blond boy riding his first",
-        secendPageImg: "https://images-na.ssl-images-amazon.com/images/I/51-gJbWc3qL._SX338_BO1,204,203,200_.jpg",
-        secendPageChapter: "Chapter Two",
-        secendPageHeadLine: "The Vanishing Glass",
-        secendPageContent: "Nearly ten years had passed since the Dursleys had woken up to find their nephew on the front step but Privet Drive had hardly changed at all.The sun rose on the same tidy front gardens and lit up the brass numberfour on the Dursleys front door; it crept into their living room,which was almost exactly the same as it had been on the night whenMr. Dursley had seen that fateful news report about the owls. Only the photographs on the mantelpiece really showed how much time hadpassed. Ten years ago there had been lots of pictures of whatlooked like a large pink beach ball wearing different-coloredbonnets  but Dudley Dursley was no longer a baby, and now the photographs showed a large blond boy riding his first",
-        thirdPageImg: "https://pictures.abebooks.com/isbn/9780545582926-us.jpg",
-        thirdPageChapter: "Chapter Two",
-        thirdPageHeadLine: "The Vanishing Glass",
-        thirdPageContent: "Nearly ten years had passed since the Dursleys had woken up to find their nephew on the front step but Privet Drive had hardly changed at all.The sun rose on the same tidy front gardens and lit up the brass numberfour on the Dursleys front door; it crept into their living room,which was almost exactly the same as it had been on the night whenMr. Dursley had seen that fateful news report about the owls. Only the photographs on the mantelpiece really showed how much time hadpassed. Ten years ago there had been lots of pictures of whatlooked like a large pink beach ball wearing different-coloredbonnets  but Dudley Dursley was no longer a baby, and now the photographs showed a large blond boy riding his first",
-        fourthPageImg: "https://images-na.ssl-images-amazon.com/images/I/51BtpajI9YL._SX498_BO1,204,203,200_.jpg",
-        fourthPageChapter: "Chapter Two",
-        fourthPageHeadLine: "The Vanishing Glass",
-        fourthPageContent: "Nearly ten years had passed since the Dursleys had woken up to find their nephew on the front step but Privet Drive had hardly changed at all.The sun rose on the same tidy front gardens and lit up the brass numberfour on the Dursleys front door; it crept into their living room,which was almost exactly the same as it had been on the night whenMr. Dursley had seen that fateful news report about the owls. Only the photographs on the mantelpiece really showed how much time hadpassed. Ten years ago there had been lots of pictures of whatlooked like a large pink beach ball wearing different-coloredbonnets  but Dudley Dursley was no longer a baby, and now the photographs showed a large blond boy riding his first",
-        backCoverImg: "https://m.media-amazon.com/images/I/5191isFAtRL._AC_SY1000_.jpg"
-    },
-    {
-        id: "thirdBook",
-        coverImg: "https://img1.od-cdn.com/ImageType-100/3450-1/%7B93EF5C03-43F3-4050-A6DE-9E377FD107D9%7DImg100.jpg",
-        firstPageImg: "https://images-na.ssl-images-amazon.com/images/I/81lAPl9Fl0L.jpg",
-        firstPageChapter: "Chapter Two",
-        firstPageHeadLine: "The Vanishing Glass",
-        firstPageContent: "Nearly ten years had passed since the Dursleys had woken up to find their nephew on the front step but Privet Drive had hardly changed at all.The sun rose on the same tidy front gardens and lit up the brass numberfour on the Dursleys front door; it crept into their living room,which was almost exactly the same as it had been on the night whenMr. Dursley had seen that fateful news report about the owls. Only the photographs on the mantelpiece really showed how much time hadpassed. Ten years ago there had been lots of pictures of whatlooked like a large pink beach ball wearing different-coloredbonnets  but Dudley Dursley was no longer a baby, and now the photographs showed a large blond boy riding his first",
-        secendPageImg: "https://static-01.daraz.com.np/p/e69c7318b213a3d8b7a2855431cece9e.jpg",
-        secendPageChapter: "Chapter Two",
-        secendPageHeadLine: "The Vanishing Glass",
-        secendPageContent: "Nearly ten years had passed since the Dursleys had woken up to find their nephew on the front step but Privet Drive had hardly changed at all.The sun rose on the same tidy front gardens and lit up the brass numberfour on the Dursleys front door; it crept into their living room,which was almost exactly the same as it had been on the night whenMr. Dursley had seen that fateful news report about the owls. Only the photographs on the mantelpiece really showed how much time hadpassed. Ten years ago there had been lots of pictures of whatlooked like a large pink beach ball wearing different-coloredbonnets  but Dudley Dursley was no longer a baby, and now the photographs showed a large blond boy riding his first",
-        thirdPageImg: "https://cdna.artstation.com/p/assets/images/images/010/777/898/large/alan-vilalte-prisonerofazkaban.jpg?1526182197",
-        thirdPageChapter: "Chapter Two",
-        thirdPageHeadLine: "The Vanishing Glass",
-        thirdPageContent: "Nearly ten years had passed since the Dursleys had woken up to find their nephew on the front step but Privet Drive had hardly changed at all.The sun rose on the same tidy front gardens and lit up the brass numberfour on the Dursleys front door; it crept into their living room,which was almost exactly the same as it had been on the night whenMr. Dursley had seen that fateful news report about the owls. Only the photographs on the mantelpiece really showed how much time hadpassed. Ten years ago there had been lots of pictures of whatlooked like a large pink beach ball wearing different-coloredbonnets  but Dudley Dursley was no longer a baby, and now the photographs showed a large blond boy riding his first",
-        fourthPageImg: "http://prodimage.images-bn.com/pimages/9781338299168_p0_v4_s1200x630.jpg",
-        fourthPageChapter: "Chapter Two",
-        fourthPageHeadLine: "The Vanishing Glass",
-        fourthPageContent: "Nearly ten years had passed since the Dursleys had woken up to find their nephew on the front step but Privet Drive had hardly changed at all.The sun rose on the same tidy front gardens and lit up the brass numberfour on the Dursleys front door; it crept into their living room,which was almost exactly the same as it had been on the night whenMr. Dursley had seen that fateful news report about the owls. Only the photographs on the mantelpiece really showed how much time hadpassed. Ten years ago there had been lots of pictures of whatlooked like a large pink beach ball wearing different-coloredbonnets  but Dudley Dursley was no longer a baby, and now the photographs showed a large blond boy riding his first",
-        backCoverImg: "https://ae01.alicdn.com/kf/Ub9c6e192ad3249df824101dc585c140cz/HARRY-POTTER-3-PRISONER-BLOOMSBURY-3-7.jpg"
-    },
-    {
-        id: "fourthBook",
-        coverImg: "https://images-na.ssl-images-amazon.com/images/I/81t2CVWEsUL.jpg",
-        firstPageImg: "https://m.media-amazon.com/images/I/51Vjb2qJwzL.jpg",
-        firstPageChapter: "Chapter Two",
-        firstPageHeadLine: "The Vanishing Glass",
-        firstPageContent: "Nearly ten years had passed since the Dursleys had woken up to find their nephew on the front step but Privet Drive had hardly changed at all.The sun rose on the same tidy front gardens and lit up the brass numberfour on the Dursleys front door; it crept into their living room,which was almost exactly the same as it had been on the night whenMr. Dursley had seen that fateful news report about the owls. Only the photographs on the mantelpiece really showed how much time hadpassed. Ten years ago there had been lots of pictures of whatlooked like a large pink beach ball wearing different-coloredbonnets  but Dudley Dursley was no longer a baby, and now the photographs showed a large blond boy riding his first",
-        secendPageImg: "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9780/5455/9780545582957.jpg",
-        secendPageChapter: "Chapter Two",
-        secendPageHeadLine: "The Vanishing Glass",
-        secendPageContent: "Nearly ten years had passed since the Dursleys had woken up to find their nephew on the front step but Privet Drive had hardly changed at all.The sun rose on the same tidy front gardens and lit up the brass numberfour on the Dursleys front door; it crept into their living room,which was almost exactly the same as it had been on the night whenMr. Dursley had seen that fateful news report about the owls. Only the photographs on the mantelpiece really showed how much time hadpassed. Ten years ago there had been lots of pictures of whatlooked like a large pink beach ball wearing different-coloredbonnets  but Dudley Dursley was no longer a baby, and now the photographs showed a large blond boy riding his first",
-        thirdPageImg: "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9781/5266/9781526610317.jpg",
-        thirdPageChapter: "Chapter Two",
-        thirdPageHeadLine: "The Vanishing Glass",
-        thirdPageContent: "Nearly ten years had passed since the Dursleys had woken up to find their nephew on the front step but Privet Drive had hardly changed at all.The sun rose on the same tidy front gardens and lit up the brass numberfour on the Dursleys front door; it crept into their living room,which was almost exactly the same as it had been on the night whenMr. Dursley had seen that fateful news report about the owls. Only the photographs on the mantelpiece really showed how much time hadpassed. Ten years ago there had been lots of pictures of whatlooked like a large pink beach ball wearing different-coloredbonnets  but Dudley Dursley was no longer a baby, and now the photographs showed a large blond boy riding his first",
-        fourthPageImg: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1554006152l/6.jpg",
-        fourthPageChapter: "Chapter Two",
-        fourthPageHeadLine: "The Vanishing Glass",
-        fourthPageContent: "Nearly ten years had passed since the Dursleys had woken up to find their nephew on the front step but Privet Drive had hardly changed at all.The sun rose on the same tidy front gardens and lit up the brass numberfour on the Dursleys front door; it crept into their living room,which was almost exactly the same as it had been on the night whenMr. Dursley had seen that fateful news report about the owls. Only the photographs on the mantelpiece really showed how much time hadpassed. Ten years ago there had been lots of pictures of whatlooked like a large pink beach ball wearing different-coloredbonnets  but Dudley Dursley was no longer a baby, and now the photographs showed a large blond boy riding his first",
-        backCoverImg: "https://m.media-amazon.com/images/I/519o4XzV0EL._AC_SY1000_.jpg"
-    }
-];
-function filterByid(id) {
-    return books.filter(function (book) { return book.id === id; });
-}
-function renderByid(id, domElement) {
-    var filterById = filterByid(id);
-    renderBooks(filterById, domElement);
-}
-function renderBooks(list, domEle) {
-    var html = '';
-    list.forEach(function (book) {
-        html += " \n        <input type=\"checkbox\" id=\"first-check1\">\n        <input type=\"checkbox\" id=\"first-check2\">\n        <input type=\"checkbox\" id=\"first-check3\">\n        <input type=\"checkbox\" id=\"first-check4\">\n        <input type=\"checkbox\" id=\"first-check5\">\n        <input type=\"checkbox\" id=\"secend-check1\">\n        <input type=\"checkbox\" id=\"secend-check2\">\n        <input type=\"checkbox\" id=\"secend-check3\">\n        <input type=\"checkbox\" id=\"secend-check4\">\n        <input type=\"checkbox\" id=\"secend-check5\">\n\n        <div class=\"book__content\">\n            <div class=\"book__content__pageFlip\" id=\"first-page1\">\n                <div class=\"book__content__pageFlip-back\">\n                    <img src=\"" + book.firstPageImg + "\">\n                    <label class=\"book__content__pageFlip-back-btn\" for=\"first-check1\">\n                        <<</label>\n\n                </div>\n                <div class=\"book__content__pageFlip-front\">\n                    <img id=\"cover\" src=\"" + book.coverImg + "\">\n                    <label class=\"book__content__pageFlip-front-btn\" id=\"glow\" for=\"first-check1\">Read</label>\n                </div>\n            </div>\n            <div class=\"book__content__pageFlip\" id=\"first-page2\">\n                <div class=\"book__content__pageFlip-back\">\n                    <img src=\"" + book.secendPageImg + "\">\n                    <label class=\"book__content__pageFlip-back-btn\" for=\"first-check2\">\n                        <<</label>\n                </div>\n                <div  class=\"book__content__pageFlip-front\">\n                    <h1> " + book.firstPageChapter + "</h1>\n                    <h2> " + book.firstPageHeadLine + "</h2>\n                    <p> " + book.firstPageContent + "</p>\n                    <label class=\"book__content__pageFlip-front-btn\" for=\"first-check2\">>></label>\n                </div>\n            </div>\n            <div class=\"book__content__pageFlip\" id=\"first-page3\">\n            <div class=\"book__content__pageFlip-back\">\n                <img src=\"" + book.thirdPageImg + "\">\n                <label class=\"book__content__pageFlip-back-btn\" for=\"first-check3\">\n                    <<</label>\n            </div>\n            <div class=\"book__content__pageFlip-front\">\n                <h1> " + book.secendPageChapter + "</h1>\n                <h2> " + book.secendPageHeadLine + "</h2>\n                <p>" + book.secendPageContent + "</p>\n                <label class=\"book__content__pageFlip-front-btn\" for=\"first-check3\">>></label>\n            </div>\n        </div>\n        <div class=\"book__content__pageFlip\" id=\"first-page4\">\n            <div class=\"book__content__pageFlip-back\">\n                <img src=\"" + book.fourthPageImg + "\">\n                <label class=\"book__content__pageFlip-back-btn\" for=\"first-check4\">\n                    <<</label>\n            </div>\n            <div class=\"book__content__pageFlip-front\">\n                <h1>  " + book.thirdPageChapter + "</h1>\n                <h2> " + book.thirdPageHeadLine + "</h2>\n                <p>" + book.thirdPageContent + ".</p>\n                <label class=\"book__content__pageFlip-front-btn\" for=\"first-check4\">>></label>\n            </div>\n        </div>\n        <div class=\"book__content__pageFlip\" id=\"first-page5\">\n            <div class=\"book__content__pageFlip-back\">\n                <img src=\"" + book.backCoverImg + "\">\n                <label class=\"book__content__pageFlip-back-btn\" for=\"first-check5\">\n                    <<</label>\n            </div>\n            <div class=\"book__content__pageFlip-front\">\n                <h1>  " + book.fourthPageChapter + "</h1>\n                <h2> " + book.fourthPageHeadLine + "</h2>\n                <p>" + book.fourthPageContent + "</p>\n                <label class=\"book__content__pageFlip-front-btn\" for=\"first-check5\">>></label>\n            </div>\n        </div>\n    </div>\n</div>";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
-    domEle.innerHTML = html;
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+var axios;
+function getBooks() {
+    return __awaiter(this, void 0, void 0, function () {
+        var data;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, axios.get("/get-books")];
+                case 1:
+                    data = (_a.sent()).data;
+                    console.log(data);
+                    if (Array.isArray(data))
+                        return [2 /*return*/, data];
+                    return [2 /*return*/];
+            }
+        });
+    });
 }
-var firstBook = document.getElementById("firstBook");
-var secendBook = document.getElementById("secendBook");
-var thirdBook = document.getElementById("thirdBook");
-var fourthBook = document.getElementById("fourthBook");
-// renderBook(books,root);
-renderByid("firstBook", firstBook);
-renderByid("secendBook", secendBook);
-renderByid("thirdBook", thirdBook);
-renderByid("fourthBook", fourthBook);
+function handleBooks() {
+    return __awaiter(this, void 0, void 0, function () {
+        var data;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, this.getBooks()];
+                case 1:
+                    data = _a.sent();
+                    renderData(data);
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+function handleLoadBooks() {
+    handleBooks();
+}
+function renderData(data) {
+    var html = "";
+    data.forEach(function (book) {
+        html += "\n                <div id=\"book\" class=\"book\">\n                <input type=\"checkbox\" id=\"check1\">\n                <input type=\"checkbox\" id=\"check2\">\n                <input type=\"checkbox\" id=\"check3\">\n                <input type=\"checkbox\" id=\"check4\">\n                <input type=\"checkbox\" id=\"check5\">\n\n                    <div class=\"book__content\">\n                        <div class=\"book__content__pageFlip\" id=\"page1\">\n                            <div class=\"book__content__pageFlip-back\">\n                            <img src=\"" + book.firstPageImg + "\">\n                            <label class=\"book__content__pageFlip-back-btn\" for=\"check1\">\n                                <<</label>\n        \n                            </div>\n                            <div class=\"book__content__pageFlip-front\">\n                            <img id=\"cover\" src=\"" + book.coverImg + "\">\n                            <label class=\"book__content__pageFlip-front-btn\" id=\"glow\" for=\"check1\">Read</label>\n                        </div>\n                    </div>\n                    <div class=\"book__content__pageFlip\" id=\"page2\">\n                        <div class=\"book__content__pageFlip-back\">\n                            <img src=\"" + book.secendPageImg + "\">\n                            <label class=\"book__content__pageFlip-back-btn\" for=\"check2\">\n                                <<</label>\n                        </div>\n                        <div  class=\"book__content__pageFlip-front\">\n                            <h1> " + book.firstPageChapter + "</h1>\n                            <h2> " + book.firstPageHeadLine + "</h2>\n                            <p> " + book.firstPageContent + "</p>\n                            <label class=\"book__content__pageFlip-front-btn\" for=\"check2\">>></label>\n                        </div>\n                    </div>\n                    <div class=\"book__content__pageFlip\" id=\"page3\">\n                    <div class=\"book__content__pageFlip-back\">\n                        <img src=\"" + book.thirdPageImg + "\">\n                        <label class=\"book__content__pageFlip-back-btn\" for=\"check3\">\n                            <<</label>\n                    </div>\n                    <div class=\"book__content__pageFlip-front\">\n                        <h1> " + book.secendPageChapter + "</h1>\n                        <h2> " + book.secendPageHeadLine + "</h2>\n                        <p>" + book.secendPageContent + "</p>\n                        <label class=\"book__content__pageFlip-front-btn\" for=\"check3\">>></label>\n                    </div>\n                </div>\n                <div class=\"book__content__pageFlip\" id=\"page4\">\n                    <div class=\"book__content__pageFlip-back\">\n                        <img src=\"" + book.fourthPageImg + "\">\n                        <label class=\"book__content__pageFlip-back-btn\" for=\"check4\">\n                            <<</label>\n                    </div>\n                    <div class=\"book__content__pageFlip-front\">\n                        <h1>  " + book.thirdPageChapter + "</h1>\n                        <h2> " + book.thirdPageHeadLine + "</h2>\n                        <p>" + book.thirdPageContent + ".</p>\n                        <label class=\"book__content__pageFlip-front-btn\" for=\"check4\">>></label>\n                    </div>\n                </div>\n                <div class=\"book__content__pageFlip\" id=\"page5\">\n                    <div class=\"book__content__pageFlip-back\">\n                        <img src=\"" + book.backCoverImg + "\">\n                        <label class=\"book__content__pageFlip-back-btn\" for=\"check5\">\n                            <<</label>\n                    </div>\n                    <div class=\"book__content__pageFlip-front\">\n                        <h1>  " + book.fourthPageChapter + "</h1>\n                        <h2> " + book.fourthPageHeadLine + "</h2>\n                        <p>" + book.fourthPageContent + "</p>\n                        <label class=\"book__content__pageFlip-front-btn\" for=\"check5\">>></label>\n                </div>\n            </div>\n        </div>\n        </div>";
+    });
+    var root = document.querySelector('#root');
+    root.innerHTML = html;
+}

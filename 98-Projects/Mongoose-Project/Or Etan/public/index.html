@@ -22,11 +22,20 @@
     <title>LogIn</title>
 </head>
 <body>
-    <form name="login" onsubmit="handleLogin(event)">
-        <input type="email" name="email" id="email">
+    <div id="landing">
+        
+    <div id="login">
+        <form name="login" onsubmit="handleLogin(event)">
+        <input type="email" name="email" id="email" value="etan@heyman.net">
         <input type="password" name="password" id="password">
         <input type="submit" value="Log In">
     </form>
+</div>
+
+   <div id="notAUser">
     <p>Not a member yet? <a href="./register.html">Sign Up!</a></p>
+   </div>
+</div>
 </body>
+<script src="./dist/index.js"></script>
 </html>
