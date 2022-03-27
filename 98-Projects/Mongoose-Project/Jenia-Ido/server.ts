@@ -25,11 +25,13 @@ const Images = mongoose.model('images',imageSchema);
 
 mongoose.connect('mongodb+srv://igino11:kktgqbLMCE3mtTN6@cluster0.zfewx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority');
 
-app.patch('/get-addNewUser', (req, res) => {
+app.post('/get-addNewUser', async (req, res) => {
   const {newUser} = req.body;
   const newImgs = {email:newUser.email , password:newUser.password , url:['https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png']}
   const user = new User(newUser)
   const userImgs = new Images(newImgs)
+  const addNewUser = await user.save()
+  const addNewUserImgs = await userImgs.save()
   console.log(userImgs);
   console.log(user);
   res.send(userImgs);

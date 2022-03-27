@@ -92,7 +92,7 @@ function newUserDetails(ev) {
                     }
                     console.log(birthday);
                     newUser = { firstName: firstName, lastName: lastName, birthday: birthday, country: country, password: password, email: email, gender: gender };
-                    return [4 /*yield*/, axios.patch('/get-addNewUser', { newUser: newUser })];
+                    return [4 /*yield*/, axios.post('/get-addNewUser', { newUser: newUser })];
                 case 1:
                     data = (_b.sent()).data;
                     console.log(data);

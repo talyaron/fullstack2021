@@ -87,7 +87,7 @@ async function newUserDetails(ev) {
     }
     console.log(birthday);
     const newUser: User = { firstName, lastName, birthday, country, password, email, gender }
-    const { data } = await axios.patch('/get-addNewUser', { newUser });
+    const { data } = await axios.post('/get-addNewUser', { newUser });
     console.log(data);
     
     console.log(newUser);
