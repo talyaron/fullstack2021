@@ -57,7 +57,6 @@ export const updateUser = async (req, res) => {
 }
 
 
-// doesn't work ¯\_(⊙_ʖ⊙)_/¯ cant interact in any way with an Array
 export const addArtToUser = async (req, res) => {
     const { newArt, user } = req.body;
     const r = await User.updateOne(

@@ -75,7 +75,7 @@ function OpenSignUpForm(e) {
 }
 function handleLogInForm(e) {
     return __awaiter(this, void 0, void 0, function () {
-        var oldUser, email, password, data, error_2;
+        var oldUser, email, password, data, error_2, signIn;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -104,7 +104,8 @@ function handleLogInForm(e) {
                     if (window.location.pathname.split("/").pop() == 'register.html')
                         window.location.href = "./account_page.html";
                     e.target.reset();
-                    document.querySelector('.sign-in-form').classList.toggle('in-vis');
+                    signIn = document.querySelector('.sign-in-form');
+                    signIn.classList.toggle('in-vis');
                     return [2 /*return*/];
             }
         });
@@ -215,12 +216,11 @@ function handleAddArt(ev) {
 var site = {
     user: {}
 };
-// didn't understand what you did here ¯\_(ツ)_/¯
-var userLogedIn = {
-    logData: [],
-    addlogData: function (data) {
-        // const uid = Date.now().toString(36) + Math.random().toString(36).substr(2);
-        this.logData.push(data);
-        console.log(this.logData);
-    }
-};
+//sideBar
+function handleStatusClick() {
+    document.querySelector('.status-buttons').classList.toggle('toggle');
+}
+function handleOnSale() {
+    var onSale = document.querySelector('.onSale');
+    onSale.classList.toggle('hidden');
+}

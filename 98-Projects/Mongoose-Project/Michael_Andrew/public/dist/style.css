@@ -185,6 +185,52 @@ body {
 .side-bar__item:hover {
   cursor: pointer;
 }
+.side-bar .onSale {
+  display: flex;
+  flex-direction: column;
+  transition: all 0.5s;
+}
+.side-bar .onSale.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.side-bar .onSale input:nth-child(1) {
+  align-self: center;
+  width: 100px;
+  transform: translateY(15px);
+}
+.side-bar .onSale .EATH {
+  margin-left: 60px;
+  transform: translateY(30px);
+}
+.side-bar .onSale .EATH::after {
+  content: "EATH";
+  color: white;
+  margin-left: 30px;
+}
+.side-bar .onSale .WEATH {
+  margin-left: 60px;
+  transform: translateY(35px);
+}
+.side-bar .onSale .WEATH::after {
+  content: "WEATH";
+  color: white;
+  margin-left: 30px;
+}
+.side-bar .status-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 80px);
+  grid-template-rows: repeat(2, 30px);
+  justify-content: center;
+  gap: 5px;
+  padding: 20px;
+}
+.side-bar .status-buttons button {
+  border-radius: 10px;
+}
+.side-bar .status-buttons.toggle {
+  display: none;
+}
 
 .main-account {
   background-color: var(--main-color-1);
