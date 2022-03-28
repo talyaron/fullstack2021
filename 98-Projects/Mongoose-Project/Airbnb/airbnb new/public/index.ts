@@ -15,7 +15,11 @@ async function handleLoadPlace(){
    
    console.log(data);
    renderPlace(data);
-}
+   
+}catch (error) {
+    console.error(error.message);
+  
+}}
 async function handleGoToPlace(placeId){
   const {data} = await axios.get('/goToPlace',{data:{placeId}})
   renderPlace(data)
@@ -369,7 +373,7 @@ catch (error) {
 //     console.log(data)
 
 // }
-function handleFindAirbnb(ev){
+async function handleFindAirbnb(ev){
     ev.preventDefault();
     const search=ev.target.elements.searchLocation.value;
     const checkIn=ev.target.elements.checkIn.value;
