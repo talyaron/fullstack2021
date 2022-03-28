@@ -48,6 +48,7 @@ async function handleUpdate(ev, gameId) {
     const newImg = ev.target.value;
     const newTitle=ev.target.value;
     const { data } = await axios.patch('/products/update-product', { gameId, newImg,newTitle });
+   console.log(data)
     const {products} = data;
     renderProducts(products);
 }

@@ -93,6 +93,7 @@ function handleUpdate(ev, gameId) {
                     return [4 /*yield*/, axios.patch('/products/update-product', { gameId: gameId, newImg: newImg, newTitle: newTitle })];
                 case 1:
                     data = (_a.sent()).data;
+                    console.log(data);
                     products = data.products;
                     renderProducts(products);
                     return [2 /*return*/];
