@@ -1,3 +1,4 @@
+
 body {
   display: flex;
   background: #eee;
@@ -20,7 +21,15 @@ body {
   @media only screen and (min-width: 600px) {
     margin-top: 3.5rem;
   }
-
+#register{
+  margin: 0 auto;
+  width: clamp(15rem,90vw,45rem );
+  form{
+    display: flex;
+    flex-direction: column;
+    width: max-width;
+  }
+}
   &__dailytasksdone {
     padding: 5%;
     margin: auto;

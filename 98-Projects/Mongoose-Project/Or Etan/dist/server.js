@@ -16,10 +16,10 @@ const express_1 = __importDefault(require("express"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const router = express_1.default.Router();
 const app = express_1.default();
-const port = 3000;
+const port = process.env.PORT || 3000;
 app.use(express_1.default.static("public"));
 app.use(express_1.default.json());
-mongoose_1.default.connect('mongodb+srv://OrA99:134679852Or@cluster0.r0go0.mongodb.net/OrEtan?retryWrites=true&w=majority')
+mongoose_1.default.connect('mongodb+srv://EtanHey:NI2nXMDwLdTiRScP@cluster0.gedel.mongodb.net/OrEtan?retryWrites=true&w=majority')
     .then(() => { console.log('connect to Mongoose'); })
     .catch(err => { console.log(err.message); });
 const UserSchema = new mongoose_1.default.Schema({
@@ -35,11 +35,15 @@ app.post("/add-user", (req, res) => __awaiter(void 0, void 0, void 0, function* 
     console.log(req.body);
     try {
         let { firstName, lastName, email, password, role, gender } = req.body;
-        const newUser = new user({ firstName, lastName, email, password, role, gender });
-        console.log(newUser);
-        const result = yield newUser.save();
-        res.send({ result });
-        console.log(result);
+        if (firstName && lastName && email && password && role && gender) {
+            const newUser = new user({ firstName, lastName, email, password, role, gender });
+            console.log(newUser);
+            const result = yield newUser.save();
+            res.send({ result });
+            console.log(result);
+        }
+        else
+            throw new Error(`You've missed something`);
     }
     catch (error) {
         console.error(error);
@@ -75,6 +79,8 @@ app.post("/log-in", (req, res) => __awaiter(void 0, void 0, void 0, function* ()
         res.send({ error: error.message });
     }
 }));
+app.post('/show-user'), (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+});
 app.listen(port, () => {
     return console.log(`Server is listening at http://localhost:${port}`);
 });
