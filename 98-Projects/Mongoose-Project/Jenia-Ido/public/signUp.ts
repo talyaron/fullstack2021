@@ -20,7 +20,7 @@ const forms = {
 </form>`
     }, renderSignIn: function (display) {
         display.innerHTML = `
-    <form class="main_display-signInForm" style="animation: signInAnimation 1.5s 1s forwards;">
+    <form class="main_display-signInForm" style="animation: signInAnimation 1.5s 1s forwards;" onsubmit="HandleLogin(event)">
     <label class="main_display-signInForm-label">enter your email : 
     <input class="main_display-signInForm-input" type="email" name="email" id="email">
     </label> 
@@ -39,6 +39,28 @@ interface User {
     password: string
     email: string
     gender: string
+}
+async function HandleLogin(ev){
+    try{
+    ev.preventDefault();
+    const password = ev.target.elements.password.value;
+    console.log(password)
+    const email = ev.target.elements.email.value;
+    console.log(email);
+    const {ok,data,error} = await axios.get(`/get-user?email=${email}&password=${password}`);
+    const user = data.userData[0];
+    const imgs = data.userImgs[0];
+    console.log(data);
+    console.log(user);
+    console.log(imgs);
+    
+    renderProfile(user,imgs);
+    
+    }
+    catch(error){
+        console.error(error.message)
+
+    }
 }
 
 function showSignUpFrom(ev) {
@@ -87,7 +109,7 @@ async function newUserDetails(ev) {
     }
     console.log(birthday);
     const newUser: User = { firstName, lastName, birthday, country, password, email, gender }
-    const { data } = await axios.patch('/get-addNewUser', { newUser });
+    const { data } = await axios.post('/get-addNewUser', { newUser });
     console.log(data);
     
     console.log(newUser);
@@ -108,9 +130,9 @@ function renderProfile(user , imgs){
     </div>
     <nav class="settings">
     <ul>
-        <li onclick="handleUpdateUser(${user.id})">update</li>
-        <li onclick="handleUpdateProfilePic(${user.id})">update profile pic</li>
-        <li class="delete" onclick="handleDeleteProfile(${user.id})">delete User</li>
+        <li onclick="handleUpdateUser(${user.email})">update</li>
+        <li onclick="handleUpdateProfilePic(${user.email})">update profile pic</li>
+        <li class="delete" onclick="handleDeleteProfile(${user.email})">delete User</li>
     </ul>
 </nav>
     <div class="profile__header">

@@ -1,3 +1,4 @@
+"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -34,35 +35,34 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-function appInit() {
-    getItems();
-}
-function getItems() {
+exports.__esModule = true;
+exports.getItems = void 0;
+var marketModel_1 = require("../model/marketModel");
+var userModel_1 = require("../model/userModel");
+function getItems(req, res) {
     return __awaiter(this, void 0, void 0, function () {
-        var data, marketItems;
+        var marketItems, userItems, error_1;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, axios.get('/marketItems/getItems')];
+                case 0:
+                    _a.trys.push([0, 3, , 4]);
+                    return [4 /*yield*/, marketModel_1["default"].find({})];
                 case 1:
-                    data = (_a.sent()).data;
-                    console.log(data);
-                    marketItems = data.marketItems;
-                    console.log(marketItems);
-                    if (marketItems) {
-                        renderItemsMain(marketItems);
-                    }
-                    return [2 /*return*/];
+                    marketItems = _a.sent();
+                    return [4 /*yield*/, userModel_1["default"].find({})];
+                case 2:
+                    userItems = _a.sent();
+                    // console.log(marketItems);
+                    res.send({ ok: true, marketItems: marketItems, userItems: userItems });
+                    return [3 /*break*/, 4];
+                case 3:
+                    error_1 = _a.sent();
+                    console.log(error_1.error);
+                    res.send({ error: error_1.message });
+                    return [3 /*break*/, 4];
+                case 4: return [2 /*return*/];
             }
         });
     });
 }
-function renderItemsMain(items) {
-    var html = '';
-    var rootItems = document.querySelector('.mainPage__middle--products');
-    if (items) {
-        items.forEach(function (item) {
-            html += "\n            <div class=\"mainPage__middle--products--item\">\n                <img src=\"" + item.img + "\">\n                <h4>" + item.description + "</h4>\n                <p>" + item.price + "$</p>\n            </div>\n            ";
-        });
-        rootItems.innerHTML = html;
-    }
-}
+exports.getItems = getItems;
