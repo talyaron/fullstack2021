@@ -20,6 +20,7 @@
     "colors": "^1.4.0",
     "ejs": "^3.1.6",
     "express": "^4.17.3",
-    "mongoose": "^6.2.8"
+    "mongoose": "^6.2.8",
+    "node-youtube-music": "^0.7.0"
   }
 }
