@@ -1,4 +1,4 @@
-import axios from "axios";
+
 
 async function loadPlaces(){
     const {data} = await axios.get('/getPlaces')
@@ -7,7 +7,15 @@ async function loadPlaces(){
   //  renderAirbnb(data);
 }
 //loadPlaces()
+async function handleLoadPlace(){
+    try{
 
+  
+   const {data} = await axios.get('/places/getToPlace');
+   
+   console.log(data);
+   renderPlace(data);
+}
 async function handleGoToPlace(placeId){
   const {data} = await axios.get('/goToPlace',{data:{placeId}})
   renderPlace(data)
