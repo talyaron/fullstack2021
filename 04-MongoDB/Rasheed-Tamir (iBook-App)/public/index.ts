@@ -37,7 +37,7 @@ function renderData(data: Array<any>) {
                             </div>
                             <div class="book__content__pageFlip-front">
                             <img id="cover" src="${book.coverImg}">
-                            <label class="book__content__pageFlip-front-btn" id="glow" for="${book.BookId}check1">Read</label>
+                            <label class="book__content__pageFlip-front-btn" for="${book.BookId}check1">Read</label>
                         </div>
                     </div>
                     <div class="book__content__pageFlip" id="page2">
