@@ -9,6 +9,7 @@ var artSchema = new mongoose_1["default"].Schema({
 });
 var Art = mongoose_1["default"].model('newArt', artSchema);
 exports.art = Art;
+//למה לא אקספורט
 var userSchema = new mongoose_1["default"].Schema({
     userName: String,
     email: String,

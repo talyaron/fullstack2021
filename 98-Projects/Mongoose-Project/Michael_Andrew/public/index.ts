@@ -69,8 +69,8 @@ function handleLogOut() {
     if (window.location.pathname.split("/").pop() == 'account_page.html') window.location.href = "./register.html"
     else location.reload();
 }
-
-function handleOnLoad() {
+//למה הוצאת את הסלש ולמה הפנית מהאקונט לרגיסטר אם היוזר יצא
+async function handleOnLoad() {
     const user = JSON.parse(localStorage.getItem('user'))
     if (user) site.user = user
     if (window.location.pathname.split("/").pop() == 'account_page.html') {
@@ -80,8 +80,11 @@ function handleOnLoad() {
                         <h3>${site.user.email}</h3>
                         <h3>Funds: ${site.user.fund} BTC</h3>`
     }
+    const { data } = await axios.get(`/arts/get-user-art?userId=${site.user._id}`);
+    console.log(data);
+    
 }
-
+//למה לא להוסיף לינק ב- HTML
 function handleAccountRedirect() {
     if (site.user.userName) window.location.href = "./account_page.html";
     else window.location.href = "./register.html"

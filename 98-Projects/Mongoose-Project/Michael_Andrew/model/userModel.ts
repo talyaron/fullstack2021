@@ -9,6 +9,7 @@ const artSchema = new mongoose.Schema({
 
 const Art = mongoose.model('newArt', artSchema)
 export const art =  Art;
+//למה לא אקספורט
 
 const userSchema = new mongoose.Schema({
   userName: String,
