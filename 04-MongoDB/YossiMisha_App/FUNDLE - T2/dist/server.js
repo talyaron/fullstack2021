@@ -60,10 +60,10 @@ app.post("/add-user", function (req, res) { return __awaiter(void 0, void 0, voi
             case 0:
                 _b.trys.push([0, 2, , 3]);
                 _a = req.body, username = _a.username, password = _a.password, email = _a.email;
-                played = void 0;
-                wins = void 0;
-                current_strike = void 0;
-                max_strike = void 0;
+                played = 0;
+                wins = 0;
+                current_strike = 0;
+                max_strike = 0;
                 newFundleUser = new FundleUser({ username: username, password: password, email: email, played: played, wins: wins, current_strike: current_strike, max_strike: max_strike });
                 return [4 /*yield*/, newFundleUser.save()];
             case 1:
