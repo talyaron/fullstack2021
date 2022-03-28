@@ -57,10 +57,3 @@ export const updateUser = async (req, res) => {
 }
 
 
-export const addArtToUser = async (req, res) => {
-    const { newArt, user } = req.body;
-    const r = await User.updateOne(
-        { _id: user._id }, { $push: { artCollection: newArt } }
-    );
-    console.log(r);
-}

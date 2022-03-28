@@ -1,14 +1,16 @@
-import express from 'express';
+import express from "express";
 const router = express.Router();
-import {addUser} from '../conroler/userCont'
-import {findUser} from '../conroler/userCont'
-import {updateUser} from '../conroler/userCont'
-import {addArtToUser} from '../conroler/userCont'
+import {
+  addUser,
+  findUser,
+  updateUser,
+ 
+} from "../conroler/userCont";
 
 router
-.post('/add-user', addUser)
-.get('/log-user', findUser)
-.patch('/update-user', updateUser)
-.post('/add-art', addArtToUser)
+  .post("/add-user", addUser)
+  .get("/log-user", findUser)
+  .patch("/update-user", updateUser)
+
 
 export default router;
