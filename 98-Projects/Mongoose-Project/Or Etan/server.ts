@@ -2,11 +2,11 @@ import express from "express";
 import mongoose from "mongoose";
 const router = express.Router();
 const app = express();
-const port: number = 3000;
+const port = process.env.PORT || 3000;
 app.use(express.static("public"));
 app.use(express.json());
 
-mongoose.connect('mongodb+srv://OrA99:134679852Or@cluster0.r0go0.mongodb.net/OrEtan?retryWrites=true&w=majority')
+mongoose.connect('mongodb+srv://EtanHey:NI2nXMDwLdTiRScP@cluster0.gedel.mongodb.net/OrEtan?retryWrites=true&w=majority')
 
 .then(()=>{console.log('connect to Mongoose')})
 .catch(err=>{console.log(err.message)})
@@ -26,12 +26,13 @@ app.post("/add-user", async (req, res) => {
   console.log(req.body)
   try {
     let { firstName, lastName, email, password, role, gender } = req.body
-
+if(firstName && lastName && email && password && role && gender) {
     const newUser = new user({ firstName, lastName, email, password, role, gender })
     console.log(newUser)
     const result = await newUser.save();
     res.send({ result });
-    console.log(result)
+    console.log(result)}
+    else throw new Error(`You've missed something`)
   } catch (error) {
 
     console.error(error);
@@ -74,7 +75,10 @@ app.post("/log-in", async (req, res) => {
     }
     
   });
-  
+
+  app.post('/show-user'), async (req, res) => {
+    
+  }
   
   app.listen(port, () => {
     return console.log(`Server is listening at http://localhost:${port}`);

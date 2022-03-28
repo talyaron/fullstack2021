@@ -22,6 +22,15 @@ body {
     margin-top: 3.5rem;
   }
 }
+#landing #register {
+  margin: 0 auto;
+  width: clamp(15rem, 90vw, 45rem);
+}
+#landing #register form {
+  display: flex;
+  flex-direction: column;
+  width: max-width;
+}
 #landing__dailytasksdone {
   padding: 5%;
   margin: auto;
