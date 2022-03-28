@@ -1,10 +1,10 @@
 import express from 'express';
 const router = express.Router();
-import {addPlaces} from '../controler/userCont'
-import {getToPlace} from '../controler/userCont'
-import {searchAirbnb} from '../controler/userCont'
-import {findPlaceMap} from '../controler/userCont'
-import {getPlaces} from '../controler/userCont'
+import {addPlaces} from '../controler/placesCont'
+import {getToPlace} from '../controler/placesCont'
+import {searchAirbnb} from '../controler/placesCont'
+import {findPlaceMap} from '../controler/placesCont'
+import {getPlaces} from '../controler/placesCont'
 
 router
 .get('getPlaces', getPlaces)

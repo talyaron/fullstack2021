@@ -2,7 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3002;
 app.use(express.static("public"));
 app.use(express.json());
 
@@ -15,6 +15,9 @@ mongoose.connect('mongodb+srv://Michael:rrrpos32.14!@cluster0.ctwuo.mongodb.net/
 
 import userRoutes from './routes/userRoutes'
 app.use('/users', userRoutes)
+
+// import artsRoutes from './routes/artRoutes'
+// app.use('/arts', userRoutes)
 
 app.listen(port, () => {
   return console.log(`Express is listening at http://localhost:${port}`);

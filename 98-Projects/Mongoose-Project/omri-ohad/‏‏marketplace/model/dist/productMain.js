@@ -8,5 +8,5 @@ var productSchema = new mongoose_1["default"].Schema({
     price: Number,
     category: String
 });
-var ProductUser = mongoose_1["default"].model('productsUser', productSchema);
-exports["default"] = ProductUser;
+var ProductMain = mongoose_1["default"].model('productsMain', productSchema);
+exports["default"] = ProductMain;

@@ -90,7 +90,6 @@ function handleLogInForm(e) {
                     return [4 /*yield*/, axios.get("/users/log-user?loginEmail=" + email + "&loginPassword=" + password)];
                 case 2:
                     data = (_a.sent()).data;
-                    userLogedIn.addlogData(data);
                     site.user = data.oldUser[0];
                     localStorage.setItem('user', JSON.stringify(site.user));
                     if (!email || !password)
@@ -129,23 +128,16 @@ function handleLogOut() {
 //למה הוצאת את הסלש ולמה הפנית מהאקונט לרגיסטר אם היוזר יצא
 function handleOnLoad() {
     return __awaiter(this, void 0, void 0, function () {
-        var user, main, data;
+        var user, main;
         return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    user = JSON.parse(localStorage.getItem('user'));
-                    if (user)
-                        site.user = user;
-                    if (window.location.pathname.split("/").pop() == 'account_page.html') {
-                        main = document.querySelector('.main-account');
-                        main.innerHTML = "<h2>welcome back " + site.user.userName + "!</h2>\n                        <img src=\"" + site.user.url + "\">\n                        <h3>" + site.user.email + "</h3>\n                        <h3>Funds: " + site.user.fund + " BTC</h3>";
-                    }
-                    return [4 /*yield*/, axios.get("/arts/get-user-art?userId=" + site.user._id)];
-                case 1:
-                    data = (_a.sent()).data;
-                    console.log(data);
-                    return [2 /*return*/];
+            user = JSON.parse(localStorage.getItem('user'));
+            if (user)
+                site.user = user;
+            if (window.location.pathname.split("/").pop() == 'account_page.html') {
+                main = document.querySelector('.main-account');
+                main.innerHTML = "<h2>welcome back " + site.user.userName + "!</h2>\n                        <img src=\"" + site.user.url + "\">\n                        <h3>" + site.user.email + "</h3>\n                        <h3>Funds: " + site.user.fund + " BTC</h3>";
             }
+            return [2 /*return*/];
         });
     });
 }
@@ -219,7 +211,7 @@ function handleAddArt(ev) {
                 case 0:
                     ev.preventDefault();
                     newArt = { name: ev.target.name.value, url: ev.target.url.value, author: site.user.userName };
-                    return [4 /*yield*/, axios.post('/users/add-art', { newArt: newArt, user: site.user })];
+                    return [4 /*yield*/, axios.post('/users/add-art', { newArt: newArt, user: site.user._id })];
                 case 1:
                     _a.sent();
                     return [2 /*return*/];

@@ -1,11 +1,16 @@
 import mongoose from 'mongoose';
 
 const PlacesSchema = new mongoose.Schema({
+  _id:String,
+  access:String,
+  accommodates:Number,
+  address: Object,
+
     name: String,
     summary: String,
-    checkIn: String,
-    checkOut: String,
-    accommodates: Number,
+    // checkIn: String,
+    // checkOut: String,
+    
     amenities: Array,
     bedrooms: Number,
     beds: Number,
@@ -20,7 +25,6 @@ const PlacesSchema = new mongoose.Schema({
     bed_type: String,
     reviews: Array,
     cancellation_policy: String,
-    address: Object,
   },
   {
     capped: { size: 1024 },
@@ -28,7 +32,7 @@ const PlacesSchema = new mongoose.Schema({
       autoCreate: false
     });
    
-  const Places = mongoose.model("listingsAndReviews", PlacesSchema);
+  const Places = mongoose.model("listingsandreviews", PlacesSchema);
   export default Places;
   const userSchema = new mongoose.Schema({
     name: String,
