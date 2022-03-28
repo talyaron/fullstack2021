@@ -57,7 +57,6 @@ async function handleUpdateProduct(ev){
     let id = ev.target.id;
     id = `${id}aa`;
     console.log(id)
-
     const {data} = await axios.patch('/update-product',{title,id});
     const {ok, products, error} = data;
     // console.log(ok, products)
