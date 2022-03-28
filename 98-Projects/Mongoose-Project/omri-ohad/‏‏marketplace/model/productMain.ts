@@ -7,7 +7,7 @@ const productSchema = new mongoose.Schema({
     description:String,
     price:Number,
     category:String,
-  })
- 
-  const ProductUser = mongoose.model('productsUser', productSchema);
-  export default ProductUser;
+  });
+
+  const ProductMain = mongoose.model('productsMain', productSchema);
+  export default ProductMain;
