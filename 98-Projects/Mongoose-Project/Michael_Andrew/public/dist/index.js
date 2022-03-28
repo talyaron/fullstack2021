@@ -126,6 +126,7 @@ function handleLogOut() {
     else
         location.reload();
 }
+//למה הוצאת את הסלש ולמה הפנית מהאקונט לרגיסטר אם היוזר יצא
 function handleOnLoad() {
     var user = JSON.parse(localStorage.getItem('user'));
     if (user)
@@ -135,6 +136,7 @@ function handleOnLoad() {
         main.innerHTML = "<h2>welcome back " + site.user.userName + "!</h2>\n                        <img src=\"" + site.user.url + "\">\n                        <h3>" + site.user.email + "</h3>\n                        <h3>Funds: " + site.user.fund + " BTC</h3>";
     }
 }
+//למה לא להוסיף לינק ב- HTML
 function handleAccountRedirect() {
     if (site.user.userName)
         window.location.href = "./account_page.html";

@@ -69,7 +69,7 @@ function handleLogOut() {
     if (window.location.pathname.split("/").pop() == 'account_page.html') window.location.href = "./register.html"
     else location.reload();
 }
-
+//למה הוצאת את הסלש ולמה הפנית מהאקונט לרגיסטר אם היוזר יצא
 function handleOnLoad() {
     const user = JSON.parse(localStorage.getItem('user'))
     if (user) site.user = user
@@ -81,7 +81,7 @@ function handleOnLoad() {
                         <h3>Funds: ${site.user.fund} BTC</h3>`
     }
 }
-
+//למה לא להוסיף לינק ב- HTML
 function handleAccountRedirect() {
     if (site.user.userName) window.location.href = "./account_page.html";
     else window.location.href = "./register.html"
