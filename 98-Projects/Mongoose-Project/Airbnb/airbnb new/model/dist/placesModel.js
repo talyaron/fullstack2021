@@ -3,11 +3,14 @@ exports.__esModule = true;
 exports.users = void 0;
 var mongoose_1 = require("mongoose");
 var PlacesSchema = new mongoose_1["default"].Schema({
+    _id: String,
+    access: String,
+    accommodates: Number,
+    address: Object,
     name: String,
     summary: String,
-    checkIn: String,
-    checkOut: String,
-    accommodates: Number,
+    // checkIn: String,
+    // checkOut: String,
     amenities: Array,
     bedrooms: Number,
     beds: Number,
@@ -21,8 +24,7 @@ var PlacesSchema = new mongoose_1["default"].Schema({
     description: String,
     bed_type: String,
     reviews: Array,
-    cancellation_policy: String,
-    address: Object
+    cancellation_policy: String
 }, {
     capped: { size: 1024 },
     bufferCommands: false,
