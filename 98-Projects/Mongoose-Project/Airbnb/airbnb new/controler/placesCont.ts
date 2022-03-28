@@ -1,4 +1,4 @@
-import Places from '../model/userModel'
+import Places from '../model/placesModel'
 
 export const getPlaces = async (req, res)=>{
     try {
