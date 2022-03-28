@@ -1,7 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import path from "path";
-import Places from "./model/userModel";
+import Places from "./model/placesModel";
 // import axios from "axios";
 const app = express();
 const port = process.env.PORT || 3000;
@@ -221,7 +221,7 @@ mongoose
   
   
 // }
-import userRoutes from './routes/userRoutes'
+import userRoutes from './routes/placesRoutes'
 app.use('/users', userRoutes)
 
 app.listen(port, () => {
