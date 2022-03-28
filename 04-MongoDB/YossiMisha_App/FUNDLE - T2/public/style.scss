@@ -308,6 +308,10 @@ body {
     height: 50%;
     border-radius: 10px;
     animation: show 1000ms ease-in-out;
+
+    &-hide{
+      animation: hide 1s ease-in-out;
+    }
   }
 }
 
@@ -382,6 +386,23 @@ body {
   }
 }
 
+@keyframes hide {
+  0% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+
+  10% {
+    opacity: 0;
+    transform: translateY(+15%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(+15%);
+  }
+}
+
 
 /////////////////////////////// LOGIN - REGISTER /////////////////////////////////////////
 @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300&display=swap');
@@ -398,6 +419,15 @@ body {
     // font-family: 'Montserrat Alternates', sans-serif;
 // }
 
+// .logreg{
+
+//   height: 100vh;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+
+// }
+
 .loginwrapper, .registerwrapper{
 
     position: absolute;
@@ -408,6 +438,9 @@ body {
     height: fit-content;
     background: white;
     border-radius: 10px;
+
+    // animation: show 1000ms ease-in-out;
+
 
     h1 {
         text-align: center;

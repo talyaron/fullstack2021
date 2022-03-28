@@ -253,6 +253,9 @@ body {
   border-radius: 10px;
   animation: show 1000ms ease-in-out;
 }
+#stats .stats-container-hide {
+  animation: hide 1s ease-in-out;
+}
 
 #help {
   width: 100%;
@@ -313,6 +316,20 @@ body {
   100% {
     opacity: 1;
     transform: translateY(0%);
+  }
+}
+@keyframes hide {
+  0% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+  10% {
+    opacity: 0;
+    transform: translateY(15%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(15%);
   }
 }
 .loginwrapper, .registerwrapper {
