@@ -17,10 +17,10 @@
         <ul>
             <li class="navigation--logo"><img src="images/logoTitle.png" alt="airbnb"></li>
             <li class="navigation--search">
-                <form class="form" onsubmit="handleNavFilter(event)">
+                <form class="form" onsubmit="handleFindAirbnb(event)">
                     <div class="form--searchLocation">
                         <label for="searchLocation">Location <br>
-                            <input onkeyup="handleSearchCity(event)" id="searchLocation" type="text" placeholder="Where are you going?">
+                            <input  id="searchLocation" type="text" name="searchLocation" placeholder="Where are you going?">
                         </label>
                    
                     </div>
@@ -30,16 +30,9 @@
                             <button id="checkIn">Add dates</button>
                         </label>
                         <div class="dropdown">
-                            <p>Adults
-                                Ages 13 or above</p>
-                            <p>Children
-                                Ages 2–12</p>
-                            <p>Infants
-                                Under 2</p>
-                            <p>
-                                Pets
-                                Bringing a service animal?
-                            </p>
+                          <input type="date" id="checkIn" name="checkIn"
+                          value="2022-03-28"
+                          min="2022-03-28" max="2022-12-30">
 
                         </div>
                     </div>
@@ -49,16 +42,9 @@
                             <button id="checkOut">Add dates</button>
                         </label>
                         <div class="dropdown">
-                            <p>Adults
-                                Ages 13 or above</p>
-                            <p>Children
-                                Ages 2–12</p>
-                            <p>Infants
-                                Under 2</p>
-                            <p>
-                                Pets
-                                Bringing a service animal?
-                            </p>
+                            <input type="date" id="checkOut" name="checkOut"
+                            value="2022-03-28"
+                            min="2022-03-28" max="2022-12-30">
 
                         </div>
                     </div>
@@ -70,25 +56,25 @@
                         <div class="dropdown">
                             <label for="adults">Adults:
                                <span>Ages 13 or above</span> </label>
-                            <input type="number" id="adults" name="quantity" min="0" max="10" placeholder="0">
+                            <input type="number" id="adults" name="adults" min="0" max="10" placeholder="0">
                              
                             <label for="children">Children:
                                <span>Ages 2–12</span> </label> 
-                            <input type="number" id="children" name="quantity" min="0" max="10" placeholder="0">
+                            <input type="number" id="children" name="children" min="0" max="10" placeholder="0">
                            
                             <label for="infants">Infants:
                                 <span>Under 2</span></label>
-                            <input type="number" id="infants" name="quantity" min="0" max="10" placeholder="0">
+                            <input type="number" id="infants" name="infants" min="0" max="10" placeholder="0">
                             
                             <label for="pets">Pets:</label>
-                            <input type="number" id="pets" name="quantity" min="0" max="5" placeholder="0">
+                            <input type="number" id="pets" name="pets" min="0" max="5" placeholder="0">
                             
 
                         </div>
                     </div>
 
 
-                    <a href="" class="form--searchIcon"><input type="submit" ><img src="images/searchIcon.png"></a>
+                    <a href="" class="form--searchIcon"><input type="submit" value="submit"><img src="images/searchIcon.png"></a>
 
 
                 </form>
