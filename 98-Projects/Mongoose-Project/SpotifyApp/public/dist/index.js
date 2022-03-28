@@ -52,7 +52,7 @@ function handleRegistration(ev) {
                     name = name.value;
                     password = password.value;
                     console.log(name, password);
-                    return [4 /*yield*/, axios.post('/spotifyUser/reg-user', { name: name, password: password })];
+                    return [4 /*yield*/, axios.post('/songsUser/reg-user', { name: name, password: password })];
                 case 1:
                     data = (_b.sent()).data;
                     console.log(data);
@@ -72,7 +72,7 @@ function handleLogIn(ev) {
                     name = name.value;
                     password = password.value;
                     console.log(name, password);
-                    return [4 /*yield*/, axios.post('/spotifyUser/sign-user', { name: name, password: password })];
+                    return [4 /*yield*/, axios.post('/songsUser/sign-user', { name: name, password: password })];
                 case 1:
                     data = (_b.sent()).data;
                     console.log(data);

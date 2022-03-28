@@ -15,7 +15,7 @@ async function handleRegistration(ev) {
 
     console.log(name, password)
 
-    const { data } = await axios.post('/spotifyUser/reg-user', { name, password })
+    const { data } = await axios.post('/songsUser/reg-user', { name, password })
     console.log(data)
 }
 
@@ -28,6 +28,6 @@ async function handleLogIn(ev) {
 
     console.log(name, password)
 
-    const { data } = await axios.post('/spotifyUser/sign-user', { name, password })
+    const { data } = await axios.post('/songsUser/sign-user', { name, password })
     console.log(data)
 }

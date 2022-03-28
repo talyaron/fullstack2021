@@ -37,7 +37,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 exports.__esModule = true;
 exports.deleteProduct = exports.updateproduct = exports.addProduct = exports.getAllProducts = void 0;
-var productModel_1 = require("../model/productModel");
 function getAllProducts(req, res) {
     return __awaiter(this, void 0, void 0, function () {
         var products, error_1;
@@ -45,7 +44,7 @@ function getAllProducts(req, res) {
             switch (_a.label) {
                 case 0:
                     _a.trys.push([0, 2, , 3]);
-                    return [4 /*yield*/, productModel_1["default"].find({})];
+                    return [4 /*yield*/, Product.find({})];
                 case 1:
                     products = _a.sent();
                     res.send({ products: products });
@@ -69,7 +68,7 @@ function addProduct(req, res) {
                 case 0:
                     _b.trys.push([0, 2, , 3]);
                     _a = req.body, pic = _a.pic, title = _a.title, description = _a.description, price = _a.price, category = _a.category;
-                    newProduct = new productModel_1["default"]({ pic: pic, title: title, description: description, price: price, category: category });
+                    newProduct = new Product({ pic: pic, title: title, description: description, price: price, category: category });
                     return [4 /*yield*/, newProduct.save()];
                 case 1:
                     result = _b.sent();
@@ -97,10 +96,10 @@ function updateproduct(req, res) {
                     newImg = req.body.newImg;
                     newTitle = req.body.newTitle;
                     if (!{ productId: productId }) return [3 /*break*/, 3];
-                    return [4 /*yield*/, productModel_1["default"].updateOne({ _id: productId }, { pic: newImg }, { title: newTitle })];
+                    return [4 /*yield*/, Product.updateOne({ _id: productId }, { pic: newImg }, { title: newTitle })];
                 case 1:
                     result = _a.sent();
-                    return [4 /*yield*/, productModel_1["default"].find({})];
+                    return [4 /*yield*/, Product.find({})];
                 case 2:
                     products = _a.sent();
                     res.send({ ok: true, result: result, products: products });
@@ -127,10 +126,10 @@ function deleteProduct(req, res) {
                     _a.trys.push([0, 5, , 6]);
                     productId = req.body.productId;
                     if (!productId) return [3 /*break*/, 3];
-                    return [4 /*yield*/, productModel_1["default"].deleteOne({ _id: productId })];
+                    return [4 /*yield*/, Product.deleteOne({ _id: productId })];
                 case 1:
                     result = _a.sent();
-                    return [4 /*yield*/, productModel_1["default"].find({})];
+                    return [4 /*yield*/, Product.find({})];
                 case 2:
                     products = _a.sent();
                     res.send({ ok: true, result: result, products: products });

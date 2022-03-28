@@ -1,4 +1,5 @@
-import Product from "../model/productModel";
+import ProductUser from "../model/productModel";
+import ProductMain from "../model/productMain";
 
 export async function getAllProducts  (req, res)  {
     try {
