@@ -38,7 +38,7 @@ async function handleLogInForm(e) {
 
         const { data } = await axios.get(`/users/log-user?loginEmail=${email}&loginPassword=${password}`)
 
-        userLogedIn.addlogData(data)
+        // userLogedIn.addlogData(data)
         site.user = data.oldUser[0];
         localStorage.setItem('user', JSON.stringify(site.user));
 
@@ -173,7 +173,7 @@ async function handleSettingsForm(ev) {
 async function handleAddArt(ev) {
     ev.preventDefault()
     const newArt = { name: ev.target.name.value, url: ev.target.url.value, author: site.user.userName};
-    await axios.post('/users/add-art', {newArt, user: site.user});
+    await axios.post('/arts/add-art-to-owner', {newArt, user: site.user});
 
 }
 

@@ -87,10 +87,12 @@ function handleLogInForm(e) {
                     email = oldUser.email, password = oldUser.password;
                     email = email.value.split(' ').join('');
                     password = password.value.split(' ').join('');
-                    return [4 /*yield*/, axios.get("/users/log-user?loginEmail=" + email + "&loginPassword=" + password)];
+                    return [4 /*yield*/, axios.get("/users/log-user?loginEmail=" + email + "&loginPassword=" + password)
+                        // userLogedIn.addlogData(data)
+                    ];
                 case 2:
                     data = (_a.sent()).data;
-                    userLogedIn.addlogData(data);
+                    // userLogedIn.addlogData(data)
                     site.user = data.oldUser[0];
                     localStorage.setItem('user', JSON.stringify(site.user));
                     if (!email || !password)
@@ -206,7 +208,7 @@ function handleAddArt(ev) {
                 case 0:
                     ev.preventDefault();
                     newArt = { name: ev.target.name.value, url: ev.target.url.value, author: site.user.userName };
-                    return [4 /*yield*/, axios.post('/users/add-art', { newArt: newArt, user: site.user })];
+                    return [4 /*yield*/, axios.post('/arts/add-art-to-owner', { newArt: newArt, user: site.user })];
                 case 1:
                     _a.sent();
                     return [2 /*return*/];
