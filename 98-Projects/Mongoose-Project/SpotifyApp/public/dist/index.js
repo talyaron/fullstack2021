@@ -40,6 +40,29 @@ function handleGetSearch() {
     // const { ok, options } = data;
     // console.log({ ok, options });
 }
+function handleUpload(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        var _a, song, picture, genre, youtube, data;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
+                case 0:
+                    ev.preventDefault();
+                    _a = ev.target.elements, song = _a.song, picture = _a.picture, genre = _a.genre, youtube = _a.youtube;
+                    console.log(song, picture, genre, youtube);
+                    song = song.value;
+                    picture = picture.value;
+                    genre = genre.value;
+                    youtube = youtube.value;
+                    console.log(song, picture, genre, youtube);
+                    return [4 /*yield*/, axios.post('/songsOwner/upload-song', { song: song, picture: picture, genre: genre, youtube: youtube })];
+                case 1:
+                    data = (_b.sent()).data;
+                    console.log(data);
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
 function handleRegistration(ev) {
     return __awaiter(this, void 0, void 0, function () {
         var _a, name, password, data;
@@ -52,7 +75,7 @@ function handleRegistration(ev) {
                     name = name.value;
                     password = password.value;
                     console.log(name, password);
-                    return [4 /*yield*/, axios.post('/spotifyUser/reg-user', { name: name, password: password })];
+                    return [4 /*yield*/, axios.post('/songsUser/reg-user', { name: name, password: password })];
                 case 1:
                     data = (_b.sent()).data;
                     console.log(data);
@@ -72,7 +95,7 @@ function handleLogIn(ev) {
                     name = name.value;
                     password = password.value;
                     console.log(name, password);
-                    return [4 /*yield*/, axios.post('/spotifyUser/sign-user', { name: name, password: password })];
+                    return [4 /*yield*/, axios.post('/songsUser/sign-user', { name: name, password: password })];
                 case 1:
                     data = (_b.sent()).data;
                     console.log(data);
