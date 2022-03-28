@@ -18,7 +18,13 @@ const app = express_1.default();
 const port = process.env.PORT || 3000;
 app.use(express_1.default.static("public"));
 app.use(express_1.default.json());
-mongoose_1.default.connect('mongodb+srv://rasheedj966:rashj050880@cluster0.vtqmf.mongodb.net/Books?retryWrites=true&w=majority');
+mongoose_1.default.connect('mongodb+srv://rasheedj966:rashj050880@cluster0.vtqmf.mongodb.net/Books?retryWrites=true&w=majority').then(res => {
+    console.log('connected to DB');
+}).catch(err => {
+    console.log('At mongoose.connect:');
+    console.error(err.message);
+});
+;
 const BooksSchema = new mongoose_1.default.Schema({
     coverImg: String,
     firstPageImg: String,

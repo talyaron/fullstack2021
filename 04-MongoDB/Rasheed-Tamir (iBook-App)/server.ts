@@ -6,7 +6,14 @@ app.use(express.static("public"));
 app.use(express.json());
 
 
-mongoose.connect('mongodb+srv://rasheedj966:rashj050880@cluster0.vtqmf.mongodb.net/Books?retryWrites=true&w=majority');
+mongoose.connect('mongodb+srv://rasheedj966:rashj050880@cluster0.vtqmf.mongodb.net/Books?retryWrites=true&w=majority'
+).then(res=>{
+  console.log('connected to DB');
+}).catch(err=>{
+  console.log('At mongoose.connect:')
+  console.error(err.message) 
+});
+;
 
 
 const BooksSchema = new mongoose.Schema({
