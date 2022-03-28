@@ -1,8 +1,7 @@
 import mongoose from "mongoose"
 
-const Songs = new mongoose.Schema({
+const SongsSchema = new mongoose.Schema({
   song:String,
-  albume:String,
   picture:String,
   genre:String,
   youtube:String
@@ -10,6 +9,6 @@ const Songs = new mongoose.Schema({
 })
 
 
-const songs = mongoose.model('songsdata', Songs)
+const songs = mongoose.model('songsOwner', SongsSchema)
 
 export default songs

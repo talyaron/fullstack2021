@@ -11,33 +11,8 @@ mongoose.connect('mongodb+srv://alexroz:Uou8wsRDp2J0FImM@cluster0.x62d1.mongodb.
 import userRoute from "./routes/userRoute";
 app.use("/songsUser", userRoute);
 
-// import songRoute from "./routes/songsRoute";
-// app.use()
-
-// const UserSchema = new mongoose.Schema({
-//   searches: String,
-//   topGenres: String,
-  
-//   })
-// const spotifyApi = new mongoose.Schema({
-  
-//   })
-
-
-// const User = mongoose.model('userdata', UserSchema)
-// const spotify = mongoose.model('spotifydata', spotifyApi)
-
-
-
-
-
-
-// app.get('/get-music', async (req,res)=>{
-// const musicArchive = await songs.find({});
-// res.send({ok:true, musicArchive})
-// });
-
-
+import songsRoute from "./routes/songsRoute";
+app.use("/songsOwner", songsRoute )
 
 
 app.get('/', (req, res) => {

@@ -13,20 +13,8 @@ app.use(express_1.default.json());
 mongoose_1.default.connect('mongodb+srv://alexroz:Uou8wsRDp2J0FImM@cluster0.x62d1.mongodb.net/songsApp?retryWrites=true&w=majority');
 const userRoute_1 = __importDefault(require("./routes/userRoute"));
 app.use("/songsUser", userRoute_1.default);
-// import songRoute from "./routes/songsRoute";
-// app.use()
-// const UserSchema = new mongoose.Schema({
-//   searches: String,
-//   topGenres: String,
-//   })
-// const spotifyApi = new mongoose.Schema({
-//   })
-// const User = mongoose.model('userdata', UserSchema)
-// const spotify = mongoose.model('spotifydata', spotifyApi)
-// app.get('/get-music', async (req,res)=>{
-// const musicArchive = await songs.find({});
-// res.send({ok:true, musicArchive})
-// });
+const songsRoute_1 = __importDefault(require("./routes/songsRoute"));
+app.use("/songsOwner", songsRoute_1.default);
 app.get('/', (req, res) => {
     res.send('Hello World!');
 });

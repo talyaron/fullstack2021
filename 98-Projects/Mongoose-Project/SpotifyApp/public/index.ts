@@ -4,6 +4,23 @@ function handleGetSearch() {
     // const { ok, options } = data;
     // console.log({ ok, options });
 }
+async function handleUpload(ev) {
+    ev.preventDefault();
+    let { song, picture, genre, youtube } = ev.target.elements;
+    console.log(song, picture, genre, youtube)
+
+    song = song.value;
+    picture = picture.value;
+    genre = genre.value;
+    youtube = youtube.value;
+
+
+
+    console.log(song, picture, genre, youtube)
+
+    const { data } = await axios.post('/songsOwner/upload-song', { song, picture, genre, youtube })
+    console.log(data)
+}
 
 async function handleRegistration(ev) {
     ev.preventDefault();
