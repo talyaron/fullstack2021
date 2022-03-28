@@ -81,47 +81,61 @@ function submitGuess() {
 
 
 function handleShowStats() {
-    const stats:any = document.querySelector("#stats");
+    const stats: any = document.querySelector("#stats");
     if (stats.style.display === "none") {
-      stats.style.display = "block";
+        stats.style.display = "block";
     } else {
-      stats.style.display = "none";
+        stats.style.display = "none";
     }
-  }
+}
 
-  function handleShowHelp() {
-    const stats:any = document.querySelector("#help");
+function handleShowHelp() {
+    const stats: any = document.querySelector("#help");
     if (stats.style.display === "none") {
-      stats.style.display = "block";
+        stats.style.display = "block";
     } else {
-      stats.style.display = "none";
+        stats.style.display = "none";
     }
-  }
- 
-  function handleDisplayNone(){
-    const stats:any = document.querySelector("#stats");
+}
+
+function handleShowLogin() {
+    const logreg: any = document.querySelector(".logreg");
+    if (logreg.style.display === "none") {
+        logreg.style.display = "block";
+        stopInteraction()
+    } else {
+        // logreg.classList.add("logreg-hide")
+        logreg.style.display = "none";
+
+        startInteraction()
+    }
+
+}
+
+function handleDisplayNone() {
+    const stats: any = document.querySelector("#stats");
     if (stats.style.display === "block") {
         stats.style.display = "none";
-      }
-      const help:any = document.querySelector("#help");
-      if (help.style.display === "block") {
-          help.style.display = "none";
-        }
-  }
+    }
+    const help: any = document.querySelector("#help");
+    if (help.style.display === "block") {
+        help.style.display = "none";
+    }
+}
 
-  document.body.addEventListener('click', handleDisplayNone, true); 
+document.body.addEventListener('click', handleDisplayNone, true);
 
-  //////////////////////////// LOGIN - REGISTER ///////////////////////////////////////////
+//////////////////////////// LOGIN - REGISTER ///////////////////////////////////////////
 
-  function handleNotAMember(){
-    const register:any = document.querySelector(".registerwrapper")
-    const login:any = document.querySelector(".loginwrapper")
+function handleNotAMember() {
+    const register: any = document.querySelector(".registerwrapper")
+    const login: any = document.querySelector(".loginwrapper")
     register.style.display = 'block'
     login.style.display = 'none'
 }
-function handleAlreadyAMember(){
-    const register:any = document.querySelector(".registerwrapper")
-    const login:any = document.querySelector(".loginwrapper")
+function handleAlreadyAMember() {
+    const register: any = document.querySelector(".registerwrapper")
+    const login: any = document.querySelector(".loginwrapper")
     register.style.display = 'none'
     login.style.display = 'block'
 }
@@ -165,7 +179,7 @@ async function handleLogin(ev) {
     username = username.value;
     password = password.value;
     const { data } = await axios.get(`/get-user?username=${username}&password=${password}`)
-    console.log(data)
+    document.querySelector(".hello").innerHTML = `Hello ${username}`
+
 }
 
-  
