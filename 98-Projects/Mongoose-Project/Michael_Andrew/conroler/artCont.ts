@@ -1,20 +1,20 @@
 import Art from "../model/artModel";
 
 export const addArtToUser = async (req, res) => {
-  const { newArt, user } = req.body;
-  console.log(newArt, user)
+  const { newArt, userId } = req.body;
+  console.log(newArt, userId)
   try {
     //validation
-    if (typeof user._id !== "string")
+    if (typeof userId !== "string")
       throw new Error("user Id is not a string");
 
-    const newArtDB = new Art({ ...newArt, ownerId: user._id });
+    const newArtDB = new Art({ ...newArt, ownerId: userId });
 
     const r = await newArtDB.save();
     console.log(r);
     res.send({ result: r });
   } catch (err) {
-    console.log(user);
+    console.log(userId);
     console.error(`Error in ${err.message}`);
     res.send({ error: err.message });
   }
