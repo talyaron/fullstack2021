@@ -360,11 +360,20 @@ img {
   cursor: pointer;
   color: #000;
   opacity: 0.5;
+  animation: neon6 0.5s ease-in-out infinite alternate;
 }
 .book__content__pageFlip-front-btn:hover {
   transform: scale(1.4);
 }
 
+@keyframes neon6 {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #030303, 0 0 60px #050305, 0 0 65px #000000, 0 0 70px #130210, 0 0 80px #a39ba2;
+  }
+  to {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #3b383b, 0 0 35px #1f131d, 0 0 40px #140913, 0 0 50px #20061d, 0 0 65px #11010f;
+  }
+}
 #cover {
   width: 457px;
   height: 600px;
@@ -396,40 +405,177 @@ p {
   z-index: 1;
 }
 
-#check1:checked ~ .book__content #page1 {
+#firstBookcheck1:checked ~ .book__content #page1 {
   transform: rotateY(-180deg);
   z-index: 1;
 }
 
-#check2:checked ~ .book__content #page2 {
+#firstBookcheck2:checked ~ .book__content #page2 {
   transform: rotateY(-180deg);
   z-index: 2;
 }
 
-#check3:checked ~ .book__content #page3 {
+#firstBookcheck3:checked ~ .book__content #page3 {
   transform: rotateY(-180deg);
   z-index: 3;
 }
 
-#check4:checked ~ .book__content #page4 {
+#firstBookcheck4:checked ~ .book__content #page4 {
   transform: rotateY(-180deg);
   z-index: 4;
 }
 
-#check5:checked ~ .book__content #page5 {
+#firstBookcheck5:checked ~ .book__content #page5 {
   transform: rotateY(-180deg);
   z-index: 5;
 }
 
-#glow {
-  animation: neon6 0.5s ease-in-out infinite alternate;
+#secendBookcheck1:checked ~ .book__content #page1 {
+  transform: rotateY(-180deg);
+  z-index: 1;
 }
 
-@keyframes neon6 {
-  from {
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #030303, 0 0 60px #050305, 0 0 65px #000000, 0 0 70px #130210, 0 0 80px #a39ba2;
-  }
-  to {
-    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #3b383b, 0 0 35px #1f131d, 0 0 40px #140913, 0 0 50px #20061d, 0 0 65px #11010f;
-  }
+#secendBookcheck2:checked ~ .book__content #page2 {
+  transform: rotateY(-180deg);
+  z-index: 2;
+}
+
+#secendBookcheck3:checked ~ .book__content #page3 {
+  transform: rotateY(-180deg);
+  z-index: 3;
+}
+
+#secendBookcheck4:checked ~ .book__content #page4 {
+  transform: rotateY(-180deg);
+  z-index: 4;
+}
+
+#secendBookcheck5:checked ~ .book__content #page5 {
+  transform: rotateY(-180deg);
+  z-index: 5;
+}
+
+#thirdBookcheck1:checked ~ .book__content #page1 {
+  transform: rotateY(-180deg);
+  z-index: 1;
+}
+
+#thirdBookcheck2:checked ~ .book__content #page2 {
+  transform: rotateY(-180deg);
+  z-index: 2;
+}
+
+#thirdBookcheck3:checked ~ .book__content #page3 {
+  transform: rotateY(-180deg);
+  z-index: 3;
+}
+
+#thirdBookcheck4:checked ~ .book__content #page4 {
+  transform: rotateY(-180deg);
+  z-index: 4;
+}
+
+#thirdBookcheck5:checked ~ .book__content #page5 {
+  transform: rotateY(-180deg);
+  z-index: 5;
+}
+
+#fourthBookcheck1:checked ~ .book__content #page1 {
+  transform: rotateY(-180deg);
+  z-index: 1;
+}
+
+#fourthBookcheck2:checked ~ .book__content #page2 {
+  transform: rotateY(-180deg);
+  z-index: 2;
+}
+
+#fourthBookcheck3:checked ~ .book__content #page3 {
+  transform: rotateY(-180deg);
+  z-index: 3;
+}
+
+#fourthBookcheck4:checked ~ .book__content #page4 {
+  transform: rotateY(-180deg);
+  z-index: 4;
+}
+
+#fourthBookcheck5:checked ~ .book__content #page5 {
+  transform: rotateY(-180deg);
+  z-index: 5;
+}
+
+#fifthBookcheck1:checked ~ .book__content #page1 {
+  transform: rotateY(-180deg);
+  z-index: 1;
+}
+
+#fifthBookcheck2:checked ~ .book__content #page2 {
+  transform: rotateY(-180deg);
+  z-index: 2;
+}
+
+#fifthBookcheck3:checked ~ .book__content #page3 {
+  transform: rotateY(-180deg);
+  z-index: 3;
+}
+
+#fifthBookcheck4:checked ~ .book__content #page4 {
+  transform: rotateY(-180deg);
+  z-index: 4;
+}
+
+#fifthBookcheck5:checked ~ .book__content #page5 {
+  transform: rotateY(-180deg);
+  z-index: 5;
+}
+
+#sixthBookcheck1:checked ~ .book__content #page1 {
+  transform: rotateY(-180deg);
+  z-index: 1;
+}
+
+#sixthBookcheck2:checked ~ .book__content #page2 {
+  transform: rotateY(-180deg);
+  z-index: 2;
+}
+
+#sixthBookcheck3:checked ~ .book__content #page3 {
+  transform: rotateY(-180deg);
+  z-index: 3;
+}
+
+#sixthBookcheck4:checked ~ .book__content #page4 {
+  transform: rotateY(-180deg);
+  z-index: 4;
+}
+
+#sixthBookcheck5:checked ~ .book__content #page5 {
+  transform: rotateY(-180deg);
+  z-index: 5;
+}
+
+#seventhBookcheck1:checked ~ .book__content #page1 {
+  transform: rotateY(-180deg);
+  z-index: 1;
+}
+
+#seventhBookcheck2:checked ~ .book__content #page2 {
+  transform: rotateY(-180deg);
+  z-index: 2;
+}
+
+#seventhBookcheck3:checked ~ .book__content #page3 {
+  transform: rotateY(-180deg);
+  z-index: 3;
+}
+
+#seventhBookcheck4:checked ~ .book__content #page4 {
+  transform: rotateY(-180deg);
+  z-index: 4;
+}
+
+#seventhBookcheck5:checked ~ .book__content #page5 {
+  transform: rotateY(-180deg);
+  z-index: 5;
 }

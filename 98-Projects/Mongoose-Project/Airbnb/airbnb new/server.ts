@@ -1,66 +1,32 @@
 import express from "express";
 import mongoose from "mongoose";
-import path from "path";
+import Places from "./model/placesModel";
 // import axios from "axios";
 const app = express();
 const port = process.env.PORT || 3000;
 app.use(express.static("public"));
 app.use(express.json());
-mongoose.connect("mongodb+srv://shay:shayFoyer1994@cluster0.xyd5y.mongodb.net/sample_airbnb?retryWrites=true&w=majority");
-//mongoose.connect('mongodb+srv://ShaniRom:ynbUaPL3oHZKGl8a@cluster0.vh1hg.mongodb.net/sample_airbnb?retryWrites=true&w=majority');
 
-app.set("view engine", "ejs"); //connectiong ejs
-console.log(app.get("view engine"));
-app.set("views", path.resolve(__dirname, "pages"));
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
-// const PlacesSchema = new mongoose.Schema({
-//   name: String,
-//   summary: String,
-//   checkIn: String,
-//   checkOut: String,
-//   accommodates: Number,
-//   amenities: Array,
-//   bedrooms: Number,
-//   beds: Number,
-//   number_of_reviews: Number,
-//   price: Number,
-//   cancle: String,
-//   bathrooms: Number,
-//   images: String,
-//   host: Object,
-//   space: String,
-//   description: String,
-//   bed_type: String,
-//   reviews: Array,
-//   cancellation_policy: String,
-//   address: Object,
-// });
-const { MongoClient } = require('mongodb');
-const url = 'mongodb://localhost:27017/example';
-const client = new MongoClient(url);
-const dbName = 'myProject';
 
-async function main() {
-  // Use connect method to connect to the server
-  await client.connect();
-  console.log('Connected successfully to server');
-  const db = client.db(dbName);
-  const collection = db.collection('documents');
-  const findResult = await collection.find({}).toArray();
-  // the following code examples can be pasted here...
-    console.log(findResult);
-    
-  return 'done.';
-}
 
-main()
-  .then(console.log)
-  .catch(console.error)
-  .finally(() => client.close());
-
+mongoose
+  .connect(
+    "mongodb+srv://shay:shayFoyer1994@cluster0.xyd5y.mongodb.net/sample_airbnb?retryWrites=true&w=majority"
+  )
+  .then((result) => {
+    console.log("connected to db");
+    Places.find({}).limit(10)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  })
+  .catch((err) => {
+    console.log(err.message);
+  });
 
 // const userSchema = new mongoose.Schema({
 //   name: String,
@@ -226,8 +192,8 @@ main()
   
   
 // }
-import userRoutes from './routes/userRoutes'
-app.use('/users', userRoutes)
+import userRoutes from './routes/placesRoutes'
+app.use('/places', userRoutes)
 
 app.listen(port, () => {
   return console.log(`Express is listening at http://localhost:${port}`);
