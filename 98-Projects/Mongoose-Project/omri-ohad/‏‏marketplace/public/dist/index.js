@@ -34,6 +34,33 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+function appInit() {
+    return __awaiter(this, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            getProductsMain();
+            return [2 /*return*/];
+        });
+    });
+}
+function getProductsMain() {
+    return __awaiter(this, void 0, void 0, function () {
+        var data, marketItems;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, axios.get('/products/get-products-to-main')];
+                case 1:
+                    data = (_a.sent()).data;
+                    console.log(data);
+                    marketItems = data.marketItems;
+                    console.log(marketItems);
+                    if (marketItems) {
+                        renderItemsMain(marketItems);
+                    }
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
 function handleAddProduct(ev) {
     return __awaiter(this, void 0, void 0, function () {
         var _a, pic, title, description, price, category, data;
@@ -75,6 +102,16 @@ function handleGetProducts() {
             }
         });
     });
+}
+function renderItemsMain(items) {
+    var html = '';
+    var rootItems = document.querySelector('.mainPage__middle--products');
+    if (items) {
+        items.forEach(function (item) {
+            html += "\n            <div class=\"mainPage__middle--products--item\">\n                <img src=\"" + item.img + "\">\n                <h4>" + item.description + "</h4>\n                <p>" + item.price + "$</p>\n            </div>\n            ";
+        });
+        rootItems.innerHTML = html;
+    }
 }
 function renderProducts(products) {
     var html = products.map(function (product) {

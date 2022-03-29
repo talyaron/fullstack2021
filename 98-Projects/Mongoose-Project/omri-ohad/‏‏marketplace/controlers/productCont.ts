@@ -1,6 +1,17 @@
 import ProductUser from "../model/productModel";
 import ProductMain from "../model/productMain";
 
+export async function getProductsMain(req, res) {
+    try {
+        const marketItems = await ProductMain.find({});
+        console.log(marketItems);
+        res.send({ok:true, marketItems});
+    } catch (error) {
+        console.log(error.error);
+        res.send({error:error.message});
+    }
+}
+
 export async function getAllProducts  (req, res)  {
     try {
   

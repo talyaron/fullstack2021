@@ -36,19 +36,21 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.deleteProduct = exports.updateproduct = exports.addProduct = exports.getAllProducts = void 0;
+exports.deleteProduct = exports.updateproduct = exports.addProduct = exports.getAllProducts = exports.getProductsMain = void 0;
 var productModel_1 = require("../model/productModel");
-function getAllProducts(req, res) {
+var productMain_1 = require("../model/productMain");
+function getProductsMain(req, res) {
     return __awaiter(this, void 0, void 0, function () {
-        var products, error_1;
+        var marketItems, error_1;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     _a.trys.push([0, 2, , 3]);
-                    return [4 /*yield*/, productModel_1["default"].find({})];
+                    return [4 /*yield*/, productMain_1["default"].find({})];
                 case 1:
-                    products = _a.sent();
-                    res.send({ products: products });
+                    marketItems = _a.sent();
+                    console.log(marketItems);
+                    res.send({ ok: true, marketItems: marketItems });
                     return [3 /*break*/, 3];
                 case 2:
                     error_1 = _a.sent();
@@ -60,10 +62,33 @@ function getAllProducts(req, res) {
         });
     });
 }
+exports.getProductsMain = getProductsMain;
+function getAllProducts(req, res) {
+    return __awaiter(this, void 0, void 0, function () {
+        var products, error_2;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    _a.trys.push([0, 2, , 3]);
+                    return [4 /*yield*/, productModel_1["default"].find({})];
+                case 1:
+                    products = _a.sent();
+                    res.send({ products: products });
+                    return [3 /*break*/, 3];
+                case 2:
+                    error_2 = _a.sent();
+                    console.log(error_2.error);
+                    res.send({ error: error_2.message });
+                    return [3 /*break*/, 3];
+                case 3: return [2 /*return*/];
+            }
+        });
+    });
+}
 exports.getAllProducts = getAllProducts;
 function addProduct(req, res) {
     return __awaiter(this, void 0, void 0, function () {
-        var _a, pic, title, description, price, category, newProduct, result, error_2;
+        var _a, pic, title, description, price, category, newProduct, result, error_3;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
@@ -76,9 +101,9 @@ function addProduct(req, res) {
                     res.send({ result: result });
                     return [3 /*break*/, 3];
                 case 2:
-                    error_2 = _b.sent();
-                    console.error(error_2);
-                    res.send({ error: error_2.message });
+                    error_3 = _b.sent();
+                    console.error(error_3);
+                    res.send({ error: error_3.message });
                     return [3 /*break*/, 3];
                 case 3: return [2 /*return*/];
             }
@@ -88,7 +113,7 @@ function addProduct(req, res) {
 exports.addProduct = addProduct;
 function updateproduct(req, res) {
     return __awaiter(this, void 0, void 0, function () {
-        var productId, newImg, newTitle, result, products, error_3;
+        var productId, newImg, newTitle, result, products, error_4;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -108,9 +133,9 @@ function updateproduct(req, res) {
                 case 3: throw new Error("Something went wrong");
                 case 4: return [3 /*break*/, 6];
                 case 5:
-                    error_3 = _a.sent();
-                    console.error(error_3);
-                    res.send({ error: error_3.message });
+                    error_4 = _a.sent();
+                    console.error(error_4);
+                    res.send({ error: error_4.message });
                     return [3 /*break*/, 6];
                 case 6: return [2 /*return*/];
             }
@@ -120,7 +145,7 @@ function updateproduct(req, res) {
 exports.updateproduct = updateproduct;
 function deleteProduct(req, res) {
     return __awaiter(this, void 0, void 0, function () {
-        var productId, result, products, error_4;
+        var productId, result, products, error_5;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -138,9 +163,9 @@ function deleteProduct(req, res) {
                 case 3: throw new Error('product ID is missing');
                 case 4: return [3 /*break*/, 6];
                 case 5:
-                    error_4 = _a.sent();
-                    console.error(error_4);
-                    res.send({ error: error_4.message });
+                    error_5 = _a.sent();
+                    console.error(error_5);
+                    res.send({ error: error_5.message });
                     return [3 /*break*/, 6];
                 case 6: return [2 /*return*/];
             }
