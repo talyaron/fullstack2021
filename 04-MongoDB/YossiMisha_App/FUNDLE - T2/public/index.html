@@ -98,11 +98,7 @@
             <button class="key" data-key="N">N</button>
             <button class="key" data-key="M">M</button>
             <button data-delete class="key large">
-              <div data-delete><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
-                  <path fill="var(--color-tone-1)"
-                    d="M22 3H7c-.69 0-1.23.35-1.59.88L0 12l5.41 8.11c.36.53.9.89 1.59.89h15c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H7.07L2.4 12l4.66-7H22v14zm-11.59-2L14 13.41 17.59 17 19 15.59 15.41 12 19 8.41 17.59 7 14 10.59 10.41 7 9 8.41 12.59 12 9 15.59z">
-                  </path>
-                </svg></div>
+              <img data-delete src="./images/delete.png" alt="">
             </button>
           </div>
         </div>
@@ -176,7 +172,9 @@
 
   <div class="logreg" id="logreg" style="display: none;">
     <div class="loginwrapper">
-      <h1>Login</h1>
+
+      <h1 style="padding-left: 134px;">Login <span class="close" onclick="handleHideWindow()">x</span></h1>
+
       <form onsubmit="handleLogin(event)">
 
         <div class="txt_field">
@@ -186,7 +184,7 @@
         </div>
 
         <div class="txt_field">
-          <input type="text" name='password' required>
+          <input type="text" name='password' required autocomplete="off">
           <span></span>
           <label for="password">Password</label>
         </div>
@@ -201,7 +199,7 @@
     </div>
 
     <div class='registerwrapper' id="">
-      <h1>Register</h1>
+      <h1 style="padding-left: 134px;">Register <span class="close" onclick="handleHideWindow()">x</span></h1>
 
       <form onsubmit="handleRegister(event)">
 
@@ -212,13 +210,13 @@
         </div>
 
         <div class="txt_field">
-          <input type="text" name='password' required>
+          <input type="text" name='password' required autocomplete="off">
           <span></span>
           <label for="password">Password</label>
         </div>
 
         <div class="txt_field">
-          <input type="text" name='confirmPassword' required>
+          <input type="text" name='confirmPassword' required autocomplete="off">
           <span></span>
           <label for="confirmPassword">Confirm Password</label>
         </div>
