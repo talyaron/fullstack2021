@@ -274,6 +274,7 @@ body {
 .mainPage__imageCarousel {
   border-radius: 10%;
   overflow: hidden;
+  margin-top: 50px;
   margin-left: 5%;
   margin-right: 5%;
 }
@@ -282,7 +283,7 @@ body {
   color: white;
   font-size: calc(1.5rem + 1vw);
   margin: 0;
-  top: 50%;
+  top: 70%;
   left: 50%;
   margin-right: -50%;
   transform: translate(-50%, -50%);
