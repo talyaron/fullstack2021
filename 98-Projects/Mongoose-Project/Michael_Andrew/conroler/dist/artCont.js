@@ -47,7 +47,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.getMyArt = exports.addArtToUser = void 0;
+exports.cancelSale = exports.putArtOnSale = exports.getMyArt = exports.addArtToUser = void 0;
 var artModel_1 = require("../model/artModel");
 exports.addArtToUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var _a, newArt, userId, newArtDB, r, err_1;
@@ -88,7 +88,35 @@ exports.getMyArt = function (req, res) { return __awaiter(void 0, void 0, void 0
                 return [4 /*yield*/, artModel_1["default"].find({ ownerId: userId })];
             case 1:
                 r = _a.sent();
-                res.send({ r: r });
+                res.send(r);
+                return [2 /*return*/];
+        }
+    });
+}); };
+exports.putArtOnSale = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _a, price, artId, r;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
+            case 0:
+                _a = req.body, price = _a.price, artId = _a.artId;
+                return [4 /*yield*/, artModel_1["default"].updateOne({ _id: artId }, { forSale: true, price: price })];
+            case 1:
+                r = _b.sent();
+                res.send(r);
+                return [2 /*return*/];
+        }
+    });
+}); };
+exports.cancelSale = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var artId, r;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                artId = req.body.artId;
+                return [4 /*yield*/, artModel_1["default"].updateOne({ _id: artId }, { forSale: false, price: 0 })];
+            case 1:
+                r = _a.sent();
+                res.send(r);
                 return [2 /*return*/];
         }
     });

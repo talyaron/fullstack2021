@@ -1,3 +1,10 @@
+// import Art from "../model/artModel";
+
+const site = {
+    user: {},
+    arts: [],
+}
+
 async function OpenSignUpForm(e) {
     e.preventDefault()
     try {
@@ -38,8 +45,8 @@ async function handleLogInForm(e) {
 
         const { data } = await axios.get(`/users/log-user?loginEmail=${email}&loginPassword=${password}`)
 
-        userLogedIn.addlogData(data)
-        site.user = data.oldUser[0];
+        // userLogedIn.addlogData(data)
+        // site.user = data.oldUser[0];
         localStorage.setItem('user', JSON.stringify(site.user));
 
         if (!email || !password) throw new Error("no email || password in handleLogInForm");
@@ -71,7 +78,9 @@ function handleLogOut() {
 }
 
 function handleOnLoad() {
-    const user = JSON.parse(localStorage.getItem('user'))
+    const user = JSON.parse(localStorage?.getItem('user'))
+
+
     if (user) site.user = user
     if (window.location.pathname.split("/").pop() == 'account_page.html') {
         const main = document.querySelector('.main-account')
@@ -87,7 +96,7 @@ function handleAccountRedirect() {
     else window.location.href = "./register.html"
 }
 
-function handleAccountOption(ev) {
+async function handleAccountOption(ev) {
     const page = ev.target.id;
     let html = '';
     const main = document.querySelector('.main-account');
@@ -119,8 +128,28 @@ function handleAccountOption(ev) {
                 <input type="submit" value="update password">
             </form>`
             break;
-        case 'stats':
-            html = `<h1>Statistics</h1>`
+        case 'my art':
+            const { data } = await axios.get(`/arts/get-user-art?userId=${site.user._id}`)
+            site.arts = data;
+            html = `<h1>My Art</h1>
+                     <div class="art-grid">`
+            data.forEach(art => {
+                html += `<div class="art-grid__card">
+                        <img src="${art.url}">
+                        <h3>${art.artName}</h3>
+                        <h4>by: ${art.author}</h4>`
+                if (!art.forSale) {
+                    html += `<button onclick="handleSale('${art._id}', event)">sell</button>`
+                }
+                else{
+                    html += `<h5>item was put on sale for ${art.price} BTC</h5>
+                            <button onclick="handleCancelSale('${art._id}')">Cancel Sale</button>`
+                }
+
+                html +=`</div>`
+            });
+
+            html += `</div>`
             break;
         case 'create':
             html = `<h1>Add New Art!</h1>
@@ -170,10 +199,40 @@ async function handleSettingsForm(ev) {
 
 };
 
+function handleSale(artId, ev) {
+    const artToSale = site.arts.filter(art => art._id == artId)[0]
+    const html = `<form class="art-grid__card" onsubmit="handleSaleForm(event,'${artToSale._id}')">
+                        <img src="${artToSale.url}">
+                        <h3>${artToSale.artName}</h3>
+                        <h4>by: ${artToSale.author}</h4>
+                        <label for="price">enter a price</label>
+                        <input type="number" name="price" step=any></input>
+                        <input type="submit" value="Sale"></input>
+                        </form>`;
+
+    ev.target.parentElement.outerHTML = html;
+}
+
+async function handleSaleForm(ev, artId) {
+    ev.preventDefault()
+    const price = ev.target.price.value
+    await axios.patch('/arts/putArtOnSale', { price, artId })
+
+    const fakeEvent = { target: { id: "my art" } }
+    handleAccountOption(fakeEvent)
+}
+
+async function handleCancelSale(artId){
+    await axios.patch('/arts/cancelSale', { artId })
+
+    const fakeEvent = { target: { id: "my art" } }
+    handleAccountOption(fakeEvent)
+}
+
 async function handleAddArt(ev) {
     ev.preventDefault()
-    const newArt = { name: ev.target.name.value, url: ev.target.url.value, author: site.user.userName};
-    await axios.post('/users/add-art', {newArt, user: site.user});
+    const newArt = { artName: ev.target.name.value, url: ev.target.url.value, author: site.user.userName };
+    await axios.post('/arts/add-art', { newArt, userId: site.user._id });
 
 }
 
@@ -187,23 +246,20 @@ interface logInfo {
     id: String;
 }
 // volatile database for current user and etc'
-const site = {
-    user: {}
-}
 
 //sideBar
 
-function handleStatusClick () {
+function handleStatusClick() {
 
     document.querySelector('.status-buttons').classList.toggle('toggle');
-    
+
 }
 
-function handleOnSale(){
+function handleOnSale() {
 
     const onSale = document.querySelector('.onSale')
     onSale.classList.toggle('hidden');
-    
+
 }
 
 

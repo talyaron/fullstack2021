@@ -5,7 +5,9 @@ var artSchema = new mongoose_1["default"].Schema({
     artName: String,
     url: String,
     author: String,
-    ownerId: String
+    ownerId: String,
+    forSale: Boolean,
+    price: Number
 });
 var Art = mongoose_1["default"].model("newArt", artSchema);
 exports["default"] = Art;
