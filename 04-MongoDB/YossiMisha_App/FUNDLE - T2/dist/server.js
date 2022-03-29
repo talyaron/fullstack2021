@@ -54,11 +54,10 @@ var UserSchema = new mongoose_1["default"].Schema({
 });
 var FundleUser = mongoose_1["default"].model('FundleUsers', UserSchema);
 app.post("/add-user", function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, username, password, email, played, wins, current_strike, max_strike, newFundleUser, result, error_1;
+    var _a, username, password, email, played, wins, current_strike, max_strike, newFundleUser, result;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
-                _b.trys.push([0, 2, , 3]);
                 _a = req.body, username = _a.username, password = _a.password, email = _a.email;
                 played = 0;
                 wins = 0;
@@ -70,22 +69,15 @@ app.post("/add-user", function (req, res) { return __awaiter(void 0, void 0, voi
                 result = _b.sent();
                 console.log(result);
                 res.send({ result: result });
-                return [3 /*break*/, 3];
-            case 2:
-                error_1 = _b.sent();
-                console.error(error_1);
-                res.send({ error: error_1.message });
-                return [3 /*break*/, 3];
-            case 3: return [2 /*return*/];
+                return [2 /*return*/];
         }
     });
 }); });
 app.get("/get-user", function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, username, password, userMatch, noPass, error_2;
+    var _a, username, password, userMatch, noPass;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
-                _b.trys.push([0, 5, , 6]);
                 _a = req.query, username = _a.username, password = _a.password;
                 console.log(username, password);
                 return [4 /*yield*/, FundleUser.find({ username: username, password: password })];
@@ -105,13 +97,7 @@ app.get("/get-user", function (req, res) { return __awaiter(void 0, void 0, void
                     res.send("username doesn't exist");
                 }
                 _b.label = 4;
-            case 4: return [3 /*break*/, 6];
-            case 5:
-                error_2 = _b.sent();
-                console.log(error_2.error);
-                res.send({ error: error_2.message });
-                return [3 /*break*/, 6];
-            case 6: return [2 /*return*/];
+            case 4: return [2 /*return*/];
         }
     });
 }); });

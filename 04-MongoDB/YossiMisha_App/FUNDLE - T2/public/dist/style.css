@@ -110,6 +110,9 @@ body {
   font-size: 0.7em;
   grid-column: span 3;
 }
+.column-center__middle__game-area .key.large img {
+  width: 40%;
+}
 .column-center__middle__game-area .key > svg {
   width: 1.75em;
   height: 1.75em;
@@ -332,30 +335,45 @@ body {
     transform: translateY(15%);
   }
 }
-.loginwrapper, .registerwrapper {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.loginwrapper,
+.registerwrapper {
+  position: relative;
+  margin: auto;
+  bottom: 80vh;
+  padding: 8px;
   width: 400px;
   height: fit-content;
   background: white;
   border-radius: 10px;
+  animation: show 1000ms ease-in-out;
 }
-.loginwrapper h1, .registerwrapper h1 {
+.loginwrapper .close,
+.registerwrapper .close {
+  padding-left: 130px;
+  cursor: pointer;
+  color: #949494;
+}
+.loginwrapper h1,
+.registerwrapper h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   padding: 0 0 20px 0;
   border-bottom: 1px solid silver;
 }
-.loginwrapper form, .registerwrapper form {
+.loginwrapper form,
+.registerwrapper form {
   padding: 0 40px;
   box-sizing: border-box;
 }
-.loginwrapper form .txt_field, .registerwrapper form .txt_field {
+.loginwrapper form .txt_field,
+.registerwrapper form .txt_field {
   position: relative;
   margin: 30px 0;
 }
-.loginwrapper form .txt_field input, .registerwrapper form .txt_field input {
+.loginwrapper form .txt_field input,
+.registerwrapper form .txt_field input {
   width: 100%;
   padding: 0 5px;
   height: 20px;
@@ -364,15 +382,20 @@ body {
   background: none;
   outline: none;
 }
-.loginwrapper form .txt_field input:focus ~ label, .loginwrapper form .txt_field input:valid ~ label, .registerwrapper form .txt_field input:focus ~ label, .registerwrapper form .txt_field input:valid ~ label {
+.loginwrapper form .txt_field input:focus ~ label, .loginwrapper form .txt_field input:valid ~ label,
+.registerwrapper form .txt_field input:focus ~ label,
+.registerwrapper form .txt_field input:valid ~ label {
   top: -10px;
   color: #2691d9;
 }
-.loginwrapper form .txt_field input:focus ~ span::before, .loginwrapper form .txt_field input:valid ~ span::before, .registerwrapper form .txt_field input:focus ~ span::before, .registerwrapper form .txt_field input:valid ~ span::before {
+.loginwrapper form .txt_field input:focus ~ span::before, .loginwrapper form .txt_field input:valid ~ span::before,
+.registerwrapper form .txt_field input:focus ~ span::before,
+.registerwrapper form .txt_field input:valid ~ span::before {
   width: 100%;
   color: #2691d9;
 }
-.loginwrapper form .txt_field label, .registerwrapper form .txt_field label {
+.loginwrapper form .txt_field label,
+.registerwrapper form .txt_field label {
   position: absolute;
   top: 50%;
   left: 5px;
@@ -382,7 +405,8 @@ body {
   pointer-events: none;
   transition: 0.5s;
 }
-.loginwrapper form .txt_field span::before, .registerwrapper form .txt_field span::before {
+.loginwrapper form .txt_field span::before,
+.registerwrapper form .txt_field span::before {
   content: "";
   position: absolute;
   top: 25px;
@@ -392,15 +416,18 @@ body {
   background: #2691d9;
   transition: 0.5s;
 }
-.loginwrapper .pass, .registerwrapper .pass {
+.loginwrapper .pass,
+.registerwrapper .pass {
   margin: -5px 0 20px 5x;
   color: #a6a6a6;
   cursor: pointer;
 }
-.loginwrapper .pass:hover, .registerwrapper .pass:hover {
+.loginwrapper .pass:hover,
+.registerwrapper .pass:hover {
   text-decoration: underline;
 }
-.loginwrapper .submit, .registerwrapper .submit {
+.loginwrapper .submit,
+.registerwrapper .submit {
   position: relative;
   top: 20px;
   width: 100%;
@@ -414,21 +441,25 @@ body {
   cursor: pointer;
   outline: none;
 }
-.loginwrapper .submit:hover, .registerwrapper .submit:hover {
+.loginwrapper .submit:hover,
+.registerwrapper .submit:hover {
   border-color: #2691d9;
   transition: 0.5s;
 }
-.loginwrapper .signup_link, .registerwrapper .signup_link {
+.loginwrapper .signup_link,
+.registerwrapper .signup_link {
   margin: 30px 0;
   text-align: center;
   font-size: 16px;
   color: #666666;
 }
-.loginwrapper .signup_link a, .registerwrapper .signup_link a {
+.loginwrapper .signup_link a,
+.registerwrapper .signup_link a {
   color: #2691d9;
   text-decoration: none;
 }
-.loginwrapper .signup_link a:hover, .registerwrapper .signup_link a:hover {
+.loginwrapper .signup_link a:hover,
+.registerwrapper .signup_link a:hover {
   text-decoration: underline;
   cursor: pointer;
 }

@@ -32,7 +32,7 @@ const PlacesSchema = new mongoose.Schema({
       autoCreate: false
     });
    
-  const Places = mongoose.model("listingsandreviews", PlacesSchema);
+  const Places = mongoose.model("listingsAndReviews", PlacesSchema);
   export default Places;
   const userSchema = new mongoose.Schema({
     name: String,

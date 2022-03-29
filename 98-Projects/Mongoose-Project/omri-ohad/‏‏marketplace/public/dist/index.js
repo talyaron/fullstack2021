@@ -34,6 +34,31 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+function appInit() {
+    return __awaiter(this, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            getProductsMain();
+            return [2 /*return*/];
+        });
+    });
+}
+function getProductsMain() {
+    return __awaiter(this, void 0, void 0, function () {
+        var data, marketItems;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, axios.get('/products/get-products-to-main')];
+                case 1:
+                    data = (_a.sent()).data;
+                    marketItems = data.marketItems;
+                    if (marketItems) {
+                        renderItemsMain(marketItems);
+                    }
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
 function handleAddProduct(ev) {
     return __awaiter(this, void 0, void 0, function () {
         var _a, pic, title, description, price, category, data;
@@ -76,6 +101,16 @@ function handleGetProducts() {
         });
     });
 }
+function renderItemsMain(items) {
+    var html = '';
+    var rootItems = document.querySelector('.mainPage__middle--products');
+    if (items) {
+        items.forEach(function (item) {
+            html += "\n            <div class=\"mainPage__middle--products--item\">\n                <img src=\"" + item.pic + "\">\n                <h4>" + item.description + "</h4>\n                <p>" + item.price + "$</p>\n            </div>\n            ";
+        });
+        rootItems.innerHTML = html;
+    }
+}
 function renderProducts(products) {
     var html = products.map(function (product) {
         return "\n\n        <div class=\"mainPage__middle--products--item\">\n        <img src=\"" + product.pic + "\" title='" + product.title + "'>\n        <p>" + product.title + ".</p>\n        <p>" + product.price + "\u20AA</p>\n        <p>" + product.description + ".</p>\n        <input type = 'text' name = 'newImg' placeholder = 'Update img' onblur = 'handleUpdate(event, \"" + product._id + "\")'>\n        <input type = 'text' name = 'newTitle' placeholder = 'Update title' onblur = 'handleUpdate(event, \"" + product._id + "\")'>\n    <div style=\"width:0%;position: relative; bottom: 62.4%; right:80%; color:black;\"><i class=\"fa fa-trash-o\" style=\"font-size:20px;cursor: pointer;\" title=\"Delete product\" onclick='handleDelete(\"" + product._id + "\")'></i></div>\n    <div style=\"width:0%;position: relative; right:1%; bottom: 67%;cursor: pointer; color:black\"; onclick=''><i class=\"fa fa-plus\" style=\"font-size:20px\" title=\"Add to cart\"></i></div>\n        </div>\n        ";
@@ -93,6 +128,7 @@ function handleUpdate(ev, gameId) {
                     return [4 /*yield*/, axios.patch('/products/update-product', { gameId: gameId, newImg: newImg, newTitle: newTitle })];
                 case 1:
                     data = (_a.sent()).data;
+                    console.log(data);
                     products = data.products;
                     renderProducts(products);
                     return [2 /*return*/];
@@ -111,6 +147,27 @@ function handleDelete(productId) {
                     product = data.product;
                     location.reload();
                     renderProducts(product);
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+function handleCategoryShow(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        var chosenCategory, data, filterd, products;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    chosenCategory = ev.target.textContent;
+                    return [4 /*yield*/, axios.post('/products/get-by-category', { chosenCategory: chosenCategory })];
+                case 1:
+                    data = (_a.sent()).data;
+                    filterd = data.filterd;
+                    products = data.products;
+                    if (filterd)
+                        renderItemsMain(filterd);
+                    else if (products)
+                        renderItemsMain(products);
                     return [2 /*return*/];
             }
         });
