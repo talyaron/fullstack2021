@@ -1,15 +1,5 @@
 import mongoose from 'mongoose';
 
-const artSchema = new mongoose.Schema({
-  artName: String,
-  url: String,
-  author: String,
-
-});
-
-const Art = mongoose.model('newArt', artSchema)
-export const art =  Art;
-//למה לא אקספורט
 
 const userSchema = new mongoose.Schema({
   userName: String,
@@ -17,7 +7,6 @@ const userSchema = new mongoose.Schema({
   password: String,
   url: String,
   fund: Number,
-  artCollection: [artSchema]
 });
 
 const User = mongoose.model('newUser', userSchema)
