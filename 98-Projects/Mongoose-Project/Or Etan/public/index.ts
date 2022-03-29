@@ -1,30 +1,4 @@
-async function handleLogin(ev) {
-  ev.preventDefault();
-  const email = ev.target.elements.email.value;
-  const password = ev.target.elements.password.value;
-  const userData = {
-    email: email,
-    password: password,
-  };
-  const data = await axios.post("/users/log-in", userData).then((response) => {
-    const status = response.data.ok;
-    const userExists = response.data.aUser;
-    const verifiedUser = response.data.verifiedUser[0];
-    const verifiedUserId = verifiedUser._id;
-    console.log(verifiedUserId);
-    
-    // let html = "";
-    if (status) {
-      const name = document.querySelector('[data-name]')
-      console.log(verifiedUser);
-      renderUser(verifiedUser)
-    } else if (userExists) {
-      console.log({ userExists: userExists });
 
-      // document.get
-    }
-  });
-}
 
  async function handleRegister(ev) {
   ev.preventDefault();
@@ -48,9 +22,44 @@ async function handleLogin(ev) {
   window.location.href = `/`
 }
 
-function renderUser(user){
-  const verifiedUserId = user._id;
-  window.location.href = `/home-or.html?id=${verifiedUserId}`; 
- console.log(user);
+async function handleLogin(ev) {
+  ev.preventDefault();
+  const email = ev.target.elements.email.value;
+  const password = ev.target.elements.password.value;
+  const userData = {
+    email: email,
+    password: password,
+  };
+  const data = await axios.post("/users/log-in", userData).then((response) => {
+    const status = response.data.ok;
+    const userExists = response.data.aUser;
+    const verifiedUser = response.data.verifiedUser;
+    const verifiedUserId = verifiedUser[0]._id;
 
+    
+
+    if (status) {
+
+      window.location.href = `/home-or.html?id=${verifiedUserId}`; 
+    } else if (userExists) {
+      console.log({ userExists: userExists });
+      
+
+    }
+  });
+}
+
+async function handleRenderUser(ev){
+  ev.preventDefault();
+  let userId = ev.target.location.search.replace(/.*?id=/g,"");
+  const {data} = await axios.get(`users/logged-in-user?userId=${userId}`);
+  
+  const {userInfo} = data;
+  const user = userInfo[0]
+  const name = document.querySelector('[data-name]')
+  name.innerHTML = `${user.firstName} ${user.lastName}<br><span>${user.role}</span>`
+  
+  
+  
+  
 }

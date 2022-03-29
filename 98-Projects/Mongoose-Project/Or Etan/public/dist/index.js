@@ -34,43 +34,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-function handleLogin(ev) {
-    return __awaiter(this, void 0, void 0, function () {
-        var email, password, userData, data;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    ev.preventDefault();
-                    email = ev.target.elements.email.value;
-                    password = ev.target.elements.password.value;
-                    userData = {
-                        email: email,
-                        password: password
-                    };
-                    return [4 /*yield*/, axios.post("/users/log-in", userData).then(function (response) {
-                            var status = response.data.ok;
-                            var userExists = response.data.aUser;
-                            var verifiedUser = response.data.verifiedUser[0];
-                            var verifiedUserId = verifiedUser._id;
-                            console.log(verifiedUserId);
-                            // let html = "";
-                            if (status) {
-                                var name = document.querySelector('[data-name]');
-                                console.log(verifiedUser);
-                                renderUser(verifiedUser);
-                            }
-                            else if (userExists) {
-                                console.log({ userExists: userExists });
-                                // document.get
-                            }
-                        })];
-                case 1:
-                    data = _a.sent();
-                    return [2 /*return*/];
-            }
-        });
-    });
-}
 function handleRegister(ev) {
     return __awaiter(this, void 0, void 0, function () {
         var _a, firstName, lastName, email, password, role, gender, data;
@@ -102,8 +65,55 @@ function handleRegister(ev) {
         });
     });
 }
-function renderUser(user) {
-    var verifiedUserId = user._id;
-    window.location.href = "/home-or.html?id=" + verifiedUserId;
-    console.log(user);
+function handleLogin(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        var email, password, userData, data;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    ev.preventDefault();
+                    email = ev.target.elements.email.value;
+                    password = ev.target.elements.password.value;
+                    userData = {
+                        email: email,
+                        password: password
+                    };
+                    return [4 /*yield*/, axios.post("/users/log-in", userData).then(function (response) {
+                            var status = response.data.ok;
+                            var userExists = response.data.aUser;
+                            var verifiedUser = response.data.verifiedUser;
+                            var verifiedUserId = verifiedUser[0]._id;
+                            if (status) {
+                                window.location.href = "/home-or.html?id=" + verifiedUserId;
+                            }
+                            else if (userExists) {
+                                console.log({ userExists: userExists });
+                            }
+                        })];
+                case 1:
+                    data = _a.sent();
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+function handleRenderUser(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        var userId, data, userInfo, user, name;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    ev.preventDefault();
+                    userId = ev.target.location.search.replace(/.*?id=/g, "");
+                    return [4 /*yield*/, axios.get("users/logged-in-user?userId=" + userId)];
+                case 1:
+                    data = (_a.sent()).data;
+                    userInfo = data.userInfo;
+                    user = userInfo[0];
+                    name = document.querySelector('[data-name]');
+                    name.innerHTML = user.firstName + " " + user.lastName + "<br><span>" + user.role + "</span>";
+                    return [2 /*return*/];
+            }
+        });
+    });
 }

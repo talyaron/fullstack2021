@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.login = exports.addUser = void 0;
+exports.renderUser = exports.login = exports.addUser = void 0;
 var userModel_1 = require("../model/userModel");
 exports.addUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var _a, firstName, lastName, email, password, role, gender, newUser, result, error_1;
@@ -114,6 +114,21 @@ exports.login = function (req, res) { return __awaiter(void 0, void 0, void 0, f
                 res.send({ error: error_2.message });
                 return [3 /*break*/, 5];
             case 5: return [2 /*return*/];
+        }
+    });
+}); };
+exports.renderUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var userId, userInfo;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                userId = req.query.userId;
+                return [4 /*yield*/, userModel_1["default"].find({ _id: userId })];
+            case 1:
+                userInfo = _a.sent();
+                console.log(userInfo);
+                res.send({ userInfo: userInfo });
+                return [2 /*return*/];
         }
     });
 }); };

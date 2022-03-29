@@ -23,6 +23,7 @@ export const addUser = async (req, res) => {
     res.send({ error: error.message });
   }
 };
+
 export const login = async (req, res) => {
   let { email, password } = req.body;
 
@@ -44,6 +45,7 @@ export const login = async (req, res) => {
       }
       res.send({ aUser: true });
     } else {
+        
       res.send({ ok: false });
     }
   } catch (error) {
@@ -53,3 +55,10 @@ export const login = async (req, res) => {
     res.send({ error: error.message });
   }
 };
+
+export const renderUser = async (req, res) => {
+    let userId = req.query.userId;
+    const userInfo = await user.find({_id: userId});
+    console.log(userInfo);
+    res.send({ userInfo: userInfo})
+}
