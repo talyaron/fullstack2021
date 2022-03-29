@@ -12,16 +12,18 @@
 
 <body onload="loadPlaces()">
     <div class="header-filter">
-    <div class="filter">
-            <button class="btn_filter">Filters</button>
+        <form onsubmit="handleFilter(event)" class="filter">
+            <input class="btn_filter" type="number" placeholder="search price" name="price">
             <button class="btn_filter">Kitchen</button>
             <button class="btn_filter">Wi-Fi</button>
             <button class="btn_filter">Access to the beach</button>
             <button class="btn_filter">Cancellation without penalty</button>
             <button class="btn_filter">Type</button>
-            <button class="btn_filter">Price</button>
+            <input  type="submit"
+            value="submit">
+            <!-- <button class="btn_filter">Price</button> -->
 
-    </div>
+    </form>
 </div>
 <div class="page-grid">
     <div class="card-map">
