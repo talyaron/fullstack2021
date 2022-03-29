@@ -1,7 +1,7 @@
 
 
 async function loadPlaces(){
-    const {data} = await axios.get('/getPlaces')
+    const {data} = await axios.get('/places/getPlaces')
     console.log(data);
     
   //  renderAirbnb(data);

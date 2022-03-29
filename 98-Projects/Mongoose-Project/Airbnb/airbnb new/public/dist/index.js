@@ -39,7 +39,7 @@ function loadPlaces() {
         var data;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, axios.get('/getPlaces')];
+                case 0: return [4 /*yield*/, axios.get('/places/getPlaces')];
                 case 1:
                     data = (_a.sent()).data;
                     console.log(data);
