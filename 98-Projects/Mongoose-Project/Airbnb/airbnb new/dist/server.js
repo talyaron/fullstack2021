@@ -12,36 +12,12 @@ const app = express_1.default();
 const port = process.env.PORT || 3000;
 app.use(express_1.default.static("public"));
 app.use(express_1.default.json());
-mongoose_1.default.connect("mongodb+srv://shay:shayFoyer1994@cluster0.xyd5y.mongodb.net/sample_airbnb?retryWrites=true&w=majority");
-//mongoose.connect('mongodb+srv://ShaniRom:ynbUaPL3oHZKGl8a@cluster0.vh1hg.mongodb.net/sample_airbnb?retryWrites=true&w=majority');
 app.set("view engine", "ejs"); //connectiong ejs
 console.log(app.get("view engine"));
 app.set("views", path_1.default.resolve(__dirname, "pages"));
 app.get("/", (req, res) => {
     res.send("Hello World!");
 });
-// const PlacesSchema = new mongoose.Schema({
-//   name: String,
-//   summary: String,
-//   checkIn: String,
-//   checkOut: String,
-//   accommodates: Number,
-//   amenities: Array,
-//   bedrooms: Number,
-//   beds: Number,
-//   number_of_reviews: Number,
-//   price: Number,
-//   cancle: String,
-//   bathrooms: Number,
-//   images: String,
-//   host: Object,
-//   space: String,
-//   description: String,
-//   bed_type: String,
-//   reviews: Array,
-//   cancellation_policy: String,
-//   address: Object,
-// });
 mongoose_1.default
     .connect("mongodb+srv://shay:shayFoyer1994@cluster0.xyd5y.mongodb.net/sample_airbnb?retryWrites=true&w=majority")
     .then((result) => {

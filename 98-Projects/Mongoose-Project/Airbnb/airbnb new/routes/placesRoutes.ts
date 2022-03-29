@@ -7,7 +7,7 @@ import {findPlaceMap} from '../controler/placesCont'
 import {getPlaces} from '../controler/placesCont'
 
 router
-.get('getPlaces', getPlaces)
+.get('/getPlaces', getPlaces)
 .post('/addPlaces', addPlaces)
 .get('/getToPlace', getToPlace)
 .get('/search-airbnb', searchAirbnb)
