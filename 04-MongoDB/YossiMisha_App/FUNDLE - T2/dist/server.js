@@ -38,11 +38,27 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 exports.__esModule = true;
 var express_1 = require("express");
 var mongoose_1 = require("mongoose");
+var wordsDictionary = require('./dictionary.json');
 var app = express_1["default"]();
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 5000;
 app.use(express_1["default"].static("public"));
 app.use(express_1["default"].json());
 mongoose_1["default"].connect('mongodb+srv://michaeldubovik:michaeldubovik1991@cluster0.y9ozg.mongodb.net/myFirstDatabase?retryWrites=true&w=majority');
+// function shuffleDictionary(wordsDictionary){
+//   let R = Math.floor(Math.random() * wordsDictionary.length)
+//   let X = wordsDictionary[R]
+//   let Y = 
+//   wordsDictionary[] = 
+// }
+shuffleDictionary(wordsDictionary);
+function shuffleDictionary(Dictionary) {
+    for (var i = 0; i < Dictionary.length; i++) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = Dictionary[i];
+        Dictionary[i] = Dictionary[j];
+        Dictionary[j] = temp;
+    }
+}
 var UserSchema = new mongoose_1["default"].Schema({
     username: String,
     password: String,
@@ -52,7 +68,44 @@ var UserSchema = new mongoose_1["default"].Schema({
     current_strike: Number,
     max_strike: Number
 });
+var WordSchema = new mongoose_1["default"].Schema({
+    word: String,
+    wordNumber: Number
+});
+var FundleWord = mongoose_1["default"].model('FundleWords', WordSchema);
 var FundleUser = mongoose_1["default"].model('FundleUsers', UserSchema);
+addToDB();
+function addToDB() {
+    return __awaiter(this, void 0, void 0, function () {
+        var dictionaryTest, i, i, newWord, result;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, FundleWord.find({ wordNumber: 1 })];
+                case 1:
+                    dictionaryTest = _a.sent();
+                    if (!(dictionaryTest.length > 0)) return [3 /*break*/, 2];
+                    console.log('ok');
+                    i = 0;
+                    return [3 /*break*/, 6];
+                case 2:
+                    console.log('null');
+                    i = 0;
+                    _a.label = 3;
+                case 3:
+                    if (!(i < wordsDictionary.length)) return [3 /*break*/, 6];
+                    newWord = new FundleWord({ word: wordsDictionary[i], wordNumber: i });
+                    return [4 /*yield*/, newWord.save()];
+                case 4:
+                    result = _a.sent();
+                    _a.label = 5;
+                case 5:
+                    i++;
+                    return [3 /*break*/, 3];
+                case 6: return [2 /*return*/];
+            }
+        });
+    });
+}
 app.post("/add-user", function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var _a, username, password, email, played, wins, current_strike, max_strike, newFundleUser, result;
     return __generator(this, function (_b) {
@@ -69,6 +122,26 @@ app.post("/add-user", function (req, res) { return __awaiter(void 0, void 0, voi
                 result = _b.sent();
                 console.log(result);
                 res.send({ result: result });
+                return [2 /*return*/];
+        }
+    });
+}); });
+app.post("/add-word", function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    return __generator(this, function (_a) {
+        return [2 /*return*/];
+    });
+}); });
+app.get("/get-word", function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var dayOffset, dailyWord;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                dayOffset = req.query.dayOffset;
+                console.log(dayOffset);
+                return [4 /*yield*/, FundleWord.find({ wordNumber: dayOffset })];
+            case 1:
+                dailyWord = _a.sent();
+                res.send(dailyWord);
                 return [2 /*return*/];
         }
     });
