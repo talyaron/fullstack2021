@@ -13,6 +13,27 @@ export const getPlaces = async (req, res)=>{
         res.send({ error: "error in app.get/getPlaces" });
       } 
 }
+export const getfilteredAirBNB = async (req, res)=>{
+  try {
+      let price1=req.body;
+      if (price1){
+        const result= await Places.find({price:price1}); 
+        res.send({ok:true,result})
+        console.log(result);
+      }  
+      // const places = await Places.find({});
+      // console.log(Places);
+      
+      // console.log(places);
+      
+      // res.send({ ok: true, places });
+    } catch (error) {
+      console.error(error);
+      res.send({ error: "error in app.get/getPlaces" });
+    } 
+}
+
+
 export const addPlaces = async (req,res)=>{
     try {
         let {
