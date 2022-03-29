@@ -222,7 +222,7 @@ mongoose
   
 // }
 import userRoutes from './routes/placesRoutes'
-app.use('/users', userRoutes)
+app.use('/places', userRoutes)
 
 app.listen(port, () => {
   return console.log(`Express is listening at http://localhost:${port}`);
