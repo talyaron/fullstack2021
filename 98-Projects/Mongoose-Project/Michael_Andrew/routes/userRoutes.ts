@@ -9,6 +9,5 @@ router
 .post('/add-user', addUser)
 .get('/log-user', findUser)
 .patch('/update-user', updateUser)
-.post('/add-art', addArtToUser)
 
 export default router;

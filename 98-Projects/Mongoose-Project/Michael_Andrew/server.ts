@@ -16,8 +16,8 @@ mongoose.connect('mongodb+srv://Michael:rrrpos32.14!@cluster0.ctwuo.mongodb.net/
 import userRoutes from './routes/userRoutes'
 app.use('/users', userRoutes)
 
-// import artsRoutes from './routes/artRoutes'
-// app.use('/arts', userRoutes)
+import artRoutes from './routes/artRoutes'
+app.use('/arts', artRoutes)
 
 app.listen(port, () => {
   return console.log(`Express is listening at http://localhost:${port}`);

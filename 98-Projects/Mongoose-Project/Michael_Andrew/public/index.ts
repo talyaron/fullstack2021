@@ -38,6 +38,7 @@ async function handleLogInForm(e) {
 
         const { data } = await axios.get(`/users/log-user?loginEmail=${email}&loginPassword=${password}`)
 
+        userLogedIn.addlogData(data)
         site.user = data.oldUser[0];
         localStorage.setItem('user', JSON.stringify(site.user));
 
@@ -47,7 +48,6 @@ async function handleLogInForm(e) {
         console.error(error.message);
 
     }
-    
     if (window.location.pathname.split("/").pop() == 'register.html') window.location.href = "./account_page.html"
     e.target.reset();
     const signIn = document.querySelector('.sign-in-form')
@@ -69,8 +69,8 @@ function handleLogOut() {
     if (window.location.pathname.split("/").pop() == 'account_page.html') window.location.href = "./register.html"
     else location.reload();
 }
-//למה הוצאת את הסלש ולמה הפנית מהאקונט לרגיסטר אם היוזר יצא
-async function handleOnLoad() {
+
+function handleOnLoad() {
     const user = JSON.parse(localStorage.getItem('user'))
     if (user) site.user = user
     if (window.location.pathname.split("/").pop() == 'account_page.html') {
@@ -80,9 +80,8 @@ async function handleOnLoad() {
                         <h3>${site.user.email}</h3>
                         <h3>Funds: ${site.user.fund} BTC</h3>`
     }
-    
 }
-//למה לא להוסיף לינק ב- HTML
+
 function handleAccountRedirect() {
     if (site.user.userName) window.location.href = "./account_page.html";
     else window.location.href = "./register.html"
@@ -169,12 +168,13 @@ async function handleSettingsForm(ev) {
         localStorage.setItem('user', JSON.stringify(site.user));
     }
 
-}
+};
 
 async function handleAddArt(ev) {
     ev.preventDefault()
     const newArt = { name: ev.target.name.value, url: ev.target.url.value, author: site.user.userName};
-    await axios.post('/users/add-art', {newArt, user: site.user._id});
+    await axios.post('/users/add-art', {newArt, user: site.user});
+
 }
 
 interface UserData {
