@@ -6,7 +6,7 @@ import {
 } from "../conroler/artCont";
 
 router
-  .post("/add-art-to-owner", addArtToUser)
+  .post("/add-art", addArtToUser)
   .get("/get-user-art", getMyArt);
 
 export default router;

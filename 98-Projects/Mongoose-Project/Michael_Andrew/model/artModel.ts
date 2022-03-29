@@ -9,4 +9,3 @@ const artSchema = new mongoose.Schema({
 
 const Art = mongoose.model("newArt", artSchema);
 export default Art;
-//למה לא אקספורט
