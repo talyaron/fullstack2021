@@ -50,9 +50,7 @@ function getProductsMain() {
                 case 0: return [4 /*yield*/, axios.get('/products/get-products-to-main')];
                 case 1:
                     data = (_a.sent()).data;
-                    console.log(data);
                     marketItems = data.marketItems;
-                    console.log(marketItems);
                     if (marketItems) {
                         renderItemsMain(marketItems);
                     }
@@ -108,7 +106,7 @@ function renderItemsMain(items) {
     var rootItems = document.querySelector('.mainPage__middle--products');
     if (items) {
         items.forEach(function (item) {
-            html += "\n            <div class=\"mainPage__middle--products--item\">\n                <img src=\"" + item.img + "\">\n                <h4>" + item.description + "</h4>\n                <p>" + item.price + "$</p>\n            </div>\n            ";
+            html += "\n            <div class=\"mainPage__middle--products--item\">\n                <img src=\"" + item.pic + "\">\n                <h4>" + item.description + "</h4>\n                <p>" + item.price + "$</p>\n            </div>\n            ";
         });
         rootItems.innerHTML = html;
     }
@@ -149,6 +147,27 @@ function handleDelete(productId) {
                     product = data.product;
                     location.reload();
                     renderProducts(product);
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+function handleCategoryShow(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        var chosenCategory, data, filterd, products;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    chosenCategory = ev.target.textContent;
+                    return [4 /*yield*/, axios.post('/products/get-by-category', { chosenCategory: chosenCategory })];
+                case 1:
+                    data = (_a.sent()).data;
+                    filterd = data.filterd;
+                    products = data.products;
+                    if (filterd)
+                        renderItemsMain(filterd);
+                    else if (products)
+                        renderItemsMain(products);
                     return [2 /*return*/];
             }
         });

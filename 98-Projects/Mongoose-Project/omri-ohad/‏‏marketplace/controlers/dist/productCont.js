@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.deleteProduct = exports.updateproduct = exports.addProduct = exports.getAllProducts = exports.getProductsMain = void 0;
+exports.filterByCategory = exports.deleteProduct = exports.updateproduct = exports.addProduct = exports.getAllProducts = exports.getProductsMain = void 0;
 var productModel_1 = require("../model/productModel");
 var productMain_1 = require("../model/productMain");
 function getProductsMain(req, res) {
@@ -49,7 +49,6 @@ function getProductsMain(req, res) {
                     return [4 /*yield*/, productMain_1["default"].find({})];
                 case 1:
                     marketItems = _a.sent();
-                    console.log(marketItems);
                     res.send({ ok: true, marketItems: marketItems });
                     return [3 /*break*/, 3];
                 case 2:
@@ -173,3 +172,35 @@ function deleteProduct(req, res) {
     });
 }
 exports.deleteProduct = deleteProduct;
+function filterByCategory(req, res) {
+    return __awaiter(this, void 0, void 0, function () {
+        var chosenCategory_1, products, filterd, error_6;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    _a.trys.push([0, 3, , 4]);
+                    chosenCategory_1 = req.body.chosenCategory;
+                    if (!chosenCategory_1) return [3 /*break*/, 2];
+                    return [4 /*yield*/, productMain_1["default"].find({})];
+                case 1:
+                    products = _a.sent();
+                    if (chosenCategory_1 === "Show All") {
+                        res.send({ products: products });
+                    }
+                    else {
+                        filterd = products.filter(function (product) { return chosenCategory_1 === product.category; });
+                        res.send({ ok: true, filterd: filterd });
+                    }
+                    _a.label = 2;
+                case 2: return [3 /*break*/, 4];
+                case 3:
+                    error_6 = _a.sent();
+                    console.error(error_6);
+                    res.send({ error: error_6.message });
+                    return [3 /*break*/, 4];
+                case 4: return [2 /*return*/];
+            }
+        });
+    });
+}
+exports.filterByCategory = filterByCategory;

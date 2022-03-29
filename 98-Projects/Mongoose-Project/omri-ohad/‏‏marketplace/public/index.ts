@@ -4,9 +4,7 @@ async function appInit() {
 
 async function getProductsMain() {
     const {data} = await axios.get('/products/get-products-to-main');
-    console.log(data);
     const {marketItems} = data;
-    console.log(marketItems)
     if(marketItems){
         renderItemsMain(marketItems);
     }
@@ -45,7 +43,7 @@ function renderItemsMain(items){
         items.forEach(item => {
             html += `
             <div class="mainPage__middle--products--item">
-                <img src="${item.img}">
+                <img src="${item.pic}">
                 <h4>${item.description}</h4>
                 <p>${item.price}$</p>
             </div>
@@ -89,4 +87,13 @@ async function handleDelete(productId){
     const {product} = data;
     location.reload();
     renderProducts(product)
+}
+
+async function handleCategoryShow(ev){ 
+    const chosenCategory = ev.target.textContent;
+    const {data} = await axios.post('/products/get-by-category', {chosenCategory});
+    const {filterd} = data;
+    const {products} = data;
+    if(filterd) renderItemsMain(filterd); 
+    else if(products) renderItemsMain(products);
 }
