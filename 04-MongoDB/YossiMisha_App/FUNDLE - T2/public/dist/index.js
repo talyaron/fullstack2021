@@ -115,6 +115,12 @@ function handleDisplayNone() {
     }
 }
 document.body.addEventListener('click', handleDisplayNone, true);
+function handleHideWindow() {
+    const logreg = document.querySelector("#logreg");
+    if (logreg.style.display === "block") {
+        logreg.style.display = "none";
+    }
+}
 //////////////////////////// LOGIN - REGISTER ///////////////////////////////////////////
 function handleNotAMember() {
     const register = document.querySelector(".registerwrapper");

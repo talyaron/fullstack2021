@@ -22,7 +22,7 @@ const UserSchema = new mongoose.Schema({
 const FundleUser = mongoose.model('FundleUsers', UserSchema);
 
 app.post("/add-user", async (req, res) => {
-  try {
+  
     let { username, password, email } = req.body;
     let played = 0;
     let wins = 0;
@@ -34,14 +34,11 @@ app.post("/add-user", async (req, res) => {
     console.log(result)
 
     res.send({ result });
-  } catch (error) {
-    console.error(error);
-    res.send({ error: error.message });
-  }
+
 });
 
 app.get("/get-user", async (req, res) => {
-  try {
+
 
     let { username, password } = req.query
     console.log(username, password)
@@ -63,11 +60,7 @@ app.get("/get-user", async (req, res) => {
       }
     }
 
-  }
-  catch (error) {
-    console.log(error.error);
-    res.send({ error: error.message })
-  }
+
 })
 
 
