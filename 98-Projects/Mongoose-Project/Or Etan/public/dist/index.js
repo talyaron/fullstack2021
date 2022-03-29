@@ -47,17 +47,17 @@ function handleLogin(ev) {
                         email: email,
                         password: password
                     };
-                    return [4 /*yield*/, axios.post("/log-in", userData).then(function (response) {
+                    return [4 /*yield*/, axios.post("/users/log-in", userData).then(function (response) {
                             var status = response.data.ok;
                             var userExists = response.data.aUser;
-                            var verifiedUser = response.data.verifiedUser;
-                            var verifiedUserId = response.data.verifiedUser[0]._id;
-                            var html = "";
+                            var verifiedUser = response.data.verifiedUser[0];
+                            var verifiedUserId = verifiedUser._id;
+                            console.log(verifiedUserId);
+                            // let html = "";
                             if (status) {
-                                window.location.href = "/home-or.html?id=" + verifiedUserId;
-                                console.log({ status: status });
+                                var name = document.querySelector('[data-name]');
                                 console.log(verifiedUser);
-                                console.log(verifiedUserId);
+                                renderUser(verifiedUser);
                             }
                             else if (userExists) {
                                 console.log({ userExists: userExists });
@@ -85,7 +85,7 @@ function handleRegister(ev) {
                     password = password.value;
                     role = role.value;
                     gender = gender.value;
-                    return [4 /*yield*/, axios.post("/add-user", {
+                    return [4 /*yield*/, axios.post("/users/add-user", {
                             firstName: firstName,
                             lastName: lastName,
                             email: email,
@@ -96,8 +96,14 @@ function handleRegister(ev) {
                 case 1:
                     data = (_b.sent()).data;
                     console.log(data);
+                    window.location.href = "/";
                     return [2 /*return*/];
             }
         });
     });
+}
+function renderUser(user) {
+    var verifiedUserId = user._id;
+    window.location.href = "/home-or.html?id=" + verifiedUserId;
+    console.log(user);
 }

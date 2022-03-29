@@ -1,3 +1,15 @@
+async function appInit() {
+    getProductsMain()
+}
+
+async function getProductsMain() {
+    const {data} = await axios.get('/products/get-products-to-main');
+    const {marketItems} = data;
+    if(marketItems){
+        renderItemsMain(marketItems);
+    }
+}
+
 async function handleAddProduct(ev){
     ev.preventDefault();
     let {pic, title,description,price,category} = ev.target.elements;
@@ -21,6 +33,23 @@ async function handleGetProducts(){
     console.log({products})
     if(products){
         renderProducts(products);
+    }
+}
+
+function renderItemsMain(items){
+    let html ='';
+    const rootItems = document.querySelector('.mainPage__middle--products');
+    if(items){
+        items.forEach(item => {
+            html += `
+            <div class="mainPage__middle--products--item">
+                <img src="${item.pic}">
+                <h4>${item.description}</h4>
+                <p>${item.price}$</p>
+            </div>
+            `
+        })
+        rootItems.innerHTML = html;
     }
 }
 
@@ -58,4 +87,13 @@ async function handleDelete(productId){
     const {product} = data;
     location.reload();
     renderProducts(product)
+}
+
+async function handleCategoryShow(ev){ 
+    const chosenCategory = ev.target.textContent;
+    const {data} = await axios.post('/products/get-by-category', {chosenCategory});
+    const {filterd} = data;
+    const {products} = data;
+    if(filterd) renderItemsMain(filterd); 
+    else if(products) renderItemsMain(products);
 }

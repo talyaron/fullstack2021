@@ -40,24 +40,24 @@ interface User {
     email: string
     gender: string
 }
-async function HandleLogin(ev){
-    try{
-    ev.preventDefault();
-    const password = ev.target.elements.password.value;
-    console.log(password)
-    const email = ev.target.elements.email.value;
-    console.log(email);
-    const {ok,data,error} = await axios.get(`/get-user?email=${email}&password=${password}`);
-    const user = data.userData[0];
-    const imgs = data.userImgs[0];
-    console.log(data);
-    console.log(user);
-    console.log(imgs);
-    
-    renderProfile(user,imgs);
-    
+async function HandleLogin(ev) {
+    try {
+        ev.preventDefault();
+        const password = ev.target.elements.password.value;
+        console.log(password)
+        const email = ev.target.elements.email.value;
+        console.log(email);
+        const { data } = await axios.get(`/user/get-user?email=${email}&password=${password}`);
+        const { iamgesData } = await axios.get(`/images/get-images?email=${email}&password=${password}`);
+        const user = data;
+        const imgs = iamgesData;
+        console.log(user);
+        console.log(imgs);
+
+        renderProfile(user, imgs);
+
     }
-    catch(error){
+    catch (error) {
         console.error(error.message)
 
     }
@@ -86,7 +86,6 @@ async function newUserDetails(ev) {
 
 
     let birthday, firstName, lastName, country, gender, password, email;
-    // var birthday = new Date(birthdayInput);
 
     for (let field of ev.target) {
         if (field.name !== "submit") {
@@ -107,20 +106,19 @@ async function newUserDetails(ev) {
             }
         }
     }
-    console.log(birthday);
+    // console.log(birthday);
     const newUser: User = { firstName, lastName, birthday, country, password, email, gender }
-    const { data } = await axios.post('/get-addNewUser', { newUser });
-    console.log(data);
+    const  userData  = await axios.post('/user/add-user', { newUser });
+    const  imagesData  = await axios.post('/images/add-images', { email, password });
+    const user = {...userData.data};
+    const images = {...imagesData.data};
     
-    console.log(newUser);
-    console.log(email);
-    // const {imgs} = await axios.get(`/get-imgs?email=${email}`)
-    renderProfile(newUser , data)
-}
-function renderProfile(user , imgs){
 
+
+    renderProfile(user, images)
+}
+async function renderProfile(user, imgs) {
     const display: any = document.querySelector('.main')
-    // const root = document.querySelector("#root");
     let html = "";
     html = `<section class="profile">
 
@@ -130,19 +128,19 @@ function renderProfile(user , imgs){
     </div>
     <nav class="settings">
     <ul>
-        <li onclick="handleUpdateUser(${user.email})">update</li>
-        <li onclick="handleUpdateProfilePic(${user.email})">update profile pic</li>
-        <li class="delete" onclick="handleDeleteProfile(${user.email})">delete User</li>
+        <li onclick="handleUpdateUser(${user.result.email})">update</li>
+        <li onclick="handleUpdateProfilePic(${user.result.email})">update profile pic</li>
+        <li class="delete" onclick="handleDeleteProfile(${user.result.email})">delete User</li>
     </ul>
 </nav>
     <div class="profile__header">
-        <div class="profile__imgBorder" style="background-image: url(${imgs.url[0]})">
+        <div class="profile__imgBorder" style="background-image: url(${imgs.result.url[0]})">
             
         </div>
-        <div class="profile__name">${user.firstName} ${user.lastName}</div>
-        <div class="profile__birthday">${user.birthday}</div>
-        <div class="profile__country">${user.country}</div>
-        <div class="profile__gender">${user.gender}</div>
+        <div class="profile__name">${user.result.firstName} ${user.result.lastName}</div>
+        <div class="profile__birthday">${user.result.birthday}</div>
+        <div class="profile__country">${user.result.country}</div>
+        <div class="profile__gender">${user.result.gender}</div>
         <button class="profile__addButton">Add Post</button>
     </div>
     <ul class="profile__user__category">
@@ -162,13 +160,13 @@ function renderProfile(user , imgs){
     <div class="heartIcon"><i class="fas fa-heart"></i></div>
     </div>
     </section>`
-    display.innerHTML=html;
+    display.innerHTML = html;
 
 }
-function HandleSettingsMenu(){
-    const settings= document.querySelector(".settings")
+function HandleSettingsMenu() {
+    const settings = document.querySelector(".settings")
     settings.classList.toggle("setting-active");
-    
+
 }
 
 // function handleUpdateProfilePic(id){
@@ -192,9 +190,9 @@ function HandleSettingsMenu(){
 
 
 // ///////////////////////////////////// render test
-function handleClick(){
+function handleClick() {
     const test = {
-        id:"1245",
+        id: "1245",
         firstName: "jason",
         lastName: "kid",
         birthday: "11-05-92",
@@ -202,7 +200,7 @@ function handleClick(){
         password: "12345",
         email: "lalal",
         gender: "male",
-        img:"https://ggsc.s3.amazonaws.com/images/uploads/The_Science-Backed_Benefits_of_Being_a_Dog_Owner.jpg"
+        img: "https://ggsc.s3.amazonaws.com/images/uploads/The_Science-Backed_Benefits_of_Being_a_Dog_Owner.jpg"
     }
     // renderProfile(test);  
 }

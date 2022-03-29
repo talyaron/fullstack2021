@@ -6,17 +6,18 @@ async function handleLogin(ev) {
     email: email,
     password: password,
   };
-  const data = await axios.post("/log-in", userData).then((response) => {
+  const data = await axios.post("/users/log-in", userData).then((response) => {
     const status = response.data.ok;
     const userExists = response.data.aUser;
-    const verifiedUser = response.data.verifiedUser;
-    const verifiedUserId = response.data.verifiedUser[0]._id;
-    let html = "";
+    const verifiedUser = response.data.verifiedUser[0];
+    const verifiedUserId = verifiedUser._id;
+    console.log(verifiedUserId);
+    
+    // let html = "";
     if (status) {
-      window.location.href = `/home-or.html?id=${verifiedUserId}`;
-      console.log({ status: status });
+      const name = document.querySelector('[data-name]')
       console.log(verifiedUser);
-      console.log(verifiedUserId);
+      renderUser(verifiedUser)
     } else if (userExists) {
       console.log({ userExists: userExists });
 
@@ -34,7 +35,7 @@ async function handleLogin(ev) {
   password = password.value;
   role = role.value;
   gender = gender.value
-  const {data}  = await axios.post("/add-user", {
+  const {data}  = await axios.post("/users/add-user", {
     firstName,
     lastName,
     email,
@@ -44,4 +45,12 @@ async function handleLogin(ev) {
   });
 
   console.log(data);
+  window.location.href = `/`
+}
+
+function renderUser(user){
+  const verifiedUserId = user._id;
+  window.location.href = `/home-or.html?id=${verifiedUserId}`; 
+ console.log(user);
+
 }
