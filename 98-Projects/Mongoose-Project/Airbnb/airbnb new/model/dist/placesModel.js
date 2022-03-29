@@ -30,7 +30,7 @@ var PlacesSchema = new mongoose_1["default"].Schema({
     bufferCommands: false,
     autoCreate: false
 });
-var Places = mongoose_1["default"].model("listingsandreviews", PlacesSchema);
+var Places = mongoose_1["default"].model("listingsAndReviews", PlacesSchema);
 exports["default"] = Places;
 var userSchema = new mongoose_1["default"].Schema({
     name: String,
