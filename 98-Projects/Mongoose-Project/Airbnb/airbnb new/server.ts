@@ -1,6 +1,5 @@
 import express from "express";
 import mongoose from "mongoose";
-import path from "path";
 import Places from "./model/placesModel";
 // import axios from "axios";
 const app = express();
@@ -9,13 +8,7 @@ app.use(express.static("public"));
 app.use(express.json());
 
 
-app.set("view engine", "ejs"); //connectiong ejs
-console.log(app.get("view engine"));
-app.set("views", path.resolve(__dirname, "pages"));
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
 
 mongoose
   .connect(
