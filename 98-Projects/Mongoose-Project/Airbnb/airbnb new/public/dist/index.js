@@ -1,4 +1,3 @@
-"";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -121,7 +120,7 @@ function handleFindAirbnb(ev) {
                     children = ev.target.elements.children.value;
                     infants = ev.target.elements.infants.value;
                     pets = ev.target.elements.pets.value;
-                    return [4 /*yield*/, axios.get('/places/search-airbnb', {
+                    return [4 /*yield*/, axios.get('/search-airbnb', {
                             search: search, checkIn: checkIn, checkOut: checkOut, adults: adults, children: children, infants: infants, pets: pets
                         })];
                 case 1:
@@ -133,19 +132,24 @@ function handleFindAirbnb(ev) {
         });
     });
 }
-function handleSearch(ev) {
+// async function handleSearchCity(ev){
+//     const search=ev.target.value;
+//     console.log(search);
+//     const {data}=await axios.get(`'/search-airbnb'?search=${search}`);
+//     const{city}=data;
+//     console.log({city})
+// }
+function handleFilter(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var search, data, city;
+        var price, data;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    search = ev.target.value;
-                    console.log(search);
-                    return [4 /*yield*/, axios.get("'/places/search'?search=" + search)];
+                    price = ev.target.elements.price.valueAsNumber;
+                    console.log(price);
+                    return [4 /*yield*/, axios.get('/places/getFiltered', { data: { price: price } })];
                 case 1:
                     data = (_a.sent()).data;
-                    city = data.city;
-                    console.log({ city: city });
                     return [2 /*return*/];
             }
         });

@@ -1,4 +1,4 @@
-``
+
 
 async function loadPlaces(){
     const {data} = await axios.get('/places/getPlaces')
@@ -383,7 +383,7 @@ async function handleFindAirbnb(ev){
     const infants=ev.target.elements.infants.value;
     const pets=ev.target.elements.pets.value;
 
-    const {data}= await axios.get('/places/search-airbnb', {
+    const {data}= await axios.get('/search-airbnb', {
         search,checkIn,checkOut,adults,children,infants,pets
     })
     console.log(data)
@@ -391,16 +391,18 @@ async function handleFindAirbnb(ev){
   
 
 }
-async function handleSearch(ev){
-    const search=ev.target.value;
-    console.log(search);
-    const {data}=await axios.get(`'/places/search'?search=${search}`);
-    const{city}=data;
-    console.log({city})
 
+// async function handleSearchCity(ev){
+//     const search=ev.target.value;
+//     console.log(search);
+//     const {data}=await axios.get(`'/search-airbnb'?search=${search}`);
+//     const{city}=data;
+//     console.log({city})
+// }
 
-
+async function handleFilter(ev) {
+    const price=ev.target.elements.price.valueAsNumber;
+    console.log(price);
+    const{data}=await axios.get('/places/getFiltered',{data:{price}});
+    
 }
-
-
-
