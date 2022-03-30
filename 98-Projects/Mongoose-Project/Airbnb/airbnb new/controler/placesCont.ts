@@ -2,7 +2,7 @@ import Places from '../model/placesModel'
 
 export const getPlaces = async (req, res)=>{
     try {
-        const places = await Places.find({});
+        const places = await Places.find({}).limit(20);
         console.log(Places);
         
         console.log(places);

@@ -44,7 +44,7 @@ exports.getPlaces = function (req, res) { return __awaiter(void 0, void 0, void 
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 2, , 3]);
-                return [4 /*yield*/, placesModel_1["default"].find({})];
+                return [4 /*yield*/, placesModel_1["default"].find({}).limit(20)];
             case 1:
                 places = _a.sent();
                 console.log(placesModel_1["default"]);
