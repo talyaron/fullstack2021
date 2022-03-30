@@ -3,6 +3,28 @@ console.log('hello')
 const WORD_LENGTH = 5;
 const guessGrid = document.querySelector("[data-guess-grid]")
 
+function tabIndex(){
+    const eyeImg = document.querySelectorAll('#eyeImg')
+    eyeImg.forEach((img:any) =>{
+        img.tabIndex = -2;
+    })
+}
+
+tabIndex()
+
+
+function handlePassToggle(){
+
+   const password = document.querySelectorAll('.passip')
+    password.forEach((input:any)=>{
+        if(input.type === 'password'){
+            input.type = "text"
+        }
+        else{
+            input.type = "password"
+        }
+    })
+}
 
 function timeOfDay() {
 
@@ -196,7 +218,7 @@ async function handleRegister(ev) {
             
             console.log(data)
 
-            if(data !== 'alreadyuser'){
+            if(data === 'AlreadyUser'){
                 window.alert('Username already taken')
             }
 
@@ -204,6 +226,8 @@ async function handleRegister(ev) {
                 loginPractice(username, password)
             }
         }
+
+        ev.target.reset();
 
 
     }
@@ -221,8 +245,7 @@ function handleLogin(ev) {
     username = username.value;
     password = password.value;
 
-   const formElement = <HTMLElement>document.getElementById("loginform")
-   formElement.reset();
+   ev.target.reset()
 
     loginPractice(username,password)
 

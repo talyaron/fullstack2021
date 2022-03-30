@@ -10,6 +10,24 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 console.log('hello');
 const WORD_LENGTH = 5;
 const guessGrid = document.querySelector("[data-guess-grid]");
+function tabIndex() {
+    const eyeImg = document.querySelectorAll('#eyeImg');
+    eyeImg.forEach((img) => {
+        img.tabIndex = -2;
+    });
+}
+tabIndex();
+function handlePassToggle() {
+    const password = document.querySelectorAll('.passip');
+    password.forEach((input) => {
+        if (input.type === 'password') {
+            input.type = "text";
+        }
+        else {
+            input.type = "password";
+        }
+    });
+}
 function timeOfDay() {
     let realtoday = new Date();
     let realtime = realtoday.getHours();
@@ -169,13 +187,14 @@ function handleRegister(ev) {
             if (password === confirmPassword && email === confirmEmail) {
                 const { data } = yield axios.post('/add-user', { username, password, email });
                 console.log(data);
-                if (data !== 'alreadyuser') {
+                if (data === 'AlreadyUser') {
                     window.alert('Username already taken');
                 }
                 else {
                     loginPractice(username, password);
                 }
             }
+            ev.target.reset();
         }
         catch (error) {
             console.log(error);
@@ -187,8 +206,7 @@ function handleLogin(ev) {
     let { username, password } = ev.target.elements;
     username = username.value;
     password = password.value;
-    const formElement = document.getElementById("loginform");
-    formElement.reset();
+    ev.target.reset();
     loginPractice(username, password);
 }
 function loginPractice(username, password) {
