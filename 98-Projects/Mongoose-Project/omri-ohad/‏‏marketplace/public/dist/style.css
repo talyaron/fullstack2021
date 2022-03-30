@@ -53,12 +53,13 @@
 .mainPage__middle--products--item {
   width: 190px;
   font-size: x-large;
-  margin-top: 30px;
+  margin-top: 50px;
   margin-left: auto;
   margin-right: auto;
 }
 .mainPage__middle--products--item img {
   width: 100%;
+  height: 200px;
   border-radius: 4px;
 }
 .mainPage__middle--products--item i {
