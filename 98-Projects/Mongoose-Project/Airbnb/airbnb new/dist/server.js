@@ -17,7 +17,7 @@ mongoose_1.default
     console.log("connected to db");
     placesModel_1.default.find({}).limit(10)
         .then((res) => {
-        console.log(res);
+        // console.log(res);
     })
         .catch((err) => {
         console.log(err.message);

@@ -87,24 +87,29 @@ function getAllProducts(req, res) {
 exports.getAllProducts = getAllProducts;
 function addProduct(req, res) {
     return __awaiter(this, void 0, void 0, function () {
-        var _a, pic, title, description, price, category, newProduct, result, error_3;
+        var _a, pic, title, description, price, category, newProduct, result, ownerId, newProductMarket, resultMarket, error_3;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
-                    _b.trys.push([0, 2, , 3]);
+                    _b.trys.push([0, 3, , 4]);
                     _a = req.body, pic = _a.pic, title = _a.title, description = _a.description, price = _a.price, category = _a.category;
                     newProduct = new productModel_1["default"]({ pic: pic, title: title, description: description, price: price, category: category });
                     return [4 /*yield*/, newProduct.save()];
                 case 1:
                     result = _b.sent();
-                    res.send({ result: result });
-                    return [3 /*break*/, 3];
+                    ownerId = newProduct._id;
+                    newProductMarket = new productMain_1["default"]({ pic: pic, title: title, description: description, price: price, category: category, ownerId: ownerId });
+                    return [4 /*yield*/, newProductMarket.save()];
                 case 2:
+                    resultMarket = _b.sent();
+                    res.send({ result: result });
+                    return [3 /*break*/, 4];
+                case 3:
                     error_3 = _b.sent();
                     console.error(error_3);
                     res.send({ error: error_3.message });
-                    return [3 /*break*/, 3];
-                case 3: return [2 /*return*/];
+                    return [3 /*break*/, 4];
+                case 4: return [2 /*return*/];
             }
         });
     });
@@ -144,29 +149,35 @@ function updateproduct(req, res) {
 exports.updateproduct = updateproduct;
 function deleteProduct(req, res) {
     return __awaiter(this, void 0, void 0, function () {
-        var productId, result, products, error_5;
+        var productId, result, resultMarket, products, productsMarket, error_5;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    _a.trys.push([0, 5, , 6]);
+                    _a.trys.push([0, 7, , 8]);
                     productId = req.body.productId;
-                    if (!productId) return [3 /*break*/, 3];
+                    if (!productId) return [3 /*break*/, 5];
                     return [4 /*yield*/, productModel_1["default"].deleteOne({ _id: productId })];
                 case 1:
                     result = _a.sent();
-                    return [4 /*yield*/, productModel_1["default"].find({})];
+                    return [4 /*yield*/, productMain_1["default"].deleteOne({ ownerId: productId })];
                 case 2:
+                    resultMarket = _a.sent();
+                    return [4 /*yield*/, productModel_1["default"].find({})];
+                case 3:
                     products = _a.sent();
-                    res.send({ ok: true, result: result, products: products });
-                    return [3 /*break*/, 4];
-                case 3: throw new Error('product ID is missing');
-                case 4: return [3 /*break*/, 6];
-                case 5:
+                    return [4 /*yield*/, productMain_1["default"].find({})];
+                case 4:
+                    productsMarket = _a.sent();
+                    res.send({ ok: true, productsMarket: productsMarket, products: products });
+                    return [3 /*break*/, 6];
+                case 5: throw new Error('product ID is missing');
+                case 6: return [3 /*break*/, 8];
+                case 7:
                     error_5 = _a.sent();
                     console.error(error_5);
                     res.send({ error: error_5.message });
-                    return [3 /*break*/, 6];
-                case 6: return [2 /*return*/];
+                    return [3 /*break*/, 8];
+                case 8: return [2 /*return*/];
             }
         });
     });

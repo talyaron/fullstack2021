@@ -46,6 +46,8 @@ function renderItemsMain(items){
                 <img src="${item.pic}">
                 <h4>${item.description}</h4>
                 <p>${item.price}$</p>
+                <i id="myBtn" class="fa fa-shopping-cart"></i>
+                <i class="fa-solid fa-heart"></i>
             </div>
             `
         })
@@ -87,6 +89,7 @@ async function handleDelete(productId){
     const {product} = data;
     location.reload();
     renderProducts(product)
+    renderItemsMain(product)
 }
 
 async function handleCategoryShow(ev){ 

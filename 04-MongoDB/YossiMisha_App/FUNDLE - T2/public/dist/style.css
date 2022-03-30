@@ -403,6 +403,11 @@ body {
   top: -10px;
   color: #2691d9;
 }
+.loginwrapper form .txt_field input:focus ~ img,
+.registerwrapper form .txt_field input:focus ~ img {
+  height: 20px;
+  width: auto;
+}
 .loginwrapper form .txt_field input:focus ~ span::before, .loginwrapper form .txt_field input:valid ~ span::before,
 .registerwrapper form .txt_field input:focus ~ span::before,
 .registerwrapper form .txt_field input:valid ~ span::before {
@@ -430,6 +435,31 @@ body {
   height: 2px;
   background: #2691d9;
   transition: 0.5s;
+}
+.loginwrapper form .txt_field img,
+.registerwrapper form .txt_field img {
+  position: absolute;
+  height: 0px;
+  width: 0px;
+  left: 90%;
+  bottom: 0px;
+  transition: 0.5s;
+  cursor: pointer;
+}
+.loginwrapper form .txt_field img:focus ~ label,
+.registerwrapper form .txt_field img:focus ~ label {
+  top: -10px;
+  color: #2691d9;
+}
+.loginwrapper form .txt_field img:focus,
+.registerwrapper form .txt_field img:focus {
+  height: 20px;
+  width: auto;
+}
+.loginwrapper form .txt_field img:focus ~ span::before,
+.registerwrapper form .txt_field img:focus ~ span::before {
+  width: 100%;
+  color: #2691d9;
 }
 .loginwrapper .pass,
 .registerwrapper .pass {
