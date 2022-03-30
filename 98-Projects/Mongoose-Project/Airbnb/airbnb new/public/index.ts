@@ -263,7 +263,7 @@ try{
  </div> 
 </div>
 <div id="map">
-
+<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d26081603.294420466!2d-95.677068!3d37.06250000000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1siw!2s!4v1648657793371!5m2!1siw!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </div>
 <div class="aboutHost">
     <div class="aboutHost--left">
@@ -362,17 +362,9 @@ catch (error) {
      
 
 
-               // ---- search in navigation bar---------
 
 
-// async function handleSearchCity(ev){
-//     const search=ev.target.value;
-//     console.log(search);
-//     const {data}= await axios.get(`/search-city?search=${search}`);
-//     //renderToGameStore(data);
-//     console.log(data)
 
-// }
 async function handleFindAirbnb(ev){
     ev.preventDefault();
     const search=ev.target.elements.searchLocation.value;
@@ -398,8 +390,11 @@ async function handleFindAirbnb(ev){
 //     const {data}=await axios.get(`'/search-airbnb'?search=${search}`);
 //     const{city}=data;
 //     console.log({city})
-
-
-
 // }
 
+async function handleFilter(ev) {
+    const price=ev.target.elements.price.valueAsNumber;
+    console.log(price);
+    const{data}=await axios.get('/places/getFiltered',{data:{price}});
+    
+}

@@ -2,7 +2,7 @@ import Places from '../model/placesModel'
 
 export const getPlaces = async (req, res)=>{
     try {
-        const places = await Places.find({});
+        const places = await Places.find({}).limit(20);
         console.log(Places);
         
         console.log(places);
@@ -115,20 +115,56 @@ catch (error) {
 }
 }
 export const searchAirbnb = async (req, res)=>{
-    try{
-        const search=req.query.search;
-    const checkIn=req.query.checkIn;
-    const checkOut=req.query.checkOut;
-    const adults=req.query.adults;
-    const children=req.query.children;
-    const infants=req.query.infants;
-    const pets=req.query.pets;
-    const foundLocation=await Places.find({address:search});
-    console.log(foundLocation)
-    //res.send({city:filteredCity})
+    // try{
+    //     const search=req.query.search;
+    // const checkIn=req.query.checkIn;
+    // const checkOut=req.query.checkOut;
+    // const adults=req.query.adults;
+    // const children=req.query.children;
+    // const infants=req.query.infants;
+    // const pets=req.query.pets;
+    // const foundLocation=await Places.find({address:search});
+    // console.log(foundLocation)
+    // //res.send({city:filteredCity})
+    // }
+    // catch (error) {
+    //     console.log(error.error);
+    //     res.send({ error: error.massage });
+    // }
+    try {
+      let { search, checkIn, checkOut, adults, children, infants, pets } =
+        req.body;
+
+            const places = await Places.find({ address: search}, {accommodates:adults,children,infants, pets});
+            res.send({ok:true, places})
+
+    } catch (error) {
+      console.log(error.error);
+      res.send({ error: error.massage });
     }
-    catch (error) {
-        console.log(error.error);
-        res.send({ error: error.massage });
-    }
+}
+export const search = async (req,res)=>{
+  try{
+     const places = await Places.find({});
+    const search= req.query.search;
+    const serchPlace= searchPlaces(search, places);
+    console.log(search," ",places);
+    
+    res.send(serchPlace)
+  }
+  catch (error) {
+   console.log(error.error);
+   res.send({ error: error.massage });
+ }
+}
+function searchPlaces(search, places) {
+  
+ if (search) {
+   const regex = new RegExp(search, "i");
+   return places.filter((searchedTerm) => regex.test(searchedTerm.name));
+ } else {
+   return places
+ }
+
+
 }
