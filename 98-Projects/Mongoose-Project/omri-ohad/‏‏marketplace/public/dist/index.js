@@ -106,7 +106,7 @@ function renderItemsMain(items) {
     var rootItems = document.querySelector('.mainPage__middle--products');
     if (items) {
         items.forEach(function (item) {
-            html += "\n            <div class=\"mainPage__middle--products--item\">\n                <img src=\"" + item.pic + "\">\n                <h4>" + item.description + "</h4>\n                <p>" + item.price + "$</p>\n            </div>\n            ";
+            html += "\n            <div class=\"mainPage__middle--products--item\">\n                <img src=\"" + item.pic + "\">\n                <h4>" + item.description + "</h4>\n                <p>" + item.price + "$</p>\n                <i id=\"myBtn\" class=\"fa fa-shopping-cart\"></i>\n                <i class=\"fa-solid fa-heart\"></i>\n            </div>\n            ";
         });
         rootItems.innerHTML = html;
     }
