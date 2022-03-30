@@ -39,20 +39,18 @@ exports.__esModule = true;
 exports.addUser = exports.getUser = void 0;
 var userModel_1 = require("../models/userModel");
 exports.getUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var email, password, userData, err_1;
+    var email, password, result, err_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 2, , 3]);
                 email = req.query.email;
-                console.log(email);
                 password = req.query.password;
-                console.log(password);
                 return [4 /*yield*/, userModel_1["default"].find({ email: email })];
             case 1:
-                userData = _a.sent();
-                if (password === userData[0].password) {
-                    res.send({ ok: true, userData: userData });
+                result = _a.sent();
+                if (password === result[0].password) {
+                    res.send({ result: result });
                 }
                 else
                     throw new Error("password not correct");
@@ -88,3 +86,8 @@ exports.addUser = function (req, res) { return __awaiter(void 0, void 0, void 0,
         }
     });
 }); };
+// export const updateUser = async (req, res) =>{
+//     try{
+//         const {updatedUser} = req.body;
+//     }
+// }

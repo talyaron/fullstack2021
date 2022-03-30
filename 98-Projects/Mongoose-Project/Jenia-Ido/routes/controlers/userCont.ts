@@ -5,21 +5,16 @@ export const getUser = async (req, res) => {
         const email = req.query.email;
         const password = req.query.password;
 
-
-
         const result = await User.find({ email: email });
         if (password === result[0].password) {
             res.send({ result });
         }
         else throw new Error("password not correct")
-
     }
     catch (err) {
         console.error(err);
         res.send({ error: err.message, ok: false });
-
     }
-
 }
 
 export const addUser = async (req, res) => {

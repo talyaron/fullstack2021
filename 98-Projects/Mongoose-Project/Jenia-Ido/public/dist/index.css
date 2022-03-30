@@ -16,7 +16,6 @@ body {
 }
 .profile .settings {
   position: absolute;
-  right: 365px;
   transform: translateX(-100%);
   font-size: 10px;
 }

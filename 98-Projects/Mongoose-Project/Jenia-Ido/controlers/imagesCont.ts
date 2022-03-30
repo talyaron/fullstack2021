@@ -4,8 +4,9 @@ export const getImages = async (req, res) => {
     try {
         const email = req.query.email;
         console.log(email);
-        const userImgs = await Images.find({ email: email });
-        res.send({ ok: true, userImgs });
+        const result = await Images.find({ email: email });
+        
+        res.send({ ok: true, result });
 
     }
     catch (err) {
