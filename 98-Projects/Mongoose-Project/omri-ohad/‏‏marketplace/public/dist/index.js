@@ -147,6 +147,7 @@ function handleDelete(productId) {
                     product = data.product;
                     location.reload();
                     renderProducts(product);
+                    renderItemsMain(product);
                     return [2 /*return*/];
             }
         });
