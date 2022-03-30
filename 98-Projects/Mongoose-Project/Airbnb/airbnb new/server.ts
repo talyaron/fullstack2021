@@ -18,7 +18,7 @@ mongoose
     console.log("connected to db");
     Places.find({}).limit(10)
       .then((res) => {
-        console.log(res);
+        // console.log(res);
       })
       .catch((err) => {
         console.log(err.message);
