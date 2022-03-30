@@ -1,6 +1,7 @@
 {
-  "name": "jenia-ido",
+  "name": "marketplace",
   "version": "1.0.0",
+  "description": "",
   "main": "server.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -15,7 +16,6 @@
   },
   "dependencies": {
     "express": "^4.17.3",
-    "mongoose": "^6.2.8"
-  },
-  "description": ""
+    "mongoose": "^6.2.9"
+  }
 }

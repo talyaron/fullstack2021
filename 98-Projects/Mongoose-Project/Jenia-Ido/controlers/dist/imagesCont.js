@@ -39,7 +39,7 @@ exports.__esModule = true;
 exports.addImages = exports.getImages = void 0;
 var imagesModel_1 = require("../models/imagesModel");
 exports.getImages = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var email, userImgs, err_1;
+    var email, result, err_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -48,8 +48,8 @@ exports.getImages = function (req, res) { return __awaiter(void 0, void 0, void 
                 console.log(email);
                 return [4 /*yield*/, imagesModel_1["default"].find({ email: email })];
             case 1:
-                userImgs = _a.sent();
-                res.send({ ok: true, userImgs: userImgs });
+                result = _a.sent();
+                res.send({ ok: true, result: result });
                 return [3 /*break*/, 3];
             case 2:
                 err_1 = _a.sent();
