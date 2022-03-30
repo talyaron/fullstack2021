@@ -36,71 +36,56 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-var express_1 = require("express");
-var mongoose_1 = require("mongoose");
-var app = express_1["default"]();
-var port = process.env.PORT || 3007;
-app.use(express_1["default"].static("public"));
-app.use(express_1["default"].json());
-mongoose_1["default"].connect('mongodb+srv://michaeldubovik:michaeldubovik1991@cluster0.y9ozg.mongodb.net/myFirstDatabase?retryWrites=true&w=majority');
-var UserSchema = new mongoose_1["default"].Schema({
-    username: String,
-    password: String,
-    email: String,
-    played: Number,
-    wins: Number,
-    current_strike: Number,
-    max_strike: Number
-});
-var FundleUser = mongoose_1["default"].model('FundleUsers', UserSchema);
-app.post("/add-user", function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, username, password, email, played, wins, current_strike, max_strike, newFundleUser, result;
+exports.getUsersTasks = exports.renderPage = void 0;
+var taskModel_1 = require("../model/taskModel");
+exports.renderPage = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _a, userURL, requestedPage, appURL, userId, currentUsersTasks, newURL;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
-                _a = req.body, username = _a.username, password = _a.password, email = _a.email;
-                played = 0;
-                wins = 0;
-                current_strike = 0;
-                max_strike = 0;
-                newFundleUser = new FundleUser({ username: username, password: password, email: email, played: played, wins: wins, current_strike: current_strike, max_strike: max_strike });
-                return [4 /*yield*/, newFundleUser.save()];
+                _a = req.body, userURL = _a.userURL, requestedPage = _a.requestedPage;
+                console.log(userURL, requestedPage);
+                appURL = userURL.split("/")[2];
+                userId = userURL.slice(-24);
+                return [4 /*yield*/, taskModel_1["default"].find({ ownerId: userId })];
             case 1:
-                result = _b.sent();
-                console.log(result);
-                res.send({ result: result });
+                currentUsersTasks = _b.sent();
+                newURL = "/" + requestedPage + ".html?id=" + userId;
+                console.log(currentUsersTasks, requestedPage);
+                //   let { title, description, urgency, location, date } = currentUsersTasks[0];
+                if (requestedPage === "RecentlyCreated") {
+                    try {
+                        res.send({
+                            newURL: newURL, currentUsersTasks: currentUsersTasks
+                        });
+                    }
+                    catch (error) {
+                        console.log("error in renderPage:");
+                        console.log(error.message);
+                        res.send({ error: error.message });
+                        // }
+                    }
+                    return [2 /*return*/];
+                }
                 return [2 /*return*/];
         }
     });
-}); });
-app.get("/get-user", function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, username, password, userMatch, noPass;
-    return __generator(this, function (_b) {
-        switch (_b.label) {
+}); };
+exports.getUsersTasks = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var userURL, userId, currentUsersTasks;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
             case 0:
-                _a = req.query, username = _a.username, password = _a.password;
-                console.log(username, password);
-                return [4 /*yield*/, FundleUser.find({ username: username, password: password })];
+                userURL = req.body.userURL;
+                userId = userURL.slice(-24);
+                console.log(userURL);
+                return [4 /*yield*/, taskModel_1["default"].find({ ownerId: userId })];
             case 1:
-                userMatch = _b.sent();
-                console.log(userMatch);
-                if (!userMatch) return [3 /*break*/, 2];
-                res.send({ user: userMatch });
-                return [3 /*break*/, 4];
-            case 2: return [4 /*yield*/, FundleUser.find({ username: username })];
-            case 3:
-                noPass = _b.sent();
-                if (noPass) {
-                    res.send("password doesn't match");
-                }
-                else {
-                    res.send("username doesn't exist");
-                }
-                _b.label = 4;
-            case 4: return [2 /*return*/];
+                currentUsersTasks = _a.sent();
+                console.log(userURL);
+                res.send({ ok: true, newUserURL: userURL });
+                console.log(currentUsersTasks);
+                return [2 /*return*/];
         }
     });
-}); });
-app.listen(port, function () {
-    return console.log("Express is listening at http://localhost:" + port);
-});
+}); };
