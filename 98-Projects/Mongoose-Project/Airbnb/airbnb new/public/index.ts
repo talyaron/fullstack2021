@@ -383,12 +383,22 @@ async function handleFindAirbnb(ev){
     const infants=ev.target.elements.infants.value;
     const pets=ev.target.elements.pets.value;
 
-    const {data}= await axios.get('/search-airbnb', {
+    const {data}= await axios.get('/places/search-airbnb', {
         search,checkIn,checkOut,adults,children,infants,pets
     })
     console.log(data)
     ev.target.reset();
   
+
+}
+async function handleSearch(ev){
+    const search=ev.target.value;
+    console.log(search);
+    const {data}=await axios.get(`'/places/search'?search=${search}`);
+    const{city}=data;
+    console.log({city})
+
+
 
 }
 

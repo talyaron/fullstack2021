@@ -132,3 +132,28 @@ export const searchAirbnb = async (req, res)=>{
         res.send({ error: error.massage });
     }
 }
+export const search = async (req,res)=>{
+  try{
+     const places = await Places.find({});
+    const search= req.query.search;
+    const serchPlace= searchPlaces(search, places);
+    console.log(search," ",places);
+    
+    res.send(serchPlace)
+  }
+  catch (error) {
+   console.log(error.error);
+   res.send({ error: error.massage });
+ }
+}
+function searchPlaces(search, places) {
+  
+ if (search) {
+   const regex = new RegExp(search, "i");
+   return places.filter((searchedTerm) => regex.test(searchedTerm.name));
+ } else {
+   return places
+ }
+
+
+}

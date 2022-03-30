@@ -121,13 +121,31 @@ function handleFindAirbnb(ev) {
                     children = ev.target.elements.children.value;
                     infants = ev.target.elements.infants.value;
                     pets = ev.target.elements.pets.value;
-                    return [4 /*yield*/, axios.get('/search-airbnb', {
+                    return [4 /*yield*/, axios.get('/places/search-airbnb', {
                             search: search, checkIn: checkIn, checkOut: checkOut, adults: adults, children: children, infants: infants, pets: pets
                         })];
                 case 1:
                     data = (_a.sent()).data;
                     console.log(data);
                     ev.target.reset();
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+function handleSearch(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        var search, data, city;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    search = ev.target.value;
+                    console.log(search);
+                    return [4 /*yield*/, axios.get("'/places/search'?search=" + search)];
+                case 1:
+                    data = (_a.sent()).data;
+                    city = data.city;
+                    console.log({ city: city });
                     return [2 /*return*/];
             }
         });
