@@ -11,7 +11,6 @@ async function OpenSignUpForm(e) {
 
         const newUser = e.target.elements
         let { userName, email, password, password2, url } = newUser;
-        //andrew - i added split and join because- maybe the user will space in between his email. So i erase spaces. You will se in the server - i'm using the email to figure if he is already registered
         userName = userName.value.split(' ').join(''); email = email.value.split(' ').join(''); password = password.value; password2 = password2.value; url = url.value;
 
         if (password === password2) {
@@ -46,7 +45,7 @@ async function handleLogInForm(e) {
         const { data } = await axios.get(`/users/log-user?loginEmail=${email}&loginPassword=${password}`)
 
         // userLogedIn.addlogData(data)
-        // site.user = data.oldUser[0];
+        site.user = data.oldUser[0];
         localStorage.setItem('user', JSON.stringify(site.user));
 
         if (!email || !password) throw new Error("no email || password in handleLogInForm");
@@ -77,7 +76,9 @@ function handleLogOut() {
     else location.reload();
 }
 
-function handleOnLoad() {
+async function handleOnLoad() {
+
+
     const user = JSON.parse(localStorage?.getItem('user'))
 
 
@@ -89,7 +90,63 @@ function handleOnLoad() {
                         <h3>${site.user.email}</h3>
                         <h3>Funds: ${site.user.fund} BTC</h3>`
     }
+
+    const { data } = await axios.get('/arts/art-for-sale')
+    const { result } = data; console.log(result);
+
+    renderArtForSale(result);
 }
+
+
+function renderArtForSale(urls) {
+
+    //אנדרו - לא מצליח לרנדר הכל
+    //השעה כבר מאוחרת.. צריך לעשות תנאי שהיוזר שעשה לוגאין יראה רק יצירות שהן ---לא--- (!) שלו
+
+    const images: any = document.querySelectorAll(".main__card__img");
+    let renderImg = ''
+
+    const elements = document.querySelectorAll('.main__card__author')
+    const prices = document.querySelectorAll('.main__card__price')
+
+    elements.forEach(element => {
+        prices.forEach(price => {
+
+            urls.forEach(url => {
+                element.children.item(0).innerHTML = `${url.artName} #nftArts`
+                element.children.item(1).innerHTML = `${url.author}'s Collection`
+                price.children.item(0).innerHTML = `<label onclick="handleBuy('${url._id}', '${url.price}', '${url.ownerId}')">Click here to buy in</label> ${url.price}$`
+
+            }
+
+
+            )
+        })
+    })
+
+    images.forEach(img => {
+
+        urls.forEach(url => {
+            renderImg = `url('${url.url}')`
+        })
+
+        img.style.backgroundImage = renderImg
+
+    })
+
+}
+
+async function handleBuy(id, priceToRemove, ownerId) {
+
+    console.log(site.user._id);
+
+    await axios.patch('/users/buy-and-sell', { _id: site.user._id, priceToRemove: priceToRemove.valueAsNumber , ownerId })
+
+    await axios.patch('/arts/buy-and-sell', { id, ownerId })
+
+
+}
+
 
 function handleAccountRedirect() {
     if (site.user.userName) window.location.href = "./account_page.html";
@@ -141,12 +198,12 @@ async function handleAccountOption(ev) {
                 if (!art.forSale) {
                     html += `<button onclick="handleSale('${art._id}', event)">sell</button>`
                 }
-                else{
+                else {
                     html += `<h5>item was put on sale for ${art.price} BTC</h5>
                             <button onclick="handleCancelSale('${art._id}')">Cancel Sale</button>`
                 }
 
-                html +=`</div>`
+                html += `</div>`
             });
 
             html += `</div>`
@@ -222,7 +279,7 @@ async function handleSaleForm(ev, artId) {
     handleAccountOption(fakeEvent)
 }
 
-async function handleCancelSale(artId){
+async function handleCancelSale(artId) {
     await axios.patch('/arts/cancelSale', { artId })
 
     const fakeEvent = { target: { id: "my art" } }
@@ -233,19 +290,7 @@ async function handleAddArt(ev) {
     ev.preventDefault()
     const newArt = { artName: ev.target.name.value, url: ev.target.url.value, author: site.user.userName };
     await axios.post('/arts/add-art', { newArt, userId: site.user._id });
-
 }
-
-interface UserData {
-    logData: Array<logInfo>;
-    addlogData(userName: String): Object;
-}
-
-interface logInfo {
-    data: Object;
-    id: String;
-}
-// volatile database for current user and etc'
 
 //sideBar
 

@@ -5,6 +5,8 @@ import {
   getMyArt,
   putArtOnSale,
   cancelSale,
+  getForSale,
+  buyAndSell,
 } from "../conroler/artCont";
 
 router
@@ -12,5 +14,7 @@ router
   .get("/get-user-art", getMyArt)
   .patch("/putArtOnSale", putArtOnSale)
   .patch("/cancelSale", cancelSale)
+  .get("/art-for-sale", getForSale)
+  .patch('/buy-and-sell', buyAndSell)
 
 export default router;

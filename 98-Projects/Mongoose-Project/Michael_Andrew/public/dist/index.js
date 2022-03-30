@@ -51,7 +51,6 @@ function OpenSignUpForm(e) {
                     _a.trys.push([1, 5, , 6]);
                     newUser = e.target.elements;
                     userName = newUser.userName, email = newUser.email, password = newUser.password, password2 = newUser.password2, url = newUser.url;
-                    //andrew - i added split and join because- maybe the user will space in between his email. So i erase spaces. You will se in the server - i'm using the email to figure if he is already registered
                     userName = userName.value.split(' ').join('');
                     email = email.value.split(' ').join('');
                     password = password.value;
@@ -94,12 +93,11 @@ function handleLogInForm(e) {
                     password = password.value.split(' ').join('');
                     return [4 /*yield*/, axios.get("/users/log-user?loginEmail=" + email + "&loginPassword=" + password)
                         // userLogedIn.addlogData(data)
-                        // site.user = data.oldUser[0];
                     ];
                 case 2:
                     data = (_a.sent()).data;
                     // userLogedIn.addlogData(data)
-                    // site.user = data.oldUser[0];
+                    site.user = data.oldUser[0];
                     localStorage.setItem('user', JSON.stringify(site.user));
                     if (!email || !password)
                         throw new Error("no email || password in handleLogInForm");
@@ -135,13 +133,68 @@ function handleLogOut() {
         location.reload();
 }
 function handleOnLoad() {
-    var user = JSON.parse(localStorage === null || localStorage === void 0 ? void 0 : localStorage.getItem('user'));
-    if (user)
-        site.user = user;
-    if (window.location.pathname.split("/").pop() == 'account_page.html') {
-        var main = document.querySelector('.main-account');
-        main.innerHTML = "<h2>welcome back " + site.user.userName + "!</h2>\n                        <img src=\"" + site.user.url + "\">\n                        <h3>" + site.user.email + "</h3>\n                        <h3>Funds: " + site.user.fund + " BTC</h3>";
-    }
+    return __awaiter(this, void 0, void 0, function () {
+        var user, main, data, result;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    user = JSON.parse(localStorage === null || localStorage === void 0 ? void 0 : localStorage.getItem('user'));
+                    if (user)
+                        site.user = user;
+                    if (window.location.pathname.split("/").pop() == 'account_page.html') {
+                        main = document.querySelector('.main-account');
+                        main.innerHTML = "<h2>welcome back " + site.user.userName + "!</h2>\n                        <img src=\"" + site.user.url + "\">\n                        <h3>" + site.user.email + "</h3>\n                        <h3>Funds: " + site.user.fund + " BTC</h3>";
+                    }
+                    return [4 /*yield*/, axios.get('/arts/art-for-sale')];
+                case 1:
+                    data = (_a.sent()).data;
+                    result = data.result;
+                    console.log(result);
+                    renderArtForSale(result);
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+function renderArtForSale(urls) {
+    //אנדרו - לא מצליח לרנדר הכל
+    //השעה כבר מאוחרת.. צריך לעשות תנאי שהיוזר שעשה לוגאין יראה רק יצירות שהן ---לא--- (!) שלו
+    var images = document.querySelectorAll(".main__card__img");
+    var renderImg = '';
+    var elements = document.querySelectorAll('.main__card__author');
+    var prices = document.querySelectorAll('.main__card__price');
+    elements.forEach(function (element) {
+        prices.forEach(function (price) {
+            urls.forEach(function (url) {
+                element.children.item(0).innerHTML = url.artName + " #nftArts";
+                element.children.item(1).innerHTML = url.author + "'s Collection";
+                price.children.item(0).innerHTML = "<label onclick=\"handleBuy('" + url._id + "', '" + url.price + "', '" + url.ownerId + "')\">Click here to buy in</label> " + url.price + "$";
+            });
+        });
+    });
+    images.forEach(function (img) {
+        urls.forEach(function (url) {
+            renderImg = "url('" + url.url + "')";
+        });
+        img.style.backgroundImage = renderImg;
+    });
+}
+function handleBuy(id, priceToRemove, ownerId) {
+    return __awaiter(this, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    console.log(site.user._id);
+                    return [4 /*yield*/, axios.patch('/users/buy-and-sell', { _id: site.user._id, priceToRemove: priceToRemove.valueAsNumber, ownerId: ownerId })];
+                case 1:
+                    _a.sent();
+                    return [4 /*yield*/, axios.patch('/arts/buy-and-sell', { id: id, ownerId: ownerId })];
+                case 2:
+                    _a.sent();
+                    return [2 /*return*/];
+            }
+        });
+    });
 }
 function handleAccountRedirect() {
     if (site.user.userName)
@@ -290,7 +343,6 @@ function handleAddArt(ev) {
         });
     });
 }
-// volatile database for current user and etc'
 //sideBar
 function handleStatusClick() {
     document.querySelector('.status-buttons').classList.toggle('toggle');
