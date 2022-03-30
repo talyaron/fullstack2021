@@ -1,45 +1,46 @@
-*{
+* {
     padding: 0;
     margin: 0;
+
     ::-webkit-scrollbar {
         width: 0px;
-      }
-    
+    }
+
 }
 
 
-.mainPage{
+.mainPage {
     width: 100vw;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 10vh 80vh 10vh;
     background-color: #19162b;
 
-    &__header{
+    &__header {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        grid-template-rows:1fr;
-        
+        grid-template-rows: 1fr;
 
-        &--icons{
-        
-            i{
-            font-size: 35px;
-            color: white;
-            margin-left: 5%;
-            margin-top: 3%;
-            cursor: pointer;
+
+        &--icons {
+
+            i {
+                font-size: 35px;
+                color: white;
+                margin-left: 5%;
+                margin-top: 3%;
+                cursor: pointer;
             }
         }
 
-        &--title{
+        &--title {
             text-align: center;
             padding: .8rem;
             font-family: 'Courgette', cursive;
             color: #d114a9;
         }
 
-        &--welcome{
+        &--welcome {
             text-align: end;
             padding: 1.2rem;
             font-family: 'Barlow', sans-serif;
@@ -47,42 +48,48 @@
         }
     }
 
-    &__middle{
+    &__middle {
         display: grid;
         grid-template-columns: 80% 20%;
         grid-template-rows: 1fr;
 
-        &--products{
+        &--products {
             display: grid;
-            grid-template-columns:repeat(4, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             grid-template-rows: auto;
-            background-color: #251f41; 
+            background-color: #251f41;
             border-top-right-radius: 8px;
             overflow: scroll;
-          
-            &--item{
+
+            &--item {
                 width: 190px;
-                direction: rtl;
+                //direction: rtl;
                 font-size: x-large;
                 margin-top: 30px;
                 margin-left: auto;
                 margin-right: auto;
-    
-                img{
+
+                img {
                     width: 100%;
                     border-radius: 4px
+                }
+
+                i {
+                    position: relative;
+                    cursor: pointer;
+
                 }
             }
         }
 
-        &--categories{
+        &--categories {
             display: block;
             text-align: center;
-            padding: 3%;
+            padding: 2%;
             //background-color: #19162b;
 
 
-            &__filed{
+            &__filed {
                 width: 90%;
                 //height: 20px;
                 border: 1px solid black;
@@ -93,7 +100,7 @@
                 margin-left: 8px;
             }
 
-            &__btn{
+            &__btn {
                 background-color: #4a41cc;
                 border: none;
                 color: white;
@@ -106,9 +113,8 @@
                 cursor: pointer;
             }
 
-            h4{
-                // padding: 10%;
-                margin-top: 30%;
+            h4 {
+                margin-top: 20%;
                 font-family: 'Permanent Marker', cursive;
                 color: #d0cedb;
                 cursor: pointer;
@@ -116,14 +122,14 @@
         }
     }
 
-    &__footer{
+    &__footer {
         background-color: #19162b;
     }
 
-    img{
-        width: 170px;
-        height: 250px;
-    }
+    // img{
+    //     width: 170px;
+    //     height: 250px;
+    // }
 }
 
 
@@ -135,36 +141,35 @@
     top: 0;
     width: 110%;
     height: 100%;
-    overflow:auto;
+    overflow: auto;
     cursor: auto;
-  
-  &__text {
-    background-color: #ffffff;
-    margin-top: auto;
-    padding: 20px;
-    border: 1px solid rgb(216, 216, 216);
-    width: 12.3%;
-    height: fit-content;
-    min-height: 30%;
-    //position: relative;
-    //right: 665px;
-    bottom: 88%;
-    border-radius: 7px;
 
-    &__row{
-        color: rgb(43, 41, 41);
-        display: flex;
-        justify-content: space-between;
-        //margin: 15px;
-        width: 100%;
-        //cursor: pointer;
-        text-align: center;
+    &__text {
+        background-color: #ffffff;
+        margin-top: auto;
+        padding: 20px;
+        border: 1px solid rgb(216, 216, 216);
+        width: 12.3%;
+        height: fit-content;
+        min-height: 30%;
+        //position: relative;
+        //right: 665px;
+        bottom: 88%;
+        border-radius: 7px;
 
-        img{
-            width: 50px;
-            height: 50px;
+        &__row {
+            color: rgb(43, 41, 41);
+            display: flex;
+            justify-content: space-between;
+            //margin: 15px;
+            width: 100%;
+            //cursor: pointer;
+            text-align: center;
+
+            img {
+                width: 50px;
+                height: 50px;
+            }
         }
     }
-  }
 }
-

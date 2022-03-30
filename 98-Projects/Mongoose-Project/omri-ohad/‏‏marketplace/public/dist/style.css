@@ -52,7 +52,6 @@
 }
 .mainPage__middle--products--item {
   width: 190px;
-  direction: rtl;
   font-size: x-large;
   margin-top: 30px;
   margin-left: auto;
@@ -62,10 +61,14 @@
   width: 100%;
   border-radius: 4px;
 }
+.mainPage__middle--products--item i {
+  position: relative;
+  cursor: pointer;
+}
 .mainPage__middle--categories {
   display: block;
   text-align: center;
-  padding: 3%;
+  padding: 2%;
 }
 .mainPage__middle--categories__filed {
   width: 90%;
@@ -89,17 +92,13 @@
   cursor: pointer;
 }
 .mainPage__middle--categories h4 {
-  margin-top: 30%;
+  margin-top: 20%;
   font-family: "Permanent Marker", cursive;
   color: #d0cedb;
   cursor: pointer;
 }
 .mainPage__footer {
   background-color: #19162b;
-}
-.mainPage img {
-  width: 170px;
-  height: 250px;
 }
 
 .popup {
