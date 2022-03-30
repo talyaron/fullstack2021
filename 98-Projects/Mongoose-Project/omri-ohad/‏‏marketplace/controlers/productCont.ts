@@ -27,6 +27,9 @@ export async function addProduct(req, res) {
     let { pic, title, description, price, category } = req.body;
     const newProduct = new ProductUser({ pic, title, description, price, category })
     const result = await newProduct.save()
+    const ownerId = newProduct._id
+    const newProductMarket = new ProductMain({ pic, title, description, price, category,ownerId})
+    const resultMarket = await newProductMarket.save()
     res.send({ result });
 
   } catch (error) {
@@ -58,8 +61,10 @@ export async function deleteProduct(req, res) {
     const { productId } = req.body;
     if (productId) {
       const result = await ProductUser.deleteOne({ _id: productId });
+      const resultMarket = await ProductMain.deleteOne({ ownerId: productId });
       const products = await ProductUser.find({});
-      res.send({ ok: true, result, products })
+      const productsMarket = await ProductMain.find({});
+      res.send({ ok: true, productsMarket, products })
     } else {
       throw new Error('product ID is missing')
     }

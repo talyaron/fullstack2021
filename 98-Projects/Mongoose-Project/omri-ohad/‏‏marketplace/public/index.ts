@@ -87,6 +87,7 @@ async function handleDelete(productId){
     const {product} = data;
     location.reload();
     renderProducts(product)
+    renderItemsMain(product)
 }
 
 async function handleCategoryShow(ev){ 
