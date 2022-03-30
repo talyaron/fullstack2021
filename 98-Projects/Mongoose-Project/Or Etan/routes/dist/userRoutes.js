@@ -6,5 +6,6 @@ var userCont_1 = require("../controller/userCont");
 router
     .post('/add-user', userCont_1.addUser)
     .post('/log-in', userCont_1.login)
-    .get("/logged-in-user", userCont_1.renderUser);
+    .get("/logged-in-user", userCont_1.renderUser)
+    .post('/nav', userCont_1.renderPage);
 exports["default"] = router;

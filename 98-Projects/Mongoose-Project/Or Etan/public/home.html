@@ -18,10 +18,21 @@
             <div id="control__nav">
                 <nav>
                     <ul>
-                        <li id="home"><a href="home-Or.html"><i class="material-icons white-color">home</i></a></li>
-                        <li id="chart"><a href="accountSettings.html"><i
-                                    class="material-icons white-color">manage_accounts</i></a></li>
-                        <li id="info"><a href="info.html"><i class="material-icons white-color">info</i></a></li>
+                        <li id="home">
+                            <a onclick="handleRenderPage(event)">
+                                <i class="material-icons white-color">home</i>
+                            </a>
+                        </li>
+                        <li id="chart">
+                            <a onclick="handleRenderPage(ev)">
+                                <i class="material-icons white-color">settings</i>
+                            </a>
+                        </li>
+                        <li id="info">
+                            <a onclick="handleRenderPage(ev)">
+                                <i class="material-icons white-color">info</i>
+                            </a>
+                        </li>
                     </ul>
                 </nav>
             </div>
@@ -61,7 +72,7 @@
             </div>
             <div id="landing-home__recent">
                 <div class="recent__title">
-                    <h2><a href="./recentlyCreated.html">Recently Created</a></h2>
+                    <h2><a onclick="handleRenderPage(event)">Recently Created</a></h2>
                     <i class="material-icons">keyboard_arrow_right</i>
                 </div>
 
@@ -124,4 +135,5 @@
     </div>
 </body>
 <script src="./dist/index.js"></script>
+
 </html>
