@@ -115,21 +115,32 @@ catch (error) {
 }
 }
 export const searchAirbnb = async (req, res)=>{
-    try{
-        const search=req.query.search;
-    const checkIn=req.query.checkIn;
-    const checkOut=req.query.checkOut;
-    const adults=req.query.adults;
-    const children=req.query.children;
-    const infants=req.query.infants;
-    const pets=req.query.pets;
-    const foundLocation=await Places.find({address:search});
-    console.log(foundLocation)
-    //res.send({city:filteredCity})
-    }
-    catch (error) {
-        console.log(error.error);
-        res.send({ error: error.massage });
+    // try{
+    //     const search=req.query.search;
+    // const checkIn=req.query.checkIn;
+    // const checkOut=req.query.checkOut;
+    // const adults=req.query.adults;
+    // const children=req.query.children;
+    // const infants=req.query.infants;
+    // const pets=req.query.pets;
+    // const foundLocation=await Places.find({address:search});
+    // console.log(foundLocation)
+    // //res.send({city:filteredCity})
+    // }
+    // catch (error) {
+    //     console.log(error.error);
+    //     res.send({ error: error.massage });
+    // }
+    try {
+      let { search, checkIn, checkOut, adults, children, infants, pets } =
+        req.body;
+
+            const places = await Places.find({ address: search}, {accommodates:adults,children,infants, pets});
+            res.send({ok:true, places})
+
+    } catch (error) {
+      console.log(error.error);
+      res.send({ error: error.massage });
     }
 }
 export const search = async (req,res)=>{

@@ -164,25 +164,19 @@ exports.findPlaceMap = function (req, res) { return __awaiter(void 0, void 0, vo
     });
 }); };
 exports.searchAirbnb = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var search_1, checkIn, checkOut, adults, children, infants, pets, foundLocation, error_4;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
+    var _a, search_1, checkIn, checkOut, adults, children, infants, pets, places, error_4;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
             case 0:
-                _a.trys.push([0, 2, , 3]);
-                search_1 = req.query.search;
-                checkIn = req.query.checkIn;
-                checkOut = req.query.checkOut;
-                adults = req.query.adults;
-                children = req.query.children;
-                infants = req.query.infants;
-                pets = req.query.pets;
-                return [4 /*yield*/, placesModel_1["default"].find({ address: search_1 })];
+                _b.trys.push([0, 2, , 3]);
+                _a = req.body, search_1 = _a.search, checkIn = _a.checkIn, checkOut = _a.checkOut, adults = _a.adults, children = _a.children, infants = _a.infants, pets = _a.pets;
+                return [4 /*yield*/, placesModel_1["default"].find({ address: search_1 }, { accommodates: adults, children: children, infants: infants, pets: pets })];
             case 1:
-                foundLocation = _a.sent();
-                console.log(foundLocation);
+                places = _b.sent();
+                res.send({ ok: true, places: places });
                 return [3 /*break*/, 3];
             case 2:
-                error_4 = _a.sent();
+                error_4 = _b.sent();
                 console.log(error_4.error);
                 res.send({ error: error_4.massage });
                 return [3 /*break*/, 3];
