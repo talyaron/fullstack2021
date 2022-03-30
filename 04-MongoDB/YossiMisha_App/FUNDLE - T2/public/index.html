@@ -28,7 +28,7 @@
     <div class="column-center">
 
       <div class="column-center__top">
-        <h1><span style="color: #ffffff;">Fundle</span></h1>
+        <h1><span style="color: #ffffff;"><span style="color: orange;">F</span>undl<span style="color: #349915;">e</span></span></h1>
       </div>
 
       <div class="column-center__middle">
@@ -104,7 +104,7 @@
         </div>
       </div>
     </div>
-
+    
     <div class="column-right">
       <div class="column-right__top-right">
         <div class="btn" onclick="handleShowStats()"><img src="./images/statistics.png" alt="">
@@ -143,10 +143,11 @@
         </div>
         <div class="line-6">
           <div class="next-fundle">
-            <div>NEXT-FUNDLE</div>
-            <div>00:03:53</div>
+            <div>NEXT FUNDLE</div>
+            <div id="countdown"></div>
           </div>
-          <div class="share-stats"><button>SHARE <i class="fa-solid fa-share-nodes"></i></button></div>
+          <div class="share-stats"><button id="share">SHARE <i class="fa-solid fa-share-nodes"></i></button><div class="result"></div></div>
+          
         </div>
 
       </div>
@@ -173,7 +174,7 @@
   <div class="logreg" id="logreg" style="display: none;">
     <div class="loginwrapper">
 
-      <h1 style="padding-left: 134px;">Login <span class="close" onclick="handleHideWindow()">x</span></h1>
+      <h1>Login <span class="close" onclick="handleHideWindow()">x</span></h1>
 
       <form onsubmit="handleLogin(event)">
 
@@ -199,7 +200,7 @@
     </div>
 
     <div class='registerwrapper' id="">
-      <h1 style="padding-left: 134px;">Register <span class="close" onclick="handleHideWindow()">x</span></h1>
+      <h1>Register <span class="close" onclick="handleHideWindow()">x</span></h1>
 
       <form onsubmit="handleRegister(event)">
 

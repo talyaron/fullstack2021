@@ -10,18 +10,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 console.log('hello');
 const WORD_LENGTH = 5;
 const guessGrid = document.querySelector("[data-guess-grid]");
-const targetWord = '';
-const offsetFromDate = new Date(2022, 0, 1);
-const msOffset = Date.now() - offsetFromDate;
-const dayOffset = Math.floor(msOffset / 1000 / 60 / 60 / 24);
-console.log(dayOffset);
-getDailyWord();
-function getDailyWord() {
-    return __awaiter(this, void 0, void 0, function* () {
-        const { data } = yield axios.get(`/get-word?dayOffset=${dayOffset}`);
-        console.log(data);
-    });
-}
 startInteraction();
 function startInteraction() {
     document.addEventListener("click", handleMouseClick);
@@ -84,11 +72,7 @@ function deleteKey() {
     }
 }
 function submitGuess() {
-    // const activeTiles = [...getActiveTiles()]
-    const activeTiles = getActiveTiles();
-    if (activeTiles.length !== WORD_LENGTH) {
-        console.log("not enough letters");
-    }
+    console.log();
 }
 function handleShowStats() {
     const stats = document.querySelector("#stats");
@@ -116,14 +100,8 @@ function handleShowLogin() {
     }
     else {
         // logreg.classList.add("logreg-hide")
-        handleHideWindow();
-        startInteraction();
-    }
-}
-function handleHideWindow() {
-    const logreg = document.querySelector("#logreg");
-    if (logreg.style.display === "block") {
         logreg.style.display = "none";
+        startInteraction();
     }
 }
 function handleDisplayNone() {
@@ -137,6 +115,12 @@ function handleDisplayNone() {
     }
 }
 document.body.addEventListener('click', handleDisplayNone, true);
+function handleHideWindow() {
+    const logreg = document.querySelector("#logreg");
+    if (logreg.style.display === "block") {
+        logreg.style.display = "none";
+    }
+}
 //////////////////////////// LOGIN - REGISTER ///////////////////////////////////////////
 function handleNotAMember() {
     const register = document.querySelector(".registerwrapper");
@@ -183,6 +167,42 @@ function handleLogin(ev) {
         username = username.value;
         password = password.value;
         const { data } = yield axios.get(`/get-user?username=${username}&password=${password}`);
-        document.querySelector(".hello").innerHTML = `Hello ${username}`;
+        document.querySelector(".hello").innerHTML = `&nbsp;&nbsp;&nbsp;Hello <span style="color: orange;">&nbsp;${username}</span>`;
     });
 }
+// START countDownDate:
+let today = new Date();
+let tomorrow = new Date(today);
+let tomorrowMidnight = tomorrow.setHours(24, 0, 0, 0);
+let countDownDate = new Date(tomorrowMidnight).getTime();
+let x = setInterval(function () {
+    let now = new Date().getTime();
+    let distance = countDownDate - now;
+    let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    let twoDigitsHours = ("0" + hours).slice(-2);
+    let twoDigitsMinutes = ("0" + minutes).slice(-2);
+    let twoDigitsSeconds = ("0" + seconds).slice(-2);
+    document.querySelector("#countdown").innerHTML = twoDigitsHours + ": "
+        + twoDigitsMinutes + ": " + twoDigitsSeconds;
+}, 1000);
+// END countDownDate
+// START SHARE:
+const shareData = {
+    title: 'MY FUNDLE STATISTICS!',
+    text: '',
+    url: ''
+};
+const btn = document.querySelector('#share');
+const resultPara = document.querySelector('.result');
+btn.addEventListener('click', () => __awaiter(this, void 0, void 0, function* () {
+    try {
+        yield navigator.share(shareData);
+        resultPara.textContent = 'shared successfully';
+    }
+    catch (err) {
+        resultPara.textContent = 'Error: ' + err;
+    }
+}));
+//   END SHARE
