@@ -98,14 +98,6 @@ function renderPlace(data) {
         console.error(error.message);
     }
 }
-// ---- search in navigation bar---------
-// async function handleSearchCity(ev){
-//     const search=ev.target.value;
-//     console.log(search);
-//     const {data}= await axios.get(`/search-city?search=${search}`);
-//     //renderToGameStore(data);
-//     console.log(data)
-// }
 function handleFindAirbnb(ev) {
     return __awaiter(this, void 0, void 0, function () {
         var search, checkIn, checkOut, adults, children, infants, pets, data;

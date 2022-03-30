@@ -362,17 +362,9 @@ catch (error) {
      
 
 
-               // ---- search in navigation bar---------
 
 
-// async function handleSearchCity(ev){
-//     const search=ev.target.value;
-//     console.log(search);
-//     const {data}= await axios.get(`/search-city?search=${search}`);
-//     //renderToGameStore(data);
-//     console.log(data)
 
-// }
 async function handleFindAirbnb(ev){
     ev.preventDefault();
     const search=ev.target.elements.searchLocation.value;
