@@ -402,14 +402,5 @@ async function handleSearch(ev){
 
 }
 
-// async function handleSearchCity(ev){
-//     const search=ev.target.value;
-//     console.log(search);
-//     const {data}=await axios.get(`'/search-airbnb'?search=${search}`);
-//     const{city}=data;
-//     console.log({city})
 
-
-
-// }
 
