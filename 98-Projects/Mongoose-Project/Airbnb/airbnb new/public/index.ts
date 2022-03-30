@@ -362,17 +362,9 @@ catch (error) {
      
 
 
-               // ---- search in navigation bar---------
 
 
-// async function handleSearchCity(ev){
-//     const search=ev.target.value;
-//     console.log(search);
-//     const {data}= await axios.get(`/search-city?search=${search}`);
-//     //renderToGameStore(data);
-//     console.log(data)
 
-// }
 async function handleFindAirbnb(ev){
     ev.preventDefault();
     const search=ev.target.elements.searchLocation.value;
@@ -398,8 +390,11 @@ async function handleFindAirbnb(ev){
 //     const {data}=await axios.get(`'/search-airbnb'?search=${search}`);
 //     const{city}=data;
 //     console.log({city})
-
-
-
 // }
 
+async function handleFilter(ev) {
+    const price=ev.target.elements.price.valueAsNumber;
+    console.log(price);
+    const{data}=await axios.get('/places/getFiltered',{data:{price}});
+    
+}

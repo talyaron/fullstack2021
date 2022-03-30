@@ -39,7 +39,7 @@ exports.__esModule = true;
 var express_1 = require("express");
 var mongoose_1 = require("mongoose");
 var app = express_1["default"]();
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 3007;
 app.use(express_1["default"].static("public"));
 app.use(express_1["default"].json());
 mongoose_1["default"].connect('mongodb+srv://michaeldubovik:michaeldubovik1991@cluster0.y9ozg.mongodb.net/myFirstDatabase?retryWrites=true&w=majority');

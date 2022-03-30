@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.login = exports.addUser = void 0;
+exports.renderPage = exports.renderUser = exports.login = exports.addUser = void 0;
 var userModel_1 = require("../model/userModel");
 exports.addUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var _a, firstName, lastName, email, password, role, gender, newUser, result, error_1;
@@ -76,7 +76,7 @@ exports.addUser = function (req, res) { return __awaiter(void 0, void 0, void 0,
     });
 }); };
 exports.login = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, email, password, users, verifiedUser, error_2;
+    var _a, email, password, users, userEmail, verifiedUser, error_2;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
@@ -84,16 +84,20 @@ exports.login = function (req, res) { return __awaiter(void 0, void 0, void 0, f
                 console.log(email, password);
                 _b.label = 1;
             case 1:
-                _b.trys.push([1, 4, , 5]);
+                _b.trys.push([1, 5, , 6]);
                 return [4 /*yield*/, userModel_1["default"]
                         .find({ email: email })
                         .collation({ locale: "en_US", strength: 1 })];
             case 2:
                 users = _b.sent();
-                return [4 /*yield*/, userModel_1["default"]
-                        .find({ email: email, password: password })
-                        .collation({ locale: "en_US", strength: 1 })];
+                return [4 /*yield*/, users[0].email];
             case 3:
+                userEmail = _b.sent();
+                return [4 /*yield*/, userModel_1["default"].find({
+                        email: userEmail,
+                        password: password
+                    })];
+            case 4:
                 verifiedUser = _b.sent();
                 if (users.length > 0) {
                     console.log(verifiedUser.length);
@@ -102,18 +106,70 @@ exports.login = function (req, res) { return __awaiter(void 0, void 0, void 0, f
                         return [2 /*return*/];
                     }
                     res.send({ aUser: true });
+                    return [2 /*return*/];
                 }
                 else {
                     res.send({ ok: false });
                 }
-                return [3 /*break*/, 5];
-            case 4:
+                return [3 /*break*/, 6];
+            case 5:
                 error_2 = _b.sent();
-                console.log('error in login:');
+                console.log("error in login:");
                 console.log(error_2.message);
                 res.send({ error: error_2.message });
-                return [3 /*break*/, 5];
-            case 5: return [2 /*return*/];
+                return [3 /*break*/, 6];
+            case 6: return [2 /*return*/];
+        }
+    });
+}); };
+exports.renderUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var userId, userInfo;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                userId = req.query.userId;
+                return [4 /*yield*/, userModel_1["default"].find({ _id: userId })];
+            case 1:
+                userInfo = _a.sent();
+                console.log(userInfo);
+                res.send({ userInfo: userInfo });
+                return [2 /*return*/];
+        }
+    });
+}); };
+exports.renderPage = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _a, userURL, requestedPage, appURL, userId, currentUser, newURL, _b, firstName, lastName, gender, role;
+    return __generator(this, function (_c) {
+        switch (_c.label) {
+            case 0:
+                _a = req.body, userURL = _a.userURL, requestedPage = _a.requestedPage;
+                appURL = userURL.split("/")[2];
+                userId = userURL.slice(-24);
+                return [4 /*yield*/, userModel_1["default"].find({ _id: userId })];
+            case 1:
+                currentUser = _c.sent();
+                newURL = appURL + "/" + requestedPage + ".html?id=" + userId;
+                console.log(currentUser, requestedPage);
+                _b = currentUser[0], firstName = _b.firstName, lastName = _b.lastName, gender = _b.gender, role = _b.role;
+                console.log(firstName, lastName, gender, role);
+                if (requestedPage === "home") {
+                    try {
+                        res.send({
+                            firstName: firstName,
+                            lastName: lastName,
+                            gender: gender,
+                            role: role
+                        });
+                    }
+                    catch (error) {
+                        console.log("error in renderPage:");
+                        console.log(error.message);
+                        res.send({ error: error.message });
+                        // }
+                    }
+                    return [2 /*return*/];
+                }
+                return [2 /*return*/];
         }
     });
 }); };

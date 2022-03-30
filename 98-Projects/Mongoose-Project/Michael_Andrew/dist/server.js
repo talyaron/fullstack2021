@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const app = express_1.default();
-const port = process.env.PORT || 3002;
+const port = process.env.PORT || 3000;
 app.use(express_1.default.static("public"));
 app.use(express_1.default.json());
 mongoose_1.default.connect('mongodb+srv://Michael:rrrpos32.14!@cluster0.ctwuo.mongodb.net/artNft?retryWrites=true&w=majority').then(res => {
