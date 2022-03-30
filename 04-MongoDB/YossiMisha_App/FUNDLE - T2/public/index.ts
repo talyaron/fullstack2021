@@ -1,7 +1,23 @@
 
 console.log('hello')
+
 const WORD_LENGTH = 5;
 const guessGrid = document.querySelector("[data-guess-grid]")
+
+const targetWord = '';
+const offsetFromDate:any = new Date(2022,0,1)
+const msOffset = Date.now() - offsetFromDate
+const dayOffset = Math.floor(msOffset / 1000 / 60 / 60 / 24)
+
+console.log(dayOffset)
+
+getDailyWord()
+
+async function getDailyWord (){
+    const { data } = await axios.get(`/get-word?dayOffset=${dayOffset}`)
+    console.log (data)
+}
+
 
 startInteraction()
 
@@ -76,7 +92,14 @@ function deleteKey() {
 }
 
 function submitGuess() {
-    console.log()
+
+    // const activeTiles = [...getActiveTiles()]
+    const activeTiles = getActiveTiles()
+
+    if(activeTiles.length !== WORD_LENGTH){
+        console.log("not enough letters")
+    }
+
 }
 
 
@@ -105,11 +128,16 @@ function handleShowLogin() {
         stopInteraction()
     } else {
         // logreg.classList.add("logreg-hide")
-        logreg.style.display = "none";
-
+        handleHideWindow();
         startInteraction()
     }
+}
 
+function handleHideWindow() {
+    const logreg: any = document.querySelector("#logreg");
+    if (logreg.style.display === "block") {
+        logreg.style.display = "none";
+    }
 }
 
 function handleDisplayNone() {
@@ -126,12 +154,6 @@ function handleDisplayNone() {
 document.body.addEventListener('click', handleDisplayNone, true);
 
 
-function handleHideWindow() {
-    const logreg: any = document.querySelector("#logreg");
-    if (logreg.style.display === "block") {
-        logreg.style.display = "none";
-    }
-}
 
 //////////////////////////// LOGIN - REGISTER ///////////////////////////////////////////
 

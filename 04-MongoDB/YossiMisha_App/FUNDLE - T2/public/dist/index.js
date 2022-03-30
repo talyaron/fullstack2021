@@ -10,6 +10,18 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 console.log('hello');
 const WORD_LENGTH = 5;
 const guessGrid = document.querySelector("[data-guess-grid]");
+const targetWord = '';
+const offsetFromDate = new Date(2022, 0, 1);
+const msOffset = Date.now() - offsetFromDate;
+const dayOffset = Math.floor(msOffset / 1000 / 60 / 60 / 24);
+console.log(dayOffset);
+getDailyWord();
+function getDailyWord() {
+    return __awaiter(this, void 0, void 0, function* () {
+        const { data } = yield axios.get(`/get-word?dayOffset=${dayOffset}`);
+        console.log(data);
+    });
+}
 startInteraction();
 function startInteraction() {
     document.addEventListener("click", handleMouseClick);
@@ -72,7 +84,11 @@ function deleteKey() {
     }
 }
 function submitGuess() {
-    console.log();
+    // const activeTiles = [...getActiveTiles()]
+    const activeTiles = getActiveTiles();
+    if (activeTiles.length !== WORD_LENGTH) {
+        console.log("not enough letters");
+    }
 }
 function handleShowStats() {
     const stats = document.querySelector("#stats");
@@ -100,8 +116,14 @@ function handleShowLogin() {
     }
     else {
         // logreg.classList.add("logreg-hide")
-        logreg.style.display = "none";
+        handleHideWindow();
         startInteraction();
+    }
+}
+function handleHideWindow() {
+    const logreg = document.querySelector("#logreg");
+    if (logreg.style.display === "block") {
+        logreg.style.display = "none";
     }
 }
 function handleDisplayNone() {
@@ -115,12 +137,6 @@ function handleDisplayNone() {
     }
 }
 document.body.addEventListener('click', handleDisplayNone, true);
-function handleHideWindow() {
-    const logreg = document.querySelector("#logreg");
-    if (logreg.style.display === "block") {
-        logreg.style.display = "none";
-    }
-}
 //////////////////////////// LOGIN - REGISTER ///////////////////////////////////////////
 function handleNotAMember() {
     const register = document.querySelector(".registerwrapper");

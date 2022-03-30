@@ -22,6 +22,18 @@ export const addArtToUser = async (req, res) => {
 
 export const getMyArt = async (req, res) => {
   const { userId } = req.query;
-  const r = await Art.find({ownerId: userId});
-  res.send({r});
+  const r = await Art.find({ ownerId: userId });
+  res.send(r);
+}
+
+export const putArtOnSale = async (req, res) => {
+  const { price, artId } = req.body;
+  const r = await Art.updateOne({_id: artId},{forSale: true, price: price});
+  res.send(r)
+}
+
+export const cancelSale = async (req, res) => {
+  const {artId} = req.body;
+  const r = await Art.updateOne({_id: artId},{forSale: false, price: 0});
+  res.send(r)
 }
