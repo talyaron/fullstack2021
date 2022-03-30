@@ -1,0 +1,729 @@
+body {
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+  margin: 0px;
+  padding: 0px;
+}
+
+.navigation {
+  outline: black solid 1px;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+}
+.navigation ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  list-style: none;
+  cursor: pointer;
+}
+.navigation--logo img {
+  position: relative;
+  bottom: -10px;
+  width: 130px;
+  height: 40px;
+}
+.navigation form {
+  padding: 2px;
+  border: grey 0.5px solid;
+  width: 700px;
+  height: 50px;
+  border-radius: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  letter-spacing: 0.5px;
+  transition: ease 0.5s;
+}
+.navigation form:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.navigation form label {
+  font-size: 12px;
+  font-weight: bold;
+}
+.navigation form .form--searchLocation {
+  padding-left: 20px;
+  height: 48px;
+  border-radius: 28px;
+  border: solid 1px white;
+}
+.navigation form .form--searchLocation:hover {
+  border: solid 1px #e2e2e2;
+  background-color: #e2e2e2;
+}
+.navigation form .form--searchLocation input {
+  border: none;
+  border-radius: 28px;
+}
+.navigation form .form--searchLocation input:hover {
+  background-color: #e2e2e2;
+}
+.navigation form .form--checkIn {
+  height: 50px;
+  width: 120px;
+  padding-left: 20px;
+  border-radius: 28px;
+}
+.navigation form .form--checkIn:hover {
+  border: solid 1px #e2e2e2;
+  background-color: #e2e2e2;
+}
+.navigation form .form--checkIn button {
+  border-radius: 10px;
+  border: none;
+  background-color: white;
+}
+.navigation form .form--checkIn button:hover {
+  background-color: #e2e2e2;
+}
+.navigation form .form--checkIn .dropdown {
+  display: none;
+  position: relative;
+  background-color: #f1f1f1;
+  font-size: 12px;
+  border-radius: 10px;
+  min-width: 450px;
+  height: 200px;
+  top: 15px;
+  padding: 5px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+.navigation form .form--checkIn:hover .dropdown {
+  display: block;
+}
+.navigation form .form--checkOut {
+  height: 50px;
+  width: 120px;
+  padding-left: 20px;
+  border-radius: 28px;
+}
+.navigation form .form--checkOut:hover {
+  border: solid 1px #e2e2e2;
+  background-color: #e2e2e2;
+}
+.navigation form .form--checkOut button {
+  border-radius: 10px;
+  border: none;
+  background-color: white;
+}
+.navigation form .form--checkOut button:hover {
+  background-color: #e2e2e2;
+}
+.navigation form .form--checkOut .dropdown {
+  display: none;
+  position: relative;
+  background-color: #f1f1f1;
+  font-size: 12px;
+  border-radius: 10px;
+  min-width: 160px;
+  top: 15px;
+  padding: 5px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+.navigation form .form--checkOut:hover .dropdown {
+  display: block;
+}
+.navigation form .form--guests {
+  height: 50px;
+  width: 150px;
+  padding-left: 20px;
+  border-radius: 28px;
+}
+.navigation form .form--guests:hover {
+  border: solid 1px #e2e2e2;
+  background-color: #e2e2e2;
+}
+.navigation form .form--guests button {
+  border-radius: 10px;
+  border: none;
+  background-color: white;
+}
+.navigation form .form--guests button:hover {
+  background-color: #e2e2e2;
+}
+.navigation form .form--guests .dropdown {
+  display: none;
+  position: relative;
+  background-color: #f1f1f1;
+  font-size: 12px;
+  border-radius: 10px;
+  min-width: 160px;
+  height: 250px;
+  top: 15px;
+  padding: 5px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  padding: 15px;
+}
+.navigation form .form--guests .dropdown label {
+  font-size: 14px;
+}
+.navigation form .form--guests .dropdown label span {
+  font-weight: lighter;
+  color: #9e9797;
+}
+.navigation form .form--guests .dropdown input[type=number] {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 50%;
+  border: none;
+}
+.navigation form .form--guests:hover .dropdown {
+  display: block;
+}
+.navigation form .form--searchIcon {
+  background-color: #38ffe4;
+  border: 1px #38ffe4;
+  border-radius: 50px;
+  width: 34px;
+  height: 32px;
+  text-align: center;
+  margin-right: 5px;
+  transition: ease 2s;
+}
+.navigation form .form--searchIcon:hover {
+  background-color: #056155;
+}
+.navigation form .form--searchIcon input[type=image] {
+  margin-right: 3px;
+  width: 25px;
+  height: 25px;
+  z-index: 1;
+}
+.navigation--greeting {
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+.navigation--user {
+  text-align: right;
+  width: 60px;
+  padding-top: 3px;
+  height: auto;
+  border-radius: 28px;
+  background-color: #38ffe4;
+  transition: ease 0.5s;
+}
+.navigation--user:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 5px;
+}
+.navigation--user img {
+  margin: 5px;
+  width: 25px;
+  height: 25px;
+  transition: ease 1s;
+}
+
+.bottomBar {
+  background-color: #eeebeb;
+  color: black;
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 2em;
+}
+.bottomBar__title {
+  font-weight: bolder;
+  font-size: large;
+}
+.bottomBar img {
+  width: 30px;
+  height: 30px;
+}
+.bottomBar__about--twitter img {
+  transition: 0.4s ease;
+}
+.bottomBar__about--twitter img:hover {
+  border-radius: 10px;
+  background-color: #2bb2df;
+}
+.bottomBar__about--facebook img {
+  transition: 0.4s ease;
+}
+.bottomBar__about--facebook img:hover {
+  border-radius: 10px;
+  background-color: #2536d4;
+}
+.bottomBar__about--instagram img {
+  transition: 0.4s ease;
+}
+.bottomBar__about--instagram img:hover {
+  border-radius: 10px;
+  background-color: #fa60ff;
+}
+
+.airbnbRights {
+  background: #eeebeb;
+  font-size: medium;
+  letter-spacing: 1px;
+  padding: 2em;
+  margin-top: 0;
+  border-top: solid lightgrey 1px;
+  color: black;
+  text-align: left;
+  margin-left: 5px;
+  font-weight: lighter;
+}
+
+.mainPage {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+.mainPage__imageCarousel {
+  border-radius: 10%;
+  overflow: hidden;
+  margin-top: 50px;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+.mainPage__imageCarousel--title {
+  position: absolute;
+  color: white;
+  font-size: calc(1.5rem + 1vw);
+  margin: 0;
+  top: 70%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  text-shadow: 0 5px 15px rgba(0, 0, 0, 0.884);
+  transition: 0.4s ease;
+}
+.mainPage__imageCarousel--title:hover {
+  color: black;
+  text-shadow: white 1px 0 10px;
+}
+.mainPage__imageCarousel figure {
+  position: relative;
+  width: 500%;
+  margin: 0;
+  animation: 20s slider infinite;
+  display: flex;
+}
+.mainPage__imageCarousel figure img {
+  width: 20%;
+  object-fit: cover;
+  object-position: center;
+}
+.mainPage__citySuggestions {
+  margin-top: 10%;
+  margin-bottom: 10%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+.mainPage__citySuggestions__cards {
+  height: 50vh;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: space-between;
+}
+.mainPage__citySuggestions__cards__card {
+  border-radius: 10px;
+  width: 70vw;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  transition: 0.3s ease-in-out;
+}
+.mainPage__citySuggestions__cards__card:hover {
+  transform: scale(1.1);
+  z-index: 2;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.884);
+}
+.mainPage__citySuggestions__cards__card img {
+  background-color: #38ffe4;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  width: 100%;
+  height: 50%;
+}
+.mainPage__citySuggestions__cards__card .description {
+  text-align: left;
+  padding-left: 5px;
+  color: white;
+}
+.mainPage__citySuggestions__cards__card .description h3 {
+  font-weight: lighter;
+}
+.mainPage__citySuggestions__cards__card:nth-child(1) {
+  background-color: #2e7fca;
+}
+.mainPage__citySuggestions__cards__card:nth-child(2) {
+  background-color: #183755;
+}
+.mainPage__citySuggestions__cards__card:nth-child(3) {
+  background-color: #3537a3;
+}
+.mainPage__citySuggestions__cards__card:nth-child(4) {
+  background-color: #2c2d69;
+}
+.mainPage #rootPlace .mainUppear {
+  display: flex;
+  gap: 5px;
+  flex-direction: row;
+}
+.mainPage #rootPlace .mainUppear__title {
+  display: flex;
+  gap: 5px;
+  flex-direction: row;
+}
+.mainPage #rootPlace .mainUppear__photoGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+.mainPage #rootPlace .mainUppear__photoGrid--bigPhoto {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+.mainPage #rootPlace .mainUppear__photoGrid--photo {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+.mainPage #rootPlace .mainMiddle {
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+}
+.mainPage #rootPlace .mainMiddle__left {
+  display: flex;
+  gap: 5px;
+  flex-direction: row;
+}
+.mainPage #rootPlace .mainMiddle__left--up {
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+}
+.mainPage #rootPlace .mainMiddle__left--up--profile img {
+  width: 56px;
+  height: 56px;
+  border-radius: 100%;
+}
+.mainPage #rootPlace .mainMiddle__left--aboutUs p {
+  font-size: 16px;
+}
+.mainPage #rootPlace .mainMiddle__left--aboutUs a {
+  border-radius: 10px;
+  border: 1px solid black;
+  background-color: transparent;
+}
+.mainPage #rootPlace .mainMiddle__left--bed {
+  display: flex;
+  gap: 5px;
+  flex-direction: row;
+}
+.mainPage #rootPlace .mainMiddle__left--bed--box {
+  border: 1px solid black;
+  background-color: transparent;
+  border-radius: 10px;
+  display: flex;
+  gap: 3px;
+  flex-direction: row;
+}
+.mainPage #rootPlace .mainMiddle__left--list ul {
+  text-decoration: none;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+.mainPage #rootPlace .mainMiddle__left--date {
+  border: 1px solid black;
+  border-radius: 10px;
+}
+.mainPage #rootPlace .mainMiddle--sticky {
+  position: sticky;
+  width: 250px;
+  height: 250px;
+}
+.mainPage #rootPlace .mainMiddle--sticky form {
+  padding: 2px;
+  border: grey 0.5px solid;
+  width: 700px;
+  height: 50px;
+  border-radius: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  letter-spacing: 0.5px;
+  transition: ease 0.5s;
+}
+.mainPage #rootPlace .mainMiddle--sticky form:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.mainPage #rootPlace .mainMiddle--sticky form label {
+  font-size: 12px;
+  font-weight: bold;
+}
+.mainPage #rootPlace .mainMiddle--sticky form .form--searchLocation {
+  padding-left: 20px;
+  height: 48px;
+  border-radius: 28px;
+  border: solid 1px white;
+}
+.mainPage #rootPlace .mainMiddle--sticky form .form--searchLocation:hover {
+  border: solid 1px #e2e2e2;
+  background-color: #e2e2e2;
+}
+.mainPage #rootPlace .mainMiddle--sticky form .form--searchLocation input {
+  border: none;
+  border-radius: 28px;
+}
+.mainPage #rootPlace .mainMiddle--sticky form .form--searchLocation input:hover {
+  background-color: #e2e2e2;
+}
+.mainPage #rootPlace .mainMiddle--sticky form .form--searchLocation .dropdown {
+  display: none;
+  position: relative;
+  background-color: #f1f1f1;
+  font-size: 12px;
+  border-radius: 10px;
+  min-width: 160px;
+  top: 15px;
+  padding: 5px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+.mainPage #rootPlace .mainMiddle--sticky form .form--searchLocation:hover .dropdown {
+  display: block;
+}
+.mainPage #rootPlace .mainMiddle--sticky form .form--checkIn {
+  height: 50px;
+  width: 120px;
+  padding-left: 20px;
+  border-radius: 28px;
+}
+.mainPage #rootPlace .mainMiddle--sticky form .form--checkIn:hover {
+  border: solid 1px #e2e2e2;
+  background-color: #e2e2e2;
+}
+.mainPage #rootPlace .mainMiddle--sticky form .form--checkIn button {
+  border-radius: 10px;
+  border: none;
+  background-color: white;
+}
+.mainPage #rootPlace .mainMiddle--sticky form .form--checkIn button:hover {
+  background-color: #e2e2e2;
+}
+.mainPage #rootPlace .mainMiddle--sticky form .form--checkIn .dropdown {
+  display: none;
+  position: relative;
+  background-color: #f1f1f1;
+  font-size: 12px;
+  border-radius: 10px;
+  min-width: 160px;
+  top: 15px;
+  padding: 5px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+.mainPage #rootPlace .mainMiddle--sticky form .form--checkIn:hover .dropdown {
+  display: block;
+}
+.mainPage #rootPlace .mainMiddle--sticky form .form--checkOut {
+  height: 50px;
+  width: 120px;
+  padding-left: 20px;
+  border-radius: 28px;
+}
+.mainPage #rootPlace .mainMiddle--sticky form .form--checkOut:hover {
+  border: solid 1px #e2e2e2;
+  background-color: #e2e2e2;
+}
+.mainPage #rootPlace .mainMiddle--sticky form .form--checkOut button {
+  border-radius: 10px;
+  border: none;
+  background-color: white;
+}
+.mainPage #rootPlace .mainMiddle--sticky form .form--checkOut button:hover {
+  background-color: #e2e2e2;
+}
+.mainPage #rootPlace .mainMiddle--sticky form .form--checkOut .dropdown {
+  display: none;
+  position: relative;
+  background-color: #f1f1f1;
+  font-size: 12px;
+  border-radius: 10px;
+  min-width: 160px;
+  top: 15px;
+  padding: 5px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+.mainPage #rootPlace .mainMiddle--sticky form .form--checkOut:hover .dropdown {
+  display: block;
+}
+.mainPage #rootPlace .mainMiddle--sticky form .form--guests {
+  height: 50px;
+  width: 150px;
+  padding-left: 20px;
+  border-radius: 28px;
+}
+.mainPage #rootPlace .mainMiddle--sticky form .form--guests:hover {
+  border: solid 1px #e2e2e2;
+  background-color: #e2e2e2;
+}
+.mainPage #rootPlace .mainMiddle--sticky form .form--guests button {
+  border-radius: 10px;
+  border: none;
+  background-color: white;
+}
+.mainPage #rootPlace .mainMiddle--sticky form .form--guests button:hover {
+  background-color: #e2e2e2;
+}
+.mainPage #rootPlace .mainMiddle--sticky form .form--guests .dropdown {
+  display: none;
+  position: relative;
+  background-color: #f1f1f1;
+  font-size: 12px;
+  border-radius: 10px;
+  min-width: 160px;
+  top: 15px;
+  padding: 5px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+.mainPage #rootPlace .mainMiddle--sticky form .form--guests:hover .dropdown {
+  display: block;
+}
+.mainPage #rootPlace .mainMiddle--sticky form .form--searchIcon {
+  background-color: #38ffe4;
+  border: 1px #38ffe4;
+  border-radius: 50px;
+  width: 34px;
+  height: 32px;
+  text-align: center;
+  margin-right: 5px;
+  transition: ease 2s;
+}
+.mainPage #rootPlace .mainMiddle--sticky form .form--searchIcon:hover {
+  background-color: #056155;
+}
+.mainPage #rootPlace .mainMiddle--sticky form .form--searchIcon input[type=image] {
+  margin-right: 3px;
+  width: 25px;
+  height: 25px;
+}
+.mainPage #rootPlace .reviews {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 10px;
+}
+.mainPage #rootPlace .reviews__review {
+  display: flex;
+  flex-direction: row;
+  gap: 3px;
+}
+.mainPage #rootPlace .reviews__review .theReview p {
+  font-size: 16px;
+}
+.mainPage #rootPlace #map {
+  height: 100%;
+  /* Display the control once it is inside the map. */
+}
+.mainPage #rootPlace #map .map-control {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 2px rgba(33, 33, 33, 0.4);
+  font-family: "Roboto", "sans-serif";
+  margin: 10px;
+  /* Hide the control initially, to prevent it from appearing
+           before the map loads. */
+  display: none;
+}
+.mainPage #rootPlace #map #map .map-control {
+  display: block;
+}
+.mainPage #rootPlace #map .selector-control {
+  font-size: 14px;
+  line-height: 30px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.mainPage #rootPlace .aboutHost {
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+}
+.mainPage #rootPlace .aboutHost--left {
+  display: flex;
+  gap: 5px;
+  flex-direction: row;
+}
+.mainPage #rootPlace .aboutHost--left--profileHost img {
+  width: 56px;
+  height: 56px;
+  border-radius: 100%;
+}
+.mainPage #rootPlace .aboutHost--left--about p {
+  font-size: 16px;
+}
+.mainPage #rootPlace .aboutHost--right {
+  display: flex;
+  gap: 5px;
+  flex-direction: row;
+}
+.mainPage #rootPlace .aboutHost--right .payment p {
+  font-size: 16px;
+}
+.mainPage #rootPlace .toKnow {
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+}
+.mainPage #rootPlace .toKnow ul {
+  display: flex;
+  gap: 5px;
+  flex-direction: row;
+}
+.mainPage #rootPlace .toKnow ul p {
+  font-size: 16px;
+}
+.mainPage #rootPlace .toKnow ul li {
+  text-decoration: none;
+}
+.mainPage #rootPlace .toKnow__cancle p {
+  font-size: 16px;
+}
+.mainPage #rootPlace .toKnow__cancle button {
+  background-color: transparent;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+@keyframes slider {
+  0% {
+    left: 0;
+  }
+  20% {
+    left: 0;
+  }
+  25% {
+    left: -100%;
+  }
+  45% {
+    left: -100%;
+  }
+  50% {
+    left: -200%;
+  }
+  70% {
+    left: -200%;
+  }
+  75% {
+    left: -300%;
+  }
+  95% {
+    left: -300%;
+  }
+  100% {
+    left: -400%;
+  }
+}

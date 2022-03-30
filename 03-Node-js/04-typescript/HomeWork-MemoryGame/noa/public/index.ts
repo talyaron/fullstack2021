@@ -11,9 +11,9 @@ function renderGame(data) {
 
     data.forEach(img => {
         html += `  <div class="card" onclick="handleFlipCard()">
-  
+        
            <div class="front-card"><img src="${img.src}"></div>
-    
+            <div class="back-card"></div>
    </div>`
     });
     const root = document.querySelector("#root");

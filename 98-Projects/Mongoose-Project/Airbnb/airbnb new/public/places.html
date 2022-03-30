@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Document</title>
+    <link rel="stylesheet" href="dist/style.css">
+</head>
+
+<body onload="loadPlaces()">
+    <div class="header-filter">
+        <form onsubmit="handleFilter(event)" class="filter">
+            <input class="btn_filter" type="number" placeholder="search price" name="price">
+            <button class="btn_filter">Kitchen</button>
+            <button class="btn_filter">Wi-Fi</button>
+            <button class="btn_filter">Access to the beach</button>
+            <button class="btn_filter">Cancellation without penalty</button>
+            <button class="btn_filter">Type</button>
+            <input  type="submit"
+            value="submit">
+            <!-- <button class="btn_filter">Price</button> -->
+
+    </form>
+</div>
+<div class="page-grid">
+    <div class="card-map">
+        <img id="map" src="https://st4.depositphotos.com/6318296/25016/v/1600/depositphotos_250167824-stock-illustration-downtown-vector-map-of-tel.jpg"/>
+
+    </div>
+
+    <div class="card-grid">
+       
+        <div class="card-grid__card"> 
+            <div class="card-header card-img">
+                <img src="https://a0.muscache.com/im/pictures/8fbac634-751a-4dfc-85af-8823f0e66933.jpg?im_w=960"/>
+        
+            </div>
+        <div class="content">
+            <div class="card-grid__card__card-header">
+                <button class="btn"><img src="images/icons-heart.png" alt=""></button>
+                <button class="btn btn-outline">private room in the city center</button>
+            </div>
+            <div class="card-grid__card__card-body">
+                <h2>Studio with sea views and a balcony</h2>
+                <p>guests &#x2022 studio &#x2022 1 bed &#x2022 1 private bathroom  &#x2022 Wi-Fi &#x2022 Kitchen &#x2022 Air conditioning</p>
+            </div>
+            <div class="card-grid__card__card-footer">
+                <button class="btn">220$/night</button>
+                <button class="btn btn-outline">4.95 (78 reviews)</button>
+            </div>
+            </div>
+        </div>
+
+        <div class="card-grid__card"> 
+            <div class="card-header card-img">
+                <img src="https://a0.muscache.com/im/pictures/16f57714-0819-4c78-bf93-e686564edf9e.jpg?im_w=720"/>
+        
+            </div>
+        <div class="content">
+            <div class="card-grid__card__card-header">
+                <button class="btn"><img src="images/icons-heart.png" alt=""></button>
+                <button class="btn btn-outline">private room in the city center</button>
+            </div>
+            <div class="card-grid__card__card-body">
+                <h2>Studio with sea views and a balcony</h2>
+                <p>guests &#x2022 studio &#x2022 1 bed &#x2022 1 private bathroom  &#x2022 Wi-Fi &#x2022 Kitchen &#x2022 Air conditioning</p>
+            </div>
+            <div class="card-grid__card__card-footer">
+                <button class="btn">220$/night</button>
+                <button class="btn btn-outline">4.95 (78 reviews)</button>
+            </div>
+            </div>
+        </div>
+
+        <div class="card-grid__card"> 
+            <div class="card-header card-img">
+                <img src="https://a0.muscache.com/im/pictures/10935945/a4ac450e_original.jpg?im_w=720"/>
+        
+            </div>
+        <div class="content">
+            <div class="card-grid__card__card-header">
+                <button class="btn"><img src="images/icons-heart.png" alt=""></button>
+                <button class="btn btn-outline">private room in the city center</button>
+            </div>
+            <div class="card-grid__card__card-body">
+                <h2>Studio with sea views and a balcony</h2>
+                <p>guests &#x2022 studio &#x2022 1 bed &#x2022 1 private bathroom  &#x2022 Wi-Fi &#x2022 Kitchen &#x2022 Air conditioning</p>
+            </div>
+            <div class="card-grid__card__card-footer">
+                <button class="btn">220$/night</button>
+                <button class="btn btn-outline">4.95 (78 reviews)</button>
+            </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+</div>
+<script src="dist/index.js"></script>
+</body>
+
+</html>
