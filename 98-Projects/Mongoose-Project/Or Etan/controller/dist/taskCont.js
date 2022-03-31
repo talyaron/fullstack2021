@@ -71,15 +71,16 @@ exports.renderPage = function (req, res) { return __awaiter(void 0, void 0, void
     });
 }); };
 exports.getUsersTasks = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var userId, currentUsersTasks;
+    var i, currentUsersTasks;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                userId = req.query;
-                console.log(userId);
-                return [4 /*yield*/, taskModel_1["default"].find({ ownerId: userId })];
+                i = req.query.i;
+                console.log(i);
+                return [4 /*yield*/, taskModel_1["default"].find({ ownerId: i })];
             case 1:
                 currentUsersTasks = _a.sent();
+                console.log(currentUsersTasks);
                 return [2 /*return*/];
         }
     });
