@@ -29,11 +29,11 @@ const PlacesSchema = new mongoose.Schema(
     reviews: Array,
     cancellation_policy: String,
   },
-  {
-    capped: { size: 1024 },
-    bufferCommands: false,
-    autoCreate: false,
-  }
+  // {
+  //   capped: { size: 1024 },
+  //   bufferCommands: false,
+  //   autoCreate: false,
+  // }
 );
 
 const Places = mongoose.model("listingsAndReviews", PlacesSchema);
