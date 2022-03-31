@@ -113,64 +113,33 @@ function renderItemsMain(items) {
 }
 function renderProducts(products) {
     var html = products.map(function (product) {
-        return "\n        <div class=\"mainPage__middle--products--item\">\n        <div><i class=\"fa fa-trash-o\" style=\"font-size:20px;cursor: pointer;\" title=\"Delete product\" onclick='handleDelete(\"" + product._id + "\")'></i></div>\n        <img src=\"" + product.pic + "\" title='" + product.title + "'>\n        <p>" + product.title + ".</p>\n        <p>" + product.price + "$</p>\n        <p>" + product.description + ".</p>\n        <input type = 'text' name = 'newImg' placeholder = 'Update img' onblur = 'handleUpdatepicture(event, \"" + product._id + "\")'>\n        <input type = 'text' name = 'newTitle' placeholder = 'Update title' onblur = 'handleUpdateTitle(event, \"" + product._id + "\")'>\n        <input type = 'text' name = 'newPrice' placeholder = 'Update price' onblur = 'handleUpdatePrice(event, \"" + product._id + "\")'>\n        </div>\n        ";
+        return "\n        <div class=\"mainPage__middle--products--item\">\n        <div><i class=\"fa fa-trash-o\" style=\"font-size:20px;cursor: pointer;\" title=\"Delete product\" onclick='handleDelete(\"" + product._id + "\")'></i></div>\n        <img src=\"" + product.pic + "\" title='" + product.title + "'>\n        <p>" + product.title + ".</p>\n        <p>" + product.price + "$</p>\n        <p>" + product.description + ".</p>\n        <form onsubmit=\"handleUpadte(event,'" + product._id + "')\">\n            <input type = 'text' name = 'newImg' placeholder = 'Update img' >\n            <input type = 'text' name = 'newTitle' placeholder = 'Update title'>\n            <input type = 'text' name = 'newPrice' placeholder = 'Update price'>\n            <input type = \"submit\" value = \"Update\">\n        </form>\n        </div>\n        ";
     }).join('');
     document.getElementById('products').innerHTML = html;
 }
-function handleUpdatepicture(ev, gameId) {
+function handleUpadte(ev, gameId) {
     return __awaiter(this, void 0, void 0, function () {
-        var newImg, data, products;
         return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    newImg = ev.target.value;
-                    return [4 /*yield*/, axios.patch('/products/update-picture', { gameId: gameId, newImg: newImg })];
-                case 1:
-                    data = (_a.sent()).data;
-                    products = data.products;
-                    location.reload();
-                    renderProducts(products);
-                    return [2 /*return*/];
-            }
+            ev.preventDefault();
+            console.log(gameId);
+            return [2 /*return*/];
         });
     });
 }
-function handleUpdateTitle(ev, gameId) {
-    return __awaiter(this, void 0, void 0, function () {
-        var newTitle, data, products;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    newTitle = ev.target.value;
-                    return [4 /*yield*/, axios.patch('/products/update-title', { gameId: gameId, newTitle: newTitle })];
-                case 1:
-                    data = (_a.sent()).data;
-                    products = data.products;
-                    location.reload();
-                    renderProducts(products);
-                    return [2 /*return*/];
-            }
-        });
-    });
-}
-function handleUpdatePrice(ev, gameId) {
-    return __awaiter(this, void 0, void 0, function () {
-        var newPrice, data, products;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    newPrice = ev.target.value;
-                    return [4 /*yield*/, axios.patch('/products/update-price', { gameId: gameId, newPrice: newPrice })];
-                case 1:
-                    data = (_a.sent()).data;
-                    products = data.products;
-                    location.reload();
-                    renderProducts(products);
-                    return [2 /*return*/];
-            }
-        });
-    });
-}
+// async function handleUpdateTitle(ev, gameId) {
+//     const newTitle = ev.target.value;
+//     const { data } = await axios.patch('/products/update-title', { gameId, newTitle });
+//     const {products} = data;
+//     location.reload();
+//     renderProducts(products);
+// }
+// async function handleUpdatePrice(ev, gameId) {
+//     const newPrice = ev.target.value;
+//     const { data } = await axios.patch('/products/update-price', { gameId, newPrice });
+//     const {products} = data;
+//     location.reload();
+//     renderProducts(products);
+// }
 function handleDelete(productId) {
     return __awaiter(this, void 0, void 0, function () {
         var data, product;
