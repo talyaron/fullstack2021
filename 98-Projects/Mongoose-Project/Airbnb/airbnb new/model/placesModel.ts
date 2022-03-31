@@ -1,16 +1,16 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
-const PlacesSchema = new mongoose.Schema({
-  _id:String,
-  access:String,
-  accommodates:String,
-  address: Object,
-
+const PlacesSchema = new mongoose.Schema(
+  {
+    _id: String,
+    access: String,
+    accommodates: String,
+    address: Object,
+    
     name: String,
     summary: String,
     // checkIn: String,
     // checkOut: String,
-    
     amenities: Array,
     bedrooms: Number,
     beds: Number,
@@ -28,18 +28,16 @@ const PlacesSchema = new mongoose.Schema({
   },
   {
     capped: { size: 1024 },
-      bufferCommands: false,
-      autoCreate: false
-    });
-   
-  const Places = mongoose.model("listingsAndReviews", PlacesSchema);
-  export default Places;
-  const userSchema = new mongoose.Schema({
-    name: String,
-    password: String,
-  });
+    bufferCommands: false,
+    autoCreate: false,
+  }
+);
+
+const Places = mongoose.model("listingsAndReviews", PlacesSchema);
+export default Places;
+const userSchema = new mongoose.Schema({
+  name: String,
+  password: String,
+});
 const Users = mongoose.model("users", userSchema);
 export const users = Users;
-
-  
-  

@@ -145,9 +145,9 @@ export const searchAirbnb = async (req, res) => {
 export const searchAirbnbInTelaviv = async (req, res) => {
   
  
-    const places = await Places.find({address:"Brazil"});
-    console.log(places)
-    res.send({ ok: true, places })
+    const placesInTelaviv = await Places.find({"address.country":"Brazil"}).limit(20);
+    console.log(placesInTelaviv)
+    res.send({ ok: true, placesInTelaviv })
   
 };
 

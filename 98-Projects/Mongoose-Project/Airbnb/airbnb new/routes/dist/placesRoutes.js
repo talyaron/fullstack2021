@@ -17,6 +17,6 @@ router
     .post('/addPlaces', placesCont_1.addPlaces)
     .get('/getToPlace', placesCont_2.getToPlace)
     .get('/search-airbnb', placesCont_3.searchAirbnb)
-    .get('/places/search-telaviv', placesCont_4.searchAirbnbInTelaviv)
+    .get('/search-telaviv', placesCont_4.searchAirbnbInTelaviv)
     .post('/findPlaceMap', placesCont_5.findPlaceMap);
 exports["default"] = router;
