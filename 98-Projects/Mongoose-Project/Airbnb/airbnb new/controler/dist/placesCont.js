@@ -199,7 +199,7 @@ exports.searchAirbnbInTelaviv = function (req, res) { return __awaiter(void 0, v
     var placesInTelaviv;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, placesModel_1["default"].find({ "address.country": "Brazil" }).limit(20)];
+            case 0: return [4 /*yield*/, placesModel_1["default"].find({ "address.country": 'Brazil' }).limit(10)];
             case 1:
                 placesInTelaviv = _a.sent();
                 console.log(placesInTelaviv);
