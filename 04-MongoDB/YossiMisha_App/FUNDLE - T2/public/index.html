@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Roboto+Slab:wght@900&display=swap"
     rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 
 <body>
@@ -18,7 +19,8 @@
     <div class="column-left">
       <div class="column-left__top">
         <div class="btn" onclick="handleShowHelp()"><img src="./images/helpbutton.png" alt=""></div>
-        <div class="btn"></div>
+        <div class="btn" onclick="handleShowLogin()"><img src="./images/login.png" alt=""></div>
+        <div class="hello"></div>
       </div>
 
     </div>
@@ -26,7 +28,7 @@
     <div class="column-center">
 
       <div class="column-center__top">
-        <h1><span style="color: #ffffff;">Fundle</span></h1>
+        <h1><span style="color: #ffffff;"><span style="color: orange;">F</span>undl<span style="color: #349915;">e</span></span></h1>
       </div>
 
       <div class="column-center__middle">
@@ -96,17 +98,13 @@
             <button class="key" data-key="N">N</button>
             <button class="key" data-key="M">M</button>
             <button data-delete class="key large">
-              <div data-delete><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
-                <path fill="var(--color-tone-1)"
-                  d="M22 3H7c-.69 0-1.23.35-1.59.88L0 12l5.41 8.11c.36.53.9.89 1.59.89h15c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H7.07L2.4 12l4.66-7H22v14zm-11.59-2L14 13.41 17.59 17 19 15.59 15.41 12 19 8.41 17.59 7 14 10.59 10.41 7 9 8.41 12.59 12 9 15.59z">
-                </path>
-              </svg></div>
+              <img data-delete src="./images/delete.png" alt="">
             </button>
           </div>
         </div>
       </div>
     </div>
-
+    
     <div class="column-right">
       <div class="column-right__top-right">
         <div class="btn" onclick="handleShowStats()"><img src="./images/statistics.png" alt="">
@@ -123,10 +121,14 @@
         <div class="line-1">X</div>
         <div class="line-2">STATISTICS</div>
         <div class="line-3">
-          <div class="column">1 <h5>Played</h5></div>
-          <div class="column">100<h5>Win %</h5></div>
-          <div class="column">1<h5>Current<br>Streak</h5></div>
-          <div class="column">1<h5>Max<br>Streak</h5></div>
+          <div class="column">1 <h5>Played</h5>
+          </div>
+          <div class="column">100<h5>Win %</h5>
+          </div>
+          <div class="column">1<h5>Current<br>Streak</h5>
+          </div>
+          <div class="column">1<h5>Max<br>Streak</h5>
+          </div>
         </div>
         <div class="line-4">GUESS DISTREBUTION</div>
         <div class="line-5">
@@ -141,10 +143,11 @@
         </div>
         <div class="line-6">
           <div class="next-fundle">
-            <div>NEXT-FUNDLE</div>
-            <div>00:03:53</div>
+            <div>NEXT FUNDLE</div>
+            <div id="countdown"></div>
           </div>
-          <div class="share-stats"><button>SHARE <i class="fa-solid fa-share-nodes"></i></button></div>
+          <div class="share-stats"><button id="share">SHARE <i class="fa-solid fa-share-nodes"></i></button><div class="result"></div></div>
+          
         </div>
 
       </div>
@@ -153,15 +156,92 @@
 
   <div id="help" style="display: none;">
     <div class="help-container">
-        <div class="title"><h1>HOW TO PLAY</h1><span>X</span></div>
-        <div class="p">Guess the <b>WORDLE</b> in six tries.</div>
-        <div class="p">Each guess must be a valid five-letter word. Hit the enter button to submit.</div>
-        <div class="p">After each guess, the color of the tiles will change to show how close your guess was to the word.</div>
-        <div class="examples-new">Examples</div>
-        <div class="img"><img src="./images/howToPlay.jpg" alt=""></div>
-        <div class="examples-new">A new WORDLE will be available each day!</div>
+      <div class="title">
+        <h1>HOW TO PLAY</h1><span>X</span>
+      </div>
+      <div class="p">Guess the <b>WORDLE</b> in six tries.</div>
+      <div class="p">Each guess must be a valid five-letter word. Hit the enter button to submit.</div>
+      <div class="p">After each guess, the color of the tiles will change to show how close your guess was to the word.
+      </div>
+      <div class="examples-new">Examples</div>
+      <div class="img"><img src="./images/howToPlay.jpg" alt=""></div>
+      <div class="examples-new">A new WORDLE will be available each day!</div>
 
-   
+
+    </div>
+  </div>
+
+  <div class="logreg" id="logreg" style="display: none;">
+    <div class="loginwrapper">
+
+      <h1>Login <span class="close" onclick="handleHideWindow()">x</span></h1>
+
+      <form onsubmit="handleLogin(event)" id="loginform">
+
+        <div class="txt_field">
+          <input type="text" name='username' required>
+          <span></span>
+          <label for="Username">Username</label>
+        </div>
+
+        <div class="txt_field">
+          <input type="password" name='password' required autocomplete="off" class="passip"><img src="images/eye.png" alt="" id="eyeImg" onclick="handlePassToggle()"></input>
+          <span></span>
+          <label for="password">Password</label>
+        </div>
+
+        <div class="pass">Forgot Password?</div>
+        <input type="submit" value="Login" class="submit">
+        <div class="signup_link">
+          Not a member? <a onclick="handleNotAMember()">Register</a>
+        </div>
+
+      </form>
+    </div>
+
+    <div class='registerwrapper' id="">
+      <h1>Register <span class="close" onclick="handleHideWindow()">x</span></h1>
+
+      <form onsubmit="handleRegister(event)" id="registerform">
+
+        <div class="txt_field">
+          <input type="text" name='username' required>
+          <span></span>
+          <label for="Username">Username</label>
+        </div>
+
+        <div class="txt_field">
+          <input type="password" name='password' required autocomplete="off" class="passip"><img src="images/eye.png" alt="" id="eyeImg" onclick="handlePassToggle()"></input>
+          <span></span>
+          <label for="password">Password</label>
+        </div>
+
+        <div class="txt_field">
+          <input type="password" name='confirmPassword' required autocomplete="off" class="passip"><img src="images/eye.png" alt="" id="eyeImg" onclick="handlePassToggle()"></input>
+          <span></span>
+          <label for="confirmPassword">Confirm Password</label>
+        </div>
+
+        <div class="txt_field">
+          <input type="text" name='email' required>
+          <span></span>
+          <label for="email">Email Address</label>
+        </div>
+
+        <div class="txt_field">
+          <input type="text" name='confirmEmail' required>
+          <span></span>
+          <label for="confirmEmail">Confirm Email Address</label>
+        </div>
+
+        <input type="submit" value="Register" class="submit">
+
+        <div class="signup_link">
+          Already a member? <a onclick="handleAlreadyAMember()">Login</a>
+        </div>
+
+
+      </form>
     </div>
   </div>
 

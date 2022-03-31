@@ -13,6 +13,7 @@ body{
     display:flex;
     flex-direction: column;
     padding:8px;
+   
     
     ul{
         display: flex;
@@ -128,8 +129,8 @@ body{
                 background-color: #f1f1f1;
                 font-size:12px;
                 border-radius: 10px;
-                min-width: 450px;
-                height:200px;
+                min-width: 220px;
+                height:310px;
                 top:15px;
                 padding:5px;
                 box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -170,7 +171,8 @@ body{
                 background-color: #f1f1f1;
                 font-size:12px;
                 border-radius: 10px;
-                min-width: 160px;
+                min-width: 220px;
+                height:310px;
                 top:15px;
                 padding:5px;
                 box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -246,7 +248,7 @@ body{
             width:34px;
             height:32px;
             text-align:center;
-            margin-right:5px;
+            //margin-right:5px;
             
             transition: ease 2s;
             &:hover{
@@ -254,13 +256,12 @@ body{
 
             }
 
-            input[type="image"]{
+           
+            img{
                 margin-right:3px;
                 width:25px;
                 height:25px;
                 z-index: 1;
-                
-
             }
 
             // input[type="submit"]{
@@ -386,6 +387,7 @@ body{
 .mainPage{
     margin-left:5%;
     margin-right:5%;  
+   
       
     &__imageCarousel{
         border-radius: 10%;
@@ -393,6 +395,7 @@ body{
         //display:block;  
         //width:fit-content; 
         //width:70%;
+        margin-top:50px;
         margin-left:5%;
         margin-right:5%;  
         &--title {
@@ -403,7 +406,7 @@ body{
             //font-size:40px;
             font-size: calc(1.5rem + 1vw);
             margin: 0;
-            top: 50%;
+            top: 70%;
             left: 50%;
             //text-align: center;
             margin-right: -50%;
@@ -827,6 +830,8 @@ body{
           }
      
         }
+
+
         .reviews{
             display: grid;
             grid-template-columns: repeat(3, 1fr);

@@ -17,6 +17,8 @@ mongoose_1.default.connect('mongodb+srv://Michael:rrrpos32.14!@cluster0.ctwuo.mo
 });
 const userRoutes_1 = __importDefault(require("./routes/userRoutes"));
 app.use('/users', userRoutes_1.default);
+const artRoutes_1 = __importDefault(require("./routes/artRoutes"));
+app.use('/arts', artRoutes_1.default);
 app.listen(port, () => {
     return console.log(`Express is listening at http://localhost:${port}`);
 });
