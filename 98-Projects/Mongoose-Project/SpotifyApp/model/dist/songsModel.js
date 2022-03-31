@@ -1,5 +1,6 @@
 "use strict";
 exports.__esModule = true;
+exports.searches = exports.songs = void 0;
 var mongoose_1 = require("mongoose");
 var SongsSchema = new mongoose_1["default"].Schema({
     song: String,
@@ -7,6 +8,6 @@ var SongsSchema = new mongoose_1["default"].Schema({
     genre: String,
     youtube: String
 });
-var songs = mongoose_1["default"].model('songsOwner', SongsSchema);
-var searches = mongoose_1["default"].model('searches', SongsSchema);
-exports["default"] = songs && searches;
+exports.songs = mongoose_1["default"].model('songsOwner', SongsSchema);
+exports.searches = mongoose_1["default"].model('searches', SongsSchema);
+// && searches;

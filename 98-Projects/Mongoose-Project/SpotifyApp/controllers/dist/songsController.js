@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.Upload = void 0;
+exports.search = exports.Upload = void 0;
 var songsModel_1 = require("../model/songsModel");
 exports.Upload = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var _a, song, picture, genre, youtube, newSong, result, error_1;
@@ -45,7 +45,7 @@ exports.Upload = function (req, res) { return __awaiter(void 0, void 0, void 0, 
             case 0:
                 _b.trys.push([0, 2, , 3]);
                 _a = req.body, song = _a.song, picture = _a.picture, genre = _a.genre, youtube = _a.youtube;
-                newSong = new songsModel_1["default"]({ song: song, picture: picture, genre: genre, youtube: youtube });
+                newSong = new songsModel_1.songs({ song: song, picture: picture, genre: genre, youtube: youtube });
                 console.log(newSong);
                 return [4 /*yield*/, newSong.save()];
             case 1:
@@ -56,6 +56,29 @@ exports.Upload = function (req, res) { return __awaiter(void 0, void 0, void 0, 
                 error_1 = _b.sent();
                 console.error(error_1);
                 res.send({ error: error_1.message });
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
+        }
+    });
+}); };
+exports.search = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var search_1, newSearch, result, error_2;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 2, , 3]);
+                search_1 = req.query.search;
+                newSearch = new songsModel_1.songs({ search: search_1 });
+                console.log(newSearch);
+                return [4 /*yield*/, newSearch.save()];
+            case 1:
+                result = _a.sent();
+                res.send({ result: result });
+                return [3 /*break*/, 3];
+            case 2:
+                error_2 = _a.sent();
+                console.error(error_2);
+                res.send({ error: error_2.message });
                 return [3 /*break*/, 3];
             case 3: return [2 /*return*/];
         }

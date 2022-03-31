@@ -1,6 +1,6 @@
 async function handleGetSearch(ev) {
     const searchTerm = ev.target.value;
-    await axios.get(`/getSearch?${searchTerm}`);
+    await axios.get(`/songs/search?${searchTerm}`);
     console.log(searchTerm);
 
 
@@ -19,9 +19,9 @@ async function handleUpload(ev) {
 
     console.log(song, picture, genre, youtube)
 
-    const { data } = await axios.post('/songsOwner/upload-song', { song, picture, genre, youtube })
-    const songs={data}
-    console.log(data)
+    const { data } = await axios.post('/songs/upload-song', { song, picture, genre, youtube })
+    const songs = { data }
+    console.log({ data })
     renderSongs(songs)
 }
 
@@ -55,24 +55,26 @@ async function handleLogIn(ev) {
 
 
 function renderSongs(songs) {
-    const root =document.querySelector('#likedSongs')
+    const root = document.querySelector('#likedSongs')
     try {
-        const html = songs.map(songs => {
-            // console.log(songs);
-            
-            return `<div class="card"><h2>${songs.song} :${songs.picture} ,${songs.genre} ,${songs.youtube}</h2>
-            <div><input type='text' placeholder='type' value='${songs.genre}' onblur='handleupdate(event,"${songs._id}")'/></div>
-            <button onclick='handleDelete("${songs._id}")'>Delete</button>
-            <div><img src="${songs.img}" alt=""></div></div>`  
+        const html = songs.map(song => {
+            console.log(song);
+
+            return `<div class="card"><h2>${song.song} :${song.picture} ,${song.genre} ,${song.youtube}</h2>
+            <div><input type='text' placeholder='type' value='${song.genre}' onblur='handleupdate(event,"${song._id}")'/></div>
+            <button onclick='handleDelete("${song._id}")'>Delete</button>
+            <div><img src="${song.img}" alt=""></div></div>`
         }).join('')
-  
-        root.innerHTML = html
-  
+        console.log(html);
+
+        root.innerHTML = html;
+
         if (!root) throw new Error("no root in rendersongs");
-  
+
     } catch (error) {
         console.error(error.message);
-  
+
     }
-  
-  }
+
+}
+

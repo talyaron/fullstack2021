@@ -12,7 +12,10 @@ import userRoute from "./routes/userRoute";
 app.use("/songsUser", userRoute);
 
 import songsRoute from "./routes/songsRoute";
-app.use("/songsOwner", songsRoute )
+app.use("/songs", songsRoute )
+
+// import searchRoute from "./routes/searchRoute";
+// app.use("/songsOwner", searchRoute )
 
 
 app.get('/', (req, res) => {
