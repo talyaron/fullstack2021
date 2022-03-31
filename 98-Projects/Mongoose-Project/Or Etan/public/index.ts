@@ -230,9 +230,6 @@ async function handleRenderTasks(ev){
   const userId = userURL.split('/')[1];
   getUsersTasks(userId)
 }
-console.dir();
-console.log(addGlobalEventListener);
-
 addGlobalEventListener(onload, '#landing__task-count',getUsersTasks(window.location.href), {})
 
 async function getUsersTasks(userId) {

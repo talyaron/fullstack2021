@@ -191,8 +191,6 @@ function handleRenderTasks(ev) {
         });
     });
 }
-console.dir();
-console.log(addGlobalEventListener);
 addGlobalEventListener(onload, '#landing__task-count', getUsersTasks(window.location.href), {});
 function getUsersTasks(userId) {
     return __awaiter(this, void 0, void 0, function () {
