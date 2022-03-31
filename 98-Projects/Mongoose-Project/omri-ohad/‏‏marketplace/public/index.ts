@@ -65,38 +65,43 @@ function renderProducts(products){
         <p>${product.title}.</p>
         <p>${product.price}$</p>
         <p>${product.description}.</p>
-        <input type = 'text' name = 'newImg' placeholder = 'Update img' onblur = 'handleUpdatepicture(event, "${product._id}")'>
-        <input type = 'text' name = 'newTitle' placeholder = 'Update title' onblur = 'handleUpdateTitle(event, "${product._id}")'>
-        <input type = 'text' name = 'newPrice' placeholder = 'Update price' onblur = 'handleUpdatePrice(event, "${product._id}")'>
+        <form onsubmit="handleUpadte(event,'${product._id}')">
+            <input type = 'text' name = 'newImg' placeholder = 'Update img' >
+            <input type = 'text' name = 'newTitle' placeholder = 'Update title'>
+            <input type = 'text' name = 'newPrice' placeholder = 'Update price'>
+            <input type = "submit" value = "Update">
+        </form>
         </div>
         `
     }).join('');
     document.getElementById('products').innerHTML = html ;
 }
 
-async function handleUpdatepicture(ev, gameId) {
-    const newImg = ev.target.value;
-    const { data } = await axios.patch('/products/update-picture', { gameId, newImg });
-    const {products} = data;
-    location.reload();
-    renderProducts(products);
+async function handleUpadte(ev,gameId) {
+    ev.preventDefault();
+    console.log(gameId)
+    // const newImg = ev.target.value;
+    // const { data } = await axios.patch('/products/update-picture', { gameId, newImg });
+    // const {products} = data;
+    // location.reload();
+    // renderProducts(products);
 }
 
-async function handleUpdateTitle(ev, gameId) {
-    const newTitle = ev.target.value;
-    const { data } = await axios.patch('/products/update-title', { gameId, newTitle });
-    const {products} = data;
-    location.reload();
-    renderProducts(products);
-}
+// async function handleUpdateTitle(ev, gameId) {
+//     const newTitle = ev.target.value;
+//     const { data } = await axios.patch('/products/update-title', { gameId, newTitle });
+//     const {products} = data;
+//     location.reload();
+//     renderProducts(products);
+// }
 
-async function handleUpdatePrice(ev, gameId) {
-    const newPrice = ev.target.value;
-    const { data } = await axios.patch('/products/update-price', { gameId, newPrice });
-    const {products} = data;
-    location.reload();
-    renderProducts(products);
-}
+// async function handleUpdatePrice(ev, gameId) {
+//     const newPrice = ev.target.value;
+//     const { data } = await axios.patch('/products/update-price', { gameId, newPrice });
+//     const {products} = data;
+//     location.reload();
+//     renderProducts(products);
+// }
 
 async function handleDelete(productId){
     const {data} = await axios.delete('/products/delete-product', {data:{productId}})
@@ -131,3 +136,12 @@ async function handleDescending(){
     else if(products) renderItemsMain(products);
 }
 
+async function handleSignUp(ev){
+    ev.preventDefault();
+    let {email, password,userName} = ev.target.elements;
+    email = email.value;
+    password = password.value;
+    userName = userName.value
+    const {data} = await axios.post('/products/register',{email, password,userName})
+    document.querySelector("reg").reset();
+}

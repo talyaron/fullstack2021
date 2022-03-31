@@ -5,6 +5,7 @@ const TaskSchema = new mongoose.Schema({
   urgency: String,
   location: String,
   date: Date,
+  ownerId: String,
 });
 
 const task = mongoose.model("tasks", TaskSchema);

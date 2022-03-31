@@ -12,8 +12,7 @@ const PlacesSchema = new mongoose.Schema(
       country:String,
       country_code:String
     
-    },
-    
+    },   
     name: String,
     summary: String,
     // checkIn: String,

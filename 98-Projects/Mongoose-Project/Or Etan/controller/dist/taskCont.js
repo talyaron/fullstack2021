@@ -36,51 +36,19 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.getUsersTasks = exports.renderPage = void 0;
+exports.getUsersTasks = void 0;
 var taskModel_1 = require("../model/taskModel");
-exports.renderPage = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, userURL, requestedPage, appURL, userId, currentUsersTasks, newURL;
-    return __generator(this, function (_b) {
-        switch (_b.label) {
-            case 0:
-                _a = req.body, userURL = _a.userURL, requestedPage = _a.requestedPage;
-                appURL = userURL.split("/")[2];
-                userId = userURL.slice(-24);
-                return [4 /*yield*/, taskModel_1["default"].find({ ownerId: userId })];
-            case 1:
-                currentUsersTasks = _b.sent();
-                newURL = "/" + requestedPage + ".html?id=" + userId;
-                //   console.log(currentUsersTasks, requestedPage);
-                //   let { title, description, urgency, location, date } = currentUsersTasks[0];
-                if (requestedPage === "RecentlyCreated") {
-                    try {
-                        res.send({
-                            newURL: newURL, currentUsersTasks: currentUsersTasks
-                        });
-                    }
-                    catch (error) {
-                        console.log("error in renderPage:");
-                        console.log(error.message);
-                        res.send({ error: error.message });
-                        // }
-                    }
-                    return [2 /*return*/];
-                }
-                return [2 /*return*/];
-        }
-    });
-}); };
 exports.getUsersTasks = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var i, currentUsersTasks;
+    var ownerId, currentUsersTasks;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                i = req.query.i;
-                console.log(i);
-                return [4 /*yield*/, taskModel_1["default"].find({ ownerId: i })];
+                ownerId = req.query.ownerId;
+                console.log(ownerId);
+                return [4 /*yield*/, taskModel_1["default"].find({ ownerId: ownerId })];
             case 1:
                 currentUsersTasks = _a.sent();
-                console.log(currentUsersTasks);
+                res.send(currentUsersTasks);
                 return [2 /*return*/];
         }
     });

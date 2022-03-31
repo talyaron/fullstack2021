@@ -130,7 +130,7 @@ exports.renderUser = function (req, res) { return __awaiter(void 0, void 0, void
     });
 }); };
 exports.renderPage = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, userURL, requestedPage, appURL, userId, currentUser, newURL, _b, firstName, lastName, gender, role;
+    var _a, userURL, requestedPage, appURL, userId, currentUser, newURL, _b, firstName, lastName, gender, role, email, password;
     return __generator(this, function (_c) {
         switch (_c.label) {
             case 0:
@@ -140,15 +140,50 @@ exports.renderPage = function (req, res) { return __awaiter(void 0, void 0, void
                 return [4 /*yield*/, userModel_1["default"].find({ _id: userId })];
             case 1:
                 currentUser = _c.sent();
-                newURL = appURL + "/" + requestedPage + ".html?id=" + userId;
-                _b = currentUser[0], firstName = _b.firstName, lastName = _b.lastName, gender = _b.gender, role = _b.role;
+                newURL = "/" + requestedPage + ".html?id=" + userId;
+                _b = currentUser[0], firstName = _b.firstName, lastName = _b.lastName, gender = _b.gender, role = _b.role, email = _b.email, password = _b.password;
                 if (requestedPage === "home") {
                     try {
                         res.send({
                             firstName: firstName,
                             lastName: lastName,
                             gender: gender,
-                            role: role
+                            role: role,
+                            newURL: newURL
+                        });
+                    }
+                    catch (error) {
+                        console.log("error in renderPage:");
+                        console.log(error.message);
+                        res.send({ error: error.message });
+                        // }
+                    }
+                    return [2 /*return*/];
+                }
+                if (requestedPage === "settings") {
+                    try {
+                        res.send({
+                            firstName: firstName,
+                            lastName: lastName,
+                            gender: gender,
+                            role: role,
+                            email: email,
+                            password: password,
+                            newURL: newURL
+                        });
+                    }
+                    catch (error) {
+                        console.log("error in renderPage:");
+                        console.log(error.message);
+                        res.send({ error: error.message });
+                        // }
+                    }
+                    return [2 /*return*/];
+                }
+                if (requestedPage === "info") {
+                    try {
+                        res.send({
+                            newURL: newURL
                         });
                     }
                     catch (error) {
