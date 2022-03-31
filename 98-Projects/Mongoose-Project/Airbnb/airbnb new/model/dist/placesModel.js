@@ -16,8 +16,8 @@ var PlacesSchema = new mongoose_1["default"].Schema({
     },
     name: String,
     summary: String,
-    checkIn: String,
-    checkOut: String,
+    // checkIn: String,
+    // checkOut: String,
     amenities: Array,
     bedrooms: Number,
     beds: Number,
@@ -33,7 +33,7 @@ var PlacesSchema = new mongoose_1["default"].Schema({
     reviews: Array,
     cancellation_policy: String
 });
-var Places = mongoose_1["default"].model("airbnbLocations", PlacesSchema);
+var Places = mongoose_1["default"].model("listingsAndReviews", PlacesSchema);
 exports["default"] = Places;
 var userSchema = new mongoose_1["default"].Schema({
     name: String,

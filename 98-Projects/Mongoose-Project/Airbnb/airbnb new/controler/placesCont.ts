@@ -129,7 +129,7 @@ export const searchAirbnb = async (req, res) => {
       adults,
       //  children, infants, pets
       );
-    const places = await Places.find({"neighbourhood":"Hong Kong"}).limit(20);
+    const places = await Places.find({}).limit(20);
     //  $query = array(accommodates => $userInput);
     //  {$query : Array(accommodates => `${adults}`)}
 
