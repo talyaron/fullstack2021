@@ -3,6 +3,20 @@ console.log('hello')
 const WORD_LENGTH = 5;
 const guessGrid = document.querySelector("[data-guess-grid]")
 
+const targetWord = '';
+const offsetFromDate:any = new Date(2022,0,1)
+const msOffset = Date.now() - offsetFromDate
+const dayOffset = Math.floor(msOffset / 1000 / 60 / 60 / 24)
+
+console.log(dayOffset)
+
+getDailyWord()
+
+async function getDailyWord (){
+    const { data } = await axios.get(`words/get-word?dayOffset=${dayOffset}`)
+    console.log (data)
+}
+
 function tabIndex(){
     const eyeImg = document.querySelectorAll('#eyeImg')
     eyeImg.forEach((img:any) =>{
@@ -30,7 +44,6 @@ function timeOfDay() {
 
     let realtoday = new Date();
     let realtime = realtoday.getHours();
-    console.log(realtime)
 
 
     if ((realtime >= 0 && realtime <= 5) || (realtime >= 22 && realtime <= 24)) {
@@ -215,7 +228,7 @@ async function handleRegister(ev) {
         }
         if (password === confirmPassword && email === confirmEmail) {
 
-            const { data } = await axios.post('/add-user', { username, password, email })
+            const { data } = await axios.post('users/add-user', { username, password, email })
             
             console.log(data)
 
@@ -254,7 +267,7 @@ function handleLogin(ev) {
 
 async function loginPractice(username, password) {
 
-    const { data } = await axios.get(`/get-user?username=${username}&password=${password}`)
+    const { data } = await axios.get(`users/get-user?username=${username}&password=${password}`)
 
     const greetings = timeOfDay();
 

@@ -11,3 +11,4 @@ var UserSchema = new mongoose_1["default"].Schema({
     max_strike: Number
 });
 var FundleUser = mongoose_1["default"].model('FundleUsers', UserSchema);
+exports["default"] = FundleUser;

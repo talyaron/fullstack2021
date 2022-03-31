@@ -1,32 +1,33 @@
-const wordsDictionary = require('./dictionary.json');
+import FundleWord from "../model/wordsModel"
 
-async function addToDB() {
+const wordsDictionary = require('../dictionary.json');
+
+
+export async function addToDB() {
     const dictionaryTest = await FundleWord.find({ wordNumber: 1 })
-  
+
     if (dictionaryTest.length > 0) {
-      console.log('ok')
-      let i = 0;
+        console.log('ok')
     }
-  
+
     else {
-      console.log('null')
-      for (let i = 0; i < wordsDictionary.length; i++) {
-        const newWord = new FundleWord({ word: wordsDictionary[i], wordNumber: i })
-        const result = await newWord.save()
-      }
-  
+        console.log('null')
+        for (let i = 0; i < wordsDictionary.length; i++) {
+            const newWord = new FundleWord({ word: wordsDictionary[i], wordNumber: i })
+            const result = await newWord.save()
+        }
+
     }
-  }
-
- async function getDailyWord(req,res){
-
-    let {dayOffset} = req.query;
-    
-    console.log(dayOffset)
-    
-    const dailyWord = await FundleWord.find({wordNumber: dayOffset})
-    
-    res.send(dailyWord)
-    
 }
-  
+
+export async function getDailyWord(req:any, res:any) {
+
+    let { dayOffset } = req.query;
+
+    console.log(dayOffset)
+
+    const dailyWord = await FundleWord.find({ wordNumber: dayOffset })
+
+    res.send(dailyWord)
+
+}

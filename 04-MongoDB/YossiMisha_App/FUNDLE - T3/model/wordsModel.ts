@@ -6,3 +6,5 @@ const WordSchema = new mongoose.Schema({
 })
 
 const FundleWord = mongoose.model('FundleWords', WordSchema);
+
+export default FundleWord;

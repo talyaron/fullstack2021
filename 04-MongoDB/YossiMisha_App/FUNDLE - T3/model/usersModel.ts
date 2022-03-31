@@ -11,3 +11,5 @@ const UserSchema = new mongoose.Schema({
 })
 
 const FundleUser = mongoose.model('FundleUsers', UserSchema);
+
+export default FundleUser;

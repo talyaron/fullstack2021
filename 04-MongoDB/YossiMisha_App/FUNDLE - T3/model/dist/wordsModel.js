@@ -6,3 +6,4 @@ var WordSchema = new mongoose_1["default"].Schema({
     wordNumber: Number
 });
 var FundleWord = mongoose_1["default"].model('FundleWords', WordSchema);
+exports["default"] = FundleWord;
