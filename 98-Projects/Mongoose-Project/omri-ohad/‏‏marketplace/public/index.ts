@@ -136,3 +136,12 @@ async function handleDescending(){
     else if(products) renderItemsMain(products);
 }
 
+async function handleSignUp(ev){
+    ev.preventDefault();
+    let {email, password,userName} = ev.target.elements;
+    email = email.value;
+    password = password.value;
+    userName = userName.value
+    const {data} = await axios.post('/products/register',{email, password,userName})
+    document.querySelector("reg").reset();
+}

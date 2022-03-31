@@ -216,3 +216,23 @@ function handleDescending() {
         });
     });
 }
+function handleSignUp(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        var _a, email, password, userName, data;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
+                case 0:
+                    ev.preventDefault();
+                    _a = ev.target.elements, email = _a.email, password = _a.password, userName = _a.userName;
+                    email = email.value;
+                    password = password.value;
+                    userName = userName.value;
+                    return [4 /*yield*/, axios.post('/products/register', { email: email, password: password, userName: userName })];
+                case 1:
+                    data = (_b.sent()).data;
+                    document.querySelector("reg").reset();
+                    return [2 /*return*/];
+            }
+        });
+    });
+}

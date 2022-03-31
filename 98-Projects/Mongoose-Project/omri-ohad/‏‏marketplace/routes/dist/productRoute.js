@@ -8,6 +8,7 @@ router
     .get('/get-products-to-main', productCont_1.getProductsMain)
     .post('/get-by-category', productCont_1.filterByCategory)
     .post("/add-product", productCont_1.addProduct)
+    .post("/register", productCont_1.register)
     .patch("/update-picture", productCont_1.updatePic)
     .patch("/update-title", productCont_1.updateTitle)
     .patch("/update-price", productCont_1.updatePrice)["delete"]("/delete-product", productCont_1.deleteProduct)

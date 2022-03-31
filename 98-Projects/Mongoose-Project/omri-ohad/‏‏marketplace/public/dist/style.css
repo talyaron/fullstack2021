@@ -112,6 +112,7 @@
   height: 100%;
   overflow: auto;
   cursor: auto;
+  backdrop-filter: blur(8px);
 }
 .popup__text {
   background-color: #ffffff;
@@ -139,10 +140,11 @@
 .main {
   width: 350px;
   height: 500px;
-  background: #472791;
+  background: #bb7e23;
   overflow: hidden;
   border-radius: 10px;
   box-shadow: 5px 20px 50px #000;
+  margin-left: 40vw;
 }
 
 #chk {
@@ -166,7 +168,7 @@ label {
   transition: 0.5s ease-in-out;
 }
 
-input {
+.input {
   width: 60%;
   height: 20px;
   background: #e0dede;

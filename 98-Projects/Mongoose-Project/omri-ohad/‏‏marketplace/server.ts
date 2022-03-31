@@ -1,7 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 const app = express();
-const port = process.env.PORT || 3002;
+const port = process.env.PORT || 3003;
 
 app.use(express.static("public"));
 app.use(express.json());
