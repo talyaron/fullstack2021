@@ -14,7 +14,7 @@ mongoose_1.default.connect('mongodb+srv://alexroz:Uou8wsRDp2J0FImM@cluster0.x62d
 const userRoute_1 = __importDefault(require("./routes/userRoute"));
 app.use("/songsUser", userRoute_1.default);
 const songsRoute_1 = __importDefault(require("./routes/songsRoute"));
-app.use("/songsOwner", songsRoute_1.default);
+app.use("/songs", songsRoute_1.default);
 app.get('/', (req, res) => {
     res.send('Hello World!');
 });

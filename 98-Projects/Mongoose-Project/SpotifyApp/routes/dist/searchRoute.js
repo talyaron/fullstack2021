@@ -2,7 +2,9 @@
 exports.__esModule = true;
 var express_1 = require("express");
 var router = express_1["default"].Router();
-var searchControllers_1 = require("../controllers/searchControllers");
+var songsController_1 = require("../controllers/songsController");
 router
-    .post("/getSearch", searchControllers_1.Search);
+    .post("/getSearch", search)
+    .post("/upload-song", songsController_1.Upload)
+    .get("/getSearch", search);
 exports["default"] = router;

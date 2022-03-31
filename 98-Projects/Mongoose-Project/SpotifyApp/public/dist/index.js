@@ -41,7 +41,7 @@ function handleGetSearch(ev) {
             switch (_a.label) {
                 case 0:
                     searchTerm = ev.target.value;
-                    return [4 /*yield*/, axios.get("/getSearch?" + searchTerm)];
+                    return [4 /*yield*/, axios.get("/songs/search?" + searchTerm)];
                 case 1:
                     _a.sent();
                     console.log(searchTerm);
@@ -64,11 +64,11 @@ function handleUpload(ev) {
                     genre = genre.value;
                     youtube = youtube.value;
                     console.log(song, picture, genre, youtube);
-                    return [4 /*yield*/, axios.post('/songsOwner/upload-song', { song: song, picture: picture, genre: genre, youtube: youtube })];
+                    return [4 /*yield*/, axios.post('/songs/upload-song', { song: song, picture: picture, genre: genre, youtube: youtube })];
                 case 1:
                     data = (_b.sent()).data;
                     songs = { data: data };
-                    console.log(data);
+                    console.log({ data: data });
                     renderSongs(songs);
                     return [2 /*return*/];
             }
@@ -119,10 +119,11 @@ function handleLogIn(ev) {
 function renderSongs(songs) {
     var root = document.querySelector('#likedSongs');
     try {
-        var html = songs.map(function (songs) {
-            // console.log(songs);
-            return "<div class=\"card\"><h2>" + songs.song + " :" + songs.picture + " ," + songs.genre + " ," + songs.youtube + "</h2>\n            <div><input type='text' placeholder='type' value='" + songs.genre + "' onblur='handleupdate(event,\"" + songs._id + "\")'/></div>\n            <button onclick='handleDelete(\"" + songs._id + "\")'>Delete</button>\n            <div><img src=\"" + songs.img + "\" alt=\"\"></div></div>";
+        var html = songs.map(function (song) {
+            console.log(song);
+            return "<div class=\"card\"><h2>" + song.song + " :" + song.picture + " ," + song.genre + " ," + song.youtube + "</h2>\n            <div><input type='text' placeholder='type' value='" + song.genre + "' onblur='handleupdate(event,\"" + song._id + "\")'/></div>\n            <button onclick='handleDelete(\"" + song._id + "\")'>Delete</button>\n            <div><img src=\"" + song.img + "\" alt=\"\"></div></div>";
         }).join('');
+        console.log(html);
         root.innerHTML = html;
         if (!root)
             throw new Error("no root in rendersongs");

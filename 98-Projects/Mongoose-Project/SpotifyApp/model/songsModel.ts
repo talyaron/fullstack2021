@@ -9,7 +9,7 @@ const SongsSchema = new mongoose.Schema({
 })
 
 
-const songs = mongoose.model('songsOwner', SongsSchema)
-const searches = mongoose.model('searches', SongsSchema)
+export const songs = mongoose.model('songs', SongsSchema)
+export const searches = mongoose.model('searches', SongsSchema)
 
-export default songs && searches;
+
