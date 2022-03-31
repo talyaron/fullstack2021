@@ -227,10 +227,11 @@ function handleSignUp(ev) {
                     email = email.value;
                     password = password.value;
                     userName = userName.value;
+                    document.querySelector("form").reset();
+                    document.getElementById("regMessage").innerHTML = "Successfully Signed Up";
                     return [4 /*yield*/, axios.post('/products/register', { email: email, password: password, userName: userName })];
                 case 1:
                     data = (_b.sent()).data;
-                    document.querySelector("reg").reset();
                     return [2 /*return*/];
             }
         });

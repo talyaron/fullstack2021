@@ -15,6 +15,7 @@
     <div class="mainPage">
 
         <div class="mainPage__header">
+         
             <div class="mainPage__header--icons">
                 <a href="index.html"><i class="fa fa-home" ></i></a>
                 <a href="personal-zone.html"><i class="fa fa-user" ></i></a>
@@ -31,15 +32,16 @@
                                 <input class="input" type="checkbox" id="chk" aria-hidden="true">
                             
                                   <div class="signup">
-                                    <form id = "reg" onsubmit="handleSignUp(event)">
+                                    <form id = "form" onsubmit="handleSignUp(event)">
                                       <label for="chk" aria-hidden="true">Sign up</label>
                                       <input class="input" type="text" name="userName" placeholder="User name" required="">
                                       <input class="input" type="email" name="email" placeholder="Email" required="">
                                       <input class="input" type="password" name="password" placeholder="Password" required="">
                                       <input type="submit" value="Sign Up">
+                                      <div id="regMessage"></div>
                                     </form>
                                   </div>
-                            
+                                  
                                   <div class="login">
                                     <form>
                                       <label for="chk" aria-hidden="true">Login</label>

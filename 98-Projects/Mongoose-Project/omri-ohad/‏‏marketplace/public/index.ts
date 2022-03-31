@@ -141,7 +141,8 @@ async function handleSignUp(ev){
     let {email, password,userName} = ev.target.elements;
     email = email.value;
     password = password.value;
-    userName = userName.value
+    userName = userName.value;
+    document.querySelector("form").reset();
+    document.getElementById("regMessage").innerHTML = "Successfully Signed Up";
     const {data} = await axios.post('/products/register',{email, password,userName})
-    document.querySelector("reg").reset();
 }
