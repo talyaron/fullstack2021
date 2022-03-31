@@ -185,8 +185,7 @@ function handleRenderTasks(ev) {
         var userURL, userId;
         return __generator(this, function (_a) {
             userURL = ev.target.baseURI;
-            userId = userURL.split('/')[-24];
-            console.log(userId);
+            userId = userURL.split('/')[1];
             getUsersTasks(userId);
             return [2 /*return*/];
         });
@@ -201,17 +200,20 @@ function getUsersTasks(userId) {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    _a.trys.push([0, 2, , 3]);
-                    return [4 /*yield*/, axios.get("tasks/getTasks?i=" + userId)];
+                    console.log(userId);
+                    _a.label = 1;
                 case 1:
-                    data = (_a.sent()).data;
-                    return [3 /*break*/, 3];
+                    _a.trys.push([1, 3, , 4]);
+                    return [4 /*yield*/, axios.get("tasks/getTasks?i=" + userId)];
                 case 2:
+                    data = (_a.sent()).data;
+                    return [3 /*break*/, 4];
+                case 3:
                     error_3 = _a.sent();
                     console.log("error in getUsersTasks:");
                     console.log(error_3.message);
-                    return [3 /*break*/, 3];
-                case 3: return [2 /*return*/];
+                    return [3 /*break*/, 4];
+                case 4: return [2 /*return*/];
             }
         });
     });

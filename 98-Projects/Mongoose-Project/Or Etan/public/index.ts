@@ -227,9 +227,7 @@ function renderHome(firstName, lastName, gender, role) {
 
 async function handleRenderTasks(ev){
   const userURL = ev.target.baseURI;
-  const userId = userURL.split('/')[-24];
-  console.log(userId);
-  
+  const userId = userURL.split('/')[1];
   getUsersTasks(userId)
 }
 console.dir();
@@ -238,6 +236,8 @@ console.log(addGlobalEventListener);
 addGlobalEventListener(onload, '#landing__task-count',getUsersTasks(window.location.href), {})
 
 async function getUsersTasks(userId) {
+  console.log(userId);
+  
   try {
     const {data} = await axios.get(`tasks/getTasks?i=${userId}`);
     // const { data } = await axios

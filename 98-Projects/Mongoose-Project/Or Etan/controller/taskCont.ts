@@ -26,13 +26,14 @@ export const renderPage = async (req, res) => {
 };
 
 export const getUsersTasks = async (req,res) => {
-    const userId = req.query;
-    console.log(userId);
+    const {i} = req.query;
+    console.log(i);
 
 
     
 
-    const currentUsersTasks = await task.find({ ownerId: userId });
+    const currentUsersTasks = await task.find({ ownerId: i });
+    console.log(currentUsersTasks);
     
     // res.send({ok: true, newUserURL: userURL})
     
