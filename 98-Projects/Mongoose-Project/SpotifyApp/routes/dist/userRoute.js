@@ -5,5 +5,5 @@ var router = express_1["default"].Router();
 var userController_1 = require("../controllers/userController");
 router
     .post("/sign-user", userController_1.logIn)
-    .post("/reg-user", userController_1.Register);
+    .post("/reg-user", userController_1.register);
 exports["default"] = router;

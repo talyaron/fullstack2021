@@ -1,7 +1,7 @@
 import User from "../model/userModel";
 import bcrypt from 'bcrypt'
 
-export const Register = async (req, res) => {
+export const register = async (req, res) => {
     try {
         let { name, password } = req.body;
         const hashpassword = await bcrypt.hash(password, 10)

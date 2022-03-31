@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.deleteUser = exports.addUser = exports.getUser = void 0;
+exports.updateUser = exports.deleteUser = exports.addUser = exports.getUser = void 0;
 var userModel_1 = require("../models/userModel");
 exports.getUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var email, password, result, err_1;
@@ -92,14 +92,13 @@ exports.deleteUser = function (req, res) { return __awaiter(void 0, void 0, void
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 4, , 5]);
-                console.log(req.body);
                 email = req.body.email;
                 if (!email) return [3 /*break*/, 2];
                 return [4 /*yield*/, userModel_1["default"].deleteOne({ email: email })];
             case 1:
                 userDelete = _a.sent();
                 if (!email)
-                    throw new Error("Didnt find games with such an email");
+                    throw new Error("Didnt find user with such an email");
                 res.send({ results: "user deleted" });
                 return [3 /*break*/, 3];
             case 2: throw new Error("Id was not found in request");
@@ -113,8 +112,23 @@ exports.deleteUser = function (req, res) { return __awaiter(void 0, void 0, void
         }
     });
 }); };
-// export const updateUser = async (req, res) =>{
-//     try{
-//         const {updatedUser} = req.body;
-//     }
-// }
+exports.updateUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var updatedUser, err_4;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 2, , 3]);
+                updatedUser = req.body;
+                return [4 /*yield*/, userModel_1["default"].updateOne({ email: updatedUser.email }, updatedUser)];
+            case 1:
+                _a.sent();
+                return [3 /*break*/, 3];
+            case 2:
+                err_4 = _a.sent();
+                console.error(err_4);
+                res.send({ error: err_4.message, ok: false });
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
+        }
+    });
+}); };
