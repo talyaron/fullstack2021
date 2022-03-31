@@ -132,6 +132,4 @@ myForm.addEventListener("submit", (e:any) => {
   closeModal(modal)
 });
 
-console.log?.(color.value)
-console.log(daysLeft.value)
 

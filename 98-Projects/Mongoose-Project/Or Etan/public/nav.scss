@@ -64,7 +64,7 @@ nav ul {
   flex-direction: row;
   justify-content: space-between;
   padding-inline: 2rem;
-  max-width: 100vw-2rem;
+  max-width: 100vw-2;
 
   &__back,
   &__filter {
@@ -130,9 +130,7 @@ nav ul {
       }
     }
   }
-#info{
-  animation: fade 0.5s infinite alternate;
-}
+
 #monthly-tasks, #home, #chart{ 
 &:hover {
     .material-icons {
@@ -174,25 +172,7 @@ h3 {
 
 // KEYFRAMES
 
-@keyframes pulse {
-  from {
-    transform: scale(1);
-    opacity: 1;
-  }
 
-  to {
-    transform: scale(0.75);
-    opacity: 0.25;
-  }
-}
-@keyframes fade {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0.25;
-  }
-}
 //icon styles, use as
 .md-18 {
   font-size: 18px;
