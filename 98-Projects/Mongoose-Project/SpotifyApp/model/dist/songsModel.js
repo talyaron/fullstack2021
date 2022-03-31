@@ -8,4 +8,5 @@ var SongsSchema = new mongoose_1["default"].Schema({
     youtube: String
 });
 var songs = mongoose_1["default"].model('songsOwner', SongsSchema);
-exports["default"] = songs;
+var searches = mongoose_1["default"].model('searches', SongsSchema);
+exports["default"] = songs && searches;
