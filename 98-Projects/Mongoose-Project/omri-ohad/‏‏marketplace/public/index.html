@@ -18,6 +18,43 @@
             <div class="mainPage__header--icons">
                 <a href="index.html"><i class="fa fa-home" ></i></a>
                 <a href="personal-zone.html"><i class="fa fa-user" ></i></a>
+
+                <i id="myBtn" class="fa fa-sign-in"></i>
+                <i id="" class="fa fa-shopping-cart"></i>
+                <div id="myPopUp" class="popup" style="z-index: 1;">
+
+                    <!-- <div class="popup__text"> -->
+                        <span class="close"></span>
+                        <div class="popup__text__row">
+                            <div class="popup__text__row__item">
+                              <div class="main">  	
+                                <input type="checkbox" id="chk" aria-hidden="true">
+                            
+                                  <div class="signup">
+                                    <form>
+                                      <label for="chk" aria-hidden="true">Sign up</label>
+                                      <input type="text" name="txt" placeholder="User name" required="">
+                                      <input type="email" name="email" placeholder="Email" required="">
+                                      <input type="password" name="pswd" placeholder="Password" required="">
+                                      <button>Sign up</button>
+                                    </form>
+                                  </div>
+                            
+                                  <div class="login">
+                                    <form>
+                                      <label for="chk" aria-hidden="true">Login</label>
+                                      <input type="email" name="email" placeholder="Email" required="">
+                                      <input type="password" name="pswd" placeholder="Password" required="">
+                                      <button>Login</button>
+                                    </form>
+                                  </div>
+                              </div>
+                                
+                        </div>
+
+                        </div>
+                      <!-- </div> -->
+                </div>
             </div>
             <div class="mainPage__header--title"><h1>MARKET PLACE</h1></div>
             <div class="mainPage__header--welcome">Hello Moshe</div>
@@ -44,5 +81,25 @@
    
 </div> -->
     <script src="./dist/index.js"></script>
+
+
+
+    <script>
+        let PopUp = document.getElementById("myPopUp");
+        let btn = document.getElementById("myBtn");
+        let span = document.getElementsByClassName("close")[0];
+        btn.onclick = function() {
+          PopUp.style.display = "block";
+        }
+        span.onclick = function() {
+          PopUp.style.display = "none";
+        }
+        window.onclick = function(event) {
+          if (event.target == PopUp) {
+            PopUp.style.display = "none";
+          }
+        }
+        </script>
+
 </body>
 </html>
