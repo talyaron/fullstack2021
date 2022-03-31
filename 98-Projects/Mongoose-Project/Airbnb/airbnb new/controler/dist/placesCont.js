@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.search = exports.searchAirbnb = exports.findPlaceMap = exports.getToPlace = exports.addPlaces = exports.getfilteredAirBNB = exports.getPlaces = void 0;
+exports.search = exports.searchAirbnbInTelaviv = exports.searchAirbnb = exports.findPlaceMap = exports.getToPlace = exports.addPlaces = exports.getfilteredAirBNB = exports.getPlaces = void 0;
 var placesModel_1 = require("../model/placesModel");
 exports.getPlaces = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var places, error_1;
@@ -44,9 +44,10 @@ exports.getPlaces = function (req, res) { return __awaiter(void 0, void 0, void 
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 2, , 3]);
-                return [4 /*yield*/, placesModel_1["default"].find({}).limit(20)];
+                return [4 /*yield*/, placesModel_1["default"].find({})];
             case 1:
                 places = _a.sent();
+                // .limit(20);
                 console.log(placesModel_1["default"]);
                 console.log(places);
                 res.send({ ok: true, places: places });
@@ -164,19 +165,29 @@ exports.findPlaceMap = function (req, res) { return __awaiter(void 0, void 0, vo
     });
 }); };
 exports.searchAirbnb = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, search_1, checkIn, checkOut, adults, children, infants, pets, places, error_4;
-    return __generator(this, function (_b) {
-        switch (_b.label) {
+    var 
+    // search, 
+    // checkIn, checkOut,
+    adults, places, error_4;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
             case 0:
-                _b.trys.push([0, 2, , 3]);
-                _a = req.body, search_1 = _a.search, checkIn = _a.checkIn, checkOut = _a.checkOut, adults = _a.adults, children = _a.children, infants = _a.infants, pets = _a.pets;
-                return [4 /*yield*/, placesModel_1["default"].find({ address: search_1 }, { accommodates: adults, children: children, infants: infants, pets: pets })];
+                _a.trys.push([0, 2, , 3]);
+                adults = req.query.adults;
+                console.log(
+                // search, 
+                // checkIn, checkOut, 
+                adults);
+                return [4 /*yield*/, placesModel_1["default"].find({ accommodates: 8 }).limit(20)];
             case 1:
-                places = _b.sent();
+                places = _a.sent();
+                //  $query = array(accommodates => $userInput);
+                //  {$query : Array(accommodates => `${adults}`)}
+                console.log(places);
                 res.send({ ok: true, places: places });
                 return [3 /*break*/, 3];
             case 2:
-                error_4 = _b.sent();
+                error_4 = _a.sent();
                 console.log(error_4.error);
                 res.send({ error: error_4.massage });
                 return [3 /*break*/, 3];
@@ -184,8 +195,21 @@ exports.searchAirbnb = function (req, res) { return __awaiter(void 0, void 0, vo
         }
     });
 }); };
+exports.searchAirbnbInTelaviv = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var placesInTelaviv;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4 /*yield*/, placesModel_1["default"].find({ address: { country: "Brazil" } }).limit(10)];
+            case 1:
+                placesInTelaviv = _a.sent();
+                console.log(placesInTelaviv);
+                res.send({ ok: true, placesInTelaviv: placesInTelaviv });
+                return [2 /*return*/];
+        }
+    });
+}); };
 exports.search = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var places, search_2, serchPlace, error_5;
+    var places, search_1, serchPlace, error_5;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -193,9 +217,9 @@ exports.search = function (req, res) { return __awaiter(void 0, void 0, void 0, 
                 return [4 /*yield*/, placesModel_1["default"].find({})];
             case 1:
                 places = _a.sent();
-                search_2 = req.query.search;
-                serchPlace = searchPlaces(search_2, places);
-                console.log(search_2, " ", places);
+                search_1 = req.query.search;
+                serchPlace = searchPlaces(search_1, places);
+                console.log(search_1, " ", places);
                 res.send(serchPlace);
                 return [3 /*break*/, 3];
             case 2:

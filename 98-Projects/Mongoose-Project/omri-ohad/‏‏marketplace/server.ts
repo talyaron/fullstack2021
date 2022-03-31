@@ -17,7 +17,11 @@ app.post("/add-product",);
 
 app.get("/get-products", );
 
-app.patch("/update-product");
+app.patch("/update-picture");
+
+app.patch("/update-title");
+
+app.patch("/update-price");
 
 app.delete('/delete-product',);
 

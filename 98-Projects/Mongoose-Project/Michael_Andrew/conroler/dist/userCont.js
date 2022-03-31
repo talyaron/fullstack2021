@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.addArtToUser = exports.updateUser = exports.findUser = exports.addUser = void 0;
+exports.buyAndSell = exports.addArtToUser = exports.updateUser = exports.findUser = exports.addUser = void 0;
 var userModel_1 = require("../model/userModel");
 exports.addUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var _a, userName, email, password, url, userFind, fund, artCollection, newUser, users, error_1;
@@ -87,7 +87,7 @@ exports.findUser = function (req, res) { return __awaiter(void 0, void 0, void 0
             case 1:
                 oldUser = _b.sent();
                 if (oldUser.length === 0) {
-                    res.send('Wrong email/password');
+                    res.send({ noUser: 'Wrong email/password' });
                 }
                 else if (oldUser.length > 0) {
                     res.send({ oldUser: oldUser });
@@ -127,6 +127,26 @@ exports.addArtToUser = function (req, res) { return __awaiter(void 0, void 0, vo
             case 1:
                 r = _b.sent();
                 console.log(r);
+                return [2 /*return*/];
+        }
+    });
+}); };
+exports.buyAndSell = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _a, buyerId, price, ownerId, result, result2;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
+            case 0:
+                _a = req.body, buyerId = _a.buyerId, price = _a.price, ownerId = _a.ownerId;
+                //בטח אפשר לאחד את שתי שורות הבאות, אבל עוד מעט 2 בלילה 
+                //לא הצלחתי לעדכן חיסור וחיבור הפאנד 
+                console.log(ownerId, buyerId, price);
+                return [4 /*yield*/, userModel_1["default"].updateOne({ _id: ownerId }, { $inc: { fund: price } })];
+            case 1:
+                result = _b.sent();
+                return [4 /*yield*/, userModel_1["default"].updateOne({ _id: buyerId }, { $inc: { fund: -price } })];
+            case 2:
+                result2 = _b.sent();
+                res.send({ ok: true });
                 return [2 /*return*/];
         }
     });

@@ -14,7 +14,16 @@ body {
     font-family: "Roboto Condensed", sans-serif;
     background-image: url(https://images.unsplash.com/photo-1533631273148-264f2ec26448?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZGFyayUyMHdvb2R8ZW58MHx8MHx8&w=1000&q=80);
 }
-
+.finish{height: 0%;
+    margin: -5%;
+    color: rgb(255, 255, 255);
+    width: 20%;
+    margin-right: 60%;
+    margin-left: 40%;
+    position: relative;
+    top: -50%;
+    cursor: pointer;
+}
 .container {
 
     &__navbar {

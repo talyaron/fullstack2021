@@ -37,7 +37,7 @@ function renderData(data: Array<any>) {
                             </div>
                             <div class="book__content__pageFlip-front">
                             <img id="cover" src="${book.coverImg}">
-                            <label class="book__content__pageFlip-front-btn" for="${book.BookId}check1">Read</label>
+                            <label class="book__content__pageFlip-front-btn" id="glow" for="${book.BookId}check1"  onclick="handlecolor(event)">Read</label>
                         </div>
                     </div>
                     <div class="book__content__pageFlip" id="page2">
@@ -93,7 +93,8 @@ function renderData(data: Array<any>) {
                 </div>
             </div>
         </div>
-        </div>`
+        </div>
+        <h1 class="finish">finish? push me</h1>`
     });
     const root = document.querySelector('#root');
     root.innerHTML = html;
@@ -160,3 +161,7 @@ window.onclick = function (event) {
     }
 }
 
+function handlecolor(ev){
+    document.body.style.backgroundColor = "lime";
+   
+}

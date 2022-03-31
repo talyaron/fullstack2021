@@ -15,9 +15,9 @@ mongoose_1.default
     .connect("mongodb+srv://shay:shayFoyer1994@cluster0.xyd5y.mongodb.net/sample_airbnb?retryWrites=true&w=majority")
     .then((result) => {
     console.log("connected to db");
-    placesModel_1.default.find({}).limit(10)
+    placesModel_1.default.find({})
         .then((res) => {
-        console.log(res);
+        // console.log(res);
     })
         .catch((err) => {
         console.log(err.message);

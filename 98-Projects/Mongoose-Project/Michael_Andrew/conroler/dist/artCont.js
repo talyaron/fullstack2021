@@ -47,7 +47,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.cancelSale = exports.putArtOnSale = exports.getMyArt = exports.addArtToUser = void 0;
+exports.buyAndSell = exports.getForSale = exports.cancelSale = exports.putArtOnSale = exports.getMyArt = exports.addArtToUser = void 0;
 var artModel_1 = require("../model/artModel");
 exports.addArtToUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var _a, newArt, userId, newArtDB, r, err_1;
@@ -117,6 +117,32 @@ exports.cancelSale = function (req, res) { return __awaiter(void 0, void 0, void
             case 1:
                 r = _a.sent();
                 res.send(r);
+                return [2 /*return*/];
+        }
+    });
+}); };
+exports.getForSale = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var result;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4 /*yield*/, artModel_1["default"].find({ forSale: true })];
+            case 1:
+                result = _a.sent();
+                res.send({ ok: true, result: result });
+                return [2 /*return*/];
+        }
+    });
+}); };
+exports.buyAndSell = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _a, artId, buyerId, result;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
+            case 0:
+                _a = req.body, artId = _a.artId, buyerId = _a.buyerId;
+                return [4 /*yield*/, artModel_1["default"].findOneAndUpdate({ _id: artId }, { forSale: false, ownerId: buyerId })];
+            case 1:
+                result = _b.sent();
+                res.send({ ok: true, result: result });
                 return [2 /*return*/];
         }
     });

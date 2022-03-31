@@ -51,7 +51,6 @@ function OpenSignUpForm(e) {
                     _a.trys.push([1, 5, , 6]);
                     newUser = e.target.elements;
                     userName = newUser.userName, email = newUser.email, password = newUser.password, password2 = newUser.password2, url = newUser.url;
-                    //andrew - i added split and join because- maybe the user will space in between his email. So i erase spaces. You will se in the server - i'm using the email to figure if he is already registered
                     userName = userName.value.split(' ').join('');
                     email = email.value.split(' ').join('');
                     password = password.value;
@@ -92,14 +91,10 @@ function handleLogInForm(e) {
                     email = oldUser.email, password = oldUser.password;
                     email = email.value.split(' ').join('');
                     password = password.value.split(' ').join('');
-                    return [4 /*yield*/, axios.get("/users/log-user?loginEmail=" + email + "&loginPassword=" + password)
-                        // userLogedIn.addlogData(data)
-                        // site.user = data.oldUser[0];
-                    ];
+                    return [4 /*yield*/, axios.get("/users/log-user?loginEmail=" + email + "&loginPassword=" + password)];
                 case 2:
                     data = (_a.sent()).data;
-                    // userLogedIn.addlogData(data)
-                    // site.user = data.oldUser[0];
+                    site.user = data.oldUser[0];
                     localStorage.setItem('user', JSON.stringify(site.user));
                     if (!email || !password)
                         throw new Error("no email || password in handleLogInForm");
@@ -114,6 +109,7 @@ function handleLogInForm(e) {
                     e.target.reset();
                     signIn = document.querySelector('.sign-in-form');
                     signIn.classList.toggle('in-vis');
+                    handleOnLoad();
                     return [2 /*return*/];
             }
         });
@@ -135,13 +131,99 @@ function handleLogOut() {
         location.reload();
 }
 function handleOnLoad() {
-    var user = JSON.parse(localStorage === null || localStorage === void 0 ? void 0 : localStorage.getItem('user'));
-    if (user)
-        site.user = user;
-    if (window.location.pathname.split("/").pop() == 'account_page.html') {
-        var main = document.querySelector('.main-account');
-        main.innerHTML = "<h2>welcome back " + site.user.userName + "!</h2>\n                        <img src=\"" + site.user.url + "\">\n                        <h3>" + site.user.email + "</h3>\n                        <h3>Funds: " + site.user.fund + " BTC</h3>";
-    }
+    return __awaiter(this, void 0, void 0, function () {
+        var user, main, data, result;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    user = JSON.parse(localStorage === null || localStorage === void 0 ? void 0 : localStorage.getItem('user'));
+                    if (user)
+                        site.user = user;
+                    if (window.location.pathname.split("/").pop() == 'account_page.html') {
+                        main = document.querySelector('.main-account');
+                        main.innerHTML = "<h2>welcome back " + site.user.userName + "!</h2>\n                        <img src=\"" + site.user.url + "\">\n                        <h3>" + site.user.email + "</h3>\n                        <h3>Funds: " + site.user.fund + " BTC</h3>";
+                    }
+                    if (!(window.location.pathname.split("/").pop() == 'index.html')) return [3 /*break*/, 2];
+                    return [4 /*yield*/, axios.get('/arts/art-for-sale')];
+                case 1:
+                    data = (_a.sent()).data;
+                    result = data.result;
+                    console.log(result);
+                    renderArtForSale(result);
+                    _a.label = 2;
+                case 2: return [2 /*return*/];
+            }
+        });
+    });
+}
+function renderArtForSale(artsForSale) {
+    var main = document.querySelector('.main');
+    var html = "";
+    artsForSale.forEach(function (art) {
+        console.log(art);
+        html += "<div class=\"main__card\">\n                    <img src=\"" + art.url + "\" class=\"main__card__img\">\n                    <div class=\"main__card__discription\">\n                        <div class=\"main__card__discription__upper\">\n                            <div class=\"main__card__author\">\n                                <p>" + art.artName + "</p>\n                                <p>by: " + art.author + "</p>\n                            </div>\n                            <div class=\"main__card__price\">\n                                <p>price: " + art.price + " BTC</p>\n                                <p>7 days left</p>\n                            </div>\n                        </div>\n                        <div class=\"main__card__discription__lower\">\n                            <div class=\"main__card__buyNow\">";
+        if (art.ownerId == site.user._id) {
+            html += "<p>Your Sale</p>";
+        }
+        else {
+            html += "<p onclick=\"handleBuy('" + art._id + "', '" + art.price + "','" + art.ownerId + "')\">Buy Now</p>";
+        }
+        html += "</div>\n                            <div class=\"main__card__likes\">\n                                <p>3</p>\n                            </div>\n                        </div>\n                    </div>\n                </div>";
+    });
+    main.innerHTML = html;
+    //אנדרו - לא מצליח לרנדר הכל
+    //השעה כבר מאוחרת.. צריך לעשות תנאי שהיוזר שעשה לוגאין יראה רק יצירות שהן ---לא--- (!) שלו
+    // const images: any = document.querySelectorAll(".main__card__img");
+    // let renderImg = ''
+    // const elements = document.querySelectorAll('.main__card__author')
+    // const prices = document.querySelectorAll('.main__card__price')
+    // elements.forEach(element => {
+    //     prices.forEach(price => {
+    //         urls.forEach(url => {
+    //             element.children.item(0).innerHTML = `${url.artName} #nftArts`
+    //             element.children.item(1).innerHTML = `${url.author}'s Collection`
+    //             price.children.item(0).innerHTML = `<label onclick="handleBuy('${url._id}', '${url.price}', '${url.ownerId}')">Click here to buy in</label> ${url.price}$`
+    //         }
+    //         )
+    //     })
+    // })
+    // images.forEach(img => {
+    //     urls.forEach(url => {
+    //         renderImg = `url('${url.url}')`
+    //     })
+    //     img.style.backgroundImage = renderImg
+    // })
+}
+function handleBuy(artId, price, ownerId) {
+    return __awaiter(this, void 0, void 0, function () {
+        var data;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    if (Object.keys(site.user).length < 1) {
+                        alert("Log-in first!");
+                        return [2 /*return*/];
+                    }
+                    if (!(price > site.user.fund)) return [3 /*break*/, 1];
+                    alert("Not Enough Funds!");
+                    return [3 /*break*/, 5];
+                case 1: return [4 /*yield*/, axios.patch('/users/buy-and-sell', { buyerId: site.user._id, price: price, ownerId: ownerId })];
+                case 2:
+                    _a.sent();
+                    return [4 /*yield*/, axios.patch('/arts/buy-and-sell', { artId: artId, buyerId: site.user._id })];
+                case 3:
+                    _a.sent();
+                    return [4 /*yield*/, axios.get("/users/log-user?loginEmail=" + site.user.email + "&loginPassword=" + site.user.password)];
+                case 4:
+                    data = (_a.sent()).data;
+                    site.user = data.oldUser[0];
+                    localStorage.setItem('user', JSON.stringify(site.user));
+                    handleOnLoad();
+                    _a.label = 5;
+                case 5: return [2 /*return*/];
+            }
+        });
+    });
 }
 function handleAccountRedirect() {
     if (site.user.userName)
@@ -290,7 +372,6 @@ function handleAddArt(ev) {
         });
     });
 }
-// volatile database for current user and etc'
 //sideBar
 function handleStatusClick() {
     document.querySelector('.status-buttons').classList.toggle('toggle');
