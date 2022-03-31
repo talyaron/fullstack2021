@@ -1,9 +1,9 @@
-import Songs from '../model/songsModel'
+import songs from '../model/songsModel'
 
 export const Upload = async (req, res) => {
     try {
         let { song, picture, genre, youtube } = req.body;
-        const newSong = new Songs({ song, picture, genre, youtube })
+        const newSong = new songs({ song, picture, genre, youtube })
        
 
         console.log(newSong)

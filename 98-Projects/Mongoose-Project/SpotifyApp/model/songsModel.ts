@@ -10,5 +10,6 @@ const SongsSchema = new mongoose.Schema({
 
 
 const songs = mongoose.model('songsOwner', SongsSchema)
+const searches = mongoose.model('searches', SongsSchema)
 
-export default songs
+export default songs && searches;
