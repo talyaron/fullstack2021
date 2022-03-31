@@ -1,3 +1,4 @@
+import e from "express";
 import User from "../models/userModel";
 
 export const getUser = async (req, res) => {
@@ -31,24 +32,28 @@ export const addUser = async (req, res) => {
 }
 export const deleteUser = async (req, res) => {
     try {
-        console.log(req.body);
+        
         const { email } = req.body;
         if (email) {
-          const userDelete = await User.deleteOne({email:email})
-          if (!email) throw new Error("Didnt find games with such an email");
-          res.send({ results: "user deleted" });
+            const userDelete = await User.deleteOne({ email: email })
+            if (!email) throw new Error("Didnt find user with such an email");
+            res.send({ results: "user deleted" });
         } else {
-          throw new Error("Id was not found in request");
+            throw new Error("Id was not found in request");
         }
-      } catch (err) {
+    } catch (err) {
         console.error(`In delete-user: ${err.message}`);
         res.send({ error: err.message });
-      }
+    }
 }
 
-// export const updateUser = async (req, res) =>{
-//     try{
-//         const {updatedUser} = req.body;
+export const updateUser = async (req, res) => {
+    try {
+        const updatedUser = req.body;
+        await User.updateOne({ email: updatedUser.email }, updatedUser);
+    } catch (err) {
+        console.error(err);
+        res.send({ error: err.message, ok: false })
+    }
 
-//     }
-// }
+}

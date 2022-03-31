@@ -10,6 +10,18 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 console.log('hello');
 const WORD_LENGTH = 5;
 const guessGrid = document.querySelector("[data-guess-grid]");
+const targetWord = '';
+const offsetFromDate = new Date(2022, 0, 1);
+const msOffset = Date.now() - offsetFromDate;
+const dayOffset = Math.floor(msOffset / 1000 / 60 / 60 / 24);
+console.log(dayOffset);
+getDailyWord();
+function getDailyWord() {
+    return __awaiter(this, void 0, void 0, function* () {
+        const { data } = yield axios.get(`words/get-word?dayOffset=${dayOffset}`);
+        console.log(data);
+    });
+}
 function tabIndex() {
     const eyeImg = document.querySelectorAll('#eyeImg');
     eyeImg.forEach((img) => {
@@ -31,7 +43,6 @@ function handlePassToggle() {
 function timeOfDay() {
     let realtoday = new Date();
     let realtime = realtoday.getHours();
-    console.log(realtime);
     if ((realtime >= 0 && realtime <= 5) || (realtime >= 22 && realtime <= 24)) {
         return 'Good Night';
     }
@@ -186,7 +197,7 @@ function handleRegister(ev) {
                 window.alert('emails dont match');
             }
             if (password === confirmPassword && email === confirmEmail) {
-                const { data } = yield axios.post('/add-user', { username, password, email });
+                const { data } = yield axios.post('users/add-user', { username, password, email });
                 console.log(data);
                 if (data === 'AlreadyUser') {
                     window.alert('Username already taken');
@@ -212,7 +223,7 @@ function handleLogin(ev) {
 }
 function loginPractice(username, password) {
     return __awaiter(this, void 0, void 0, function* () {
-        const { data } = yield axios.get(`/get-user?username=${username}&password=${password}`);
+        const { data } = yield axios.get(`users/get-user?username=${username}&password=${password}`);
         const greetings = timeOfDay();
         if (data.user) {
             document.querySelector(".hello").innerHTML = `&nbsp;&nbsp;&nbsp;${greetings} <span style="color: orange;">&nbsp;${username}</span>`;

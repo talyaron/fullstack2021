@@ -1,4 +1,7 @@
-async function addUser(req, res) {
+import FundleUser from "../model/usersModel"
+
+
+export async function addUser(req:any, res:any) {
 
     let { username, password, email } = req.body;
 
@@ -22,7 +25,7 @@ async function addUser(req, res) {
 }
 
 
-async function getUser(req, res) {
+export async function getUser(req:any, res:any) {
 
 
     let { username, password } = req.query

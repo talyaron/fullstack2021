@@ -36,55 +36,67 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.getDailyWord = exports.addToDB = void 0;
-var wordsModel_1 = require("../model/wordsModel");
-var wordsDictionary = require('../dictionary.json');
-function addToDB() {
+exports.getUser = exports.addUser = void 0;
+var usersModel_1 = require("../model/usersModel");
+function addUser(req, res) {
     return __awaiter(this, void 0, void 0, function () {
-        var dictionaryTest, i, newWord, result;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, wordsModel_1["default"].find({ wordNumber: 1 })];
-                case 1:
-                    dictionaryTest = _a.sent();
-                    if (!(dictionaryTest.length > 0)) return [3 /*break*/, 2];
-                    console.log('ok');
-                    return [3 /*break*/, 6];
-                case 2:
-                    console.log('null');
-                    i = 0;
-                    _a.label = 3;
-                case 3:
-                    if (!(i < wordsDictionary.length)) return [3 /*break*/, 6];
-                    newWord = new wordsModel_1["default"]({ word: wordsDictionary[i], wordNumber: i });
-                    return [4 /*yield*/, newWord.save()];
-                case 4:
-                    result = _a.sent();
-                    _a.label = 5;
-                case 5:
-                    i++;
-                    return [3 /*break*/, 3];
-                case 6: return [2 /*return*/];
-            }
-        });
-    });
-}
-exports.addToDB = addToDB;
-function getDailyWord(req, res) {
-    return __awaiter(this, void 0, void 0, function () {
-        var dayOffset, dailyWord;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
+        var _a, username, password, email, noPass, played, wins, current_strike, max_strike, newFundleUser, result;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
                 case 0:
-                    dayOffset = req.query.dayOffset;
-                    console.log(dayOffset);
-                    return [4 /*yield*/, wordsModel_1["default"].find({ wordNumber: dayOffset })];
+                    _a = req.body, username = _a.username, password = _a.password, email = _a.email;
+                    return [4 /*yield*/, usersModel_1["default"].find({ username: username })];
                 case 1:
-                    dailyWord = _a.sent();
-                    res.send(dailyWord);
-                    return [2 /*return*/];
+                    noPass = _b.sent();
+                    console.log(noPass.length);
+                    if (!(noPass.length === 0)) return [3 /*break*/, 3];
+                    played = 0;
+                    wins = 0;
+                    current_strike = 0;
+                    max_strike = 0;
+                    newFundleUser = new usersModel_1["default"]({ username: username, password: password, email: email, played: played, wins: wins, current_strike: current_strike, max_strike: max_strike });
+                    return [4 /*yield*/, newFundleUser.save()];
+                case 2:
+                    result = _b.sent();
+                    res.send({ result: result });
+                    return [3 /*break*/, 4];
+                case 3:
+                    res.send('AlreadyUser');
+                    _b.label = 4;
+                case 4: return [2 /*return*/];
             }
         });
     });
 }
-exports.getDailyWord = getDailyWord;
+exports.addUser = addUser;
+function getUser(req, res) {
+    return __awaiter(this, void 0, void 0, function () {
+        var _a, username, password, userMatch, noPass;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
+                case 0:
+                    _a = req.query, username = _a.username, password = _a.password;
+                    console.log(username, password);
+                    return [4 /*yield*/, usersModel_1["default"].find({ username: username, password: password })];
+                case 1:
+                    userMatch = _b.sent();
+                    console.log(userMatch);
+                    if (!(userMatch.length >= 1)) return [3 /*break*/, 2];
+                    res.send({ user: userMatch });
+                    return [3 /*break*/, 4];
+                case 2: return [4 /*yield*/, usersModel_1["default"].find({ username: username })];
+                case 3:
+                    noPass = _b.sent();
+                    if (noPass.length >= 1) {
+                        res.send("nopass");
+                    }
+                    else {
+                        res.send("nouser");
+                    }
+                    _b.label = 4;
+                case 4: return [2 /*return*/];
+            }
+        });
+    });
+}
+exports.getUser = getUser;

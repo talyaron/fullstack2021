@@ -21,6 +21,7 @@
 
     <title>Monthly Tasks</title>
     <script src="https://code.iconify.design/2/2.1.0/iconify.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
 </head>
 
@@ -35,10 +36,12 @@
                 <input type="checkbox" id="control__nav__toggle">
                 <nav class="hidden">
                     <ul>
-                        <li id="home"><a href="home-Or.html"><i class="material-icons white-color">home</i></a></li>
-                        <li id="chart"><a href="accountSettings.html"><i
-                                    class="material-icons white-color">manage_accounts</i></a></li>
-                        <li id="info"><a href="info.html"><i class="material-icons white-color">info</i></a></li>
+                        <li id="home"><a onclick="handlePageChange(event)"><i
+                                    class="material-icons white-color">home</i></a></li>
+                        <li id="chart"><a onclick="handlePageChange(event)"><i
+                                    class="material-icons white-color">settings</i></a></li>
+                        <li id="info"><a onclick="handlePageChange(event)"><i
+                                    class="material-icons white-color">info</i></a></li>
                     </ul>
                 </nav>
             </div>
@@ -51,7 +54,7 @@
         </div>
 
         <main>
-            <ul  id="landing__task-count">
+            <ul onload="handleGetUsersTasks(event)" id="landing__task-count">
                 <li class="box">
                     <div id="box__flex">
                         <div class="box__header">
@@ -93,7 +96,7 @@
             <button data-modal-target="#modal">
                 <div id="landing__task__descr">
                     <span id="landing__task__descr__logo" class="iconify" data-icon="majesticons:pencil-line"
-                        data-width="24" ></span>
+                        data-width="24"></span>
                     <div id="landing__task__descr__text">
                         <h3>Description</h3>
                         <p>create subtasks for the ...</p>
@@ -121,10 +124,10 @@
                         </datalist>
                     </div>
                     <div class="task-description">
-                    <input type="text" name="description" id="description" value="Landing Page">
+                        <input type="text" name="description" id="description" value="Landing Page">
                     </div>
                     <div class="task-owner">
-                       <input type="text" name='owner' id='owner' value="Nilson project">
+                        <input type="text" name='owner' id='owner' value="Nilson project">
                     </div>
                     <div class="task-time">
                         <input type="date" name="date" id="date" value="2022-03-22">
@@ -144,36 +147,10 @@
         <div class="modal__body">
             <form id="myForm" class="form">
                 <div>
-                    <label for="box__logo-square-color">Select a status color</label>
-                    <input type="text" list="colors" name="box__logo-square" id="box__logo-square-color">
-                    <datalist id="colors">
-                        <option value=""></option>
-                        <option value="blue">In progress</option>
-                        <option value="orange">To do</option>
-                        <option value="green"></option>
-                        <option value="white"></option>
-                        <option value="black"></option>
-                        <!--
-                        <option value="#a7ebf2"></option>
-                        <option value="#f2b694"></option>
-                        <option value="#79D19E"></option>
-                        <option value="#ffffff"></option>
-                        <option value="#000000"></option>
-                    -->
-                    </datalist>
+                    <label for="box__logo-square-color">Select a color</label>
+                    <input type="color" list="colors" name="box__logo-square" id="box__logo-square-color">
                 </div>
-                <div>
-                    <label for="box__logo">make a 2 CH logo or icon</label>
-                    <input list="box__logo-list" type="text" name="box__logo" id="box__logo">
-                    <datalist id="box__logo-list">
-                        <option value="Bē"></option>
-                        <option value="Dē"></option>
-                        <option value="Cē"></option>
-                        <option value="Aē"></option>
-                        <option value="Eē"></option>
-                        <option value="Fē"></option>
-                    </datalist>
-                </div>
+
 
                 <div>
                     <label for="box__title-text">Give your task a title</label>
@@ -184,63 +161,28 @@
                     <label for="box__title-urg">How important is it?</label>
                     <input list="priorityList" type="text" name="box__title-urg" id="box__title-urg"
                         placeholder="Low, Medium, High, etc.">
-                        <datalist id="priorityList">
-                            <option value="Contractor Needed"></option>
-                            <option value="Emergency"></option>
-                            <option value="High"></option>
-                            <option value="Medium"></option>
-                            <option value="Low"></option>
-                            <option value="Make Ready"></option>
-                            <option value="Parts on Order"></option>
-                            <option value="Routine"></option>
-                        </datalist>
+                    <datalist id="priorityList">
+                        <option value="High"></option>
+                        <option value="Medium"></option>
+                        <option value="Low"></option>
+
+                    </datalist>
 
                 </div>
 
                 <div>
                     <label for="box__expln">Describe the task</label>
-                    <input type="text" name="box__expln" id="box__expln">
+                    <input type="text" name="box__expln" id="box__expln" maxlength="25" placeholder="max: 25ch">
                 </div>
                 <div>
                     <label for="box__expln-transp">What subject is it?</label>
                     <input type="text" name="box__expln-transp" id="box__expln-transp">
                 </div>
-                
+
                 <div>
-                    <label for="box__countdown">In how many days do you need it done?</label>
-                    <input list="box__countdown-numbers" type="text" name="box__countdown" id="box__countdown">
-                    <datalist id="box__countdown-numbers">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                        <option value="21">21</option>
-                        <option value="22">22</option>
-                        <option value="23">23</option>
-                        <option value="24">24</option>
-                        <option value="25">25</option>
-                        <option value="26">26</option>
-                        <option value="27">27</option>
-                        <option value="28">28</option>
-                        <option value="29">29</option>
-                        <option value="30">30</option>
-                    </datalist>
+                    <label for="box__countdown">when do you need it done?</label>
+                    <input type="date" name="box__countdown" id="box__countdown" value="">
+
                 </div>
                 <button type="submit" id="submitButton">Click to save changes</button>
             </form>

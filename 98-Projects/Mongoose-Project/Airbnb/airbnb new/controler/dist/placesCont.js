@@ -178,7 +178,7 @@ exports.searchAirbnb = function (req, res) { return __awaiter(void 0, void 0, vo
                 // search, 
                 // checkIn, checkOut, 
                 adults);
-                return [4 /*yield*/, placesModel_1["default"].find({ accommodates: 8 }).limit(20)];
+                return [4 /*yield*/, placesModel_1["default"].find({ "neighbourhood": "Hong Kong" }).limit(20)];
             case 1:
                 places = _a.sent();
                 //  $query = array(accommodates => $userInput);

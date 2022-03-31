@@ -1,5 +1,6 @@
 import ProductUser from "../model/productModel";
 import ProductMain from "../model/productMain";
+import User from "../model/userModel";
 
 export async function getProductsMain(req, res) {
   try {
