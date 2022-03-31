@@ -2,6 +2,10 @@
 exports.__esModule = true;
 exports.users = void 0;
 var mongoose_1 = require("mongoose");
+// const addressSchema= new mongoose.Schema({
+//       country:String,
+//       country_code:String
+// })
 var PlacesSchema = new mongoose_1["default"].Schema({
     _id: String,
     access: String,

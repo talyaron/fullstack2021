@@ -1,5 +1,8 @@
 import mongoose from "mongoose";
-
+// const addressSchema= new mongoose.Schema({
+//       country:String,
+//       country_code:String
+// })
 const PlacesSchema = new mongoose.Schema(
   {
     _id: String,
@@ -8,6 +11,7 @@ const PlacesSchema = new mongoose.Schema(
     address: {
       country:String,
       country_code:String
+    
     },
     
     name: String,

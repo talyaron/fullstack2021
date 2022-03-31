@@ -146,7 +146,7 @@ export const searchAirbnbInTelaviv = async (req, res) => {
   
  
     // const placesInTelaviv = await Places.find({"address.country":{ $eq:"Brazil"}}).limit(20);
-    const placesInTelaviv = await Places.find({"address.country_code":"BR"}).limit(10);
+    const placesInTelaviv = await Places.find({address:{ country:"Brazil"}}).limit(10);
     console.log(placesInTelaviv)
     res.send({ ok: true, placesInTelaviv })
   
