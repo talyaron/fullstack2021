@@ -1,13 +1,4 @@
 "use strict";
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -15,12 +6,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const path_1 = __importDefault(require("path"));
+const userModel_1 = __importDefault(require("./model/userModel"));
 // import axios from "axios";
 const app = express_1.default();
 const port = process.env.PORT || 3000;
 app.use(express_1.default.static("public"));
 app.use(express_1.default.json());
-mongoose_1.default.connect("mongodb+srv://shay:shayFoyer1994@cluster0.xyd5y.mongodb.net/sample_airbnb?retryWrites=true&w=majority");
+// mongoose.connect("mongodb+srv://shay:shayFoyer1994@cluster0.xyd5y.mongodb.net/sample_airbnb?retryWrites=true&w=majority");
 //mongoose.connect('mongodb+srv://ShaniRom:ynbUaPL3oHZKGl8a@cluster0.vh1hg.mongodb.net/sample_airbnb?retryWrites=true&w=majority');
 app.set("view engine", "ejs"); //connectiong ejs
 console.log(app.get("view engine"));
@@ -50,27 +42,22 @@ app.get("/", (req, res) => {
 //   cancellation_policy: String,
 //   address: Object,
 // });
-const { MongoClient } = require('mongodb');
-const url = 'mongodb://localhost:27017/example';
-const client = new MongoClient(url);
-const dbName = 'myProject';
-function main() {
-    return __awaiter(this, void 0, void 0, function* () {
-        // Use connect method to connect to the server
-        yield client.connect();
-        console.log('Connected successfully to server');
-        const db = client.db(dbName);
-        const collection = db.collection('documents');
-        const findResult = yield collection.find({}).toArray();
-        // the following code examples can be pasted here...
-        console.log(findResult);
-        return 'done.';
+mongoose_1.default
+    .connect("mongodb+srv://shay:shayFoyer1994@cluster0.xyd5y.mongodb.net/sample_airbnb?retryWrites=true&w=majority")
+    .then((result) => {
+    console.log("connected to db");
+    userModel_1.default.find({}).limit(10)
+        .then((res) => {
+        console.log('test');
+        console.log(res);
+    })
+        .catch((err) => {
+        console.log(err.message);
     });
-}
-main()
-    .then(console.log)
-    .catch(console.error)
-    .finally(() => client.close());
+})
+    .catch((err) => {
+    console.log(err.message);
+});
 // const userSchema = new mongoose.Schema({
 //   name: String,
 //   password: String,
