@@ -11,7 +11,7 @@ let tasks = [
     { id: "4", title: "four" }
 ]
 
-app.get('/getTask'), (req, res) => {
+app.get('/getTask', (req, res) => {
     res.send(tasks)
 })
 

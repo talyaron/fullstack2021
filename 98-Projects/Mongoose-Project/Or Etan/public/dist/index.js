@@ -1,3 +1,4 @@
+// import axios from "axios";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -34,43 +35,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-function handleLogin(ev) {
-    return __awaiter(this, void 0, void 0, function () {
-        var email, password, userData, data;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    ev.preventDefault();
-                    email = ev.target.elements.email.value;
-                    password = ev.target.elements.password.value;
-                    userData = {
-                        email: email,
-                        password: password
-                    };
-                    return [4 /*yield*/, axios.post("/log-in", userData).then(function (response) {
-                            var status = response.data.ok;
-                            var userExists = response.data.aUser;
-                            var verifiedUser = response.data.verifiedUser;
-                            var verifiedUserId = response.data.verifiedUser[0]._id;
-                            var html = "";
-                            if (status) {
-                                window.location.href = "/home-or.html?id=" + verifiedUserId;
-                                console.log({ status: status });
-                                console.log(verifiedUser);
-                                console.log(verifiedUserId);
-                            }
-                            else if (userExists) {
-                                console.log({ userExists: userExists });
-                                // document.get
-                            }
-                        })];
-                case 1:
-                    data = _a.sent();
-                    return [2 /*return*/];
-            }
-        });
-    });
-}
 function handleRegister(ev) {
     return __awaiter(this, void 0, void 0, function () {
         var _a, firstName, lastName, email, password, role, gender, data;
@@ -85,7 +49,7 @@ function handleRegister(ev) {
                     password = password.value;
                     role = role.value;
                     gender = gender.value;
-                    return [4 /*yield*/, axios.post("/add-user", {
+                    return [4 /*yield*/, axios.post("/users/add-user", {
                             firstName: firstName,
                             lastName: lastName,
                             email: email,
@@ -95,8 +59,174 @@ function handleRegister(ev) {
                         })];
                 case 1:
                     data = (_b.sent()).data;
-                    console.log(data);
+                    window.location.href = "/";
                     return [2 /*return*/];
+            }
+        });
+    });
+}
+function handleLogin(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        var email, password, userData, data, error_1;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    ev.preventDefault();
+                    email = ev.target.elements.email.value;
+                    password = ev.target.elements.password.value;
+                    userData = {
+                        email: email,
+                        password: password
+                    };
+                    _a.label = 1;
+                case 1:
+                    _a.trys.push([1, 3, , 4]);
+                    return [4 /*yield*/, axios.post("/users/log-in", userData).then(function (response) {
+                            var status = response.data.ok;
+                            var userExists = response.data.aUser;
+                            var verifiedUser = response.data.verifiedUser;
+                            var verifiedUserId = verifiedUser[0]._id;
+                            if (!status)
+                                throw new Error("no status");
+                            if (status) {
+                                window.location.href = "/home.html?id=" + verifiedUserId;
+                            }
+                            else if (userExists < 0) {
+                                console.log("1");
+                            }
+                        })];
+                case 2:
+                    data = _a.sent();
+                    return [3 /*break*/, 4];
+                case 3:
+                    error_1 = _a.sent();
+                    console.log("error in handleLogin:");
+                    console.log(error_1.message);
+                    return [3 /*break*/, 4];
+                case 4: return [2 /*return*/];
+            }
+        });
+    });
+}
+function handleRenderUser(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        var userId, data, userInfo, user, name;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    ev.preventDefault();
+                    userId = ev.target.location.search.replace(/.*?id=/g, "");
+                    return [4 /*yield*/, axios.get("users/logged-in-user?userId=" + userId)];
+                case 1:
+                    data = (_a.sent()).data;
+                    userInfo = data.userInfo;
+                    user = userInfo[0];
+                    name = document.querySelector("[data-name]");
+                    name.innerHTML = user.firstName + " " + user.lastName + "<br><span>" + user.role + "</span>";
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+function handleRenderPage(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        var userURL, requestedPage, data, data, error_2;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    userURL = ev.target.baseURI;
+                    requestedPage = ev.target.outerText.split(" ").join("");
+                    _a.label = 1;
+                case 1:
+                    _a.trys.push([1, 6, , 7]);
+                    if (!(requestedPage === "home")) return [3 /*break*/, 3];
+                    return [4 /*yield*/, axios
+                            .post("/users/nav", { userURL: userURL, requestedPage: requestedPage })
+                            .then(function (response) {
+                            var _a = response.data, firstName = _a.firstName, lastName = _a.lastName, gender = _a.gender, role = _a.role;
+                            renderHome(firstName, lastName, gender, role);
+                            return;
+                        })];
+                case 2:
+                    data = (_a.sent()).data;
+                    return [2 /*return*/];
+                case 3:
+                    if (!(requestedPage === "RecentlyCreated")) return [3 /*break*/, 5];
+                    return [4 /*yield*/, axios
+                            .post("/tasks/nav ", { userURL: userURL, requestedPage: requestedPage })
+                            .then(function (response) {
+                            var _a = response.data, newURL = _a.newURL, currentUsersTasks = _a.currentUsersTasks;
+                            console.log(newURL, currentUsersTasks);
+                            window.location.href = newURL;
+                            // renderRecentlyCreated(newURL ,tasks);
+                        })];
+                case 4:
+                    data = (_a.sent()).data;
+                    _a.label = 5;
+                case 5: return [3 /*break*/, 7];
+                case 6:
+                    error_2 = _a.sent();
+                    console.log("error in handleRenderPage:");
+                    console.log(error_2.message);
+                    return [3 /*break*/, 7];
+                case 7: return [2 /*return*/];
+            }
+        });
+    });
+}
+function renderHome(firstName, lastName, gender, role) {
+    var body = document.body;
+    var html = "\n  <body onload=\"handleRenderUser(event)\">\n    <div id=\"landing\">\n        <div id=\"control\">\n            <div id=\"control__nav\">\n                <nav>\n                    <ul>\n                        <li id=\"home\">\n                            <a onclick=\"handleRenderPage(event)\">\n                                <i class=\"material-icons white-color\">home</i>\n                            </a>\n                        </li>\n                        <li id=\"chart\">\n                            <a onclick=\"handleRenderPage(ev)\">\n                                <i class=\"material-icons white-color\">settings</i>\n                            </a>\n                        </li>\n                        <li id=\"info\">\n                            <a onclick=\"handleRenderPage(ev)\">\n                                <i class=\"material-icons white-color\">info</i>\n                            </a>\n                        </li>\n                    </ul>\n                </nav>\n            </div>\n        </div>\n        <div id=\"landing-home\">\n            <div id=\"landing-home__logo\">\n            <h1 data-name>" + firstName + " " + lastName + " <br><span>" + role + "</span></h1>\n            <img src=\"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ51Gk5jjB4qD-BkcDh_fhsE4HkfnLDblQPrQLaOY13u7v5MNoBea8JzZ5NZAa0G-gAcgY&usqp=CAU\"\n                    alt=\"\">\n            </div>\n            <div id=\"landing-home__search\">\n                <i class=\"material-icons\">search</i>\n                <input type=\"text\" placeholder=\"\">\n            </div>\n\n\n            <div id=\"landing-home__task\">\n                <h2>My Tasks</h2>\n                <div class=\"task\">\n                    <div class=\"icon icon__1\"><i class=\"material-icons\">list_alt</i></div>\n                    <p class=\"left\">To do</p>\n                    <p><span>5</span> tasks</p>\n                </div>\n                <div class=\"task\">\n                    <div class=\"icon icon__2\"><i class=\"material-icons\">drive_file_rename_outline</i></div>\n                    <p class=\"left\">In progress</p>\n                    <p><span>3</span> tasks</p>\n\n                </div>\n                <div class=\"task\">\n                    <div class=\"icon icon__3\"><i class=\"material-icons\">check_circle_outline</i>\n                    </div>\n                    <p class=\"left\">Done</p>\n                    <p> <span>12</span> tasks</p>\n\n                </div>\n            </div>\n            <div id=\"landing-home__recent\">\n                <div class=\"recent__title\">\n                    <h2><a onclick=\"handleRenderPage(event)\">Recently Created</a></h2>\n                    <i class=\"material-icons\">keyboard_arrow_right</i>\n                </div>\n\n\n                <div id=\"landing__task-count\">\n                    <div class=\"box box__home1\">\n                        <div id=\"box__flex\">\n                            <div class=\"box__header\">\n                                <div class=\"box__title\">\n                                    <p class=\"box__title-text box__title-home-text\">mobile app</p>\n                                </div>\n                            </div>\n                            <div class=\"box__expln box__expln-home\">\n                                <div class=\"flex-date\">\n                                    <i class=\"material-icons\">schedule</i>\n                                    <p>2 sep</p>\n                                </div>\n                            </div>\n                            <h4>high priority</h4>\n                        </div>\n                    </div>\n                    <div class=\"box box__home2\">\n                        <div id=\"box__flex\">\n                            <div class=\"box__header\">\n                                <div class=\"box__title\">\n                                    <p class=\"box__title-text box__title-home-text\">web</p>\n                                </div>\n                            </div>\n                            <div class=\"box__expln box__expln-home\">\n                                <div class=\"flex-date\">\n                                    <i class=\"material-icons\">schedule</i>\n                                    <p>30 nov</p>\n                                </div>\n                            </div>\n                            <h4>low priority</h4>\n                        </div>\n                    </div>\n                    <div class=\"box box__home3\">\n                        <div id=\"box__flex\">\n                            <div class=\"box__header\">\n                                <div class=\"box__title\">\n                                    <p class=\"box__title-text box__title-home-text\">PC</p>\n                                </div>\n                            </div>\n                            <div class=\"box__expln box__expln-home\">\n                                <div class=\"flex-date\">\n                                    <i class=\"material-icons\">schedule</i>\n                                    <p>25 dec</p>\n                                </div>\n                            </div>\n                            <h4>low priority</h4>\n                        </div>\n                    </div>\n\n\n\n                </div>\n            </div>\n        </div>\n    </div>\n</body>\n  ";
+    body.outerHTML = html;
+}
+function renderRecentlyCreated(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        var userURL, data, error_3;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    userURL = ev.target.baseURI;
+                    _a.label = 1;
+                case 1:
+                    _a.trys.push([1, 3, , 4]);
+                    return [4 /*yield*/, axios
+                            .post("/tasks/render", { userURL: userURL })
+                            .then(function (response) {
+                            var _a = response.data, ok = _a.ok, newUserURL = _a.newUserURL;
+                            console.log(ok, newUserURL);
+                            // let html;
+                            // currentUsersTasks.forEach(task => {
+                            //     html += `
+                            //     <li class="box">
+                            //                     <div id="box__flex">
+                            //                         <div class="box__header">
+                            //                             <div class="box__logo-square ${task.status}">
+                            //                                 <p class="box__logo">Bē</p>
+                            //                             </div>
+                            //                             <div class="box__title">
+                            //                                 <p class="box__title-text">${task.title}</p>
+                            //                                 <p class="box__title-urg">${task.urgency}</p>
+                            //                             </div>
+                            //                         </div>
+                            //                         <div class="box__expln">
+                            //                             <h4>${task.description}</h4>
+                            //                             <p class="box__expln-transp">${task.location}</p>
+                            //                         </div>
+                            //                         <div class="box__countdown">${task.date}</div>
+                            //                     </div>
+                            //                 </li>
+                            //                 `
+                            // })
+                        })];
+                case 2:
+                    data = (_a.sent()).data;
+                    return [3 /*break*/, 4];
+                case 3:
+                    error_3 = _a.sent();
+                    console.log("error in renderRecentlyCreated:");
+                    console.log(error_3.message);
+                    return [3 /*break*/, 4];
+                case 4: return [2 /*return*/];
             }
         });
     });

@@ -47,22 +47,22 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.getMyArt = exports.addArtToUser = void 0;
+exports.buyAndSell = exports.getForSale = exports.cancelSale = exports.putArtOnSale = exports.getMyArt = exports.addArtToUser = void 0;
 var artModel_1 = require("../model/artModel");
 exports.addArtToUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, newArt, user, newArtDB, r, err_1;
+    var _a, newArt, userId, newArtDB, r, err_1;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
-                _a = req.body, newArt = _a.newArt, user = _a.user;
-                console.log(newArt, user);
+                _a = req.body, newArt = _a.newArt, userId = _a.userId;
+                console.log(newArt, userId);
                 _b.label = 1;
             case 1:
                 _b.trys.push([1, 3, , 4]);
                 //validation
-                if (typeof user._id !== "string")
+                if (typeof userId !== "string")
                     throw new Error("user Id is not a string");
-                newArtDB = new artModel_1["default"](__assign(__assign({}, newArt), { ownerId: user._id }));
+                newArtDB = new artModel_1["default"](__assign(__assign({}, newArt), { ownerId: userId }));
                 return [4 /*yield*/, newArtDB.save()];
             case 2:
                 r = _b.sent();
@@ -71,7 +71,7 @@ exports.addArtToUser = function (req, res) { return __awaiter(void 0, void 0, vo
                 return [3 /*break*/, 4];
             case 3:
                 err_1 = _b.sent();
-                console.log(user);
+                console.log(userId);
                 console.error("Error in " + err_1.message);
                 res.send({ error: err_1.message });
                 return [3 /*break*/, 4];
@@ -88,7 +88,61 @@ exports.getMyArt = function (req, res) { return __awaiter(void 0, void 0, void 0
                 return [4 /*yield*/, artModel_1["default"].find({ ownerId: userId })];
             case 1:
                 r = _a.sent();
-                res.send({ r: r });
+                res.send(r);
+                return [2 /*return*/];
+        }
+    });
+}); };
+exports.putArtOnSale = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _a, price, artId, r;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
+            case 0:
+                _a = req.body, price = _a.price, artId = _a.artId;
+                return [4 /*yield*/, artModel_1["default"].updateOne({ _id: artId }, { forSale: true, price: price })];
+            case 1:
+                r = _b.sent();
+                res.send(r);
+                return [2 /*return*/];
+        }
+    });
+}); };
+exports.cancelSale = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var artId, r;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                artId = req.body.artId;
+                return [4 /*yield*/, artModel_1["default"].updateOne({ _id: artId }, { forSale: false, price: 0 })];
+            case 1:
+                r = _a.sent();
+                res.send(r);
+                return [2 /*return*/];
+        }
+    });
+}); };
+exports.getForSale = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var result;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4 /*yield*/, artModel_1["default"].find({ forSale: true })];
+            case 1:
+                result = _a.sent();
+                res.send({ ok: true, result: result });
+                return [2 /*return*/];
+        }
+    });
+}); };
+exports.buyAndSell = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _a, artId, buyerId, result;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
+            case 0:
+                _a = req.body, artId = _a.artId, buyerId = _a.buyerId;
+                return [4 /*yield*/, artModel_1["default"].findOneAndUpdate({ _id: artId }, { forSale: false, ownerId: buyerId })];
+            case 1:
+                result = _b.sent();
+                res.send({ ok: true, result: result });
                 return [2 /*return*/];
         }
     });

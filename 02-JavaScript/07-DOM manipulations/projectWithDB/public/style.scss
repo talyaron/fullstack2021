@@ -1,0 +1,11 @@
+.book {
+    // display: flex;
+
+    &-text {
+        text-align: center;
+        border-radius: 10%;
+        border: 1px solid black;
+        color: aqua;
+        font-size: 3rem;
+    }
+}

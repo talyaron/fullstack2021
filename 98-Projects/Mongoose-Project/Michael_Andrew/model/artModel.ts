@@ -5,8 +5,9 @@ const artSchema = new mongoose.Schema({
   url: String,
   author: String,
   ownerId: String,
+  forSale: Boolean,
+  price: Number,
 });
 
 const Art = mongoose.model("newArt", artSchema);
 export default Art;
-//למה לא אקספורט

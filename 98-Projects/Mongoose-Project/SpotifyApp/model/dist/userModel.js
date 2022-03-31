@@ -11,5 +11,5 @@ var UserSchema = new mongoose_1["default"].Schema({
         required: true
     }
 });
-var User = mongoose_1["default"].model('spotifyUser', UserSchema);
+var User = mongoose_1["default"].model('songsUser', UserSchema);
 exports["default"] = User;
