@@ -12,12 +12,11 @@ const PlacesSchema = new mongoose.Schema(
       country:String,
       country_code:String
     
-    },
-    
+    },   
     name: String,
     summary: String,
-    // checkIn: String,
-    // checkOut: String,
+    checkIn: String,
+    checkOut: String,
     amenities: Array,
     bedrooms: Number,
     beds: Number,
@@ -40,7 +39,7 @@ const PlacesSchema = new mongoose.Schema(
   // }
 );
 
-const Places = mongoose.model("listingsAndReviews", PlacesSchema);
+const Places = mongoose.model("airbnbLocations", PlacesSchema);
 export default Places;
 const userSchema = new mongoose.Schema({
   name: String,
