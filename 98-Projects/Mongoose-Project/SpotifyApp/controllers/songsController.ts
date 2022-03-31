@@ -17,15 +17,11 @@ export const upload = async (req, res) => {
 }
 
 export const search = async (req, res) => {
-    try {
+   
         let {search} = req.query;
-        const newSearch = new songs({search})
-        console.log(newSearch);
-        const result = await newSearch.save()
-
-        res.send({result});
-    } catch (error) {
-        console.error(error);
-        res.send({ error: error.message });
-    }
+        const newSearch = await songs.find({songs:search})
+       
+res.send(newSearch)
+    
+    
 }
