@@ -6,7 +6,8 @@ const PlacesSchema = new mongoose.Schema(
     access: String,
     accommodates: String,
     address: {
-      country:String
+      country:String,
+      country_code:String
     },
     
     name: String,

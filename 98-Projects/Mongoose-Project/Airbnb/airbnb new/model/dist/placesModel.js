@@ -7,7 +7,8 @@ var PlacesSchema = new mongoose_1["default"].Schema({
     access: String,
     accommodates: String,
     address: {
-        country: String
+        country: String,
+        country_code: String
     },
     name: String,
     summary: String,
