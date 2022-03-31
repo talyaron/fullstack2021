@@ -6,7 +6,7 @@ import {renderPage, getUsersTasks} from "../controller/taskCont"
 
 router
 .post('/nav', renderPage)
-.post('/render', getUsersTasks)
+.get('/getTasks', getUsersTasks)
 
 
 export default router;

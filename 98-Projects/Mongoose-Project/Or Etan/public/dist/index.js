@@ -123,6 +123,7 @@ function handleRenderUser(ev) {
                     user = userInfo[0];
                     name = document.querySelector("[data-name]");
                     name.innerHTML = user.firstName + " " + user.lastName + "<br><span>" + user.role + "</span>";
+                    getUsersTasks(userId);
                     return [2 /*return*/];
             }
         });
@@ -179,55 +180,46 @@ function renderHome(firstName, lastName, gender, role) {
     var html = "\n  <body onload=\"handleRenderUser(event)\">\n    <div id=\"landing\">\n        <div id=\"control\">\n            <div id=\"control__nav\">\n                <nav>\n                    <ul>\n                        <li id=\"home\">\n                            <a onclick=\"handleRenderPage(event)\">\n                                <i class=\"material-icons white-color\">home</i>\n                            </a>\n                        </li>\n                        <li id=\"chart\">\n                            <a onclick=\"handleRenderPage(ev)\">\n                                <i class=\"material-icons white-color\">settings</i>\n                            </a>\n                        </li>\n                        <li id=\"info\">\n                            <a onclick=\"handleRenderPage(ev)\">\n                                <i class=\"material-icons white-color\">info</i>\n                            </a>\n                        </li>\n                    </ul>\n                </nav>\n            </div>\n        </div>\n        <div id=\"landing-home\">\n            <div id=\"landing-home__logo\">\n            <h1 data-name>" + firstName + " " + lastName + " <br><span>" + role + "</span></h1>\n            <img src=\"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ51Gk5jjB4qD-BkcDh_fhsE4HkfnLDblQPrQLaOY13u7v5MNoBea8JzZ5NZAa0G-gAcgY&usqp=CAU\"\n                    alt=\"\">\n            </div>\n            <div id=\"landing-home__search\">\n                <i class=\"material-icons\">search</i>\n                <input type=\"text\" placeholder=\"\">\n            </div>\n\n\n            <div id=\"landing-home__task\">\n                <h2>My Tasks</h2>\n                <div class=\"task\">\n                    <div class=\"icon icon__1\"><i class=\"material-icons\">list_alt</i></div>\n                    <p class=\"left\">To do</p>\n                    <p><span>5</span> tasks</p>\n                </div>\n                <div class=\"task\">\n                    <div class=\"icon icon__2\"><i class=\"material-icons\">drive_file_rename_outline</i></div>\n                    <p class=\"left\">In progress</p>\n                    <p><span>3</span> tasks</p>\n\n                </div>\n                <div class=\"task\">\n                    <div class=\"icon icon__3\"><i class=\"material-icons\">check_circle_outline</i>\n                    </div>\n                    <p class=\"left\">Done</p>\n                    <p> <span>12</span> tasks</p>\n\n                </div>\n            </div>\n            <div id=\"landing-home__recent\">\n                <div class=\"recent__title\">\n                    <h2><a onclick=\"handleRenderPage(event)\">Recently Created</a></h2>\n                    <i class=\"material-icons\">keyboard_arrow_right</i>\n                </div>\n\n\n                <div id=\"landing__task-count\">\n                    <div class=\"box box__home1\">\n                        <div id=\"box__flex\">\n                            <div class=\"box__header\">\n                                <div class=\"box__title\">\n                                    <p class=\"box__title-text box__title-home-text\">mobile app</p>\n                                </div>\n                            </div>\n                            <div class=\"box__expln box__expln-home\">\n                                <div class=\"flex-date\">\n                                    <i class=\"material-icons\">schedule</i>\n                                    <p>2 sep</p>\n                                </div>\n                            </div>\n                            <h4>high priority</h4>\n                        </div>\n                    </div>\n                    <div class=\"box box__home2\">\n                        <div id=\"box__flex\">\n                            <div class=\"box__header\">\n                                <div class=\"box__title\">\n                                    <p class=\"box__title-text box__title-home-text\">web</p>\n                                </div>\n                            </div>\n                            <div class=\"box__expln box__expln-home\">\n                                <div class=\"flex-date\">\n                                    <i class=\"material-icons\">schedule</i>\n                                    <p>30 nov</p>\n                                </div>\n                            </div>\n                            <h4>low priority</h4>\n                        </div>\n                    </div>\n                    <div class=\"box box__home3\">\n                        <div id=\"box__flex\">\n                            <div class=\"box__header\">\n                                <div class=\"box__title\">\n                                    <p class=\"box__title-text box__title-home-text\">PC</p>\n                                </div>\n                            </div>\n                            <div class=\"box__expln box__expln-home\">\n                                <div class=\"flex-date\">\n                                    <i class=\"material-icons\">schedule</i>\n                                    <p>25 dec</p>\n                                </div>\n                            </div>\n                            <h4>low priority</h4>\n                        </div>\n                    </div>\n\n\n\n                </div>\n            </div>\n        </div>\n    </div>\n</body>\n  ";
     body.outerHTML = html;
 }
-function renderRecentlyCreated(ev) {
+function handleRenderTasks(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var userURL, data, error_3;
+        var userURL, userId;
+        return __generator(this, function (_a) {
+            userURL = ev.target.baseURI;
+            userId = userURL.split('/')[1];
+            getUsersTasks(userId);
+            return [2 /*return*/];
+        });
+    });
+}
+addGlobalEventListener(onload, '#landing__task-count', getUsersTasks(window.location.href), {});
+function getUsersTasks(userId) {
+    return __awaiter(this, void 0, void 0, function () {
+        var data, error_3;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    userURL = ev.target.baseURI;
+                    console.log(userId);
                     _a.label = 1;
                 case 1:
                     _a.trys.push([1, 3, , 4]);
-                    return [4 /*yield*/, axios
-                            .post("/tasks/render", { userURL: userURL })
-                            .then(function (response) {
-                            var _a = response.data, ok = _a.ok, newUserURL = _a.newUserURL;
-                            console.log(ok, newUserURL);
-                            // let html;
-                            // currentUsersTasks.forEach(task => {
-                            //     html += `
-                            //     <li class="box">
-                            //                     <div id="box__flex">
-                            //                         <div class="box__header">
-                            //                             <div class="box__logo-square ${task.status}">
-                            //                                 <p class="box__logo">Bē</p>
-                            //                             </div>
-                            //                             <div class="box__title">
-                            //                                 <p class="box__title-text">${task.title}</p>
-                            //                                 <p class="box__title-urg">${task.urgency}</p>
-                            //                             </div>
-                            //                         </div>
-                            //                         <div class="box__expln">
-                            //                             <h4>${task.description}</h4>
-                            //                             <p class="box__expln-transp">${task.location}</p>
-                            //                         </div>
-                            //                         <div class="box__countdown">${task.date}</div>
-                            //                     </div>
-                            //                 </li>
-                            //                 `
-                            // })
-                        })];
+                    return [4 /*yield*/, axios.get("tasks/getTasks?i=" + userId)];
                 case 2:
                     data = (_a.sent()).data;
                     return [3 /*break*/, 4];
                 case 3:
                     error_3 = _a.sent();
-                    console.log("error in renderRecentlyCreated:");
+                    console.log("error in getUsersTasks:");
                     console.log(error_3.message);
                     return [3 /*break*/, 4];
                 case 4: return [2 /*return*/];
             }
         });
     });
+}
+function addGlobalEventListener(type, selector, callback, options, parent) {
+    if (parent === void 0) { parent = document; }
+    parent.addEventListener(type, function (e) {
+        if (e.target.matches(selector))
+            callback(e);
+    }, options);
 }

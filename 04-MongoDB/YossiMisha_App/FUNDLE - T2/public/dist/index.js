@@ -31,17 +31,18 @@ function handlePassToggle() {
 function timeOfDay() {
     let realtoday = new Date();
     let realtime = realtoday.getHours();
+    console.log(realtime);
     if ((realtime >= 0 && realtime <= 5) || (realtime >= 22 && realtime <= 24)) {
-        return 'Good night';
+        return 'Good Night';
     }
     if (realtime >= 6 && realtime <= 11) {
-        return 'Good morning';
+        return 'Good Morning';
     }
     if (realtime >= 12 && realtime <= 16) {
-        return 'Good afternoon';
+        return 'Good Afternoon';
     }
     if (realtime >= 17 && realtime <= 21) {
-        return 'Good morning';
+        return 'Good Evening';
     }
 }
 startInteraction();

@@ -224,6 +224,7 @@ nav ul li {
 }
 .searchPage__main--history--1 img, .searchPage__main--history--2 img, .searchPage__main--history--3 img, .searchPage__main--history--4 img, .searchPage__main--history--5 img, .searchPage__main--history--6 img, .searchPage__main--history--7 img, .searchPage__main--history--8 img {
   justify-items: center;
+  filter: drop-shadow(2.5px 3.5px 3px #1d1c1c);
 }
 .searchPage__sideBar {
   grid-column: 1/1;

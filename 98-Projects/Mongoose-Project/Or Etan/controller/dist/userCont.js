@@ -43,12 +43,9 @@ exports.addUser = function (req, res) { return __awaiter(void 0, void 0, void 0,
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
-                console.log(req.body);
-                _b.label = 1;
-            case 1:
-                _b.trys.push([1, 5, , 6]);
+                _b.trys.push([0, 4, , 5]);
                 _a = req.body, firstName = _a.firstName, lastName = _a.lastName, email = _a.email, password = _a.password, role = _a.role, gender = _a.gender;
-                if (!(firstName && lastName && email && password && role && gender)) return [3 /*break*/, 3];
+                if (!(firstName && lastName && email && password && role && gender)) return [3 /*break*/, 2];
                 newUser = new userModel_1["default"]({
                     firstName: firstName,
                     lastName: lastName,
@@ -57,21 +54,19 @@ exports.addUser = function (req, res) { return __awaiter(void 0, void 0, void 0,
                     role: role,
                     gender: gender
                 });
-                console.log(newUser);
                 return [4 /*yield*/, newUser.save()];
-            case 2:
+            case 1:
                 result = _b.sent();
                 res.send({ result: result });
-                console.log(result);
-                return [3 /*break*/, 4];
-            case 3: throw new Error("You've missed something");
-            case 4: return [3 /*break*/, 6];
-            case 5:
+                return [3 /*break*/, 3];
+            case 2: throw new Error("You've missed something");
+            case 3: return [3 /*break*/, 5];
+            case 4:
                 error_1 = _b.sent();
                 console.error(error_1);
                 res.send({ error: error_1.message });
-                return [3 /*break*/, 6];
-            case 6: return [2 /*return*/];
+                return [3 /*break*/, 5];
+            case 5: return [2 /*return*/];
         }
     });
 }); };
@@ -81,7 +76,6 @@ exports.login = function (req, res) { return __awaiter(void 0, void 0, void 0, f
         switch (_b.label) {
             case 0:
                 _a = req.body, email = _a.email, password = _a.password;
-                console.log(email, password);
                 _b.label = 1;
             case 1:
                 _b.trys.push([1, 5, , 6]);
@@ -100,7 +94,6 @@ exports.login = function (req, res) { return __awaiter(void 0, void 0, void 0, f
             case 4:
                 verifiedUser = _b.sent();
                 if (users.length > 0) {
-                    console.log(verifiedUser.length);
                     if (verifiedUser.length === 1) {
                         res.send({ ok: true, users: users, verifiedUser: verifiedUser });
                         return [2 /*return*/];
@@ -131,7 +124,6 @@ exports.renderUser = function (req, res) { return __awaiter(void 0, void 0, void
                 return [4 /*yield*/, userModel_1["default"].find({ _id: userId })];
             case 1:
                 userInfo = _a.sent();
-                console.log(userInfo);
                 res.send({ userInfo: userInfo });
                 return [2 /*return*/];
         }
@@ -149,9 +141,7 @@ exports.renderPage = function (req, res) { return __awaiter(void 0, void 0, void
             case 1:
                 currentUser = _c.sent();
                 newURL = appURL + "/" + requestedPage + ".html?id=" + userId;
-                console.log(currentUser, requestedPage);
                 _b = currentUser[0], firstName = _b.firstName, lastName = _b.lastName, gender = _b.gender, role = _b.role;
-                console.log(firstName, lastName, gender, role);
                 if (requestedPage === "home") {
                     try {
                         res.send({
