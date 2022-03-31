@@ -15,8 +15,6 @@ const userRoute_1 = __importDefault(require("./routes/userRoute"));
 app.use("/songsUser", userRoute_1.default);
 const songsRoute_1 = __importDefault(require("./routes/songsRoute"));
 app.use("/songs", songsRoute_1.default);
-// import searchRoute from "./routes/searchRoute";
-// app.use("/songsOwner", searchRoute )
 app.get('/', (req, res) => {
     res.send('Hello World!');
 });

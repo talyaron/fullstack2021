@@ -9,8 +9,7 @@ const SongsSchema = new mongoose.Schema({
 })
 
 
-export const songs = mongoose.model('songsOwner', SongsSchema)
+export const songs = mongoose.model('songs', SongsSchema)
 export const searches = mongoose.model('searches', SongsSchema)
 
 
-// && searches;

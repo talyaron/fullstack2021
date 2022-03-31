@@ -36,51 +36,70 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.search = exports.upload = void 0;
-var songsModel_1 = require("../model/songsModel");
-exports.upload = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, song, picture, genre, youtube, newSong, result, error_1;
+exports.logIn = exports.register = void 0;
+var userModel_1 = require("../model/userModel");
+var bcrypt_1 = require("bcrypt");
+exports.register = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _a, name, password, hashpassword, newUser, result, error_1;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
-                _b.trys.push([0, 2, , 3]);
-                _a = req.body, song = _a.song, picture = _a.picture, genre = _a.genre, youtube = _a.youtube;
-                newSong = new songsModel_1.songs({ song: song, picture: picture, genre: genre, youtube: youtube });
-                console.log(newSong);
-                return [4 /*yield*/, newSong.save()];
+                _b.trys.push([0, 3, , 4]);
+                _a = req.body, name = _a.name, password = _a.password;
+                return [4 /*yield*/, bcrypt_1["default"].hash(password, 10)];
             case 1:
+                hashpassword = _b.sent();
+                newUser = new userModel_1["default"]({ name: name, password: hashpassword });
+                console.log(newUser);
+                return [4 /*yield*/, newUser.save()];
+            case 2:
                 result = _b.sent();
                 res.send({ result: result });
-                return [3 /*break*/, 3];
-            case 2:
+                return [3 /*break*/, 4];
+            case 3:
                 error_1 = _b.sent();
                 console.error(error_1);
                 res.send({ error: error_1.message });
-                return [3 /*break*/, 3];
-            case 3: return [2 /*return*/];
+                return [3 /*break*/, 4];
+            case 4: return [2 /*return*/];
         }
     });
 }); };
-exports.search = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var search_1, newSearch, result, error_2;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
+exports.logIn = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _a, name, password, hashpassword, newUser, candidate, samePass, theSame, result, error_2;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
             case 0:
-                _a.trys.push([0, 2, , 3]);
-                search_1 = req.query.search;
-                newSearch = new songsModel_1.songs({ search: search_1 });
-                console.log(newSearch);
-                return [4 /*yield*/, newSearch.save()];
+                _b.trys.push([0, 6, , 7]);
+                _a = req.body, name = _a.name, password = _a.password;
+                return [4 /*yield*/, bcrypt_1["default"].hash(password, 10)];
             case 1:
-                result = _a.sent();
-                res.send({ result: result });
-                return [3 /*break*/, 3];
+                hashpassword = _b.sent();
+                newUser = new userModel_1["default"]({ name: name, password: hashpassword });
+                return [4 /*yield*/, userModel_1["default"].findOne({ name: name })];
             case 2:
-                error_2 = _a.sent();
+                candidate = _b.sent();
+                console.log(candidate);
+                if (!candidate) return [3 /*break*/, 4];
+                return [4 /*yield*/, bcrypt_1["default"].compare(password, candidate.password)];
+            case 3:
+                samePass = _b.sent();
+                theSame = 'the user is logged in';
+                res.send({ theSame: theSame });
+                _b.label = 4;
+            case 4:
+                console.log(newUser);
+                return [4 /*yield*/, newUser.save()];
+            case 5:
+                result = _b.sent();
+                res.send({ result: result });
+                return [3 /*break*/, 7];
+            case 6:
+                error_2 = _b.sent();
                 console.error(error_2);
                 res.send({ error: error_2.message });
-                return [3 /*break*/, 3];
-            case 3: return [2 /*return*/];
+                return [3 /*break*/, 7];
+            case 7: return [2 /*return*/];
         }
     });
 }); };

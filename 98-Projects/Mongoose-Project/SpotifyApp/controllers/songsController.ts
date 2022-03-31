@@ -1,6 +1,6 @@
 import {songs} from '../model/songsModel'
 
-export const Upload = async (req, res) => {
+export const upload = async (req, res) => {
     try {
         let { song, picture, genre, youtube } = req.body;
         const newSong = new songs({ song, picture, genre, youtube })
