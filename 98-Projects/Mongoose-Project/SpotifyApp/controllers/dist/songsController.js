@@ -62,25 +62,16 @@ exports.upload = function (req, res) { return __awaiter(void 0, void 0, void 0, 
     });
 }); };
 exports.search = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var search_1, newSearch, result, error_2;
+    var search, newSearch;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                _a.trys.push([0, 2, , 3]);
-                search_1 = req.query.search;
-                newSearch = new songsModel_1.songs({ search: search_1 });
-                console.log(newSearch);
-                return [4 /*yield*/, newSearch.save()];
+                search = req.query.search;
+                return [4 /*yield*/, songsModel_1.songs.find({ songs: search })];
             case 1:
-                result = _a.sent();
-                res.send({ result: result });
-                return [3 /*break*/, 3];
-            case 2:
-                error_2 = _a.sent();
-                console.error(error_2);
-                res.send({ error: error_2.message });
-                return [3 /*break*/, 3];
-            case 3: return [2 /*return*/];
+                newSearch = _a.sent();
+                res.send(newSearch);
+                return [2 /*return*/];
         }
     });
 }); };
