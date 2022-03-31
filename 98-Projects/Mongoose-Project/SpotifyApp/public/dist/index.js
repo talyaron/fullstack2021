@@ -52,7 +52,7 @@ function handleGetSearch(ev) {
 }
 function handleUpload(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var _a, song, picture, genre, youtube, data;
+        var _a, song, picture, genre, youtube, data, songs;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
@@ -67,7 +67,9 @@ function handleUpload(ev) {
                     return [4 /*yield*/, axios.post('/songsOwner/upload-song', { song: song, picture: picture, genre: genre, youtube: youtube })];
                 case 1:
                     data = (_b.sent()).data;
+                    songs = { data: data };
                     console.log(data);
+                    renderSongs(songs);
                     return [2 /*return*/];
             }
         });
@@ -113,4 +115,19 @@ function handleLogIn(ev) {
             }
         });
     });
+}
+function renderSongs(songs) {
+    var root = document.querySelector('#likedSongs');
+    try {
+        var html = songs.map(function (songs) {
+            // console.log(songs);
+            return "<div class=\"card\"><h2>" + songs.song + " :" + songs.picture + " ," + songs.genre + " ," + songs.youtube + "</h2>\n            <div><input type='text' placeholder='type' value='" + songs.genre + "' onblur='handleupdate(event,\"" + songs._id + "\")'/></div>\n            <button onclick='handleDelete(\"" + songs._id + "\")'>Delete</button>\n            <div><img src=\"" + songs.img + "\" alt=\"\"></div></div>";
+        }).join('');
+        root.innerHTML = html;
+        if (!root)
+            throw new Error("no root in rendersongs");
+    }
+    catch (error) {
+        console.error(error.message);
+    }
 }

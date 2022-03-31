@@ -28,7 +28,7 @@
     <div class="column-center">
 
       <div class="column-center__top">
-        <h1><span style="color: #ffffff;">Fundle</span></h1>
+        <h1><span style="color: #ffffff;"><span style="color: orange;">F</span>undl<span style="color: #349915;">e</span></span></h1>
       </div>
 
       <div class="column-center__middle">
@@ -98,17 +98,13 @@
             <button class="key" data-key="N">N</button>
             <button class="key" data-key="M">M</button>
             <button data-delete class="key large">
-              <div data-delete><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
-                  <path fill="var(--color-tone-1)"
-                    d="M22 3H7c-.69 0-1.23.35-1.59.88L0 12l5.41 8.11c.36.53.9.89 1.59.89h15c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H7.07L2.4 12l4.66-7H22v14zm-11.59-2L14 13.41 17.59 17 19 15.59 15.41 12 19 8.41 17.59 7 14 10.59 10.41 7 9 8.41 12.59 12 9 15.59z">
-                  </path>
-                </svg></div>
+              <img data-delete src="./images/delete.png" alt="">
             </button>
           </div>
         </div>
       </div>
     </div>
-
+    
     <div class="column-right">
       <div class="column-right__top-right">
         <div class="btn" onclick="handleShowStats()"><img src="./images/statistics.png" alt="">
@@ -147,10 +143,11 @@
         </div>
         <div class="line-6">
           <div class="next-fundle">
-            <div>NEXT-FUNDLE</div>
-            <div>00:03:53</div>
+            <div>NEXT FUNDLE</div>
+            <div id="countdown"></div>
           </div>
-          <div class="share-stats"><button>SHARE <i class="fa-solid fa-share-nodes"></i></button></div>
+          <div class="share-stats"><button id="share">SHARE <i class="fa-solid fa-share-nodes"></i></button><div class="result"></div></div>
+          
         </div>
 
       </div>
@@ -176,8 +173,10 @@
 
   <div class="logreg" id="logreg" style="display: none;">
     <div class="loginwrapper">
-      <h1>Login</h1>
-      <form onsubmit="handleLogin(event)">
+
+      <h1>Login <span class="close" onclick="handleHideWindow()">x</span></h1>
+
+      <form onsubmit="handleLogin(event)" id="loginform">
 
         <div class="txt_field">
           <input type="text" name='username' required>
@@ -186,7 +185,7 @@
         </div>
 
         <div class="txt_field">
-          <input type="text" name='password' required>
+          <input type="password" name='password' required autocomplete="off" class="passip"><img src="images/eye.png" alt="" id="eyeImg" onclick="handlePassToggle()"></input>
           <span></span>
           <label for="password">Password</label>
         </div>
@@ -194,16 +193,16 @@
         <div class="pass">Forgot Password?</div>
         <input type="submit" value="Login" class="submit">
         <div class="signup_link">
-          Not a member? <a onclick="handleNotAMember()">Signup</a>
+          Not a member? <a onclick="handleNotAMember()">Register</a>
         </div>
 
       </form>
     </div>
 
     <div class='registerwrapper' id="">
-      <h1>Register</h1>
+      <h1>Register <span class="close" onclick="handleHideWindow()">x</span></h1>
 
-      <form onsubmit="handleRegister(event)">
+      <form onsubmit="handleRegister(event)" id="registerform">
 
         <div class="txt_field">
           <input type="text" name='username' required>
@@ -212,13 +211,13 @@
         </div>
 
         <div class="txt_field">
-          <input type="text" name='password' required>
+          <input type="password" name='password' required autocomplete="off" class="passip"><img src="images/eye.png" alt="" id="eyeImg" onclick="handlePassToggle()"></input>
           <span></span>
           <label for="password">Password</label>
         </div>
 
         <div class="txt_field">
-          <input type="text" name='confirmPassword' required>
+          <input type="password" name='confirmPassword' required autocomplete="off" class="passip"><img src="images/eye.png" alt="" id="eyeImg" onclick="handlePassToggle()"></input>
           <span></span>
           <label for="confirmPassword">Confirm Password</label>
         </div>

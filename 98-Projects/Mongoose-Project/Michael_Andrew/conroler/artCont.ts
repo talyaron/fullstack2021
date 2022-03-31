@@ -22,6 +22,34 @@ export const addArtToUser = async (req, res) => {
 
 export const getMyArt = async (req, res) => {
   const { userId } = req.query;
-  const r = await Art.find({ownerId: userId});
-  res.send({r});
+  const r = await Art.find({ ownerId: userId });
+  res.send(r);
+}
+
+export const putArtOnSale = async (req, res) => {
+  const { price, artId } = req.body;
+  const r = await Art.updateOne({ _id: artId }, { forSale: true, price: price });
+  res.send(r)
+}
+
+export const cancelSale = async (req, res) => {
+  const { artId } = req.body;
+  const r = await Art.updateOne({ _id: artId }, { forSale: false, price: 0 });
+  res.send(r)
+}
+
+export const getForSale = async (req, res) => {
+
+  const result = await Art.find({ forSale: true });
+  res.send({ ok: true, result })
+
+}
+
+export const buyAndSell = async (req, res) => {
+
+  const {artId, buyerId } = req.body;
+
+  //הצלחתי לעדכן כאן 
+  const result = await Art.findOneAndUpdate({_id: artId},{ forSale: false, ownerId: buyerId })
+  res.send({ ok: true, result })
 }

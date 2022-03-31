@@ -27,26 +27,20 @@
 
                     <div class="form--checkIn">
                         <label for="checkIn">Check in <br>
-                            <button id="checkIn">Add dates</button>
+                            <input type="date" id="checkIn" name="checkIn"
+                            value="2022-03-31"
+                            min="2022-03-28" max="2022-12-30">
                         </label>
-                        <div class="dropdown">
-                          <input type="date" id="checkIn" name="checkIn"
-                          value="2022-03-28"
-                          min="2022-03-28" max="2022-12-30">
-
-                        </div>
+                     
                     </div>
 
                     <div class="form--checkOut">
                         <label for="checkOut">Check out<br>
-                            <button id="checkOut">Add dates</button>
-                        </label>
-                        <div class="dropdown">
                             <input type="date" id="checkOut" name="checkOut"
-                            value="2022-03-28"
+                            value="2022-03-31"
                             min="2022-03-28" max="2022-12-30">
-
-                        </div>
+                        </label>
+                       
                     </div>
 
                     <div class="form--guests">
@@ -74,7 +68,7 @@
                     </div>
 
 
-                    <a href="" class="form--searchIcon"><input type="submit" value="submit"><img src="images/searchIcon.png"></a>
+                    <a href="" ><button type="submit" value="submit" class="form--searchIcon"><img src="images/searchIcon.png"></button></a>
 
 
                 </form>
@@ -86,7 +80,7 @@
         </ul>
     </nav>
 
-
+    <script src="dist/index.js"></script>
 </body>
 
 </html>

@@ -2,11 +2,18 @@
 exports.__esModule = true;
 exports.users = void 0;
 var mongoose_1 = require("mongoose");
+// const addressSchema= new mongoose.Schema({
+//       country:String,
+//       country_code:String
+// })
 var PlacesSchema = new mongoose_1["default"].Schema({
     _id: String,
     access: String,
-    accommodates: Number,
-    address: Object,
+    accommodates: String,
+    address: {
+        country: String,
+        country_code: String
+    },
     name: String,
     summary: String,
     // checkIn: String,
@@ -25,12 +32,8 @@ var PlacesSchema = new mongoose_1["default"].Schema({
     bed_type: String,
     reviews: Array,
     cancellation_policy: String
-}, {
-    capped: { size: 1024 },
-    bufferCommands: false,
-    autoCreate: false
 });
-var Places = mongoose_1["default"].model("listingsandreviews", PlacesSchema);
+var Places = mongoose_1["default"].model("listingsAndReviews", PlacesSchema);
 exports["default"] = Places;
 var userSchema = new mongoose_1["default"].Schema({
     name: String,

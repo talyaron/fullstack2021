@@ -1,13 +1,4 @@
 "use strict";
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -18,52 +9,17 @@ const app = express_1.default();
 const port = process.env.PORT || 3010;
 app.use(express_1.default.static("public"));
 app.use(express_1.default.json());
-const imageSchema = new mongoose_1.default.Schema({
-    url: [String],
-    email: String,
-    password: String,
+mongoose_1.default.connect('mongodb+srv://igino11:kktgqbLMCE3mtTN6@cluster0.zfewx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority').then(res => {
+    console.log("Connected to DB");
+}).catch(err => {
+    console.log('At mongoose.connect:');
+    console.error(err.message);
 });
-const userSchema = new mongoose_1.default.Schema({
-    firstName: String,
-    lastName: String,
-    birthday: String,
-    country: String,
-    password: String,
-    email: String,
-    gender: String,
-});
-const User = mongoose_1.default.model('Users', userSchema);
-const Images = mongoose_1.default.model('images', imageSchema);
-mongoose_1.default.connect('mongodb+srv://igino11:kktgqbLMCE3mtTN6@cluster0.zfewx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority');
-app.get('/get-user', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        const email = req.query.email;
-        console.log(email);
-        const password = req.query.password;
-        console.log(password);
-        const userData = yield User.find({ email: email });
-        const userImgs = yield Images.find({ email: email });
-        if (password === userData[0].password) {
-            res.send({ ok: true, userData, userImgs });
-        }
-        else
-            throw new Error("password not correct");
-    }
-    catch (err) {
-        res.send({ error: err.message, ok: false });
-    }
-}));
-app.post('/get-addNewUser', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { newUser } = req.body;
-    const newImgs = { email: newUser.email, password: newUser.password, url: ['https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png'] };
-    const user = new User(newUser);
-    const userImgs = new Images(newImgs);
-    const addNewUser = yield user.save();
-    const addNewUserImgs = yield userImgs.save();
-    console.log(userImgs);
-    console.log(user);
-    res.send(userImgs);
-}));
+;
+const userRoute_1 = __importDefault(require("./routes/userRoute"));
+const imagesRoute_1 = __importDefault(require("./routes/imagesRoute"));
+app.use('/user', userRoute_1.default);
+app.use('/images', imagesRoute_1.default);
 app.listen(port, () => {
     return console.log(`Express is listening at http://localhost:${port}`);
 });

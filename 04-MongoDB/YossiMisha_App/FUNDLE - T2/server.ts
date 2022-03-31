@@ -2,7 +2,7 @@ import express from 'express';
 import mongoose from "mongoose";
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3007;
 app.use(express.static("public"));
 app.use(express.json());
 
@@ -22,52 +22,52 @@ const UserSchema = new mongoose.Schema({
 const FundleUser = mongoose.model('FundleUsers', UserSchema);
 
 app.post("/add-user", async (req, res) => {
-  try {
-    let { username, password, email } = req.body;
-    let played: 0;
-    let wins: 0;
-    let current_strike: 0;
-    let max_strike: 0;
-    const newFundleUser = new FundleUser({ username, password, email, played, wins, current_strike, max_strike })
-  
-    const result = await newFundleUser.save()
-    console.log(result)
 
+  let { username, password, email } = req.body;
+
+  const noPass = await FundleUser.find({ username: username })
+  console.log(noPass.length)
+
+  if (noPass.length === 0) {
+    let played = 0;
+    let wins = 0;
+    let current_strike = 0;
+    let max_strike = 0;
+    const newFundleUser = new FundleUser({ username, password, email, played, wins, current_strike, max_strike })
+    const result = await newFundleUser.save()
     res.send({ result });
-  } catch (error) {
-    console.error(error);
-    res.send({ error: error.message });
   }
+
+  else {
+    res.send('AlreadyUser')
+  }
+
 });
 
 app.get("/get-user", async (req, res) => {
-  try {
 
-    let { username, password } = req.query
-    console.log(username, password)
 
-    const userMatch = await FundleUser.find({ username: username, password: password })
-    console.log(userMatch)
+  let { username, password } = req.query
+  console.log(username, password)
 
-    if (userMatch) {
-      res.send({ user: userMatch })
+  const userMatch = await FundleUser.find({ username: username, password: password })
+  console.log(userMatch)
+
+  if (userMatch.length >= 1) {
+    res.send({ user: userMatch })
+  }
+
+  else {
+    const noPass = await FundleUser.find({ username: username })
+    if (noPass.length >= 1) {
+      res.send("nopass")
     }
-
     else {
-      const noPass = await FundleUser.find({ username: username })
-      if (noPass) {
-        res.send("password doesn't match")
-      }
-      else {
-        res.send("username doesn't exist")
-      }
+      res.send("nouser")
     }
+  }
 
-  }
-  catch (error) {
-    console.log(error.error);
-    res.send({ error: error.message })
-  }
+
 })
 
 

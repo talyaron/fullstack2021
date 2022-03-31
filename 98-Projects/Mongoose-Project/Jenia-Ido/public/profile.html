@@ -24,8 +24,18 @@
         </nav>
        <nav class="settings">
            <ul>
-               <li onclick="handleUpdateUser()">update</li>
-               <li onclick="handleUpdateProfilePic()">update profile pic</li>
+               <li onclick="handleUpdateProfile()">update Profile
+                <div id="updateroot">
+                    <form onsubmit="HandleUpdate()">
+                    <input type="text" name="firstName"value="${user.result.firstName}" id="firstName" placeholder="${user.result.firstName}">
+                    <input type="text" name="lastName"value="${user.result.lastName}" id="lastName" placeholder="${user.result.lastName}">
+                    <input type="text" name="birthday"value="${user.result.birthday}" id="birthday" placeholder="${user.result.birthday}">
+                    <input type="text" name="country"value="${user.result.country}" id="country" placeholder="${user.result.country}">
+                    <input type="text" name="profileImage"value="${imgs.result.url[0]}" id="image" placeholder="place url">
+                    <input type="submit" value="Update Profile">
+                    </form>
+                </div>
+            </li>
                <li class="delete" onclick="handleDeleteProfile()">delete User</li>
            </ul>
        </nav> 

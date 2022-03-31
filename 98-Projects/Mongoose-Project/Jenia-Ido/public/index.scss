@@ -14,13 +14,25 @@ body {
     width: 350px;
     height: 130px;
     .settings{
-        position: absolute;
-        right: 365px;
-        transform: translateX(-100%);
+        position: relative;
+        // right: 365px;
+        transform: translateX(1100px);
         font-size: 10px;
+        display: grid;
+        grid-template-columns: repeat(4 , 25%);
+
+        &_options{
+            justify-self: center;
+            height: 50%;
+        }
+        & ul{
+            grid-column: 4/5;
+            display: flex;
+            flex-flow: column;  
+        }
        .delete{
-           color: red;
-       }
+           color: rgb(230, 150, 80);
+        }
         li{
             opacity: 0;
         }

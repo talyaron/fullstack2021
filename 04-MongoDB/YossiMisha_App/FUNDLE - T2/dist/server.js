@@ -39,7 +39,7 @@ exports.__esModule = true;
 var express_1 = require("express");
 var mongoose_1 = require("mongoose");
 var app = express_1["default"]();
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 3007;
 app.use(express_1["default"].static("public"));
 app.use(express_1["default"].json());
 mongoose_1["default"].connect('mongodb+srv://michaeldubovik:michaeldubovik1991@cluster0.y9ozg.mongodb.net/myFirstDatabase?retryWrites=true&w=majority');
@@ -54,64 +54,58 @@ var UserSchema = new mongoose_1["default"].Schema({
 });
 var FundleUser = mongoose_1["default"].model('FundleUsers', UserSchema);
 app.post("/add-user", function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, username, password, email, played, wins, current_strike, max_strike, newFundleUser, result, error_1;
+    var _a, username, password, email, noPass, played, wins, current_strike, max_strike, newFundleUser, result;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
-                _b.trys.push([0, 2, , 3]);
                 _a = req.body, username = _a.username, password = _a.password, email = _a.email;
-                played = void 0;
-                wins = void 0;
-                current_strike = void 0;
-                max_strike = void 0;
+                return [4 /*yield*/, FundleUser.find({ username: username })];
+            case 1:
+                noPass = _b.sent();
+                console.log(noPass.length);
+                if (!(noPass.length === 0)) return [3 /*break*/, 3];
+                played = 0;
+                wins = 0;
+                current_strike = 0;
+                max_strike = 0;
                 newFundleUser = new FundleUser({ username: username, password: password, email: email, played: played, wins: wins, current_strike: current_strike, max_strike: max_strike });
                 return [4 /*yield*/, newFundleUser.save()];
-            case 1:
-                result = _b.sent();
-                console.log(result);
-                res.send({ result: result });
-                return [3 /*break*/, 3];
             case 2:
-                error_1 = _b.sent();
-                console.error(error_1);
-                res.send({ error: error_1.message });
-                return [3 /*break*/, 3];
-            case 3: return [2 /*return*/];
+                result = _b.sent();
+                res.send({ result: result });
+                return [3 /*break*/, 4];
+            case 3:
+                res.send('AlreadyUser');
+                _b.label = 4;
+            case 4: return [2 /*return*/];
         }
     });
 }); });
 app.get("/get-user", function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, username, password, userMatch, noPass, error_2;
+    var _a, username, password, userMatch, noPass;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
-                _b.trys.push([0, 5, , 6]);
                 _a = req.query, username = _a.username, password = _a.password;
                 console.log(username, password);
                 return [4 /*yield*/, FundleUser.find({ username: username, password: password })];
             case 1:
                 userMatch = _b.sent();
                 console.log(userMatch);
-                if (!userMatch) return [3 /*break*/, 2];
+                if (!(userMatch.length >= 1)) return [3 /*break*/, 2];
                 res.send({ user: userMatch });
                 return [3 /*break*/, 4];
             case 2: return [4 /*yield*/, FundleUser.find({ username: username })];
             case 3:
                 noPass = _b.sent();
-                if (noPass) {
-                    res.send("password doesn't match");
+                if (noPass.length >= 1) {
+                    res.send("nopass");
                 }
                 else {
-                    res.send("username doesn't exist");
+                    res.send("nouser");
                 }
                 _b.label = 4;
-            case 4: return [3 /*break*/, 6];
-            case 5:
-                error_2 = _b.sent();
-                console.log(error_2.error);
-                res.send({ error: error_2.message });
-                return [3 /*break*/, 6];
-            case 6: return [2 /*return*/];
+            case 4: return [2 /*return*/];
         }
     });
 }); });
