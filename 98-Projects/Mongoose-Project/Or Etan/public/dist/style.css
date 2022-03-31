@@ -482,16 +482,16 @@ main {
   background-color: none;
 }
 
-.inProgress {
+.low {
   background-color: #a7ebf2;
 }
 
-.toDo {
-  background-color: #f2b694;
+.medium {
+  background-color: #f7ffa1;
 }
 
-.green {
-  background-color: #79d19e;
+.high {
+  background-color: #f2b694;
 }
 
 .white {

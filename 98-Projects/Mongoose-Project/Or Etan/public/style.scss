@@ -565,17 +565,17 @@ main {
   background-color: none;
 }
 
-.inProgress {
+.low {
   background-color: #a7ebf2;
 }
+.medium {
+  background-color: #f7ffa1;
+}
 
-.toDo {
+.high {
   background-color: #f2b694;
 }
 
-.green {
-  background-color: rgb(121, 209, 158);
-}
 
 .white {
   background-color: white;

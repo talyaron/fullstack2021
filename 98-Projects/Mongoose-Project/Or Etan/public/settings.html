@@ -13,24 +13,26 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
         integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
 
-
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
 
     <title>Account Settings</title>
     <script src="https://code.iconify.design/2/2.1.0/iconify.min.js"></script>
-    
+
 </head>
+<body>
+
 <div id="landing">
     <div id="control">
         <div id="control__nav">
             <nav>
                 <ul>
-                    <li id="home"><a href="home-Or.html"><i class="material-icons white-color">home</i></a></li>
-                    <li id="chart"><a href="accountSettings.html"><i
-                                class="material-icons white-color">manage_accounts</i></a></li>
-                    <li id="info"><a href="info.html"><i class="material-icons white-color">info</i></a></li>
+                    <li id="home"><a onclick="handlePageChange(event)"><i class="material-icons white-color">home</i></a></li>
+                    <li id="chart"><a onclick="handlePageChange(event)"><i
+                                class="material-icons white-color">settings</i></a></li>
+                    <li id="info"><a onclick="handlePageChange(event)"><i class="material-icons white-color">info</i></a></li>
                 </ul>
             </nav>
         </div>
@@ -66,8 +68,7 @@
     </div>
 </div>
 
-<body>
 
 </body>
-
+<script src="./dist/index.js"></script>
 </html>

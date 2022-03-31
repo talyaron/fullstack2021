@@ -72,13 +72,8 @@ export const renderPage = async (req, res) => {
   const userId = userURL.slice(-24);
   const currentUser = await user.find({ _id: userId });
 
-  const newURL = `${appURL}/${requestedPage}.html?id=${userId}`;
-
-
-
-  let { firstName, lastName, gender, role } = currentUser[0];
-
-
+  const newURL = `/${requestedPage}.html?id=${userId}`;
+  let { firstName, lastName, gender, role, email, password} = currentUser[0];
   if (requestedPage === "home") {
     try {
       res.send({
@@ -86,6 +81,41 @@ export const renderPage = async (req, res) => {
         lastName: lastName,
         gender: gender,
         role: role,
+        newURL: newURL
+      });
+    } catch (error) {
+      console.log("error in renderPage:");
+      console.log(error.message);
+
+      res.send({ error: error.message });
+      // }
+    }
+    return;
+  }
+  if (requestedPage === "settings") {
+    try {
+      res.send({
+        firstName: firstName,
+        lastName: lastName,
+        gender: gender,
+        role: role,
+        email: email,
+        password: password,
+        newURL: newURL
+      });
+    } catch (error) {
+      console.log("error in renderPage:");
+      console.log(error.message);
+
+      res.send({ error: error.message });
+      // }
+    }
+    return;
+  }
+  if (requestedPage === "info") {
+    try {
+      res.send({
+        newURL: newURL
       });
     } catch (error) {
       console.log("error in renderPage:");
