@@ -1,7 +1,5 @@
 import mongoose from 'mongoose';
 
-//למה לא אקספורט
-
 const userSchema = new mongoose.Schema({
   userName: String,
   email: String,

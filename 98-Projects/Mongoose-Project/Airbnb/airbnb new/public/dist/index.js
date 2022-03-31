@@ -100,25 +100,44 @@ function renderPlace(data) {
 }
 function handleFindAirbnb(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var search, checkIn, checkOut, adults, children, infants, pets, data;
+        var adults, data;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     ev.preventDefault();
-                    search = ev.target.elements.searchLocation.value;
-                    checkIn = ev.target.elements.checkIn.value;
-                    checkOut = ev.target.elements.checkOut.value;
-                    adults = ev.target.elements.checkOut.value;
-                    children = ev.target.elements.children.value;
-                    infants = ev.target.elements.infants.value;
-                    pets = ev.target.elements.pets.value;
-                    return [4 /*yield*/, axios.get('/search-airbnb', {
-                            search: search, checkIn: checkIn, checkOut: checkOut, adults: adults, children: children, infants: infants, pets: pets
-                        })];
+                    adults = ev.target.elements.adults.value;
+                    // const children = ev.target.elements.children.value;
+                    // const infants = ev.target.elements.infants.value;
+                    // const pets = ev.target.elements.pets.value;
+                    console.log(
+                    // search, 
+                    // checkIn, checkOut, 
+                    adults);
+                    return [4 /*yield*/, axios.get("/places/search-airbnb?adults=" + adults + " ")
+                        // search=${search}&checkIn=${checkIn}&checkOut=${checkOut}&adults=${adults}&children=${children}&infants=${infants}&pets=${pets}
+                    ];
                 case 1:
                     data = (_a.sent()).data;
+                    // search=${search}&checkIn=${checkIn}&checkOut=${checkOut}&adults=${adults}&children=${children}&infants=${infants}&pets=${pets}
                     console.log(data);
-                    ev.target.reset();
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+;
+function handleTelaviv() {
+    return __awaiter(this, void 0, void 0, function () {
+        var data;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, axios.get('/places/search-telaviv')
+                    // search=${search}&checkIn=${checkIn}&checkOut=${checkOut}&adults=${adults}&children=${children}&infants=${infants}&pets=${pets}
+                ];
+                case 1:
+                    data = (_a.sent()).data;
+                    // search=${search}&checkIn=${checkIn}&checkOut=${checkOut}&adults=${adults}&children=${children}&infants=${infants}&pets=${pets}
+                    console.log(data);
                     return [2 /*return*/];
             }
         });

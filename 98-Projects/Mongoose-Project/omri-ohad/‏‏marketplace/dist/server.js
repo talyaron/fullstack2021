@@ -16,7 +16,9 @@ const productRoute_1 = __importDefault(require("./routes/productRoute"));
 app.use("/products", productRoute_1.default);
 app.post("/add-product");
 app.get("/get-products");
-app.patch("/update-product");
+app.patch("/update-picture");
+app.patch("/update-title");
+app.patch("/update-price");
 app.delete('/delete-product');
 app.listen(port, () => {
     return console.log(`Express is listening at http://localhost:${port}`);

@@ -40,7 +40,7 @@ export const findUser = async (req, res) => {
         const { loginEmail, loginPassword } = req.query;
         const oldUser = await User.find({ email: loginEmail, password: loginPassword })
         if (oldUser.length === 0) {
-            res.send('Wrong email/password');
+            res.send({ noUser: 'Wrong email/password' });
         } else if (oldUser.length > 0) {
             res.send({ oldUser })
         }
@@ -63,4 +63,19 @@ export const addArtToUser = async (req, res) => {
         { _id: user._id }, { $push: { artCollection: newArt } }
     );
     console.log(r);
+}
+
+export const buyAndSell = async (req, res) => {
+    const { buyerId, price, ownerId } = req.body;
+
+    //בטח אפשר לאחד את שתי שורות הבאות, אבל עוד מעט 2 בלילה 
+    //לא הצלחתי לעדכן חיסור וחיבור הפאנד 
+    console.log(ownerId,buyerId,price);
+    
+    const result = await User.updateOne({ _id: ownerId }, { $inc: { fund: price } })
+    const result2 = await User.updateOne({ _id: buyerId }, { $inc: { fund: -price } })
+
+    res.send({ ok: true })
+
+
 }

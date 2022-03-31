@@ -10,6 +10,40 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 console.log('hello');
 const WORD_LENGTH = 5;
 const guessGrid = document.querySelector("[data-guess-grid]");
+function tabIndex() {
+    const eyeImg = document.querySelectorAll('#eyeImg');
+    eyeImg.forEach((img) => {
+        img.tabIndex = -2;
+    });
+}
+tabIndex();
+function handlePassToggle() {
+    const password = document.querySelectorAll('.passip');
+    password.forEach((input) => {
+        if (input.type === 'password') {
+            input.type = "text";
+        }
+        else {
+            input.type = "password";
+        }
+    });
+}
+function timeOfDay() {
+    let realtoday = new Date();
+    let realtime = realtoday.getHours();
+    if ((realtime >= 0 && realtime <= 5) || (realtime >= 22 && realtime <= 24)) {
+        return 'Good night';
+    }
+    if (realtime >= 6 && realtime <= 11) {
+        return 'Good morning';
+    }
+    if (realtime >= 12 && realtime <= 16) {
+        return 'Good afternoon';
+    }
+    if (realtime >= 17 && realtime <= 21) {
+        return 'Good morning';
+    }
+}
 startInteraction();
 function startInteraction() {
     document.addEventListener("click", handleMouseClick);
@@ -151,9 +185,16 @@ function handleRegister(ev) {
                 window.alert('emails dont match');
             }
             if (password === confirmPassword && email === confirmEmail) {
-                const { data } = axios.post('/add-user', { username, password, email });
-                return data;
+                const { data } = yield axios.post('/add-user', { username, password, email });
+                console.log(data);
+                if (data === 'AlreadyUser') {
+                    window.alert('Username already taken');
+                }
+                else {
+                    loginPractice(username, password);
+                }
             }
+            ev.target.reset();
         }
         catch (error) {
             console.log(error);
@@ -161,13 +202,27 @@ function handleRegister(ev) {
     });
 }
 function handleLogin(ev) {
+    ev.preventDefault();
+    let { username, password } = ev.target.elements;
+    username = username.value;
+    password = password.value;
+    ev.target.reset();
+    loginPractice(username, password);
+}
+function loginPractice(username, password) {
     return __awaiter(this, void 0, void 0, function* () {
-        ev.preventDefault();
-        let { username, password } = ev.target.elements;
-        username = username.value;
-        password = password.value;
         const { data } = yield axios.get(`/get-user?username=${username}&password=${password}`);
-        document.querySelector(".hello").innerHTML = `&nbsp;&nbsp;&nbsp;Hello <span style="color: orange;">&nbsp;${username}</span>`;
+        const greetings = timeOfDay();
+        if (data.user) {
+            document.querySelector(".hello").innerHTML = `&nbsp;&nbsp;&nbsp;${greetings} <span style="color: orange;">&nbsp;${username}</span>`;
+            handleShowLogin();
+        }
+        else if (data === 'nouser') {
+            window.alert('Username doesnt exist');
+        }
+        else if (data === 'nopass') {
+            window.alert('Password doesnt match');
+        }
     });
 }
 // START countDownDate:

@@ -1,33 +1,34 @@
 
 
-async function loadPlaces(){
-    const {data} = await axios.get('/places/getPlaces')
+async function loadPlaces() {
+    const { data } = await axios.get('/places/getPlaces')
     console.log(data);
-    
-  //  renderAirbnb(data);
+
+    //  renderAirbnb(data);
 }
 //loadPlaces()
-async function handleLoadPlace(){
-    try{
+async function handleLoadPlace() {
+    try {
 
-  
-   const {data} = await axios.get('/places/getToPlace');
-   
-   console.log(data);
-   renderPlace(data);
-   
-}catch (error) {
-    console.error(error.message);
-  
-}}
-async function handleGoToPlace(placeId){
-  const {data} = await axios.get('/goToPlace',{data:{placeId}})
-  renderPlace(data)
+
+        const { data } = await axios.get('/places/getToPlace');
+
+        console.log(data);
+        renderPlace(data);
+
+    } catch (error) {
+        console.error(error.message);
+
+    }
 }
-function renderPlace(data:Array<any>){
-try{
-  const html = data.map(place=>{
-    return`<div class="mainUpper">
+async function handleGoToPlace(placeId) {
+    const { data } = await axios.get('/goToPlace', { data: { placeId } })
+    renderPlace(data)
+}
+function renderPlace(data: Array<any>) {
+    try {
+        const html = data.map(place => {
+            return `<div class="mainUpper">
     <div class="maiUpper__title">
         <h1>${place.name}</h1>
        <h3>${place.price}$</h3>
@@ -348,40 +349,54 @@ Carbon monoxide alarm not reported Show more
     </div>
     
 </div>`
-  })
-  .join('');
-  // console.log(html)
+        })
+            .join('');
+        // console.log(html)
 
-  document.querySelector('#rootPlace').innerHTML = html;
+        document.querySelector('#rootPlace').innerHTML = html;
+    }
+    catch (error) {
+        console.error(error.message);
+
+    }
 }
-catch (error) {
-  console.error(error.message);
-
-}
-}
-     
 
 
 
 
 
-async function handleFindAirbnb(ev){
+
+async function handleFindAirbnb(ev) {
     ev.preventDefault();
-    const search=ev.target.elements.searchLocation.value;
-    const checkIn=ev.target.elements.checkIn.value;
-    const checkOut=ev.target.elements.checkOut.value;
-    const adults=ev.target.elements.checkOut.value;
-    const children=ev.target.elements.children.value;
-    const infants=ev.target.elements.infants.value;
-    const pets=ev.target.elements.pets.value;
 
-    const {data}= await axios.get('/search-airbnb', {
-        search,checkIn,checkOut,adults,children,infants,pets
-    })
+
+    //const search = ev.target.elements.searchLocation.value;
+    // const checkIn = ev.target.elements.checkIn.value;
+    // const checkOut = ev.target.elements.checkOut.value;
+     const adults = ev.target.elements.adults.value;
+    // const children = ev.target.elements.children.value;
+    // const infants = ev.target.elements.infants.value;
+    // const pets = ev.target.elements.pets.value;
+
+    console.log(
+        // search, 
+        // checkIn, checkOut, 
+        adults,
+        //  children, infants, pets
+        )
+
+    const { data } = await axios.get(`/places/search-airbnb?adults=${adults} `)
+    // search=${search}&checkIn=${checkIn}&checkOut=${checkOut}&adults=${adults}&children=${children}&infants=${infants}&pets=${pets}
     console.log(data)
-    ev.target.reset();
-  
+    // ev.target.reset();
+};
 
+async function handleTelaviv() {
+  
+    const { data } = await axios.get('/places/search-telaviv')
+    // search=${search}&checkIn=${checkIn}&checkOut=${checkOut}&adults=${adults}&children=${children}&infants=${infants}&pets=${pets}
+    console.log(data)
+    
 }
 
 // async function handleSearchCity(ev){
@@ -393,8 +408,8 @@ async function handleFindAirbnb(ev){
 // }
 
 async function handleFilter(ev) {
-    const price=ev.target.elements.price.valueAsNumber;
+    const price = ev.target.elements.price.valueAsNumber;
     console.log(price);
-    const{data}=await axios.get('/places/getFiltered',{data:{price}});
-    
+    const { data } = await axios.get('/places/getFiltered', { data: { price } });
+
 }
