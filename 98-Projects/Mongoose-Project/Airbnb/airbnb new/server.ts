@@ -16,7 +16,7 @@ mongoose
   )
   .then((result) => {
     console.log("connected to db");
-    Places.find({}).limit(10)
+    Places.find({})
       .then((res) => {
         // console.log(res);
       })

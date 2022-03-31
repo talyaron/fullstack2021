@@ -44,9 +44,10 @@ exports.getPlaces = function (req, res) { return __awaiter(void 0, void 0, void 
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 2, , 3]);
-                return [4 /*yield*/, placesModel_1["default"].find({}).limit(20)];
+                return [4 /*yield*/, placesModel_1["default"].find({})];
             case 1:
                 places = _a.sent();
+                // .limit(20);
                 console.log(placesModel_1["default"]);
                 console.log(places);
                 res.send({ ok: true, places: places });
@@ -164,44 +165,30 @@ exports.findPlaceMap = function (req, res) { return __awaiter(void 0, void 0, vo
     });
 }); };
 exports.searchAirbnb = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var search_1;
+    var search_1, places, error_4;
     return __generator(this, function (_a) {
-        // try{
-        //     const search=req.query.search;
-        // const checkIn=req.query.checkIn;
-        // const checkOut=req.query.checkOut;
-        // const adults=req.query.adults;
-        // const children=req.query.children;
-        // const infants=req.query.infants;
-        // const pets=req.query.pets;
-        // const foundLocation=await Places.find({address:search});
-        // console.log(foundLocation)
-        // //res.send({city:filteredCity})
-        // }
-        // catch (error) {
-        //     console.log(error.error);
-        //     res.send({ error: error.massage });
-        // }
-        try {
-            search_1 = req.query.search;
-            console.log(search_1
-            //,       checkIn, checkOut, 
-            // adults, children
-            // , infants, pets
-            );
-            // const places = await Places.find({ "address.country": `${search}` });
-            // console.log(places)
-            // res.send({ ok: true, places })
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 2, , 3]);
+                search_1 = req.query.search;
+                console.log(search_1);
+                return [4 /*yield*/, placesModel_1["default"].find({ "address.country": "" + search_1 })];
+            case 1:
+                places = _a.sent();
+                console.log(places);
+                res.send({ ok: true, places: places });
+                return [3 /*break*/, 3];
+            case 2:
+                error_4 = _a.sent();
+                console.log(error_4.error);
+                res.send({ error: error_4.massage });
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
         }
-        catch (error) {
-            // console.log(error.error);
-            // res.send({ error: error.massage });
-        }
-        return [2 /*return*/];
     });
 }); };
 exports.search = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var places, search_2, serchPlace, error_4;
+    var places, search_2, serchPlace, error_5;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -215,9 +202,9 @@ exports.search = function (req, res) { return __awaiter(void 0, void 0, void 0, 
                 res.send(serchPlace);
                 return [3 /*break*/, 3];
             case 2:
-                error_4 = _a.sent();
-                console.log(error_4.error);
-                res.send({ error: error_4.massage });
+                error_5 = _a.sent();
+                console.log(error_5.error);
+                res.send({ error: error_5.massage });
                 return [3 /*break*/, 3];
             case 3: return [2 /*return*/];
         }
