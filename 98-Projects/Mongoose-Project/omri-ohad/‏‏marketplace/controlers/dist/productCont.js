@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.filterByCategory = exports.deleteProduct = exports.updateproduct = exports.addProduct = exports.getAllProducts = exports.getProductsMain = void 0;
+exports.sortDescending = exports.sortAscending = exports.filterByCategory = exports.deleteProduct = exports.updatePrice = exports.updateTitle = exports.updatePic = exports.addProduct = exports.getAllProducts = exports.getProductsMain = void 0;
 var productModel_1 = require("../model/productModel");
 var productMain_1 = require("../model/productMain");
 function getProductsMain(req, res) {
@@ -115,41 +115,120 @@ function addProduct(req, res) {
     });
 }
 exports.addProduct = addProduct;
-function updateproduct(req, res) {
+function updatePic(req, res) {
     return __awaiter(this, void 0, void 0, function () {
-        var productId, newImg, newTitle, result, products, error_4;
+        var productId, newImg, result, resultMarket, products, productsMarket, error_4;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    _a.trys.push([0, 5, , 6]);
+                    _a.trys.push([0, 7, , 8]);
                     productId = req.body.gameId;
                     newImg = req.body.newImg;
-                    newTitle = req.body.newTitle;
-                    if (!{ productId: productId }) return [3 /*break*/, 3];
-                    return [4 /*yield*/, productModel_1["default"].updateOne({ _id: productId }, { pic: newImg }, { title: newTitle })];
+                    if (!{ productId: productId }) return [3 /*break*/, 5];
+                    return [4 /*yield*/, productModel_1["default"].updateOne({ _id: productId }, { pic: newImg })];
                 case 1:
                     result = _a.sent();
-                    return [4 /*yield*/, productModel_1["default"].find({})];
+                    return [4 /*yield*/, productMain_1["default"].updateOne({ ownerId: productId }, { pic: newImg })];
                 case 2:
+                    resultMarket = _a.sent();
+                    return [4 /*yield*/, productModel_1["default"].find({})];
+                case 3:
                     products = _a.sent();
+                    return [4 /*yield*/, productMain_1["default"].find({})];
+                case 4:
+                    productsMarket = _a.sent();
                     res.send({ ok: true, result: result, products: products });
-                    return [3 /*break*/, 4];
-                case 3: throw new Error("Something went wrong");
-                case 4: return [3 /*break*/, 6];
-                case 5:
+                    return [3 /*break*/, 6];
+                case 5: throw new Error("Something went wrong");
+                case 6: return [3 /*break*/, 8];
+                case 7:
                     error_4 = _a.sent();
                     console.error(error_4);
                     res.send({ error: error_4.message });
-                    return [3 /*break*/, 6];
-                case 6: return [2 /*return*/];
+                    return [3 /*break*/, 8];
+                case 8: return [2 /*return*/];
             }
         });
     });
 }
-exports.updateproduct = updateproduct;
+exports.updatePic = updatePic;
+function updateTitle(req, res) {
+    return __awaiter(this, void 0, void 0, function () {
+        var productId, newTitle, result, resultMarket, products, productsMarket, error_5;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    _a.trys.push([0, 7, , 8]);
+                    productId = req.body.gameId;
+                    newTitle = req.body.newTitle;
+                    if (!{ productId: productId }) return [3 /*break*/, 5];
+                    return [4 /*yield*/, productModel_1["default"].updateOne({ _id: productId }, { title: newTitle })];
+                case 1:
+                    result = _a.sent();
+                    return [4 /*yield*/, productMain_1["default"].updateOne({ ownerId: productId }, { title: newTitle })];
+                case 2:
+                    resultMarket = _a.sent();
+                    return [4 /*yield*/, productModel_1["default"].find({})];
+                case 3:
+                    products = _a.sent();
+                    return [4 /*yield*/, productMain_1["default"].find({})];
+                case 4:
+                    productsMarket = _a.sent();
+                    res.send({ ok: true, result: result, products: products });
+                    return [3 /*break*/, 6];
+                case 5: throw new Error("Something went wrong");
+                case 6: return [3 /*break*/, 8];
+                case 7:
+                    error_5 = _a.sent();
+                    console.error(error_5);
+                    res.send({ error: error_5.message });
+                    return [3 /*break*/, 8];
+                case 8: return [2 /*return*/];
+            }
+        });
+    });
+}
+exports.updateTitle = updateTitle;
+function updatePrice(req, res) {
+    return __awaiter(this, void 0, void 0, function () {
+        var productId, newPrice, result, resultMarket, products, productsMarket, error_6;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    _a.trys.push([0, 7, , 8]);
+                    productId = req.body.gameId;
+                    newPrice = req.body.newPrice;
+                    if (!{ productId: productId }) return [3 /*break*/, 5];
+                    return [4 /*yield*/, productModel_1["default"].updateOne({ _id: productId }, { price: newPrice })];
+                case 1:
+                    result = _a.sent();
+                    return [4 /*yield*/, productMain_1["default"].updateOne({ ownerId: productId }, { price: newPrice })];
+                case 2:
+                    resultMarket = _a.sent();
+                    return [4 /*yield*/, productModel_1["default"].find({})];
+                case 3:
+                    products = _a.sent();
+                    return [4 /*yield*/, productMain_1["default"].find({})];
+                case 4:
+                    productsMarket = _a.sent();
+                    res.send({ ok: true, result: result, products: products });
+                    return [3 /*break*/, 6];
+                case 5: throw new Error("Something went wrong");
+                case 6: return [3 /*break*/, 8];
+                case 7:
+                    error_6 = _a.sent();
+                    console.error(error_6);
+                    res.send({ error: error_6.message });
+                    return [3 /*break*/, 8];
+                case 8: return [2 /*return*/];
+            }
+        });
+    });
+}
+exports.updatePrice = updatePrice;
 function deleteProduct(req, res) {
     return __awaiter(this, void 0, void 0, function () {
-        var productId, result, resultMarket, products, productsMarket, error_5;
+        var productId, result, resultMarket, products, productsMarket, error_7;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -173,9 +252,9 @@ function deleteProduct(req, res) {
                 case 5: throw new Error('product ID is missing');
                 case 6: return [3 /*break*/, 8];
                 case 7:
-                    error_5 = _a.sent();
-                    console.error(error_5);
-                    res.send({ error: error_5.message });
+                    error_7 = _a.sent();
+                    console.error(error_7);
+                    res.send({ error: error_7.message });
                     return [3 /*break*/, 8];
                 case 8: return [2 /*return*/];
             }
@@ -185,7 +264,7 @@ function deleteProduct(req, res) {
 exports.deleteProduct = deleteProduct;
 function filterByCategory(req, res) {
     return __awaiter(this, void 0, void 0, function () {
-        var chosenCategory_1, products, filterd, error_6;
+        var chosenCategory_1, products, filterd, error_8;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -205,9 +284,9 @@ function filterByCategory(req, res) {
                     _a.label = 2;
                 case 2: return [3 /*break*/, 4];
                 case 3:
-                    error_6 = _a.sent();
-                    console.error(error_6);
-                    res.send({ error: error_6.message });
+                    error_8 = _a.sent();
+                    console.error(error_8);
+                    res.send({ error: error_8.message });
                     return [3 /*break*/, 4];
                 case 4: return [2 /*return*/];
             }
@@ -215,3 +294,51 @@ function filterByCategory(req, res) {
     });
 }
 exports.filterByCategory = filterByCategory;
+function sortAscending(req, res) {
+    return __awaiter(this, void 0, void 0, function () {
+        var products, filterd, error_9;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    _a.trys.push([0, 2, , 3]);
+                    return [4 /*yield*/, productMain_1["default"].find({})];
+                case 1:
+                    products = _a.sent();
+                    filterd = products.sort(function (a, b) { return (a.price - b.price); });
+                    res.send({ ok: true, filterd: filterd });
+                    return [3 /*break*/, 3];
+                case 2:
+                    error_9 = _a.sent();
+                    console.error(error_9);
+                    res.send({ error: error_9.message });
+                    return [3 /*break*/, 3];
+                case 3: return [2 /*return*/];
+            }
+        });
+    });
+}
+exports.sortAscending = sortAscending;
+function sortDescending(req, res) {
+    return __awaiter(this, void 0, void 0, function () {
+        var products, filterd, error_10;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    _a.trys.push([0, 2, , 3]);
+                    return [4 /*yield*/, productMain_1["default"].find({})];
+                case 1:
+                    products = _a.sent();
+                    filterd = products.sort(function (a, b) { return (b.price - a.price); });
+                    res.send({ ok: true, filterd: filterd });
+                    return [3 /*break*/, 3];
+                case 2:
+                    error_10 = _a.sent();
+                    console.error(error_10);
+                    res.send({ error: error_10.message });
+                    return [3 /*break*/, 3];
+                case 3: return [2 /*return*/];
+            }
+        });
+    });
+}
+exports.sortDescending = sortDescending;

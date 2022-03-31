@@ -38,14 +38,53 @@ export async function addProduct(req, res) {
   }
 }
 
-export async function updateproduct(req, res) {
+export async function updatePic(req, res) {
   try {
     const productId = req.body.gameId;
     const newImg = req.body.newImg;
+    if ({ productId }) {
+      const result = await ProductUser.updateOne({ _id: productId }, { pic: newImg })
+      const resultMarket = await ProductMain.updateOne({ ownerId: productId }, { pic: newImg })
+      const products = await ProductUser.find({});
+      const productsMarket = await ProductMain.find({});
+      res.send({ ok: true, result, products });
+    } else {
+      throw new Error("Something went wrong");
+    }
+  } catch (error) {
+    console.error(error);
+    res.send({ error: error.message });
+  }
+}
+
+export async function updateTitle(req, res) {
+  try {
+    const productId = req.body.gameId;
     const newTitle = req.body.newTitle;
     if ({ productId }) {
-      const result = await ProductUser.updateOne({ _id: productId }, { pic: newImg }, { title: newTitle })
+      const result = await ProductUser.updateOne({ _id: productId },{ title: newTitle })
+      const resultMarket = await ProductMain.updateOne({ ownerId: productId }, { title: newTitle })
       const products = await ProductUser.find({});
+      const productsMarket = await ProductMain.find({});
+      res.send({ ok: true, result, products });
+    } else {
+      throw new Error("Something went wrong");
+    }
+  } catch (error) {
+    console.error(error);
+    res.send({ error: error.message });
+  }
+}
+
+export async function updatePrice(req, res) {
+  try {
+    const productId = req.body.gameId;
+    const newPrice = req.body.newPrice;
+    if ({ productId }) {
+      const result = await ProductUser.updateOne({ _id: productId },{ price: newPrice })
+      const resultMarket = await ProductMain.updateOne({ ownerId: productId }, { price: newPrice })
+      const products = await ProductUser.find({});
+      const productsMarket = await ProductMain.find({});
       res.send({ ok: true, result, products });
     } else {
       throw new Error("Something went wrong");
@@ -86,6 +125,31 @@ export async function filterByCategory(req, res) {
         res.send({ ok: true, filterd })
       }
     }
+  } catch (error) {
+    console.error(error);
+    res.send({ error: error.message })
+  }
+}
+
+
+export async function sortAscending(req, res) {
+  try {
+      const products = await ProductMain.find({});
+        const filterd = products.sort((a, b) => ( a.price - b.price));
+        res.send({ ok: true, filterd })
+    
+  } catch (error) {
+    console.error(error);
+    res.send({ error: error.message })
+  }
+}
+
+export async function sortDescending(req, res) {
+  try {
+      const products = await ProductMain.find({});
+        const filterd = products.sort((a, b) => ( b.price - a.price));
+        res.send({ ok: true, filterd })
+    
   } catch (error) {
     console.error(error);
     res.send({ error: error.message })
