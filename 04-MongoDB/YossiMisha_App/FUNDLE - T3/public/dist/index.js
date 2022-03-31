@@ -10,6 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 console.log('hello');
 const WORD_LENGTH = 5;
 const guessGrid = document.querySelector("[data-guess-grid]");
+const alertContainer = document.querySelector("[data-alert-container]");
 const targetWord = '';
 const offsetFromDate = new Date(2022, 0, 1);
 const msOffset = Date.now() - offsetFromDate;
@@ -118,7 +119,46 @@ function deleteKey() {
     }
 }
 function submitGuess() {
-    console.log();
+    return __awaiter(this, void 0, void 0, function* () {
+        const activeTiles = [...getActiveTiles()];
+        // const activeTiles: any = getActiveTiles()
+        if (activeTiles.length !== WORD_LENGTH) {
+            showAlert('Not enough letters');
+            shakeTiles(activeTiles);
+        }
+        const guess = activeTiles.reduce((word, tile) => {
+            return word + tile.dataset.letter;
+        }, "");
+        const { data } = yield axios.get(`words/get-guessCheck?guess=${guess}`);
+        if (data.found) {
+            console.log('wordfound');
+        }
+        else {
+            showAlert("Not in word list");
+            shakeTiles(activeTiles);
+            return;
+        }
+    });
+}
+function showAlert(message, duration = 1000) {
+    const alert = document.createElement('div');
+    alert.textContent = message;
+    alert.classList.add("alert");
+    alertContainer.prepend(alert);
+    setTimeout(() => {
+        alert.classList.add("alert-hide");
+        alert.addEventListener("transitionend", () => {
+            alert.remove();
+        });
+    }, duration);
+}
+function shakeTiles(tiles) {
+    tiles.forEach((tile) => {
+        tile.classList.add("shake");
+        tile.addEventListener("animationend", () => {
+            tile.classList.remove("shake");
+        }, { once: true });
+    });
 }
 function handleShowStats() {
     const stats = document.querySelector("#stats");
@@ -225,6 +265,7 @@ function loginPractice(username, password) {
     return __awaiter(this, void 0, void 0, function* () {
         const { data } = yield axios.get(`users/get-user?username=${username}&password=${password}`);
         const greetings = timeOfDay();
+        console.log(data);
         if (data.user) {
             document.querySelector(".hello").innerHTML = `&nbsp;&nbsp;&nbsp;${greetings} <span style="color: orange;">&nbsp;${username}</span>`;
             handleShowLogin();

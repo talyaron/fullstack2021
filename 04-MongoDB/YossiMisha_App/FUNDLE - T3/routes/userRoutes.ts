@@ -4,8 +4,8 @@ const router = express.Router();
 import {addUser,getUser} from "../controllers/usersCont"
 
 router
-.get('/get-user',addUser)
-.post('/add-user',getUser)
+.get('/get-user',getUser)
+.post('/add-user',addUser)
 
 
 

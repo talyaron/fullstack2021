@@ -347,6 +347,32 @@ body {
     transform: translateY(15%);
   }
 }
+.alert-container {
+  position: fixed;
+  top: 10vh;
+  left: 50vw;
+  transform: translateX(-50%);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.alert-container .alert {
+  pointer-events: none;
+  background-color: #d6d9db;
+  padding: 0.75em;
+  border-radius: 0.25em;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+  margin-bottom: 0.5em;
+}
+.alert-container .alert:last-child {
+  margin-bottom: 0;
+}
+.alert-container .alert-hide {
+  opacity: 0;
+}
+
 .loginwrapper,
 .registerwrapper {
   position: relative;
@@ -511,4 +537,29 @@ body {
 
 .registerwrapper {
   display: none;
+}
+
+.shake {
+  animation: shake 250ms ease-in-out;
+}
+
+@keyframes shake {
+  10% {
+    transform: translateX(-5%);
+  }
+  30% {
+    transform: translateX(5%);
+  }
+  50% {
+    transform: translateX(-7.5%);
+  }
+  70% {
+    transform: translateX(7.5%);
+  }
+  90% {
+    transform: translateX(-5%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
 }
