@@ -18,7 +18,7 @@ function showSignUpFrom(ev) {
     } else if (btnId == 'signIn') {
         forms.renderSignIn(display)
     }
-    console.log(btnId);
+    // console.log(btnId);
 }
 function HandleSettingsMenu() {
     const settings = document.querySelector(".settings")
@@ -62,8 +62,9 @@ const forms = {
 }
 
 async function renderProfileNewUser(user, imgs) {
-    console.log(user)
+    // console.log(user)
     const display: any = document.querySelector('.main')
+    const userDetails = user.result
     let html = "";
     html = `<section class="profile">
 
@@ -73,19 +74,19 @@ async function renderProfileNewUser(user, imgs) {
     </div>
     <nav class="settings">
     <ul>
-    <li onclick="handleUpdateProfile(${user.result.email})">update Profile</li>
+    <li onclick="handleUpdateProfile(${userDetails.email})">update Profile</li>
     <div id="updateRoot"></div>
-        <li class="delete" onclick="handleDeleteProfile(${user.result.email})">delete User</li>
+        <li class="delete" onclick="handleDeleteProfile(${userDetails.email})">delete User</li>
     </ul>
 </nav>
     <div class="profile__header">
         <div class="profile__imgBorder" style="background-image: url(${imgs.result.url[0]})">
             
         </div>
-        <div class="profile__name">${user.result.firstName} ${user.result.lastName}</div>
-        <div class="profile__birthday">${user.result.birthday}</div>
-        <div class="profile__country">${user.result.country}</div>
-        <div class="profile__gender">${user.result.gender}</div>
+        <div class="profile__name">${userDetails.firstName} ${userDetails.lastName}</div>
+        <div class="profile__birthday">${userDetails.birthday}</div>
+        <div class="profile__country">${userDetails.country}</div>
+        <div class="profile__gender">${userDetails.gender}</div>
         <button class="profile__addButton">Add Post</button>
     </div>
     <ul class="profile__user__category">
@@ -110,6 +111,10 @@ async function renderProfileNewUser(user, imgs) {
 }
 async function renderProfileLogin(user, imgs) {
     const display: any = document.querySelector('.main')
+    const userDetails = user.result[0]
+    // console.log(userDetails);
+    //    console.log(userDetails.email);
+
     let html = "";
     html = `<section class="profile">
 
@@ -119,19 +124,19 @@ async function renderProfileLogin(user, imgs) {
     </div>
     <nav class="settings">
     <ul>
-    <p onclick='handleUpdateProfile(${user.result[0].email})'>update Profile</p>
+    <p class="settings_options" id="${userDetails.email}" onclick='handleUpdateProfile(event)'>update Profile</p>
     <div id='updateRoot'></div>
-        <li class='delete' onclick=''handleDeleteProfile(${user.result[0].email})''>delete user</li>
+        <li class="settings_options delete" id="${userDetails.email}" onclick="handleDeleteProfile(event)">delete user</li>
     </ul>
 </nav>
     <div class="profile__header">
         <div class="profile__imgBorder" style="background-image: url(${imgs.result[0].url[0]})">
             
         </div>
-        <div class="profile__name">${user.result[0].firstName} ${user.result[0].lastName}</div>
-        <div class="profile__birthday">${user.result[0].birthday}</div>
-        <div class="profile__country">${user.result[0].country}</div>
-        <div class="profile__gender">${user.result[0].gender}</div>
+        <div class="profile__name">${userDetails.firstName} ${userDetails.lastName}</div>
+        <div class="profile__birthday">${userDetails.birthday}</div>
+        <div class="profile__country">${userDetails.country}</div>
+        <div class="profile__gender">${userDetails.gender}</div>
         <button class="profile__addButton">Add Post</button>
     </div>
     <ul class="profile__user__category">
@@ -158,14 +163,14 @@ async function HandleLogin(ev) {
     try {
         ev.preventDefault();
         const password = ev.target.elements.password.value;
-        console.log(password)
+        // console.log(password)
         const email = ev.target.elements.email.value;
-        console.log(email);
-        const  userData  = await axios.get(`/user/get-user?email=${email}&password=${password}`);
-        const  imagesData  = await axios.get(`/images/get-images?email=${email}&password=${password}`);
-        const user = {...userData.data};
-        const images = {...imagesData.data};
-        
+        // console.log(email);
+        const userData = await axios.get(`/user/get-user?email=${email}&password=${password}`);
+        const imagesData = await axios.get(`/images/get-images?email=${email}&password=${password}`);
+        const user = { ...userData.data };
+        const images = { ...imagesData.data };
+
         // console.log(user);
         // console.log(images);
 
@@ -177,8 +182,6 @@ async function HandleLogin(ev) {
 
     }
 }
-
-
 
 async function newUserDetails(ev) {
 
@@ -209,14 +212,14 @@ async function newUserDetails(ev) {
             }
         }
     }
-    
+
     const newUser: User = { firstName, lastName, birthday, country, password, email, gender }
-    const  userData  = await axios.post('/user/add-user', { newUser });
-    console.log(userData);
-    const  imagesData  = await axios.post('/images/add-images', { email, password });
-    const user = {...userData.data};
-    const images = {...imagesData.data};
-    
+    const userData = await axios.post('/user/add-user', { newUser });
+    // console.log(userData);
+    const imagesData = await axios.post('/images/add-images', { email, password });
+    const user = { ...userData.data };
+    const images = { ...imagesData.data };
+
 
 
     renderProfileNewUser(user, images)
@@ -239,9 +242,34 @@ async function newUserDetails(ev) {
 
 
 
-async function handleUpdateProfile(email){
-    console.log(email);
+async function handleUpdateProfile(email) {
+    // console.log(email);
 }
+
+async function handleDeleteProfile(ev) {
+    console.dir(ev.target);
+    const email = ev.target.id
+    console.log(email);
+    try {
+        const { data } = await axios.delete("/user/delete-user", { data: { email } });
+        const { error, results } = data;
+        alert(results)
+        if (error) throw new Error(error);
+        console.log(results);
+      } catch (err) {
+        console.error(err);
+      }
+
+        // const user = {...userData.data};
+        // const images = {...imagesData.data};
+
+        // console.log(user);
+        // console.log(images);
+
+        // renderProfileLogin(user, images);
+}
+
+
 
 
 

@@ -29,6 +29,23 @@ export const addUser = async (req, res) => {
         res.send({ error: err.message, ok: false })
     }
 }
+export const deleteUser = async (req, res) => {
+    try {
+        console.log(req.body);
+        const { email } = req.body;
+        if (email) {
+          const userDelete = await User.deleteOne({email:email})
+          if (!email) throw new Error("Didnt find games with such an email");
+          res.send({ results: "user deleted" });
+        } else {
+          throw new Error("Id was not found in request");
+        }
+      } catch (err) {
+        console.error(`In delete-user: ${err.message}`);
+        res.send({ error: err.message });
+      }
+}
+
 // export const updateUser = async (req, res) =>{
 //     try{
 //         const {updatedUser} = req.body;

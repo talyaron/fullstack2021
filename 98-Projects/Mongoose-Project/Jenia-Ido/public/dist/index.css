@@ -15,12 +15,23 @@ body {
   height: 130px;
 }
 .profile .settings {
-  position: absolute;
-  transform: translateX(-100%);
+  position: relative;
+  transform: translateX(1100px);
   font-size: 10px;
+  display: grid;
+  grid-template-columns: repeat(4, 25%);
+}
+.profile .settings_options {
+  justify-self: center;
+  height: 50%;
+}
+.profile .settings ul {
+  grid-column: 4/5;
+  display: flex;
+  flex-flow: column;
 }
 .profile .settings .delete {
-  color: red;
+  color: #e69650;
 }
 .profile .settings li {
   opacity: 0;
