@@ -114,7 +114,6 @@ export const findPlaceMap = async (req, res) => {
   }
 };
 export const searchAirbnb = async (req, res) => {
-
   try {
     let {
       // search, 
@@ -131,10 +130,8 @@ export const searchAirbnb = async (req, res) => {
       //  children, infants, pets
       );
     const places = await Places.find({accommodates:8}).limit(20);
-   
-    
-    
-
+    //  $query = array(accommodates => $userInput);
+    //  {$query : Array(accommodates => `${adults}`)}
 
     console.log(places)
     res.send({ ok: true, places })
@@ -143,6 +140,17 @@ export const searchAirbnb = async (req, res) => {
     res.send({ error: error.massage });
   }
 };
+
+
+export const searchAirbnbInTelaviv = async (req, res) => {
+  
+ 
+    const places = await Places.find({address:"Brazil"});
+    console.log(places)
+    res.send({ ok: true, places })
+  
+};
+
 export const search = async (req, res) => {
   try {
     const places = await Places.find({});

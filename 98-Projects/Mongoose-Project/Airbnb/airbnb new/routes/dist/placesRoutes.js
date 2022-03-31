@@ -9,12 +9,14 @@ var placesCont_4 = require("../controler/placesCont");
 var placesCont_5 = require("../controler/placesCont");
 var placesCont_6 = require("../controler/placesCont");
 var placesCont_7 = require("../controler/placesCont");
+var placesCont_8 = require("../controler/placesCont");
 router
-    .get('/search', placesCont_7.search)
-    .get('/getPlaces', placesCont_5.getPlaces)
-    .get('/getFiltered', placesCont_6.getfilteredAirBNB)
+    .get('/search', placesCont_8.search)
+    .get('/getPlaces', placesCont_6.getPlaces)
+    .get('/getFiltered', placesCont_7.getfilteredAirBNB)
     .post('/addPlaces', placesCont_1.addPlaces)
     .get('/getToPlace', placesCont_2.getToPlace)
     .get('/search-airbnb', placesCont_3.searchAirbnb)
-    .post('/findPlaceMap', placesCont_4.findPlaceMap);
+    .get('/places/search-telaviv', placesCont_4.searchAirbnbInTelaviv)
+    .post('/findPlaceMap', placesCont_5.findPlaceMap);
 exports["default"] = router;

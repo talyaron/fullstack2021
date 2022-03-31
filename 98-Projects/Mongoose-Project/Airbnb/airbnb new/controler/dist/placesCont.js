@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.search = exports.searchAirbnb = exports.findPlaceMap = exports.getToPlace = exports.addPlaces = exports.getfilteredAirBNB = exports.getPlaces = void 0;
+exports.search = exports.searchAirbnbInTelaviv = exports.searchAirbnb = exports.findPlaceMap = exports.getToPlace = exports.addPlaces = exports.getfilteredAirBNB = exports.getPlaces = void 0;
 var placesModel_1 = require("../model/placesModel");
 exports.getPlaces = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var places, error_1;
@@ -181,6 +181,8 @@ exports.searchAirbnb = function (req, res) { return __awaiter(void 0, void 0, vo
                 return [4 /*yield*/, placesModel_1["default"].find({ accommodates: 8 }).limit(20)];
             case 1:
                 places = _a.sent();
+                //  $query = array(accommodates => $userInput);
+                //  {$query : Array(accommodates => `${adults}`)}
                 console.log(places);
                 res.send({ ok: true, places: places });
                 return [3 /*break*/, 3];
@@ -190,6 +192,19 @@ exports.searchAirbnb = function (req, res) { return __awaiter(void 0, void 0, vo
                 res.send({ error: error_4.massage });
                 return [3 /*break*/, 3];
             case 3: return [2 /*return*/];
+        }
+    });
+}); };
+exports.searchAirbnbInTelaviv = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var places;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4 /*yield*/, placesModel_1["default"].find({ address: "Brazil" })];
+            case 1:
+                places = _a.sent();
+                console.log(places);
+                res.send({ ok: true, places: places });
+                return [2 /*return*/];
         }
     });
 }); };

@@ -3,6 +3,7 @@ const router = express.Router();
 import { addPlaces } from '../controler/placesCont'
 import { getToPlace } from '../controler/placesCont'
 import { searchAirbnb } from '../controler/placesCont'
+import { searchAirbnbInTelaviv } from '../controler/placesCont'
 import { findPlaceMap } from '../controler/placesCont'
 import { getPlaces } from '../controler/placesCont'
 import { getfilteredAirBNB } from '../controler/placesCont'
@@ -15,6 +16,7 @@ router
     .post('/addPlaces', addPlaces)
     .get('/getToPlace', getToPlace)
     .get('/search-airbnb', searchAirbnb)
+    .get('/places/search-telaviv',searchAirbnbInTelaviv)
     .post('/findPlaceMap', findPlaceMap)
 
 export default router;

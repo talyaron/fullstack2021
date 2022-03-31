@@ -389,6 +389,14 @@ async function handleFindAirbnb(ev) {
     // search=${search}&checkIn=${checkIn}&checkOut=${checkOut}&adults=${adults}&children=${children}&infants=${infants}&pets=${pets}
     console.log(data)
     // ev.target.reset();
+};
+
+async function handleTelaviv() {
+  
+    const { data } = await axios.get('/places/search-telaviv')
+    // search=${search}&checkIn=${checkIn}&checkOut=${checkOut}&adults=${adults}&children=${children}&infants=${infants}&pets=${pets}
+    console.log(data)
+    
 }
 
 // async function handleSearchCity(ev){
