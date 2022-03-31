@@ -54,12 +54,13 @@ async function handleLogin(ev) {
 async function handleRenderUser(ev) {
   ev.preventDefault();
   let userId = ev.target.location.search.replace(/.*?id=/g, "");
+  
   const { data } = await axios.get(`users/logged-in-user?userId=${userId}`);
-
   const { userInfo } = data;
   const user = userInfo[0];
   const name = document.querySelector("[data-name]");
   name.innerHTML = `${user.firstName} ${user.lastName}<br><span>${user.role}</span>`;
+  getUsersTasks(userId)
 }
 
 async function handleRenderPage(ev) {
@@ -224,14 +225,26 @@ function renderHome(firstName, lastName, gender, role) {
   body.outerHTML = html;
 }
 
-async function renderRecentlyCreated(ev) {
+async function handleRenderTasks(ev){
   const userURL = ev.target.baseURI;
+  const userId = userURL.split('/')[-24];
+  console.log(userId);
+  
+  getUsersTasks(userId)
+}
+console.dir();
+console.log(addGlobalEventListener);
+
+addGlobalEventListener(onload, '#landing__task-count',getUsersTasks(window.location.href), {})
+
+async function getUsersTasks(userId) {
   try {
-    const { data } = await axios
-      .post(`/tasks/render`, { userURL })
-      .then((response) => {
-        const { ok, newUserURL } = response.data;
-        console.log(ok, newUserURL);
+    const {data} = await axios.get(`tasks/getTasks?i=${userId}`);
+    // const { data } = await axios
+    //   .post(`/tasks/render`, { userURL })
+    //   .then((response) => {
+    //     const { ok, newUserURL } = response.data;
+    //     console.log(ok, newUserURL);
         // let html;
         // currentUsersTasks.forEach(task => {
         //     html += `
@@ -255,10 +268,27 @@ async function renderRecentlyCreated(ev) {
         //                 </li>
         //                 `
         // })
-      });
+      // });
   } catch (error) {
-    console.log("error in renderRecentlyCreated:");
+    console.log("error in getUsersTasks:");
     console.log(error.message);
     // }
   }
 }
+
+
+
+
+
+
+
+
+function addGlobalEventListener(
+  type, selector, callback, options, parent = document){
+      parent.addEventListener(type, e => {
+          if (e.target.matches(selector)) callback(e)
+      },
+      options
+      )
+  }
+

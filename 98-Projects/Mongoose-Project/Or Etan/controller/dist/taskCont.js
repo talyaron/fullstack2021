@@ -44,14 +44,13 @@ exports.renderPage = function (req, res) { return __awaiter(void 0, void 0, void
         switch (_b.label) {
             case 0:
                 _a = req.body, userURL = _a.userURL, requestedPage = _a.requestedPage;
-                console.log(userURL, requestedPage);
                 appURL = userURL.split("/")[2];
                 userId = userURL.slice(-24);
                 return [4 /*yield*/, taskModel_1["default"].find({ ownerId: userId })];
             case 1:
                 currentUsersTasks = _b.sent();
                 newURL = "/" + requestedPage + ".html?id=" + userId;
-                console.log(currentUsersTasks, requestedPage);
+                //   console.log(currentUsersTasks, requestedPage);
                 //   let { title, description, urgency, location, date } = currentUsersTasks[0];
                 if (requestedPage === "RecentlyCreated") {
                     try {
@@ -72,19 +71,15 @@ exports.renderPage = function (req, res) { return __awaiter(void 0, void 0, void
     });
 }); };
 exports.getUsersTasks = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var userURL, userId, currentUsersTasks;
+    var userId, currentUsersTasks;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                userURL = req.body.userURL;
-                userId = userURL.slice(-24);
-                console.log(userURL);
+                userId = req.query;
+                console.log(userId);
                 return [4 /*yield*/, taskModel_1["default"].find({ ownerId: userId })];
             case 1:
                 currentUsersTasks = _a.sent();
-                console.log(userURL);
-                res.send({ ok: true, newUserURL: userURL });
-                console.log(currentUsersTasks);
                 return [2 /*return*/];
         }
     });

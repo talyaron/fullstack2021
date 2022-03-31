@@ -5,5 +5,5 @@ var router = express.Router();
 var taskCont_1 = require("../controller/taskCont");
 router
     .post('/nav', taskCont_1.renderPage)
-    .post('/render', taskCont_1.getUsersTasks);
+    .get('/getTasks', taskCont_1.getUsersTasks);
 exports["default"] = router;
