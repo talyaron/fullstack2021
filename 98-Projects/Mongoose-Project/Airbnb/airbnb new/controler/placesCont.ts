@@ -116,15 +116,25 @@ export const findPlaceMap = async (req, res) => {
 export const searchAirbnb = async (req, res) => {
 
   try {
-    let { search, 
-      // checkIn, checkOut, adults, children, infants, pets 
+    let {
+      // search, 
+      // checkIn, checkOut,
+       adults,
+        // children, infants, pets 
     } =
       req.query;
 
-    console.log(search, 
-      // checkIn, checkOut, adults, children, infants, pets
+    console.log(
+      // search, 
+      // checkIn, checkOut, 
+      adults,
+      //  children, infants, pets
       );
-    const places = await Places.find({"address.country":`${search}`});
+    const places = await Places.find({accommodates:8}).limit(20);
+   
+    
+    
+
 
     console.log(places)
     res.send({ ok: true, places })

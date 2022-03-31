@@ -5,7 +5,7 @@ var mongoose_1 = require("mongoose");
 var PlacesSchema = new mongoose_1["default"].Schema({
     _id: String,
     access: String,
-    accommodates: Number,
+    accommodates: String,
     address: Object,
     name: String,
     summary: String,

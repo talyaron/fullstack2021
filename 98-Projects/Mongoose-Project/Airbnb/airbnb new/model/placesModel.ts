@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 const PlacesSchema = new mongoose.Schema({
   _id:String,
   access:String,
-  accommodates:Number,
+  accommodates:String,
   address: Object,
 
     name: String,

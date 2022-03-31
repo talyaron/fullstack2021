@@ -165,14 +165,20 @@ exports.findPlaceMap = function (req, res) { return __awaiter(void 0, void 0, vo
     });
 }); };
 exports.searchAirbnb = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var search_1, places, error_4;
+    var 
+    // search, 
+    // checkIn, checkOut,
+    adults, places, error_4;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 2, , 3]);
-                search_1 = req.query.search;
-                console.log(search_1);
-                return [4 /*yield*/, placesModel_1["default"].find({ "address.country": "" + search_1 })];
+                adults = req.query.adults;
+                console.log(
+                // search, 
+                // checkIn, checkOut, 
+                adults);
+                return [4 /*yield*/, placesModel_1["default"].find({ accommodates: 8 }).limit(20)];
             case 1:
                 places = _a.sent();
                 console.log(places);
@@ -188,7 +194,7 @@ exports.searchAirbnb = function (req, res) { return __awaiter(void 0, void 0, vo
     });
 }); };
 exports.search = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var places, search_2, serchPlace, error_5;
+    var places, search_1, serchPlace, error_5;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -196,9 +202,9 @@ exports.search = function (req, res) { return __awaiter(void 0, void 0, void 0, 
                 return [4 /*yield*/, placesModel_1["default"].find({})];
             case 1:
                 places = _a.sent();
-                search_2 = req.query.search;
-                serchPlace = searchPlaces(search_2, places);
-                console.log(search_2, " ", places);
+                search_1 = req.query.search;
+                serchPlace = searchPlaces(search_1, places);
+                console.log(search_1, " ", places);
                 res.send(serchPlace);
                 return [3 /*break*/, 3];
             case 2:

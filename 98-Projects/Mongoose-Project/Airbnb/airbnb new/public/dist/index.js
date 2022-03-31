@@ -100,25 +100,25 @@ function renderPlace(data) {
 }
 function handleFindAirbnb(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var search, data;
+        var adults, data;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     ev.preventDefault();
-                    search = ev.target.elements.searchLocation.value;
-                    // const checkIn = ev.target.elements.checkIn.value;
-                    // const checkOut = ev.target.elements.checkOut.value;
-                    // const adults = ev.target.elements.adults.value;
+                    adults = ev.target.elements.adults.value;
                     // const children = ev.target.elements.children.value;
                     // const infants = ev.target.elements.infants.value;
                     // const pets = ev.target.elements.pets.value;
-                    console.log(search);
-                    return [4 /*yield*/, axios.get("/places/search-airbnb?search=" + search + "  ")
-                        // &checkIn=${checkIn}&checkOut=${checkOut}&adults=${adults}&children=${children}&infants=${infants}&pets=${pets}
+                    console.log(
+                    // search, 
+                    // checkIn, checkOut, 
+                    adults);
+                    return [4 /*yield*/, axios.get("/places/search-airbnb?adults=" + adults + " ")
+                        // search=${search}&checkIn=${checkIn}&checkOut=${checkOut}&adults=${adults}&children=${children}&infants=${infants}&pets=${pets}
                     ];
                 case 1:
                     data = (_a.sent()).data;
-                    // &checkIn=${checkIn}&checkOut=${checkOut}&adults=${adults}&children=${children}&infants=${infants}&pets=${pets}
+                    // search=${search}&checkIn=${checkIn}&checkOut=${checkOut}&adults=${adults}&children=${children}&infants=${infants}&pets=${pets}
                     console.log(data);
                     return [2 /*return*/];
             }
