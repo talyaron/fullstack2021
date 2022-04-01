@@ -129,12 +129,14 @@ export const searchAirbnb = async (req, res) => {
       adults,
       //  children, infants, pets
       );
-    const places = await Places.find({}).limit(20);
+    const places = await Places.find({"address_country":"Tel Aviv"});
     //  $query = array(accommodates => $userInput);
     //  {$query : Array(accommodates => `${adults}`)}
-
+    
+      res.send({ ok: true, places })
+   
     console.log(places)
-    res.send({ ok: true, places })
+    
   } catch (error) {
     console.log(error.error);
     res.send({ error: error.massage });

@@ -178,13 +178,13 @@ exports.searchAirbnb = function (req, res) { return __awaiter(void 0, void 0, vo
                 // search, 
                 // checkIn, checkOut, 
                 adults);
-                return [4 /*yield*/, placesModel_1["default"].find({}).limit(20)];
+                return [4 /*yield*/, placesModel_1["default"].find({ "address_country": "Tel Aviv" })];
             case 1:
                 places = _a.sent();
                 //  $query = array(accommodates => $userInput);
                 //  {$query : Array(accommodates => `${adults}`)}
-                console.log(places);
                 res.send({ ok: true, places: places });
+                console.log(places);
                 return [3 /*break*/, 3];
             case 2:
                 error_4 = _a.sent();
