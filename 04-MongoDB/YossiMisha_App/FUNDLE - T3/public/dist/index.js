@@ -9,6 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 console.log('hello');
 const WORD_LENGTH = 5;
+const keyboard = document.querySelector("[data-keyboard]");
 const guessGrid = document.querySelector("[data-guess-grid]");
 const alertContainer = document.querySelector("[data-alert-container]");
 const targetWord = '';
@@ -130,15 +131,18 @@ function submitGuess() {
             return word + tile.dataset.letter;
         }, "");
         const { data } = yield axios.get(`words/get-guessCheck?guess=${guess}`);
-        if (data.found) {
-            console.log('wordfound');
-        }
-        else {
+        if (data.found = false) {
             showAlert("Not in word list");
             shakeTiles(activeTiles);
             return;
         }
+        stopInteraction();
+        activeTiles.forEach((...params) => flipTile(...params, guess));
     });
+}
+function flipTile(tile, index, array, guess) {
+    const letter = tile.dataset.letter;
+    const key = keyboard.querySelector(`[data-key="${letter}]`);
 }
 function showAlert(message, duration = 1000) {
     const alert = document.createElement('div');
