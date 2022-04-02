@@ -91,7 +91,7 @@ function getUser(req, res) {
                 case 3:
                     noPass = _b.sent();
                     if (noPass.length >= 1) {
-                        res.send("nopass");
+                        res.send({ msg: "nopass", user: noPass });
                     }
                     else {
                         res.send("nouser");
@@ -105,7 +105,7 @@ function getUser(req, res) {
 exports.getUser = getUser;
 function updateUser(req, res) {
     return __awaiter(this, void 0, void 0, function () {
-        var _a, win, attempts, username, user, updatedUser, realuser;
+        var _a, win, attempts, username, user, updatedUser;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
@@ -113,7 +113,7 @@ function updateUser(req, res) {
                     return [4 /*yield*/, usersModel_1["default"].find({ username: username })];
                 case 1:
                     user = _b.sent();
-                    if (!user[0]) return [3 /*break*/, 4];
+                    if (!user[0]) return [3 /*break*/, 3];
                     if (attempts === 1) {
                         user[0].oneattempt++;
                     }
@@ -134,33 +134,38 @@ function updateUser(req, res) {
                     }
                     user[0].played++;
                     console.log('played: ' + user[0].played);
+                    console.log(win);
                     if (win) {
                         user[0].wins++;
                         user[0].current_streak++;
-                        user[0].max_streak++;
+                        console.log(user[0].current_streak);
+                        if (user[0].current_streak > user[0].max_streak) {
+                            user[0].max_streak = user[0].current_streak;
+                        }
                     }
-                    else {
-                        user[0].max_streak = 0;
+                    else if (win === false) {
+                        user[0].current_streak = 0;
+                        user[0].sixattempts--;
                     }
                     return [4 /*yield*/, usersModel_1["default"].updateOne({ username: username }, {
                             played: user[0].played,
                             wins: user[0].wins,
-                            streak: user[0].streak,
+                            current_streak: user[0].current_streak,
+                            max_streak: user[0].max_streak,
                             oneattempt: user[0].oneattempt,
                             twoattempts: user[0].twoattempts,
                             threeattempts: user[0].threeattempts,
                             fourattempts: user[0].fourattempts,
                             fiveattempts: user[0].fiveattempts,
                             sixattempts: user[0].sixattempts
-                        })];
+                        })
+                        // const realuser = await FundleUser.find({ username: username })
+                        // console.log(realuser)
+                    ];
                 case 2:
                     updatedUser = _b.sent();
-                    return [4 /*yield*/, usersModel_1["default"].find({ username: username })];
+                    _b.label = 3;
                 case 3:
-                    realuser = _b.sent();
-                    console.log(realuser);
-                    _b.label = 4;
-                case 4:
                     res.send({ ok: true });
                     return [2 /*return*/];
             }
