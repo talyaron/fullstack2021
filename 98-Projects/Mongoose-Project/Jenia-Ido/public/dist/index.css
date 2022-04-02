@@ -186,6 +186,7 @@ body {
   border-radius: 15px;
   padding: 3px;
   cursor: pointer;
+  border: 5px solid gray;
 }
 .profile__user__pics {
   display: grid;

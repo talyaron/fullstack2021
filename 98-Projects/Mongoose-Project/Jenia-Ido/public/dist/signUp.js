@@ -96,7 +96,7 @@ function changingImgsBox() {
 }
 function showSignUpFrom(ev) {
     var display = document.querySelector('.main_display');
-    console.dir(ev.target);
+    // console.dir(ev.target);
     var btnId = ev.target.id;
     if (btnId == 'signUp') {
         forms.renderSignUpFormfirstPage(display);
@@ -164,7 +164,7 @@ function renderProfile(email, password) {
                         imgs = __assign({}, imagesData.data.result[0]);
                         display = document.querySelector('.main');
                         html_1 = "";
-                        html_1 += "<section class=\"profile\">\n\n    <div class=\"profile__navBar--top\">\n        <a href=\"index.html\"><i class=\"fas fa-arrow-left fa-xs\"></i></a>\n        <i class=\"fas fa-wrench fa-xs\" onclick=\"HandleSettingsMenu()\"></i>\n    </div>\n    <nav class=\"settings\">\n    <li><button class=\"settings_buttons\" id=\"" + user.email + "\" name=\"" + user.password + "\" onclick='handleUpdateProfile(event)'>update Profile</button></li>\n    <li><a href=\"index.html\"><button class=\"settings_buttons delete\" id=\"" + user.email + "\" onclick=\"handleDeleteProfile(event)\">delete user</button></a></li>\n    <div id='updateRoot'></div>\n    </nav>\n    <div id=\"profilePic\"></div>\n    <div class=\"profile__header\">\n        <div class=\"profile__header__imgBorder\"  style=\"background-image: url(" + imgs.profileUrl + ")\">\n        <button class=\"profile__header__imgBorder-changeImage\" name=\"" + user.email + "\"\n        id=" + imgs.profileUrl + " lang=\"" + user.password + "\"type=\"button\" onclick=\"showProfilePicture(event)\">View</button>\n        </div>\n        <div class=\"profile__header__name\">" + user.firstName + " " + user.lastName + "</div>\n        <div class=\"profile__header__birthday\">" + user.birthday + "</div>\n        <div class=\"profile__header__country\">" + user.country + "</div>\n        <div class=\"profile__header__gender\">" + user.gender + "</div>\n        \n        <button class=\"profile__header__addButton\" name=\"" + user.password + "\" id=\"" + user.email + "\" onclick=\"AddImage(event)\">Add Post</button>\n    </div>\n    <div id=\"addPost\"></div>\n   \n    <ul class=\"profile__user__category\">\n        <li class=\"profile__user__category__text--active\">photos</li>\n        <li class=\"profile__user__category__text\">videos</li>\n    </ul>\n    <div class=\"profile__user__pics\">";
+                        html_1 += "<section class=\"profile\">\n\n    <div class=\"profile__navBar--top\">\n        <a href=\"index.html\"><i class=\"fas fa-arrow-left fa-xs\"></i></a>\n        <i class=\"fas fa-wrench fa-xs\" onclick=\"HandleSettingsMenu()\"></i>\n    </div>\n    <nav class=\"settings\">\n    <li><button class=\"settings_buttons\" id=\"" + user.email + "\" name=\"" + user.password + "\" onclick='handleUpdateProfile(event)'>update Profile</button></li>\n    <li><a href=\"index.html\"><button class=\"settings_buttons delete\" id=\"" + user.email + "\" onclick=\"handleDeleteProfile(event)\">delete user</button></a></li>\n    <div id='updateRoot'></div>\n    </nav>\n    <div id=\"profilePic\"></div>\n    <div class=\"profile__header\">\n        <div class=\"profile__header__imgBorder\"  style=\"background-image: url(" + imgs.profileUrl + ")\">\n        <button class=\"profile__header__imgBorder-changeImage\" name=\"" + user.email + "\"\n        id=" + imgs.profileUrl + " lang=\"" + user.password + "\"type=\"button\" onclick=\"showProfilePicture(event)\">View</button>\n        </div>\n        <div class=\"profile__header__name\">" + user.firstName + " " + user.lastName + "</div>\n        <div class=\"profile__header__birthday\">" + user.birthday + "</div>\n        <div class=\"profile__header__country\">" + user.country + "</div>\n        <div class=\"profile__header__gender\">" + user.gender + "</div>\n        \n        <button class=\"profile__header__addButton\" name=\"" + user.password + "\" id=\"" + user.email + "\" onclick=\"AddImage(event)\">Add Post</button>\n    </div>\n    <div id=\"addPost\"></div>\n   \n    <ul class=\"profile__user__category\">\n        <li class=\"profile__user__category__text\" onclick=\"userCategoryActive(event)\">photos</li>\n        <li class=\"profile__user__category__text\" onclick=\"userCategoryActive(event)\">videos</li>\n    </ul>\n    <div class=\"profile__user__pics\">";
                         imgs.url.forEach(function (img) {
                             html_1 += "<div class=\"profile__user__pics-userPics pic" + i + "\"><img src=\"" + img + "\" alt=\"\"></div>";
                             i++;
@@ -424,6 +424,20 @@ function handleUpdateProfilePic(ev) {
                     return [3 /*break*/, 3];
                 case 3: return [2 /*return*/];
             }
+        });
+    });
+}
+function userCategoryActive(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        var categories, category;
+        return __generator(this, function (_a) {
+            categories = document.querySelectorAll(".profile__user__category__text");
+            categories.forEach(function (cat) {
+                cat.classList.remove("profile__user__category__text--active");
+            });
+            category = ev.target;
+            category.classList.add("profile__user__category__text--active");
+            return [2 /*return*/];
         });
     });
 }
