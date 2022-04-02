@@ -11,7 +11,8 @@ import {
     filterByCategory,
     sortAscending,
     sortDescending,
-    register
+    register,
+    login
 } from '../controlers/productCont'
 
 router
@@ -20,6 +21,7 @@ router
     .post('/get-by-category', filterByCategory)
     .post("/add-product", addProduct)
     .post("/register", register)
+    .post("/login", login)
     .patch("/update-picture", updatePic)
     .patch("/update-title", updateTitle)
     .patch("/update-price", updatePrice)

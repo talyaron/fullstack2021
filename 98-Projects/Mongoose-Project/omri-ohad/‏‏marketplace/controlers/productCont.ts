@@ -167,3 +167,10 @@ export async function register(req, res) {
     res.send({ error: error.message })
   }
 }
+
+export async function login(req, res){
+    let {email, password} = req.body;
+    const users = await User.find({});
+    const filterdUser = users.filter(user => {email === user.email});
+    console.log(filterdUser)
+}
