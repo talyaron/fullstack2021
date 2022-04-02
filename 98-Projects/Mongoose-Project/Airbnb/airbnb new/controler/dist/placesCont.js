@@ -190,16 +190,16 @@ exports.searchAirbnb = function (req, res) { return __awaiter(void 0, void 0, vo
     });
 }); };
 exports.searchAirbnbByCity = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var city, placesInTelaviv;
+    var city, airbnbInCity;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 city = req.body.city;
-                return [4 /*yield*/, placesModel_1["default"].find({ "address_country": "\"" + city + "\"" }).limit(10)];
+                return [4 /*yield*/, placesModel_1["default"].find({ "address_country": city }).limit(10)];
             case 1:
-                placesInTelaviv = _a.sent();
-                console.log(placesInTelaviv);
-                res.send({ ok: true, placesInTelaviv: placesInTelaviv });
+                airbnbInCity = _a.sent();
+                console.log(airbnbInCity);
+                res.send({ ok: true, theCity: airbnbInCity });
                 return [2 /*return*/];
         }
     });

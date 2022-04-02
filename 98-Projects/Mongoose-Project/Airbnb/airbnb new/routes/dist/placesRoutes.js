@@ -17,6 +17,6 @@ router
     .post('/addPlaces', placesCont_1.addPlaces)
     .get('/getToPlace', placesCont_2.getToPlace)
     .get('/search-airbnb', placesCont_3.searchAirbnb)
-    .get('/search-city', placesCont_4.searchAirbnbByCity)
+    .post('/search-city', placesCont_4.searchAirbnbByCity)
     .post('/findPlaceMap', placesCont_5.findPlaceMap);
 exports["default"] = router;
