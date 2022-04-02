@@ -131,7 +131,9 @@ const forms = {
 async function renderProfile(email, password) {
     const userData = await axios.get(`/user/get-user?email=${email}&password=${password}`);
     const imagesData = await axios.get(`/images/get-images?email=${email}&password=${password}`);
+    let  i=0;
     const error = userData.data.error;
+
     if (error) {
         alert(error)
     } else {
@@ -139,7 +141,9 @@ async function renderProfile(email, password) {
         const imgs = { ...imagesData.data.result[0] };
         const display: any = document.querySelector('.main')
         let html = "";
-        html = `<section class="profile">
+        
+        
+        html += `<section class="profile">
 
     <div class="profile__navBar--top">
         <a href="index.html"><i class="fas fa-arrow-left fa-xs"></i></a>
@@ -168,17 +172,15 @@ async function renderProfile(email, password) {
     <ul class="profile__user__category">
         <li class="profile__user__category__text--active">photos</li>
         <li class="profile__user__category__text">videos</li>
-    </ul>`;
-        // imgs.url.forEach(img => {
-        //   let  i=0;
-        //     html += `
-        // <div class="profile__user__pics">
-        // <div class="profile__user__pics-userPics pic${i}"><img src="${img[i]}" alt=""></div>
-        //  </div>`
-        //  i++;
-        // })
+    </ul>
+    <div class="profile__user__pics">`;
+        imgs.url.forEach(img => {
+            html +=`<div class="profile__user__pics-userPics pic${i}"><img src="${img}" alt=""></div>`
+         i++;
+        });
 
-        html += `<div class="profile__navBar--down">
+        html += `</div>
+        <div class="profile__navBar--down">
     <div class="homeIcon"><i class="fas fa-home"></i></div>
     <div class="profileIcon"><i class="fas fa-user"></i></div>
     <div class="compassIcon"><i class="fas fa-compass"></i></div>
@@ -211,6 +213,9 @@ async function handleAddImage(ev){
     
 
     const {ok,data,error} = await axios.patch('/images/add-post',{email,url})
+    
+        renderProfile(email,password);
+    
 
     }catch(err){
         console.error(err);

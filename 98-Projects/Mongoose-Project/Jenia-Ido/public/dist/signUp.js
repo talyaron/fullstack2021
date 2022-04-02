@@ -145,7 +145,7 @@ var forms = {
 };
 function renderProfile(email, password) {
     return __awaiter(this, void 0, void 0, function () {
-        var userData, imagesData, error, user, imgs, display, html;
+        var userData, imagesData, i, error, user, imgs, display, html_1;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0: return [4 /*yield*/, axios.get("/user/get-user?email=" + email + "&password=" + password)];
@@ -154,6 +154,7 @@ function renderProfile(email, password) {
                     return [4 /*yield*/, axios.get("/images/get-images?email=" + email + "&password=" + password)];
                 case 2:
                     imagesData = _a.sent();
+                    i = 0;
                     error = userData.data.error;
                     if (error) {
                         alert(error);
@@ -162,18 +163,14 @@ function renderProfile(email, password) {
                         user = __assign({}, userData.data.result[0]);
                         imgs = __assign({}, imagesData.data.result[0]);
                         display = document.querySelector('.main');
-                        html = "";
-                        html = "<section class=\"profile\">\n\n    <div class=\"profile__navBar--top\">\n        <a href=\"index.html\"><i class=\"fas fa-arrow-left fa-xs\"></i></a>\n        <i class=\"fas fa-wrench fa-xs\" onclick=\"HandleSettingsMenu()\"></i>\n    </div>\n    <nav class=\"settings\">\n    <li><button class=\"settings_buttons\" id=\"" + user.email + "\" name=\"" + user.password + "\" onclick='handleUpdateProfile(event)'>update Profile</button></li>\n    <li><a href=\"index.html\"><button class=\"settings_buttons delete\" id=\"" + user.email + "\" onclick=\"handleDeleteProfile(event)\">delete user</button></a></li>\n    <div id='updateRoot'></div>\n    </nav>\n    <div id=\"profilePic\"></div>\n    <div class=\"profile__header\">\n        <div class=\"profile__header__imgBorder\"  style=\"background-image: url(" + imgs.profileUrl + ")\">\n        <button class=\"profile__header__imgBorder-changeImage\" name=\"" + user.email + "\"\n        id=" + imgs.profileUrl + " lang=\"" + user.password + "\"type=\"button\" onclick=\"showProfilePicture(event)\">View</button>\n        </div>\n        <div class=\"profile__header__name\">" + user.firstName + " " + user.lastName + "</div>\n        <div class=\"profile__header__birthday\">" + user.birthday + "</div>\n        <div class=\"profile__header__country\">" + user.country + "</div>\n        <div class=\"profile__header__gender\">" + user.gender + "</div>\n        \n        <button class=\"profile__header__addButton\" name=\"" + user.password + "\" id=\"" + user.email + "\" onclick=\"AddImage(event)\">Add Post</button>\n    </div>\n    <div id=\"addPost\"></div>\n   \n    <ul class=\"profile__user__category\">\n        <li class=\"profile__user__category__text--active\">photos</li>\n        <li class=\"profile__user__category__text\">videos</li>\n    </ul>";
-                        // imgs.url.forEach(img => {
-                        //   let  i=0;
-                        //     html += `
-                        // <div class="profile__user__pics">
-                        // <div class="profile__user__pics-userPics pic${i}"><img src="${img[i]}" alt=""></div>
-                        //  </div>`
-                        //  i++;
-                        // })
-                        html += "<div class=\"profile__navBar--down\">\n    <div class=\"homeIcon\"><i class=\"fas fa-home\"></i></div>\n    <div class=\"profileIcon\"><i class=\"fas fa-user\"></i></div>\n    <div class=\"compassIcon\"><i class=\"fas fa-compass\"></i></div>\n    <div class=\"heartIcon\"><i class=\"fas fa-heart\"></i></div>\n    </div>\n    </section>";
-                        display.innerHTML = html;
+                        html_1 = "";
+                        html_1 += "<section class=\"profile\">\n\n    <div class=\"profile__navBar--top\">\n        <a href=\"index.html\"><i class=\"fas fa-arrow-left fa-xs\"></i></a>\n        <i class=\"fas fa-wrench fa-xs\" onclick=\"HandleSettingsMenu()\"></i>\n    </div>\n    <nav class=\"settings\">\n    <li><button class=\"settings_buttons\" id=\"" + user.email + "\" name=\"" + user.password + "\" onclick='handleUpdateProfile(event)'>update Profile</button></li>\n    <li><a href=\"index.html\"><button class=\"settings_buttons delete\" id=\"" + user.email + "\" onclick=\"handleDeleteProfile(event)\">delete user</button></a></li>\n    <div id='updateRoot'></div>\n    </nav>\n    <div id=\"profilePic\"></div>\n    <div class=\"profile__header\">\n        <div class=\"profile__header__imgBorder\"  style=\"background-image: url(" + imgs.profileUrl + ")\">\n        <button class=\"profile__header__imgBorder-changeImage\" name=\"" + user.email + "\"\n        id=" + imgs.profileUrl + " lang=\"" + user.password + "\"type=\"button\" onclick=\"showProfilePicture(event)\">View</button>\n        </div>\n        <div class=\"profile__header__name\">" + user.firstName + " " + user.lastName + "</div>\n        <div class=\"profile__header__birthday\">" + user.birthday + "</div>\n        <div class=\"profile__header__country\">" + user.country + "</div>\n        <div class=\"profile__header__gender\">" + user.gender + "</div>\n        \n        <button class=\"profile__header__addButton\" name=\"" + user.password + "\" id=\"" + user.email + "\" onclick=\"AddImage(event)\">Add Post</button>\n    </div>\n    <div id=\"addPost\"></div>\n   \n    <ul class=\"profile__user__category\">\n        <li class=\"profile__user__category__text--active\">photos</li>\n        <li class=\"profile__user__category__text\">videos</li>\n    </ul>\n    <div class=\"profile__user__pics\">";
+                        imgs.url.forEach(function (img) {
+                            html_1 += "<div class=\"profile__user__pics-userPics pic" + i + "\"><img src=\"" + img + "\" alt=\"\"></div>";
+                            i++;
+                        });
+                        html_1 += "</div>\n        <div class=\"profile__navBar--down\">\n    <div class=\"homeIcon\"><i class=\"fas fa-home\"></i></div>\n    <div class=\"profileIcon\"><i class=\"fas fa-user\"></i></div>\n    <div class=\"compassIcon\"><i class=\"fas fa-compass\"></i></div>\n    <div class=\"heartIcon\"><i class=\"fas fa-heart\"></i></div>\n    </div>\n    </section>";
+                        display.innerHTML = html_1;
                     }
                     return [2 /*return*/];
             }
@@ -210,6 +207,7 @@ function handleAddImage(ev) {
                     return [4 /*yield*/, axios.patch('/images/add-post', { email: email, url: url })];
                 case 1:
                     _a = _b.sent(), ok = _a.ok, data = _a.data, error = _a.error;
+                    renderProfile(email, password);
                     return [3 /*break*/, 3];
                 case 2:
                     err_1 = _b.sent();
