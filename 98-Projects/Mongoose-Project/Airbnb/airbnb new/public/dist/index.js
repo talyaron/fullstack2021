@@ -134,14 +134,12 @@ function handleCities(ev) {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    if (!ev.target.matches("[data-card]")) return [3 /*break*/, 2];
                     city = ev.target.dataset.card;
                     return [4 /*yield*/, axios.get("/places/search-city?card=" + city)];
                 case 1:
                     data = (_a.sent()).data;
                     console.log(data);
-                    _a.label = 2;
-                case 2: return [2 /*return*/];
+                    return [2 /*return*/];
             }
         });
     });
