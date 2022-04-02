@@ -115,10 +115,12 @@ function handleFindAirbnb(ev) {
                     console.log(search, checkIn, checkOut, adults, children, infants, pets);
                     return [4 /*yield*/, axios.get("/places/search-airbnb?search=" + search + "&checkIn=" + checkIn + "&checkOut=" + checkOut + "&adults=" + adults + "&children=" + children + "&infants=" + infants + "&pets=" + pets + " ")
                         ///places/search-airbnb?adults=${adults}
+                        // search=${search}&checkIn=${checkIn}&checkOut=${checkOut}&adults=${adults}&children=${children}&infants=${infants}&pets=${pets}
                     ];
                 case 1:
                     data = (_a.sent()).data;
                     ///places/search-airbnb?adults=${adults}
+                    // search=${search}&checkIn=${checkIn}&checkOut=${checkOut}&adults=${adults}&children=${children}&infants=${infants}&pets=${pets}
                     console.log(data);
                     return [2 /*return*/];
             }
@@ -126,19 +128,20 @@ function handleFindAirbnb(ev) {
     });
 }
 ;
-function handleCities() {
+function handleCities(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var data;
+        var city, data;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, axios.get('/places/search-city')
-                    // search=${search}&checkIn=${checkIn}&checkOut=${checkOut}&adults=${adults}&children=${children}&infants=${infants}&pets=${pets}
-                ];
+                case 0:
+                    if (!ev.target.matches("[data-card]")) return [3 /*break*/, 2];
+                    city = ev.target.dataset.card;
+                    return [4 /*yield*/, axios.get("/places/search-city?card=" + city)];
                 case 1:
                     data = (_a.sent()).data;
-                    // search=${search}&checkIn=${checkIn}&checkOut=${checkOut}&adults=${adults}&children=${children}&infants=${infants}&pets=${pets}
                     console.log(data);
-                    return [2 /*return*/];
+                    _a.label = 2;
+                case 2: return [2 /*return*/];
             }
         });
     });

@@ -190,10 +190,12 @@ exports.searchAirbnb = function (req, res) { return __awaiter(void 0, void 0, vo
     });
 }); };
 exports.searchAirbnbByCity = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var placesInTelaviv;
+    var city, placesInTelaviv;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, placesModel_1["default"].find({ "address_country": "Tel Aviv" }).limit(10)];
+            case 0:
+                city = req.body.city;
+                return [4 /*yield*/, placesModel_1["default"].find({ "address_country": city }).limit(10)];
             case 1:
                 placesInTelaviv = _a.sent();
                 console.log(placesInTelaviv);

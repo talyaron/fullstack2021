@@ -388,16 +388,22 @@ async function handleFindAirbnb(ev) {
     const { data } = await axios.get(`/places/search-airbnb?search=${search}&checkIn=${checkIn}&checkOut=${checkOut}&adults=${adults}&children=${children}&infants=${infants}&pets=${pets} `)
    
     ///places/search-airbnb?adults=${adults}
+    // search=${search}&checkIn=${checkIn}&checkOut=${checkOut}&adults=${adults}&children=${children}&infants=${infants}&pets=${pets}
     console.log(data)
     // ev.target.reset();
    
 };
 
-async function handleCities() {
-  
-    const { data } = await axios.get('/places/search-city')
-    // search=${search}&checkIn=${checkIn}&checkOut=${checkOut}&adults=${adults}&children=${children}&infants=${infants}&pets=${pets}
-    console.log(data)
+async function handleCities(ev) {
+    if(ev.target.matches("[data-card]")){
+        const city=ev.target.dataset.card;
+ 
+        const { data } = await axios.get(`/places/search-city?card=${city}`)    
+        console.log(data)  
+    }
+   
+   
+
     
 }
 
