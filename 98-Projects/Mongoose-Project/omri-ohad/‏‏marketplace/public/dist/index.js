@@ -239,18 +239,27 @@ function handleSignUp(ev) {
 }
 function handleLogin(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var _a, email, password, data;
+        var _a, email, password, id, data, userName, ok;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
                     ev.preventDefault();
-                    _a = ev.target.elements, email = _a.email, password = _a.password;
+                    _a = ev.target.elements, email = _a.email, password = _a.password, id = _a.id;
                     email = email.value;
                     password = password.value;
-                    document.querySelector("form").reset();
                     return [4 /*yield*/, axios.post('/products/login', { email: email, password: password })];
                 case 1:
                     data = (_b.sent()).data;
+                    userName = data.userName;
+                    ok = data.ok;
+                    if (ok === true) {
+                        document.getElementById("logMessage").innerHTML = " You are login";
+                        // window.setTimeout(function () { location.reload() }, 2000)
+                        document.querySelector(".mainPage__header--welcome").innerHTML = "Hello";
+                    }
+                    else if (ok === false) {
+                        document.getElementById("logMessage").innerHTML = "Email or Password is wrong, try again";
+                    }
                     return [2 /*return*/];
             }
         });
