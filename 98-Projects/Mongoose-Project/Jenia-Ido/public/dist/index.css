@@ -300,24 +300,34 @@ body {
   background-color: white;
   border-radius: 40px;
   opacity: 0.65;
-  width: 8vw;
+  width: 9vw;
   height: 13vh;
+  grid-row: 7/8;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  opacity: 1;
 }
 .main_display .boxAnimationOne {
-  animation: animationOne ease-in-out 5s -0.5s normal forwards;
+  animation: animationOne ease-in-out 7s -1s infinite alternate forwards;
+  grid-row: 3/4;
+  grid-row: 2/3;
+  background-image: url("https://vokrug.tv/pic/news/b/6/9/4/b69468e441345d712ace85b8cbd8eb6b.jpg");
 }
 .main_display .boxAnimationTwo {
-  animation: animationTwo ease-in-out 5s -0.5s normal forwards;
-  background-image: url("https://img.freepik.com/free-photo/friendly-attractive-african-american-woman-yellow-stylish-sweater-smiling-satisfied-look-confident-carefree-sharing-cool-news-pointing-left-give-advice-check-out-cool-store_176420-35085.jpg?size=626&ext=jpg&ga=GA1.2.866686491.1638316800");
+  grid-row: 5/6;
+  animation: animationTwo ease-in-out 4s -1s infinite alternate forwards;
+  background-image: url("https://cultivatedculture.com/wp-content/uploads/2019/12/LinkedIn-Profile-Picture-Example-Madeline-Mann.jpeg");
 }
 .main_display .boxAnimationThree {
-  animation: animationThree ease-in-out 5s -0.5s normal forwards;
+  grid-row: 7/8;
+  animation: animationThree ease-in-out 7s 0s infinite alternate forwards;
+  background-image: url("https://d2qp0siotla746.cloudfront.net/img/use-cases/profile-picture/template_3.jpg");
 }
 .main_display .boxAnimationFour {
-  animation: animationFour ease-in-out 5s -0.5s normal forwards;
+  grid-row: 9/10;
+  animation: animationFour ease-in-out 10s -0.5s infinite alternate forwards;
+  background-image: url("");
 }
 .main_display-signUpForm {
   width: 20vw;
@@ -439,44 +449,28 @@ body {
   }
 }
 @keyframes animationOne {
-  0% {
-    transform: translate(50px, 100px);
-  }
   100% {
-    transform: translate(100px, 150px);
+    transform: translate(200px, 0);
   }
 }
 @keyframes animationTwo {
-  0% {
-    transform: translate(5%, 5%);
-  }
-  25% {
-    transform: translate(40%, 40%);
-  }
   100% {
-    transform: translate(60%, 110%);
+    transform: translate(200px, 0);
   }
 }
 @keyframes animationThree {
-  0% {
-    transform: translate(200px, 200px);
-  }
   100% {
-    transform: translate(100px, 150px);
+    transform: translate(200px, 0);
   }
 }
 @keyframes animationFour {
-  0% {
-    transform: translate(50px, 100px);
-  }
   100% {
-    transform: translate(100px, 150px);
+    transform: translate(200%, 0);
   }
 }
 .profile-active {
   position: absolute;
-  bottom: 150px;
-  left: 200px;
+  margin-right: 10px;
   display: grid;
   grid-template-rows: repeat(10, 1fr);
   padding: 5px;
