@@ -6,29 +6,19 @@ const app = express();
 const port = process.env.PORT || 3000;
 app.use(express.static("public"));
 app.use(express.json());
-<<<<<<< HEAD
-// mongoose.connect("mongodb+srv://shay:shayFoyer1994@cluster0.xyd5y.mongodb.net/sample_airbnb?retryWrites=true&w=majority");
-//mongoose.connect('mongodb+srv://ShaniRom:ynbUaPL3oHZKGl8a@cluster0.vh1hg.mongodb.net/sample_airbnb?retryWrites=true&w=majority');
-=======
->>>>>>> main
 
 
 
 
 mongoose
   .connect(
-    "mongodb+srv://shay:shayFoyer1994@cluster0.xyd5y.mongodb.net/sample_airbnb?retryWrites=true&w=majority"
+    "mongodb+srv://shay:shayFoyer1994@cluster0.xyd5y.mongodb.net/airbnbProject?retryWrites=true&w=majority"
   )
   .then((result) => {
     console.log("connected to db");
     Places.find({})
       .then((res) => {
-<<<<<<< HEAD
-        console.log('test')
-        console.log(res);
-=======
         // console.log(res);
->>>>>>> main
       })
       .catch((err) => {
         console.log(err.message);

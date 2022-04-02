@@ -9,8 +9,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 console.log('hello');
 const WORD_LENGTH = 5;
+const FLIP_ANIMATION_DURATION = 250;
+const DANCE_ANIMATION_DURATION = 500;
+const keyboard = document.querySelector("[data-keyboard]");
 const guessGrid = document.querySelector("[data-guess-grid]");
-const targetWord = '';
+const alertContainer = document.querySelector("[data-alert-container]");
+let targetWord = '';
 const offsetFromDate = new Date(2022, 0, 1);
 const msOffset = Date.now() - offsetFromDate;
 const dayOffset = Math.floor(msOffset / 1000 / 60 / 60 / 24);
@@ -19,7 +23,8 @@ getDailyWord();
 function getDailyWord() {
     return __awaiter(this, void 0, void 0, function* () {
         const { data } = yield axios.get(`words/get-word?dayOffset=${dayOffset}`);
-        console.log(data);
+        targetWord = data[0].word;
+        console.log(targetWord);
     });
 }
 function tabIndex() {
@@ -118,7 +123,96 @@ function deleteKey() {
     }
 }
 function submitGuess() {
-    console.log();
+    return __awaiter(this, void 0, void 0, function* () {
+        const activeTiles = [...getActiveTiles()];
+        // const activeTiles: any = getActiveTiles()
+        if (activeTiles.length !== WORD_LENGTH) {
+            showAlert('Not enough letters');
+            shakeTiles(activeTiles);
+        }
+        const guess = activeTiles.reduce((word, tile) => {
+            return word + tile.dataset.letter;
+        }, "");
+        const { data } = yield axios.get(`words/get-guessCheck?guess=${guess}`);
+        if (!data.found) {
+            showAlert("Not in word list");
+            shakeTiles(activeTiles);
+            return;
+        }
+        stopInteraction();
+        activeTiles.forEach((...params) => flipTile(...params, guess));
+    });
+}
+function flipTile(tile, index, array, guess) {
+    const letter = tile.dataset.letter;
+    const key = keyboard.querySelector(`[data-key="${letter.toUpperCase()}"]`);
+    setTimeout(() => {
+        tile.classList.add("flip");
+    }, index * FLIP_ANIMATION_DURATION);
+    tile.addEventListener("transitionend", () => {
+        tile.classList.remove("flip");
+        if (targetWord[index] === letter) {
+            tile.dataset.state = 'correct';
+            key.classList.add("correct");
+        }
+        else if (targetWord.includes(letter)) {
+            tile.dataset.state = 'wrong-location';
+            key.classList.add("wrong-location");
+        }
+        else {
+            tile.dataset.state = 'wrong';
+            key.classList.add("wrong");
+        }
+        if (index === array.length - 1) {
+            tile.addEventListener("transitionend", () => {
+                startInteraction();
+                checkWinLose(guess, array);
+            }, { once: true });
+        }
+    }, { once: true });
+}
+function checkWinLose(guess, tiles) {
+    if (guess === targetWord) {
+        showAlert("You win", 5000);
+        danceTiles(tiles);
+        stopInteraction();
+        return;
+    }
+    const remainingTiles = guessGrid.querySelectorAll(":not([data-letter])");
+    if (remainingTiles.length === 0) {
+        showAlert(targetWord.toUpperCase(), 90000000);
+        stopInteraction();
+    }
+}
+function danceTiles(tiles) {
+    tiles.forEach((tile, index) => {
+        setTimeout(() => {
+            tile.classList.add("dance");
+            tile.addEventListener("animationend", () => {
+                tile.classList.remove("dance");
+            }, { once: true });
+        }, (index * DANCE_ANIMATION_DURATION) / 5);
+    });
+}
+function shakeTiles(tiles) {
+    tiles.forEach((tile) => {
+        tile.classList.add("shake");
+        tile.addEventListener("animationend", () => {
+            tile.classList.remove("shake");
+        }, { once: true });
+    });
+}
+function showAlert(message, duration = 1000) {
+    const alert = document.createElement('div');
+    alert.textContent = message;
+    alert.classList.add("alert");
+    alertContainer.prepend(alert);
+    setTimeout(() => {
+        alert.classList.add("alert-hide");
+        alert.addEventListener("transitionend", () => {
+            alert.remove();
+        });
+    }, duration);
 }
 function handleShowStats() {
     const stats = document.querySelector("#stats");
@@ -225,6 +319,7 @@ function loginPractice(username, password) {
     return __awaiter(this, void 0, void 0, function* () {
         const { data } = yield axios.get(`users/get-user?username=${username}&password=${password}`);
         const greetings = timeOfDay();
+        console.log(data);
         if (data.user) {
             document.querySelector(".hello").innerHTML = `&nbsp;&nbsp;&nbsp;${greetings} <span style="color: orange;">&nbsp;${username}</span>`;
             handleShowLogin();

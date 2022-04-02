@@ -5,33 +5,27 @@ import mongoose from "mongoose";
 // })
 const PlacesSchema = new mongoose.Schema(
   {
-    _id: String,
-    access: String,
+    id:String,
     accommodates: String,
-    address: {
-      country:String,
-      country_code:String
-    
-    },
-    
-    name: String,
-    summary: String,
-    // checkIn: String,
-    // checkOut: String,
-    amenities: Array,
-    bedrooms: Number,
-    beds: Number,
-    number_of_reviews: Number,
-    price: Number,
+    address:String,  
+    address_country: String,
+    address_country_code: String,
+    name:String,
+    checkIn:String,
+    checkOut:String,
+    amenities: String,
+    bedrooms: String,
+    beds: String,   
+    number_of_reviews:String,
+    price: String,
     cancle: String,
-    bathrooms: Number,
+    bathrooms: String,
     images: String,
-    host: Object,
-    space: String,
-    description: String,
-    bed_type: String,
-    reviews: Array,
-    cancellation_policy: String,
+    host: String,   
+    description: String,    
+    bed_type: String,   
+    reviews:String,
+    reviews_rating:String
   },
   // {
   //   capped: { size: 1024 },
@@ -40,7 +34,7 @@ const PlacesSchema = new mongoose.Schema(
   // }
 );
 
-const Places = mongoose.model("listingsAndReviews", PlacesSchema);
+const Places = mongoose.model("airbnbLocations", PlacesSchema);
 export default Places;
 const userSchema = new mongoose.Schema({
   name: String,

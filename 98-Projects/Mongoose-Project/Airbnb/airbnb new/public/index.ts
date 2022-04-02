@@ -389,6 +389,7 @@ async function handleFindAirbnb(ev) {
     // search=${search}&checkIn=${checkIn}&checkOut=${checkOut}&adults=${adults}&children=${children}&infants=${infants}&pets=${pets}
     console.log(data)
     // ev.target.reset();
+   
 };
 
 async function handleTelaviv() {

@@ -16,25 +16,41 @@ body {
         height: 3vh;
     }
 }
-.navbar{
+
+.navbar {
     background-color: aquamarine;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-block: 10px;
-        padding-top: 30px;
-    
-        &__item {
-            font-size: 20px;
-            margin-inline: 15px;
-            &:hover {
-                cursor: pointer;  
-            }
-            &:hover{
-                border: solid 2p;
-                background:aquamarine;
-                color:blue;
-            }
- 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-block: 10px;
+    padding-top: 30px;
+
+    &__item {
+        font-size: 20px;
+        margin-inline: 15px;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        &:hover {
+            border: solid 2p;
+            background: aquamarine;
+            color: blue;
+        }
+
+    }
+}
+
+.books {
+  text-align: center;  
+
+    &_form {
+font-size: 3vh;
+text-align: center;
+
+    &-Catagory{
+font-size: 5vh;
+    }
 }
 }
