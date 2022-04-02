@@ -179,13 +179,13 @@ async function renderProfile(email, password) {
          i++;
         });
 
-        html += `</div>
+        html += `
         <div class="profile__navBar--down">
     <div class="homeIcon"><i class="fas fa-home"></i></div>
     <div class="profileIcon"><i class="fas fa-user"></i></div>
     <div class="compassIcon"><i class="fas fa-compass"></i></div>
     <div class="heartIcon"><i class="fas fa-heart"></i></div>
-    </div>
+    
     </section>`;
         display.innerHTML = html;
     }
