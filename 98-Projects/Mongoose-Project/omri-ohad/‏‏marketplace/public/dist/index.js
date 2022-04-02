@@ -237,3 +237,22 @@ function handleSignUp(ev) {
         });
     });
 }
+function handleLogin(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        var _a, email, password, data;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
+                case 0:
+                    ev.preventDefault();
+                    _a = ev.target.elements, email = _a.email, password = _a.password;
+                    email = email.value;
+                    password = password.value;
+                    document.querySelector("form").reset();
+                    return [4 /*yield*/, axios.post('/products/login', { email: email, password: password })];
+                case 1:
+                    data = (_b.sent()).data;
+                    return [2 /*return*/];
+            }
+        });
+    });
+}

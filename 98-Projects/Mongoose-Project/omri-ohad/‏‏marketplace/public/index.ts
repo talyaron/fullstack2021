@@ -146,3 +146,12 @@ async function handleSignUp(ev){
     document.getElementById("regMessage").innerHTML = "Successfully Signed Up";
     const {data} = await axios.post('/products/register',{email, password,userName})
 }
+
+async function handleLogin(ev){
+    ev.preventDefault();
+    let {email, password} = ev.target.elements;
+    email = email.value;
+    password = password.value;
+    document.querySelector("form").reset();
+    const {data} = await axios.post('/products/login', {email, password});
+}
