@@ -115,20 +115,21 @@ export const findPlaceMap = async (req, res) => {
 };
 export const searchAirbnb = async (req, res) => {
   try {
-    let { search, checkIn, checkOut, adults, children, infants, pets } =
+    let { search, checkIn, checkOut, adults, children, infants, pets,accommodates } =
       req.query;
 
     console.log(search, checkIn, checkOut, adults, children, infants, pets);
 
-    let sum= Number(adults)+Number(children)+Number(infants)+Number(pets);
-    console.log("the number of guests:" +sum)
+    let sum:any= Number(adults)+Number(children)+Number(infants)+Number(pets);
+    console.log("the number of guests:" +sum);
+    
     
     let dateOfCheckIn= new Date(`${checkIn}`);
     let dateOfCheckOut= new Date(`${checkOut}`);
     let differenceInTime= dateOfCheckOut.getTime()-dateOfCheckIn.getTime();
     let differenceInDays= differenceInTime/ (1000 * 3600 * 24);
     console.log("the days between checkIn checkOut is:" +differenceInDays)
-
+  
 
     const places = await Places.find({address_country: `${search}`, accommodates: sum });
 
@@ -149,25 +150,3 @@ export const searchAirbnbByCity = async (req, res) => {
   // console.log(airbnbInCity);
   res.send({ ok: true, theCity: airbnbInCity });
 };
-
-export const search = async (req, res) => {
-  try {
-    const places = await Places.find({});
-    const search = req.query.search;
-    const serchPlace = searchPlaces(search, places);
-    console.log(search, " ", places);
-
-    res.send(serchPlace);
-  } catch (error) {
-    console.log(error.error);
-    res.send({ error: error.massage });
-  }
-};
-function searchPlaces(search, places) {
-  if (search) {
-    const regex = new RegExp(search, "i");
-    return places.filter((searchedTerm) => regex.test(searchedTerm.name));
-  } else {
-    return places;
-  }
-}

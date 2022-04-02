@@ -28,21 +28,9 @@ mongoose
     console.log(err.message);
   });
 
-// const userSchema = new mongoose.Schema({
-//   name: String,
-//   password: String,
-// });
-// const Users = mongoose.model("users", userSchema);
-// const Places = mongoose.model("listingsAndReviews", PlacesSchema);
-// app.get("/getPlaces", async (req, res) => {
-//   try {
-//     const places = await Places.find({});
-//     res.send({ ok: true, places });
-//   } catch (error) {
-//     console.error(error);
-//     res.send({ error: "error in app.get/getPlaces" });
-//   }
-// });
+
+
+
 
 // app.post("/addUsers", async (req, res) => {
 //   try {

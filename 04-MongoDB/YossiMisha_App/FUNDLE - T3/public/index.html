@@ -21,8 +21,8 @@
 
     <div class="column-left">
       <div class="column-left__top">
-        <div class="btn" onclick="handleShowHelp()"><img src="./images/helpbutton.png" alt=""></div>
-        <div class="btn" onclick="handleShowLogin()"><img src="./images/login.png" alt=""></div>
+        <div class="btn" onclick="handleShowWindow('help')"><img src="./images/helpbutton.png" alt=""></div>
+        <div class="btn" onclick="handleShowWindow('logreg')"><img src="./images/login.png" alt=""></div>
         <div class="hello"></div>
       </div>
 
@@ -110,7 +110,7 @@
     
     <div class="column-right">
       <div class="column-right__top-right">
-        <div class="btn" onclick="handleShowStats()"><img src="./images/statistics.png" alt="">
+        <div class="btn" onclick="handleShowWindow('stats')"><img src="./images/statistics.png" alt="">
         </div>
 
         <div class="btn"><img src="./images/setting.png" alt=""></div>
@@ -121,7 +121,7 @@
   <div id="stats" style="display: none;">
     <div class="stats-container">
       <div class="column-right__middle">
-        <div class="line-1">X</div>
+        <div class="line-1" onclick="handleShowWindow('stats')">X</div>
         <div class="line-2">STATISTICS</div>
         <div class="line-3">
           <div class="column">1 <h5>Played</h5>
@@ -160,7 +160,7 @@
   <div id="help" style="display: none;">
     <div class="help-container">
       <div class="title">
-        <h1>HOW TO PLAY</h1><span>X</span>
+        <h1>HOW TO PLAY</h1><span onclick="handleShowWindow('help')">X</span>
       </div>
       <div class="p">Guess the <b>WORDLE</b> in six tries.</div>
       <div class="p">Each guess must be a valid five-letter word. Hit the enter button to submit.</div>
@@ -177,7 +177,7 @@
   <div class="logreg" id="logreg" style="display: none;">
     <div class="loginwrapper">
 
-      <h1>Login <span class="close" onclick="handleHideWindow()">x</span></h1>
+      <h1>Login <span class="close" onclick="handleShowWindow('logreg')">x</span></h1>
 
       <form onsubmit="handleLogin(event)" id="loginform">
 
@@ -193,17 +193,17 @@
           <label for="password">Password</label>
         </div>
 
-        <div class="pass">Forgot Password?</div>
+        <!-- <div class="pass">Forgot Password?</div> -->
         <input type="submit" value="Login" class="submit">
         <div class="signup_link">
-          Not a member? <a onclick="handleNotAMember()">Register</a>
+          Not a member? <span onclick="handleNotAMember()">Register</span>
         </div>
 
       </form>
     </div>
 
     <div class='registerwrapper' id="">
-      <h1>Register <span class="close" onclick="handleHideWindow()">x</span></h1>
+      <h1>Register <span class="close" onclick="handleShowWindow()">x</span></h1>
 
       <form onsubmit="handleRegister(event)" id="registerform">
 
@@ -240,7 +240,7 @@
         <input type="submit" value="Register" class="submit">
 
         <div class="signup_link">
-          Already a member? <a onclick="handleAlreadyAMember()">Login</a>
+          Already a member? <span onclick="handleAlreadyAMember()">Login</span>
         </div>
 
 
