@@ -112,5 +112,6 @@ var myForm = document.getElementById("myForm");
 //   flex.appendChild(countdown);
 // }
 myForm.addEventListener("submit", function (e) {
+    var modal = document.querySelector(".modal");
     closeModal(modal);
 });
