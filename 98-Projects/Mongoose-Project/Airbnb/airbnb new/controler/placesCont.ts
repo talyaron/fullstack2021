@@ -115,46 +115,31 @@ export const findPlaceMap = async (req, res) => {
 };
 export const searchAirbnb = async (req, res) => {
   try {
-    let {
-       search, 
-       checkIn, checkOut,
-       adults,
-      children, infants, pets 
-    } =
+    let { search, checkIn, checkOut, adults, children, infants, pets } =
       req.query;
 
-    console.log(
-       search, 
-      checkIn, checkOut, 
-      adults,
-        children, infants, pets
-      );
-    const places = await Places.find({"address_country":`${search}`,accommodates:`${adults}`});
-    //  $query = array(accommodates => $userInput);
-    //  {$query : Array(accommodates => `${adults}`)}
+    console.log(search, checkIn, checkOut, adults, children, infants, pets);
+    let sum= Number(adults)+Number(children)+Number(infants)+Number(pets);
+    console.log(sum)
     
-      res.send({ ok: true, places })
-   
+    const places = await Places.find({address_country: `${search}`, accommodates: sum });
+
+    res.send({ ok: true, places });
+
     // console.log(places)
-    
   } catch (error) {
     console.log(error.error);
     res.send({ error: error.massage });
   }
 };
 
+export const searchAirbnbByCity = async (req, res) => {
+  // const placesInTelaviv = await Places.find({"address.country":{ $eq:"Brazil"}}).limit(20);
+  let { city } = req.body;
 
-export const searchAirbnbByCity = async (req, res) => {  
- 
-    // const placesInTelaviv = await Places.find({"address.country":{ $eq:"Brazil"}}).limit(20);
-     let {city}=req.body;
-   
-      const airbnbInCity = await Places.find({"address_country":city}).limit(10);
-      console.log(airbnbInCity )
-      res.send({ ok: true, theCity:airbnbInCity })
-  
-  
-  
+  const airbnbInCity = await Places.find({ address_country: city }).limit(10);
+  // console.log(airbnbInCity);
+  res.send({ ok: true, theCity: airbnbInCity });
 };
 
 export const search = async (req, res) => {
