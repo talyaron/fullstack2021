@@ -172,13 +172,12 @@ exports.searchAirbnb = function (req, res) { return __awaiter(void 0, void 0, vo
                 _b.trys.push([0, 2, , 3]);
                 _a = req.query, search_1 = _a.search, checkIn = _a.checkIn, checkOut = _a.checkOut, adults = _a.adults, children = _a.children, infants = _a.infants, pets = _a.pets;
                 console.log(search_1, checkIn, checkOut, adults, children, infants, pets);
-                return [4 /*yield*/, placesModel_1["default"].find({ "address_country": "`${search}`" })];
+                return [4 /*yield*/, placesModel_1["default"].find({ "address_country": "" + search_1, accommodates: "" + adults })];
             case 1:
                 places = _b.sent();
                 //  $query = array(accommodates => $userInput);
                 //  {$query : Array(accommodates => `${adults}`)}
                 res.send({ ok: true, places: places });
-                console.log(places);
                 return [3 /*break*/, 3];
             case 2:
                 error_4 = _b.sent();
