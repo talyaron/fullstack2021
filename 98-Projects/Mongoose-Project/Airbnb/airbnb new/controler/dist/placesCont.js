@@ -165,15 +165,19 @@ exports.findPlaceMap = function (req, res) { return __awaiter(void 0, void 0, vo
     });
 }); };
 exports.searchAirbnb = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, search_1, checkIn, checkOut, adults, children, infants, pets, sum, dateOfCheckIn, dateOfCheckOut, differenceInTime, differenceInDays, places, error_4;
+    var _a, search_1, checkIn, checkOut, adults, children, infants, pets, accommodates, sum, sum2, dateOfCheckIn, dateOfCheckOut, differenceInTime, differenceInDays, places, error_4;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
                 _b.trys.push([0, 2, , 3]);
-                _a = req.query, search_1 = _a.search, checkIn = _a.checkIn, checkOut = _a.checkOut, adults = _a.adults, children = _a.children, infants = _a.infants, pets = _a.pets;
+                _a = req.query, search_1 = _a.search, checkIn = _a.checkIn, checkOut = _a.checkOut, adults = _a.adults, children = _a.children, infants = _a.infants, pets = _a.pets, accommodates = _a.accommodates;
                 console.log(search_1, checkIn, checkOut, adults, children, infants, pets);
                 sum = Number(adults) + Number(children) + Number(infants) + Number(pets);
                 console.log("the number of guests:" + sum);
+                sum2 = "" + accommodates;
+                if (sum2 >= sum) {
+                    return [2 /*return*/, sum];
+                }
                 dateOfCheckIn = new Date("" + checkIn);
                 dateOfCheckOut = new Date("" + checkOut);
                 differenceInTime = dateOfCheckOut.getTime() - dateOfCheckIn.getTime();

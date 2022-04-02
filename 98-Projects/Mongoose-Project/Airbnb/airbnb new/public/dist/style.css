@@ -155,6 +155,7 @@ body {
   height: 32px;
   text-align: center;
   transition: ease 2s;
+  cursor: pointer;
 }
 .navigation form .form--searchIcon:hover {
   background-color: #056155;
