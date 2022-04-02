@@ -129,12 +129,14 @@ export const searchAirbnb = async (req, res) => {
       adults,
       //  children, infants, pets
       );
-    const places = await Places.find({}).limit(20);
+    const places = await Places.find({});
     //  $query = array(accommodates => $userInput);
     //  {$query : Array(accommodates => `${adults}`)}
-
+    
+      res.send({ ok: true, places })
+   
     console.log(places)
-    res.send({ ok: true, places })
+    
   } catch (error) {
     console.log(error.error);
     res.send({ error: error.massage });
@@ -142,11 +144,10 @@ export const searchAirbnb = async (req, res) => {
 };
 
 
-export const searchAirbnbInTelaviv = async (req, res) => {
-  
+export const searchAirbnbInTelaviv = async (req, res) => {  
  
     // const placesInTelaviv = await Places.find({"address.country":{ $eq:"Brazil"}}).limit(20);
-    const placesInTelaviv = await Places.find({address:{ country:"Brazil"}}).limit(10);
+    const placesInTelaviv = await Places.find({"address_country":"Tel Aviv"}).limit(10);
     console.log(placesInTelaviv)
     res.send({ ok: true, placesInTelaviv })
   

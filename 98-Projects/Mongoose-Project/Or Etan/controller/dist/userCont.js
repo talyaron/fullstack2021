@@ -153,7 +153,7 @@ exports.renderPage = function (req, res) { return __awaiter(void 0, void 0, void
                         });
                     }
                     catch (error) {
-                        console.log("error in renderPage:");
+                        console.log("error in renderPage: home");
                         console.log(error.message);
                         res.send({ error: error.message });
                         // }
@@ -173,7 +173,7 @@ exports.renderPage = function (req, res) { return __awaiter(void 0, void 0, void
                         });
                     }
                     catch (error) {
-                        console.log("error in renderPage:");
+                        console.log("error in renderPage: settings");
                         console.log(error.message);
                         res.send({ error: error.message });
                         // }
@@ -187,7 +187,21 @@ exports.renderPage = function (req, res) { return __awaiter(void 0, void 0, void
                         });
                     }
                     catch (error) {
-                        console.log("error in renderPage:");
+                        console.log("error in renderPage: info");
+                        console.log(error.message);
+                        res.send({ error: error.message });
+                        // }
+                    }
+                    return [2 /*return*/];
+                }
+                if (requestedPage === "RecentlyCreated") {
+                    try {
+                        res.send({
+                            newURL: newURL
+                        });
+                    }
+                    catch (error) {
+                        console.log("error in renderPage: RecentlyCreated");
                         console.log(error.message);
                         res.send({ error: error.message });
                         // }

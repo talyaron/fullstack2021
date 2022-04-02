@@ -39,8 +39,8 @@ export async function getDailyWord(req: any, res: any) {
 
     console.log(dayOffset)
 
-    // const dailyWord = await FundleWord.find({ wordNumber: dayOffset })
-    const dailyWord = await FundleWord.find({})
+    const dailyWord = await FundleWord.find({ wordNumber: dayOffset })
+    // const dailyWord = await FundleWord.find({})
  
     console.log(dailyWord.length)
 

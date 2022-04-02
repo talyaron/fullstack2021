@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.getUsersTasks = void 0;
+exports.addNewTask = exports.getUsersTasks = void 0;
 var taskModel_1 = require("../model/taskModel");
 exports.getUsersTasks = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var ownerId, currentUsersTasks;
@@ -50,6 +50,35 @@ exports.getUsersTasks = function (req, res) { return __awaiter(void 0, void 0, v
                 currentUsersTasks = _a.sent();
                 res.send(currentUsersTasks);
                 return [2 /*return*/];
+        }
+    });
+}); };
+exports.addNewTask = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _a, color, title, description, urgency, location, date, userId, newTask, _b, _c, _d, error_1;
+    return __generator(this, function (_e) {
+        switch (_e.label) {
+            case 0:
+                _e.trys.push([0, 4, , 5]);
+                _a = req.body, color = _a.color, title = _a.title, description = _a.description, urgency = _a.urgency, location = _a.location, date = _a.date, userId = _a.userId;
+                if (!(userId && color && title && description && urgency && location && date)) return [3 /*break*/, 3];
+                newTask = new taskModel_1["default"]({ color: color, title: title, description: description, urgency: urgency, location: location, date: date, ownerId: userId });
+                console.log(newTask);
+                return [4 /*yield*/, newTask.save()];
+            case 1:
+                _e.sent();
+                _c = (_b = res).send;
+                _d = {};
+                return [4 /*yield*/, taskModel_1["default"].find({ ownerId: userId })];
+            case 2:
+                _c.apply(_b, [(_d.currentUsersTasks = _e.sent(), _d)]);
+                _e.label = 3;
+            case 3: return [3 /*break*/, 5];
+            case 4:
+                error_1 = _e.sent();
+                console.error(error_1);
+                res.send({ error: error_1.message });
+                return [3 /*break*/, 5];
+            case 5: return [2 /*return*/];
         }
     });
 }); };
