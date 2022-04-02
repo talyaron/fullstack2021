@@ -93,15 +93,17 @@ exports.deleteUser = function (req, res) { return __awaiter(void 0, void 0, void
             case 0:
                 _a.trys.push([0, 4, , 5]);
                 email = req.body.email;
+                console.log(email);
                 if (!email) return [3 /*break*/, 2];
-                return [4 /*yield*/, userModel_1["default"].deleteOne({ email: email })];
+                return [4 /*yield*/, userModel_1["default"].deleteOne({ email: email })
+                    // if (!email) throw new Error("Didnt find user with such an email");
+                ];
             case 1:
                 userDelete = _a.sent();
-                if (!email)
-                    throw new Error("Didnt find user with such an email");
+                // if (!email) throw new Error("Didnt find user with such an email");
                 res.send({ results: "user deleted" });
                 return [3 /*break*/, 3];
-            case 2: throw new Error("Id was not found in request");
+            case 2: throw new Error("Email was not found in request");
             case 3: return [3 /*break*/, 5];
             case 4:
                 err_3 = _a.sent();

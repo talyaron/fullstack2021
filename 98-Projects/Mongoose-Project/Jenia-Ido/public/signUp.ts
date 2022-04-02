@@ -153,12 +153,14 @@ async function renderProfile(email, password) {
     </div>
     <nav class="settings">
     <li><button class="settings_buttons" id="${user.email}" name="${user.password}" onclick='handleUpdateProfile(event)'>update Profile</button></li>
-    <li><button class="settings_buttons delete" id="${user.email}" onclick="handleDeleteProfile(event)"><a href="index.html">delete user</a></button></li>
+    <li><a href="index.html"><button class="settings_buttons delete" id="${user.email}" onclick="handleDeleteProfile(event)">delete user</button></a></li>
     <div id='updateRoot'></div>
     </nav>
+    <div id="profilePic"></div>
     <div class="profile__header">
-        <div class="profile__header__imgBorder" style="background-image: url(${imgs.url[0]})">
-        <button class="profile__header__imgBorder-changeImage" type="button" onclick="showProfilePicture()">View</button>
+        <div class="profile__header__imgBorder"  style="background-image: url(${imgs.profileUrl})">
+        <button class="profile__header__imgBorder-changeImage" name="${user.email}"
+        id=${imgs.profileUrl} lang="${user.password}"type="button" onclick="showProfilePicture(event)">View</button>
         </div>
         <div class="profile__header__name">${user.firstName} ${user.lastName}</div>
         <div class="profile__header__birthday">${user.birthday}</div>
@@ -304,6 +306,44 @@ async function handleDeleteProfile(ev) {
         console.error(err);
     }
 
+}
+
+async function showProfilePicture(ev) {
+   
+    const email = ev.target.name;
+    const profileImg = ev.target.id;
+    const password = ev.target.lang;
+    console.log(password);
+    
+    
+
+    const header: any = document.querySelector(".profile__header");
+    header.style.opacity = "0.2";
+    const root = document.querySelector('#profilePic');
+    let html = "";
+    html = `  
+    <div class="profile-active" style="background-image: url(${profileImg});">
+    <div class="exit"><button id="${email}" name="${password}" onclick="handleExit(event)"><i class="fas fa-check"></i></button></div>
+     <input class="profile-active__input" id="${email}" "type="text" placeholder="New Profile url" onchange="handleUpdateProfilePic(event)">
+    </div>`
+    root.innerHTML = html;
+
+}
+async function handleExit(ev) {
+    console.dir(ev)
+    const email = ev.target.id;
+    const password = ev.target.name;
+    console.log(password);
+    
+    renderProfile(email, password);
+}
+async function handleUpdateProfilePic(ev){
+    const email = ev.target.id;
+    const newImg= ev.target.value;
+    console.log(email);
+    console.log(newImg);
+    const update = await axios.patch('/images/update-profile-img',{email,newImg})
+    
 }
 
 

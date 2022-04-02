@@ -34,12 +34,14 @@ export const deleteUser = async (req, res) => {
     try {
         
         const { email } = req.body;
+        console.log(email);
+        
         if (email) {
             const userDelete = await User.deleteOne({ email: email })
-            if (!email) throw new Error("Didnt find user with such an email");
+            // if (!email) throw new Error("Didnt find user with such an email");
             res.send({ results: "user deleted" });
         } else {
-            throw new Error("Id was not found in request");
+            throw new Error("Email was not found in request");
         }
     } catch (err) {
         console.error(`In delete-user: ${err.message}`);
