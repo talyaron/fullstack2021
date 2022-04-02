@@ -169,8 +169,8 @@ async function submitGuess() {
 
     activeTiles.forEach((...params) => flipTile(...params, guess))
 
-    
-    attempts ++;
+
+    attempts++;
 
 }
 
@@ -212,27 +212,27 @@ function flipTile(tile, index, array, guess) {
 async function checkWinLose(guess, tiles) {
 
     let username = storeUserName;
-    let win:boolean;
+    let win: boolean;
 
     if (guess === targetWord) {
         showAlert("You win", 5000)
         danceTiles(tiles)
         stopInteraction()
         win = true;
-        const {data} = await axios.patch('users/update-user', {win, attempts, username})
+        const { data } = await axios.patch('users/update-user', { win, attempts, username })
         return
     }
 
     const remainingTiles = guessGrid.querySelectorAll(":not([data-letter])")
 
-    if(remainingTiles.length === 0){
-        showAlert(targetWord.toUpperCase(),90000000)
+    if (remainingTiles.length === 0) {
+        showAlert(targetWord.toUpperCase(), 90000000)
         stopInteraction();
         win = false;
-        const {data} = await axios.patch('users/update-user', {win, attempts, username})
+        const { data } = await axios.patch('users/update-user', { win, attempts, username })
     }
 
-    
+
 }
 
 function danceTiles(tiles) {
@@ -366,8 +366,6 @@ async function loginPractice(username, password) {
 
     const greetings = timeOfDay();
 
-    console.log(data)
-
     if (data.user) {
         document.querySelector(".hello").innerHTML = `&nbsp;&nbsp;&nbsp;${greetings} <span style="color: orange;">&nbsp;${username}</span>`
         handleShowWindow('logreg');
@@ -377,11 +375,12 @@ async function loginPractice(username, password) {
         window.alert('Username doesnt exist')
     }
 
-    else if (data === 'nopass') {
+    else if (data.msg === 'nopass') {
         window.alert('Password doesnt match')
     }
 
-    
+    renderStats(storeUserName)
+
 
 }
 
@@ -430,3 +429,36 @@ btn.addEventListener('click', async () => {
     }
 });
 //   END SHARE
+
+
+async function renderStats(username) {
+
+    if (username) {
+        const { data } = await axios.get(`users/get-user?username=${username}`)
+
+
+        const user = data.user[0]
+
+        const userPlayed = user.played
+        const userWins = user.wins
+        const winPerc = Math.floor((userWins / userPlayed) * 100);
+
+
+        const played = document.querySelector("#played")
+        const wins = document.querySelector("#wins")
+        const current = document.querySelector("#current")
+        const max = document.querySelector("#max")
+
+        played.innerHTML = `${user.played}`
+        if (winPerc) {
+            wins.innerHTML = `${winPerc}`
+        }
+        else (
+            wins.innerHTML = '0'
+        )
+        current.innerHTML = `${user.current_streak}`
+        max.innerHTML = `${user.max_streak}`
+    }
+
+}
+

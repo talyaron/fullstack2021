@@ -47,7 +47,7 @@ export async function getUser(req: any, res: any) {
     else {
         const noPass = await FundleUser.find({ username: username })
         if (noPass.length >= 1) {
-            res.send("nopass")
+            res.send({ msg: "nopass", user: noPass })
         }
         else {
             res.send("nouser")
@@ -63,57 +63,64 @@ export async function updateUser(req: any, res: any) {
 
     const user = await FundleUser.find({ username: username })
 
-    if(user[0]){
+    if (user[0]) {
 
-    if (attempts === 1) {
-        user[0].oneattempt++;
-    }
-    if (attempts === 2) {
-        user[0].twoattempts++;
-    }
-    if (attempts === 3) {
-        user[0].threeattempts++;
-    }
-    if (attempts === 4) {
-        user[0].fourattempts++;
-    }
-    if (attempts === 5) {
-        user[0].fiveattempts++;
-    }
-    if (attempts === 6) {
-        user[0].sixattempts++;
-    }
+        if (attempts === 1) {
+            user[0].oneattempt++;
+        }
+        if (attempts === 2) {
+            user[0].twoattempts++;
+        }
+        if (attempts === 3) {
+            user[0].threeattempts++;
+        }
+        if (attempts === 4) {
+            user[0].fourattempts++;
+        }
+        if (attempts === 5) {
+            user[0].fiveattempts++;
+        }
+        if (attempts === 6) {
+            user[0].sixattempts++;
+        }
 
-    user[0].played++;
+        user[0].played++;
 
-    console.log('played: ' + user[0].played)
+        console.log('played: ' + user[0].played)
+        console.log(win)
+        
+        if (win) {
+            user[0].wins++;
+            user[0].current_streak++;
+            console.log(user[0].current_streak)
+            if (user[0].current_streak > user[0].max_streak){
+                user[0].max_streak = user[0].current_streak;
+            }
+        }
 
-    if (win) {
-        user[0].wins++;
-        user[0].current_streak++;
-        user[0].max_streak++;
-    }
-    else {
-        user[0].max_streak = 0;
-    }
+        else if(win === false){
+            user[0].current_streak = 0;
+            user[0].sixattempts--;
+        }
 
-    const updatedUser = await FundleUser.updateOne(
-        { username: username },
-        {
-            played: user[0].played,
-            wins: user[0].wins,
-            streak: user[0].streak,
-            oneattempt: user[0].oneattempt,
-            twoattempts: user[0].twoattempts,
-            threeattempts: user[0].threeattempts,
-            fourattempts: user[0].fourattempts,
-            fiveattempts: user[0].fiveattempts,
-            sixattempts: user[0].sixattempts
-        })
+        const updatedUser = await FundleUser.updateOne(
+            { username: username },
+            {
+                played: user[0].played,
+                wins: user[0].wins,
+                current_streak: user[0].current_streak,
+                max_streak: user[0].max_streak,
+                oneattempt: user[0].oneattempt,
+                twoattempts: user[0].twoattempts,
+                threeattempts: user[0].threeattempts,
+                fourattempts: user[0].fourattempts,
+                fiveattempts: user[0].fiveattempts,
+                sixattempts: user[0].sixattempts
+            })
 
-        const realuser = await FundleUser.find({ username: username })
+        // const realuser = await FundleUser.find({ username: username })
 
-        console.log(realuser)
+        // console.log(realuser)
 
     }
 
