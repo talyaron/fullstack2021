@@ -116,20 +116,20 @@ export const findPlaceMap = async (req, res) => {
 export const searchAirbnb = async (req, res) => {
   try {
     let {
-      // search, 
-      // checkIn, checkOut,
+       search, 
+       checkIn, checkOut,
        adults,
-        // children, infants, pets 
+      children, infants, pets 
     } =
       req.query;
 
     console.log(
-      // search, 
-      // checkIn, checkOut, 
+       search, 
+      checkIn, checkOut, 
       adults,
-      //  children, infants, pets
+        children, infants, pets
       );
-    const places = await Places.find({});
+    const places = await Places.find({"address_country":"`${search}`"});
     //  $query = array(accommodates => $userInput);
     //  {$query : Array(accommodates => `${adults}`)}
     
@@ -144,12 +144,16 @@ export const searchAirbnb = async (req, res) => {
 };
 
 
-export const searchAirbnbInTelaviv = async (req, res) => {  
+export const searchAirbnbByCity = async (req, res) => {  
  
     // const placesInTelaviv = await Places.find({"address.country":{ $eq:"Brazil"}}).limit(20);
-    const placesInTelaviv = await Places.find({"address_country":"Tel Aviv"}).limit(10);
-    console.log(placesInTelaviv)
-    res.send({ ok: true, placesInTelaviv })
+
+   
+      const placesInTelaviv = await Places.find({"address_country":"Tel Aviv"}).limit(10);
+      console.log(placesInTelaviv)
+      res.send({ ok: true, placesInTelaviv })
+  
+  
   
 };
 

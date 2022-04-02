@@ -59,8 +59,8 @@ function renderItemsMain(items){
 function renderProducts(products){
     const html =  products.map(product=>{
         return `
-        <div class="mainPage__middle--products--item">
-        <div><i class="fa fa-trash-o" style="font-size:20px;cursor: pointer;" title="Delete product" onclick='handleDelete("${product._id}")'></i></div>
+        <div class="mainPage__middle--products--item" id="card">
+        <div id="trash"><i class="fa fa-trash-o" style="font-size:20px;cursor: pointer;" title="Delete product" onclick='handleDelete("${product._id}")'></i></div>
         <img src="${product.pic}" title='${product.title}'>
         <p>${product.title}.</p>
         <p>${product.price}$</p>
