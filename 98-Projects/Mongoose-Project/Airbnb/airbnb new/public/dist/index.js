@@ -135,7 +135,8 @@ function handleCities(ev) {
             switch (_a.label) {
                 case 0:
                     city = ev.target.dataset.card;
-                    return [4 /*yield*/, axios.get("/places/search-city?card=" + city)];
+                    console.log(city);
+                    return [4 /*yield*/, axios.post("/places/search-city", { city: city })];
                 case 1:
                     data = (_a.sent()).data;
                     console.log(data);

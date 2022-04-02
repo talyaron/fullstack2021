@@ -402,9 +402,10 @@ async function handleCities(ev) {
     //     console.log(data)  
     // }
     const city=ev.target.dataset.card;
+    console.log(city)
  
-    const { data } = await axios.get(`/places/search-city?card=${city}`)    
-    console.log(data)  
+    const { data } = await axios.post("/places/search-city",{city})    
+    console.log(data) 
    
    
 
