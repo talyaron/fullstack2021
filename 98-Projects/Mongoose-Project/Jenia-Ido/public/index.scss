@@ -6,14 +6,14 @@
 body {
     background-color: rgb(26, 24, 24);
     width: 350px;
-    height: 620px;
+    max-height: 620px;
     margin: auto;
 }
 
 .profile {
     width: 350px;
     height: 100px;
-
+    
     .settings{
         position: relative;
         // right: 365px;
@@ -177,7 +177,6 @@ body {
     }
 
     &__addButton {
-
         color: rgb(211, 210, 210);
         background-color: rgb(245, 105, 12);
         width: fit-content;
@@ -232,8 +231,13 @@ body {
 
     &__user__pics {
         display: grid;
+        // flex-direction: column;
+        max-height: fit-content;
         width: 100%;
-        overflow: auto;
+        margin: auto;
+        overflow-y: scroll;
+        white-space: nowrap;
+        // column-gap: 0.5rem;
         grid-template-columns: repeat(2, 45%);
         gap: 10px;
 
@@ -292,7 +296,7 @@ body {
         // left: 10vw;
         display: flex;
         justify-content: space-around;
-        width: 100%;
+        width: 350px;
         background-color: gray;
         padding: 10px;
         border-radius: 3%;

@@ -6,7 +6,7 @@
 body {
   background-color: #1a1818;
   width: 350px;
-  height: 620px;
+  max-height: 620px;
   margin: auto;
 }
 
@@ -190,8 +190,11 @@ body {
 }
 .profile__user__pics {
   display: grid;
+  max-height: fit-content;
   width: 100%;
-  overflow: auto;
+  margin: auto;
+  overflow-y: scroll;
+  white-space: nowrap;
   grid-template-columns: repeat(2, 45%);
   gap: 10px;
 }
@@ -228,7 +231,7 @@ body {
   bottom: 0px;
   display: flex;
   justify-content: space-around;
-  width: 100%;
+  width: 350px;
   background-color: gray;
   padding: 10px;
   border-radius: 3%;

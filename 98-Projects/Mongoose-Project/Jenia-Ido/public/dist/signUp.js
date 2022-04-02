@@ -169,7 +169,7 @@ function renderProfile(email, password) {
                             html_1 += "<div class=\"profile__user__pics-userPics pic" + i + "\"><img src=\"" + img + "\" alt=\"\"></div>";
                             i++;
                         });
-                        html_1 += "</div>\n        <div class=\"profile__navBar--down\">\n    <div class=\"homeIcon\"><i class=\"fas fa-home\"></i></div>\n    <div class=\"profileIcon\"><i class=\"fas fa-user\"></i></div>\n    <div class=\"compassIcon\"><i class=\"fas fa-compass\"></i></div>\n    <div class=\"heartIcon\"><i class=\"fas fa-heart\"></i></div>\n    </div>\n    </section>";
+                        html_1 += "\n        <div class=\"profile__navBar--down\">\n    <div class=\"homeIcon\"><i class=\"fas fa-home\"></i></div>\n    <div class=\"profileIcon\"><i class=\"fas fa-user\"></i></div>\n    <div class=\"compassIcon\"><i class=\"fas fa-compass\"></i></div>\n    <div class=\"heartIcon\"><i class=\"fas fa-heart\"></i></div>\n    \n    </section>";
                         display.innerHTML = html_1;
                     }
                     return [2 /*return*/];

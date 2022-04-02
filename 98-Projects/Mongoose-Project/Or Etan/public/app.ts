@@ -128,6 +128,7 @@ const myForm:any = document.getElementById("myForm");
 
 
 myForm.addEventListener("submit", (e:any) => {
+  const modal = document.querySelector(".modal")
   closeModal(modal)
 });
 

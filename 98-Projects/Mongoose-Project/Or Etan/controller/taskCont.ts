@@ -5,7 +5,7 @@ import task from "../model/taskModel";
 
 export const getUsersTasks = async (req,res) => {
     const {ownerId} = req.query;
-    console.log(ownerId);
+
     let currentUsersTasks = await task.find({ ownerId: ownerId });
     
     res.send(currentUsersTasks)
@@ -17,7 +17,7 @@ export const addNewTask = async (req, res) => {
     if(userId && color && title && description && urgency && location && date) {
 
         const newTask = new task({color: color, title: title, description: description, urgency: urgency, location: location, date: date, ownerId: userId})
-        console.log(newTask);
+
         await newTask.save();
         res.send({currentUsersTasks: await task.find ({ownerId: userId})})
     }}catch(error){
@@ -25,4 +25,52 @@ export const addNewTask = async (req, res) => {
         res.send({error: error.message})
     }
     
+    }
+
+    export const updateTask = async (req, res) => {
+        try {
+            const {_id, ownerId,color ,title, urgency, description, location, date} = req.body;
+            if(_id && ownerId) {
+
+                const updatedTask = await task.findOneAndUpdate ({_id:_id, ownerId:ownerId}, {color:color, title:title, urgency:urgency, description:description, location:location, date:date});
+                const currentUsersTasks = await task.find ({ ownerId:ownerId})
+                res.send({updatedTask, currentUsersTasks})
+            }
+            
+        } catch (error) {
+            console.error(error);
+            res.send({error: error.message})
+            
+        }
+    }
+    export const deleteTask = async (req, res) => {
+        try {
+            
+            const {taskId, userURL} = req.body;
+const userId = userURL.split("=")[1];
+const currentPage = userURL.split("/")[3].split(".")[0];
+
+await task.findOneAndDelete ({_id:taskId, ownerId:userId});
+            const currentUsersTasks = await task.find({ownerId:userId})   
+            res.send({currentUsersTasks, currentPage})         
+            
+        } catch (error) {
+            console.error(error);
+            res.send({error: error.message})
+            
+        }
+    }
+
+    export const getTask = async (req, res) => {
+        try {
+            const {taskId} = req.body;
+            const currentTask = await task.findOne({_id:taskId});
+            console.log(currentTask);
+            
+            res.send(currentTask);
+            
+        } catch (error) {
+            console.error(error);
+            res.send({error: error.message})
+        }
     }
