@@ -53,7 +53,7 @@ exports.getUser = function (req, res) { return __awaiter(void 0, void 0, void 0,
                     res.send({ result: result });
                 }
                 else
-                    throw new Error("password not correct");
+                    throw new Error("password or email incorrect");
                 return [3 /*break*/, 3];
             case 2:
                 err_1 = _a.sent();
@@ -93,15 +93,17 @@ exports.deleteUser = function (req, res) { return __awaiter(void 0, void 0, void
             case 0:
                 _a.trys.push([0, 4, , 5]);
                 email = req.body.email;
+                console.log(email);
                 if (!email) return [3 /*break*/, 2];
-                return [4 /*yield*/, userModel_1["default"].deleteOne({ email: email })];
+                return [4 /*yield*/, userModel_1["default"].deleteOne({ email: email })
+                    // if (!email) throw new Error("Didnt find user with such an email");
+                ];
             case 1:
                 userDelete = _a.sent();
-                if (!email)
-                    throw new Error("Didnt find user with such an email");
+                // if (!email) throw new Error("Didnt find user with such an email");
                 res.send({ results: "user deleted" });
                 return [3 /*break*/, 3];
-            case 2: throw new Error("Id was not found in request");
+            case 2: throw new Error("Email was not found in request");
             case 3: return [3 /*break*/, 5];
             case 4:
                 err_3 = _a.sent();
@@ -113,7 +115,7 @@ exports.deleteUser = function (req, res) { return __awaiter(void 0, void 0, void
     });
 }); };
 exports.updateUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var updatedUser, err_4;
+    var updatedUser, result, err_4;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -121,7 +123,12 @@ exports.updateUser = function (req, res) { return __awaiter(void 0, void 0, void
                 updatedUser = req.body;
                 return [4 /*yield*/, userModel_1["default"].updateOne({ email: updatedUser.email }, updatedUser)];
             case 1:
-                _a.sent();
+                result = _a.sent();
+                if (updatedUser) {
+                    res.send({ ok: true });
+                }
+                else
+                    throw new Error("user didnt update");
                 return [3 /*break*/, 3];
             case 2:
                 err_4 = _a.sent();

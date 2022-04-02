@@ -68,6 +68,7 @@
                 margin-top: 50px;
                 margin-left: auto;
                 margin-right: auto;
+                position: relative;
 
                 img {
                     width: 100%;
@@ -179,6 +180,18 @@
     }
 }
 
+.close{
+  color: #aaaaaa;
+  float: left;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
 
 .main{
   
@@ -222,7 +235,7 @@ label{
     outline: none;
     border-radius: 5px;
 }
-button{
+.btn{
     width: 60%;
     height: 40px;
     margin: 10px auto;
@@ -239,7 +252,7 @@ button{
     transition: .2s ease-in;
     cursor: pointer;
 }
-button:hover{
+.btn:hover{
     background: #6d44b8;
 }
 .login{
@@ -264,5 +277,14 @@ button:hover{
     transform: scale(.6);
 }
 
-
-
+#trash{
+//     display: none;
+       position: relative;
+       top: 2vw;
+       z-index: -1;
+}
+#card:hover{
+    #trash{
+    z-index: 0;
+    }
+}

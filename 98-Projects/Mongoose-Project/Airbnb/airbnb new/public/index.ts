@@ -1,34 +1,29 @@
-
-
 async function loadPlaces() {
-    const { data } = await axios.get('/places/getPlaces')
-    console.log(data);
+  const { data } = await axios.get("/places/getPlaces");
+  console.log(data);
 
-    //  renderAirbnb(data);
+  //  renderAirbnb(data);
 }
 //loadPlaces()
 async function handleLoadPlace() {
-    try {
+  try {
+    const { data } = await axios.get("/places/getToPlace");
 
-
-        const { data } = await axios.get('/places/getToPlace');
-
-        console.log(data);
-        renderPlace(data);
-
-    } catch (error) {
-        console.error(error.message);
-
-    }
+    console.log(data);
+    renderPlace(data);
+  } catch (error) {
+    console.error(error.message);
+  }
 }
 async function handleGoToPlace(placeId) {
-    const { data } = await axios.get('/goToPlace', { data: { placeId } })
-    renderPlace(data)
+  const { data } = await axios.get("/goToPlace", { data: { placeId } });
+  renderPlace(data);
 }
 function renderPlace(data: Array<any>) {
-    try {
-        const html = data.map(place => {
-            return `<div class="mainUpper">
+  try {
+    const html = data
+      .map((place) => {
+        return `<div class="mainUpper">
     <div class="maiUpper__title">
         <h1>${place.name}</h1>
        <h3>${place.price}$</h3>
@@ -348,56 +343,52 @@ Carbon monoxide alarm not reported Show more
         <button>add dates</button>
     </div>
     
-</div>`
-        })
-            .join('');
-        // console.log(html)
+</div>`;
+      })
+      .join("");
+    // console.log(html)
 
-        document.querySelector('#rootPlace').innerHTML = html;
-    }
-    catch (error) {
-        console.error(error.message);
-
-    }
+    document.querySelector("#rootPlace").innerHTML = html;
+  } catch (error) {
+    console.error(error.message);
+  }
 }
 
-
-
-
-
-
 async function handleFindAirbnb(ev) {
-    ev.preventDefault();
+  ev.preventDefault();
 
+  const search = ev.target.elements.searchLocation.value;
+  const checkIn = ev.target.elements.checkIn.value;
+  const checkOut = ev.target.elements.checkOut.value;
+  const adults = ev.target.elements.adults.value;
+  const children = ev.target.elements.children.value;
+  const infants = ev.target.elements.infants.value;
+  const pets = ev.target.elements.pets.value;
 
-    //const search = ev.target.elements.searchLocation.value;
-    // const checkIn = ev.target.elements.checkIn.value;
-    // const checkOut = ev.target.elements.checkOut.value;
-     const adults = ev.target.elements.adults.value;
-    // const children = ev.target.elements.children.value;
-    // const infants = ev.target.elements.infants.value;
-    // const pets = ev.target.elements.pets.value;
+  console.log(search, checkIn, checkOut, adults, children, infants, pets);
 
-    console.log(
-        // search, 
-        // checkIn, checkOut, 
-        adults,
-        //  children, infants, pets
-        )
+  const { data } = await axios.get(
+    `/places/search-airbnb?search=${search}&checkIn=${checkIn}&checkOut=${checkOut}&adults=${adults}&children=${children}&infants=${infants}&pets=${pets} `
+  );
 
-    const { data } = await axios.get(`/places/search-airbnb?adults=${adults} `)
-    // search=${search}&checkIn=${checkIn}&checkOut=${checkOut}&adults=${adults}&children=${children}&infants=${infants}&pets=${pets}
-    console.log(data)
-    // ev.target.reset();
-   
-};
+  ///places/search-airbnb?adults=${adults}
+  // search=${search}&checkIn=${checkIn}&checkOut=${checkOut}&adults=${adults}&children=${children}&infants=${infants}&pets=${pets}
+  console.log(data);
+  // ev.target.reset();
+}
 
-async function handleTelaviv() {
-  
-    const { data } = await axios.get('/places/search-telaviv')
-    // search=${search}&checkIn=${checkIn}&checkOut=${checkOut}&adults=${adults}&children=${children}&infants=${infants}&pets=${pets}
-    console.log(data)
-    
+async function handleCities(ev) {
+  // if(ev.target.matches("[data-card]")){
+  //     const city=ev.target.dataset.card;
+
+  //     const { data } = await axios.get(`/places/search-city?card=${city}`)
+  //     console.log(data)
+  // }
+  const city = ev.target.dataset.card;
+  console.log(city);
+
+  const { data } = await axios.post("/places/search-city", { city });
+  console.log(data);
 }
 
 // async function handleSearchCity(ev){
@@ -409,8 +400,7 @@ async function handleTelaviv() {
 // }
 
 async function handleFilter(ev) {
-    const price = ev.target.elements.price.valueAsNumber;
-    console.log(price);
-    const { data } = await axios.get('/places/getFiltered', { data: { price } });
-
+  const price = ev.target.elements.price.valueAsNumber;
+  console.log(price);
+  const { data } = await axios.get("/places/getFiltered", { data: { price } });
 }

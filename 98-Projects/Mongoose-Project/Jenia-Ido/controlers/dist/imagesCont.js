@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.addImages = exports.getImages = void 0;
+exports.addPost = exports.updateProfilePiC = exports.addImages = exports.getImages = void 0;
 var imagesModel_1 = require("../models/imagesModel");
 exports.getImages = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var email, result, err_1;
@@ -45,7 +45,6 @@ exports.getImages = function (req, res) { return __awaiter(void 0, void 0, void 
             case 0:
                 _a.trys.push([0, 2, , 3]);
                 email = req.query.email;
-                console.log(email);
                 return [4 /*yield*/, imagesModel_1["default"].find({ email: email })];
             case 1:
                 result = _a.sent();
@@ -67,7 +66,7 @@ exports.addImages = function (req, res) { return __awaiter(void 0, void 0, void 
             case 0:
                 _b.trys.push([0, 2, , 3]);
                 _a = req.body, email = _a.email, password = _a.password;
-                newImgs = { email: email, password: password, url: ['https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png'] };
+                newImgs = { email: email, password: password, profileUrl: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png' };
                 userImgs = new imagesModel_1["default"](newImgs);
                 return [4 /*yield*/, userImgs.save()];
             case 1:
@@ -78,6 +77,54 @@ exports.addImages = function (req, res) { return __awaiter(void 0, void 0, void 
                 err_2 = _b.sent();
                 console.error(err_2);
                 res.send({ error: err_2.message, ok: false });
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
+        }
+    });
+}); };
+exports.updateProfilePiC = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _a, email, newImg, images, err_3;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
+            case 0:
+                _b.trys.push([0, 2, , 3]);
+                _a = req.body, email = _a.email, newImg = _a.newImg;
+                console.log(email);
+                console.log(newImg);
+                return [4 /*yield*/, imagesModel_1["default"].updateOne({ email: email }, { profileUrl: newImg })];
+            case 1:
+                images = _b.sent();
+                res.send({ images: images, ok: true });
+                return [3 /*break*/, 3];
+            case 2:
+                err_3 = _b.sent();
+                console.error(err_3);
+                res.send({ error: err_3.message, ok: false });
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
+        }
+    });
+}); };
+exports.addPost = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _a, email, url, result, err_4;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
+            case 0:
+                _b.trys.push([0, 2, , 3]);
+                _a = req.body, email = _a.email, url = _a.url;
+                return [4 /*yield*/, imagesModel_1["default"].updateOne({ email: email }, { $push: { url: url } })];
+            case 1:
+                result = _b.sent();
+                if (email) {
+                    res.send({ ok: true });
+                }
+                else
+                    throw new Error("err");
+                return [3 /*break*/, 3];
+            case 2:
+                err_4 = _b.sent();
+                console.error(err_4);
+                res.send({ error: err_4.message, ok: false });
                 return [3 /*break*/, 3];
             case 3: return [2 /*return*/];
         }

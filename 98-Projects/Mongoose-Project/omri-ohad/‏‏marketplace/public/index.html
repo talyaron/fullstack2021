@@ -25,19 +25,18 @@
                 <div id="myPopUp" class="popup" style="z-index: 1;">
 
                     <!-- <div class="popup__text"> -->
-                        <span class="close"></span>
                         <div class="popup__text__row">
                             <div class="popup__text__row__item">
-                              <div class="main">  	
+                              <div class="main">  
+                                <span class="close">&times;</span>	
                                 <input class="input" type="checkbox" id="chk" aria-hidden="true">
-                            
                                   <div class="signup">
                                     <form id = "form" onsubmit="handleSignUp(event)">
                                       <label for="chk" aria-hidden="true">Sign up</label>
                                       <input class="input" type="text" name="userName" placeholder="User name" required="">
                                       <input class="input" type="email" name="email" placeholder="Email" required="">
                                       <input class="input" type="password" name="password" placeholder="Password" required="">
-                                      <input type="submit" value="Sign Up">
+                                      <input type="submit" value="Sign Up" class="btn">
                                       <div id="regMessage"></div>
                                     </form>
                                   </div>
@@ -47,7 +46,7 @@
                                       <label for="chk" aria-hidden="true">Login</label>
                                       <input class="input" type="email" name="email" placeholder="Email" required="">
                                       <input class="input" type="password" name="pswd" placeholder="Password" required="">
-                                      <button>Login</button>
+                                      <input type="submit" value="Login" class="btn">
                                     </form>
                                   </div>
                               </div>
@@ -66,8 +65,8 @@
             <div class="mainPage__middle--products"></div>
             
             <div class="mainPage__middle--categories" onclick="handleCategoryShow(event)">
-                <button onclick="handleAscending()">sort low to high</button>
-                <button onclick="handleDescending()">sort high to low</button>
+                <button class="btn" onclick="handleAscending()">sort low to high</button>
+                <button class="btn" onclick="handleDescending()">sort high to low</button>
                 <h4>Show All</h4>
                 <h4>Games</h4>
                 <h4>Books</h4>
@@ -76,8 +75,9 @@
                 <h4>Hats</h4>
             </div>
         </div>
+        
 
-        <div class="mainPage__footer"></div>
+        <!-- <div class="mainPage__footer"></div> -->
     </div>
     <!-- <div class="gg">
    
@@ -96,11 +96,11 @@
         span.onclick = function() {
           PopUp.style.display = "none";
         }
-        window.onclick = function(event) {
-          if (event.target == PopUp) {
-            PopUp.style.display = "none";
-          }
-        }
+        // window.onclick = function(event) {
+        //   if (event.target == PopUp) {
+        //     PopUp.style.display = "none";
+        //   }
+        // }
         </script>
 
 </body>

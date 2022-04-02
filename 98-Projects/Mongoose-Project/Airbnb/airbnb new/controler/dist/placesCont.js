@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.search = exports.searchAirbnbInTelaviv = exports.searchAirbnb = exports.findPlaceMap = exports.getToPlace = exports.addPlaces = exports.getfilteredAirBNB = exports.getPlaces = void 0;
+exports.search = exports.searchAirbnbByCity = exports.searchAirbnb = exports.findPlaceMap = exports.getToPlace = exports.addPlaces = exports.getfilteredAirBNB = exports.getPlaces = void 0;
 var placesModel_1 = require("../model/placesModel");
 exports.getPlaces = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var places, error_1;
@@ -165,29 +165,27 @@ exports.findPlaceMap = function (req, res) { return __awaiter(void 0, void 0, vo
     });
 }); };
 exports.searchAirbnb = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var 
-    // search, 
-    // checkIn, checkOut,
-    adults, places, error_4;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
+    var _a, search_1, checkIn, checkOut, adults, children, infants, pets, sum, dateOfCheckIn, dateOfCheckOut, differenceInTime, differenceInDays, places, error_4;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
             case 0:
-                _a.trys.push([0, 2, , 3]);
-                adults = req.query.adults;
-                console.log(
-                // search, 
-                // checkIn, checkOut, 
-                adults);
-                return [4 /*yield*/, placesModel_1["default"].find({})];
+                _b.trys.push([0, 2, , 3]);
+                _a = req.query, search_1 = _a.search, checkIn = _a.checkIn, checkOut = _a.checkOut, adults = _a.adults, children = _a.children, infants = _a.infants, pets = _a.pets;
+                console.log(search_1, checkIn, checkOut, adults, children, infants, pets);
+                sum = Number(adults) + Number(children) + Number(infants) + Number(pets);
+                console.log("the number of guests:" + sum);
+                dateOfCheckIn = new Date("" + checkIn);
+                dateOfCheckOut = new Date("" + checkOut);
+                differenceInTime = dateOfCheckOut.getTime() - dateOfCheckIn.getTime();
+                differenceInDays = differenceInTime / (1000 * 3600 * 24);
+                console.log("the days between checkIn checkOut is:" + differenceInDays);
+                return [4 /*yield*/, placesModel_1["default"].find({ address_country: "" + search_1, accommodates: sum })];
             case 1:
-                places = _a.sent();
-                //  $query = array(accommodates => $userInput);
-                //  {$query : Array(accommodates => `${adults}`)}
+                places = _b.sent();
                 res.send({ ok: true, places: places });
-                console.log(places);
                 return [3 /*break*/, 3];
             case 2:
-                error_4 = _a.sent();
+                error_4 = _b.sent();
                 console.log(error_4.error);
                 res.send({ error: error_4.massage });
                 return [3 /*break*/, 3];
@@ -195,21 +193,23 @@ exports.searchAirbnb = function (req, res) { return __awaiter(void 0, void 0, vo
         }
     });
 }); };
-exports.searchAirbnbInTelaviv = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var placesInTelaviv;
+exports.searchAirbnbByCity = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var city, airbnbInCity;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, placesModel_1["default"].find({ "address_country": "Tel Aviv" }).limit(10)];
+            case 0:
+                city = req.body.city;
+                return [4 /*yield*/, placesModel_1["default"].find({ address_country: city }).limit(10)];
             case 1:
-                placesInTelaviv = _a.sent();
-                console.log(placesInTelaviv);
-                res.send({ ok: true, placesInTelaviv: placesInTelaviv });
+                airbnbInCity = _a.sent();
+                // console.log(airbnbInCity);
+                res.send({ ok: true, theCity: airbnbInCity });
                 return [2 /*return*/];
         }
     });
 }); };
 exports.search = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var places, search_1, serchPlace, error_5;
+    var places, search_2, serchPlace, error_5;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -217,9 +217,9 @@ exports.search = function (req, res) { return __awaiter(void 0, void 0, void 0, 
                 return [4 /*yield*/, placesModel_1["default"].find({})];
             case 1:
                 places = _a.sent();
-                search_1 = req.query.search;
-                serchPlace = searchPlaces(search_1, places);
-                console.log(search_1, " ", places);
+                search_2 = req.query.search;
+                serchPlace = searchPlaces(search_2, places);
+                console.log(search_2, " ", places);
                 res.send(serchPlace);
                 return [3 /*break*/, 3];
             case 2:

@@ -115,42 +115,39 @@ export const findPlaceMap = async (req, res) => {
 };
 export const searchAirbnb = async (req, res) => {
   try {
-    let {
-      // search, 
-      // checkIn, checkOut,
-       adults,
-        // children, infants, pets 
-    } =
+    let { search, checkIn, checkOut, adults, children, infants, pets } =
       req.query;
 
-    console.log(
-      // search, 
-      // checkIn, checkOut, 
-      adults,
-      //  children, infants, pets
-      );
-    const places = await Places.find({});
-    //  $query = array(accommodates => $userInput);
-    //  {$query : Array(accommodates => `${adults}`)}
+    console.log(search, checkIn, checkOut, adults, children, infants, pets);
+
+    let sum= Number(adults)+Number(children)+Number(infants)+Number(pets);
+    console.log("the number of guests:" +sum)
     
-      res.send({ ok: true, places })
-   
-    console.log(places)
-    
+    let dateOfCheckIn= new Date(`${checkIn}`);
+    let dateOfCheckOut= new Date(`${checkOut}`);
+    let differenceInTime= dateOfCheckOut.getTime()-dateOfCheckIn.getTime();
+    let differenceInDays= differenceInTime/ (1000 * 3600 * 24);
+    console.log("the days between checkIn checkOut is:" +differenceInDays)
+
+
+    const places = await Places.find({address_country: `${search}`, accommodates: sum });
+
+    res.send({ ok: true, places });
+
+    // console.log(places)
   } catch (error) {
     console.log(error.error);
     res.send({ error: error.massage });
   }
 };
 
+export const searchAirbnbByCity = async (req, res) => {
+  // const placesInTelaviv = await Places.find({"address.country":{ $eq:"Brazil"}}).limit(20);
+  let { city } = req.body;
 
-export const searchAirbnbInTelaviv = async (req, res) => {  
- 
-    // const placesInTelaviv = await Places.find({"address.country":{ $eq:"Brazil"}}).limit(20);
-    const placesInTelaviv = await Places.find({"address_country":"Tel Aviv"}).limit(10);
-    console.log(placesInTelaviv)
-    res.send({ ok: true, placesInTelaviv })
-  
+  const airbnbInCity = await Places.find({ address_country: city }).limit(10);
+  // console.log(airbnbInCity);
+  res.send({ ok: true, theCity: airbnbInCity });
 };
 
 export const search = async (req, res) => {
