@@ -10,7 +10,7 @@ export const getUser = async (req, res) => {
         if (password === result[0].password) {
             res.send({ result });
         }
-        else throw new Error("password not correct")
+        else throw new Error("password or email incorrect")
     }
     catch (err) {
         console.error(err);

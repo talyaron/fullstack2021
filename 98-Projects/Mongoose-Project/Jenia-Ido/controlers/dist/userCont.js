@@ -53,7 +53,7 @@ exports.getUser = function (req, res) { return __awaiter(void 0, void 0, void 0,
                     res.send({ result: result });
                 }
                 else
-                    throw new Error("password not correct");
+                    throw new Error("password or email incorrect");
                 return [3 /*break*/, 3];
             case 2:
                 err_1 = _a.sent();
