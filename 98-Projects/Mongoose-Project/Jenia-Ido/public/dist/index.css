@@ -447,7 +447,10 @@ body {
 }
 @keyframes animationTwo {
   0% {
-    transform: translate(50%, 100%);
+    transform: translate(5%, 5%);
+  }
+  25% {
+    transform: translate(40%, 40%);
   }
   100% {
     transform: translate(60%, 110%);
