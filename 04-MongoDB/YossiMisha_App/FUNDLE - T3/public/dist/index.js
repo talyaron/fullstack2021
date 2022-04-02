@@ -14,6 +14,8 @@ const DANCE_ANIMATION_DURATION = 500;
 const keyboard = document.querySelector("[data-keyboard]");
 const guessGrid = document.querySelector("[data-guess-grid]");
 const alertContainer = document.querySelector("[data-alert-container]");
+let attempts = 0;
+let storeUserName = '';
 let targetWord = '';
 const offsetFromDate = new Date(2022, 0, 1);
 const msOffset = Date.now() - offsetFromDate;
@@ -129,6 +131,7 @@ function submitGuess() {
         if (activeTiles.length !== WORD_LENGTH) {
             showAlert('Not enough letters');
             shakeTiles(activeTiles);
+            return;
         }
         const guess = activeTiles.reduce((word, tile) => {
             return word + tile.dataset.letter;
@@ -141,6 +144,7 @@ function submitGuess() {
         }
         stopInteraction();
         activeTiles.forEach((...params) => flipTile(...params, guess));
+        attempts++;
     });
 }
 function flipTile(tile, index, array, guess) {
@@ -172,17 +176,25 @@ function flipTile(tile, index, array, guess) {
     }, { once: true });
 }
 function checkWinLose(guess, tiles) {
-    if (guess === targetWord) {
-        showAlert("You win", 5000);
-        danceTiles(tiles);
-        stopInteraction();
-        return;
-    }
-    const remainingTiles = guessGrid.querySelectorAll(":not([data-letter])");
-    if (remainingTiles.length === 0) {
-        showAlert(targetWord.toUpperCase(), 90000000);
-        stopInteraction();
-    }
+    return __awaiter(this, void 0, void 0, function* () {
+        let username = storeUserName;
+        let win;
+        if (guess === targetWord) {
+            showAlert("You win", 5000);
+            danceTiles(tiles);
+            stopInteraction();
+            win = true;
+            const { data } = yield axios.patch('users/update-user', { win, attempts, username });
+            return;
+        }
+        const remainingTiles = guessGrid.querySelectorAll(":not([data-letter])");
+        if (remainingTiles.length === 0) {
+            showAlert(targetWord.toUpperCase(), 90000000);
+            stopInteraction();
+            win = false;
+            const { data } = yield axios.patch('users/update-user', { win, attempts, username });
+        }
+    });
 }
 function danceTiles(tiles) {
     tiles.forEach((tile, index) => {
@@ -214,51 +226,15 @@ function showAlert(message, duration = 1000) {
         });
     }, duration);
 }
-function handleShowStats() {
-    const stats = document.querySelector("#stats");
+function handleShowWindow(window) {
+    const stats = document.querySelector(`#${window}`);
     if (stats.style.display === "none") {
         stats.style.display = "block";
-    }
-    else {
-        stats.style.display = "none";
-    }
-}
-function handleShowHelp() {
-    const stats = document.querySelector("#help");
-    if (stats.style.display === "none") {
-        stats.style.display = "block";
-    }
-    else {
-        stats.style.display = "none";
-    }
-}
-function handleShowLogin() {
-    const logreg = document.querySelector(".logreg");
-    if (logreg.style.display === "none") {
-        logreg.style.display = "block";
         stopInteraction();
     }
     else {
-        // logreg.classList.add("logreg-hide")
-        logreg.style.display = "none";
-        startInteraction();
-    }
-}
-function handleDisplayNone() {
-    const stats = document.querySelector("#stats");
-    if (stats.style.display === "block") {
         stats.style.display = "none";
-    }
-    const help = document.querySelector("#help");
-    if (help.style.display === "block") {
-        help.style.display = "none";
-    }
-}
-document.body.addEventListener('click', handleDisplayNone, true);
-function handleHideWindow() {
-    const logreg = document.querySelector("#logreg");
-    if (logreg.style.display === "block") {
-        logreg.style.display = "none";
+        startInteraction();
     }
 }
 //////////////////////////// LOGIN - REGISTER ///////////////////////////////////////////
@@ -294,13 +270,13 @@ function handleRegister(ev) {
                 const { data } = yield axios.post('users/add-user', { username, password, email });
                 console.log(data);
                 if (data === 'AlreadyUser') {
-                    window.alert('Username already taken');
+                    showAlert('Username already taken');
                 }
                 else {
+                    ev.target.reset();
                     loginPractice(username, password);
                 }
             }
-            ev.target.reset();
         }
         catch (error) {
             console.log(error);
@@ -322,7 +298,8 @@ function loginPractice(username, password) {
         console.log(data);
         if (data.user) {
             document.querySelector(".hello").innerHTML = `&nbsp;&nbsp;&nbsp;${greetings} <span style="color: orange;">&nbsp;${username}</span>`;
-            handleShowLogin();
+            handleShowWindow('logreg');
+            storeUserName = username;
         }
         else if (data === 'nouser') {
             window.alert('Username doesnt exist');

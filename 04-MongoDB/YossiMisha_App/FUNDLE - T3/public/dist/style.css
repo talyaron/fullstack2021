@@ -318,7 +318,7 @@ body {
   width: 520px;
   border-radius: 10px;
   animation: show 1s ease-in-out;
-  color: #ffffff;
+  color: white;
   background-color: #131313;
   font-size: 14px;
   padding: 20px;
@@ -337,6 +337,7 @@ body {
   padding-left: 200px;
   font-size: 18px;
   cursor: pointer;
+  width: fit-content;
 }
 #help .help-container .p {
   margin: 10px 6px;
@@ -412,6 +413,7 @@ body {
   height: fit-content;
   background: #0f0f0f;
   border-radius: 10px;
+  border: 2px solid gray;
   color: white;
   animation: show 1000ms ease-in-out;
 }
@@ -437,11 +439,13 @@ body {
 .registerwrapper form {
   padding: 0 40px;
   box-sizing: border-box;
+  color: white;
 }
 .loginwrapper form .txt_field,
 .registerwrapper form .txt_field {
   position: relative;
   margin: 30px 0;
+  color: white;
 }
 .loginwrapper form .txt_field input,
 .registerwrapper form .txt_field input {
@@ -452,6 +456,7 @@ body {
   border: none;
   background: none;
   outline: none;
+  color: white;
 }
 .loginwrapper form .txt_field input:focus ~ label, .loginwrapper form .txt_field input:valid ~ label,
 .registerwrapper form .txt_field input:focus ~ label,
@@ -520,7 +525,7 @@ body {
 .loginwrapper .pass,
 .registerwrapper .pass {
   margin: -5px 0 20px 5x;
-  color: #a6a6a6;
+  color: white;
   cursor: pointer;
 }
 .loginwrapper .pass:hover,
@@ -533,11 +538,11 @@ body {
   top: 20px;
   width: 100%;
   height: 50px;
-  border: 1px solid;
-  background: #424242;
+  border: 1px solid #349915;
+  background: #349915;
   border-radius: 25px;
   font-size: 18px;
-  color: #e9f4fb;
+  color: white;
   font-weight: 700;
   cursor: pointer;
   outline: none;
@@ -552,17 +557,18 @@ body {
   margin: 30px 0;
   text-align: center;
   font-size: 16px;
-  color: #666666;
+  color: #dfbc48;
 }
-.loginwrapper .signup_link a,
-.registerwrapper .signup_link a {
-  color: #424242;
+.loginwrapper .signup_link span,
+.registerwrapper .signup_link span {
+  color: white;
   text-decoration: none;
-}
-.loginwrapper .signup_link a:hover,
-.registerwrapper .signup_link a:hover {
-  text-decoration: underline;
   cursor: pointer;
+}
+.loginwrapper .signup_link span:hover,
+.registerwrapper .signup_link span:hover {
+  color: white;
+  text-decoration: underline;
 }
 
 .registerwrapper {

@@ -1,12 +1,15 @@
 
 
 console.log('hello')
+
 const WORD_LENGTH = 5;
 const FLIP_ANIMATION_DURATION = 250;
 const DANCE_ANIMATION_DURATION = 500;
 const keyboard: any = document.querySelector("[data-keyboard]")
 const guessGrid = document.querySelector("[data-guess-grid]")
 const alertContainer = document.querySelector("[data-alert-container]")
+let attempts = 0;
+let storeUserName = '';
 let targetWord = '';
 const offsetFromDate: any = new Date(2022, 0, 1)
 const msOffset = Date.now() - offsetFromDate
@@ -146,6 +149,7 @@ async function submitGuess() {
     if (activeTiles.length !== WORD_LENGTH) {
         showAlert('Not enough letters')
         shakeTiles(activeTiles)
+        return
     }
 
 
@@ -165,7 +169,8 @@ async function submitGuess() {
 
     activeTiles.forEach((...params) => flipTile(...params, guess))
 
-
+    
+    attempts ++;
 
 }
 
@@ -204,11 +209,17 @@ function flipTile(tile, index, array, guess) {
     }, { once: true })
 }
 
-function checkWinLose(guess, tiles) {
+async function checkWinLose(guess, tiles) {
+
+    let username = storeUserName;
+    let win:boolean;
+
     if (guess === targetWord) {
         showAlert("You win", 5000)
         danceTiles(tiles)
         stopInteraction()
+        win = true;
+        const {data} = await axios.patch('users/update-user', {win, attempts, username})
         return
     }
 
@@ -217,7 +228,11 @@ function checkWinLose(guess, tiles) {
     if(remainingTiles.length === 0){
         showAlert(targetWord.toUpperCase(),90000000)
         stopInteraction();
+        win = false;
+        const {data} = await axios.patch('users/update-user', {win, attempts, username})
     }
+
+    
 }
 
 function danceTiles(tiles) {
@@ -258,60 +273,17 @@ function showAlert(message, duration = 1000) {
 }
 
 
-
-
-function handleShowStats() {
-    const stats: any = document.querySelector("#stats");
+function handleShowWindow(window) {
+    const stats: any = document.querySelector(`#${window}`);
     if (stats.style.display === "none") {
         stats.style.display = "block";
-    } else {
-        stats.style.display = "none";
-    }
-}
-
-function handleShowHelp() {
-    const stats: any = document.querySelector("#help");
-    if (stats.style.display === "none") {
-        stats.style.display = "block";
-    } else {
-        stats.style.display = "none";
-    }
-}
-
-function handleShowLogin() {
-    const logreg: any = document.querySelector(".logreg");
-    if (logreg.style.display === "none") {
-        logreg.style.display = "block";
         stopInteraction()
     } else {
-        // logreg.classList.add("logreg-hide")
-        logreg.style.display = "none";
-
+        stats.style.display = "none";
         startInteraction()
     }
-
 }
 
-function handleDisplayNone() {
-    const stats: any = document.querySelector("#stats");
-    if (stats.style.display === "block") {
-        stats.style.display = "none";
-    }
-    const help: any = document.querySelector("#help");
-    if (help.style.display === "block") {
-        help.style.display = "none";
-    }
-}
-
-document.body.addEventListener('click', handleDisplayNone, true);
-
-
-function handleHideWindow() {
-    const logreg: any = document.querySelector("#logreg");
-    if (logreg.style.display === "block") {
-        logreg.style.display = "none";
-    }
-}
 
 //////////////////////////// LOGIN - REGISTER ///////////////////////////////////////////
 
@@ -355,15 +327,14 @@ async function handleRegister(ev) {
             console.log(data)
 
             if (data === 'AlreadyUser') {
-                window.alert('Username already taken')
+                showAlert('Username already taken')
             }
 
             else {
+                ev.target.reset();
                 loginPractice(username, password)
             }
         }
-
-        ev.target.reset();
 
 
     }
@@ -399,7 +370,8 @@ async function loginPractice(username, password) {
 
     if (data.user) {
         document.querySelector(".hello").innerHTML = `&nbsp;&nbsp;&nbsp;${greetings} <span style="color: orange;">&nbsp;${username}</span>`
-        handleShowLogin();
+        handleShowWindow('logreg');
+        storeUserName = username;
     }
     else if (data === 'nouser') {
         window.alert('Username doesnt exist')
@@ -408,6 +380,8 @@ async function loginPractice(username, password) {
     else if (data === 'nopass') {
         window.alert('Password doesnt match')
     }
+
+    
 
 }
 
