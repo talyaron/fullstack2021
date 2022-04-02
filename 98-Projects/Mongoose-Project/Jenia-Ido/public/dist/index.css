@@ -90,7 +90,7 @@ body {
   grid-column: 1/2;
   grid-row: 1/4;
   border-radius: 60%;
-  background-size: 150%;
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   background: fill;

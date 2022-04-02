@@ -115,7 +115,7 @@ exports.deleteUser = function (req, res) { return __awaiter(void 0, void 0, void
     });
 }); };
 exports.updateUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var updatedUser, err_4;
+    var updatedUser, result, err_4;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -123,7 +123,12 @@ exports.updateUser = function (req, res) { return __awaiter(void 0, void 0, void
                 updatedUser = req.body;
                 return [4 /*yield*/, userModel_1["default"].updateOne({ email: updatedUser.email }, updatedUser)];
             case 1:
-                _a.sent();
+                result = _a.sent();
+                if (updatedUser) {
+                    res.send({ ok: true });
+                }
+                else
+                    throw new Error("user didnt update");
                 return [3 /*break*/, 3];
             case 2:
                 err_4 = _a.sent();
