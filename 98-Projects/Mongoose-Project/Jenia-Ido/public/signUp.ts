@@ -60,7 +60,7 @@ function changingImgsBox() {
 
 function showSignUpFrom(ev) {
     const display: any = document.querySelector('.main_display')
-    console.dir(ev.target);
+    // console.dir(ev.target);
 
     let btnId = ev.target.id;
 
@@ -170,8 +170,8 @@ async function renderProfile(email, password) {
     <div id="addPost"></div>
    
     <ul class="profile__user__category">
-        <li class="profile__user__category__text--active">photos</li>
-        <li class="profile__user__category__text">videos</li>
+        <li class="profile__user__category__text" onclick="userCategoryActive(event)">photos</li>
+        <li class="profile__user__category__text" onclick="userCategoryActive(event)">videos</li>
     </ul>
     <div class="profile__user__pics">`;
         imgs.url.forEach(img => {
@@ -400,6 +400,17 @@ async function handleUpdateProfilePic(ev) {
     }
 
 }
+async function userCategoryActive(ev){
+    const categories = document.querySelectorAll(".profile__user__category__text")
+    categories.forEach(cat=>{
+        cat.classList.remove("profile__user__category__text--active")
+    })
+    const category = ev.target;
+    
+    category.classList.add("profile__user__category__text--active");
+    
+}
+
 
 
 

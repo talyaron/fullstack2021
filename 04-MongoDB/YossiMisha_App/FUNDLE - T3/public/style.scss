@@ -6,9 +6,11 @@ $background: #0f0f0f;
 $borders: #424242;
 $green: #349915;
 $orange: #dfbc48;
+
+
 $popup-background: #02020296;
 $keybnoard: #818181;
-$log-reg-btn: #2691d9;
+$log-reg-btn: #424242;
 
 
 
@@ -502,9 +504,9 @@ body {
   padding: 8px;
   width: 400px;
   height: fit-content;
-  background: white;
+  background: $background;
   border-radius: 10px;
-
+  color: white;
   animation: show 1000ms ease-in-out;
 
   .close {
