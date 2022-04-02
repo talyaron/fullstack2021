@@ -119,9 +119,17 @@ export const searchAirbnb = async (req, res) => {
       req.query;
 
     console.log(search, checkIn, checkOut, adults, children, infants, pets);
+
     let sum= Number(adults)+Number(children)+Number(infants)+Number(pets);
-    console.log(sum)
+    console.log("the number of guests:" +sum)
     
+    let dateOfCheckIn= new Date(`${checkIn}`);
+    let dateOfCheckOut= new Date(`${checkOut}`);
+    let differenceInTime= dateOfCheckOut.getTime()-dateOfCheckIn.getTime();
+    let differenceInDays= differenceInTime/ (1000 * 3600 * 24);
+    console.log("the days between checkIn checkOut is:" +differenceInDays)
+
+
     const places = await Places.find({address_country: `${search}`, accommodates: sum });
 
     res.send({ ok: true, places });
