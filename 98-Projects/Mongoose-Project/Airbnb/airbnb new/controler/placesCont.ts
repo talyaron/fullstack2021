@@ -122,15 +122,7 @@ export const searchAirbnb = async (req, res) => {
 
     let sum:any= Number(adults)+Number(children)+Number(infants)+Number(pets);
     console.log("the number of guests:" +sum);
-    // for(let i=0;i<=sum.length;i++){
-    //   if(sum<=accommodates){
-    //    console.log(sum)
-    //   }
-    // }
-    let sum2=`${accommodates}`
-    if(sum2>=sum){
-     return sum
-    }
+    
     
     let dateOfCheckIn= new Date(`${checkIn}`);
     let dateOfCheckOut= new Date(`${checkOut}`);
@@ -158,25 +150,3 @@ export const searchAirbnbByCity = async (req, res) => {
   // console.log(airbnbInCity);
   res.send({ ok: true, theCity: airbnbInCity });
 };
-
-export const search = async (req, res) => {
-  try {
-    const places = await Places.find({});
-    const search = req.query.search;
-    const serchPlace = searchPlaces(search, places);
-    console.log(search, " ", places);
-
-    res.send(serchPlace);
-  } catch (error) {
-    console.log(error.error);
-    res.send({ error: error.massage });
-  }
-};
-function searchPlaces(search, places) {
-  if (search) {
-    const regex = new RegExp(search, "i");
-    return places.filter((searchedTerm) => regex.test(searchedTerm.name));
-  } else {
-    return places;
-  }
-}

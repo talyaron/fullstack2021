@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.search = exports.searchAirbnbByCity = exports.searchAirbnb = exports.findPlaceMap = exports.getToPlace = exports.addPlaces = exports.getfilteredAirBNB = exports.getPlaces = void 0;
+exports.searchAirbnbByCity = exports.searchAirbnb = exports.findPlaceMap = exports.getToPlace = exports.addPlaces = exports.getfilteredAirBNB = exports.getPlaces = void 0;
 var placesModel_1 = require("../model/placesModel");
 exports.getPlaces = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var places, error_1;
@@ -165,25 +165,21 @@ exports.findPlaceMap = function (req, res) { return __awaiter(void 0, void 0, vo
     });
 }); };
 exports.searchAirbnb = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, search_1, checkIn, checkOut, adults, children, infants, pets, accommodates, sum, sum2, dateOfCheckIn, dateOfCheckOut, differenceInTime, differenceInDays, places, error_4;
+    var _a, search, checkIn, checkOut, adults, children, infants, pets, accommodates, sum, dateOfCheckIn, dateOfCheckOut, differenceInTime, differenceInDays, places, error_4;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
                 _b.trys.push([0, 2, , 3]);
-                _a = req.query, search_1 = _a.search, checkIn = _a.checkIn, checkOut = _a.checkOut, adults = _a.adults, children = _a.children, infants = _a.infants, pets = _a.pets, accommodates = _a.accommodates;
-                console.log(search_1, checkIn, checkOut, adults, children, infants, pets);
+                _a = req.query, search = _a.search, checkIn = _a.checkIn, checkOut = _a.checkOut, adults = _a.adults, children = _a.children, infants = _a.infants, pets = _a.pets, accommodates = _a.accommodates;
+                console.log(search, checkIn, checkOut, adults, children, infants, pets);
                 sum = Number(adults) + Number(children) + Number(infants) + Number(pets);
                 console.log("the number of guests:" + sum);
-                sum2 = "" + accommodates;
-                if (sum2 >= sum) {
-                    return [2 /*return*/, sum];
-                }
                 dateOfCheckIn = new Date("" + checkIn);
                 dateOfCheckOut = new Date("" + checkOut);
                 differenceInTime = dateOfCheckOut.getTime() - dateOfCheckIn.getTime();
                 differenceInDays = differenceInTime / (1000 * 3600 * 24);
                 console.log("the days between checkIn checkOut is:" + differenceInDays);
-                return [4 /*yield*/, placesModel_1["default"].find({ address_country: "" + search_1, accommodates: sum })];
+                return [4 /*yield*/, placesModel_1["default"].find({ address_country: "" + search, accommodates: sum })];
             case 1:
                 places = _b.sent();
                 res.send({ ok: true, places: places });
@@ -212,35 +208,3 @@ exports.searchAirbnbByCity = function (req, res) { return __awaiter(void 0, void
         }
     });
 }); };
-exports.search = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var places, search_2, serchPlace, error_5;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                _a.trys.push([0, 2, , 3]);
-                return [4 /*yield*/, placesModel_1["default"].find({})];
-            case 1:
-                places = _a.sent();
-                search_2 = req.query.search;
-                serchPlace = searchPlaces(search_2, places);
-                console.log(search_2, " ", places);
-                res.send(serchPlace);
-                return [3 /*break*/, 3];
-            case 2:
-                error_5 = _a.sent();
-                console.log(error_5.error);
-                res.send({ error: error_5.massage });
-                return [3 /*break*/, 3];
-            case 3: return [2 /*return*/];
-        }
-    });
-}); };
-function searchPlaces(search, places) {
-    if (search) {
-        var regex_1 = new RegExp(search, "i");
-        return places.filter(function (searchedTerm) { return regex_1.test(searchedTerm.name); });
-    }
-    else {
-        return places;
-    }
-}
