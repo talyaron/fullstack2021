@@ -1,7 +1,6 @@
 import user from "../model/userModel";
 
 export const addUser = async (req, res) => {
-
   try {
     let { firstName, lastName, email, password, role, gender } = req.body;
     if (firstName && lastName && email && password && role && gender) {
@@ -16,7 +15,6 @@ export const addUser = async (req, res) => {
 
       const result = await newUser.save();
       res.send({ result });
-
     } else throw new Error(`You've missed something`);
   } catch (error) {
     console.error(error);
@@ -37,10 +35,7 @@ export const login = async (req, res) => {
       password: password,
     });
 
-
     if (users.length > 0) {
-
-
       if (verifiedUser.length === 1) {
         res.send({ ok: true, users, verifiedUser });
         return;
@@ -71,9 +66,9 @@ export const renderPage = async (req, res) => {
   const appURL = userURL.split("/")[2];
   const userId = userURL.slice(-24);
   const currentUser = await user.find({ _id: userId });
-
   const newURL = `/${requestedPage}.html?id=${userId}`;
-  let { firstName, lastName, gender, role, email, password} = currentUser[0];
+  let { firstName, lastName, gender, role, email, password } = currentUser[0];
+
   if (requestedPage === "home") {
     try {
       res.send({
@@ -81,10 +76,10 @@ export const renderPage = async (req, res) => {
         lastName: lastName,
         gender: gender,
         role: role,
-        newURL: newURL
+        newURL: newURL,
       });
     } catch (error) {
-      console.log("error in renderPage:");
+      console.log("error in renderPage: home");
       console.log(error.message);
 
       res.send({ error: error.message });
@@ -92,6 +87,7 @@ export const renderPage = async (req, res) => {
     }
     return;
   }
+
   if (requestedPage === "settings") {
     try {
       res.send({
@@ -101,10 +97,10 @@ export const renderPage = async (req, res) => {
         role: role,
         email: email,
         password: password,
-        newURL: newURL
+        newURL: newURL,
       });
     } catch (error) {
-      console.log("error in renderPage:");
+      console.log("error in renderPage: settings");
       console.log(error.message);
 
       res.send({ error: error.message });
@@ -112,13 +108,29 @@ export const renderPage = async (req, res) => {
     }
     return;
   }
+
   if (requestedPage === "info") {
     try {
       res.send({
-        newURL: newURL
+        newURL: newURL,
       });
     } catch (error) {
-      console.log("error in renderPage:");
+      console.log("error in renderPage: info");
+      console.log(error.message);
+
+      res.send({ error: error.message });
+      // }
+    }
+    return;
+  }
+  
+  if (requestedPage === "RecentlyCreated") {
+    try {
+      res.send({
+        newURL: newURL,
+      });
+    } catch (error) {
+      console.log("error in renderPage: RecentlyCreated");
       console.log(error.message);
 
       res.send({ error: error.message });
