@@ -446,8 +446,6 @@ btn.addEventListener('click', async () => {
     }
 });
 //   END SHARE
-<<<<<<< Updated upstream
-=======
 
 
 async function renderStats(username) {
@@ -529,4 +527,3 @@ async function renderStats(username) {
 }
 
 
->>>>>>> Stashed changes

@@ -188,6 +188,7 @@ function checkWinLose(guess, tiles) {
             setTimeout(() => {
                 handleShowWindow('stats');
             }, 1500);
+            renderStats(storeUserName);
             return;
         }
         const remainingTiles = guessGrid.querySelectorAll(":not([data-letter])");
@@ -199,8 +200,8 @@ function checkWinLose(guess, tiles) {
             setTimeout(() => {
                 handleShowWindow('stats');
             }, 1500);
+            renderStats(storeUserName);
         }
-        renderStats(storeUserName);
     });
 }
 function danceTiles(tiles) {

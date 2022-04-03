@@ -223,6 +223,7 @@ async function checkWinLose(guess, tiles) {
         setTimeout(() => {
             handleShowWindow('stats')
         }, 1500);
+        renderStats(storeUserName)
         return
     }
 
@@ -236,8 +237,10 @@ async function checkWinLose(guess, tiles) {
         setTimeout(() => {
             handleShowWindow('stats')
         }, 1500);
+        renderStats(storeUserName)
     } 
-    renderStats(storeUserName)
+
+    
 }
 
 function danceTiles(tiles) {

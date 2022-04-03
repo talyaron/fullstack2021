@@ -185,9 +185,6 @@ function checkWinLose(guess, tiles) {
             stopInteraction();
             win = true;
             const { data } = yield axios.patch('users/update-user', { win, attempts, username });
-            setTimeout(() => {
-                handleShowWindow('stats');
-            }, 1500);
             return;
         }
         const remainingTiles = guessGrid.querySelectorAll(":not([data-letter])");
@@ -196,11 +193,7 @@ function checkWinLose(guess, tiles) {
             stopInteraction();
             win = false;
             const { data } = yield axios.patch('users/update-user', { win, attempts, username });
-            setTimeout(() => {
-                handleShowWindow('stats');
-            }, 1500);
         }
-        renderStats(storeUserName);
     });
 }
 function danceTiles(tiles) {
@@ -352,8 +345,6 @@ btn.addEventListener('click', () => __awaiter(this, void 0, void 0, function* ()
     }
 }));
 //   END SHARE
-<<<<<<< Updated upstream
-=======
 function renderStats(username) {
     return __awaiter(this, void 0, void 0, function* () {
         if (username) {
@@ -407,4 +398,3 @@ function renderStats(username) {
         }
     });
 }
->>>>>>> Stashed changes
