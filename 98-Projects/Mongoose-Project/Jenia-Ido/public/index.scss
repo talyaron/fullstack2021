@@ -64,7 +64,7 @@ body {
             }
         }
        .delete{
-           color: rgb(230,150,80);
+           color: rgb(19, 19, 18);
         }
         li{
             opacity: 0;
@@ -235,7 +235,7 @@ body {
         height: 60vh;
         max-height: 60vh;
         width: 99%;
-        margin-top: 3vh ;
+        margin-top: 3vh;
         // margin: auto;
             gap: 10px;
             overflow-y: auto;
@@ -304,8 +304,8 @@ body {
     }
     &__navBar--down{
         // position: fixed;
-        bottom: 15px;
-        height: 2vh;
+        // bottom: 30px;
+        height: 4vh;
         display: flex;
         justify-content: space-around;
         width: 345px;
