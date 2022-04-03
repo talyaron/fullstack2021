@@ -1,4 +1,3 @@
-"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -35,7 +34,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-exports.__esModule = true;
 function handleRegister(ev) {
     return __awaiter(this, void 0, void 0, function () {
         var _a, firstName, lastName, email, password, role, gender, data;
@@ -254,12 +252,11 @@ function renderTasks(currentUsersTasks, currentPage) {
                         else {
                             task.descriptionShorted = task.description;
                         }
-                        html += "\n     <li class=\"box\">\n                      <div id=\"box__flex\">\n                          <div class=\"box__header\">\n                              <div class=\"box__logo-square " + task.urgency + "\">\n                                  <p class=\"box__logo\">B\u0113</p>\n                              </div>\n                              <div  class=\"box__title\">\n                                  <p class=\"box__title-text\">" + task.title + "</p>\n                                  <p class=\"box__title-urg\">" + task.urgency + "</p>\n                              </div>\n\n                              <i data-id=\"" + task._id + "\" onclick=\"renderTaskModal(event)\" class=\"fas fa-edit\"></i>\n\n                          </div>\n                          <div class=\"box__expln\">\n                              <h4>" + task.descriptionShorted + "</h4>\n                              <p class=\"box__expln-transp\">" + task.location + "</p>\n                          </div>\n                          <div  class=\"box__countdown\">" + task.dateShort + "\n                          <a onclick=\"handleTaskDelete(event)\" class=\"box__delete\">\n                          <i data-delete=\"" + task._id + "\" class=\"fas fa-times\"></i>\n                          </a></div>\n                      </div>\n\n                  </li>";
+                        html += "\n     <li class=\"box\">\n                      <div id=\"box__flex\">\n                          <div class=\"box__header\">\n                              <div class=\"box__logo-square " + task.urgency + "\">\n                                  <p class=\"box__logo\">B\u0113</p>\n                              </div>\n                              <div  class=\"box__title\">\n                                  <p class=\"box__title-text\">" + task.title + "</p>\n                                  <p class=\"box__title-urg\">" + task.urgency + "</p>\n                              </div>\n\n                              <i data-id=\"" + task._id + "\" onclick=\"renderTaskModal(event)\" class=\"fas fa-edit\"></i>\n\n                          </div>\n                          <div class=\"box__expln\">\n                              <h4>" + task.descriptionShorted + "</h4>\n                              <p class=\"box__expln-transp\">" + task.location + "</p>\n                          </div>\n                          <div  class=\"box__countdown\">" + task.date + "</div>\n                          <a onclick=\"handleTaskDelete(event)\" class=\"box__delete\">\n                          <i data-delete=\"" + task._id + "\" class=\"fas fa-trash-alt\"></i>\n                          </a></div>\n                      </div>\n\n                  </li>";
                     });
                     nextTask = getNextTask(currentUsersTasks);
                     tasksRoot.innerHTML = html;
-                    console.log(nextTask);
-                    formHtml = "\n    <input onchange=\"handleColor(event)\" type=\"color\" name=\"color\" id=\"color\" value=\"" + nextTask.color + "\">\n                        <div  class=\"task-title\">\n                            <input type=\"text\" name=\"title\" id=\"title\" value=\"" + nextTask.title + "\">\n                        </div>\n                        <div class=\"task-urg\">\n                            <select type=\"text\" name=\"urgency\" id=\"urg\">\n                            <option selected disabled value=\"" + nextTask.urgency + "\">" + nextTask.urgency + "</option>\n                            <option value=\"high\">High</option>\n                                <option value=\"medium\">Medium</option>\n                                <option value=\"low\">Low</option>\n                            </select>\n                            \n                        </div>\n                        <div class=\"task-description\">\n                            <input type=\"text\" name=\"description\" id=\"description\" value=\"" + nextTask.description + "\">\n                        </div>\n                        <div class=\"task-location\">\n                            <input type=\"text\" name='location' id='owner' value=\"" + nextTask.location + "\">\n                        </div>\n                        <div class=\"task-time\">\n                            <input type=\"date\" name=\"date\" id=\"date\" value=\"" + nextTask.year + "-" + nextTask.month + "-" + nextTask.day + "\">\n                        </div>\n                        <input data-id=\"" + nextTask._id + "\" type=\"submit\" name=\"submit\" id=\"submit\" value=\"Update this task\">\n";
+                    formHtml = "\n    <input onchange=\"handleColor(event)\" type=\"color\" name=\"color\" id=\"color\" value=\"" + nextTask.color + "\">\n                        <div  class=\"task-title\">\n                            <input type=\"text\" name=\"title\" id=\"title\" value=\"" + nextTask.title + "\">\n                        </div>\n                        <div class=\"task-urg\">\n                            <select type=\"text\" name=\"urgency\" id=\"urg\">\n                            <option selected disabled value=\"" + nextTask.urgency + "\">" + nextTask.urgency + "</option>\n                            <option value=\"high\">High</option>\n                                <option value=\"medium\">Medium</option>\n                                <option value=\"low\">Low</option>\n                            </select>\n                            \n                        </div>\n                        <div class=\"task-description\">\n                            <input type=\"text\" name=\"description\" id=\"description\" value=\"" + nextTask.description + "\">\n                        </div>\n                        <div class=\"task-location\">\n                            <input type=\"text\" name='location' id='owner' value=\"" + nextTask.location + "\">\n                        </div>\n                        <div class=\"task-time\">\n                            <input type=\"date\" name=\"date\" id=\"date\" value=\"" + nextTask.date + "\">\n                        </div>\n                        <input data-id=\"" + nextTask._id + "\" type=\"submit\" name=\"submit\" id=\"submit\" value=\"Update this task\">\n";
                     formField = nextRoot.parentElement;
                     formField.style.background = nextTask.color;
                     nextRoot.innerHTML = formHtml;
@@ -271,36 +268,6 @@ function renderTasks(currentUsersTasks, currentPage) {
                 console.error(error.message);
             }
             return [2 /*return*/];
-        });
-    });
-}
-function renderTaskModal(ev) {
-    return __awaiter(this, void 0, void 0, function () {
-        var taskId, modal, html, data, currentTask, error_4;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    taskId = ev.target.dataset.id;
-                    modal = document.querySelector('.userModal');
-                    html = '';
-                    _a.label = 1;
-                case 1:
-                    _a.trys.push([1, 3, , 4]);
-                    return [4 /*yield*/, axios.post('/tasks/task', { taskId: taskId })];
-                case 2:
-                    data = (_a.sent()).data;
-                    currentTask = data;
-                    currentTask.date = currentTask.date.slice(0, 10);
-                    html += "<h1>" + currentTask.title + "</h1>\n    <form onsubmit=\"handleTaskUpdate(event)\" ><input onchange=\"handleColor(event)\" type=\"color\" name=\"color\" id=\"color\" value=\"" + currentTask.color + "\">\n        <div  class=\"task-title\">\n            <input type=\"text\" name=\"title\" id=\"title\" value=\"" + currentTask.title + "\">\n        </div>\n        <div class=\"task-urg\">\n            <select type=\"text\" name=\"urgency\" id=\"urg\">\n            <option selected disabled value=\"" + currentTask.urgency + "\">" + currentTask.urgency + "</option>\n            <option value=\"high\">High</option>\n                <option value=\"medium\">Medium</option>\n                <option value=\"low\">Low</option>\n            </select>\n            \n        </div>\n        <div class=\"task-description\">\n            <input type=\"text\" name=\"description\" id=\"description\" value=\"" + currentTask.description + "\">\n        </div>\n        <div class=\"task-location\">\n            <input type=\"text\" name='location' id='owner' value=\"" + currentTask.location + "\">\n        </div>\n        <div class=\"task-time\">\n            <input type=\"date\" name=\"date\" id=\"date\" value=\"" + currentTask.date + "\">\n        </div>\n        <input data-id=\"" + currentTask._id + "\" type=\"submit\" name=\"submit\" id=\"submit\" value=\"Update this task\">\n</form>";
-                    modal.innerHTML = html;
-                    return [3 /*break*/, 4];
-                case 3:
-                    error_4 = _a.sent();
-                    console.log(error_4.message);
-                    console.log(error_4);
-                    return [3 /*break*/, 4];
-                case 4: return [2 /*return*/];
-            }
         });
     });
 }
@@ -316,11 +283,12 @@ function sortTasksByDate(tasks) {
         var year = new Date(task.date).getFullYear();
         var month = ("0" + (new Date(task.date).getMonth() + 1)).slice(-2);
         var day = ("0" + (new Date(task.date).getDate() + 1)).slice(-2);
+        var stringDate = year + "-" + month + "-" + day;
         task.year = year;
         task.month = month;
         task.day = day;
-        task.dateShort = task.date.slice(0, 10);
-        task.date = new Date(task.date).toLocaleDateString().split(",")[0];
+        task.date = new Date(task.date).toLocaleDateString().replace(/\//g, '-');
+        task.date = stringDate;
     });
     tasks.sort(function (a, b) { return a.day - b.day; });
     tasks.sort(function (a, b) { return a.month - b.month; });
@@ -331,7 +299,6 @@ function getNextTask(currentUsersTasks) {
     var thisYear = new Date().getFullYear();
     var thisMonth = new Date().getMonth() + 1;
     var thisDay = new Date().getDate();
-    console.log(new Date().toLocaleDateString());
     var nextTasks = currentUsersTasks.filter(function (task) {
         if (task.year > thisYear) {
             return task;
@@ -383,7 +350,7 @@ function handleNewTask(ev) {
 }
 function handleTaskUpdate(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var color, title, urgency, description, location, date, taskId, userId, data, currentUsersTasks, error_5;
+        var color, title, urgency, description, location, date, taskId, userId, data, currentUsersTasks, error_4;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -413,11 +380,12 @@ function handleTaskUpdate(ev) {
                     data = (_a.sent()).data;
                     currentUsersTasks = data.currentUsersTasks;
                     renderTasks(currentUsersTasks, "RecentlyCreated");
+                    closeTaskModal();
                     return [3 /*break*/, 4];
                 case 3:
-                    error_5 = _a.sent();
+                    error_4 = _a.sent();
                     console.log('error in handleTaskUpdate');
-                    console.log({ error: error_5.message });
+                    console.log({ error: error_4.message });
                     return [3 /*break*/, 4];
                 case 4: return [2 /*return*/];
             }
@@ -426,7 +394,7 @@ function handleTaskUpdate(ev) {
 }
 function handleTaskDelete(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var taskId, userURL, data, currentUsersTasks, currentPage, error_6;
+        var taskId, userURL, data, currentUsersTasks, currentPage, error_5;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -442,9 +410,9 @@ function handleTaskDelete(ev) {
                     renderTasks(currentUsersTasks, currentPage);
                     return [3 /*break*/, 4];
                 case 3:
-                    error_6 = _a.sent();
+                    error_5 = _a.sent();
                     console.log('error in handleTaskUpdate');
-                    console.log({ error: error_6.message });
+                    console.log({ error: error_5.message });
                     return [3 /*break*/, 4];
                 case 4: return [2 /*return*/];
             }
@@ -459,6 +427,54 @@ function handleColor(ev) {
             formField = document.querySelector("#landing__task-next");
             formField.style.backgroundColor = newColor;
             return [2 /*return*/];
+        });
+    });
+}
+// task update modal:
+function openTaskModal(modal) {
+    if (modal == null)
+        return;
+    modal.classList.add('active');
+    overlay.classList.add('active');
+}
+function closeTaskModal() {
+    var modal = document.querySelector('.taskModal');
+    if (modal == null)
+        return;
+    modal.classList.remove('active');
+    overlay.classList.remove('active');
+}
+function renderTaskModal(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        var taskId, modal, overlay, html, data, currentTask, error_6;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    taskId = ev.target.dataset.id;
+                    modal = document.querySelector('.taskModal');
+                    overlay = document.querySelector('[data-taskModal-overlay]');
+                    html = '';
+                    _a.label = 1;
+                case 1:
+                    _a.trys.push([1, 3, , 4]);
+                    return [4 /*yield*/, axios.post('/tasks/task', { taskId: taskId })];
+                case 2:
+                    data = (_a.sent()).data;
+                    currentTask = data;
+                    if (!currentTask)
+                        throw new Error("no task in the modal");
+                    currentTask.date = currentTask.date.slice(0, 10);
+                    html += "\n<div class=\"taskModal-header\">\n<h1>" + currentTask.title + "</h1>\n<button onclick=\"closeTaskModal()\" class=\"taskModal-closeButton\"> &times; </button>\n</div>\n<form onsubmit=\"handleTaskUpdate(event)\" class=\"taskModal-form\">\n<input onchange=\"handleColor(event)\" type=\"color\" name=\"color\" id=\"color\" value=\"" + currentTask.color + "\">\n<div  class=\"taskModal-title\">\n<input type=\"text\" name=\"title\" id=\"title\" value=\"" + currentTask.title + "\">\n\n</div>\n<div class=\"taskModal-urgency\">\n<select type=\"text\" name=\"urgency\" id=\"urg\">\n<option selected disabled value=\"" + currentTask.urgency + "\">" + currentTask.urgency + "</option>\n<option value=\"high\">High</option>\n<option value=\"medium\">Medium</option>\n<option value=\"low\">Low</option>\n</select>\n\n</div>\n<div class=\"taskModal-description\">\n<input type=\"text\" name=\"description\" id=\"description\" value=\"" + currentTask.description + "\">\n</div>\n<div class=\"taskModal-location\">\n<input type=\"text\" name='location' id='owner' value=\"" + currentTask.location + "\">\n</div>\n<div class=\"taskModal-date\">\n<input type=\"date\" name=\"date\" id=\"date\" value=\"" + currentTask.date + "\">\n</div>\n<input data-id=\"" + currentTask._id + "\" type=\"submit\" name=\"submit\" id=\"submit\" value=\"Update this task\">\n</form>\n<div data-taskModal-overlay id=\"overlay\"></div>";
+                    modal.innerHTML = html;
+                    openModal(modal);
+                    return [3 /*break*/, 4];
+                case 3:
+                    error_6 = _a.sent();
+                    console.log(error_6.message);
+                    console.log(error_6);
+                    return [3 /*break*/, 4];
+                case 4: return [2 /*return*/];
+            }
         });
     });
 }
