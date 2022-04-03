@@ -27,11 +27,7 @@ const PlacesSchema = new mongoose.Schema(
     reviews:String,
     reviews_rating:String
   },
-  // {
-  //   capped: { size: 1024 },
-  //   bufferCommands: false,
-  //   autoCreate: false,
-  // }
+ 
 );
 
 const Places = mongoose.model("airbnbLocations", PlacesSchema);

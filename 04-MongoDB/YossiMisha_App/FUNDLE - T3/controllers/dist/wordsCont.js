@@ -88,14 +88,12 @@ function getDailyWord(req, res) {
             switch (_a.label) {
                 case 0:
                     dayOffset = req.query.dayOffset;
-                    console.log(dayOffset);
                     return [4 /*yield*/, wordsModel_1["default"].find({ wordNumber: dayOffset })
                         // const dailyWord = await FundleWord.find({})
                     ];
                 case 1:
                     dailyWord = _a.sent();
                     // const dailyWord = await FundleWord.find({})
-                    console.log(dailyWord.length);
                     res.send(dailyWord);
                     return [2 /*return*/];
             }

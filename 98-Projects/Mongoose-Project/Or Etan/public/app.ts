@@ -47,6 +47,7 @@ overlay.addEventListener("click", () => {
   const modals = document.querySelectorAll(".modal.active");
   modals.forEach((modal) => {
     closeModal(modal);
+    closeTaskModal()
   });
 });
 
@@ -128,6 +129,7 @@ const myForm:any = document.getElementById("myForm");
 
 
 myForm.addEventListener("submit", (e:any) => {
+  const modal = document.querySelector(".modal")
   closeModal(modal)
 });
 

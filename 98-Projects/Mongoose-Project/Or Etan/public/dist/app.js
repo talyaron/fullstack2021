@@ -42,6 +42,7 @@ overlay.addEventListener("click", function () {
     var modals = document.querySelectorAll(".modal.active");
     modals.forEach(function (modal) {
         closeModal(modal);
+        closeTaskModal();
     });
 });
 closeModalButttons.forEach(function (button) {
@@ -112,5 +113,6 @@ var myForm = document.getElementById("myForm");
 //   flex.appendChild(countdown);
 // }
 myForm.addEventListener("submit", function (e) {
+    var modal = document.querySelector(".modal");
     closeModal(modal);
 });

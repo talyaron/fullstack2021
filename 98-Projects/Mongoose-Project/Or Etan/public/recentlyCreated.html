@@ -69,13 +69,15 @@
             </button>
             <div id="landing__task-next">
                 <h1>Up Next:</h1>
-                <div class="task" data-next-root>
-                </div>
+                <form onsubmit="handleTaskUpdate(event)"  class="task" data-next-root>
+                    </form>
             </div>
         </main>
 
     </div>
+    <div class="taskModal">
 
+    </div>
 
     <div class="modal" id="modal">
         <div class="modal__header">
@@ -126,7 +128,7 @@
             </form>
         </div>
     </div>
-    <div id="overlay"></div>
+    <div onclick="closeTaskModal()" id="overlay"></div>
 
 
 

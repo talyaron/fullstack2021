@@ -160,10 +160,29 @@ export async function sortDescending(req, res) {
 export async function register(req, res) {
   try {
     let { email, password, userName } = req.body;
-    const user = new User({ email, password, userName })
+    const user = new User({ email, password, userName, login: false })
     const result = await user.save()
   } catch (error) {
     console.error(error);
     res.send({ error: error.message })
   }
 }
+
+export async function login(req, res) {
+  let { email, password } = req.body;
+  let user = (await User.find({ email: email, password: password })).length
+  let UserLogin = await User.find({ email: email })
+  const userName = UserLogin[0].userName;
+  const userId = UserLogin[0]._id;
+  const items = await ProductMain.find({}); 
+  if (user > 0) {
+    await User.updateOne({ email: email }, { login: true });
+    res.send({ ok: true, userName, items, userId })
+  }
+  else if (user === 0) {
+    await User.updateOne({ email: email }, { login: false });
+    res.send({ ok: false,items })
+  }
+}
+
+

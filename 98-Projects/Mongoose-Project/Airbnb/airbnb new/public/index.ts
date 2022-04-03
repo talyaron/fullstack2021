@@ -378,12 +378,7 @@ async function handleFindAirbnb(ev) {
 }
 
 async function handleCities(ev) {
-  // if(ev.target.matches("[data-card]")){
-  //     const city=ev.target.dataset.card;
-
-  //     const { data } = await axios.get(`/places/search-city?card=${city}`)
-  //     console.log(data)
-  // }
+  
   const city = ev.target.dataset.card;
   console.log(city);
 
@@ -391,13 +386,7 @@ async function handleCities(ev) {
   console.log(data);
 }
 
-// async function handleSearchCity(ev){
-//     const search=ev.target.value;
-//     console.log(search);
-//     const {data}=await axios.get(`'/search-airbnb'?search=${search}`);
-//     const{city}=data;
-//     console.log({city})
-// }
+
 
 async function handleFilter(ev) {
   const price = ev.target.elements.price.valueAsNumber;
