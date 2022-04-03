@@ -80,21 +80,36 @@ async function handleRenderSettings(ev) {
 
   const { data } = await axios.get(`users/logged-in-user?userId=${userId}`);
   const { userInfo } = data;
+  let html = "";
   const user = userInfo[0];
+  // html = `<button id="landing__settings-personal">Personal Settings</button>
+  // <button id="landing__settings-account">Account Settings</button>`
+  // handleSettingsUpdate()
 }
 
 async function handlePageChange(ev) {
   const userURL = ev.target.baseURI;
 
   const requestedPage = ev.target.outerText.split(" ").join("");
+  console.log(requestedPage);
 
   try {
-    const { data } = await axios
-      .post(`/users/nav`, { userURL, requestedPage })
-      .then((response) => {
-        const { newURL } = response.data;
-        window.location.href = newURL;
+    if (requestedPage === "home") {
+      const { data } = await axios
+        .post(`/users/nav`, { userURL, requestedPage })
+        .then((response) => {
+          const { newURL } = response.data;
+          window.location.href = newURL;
+        });
+    }
+    if (requestedPage === "settings") {
+      const { data } = await axios.post(`/users/nav`, {
+        userURL,
+        requestedPage,
       });
+      const { newURL } = data;
+      window.location.href = newURL;
+    }
   } catch (error) {
     console.log("error in handleRenderPage:");
     console.log(error.message);
@@ -136,7 +151,7 @@ async function renderTasks(currentUsersTasks, currentPage) {
                               <div class="box__expln box__expln-home">
                                   <div class="flex-date">
                                       <i class="material-icons">schedule</i>
-                                      <p>${`task.date`}</p>
+                                      <p>${task.date}</p>
                                   </div>
                               </div>
                               <h4>${task.urgency} priority</h4>
@@ -157,8 +172,8 @@ async function renderTasks(currentUsersTasks, currentPage) {
         } else {
           task.descriptionShorted = task.description;
         }
-        if(!task.checked){ 
-        html += `
+        if (!task.checked) {
+          html += `
      <li class="box">
                       <div id="box__flex">
                           <div class="box__header">
@@ -186,7 +201,7 @@ async function renderTasks(currentUsersTasks, currentPage) {
                       </div>
 
                   </li>`;
-                  return
+          return;
         }
         html += `
         <li class="box">
@@ -216,15 +231,15 @@ async function renderTasks(currentUsersTasks, currentPage) {
                           </a></div>
                       </div>
                       </del>
-                  </li>`
+                  </li>`;
       });
 
       const nextTask = getNextTask(currentUsersTasks);
-      
+
       tasksRoot.innerHTML = html;
 
-if(nextTask){
-      formHtml = `
+      if (nextTask) {
+        formHtml = `
     <input onchange="handleColor(event)" type="color" name="color" id="color" value="${nextTask.color}">
                         <div  class="task-title">
                             <input type="text" name="title" id="title" value="${nextTask.title}">
@@ -248,10 +263,11 @@ if(nextTask){
                             <input type="date" name="date" id="date" value="${nextTask.date}">
                         </div>
                         <input data-id="${nextTask._id}" type="submit" name="submit" id="submit" value="Update this task">
-`;}
-if(!nextTask){
-  formHtml = `<h1> You are all caught up! </h1>`
-}
+`;
+      }
+      if (!nextTask) {
+        formHtml = `<h1> You are all caught up! </h1>`;
+      }
       const formField = nextRoot.parentElement;
       formField.style.background = nextTask.color;
 
@@ -304,19 +320,20 @@ function getNextTask(currentUsersTasks) {
   const thisDay = new Date().getDate();
 
   const nextTasks = currentUsersTasks.filter((task) => {
-    if(!task.checked){
-    if (task.year > thisYear) {
-      return task;
-    } else if ((task.year = this)) {
-      if (task.month > thisMonth) {
+    if (!task.checked) {
+      if (task.year > thisYear) {
         return task;
-      } else if ((task.month = thisMonth)) {
-        if (task.day > thisDay) {
+      } else if ((task.year = this)) {
+        if (task.month > thisMonth) {
           return task;
+        } else if ((task.month = thisMonth)) {
+          if (task.day > thisDay) {
+            return task;
+          }
         }
       }
     }
-  }});
+  });
   const nextTask = nextTasks[0];
 
   return nextTask;
@@ -387,10 +404,10 @@ async function handleTaskCheck(ev) {
     const { data } = await axios.patch("/tasks/check-task", {
       _id: taskId,
       ownerId: userId,
-      timeChecked
+      timeChecked,
     });
-    const {currentUsersTasks} = data;
-    renderTasks(currentUsersTasks, "RecentlyCreated")
+    const { currentUsersTasks } = data;
+    renderTasks(currentUsersTasks, "RecentlyCreated");
   } catch (error) {
     console.log("error in handleTaskCheck");
     console.log({ error: error.message });

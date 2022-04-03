@@ -18,7 +18,38 @@ body {
 
   background-color: #f0f0f2;
 
-  
+&__settings{
+  width: fit-content;
+  margin: 6rem auto;
+  padding: 2rem 0rem;
+  display: grid;
+  grid-auto-flow: row;
+  place-content: start;
+  align-items: baseline;
+  border: 1px solid black;
+  border-radius:30px;
+  background-color:white;
+  gap: 5vh;
+button{
+  cursor: pointer;
+      border: none;
+      outline: none;
+      background: none;
+      font-size: 1.25rem;
+      font-weight: bold;
+      // border-bottom: 1px solid black;
+      width: 100%;
+}
+  &-personal{
+
+    
+  }
+  &-account{
+    border:none;
+
+  }
+}
+
 #register{
   margin: 0 auto;
   width: clamp(15rem,90vw,45rem );

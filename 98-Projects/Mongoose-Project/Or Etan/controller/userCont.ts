@@ -63,6 +63,7 @@ export const renderUser = async (req, res) => {
 export const renderPage = async (req, res) => {
   const { userURL, requestedPage } = req.body;
 
+
   const appURL = userURL.split("/")[2];
   const userId = userURL.slice(-24);
   const currentUser = await user.find({ _id: userId });
@@ -72,10 +73,7 @@ export const renderPage = async (req, res) => {
   if (requestedPage === "home") {
     try {
       res.send({
-        firstName: firstName,
-        lastName: lastName,
-        gender: gender,
-        role: role,
+        
         newURL: newURL,
       });
     } catch (error) {
@@ -91,12 +89,7 @@ export const renderPage = async (req, res) => {
   if (requestedPage === "settings") {
     try {
       res.send({
-        firstName: firstName,
-        lastName: lastName,
-        gender: gender,
-        role: role,
-        email: email,
-        password: password,
+        
         newURL: newURL,
       });
     } catch (error) {
@@ -139,3 +132,5 @@ export const renderPage = async (req, res) => {
     return;
   }
 };
+
+export const renderSettings = async (req, res) => {}
