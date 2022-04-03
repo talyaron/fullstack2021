@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.getTask = exports.deleteTask = exports.updateTask = exports.addNewTask = exports.getUsersTasks = void 0;
+exports.getTask = exports.deleteTask = exports.checkTask = exports.updateTask = exports.addNewTask = exports.getUsersTasks = void 0;
 var taskModel_1 = require("../model/taskModel");
 exports.getUsersTasks = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var ownerId, currentUsersTasks;
@@ -59,8 +59,22 @@ exports.addNewTask = function (req, res) { return __awaiter(void 0, void 0, void
             case 0:
                 _e.trys.push([0, 4, , 5]);
                 _a = req.body, color = _a.color, title = _a.title, description = _a.description, urgency = _a.urgency, location = _a.location, date = _a.date, userId = _a.userId;
-                if (!(userId && color && title && description && urgency && location && date)) return [3 /*break*/, 3];
-                newTask = new taskModel_1["default"]({ color: color, title: title, description: description, urgency: urgency, location: location, date: date, ownerId: userId });
+                if (!(userId &&
+                    color &&
+                    title &&
+                    description &&
+                    urgency &&
+                    location &&
+                    date)) return [3 /*break*/, 3];
+                newTask = new taskModel_1["default"]({
+                    color: color,
+                    title: title,
+                    description: description,
+                    urgency: urgency,
+                    location: location,
+                    date: date,
+                    ownerId: userId
+                });
                 return [4 /*yield*/, newTask.save()];
             case 1:
                 _e.sent();
@@ -88,7 +102,14 @@ exports.updateTask = function (req, res) { return __awaiter(void 0, void 0, void
                 _b.trys.push([0, 4, , 5]);
                 _a = req.body, _id = _a._id, ownerId = _a.ownerId, color = _a.color, title = _a.title, urgency = _a.urgency, description = _a.description, location = _a.location, date = _a.date;
                 if (!(_id && ownerId)) return [3 /*break*/, 3];
-                return [4 /*yield*/, taskModel_1["default"].findOneAndUpdate({ _id: _id, ownerId: ownerId }, { color: color, title: title, urgency: urgency, description: description, location: location, date: date })];
+                return [4 /*yield*/, taskModel_1["default"].findOneAndUpdate({ _id: _id, ownerId: ownerId }, {
+                        color: color,
+                        title: title,
+                        urgency: urgency,
+                        description: description,
+                        location: location,
+                        date: date
+                    })];
             case 1:
                 updatedTask = _b.sent();
                 return [4 /*yield*/, taskModel_1["default"].find({ ownerId: ownerId })];
@@ -103,6 +124,24 @@ exports.updateTask = function (req, res) { return __awaiter(void 0, void 0, void
                 res.send({ error: error_2.message });
                 return [3 /*break*/, 5];
             case 5: return [2 /*return*/];
+        }
+    });
+}); };
+exports.checkTask = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _a, _id, ownerId, timeChecked, checkedTask, currentUsersTasks;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
+            case 0:
+                _a = req.body, _id = _a._id, ownerId = _a.ownerId, timeChecked = _a.timeChecked;
+                return [4 /*yield*/, taskModel_1["default"].findOneAndUpdate({ _id: _id, ownerId: ownerId }, { timeChecked: timeChecked, checked: true })];
+            case 1:
+                checkedTask = _b.sent();
+                console.log(checkedTask);
+                return [4 /*yield*/, taskModel_1["default"].find({ ownerId: ownerId })];
+            case 2:
+                currentUsersTasks = _b.sent();
+                res.send({ currentUsersTasks: currentUsersTasks });
+                return [2 /*return*/];
         }
     });
 }); };

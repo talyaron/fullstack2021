@@ -259,11 +259,20 @@ function renderTasks(currentUsersTasks, currentPage) {
                         else {
                             task.descriptionShorted = task.description;
                         }
-                        html += "\n     <li class=\"box\">\n                      <div id=\"box__flex\">\n                          <div class=\"box__header\">\n                              <div class=\"box__logo-square " + task.urgency + "\">\n                                  <p class=\"box__logo\">B\u0113</p>\n                              </div>\n                              <div  class=\"box__title\">\n                                  <p class=\"box__title-text\">" + task.title + "</p>\n                                  <p class=\"box__title-urg\">" + task.urgency + "</p>\n                              </div>\n\n                              <i data-id=\"" + task._id + "\" onclick=\"renderTaskModal(event)\" class=\"fas fa-edit\"></i>\n\n                          </div>\n                          <div class=\"box__expln\">\n                              <h4>" + task.descriptionShorted + "</h4>\n                              <p class=\"box__expln-transp\">" + task.location + "</p>\n                          </div>\n                          <div  class=\"box__countdown\">" + task.date + "</div>\n                          <a onclick=\"handleTaskDelete(event)\" class=\"box__delete\">\n                          <i data-delete=\"" + task._id + "\" class=\"fas fa-trash-alt\"></i>\n                          </a></div>\n                      </div>\n\n                  </li>";
+                        if (!task.checked) {
+                            html += "\n     <li class=\"box\">\n                      <div id=\"box__flex\">\n                          <div class=\"box__header\">\n                              <div class=\"box__logo-square " + task.urgency + "\">\n                                  <p style=\"color: " + task.color + "\" class=\"box__logo\">B\u0113</p>\n                              </div>\n                              <div  class=\"box__title\">\n                                  <p style=\"color: " + task.color + "\" class=\"box__title-text\">" + task.title + "</p>\n                                  <p class=\"box__title-urg\">" + task.urgency + "</p>\n                              </div>\n\n                              <i data-id=\"" + task._id + "\" onclick=\"renderTaskModal(event)\" class=\"fas fa-edit\"></i>\n\n                          </div>\n                          <div class=\"box__expln\">\n                              <h4>" + task.descriptionShorted + "</h4>\n                              <p class=\"box__expln-transp\">" + task.location + "</p>\n                          </div>\n                          <div  class=\"box__countdown\">" + task.date + "\n                          <a data-check=\"" + task._id + "\" onclick=\"handleTaskCheck(event)\">check</a>\n                          </div>\n                          <a onclick=\"handleTaskDelete(event)\" class=\"box__delete\">\n                          <i data-delete=\"" + task._id + "\" class=\"fas fa-trash-alt\"></i>\n                          </a></div>\n                      </div>\n\n                  </li>";
+                            return;
+                        }
+                        html += "\n        <li class=\"box\">\n        <del>\n                      <div id=\"box__flex\">\n                          <div class=\"box__header\">\n                              <div class=\"box__logo-square " + task.urgency + "\">\n                                  <p style=\"color: " + task.color + "\" class=\"box__logo\">B\u0113</p>\n                              </div>\n                              <div  class=\"box__title\">\n                                  <p style=\"color: " + task.color + "\" class=\"box__title-text\">" + task.title + "</p>\n                                  <p class=\"box__title-urg\">" + task.urgency + "</p>\n                              </div>\n\n                              <i data-id=\"" + task._id + "\" onclick=\"renderTaskModal(event)\" class=\"fas fa-edit\"></i>\n\n                          </div>\n                          <div class=\"box__expln\">\n                              <h4>" + task.descriptionShorted + "</h4>\n                              <p class=\"box__expln-transp\">" + task.location + "</p>\n                          </div>\n                          <div  class=\"box__countdown\">" + task.date + "\n                          <a data-check=\"" + task._id + "\" onclick=\"handleTaskCheck(event)\">check</a>\n                          </div>\n                          <a onclick=\"handleTaskDelete(event)\" class=\"box__delete\">\n                          <i data-delete=\"" + task._id + "\" class=\"fas fa-trash-alt\"></i>\n                          </a></div>\n                      </div>\n                      </del>\n                  </li>";
                     });
                     nextTask = getNextTask(currentUsersTasks);
                     tasksRoot.innerHTML = html;
-                    formHtml = "\n    <input onchange=\"handleColor(event)\" type=\"color\" name=\"color\" id=\"color\" value=\"" + nextTask.color + "\">\n                        <div  class=\"task-title\">\n                            <input type=\"text\" name=\"title\" id=\"title\" value=\"" + nextTask.title + "\">\n                        </div>\n                        <div class=\"task-urg\">\n                            <select type=\"text\" name=\"urgency\" id=\"urg\">\n                            <option selected disabled value=\"" + nextTask.urgency + "\">" + nextTask.urgency + "</option>\n                            <option value=\"high\">High</option>\n                                <option value=\"medium\">Medium</option>\n                                <option value=\"low\">Low</option>\n                            </select>\n                            \n                        </div>\n                        <div class=\"task-description\">\n                            <input type=\"text\" name=\"description\" id=\"description\" value=\"" + nextTask.description + "\">\n                        </div>\n                        <div class=\"task-location\">\n                            <input type=\"text\" name='location' id='owner' value=\"" + nextTask.location + "\">\n                        </div>\n                        <div class=\"task-time\">\n                            <input type=\"date\" name=\"date\" id=\"date\" value=\"" + nextTask.date + "\">\n                        </div>\n                        <input data-id=\"" + nextTask._id + "\" type=\"submit\" name=\"submit\" id=\"submit\" value=\"Update this task\">\n";
+                    if (nextTask) {
+                        formHtml = "\n    <input onchange=\"handleColor(event)\" type=\"color\" name=\"color\" id=\"color\" value=\"" + nextTask.color + "\">\n                        <div  class=\"task-title\">\n                            <input type=\"text\" name=\"title\" id=\"title\" value=\"" + nextTask.title + "\">\n                        </div>\n                        <div class=\"task-urg\">\n                            <select type=\"text\" name=\"urgency\" id=\"urg\">\n                            <option selected disabled value=\"" + nextTask.urgency + "\">" + nextTask.urgency + "</option>\n                            <option value=\"high\">High</option>\n                                <option value=\"medium\">Medium</option>\n                                <option value=\"low\">Low</option>\n                            </select>\n                            \n                        </div>\n                        <div class=\"task-description\">\n                            <input type=\"text\" name=\"description\" id=\"description\" value=\"" + nextTask.description + "\">\n                        </div>\n                        <div class=\"task-location\">\n                            <input type=\"text\" name='location' id='owner' value=\"" + nextTask.location + "\">\n                        </div>\n                        <div class=\"task-time\">\n                            <input type=\"date\" name=\"date\" id=\"date\" value=\"" + nextTask.date + "\">\n                        </div>\n                        <input data-id=\"" + nextTask._id + "\" type=\"submit\" name=\"submit\" id=\"submit\" value=\"Update this task\">\n";
+                    }
+                    if (!nextTask) {
+                        formHtml = "<h1> You are all caught up! </h1>";
+                    }
                     formField = nextRoot.parentElement;
                     formField.style.background = nextTask.color;
                     nextRoot.innerHTML = formHtml;
@@ -294,7 +303,7 @@ function sortTasksByDate(tasks) {
         task.year = year;
         task.month = month;
         task.day = day;
-        task.date = new Date(task.date).toLocaleDateString().replace(/\//g, '-');
+        task.date = new Date(task.date).toLocaleDateString().replace(/\//g, "-");
         task.date = stringDate;
     });
     tasks.sort(function (a, b) { return a.day - b.day; });
@@ -307,16 +316,18 @@ function getNextTask(currentUsersTasks) {
     var thisMonth = new Date().getMonth() + 1;
     var thisDay = new Date().getDate();
     var nextTasks = currentUsersTasks.filter(function (task) {
-        if (task.year > thisYear) {
-            return task;
-        }
-        else if (task.year = _this) {
-            if (task.month > thisMonth) {
+        if (!task.checked) {
+            if (task.year > thisYear) {
                 return task;
             }
-            else if (task.month = thisMonth) {
-                if (task.day > thisDay) {
+            else if ((task.year = _this)) {
+                if (task.month > thisMonth) {
                     return task;
+                }
+                else if ((task.month = thisMonth)) {
+                    if (task.day > thisDay) {
+                        return task;
+                    }
                 }
             }
         }
@@ -391,7 +402,7 @@ function handleTaskUpdate(ev) {
                     return [3 /*break*/, 4];
                 case 3:
                     error_4 = _a.sent();
-                    console.log('error in handleTaskUpdate');
+                    console.log("error in handleTaskUpdate");
                     console.log({ error: error_4.message });
                     return [3 /*break*/, 4];
                 case 4: return [2 /*return*/];
@@ -399,9 +410,39 @@ function handleTaskUpdate(ev) {
         });
     });
 }
+function handleTaskCheck(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        var timeChecked, taskId, userId, data, currentUsersTasks, error_5;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    _a.trys.push([0, 2, , 3]);
+                    timeChecked = new Date().toLocaleDateString().replace(/\//g, "-");
+                    taskId = ev.target.dataset.check;
+                    userId = ev.target.baseURI.slice(-24);
+                    return [4 /*yield*/, axios.patch("/tasks/check-task", {
+                            _id: taskId,
+                            ownerId: userId,
+                            timeChecked: timeChecked
+                        })];
+                case 1:
+                    data = (_a.sent()).data;
+                    currentUsersTasks = data.currentUsersTasks;
+                    renderTasks(currentUsersTasks, "RecentlyCreated");
+                    return [3 /*break*/, 3];
+                case 2:
+                    error_5 = _a.sent();
+                    console.log("error in handleTaskCheck");
+                    console.log({ error: error_5.message });
+                    return [3 /*break*/, 3];
+                case 3: return [2 /*return*/];
+            }
+        });
+    });
+}
 function handleTaskDelete(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var taskId, userURL, data, currentUsersTasks, currentPage, error_5;
+        var taskId, userURL, data, currentUsersTasks, currentPage, error_6;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -410,16 +451,18 @@ function handleTaskDelete(ev) {
                     _a.label = 1;
                 case 1:
                     _a.trys.push([1, 3, , 4]);
-                    return [4 /*yield*/, axios["delete"]('/tasks/delete-task', { data: { taskId: taskId, userURL: userURL } })];
+                    return [4 /*yield*/, axios["delete"]("/tasks/delete-task", {
+                            data: { taskId: taskId, userURL: userURL }
+                        })];
                 case 2:
                     data = (_a.sent()).data;
                     currentUsersTasks = data.currentUsersTasks, currentPage = data.currentPage;
                     renderTasks(currentUsersTasks, currentPage);
                     return [3 /*break*/, 4];
                 case 3:
-                    error_5 = _a.sent();
-                    console.log('error in handleTaskUpdate');
-                    console.log({ error: error_5.message });
+                    error_6 = _a.sent();
+                    console.log("error in handleTaskUpdate");
+                    console.log({ error: error_6.message });
                     return [3 /*break*/, 4];
                 case 4: return [2 /*return*/];
             }
@@ -443,47 +486,46 @@ function openTaskModal(modal) {
         return __generator(this, function (_a) {
             if (modal == null)
                 return [2 /*return*/];
-            modal.classList.add('active');
-            overlay.classList.add('active');
+            modal.classList.add("active");
+            overlay.classList.add("active");
             return [2 /*return*/];
         });
     });
 }
 function closeTaskModal() {
-    var modal = document.querySelector('.taskModal');
+    var modal = document.querySelector(".taskModal");
     if (modal == null)
         return;
-    modal.classList.remove('active');
-    overlay.classList.remove('active');
+    modal.classList.remove("active");
+    overlay.classList.remove("active");
 }
 function renderTaskModal(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var taskId, modal, overlay, html, data, currentTask, error_6;
+        var taskId, modal, html, data, currentTask, error_7;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     taskId = ev.target.dataset.id;
-                    modal = document.querySelector('.taskModal');
-                    overlay = document.querySelector('[data-taskModal-overlay]');
-                    html = '';
+                    modal = document.querySelector(".taskModal");
+                    html = "";
                     _a.label = 1;
                 case 1:
                     _a.trys.push([1, 3, , 4]);
-                    return [4 /*yield*/, axios.post('/tasks/task', { taskId: taskId })];
+                    return [4 /*yield*/, axios.post("/tasks/task", { taskId: taskId })];
                 case 2:
                     data = (_a.sent()).data;
                     currentTask = data;
                     if (!currentTask)
                         throw new Error("no task in the modal");
                     currentTask.date = currentTask.date.slice(0, 10);
-                    html += "\n<div class=\"taskModal-header\">\n<h1>" + currentTask.title + "</h1>\n<button onclick=\"closeTaskModal()\" class=\"taskModal-closeButton\"> &times; </button>\n</div>\n<form onsubmit=\"handleTaskUpdate(event)\" class=\"taskModal-form\">\n<input onchange=\"handleColor(event)\" type=\"color\" name=\"color\" id=\"color\" value=\"" + currentTask.color + "\">\n<div  class=\"taskModal-title\">\n<input type=\"text\" name=\"title\" id=\"title\" value=\"" + currentTask.title + "\">\n\n</div>\n<div class=\"taskModal-urgency\">\n<select type=\"text\" name=\"urgency\" id=\"urg\">\n<option selected disabled value=\"" + currentTask.urgency + "\">" + currentTask.urgency + "</option>\n<option value=\"high\">High</option>\n<option value=\"medium\">Medium</option>\n<option value=\"low\">Low</option>\n</select>\n\n</div>\n<div class=\"taskModal-description\">\n<input type=\"text\" name=\"description\" id=\"description\" value=\"" + currentTask.description + "\">\n</div>\n<div class=\"taskModal-location\">\n<input type=\"text\" name='location' id='owner' value=\"" + currentTask.location + "\">\n</div>\n<div class=\"taskModal-date\">\n<input type=\"date\" name=\"date\" id=\"date\" value=\"" + currentTask.date + "\">\n</div>\n<input data-id=\"" + currentTask._id + "\" type=\"submit\" name=\"submit\" id=\"submit\" value=\"Update this task\">\n</form>\n<div onclick=\"closeTaskModal()\" data-taskModal-overlay class=\"overlay\"></div>";
+                    html += "\n<div class=\"taskModal-header\">\n<h1>" + currentTask.title + "</h1>\n<button onclick=\"closeTaskModal()\" class=\"taskModal-closeButton\"> &times; </button>\n</div>\n<form onsubmit=\"handleTaskUpdate(event)\" class=\"taskModal-form\">\n<fieldset>\n<legend>Task title</legend>\n<div  class=\"taskModal-title\">\n<label for=\"title\">Task title:</label>\n<input type=\"text\" name=\"title\" id=\"title\" value=\"" + currentTask.title + "\">\n<label for=\"color\">Task title color:</label>\n<input onchange=\"handleColor(event)\" type=\"color\" name=\"color\" id=\"color\" value=\"" + currentTask.color + "\">\n</fieldset>\n</div>\n<div class=\"taskModal-urgency\">\n<select type=\"text\" name=\"urgency\" id=\"urg\">\n<option selected disabled value=\"" + currentTask.urgency + "\">" + currentTask.urgency + "</option>\n<option value=\"high\">High</option>\n<option value=\"medium\">Medium</option>\n<option value=\"low\">Low</option>\n</select>\n\n</div>\n<div class=\"taskModal-description\">\n<input type=\"text\" name=\"description\" id=\"description\" value=\"" + currentTask.description + "\">\n</div>\n<div class=\"taskModal-location\">\n<input type=\"text\" name='location' id='owner' value=\"" + currentTask.location + "\">\n</div>\n<div class=\"taskModal-date\">\n<input type=\"date\" name=\"date\" id=\"date\" value=\"" + currentTask.date + "\">\n</div>\n<input data-id=\"" + currentTask._id + "\" type=\"submit\" name=\"submit\" id=\"submit\" value=\"Update this task\">\n</form>\n<div onclick=\"closeTaskModal()\" data-taskModal-overlay class=\"overlay\"></div>";
                     modal.innerHTML = html;
                     openTaskModal(modal);
                     return [3 /*break*/, 4];
                 case 3:
-                    error_6 = _a.sent();
-                    console.log(error_6.message);
-                    console.log(error_6);
+                    error_7 = _a.sent();
+                    console.log(error_7.message);
+                    console.log(error_7);
                     return [3 /*break*/, 4];
                 case 4: return [2 /*return*/];
             }

@@ -527,6 +527,13 @@ body {
   font-size: 1.25rem;
   font-weight: bold;
 }
+.taskModal-title {
+  display: flex;
+  place-content: space-between;
+}
+.taskModal-title * {
+  width: 50%;
+}
 .taskModal .overlay {
   z-index: -20;
   position: absolute;
@@ -545,6 +552,8 @@ body {
 }
 .taskModal-form {
   padding: 1em 2em;
+  display: flex;
+  flex-direction: column;
 }
 
 main {

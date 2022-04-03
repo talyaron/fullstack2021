@@ -621,8 +621,14 @@ body {
       font-weight: bold;
     }
   }
-
-  .overlay {
+  &-title{
+    display: flex;
+    place-content: space-between;
+    *{
+      width: 50%;
+    }
+  }
+  .overlay{
     z-index: -20;
     position: absolute;
     opacity: 0;
@@ -644,6 +650,12 @@ body {
   &-form {
     padding: 1em 2em;
   }
+&-form{
+  padding: 1em 2em;
+  display: flex;
+  flex-direction: column;
+  
+}
 }
 
 

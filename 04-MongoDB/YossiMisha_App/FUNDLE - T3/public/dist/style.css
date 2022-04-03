@@ -23,8 +23,8 @@ body {
   color: #ffffff;
 }
 .column-left__top .btn {
-  width: 22px;
-  height: 22px;
+  max-width: 22px;
+  min-width: 22px;
   padding-left: 20px;
   cursor: pointer;
 }
@@ -34,6 +34,9 @@ body {
   align-items: center;
   width: 100%;
   object-fit: contain;
+}
+.column-left__middle {
+  height: 100%;
 }
 
 .column-center__top {
@@ -135,17 +138,17 @@ body {
   --lightness-offset: 10%;
 }
 .column-center__middle__game-area .key.wrong {
-  --lightness:23% ;
+  --lightness: 23% ;
 }
 .column-center__middle__game-area .key.wrong-location {
-  --hue:49;
-  --saturation:51%;
-  --lightness:47%;
+  --hue: 49;
+  --saturation: 51%;
+  --lightness: 47%;
 }
 .column-center__middle__game-area .key.correct {
-  --hue:115;
-  --saturation:29%;
-  --lightness:43%;
+  --hue: 115;
+  --saturation: 29%;
+  --lightness: 43%;
 }
 
 .column-right__top-right {
@@ -169,17 +172,18 @@ body {
   width: 100%;
   object-fit: contain;
 }
+.column-right__top-right .hello {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .column-right__middle {
-  height: 100%;
   width: 100%;
   background-color: #0f0f0f;
-  border-radius: 20px;
-  margin-top: 0%;
   color: #ffffff;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  font-family: "Roboto", sans-serif;
 }
 .column-right__middle .line-1,
 .column-right__middle .line-2,
@@ -193,11 +197,14 @@ body {
   display: flex;
   justify-content: flex-end;
   font-size: 18px;
-  padding-right: 10px;
+}
+.column-right__middle .line-1 img {
+  width: 6%;
+  object-fit: contain;
   cursor: pointer;
+  padding: 2px;
 }
 .column-right__middle .line-3 {
-  font-size: 32px;
   margin-top: 10px;
   display: flex;
   flex-direction: row;
@@ -212,6 +219,9 @@ body {
   text-align: center;
   padding: 0px 10px;
 }
+.column-right__middle .line-3 .column span {
+  font-size: 30px;
+}
 .column-right__middle .line-3 h5 {
   font-size: 12px;
   margin-top: 0%;
@@ -224,6 +234,9 @@ body {
   font-weight: bold;
   font-size: 16px;
 }
+.column-right__middle .line-2 {
+  font-size: 20px;
+}
 .column-right__middle .line-4 {
   margin-top: 20px;
 }
@@ -232,10 +245,20 @@ body {
   margin-right: 20px;
 }
 .column-right__middle li {
-  background-color: #818181;
   margin-right: 490px;
   list-style: none;
   font-size: 16px;
+  width: 400px;
+  display: flex;
+}
+.column-right__middle li #oneattempt,
+.column-right__middle li #twoattempts,
+.column-right__middle li #threeattempts,
+.column-right__middle li #fourattempts,
+.column-right__middle li #fiveattempts,
+.column-right__middle li #sixattempts {
+  background-color: #349915;
+  min-width: 3%;
 }
 .column-right__middle .line-6 {
   display: grid;
@@ -291,14 +314,32 @@ body {
 #stats .stats-container {
   position: relative;
   margin: auto;
+  padding: 4px;
   top: 14%;
   width: 480px;
-  height: 50%;
   border-radius: 10px;
   animation: show 1000ms ease-in-out;
+  border: 2px solid gray;
 }
 #stats .stats-container-hide {
   animation: hide 1s ease-in-out;
+}
+#stats .stats-container .title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+}
+#stats .stats-container .title .x {
+  display: flex;
+  justify-content: end;
+  align-self: flex-end;
+  font-size: 18px;
+}
+#stats .stats-container .title .x img {
+  width: 6%;
+  object-fit: contain;
+  cursor: pointer;
 }
 
 #help {
@@ -321,23 +362,29 @@ body {
   color: white;
   background-color: #131313;
   font-size: 14px;
-  padding: 20px;
+  padding: 4px;
+  border: 2px solid gray;
 }
 #help .help-container .title {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: end;
 }
 #help .help-container .title h1 {
   font-weight: bold;
-  font-size: 16px;
+  font-size: 20px;
 }
-#help .help-container .title span {
-  padding-left: 200px;
+#help .help-container .title .x {
+  display: flex;
+  justify-content: end;
+  align-self: flex-end;
   font-size: 18px;
+}
+#help .help-container .title .x img {
+  width: 6%;
+  object-fit: contain;
   cursor: pointer;
-  width: fit-content;
 }
 #help .help-container .p {
   margin: 10px 6px;
@@ -419,12 +466,16 @@ body {
 }
 .loginwrapper .close,
 .registerwrapper .close {
-  position: absolute;
-  right: 10px;
-  top: 4px;
+  display: flex;
+  justify-content: end;
   font-weight: lighter;
-  cursor: pointer;
   color: #949494;
+}
+.loginwrapper .close img,
+.registerwrapper .close img {
+  width: 6%;
+  object-fit: contain;
+  cursor: pointer;
 }
 .loginwrapper h1,
 .registerwrapper h1 {
@@ -432,6 +483,8 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
+  margin: 0%;
+  padding: 0%;
   padding: 0 0 20px 0;
   border-bottom: 1px solid silver;
 }

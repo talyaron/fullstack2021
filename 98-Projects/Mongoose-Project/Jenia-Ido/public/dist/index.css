@@ -55,7 +55,7 @@ body {
   color: #000000;
 }
 .profile .settings .delete {
-  color: #e69650;
+  color: #131312;
 }
 .profile .settings li {
   opacity: 0;
@@ -195,11 +195,11 @@ body {
   display: grid;
   grid-template-columns: repeat(2, 45%);
   height: 60vh;
-  max-height: fit-content;
+  max-height: 60vh;
   width: 99%;
   margin-top: 3vh;
   gap: 10px;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 .profile__user__pics-userPics {
   opacity: 0.7;
@@ -224,14 +224,14 @@ body {
   color: gray;
 }
 .profile__navBar--down {
-  position: fixed;
-  bottom: 15px;
+  height: 4vh;
   display: flex;
   justify-content: space-around;
-  width: 347px;
-  background-color: gray;
+  width: 345px;
+  background-color: black;
   padding: 10px;
-  border-radius: 3%;
+  border-bottom-left-radius: 30%;
+  border-bottom-right-radius: 30%;
 }
 
 .main {
@@ -454,7 +454,7 @@ body {
   grid-template-columns: repeat(3, 33%);
   grid-template-rows: max-content;
   max-height: fit-content;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 .browseMain_display-userCard {
   box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
@@ -484,20 +484,21 @@ body {
   color: black;
 }
 .browseMain_display-userCard-name {
-  grid-row: 1/2;
+  grid-row: 6/8;
+  font-weight: 800;
   width: 100%;
   text-align: center;
-  font-size: 10px;
+  font-size: 12px;
 }
 .browseMain_navBarDown {
-  border: 2px solid blue;
+  border: 1px solid #2d2d2d;
   grid-column: 1/11;
   grid-row: 10;
   bottom: 37px;
   display: flex;
   flex-flow: row;
   justify-content: space-around;
-  background-color: gray;
+  background-color: black;
   padding: 10px;
   border-radius: 15px;
 }

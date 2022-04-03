@@ -15,9 +15,9 @@
 
 <body>
   <div class="alert-container" data-alert-container>
- 
+
   </div>
-  <div class="wrapper">
+  <div class="wrapper" id="wrapper">
 
     <div class="column-left">
       <div class="column-left__top">
@@ -25,13 +25,15 @@
         <div class="btn" onclick="handleShowWindow('logreg')"><img src="./images/login.png" alt=""></div>
         <div class="hello"></div>
       </div>
-
+      <div class="column-left__middle"></div>
+      
     </div>
 
     <div class="column-center">
 
       <div class="column-center__top">
-        <h1><span style="color: #ffffff;"><span style="color: orange;">F</span>undl<span style="color: #349915;">e</span></span></h1>
+        <h1><span style="color: #ffffff;"><span style="color: orange;">F</span>undl<span
+              style="color: #349915;">e</span></span></h1>
       </div>
 
       <div class="column-center__middle">
@@ -107,23 +109,43 @@
         </div>
       </div>
     </div>
-    
+
     <div class="column-right">
       <div class="column-right__top-right">
         <div class="btn" onclick="handleShowWindow('stats')"><img src="./images/statistics.png" alt="">
         </div>
+        <div class="btn" onclick="handleShowWindow('settings')"><img src="./images/setting.png" alt=""></div>
+      </div>
+      <div class="column-right__middle"></div>
+    </div>
+  </div>
 
-        <div class="btn"><img src="./images/setting.png" alt=""></div>
+
+  <!-- <div id="settings" style="display: none;">
+    <div class="settings-container">
+      <div class="title">
+        <div class="x" onclick="handleShowWindow('settings')"><img src="./images/x.png" alt=""></div>
+      </div>
+      <div class="theme-container">
+        <div class="dark" onclick="handleThemeDark()">
+          <h1>Dark Theme</h1>
+        </div>
+        <div class="bright" onclick="handleThemeBright()">
+          <h1>Bright Theme</h1>
+        </div>
       </div>
     </div>
   </div>
+  </div> -->
+
 
   <div id="stats" style="display: none;">
     <div class="stats-container">
       <div class="column-right__middle">
-        <div class="line-1" onclick="handleShowWindow('stats')">X</div>
+        <div class="line-1" onclick="handleShowWindow('stats')"><img src="./images/x.png" alt=""></div>
         <div class="line-2">STATISTICS</div>
         <div class="line-3">
+<<<<<<< Updated upstream
           <div class="column">1 <h5>Played</h5>
           </div>
           <div class="column">100<h5>Win %</h5>
@@ -131,17 +153,30 @@
           <div class="column">1<h5>Current<br>Streak</h5>
           </div>
           <div class="column">1<h5>Max<br>Streak</h5>
+=======
+          <div class="column"><span id="played">0</span>
+            <h5>Played</h5>
+          </div>
+          <div class="column"><span id="wins">0</span>
+            <h5>Win %</h5>
+          </div>
+          <div class="column"><span id="current">0</span>
+            <h5>Current<br>Streak</h5>
+          </div>
+          <div class="column"><span id="max">0</span>
+            <h5>Max<br>Streak</h5>
+>>>>>>> Stashed changes
           </div>
         </div>
         <div class="line-4">GUESS DISTREBUTION</div>
         <div class="line-5">
           <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-            <li class="green-line">4</li>
-            <li>5</li>
-            <li>6</li>
+            <li><div style="color: #dfbc48;">1 </div><div id="oneattempt" >0</div></li>
+            <li><div style="color: #dfbc48;">2 </div><div id="twoattempts" >0</div></li>
+            <li><div style="color: #dfbc48;">3 </div><div id="threeattempts" >0</div></li>
+            <li><div style="color: #dfbc48;">4 </div><div id="fourattempts" >0</div></li>
+            <li><div style="color: #dfbc48;">5 </div><div id="fiveattempts" >0</div></li>
+            <li><div style="color: #dfbc48;">6 </div><div id="sixattempts" >0</div></li>
           </ul>
         </div>
         <div class="line-6">
@@ -149,10 +184,10 @@
             <div>NEXT FUNDLE</div>
             <div id="countdown"></div>
           </div>
-          <div class="share-stats"><button id="share">SHARE <i class="fa-solid fa-share-nodes"></i></button><div class="result"></div></div>
-          
+          <div class="share-stats"><button id="share">SHARE <i class="fa-solid fa-share-nodes"></i></button>
+            <div class="result"></div>
+          </div>
         </div>
-
       </div>
     </div>
   </div>
@@ -160,50 +195,52 @@
   <div id="help" style="display: none;">
     <div class="help-container">
       <div class="title">
-        <h1>HOW TO PLAY</h1><span onclick="handleShowWindow('help')">X</span>
+        <div class="x" onclick="handleShowWindow('help')"><img src="./images/x.png" alt=""></div>
+        <div>
+          <h1>HOW TO PLAY</h1>
+        </div>
       </div>
       <div class="p">Guess the <b>WORDLE</b> in six tries.</div>
       <div class="p">Each guess must be a valid five-letter word. Hit the enter button to submit.</div>
-      <div class="p">After each guess, the color of the tiles will change to show how close your guess was to the word.
+      <div class="p">After each guess, the color of the tiles will change to show how close your guess was to the
+        word.
       </div>
       <div class="examples-new">Examples</div>
       <div class="img"><img src="./images/howToPlay.jpg" alt=""></div>
       <div class="examples-new">A new WORDLE will be available each day!</div>
-
-
     </div>
   </div>
 
   <div class="logreg" id="logreg" style="display: none;">
     <div class="loginwrapper">
-
-      <h1>Login <span class="close" onclick="handleShowWindow('logreg')">x</span></h1>
-
+      <div class="close" onclick="handleShowWindow('logreg')"><img src="./images/x.png" alt=""></div>
+      <div>
+        <h1>Login</h1>
+      </div>
       <form onsubmit="handleLogin(event)" id="loginform">
-
         <div class="txt_field">
           <input type="text" name='username' required>
           <span></span>
           <label for="Username">Username</label>
         </div>
-
         <div class="txt_field">
-          <input type="password" name='password' required autocomplete="off" class="passip"><img src="images/eye.png" alt="" id="eyeImg" onclick="handlePassToggle()"></input>
+          <input type="password" name='password' required autocomplete="off" class="passip"><img src="images/eye.png"
+            alt="" id="eyeImg" onclick="handlePassToggle()"></input>
           <span></span>
           <label for="password">Password</label>
         </div>
-
-        <!-- <div class="pass">Forgot Password?</div> -->
         <input type="submit" value="Login" class="submit">
         <div class="signup_link">
           Not a member? <span onclick="handleNotAMember()">Register</span>
         </div>
-
       </form>
     </div>
 
     <div class='registerwrapper' id="">
-      <h1>Register <span class="close" onclick="handleShowWindow()">x</span></h1>
+      <div class="close" onclick="handleShowWindow('logreg')"><img src="./images/x.png" alt=""></div>
+      <div>
+        <h1>Register</h1>
+      </div>
 
       <form onsubmit="handleRegister(event)" id="registerform">
 
@@ -214,13 +251,15 @@
         </div>
 
         <div class="txt_field">
-          <input type="password" name='password' required autocomplete="off" class="passip"><img src="images/eye.png" alt="" id="eyeImg" onclick="handlePassToggle()"></input>
+          <input type="password" name='password' required autocomplete="off" class="passip"><img src="images/eye.png"
+            alt="" id="eyeImg" onclick="handlePassToggle()"></input>
           <span></span>
           <label for="password">Password</label>
         </div>
 
         <div class="txt_field">
-          <input type="password" name='confirmPassword' required autocomplete="off" class="passip"><img src="images/eye.png" alt="" id="eyeImg" onclick="handlePassToggle()"></input>
+          <input type="password" name='confirmPassword' required autocomplete="off" class="passip"><img
+            src="images/eye.png" alt="" id="eyeImg" onclick="handlePassToggle()"></input>
           <span></span>
           <label for="confirmPassword">Confirm Password</label>
         </div>
