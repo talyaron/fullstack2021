@@ -1,8 +1,10 @@
-async function loadPlaces() {
-  const { data } = await axios.get("/places/getPlaces");
-  console.log(data);
+async function loadPlaces(data) {
+//   const { data } = await axios.get("/places/getPlaces");
+//   console.log(data);
+console.log(data)
+  renderAirbnbOptions(data)
 
-  //  renderAirbnb(data);
+ 
 }
 //loadPlaces()
 async function handleLoadPlace() {
@@ -370,10 +372,12 @@ async function handleFindAirbnb(ev) {
   const { data } = await axios.get(
     `/places/search-airbnb?search=${search}&checkIn=${checkIn}&checkOut=${checkOut}&adults=${adults}&children=${children}&infants=${infants}&pets=${pets} `
   );
-
+  const {options}=data
+   loadPlaces(options)
+//    console.log(options)
   ///places/search-airbnb?adults=${adults}
   // search=${search}&checkIn=${checkIn}&checkOut=${checkOut}&adults=${adults}&children=${children}&infants=${infants}&pets=${pets}
-  console.log(data);
+  //console.log(data);
   // ev.target.reset();
 }
 
@@ -383,13 +387,49 @@ async function handleCities(ev) {
   console.log(city);
 
   const { data } = await axios.post("/places/search-city", { city });
-  console.log(data);
+  //console.log(data);
 }
 
 
 
 async function handleFilter(ev) {
   const price = ev.target.elements.price.valueAsNumber;
-  console.log(price);
+  //console.log(price);
   const { data } = await axios.get("/places/getFiltered", { data: { price } });
+}
+
+function renderAirbnbOptions(data) {
+    console.log(data)
+    
+   
+
+    // html+=`<div class="card-grid">`
+    let html ="";
+    data.forEach((place) => {   
+           console.log(place)
+    html+= `<div class="card-grid">
+    <div class="card-grid__card"> 
+              <div class="card-header card-img">
+                  <img src="${place.images.picture_url}" alt="">   
+              </div>
+          <div class="content">
+              <div class="card-grid__card__card-header">
+                  <button class="btn"><img src="images/icons-heart.png" alt=""></button>
+                  <button class="btn btn-outline">${place.name}</button>
+              </div>
+              <div class="card-grid__card__card-body">
+                  <p>${place.summary}</p>
+              </div>
+              <div class="card-grid__card__card-footer">
+                  <button class="btn"><p>${place.price}</p>/night</button>
+                  <button class="btn btn-outline"><p>${place.reviews_rating}(${place.number_of_reviews})</p></button>
+              </div>
+            </div>
+    </div>`
+  
+        
+
+    });
+    document.querySelector("#rootPlaces").innerHTML = html;
+    
 }
