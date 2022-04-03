@@ -101,3 +101,15 @@ export const getTask = async (req, res) => {
     res.send({ error: error.message });
   }
 };
+export const getUrgencies = async (req,res)=>{
+  const {userId} = req.query;
+  const lowUrgency = await task.find({ownerId:userId, urgency:'low'})
+  const mediumUrgency = await task.find({ownerId:userId, urgency:'medium'})
+  const highUrgency = await task.find({ownerId:userId, urgency:'high'})
+
+  res.send({lowUrgency, mediumUrgency, highUrgency})
+  console.log(lowUrgency, mediumUrgency, highUrgency)
+  console.log(userId);
+  
+
+}

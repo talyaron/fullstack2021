@@ -110,7 +110,7 @@ function handleLogin(ev) {
 }
 function handleRenderHome(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var currentPage, userId, data, userInfo, user, name, lowTasks, mediumTasks, highTasks;
+        var currentPage, userId, data, userInfo, user, name, gender, lowTasks, mediumTasks, highTasks, arr, low, medium, high;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -124,11 +124,47 @@ function handleRenderHome(ev) {
                     getUsersTasks(userId, currentPage);
                     user = userInfo[0];
                     name = document.querySelector("[data-name]");
+                    gender = document.querySelector("[data-gender]");
                     name.innerHTML = user.firstName + " " + user.lastName + "<br><span>" + user.role + "</span>";
+                    if (user.gender === "male") {
+                        gender.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ51Gk5jjB4qD-BkcDh_fhsE4HkfnLDblQPrQLaOY13u7v5MNoBea8JzZ5NZAa0G-gAcgY&usqp=CAU";
+                    }
+                    else {
+                        gender.src = "https://static.vecteezy.com/system/resources/thumbnails/002/586/938/small/woman-cartoon-character-portrait-brunette-female-round-line-icon-free-vector.jpg";
+                    }
                     lowTasks = document.querySelector("[data-low]");
                     mediumTasks = document.querySelector("[data-medium]");
                     highTasks = document.querySelector("[data-high]");
+                    return [4 /*yield*/, Promise.all([handleGetUrgencies(userId)])];
+                case 2:
+                    arr = _a.sent();
+                    low = arr[0][0];
+                    console.log(low);
+                    lowTasks.innerHTML = low.length;
+                    medium = arr[0][1];
+                    console.log(medium);
+                    mediumTasks.innerHTML = medium.length;
+                    high = arr[0][2];
+                    console.log(high);
+                    highTasks.innerHTML = high.length;
                     return [2 /*return*/];
+            }
+        });
+    });
+}
+function handleGetUrgencies(userId) {
+    return __awaiter(this, void 0, void 0, function () {
+        var data, lowUrgency, mediumUrgency, highUrgency, arr;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, axios.get("tasks/get-urgencies?userId=" + userId)];
+                case 1:
+                    data = (_a.sent()).data;
+                    console.log(userId);
+                    lowUrgency = data.lowUrgency, mediumUrgency = data.mediumUrgency, highUrgency = data.highUrgency;
+                    arr = [lowUrgency, mediumUrgency, highUrgency];
+                    console.log(lowUrgency, mediumUrgency, highUrgency);
+                    return [2 /*return*/, arr];
             }
         });
     });
