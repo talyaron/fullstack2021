@@ -33,15 +33,12 @@ export async function addUser(req: any, res: any) {
 
 export async function getUser(req: any, res: any) {
 
-
     let { username, password } = req.query
-
-
     const userMatch = await FundleUser.find({ username: username, password: password })
-
 
     if (userMatch.length >= 1) {
         res.send({ user: userMatch })
+        
     }
 
     else {
@@ -53,9 +50,8 @@ export async function getUser(req: any, res: any) {
             res.send("nouser")
         }
     }
-
-
 }
+
 
 export async function updateUser(req: any, res: any) {
 

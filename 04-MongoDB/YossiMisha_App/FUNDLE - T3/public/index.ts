@@ -219,7 +219,14 @@ async function checkWinLose(guess, tiles) {
         danceTiles(tiles)
         stopInteraction()
         win = true;
+<<<<<<< Updated upstream
         const {data} = await axios.patch('users/update-user', {win, attempts, username})
+=======
+        const { data } = await axios.patch('users/update-user', { win, attempts, username })
+        setTimeout(() => {
+            handleShowWindow('stats')
+        }, 1500);
+>>>>>>> Stashed changes
         return
     }
 
@@ -229,10 +236,19 @@ async function checkWinLose(guess, tiles) {
         showAlert(targetWord.toUpperCase(),90000000)
         stopInteraction();
         win = false;
+<<<<<<< Updated upstream
         const {data} = await axios.patch('users/update-user', {win, attempts, username})
     }
 
     
+=======
+        const { data } = await axios.patch('users/update-user', { win, attempts, username })
+        setTimeout(() => {
+            handleShowWindow('stats')
+        }, 1500);
+    } 
+    renderStats(storeUserName)
+>>>>>>> Stashed changes
 }
 
 function danceTiles(tiles) {
@@ -369,7 +385,7 @@ async function loginPractice(username, password) {
     console.log(data)
 
     if (data.user) {
-        document.querySelector(".hello").innerHTML = `&nbsp;&nbsp;&nbsp;${greetings} <span style="color: orange;">&nbsp;${username}</span>`
+        document.querySelector(".hello").innerHTML = `&nbsp;&nbsp;${greetings} <span style="color: orange;">&nbsp;${username}</span>`
         handleShowWindow('logreg');
         storeUserName = username;
     }
@@ -430,3 +446,87 @@ btn.addEventListener('click', async () => {
     }
 });
 //   END SHARE
+<<<<<<< Updated upstream
+=======
+
+
+async function renderStats(username) {
+
+    if (username) {
+        const { data } = await axios.get(`users/get-user?username=${username}`)
+
+
+        const user = data.user[0]
+
+        const userPlayed = user.played
+        const userWins = user.wins
+
+        const oneAttempt = user.oneattempt
+        const twoAttempt = user.twoattempts
+        const threeAttempt = user.threeattempts
+        const fourAttempt = user.fourattempts
+        const fiveAttempt = user.fiveattempts
+        const sixAttempt = user.sixattempts
+
+
+        const average1 = Math.floor(oneAttempt / userWins * 100)
+        const average2 = twoAttempt / userWins * 100
+        const average3 = threeAttempt / userWins * 100
+        const average4 = fourAttempt / userWins * 100
+        const average5 = fiveAttempt / userWins * 100
+        const average6 = sixAttempt / userWins * 100
+
+       
+        const winPerc = Math.floor((userWins / userPlayed) * 100);
+
+
+        const played = document.querySelector("#played")
+        const wins = document.querySelector("#wins")
+        const current = document.querySelector("#current")
+        const max = document.querySelector("#max")
+
+        played.innerHTML = `${user.played}`
+        if (winPerc) {
+            wins.innerHTML = `${winPerc}`
+        }
+        else (
+            wins.innerHTML = '0'
+        )
+        current.innerHTML = `${user.current_streak}`
+        max.innerHTML = `${user.max_streak}`
+
+
+        const oneattempt: any = document.querySelector("#oneattempt")
+        const twoattempts: any = document.querySelector("#twoattempts")
+        const threeattempts: any = document.querySelector("#threeattempts")
+        const fourattempts: any = document.querySelector("#fourattempts")
+        const fiveattempts: any = document.querySelector("#fiveattempts")
+        const sixattempts: any = document.querySelector("#sixattempts")
+
+        oneattempt.style.width = `${average1}%`
+        oneattempt.innerHTML = `${oneAttempt}`
+
+        twoattempts.style.width = `${average2}%`
+        twoattempts.innerHTML = `${twoAttempt}`
+
+        threeattempts.style.width = `${average3}%`
+        threeattempts.innerHTML = `${threeAttempt}`
+
+        fourattempts.style.width = `${average4}%`
+        fourattempts.innerHTML = `${fourAttempt}`
+
+        fiveattempts.style.width = `${average5}%`
+        fiveattempts.innerHTML = `${fiveAttempt}`
+
+        sixattempts.style.width = `${average6}%`
+        sixattempts.innerHTML = `${sixAttempt}`
+    }
+
+
+
+
+
+}
+
+
+>>>>>>> Stashed changes

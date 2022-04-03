@@ -4,7 +4,7 @@ import userRoutes from "./routes/userRoutes"
 import wordRoutes from "./routes/wordRoutes"
 
 const app = express();
-const port = process.env.PORT || 3007;
+const port = process.env.PORT || 3008;
 app.use(express.static("public"));
 app.use(express.json());
 app.use('/users', userRoutes)
