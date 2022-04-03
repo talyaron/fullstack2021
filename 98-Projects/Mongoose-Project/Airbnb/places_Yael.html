@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Document</title>
+    <link rel="stylesheet" href="dist/style.css">
+</head>
+
+
+<body onload="handleLoadPlacesOptions(data)">
+      <nav class="navigation">
+    <ul>
+        <li class="navigation--logo"><img src="images/logoTitle.png" alt="airbnb"></li>
+        <li class="navigation--search">
+            <form class="form" onsubmit="handleFindAirbnb(event)">
+                <div class="form--searchLocation">
+                    <label for="searchLocation">Location  </label>
+                        <input  id="searchLocation" type="text" name="searchLocation" placeholder="Where are you going?">
+                   
+               
+                </div>
+
+                <div class="form--checkIn">
+                    <label for="checkIn">Check in </label>
+                        <input type="date" id="checkIn" name="checkIn"
+                        value="2022-03-31"
+                        min="2022-03-28" max="2022-12-30">
+                    
+                 
+                </div>
+
+                <div class="form--checkOut">
+                    <label for="checkOut">Check out </label>
+                        <input type="date" id="checkOut" name="checkOut"
+                        value="2022-03-31"
+                        min="2022-03-28" max="2022-12-30">
+                   
+                   
+                </div>
+
+                <div class="form--guests">
+                    <label for="guests">Guests </label>
+                        <button id="guests">Add guests</button>
+                   
+                    <div class="dropdown">
+                        <label for="adults">Adults:
+                           <span>Ages 13 or above</span> </label>
+                        <input type="number" id="adults" name="adults" min="0" max="10" placeholder="0">
+                         
+                        <label for="children">Children:
+                           <span>Ages 2–12</span> </label> 
+                        <input type="number" id="children" name="children" min="0" max="10" placeholder="0">
+                       
+                        <label for="infants">Infants:
+                            <span>Under 2</span></label>
+                        <input type="number" id="infants" name="infants" min="0" max="10" placeholder="0">
+                        
+                        <label for="pets">Pets:</label>
+                        <input type="number" id="pets" name="pets" min="0" max="5" placeholder="0">
+                        
+
+                    </div>
+                </div>
+
+
+               <button type="submit" value="submit" class="form--searchIcon" ><img src="images/searchIcon.png"></button>
+
+
+            </form>
+        </li>
+        <li class="navigation--greeting">Welcome!</li>
+
+        <li class="navigation--user"><img src="images/visitorProfile.png">
+        </li>
+    </ul>
+</nav>
+
+<!-- ===========================================================================================a -->
+
+
+    <div class="header-filter">
+            
+            <button onclick="FilterKitchen()" class="btn_filter">Kitchen</button>
+            <button onclick="FilterWiFi()"class="btn_filter">Wi-Fi</button>
+            <button onclick="FilterBeach()"class="btn_filter">Access to the beach</button>
+            <button onclick="FilterWashingMachine()"class="btn_filter">Washing machine</button>
+            <button onclick="FilterParking()"class="btn_filter">Free parking</button>
+            <button onclick="FilterJacuzi()"class="btn_filter">Jacuzzi</button>
+            <button onclick="FilterPool()"class="btn_filter">Pool</button>
+
+            <!-- <button class="btn_filter">Price</button> -->
+
+
+    </div>
+    <div id="rootPlaces">    
+<!-- <div class="page-grid">
+    <div class="card-map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d26081603.294420466!2d-95.677068!3d37.06250000000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1siw!2s!4v1648657793371!5m2!1siw!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+    </div>
+
+    <div class="card-grid">
+       
+        <div class="card-grid__card"> 
+            <div class="card-header card-img">
+                <img src="https://a0.muscache.com/im/pictures/8fbac634-751a-4dfc-85af-8823f0e66933.jpg?im_w=960"/>
+        
+            </div>
+        <div class="content">
+            <div class="card-grid__card__card-header">
+                <button class="btn"><img src="images/icons-heart.png" alt=""></button>
+                <button class="btn btn-outline">private room in the city center</button>
+            </div>
+            <div class="card-grid__card__card-body">
+                <h2>Studio with sea views and a balcony</h2>
+                <p>guests &#x2022 studio &#x2022 1 bed &#x2022 1 private bathroom  &#x2022 Wi-Fi &#x2022 Kitchen &#x2022 Air conditioning</p>
+            </div>
+            <div class="card-grid__card__card-footer">
+                <button class="btn">220$/night</button>
+                <button class="btn btn-outline">4.95 (78 reviews)</button>
+            </div>
+            </div>
+        </div>
+
+        <div class="card-grid__card"> 
+            <div class="card-header card-img">
+                <img src="https://a0.muscache.com/im/pictures/16f57714-0819-4c78-bf93-e686564edf9e.jpg?im_w=720"/>
+        
+            </div>
+        <div class="content">
+            <div class="card-grid__card__card-header">
+                <button class="btn"><img src="images/icons-heart.png" alt=""></button>
+                <button class="btn btn-outline">private room in the city center</button>
+            </div>
+            <div class="card-grid__card__card-body">
+                <h2>Studio with sea views and a balcony</h2>
+                <p>guests &#x2022 studio &#x2022 1 bed &#x2022 1 private bathroom  &#x2022 Wi-Fi &#x2022 Kitchen &#x2022 Air conditioning</p>
+            </div>
+            <div class="card-grid__card__card-footer">
+                <button class="btn">220$/night</button>
+                <button class="btn btn-outline">4.95 (78 reviews)</button>
+            </div>
+            </div>
+        </div>
+
+        <div class="card-grid__card"> 
+            <div class="card-header card-img">
+                <img src="https://a0.muscache.com/im/pictures/10935945/a4ac450e_original.jpg?im_w=720"/>
+        
+            </div>
+        <div class="content">
+            <div class="card-grid__card__card-header">
+                <button class="btn"><img src="images/icons-heart.png" alt=""></button>
+                <button class="btn btn-outline">private room in the city center</button>
+            </div>
+            <div class="card-grid__card__card-body">
+                <h2>Studio with sea views and a balcony</h2>
+                <p>guests &#x2022 studio &#x2022 1 bed &#x2022 1 private bathroom  &#x2022 Wi-Fi &#x2022 Kitchen &#x2022 Air conditioning</p>
+            </div>
+            <div class="card-grid__card__card-footer">
+                <button class="btn">220$/night</button>
+                <button class="btn btn-outline">4.95 (78 reviews)</button>
+            </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+</div> -->
+<script src="dist/index.js"></script>
+</body>
+
+</html>
