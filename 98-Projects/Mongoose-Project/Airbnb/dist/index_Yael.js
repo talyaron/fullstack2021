@@ -1,3 +1,4 @@
+//import Places from "../model/placesModel";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -34,18 +35,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-function loadPlaces(data) {
-    return __awaiter(this, void 0, void 0, function () {
-        return __generator(this, function (_a) {
-            //   const { data } = await axios.get("/places/getPlaces");
-            //   console.log(data);
-            console.log(data);
-            renderAirbnbOptions(data);
-            return [2 /*return*/];
-        });
-    });
-}
-//loadPlaces()
 function handleLoadPlace() {
     return __awaiter(this, void 0, void 0, function () {
         var data, error_1;
@@ -98,7 +87,7 @@ function renderPlace(data) {
 }
 function handleFindAirbnb(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var search, checkIn, checkOut, adults, children, infants, pets, data, options;
+        var search, checkIn, checkOut, adults, children, infants, pets, data;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -114,13 +103,37 @@ function handleFindAirbnb(ev) {
                     return [4 /*yield*/, axios.get("/places/search-airbnb?search=" + search + "&checkIn=" + checkIn + "&checkOut=" + checkOut + "&adults=" + adults + "&children=" + children + "&infants=" + infants + "&pets=" + pets + " ")];
                 case 1:
                     data = (_a.sent()).data;
-                    options = data.options;
-                    loadPlaces(options);
+                    ///places/search-airbnb?adults=${adults}
+                    // search=${search}&checkIn=${checkIn}&checkOut=${checkOut}&adults=${adults}&children=${children}&infants=${infants}&pets=${pets}
+                    console.log(data);
+                    handleLoadPlacesOptions(data);
+                    FilterKitchen(data);
                     return [2 /*return*/];
             }
         });
     });
 }
+//============  //loadPlaces() at places.html====================================================
+//  renderAirbnb(places);
+function handleLoadPlacesOptions(data) {
+    var places = { data: data };
+    console.log(places);
+    renderPlaces(places);
+}
+//===================================================================  
+//render placesOptions==============================================================
+function renderAirbnbOptions(data) {
+    console.log(places);
+    var html = "";
+    html += "<div class=\"page-grid\">\n      <div class=\"card-map\">\n          <iframe src=\"https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d26081603.294420466!2d-95.677068!3d37.06250000000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1siw!2s!4v1648657793371!5m2!1siw!2s\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>\n  \n      </div>";
+    html += "<div class=\"card-grid\">";
+    places.forEach(function (place) {
+        // html+=`<div class="card-grid">
+        html += "<div class=\"card-grid__card\"> \n              <div class=\"card-header card-img\">\n                  <img src=\"" + place.images.picture_url + "\" alt=\"\">   \n              </div>\n          <div class=\"content\">\n              <div class=\"card-grid__card__card-header\">\n                  <button class=\"btn\"><img src=\"images/icons-heart.png\" alt=\"\"></button>\n                  <button class=\"btn btn-outline\">" + place.name + "</button>\n              </div>\n              <div class=\"card-grid__card__card-body\">\n                  <p>" + place.summary + "</p>\n              </div>\n              <div class=\"card-grid__card__card-footer\">\n                  <button class=\"btn\"><p>" + place.price + "</p>/night</button>\n                  <button class=\"btn btn-outline\"><p>" + place.reviews_rating + "(" + place.number_of_reviews + ")</p></button>\n              </div>\n              </div>\n          </div>";
+    });
+    document.querySelector("#rootPlaces").innerHTML = html;
+}
+//===================================================================================
 function handleCities(ev) {
     return __awaiter(this, void 0, void 0, function () {
         var city, data;
@@ -132,6 +145,7 @@ function handleCities(ev) {
                     return [4 /*yield*/, axios.post("/places/search-city", { city: city })];
                 case 1:
                     data = (_a.sent()).data;
+                    console.log(data);
                     return [2 /*return*/];
             }
         });
@@ -144,6 +158,7 @@ function handleFilter(ev) {
             switch (_a.label) {
                 case 0:
                     price = ev.target.elements.price.valueAsNumber;
+                    console.log(price);
                     return [4 /*yield*/, axios.get("/places/getFiltered", { data: { price: price } })];
                 case 1:
                     data = (_a.sent()).data;
@@ -152,13 +167,21 @@ function handleFilter(ev) {
         });
     });
 }
-function renderAirbnbOptions(data) {
-    console.log(data);
-    // html+=`<div class="card-grid">`
-    var html = "";
-    data.forEach(function (place) {
-        console.log(place);
-        html += "<div class=\"card-grid\">\n    <div class=\"card-grid__card\"> \n              <div class=\"card-header card-img\">\n                  <img src=\"" + place.images.picture_url + "\" alt=\"\">   \n              </div>\n          <div class=\"content\">\n              <div class=\"card-grid__card__card-header\">\n                  <button class=\"btn\"><img src=\"images/icons-heart.png\" alt=\"\"></button>\n                  <button class=\"btn btn-outline\">" + place.name + "</button>\n              </div>\n              <div class=\"card-grid__card__card-body\">\n                  <p>" + place.summary + "</p>\n              </div>\n              <div class=\"card-grid__card__card-footer\">\n                  <button class=\"btn\"><p>" + place.price + "</p>/night</button>\n                  <button class=\"btn btn-outline\"><p>" + place.reviews_rating + "(" + place.number_of_reviews + ")</p></button>\n              </div>\n            </div>\n    </div>";
+function FilterKitchen(places) {
+    return __awaiter(this, void 0, void 0, function () {
+        var filteredPlaces;
+        return __generator(this, function (_a) {
+            filteredPlaces = {};
+            places.forEach(function (place) {
+                place.amenities.forEach(function (item) {
+                    if (item === 'Kitchen') {
+                        filteredPlaces += place;
+                    }
+                });
+            });
+            renderPlaces(filteredPlaces);
+            return [2 /*return*/];
+        });
     });
-    document.querySelector("#rootPlaces").innerHTML = html;
 }
+;

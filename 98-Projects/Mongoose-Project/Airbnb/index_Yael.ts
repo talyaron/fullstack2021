@@ -372,6 +372,7 @@ async function handleFindAirbnb(ev) {
   handleLoadPlacesOptions(data);
   FilterKitchen(data);
   // ev.target.reset();
+  
 }
 
 //============  //loadPlaces() at places.html====================================================
@@ -387,7 +388,7 @@ function handleLoadPlacesOptions(data:any) {
 //===================================================================  
 
 //render placesOptions==============================================================
-function renderPlaces(places: Array<any>) {
+function renderAirbnbOptions(data: Array<any>) {
     console.log(places)
     let html = "";
     html+=`<div class="page-grid">
