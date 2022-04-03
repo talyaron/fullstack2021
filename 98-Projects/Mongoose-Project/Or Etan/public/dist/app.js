@@ -42,6 +42,7 @@ overlay.addEventListener("click", function () {
     var modals = document.querySelectorAll(".modal.active");
     modals.forEach(function (modal) {
         closeModal(modal);
+        closeTaskModal();
     });
 });
 closeModalButttons.forEach(function (button) {

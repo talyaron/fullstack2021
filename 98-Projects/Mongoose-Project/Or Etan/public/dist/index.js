@@ -432,10 +432,15 @@ function handleColor(ev) {
 }
 // task update modal:
 function openTaskModal(modal) {
-    if (modal == null)
-        return;
-    modal.classList.add('active');
-    overlay.classList.add('active');
+    return __awaiter(this, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            if (modal == null)
+                return [2 /*return*/];
+            modal.classList.add('active');
+            overlay.classList.add('active');
+            return [2 /*return*/];
+        });
+    });
 }
 function closeTaskModal() {
     var modal = document.querySelector('.taskModal');
@@ -464,9 +469,9 @@ function renderTaskModal(ev) {
                     if (!currentTask)
                         throw new Error("no task in the modal");
                     currentTask.date = currentTask.date.slice(0, 10);
-                    html += "\n<div class=\"taskModal-header\">\n<h1>" + currentTask.title + "</h1>\n<button onclick=\"closeTaskModal()\" class=\"taskModal-closeButton\"> &times; </button>\n</div>\n<form onsubmit=\"handleTaskUpdate(event)\" class=\"taskModal-form\">\n<input onchange=\"handleColor(event)\" type=\"color\" name=\"color\" id=\"color\" value=\"" + currentTask.color + "\">\n<div  class=\"taskModal-title\">\n<input type=\"text\" name=\"title\" id=\"title\" value=\"" + currentTask.title + "\">\n\n</div>\n<div class=\"taskModal-urgency\">\n<select type=\"text\" name=\"urgency\" id=\"urg\">\n<option selected disabled value=\"" + currentTask.urgency + "\">" + currentTask.urgency + "</option>\n<option value=\"high\">High</option>\n<option value=\"medium\">Medium</option>\n<option value=\"low\">Low</option>\n</select>\n\n</div>\n<div class=\"taskModal-description\">\n<input type=\"text\" name=\"description\" id=\"description\" value=\"" + currentTask.description + "\">\n</div>\n<div class=\"taskModal-location\">\n<input type=\"text\" name='location' id='owner' value=\"" + currentTask.location + "\">\n</div>\n<div class=\"taskModal-date\">\n<input type=\"date\" name=\"date\" id=\"date\" value=\"" + currentTask.date + "\">\n</div>\n<input data-id=\"" + currentTask._id + "\" type=\"submit\" name=\"submit\" id=\"submit\" value=\"Update this task\">\n</form>\n<div data-taskModal-overlay id=\"overlay\"></div>";
+                    html += "\n<div class=\"taskModal-header\">\n<h1>" + currentTask.title + "</h1>\n<button onclick=\"closeTaskModal()\" class=\"taskModal-closeButton\"> &times; </button>\n</div>\n<form onsubmit=\"handleTaskUpdate(event)\" class=\"taskModal-form\">\n<input onchange=\"handleColor(event)\" type=\"color\" name=\"color\" id=\"color\" value=\"" + currentTask.color + "\">\n<div  class=\"taskModal-title\">\n<input type=\"text\" name=\"title\" id=\"title\" value=\"" + currentTask.title + "\">\n\n</div>\n<div class=\"taskModal-urgency\">\n<select type=\"text\" name=\"urgency\" id=\"urg\">\n<option selected disabled value=\"" + currentTask.urgency + "\">" + currentTask.urgency + "</option>\n<option value=\"high\">High</option>\n<option value=\"medium\">Medium</option>\n<option value=\"low\">Low</option>\n</select>\n\n</div>\n<div class=\"taskModal-description\">\n<input type=\"text\" name=\"description\" id=\"description\" value=\"" + currentTask.description + "\">\n</div>\n<div class=\"taskModal-location\">\n<input type=\"text\" name='location' id='owner' value=\"" + currentTask.location + "\">\n</div>\n<div class=\"taskModal-date\">\n<input type=\"date\" name=\"date\" id=\"date\" value=\"" + currentTask.date + "\">\n</div>\n<input data-id=\"" + currentTask._id + "\" type=\"submit\" name=\"submit\" id=\"submit\" value=\"Update this task\">\n</form>\n<div onclick=\"closeTaskModal()\" data-taskModal-overlay class=\"overlay\"></div>";
                     modal.innerHTML = html;
-                    openModal(modal);
+                    openTaskModal(modal);
                     return [3 /*break*/, 4];
                 case 3:
                     error_6 = _a.sent();

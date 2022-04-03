@@ -495,7 +495,7 @@ body {
   transition: 200ms ease-in-out;
   border: 1px solid black;
   border-radius: 1em;
-  z-index: 10;
+  z-index: 110;
   background-color: white;
   width: clamp(60%, 500px, 80%);
   height: clamp(60%, 500px, 80%);
@@ -521,24 +521,24 @@ body {
   font-size: 1.25rem;
   font-weight: bold;
 }
-.taskModal-form {
-  padding: 1em 2em;
-}
-
-#overlay {
-  position: fixed;
+.taskModal .overlay {
+  z-index: -20;
+  position: absolute;
   opacity: 0;
   top: 0;
-  bottom: 0;
   left: 0;
+  bottom: 0;
   right: 0;
   background-color: rgba(0, 0, 0, 0.5);
   transition: 200ms ease-in-out;
   pointer-events: none;
 }
-#overlay.active {
-  opacity: none;
+.taskModal .overlay.active {
+  opacity: 1;
   pointer-events: all;
+}
+.taskModal-form {
+  padding: 1em 2em;
 }
 
 main {

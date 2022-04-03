@@ -151,7 +151,6 @@ async function renderTasks(currentUsersTasks, currentPage) {
     counterRoot.innerHTML = currentUsersTasks.length;
     const tasksRoot = document.querySelector("[data-box-root]");
     const nextRoot = document.querySelector("[data-next-root]");
-
     currentUsersTasks.forEach((task) => {
       if (task.description.length > 20) {
         task.descriptionShorted = task.description.substring(0, 15) + "...";
@@ -375,7 +374,7 @@ async function handleColor(ev) {
 
 // task update modal:
 
-function openTaskModal(modal){
+async function openTaskModal(modal) {
   if(modal == null) return 
   modal.classList.add('active')
   overlay.classList.add('active')
@@ -429,9 +428,9 @@ html += `
 </div>
 <input data-id="${currentTask._id}" type="submit" name="submit" id="submit" value="Update this task">
 </form>
-<div data-taskModal-overlay id="overlay"></div>`
+<div onclick="closeTaskModal()" data-taskModal-overlay class="overlay"></div>`
 modal.innerHTML = html;
-openModal(modal)
+openTaskModal(modal)
 
 
 } catch (error) {
