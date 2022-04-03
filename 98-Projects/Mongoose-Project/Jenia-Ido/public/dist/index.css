@@ -485,10 +485,11 @@ body {
   color: black;
 }
 .browseMain_display-userCard-name {
-  grid-row: 1/2;
+  grid-row: 6/8;
+  font-weight: 800;
   width: 100%;
   text-align: center;
-  font-size: 10px;
+  font-size: 12px;
 }
 .browseMain_navBarDown {
   border: 1px solid #2d2d2d;

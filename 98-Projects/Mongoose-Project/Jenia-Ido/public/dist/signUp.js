@@ -337,11 +337,9 @@ function showProfilePicture(ev) {
     return __awaiter(this, void 0, void 0, function () {
         var email, profileImg, password, header, root, html;
         return __generator(this, function (_a) {
-            console.dir(ev.target);
             email = ev.target.name;
             profileImg = ev.target.id;
             password = ev.target.lang;
-            console.log(password);
             header = document.querySelector(".profile__header");
             header.style.opacity = "0.2";
             root = document.querySelector('#profilePic');
@@ -358,8 +356,6 @@ function handleExit(ev) {
         return __generator(this, function (_a) {
             email = ev.target.id;
             password = ev.target.lang;
-            console.log(password);
-            console.log(email);
             renderProfile(email, password);
             return [2 /*return*/];
         });

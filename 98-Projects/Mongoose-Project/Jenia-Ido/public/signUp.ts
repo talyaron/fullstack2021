@@ -308,13 +308,9 @@ async function handleDeleteProfile(ev) {
 
 async function showProfilePicture(ev) {
 
-    console.dir(ev.target)
     const email = ev.target.name;
     const profileImg = ev.target.id;
     const password = ev.target.lang;
-    console.log(password);
-
-
 
     const header: any = document.querySelector(".profile__header");
     header.style.opacity = "0.2";
@@ -334,8 +330,7 @@ async function showProfilePicture(ev) {
 async function handleExit(ev) {
     const email = ev.target.id;
     const password = ev.target.lang;
-    console.log(password);
-    console.log(email);
+    
 
     renderProfile(email, password);
 }
