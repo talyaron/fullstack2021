@@ -134,13 +134,12 @@ exports.getForSale = function (req, res) { return __awaiter(void 0, void 0, void
     });
 }); };
 exports.buyAndSell = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, id, ownerId, result;
+    var _a, artId, buyerId, result;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
-                _a = req.body, id = _a.id, ownerId = _a.ownerId;
-                console.log(id, ownerId);
-                return [4 /*yield*/, artModel_1["default"].findOneAndUpdate({ _id: id }, { forSale: false, ownerId: id })];
+                _a = req.body, artId = _a.artId, buyerId = _a.buyerId;
+                return [4 /*yield*/, artModel_1["default"].findOneAndUpdate({ _id: artId }, { forSale: false, ownerId: buyerId })];
             case 1:
                 result = _b.sent();
                 res.send({ ok: true, result: result });

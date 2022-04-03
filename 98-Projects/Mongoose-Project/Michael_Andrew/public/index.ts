@@ -43,8 +43,6 @@ async function handleLogInForm(e) {
         password = password.value.split(' ').join('');
 
         const { data } = await axios.get(`/users/log-user?loginEmail=${email}&loginPassword=${password}`)
-
-        // userLogedIn.addlogData(data)
         site.user = data.oldUser[0];
         localStorage.setItem('user', JSON.stringify(site.user));
 
@@ -59,6 +57,7 @@ async function handleLogInForm(e) {
     const signIn = document.querySelector('.sign-in-form')
     signIn.classList.toggle('in-vis');
 
+    handleOnLoad();
 }
 
 function handleAccount() {
@@ -77,7 +76,7 @@ function handleLogOut() {
 }
 
 async function handleOnLoad() {
-
+    
 
     const user = JSON.parse(localStorage?.getItem('user'))
 
@@ -91,60 +90,108 @@ async function handleOnLoad() {
                         <h3>Funds: ${site.user.fund} BTC</h3>`
     }
 
-    const { data } = await axios.get('/arts/art-for-sale')
-    const { result } = data; console.log(result);
-
-    renderArtForSale(result);
+    if (window.location.pathname.split("/").pop() == 'index.html') {
+        const { data } = await axios.get('/arts/art-for-sale')
+        const { result } = data;
+        console.log(result);
+        renderArtForSale(result);
+    }
 }
 
 
-function renderArtForSale(urls) {
+function renderArtForSale(artsForSale) {
+
+    const main = document.querySelector('.main');
+    let html = "";
+
+    artsForSale.forEach(art => {
+        console.log(art);
+
+        html += `<div class="main__card">
+                    <img src="${art.url}" class="main__card__img">
+                    <div class="main__card__discription">
+                        <div class="main__card__discription__upper">
+                            <div class="main__card__author">
+                                <p>${art.artName}</p>
+                                <p>by: ${art.author}</p>
+                            </div>
+                            <div class="main__card__price">
+                                <p>price: ${art.price} BTC</p>
+                                <p>7 days left</p>
+                            </div>
+                        </div>
+                        <div class="main__card__discription__lower">
+                            <div class="main__card__buyNow">`
+        if (art.ownerId == site.user._id) {
+            html += `<p>Your Sale</p>`
+        }
+        else {
+            html += `<p onclick="handleBuy('${art._id}', '${art.price}','${art.ownerId}')">Buy Now</p>`
+        }
+        html += `</div>
+                            <div class="main__card__likes">
+                                <p>3</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>`
+    });
+
+    main.innerHTML = html
 
     //אנדרו - לא מצליח לרנדר הכל
     //השעה כבר מאוחרת.. צריך לעשות תנאי שהיוזר שעשה לוגאין יראה רק יצירות שהן ---לא--- (!) שלו
+    // const images: any = document.querySelectorAll(".main__card__img");
+    // let renderImg = ''
 
-    const images: any = document.querySelectorAll(".main__card__img");
-    let renderImg = ''
+    // const elements = document.querySelectorAll('.main__card__author')
+    // const prices = document.querySelectorAll('.main__card__price')
 
-    const elements = document.querySelectorAll('.main__card__author')
-    const prices = document.querySelectorAll('.main__card__price')
+    // elements.forEach(element => {
+    //     prices.forEach(price => {
 
-    elements.forEach(element => {
-        prices.forEach(price => {
+    //         urls.forEach(url => {
+    //             element.children.item(0).innerHTML = `${url.artName} #nftArts`
+    //             element.children.item(1).innerHTML = `${url.author}'s Collection`
+    //             price.children.item(0).innerHTML = `<label onclick="handleBuy('${url._id}', '${url.price}', '${url.ownerId}')">Click here to buy in</label> ${url.price}$`
 
-            urls.forEach(url => {
-                element.children.item(0).innerHTML = `${url.artName} #nftArts`
-                element.children.item(1).innerHTML = `${url.author}'s Collection`
-                price.children.item(0).innerHTML = `<label onclick="handleBuy('${url._id}', '${url.price}', '${url.ownerId}')">Click here to buy in</label> ${url.price}$`
-
-            }
+    //         }
 
 
-            )
-        })
-    })
+    //         )
+    //     })
+    // })
 
-    images.forEach(img => {
+    // images.forEach(img => {
 
-        urls.forEach(url => {
-            renderImg = `url('${url.url}')`
-        })
+    //     urls.forEach(url => {
+    //         renderImg = `url('${url.url}')`
+    //     })
 
-        img.style.backgroundImage = renderImg
+    //     img.style.backgroundImage = renderImg
 
-    })
+    // })
 
 }
 
-async function handleBuy(id, priceToRemove, ownerId) {
+async function handleBuy(artId, price, ownerId) {
+    if(Object.keys(site.user).length < 1){
+        alert("Log-in first!")
+        return
+    }
+    if (price > site.user.fund) {
+        alert("Not Enough Funds!")
+    }
+    else {
+        await axios.patch('/users/buy-and-sell', { buyerId: site.user._id, price, ownerId })
 
-    console.log(site.user._id);
+        await axios.patch('/arts/buy-and-sell', { artId, buyerId: site.user._id })
 
-    await axios.patch('/users/buy-and-sell', { _id: site.user._id, priceToRemove: priceToRemove.valueAsNumber , ownerId })
-
-    await axios.patch('/arts/buy-and-sell', { id, ownerId })
-
-
+        const { data } = await axios.get(`/users/log-user?loginEmail=${site.user.email}&loginPassword=${site.user.password}`)
+        site.user = data.oldUser[0];
+        localStorage.setItem('user', JSON.stringify(site.user));
+        handleOnLoad();
+    }
 }
 
 

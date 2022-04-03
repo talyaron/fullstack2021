@@ -12,11 +12,11 @@ app.use(express.json());
 
 mongoose
   .connect(
-    "mongodb+srv://shay:shayFoyer1994@cluster0.xyd5y.mongodb.net/sample_airbnb?retryWrites=true&w=majority"
+    "mongodb+srv://shay:shayFoyer1994@cluster0.xyd5y.mongodb.net/airbnbProject?retryWrites=true&w=majority"
   )
   .then((result) => {
     console.log("connected to db");
-    Places.find({}).limit(10)
+    Places.find({})
       .then((res) => {
         // console.log(res);
       })
@@ -28,21 +28,9 @@ mongoose
     console.log(err.message);
   });
 
-// const userSchema = new mongoose.Schema({
-//   name: String,
-//   password: String,
-// });
-// const Users = mongoose.model("users", userSchema);
-// const Places = mongoose.model("listingsAndReviews", PlacesSchema);
-// app.get("/getPlaces", async (req, res) => {
-//   try {
-//     const places = await Places.find({});
-//     res.send({ ok: true, places });
-//   } catch (error) {
-//     console.error(error);
-//     res.send({ error: "error in app.get/getPlaces" });
-//   }
-// });
+
+
+
 
 // app.post("/addUsers", async (req, res) => {
 //   try {

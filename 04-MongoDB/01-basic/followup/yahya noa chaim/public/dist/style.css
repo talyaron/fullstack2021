@@ -35,3 +35,14 @@ body {
   background: aquamarine;
   color: blue;
 }
+
+.books {
+  text-align: center;
+}
+.books_form {
+  font-size: 3vh;
+  text-align: center;
+}
+.books_form-Catagory {
+  font-size: 5vh;
+}

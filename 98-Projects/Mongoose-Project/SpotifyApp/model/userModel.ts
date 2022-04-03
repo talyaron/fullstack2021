@@ -12,6 +12,6 @@ const UserSchema = new mongoose.Schema({
     }
 })
 
-  const User = mongoose.model('songsUser', UserSchema)
+  const user = mongoose.model('user', UserSchema)
 
-  export default User;
+  export default user;

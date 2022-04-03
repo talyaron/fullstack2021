@@ -1,4 +1,3 @@
-// import axios from "axios";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -81,7 +80,9 @@ function handleLogin(ev) {
                     _a.label = 1;
                 case 1:
                     _a.trys.push([1, 3, , 4]);
-                    return [4 /*yield*/, axios.post("/users/log-in", userData).then(function (response) {
+                    return [4 /*yield*/, axios
+                            .post("/users/log-in", userData)
+                            .then(function (response) {
                             var status = response.data.ok;
                             var userExists = response.data.aUser;
                             var verifiedUser = response.data.verifiedUser;
@@ -92,7 +93,6 @@ function handleLogin(ev) {
                                 window.location.href = "/home.html?id=" + verifiedUserId;
                             }
                             else if (userExists < 0) {
-                                console.log("1");
                             }
                         })];
                 case 2:
@@ -108,29 +108,71 @@ function handleLogin(ev) {
         });
     });
 }
-function handleRenderUser(ev) {
+function handleRenderHome(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var userId, data, userInfo, user, name;
+        var currentPage, userId, data, userInfo, user, name, lowTasks, mediumTasks, highTasks;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     ev.preventDefault();
+                    currentPage = ev.target.title;
+                    userId = ev.target.location.search.replace(/.*?id=/g, "");
+                    return [4 /*yield*/, axios.get("users/logged-in-user?userId=" + userId)];
+                case 1:
+                    data = (_a.sent()).data;
+                    userInfo = data.userInfo;
+                    getUsersTasks(userId, currentPage);
+                    user = userInfo[0];
+                    name = document.querySelector("[data-name]");
+                    name.innerHTML = user.firstName + " " + user.lastName + "<br><span>" + user.role + "</span>";
+                    lowTasks = document.querySelector("[data-low]");
+                    mediumTasks = document.querySelector("[data-medium]");
+                    highTasks = document.querySelector("[data-high]");
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+function handleRenderRecentlyCreated(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        var currentPage, userId, data;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    ev.preventDefault();
+                    currentPage = ev.target.title.split(" ").join("");
+                    userId = ev.target.location.search.replace(/.*?id=/g, "");
+                    return [4 /*yield*/, axios.get("users/logged-in-user?userId=" + userId)];
+                case 1:
+                    data = (_a.sent()).data;
+                    getUsersTasks(userId, currentPage);
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+function handleRenderSettings(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        var currentPage, userId, data, userInfo, user;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    ev.preventDefault();
+                    currentPage = ev.target.title;
                     userId = ev.target.location.search.replace(/.*?id=/g, "");
                     return [4 /*yield*/, axios.get("users/logged-in-user?userId=" + userId)];
                 case 1:
                     data = (_a.sent()).data;
                     userInfo = data.userInfo;
                     user = userInfo[0];
-                    name = document.querySelector("[data-name]");
-                    name.innerHTML = user.firstName + " " + user.lastName + "<br><span>" + user.role + "</span>";
                     return [2 /*return*/];
             }
         });
     });
 }
-function handleRenderPage(ev) {
+function handlePageChange(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var userURL, requestedPage, data, data, error_2;
+        var userURL, requestedPage, data, error_2;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -138,93 +180,303 @@ function handleRenderPage(ev) {
                     requestedPage = ev.target.outerText.split(" ").join("");
                     _a.label = 1;
                 case 1:
-                    _a.trys.push([1, 6, , 7]);
-                    if (!(requestedPage === "home")) return [3 /*break*/, 3];
+                    _a.trys.push([1, 3, , 4]);
                     return [4 /*yield*/, axios
                             .post("/users/nav", { userURL: userURL, requestedPage: requestedPage })
                             .then(function (response) {
-                            var _a = response.data, firstName = _a.firstName, lastName = _a.lastName, gender = _a.gender, role = _a.role;
-                            renderHome(firstName, lastName, gender, role);
-                            return;
-                        })];
-                case 2:
-                    data = (_a.sent()).data;
-                    return [2 /*return*/];
-                case 3:
-                    if (!(requestedPage === "RecentlyCreated")) return [3 /*break*/, 5];
-                    return [4 /*yield*/, axios
-                            .post("/tasks/nav ", { userURL: userURL, requestedPage: requestedPage })
-                            .then(function (response) {
-                            var _a = response.data, newURL = _a.newURL, currentUsersTasks = _a.currentUsersTasks;
-                            console.log(newURL, currentUsersTasks);
+                            var newURL = response.data.newURL;
                             window.location.href = newURL;
-                            // renderRecentlyCreated(newURL ,tasks);
-                        })];
-                case 4:
-                    data = (_a.sent()).data;
-                    _a.label = 5;
-                case 5: return [3 /*break*/, 7];
-                case 6:
-                    error_2 = _a.sent();
-                    console.log("error in handleRenderPage:");
-                    console.log(error_2.message);
-                    return [3 /*break*/, 7];
-                case 7: return [2 /*return*/];
-            }
-        });
-    });
-}
-function renderHome(firstName, lastName, gender, role) {
-    var body = document.body;
-    var html = "\n  <body onload=\"handleRenderUser(event)\">\n    <div id=\"landing\">\n        <div id=\"control\">\n            <div id=\"control__nav\">\n                <nav>\n                    <ul>\n                        <li id=\"home\">\n                            <a onclick=\"handleRenderPage(event)\">\n                                <i class=\"material-icons white-color\">home</i>\n                            </a>\n                        </li>\n                        <li id=\"chart\">\n                            <a onclick=\"handleRenderPage(ev)\">\n                                <i class=\"material-icons white-color\">settings</i>\n                            </a>\n                        </li>\n                        <li id=\"info\">\n                            <a onclick=\"handleRenderPage(ev)\">\n                                <i class=\"material-icons white-color\">info</i>\n                            </a>\n                        </li>\n                    </ul>\n                </nav>\n            </div>\n        </div>\n        <div id=\"landing-home\">\n            <div id=\"landing-home__logo\">\n            <h1 data-name>" + firstName + " " + lastName + " <br><span>" + role + "</span></h1>\n            <img src=\"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ51Gk5jjB4qD-BkcDh_fhsE4HkfnLDblQPrQLaOY13u7v5MNoBea8JzZ5NZAa0G-gAcgY&usqp=CAU\"\n                    alt=\"\">\n            </div>\n            <div id=\"landing-home__search\">\n                <i class=\"material-icons\">search</i>\n                <input type=\"text\" placeholder=\"\">\n            </div>\n\n\n            <div id=\"landing-home__task\">\n                <h2>My Tasks</h2>\n                <div class=\"task\">\n                    <div class=\"icon icon__1\"><i class=\"material-icons\">list_alt</i></div>\n                    <p class=\"left\">To do</p>\n                    <p><span>5</span> tasks</p>\n                </div>\n                <div class=\"task\">\n                    <div class=\"icon icon__2\"><i class=\"material-icons\">drive_file_rename_outline</i></div>\n                    <p class=\"left\">In progress</p>\n                    <p><span>3</span> tasks</p>\n\n                </div>\n                <div class=\"task\">\n                    <div class=\"icon icon__3\"><i class=\"material-icons\">check_circle_outline</i>\n                    </div>\n                    <p class=\"left\">Done</p>\n                    <p> <span>12</span> tasks</p>\n\n                </div>\n            </div>\n            <div id=\"landing-home__recent\">\n                <div class=\"recent__title\">\n                    <h2><a onclick=\"handleRenderPage(event)\">Recently Created</a></h2>\n                    <i class=\"material-icons\">keyboard_arrow_right</i>\n                </div>\n\n\n                <div id=\"landing__task-count\">\n                    <div class=\"box box__home1\">\n                        <div id=\"box__flex\">\n                            <div class=\"box__header\">\n                                <div class=\"box__title\">\n                                    <p class=\"box__title-text box__title-home-text\">mobile app</p>\n                                </div>\n                            </div>\n                            <div class=\"box__expln box__expln-home\">\n                                <div class=\"flex-date\">\n                                    <i class=\"material-icons\">schedule</i>\n                                    <p>2 sep</p>\n                                </div>\n                            </div>\n                            <h4>high priority</h4>\n                        </div>\n                    </div>\n                    <div class=\"box box__home2\">\n                        <div id=\"box__flex\">\n                            <div class=\"box__header\">\n                                <div class=\"box__title\">\n                                    <p class=\"box__title-text box__title-home-text\">web</p>\n                                </div>\n                            </div>\n                            <div class=\"box__expln box__expln-home\">\n                                <div class=\"flex-date\">\n                                    <i class=\"material-icons\">schedule</i>\n                                    <p>30 nov</p>\n                                </div>\n                            </div>\n                            <h4>low priority</h4>\n                        </div>\n                    </div>\n                    <div class=\"box box__home3\">\n                        <div id=\"box__flex\">\n                            <div class=\"box__header\">\n                                <div class=\"box__title\">\n                                    <p class=\"box__title-text box__title-home-text\">PC</p>\n                                </div>\n                            </div>\n                            <div class=\"box__expln box__expln-home\">\n                                <div class=\"flex-date\">\n                                    <i class=\"material-icons\">schedule</i>\n                                    <p>25 dec</p>\n                                </div>\n                            </div>\n                            <h4>low priority</h4>\n                        </div>\n                    </div>\n\n\n\n                </div>\n            </div>\n        </div>\n    </div>\n</body>\n  ";
-    body.outerHTML = html;
-}
-function renderRecentlyCreated(ev) {
-    return __awaiter(this, void 0, void 0, function () {
-        var userURL, data, error_3;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    userURL = ev.target.baseURI;
-                    _a.label = 1;
-                case 1:
-                    _a.trys.push([1, 3, , 4]);
-                    return [4 /*yield*/, axios
-                            .post("/tasks/render", { userURL: userURL })
-                            .then(function (response) {
-                            var _a = response.data, ok = _a.ok, newUserURL = _a.newUserURL;
-                            console.log(ok, newUserURL);
-                            // let html;
-                            // currentUsersTasks.forEach(task => {
-                            //     html += `
-                            //     <li class="box">
-                            //                     <div id="box__flex">
-                            //                         <div class="box__header">
-                            //                             <div class="box__logo-square ${task.status}">
-                            //                                 <p class="box__logo">Bē</p>
-                            //                             </div>
-                            //                             <div class="box__title">
-                            //                                 <p class="box__title-text">${task.title}</p>
-                            //                                 <p class="box__title-urg">${task.urgency}</p>
-                            //                             </div>
-                            //                         </div>
-                            //                         <div class="box__expln">
-                            //                             <h4>${task.description}</h4>
-                            //                             <p class="box__expln-transp">${task.location}</p>
-                            //                         </div>
-                            //                         <div class="box__countdown">${task.date}</div>
-                            //                     </div>
-                            //                 </li>
-                            //                 `
-                            // })
                         })];
                 case 2:
                     data = (_a.sent()).data;
                     return [3 /*break*/, 4];
                 case 3:
+                    error_2 = _a.sent();
+                    console.log("error in handleRenderPage:");
+                    console.log(error_2.message);
+                    return [3 /*break*/, 4];
+                case 4: return [2 /*return*/];
+            }
+        });
+    });
+}
+function getUsersTasks(userId, currentPage) {
+    return __awaiter(this, void 0, void 0, function () {
+        var data, currentUsersTasks, error_3;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    _a.trys.push([0, 2, , 3]);
+                    return [4 /*yield*/, axios.get("tasks/getTasks?ownerId=" + userId)];
+                case 1:
+                    data = (_a.sent()).data;
+                    currentUsersTasks = data;
+                    renderTasks(currentUsersTasks, currentPage);
+                    return [3 /*break*/, 3];
+                case 2:
                     error_3 = _a.sent();
-                    console.log("error in renderRecentlyCreated:");
+                    console.log("error in getUsersTasks:");
                     console.log(error_3.message);
+                    return [3 /*break*/, 3];
+                case 3: return [2 /*return*/];
+            }
+        });
+    });
+}
+function renderTasks(currentUsersTasks, currentPage) {
+    return __awaiter(this, void 0, void 0, function () {
+        var html, formHtml, tasksRoot, tasksCount, counterRoot, tasksRoot, nextRoot, nextTask, formField;
+        return __generator(this, function (_a) {
+            sortTasksByDate(currentUsersTasks);
+            html = "";
+            formHtml = "";
+            try {
+                if (currentPage === "Home") {
+                    tasksRoot = document.querySelector("[data-box-root]");
+                    tasksCount = document.querySelector("[data-task-count]");
+                    currentUsersTasks.forEach(function (task) {
+                        html += "\n    <div class=\"box " + task.urgency + "\">\n                          <div id=\"box__flex\">\n                              <div class=\"box__header\">\n                                  <div class=\"box__title\">\n                                      <p class=\"box__title-text box__title-home-text\">" + task.title + "</p>\n                                  </div>\n                              </div>\n                              <div class=\"box__expln box__expln-home\">\n                                  <div class=\"flex-date\">\n                                      <i class=\"material-icons\">schedule</i>\n                                      <p>" + "task.date" + "</p>\n                                  </div>\n                              </div>\n                              <h4>" + task.urgency + " priority</h4>\n                          </div>\n                      </div>";
+                    });
+                    tasksRoot.innerHTML = html;
+                    return [2 /*return*/];
+                }
+                if (currentPage === "RecentlyCreated") {
+                    counterRoot = document.querySelector("[data-counter]");
+                    counterRoot.innerHTML = currentUsersTasks.length;
+                    tasksRoot = document.querySelector("[data-box-root]");
+                    nextRoot = document.querySelector("[data-next-root]");
+                    currentUsersTasks.forEach(function (task) {
+                        if (task.description.length > 20) {
+                            task.descriptionShorted = task.description.substring(0, 15) + "...";
+                        }
+                        else {
+                            task.descriptionShorted = task.description;
+                        }
+                        html += "\n     <li class=\"box\">\n                      <div id=\"box__flex\">\n                          <div class=\"box__header\">\n                              <div class=\"box__logo-square " + task.urgency + "\">\n                                  <p class=\"box__logo\">B\u0113</p>\n                              </div>\n                              <div  class=\"box__title\">\n                                  <p class=\"box__title-text\">" + task.title + "</p>\n                                  <p class=\"box__title-urg\">" + task.urgency + "</p>\n                              </div>\n\n                              <i data-id=\"" + task._id + "\" onclick=\"renderTaskModal(event)\" class=\"fas fa-edit\"></i>\n\n                          </div>\n                          <div class=\"box__expln\">\n                              <h4>" + task.descriptionShorted + "</h4>\n                              <p class=\"box__expln-transp\">" + task.location + "</p>\n                          </div>\n                          <div  class=\"box__countdown\">" + task.date + "</div>\n                          <a onclick=\"handleTaskDelete(event)\" class=\"box__delete\">\n                          <i data-delete=\"" + task._id + "\" class=\"fas fa-trash-alt\"></i>\n                          </a></div>\n                      </div>\n\n                  </li>";
+                    });
+                    nextTask = getNextTask(currentUsersTasks);
+                    tasksRoot.innerHTML = html;
+                    formHtml = "\n    <input onchange=\"handleColor(event)\" type=\"color\" name=\"color\" id=\"color\" value=\"" + nextTask.color + "\">\n                        <div  class=\"task-title\">\n                            <input type=\"text\" name=\"title\" id=\"title\" value=\"" + nextTask.title + "\">\n                        </div>\n                        <div class=\"task-urg\">\n                            <select type=\"text\" name=\"urgency\" id=\"urg\">\n                            <option selected disabled value=\"" + nextTask.urgency + "\">" + nextTask.urgency + "</option>\n                            <option value=\"high\">High</option>\n                                <option value=\"medium\">Medium</option>\n                                <option value=\"low\">Low</option>\n                            </select>\n                            \n                        </div>\n                        <div class=\"task-description\">\n                            <input type=\"text\" name=\"description\" id=\"description\" value=\"" + nextTask.description + "\">\n                        </div>\n                        <div class=\"task-location\">\n                            <input type=\"text\" name='location' id='owner' value=\"" + nextTask.location + "\">\n                        </div>\n                        <div class=\"task-time\">\n                            <input type=\"date\" name=\"date\" id=\"date\" value=\"" + nextTask.date + "\">\n                        </div>\n                        <input data-id=\"" + nextTask._id + "\" type=\"submit\" name=\"submit\" id=\"submit\" value=\"Update this task\">\n";
+                    formField = nextRoot.parentElement;
+                    formField.style.background = nextTask.color;
+                    nextRoot.innerHTML = formHtml;
+                    return [2 /*return*/];
+                }
+            }
+            catch (error) {
+                console.log(error);
+                console.error(error.message);
+            }
+            return [2 /*return*/];
+        });
+    });
+}
+function addGlobalEventListener(type, selector, callback, options, parent) {
+    if (parent === void 0) { parent = document; }
+    parent.addEventListener(type, function (e) {
+        if (e.target.matches(selector))
+            callback(e);
+    }, options);
+}
+function sortTasksByDate(tasks) {
+    tasks.forEach(function (task) {
+        var year = new Date(task.date).getFullYear();
+        var month = ("0" + (new Date(task.date).getMonth() + 1)).slice(-2);
+        var day = ("0" + (new Date(task.date).getDate() + 1)).slice(-2);
+        var stringDate = year + "-" + month + "-" + day;
+        task.year = year;
+        task.month = month;
+        task.day = day;
+        task.date = new Date(task.date).toLocaleDateString().replace(/\//g, '-');
+        task.date = stringDate;
+    });
+    tasks.sort(function (a, b) { return a.day - b.day; });
+    tasks.sort(function (a, b) { return a.month - b.month; });
+    tasks.sort(function (a, b) { return a.year - b.year; });
+}
+function getNextTask(currentUsersTasks) {
+    var _this = this;
+    var thisYear = new Date().getFullYear();
+    var thisMonth = new Date().getMonth() + 1;
+    var thisDay = new Date().getDate();
+    var nextTasks = currentUsersTasks.filter(function (task) {
+        if (task.year > thisYear) {
+            return task;
+        }
+        else if (task.year = _this) {
+            if (task.month > thisMonth) {
+                return task;
+            }
+            else if (task.month = thisMonth) {
+                if (task.day > thisDay) {
+                    return task;
+                }
+            }
+        }
+    });
+    var nextTask = nextTasks[0];
+    return nextTask;
+}
+function handleNewTask(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        var userId, _a, color, title, description, urgency, location, date;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
+                case 0:
+                    ev.preventDefault();
+                    userId = ev.target.baseURI.slice(-24);
+                    _a = ev.target.elements, color = _a.color, title = _a.title, description = _a.description, urgency = _a.urgency, location = _a.location, date = _a.date;
+                    (color = color.value), (title = title.value), (description = description.value), (urgency = urgency.value), (location = location.value), (date = date.value);
+                    return [4 /*yield*/, axios
+                            .post("/tasks/add-new-task", {
+                            color: color,
+                            title: title,
+                            description: description,
+                            urgency: urgency,
+                            location: location,
+                            date: date,
+                            userId: userId
+                        })
+                            .then(function (response) {
+                            var currentUsersTasks = response.data.currentUsersTasks;
+                            renderTasks(currentUsersTasks, "RecentlyCreated");
+                        })];
+                case 1:
+                    _b.sent();
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+function handleTaskUpdate(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        var color, title, urgency, description, location, date, taskId, userId, data, currentUsersTasks, error_4;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    ev.preventDefault();
+                    color = ev.target.elements.color.value;
+                    title = ev.target.elements.title.value;
+                    urgency = ev.target.elements.urgency.value;
+                    description = ev.target.elements.description.value;
+                    location = ev.target.elements.location.value;
+                    date = ev.target.elements.date.value;
+                    taskId = ev.target.elements.submit.dataset.id;
+                    userId = ev.target.baseURI.split("=")[1];
+                    _a.label = 1;
+                case 1:
+                    _a.trys.push([1, 3, , 4]);
+                    return [4 /*yield*/, axios.patch("/tasks/updated-task", {
+                            _id: taskId,
+                            ownerId: userId,
+                            color: color,
+                            title: title,
+                            urgency: urgency,
+                            description: description,
+                            location: location,
+                            date: date
+                        })];
+                case 2:
+                    data = (_a.sent()).data;
+                    currentUsersTasks = data.currentUsersTasks;
+                    renderTasks(currentUsersTasks, "RecentlyCreated");
+                    closeTaskModal();
+                    return [3 /*break*/, 4];
+                case 3:
+                    error_4 = _a.sent();
+                    console.log('error in handleTaskUpdate');
+                    console.log({ error: error_4.message });
+                    return [3 /*break*/, 4];
+                case 4: return [2 /*return*/];
+            }
+        });
+    });
+}
+function handleTaskDelete(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        var taskId, userURL, data, currentUsersTasks, currentPage, error_5;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    taskId = ev.target.dataset["delete"];
+                    userURL = ev.target.baseURI;
+                    _a.label = 1;
+                case 1:
+                    _a.trys.push([1, 3, , 4]);
+                    return [4 /*yield*/, axios["delete"]('/tasks/delete-task', { data: { taskId: taskId, userURL: userURL } })];
+                case 2:
+                    data = (_a.sent()).data;
+                    currentUsersTasks = data.currentUsersTasks, currentPage = data.currentPage;
+                    renderTasks(currentUsersTasks, currentPage);
+                    return [3 /*break*/, 4];
+                case 3:
+                    error_5 = _a.sent();
+                    console.log('error in handleTaskUpdate');
+                    console.log({ error: error_5.message });
+                    return [3 /*break*/, 4];
+                case 4: return [2 /*return*/];
+            }
+        });
+    });
+}
+function handleColor(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        var newColor, formField;
+        return __generator(this, function (_a) {
+            newColor = ev.target.value;
+            formField = document.querySelector("#landing__task-next");
+            formField.style.backgroundColor = newColor;
+            return [2 /*return*/];
+        });
+    });
+}
+// task update modal:
+function openTaskModal(modal) {
+    return __awaiter(this, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            if (modal == null)
+                return [2 /*return*/];
+            modal.classList.add('active');
+            overlay.classList.add('active');
+            return [2 /*return*/];
+        });
+    });
+}
+function closeTaskModal() {
+    var modal = document.querySelector('.taskModal');
+    if (modal == null)
+        return;
+    modal.classList.remove('active');
+    overlay.classList.remove('active');
+}
+function renderTaskModal(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        var taskId, modal, overlay, html, data, currentTask, error_6;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    taskId = ev.target.dataset.id;
+                    modal = document.querySelector('.taskModal');
+                    overlay = document.querySelector('[data-taskModal-overlay]');
+                    html = '';
+                    _a.label = 1;
+                case 1:
+                    _a.trys.push([1, 3, , 4]);
+                    return [4 /*yield*/, axios.post('/tasks/task', { taskId: taskId })];
+                case 2:
+                    data = (_a.sent()).data;
+                    currentTask = data;
+                    if (!currentTask)
+                        throw new Error("no task in the modal");
+                    currentTask.date = currentTask.date.slice(0, 10);
+                    html += "\n<div class=\"taskModal-header\">\n<h1>" + currentTask.title + "</h1>\n<button onclick=\"closeTaskModal()\" class=\"taskModal-closeButton\"> &times; </button>\n</div>\n<form onsubmit=\"handleTaskUpdate(event)\" class=\"taskModal-form\">\n<input onchange=\"handleColor(event)\" type=\"color\" name=\"color\" id=\"color\" value=\"" + currentTask.color + "\">\n<div  class=\"taskModal-title\">\n<input type=\"text\" name=\"title\" id=\"title\" value=\"" + currentTask.title + "\">\n\n</div>\n<div class=\"taskModal-urgency\">\n<select type=\"text\" name=\"urgency\" id=\"urg\">\n<option selected disabled value=\"" + currentTask.urgency + "\">" + currentTask.urgency + "</option>\n<option value=\"high\">High</option>\n<option value=\"medium\">Medium</option>\n<option value=\"low\">Low</option>\n</select>\n\n</div>\n<div class=\"taskModal-description\">\n<input type=\"text\" name=\"description\" id=\"description\" value=\"" + currentTask.description + "\">\n</div>\n<div class=\"taskModal-location\">\n<input type=\"text\" name='location' id='owner' value=\"" + currentTask.location + "\">\n</div>\n<div class=\"taskModal-date\">\n<input type=\"date\" name=\"date\" id=\"date\" value=\"" + currentTask.date + "\">\n</div>\n<input data-id=\"" + currentTask._id + "\" type=\"submit\" name=\"submit\" id=\"submit\" value=\"Update this task\">\n</form>\n<div onclick=\"closeTaskModal()\" data-taskModal-overlay class=\"overlay\"></div>";
+                    modal.innerHTML = html;
+                    openTaskModal(modal);
+                    return [3 /*break*/, 4];
+                case 3:
+                    error_6 = _a.sent();
+                    console.log(error_6.message);
+                    console.log(error_6);
                     return [3 /*break*/, 4];
                 case 4: return [2 /*return*/];
             }

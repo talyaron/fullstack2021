@@ -66,12 +66,14 @@ export const addArtToUser = async (req, res) => {
 }
 
 export const buyAndSell = async (req, res) => {
-    const { _id, priceToRemove, ownerId } = req.body;
+    const { buyerId, price, ownerId } = req.body;
 
     //בטח אפשר לאחד את שתי שורות הבאות, אבל עוד מעט 2 בלילה 
     //לא הצלחתי לעדכן חיסור וחיבור הפאנד 
-    const result = await User.updateOne({ _id: ownerId }, { $inc: { price: priceToRemove } })
-    const result2 = await User.updateOne({ _id: _id }, { $inc: { price: -priceToRemove } })
+    console.log(ownerId,buyerId,price);
+    
+    const result = await User.updateOne({ _id: ownerId }, { $inc: { fund: price } })
+    const result2 = await User.updateOne({ _id: buyerId }, { $inc: { fund: -price } })
 
     res.send({ ok: true })
 

@@ -1,40 +1,76 @@
 import task from "../model/taskModel";
 
-export const renderPage = async (req, res) => {
-  const { userURL, requestedPage } = req.body;
-  console.log( userURL, requestedPage);
-  
-  const appURL = userURL.split("/")[2];
-  const userId = userURL.slice(-24);
-  const currentUsersTasks = await task.find({ ownerId: userId });
-  const newURL = `/${requestedPage}.html?id=${userId}`;
-  console.log(currentUsersTasks, requestedPage);
-//   let { title, description, urgency, location, date } = currentUsersTasks[0];
-  if (requestedPage === "RecentlyCreated") {
-      try {
-          res.send({
-              newURL: newURL, currentUsersTasks: currentUsersTasks
-            });
-        } catch (error) {
-            console.log("error in renderPage:");
-            console.log(error.message);
-            res.send({ error: error.message });
-            // }
-        }
-        return;
-    }
-};
+
+
 
 export const getUsersTasks = async (req,res) => {
-    const {userURL} = req.body;
-    const userId = userURL.slice(-24);
+    const {ownerId} = req.query;
 
+    let currentUsersTasks = await task.find({ ownerId: ownerId });
     
-    console.log(userURL);
-    const currentUsersTasks = await task.find({ ownerId: userId });
+    res.send(currentUsersTasks)
+    }
+
+export const addNewTask = async (req, res) => {
+    try{
+    const {color, title, description, urgency, location, date, userId} = req.body;
+    if(userId && color && title && description && urgency && location && date) {
+
+        const newTask = new task({color: color, title: title, description: description, urgency: urgency, location: location, date: date, ownerId: userId})
+
+        await newTask.save();
+        res.send({currentUsersTasks: await task.find ({ownerId: userId})})
+    }}catch(error){
+        console.error(error);
+        res.send({error: error.message})
+    }
     
-    console.log(userURL);
-    res.send({ok: true, newUserURL: userURL})
-    
-    console.log(currentUsersTasks);
+    }
+
+    export const updateTask = async (req, res) => {
+        try {
+            const {_id, ownerId,color ,title, urgency, description, location, date} = req.body;
+            if(_id && ownerId) {
+
+                const updatedTask = await task.findOneAndUpdate ({_id:_id, ownerId:ownerId}, {color:color, title:title, urgency:urgency, description:description, location:location, date:date});
+                const currentUsersTasks = await task.find ({ ownerId:ownerId})
+                res.send({updatedTask, currentUsersTasks})
+            }
+            
+        } catch (error) {
+            console.error(error);
+            res.send({error: error.message})
+            
+        }
+    }
+    export const deleteTask = async (req, res) => {
+        try {
+            
+            const {taskId, userURL} = req.body;
+const userId = userURL.split("=")[1];
+const currentPage = userURL.split("/")[3].split(".")[0];
+
+await task.findOneAndDelete ({_id:taskId, ownerId:userId});
+            const currentUsersTasks = await task.find({ownerId:userId})   
+            res.send({currentUsersTasks, currentPage})         
+            
+        } catch (error) {
+            console.error(error);
+            res.send({error: error.message})
+            
+        }
+    }
+
+    export const getTask = async (req, res) => {
+        try {
+            const {taskId} = req.body;
+            const currentTask = await task.findOne({_id:taskId});
+            console.log(currentTask);
+            
+            res.send(currentTask);
+            
+        } catch (error) {
+            console.error(error);
+            res.send({error: error.message})
+        }
     }

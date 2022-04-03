@@ -132,15 +132,18 @@ exports.addArtToUser = function (req, res) { return __awaiter(void 0, void 0, vo
     });
 }); };
 exports.buyAndSell = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, _id, priceToRemove, ownerId, result, result2;
+    var _a, buyerId, price, ownerId, result, result2;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
-                _a = req.body, _id = _a._id, priceToRemove = _a.priceToRemove, ownerId = _a.ownerId;
-                return [4 /*yield*/, userModel_1["default"].updateOne({ _id: ownerId }, { $inc: { price: priceToRemove } })];
+                _a = req.body, buyerId = _a.buyerId, price = _a.price, ownerId = _a.ownerId;
+                //בטח אפשר לאחד את שתי שורות הבאות, אבל עוד מעט 2 בלילה 
+                //לא הצלחתי לעדכן חיסור וחיבור הפאנד 
+                console.log(ownerId, buyerId, price);
+                return [4 /*yield*/, userModel_1["default"].updateOne({ _id: ownerId }, { $inc: { fund: price } })];
             case 1:
                 result = _b.sent();
-                return [4 /*yield*/, userModel_1["default"].updateOne({ _id: _id }, { $inc: { price: -priceToRemove } })];
+                return [4 /*yield*/, userModel_1["default"].updateOne({ _id: buyerId }, { $inc: { fund: -price } })];
             case 2:
                 result2 = _b.sent();
                 res.send({ ok: true });

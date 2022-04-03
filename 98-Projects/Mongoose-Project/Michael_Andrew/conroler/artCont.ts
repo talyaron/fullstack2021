@@ -47,10 +47,9 @@ export const getForSale = async (req, res) => {
 
 export const buyAndSell = async (req, res) => {
 
-  const { id, ownerId } = req.body;
-  console.log(id, ownerId);
+  const {artId, buyerId } = req.body;
 
   //הצלחתי לעדכן כאן 
-  const result = await Art.findOneAndUpdate({ _id: id }, { forSale: false, ownerId: id })
+  const result = await Art.findOneAndUpdate({_id: artId},{ forSale: false, ownerId: buyerId })
   res.send({ ok: true, result })
 }

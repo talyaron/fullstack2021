@@ -1,3 +1,4 @@
+import e from "express";
 import User from "../models/userModel";
 
 export const getUser = async (req, res) => {
@@ -9,7 +10,7 @@ export const getUser = async (req, res) => {
         if (password === result[0].password) {
             res.send({ result });
         }
-        else throw new Error("password not correct")
+        else throw new Error("password or email incorrect")
     }
     catch (err) {
         console.error(err);
@@ -29,9 +30,38 @@ export const addUser = async (req, res) => {
         res.send({ error: err.message, ok: false })
     }
 }
-// export const updateUser = async (req, res) =>{
-//     try{
-//         const {updatedUser} = req.body;
+export const deleteUser = async (req, res) => {
+    try {
 
-//     }
-// }
+        const { email } = req.body;
+        // console.log(email);
+
+        if (email) {
+            const userDelete = await User.deleteOne({ email: email })
+            // if (!email) throw new Error("Didnt find user with such an email");
+            res.send({ results: "user deleted" });
+        } else {
+            throw new Error("Email was not found in request");
+        }
+    } catch (err) {
+        console.error(`In delete-user: ${err.message}`);
+        res.send({ error: err.message });
+    }
+}
+
+export const updateUser = async (req, res) => {
+    try {
+        const updatedUser = req.body;
+        const result = await User.updateOne({ email: updatedUser.email }, updatedUser);
+        if(updatedUser){
+        res.send({ok: true });
+        }
+        else throw new Error("user didnt update")
+        
+        
+    } catch (err) {
+        console.error(err);
+        res.send({ error: err.message, ok: false })
+    }
+
+}

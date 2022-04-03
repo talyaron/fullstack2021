@@ -6,7 +6,9 @@ var TaskSchema = new mongoose_1["default"].Schema({
     description: String,
     urgency: String,
     location: String,
-    date: Date
+    date: Date,
+    color: String,
+    ownerId: String
 });
 var task = mongoose_1["default"].model("tasks", TaskSchema);
 exports["default"] = task;

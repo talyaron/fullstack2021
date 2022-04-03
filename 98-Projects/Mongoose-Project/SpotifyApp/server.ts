@@ -2,7 +2,7 @@ import express from 'express';
 import mongoose from "mongoose";
 import color from "colors";
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 app.use(express.static("public"));
 app.use(express.json());
 
@@ -12,7 +12,9 @@ import userRoute from "./routes/userRoute";
 app.use("/songsUser", userRoute);
 
 import songsRoute from "./routes/songsRoute";
-app.use("/songsOwner", songsRoute )
+app.use("/songs", songsRoute )
+
+
 
 
 app.get('/', (req, res) => {

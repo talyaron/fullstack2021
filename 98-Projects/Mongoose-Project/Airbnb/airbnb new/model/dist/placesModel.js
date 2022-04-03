@@ -2,35 +2,34 @@
 exports.__esModule = true;
 exports.users = void 0;
 var mongoose_1 = require("mongoose");
+// const addressSchema= new mongoose.Schema({
+//       country:String,
+//       country_code:String
+// })
 var PlacesSchema = new mongoose_1["default"].Schema({
-    _id: String,
-    access: String,
-    accommodates: Number,
-    address: Object,
+    id: String,
+    accommodates: String,
+    address: String,
+    address_country: String,
+    address_country_code: String,
     name: String,
-    summary: String,
-    // checkIn: String,
-    // checkOut: String,
-    amenities: Array,
-    bedrooms: Number,
-    beds: Number,
-    number_of_reviews: Number,
-    price: Number,
+    checkIn: String,
+    checkOut: String,
+    amenities: String,
+    bedrooms: String,
+    beds: String,
+    number_of_reviews: String,
+    price: String,
     cancle: String,
-    bathrooms: Number,
+    bathrooms: String,
     images: String,
-    host: Object,
-    space: String,
+    host: String,
     description: String,
     bed_type: String,
-    reviews: Array,
-    cancellation_policy: String
-}, {
-    capped: { size: 1024 },
-    bufferCommands: false,
-    autoCreate: false
+    reviews: String,
+    reviews_rating: String
 });
-var Places = mongoose_1["default"].model("listingsAndReviews", PlacesSchema);
+var Places = mongoose_1["default"].model("airbnbLocations", PlacesSchema);
 exports["default"] = Places;
 var userSchema = new mongoose_1["default"].Schema({
     name: String,
