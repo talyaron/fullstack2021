@@ -295,6 +295,7 @@ function loginPractice(username, password) {
     return __awaiter(this, void 0, void 0, function* () {
         const { data } = yield axios.get(`users/get-user?username=${username}&password=${password}`);
         const greetings = timeOfDay();
+        console.log(data);
         if (data.user) {
             document.querySelector(".hello").innerHTML = `&nbsp;&nbsp;&nbsp;${greetings} <span style="color: orange;">&nbsp;${username}</span>`;
             handleShowWindow('logreg');
@@ -303,10 +304,9 @@ function loginPractice(username, password) {
         else if (data === 'nouser') {
             window.alert('Username doesnt exist');
         }
-        else if (data.msg === 'nopass') {
+        else if (data === 'nopass') {
             window.alert('Password doesnt match');
         }
-        renderStats(storeUserName);
     });
 }
 // START countDownDate:
@@ -345,26 +345,3 @@ btn.addEventListener('click', () => __awaiter(this, void 0, void 0, function* ()
     }
 }));
 //   END SHARE
-function renderStats(username) {
-    return __awaiter(this, void 0, void 0, function* () {
-        if (username) {
-            const { data } = yield axios.get(`users/get-user?username=${username}`);
-            const user = data.user[0];
-            const userPlayed = user.played;
-            const userWins = user.wins;
-            const winPerc = Math.floor((userWins / userPlayed) * 100);
-            const played = document.querySelector("#played");
-            const wins = document.querySelector("#wins");
-            const current = document.querySelector("#current");
-            const max = document.querySelector("#max");
-            played.innerHTML = `${user.played}`;
-            if (winPerc) {
-                wins.innerHTML = `${winPerc}`;
-            }
-            else
-                (wins.innerHTML = '0');
-            current.innerHTML = `${user.current_streak}`;
-            max.innerHTML = `${user.max_streak}`;
-        }
-    });
-}
