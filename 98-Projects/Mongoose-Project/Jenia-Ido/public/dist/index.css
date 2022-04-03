@@ -224,14 +224,15 @@ body {
   color: gray;
 }
 .profile__navBar--down {
-  position: fixed;
   bottom: 15px;
+  height: 2vh;
   display: flex;
   justify-content: space-around;
-  width: 347px;
-  background-color: gray;
+  width: 345px;
+  background-color: black;
   padding: 10px;
-  border-radius: 3%;
+  border-bottom-left-radius: 30%;
+  border-bottom-right-radius: 30%;
 }
 
 .main {

@@ -303,15 +303,17 @@ body {
         }
     }
     &__navBar--down{
-        position: fixed;
+        // position: fixed;
         bottom: 15px;
-        // left: 10vw;
+        height: 2vh;
         display: flex;
         justify-content: space-around;
-        width: 347px;
-        background-color: gray;
+        width: 345px;
+        background-color: rgb(0, 0, 0);
         padding: 10px;
-        border-radius: 3%;
+        border-bottom-left-radius: 30%;
+        border-bottom-right-radius: 30%;
+
         // .userIcon{}
     }
 }
