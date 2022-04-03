@@ -17,7 +17,7 @@ export const getImages = async (req, res) => {
 export const addImages = async (req, res) => {
     try {
         const { email, password } = req.body;
-        const newImgs = { email: email, password: password, profileUrl: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png' }
+        const newImgs = { email: email, password: password, profileUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSL4klHXuPMAaVeQs1vFZl-fIG1mnux026heg&usqp=CAU' }
         const userImgs = new Images(newImgs)
         const result = await userImgs.save()
         res.send({ result });
@@ -70,7 +70,7 @@ export const getUsersImgs = async (req , res) => {
                 profileImgs.push({img,userEmail})
            }
        })
-       console.log(profileImgs); 
+    //    console.log(profileImgs); 
        if(email){
            res.send({ok:true,profileImgs})
        }

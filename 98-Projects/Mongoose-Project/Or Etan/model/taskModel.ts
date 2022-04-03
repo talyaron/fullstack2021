@@ -7,6 +7,8 @@ const TaskSchema = new mongoose.Schema({
   date: Date,
   color: String,
   ownerId: String,
+  checked: Boolean,
+  timeChecked: String,
 });
 
 const task = mongoose.model("tasks", TaskSchema);

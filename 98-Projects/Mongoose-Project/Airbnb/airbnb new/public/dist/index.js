@@ -34,17 +34,14 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-function loadPlaces() {
+function loadPlaces(data) {
     return __awaiter(this, void 0, void 0, function () {
-        var data;
         return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, axios.get("/places/getPlaces")];
-                case 1:
-                    data = (_a.sent()).data;
-                    console.log(data);
-                    return [2 /*return*/];
-            }
+            //   const { data } = await axios.get("/places/getPlaces");
+            //   console.log(data);
+            console.log(data);
+            renderAirbnbOptions(data);
+            return [2 /*return*/];
         });
     });
 }
@@ -101,7 +98,7 @@ function renderPlace(data) {
 }
 function handleFindAirbnb(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var search, checkIn, checkOut, adults, children, infants, pets, data;
+        var search, checkIn, checkOut, adults, children, infants, pets, data, options;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -117,9 +114,8 @@ function handleFindAirbnb(ev) {
                     return [4 /*yield*/, axios.get("/places/search-airbnb?search=" + search + "&checkIn=" + checkIn + "&checkOut=" + checkOut + "&adults=" + adults + "&children=" + children + "&infants=" + infants + "&pets=" + pets + " ")];
                 case 1:
                     data = (_a.sent()).data;
-                    ///places/search-airbnb?adults=${adults}
-                    // search=${search}&checkIn=${checkIn}&checkOut=${checkOut}&adults=${adults}&children=${children}&infants=${infants}&pets=${pets}
-                    console.log(data);
+                    options = data.options;
+                    loadPlaces(options);
                     return [2 /*return*/];
             }
         });
@@ -136,7 +132,6 @@ function handleCities(ev) {
                     return [4 /*yield*/, axios.post("/places/search-city", { city: city })];
                 case 1:
                     data = (_a.sent()).data;
-                    console.log(data);
                     return [2 /*return*/];
             }
         });
@@ -149,7 +144,6 @@ function handleFilter(ev) {
             switch (_a.label) {
                 case 0:
                     price = ev.target.elements.price.valueAsNumber;
-                    console.log(price);
                     return [4 /*yield*/, axios.get("/places/getFiltered", { data: { price: price } })];
                 case 1:
                     data = (_a.sent()).data;
@@ -157,4 +151,14 @@ function handleFilter(ev) {
             }
         });
     });
+}
+function renderAirbnbOptions(data) {
+    console.log(data);
+    // html+=`<div class="card-grid">`
+    var html = "";
+    data.forEach(function (place) {
+        console.log(place);
+        html += "<div class=\"card-grid\">\n    <div class=\"card-grid__card\"> \n              <div class=\"card-header card-img\">\n                  <img src=\"" + place.images.picture_url + "\" alt=\"\">   \n              </div>\n          <div class=\"content\">\n              <div class=\"card-grid__card__card-header\">\n                  <button class=\"btn\"><img src=\"images/icons-heart.png\" alt=\"\"></button>\n                  <button class=\"btn btn-outline\">" + place.name + "</button>\n              </div>\n              <div class=\"card-grid__card__card-body\">\n                  <p>" + place.summary + "</p>\n              </div>\n              <div class=\"card-grid__card__card-footer\">\n                  <button class=\"btn\"><p>" + place.price + "</p>/night</button>\n                  <button class=\"btn btn-outline\"><p>" + place.reviews_rating + "(" + place.number_of_reviews + ")</p></button>\n              </div>\n            </div>\n    </div>";
+    });
+    document.querySelector("#rootPlaces").innerHTML = html;
 }

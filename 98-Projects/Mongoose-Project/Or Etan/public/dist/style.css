@@ -143,8 +143,14 @@ body {
   padding: 1.5rem;
 }
 #landing-home {
+  padding: 15px;
   background: white;
-  margin-top: 4rem;
+  padding-bottom: 70px;
+}
+@media only screen and (min-width: 600px) {
+  #landing-home {
+    margin-top: 4rem;
+  }
 }
 #landing-home__logo {
   display: flex;
@@ -166,7 +172,7 @@ body {
   cursor: pointer;
 }
 #landing-home__logo span {
-  font-size: 1em;
+  font-size: 1rem;
   font-weight: 600;
 }
 #landing-home__search {
@@ -283,7 +289,7 @@ body {
   max-width: 100vw;
   background: transparent;
   height: fit-content;
-  overflow-y: scroll;
+  overflow-x: scroll;
   list-style: none;
   margin-top: 0.5em;
 }
@@ -300,7 +306,7 @@ body {
   box-sizing: content-box;
   font-family: "Poppins", sans-serif;
   text-transform: capitalize;
-  background: white;
+  background: caf8ff;
   border-radius: 0.5rem;
   padding: 0rem 1.5rem 1rem 1.5rem;
   min-width: 18ch;
@@ -521,6 +527,13 @@ body {
   font-size: 1.25rem;
   font-weight: bold;
 }
+.taskModal-title {
+  display: flex;
+  place-content: space-between;
+}
+.taskModal-title * {
+  width: 50%;
+}
 .taskModal .overlay {
   z-index: -20;
   position: absolute;
@@ -539,6 +552,11 @@ body {
 }
 .taskModal-form {
   padding: 1em 2em;
+}
+.taskModal-form {
+  padding: 1em 2em;
+  display: flex;
+  flex-direction: column;
 }
 
 main {
@@ -618,4 +636,14 @@ main ul li {
     transform: rotate(360deg) translate(-165px) rotate(-360deg);
     opacity: 1;
   }
+}
+#settings {
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#settings li {
+  text-decoration: none;
 }

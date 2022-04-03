@@ -108,7 +108,7 @@ async function renderProfile(email, password) {
     <div class="profile__header">
         <div class="profile__header__imgBorder"  style="background-image: url(${imgs.profileUrl})">
         <button class="profile__header__imgBorder-changeImage" name="${user.email}"
-        id=${imgs.profileUrl} lang="${user.password}"type="button" onclick="showProfilePicture(event)">View</button>
+        id="${imgs.profileUrl}" lang="${user.password}" "type="button" onclick="showProfilePicture(event)">View</button>
         </div>
         <div class="profile__header__name">${user.firstName} ${user.lastName}</div>
         <div class="profile__header__birthday">${user.birthday}</div>
@@ -123,7 +123,7 @@ async function renderProfile(email, password) {
     <div class="profile__user__pics"></div>
         <div class="profile__navBar--down">
     <div class="homeIcon"><a href="index.html"><i class="fas fa-home"></i></a></div>
-    <div class="profileIcon"><i class="fas fa-user" onclick="renderProfile(${email},${password})"></i></div>
+    <div class="profileIcon"><i class="fas fa-user"></i></div>
     <div class="compassIcon" onclick="browserUser(event)"><a href="browse.html"><i class="fas fa-compass"></i></a></div>
     <div class="heartIcon"><i class="fas fa-heart"></i></div>
     </div>
@@ -311,9 +311,6 @@ async function showProfilePicture(ev) {
     const email = ev.target.name;
     const profileImg = ev.target.id;
     const password = ev.target.lang;
-    console.log(password);
-
-
 
     const header: any = document.querySelector(".profile__header");
     header.style.opacity = "0.2";
@@ -333,8 +330,7 @@ async function showProfilePicture(ev) {
 async function handleExit(ev) {
     const email = ev.target.id;
     const password = ev.target.lang;
-    console.log(password);
-    console.log(email);
+    
 
     renderProfile(email, password);
 }
@@ -365,11 +361,9 @@ async function userCategoryActive(ev) {
 
 async function browserUser() {
     const email = JSON.parse(localStorage.getItem("UserEmail"));
-
     try {
-
         const { ok, data, error } = await axios.patch('/images/get-users-profieImg', { email })
-
+        
         if (error) throw new Error(error)
         const usersProfileImgsList = data.profileImgs
         renderbrowseImgs(usersProfileImgsList)
@@ -378,7 +372,6 @@ async function browserUser() {
     }
 }
 function renderbrowseImgs(list) {
-    console.log(list);
     const display = document.querySelector('.browseMain_display')
     let html = " ";
     list.forEach(user => {

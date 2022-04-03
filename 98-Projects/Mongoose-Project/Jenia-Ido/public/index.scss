@@ -64,7 +64,7 @@ body {
             }
         }
        .delete{
-           color: rgb(230,150,80);
+           color: rgb(19, 19, 18);
         }
         li{
             opacity: 0;
@@ -233,12 +233,12 @@ body {
         display: grid;
         grid-template-columns: repeat(2, 45%);
         height: 60vh;
-        max-height: fit-content;
+        max-height: 60vh;
         width: 99%;
-        margin-top: 3vh ;
+        margin-top: 3vh;
         // margin: auto;
             gap: 10px;
-            overflow-y: scroll;
+            overflow-y: auto;
             
             // white-space: nowrap;
         // border: 2px solid rgb(69, 179, 14);
@@ -304,8 +304,8 @@ body {
     }
     &__navBar--down{
         // position: fixed;
-        bottom: 15px;
-        height: 2vh;
+        // bottom: 30px;
+        height: 4vh;
         display: flex;
         justify-content: space-around;
         width: 345px;
@@ -577,7 +577,7 @@ body {
         grid-template-columns: repeat(3 , 33%);
         grid-template-rows: max-content;
         max-height: fit-content;
-        overflow-y: scroll;
+        overflow-y:  auto;
         
 
         &-userCard{
@@ -611,10 +611,11 @@ body {
                 }
             }
             &-name{
-                grid-row:1/2;
+                grid-row:6/8;
+                font-weight: 800;
                 width: 100%;
                 text-align: center;
-                font-size: 10px;
+                font-size: 12px;
             }
         }
 
