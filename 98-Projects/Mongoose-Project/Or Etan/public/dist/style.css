@@ -552,6 +552,9 @@ body {
 }
 .taskModal-form {
   padding: 1em 2em;
+}
+.taskModal-form {
+  padding: 1em 2em;
   display: flex;
   flex-direction: column;
 }
