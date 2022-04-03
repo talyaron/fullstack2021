@@ -72,6 +72,31 @@ async function handleRenderHome(ev) {
   const lowTasks = document.querySelector("[data-low]");
   const mediumTasks = document.querySelector("[data-medium]");
   const highTasks = document.querySelector("[data-high]");
+
+  const arr = await Promise.all([handleGetUrgencies(userId)])
+  const low = arr[0][0]
+  console.log(low);
+  lowTasks.innerHTML = low.length
+  const medium = arr[0][1]
+  console.log(medium);
+  mediumTasks.innerHTML = medium.length
+  const high = arr[0][2]
+  console.log(high);
+  highTasks.innerHTML = high.length
+
+
+
+
+}
+
+async function handleGetUrgencies(userId){
+  const { data } = await axios.get(`tasks/get-urgencies?userId=${userId}`);
+console.log(userId);
+
+  const {lowUrgency, mediumUrgency, highUrgency} = data
+  let arr =[lowUrgency, mediumUrgency, highUrgency]
+  console.log(lowUrgency, mediumUrgency, highUrgency);
+  return arr
 }
 
 async function handleRenderRecentlyCreated(ev) {

@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.getTask = exports.deleteTask = exports.checkTask = exports.updateTask = exports.addNewTask = exports.getUsersTasks = void 0;
+exports.getUrgencies = exports.getTask = exports.deleteTask = exports.checkTask = exports.updateTask = exports.addNewTask = exports.getUsersTasks = void 0;
 var taskModel_1 = require("../model/taskModel");
 exports.getUsersTasks = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var ownerId, currentUsersTasks;
@@ -190,6 +190,28 @@ exports.getTask = function (req, res) { return __awaiter(void 0, void 0, void 0,
                 res.send({ error: error_4.message });
                 return [3 /*break*/, 3];
             case 3: return [2 /*return*/];
+        }
+    });
+}); };
+exports.getUrgencies = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var userId, lowUrgency, mediumUrgency, highUrgency;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                userId = req.query.userId;
+                return [4 /*yield*/, taskModel_1["default"].find({ ownerId: userId, urgency: 'low' })];
+            case 1:
+                lowUrgency = _a.sent();
+                return [4 /*yield*/, taskModel_1["default"].find({ ownerId: userId, urgency: 'medium' })];
+            case 2:
+                mediumUrgency = _a.sent();
+                return [4 /*yield*/, taskModel_1["default"].find({ ownerId: userId, urgency: 'high' })];
+            case 3:
+                highUrgency = _a.sent();
+                res.send({ lowUrgency: lowUrgency, mediumUrgency: mediumUrgency, highUrgency: highUrgency });
+                console.log(lowUrgency, mediumUrgency, highUrgency);
+                console.log(userId);
+                return [2 /*return*/];
         }
     });
 }); };
