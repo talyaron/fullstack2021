@@ -233,12 +233,12 @@ body {
         display: grid;
         grid-template-columns: repeat(2, 45%);
         height: 60vh;
-        max-height: fit-content;
+        max-height: 60vh;
         width: 99%;
         margin-top: 3vh ;
         // margin: auto;
             gap: 10px;
-            overflow-y: scroll;
+            overflow-y: auto;
             
             // white-space: nowrap;
         // border: 2px solid rgb(69, 179, 14);
@@ -577,7 +577,7 @@ body {
         grid-template-columns: repeat(3 , 33%);
         grid-template-rows: max-content;
         max-height: fit-content;
-        overflow-y: scroll;
+        overflow-y:  auto;
         
 
         &-userCard{

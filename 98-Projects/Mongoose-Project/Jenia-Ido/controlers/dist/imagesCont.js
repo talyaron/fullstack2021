@@ -66,7 +66,7 @@ exports.addImages = function (req, res) { return __awaiter(void 0, void 0, void 
             case 0:
                 _b.trys.push([0, 2, , 3]);
                 _a = req.body, email = _a.email, password = _a.password;
-                newImgs = { email: email, password: password, profileUrl: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png' };
+                newImgs = { email: email, password: password, profileUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSL4klHXuPMAaVeQs1vFZl-fIG1mnux026heg&usqp=CAU' };
                 userImgs = new imagesModel_1["default"](newImgs);
                 return [4 /*yield*/, userImgs.save()];
             case 1:
@@ -149,7 +149,7 @@ exports.getUsersImgs = function (req, res) { return __awaiter(void 0, void 0, vo
                         profileImgs_1.push({ img: img, userEmail: userEmail });
                     }
                 });
-                console.log(profileImgs_1);
+                //    console.log(profileImgs); 
                 if (email_1) {
                     res.send({ ok: true, profileImgs: profileImgs_1 });
                 }

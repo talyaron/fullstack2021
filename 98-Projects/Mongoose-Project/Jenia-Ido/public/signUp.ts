@@ -108,7 +108,7 @@ async function renderProfile(email, password) {
     <div class="profile__header">
         <div class="profile__header__imgBorder"  style="background-image: url(${imgs.profileUrl})">
         <button class="profile__header__imgBorder-changeImage" name="${user.email}"
-        id=${imgs.profileUrl} lang="${user.password}"type="button" onclick="showProfilePicture(event)">View</button>
+        id="${imgs.profileUrl}" lang="${user.password}" "type="button" onclick="showProfilePicture(event)">View</button>
         </div>
         <div class="profile__header__name">${user.firstName} ${user.lastName}</div>
         <div class="profile__header__birthday">${user.birthday}</div>
@@ -308,6 +308,7 @@ async function handleDeleteProfile(ev) {
 
 async function showProfilePicture(ev) {
 
+    console.dir(ev.target)
     const email = ev.target.name;
     const profileImg = ev.target.id;
     const password = ev.target.lang;
@@ -365,11 +366,9 @@ async function userCategoryActive(ev) {
 
 async function browserUser() {
     const email = JSON.parse(localStorage.getItem("UserEmail"));
-
     try {
-
         const { ok, data, error } = await axios.patch('/images/get-users-profieImg', { email })
-
+        
         if (error) throw new Error(error)
         const usersProfileImgsList = data.profileImgs
         renderbrowseImgs(usersProfileImgsList)
@@ -378,7 +377,6 @@ async function browserUser() {
     }
 }
 function renderbrowseImgs(list) {
-    console.log(list);
     const display = document.querySelector('.browseMain_display')
     let html = " ";
     list.forEach(user => {
