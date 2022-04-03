@@ -7,5 +7,6 @@ router
     .get('/getTasks', taskCont_1.getUsersTasks)
     .post('/add-new-task', taskCont_1.addNewTask)
     .patch('/updated-task', taskCont_1.updateTask)
-    .post('/task', taskCont_1.getTask)["delete"]('/delete-task', taskCont_1.deleteTask);
+    .post('/task', taskCont_1.getTask)
+    .patch('/check-task', taskCont_1.checkTask)["delete"]('/delete-task', taskCont_1.deleteTask);
 exports["default"] = router;

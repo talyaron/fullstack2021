@@ -1,5 +1,3 @@
-
-
 async function handleRegister(ev) {
   ev.preventDefault();
   let { firstName, lastName, email, password, role, gender } =
@@ -120,17 +118,19 @@ async function renderTasks(currentUsersTasks, currentPage) {
 
   let html = "";
   let formHtml = "";
-  try{
-  if (currentPage === "Home") {
-    const tasksRoot = document.querySelector("[data-box-root]");
-    const tasksCount = document.querySelector("[data-task-count]");
-    currentUsersTasks.forEach((task) => {
-      html += `
+  try {
+    if (currentPage === "Home") {
+      const tasksRoot = document.querySelector("[data-box-root]");
+      const tasksCount = document.querySelector("[data-task-count]");
+      currentUsersTasks.forEach((task) => {
+        html += `
     <div class="box ${task.urgency}">
                           <div id="box__flex">
                               <div class="box__header">
                                   <div class="box__title">
-                                      <p class="box__title-text box__title-home-text">${task.title}</p>
+                                      <p class="box__title-text box__title-home-text">${
+                                        task.title
+                                      }</p>
                                   </div>
                               </div>
                               <div class="box__expln box__expln-home">
@@ -142,31 +142,31 @@ async function renderTasks(currentUsersTasks, currentPage) {
                               <h4>${task.urgency} priority</h4>
                           </div>
                       </div>`;
-    });
-    tasksRoot.innerHTML = html;
-    return;
-  }
-  if (currentPage === "RecentlyCreated") {
-    const counterRoot = document.querySelector("[data-counter]");
-    counterRoot.innerHTML = currentUsersTasks.length;
-    const tasksRoot = document.querySelector("[data-box-root]");
-    const nextRoot = document.querySelector("[data-next-root]");
-    currentUsersTasks.forEach((task) => {
-      if (task.description.length > 20) {
-        task.descriptionShorted = task.description.substring(0, 15) + "...";
-      } else {
-        task.descriptionShorted = task.description;
-      }
-
-      html += `
+      });
+      tasksRoot.innerHTML = html;
+      return;
+    }
+    if (currentPage === "RecentlyCreated") {
+      const counterRoot = document.querySelector("[data-counter]");
+      counterRoot.innerHTML = currentUsersTasks.length;
+      const tasksRoot = document.querySelector("[data-box-root]");
+      const nextRoot = document.querySelector("[data-next-root]");
+      currentUsersTasks.forEach((task) => {
+        if (task.description.length > 20) {
+          task.descriptionShorted = task.description.substring(0, 15) + "...";
+        } else {
+          task.descriptionShorted = task.description;
+        }
+        if(!task.checked){ 
+        html += `
      <li class="box">
                       <div id="box__flex">
                           <div class="box__header">
                               <div class="box__logo-square ${task.urgency}">
-                                  <p class="box__logo">Bē</p>
+                                  <p style="color: ${task.color}" class="box__logo">Bē</p>
                               </div>
                               <div  class="box__title">
-                                  <p class="box__title-text">${task.title}</p>
+                                  <p style="color: ${task.color}" class="box__title-text">${task.title}</p>
                                   <p class="box__title-urg">${task.urgency}</p>
                               </div>
 
@@ -177,20 +177,54 @@ async function renderTasks(currentUsersTasks, currentPage) {
                               <h4>${task.descriptionShorted}</h4>
                               <p class="box__expln-transp">${task.location}</p>
                           </div>
-                          <div  class="box__countdown">${task.date}</div>
+                          <div  class="box__countdown">${task.date}
+                          <a data-check="${task._id}" onclick="handleTaskCheck(event)">check</a>
+                          </div>
                           <a onclick="handleTaskDelete(event)" class="box__delete">
                           <i data-delete="${task._id}" class="fas fa-trash-alt"></i>
                           </a></div>
                       </div>
 
                   </li>`;
-    });
+                  return
+        }
+        html += `
+        <li class="box">
+        <del>
+                      <div id="box__flex">
+                          <div class="box__header">
+                              <div class="box__logo-square ${task.urgency}">
+                                  <p style="color: ${task.color}" class="box__logo">Bē</p>
+                              </div>
+                              <div  class="box__title">
+                                  <p style="color: ${task.color}" class="box__title-text">${task.title}</p>
+                                  <p class="box__title-urg">${task.urgency}</p>
+                              </div>
 
+                              <i data-id="${task._id}" onclick="renderTaskModal(event)" class="fas fa-edit"></i>
 
-    const nextTask = getNextTask(currentUsersTasks);
-tasksRoot.innerHTML = html;
+                          </div>
+                          <div class="box__expln">
+                              <h4>${task.descriptionShorted}</h4>
+                              <p class="box__expln-transp">${task.location}</p>
+                          </div>
+                          <div  class="box__countdown">${task.date}
+                          <a data-check="${task._id}" onclick="handleTaskCheck(event)">check</a>
+                          </div>
+                          <a onclick="handleTaskDelete(event)" class="box__delete">
+                          <i data-delete="${task._id}" class="fas fa-trash-alt"></i>
+                          </a></div>
+                      </div>
+                      </del>
+                  </li>`
+      });
 
-    formHtml = `
+      const nextTask = getNextTask(currentUsersTasks);
+      
+      tasksRoot.innerHTML = html;
+
+if(nextTask){
+      formHtml = `
     <input onchange="handleColor(event)" type="color" name="color" id="color" value="${nextTask.color}">
                         <div  class="task-title">
                             <input type="text" name="title" id="title" value="${nextTask.title}">
@@ -214,21 +248,21 @@ tasksRoot.innerHTML = html;
                             <input type="date" name="date" id="date" value="${nextTask.date}">
                         </div>
                         <input data-id="${nextTask._id}" type="submit" name="submit" id="submit" value="Update this task">
-`;
-    const formField = nextRoot.parentElement;
-    formField.style.background = nextTask.color;
+`;}
+if(!nextTask){
+  formHtml = `<h1> You are all caught up! </h1>`
+}
+      const formField = nextRoot.parentElement;
+      formField.style.background = nextTask.color;
 
-
-
-    nextRoot.innerHTML = formHtml;
-    return;
+      nextRoot.innerHTML = formHtml;
+      return;
+    }
+  } catch (error) {
+    console.log(error);
+    console.error(error.message);
   }
-}catch(error){
-  console.log(error);
-  console.error(error.message);
 }
-}
-
 
 function addGlobalEventListener(
   type,
@@ -250,16 +284,14 @@ function sortTasksByDate(tasks) {
   tasks.forEach((task) => {
     const year = new Date(task.date).getFullYear();
     const month = ("0" + (new Date(task.date).getMonth() + 1)).slice(-2);
-    const day = ("0" + (new Date(task.date).getDate()+1)).slice(-2);
-const stringDate = `${year}-${month}-${day}`
+    const day = ("0" + (new Date(task.date).getDate() + 1)).slice(-2);
+    const stringDate = `${year}-${month}-${day}`;
 
     task.year = year;
     task.month = month;
     task.day = day;
-    task.date = new Date(task.date).toLocaleDateString().replace(/\//g, '-');
-task.date = stringDate;
-    
-
+    task.date = new Date(task.date).toLocaleDateString().replace(/\//g, "-");
+    task.date = stringDate;
   });
   tasks.sort((a, b) => a.day - b.day);
   tasks.sort((a, b) => a.month - b.month);
@@ -268,29 +300,25 @@ task.date = stringDate;
 
 function getNextTask(currentUsersTasks) {
   const thisYear = new Date().getFullYear();
-  const thisMonth = new Date().getMonth()+1;
+  const thisMonth = new Date().getMonth() + 1;
   const thisDay = new Date().getDate();
 
-
-  
-  const nextTasks = currentUsersTasks.filter(
-    (task) =>{    
-      if(task.year > thisYear){
-        return task
-      } else if(task.year = this ){
-        if(task.month > thisMonth){
-          return task
-        }else if (task.month = thisMonth){
-          if(task.day > thisDay){
-            return task
-          }
+  const nextTasks = currentUsersTasks.filter((task) => {
+    if(!task.checked){
+    if (task.year > thisYear) {
+      return task;
+    } else if ((task.year = this)) {
+      if (task.month > thisMonth) {
+        return task;
+      } else if ((task.month = thisMonth)) {
+        if (task.day > thisDay) {
+          return task;
         }
       }
     }
-  );
-  const nextTask = nextTasks[0]
+  }});
+  const nextTask = nextTasks[0];
 
-  
   return nextTask;
 }
 
@@ -331,38 +359,58 @@ async function handleTaskUpdate(ev) {
   const date = ev.target.elements.date.value;
   const taskId = ev.target.elements.submit.dataset.id;
   const userId = ev.target.baseURI.split("=")[1];
-try{
-  const { data } = await axios.patch("/tasks/updated-task", {
-    _id: taskId,
-    ownerId: userId,
-    color,
-    title,
-    urgency,
-    description,
-    location,
-    date,
-  });
-  const {currentUsersTasks } = data;
-  renderTasks(currentUsersTasks, "RecentlyCreated");
-  closeTaskModal()
-}catch (error) {
-  console.log('error in handleTaskUpdate')
-  console.log({error: error.message})
-
+  try {
+    const { data } = await axios.patch("/tasks/updated-task", {
+      _id: taskId,
+      ownerId: userId,
+      color,
+      title,
+      urgency,
+      description,
+      location,
+      date,
+    });
+    const { currentUsersTasks } = data;
+    renderTasks(currentUsersTasks, "RecentlyCreated");
+    closeTaskModal();
+  } catch (error) {
+    console.log("error in handleTaskUpdate");
+    console.log({ error: error.message });
+  }
 }
 
+async function handleTaskCheck(ev) {
+  try {
+    const timeChecked = new Date().toLocaleDateString().replace(/\//g, "-");
+    const taskId = ev.target.dataset.check;
+    const userId = ev.target.baseURI.slice(-24);
+    const { data } = await axios.patch("/tasks/check-task", {
+      _id: taskId,
+      ownerId: userId,
+      timeChecked
+    });
+    const {currentUsersTasks} = data;
+    renderTasks(currentUsersTasks, "RecentlyCreated")
+  } catch (error) {
+    console.log("error in handleTaskCheck");
+    console.log({ error: error.message });
+  }
 }
+
 async function handleTaskDelete(ev) {
-const taskId = ev.target.dataset.delete
-const userURL = ev.target.baseURI;
-try{
-  const { data } = await axios.delete('/tasks/delete-task', {data:{taskId, userURL}})
-const {currentUsersTasks, currentPage} = data;
-renderTasks(currentUsersTasks, currentPage)
-}catch (error) {
-  console.log('error in handleTaskUpdate')
-  console.log({error: error.message})
-}
+  const taskId = ev.target.dataset.delete;
+  const userURL = ev.target.baseURI;
+
+  try {
+    const { data } = await axios.delete("/tasks/delete-task", {
+      data: { taskId, userURL },
+    });
+    const { currentUsersTasks, currentPage } = data;
+    renderTasks(currentUsersTasks, currentPage);
+  } catch (error) {
+    console.log("error in handleTaskUpdate");
+    console.log({ error: error.message });
+  }
 }
 
 async function handleColor(ev) {
@@ -371,42 +419,45 @@ async function handleColor(ev) {
   formField.style.backgroundColor = newColor;
 }
 
-
 // task update modal:
 
 async function openTaskModal(modal) {
-  if(modal == null) return 
-  modal.classList.add('active')
-  overlay.classList.add('active')
+  if (modal == null) return;
+  modal.classList.add("active");
+  overlay.classList.add("active");
 }
-function closeTaskModal(){
-  const modal = document.querySelector('.taskModal')
-  if(modal == null) return 
-  modal.classList.remove('active')
-  overlay.classList.remove('active')
+function closeTaskModal() {
+  const modal = document.querySelector(".taskModal");
+  if (modal == null) return;
+  modal.classList.remove("active");
+  overlay.classList.remove("active");
 }
 
-async function renderTaskModal(ev){
+async function renderTaskModal(ev) {
   const taskId = ev.target.dataset.id;
-  const modal = document.querySelector('.taskModal');
+  const modal = document.querySelector(".taskModal");
 
-  const overlay = document.querySelector('[data-taskModal-overlay]')
-  let html ='';
+  // const overlay = document.querySelector("[data-taskModal-overlay]");
+  let html = "";
   try {
-    const {data} = await axios.post('/tasks/task', {taskId:taskId})
+    const { data } = await axios.post("/tasks/task", { taskId: taskId });
     const currentTask = data;
-    if(!currentTask) throw new Error("no task in the modal")
-currentTask.date = currentTask.date.slice(0,10)
-html += `
+    if (!currentTask) throw new Error("no task in the modal");
+    currentTask.date = currentTask.date.slice(0, 10);
+    html += `
 <div class="taskModal-header">
 <h1>${currentTask.title}</h1>
 <button onclick="closeTaskModal()" class="taskModal-closeButton"> &times; </button>
 </div>
 <form onsubmit="handleTaskUpdate(event)" class="taskModal-form">
-<input onchange="handleColor(event)" type="color" name="color" id="color" value="${currentTask.color}">
+<fieldset>
+<legend>Task title</legend>
 <div  class="taskModal-title">
+<label for="title">Task title:</label>
 <input type="text" name="title" id="title" value="${currentTask.title}">
-
+<label for="color">Task title color:</label>
+<input onchange="handleColor(event)" type="color" name="color" id="color" value="${currentTask.color}">
+</fieldset>
 </div>
 <div class="taskModal-urgency">
 <select type="text" name="urgency" id="urg">
@@ -428,13 +479,11 @@ html += `
 </div>
 <input data-id="${currentTask._id}" type="submit" name="submit" id="submit" value="Update this task">
 </form>
-<div onclick="closeTaskModal()" data-taskModal-overlay class="overlay"></div>`
-modal.innerHTML = html;
-openTaskModal(modal)
-
-
-} catch (error) {
-  console.log(error.message);
-  console.log(error)
-}
+<div onclick="closeTaskModal()" data-taskModal-overlay class="overlay"></div>`;
+    modal.innerHTML = html;
+    openTaskModal(modal);
+  } catch (error) {
+    console.log(error.message);
+    console.log(error);
+  }
 }
