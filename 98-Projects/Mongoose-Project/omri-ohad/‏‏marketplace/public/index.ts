@@ -36,7 +36,7 @@ async function handleGetProducts() {
     }
 }
 
-function renderItemsMain(items) {
+function renderItemsMain(items,ok?, userName?) {
     let html = '';
     const rootItems = document.querySelector('.mainPage__middle--products');
     if (items) {
@@ -51,12 +51,16 @@ function renderItemsMain(items) {
             </div>
             `
         })
+        if(ok === true){
+            document.querySelector(".mainPage__header--welcome").innerHTML = `
+            hello ${userName} <a href="personal-zone.html"><i class="fa fa-user" ></i></a`
+        } else{document.querySelector(".mainPage__header--welcome").innerHTML = '';}
         rootItems.innerHTML = html;
     }
 }
 
 
-function renderProducts(products) {
+function renderProducts(products, ok?, userName?) {
     const html = products.map(product => {
         return `
         <div class="mainPage__middle--products--item" id="card">
@@ -153,12 +157,17 @@ async function handleLogin(ev) {
     email = email.value;
     password = password.value;
     const { data } = await axios.post('/products/login', { email, password });
-    const{userName} = data
-    const { ok } = data
+    const{userName} = data;
+    const { ok } = data;
+    const{items} = data;
+    const{userId} = data;
+    console.log(userId)
     if (ok === true) {
         document.getElementById("logMessage").innerHTML = " You are login";
     }
     else if (ok === false) {
         document.getElementById("logMessage").innerHTML = "Email or Password is wrong, try again"
     }
+    renderItemsMain(items, ok, userName);
+    //renderProducts(products ,ok, userName)
 }

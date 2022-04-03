@@ -369,7 +369,7 @@ function register(req, res) {
 exports.register = register;
 function login(req, res) {
     return __awaiter(this, void 0, void 0, function () {
-        var _a, email, password, user, UserLogin, userName;
+        var _a, email, password, user, UserLogin, userName, userId, items;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
@@ -381,20 +381,24 @@ function login(req, res) {
                 case 2:
                     UserLogin = _b.sent();
                     userName = UserLogin[0].userName;
-                    if (!(user > 0)) return [3 /*break*/, 4];
-                    return [4 /*yield*/, userModel_1["default"].updateOne({ email: email }, { login: true })];
+                    userId = UserLogin[0]._id;
+                    return [4 /*yield*/, productMain_1["default"].find({})];
                 case 3:
-                    _b.sent();
-                    res.send({ ok: true, userName: userName });
-                    return [3 /*break*/, 6];
+                    items = _b.sent();
+                    if (!(user > 0)) return [3 /*break*/, 5];
+                    return [4 /*yield*/, userModel_1["default"].updateOne({ email: email }, { login: true })];
                 case 4:
-                    if (!(user == 0)) return [3 /*break*/, 6];
-                    return [4 /*yield*/, userModel_1["default"].updateOne({ email: email }, { login: false })];
-                case 5:
                     _b.sent();
-                    res.send({ ok: false });
-                    _b.label = 6;
-                case 6: return [2 /*return*/];
+                    res.send({ ok: true, userName: userName, items: items, userId: userId });
+                    return [3 /*break*/, 7];
+                case 5:
+                    if (!(user === 0)) return [3 /*break*/, 7];
+                    return [4 /*yield*/, userModel_1["default"].updateOne({ email: email }, { login: false })];
+                case 6:
+                    _b.sent();
+                    res.send({ ok: false, items: items });
+                    _b.label = 7;
+                case 7: return [2 /*return*/];
             }
         });
     });
