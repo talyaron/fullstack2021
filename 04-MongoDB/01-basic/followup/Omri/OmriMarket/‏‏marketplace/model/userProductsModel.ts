@@ -9,5 +9,5 @@ const productSchema = new mongoose.Schema({
     category:String,
   });
 
-  const User = mongoose.model('userItems', productSchema);
-  export default User;
+  const UserProducts = mongoose.model('userItems', productSchema);
+  export default UserProducts;

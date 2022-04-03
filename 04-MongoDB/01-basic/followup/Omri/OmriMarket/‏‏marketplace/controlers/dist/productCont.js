@@ -38,7 +38,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 exports.__esModule = true;
 exports.filterByCategory = exports.deleteProduct = exports.updateproduct = exports.addProduct = exports.getAllProducts = exports.getProductsMain = void 0;
 var marketModel_1 = require("../model/marketModel");
-var userModel_1 = require("../model/userModel");
+var userProductsModel_1 = require("../model/userProductsModel");
 function getProductsMain(req, res) {
     return __awaiter(this, void 0, void 0, function () {
         var marketItems, error_1;
@@ -69,7 +69,7 @@ function getAllProducts(req, res) {
             switch (_a.label) {
                 case 0:
                     _a.trys.push([0, 2, , 3]);
-                    return [4 /*yield*/, userModel_1["default"].find({})];
+                    return [4 /*yield*/, userProductsModel_1["default"].find({})];
                 case 1:
                     products = _a.sent();
                     res.send({ products: products });
@@ -93,7 +93,7 @@ function addProduct(req, res) {
                 case 0:
                     _b.trys.push([0, 3, , 4]);
                     _a = req.body, pic = _a.pic, title = _a.title, description = _a.description, price = _a.price, category = _a.category;
-                    newProduct = new userModel_1["default"]({ pic: pic, title: title, description: description, price: price, category: category });
+                    newProduct = new userProductsModel_1["default"]({ pic: pic, title: title, description: description, price: price, category: category });
                     return [4 /*yield*/, newProduct.save()];
                 case 1:
                     result = _b.sent();
@@ -126,13 +126,13 @@ function updateproduct(req, res) {
                     newImg = req.body.newImg;
                     newTitle = req.body.newTitle;
                     if (!{ productId: productId }) return [3 /*break*/, 4];
-                    return [4 /*yield*/, userModel_1["default"].updateOne({ _id: productId }, { pic: newImg })];
+                    return [4 /*yield*/, userProductsModel_1["default"].updateOne({ _id: productId }, { pic: newImg })];
                 case 1:
                     resultUserImg = _a.sent();
-                    return [4 /*yield*/, userModel_1["default"].updateOne({ _id: productId }, { title: newTitle })];
+                    return [4 /*yield*/, userProductsModel_1["default"].updateOne({ _id: productId }, { title: newTitle })];
                 case 2:
                     resultUserTitle = _a.sent();
-                    return [4 /*yield*/, userModel_1["default"].find({})];
+                    return [4 /*yield*/, userProductsModel_1["default"].find({})];
                 case 3:
                     products = _a.sent();
                     res.send({ ok: true, products: products });
@@ -159,13 +159,13 @@ function deleteProduct(req, res) {
                     _a.trys.push([0, 7, , 8]);
                     productId = req.body.productId;
                     if (!productId) return [3 /*break*/, 5];
-                    return [4 /*yield*/, userModel_1["default"].deleteOne({ _id: productId })];
+                    return [4 /*yield*/, userProductsModel_1["default"].deleteOne({ _id: productId })];
                 case 1:
                     result = _a.sent();
                     return [4 /*yield*/, marketModel_1["default"].deleteOne({ ownerId: productId })];
                 case 2:
                     resultMarket = _a.sent();
-                    return [4 /*yield*/, userModel_1["default"].find({})];
+                    return [4 /*yield*/, userProductsModel_1["default"].find({})];
                 case 3:
                     products = _a.sent();
                     return [4 /*yield*/, marketModel_1["default"].find({})];

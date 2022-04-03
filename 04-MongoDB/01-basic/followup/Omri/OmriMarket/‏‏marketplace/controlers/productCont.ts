@@ -1,5 +1,5 @@
 import Market from "../model/marketModel";
-import User from "../model/userModel";
+import UserProducts from "../model/userProductsModel";
 
 export async function getProductsMain(req, res) {
   try {
@@ -14,7 +14,7 @@ export async function getProductsMain(req, res) {
 export async function getAllProducts(req, res) {
   try {
 
-    const products = await User.find({})
+    const products = await UserProducts.find({})
     res.send({ products });
   } catch (error) {
     console.log(error.error);
@@ -25,7 +25,7 @@ export async function getAllProducts(req, res) {
 export async function addProduct(req, res) {
   try {
     let { pic, title, description, price, category } = req.body;
-    const newProduct = new User({ pic, title, description, price, category })
+    const newProduct = new UserProducts({ pic, title, description, price, category })
     const result = await newProduct.save()
     const ownerId = newProduct._id
     const newProductMarket = new Market({ pic, title, description, price, category,ownerId})
@@ -44,9 +44,9 @@ export async function updateproduct(req, res) {
     const newImg = req.body.newImg;
     const newTitle = req.body.newTitle;
     if ({ productId }) {
-      const resultUserImg = await User.updateOne({ _id: productId }, { pic: newImg })
-      const resultUserTitle = await User.updateOne({ _id: productId }, {title: newTitle}) 
-      const products = await User.find({});
+      const resultUserImg = await UserProducts.updateOne({ _id: productId }, { pic: newImg })
+      const resultUserTitle = await UserProducts.updateOne({ _id: productId }, {title: newTitle}) 
+      const products = await UserProducts.find({});
       res.send({ ok: true, products, });
     } else {
       throw new Error("Something went wrong");
@@ -61,9 +61,9 @@ export async function deleteProduct(req, res) {
   try {
     const { productId } = req.body;
     if (productId) {
-      const result = await User.deleteOne({ _id: productId });
+      const result = await UserProducts.deleteOne({ _id: productId });
       const resultMarket = await Market.deleteOne({ ownerId: productId });
-      const products = await User.find({});
+      const products = await UserProducts.find({});
       const productsMarket = await Market.find({});
       res.send({ ok: true, products, productsMarket })
     } else {
