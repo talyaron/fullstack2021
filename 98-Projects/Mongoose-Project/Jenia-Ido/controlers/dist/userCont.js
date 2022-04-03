@@ -93,7 +93,6 @@ exports.deleteUser = function (req, res) { return __awaiter(void 0, void 0, void
             case 0:
                 _a.trys.push([0, 4, , 5]);
                 email = req.body.email;
-                console.log(email);
                 if (!email) return [3 /*break*/, 2];
                 return [4 /*yield*/, userModel_1["default"].deleteOne({ email: email })
                     // if (!email) throw new Error("Didnt find user with such an email");

@@ -34,7 +34,7 @@ export const deleteUser = async (req, res) => {
     try {
 
         const { email } = req.body;
-        console.log(email);
+        // console.log(email);
 
         if (email) {
             const userDelete = await User.deleteOne({ email: email })

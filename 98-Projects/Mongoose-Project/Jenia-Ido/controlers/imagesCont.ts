@@ -7,14 +7,12 @@ export const getImages = async (req, res) => {
         const result = await Images.find({ email: email });
 
         res.send({ ok: true, result });
-
     }
     catch (err) {
         console.error(err);
         res.send({ error: err.message, ok: false });
 
     }
-
 }
 export const addImages = async (req, res) => {
     try {
@@ -33,8 +31,8 @@ export const addImages = async (req, res) => {
 export const updateProfilePiC = async (req, res) => {
     try {
         const { email, newImg } = req.body;
-        console.log(email);
-        console.log(newImg);
+        // console.log(email);
+        // console.log(newImg);
         
         const images = await Images.updateOne({ email: email }, { profileUrl: newImg });
         res.send({ images, ok: true });
@@ -53,6 +51,30 @@ export const addPost= async (req,res)=>{
        else throw new Error("err");
         
         
+    }catch(err){
+        console.error(err);
+        res.send({ error: err.message, ok: false });
+    }
+}
+export const getUsersImgs = async (req , res) => {
+    try{
+        let profileImgs = [];
+        const {email} = req.body;
+    //    console.log(email);
+       const usersList = await Images.find({})
+    //    console.log(usersList);
+       usersList.forEach(user => {
+           if(user.email !== email){
+                const img = user.profileUrl;
+                const userEmail = user.email
+                profileImgs.push({img,userEmail})
+           }
+       })
+       console.log(profileImgs); 
+       if(email){
+           res.send({ok:true,profileImgs})
+       }
+       else throw new Error("cant get email in browse page");
     }catch(err){
         console.error(err);
         res.send({ error: err.message, ok: false });

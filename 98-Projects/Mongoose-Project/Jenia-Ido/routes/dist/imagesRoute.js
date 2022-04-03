@@ -7,5 +7,6 @@ router
     .get('/get-images', imagesCont_1.getImages)
     .post('/add-images', imagesCont_1.addImages)
     .patch('/update-profile-img', imagesCont_1.updateProfilePiC)
-    .patch('/add-post', imagesCont_1.addPost);
+    .patch('/add-post', imagesCont_1.addPost)
+    .patch('/get-users-profieImg', imagesCont_1.getUsersImgs);
 exports["default"] = router;

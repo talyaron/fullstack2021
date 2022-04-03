@@ -4,15 +4,20 @@
 }
 
 body {
-    background-color: rgb(26, 24, 24);
+    background-color: rgb(255, 255, 255);
     width: 350px;
-    max-height: 620px;
+    height: 650px;
+    // max-height: 620px;
     margin: auto;
 }
 
 .profile {
     width: 350px;
-    height: 100px;
+    height: max-content;
+    max-height: 650px;
+    background-color: #000000;
+    // border: 2px solid green;
+    display: inline;
     
     .settings{
         position: relative;
@@ -95,8 +100,6 @@ body {
         border-bottom: 1px solid rgb(31, 31, 32);
         border-top: 1px solid rgb(31, 31, 32);
 
-
-
     &__imgBorder {
         grid-column: 1/2;
         grid-row: 1/4;
@@ -121,9 +124,6 @@ body {
         }
         
     }
-    
-    
-    
         &__birthday {
             // grid-area: 3 / 1 / 3 / 2;
             grid-column: 3/4;
@@ -231,20 +231,32 @@ body {
 
     &__user__pics {
         display: grid;
-        // flex-direction: column;
-        max-height: fit-content;
-        width: 100%;
-        margin: auto;
-        overflow-y: scroll;
-        white-space: nowrap;
-        // column-gap: 0.5rem;
         grid-template-columns: repeat(2, 45%);
-        gap: 10px;
+        height: 60vh;
+        max-height: fit-content;
+        width: 99%;
+        margin-top: 3vh ;
+        // margin: auto;
+            gap: 10px;
+            overflow-y: scroll;
+            
+            // white-space: nowrap;
+        // border: 2px solid rgb(69, 179, 14);
 
         &-userPics{
+            opacity:0.7;
+            margin-left: 1vw;
+            width: 100%;
+            height: 15vh;
+            // border: 2px solid red;
             background-position: center;
             background-size: cover;
             background-repeat: no-repeat;
+
+            &:hover{
+                opacity:1;
+
+            }
         }
         // .pic0 {
         //     grid-area: 1 / 1 / 3 / 2;
@@ -264,19 +276,19 @@ body {
         // }
 
 
-        img {
-            width: 100%;
-            height: 100%;
-            border-radius: 10px;
-            object-fit: cover;
-            &:hover{
-                cursor: pointer;
-            }
-            &:active {
-                transform: scale(1.5);
-                transition: 0.8s ease-in-out;
-            }
-        }
+        // img {
+        //     width: 100%;
+        //     height: 100%;
+        //     border-radius: 10px;
+        //     object-fit: cover;
+        //     &:hover{
+        //         cursor: pointer;
+        //     }
+        //     &:active {
+        //         transform: scale(1.5);
+        //         transition: 0.8s ease-in-out;
+        //     }
+        // }
     }
     &__navBar--top{
         display: flex;
@@ -292,17 +304,16 @@ body {
     }
     &__navBar--down{
         position: fixed;
-        bottom: 0px;
+        bottom: 15px;
         // left: 10vw;
         display: flex;
         justify-content: space-around;
-        width: 350px;
+        width: 347px;
         background-color: gray;
         padding: 10px;
         border-radius: 3%;
         // .userIcon{}
     }
-
 }
 .main {
     margin-top: 1vh;
@@ -379,7 +390,7 @@ body {
         // border: 2px solid red;
 
         &_box{
-            border: 2px solid black;
+            border: 10px solid black;
             background-color: white;
             border-radius: 40px;
             opacity: 0.65;
@@ -392,6 +403,7 @@ body {
             opacity: 1;
         }
         .boxAnimationOne{
+            border: 10px solid rgb(218, 144, 47);
             animation: animationOne ease-in-out 7s -1s infinite alternate forwards;
             grid-row: 3/4;
             grid-row: 2/3;
@@ -399,19 +411,22 @@ body {
             // animation: name duration timing-function delay iteration-count direction fill-mode;
         }
         .boxAnimationTwo{
+            border: 10px solid rgb(255, 245, 245);
             grid-row: 5/6;
             animation: animationTwo ease-in-out 4s -1s infinite alternate forwards;
             background-image: url("https://cultivatedculture.com/wp-content/uploads/2019/12/LinkedIn-Profile-Picture-Example-Madeline-Mann.jpeg");
         }
         .boxAnimationThree{
+            border: 10px solid rgb(126, 236, 66);
             grid-row: 7/8;
             animation: animationThree ease-in-out 7s 0s infinite alternate forwards;
             background-image: url("https://d2qp0siotla746.cloudfront.net/img/use-cases/profile-picture/template_3.jpg");
         }
         .boxAnimationFour{
+            border: 10px solid rgb(182, 85, 241);
             grid-row: 9/10;
-            animation: animationFour ease-in-out 10s -0.5s infinite alternate forwards;
-            background-image: url("");
+            animation: animationFour ease-in-out 6s -0.5s infinite alternate forwards;
+            background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLUfgjYHWP0CETJGL6AE8ODqd-JiOMwx-spw&usqp=CAU");
         }
         &-signUpForm {
             width: 20vw;
@@ -523,6 +538,122 @@ body {
 
     }
 }
+.browseMain{
+    margin-top: 3vh;
+    background-color: rgb(0, 0, 0);
+    width: 350px;
+    height: 655px;
+    // border: 2px solid red;
+    box-shadow: rgba(72, 72, 180, 0.15) 0px 30px 60px 25px inset, rgba(35, 58, 187, 0.18) 120px 200px 270px 100px inset;
+    display: grid;
+    border-radius: 15px;
+    grid-template-rows: repeat(10, 1fr);
+    grid-template-columns: repeat(10, 1fr);
+    row-gap: 1.5rem;
+
+    &_header{
+        grid-row: 1/3;
+        grid-column: 1/11;
+        border-bottom: 1px solid gray;
+        display: grid;
+        grid-template-rows: repeat(5 , 20%);
+        grid-template-columns: repeat(10 , 10%);
+
+        &-input{
+            grid-row: 4/6;
+            grid-column: 3/9;
+            margin-bottom: 1vh;
+        }
+    }
+
+    &_display{
+        grid-row: 3/10;
+        grid-column: 1/11;
+        // border-top: 1px solid rgb(37, 207, 204);
+        // border: 1px solid rgb(229, 158, 43);
+        display: grid;
+        grid-template-columns: repeat(3 , 33%);
+        grid-template-rows: max-content;
+        max-height: fit-content;
+        overflow-y: scroll;
+        
+
+        &-userCard{
+            box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            display: grid;
+            border: 1px solid rgb(27, 24, 49);
+            width: 100%;
+            height: 15vh;
+            grid-template-rows: repeat(10, 10%);
+            grid-template-columns: repeat(10,10%);
+            background-color: rgb(24, 22, 46);
+            // margin-left: 2vw;
+
+            &-addFriendBtn{
+                grid-row: 8/10;
+                grid-column: 2/9;
+                font-size: 10px;
+                box-shadow: none;
+                border: none;
+                border-radius: 5px;
+                background: rgb(203, 140, 72);
+                
+                cursor: pointer;
+
+                &:hover {
+                    background-color: #ddd;
+                    color: black;
+                }
+            }
+            &-name{
+                grid-row:1/2;
+                width: 100%;
+                text-align: center;
+                font-size: 10px;
+            }
+        }
+
+    }
+
+    &_navBarDown{
+        // position: fixed;
+        border: 2px solid blue;
+        // margin-top: 3vh;
+        // height: 70%;
+        grid-column: 1/11;
+        grid-row: 10;
+        bottom: 37px; 
+        // left: 10vw;
+        display: flex;
+        flex-flow: row;
+        justify-content: space-around;
+        // width: 350px;
+        background-color: gray;
+        padding: 10px;
+        border-radius: 15px;
+        
+        & a {
+            text-decoration: none;
+        }
+
+        &-homeIcon{
+            color: #e09e0f;
+        }
+        &-profileIcon{
+            color: #ecde4e;
+        }
+        &-compassIcon{
+            color: #16bf1b;
+        }
+        &-heartIcon{
+            color: #ef1818;
+        }
+    }
+    
+}
 @keyframes signUpAnimation {
     from {
         transform: translateX(-150px);
@@ -564,22 +695,22 @@ body {
 @keyframes animationOne {
     
     100%{
-        transform: translate(200px , 0);
+        transform: translate(180px , 0);
     }
 }
 @keyframes animationTwo{
     100%{
-        transform: translate(200px , 0);
+        transform: translate(180px , 0);
     }
 } 
 @keyframes animationThree{
     100%{
-        transform: translate( 200px , 0);
+        transform: translate( 180px , 0);
     }
 }
 @keyframes animationFour{
     100%{
-        transform: translate( 200% , 0);
+        transform: translate( 180px , 0);
     }
 }
 .profile-active{

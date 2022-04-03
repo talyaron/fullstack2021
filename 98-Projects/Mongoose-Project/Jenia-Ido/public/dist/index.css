@@ -4,15 +4,18 @@
 }
 
 body {
-  background-color: #1a1818;
+  background-color: white;
   width: 350px;
-  max-height: 620px;
+  height: 650px;
   margin: auto;
 }
 
 .profile {
   width: 350px;
-  height: 100px;
+  height: max-content;
+  max-height: 650px;
+  background-color: #000000;
+  display: inline;
 }
 .profile .settings {
   position: relative;
@@ -190,31 +193,25 @@ body {
 }
 .profile__user__pics {
   display: grid;
-  max-height: fit-content;
-  width: 100%;
-  margin: auto;
-  overflow-y: scroll;
-  white-space: nowrap;
   grid-template-columns: repeat(2, 45%);
+  height: 60vh;
+  max-height: fit-content;
+  width: 99%;
+  margin-top: 3vh;
   gap: 10px;
+  overflow-y: scroll;
 }
 .profile__user__pics-userPics {
+  opacity: 0.7;
+  margin-left: 1vw;
+  width: 100%;
+  height: 15vh;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
-.profile__user__pics img {
-  width: 100%;
-  height: 100%;
-  border-radius: 10px;
-  object-fit: cover;
-}
-.profile__user__pics img:hover {
-  cursor: pointer;
-}
-.profile__user__pics img:active {
-  transform: scale(1.5);
-  transition: 0.8s ease-in-out;
+.profile__user__pics-userPics:hover {
+  opacity: 1;
 }
 .profile__navBar--top {
   display: flex;
@@ -228,10 +225,10 @@ body {
 }
 .profile__navBar--down {
   position: fixed;
-  bottom: 0px;
+  bottom: 15px;
   display: flex;
   justify-content: space-around;
-  width: 350px;
+  width: 347px;
   background-color: gray;
   padding: 10px;
   border-radius: 3%;
@@ -299,7 +296,7 @@ body {
   max-height: fit-content;
 }
 .main_display_box {
-  border: 2px solid black;
+  border: 10px solid black;
   background-color: white;
   border-radius: 40px;
   opacity: 0.65;
@@ -312,25 +309,29 @@ body {
   opacity: 1;
 }
 .main_display .boxAnimationOne {
+  border: 10px solid #da902f;
   animation: animationOne ease-in-out 7s -1s infinite alternate forwards;
   grid-row: 3/4;
   grid-row: 2/3;
   background-image: url("https://vokrug.tv/pic/news/b/6/9/4/b69468e441345d712ace85b8cbd8eb6b.jpg");
 }
 .main_display .boxAnimationTwo {
+  border: 10px solid #fff5f5;
   grid-row: 5/6;
   animation: animationTwo ease-in-out 4s -1s infinite alternate forwards;
   background-image: url("https://cultivatedculture.com/wp-content/uploads/2019/12/LinkedIn-Profile-Picture-Example-Madeline-Mann.jpeg");
 }
 .main_display .boxAnimationThree {
+  border: 10px solid #7eec42;
   grid-row: 7/8;
   animation: animationThree ease-in-out 7s 0s infinite alternate forwards;
   background-image: url("https://d2qp0siotla746.cloudfront.net/img/use-cases/profile-picture/template_3.jpg");
 }
 .main_display .boxAnimationFour {
+  border: 10px solid #b655f1;
   grid-row: 9/10;
-  animation: animationFour ease-in-out 10s -0.5s infinite alternate forwards;
-  background-image: url("");
+  animation: animationFour ease-in-out 6s -0.5s infinite alternate forwards;
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLUfgjYHWP0CETJGL6AE8ODqd-JiOMwx-spw&usqp=CAU");
 }
 .main_display-signUpForm {
   width: 20vw;
@@ -421,6 +422,101 @@ body {
   background-color: #174870;
 }
 
+.browseMain {
+  margin-top: 3vh;
+  background-color: black;
+  width: 350px;
+  height: 655px;
+  box-shadow: rgba(72, 72, 180, 0.15) 0px 30px 60px 25px inset, rgba(35, 58, 187, 0.18) 120px 200px 270px 100px inset;
+  display: grid;
+  border-radius: 15px;
+  grid-template-rows: repeat(10, 1fr);
+  grid-template-columns: repeat(10, 1fr);
+  row-gap: 1.5rem;
+}
+.browseMain_header {
+  grid-row: 1/3;
+  grid-column: 1/11;
+  border-bottom: 1px solid gray;
+  display: grid;
+  grid-template-rows: repeat(5, 20%);
+  grid-template-columns: repeat(10, 10%);
+}
+.browseMain_header-input {
+  grid-row: 4/6;
+  grid-column: 3/9;
+  margin-bottom: 1vh;
+}
+.browseMain_display {
+  grid-row: 3/10;
+  grid-column: 1/11;
+  display: grid;
+  grid-template-columns: repeat(3, 33%);
+  grid-template-rows: max-content;
+  max-height: fit-content;
+  overflow-y: scroll;
+}
+.browseMain_display-userCard {
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: grid;
+  border: 1px solid #1b1831;
+  width: 100%;
+  height: 15vh;
+  grid-template-rows: repeat(10, 10%);
+  grid-template-columns: repeat(10, 10%);
+  background-color: #18162e;
+}
+.browseMain_display-userCard-addFriendBtn {
+  grid-row: 8/10;
+  grid-column: 2/9;
+  font-size: 10px;
+  box-shadow: none;
+  border: none;
+  border-radius: 5px;
+  background: #cb8c48;
+  cursor: pointer;
+}
+.browseMain_display-userCard-addFriendBtn:hover {
+  background-color: #ddd;
+  color: black;
+}
+.browseMain_display-userCard-name {
+  grid-row: 1/2;
+  width: 100%;
+  text-align: center;
+  font-size: 10px;
+}
+.browseMain_navBarDown {
+  border: 2px solid blue;
+  grid-column: 1/11;
+  grid-row: 10;
+  bottom: 37px;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-around;
+  background-color: gray;
+  padding: 10px;
+  border-radius: 15px;
+}
+.browseMain_navBarDown a {
+  text-decoration: none;
+}
+.browseMain_navBarDown-homeIcon {
+  color: #e09e0f;
+}
+.browseMain_navBarDown-profileIcon {
+  color: #ecde4e;
+}
+.browseMain_navBarDown-compassIcon {
+  color: #16bf1b;
+}
+.browseMain_navBarDown-heartIcon {
+  color: #ef1818;
+}
+
 @keyframes signUpAnimation {
   from {
     transform: translateX(-150px);
@@ -453,22 +549,22 @@ body {
 }
 @keyframes animationOne {
   100% {
-    transform: translate(200px, 0);
+    transform: translate(180px, 0);
   }
 }
 @keyframes animationTwo {
   100% {
-    transform: translate(200px, 0);
+    transform: translate(180px, 0);
   }
 }
 @keyframes animationThree {
   100% {
-    transform: translate(200px, 0);
+    transform: translate(180px, 0);
   }
 }
 @keyframes animationFour {
   100% {
-    transform: translate(200%, 0);
+    transform: translate(180px, 0);
   }
 }
 .profile-active {
