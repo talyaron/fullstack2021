@@ -61,7 +61,16 @@ async function handleRenderHome(ev) {
   getUsersTasks(userId, currentPage);
   const user = userInfo[0];
   const name = document.querySelector("[data-name]");
+  const gender = document.querySelector("[data-gender]");
   name.innerHTML = `${user.firstName} ${user.lastName}<br><span>${user.role}</span>`;
+  if(user.gender===`male`){
+    gender.src=`https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ51Gk5jjB4qD-BkcDh_fhsE4HkfnLDblQPrQLaOY13u7v5MNoBea8JzZ5NZAa0G-gAcgY&usqp=CAU`
+  }else{
+    gender.src= `https://static.vecteezy.com/system/resources/thumbnails/002/586/938/small/woman-cartoon-character-portrait-brunette-female-round-line-icon-free-vector.jpg`
+  }
+
+
+
   const lowTasks = document.querySelector("[data-low]");
   const mediumTasks = document.querySelector("[data-medium]");
   const highTasks = document.querySelector("[data-high]");
@@ -136,7 +145,7 @@ async function renderTasks(currentUsersTasks, currentPage) {
                               <div class="box__expln box__expln-home">
                                   <div class="flex-date">
                                       <i class="material-icons">schedule</i>
-                                      <p>${`task.date`}</p>
+                                      <p>${task.date}</p>
                                   </div>
                               </div>
                               <h4>${task.urgency} priority</h4>

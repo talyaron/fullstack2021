@@ -110,7 +110,7 @@ function handleLogin(ev) {
 }
 function handleRenderHome(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var currentPage, userId, data, userInfo, user, name, lowTasks, mediumTasks, highTasks;
+        var currentPage, userId, data, userInfo, user, name, gender, lowTasks, mediumTasks, highTasks;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -124,7 +124,14 @@ function handleRenderHome(ev) {
                     getUsersTasks(userId, currentPage);
                     user = userInfo[0];
                     name = document.querySelector("[data-name]");
+                    gender = document.querySelector("[data-gender]");
                     name.innerHTML = user.firstName + " " + user.lastName + "<br><span>" + user.role + "</span>";
+                    if (user.gender === "male") {
+                        gender.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ51Gk5jjB4qD-BkcDh_fhsE4HkfnLDblQPrQLaOY13u7v5MNoBea8JzZ5NZAa0G-gAcgY&usqp=CAU";
+                    }
+                    else {
+                        gender.src = "https://static.vecteezy.com/system/resources/thumbnails/002/586/938/small/woman-cartoon-character-portrait-brunette-female-round-line-icon-free-vector.jpg";
+                    }
                     lowTasks = document.querySelector("[data-low]");
                     mediumTasks = document.querySelector("[data-medium]");
                     highTasks = document.querySelector("[data-high]");
@@ -235,7 +242,7 @@ function renderTasks(currentUsersTasks, currentPage) {
                     tasksRoot = document.querySelector("[data-box-root]");
                     tasksCount = document.querySelector("[data-task-count]");
                     currentUsersTasks.forEach(function (task) {
-                        html += "\n    <div class=\"box " + task.urgency + "\">\n                          <div id=\"box__flex\">\n                              <div class=\"box__header\">\n                                  <div class=\"box__title\">\n                                      <p class=\"box__title-text box__title-home-text\">" + task.title + "</p>\n                                  </div>\n                              </div>\n                              <div class=\"box__expln box__expln-home\">\n                                  <div class=\"flex-date\">\n                                      <i class=\"material-icons\">schedule</i>\n                                      <p>" + "task.date" + "</p>\n                                  </div>\n                              </div>\n                              <h4>" + task.urgency + " priority</h4>\n                          </div>\n                      </div>";
+                        html += "\n    <div class=\"box " + task.urgency + "\">\n                          <div id=\"box__flex\">\n                              <div class=\"box__header\">\n                                  <div class=\"box__title\">\n                                      <p class=\"box__title-text box__title-home-text\">" + task.title + "</p>\n                                  </div>\n                              </div>\n                              <div class=\"box__expln box__expln-home\">\n                                  <div class=\"flex-date\">\n                                      <i class=\"material-icons\">schedule</i>\n                                      <p>" + task.date + "</p>\n                                  </div>\n                              </div>\n                              <h4>" + task.urgency + " priority</h4>\n                          </div>\n                      </div>";
                     });
                     tasksRoot.innerHTML = html;
                     return [2 /*return*/];
