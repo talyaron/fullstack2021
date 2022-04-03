@@ -1,4 +1,4 @@
-import { dir } from "console";
+
 
 async function handleRegister(ev) {
   ev.preventDefault();
@@ -177,9 +177,9 @@ async function renderTasks(currentUsersTasks, currentPage) {
                               <h4>${task.descriptionShorted}</h4>
                               <p class="box__expln-transp">${task.location}</p>
                           </div>
-                          <div  class="box__countdown">${task.dateShort}
+                          <div  class="box__countdown">${task.date}</div>
                           <a onclick="handleTaskDelete(event)" class="box__delete">
-                          <i data-delete="${task._id}" class="fas fa-times"></i>
+                          <i data-delete="${task._id}" class="fas fa-trash-alt"></i>
                           </a></div>
                       </div>
 
@@ -188,14 +188,7 @@ async function renderTasks(currentUsersTasks, currentPage) {
 
 
     const nextTask = getNextTask(currentUsersTasks);
-
-    
-
-    
-
-
-    tasksRoot.innerHTML = html;
-console.log(nextTask);
+tasksRoot.innerHTML = html;
 
     formHtml = `
     <input onchange="handleColor(event)" type="color" name="color" id="color" value="${nextTask.color}">
@@ -218,7 +211,7 @@ console.log(nextTask);
                             <input type="text" name='location' id='owner' value="${nextTask.location}">
                         </div>
                         <div class="task-time">
-                            <input type="date" name="date" id="date" value="${nextTask.year}-${nextTask.month}-${nextTask.day}">
+                            <input type="date" name="date" id="date" value="${nextTask.date}">
                         </div>
                         <input data-id="${nextTask._id}" type="submit" name="submit" id="submit" value="Update this task">
 `;
@@ -237,50 +230,6 @@ console.log(nextTask);
 }
 
 
-async function renderTaskModal(ev){
-  const taskId = ev.target.dataset.id;
-  const modal = document.querySelector('.userModal');
-  
-  let html ='';
-  try {
-    const {data} = await axios.post('/tasks/task', {taskId:taskId})
-    const currentTask = data;
-currentTask.date = currentTask.date.slice(0,10)
-
-    
-
-     
-    html += `<h1>${currentTask.title}</h1>
-    <form onsubmit="handleTaskUpdate(event)" ><input onchange="handleColor(event)" type="color" name="color" id="color" value="${currentTask.color}">
-        <div  class="task-title">
-            <input type="text" name="title" id="title" value="${currentTask.title}">
-        </div>
-        <div class="task-urg">
-            <select type="text" name="urgency" id="urg">
-            <option selected disabled value="${currentTask.urgency}">${currentTask.urgency}</option>
-            <option value="high">High</option>
-                <option value="medium">Medium</option>
-                <option value="low">Low</option>
-            </select>
-            
-        </div>
-        <div class="task-description">
-            <input type="text" name="description" id="description" value="${currentTask.description}">
-        </div>
-        <div class="task-location">
-            <input type="text" name='location' id='owner' value="${currentTask.location}">
-        </div>
-        <div class="task-time">
-            <input type="date" name="date" id="date" value="${currentTask.date}">
-        </div>
-        <input data-id="${currentTask._id}" type="submit" name="submit" id="submit" value="Update this task">
-</form>`
-    modal.innerHTML = html;
-  } catch (error) {
-    console.log(error.message);
-    console.log(error)
-  }
-}
 function addGlobalEventListener(
   type,
   selector,
@@ -302,12 +251,15 @@ function sortTasksByDate(tasks) {
     const year = new Date(task.date).getFullYear();
     const month = ("0" + (new Date(task.date).getMonth() + 1)).slice(-2);
     const day = ("0" + (new Date(task.date).getDate()+1)).slice(-2);
+const stringDate = `${year}-${month}-${day}`
 
     task.year = year;
     task.month = month;
     task.day = day;
-    task.dateShort = task.date.slice(0, 10)
-    task.date = new Date(task.date).toLocaleDateString().split(",")[0];
+    task.date = new Date(task.date).toLocaleDateString().replace(/\//g, '-');
+task.date = stringDate;
+    
+
   });
   tasks.sort((a, b) => a.day - b.day);
   tasks.sort((a, b) => a.month - b.month);
@@ -318,8 +270,8 @@ function getNextTask(currentUsersTasks) {
   const thisYear = new Date().getFullYear();
   const thisMonth = new Date().getMonth()+1;
   const thisDay = new Date().getDate();
-  
-  console.log(new Date().toLocaleDateString());
+
+
   
   const nextTasks = currentUsersTasks.filter(
     (task) =>{    
@@ -392,6 +344,7 @@ try{
   });
   const {currentUsersTasks } = data;
   renderTasks(currentUsersTasks, "RecentlyCreated");
+  closeTaskModal()
 }catch (error) {
   console.log('error in handleTaskUpdate')
   console.log({error: error.message})
@@ -416,4 +369,72 @@ async function handleColor(ev) {
   const newColor = ev.target.value;
   const formField = document.querySelector("#landing__task-next");
   formField.style.backgroundColor = newColor;
+}
+
+
+// task update modal:
+
+async function openTaskModal(modal) {
+  if(modal == null) return 
+  modal.classList.add('active')
+  overlay.classList.add('active')
+}
+function closeTaskModal(){
+  const modal = document.querySelector('.taskModal')
+  if(modal == null) return 
+  modal.classList.remove('active')
+  overlay.classList.remove('active')
+}
+
+async function renderTaskModal(ev){
+  const taskId = ev.target.dataset.id;
+  const modal = document.querySelector('.taskModal');
+
+  const overlay = document.querySelector('[data-taskModal-overlay]')
+  let html ='';
+  try {
+    const {data} = await axios.post('/tasks/task', {taskId:taskId})
+    const currentTask = data;
+    if(!currentTask) throw new Error("no task in the modal")
+currentTask.date = currentTask.date.slice(0,10)
+html += `
+<div class="taskModal-header">
+<h1>${currentTask.title}</h1>
+<button onclick="closeTaskModal()" class="taskModal-closeButton"> &times; </button>
+</div>
+<form onsubmit="handleTaskUpdate(event)" class="taskModal-form">
+<input onchange="handleColor(event)" type="color" name="color" id="color" value="${currentTask.color}">
+<div  class="taskModal-title">
+<input type="text" name="title" id="title" value="${currentTask.title}">
+
+</div>
+<div class="taskModal-urgency">
+<select type="text" name="urgency" id="urg">
+<option selected disabled value="${currentTask.urgency}">${currentTask.urgency}</option>
+<option value="high">High</option>
+<option value="medium">Medium</option>
+<option value="low">Low</option>
+</select>
+
+</div>
+<div class="taskModal-description">
+<input type="text" name="description" id="description" value="${currentTask.description}">
+</div>
+<div class="taskModal-location">
+<input type="text" name='location' id='owner' value="${currentTask.location}">
+</div>
+<div class="taskModal-date">
+<input type="date" name="date" id="date" value="${currentTask.date}">
+</div>
+<input data-id="${currentTask._id}" type="submit" name="submit" id="submit" value="Update this task">
+</form>
+<div onclick="closeTaskModal()" data-taskModal-overlay class="overlay"></div>`
+modal.innerHTML = html;
+openTaskModal(modal)
+
+
+} catch (error) {
+  console.log(error.message);
+  console.log(error)
+}
 }
