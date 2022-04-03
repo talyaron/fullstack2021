@@ -622,7 +622,7 @@ body {
 
     &_navBarDown{
         // position: fixed;
-        border: 2px solid blue;
+        border: 1px solid rgb(45, 45, 45);
         // margin-top: 3vh;
         // height: 70%;
         grid-column: 1/11;
@@ -633,7 +633,7 @@ body {
         flex-flow: row;
         justify-content: space-around;
         // width: 350px;
-        background-color: gray;
+        background-color: rgb(0, 0, 0);
         padding: 10px;
         border-radius: 15px;
         

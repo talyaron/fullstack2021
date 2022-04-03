@@ -491,14 +491,14 @@ body {
   font-size: 10px;
 }
 .browseMain_navBarDown {
-  border: 2px solid blue;
+  border: 1px solid #2d2d2d;
   grid-column: 1/11;
   grid-row: 10;
   bottom: 37px;
   display: flex;
   flex-flow: row;
   justify-content: space-around;
-  background-color: gray;
+  background-color: black;
   padding: 10px;
   border-radius: 15px;
 }
