@@ -254,8 +254,6 @@ function handleLogin(ev) {
                     ok = data.ok;
                     if (ok === true) {
                         document.getElementById("logMessage").innerHTML = " You are login";
-                        // window.setTimeout(function () { location.reload() }, 2000)
-                        document.querySelector(".mainPage__header--welcome").innerHTML = "Hello";
                     }
                     else if (ok === false) {
                         document.getElementById("logMessage").innerHTML = "Email or Password is wrong, try again";

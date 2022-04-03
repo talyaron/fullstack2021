@@ -386,12 +386,15 @@ function login(req, res) {
                 case 3:
                     _b.sent();
                     res.send({ ok: true, userName: userName });
-                    return [3 /*break*/, 5];
+                    return [3 /*break*/, 6];
                 case 4:
-                    if (user == 0)
-                        res.send({ ok: false });
-                    _b.label = 5;
-                case 5: return [2 /*return*/];
+                    if (!(user == 0)) return [3 /*break*/, 6];
+                    return [4 /*yield*/, userModel_1["default"].updateOne({ email: email }, { login: false })];
+                case 5:
+                    _b.sent();
+                    res.send({ ok: false });
+                    _b.label = 6;
+                case 6: return [2 /*return*/];
             }
         });
     });
