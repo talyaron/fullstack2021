@@ -369,7 +369,7 @@ function register(req, res) {
 exports.register = register;
 function login(req, res) {
     return __awaiter(this, void 0, void 0, function () {
-        var _a, email, password, user, UserLogin, userName;
+        var _a, email, password, user, UserLogin;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
@@ -377,15 +377,17 @@ function login(req, res) {
                     return [4 /*yield*/, userModel_1["default"].find({ email: email, password: password })];
                 case 1:
                     user = (_b.sent()).length;
-                    return [4 /*yield*/, userModel_1["default"].find({ email: email })];
+                    return [4 /*yield*/, userModel_1["default"].find({ email: email })
+                        // const userName = UserLogin[0].userName;
+                    ];
                 case 2:
                     UserLogin = _b.sent();
-                    userName = UserLogin[0].userName;
                     if (!(user > 0)) return [3 /*break*/, 4];
                     return [4 /*yield*/, userModel_1["default"].updateOne({ email: email }, { login: true })];
                 case 3:
                     _b.sent();
-                    res.send({ ok: true, userName: userName });
+                    // res.send({ ok: true, userName })
+                    res.send({ ok: true });
                     return [3 /*break*/, 6];
                 case 4:
                     if (!(user == 0)) return [3 /*break*/, 6];

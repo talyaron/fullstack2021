@@ -239,7 +239,7 @@ function handleSignUp(ev) {
 }
 function handleLogin(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var _a, email, password, id, data, userName, ok;
+        var _a, email, password, id, data, ok;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
@@ -250,7 +250,6 @@ function handleLogin(ev) {
                     return [4 /*yield*/, axios.post('/products/login', { email: email, password: password })];
                 case 1:
                     data = (_b.sent()).data;
-                    userName = data.userName;
                     ok = data.ok;
                     if (ok === true) {
                         document.getElementById("logMessage").innerHTML = " You are login";

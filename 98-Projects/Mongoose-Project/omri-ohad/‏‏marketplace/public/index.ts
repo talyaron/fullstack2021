@@ -153,7 +153,7 @@ async function handleLogin(ev) {
     email = email.value;
     password = password.value;
     const { data } = await axios.post('/products/login', { email, password });
-    const{userName} = data
+    // const{userName} = data
     const { ok } = data
     if (ok === true) {
         document.getElementById("logMessage").innerHTML = " You are login";
