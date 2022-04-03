@@ -123,7 +123,7 @@ async function renderProfile(email, password) {
     <div class="profile__user__pics"></div>
         <div class="profile__navBar--down">
     <div class="homeIcon"><a href="index.html"><i class="fas fa-home"></i></a></div>
-    <div class="profileIcon"><i class="fas fa-user" onclick="renderProfile(${email},${password})"></i></div>
+    <div class="profileIcon"><i class="fas fa-user"></i></div>
     <div class="compassIcon" onclick="browserUser(event)"><a href="browse.html"><i class="fas fa-compass"></i></a></div>
     <div class="heartIcon"><i class="fas fa-heart"></i></div>
     </div>

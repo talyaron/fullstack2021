@@ -55,7 +55,7 @@ body {
   color: #000000;
 }
 .profile .settings .delete {
-  color: #e69650;
+  color: #131312;
 }
 .profile .settings li {
   opacity: 0;
@@ -224,8 +224,7 @@ body {
   color: gray;
 }
 .profile__navBar--down {
-  bottom: 15px;
-  height: 2vh;
+  height: 4vh;
   display: flex;
   justify-content: space-around;
   width: 345px;
