@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.register = exports.sortDescending = exports.sortAscending = exports.filterByCategory = exports.deleteProduct = exports.updatePrice = exports.updateTitle = exports.updatePic = exports.addProduct = exports.getAllProducts = exports.getProductsMain = void 0;
+exports.login = exports.register = exports.sortDescending = exports.sortAscending = exports.filterByCategory = exports.deleteProduct = exports.updatePrice = exports.updateTitle = exports.updatePic = exports.addProduct = exports.getAllProducts = exports.getProductsMain = void 0;
 var productModel_1 = require("../model/productModel");
 var productMain_1 = require("../model/productMain");
 var userModel_1 = require("../model/userModel");
@@ -351,7 +351,7 @@ function register(req, res) {
                 case 0:
                     _b.trys.push([0, 2, , 3]);
                     _a = req.body, email = _a.email, password = _a.password, userName = _a.userName;
-                    user = new userModel_1["default"]({ email: email, password: password, userName: userName });
+                    user = new userModel_1["default"]({ email: email, password: password, userName: userName, login: false });
                     return [4 /*yield*/, user.save()];
                 case 1:
                     result = _b.sent();
@@ -367,3 +367,33 @@ function register(req, res) {
     });
 }
 exports.register = register;
+function login(req, res) {
+    return __awaiter(this, void 0, void 0, function () {
+        var _a, email, password, user, UserLogin, userName;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
+                case 0:
+                    _a = req.body, email = _a.email, password = _a.password;
+                    return [4 /*yield*/, userModel_1["default"].find({ email: email, password: password })];
+                case 1:
+                    user = (_b.sent()).length;
+                    return [4 /*yield*/, userModel_1["default"].find({ email: email })];
+                case 2:
+                    UserLogin = _b.sent();
+                    userName = UserLogin[0].userName;
+                    if (!(user > 0)) return [3 /*break*/, 4];
+                    return [4 /*yield*/, userModel_1["default"].updateOne({ email: email }, { login: true })];
+                case 3:
+                    _b.sent();
+                    res.send({ ok: true, userName: userName });
+                    return [3 /*break*/, 5];
+                case 4:
+                    if (user == 0)
+                        res.send({ ok: false });
+                    _b.label = 5;
+                case 5: return [2 /*return*/];
+            }
+        });
+    });
+}
+exports.login = login;

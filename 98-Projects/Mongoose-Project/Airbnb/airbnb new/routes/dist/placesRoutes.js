@@ -9,9 +9,7 @@ var placesCont_4 = require("../controler/placesCont");
 var placesCont_5 = require("../controler/placesCont");
 var placesCont_6 = require("../controler/placesCont");
 var placesCont_7 = require("../controler/placesCont");
-var placesCont_8 = require("../controler/placesCont");
 router
-    .get('/search', placesCont_8.search)
     .get('/getPlaces', placesCont_6.getPlaces)
     .get('/getFiltered', placesCont_7.getfilteredAirBNB)
     .post('/addPlaces', placesCont_1.addPlaces)

@@ -36,11 +36,11 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.getUser = exports.addUser = void 0;
+exports.updateUser = exports.getUser = exports.addUser = void 0;
 var usersModel_1 = require("../model/usersModel");
 function addUser(req, res) {
     return __awaiter(this, void 0, void 0, function () {
-        var _a, username, password, email, noPass, played, wins, current_strike, max_strike, newFundleUser, result;
+        var _a, username, password, email, noPass, played, wins, current_streak, max_streak, oneattempt, twoattempts, threeattempts, fourattempts, fiveattempts, sixattempts, newFundleUser, result;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
@@ -48,13 +48,18 @@ function addUser(req, res) {
                     return [4 /*yield*/, usersModel_1["default"].find({ username: username })];
                 case 1:
                     noPass = _b.sent();
-                    console.log(noPass.length);
                     if (!(noPass.length === 0)) return [3 /*break*/, 3];
                     played = 0;
                     wins = 0;
-                    current_strike = 0;
-                    max_strike = 0;
-                    newFundleUser = new usersModel_1["default"]({ username: username, password: password, email: email, played: played, wins: wins, current_strike: current_strike, max_strike: max_strike });
+                    current_streak = 0;
+                    max_streak = 0;
+                    oneattempt = 0;
+                    twoattempts = 0;
+                    threeattempts = 0;
+                    fourattempts = 0;
+                    fiveattempts = 0;
+                    sixattempts = 0;
+                    newFundleUser = new usersModel_1["default"]({ username: username, password: password, email: email, played: played, wins: wins, current_streak: current_streak, max_streak: max_streak, oneattempt: oneattempt, twoattempts: twoattempts, threeattempts: threeattempts, fourattempts: fourattempts, fiveattempts: fiveattempts, sixattempts: sixattempts });
                     return [4 /*yield*/, newFundleUser.save()];
                 case 2:
                     result = _b.sent();
@@ -76,11 +81,9 @@ function getUser(req, res) {
             switch (_b.label) {
                 case 0:
                     _a = req.query, username = _a.username, password = _a.password;
-                    console.log(username, password);
                     return [4 /*yield*/, usersModel_1["default"].find({ username: username, password: password })];
                 case 1:
                     userMatch = _b.sent();
-                    console.log(userMatch);
                     if (!(userMatch.length >= 1)) return [3 /*break*/, 2];
                     res.send({ user: userMatch });
                     return [3 /*break*/, 4];
@@ -88,7 +91,7 @@ function getUser(req, res) {
                 case 3:
                     noPass = _b.sent();
                     if (noPass.length >= 1) {
-                        res.send("nopass");
+                        res.send({ msg: "nopass", user: noPass });
                     }
                     else {
                         res.send("nouser");
@@ -100,3 +103,73 @@ function getUser(req, res) {
     });
 }
 exports.getUser = getUser;
+function updateUser(req, res) {
+    return __awaiter(this, void 0, void 0, function () {
+        var _a, win, attempts, username, user, updatedUser;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
+                case 0:
+                    _a = req.body, win = _a.win, attempts = _a.attempts, username = _a.username;
+                    return [4 /*yield*/, usersModel_1["default"].find({ username: username })];
+                case 1:
+                    user = _b.sent();
+                    if (!user[0]) return [3 /*break*/, 3];
+                    if (attempts === 1) {
+                        user[0].oneattempt++;
+                    }
+                    if (attempts === 2) {
+                        user[0].twoattempts++;
+                    }
+                    if (attempts === 3) {
+                        user[0].threeattempts++;
+                    }
+                    if (attempts === 4) {
+                        user[0].fourattempts++;
+                    }
+                    if (attempts === 5) {
+                        user[0].fiveattempts++;
+                    }
+                    if (attempts === 6) {
+                        user[0].sixattempts++;
+                    }
+                    user[0].played++;
+                    console.log('played: ' + user[0].played);
+                    console.log(win);
+                    if (win) {
+                        user[0].wins++;
+                        user[0].current_streak++;
+                        console.log(user[0].current_streak);
+                        if (user[0].current_streak > user[0].max_streak) {
+                            user[0].max_streak = user[0].current_streak;
+                        }
+                    }
+                    else if (win === false) {
+                        user[0].current_streak = 0;
+                        user[0].sixattempts--;
+                    }
+                    return [4 /*yield*/, usersModel_1["default"].updateOne({ username: username }, {
+                            played: user[0].played,
+                            wins: user[0].wins,
+                            current_streak: user[0].current_streak,
+                            max_streak: user[0].max_streak,
+                            oneattempt: user[0].oneattempt,
+                            twoattempts: user[0].twoattempts,
+                            threeattempts: user[0].threeattempts,
+                            fourattempts: user[0].fourattempts,
+                            fiveattempts: user[0].fiveattempts,
+                            sixattempts: user[0].sixattempts
+                        })
+                        // const realuser = await FundleUser.find({ username: username })
+                        // console.log(realuser)
+                    ];
+                case 2:
+                    updatedUser = _b.sent();
+                    _b.label = 3;
+                case 3:
+                    res.send({ ok: true });
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+exports.updateUser = updateUser;
