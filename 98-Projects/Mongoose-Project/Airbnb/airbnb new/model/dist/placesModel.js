@@ -1,6 +1,5 @@
 "use strict";
 exports.__esModule = true;
-exports.users = void 0;
 var mongoose_1 = require("mongoose");
 // const addressSchema= new mongoose.Schema({
 //       country:String,
@@ -31,9 +30,3 @@ var PlacesSchema = new mongoose_1["default"].Schema({
 });
 var Places = mongoose_1["default"].model("airbnbLocations", PlacesSchema);
 exports["default"] = Places;
-var userSchema = new mongoose_1["default"].Schema({
-    name: String,
-    password: String
-});
-var Users = mongoose_1["default"].model("users", userSchema);
-exports.users = Users;
