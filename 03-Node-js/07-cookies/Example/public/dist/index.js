@@ -55,6 +55,29 @@ function handleRegister(ev) {
         });
     });
 }
+function handleLogin(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        var _a, username, password, data;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
+                case 0:
+                    ev.preventDefault();
+                    _a = ev.target.elements, username = _a.username, password = _a.password;
+                    username = username.value;
+                    password = password.value;
+                    console.log(username, password);
+                    return [4 /*yield*/, axios.post('/users/login', { username: username, password: password })];
+                case 1:
+                    data = (_b.sent()).data;
+                    console.log(data);
+                    if (data.login) {
+                        window.location.href = 'home.html';
+                    }
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
 function handleUpdate(ev, userId) {
     return __awaiter(this, void 0, void 0, function () {
         var role, data;

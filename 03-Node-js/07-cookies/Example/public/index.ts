@@ -11,6 +11,22 @@ async function handleRegister(ev){
     console.log(data)
 }
 
+async function handleLogin(ev){
+    ev.preventDefault();
+    let {username, password} = ev.target.elements;
+
+    username = username.value;
+    password = password.value;
+
+    console.log(username, password)
+
+    const {data} = await axios.post('/users/login',{username, password})
+    console.log(data)
+    if(data.login){
+        window.location.href = 'home.html';
+    }
+}
+
 async function handleUpdate(ev, userId){
     console.log(ev, userId)
     const role  = ev.target.value;

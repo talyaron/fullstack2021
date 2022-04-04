@@ -148,12 +148,14 @@ function handleFilter(ev) {
         });
     });
 }
-function renderAirbnbOptions(data) {
+function renderAirbnbOptions(places) {
     try {
-        console.log(data);
+        console.log(places);
+        if (!Array.isArray(places))
+            throw new Error('sata is not an array');
         var root = document.querySelector('#rootPlaces');
         var html_1 = "";
-        data.forEach(function (place) {
+        places.forEach(function (place) {
             html_1 += "<div class=\"card-grid__card\" onclick=\"handleGoToPlace(" + place._id + ") \" onclick=\"location.href='place.html'\"> \n                        <div class=\"card-header card-img\">\n                            <img src=\"" + place.images + "\" alt=\"\">   \n                        </div>\n                    <div class=\"content\">\n                        <div class=\"card-grid__card__card-header\">\n                            <button class=\"btn\"><img src=\"images/icons-heart.png\" alt=\"\"></button>\n                            <button class=\"btn btn-outline\">" + place.name + "</button>\n                            <p>" + place.address_country_code + "," + place.address_country + "</p>\n                        </div>\n                        <div class=\"card-grid__card__card-body\">\n                            <p>" + place.description + "</p>\n                        </div>\n                        <div class=\"card-grid__card__card-footer\">\n                            <button class=\"btn\"><p>" + place.price + "</p>/night</button>\n                            <button class=\"btn btn-outline\"><p>" + place.reviews_rating + "</p></button>\n                        </div>\n                    </div>\n                </div>";
         });
         // let html=data.map(airbnb=>{

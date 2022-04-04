@@ -254,7 +254,7 @@ async function handleFindAirbnb(ev) {
   );
   console.log(data)
 
-   renderAirbnbOptions(data.places)
+   renderAirbnbOptions(data.places);
    //  const {options}=data
    //loadPlaces(data)
     // console.log(options)
@@ -279,14 +279,16 @@ async function handleFilter(ev) {
   const { data } = await axios.get("/places/getFiltered", { data: { price } });
 }
 
-function renderAirbnbOptions(data:Array<any>) {
+function renderAirbnbOptions(places:Array<any>) {
     
     try{
-        console.log(data);
+        console.log(places);
+        if(!Array.isArray(places)) throw new Error('sata is not an array');
+
         const root:HTMLElement=document.querySelector('#rootPlaces');
         let html="";
         
-        data.forEach((place) => {   
+        places.forEach((place) => {   
         html+= `<div class="card-grid__card" onclick="handleGoToPlace(${place._id}) " onclick="location.href='place.html'"> 
                         <div class="card-header card-img">
                             <img src="${place.images}" alt="">   
