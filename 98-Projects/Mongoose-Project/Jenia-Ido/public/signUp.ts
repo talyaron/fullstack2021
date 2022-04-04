@@ -299,7 +299,7 @@ async function handleDeleteProfile(ev) {
         const { data } = await axios.delete("/user/delete-user", { data: { email } });
         const deleleImages = images;
         const { error, results } = data;
-        alert(results)
+        alert(results);
         if (error) throw new Error(error);
         console.log(results);
     } catch (err) {
