@@ -36,51 +36,20 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.search = exports.upload = void 0;
-var songsModel_1 = require("../model/songsModel");
-exports.upload = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, band, album, song, genre, image, newSong, result, error_1;
-    return __generator(this, function (_b) {
-        switch (_b.label) {
-            case 0:
-                _b.trys.push([0, 2, , 3]);
-                _a = req.body, band = _a.band, album = _a.album, song = _a.song, genre = _a.genre, image = _a.image;
-                newSong = new songsModel_1.songs({ band: band, album: album, song: song, genre: genre, image: image });
-                console.log(newSong);
-                return [4 /*yield*/, newSong.save()];
-            case 1:
-                result = _b.sent();
-                res.send({ result: result });
-                return [3 /*break*/, 3];
-            case 2:
-                error_1 = _b.sent();
-                console.error(error_1);
-                res.send({ error: error_1.message });
-                return [3 /*break*/, 3];
-            case 3: return [2 /*return*/];
-        }
+exports.getUsers = void 0;
+function getUsers(req, res) {
+    return __awaiter(this, void 0, void 0, function () {
+        var userInfo;
+        return __generator(this, function (_a) {
+            try {
+                userInfo = req.cookies.userInfo;
+                if (userInfo)
+                    ;
+            }
+            finally {
+            }
+            return [2 /*return*/];
+        });
     });
-}); };
-exports.search = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var searchTerm, foundSearch, error_2;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                _a.trys.push([0, 2, , 3]);
-                searchTerm = req.query.searchTerm;
-                return [4 /*yield*/, songsModel_1.songs.find({ album: searchTerm })];
-            case 1:
-                foundSearch = _a.sent();
-                console.log(searchTerm);
-                console.log({ foundSearch: foundSearch });
-                res.send({ searchTerm: searchTerm, foundSearch: foundSearch });
-                return [3 /*break*/, 3];
-            case 2:
-                error_2 = _a.sent();
-                console.error(error_2);
-                res.send({ error: error_2.message });
-                return [3 /*break*/, 3];
-            case 3: return [2 /*return*/];
-        }
-    });
-}); };
+}
+exports.getUsers = getUsers;

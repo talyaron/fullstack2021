@@ -7,8 +7,6 @@ interface User {
     email: string
     gender: string
 }
-
-
 function showSignUpFrom(ev) {
     const display: any = document.querySelector('.main_display')
     // console.dir(ev.target);
@@ -193,16 +191,8 @@ async function HandleLogin(ev) {
     try {
         ev.preventDefault();
         const password = ev.target.elements.password.value;
-        // console.log(password)
         const email = ev.target.elements.email.value;
-        // console.log(email);
-        // const userData = await axios.get(`/user/get-user?email=${email}&password=${password}`);
-        // const imagesData = await axios.get(`/images/get-images?email=${email}&password=${password}`);
-        // const user = { ...userData.data };
-        // const images = { ...imagesData.data };
-
-        // console.log(user);
-        // console.log(images);
+       
         localStorage.setItem("UserEmail", JSON.stringify(`${email}`));
         localStorage.setItem("UserPassword", JSON.stringify(`${password}`));
         renderProfile(email, password);

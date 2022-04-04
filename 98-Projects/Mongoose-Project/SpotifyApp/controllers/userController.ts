@@ -28,6 +28,7 @@ export const logIn = async (req, res) => {
             const samePass = await bcrypt.compare(password, candidate.password)
             const theSame='the user is logged in';
             res.send({theSame});
+            return
         }
 
         console.log(newUser)

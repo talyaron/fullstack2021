@@ -35,10 +35,12 @@ async function handleLogin(ev) {
         const userExists = response.data.aUser;
         const verifiedUser = response.data.verifiedUser;
         const verifiedUserId = verifiedUser[0]._id;
-
+        
         if (!status) throw new Error("no status");
         if (status) {
-          window.location.href = `/home.html?id=${verifiedUserId}`;
+          console.log(verifiedUser);
+          console.log(response.data)
+          // window.location.href = `/home.html?id=${verifiedUserId}`;
         } else if (userExists < 0) {
         }
       });

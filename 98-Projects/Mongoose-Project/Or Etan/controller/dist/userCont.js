@@ -71,14 +71,14 @@ exports.addUser = function (req, res) { return __awaiter(void 0, void 0, void 0,
     });
 }); };
 exports.login = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, email, password, users, userEmail, verifiedUser, error_2;
+    var _a, email, password, users, userEmail, verifiedUser, verifiedUser2, error_2;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
                 _a = req.body, email = _a.email, password = _a.password;
                 _b.label = 1;
             case 1:
-                _b.trys.push([1, 5, , 6]);
+                _b.trys.push([1, 6, , 7]);
                 return [4 /*yield*/, userModel_1["default"]
                         .find({ email: email })
                         .collation({ locale: "en_US", strength: 1 })];
@@ -93,8 +93,17 @@ exports.login = function (req, res) { return __awaiter(void 0, void 0, void 0, f
                     })];
             case 4:
                 verifiedUser = _b.sent();
+                return [4 /*yield*/, userModel_1["default"].findOne({
+                        email: userEmail,
+                        password: password
+                    })];
+            case 5:
+                verifiedUser2 = _b.sent();
                 if (users.length > 0) {
                     if (verifiedUser.length === 1) {
+                        console.log(verifiedUser[0]._id);
+                        console.log(verifiedUser2._id);
+                        res.cookie('currentUser', { id: verifiedUser._id });
                         res.send({ ok: true, users: users, verifiedUser: verifiedUser });
                         return [2 /*return*/];
                     }
@@ -104,14 +113,14 @@ exports.login = function (req, res) { return __awaiter(void 0, void 0, void 0, f
                 else {
                     res.send({ ok: false });
                 }
-                return [3 /*break*/, 6];
-            case 5:
+                return [3 /*break*/, 7];
+            case 6:
                 error_2 = _b.sent();
                 console.log("error in login:");
                 console.log(error_2.message);
                 res.send({ error: error_2.message });
-                return [3 /*break*/, 6];
-            case 6: return [2 /*return*/];
+                return [3 /*break*/, 7];
+            case 7: return [2 /*return*/];
         }
     });
 }); };
