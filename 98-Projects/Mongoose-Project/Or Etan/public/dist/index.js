@@ -66,7 +66,7 @@ function handleRegister(ev) {
 }
 function handleLogin(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var email, password, userData, data, error_1;
+        var email, password, userData, data, ok, aUser, verifiedUser, userId, verifiedUserId, error_1;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -81,24 +81,20 @@ function handleLogin(ev) {
                 case 1:
                     _a.trys.push([1, 3, , 4]);
                     return [4 /*yield*/, axios
-                            .post("/users/log-in", userData)
-                            .then(function (response) {
-                            var status = response.data.ok;
-                            var userExists = response.data.aUser;
-                            var verifiedUser = response.data.verifiedUser;
-                            var verifiedUserId = verifiedUser[0]._id;
-                            if (!status)
-                                throw new Error("no status");
-                            if (status) {
-                                console.log(verifiedUser);
-                                console.log(response.data);
-                                // window.location.href = `/home.html?id=${verifiedUserId}`;
-                            }
-                            else if (userExists < 0) {
-                            }
-                        })];
+                            .post("/users/log-in", userData)];
                 case 2:
-                    data = _a.sent();
+                    data = (_a.sent()).data;
+                    ok = data.ok, aUser = data.aUser, verifiedUser = data.verifiedUser, userId = data.userId;
+                    verifiedUserId = userId;
+                    console.log(verifiedUserId);
+                    if (!ok)
+                        throw new Error("no ok");
+                    if (ok) {
+                        console.log(verifiedUser);
+                        window.location.href = "/home.html?id=" + verifiedUserId;
+                    }
+                    else if (aUser < 0) {
+                    }
                     return [3 /*break*/, 4];
                 case 3:
                     error_1 = _a.sent();
@@ -404,10 +400,10 @@ function renderTasks(currentUsersTasks, currentPage) {
                             task.descriptionShorted = task.description;
                         }
                         if (!task.checked) {
-                            html += "\n     <li class=\"box\">\n                      <div id=\"box__flex\">\n                          <div class=\"box__header\">\n                              <div class=\"box__logo-square " + task.urgency + "\">\n                                  <p style=\"color: " + task.color + "\" class=\"box__logo\">B\u0113</p>\n                              </div>\n                              <div  class=\"box__title\">\n                                  <p style=\"color: " + task.color + "\" class=\"box__title-text\">" + task.title + "</p>\n                                  <p class=\"box__title-urg\">" + task.urgency + "</p>\n                              </div>\n\n                              <i data-id=\"" + task._id + "\" onclick=\"renderTaskModal(event)\" class=\"fas fa-edit\"></i>\n\n                          </div>\n                          <div class=\"box__expln\">\n                              <h4>" + task.descriptionShorted + "</h4>\n                              <p class=\"box__expln-transp\">" + task.location + "</p>\n                          </div>\n                          <div  class=\"box__countdown\">" + task.date + "\n                          <a data-check=\"" + task._id + "\" onclick=\"handleTaskCheck(event)\">check</a>\n                          </div>\n                          <a onclick=\"handleTaskDelete(event)\" class=\"box__delete\">\n                          <i data-delete=\"" + task._id + "\" class=\"fas fa-trash-alt\"></i>\n                          </a></div>\n                      </div>\n\n                  </li>";
+                            html += "\n     <li class=\"box\">\n                      <div id=\"box__flex\">\n                          <div class=\"box__header\">\n                              <div class=\"box__logo-square " + task.urgency + "\">\n                                  <p style=\"color: " + task.color + "\" class=\"box__logo\">B\u0113</p>\n                              </div>\n                              <div  class=\"box__title\">\n                                  <p style=\"color: " + task.color + "\" class=\"box__title-text\">" + task.title + "</p>\n                                  <p class=\"box__title-urg\">" + task.urgency + "</p>\n                              </div>\n\n                              <i data-id=\"" + task._id + "\" onclick=\"renderTaskModal(event)\" class=\"fas fa-edit\"></i>\n\n                          </div>\n                          <div class=\"box__expln\">\n                              <h4>" + task.descriptionShorted + "</h4>\n                              <p class=\"box__expln-transp\">" + task.location + "</p>\n                          </div>\n                          <div  class=\"box__countdown\">" + task.date + "\n                          <a class=\"fas fa-check\" data-check=\"" + task._id + "\" onclick=\"handleTaskCheck(event)\"></a>\n                          </div>\n                          <a onclick=\"handleTaskDelete(event)\" class=\"box__delete\">\n                          <i data-delete=\"" + task._id + "\" class=\"fas fa-trash-alt\"></i>\n                          </a></div>\n                      </div>\n\n                  </li>";
                             return;
                         }
-                        html += "\n        <li class=\"box\">\n        <del>\n                      <div id=\"box__flex\">\n                          <div class=\"box__header\">\n                              <div class=\"box__logo-square " + task.urgency + "\">\n                                  <p style=\"color: " + task.color + "\" class=\"box__logo\">B\u0113</p>\n                              </div>\n                              <div  class=\"box__title\">\n                                  <p style=\"color: " + task.color + "\" class=\"box__title-text\">" + task.title + "</p>\n                                  <p class=\"box__title-urg\">" + task.urgency + "</p>\n                              </div>\n\n                              <i data-id=\"" + task._id + "\" onclick=\"renderTaskModal(event)\" class=\"fas fa-edit\"></i>\n\n                          </div>\n                          <div class=\"box__expln\">\n                              <h4>" + task.descriptionShorted + "</h4>\n                              <p class=\"box__expln-transp\">" + task.location + "</p>\n                          </div>\n                          <div  class=\"box__countdown\">" + task.date + "\n                          <a data-check=\"" + task._id + "\" onclick=\"handleTaskCheck(event)\">check</a>\n                          </div>\n                          <a onclick=\"handleTaskDelete(event)\" class=\"box__delete\">\n                          <i data-delete=\"" + task._id + "\" class=\"fas fa-trash-alt\"></i>\n                          </a></div>\n                      </div>\n                      </del>\n                  </li>";
+                        html += "\n        <li class=\"box\">\n        <del>\n                      <div id=\"box__flex\">\n                          <div class=\"box__header\">\n                              <div class=\"box__logo-square " + task.urgency + "\">\n                                  <p style=\"color: " + task.color + "\" class=\"box__logo\">B\u0113</p>\n                              </div>\n                              <div  class=\"box__title\">\n                                  <p style=\"color: " + task.color + "\" class=\"box__title-text\">" + task.title + "</p>\n                                  <p class=\"box__title-urg\">" + task.urgency + "</p>\n                              </div>\n\n                              <i data-id=\"" + task._id + "\" onclick=\"renderTaskModal(event)\" class=\"fas fa-edit\"></i>\n\n                          </div>\n                          <div class=\"box__expln\">\n                              <h4>" + task.descriptionShorted + "</h4>\n                              <p class=\"box__expln-transp\">" + task.location + "</p>\n                          </div>\n                          <div  class=\"box__countdown\">" + task.date + "\n                          <a class=\"fas fa-check\" data-check=\"" + task._id + "\" onclick=\"handleTaskCheck(event)\"></a>\n                          </div>\n                          <a onclick=\"handleTaskDelete(event)\" class=\"box__delete\">\n                          <i data-delete=\"" + task._id + "\" class=\"fas fa-trash-alt\"></i>\n                          </a></div>\n                      </div>\n                      </del>\n                  </li>";
                     });
                     nextTask = getNextTask(currentUsersTasks);
                     tasksRoot.innerHTML = html;
@@ -563,6 +559,7 @@ function handleTaskCheck(ev) {
                     _a.trys.push([0, 2, , 3]);
                     timeChecked = new Date().toLocaleDateString().replace(/\//g, "-");
                     taskId = ev.target.dataset.check;
+                    console.log(taskId);
                     userId = ev.target.baseURI.slice(-24);
                     return [4 /*yield*/, axios.patch("/tasks/check-task", {
                             _id: taskId,
@@ -572,6 +569,7 @@ function handleTaskCheck(ev) {
                 case 1:
                     data = (_a.sent()).data;
                     currentUsersTasks = data.currentUsersTasks;
+                    console.log(currentUsersTasks);
                     renderTasks(currentUsersTasks, "RecentlyCreated");
                     return [3 /*break*/, 3];
                 case 2:

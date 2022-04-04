@@ -28,22 +28,23 @@ async function handleLogin(ev) {
     password: password,
   };
   try {
-    const data = await axios
+    const {data} = await axios
       .post("/users/log-in", userData)
-      .then((response) => {
-        const status = response.data.ok;
-        const userExists = response.data.aUser;
-        const verifiedUser = response.data.verifiedUser;
-        const verifiedUserId = verifiedUser[0]._id;
+
+        const {ok, aUser, verifiedUser, userId} = data;
+
         
-        if (!status) throw new Error("no status");
-        if (status) {
+
+        const verifiedUserId = userId;
+        console.log(verifiedUserId);
+        
+        if (!ok) throw new Error("no ok");
+        if (ok) {
           console.log(verifiedUser);
-          console.log(response.data)
-          // window.location.href = `/home.html?id=${verifiedUserId}`;
-        } else if (userExists < 0) {
+          window.location.href = `/home.html?id=${verifiedUserId}`;
+        } else if (aUser < 0) {
         }
-      });
+
   } catch (error) {
     console.log("error in handleLogin:");
     console.log(error.message);
@@ -343,7 +344,7 @@ async function renderTasks(currentUsersTasks, currentPage) {
                               <p class="box__expln-transp">${task.location}</p>
                           </div>
                           <div  class="box__countdown">${task.date}
-                          <a data-check="${task._id}" onclick="handleTaskCheck(event)">check</a>
+                          <a class="fas fa-check" data-check="${task._id}" onclick="handleTaskCheck(event)"></a>
                           </div>
                           <a onclick="handleTaskDelete(event)" class="box__delete">
                           <i data-delete="${task._id}" class="fas fa-trash-alt"></i>
@@ -374,7 +375,7 @@ async function renderTasks(currentUsersTasks, currentPage) {
                               <p class="box__expln-transp">${task.location}</p>
                           </div>
                           <div  class="box__countdown">${task.date}
-                          <a data-check="${task._id}" onclick="handleTaskCheck(event)">check</a>
+                          <a class="fas fa-check" data-check="${task._id}" onclick="handleTaskCheck(event)"></a>
                           </div>
                           <a onclick="handleTaskDelete(event)" class="box__delete">
                           <i data-delete="${task._id}" class="fas fa-trash-alt"></i>
@@ -550,6 +551,8 @@ async function handleTaskCheck(ev) {
   try {
     const timeChecked = new Date().toLocaleDateString().replace(/\//g, "-");
     const taskId = ev.target.dataset.check;
+    console.log(taskId);
+    
     const userId = ev.target.baseURI.slice(-24);
     const { data } = await axios.patch("/tasks/check-task", {
       _id: taskId,
@@ -557,6 +560,8 @@ async function handleTaskCheck(ev) {
       timeChecked,
     });
     const { currentUsersTasks } = data;
+    console.log(currentUsersTasks);
+    
     renderTasks(currentUsersTasks, "RecentlyCreated");
   } catch (error) {
     console.log("error in handleTaskCheck");

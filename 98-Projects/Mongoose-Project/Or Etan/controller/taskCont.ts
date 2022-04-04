@@ -66,11 +66,30 @@ export const updateTask = async (req, res) => {
 };
 
 export const checkTask = async (req, res) => {
+  try{
     const {_id, ownerId, timeChecked} = req.body;
-    const checkedTask = await task.findOneAndUpdate({_id: _id, ownerId: ownerId}, {timeChecked:timeChecked, checked: true});
-    console.log(checkedTask);
+    const taskCheck = await task.findOne({_id, ownerId});
+    console.log(taskCheck);
+    
+if(taskCheck?.checked === true) {
+  console.log('ho');
+  
+await task.updateOne({_id: _id, ownerId: ownerId}, {timeChecked:timeChecked, checked: false});
+const currentUsersTasks = await task.find({ ownerId: ownerId})
+res.send({currentUsersTasks });
+return
+}
+console.log('wo');
+    const checkTask = await task.findOneAndUpdate({_id: _id, ownerId: ownerId}, {timeChecked:timeChecked, checked: true});
+console.log(_id, ownerId);
+
     const currentUsersTasks = await task.find({ ownerId: ownerId})
     res.send({currentUsersTasks });
+}catch (error) {
+  console.log(error);
+  console.log(error.message)
+  res.send({error: error.message});
+}
     
 }
 
