@@ -115,7 +115,7 @@ function renderProfile(email, password) {
                         imgs = __assign({}, imagesData.data.result[0]);
                         display = document.querySelector('.main');
                         html = "";
-                        html += "<section class=\"profile\">\n\n    <div class=\"profile__navBar--top\">\n        <a href=\"index.html\"><i class=\"fas fa-arrow-left fa-xs\"></i></a>\n        <i class=\"fas fa-wrench fa-xs\" onclick=\"HandleSettingsMenu()\"></i>\n    </div>\n    <nav class=\"settings\">\n    <li><button class=\"settings_buttons\" id=\"" + user.email + "\" name=\"" + user.password + "\" onclick='handleUpdateProfile(event)'>update Profile</button></li>\n    <li><a href=\"index.html\"><button class=\"settings_buttons delete\" id=\"" + user.email + "\" onclick=\"handleDeleteProfile(event)\">delete user</button></a></li>\n    <div id='updateRoot'></div>\n    </nav>\n    <div id=\"profilePic\"></div>\n    <div class=\"profile__header\">\n        <div class=\"profile__header__imgBorder\"  style=\"background-image: url(" + imgs.profileUrl + ")\">\n        <button class=\"profile__header__imgBorder-changeImage\" name=\"" + user.email + "\"\n        id=\"" + imgs.profileUrl + "\" lang=\"" + user.password + "\" \"type=\"button\" onclick=\"showProfilePicture(event)\">View</button>\n        </div>\n        <div class=\"profile__header__name\">" + user.firstName + " " + user.lastName + "</div>\n        <div class=\"profile__header__birthday\">" + user.birthday + "</div>\n        <div class=\"profile__header__country\">" + user.country + "</div>\n        <div class=\"profile__header__gender\">" + user.gender + "</div>\n        \n        <button class=\"profile__header__addButton\" name=\"" + user.password + "\" id=\"" + user.email + "\" onclick=\"AddImage(event)\">Add Post</button>\n    </div>\n    <div id=\"addPost\"></div>\n   \n    \n    <div class=\"profile__user__pics\"></div>\n        <div class=\"profile__navBar--down\">\n    <div class=\"homeIcon\"><a href=\"index.html\"><i class=\"fas fa-home\"></i></a></div>\n    <div class=\"profileIcon\"><i class=\"fas fa-user\"></i></div>\n    <div class=\"compassIcon\" onclick=\"browserUser(event)\"><a href=\"browse.html\"><i class=\"fas fa-compass\"></i></a></div>\n    <div class=\"heartIcon\"><i class=\"fas fa-heart\"></i></div>\n    </div>\n    </section>";
+                        html += "<section class=\"profile\">\n\n    <div class=\"profile__navBar--top\">\n        <a href=\"index.html\"><i class=\"fas fa-arrow-left fa-xs\"></i></a>\n        <i class=\"fas fa-wrench fa-xs\" onclick=\"HandleSettingsMenu()\"></i>\n    </div>\n    <nav class=\"settings\">\n    <li><button class=\"settings_buttons\" id=\"" + user.email + "\" name=\"" + user.password + "\" onclick='handleUpdateProfile(event)'>update Profile</button></li>\n    <li><button class=\"settings_buttons delete\" id=\"" + user.email + "\" onclick=\"handleDeleteProfile(event)\">delete user</button></li>\n    <div id='updateRoot'></div>\n    </nav>\n    <div id=\"profilePic\"></div>\n    <div class=\"profile__header\">\n        <div class=\"profile__header__imgBorder\"  style=\"background-image: url(" + imgs.profileUrl + ")\">\n        <button class=\"profile__header__imgBorder-changeImage\" name=\"" + user.email + "\"\n        id=\"" + imgs.profileUrl + "\" lang=\"" + user.password + "\" \"type=\"button\" onclick=\"showProfilePicture(event)\">View</button>\n        </div>\n        <div class=\"profile__header__name\">" + user.firstName + " " + user.lastName + "</div>\n        <div class=\"profile__header__birthday\">" + user.birthday + "</div>\n        <div class=\"profile__header__country\">" + user.country + "</div>\n        <div class=\"profile__header__gender\">" + user.gender + "</div>\n        \n        <button class=\"profile__header__addButton\" name=\"" + user.password + "\" id=\"" + user.email + "\" onclick=\"AddImage(event)\">Add Post</button>\n    </div>\n    <div id=\"addPost\"></div>\n   \n    \n    <div class=\"profile__user__pics\"></div>\n        <div class=\"profile__navBar--down\">\n    <div class=\"homeIcon\"><a href=\"index.html\"><i class=\"fas fa-home\"></i></a></div>\n    <div class=\"profileIcon\"><i class=\"fas fa-user\"></i></div>\n    <div class=\"compassIcon\" onclick=\"browserUser(event)\"><a href=\"browse.html\"><i class=\"fas fa-compass\"></i></a></div>\n    <div class=\"heartIcon\"><i class=\"fas fa-heart\"></i></div>\n    </div>\n    </section>";
                         display.innerHTML = html;
                         renderUserImgs(imgs);
                     }
@@ -202,6 +202,7 @@ function HandleLogin(ev) {
                 // console.log(user);
                 // console.log(images);
                 localStorage.setItem("UserEmail", JSON.stringify("" + email));
+                localStorage.setItem("UserPassword", JSON.stringify("" + password));
                 renderProfile(email, password);
             }
             catch (error) {
@@ -303,7 +304,7 @@ function HandleUpdate(ev) {
 }
 function handleDeleteProfile(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var email, data, images, deleleImages, error, results, err_3;
+        var email, images, data, deleleImages, error, results, err_3;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -311,12 +312,12 @@ function handleDeleteProfile(ev) {
                     _a.label = 1;
                 case 1:
                     _a.trys.push([1, 4, , 5]);
-                    return [4 /*yield*/, axios["delete"]("/user/delete-user", { data: { email: email } })];
+                    return [4 /*yield*/, axios["delete"]("/images/delete-images", { data: { email: email } })];
                 case 2:
-                    data = (_a.sent()).data;
-                    return [4 /*yield*/, axios["delete"]("/images/delete-user", { data: { email: email } })];
-                case 3:
                     images = (_a.sent()).images;
+                    return [4 /*yield*/, axios["delete"]("/user/delete-user", { data: { email: email } })];
+                case 3:
+                    data = (_a.sent()).data;
                     deleleImages = images;
                     error = data.error, results = data.results;
                     alert(results);
@@ -402,11 +403,12 @@ function userCategoryActive(ev) {
 }
 function browserUser() {
     return __awaiter(this, void 0, void 0, function () {
-        var email, _a, ok, data, error, usersProfileImgsList, err_5;
+        var email, password, _a, ok, data, error, usersProfileImgsList, err_5;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
                     email = JSON.parse(localStorage.getItem("UserEmail"));
+                    password = JSON.parse(localStorage.getItem("UserPassword"));
                     _b.label = 1;
                 case 1:
                     _b.trys.push([1, 3, , 4]);
@@ -434,4 +436,9 @@ function renderbrowseImgs(list) {
         html += "<div class=\"browseMain_display-userCard\" style=\"background-image:url(" + user.img + ")\">\n        <div class=\"browseMain_display-userCard-name\">" + user.userEmail + "</div>\n        <button class=\"browseMain_display-userCard-addFriendBtn\" type=\"button\">Add Friend</button>\n        </div>";
     });
     display.innerHTML = html;
+}
+function profileButton() {
+    var email = JSON.parse(localStorage.getItem("UserEmail"));
+    var password = JSON.parse(localStorage.getItem("UserPassword"));
+    renderProfile(email, password);
 }

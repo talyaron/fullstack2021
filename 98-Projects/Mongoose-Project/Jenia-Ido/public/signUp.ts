@@ -101,7 +101,7 @@ async function renderProfile(email, password) {
     </div>
     <nav class="settings">
     <li><button class="settings_buttons" id="${user.email}" name="${user.password}" onclick='handleUpdateProfile(event)'>update Profile</button></li>
-    <li><a href="index.html"><button class="settings_buttons delete" id="${user.email}" onclick="handleDeleteProfile(event)">delete user</button></a></li>
+    <li><button class="settings_buttons delete" id="${user.email}" onclick="handleDeleteProfile(event)">delete user</button></li>
     <div id='updateRoot'></div>
     </nav>
     <div id="profilePic"></div>
@@ -204,6 +204,7 @@ async function HandleLogin(ev) {
         // console.log(user);
         // console.log(images);
         localStorage.setItem("UserEmail", JSON.stringify(`${email}`));
+        localStorage.setItem("UserPassword", JSON.stringify(`${password}`));
         renderProfile(email, password);
 
     }
@@ -293,9 +294,10 @@ async function handleDeleteProfile(ev) {
     const email = ev.target.id;
     // console.log(email);
     try {
+        
+        const { images } = await axios.delete("/images/delete-images", { data: { email } });
         const { data } = await axios.delete("/user/delete-user", { data: { email } });
-        const { images } = await axios.delete("/images/delete-user", { data: { email } });
-        const deleleImages = images
+        const deleleImages = images;
         const { error, results } = data;
         alert(results)
         if (error) throw new Error(error);
@@ -361,6 +363,7 @@ async function userCategoryActive(ev) {
 
 async function browserUser() {
     const email = JSON.parse(localStorage.getItem("UserEmail"));
+    const password = JSON.parse(localStorage.getItem("UserPassword"));
     try {
         const { ok, data, error } = await axios.patch('/images/get-users-profieImg', { email })
         
@@ -382,7 +385,11 @@ function renderbrowseImgs(list) {
     })
     display.innerHTML = html;
 }
-
+function profileButton(){
+    const email = JSON.parse(localStorage.getItem("UserEmail"));
+    const password = JSON.parse(localStorage.getItem("UserPassword"));
+    renderProfile(email,password);
+}
 
 
 

@@ -33,7 +33,7 @@ export const updateProfilePiC = async (req, res) => {
         const { email, newImg } = req.body;
         // console.log(email);
         // console.log(newImg);
-        
+
         const images = await Images.updateOne({ email: email }, { profileUrl: newImg });
         res.send({ images, ok: true });
     } catch (err) {
@@ -41,42 +41,60 @@ export const updateProfilePiC = async (req, res) => {
         res.send({ error: err.message, ok: false });
     }
 }
-export const addPost= async (req,res)=>{
-    try{
-        const {email, url} = req.body;
-       const result = await Images.updateOne({email:email},{$push: {url:url}})
-       if(email){
-           res.send({ok:true})
-       }
-       else throw new Error("err");
-        
-        
-    }catch(err){
+export const addPost = async (req, res) => {
+    try {
+        const { email, url } = req.body;
+        const result = await Images.updateOne({ email: email }, { $push: { url: url } })
+        if (email) {
+            res.send({ ok: true })
+        }
+        else throw new Error("err");
+
+
+    } catch (err) {
         console.error(err);
         res.send({ error: err.message, ok: false });
     }
 }
-export const getUsersImgs = async (req , res) => {
-    try{
+export const getUsersImgs = async (req, res) => {
+    try {
         let profileImgs = [];
-        const {email} = req.body;
-    //    console.log(email);
-       const usersList = await Images.find({})
-    //    console.log(usersList);
-       usersList.forEach(user => {
-           if(user.email !== email){
+        const { email } = req.body;
+        //    console.log(email);
+        const usersList = await Images.find({})
+        //    console.log(usersList);
+        usersList.forEach(user => {
+            if (user.email !== email) {
                 const img = user.profileUrl;
                 const userEmail = user.email
-                profileImgs.push({img,userEmail})
-           }
-       })
-    //    console.log(profileImgs); 
-       if(email){
-           res.send({ok:true,profileImgs})
-       }
-       else throw new Error("cant get email in browse page");
-    }catch(err){
+                profileImgs.push({ img, userEmail })
+            }
+        })
+        //    console.log(profileImgs); 
+        if (email) {
+            res.send({ ok: true, profileImgs })
+        }
+        else throw new Error("cant get email in browse page");
+    } catch (err) {
         console.error(err);
         res.send({ error: err.message, ok: false });
+    }
+}
+export const deleteImages = async (req, res) => {
+    try {
+
+        const { email } = req.body;
+        console.log(email);
+
+        if (email) {
+            const imagesDelete = await Images.deleteOne({ email: email })
+            // if (!email) throw new Error("Didnt find user with such an email");
+            res.send({ results: "user deleted" });
+        } else {
+            throw new Error("Email was not found in request");
+        }
+    } catch (err) {
+        console.error(`In delete-user: ${err.message}`);
+        res.send({ error: err.message });
     }
 }

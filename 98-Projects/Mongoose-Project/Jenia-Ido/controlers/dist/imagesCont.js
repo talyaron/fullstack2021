@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.getUsersImgs = exports.addPost = exports.updateProfilePiC = exports.addImages = exports.getImages = void 0;
+exports.deleteImages = exports.getUsersImgs = exports.addPost = exports.updateProfilePiC = exports.addImages = exports.getImages = void 0;
 var imagesModel_1 = require("../models/imagesModel");
 exports.getImages = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var email, result, err_1;
@@ -162,6 +162,34 @@ exports.getUsersImgs = function (req, res) { return __awaiter(void 0, void 0, vo
                 res.send({ error: err_5.message, ok: false });
                 return [3 /*break*/, 3];
             case 3: return [2 /*return*/];
+        }
+    });
+}); };
+exports.deleteImages = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var email, imagesDelete, err_6;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 4, , 5]);
+                email = req.body.email;
+                console.log(email);
+                if (!email) return [3 /*break*/, 2];
+                return [4 /*yield*/, imagesModel_1["default"].deleteOne({ email: email })
+                    // if (!email) throw new Error("Didnt find user with such an email");
+                ];
+            case 1:
+                imagesDelete = _a.sent();
+                // if (!email) throw new Error("Didnt find user with such an email");
+                res.send({ results: "user deleted" });
+                return [3 /*break*/, 3];
+            case 2: throw new Error("Email was not found in request");
+            case 3: return [3 /*break*/, 5];
+            case 4:
+                err_6 = _a.sent();
+                console.error("In delete-user: " + err_6.message);
+                res.send({ error: err_6.message });
+                return [3 /*break*/, 5];
+            case 5: return [2 /*return*/];
         }
     });
 }); };
