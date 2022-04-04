@@ -1,3 +1,8 @@
+// async function loadPlaces(data) {
+// //   const { data } = await axios.get("/places/getPlaces");
+// //   console.log(data);
+//  console.log(data)
+//   renderAirbnbOptions(data)
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -34,17 +39,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-function loadPlaces(data) {
-    return __awaiter(this, void 0, void 0, function () {
-        return __generator(this, function (_a) {
-            //   const { data } = await axios.get("/places/getPlaces");
-            //   console.log(data);
-            console.log(data);
-            renderAirbnbOptions(data);
-            return [2 /*return*/];
-        });
-    });
-}
+// }
 //loadPlaces()
 function handleLoadPlace() {
     return __awaiter(this, void 0, void 0, function () {
@@ -115,6 +110,7 @@ function handleFindAirbnb(ev) {
                 case 1:
                     data = (_a.sent()).data;
                     console.log(data);
+                    renderAirbnbOptions(data.places);
                     return [2 /*return*/];
             }
         });

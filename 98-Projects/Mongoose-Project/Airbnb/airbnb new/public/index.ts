@@ -1,12 +1,12 @@
 
-async function loadPlaces(data) {
-//   const { data } = await axios.get("/places/getPlaces");
-//   console.log(data);
-console.log(data)
-  renderAirbnbOptions(data)
+// async function loadPlaces(data) {
+// //   const { data } = await axios.get("/places/getPlaces");
+// //   console.log(data);
+//  console.log(data)
+//   renderAirbnbOptions(data)
 
  
-}
+// }
 //loadPlaces()
 async function handleLoadPlace() {
   try {
@@ -254,7 +254,7 @@ async function handleFindAirbnb(ev) {
   );
   console.log(data)
 
-   //renderAirbnbOptions(data)
+   renderAirbnbOptions(data.places)
    //  const {options}=data
    //loadPlaces(data)
     // console.log(options)
