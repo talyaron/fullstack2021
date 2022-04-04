@@ -14,6 +14,24 @@ const dayOffset = Math.floor(msOffset / 1000 / 60 / 60 / 24)
 
 console.log(dayOffset)
 
+handleLoad()
+
+async function handleLoad(){
+
+    const { data } = await axios.get(`users/load-user`)
+    
+    if(data){
+        storeUserName = data
+        renderStats(storeUserName)
+        const greetings = timeOfDay();
+        document.querySelector(".hello").innerHTML = `&nbsp;&nbsp;${greetings} <span style="color: orange;">&nbsp;${storeUserName}</span>`
+    }
+
+    console.log(document.cookie)
+
+}
+
+
 getDailyWord()
 
 async function getDailyWord() {
@@ -117,6 +135,10 @@ function getActiveTiles() {
     return guessGrid.querySelectorAll('[data-state="active"]')
 }
 
+function getSubmittedTiles(){
+    return guessGrid.querySelectorAll('[data-state="wrong"],[data-state="wrong-location"],[data-state="correct"]')
+}
+
 function deleteKey() {
     const activeTiles: any = getActiveTiles()
     const lastTile = activeTiles[activeTiles.length - 1];
@@ -133,6 +155,7 @@ function deleteKey() {
 async function submitGuess() {
 
     const activeTiles = [...getActiveTiles()]
+
 
     if (activeTiles.length !== WORD_LENGTH) {
         showAlert('Not enough letters')
@@ -198,6 +221,22 @@ async function checkWinLose(guess, tiles) {
 
     let username = storeUserName;
     let win: boolean;
+    let storeLetterArray = [];
+    let storeStateArray = [];
+
+    const SubmittedTiles = [...getSubmittedTiles()]
+
+    SubmittedTiles.forEach((tile:any) =>{
+       storeLetterArray.push(tile.dataset.letter)
+       storeStateArray.push(tile.dataset.state)
+    })
+
+    document.cookie = `letters= ${storeLetterArray}`
+    document.cookie = `states= ${storeStateArray}`
+
+
+    // document.cookie = `submitted = ${SubmittedTiles}`;
+
 
     if (guess === targetWord) {
         showAlert("You win", 5000)
@@ -385,6 +424,8 @@ let x = setInterval(function () {
 
     document.querySelector("#countdown").innerHTML = twoDigitsHours + ": "
         + twoDigitsMinutes + ": " + twoDigitsSeconds;
+
+    return distance
 
 }, 1000);
 // END countDownDate
