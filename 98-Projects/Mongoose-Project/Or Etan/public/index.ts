@@ -217,6 +217,7 @@ async function handlePageChange(ev) {
   const userURL = ev.target.baseURI;
 
   const requestedPage = ev.target.outerText.split(" ").join("");
+console.log(requestedPage);
 
   try {
     if (requestedPage === "home") {
@@ -245,13 +246,19 @@ async function handlePageChange(ev) {
       const { newURL } = data;
       window.location.href = newURL;
     }
-    if (requestedPage === "recentlyCreated") {
+    if (requestedPage === "RecentlyCreated") {
+      console.log(requestedPage);
+      
       const { data } = await axios.post(`/users/nav`, {
         userURL,
         requestedPage,
-      });
-      const { newURL } = data;
-      window.location.href = newURL;
+      })
+      .then((response) => {
+        
+        const { newURL } = response.data;
+        window.location.href = newURL;
+
+      })
     }
   } catch (error) {
     console.log("error in handleRenderPage:");
