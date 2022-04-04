@@ -1,12 +1,12 @@
 import express from "express";
 import mongoose from "mongoose";
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8080;
 
 app.use(express.static("public"));
 app.use(express.json());  
 
-mongoose.connect('mongodb+srv://chaim14:bpXPLiZfIgI5Eld7@cluster0.ar8tn.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
+mongoose.connect('mongodb+srv://chaim14:82148214cc@cluster0.ar8tn.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
 .then(()=> console.log("conected to data bace"))
 .catch(err=>console.log(err.message))
 
@@ -20,9 +20,9 @@ app.post('/add-users', async (req, res) => {
 
     try {
       let { username, password } = req.body;
-  if (!req.body) throw new Error('no body');
+
   
-      const newUser = new User({ username, password });
+      const newUser = new User({username, password});
       const result = await newUser.save();
 
       res.send({ result });
@@ -43,7 +43,6 @@ app.get('/get-users', async (req, res) => {
       res.send({ error: error.message });
     }
   });
-
 
 // app.patch("/delete-user", async (req, res) => {
 //   try {
