@@ -320,7 +320,7 @@ function handleDeleteProfile(ev) {
                     data = (_a.sent()).data;
                     deleleImages = images;
                     error = data.error, results = data.results;
-                    alert(results);
+                    deleteAlert(results);
                     if (error)
                         throw new Error(error);
                     console.log(results);
@@ -331,6 +331,18 @@ function handleDeleteProfile(ev) {
                     return [3 /*break*/, 5];
                 case 5: return [2 /*return*/];
             }
+        });
+    });
+}
+function deleteAlert(results) {
+    return __awaiter(this, void 0, void 0, function () {
+        var display, html;
+        return __generator(this, function (_a) {
+            display = document.querySelector('.main');
+            html = " ";
+            html = " <div class=\"profile__header-deleteMessage\">\n    <h1 class=\"profile__header-deleteMessage-message\">" + results + "</h1>\n    <a href=\"index.html\"><button type=\"\"button\" class=\"profile__header-deleteMessage-btn\">Ok</button></a>\n        ";
+            display.innerHTML = html;
+            return [2 /*return*/];
         });
     });
 }

@@ -294,18 +294,27 @@ async function handleDeleteProfile(ev) {
     const email = ev.target.id;
     // console.log(email);
     try {
-        
+
         const { images } = await axios.delete("/images/delete-images", { data: { email } });
         const { data } = await axios.delete("/user/delete-user", { data: { email } });
         const deleleImages = images;
         const { error, results } = data;
-        alert(results);
+        deleteAlert(results)
         if (error) throw new Error(error);
         console.log(results);
     } catch (err) {
         console.error(err);
     }
 
+}
+async function deleteAlert(results) {
+    const display = document.querySelector('.main')
+    let html = " ";
+    html = ` <div class="profile__header-deleteMessage">
+    <h1 class="profile__header-deleteMessage-message">${results}</h1>
+    <a href="index.html"><button type=""button" class="profile__header-deleteMessage-btn">Ok</button></a>
+        `
+    display.innerHTML = html;
 }
 
 async function showProfilePicture(ev) {
@@ -332,7 +341,7 @@ async function showProfilePicture(ev) {
 async function handleExit(ev) {
     const email = ev.target.id;
     const password = ev.target.lang;
-    
+
 
     renderProfile(email, password);
 }
@@ -366,7 +375,7 @@ async function browserUser() {
     const password = JSON.parse(localStorage.getItem("UserPassword"));
     try {
         const { ok, data, error } = await axios.patch('/images/get-users-profieImg', { email })
-        
+
         if (error) throw new Error(error)
         const usersProfileImgsList = data.profileImgs
         renderbrowseImgs(usersProfileImgsList)
@@ -385,10 +394,10 @@ function renderbrowseImgs(list) {
     })
     display.innerHTML = html;
 }
-function profileButton(){
+function profileButton() {
     const email = JSON.parse(localStorage.getItem("UserEmail"));
     const password = JSON.parse(localStorage.getItem("UserPassword"));
-    renderProfile(email,password);
+    renderProfile(email, password);
 }
 
 
