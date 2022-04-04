@@ -245,29 +245,28 @@ function handleSignUp(ev) {
 }
 function handleLogin(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var _a, email, password, id, data, userName, ok, items, userId;
+        var _a, email, password, data, ok, user, items, userName;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
                     ev.preventDefault();
-                    _a = ev.target.elements, email = _a.email, password = _a.password, id = _a.id;
+                    _a = ev.target.elements, email = _a.email, password = _a.password;
                     email = email.value;
                     password = password.value;
-                    return [4 /*yield*/, axios.post('/products/login', { email: email, password: password })];
+                    return [4 /*yield*/, axios.get("/products/login?email=" + email + "&password=" + password)];
                 case 1:
                     data = (_b.sent()).data;
-                    userName = data.userName;
                     ok = data.ok;
+                    user = data.user;
                     items = data.items;
-                    userId = data.userId;
-                    console.log(userId);
+                    userName = user[0].userName;
                     if (ok === true) {
                         document.getElementById("logMessage").innerHTML = " You are login";
+                        renderItemsMain(items, ok, userName);
                     }
                     else if (ok === false) {
                         document.getElementById("logMessage").innerHTML = "Email or Password is wrong, try again";
                     }
-                    renderItemsMain(items, ok, userName);
                     return [2 /*return*/];
             }
         });
