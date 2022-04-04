@@ -1,5 +1,6 @@
 async function handleRegister(ev) {
   ev.preventDefault();
+  const registerStatus = document.querySelector('[data-register-status]');
   let { firstName, lastName, email, password, role, gender } =
     ev.target.elements;
   firstName = firstName.value;
@@ -16,11 +17,18 @@ async function handleRegister(ev) {
     role,
     gender,
   });
+  const {aUser} = data;
+  if(aUser){
+    registerStatus.innerHTML = `<h2>hello ${aUser.firstName}, you seem to already have an account under that email!<h2> <a href="/">Log in here</a>`
+    return;
+  }
   window.location.href = `/`;
+
 }
 
 async function handleLogin(ev) {
   ev.preventDefault();
+  const passwordStatus = document.querySelector('[data-password-status]')
   const email = ev.target.elements.email.value;
   const password = ev.target.elements.password.value;
   const userData = {
@@ -33,18 +41,32 @@ async function handleLogin(ev) {
 
         const {ok, aUser, verifiedUser, userId} = data;
 
-        
 
         const verifiedUserId = userId;
-        console.log(verifiedUserId);
-        
+
+        passwordStatus.style.color = ''
+        passwordStatus.innerHTML = ''
+        if(aUser) {
+
+          passwordStatus.style.color = 'red'
+          passwordStatus.innerHTML = `<h1>*Wrong password!</h1>`;
+          
+        }
+        if(!aUser && !ok){
+
+          
+          passwordStatus.innerHTML = `<h2>This email doesn't seem to exist in out database, Try again, or register bellow:</h2>`
+          return;
+        }
         if (!ok) throw new Error("no ok");
         if (ok) {
-          console.log(verifiedUser);
-          window.location.href = `/home.html?id=${verifiedUserId}`;
-        } else if (aUser < 0) {
-        }
 
+          window.location.href = `/home.html?id=${verifiedUserId}`;
+        } 
+          
+          return
+        }
+      
   } catch (error) {
     console.log("error in handleLogin:");
     console.log(error.message);
@@ -113,8 +135,6 @@ async function handleRenderSettings(ev) {
   const { userInfo } = data;
   let html = "";
   const user = userInfo[0];
-  console.log(user);
-
   html = `<form name="userUpdate" id="userUpdate" onsubmit="handleUserUpdate(event)">
   <h1>Update Your information</h1>
   
@@ -170,7 +190,7 @@ async function handleUserUpdate(ev) {
     const passwordConfirmation = ev.target.elements.passwordConfirmation?.value;
     // const isRightPassword = await handlePasswordCheck(passwordConfirmation, userId)
     // if(isRightPassword){
-    // console.log(firstNameUpdate, lastNameUpdate, emailUpdate, genderUpdate, roleUpdate, passwordUpdate,passwordConfirmation);
+
     const { data } = axios
       .patch(`/users/settings`, {
         firstNameUpdate,
@@ -220,7 +240,7 @@ async function handlePageChange(ev) {
   const userURL = ev.target.baseURI;
 
   const requestedPage = ev.target.outerText.split(" ").join("");
-console.log(requestedPage);
+
 
   try {
     if (requestedPage === "home") {
@@ -237,7 +257,7 @@ console.log(requestedPage);
         requestedPage,
       });
       const { newURL } = data;
-      console.log(newURL);
+
 
       window.location.href = newURL;
     }
@@ -250,7 +270,7 @@ console.log(requestedPage);
       window.location.href = newURL;
     }
     if (requestedPage === "RecentlyCreated") {
-      console.log(requestedPage);
+
       
       const { data } = await axios.post(`/users/nav`, {
         userURL,
@@ -551,7 +571,7 @@ async function handleTaskCheck(ev) {
   try {
     const timeChecked = new Date().toLocaleDateString().replace(/\//g, "-");
     const taskId = ev.target.dataset.check;
-    console.log(taskId);
+
     
     const userId = ev.target.baseURI.slice(-24);
     const { data } = await axios.patch("/tasks/check-task", {
@@ -560,7 +580,7 @@ async function handleTaskCheck(ev) {
       timeChecked,
     });
     const { currentUsersTasks } = data;
-    console.log(currentUsersTasks);
+
     
     renderTasks(currentUsersTasks, "RecentlyCreated");
   } catch (error) {

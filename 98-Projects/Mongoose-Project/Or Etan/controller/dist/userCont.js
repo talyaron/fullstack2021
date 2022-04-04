@@ -39,13 +39,17 @@ exports.__esModule = true;
 exports.updateUser = exports.passwordCheck = exports.renderPage = exports.renderUser = exports.login = exports.addUser = void 0;
 var userModel_1 = require("../model/userModel");
 exports.addUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, firstName, lastName, email, password, role, gender, newUser, result, error_1;
+    var _a, firstName, lastName, email, password, role, gender, aUser, newUser, result, error_1;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
-                _b.trys.push([0, 4, , 5]);
+                _b.trys.push([0, 6, , 7]);
                 _a = req.body, firstName = _a.firstName, lastName = _a.lastName, email = _a.email, password = _a.password, role = _a.role, gender = _a.gender;
-                if (!(firstName && lastName && email && password && role && gender)) return [3 /*break*/, 2];
+                if (!(firstName && lastName && email && password && role && gender)) return [3 /*break*/, 4];
+                return [4 /*yield*/, userModel_1["default"].findOne({ email: email })];
+            case 1:
+                aUser = _b.sent();
+                if (!!aUser) return [3 /*break*/, 3];
                 newUser = new userModel_1["default"]({
                     firstName: firstName,
                     lastName: lastName,
@@ -55,18 +59,21 @@ exports.addUser = function (req, res) { return __awaiter(void 0, void 0, void 0,
                     gender: gender
                 });
                 return [4 /*yield*/, newUser.save()];
-            case 1:
+            case 2:
                 result = _b.sent();
                 res.send({ result: result });
-                return [3 /*break*/, 3];
-            case 2: throw new Error("You've missed something");
-            case 3: return [3 /*break*/, 5];
-            case 4:
+                return [2 /*return*/];
+            case 3:
+                res.send({ aUser: aUser });
+                return [3 /*break*/, 5];
+            case 4: throw new Error("You've missed something");
+            case 5: return [3 /*break*/, 7];
+            case 6:
                 error_1 = _b.sent();
                 console.error(error_1);
                 res.send({ error: error_1.message });
-                return [3 /*break*/, 5];
-            case 5: return [2 /*return*/];
+                return [3 /*break*/, 7];
+            case 7: return [2 /*return*/];
         }
     });
 }); };
@@ -76,7 +83,6 @@ exports.login = function (req, res) { return __awaiter(void 0, void 0, void 0, f
         switch (_b.label) {
             case 0:
                 _a = req.body, email = _a.email, password = _a.password;
-                console.log(email);
                 _b.label = 1;
             case 1:
                 _b.trys.push([1, 9, , 10]);
@@ -147,14 +153,12 @@ exports.renderPage = function (req, res) { return __awaiter(void 0, void 0, void
         switch (_c.label) {
             case 0:
                 _a = req.body, userURL = _a.userURL, requestedPage = _a.requestedPage;
-                console.log(userURL, requestedPage);
                 appURL = userURL.split("/")[2];
                 userId = userURL.slice(-24);
                 return [4 /*yield*/, userModel_1["default"].find({ _id: userId })];
             case 1:
                 currentUser = _c.sent();
                 newURL = "/" + requestedPage + ".html?id=" + userId;
-                console.log(newURL);
                 _b = currentUser[0], firstName = _b.firstName, lastName = _b.lastName, gender = _b.gender, role = _b.role, email = _b.email, password = _b.password;
                 if (requestedPage === "home") {
                     try {
@@ -233,7 +237,6 @@ exports.passwordCheck = function (req, res) { return __awaiter(void 0, void 0, v
             case 0:
                 _b.trys.push([0, 2, , 3]);
                 _a = req.body, password = _a.password, userId = _a.userId;
-                console.log(password);
                 return [4 /*yield*/, userModel_1["default"].find({
                         _id: userId,
                         password: password
@@ -276,7 +279,6 @@ exports.updateUser = function (req, res) { return __awaiter(void 0, void 0, void
                 return [4 /*yield*/, userModel_1["default"].find({ _id: userId })];
             case 3:
                 updatedUser = _b.sent();
-                console.log(updatedUser, updateStatus);
                 res.send({ updatedUser: updatedUser });
                 return [2 /*return*/];
             case 4:

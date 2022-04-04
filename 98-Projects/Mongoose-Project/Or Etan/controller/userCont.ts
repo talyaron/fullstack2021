@@ -3,18 +3,24 @@ import user from "../model/userModel";
 export const addUser = async (req, res) => {
   try {
     let { firstName, lastName, email, password, role, gender } = req.body;
-    if (firstName && lastName && email && password && role && gender) {
-      const newUser = new user({
-        firstName,
-        lastName,
-        email,
-        password,
-        role,
-        gender,
-      });
 
-      const result = await newUser.save();
-      res.send({ result });
+    if (firstName && lastName && email && password && role && gender) {
+      const aUser = await user.findOne({ email: email });
+      if (!aUser) {
+        const newUser = new user({
+          firstName,
+          lastName,
+          email,
+          password,
+          role,
+          gender,
+        });
+
+        const result = await newUser.save();
+        res.send({ result });
+        return;
+      }
+      res.send({aUser})
     } else throw new Error(`You've missed something`);
   } catch (error) {
     console.error(error);
@@ -24,7 +30,7 @@ export const addUser = async (req, res) => {
 
 export const login = async (req, res) => {
   let { email, password } = req.body;
-  console.log(email);
+
 
   try {
     const currentLogin = await user
@@ -42,13 +48,11 @@ export const login = async (req, res) => {
           password: password,
         });
 
-
         if (verifiedUser.length === 1) {
-          
           const userId = userVerification._id.toString();
 
           res.cookie("currentUser", { userId: userId }, {});
-          res.send({ ok: true, currentLogin, verifiedUser, userId});
+          res.send({ ok: true, currentLogin, verifiedUser, userId });
           return;
         }
         res.send({ aUser: true });
@@ -75,13 +79,13 @@ export const renderUser = async (req, res) => {
 
 export const renderPage = async (req, res) => {
   const { userURL, requestedPage } = req.body;
-  console.log(userURL, requestedPage);
+
 
   const appURL = userURL.split("/")[2];
   const userId = userURL.slice(-24);
   const currentUser = await user.find({ _id: userId });
   const newURL = `/${requestedPage}.html?id=${userId}`;
-  console.log(newURL);
+
 
   let { firstName, lastName, gender, role, email, password } = currentUser[0];
 
@@ -159,7 +163,7 @@ export const renderPage = async (req, res) => {
 export const passwordCheck = async (req, res) => {
   try {
     const { password, userId } = req.body;
-    console.log(password);
+
     const isRightPassword = await user.find({
       _id: userId,
       password: password,
@@ -200,7 +204,7 @@ export const updateUser = async (req, res) => {
     const updateStatus = await updateUser.matchedCount;
     if (updateStatus === 1) {
       const updatedUser = await user.find({ _id: userId });
-      console.log(updatedUser, updateStatus);
+
 
       res.send({ updatedUser: updatedUser });
       return;
