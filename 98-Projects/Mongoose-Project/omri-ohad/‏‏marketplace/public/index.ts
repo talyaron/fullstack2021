@@ -3,43 +3,43 @@ async function appInit() {
 }
 
 async function getProductsMain() {
-    const {data} = await axios.get('/products/get-products-to-main');
-    const {marketItems} = data;
-    if(marketItems){
+    const { data } = await axios.get('/products/get-products-to-main');
+    const { marketItems } = data;
+    if (marketItems) {
         renderItemsMain(marketItems);
     }
 }
 
-async function handleAddProduct(ev){
+async function handleAddProduct(ev) {
     ev.preventDefault();
-    let {pic, title,description,price,category} = ev.target.elements;
-    pic=pic.value;
+    let { pic, title, description, price, category } = ev.target.elements;
+    pic = pic.value;
     title = title.value;
-    description=description.value
+    description = description.value
     price = price.value;
     category = category.value;
 
-    const {data} = await axios.post('/products/add-product',{pic, title,description,price,category})
+    const { data } = await axios.post('/products/add-product', { pic, title, description, price, category })
     document.querySelector("form").reset();
     document.getElementById("message").innerHTML = "The product was successfully added";
 
-    window.setTimeout(function(){location.reload()},2000)
+    window.setTimeout(function () { location.reload() }, 2000)
 }
 
-async function handleGetProducts(){
-  
-    const {data} = await axios.get('/products/get-products')
-    const {products} = data;
-    console.log({products})
-    if(products){
+async function handleGetProducts() {
+
+    const { data } = await axios.get('/products/get-products')
+    const { products } = data;
+    console.log({ products })
+    if (products) {
         renderProducts(products);
     }
 }
 
-function renderItemsMain(items){
-    let html ='';
+function renderItemsMain(items,ok?, userName?) {
+    let html = '';
     const rootItems = document.querySelector('.mainPage__middle--products');
-    if(items){
+    if (items) {
         items.forEach(item => {
             html += `
             <div class="mainPage__middle--products--item">
@@ -51,88 +51,119 @@ function renderItemsMain(items){
             </div>
             `
         })
+        if(ok === true){
+            document.querySelector(".mainPage__header--welcome").innerHTML = `
+            hello ${userName} <a href="personal-zone.html"><i class="fa fa-user" title="PERSONAL ZONE"></i></a`
+        } else{document.querySelector(".mainPage__header--welcome").innerHTML = '<a href="personal-zone.html"><i class="fa fa-user" title="PERSONAL ZONE" ></i></a';}
         rootItems.innerHTML = html;
     }
 }
 
 
-function renderProducts(products){
-    const html =  products.map(product=>{
+function renderProducts(products, ok?, userName?) {
+    const html = products.map(product => {
         return `
-        <div class="mainPage__middle--products--item">
-        <div><i class="fa fa-trash-o" style="font-size:20px;cursor: pointer;" title="Delete product" onclick='handleDelete("${product._id}")'></i></div>
+        <div class="mainPage__middle--products--item" id="card">
+        <div id="trash"><i class="fa fa-trash-o" style="font-size:20px;cursor: pointer;" title="Delete product" onclick='handleDelete("${product._id}")'></i></div>
         <img src="${product.pic}" title='${product.title}'>
-        <p>${product.title}.</p>
+        <p>${product.title}</p>
         <p>${product.price}$</p>
-        <p>${product.description}.</p>
-        <form onsubmit="handleUpadte(event,'${product._id}')">
-            <input type = 'text' name = 'newImg' placeholder = 'Update img' >
-            <input type = 'text' name = 'newTitle' placeholder = 'Update title'>
-            <input type = 'text' name = 'newPrice' placeholder = 'Update price'>
-            <input type = "submit" value = "Update">
-        </form>
+        <p>${product.description}</p>
+        <input type = 'text' name = 'newImg' placeholder = 'Update img' onblur = 'handleUpdatepicture(event, "${product._id}")'>
+        <input type = 'text' name = 'newTitle' placeholder = 'Update title' onblur = 'handleUpdateTitle(event, "${product._id}")'>
+        <input type = 'text' name = 'newPrice' placeholder = 'Update price' onblur = 'handleUpdatePrice(event, "${product._id}")'>
         </div>
         `
     }).join('');
-    document.getElementById('products').innerHTML = html ;
+    document.getElementById('products').innerHTML = html;
 }
 
-async function handleUpadte(ev,gameId) {
-    ev.preventDefault();
-    console.log(gameId)
-    // const newImg = ev.target.value;
-    // const { data } = await axios.patch('/products/update-picture', { gameId, newImg });
-    // const {products} = data;
-    // location.reload();
-    // renderProducts(products);
+async function handleUpdatepicture(ev, gameId) {
+    const newImg = ev.target.value;
+    const { data } = await axios.patch('/products/update-picture', { gameId, newImg });
+    const {products} = data;
+    location.reload();
+    renderProducts(products);
 }
 
-// async function handleUpdateTitle(ev, gameId) {
-//     const newTitle = ev.target.value;
-//     const { data } = await axios.patch('/products/update-title', { gameId, newTitle });
-//     const {products} = data;
-//     location.reload();
-//     renderProducts(products);
-// }
+async function handleUpdateTitle(ev, gameId) {
+    const newTitle = ev.target.value;
+    const { data } = await axios.patch('/products/update-title', { gameId, newTitle });
+    const {products} = data;
+    location.reload();
+    renderProducts(products);
+}
 
-// async function handleUpdatePrice(ev, gameId) {
-//     const newPrice = ev.target.value;
-//     const { data } = await axios.patch('/products/update-price', { gameId, newPrice });
-//     const {products} = data;
-//     location.reload();
-//     renderProducts(products);
-// }
+async function handleUpdatePrice(ev, gameId) {
+    const newPrice = ev.target.value;
+    const { data } = await axios.patch('/products/update-price', { gameId, newPrice });
+    const {products} = data;
+    location.reload();
+    renderProducts(products);
+}
 
-async function handleDelete(productId){
-    const {data} = await axios.delete('/products/delete-product', {data:{productId}})
-    const {product} = data;
+async function handleDelete(productId) {
+    const { data } = await axios.delete('/products/delete-product', { data: { productId } })
+    const { product } = data;
     location.reload();
     renderProducts(product)
     renderItemsMain(product)
 }
 
-async function handleCategoryShow(ev){ 
+async function handleCategoryShow(ev) {
     const chosenCategory = ev.target.textContent;
-    const {data} = await axios.post('/products/get-by-category', {chosenCategory});
-    const {filterd} = data;
-    const {products} = data;
-    if(filterd) renderItemsMain(filterd); 
-    else if(products) renderItemsMain(products);
+    const { data } = await axios.post('/products/get-by-category', { chosenCategory });
+    const { filterd } = data;
+    const { products } = data;
+    if (filterd) renderItemsMain(filterd);
+    else if (products) renderItemsMain(products);
 }
 
-async function handleAscending(){ 
-    const {data} = await axios.post('/products/sort-by-Ascending');
-    const {filterd} = data;
-    const {products} = data;
-    if(filterd) renderItemsMain(filterd); 
-    else if(products) renderItemsMain(products);
+async function handleAscending() {
+    const { data } = await axios.post('/products/sort-by-Ascending');
+    const { filterd } = data;
+    const { products } = data;
+    if (filterd) renderItemsMain(filterd);
+    else if (products) renderItemsMain(products);
 }
 
-async function handleDescending(){ 
-    const {data} = await axios.post('/products/sort-by-Descending');
-    const {filterd} = data;
-    const {products} = data;
-    if(filterd) renderItemsMain(filterd); 
-    else if(products) renderItemsMain(products);
+async function handleDescending() {
+    const { data } = await axios.post('/products/sort-by-Descending');
+    const { filterd } = data;
+    const { products } = data;
+    if (filterd) renderItemsMain(filterd);
+    else if (products) renderItemsMain(products);
 }
 
+async function handleSignUp(ev) {
+    ev.preventDefault();
+    let { email, password, userName } = ev.target.elements;
+    email = email.value;
+    password = password.value;
+    userName = userName.value;
+    document.querySelector("form").reset();
+    document.getElementById("regMessage").innerHTML = "Successfully Signed Up";
+    const { data } = await axios.post('/products/register', { email, password, userName })
+}
+
+async function handleLogin(ev) {
+    ev.preventDefault();
+    let { email, password, id } = ev.target.elements;
+    email = email.value;
+    password = password.value;
+    const { data } = await axios.post('/products/login', { email, password });
+    const{userName} = data;
+    const { ok } = data;
+    const{items} = data;
+    const{userId} = data;
+    console.log(userId)
+    if (ok === true) {
+        document.getElementById("logMessage").innerHTML = " You are login";
+        window.setTimeout(function () { location.reload() }, 2000)
+    }
+    else if (ok === false) {
+        document.getElementById("logMessage").innerHTML = "Email or Password is wrong, try again"
+    }
+    renderItemsMain(items, ok, userName);
+    //renderProducts(products ,ok, userName)
+}

@@ -7,31 +7,27 @@ var mongoose_1 = require("mongoose");
 //       country_code:String
 // })
 var PlacesSchema = new mongoose_1["default"].Schema({
-    _id: String,
-    access: String,
+    id: String,
     accommodates: String,
-    address: {
-        country: String,
-        country_code: String
-    },
+    address: String,
+    address_country: String,
+    address_country_code: String,
     name: String,
-    summary: String,
     checkIn: String,
     checkOut: String,
-    amenities: Array,
-    bedrooms: Number,
-    beds: Number,
-    number_of_reviews: Number,
-    price: Number,
+    amenities: String,
+    bedrooms: String,
+    beds: String,
+    number_of_reviews: String,
+    price: String,
     cancle: String,
-    bathrooms: Number,
+    bathrooms: String,
     images: String,
-    host: Object,
-    space: String,
+    host: String,
     description: String,
     bed_type: String,
-    reviews: Array,
-    cancellation_policy: String
+    reviews: String,
+    reviews_rating: String
 });
 var Places = mongoose_1["default"].model("airbnbLocations", PlacesSchema);
 exports["default"] = Places;

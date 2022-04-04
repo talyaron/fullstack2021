@@ -3,20 +3,20 @@ const router = express.Router();
 import { addPlaces } from '../controler/placesCont'
 import { getToPlace } from '../controler/placesCont'
 import { searchAirbnb } from '../controler/placesCont'
-import {searchAirbnbInTelaviv} from '../controler/placesCont'
+import {searchAirbnbByCity } from '../controler/placesCont'
 import { findPlaceMap } from '../controler/placesCont'
-import { getPlaces } from '../controler/placesCont'
+// import { getPlaces } from '../controler/placesCont'
 import { getfilteredAirBNB } from '../controler/placesCont'
-import { search } from '../controler/placesCont'
+
 
 router
-    .get('/search', search)
-    .get('/getPlaces', getPlaces)
+    
+    // .get('/getPlaces', getPlaces)
     .get('/getFiltered', getfilteredAirBNB)
     .post('/addPlaces', addPlaces)
     .get('/getToPlace', getToPlace)
     .get('/search-airbnb', searchAirbnb)
-    .get('/search-telaviv',searchAirbnbInTelaviv)
+    .post('/search-city',searchAirbnbByCity )
     .post('/findPlaceMap', findPlaceMap)
 
 export default router;
