@@ -8,5 +8,6 @@ router
     .post('/log-in', userCont_1.login)
     .get("/logged-in-user", userCont_1.renderUser)
     .post('/nav', userCont_1.renderPage)
-    .patch('/settings', userCont_1.renderSettings);
+    .patch('/settings', userCont_1.updateUser);
+// .post('/passwordCheck', passwordCheck)
 exports["default"] = router;

@@ -62,18 +62,23 @@ export const renderUser = async (req, res) => {
 
 export const renderPage = async (req, res) => {
   const { userURL, requestedPage } = req.body;
-
+  console.log(userURL, requestedPage);
 
   const appURL = userURL.split("/")[2];
   const userId = userURL.slice(-24);
   const currentUser = await user.find({ _id: userId });
   const newURL = `/${requestedPage}.html?id=${userId}`;
+  console.log(newURL);
+
   let { firstName, lastName, gender, role, email, password } = currentUser[0];
 
   if (requestedPage === "home") {
     try {
       res.send({
-        
+        firstName: firstName,
+        lastName: lastName,
+        gender: gender,
+        role: role,
         newURL: newURL,
       });
     } catch (error) {
@@ -89,7 +94,12 @@ export const renderPage = async (req, res) => {
   if (requestedPage === "settings") {
     try {
       res.send({
-        
+        firstName: firstName,
+        lastName: lastName,
+        gender: gender,
+        role: role,
+        email: email,
+        password: password,
         newURL: newURL,
       });
     } catch (error) {
@@ -116,7 +126,7 @@ export const renderPage = async (req, res) => {
     }
     return;
   }
-  
+
   if (requestedPage === "RecentlyCreated") {
     try {
       res.send({
@@ -133,4 +143,53 @@ export const renderPage = async (req, res) => {
   }
 };
 
-export const renderSettings = async (req, res) => {}
+export const passwordCheck = async (req, res) => {
+  try {
+    const { password, userId } = req.body;
+    console.log(password);
+    const isRightPassword = await user.find({
+      _id: userId,
+      password: password,
+    });
+    res.send({ isRightPassword });
+  } catch (error) {
+    console.log("error in renderPage: RecentlyCreated");
+    console.log(error.message);
+
+    res.send({ error: error.message });
+  }
+};
+
+export const updateUser = async (req, res) => {
+  try {
+    const {
+      firstNameUpdate,
+      lastNameUpdate,
+      emailUpdate,
+      genderUpdate,
+      roleUpdate,
+      passwordUpdate,
+      passwordConfirmation,
+      userId,
+    } = req.body;
+    
+
+    const updateUser = await user.updateOne({_id: userId, password: passwordConfirmation}, {firstName:firstNameUpdate, lastName:lastNameUpdate, email:emailUpdate, gender:genderUpdate, role:roleUpdate, password:passwordUpdate})
+const updateStatus = await updateUser.matchedCount
+if (updateStatus === 1){
+  const updatedUser = await user.find({_id: userId})
+  console.log(updatedUser, updateStatus);
+  
+  res.send({updatedUser: updatedUser})
+  return
+}
+if(updateStatus === 0) {
+res.send({updateStatus: updateStatus})
+}
+  
+  } catch (error) {
+    console.log("error in updateUser");
+    console.log(error.message);
+    res.send({ error: error.message });
+  }
+};

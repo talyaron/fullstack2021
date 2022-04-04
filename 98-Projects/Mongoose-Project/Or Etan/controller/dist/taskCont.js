@@ -181,7 +181,6 @@ exports.getTask = function (req, res) { return __awaiter(void 0, void 0, void 0,
                 return [4 /*yield*/, taskModel_1["default"].findOne({ _id: taskId })];
             case 1:
                 currentTask = _a.sent();
-                console.log(currentTask);
                 res.send(currentTask);
                 return [3 /*break*/, 3];
             case 2:
@@ -209,8 +208,6 @@ exports.getUrgencies = function (req, res) { return __awaiter(void 0, void 0, vo
             case 3:
                 highUrgency = _a.sent();
                 res.send({ lowUrgency: lowUrgency, mediumUrgency: mediumUrgency, highUrgency: highUrgency });
-                console.log(lowUrgency, mediumUrgency, highUrgency);
-                console.log(userId);
                 return [2 /*return*/];
         }
     });

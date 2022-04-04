@@ -61,42 +61,35 @@ async function handleRenderHome(ev) {
   const name = document.querySelector("[data-name]");
   const gender = document.querySelector("[data-gender]");
   name.innerHTML = `${user.firstName} ${user.lastName}<br><span>${user.role}</span>`;
-  if(user.gender===`male`){
-    gender.src=`https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ51Gk5jjB4qD-BkcDh_fhsE4HkfnLDblQPrQLaOY13u7v5MNoBea8JzZ5NZAa0G-gAcgY&usqp=CAU`
-  }else{
-    gender.src= `https://static.vecteezy.com/system/resources/thumbnails/002/586/938/small/woman-cartoon-character-portrait-brunette-female-round-line-icon-free-vector.jpg`
+  if (user.gender === `male`) {
+    gender.src = `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ51Gk5jjB4qD-BkcDh_fhsE4HkfnLDblQPrQLaOY13u7v5MNoBea8JzZ5NZAa0G-gAcgY&usqp=CAU`;
+  } else {
+    gender.src = `https://static.vecteezy.com/system/resources/thumbnails/002/586/938/small/woman-cartoon-character-portrait-brunette-female-round-line-icon-free-vector.jpg`;
   }
-
-
 
   const lowTasks = document.querySelector("[data-low]");
   const mediumTasks = document.querySelector("[data-medium]");
   const highTasks = document.querySelector("[data-high]");
 
-  const arr = await Promise.all([handleGetUrgencies(userId)])
-  const low = arr[0][0]
-  console.log(low);
-  lowTasks.innerHTML = low.length
-  const medium = arr[0][1]
-  console.log(medium);
-  mediumTasks.innerHTML = medium.length
-  const high = arr[0][2]
-  console.log(high);
-  highTasks.innerHTML = high.length
+  const arr = await Promise.all([handleGetUrgencies(userId)]);
+  const low = arr[0][0];
 
+  lowTasks.innerHTML = low.length;
+  const medium = arr[0][1];
 
+  mediumTasks.innerHTML = medium.length;
+  const high = arr[0][2];
 
-
+  highTasks.innerHTML = high.length;
 }
 
-async function handleGetUrgencies(userId){
+async function handleGetUrgencies(userId) {
   const { data } = await axios.get(`tasks/get-urgencies?userId=${userId}`);
-console.log(userId);
 
-  const {lowUrgency, mediumUrgency, highUrgency} = data
-  let arr =[lowUrgency, mediumUrgency, highUrgency]
-  console.log(lowUrgency, mediumUrgency, highUrgency);
-  return arr
+  const { lowUrgency, mediumUrgency, highUrgency } = data;
+  let arr = [lowUrgency, mediumUrgency, highUrgency];
+
+  return arr;
 }
 
 async function handleRenderRecentlyCreated(ev) {
@@ -111,21 +104,119 @@ async function handleRenderSettings(ev) {
   ev.preventDefault();
   const currentPage = ev.target.title;
   let userId = ev.target.location.search.replace(/.*?id=/g, "");
+  const settingsForm = document.querySelector("[data-settings]");
 
   const { data } = await axios.get(`users/logged-in-user?userId=${userId}`);
   const { userInfo } = data;
   let html = "";
   const user = userInfo[0];
-  // html = `<button id="landing__settings-personal">Personal Settings</button>
-  // <button id="landing__settings-account">Account Settings</button>`
-  // handleSettingsUpdate()
+  console.log(user);
+
+  html = `<form name="userUpdate" id="userUpdate" onsubmit="handleUserUpdate(event)">
+  <h1>Update Your information</h1>
+  
+  <fieldset form="userUpdate">
+  <legend>Personal Settings</legend>
+  <lable>First Name:</lable>
+  <input type="text" name="firstNameUpdate" value="${user.firstName}" placeholder="${user.firstName}">
+  <br>
+  <lable>Last Name:</lable>
+  <input type="text" name="lastNameUpdate" value="${user.lastName}" placeholder="${user.lastName}">
+  </fieldset>
+  <fieldset form="userUpdate">
+  <legend>Account Settings</legend>
+  <lable>Email:</lable>
+  <input type="email" name="emailUpdate" value="${user.email}" placeholder="${user.email}">
+  <br>
+  <lable>Gender:</lable>
+  <select name="genderUpdate" id="genderUpdate"> 
+  <option selected disabled value="${user.gender}">${user.gender}</option>
+  <option value="male">Male</option>
+  <option value="female">Female</option>
+  </select>
+  <br>
+  <lable>Role:</lable>
+  <input type="text" name="roleUpdate" value="${user.role}" placeholder="${user.role}">
+  <br>
+  <lable>Password:</lable>
+  <input type="password" name="passwordUpdate" value="" placeholder="Enter new password">
+  
+  </fieldset>
+  <fieldset form="userUpdate">
+  <legend>Password Confirmation</legend>
+  <h4>to save any of your settings changes, Enter your pass&shy;word bellow:</h4>
+  <input type="password" name="passwordConfirmation" placeholder="your current/old password">
+  <input type="submit" value="update info!">
+  </fieldset>
+  <h6 data-password-status></h6>
+  </form>`;
+  settingsForm.innerHTML = html;
 }
 
+async function handleUserUpdate(ev) {
+  ev.preventDefault();
+  try {
+    const userId = ev.target.baseURI.slice(-24);
+    const passwordStatus = document.querySelector("[data-password-status]");
+    const firstNameUpdate = ev.target.elements.firstNameUpdate?.value;
+    const lastNameUpdate = ev.target.elements.lastNameUpdate?.value;
+    const emailUpdate = ev.target.elements.emailUpdate?.value;
+    const genderUpdate = ev.target.elements.genderUpdate?.value;
+    const roleUpdate = ev.target.elements.roleUpdate?.value;
+    const passwordUpdate = ev.target.elements.passwordUpdate?.value;
+    const passwordConfirmation = ev.target.elements.passwordConfirmation?.value;
+    // const isRightPassword = await handlePasswordCheck(passwordConfirmation, userId)
+    // if(isRightPassword){
+    // console.log(firstNameUpdate, lastNameUpdate, emailUpdate, genderUpdate, roleUpdate, passwordUpdate,passwordConfirmation);
+    const { data } = axios
+      .patch(`/users/settings`, {
+        firstNameUpdate,
+        lastNameUpdate,
+        emailUpdate,
+        genderUpdate,
+        roleUpdate,
+        passwordUpdate,
+        passwordConfirmation,
+        userId,
+      })
+      .then((data) => {
+        const {updatedUser, updateStatus} = data.data;
+        passwordStatus.style.color = ``;
+        if(updatedUser === undefined) {
+          passwordStatus.style.color = 'red';
+          passwordStatus.innerHTML = `*You Either put in the wrong password or no password at all, TRY AGAIN!`
+          return
+        }
+        if(updateStatus === undefined){
+          passwordStatus.innerHTML = `<h2>Your Inxrformation was updated successfully</h2>`;
+        }
+
+      });
+    // const {updatedUser} = data;
+
+
+
+    // }else{
+    // }
+  } catch (error) {
+    console.log(error);
+    console.log({ error: error.message });
+  }
+}
+async function handlePasswordCheck(password, userId) {
+  const { data } = await axios.post(`/users/passwordCheck`, {
+    password,
+    userId,
+  });
+  const { isRightPassword } = data;
+  if (isRightPassword.length > 0) {
+    return true;
+  } else return false;
+}
 async function handlePageChange(ev) {
   const userURL = ev.target.baseURI;
 
   const requestedPage = ev.target.outerText.split(" ").join("");
-  console.log(requestedPage);
 
   try {
     if (requestedPage === "home") {
@@ -137,6 +228,24 @@ async function handlePageChange(ev) {
         });
     }
     if (requestedPage === "settings") {
+      const { data } = await axios.post(`/users/nav`, {
+        userURL,
+        requestedPage,
+      });
+      const { newURL } = data;
+      console.log(newURL);
+
+      window.location.href = newURL;
+    }
+    if (requestedPage === "info") {
+      const { data } = await axios.post(`/users/nav`, {
+        userURL,
+        requestedPage,
+      });
+      const { newURL } = data;
+      window.location.href = newURL;
+    }
+    if (requestedPage === "recentlyCreated") {
       const { data } = await axios.post(`/users/nav`, {
         userURL,
         requestedPage,
@@ -177,9 +286,7 @@ async function renderTasks(currentUsersTasks, currentPage) {
                           <div id="box__flex">
                               <div class="box__header">
                                   <div class="box__title">
-                                      <p class="box__title-text box__title-home-text">${
-                                        task.title
-                                      }</p>
+                                      <p class="box__title-text box__title-home-text">${task.title}</p>
                                   </div>
                               </div>
                               <div class="box__expln box__expln-home">
@@ -459,7 +566,7 @@ async function handleTaskDelete(ev) {
     const { currentUsersTasks, currentPage } = data;
     renderTasks(currentUsersTasks, currentPage);
   } catch (error) {
-    console.log("error in handleTaskUpdate");
+    console.log("error in handleTaskDelete");
     console.log({ error: error.message });
   }
 }

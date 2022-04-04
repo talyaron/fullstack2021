@@ -93,7 +93,7 @@ export const getTask = async (req, res) => {
   try {
     const { taskId } = req.body;
     const currentTask = await task.findOne({ _id: taskId });
-    console.log(currentTask);
+
 
     res.send(currentTask);
   } catch (error) {
@@ -108,8 +108,7 @@ export const getUrgencies = async (req,res)=>{
   const highUrgency = await task.find({ownerId:userId, urgency:'high'})
 
   res.send({lowUrgency, mediumUrgency, highUrgency})
-  console.log(lowUrgency, mediumUrgency, highUrgency)
-  console.log(userId);
+
   
 
 }
