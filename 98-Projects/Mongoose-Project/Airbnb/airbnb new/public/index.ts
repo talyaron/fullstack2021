@@ -256,7 +256,7 @@ async function handleFindAirbnb(ev) {
 
    renderAirbnbOptions(data.places)
    //  const {options}=data
-   //loadPlaces(data)
+   //loadPlaces(data.places)
     // console.log(options)
  
   // ev.target.reset();
