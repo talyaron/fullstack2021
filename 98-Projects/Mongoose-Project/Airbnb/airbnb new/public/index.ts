@@ -1,12 +1,12 @@
 
-async function loadPlaces(data) {
-//   const { data } = await axios.get("/places/getPlaces");
-//   console.log(data);
-console.log(data)
-  //renderAirbnbOptions(data)
+// async function loadPlaces(data) {
+// //   const { data } = await axios.get("/places/getPlaces");
+// //   console.log(data);
+//  console.log(data)
+//   renderAirbnbOptions(data)
 
  
-}
+// }
 //loadPlaces()
 async function handleLoadPlace() {
   try {
@@ -254,9 +254,9 @@ async function handleFindAirbnb(ev) {
   );
   console.log(data)
 
-   renderAirbnbOptions(data)
+   renderAirbnbOptions(data.places);
    //  const {options}=data
-   //loadPlaces(data)
+   //loadPlaces(data.places)
     // console.log(options)
  
   // ev.target.reset();
@@ -279,14 +279,16 @@ async function handleFilter(ev) {
   const { data } = await axios.get("/places/getFiltered", { data: { price } });
 }
 
-function renderAirbnbOptions(data:Array<any>) {
+function renderAirbnbOptions(places:Array<any>) {
     
     try{
-        console.log(data);
+        console.log(places);
+        if(!Array.isArray(places)) throw new Error('sata is not an array');
+
         const root:HTMLElement=document.querySelector('#rootPlaces');
         let html="";
         
-        data.forEach((place) => {   
+        places.forEach((place) => {   
         html+= `<div class="card-grid__card" onclick="handleGoToPlace(${place._id}) " onclick="location.href='place.html'"> 
                         <div class="card-header card-img">
                             <img src="${place.images}" alt="">   

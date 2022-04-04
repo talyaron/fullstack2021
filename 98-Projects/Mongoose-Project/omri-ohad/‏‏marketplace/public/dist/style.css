@@ -38,6 +38,9 @@
   color: #585568;
   cursor: pointer;
 }
+.mainPage__header--welcome i {
+  color: white;
+}
 .mainPage__middle {
   display: grid;
   grid-template-columns: 80% 20%;

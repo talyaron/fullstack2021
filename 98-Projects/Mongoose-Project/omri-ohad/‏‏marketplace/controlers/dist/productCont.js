@@ -369,7 +369,7 @@ function register(req, res) {
 exports.register = register;
 function login(req, res) {
     return __awaiter(this, void 0, void 0, function () {
-        var _a, email, password, user, UserLogin, userName, userId, items;
+        var _a, email, password, user, UserLogin, items;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
@@ -377,11 +377,12 @@ function login(req, res) {
                     return [4 /*yield*/, userModel_1["default"].find({ email: email, password: password })];
                 case 1:
                     user = (_b.sent()).length;
-                    return [4 /*yield*/, userModel_1["default"].find({ email: email })];
+                    return [4 /*yield*/, userModel_1["default"].find({ email: email })
+                        // const userName = UserLogin[0].userName;
+                        // const userId = UserLogin[0]._id;
+                    ];
                 case 2:
                     UserLogin = _b.sent();
-                    userName = UserLogin[0].userName;
-                    userId = UserLogin[0]._id;
                     return [4 /*yield*/, productMain_1["default"].find({})];
                 case 3:
                     items = _b.sent();
@@ -389,7 +390,8 @@ function login(req, res) {
                     return [4 /*yield*/, userModel_1["default"].updateOne({ email: email }, { login: true })];
                 case 4:
                     _b.sent();
-                    res.send({ ok: true, userName: userName, items: items, userId: userId });
+                    // res.send({ ok: true, userName, items, userId })
+                    res.send({ ok: true, items: items });
                     return [3 /*break*/, 7];
                 case 5:
                     if (!(user === 0)) return [3 /*break*/, 7];

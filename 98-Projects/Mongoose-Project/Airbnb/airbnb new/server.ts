@@ -12,17 +12,11 @@ app.use(express.json());
 
 mongoose
   .connect(
-    "mongodb+srv://shay:shayFoyer1994@cluster0.xyd5y.mongodb.net/airbnbProject?retryWrites=true&w=majority"
+    "mongodb+srv://tal1:bBUfBx5gqnXHhpFa@tal-test1.m39if.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
   )
-  .then((result) => {
+  .then(() => {
     console.log("connected to db");
-    Places.find({})
-      .then((res) => {
-        // console.log(res);
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
+    
   })
   .catch((err) => {
     console.log(err.message);
