@@ -1,6 +1,11 @@
-import { appendFile } from "fs";
+
 import FundleUser from "../model/usersModel"
 
+export async function loadUser(req:any, res:any){
+    const { userInfo } = req.cookies;
+    console.log('server data: ' + userInfo.username)
+    res.send(userInfo.username)
+}
 
 export async function addUser(req: any, res: any) {
 
@@ -30,12 +35,17 @@ export async function addUser(req: any, res: any) {
 }
 
 
+
 export async function getUser(req: any, res: any) {
 
     let { username, password } = req.query
     const userMatch = await FundleUser.find({ username: username, password: password })
 
     if (userMatch.length >= 1) {
+        res.cookie(
+            "userInfo",
+            { username }
+        );
         res.send({ user: userMatch })
     }
     else {
@@ -111,8 +121,6 @@ export async function updateUser(req: any, res: any) {
                 sixattempts: user[0].sixattempts
             })
 
-        // const realuser = await FundleUser.find({ username: username })
-        // console.log(realuser)
     }
 
     res.send({ ok: true });
