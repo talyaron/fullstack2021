@@ -30,13 +30,23 @@ export const login = async (req, res) => {
       .find({ email: email })
       .collation({ locale: "en_US", strength: 1 });
     const userEmail = await users[0].email;
-    const verifiedUser = await user.find({
+    const verifiedUser:any = await user.find({
+      email: userEmail,
+      password: password,
+    });
+    const verifiedUser2:any = await user.findOne({
       email: userEmail,
       password: password,
     });
 
+
     if (users.length > 0) {
       if (verifiedUser.length === 1) {
+        console.log(verifiedUser[0]._id);
+        
+        console.log(verifiedUser2._id);
+        
+        res.cookie('currentUser', {id: verifiedUser._id})
         res.send({ ok: true, users, verifiedUser });
         return;
       }

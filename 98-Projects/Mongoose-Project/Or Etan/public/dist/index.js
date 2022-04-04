@@ -90,7 +90,9 @@ function handleLogin(ev) {
                             if (!status)
                                 throw new Error("no status");
                             if (status) {
-                                window.location.href = "/home.html?id=" + verifiedUserId;
+                                console.log(verifiedUser);
+                                console.log(response.data);
+                                // window.location.href = `/home.html?id=${verifiedUserId}`;
                             }
                             else if (userExists < 0) {
                             }
