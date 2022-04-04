@@ -39,13 +39,13 @@ exports.__esModule = true;
 exports.search = exports.upload = void 0;
 var songsModel_1 = require("../model/songsModel");
 exports.upload = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, song, picture, genre, youtube, newSong, result, error_1;
+    var _a, band, album, song, genre, image, newSong, result, error_1;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
                 _b.trys.push([0, 2, , 3]);
-                _a = req.body, song = _a.song, picture = _a.picture, genre = _a.genre, youtube = _a.youtube;
-                newSong = new songsModel_1.songs({ song: song, picture: picture, genre: genre, youtube: youtube });
+                _a = req.body, band = _a.band, album = _a.album, song = _a.song, genre = _a.genre, image = _a.image;
+                newSong = new songsModel_1.songs({ band: band, album: album, song: song, genre: genre, image: image });
                 console.log(newSong);
                 return [4 /*yield*/, newSong.save()];
             case 1:
@@ -62,16 +62,25 @@ exports.upload = function (req, res) { return __awaiter(void 0, void 0, void 0, 
     });
 }); };
 exports.search = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var search, newSearch;
+    var searchTerm, foundSearch, error_2;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                search = req.query.search;
-                return [4 /*yield*/, songsModel_1.songs.find({ songs: search })];
+                _a.trys.push([0, 2, , 3]);
+                searchTerm = req.query.searchTerm;
+                return [4 /*yield*/, songsModel_1.songs.find({ album: searchTerm })];
             case 1:
-                newSearch = _a.sent();
-                res.send(newSearch);
-                return [2 /*return*/];
+                foundSearch = _a.sent();
+                console.log(searchTerm);
+                console.log({ foundSearch: foundSearch });
+                res.send({ searchTerm: searchTerm, foundSearch: foundSearch });
+                return [3 /*break*/, 3];
+            case 2:
+                error_2 = _a.sent();
+                console.error(error_2);
+                res.send({ error: error_2.message });
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
         }
     });
 }); };
