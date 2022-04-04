@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.renderPage = exports.renderUser = exports.login = exports.addUser = void 0;
+exports.renderSettings = exports.renderPage = exports.renderUser = exports.login = exports.addUser = void 0;
 var userModel_1 = require("../model/userModel");
 exports.addUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var _a, firstName, lastName, email, password, role, gender, newUser, result, error_1;
@@ -145,10 +145,6 @@ exports.renderPage = function (req, res) { return __awaiter(void 0, void 0, void
                 if (requestedPage === "home") {
                     try {
                         res.send({
-                            firstName: firstName,
-                            lastName: lastName,
-                            gender: gender,
-                            role: role,
                             newURL: newURL
                         });
                     }
@@ -163,12 +159,6 @@ exports.renderPage = function (req, res) { return __awaiter(void 0, void 0, void
                 if (requestedPage === "settings") {
                     try {
                         res.send({
-                            firstName: firstName,
-                            lastName: lastName,
-                            gender: gender,
-                            role: role,
-                            email: email,
-                            password: password,
                             newURL: newURL
                         });
                     }
@@ -212,3 +202,6 @@ exports.renderPage = function (req, res) { return __awaiter(void 0, void 0, void
         }
     });
 }); };
+exports.renderSettings = function (req, res) { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
+    return [2 /*return*/];
+}); }); };

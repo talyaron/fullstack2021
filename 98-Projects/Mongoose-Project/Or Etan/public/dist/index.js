@@ -189,7 +189,7 @@ function handleRenderRecentlyCreated(ev) {
 }
 function handleRenderSettings(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var currentPage, userId, data, userInfo, user;
+        var currentPage, userId, data, userInfo, html, user;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -200,6 +200,7 @@ function handleRenderSettings(ev) {
                 case 1:
                     data = (_a.sent()).data;
                     userInfo = data.userInfo;
+                    html = "";
                     user = userInfo[0];
                     return [2 /*return*/];
             }
@@ -208,15 +209,17 @@ function handleRenderSettings(ev) {
 }
 function handlePageChange(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var userURL, requestedPage, data, error_2;
+        var userURL, requestedPage, data, data, newURL, error_2;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     userURL = ev.target.baseURI;
                     requestedPage = ev.target.outerText.split(" ").join("");
+                    console.log(requestedPage);
                     _a.label = 1;
                 case 1:
-                    _a.trys.push([1, 3, , 4]);
+                    _a.trys.push([1, 6, , 7]);
+                    if (!(requestedPage === "home")) return [3 /*break*/, 3];
                     return [4 /*yield*/, axios
                             .post("/users/nav", { userURL: userURL, requestedPage: requestedPage })
                             .then(function (response) {
@@ -225,13 +228,25 @@ function handlePageChange(ev) {
                         })];
                 case 2:
                     data = (_a.sent()).data;
-                    return [3 /*break*/, 4];
+                    _a.label = 3;
                 case 3:
+                    if (!(requestedPage === "settings")) return [3 /*break*/, 5];
+                    return [4 /*yield*/, axios.post("/users/nav", {
+                            userURL: userURL,
+                            requestedPage: requestedPage
+                        })];
+                case 4:
+                    data = (_a.sent()).data;
+                    newURL = data.newURL;
+                    window.location.href = newURL;
+                    _a.label = 5;
+                case 5: return [3 /*break*/, 7];
+                case 6:
                     error_2 = _a.sent();
                     console.log("error in handleRenderPage:");
                     console.log(error_2.message);
-                    return [3 /*break*/, 4];
-                case 4: return [2 /*return*/];
+                    return [3 /*break*/, 7];
+                case 7: return [2 /*return*/];
             }
         });
     });
