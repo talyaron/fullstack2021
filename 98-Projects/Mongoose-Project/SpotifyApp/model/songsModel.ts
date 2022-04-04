@@ -1,10 +1,11 @@
 import mongoose from "mongoose"
 
 const SongsSchema = new mongoose.Schema({
+  band:String,
+  album:String,
   song:String,
-  picture:String,
   genre:String,
-  youtube:String
+  image:String
   
 })
 
