@@ -369,36 +369,31 @@ function register(req, res) {
 exports.register = register;
 function login(req, res) {
     return __awaiter(this, void 0, void 0, function () {
-        var _a, email, password, user, UserLogin, userName, userId, items;
+        var _a, email, password, user, items;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
-                    _a = req.body, email = _a.email, password = _a.password;
+                    _a = req.query, email = _a.email, password = _a.password;
                     return [4 /*yield*/, usersModel_1["default"].find({ email: email, password: password })];
                 case 1:
-                    user = (_b.sent()).length;
-                    return [4 /*yield*/, usersModel_1["default"].find({ email: email })];
-                case 2:
-                    UserLogin = _b.sent();
-                    userName = UserLogin[0].userName;
-                    userId = UserLogin[0]._id;
+                    user = _b.sent();
                     return [4 /*yield*/, marketModel_1["default"].find({})];
-                case 3:
+                case 2:
                     items = _b.sent();
-                    if (!(user > 0)) return [3 /*break*/, 5];
+                    if (!(user.length > 0)) return [3 /*break*/, 4];
                     return [4 /*yield*/, usersModel_1["default"].updateOne({ email: email }, { login: true })];
+                case 3:
+                    _b.sent();
+                    res.send({ ok: true, user: user, items: items });
+                    return [3 /*break*/, 6];
                 case 4:
-                    _b.sent();
-                    res.send({ ok: true, userName: userName, items: items, userId: userId });
-                    return [3 /*break*/, 7];
-                case 5:
-                    if (!(user === 0)) return [3 /*break*/, 7];
+                    if (!(user.length === 0)) return [3 /*break*/, 6];
                     return [4 /*yield*/, usersModel_1["default"].updateOne({ email: email }, { login: false })];
-                case 6:
+                case 5:
                     _b.sent();
-                    res.send({ ok: false, items: items });
-                    _b.label = 7;
-                case 7: return [2 /*return*/];
+                    res.send({ ok: false, user: user });
+                    _b.label = 6;
+                case 6: return [2 /*return*/];
             }
         });
     });

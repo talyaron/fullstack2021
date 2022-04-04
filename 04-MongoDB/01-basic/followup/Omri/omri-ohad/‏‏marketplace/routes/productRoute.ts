@@ -18,15 +18,15 @@ import {
 router
     .get('/get-products', getAllProducts)
     .get('/get-products-to-main', getProductsMain)
+    .get("/login", login)
     .post('/get-by-category', filterByCategory)
     .post("/add-product", addProduct)
     .post("/register", register)
-    .post("/login", login)
+    .post('/sort-by-Ascending', sortAscending)
+    .post('/sort-by-Descending', sortDescending)
     .patch("/update-picture", updatePic)
     .patch("/update-title", updateTitle)
     .patch("/update-price", updatePrice)
     .delete("/delete-product", deleteProduct)
-    .post('/sort-by-Ascending', sortAscending)
-    .post('/sort-by-Descending', sortDescending)
 
 export default router;
