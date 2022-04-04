@@ -40,6 +40,7 @@ function loadPlaces(data) {
             //   const { data } = await axios.get("/places/getPlaces");
             //   console.log(data);
             console.log(data);
+            renderAirbnbOptions(data);
             return [2 /*return*/];
         });
     });
@@ -114,7 +115,6 @@ function handleFindAirbnb(ev) {
                 case 1:
                     data = (_a.sent()).data;
                     console.log(data);
-                    renderAirbnbOptions(data);
                     return [2 /*return*/];
             }
         });
