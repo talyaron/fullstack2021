@@ -79,7 +79,38 @@
         </li>
         <li class="navigation--greeting">Welcome!</li>
 
-        <li class="navigation--user"><img src="images/visitorProfile.png">
+        <li class="navigation--user popup" onclick="handlePopup()"><img src="images/visitorProfile.png">
+
+         <div class="popuptext" id="myPopup">
+          <form onsubmit="handleLogin(event)" id="login">
+            <input type="text" name="userName" placeholder="userName">
+            <input type="password" name="password" placeholder="password" autocomplete="current-password">
+
+            <select name="role" id="role">
+              <option selected disabled hidden>"I am a"</option>
+              <option value="admin">Admin</option>
+              <option value="host">Host</option>
+              <option value="guest">Guest</option>
+            </select>
+
+            <input type="submit" value="login">
+        </form>
+
+        <form onsubmit="handleRegister(event)" id="register">
+            <input type="text" name="newUserName" placeholder="userName">
+            <input type="password" name="newPassword" placeholder="password" autocomplete="current-password">
+
+            <select name="newRole" id="newRole">
+              <option selected disabled hidden>"I am a"</option>
+              <option value="host">Host</option>
+              <option value="guest">Guest</option>
+            </select>
+
+            <input type="submit" value="register">
+        </form>
+
+         </div>
+
         </li>
     </ul>
 </nav>
