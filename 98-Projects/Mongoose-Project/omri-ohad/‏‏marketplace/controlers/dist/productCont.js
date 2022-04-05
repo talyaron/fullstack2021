@@ -369,38 +369,28 @@ function register(req, res) {
 exports.register = register;
 function login(req, res) {
     return __awaiter(this, void 0, void 0, function () {
-        var _a, email, password, user, UserLogin, items;
+        var _a, email, password, user, items, userName;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
                     _a = req.body, email = _a.email, password = _a.password;
-                    return [4 /*yield*/, userModel_1["default"].find({ email: email, password: password })];
+                    return [4 /*yield*/, userModel_1["default"].findOne({ email: email })];
                 case 1:
-                    user = (_b.sent()).length;
-                    return [4 /*yield*/, userModel_1["default"].find({ email: email })
-                        // const userName = UserLogin[0].userName;
-                        // const userId = UserLogin[0]._id;
-                    ];
-                case 2:
-                    UserLogin = _b.sent();
+                    user = _b.sent();
                     return [4 /*yield*/, productMain_1["default"].find({})];
-                case 3:
+                case 2:
                     items = _b.sent();
-                    if (!(user > 0)) return [3 /*break*/, 5];
-                    return [4 /*yield*/, userModel_1["default"].updateOne({ email: email }, { login: true })];
-                case 4:
-                    _b.sent();
-                    // res.send({ ok: true, userName, items, userId })
-                    res.send({ ok: true, items: items });
-                    return [3 /*break*/, 7];
-                case 5:
-                    if (!(user === 0)) return [3 /*break*/, 7];
-                    return [4 /*yield*/, userModel_1["default"].updateOne({ email: email }, { login: false })];
-                case 6:
-                    _b.sent();
-                    res.send({ ok: false, items: items });
-                    _b.label = 7;
-                case 7: return [2 /*return*/];
+                    userName = user.userName;
+                    if (user.password === password && user.email === email) {
+                        res.cookie("userInfo", { userName: userName });
+                        res.send({ ok: true, items: items, userName: userName });
+                        return [2 /*return*/];
+                    }
+                    else {
+                        res.send({ ok: false, items: items });
+                        return [2 /*return*/];
+                    }
+                    return [2 /*return*/];
             }
         });
     });

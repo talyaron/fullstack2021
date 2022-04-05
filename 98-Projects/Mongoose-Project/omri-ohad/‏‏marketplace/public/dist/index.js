@@ -101,82 +101,51 @@ function handleGetProducts() {
         });
     });
 }
-function renderItemsMain(items, ok, userName) {
+function renderItemsMain(items, userName) {
     var html = '';
     var rootItems = document.querySelector('.mainPage__middle--products');
     if (items) {
         items.forEach(function (item) {
             html += "\n            <div class=\"mainPage__middle--products--item\">\n                <img src=\"" + item.pic + "\" title='" + item.title + "'>\n                <h4>" + item.description + "</h4>\n                <p>" + item.price + "$</p>\n                <i title=\"Add product to cart\" id=\"myBtn\" class=\"fa fa-shopping-cart\"></i>\n                <i class=\"fa fa-heart\"></i>\n            </div>\n            ";
         });
-        if (ok === true) {
-            document.querySelector(".mainPage__header--welcome").innerHTML = "\n            hello " + userName + " <a href=\"personal-zone.html\"><i class=\"fa fa-user\" title=\"PERSONAL ZONE\"></i></a";
+        if (localStorage.getItem("name") != null) {
+            document.querySelector(".mainPage__header--welcome").innerHTML = "\n            hello " + localStorage.getItem("name") + " <a href=\"personal-zone.html\"><i class=\"fa fa-user\" ></i></a\n            </br></br>\n            <button onclick=\"localStorage.clear();location.reload()\">log out</button>\n            ";
         }
         else {
-            document.querySelector(".mainPage__header--welcome").innerHTML = '<a href="personal-zone.html"><i class="fa fa-user" title="PERSONAL ZONE" ></i></a';
+            document.querySelector(".mainPage__header--welcome").innerHTML = 'hello user';
         }
         rootItems.innerHTML = html;
     }
 }
 function renderProducts(products, ok, userName) {
     var html = products.map(function (product) {
-        return "\n        <div class=\"mainPage__middle--products--item\" id=\"card\">\n        <div id=\"trash\"><i class=\"fa fa-trash-o\" style=\"font-size:20px;cursor: pointer;\" title=\"Delete product\" onclick='handleDelete(\"" + product._id + "\")'></i></div>\n        <img src=\"" + product.pic + "\" title='" + product.title + "'>\n        <p>" + product.title + "</p>\n        <p>" + product.price + "$</p>\n        <p>" + product.description + "</p>\n        <input type = 'text' name = 'newImg' placeholder = 'Update img' onblur = 'handleUpdatepicture(event, \"" + product._id + "\")'>\n        <input type = 'text' name = 'newTitle' placeholder = 'Update title' onblur = 'handleUpdateTitle(event, \"" + product._id + "\")'>\n        <input type = 'text' name = 'newPrice' placeholder = 'Update price' onblur = 'handleUpdatePrice(event, \"" + product._id + "\")'>\n        </div>\n        ";
+        return "\n        <div class=\"mainPage__middle--products--item\" id=\"card\">\n        <div id=\"trash\"><i class=\"fa fa-trash-o\" style=\"font-size:20px;cursor: pointer;\" title=\"Delete product\" onclick='handleDelete(\"" + product._id + "\")'></i></div>\n        <img src=\"" + product.pic + "\" title='" + product.title + "'>\n        <p>" + product.title + ".</p>\n        <p>" + product.price + "$</p>\n        <p>" + product.description + ".</p>\n        <form onsubmit=\"handleUpadte(event,'" + product._id + "')\">\n            <input type = 'text' name = 'newImg' placeholder = 'Update img' >\n            <input type = 'text' name = 'newTitle' placeholder = 'Update title'>\n            <input type = 'text' name = 'newPrice' placeholder = 'Update price'>\n            <input type = \"submit\" value = \"Update\">\n        </form>\n        </div>\n        ";
     }).join('');
     document.getElementById('products').innerHTML = html;
 }
-function handleUpdatepicture(ev, gameId) {
+function handleUpadte(ev, gameId) {
     return __awaiter(this, void 0, void 0, function () {
-        var newImg, data, products;
         return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    newImg = ev.target.value;
-                    return [4 /*yield*/, axios.patch('/products/update-picture', { gameId: gameId, newImg: newImg })];
-                case 1:
-                    data = (_a.sent()).data;
-                    products = data.products;
-                    location.reload();
-                    renderProducts(products);
-                    return [2 /*return*/];
-            }
+            ev.preventDefault();
+            console.log(gameId);
+            return [2 /*return*/];
         });
     });
 }
-function handleUpdateTitle(ev, gameId) {
-    return __awaiter(this, void 0, void 0, function () {
-        var newTitle, data, products;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    newTitle = ev.target.value;
-                    return [4 /*yield*/, axios.patch('/products/update-title', { gameId: gameId, newTitle: newTitle })];
-                case 1:
-                    data = (_a.sent()).data;
-                    products = data.products;
-                    location.reload();
-                    renderProducts(products);
-                    return [2 /*return*/];
-            }
-        });
-    });
-}
-function handleUpdatePrice(ev, gameId) {
-    return __awaiter(this, void 0, void 0, function () {
-        var newPrice, data, products;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    newPrice = ev.target.value;
-                    return [4 /*yield*/, axios.patch('/products/update-price', { gameId: gameId, newPrice: newPrice })];
-                case 1:
-                    data = (_a.sent()).data;
-                    products = data.products;
-                    location.reload();
-                    renderProducts(products);
-                    return [2 /*return*/];
-            }
-        });
-    });
-}
+// async function handleUpdateTitle(ev, gameId) {
+//     const newTitle = ev.target.value;
+//     const { data } = await axios.patch('/products/update-title', { gameId, newTitle });
+//     const {products} = data;
+//     location.reload();
+//     renderProducts(products);
+// }
+// async function handleUpdatePrice(ev, gameId) {
+//     const newPrice = ev.target.value;
+//     const { data } = await axios.patch('/products/update-price', { gameId, newPrice });
+//     const {products} = data;
+//     location.reload();
+//     renderProducts(products);
+// }
 function handleDelete(productId) {
     return __awaiter(this, void 0, void 0, function () {
         var data, product;
@@ -276,30 +245,31 @@ function handleSignUp(ev) {
 }
 function handleLogin(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var _a, email, password, id, data, userName, ok, items, userId;
+        var _a, email, password, data, userName, ok, items;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
                     ev.preventDefault();
-                    _a = ev.target.elements, email = _a.email, password = _a.password, id = _a.id;
+                    _a = ev.target.elements, email = _a.email, password = _a.password;
                     email = email.value;
                     password = password.value;
                     return [4 /*yield*/, axios.post('/products/login', { email: email, password: password })];
                 case 1:
                     data = (_b.sent()).data;
                     userName = data.userName;
+                    console.log("userName=" + userName);
+                    localStorage.setItem("name", userName);
                     ok = data.ok;
                     items = data.items;
-                    userId = data.userId;
-                    console.log(userId);
+                    // const{userId} = data;
                     if (ok === true) {
                         document.getElementById("logMessage").innerHTML = " You are login";
                         window.setTimeout(function () { location.reload(); }, 2000);
+                        renderItemsMain(items, userName);
                     }
-                    else if (ok === false) {
+                    else {
                         document.getElementById("logMessage").innerHTML = "Email or Password is wrong, try again";
                     }
-                    renderItemsMain(items, ok, userName);
                     return [2 /*return*/];
             }
         });

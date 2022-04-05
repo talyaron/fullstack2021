@@ -170,19 +170,18 @@ export async function register(req, res) {
 
 export async function login(req, res) {
   let { email, password } = req.body;
-  let user = (await User.find({ email: email, password: password })).length
-  let UserLogin = await User.find({ email: email })
-  // const userName = UserLogin[0].userName;
-  // const userId = UserLogin[0]._id;
+  const user = await User.findOne({ email });
   const items = await ProductMain.find({}); 
-  if (user > 0) {
-    await User.updateOne({ email: email }, { login: true });
-    // res.send({ ok: true, userName, items, userId })
-    res.send({ ok: true, items })
-  }
-  else if (user === 0) {
-    await User.updateOne({ email: email }, { login: false });
+  let userName= user.userName
+
+    if (user.password === password && user.email===email) {
+      res.cookie("userInfo",{ userName });
+      res.send({ ok: true, items,userName});
+      return;
+    }
+  else{
     res.send({ ok: false,items })
+    return
   }
 }
 
