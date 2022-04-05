@@ -9,6 +9,8 @@ app.set('view engine', 'ejs') //connecting ejs
 console.log(app.get('view engine'))
 app.set('views', path.resolve(__dirname, 'pages'))
 app.use(express.static(path.resolve(__dirname, 'public'))) //static folder
+app.use(express.json())
+
 
 //DATA CONNECT
 try {
@@ -25,6 +27,7 @@ app.get('/', (req, res) => {
     })
 })
 
+// app.use(/*....*/)
 //LISTEN TO
 app.listen(PORT, () => {
     return console.log(`Listening at http://localhost:${PORT}`);
