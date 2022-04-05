@@ -36,7 +36,7 @@ async function handleGetProducts() {
     }
 }
 
-function renderItemsMain(items, userName?) {
+function renderItemsMain(items,ok?, userName?) {
     let html = '';
     const rootItems = document.querySelector('.mainPage__middle--products');
     if (items) {
@@ -59,7 +59,9 @@ function renderItemsMain(items, userName?) {
             `
 
         } 
-        else{document.querySelector(".mainPage__header--welcome").innerHTML = 'hello user';}
+        else if(localStorage.getItem("name") ==='user'){document.querySelector(".mainPage__header--welcome").innerHTML = '';}
+
+        else{document.querySelector(".mainPage__header--welcome").innerHTML = '';}
         rootItems.innerHTML = html;
     }
 }
@@ -163,18 +165,19 @@ async function handleLogin(ev) {
     password = password.value;
     const { data } = await axios.post('/products/login', { email, password });
     let{userName} = data;
-    console.log("userName="+userName);
-    localStorage.setItem("name", userName);
+    // console.log("userName="+userName);
+    // localStorage.setItem("name", userName);
     const { ok } = data;
     const{items} = data;
     // const{userId} = data;
     if (ok === true) {
         document.getElementById("logMessage").innerHTML = " You are login";
         window.setTimeout(function () { location.reload() }, 2000)
-        renderItemsMain(items, userName);
+        localStorage.setItem("name", userName);
     }
     else  {
         document.getElementById("logMessage").innerHTML = "Email or Password is wrong, try again"
     }
+    renderItemsMain(items, ok, userName);
     //renderProducts(products ,ok, userName)
 }

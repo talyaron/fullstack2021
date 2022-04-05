@@ -170,19 +170,22 @@ export async function register(req, res) {
 
 export async function login(req, res) {
   let { email, password } = req.body;
-  const user = await User.findOne({ email });
+  const user = await User.findOne({ email,password });
   const items = await ProductMain.find({}); 
+  if(user){
   let userName= user.userName
 
-    if (user.password === password && user.email===email) {
+    if (user.password === password) {
       res.cookie("userInfo",{ userName });
       res.send({ ok: true, items,userName});
       return;
     }
+  }
   else{
     res.send({ ok: false,items })
     return
   }
+
 }
 
 

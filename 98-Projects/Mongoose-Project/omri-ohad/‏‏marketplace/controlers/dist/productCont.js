@@ -374,17 +374,19 @@ function login(req, res) {
             switch (_b.label) {
                 case 0:
                     _a = req.body, email = _a.email, password = _a.password;
-                    return [4 /*yield*/, userModel_1["default"].findOne({ email: email })];
+                    return [4 /*yield*/, userModel_1["default"].findOne({ email: email, password: password })];
                 case 1:
                     user = _b.sent();
                     return [4 /*yield*/, productMain_1["default"].find({})];
                 case 2:
                     items = _b.sent();
-                    userName = user.userName;
-                    if (user.password === password && user.email === email) {
-                        res.cookie("userInfo", { userName: userName });
-                        res.send({ ok: true, items: items, userName: userName });
-                        return [2 /*return*/];
+                    if (user) {
+                        userName = user.userName;
+                        if (user.password === password) {
+                            res.cookie("userInfo", { userName: userName });
+                            res.send({ ok: true, items: items, userName: userName });
+                            return [2 /*return*/];
+                        }
                     }
                     else {
                         res.send({ ok: false, items: items });

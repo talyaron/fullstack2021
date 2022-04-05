@@ -101,7 +101,7 @@ function handleGetProducts() {
         });
     });
 }
-function renderItemsMain(items, userName) {
+function renderItemsMain(items, ok, userName) {
     var html = '';
     var rootItems = document.querySelector('.mainPage__middle--products');
     if (items) {
@@ -111,8 +111,11 @@ function renderItemsMain(items, userName) {
         if (localStorage.getItem("name") != null) {
             document.querySelector(".mainPage__header--welcome").innerHTML = "\n            hello " + localStorage.getItem("name") + " <a href=\"personal-zone.html\"><i class=\"fa fa-user\" ></i></a\n            </br></br>\n            <button onclick=\"localStorage.clear();location.reload()\">log out</button>\n            ";
         }
+        else if (localStorage.getItem("name") === 'user') {
+            document.querySelector(".mainPage__header--welcome").innerHTML = '';
+        }
         else {
-            document.querySelector(".mainPage__header--welcome").innerHTML = 'hello user';
+            document.querySelector(".mainPage__header--welcome").innerHTML = '';
         }
         rootItems.innerHTML = html;
     }
@@ -257,19 +260,18 @@ function handleLogin(ev) {
                 case 1:
                     data = (_b.sent()).data;
                     userName = data.userName;
-                    console.log("userName=" + userName);
-                    localStorage.setItem("name", userName);
                     ok = data.ok;
                     items = data.items;
                     // const{userId} = data;
                     if (ok === true) {
                         document.getElementById("logMessage").innerHTML = " You are login";
                         window.setTimeout(function () { location.reload(); }, 2000);
-                        renderItemsMain(items, userName);
+                        localStorage.setItem("name", userName);
                     }
                     else {
                         document.getElementById("logMessage").innerHTML = "Email or Password is wrong, try again";
                     }
+                    renderItemsMain(items, ok, userName);
                     return [2 /*return*/];
             }
         });
