@@ -14,9 +14,6 @@ app.use("/songsUser", userRoute);
 import songsRoute from "./routes/songsRoute";
 app.use("/songs", songsRoute )
 
-
-
-
 app.get('/', (req, res) => {
   res.send('Hello World!');
 });
