@@ -19,10 +19,10 @@ const User = mongoose.model("users", UserSchema);
 app.post('/add-users', async (req, res) => {
 
   try {
-    // let { username, password } = req.body; אתה שולח מהקליינט name
+   
     let { name, password } = req.body;
 
-    console.log(name, password) //כאן זה לוודא שאתה מקבל משתנים נכונים
+    console.log(name, password) 
     const newUser = new User({ username: name, password });
     const result = await newUser.save();
 
@@ -35,9 +35,9 @@ app.post('/add-users', async (req, res) => {
 
 app.get('/get-users', async (req, res) => {
   try {
-    // if (!req.body) throw new Error('no req'); //אין צורך הבדיקה הזאת
+   
     const users = await User.find({})
-    // if (!req.body) throw new Error('no req');
+   
     res.send({ ok: true, users });
   } catch (error) {
     console.log(error.error);
@@ -65,3 +65,4 @@ app.get('/get-users', async (req, res) => {
 app.listen(port, () => {
   return console.log(`Server is listening at http://localhost:${port}`);
 })
+
