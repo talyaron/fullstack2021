@@ -1,7 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import Places from "./model/placesModel";
-const cookieParser=require('cookie-parser');
+const cookieParser = require('cookie-parser');
 
 // import axios from "axios";
 const app = express();
@@ -9,9 +9,6 @@ const port = process.env.PORT || 3000;
 app.use(express.static("public"));
 app.use(express.json());
 app.use(cookieParser());
-
-
-
 
 mongoose
   .connect(
