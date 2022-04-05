@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <title>Airbnb</title>
+
+
+  <link rel="icon" type="image/x-icon" href="images/logo.png">
+
+  <link rel="stylesheet" href="dist/style.css">
+</head>
+
+<body>
+
+  <!-- <nav class="navigation">
+    <ul>
+        <a href="index.html"><li class="navigation--logo"><img src="images/logoTitle.png" alt="airbnb"></li></a>
+        <li class="navigation--search">
+            <form class="form" onsubmit="handleFindAirbnb(event)">
+                <div class="form--searchLocation">
+                    <label for="searchLocation">Location  </label>
+                        <input  id="searchLocation" type="text" name="searchLocation" placeholder="Where are you going?">
+                   
+               
+                </div>
+
+                <div class="form--checkIn">
+                    <label for="checkIn">Check in </label>
+                        <input type="date" id="checkIn" name="checkIn"
+                        value="2022-03-31"
+                        min="2022-03-28" max="2022-12-30">
+                    
+                 
+                </div>
+
+                <div class="form--checkOut">
+                    <label for="checkOut">Check out </label>
+                        <input type="date" id="checkOut" name="checkOut"
+                        value="2022-03-31"
+                        min="2022-03-28" max="2022-12-30">
+                   
+                   
+                </div>
+
+                <div class="form--guests">
+                    <label for="guests">Guests </label>
+                        <button id="guests">Add guests</button>
+                   
+                    <div class="dropdown">
+                        <label for="adults">Adults:
+                           <span>Ages 13 or above</span> </label>
+                        <input type="number" id="adults" name="adults" min="0" max="10" placeholder="0">
+                         
+                        <label for="children">Children:
+                           <span>Ages 2–12</span> </label> 
+                        <input type="number" id="children" name="children" min="0" max="10" placeholder="0">
+                       
+                        <label for="infants">Infants:
+                            <span>Under 2</span></label>
+                        <input type="number" id="infants" name="infants" min="0" max="10" placeholder="0">
+                        
+                        <label for="pets">Pets:</label>
+                        <input type="number" id="pets" name="pets" min="0" max="5" placeholder="0">
+                        
+
+                    </div>
+                </div>
+
+
+               <button type="submit" value="submit" class="form--searchIcon" onclick="location.href='places.html'"><img src="images/searchIcon.png"></button>
+
+
+            </form>
+        </li>
+        <li class="navigation--greeting">Welcome!</li>
+
+        <li class="navigation--user popup" onclick="handlePopup()"><img src="images/visitorProfile.png">
+
+         <div class="popuptext" id="myPopup">
+          <form onsubmit="handleLogin(event)" id="login">
+            <input type="text" name="userName" placeholder="userName">
+            <input type="password" name="password" placeholder="password" autocomplete="current-password">
+
+            <select name="role" id="role">
+              <option selected disabled hidden>"I am a"</option>
+              <option value="admin">Admin</option>
+              <option value="host">Host</option>
+              <option value="guest">Guest</option>
+            </select>
+
+            <input type="submit" value="login">
+        </form>
+
+        <form onsubmit="handleRegister(event)" id="register">
+            <input type="text" name="newUserName" placeholder="userName">
+            <input type="password" name="newPassword" placeholder="password" autocomplete="current-password">
+
+            <select name="newRole" id="newRole">
+              <option selected disabled hidden>"I am a"</option>
+              <option value="host">Host</option>
+              <option value="guest">Guest</option>
+            </select>
+
+            <input type="submit" value="register">
+        </form>
+
+         </div>
+
+        </li>
+    </ul>
+</nav> -->
+<nav>
+  <%- include('./components/navigationBar') %>
+</nav>
+
+
+  <div class="mainPage__imageCarousel">
+    <figure>
+      <img src="images/airbnbView1.webp">
+      <img src="images/airbnbView2.webp">
+      <img src="images/airbnbView3.webp">
+      <img src="images/airbnbView4.webp">
+      <img src="images/airbnbView5.webp">
+    </figure>
+    <h1 class="mainPage__imageCarousel--title">Let your curiosity do the booking</h1>
+  </div>
+
+  <div class="mainPage__citySuggestions">
+    <h1 class="mainPage__citySuggestions__text">Inspiration for your next trip</h1>
+    <div class="mainPage__citySuggestions__cards" onclick="handleCities(event)" >
+      <div class="mainPage__citySuggestions__cards__card">
+        <img src="https://i.pinimg.com/originals/d3/59/1c/d3591c63b81ba14696e290f74743e1de.gif"  data-card="Tel Aviv">
+        <div class="description">
+          <h1>Tel Aviv-Yafo</h1>
+          <h3>84 kilometeres away</h3>
+        </div>
+      </div>
+      <div class="mainPage__citySuggestions__cards__card" >
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/014a9043643817.623277932bd44.gif" data-card="Eilat">
+        <div class="description">
+          <h1>Eilat</h1>
+          <h3>84 kilometeres away</h3>
+        </div>
+      </div>
+      <div class="mainPage__citySuggestions__cards__card" >
+        <img
+          src="https://4.bp.blogspot.com/-pMoMk50GlQI/WxuejAtymnI/AAAAAAAACAY/4YGpCuqLuY4BSn2jkcImneBW3X-GCx6ewCLcBGAs/s400/happy-town-gif1b.gif" data-card="Jerusalem">
+        <div class="description">
+          <h1>Jerusalem</h1>
+          <h3>84 kilometeres away</h3>
+        </div>
+      </div>
+      <div class="mainPage__citySuggestions__cards__card" >
+        <img src="https://i.pinimg.com/originals/11/c0/0c/11c00c702d268a5a7789e801f995fbcc.gif" data-card="Harei Yehuda">
+        <div class="description">
+          <h1>Harei Yehuda</h1>
+          <h3>84 kilometeres away</h3>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- <div class="bottomBar">
+    <div class="bottomBar__support">
+        <p class="bottomBar__title">Support</p>
+        <p>Help Center</p>
+        <p>Our COVID-19 Response</p>
+        <p>Safety information</p>
+        <p> Supporting people with disabilities</p>
+        <p>Cancellation options</p>
+        <p>Report a neighborhood concern</p>
+    </div>
+
+    <div class="bottomBar__community">
+        <p class="bottomBar__title">Community</p>
+        <p>Airbnb.org: disaster relief housing</p>
+        <p>Combating discrimination</p>
+        <p>Support Afghan refugees</p>
+       
+    </div>
+
+    <div class="bottomBar__hosting">
+        <p class="bottomBar__title">Hosting</p>
+        <p>Try hosting</p>
+        <p>Visit our community forum</p>
+        <p>AirCover: protection for Hosts</p>
+        <p>How to host responsibly</p>
+        <p>Explore hosting resources</p>
+        
+    </div>
+
+    <div class="bottomBar__about">
+        <p class="bottomBar__title">About</p>
+        <p>Careers</p>
+        <p>Learn about new features</p>
+        <p>Investors</p>
+        <p>Letter from our founders</p>
+        <p class="bottomBar__about--twitter"><img src="images/twitterIcon.png"></p>
+        <p class="bottomBar__about--facebook"><img src="images/facebookIcon.png"></p>
+        <p class="bottomBar__about--instagram"><img src="images/instagramIcon.png"></p>
+        
+       
+    </div>
+
+
+
+</div> -->
+<div class="bottomBar">
+  <%- include('./components/bottomBar') %>
+</div>
+<!-- <p class="airbnbRights" >© 2022 Airbnb, Inc.Privacy·Terms·Sitemap</p> -->
+
+  <script src="dist/index.js"></script>
+</body>
+
+</html>
