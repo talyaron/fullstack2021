@@ -101,14 +101,14 @@ function handleGetProducts() {
         });
     });
 }
-function renderItemsMain(items, ok, userName) {
+function renderItemsMain(items, userName) {
     var html = '';
     var rootItems = document.querySelector('.mainPage__middle--products');
     if (items) {
         items.forEach(function (item) {
             html += "\n            <div class=\"mainPage__middle--products--item\">\n                <img src=\"" + item.pic + "\" title='" + item.title + "'>\n                <h4>" + item.description + "</h4>\n                <p>" + item.price + "$</p>\n                <i title=\"Add product to cart\" id=\"myBtn\" class=\"fa fa-shopping-cart\"></i>\n                <i class=\"fa fa-heart\"></i>\n            </div>\n            ";
         });
-        if (ok === true) {
+        if (userName) {
             document.querySelector(".mainPage__header--welcome").innerHTML = "\n            hello " + userName + " <a href=\"personal-zone.html\"><i class=\"fa fa-user\" ></i></a";
         }
         else {
@@ -117,7 +117,7 @@ function renderItemsMain(items, ok, userName) {
         rootItems.innerHTML = html;
     }
 }
-function renderProducts(products, ok, userName) {
+function renderProducts(products, userName) {
     var html = products.map(function (product) {
         return "\n        <div class=\"mainPage__middle--products--item\" id=\"card\">\n        <div id=\"trash\"><i class=\"fa fa-trash-o\" style=\"font-size:20px;cursor: pointer;\" title=\"Delete product\" onclick='handleDelete(\"" + product._id + "\")'></i></div>\n        <img src=\"" + product.pic + "\" title='" + product.title + "'>\n        <p>" + product.title + ".</p>\n        <p>" + product.price + "$</p>\n        <p>" + product.description + ".</p>\n        <form onsubmit=\"handleUpadte(event,'" + product._id + "')\">\n            <input type = 'text' name = 'newImg' placeholder = 'Update img' >\n            <input type = 'text' name = 'newTitle' placeholder = 'Update title'>\n            <input type = 'text' name = 'newPrice' placeholder = 'Update price'>\n            <input type = \"submit\" value = \"Update\">\n        </form>\n        </div>\n        ";
     }).join('');
@@ -245,7 +245,7 @@ function handleSignUp(ev) {
 }
 function handleLogin(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var _a, email, password, data, ok, user, items, userName;
+        var _a, email, password, data;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
@@ -253,20 +253,10 @@ function handleLogin(ev) {
                     _a = ev.target.elements, email = _a.email, password = _a.password;
                     email = email.value;
                     password = password.value;
-                    return [4 /*yield*/, axios.get("/products/login?email=" + email + "&password=" + password)];
+                    return [4 /*yield*/, axios.post('/products/login', { email: email, password: password })];
                 case 1:
                     data = (_b.sent()).data;
-                    ok = data.ok;
-                    user = data.user;
-                    items = data.items;
-                    userName = user[0].userName;
-                    if (ok === true) {
-                        document.getElementById("logMessage").innerHTML = " You are login";
-                        renderItemsMain(items, ok, userName);
-                    }
-                    else if (ok === false) {
-                        document.getElementById("logMessage").innerHTML = "Email or Password is wrong, try again";
-                    }
+                    console.log(window);
                     return [2 /*return*/];
             }
         });

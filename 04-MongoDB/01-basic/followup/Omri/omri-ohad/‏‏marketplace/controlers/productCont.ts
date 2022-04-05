@@ -1,6 +1,7 @@
 import UserProducts from "../model/userProductsModel";
 import Market from "../model/marketModel";
 import User from "../model/usersModel";
+import { userInfo } from "os";
 
 export async function getProductsMain(req, res) {
   try {
@@ -169,16 +170,28 @@ export async function register(req, res) {
 }
 
 export async function login(req, res) {
-  let { email, password } = req.query;
-  let user = await User.find({ email: email, password: password });
-  const items = await Market.find({}); 
-  if (user.length > 0) {
-    await User.updateOne({ email: email }, { login: true });
-    res.send({ ok:true, user, items})
-  }
-  else if (user.length === 0) {
-    await User.updateOne({ email: email }, { login: false });
-    res.send({ ok:false, user})
+  try {
+    let { email, password } = req.body;
+    if (typeof email === 'string' && typeof password === 'string') {
+      const user = await User.findOne({ email: email });
+      const products = await Market.find({});
+      if (user) {
+        if (user.password === password) {
+          res.cookie(
+            "user info",
+            { id: user._id, userName: user.userName }
+          );
+        }
+        res.send({ ok: true, login: true, userName:user.userName, products,req.cookies});
+        return;
+      }
+      throw new Error("Email or password are inncorect");
+    } else {
+      throw new Error("Email or password are missing");
+    }
+  } catch (error) {
+    console.log(error.message);
+    res.send({ error: error.message });
   }
 }
 
