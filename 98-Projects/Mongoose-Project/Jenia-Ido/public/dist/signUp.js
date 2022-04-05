@@ -45,55 +45,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-function setTimeImgsMoves(ev) {
-    // console.dir(ev.target);
-    // console.log(ev.target);
-    setInterval(changingImgsBox, 4000);
-}
-var count = 1;
-function changingImgsBox() {
-    // console.log('lala');
-    var boxOne = document.querySelector('.boxAnimationOne');
-    var boxTwo = document.querySelector('.boxAnimationTwo');
-    var boxThree = document.querySelector('.boxAnimationThree');
-    var boxFour = document.querySelector('.boxAnimationFour');
-    if (count == 0) {
-        count = 1;
-        if (count == 1) {
-            boxOne.style.animation = "animationTwo ease-in-out 5s -0.5s normal forwards";
-            boxTwo.style.animation = "animationThree ease-in-out 5s -0.5s normal forwards;";
-            boxThree.style.animation = "animationFour ease-in-out 5s -0.5s normal forwards";
-            boxFour.style.animation = "animationOne ease-in-out 5s -0.5s normal forwards";
-            console.log('2');
-        }
-        else {
-            count++;
-            console.log(count);
-            if (count == 2) {
-                boxOne.style.animation = "animationThree ease-in-out 5s -0.5s normal forwards";
-                boxTwo.style.animation = "animationFour ease-in-out 5s -0.5s normal forwards;";
-                boxThree.style.animation = "animationOne ease-in-out 5s -0.5s normal forwards";
-                boxFour.style.animation = "animationTwo ease-in-out 5s -0.5s normal forwards";
-                console.log('3');
-            }
-            else if (count == 3) {
-                boxOne.style.animation = "animationFour ease-in-out 5s -0.5s normal forwards";
-                boxTwo.style.animation = "animationOne ease-in-out 5s -0.5s normal forwards;";
-                boxThree.style.animation = "animationTwo ease-in-out 5s -0.5s normal forwards";
-                boxFour.style.animation = "animationThree ease-in-out 5s -0.5s normal forwards";
-            }
-            else if (count == 4) {
-                boxOne.style.animation = "animationOne ease-in-out 5s -0.5s normal forwards";
-                boxTwo.style.animation = "animationTwo ease-in-out 5s -0.5s normal forwards;";
-                boxThree.style.animation = "animationThree ease-in-out 5s -0.5s normal forwards";
-                boxFour.style.animation = "animationFour ease-in-out 5s -0.5s normal forwards";
-            }
-            else {
-                count = 0;
-            }
-        }
-    }
-}
 function showSignUpFrom(ev) {
     var display = document.querySelector('.main_display');
     // console.dir(ev.target);
@@ -145,7 +96,7 @@ var forms = {
 };
 function renderProfile(email, password) {
     return __awaiter(this, void 0, void 0, function () {
-        var userData, imagesData, i, error, user, imgs, display, html_1;
+        var userData, imagesData, i, error, user, imgs, display, html;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0: return [4 /*yield*/, axios.get("/user/get-user?email=" + email + "&password=" + password)];
@@ -163,17 +114,28 @@ function renderProfile(email, password) {
                         user = __assign({}, userData.data.result[0]);
                         imgs = __assign({}, imagesData.data.result[0]);
                         display = document.querySelector('.main');
-                        html_1 = "";
-                        html_1 += "<section class=\"profile\">\n\n    <div class=\"profile__navBar--top\">\n        <a href=\"index.html\"><i class=\"fas fa-arrow-left fa-xs\"></i></a>\n        <i class=\"fas fa-wrench fa-xs\" onclick=\"HandleSettingsMenu()\"></i>\n    </div>\n    <nav class=\"settings\">\n    <li><button class=\"settings_buttons\" id=\"" + user.email + "\" name=\"" + user.password + "\" onclick='handleUpdateProfile(event)'>update Profile</button></li>\n    <li><a href=\"index.html\"><button class=\"settings_buttons delete\" id=\"" + user.email + "\" onclick=\"handleDeleteProfile(event)\">delete user</button></a></li>\n    <div id='updateRoot'></div>\n    </nav>\n    <div id=\"profilePic\"></div>\n    <div class=\"profile__header\">\n        <div class=\"profile__header__imgBorder\"  style=\"background-image: url(" + imgs.profileUrl + ")\">\n        <button class=\"profile__header__imgBorder-changeImage\" name=\"" + user.email + "\"\n        id=" + imgs.profileUrl + " lang=\"" + user.password + "\"type=\"button\" onclick=\"showProfilePicture(event)\">View</button>\n        </div>\n        <div class=\"profile__header__name\">" + user.firstName + " " + user.lastName + "</div>\n        <div class=\"profile__header__birthday\">" + user.birthday + "</div>\n        <div class=\"profile__header__country\">" + user.country + "</div>\n        <div class=\"profile__header__gender\">" + user.gender + "</div>\n        \n        <button class=\"profile__header__addButton\" name=\"" + user.password + "\" id=\"" + user.email + "\" onclick=\"AddImage(event)\">Add Post</button>\n    </div>\n    <div id=\"addPost\"></div>\n   \n    <ul class=\"profile__user__category\">\n        <li class=\"profile__user__category__text\" onclick=\"userCategoryActive(event)\">photos</li>\n        <li class=\"profile__user__category__text\" onclick=\"userCategoryActive(event)\">videos</li>\n    </ul>\n    <div class=\"profile__user__pics\">";
-                        imgs.url.forEach(function (img) {
-                            html_1 += "<div class=\"profile__user__pics-userPics pic" + i + "\"><img src=\"" + img + "\" alt=\"\"></div>";
-                            i++;
-                        });
-                        html_1 += "\n        <div class=\"profile__navBar--down\">\n    <div class=\"homeIcon\"><i class=\"fas fa-home\"></i></div>\n    <div class=\"profileIcon\"><i class=\"fas fa-user\"></i></div>\n    <div class=\"compassIcon\"><i class=\"fas fa-compass\"></i></div>\n    <div class=\"heartIcon\"><i class=\"fas fa-heart\"></i></div>\n    \n    </section>";
-                        display.innerHTML = html_1;
+                        html = "";
+                        html += "<section class=\"profile\">\n\n    <div class=\"profile__navBar--top\">\n        <a href=\"index.html\"><i class=\"fas fa-arrow-left fa-xs\"></i></a>\n        <i class=\"fas fa-wrench fa-xs\" onclick=\"HandleSettingsMenu()\"></i>\n    </div>\n    <nav class=\"settings\">\n    <li><button class=\"settings_buttons\" id=\"" + user.email + "\" name=\"" + user.password + "\" onclick='handleUpdateProfile(event)'>update Profile</button></li>\n    <li><button class=\"settings_buttons delete\" id=\"" + user.email + "\" onclick=\"handleDeleteProfile(event)\">delete user</button></li>\n    <div id='updateRoot'></div>\n    </nav>\n    <div id=\"profilePic\"></div>\n    <div class=\"profile__header\">\n        <div class=\"profile__header__imgBorder\"  style=\"background-image: url(" + imgs.profileUrl + ")\">\n        <button class=\"profile__header__imgBorder-changeImage\" name=\"" + user.email + "\"\n        id=\"" + imgs.profileUrl + "\" lang=\"" + user.password + "\" \"type=\"button\" onclick=\"showProfilePicture(event)\">View</button>\n        </div>\n        <div class=\"profile__header__name\">" + user.firstName + " " + user.lastName + "</div>\n        <div class=\"profile__header__birthday\">" + user.birthday + "</div>\n        <div class=\"profile__header__country\">" + user.country + "</div>\n        <div class=\"profile__header__gender\">" + user.gender + "</div>\n        \n        <button class=\"profile__header__addButton\" name=\"" + user.password + "\" id=\"" + user.email + "\" onclick=\"AddImage(event)\">Add Post</button>\n    </div>\n    <div id=\"addPost\"></div>\n   \n    \n    <div class=\"profile__user__pics\"></div>\n        <div class=\"profile__navBar--down\">\n    <div class=\"homeIcon\"><a href=\"index.html\"><i class=\"fas fa-home\"></i></a></div>\n    <div class=\"profileIcon\"><i class=\"fas fa-user\"></i></div>\n    <div class=\"compassIcon\" onclick=\"browserUser(event)\"><a href=\"browse.html\"><i class=\"fas fa-compass\"></i></a></div>\n    <div class=\"heartIcon\"><i class=\"fas fa-heart\"></i></div>\n    </div>\n    </section>";
+                        display.innerHTML = html;
+                        renderUserImgs(imgs);
                     }
                     return [2 /*return*/];
             }
+        });
+    });
+}
+function renderUserImgs(list) {
+    return __awaiter(this, void 0, void 0, function () {
+        var html, imgs, display;
+        return __generator(this, function (_a) {
+            html = " ";
+            imgs = list.url;
+            display = document.querySelector('.profile__user__pics');
+            imgs.forEach(function (img) {
+                html += "<div class=\"profile__user__pics-userPics\" style=\"background-image:url(" + img + ");\"></div>";
+            });
+            display.innerHTML = html;
+            return [2 /*return*/];
         });
     });
 }
@@ -232,13 +194,8 @@ function HandleLogin(ev) {
                 ev.preventDefault();
                 password = ev.target.elements.password.value;
                 email = ev.target.elements.email.value;
-                // console.log(email);
-                // const userData = await axios.get(`/user/get-user?email=${email}&password=${password}`);
-                // const imagesData = await axios.get(`/images/get-images?email=${email}&password=${password}`);
-                // const user = { ...userData.data };
-                // const images = { ...imagesData.data };
-                // console.log(user);
-                // console.log(images);
+                localStorage.setItem("UserEmail", JSON.stringify("" + email));
+                localStorage.setItem("UserPassword", JSON.stringify("" + password));
                 renderProfile(email, password);
             }
             catch (error) {
@@ -340,7 +297,7 @@ function HandleUpdate(ev) {
 }
 function handleDeleteProfile(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var email, data, images, deleleImages, error, results, err_3;
+        var email, images, data, deleleImages, error, results, err_3;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -348,15 +305,15 @@ function handleDeleteProfile(ev) {
                     _a.label = 1;
                 case 1:
                     _a.trys.push([1, 4, , 5]);
-                    return [4 /*yield*/, axios["delete"]("/user/delete-user", { data: { email: email } })];
+                    return [4 /*yield*/, axios["delete"]("/images/delete-images", { data: { email: email } })];
                 case 2:
-                    data = (_a.sent()).data;
-                    return [4 /*yield*/, axios["delete"]("/images/delete-user", { data: { email: email } })];
-                case 3:
                     images = (_a.sent()).images;
+                    return [4 /*yield*/, axios["delete"]("/user/delete-user", { data: { email: email } })];
+                case 3:
+                    data = (_a.sent()).data;
                     deleleImages = images;
                     error = data.error, results = data.results;
-                    alert(results);
+                    deleteAlert(results);
                     if (error)
                         throw new Error(error);
                     console.log(results);
@@ -370,6 +327,18 @@ function handleDeleteProfile(ev) {
         });
     });
 }
+function deleteAlert(results) {
+    return __awaiter(this, void 0, void 0, function () {
+        var display, html;
+        return __generator(this, function (_a) {
+            display = document.querySelector('.main');
+            html = " ";
+            html = " <div class=\"profile__header-deleteMessage\">\n    <h1 class=\"profile__header-deleteMessage-message\">" + results + "</h1>\n    <a href=\"index.html\"><button type=\"\"button\" class=\"profile__header-deleteMessage-btn\">Ok</button></a>\n        ";
+            display.innerHTML = html;
+            return [2 /*return*/];
+        });
+    });
+}
 function showProfilePicture(ev) {
     return __awaiter(this, void 0, void 0, function () {
         var email, profileImg, password, header, root, html;
@@ -377,7 +346,6 @@ function showProfilePicture(ev) {
             email = ev.target.name;
             profileImg = ev.target.id;
             password = ev.target.lang;
-            console.log(password);
             header = document.querySelector(".profile__header");
             header.style.opacity = "0.2";
             root = document.querySelector('#profilePic');
@@ -394,8 +362,6 @@ function handleExit(ev) {
         return __generator(this, function (_a) {
             email = ev.target.id;
             password = ev.target.lang;
-            console.log(password);
-            console.log(email);
             renderProfile(email, password);
             return [2 /*return*/];
         });
@@ -412,8 +378,6 @@ function handleUpdateProfilePic(ev) {
                     ev.preventDefault();
                     email = ev.target.id;
                     newImg = ev.target.elements.newUrl.value;
-                    console.log(email);
-                    console.log(newImg);
                     return [4 /*yield*/, axios.patch('/images/update-profile-img', { email: email, newImg: newImg })];
                 case 1:
                     _a = _b.sent(), update = _a.update, ok = _a.ok, error = _a.error;
@@ -429,8 +393,9 @@ function handleUpdateProfilePic(ev) {
 }
 function userCategoryActive(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var categories, category;
+        var id, categories, category;
         return __generator(this, function (_a) {
+            id = ev.target.id;
             categories = document.querySelectorAll(".profile__user__category__text");
             categories.forEach(function (cat) {
                 cat.classList.remove("profile__user__category__text--active");
@@ -440,4 +405,45 @@ function userCategoryActive(ev) {
             return [2 /*return*/];
         });
     });
+}
+function browserUser() {
+    return __awaiter(this, void 0, void 0, function () {
+        var email, password, _a, ok, data, error, usersProfileImgsList, err_5;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
+                case 0:
+                    email = JSON.parse(localStorage.getItem("UserEmail"));
+                    password = JSON.parse(localStorage.getItem("UserPassword"));
+                    _b.label = 1;
+                case 1:
+                    _b.trys.push([1, 3, , 4]);
+                    return [4 /*yield*/, axios.patch('/images/get-users-profieImg', { email: email })];
+                case 2:
+                    _a = _b.sent(), ok = _a.ok, data = _a.data, error = _a.error;
+                    if (error)
+                        throw new Error(error);
+                    usersProfileImgsList = data.profileImgs;
+                    renderbrowseImgs(usersProfileImgsList);
+                    return [3 /*break*/, 4];
+                case 3:
+                    err_5 = _b.sent();
+                    console.error(err_5);
+                    return [3 /*break*/, 4];
+                case 4: return [2 /*return*/];
+            }
+        });
+    });
+}
+function renderbrowseImgs(list) {
+    var display = document.querySelector('.browseMain_display');
+    var html = " ";
+    list.forEach(function (user) {
+        html += "<div class=\"browseMain_display-userCard\" style=\"background-image:url(" + user.img + ")\">\n        <div class=\"browseMain_display-userCard-name\">" + user.userEmail + "</div>\n        <button class=\"browseMain_display-userCard-addFriendBtn\" type=\"button\">Add Friend</button>\n        </div>";
+    });
+    display.innerHTML = html;
+}
+function profileButton() {
+    var email = JSON.parse(localStorage.getItem("UserEmail"));
+    var password = JSON.parse(localStorage.getItem("UserPassword"));
+    renderProfile(email, password);
 }

@@ -108,7 +108,7 @@
 //                 <input type="submit" value="submit">
 //                 <input type="text" name="description" id="" placeholder="Addbooks">
 //             </select>
-        
+
 //         <div class="books_form-actions">
 //             <input class="books_form-actions-books" type="button" name="Add" id="add" value="ADD">
 //             <input class="books_form-actions-books" type="button" name="filter" id="filter" value="Filter">
@@ -135,19 +135,32 @@
 // }
 
 
-async function handleSubmit(ev){
-ev.preventDefault()
-const name= ev.target.elements.username.value;
-const password= ev.target.elements.password.value;
-const {data}=await axios.post("/add-user",{name,password})
+async function handleSubmit(ev) {
+    ev.preventDefault()
+    const name = ev.target.elements.username.value;
+    const password = ev.target.elements.password.value;
+
+    console.log(name, password)
+    //המלצה שלי, תמיד לעשות קונסול לוג למשתנים שאתה מקבל, בשביל לוודא שאתה מקבל את הדבר הנכון ושולח אותו לסרבר.
+    //כך גם תוכל לזהות אם באיזה צד הבעיה ולטפל בה בהתאם.
+    // const { data } = await axios.post("/add-user", { name, password }) שים לב שהראוטר הוא זהה בשני הצדדים
+    const { data } = await axios.post("/add-users", { name, password })
+    console.log(data)
 }
 
-async function handleGetUsers(){
-    const {data} = await axios.get('/get-users')
+async function handleGetUsers() {
+    const { data } = await axios.get('/get-users')
     console.log(data)
-    const {username, password} = data;
-    console.log({username, password})
-    }
+
+    // const { username, password } = data; //אתה מקבל חזרה אובייקט, שכולל יוזרס ואוקיי, לא תוכל לראות בניפרד את מה שאתה מבקש
+    // console.log({ username, password })
+    const { users } = data
+    console.log(users)
+
+    users.forEach(user => {
+        console.log(`the name of user is ${user.username} and the password ${user.password}`)
+    })
+}
 
 
 

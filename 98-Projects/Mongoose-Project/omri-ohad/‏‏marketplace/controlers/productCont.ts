@@ -172,14 +172,17 @@ export async function login(req, res) {
   let { email, password } = req.body;
   let user = (await User.find({ email: email, password: password })).length
   let UserLogin = await User.find({ email: email })
-  const userName = UserLogin[0].userName;
+  // const userName = UserLogin[0].userName;
+  // const userId = UserLogin[0]._id;
+  const items = await ProductMain.find({}); 
   if (user > 0) {
     await User.updateOne({ email: email }, { login: true });
-    res.send({ ok: true, userName })
+    // res.send({ ok: true, userName, items, userId })
+    res.send({ ok: true, items })
   }
-  else if (user == 0) {
+  else if (user === 0) {
     await User.updateOne({ email: email }, { login: false });
-    res.send({ ok: false })
+    res.send({ ok: false,items })
   }
 }
 

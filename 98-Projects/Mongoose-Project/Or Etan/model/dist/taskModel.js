@@ -8,7 +8,9 @@ var TaskSchema = new mongoose_1["default"].Schema({
     location: String,
     date: Date,
     color: String,
-    ownerId: String
+    ownerId: String,
+    checked: Boolean,
+    timeChecked: String
 });
 var task = mongoose_1["default"].model("tasks", TaskSchema);
 exports["default"] = task;

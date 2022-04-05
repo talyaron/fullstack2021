@@ -36,6 +36,10 @@
   padding: 1.2rem;
   font-family: "Barlow", sans-serif;
   color: #585568;
+  cursor: pointer;
+}
+.mainPage__header--welcome i {
+  color: white;
 }
 .mainPage__middle {
   display: grid;

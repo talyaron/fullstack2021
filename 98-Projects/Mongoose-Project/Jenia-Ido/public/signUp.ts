@@ -7,57 +7,6 @@ interface User {
     email: string
     gender: string
 }
-function setTimeImgsMoves(ev) {
-    // console.dir(ev.target);
-    // console.log(ev.target);
-
-
-    setInterval(changingImgsBox, 4000)
-}
-let count = 1;
-
-function changingImgsBox() {
-    // console.log('lala');
-
-    const boxOne: any = document.querySelector('.boxAnimationOne')
-    const boxTwo: any = document.querySelector('.boxAnimationTwo')
-    const boxThree: any = document.querySelector('.boxAnimationThree')
-    const boxFour: any = document.querySelector('.boxAnimationFour')
-    if (count == 0) {
-        count = 1;
-        if (count == 1) {
-            boxOne.style.animation = "animationTwo ease-in-out 5s -0.5s normal forwards"
-            boxTwo.style.animation = "animationThree ease-in-out 5s -0.5s normal forwards;"
-            boxThree.style.animation = "animationFour ease-in-out 5s -0.5s normal forwards"
-            boxFour.style.animation = "animationOne ease-in-out 5s -0.5s normal forwards"
-            console.log('2');
-        } else {
-            count++;
-            console.log(count);
-            if (count == 2) {
-                boxOne.style.animation = "animationThree ease-in-out 5s -0.5s normal forwards"
-                boxTwo.style.animation = "animationFour ease-in-out 5s -0.5s normal forwards;"
-                boxThree.style.animation = "animationOne ease-in-out 5s -0.5s normal forwards"
-                boxFour.style.animation = "animationTwo ease-in-out 5s -0.5s normal forwards"
-                console.log('3');
-            } else if (count == 3) {
-                boxOne.style.animation = "animationFour ease-in-out 5s -0.5s normal forwards"
-                boxTwo.style.animation = "animationOne ease-in-out 5s -0.5s normal forwards;"
-                boxThree.style.animation = "animationTwo ease-in-out 5s -0.5s normal forwards"
-                boxFour.style.animation = "animationThree ease-in-out 5s -0.5s normal forwards"
-            }
-            else if (count == 4) {
-                boxOne.style.animation = "animationOne ease-in-out 5s -0.5s normal forwards"
-                boxTwo.style.animation = "animationTwo ease-in-out 5s -0.5s normal forwards;"
-                boxThree.style.animation = "animationThree ease-in-out 5s -0.5s normal forwards"
-                boxFour.style.animation = "animationFour ease-in-out 5s -0.5s normal forwards"
-            } else {
-                count = 0;
-            }
-        }
-    }
-}
-
 function showSignUpFrom(ev) {
     const display: any = document.querySelector('.main_display')
     // console.dir(ev.target);
@@ -131,7 +80,7 @@ const forms = {
 async function renderProfile(email, password) {
     const userData = await axios.get(`/user/get-user?email=${email}&password=${password}`);
     const imagesData = await axios.get(`/images/get-images?email=${email}&password=${password}`);
-    let  i=0;
+    let i = 0;
     const error = userData.data.error;
 
     if (error) {
@@ -141,8 +90,7 @@ async function renderProfile(email, password) {
         const imgs = { ...imagesData.data.result[0] };
         const display: any = document.querySelector('.main')
         let html = "";
-        
-        
+
         html += `<section class="profile">
 
     <div class="profile__navBar--top">
@@ -151,14 +99,14 @@ async function renderProfile(email, password) {
     </div>
     <nav class="settings">
     <li><button class="settings_buttons" id="${user.email}" name="${user.password}" onclick='handleUpdateProfile(event)'>update Profile</button></li>
-    <li><a href="index.html"><button class="settings_buttons delete" id="${user.email}" onclick="handleDeleteProfile(event)">delete user</button></a></li>
+    <li><button class="settings_buttons delete" id="${user.email}" onclick="handleDeleteProfile(event)">delete user</button></li>
     <div id='updateRoot'></div>
     </nav>
     <div id="profilePic"></div>
     <div class="profile__header">
         <div class="profile__header__imgBorder"  style="background-image: url(${imgs.profileUrl})">
         <button class="profile__header__imgBorder-changeImage" name="${user.email}"
-        id=${imgs.profileUrl} lang="${user.password}"type="button" onclick="showProfilePicture(event)">View</button>
+        id="${imgs.profileUrl}" lang="${user.password}" "type="button" onclick="showProfilePicture(event)">View</button>
         </div>
         <div class="profile__header__name">${user.firstName} ${user.lastName}</div>
         <div class="profile__header__birthday">${user.birthday}</div>
@@ -169,55 +117,60 @@ async function renderProfile(email, password) {
     </div>
     <div id="addPost"></div>
    
-    <ul class="profile__user__category">
-        <li class="profile__user__category__text" onclick="userCategoryActive(event)">photos</li>
-        <li class="profile__user__category__text" onclick="userCategoryActive(event)">videos</li>
-    </ul>
-    <div class="profile__user__pics">`;
-        imgs.url.forEach(img => {
-            html +=`<div class="profile__user__pics-userPics pic${i}"><img src="${img}" alt=""></div>`
-         i++;
-        });
-
-        html += `
-        <div class="profile__navBar--down">
-    <div class="homeIcon"><i class="fas fa-home"></i></div>
-    <div class="profileIcon"><i class="fas fa-user"></i></div>
-    <div class="compassIcon"><i class="fas fa-compass"></i></div>
-    <div class="heartIcon"><i class="fas fa-heart"></i></div>
     
+    <div class="profile__user__pics"></div>
+        <div class="profile__navBar--down">
+    <div class="homeIcon"><a href="index.html"><i class="fas fa-home"></i></a></div>
+    <div class="profileIcon"><i class="fas fa-user"></i></div>
+    <div class="compassIcon" onclick="browserUser(event)"><a href="browse.html"><i class="fas fa-compass"></i></a></div>
+    <div class="heartIcon"><i class="fas fa-heart"></i></div>
+    </div>
     </section>`;
         display.innerHTML = html;
+        renderUserImgs(imgs);
     }
 }
-async function AddImage(ev){
-    const email=ev.target.id;
+async function renderUserImgs(list) {
+    let html = " ";
+    const imgs = list.url
+
+
+    const display = document.querySelector('.profile__user__pics')
+    imgs.forEach(img => {
+        html += `<div class="profile__user__pics-userPics" style="background-image:url(${img});"></div>`
+    })
+
+
+    display.innerHTML = html;
+}
+async function AddImage(ev) {
+    const email = ev.target.id;
     const password = ev.target.name;
     const root = document.querySelector("#addPost");
-    let html="";
-    html=`<form name="${password}" id="${email}" onsubmit="handleAddImage(event)">
+    let html = "";
+    html = `<form name="${password}" id="${email}" onsubmit="handleAddImage(event)">
     <input type="text" name="newPostUrl" placeholder="add Url Post">
     <input type="submit" value="submit">
     </form>`;
-    root.innerHTML=html;
+    root.innerHTML = html;
 }
-async function handleAddImage(ev){
-    try{
-    ev.preventDefault();       
-    const email=ev.target.id;
-    const password = ev.target.name;
-    const url = ev.target.elements.newPostUrl.value;
-    console.log(email);
-    console.log(url);
-    
-    
+async function handleAddImage(ev) {
+    try {
+        ev.preventDefault();
+        const email = ev.target.id;
+        const password = ev.target.name;
+        const url = ev.target.elements.newPostUrl.value;
+        console.log(email);
+        console.log(url);
 
-    const {ok,data,error} = await axios.patch('/images/add-post',{email,url})
-    
-        renderProfile(email,password);
-    
 
-    }catch(err){
+
+        const { ok, data, error } = await axios.patch('/images/add-post', { email, url })
+
+        renderProfile(email, password);
+
+
+    } catch (err) {
         console.error(err);
     }
 }
@@ -238,17 +191,10 @@ async function HandleLogin(ev) {
     try {
         ev.preventDefault();
         const password = ev.target.elements.password.value;
-        // console.log(password)
         const email = ev.target.elements.email.value;
-        // console.log(email);
-        // const userData = await axios.get(`/user/get-user?email=${email}&password=${password}`);
-        // const imagesData = await axios.get(`/images/get-images?email=${email}&password=${password}`);
-        // const user = { ...userData.data };
-        // const images = { ...imagesData.data };
-
-        // console.log(user);
-        // console.log(images);
-
+       
+        localStorage.setItem("UserEmail", JSON.stringify(`${email}`));
+        localStorage.setItem("UserPassword", JSON.stringify(`${password}`));
         renderProfile(email, password);
 
     }
@@ -298,7 +244,6 @@ async function newUserDetails(ev) {
     renderProfile(email, password)
 }
 
-
 async function HandleUpdate(ev) {
     try {
         ev.preventDefault();
@@ -339,11 +284,12 @@ async function handleDeleteProfile(ev) {
     const email = ev.target.id;
     // console.log(email);
     try {
+
+        const { images } = await axios.delete("/images/delete-images", { data: { email } });
         const { data } = await axios.delete("/user/delete-user", { data: { email } });
-        const { images } = await axios.delete("/images/delete-user", { data: { email } });
-        const deleleImages = images
+        const deleleImages = images;
         const { error, results } = data;
-        alert(results)
+        deleteAlert(results)
         if (error) throw new Error(error);
         console.log(results);
     } catch (err) {
@@ -351,15 +297,21 @@ async function handleDeleteProfile(ev) {
     }
 
 }
+async function deleteAlert(results) {
+    const display = document.querySelector('.main')
+    let html = " ";
+    html = ` <div class="profile__header-deleteMessage">
+    <h1 class="profile__header-deleteMessage-message">${results}</h1>
+    <a href="index.html"><button type=""button" class="profile__header-deleteMessage-btn">Ok</button></a>
+        `
+    display.innerHTML = html;
+}
 
 async function showProfilePicture(ev) {
 
     const email = ev.target.name;
     const profileImg = ev.target.id;
     const password = ev.target.lang;
-    console.log(password);
-
-
 
     const header: any = document.querySelector(".profile__header");
     header.style.opacity = "0.2";
@@ -379,8 +331,7 @@ async function showProfilePicture(ev) {
 async function handleExit(ev) {
     const email = ev.target.id;
     const password = ev.target.lang;
-    console.log(password);
-    console.log(email);
+
 
     renderProfile(email, password);
 }
@@ -390,8 +341,7 @@ async function handleUpdateProfilePic(ev) {
         ev.preventDefault();
         const email = ev.target.id
         const newImg = ev.target.elements.newUrl.value;
-        console.log(email);
-        console.log(newImg);
+
         const { update, ok, error } = await axios.patch('/images/update-profile-img', { email, newImg })
     }
     catch (err) {
@@ -400,18 +350,45 @@ async function handleUpdateProfilePic(ev) {
     }
 
 }
-async function userCategoryActive(ev){
+async function userCategoryActive(ev) {
+    const id = ev.target.id;
     const categories = document.querySelectorAll(".profile__user__category__text")
-    categories.forEach(cat=>{
+    categories.forEach(cat => {
         cat.classList.remove("profile__user__category__text--active")
     })
     const category = ev.target;
-    
     category.classList.add("profile__user__category__text--active");
-    
 }
 
+async function browserUser() {
+    const email = JSON.parse(localStorage.getItem("UserEmail"));
+    const password = JSON.parse(localStorage.getItem("UserPassword"));
+    try {
+        const { ok, data, error } = await axios.patch('/images/get-users-profieImg', { email })
 
+        if (error) throw new Error(error)
+        const usersProfileImgsList = data.profileImgs
+        renderbrowseImgs(usersProfileImgsList)
+    } catch (err) {
+        console.error(err);
+    }
+}
+function renderbrowseImgs(list) {
+    const display = document.querySelector('.browseMain_display')
+    let html = " ";
+    list.forEach(user => {
+        html += `<div class="browseMain_display-userCard" style="background-image:url(${user.img})">
+        <div class="browseMain_display-userCard-name">${user.userEmail}</div>
+        <button class="browseMain_display-userCard-addFriendBtn" type="button">Add Friend</button>
+        </div>`
+    })
+    display.innerHTML = html;
+}
+function profileButton() {
+    const email = JSON.parse(localStorage.getItem("UserEmail"));
+    const password = JSON.parse(localStorage.getItem("UserPassword"));
+    renderProfile(email, password);
+}
 
 
 

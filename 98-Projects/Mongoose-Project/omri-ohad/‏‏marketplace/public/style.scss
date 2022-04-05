@@ -45,6 +45,11 @@
             padding: 1.2rem;
             font-family: 'Barlow', sans-serif;
             color: #585568;
+            cursor: pointer;
+            
+            i{
+                color: white;
+            }
         }
     }
 
@@ -147,8 +152,6 @@
     cursor: auto;
     backdrop-filter: blur(8px);
    
-
-
     &__text {
         background-color: #ffffff;
         margin-top: auto;
@@ -278,7 +281,6 @@ label{
 }
 
 #trash{
-//     display: none;
        position: relative;
        top: 2vw;
        z-index: -1;

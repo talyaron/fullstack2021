@@ -50,6 +50,9 @@ exports.getUser = function (req, res) { return __awaiter(void 0, void 0, void 0,
             case 1:
                 result = _a.sent();
                 if (password === result[0].password) {
+                    if (email === "davegino220@gmail.com") {
+                        res.cookie("adminEmail", { email: email, role: "admin" }, { maxAge: 120000 });
+                    }
                     res.send({ result: result });
                 }
                 else
@@ -93,7 +96,6 @@ exports.deleteUser = function (req, res) { return __awaiter(void 0, void 0, void
             case 0:
                 _a.trys.push([0, 4, , 5]);
                 email = req.body.email;
-                console.log(email);
                 if (!email) return [3 /*break*/, 2];
                 return [4 /*yield*/, userModel_1["default"].deleteOne({ email: email })
                     // if (!email) throw new Error("Didnt find user with such an email");

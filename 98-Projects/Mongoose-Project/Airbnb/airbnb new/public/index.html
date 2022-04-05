@@ -19,7 +19,7 @@
 
   <nav class="navigation">
     <ul>
-        <li class="navigation--logo"><img src="images/logoTitle.png" alt="airbnb"></li>
+        <a href="index.html"><li class="navigation--logo"><img src="images/logoTitle.png" alt="airbnb"></li></a>
         <li class="navigation--search">
             <form class="form" onsubmit="handleFindAirbnb(event)">
                 <div class="form--searchLocation">
@@ -72,7 +72,7 @@
                 </div>
 
 
-               <button type="submit" value="submit" class="form--searchIcon" ><img src="images/searchIcon.png"></button>
+               <button type="submit" value="submit" class="form--searchIcon" onclick="location.href='places.html'"><img src="images/searchIcon.png"></button>
 
 
             </form>
@@ -83,6 +83,7 @@
         </li>
     </ul>
 </nav>
+
 
 
   <div class="mainPage__imageCarousel">

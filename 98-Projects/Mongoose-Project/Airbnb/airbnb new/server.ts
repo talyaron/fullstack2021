@@ -30,8 +30,6 @@ mongoose
 
 
 
-
-
 // app.post("/addUsers", async (req, res) => {
 //   try {
 //     let { user, password } = req.body;
