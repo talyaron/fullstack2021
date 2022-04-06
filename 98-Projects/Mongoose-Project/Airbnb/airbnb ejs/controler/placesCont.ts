@@ -19,7 +19,7 @@ export const getfilteredAirBNB = async (req, res) => {
     let price1 = req.body;
     if (price1) {
       const result = await Places.find({ price: price1 });
-      res.send({ok:true, result})
+      res.send({ ok: true, result })
       console.log(result);
     }
     // const places = await Places.find({});
@@ -115,28 +115,29 @@ export const findPlaceMap = async (req, res) => {
 };
 export const searchAirbnb = async (req, res) => {
   try {
-    let { search, checkIn, checkOut, adults, children, infants, pets,accommodates } =
+    let { /*search*/searchLocation, checkIn, checkOut, adults, children, infants, pets, accommodates } =
       req.query;
 
-    console.log(search, checkIn, checkOut, adults, children, infants, pets);
+    console.log(/*search*/searchLocation, checkIn, checkOut, adults, children, infants, pets);
 
-    let sum:any= Number(adults)+Number(children)+Number(infants)+Number(pets);
-    console.log("the number of guests:" +sum);
-    
-    
-    let dateOfCheckIn= new Date(`${checkIn}`);
-    let dateOfCheckOut= new Date(`${checkOut}`);
-    let differenceInTime= dateOfCheckOut.getTime()-dateOfCheckIn.getTime();
-    let differenceInDays= differenceInTime/ (1000 * 3600 * 24);
-    console.log("the days between checkIn checkOut is:" +differenceInDays)
-  
+    let sum: any = Number(adults) + Number(children) + Number(infants) + Number(pets);
+    console.log("the number of guests:" + sum);
 
-    const getplaces = await Places.find({address_country: `${search}`, accommodates: sum });
 
+    let dateOfCheckIn = new Date(`${checkIn}`);
+    let dateOfCheckOut = new Date(`${checkOut}`);
+    let differenceInTime = dateOfCheckOut.getTime() - dateOfCheckIn.getTime();
+    let differenceInDays = differenceInTime / (1000 * 3600 * 24);
+    console.log("the days between checkIn checkOut is:" + differenceInDays)
+
+
+    const getplaces = await Places.find({ address_country: `${/*search*/searchLocation}`, accommodates: sum });
+
+    console.log(getplaces)
     // res.send({ ok: true, places });
-      res.render('places', {
-        getplaces
-    })
+    //   res.render('places', {
+    //     getplaces
+    // })
     // console.log(places)
   } catch (error) {
     console.log(error.error);

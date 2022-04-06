@@ -154,13 +154,13 @@ exports.findPlaceMap = function (req, res) { return __awaiter(void 0, void 0, vo
     });
 }); };
 exports.searchAirbnb = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, search, checkIn, checkOut, adults, children, infants, pets, accommodates, sum, dateOfCheckIn, dateOfCheckOut, differenceInTime, differenceInDays, getplaces, error_3;
+    var _a, searchLocation, checkIn, checkOut, adults, children, infants, pets, accommodates, sum, dateOfCheckIn, dateOfCheckOut, differenceInTime, differenceInDays, getplaces, error_3;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
                 _b.trys.push([0, 2, , 3]);
-                _a = req.query, search = _a.search, checkIn = _a.checkIn, checkOut = _a.checkOut, adults = _a.adults, children = _a.children, infants = _a.infants, pets = _a.pets, accommodates = _a.accommodates;
-                console.log(search, checkIn, checkOut, adults, children, infants, pets);
+                _a = req.query, searchLocation = _a.searchLocation, checkIn = _a.checkIn, checkOut = _a.checkOut, adults = _a.adults, children = _a.children, infants = _a.infants, pets = _a.pets, accommodates = _a.accommodates;
+                console.log(/*search*/ searchLocation, checkIn, checkOut, adults, children, infants, pets);
                 sum = Number(adults) + Number(children) + Number(infants) + Number(pets);
                 console.log("the number of guests:" + sum);
                 dateOfCheckIn = new Date("" + checkIn);
@@ -168,13 +168,10 @@ exports.searchAirbnb = function (req, res) { return __awaiter(void 0, void 0, vo
                 differenceInTime = dateOfCheckOut.getTime() - dateOfCheckIn.getTime();
                 differenceInDays = differenceInTime / (1000 * 3600 * 24);
                 console.log("the days between checkIn checkOut is:" + differenceInDays);
-                return [4 /*yield*/, placesModel_1["default"].find({ address_country: "" + search, accommodates: sum })];
+                return [4 /*yield*/, placesModel_1["default"].find({ address_country: "" + searchLocation, accommodates: sum })];
             case 1:
                 getplaces = _b.sent();
-                // res.send({ ok: true, places });
-                res.render('places', {
-                    getplaces: getplaces
-                });
+                console.log(getplaces);
                 return [3 /*break*/, 3];
             case 2:
                 error_3 = _b.sent();
