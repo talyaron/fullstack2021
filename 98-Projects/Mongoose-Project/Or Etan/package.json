@@ -10,7 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@js-temporal/polyfill": "^0.4.0",
     "axios": "^0.26.1",
     "express": "^4.17.3",
     "mongoose": "^6.2.8"

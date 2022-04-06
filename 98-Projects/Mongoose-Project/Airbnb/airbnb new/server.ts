@@ -6,25 +6,53 @@ const app = express();
 const port = process.env.PORT || 3000;
 app.use(express.static("public"));
 app.use(express.json());
+<<<<<<< HEAD
+// mongoose.connect("mongodb+srv://shay:shayFoyer1994@cluster0.xyd5y.mongodb.net/sample_airbnb?retryWrites=true&w=majority");
+//mongoose.connect('mongodb+srv://ShaniRom:ynbUaPL3oHZKGl8a@cluster0.vh1hg.mongodb.net/sample_airbnb?retryWrites=true&w=majority');
+=======
+>>>>>>> main
 
 
 
 
 mongoose
   .connect(
-    "mongodb+srv://tal1:bBUfBx5gqnXHhpFa@tal-test1.m39if.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+    "mongodb+srv://shay:shayFoyer1994@cluster0.xyd5y.mongodb.net/sample_airbnb?retryWrites=true&w=majority"
   )
-  .then(() => {
+  .then((result) => {
     console.log("connected to db");
-    
+    Places.find({})
+      .then((res) => {
+<<<<<<< HEAD
+        console.log('test')
+        console.log(res);
+=======
+        // console.log(res);
+>>>>>>> main
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
   })
   .catch((err) => {
     console.log(err.message);
   });
 
-
-
-
+// const userSchema = new mongoose.Schema({
+//   name: String,
+//   password: String,
+// });
+// const Users = mongoose.model("users", userSchema);
+// const Places = mongoose.model("listingsAndReviews", PlacesSchema);
+// app.get("/getPlaces", async (req, res) => {
+//   try {
+//     const places = await Places.find({});
+//     res.send({ ok: true, places });
+//   } catch (error) {
+//     console.error(error);
+//     res.send({ error: "error in app.get/getPlaces" });
+//   }
+// });
 
 // app.post("/addUsers", async (req, res) => {
 //   try {

@@ -19,7 +19,7 @@
 
   <nav class="navigation">
     <ul>
-        <a href="index.html"><li class="navigation--logo"><img src="images/logoTitle.png" alt="airbnb"></li></a>
+        <li class="navigation--logo"><img src="images/logoTitle.png" alt="airbnb"></li>
         <li class="navigation--search">
             <form class="form" onsubmit="handleFindAirbnb(event)">
                 <div class="form--searchLocation">
@@ -72,7 +72,7 @@
                 </div>
 
 
-               <button type="submit" value="submit" class="form--searchIcon" onclick="location.href='places.html'"><img src="images/searchIcon.png"></button>
+                <a href="" ><button type="submit" value="submit" class="form--searchIcon"><img src="images/searchIcon.png"></button></a>
 
 
             </form>
@@ -83,7 +83,6 @@
         </li>
     </ul>
 </nav>
-
 
 
   <div class="mainPage__imageCarousel">
@@ -99,31 +98,31 @@
 
   <div class="mainPage__citySuggestions">
     <h1 class="mainPage__citySuggestions__text">Inspiration for your next trip</h1>
-    <div class="mainPage__citySuggestions__cards" onclick="handleCities(event)" >
-      <div class="mainPage__citySuggestions__cards__card">
-        <img src="https://i.pinimg.com/originals/d3/59/1c/d3591c63b81ba14696e290f74743e1de.gif"  data-card="Tel Aviv">
+    <div class="mainPage__citySuggestions__cards">
+      <div class="mainPage__citySuggestions__cards__card" onclick="handleTelaviv()">
+        <img src="https://i.pinimg.com/originals/d3/59/1c/d3591c63b81ba14696e290f74743e1de.gif">
         <div class="description">
           <h1>Tel Aviv-Yafo</h1>
           <h3>84 kilometeres away</h3>
         </div>
       </div>
-      <div class="mainPage__citySuggestions__cards__card" >
-        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/014a9043643817.623277932bd44.gif" data-card="Eilat">
+      <div class="mainPage__citySuggestions__cards__card">
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/014a9043643817.623277932bd44.gif">
         <div class="description">
           <h1>Eilat</h1>
           <h3>84 kilometeres away</h3>
         </div>
       </div>
-      <div class="mainPage__citySuggestions__cards__card" >
+      <div class="mainPage__citySuggestions__cards__card">
         <img
-          src="https://4.bp.blogspot.com/-pMoMk50GlQI/WxuejAtymnI/AAAAAAAACAY/4YGpCuqLuY4BSn2jkcImneBW3X-GCx6ewCLcBGAs/s400/happy-town-gif1b.gif" data-card="Jerusalem">
+          src="https://4.bp.blogspot.com/-pMoMk50GlQI/WxuejAtymnI/AAAAAAAACAY/4YGpCuqLuY4BSn2jkcImneBW3X-GCx6ewCLcBGAs/s400/happy-town-gif1b.gif">
         <div class="description">
           <h1>Jerusalem</h1>
           <h3>84 kilometeres away</h3>
         </div>
       </div>
-      <div class="mainPage__citySuggestions__cards__card" >
-        <img src="https://i.pinimg.com/originals/11/c0/0c/11c00c702d268a5a7789e801f995fbcc.gif" data-card="Harei Yehuda">
+      <div class="mainPage__citySuggestions__cards__card">
+        <img src="https://i.pinimg.com/originals/11/c0/0c/11c00c702d268a5a7789e801f995fbcc.gif">
         <div class="description">
           <h1>Harei Yehuda</h1>
           <h3>84 kilometeres away</h3>
