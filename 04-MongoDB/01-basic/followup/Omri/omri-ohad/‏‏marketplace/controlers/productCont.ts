@@ -171,21 +171,21 @@ export async function register(req, res) {
 
 export async function login(req, res) {
   try {
+
     let { email, password } = req.body;
     if (typeof email === 'string' && typeof password === 'string') {
       const user = await User.findOne({ email: email });
       const products = await Market.find({});
+
       if (user) {
         if (user.password === password) {
-          res.cookie(
-            "user info",
-            { id: user._id, userName: user.userName }
-          );
+          res.cookie( "user info",{ id: user._id, userName: user.userName });
+          res.send({ ok: true, login: true, userName:user.userName, products});
+          return;
+        } else{
+          res.send({ok: false, products})
         }
-        res.send({ ok: true, login: true, userName:user.userName, products,req.cookies});
-        return;
       }
-      throw new Error("Email or password are inncorect");
     } else {
       throw new Error("Email or password are missing");
     }

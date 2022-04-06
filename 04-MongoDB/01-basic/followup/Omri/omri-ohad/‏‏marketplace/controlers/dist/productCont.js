@@ -385,11 +385,14 @@ function login(req, res) {
                     if (user) {
                         if (user.password === password) {
                             res.cookie("user info", { id: user._id, userName: user.userName });
+                            res.send({ ok: true, login: true, userName: user.userName, products: products });
+                            return [2 /*return*/];
                         }
-                        res.send({ ok: true, login: true, userName: user.userName, products: products, req: req, : .cookies });
-                        return [2 /*return*/];
+                        else {
+                            res.send({ ok: false, products: products });
+                        }
                     }
-                    throw new Error("Email or password are inncorect");
+                    return [3 /*break*/, 4];
                 case 3: throw new Error("Email or password are missing");
                 case 4: return [3 /*break*/, 6];
                 case 5:

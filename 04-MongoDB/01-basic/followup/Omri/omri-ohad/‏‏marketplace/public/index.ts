@@ -51,10 +51,22 @@ function renderItemsMain(items, userName?) {
             </div>
             `
         })
-        if (userName) {
+        // if (userName) {
+        //     document.querySelector(".mainPage__header--welcome").innerHTML = `
+        //     hello ${userName} <a href="personal-zone.html"><i class="fa fa-user" ></i></a`
+        // } else { document.querySelector(".mainPage__header--welcome").innerHTML = ''; }
+        // rootItems.innerHTML = html;
+
+        if(localStorage.getItem("name") !=null){
             document.querySelector(".mainPage__header--welcome").innerHTML = `
-            hello ${userName} <a href="personal-zone.html"><i class="fa fa-user" ></i></a`
-        } else { document.querySelector(".mainPage__header--welcome").innerHTML = ''; }
+            hello ${localStorage.getItem("name")} <a href="personal-zone.html"><i class="fa fa-user" ></i></a
+            </br></br>
+            <button onclick="localStorage.clear();location.reload()">log out</button>
+            `
+        } 
+        else if(localStorage.getItem("name") ==='user'){document.querySelector(".mainPage__header--welcome").innerHTML = '';}
+
+        else{document.querySelector(".mainPage__header--welcome").innerHTML = '';}
         rootItems.innerHTML = html;
     }
 }
@@ -151,16 +163,36 @@ async function handleSignUp(ev) {
     const { data } = await axios.post('/products/register', { email, password, userName })
 }
 
+// async function handleLogin(ev) {
+//     ev.preventDefault();
+//     let { email, password } = ev.target.elements;
+//     email = email.value;
+//     password = password.value;
+//     const { data } = await axios.post('/products/login', {email, password});
+//     console.log(window)
+//     // if(data.login){
+//     //     const {products} = data;
+//     //     const {userName} = data;
+//     //     renderItemsMain(products, userName)
+//     // }
+// }
+
 async function handleLogin(ev) {
     ev.preventDefault();
     let { email, password } = ev.target.elements;
     email = email.value;
     password = password.value;
-    const { data } = await axios.post('/products/login', {email, password});
-    console.log(window)
-    // if(data.login){
-    //     const {products} = data;
-    //     const {userName} = data;
-    //     renderItemsMain(products, userName)
-    // }
+    const { data } = await axios.post('/products/login', { email, password });
+    let{userName} = data;
+    const { ok } = data;
+    const{items} = data;
+    if (ok === true) {
+        document.getElementById("logMessage").innerHTML = " You are login";
+        window.setTimeout(function () { location.reload() }, 2000)
+        localStorage.setItem("name", userName);
+    }
+    else  {
+        document.getElementById("logMessage").innerHTML = "Email or Password is wrong, try again"
+    }
+    renderItemsMain(items, userName);
 }
