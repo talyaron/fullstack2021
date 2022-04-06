@@ -575,7 +575,7 @@ body {
   font-family: "Roboto", "sans-serif";
   margin: 10px;
   /* Hide the control initially, to prevent it from appearing
-           before the map loads. */
+        before the map loads. */
   display: none;
 }
 #rootPlace #map #map .map-control {
