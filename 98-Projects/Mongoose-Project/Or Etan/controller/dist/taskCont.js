@@ -47,6 +47,7 @@ exports.getUsersTasks = function (req, res) { return __awaiter(void 0, void 0, v
                 return [4 /*yield*/, taskModel_1["default"].find({ ownerId: ownerId })];
             case 1:
                 currentUsersTasks = _a.sent();
+                res.cookie("taskId", { taskId: ownerId }, { maxAge: 10000 });
                 res.send(currentUsersTasks);
                 return [2 /*return*/];
         }

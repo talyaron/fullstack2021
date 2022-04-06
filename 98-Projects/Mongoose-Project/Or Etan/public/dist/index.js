@@ -369,6 +369,7 @@ function getUsersTasks(userId, currentPage) {
                 case 1:
                     data = (_a.sent()).data;
                     currentUsersTasks = data;
+                    console.log(currentUsersTasks);
                     renderTasks(currentUsersTasks, currentPage);
                     return [3 /*break*/, 3];
                 case 2:

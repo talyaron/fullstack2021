@@ -294,6 +294,10 @@ async function getUsersTasks(userId, currentPage) {
   try {
     const { data } = await axios.get(`tasks/getTasks?ownerId=${userId}`);
     const currentUsersTasks = data;
+    console.log(currentUsersTasks);
+
+    
+    
     renderTasks(currentUsersTasks, currentPage);
   } catch (error) {
     console.log("error in getUsersTasks:");
@@ -301,6 +305,7 @@ async function getUsersTasks(userId, currentPage) {
     // }
   }
 }
+
 async function renderTasks(currentUsersTasks, currentPage) {
   sortTasksByDate(currentUsersTasks);
 

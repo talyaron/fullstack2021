@@ -4,6 +4,7 @@ export const getUsersTasks = async (req, res) => {
   const { ownerId } = req.query;
 
   let currentUsersTasks = await task.find({ ownerId: ownerId });
+  res.cookie("taskId", { taskId: ownerId }, { maxAge: 10000 })
 
   res.send(currentUsersTasks);
 };
@@ -66,31 +67,31 @@ export const updateTask = async (req, res) => {
 };
 
 export const checkTask = async (req, res) => {
-  try{
-    const {_id, ownerId, timeChecked} = req.body;
-    const taskCheck = await task.findOne({_id, ownerId});
+  try {
+    const { _id, ownerId, timeChecked } = req.body;
+    const taskCheck = await task.findOne({ _id, ownerId });
     console.log(taskCheck);
-    
-if(taskCheck?.checked === true) {
-  console.log('ho');
-  
-await task.updateOne({_id: _id, ownerId: ownerId}, {timeChecked:timeChecked, checked: false});
-const currentUsersTasks = await task.find({ ownerId: ownerId})
-res.send({currentUsersTasks });
-return
-}
-console.log('wo');
-    const checkTask = await task.findOneAndUpdate({_id: _id, ownerId: ownerId}, {timeChecked:timeChecked, checked: true});
-console.log(_id, ownerId);
 
-    const currentUsersTasks = await task.find({ ownerId: ownerId})
-    res.send({currentUsersTasks });
-}catch (error) {
-  console.log(error);
-  console.log(error.message)
-  res.send({error: error.message});
-}
-    
+    if (taskCheck?.checked === true) {
+      console.log('ho');
+
+      await task.updateOne({ _id: _id, ownerId: ownerId }, { timeChecked: timeChecked, checked: false });
+      const currentUsersTasks = await task.find({ ownerId: ownerId })
+      res.send({ currentUsersTasks });
+      return
+    }
+    console.log('wo');
+    const checkTask = await task.findOneAndUpdate({ _id: _id, ownerId: ownerId }, { timeChecked: timeChecked, checked: true });
+    console.log(_id, ownerId);
+
+    const currentUsersTasks = await task.find({ ownerId: ownerId })
+    res.send({ currentUsersTasks });
+  } catch (error) {
+    console.log(error);
+    console.log(error.message)
+    res.send({ error: error.message });
+  }
+
 }
 
 export const deleteTask = async (req, res) => {
@@ -120,14 +121,14 @@ export const getTask = async (req, res) => {
     res.send({ error: error.message });
   }
 };
-export const getUrgencies = async (req,res)=>{
-  const {userId} = req.query;
-  const lowUrgency = await task.find({ownerId:userId, urgency:'low'})
-  const mediumUrgency = await task.find({ownerId:userId, urgency:'medium'})
-  const highUrgency = await task.find({ownerId:userId, urgency:'high'})
+export const getUrgencies = async (req, res) => {
+  const { userId } = req.query;
+  const lowUrgency = await task.find({ ownerId: userId, urgency: 'low' })
+  const mediumUrgency = await task.find({ ownerId: userId, urgency: 'medium' })
+  const highUrgency = await task.find({ ownerId: userId, urgency: 'high' })
 
-  res.send({lowUrgency, mediumUrgency, highUrgency})
+  res.send({ lowUrgency, mediumUrgency, highUrgency })
 
-  
+
 
 }
