@@ -14,8 +14,8 @@ export async function getProductsMain(req, res) {
 }
 
 export async function getAllProducts(req, res) {
+  console.log(req.cookies);
   try {
-
     const products = await UserProducts.find({})
     res.send({ products });
   } catch (error) {
@@ -25,19 +25,22 @@ export async function getAllProducts(req, res) {
 }
 
 export async function addProduct(req, res) {
-  try {
-    let { pic, title, description, price, category } = req.body;
-    const newProduct = new UserProducts({ pic, title, description, price, category })
-    const result = await newProduct.save()
-    const ownerId = newProduct._id
-    const newProductMarket = new Market({ pic, title, description, price, category, ownerId })
-    const resultMarket = await newProductMarket.save()
-    res.send({ result });
+  const { userInfo } = req.cookies;
+  const id = userInfo.id;
+  console.log(id)
+  // try {
+  //   let { pic, title, description, price, category } = req.body;
+  //   const newProduct = new UserProducts({ pic, title, description, price, category })
+  //   const result = await newProduct.save()
+  //   const ownerId = newProduct._id
+  //   const newProductMarket = new Market({ pic, title, description, price, category, ownerId })
+  //   const resultMarket = await newProductMarket.save()
+  //   res.send({ result });
 
-  } catch (error) {
-    console.error(error);
-    res.send({ error: error.message });
-  }
+  // } catch (error) {
+  //   console.error(error);
+  //   res.send({ error: error.message });
+  // }
 }
 
 export async function updatePic(req, res) {
@@ -179,11 +182,11 @@ export async function login(req, res) {
 
       if (user) {
         if (user.password === password) {
-          res.cookie( "user info",{ id: user._id, userName: user.userName });
-          res.send({ ok: true, login: true, userName:user.userName, products});
+          res.cookie("user info", { id: user._id, userName: user.userName });
+          res.send({ ok: true, login: true, userName: user.userName, products });
           return;
-        } else{
-          res.send({ok: false, products})
+        } else {
+          res.send({ ok: false, products })
         }
       }
     } else {
