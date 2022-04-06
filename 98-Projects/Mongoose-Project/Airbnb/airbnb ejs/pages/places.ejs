@@ -10,15 +10,17 @@
     <nav>
         <%- include('./components/navigationBar') %>
     </nav>
-    <div class="card-grid__card" onclick="handleGoToPlace(_id)" onclick="location.href='place.ejs'">
-        <div class="card-header card-img">
+    <div class="airbnbOptions" onclick="handleGoToPlace(_id)" onclick="location.href='place.ejs'">
+        
 
             <% if (getplaces) { %>
 
                 <% getplaces.forEach(place=> { %>
+                    <div class="airbnbOptions__img">
                     <img src="<%- place.images %>"></img>
-                    <div class="content">
-                        <div class="card-grid__card__card-header">
+                    </div>
+                    <div class="airbnbOptions__content">
+                        <div class="airbnbOptions__content__namePlace">
                             <button class="btn"><img src="./images/icons-heart.png" alt=""></button>
                             <button class="btn btn-outline">
                                 <%- place.name %>
@@ -27,12 +29,12 @@
                                 <%- place.address_country_code %>, <%- place.address_country%>
                             </p>
                         </div>
-                        <div class="card-grid__card__card-body">
+                        <div class="airbnbOptions__content__description">
                             <p>
                                 <%- place.description%>
                             </p>
                         </div>
-                            <div class="card-grid__card__card-footer">
+                            <div class="airbnbOptions__content__priceRating">
                                     <button class="btn btn-outline">
                                         <%- place.price %>
                                     </button>
@@ -42,12 +44,13 @@
                                                 </p>
                                                 
                                         </button>
-                            </div>
+                            </div> 
+                        
+                        </div>
                         <% }) %>
                             <% } %>
-                    </div>
+                   
 
-        </div>
     </div>
 
     <div class="bottomBar"> 
