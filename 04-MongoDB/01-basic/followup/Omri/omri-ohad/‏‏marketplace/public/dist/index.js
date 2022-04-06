@@ -192,12 +192,14 @@ function handleCategoryShow(ev) {
         });
     });
 }
-function handleAscending() {
+function handleAscending(ev) {
     return __awaiter(this, void 0, void 0, function () {
         var data, filterd, products;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, axios.post('/products/sort-by-Ascending')];
+                case 0:
+                    ev.preventDefault();
+                    return [4 /*yield*/, axios.post('/products/sort-by-Ascending')];
                 case 1:
                     data = (_a.sent()).data;
                     filterd = data.filterd;
@@ -211,12 +213,14 @@ function handleAscending() {
         });
     });
 }
-function handleDescending() {
+function handleDescending(ev) {
     return __awaiter(this, void 0, void 0, function () {
         var data, filterd, products;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, axios.post('/products/sort-by-Descending')];
+                case 0:
+                    ev.preventDefault();
+                    return [4 /*yield*/, axios.post('/products/sort-by-Descending')];
                 case 1:
                     data = (_a.sent()).data;
                     filterd = data.filterd;

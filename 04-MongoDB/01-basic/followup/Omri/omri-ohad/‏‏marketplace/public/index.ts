@@ -136,7 +136,8 @@ async function handleCategoryShow(ev) {
     else if (products) renderItemsMain(products);
 }
 
-async function handleAscending() {
+async function handleAscending(ev) {
+    ev.preventDefault();
     const { data } = await axios.post('/products/sort-by-Ascending');
     const { filterd } = data;
     const { products } = data;
@@ -144,7 +145,8 @@ async function handleAscending() {
     else if (products) renderItemsMain(products);
 }
 
-async function handleDescending() {
+async function handleDescending(ev) {
+    ev.preventDefault();
     const { data } = await axios.post('/products/sort-by-Descending');
     const { filterd } = data;
     const { products } = data;
