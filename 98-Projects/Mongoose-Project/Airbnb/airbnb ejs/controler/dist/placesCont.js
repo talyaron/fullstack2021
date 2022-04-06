@@ -124,7 +124,10 @@ exports.getToPlace = function (req, res) { return __awaiter(void 0, void 0, void
             placeId = req.body.placeId;
             __id = req.body;
             if (__id == placeId) {
-                res.send(placeId);
+                //  res.send(placeId);
+                res.render('place', {
+                    placeId: placeId
+                });
             }
             else {
                 throw new Error("placeId is not the same as the __id");
@@ -172,6 +175,11 @@ exports.searchAirbnb = function (req, res) { return __awaiter(void 0, void 0, vo
             case 1:
                 getplaces = _b.sent();
                 console.log(getplaces);
+                // res.send({ ok: true, places });
+                res.render('places', {
+                    title: "Search",
+                    getplaces: getplaces
+                });
                 return [3 /*break*/, 3];
             case 2:
                 error_3 = _b.sent();

@@ -93,7 +93,10 @@ export const getToPlace = async (req, res) => {
     const { placeId } = req.body;
     const __id = req.body;
     if (__id == placeId) {
-      res.send(placeId);
+    //  res.send(placeId);
+      res.render('place',{
+        placeId
+      })
     } else {
       throw new Error("placeId is not the same as the __id");
     }
@@ -135,9 +138,10 @@ export const searchAirbnb = async (req, res) => {
 
     console.log(getplaces)
     // res.send({ ok: true, places });
-    //   res.render('places', {
-    //     getplaces
-    // })
+      res.render('places', {
+        title:"Search",
+        getplaces
+    })
     // console.log(places)
   } catch (error) {
     console.log(error.error);

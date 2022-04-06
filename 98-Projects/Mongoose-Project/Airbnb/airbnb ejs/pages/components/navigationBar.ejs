@@ -2,21 +2,14 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Navigation Bar</title>
-
-
-
-    <link rel="stylesheet" href="dist/style.css">
+    <link rel="stylesheet" href="../dist/style.css">
 </head>
 
 <body>
     <nav class="navigation">
         <ul>
-            <a href="index.html">
-                <li class="navigation--logo"><img src="images/logoTitle.png" alt="airbnb"></li>
+            <a href="/">
+                <li class="navigation--logo"><img src="../images/logoTitle.png" alt="airbnb"></li>
             </a>
             <li class="navigation--search">
                 <form class="form" action="/places/search-airbnb" method="GET">
@@ -70,14 +63,14 @@
 
 
                     <button type="submit" value="submit" class="form--searchIcon"
-                        onclick="location.href='places.html'"><img src="images/searchIcon.png"></button>
+                        onclick="location.href='places.html'"><img src="../images/searchIcon.png"></button>
 
 
                 </form>
             </li>
             <li class="navigation--greeting">Welcome!</li>
 
-            <li class="navigation--user popup" onclick="handlePopup()"><img src="images/visitorProfile.png">
+            <li class="navigation--user popup" onclick="handlePopup()"><img src="../images/visitorProfile.png">
 
                 <div class="popuptext" id="myPopup">
                     <form onsubmit="handleLogin(event)" id="login">
