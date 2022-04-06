@@ -10,14 +10,37 @@
     <nav>
         <%- include('./components/navigationBar') %>
     </nav>
-    <div class="airbnbOptions" onclick="handleGoToPlace(_id)" onclick="location.href='place.ejs'">
-        
+
+
+    <div class="header-filter">
+
+        <button onclick="FilterKitchen()" class="btn_filter">Kitchen</button>
+        <button onclick="FilterWiFi()" class="btn_filter">Wi-Fi</button>
+        <button onclick="FilterBeach()" class="btn_filter">Access to the beach</button>
+        <button onclick="FilterWashingMachine()" class="btn_filter">Washing machine</button>
+        <button onclick="FilterParking()" class="btn_filter">Free parking</button>
+        <button onclick="FilterJacuzi()" class="btn_filter">Jacuzzi</button>
+        <button onclick="FilterPool()" class="btn_filter">Pool</button>
+
+
+    </div>
+    <div class="page-grid">
+        <div class="card-map">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d26081603.294420466!2d-95.677068!3d37.06250000000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1siw!2s!4v1648657793371!5m2!1siw!2s"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+        </div>
+
+        <div class="airbnbOptions" onclick="handleGoToPlace(_id)" onclick="location.href='place.ejs'">
+
 
             <% if (getplaces) { %>
 
                 <% getplaces.forEach(place=> { %>
                     <div class="airbnbOptions__img">
-                    <img src="<%- place.images %>"></img>
+                        <img src="<%- place.images %>"></img>
                     </div>
                     <div class="airbnbOptions__content">
                         <div class="airbnbOptions__content__namePlace">
@@ -34,31 +57,31 @@
                                 <%- place.description%>
                             </p>
                         </div>
-                            <div class="airbnbOptions__content__priceRating">
-                                    <button class="btn btn-outline">
-                                        <%- place.price %>
-                                    </button>
-                                        <button class="btn btn-outline">
-                                                <p>
-                                                    <%- place.reviews_rating%>
-                                                </p>
-                                                
-                                        </button>
-                            </div> 
-                        
+                        <div class="airbnbOptions__content__priceRating">
+                            <button class="btn btn-outline">
+                                <%- place.price %>
+                            </button>
+                            <button class="btn btn-outline">
+                                <p>
+                                    <%- place.reviews_rating%>
+                                </p>
+
+                            </button>
                         </div>
-                        <% }) %>
-                            <% } %>
-                   
 
-    </div>
-
-    <div class="bottomBar"> 
-        <%- include('./components/bottomBar') %>
-    </div>
+                    </div>
+                    <% }) %>
+                        <% } %>
 
 
-    <script src="dist/index.js"></script>
+        </div>
+
+        <div class="bottomBar">
+            <%- include('./components/bottomBar') %>
+        </div>
+
+
+        <script src="dist/index.js"></script>
 </body>
 
 </html>
