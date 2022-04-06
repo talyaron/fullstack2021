@@ -1,7 +1,6 @@
 import UserProducts from "../model/userProductsModel";
 import Market from "../model/marketModel";
 import User from "../model/usersModel";
-import { userInfo } from "os";
 
 export async function getProductsMain(req, res) {
   try {
@@ -14,8 +13,8 @@ export async function getProductsMain(req, res) {
 }
 
 export async function getAllProducts(req, res) {
-  console.log(req.cookies);
   try {
+    const { data } = req.cookies;
     const products = await UserProducts.find({})
     res.send({ products });
   } catch (error) {
@@ -25,22 +24,21 @@ export async function getAllProducts(req, res) {
 }
 
 export async function addProduct(req, res) {
-  const { userInfo } = req.cookies;
-  const id = userInfo.id;
-  console.log(id)
-  // try {
-  //   let { pic, title, description, price, category } = req.body;
-  //   const newProduct = new UserProducts({ pic, title, description, price, category })
-  //   const result = await newProduct.save()
-  //   const ownerId = newProduct._id
-  //   const newProductMarket = new Market({ pic, title, description, price, category, ownerId })
-  //   const resultMarket = await newProductMarket.save()
-  //   res.send({ result });
+  try {
+    const { data } = req.cookies;
+    const ownerId = data.id;
+    let { pic, title, description, price, category } = req.body;
+    const newProduct = new UserProducts({ pic, title, description, price, category,ownerId })
+    const result = await newProduct.save()
+    //const ownerId = newProduct._id
+    const newProductMarket = new Market({ pic, title, description, price, category, ownerId })
+    const resultMarket = await newProductMarket.save()
+    res.send({ result });
 
-  // } catch (error) {
-  //   console.error(error);
-  //   res.send({ error: error.message });
-  // }
+  } catch (error) {
+    console.error(error);
+    res.send({ error: error.message });
+  }
 }
 
 export async function updatePic(req, res) {
@@ -182,7 +180,10 @@ export async function login(req, res) {
 
       if (user) {
         if (user.password === password) {
-          res.cookie("user info", { id: user._id, userName: user.userName });
+          res.cookie(
+            "data",
+            { id: user._id, userName: user.userName }
+          );
           res.send({ ok: true, login: true, userName: user.userName, products });
           return;
         } else {
