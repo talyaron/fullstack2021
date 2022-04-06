@@ -71,9 +71,6 @@ export const addArtToUser = async (req, res) => {
 
 export const buyAndSell = async (req, res) => {
     const { buyerId, price, ownerId } = req.body;
-
-    console.log(ownerId,buyerId,price);
-    console.log(req.cookies);
     const { userInfo } = req.cookies;
     if(userInfo.funds >= price){
         const result = await User.updateOne({ _id: ownerId }, { $inc: { fund: price } })
