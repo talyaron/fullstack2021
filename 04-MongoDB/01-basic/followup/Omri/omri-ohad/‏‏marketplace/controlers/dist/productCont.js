@@ -65,16 +65,18 @@ function getProductsMain(req, res) {
 exports.getProductsMain = getProductsMain;
 function getAllProducts(req, res) {
     return __awaiter(this, void 0, void 0, function () {
-        var data, products, error_2;
+        var data, ownerId_1, products, filterdProducts, error_2;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     _a.trys.push([0, 2, , 3]);
                     data = req.cookies.data;
+                    ownerId_1 = data.id;
                     return [4 /*yield*/, userProductsModel_1["default"].find({})];
                 case 1:
                     products = _a.sent();
-                    res.send({ products: products });
+                    filterdProducts = products.filter(function (product) { return product.ownerId === ownerId_1; });
+                    res.send({ filterdProducts: filterdProducts });
                     return [3 /*break*/, 3];
                 case 2:
                     error_2 = _a.sent();
@@ -233,17 +235,18 @@ function updatePrice(req, res) {
 exports.updatePrice = updatePrice;
 function deleteProduct(req, res) {
     return __awaiter(this, void 0, void 0, function () {
-        var productId, result, resultMarket, products, productsMarket, error_7;
+        var data, ownerId, result, resultMarket, products, productsMarket, error_7;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     _a.trys.push([0, 7, , 8]);
-                    productId = req.body.productId;
-                    if (!productId) return [3 /*break*/, 5];
-                    return [4 /*yield*/, userProductsModel_1["default"].deleteOne({ _id: productId })];
+                    data = req.cookies.data;
+                    ownerId = data.id;
+                    if (!ownerId) return [3 /*break*/, 5];
+                    return [4 /*yield*/, userProductsModel_1["default"].deleteOne({ ownerId: ownerId })];
                 case 1:
                     result = _a.sent();
-                    return [4 /*yield*/, marketModel_1["default"].deleteOne({ ownerId: productId })];
+                    return [4 /*yield*/, marketModel_1["default"].deleteOne({ ownerId: ownerId })];
                 case 2:
                     resultMarket = _a.sent();
                     return [4 /*yield*/, userProductsModel_1["default"].find({})];

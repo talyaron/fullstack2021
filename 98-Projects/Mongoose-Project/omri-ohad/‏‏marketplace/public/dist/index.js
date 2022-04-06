@@ -85,16 +85,16 @@ function handleAddProduct(ev) {
 }
 function handleGetProducts() {
     return __awaiter(this, void 0, void 0, function () {
-        var data, products;
+        var data, filterdProducts;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0: return [4 /*yield*/, axios.get('/products/get-products')];
                 case 1:
                     data = (_a.sent()).data;
-                    products = data.products;
-                    console.log({ products: products });
-                    if (products) {
-                        renderProducts(products);
+                    filterdProducts = data.filterdProducts;
+                    console.log({ filterdProducts: filterdProducts });
+                    if (filterdProducts) {
+                        renderProducts(filterdProducts);
                     }
                     return [2 /*return*/];
             }

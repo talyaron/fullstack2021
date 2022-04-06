@@ -15,8 +15,10 @@ export async function getProductsMain(req, res) {
 export async function getAllProducts(req, res) {
   try {
     const { data } = req.cookies;
+    const ownerId = data.id;
     const products = await UserProducts.find({})
-    res.send({ products });
+    const filterdProducts = products.filter(product => product.ownerId === ownerId)
+    res.send({ filterdProducts });
   } catch (error) {
     console.log(error.error);
     res.send({ error: error.message });
@@ -100,10 +102,11 @@ export async function updatePrice(req, res) {
 
 export async function deleteProduct(req, res) {
   try {
-    const { productId } = req.body;
-    if (productId) {
-      const result = await UserProducts.deleteOne({ _id: productId });
-      const resultMarket = await Market.deleteOne({ ownerId: productId });
+    const { data } = req.cookies;
+    const ownerId = data.id;
+    if (ownerId) {
+      const result = await UserProducts.deleteOne({ ownerId: ownerId });
+      const resultMarket = await Market.deleteOne({ ownerId: ownerId });
       const products = await UserProducts.find({});
       const productsMarket = await Market.find({});
       res.send({ ok: true, productsMarket, products })
@@ -182,7 +185,7 @@ export async function login(req, res) {
         if (user.password === password) {
           res.cookie(
             "data",
-            { id: user._id, userName: user.userName }
+            { id: user._id, userName: user.userName}
           );
           res.send({ ok: true, login: true, userName: user.userName, products });
           return;

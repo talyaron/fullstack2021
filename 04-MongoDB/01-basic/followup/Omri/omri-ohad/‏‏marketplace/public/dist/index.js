@@ -85,16 +85,16 @@ function handleAddProduct(ev) {
 }
 function handleGetProducts() {
     return __awaiter(this, void 0, void 0, function () {
-        var data, products;
+        var data, filterdProducts;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0: return [4 /*yield*/, axios.get('/products/get-products')];
                 case 1:
                     data = (_a.sent()).data;
-                    products = data.products;
-                    console.log({ products: products });
-                    if (products) {
-                        renderProducts(products);
+                    filterdProducts = data.filterdProducts;
+                    console.log({ filterdProducts: filterdProducts });
+                    if (filterdProducts) {
+                        renderProducts(filterdProducts);
                     }
                     return [2 /*return*/];
             }
@@ -108,11 +108,6 @@ function renderItemsMain(items, userName) {
         items.forEach(function (item) {
             html += "\n            <div class=\"mainPage__middle--products--item\">\n                <img src=\"" + item.pic + "\" title='" + item.title + "'>\n                <h4>" + item.description + "</h4>\n                <p>" + item.price + "$</p>\n                <i title=\"Add product to cart\" id=\"myBtn\" class=\"fa fa-shopping-cart\"></i>\n                <i class=\"fa fa-heart\"></i>\n            </div>\n            ";
         });
-        // if (userName) {
-        //     document.querySelector(".mainPage__header--welcome").innerHTML = `
-        //     hello ${userName} <a href="personal-zone.html"><i class="fa fa-user" ></i></a`
-        // } else { document.querySelector(".mainPage__header--welcome").innerHTML = ''; }
-        // rootItems.innerHTML = html;
         if (localStorage.getItem("name") != null) {
             document.querySelector(".mainPage__header--welcome").innerHTML = "\n            hello " + localStorage.getItem("name") + " <a href=\"personal-zone.html\"><i class=\"fa fa-user\" ></i></a\n            </br></br>\n            <button onclick=\"localStorage.clear();location.reload()\">log out</button>\n            ";
         }

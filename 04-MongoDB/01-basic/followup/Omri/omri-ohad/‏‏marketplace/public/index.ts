@@ -29,10 +29,10 @@ async function handleAddProduct(ev) {
 async function handleGetProducts() {
 
     const { data } = await axios.get('/products/get-products')
-    const { products } = data;
-    console.log({ products })
-    if (products) {
-        renderProducts(products);
+    const { filterdProducts } = data;
+    console.log({ filterdProducts })
+    if (filterdProducts) {
+        renderProducts(filterdProducts);
     }
 }
 
@@ -51,11 +51,6 @@ function renderItemsMain(items, userName?) {
             </div>
             `
         })
-        // if (userName) {
-        //     document.querySelector(".mainPage__header--welcome").innerHTML = `
-        //     hello ${userName} <a href="personal-zone.html"><i class="fa fa-user" ></i></a`
-        // } else { document.querySelector(".mainPage__header--welcome").innerHTML = ''; }
-        // rootItems.innerHTML = html;
 
         if(localStorage.getItem("name") !=null){
             document.querySelector(".mainPage__header--welcome").innerHTML = `

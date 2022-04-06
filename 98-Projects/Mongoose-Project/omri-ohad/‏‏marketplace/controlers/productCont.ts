@@ -14,9 +14,11 @@ export async function getProductsMain(req, res) {
 
 export async function getAllProducts(req, res) {
   try {
-
-    const products = await ProductUser.find({})
-    res.send({ products });
+    const { data } = req.cookies;
+    const ownerId = data.id;
+    const products = await ProductUser.find({});
+    const filterdProducts = products.filter(product => product.ownerId === ownerId);
+    res.send({ filterdProducts });
   } catch (error) {
     console.log(error.error);
     res.send({ error: error.message });
@@ -25,10 +27,12 @@ export async function getAllProducts(req, res) {
 
 export async function addProduct(req, res) {
   try {
+    const { data } = req.cookies;
+    const ownerId = data.id;
     let { pic, title, description, price, category } = req.body;
-    const newProduct = new ProductUser({ pic, title, description, price, category })
+    const newProduct = new ProductUser({ pic, title, description, price, category, ownerId })
     const result = await newProduct.save()
-    const ownerId = newProduct._id
+    // const ownerId = newProduct._id
     const newProductMarket = new ProductMain({ pic, title, description, price, category, ownerId })
     const resultMarket = await newProductMarket.save()
     res.send({ result });
@@ -98,10 +102,11 @@ export async function updatePrice(req, res) {
 
 export async function deleteProduct(req, res) {
   try {
-    const { productId } = req.body;
-    if (productId) {
-      const result = await ProductUser.deleteOne({ _id: productId });
-      const resultMarket = await ProductMain.deleteOne({ ownerId: productId });
+    const { data } = req.cookies;
+    const ownerId = data.id;
+    if (ownerId) {
+      const result = await ProductUser.deleteOne({ ownerId: ownerId });
+      const resultMarket = await ProductMain.deleteOne({ ownerId: ownerId });
       const products = await ProductUser.find({});
       const productsMarket = await ProductMain.find({});
       res.send({ ok: true, productsMarket, products })
@@ -173,10 +178,11 @@ export async function login(req, res) {
   const user = await User.findOne({ email,password });
   const items = await ProductMain.find({}); 
   if(user){
-  let userName= user.userName
+  const userName= user.userName;
+  const id = user._id;
 
     if (user.password === password) {
-      res.cookie("userInfo",{ userName });
+      res.cookie("data",{ userName ,id });
       res.send({ ok: true, items,userName});
       return;
     }

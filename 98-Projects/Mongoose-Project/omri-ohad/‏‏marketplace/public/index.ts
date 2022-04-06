@@ -29,10 +29,10 @@ async function handleAddProduct(ev) {
 async function handleGetProducts() {
 
     const { data } = await axios.get('/products/get-products')
-    const { products } = data;
-    console.log({ products })
-    if (products) {
-        renderProducts(products);
+    const { filterdProducts } = data;
+    console.log({ filterdProducts })
+    if (filterdProducts) {
+        renderProducts(filterdProducts);
     }
 }
 
