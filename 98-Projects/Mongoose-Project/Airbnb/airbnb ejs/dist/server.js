@@ -5,6 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const mongoose_1 = __importDefault(require("mongoose"));
+const body_parser_1 = __importDefault(require("body-parser"));
 const placesModel_1 = __importDefault(require("./model/placesModel"));
 const cookieParser = require('cookie-parser');
 const path_1 = __importDefault(require("path"));
@@ -14,6 +15,7 @@ const port = process.env.PORT || 3000;
 app.use(express_1.default.static("public"));
 app.use(express_1.default.json());
 app.use(cookieParser());
+app.use(body_parser_1.default.urlencoded({ extended: false })); //bodyParser
 //EJS
 app.set('view engine', 'ejs'); //connecting ejs
 console.log(app.get('view engine'));
@@ -45,6 +47,8 @@ mongoose_1.default
 //     res.send({ error: error.massage });
 //   }
 // });
+const indexRoutes_1 = __importDefault(require("./routes/indexRoutes"));
+app.use('/', indexRoutes_1.default);
 const placesRoutes_1 = __importDefault(require("./routes/placesRoutes"));
 app.use('/places', placesRoutes_1.default);
 const usersRoutes_1 = __importDefault(require("./routes/usersRoutes"));

@@ -1,7 +1,8 @@
 import express from "express";
 import mongoose from "mongoose";
+import bodyParser from 'body-parser'
 import Places from "./model/placesModel";
-const cookieParser=require('cookie-parser');
+const cookieParser = require('cookie-parser');
 import path from "path";
 // import axios from "axios";
 const app = express();
@@ -9,6 +10,8 @@ const port = process.env.PORT || 3000;
 app.use(express.static("public"));
 app.use(express.json());
 app.use(cookieParser());
+app.use(bodyParser.urlencoded({ extended: false })) //bodyParser
+
 
 //EJS
 app.set('view engine', 'ejs') //connecting ejs
@@ -52,7 +55,8 @@ mongoose
 
 
 
-
+import indexRoutes from './routes/indexRoutes'
+app.use('/', indexRoutes)
 
 import placesRoutes from './routes/placesRoutes'
 app.use('/places', placesRoutes)
