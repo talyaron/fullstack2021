@@ -17,7 +17,7 @@ async function handleLoadPlace() {
         const { data } = await axios.get('/places/getToPlace');
 
         console.log(data);
-        renderPlace(data);
+        // renderPlace(data);
 
     } catch (error) {
         console.error(error.message);
