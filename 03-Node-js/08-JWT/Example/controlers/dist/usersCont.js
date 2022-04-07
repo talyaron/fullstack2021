@@ -158,6 +158,7 @@ exports.login = function (req, res) { return __awaiter(void 0, void 0, void 0, f
                 if (user) {
                     //check if password equal
                     if (user.password === password) {
+                        res.cookie("userInfo", { username: username, id: user._id, role: user.role }, { maxAge: 120000 });
                         payload = { username: username, id: user._id, role: user.role };
                         token = jwt_simple_1["default"].encode(payload, secret);
                         res.cookie("userInfo", token, { maxAge: 360000 });

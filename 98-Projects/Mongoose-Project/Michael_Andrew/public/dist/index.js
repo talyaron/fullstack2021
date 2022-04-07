@@ -79,7 +79,7 @@ function OpenSignUpForm(e) {
 }
 function handleLogInForm(e) {
     return __awaiter(this, void 0, void 0, function () {
-        var oldUser, email, password, data, error_2, signIn;
+        var oldUser, email, password, data, logedUser, error_2, signIn;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -94,8 +94,14 @@ function handleLogInForm(e) {
                     return [4 /*yield*/, axios.get("/users/log-user?loginEmail=" + email + "&loginPassword=" + password)];
                 case 2:
                     data = (_a.sent()).data;
+                    logedUser = data.oldUser[0].userName;
+                    //console.log(logedUser)
+                    if (logedUser) {
+                        //window.location.href = 'index.html';
+                        document.querySelector('#root').innerHTML = "<button onclick=handleAdminGetUsers()>dddddddddddddddddddddddddddddddddddddd</button>";
+                    }
                     site.user = data.oldUser[0];
-                    localStorage.setItem('user', JSON.stringify(site.user));
+                    //localStorage.setItem('user', JSON.stringify(site.user));
                     if (!email || !password)
                         throw new Error("no email || password in handleLogInForm");
                     return [3 /*break*/, 4];
@@ -110,6 +116,19 @@ function handleLogInForm(e) {
                     signIn = document.querySelector('.sign-in-form');
                     signIn.classList.toggle('in-vis');
                     handleOnLoad();
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+function handleAdminGetUsers() {
+    return __awaiter(this, void 0, void 0, function () {
+        var data;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, axios.get('/users/admin-get-users')];
+                case 1:
+                    data = (_a.sent()).data;
                     return [2 /*return*/];
             }
         });
@@ -148,7 +167,7 @@ function handleOnLoad() {
                 case 1:
                     data = (_a.sent()).data;
                     result = data.result;
-                    console.log(result);
+                    //console.log(result);
                     renderArtForSale(result);
                     _a.label = 2;
                 case 2: return [2 /*return*/];
@@ -160,7 +179,7 @@ function renderArtForSale(artsForSale) {
     var main = document.querySelector('.main');
     var html = "";
     artsForSale.forEach(function (art) {
-        console.log(art);
+        //console.log(art);
         html += "<div class=\"main__card\">\n                    <img src=\"" + art.url + "\" class=\"main__card__img\">\n                    <div class=\"main__card__discription\">\n                        <div class=\"main__card__discription__upper\">\n                            <div class=\"main__card__author\">\n                                <p>" + art.artName + "</p>\n                                <p>by: " + art.author + "</p>\n                            </div>\n                            <div class=\"main__card__price\">\n                                <p>price: " + art.price + " BTC</p>\n                                <p>7 days left</p>\n                            </div>\n                        </div>\n                        <div class=\"main__card__discription__lower\">\n                            <div class=\"main__card__buyNow\">";
         if (art.ownerId == site.user._id) {
             html += "<p>Your Sale</p>";
@@ -292,7 +311,7 @@ function handleSettingsForm(ev) {
             ev.preventDefault();
             toBeUpdated = ev.target[0].name;
             value = ev.target[0].value;
-            console.log(toBeUpdated);
+            //console.log(toBeUpdated);
             if (toBeUpdated == 'password') {
                 if (value == site.user.password) {
                     if (ev.target[1].value == ev.target[2].value) {
