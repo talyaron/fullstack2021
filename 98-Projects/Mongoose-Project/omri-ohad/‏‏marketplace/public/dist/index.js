@@ -109,7 +109,8 @@ function renderItemsMain(items, ok, userName) {
             html += "\n            <div class=\"mainPage__middle--products--item\">\n                <img src=\"" + item.pic + "\" title='" + item.title + "'>\n                <h4>" + item.description + "</h4>\n                <p>" + item.price + "$</p>\n                <i title=\"Add product to cart\" id=\"myBtn\" class=\"fa fa-shopping-cart\"></i>\n                <i class=\"fa fa-heart\"></i>\n            </div>\n            ";
         });
         if (localStorage.getItem("name") != null) {
-            document.querySelector(".mainPage__header--welcome").innerHTML = "\n            hello " + localStorage.getItem("name") + " <a href=\"personal-zone.html\"><i class=\"fa fa-user\" ></i></a\n            </br></br>\n            <button onclick=\"localStorage.clear();location.reload()\">log out</button>\n            ";
+            document.querySelector(".mainPage__header--welcome").innerHTML = "\n            </br>\n            hello " + localStorage.getItem("name") + "\n            </br>\n            <button class=\"LogOutBtn\" onclick=\"localStorage.clear();location.reload()\">log out</button>  \n            ";
+            document.querySelector(".mainPage__header--icons").innerHTML = "\n                <a href=\"index.html\"><i class=\"fa fa-home\" ></i></a>\n                <a href=\"personal-zone.html\"><i class=\"fa fa-user\" ></i></a>\n                <i id=\"\" class=\"fa fa-shopping-cart\"></i>\n            ";
         }
         else if (localStorage.getItem("name") === 'user') {
             document.querySelector(".mainPage__header--welcome").innerHTML = '';
@@ -124,6 +125,15 @@ function renderProducts(products, ok, userName) {
     var html = products.map(function (product) {
         return "\n        <div class=\"mainPage__middle--products--item\" id=\"card\">\n        <div id=\"trash\"><i class=\"fa fa-trash-o\" style=\"font-size:20px;cursor: pointer;\" title=\"Delete product\" onclick='handleDelete(\"" + product._id + "\")'></i></div>\n        <img src=\"" + product.pic + "\" title='" + product.title + "'>\n        <p>" + product.title + ".</p>\n        <p>" + product.price + "$</p>\n        <p>" + product.description + ".</p>\n        <form onsubmit=\"handleUpadte(event,'" + product._id + "')\">\n            <input type = 'text' name = 'newImg' placeholder = 'Update img' >\n            <input type = 'text' name = 'newTitle' placeholder = 'Update title'>\n            <input type = 'text' name = 'newPrice' placeholder = 'Update price'>\n            <input type = \"submit\" value = \"Update\">\n        </form>\n        </div>\n        ";
     }).join('');
+    if (localStorage.getItem("name") != null) {
+        document.querySelector(".mainPage__header--welcome").innerHTML = "\n        </br>\n        hello " + localStorage.getItem("name") + "\n        </br>\n        <button class=\"LogOutBtn\" onclick=\"localStorage.clear();location.reload()\">log out</button>  \n        ";
+    }
+    else if (localStorage.getItem("name") === 'user') {
+        document.querySelector(".mainPage__header--welcome").innerHTML = '';
+    }
+    else {
+        document.querySelector(".mainPage__header--welcome").innerHTML = '';
+    }
     document.getElementById('products').innerHTML = html;
 }
 function handleUpadte(ev, gameId) {
