@@ -1,65 +1,20 @@
 import task from "../model/taskModel";
 
-export const getUsersTasks = async (req, res) => {
-  const { ownerId } = req.query;
 
+<<<<<<< HEAD
+=======
   let currentUsersTasks = await task.find({ ownerId: ownerId });
   res.cookie("taskId", { taskId: ownerId }, { maxAge: 10000 })
+>>>>>>> main
 
-  res.send(currentUsersTasks);
-};
-
-export const addNewTask = async (req, res) => {
-  try {
-    const { color, title, description, urgency, location, date, userId } =
-      req.body;
-    if (
-      userId &&
-      color &&
-      title &&
-      description &&
-      urgency &&
-      location &&
-      date
-    ) {
-      const newTask = new task({
-        color: color,
-        title: title,
-        description: description,
-        urgency: urgency,
-        location: location,
-        date: date,
-        ownerId: userId,
-      });
-
-      await newTask.save();
-      res.send({ currentUsersTasks: await task.find({ ownerId: userId }) });
+export const getUsersTasks = async (req,res) => {
+    const {ownerId} = req.query;
+    console.log(ownerId);
+    const currentUsersTasks = await task.find({ ownerId: ownerId });
+    res.send(currentUsersTasks)
     }
-  } catch (error) {
-    console.error(error);
-    res.send({ error: error.message });
-  }
-};
-
-export const updateTask = async (req, res) => {
-  try {
-    const { _id, ownerId, color, title, urgency, description, location, date } =
-      req.body;
-    if (_id && ownerId) {
-      const updatedTask = await task.findOneAndUpdate(
-        { _id: _id, ownerId: ownerId },
-        {
-          color: color,
-          title: title,
-          urgency: urgency,
-          description: description,
-          location: location,
-          date: date,
-        }
-      );
-      const currentUsersTasks = await task.find({ ownerId: ownerId });
-      res.send({ updatedTask, currentUsersTasks });
-    }
+<<<<<<< HEAD
+=======
   } catch (error) {
     console.error(error);
     res.send({ error: error.message });
@@ -132,3 +87,4 @@ export const getUrgencies = async (req, res) => {
 
 
 }
+>>>>>>> main
