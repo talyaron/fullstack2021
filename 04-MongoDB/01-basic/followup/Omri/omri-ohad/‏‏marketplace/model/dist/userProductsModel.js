@@ -6,7 +6,8 @@ var productSchema = new mongoose_1["default"].Schema({
     title: String,
     description: String,
     price: Number,
-    category: String
+    category: String,
+    ownerId: String
 });
 var UserProducts = mongoose_1["default"].model('userItems', productSchema);
 exports["default"] = UserProducts;

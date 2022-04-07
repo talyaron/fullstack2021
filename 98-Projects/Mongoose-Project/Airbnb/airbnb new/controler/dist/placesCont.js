@@ -36,22 +36,33 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.searchAirbnbByCity = exports.searchAirbnb = exports.findPlaceMap = exports.getToPlace = exports.addPlaces = exports.getfilteredAirBNB = void 0;
+exports.search = exports.searchAirbnbInTelaviv = exports.searchAirbnb = exports.findPlaceMap = exports.getToPlace = exports.addPlaces = exports.getfilteredAirBNB = exports.getPlaces = void 0;
 var placesModel_1 = require("../model/placesModel");
-// export const getPlaces = async (req, res) => {
-//   try {
-//     const places = await Places.find({});
-//     // .limit(20);
-//     console.log(Places);
-//     console.log(places);
-//     res.send({ ok: true, places });
-//   } catch (error) {
-//     console.error(error);
-//     res.send({ error: "error in app.get/getPlaces" });
-//   }
-// };
+exports.getPlaces = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var places, error_1;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 2, , 3]);
+                return [4 /*yield*/, placesModel_1["default"].find({})];
+            case 1:
+                places = _a.sent();
+                // .limit(20);
+                console.log(placesModel_1["default"]);
+                console.log(places);
+                res.send({ ok: true, places: places });
+                return [3 /*break*/, 3];
+            case 2:
+                error_1 = _a.sent();
+                console.error(error_1);
+                res.send({ error: "error in app.get/getPlaces" });
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
+        }
+    });
+}); };
 exports.getfilteredAirBNB = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var price1, result, error_1;
+    var price1, result, error_2;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -66,8 +77,8 @@ exports.getfilteredAirBNB = function (req, res) { return __awaiter(void 0, void 
                 _a.label = 2;
             case 2: return [3 /*break*/, 4];
             case 3:
-                error_1 = _a.sent();
-                console.error(error_1);
+                error_2 = _a.sent();
+                console.error(error_2);
                 res.send({ error: "error in app.get/getPlaces" });
                 return [3 /*break*/, 4];
             case 4: return [2 /*return*/];
@@ -75,7 +86,7 @@ exports.getfilteredAirBNB = function (req, res) { return __awaiter(void 0, void 
     });
 }); };
 exports.addPlaces = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, name, summary, checkIn, checkOut, accommodates, amenities, bedrooms, beds, number_of_reviews, price, cancle, bathrooms, images, host, space, description, bed_type, reviews, cancellation_policy, address, newPlace, result, error_2;
+    var _a, name, summary, checkIn, checkOut, accommodates, amenities, bedrooms, beds, number_of_reviews, price, cancle, bathrooms, images, host, space, description, bed_type, reviews, cancellation_policy, address, newPlace, result, error_3;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
@@ -109,9 +120,9 @@ exports.addPlaces = function (req, res) { return __awaiter(void 0, void 0, void 
                 res.send({ ok: true, result: result });
                 return [3 /*break*/, 3];
             case 2:
-                error_2 = _b.sent();
-                console.error(error_2);
-                res.send({ error: error_2.massage });
+                error_3 = _b.sent();
+                console.error(error_3);
+                res.send({ error: error_3.massage });
                 return [3 /*break*/, 3];
             case 3: return [2 /*return*/];
         }
@@ -154,46 +165,78 @@ exports.findPlaceMap = function (req, res) { return __awaiter(void 0, void 0, vo
     });
 }); };
 exports.searchAirbnb = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, search, checkIn, checkOut, adults, children, infants, pets, accommodates, sum, dateOfCheckIn, dateOfCheckOut, differenceInTime, differenceInDays, places, error_3;
-    return __generator(this, function (_b) {
-        switch (_b.label) {
+    var 
+    // search, 
+    // checkIn, checkOut,
+    adults, places, error_4;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
             case 0:
-                _b.trys.push([0, 2, , 3]);
-                _a = req.query, search = _a.search, checkIn = _a.checkIn, checkOut = _a.checkOut, adults = _a.adults, children = _a.children, infants = _a.infants, pets = _a.pets, accommodates = _a.accommodates;
-                console.log(search, checkIn, checkOut, adults, children, infants, pets);
-                sum = Number(adults) + Number(children) + Number(infants) + Number(pets);
-                console.log("the number of guests:" + sum);
-                dateOfCheckIn = new Date("" + checkIn);
-                dateOfCheckOut = new Date("" + checkOut);
-                differenceInTime = dateOfCheckOut.getTime() - dateOfCheckIn.getTime();
-                differenceInDays = differenceInTime / (1000 * 3600 * 24);
-                console.log("the days between checkIn checkOut is:" + differenceInDays);
-                return [4 /*yield*/, placesModel_1["default"].find({ address_country: "" + search, accommodates: sum })];
+                _a.trys.push([0, 2, , 3]);
+                adults = req.query.adults;
+                console.log(
+                // search, 
+                // checkIn, checkOut, 
+                adults);
+                return [4 /*yield*/, placesModel_1["default"].find({ "neighbourhood": "Hong Kong" }).limit(20)];
             case 1:
-                places = _b.sent();
+                places = _a.sent();
+                //  $query = array(accommodates => $userInput);
+                //  {$query : Array(accommodates => `${adults}`)}
+                console.log(places);
                 res.send({ ok: true, places: places });
                 return [3 /*break*/, 3];
             case 2:
-                error_3 = _b.sent();
-                console.log(error_3.error);
-                res.send({ error: error_3.massage });
+                error_4 = _a.sent();
+                console.log(error_4.error);
+                res.send({ error: error_4.massage });
                 return [3 /*break*/, 3];
             case 3: return [2 /*return*/];
         }
     });
 }); };
-exports.searchAirbnbByCity = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var city, airbnbInCity;
+exports.searchAirbnbInTelaviv = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var placesInTelaviv;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0:
-                city = req.body.city;
-                return [4 /*yield*/, placesModel_1["default"].find({ address_country: city }).limit(10)];
+            case 0: return [4 /*yield*/, placesModel_1["default"].find({ address: { country: "Brazil" } }).limit(10)];
             case 1:
-                airbnbInCity = _a.sent();
-                // console.log(airbnbInCity);
-                res.send({ ok: true, theCity: airbnbInCity });
+                placesInTelaviv = _a.sent();
+                console.log(placesInTelaviv);
+                res.send({ ok: true, placesInTelaviv: placesInTelaviv });
                 return [2 /*return*/];
         }
     });
 }); };
+exports.search = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var places, search_1, serchPlace, error_5;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 2, , 3]);
+                return [4 /*yield*/, placesModel_1["default"].find({})];
+            case 1:
+                places = _a.sent();
+                search_1 = req.query.search;
+                serchPlace = searchPlaces(search_1, places);
+                console.log(search_1, " ", places);
+                res.send(serchPlace);
+                return [3 /*break*/, 3];
+            case 2:
+                error_5 = _a.sent();
+                console.log(error_5.error);
+                res.send({ error: error_5.massage });
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
+        }
+    });
+}); };
+function searchPlaces(search, places) {
+    if (search) {
+        var regex_1 = new RegExp(search, "i");
+        return places.filter(function (searchedTerm) { return regex_1.test(searchedTerm.name); });
+    }
+    else {
+        return places;
+    }
+}

@@ -36,8 +36,20 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.updateUser = exports.getUser = exports.addUser = void 0;
+exports.updateUser = exports.getUser = exports.addUser = exports.loadUser = void 0;
 var usersModel_1 = require("../model/usersModel");
+function loadUser(req, res) {
+    return __awaiter(this, void 0, void 0, function () {
+        var userInfo;
+        return __generator(this, function (_a) {
+            userInfo = req.cookies.userInfo;
+            console.log('server data: ' + userInfo.username);
+            res.send(userInfo.username);
+            return [2 /*return*/];
+        });
+    });
+}
+exports.loadUser = loadUser;
 function addUser(req, res) {
     return __awaiter(this, void 0, void 0, function () {
         var _a, username, password, email, noPass, played, wins, current_streak, max_streak, oneattempt, twoattempts, threeattempts, fourattempts, fiveattempts, sixattempts, newFundleUser, result;
@@ -85,6 +97,7 @@ function getUser(req, res) {
                 case 1:
                     userMatch = _b.sent();
                     if (!(userMatch.length >= 1)) return [3 /*break*/, 2];
+                    res.cookie("userInfo", { username: username });
                     res.send({ user: userMatch });
                     return [3 /*break*/, 4];
                 case 2: return [4 /*yield*/, usersModel_1["default"].find({ username: username })];
@@ -158,10 +171,7 @@ function updateUser(req, res) {
                             fourattempts: user[0].fourattempts,
                             fiveattempts: user[0].fiveattempts,
                             sixattempts: user[0].sixattempts
-                        })
-                        // const realuser = await FundleUser.find({ username: username })
-                        // console.log(realuser)
-                    ];
+                        })];
                 case 2:
                     updatedUser = _b.sent();
                     _b.label = 3;

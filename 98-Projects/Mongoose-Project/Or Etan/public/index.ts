@@ -1,5 +1,6 @@
 async function handleRegister(ev) {
   ev.preventDefault();
+  const registerStatus = document.querySelector('[data-register-status]');
   let { firstName, lastName, email, password, role, gender } =
     ev.target.elements;
   firstName = firstName.value;
@@ -16,11 +17,18 @@ async function handleRegister(ev) {
     role,
     gender,
   });
+  const {aUser} = data;
+  if(aUser){
+    registerStatus.innerHTML = `<h2>hello ${aUser.firstName}, you seem to already have an account under that email!<h2> <a href="/">Log in here</a>`
+    return;
+  }
   window.location.href = `/`;
+
 }
 
 async function handleLogin(ev) {
   ev.preventDefault();
+  const passwordStatus = document.querySelector('[data-password-status]')
   const email = ev.target.elements.email.value;
   const password = ev.target.elements.password.value;
   const userData = {
@@ -28,20 +36,42 @@ async function handleLogin(ev) {
     password: password,
   };
   try {
-    const data = await axios
+    const {data} = await axios
       .post("/users/log-in", userData)
-      .then((response) => {
-        const status = response.data.ok;
-        const userExists = response.data.aUser;
-        const verifiedUser = response.data.verifiedUser;
-        const verifiedUserId = verifiedUser[0]._id;
 
-        if (!status) throw new Error("no status");
-        if (status) {
-          window.location.href = `/home.html?id=${verifiedUserId}`;
-        } else if (userExists < 0) {
+        const {ok, aUser, verifiedUser, userId} = data;
+
+
+        const verifiedUserId = userId;
+
+        passwordStatus.style.color = ''
+        passwordStatus.innerHTML = ''
+        if(aUser) {
+
+          passwordStatus.style.color = 'red'
+          passwordStatus.innerHTML = `<h1>*Wrong password!</h1>`;
+          
         }
-      });
+        if(!aUser && !ok){
+
+          
+          passwordStatus.innerHTML = `<h2>This email doesn't seem to exist in out database, Try again, or register bellow:</h2>`
+          return;
+        }
+        if (!ok) throw new Error("no ok");
+        if (ok) {
+
+          window.location.href = `/home.html?id=${verifiedUserId}`;
+<<<<<<< HEAD
+        } else if (userExists < 0) {
+          console.log("1");
+=======
+        } 
+          
+          return
+>>>>>>> main
+        }
+      
   } catch (error) {
     console.log("error in handleLogin:");
     console.log(error.message);
@@ -51,25 +81,21 @@ async function handleLogin(ev) {
 
 async function handleRenderHome(ev) {
   ev.preventDefault();
-  const currentPage = ev.target.title;
-
   let userId = ev.target.location.search.replace(/.*?id=/g, "");
+
   const { data } = await axios.get(`users/logged-in-user?userId=${userId}`);
   const { userInfo } = data;
-  getUsersTasks(userId, currentPage);
   const user = userInfo[0];
   const name = document.querySelector("[data-name]");
-  const gender = document.querySelector("[data-gender]");
   name.innerHTML = `${user.firstName} ${user.lastName}<br><span>${user.role}</span>`;
-  if (user.gender === `male`) {
-    gender.src = `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ51Gk5jjB4qD-BkcDh_fhsE4HkfnLDblQPrQLaOY13u7v5MNoBea8JzZ5NZAa0G-gAcgY&usqp=CAU`;
-  } else {
-    gender.src = `https://static.vecteezy.com/system/resources/thumbnails/002/586/938/small/woman-cartoon-character-portrait-brunette-female-round-line-icon-free-vector.jpg`;
-  }
-
   const lowTasks = document.querySelector("[data-low]");
   const mediumTasks = document.querySelector("[data-medium]");
   const highTasks = document.querySelector("[data-high]");
+<<<<<<< HEAD
+  getUsersTasks(userId);
+}
+
+=======
 
   const arr = await Promise.all([handleGetUrgencies(userId)]);
   const low = arr[0][0];
@@ -110,8 +136,6 @@ async function handleRenderSettings(ev) {
   const { userInfo } = data;
   let html = "";
   const user = userInfo[0];
-  console.log(user);
-
   html = `<form name="userUpdate" id="userUpdate" onsubmit="handleUserUpdate(event)">
   <h1>Update Your information</h1>
   
@@ -167,7 +191,7 @@ async function handleUserUpdate(ev) {
     const passwordConfirmation = ev.target.elements.passwordConfirmation?.value;
     // const isRightPassword = await handlePasswordCheck(passwordConfirmation, userId)
     // if(isRightPassword){
-    // console.log(firstNameUpdate, lastNameUpdate, emailUpdate, genderUpdate, roleUpdate, passwordUpdate,passwordConfirmation);
+
     const { data } = axios
       .patch(`/users/settings`, {
         firstNameUpdate,
@@ -213,11 +237,16 @@ async function handlePasswordCheck(password, userId) {
     return true;
   } else return false;
 }
+>>>>>>> main
 async function handlePageChange(ev) {
   const userURL = ev.target.baseURI;
-
   const requestedPage = ev.target.outerText.split(" ").join("");
-console.log(requestedPage);
+<<<<<<< HEAD
+  try {
+    const { data } = await axios
+      .post(`/users/nav`, { userURL, requestedPage })
+=======
+
 
   try {
     if (requestedPage === "home") {
@@ -234,7 +263,7 @@ console.log(requestedPage);
         requestedPage,
       });
       const { newURL } = data;
-      console.log(newURL);
+
 
       window.location.href = newURL;
     }
@@ -247,19 +276,17 @@ console.log(requestedPage);
       window.location.href = newURL;
     }
     if (requestedPage === "RecentlyCreated") {
-      console.log(requestedPage);
+
       
       const { data } = await axios.post(`/users/nav`, {
         userURL,
         requestedPage,
       })
+>>>>>>> main
       .then((response) => {
-        
         const { newURL } = response.data;
         window.location.href = newURL;
-
-      })
-    }
+      });
   } catch (error) {
     console.log("error in handleRenderPage:");
     console.log(error.message);
@@ -267,17 +294,57 @@ console.log(requestedPage);
   }
 }
 
-async function getUsersTasks(userId, currentPage) {
+async function handleGetUsersTasks(ev) {
+  const userURL = ev.target.baseURI;
+
+  const userId = userURL.split("/")[1];
+  getUsersTasks(userId);
+}
+// addGlobalEventListener(onload, '#landing__task-count',getUsersTasks(window.location.href), {})
+
+async function getUsersTasks(userId) {
   try {
     const { data } = await axios.get(`tasks/getTasks?ownerId=${userId}`);
     const currentUsersTasks = data;
+<<<<<<< HEAD
+    renderTasks(currentUsersTasks);
+=======
+    console.log(currentUsersTasks);
+
+    
+    
     renderTasks(currentUsersTasks, currentPage);
+>>>>>>> main
   } catch (error) {
     console.log("error in getUsersTasks:");
     console.log(error.message);
     // }
   }
 }
+<<<<<<< HEAD
+async function renderTasks(currentUsersTasks) {
+  console.log(currentUsersTasks);
+  let html = "";
+  const tasksBoxes = document.querySelector("[data-box-root]")
+  const tasksCount = document.querySelector("[data-task-count]")
+  currentUsersTasks.forEach((task) => {
+    html += `
+  <div class="box ${task.urgency}">
+                        <div id="box__flex">
+                            <div class="box__header">
+                                <div class="box__title">
+                                    <p class="box__title-text box__title-home-text">${task.title}</p>
+                                </div>
+                            </div>
+                            <div class="box__expln box__expln-home">
+                                <div class="flex-date">
+                                    <i class="material-icons">schedule</i>
+                                    <p>${task.date}</p>
+                                </div>
+                            </div>
+                            <h4>${task.urgency} priority</h4>
+=======
+
 async function renderTasks(currentUsersTasks, currentPage) {
   sortTasksByDate(currentUsersTasks);
 
@@ -341,7 +408,7 @@ async function renderTasks(currentUsersTasks, currentPage) {
                               <p class="box__expln-transp">${task.location}</p>
                           </div>
                           <div  class="box__countdown">${task.date}
-                          <a data-check="${task._id}" onclick="handleTaskCheck(event)">check</a>
+                          <a class="fas fa-check" data-check="${task._id}" onclick="handleTaskCheck(event)"></a>
                           </div>
                           <a onclick="handleTaskDelete(event)" class="box__delete">
                           <i data-delete="${task._id}" class="fas fa-trash-alt"></i>
@@ -372,7 +439,7 @@ async function renderTasks(currentUsersTasks, currentPage) {
                               <p class="box__expln-transp">${task.location}</p>
                           </div>
                           <div  class="box__countdown">${task.date}
-                          <a data-check="${task._id}" onclick="handleTaskCheck(event)">check</a>
+                          <a class="fas fa-check" data-check="${task._id}" onclick="handleTaskCheck(event)"></a>
                           </div>
                           <a onclick="handleTaskDelete(event)" class="box__delete">
                           <i data-delete="${task._id}" class="fas fa-trash-alt"></i>
@@ -409,25 +476,12 @@ async function renderTasks(currentUsersTasks, currentPage) {
                         </div>
                         <div class="task-time">
                             <input type="date" name="date" id="date" value="${nextTask.date}">
+>>>>>>> main
                         </div>
-                        <input data-id="${nextTask._id}" type="submit" name="submit" id="submit" value="Update this task">
-`;
-      }
-      if (!nextTask) {
-        formHtml = `<h1> You are all caught up! </h1>`;
-      }
-      const formField = nextRoot.parentElement;
-      formField.style.background = nextTask.color;
-
-      nextRoot.innerHTML = formHtml;
-      return;
-    }
-  } catch (error) {
-    console.log(error);
-    console.error(error.message);
-  }
+                    </div>`;
+  });
+  tasksBoxes.innerHTML = html
 }
-
 function addGlobalEventListener(
   type,
   selector,
@@ -443,6 +497,8 @@ function addGlobalEventListener(
     options
   );
 }
+<<<<<<< HEAD
+=======
 
 function sortTasksByDate(tasks) {
   tasks.forEach((task) => {
@@ -548,6 +604,8 @@ async function handleTaskCheck(ev) {
   try {
     const timeChecked = new Date().toLocaleDateString().replace(/\//g, "-");
     const taskId = ev.target.dataset.check;
+
+    
     const userId = ev.target.baseURI.slice(-24);
     const { data } = await axios.patch("/tasks/check-task", {
       _id: taskId,
@@ -555,6 +613,8 @@ async function handleTaskCheck(ev) {
       timeChecked,
     });
     const { currentUsersTasks } = data;
+
+    
     renderTasks(currentUsersTasks, "RecentlyCreated");
   } catch (error) {
     console.log("error in handleTaskCheck");
@@ -652,3 +712,4 @@ async function renderTaskModal(ev) {
     console.log(error);
   }
 }
+>>>>>>> main
