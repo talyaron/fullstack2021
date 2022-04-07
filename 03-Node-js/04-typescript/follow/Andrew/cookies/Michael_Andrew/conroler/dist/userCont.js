@@ -39,6 +39,7 @@ exports.__esModule = true;
 exports.buyAndSell = exports.addArtToUser = exports.updateUser = exports.findUser = exports.addUser = void 0;
 var userModel_1 = require("../model/userModel");
 var jwt_simple_1 = require("jwt-simple");
+var secret = process.env.JWT_SECRET;
 exports.addUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var _a, userName, email, password, url, userFind, fund, artCollection, newUser, users, error_1;
     return __generator(this, function (_b) {
@@ -78,7 +79,7 @@ exports.addUser = function (req, res) { return __awaiter(void 0, void 0, void 0,
     });
 }); };
 exports.findUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, loginEmail, loginPassword, oldUser, secret, payload, token, error_2;
+    var _a, loginEmail, loginPassword, oldUser, payload, token, error_2;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
@@ -91,7 +92,6 @@ exports.findUser = function (req, res) { return __awaiter(void 0, void 0, void 0
                     res.send({ noUser: 'Wrong email/password' });
                 }
                 else if (oldUser.length > 0) {
-                    secret = 'password';
                     payload = { userName: oldUser[0].userName, funds: oldUser[0].fund };
                     token = jwt_simple_1["default"].encode(payload, secret);
                     res.cookie("userInfo", token, { maxAge: 60000 });
@@ -144,7 +144,7 @@ exports.buyAndSell = function (req, res) { return __awaiter(void 0, void 0, void
             case 0:
                 _a = req.body, buyerId = _a.buyerId, price = _a.price, ownerId = _a.ownerId;
                 userInfo = req.cookies.userInfo;
-                userInfo = jwt_simple_1["default"].decode(userInfo, 'password');
+                userInfo = jwt_simple_1["default"].decode(userInfo, secret);
                 console.log(userInfo);
                 if (!(userInfo.funds >= price)) return [3 /*break*/, 3];
                 return [4 /*yield*/, userModel_1["default"].updateOne({ _id: ownerId }, { $inc: { fund: price } })];

@@ -6,12 +6,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const cookie_parser_1 = __importDefault(require("cookie-parser"));
+require("dotenv/config");
 const app = express_1.default();
 const port = process.env.PORT || 3000;
 app.use(express_1.default.static("public"));
 app.use(express_1.default.json());
 app.use(cookie_parser_1.default());
-mongoose_1.default.connect('mongodb+srv://andrewLSHFY:1HULLpKqCi5A1E5h@cluster0.cybvt.mongodb.net/artNft?retryWrites=true&w=majority').then(res => {
+mongoose_1.default.connect(process.env.MDB_URI).then(res => {
     console.log('connected to DB');
 }).catch(err => {
     console.log('At mongoose.connect: ');

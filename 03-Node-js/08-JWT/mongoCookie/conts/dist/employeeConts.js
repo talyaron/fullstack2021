@@ -39,6 +39,7 @@ exports.__esModule = true;
 exports.getDecodedEmp = exports.getEmployees = exports.addEmployee = void 0;
 var jwt_simple_1 = require("jwt-simple");
 var employeeModels_1 = require("../models/employeeModels");
+var secret = process.env.JWT_SECRET;
 exports.addEmployee = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var _a, name, password, email, newEmployee, result, error_1;
     return __generator(this, function (_b) {
@@ -66,12 +67,11 @@ exports.addEmployee = function (req, res) { return __awaiter(void 0, void 0, voi
 }); };
 function getEmployees(req, res) {
     return __awaiter(this, void 0, void 0, function () {
-        var secret, _a, name, password, result, payload, token, error_2;
+        var _a, name, password, result, corona, token, error_2;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
                     _b.trys.push([0, 3, , 4]);
-                    secret = "tamirRs";
                     _a = req.body, name = _a.name, password = _a.password;
                     if (!(typeof name === 'string' && typeof password === 'string')) return [3 /*break*/, 2];
                     return [4 /*yield*/, employeeModels_1["default"].findOne({ name: name, password: password })];
@@ -80,8 +80,8 @@ function getEmployees(req, res) {
                     if (result) {
                         if (result.password === password) {
                             if (result.role === 'admin') {
-                                payload = { name: name, id: result._id, role: result.role };
-                                token = jwt_simple_1["default"].encode(payload, secret);
+                                corona = { name: name, id: result._id, role: result.role };
+                                token = jwt_simple_1["default"].encode(corona, secret);
                                 //const allEmployees = await Employee.find({})
                                 res.cookie('adminEmployee', token, { maxAge: 30000 });
                                 //res.send({ ok: true, allEmployees })
@@ -106,12 +106,11 @@ function getEmployees(req, res) {
 }
 exports.getEmployees = getEmployees;
 exports.getDecodedEmp = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var adminEmployee, secret, decoded, result;
+    var adminEmployee, decoded, result;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 adminEmployee = req.cookies.adminEmployee;
-                secret = "tamirRs";
                 decoded = jwt_simple_1["default"].decode(adminEmployee, secret);
                 if (!(decoded && decoded.role === "admin")) return [3 /*break*/, 2];
                 return [4 /*yield*/, employeeModels_1["default"].find({})];

@@ -33,6 +33,8 @@ async function handleGetEmployees(e) {
     const { data } = await axios.post('/company/get-employees', { name, password })
 
     const { result } = data
+    console.log(result);
+    
     render(result)
 
     e.target.reset()
