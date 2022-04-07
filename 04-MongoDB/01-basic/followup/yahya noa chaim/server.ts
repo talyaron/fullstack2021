@@ -1,11 +1,14 @@
 import express from "express";
 import mongoose from "mongoose";
 const app = express();
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 3000;
 
 app.use(express.static("public"));
 app.use(express.json());
 
+<<<<<<< HEAD
+mongoose.connect('mongodb+srv://chaim14:82148214cc@cluster0.ar8tn.mongodb.net/myFirstDatabase?retryWrites=true&w=majority');
+=======
 mongoose.connect('mongodb+srv://chaim14:82148214cc@cluster0.ar8tn.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
   .then(() => console.log("conected to database"))
   .catch(err => console.log(err.message))
@@ -65,3 +68,4 @@ app.get('/get-users', async (req, res) => {
 app.listen(port, () => {
   return console.log(`Server is listening at http://localhost:${port}`);
 })
+>>>>>>> main

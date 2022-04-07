@@ -88,7 +88,25 @@ function handleLogin(ev) {
                 case 1:
                     _a.trys.push([1, , 3, 4]);
                     return [4 /*yield*/, axios
+<<<<<<< HEAD
+                            .post("/users/log-in", userData)
+                            .then(function (response) {
+                            var status = response.data.ok;
+                            var userExists = response.data.aUser;
+                            var verifiedUser = response.data.verifiedUser;
+                            var verifiedUserId = verifiedUser[0]._id;
+                            if (!status)
+                                throw new Error("no status");
+                            if (status) {
+                                window.location.href = "/home.html?id=" + verifiedUserId;
+                            }
+                            else if (userExists < 0) {
+                                console.log("1");
+                            }
+                        })];
+=======
                             .post("/users/log-in", userData)];
+>>>>>>> main
                 case 2:
                     data = (_a.sent()).data;
                     ok = data.ok, aUser = data.aUser, verifiedUser = data.verifiedUser, userId = data.userId;
@@ -123,31 +141,25 @@ catch (error) {
 }
 function handleRenderHome(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var currentPage, userId, data, userInfo, user, name, gender, lowTasks, mediumTasks, highTasks, arr, low, medium, high;
+        var userId, data, userInfo, user, name, lowTasks, mediumTasks, highTasks;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     ev.preventDefault();
-                    currentPage = ev.target.title;
                     userId = ev.target.location.search.replace(/.*?id=/g, "");
                     return [4 /*yield*/, axios.get("users/logged-in-user?userId=" + userId)];
                 case 1:
                     data = (_a.sent()).data;
                     userInfo = data.userInfo;
-                    getUsersTasks(userId, currentPage);
                     user = userInfo[0];
                     name = document.querySelector("[data-name]");
-                    gender = document.querySelector("[data-gender]");
                     name.innerHTML = user.firstName + " " + user.lastName + "<br><span>" + user.role + "</span>";
-                    if (user.gender === "male") {
-                        gender.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ51Gk5jjB4qD-BkcDh_fhsE4HkfnLDblQPrQLaOY13u7v5MNoBea8JzZ5NZAa0G-gAcgY&usqp=CAU";
-                    }
-                    else {
-                        gender.src = "https://static.vecteezy.com/system/resources/thumbnails/002/586/938/small/woman-cartoon-character-portrait-brunette-female-round-line-icon-free-vector.jpg";
-                    }
                     lowTasks = document.querySelector("[data-low]");
                     mediumTasks = document.querySelector("[data-medium]");
                     highTasks = document.querySelector("[data-high]");
+<<<<<<< HEAD
+                    getUsersTasks(userId);
+=======
                     return [4 /*yield*/, Promise.all([handleGetUrgencies(userId)])];
                 case 2:
                     arr = _a.sent();
@@ -286,6 +298,7 @@ function handlePasswordCheck(password, userId) {
                     }
                     else
                         return [2 /*return*/, false];
+>>>>>>> main
                     return [2 /*return*/];
             }
         });
@@ -293,7 +306,11 @@ function handlePasswordCheck(password, userId) {
 }
 function handlePageChange(ev) {
     return __awaiter(this, void 0, void 0, function () {
+<<<<<<< HEAD
+        var userURL, requestedPage, data, error_2;
+=======
         var userURL, requestedPage, data, data, newURL, data, newURL, data, error_1;
+>>>>>>> main
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -301,8 +318,7 @@ function handlePageChange(ev) {
                     requestedPage = ev.target.outerText.split(" ").join("");
                     _a.label = 1;
                 case 1:
-                    _a.trys.push([1, 10, , 11]);
-                    if (!(requestedPage === "home")) return [3 /*break*/, 3];
+                    _a.trys.push([1, 3, , 4]);
                     return [4 /*yield*/, axios
                             .post("/users/nav", { userURL: userURL, requestedPage: requestedPage })
                             .then(function (response) {
@@ -311,8 +327,15 @@ function handlePageChange(ev) {
                         })];
                 case 2:
                     data = (_a.sent()).data;
-                    _a.label = 3;
+                    return [3 /*break*/, 4];
                 case 3:
+<<<<<<< HEAD
+                    error_2 = _a.sent();
+                    console.log("error in handleRenderPage:");
+                    console.log(error_2.message);
+                    return [3 /*break*/, 4];
+                case 4: return [2 /*return*/];
+=======
                     if (!(requestedPage === "settings")) return [3 /*break*/, 5];
                     return [4 /*yield*/, axios.post("/users/nav", {
                             userURL: userURL,
@@ -354,11 +377,24 @@ function handlePageChange(ev) {
                     console.log(error_1.message);
                     return [3 /*break*/, 11];
                 case 11: return [2 /*return*/];
+>>>>>>> main
             }
         });
     });
 }
-function getUsersTasks(userId, currentPage) {
+function handleGetUsersTasks(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        var userURL, userId;
+        return __generator(this, function (_a) {
+            userURL = ev.target.baseURI;
+            userId = userURL.split("/")[1];
+            getUsersTasks(userId);
+            return [2 /*return*/];
+        });
+    });
+}
+// addGlobalEventListener(onload, '#landing__task-count',getUsersTasks(window.location.href), {})
+function getUsersTasks(userId) {
     return __awaiter(this, void 0, void 0, function () {
         var data, currentUsersTasks, error_2;
         return __generator(this, function (_a) {
@@ -369,8 +405,12 @@ function getUsersTasks(userId, currentPage) {
                 case 1:
                     data = (_a.sent()).data;
                     currentUsersTasks = data;
+<<<<<<< HEAD
+                    renderTasks(currentUsersTasks);
+=======
                     console.log(currentUsersTasks);
                     renderTasks(currentUsersTasks, currentPage);
+>>>>>>> main
                     return [3 /*break*/, 3];
                 case 2:
                     error_2 = _a.sent();
@@ -382,12 +422,20 @@ function getUsersTasks(userId, currentPage) {
         });
     });
 }
-function renderTasks(currentUsersTasks, currentPage) {
+function renderTasks(currentUsersTasks) {
     return __awaiter(this, void 0, void 0, function () {
-        var html, formHtml, tasksRoot, tasksCount, counterRoot, tasksRoot, nextRoot, nextTask, formField;
+        var html, tasksBoxes, tasksCount;
         return __generator(this, function (_a) {
-            sortTasksByDate(currentUsersTasks);
+            console.log(currentUsersTasks);
             html = "";
+<<<<<<< HEAD
+            tasksBoxes = document.querySelector("[data-box-root]");
+            tasksCount = document.querySelector("[data-task-count]");
+            currentUsersTasks.forEach(function (task) {
+                html += "\n  <div class=\"box " + task.urgency + "\">\n                        <div id=\"box__flex\">\n                            <div class=\"box__header\">\n                                <div class=\"box__title\">\n                                    <p class=\"box__title-text box__title-home-text\">" + task.title + "</p>\n                                </div>\n                            </div>\n                            <div class=\"box__expln box__expln-home\">\n                                <div class=\"flex-date\">\n                                    <i class=\"material-icons\">schedule</i>\n                                    <p>" + task.date + "</p>\n                                </div>\n                            </div>\n                            <h4>" + task.urgency + " priority</h4>\n                        </div>\n                    </div>";
+            });
+            tasksBoxes.innerHTML = html;
+=======
             formHtml = "";
             try {
                 if (currentPage === "Home") {
@@ -435,6 +483,7 @@ function renderTasks(currentUsersTasks, currentPage) {
                 console.log(error);
                 console.error(error.message);
             }
+>>>>>>> main
             return [2 /*return*/];
         });
     });
@@ -446,6 +495,8 @@ function addGlobalEventListener(type, selector, callback, options, parent) {
             callback(e);
     }, options);
 }
+<<<<<<< HEAD
+=======
 function sortTasksByDate(tasks) {
     tasks.forEach(function (task) {
         var year = new Date(task.date).getFullYear();
@@ -684,3 +735,4 @@ function renderTaskModal(ev) {
         });
     });
 }
+>>>>>>> main

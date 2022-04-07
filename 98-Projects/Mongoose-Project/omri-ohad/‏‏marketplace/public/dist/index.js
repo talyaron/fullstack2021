@@ -101,13 +101,15 @@ function handleGetProducts() {
         });
     });
 }
-function renderItemsMain(items, ok, userName) {
+function renderItemsMain(items) {
     var html = '';
     var rootItems = document.querySelector('.mainPage__middle--products');
     if (items) {
         items.forEach(function (item) {
             html += "\n            <div class=\"mainPage__middle--products--item\">\n                <img src=\"" + item.pic + "\" title='" + item.title + "'>\n                <h4>" + item.description + "</h4>\n                <p>" + item.price + "$</p>\n                <i title=\"Add product to cart\" id=\"myBtn\" class=\"fa fa-shopping-cart\"></i>\n                <i class=\"fa fa-heart\"></i>\n            </div>\n            ";
         });
+<<<<<<< HEAD
+=======
         if (localStorage.getItem("name") != null) {
             document.querySelector(".mainPage__header--welcome").innerHTML = "\n            </br>\n            hello " + localStorage.getItem("name") + "\n            </br>\n            <button class=\"LogOutBtn\" onclick=\"localStorage.clear();location.reload()\">log out</button>  \n            ";
             document.querySelector(".mainPage__header--icons").innerHTML = "\n                <a href=\"index.html\"><i class=\"fa fa-home\" ></i></a>\n                <a href=\"personal-zone.html\"><i class=\"fa fa-user\" ></i></a>\n                <i id=\"\" class=\"fa fa-shopping-cart\"></i>\n            ";
@@ -118,12 +120,17 @@ function renderItemsMain(items, ok, userName) {
         else {
             document.querySelector(".mainPage__header--welcome").innerHTML = '';
         }
+>>>>>>> main
         rootItems.innerHTML = html;
     }
 }
-function renderProducts(products, ok, userName) {
+function renderProducts(products) {
     var html = products.map(function (product) {
+<<<<<<< HEAD
+        return "\n        <div class=\"mainPage__middle--products--item\">\n        <div><i class=\"fa fa-trash-o\" style=\"font-size:20px;cursor: pointer;\" title=\"Delete product\" onclick='handleDelete(\"" + product._id + "\")'></i></div>\n        <img src=\"" + product.pic + "\" title='" + product.title + "'>\n        <p>" + product.title + ".</p>\n        <p>" + product.price + "$</p>\n        <p>" + product.description + ".</p>\n        <form onsubmit=\"handleUpadte(event,'" + product._id + "')\">\n            <input type = 'text' name = 'newImg' placeholder = 'Update img' >\n            <input type = 'text' name = 'newTitle' placeholder = 'Update title'>\n            <input type = 'text' name = 'newPrice' placeholder = 'Update price'>\n            <input type = \"submit\" value = \"Update\">\n        </form>\n        </div>\n        ";
+=======
         return "\n        <div class=\"mainPage__middle--products--item\" id=\"card\">\n        <div id=\"trash\"><i class=\"fa fa-trash-o\" style=\"font-size:20px;cursor: pointer;\" title=\"Delete product\" onclick='handleDelete(\"" + product._id + "\")'></i></div>\n        <img src=\"" + product.pic + "\" title='" + product.title + "'>\n        <p>" + product.title + ".</p>\n        <p>" + product.price + "$</p>\n        <p>" + product.description + ".</p>\n        <form onsubmit=\"handleUpadte(event,'" + product._id + "')\">\n            <input type = 'text' name = 'newImg' placeholder = 'Update img' >\n            <input type = 'text' name = 'newTitle' placeholder = 'Update title'>\n            <input type = 'text' name = 'newPrice' placeholder = 'Update price'>\n            <input type = \"submit\" value = \"Update\">\n        </form>\n        </div>\n        ";
+>>>>>>> main
     }).join('');
     if (localStorage.getItem("name") != null) {
         document.querySelector(".mainPage__header--welcome").innerHTML = "\n        </br>\n        hello " + localStorage.getItem("name") + "\n        </br>\n        <button class=\"LogOutBtn\" onclick=\"localStorage.clear();location.reload()\">log out</button>  \n        ";
@@ -235,6 +242,8 @@ function handleDescending() {
         });
     });
 }
+<<<<<<< HEAD
+=======
 function handleSignUp(ev) {
     return __awaiter(this, void 0, void 0, function () {
         var _a, email, password, userName, data;
@@ -287,3 +296,4 @@ function handleLogin(ev) {
         });
     });
 }
+>>>>>>> main

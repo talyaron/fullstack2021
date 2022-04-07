@@ -15,9 +15,11 @@
     <div class="mainPage">
 
         <div class="mainPage__header">
-         
             <div class="mainPage__header--icons">
                 <a href="index.html"><i class="fa fa-home" ></i></a>
+<<<<<<< HEAD
+                <a href="personal-zone.html"><i class="fa fa-user" ></i></a>
+=======
                 <!-- <a href="personal-zone.html"><i class="fa fa-user" ></i></a> -->
 
                 <i id="myBtn" class="fa fa-sign-in"></i>
@@ -56,17 +58,18 @@
                         </div>
                       <!-- </div> -->
                 </div>
+>>>>>>> main
             </div>
             <div class="mainPage__header--title"><h1>MARKET PLACE</h1></div>
-            <div class="mainPage__header--welcome"></div>
+            <div class="mainPage__header--welcome">Hello Moshe</div>
         </div>
 
         <div class="mainPage__middle">
             <div class="mainPage__middle--products"></div>
             
             <div class="mainPage__middle--categories" onclick="handleCategoryShow(event)">
-                <button class="btn" onclick="handleAscending()">sort low to high</button>
-                <button class="btn" onclick="handleDescending()">sort high to low</button>
+                <button onclick="handleAscending()">sort low to high</button>
+                <button onclick="handleDescending()">sort high to low</button>
                 <h4>Show All</h4>
                 <h4>Games</h4>
                 <h4>Books</h4>
@@ -75,31 +78,12 @@
                 <h4>Hats</h4>
             </div>
         </div>
-        
 
-        <!-- <div class="mainPage__footer"></div> -->
+        <div class="mainPage__footer"></div>
     </div>
-
+    <!-- <div class="gg">
+   
+</div> -->
     <script src="./dist/index.js"></script>
-
-
-
-    <script>
-        let PopUp = document.getElementById("myPopUp");
-        let btn = document.getElementById("myBtn");
-        let span = document.getElementsByClassName("close")[0];
-        btn.onclick = function() {
-          PopUp.style.display = "block";
-        }
-        span.onclick = function() {
-          PopUp.style.display = "none";
-        }
-        // window.onclick = function(event) {
-        //   if (event.target == PopUp) {
-        //     PopUp.style.display = "none";
-        //   }
-        // }
-        </script>
-
 </body>
 </html>

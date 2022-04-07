@@ -36,6 +36,8 @@
   padding: 1.2rem;
   font-family: "Barlow", sans-serif;
   color: #585568;
+<<<<<<< HEAD
+=======
 }
 .mainPage__header--welcome i {
   color: white;
@@ -43,6 +45,7 @@
   position: relative;
   right: 79.5vw;
   bottom: 3px;
+>>>>>>> main
 }
 .mainPage__middle {
   display: grid;
@@ -63,7 +66,6 @@
   margin-top: 50px;
   margin-left: auto;
   margin-right: auto;
-  position: relative;
 }
 .mainPage__middle--products--item img {
   width: 100%;
@@ -120,65 +122,24 @@
   height: 100%;
   overflow: auto;
   cursor: auto;
-  backdrop-filter: blur(8px);
 }
-.popup__text {
-  background-color: #ffffff;
-  margin-top: auto;
-  padding: 20px;
-  border: 1px solid #d8d8d8;
-  width: 12.3%;
-  height: fit-content;
-  min-height: 30%;
-  bottom: 88%;
-  border-radius: 7px;
-}
-.popup__text__row {
-  color: #2b2929;
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  text-align: center;
-}
-.popup__text__row img {
-  width: 50px;
-  height: 50px;
-}
-
-.close {
-  color: #aaaaaa;
-  float: left;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover, .close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.main {
+.popup__text .main {
   width: 350px;
   height: 500px;
-  background: #bb7e23;
+  background: #472791;
   overflow: hidden;
   border-radius: 10px;
   box-shadow: 5px 20px 50px #000;
-  margin-left: 40vw;
 }
-
-#chk {
+.popup__text #chk {
   display: none;
 }
-
-.signup {
+.popup__text .signup {
   position: relative;
   width: 100%;
   height: 100%;
 }
-
-label {
+.popup__text label {
   color: #fff;
   font-size: 2.3em;
   justify-content: center;
@@ -188,8 +149,7 @@ label {
   cursor: pointer;
   transition: 0.5s ease-in-out;
 }
-
-.input {
+.popup__text input {
   width: 60%;
   height: 20px;
   background: #e0dede;
@@ -201,8 +161,7 @@ label {
   outline: none;
   border-radius: 5px;
 }
-
-.btn {
+.popup__text button {
   width: 60%;
   height: 40px;
   margin: 10px auto;
@@ -219,41 +178,41 @@ label {
   transition: 0.2s ease-in;
   cursor: pointer;
 }
-
-.btn:hover {
+.popup__text button:hover {
   background: #6d44b8;
 }
-
-.login {
+.popup__text .login {
   height: 460px;
   background: #eee;
   border-radius: 60%/10%;
   transform: translateY(-180px);
   transition: 0.8s ease-in-out;
 }
-
-.login label {
+.popup__text .login label {
   color: #573b8a;
   transform: scale(0.6);
 }
-
-#chk:checked ~ .login {
+.popup__text #chk:checked ~ .login {
   transform: translateY(-500px);
 }
-
-#chk:checked ~ .login label {
+.popup__text #chk:checked ~ .login label {
   transform: scale(1);
 }
-
-#chk:checked ~ .signup label {
+.popup__text #chk:checked ~ .signup label {
   transform: scale(0.6);
 }
-
-#trash {
-  position: relative;
-  top: 2vw;
-  z-index: -1;
+.popup__text__row {
+  color: #2b2929;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  text-align: center;
 }
+<<<<<<< HEAD
+.popup__text__row img {
+  width: 50px;
+  height: 50px;
+=======
 
 #card:hover #trash {
   z-index: 0;
@@ -268,4 +227,5 @@ label {
   font-size: 16px;
   border-radius: 7px;
   cursor: pointer;
+>>>>>>> main
 }

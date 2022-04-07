@@ -1,19 +1,19 @@
 import Places from "../model/placesModel";
 
-// export const getPlaces = async (req, res) => {
-//   try {
-//     const places = await Places.find({});
-//     // .limit(20);
-//     console.log(Places);
+export const getPlaces = async (req, res) => {
+  try {
+    const places = await Places.find({});
+    // .limit(20);
+    console.log(Places);
 
-//     console.log(places);
+    console.log(places);
 
-//     res.send({ ok: true, places });
-//   } catch (error) {
-//     console.error(error);
-//     res.send({ error: "error in app.get/getPlaces" });
-//   }
-// };
+    res.send({ ok: true, places });
+  } catch (error) {
+    console.error(error);
+    res.send({ error: "error in app.get/getPlaces" });
+  }
+};
 export const getfilteredAirBNB = async (req, res) => {
   try {
     let price1 = req.body;
@@ -115,6 +115,25 @@ export const findPlaceMap = async (req, res) => {
 };
 export const searchAirbnb = async (req, res) => {
   try {
+<<<<<<< HEAD
+    let {
+      // search, 
+      // checkIn, checkOut,
+       adults,
+        // children, infants, pets 
+    } =
+      req.query;
+
+    console.log(
+      // search, 
+      // checkIn, checkOut, 
+      adults,
+      //  children, infants, pets
+      );
+    const places = await Places.find({"neighbourhood":"Hong Kong"}).limit(20);
+    //  $query = array(accommodates => $userInput);
+    //  {$query : Array(accommodates => `${adults}`)}
+=======
     let { search, checkIn, checkOut, adults, children, infants, pets, accommodates } =
       req.query;
 
@@ -134,19 +153,45 @@ export const searchAirbnb = async (req, res) => {
     const places = await Places.find({ address_country: `${search}`, accommodates: sum });
 
     res.send({ ok: true, places });
+>>>>>>> main
 
-    // console.log(places)
+    console.log(places)
+    res.send({ ok: true, places })
   } catch (error) {
     console.log(error.error);
     res.send({ error: error.massage });
   }
 };
 
-export const searchAirbnbByCity = async (req, res) => {
-  // const placesInTelaviv = await Places.find({"address.country":{ $eq:"Brazil"}}).limit(20);
-  let { city } = req.body;
 
-  const airbnbInCity = await Places.find({ address_country: city }).limit(10);
-  // console.log(airbnbInCity);
-  res.send({ ok: true, theCity: airbnbInCity });
+export const searchAirbnbInTelaviv = async (req, res) => {
+  
+ 
+    // const placesInTelaviv = await Places.find({"address.country":{ $eq:"Brazil"}}).limit(20);
+    const placesInTelaviv = await Places.find({address:{ country:"Brazil"}}).limit(10);
+    console.log(placesInTelaviv)
+    res.send({ ok: true, placesInTelaviv })
+  
 };
+
+export const search = async (req, res) => {
+  try {
+    const places = await Places.find({});
+    const search = req.query.search;
+    const serchPlace = searchPlaces(search, places);
+    console.log(search, " ", places);
+
+    res.send(serchPlace);
+  } catch (error) {
+    console.log(error.error);
+    res.send({ error: error.massage });
+  }
+};
+function searchPlaces(search, places) {
+  if (search) {
+    const regex = new RegExp(search, "i");
+    return places.filter((searchedTerm) => regex.test(searchedTerm.name));
+  } else {
+    return places;
+  }
+}
