@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.updateUser = exports.passwordCheck = exports.renderPage = exports.renderUser = exports.login = exports.addUser = void 0;
+exports.renderPage = exports.renderUser = exports.login = exports.addUser = void 0;
 var userModel_1 = require("../model/userModel");
 exports.addUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var _a, firstName, lastName, email, password, role, gender, aUser, newUser, result, error_1;
@@ -171,7 +171,7 @@ exports.renderPage = function (req, res) { return __awaiter(void 0, void 0, void
                         });
                     }
                     catch (error) {
-                        console.log("error in renderPage: home");
+                        console.log("error in renderPage:");
                         console.log(error.message);
                         res.send({ error: error.message });
                         // }
@@ -191,7 +191,7 @@ exports.renderPage = function (req, res) { return __awaiter(void 0, void 0, void
                         });
                     }
                     catch (error) {
-                        console.log("error in renderPage: settings");
+                        console.log("error in renderPage:");
                         console.log(error.message);
                         res.send({ error: error.message });
                         // }
@@ -205,13 +205,15 @@ exports.renderPage = function (req, res) { return __awaiter(void 0, void 0, void
                         });
                     }
                     catch (error) {
-                        console.log("error in renderPage: info");
+                        console.log("error in renderPage:");
                         console.log(error.message);
                         res.send({ error: error.message });
                         // }
                     }
                     return [2 /*return*/];
                 }
+<<<<<<< HEAD
+=======
                 if (requestedPage === "RecentlyCreated") {
                     try {
                         res.send({
@@ -280,19 +282,8 @@ exports.updateUser = function (req, res) { return __awaiter(void 0, void 0, void
             case 3:
                 updatedUser = _b.sent();
                 res.send({ updatedUser: updatedUser });
+>>>>>>> main
                 return [2 /*return*/];
-            case 4:
-                if (updateStatus === 0) {
-                    res.send({ updateStatus: updateStatus });
-                }
-                return [3 /*break*/, 6];
-            case 5:
-                error_4 = _b.sent();
-                console.log("error in updateUser");
-                console.log(error_4.message);
-                res.send({ error: error_4.message });
-                return [3 /*break*/, 6];
-            case 6: return [2 /*return*/];
         }
     });
 }); };

@@ -1,41 +1,51 @@
 
-// async function loadPlaces(data) {
-// //   const { data } = await axios.get("/places/getPlaces");
-// //   console.log(data);
-//  console.log(data)
-//   renderAirbnbOptions(data)
+
+<<<<<<< HEAD
+async function loadPlaces() {
+    const { data } = await axios.get('/places/getPlaces')
+    console.log(data);
+
+    //  renderAirbnb(data);
+}
+=======
+
 
  
 // }
+>>>>>>> main
 //loadPlaces()
-async function handleLoadPlace() {
-  try {
-    const { data } = await axios.get("/places/getToPlace");
 
-    console.log(data);
-    renderPlace(data);
-  } catch (error) {
-    console.error(error.message);
-  }
+async function handleLoadPlace() {
+    try {
+
+
+        const { data } = await axios.get('/places/getToPlace');
+
+        console.log(data);
+        renderPlace(data);
+
+    } catch (error) {
+        console.error(error.message);
+
+    }
 }
 async function handleGoToPlace(placeId) {
-  const { data } = await axios.get("/goToPlace", { data: { placeId } });
-  renderPlace(data);
+    const { data } = await axios.get('/goToPlace', { data: { placeId } })
+    renderPlace(data)
 }
 function renderPlace(data: Array<any>) {
-  try {
-    const html = data
-      .map((place) => {
-        return `<div class="mainUpper">
+    try {
+        const html = data.map(place => {
+            return `<div class="mainUpper">
     <div class="maiUpper__title">
         <h1>${place.name}</h1>
        <h3>${place.price}$</h3>
     </div>
     <div class="mainUpper__photoGrid">
-        <div class="mainUpper__photoGrid--bigPhoto"><img src="${place.images}" alt=""></div>
-        <div class="mainUpper__photoGrid--photo"><img src="${place.images}" alt=""></div>
-        <div class="mainUpper__photoGrid--photo"><img src="${place.images}" alt=""></div>
-            <div class="mainUpper__photoGrid--photo"><img src="${place.images}" alt=""></div>
+        <div class="mainUpper__photoGrid--bigPhoto"><img src="${place.images.xl_picture_url}" alt=""></div>
+        <div class="mainUpper__photoGrid--photo"><img src="${place.images.medium_url}" alt=""></div>
+        <div class="mainUpper__photoGrid--photo"><img src="${place.images.picture_url}" alt=""></div>
+            <div class="mainUpper__photoGrid--photo"><img src="${place.images.thumbnail_url}" alt=""></div>
     </div>
 
 </div>
@@ -43,14 +53,20 @@ function renderPlace(data: Array<any>) {
     <div class="mainMiddle__left">
         <div class="mainMiddle__left--up">
             <div class="mainMiddle__left--up--title">   
-            <h2>entire rental unit hosted by ${place.host}</h2>
-        <h6>${place.accommodates} <span>&#8226;</span> ${place.bedrooms} <span>&#8226;</span> ${place.beds} <span>&#8226;</span>${place.bathrooms}</h6></div>
+            <h2>entire rental unit hosted by ${place.host.host_name}</h2>
+        <h6>${place.accommodates} <span>&#8226;</span> ${place.bedrooms} <span>&#8226;</span> ${place.beds} <span>&#8226;</span> 1 bath</h6></div>
         <div class="mainMiddle__left--up--profile">
-            <img src="${place.host}">
+            <img src="${place.host.host_picture_url}">
         </div>
     </div>
     <div class="mainMiddle__left--great">
+        <h5>${place.space}</h5>
         <h5>${place.description}</h5>
+    </div>
+    <div class="mainMiddle__left--aboutUs">
+        <p>${place.summary}
+            </p>
+            <a href="#">show more</a>
     </div>
     <div class="mainMiddle__left--bed">
         <h2>where you'll sleep</h2>
@@ -71,7 +87,90 @@ function renderPlace(data: Array<any>) {
         <input type="date" id="birthday" name="birthday">
     </div>
     </div>
-   
+    <div class="mainMiddle__stiky">
+    <form class="form">
+    <div class="form--searchLocation">
+        <label for="searchLocation">Location <br>
+            <input id="searchLocation" type="text" placeholder="Where are you going?">
+        </label>
+        <div class="dropdown">
+            <p>Adults
+                Ages 13 or above</p>
+            <p>Children
+                Ages 2–12</p>
+            <p>Infants
+                Under 2</p>
+            <p>
+                Pets
+                Bringing a service animal?
+            </p>
+
+        </div>
+    </div>
+
+    <div class="form--checkIn">
+        <label for="checkIn">Check in <br>
+            <button id="checkIn">Add dates</button>
+        </label>
+        <div class="dropdown">
+            <p>Adults
+                Ages 13 or above</p>
+            <p>Children
+                Ages 2–12</p>
+            <p>Infants
+                Under 2</p>
+            <p>
+                Pets
+                Bringing a service animal?
+            </p>
+
+        </div>
+    </div>
+
+    <div class="form--checkOut">
+        <label for="checkOut">Check out<br>
+            <button id="checkOut">Add dates</button>
+        </label>
+        <div class="dropdown">
+            <p>Adults
+                Ages 13 or above</p>
+            <p>Children
+                Ages 2–12</p>
+            <p>Infants
+                Under 2</p>
+            <p>
+                Pets
+                Bringing a service animal?
+            </p>
+
+        </div>
+    </div>
+
+    <div class="form--guests">
+        <label for="guests">Guests<br>
+            <button id="guests">Add guests</button>
+        </label>
+        <div class="dropdown">
+            <p>Adults
+                Ages 13 or above</p>
+            <p>Children
+                Ages 2–12</p>
+            <p>Infants
+                Under 2</p>
+            <p>
+                Pets
+                Bringing a service animal?
+            </p>
+
+        </div>
+    </div>
+
+
+    <a href="" class="form--searchIcon"><input type="image" src="images/searchIcon.png" ></a>
+
+
+</form>
+    </div>
 </div>
 <div class="reviews">
      <h3>review</h3>
@@ -139,6 +238,38 @@ function renderPlace(data: Array<any>) {
             </p>
         </div>
  </div> 
+ <div class="reviews__review">
+      <div class="name">
+      <h5>
+        ${place.reviews.reviewer_name}
+        </h5>
+      </div>
+      <div class="year">
+      <h6>
+      ${place.reviews.date}
+      </h6>
+      </div>
+      <div class="theReview">
+          <p>${place.reviews.comments}
+            </p>
+        </div>
+ </div> 
+ <div class="reviews__review">
+      <div class="name">
+      <h5>
+        ${place.reviews.reviewer_name}
+        </h5>
+      </div>
+      <div class="year">
+      <h6>
+      ${place.reviews.date}
+      </h6>
+      </div>
+      <div class="theReview">
+          <p>${place.reviews.comments}
+            </p>
+        </div>
+ </div> 
 </div>
 <div id="map">
 <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d26081603.294420466!2d-95.677068!3d37.06250000000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1siw!2s!4v1648657793371!5m2!1siw!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -146,11 +277,11 @@ function renderPlace(data: Array<any>) {
 <div class="aboutHost">
     <div class="aboutHost--left">
         <div class="aboutHost--left--profileHost">
-            <img src="${place.host}" alt="" style="width:50px; height:50px; border-radius:100%;">
+            <img src="${place.hosthost_picture_url}" alt="" style="width:50px; height:50px; border-radius:100%;">
         </div>
         <div class="aboutHost--left--title">
             <h2>
-                hosted by ${place.host}
+                hosted by ${place.host.host_name}
             </h2>
         </div>
         <div class="aboutHost--left--review">
@@ -168,10 +299,10 @@ function renderPlace(data: Array<any>) {
             languages: english, francais, hebrew
         </h5>
         <h5>
-            response rate: ${place.reviews_rating}
+            response rate: ${place.host.host_response_rate}
         </h5>
         <h5>
-            response time: ${place.reviews_rating}
+            response time: ${place.host_host_response_time}
         </h5>
         <button>
             contact host
@@ -221,22 +352,32 @@ Carbon monoxide alarm not reported Show more
     </ul>
     <div class="toKnow__cancle">
         <h5>cancellation policy</h5>
-        <p>${place.cancel}</p>
+        <p>${place.cancellation_policy}</p>
         <button>add dates</button>
     </div>
     
-</div>`;
-      })
-      .join("");
-    // console.log(html)
+</div>`
+        })
+            .join('');
+        // console.log(html)
 
-    document.querySelector("#rootPlace").innerHTML = html;
-  } catch (error) {
-    console.error(error.message);
-  }
+        document.querySelector('#rootPlace').innerHTML = html;
+    }
+    catch (error) {
+        console.error(error.message);
+
+    }
 }
 
+
+
+
+
+
 async function handleFindAirbnb(ev) {
+<<<<<<< HEAD
+    ev.preventDefault();
+=======
   ev.preventDefault();
   
   const search = ev.target.elements.searchLocation.value;
@@ -260,25 +401,56 @@ async function handleFindAirbnb(ev) {
     // console.log(options)
  
   // ev.target.reset();
+ 
 }
+>>>>>>> main
 
-async function handleCities(ev) {
+
+    //const search = ev.target.elements.searchLocation.value;
+    // const checkIn = ev.target.elements.checkIn.value;
+    // const checkOut = ev.target.elements.checkOut.value;
+     const adults = ev.target.elements.adults.value;
+    // const children = ev.target.elements.children.value;
+    // const infants = ev.target.elements.infants.value;
+    // const pets = ev.target.elements.pets.value;
+
+    console.log(
+        // search, 
+        // checkIn, checkOut, 
+        adults,
+        //  children, infants, pets
+        )
+
+    const { data } = await axios.get(`/places/search-airbnb?adults=${adults} `)
+    // search=${search}&checkIn=${checkIn}&checkOut=${checkOut}&adults=${adults}&children=${children}&infants=${infants}&pets=${pets}
+    console.log(data)
+    // ev.target.reset();
+};
+
+async function handleTelaviv() {
   
-  const city = ev.target.dataset.card;
-  console.log(city);
-
-  const { data } = await axios.post("/places/search-city", { city });
-  console.log(data);
+    const { data } = await axios.get('/places/search-telaviv')
+    // search=${search}&checkIn=${checkIn}&checkOut=${checkOut}&adults=${adults}&children=${children}&infants=${infants}&pets=${pets}
+    console.log(data)
+    
 }
 
-
+<<<<<<< HEAD
+// async function handleSearchCity(ev){
+//     const search=ev.target.value;
+//     console.log(search);
+//     const {data}=await axios.get(`'/search-airbnb'?search=${search}`);
+//     const{city}=data;
+//     console.log({city})
+// }
 
 async function handleFilter(ev) {
-  const price = ev.target.elements.price.valueAsNumber;
-  //console.log(price);
-  const { data } = await axios.get("/places/getFiltered", { data: { price } });
-}
+    const price = ev.target.elements.price.valueAsNumber;
+    console.log(price);
+    const { data } = await axios.get('/places/getFiltered', { data: { price } });
 
+}
+=======
 function renderAirbnbOptions(places:Array<any>) {
     
     try{
@@ -321,3 +493,56 @@ function renderAirbnbOptions(places:Array<any>) {
     
     
 }
+
+function handlePopup() {
+    var popup = document.getElementById("myPopup");
+    //popup.classList.toggle("show");
+   
+    const showPopupText:any=document.querySelector('.popuptext');
+    showPopupText.style.visibility="visible";
+} 
+
+async function handleLogin(ev) {
+    ev.preventDefault()
+    let {userName,password,role}=ev.target.elements;
+    userName=userName.value
+    password=password.value
+    role=role.value
+    
+
+    console.log(userName,password,role)
+   //console.log(userName,password)
+    const { data } = await axios.post("/users/login", {userName,password,role});
+    console.log(data)
+
+    if(data.login){
+        const showPopupText:any=document.querySelector('.popuptext');
+        showPopupText.style.visibility="hidden";
+        //document.body.style.backgroundColor="red";
+        if(role==="admin"){
+            document.body.style.backgroundColor="red";
+        }else if(role==="host"){
+            document.body.style.backgroundColor="blue";
+        }else{
+            document.body.style.backgroundColor="green";
+        }
+       
+      
+      
+    }
+}
+
+
+
+async function handleRegister(ev) {
+    ev.preventDefault()
+    
+    let {newUserName,newPassword,newRole}=ev.target.elements;
+    newUserName=newUserName.value
+    newPassword=newPassword.value
+    newRole=newRole.value
+   
+    const { data } = await axios.post("/users/add-User",  { newUserName,newPassword,newRole } );
+    console.log(data)
+}
+>>>>>>> main

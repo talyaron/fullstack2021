@@ -1,10 +1,12 @@
 import express from "express";
 import mongoose from "mongoose";
+const cookieParser = require('cookie-parser')
 const app = express();
 const port = process.env.PORT || 3002;
 
 app.use(express.static("public"));
 app.use(express.json());
+app.use(cookieParser());
 
 
 mongoose.connect('mongodb+srv://OmriAharonov:hYYFfWDZwNqMjKAe@cluster0.kv5s6.mongodb.net/MarketPlaceData?retryWrites=true&w=majority') 

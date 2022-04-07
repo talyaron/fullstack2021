@@ -5,29 +5,38 @@ import mongoose from "mongoose";
 // })
 const PlacesSchema = new mongoose.Schema(
   {
-    id:String,
+    _id: String,
+    access: String,
     accommodates: String,
-    address:String,  
-    address_country: String,
-    address_country_code: String,
-    name:String,
-    checkIn:String,
-    checkOut:String,
-    amenities: String,
-    bedrooms: String,
-    beds: String,   
-    number_of_reviews:String,
-    price: String,
+    address: {
+      country:String,
+      country_code:String
+    
+    },   
+    name: String,
+    summary: String,
+    checkIn: String,
+    checkOut: String,
+    amenities: Array,
+    bedrooms: Number,
+    beds: Number,
+    number_of_reviews: Number,
+    price: Number,
     cancle: String,
-    bathrooms: String,
+    bathrooms: Number,
     images: String,
-    host: String,   
-    description: String,    
-    bed_type: String,   
-    reviews:String,
-    reviews_rating:String
+    host: Object,
+    space: String,
+    description: String,
+    bed_type: String,
+    reviews: Array,
+    cancellation_policy: String,
   },
- 
+  // {
+  //   capped: { size: 1024 },
+  //   bufferCommands: false,
+  //   autoCreate: false,
+  // }
 );
 
 const Places = mongoose.model("airbnbLocations", PlacesSchema);

@@ -2,7 +2,6 @@
 exports.__esModule = true;
 var mongoose_1 = require("mongoose");
 var imageSchema = new mongoose_1["default"].Schema({
-    profileUrl: String,
     url: [String],
     email: String,
     password: String
