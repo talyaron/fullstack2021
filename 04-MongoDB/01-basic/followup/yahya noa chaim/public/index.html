@@ -43,15 +43,23 @@
                 alt="">
     </div>-->
 
-    <input type="text" value="" id="search">
+    
 
-    <button onclick="handleGetUsers()">get</button>
-    <form onsubmit="handleSubmit(event)">
-        <input type="text" name="username" placeholder="username">
-        <input type="password" name="password" placeholder="passord">
-        <input type="submit" name="submit" value="submit">
-    </form>
-    <script src="dist/index.js"></script>
+    <body>
+        <form id="register" onsubmit="handleRegister(event)">
+            <input type="text" name="username" placeholder="user name">
+            <input type="password" name="password" autocomplete="current-password" placeholder="password">
+            <input type="submit" value="Register">
+        </form>
+        <form id="register" onsubmit="handleLogin(event)">
+            <input type="text" name="username" placeholder="user name">
+            <input type="password" name="password" autocomplete="current-password" placeholder="password">
+            <input type="submit" value="Login">
+        </form>
+        <button onclick="handleGetUsers()">GET USERS</button>
+        <div id="users"></div>
+
+        <script src="dist/index.js"></script>
     <div id="root"></div>
 </body>
 

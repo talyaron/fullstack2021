@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -11,12 +11,12 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="dist/style.css">
 </head>
-<body onload="handlestore(event)">
-    <a href="costomer.html"></a>
+<body onload="handlestore()">
+    
     <div class="books">
         <h1 class="books-header">books store</h1>
     
-        <form action="books_form"></form>
+        <form id="books_form"></form>
 
         <select class="books_form-Catagories" name="catagories" id="catagories">
             <option class="books_form-Catagories-options" value="option">Catagories</option>
@@ -28,16 +28,20 @@
         </select>
 </form>
 <div class="books_form-btn">
-            <button id="Add" type="button" name="Add"  value="ADD">Add</button>
+            <button id="Add" onclick="handleaddbooks(event)" name="Add"  value="ADD">Add</button>
             <button id="filter" type="button" name="filter"  value="filter">filter</button>
             <button id="delete" type="button" name="delete"  value="delete">delete</button>
             <button id="update" type="button" name="update"  value="update">update</button>
     
-    </div>    </button>        
     </div>
+  <h1>Home</h1>
+    <button onclick="handleGetUsers()">GET USERS</button>
+    <div id="users"></div>
+    <script src="dist/index.js"></script>
+</body>
     <div class="root" id="root"></div>
-    <script src="dist/index.min.js"></script>
+    <script src="dist/index.js"></script>
 
 </body>
 
-</html> -->
+</html>

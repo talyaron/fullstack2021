@@ -45,6 +45,19 @@ app.get('/get-users', async (req, res) => {
   }
 });
 
+app.post('/users,login', async (req, res)=>{
+try{
+  let {username, password}=req.body
+  console.log(username, password);
+  const newUser = new User({ username: name, password });
+  const result = await newUser.save();
+
+  res.send({ result });
+} catch (error) {
+  console.error(error.message);
+  res.send({ error: error.message });
+}
+});
 
 // app.patch("/delete-user", async (req, res) => {
 //   try {
