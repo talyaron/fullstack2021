@@ -10,12 +10,17 @@ const path_1 = __importDefault(require("path"));
 const userModel_1 = __importDefault(require("./model/userModel"));
 =======
 const placesModel_1 = __importDefault(require("./model/placesModel"));
+<<<<<<< HEAD
+>>>>>>> main
+=======
+const cookieParser = require('cookie-parser');
 >>>>>>> main
 // import axios from "axios";
 const app = express_1.default();
 const port = process.env.PORT || 3000;
 app.use(express_1.default.static("public"));
 app.use(express_1.default.json());
+<<<<<<< HEAD
 <<<<<<< HEAD
 // mongoose.connect("mongodb+srv://shay:shayFoyer1994@cluster0.xyd5y.mongodb.net/sample_airbnb?retryWrites=true&w=majority");
 //mongoose.connect('mongodb+srv://ShaniRom:ynbUaPL3oHZKGl8a@cluster0.vh1hg.mongodb.net/sample_airbnb?retryWrites=true&w=majority');
@@ -48,6 +53,9 @@ app.get("/", (req, res) => {
 //   address: Object,
 // });
 =======
+>>>>>>> main
+=======
+app.use(cookieParser());
 >>>>>>> main
 mongoose_1.default
     .connect("mongodb+srv://shay:shayFoyer1994@cluster0.xyd5y.mongodb.net/sample_airbnb?retryWrites=true&w=majority")
@@ -99,6 +107,8 @@ mongoose_1.default
 // });
 const placesRoutes_1 = __importDefault(require("./routes/placesRoutes"));
 app.use('/places', placesRoutes_1.default);
+const usersRoutes_1 = __importDefault(require("./routes/usersRoutes"));
+app.use('/users', usersRoutes_1.default);
 app.listen(port, () => {
     return console.log(`Express is listening at http://localhost:${port}`);
 });

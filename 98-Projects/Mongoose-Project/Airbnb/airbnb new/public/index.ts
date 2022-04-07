@@ -1,12 +1,20 @@
 
 
+<<<<<<< HEAD
 async function loadPlaces() {
     const { data } = await axios.get('/places/getPlaces')
     console.log(data);
 
     //  renderAirbnb(data);
 }
+=======
+
+
+ 
+// }
+>>>>>>> main
 //loadPlaces()
+
 async function handleLoadPlace() {
     try {
 
@@ -367,7 +375,35 @@ Carbon monoxide alarm not reported Show more
 
 
 async function handleFindAirbnb(ev) {
+<<<<<<< HEAD
     ev.preventDefault();
+=======
+  ev.preventDefault();
+  
+  const search = ev.target.elements.searchLocation.value;
+  const checkIn = ev.target.elements.checkIn.value;
+  const checkOut = ev.target.elements.checkOut.value;
+  const adults = ev.target.elements.adults.value;
+  const children = ev.target.elements.children.value;
+  const infants = ev.target.elements.infants.value;
+  const pets = ev.target.elements.pets.value;
+
+  console.log(search, checkIn, checkOut, adults, children, infants, pets);
+
+  const { data } = await axios.get(
+    `/places/search-airbnb?search=${search}&checkIn=${checkIn}&checkOut=${checkOut}&adults=${adults}&children=${children}&infants=${infants}&pets=${pets} `
+  );
+  console.log(data)
+
+   renderAirbnbOptions(data.places);
+   //  const {options}=data
+   //loadPlaces(data.places)
+    // console.log(options)
+ 
+  // ev.target.reset();
+ 
+}
+>>>>>>> main
 
 
     //const search = ev.target.elements.searchLocation.value;
@@ -399,6 +435,7 @@ async function handleTelaviv() {
     
 }
 
+<<<<<<< HEAD
 // async function handleSearchCity(ev){
 //     const search=ev.target.value;
 //     console.log(search);
@@ -413,3 +450,99 @@ async function handleFilter(ev) {
     const { data } = await axios.get('/places/getFiltered', { data: { price } });
 
 }
+=======
+function renderAirbnbOptions(places:Array<any>) {
+    
+    try{
+        console.log(places);
+        if(!Array.isArray(places)) throw new Error('sata is not an array');
+
+        const root:HTMLElement=document.querySelector('#rootPlaces');
+        let html="";
+        
+        places.forEach((place) => {   
+        html+= `<div class="card-grid__card" onclick="handleGoToPlace(${place._id}) " onclick="location.href='place.html'"> 
+                        <div class="card-header card-img">
+                            <img src="${place.images}" alt="">   
+                        </div>
+                    <div class="content">
+                        <div class="card-grid__card__card-header">
+                            <button class="btn"><img src="images/icons-heart.png" alt=""></button>
+                            <button class="btn btn-outline">${place.name}</button>
+                            <p>${place.address_country_code},${place.address_country}</p>
+                        </div>
+                        <div class="card-grid__card__card-body">
+                            <p>${place.description}</p>
+                        </div>
+                        <div class="card-grid__card__card-footer">
+                            <button class="btn"><p>${place.price}</p>/night</button>
+                            <button class="btn btn-outline"><p>${place.reviews_rating}</p></button>
+                        </div>
+                    </div>
+                </div>`        
+    
+        });
+        // let html=data.map(airbnb=>{
+        //     return `<p>${airbnb.name} </p>`
+        // }).join("");
+        root.innerHTML = html;
+        
+    }catch(error){
+        console.error(error.message)
+    }
+    
+    
+}
+
+function handlePopup() {
+    var popup = document.getElementById("myPopup");
+    //popup.classList.toggle("show");
+   
+    const showPopupText:any=document.querySelector('.popuptext');
+    showPopupText.style.visibility="visible";
+} 
+
+async function handleLogin(ev) {
+    ev.preventDefault()
+    let {userName,password,role}=ev.target.elements;
+    userName=userName.value
+    password=password.value
+    role=role.value
+    
+
+    console.log(userName,password,role)
+   //console.log(userName,password)
+    const { data } = await axios.post("/users/login", {userName,password,role});
+    console.log(data)
+
+    if(data.login){
+        const showPopupText:any=document.querySelector('.popuptext');
+        showPopupText.style.visibility="hidden";
+        //document.body.style.backgroundColor="red";
+        if(role==="admin"){
+            document.body.style.backgroundColor="red";
+        }else if(role==="host"){
+            document.body.style.backgroundColor="blue";
+        }else{
+            document.body.style.backgroundColor="green";
+        }
+       
+      
+      
+    }
+}
+
+
+
+async function handleRegister(ev) {
+    ev.preventDefault()
+    
+    let {newUserName,newPassword,newRole}=ev.target.elements;
+    newUserName=newUserName.value
+    newPassword=newPassword.value
+    newRole=newRole.value
+   
+    const { data } = await axios.post("/users/add-User",  { newUserName,newPassword,newRole } );
+    console.log(data)
+}
+>>>>>>> main

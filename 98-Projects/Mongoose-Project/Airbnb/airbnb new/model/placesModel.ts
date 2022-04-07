@@ -41,9 +41,3 @@ const PlacesSchema = new mongoose.Schema(
 
 const Places = mongoose.model("airbnbLocations", PlacesSchema);
 export default Places;
-const userSchema = new mongoose.Schema({
-  name: String,
-  password: String,
-});
-const Users = mongoose.model("users", userSchema);
-export const users = Users;

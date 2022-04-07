@@ -130,6 +130,7 @@ function HandleLogin(ev) {
     return __awaiter(this, void 0, void 0, function () {
         var password, email, userData, imagesData, user, images, error_1;
         return __generator(this, function (_a) {
+<<<<<<< HEAD
             switch (_a.label) {
                 case 0:
                     _a.trys.push([0, 3, , 4]);
@@ -153,6 +154,18 @@ function HandleLogin(ev) {
                     console.error(error_1.message);
                     return [3 /*break*/, 4];
                 case 4: return [2 /*return*/];
+=======
+            try {
+                ev.preventDefault();
+                password = ev.target.elements.password.value;
+                email = ev.target.elements.email.value;
+                localStorage.setItem("UserEmail", JSON.stringify("" + email));
+                localStorage.setItem("UserPassword", JSON.stringify("" + password));
+                renderProfile(email, password);
+            }
+            catch (error) {
+                console.error(error.message);
+>>>>>>> main
             }
         });
     });

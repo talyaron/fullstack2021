@@ -64,15 +64,18 @@ function getProductsMain(req, res) {
 exports.getProductsMain = getProductsMain;
 function getAllProducts(req, res) {
     return __awaiter(this, void 0, void 0, function () {
-        var products, error_2;
+        var data, ownerId_1, products, filterdProducts, error_2;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     _a.trys.push([0, 2, , 3]);
+                    data = req.cookies.data;
+                    ownerId_1 = data.id;
                     return [4 /*yield*/, productModel_1["default"].find({})];
                 case 1:
                     products = _a.sent();
-                    res.send({ products: products });
+                    filterdProducts = products.filter(function (product) { return product.ownerId === ownerId_1; });
+                    res.send({ filterdProducts: filterdProducts });
                     return [3 /*break*/, 3];
                 case 2:
                     error_2 = _a.sent();
@@ -87,17 +90,20 @@ function getAllProducts(req, res) {
 exports.getAllProducts = getAllProducts;
 function addProduct(req, res) {
     return __awaiter(this, void 0, void 0, function () {
-        var _a, pic, title, description, price, category, newProduct, result, ownerId, newProductMarket, resultMarket, error_3;
+        var data, ownerId, _a, pic, title, description, price, category, newProduct, result, newProductMarket, resultMarket, error_3;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
                     _b.trys.push([0, 3, , 4]);
+                    data = req.cookies.data;
+                    ownerId = data.id;
                     _a = req.body, pic = _a.pic, title = _a.title, description = _a.description, price = _a.price, category = _a.category;
-                    newProduct = new productModel_1["default"]({ pic: pic, title: title, description: description, price: price, category: category });
-                    return [4 /*yield*/, newProduct.save()];
+                    newProduct = new productModel_1["default"]({ pic: pic, title: title, description: description, price: price, category: category, ownerId: ownerId });
+                    return [4 /*yield*/, newProduct.save()
+                        // const ownerId = newProduct._id
+                    ];
                 case 1:
                     result = _b.sent();
-                    ownerId = newProduct._id;
                     newProductMarket = new productMain_1["default"]({ pic: pic, title: title, description: description, price: price, category: category, ownerId: ownerId });
                     return [4 /*yield*/, newProductMarket.save()];
                 case 2:
@@ -228,17 +234,18 @@ function updatePrice(req, res) {
 exports.updatePrice = updatePrice;
 function deleteProduct(req, res) {
     return __awaiter(this, void 0, void 0, function () {
-        var productId, result, resultMarket, products, productsMarket, error_7;
+        var data, ownerId, result, resultMarket, products, productsMarket, error_7;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     _a.trys.push([0, 7, , 8]);
-                    productId = req.body.productId;
-                    if (!productId) return [3 /*break*/, 5];
-                    return [4 /*yield*/, productModel_1["default"].deleteOne({ _id: productId })];
+                    data = req.cookies.data;
+                    ownerId = data.id;
+                    if (!ownerId) return [3 /*break*/, 5];
+                    return [4 /*yield*/, productModel_1["default"].deleteOne({ ownerId: ownerId })];
                 case 1:
                     result = _a.sent();
-                    return [4 /*yield*/, productMain_1["default"].deleteOne({ ownerId: productId })];
+                    return [4 /*yield*/, productMain_1["default"].deleteOne({ ownerId: ownerId })];
                 case 2:
                     resultMarket = _a.sent();
                     return [4 /*yield*/, productModel_1["default"].find({})];
@@ -342,3 +349,62 @@ function sortDescending(req, res) {
     });
 }
 exports.sortDescending = sortDescending;
+<<<<<<< HEAD
+=======
+function register(req, res) {
+    return __awaiter(this, void 0, void 0, function () {
+        var _a, email, password, userName, user, result, error_11;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
+                case 0:
+                    _b.trys.push([0, 2, , 3]);
+                    _a = req.body, email = _a.email, password = _a.password, userName = _a.userName;
+                    user = new userModel_1["default"]({ email: email, password: password, userName: userName, login: false });
+                    return [4 /*yield*/, user.save()];
+                case 1:
+                    result = _b.sent();
+                    return [3 /*break*/, 3];
+                case 2:
+                    error_11 = _b.sent();
+                    console.error(error_11);
+                    res.send({ error: error_11.message });
+                    return [3 /*break*/, 3];
+                case 3: return [2 /*return*/];
+            }
+        });
+    });
+}
+exports.register = register;
+function login(req, res) {
+    return __awaiter(this, void 0, void 0, function () {
+        var _a, email, password, user, items, userName, id;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
+                case 0:
+                    _a = req.body, email = _a.email, password = _a.password;
+                    return [4 /*yield*/, userModel_1["default"].findOne({ email: email, password: password })];
+                case 1:
+                    user = _b.sent();
+                    return [4 /*yield*/, productMain_1["default"].find({})];
+                case 2:
+                    items = _b.sent();
+                    if (user) {
+                        userName = user.userName;
+                        id = user._id;
+                        if (user.password === password) {
+                            res.cookie("data", { userName: userName, id: id });
+                            res.send({ ok: true, items: items, userName: userName });
+                            return [2 /*return*/];
+                        }
+                    }
+                    else {
+                        res.send({ ok: false, items: items });
+                        return [2 /*return*/];
+                    }
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+exports.login = login;
+>>>>>>> main

@@ -26,6 +26,7 @@ async function handleAddProduct(ev){
     window.setTimeout(function(){location.reload()},2000)
 }
 
+<<<<<<< HEAD
 async function handleGetProducts(){
   
     const {data} = await axios.get('/products/get-products')
@@ -33,6 +34,15 @@ async function handleGetProducts(){
     console.log({products})
     if(products){
         renderProducts(products);
+=======
+async function handleGetProducts() {
+
+    const { data } = await axios.get('/products/get-products')
+    const { filterdProducts } = data;
+    console.log({ filterdProducts })
+    if (filterdProducts) {
+        renderProducts(filterdProducts);
+>>>>>>> main
     }
 }
 
@@ -51,6 +61,27 @@ function renderItemsMain(items){
             </div>
             `
         })
+<<<<<<< HEAD
+=======
+        if(localStorage.getItem("name") !=null){
+            document.querySelector(".mainPage__header--welcome").innerHTML = `
+            </br>
+            hello ${localStorage.getItem("name")}
+            </br>
+            <button class="LogOutBtn" onclick="localStorage.clear();location.reload()">log out</button>  
+            `
+
+            document.querySelector(".mainPage__header--icons").innerHTML = `
+                <a href="index.html"><i class="fa fa-home" ></i></a>
+                <a href="personal-zone.html"><i class="fa fa-user" ></i></a>
+                <i id="" class="fa fa-shopping-cart"></i>
+            `
+
+        } 
+        else if(localStorage.getItem("name") ==='user'){document.querySelector(".mainPage__header--welcome").innerHTML = '';}
+
+        else{document.querySelector(".mainPage__header--welcome").innerHTML = '';}
+>>>>>>> main
         rootItems.innerHTML = html;
     }
 }
@@ -74,10 +105,30 @@ function renderProducts(products){
         </div>
         `
     }).join('');
+<<<<<<< HEAD
     document.getElementById('products').innerHTML = html ;
 }
 
 async function handleUpadte(ev,gameId) {
+=======
+
+    if(localStorage.getItem("name") !=null){
+        document.querySelector(".mainPage__header--welcome").innerHTML = `
+        </br>
+        hello ${localStorage.getItem("name")}
+        </br>
+        <button class="LogOutBtn" onclick="localStorage.clear();location.reload()">log out</button>  
+        `
+
+    } 
+    else if(localStorage.getItem("name") ==='user'){document.querySelector(".mainPage__header--welcome").innerHTML = '';}
+
+    else{document.querySelector(".mainPage__header--welcome").innerHTML = '';}
+    document.getElementById('products').innerHTML = html;
+}
+
+async function handleUpadte(ev, gameId) {
+>>>>>>> main
     ev.preventDefault();
     console.log(gameId)
     // const newImg = ev.target.value;
@@ -103,9 +154,15 @@ async function handleUpadte(ev,gameId) {
 //     renderProducts(products);
 // }
 
+<<<<<<< HEAD
 async function handleDelete(productId){
     const {data} = await axios.delete('/products/delete-product', {data:{productId}})
     const {product} = data;
+=======
+async function handleDelete(productId) {
+    const { data } = await axios.delete('/products/delete-product', { data: { productId } })
+    const { product } = data;
+>>>>>>> main
     location.reload();
     renderProducts(product)
     renderItemsMain(product)
@@ -136,3 +193,29 @@ async function handleDescending(){
     else if(products) renderItemsMain(products);
 }
 
+<<<<<<< HEAD
+=======
+async function handleLogin(ev) {
+    ev.preventDefault();
+    let { email, password } = ev.target.elements;
+    email = email.value;
+    password = password.value;
+    const { data } = await axios.post('/products/login', { email, password });
+    let{userName} = data;
+    // console.log("userName="+userName);
+    // localStorage.setItem("name", userName);
+    const { ok } = data;
+    const{items} = data;
+    // const{userId} = data;
+    if (ok === true) {
+        document.getElementById("logMessage").innerHTML = " You are login";
+        window.setTimeout(function () { location.reload() }, 2000)
+        localStorage.setItem("name", userName);
+    }
+    else  {
+        document.getElementById("logMessage").innerHTML = "Email or Password is wrong, try again"
+    }
+    renderItemsMain(items, ok, userName);
+    //renderProducts(products ,ok, userName)
+}
+>>>>>>> main

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./components/head') %>
+</head>
+<body>
+    <nav>
+        <%- include('./components/navigationBar') %>
+    </nav>
+ <h1>Owner Page</h1>
+ <button >Get users</button>
+ <% if (users) { %>
+    <% users.forEach(user=> { %>
+        <div>
+            <h2><%- user.userName %></h2>
+            <h2><%- user.role %></h2>
+        </div>
+        <% }) %>
+    <% } %>
+
+    <script src="dist/index.js"></script>
+</body>
+</html>

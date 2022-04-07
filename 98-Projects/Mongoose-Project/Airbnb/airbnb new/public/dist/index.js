@@ -166,3 +166,86 @@ function handleFilter(ev) {
         });
     });
 }
+<<<<<<< HEAD
+=======
+function renderAirbnbOptions(places) {
+    try {
+        console.log(places);
+        if (!Array.isArray(places))
+            throw new Error('sata is not an array');
+        var root = document.querySelector('#rootPlaces');
+        var html_1 = "";
+        places.forEach(function (place) {
+            html_1 += "<div class=\"card-grid__card\" onclick=\"handleGoToPlace(" + place._id + ") \" onclick=\"location.href='place.html'\"> \n                        <div class=\"card-header card-img\">\n                            <img src=\"" + place.images + "\" alt=\"\">   \n                        </div>\n                    <div class=\"content\">\n                        <div class=\"card-grid__card__card-header\">\n                            <button class=\"btn\"><img src=\"images/icons-heart.png\" alt=\"\"></button>\n                            <button class=\"btn btn-outline\">" + place.name + "</button>\n                            <p>" + place.address_country_code + "," + place.address_country + "</p>\n                        </div>\n                        <div class=\"card-grid__card__card-body\">\n                            <p>" + place.description + "</p>\n                        </div>\n                        <div class=\"card-grid__card__card-footer\">\n                            <button class=\"btn\"><p>" + place.price + "</p>/night</button>\n                            <button class=\"btn btn-outline\"><p>" + place.reviews_rating + "</p></button>\n                        </div>\n                    </div>\n                </div>";
+        });
+        // let html=data.map(airbnb=>{
+        //     return `<p>${airbnb.name} </p>`
+        // }).join("");
+        root.innerHTML = html_1;
+    }
+    catch (error) {
+        console.error(error.message);
+    }
+}
+function handlePopup() {
+    var popup = document.getElementById("myPopup");
+    //popup.classList.toggle("show");
+    var showPopupText = document.querySelector('.popuptext');
+    showPopupText.style.visibility = "visible";
+}
+function handleLogin(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        var _a, userName, password, role, data, showPopupText;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
+                case 0:
+                    ev.preventDefault();
+                    _a = ev.target.elements, userName = _a.userName, password = _a.password, role = _a.role;
+                    userName = userName.value;
+                    password = password.value;
+                    role = role.value;
+                    console.log(userName, password, role);
+                    return [4 /*yield*/, axios.post("/users/login", { userName: userName, password: password, role: role })];
+                case 1:
+                    data = (_b.sent()).data;
+                    console.log(data);
+                    if (data.login) {
+                        showPopupText = document.querySelector('.popuptext');
+                        showPopupText.style.visibility = "hidden";
+                        //document.body.style.backgroundColor="red";
+                        if (role === "admin") {
+                            document.body.style.backgroundColor = "red";
+                        }
+                        else if (role === "host") {
+                            document.body.style.backgroundColor = "blue";
+                        }
+                        else {
+                            document.body.style.backgroundColor = "green";
+                        }
+                    }
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+function handleRegister(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        var _a, newUserName, newPassword, newRole, data;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
+                case 0:
+                    ev.preventDefault();
+                    _a = ev.target.elements, newUserName = _a.newUserName, newPassword = _a.newPassword, newRole = _a.newRole;
+                    newUserName = newUserName.value;
+                    newPassword = newPassword.value;
+                    newRole = newRole.value;
+                    return [4 /*yield*/, axios.post("/users/add-User", { newUserName: newUserName, newPassword: newPassword, newRole: newRole })];
+                case 1:
+                    data = (_b.sent()).data;
+                    console.log(data);
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+>>>>>>> main
