@@ -295,49 +295,71 @@ body {
         }
     }
 
-    .popup {
-        position: relative;
-        display: inline-block;
-        cursor: pointer;
+   
 
-        .popuptext {
-            visibility: hidden;
-            //width: 700x;
-            // height:100%;
-            //background-color: rgba(85, 85, 85, 0.59);
-            color: #fff;
-            text-align: center;
-            border-radius: 6px;
-            padding: 8px 0;
-            position: fixed;
-            z-index: 1;
-            right: 0;
-            left: 0;
-            margin: auto;
-            top: 50%;
-            display: flex;
-            gap: 30px;
-            flex-direction: column;
-            align-items: center;
+}
+.popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
 
-
-
-
-        }
-
-        .show {
-            visibility: visible;
-            -webkit-animation: fadeIn 1s;
-            animation: fadeIn 1s;
-            //background-position: center;
-            // background-repeat: no-repeat;
-            // background-size: cover;
-            // height: 1000px;
-            // backdrop-filter: blur(10px)
+    .popuptext {
+        visibility: hidden;
+        //width: 700x;
+        // height:100%;
+        background-color: #38ffe484;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 8px 0;
+        position: fixed;
+        z-index: 1;
+        right: 0;
+        left: 0;
+        margin: auto;
+        top: 50%;
+        display: flex;
+        gap: 30px;
+        flex-direction: column;
+        align-items: center;
+        &#myPopup{
+            position:absloute;
+            top:0;
+            backdrop-filter: blur(10px);
+            height:100%;
+            
+           
 
         }
+        
+
+
+
+
+    }
+    form{
+        display:flex;
+        width: 700px;
+        padding:5px;
+       height: 50px;
+       border:none;
+       align-items: center;
+       input{
+        border-radius: 50px;;
+       }
     }
 
+    // .show {
+    //     visibility: visible;
+    //     -webkit-animation: fadeIn 1s;
+    //     animation: fadeIn 1s;
+    //     // background-position: center;
+    //     // background-repeat: no-repeat;
+    //     // background-size: cover;
+    //     // height: 1000px;
+    //     //  backdrop-filter: blur(10px)
+
+    // }
 }
 
 @-webkit-keyframes fadeIn {

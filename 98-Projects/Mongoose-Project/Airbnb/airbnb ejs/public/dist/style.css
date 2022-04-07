@@ -185,13 +185,15 @@ body {
   height: 25px;
   transition: ease 1s;
 }
-.navigation .popup {
+
+.popup {
   position: relative;
   display: inline-block;
   cursor: pointer;
 }
-.navigation .popup .popuptext {
+.popup .popuptext {
   visibility: hidden;
+  background-color: #38ffe484;
   color: #fff;
   text-align: center;
   border-radius: 6px;
@@ -207,10 +209,22 @@ body {
   flex-direction: column;
   align-items: center;
 }
-.navigation .popup .show {
-  visibility: visible;
-  -webkit-animation: fadeIn 1s;
-  animation: fadeIn 1s;
+.popup .popuptext#myPopup {
+  position: absloute;
+  top: 0;
+  backdrop-filter: blur(10px);
+  height: 100%;
+}
+.popup form {
+  display: flex;
+  width: 700px;
+  padding: 5px;
+  height: 50px;
+  border: none;
+  align-items: center;
+}
+.popup form input {
+  border-radius: 50px;
 }
 
 @-webkit-keyframes fadeIn {
