@@ -5,10 +5,7 @@ const TaskSchema = new mongoose.Schema({
   urgency: String,
   location: String,
   date: Date,
-  color: String,
   ownerId: String,
-  checked: Boolean,
-  timeChecked: String,
 });
 
 const task = mongoose.model("tasks", TaskSchema);

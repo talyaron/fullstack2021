@@ -6,7 +6,7 @@ var productCont_1 = require("../controlers/productCont");
 router
     .get('/get-products', productCont_1.getAllProducts)
     .get('/get-products-to-main', productCont_1.getProductsMain)
-    .get("/login", productCont_1.login)
+    .post("/login", productCont_1.login)
     .post('/get-by-category', productCont_1.filterByCategory)
     .post("/add-product", productCont_1.addProduct)
     .post("/register", productCont_1.register)

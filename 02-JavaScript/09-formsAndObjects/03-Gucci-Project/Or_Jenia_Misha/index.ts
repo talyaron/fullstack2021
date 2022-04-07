@@ -552,10 +552,10 @@ let sushiMenu: Menu = {
         <div class = "dishes__title"> 
            <h3 class ="dishes__title__name">${item.name}&nbsp</h3> 
            <p class ="dishes__title__price">${item.price} <button onclick="handleAddToCart(event)" id="${item.id}">+</button> </p>
-        </div>es__desc">${item.description}</p>
+        </div>
+           <p class ="dishes__desc">${item.description}</p>
         </div>`;
       });
-           <p class ="dish
 
       domElement.innerHTML = html;
 
@@ -725,8 +725,8 @@ function handleDeleteDish() {
 
   const { children } = document.querySelector('.dishesWrap')
   Array.from(children).forEach(el => {
-    const { checked, id } = <HTMLInputElement>el.children[0]
-    if (checked) {
+    const { checked ,id} = <HTMLInputElement>el.children[0]
+    if(checked){
       sushiMenu.removeDish(id)
     }
 

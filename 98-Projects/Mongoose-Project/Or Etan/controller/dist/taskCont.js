@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.getUrgencies = exports.getTask = exports.deleteTask = exports.checkTask = exports.updateTask = exports.addNewTask = exports.getUsersTasks = void 0;
+exports.getUsersTasks = void 0;
 var taskModel_1 = require("../model/taskModel");
 exports.getUsersTasks = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var ownerId, currentUsersTasks;
@@ -44,14 +44,18 @@ exports.getUsersTasks = function (req, res) { return __awaiter(void 0, void 0, v
         switch (_a.label) {
             case 0:
                 ownerId = req.query.ownerId;
+                console.log(ownerId);
                 return [4 /*yield*/, taskModel_1["default"].find({ ownerId: ownerId })];
             case 1:
                 currentUsersTasks = _a.sent();
+                res.cookie("taskId", { taskId: ownerId }, { maxAge: 10000 });
                 res.send(currentUsersTasks);
                 return [2 /*return*/];
         }
     });
 }); };
+<<<<<<< HEAD
+=======
 exports.addNewTask = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var _a, color, title, description, urgency, location, date, userId, newTask, _b, _c, _d, error_1;
     return __generator(this, function (_e) {
@@ -236,3 +240,4 @@ exports.getUrgencies = function (req, res) { return __awaiter(void 0, void 0, vo
         }
     });
 }); };
+>>>>>>> main

@@ -14,9 +14,11 @@ export async function getProductsMain(req, res) {
 
 export async function getAllProducts(req, res) {
   try {
-
+    const { data } = req.cookies;
+    const ownerId = data.id;
     const products = await UserProducts.find({})
-    res.send({ products });
+    const filterdProducts = products.filter(product => product.ownerId === ownerId)
+    res.send({ filterdProducts });
   } catch (error) {
     console.log(error.error);
     res.send({ error: error.message });
@@ -25,10 +27,12 @@ export async function getAllProducts(req, res) {
 
 export async function addProduct(req, res) {
   try {
+    const { data } = req.cookies;
+    const ownerId = data.id;
     let { pic, title, description, price, category } = req.body;
-    const newProduct = new UserProducts({ pic, title, description, price, category })
+    const newProduct = new UserProducts({ pic, title, description, price, category,ownerId })
     const result = await newProduct.save()
-    const ownerId = newProduct._id
+    //const ownerId = newProduct._id
     const newProductMarket = new Market({ pic, title, description, price, category, ownerId })
     const resultMarket = await newProductMarket.save()
     res.send({ result });
@@ -98,10 +102,11 @@ export async function updatePrice(req, res) {
 
 export async function deleteProduct(req, res) {
   try {
-    const { productId } = req.body;
-    if (productId) {
-      const result = await UserProducts.deleteOne({ _id: productId });
-      const resultMarket = await Market.deleteOne({ ownerId: productId });
+    const { data } = req.cookies;
+    const ownerId = data.id;
+    if (ownerId) {
+      const result = await UserProducts.deleteOne({ ownerId: ownerId });
+      const resultMarket = await Market.deleteOne({ ownerId: ownerId });
       const products = await UserProducts.find({});
       const productsMarket = await Market.find({});
       res.send({ ok: true, productsMarket, products })
@@ -169,16 +174,31 @@ export async function register(req, res) {
 }
 
 export async function login(req, res) {
-  let { email, password } = req.query;
-  let user = await User.find({ email: email, password: password });
-  const items = await Market.find({}); 
-  if (user.length > 0) {
-    await User.updateOne({ email: email }, { login: true });
-    res.send({ ok:true, user, items})
-  }
-  else if (user.length === 0) {
-    await User.updateOne({ email: email }, { login: false });
-    res.send({ ok:false, user})
+  try {
+
+    let { email, password } = req.body;
+    if (typeof email === 'string' && typeof password === 'string') {
+      const user = await User.findOne({ email: email });
+      const products = await Market.find({});
+
+      if (user) {
+        if (user.password === password) {
+          res.cookie(
+            "data",
+            { id: user._id, userName: user.userName}
+          );
+          res.send({ ok: true, login: true, userName: user.userName, products });
+          return;
+        } else {
+          res.send({ ok: false, products })
+        }
+      }
+    } else {
+      throw new Error("Email or password are missing");
+    }
+  } catch (error) {
+    console.log(error.message);
+    res.send({ error: error.message });
   }
 }
 
