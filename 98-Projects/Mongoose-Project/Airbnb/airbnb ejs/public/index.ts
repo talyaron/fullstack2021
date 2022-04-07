@@ -334,20 +334,49 @@ function handlePopup() {
     showPopupText.style.visibility="visible";
 } 
 
-async function handleLogin(ev) {
+// async function handleLogin(ev) {
+//     ev.preventDefault()
+//     let {userName,password,role}=ev.target.elements;
+//     userName=userName.value
+//     password=password.value
+//     role=role.value
+    
+
+//     console.log(userName,password,role)
+//    //console.log(userName,password)
+//     const { data } = await axios.post("/users/login", {userName,password,role});
+//     //console.log(data)
+
+//     if(data.login){
+//         const showPopupText:any=document.querySelector('.popuptext');
+//         showPopupText.style.visibility="hidden";
+//         //document.body.style.backgroundColor="red";
+//         if(role==="admin"){
+//             document.body.style.backgroundColor="red";
+//         }else if(role==="host"){
+//             document.body.style.backgroundColor="blue";
+//         }else{
+//             document.body.style.backgroundColor="green";
+//         }
+       
+      
+      
+//     }
+// }
+
+
+
+async function handleRegister(ev) {
     ev.preventDefault()
+    
     let {userName,password,role}=ev.target.elements;
     userName=userName.value
     password=password.value
     role=role.value
-    
-
-    console.log(userName,password,role)
-   //console.log(userName,password)
-    const { data } = await axios.post("/users/login", {userName,password,role});
+   
+    const { data } = await axios.post("/users/add-User",  { userName,password,role } );
     console.log(data)
-
-    if(data.login){
+    if(data.register){
         const showPopupText:any=document.querySelector('.popuptext');
         showPopupText.style.visibility="hidden";
         //document.body.style.backgroundColor="red";
@@ -366,14 +395,3 @@ async function handleLogin(ev) {
 
 
 
-async function handleRegister(ev) {
-    ev.preventDefault()
-    
-    let {newUserName,newPassword,newRole}=ev.target.elements;
-    newUserName=newUserName.value
-    newPassword=newPassword.value
-    newRole=newRole.value
-   
-    const { data } = await axios.post("/users/add-User",  { newUserName,newPassword,newRole } );
-    console.log(data)
-}

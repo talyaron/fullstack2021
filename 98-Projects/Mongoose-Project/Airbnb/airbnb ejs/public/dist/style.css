@@ -677,6 +677,12 @@ body {
   grid-template-rows: repeat(2, 1fr);
   gap: 15px;
 }
+.airbnbOptions button {
+  color: black;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
 .airbnbOptions__container {
   --padding: 1rem;
   background: white;
@@ -730,14 +736,6 @@ body {
   padding-top: 0;
   display: flex;
   justify-content: space-between;
-}
-.airbnbOptions__container .content button {
-  color: black;
-  background-color: white;
-  border: none;
-  font-size: 1rem;
-  padding: 0.5em, 0.75em;
-  cursor: pointer;
 }
 @media only screen and (max-width: 768px) {
   .airbnbOptions {

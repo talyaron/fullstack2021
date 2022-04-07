@@ -33,22 +33,22 @@
 
         </div>
 
-        <div class="airbnbOptions" onclick="handleGoToPlace(_id)" onclick="location.href='place.ejs'">
+        <div class="airbnbOptions"  onclick="location.href='place.ejs'">
 
 
             <% if (getplaces) { %>
 
                 <% getplaces.forEach(place=> { %>
-                    <div class="airbnbOptions__container">
+                    <div class="airbnbOptions__container" onclick="handleGoToPlace(_id)">
                         <div class="airbnbOptions__container__img">
                             <img src="<%- place.images %>"></img>
                         </div>
                         <div class="airbnbOptions__container__content">
-                            <div class="airbnbOptions__container__content__namePlace">
-                                <button class="btn"><img src="./images/icons-heart.png" alt=""></button>
-                                <button class="btn btn-outline">
-                                    <%- place.name %>
-                                </button>
+                            <div class="airbnbOptions__container__content__namePlace">                                
+                                
+                                    <h3><%- place.name %></h3>
+                                    <h5>accommodates:<%- place.accommodates %></h5>
+                               
                                 <p>
                                     <%- place.address_country_code %>, <%- place.address_country%>
                                 </p>
