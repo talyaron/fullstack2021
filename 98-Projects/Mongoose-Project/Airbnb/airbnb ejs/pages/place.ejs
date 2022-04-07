@@ -13,125 +13,146 @@
     <link rel="stylesheet" href="dist/style.css">
     <title>Document</title>
 </head>
-<body onload="handleLoadPlace()">
-    <!-- <nav class="navigation">
-        <ul>
-            <a href="index.html"><li class="navigation--logo"><img src="images/logoTitle.png" alt="airbnb"></li></a>
-            <li class="navigation--search">
-                <form class="form" onsubmit="handleFindAirbnb(event)">
-                    <div class="form--searchLocation">
-                        <label for="searchLocation">Location  </label>
-                            <input  id="searchLocation" type="text" name="searchLocation" placeholder="Where are you going?">
-                       
-                   
-                    </div>
-    
-                    <div class="form--checkIn">
-                        <label for="checkIn">Check in </label>
-                            <input type="date" id="checkIn" name="checkIn"
-                            value="2022-03-31"
-                            min="2022-03-28" max="2022-12-30">
-                        
-                     
-                    </div>
-    
-                    <div class="form--checkOut">
-                        <label for="checkOut">Check out </label>
-                            <input type="date" id="checkOut" name="checkOut"
-                            value="2022-03-31"
-                            min="2022-03-28" max="2022-12-30">
-                       
-                       
-                    </div>
-    
-                    <div class="form--guests">
-                        <label for="guests">Guests </label>
-                            <button id="guests">Add guests</button>
-                       
-                        <div class="dropdown">
-                            <label for="adults">Adults:
-                               <span>Ages 13 or above</span> </label>
-                            <input type="number" id="adults" name="adults" min="0" max="10" placeholder="0">
-                             
-                            <label for="children">Children:
-                               <span>Ages 2–12</span> </label> 
-                            <input type="number" id="children" name="children" min="0" max="10" placeholder="0">
-                           
-                            <label for="infants">Infants:
-                                <span>Under 2</span></label>
-                            <input type="number" id="infants" name="infants" min="0" max="10" placeholder="0">
-                            
-                            <label for="pets">Pets:</label>
-                            <input type="number" id="pets" name="pets" min="0" max="5" placeholder="0">
-                            
-    
-                        </div>
-                    </div>
-    
-    
-                   <button type="submit" value="submit" class="form--searchIcon" onclick="location.href='places.html'"><img src="images/searchIcon.png"></button>
-    
-    
-                </form>
-            </li>
-            <li class="navigation--greeting">Welcome!</li>
-    
-            <li class="navigation--user"><img src="images/visitorProfile.png">
-            </li>
-        </ul>
-    </nav> -->
+<body>
 
     <nav>
         <%- include('./components/navigationBar') %>
       </nav>
-<div id="rootPlace"> </div>
 
-<!-- 
-<div class="bottomBar">
-    <div class="bottomBar__support">
-        <p class="bottomBar__title">Support</p>
-        <p>Help Center</p>
-        <p>Our COVID-19 Response</p>
-        <p>Safety information</p>
-        <p> Supporting people with disabilities</p>
-        <p>Cancellation options</p>
-        <p>Report a neighborhood concern</p>
-    </div>
+      <% if (placeId) { %>
+        <% placeId.forEach(place=> { %>
+            <div class="mainUpper">
+                <div class="maiUpper__title">
+                    <h1><%- place.name %></h1>
+                   <h3><%- place.price %></h3>
+                </div>
+                <div class="mainUpper__photoGrid">
+                    <div class="mainUpper__photoGrid--bigPhoto"><img src="<%- place.images %>" alt=""></div>
+               
+                </div>
+            
+            </div>
+            <div class="mainMiddle">
+                <div class="mainMiddle__left">
+                    <div class="mainMiddle__left--up">
+                        <div class="mainMiddle__left--up--title">   
+                        <h2>entire rental unit hosted by <%- place.host %></h2>
+                    <h6><%- place.accommadets %> <span>&#8226;</span> ${place.bedrooms} <span>&#8226;</span> ${place.beds} <span>&#8226;</span>${place.bathrooms}</h6></div>
+                </div>
+                <div class="mainMiddle__left--great">
+                    <h5><%- place.description %></h5>
+                </div>
+                <div class="mainMiddle__left--bed">
+                    <h2>where you'll sleep</h2>
+                    <div class="mainMiddle__left--bed--box">
+                        <i class="fa-thin fa-bed-front"></i>
+                        <h5><%- place.bed_type %></h5>
+                    </div>
+                </div>
+                <div class="mainMiddle__left--list">
+                    <h2>what this place offers</h2>
+                    <ul>
+                  
+                        <%- place.amenities %>
+                    </ul>
+                    
+                </div>
+                <div class="mainMiddle__left--date">
+                    <input type="date" id="birthday" name="birthday">
+                </div>
+                </div>
+               
+            </div>
+            <div class="reviews">
+                 <h3>review</h3>
+               <div class="reviews__review">
+                 
+                    <%- place.reviews %>
+             </div> 
+             <div class="reviews__review">
+                <%- place.ireviews %>
+                </div>
+            <div class="reviews__review">
+                <%- place.reviews %>
+             </div> 
+             <div class="reviews__review">
+                <%- place.revies %>
+            </div>
+            </div>
+            <div id="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d26081603.294420466!2d-95.677068!3d37.06250000000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1siw!2s!4v1648657793371!5m2!1siw!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="aboutHost">
+                <div class="aboutHost--left">
+                 
+                    <div class="aboutHost--left--title">
+                        <h2>
+                            hosted by: <%- place.host %>
+                        </h2>
+                    </div>
+                    <div class="aboutHost--left--review">
+                        <p><span><i class="fa-solid fa-star"></i></span>${<%- place.number_of_reviews %> reviews</p>
+                    </div>
+                </div>
+                <div class="aboutHost--right">
+                    <h5>
+                        languages: english, francais, hebrew
+                    </h5>
+                    <h5>
+                        response rate: <%- place.reviews_rating %>
+                    </h5>
+                    <p class="payment">
+                        To protect your payment, never transfer money or communicate outside of the Airbnb website or app.
+                    </p>
+                </div>
+            </div>
+            <div class="toKnow">
+                <h2>things to know</h2>
+                <ul>
+                    <p>house rule</p>
+                    <li>
+                        Check-in: 4:00 PM - 10:00 PM
+                    </li>
+                    <li>
+                        Checkout: 11:00 AM
+                    </li>
+                    <li>
+                        No smoking
+                    </li>
+                    <li>
+                        No pets
+                    </li>
+                    <li>
+                        No parties or events
+                    </li>
+                    <button>shoe more</button>
+                </ul>
+                <ul>
+                    <p>health &safety</p>
+                    <li>
+                        Airbnb's social-distancing and other COVID-19-related guidelines apply 
+                    </li>
+                    <li>
+                        
+            Carbon monoxide alarm not reported Show more
+                    </li>
+                    <li>
+                        Smoke alarm not reported Show more
+                    </li>
+                    <li>
+                        Security Deposit - if you damage the home, you may be charged up to ₪2500
+                    </li>
+                    <button>show more</button>
+                </ul>
+                <div class="toKnow__cancle">
+                    <h5>cancellation policy</h5>
+                    <p><%- place.cancle %></p>
+                </div>
+                
+            </div>
+            <% }) %>
+                        <% } %>
 
-    <div class="bottomBar__community">
-        <p class="bottomBar__title">Community</p>
-        <p>Airbnb.org: disaster relief housing</p>
-        <p>Combating discrimination</p>
-        <p>Support Afghan refugees</p>
-       
-    </div>
-
-    <div class="bottomBar__hosting">
-        <p class="bottomBar__title">Hosting</p>
-        <p>Try hosting</p>
-        <p>Visit our community forum</p>
-        <p>AirCover: protection for Hosts</p>
-        <p>How to host responsibly</p>
-        <p>Explore hosting resources</p>
-        
-    </div>
-
-    <div class="bottomBar__about">
-        <p class="bottomBar__title">About</p>
-        <p>Careers</p>
-        <p>Learn about new features</p>
-        <p>Investors</p>
-        <p>Letter from our founders</p>
-        <p class="bottomBar__about--twitter"><img src="images/twitterIcon.png"></p>
-        <p class="bottomBar__about--facebook"><img src="images/facebookIcon.png"></p>
-        <p class="bottomBar__about--instagram"><img src="images/instagramIcon.png"></p>
-        
-       
-    </div>
-
-
-
-</div> -->
 <div class="bottomBar">
     <%- include('./components/bottomBar') %>
   </div>
