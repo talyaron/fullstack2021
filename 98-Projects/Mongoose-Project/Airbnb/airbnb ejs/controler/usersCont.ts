@@ -1,21 +1,33 @@
 import Users from "../model/usersModel";
+import jwt from "jwt-simple";
 
 
-
+const secret=process.env.JWT_SECRET
 
 export  const login= async (req,res)=>{
     try{
-        
         const {userName,password,role}=req.body;
         if(typeof userName==="string" && typeof password==="string" && typeof role==="string"){
             const user=await Users.findOne({userName,password,role});
             if(user.password===password){
-                res.cookie('userInfo',{userName,id:user._id,role},{maxAge:120000});
-                res.render('owner', {
+                const payload={userName,id:user._id,role};
+                const token=jwt.encode(payload,secret);
+
+
+                res.cookie('userInfo',token,{maxAge:120000});
+               
+              if(user.role == "host" || user.role == "guest") {
+                   res.render('./index', {
+                    title:"Airbnb",
+                   user
+                })
+              }
+              else if(user.role == "admin"){
+                   res.render('owner', {
                     title:"Owner",
                     user
                 })
-               
+              }
                
                 return
                 
@@ -56,23 +68,22 @@ export  const registerUser= async (req,res)=>{
 
 export  const getUsers= async (req,res)=>{
     try{
-        
+        console.log(req.cookies);
        const {userInfo}=req.cookies;
-       if(userInfo&&userInfo.role==="admin"){
+       const decoded=jwt.decode(userInfo,secret);
+       console.log(decoded);
+       if(decoded&&decoded.role==="admin"){
            const users=await Users.find({});
+           res.send({ok:true, users})
            res.render('owner', {
             title:"Owner",
             users
         })
            
-           return
-           
-           
+           return          
           
            
-        }      
-        
-       
+        }         
        throw new Error("user is not allowed ")
         
     }catch(error){

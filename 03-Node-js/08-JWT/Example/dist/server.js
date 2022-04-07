@@ -5,6 +5,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const mongoose_1 = __importDefault(require("mongoose"));
+require('dotenv').config();
+console.log(process.env.ENV);
+console.log(process.env.JWT_SECRET);
 const app = express_1.default();
 const cookieParser = require('cookie-parser');
 const port = 3000;
@@ -12,7 +15,8 @@ app.use(express_1.default.static("public"));
 app.use(express_1.default.json());
 app.use(cookieParser());
 //ert
-mongoose_1.default.connect("mongodb+srv://tal1:daSK7Zewrt6UCQH8@tal-test1.m39if.mongodb.net/fs-2021-oct?retryWrites=true&w=majority").then(res => {
+const uri = process.env.MONGODB_URI;
+mongoose_1.default.connect(uri).then(res => {
     console.log("Connected to DB");
 }).catch(err => {
     console.log('At mongoose.connect:');

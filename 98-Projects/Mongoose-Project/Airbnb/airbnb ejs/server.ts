@@ -4,7 +4,12 @@ import bodyParser from 'body-parser'
 import Places from "./model/placesModel";
 const cookieParser = require('cookie-parser');
 import path from "path";
-// import axios from "axios";
+
+require('dotenv').config()
+
+console.log(process.env.ENV)
+console.log(process.env.JWT_SECRET)
+
 const app = express();
 const port = process.env.PORT || 3000;
 app.use(express.static("public"));
@@ -12,17 +17,19 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: false })) //bodyParser
 
+const uri=process.env.MONGODB_URI;
+
 
 //EJS
 app.set('view engine', 'ejs') //connecting ejs
 console.log(app.get('view engine'))
 app.set('views', path.resolve(__dirname, 'pages'))
 app.use(express.static(path.resolve(__dirname, 'public'))) //static folder
-
+console.log(process.env.ENV)
 
 mongoose
   .connect(
-    "mongodb+srv://shay:shayFoyer1994@cluster0.xyd5y.mongodb.net/airbnbProject?retryWrites=true&w=majority"
+    uri
   )
   .then((result) => {
     console.log("connected to db");

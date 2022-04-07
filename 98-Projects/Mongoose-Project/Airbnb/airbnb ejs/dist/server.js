@@ -9,20 +9,24 @@ const body_parser_1 = __importDefault(require("body-parser"));
 const placesModel_1 = __importDefault(require("./model/placesModel"));
 const cookieParser = require('cookie-parser');
 const path_1 = __importDefault(require("path"));
-// import axios from "axios";
+require('dotenv').config();
+console.log(process.env.ENV);
+console.log(process.env.JWT_SECRET);
 const app = express_1.default();
 const port = process.env.PORT || 3000;
 app.use(express_1.default.static("public"));
 app.use(express_1.default.json());
 app.use(cookieParser());
 app.use(body_parser_1.default.urlencoded({ extended: false })); //bodyParser
+const uri = process.env.MONGODB_URI;
 //EJS
 app.set('view engine', 'ejs'); //connecting ejs
 console.log(app.get('view engine'));
 app.set('views', path_1.default.resolve(__dirname, 'pages'));
 app.use(express_1.default.static(path_1.default.resolve(__dirname, 'public'))); //static folder
+console.log(process.env.ENV);
 mongoose_1.default
-    .connect("mongodb+srv://shay:shayFoyer1994@cluster0.xyd5y.mongodb.net/airbnbProject?retryWrites=true&w=majority")
+    .connect(uri)
     .then((result) => {
     console.log("connected to db");
     placesModel_1.default.find({})
