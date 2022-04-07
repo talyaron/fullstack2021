@@ -1,12 +1,15 @@
 import express from 'express';
 import mongoose from 'mongoose';
+import cookieParser from 'cookie-parser'
+
 
 const app = express();
 const port = process.env.PORT || 3000;
 app.use(express.static("public"));
 app.use(express.json());
+app.use(cookieParser())
 
-mongoose.connect('mongodb+srv://Michael:rrrpos32.14!@cluster0.ctwuo.mongodb.net/artNft?retryWrites=true&w=majority').then(res => {
+mongoose.connect('mongodb+srv://Michael:iDrBMRfVIoxQrufk@cluster0.ctwuo.mongodb.net/artNft?retryWrites=true&w=majority').then(res => {
   console.log('connected to DB');
 }).catch(err => {
   console.log('At mongoose.connect: ');

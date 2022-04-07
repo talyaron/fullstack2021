@@ -73,11 +73,7 @@ export const login = async (req, res) => {
         //check if password equal
 
         if (user.password === password) {
-          res.cookie(
-            "userInfo",
-            { username, id: user._id, role: user.role },
-            { maxAge: 120000 }
-          );
+          res.cookie("userInfo", { username, id: user._id, role: user.role }, { maxAge: 120000 });
 
           res.send({ ok: true, login: true });
           return;

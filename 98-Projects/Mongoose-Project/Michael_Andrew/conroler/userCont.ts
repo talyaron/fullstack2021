@@ -1,3 +1,4 @@
+//import { AnyARecord } from 'dns'
 import User from '../model/userModel'
 
 export const addUser = async (req, res) => {
@@ -35,16 +36,54 @@ export const addUser = async (req, res) => {
 
 }
 
+export const adminGetUser = async (req, res) => {
+
+    try {
+
+        const { userInfo } = req.cookies;
+        console.log(userInfo);
+        
+
+        if (userInfo && userInfo.role === 'admin') {
+            const users = User.find({})
+            res.send({ ok: true, users })
+            return;
+        }
+        throw new Error("user is not allowed");
+
+    } catch (error) {
+        console.error(error.message);
+        res.send({error: error.message})
+
+    }
+
+}
+
 export const findUser = async (req, res) => {
     try {
         const { loginEmail, loginPassword } = req.query;
-        const oldUser = await User.find({ email: loginEmail, password: loginPassword })
-        if (oldUser.length === 0) {
-            res.send({ noUser: 'Wrong email/password' });
-        } else if (oldUser.length > 0) {
-            res.send({ oldUser })
-        }
         if (!req.body) throw new Error("no req.body in app.post'/users/log-user'");
+
+        const oldUser = await User.findOne({ email: loginEmail, password: loginPassword })
+
+        if (oldUser) {
+            // if (oldUser.password === loginPassword) {
+            res.cookie('userInfo', { role: oldUser.role, userName: oldUser.userName, email: oldUser.email }, { maxAge: 500000 })
+            res.send({ oldUser })
+            return;
+            //}
+        }
+        throw new Error("email or password are inncorect");
+
+
+
+        // if (oldUser.length === 0) {
+        //     res.send({ noUser: 'Wrong email/password' });
+        // } else if (oldUser.length > 0) {
+        //     res.cookie('userInfo', { role: oldUser.role, userName,  })
+        //     res.send({ oldUser })
+        // }
+
     } catch (error) {
         console.error(error.message);
         res.send({ error: error.message })
@@ -70,8 +109,8 @@ export const buyAndSell = async (req, res) => {
 
     //בטח אפשר לאחד את שתי שורות הבאות, אבל עוד מעט 2 בלילה 
     //לא הצלחתי לעדכן חיסור וחיבור הפאנד 
-    console.log(ownerId,buyerId,price);
-    
+    console.log(ownerId, buyerId, price);
+
     const result = await User.updateOne({ _id: ownerId }, { $inc: { fund: price } })
     const result2 = await User.updateOne({ _id: buyerId }, { $inc: { fund: -price } })
 
