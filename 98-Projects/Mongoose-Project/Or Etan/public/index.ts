@@ -65,14 +65,14 @@ async function handleLogin(ev) {
         } 
           
           return
-        }
+        
       
   } catch (error) {
     console.log("error in handleLogin:");
     console.log(error.message);
     // }
   }
-}
+
 
 async function handleRenderHome(ev) {
   ev.preventDefault();
