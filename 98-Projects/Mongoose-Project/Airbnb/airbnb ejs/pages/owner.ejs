@@ -8,15 +8,24 @@
         <%- include('./components/navigationBar') %>
     </nav>
  <h1>Owner Page</h1>
- <button >Get users</button>
- <% if (users) { %>
-    <% users.forEach(user=> { %>
+  <% if (user) { %>
+   
         <div>
             <h2><%- user.userName %></h2>
-            <h2><%- user.role %></h2>
+            <h3><%- user.role %></h3>
         </div>
-        <% }) %>
+
     <% } %>
+ <button action="/users/getUsers" method="GET">Get users</button>
+
+<%# if (users) { %> 
+
+    <!-- <div>
+        <h2><%#- users.userName %></h2>
+        <h2><%#- users.role %></h2>
+    </div>
+   -->
+<%# } %> 
 
     <script src="dist/index.js"></script>
 </body>
