@@ -7,5 +7,6 @@ router
     .post('/add-user', userCont_1.addUser)
     .get('/log-user', userCont_1.findUser)
     .patch('/update-user', userCont_1.updateUser)
-    .patch('/buy-and-sell', userCont_1.buyAndSell);
+    .patch('/buy-and-sell', userCont_1.buyAndSell)
+    .get('/admin-get-users', userCont_1.adminGetUser);
 exports["default"] = router;

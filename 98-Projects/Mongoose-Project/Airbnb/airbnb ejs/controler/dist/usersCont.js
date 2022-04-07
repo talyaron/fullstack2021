@@ -38,23 +38,35 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 exports.__esModule = true;
 exports.getUsers = exports.registerUser = exports.login = void 0;
 var usersModel_1 = require("../model/usersModel");
+var jwt_simple_1 = require("jwt-simple");
 exports.login = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, userName, password, role, user, error_1;
+    var secret, _a, userName, password, role, user, payload, token, error_1;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
                 _b.trys.push([0, 4, , 5]);
+                secret = "shhitsasecret";
                 _a = req.body, userName = _a.userName, password = _a.password, role = _a.role;
                 if (!(typeof userName === "string" && typeof password === "string" && typeof role === "string")) return [3 /*break*/, 2];
                 return [4 /*yield*/, usersModel_1["default"].findOne({ userName: userName, password: password, role: role })];
             case 1:
                 user = _b.sent();
                 if (user.password === password) {
-                    res.cookie('userInfo', { userName: userName, id: user._id, role: role }, { maxAge: 120000 });
-                    res.render('owner', {
-                        title: "Owner",
-                        user: user
-                    });
+                    payload = { userName: userName, id: user._id, role: role };
+                    token = jwt_simple_1["default"].encode(payload, secret);
+                    res.cookie('userInfo', token, { maxAge: 120000 });
+                    if (user.role == "host" || user.role == "guest") {
+                        res.render('./index', {
+                            title: "Airbnb",
+                            user: user
+                        });
+                    }
+                    else if (user.role == "admin") {
+                        res.render('owner', {
+                            title: "Owner",
+                            user: user
+                        });
+                    }
                     return [2 /*return*/];
                 }
                 throw new Error('userName or password or role are incorrect');
@@ -92,16 +104,21 @@ exports.registerUser = function (req, res) { return __awaiter(void 0, void 0, vo
     });
 }); };
 exports.getUsers = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var userInfo, users, error_3;
+    var userInfo, secret, decoded, users, error_3;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 3, , 4]);
+                console.log(req.cookies);
                 userInfo = req.cookies.userInfo;
-                if (!(userInfo && userInfo.role === "admin")) return [3 /*break*/, 2];
+                secret = "shhitsasecret";
+                decoded = jwt_simple_1["default"].decode(userInfo, secret);
+                console.log(decoded);
+                if (!(decoded && decoded.role === "admin")) return [3 /*break*/, 2];
                 return [4 /*yield*/, usersModel_1["default"].find({})];
             case 1:
                 users = _a.sent();
+                res.send({ ok: true, users: users });
                 res.render('owner', {
                     title: "Owner",
                     users: users

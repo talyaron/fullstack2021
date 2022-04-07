@@ -1,5 +1,10 @@
 import express from "express";
 import mongoose from "mongoose";
+require('dotenv').config()
+
+console.log(process.env.ENV)
+
+console.log(process.env.JWT_SECRET)
 const app = express();
 const cookieParser = require('cookie-parser')
 const port: number = 3000;
@@ -9,8 +14,9 @@ app.use(express.json());
 app.use(cookieParser());
 //ert
 
+const uri = process.env.MONGODB_URI;
 mongoose.connect(
-  "mongodb+srv://tal1:daSK7Zewrt6UCQH8@tal-test1.m39if.mongodb.net/fs-2021-oct?retryWrites=true&w=majority"
+  uri
 ).then(res=>{
   console.log("Connected to DB");
 }).catch(err=>{
