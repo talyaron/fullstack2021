@@ -7,6 +7,7 @@ const port: number = 3000;
 app.use(express.static("public"));
 app.use(express.json());
 app.use(cookieParser());
+//ert
 
 mongoose.connect(
   "mongodb+srv://tal1:35bSHsWTrzOtVK9E@tal-test1.m39if.mongodb.net/fs-2021-oct?retryWrites=true&w=majority"

@@ -11,6 +11,7 @@ const port = 3000;
 app.use(express_1.default.static("public"));
 app.use(express_1.default.json());
 app.use(cookieParser());
+//ert
 mongoose_1.default.connect("mongodb+srv://tal1:35bSHsWTrzOtVK9E@tal-test1.m39if.mongodb.net/fs-2021-oct?retryWrites=true&w=majority").then(res => {
     console.log("Connected to DB");
 }).catch(err => {
