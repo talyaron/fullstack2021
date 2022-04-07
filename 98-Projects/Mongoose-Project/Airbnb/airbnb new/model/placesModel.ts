@@ -1,8 +1,5 @@
 import mongoose from "mongoose";
-// const addressSchema= new mongoose.Schema({
-//       country:String,
-//       country_code:String
-// })
+
 const PlacesSchema = new mongoose.Schema(
   {
     _id: String,
@@ -32,11 +29,7 @@ const PlacesSchema = new mongoose.Schema(
     reviews: Array,
     cancellation_policy: String,
   },
-  // {
-  //   capped: { size: 1024 },
-  //   bufferCommands: false,
-  //   autoCreate: false,
-  // }
+
 );
 
 const Places = mongoose.model("airbnbLocations", PlacesSchema);
