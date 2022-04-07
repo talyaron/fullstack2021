@@ -75,7 +75,7 @@ exports.logIn = function (req, res) { return __awaiter(void 0, void 0, void 0, f
                 user1 = _b.sent();
                 if (user1) {
                     if (user1.password === password) {
-                        res.cookie("userInfo", { name: name, id: user1._id, role: user1.role }, { maxAge: 120000 });
+                        res.cookie("userInfo", { name: name, id: user1._id, role: user1.role }, { maxAge: 120000, httpOnly: true });
                         res.send({ ok: true, login: true });
                         return [2 /*return*/];
                     }

@@ -32,13 +32,8 @@ export async function addProduct(req, res) {
     let { pic, title, description, price, category } = req.body;
     const newProduct = new ProductUser({ pic, title, description, price, category, ownerId })
     const result = await newProduct.save()
-<<<<<<< HEAD
-    const ownerId = newProduct._id
+    //const ownerId = newProduct._id
     const newProductMarket = new ProductMain({ pic, title, description, price, category,ownerId})
-=======
-    // const ownerId = newProduct._id
-    const newProductMarket = new ProductMain({ pic, title, description, price, category, ownerId })
->>>>>>> main
     const resultMarket = await newProductMarket.save()
     res.send({ result });
 
@@ -166,8 +161,6 @@ export async function sortDescending(req, res) {
     res.send({ error: error.message })
   }
 }
-<<<<<<< HEAD
-=======
 
 export async function login(req, res) {
   let { email, password } = req.body;
@@ -191,4 +184,3 @@ export async function login(req, res) {
 }
 
 
->>>>>>> main
