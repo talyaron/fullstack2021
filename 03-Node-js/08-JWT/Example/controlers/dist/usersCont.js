@@ -37,10 +37,11 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 exports.__esModule = true;
 exports.login = exports.deleteUser = exports.updateUser = exports.addUser = exports.getAllUsers = void 0;
+var jwt_simple_1 = require("jwt-simple");
 var usersModel_1 = require("../model/usersModel");
 function getAllUsers(req, res) {
     return __awaiter(this, void 0, void 0, function () {
-        var userInfo, users, error_1;
+        var userInfo, secret, decoded, users, error_1;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -48,7 +49,11 @@ function getAllUsers(req, res) {
                     //check if user role is admin
                     console.log(req.cookies);
                     userInfo = req.cookies.userInfo;
-                    if (!(userInfo && userInfo.role === "admin")) return [3 /*break*/, 2];
+                    console.log(userInfo);
+                    secret = "123456";
+                    decoded = jwt_simple_1["default"].decode(userInfo, secret);
+                    console.log(decoded);
+                    if (!(decoded && decoded.role === "adminSuper")) return [3 /*break*/, 2];
                     return [4 /*yield*/, usersModel_1["default"].find({})];
                 case 1:
                     users = _a.sent();
@@ -138,11 +143,12 @@ exports.deleteUser = function (req, res) { return __awaiter(void 0, void 0, void
     });
 }); };
 exports.login = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, username, password, user, error_5;
+    var secret, _a, username, password, user, payload, token, error_5;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
                 _b.trys.push([0, 4, , 5]);
+                secret = "123456";
                 _a = req.body, username = _a.username, password = _a.password;
                 console.log(username, password);
                 if (!(typeof username === "string" && typeof password === "string")) return [3 /*break*/, 2];
@@ -152,7 +158,9 @@ exports.login = function (req, res) { return __awaiter(void 0, void 0, void 0, f
                 if (user) {
                     //check if password equal
                     if (user.password === password) {
-                        res.cookie("userInfo", { username: username, id: user._id, role: user.role }, { maxAge: 120000 });
+                        payload = { username: username, id: user._id, role: user.role };
+                        token = jwt_simple_1["default"].encode(payload, secret);
+                        res.cookie("userInfo", token, { maxAge: 360000 });
                         res.send({ ok: true, login: true });
                         return [2 /*return*/];
                     }
