@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.login = exports.sortDescending = exports.sortAscending = exports.filterByCategory = exports.deleteProduct = exports.updatePrice = exports.updateTitle = exports.updatePic = exports.addProduct = exports.getAllProducts = exports.getProductsMain = void 0;
+exports.login = exports.register = exports.sortDescending = exports.sortAscending = exports.filterByCategory = exports.deleteProduct = exports.updatePrice = exports.updateTitle = exports.updatePic = exports.addProduct = exports.getAllProducts = exports.getProductsMain = void 0;
 var productModel_1 = require("../model/productModel");
 var productMain_1 = require("../model/productMain");
 var userModel_1 = require("../model/userModel");
@@ -101,7 +101,7 @@ function addProduct(req, res) {
                     _a = req.body, pic = _a.pic, title = _a.title, description = _a.description, price = _a.price, category = _a.category;
                     newProduct = new productModel_1["default"]({ pic: pic, title: title, description: description, price: price, category: category, ownerId: ownerId });
                     return [4 /*yield*/, newProduct.save()
-                        //const ownerId = newProduct._id
+                        // const ownerId = newProduct._id
                     ];
                 case 1:
                     result = _b.sent();
@@ -350,6 +350,30 @@ function sortDescending(req, res) {
     });
 }
 exports.sortDescending = sortDescending;
+function register(req, res) {
+    return __awaiter(this, void 0, void 0, function () {
+        var _a, email, password, userName, user, result, error_11;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
+                case 0:
+                    _b.trys.push([0, 2, , 3]);
+                    _a = req.body, email = _a.email, password = _a.password, userName = _a.userName;
+                    user = new userModel_1["default"]({ email: email, password: password, userName: userName, login: false });
+                    return [4 /*yield*/, user.save()];
+                case 1:
+                    result = _b.sent();
+                    return [3 /*break*/, 3];
+                case 2:
+                    error_11 = _b.sent();
+                    console.error(error_11);
+                    res.send({ error: error_11.message });
+                    return [3 /*break*/, 3];
+                case 3: return [2 /*return*/];
+            }
+        });
+    });
+}
+exports.register = register;
 function login(req, res) {
     return __awaiter(this, void 0, void 0, function () {
         var _a, email, password, user, items, userName, id;
