@@ -45,6 +45,7 @@ app.get('/get-users', async (req, res) => {
   }
 });
 
+
 // app.patch("/delete-user", async (req, res) => {
 //   try {
 //     const { userId } = req.body;
@@ -59,7 +60,6 @@ app.get('/get-users', async (req, res) => {
 //     res.send({ error: error.message });
 //   }
 // });
-
 
 
 app.listen(port, () => {

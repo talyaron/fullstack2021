@@ -194,13 +194,6 @@ function HandleLogin(ev) {
                 ev.preventDefault();
                 password = ev.target.elements.password.value;
                 email = ev.target.elements.email.value;
-                // console.log(email);
-                // const userData = await axios.get(`/user/get-user?email=${email}&password=${password}`);
-                // const imagesData = await axios.get(`/images/get-images?email=${email}&password=${password}`);
-                // const user = { ...userData.data };
-                // const images = { ...imagesData.data };
-                // console.log(user);
-                // console.log(images);
                 localStorage.setItem("UserEmail", JSON.stringify("" + email));
                 localStorage.setItem("UserPassword", JSON.stringify("" + password));
                 renderProfile(email, password);

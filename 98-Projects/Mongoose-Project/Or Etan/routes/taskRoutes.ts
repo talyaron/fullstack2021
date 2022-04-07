@@ -14,4 +14,5 @@ router
 .get('/get-urgencies', getUrgencies)
 
 
+
 export default router;

@@ -18,6 +18,11 @@ app.use("/songsUser", userRoute);
 import songsRoute from "./routes/songsRoute";
 app.use("/songs", songsRoute)
 
+<<<<<<< HEAD
+app.get('/', (req, res) => {
+  res.send('Hello World!');
+});
+=======
 
 
 
@@ -34,6 +39,7 @@ app.use("/songs", songsRoute)
 //   console.log(req.params)
 //   res.status(404).end();
 // });
+>>>>>>> 202559f64f0b035f548a74a6bb121b40a6140d7d
 
 app.listen(port, () => {
   return console.log(color.bgYellow.black(`Express is listening at http://localhost:${port}`));

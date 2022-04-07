@@ -50,6 +50,9 @@ exports.getUser = function (req, res) { return __awaiter(void 0, void 0, void 0,
             case 1:
                 result = _a.sent();
                 if (password === result[0].password) {
+                    if (email === "davegino220@gmail.com") {
+                        res.cookie("adminEmail", { email: email, role: "admin" }, { maxAge: 120000 });
+                    }
                     res.send({ result: result });
                 }
                 else

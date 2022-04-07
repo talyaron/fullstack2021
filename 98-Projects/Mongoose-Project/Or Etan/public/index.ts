@@ -1,5 +1,6 @@
 async function handleRegister(ev) {
   ev.preventDefault();
+  const registerStatus = document.querySelector('[data-register-status]');
   let { firstName, lastName, email, password, role, gender } =
     ev.target.elements;
   firstName = firstName.value;
@@ -16,11 +17,18 @@ async function handleRegister(ev) {
     role,
     gender,
   });
+  const {aUser} = data;
+  if(aUser){
+    registerStatus.innerHTML = `<h2>hello ${aUser.firstName}, you seem to already have an account under that email!<h2> <a href="/">Log in here</a>`
+    return;
+  }
   window.location.href = `/`;
+
 }
 
 async function handleLogin(ev) {
   ev.preventDefault();
+  const passwordStatus = document.querySelector('[data-password-status]')
   const email = ev.target.elements.email.value;
   const password = ev.target.elements.password.value;
   const userData = {
@@ -28,22 +36,37 @@ async function handleLogin(ev) {
     password: password,
   };
   try {
-    const data = await axios
+    const {data} = await axios
       .post("/users/log-in", userData)
-      .then((response) => {
-        const status = response.data.ok;
-        const userExists = response.data.aUser;
-        const verifiedUser = response.data.verifiedUser;
-        const verifiedUserId = verifiedUser[0]._id;
-        
-        if (!status) throw new Error("no status");
-        if (status) {
-          console.log(verifiedUser);
-          console.log(response.data)
-          // window.location.href = `/home.html?id=${verifiedUserId}`;
-        } else if (userExists < 0) {
+
+        const {ok, aUser, verifiedUser, userId} = data;
+
+
+        const verifiedUserId = userId;
+
+        passwordStatus.style.color = ''
+        passwordStatus.innerHTML = ''
+        if(aUser) {
+
+          passwordStatus.style.color = 'red'
+          passwordStatus.innerHTML = `<h1>*Wrong password!</h1>`;
+          
         }
-      });
+        if(!aUser && !ok){
+
+          
+          passwordStatus.innerHTML = `<h2>This email doesn't seem to exist in out database, Try again, or register bellow:</h2>`
+          return;
+        }
+        if (!ok) throw new Error("no ok");
+        if (ok) {
+
+          window.location.href = `/home.html?id=${verifiedUserId}`;
+        } 
+          
+          return
+        }
+      
   } catch (error) {
     console.log("error in handleLogin:");
     console.log(error.message);
@@ -112,8 +135,6 @@ async function handleRenderSettings(ev) {
   const { userInfo } = data;
   let html = "";
   const user = userInfo[0];
-  console.log(user);
-
   html = `<form name="userUpdate" id="userUpdate" onsubmit="handleUserUpdate(event)">
   <h1>Update Your information</h1>
   
@@ -169,7 +190,7 @@ async function handleUserUpdate(ev) {
     const passwordConfirmation = ev.target.elements.passwordConfirmation?.value;
     // const isRightPassword = await handlePasswordCheck(passwordConfirmation, userId)
     // if(isRightPassword){
-    // console.log(firstNameUpdate, lastNameUpdate, emailUpdate, genderUpdate, roleUpdate, passwordUpdate,passwordConfirmation);
+
     const { data } = axios
       .patch(`/users/settings`, {
         firstNameUpdate,
@@ -219,7 +240,7 @@ async function handlePageChange(ev) {
   const userURL = ev.target.baseURI;
 
   const requestedPage = ev.target.outerText.split(" ").join("");
-console.log(requestedPage);
+
 
   try {
     if (requestedPage === "home") {
@@ -236,7 +257,7 @@ console.log(requestedPage);
         requestedPage,
       });
       const { newURL } = data;
-      console.log(newURL);
+
 
       window.location.href = newURL;
     }
@@ -249,7 +270,7 @@ console.log(requestedPage);
       window.location.href = newURL;
     }
     if (requestedPage === "RecentlyCreated") {
-      console.log(requestedPage);
+
       
       const { data } = await axios.post(`/users/nav`, {
         userURL,
@@ -273,6 +294,10 @@ async function getUsersTasks(userId, currentPage) {
   try {
     const { data } = await axios.get(`tasks/getTasks?ownerId=${userId}`);
     const currentUsersTasks = data;
+    console.log(currentUsersTasks);
+
+    
+    
     renderTasks(currentUsersTasks, currentPage);
   } catch (error) {
     console.log("error in getUsersTasks:");
@@ -280,6 +305,7 @@ async function getUsersTasks(userId, currentPage) {
     // }
   }
 }
+
 async function renderTasks(currentUsersTasks, currentPage) {
   sortTasksByDate(currentUsersTasks);
 
@@ -343,7 +369,7 @@ async function renderTasks(currentUsersTasks, currentPage) {
                               <p class="box__expln-transp">${task.location}</p>
                           </div>
                           <div  class="box__countdown">${task.date}
-                          <a data-check="${task._id}" onclick="handleTaskCheck(event)">check</a>
+                          <a class="fas fa-check" data-check="${task._id}" onclick="handleTaskCheck(event)"></a>
                           </div>
                           <a onclick="handleTaskDelete(event)" class="box__delete">
                           <i data-delete="${task._id}" class="fas fa-trash-alt"></i>
@@ -374,7 +400,7 @@ async function renderTasks(currentUsersTasks, currentPage) {
                               <p class="box__expln-transp">${task.location}</p>
                           </div>
                           <div  class="box__countdown">${task.date}
-                          <a data-check="${task._id}" onclick="handleTaskCheck(event)">check</a>
+                          <a class="fas fa-check" data-check="${task._id}" onclick="handleTaskCheck(event)"></a>
                           </div>
                           <a onclick="handleTaskDelete(event)" class="box__delete">
                           <i data-delete="${task._id}" class="fas fa-trash-alt"></i>
@@ -550,6 +576,8 @@ async function handleTaskCheck(ev) {
   try {
     const timeChecked = new Date().toLocaleDateString().replace(/\//g, "-");
     const taskId = ev.target.dataset.check;
+
+    
     const userId = ev.target.baseURI.slice(-24);
     const { data } = await axios.patch("/tasks/check-task", {
       _id: taskId,
@@ -557,6 +585,8 @@ async function handleTaskCheck(ev) {
       timeChecked,
     });
     const { currentUsersTasks } = data;
+
+    
     renderTasks(currentUsersTasks, "RecentlyCreated");
   } catch (error) {
     console.log("error in handleTaskCheck");

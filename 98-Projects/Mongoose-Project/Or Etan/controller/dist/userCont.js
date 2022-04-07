@@ -39,13 +39,17 @@ exports.__esModule = true;
 exports.updateUser = exports.passwordCheck = exports.renderPage = exports.renderUser = exports.login = exports.addUser = void 0;
 var userModel_1 = require("../model/userModel");
 exports.addUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, firstName, lastName, email, password, role, gender, newUser, result, error_1;
+    var _a, firstName, lastName, email, password, role, gender, aUser, newUser, result, error_1;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
-                _b.trys.push([0, 4, , 5]);
+                _b.trys.push([0, 6, , 7]);
                 _a = req.body, firstName = _a.firstName, lastName = _a.lastName, email = _a.email, password = _a.password, role = _a.role, gender = _a.gender;
-                if (!(firstName && lastName && email && password && role && gender)) return [3 /*break*/, 2];
+                if (!(firstName && lastName && email && password && role && gender)) return [3 /*break*/, 4];
+                return [4 /*yield*/, userModel_1["default"].findOne({ email: email })];
+            case 1:
+                aUser = _b.sent();
+                if (!!aUser) return [3 /*break*/, 3];
                 newUser = new userModel_1["default"]({
                     firstName: firstName,
                     lastName: lastName,
@@ -55,72 +59,77 @@ exports.addUser = function (req, res) { return __awaiter(void 0, void 0, void 0,
                     gender: gender
                 });
                 return [4 /*yield*/, newUser.save()];
-            case 1:
+            case 2:
                 result = _b.sent();
                 res.send({ result: result });
-                return [3 /*break*/, 3];
-            case 2: throw new Error("You've missed something");
-            case 3: return [3 /*break*/, 5];
-            case 4:
+                return [2 /*return*/];
+            case 3:
+                res.send({ aUser: aUser });
+                return [3 /*break*/, 5];
+            case 4: throw new Error("You've missed something");
+            case 5: return [3 /*break*/, 7];
+            case 6:
                 error_1 = _b.sent();
                 console.error(error_1);
                 res.send({ error: error_1.message });
-                return [3 /*break*/, 5];
-            case 5: return [2 /*return*/];
+                return [3 /*break*/, 7];
+            case 7: return [2 /*return*/];
         }
     });
 }); };
 exports.login = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, email, password, users, userEmail, verifiedUser, verifiedUser2, error_2;
+    var _a, email, password, currentLogin, userEmail, userVerification, verifiedUser, userId, error_2;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
                 _a = req.body, email = _a.email, password = _a.password;
                 _b.label = 1;
             case 1:
-                _b.trys.push([1, 6, , 7]);
+                _b.trys.push([1, 9, , 10]);
                 return [4 /*yield*/, userModel_1["default"]
-                        .find({ email: email })
+                        .findOne({ email: email })
                         .collation({ locale: "en_US", strength: 1 })];
             case 2:
-                users = _b.sent();
-                return [4 /*yield*/, users[0].email];
+                currentLogin = _b.sent();
+                if (!currentLogin) return [3 /*break*/, 7];
+                return [4 /*yield*/, currentLogin.email];
             case 3:
                 userEmail = _b.sent();
-                return [4 /*yield*/, userModel_1["default"].find({
-                        email: userEmail,
-                        password: password
-                    })];
-            case 4:
-                verifiedUser = _b.sent();
                 return [4 /*yield*/, userModel_1["default"].findOne({
                         email: userEmail,
                         password: password
                     })];
+            case 4:
+                userVerification = _b.sent();
+                if (!userVerification) return [3 /*break*/, 6];
+                return [4 /*yield*/, userModel_1["default"].find({
+                        email: userEmail,
+                        password: password
+                    })];
             case 5:
-                verifiedUser2 = _b.sent();
-                if (users.length > 0) {
-                    if (verifiedUser.length === 1) {
-                        console.log(verifiedUser[0]._id);
-                        console.log(verifiedUser2._id);
-                        res.cookie('currentUser', { id: verifiedUser._id });
-                        res.send({ ok: true, users: users, verifiedUser: verifiedUser });
-                        return [2 /*return*/];
-                    }
-                    res.send({ aUser: true });
+                verifiedUser = _b.sent();
+                if (verifiedUser.length === 1) {
+                    userId = userVerification._id.toString();
+                    res.cookie("currentUser", { userId: userId }, {});
+                    res.send({ ok: true, currentLogin: currentLogin, verifiedUser: verifiedUser, userId: userId });
                     return [2 /*return*/];
                 }
-                else {
-                    res.send({ ok: false });
-                }
-                return [3 /*break*/, 7];
+                res.send({ aUser: true });
+                return [2 /*return*/];
             case 6:
+                res.send({ aUser: true });
+                return [3 /*break*/, 8];
+            case 7:
+                res.send({ aUser: false });
+                _b.label = 8;
+            case 8: return [3 /*break*/, 10];
+            case 9:
                 error_2 = _b.sent();
                 console.log("error in login:");
                 console.log(error_2.message);
                 res.send({ error: error_2.message });
-                return [3 /*break*/, 7];
-            case 7: return [2 /*return*/];
+                return [3 /*break*/, 10];
+            case 10: return [2 /*return*/];
         }
     });
 }); };
@@ -144,14 +153,12 @@ exports.renderPage = function (req, res) { return __awaiter(void 0, void 0, void
         switch (_c.label) {
             case 0:
                 _a = req.body, userURL = _a.userURL, requestedPage = _a.requestedPage;
-                console.log(userURL, requestedPage);
                 appURL = userURL.split("/")[2];
                 userId = userURL.slice(-24);
                 return [4 /*yield*/, userModel_1["default"].find({ _id: userId })];
             case 1:
                 currentUser = _c.sent();
                 newURL = "/" + requestedPage + ".html?id=" + userId;
-                console.log(newURL);
                 _b = currentUser[0], firstName = _b.firstName, lastName = _b.lastName, gender = _b.gender, role = _b.role, email = _b.email, password = _b.password;
                 if (requestedPage === "home") {
                     try {
@@ -230,7 +237,6 @@ exports.passwordCheck = function (req, res) { return __awaiter(void 0, void 0, v
             case 0:
                 _b.trys.push([0, 2, , 3]);
                 _a = req.body, password = _a.password, userId = _a.userId;
-                console.log(password);
                 return [4 /*yield*/, userModel_1["default"].find({
                         _id: userId,
                         password: password
@@ -256,7 +262,14 @@ exports.updateUser = function (req, res) { return __awaiter(void 0, void 0, void
             case 0:
                 _b.trys.push([0, 5, , 6]);
                 _a = req.body, firstNameUpdate = _a.firstNameUpdate, lastNameUpdate = _a.lastNameUpdate, emailUpdate = _a.emailUpdate, genderUpdate = _a.genderUpdate, roleUpdate = _a.roleUpdate, passwordUpdate = _a.passwordUpdate, passwordConfirmation = _a.passwordConfirmation, userId = _a.userId;
-                return [4 /*yield*/, userModel_1["default"].updateOne({ _id: userId, password: passwordConfirmation }, { firstName: firstNameUpdate, lastName: lastNameUpdate, email: emailUpdate, gender: genderUpdate, role: roleUpdate, password: passwordUpdate })];
+                return [4 /*yield*/, userModel_1["default"].updateOne({ _id: userId, password: passwordConfirmation }, {
+                        firstName: firstNameUpdate,
+                        lastName: lastNameUpdate,
+                        email: emailUpdate,
+                        gender: genderUpdate,
+                        role: roleUpdate,
+                        password: passwordUpdate
+                    })];
             case 1:
                 updateUser_1 = _b.sent();
                 return [4 /*yield*/, updateUser_1.matchedCount];
@@ -266,7 +279,6 @@ exports.updateUser = function (req, res) { return __awaiter(void 0, void 0, void
                 return [4 /*yield*/, userModel_1["default"].find({ _id: userId })];
             case 3:
                 updatedUser = _b.sent();
-                console.log(updatedUser, updateStatus);
                 res.send({ updatedUser: updatedUser });
                 return [2 /*return*/];
             case 4:
