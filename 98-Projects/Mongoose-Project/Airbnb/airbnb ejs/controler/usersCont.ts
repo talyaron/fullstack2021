@@ -1,13 +1,7 @@
 import Users from "../model/usersModel";
-import Places from "../model/usersModel";
 
-// export async function getUsers(req,res){
-//     try{
-//         const {userInfo}=req.cookies;
-//         if(userInfo)
 
-//     }
-// }
+
 
 export  const login= async (req,res)=>{
     try{
@@ -17,8 +11,14 @@ export  const login= async (req,res)=>{
             const user=await Users.findOne({userName,password,role});
             if(user.password===password){
                 res.cookie('userInfo',{userName,id:user._id,role},{maxAge:120000});
-                res.send({ok:true,login:true})
+                res.render('owner', {
+                    title:"Owner",
+                    user
+                })
+               
+               
                 return
+                
             
             }
             throw new Error('userName or password or role are incorrect');
@@ -31,18 +31,49 @@ export  const login= async (req,res)=>{
         console.error(error.message)
         res.send({error:error.message})
     }
+
     
 }
 
 export  const registerUser= async (req,res)=>{
     try{
         
-        let {newUserName,newPassword,newRole}=req.body;
+        let{userName,password,role}=req.body;
        
-        const newUser=new Users({newUserName,newPassword,newRole});
+        const newUser=new Users({userName,password,role});
         const result=await newUser.save()
-        res.send({result})
+        res.send({ok:true,register:true})
        
+        
+    }catch(error){
+        console.error(error.message)
+        res.send({error:error.message})
+    }
+    
+}
+
+
+
+export  const getUsers= async (req,res)=>{
+    try{
+        
+       const {userInfo}=req.cookies;
+       if(userInfo&&userInfo.role==="admin"){
+           const users=await Users.find({});
+           res.render('owner', {
+            title:"Owner",
+            users
+        })
+           
+           return
+           
+           
+          
+           
+        }      
+        
+       
+       throw new Error("user is not allowed ")
         
     }catch(error){
         console.error(error.message)

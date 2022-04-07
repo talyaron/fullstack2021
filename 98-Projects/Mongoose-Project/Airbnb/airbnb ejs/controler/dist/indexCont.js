@@ -41,7 +41,7 @@ exports.getIndexPage = function (req, res) { return __awaiter(void 0, void 0, vo
     return __generator(this, function (_a) {
         try {
             res.render('index', {
-                title: "Home Page"
+                title: "Airbnb"
             });
         }
         catch (error) {

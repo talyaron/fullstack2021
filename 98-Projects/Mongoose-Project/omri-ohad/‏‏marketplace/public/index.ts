@@ -28,6 +28,7 @@ async function handleAddProduct(ev) {
 
 async function handleGetProducts() {
 
+
     const { data } = await axios.get('/products/get-products')
     const { filterdProducts } = data;
     console.log({ filterdProducts })

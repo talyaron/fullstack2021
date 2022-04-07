@@ -36,14 +36,8 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.registerUser = exports.login = void 0;
+exports.getUsers = exports.registerUser = exports.login = void 0;
 var usersModel_1 = require("../model/usersModel");
-// export async function getUsers(req,res){
-//     try{
-//         const {userInfo}=req.cookies;
-//         if(userInfo)
-//     }
-// }
 exports.login = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var _a, userName, password, role, user, error_1;
     return __generator(this, function (_b) {
@@ -57,7 +51,10 @@ exports.login = function (req, res) { return __awaiter(void 0, void 0, void 0, f
                 user = _b.sent();
                 if (user.password === password) {
                     res.cookie('userInfo', { userName: userName, id: user._id, role: role }, { maxAge: 120000 });
-                    res.send({ ok: true, login: true });
+                    res.render('owner', {
+                        title: "Owner",
+                        user: user
+                    });
                     return [2 /*return*/];
                 }
                 throw new Error('userName or password or role are incorrect');
@@ -73,17 +70,17 @@ exports.login = function (req, res) { return __awaiter(void 0, void 0, void 0, f
     });
 }); };
 exports.registerUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, newUserName, newPassword, newRole, newUser, result, error_2;
+    var _a, userName, password, role, newUser, result, error_2;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
                 _b.trys.push([0, 2, , 3]);
-                _a = req.body, newUserName = _a.newUserName, newPassword = _a.newPassword, newRole = _a.newRole;
-                newUser = new usersModel_1["default"]({ newUserName: newUserName, newPassword: newPassword, newRole: newRole });
+                _a = req.body, userName = _a.userName, password = _a.password, role = _a.role;
+                newUser = new usersModel_1["default"]({ userName: userName, password: password, role: role });
                 return [4 /*yield*/, newUser.save()];
             case 1:
                 result = _b.sent();
-                res.send({ result: result });
+                res.send({ ok: true, register: true });
                 return [3 /*break*/, 3];
             case 2:
                 error_2 = _b.sent();
@@ -91,6 +88,32 @@ exports.registerUser = function (req, res) { return __awaiter(void 0, void 0, vo
                 res.send({ error: error_2.message });
                 return [3 /*break*/, 3];
             case 3: return [2 /*return*/];
+        }
+    });
+}); };
+exports.getUsers = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var userInfo, users, error_3;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 3, , 4]);
+                userInfo = req.cookies.userInfo;
+                if (!(userInfo && userInfo.role === "admin")) return [3 /*break*/, 2];
+                return [4 /*yield*/, usersModel_1["default"].find({})];
+            case 1:
+                users = _a.sent();
+                res.render('owner', {
+                    title: "Owner",
+                    users: users
+                });
+                return [2 /*return*/];
+            case 2: throw new Error("user is not allowed ");
+            case 3:
+                error_3 = _a.sent();
+                console.error(error_3.message);
+                res.send({ error: error_3.message });
+                return [3 /*break*/, 4];
+            case 4: return [2 /*return*/];
         }
     });
 }); };

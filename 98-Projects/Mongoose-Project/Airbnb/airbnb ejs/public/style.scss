@@ -997,8 +997,20 @@ body {
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: repeat(2, 1fr);
     gap: 15px;
+   
     // padding-top: 1rem;
     // padding-bottom: 1rem;
+    
+    button {
+        color: black;
+        background-color: transparent;
+        border: none;
+        // font-size: 1rem;
+        // padding: .5em, .75em;
+        cursor: pointer;
+
+    }
+   
 
     &__container {
         --padding: 1rem;
@@ -1038,6 +1050,7 @@ body {
         .content {
 
             display: block;
+            
 
             &__namePlace {
                 font-size: 1.5rem;
@@ -1062,15 +1075,6 @@ body {
 
             }
 
-            button {
-                color: black;
-                background-color: white;
-                border: none;
-                font-size: 1rem;
-                padding: .5em, .75em;
-                cursor: pointer;
-
-            }
         }
     }
 

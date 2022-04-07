@@ -173,7 +173,30 @@ function handlePopup() {
     var showPopupText = document.querySelector('.popuptext');
     showPopupText.style.visibility = "visible";
 }
-function handleLogin(ev) {
+// async function handleLogin(ev) {
+//     ev.preventDefault()
+//     let {userName,password,role}=ev.target.elements;
+//     userName=userName.value
+//     password=password.value
+//     role=role.value
+//     console.log(userName,password,role)
+//    //console.log(userName,password)
+//     const { data } = await axios.post("/users/login", {userName,password,role});
+//     //console.log(data)
+//     if(data.login){
+//         const showPopupText:any=document.querySelector('.popuptext');
+//         showPopupText.style.visibility="hidden";
+//         //document.body.style.backgroundColor="red";
+//         if(role==="admin"){
+//             document.body.style.backgroundColor="red";
+//         }else if(role==="host"){
+//             document.body.style.backgroundColor="blue";
+//         }else{
+//             document.body.style.backgroundColor="green";
+//         }
+//     }
+// }
+function handleRegister(ev) {
     return __awaiter(this, void 0, void 0, function () {
         var _a, userName, password, role, data, showPopupText;
         return __generator(this, function (_b) {
@@ -184,12 +207,11 @@ function handleLogin(ev) {
                     userName = userName.value;
                     password = password.value;
                     role = role.value;
-                    console.log(userName, password, role);
-                    return [4 /*yield*/, axios.post("/users/login", { userName: userName, password: password, role: role })];
+                    return [4 /*yield*/, axios.post("/users/add-User", { userName: userName, password: password, role: role })];
                 case 1:
                     data = (_b.sent()).data;
                     console.log(data);
-                    if (data.login) {
+                    if (data.register) {
                         showPopupText = document.querySelector('.popuptext');
                         showPopupText.style.visibility = "hidden";
                         //document.body.style.backgroundColor="red";
@@ -203,26 +225,6 @@ function handleLogin(ev) {
                             document.body.style.backgroundColor = "green";
                         }
                     }
-                    return [2 /*return*/];
-            }
-        });
-    });
-}
-function handleRegister(ev) {
-    return __awaiter(this, void 0, void 0, function () {
-        var _a, newUserName, newPassword, newRole, data;
-        return __generator(this, function (_b) {
-            switch (_b.label) {
-                case 0:
-                    ev.preventDefault();
-                    _a = ev.target.elements, newUserName = _a.newUserName, newPassword = _a.newPassword, newRole = _a.newRole;
-                    newUserName = newUserName.value;
-                    newPassword = newPassword.value;
-                    newRole = newRole.value;
-                    return [4 /*yield*/, axios.post("/users/add-User", { newUserName: newUserName, newPassword: newPassword, newRole: newRole })];
-                case 1:
-                    data = (_b.sent()).data;
-                    console.log(data);
                     return [2 /*return*/];
             }
         });
