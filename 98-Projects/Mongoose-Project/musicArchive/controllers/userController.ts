@@ -38,7 +38,7 @@ export const logIn = async (req, res) => {
                     res.cookie(
                         "userInfo",
                         { name, id: user1._id, role: user1.role },
-                        { maxAge: 120000 }
+                        { maxAge: 120000, httpOnly:true }
                     )
 
                     res.send({ ok: true, login: true });
