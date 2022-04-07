@@ -45,10 +45,15 @@
             padding: 1.2rem;
             font-family: 'Barlow', sans-serif;
             color: #585568;
-            cursor: pointer;
+            // cursor: pointer;
             
             i{
                 color: white;
+                font-size: 35px;
+                position: relative;
+                right: 79.5vw;
+                bottom: 3px;
+                
             }
         }
     }
@@ -289,4 +294,15 @@ label{
     #trash{
     z-index: 0;
     }
+}
+
+.LogOutBtn{
+    background-color: #4a41cc;
+    border: none;
+    color: white;
+    padding: 7px 15px;
+    text-align: center;
+    font-size: 16px;
+    border-radius: 7px;
+    cursor: pointer;
 }

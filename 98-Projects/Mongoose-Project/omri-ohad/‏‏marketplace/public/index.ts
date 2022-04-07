@@ -53,9 +53,16 @@ function renderItemsMain(items,ok?, userName?) {
         })
         if(localStorage.getItem("name") !=null){
             document.querySelector(".mainPage__header--welcome").innerHTML = `
-            hello ${localStorage.getItem("name")} <a href="personal-zone.html"><i class="fa fa-user" ></i></a
-            </br></br>
-            <button onclick="localStorage.clear();location.reload()">log out</button>
+            </br>
+            hello ${localStorage.getItem("name")}
+            </br>
+            <button class="LogOutBtn" onclick="localStorage.clear();location.reload()">log out</button>  
+            `
+
+            document.querySelector(".mainPage__header--icons").innerHTML = `
+                <a href="index.html"><i class="fa fa-home" ></i></a>
+                <a href="personal-zone.html"><i class="fa fa-user" ></i></a>
+                <i id="" class="fa fa-shopping-cart"></i>
             `
 
         } 
@@ -85,6 +92,19 @@ function renderProducts(products, ok?, userName?) {
         </div>
         `
     }).join('');
+
+    if(localStorage.getItem("name") !=null){
+        document.querySelector(".mainPage__header--welcome").innerHTML = `
+        </br>
+        hello ${localStorage.getItem("name")}
+        </br>
+        <button class="LogOutBtn" onclick="localStorage.clear();location.reload()">log out</button>  
+        `
+
+    } 
+    else if(localStorage.getItem("name") ==='user'){document.querySelector(".mainPage__header--welcome").innerHTML = '';}
+
+    else{document.querySelector(".mainPage__header--welcome").innerHTML = '';}
     document.getElementById('products').innerHTML = html;
 }
 
