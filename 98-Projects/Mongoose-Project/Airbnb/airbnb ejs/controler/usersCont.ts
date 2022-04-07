@@ -16,11 +16,19 @@ export  const login= async (req,res)=>{
 
 
                 res.cookie('userInfo',token,{maxAge:120000});
-                res.render('owner', {
+               
+              if(user.role == "host" || user.role == "guest") {
+                   res.render('./index', {
+                    title:"Airbnb",
+                   user
+                })
+              }
+              else if(user.role == "admin"){
+                   res.render('owner', {
                     title:"Owner",
                     user
                 })
-               
+              }
                
                 return
                 
@@ -68,6 +76,7 @@ export  const getUsers= async (req,res)=>{
        console.log(decoded);
        if(decoded&&decoded.role==="admin"){
            const users=await Users.find({});
+           res.send({ok:true, users})
            res.render('owner', {
             title:"Owner",
             users
