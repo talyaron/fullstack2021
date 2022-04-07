@@ -2,10 +2,11 @@
 exports.__esModule = true;
 var mongoose_1 = require("mongoose");
 var UserSchema = new mongoose_1["default"].Schema({
-    userName: String,
-    email: String,
+    username: String,
     password: String,
-    login: Boolean
+    role: String,
+    phone: String
 });
-var User = mongoose_1["default"].model('users', UserSchema);
+//create a collection
+var User = mongoose_1["default"].model("users", UserSchema);
 exports["default"] = User;

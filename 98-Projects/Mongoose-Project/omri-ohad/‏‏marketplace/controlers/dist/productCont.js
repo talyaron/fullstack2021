@@ -36,9 +36,10 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.sortDescending = exports.sortAscending = exports.filterByCategory = exports.deleteProduct = exports.updatePrice = exports.updateTitle = exports.updatePic = exports.addProduct = exports.getAllProducts = exports.getProductsMain = void 0;
+exports.login = exports.register = exports.sortDescending = exports.sortAscending = exports.filterByCategory = exports.deleteProduct = exports.updatePrice = exports.updateTitle = exports.updatePic = exports.addProduct = exports.getAllProducts = exports.getProductsMain = void 0;
 var productModel_1 = require("../model/productModel");
 var productMain_1 = require("../model/productMain");
+var userModel_1 = require("../model/userModel");
 function getProductsMain(req, res) {
     return __awaiter(this, void 0, void 0, function () {
         var marketItems, error_1;
@@ -349,8 +350,6 @@ function sortDescending(req, res) {
     });
 }
 exports.sortDescending = sortDescending;
-<<<<<<< HEAD
-=======
 function register(req, res) {
     return __awaiter(this, void 0, void 0, function () {
         var _a, email, password, userName, user, result, error_11;
@@ -407,4 +406,3 @@ function login(req, res) {
     });
 }
 exports.login = login;
->>>>>>> main
