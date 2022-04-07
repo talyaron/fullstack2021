@@ -1,6 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import cookieParser from 'cookie-parser';
+import 'dotenv/config'
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -8,7 +9,7 @@ app.use(express.static("public"));
 app.use(express.json());
 app.use(cookieParser());
 
-mongoose.connect('mongodb+srv://andrewLSHFY:1HULLpKqCi5A1E5h@cluster0.cybvt.mongodb.net/artNft?retryWrites=true&w=majority').then(res => {
+mongoose.connect(process.env.MDB_URI).then(res => {
   console.log('connected to DB');
 }).catch(err => {
   console.log('At mongoose.connect: ');

@@ -1,4 +1,6 @@
 import User from '../model/userModel'
+import jwt from 'jwt-simple';
+const secret = process.env.JWT_SECRET;
 
 export const addUser = async (req, res) => {
 
@@ -38,13 +40,15 @@ export const addUser = async (req, res) => {
 export const findUser = async (req, res) => {
     try {
         const { loginEmail, loginPassword } = req.query;
-        const oldUser:any = await User.find({ email: loginEmail, password: loginPassword })
+        const oldUser: any = await User.find({ email: loginEmail, password: loginPassword })
         if (oldUser.length === 0) {
             res.send({ noUser: 'Wrong email/password' });
         } else if (oldUser.length > 0) {
-            res.cookie("userInfo",{ userName:oldUser[0].userName,funds: oldUser[0].fund },{maxAge: 60000} )
+            const payload = { userName: oldUser[0].userName, funds: oldUser[0].fund };
+            const token = jwt.encode(payload, secret);
+
+            res.cookie("userInfo", token, { maxAge: 60000 })
             console.log(oldUser[0].email);
-            
             res.send({ oldUser })
         }
         if (!req.body) throw new Error("no req.body in app.post'/users/log-user'");
@@ -55,7 +59,7 @@ export const findUser = async (req, res) => {
 }
 
 export const updateUser = async (req, res) => {
-    
+
     const { user } = req.body;
     await User.updateOne({ _id: user._id }, user);
 }
@@ -71,14 +75,18 @@ export const addArtToUser = async (req, res) => {
 
 export const buyAndSell = async (req, res) => {
     const { buyerId, price, ownerId } = req.body;
-    const { userInfo } = req.cookies;
-    if(userInfo.funds >= price){
+    let { userInfo } = req.cookies;
+    
+    userInfo = jwt.decode(userInfo, secret);
+    console.log(userInfo);
+    
+    if (userInfo.funds >= price) {
         const result = await User.updateOne({ _id: ownerId }, { $inc: { fund: price } })
         const result2 = await User.updateOne({ _id: buyerId }, { $inc: { fund: -price } })
-    
+
         res.send({ ok: true })
     }
-    else res.send({ ok: false})
+    else res.send({ ok: false })
 
 
 }

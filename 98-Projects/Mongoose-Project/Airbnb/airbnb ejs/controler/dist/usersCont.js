@@ -55,10 +55,18 @@ exports.login = function (req, res) { return __awaiter(void 0, void 0, void 0, f
                     payload = { userName: userName, id: user._id, role: role };
                     token = jwt_simple_1["default"].encode(payload, secret);
                     res.cookie('userInfo', token, { maxAge: 120000 });
-                    res.render('owner', {
-                        title: "Owner",
-                        user: user
-                    });
+                    if (user.role == "host" || user.role == "guest") {
+                        res.render('./index', {
+                            title: "Airbnb",
+                            user: user
+                        });
+                    }
+                    else if (user.role == "admin") {
+                        res.render('owner', {
+                            title: "Owner",
+                            user: user
+                        });
+                    }
                     return [2 /*return*/];
                 }
                 throw new Error('userName or password or role are incorrect');
@@ -110,6 +118,7 @@ exports.getUsers = function (req, res) { return __awaiter(void 0, void 0, void 0
                 return [4 /*yield*/, usersModel_1["default"].find({})];
             case 1:
                 users = _a.sent();
+                res.send({ ok: true, users: users });
                 res.render('owner', {
                     title: "Owner",
                     users: users
