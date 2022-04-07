@@ -39,13 +39,13 @@ exports.__esModule = true;
 exports.getUsers = exports.registerUser = exports.login = void 0;
 var usersModel_1 = require("../model/usersModel");
 var jwt_simple_1 = require("jwt-simple");
+var secret = process.env.JWT_SECRET;
 exports.login = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var secret, _a, userName, password, role, user, payload, token, error_1;
+    var _a, userName, password, role, user, payload, token, error_1;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
                 _b.trys.push([0, 4, , 5]);
-                secret = "shhitsasecret";
                 _a = req.body, userName = _a.userName, password = _a.password, role = _a.role;
                 if (!(typeof userName === "string" && typeof password === "string" && typeof role === "string")) return [3 /*break*/, 2];
                 return [4 /*yield*/, usersModel_1["default"].findOne({ userName: userName, password: password, role: role })];
@@ -104,14 +104,13 @@ exports.registerUser = function (req, res) { return __awaiter(void 0, void 0, vo
     });
 }); };
 exports.getUsers = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var userInfo, secret, decoded, users, error_3;
+    var userInfo, decoded, users, error_3;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 3, , 4]);
                 console.log(req.cookies);
                 userInfo = req.cookies.userInfo;
-                secret = "shhitsasecret";
                 decoded = jwt_simple_1["default"].decode(userInfo, secret);
                 console.log(decoded);
                 if (!(decoded && decoded.role === "admin")) return [3 /*break*/, 2];

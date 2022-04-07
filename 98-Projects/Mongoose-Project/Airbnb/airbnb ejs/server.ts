@@ -5,7 +5,11 @@ import Places from "./model/placesModel";
 const cookieParser = require('cookie-parser');
 import path from "path";
 
-// import axios from "axios";
+require('dotenv').config()
+
+console.log(process.env.ENV)
+console.log(process.env.JWT_SECRET)
+
 const app = express();
 const port = process.env.PORT || 3000;
 app.use(express.static("public"));

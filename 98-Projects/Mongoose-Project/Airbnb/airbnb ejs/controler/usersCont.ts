@@ -2,11 +2,10 @@ import Users from "../model/usersModel";
 import jwt from "jwt-simple";
 
 
-
+const secret=process.env.JWT_SECRET
 
 export  const login= async (req,res)=>{
     try{
-        const secret="shhitsasecret";
         const {userName,password,role}=req.body;
         if(typeof userName==="string" && typeof password==="string" && typeof role==="string"){
             const user=await Users.findOne({userName,password,role});
@@ -71,7 +70,6 @@ export  const getUsers= async (req,res)=>{
     try{
         console.log(req.cookies);
        const {userInfo}=req.cookies;
-       const secret="shhitsasecret";
        const decoded=jwt.decode(userInfo,secret);
        console.log(decoded);
        if(decoded&&decoded.role==="admin"){
