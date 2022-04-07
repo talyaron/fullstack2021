@@ -5,11 +5,6 @@ export const addUser = async (req, res) => {
   try {
     let { firstName, lastName, email, password, role, gender } = req.body;
 
-<<<<<<< HEAD
-      const result = await newUser.save();
-      res.send({ result });
-
-=======
     if (firstName && lastName && email && password && role && gender) {
       const aUser = await user.findOne({ email: email });
       if (!aUser) {
@@ -27,7 +22,6 @@ export const addUser = async (req, res) => {
         return;
       }
       res.send({aUser})
->>>>>>> main
     } else throw new Error(`You've missed something`);
   } catch (error) {
     console.error(error);
@@ -43,20 +37,6 @@ export const login = async (req, res) => {
     const currentLogin = await user
       .findOne({ email: email })
       .collation({ locale: "en_US", strength: 1 });
-<<<<<<< HEAD
-    const userEmail = await users[0].email;
-    const verifiedUser = await user.find({
-      email: userEmail,
-      password: password,
-    });
-
-
-    if (users.length > 0) {
-
-
-      if (verifiedUser.length === 1) {
-        res.send({ ok: true, users, verifiedUser });
-=======
     if (currentLogin) {
       const userEmail = await currentLogin.email;
       const userVerification: any = await user.findOne({
@@ -77,7 +57,6 @@ export const login = async (req, res) => {
           return;
         }
         res.send({ aUser: true });
->>>>>>> main
         return;
       }
       res.send({ aUser: true });
@@ -101,21 +80,14 @@ export const renderUser = async (req, res) => {
 
 export const renderPage = async (req, res) => {
   const { userURL, requestedPage } = req.body;
-<<<<<<< HEAD
-=======
-
->>>>>>> main
 
   const appURL = userURL.split("/")[2];
   const userId = userURL.slice(-24);
   const currentUser = await user.find({ _id: userId });
-<<<<<<< HEAD
-=======
   const newURL = `/${requestedPage}.html?id=${userId}`;
 
 
-  let { firstName, lastName, gender, role, email, password } = currentUser[0];
->>>>>>> main
+
 
   const newURL = `/${requestedPage}.html?id=${userId}`;
   let { firstName, lastName, gender, role, email, password} = currentUser[0];
