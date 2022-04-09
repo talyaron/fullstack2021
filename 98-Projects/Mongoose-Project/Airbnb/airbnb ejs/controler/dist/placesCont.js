@@ -191,16 +191,18 @@ exports.searchAirbnb = function (req, res) { return __awaiter(void 0, void 0, vo
     });
 }); };
 exports.searchAirbnbByCity = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var city, airbnbInCity;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
+    var _a, _b, TelAviv, _c, Eilat, _d, Jerusalem, _e, HareiYehuda, getplaces;
+    return __generator(this, function (_f) {
+        switch (_f.label) {
             case 0:
-                city = req.body.city;
-                return [4 /*yield*/, placesModel_1["default"].find({ address_country: city }).limit(3)];
+                _a = req.query, _b = _a.TelAviv, TelAviv = _b === void 0 ? "Tel Aviv" : _b, _c = _a.Eilat, Eilat = _c === void 0 ? "Eilat" : _c, _d = _a.Jerusalem, Jerusalem = _d === void 0 ? "Jerusalem" : _d, _e = _a.HareiYehuda, HareiYehuda = _e === void 0 ? "Harei Yehuda" : _e;
+                return [4 /*yield*/, placesModel_1["default"].find({ address_country: (TelAviv || Eilat || Jerusalem || HareiYehuda) }).limit(10)];
             case 1:
-                airbnbInCity = _a.sent();
-                // console.log(airbnbInCity);
-                res.send({ ok: true, theCity: airbnbInCity });
+                getplaces = _f.sent();
+                res.render("places", {
+                    title: "Search",
+                    getplaces: getplaces
+                });
                 return [2 /*return*/];
         }
     });

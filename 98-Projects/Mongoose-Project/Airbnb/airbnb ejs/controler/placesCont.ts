@@ -150,10 +150,34 @@ export const searchAirbnb = async (req, res) => {
 };
 
 export const searchAirbnbByCity = async (req, res) => {
-  // const placesInTelaviv = await Places.find({"address.country":{ $eq:"Brazil"}}).limit(20);
-  let { city } = req.body;
 
-  const airbnbInCity = await Places.find({ address_country: city }).limit(3);
-  // console.log(airbnbInCity);
-  res.send({ ok: true, theCity: airbnbInCity });
+  // const placesInTelaviv = await Places.find({"address.country":{ $eq:"Brazil"}}).limit(20);
+  let { TelAviv= "Tel Aviv", Eilat = "Eilat", Jerusalem = "Jerusalem", HareiYehuda="Harei Yehuda" } = req.query;
+
+// let TelAvivP = await Places.find({ address_country:TelAviv}).limit(10)
+// let EilatP = await Places.find({ address_country:Eilat}).limit(10)
+// let JerusalemP = await Places.find({ address_country:Jerusalem}).limit(10)
+// let HareiYehudaP = await Places.find({ address_country:HareiYehuda}).limit(10)
+
+let getplaces = await Places.find({ address_country:(TelAviv||Eilat||Jerusalem||HareiYehuda)}).limit(10)
+res.render("places",{
+  title:"Search",
+ 
+  getplaces
+  
+  
+})
+ 
+//let getplaces = { TelAviv, Eilat, Jerusalem, HareiYehuda }
+  //  res.render("places",{
+  //   title:"Search",
+   
+  //   getplaces:await Places.find({ address_country:"Eilat" }).limit(10)
+  // })
+ 
+
+
+  // const airbnbInCity = await Places.find({ address_country: Eilat }).limit(3);
+  // // console.log(airbnbInCity);
+  // res.send({ ok: true, theCity: airbnbInCity });
 };

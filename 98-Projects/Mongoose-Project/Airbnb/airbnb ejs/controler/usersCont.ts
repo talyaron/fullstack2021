@@ -80,11 +80,11 @@ export  const getUsers= async (req,res)=>{
        const decoded=jwt.decode(userInfo,secret);
        console.log(decoded);
        if(decoded&&decoded.role==="admin"){
-           const users=await Users.find({});
-           res.send({ok:true, users})
+           const user=await Users.find({});
+           res.send({ok:true, user})
            res.render('owner', {
             title:"Owner",
-            users
+            user
         })
            
            return          

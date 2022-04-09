@@ -108,7 +108,7 @@ exports.registerUser = function (req, res) { return __awaiter(void 0, void 0, vo
     });
 }); };
 exports.getUsers = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var userInfo, decoded, users, error_3;
+    var userInfo, decoded, user, error_3;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -120,11 +120,11 @@ exports.getUsers = function (req, res) { return __awaiter(void 0, void 0, void 0
                 if (!(decoded && decoded.role === "admin")) return [3 /*break*/, 2];
                 return [4 /*yield*/, usersModel_1["default"].find({})];
             case 1:
-                users = _a.sent();
-                res.send({ ok: true, users: users });
+                user = _a.sent();
+                res.send({ ok: true, user: user });
                 res.render('owner', {
                     title: "Owner",
-                    users: users
+                    user: user
                 });
                 return [2 /*return*/];
             case 2: throw new Error("user is not allowed ");
