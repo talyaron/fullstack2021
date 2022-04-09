@@ -134,7 +134,7 @@ export const searchAirbnb = async (req, res) => {
     console.log("the days between checkIn checkOut is:" + differenceInDays)
 
 
-    const getplaces = await Places.find({ address_country: `${/*search*/searchLocation}`, accommodates: sum });
+    const getplaces = await Places.find({ address_country: `${/*search*/searchLocation}`, accommodates: sum }).limit(3);
 
     console.log(getplaces)
     // res.send({ ok: true, places });
@@ -153,7 +153,7 @@ export const searchAirbnbByCity = async (req, res) => {
   // const placesInTelaviv = await Places.find({"address.country":{ $eq:"Brazil"}}).limit(20);
   let { city } = req.body;
 
-  const airbnbInCity = await Places.find({ address_country: city }).limit(10);
+  const airbnbInCity = await Places.find({ address_country: city }).limit(3);
   // console.log(airbnbInCity);
   res.send({ ok: true, theCity: airbnbInCity });
 };

@@ -171,7 +171,7 @@ exports.searchAirbnb = function (req, res) { return __awaiter(void 0, void 0, vo
                 differenceInTime = dateOfCheckOut.getTime() - dateOfCheckIn.getTime();
                 differenceInDays = differenceInTime / (1000 * 3600 * 24);
                 console.log("the days between checkIn checkOut is:" + differenceInDays);
-                return [4 /*yield*/, placesModel_1["default"].find({ address_country: "" + searchLocation, accommodates: sum })];
+                return [4 /*yield*/, placesModel_1["default"].find({ address_country: "" + searchLocation, accommodates: sum }).limit(3)];
             case 1:
                 getplaces = _b.sent();
                 console.log(getplaces);
@@ -196,7 +196,7 @@ exports.searchAirbnbByCity = function (req, res) { return __awaiter(void 0, void
         switch (_a.label) {
             case 0:
                 city = req.body.city;
-                return [4 /*yield*/, placesModel_1["default"].find({ address_country: city }).limit(10)];
+                return [4 /*yield*/, placesModel_1["default"].find({ address_country: city }).limit(3)];
             case 1:
                 airbnbInCity = _a.sent();
                 // console.log(airbnbInCity);
