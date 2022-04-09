@@ -6,36 +6,40 @@ const secret=process.env.JWT_SECRET
 
 export  const login= async (req,res)=>{
     try{
-        const {userName,password,role}=req.body;
-        if(typeof userName==="string" && typeof password==="string" && typeof role==="string"){
-            const user=await Users.findOne({userName,password,role});
-            if(user.password===password){
-                const payload={userName,id:user._id,role};
-                const token=jwt.encode(payload,secret);
-
-
-                res.cookie('userInfo',token,{maxAge:120000});
-               
-              if(user.role == "host" || user.role == "guest") {
-                   res.render('./index', {
-                    title:"Airbnb",
-                   user
-                })
-              }
-              else if(user.role == "admin"){
-                   res.render('owner', {
-                    title:"Owner",
-                    user
-                })
-              }
-               
-                return
+        const {username,password,role}=req.body;
+        if(typeof username==="string" && typeof password==="string" && typeof role==="string"){
+            const user=await Users.findOne({username,password,role});
+            if(user){
+                if(user.password===password){
+                    const payload={username,id:user._id,role};
+                    const token=jwt.encode(payload,secret);
+    
+    
+                    res.cookie('userInfo',token,{maxAge:120000});
+                   
+                  if(user.role == "host" || user.role == "guest") {
+                       res.render('index', {
+                        title:"Airbnb",
+                        user
+                    })
+                  }
+                  else if(user.role == "admin"){
+                       res.render('owner', {
+                        title:"Owner",
+                        user
+                    })
+                  }
+                   
+                    return
+                    
                 
-            
+                }
             }
-            throw new Error('userName or password or role are incorrect');
+            
+            
+            throw new Error('username or password or role are incorrect');
         }else{
-           throw new Error("userName or password or role is missing")
+           throw new Error("username or password or role is missing")
         }
        
         
@@ -50,11 +54,14 @@ export  const login= async (req,res)=>{
 export  const registerUser= async (req,res)=>{
     try{
         
-        let{userName,password,role}=req.body;
+        let{username,password,role}=req.body;
+        if(typeof username==="string" && typeof password==="string" && typeof role==="string"){
+            const newUser=new Users({username,password,role});
+            const result=await newUser.save()
+            res.send({ok:true,register:true})
+        }
        
-        const newUser=new Users({userName,password,role});
-        const result=await newUser.save()
-        res.send({ok:true,register:true})
+       
        
         
     }catch(error){

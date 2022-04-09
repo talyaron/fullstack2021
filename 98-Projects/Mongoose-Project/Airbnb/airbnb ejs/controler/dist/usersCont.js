@@ -41,36 +41,38 @@ var usersModel_1 = require("../model/usersModel");
 var jwt_simple_1 = require("jwt-simple");
 var secret = process.env.JWT_SECRET;
 exports.login = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, userName, password, role, user, payload, token, error_1;
+    var _a, username, password, role, user, payload, token, error_1;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
                 _b.trys.push([0, 4, , 5]);
-                _a = req.body, userName = _a.userName, password = _a.password, role = _a.role;
-                if (!(typeof userName === "string" && typeof password === "string" && typeof role === "string")) return [3 /*break*/, 2];
-                return [4 /*yield*/, usersModel_1["default"].findOne({ userName: userName, password: password, role: role })];
+                _a = req.body, username = _a.username, password = _a.password, role = _a.role;
+                if (!(typeof username === "string" && typeof password === "string" && typeof role === "string")) return [3 /*break*/, 2];
+                return [4 /*yield*/, usersModel_1["default"].findOne({ username: username, password: password, role: role })];
             case 1:
                 user = _b.sent();
-                if (user.password === password) {
-                    payload = { userName: userName, id: user._id, role: role };
-                    token = jwt_simple_1["default"].encode(payload, secret);
-                    res.cookie('userInfo', token, { maxAge: 120000 });
-                    if (user.role == "host" || user.role == "guest") {
-                        res.render('./index', {
-                            title: "Airbnb",
-                            user: user
-                        });
+                if (user) {
+                    if (user.password === password) {
+                        payload = { username: username, id: user._id, role: role };
+                        token = jwt_simple_1["default"].encode(payload, secret);
+                        res.cookie('userInfo', token, { maxAge: 120000 });
+                        if (user.role == "host" || user.role == "guest") {
+                            res.render('index', {
+                                title: "Airbnb",
+                                user: user
+                            });
+                        }
+                        else if (user.role == "admin") {
+                            res.render('owner', {
+                                title: "Owner",
+                                user: user
+                            });
+                        }
+                        return [2 /*return*/];
                     }
-                    else if (user.role == "admin") {
-                        res.render('owner', {
-                            title: "Owner",
-                            user: user
-                        });
-                    }
-                    return [2 /*return*/];
                 }
-                throw new Error('userName or password or role are incorrect');
-            case 2: throw new Error("userName or password or role is missing");
+                throw new Error('username or password or role are incorrect');
+            case 2: throw new Error("username or password or role is missing");
             case 3: return [3 /*break*/, 5];
             case 4:
                 error_1 = _b.sent();
@@ -82,24 +84,26 @@ exports.login = function (req, res) { return __awaiter(void 0, void 0, void 0, f
     });
 }); };
 exports.registerUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, userName, password, role, newUser, result, error_2;
+    var _a, username, password, role, newUser, result, error_2;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
-                _b.trys.push([0, 2, , 3]);
-                _a = req.body, userName = _a.userName, password = _a.password, role = _a.role;
-                newUser = new usersModel_1["default"]({ userName: userName, password: password, role: role });
+                _b.trys.push([0, 3, , 4]);
+                _a = req.body, username = _a.username, password = _a.password, role = _a.role;
+                if (!(typeof username === "string" && typeof password === "string" && typeof role === "string")) return [3 /*break*/, 2];
+                newUser = new usersModel_1["default"]({ username: username, password: password, role: role });
                 return [4 /*yield*/, newUser.save()];
             case 1:
                 result = _b.sent();
                 res.send({ ok: true, register: true });
-                return [3 /*break*/, 3];
-            case 2:
+                _b.label = 2;
+            case 2: return [3 /*break*/, 4];
+            case 3:
                 error_2 = _b.sent();
                 console.error(error_2.message);
                 res.send({ error: error_2.message });
-                return [3 /*break*/, 3];
-            case 3: return [2 /*return*/];
+                return [3 /*break*/, 4];
+            case 4: return [2 /*return*/];
         }
     });
 }); };

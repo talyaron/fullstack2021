@@ -47,17 +47,6 @@ mongoose
 
 
 
-// app.post("/addUsers", async (req, res) => {
-//   try {
-//     let { user, password } = req.body;
-//     const newUser = new Users({ user, password });
-//     const result = await newUser.save();
-//     res.send({ ok: true, result });
-//   } catch (error) {
-//     console.error(error);
-//     res.send({ error: error.massage });
-//   }
-// });
 
 
 

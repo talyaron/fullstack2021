@@ -40,17 +40,6 @@ mongoose_1.default
     .catch((err) => {
     console.log(err.message);
 });
-// app.post("/addUsers", async (req, res) => {
-//   try {
-//     let { user, password } = req.body;
-//     const newUser = new Users({ user, password });
-//     const result = await newUser.save();
-//     res.send({ ok: true, result });
-//   } catch (error) {
-//     console.error(error);
-//     res.send({ error: error.massage });
-//   }
-// });
 const indexRoutes_1 = __importDefault(require("./routes/indexRoutes"));
 app.use('/', indexRoutes_1.default);
 const placesRoutes_1 = __importDefault(require("./routes/placesRoutes"));

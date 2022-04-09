@@ -76,10 +76,10 @@
                     
                     id="login" action="/users/login" method="POST">
                         <h2>Login</h2>
-                        <input type="text" name="userName" placeholder="userName">
-                        <input type="password" name="password" placeholder="password" autocomplete="current-password">
+                        <input type="text" name="username" placeholder="username" required>
+                        <input type="password" name="password" placeholder="password" autocomplete="current-password" required>
 
-                        <select name="role" id="role">
+                        <select name="role" id="role" required>
                             <option selected disabled hidden>"I am a"</option>
                             <option value="admin">Admin</option>
                             <option value="host">Host</option>
@@ -91,11 +91,11 @@
 
                     <form onsubmit="handleRegister(event)" id="register">
                         <h2>Register</h2>
-                        <input type="text" name="userName" placeholder="userName">
+                        <input type="text" name="username" placeholder="username" required>
                         <input type="password" name="password" placeholder="password"
-                            autocomplete="current-password">
+                            autocomplete="current-password" required>
 
-                        <select name="role" id="role">
+                        <select name="role" id="role" required>
                             <option selected disabled hidden>"I am a"</option>
                             <option value="host">Host</option>
                             <option value="guest">Guest</option>

@@ -336,15 +336,15 @@ function handlePopup() {
 
 // async function handleLogin(ev) {
 //     ev.preventDefault()
-//     let {userName,password,role}=ev.target.elements;
-//     userName=userName.value
+//     let {username,password,role}=ev.target.elements;
+//     username=username.value
 //     password=password.value
 //     role=role.value
     
 
-//     console.log(userName,password,role)
-//    //console.log(userName,password)
-//     const { data } = await axios.post("/users/login", {userName,password,role});
+//     console.log(username,password,role)
+//    //console.log(username,password)
+//     const { data } = await axios.post("/users/login", {username,password,role});
 //     //console.log(data)
 
 //     if(data.login){
@@ -369,12 +369,12 @@ function handlePopup() {
 async function handleRegister(ev) {
     ev.preventDefault()
     
-    let {userName,password,role}=ev.target.elements;
-    userName=userName.value
+    let {username,password,role}=ev.target.elements;
+    username=username.value
     password=password.value
     role=role.value
    
-    const { data } = await axios.post("/users/add-User",  { userName,password,role } );
+    const { data } = await axios.post("/users/add-User",  { username,password,role } );
     console.log(data)
     if(data.register){
         const showPopupText:any=document.querySelector('.popuptext');
