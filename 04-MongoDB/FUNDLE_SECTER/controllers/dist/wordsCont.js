@@ -58,7 +58,7 @@ function addToDB() {
                     dictionaryTest = _a.sent();
                     if (!(dictionaryTest.length > 0)) return [3 /*break*/, 2];
                     console.log('ok');
-                    console.log(dictionary.length);
+                    console.log('length: ' + dictionary.length);
                     return [3 /*break*/, 6];
                 case 2:
                     console.log('null');

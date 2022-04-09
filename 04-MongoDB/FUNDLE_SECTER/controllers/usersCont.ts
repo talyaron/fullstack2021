@@ -2,18 +2,19 @@
 import FundleUser from "../model/usersModel"
 import jwt from "jwt-simple";
 
-const secret:any = process.env.JWT_SECRET;
+// const secret:any = process.env.JWT_SECRET;
+const secret:any = '12345';
 
 export async function loadUser(req: any, res: any) {
     try {
 
         const { userInfo } = req.cookies;
-        console.log(userInfo)
+        console.log('userinfo' + userInfo)
         console.log('server data: ' + userInfo.username)
 
        
         const decoded = jwt.decode(userInfo, secret);
-        console.log(decoded)
+        console.log('decoded' + decoded)
         if (decoded) {
             res.send(decoded)
         }else{
@@ -78,6 +79,7 @@ export async function getUser(req: any, res: any) {
             token,
             { username, httpOnly: true }///httponly- so client cant touch cookies//can also set {maxage} (time to earase) 
         );
+        
         res.send({ user: userMatch })
     }
     else {
@@ -122,7 +124,7 @@ export async function updateUser(req: any, res: any) {
         user[0].played++;
 
         console.log('played: ' + user[0].played)
-        console.log(win)
+        console.log(`win : ` + win)
 
         if (win) {
             user[0].wins++;

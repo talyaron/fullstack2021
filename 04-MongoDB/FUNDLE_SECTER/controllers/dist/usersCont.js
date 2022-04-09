@@ -39,17 +39,18 @@ exports.__esModule = true;
 exports.updateUser = exports.getUser = exports.addUser = exports.loadUser = void 0;
 var usersModel_1 = require("../model/usersModel");
 var jwt_simple_1 = require("jwt-simple");
-var secret = process.env.JWT_SECRET;
+// const secret:any = process.env.JWT_SECRET;
+var secret = '12345';
 function loadUser(req, res) {
     return __awaiter(this, void 0, void 0, function () {
         var userInfo, decoded;
         return __generator(this, function (_a) {
             try {
                 userInfo = req.cookies.userInfo;
-                console.log(userInfo);
+                console.log('userinfo' + userInfo);
                 console.log('server data: ' + userInfo.username);
                 decoded = jwt_simple_1["default"].decode(userInfo, secret);
-                console.log(decoded);
+                console.log('decoded' + decoded);
                 if (decoded) {
                     res.send(decoded);
                 }
@@ -172,7 +173,7 @@ function updateUser(req, res) {
                     }
                     user[0].played++;
                     console.log('played: ' + user[0].played);
-                    console.log(win);
+                    console.log("win : " + win);
                     if (win) {
                         user[0].wins++;
                         user[0].current_streak++;

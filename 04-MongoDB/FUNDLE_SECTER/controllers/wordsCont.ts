@@ -17,7 +17,7 @@ export async function addToDB() {
     const dictionaryTest = await FundleWord.find({ wordNumber: 1 })
     if (dictionaryTest.length > 0) {
         console.log('ok')
-        console.log(dictionary.length)
+        console.log('length: ' + dictionary.length)
     }
     else {
         console.log('null')

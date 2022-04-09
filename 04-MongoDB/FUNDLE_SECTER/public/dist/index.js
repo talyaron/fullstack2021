@@ -86,7 +86,6 @@ function stopInteraction() {
     document.removeEventListener("keydown", handleKeyPress);
 }
 function handleMouseClick(ev) {
-    console.log(ev);
     if (ev.target.matches("[data-key]")) {
         pressKey(ev.target.dataset.key);
         return;
@@ -331,7 +330,7 @@ function loginPractice(username, password) {
     return __awaiter(this, void 0, void 0, function* () {
         const { data } = yield axios.get(`users/get-user?username=${username}&password=${password}`);
         const greetings = timeOfDay();
-        if (data.user) {
+        if (data) {
             document.querySelector(".hello").innerHTML = `&nbsp;&nbsp;${greetings} <span style="color: orange;">&nbsp;${username}</span>`;
             handleShowWindow('logreg');
             storeUserName = username;

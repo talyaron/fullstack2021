@@ -96,7 +96,6 @@ function stopInteraction() {
 }
 
 function handleMouseClick(ev) {
-    console.log(ev)
     if (ev.target.matches("[data-key]")) {
         pressKey(ev.target.dataset.key)
         return
@@ -389,7 +388,7 @@ async function loginPractice(username, password) {
 
     const greetings = timeOfDay();
 
-    if (data.user) {
+    if (data) {
         document.querySelector(".hello").innerHTML = `&nbsp;&nbsp;${greetings} <span style="color: orange;">&nbsp;${username}</span>`
         handleShowWindow('logreg');
         storeUserName = username;
