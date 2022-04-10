@@ -36,23 +36,24 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.addUser = exports.getUser = void 0;
+exports.updateUser = exports.deleteUser = exports.addUser = exports.getUser = void 0;
 var userModel_1 = require("../models/userModel");
 exports.getUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var email, password, userData, err_1;
+    var email, password, result, err_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 2, , 3]);
                 email = req.query.email;
-                console.log(email);
                 password = req.query.password;
-                console.log(password);
                 return [4 /*yield*/, userModel_1["default"].find({ email: email })];
             case 1:
-                userData = _a.sent();
-                if (password === userData[0].password) {
-                    res.send({ ok: true, userData: userData });
+                result = _a.sent();
+                if (password === result[0].password) {
+                    if (email === "davegino220@gmail.com") {
+                        res.cookie("adminEmail", { email: email, role: "admin" }, { maxAge: 120000 });
+                    }
+                    res.send({ result: result });
                 }
                 else
                     throw new Error("password not correct");
@@ -83,6 +84,52 @@ exports.addUser = function (req, res) { return __awaiter(void 0, void 0, void 0,
                 err_2 = _a.sent();
                 console.error(err_2);
                 res.send({ error: err_2.message, ok: false });
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
+        }
+    });
+}); };
+exports.deleteUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var email, userDelete, err_3;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 4, , 5]);
+                email = req.body.email;
+                if (!email) return [3 /*break*/, 2];
+                return [4 /*yield*/, userModel_1["default"].deleteOne({ email: email })];
+            case 1:
+                userDelete = _a.sent();
+                if (!email)
+                    throw new Error("Didnt find user with such an email");
+                res.send({ results: "user deleted" });
+                return [3 /*break*/, 3];
+            case 2: throw new Error("Id was not found in request");
+            case 3: return [3 /*break*/, 5];
+            case 4:
+                err_3 = _a.sent();
+                console.error("In delete-user: " + err_3.message);
+                res.send({ error: err_3.message });
+                return [3 /*break*/, 5];
+            case 5: return [2 /*return*/];
+        }
+    });
+}); };
+exports.updateUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var updatedUser, err_4;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 2, , 3]);
+                updatedUser = req.body;
+                return [4 /*yield*/, userModel_1["default"].updateOne({ email: updatedUser.email }, updatedUser)];
+            case 1:
+                _a.sent();
+                return [3 /*break*/, 3];
+            case 2:
+                err_4 = _a.sent();
+                console.error(err_4);
+                res.send({ error: err_4.message, ok: false });
                 return [3 /*break*/, 3];
             case 3: return [2 /*return*/];
         }

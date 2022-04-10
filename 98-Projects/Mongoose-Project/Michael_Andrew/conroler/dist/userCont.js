@@ -36,7 +36,8 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.addArtToUser = exports.updateUser = exports.findUser = exports.addUser = void 0;
+exports.buyAndSell = exports.addArtToUser = exports.updateUser = exports.findUser = exports.adminGetUser = exports.addUser = void 0;
+//import { AnyARecord } from 'dns'
 var userModel_1 = require("../model/userModel");
 exports.addUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var _a, userName, email, password, url, userFind, fund, artCollection, newUser, users, error_1;
@@ -76,6 +77,26 @@ exports.addUser = function (req, res) { return __awaiter(void 0, void 0, void 0,
         }
     });
 }); };
+exports.adminGetUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var userInfo, users;
+    return __generator(this, function (_a) {
+        try {
+            userInfo = req.cookies.userInfo;
+            console.log(userInfo);
+            if (userInfo && userInfo.role === 'admin') {
+                users = userModel_1["default"].find({});
+                res.send({ ok: true, users: users });
+                return [2 /*return*/];
+            }
+            throw new Error("user is not allowed");
+        }
+        catch (error) {
+            console.error(error.message);
+            res.send({ error: error.message });
+        }
+        return [2 /*return*/];
+    });
+}); };
 exports.findUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var _a, loginEmail, loginPassword, oldUser, error_2;
     return __generator(this, function (_b) {
@@ -83,18 +104,19 @@ exports.findUser = function (req, res) { return __awaiter(void 0, void 0, void 0
             case 0:
                 _b.trys.push([0, 2, , 3]);
                 _a = req.query, loginEmail = _a.loginEmail, loginPassword = _a.loginPassword;
-                return [4 /*yield*/, userModel_1["default"].find({ email: loginEmail, password: loginPassword })];
-            case 1:
-                oldUser = _b.sent();
-                if (oldUser.length === 0) {
-                    res.send('Wrong email/password');
-                }
-                else if (oldUser.length > 0) {
-                    res.send({ oldUser: oldUser });
-                }
                 if (!req.body)
                     throw new Error("no req.body in app.post'/users/log-user'");
-                return [3 /*break*/, 3];
+                return [4 /*yield*/, userModel_1["default"].findOne({ email: loginEmail, password: loginPassword })];
+            case 1:
+                oldUser = _b.sent();
+                if (oldUser) {
+                    // if (oldUser.password === loginPassword) {
+                    res.cookie('userInfo', { role: oldUser.role, userName: oldUser.userName, email: oldUser.email }, { maxAge: 500000 });
+                    res.send({ oldUser: oldUser });
+                    return [2 /*return*/];
+                    //}
+                }
+                throw new Error("email or password are inncorect");
             case 2:
                 error_2 = _b.sent();
                 console.error(error_2.message);
@@ -127,6 +149,26 @@ exports.addArtToUser = function (req, res) { return __awaiter(void 0, void 0, vo
             case 1:
                 r = _b.sent();
                 console.log(r);
+                return [2 /*return*/];
+        }
+    });
+}); };
+exports.buyAndSell = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _a, buyerId, price, ownerId, result, result2;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
+            case 0:
+                _a = req.body, buyerId = _a.buyerId, price = _a.price, ownerId = _a.ownerId;
+                //בטח אפשר לאחד את שתי שורות הבאות, אבל עוד מעט 2 בלילה 
+                //לא הצלחתי לעדכן חיסור וחיבור הפאנד 
+                console.log(ownerId, buyerId, price);
+                return [4 /*yield*/, userModel_1["default"].updateOne({ _id: ownerId }, { $inc: { fund: price } })];
+            case 1:
+                result = _b.sent();
+                return [4 /*yield*/, userModel_1["default"].updateOne({ _id: buyerId }, { $inc: { fund: -price } })];
+            case 2:
+                result2 = _b.sent();
+                res.send({ ok: true });
                 return [2 /*return*/];
         }
     });

@@ -1,14 +1,16 @@
 import mongoose from "mongoose"
 
 const SongsSchema = new mongoose.Schema({
+  band:String,
+  album:String,
   song:String,
-  picture:String,
   genre:String,
-  youtube:String
+  image:String
   
 })
 
 
-const songs = mongoose.model('songsOwner', SongsSchema)
+export const songs = mongoose.model('songs', SongsSchema)
+export const searches = mongoose.model('searches', SongsSchema)
 
-export default songs
+

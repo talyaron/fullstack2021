@@ -1,0 +1,73 @@
+[  
+    {  
+      "band":"the kinks" ,
+      "album": "kinks",
+      "song":"you really got me",
+      "genre":"rock",
+      "image":"https://picsum.photos/100"
+    },
+    { 
+      "band":"radio head" ,
+      "album": "ok computer",
+      "song":"airbag",
+      "genre":"alt rock",
+      "image":"https://picsum.photos/100"
+    },
+    { 
+      "band":"modest mouse" ,
+      "album": "ok computer",
+      "song":"we are dead before the ship even sank",
+      "genre":"indie rock",
+      "image":"https://picsum.photos/100"
+    },
+    { 
+      "band":"spoon" ,
+      "album": "girls can tell",
+      "song":"anything you want",
+      "genre":"experimental rock",
+      "image":"https://picsum.photos/100"
+    },
+    { 
+      "band":"arcade fire" ,
+      "album": "funeral",
+      "song":"neighborhood",
+      "genre":"dance rock",
+      "image":"https://picsum.photos/100"
+    },
+    { 
+      "band":"lcd soundsystem" ,
+      "album": "sound of silver",
+      "song":"time to get away",
+      "genre":"dance punk",
+      "image":"https://picsum.photos/100"
+    },
+    { 
+      "band":"dan mangan" ,
+      "album": "nice, nice, very nice",
+      "song":"robots",
+      "genre":"folk",
+      "image":"https://picsum.photos/100"
+    },
+    { 
+      "band":"iron and wine" ,
+      "album": "our endless numbered days",
+      "song":"naked as we came",
+      "genre":"folk",
+      "image":"https://picsum.photos/100"
+    },
+    { 
+      "band":"beastie boys" ,
+      "album": "licensed to kill ",
+      "song":"fight for your right",
+      "genre":"hip hop",
+      "image":"https://picsum.photos/100"
+    },
+    { 
+      "band":"beirut" ,
+      "album": "the flying club cup",
+      "song":"nantes",
+      "genre":"baroque pop",
+      "image":"https://picsum.photos/100"
+    }
+      
+ ]

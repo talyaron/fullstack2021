@@ -1,10 +1,11 @@
-import Songs from '../model/songsModel'
+import { error } from 'console';
+import { songs } from '../model/songsModel'
 
-export const Upload = async (req, res) => {
+export const upload = async (req, res) => {
     try {
-        let { song, picture, genre, youtube } = req.body;
-        const newSong = new Songs({ song, picture, genre, youtube })
-       
+        let { band, album, song, genre, image } = req.body;
+        const newSong = new songs({ band, album, song, genre, image })
+
 
         console.log(newSong)
         const result = await newSong.save()
@@ -16,3 +17,22 @@ export const Upload = async (req, res) => {
     }
 }
 
+export const search = async (req, res) => {
+    try {
+        let { searchTerm } = req.query;
+        //searchTerm in curly brackets - needs to be same name as in client side ev.target 
+        const foundSearch = await songs.find({ album: searchTerm })
+
+
+        console.log(searchTerm);
+
+        console.log({ foundSearch })
+
+        res.send({ searchTerm, foundSearch })
+
+    } catch (error) {
+        console.error(error)
+        res.send({ error: error.message })
+
+    }
+}

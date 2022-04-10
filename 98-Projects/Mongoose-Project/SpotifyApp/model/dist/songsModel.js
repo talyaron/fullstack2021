@@ -1,11 +1,13 @@
 "use strict";
 exports.__esModule = true;
+exports.searches = exports.songs = void 0;
 var mongoose_1 = require("mongoose");
 var SongsSchema = new mongoose_1["default"].Schema({
+    band: String,
+    album: String,
     song: String,
-    picture: String,
     genre: String,
-    youtube: String
+    image: String
 });
-var songs = mongoose_1["default"].model('songsOwner', SongsSchema);
-exports["default"] = songs;
+exports.songs = mongoose_1["default"].model('songs', SongsSchema);
+exports.searches = mongoose_1["default"].model('searches', SongsSchema);

@@ -1,9 +1,11 @@
 import express from 'express';
 const router = express.Router();
 
-import { Upload } from '../controllers/songsController'
+import { upload, search } from '../controllers/songsController'
+
 
 router
-.post("/upload-song", Upload )
+.post("/upload-song", upload )
+.get("/search",search)
 
 export default router

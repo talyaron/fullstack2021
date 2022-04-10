@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="dist/style.css">
+    <link rel="stylesheet" href="dist/nav.css">
+    <link rel="stylesheet" href="dist/popup.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <title>Recently Created</title>
+    <script src="https://code.iconify.design/2/2.1.0/iconify.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+</head>
+
+
+<body onload="handleRenderRecentlyCreated(event)">
+    <div id="landing">
+        <div id="control">
+            <div id="tasks">
+                <h3 class="fancy">recent</h3>
+                <h3 data-counter id="tasks-counter">
+                </h3>
+            </div>
+            <div id="control__nav">
+                <label for="control__nav__toggle" class="control__nav__toggle__label">
+                    <span class="material-icons">menu</span>
+                </label>
+                <input type="checkbox" id="control__nav__toggle">
+                <nav class="hidden">
+                    <ul>
+                        <li id="home"><a onclick="handlePageChange(event)"><i
+                                    class="material-icons white-color">home</i></a></li>
+                        <li id="chart"><a onclick="handlePageChange(event)"><i
+                                    class="material-icons white-color">settings</i></a></li>
+                        <li id="info"><a onclick="handlePageChange(event)"><i
+                                    class="material-icons white-color">info</i></a></li>
+                    </ul>
+                </nav>
+            </div>
+            
+        </div>
+        
+        <main>
+            <ul data-box-root id="landing__task-count">
+            </ul>
+            <button data-modal-target="#modal">
+                <div id="landing__task__descr">
+                    <span id="landing__task__descr__logo" class="iconify" data-icon="majesticons:pencil-line"
+                        data-width="24"></span>
+                    <div id="landing__task__descr__text">
+                        <h3>Description</h3>
+                        <p>create subtasks for the ...</p>
+                    </div>
+                    <span class="iconify" data-icon="ic:baseline-navigate-next" data-width="20"></span>
+                </div>
+            </button>
+            <div id="landing__task-next">
+                <h1>Up Next:</h1>
+                <form onsubmit="handleTaskUpdate(event)"  class="task" data-next-root>
+                    </form>
+            </div>
+        </main>
+
+    </div>
+    <div class="taskModal">
+
+    </div>
+
+    <div class="modal" id="modal">
+        <div class="modal__header">
+            <div class="modal__header-title">Create a new subtask for the week: </div>
+            <button data-close-button class="close__button">&times;</button>
+        </div>
+        <div class="modal__body">
+            <form onsubmit="handleNewTask(event)" id="myForm" class="form">
+                <div>
+                    <label for="box__logo-square-color">Select a color</label>
+                    <input type="color" name="color" id="box__logo-square-color">
+                </div>
+
+
+                <div>
+                    <label for="box__title-text">Give your task a title</label>
+                    <input type="text" name="title" id="box__title-text" placeholder="Task name...">
+                </div>
+
+                <div class="importance">
+                    <label for="box__title-urg">How important is it?</label>
+                    <select name="urgency" id="box__title-urg">
+                        <option selected disabled value=""></option>
+                        <option value="low">Low</option>
+                        <option value="medium">Medium</option>
+                        <option value="high">High</option>
+                    </select>
+                    
+                    
+
+                </div>
+
+                <div>
+                    <label for="box__expln">Describe the task</label>
+                    <input type="text" name="description" id="box__expln" maxlength="25" placeholder="max: 25ch">
+                </div>
+                <div>
+                    <label for="box__expln-transp">where is it?</label>
+                    <input type="text" name="location" id="box__expln-transp">
+                </div>
+
+                <div>
+                    <label for="box__countdown">when do you need it done?</label>
+                    <input type="date" name="date" id="box__countdown" value="">
+
+                </div>
+                <input onsubmit="closeModal()" type="submit" id="submitButton" value="Click to save changes">
+            </form>
+        </div>
+    </div>
+    <div onclick="closeTaskModal()" id="overlay"></div>
+
+
+
+
+</body>
+<script src="./dist/app.js"></script>
+<script src="./dist/index.js"></script>
+
+</html>

@@ -1,7 +1,7 @@
 import User from "../model/userModel";
 import bcrypt from 'bcrypt'
 
-export const Register = async (req, res) => {
+export const register = async (req, res) => {
     try {
         let { name, password } = req.body;
         const hashpassword = await bcrypt.hash(password, 10)
@@ -28,6 +28,7 @@ export const logIn = async (req, res) => {
             const samePass = await bcrypt.compare(password, candidate.password)
             const theSame='the user is logged in';
             res.send({theSame});
+            return
         }
 
         console.log(newUser)
