@@ -85,3 +85,43 @@ export  const getUsers= async (req,res)=>{
     }
     
 }
+
+export  const updateUser= async (req,res)=>{
+    try{
+        const{userId,username}=req.body
+        if(username&&userId){
+            const users= await Users.updateOne({_id:userId},{username:username});
+            res.send({ok:true,users})
+
+        }else{
+            throw new Error("username or userId  is missing")
+        }
+     
+
+      
+    }catch(error){
+        console.error(error.message)
+        res.send({error:error.message})
+    }
+    
+}
+
+export  const deleteUser= async (req,res)=>{
+    try{
+        const{userId}=req.body
+        if(userId){
+            const users= await Users.deleteOne({_id:userId});
+            res.send({ok:true,users})
+
+        }else{
+            throw new Error(" userId  is missing")
+        }
+     
+
+      
+    }catch(error){
+        console.error(error.message)
+        res.send({error:error.message})
+    }
+    
+}

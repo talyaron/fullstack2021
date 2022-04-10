@@ -259,3 +259,67 @@ function handleRegister(ev) {
         });
     });
 }
+function handleGetUsers() {
+    return __awaiter(this, void 0, void 0, function () {
+        var data;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, axios.get("/users/get-Users")];
+                case 1:
+                    data = (_a.sent()).data;
+                    // const {users}=data
+                    // if(users){
+                    // }
+                    renderUsersToOwnerPage(data.users);
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+function renderUsersToOwnerPage(users) {
+    //console.log(users)
+    try {
+        console.log(users);
+        if (!Array.isArray(users))
+            throw new Error('data is not an array');
+        var root_2 = document.querySelector('#user');
+        var html_2 = "";
+        users.forEach(function (user) {
+            html_2 += "<div class=\"airbnbUser\" >\n                       <h3>" + user.username + "</h3>\n                       <p>" + user._id + "</p>\n                       <input type=\"text\" value=" + user.username + " name=\"username\" onblur=\"handleUpdateUsers(event,'" + user._id + "')\" >                       \n                       <p>" + user.role + "</p> \n                       <button onclick='handleDeleteUsers(\"" + user._id + "\")'>Delete User</button>                  \n                       \n                       \n\n                    </div>";
+            root_2.innerHTML = html_2;
+        });
+    }
+    catch (error) {
+        console.error(error.message);
+    }
+}
+function handleUpdateUsers(ev, userId) {
+    return __awaiter(this, void 0, void 0, function () {
+        var username, data;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    username = ev.target.value;
+                    return [4 /*yield*/, axios.patch("/users/update-user", { userId: userId, username: username })];
+                case 1:
+                    data = (_a.sent()).data;
+                    console.log(data);
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+function handleDeleteUsers(userId) {
+    return __awaiter(this, void 0, void 0, function () {
+        var data;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, axios["delete"]("/users/delete-user", { data: { userId: userId } })];
+                case 1:
+                    data = (_a.sent()).data;
+                    console.log(data);
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
