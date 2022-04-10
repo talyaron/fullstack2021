@@ -114,7 +114,7 @@ function handleGetUsers() {
 }
 function handleUpdate(ev, userId) {
     var value = ev.target.value;
-    var data = axios.patch('update-username', { value: value, userId: userId }).data; //with the update
+    var data = axios.patch('update-user', { value: value, userId: userId }).data; //with the update
     var users = data.users;
 }
 function handleSort(ev) {

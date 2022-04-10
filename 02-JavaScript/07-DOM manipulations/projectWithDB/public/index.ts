@@ -49,7 +49,7 @@ function handleUpdate(ev, userId) {
 
     const value = ev.target.value;
 
-    const { data } = axios.patch('update-username', { value, userId })//with the update
+    const { data } = axios.patch('update-user', { value, userId })//with the update
     let { users } = data;
 
 }
