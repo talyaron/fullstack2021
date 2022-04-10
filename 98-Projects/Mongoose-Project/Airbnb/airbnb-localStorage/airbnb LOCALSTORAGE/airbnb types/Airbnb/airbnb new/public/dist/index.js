@@ -285,7 +285,7 @@ function renderUsersToOwnerPage(users) {
         var root_2 = document.querySelector('#user');
         var html_2 = "";
         users.forEach(function (user) {
-            html_2 += "<div class=\"airbnbUser\" >\n                       <h3>" + user.username + "</h3>\n                       <p>" + user._id + "</p>\n                       <input type=\"text\" value=" + user.username + " name=\"username\" onblur=\"handleUpdateUsers(event,'" + user._id + "')\" >                       \n                       <p>" + user.role + "</p>                    \n                       \n                       \n\n                    </div>";
+            html_2 += "<div class=\"airbnbUser\" >\n                       <h3>" + user.username + "</h3>\n                       <p>" + user._id + "</p>\n                       <input type=\"text\" value=" + user.username + " name=\"username\" onblur=\"handleUpdateUsers(event,'" + user._id + "')\" >                       \n                       <p>" + user.role + "</p> \n                       <button onclick='handleDeleteUsers(\"" + user._id + "\")'>Delete User</button>                  \n                       \n                       \n\n                    </div>";
             root_2.innerHTML = html_2;
         });
     }
@@ -301,6 +301,20 @@ function handleUpdateUsers(ev, userId) {
                 case 0:
                     username = ev.target.value;
                     return [4 /*yield*/, axios.patch("/users/update-user", { userId: userId, username: username })];
+                case 1:
+                    data = (_a.sent()).data;
+                    console.log(data);
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+function handleDeleteUsers(userId) {
+    return __awaiter(this, void 0, void 0, function () {
+        var data;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, axios["delete"]("/users/delete-user", { data: { userId: userId } })];
                 case 1:
                     data = (_a.sent()).data;
                     console.log(data);

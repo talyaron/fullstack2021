@@ -105,3 +105,23 @@ export  const updateUser= async (req,res)=>{
     }
     
 }
+
+export  const deleteUser= async (req,res)=>{
+    try{
+        const{userId}=req.body
+        if(userId){
+            const users= await Users.deleteOne({_id:userId});
+            res.send({ok:true,users})
+
+        }else{
+            throw new Error(" userId  is missing")
+        }
+     
+
+      
+    }catch(error){
+        console.error(error.message)
+        res.send({error:error.message})
+    }
+    
+}

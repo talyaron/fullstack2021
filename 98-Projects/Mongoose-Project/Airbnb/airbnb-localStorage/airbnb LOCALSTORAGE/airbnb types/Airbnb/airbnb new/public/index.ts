@@ -463,7 +463,8 @@
                        <h3>${user.username}</h3>
                        <p>${user._id}</p>
                        <input type="text" value=${user.username} name="username" onblur="handleUpdateUsers(event,'${user._id}')" >                       
-                       <p>${user.role}</p>                    
+                       <p>${user.role}</p> 
+                       <button onclick='handleDeleteUsers("${user._id}")'>Delete User</button>                  
                        
                        
 
@@ -488,6 +489,15 @@
             const { data } = await axios.patch("/users/update-user",{userId,username});
             console.log(data)
             //renderUsersToOwnerPage(data.users)
+     
+      
+    }
+    async function handleDeleteUsers(userId) {            
+        
+            
+            const { data } = await axios.delete("/users/delete-user",{data:{userId}});
+            console.log(data)
+       
      
       
     }
