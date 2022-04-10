@@ -82,6 +82,8 @@ export  const getUsers= async (req,res)=>{
        if(decoded&&decoded.role==="admin"){
            const user=await Users.find({});
            res.send({ok:true, user})
+           console.log(user);
+           
            res.render('owner', {
             title:"Owner",
             user

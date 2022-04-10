@@ -90,12 +90,14 @@ export const addPlaces = async (req, res) => {
 };
 export const getToPlace = async (req, res) => {
   try {
-    const { placeId } = req.body;
-    const __id = req.body;
-    if (__id == placeId) {
+    const { placeId } = req.query;
+    const __id = req.query;
+    if (placeId==__id) {
+      let placesId = await Places.findOne({ __id:placeId}).limit(10)
     //  res.send(placeId);
       res.render('place',{
-        placeId
+        title:"The Place",
+        placesId
       })
     } else {
       throw new Error("placeId is not the same as the __id");
@@ -158,8 +160,8 @@ export const searchAirbnbByCity = async (req, res) => {
 // let EilatP = await Places.find({ address_country:Eilat}).limit(10)
 // let JerusalemP = await Places.find({ address_country:Jerusalem}).limit(10)
 // let HareiYehudaP = await Places.find({ address_country:HareiYehuda}).limit(10)
-
-let getplaces = await Places.find({ address_country:(TelAviv||Eilat||Jerusalem||HareiYehuda)}).limit(10)
+ if(Eilat){
+  let getplaces = await Places.find({ address_country:Eilat}).limit(10)
 res.render("places",{
   title:"Search",
  
@@ -167,6 +169,46 @@ res.render("places",{
   
   
 })
+}
+else if(TelAviv){
+  let getplaces = await Places.find({ address_country:TelAviv}).limit(10)
+res.render("places",{
+  title:"Search",
+ 
+  getplaces
+  
+  
+})
+}
+
+else if(Jerusalem){
+  let getplaces = await Places.find({ address_country:Jerusalem}).limit(10)
+res.render("places",{
+  title:"Search",
+ 
+  getplaces
+  
+  
+})
+}
+else if(HareiYehuda){
+  let getplaces = await Places.find({ address_country:HareiYehuda}).limit(10)
+res.render("places",{
+  title:"Search",
+ 
+  getplaces
+  
+  
+})
+}
+// let getplaces = await Places.find({ address_country:(TelAviv||Eilat||Jerusalem||HareiYehuda)}).limit(10)
+// res.render("places",{
+//   title:"Search",
+ 
+//   getplaces
+  
+  
+// })
  
 //let getplaces = { TelAviv, Eilat, Jerusalem, HareiYehuda }
   //  res.render("places",{

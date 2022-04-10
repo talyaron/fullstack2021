@@ -122,6 +122,7 @@ exports.getUsers = function (req, res) { return __awaiter(void 0, void 0, void 0
             case 1:
                 user = _a.sent();
                 res.send({ ok: true, user: user });
+                console.log(user);
                 res.render('owner', {
                     title: "Owner",
                     user: user

@@ -118,26 +118,34 @@ exports.addPlaces = function (req, res) { return __awaiter(void 0, void 0, void 
     });
 }); };
 exports.getToPlace = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var placeId, __id;
+    var placeId, __id, placesId, error_3;
     return __generator(this, function (_a) {
-        try {
-            placeId = req.body.placeId;
-            __id = req.body;
-            if (__id == placeId) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 4, , 5]);
+                placeId = req.query.placeId;
+                __id = req.query;
+                if (!(placeId == __id)) return [3 /*break*/, 2];
+                return [4 /*yield*/, placesModel_1["default"].findOne({ __id: placeId }).limit(10)
+                    //  res.send(placeId);
+                ];
+            case 1:
+                placesId = _a.sent();
                 //  res.send(placeId);
                 res.render('place', {
-                    placeId: placeId
+                    title: "The Place",
+                    placesId: placesId
                 });
-            }
-            else {
-                throw new Error("placeId is not the same as the __id");
-            }
+                return [3 /*break*/, 3];
+            case 2: throw new Error("placeId is not the same as the __id");
+            case 3: return [3 /*break*/, 5];
+            case 4:
+                error_3 = _a.sent();
+                console.log(error_3.error);
+                res.send({ error: error_3.massage });
+                return [3 /*break*/, 5];
+            case 5: return [2 /*return*/];
         }
-        catch (error) {
-            console.log(error.error);
-            res.send({ error: error.massage });
-        }
-        return [2 /*return*/];
     });
 }); };
 exports.findPlaceMap = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
@@ -157,7 +165,7 @@ exports.findPlaceMap = function (req, res) { return __awaiter(void 0, void 0, vo
     });
 }); };
 exports.searchAirbnb = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, searchLocation, checkIn, checkOut, adults, children, infants, pets, accommodates, sum, dateOfCheckIn, dateOfCheckOut, differenceInTime, differenceInDays, getplaces, error_3;
+    var _a, searchLocation, checkIn, checkOut, adults, children, infants, pets, accommodates, sum, dateOfCheckIn, dateOfCheckOut, differenceInTime, differenceInDays, getplaces, error_4;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
@@ -182,28 +190,60 @@ exports.searchAirbnb = function (req, res) { return __awaiter(void 0, void 0, vo
                 });
                 return [3 /*break*/, 3];
             case 2:
-                error_3 = _b.sent();
-                console.log(error_3.error);
-                res.send({ error: error_3.massage });
+                error_4 = _b.sent();
+                console.log(error_4.error);
+                res.send({ error: error_4.massage });
                 return [3 /*break*/, 3];
             case 3: return [2 /*return*/];
         }
     });
 }); };
 exports.searchAirbnbByCity = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, _b, TelAviv, _c, Eilat, _d, Jerusalem, _e, HareiYehuda, getplaces;
+    var _a, _b, TelAviv, _c, Eilat, _d, Jerusalem, _e, HareiYehuda, getplaces, getplaces, getplaces, getplaces;
     return __generator(this, function (_f) {
         switch (_f.label) {
             case 0:
                 _a = req.query, _b = _a.TelAviv, TelAviv = _b === void 0 ? "Tel Aviv" : _b, _c = _a.Eilat, Eilat = _c === void 0 ? "Eilat" : _c, _d = _a.Jerusalem, Jerusalem = _d === void 0 ? "Jerusalem" : _d, _e = _a.HareiYehuda, HareiYehuda = _e === void 0 ? "Harei Yehuda" : _e;
-                return [4 /*yield*/, placesModel_1["default"].find({ address_country: (TelAviv || Eilat || Jerusalem || HareiYehuda) }).limit(10)];
+                if (!Eilat) return [3 /*break*/, 2];
+                return [4 /*yield*/, placesModel_1["default"].find({ address_country: Eilat }).limit(10)];
             case 1:
                 getplaces = _f.sent();
                 res.render("places", {
                     title: "Search",
                     getplaces: getplaces
                 });
-                return [2 /*return*/];
+                return [3 /*break*/, 8];
+            case 2:
+                if (!TelAviv) return [3 /*break*/, 4];
+                return [4 /*yield*/, placesModel_1["default"].find({ address_country: TelAviv }).limit(10)];
+            case 3:
+                getplaces = _f.sent();
+                res.render("places", {
+                    title: "Search",
+                    getplaces: getplaces
+                });
+                return [3 /*break*/, 8];
+            case 4:
+                if (!Jerusalem) return [3 /*break*/, 6];
+                return [4 /*yield*/, placesModel_1["default"].find({ address_country: Jerusalem }).limit(10)];
+            case 5:
+                getplaces = _f.sent();
+                res.render("places", {
+                    title: "Search",
+                    getplaces: getplaces
+                });
+                return [3 /*break*/, 8];
+            case 6:
+                if (!HareiYehuda) return [3 /*break*/, 8];
+                return [4 /*yield*/, placesModel_1["default"].find({ address_country: HareiYehuda }).limit(10)];
+            case 7:
+                getplaces = _f.sent();
+                res.render("places", {
+                    title: "Search",
+                    getplaces: getplaces
+                });
+                _f.label = 8;
+            case 8: return [2 /*return*/];
         }
     });
 }); };
