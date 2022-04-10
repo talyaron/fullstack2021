@@ -56,17 +56,82 @@ function getBooks() {
         });
     });
 }
-function handleDescent(ev) {
+function handleSubmit(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var value, data;
+        var username, password, data;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    ev.preventDefault();
+                    username = ev.target.elements.username.value;
+                    password = ev.target.elements.password.value;
+                    return [4 /*yield*/, axios.post('/add-user', { username: username, password: password })];
+                case 1:
+                    data = (_a.sent()).data;
+                    ev.target.reset();
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+function handleAddBook(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        var name, year, author, book, data;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    ev.preventDefault();
+                    name = ev.target.elements.name.value;
+                    year = ev.target.elements.year.value;
+                    author = ev.target.elements.author.value;
+                    book = { name: name, year: year, author: author };
+                    return [4 /*yield*/, axios.post('/add-book', { book: book })];
+                case 1:
+                    data = (_a.sent()).data;
+                    renderBooks(data);
+                    ev.target.reset();
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+function handleGetUsers() {
+    return __awaiter(this, void 0, void 0, function () {
+        var name, data, users;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    name = 'yoel';
+                    return [4 /*yield*/, axios.get("/get-users?" + name)];
+                case 1:
+                    data = (_a.sent()).data;
+                    users = data.users;
+                    renderUsers(users);
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+function handleUpdate(ev, userId) {
+    var value = ev.target.value;
+    var data = axios.patch('update-username', { value: value, userId: userId }).data; //with the update
+    var users = data.users;
+}
+function handleSort(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        var value, data, booksSite;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     value = ev.target.value;
-                    console.log(value);
-                    return [4 /*yield*/, axios.post('/sort-books', { value: value })];
+                    return [4 /*yield*/, axios.post('/sort-books', { value: value })]; // I'm extracting the "data" out
                 case 1:
-                    data = (_a.sent()).data;
+                    data = (_a.sent()) // I'm extracting the "data" out
+                    .data;
+                    booksSite = data.booksSite;
+                    // console.log("the {data} is data ", data);
+                    // console.log("the {bookSite} is " , booksSite);
+                    renderBooks(booksSite);
                     return [2 /*return*/];
             }
         });
@@ -74,16 +139,37 @@ function handleDescent(ev) {
 }
 function renderBooks(data) {
     return __awaiter(this, void 0, void 0, function () {
-        var html, root;
+        var html_1, root;
         return __generator(this, function (_a) {
-            html = '';
-            root = document.getElementById('root');
-            data.forEach(function (book) {
-                html +=
-                    " <div class = \"book\" >\n                 <div class = \"book-text\">\n                     the name of the book is " + book.name + " \n                 <br> published in year  " + book.year + "\n                 <br> the author is  " + book.athor + "\n                </div>\n        </div>";
-            });
-            root.innerHTML = html;
+            try {
+                if (data) {
+                    html_1 = '<div class = book>';
+                    root = document.getElementById('root');
+                    console.log("data.bookss is", data.books);
+                    console.log("data is", data);
+                    data.books.forEach(function (book) {
+                        html_1 +=
+                            "\n             <div class = \"book-text\">\n             <h1> the name of the book is " + book.name + " </h1> \n             <h2> published in year  " + book.year + " </h2>\n             <h3>the author is  " + book.author + " <h3>\n             </div>\n           <div>\n           <input type = \"text\" placeholder = \"change the name\" onblur = 'handleUpdate(event, \"" + book._id + "\")'</div>";
+                    });
+                    html_1 += "<div>";
+                    root.innerHTML = html_1;
+                }
+                else {
+                    throw new Error("the obj is und");
+                }
+            }
+            catch (error) {
+                console.error(error.message);
+            }
             return [2 /*return*/];
         });
     });
+}
+function renderUsers(users) {
+    var html = '';
+    var root = document.getElementById('rootUsers');
+    users.forEach(function (user) {
+        html += "<div> the name is " + user.username + " \n        the password is " + user.password; // //x.something .. the something need to be exactly the key of the users = "username , password " else it'll be undfind
+    });
+    root.innerHTML = html;
 }
