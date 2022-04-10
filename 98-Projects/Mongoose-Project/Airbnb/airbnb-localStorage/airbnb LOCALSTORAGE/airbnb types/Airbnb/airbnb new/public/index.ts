@@ -434,7 +434,65 @@
         
       }
     }
-  
+
+    
+    async function handleGetUsers() {
+       
+       
+        const { data } = await axios.get("/users/get-Users");
+        // const {users}=data
+        // if(users){
+          
+        // }
+        renderUsersToOwnerPage(data.users)
+       
+    
+    }
+    function renderUsersToOwnerPage(users:Array<any>) {
+        //console.log(users)
+        
+        try{
+            console.log(users);
+            if(!Array.isArray(users)) throw new Error('data is not an array');
+    
+            const root:HTMLElement=document.querySelector('#user');
+            let html="";
+            
+            users.forEach((user) => {   
+            html+=  `<div class="airbnbUser" >
+                       <h3>${user.username}</h3>
+                       <p>${user._id}</p>
+                       <input type="text" value=${user.username} name="username" onblur="handleUpdateUsers(event,'${user._id}')" >                       
+                       <p>${user.role}</p>                    
+                       
+                       
+
+                    </div>`
+                    root.innerHTML = html;
+          })
+           
+            
+        }catch(error){
+            console.error(error.message)
+        }
+        
+        
+    }
+
+    async function handleUpdateUsers(ev,userId) {
+        
+        const username=ev.target.value
+        //const role=ev.target.role.value;       
+        
+            
+            const { data } = await axios.patch("/users/update-user",{userId,username});
+            console.log(data)
+            //renderUsersToOwnerPage(data.users)
+     
+      
+    }
+
+    
   
   
   

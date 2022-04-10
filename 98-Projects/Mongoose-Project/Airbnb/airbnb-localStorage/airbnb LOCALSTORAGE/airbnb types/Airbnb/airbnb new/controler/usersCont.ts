@@ -85,3 +85,23 @@ export  const getUsers= async (req,res)=>{
     }
     
 }
+
+export  const updateUser= async (req,res)=>{
+    try{
+        const{userId,username}=req.body
+        if(username&&userId){
+            const users= await Users.updateOne({_id:userId},{username:username});
+            res.send({ok:true,users})
+
+        }else{
+            throw new Error("username or userId  is missing")
+        }
+     
+
+      
+    }catch(error){
+        console.error(error.message)
+        res.send({error:error.message})
+    }
+    
+}
