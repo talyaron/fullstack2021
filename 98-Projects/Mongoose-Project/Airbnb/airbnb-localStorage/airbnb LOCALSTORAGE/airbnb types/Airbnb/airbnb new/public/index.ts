@@ -259,29 +259,22 @@
     const { data } = await axios.get(
       `/places/search-airbnb?searchLocation=${searchLocation}&checkIn=${checkIn}&checkOut=${checkOut}&adults=${adults}&children=${children}&infants=${infants}&pets=${pets} `
     );
-    console.log(data)
-    let getplaces=data
-    
-    
-     
-     //  const {options}=data
-     //loadPlaces(data.places)
-      // console.log(options)
+  
    
     // ev.target.reset();
-    function storeData() {
-        localStorage.setItem("airbnbData", JSON.stringify(data));
-    }
+    // function storeData() {
+    //     localStorage.setItem("airbnbData", JSON.stringify(data));
+    // }
 
-    function getData() {
-        const airbnbNavFiltered = JSON.parse(localStorage.getItem("airbnbNavFiltered"));
-        if (Array.isArray(airbnbNavFiltered)) {
-            getplaces = airbnbNavFiltered;
-        }
-    }
+    // function getData() {
+    //     const airbnbNavFiltered = JSON.parse(localStorage.getItem("airbnbNavFiltered"));
+    //     if (Array.isArray(airbnbNavFiltered)) {
+    //         getplaces = airbnbNavFiltered;
+    //     }
+    // }
     
-    storeData();
-    getData();
+    // storeData();
+    // getData();
     // renderAirbnbOptions(data.getplaces);
     renderAirbnbOptions(data.getplaces);
    
@@ -304,7 +297,7 @@
     const { data } = await axios.get("/places/getFiltered", { data: { price } });
   }
   
-  function renderAirbnbOptions(getplaces:Array<any>) {
+    function renderAirbnbOptions(getplaces:Array<any>) {
       console.log(getplaces)
       
       try{
@@ -359,7 +352,7 @@
       }
       
       
-  }
+    }
   
   function handlePopup() {
       var popup = document.getElementById("myPopup");
@@ -367,7 +360,7 @@
      
       const showPopupText:any=document.querySelector('.popuptext');
       showPopupText.style.visibility="visible";
-  } 
+    } 
   
   async function handleLogin(ev) {
       ev.preventDefault()
@@ -397,6 +390,9 @@
             showPopupText.style.visibility="hidden";
             showUsersName.innerHTML=`${username}`;
             userProfileButton.style.backgroundColor="blue"
+
+
+            //window.location.href = `/index.html?username=${username}`;
           }else{
               
               showPopupText.style.visibility="hidden";
@@ -406,9 +402,9 @@
          
         
         
-      }
+        }
      
-  }
+    }
   
   
   
@@ -437,7 +433,7 @@
         
         
       }
-  }
+    }
   
   
   

@@ -93,20 +93,7 @@ function renderPlace(data) {
 }
 function handleFindAirbnb(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        //  const {options}=data
-        //loadPlaces(data.places)
-        // console.log(options)
-        // ev.target.reset();
-        function storeData() {
-            localStorage.setItem("airbnbData", JSON.stringify(data));
-        }
-        function getData() {
-            var airbnbNavFiltered = JSON.parse(localStorage.getItem("airbnbNavFiltered"));
-            if (Array.isArray(airbnbNavFiltered)) {
-                getplaces = airbnbNavFiltered;
-            }
-        }
-        var searchLocation, checkIn, checkOut, adults, children, infants, pets, data, getplaces;
+        var searchLocation, checkIn, checkOut, adults, children, infants, pets, data;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -122,10 +109,18 @@ function handleFindAirbnb(ev) {
                     return [4 /*yield*/, axios.get("/places/search-airbnb?searchLocation=" + searchLocation + "&checkIn=" + checkIn + "&checkOut=" + checkOut + "&adults=" + adults + "&children=" + children + "&infants=" + infants + "&pets=" + pets + " ")];
                 case 1:
                     data = (_a.sent()).data;
-                    console.log(data);
-                    getplaces = data;
-                    storeData();
-                    getData();
+                    // ev.target.reset();
+                    // function storeData() {
+                    //     localStorage.setItem("airbnbData", JSON.stringify(data));
+                    // }
+                    // function getData() {
+                    //     const airbnbNavFiltered = JSON.parse(localStorage.getItem("airbnbNavFiltered"));
+                    //     if (Array.isArray(airbnbNavFiltered)) {
+                    //         getplaces = airbnbNavFiltered;
+                    //     }
+                    // }
+                    // storeData();
+                    // getData();
                     // renderAirbnbOptions(data.getplaces);
                     renderAirbnbOptions(data.getplaces);
                     return [2 /*return*/];
@@ -217,6 +212,7 @@ function handleLogin(ev) {
                             showPopupText.style.visibility = "hidden";
                             showUsersName.innerHTML = "" + username;
                             userProfileButton.style.backgroundColor = "blue";
+                            //window.location.href = `/index.html?username=${username}`;
                         }
                         else {
                             showPopupText.style.visibility = "hidden";
