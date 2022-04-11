@@ -4,7 +4,7 @@ exports.requireAuth = void 0;
 var jsonwebtoken_1 = require("jsonwebtoken");
 var secret = process.env.JWT_SECRET;
 exports.requireAuth = function (req, res, next) {
-    var token = req.cookies.currentUsersInfo;
+    var token = req.cookies.currentUsersInfo.token;
     try {
         if (token) {
             jsonwebtoken_1["default"].verify(token, secret, function (err, decodedToken) {
