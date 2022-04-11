@@ -198,12 +198,12 @@ function handleLogin(ev) {
                     return [4 /*yield*/, axios.post("/users/login", { username: username, password: password, role: role })];
                 case 1:
                     data = (_b.sent()).data;
-                    //console.log(data)
                     if (data.login) {
                         showPopupText = document.querySelector('.popuptext');
                         userProfileButton = document.querySelector('.navigation--user');
                         showPopupText.style.visibility = "hidden";
                         showUsersName = document.querySelector('#theUsersName');
+                        // window.location.href = 'owner.html';
                         if (role === "admin") {
                             window.location.href = 'owner.html';
                             userProfileButton.style.backgroundColor = "red";
@@ -219,6 +219,9 @@ function handleLogin(ev) {
                             showUsersName.innerHTML = "" + username;
                             userProfileButton.style.backgroundColor = "green";
                         }
+                    }
+                    else {
+                        console.log('HA you got it wrong');
                     }
                     return [2 /*return*/];
             }
@@ -261,17 +264,25 @@ function handleRegister(ev) {
 }
 function handleGetUsers() {
     return __awaiter(this, void 0, void 0, function () {
-        var data;
+        var result, data, users, err_1;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, axios.get("/users/get-Users")];
+                case 0:
+                    _a.trys.push([0, 2, , 3]);
+                    return [4 /*yield*/, axios.get("/users/get-Users")];
                 case 1:
-                    data = (_a.sent()).data;
-                    // const {users}=data
-                    // if(users){
-                    // }
-                    renderUsersToOwnerPage(data.users);
-                    return [2 /*return*/];
+                    result = _a.sent();
+                    data = result.data;
+                    users = data.users;
+                    if (users) {
+                        renderUsersToOwnerPage(users);
+                    }
+                    return [3 /*break*/, 3];
+                case 2:
+                    err_1 = _a.sent();
+                    console.error(err_1.message);
+                    return [3 /*break*/, 3];
+                case 3: return [2 /*return*/];
             }
         });
     });

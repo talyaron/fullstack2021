@@ -373,14 +373,16 @@
       console.log(username,password,role)
      
       const { data } = await axios.post("/users/login", {username,password,role});
-      //console.log(data)
-    
+      
+      
   
       if(data.login){
           const showPopupText:any=document.querySelector('.popuptext');
           const userProfileButton:any=document.querySelector('.navigation--user');
           showPopupText.style.visibility="hidden";
           const showUsersName:any=document.querySelector('#theUsersName');
+
+         // window.location.href = 'owner.html';
           
           if(role==="admin"){
             window.location.href = 'owner.html';
@@ -402,6 +404,8 @@
          
         
         
+        } else {
+            console.log('HA you got it wrong')
         }
      
     }
@@ -437,14 +441,25 @@
 
     
     async function handleGetUsers() {
+        try{
+            const result= await axios.get("/users/get-Users");
+            
+            const { data } = result
+            const{users}=data
+            if(users){
+              
+            renderUsersToOwnerPage(users)
+            }
+        
+
+        }catch(err){
+            console.error(err.message)
+            // console.error(err.status)
+
+        }
        
        
-        const { data } = await axios.get("/users/get-Users");
-        // const {users}=data
-        // if(users){
-          
-        // }
-        renderUsersToOwnerPage(data.users)
+       
        
     
     }
