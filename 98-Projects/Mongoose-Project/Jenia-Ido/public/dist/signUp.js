@@ -456,18 +456,11 @@ function renderbrowseImgs(list) {
 // }
 function openViewProfile(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var email, user;
+        var email;
         return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    email = ev.target.id;
-                    console.log(email);
-                    return [4 /*yield*/, axios.
-                    ];
-                case 1:
-                    user = (_a.sent()).user;
-                    return [2 /*return*/];
-            }
+            email = ev.target.id;
+            console.log(email);
+            return [2 /*return*/];
         });
     });
 }
