@@ -17,7 +17,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: false })) //bodyParser
 
-const uri=process.env.MONGODB_URI;
+const uri = process.env.MONGODB_URI;
 
 
 //EJS
@@ -29,7 +29,7 @@ console.log(process.env.ENV)
 
 mongoose
   .connect(
-    uri
+    'mongodb+srv://shay:shayFoyer1994@cluster0.xyd5y.mongodb.net/airbnbProject?authSource=admin&replicaSet=atlas-227226-shard-0&w=majority&readPreference=primary&appname=MongoDB%20Compass&retryWrites=true&ssl=true    '
   )
   .then((result) => {
     console.log("connected to db");
