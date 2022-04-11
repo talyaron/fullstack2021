@@ -9,5 +9,5 @@ var productSchema = new mongoose_1["default"].Schema({
     category: String,
     ownerId: String
 });
-var ProductMain = mongoose_1["default"].model('productsMain', productSchema);
-exports["default"] = ProductMain;
+var Market = mongoose_1["default"].model('MarketItems', productSchema);
+exports["default"] = Market;

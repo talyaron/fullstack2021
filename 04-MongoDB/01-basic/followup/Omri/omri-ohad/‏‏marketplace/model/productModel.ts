@@ -11,5 +11,5 @@ const productSchema = new mongoose.Schema({
     ownerId:String
   })
  
-  const ProductUser = mongoose.model('productsUser', productSchema);
+  const ProductUser = mongoose.model('userItems', productSchema);
   export default ProductUser;

@@ -11,7 +11,7 @@ const port = process.env.PORT || 3003;
 app.use(express_1.default.static("public"));
 app.use(express_1.default.json());
 app.use(cookieParser());
-mongoose_1.default.connect('mongodb+srv://ohad2001:GosiaW9nu935YRgg@cluster0.q1pcm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
+mongoose_1.default.connect('mongodb+srv://OmriAharonov:jjqTesZvM6nIEmSA@cluster0.kv5s6.mongodb.net/MarketPlaceData?retryWrites=true&w=majority')
     .then(() => console.log("conect to DB"))
     .catch(err => console.log(err.message));
 const productRoute_1 = __importDefault(require("./routes/productRoute"));

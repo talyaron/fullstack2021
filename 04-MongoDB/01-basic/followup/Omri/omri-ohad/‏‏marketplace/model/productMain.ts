@@ -10,5 +10,5 @@ const productSchema = new mongoose.Schema({
     ownerId:String
   });
 
-  const ProductMain = mongoose.model('productsMain', productSchema);
-  export default ProductMain;
+  const Market = mongoose.model('MarketItems', productSchema);
+  export default Market;

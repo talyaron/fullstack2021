@@ -10,5 +10,5 @@ var productSchema = new mongoose_1["default"].Schema({
     userName: String,
     ownerId: String
 });
-var ProductUser = mongoose_1["default"].model('productsUser', productSchema);
+var ProductUser = mongoose_1["default"].model('userItems', productSchema);
 exports["default"] = ProductUser;
