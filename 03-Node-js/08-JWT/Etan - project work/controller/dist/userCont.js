@@ -115,8 +115,8 @@ exports.login = function (req, res) { return __awaiter(void 0, void 0, void 0, f
                     userRole = userVerification.role;
                     payload = { userId: userId, userRole: userRole };
                     information = jwt_simple_1["default"].encode(payload, secret);
-                    res.cookie("currentUser", information, {});
-                    res.send({ ok: true, currentLogin: currentLogin, verifiedUser: verifiedUser, userId: userId });
+                    res.cookie("currentUsersInfo", information, {});
+                    res.send({ ok: true, userId: userId });
                     return [2 /*return*/];
                 }
                 res.send({ aUser: true });
@@ -139,29 +139,33 @@ exports.login = function (req, res) { return __awaiter(void 0, void 0, void 0, f
     });
 }); };
 exports.renderUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var currentUser, decoded, userId, userRole, userInfo;
+    var currentUsersInfo, decoded, userId, userRole, userInfo;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                currentUser = req.cookies.currentUser;
-                decoded = jwt_simple_1["default"].decode(currentUser, secret);
-                console.log(decoded);
+                currentUsersInfo = req.cookies.currentUsersInfo;
+                if (!currentUsersInfo) return [3 /*break*/, 2];
+                decoded = jwt_simple_1["default"].decode(currentUsersInfo, secret);
                 userId = decoded.userId, userRole = decoded.userRole;
                 return [4 /*yield*/, userModel_1["default"].find({ _id: userId })];
             case 1:
                 userInfo = _a.sent();
                 res.send({ userInfo: userInfo, decoded: decoded });
-                return [2 /*return*/];
+                return [3 /*break*/, 3];
+            case 2:
+                res.redirect('/');
+                _a.label = 3;
+            case 3: return [2 /*return*/];
         }
     });
 }); };
 exports.renderPage = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, userURL, requestedPage, appURL, userId, currentUser, newURL, _b, firstName, lastName, gender, role, email, password;
+    var _a, userURL, requestedPage, currentUsersInfo, userId, currentUser, newURL, _b, firstName, lastName, gender, role, email, password;
     return __generator(this, function (_c) {
         switch (_c.label) {
             case 0:
                 _a = req.body, userURL = _a.userURL, requestedPage = _a.requestedPage;
-                appURL = userURL.split("/")[2];
+                currentUsersInfo = req.cookies.currentUsersInfo;
                 userId = userURL.slice(-24);
                 return [4 /*yield*/, userModel_1["default"].find({ _id: userId })];
             case 1:

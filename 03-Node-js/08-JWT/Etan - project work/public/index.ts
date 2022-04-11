@@ -1,6 +1,9 @@
+
+
+
 async function handleRegister(ev) {
   ev.preventDefault();
-  const registerStatus = document.querySelector('[data-register-status]');
+  const registerStatus = document.querySelector("[data-register-status]");
   let { firstName, lastName, email, password, role, gender } =
     ev.target.elements;
   firstName = firstName.value;
@@ -17,18 +20,17 @@ async function handleRegister(ev) {
     role,
     gender,
   });
-  const {aUser} = data;
-  if(aUser){
-    registerStatus.innerHTML = `<h2>hello ${aUser.firstName}, you seem to already have an account under that email!<h2> <a href="/">Log in here</a>`
+  const { aUser } = data;
+  if (aUser) {
+    registerStatus.innerHTML = `<h2>hello ${aUser.firstName}, you seem to already have an account under that email!<h2> <a href="/">Log in here</a>`;
     return;
   }
   window.location.href = `/`;
-
 }
 
 async function handleLogin(ev) {
   ev.preventDefault();
-  const passwordStatus = document.querySelector('[data-password-status]')
+  const passwordStatus = document.querySelector("[data-password-status]");
   const email = ev.target.elements.email.value;
   const password = ev.target.elements.password.value;
   const userData = {
@@ -36,38 +38,28 @@ async function handleLogin(ev) {
     password: password,
   };
   try {
-    const {data} = await axios
-      .post("/users/log-in", userData)
+    const { data } = await axios.post("/users/log-in", userData);
 
-        const {ok, aUser, verifiedUser, userId} = data;
+    const { ok, aUser, verifiedUser, userId } = data;
+    const verifiedUserId = userId;
 
+    passwordStatus.style.color = "";
+    passwordStatus.innerHTML = "";
+    if (aUser) {
+      passwordStatus.style.color = "red";
+      passwordStatus.innerHTML = `<h1>*Wrong password!</h1>`;
+    }
+    if (!aUser && !ok) {
+      passwordStatus.innerHTML = `<h2>This email doesn't seem to exist in out database, Try again, or register bellow:</h2>`;
+      return;
+    }
+    if (!ok) throw new Error("no ok");
+    if (ok) {
+      window.location.href = `/home.html?id=${verifiedUserId}`;
+    }
 
-        const verifiedUserId = userId;
-
-        passwordStatus.style.color = ''
-        passwordStatus.innerHTML = ''
-        if(aUser) {
-
-          passwordStatus.style.color = 'red'
-          passwordStatus.innerHTML = `<h1>*Wrong password!</h1>`;
-          
-        }
-        if(!aUser && !ok){
-
-          
-          passwordStatus.innerHTML = `<h2>This email doesn't seem to exist in out database, Try again, or register bellow:</h2>`
-          return;
-        }
-        if (!ok) throw new Error("no ok");
-        if (ok) {
-
-          window.location.href = `/home.html?id=${verifiedUserId}`;
-        } 
-          
-          return
-        }
-      
-   catch (error) {
+    return;
+  } catch (error) {
     console.log("error in handleLogin:");
     console.log(error.message);
     // }
@@ -76,38 +68,43 @@ async function handleLogin(ev) {
 
 async function handleRenderHome(ev) {
   ev.preventDefault();
-  const currentPage = ev.target.title;
+  try {
+    const currentPage = ev.target.title;
 
-  let userId = ev.target.location.search.replace(/.*?id=/g, "");
-  const { data } = await axios.get(`users/logged-in-user?userId=${userId}`);
-  const { userInfo, decoded } = data;
-  console.log(decoded);
-  
-  getUsersTasks(userId, currentPage);
-  const user = userInfo[0];
-  const name = document.querySelector("[data-name]");
-  const gender = document.querySelector("[data-gender]");
-  name.innerHTML = `${user.firstName} ${user.lastName}<br><span>${user.role}</span>`;
-  if (user.gender === `male`) {
-    gender.src = `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ51Gk5jjB4qD-BkcDh_fhsE4HkfnLDblQPrQLaOY13u7v5MNoBea8JzZ5NZAa0G-gAcgY&usqp=CAU`;
-  } else {
-    gender.src = `https://static.vecteezy.com/system/resources/thumbnails/002/586/938/small/woman-cartoon-character-portrait-brunette-female-round-line-icon-free-vector.jpg`;
+    let userId = ev.target.location.search.replace(/.*?id=/g, "");
+    const { data } = await axios.get(`users/logged-in-user?userId=${userId}`);
+    const { userInfo, decoded } = data;
+
+    getUsersTasks(userId, currentPage);
+    const user = userInfo[0];
+    const name = document.querySelector("[data-name]");
+    const gender = document.querySelector("[data-gender]");
+    name.innerHTML = `${user.firstName} ${user.lastName}<br><span>${user.role}</span>`;
+    if (user.gender === `male`) {
+      gender.src = `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ51Gk5jjB4qD-BkcDh_fhsE4HkfnLDblQPrQLaOY13u7v5MNoBea8JzZ5NZAa0G-gAcgY&usqp=CAU`;
+    } else {
+      gender.src = `https://static.vecteezy.com/system/resources/thumbnails/002/586/938/small/woman-cartoon-character-portrait-brunette-female-round-line-icon-free-vector.jpg`;
+    }
+
+    const lowTasks = document.querySelector("[data-low]");
+    const mediumTasks = document.querySelector("[data-medium]");
+    const highTasks = document.querySelector("[data-high]");
+
+    const arr = await Promise.all([handleGetUrgencies(userId)]);
+    const low = arr[0][0];
+
+    lowTasks.innerHTML = low.length;
+    const medium = arr[0][1];
+
+    mediumTasks.innerHTML = medium.length;
+    const high = arr[0][2];
+
+    highTasks.innerHTML = high.length;
+  } catch (error) {
+    console.log(error);
+    console.log({ error: error.message });
+    window.location.href = "/index.html"
   }
-
-  const lowTasks = document.querySelector("[data-low]");
-  const mediumTasks = document.querySelector("[data-medium]");
-  const highTasks = document.querySelector("[data-high]");
-
-  const arr = await Promise.all([handleGetUrgencies(userId)]);
-  const low = arr[0][0];
-
-  lowTasks.innerHTML = low.length;
-  const medium = arr[0][1];
-
-  mediumTasks.innerHTML = medium.length;
-  const high = arr[0][2];
-
-  highTasks.innerHTML = high.length;
 }
 
 async function handleGetUrgencies(userId) {
@@ -129,15 +126,16 @@ async function handleRenderRecentlyCreated(ev) {
 
 async function handleRenderSettings(ev) {
   ev.preventDefault();
-  const currentPage = ev.target.title;
-  let userId = ev.target.location.search.replace(/.*?id=/g, "");
-  const settingsForm = document.querySelector("[data-settings]");
+  try {
+    const currentPage = ev.target.title;
+    let userId = ev.target.location.search.replace(/.*?id=/g, "");
+    const settingsForm = document.querySelector("[data-settings]");
 
-  const { data } = await axios.get(`users/logged-in-user?userId=${userId}`);
-  const { userInfo } = data;
-  let html = "";
-  const user = userInfo[0];
-  html = `<form name="userUpdate" id="userUpdate" onsubmit="handleUserUpdate(event)">
+    const { data } = await axios.get(`users/logged-in-user?userId=${userId}`);
+    const { userInfo } = data;
+    let html = "";
+    const user = userInfo[0];
+    html = `<form name="userUpdate" id="userUpdate" onsubmit="handleUserUpdate(event)">
   <h1>Update Your information</h1>
   
   <fieldset form="userUpdate">
@@ -175,7 +173,11 @@ async function handleRenderSettings(ev) {
   </fieldset>
   <h6 data-password-status></h6>
   </form>`;
-  settingsForm.innerHTML = html;
+    settingsForm.innerHTML = html;
+  } catch (error) {
+    console.log(error);
+    console.log({ error: error.message });
+  }
 }
 
 async function handleUserUpdate(ev) {
@@ -205,21 +207,18 @@ async function handleUserUpdate(ev) {
         userId,
       })
       .then((data) => {
-        const {updatedUser, updateStatus} = data.data;
+        const { updatedUser, updateStatus } = data.data;
         passwordStatus.style.color = ``;
-        if(updatedUser === undefined) {
-          passwordStatus.style.color = 'red';
-          passwordStatus.innerHTML = `*You Either put in the wrong password or no password at all, TRY AGAIN!`
-          return
+        if (updatedUser === undefined) {
+          passwordStatus.style.color = "red";
+          passwordStatus.innerHTML = `*You Either put in the wrong password or no password at all, TRY AGAIN!`;
+          return;
         }
-        if(updateStatus === undefined){
+        if (updateStatus === undefined) {
           passwordStatus.innerHTML = `<h2>Your Inxrformation was updated successfully</h2>`;
         }
-
       });
     // const {updatedUser} = data;
-
-
 
     // }else{
     // }
@@ -250,6 +249,7 @@ async function handlePageChange(ev) {
         .post(`/users/nav`, { userURL, requestedPage })
         .then((response) => {
           const { newURL } = response.data;
+
           window.location.href = newURL;
         });
     }
@@ -259,7 +259,6 @@ async function handlePageChange(ev) {
         requestedPage,
       });
       const { newURL } = data;
-
 
       window.location.href = newURL;
     }
@@ -272,18 +271,15 @@ async function handlePageChange(ev) {
       window.location.href = newURL;
     }
     if (requestedPage === "RecentlyCreated") {
-
-      
-      const { data } = await axios.post(`/users/nav`, {
-        userURL,
-        requestedPage,
-      })
-      .then((response) => {
-        
-        const { newURL } = response.data;
-        window.location.href = newURL;
-
-      })
+      const { data } = await axios
+        .post(`/users/nav`, {
+          userURL,
+          requestedPage,
+        })
+        .then((response) => {
+          const { newURL } = response.data;
+          window.location.href = newURL;
+        });
     }
   } catch (error) {
     console.log("error in handleRenderPage:");
@@ -304,6 +300,9 @@ async function getUsersTasks(userId, currentPage) {
   }
 }
 async function renderTasks(currentUsersTasks, currentPage) {
+
+ 
+
   sortTasksByDate(currentUsersTasks);
 
   let html = "";
@@ -522,21 +521,25 @@ async function handleNewTask(ev) {
     (description = description.value),
     (urgency = urgency.value),
     (location = location.value),
-    (date = date.value),
-    await axios
-      .post("/tasks/add-new-task", {
-        color,
-        title,
-        description,
-        urgency,
-        location,
-        date,
-        userId,
-      })
-      .then((response) => {
-        const { currentUsersTasks } = response.data;
-        renderTasks(currentUsersTasks, "RecentlyCreated");
-      });
+    (date = date.value);
+  const form: HTMLFormElement = document.querySelector("#myForm");
+  form.reset();
+
+  await axios
+    .post("/tasks/add-new-task", {
+      color,
+      title,
+      description,
+      urgency,
+      location,
+      date,
+      userId,
+    })
+    .then((response) => {
+      const { currentUsersTasks } = response.data;
+
+      renderTasks(currentUsersTasks, "RecentlyCreated");
+    });
 }
 
 async function handleTaskUpdate(ev) {
@@ -562,6 +565,7 @@ async function handleTaskUpdate(ev) {
     });
     const { currentUsersTasks } = data;
     renderTasks(currentUsersTasks, "RecentlyCreated");
+
     closeTaskModal();
   } catch (error) {
     console.log("error in handleTaskUpdate");
@@ -574,7 +578,6 @@ async function handleTaskCheck(ev) {
     const timeChecked = new Date().toLocaleDateString().replace(/\//g, "-");
     const taskId = ev.target.dataset.check;
 
-    
     const userId = ev.target.baseURI.slice(-24);
     const { data } = await axios.patch("/tasks/check-task", {
       _id: taskId,
@@ -583,7 +586,6 @@ async function handleTaskCheck(ev) {
     });
     const { currentUsersTasks } = data;
 
-    
     renderTasks(currentUsersTasks, "RecentlyCreated");
   } catch (error) {
     console.log("error in handleTaskCheck");
