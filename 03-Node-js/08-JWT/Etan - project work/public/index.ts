@@ -1,6 +1,3 @@
-
-
-
 async function handleRegister(ev) {
   ev.preventDefault();
   const registerStatus = document.querySelector("[data-register-status]");
@@ -75,6 +72,8 @@ async function handleRenderHome(ev) {
     const { data } = await axios.get(`users/logged-in-user?userId=${userId}`);
     const { userInfo, decoded } = data;
 
+    
+
     getUsersTasks(userId, currentPage);
     const user = userInfo[0];
     const name = document.querySelector("[data-name]");
@@ -103,7 +102,7 @@ async function handleRenderHome(ev) {
   } catch (error) {
     console.log(error);
     console.log({ error: error.message });
-    window.location.href = "/index.html"
+    window.location.href = "/index.html";
   }
 }
 
@@ -242,7 +241,6 @@ async function handlePageChange(ev) {
 
   const requestedPage = ev.target.outerText.split(" ").join("");
 
-
   try {
     if (requestedPage === "home") {
       const { data } = await axios
@@ -254,13 +252,16 @@ async function handlePageChange(ev) {
         });
     }
     if (requestedPage === "settings") {
-      const { data } = await axios.post(`/users/nav`, {
+      const { data } = await axios
+      .post(`/users/nav`, {
         userURL,
         requestedPage,
-      });
-      const { newURL } = data;
+      })
+      .then((response) => {
+        const { newURL } = response.data;
 
-      window.location.href = newURL;
+        window.location.href = newURL;
+      });
     }
     if (requestedPage === "info") {
       const { data } = await axios.post(`/users/nav`, {
@@ -300,9 +301,6 @@ async function getUsersTasks(userId, currentPage) {
   }
 }
 async function renderTasks(currentUsersTasks, currentPage) {
-
- 
-
   sortTasksByDate(currentUsersTasks);
 
   let html = "";
