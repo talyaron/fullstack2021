@@ -14,7 +14,7 @@ router
     // .get('/getPlaces', getPlaces)
     .get('/getFiltered', getfilteredAirBNB)
     .post('/addPlaces', addPlaces)
-    .get('/getToPlace', getToPlace)
+    .get('/getToPlace/:id', getToPlace)
     .get('/search-airbnb', searchAirbnb)
     .get('/search-city', searchAirbnbByCity)
     .post('/findPlaceMap', findPlaceMap)

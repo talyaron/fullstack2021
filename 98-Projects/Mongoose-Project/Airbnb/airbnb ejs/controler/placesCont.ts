@@ -90,23 +90,42 @@ export const addPlaces = async (req, res) => {
 };
 export const getToPlace = async (req, res) => {
   try {
-    const { placeId } = req.query;
-    const __id = req.query;
-    if (placeId == __id) {
-      let placesId = await Places.findOne({ __id: placeId }).limit(10)
-      //  res.send(placeId);
+    console.log(req.params)
+    const { id } = req.params
+    if (id) {
+      let placesId = await Places.findOne({ _id: id }).limit(10)
+      console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!')
+      console.log(placesId)
+      console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!')
+
       res.render('place', {
         title: "The Place",
         placesId
       })
-    } else {
-      throw new Error("placeId is not the same as the __id");
     }
+
+
+    // const { placeId } = req.query;
+    // const __id = req.query;
+
+    // console.log(req.query)
+    // console.log(req.params)
+    // if (placeId == __id) {
+    //   let placesId = await Places.findOne({ __id: placeId }).limit(10)
+    //   //  res.send(placeId);
+    //   res.render('place', {
+    //     title: "The Place",
+    //     placesId
+    // })
+    // } else {
+    // throw new Error("placeId is not the same as the __id");
+    // }
   } catch (error) {
     console.log(error.error);
     res.send({ error: error.massage });
   }
 };
+
 export const findPlaceMap = async (req, res) => {
   try {
     let coordinates: Array<any> = req.body;
