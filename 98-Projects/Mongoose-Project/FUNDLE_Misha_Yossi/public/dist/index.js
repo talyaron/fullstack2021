@@ -20,6 +20,19 @@ const offsetFromDate = new Date(2022, 0, 1);
 const msOffset = Date.now() - offsetFromDate;
 const dayOffset = Math.floor(msOffset / 1000 / 60 / 60 / 24);
 console.log(dayOffset);
+handleLoad();
+function handleLoad() {
+    return __awaiter(this, void 0, void 0, function* () {
+        const { data } = yield axios.get(`users/load-user`);
+        if (data) {
+            storeUserName = data;
+            renderStats(storeUserName);
+            const greetings = timeOfDay();
+            document.querySelector(".hello").innerHTML = `&nbsp;&nbsp;${greetings} <span style="color: orange;">&nbsp;${storeUserName}</span>`;
+        }
+        console.log(document.cookie);
+    });
+}
 getDailyWord();
 function getDailyWord() {
     return __awaiter(this, void 0, void 0, function* () {
@@ -111,6 +124,9 @@ function pressKey(key) {
 function getActiveTiles() {
     return guessGrid.querySelectorAll('[data-state="active"]');
 }
+function getSubmittedTiles() {
+    return guessGrid.querySelectorAll('[data-state="wrong"],[data-state="wrong-location"],[data-state="correct"]');
+}
 function deleteKey() {
     const activeTiles = getActiveTiles();
     const lastTile = activeTiles[activeTiles.length - 1];
@@ -177,6 +193,16 @@ function checkWinLose(guess, tiles) {
     return __awaiter(this, void 0, void 0, function* () {
         let username = storeUserName;
         let win;
+        let storeLetterArray = [];
+        let storeStateArray = [];
+        const SubmittedTiles = [...getSubmittedTiles()];
+        SubmittedTiles.forEach((tile) => {
+            storeLetterArray.push(tile.dataset.letter);
+            storeStateArray.push(tile.dataset.state);
+        });
+        document.cookie = `letters= ${storeLetterArray}`;
+        document.cookie = `states= ${storeStateArray}`;
+        // document.cookie = `submitted = ${SubmittedTiles}`;
         if (guess === targetWord) {
             showAlert("You win", 5000);
             danceTiles(tiles);
@@ -329,6 +355,7 @@ let x = setInterval(function () {
     let twoDigitsSeconds = ("0" + seconds).slice(-2);
     document.querySelector("#countdown").innerHTML = twoDigitsHours + ": "
         + twoDigitsMinutes + ": " + twoDigitsSeconds;
+    return distance;
 }, 1000);
 // END countDownDate
 // START SHARE:

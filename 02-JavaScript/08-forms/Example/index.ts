@@ -3,7 +3,7 @@ console.log('hi')
 function handleSubmit(ev) {
     ev.preventDefault(); //prevent refresh
 
-   const formObj = {}
+    const formObj = {}
     console.log(ev)
 
     for (let field of ev.target) {
@@ -38,4 +38,4 @@ function createCard(obj){
     `</div>`
 
     document.getElementById('card').innerHTML = html;
-} 
+}

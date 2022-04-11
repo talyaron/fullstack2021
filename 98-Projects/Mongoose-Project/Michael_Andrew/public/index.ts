@@ -41,10 +41,20 @@ async function handleLogInForm(e) {
         let { email, password } = oldUser;
         email = email.value.split(' ').join('');
         password = password.value.split(' ').join('');
-
+                
         const { data } = await axios.get(`/users/log-user?loginEmail=${email}&loginPassword=${password}`)
+        const logedUser = data.oldUser[0].userName
+        //console.log(logedUser)
+
+        if (logedUser) {
+            //window.location.href = 'index.html';
+
+            document.querySelector('#root').innerHTML = `<button onclick=handleAdminGetUsers()>dddddddddddddddddddddddddddddddddddddd</button>`
+
+
+        }
         site.user = data.oldUser[0];
-        localStorage.setItem('user', JSON.stringify(site.user));
+        //localStorage.setItem('user', JSON.stringify(site.user));
 
         if (!email || !password) throw new Error("no email || password in handleLogInForm");
 
@@ -58,6 +68,15 @@ async function handleLogInForm(e) {
     signIn.classList.toggle('in-vis');
 
     handleOnLoad();
+}
+
+async function handleAdminGetUsers() {
+
+    const {data} = await axios.get('/users/admin-get-users')
+
+    
+
+
 }
 
 function handleAccount() {
@@ -77,7 +96,6 @@ function handleLogOut() {
 
 async function handleOnLoad() {
     
-
     const user = JSON.parse(localStorage?.getItem('user'))
 
 
@@ -91,9 +109,10 @@ async function handleOnLoad() {
     }
 
     if (window.location.pathname.split("/").pop() == 'index.html') {
+
         const { data } = await axios.get('/arts/art-for-sale')
         const { result } = data;
-        console.log(result);
+        //console.log(result);
         renderArtForSale(result);
     }
 }
@@ -105,7 +124,7 @@ function renderArtForSale(artsForSale) {
     let html = "";
 
     artsForSale.forEach(art => {
-        console.log(art);
+        //console.log(art);
 
         html += `<div class="main__card">
                     <img src="${art.url}" class="main__card__img">
@@ -279,7 +298,7 @@ async function handleSettingsForm(ev) {
     ev.preventDefault()
     const toBeUpdated = ev.target[0].name
     const value = ev.target[0].value
-    console.log(toBeUpdated);
+    //console.log(toBeUpdated);
     if (toBeUpdated == 'password') {
         if (value == site.user.password) {
             if (ev.target[1].value == ev.target[2].value) {
@@ -335,7 +354,7 @@ async function handleCancelSale(artId) {
 
 async function handleAddArt(ev) {
     ev.preventDefault()
-    const newArt = { artName: ev.target.name.value, url: ev.target.url.value, author: site.user.userName };
+    const newArt = { artName: ev.target.name.value, url: ev.target.url.value, author:   .user.userName };
     await axios.post('/arts/add-art', { newArt, userId: site.user._id });
 }
 

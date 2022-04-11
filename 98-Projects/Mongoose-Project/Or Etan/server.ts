@@ -2,8 +2,13 @@ import express from "express";
 import mongoose from "mongoose";
 import cookieParser from "cookie-parser";
 
+require('dotenv').config()
 
 
+
+
+
+const uri  = process.env.MONGODB_URI
 const app = express();
 const port = process.env.PORT || 3000;
 app.use(express.static("public"));
@@ -12,7 +17,7 @@ app.use(cookieParser())
 
 mongoose
   .connect(
-    "mongodb+srv://EtanHey:NI2nXMDwLdTiRScP@cluster0.gedel.mongodb.net/OrEtan?retryWrites=true&w=majority"
+    uri
   )
 
   .then(() => {

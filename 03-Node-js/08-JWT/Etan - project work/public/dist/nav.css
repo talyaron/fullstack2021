@@ -1,0 +1,151 @@
+body,
+#control__nav,
+nav,
+ul,
+li,
+a {
+  font-family: "varela round", sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  min-width: 100%;
+  max-height: fit-content;
+}
+nav :not(.hidden) {
+  background-color: #141414;
+}
+
+nav ul {
+  color: #141414;
+  background: #f0f0f2;
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 1rem;
+}
+nav ul li a i {
+  background-color: #f0f0f2;
+  color: rgba(255, 255, 255, 0.3);
+  display: block;
+  padding: 0.8rem 1rem;
+  text-decoration: none;
+}
+nav ul li a i:hover {
+  background: #2e2e2e;
+  color: white;
+  text-underline-position: below;
+  border-radius: 3rem;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+  top: 10%;
+}
+
+#control {
+  color: #141414;
+  background: #f0f0f2;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-inline: 2rem;
+  max-width: 98vw;
+  text-align: center;
+}
+#control__back, #control__filter {
+  background-color: gainsboro;
+  border-radius: 5px;
+  padding: 12px;
+}
+#control__nav {
+  align-self: center;
+}
+#control__nav__toggle {
+  display: none;
+}
+#control__nav__toggle:checked ~ nav {
+  display: block;
+}
+#control span {
+  opacity: 1;
+}
+#control span:hover {
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 600px) {
+  nav {
+    top: 0;
+  }
+  nav ul {
+    top: 0;
+    border-radius: 0;
+  }
+  nav ul li {
+    flex: 1 2 auto;
+    text-align: center;
+  }
+
+  #monthly-tasks:hover .material-icons, #home:hover .material-icons, #chart:hover .material-icons {
+    animation: pulse 0.5s infinite alternate;
+  }
+
+  #control {
+    max-width: 100vw;
+    max-height: 100%;
+    position: relative;
+  }
+  #control__back, #control__filter {
+    padding-top: 10vh;
+  }
+  #control__recent {
+    position: absolute;
+    top: 10vh;
+  }
+}
+h3 span {
+  opacity: 0;
+  transition: all 0.4s ease;
+  transform: translateY(50px);
+  display: inline-block;
+}
+h3 .fade {
+  opacity: 0;
+  transform: translateY(0px);
+}
+
+.md-18 {
+  font-size: 18px;
+}
+
+.md-24 {
+  font-size: 24px;
+}
+
+.md-30 {
+  font-size: 30px;
+}
+
+.md-36 {
+  font-size: 36px;
+}
+
+.md-40 {
+  font-size: 40px;
+}
+
+.md-light {
+  color: white;
+}
+
+.md-inactive {
+  color: rgba(255, 255, 255, 0.3);
+}

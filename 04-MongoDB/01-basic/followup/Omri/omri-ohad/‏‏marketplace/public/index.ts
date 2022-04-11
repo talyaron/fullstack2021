@@ -28,15 +28,16 @@ async function handleAddProduct(ev) {
 
 async function handleGetProducts() {
 
+
     const { data } = await axios.get('/products/get-products')
-    const { products } = data;
-    console.log({ products })
-    if (products) {
-        renderProducts(products);
+    const { filterdProducts } = data;
+    console.log({ filterdProducts })
+    if (filterdProducts) {
+        renderProducts(filterdProducts);
     }
 }
 
-function renderItemsMain(items, ok?, userName?) {
+function renderItemsMain(items,ok?, userName?) {
     let html = '';
     const rootItems = document.querySelector('.mainPage__middle--products');
     if (items) {
@@ -51,10 +52,24 @@ function renderItemsMain(items, ok?, userName?) {
             </div>
             `
         })
-        if (ok === true) {
+        if(localStorage.getItem("name") !=null){
             document.querySelector(".mainPage__header--welcome").innerHTML = `
-            hello ${userName} <a href="personal-zone.html"><i class="fa fa-user" ></i></a`
-        } else { document.querySelector(".mainPage__header--welcome").innerHTML = ''; }
+            </br>
+            hello ${localStorage.getItem("name")}
+            </br>
+            <button class="LogOutBtn" onclick="localStorage.clear();location.reload()">log out</button>  
+            `
+
+            document.querySelector(".mainPage__header--icons").innerHTML = `
+                <a href="index.html"><i class="fa fa-home" ></i></a>
+                <a href="personal-zone.html"><i class="fa fa-user" ></i></a>
+                <i id="" class="fa fa-shopping-cart"></i>
+            `
+
+        } 
+        else if(localStorage.getItem("name") ==='user'){document.querySelector(".mainPage__header--welcome").innerHTML = '';}
+
+        else{document.querySelector(".mainPage__header--welcome").innerHTML = '';}
         rootItems.innerHTML = html;
     }
 }
@@ -78,6 +93,19 @@ function renderProducts(products, ok?, userName?) {
         </div>
         `
     }).join('');
+
+    if(localStorage.getItem("name") !=null){
+        document.querySelector(".mainPage__header--welcome").innerHTML = `
+        </br>
+        hello ${localStorage.getItem("name")}
+        </br>
+        <button class="LogOutBtn" onclick="localStorage.clear();location.reload()">log out</button>  
+        `
+
+    } 
+    else if(localStorage.getItem("name") ==='user'){document.querySelector(".mainPage__header--welcome").innerHTML = '';}
+
+    else{document.querySelector(".mainPage__header--welcome").innerHTML = '';}
     document.getElementById('products').innerHTML = html;
 }
 
@@ -156,17 +184,21 @@ async function handleLogin(ev) {
     let { email, password } = ev.target.elements;
     email = email.value;
     password = password.value;
-    const { data } = await axios.get(`/products/login?email=${email}&password=${password}`);
-    const{ok} = data;
-    const {user} = data
-    const {items} = data
-    const userName = user[0].userName;
+    const { data } = await axios.post('/products/login', { email, password });
+    let{userName} = data;
+    // console.log("userName="+userName);
+    // localStorage.setItem("name", userName);
+    const { ok } = data;
+    const{items} = data;
+    // const{userId} = data;
     if (ok === true) {
         document.getElementById("logMessage").innerHTML = " You are login";
-        renderItemsMain(items, ok, userName);
+        window.setTimeout(function () { location.reload() }, 2000)
+        localStorage.setItem("name", userName);
     }
-    else if (ok === false) {
+    else  {
         document.getElementById("logMessage").innerHTML = "Email or Password is wrong, try again"
     }
+    renderItemsMain(items, ok, userName);
     //renderProducts(products ,ok, userName)
 }

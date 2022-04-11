@@ -36,11 +36,12 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 function handleRegister(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var _a, firstName, lastName, email, password, role, gender, data;
+        var registerStatus, _a, firstName, lastName, email, password, role, gender, data, aUser;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
                     ev.preventDefault();
+                    registerStatus = document.querySelector('[data-register-status]');
                     _a = ev.target.elements, firstName = _a.firstName, lastName = _a.lastName, email = _a.email, password = _a.password, role = _a.role, gender = _a.gender;
                     firstName = firstName.value;
                     lastName = lastName.value;
@@ -58,6 +59,11 @@ function handleRegister(ev) {
                         })];
                 case 1:
                     data = (_b.sent()).data;
+                    aUser = data.aUser;
+                    if (aUser) {
+                        registerStatus.innerHTML = "<h2>hello " + aUser.firstName + ", you seem to already have an account under that email!<h2> <a href=\"/\">Log in here</a>";
+                        return [2 /*return*/];
+                    }
                     window.location.href = "/";
                     return [2 /*return*/];
             }
@@ -66,11 +72,12 @@ function handleRegister(ev) {
 }
 function handleLogin(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var email, password, userData, data, error_1;
+        var passwordStatus, email, password, userData, data, ok, aUser, verifiedUser, userId, verifiedUserId, error_1;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     ev.preventDefault();
+                    passwordStatus = document.querySelector('[data-password-status]');
                     email = ev.target.elements.email.value;
                     password = ev.target.elements.password.value;
                     userData = {
@@ -81,25 +88,27 @@ function handleLogin(ev) {
                 case 1:
                     _a.trys.push([1, 3, , 4]);
                     return [4 /*yield*/, axios
-                            .post("/users/log-in", userData)
-                            .then(function (response) {
-                            var status = response.data.ok;
-                            var userExists = response.data.aUser;
-                            var verifiedUser = response.data.verifiedUser;
-                            var verifiedUserId = verifiedUser[0]._id;
-                            if (!status)
-                                throw new Error("no status");
-                            if (status) {
-                                console.log(verifiedUser);
-                                console.log(response.data);
-                                // window.location.href = `/home.html?id=${verifiedUserId}`;
-                            }
-                            else if (userExists < 0) {
-                            }
-                        })];
+                            .post("/users/log-in", userData)];
                 case 2:
-                    data = _a.sent();
-                    return [3 /*break*/, 4];
+                    data = (_a.sent()).data;
+                    ok = data.ok, aUser = data.aUser, verifiedUser = data.verifiedUser, userId = data.userId;
+                    verifiedUserId = userId;
+                    passwordStatus.style.color = '';
+                    passwordStatus.innerHTML = '';
+                    if (aUser) {
+                        passwordStatus.style.color = 'red';
+                        passwordStatus.innerHTML = "<h1>*Wrong password!</h1>";
+                    }
+                    if (!aUser && !ok) {
+                        passwordStatus.innerHTML = "<h2>This email doesn't seem to exist in out database, Try again, or register bellow:</h2>";
+                        return [2 /*return*/];
+                    }
+                    if (!ok)
+                        throw new Error("no ok");
+                    if (ok) {
+                        window.location.href = "/home.html?id=" + verifiedUserId;
+                    }
+                    return [2 /*return*/];
                 case 3:
                     error_1 = _a.sent();
                     console.log("error in handleLogin:");
@@ -112,7 +121,7 @@ function handleLogin(ev) {
 }
 function handleRenderHome(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var currentPage, userId, data, userInfo, user, name, gender, lowTasks, mediumTasks, highTasks, arr, low, medium, high;
+        var currentPage, userId, data, userInfo, decoded, user, name, gender, lowTasks, mediumTasks, highTasks, arr, low, medium, high;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -122,7 +131,8 @@ function handleRenderHome(ev) {
                     return [4 /*yield*/, axios.get("users/logged-in-user?userId=" + userId)];
                 case 1:
                     data = (_a.sent()).data;
-                    userInfo = data.userInfo;
+                    userInfo = data.userInfo, decoded = data.decoded;
+                    console.log(decoded);
                     getUsersTasks(userId, currentPage);
                     user = userInfo[0];
                     name = document.querySelector("[data-name]");
@@ -200,7 +210,6 @@ function handleRenderSettings(ev) {
                     userInfo = data.userInfo;
                     html = "";
                     user = userInfo[0];
-                    console.log(user);
                     html = "<form name=\"userUpdate\" id=\"userUpdate\" onsubmit=\"handleUserUpdate(event)\">\n  <h1>Update Your information</h1>\n  \n  <fieldset form=\"userUpdate\">\n  <legend>Personal Settings</legend>\n  <lable>First Name:</lable>\n  <input type=\"text\" name=\"firstNameUpdate\" value=\"" + user.firstName + "\" placeholder=\"" + user.firstName + "\">\n  <br>\n  <lable>Last Name:</lable>\n  <input type=\"text\" name=\"lastNameUpdate\" value=\"" + user.lastName + "\" placeholder=\"" + user.lastName + "\">\n  </fieldset>\n  <fieldset form=\"userUpdate\">\n  <legend>Account Settings</legend>\n  <lable>Email:</lable>\n  <input type=\"email\" name=\"emailUpdate\" value=\"" + user.email + "\" placeholder=\"" + user.email + "\">\n  <br>\n  <lable>Gender:</lable>\n  <select name=\"genderUpdate\" id=\"genderUpdate\"> \n  <option selected disabled value=\"" + user.gender + "\">" + user.gender + "</option>\n  <option value=\"male\">Male</option>\n  <option value=\"female\">Female</option>\n  </select>\n  <br>\n  <lable>Role:</lable>\n  <input type=\"text\" name=\"roleUpdate\" value=\"" + user.role + "\" placeholder=\"" + user.role + "\">\n  <br>\n  <lable>Password:</lable>\n  <input type=\"password\" name=\"passwordUpdate\" value=\"\" placeholder=\"Enter new password\">\n  \n  </fieldset>\n  <fieldset form=\"userUpdate\">\n  <legend>Password Confirmation</legend>\n  <h4>to save any of your settings changes, Enter your pass&shy;word bellow:</h4>\n  <input type=\"password\" name=\"passwordConfirmation\" placeholder=\"your current/old password\">\n  <input type=\"submit\" value=\"update info!\">\n  </fieldset>\n  <h6 data-password-status></h6>\n  </form>";
                     settingsForm.innerHTML = html;
                     return [2 /*return*/];
@@ -289,7 +298,6 @@ function handlePageChange(ev) {
                 case 0:
                     userURL = ev.target.baseURI;
                     requestedPage = ev.target.outerText.split(" ").join("");
-                    console.log(requestedPage);
                     _a.label = 1;
                 case 1:
                     _a.trys.push([1, 10, , 11]);
@@ -312,7 +320,6 @@ function handlePageChange(ev) {
                 case 4:
                     data = (_a.sent()).data;
                     newURL = data.newURL;
-                    console.log(newURL);
                     window.location.href = newURL;
                     _a.label = 5;
                 case 5:
@@ -328,7 +335,6 @@ function handlePageChange(ev) {
                     _a.label = 7;
                 case 7:
                     if (!(requestedPage === "RecentlyCreated")) return [3 /*break*/, 9];
-                    console.log(requestedPage);
                     return [4 /*yield*/, axios.post("/users/nav", {
                             userURL: userURL,
                             requestedPage: requestedPage
@@ -404,10 +410,10 @@ function renderTasks(currentUsersTasks, currentPage) {
                             task.descriptionShorted = task.description;
                         }
                         if (!task.checked) {
-                            html += "\n     <li class=\"box\">\n                      <div id=\"box__flex\">\n                          <div class=\"box__header\">\n                              <div class=\"box__logo-square " + task.urgency + "\">\n                                  <p style=\"color: " + task.color + "\" class=\"box__logo\">B\u0113</p>\n                              </div>\n                              <div  class=\"box__title\">\n                                  <p style=\"color: " + task.color + "\" class=\"box__title-text\">" + task.title + "</p>\n                                  <p class=\"box__title-urg\">" + task.urgency + "</p>\n                              </div>\n\n                              <i data-id=\"" + task._id + "\" onclick=\"renderTaskModal(event)\" class=\"fas fa-edit\"></i>\n\n                          </div>\n                          <div class=\"box__expln\">\n                              <h4>" + task.descriptionShorted + "</h4>\n                              <p class=\"box__expln-transp\">" + task.location + "</p>\n                          </div>\n                          <div  class=\"box__countdown\">" + task.date + "\n                          <a data-check=\"" + task._id + "\" onclick=\"handleTaskCheck(event)\">check</a>\n                          </div>\n                          <a onclick=\"handleTaskDelete(event)\" class=\"box__delete\">\n                          <i data-delete=\"" + task._id + "\" class=\"fas fa-trash-alt\"></i>\n                          </a></div>\n                      </div>\n\n                  </li>";
+                            html += "\n     <li class=\"box\">\n                      <div id=\"box__flex\">\n                          <div class=\"box__header\">\n                              <div class=\"box__logo-square " + task.urgency + "\">\n                                  <p style=\"color: " + task.color + "\" class=\"box__logo\">B\u0113</p>\n                              </div>\n                              <div  class=\"box__title\">\n                                  <p style=\"color: " + task.color + "\" class=\"box__title-text\">" + task.title + "</p>\n                                  <p class=\"box__title-urg\">" + task.urgency + "</p>\n                              </div>\n\n                              <i data-id=\"" + task._id + "\" onclick=\"renderTaskModal(event)\" class=\"fas fa-edit\"></i>\n\n                          </div>\n                          <div class=\"box__expln\">\n                              <h4>" + task.descriptionShorted + "</h4>\n                              <p class=\"box__expln-transp\">" + task.location + "</p>\n                          </div>\n                          <div  class=\"box__countdown\">" + task.date + "\n                          <a class=\"fas fa-check\" data-check=\"" + task._id + "\" onclick=\"handleTaskCheck(event)\"></a>\n                          </div>\n                          <a onclick=\"handleTaskDelete(event)\" class=\"box__delete\">\n                          <i data-delete=\"" + task._id + "\" class=\"fas fa-trash-alt\"></i>\n                          </a></div>\n                      </div>\n\n                  </li>";
                             return;
                         }
-                        html += "\n        <li class=\"box\">\n        <del>\n                      <div id=\"box__flex\">\n                          <div class=\"box__header\">\n                              <div class=\"box__logo-square " + task.urgency + "\">\n                                  <p style=\"color: " + task.color + "\" class=\"box__logo\">B\u0113</p>\n                              </div>\n                              <div  class=\"box__title\">\n                                  <p style=\"color: " + task.color + "\" class=\"box__title-text\">" + task.title + "</p>\n                                  <p class=\"box__title-urg\">" + task.urgency + "</p>\n                              </div>\n\n                              <i data-id=\"" + task._id + "\" onclick=\"renderTaskModal(event)\" class=\"fas fa-edit\"></i>\n\n                          </div>\n                          <div class=\"box__expln\">\n                              <h4>" + task.descriptionShorted + "</h4>\n                              <p class=\"box__expln-transp\">" + task.location + "</p>\n                          </div>\n                          <div  class=\"box__countdown\">" + task.date + "\n                          <a data-check=\"" + task._id + "\" onclick=\"handleTaskCheck(event)\">check</a>\n                          </div>\n                          <a onclick=\"handleTaskDelete(event)\" class=\"box__delete\">\n                          <i data-delete=\"" + task._id + "\" class=\"fas fa-trash-alt\"></i>\n                          </a></div>\n                      </div>\n                      </del>\n                  </li>";
+                        html += "\n        <li class=\"box\">\n        <del>\n                      <div id=\"box__flex\">\n                          <div class=\"box__header\">\n                              <div class=\"box__logo-square " + task.urgency + "\">\n                                  <p style=\"color: " + task.color + "\" class=\"box__logo\">B\u0113</p>\n                              </div>\n                              <div  class=\"box__title\">\n                                  <p style=\"color: " + task.color + "\" class=\"box__title-text\">" + task.title + "</p>\n                                  <p class=\"box__title-urg\">" + task.urgency + "</p>\n                              </div>\n\n                              <i data-id=\"" + task._id + "\" onclick=\"renderTaskModal(event)\" class=\"fas fa-edit\"></i>\n\n                          </div>\n                          <div class=\"box__expln\">\n                              <h4>" + task.descriptionShorted + "</h4>\n                              <p class=\"box__expln-transp\">" + task.location + "</p>\n                          </div>\n                          <div  class=\"box__countdown\">" + task.date + "\n                          <a class=\"fas fa-check\" data-check=\"" + task._id + "\" onclick=\"handleTaskCheck(event)\"></a>\n                          </div>\n                          <a onclick=\"handleTaskDelete(event)\" class=\"box__delete\">\n                          <i data-delete=\"" + task._id + "\" class=\"fas fa-trash-alt\"></i>\n                          </a></div>\n                      </div>\n                      </del>\n                  </li>";
                     });
                     nextTask = getNextTask(currentUsersTasks);
                     tasksRoot.innerHTML = html;
