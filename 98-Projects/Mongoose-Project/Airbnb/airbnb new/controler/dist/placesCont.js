@@ -129,12 +129,12 @@ exports.addPlaces = function (req, res) { return __awaiter(void 0, void 0, void 
     });
 }); };
 exports.getToPlace = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var placeId, __id;
+    var placeId, _id;
     return __generator(this, function (_a) {
         try {
             placeId = req.body.placeId;
-            __id = req.body;
-            if (__id == placeId) {
+            _id = req.body;
+            if (_id == placeId) {
                 res.send(placeId);
             }
             else {
