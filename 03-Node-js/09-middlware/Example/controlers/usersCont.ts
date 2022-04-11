@@ -26,6 +26,7 @@ export async function getAllUsers(req, res) {
 
 export const addUser = async (req, res) => {
   try {
+    console.log(`User with id: ${req.id} added a user`)
     let { username, password } = req.body;
 
     const newUser = new User({ username, password });
