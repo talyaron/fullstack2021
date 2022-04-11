@@ -28,6 +28,7 @@ async function handleAddProduct(ev) {
 
 async function handleGetProducts() {
 
+
     const { data } = await axios.get('/products/get-products')
     const { filterdProducts } = data;
     console.log({ filterdProducts })
@@ -36,7 +37,7 @@ async function handleGetProducts() {
     }
 }
 
-function renderItemsMain(items, userName?) {
+function renderItemsMain(items,ok?, userName?) {
     let html = '';
     const rootItems = document.querySelector('.mainPage__middle--products');
     if (items) {
@@ -51,13 +52,20 @@ function renderItemsMain(items, userName?) {
             </div>
             `
         })
-
         if(localStorage.getItem("name") !=null){
             document.querySelector(".mainPage__header--welcome").innerHTML = `
-            hello ${localStorage.getItem("name")} <a href="personal-zone.html"><i class="fa fa-user" ></i></a
-            </br></br>
-            <button onclick="localStorage.clear();location.reload()">log out</button>
+            </br>
+            hello ${localStorage.getItem("name")}
+            </br>
+            <button class="LogOutBtn" onclick="localStorage.clear();location.reload()">log out</button>  
             `
+
+            document.querySelector(".mainPage__header--icons").innerHTML = `
+                <a href="index.html"><i class="fa fa-home" ></i></a>
+                <a href="personal-zone.html"><i class="fa fa-user" ></i></a>
+                <i id="" class="fa fa-shopping-cart"></i>
+            `
+
         } 
         else if(localStorage.getItem("name") ==='user'){document.querySelector(".mainPage__header--welcome").innerHTML = '';}
 
@@ -67,7 +75,7 @@ function renderItemsMain(items, userName?) {
 }
 
 
-function renderProducts(products, userName?) {
+function renderProducts(products, ok?, userName?) {
     const html = products.map(product => {
         return `
         <div class="mainPage__middle--products--item" id="card">
@@ -85,6 +93,19 @@ function renderProducts(products, userName?) {
         </div>
         `
     }).join('');
+
+    if(localStorage.getItem("name") !=null){
+        document.querySelector(".mainPage__header--welcome").innerHTML = `
+        </br>
+        hello ${localStorage.getItem("name")}
+        </br>
+        <button class="LogOutBtn" onclick="localStorage.clear();location.reload()">log out</button>  
+        `
+
+    } 
+    else if(localStorage.getItem("name") ==='user'){document.querySelector(".mainPage__header--welcome").innerHTML = '';}
+
+    else{document.querySelector(".mainPage__header--welcome").innerHTML = '';}
     document.getElementById('products').innerHTML = html;
 }
 
@@ -131,8 +152,7 @@ async function handleCategoryShow(ev) {
     else if (products) renderItemsMain(products);
 }
 
-async function handleAscending(ev) {
-    ev.preventDefault();
+async function handleAscending() {
     const { data } = await axios.post('/products/sort-by-Ascending');
     const { filterd } = data;
     const { products } = data;
@@ -140,8 +160,7 @@ async function handleAscending(ev) {
     else if (products) renderItemsMain(products);
 }
 
-async function handleDescending(ev) {
-    ev.preventDefault();
+async function handleDescending() {
     const { data } = await axios.post('/products/sort-by-Descending');
     const { filterd } = data;
     const { products } = data;
@@ -160,20 +179,6 @@ async function handleSignUp(ev) {
     const { data } = await axios.post('/products/register', { email, password, userName })
 }
 
-// async function handleLogin(ev) {
-//     ev.preventDefault();
-//     let { email, password } = ev.target.elements;
-//     email = email.value;
-//     password = password.value;
-//     const { data } = await axios.post('/products/login', {email, password});
-//     console.log(window)
-//     // if(data.login){
-//     //     const {products} = data;
-//     //     const {userName} = data;
-//     //     renderItemsMain(products, userName)
-//     // }
-// }
-
 async function handleLogin(ev) {
     ev.preventDefault();
     let { email, password } = ev.target.elements;
@@ -181,8 +186,11 @@ async function handleLogin(ev) {
     password = password.value;
     const { data } = await axios.post('/products/login', { email, password });
     let{userName} = data;
+    // console.log("userName="+userName);
+    // localStorage.setItem("name", userName);
     const { ok } = data;
     const{items} = data;
+    // const{userId} = data;
     if (ok === true) {
         document.getElementById("logMessage").innerHTML = " You are login";
         window.setTimeout(function () { location.reload() }, 2000)
@@ -191,5 +199,6 @@ async function handleLogin(ev) {
     else  {
         document.getElementById("logMessage").innerHTML = "Email or Password is wrong, try again"
     }
-    renderItemsMain(items, userName);
+    renderItemsMain(items, ok, userName);
+    //renderProducts(products ,ok, userName)
 }

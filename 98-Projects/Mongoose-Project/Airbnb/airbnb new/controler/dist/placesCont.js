@@ -129,12 +129,12 @@ exports.addPlaces = function (req, res) { return __awaiter(void 0, void 0, void 
     });
 }); };
 exports.getToPlace = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var placeId, __id;
+    var placeId, _id;
     return __generator(this, function (_a) {
         try {
             placeId = req.body.placeId;
-            __id = req.body;
-            if (__id == placeId) {
+            _id = req.body;
+            if (_id == placeId) {
                 res.send(placeId);
             }
             else {
@@ -165,29 +165,28 @@ exports.findPlaceMap = function (req, res) { return __awaiter(void 0, void 0, vo
     });
 }); };
 exports.searchAirbnb = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var 
-    // search, 
-    // checkIn, checkOut,
-    adults, places, error_4;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
+    var _a, search_1, checkIn, checkOut, adults, children, infants, pets, accommodates, sum, dateOfCheckIn, dateOfCheckOut, differenceInTime, differenceInDays, places, error_4;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
             case 0:
-                _a.trys.push([0, 2, , 3]);
-                adults = req.query.adults;
-                console.log(
-                // search, 
-                // checkIn, checkOut, 
-                adults);
-                return [4 /*yield*/, placesModel_1["default"].find({ "neighbourhood": "Hong Kong" }).limit(20)];
+                _b.trys.push([0, 2, , 3]);
+                _a = req.query, search_1 = _a.search, checkIn = _a.checkIn, checkOut = _a.checkOut, adults = _a.adults, children = _a.children, infants = _a.infants, pets = _a.pets, accommodates = _a.accommodates;
+                console.log(search_1, checkIn, checkOut, adults, children, infants, pets);
+                sum = Number(adults) + Number(children) + Number(infants) + Number(pets);
+                console.log("the number of guests:" + sum);
+                dateOfCheckIn = new Date("" + checkIn);
+                dateOfCheckOut = new Date("" + checkOut);
+                differenceInTime = dateOfCheckOut.getTime() - dateOfCheckIn.getTime();
+                differenceInDays = differenceInTime / (1000 * 3600 * 24);
+                console.log("the days between checkIn checkOut is:" + differenceInDays);
+                return [4 /*yield*/, placesModel_1["default"].find({ address_country: "" + search_1, accommodates: sum })];
             case 1:
-                places = _a.sent();
-                //  $query = array(accommodates => $userInput);
-                //  {$query : Array(accommodates => `${adults}`)}
-                console.log(places);
+                places = _b.sent();
                 res.send({ ok: true, places: places });
+                console.log(places);
                 return [3 /*break*/, 3];
             case 2:
-                error_4 = _a.sent();
+                error_4 = _b.sent();
                 console.log(error_4.error);
                 res.send({ error: error_4.massage });
                 return [3 /*break*/, 3];
@@ -209,7 +208,7 @@ exports.searchAirbnbInTelaviv = function (req, res) { return __awaiter(void 0, v
     });
 }); };
 exports.search = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var places, search_1, serchPlace, error_5;
+    var places, search_2, serchPlace, error_5;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -217,9 +216,9 @@ exports.search = function (req, res) { return __awaiter(void 0, void 0, void 0, 
                 return [4 /*yield*/, placesModel_1["default"].find({})];
             case 1:
                 places = _a.sent();
-                search_1 = req.query.search;
-                serchPlace = searchPlaces(search_1, places);
-                console.log(search_1, " ", places);
+                search_2 = req.query.search;
+                serchPlace = searchPlaces(search_2, places);
+                console.log(search_2, " ", places);
                 res.send(serchPlace);
                 return [3 /*break*/, 3];
             case 2:
