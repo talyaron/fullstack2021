@@ -39,7 +39,7 @@
             <% if (getplaces) { %>
 
                 <% getplaces.forEach(place=> { %>
-                    <div class="airbnbOptions__container" onclick="handleGoToPlace(_id)">
+                    <div class="airbnbOptions__container" action="/places/getToPlace" method="GET" >
                         <div class="airbnbOptions__container__img">
                             <img src="<%- place.images %>"></img>
                         </div>
