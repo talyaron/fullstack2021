@@ -41,7 +41,7 @@ function handleGetSearch(ev) {
             switch (_a.label) {
                 case 0:
                     searchTerm = ev.target.value;
-                    return [4 /*yield*/, axios.get("/sounds/search?searchTerm=" + searchTerm)];
+                    return [4 /*yield*/, axios.get("/sounds/search?searchTerm=" + searchTerm + "&" + searching)];
                 case 1:
                     data = (_a.sent()).data;
                     console.log({ data: data });
@@ -136,32 +136,34 @@ function handleLogIn(ev) {
 }
 function handleGetUsers() {
     return __awaiter(this, void 0, void 0, function () {
-        var data;
+        var data, user1;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0: return [4 /*yield*/, axios.get('/soundUser/get-users')];
                 case 1:
                     data = (_a.sent()).data;
                     console.log(data);
+                    user1 = data.user1;
+                    console.log(user1);
                     return [2 /*return*/];
             }
         });
     });
 }
-// function renderSongs(songs) {
-//     const root = document.querySelector('#likedSongs')
-//     try {
-//         const html = songs.map(song => {
-//             console.log(song);
-//             return `<div class="card"><h2>${song.song} :${song.picture} ,${song.genre} ,${song.youtube}</h2>
-//             <div><input type='text' placeholder='type' value='${song.genre}' onblur='handleupdate(event,"${song._id}")'/></div>
-//             <button onclick='handleDelete("${song._id}")'>Delete</button>
-//             <div><img src="${song.img}" alt=""></div></div>`
-//         }).join('')
-//         console.log(html);
-//         root.innerHTML = html;
-//         if (!root) throw new Error("no root in rendersongs");
-//     } catch (error) {
-//         console.error(error.message);
-//     }
+// async function renderSounds(ev) {
+//     // try {
+//         const { data } = await axios.get('/sounds/search');
+//         const { ok, sounds } = data;
+//         console.log(sounds);
+//         // const html = sounds.map(sound => {
+//         //     console.log(sound);
+//         //     return `<div class="archive__main--history--1">
+//         // <p> ${sound.title}</p> </div>`
+//         // }).join('');
+//         const play = `<div class="archive__main--history--1">
+//             // <p> ${sounds.title}</p> </div>`;
+//             document.getElementById('music1').innerHTML = play;
+//     // } catch (error) {
+//     //     console.error(error);
+//     // }
 // }

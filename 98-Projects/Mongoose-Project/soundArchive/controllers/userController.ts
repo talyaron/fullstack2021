@@ -1,6 +1,8 @@
 
 import user from "../model/userModel";
+import jwt from "jwt-simple";
 
+const secret = process.env.JWT_SECRET
 
 export const register = async (req, res) => {
     try {
@@ -19,14 +21,12 @@ export const register = async (req, res) => {
 }
 export const logIn = async (req, res) => {
     try {
+        // const secret = "12345"
         const { name, password } = req.body;
         console.log(name, password);
-        // const newUser = new user({ name: name, password: password })
-        // console.log(newUser)
-        // const result = await newUser.save()
-        // const theSame = 'the user is logged in';
-        // res.send({ result, theSame });
-        // return
+
+
+
 
         if (typeof name === "string" && typeof password === "string") {
             const user1 = await user.findOne({ name });
@@ -35,10 +35,11 @@ export const logIn = async (req, res) => {
 
 
                 if (user1.password === password) {
+                    const payload = { name, id: user1._id, role: user1.role }
+                    const token = jwt.encode(payload, secret);
                     res.cookie(
                         "userInfo",
-                        { name, id: user1._id, role: user1.role },
-                        { maxAge: 120000, httpOnly:true }
+                        token, { maxAge: 120000 }
                     )
 
                     res.send({ ok: true, login: true });
@@ -63,9 +64,11 @@ export async function getAllUsers(req, res) {
     try {
         console.log(req.cookies);
         const { userInfo } = req.cookies;
-
-        if (userInfo && userInfo.role === "admin") {
-            const user1 = await user.find({name:"paul"});
+        const secret = "12345"
+        const decode = jwt.decode(userInfo, secret)
+        console.log(decode);
+        if (decode && decode.role === "admin") {
+            const user1 = await user.find({});
             res.send({ ok: true, user1 });
             return;
         }

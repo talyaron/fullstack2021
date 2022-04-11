@@ -1,9 +1,16 @@
 import express from 'express';
 import mongoose from "mongoose";
 import color from "colors";
+
+require('dotenv').config()
+
+console.log(process.env.JWT_SECRET, process.env.ENV);
+const uri = process.env.MONGODB_URI;
+
+
 const app = express();
 const cookieParser = require('cookie-parser')
-const port = process.env.PORT || 3003;
+const port = process.env.PORT || 3000;
 
 
 app.use(express.static("public"));
@@ -15,30 +22,20 @@ app.use(cookieParser());
 // console.log(http.STATUS_CODES);
 
 
-mongoose.connect('mongodb+srv://alexroz:Uou8wsRDp2J0FImM@cluster0.x62d1.mongodb.net/soundArchive?retryWrites=true&w=majority')
+mongoose.connect(uri).then(() => {
+  console.log("connected to Mongoose");
+})
+  .catch((err) => {
+    console.log("Failed to connect to Mongoose:")
+    console.log(err.message);
+  });
+
 
 import userRoute from "./routes/userRoute";
 app.use("/soundUser", userRoute);
 
 import soundRoute from "./routes/soundRoute";
 app.use("/sounds", soundRoute)
-
-
-
-
-// app.get('/', (req, res) => {
-//   console.log(req.headers)
-//   console.log(req.ip)
-//   console.log(req.url)
-//   console.log(req.method)
-//   console.log(req.protocol)
-//   console.log(req.body)
-//   console.log(req.path)
-//   console.log(req.query)
-//   console.log(req.subdomains)
-//   console.log(req.params)
-//   res.status(404).end();
-// });
 
 
 app.listen(port, () => {

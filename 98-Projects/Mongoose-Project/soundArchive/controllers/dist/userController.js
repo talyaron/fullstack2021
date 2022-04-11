@@ -38,6 +38,8 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 exports.__esModule = true;
 exports.getAllUsers = exports.logIn = exports.register = void 0;
 var userModel_1 = require("../model/userModel");
+var jwt_simple_1 = require("jwt-simple");
+var secret = process.env.JWT_SECRET;
 exports.register = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var _a, name, password, newUser, result, error_1;
     return __generator(this, function (_b) {
@@ -62,7 +64,7 @@ exports.register = function (req, res) { return __awaiter(void 0, void 0, void 0
     });
 }); };
 exports.logIn = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, name, password, user1, error_2;
+    var _a, name, password, user1, payload, token, error_2;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
@@ -75,7 +77,9 @@ exports.logIn = function (req, res) { return __awaiter(void 0, void 0, void 0, f
                 user1 = _b.sent();
                 if (user1) {
                     if (user1.password === password) {
-                        res.cookie("userInfo", { name: name, id: user1._id, role: user1.role }, { maxAge: 120000, httpOnly: true });
+                        payload = { name: name, id: user1._id, role: user1.role };
+                        token = jwt_simple_1["default"].encode(payload, secret);
+                        res.cookie("userInfo", token, { maxAge: 120000 });
                         res.send({ ok: true, login: true });
                         return [2 /*return*/];
                     }
@@ -94,15 +98,18 @@ exports.logIn = function (req, res) { return __awaiter(void 0, void 0, void 0, f
 }); };
 function getAllUsers(req, res) {
     return __awaiter(this, void 0, void 0, function () {
-        var userInfo, user1, error_3;
+        var userInfo, secret_1, decode, user1, error_3;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     _a.trys.push([0, 3, , 4]);
                     console.log(req.cookies);
                     userInfo = req.cookies.userInfo;
-                    if (!(userInfo && userInfo.role === "admin")) return [3 /*break*/, 2];
-                    return [4 /*yield*/, userModel_1["default"].find({ name: "paul" })];
+                    secret_1 = "12345";
+                    decode = jwt_simple_1["default"].decode(userInfo, secret_1);
+                    console.log(decode);
+                    if (!(decode && decode.role === "admin")) return [3 /*break*/, 2];
+                    return [4 /*yield*/, userModel_1["default"].find({})];
                 case 1:
                     user1 = _a.sent();
                     res.send({ ok: true, user1: user1 });

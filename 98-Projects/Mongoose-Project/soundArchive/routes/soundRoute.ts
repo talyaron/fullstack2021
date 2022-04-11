@@ -1,7 +1,7 @@
 import express from 'express';
 const router = express.Router();
 
-import { upload, search } from '../controllers/soundsController'
+import { upload, search} from '../controllers/soundsController'
 
 
 router
