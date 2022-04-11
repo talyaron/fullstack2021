@@ -1,17 +1,18 @@
 import express from 'express';
 import mongoose from "mongoose";
+import 'dotenv/config'
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 2006;
 const cookieParser = require('cookie-parser')
 
 app.use(cookieParser());
 app.use(express.static("public"));
 app.use(express.json());
 
-mongoose.connect('mongodb+srv://igino11:kktgqbLMCE3mtTN6@cluster0.zfewx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+mongoose.connect('mongodb+srv://igino11:gigYljnXIP5VDiNX@cluster0.zfewx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 ).then(res => {
   console.log("Connected to DB");
-}).catch(err => {
+}).catch(err => { 
   console.log('At mongoose.connect:')
   console.error(err.message)
 });;

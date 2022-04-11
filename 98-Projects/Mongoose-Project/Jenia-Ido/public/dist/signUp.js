@@ -244,11 +244,13 @@ function newUserDetails(ev) {
                     return [4 /*yield*/, axios.post('/user/add-user', { newUser: newUser })];
                 case 1:
                     userData = _b.sent();
-                    return [4 /*yield*/, axios.post('/images/add-images', { email: email, password: password })];
+                    return [4 /*yield*/, axios.post('/images/add-images', { email: email, password: password, firstName: firstName, lastName: lastName })];
                 case 2:
                     imagesData = _b.sent();
+                    // console.log(userData);
                     // const user = { ...userData.data };
                     // const images = { ...imagesData.data };
+                    // console.log(user);
                     renderProfile(email, password);
                     return [2 /*return*/];
             }
@@ -408,42 +410,64 @@ function userCategoryActive(ev) {
 }
 function browserUser() {
     return __awaiter(this, void 0, void 0, function () {
-        var email, password, _a, ok, data, error, usersProfileImgsList, err_5;
+        var _a, ok, data, error, usersProfileImgsList, err_5;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
-                    email = JSON.parse(localStorage.getItem("UserEmail"));
-                    password = JSON.parse(localStorage.getItem("UserPassword"));
-                    _b.label = 1;
+                    _b.trys.push([0, 2, , 3]);
+                    return [4 /*yield*/, axios.patch('/images/get-users-profileImg')];
                 case 1:
-                    _b.trys.push([1, 3, , 4]);
-                    return [4 /*yield*/, axios.patch('/images/get-users-profieImg', { email: email })];
-                case 2:
                     _a = _b.sent(), ok = _a.ok, data = _a.data, error = _a.error;
                     if (error)
                         throw new Error(error);
+                    console.log(data);
                     usersProfileImgsList = data.profileImgs;
                     renderbrowseImgs(usersProfileImgsList);
-                    return [3 /*break*/, 4];
-                case 3:
+                    return [3 /*break*/, 3];
+                case 2:
                     err_5 = _b.sent();
                     console.error(err_5);
-                    return [3 /*break*/, 4];
-                case 4: return [2 /*return*/];
+                    return [3 /*break*/, 3];
+                case 3: return [2 /*return*/];
             }
         });
     });
 }
 function renderbrowseImgs(list) {
-    var display = document.querySelector('.browseMain_display');
-    var html = " ";
-    list.forEach(function (user) {
-        html += "<div class=\"browseMain_display-userCard\" style=\"background-image:url(" + user.img + ")\">\n        <div class=\"browseMain_display-userCard-name\">" + user.userEmail + "</div>\n        <button class=\"browseMain_display-userCard-addFriendBtn\" type=\"button\">Add Friend</button>\n        </div>";
+    return __awaiter(this, void 0, void 0, function () {
+        var display, html;
+        return __generator(this, function (_a) {
+            display = document.querySelector('.browseMain_display');
+            console.log(list);
+            html = " ";
+            list.forEach(function (user) {
+                console.log(user);
+                html += "<div class=\"browseMain_display-userCard\" style=\"background-image:url(" + user.img + ")\">\n        <div class=\"browseMain_display-userCard-name\">" + user.firstName + " " + user.lastName + "</div>\n        <button id=\"" + user.userEmail + "\" class=\"browseMain_display-userCard-addFriendBtn\" type=\"button\" onclick=\"openViewProfile(event)\">view profile</button>\n        </div>";
+            });
+            display.innerHTML = html;
+            return [2 /*return*/];
+        });
     });
-    display.innerHTML = html;
 }
-function profileButton() {
-    var email = JSON.parse(localStorage.getItem("UserEmail"));
-    var password = JSON.parse(localStorage.getItem("UserPassword"));
-    renderProfile(email, password);
+// function profileButton() {
+//     const email = JSON.parse(localStorage.getItem("UserEmail"));
+//     const password = JSON.parse(localStorage.getItem("UserPassword"));
+//     renderProfile(email, password);
+// }
+function openViewProfile(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        var email, user;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    email = ev.target.id;
+                    console.log(email);
+                    return [4 /*yield*/, axios.
+                    ];
+                case 1:
+                    user = (_a.sent()).user;
+                    return [2 /*return*/];
+            }
+        });
+    });
 }

@@ -8,5 +8,5 @@ router
     .post('/add-images', imagesCont_1.addImages)
     .patch('/update-profile-img', imagesCont_1.updateProfilePiC)
     .patch('/add-post', imagesCont_1.addPost)
-    .patch('/get-users-profieImg', imagesCont_1.getUsersImgs)["delete"]('/delete-images', imagesCont_1.deleteImages);
+    .patch('/get-users-profileImg', imagesCont_1.getUsersImgs)["delete"]('/delete-images', imagesCont_1.deleteImages);
 exports["default"] = router;

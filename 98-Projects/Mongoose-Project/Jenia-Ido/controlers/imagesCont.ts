@@ -1,4 +1,7 @@
+import jwt from "jwt-simple"
 import Images from "../models/imagesModel";
+
+const secret = process.env.JWT_SECRET
 
 export const getImages = async (req, res) => {
     try {
@@ -16,8 +19,8 @@ export const getImages = async (req, res) => {
 }
 export const addImages = async (req, res) => {
     try {
-        const { email, password } = req.body;
-        const newImgs = { email: email, password: password, profileUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSL4klHXuPMAaVeQs1vFZl-fIG1mnux026heg&usqp=CAU' }
+        const { email, password , firstName , lastName } = req.body;
+        const newImgs = { firstName:firstName , lastName:lastName ,email: email, password: password, profileUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSL4klHXuPMAaVeQs1vFZl-fIG1mnux026heg&usqp=CAU' }
         const userImgs = new Images(newImgs)
         const result = await userImgs.save()
         res.send({ result });
@@ -59,15 +62,21 @@ export const addPost = async (req, res) => {
 export const getUsersImgs = async (req, res) => {
     try {
         let profileImgs = [];
-        const { email } = req.body;
-        //    console.log(email);
+        // const { email } = req.body;
+        const { user } = req.cookies;
+        console.log(user);
+        const decoded = jwt.decode(user, secret);
+        console.log(decoded);
+        const email = decoded.email
         const usersList = await Images.find({})
-        //    console.log(usersList);
+           console.log(usersList);
         usersList.forEach(user => {
             if (user.email !== email) {
                 const img = user.profileUrl;
-                const userEmail = user.email
-                profileImgs.push({ img, userEmail })
+                const userEmail = user.email;
+                const firstName = user.firstName
+                const lastName = user.lastName
+                profileImgs.push({ img, userEmail ,firstName , lastName})
             }
         })
         //    console.log(profileImgs); 
@@ -84,7 +93,7 @@ export const deleteImages = async (req, res) => {
     try {
 
         const { email } = req.body;
-        console.log(email);
+        // console.log(email);
 
         if (email) {
             const imagesDelete = await Images.deleteOne({ email: email })

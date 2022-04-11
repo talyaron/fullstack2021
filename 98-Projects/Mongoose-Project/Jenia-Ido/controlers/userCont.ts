@@ -1,21 +1,23 @@
+import jwt from "jwt-simple"
 import User from "../models/userModel";
+
+const secret = process.env.JWT_SECRET
 
 export const getUser = async (req, res) => {
     try {
-        // res.cookie(
-        //     "userInfo",
-        //     { username, id: user._id, role: user.role },
-        //     { maxAge: 120000 }
         const email = req.query.email;
         const password = req.query.password;
-
         const result = await User.find({ email: email });
+        // console.log(result);
+        const role = result[0].role;
         if (password === result[0].password) {
-            if (email === "davegino220@gmail.com") {
-                res.cookie("adminEmail", { email:email, role: "admin" },{ maxAge: 120000 })
-            }
+            const payload = { email: email, role: role }
+            const token = jwt.encode(payload, secret);
+            res.cookie('user', token,{ maxAge: 300000, httpOnly: true })
             res.send({ result });
         }
+
+
         else throw new Error("password or email incorrect")
     }
     catch (err) {
@@ -40,10 +42,15 @@ export const getUser = async (req, res) => {
     //     }
     //   }
 }
-
 export const addUser = async (req, res) => {
     try {
         const { newUser } = req.body;
+        if (newUser.email === "davegino220@gmail.com") {
+            newUser.role = "admin"
+        } else {
+            newUser.role = "user"
+        }
+        console.log(newUser);
         const user = new User(newUser)
         const result = await user.save()
         res.send({ result });

@@ -192,7 +192,7 @@ async function HandleLogin(ev) {
         ev.preventDefault();
         const password = ev.target.elements.password.value;
         const email = ev.target.elements.email.value;
-       
+
         localStorage.setItem("UserEmail", JSON.stringify(`${email}`));
         localStorage.setItem("UserPassword", JSON.stringify(`${password}`));
         renderProfile(email, password);
@@ -235,10 +235,12 @@ async function newUserDetails(ev) {
 
     const newUser: User = { firstName, lastName, birthday, country, password, email, gender }
     const userData = await axios.post('/user/add-user', { newUser });
-    const imagesData = await axios.post('/images/add-images', { email, password });
+    const imagesData = await axios.post('/images/add-images', { email, password, firstName, lastName });
+    // console.log(userData);
+
     // const user = { ...userData.data };
     // const images = { ...imagesData.data };
-
+    // console.log(user);
 
 
     renderProfile(email, password)
@@ -361,33 +363,44 @@ async function userCategoryActive(ev) {
 }
 
 async function browserUser() {
-    const email = JSON.parse(localStorage.getItem("UserEmail"));
-    const password = JSON.parse(localStorage.getItem("UserPassword"));
     try {
-        const { ok, data, error } = await axios.patch('/images/get-users-profieImg', { email })
-
+        const { ok, data, error } = await axios.patch('/images/get-users-profileImg')
         if (error) throw new Error(error)
+        console.log(data);
         const usersProfileImgsList = data.profileImgs
         renderbrowseImgs(usersProfileImgsList)
     } catch (err) {
         console.error(err);
     }
 }
-function renderbrowseImgs(list) {
-    const display = document.querySelector('.browseMain_display')
+async function renderbrowseImgs(list) {
+    const display = document.querySelector('.browseMain_display');
+    console.log(list);
     let html = " ";
     list.forEach(user => {
+        console.log(user);
         html += `<div class="browseMain_display-userCard" style="background-image:url(${user.img})">
-        <div class="browseMain_display-userCard-name">${user.userEmail}</div>
-        <button class="browseMain_display-userCard-addFriendBtn" type="button">Add Friend</button>
+        <div class="browseMain_display-userCard-name">${user.firstName} ${user.lastName}</div>
+        <button id="${user.userEmail}" class="browseMain_display-userCard-addFriendBtn" type="button" onclick="openViewProfile(event)">view profile</button>
         </div>`
     })
     display.innerHTML = html;
 }
-function profileButton() {
-    const email = JSON.parse(localStorage.getItem("UserEmail"));
-    const password = JSON.parse(localStorage.getItem("UserPassword"));
-    renderProfile(email, password);
+// function profileButton() {
+//     const email = JSON.parse(localStorage.getItem("UserEmail"));
+//     const password = JSON.parse(localStorage.getItem("UserPassword"));
+//     renderProfile(email, password);
+// }
+
+async function openViewProfile(ev){
+
+    const email = ev.target.id
+    console.log(email);
+
+    const {user} = await axios.
+
+    
+
 }
 
 

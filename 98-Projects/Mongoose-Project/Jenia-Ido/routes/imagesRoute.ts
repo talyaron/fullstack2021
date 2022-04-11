@@ -7,7 +7,7 @@ router
 .post('/add-images',addImages)
 .patch('/update-profile-img',updateProfilePiC)
 .patch('/add-post', addPost)
-.patch('/get-users-profieImg',getUsersImgs)
+.patch('/get-users-profileImg',getUsersImgs)
 .delete('/delete-images', deleteImages)
 
 

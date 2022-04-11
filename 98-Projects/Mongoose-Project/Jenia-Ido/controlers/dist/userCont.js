@@ -37,9 +37,11 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 exports.__esModule = true;
 exports.updateUser = exports.deleteUser = exports.addUser = exports.getUser = void 0;
+var jwt_simple_1 = require("jwt-simple");
 var userModel_1 = require("../models/userModel");
+var secret = process.env.JWT_SECRET;
 exports.getUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var email, password, result, err_1;
+    var email, password, result, role, payload, token, err_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -49,10 +51,11 @@ exports.getUser = function (req, res) { return __awaiter(void 0, void 0, void 0,
                 return [4 /*yield*/, userModel_1["default"].find({ email: email })];
             case 1:
                 result = _a.sent();
+                role = result[0].role;
                 if (password === result[0].password) {
-                    if (email === "davegino220@gmail.com") {
-                        res.cookie("adminEmail", { email: email, role: "admin" }, { maxAge: 120000 });
-                    }
+                    payload = { email: email, role: role };
+                    token = jwt_simple_1["default"].encode(payload, secret);
+                    res.cookie('user', token, { maxAge: 300000, httpOnly: true });
                     res.send({ result: result });
                 }
                 else
@@ -74,6 +77,13 @@ exports.addUser = function (req, res) { return __awaiter(void 0, void 0, void 0,
             case 0:
                 _a.trys.push([0, 2, , 3]);
                 newUser = req.body.newUser;
+                if (newUser.email === "davegino220@gmail.com") {
+                    newUser.role = "admin";
+                }
+                else {
+                    newUser.role = "user";
+                }
+                console.log(newUser);
                 user = new userModel_1["default"](newUser);
                 return [4 /*yield*/, user.save()];
             case 1:
