@@ -1,37 +1,33 @@
-
 // async function loadPlaces(data) {
 // //   const { data } = await axios.get("/places/getPlaces");
 // //   console.log(data);
 //  console.log(data)
 //   renderAirbnbOptions(data)
 
-
-
- 
 // }
 //loadPlaces()
 
-    async function handleLoadPlace() {
-        try {
-        const { data } = await axios.get("/places/getToPlace");
-    
-        console.log(data);
-        renderPlace(data);
-        } catch (error) {
-        console.error(error.message);
-        }
-    }
+async function handleLoadPlace() {
+  try {
+    const { data } = await axios.get("/places/getToPlace");
 
-  async function handleGoToPlace(placeId) {
-    const { data } = await axios.get("/goToPlace", { data: { placeId } });
+    console.log(data);
     renderPlace(data);
+  } catch (error) {
+    console.error(error.message);
   }
+}
 
-  function renderPlace(data: Array<any>) {
-    try {
-      const html = data
-        .map((place) => {
-          return `<div class="mainUpper">
+async function handleGoToPlace(placeId) {
+  const { data } = await axios.get("/goToPlace", { data: { placeId } });
+  renderPlace(data);
+}
+
+function renderPlace(data: Array<any>) {
+  try {
+    const html = data
+      .map((place) => {
+        return `<div class="mainUpper">
       <div class="maiUpper__title">
           <h1>${place.name}</h1>
          <h3>${place.price}$</h3>
@@ -231,84 +227,95 @@
       </div>
       
   </div>`;
-        })
-        .join("");
-      // console.log(html)
-  
-      document.querySelector("#rootPlace").innerHTML = html;
-    } catch (error) {
-      console.error(error.message);
-    }
-  }
+      })
+      .join("");
+    // console.log(html)
 
-
-
-  async function handleFindAirbnb(ev) {
-    ev.preventDefault();
-    
-    const searchLocation = ev.target.elements.searchLocation.value;
-    const checkIn = ev.target.elements.checkIn.value;
-    const checkOut = ev.target.elements.checkOut.value;
-    const adults = ev.target.elements.adults.value;
-    const children = ev.target.elements.children.value;
-    const infants = ev.target.elements.infants.value;
-    const pets = ev.target.elements.pets.value;
-  
-    console.log(searchLocation, checkIn, checkOut, adults, children, infants, pets);
-  
-    const { data } = await axios.get(
-      `/places/search-airbnb?searchLocation=${searchLocation}&checkIn=${checkIn}&checkOut=${checkOut}&adults=${adults}&children=${children}&infants=${infants}&pets=${pets} `
-    );
-  
-   
-    // ev.target.reset();
-    // function storeData() {
-    //     localStorage.setItem("airbnbData", JSON.stringify(data));
-    // }
-
-    // function getData() {
-    //     const airbnbNavFiltered = JSON.parse(localStorage.getItem("airbnbNavFiltered"));
-    //     if (Array.isArray(airbnbNavFiltered)) {
-    //         getplaces = airbnbNavFiltered;
-    //     }
-    // }
-    
-    // storeData();
-    // getData();
-    // renderAirbnbOptions(data.getplaces);
-    renderAirbnbOptions(data.getplaces);
-   
+    document.querySelector("#rootPlace").innerHTML = html;
+  } catch (error) {
+    console.error(error.message);
   }
-  
-  async function handleCities(ev) {
-    
-    const city = ev.target.dataset.card;
-    console.log(city);
-  
-    const { data } = await axios.post("/places/search-city", { city });
-    console.log(data);
+}
+
+function storeData(data) {
+  debugger;
+  if (data) {
+    localStorage.setItem("airbnbData", JSON.stringify(data));
   }
-  
-  
-  
-  async function handleFilter(ev) {
-    const price = ev.target.elements.price.valueAsNumber;
-    //console.log(price);
-    const { data } = await axios.get("/places/getFiltered", { data: { price } });
+}
+
+function getData() {
+  const airbnbNavFiltered = JSON.parse(
+    localStorage.getItem("airbnbNavFiltered")
+  );
+  if (Array.isArray(airbnbNavFiltered)) {
+    return airbnbNavFiltered;
+  } else {
+    return [];
   }
-  
-    function renderAirbnbOptions(getplaces:Array<any>) {
-      console.log(getplaces)
-      
-      try{
-          console.log(getplaces);
-          if(!Array.isArray(getplaces)) throw new Error('sata is not an array');
-  
-          const root:HTMLElement=document.querySelector('#rootPlaces');
-          let html="";
-          
-          getplaces.forEach((place) => {   
-          html+=  ` <div class="airbnbOptions"  >           
+}
+
+async function handleFindAirbnb(ev) {
+  ev.preventDefault();
+
+  const searchLocation = ev.target.elements.searchLocation.value;
+  const checkIn = ev.target.elements.checkIn.value;
+  const checkOut = ev.target.elements.checkOut.value;
+  const adults = ev.target.elements.adults.value;
+  const children = ev.target.elements.children.value;
+  const infants = ev.target.elements.infants.value;
+  const pets = ev.target.elements.pets.value;
+
+  console.log(
+    searchLocation,
+    checkIn,
+    checkOut,
+    adults,
+    children,
+    infants,
+    pets
+  );
+
+  const { data } = await axios.get(
+    `/places/search-airbnb?searchLocation=${searchLocation}&checkIn=${checkIn}&checkOut=${checkOut}&adults=${adults}&children=${children}&infants=${infants}&pets=${pets} `
+  );
+  console.log(data);
+
+  ev.target.reset();
+
+  storeData(data);
+
+  // renderAirbnbOptions(data.getplaces);
+  renderAirbnbOptions(data.getplaces);
+}
+
+async function handleCities(ev) {
+  const city = ev.target.dataset.card;
+  console.log(city);
+
+  const { data } = await axios.post("/places/search-city", { city });
+  console.log(data);
+}
+
+async function handleFilter(ev) {
+  const price = ev.target.elements.price.valueAsNumber;
+  //console.log(price);
+  const { data } = await axios.get("/places/getFiltered", { data: { price } });
+}
+
+function renderAirbnbOptions(getplaces: Array<any>) {
+  console.log(getplaces);
+
+  try {
+    console.log(getplaces);
+    getData();
+    if (!Array.isArray(getplaces)) throw new Error("sata is not an array");
+
+    const root: HTMLElement = document.querySelector("#rootPlaces");
+    let html = "";
+
+    getplaces.forEach((place) => {
+      html += ` <div class="airbnbOptions"  >           
                   <div class="airbnbOptions__container" onclick="handleGoToPlace(${place._id})">
                       <div class="airbnbOptions__container__img">
                           <img src="${place.images}">
@@ -317,7 +324,7 @@
                           <div class="airbnbOptions__container__content__namePlace">                                
                               
                                   <h3>${place.name} </h3>
-                                  <h5>accommodates:${ place.accommodates} </h5>
+                                  <h5>accommodates:${place.accommodates} </h5>
                              
                               <p>
                               ${place.address_country_code} ,  ${place.address_country}
@@ -330,7 +337,7 @@
                           </div>
                           <div class="airbnbOptions__container__content__priceRating">
                               <button class="btn btn-outline">
-                              ${place.price }
+                              ${place.price}
                               </button>
                               <button class="btn btn-outline">
                                  
@@ -342,139 +349,119 @@
 
                       </div>
                   </div>
-                  </div>`
-                  root.innerHTML = html;
-        })
-         
-          
-      }catch(error){
-          console.error(error.message)
-      }
-      
-      
+                  </div>`;
+      root.innerHTML = html;
+    });
+  } catch (error) {
+    console.error(error.message);
+  }
+}
+
+function handlePopup() {
+  var popup = document.getElementById("myPopup");
+  //popup.classList.toggle("show");
+
+  const showPopupText: any = document.querySelector(".popuptext");
+  showPopupText.style.visibility = "visible";
+}
+
+async function handleLogin(ev) {
+  ev.preventDefault();
+  let { username, password, role } = ev.target.elements;
+  username = username.value;
+  password = password.value;
+  role = role.value;
+
+  console.log(username, password, role);
+
+  const { data } = await axios.post("/users/login", {
+    username,
+    password,
+    role,
+  });
+
+  if (data.login) {
+    const showPopupText: any = document.querySelector(".popuptext");
+    const userProfileButton: any = document.querySelector(".navigation--user");
+    showPopupText.style.visibility = "hidden";
+    const showUsersName: any = document.querySelector("#theUsersName");
+
+    // window.location.href = 'owner.html';
+
+    if (role === "admin") {
+      window.location.href = "owner.html";
+
+      userProfileButton.style.backgroundColor = "red";
+    } else if (role === "host") {
+      showPopupText.style.visibility = "hidden";
+      showUsersName.innerHTML = `${username}`;
+      userProfileButton.style.backgroundColor = "blue";
+
+      //window.location.href = `/index.html?username=${username}`;
+    } else {
+      showPopupText.style.visibility = "hidden";
+      showUsersName.innerHTML = `${username}`;
+      userProfileButton.style.backgroundColor = "green";
     }
-  
-  function handlePopup() {
-      var popup = document.getElementById("myPopup");
-      //popup.classList.toggle("show");
-     
-      const showPopupText:any=document.querySelector('.popuptext');
-      showPopupText.style.visibility="visible";
-    } 
-  
-  async function handleLogin(ev) {
-      ev.preventDefault()
-      let {username,password,role}=ev.target.elements;
-      username=username.value
-      password=password.value
-      role=role.value
-      
-  
-      console.log(username,password,role)
-     
-      const { data } = await axios.post("/users/login", {username,password,role});
-      
-      
-  
-      if(data.login){
-          const showPopupText:any=document.querySelector('.popuptext');
-          const userProfileButton:any=document.querySelector('.navigation--user');
-          showPopupText.style.visibility="hidden";
-          const showUsersName:any=document.querySelector('#theUsersName');
+  } else {
+    console.log("HA you got it wrong");
+  }
+}
 
-         // window.location.href = 'owner.html';
-          
-          if(role==="admin"){
-            window.location.href = 'owner.html';
-            
-            userProfileButton.style.backgroundColor="red"
-          }else if(role==="host"){
-            showPopupText.style.visibility="hidden";
-            showUsersName.innerHTML=`${username}`;
-            userProfileButton.style.backgroundColor="blue"
+async function handleRegister(ev) {
+  ev.preventDefault();
 
+  let { username, password, role } = ev.target.elements;
+  username = username.value;
+  password = password.value;
+  role = role.value;
 
-            //window.location.href = `/index.html?username=${username}`;
-          }else{
-              
-              showPopupText.style.visibility="hidden";
-              showUsersName.innerHTML=`${username}`;
-              userProfileButton.style.backgroundColor="green"
-          }
-         
-        
-        
-        } else {
-            console.log('HA you got it wrong')
-        }
-     
+  const { data } = await axios.post("/users/add-User", {
+    username,
+    password,
+    role,
+  });
+  console.log(data);
+  if (data.register) {
+    const showPopupText: any = document.querySelector(".popuptext");
+    showPopupText.style.visibility = "hidden";
+    //document.body.style.backgroundColor="red";
+    if (role === "admin") {
+      document.body.style.backgroundColor = "red";
+    } else if (role === "host") {
+      document.body.style.backgroundColor = "blue";
+    } else {
+      document.body.style.backgroundColor = "green";
     }
-  
-  
-  
-  async function handleRegister(ev) {
-      ev.preventDefault()
-      
-      let {username,password,role}=ev.target.elements;
-      username=username.value
-      password=password.value
-      role=role.value
-     
-      const { data } = await axios.post("/users/add-User",  { username,password,role } );
-      console.log(data)
-      if(data.register){
-          const showPopupText:any=document.querySelector('.popuptext');
-          showPopupText.style.visibility="hidden";
-          //document.body.style.backgroundColor="red";
-          if(role==="admin"){
-              document.body.style.backgroundColor="red";
-          }else if(role==="host"){
-              document.body.style.backgroundColor="blue";
-          }else{
-              document.body.style.backgroundColor="green";
-          }
-         
-        
-        
-      }
+  }
+}
+
+async function handleGetUsers() {
+  try {
+    const result = await axios.get("/users/get-Users");
+
+    const { data } = result;
+    const { users } = data;
+    if (users) {
+      renderUsersToOwnerPage(users);
     }
+  } catch (err) {
+    console.error(err.message);
+    // console.error(err.status)
+  }
+}
+function renderUsersToOwnerPage(users: Array<any>) {
+  //console.log(users)
 
-    
-    async function handleGetUsers() {
-        try{
-            const result= await axios.get("/users/get-Users");
-            
-            const { data } = result
-            const{users}=data
-            if(users){
-              
-            renderUsersToOwnerPage(users)
-            }
-        
+  try {
+    console.log(users);
+    if (!Array.isArray(users)) throw new Error("data is not an array");
 
-        }catch(err){
-            console.error(err.message)
-            // console.error(err.status)
+    const root: HTMLElement = document.querySelector("#user");
+    let html = "";
 
-        }
-       
-       
-       
-       
-    
-    }
-    function renderUsersToOwnerPage(users:Array<any>) {
-        //console.log(users)
-        
-        try{
-            console.log(users);
-            if(!Array.isArray(users)) throw new Error('data is not an array');
-    
-            const root:HTMLElement=document.querySelector('#user');
-            let html="";
-            
-            users.forEach((user) => {   
-            html+=  `<div class="airbnbUser" >
+    users.forEach((user) => {
+      html += `<div class="airbnbUser" >
                        <h3>${user.username}</h3>
                        <p>${user._id}</p>
                        <input type="text" value=${user.username} name="username" onblur="handleUpdateUsers(event,'${user._id}')" >                       
@@ -483,41 +470,28 @@
                        
                        
 
-                    </div>`
-                    root.innerHTML = html;
-          })
-           
-            
-        }catch(error){
-            console.error(error.message)
-        }
-        
-        
-    }
+                    </div>`;
+      root.innerHTML = html;
+    });
+  } catch (error) {
+    console.error(error.message);
+  }
+}
 
-    async function handleUpdateUsers(ev,userId) {
-        
-        const username=ev.target.value
-        //const role=ev.target.role.value;       
-        
-            
-            const { data } = await axios.patch("/users/update-user",{userId,username});
-            console.log(data)
-            //renderUsersToOwnerPage(data.users)
-     
-      
-    }
-    async function handleDeleteUsers(userId) {            
-        
-            
-            const { data } = await axios.delete("/users/delete-user",{data:{userId}});
-            console.log(data)
-       
-     
-      
-    }
+async function handleUpdateUsers(ev, userId) {
+  const username = ev.target.value;
+  //const role=ev.target.role.value;
 
-    
-  
-  
-  
+  const { data } = await axios.patch("/users/update-user", {
+    userId,
+    username,
+  });
+  console.log(data);
+  //renderUsersToOwnerPage(data.users)
+}
+async function handleDeleteUsers(userId) {
+  const { data } = await axios.delete("/users/delete-user", {
+    data: { userId },
+  });
+  console.log(data);
+}

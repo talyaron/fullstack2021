@@ -91,6 +91,21 @@ function renderPlace(data) {
         console.error(error.message);
     }
 }
+function storeData(data) {
+    debugger;
+    if (data) {
+        localStorage.setItem("airbnbData", JSON.stringify(data));
+    }
+}
+function getData() {
+    var airbnbNavFiltered = JSON.parse(localStorage.getItem("airbnbNavFiltered"));
+    if (Array.isArray(airbnbNavFiltered)) {
+        return airbnbNavFiltered;
+    }
+    else {
+        return [];
+    }
+}
 function handleFindAirbnb(ev) {
     return __awaiter(this, void 0, void 0, function () {
         var searchLocation, checkIn, checkOut, adults, children, infants, pets, data;
@@ -109,18 +124,9 @@ function handleFindAirbnb(ev) {
                     return [4 /*yield*/, axios.get("/places/search-airbnb?searchLocation=" + searchLocation + "&checkIn=" + checkIn + "&checkOut=" + checkOut + "&adults=" + adults + "&children=" + children + "&infants=" + infants + "&pets=" + pets + " ")];
                 case 1:
                     data = (_a.sent()).data;
-                    // ev.target.reset();
-                    // function storeData() {
-                    //     localStorage.setItem("airbnbData", JSON.stringify(data));
-                    // }
-                    // function getData() {
-                    //     const airbnbNavFiltered = JSON.parse(localStorage.getItem("airbnbNavFiltered"));
-                    //     if (Array.isArray(airbnbNavFiltered)) {
-                    //         getplaces = airbnbNavFiltered;
-                    //     }
-                    // }
-                    // storeData();
-                    // getData();
+                    console.log(data);
+                    ev.target.reset();
+                    storeData(data);
                     // renderAirbnbOptions(data.getplaces);
                     renderAirbnbOptions(data.getplaces);
                     return [2 /*return*/];
@@ -164,9 +170,10 @@ function renderAirbnbOptions(getplaces) {
     console.log(getplaces);
     try {
         console.log(getplaces);
+        getData();
         if (!Array.isArray(getplaces))
-            throw new Error('sata is not an array');
-        var root_1 = document.querySelector('#rootPlaces');
+            throw new Error("sata is not an array");
+        var root_1 = document.querySelector("#rootPlaces");
         var html_1 = "";
         getplaces.forEach(function (place) {
             html_1 += " <div class=\"airbnbOptions\"  >           \n                  <div class=\"airbnbOptions__container\" onclick=\"handleGoToPlace(" + place._id + ")\">\n                      <div class=\"airbnbOptions__container__img\">\n                          <img src=\"" + place.images + "\">\n                      </div>\n                      <div class=\"airbnbOptions__container__content\">\n                          <div class=\"airbnbOptions__container__content__namePlace\">                                \n                              \n                                  <h3>" + place.name + " </h3>\n                                  <h5>accommodates:" + place.accommodates + " </h5>\n                             \n                              <p>\n                              " + place.address_country_code + " ,  " + place.address_country + "\n                              </p>\n                          </div>\n                          <div class=\"airbnbOptions__container__content__description\">\n                              <p>\n                              " + place.description + "\n                              </p>\n                          </div>\n                          <div class=\"airbnbOptions__container__content__priceRating\">\n                              <button class=\"btn btn-outline\">\n                              " + place.price + "\n                              </button>\n                              <button class=\"btn btn-outline\">\n                                 \n                              " + place.reviews_rating + "\n                                  \n\n                              </button>\n                          </div>\n\n                      </div>\n                  </div>\n                  </div>";
@@ -180,7 +187,7 @@ function renderAirbnbOptions(getplaces) {
 function handlePopup() {
     var popup = document.getElementById("myPopup");
     //popup.classList.toggle("show");
-    var showPopupText = document.querySelector('.popuptext');
+    var showPopupText = document.querySelector(".popuptext");
     showPopupText.style.visibility = "visible";
 }
 function handleLogin(ev) {
@@ -195,17 +202,21 @@ function handleLogin(ev) {
                     password = password.value;
                     role = role.value;
                     console.log(username, password, role);
-                    return [4 /*yield*/, axios.post("/users/login", { username: username, password: password, role: role })];
+                    return [4 /*yield*/, axios.post("/users/login", {
+                            username: username,
+                            password: password,
+                            role: role
+                        })];
                 case 1:
                     data = (_b.sent()).data;
                     if (data.login) {
-                        showPopupText = document.querySelector('.popuptext');
-                        userProfileButton = document.querySelector('.navigation--user');
+                        showPopupText = document.querySelector(".popuptext");
+                        userProfileButton = document.querySelector(".navigation--user");
                         showPopupText.style.visibility = "hidden";
-                        showUsersName = document.querySelector('#theUsersName');
+                        showUsersName = document.querySelector("#theUsersName");
                         // window.location.href = 'owner.html';
                         if (role === "admin") {
-                            window.location.href = 'owner.html';
+                            window.location.href = "owner.html";
                             userProfileButton.style.backgroundColor = "red";
                         }
                         else if (role === "host") {
@@ -221,7 +232,7 @@ function handleLogin(ev) {
                         }
                     }
                     else {
-                        console.log('HA you got it wrong');
+                        console.log("HA you got it wrong");
                     }
                     return [2 /*return*/];
             }
@@ -239,12 +250,16 @@ function handleRegister(ev) {
                     username = username.value;
                     password = password.value;
                     role = role.value;
-                    return [4 /*yield*/, axios.post("/users/add-User", { username: username, password: password, role: role })];
+                    return [4 /*yield*/, axios.post("/users/add-User", {
+                            username: username,
+                            password: password,
+                            role: role
+                        })];
                 case 1:
                     data = (_b.sent()).data;
                     console.log(data);
                     if (data.register) {
-                        showPopupText = document.querySelector('.popuptext');
+                        showPopupText = document.querySelector(".popuptext");
                         showPopupText.style.visibility = "hidden";
                         //document.body.style.backgroundColor="red";
                         if (role === "admin") {
@@ -292,8 +307,8 @@ function renderUsersToOwnerPage(users) {
     try {
         console.log(users);
         if (!Array.isArray(users))
-            throw new Error('data is not an array');
-        var root_2 = document.querySelector('#user');
+            throw new Error("data is not an array");
+        var root_2 = document.querySelector("#user");
         var html_2 = "";
         users.forEach(function (user) {
             html_2 += "<div class=\"airbnbUser\" >\n                       <h3>" + user.username + "</h3>\n                       <p>" + user._id + "</p>\n                       <input type=\"text\" value=" + user.username + " name=\"username\" onblur=\"handleUpdateUsers(event,'" + user._id + "')\" >                       \n                       <p>" + user.role + "</p> \n                       <button onclick='handleDeleteUsers(\"" + user._id + "\")'>Delete User</button>                  \n                       \n                       \n\n                    </div>";
@@ -311,7 +326,10 @@ function handleUpdateUsers(ev, userId) {
             switch (_a.label) {
                 case 0:
                     username = ev.target.value;
-                    return [4 /*yield*/, axios.patch("/users/update-user", { userId: userId, username: username })];
+                    return [4 /*yield*/, axios.patch("/users/update-user", {
+                            userId: userId,
+                            username: username
+                        })];
                 case 1:
                     data = (_a.sent()).data;
                     console.log(data);
@@ -325,7 +343,9 @@ function handleDeleteUsers(userId) {
         var data;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, axios["delete"]("/users/delete-user", { data: { userId: userId } })];
+                case 0: return [4 /*yield*/, axios["delete"]("/users/delete-user", {
+                        data: { userId: userId }
+                    })];
                 case 1:
                     data = (_a.sent()).data;
                     console.log(data);
