@@ -397,9 +397,7 @@ async function openViewProfile(ev){
     const email = ev.target.id
     console.log(email);
 
-    const {user} = await axios.
 
-    
 
 }
 
