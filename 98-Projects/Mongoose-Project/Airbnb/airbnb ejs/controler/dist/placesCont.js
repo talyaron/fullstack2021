@@ -199,50 +199,58 @@ exports.searchAirbnb = function (req, res) { return __awaiter(void 0, void 0, vo
     });
 }); };
 exports.searchAirbnbByCity = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, _b, TelAviv, _c, Eilat, _d, Jerusalem, _e, HareiYehuda, getplaces, getplaces, getplaces, getplaces;
-    return __generator(this, function (_f) {
-        switch (_f.label) {
+    var TelAviv, Eilat, Jerusalem, HareiYehuda, getplaces, getplaces, getplaces, getplaces;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
             case 0:
-                _a = req.query, _b = _a.TelAviv, TelAviv = _b === void 0 ? "Tel Aviv" : _b, _c = _a.Eilat, Eilat = _c === void 0 ? "Eilat" : _c, _d = _a.Jerusalem, Jerusalem = _d === void 0 ? "Jerusalem" : _d, _e = _a.HareiYehuda, HareiYehuda = _e === void 0 ? "Harei Yehuda" : _e;
-                if (!Eilat) return [3 /*break*/, 2];
+                TelAviv = "Tel Aviv";
+                Eilat = "Eilat";
+                Jerusalem = "Jerusalem";
+                HareiYehuda = "Harei Yehuda";
+                console.log(req.query);
+                console.log(Object.keys(req.query).includes('Eilat.x'));
+                console.log(Object.keys(req.query).includes('TelAviv.x'));
+                console.log(Object.keys(req.query).includes('Jerusalem.x'));
+                console.log(Object.keys(req.query).includes('HareiYehuda.x'));
+                if (!Object.keys(req.query).includes('Eilat.x')) return [3 /*break*/, 2];
                 return [4 /*yield*/, placesModel_1["default"].find({ address_country: Eilat }).limit(10)];
             case 1:
-                getplaces = _f.sent();
+                getplaces = _a.sent();
                 res.render("places", {
                     title: "Search",
                     getplaces: getplaces
                 });
                 return [3 /*break*/, 8];
             case 2:
-                if (!TelAviv) return [3 /*break*/, 4];
+                if (!Object.keys(req.query).includes('TelAviv.x')) return [3 /*break*/, 4];
                 return [4 /*yield*/, placesModel_1["default"].find({ address_country: TelAviv }).limit(10)];
             case 3:
-                getplaces = _f.sent();
+                getplaces = _a.sent();
                 res.render("places", {
                     title: "Search",
                     getplaces: getplaces
                 });
                 return [3 /*break*/, 8];
             case 4:
-                if (!Jerusalem) return [3 /*break*/, 6];
+                if (!Object.keys(req.query).includes('Jerusalem.x')) return [3 /*break*/, 6];
                 return [4 /*yield*/, placesModel_1["default"].find({ address_country: Jerusalem }).limit(10)];
             case 5:
-                getplaces = _f.sent();
+                getplaces = _a.sent();
                 res.render("places", {
                     title: "Search",
                     getplaces: getplaces
                 });
                 return [3 /*break*/, 8];
             case 6:
-                if (!HareiYehuda) return [3 /*break*/, 8];
+                if (!Object.keys(req.query).includes('HareiYehuda.x')) return [3 /*break*/, 8];
                 return [4 /*yield*/, placesModel_1["default"].find({ address_country: HareiYehuda }).limit(10)];
             case 7:
-                getplaces = _f.sent();
+                getplaces = _a.sent();
                 res.render("places", {
                     title: "Search",
                     getplaces: getplaces
                 });
-                _f.label = 8;
+                _a.label = 8;
             case 8: return [2 /*return*/];
         }
     });

@@ -26,7 +26,7 @@ app.set('views', path_1.default.resolve(__dirname, 'pages'));
 app.use(express_1.default.static(path_1.default.resolve(__dirname, 'public'))); //static folder
 console.log(process.env.ENV);
 mongoose_1.default
-    .connect(uri)
+    .connect('mongodb+srv://shay:shayFoyer1994@cluster0.xyd5y.mongodb.net/airbnbProject?authSource=admin&replicaSet=atlas-227226-shard-0&w=majority&readPreference=primary&appname=MongoDB%20Compass&retryWrites=true&ssl=true    ')
     .then((result) => {
     console.log("connected to db");
     placesModel_1.default.find({})
