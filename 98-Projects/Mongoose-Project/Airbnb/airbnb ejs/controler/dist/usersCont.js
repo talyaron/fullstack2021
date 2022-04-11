@@ -121,7 +121,7 @@ exports.getUsers = function (req, res) { return __awaiter(void 0, void 0, void 0
                 return [4 /*yield*/, usersModel_1["default"].find({})];
             case 1:
                 user = _a.sent();
-                res.send({ ok: true, user: user });
+                // res.send({ ok: true, user })
                 console.log(user);
                 res.render('owner', {
                     title: "Owner",
