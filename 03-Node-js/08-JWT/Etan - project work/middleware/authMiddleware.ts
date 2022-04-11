@@ -5,7 +5,7 @@ const secret = process.env.JWT_SECRET;
 
 export const requireAuth = (req, res, next) => {
   
-  const token = req.cookies.currentUsersInfo;
+  const {token} = req.cookies.currentUsersInfo;
   
   
     try {

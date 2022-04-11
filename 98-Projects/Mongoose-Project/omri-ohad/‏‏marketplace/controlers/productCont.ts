@@ -1,6 +1,9 @@
+import jwt from "jwt-simple";
 import ProductUser from "../model/productModel";
 import ProductMain from "../model/productMain";
 import User from "../model/userModel";
+
+const secret=process.env.JWT_SECRET
 
 export async function getProductsMain(req, res) {
   try {
@@ -11,11 +14,13 @@ export async function getProductsMain(req, res) {
     res.send({ error: error.message });
   }
 }
-
 export async function getAllProducts(req, res) {
   try {
     const { data } = req.cookies;
-    const ownerId = data.id;
+    const decoded = jwt.decode(data, secret);
+    console.log(data);
+    const ownerId = decoded.id;
+    console.log(ownerId);
     const products = await ProductUser.find({});
     const filterdProducts = products.filter(product => product.ownerId === ownerId);
     res.send({ filterdProducts });
@@ -28,7 +33,8 @@ export async function getAllProducts(req, res) {
 export async function addProduct(req, res) {
   try {
     const { data } = req.cookies;
-    const ownerId = data.id;
+    const decoded = jwt.decode(data, secret);
+    const ownerId = decoded.id;
     let { pic, title, description, price, category } = req.body;
     const newProduct = new ProductUser({ pic, title, description, price, category, ownerId })
     const result = await newProduct.save()
@@ -103,7 +109,8 @@ export async function updatePrice(req, res) {
 export async function deleteProduct(req, res) {
   try {
     const { data } = req.cookies;
-    const ownerId = data.id;
+    const decoded = jwt.decode(data, secret);
+    const ownerId = decoded.id;
     if (ownerId) {
       const result = await ProductUser.deleteOne({ ownerId: ownerId });
       const resultMarket = await ProductMain.deleteOne({ ownerId: ownerId });
@@ -182,7 +189,9 @@ export async function login(req, res) {
   const id = user._id;
 
     if (user.password === password) {
-      res.cookie("data",{ userName ,id });
+      const payload= {userName ,id};
+      const token = jwt.encode(payload, secret);
+      res.cookie("data",token);
       res.send({ ok: true, items,userName});
       return;
     }

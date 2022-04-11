@@ -118,33 +118,32 @@ exports.addPlaces = function (req, res) { return __awaiter(void 0, void 0, void 
     });
 }); };
 exports.getToPlace = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var placeId, __id, placesId, error_3;
+    var id, placesId, error_3;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                _a.trys.push([0, 4, , 5]);
-                placeId = req.query.placeId;
-                __id = req.query;
-                if (!(placeId == __id)) return [3 /*break*/, 2];
-                return [4 /*yield*/, placesModel_1["default"].findOne({ __id: placeId }).limit(10)
-                    //  res.send(placeId);
-                ];
+                _a.trys.push([0, 3, , 4]);
+                console.log(req.params);
+                id = req.params.id;
+                if (!id) return [3 /*break*/, 2];
+                return [4 /*yield*/, placesModel_1["default"].findOne({ _id: id }).limit(10)];
             case 1:
                 placesId = _a.sent();
-                //  res.send(placeId);
+                console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!');
+                console.log(placesId);
+                console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!');
                 res.render('place', {
                     title: "The Place",
                     placesId: placesId
                 });
-                return [3 /*break*/, 3];
-            case 2: throw new Error("placeId is not the same as the __id");
-            case 3: return [3 /*break*/, 5];
-            case 4:
+                _a.label = 2;
+            case 2: return [3 /*break*/, 4];
+            case 3:
                 error_3 = _a.sent();
                 console.log(error_3.error);
                 res.send({ error: error_3.massage });
-                return [3 /*break*/, 5];
-            case 5: return [2 /*return*/];
+                return [3 /*break*/, 4];
+            case 4: return [2 /*return*/];
         }
     });
 }); };

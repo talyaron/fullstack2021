@@ -1,8 +1,8 @@
 import Users from "../model/usersModel";
 import jwt from "jwt-simple";
-
-
 const secret=process.env.JWT_SECRET
+
+
 
 export  const login= async (req,res)=>{
     try{
@@ -15,7 +15,7 @@ export  const login= async (req,res)=>{
                     const token=jwt.encode(payload,secret);
     
     
-                    res.cookie('userInfo',token,{maxAge:120000});
+                    res.cookie('userInfo',token,{maxAge:120000,httpOnly:true});
                    res.send({ok:true,login:true})
                    
                     return
@@ -27,6 +27,8 @@ export  const login= async (req,res)=>{
             
             
             throw new Error('username or password or role are incorrect');
+           
+            
         }else{
            throw new Error("username or password or role is missing")
         }
@@ -80,7 +82,8 @@ export  const getUsers= async (req,res)=>{
        throw new Error("user is not allowed ")
         
     }catch(error){
-        console.error(error.message)
+
+        console.log("error on getUsers",error.message)
         res.send({error:error.message})
     }
     
