@@ -41,7 +41,7 @@ function handleRegister(ev) {
             switch (_b.label) {
                 case 0:
                     ev.preventDefault();
-                    registerStatus = document.querySelector('[data-register-status]');
+                    registerStatus = document.querySelector("[data-register-status]");
                     _a = ev.target.elements, firstName = _a.firstName, lastName = _a.lastName, email = _a.email, password = _a.password, role = _a.role, gender = _a.gender;
                     firstName = firstName.value;
                     lastName = lastName.value;
@@ -77,7 +77,7 @@ function handleLogin(ev) {
             switch (_a.label) {
                 case 0:
                     ev.preventDefault();
-                    passwordStatus = document.querySelector('[data-password-status]');
+                    passwordStatus = document.querySelector("[data-password-status]");
                     email = ev.target.elements.email.value;
                     password = ev.target.elements.password.value;
                     userData = {
@@ -87,16 +87,15 @@ function handleLogin(ev) {
                     _a.label = 1;
                 case 1:
                     _a.trys.push([1, 3, , 4]);
-                    return [4 /*yield*/, axios
-                            .post("/users/log-in", userData)];
+                    return [4 /*yield*/, axios.post("/users/log-in", userData)];
                 case 2:
                     data = (_a.sent()).data;
                     ok = data.ok, aUser = data.aUser, verifiedUser = data.verifiedUser, userId = data.userId;
                     verifiedUserId = userId;
-                    passwordStatus.style.color = '';
-                    passwordStatus.innerHTML = '';
+                    passwordStatus.style.color = "";
+                    passwordStatus.innerHTML = "";
                     if (aUser) {
-                        passwordStatus.style.color = 'red';
+                        passwordStatus.style.color = "red";
                         passwordStatus.innerHTML = "<h1>*Wrong password!</h1>";
                     }
                     if (!aUser && !ok) {
@@ -121,18 +120,20 @@ function handleLogin(ev) {
 }
 function handleRenderHome(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var currentPage, userId, data, userInfo, decoded, user, name, gender, lowTasks, mediumTasks, highTasks, arr, low, medium, high;
+        var currentPage, userId, data, userInfo, decoded, user, name, gender, lowTasks, mediumTasks, highTasks, arr, low, medium, high, error_2;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     ev.preventDefault();
+                    _a.label = 1;
+                case 1:
+                    _a.trys.push([1, 4, , 5]);
                     currentPage = ev.target.title;
                     userId = ev.target.location.search.replace(/.*?id=/g, "");
                     return [4 /*yield*/, axios.get("users/logged-in-user?userId=" + userId)];
-                case 1:
+                case 2:
                     data = (_a.sent()).data;
                     userInfo = data.userInfo, decoded = data.decoded;
-                    console.log(decoded);
                     getUsersTasks(userId, currentPage);
                     user = userInfo[0];
                     name = document.querySelector("[data-name]");
@@ -148,7 +149,7 @@ function handleRenderHome(ev) {
                     mediumTasks = document.querySelector("[data-medium]");
                     highTasks = document.querySelector("[data-high]");
                     return [4 /*yield*/, Promise.all([handleGetUrgencies(userId)])];
-                case 2:
+                case 3:
                     arr = _a.sent();
                     low = arr[0][0];
                     lowTasks.innerHTML = low.length;
@@ -156,7 +157,14 @@ function handleRenderHome(ev) {
                     mediumTasks.innerHTML = medium.length;
                     high = arr[0][2];
                     highTasks.innerHTML = high.length;
-                    return [2 /*return*/];
+                    return [3 /*break*/, 5];
+                case 4:
+                    error_2 = _a.sent();
+                    console.log(error_2);
+                    console.log({ error: error_2.message });
+                    window.location.href = "/index.html";
+                    return [3 /*break*/, 5];
+                case 5: return [2 /*return*/];
             }
         });
     });
@@ -196,23 +204,32 @@ function handleRenderRecentlyCreated(ev) {
 }
 function handleRenderSettings(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var currentPage, userId, settingsForm, data, userInfo, html, user;
+        var currentPage, userId, settingsForm, data, userInfo, html, user, error_3;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     ev.preventDefault();
+                    _a.label = 1;
+                case 1:
+                    _a.trys.push([1, 3, , 4]);
                     currentPage = ev.target.title;
                     userId = ev.target.location.search.replace(/.*?id=/g, "");
                     settingsForm = document.querySelector("[data-settings]");
                     return [4 /*yield*/, axios.get("users/logged-in-user?userId=" + userId)];
-                case 1:
+                case 2:
                     data = (_a.sent()).data;
                     userInfo = data.userInfo;
                     html = "";
                     user = userInfo[0];
                     html = "<form name=\"userUpdate\" id=\"userUpdate\" onsubmit=\"handleUserUpdate(event)\">\n  <h1>Update Your information</h1>\n  \n  <fieldset form=\"userUpdate\">\n  <legend>Personal Settings</legend>\n  <lable>First Name:</lable>\n  <input type=\"text\" name=\"firstNameUpdate\" value=\"" + user.firstName + "\" placeholder=\"" + user.firstName + "\">\n  <br>\n  <lable>Last Name:</lable>\n  <input type=\"text\" name=\"lastNameUpdate\" value=\"" + user.lastName + "\" placeholder=\"" + user.lastName + "\">\n  </fieldset>\n  <fieldset form=\"userUpdate\">\n  <legend>Account Settings</legend>\n  <lable>Email:</lable>\n  <input type=\"email\" name=\"emailUpdate\" value=\"" + user.email + "\" placeholder=\"" + user.email + "\">\n  <br>\n  <lable>Gender:</lable>\n  <select name=\"genderUpdate\" id=\"genderUpdate\"> \n  <option selected disabled value=\"" + user.gender + "\">" + user.gender + "</option>\n  <option value=\"male\">Male</option>\n  <option value=\"female\">Female</option>\n  </select>\n  <br>\n  <lable>Role:</lable>\n  <input type=\"text\" name=\"roleUpdate\" value=\"" + user.role + "\" placeholder=\"" + user.role + "\">\n  <br>\n  <lable>Password:</lable>\n  <input type=\"password\" name=\"passwordUpdate\" value=\"\" placeholder=\"Enter new password\">\n  \n  </fieldset>\n  <fieldset form=\"userUpdate\">\n  <legend>Password Confirmation</legend>\n  <h4>to save any of your settings changes, Enter your pass&shy;word bellow:</h4>\n  <input type=\"password\" name=\"passwordConfirmation\" placeholder=\"your current/old password\">\n  <input type=\"submit\" value=\"update info!\">\n  </fieldset>\n  <h6 data-password-status></h6>\n  </form>";
                     settingsForm.innerHTML = html;
-                    return [2 /*return*/];
+                    return [3 /*break*/, 4];
+                case 3:
+                    error_3 = _a.sent();
+                    console.log(error_3);
+                    console.log({ error: error_3.message });
+                    return [3 /*break*/, 4];
+                case 4: return [2 /*return*/];
             }
         });
     });
@@ -248,7 +265,7 @@ function handleUserUpdate(ev) {
                     var _a = data.data, updatedUser = _a.updatedUser, updateStatus = _a.updateStatus;
                     passwordStatus_1.style.color = "";
                     if (updatedUser === undefined) {
-                        passwordStatus_1.style.color = 'red';
+                        passwordStatus_1.style.color = "red";
                         passwordStatus_1.innerHTML = "*You Either put in the wrong password or no password at all, TRY AGAIN!";
                         return;
                     }
@@ -292,7 +309,7 @@ function handlePasswordCheck(password, userId) {
 }
 function handlePageChange(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var userURL, requestedPage, data, data, newURL, data, newURL, data, error_2;
+        var userURL, requestedPage, data, data, newURL, data, newURL, data, error_4;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -335,7 +352,8 @@ function handlePageChange(ev) {
                     _a.label = 7;
                 case 7:
                     if (!(requestedPage === "RecentlyCreated")) return [3 /*break*/, 9];
-                    return [4 /*yield*/, axios.post("/users/nav", {
+                    return [4 /*yield*/, axios
+                            .post("/users/nav", {
                             userURL: userURL,
                             requestedPage: requestedPage
                         })
@@ -348,9 +366,9 @@ function handlePageChange(ev) {
                     _a.label = 9;
                 case 9: return [3 /*break*/, 11];
                 case 10:
-                    error_2 = _a.sent();
+                    error_4 = _a.sent();
                     console.log("error in handleRenderPage:");
-                    console.log(error_2.message);
+                    console.log(error_4.message);
                     return [3 /*break*/, 11];
                 case 11: return [2 /*return*/];
             }
@@ -359,7 +377,7 @@ function handlePageChange(ev) {
 }
 function getUsersTasks(userId, currentPage) {
     return __awaiter(this, void 0, void 0, function () {
-        var data, currentUsersTasks, error_3;
+        var data, currentUsersTasks, error_5;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -371,9 +389,9 @@ function getUsersTasks(userId, currentPage) {
                     renderTasks(currentUsersTasks, currentPage);
                     return [3 /*break*/, 3];
                 case 2:
-                    error_3 = _a.sent();
+                    error_5 = _a.sent();
                     console.log("error in getUsersTasks:");
-                    console.log(error_3.message);
+                    console.log(error_5.message);
                     return [3 /*break*/, 3];
                 case 3: return [2 /*return*/];
             }
@@ -487,14 +505,21 @@ function getNextTask(currentUsersTasks) {
 }
 function handleNewTask(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var userId, _a, color, title, description, urgency, location, date;
+        var userId, _a, color, title, description, urgency, location, date, form;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
                     ev.preventDefault();
                     userId = ev.target.baseURI.slice(-24);
                     _a = ev.target.elements, color = _a.color, title = _a.title, description = _a.description, urgency = _a.urgency, location = _a.location, date = _a.date;
-                    (color = color.value), (title = title.value), (description = description.value), (urgency = urgency.value), (location = location.value), (date = date.value);
+                    (color = color.value),
+                        (title = title.value),
+                        (description = description.value),
+                        (urgency = urgency.value),
+                        (location = location.value),
+                        (date = date.value);
+                    form = document.querySelector("#myForm");
+                    form.reset();
                     return [4 /*yield*/, axios
                             .post("/tasks/add-new-task", {
                             color: color,
@@ -518,7 +543,7 @@ function handleNewTask(ev) {
 }
 function handleTaskUpdate(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var color, title, urgency, description, location, date, taskId, userId, data, currentUsersTasks, error_4;
+        var color, title, urgency, description, location, date, taskId, userId, data, currentUsersTasks, error_6;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -551,9 +576,9 @@ function handleTaskUpdate(ev) {
                     closeTaskModal();
                     return [3 /*break*/, 4];
                 case 3:
-                    error_4 = _a.sent();
+                    error_6 = _a.sent();
                     console.log("error in handleTaskUpdate");
-                    console.log({ error: error_4.message });
+                    console.log({ error: error_6.message });
                     return [3 /*break*/, 4];
                 case 4: return [2 /*return*/];
             }
@@ -562,7 +587,7 @@ function handleTaskUpdate(ev) {
 }
 function handleTaskCheck(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var timeChecked, taskId, userId, data, currentUsersTasks, error_5;
+        var timeChecked, taskId, userId, data, currentUsersTasks, error_7;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -581,9 +606,9 @@ function handleTaskCheck(ev) {
                     renderTasks(currentUsersTasks, "RecentlyCreated");
                     return [3 /*break*/, 3];
                 case 2:
-                    error_5 = _a.sent();
+                    error_7 = _a.sent();
                     console.log("error in handleTaskCheck");
-                    console.log({ error: error_5.message });
+                    console.log({ error: error_7.message });
                     return [3 /*break*/, 3];
                 case 3: return [2 /*return*/];
             }
@@ -592,7 +617,7 @@ function handleTaskCheck(ev) {
 }
 function handleTaskDelete(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var taskId, userURL, data, currentUsersTasks, currentPage, error_6;
+        var taskId, userURL, data, currentUsersTasks, currentPage, error_8;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -610,9 +635,9 @@ function handleTaskDelete(ev) {
                     renderTasks(currentUsersTasks, currentPage);
                     return [3 /*break*/, 4];
                 case 3:
-                    error_6 = _a.sent();
+                    error_8 = _a.sent();
                     console.log("error in handleTaskDelete");
-                    console.log({ error: error_6.message });
+                    console.log({ error: error_8.message });
                     return [3 /*break*/, 4];
                 case 4: return [2 /*return*/];
             }
@@ -651,7 +676,7 @@ function closeTaskModal() {
 }
 function renderTaskModal(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var taskId, modal, html, data, currentTask, error_7;
+        var taskId, modal, html, data, currentTask, error_9;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -673,9 +698,9 @@ function renderTaskModal(ev) {
                     openTaskModal(modal);
                     return [3 /*break*/, 4];
                 case 3:
-                    error_7 = _a.sent();
-                    console.log(error_7.message);
-                    console.log(error_7);
+                    error_9 = _a.sent();
+                    console.log(error_9.message);
+                    console.log(error_9);
                     return [3 /*break*/, 4];
                 case 4: return [2 /*return*/];
             }
