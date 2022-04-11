@@ -62,17 +62,12 @@ async function handleLogin(ev) {
         if (ok) {
 
           window.location.href = `/home.html?id=${verifiedUserId}`;
-<<<<<<< HEAD
-        } else if (userExists < 0) {
-          console.log("1");
-=======
         } 
           
           return
->>>>>>> main
         }
       
-  } catch (error) {
+   catch (error) {
     console.log("error in handleLogin:");
     console.log(error.message);
     // }
@@ -81,21 +76,27 @@ async function handleLogin(ev) {
 
 async function handleRenderHome(ev) {
   ev.preventDefault();
-  let userId = ev.target.location.search.replace(/.*?id=/g, "");
+  const currentPage = ev.target.title;
 
+  let userId = ev.target.location.search.replace(/.*?id=/g, "");
   const { data } = await axios.get(`users/logged-in-user?userId=${userId}`);
-  const { userInfo } = data;
+  const { userInfo, decoded } = data;
+  console.log(decoded);
+  
+  getUsersTasks(userId, currentPage);
   const user = userInfo[0];
   const name = document.querySelector("[data-name]");
+  const gender = document.querySelector("[data-gender]");
   name.innerHTML = `${user.firstName} ${user.lastName}<br><span>${user.role}</span>`;
+  if (user.gender === `male`) {
+    gender.src = `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ51Gk5jjB4qD-BkcDh_fhsE4HkfnLDblQPrQLaOY13u7v5MNoBea8JzZ5NZAa0G-gAcgY&usqp=CAU`;
+  } else {
+    gender.src = `https://static.vecteezy.com/system/resources/thumbnails/002/586/938/small/woman-cartoon-character-portrait-brunette-female-round-line-icon-free-vector.jpg`;
+  }
+
   const lowTasks = document.querySelector("[data-low]");
   const mediumTasks = document.querySelector("[data-medium]");
   const highTasks = document.querySelector("[data-high]");
-<<<<<<< HEAD
-  getUsersTasks(userId);
-}
-
-=======
 
   const arr = await Promise.all([handleGetUrgencies(userId)]);
   const low = arr[0][0];
@@ -237,15 +238,10 @@ async function handlePasswordCheck(password, userId) {
     return true;
   } else return false;
 }
->>>>>>> main
 async function handlePageChange(ev) {
   const userURL = ev.target.baseURI;
+
   const requestedPage = ev.target.outerText.split(" ").join("");
-<<<<<<< HEAD
-  try {
-    const { data } = await axios
-      .post(`/users/nav`, { userURL, requestedPage })
-=======
 
 
   try {
@@ -282,11 +278,13 @@ async function handlePageChange(ev) {
         userURL,
         requestedPage,
       })
->>>>>>> main
       .then((response) => {
+        
         const { newURL } = response.data;
         window.location.href = newURL;
-      });
+
+      })
+    }
   } catch (error) {
     console.log("error in handleRenderPage:");
     console.log(error.message);
@@ -294,57 +292,17 @@ async function handlePageChange(ev) {
   }
 }
 
-async function handleGetUsersTasks(ev) {
-  const userURL = ev.target.baseURI;
-
-  const userId = userURL.split("/")[1];
-  getUsersTasks(userId);
-}
-// addGlobalEventListener(onload, '#landing__task-count',getUsersTasks(window.location.href), {})
-
-async function getUsersTasks(userId) {
+async function getUsersTasks(userId, currentPage) {
   try {
     const { data } = await axios.get(`tasks/getTasks?ownerId=${userId}`);
     const currentUsersTasks = data;
-<<<<<<< HEAD
-    renderTasks(currentUsersTasks);
-=======
-    console.log(currentUsersTasks);
-
-    
-    
     renderTasks(currentUsersTasks, currentPage);
->>>>>>> main
   } catch (error) {
     console.log("error in getUsersTasks:");
     console.log(error.message);
     // }
   }
 }
-<<<<<<< HEAD
-async function renderTasks(currentUsersTasks) {
-  console.log(currentUsersTasks);
-  let html = "";
-  const tasksBoxes = document.querySelector("[data-box-root]")
-  const tasksCount = document.querySelector("[data-task-count]")
-  currentUsersTasks.forEach((task) => {
-    html += `
-  <div class="box ${task.urgency}">
-                        <div id="box__flex">
-                            <div class="box__header">
-                                <div class="box__title">
-                                    <p class="box__title-text box__title-home-text">${task.title}</p>
-                                </div>
-                            </div>
-                            <div class="box__expln box__expln-home">
-                                <div class="flex-date">
-                                    <i class="material-icons">schedule</i>
-                                    <p>${task.date}</p>
-                                </div>
-                            </div>
-                            <h4>${task.urgency} priority</h4>
-=======
-
 async function renderTasks(currentUsersTasks, currentPage) {
   sortTasksByDate(currentUsersTasks);
 
@@ -476,12 +434,25 @@ async function renderTasks(currentUsersTasks, currentPage) {
                         </div>
                         <div class="task-time">
                             <input type="date" name="date" id="date" value="${nextTask.date}">
->>>>>>> main
                         </div>
-                    </div>`;
-  });
-  tasksBoxes.innerHTML = html
+                        <input data-id="${nextTask._id}" type="submit" name="submit" id="submit" value="Update this task">
+`;
 }
+if (!nextTask) {
+  formHtml = `<h1> You are all caught up! </h1>`;
+}
+const formField = nextRoot.parentElement;
+formField.style.background = nextTask.color;
+
+nextRoot.innerHTML = formHtml;
+return;
+}
+} catch (error) {
+console.log(error);
+console.error(error.message);
+}
+}
+
 function addGlobalEventListener(
   type,
   selector,
@@ -497,8 +468,6 @@ function addGlobalEventListener(
     options
   );
 }
-<<<<<<< HEAD
-=======
 
 function sortTasksByDate(tasks) {
   tasks.forEach((task) => {
@@ -712,4 +681,3 @@ async function renderTaskModal(ev) {
     console.log(error);
   }
 }
->>>>>>> main

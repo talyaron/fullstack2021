@@ -169,17 +169,18 @@ body {
             }
 
             &--guests {
-               
+
                 height: 50px;
                 width: 100px;
                 padding-left: 20px;
                 border-radius: 28px;
+
                 //font-size: 12px;
-               span{
-                   font-weight:lighter;
-                   color:grey;
-               }
-           
+                span {
+                    font-weight: lighter;
+                    color: grey;
+                }
+
 
                 //margin-right:4px;
                 &:hover {
@@ -295,9 +296,10 @@ body {
         }
     }
 
-   
+
 
 }
+
 .popup {
     position: relative;
     display: inline-block;
@@ -322,31 +324,35 @@ body {
         gap: 30px;
         flex-direction: column;
         align-items: center;
-        &#myPopup{
-            position:absloute;
-            top:0;
+
+        &#myPopup {
+            position: absloute;
+            top: 0;
             backdrop-filter: blur(10px);
-            height:100%;
-            
-           
+            height: 100%;
+
+
 
         }
-        
+
 
 
 
 
     }
-    form{
-        display:flex;
+
+    form {
+        display: flex;
         width: 700px;
-        padding:5px;
-       height: 50px;
-       border:none;
-       align-items: center;
-       input{
-        border-radius: 50px;;
-       }
+        padding: 5px;
+        height: 50px;
+        border: none;
+        align-items: center;
+
+        input {
+            border-radius: 50px;
+            ;
+        }
     }
 
     // .show {
@@ -879,38 +885,38 @@ body {
     //height: 10px;
 
     margin-bottom: 50px;
- 
-    
+
+
 
 
 
     .btn_filter {
         background-color: white;
-    align-items: center;
-    appearance: none;
-    background-size: calc(100% + 20px) calc(100% + 20px);
-    border-radius: 100px;
-    border-width: 0.5rem;
-    border: 2px solid lightgrey;
-    box-shadow: none;
-    box-sizing: border-box;
-    cursor: pointer;
-    display: inline-flex;
-    font-family: CircularStd, sans-serif;
-    font-size: 1rem;
-    height: auto;
-    justify-content: center;
-    line-height: 1.5;
-    padding: 6px 20px;
-    position: relative;
-    text-align: center;
-    text-decoration: none;
-    transition: background-color .2s, background-position .2s;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-    vertical-align: top;
-    white-space: nowrap;
+        align-items: center;
+        appearance: none;
+        background-size: calc(100% + 20px) calc(100% + 20px);
+        border-radius: 100px;
+        border-width: 0.5rem;
+        border: 2px solid lightgrey;
+        box-shadow: none;
+        box-sizing: border-box;
+        cursor: pointer;
+        display: inline-flex;
+        font-family: CircularStd, sans-serif;
+        font-size: 1rem;
+        height: auto;
+        justify-content: center;
+        line-height: 1.5;
+        padding: 6px 20px;
+        position: relative;
+        text-align: center;
+        text-decoration: none;
+        transition: background-color .2s, background-position .2s;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+        vertical-align: top;
+        white-space: nowrap;
 
     }
 
@@ -971,7 +977,7 @@ body {
     grid-template-rows: 1fr;
     padding-top: 1rem;
     padding-bottom: 1rem;
-    
+
 }
 
 .card-map {
@@ -979,13 +985,13 @@ body {
 
     width: 195%;
     height: 100%;
-   
 
-    iframe{
-        width:50%;
-        height:85%;
-        border:0; 
-      
+
+    iframe {
+        width: 50%;
+        height: 85%;
+        border: 0;
+
     }
 }
 
@@ -997,10 +1003,10 @@ body {
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: repeat(2, 1fr);
     gap: 15px;
-   
+
     // padding-top: 1rem;
     // padding-bottom: 1rem;
-    
+
     button {
         color: black;
         background-color: transparent;
@@ -1010,11 +1016,11 @@ body {
         cursor: pointer;
 
     }
-   
+
 
     &__container {
         --padding: 1rem;
-        background: white;  
+        background: white;
         border: none;
         box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .2);
         overflow: hidden;
@@ -1027,6 +1033,7 @@ body {
             /* the image no longer overflows the card*/
             padding: 0;
             width: 100%;
+
             img {
                 display: block;
                 /*allows to cange width and height*/
@@ -1050,7 +1057,7 @@ body {
         .content {
 
             display: block;
-            
+
 
             &__namePlace {
                 font-size: 1.5rem;

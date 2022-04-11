@@ -1,5 +1,6 @@
 import User from '../model/userModel'
 import jwt from 'jwt-simple';
+const secret = process.env.JWT_SECRET;
 
 export const addUser = async (req, res) => {
 
@@ -43,7 +44,6 @@ export const findUser = async (req, res) => {
         if (oldUser.length === 0) {
             res.send({ noUser: 'Wrong email/password' });
         } else if (oldUser.length > 0) {
-            const secret = 'password';
             const payload = { userName: oldUser[0].userName, funds: oldUser[0].fund };
             const token = jwt.encode(payload, secret);
 
@@ -77,7 +77,7 @@ export const buyAndSell = async (req, res) => {
     const { buyerId, price, ownerId } = req.body;
     let { userInfo } = req.cookies;
     
-    userInfo = jwt.decode(userInfo, 'password');
+    userInfo = jwt.decode(userInfo, secret);
     console.log(userInfo);
     
     if (userInfo.funds >= price) {
