@@ -1,25 +1,12 @@
-<<<<<<< Updated upstream
-
-
- function handleLoadPlaces(data){
-    try{
-   
- getData()
-       
-=======
 function handleLoadPlaces(data){
     getData() 
     // renderAirbnbOptions(data)
     
->>>>>>> Stashed changes
     renderAirbnbOptions(data.getplaces)
     // window.location.href="places.html"
      
     
- }catch (error) {
-  console.error(error.message);
-}
-  
+ 
 
 }
 
@@ -317,27 +304,8 @@ async function handleFindAirbnb(ev) {
   const { data } = await axios.get(
     `/places/search-airbnb?searchLocation=${searchLocation}&checkIn=${checkIn}&checkOut=${checkOut}&adults=${adults}&children=${children}&infants=${infants}&pets=${pets} `
   );
-<<<<<<< Updated upstream
-  console.log(data);
-  storeData({data}); 
-  if(data){
-    window.location.href ="places.html"
-
-  
-  }
-  handleLoadPlaces(data.getplaces)
-//   
-    
-//      handleLoadPlaces();
-    
-//     window.location.href ="places.html"
-    
-//   
- 
-=======
   
   //console.log(data.getplaces); it shows that is has the array of objects
->>>>>>> Stashed changes
   
   storeData(data);
  //window.location.href="places.html"
