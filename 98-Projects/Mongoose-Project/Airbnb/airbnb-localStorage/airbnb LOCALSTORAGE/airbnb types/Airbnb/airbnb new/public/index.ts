@@ -304,7 +304,7 @@ async function handleFindAirbnb(ev) {
   const { data } = await axios.get(
     `/places/search-airbnb?searchLocation=${searchLocation}&checkIn=${checkIn}&checkOut=${checkOut}&adults=${adults}&children=${children}&infants=${infants}&pets=${pets} `
   );
-  
+  console.log(data)
   //console.log(data.getplaces); it shows that is has the array of objects
   
   storeData(data);

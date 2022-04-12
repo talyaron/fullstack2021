@@ -136,6 +136,7 @@ function handleFindAirbnb(ev) {
                     return [4 /*yield*/, axios.get("/places/search-airbnb?searchLocation=" + searchLocation + "&checkIn=" + checkIn + "&checkOut=" + checkOut + "&adults=" + adults + "&children=" + children + "&infants=" + infants + "&pets=" + pets + " ")];
                 case 1:
                     data = (_a.sent()).data;
+                    console.log(data);
                     //console.log(data.getplaces); it shows that is has the array of objects
                     storeData(data);
                     //window.location.href="places.html"
