@@ -81,21 +81,19 @@ export const getUsers = async (req, res) => {
         console.log(decoded);
         if (decoded && decoded.role === "admin") {
             const user = await Users.find({});
-            // res.send({ ok: true, user })
+            res.send({ ok: true, user })
             console.log(user);
 
             res.render('owner', {
                 title: "Owner",
                 user
             })
-
             return
-
-
         }
         throw new Error("user is not allowed ")
 
-    } catch (error) {
+    }
+    catch (error) {
         console.error(error.message)
         res.send({ error: error.message })
     }
