@@ -1,6 +1,6 @@
 
 
- function handleLoadPlaces({data}){
+ function handleLoadPlaces(data){
     
    
  getData()
@@ -301,12 +301,13 @@ async function handleFindAirbnb(ev) {
     `/places/search-airbnb?searchLocation=${searchLocation}&checkIn=${checkIn}&checkOut=${checkOut}&adults=${adults}&children=${children}&infants=${infants}&pets=${pets} `
   );
   console.log(data);
-  storeData({data});
+  storeData({data}); 
   if(data){
     window.location.href ="places.html"
-  //handleLoadPlaces({data})
+
   
   }
+  handleLoadPlaces(data.getplaces)
 //   
     
 //      handleLoadPlaces();

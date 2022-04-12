@@ -34,8 +34,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-function handleLoadPlaces(_a) {
-    var data = _a.data;
+function handleLoadPlaces(data) {
     getData();
     renderAirbnbOptions(data.getplaces);
 }
@@ -127,8 +126,8 @@ function handleFindAirbnb(ev) {
                     storeData({ data: data });
                     if (data) {
                         window.location.href = "places.html";
-                        //handleLoadPlaces({data})
                     }
+                    handleLoadPlaces(data.getplaces);
                     return [2 /*return*/];
             }
         });
