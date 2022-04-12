@@ -127,8 +127,8 @@ function handleFindAirbnb(ev) {
                     console.log(data);
                     ev.target.reset();
                     storeData(data);
-                    // renderAirbnbOptions(data.getplaces);
-                    renderAirbnbOptions(data.getplaces);
+                    //redirect to places
+                    window.location.href = "/places";
                     return [2 /*return*/];
             }
         });
@@ -353,4 +353,8 @@ function handleDeleteUsers(userId) {
             }
         });
     });
+}
+function handleLoadPlaces() {
+    // get data
+    //render data
 }

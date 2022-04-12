@@ -285,8 +285,11 @@ async function handleFindAirbnb(ev) {
 
   storeData(data);
 
+  //redirect to places
+  window.location.href = "/places";
+
   // renderAirbnbOptions(data.getplaces);
-  renderAirbnbOptions(data.getplaces);
+  // renderAirbnbOptions(data.getplaces);
 }
 
 async function handleCities(ev) {
@@ -494,4 +497,9 @@ async function handleDeleteUsers(userId) {
     data: { userId },
   });
   console.log(data);
+}
+
+function handleLoadPlaces(){
+  // get data
+  //render data
 }
