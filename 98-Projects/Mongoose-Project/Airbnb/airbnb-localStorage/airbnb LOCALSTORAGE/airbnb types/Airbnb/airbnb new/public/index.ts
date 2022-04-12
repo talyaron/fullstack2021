@@ -1,14 +1,16 @@
 
 
  function handleLoadPlaces(data){
-    
+    try{
    
  getData()
        
     renderAirbnbOptions(data.getplaces)
         
     
- 
+ }catch (error) {
+  console.error(error.message);
+}
   
 
 }
@@ -26,6 +28,7 @@ async function handleLoadPlace(data) {
 }
 
 async function handleGoToPlace(placeId) {
+  try{
   const { data } = await axios.get("/places/goToPlace", { data: { placeId } });
   storeData(data.getplaces);
   if(data){
@@ -33,6 +36,9 @@ async function handleGoToPlace(placeId) {
     window.location.href ="place.html"
 
   }
+}catch (error) {
+  console.error(error.message);
+}
   // renderPlace(data);
 }
 
@@ -252,10 +258,13 @@ function renderPlace(data: Array<any>) {
 }
 
 function storeData(data) {
- 
+ try{
   if (data) {
     localStorage.setItem("airbnbData", JSON.stringify(data));
   }
+}catch (error) {
+  console.error(error.message);
+}
 }
 
 function getData() {

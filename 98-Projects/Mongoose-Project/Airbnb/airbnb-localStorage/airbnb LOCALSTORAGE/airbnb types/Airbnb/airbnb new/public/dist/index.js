@@ -35,8 +35,13 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 function handleLoadPlaces(data) {
-    getData();
-    renderAirbnbOptions(data.getplaces);
+    try {
+        getData();
+        renderAirbnbOptions(data.getplaces);
+    }
+    catch (error) {
+        console.error(error.message);
+    }
 }
 function handleLoadPlace(data) {
     return __awaiter(this, void 0, void 0, function () {
@@ -55,17 +60,24 @@ function handleLoadPlace(data) {
 }
 function handleGoToPlace(placeId) {
     return __awaiter(this, void 0, void 0, function () {
-        var data;
+        var data, error_1;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, axios.get("/places/goToPlace", { data: { placeId: placeId } })];
+                case 0:
+                    _a.trys.push([0, 2, , 3]);
+                    return [4 /*yield*/, axios.get("/places/goToPlace", { data: { placeId: placeId } })];
                 case 1:
                     data = (_a.sent()).data;
                     storeData(data.getplaces);
                     if (data) {
                         window.location.href = "place.html";
                     }
-                    return [2 /*return*/];
+                    return [3 /*break*/, 3];
+                case 2:
+                    error_1 = _a.sent();
+                    console.error(error_1.message);
+                    return [3 /*break*/, 3];
+                case 3: return [2 /*return*/];
             }
         });
     });
@@ -86,8 +98,13 @@ function renderPlace(data) {
     }
 }
 function storeData(data) {
-    if (data) {
-        localStorage.setItem("airbnbData", JSON.stringify(data));
+    try {
+        if (data) {
+            localStorage.setItem("airbnbData", JSON.stringify(data));
+        }
+    }
+    catch (error) {
+        console.error(error.message);
     }
 }
 function getData() {
