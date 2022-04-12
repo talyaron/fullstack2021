@@ -1,8 +1,3 @@
-// async function loadPlaces(data) {
-// //   const { data } = await axios.get("/places/getPlaces");
-// //   console.log(data);
-//  console.log(data)
-//   renderAirbnbOptions(data)
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -39,8 +34,10 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-// }
-//loadPlaces()
+function handleLoadPlaces(data) {
+    getData();
+    renderAirbnbOptions(data.getplaces);
+}
 function handleLoadPlace() {
     return __awaiter(this, void 0, void 0, function () {
         var data, error_1;
@@ -92,18 +89,22 @@ function renderPlace(data) {
     }
 }
 function storeData(data) {
-    debugger;
     if (data) {
         localStorage.setItem("airbnbData", JSON.stringify(data));
     }
 }
 function getData() {
-    var airbnbNavFiltered = JSON.parse(localStorage.getItem("airbnbNavFiltered"));
-    if (Array.isArray(airbnbNavFiltered)) {
-        return airbnbNavFiltered;
+    try {
+        var airbnbNavFiltered = JSON.parse(localStorage.getItem("airbnbData"));
+        if (Array.isArray(airbnbNavFiltered)) {
+            return airbnbNavFiltered;
+        }
+        else {
+            return [];
+        }
     }
-    else {
-        return [];
+    catch (err) {
+        console.log(err.message);
     }
 }
 function handleFindAirbnb(ev) {
@@ -125,10 +126,9 @@ function handleFindAirbnb(ev) {
                 case 1:
                     data = (_a.sent()).data;
                     console.log(data);
-                    ev.target.reset();
-                    storeData(data);
-                    // renderAirbnbOptions(data.getplaces);
-                    renderAirbnbOptions(data.getplaces);
+                    storeData(data.getplaces);
+                    window.location.href = "places.html";
+                    handleLoadPlaces(data);
                     return [2 /*return*/];
             }
         });
@@ -166,17 +166,15 @@ function handleFilter(ev) {
         });
     });
 }
-function renderAirbnbOptions(getplaces) {
-    console.log(getplaces);
+function renderAirbnbOptions(data) {
     try {
-        console.log(getplaces);
         getData();
-        if (!Array.isArray(getplaces))
-            throw new Error("sata is not an array");
+        if (!Array.isArray(data))
+            throw new Error("data is not an array");
         var root_1 = document.querySelector("#rootPlaces");
         var html_1 = "";
-        getplaces.forEach(function (place) {
-            html_1 += " <div class=\"airbnbOptions\"  >           \n                  <div class=\"airbnbOptions__container\" onclick=\"handleGoToPlace(" + place._id + ")\">\n                      <div class=\"airbnbOptions__container__img\">\n                          <img src=\"" + place.images + "\">\n                      </div>\n                      <div class=\"airbnbOptions__container__content\">\n                          <div class=\"airbnbOptions__container__content__namePlace\">                                \n                              \n                                  <h3>" + place.name + " </h3>\n                                  <h5>accommodates:" + place.accommodates + " </h5>\n                             \n                              <p>\n                              " + place.address_country_code + " ,  " + place.address_country + "\n                              </p>\n                          </div>\n                          <div class=\"airbnbOptions__container__content__description\">\n                              <p>\n                              " + place.description + "\n                              </p>\n                          </div>\n                          <div class=\"airbnbOptions__container__content__priceRating\">\n                              <button class=\"btn btn-outline\">\n                              " + place.price + "\n                              </button>\n                              <button class=\"btn btn-outline\">\n                                 \n                              " + place.reviews_rating + "\n                                  \n\n                              </button>\n                          </div>\n\n                      </div>\n                  </div>\n                  </div>";
+        data.forEach(function (place) {
+            html_1 += "            \n                  <div class=\"airbnbOptions__container\" onclick=\"handleGoToPlace(" + place._id + ")\">\n                      <div class=\"airbnbOptions__container__img\">\n                          <img src=\"" + place.images + "\">\n                      </div>\n                      <div class=\"airbnbOptions__container__content\">\n                          <div class=\"airbnbOptions__container__content__namePlace\">                                \n                              \n                                  <h3>" + place.name + " </h3>\n                                  <h5>accommodates:" + place.accommodates + " </h5>\n                             \n                              <p>\n                              " + place.address_country_code + " ,  " + place.address_country + "\n                              </p>\n                          </div>\n                          <div class=\"airbnbOptions__container__content__description\">\n                              <p>\n                              " + place.description + "\n                              </p>\n                          </div>\n                          <div class=\"airbnbOptions__container__content__priceRating\">\n                              <button class=\"btn btn-outline\">\n                              " + place.price + "\n                              </button>\n                              <button class=\"btn btn-outline\">\n                                 \n                              " + place.reviews_rating + "\n                                  \n\n                              </button>\n                          </div>\n\n                      </div>\n                  </div>";
             root_1.innerHTML = html_1;
         });
     }

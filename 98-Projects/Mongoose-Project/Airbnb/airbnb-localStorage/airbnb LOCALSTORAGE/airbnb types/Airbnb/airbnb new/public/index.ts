@@ -1,11 +1,16 @@
-// async function loadPlaces(data) {
-// //   const { data } = await axios.get("/places/getPlaces");
-// //   console.log(data);
-//  console.log(data)
-//   renderAirbnbOptions(data)
+function handleLoadPlaces(data){
+    
+       
+    getData()
+       
+    renderAirbnbOptions(data.getplaces)
+        
+    
+ 
+  
 
-// }
-//loadPlaces()
+}
+
 
 async function handleLoadPlace() {
   try {
@@ -238,21 +243,28 @@ function renderPlace(data: Array<any>) {
 }
 
 function storeData(data) {
-  debugger;
+ 
   if (data) {
     localStorage.setItem("airbnbData", JSON.stringify(data));
   }
 }
 
 function getData() {
-  const airbnbNavFiltered = JSON.parse(
-    localStorage.getItem("airbnbNavFiltered")
-  );
-  if (Array.isArray(airbnbNavFiltered)) {
-    return airbnbNavFiltered;
-  } else {
-    return [];
-  }
+    try{
+        const airbnbNavFiltered = JSON.parse( localStorage.getItem("airbnbData"));
+          
+         
+          if (Array.isArray(airbnbNavFiltered)) {
+           return airbnbNavFiltered;
+          } else {
+            return [];
+            
+          }
+     
+    }catch(err){
+        console.log(err.message)  
+    }
+  
 }
 
 async function handleFindAirbnb(ev) {
@@ -280,13 +292,22 @@ async function handleFindAirbnb(ev) {
     `/places/search-airbnb?searchLocation=${searchLocation}&checkIn=${checkIn}&checkOut=${checkOut}&adults=${adults}&children=${children}&infants=${infants}&pets=${pets} `
   );
   console.log(data);
-
-  ev.target.reset();
-
-  storeData(data);
-
-  // renderAirbnbOptions(data.getplaces);
-  renderAirbnbOptions(data.getplaces);
+  
+  storeData(data.getplaces);
+  window.location.href ="places.html"
+  handleLoadPlaces(data)
+  
+//   if(data){
+    
+//      handleLoadPlaces();
+    
+//     window.location.href ="places.html"
+    
+//   }
+ 
+  
+ 
+  
 }
 
 async function handleCities(ev) {
@@ -303,19 +324,21 @@ async function handleFilter(ev) {
   const { data } = await axios.get("/places/getFiltered", { data: { price } });
 }
 
-function renderAirbnbOptions(getplaces: Array<any>) {
-  console.log(getplaces);
+function renderAirbnbOptions(data: Array<any>) {
+  
 
   try {
-    console.log(getplaces);
+    
     getData();
-    if (!Array.isArray(getplaces)) throw new Error("sata is not an array");
+    
+   
+    if (!Array.isArray(data)) throw new Error("data is not an array");
 
     const root: HTMLElement = document.querySelector("#rootPlaces");
     let html = "";
 
-    getplaces.forEach((place) => {
-      html += ` <div class="airbnbOptions"  >           
+   data.forEach((place) => {
+      html += `            
                   <div class="airbnbOptions__container" onclick="handleGoToPlace(${place._id})">
                       <div class="airbnbOptions__container__img">
                           <img src="${place.images}">
@@ -348,7 +371,6 @@ function renderAirbnbOptions(getplaces: Array<any>) {
                           </div>
 
                       </div>
-                  </div>
                   </div>`;
       root.innerHTML = html;
     });
@@ -455,6 +477,7 @@ function renderUsersToOwnerPage(users: Array<any>) {
 
   try {
     console.log(users);
+    
     if (!Array.isArray(users)) throw new Error("data is not an array");
 
     const root: HTMLElement = document.querySelector("#user");
