@@ -1,19 +1,17 @@
 import Places from "../model/placesModel";
 
-// export const getPlaces = async (req, res) => {
-//   try {
-//     const places = await Places.find({});
-//     // .limit(20);
-//     console.log(Places);
+export const getPlaces = async (req, res) => {
+  try {
+    const getplaces = await Places.find({});
+    // .limit(20);
+    console.log(getPlaces);
 
-//     console.log(places);
-
-//     res.send({ ok: true, places });
-//   } catch (error) {
-//     console.error(error);
-//     res.send({ error: "error in app.get/getPlaces" });
-//   }
-// };
+    res.send({ ok: true, getplaces });
+  } catch (error) {
+    console.error(error);
+    res.send({ error: "error in app.get/getPlaces" });
+  }
+};
 export const getfilteredAirBNB = async (req, res) => {
   try {
     let price1 = req.body;

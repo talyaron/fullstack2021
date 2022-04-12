@@ -1,7 +1,9 @@
-function handleLoadPlaces(data){
+
+
+ function handleLoadPlaces({data}){
     
-       
-    getData()
+   
+ getData()
        
     renderAirbnbOptions(data.getplaces)
         
@@ -12,9 +14,9 @@ function handleLoadPlaces(data){
 }
 
 
-async function handleLoadPlace() {
+async function handleLoadPlace(data) {
   try {
-    const { data } = await axios.get("/places/getToPlace");
+    //const { data } = await axios.get("/getToPlace");
 
     console.log(data);
     renderPlace(data);
@@ -24,12 +26,19 @@ async function handleLoadPlace() {
 }
 
 async function handleGoToPlace(placeId) {
-  const { data } = await axios.get("/goToPlace", { data: { placeId } });
-  renderPlace(data);
+  const { data } = await axios.get("/places/goToPlace", { data: { placeId } });
+  storeData(data.getplaces);
+  if(data){
+    
+    window.location.href ="place.html"
+
+  }
+  // renderPlace(data);
 }
 
 function renderPlace(data: Array<any>) {
   try {
+    getData();
     const html = data
       .map((place) => {
         return `<div class="mainUpper">
@@ -292,18 +301,19 @@ async function handleFindAirbnb(ev) {
     `/places/search-airbnb?searchLocation=${searchLocation}&checkIn=${checkIn}&checkOut=${checkOut}&adults=${adults}&children=${children}&infants=${infants}&pets=${pets} `
   );
   console.log(data);
+  storeData({data});
+  if(data){
+    window.location.href ="places.html"
+  //handleLoadPlaces({data})
   
-  storeData(data.getplaces);
-  window.location.href ="places.html"
-  handleLoadPlaces(data)
-  
-//   if(data){
+  }
+//   
     
 //      handleLoadPlaces();
     
 //     window.location.href ="places.html"
     
-//   }
+//   
  
   
  
