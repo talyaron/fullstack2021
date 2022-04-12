@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 
 
  function handleLoadPlaces(data){
@@ -5,8 +6,15 @@
    
  getData()
        
+=======
+function handleLoadPlaces(data){
+    getData() 
+    // renderAirbnbOptions(data)
+    
+>>>>>>> Stashed changes
     renderAirbnbOptions(data.getplaces)
-        
+    // window.location.href="places.html"
+     
     
  }catch (error) {
   console.error(error.message);
@@ -272,8 +280,8 @@ function getData() {
         const airbnbNavFiltered = JSON.parse( localStorage.getItem("airbnbData"));
           
          
-          if (Array.isArray(airbnbNavFiltered)) {
-           return airbnbNavFiltered;
+          if (Array.isArray(airbnbNavFiltered.getplaces)) {
+           return [airbnbNavFiltered.getplaces];
           } else {
             return [];
             
@@ -309,6 +317,7 @@ async function handleFindAirbnb(ev) {
   const { data } = await axios.get(
     `/places/search-airbnb?searchLocation=${searchLocation}&checkIn=${checkIn}&checkOut=${checkOut}&adults=${adults}&children=${children}&infants=${infants}&pets=${pets} `
   );
+<<<<<<< Updated upstream
   console.log(data);
   storeData({data}); 
   if(data){
@@ -325,8 +334,15 @@ async function handleFindAirbnb(ev) {
     
 //   
  
+=======
   
- 
+  //console.log(data.getplaces); it shows that is has the array of objects
+>>>>>>> Stashed changes
+  
+  storeData(data);
+ //window.location.href="places.html"
+
+ handleLoadPlaces(data) 
   
 }
 
@@ -344,22 +360,21 @@ async function handleFilter(ev) {
   const { data } = await axios.get("/places/getFiltered", { data: { price } });
 }
 
-function renderAirbnbOptions(data: Array<any>) {
+function renderAirbnbOptions(data:Array<any>) {
   
 
   try {
     
-    getData();
+     //getData();
     
    
     if (!Array.isArray(data)) throw new Error("data is not an array");
 
-    const root: HTMLElement = document.querySelector("#rootPlaces");
+    const root = document.querySelector("#rootPlaces");
     let html = "";
 
    data.forEach((place) => {
-      html += `            
-                  <div class="airbnbOptions__container" onclick="handleGoToPlace(${place._id})">
+      html += ` <div class="airbnbOptions__container" onclick="handleGoToPlace(${place._id})">
                       <div class="airbnbOptions__container__img">
                           <img src="${place.images}">
                       </div>
