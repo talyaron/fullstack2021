@@ -37,9 +37,11 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 exports.__esModule = true;
 exports.login = exports.register = exports.sortDescending = exports.sortAscending = exports.filterByCategory = exports.deleteProduct = exports.updatePrice = exports.updateTitle = exports.updatePic = exports.addProduct = exports.getAllProducts = exports.getProductsMain = void 0;
+var jwt_simple_1 = require("jwt-simple");
 var productModel_1 = require("../model/productModel");
 var productMain_1 = require("../model/productMain");
 var userModel_1 = require("../model/userModel");
+var secret = process.env.JWT_SECRET;
 function getProductsMain(req, res) {
     return __awaiter(this, void 0, void 0, function () {
         var marketItems, error_1;
@@ -65,13 +67,16 @@ function getProductsMain(req, res) {
 exports.getProductsMain = getProductsMain;
 function getAllProducts(req, res) {
     return __awaiter(this, void 0, void 0, function () {
-        var data, ownerId_1, products, filterdProducts, error_2;
+        var data, decoded, ownerId_1, products, filterdProducts, error_2;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     _a.trys.push([0, 2, , 3]);
                     data = req.cookies.data;
-                    ownerId_1 = data.id;
+                    decoded = jwt_simple_1["default"].decode(data, secret);
+                    console.log(data);
+                    ownerId_1 = decoded.id;
+                    console.log(ownerId_1);
                     return [4 /*yield*/, productModel_1["default"].find({})];
                 case 1:
                     products = _a.sent();
@@ -91,13 +96,14 @@ function getAllProducts(req, res) {
 exports.getAllProducts = getAllProducts;
 function addProduct(req, res) {
     return __awaiter(this, void 0, void 0, function () {
-        var data, ownerId, _a, pic, title, description, price, category, newProduct, result, newProductMarket, resultMarket, error_3;
+        var data, decoded, ownerId, _a, pic, title, description, price, category, newProduct, result, newProductMarket, resultMarket, error_3;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
                     _b.trys.push([0, 3, , 4]);
                     data = req.cookies.data;
-                    ownerId = data.id;
+                    decoded = jwt_simple_1["default"].decode(data, secret);
+                    ownerId = decoded.id;
                     _a = req.body, pic = _a.pic, title = _a.title, description = _a.description, price = _a.price, category = _a.category;
                     newProduct = new productModel_1["default"]({ pic: pic, title: title, description: description, price: price, category: category, ownerId: ownerId });
                     return [4 /*yield*/, newProduct.save()
@@ -235,13 +241,14 @@ function updatePrice(req, res) {
 exports.updatePrice = updatePrice;
 function deleteProduct(req, res) {
     return __awaiter(this, void 0, void 0, function () {
-        var data, ownerId, result, resultMarket, products, productsMarket, error_7;
+        var data, decoded, ownerId, result, resultMarket, products, productsMarket, error_7;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     _a.trys.push([0, 7, , 8]);
                     data = req.cookies.data;
-                    ownerId = data.id;
+                    decoded = jwt_simple_1["default"].decode(data, secret);
+                    ownerId = decoded.id;
                     if (!ownerId) return [3 /*break*/, 5];
                     return [4 /*yield*/, productModel_1["default"].deleteOne({ ownerId: ownerId })];
                 case 1:
@@ -376,7 +383,7 @@ function register(req, res) {
 exports.register = register;
 function login(req, res) {
     return __awaiter(this, void 0, void 0, function () {
-        var _a, email, password, user, items, userName, id;
+        var _a, email, password, user, items, userName, id, payload, token;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
@@ -391,7 +398,9 @@ function login(req, res) {
                         userName = user.userName;
                         id = user._id;
                         if (user.password === password) {
-                            res.cookie("data", { userName: userName, id: id });
+                            payload = { userName: userName, id: id };
+                            token = jwt_simple_1["default"].encode(payload, secret);
+                            res.cookie("data", token);
                             res.send({ ok: true, items: items, userName: userName });
                             return [2 /*return*/];
                         }

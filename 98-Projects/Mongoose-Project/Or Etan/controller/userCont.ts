@@ -1,7 +1,9 @@
 import user from "../model/userModel";
+import jwt from "jwt-simple";
+
+const secret = process.env.JWT_SECRET;
 
 export const addUser = async (req, res) => {
-
   try {
     let { firstName, lastName, email, password, role, gender } = req.body;
 
@@ -51,8 +53,10 @@ export const login = async (req, res) => {
 
         if (verifiedUser.length === 1) {
           const userId = userVerification._id.toString();
-
-          res.cookie("currentUser", { userId: userId }, {});
+          const userRole = userVerification.role;
+          const payload = { userId, userRole}
+          const information  = jwt.encode(payload, secret)
+          res.cookie("currentUser", information, {});
           res.send({ ok: true, currentLogin, verifiedUser, userId });
           return;
         }
@@ -72,14 +76,20 @@ export const login = async (req, res) => {
 };
 
 export const renderUser = async (req, res) => {
-  let userId = req.query.userId;
+  const {currentUser} = req.cookies;
+  const decoded = jwt.decode(currentUser, secret)
+  console.log(decoded);
+  
+const {userId, userRole} = decoded;
+
   const userInfo = await user.find({ _id: userId });
 
-  res.send({ userInfo: userInfo });
+  res.send({ userInfo: userInfo, decoded });
 };
 
 export const renderPage = async (req, res) => {
   const { userURL, requestedPage } = req.body;
+
 
   const appURL = userURL.split("/")[2];
   const userId = userURL.slice(-24);
@@ -87,10 +97,8 @@ export const renderPage = async (req, res) => {
   const newURL = `/${requestedPage}.html?id=${userId}`;
 
 
+  let { firstName, lastName, gender, role, email, password } = currentUser[0];
 
-
-  const newURL = `/${requestedPage}.html?id=${userId}`;
-  let { firstName, lastName, gender, role, email, password} = currentUser[0];
   if (requestedPage === "home") {
     try {
       res.send({
@@ -98,10 +106,10 @@ export const renderPage = async (req, res) => {
         lastName: lastName,
         gender: gender,
         role: role,
-        newURL: newURL
+        newURL: newURL,
       });
     } catch (error) {
-      console.log("error in renderPage:");
+      console.log("error in renderPage: home");
       console.log(error.message);
 
       res.send({ error: error.message });
@@ -109,6 +117,7 @@ export const renderPage = async (req, res) => {
     }
     return;
   }
+
   if (requestedPage === "settings") {
     try {
       res.send({
@@ -118,10 +127,10 @@ export const renderPage = async (req, res) => {
         role: role,
         email: email,
         password: password,
-        newURL: newURL
+        newURL: newURL,
       });
     } catch (error) {
-      console.log("error in renderPage:");
+      console.log("error in renderPage: settings");
       console.log(error.message);
 
       res.send({ error: error.message });
@@ -129,13 +138,14 @@ export const renderPage = async (req, res) => {
     }
     return;
   }
+
   if (requestedPage === "info") {
     try {
       res.send({
-        newURL: newURL
+        newURL: newURL,
       });
     } catch (error) {
-      console.log("error in renderPage:");
+      console.log("error in renderPage: info");
       console.log(error.message);
 
       res.send({ error: error.message });
@@ -143,8 +153,6 @@ export const renderPage = async (req, res) => {
     }
     return;
   }
-<<<<<<< HEAD
-=======
 
   if (requestedPage === "RecentlyCreated") {
     try {
@@ -219,5 +227,4 @@ export const updateUser = async (req, res) => {
     console.log(error.message);
     res.send({ error: error.message });
   }
->>>>>>> main
 };

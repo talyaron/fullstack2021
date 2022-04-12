@@ -13,8 +13,8 @@ router
     // .get('/getPlaces', getPlaces)
     .get('/getFiltered', placesCont_6.getfilteredAirBNB)
     .post('/addPlaces', placesCont_1.addPlaces)
-    .get('/getToPlace', placesCont_2.getToPlace)
+    .get('/getToPlace/:id', placesCont_2.getToPlace)
     .get('/search-airbnb', placesCont_3.searchAirbnb)
-    .post('/search-city', placesCont_4.searchAirbnbByCity)
+    .get('/search-city', placesCont_4.searchAirbnbByCity)
     .post('/findPlaceMap', placesCont_5.findPlaceMap);
 exports["default"] = router;

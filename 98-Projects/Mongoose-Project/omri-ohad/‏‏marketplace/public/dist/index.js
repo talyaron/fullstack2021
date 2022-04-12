@@ -274,8 +274,8 @@ function handleLogin(ev) {
                     items = data.items;
                     // const{userId} = data;
                     if (ok === true) {
-                        document.getElementById("logMessage").innerHTML = " You are login";
                         window.setTimeout(function () { location.reload(); }, 2000);
+                        document.getElementById("logMessage").innerHTML = " You are login";
                         localStorage.setItem("name", userName);
                     }
                     else {

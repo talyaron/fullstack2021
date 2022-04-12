@@ -72,7 +72,7 @@ function handleRegister(ev) {
 }
 function handleLogin(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var passwordStatus, email, password, userData, data, ok, aUser, verifiedUser, userId, verifiedUserId;
+        var passwordStatus, email, password, userData, data, ok, aUser, verifiedUser, userId, verifiedUserId, error_1;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -86,27 +86,9 @@ function handleLogin(ev) {
                     };
                     _a.label = 1;
                 case 1:
-                    _a.trys.push([1, , 3, 4]);
+                    _a.trys.push([1, 3, , 4]);
                     return [4 /*yield*/, axios
-<<<<<<< HEAD
-                            .post("/users/log-in", userData)
-                            .then(function (response) {
-                            var status = response.data.ok;
-                            var userExists = response.data.aUser;
-                            var verifiedUser = response.data.verifiedUser;
-                            var verifiedUserId = verifiedUser[0]._id;
-                            if (!status)
-                                throw new Error("no status");
-                            if (status) {
-                                window.location.href = "/home.html?id=" + verifiedUserId;
-                            }
-                            else if (userExists < 0) {
-                                console.log("1");
-                            }
-                        })];
-=======
                             .post("/users/log-in", userData)];
->>>>>>> main
                 case 2:
                     data = (_a.sent()).data;
                     ok = data.ok, aUser = data.aUser, verifiedUser = data.verifiedUser, userId = data.userId;
@@ -127,39 +109,44 @@ function handleLogin(ev) {
                         window.location.href = "/home.html?id=" + verifiedUserId;
                     }
                     return [2 /*return*/];
-                case 3: return [7 /*endfinally*/];
+                case 3:
+                    error_1 = _a.sent();
+                    console.log("error in handleLogin:");
+                    console.log(error_1.message);
+                    return [3 /*break*/, 4];
                 case 4: return [2 /*return*/];
             }
         });
     });
 }
-try { }
-catch (error) {
-    console.log("error in handleLogin:");
-    console.log(error.message);
-    // }
-}
 function handleRenderHome(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var userId, data, userInfo, user, name, lowTasks, mediumTasks, highTasks;
+        var currentPage, userId, data, userInfo, decoded, user, name, gender, lowTasks, mediumTasks, highTasks, arr, low, medium, high;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     ev.preventDefault();
+                    currentPage = ev.target.title;
                     userId = ev.target.location.search.replace(/.*?id=/g, "");
                     return [4 /*yield*/, axios.get("users/logged-in-user?userId=" + userId)];
                 case 1:
                     data = (_a.sent()).data;
-                    userInfo = data.userInfo;
+                    userInfo = data.userInfo, decoded = data.decoded;
+                    console.log(decoded);
+                    getUsersTasks(userId, currentPage);
                     user = userInfo[0];
                     name = document.querySelector("[data-name]");
+                    gender = document.querySelector("[data-gender]");
                     name.innerHTML = user.firstName + " " + user.lastName + "<br><span>" + user.role + "</span>";
+                    if (user.gender === "male") {
+                        gender.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ51Gk5jjB4qD-BkcDh_fhsE4HkfnLDblQPrQLaOY13u7v5MNoBea8JzZ5NZAa0G-gAcgY&usqp=CAU";
+                    }
+                    else {
+                        gender.src = "https://static.vecteezy.com/system/resources/thumbnails/002/586/938/small/woman-cartoon-character-portrait-brunette-female-round-line-icon-free-vector.jpg";
+                    }
                     lowTasks = document.querySelector("[data-low]");
                     mediumTasks = document.querySelector("[data-medium]");
                     highTasks = document.querySelector("[data-high]");
-<<<<<<< HEAD
-                    getUsersTasks(userId);
-=======
                     return [4 /*yield*/, Promise.all([handleGetUrgencies(userId)])];
                 case 2:
                     arr = _a.sent();
@@ -298,7 +285,6 @@ function handlePasswordCheck(password, userId) {
                     }
                     else
                         return [2 /*return*/, false];
->>>>>>> main
                     return [2 /*return*/];
             }
         });
@@ -306,11 +292,7 @@ function handlePasswordCheck(password, userId) {
 }
 function handlePageChange(ev) {
     return __awaiter(this, void 0, void 0, function () {
-<<<<<<< HEAD
-        var userURL, requestedPage, data, error_2;
-=======
-        var userURL, requestedPage, data, data, newURL, data, newURL, data, error_1;
->>>>>>> main
+        var userURL, requestedPage, data, data, newURL, data, newURL, data, error_2;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -318,7 +300,8 @@ function handlePageChange(ev) {
                     requestedPage = ev.target.outerText.split(" ").join("");
                     _a.label = 1;
                 case 1:
-                    _a.trys.push([1, 3, , 4]);
+                    _a.trys.push([1, 10, , 11]);
+                    if (!(requestedPage === "home")) return [3 /*break*/, 3];
                     return [4 /*yield*/, axios
                             .post("/users/nav", { userURL: userURL, requestedPage: requestedPage })
                             .then(function (response) {
@@ -327,15 +310,8 @@ function handlePageChange(ev) {
                         })];
                 case 2:
                     data = (_a.sent()).data;
-                    return [3 /*break*/, 4];
+                    _a.label = 3;
                 case 3:
-<<<<<<< HEAD
-                    error_2 = _a.sent();
-                    console.log("error in handleRenderPage:");
-                    console.log(error_2.message);
-                    return [3 /*break*/, 4];
-                case 4: return [2 /*return*/];
-=======
                     if (!(requestedPage === "settings")) return [3 /*break*/, 5];
                     return [4 /*yield*/, axios.post("/users/nav", {
                             userURL: userURL,
@@ -372,31 +348,18 @@ function handlePageChange(ev) {
                     _a.label = 9;
                 case 9: return [3 /*break*/, 11];
                 case 10:
-                    error_1 = _a.sent();
+                    error_2 = _a.sent();
                     console.log("error in handleRenderPage:");
-                    console.log(error_1.message);
+                    console.log(error_2.message);
                     return [3 /*break*/, 11];
                 case 11: return [2 /*return*/];
->>>>>>> main
             }
         });
     });
 }
-function handleGetUsersTasks(ev) {
+function getUsersTasks(userId, currentPage) {
     return __awaiter(this, void 0, void 0, function () {
-        var userURL, userId;
-        return __generator(this, function (_a) {
-            userURL = ev.target.baseURI;
-            userId = userURL.split("/")[1];
-            getUsersTasks(userId);
-            return [2 /*return*/];
-        });
-    });
-}
-// addGlobalEventListener(onload, '#landing__task-count',getUsersTasks(window.location.href), {})
-function getUsersTasks(userId) {
-    return __awaiter(this, void 0, void 0, function () {
-        var data, currentUsersTasks, error_2;
+        var data, currentUsersTasks, error_3;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -405,37 +368,24 @@ function getUsersTasks(userId) {
                 case 1:
                     data = (_a.sent()).data;
                     currentUsersTasks = data;
-<<<<<<< HEAD
-                    renderTasks(currentUsersTasks);
-=======
-                    console.log(currentUsersTasks);
                     renderTasks(currentUsersTasks, currentPage);
->>>>>>> main
                     return [3 /*break*/, 3];
                 case 2:
-                    error_2 = _a.sent();
+                    error_3 = _a.sent();
                     console.log("error in getUsersTasks:");
-                    console.log(error_2.message);
+                    console.log(error_3.message);
                     return [3 /*break*/, 3];
                 case 3: return [2 /*return*/];
             }
         });
     });
 }
-function renderTasks(currentUsersTasks) {
+function renderTasks(currentUsersTasks, currentPage) {
     return __awaiter(this, void 0, void 0, function () {
-        var html, tasksBoxes, tasksCount;
+        var html, formHtml, tasksRoot, tasksCount, counterRoot, tasksRoot, nextRoot, nextTask, formField;
         return __generator(this, function (_a) {
-            console.log(currentUsersTasks);
+            sortTasksByDate(currentUsersTasks);
             html = "";
-<<<<<<< HEAD
-            tasksBoxes = document.querySelector("[data-box-root]");
-            tasksCount = document.querySelector("[data-task-count]");
-            currentUsersTasks.forEach(function (task) {
-                html += "\n  <div class=\"box " + task.urgency + "\">\n                        <div id=\"box__flex\">\n                            <div class=\"box__header\">\n                                <div class=\"box__title\">\n                                    <p class=\"box__title-text box__title-home-text\">" + task.title + "</p>\n                                </div>\n                            </div>\n                            <div class=\"box__expln box__expln-home\">\n                                <div class=\"flex-date\">\n                                    <i class=\"material-icons\">schedule</i>\n                                    <p>" + task.date + "</p>\n                                </div>\n                            </div>\n                            <h4>" + task.urgency + " priority</h4>\n                        </div>\n                    </div>";
-            });
-            tasksBoxes.innerHTML = html;
-=======
             formHtml = "";
             try {
                 if (currentPage === "Home") {
@@ -483,7 +433,6 @@ function renderTasks(currentUsersTasks) {
                 console.log(error);
                 console.error(error.message);
             }
->>>>>>> main
             return [2 /*return*/];
         });
     });
@@ -495,8 +444,6 @@ function addGlobalEventListener(type, selector, callback, options, parent) {
             callback(e);
     }, options);
 }
-<<<<<<< HEAD
-=======
 function sortTasksByDate(tasks) {
     tasks.forEach(function (task) {
         var year = new Date(task.date).getFullYear();
@@ -571,7 +518,7 @@ function handleNewTask(ev) {
 }
 function handleTaskUpdate(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var color, title, urgency, description, location, date, taskId, userId, data, currentUsersTasks, error_3;
+        var color, title, urgency, description, location, date, taskId, userId, data, currentUsersTasks, error_4;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -604,9 +551,9 @@ function handleTaskUpdate(ev) {
                     closeTaskModal();
                     return [3 /*break*/, 4];
                 case 3:
-                    error_3 = _a.sent();
+                    error_4 = _a.sent();
                     console.log("error in handleTaskUpdate");
-                    console.log({ error: error_3.message });
+                    console.log({ error: error_4.message });
                     return [3 /*break*/, 4];
                 case 4: return [2 /*return*/];
             }
@@ -615,7 +562,7 @@ function handleTaskUpdate(ev) {
 }
 function handleTaskCheck(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var timeChecked, taskId, userId, data, currentUsersTasks, error_4;
+        var timeChecked, taskId, userId, data, currentUsersTasks, error_5;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -634,9 +581,9 @@ function handleTaskCheck(ev) {
                     renderTasks(currentUsersTasks, "RecentlyCreated");
                     return [3 /*break*/, 3];
                 case 2:
-                    error_4 = _a.sent();
+                    error_5 = _a.sent();
                     console.log("error in handleTaskCheck");
-                    console.log({ error: error_4.message });
+                    console.log({ error: error_5.message });
                     return [3 /*break*/, 3];
                 case 3: return [2 /*return*/];
             }
@@ -645,7 +592,7 @@ function handleTaskCheck(ev) {
 }
 function handleTaskDelete(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var taskId, userURL, data, currentUsersTasks, currentPage, error_5;
+        var taskId, userURL, data, currentUsersTasks, currentPage, error_6;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -663,9 +610,9 @@ function handleTaskDelete(ev) {
                     renderTasks(currentUsersTasks, currentPage);
                     return [3 /*break*/, 4];
                 case 3:
-                    error_5 = _a.sent();
+                    error_6 = _a.sent();
                     console.log("error in handleTaskDelete");
-                    console.log({ error: error_5.message });
+                    console.log({ error: error_6.message });
                     return [3 /*break*/, 4];
                 case 4: return [2 /*return*/];
             }
@@ -704,7 +651,7 @@ function closeTaskModal() {
 }
 function renderTaskModal(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var taskId, modal, html, data, currentTask, error_6;
+        var taskId, modal, html, data, currentTask, error_7;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -726,13 +673,12 @@ function renderTaskModal(ev) {
                     openTaskModal(modal);
                     return [3 /*break*/, 4];
                 case 3:
-                    error_6 = _a.sent();
-                    console.log(error_6.message);
-                    console.log(error_6);
+                    error_7 = _a.sent();
+                    console.log(error_7.message);
+                    console.log(error_7);
                     return [3 /*break*/, 4];
                 case 4: return [2 /*return*/];
             }
         });
     });
 }
->>>>>>> main
