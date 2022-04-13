@@ -3,6 +3,8 @@ import jwt from "jwt-simple";
 
 const secret = process.env.JWT_SECRET;
 
+
+
 export const addUser = async (req, res) => {
   try {
     let { firstName, lastName, email, password, role, gender } = req.body;
@@ -23,7 +25,7 @@ export const addUser = async (req, res) => {
         res.send({ result });
         return;
       }
-      res.send({aUser})
+      res.send({ aUser });
     } else throw new Error(`You've missed something`);
   } catch (error) {
     console.error(error);
@@ -33,7 +35,6 @@ export const addUser = async (req, res) => {
 
 export const login = async (req, res) => {
   let { email, password } = req.body;
-
 
   try {
     const currentLogin = await user
@@ -54,10 +55,10 @@ export const login = async (req, res) => {
         if (verifiedUser.length === 1) {
           const userId = userVerification._id.toString();
           const userRole = userVerification.role;
-          const payload = { userId, userRole}
-          const information  = jwt.encode(payload, secret)
-          res.cookie("currentUser", information, {});
-          res.send({ ok: true, currentLogin, verifiedUser, userId });
+          const payload = { userId, userRole };
+          const information = jwt.encode(payload, secret);
+          res.cookie("currentUsersInfo", information, {});
+          res.send({ ok: true, userId });
           return;
         }
         res.send({ aUser: true });
@@ -76,26 +77,25 @@ export const login = async (req, res) => {
 };
 
 export const renderUser = async (req, res) => {
-  const {currentUser} = req.cookies;
-  const decoded = jwt.decode(currentUser, secret)
-  console.log(decoded);
-  
-const {userId, userRole} = decoded;
+  const { currentUsersInfo } = req.cookies;
+  if(currentUsersInfo) {
+  const decoded = jwt.decode(currentUsersInfo, secret);
 
+  const { userId, userRole } = decoded;
   const userInfo = await user.find({ _id: userId });
 
   res.send({ userInfo: userInfo, decoded });
+  
+} else{ res.redirect('/')}
+
 };
 
 export const renderPage = async (req, res) => {
   const { userURL, requestedPage } = req.body;
-
-
-  const appURL = userURL.split("/")[2];
+  const {currentUsersInfo} = req.cookies;
   const userId = userURL.slice(-24);
   const currentUser = await user.find({ _id: userId });
   const newURL = `/${requestedPage}.html?id=${userId}`;
-
 
   let { firstName, lastName, gender, role, email, password } = currentUser[0];
 
@@ -215,7 +215,6 @@ export const updateUser = async (req, res) => {
     if (updateStatus === 1) {
       const updatedUser = await user.find({ _id: userId });
 
-
       res.send({ updatedUser: updatedUser });
       return;
     }
@@ -228,3 +227,4 @@ export const updateUser = async (req, res) => {
     res.send({ error: error.message });
   }
 };
+

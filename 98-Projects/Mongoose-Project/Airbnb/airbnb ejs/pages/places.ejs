@@ -3,7 +3,7 @@
 
 <head>
     <%- include('./components/head') %>
-        <link rel="stylesheet" href="./dist/style.css">
+        <link rel="stylesheet" href="../dist/style.css">
 </head>
 
 <body>
@@ -28,50 +28,55 @@
         <div class="card-map">
             <iframe
                 src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d26081603.294420466!2d-95.677068!3d37.06250000000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1siw!2s!4v1648657793371!5m2!1siw!2s"
-                 allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
         </div>
 
-        <div class="airbnbOptions"  onclick="location.href='place.ejs'">
+        <div class="airbnbOptions" onclick="location.href='place.ejs'">
 
 
             <% if (getplaces) { %>
 
                 <% getplaces.forEach(place=> { %>
-                    <div class="airbnbOptions__container" action="/places/getToPlace" method="GET" >
-                        <div class="airbnbOptions__container__img">
-                            <img src="<%- place.images %>"></img>
-                        </div>
-                        <div class="airbnbOptions__container__content">
-                            <div class="airbnbOptions__container__content__namePlace">                                
-                                
-                                    <h3><%- place.name %></h3>
-                                    <h5>accommodates:<%- place.accommodates %></h5>
-                               
-                                <p>
-                                    <%- place.address_country_code %>, <%- place.address_country%>
-                                </p>
-                            </div>
-                            <div class="airbnbOptions__container__content__description">
-                                <p>
-                                    <%- place.description%>
-                                </p>
-                            </div>
-                            <div class="airbnbOptions__container__content__priceRating">
-                                <button class="btn btn-outline">
-                                    <%- place.price %>
-                                </button>
-                                <button class="btn btn-outline">
-                                   
-                                        <%- place.reviews_rating%>
-                                    
-
-                                </button>
-                            </div>
-
-                        </div>
+                    <a href="/places/getToPlace/<%- place._id %>">
+                        <%- place._id %>
+                    </a>
+                    <!-- <div class="airbnbOptions__container" action="/places/getToPlace" method="GET"> -->
+                    <div class="airbnbOptions__container__img">
+                        <img src="<%- place.images %>"></img>
                     </div>
+                    <div class="airbnbOptions__container__content">
+                        <div class="airbnbOptions__container__content__namePlace">
+
+                            <h3>
+                                <%- place.name %>
+                            </h3>
+                            <h5>accommodates:<%- place.accommodates %>
+                            </h5>
+
+                            <p>
+                                <%- place.address_country_code %>, <%- place.address_country%>
+                            </p>
+                        </div>
+                        <div class="airbnbOptions__container__content__description">
+                            <p>
+                                <%- place.description%>
+                            </p>
+                        </div>
+                        <div class="airbnbOptions__container__content__priceRating">
+                            <button class="btn btn-outline">
+                                <%- place.price %>
+                            </button>
+                            <button class="btn btn-outline">
+
+                                <%- place.reviews_rating%>
+
+
+                            </button>
+                        </div>
+
+                    </div>
+                    <!-- </div> -->
                     <% }) %>
                         <% } %>
 
@@ -81,9 +86,9 @@
     <div class="bottomBar">
         <%- include('./components/bottomBar') %>
     </div>
-    <p class="airbnbRights" >© 2022 Airbnb, Inc.Privacy·Terms·Sitemap</p>
+    <p class="airbnbRights">© 2022 Airbnb, Inc.Privacy·Terms·Sitemap</p>
 
-    <script src="dist/index.js"></script>
+    <script src="../dist/index.js"></script>
 </body>
 
 </html>

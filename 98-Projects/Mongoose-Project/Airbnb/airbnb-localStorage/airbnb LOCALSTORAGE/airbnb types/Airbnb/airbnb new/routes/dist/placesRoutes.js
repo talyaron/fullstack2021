@@ -10,7 +10,7 @@ var placesCont_5 = require("../controler/placesCont");
 // import { getPlaces } from '../controler/placesCont'
 var placesCont_6 = require("../controler/placesCont");
 router
-    // .get('/getPlaces', getPlaces)
+    //   .get('/getPlaces', getPlaces)
     .get('/getFiltered', placesCont_6.getfilteredAirBNB)
     .post('/addPlaces', placesCont_1.addPlaces)
     .get('/getToPlace', placesCont_2.getToPlace)

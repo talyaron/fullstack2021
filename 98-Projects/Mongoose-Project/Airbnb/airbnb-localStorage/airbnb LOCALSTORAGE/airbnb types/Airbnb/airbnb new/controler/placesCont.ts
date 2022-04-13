@@ -2,13 +2,11 @@ import Places from "../model/placesModel";
 
 // export const getPlaces = async (req, res) => {
 //   try {
-//     const places = await Places.find({});
+//     const getplaces = await Places.find({});
 //     // .limit(20);
-//     console.log(Places);
+//     console.log(getPlaces);
 
-//     console.log(places);
-
-//     res.send({ ok: true, places });
+//     res.send({ ok: true, getplaces });
 //   } catch (error) {
 //     console.error(error);
 //     res.send({ error: "error in app.get/getPlaces" });
@@ -91,12 +89,15 @@ export const addPlaces = async (req, res) => {
 export const getToPlace = async (req, res) => {
   try {
     const { placeId } = req.body;
-    const __id = req.body;
-    if (__id == placeId) {
-    //  res.send(placeId);
-      res.render('place',{
-        placeId
-      })
+    const _id = req.body;
+    if (_id == placeId) {
+      const getplaces = await Places.find({_id:placeId }).limit(3);
+
+
+   res.send(getplaces);
+    //   res.render('place',{
+    //     getplaces
+    //   })
     } else {
       throw new Error("placeId is not the same as the __id");
     }

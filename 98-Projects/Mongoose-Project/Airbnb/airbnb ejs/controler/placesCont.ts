@@ -90,23 +90,42 @@ export const addPlaces = async (req, res) => {
 };
 export const getToPlace = async (req, res) => {
   try {
-    const { placeId } = req.query;
-    const __id = req.query;
-    if (placeId==__id) {
-      let placesId = await Places.findOne({ __id:placeId}).limit(10)
-    //  res.send(placeId);
-      res.render('place',{
-        title:"The Place",
+    console.log(req.params)
+    const { id } = req.params
+    if (id) {
+      let placesId = await Places.findOne({ _id: id }).limit(10)
+      console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!')
+      console.log(placesId)
+      console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!')
+
+      res.render('place', {
+        title: "The Place",
         placesId
       })
-    } else {
-      throw new Error("placeId is not the same as the __id");
     }
+
+
+    // const { placeId } = req.query;
+    // const __id = req.query;
+
+    // console.log(req.query)
+    // console.log(req.params)
+    // if (placeId == __id) {
+    //   let placesId = await Places.findOne({ __id: placeId }).limit(10)
+    //   //  res.send(placeId);
+    //   res.render('place', {
+    //     title: "The Place",
+    //     placesId
+    // })
+    // } else {
+    // throw new Error("placeId is not the same as the __id");
+    // }
   } catch (error) {
     console.log(error.error);
     res.send({ error: error.massage });
   }
 };
+
 export const findPlaceMap = async (req, res) => {
   try {
     let coordinates: Array<any> = req.body;
@@ -140,9 +159,9 @@ export const searchAirbnb = async (req, res) => {
 
     console.log(getplaces)
     // res.send({ ok: true, places });
-      res.render('places', {
-        title:"Search",
-        getplaces
+    res.render('places', {
+      title: "Search",
+      getplaces
     })
     // console.log(places)
   } catch (error) {
@@ -154,69 +173,71 @@ export const searchAirbnb = async (req, res) => {
 export const searchAirbnbByCity = async (req, res) => {
 
   // const placesInTelaviv = await Places.find({"address.country":{ $eq:"Brazil"}}).limit(20);
-  let { TelAviv= "Tel Aviv", Eilat = "Eilat", Jerusalem = "Jerusalem", HareiYehuda="Harei Yehuda" } = req.query;
+  // let { TelAviv = "Tel Aviv", Eilat = "Eilat", Jerusalem = "Jerusalem", HareiYehuda = "Harei Yehuda" } = req.query;
 
-// let TelAvivP = await Places.find({ address_country:TelAviv}).limit(10)
-// let EilatP = await Places.find({ address_country:Eilat}).limit(10)
-// let JerusalemP = await Places.find({ address_country:Jerusalem}).limit(10)
-// let HareiYehudaP = await Places.find({ address_country:HareiYehuda}).limit(10)
- if(Eilat){
-  let getplaces = await Places.find({ address_country:Eilat}).limit(10)
-res.render("places",{
-  title:"Search",
- 
-  getplaces
-  
-  
-})
-}
-else if(TelAviv){
-  let getplaces = await Places.find({ address_country:TelAviv}).limit(10)
-res.render("places",{
-  title:"Search",
- 
-  getplaces
-  
-  
-})
-}
+  let TelAviv = "Tel Aviv";
+  let Eilat = "Eilat";
+  let Jerusalem = "Jerusalem";
+  let HareiYehuda = "Harei Yehuda";
 
-else if(Jerusalem){
-  let getplaces = await Places.find({ address_country:Jerusalem}).limit(10)
-res.render("places",{
-  title:"Search",
- 
-  getplaces
-  
-  
-})
-}
-else if(HareiYehuda){
-  let getplaces = await Places.find({ address_country:HareiYehuda}).limit(10)
-res.render("places",{
-  title:"Search",
- 
-  getplaces
-  
-  
-})
-}
-// let getplaces = await Places.find({ address_country:(TelAviv||Eilat||Jerusalem||HareiYehuda)}).limit(10)
-// res.render("places",{
-//   title:"Search",
- 
-//   getplaces
-  
-  
-// })
- 
-//let getplaces = { TelAviv, Eilat, Jerusalem, HareiYehuda }
+  console.log(req.query)
+
+  console.log(Object.keys(req.query).includes('Eilat.x'))
+  console.log(Object.keys(req.query).includes('TelAviv.x'))
+  console.log(Object.keys(req.query).includes('Jerusalem.x'))
+  console.log(Object.keys(req.query).includes('HareiYehuda.x'))
+
+  // let TelAvivP = await Places.find({ address_country:TelAviv}).limit(10)
+  // let EilatP = await Places.find({ address_country:Eilat}).limit(10)
+  // let JerusalemP = await Places.find({ address_country:Jerusalem}).limit(10)
+  // let HareiYehudaP = await Places.find({ address_country:HareiYehuda}).limit(10)
+  if (Object.keys(req.query).includes('Eilat.x')) {
+    let getplaces = await Places.find({ address_country: Eilat }).limit(10)
+    res.render("places", {
+      title: "Search",
+      getplaces
+    })
+  }
+  else if (Object.keys(req.query).includes('TelAviv.x')) {
+    let getplaces = await Places.find({ address_country: TelAviv }).limit(10)
+    res.render("places", {
+      title: "Search",
+      getplaces
+    })
+  }
+
+  else if (Object.keys(req.query).includes('Jerusalem.x')) {
+    let getplaces = await Places.find({ address_country: Jerusalem }).limit(10)
+    res.render("places", {
+      title: "Search",
+      getplaces
+    })
+  }
+  else if (Object.keys(req.query).includes('HareiYehuda.x')) {
+    let getplaces = await Places.find({ address_country: HareiYehuda }).limit(10)
+    res.render("places", {
+      title: "Search",
+      getplaces
+    })
+  }
+
+
+  // let getplaces = await Places.find({ address_country:(TelAviv||Eilat||Jerusalem||HareiYehuda)}).limit(10)
+  // res.render("places",{
+  //   title:"Search",
+
+  //   getplaces
+
+
+  // })
+
+  //let getplaces = { TelAviv, Eilat, Jerusalem, HareiYehuda }
   //  res.render("places",{
   //   title:"Search",
-   
+
   //   getplaces:await Places.find({ address_country:"Eilat" }).limit(10)
   // })
- 
+
 
 
   // const airbnbInCity = await Places.find({ address_country: Eilat }).limit(3);
