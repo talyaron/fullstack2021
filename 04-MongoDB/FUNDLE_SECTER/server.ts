@@ -1,9 +1,10 @@
+
+require('dotenv').config()
+
 import express from 'express';
 import mongoose from "mongoose";
 import userRoutes from "./routes/userRoutes"
 import wordRoutes from "./routes/wordRoutes"
-
-require('dotenv').config()
 
 console.log(process.env.ENV)
 

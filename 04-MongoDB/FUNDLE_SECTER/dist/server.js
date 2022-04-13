@@ -1,10 +1,10 @@
 "use strict";
 exports.__esModule = true;
+require('dotenv').config();
 var express_1 = require("express");
 var mongoose_1 = require("mongoose");
 var userRoutes_1 = require("./routes/userRoutes");
 var wordRoutes_1 = require("./routes/wordRoutes");
-require('dotenv').config();
 console.log(process.env.ENV);
 var cookieParser = require('cookie-parser');
 var app = express_1["default"]();

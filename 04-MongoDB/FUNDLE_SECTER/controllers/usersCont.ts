@@ -2,30 +2,19 @@
 import FundleUser from "../model/usersModel"
 import jwt from "jwt-simple";
 
-// const secret:any = process.env.JWT_SECRET;
-const secret:any = '12345';
+const secret:any = process.env.JWT_SECRET;
+// const secret:any = '12345';
 
 export async function loadUser(req: any, res: any) {
     try {
 
-        const { userInfo } = req.cookies;
-        console.log('userinfo' + userInfo)
-        console.log('server data: ' + userInfo.username)
-
-       
+        const { userInfo } = req.cookies;       
         const decoded = jwt.decode(userInfo, secret);
-        console.log('decoded' + decoded)
         if (decoded) {
             res.send(decoded)
         }else{
             res.send('noLog')
         }
-
-
-        //to find and show all users:
-        // const allUsers = await FundleUser.find({});
-        // console.log('allUsers: ' + allUsers)
-        // res.send({allUsers})
 
     } catch (error) {
 

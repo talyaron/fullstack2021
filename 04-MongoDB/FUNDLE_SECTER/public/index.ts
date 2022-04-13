@@ -456,6 +456,7 @@ btn.addEventListener('click', async () => {
 async function renderStats(username) {
 
     if (username) {
+        
         const { data } = await axios.get(`users/get-user?username=${username}`)
 
 
