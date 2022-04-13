@@ -416,6 +416,10 @@ body {
     left: -400%;
   }
 }
+#rootPlace {
+  width: 50%;
+  margin: auto;
+}
 #rootPlace .mainUppear {
   display: flex;
   gap: 5px;
@@ -426,22 +430,10 @@ body {
   gap: 5px;
   flex-direction: row;
 }
-#rootPlace .mainUppear__photoGrid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-}
-#rootPlace .mainUppear__photoGrid--bigPhoto {
-  grid-column-start: 1;
-  grid-column-end: 3;
-  grid-row-start: 1;
-  grid-row-end: 3;
-}
-#rootPlace .mainUppear__photoGrid--photo {
-  grid-column-start: 3;
-  grid-column-end: 4;
-  grid-row-start: 1;
-  grid-row-end: 2;
+#rootPlace .mainUppear__photoGrid img {
+  border-radius: 20%;
+  width: 100px;
+  height: 400px;
 }
 #rootPlace .mainMiddle {
   display: flex;
@@ -453,46 +445,33 @@ body {
   gap: 5px;
   flex-direction: row;
 }
+#rootPlace .mainMiddle__left--great h5 {
+  word-wrap: break-word;
+}
 #rootPlace .mainMiddle__left--up {
   display: flex;
   gap: 5px;
   flex-direction: column;
+}
+#rootPlace .mainMiddle__left--up--profile {
+  display: flex;
+  gap: 5px;
+  flex-direction: row-reverse;
 }
 #rootPlace .mainMiddle__left--up--profile img {
   width: 56px;
   height: 56px;
   border-radius: 100%;
 }
-#rootPlace .mainMiddle__left--aboutUs p {
-  font-size: 16px;
-}
-#rootPlace .mainMiddle__left--aboutUs a {
-  border-radius: 10px;
-  border: 1px solid black;
-  background-color: transparent;
-}
 #rootPlace .mainMiddle__left--bed {
   display: flex;
   gap: 5px;
-  flex-direction: row;
 }
-#rootPlace .mainMiddle__left--bed--box {
-  border: 1px solid black;
-  background-color: transparent;
-  border-radius: 10px;
-  display: flex;
-  gap: 3px;
-  flex-direction: row;
-}
-#rootPlace .mainMiddle__left--list ul {
+#rootPlace .mainMiddle__left--list p {
   text-decoration: none;
   display: flex;
   gap: 10px;
   flex-direction: column;
-}
-#rootPlace .mainMiddle__left--date {
-  border: 1px solid black;
-  border-radius: 10px;
 }
 #rootPlace .reviews {
   display: grid;
@@ -505,7 +484,7 @@ body {
   flex-direction: row;
   gap: 3px;
 }
-#rootPlace .reviews__review .theReview p {
+#rootPlace .reviews__review p {
   font-size: 16px;
 }
 #rootPlace #map {
@@ -546,13 +525,10 @@ body {
   height: 56px;
   border-radius: 100%;
 }
-#rootPlace .aboutHost--left--about p {
-  font-size: 16px;
-}
 #rootPlace .aboutHost--right {
   display: flex;
   gap: 5px;
-  flex-direction: row;
+  flex-direction: column;
 }
 #rootPlace .aboutHost--right .payment p {
   font-size: 16px;
@@ -565,7 +541,7 @@ body {
 #rootPlace .toKnow ul {
   display: flex;
   gap: 5px;
-  flex-direction: row;
+  flex-direction: column;
 }
 #rootPlace .toKnow ul p {
   font-size: 16px;
@@ -573,13 +549,8 @@ body {
 #rootPlace .toKnow ul li {
   text-decoration: none;
 }
-#rootPlace .toKnow__cancle p {
+#rootPlace .toKnow__cancle {
   font-size: 16px;
-}
-#rootPlace .toKnow__cancle button {
-  background-color: transparent;
-  border: 1px solid black;
-  border-radius: 5px;
 }
 
 .header-filter {

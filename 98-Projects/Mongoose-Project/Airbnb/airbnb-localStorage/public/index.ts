@@ -50,7 +50,7 @@ function renderPlace(data) {
             <h3>${data.price}$</h3>
         </div>
         <div class="mainUpper__photoGrid">
-            <div class="mainUpper__photoGrid--bigPhoto"><img src="${data.images}" alt=""></div>
+            <img src="${data.images}" alt="">
 
         </div>
 
@@ -61,7 +61,7 @@ function renderPlace(data) {
                 <div class="mainMiddle__left--up--title">
                     <h2>entire rental unit hosted by ${data.host_name}</h2>
                 </div>
-                <h6>${data.accommodates} <span>&#8226;</span> ${data.bedrooms} <span>&#8226;</span> ${data.beds}<span>&#8226;</span>${data.bathrooms}</h6>
+                <h4>accommadates: ${data.accommodates} <span>&#8226;</span> bedroom: ${data.bedrooms} <span>&#8226;</span> beds: ${data.beds} <span>&#8226;</span> bathroom: ${data.bathrooms}</h4>
             </div>
             <div class="mainMiddle__left--up--profile">
                 <img src="${data.host_picture_url}">
@@ -71,17 +71,13 @@ function renderPlace(data) {
             <h5>${data.description}</h5>
         </div>
         <div class="mainMiddle__left--bed">
-            <h2>where you'll sleep</h2>
-            <div class="mainMiddle__left--bed--box">
-                <i class="fa-thin fa-bed-front"></i>
-                <h5>${data.bed_type}</h5>
-            </div>
+            <h2>where you'll sleep:${data.bed_type}</h2>
         </div>
         <div class="mainMiddle__left--list">
             <h2>what this data offers</h2>
-            <ul>
+            <p>
                 ${data.amenities}
-            </ul>
+            </p>
 
         </div>
 
@@ -166,8 +162,8 @@ function renderPlace(data) {
 
         </ul>
         <div class="toKnow__cancle">
-            <h5>cancellation policy</h5>
-            <p>${data.cancle}</p>
+            <h5>cancellation policy: ${data.cancle}</h5>
+          
 
         </div>
 
