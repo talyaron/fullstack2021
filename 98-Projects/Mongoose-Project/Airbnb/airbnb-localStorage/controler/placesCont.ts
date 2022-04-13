@@ -1,17 +1,6 @@
 import Places from "../model/placesModel";
 
-// export const getPlaces = async (req, res) => {
-//   try {
-//     const getplaces = await Places.find({});
-//     // .limit(20);
-//     console.log(getPlaces);
 
-//     res.send({ ok: true, getplaces });
-//   } catch (error) {
-//     console.error(error);
-//     res.send({ error: "error in app.get/getPlaces" });
-//   }
-// };
 export const getfilteredAirBNB = async (req, res) => {
   try {
     let price1 = req.body;
@@ -32,72 +21,18 @@ export const getfilteredAirBNB = async (req, res) => {
   }
 };
 
-export const addPlaces = async (req, res) => {
-  try {
-    let {
-      name,
-      summary,
-      checkIn,
-      checkOut,
-      accommodates,
-      amenities,
-      bedrooms,
-      beds,
-      number_of_reviews,
-      price,
-      cancle,
-      bathrooms,
-      images,
-      host,
-      space,
-      description,
-      bed_type,
-      reviews,
-      cancellation_policy,
-      address,
-    } = req.body;
-    const newPlace = new Places({
-      name,
-      summary,
-      checkIn,
-      checkOut,
-      accommodates,
-      amenities,
-      bedrooms,
-      beds,
-      number_of_reviews,
-      price,
-      cancle,
-      bathrooms,
-      images,
-      host,
-      space,
-      description,
-      bed_type,
-      reviews,
-      cancellation_policy,
-      address,
-    });
 
-    const result = await newPlace.save();
-    res.send({ ok: true, result });
-  } catch (error) {
-    console.error(error);
-    res.send({ error: error.massage });
-  }
-};
 export const getToPlace = async (req, res) => {
+ 
   try {
-    const { placeId } = req.body;
-    const _id = req.body;
+    const { placeId } = req.query;
+    const _id = req.query;
     if (_id == placeId) {
-      const getplaces = await Places.find({_id:placeId }).limit(3);
+      const getplaces = await Places.findOne({_id:placeId }).limit(1);
 
 
-   res.send(getplaces);
-    //   res.render('place',{
-    //     getplaces
-    //   })
+     res.send(getplaces);
+   
     } else {
       throw new Error("placeId is not the same as the __id");
     }
@@ -149,7 +84,7 @@ export const searchAirbnbByCity = async (req, res) => {
   
   let { city } = req.body;
 
-  const airbnbInCity = await Places.find({ address_country: city }).limit(3);
+  const getplaces = await Places.find({ address_country: city }).limit(3);
   
-  res.send({ ok: true, theCity: airbnbInCity });
+  res.send({ ok: true,getplaces });
 };

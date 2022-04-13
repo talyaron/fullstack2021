@@ -36,19 +36,8 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.searchAirbnbByCity = exports.searchAirbnb = exports.findPlaceMap = exports.getToPlace = exports.addPlaces = exports.getfilteredAirBNB = void 0;
+exports.searchAirbnbByCity = exports.searchAirbnb = exports.findPlaceMap = exports.getToPlace = exports.getfilteredAirBNB = void 0;
 var placesModel_1 = require("../model/placesModel");
-// export const getPlaces = async (req, res) => {
-//   try {
-//     const getplaces = await Places.find({});
-//     // .limit(20);
-//     console.log(getPlaces);
-//     res.send({ ok: true, getplaces });
-//   } catch (error) {
-//     console.error(error);
-//     res.send({ error: "error in app.get/getPlaces" });
-//   }
-// };
 exports.getfilteredAirBNB = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var price1, result, error_1;
     return __generator(this, function (_a) {
@@ -73,59 +62,16 @@ exports.getfilteredAirBNB = function (req, res) { return __awaiter(void 0, void 
         }
     });
 }); };
-exports.addPlaces = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, name, summary, checkIn, checkOut, accommodates, amenities, bedrooms, beds, number_of_reviews, price, cancle, bathrooms, images, host, space, description, bed_type, reviews, cancellation_policy, address, newPlace, result, error_2;
-    return __generator(this, function (_b) {
-        switch (_b.label) {
-            case 0:
-                _b.trys.push([0, 2, , 3]);
-                _a = req.body, name = _a.name, summary = _a.summary, checkIn = _a.checkIn, checkOut = _a.checkOut, accommodates = _a.accommodates, amenities = _a.amenities, bedrooms = _a.bedrooms, beds = _a.beds, number_of_reviews = _a.number_of_reviews, price = _a.price, cancle = _a.cancle, bathrooms = _a.bathrooms, images = _a.images, host = _a.host, space = _a.space, description = _a.description, bed_type = _a.bed_type, reviews = _a.reviews, cancellation_policy = _a.cancellation_policy, address = _a.address;
-                newPlace = new placesModel_1["default"]({
-                    name: name,
-                    summary: summary,
-                    checkIn: checkIn,
-                    checkOut: checkOut,
-                    accommodates: accommodates,
-                    amenities: amenities,
-                    bedrooms: bedrooms,
-                    beds: beds,
-                    number_of_reviews: number_of_reviews,
-                    price: price,
-                    cancle: cancle,
-                    bathrooms: bathrooms,
-                    images: images,
-                    host: host,
-                    space: space,
-                    description: description,
-                    bed_type: bed_type,
-                    reviews: reviews,
-                    cancellation_policy: cancellation_policy,
-                    address: address
-                });
-                return [4 /*yield*/, newPlace.save()];
-            case 1:
-                result = _b.sent();
-                res.send({ ok: true, result: result });
-                return [3 /*break*/, 3];
-            case 2:
-                error_2 = _b.sent();
-                console.error(error_2);
-                res.send({ error: error_2.massage });
-                return [3 /*break*/, 3];
-            case 3: return [2 /*return*/];
-        }
-    });
-}); };
 exports.getToPlace = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var placeId, _id, getplaces, error_3;
+    var placeId, _id, getplaces, error_2;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 4, , 5]);
-                placeId = req.body.placeId;
-                _id = req.body;
+                placeId = req.query.placeId;
+                _id = req.query;
                 if (!(_id == placeId)) return [3 /*break*/, 2];
-                return [4 /*yield*/, placesModel_1["default"].find({ _id: placeId }).limit(3)];
+                return [4 /*yield*/, placesModel_1["default"].findOne({ _id: placeId }).limit(1)];
             case 1:
                 getplaces = _a.sent();
                 res.send(getplaces);
@@ -133,9 +79,9 @@ exports.getToPlace = function (req, res) { return __awaiter(void 0, void 0, void
             case 2: throw new Error("placeId is not the same as the __id");
             case 3: return [3 /*break*/, 5];
             case 4:
-                error_3 = _a.sent();
-                console.log(error_3.error);
-                res.send({ error: error_3.massage });
+                error_2 = _a.sent();
+                console.log(error_2.error);
+                res.send({ error: error_2.massage });
                 return [3 /*break*/, 5];
             case 5: return [2 /*return*/];
         }
@@ -158,7 +104,7 @@ exports.findPlaceMap = function (req, res) { return __awaiter(void 0, void 0, vo
     });
 }); };
 exports.searchAirbnb = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, searchLocation, checkIn, checkOut, adults, children, infants, pets, sum, dateOfCheckIn, dateOfCheckOut, differenceInTime, differenceInDays, getplaces, error_4;
+    var _a, searchLocation, checkIn, checkOut, adults, children, infants, pets, sum, dateOfCheckIn, dateOfCheckOut, differenceInTime, differenceInDays, getplaces, error_3;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
@@ -179,24 +125,24 @@ exports.searchAirbnb = function (req, res) { return __awaiter(void 0, void 0, vo
                 res.send({ ok: true, getplaces: getplaces });
                 return [3 /*break*/, 3];
             case 2:
-                error_4 = _b.sent();
-                console.log(error_4.error);
-                res.send({ error: error_4.massage });
+                error_3 = _b.sent();
+                console.log(error_3.error);
+                res.send({ error: error_3.massage });
                 return [3 /*break*/, 3];
             case 3: return [2 /*return*/];
         }
     });
 }); };
 exports.searchAirbnbByCity = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var city, airbnbInCity;
+    var city, getplaces;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 city = req.body.city;
                 return [4 /*yield*/, placesModel_1["default"].find({ address_country: city }).limit(3)];
             case 1:
-                airbnbInCity = _a.sent();
-                res.send({ ok: true, theCity: airbnbInCity });
+                getplaces = _a.sent();
+                res.send({ ok: true, getplaces: getplaces });
                 return [2 /*return*/];
         }
     });

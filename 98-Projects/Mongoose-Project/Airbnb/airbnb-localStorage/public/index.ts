@@ -1,21 +1,15 @@
-function handleLoadPlaces(){
-  const data=getData()
-    //getData() 
-    // renderAirbnbOptions(data)
-    console.log(getData())
-    renderAirbnbOptions(data)
-    // window.location.href="places.html"
-     
-    
- 
-
+function handleLoadPlaces() {
+  const data = getData();
+  //getData()
+  // renderAirbnbOptions(data)
+  console.log(getData());
+  renderAirbnbOptions(data);
+  // window.location.href="places.html"
 }
 
-
-async function handleLoadPlace(data) {
+async function handleLoadPlace() {
   try {
-    //const { data } = await axios.get("/getToPlace");
-
+    const data = getData();
     console.log(data);
     renderPlace(data);
   } catch (error) {
@@ -23,226 +17,155 @@ async function handleLoadPlace(data) {
   }
 }
 
-async function handleGoToPlace(placeId) {
-  try{
-  const { data } = await axios.get("/places/goToPlace", { data: { placeId } });
-  storeData(data.getplaces);
-  if(data){
+async function handleGoToPlace( placeId) {
+ 
+  try {
     
-    window.location.href ="place.html"
-
+      const { data } = await axios.get("/places/goToPlace", {data: { placeId }});
+      storeData(data);
+      console.log(placeId);
+      if (data) {
+        window.location.href = "place.html";
+        handleLoadPlace();
+      }
+    
+  } catch (error) {
+    console.error(error.message);
   }
-}catch (error) {
-  console.error(error.message);
-}
-  // renderPlace(data);
 }
 
 function renderPlace(data: Array<any>) {
   try {
-    getData();
     const html = data
       .map((place) => {
-        return `<div class="mainUpper">
-      <div class="maiUpper__title">
-          <h1>${place.name}</h1>
-         <h3>${place.price}$</h3>
-      </div>
-      <div class="mainUpper__photoGrid">
-          <div class="mainUpper__photoGrid--bigPhoto"><img src="${place.images}" alt=""></div>
-          <div class="mainUpper__photoGrid--photo"><img src="${place.images}" alt=""></div>
-          <div class="mainUpper__photoGrid--photo"><img src="${place.images}" alt=""></div>
-              <div class="mainUpper__photoGrid--photo"><img src="${place.images}" alt=""></div>
-      </div>
-  
-  </div>
-  <div class="mainMiddle">
-      <div class="mainMiddle__left">
-          <div class="mainMiddle__left--up">
-              <div class="mainMiddle__left--up--title">   
-              <h2>entire rental unit hosted by ${place.host}</h2>
-          <h6>${place.accommodates} <span>&#8226;</span> ${place.bedrooms} <span>&#8226;</span> ${place.beds} <span>&#8226;</span>${place.bathrooms}</h6></div>
-          <div class="mainMiddle__left--up--profile">
-              <img src="${place.host}">
-          </div>
-      </div>
-      <div class="mainMiddle__left--great">
-          <h5>${place.description}</h5>
-      </div>
-      <div class="mainMiddle__left--bed">
-          <h2>where you'll sleep</h2>
-          <div class="mainMiddle__left--bed--box">
-              <i class="fa-thin fa-bed-front"></i>
-              <h5>${place.bed_type}</h5>
-          </div>
-      </div>
-      <div class="mainMiddle__left--list">
-          <h2>what this place offers</h2>
-          <ul>
-        
-          ${place.amenities}
-          </ul>
-          <button>show all 12 amenities</button>
-      </div>
-      <div class="mainMiddle__left--date">
-          <input type="date" id="birthday" name="birthday">
-      </div>
-      </div>
-     
-  </div>
-  <div class="reviews">
-       <h3>review</h3>
-     <div class="reviews__review">
-        <div class="name">
-        <h5>
-          ${place.reviews.reviewer_name}
-          </h5>
+        return ` <div class="mainUpper">
+        <div class="maiUpper__title">
+            <h1>${place.name}</h1>
+            <h3>${place.price}$</h3>
         </div>
-        <div class="year">
-        <h6>
-        ${place.reviews.date}
-        </h6>
+        <div class="mainUpper__photoGrid">
+            <div class="mainUpper__photoGrid--bigPhoto"><img src="${place.images}" alt=""></div>
+
         </div>
-        <div class="theReview">
-            <p>${place.reviews.comments}
-              </p>
-          </div>
-   </div> 
-   <div class="reviews__review">
-   <div class="name">
-   <h5>
-     ${place.reviews.reviewer_name}
-     </h5>
-   </div>
-   <div class="year">
-   <h6>
-   ${place.reviews.date}
-   </h6>
-   </div>
-   <div class="theReview">
-       <p>${place.reviews.comments}
-         </p>
-     </div>
-  </div> 
-  <div class="reviews__review">
-        <div class="name">
-        <h5>
-          ${place.reviews.reviewer_name}
-          </h5>
+
+    </div>
+    <div class="mainMiddle">
+        <div class="mainMiddle__left">
+            <div class="mainMiddle__left--up">
+                <div class="mainMiddle__left--up--title">
+                    <h2>entire rental unit hosted by ${place.host_name}</h2>
+                </div>
+                <h6>${place.accommodates} <span>&#8226;</span> ${place.bedrooms} <span>&#8226;</span> ${place.beds}<span>&#8226;</span>${place.bathrooms}</h6>
+            </div>
+            <div class="mainMiddle__left--up--profile">
+                <img src="${place.host_picture_url}">
+            </div>
         </div>
-        <div class="year">
-        <h6>
-        ${place.reviews.date}
-        </h6>
+        <div class="mainMiddle__left--great">
+            <h5>${place.description}</h5>
         </div>
-        <div class="theReview">
-            <p>${place.reviews.comments}
-              </p>
-          </div>
-   </div> 
-   <div class="reviews__review">
-        <div class="name">
-        <h5>
-          ${place.reviews.reviewer_name}
-          </h5>
+        <div class="mainMiddle__left--bed">
+            <h2>where you'll sleep</h2>
+            <div class="mainMiddle__left--bed--box">
+                <i class="fa-thin fa-bed-front"></i>
+                <h5>${place.bed_type}</h5>
+            </div>
         </div>
-        <div class="year">
-        <h6>
-        ${place.reviews.date}
-        </h6>
+        <div class="mainMiddle__left--list">
+            <h2>what this place offers</h2>
+            <ul>
+                ${place.amenities}
+            </ul>
+
         </div>
-        <div class="theReview">
-            <p>${place.reviews.comments}
-              </p>
-          </div>
-   </div> 
-  </div>
-  <div id="map">
-  <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d26081603.294420466!2d-95.677068!3d37.06250000000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1siw!2s!4v1648657793371!5m2!1siw!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-  </div>
-  <div class="aboutHost">
-      <div class="aboutHost--left">
-          <div class="aboutHost--left--profileHost">
-              <img src="${place.host}" alt="" style="width:50px; height:50px; border-radius:100%;">
-          </div>
-          <div class="aboutHost--left--title">
-              <h2>
-                  hosted by ${place.host}
-              </h2>
-          </div>
-          <div class="aboutHost--left--review">
-              <p><span><i class="fa-solid fa-star"></i></span>${place.number_of_reviews} reviews</p>
-              <p><span><i class="fa-solid fa-square-check"></i></span> host is verified: ${place.host.host_identity_verified}</p>
-          </div>
-          <div class="aboutHost--left--about">
-              <p>
-                 ${place.host.host_about}
-              </p>
-          </div>
-      </div>
-      <div class="aboutHost--right">
-          <h5>
-              languages: english, francais, hebrew
-          </h5>
-          <h5>
-              response rate: ${place.reviews_rating}
-          </h5>
-          <h5>
-              response time: ${place.reviews_rating}
-          </h5>
-          <button>
-              contact host
-          </button>
-          <p class="payment">
-              To protect your payment, never transfer money or communicate outside of the Airbnb website or app.
-          </p>
-      </div>
-  </div>
-  <div class="toKnow">
-      <h2>things to know</h2>
-      <ul>
-          <p>house rule</p>
-          <li>
-              Check-in: 4:00 PM - 10:00 PM
-          </li>
-          <li>
-              Checkout: 11:00 AM
-          </li>
-          <li>
-              No smoking
-          </li>
-          <li>
-              No pets
-          </li>
-          <li>
-              No parties or events
-          </li>
-          <button>shoe more</button>
-      </ul>
-      <ul>
-          <p>health &safety</p>
-          <li>
-              Airbnb's social-distancing and other COVID-19-related guidelines apply 
-          </li>
-          <li>
-              
-  Carbon monoxide alarm not reported Show more
-          </li>
-          <li>
-              Smoke alarm not reported Show more
-          </li>
-          <li>
-              Security Deposit - if you damage the home, you may be charged up to ₪2500
-          </li>
-          <button>show more</button>
-      </ul>
-      <div class="toKnow__cancle">
-          <h5>cancellation policy</h5>
-          <p>${place.cancel}</p>
-          <button>add dates</button>
-      </div>
-      
-  </div>`;
+
+    </div>
+
+    
+    <div class="reviews">
+        <h3>review</h3>
+        <div class="reviews__review">
+            <p>${place.reviews}</p>
+        </div>
+
+    </div>
+    <div id="map">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d26081603.294420466!2d-95.677068!3d37.06250000000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1siw!2s!4v1648657793371!5m2!1siw!2s"
+            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div class="aboutHost">
+        <div class="aboutHost--left">
+            <div class="aboutHost--left--profileHost">
+                <img src="${place.host_picture_url}" alt="" style="width:50px; height:50px; border-radius:100%;">
+            </div>
+            <div class="aboutHost--left--title">
+                <h2>
+                    hosted by ${place.host_name}
+                </h2>
+            </div>
+
+        </div>
+        <div class="aboutHost--right">
+            <h5>
+                languages: english, francais, hebrew
+            </h5>
+            <h5>
+                response rate: ${place.reviews_rating}
+            </h5>
+
+
+            <p class="payment">
+                To protect your payment, never transfer money or communicate outside of the Airbnb website or app.
+            </p>
+        </div>
+    </div>
+    <div class="toKnow">
+        <h2>things to know</h2>
+        <ul>
+            <p>house rule</p>
+            <li>
+                Check-in: 4:00 PM - 10:00 PM
+            </li>
+            <li>
+                Checkout: 11:00 AM
+            </li>
+            <li>
+                No smoking
+            </li>
+            <li>
+                No pets
+            </li>
+            <li>
+                No parties or events
+            </li>
+
+        </ul>
+        <ul>
+            <p>health &safety</p>
+            <li>
+                Airbnb's social-distancing and other COVID-19-related guidelines apply
+            </li>
+            <li>
+
+                Carbon monoxide alarm not reported Show more
+            </li>
+            <li>
+                Smoke alarm not reported Show more
+            </li>
+            <li>
+                Security Deposit - if you damage the home, you may be charged up to ₪2500
+            </li>
+
+        </ul>
+        <div class="toKnow__cancle">
+            <h5>cancellation policy</h5>
+            <p>${place.cancle}</p>
+
+        </div>
+
+    </div>`;
       })
       .join("");
     // console.log(html)
@@ -254,33 +177,28 @@ function renderPlace(data: Array<any>) {
 }
 
 function storeData(data) {
- try{
-  if (data) {
-    localStorage.setItem("airbnbData", JSON.stringify(data));
+  try {
+    if (data) {
+      localStorage.setItem("airbnbData", JSON.stringify(data));
+    }
+  } catch (error) {
+    console.error(error.message);
   }
-}catch (error) {
-  console.error(error.message);
-}
 }
 
 function getData() {
+  try {
+    const airbnbNavFiltered = JSON.parse(localStorage.getItem("airbnbData"));
+    console.log(airbnbNavFiltered.getplaces);
 
-    try{
-        const airbnbNavFiltered = JSON.parse( localStorage.getItem("airbnbData")); 
-        console.log(airbnbNavFiltered.getplaces)
-          
-         
-          if (Array.isArray(airbnbNavFiltered.getplaces)) {
-           return airbnbNavFiltered.getplaces;
-          } else {
-            return [];
-            
-          }
-     
-    }catch(err){
-        console.log(err.message)  
+    if (Array.isArray(airbnbNavFiltered.getplaces)) {
+      return airbnbNavFiltered.getplaces;
+    } else {
+      return [];
     }
-  
+  } catch (err) {
+    console.log(err.message);
+  }
 }
 
 async function handleFindAirbnb(ev) {
@@ -309,16 +227,13 @@ async function handleFindAirbnb(ev) {
   );
   //console.log(data)
   //console.log(data.getplaces); it shows that is has the array of objects
-  
+
   storeData(data);
-  if(data){
-    window.location.href="places.html"
+  if (data) {
+    window.location.href = "places.html";
 
- handleLoadPlaces() 
-
+    handleLoadPlaces();
   }
- 
-  
 }
 
 async function handleCities(ev) {
@@ -327,6 +242,12 @@ async function handleCities(ev) {
 
   const { data } = await axios.post("/places/search-city", { city });
   console.log(data);
+  storeData(data);
+  if (data) {
+    window.location.href = "places.html";
+
+    handleLoadPlaces();
+  }
 }
 
 async function handleFilter(ev) {
@@ -335,20 +256,14 @@ async function handleFilter(ev) {
   const { data } = await axios.get("/places/getFiltered", { data: { price } });
 }
 
-function renderAirbnbOptions(data:Array<any>) {
-  
-
+function renderAirbnbOptions(data: Array<any>) {
   try {
-    
-     //getData();
-    
-   
     if (!Array.isArray(data)) throw new Error("data is not an array");
 
     const root = document.querySelector("#rootPlaces");
     let html = "";
 
-   data.forEach((place) => {
+    data.forEach((place) => {
       html += ` <div class="airbnbOptions__container" onclick="handleGoToPlace(${place._id})">
                       <div class="airbnbOptions__container__img">
                           <img src="${place.images}">
@@ -487,7 +402,7 @@ function renderUsersToOwnerPage(users: Array<any>) {
 
   try {
     console.log(users);
-    
+
     if (!Array.isArray(users)) throw new Error("data is not an array");
 
     const root: HTMLElement = document.querySelector("#user");
