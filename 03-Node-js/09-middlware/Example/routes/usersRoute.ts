@@ -2,7 +2,7 @@ import express from 'express';
 const router = express.Router();
 import {getAllUsers, addUser, updateUser, deleteUser,login} from '../controlers/usersCont';
 
-import {isAdmin} from '../middlewares/isAdmin'
+import {isAdmin} from '../middlewares/usersMid'
 
 router
 .get('/get-users',isAdmin,  getAllUsers)

@@ -39,28 +39,21 @@ exports.__esModule = true;
 exports.updateUser = exports.getUser = exports.addUser = exports.loadUser = void 0;
 var usersModel_1 = require("../model/usersModel");
 var jwt_simple_1 = require("jwt-simple");
-// const secret:any = process.env.JWT_SECRET;
-var secret = '12345';
+var secret = process.env.JWT_SECRET;
+// const secret:any = '12345';
 function loadUser(req, res) {
     return __awaiter(this, void 0, void 0, function () {
         var userInfo, decoded;
         return __generator(this, function (_a) {
             try {
                 userInfo = req.cookies.userInfo;
-                console.log('userinfo' + userInfo);
-                console.log('server data: ' + userInfo.username);
                 decoded = jwt_simple_1["default"].decode(userInfo, secret);
-                console.log('decoded' + decoded);
                 if (decoded) {
                     res.send(decoded);
                 }
                 else {
                     res.send('noLog');
                 }
-                //to find and show all users:
-                // const allUsers = await FundleUser.find({});
-                // console.log('allUsers: ' + allUsers)
-                // res.send({allUsers})
             }
             catch (error) {
                 if (error instanceof Error) { //<===in brackets to let TS know type is error

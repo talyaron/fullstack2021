@@ -55,7 +55,7 @@ exports.login = function (req, res) { return __awaiter(void 0, void 0, void 0, f
                     if (user.password === password) {
                         payload = { username: username, id: user._id, role: role };
                         token = jwt_simple_1["default"].encode(payload, secret);
-                        res.cookie('userInfo', token, { maxAge: 120000 });
+                        res.cookie('userInfo', token, { maxAge: 120000, httpOnly: true });
                         res.send({ ok: true, login: true });
                         return [2 /*return*/];
                     }
@@ -115,7 +115,7 @@ exports.getUsers = function (req, res) { return __awaiter(void 0, void 0, void 0
             case 2: throw new Error("user is not allowed ");
             case 3:
                 error_3 = _a.sent();
-                console.error(error_3.message);
+                console.log("error on getUsers", error_3.message);
                 res.send({ error: error_3.message });
                 return [3 /*break*/, 4];
             case 4: return [2 /*return*/];

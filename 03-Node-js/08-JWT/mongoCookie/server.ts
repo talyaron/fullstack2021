@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 import express from 'express';
 
 require('dotenv').config()
-console.log(process.env.JWT_SECRET, process.env.ENV)
+console.log(process.env.ENV)
 const uri = process.env.MONGODB_URI
 
 const app = express();

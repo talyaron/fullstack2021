@@ -1,17 +1,20 @@
 import express from "express";
 import mongoose from "mongoose";
-require('dotenv').config()
+require('dotenv').config();
+
+import {getId} from './middlewares/usersMid'
 
 console.log(process.env.ENV)
 
 console.log(process.env.JWT_SECRET)
 const app = express();
-const cookieParser = require('cookie-parser')
+const cookieParser = require('cookie-parser');
 const port: number = 3000;
 
 app.use(express.static("public"));
 app.use(express.json());
 app.use(cookieParser());
+app.use(getId);
 //ert
 
 const uri = process.env.MONGODB_URI;

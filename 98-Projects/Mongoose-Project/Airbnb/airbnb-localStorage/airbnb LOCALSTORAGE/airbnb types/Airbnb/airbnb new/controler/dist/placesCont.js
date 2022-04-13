@@ -40,11 +40,10 @@ exports.searchAirbnbByCity = exports.searchAirbnb = exports.findPlaceMap = expor
 var placesModel_1 = require("../model/placesModel");
 // export const getPlaces = async (req, res) => {
 //   try {
-//     const places = await Places.find({});
+//     const getplaces = await Places.find({});
 //     // .limit(20);
-//     console.log(Places);
-//     console.log(places);
-//     res.send({ ok: true, places });
+//     console.log(getPlaces);
+//     res.send({ ok: true, getplaces });
 //   } catch (error) {
 //     console.error(error);
 //     res.send({ error: "error in app.get/getPlaces" });
