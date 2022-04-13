@@ -1,10 +1,11 @@
 import { Router } from 'express'
 const router = Router();
 
-import {handleGetUsers , handleAddUser , handleUpdateUser} from '../controller/userController'
+import {handleGetUsers , handleAddUser , handleReg , handleSign} from '../controller/userController'
 
 router
 .get('/get-users' , handleGetUsers)
 .post('/add-user' , handleAddUser)
-.patch('/update-user',handleUpdateUser)
+.post('/reg-user' , handleReg)
+.post('/sign-in' , handleSign)
 export default router;

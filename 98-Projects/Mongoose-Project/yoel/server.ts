@@ -2,7 +2,7 @@
 import mongoose from 'mongoose'; // I change this because it's Ts and not a JS .. before it was const mongoose = require('mongoose');
 
 const app = express();
-const port = process.env.PORT || 5252;
+const port = process.env.PORT || 3000;
 
 app.use(express.static("public"));
 app.use(express.json());

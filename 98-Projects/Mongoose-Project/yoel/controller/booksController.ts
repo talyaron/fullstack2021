@@ -1,6 +1,8 @@
 import { Book } from "../models/bookModel";
 export const handleGetAllBooks = async (req, res) => {
   const books = await Book.find({})
+  // console.log(books);
+
   res.send(books);
 }
 export const handleAddBook = async (req, res) => {
@@ -8,17 +10,16 @@ export const handleAddBook = async (req, res) => {
     let { book } = req.body;
 
     if (book) {
-      console.log('before', book);
 
       const newBook = new Book(book);//missing something here
       try {
-        const result = await newBook.save();
-        console.log('after')
-        res.send({ result });//N render it 
+        await newBook.save();
+        const books = await Book.find({})
+        res.send(books);//N render it 
       } catch (error) {
-        console.log(error)
+        console.log(error.message)
       }
-      // const result = await newBook.save();
+
 
     }
     else {
@@ -27,6 +28,23 @@ export const handleAddBook = async (req, res) => {
   } catch (error) {
     console.error(res.send(error.message))
     res.send(error.message)
+  }
+}
+export const handleUpdateBook = async (req, res) => {
+  try {
+    let { value, bookId } = req.body;
+
+    if (value && bookId) {
+      const books = await Book.updateOne({ id: bookId }, { username: value });// {who you want to change},{with what you want to change}
+      console.log(books);
+
+      res.send({ ok: true }, books);
+    } else {
+      throw new Error('id or value is missing');
+    }
+  } catch (error) {
+    console.log(error.error);
+    res.send({ error: error.message })
   }
 }
 export const handleSort = (req, res) => {//we need to do sort to the value from DB
@@ -52,4 +70,19 @@ export const handleSort = (req, res) => {//we need to do sort to the value from 
   //   res.send({ error })
   // }
 
+}
+export const handleDelete = async (req, res) => {
+  try {
+    const { bookId  , id } = req.body;// not get nothing 
+
+    console.log(bookId , id );
+    const books = await Book.deleteOne({ id: bookId });// {who you want to change},{with what you want to change}
+    console.log(books);
+
+    res.send(books)
+
+
+  } catch (error) {
+    res.send(error.message)
+  }
 }
