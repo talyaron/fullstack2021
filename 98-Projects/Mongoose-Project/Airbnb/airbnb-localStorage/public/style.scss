@@ -667,14 +667,13 @@ body {
             flex-direction: row;
         }
 
-        &__photoGrid {
- 
+        &__photoGrid{
 
            
-                img{
+                .img{
                     border-radius: 20%;
-                    width: 100px;
-                    height: 400px;
+                    //width: 100px;
+                    height: 100%;
                 }
                 
            

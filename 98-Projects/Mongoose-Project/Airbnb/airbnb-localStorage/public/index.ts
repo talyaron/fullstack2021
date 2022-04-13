@@ -50,7 +50,7 @@ function renderPlace(data) {
             <h3>${data.price}$</h3>
         </div>
         <div class="mainUpper__photoGrid">
-            <img src="${data.images}" alt="">
+            <img class="img" src="${data.images}" alt="" style="width:100%;">
 
         </div>
 

@@ -430,10 +430,9 @@ body {
   gap: 5px;
   flex-direction: row;
 }
-#rootPlace .mainUppear__photoGrid img {
+#rootPlace .mainUppear__photoGrid .img {
   border-radius: 20%;
-  width: 100px;
-  height: 400px;
+  height: 100%;
 }
 #rootPlace .mainMiddle {
   display: flex;
