@@ -1,8 +1,9 @@
-function handleLoadPlaces(data){
-    getData() 
+function handleLoadPlaces(){
+  const data=getData()
+    //getData() 
     // renderAirbnbOptions(data)
-    
-    renderAirbnbOptions(data.getplaces)
+    console.log(getData())
+    renderAirbnbOptions(data)
     // window.location.href="places.html"
      
     
@@ -263,12 +264,14 @@ function storeData(data) {
 }
 
 function getData() {
+
     try{
-        const airbnbNavFiltered = JSON.parse( localStorage.getItem("airbnbData"));
+        const airbnbNavFiltered = JSON.parse( localStorage.getItem("airbnbData")); 
+        console.log(airbnbNavFiltered.getplaces)
           
          
           if (Array.isArray(airbnbNavFiltered.getplaces)) {
-           return [airbnbNavFiltered.getplaces];
+           return airbnbNavFiltered.getplaces;
           } else {
             return [];
             
@@ -291,26 +294,30 @@ async function handleFindAirbnb(ev) {
   const infants = ev.target.elements.infants.value;
   const pets = ev.target.elements.pets.value;
 
-  console.log(
-    searchLocation,
-    checkIn,
-    checkOut,
-    adults,
-    children,
-    infants,
-    pets
-  );
+  // console.log(
+  //   searchLocation,
+  //   checkIn,
+  //   checkOut,
+  //   adults,
+  //   children,
+  //   infants,
+  //   pets
+  // );
 
   const { data } = await axios.get(
     `/places/search-airbnb?searchLocation=${searchLocation}&checkIn=${checkIn}&checkOut=${checkOut}&adults=${adults}&children=${children}&infants=${infants}&pets=${pets} `
   );
-  console.log(data)
+  //console.log(data)
   //console.log(data.getplaces); it shows that is has the array of objects
   
   storeData(data);
- //window.location.href="places.html"
+  if(data){
+    window.location.href="places.html"
 
- handleLoadPlaces(data) 
+ handleLoadPlaces() 
+
+  }
+ 
   
 }
 

@@ -34,10 +34,12 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-function handleLoadPlaces(data) {
-    getData();
+function handleLoadPlaces() {
+    var data = getData();
+    //getData() 
     // renderAirbnbOptions(data)
-    renderAirbnbOptions(data.getplaces);
+    console.log(getData());
+    renderAirbnbOptions(data);
     // window.location.href="places.html"
 }
 function handleLoadPlace(data) {
@@ -107,8 +109,9 @@ function storeData(data) {
 function getData() {
     try {
         var airbnbNavFiltered = JSON.parse(localStorage.getItem("airbnbData"));
+        console.log(airbnbNavFiltered.getplaces);
         if (Array.isArray(airbnbNavFiltered.getplaces)) {
-            return [airbnbNavFiltered.getplaces];
+            return airbnbNavFiltered.getplaces;
         }
         else {
             return [];
@@ -132,15 +135,16 @@ function handleFindAirbnb(ev) {
                     children = ev.target.elements.children.value;
                     infants = ev.target.elements.infants.value;
                     pets = ev.target.elements.pets.value;
-                    console.log(searchLocation, checkIn, checkOut, adults, children, infants, pets);
                     return [4 /*yield*/, axios.get("/places/search-airbnb?searchLocation=" + searchLocation + "&checkIn=" + checkIn + "&checkOut=" + checkOut + "&adults=" + adults + "&children=" + children + "&infants=" + infants + "&pets=" + pets + " ")];
                 case 1:
                     data = (_a.sent()).data;
-                    console.log(data);
+                    //console.log(data)
                     //console.log(data.getplaces); it shows that is has the array of objects
                     storeData(data);
-                    //window.location.href="places.html"
-                    handleLoadPlaces(data);
+                    if (data) {
+                        window.location.href = "places.html";
+                        handleLoadPlaces();
+                    }
                     return [2 /*return*/];
             }
         });
