@@ -1,15 +1,15 @@
 function handleLoadPlaces() {
   const data = getData();
-  //getData()
-  // renderAirbnbOptions(data)
+ 
   console.log(getData());
   renderAirbnbOptions(data);
-  // window.location.href="places.html"
+ 
 }
 
 async function handleLoadPlace() {
   try {
-    const data = getData();
+
+    const data = await getData();
     console.log(data);
     renderPlace(data);
   } catch (error) {
@@ -20,10 +20,11 @@ async function handleLoadPlace() {
 async function handleGoToPlace( placeId) {
  
   try {
-    
-      const { data } = await axios.get("/places/goToPlace", {data: { placeId }});
+      
+      const { data } = await axios.get(`/places/getToPlace/${placeId}`);
+     
       storeData(data);
-      console.log(placeId);
+      console.log(data);
       if (data) {
         window.location.href = "place.html";
         handleLoadPlace();
@@ -34,17 +35,22 @@ async function handleGoToPlace( placeId) {
   }
 }
 
-function renderPlace(data: Array<any>) {
+function renderPlace(data) {
+  
+  
   try {
-    const html = data
-      .map((place) => {
-        return ` <div class="mainUpper">
+    const data = getData();
+    console.log(data)
+    let html=""
+    const rootPlace=document.querySelector("#rootPlace")
+     
+      html = ` <div class="mainUpper">
         <div class="maiUpper__title">
-            <h1>${place.name}</h1>
-            <h3>${place.price}$</h3>
+            <h1>${data.name}</h1>
+            <h3>${data.price}$</h3>
         </div>
         <div class="mainUpper__photoGrid">
-            <div class="mainUpper__photoGrid--bigPhoto"><img src="${place.images}" alt=""></div>
+            <div class="mainUpper__photoGrid--bigPhoto"><img src="${data.images}" alt=""></div>
 
         </div>
 
@@ -53,28 +59,28 @@ function renderPlace(data: Array<any>) {
         <div class="mainMiddle__left">
             <div class="mainMiddle__left--up">
                 <div class="mainMiddle__left--up--title">
-                    <h2>entire rental unit hosted by ${place.host_name}</h2>
+                    <h2>entire rental unit hosted by ${data.host_name}</h2>
                 </div>
-                <h6>${place.accommodates} <span>&#8226;</span> ${place.bedrooms} <span>&#8226;</span> ${place.beds}<span>&#8226;</span>${place.bathrooms}</h6>
+                <h6>${data.accommodates} <span>&#8226;</span> ${data.bedrooms} <span>&#8226;</span> ${data.beds}<span>&#8226;</span>${data.bathrooms}</h6>
             </div>
             <div class="mainMiddle__left--up--profile">
-                <img src="${place.host_picture_url}">
+                <img src="${data.host_picture_url}">
             </div>
         </div>
         <div class="mainMiddle__left--great">
-            <h5>${place.description}</h5>
+            <h5>${data.description}</h5>
         </div>
         <div class="mainMiddle__left--bed">
             <h2>where you'll sleep</h2>
             <div class="mainMiddle__left--bed--box">
                 <i class="fa-thin fa-bed-front"></i>
-                <h5>${place.bed_type}</h5>
+                <h5>${data.bed_type}</h5>
             </div>
         </div>
         <div class="mainMiddle__left--list">
-            <h2>what this place offers</h2>
+            <h2>what this data offers</h2>
             <ul>
-                ${place.amenities}
+                ${data.amenities}
             </ul>
 
         </div>
@@ -85,7 +91,7 @@ function renderPlace(data: Array<any>) {
     <div class="reviews">
         <h3>review</h3>
         <div class="reviews__review">
-            <p>${place.reviews}</p>
+            <p>${data.reviews}</p>
         </div>
 
     </div>
@@ -98,11 +104,11 @@ function renderPlace(data: Array<any>) {
     <div class="aboutHost">
         <div class="aboutHost--left">
             <div class="aboutHost--left--profileHost">
-                <img src="${place.host_picture_url}" alt="" style="width:50px; height:50px; border-radius:100%;">
+                <img src="${data.host_picture_url}" alt="" style="width:50px; height:50px; border-radius:100%;">
             </div>
             <div class="aboutHost--left--title">
                 <h2>
-                    hosted by ${place.host_name}
+                    hosted by ${data.host_name}
                 </h2>
             </div>
 
@@ -112,7 +118,7 @@ function renderPlace(data: Array<any>) {
                 languages: english, francais, hebrew
             </h5>
             <h5>
-                response rate: ${place.reviews_rating}
+                response rate: ${data.reviews_rating}
             </h5>
 
 
@@ -161,16 +167,16 @@ function renderPlace(data: Array<any>) {
         </ul>
         <div class="toKnow__cancle">
             <h5>cancellation policy</h5>
-            <p>${place.cancle}</p>
+            <p>${data.cancle}</p>
 
         </div>
 
     </div>`;
-      })
-      .join("");
-    // console.log(html)
+     
+      
+    
 
-    document.querySelector("#rootPlace").innerHTML = html;
+    rootPlace.innerHTML = html;
   } catch (error) {
     console.error(error.message);
   }
@@ -189,12 +195,17 @@ function storeData(data) {
 function getData() {
   try {
     const airbnbNavFiltered = JSON.parse(localStorage.getItem("airbnbData"));
-    console.log(airbnbNavFiltered.getplaces);
+    // console.log(airbnbNavFiltered.getplaces);
+    // console.log(airbnbNavFiltered)
 
     if (Array.isArray(airbnbNavFiltered.getplaces)) {
       return airbnbNavFiltered.getplaces;
-    } else {
+    } else if(typeof airbnbNavFiltered==="object"){
+      return airbnbNavFiltered;
+      
+    }else{
       return [];
+
     }
   } catch (err) {
     console.log(err.message);
@@ -264,7 +275,7 @@ function renderAirbnbOptions(data: Array<any>) {
     let html = "";
 
     data.forEach((place) => {
-      html += ` <div class="airbnbOptions__container" onclick="handleGoToPlace(${place._id})">
+      html += ` <div class="airbnbOptions__container" onclick="handleGoToPlace('${place._id}')">
                       <div class="airbnbOptions__container__img">
                           <img src="${place.images}">
                       </div>

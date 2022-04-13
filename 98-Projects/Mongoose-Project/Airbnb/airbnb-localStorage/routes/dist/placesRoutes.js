@@ -9,7 +9,7 @@ var placesCont_4 = require("../controler/placesCont");
 var placesCont_5 = require("../controler/placesCont");
 router
     .get('/getFiltered', placesCont_5.getfilteredAirBNB)
-    .get('/getToPlace', placesCont_1.getToPlace)
+    .get('/getToPlace/:placeId', placesCont_1.getToPlace)
     .get('/search-airbnb', placesCont_2.searchAirbnb)
     .post('/search-city', placesCont_3.searchAirbnbByCity)
     .post('/findPlaceMap', placesCont_4.findPlaceMap);

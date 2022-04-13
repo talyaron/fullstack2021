@@ -12,7 +12,7 @@ router
     
    
     .get('/getFiltered', getfilteredAirBNB)    
-    .get('/getToPlace', getToPlace)
+    .get('/getToPlace/:placeId', getToPlace)
     .get('/search-airbnb', searchAirbnb)
     .post('/search-city',searchAirbnbByCity )
     .post('/findPlaceMap', findPlaceMap)

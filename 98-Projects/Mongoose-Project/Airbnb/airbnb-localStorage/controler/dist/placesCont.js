@@ -63,17 +63,18 @@ exports.getfilteredAirBNB = function (req, res) { return __awaiter(void 0, void 
     });
 }); };
 exports.getToPlace = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var placeId, _id, getplaces, error_2;
+    var placeId, getplaces, error_2;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 4, , 5]);
-                placeId = req.query.placeId;
-                _id = req.query;
-                if (!(_id == placeId)) return [3 /*break*/, 2];
-                return [4 /*yield*/, placesModel_1["default"].findOne({ _id: placeId }).limit(1)];
+                placeId = req.params.placeId;
+                console.log(placeId);
+                if (!placeId) return [3 /*break*/, 2];
+                return [4 /*yield*/, placesModel_1["default"].findOne({ _id: placeId })];
             case 1:
                 getplaces = _a.sent();
+                console.log(getplaces);
                 res.send(getplaces);
                 return [3 /*break*/, 3];
             case 2: throw new Error("placeId is not the same as the __id");

@@ -25,12 +25,12 @@ export const getfilteredAirBNB = async (req, res) => {
 export const getToPlace = async (req, res) => {
  
   try {
-    const { placeId } = req.query;
-    const _id = req.query;
-    if (_id == placeId) {
-      const getplaces = await Places.findOne({_id:placeId }).limit(1);
+    const { placeId } = req.params;
+    console.log(placeId)
+    if ( placeId) {
+      const getplaces = await Places.findOne({_id:placeId });
 
-
+      console.log(getplaces)
      res.send(getplaces);
    
     } else {
