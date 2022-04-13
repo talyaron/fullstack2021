@@ -1,15 +1,19 @@
-// async function loadPlaces(data) {
-// //   const { data } = await axios.get("/places/getPlaces");
-// //   console.log(data);
-//  console.log(data)
-//   renderAirbnbOptions(data)
+function handleLoadPlaces(data){
+    getData() 
+    // renderAirbnbOptions(data)
+    
+    renderAirbnbOptions(data.getplaces)
+    // window.location.href="places.html"
+     
+    
+ 
 
-// }
-//loadPlaces()
+}
 
-async function handleLoadPlace() {
+
+async function handleLoadPlace(data) {
   try {
-    const { data } = await axios.get("/places/getToPlace");
+    //const { data } = await axios.get("/getToPlace");
 
     console.log(data);
     renderPlace(data);
@@ -19,12 +23,23 @@ async function handleLoadPlace() {
 }
 
 async function handleGoToPlace(placeId) {
-  const { data } = await axios.get("/goToPlace", { data: { placeId } });
-  renderPlace(data);
+  try{
+  const { data } = await axios.get("/places/goToPlace", { data: { placeId } });
+  storeData(data.getplaces);
+  if(data){
+    
+    window.location.href ="place.html"
+
+  }
+}catch (error) {
+  console.error(error.message);
+}
+  // renderPlace(data);
 }
 
 function renderPlace(data: Array<any>) {
   try {
+    getData();
     const html = data
       .map((place) => {
         return `<div class="mainUpper">
@@ -238,21 +253,31 @@ function renderPlace(data: Array<any>) {
 }
 
 function storeData(data) {
-  debugger;
+ try{
   if (data) {
     localStorage.setItem("airbnbData", JSON.stringify(data));
   }
+}catch (error) {
+  console.error(error.message);
+}
 }
 
 function getData() {
-  const airbnbNavFiltered = JSON.parse(
-    localStorage.getItem("airbnbNavFiltered")
-  );
-  if (Array.isArray(airbnbNavFiltered)) {
-    return airbnbNavFiltered;
-  } else {
-    return [];
-  }
+    try{
+        const airbnbNavFiltered = JSON.parse( localStorage.getItem("airbnbData"));
+          
+         
+          if (Array.isArray(airbnbNavFiltered.getplaces)) {
+           return [airbnbNavFiltered.getplaces];
+          } else {
+            return [];
+            
+          }
+     
+    }catch(err){
+        console.log(err.message)  
+    }
+  
 }
 
 async function handleFindAirbnb(ev) {
@@ -279,17 +304,22 @@ async function handleFindAirbnb(ev) {
   const { data } = await axios.get(
     `/places/search-airbnb?searchLocation=${searchLocation}&checkIn=${checkIn}&checkOut=${checkOut}&adults=${adults}&children=${children}&infants=${infants}&pets=${pets} `
   );
-  console.log(data);
-
-  ev.target.reset();
-
+  console.log(data)
+  //console.log(data.getplaces); it shows that is has the array of objects
+  
   storeData(data);
+ //window.location.href="places.html"
 
+<<<<<<< HEAD
   //redirect to places
   window.location.href = "/places";
 
   // renderAirbnbOptions(data.getplaces);
   // renderAirbnbOptions(data.getplaces);
+=======
+ handleLoadPlaces(data) 
+  
+>>>>>>> main
 }
 
 async function handleCities(ev) {
@@ -306,20 +336,21 @@ async function handleFilter(ev) {
   const { data } = await axios.get("/places/getFiltered", { data: { price } });
 }
 
-function renderAirbnbOptions(getplaces: Array<any>) {
-  console.log(getplaces);
+function renderAirbnbOptions(data:Array<any>) {
+  
 
   try {
-    console.log(getplaces);
-    getData();
-    if (!Array.isArray(getplaces)) throw new Error("sata is not an array");
+    
+     //getData();
+    
+   
+    if (!Array.isArray(data)) throw new Error("data is not an array");
 
-    const root: HTMLElement = document.querySelector("#rootPlaces");
+    const root = document.querySelector("#rootPlaces");
     let html = "";
 
-    getplaces.forEach((place) => {
-      html += ` <div class="airbnbOptions"  >           
-                  <div class="airbnbOptions__container" onclick="handleGoToPlace(${place._id})">
+   data.forEach((place) => {
+      html += ` <div class="airbnbOptions__container" onclick="handleGoToPlace(${place._id})">
                       <div class="airbnbOptions__container__img">
                           <img src="${place.images}">
                       </div>
@@ -351,7 +382,6 @@ function renderAirbnbOptions(getplaces: Array<any>) {
                           </div>
 
                       </div>
-                  </div>
                   </div>`;
       root.innerHTML = html;
     });
@@ -458,6 +488,7 @@ function renderUsersToOwnerPage(users: Array<any>) {
 
   try {
     console.log(users);
+    
     if (!Array.isArray(users)) throw new Error("data is not an array");
 
     const root: HTMLElement = document.querySelector("#user");

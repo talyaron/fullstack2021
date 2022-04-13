@@ -7,7 +7,7 @@ const cookie_parser_1 = __importDefault(require("cookie-parser"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const express_1 = __importDefault(require("express"));
 require('dotenv').config();
-console.log(process.env.JWT_SECRET, process.env.ENV);
+console.log(process.env.ENV);
 const uri = process.env.MONGODB_URI;
 const app = express_1.default();
 const port = process.env.PORT || 3000;

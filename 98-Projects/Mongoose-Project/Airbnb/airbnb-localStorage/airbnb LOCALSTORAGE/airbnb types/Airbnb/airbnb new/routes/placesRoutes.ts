@@ -11,7 +11,7 @@ import { getfilteredAirBNB } from '../controler/placesCont'
 
 router
     
-    // .get('/getPlaces', getPlaces)
+    //   .get('/getPlaces', getPlaces)
     .get('/getFiltered', getfilteredAirBNB)
     .post('/addPlaces', addPlaces)
     .get('/getToPlace', getToPlace)
