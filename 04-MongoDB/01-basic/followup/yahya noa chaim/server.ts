@@ -6,9 +6,10 @@ const port = process.env.PORT || 3000;
 app.use(express.static("public"));
 app.use(express.json());
 
-<<<<<<< HEAD
+
+
 mongoose.connect('mongodb+srv://chaim14:82148214cc@cluster0.ar8tn.mongodb.net/myFirstDatabase?retryWrites=true&w=majority');
-=======
+
 mongoose.connect('mongodb+srv://chaim14:82148214cc@cluster0.ar8tn.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
   .then(() => console.log("conected to database"))
   .catch(err => console.log(err.message))
