@@ -354,7 +354,7 @@ async function handleCancelSale(artId) {
 
 async function handleAddArt(ev) {
     ev.preventDefault()
-    const newArt = { artName: ev.target.name.value, url: ev.target.url.value, author: site.user.userName };
+    const newArt = { artName: ev.target.name.value, url: ev.target.url.value, author:   .user.userName };
     await axios.post('/arts/add-art', { newArt, userId: site.user._id });
 }
 

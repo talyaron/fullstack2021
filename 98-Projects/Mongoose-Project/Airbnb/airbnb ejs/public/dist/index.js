@@ -175,13 +175,13 @@ function handlePopup() {
 }
 // async function handleLogin(ev) {
 //     ev.preventDefault()
-//     let {userName,password,role}=ev.target.elements;
-//     userName=userName.value
+//     let {username,password,role}=ev.target.elements;
+//     username=username.value
 //     password=password.value
 //     role=role.value
-//     console.log(userName,password,role)
-//    //console.log(userName,password)
-//     const { data } = await axios.post("/users/login", {userName,password,role});
+//     console.log(username,password,role)
+//    //console.log(username,password)
+//     const { data } = await axios.post("/users/login", {username,password,role});
 //     //console.log(data)
 //     if(data.login){
 //         const showPopupText:any=document.querySelector('.popuptext');
@@ -198,16 +198,16 @@ function handlePopup() {
 // }
 function handleRegister(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var _a, userName, password, role, data, showPopupText;
+        var _a, username, password, role, data, showPopupText;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
                     ev.preventDefault();
-                    _a = ev.target.elements, userName = _a.userName, password = _a.password, role = _a.role;
-                    userName = userName.value;
+                    _a = ev.target.elements, username = _a.username, password = _a.password, role = _a.role;
+                    username = username.value;
                     password = password.value;
                     role = role.value;
-                    return [4 /*yield*/, axios.post("/users/add-User", { userName: userName, password: password, role: role })];
+                    return [4 /*yield*/, axios.post("/users/add-User", { username: username, password: password, role: role })];
                 case 1:
                     data = (_b.sent()).data;
                     console.log(data);

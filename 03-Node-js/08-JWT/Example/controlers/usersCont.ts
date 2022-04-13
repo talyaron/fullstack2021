@@ -1,7 +1,7 @@
 import jwt from "jwt-simple";
 import User from "../model/usersModel";
 
-const secret=process.env.JWT_SECRET
+const secret = process.env.JWT_SECRET
 
 export async function getAllUsers(req, res) {
   try {
@@ -9,7 +9,7 @@ export async function getAllUsers(req, res) {
     console.log(req.cookies);
     const { userInfo } = req.cookies;
     console.log(userInfo);
-   
+
     const decoded = jwt.decode(userInfo, secret);
     console.log(decoded)
     if (decoded && decoded.role === "admin") {
@@ -71,7 +71,7 @@ export const deleteUser = async (req, res) => {
 
 export const login = async (req, res) => {
   try {
-   
+
     const { username, password } = req.body;
     console.log(username, password);
     if (typeof username === "string" && typeof password === "string") {
@@ -87,7 +87,7 @@ export const login = async (req, res) => {
           res.cookie(
             "userInfo",
             token,
-            { maxAge: 360000}
+            { maxAge: 360000 }
           );
 
           res.send({ ok: true, login: true });

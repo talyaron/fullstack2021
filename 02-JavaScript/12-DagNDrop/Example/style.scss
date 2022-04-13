@@ -1,0 +1,17 @@
+.box{
+    width: 100px;
+    height: 100px;
+    background-color: rgba(255, 99, 71, 0.552);
+    position: relative;
+    border: 1px solid rgb(56, 56, 56);
+}
+
+.pool{
+    width: 150px;
+    height: 150px;
+    background-color: lightblue;
+    position: absolute;
+    top:50vh;
+    left: 50vh;
+    transform: translate(-50%,-50%);
+}

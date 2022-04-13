@@ -5,6 +5,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const mongoose_1 = __importDefault(require("mongoose"));
+require('dotenv').config();
+console.log(process.env.ENV);
+console.log(process.env.JWT_SECRET);
 const app = express_1.default();
 const cookieParser = require('cookie-parser');
 const port = process.env.PORT || 3003;

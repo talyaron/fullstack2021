@@ -1,20 +1,64 @@
 import task from "../model/taskModel";
 
+export const getUsersTasks = async (req, res) => {
+  const { ownerId } = req.query;
 
-<<<<<<< HEAD
-=======
   let currentUsersTasks = await task.find({ ownerId: ownerId });
-  res.cookie("taskId", { taskId: ownerId }, { maxAge: 10000 })
->>>>>>> main
 
-export const getUsersTasks = async (req,res) => {
-    const {ownerId} = req.query;
-    console.log(ownerId);
-    const currentUsersTasks = await task.find({ ownerId: ownerId });
-    res.send(currentUsersTasks)
+  res.send(currentUsersTasks);
+};
+
+export const addNewTask = async (req, res) => {
+  try {
+    const { color, title, description, urgency, location, date, userId } =
+      req.body;
+    if (
+      userId &&
+      color &&
+      title &&
+      description &&
+      urgency &&
+      location &&
+      date
+    ) {
+      const newTask = new task({
+        color: color,
+        title: title,
+        description: description,
+        urgency: urgency,
+        location: location,
+        date: date,
+        ownerId: userId,
+      });
+
+      await newTask.save();
+      res.send({ currentUsersTasks: await task.find({ ownerId: userId }) });
     }
-<<<<<<< HEAD
-=======
+  } catch (error) {
+    console.error(error);
+    res.send({ error: error.message });
+  }
+};
+
+export const updateTask = async (req, res) => {
+  try {
+    const { _id, ownerId, color, title, urgency, description, location, date } =
+      req.body;
+    if (_id && ownerId) {
+      const updatedTask = await task.findOneAndUpdate(
+        { _id: _id, ownerId: ownerId },
+        {
+          color: color,
+          title: title,
+          urgency: urgency,
+          description: description,
+          location: location,
+          date: date,
+        }
+      );
+      const currentUsersTasks = await task.find({ ownerId: ownerId });
+      res.send({ updatedTask, currentUsersTasks });
+    }
   } catch (error) {
     console.error(error);
     res.send({ error: error.message });
@@ -22,31 +66,29 @@ export const getUsersTasks = async (req,res) => {
 };
 
 export const checkTask = async (req, res) => {
-  try {
-    const { _id, ownerId, timeChecked } = req.body;
-    const taskCheck = await task.findOne({ _id, ownerId });
-    console.log(taskCheck);
+  try{
+    const {_id, ownerId, timeChecked} = req.body;
+    const taskCheck = await task.findOne({_id, ownerId});
 
-    if (taskCheck?.checked === true) {
-      console.log('ho');
+    
+if(taskCheck?.checked === true) {
 
-      await task.updateOne({ _id: _id, ownerId: ownerId }, { timeChecked: timeChecked, checked: false });
-      const currentUsersTasks = await task.find({ ownerId: ownerId })
-      res.send({ currentUsersTasks });
-      return
-    }
-    console.log('wo');
-    const checkTask = await task.findOneAndUpdate({ _id: _id, ownerId: ownerId }, { timeChecked: timeChecked, checked: true });
-    console.log(_id, ownerId);
+  
+await task.updateOne({_id: _id, ownerId: ownerId}, {timeChecked:timeChecked, checked: false});
+const currentUsersTasks = await task.find({ ownerId: ownerId})
+res.send({currentUsersTasks });
+return
+}
 
-    const currentUsersTasks = await task.find({ ownerId: ownerId })
-    res.send({ currentUsersTasks });
-  } catch (error) {
-    console.log(error);
-    console.log(error.message)
-    res.send({ error: error.message });
-  }
-
+    const checkTask = await task.findOneAndUpdate({_id: _id, ownerId: ownerId}, {timeChecked:timeChecked, checked: true});
+    const currentUsersTasks = await task.find({ ownerId: ownerId})
+    res.send({currentUsersTasks});
+}catch (error) {
+  console.log(error);
+  console.log(error.message)
+  res.send({error: error.message});
+}
+    
 }
 
 export const deleteTask = async (req, res) => {
@@ -76,15 +118,14 @@ export const getTask = async (req, res) => {
     res.send({ error: error.message });
   }
 };
-export const getUrgencies = async (req, res) => {
-  const { userId } = req.query;
-  const lowUrgency = await task.find({ ownerId: userId, urgency: 'low' })
-  const mediumUrgency = await task.find({ ownerId: userId, urgency: 'medium' })
-  const highUrgency = await task.find({ ownerId: userId, urgency: 'high' })
+export const getUrgencies = async (req,res)=>{
+  const {userId} = req.query;
+  const lowUrgency = await task.find({ownerId:userId, urgency:'low'})
+  const mediumUrgency = await task.find({ownerId:userId, urgency:'medium'})
+  const highUrgency = await task.find({ownerId:userId, urgency:'high'})
 
-  res.send({ lowUrgency, mediumUrgency, highUrgency })
+  res.send({lowUrgency, mediumUrgency, highUrgency})
 
-
+  
 
 }
->>>>>>> main
