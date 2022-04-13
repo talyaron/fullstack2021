@@ -2,8 +2,6 @@ import mongoose from "mongoose";
 
 
 const imageSchema = new mongoose.Schema({
-  firstName:String,
-  lastName:String,
   profileUrl: String,
   url: [String],
   email: String,

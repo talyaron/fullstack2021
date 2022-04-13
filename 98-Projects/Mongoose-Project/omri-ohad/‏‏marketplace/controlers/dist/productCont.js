@@ -37,11 +37,9 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 exports.__esModule = true;
 exports.login = exports.register = exports.sortDescending = exports.sortAscending = exports.filterByCategory = exports.deleteProduct = exports.updatePrice = exports.updateTitle = exports.updatePic = exports.addProduct = exports.getAllProducts = exports.getProductsMain = void 0;
-var jwt_simple_1 = require("jwt-simple");
 var productModel_1 = require("../model/productModel");
 var productMain_1 = require("../model/productMain");
 var userModel_1 = require("../model/userModel");
-var secret = process.env.JWT_SECRET;
 function getProductsMain(req, res) {
     return __awaiter(this, void 0, void 0, function () {
         var marketItems, error_1;
@@ -67,21 +65,15 @@ function getProductsMain(req, res) {
 exports.getProductsMain = getProductsMain;
 function getAllProducts(req, res) {
     return __awaiter(this, void 0, void 0, function () {
-        var data, decoded, ownerId_1, products, filterdProducts, error_2;
+        var products, error_2;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     _a.trys.push([0, 2, , 3]);
-                    data = req.cookies.data;
-                    decoded = jwt_simple_1["default"].decode(data, secret);
-                    console.log(data);
-                    ownerId_1 = decoded.id;
-                    console.log(ownerId_1);
                     return [4 /*yield*/, productModel_1["default"].find({})];
                 case 1:
                     products = _a.sent();
-                    filterdProducts = products.filter(function (product) { return product.ownerId === ownerId_1; });
-                    res.send({ filterdProducts: filterdProducts });
+                    res.send({ products: products });
                     return [3 /*break*/, 3];
                 case 2:
                     error_2 = _a.sent();
@@ -96,21 +88,17 @@ function getAllProducts(req, res) {
 exports.getAllProducts = getAllProducts;
 function addProduct(req, res) {
     return __awaiter(this, void 0, void 0, function () {
-        var data, decoded, ownerId, _a, pic, title, description, price, category, newProduct, result, newProductMarket, resultMarket, error_3;
+        var _a, pic, title, description, price, category, newProduct, result, ownerId, newProductMarket, resultMarket, error_3;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
                     _b.trys.push([0, 3, , 4]);
-                    data = req.cookies.data;
-                    decoded = jwt_simple_1["default"].decode(data, secret);
-                    ownerId = decoded.id;
                     _a = req.body, pic = _a.pic, title = _a.title, description = _a.description, price = _a.price, category = _a.category;
-                    newProduct = new productModel_1["default"]({ pic: pic, title: title, description: description, price: price, category: category, ownerId: ownerId });
-                    return [4 /*yield*/, newProduct.save()
-                        // const ownerId = newProduct._id
-                    ];
+                    newProduct = new productModel_1["default"]({ pic: pic, title: title, description: description, price: price, category: category });
+                    return [4 /*yield*/, newProduct.save()];
                 case 1:
                     result = _b.sent();
+                    ownerId = newProduct._id;
                     newProductMarket = new productMain_1["default"]({ pic: pic, title: title, description: description, price: price, category: category, ownerId: ownerId });
                     return [4 /*yield*/, newProductMarket.save()];
                 case 2:
@@ -241,19 +229,17 @@ function updatePrice(req, res) {
 exports.updatePrice = updatePrice;
 function deleteProduct(req, res) {
     return __awaiter(this, void 0, void 0, function () {
-        var data, decoded, ownerId, result, resultMarket, products, productsMarket, error_7;
+        var productId, result, resultMarket, products, productsMarket, error_7;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     _a.trys.push([0, 7, , 8]);
-                    data = req.cookies.data;
-                    decoded = jwt_simple_1["default"].decode(data, secret);
-                    ownerId = decoded.id;
-                    if (!ownerId) return [3 /*break*/, 5];
-                    return [4 /*yield*/, productModel_1["default"].deleteOne({ ownerId: ownerId })];
+                    productId = req.body.productId;
+                    if (!productId) return [3 /*break*/, 5];
+                    return [4 /*yield*/, productModel_1["default"].deleteOne({ _id: productId })];
                 case 1:
                     result = _a.sent();
-                    return [4 /*yield*/, productMain_1["default"].deleteOne({ ownerId: ownerId })];
+                    return [4 /*yield*/, productMain_1["default"].deleteOne({ ownerId: productId })];
                 case 2:
                     resultMarket = _a.sent();
                     return [4 /*yield*/, productModel_1["default"].find({})];
@@ -383,33 +369,36 @@ function register(req, res) {
 exports.register = register;
 function login(req, res) {
     return __awaiter(this, void 0, void 0, function () {
-        var _a, email, password, user, items, userName, id, payload, token;
+        var _a, email, password, user, UserLogin, userName, userId, items;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
                     _a = req.body, email = _a.email, password = _a.password;
-                    return [4 /*yield*/, userModel_1["default"].findOne({ email: email, password: password })];
+                    return [4 /*yield*/, userModel_1["default"].find({ email: email, password: password })];
                 case 1:
-                    user = _b.sent();
-                    return [4 /*yield*/, productMain_1["default"].find({})];
+                    user = (_b.sent()).length;
+                    return [4 /*yield*/, userModel_1["default"].find({ email: email })];
                 case 2:
+                    UserLogin = _b.sent();
+                    userName = UserLogin[0].userName;
+                    userId = UserLogin[0]._id;
+                    return [4 /*yield*/, productMain_1["default"].find({})];
+                case 3:
                     items = _b.sent();
-                    if (user) {
-                        userName = user.userName;
-                        id = user._id;
-                        if (user.password === password) {
-                            payload = { userName: userName, id: id };
-                            token = jwt_simple_1["default"].encode(payload, secret);
-                            res.cookie("data", token);
-                            res.send({ ok: true, items: items, userName: userName });
-                            return [2 /*return*/];
-                        }
-                    }
-                    else {
-                        res.send({ ok: false, items: items });
-                        return [2 /*return*/];
-                    }
-                    return [2 /*return*/];
+                    if (!(user > 0)) return [3 /*break*/, 5];
+                    return [4 /*yield*/, userModel_1["default"].updateOne({ email: email }, { login: true })];
+                case 4:
+                    _b.sent();
+                    res.send({ ok: true, userName: userName, items: items, userId: userId });
+                    return [3 /*break*/, 7];
+                case 5:
+                    if (!(user === 0)) return [3 /*break*/, 7];
+                    return [4 /*yield*/, userModel_1["default"].updateOne({ email: email }, { login: false })];
+                case 6:
+                    _b.sent();
+                    res.send({ ok: false, items: items });
+                    _b.label = 7;
+                case 7: return [2 /*return*/];
             }
         });
     });

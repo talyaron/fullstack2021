@@ -203,6 +203,8 @@ nav ul li {
   display: grid;
   grid-template-columns: minmax(2ch, 20ch) 1fr minmax(2ch, 20ch);
   grid-template-rows: minmax(2ch, 10ch) 1fr minmax(2ch, 10ch);
+  width: 100vw;
+  height: 100vh;
 }
 .searchPage__main h1 {
   color: white;

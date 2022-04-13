@@ -10,7 +10,7 @@ import { User } from '../model/user';
 //PASS - BCRYPT
 import bcrypt from 'bcrypt'
 
-// router.use(/*....*/)
+
 router.get('/get-users', async (req, res) => {
     try {
         const users = await User.find({})

@@ -22,28 +22,52 @@
     <script src="https://code.iconify.design/2/2.1.0/iconify.min.js"></script>
 
 </head>
-
 <body onload="handleRenderSettings(event)">
-    <div id="landing">
+<div id="landing">
+    <div id="control">
         <div id="control__nav">
             <nav>
                 <ul>
-                    <li id="home"><a onclick="handlePageChange(event)"><i
-                                class="material-icons white-color">home</i></a></li>
+                    <li id="home"><a onclick="handlePageChange(event)"><i class="material-icons white-color">home</i></a></li>
                     <li id="chart"><a onclick="handlePageChange(event)"><i
                                 class="material-icons white-color">settings</i></a></li>
-                    <li id="info"><a onclick="handlePageChange(event)"><i
-                                class="material-icons white-color">info</i></a></li>
+                    <li id="info"><a onclick="handlePageChange(event)"><i class="material-icons white-color">info</i></a></li>
                 </ul>
             </nav>
         </div>
-        <div data-settings id="landing__settings">
-            
+        <div id="control__list">
+            <ul>
+                <li>
+                    <p>
+                        Change Password
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Change Email address
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Change Profile Picture
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Change Role
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Contact
+                    </p>
+                </li>
+            </ul>
         </div>
     </div>
+</div>
 
 
 </body>
 <script src="./dist/index.js"></script>
-
 </html>

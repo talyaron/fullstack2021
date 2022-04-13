@@ -36,8 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.buyAndSell = exports.addArtToUser = exports.updateUser = exports.findUser = exports.adminGetUser = exports.addUser = void 0;
-//import { AnyARecord } from 'dns'
+exports.buyAndSell = exports.addArtToUser = exports.updateUser = exports.findUser = exports.addUser = void 0;
 var userModel_1 = require("../model/userModel");
 exports.addUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var _a, userName, email, password, url, userFind, fund, artCollection, newUser, users, error_1;
@@ -77,26 +76,6 @@ exports.addUser = function (req, res) { return __awaiter(void 0, void 0, void 0,
         }
     });
 }); };
-exports.adminGetUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var userInfo, users;
-    return __generator(this, function (_a) {
-        try {
-            userInfo = req.cookies.userInfo;
-            console.log(userInfo);
-            if (userInfo && userInfo.role === 'admin') {
-                users = userModel_1["default"].find({});
-                res.send({ ok: true, users: users });
-                return [2 /*return*/];
-            }
-            throw new Error("user is not allowed");
-        }
-        catch (error) {
-            console.error(error.message);
-            res.send({ error: error.message });
-        }
-        return [2 /*return*/];
-    });
-}); };
 exports.findUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var _a, loginEmail, loginPassword, oldUser, error_2;
     return __generator(this, function (_b) {
@@ -104,19 +83,18 @@ exports.findUser = function (req, res) { return __awaiter(void 0, void 0, void 0
             case 0:
                 _b.trys.push([0, 2, , 3]);
                 _a = req.query, loginEmail = _a.loginEmail, loginPassword = _a.loginPassword;
-                if (!req.body)
-                    throw new Error("no req.body in app.post'/users/log-user'");
-                return [4 /*yield*/, userModel_1["default"].findOne({ email: loginEmail, password: loginPassword })];
+                return [4 /*yield*/, userModel_1["default"].find({ email: loginEmail, password: loginPassword })];
             case 1:
                 oldUser = _b.sent();
-                if (oldUser) {
-                    // if (oldUser.password === loginPassword) {
-                    res.cookie('userInfo', { role: oldUser.role, userName: oldUser.userName, email: oldUser.email }, { maxAge: 500000 });
-                    res.send({ oldUser: oldUser });
-                    return [2 /*return*/];
-                    //}
+                if (oldUser.length === 0) {
+                    res.send({ noUser: 'Wrong email/password' });
                 }
-                throw new Error("email or password are inncorect");
+                else if (oldUser.length > 0) {
+                    res.send({ oldUser: oldUser });
+                }
+                if (!req.body)
+                    throw new Error("no req.body in app.post'/users/log-user'");
+                return [3 /*break*/, 3];
             case 2:
                 error_2 = _b.sent();
                 console.error(error_2.message);

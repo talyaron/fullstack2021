@@ -28,12 +28,11 @@ async function handleAddProduct(ev) {
 
 async function handleGetProducts() {
 
-
     const { data } = await axios.get('/products/get-products')
-    const { filterdProducts } = data;
-    console.log({ filterdProducts })
-    if (filterdProducts) {
-        renderProducts(filterdProducts);
+    const { products } = data;
+    console.log({ products })
+    if (products) {
+        renderProducts(products);
     }
 }
 
@@ -52,24 +51,10 @@ function renderItemsMain(items,ok?, userName?) {
             </div>
             `
         })
-        if(localStorage.getItem("name") !=null){
+        if(ok === true){
             document.querySelector(".mainPage__header--welcome").innerHTML = `
-            </br>
-            hello ${localStorage.getItem("name")}
-            </br>
-            <button class="LogOutBtn" onclick="localStorage.clear();location.reload()">log out</button>  
-            `
-
-            document.querySelector(".mainPage__header--icons").innerHTML = `
-                <a href="index.html"><i class="fa fa-home" ></i></a>
-                <a href="personal-zone.html"><i class="fa fa-user" ></i></a>
-                <i id="" class="fa fa-shopping-cart"></i>
-            `
-
-        } 
-        else if(localStorage.getItem("name") ==='user'){document.querySelector(".mainPage__header--welcome").innerHTML = '';}
-
-        else{document.querySelector(".mainPage__header--welcome").innerHTML = '';}
+            hello ${userName} <a href="personal-zone.html"><i class="fa fa-user" ></i></a`
+        } else{document.querySelector(".mainPage__header--welcome").innerHTML = '';}
         rootItems.innerHTML = html;
     }
 }
@@ -93,19 +78,6 @@ function renderProducts(products, ok?, userName?) {
         </div>
         `
     }).join('');
-
-    if(localStorage.getItem("name") !=null){
-        document.querySelector(".mainPage__header--welcome").innerHTML = `
-        </br>
-        hello ${localStorage.getItem("name")}
-        </br>
-        <button class="LogOutBtn" onclick="localStorage.clear();location.reload()">log out</button>  
-        `
-
-    } 
-    else if(localStorage.getItem("name") ==='user'){document.querySelector(".mainPage__header--welcome").innerHTML = '';}
-
-    else{document.querySelector(".mainPage__header--welcome").innerHTML = '';}
     document.getElementById('products').innerHTML = html;
 }
 
@@ -181,22 +153,19 @@ async function handleSignUp(ev) {
 
 async function handleLogin(ev) {
     ev.preventDefault();
-    let { email, password } = ev.target.elements;
+    let { email, password, id } = ev.target.elements;
     email = email.value;
     password = password.value;
     const { data } = await axios.post('/products/login', { email, password });
-    let{userName} = data;
-    // console.log("userName="+userName);
-    // localStorage.setItem("name", userName);
+    const{userName} = data;
     const { ok } = data;
     const{items} = data;
-    // const{userId} = data;
+    const{userId} = data;
+    console.log(userId)
     if (ok === true) {
-        window.setTimeout(function () { location.reload() }, 2000)
         document.getElementById("logMessage").innerHTML = " You are login";
-        localStorage.setItem("name", userName);
     }
-    else  {
+    else if (ok === false) {
         document.getElementById("logMessage").innerHTML = "Email or Password is wrong, try again"
     }
     renderItemsMain(items, ok, userName);

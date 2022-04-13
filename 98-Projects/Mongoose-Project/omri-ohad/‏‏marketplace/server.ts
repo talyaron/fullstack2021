@@ -1,17 +1,10 @@
 import express from "express";
 import mongoose from "mongoose";
-
-require('dotenv').config()
-console.log(process.env.ENV)
-console.log(process.env.JWT_SECRET)
-
 const app = express();
-const cookieParser = require('cookie-parser')
-const port = process.env.PORT || 3003;
+const port = process.env.PORT || 3002;
 
 app.use(express.static("public"));
 app.use(express.json());
-app.use(cookieParser());
 
 mongoose.connect('mongodb+srv://ohad2001:GosiaW9nu935YRgg@cluster0.q1pcm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority') 
 .then(()=>console.log("conect to DB"))

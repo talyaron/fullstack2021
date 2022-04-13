@@ -42,7 +42,6 @@ nav ul li a i:hover {
   color: white;
   text-underline-position: below;
   border-radius: 3rem;
-  cursor: pointer;
 }
 
 .hidden {

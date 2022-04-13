@@ -86,7 +86,7 @@ exports.logIn = function (req, res) { return __awaiter(void 0, void 0, void 0, f
                 samePass = _b.sent();
                 theSame = 'the user is logged in';
                 res.send({ theSame: theSame });
-                return [2 /*return*/];
+                _b.label = 4;
             case 4:
                 console.log(newUser);
                 return [4 /*yield*/, newUser.save()];

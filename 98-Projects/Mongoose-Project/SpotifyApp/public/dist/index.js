@@ -36,31 +36,15 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 function handleGetSearch(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var searchTerm, data;
+        var searchTerm;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     searchTerm = ev.target.value;
-                    return [4 /*yield*/, axios.get("/songs/search?searchTerm=" + searchTerm)];
+                    return [4 /*yield*/, axios.get("/songs/search?" + searchTerm)];
                 case 1:
-                    data = (_a.sent()).data;
-                    console.log({ data: data });
-                    return [2 /*return*/];
-            }
-        });
-    });
-}
-function handleGetCatagories(ev) {
-    return __awaiter(this, void 0, void 0, function () {
-        var categorySearch, data;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    categorySearch = ev.target.value;
-                    return [4 /*yield*/, axios.get("/songs/category?searchTerm=" + categorySearch)];
-                case 1:
-                    data = (_a.sent()).data;
-                    console.log({ data: data });
+                    _a.sent();
+                    console.log(searchTerm);
                     return [2 /*return*/];
             }
         });
@@ -68,24 +52,24 @@ function handleGetCatagories(ev) {
 }
 function handleUpload(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var _a, band, album, song, genre, image, data, songs;
+        var _a, song, picture, genre, youtube, data, songs;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
                     ev.preventDefault();
-                    _a = ev.target.elements, band = _a.band, album = _a.album, song = _a.song, genre = _a.genre, image = _a.image;
-                    console.log(band, album, song, genre, image);
-                    band = band.value;
-                    album = album.value;
+                    _a = ev.target.elements, song = _a.song, picture = _a.picture, genre = _a.genre, youtube = _a.youtube;
+                    console.log(song, picture, genre, youtube);
                     song = song.value;
+                    picture = picture.value;
                     genre = genre.value;
-                    image = genre.value;
-                    console.log(band, album, song, genre, image);
-                    return [4 /*yield*/, axios.post('/songs/upload-song', { band: band, album: album, song: song, genre: genre, image: image })];
+                    youtube = youtube.value;
+                    console.log(song, picture, genre, youtube);
+                    return [4 /*yield*/, axios.post('/songs/upload-song', { song: song, picture: picture, genre: genre, youtube: youtube })];
                 case 1:
                     data = (_b.sent()).data;
                     songs = { data: data };
                     console.log({ data: data });
+                    renderSongs(songs);
                     return [2 /*return*/];
             }
         });
@@ -132,20 +116,19 @@ function handleLogIn(ev) {
         });
     });
 }
-// function renderSongs(songs) {
-//     const root = document.querySelector('#likedSongs')
-//     try {
-//         const html = songs.map(song => {
-//             console.log(song);
-//             return `<div class="card"><h2>${song.song} :${song.picture} ,${song.genre} ,${song.youtube}</h2>
-//             <div><input type='text' placeholder='type' value='${song.genre}' onblur='handleupdate(event,"${song._id}")'/></div>
-//             <button onclick='handleDelete("${song._id}")'>Delete</button>
-//             <div><img src="${song.img}" alt=""></div></div>`
-//         }).join('')
-//         console.log(html);
-//         root.innerHTML = html;
-//         if (!root) throw new Error("no root in rendersongs");
-//     } catch (error) {
-//         console.error(error.message);
-//     }
-// }
+function renderSongs(songs) {
+    var root = document.querySelector('#likedSongs');
+    try {
+        var html = songs.map(function (song) {
+            console.log(song);
+            return "<div class=\"card\"><h2>" + song.song + " :" + song.picture + " ," + song.genre + " ," + song.youtube + "</h2>\n            <div><input type='text' placeholder='type' value='" + song.genre + "' onblur='handleupdate(event,\"" + song._id + "\")'/></div>\n            <button onclick='handleDelete(\"" + song._id + "\")'>Delete</button>\n            <div><img src=\"" + song.img + "\" alt=\"\"></div></div>";
+        }).join('');
+        console.log(html);
+        root.innerHTML = html;
+        if (!root)
+            throw new Error("no root in rendersongs");
+    }
+    catch (error) {
+        console.error(error.message);
+    }
+}

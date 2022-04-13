@@ -1,9 +1,6 @@
-import jwt from "jwt-simple";
 import ProductUser from "../model/productModel";
 import ProductMain from "../model/productMain";
 import User from "../model/userModel";
-
-const secret=process.env.JWT_SECRET
 
 export async function getProductsMain(req, res) {
   try {
@@ -14,16 +11,12 @@ export async function getProductsMain(req, res) {
     res.send({ error: error.message });
   }
 }
+
 export async function getAllProducts(req, res) {
   try {
-    const { data } = req.cookies;
-    const decoded = jwt.decode(data, secret);
-    console.log(data);
-    const ownerId = decoded.id;
-    console.log(ownerId);
-    const products = await ProductUser.find({});
-    const filterdProducts = products.filter(product => product.ownerId === ownerId);
-    res.send({ filterdProducts });
+
+    const products = await ProductUser.find({})
+    res.send({ products });
   } catch (error) {
     console.log(error.error);
     res.send({ error: error.message });
@@ -32,13 +25,10 @@ export async function getAllProducts(req, res) {
 
 export async function addProduct(req, res) {
   try {
-    const { data } = req.cookies;
-    const decoded = jwt.decode(data, secret);
-    const ownerId = decoded.id;
     let { pic, title, description, price, category } = req.body;
-    const newProduct = new ProductUser({ pic, title, description, price, category, ownerId })
+    const newProduct = new ProductUser({ pic, title, description, price, category })
     const result = await newProduct.save()
-    // const ownerId = newProduct._id
+    const ownerId = newProduct._id
     const newProductMarket = new ProductMain({ pic, title, description, price, category, ownerId })
     const resultMarket = await newProductMarket.save()
     res.send({ result });
@@ -108,12 +98,10 @@ export async function updatePrice(req, res) {
 
 export async function deleteProduct(req, res) {
   try {
-    const { data } = req.cookies;
-    const decoded = jwt.decode(data, secret);
-    const ownerId = decoded.id;
-    if (ownerId) {
-      const result = await ProductUser.deleteOne({ ownerId: ownerId });
-      const resultMarket = await ProductMain.deleteOne({ ownerId: ownerId });
+    const { productId } = req.body;
+    if (productId) {
+      const result = await ProductUser.deleteOne({ _id: productId });
+      const resultMarket = await ProductMain.deleteOne({ ownerId: productId });
       const products = await ProductUser.find({});
       const productsMarket = await ProductMain.find({});
       res.send({ ok: true, productsMarket, products })
@@ -182,25 +170,19 @@ export async function register(req, res) {
 
 export async function login(req, res) {
   let { email, password } = req.body;
-  const user = await User.findOne({ email,password });
+  let user = (await User.find({ email: email, password: password })).length
+  let UserLogin = await User.find({ email: email })
+  const userName = UserLogin[0].userName;
+  const userId = UserLogin[0]._id;
   const items = await ProductMain.find({}); 
-  if(user){
-  const userName= user.userName;
-  const id = user._id;
-
-    if (user.password === password) {
-      const payload= {userName ,id};
-      const token = jwt.encode(payload, secret);
-      res.cookie("data",token);
-      res.send({ ok: true, items,userName});
-      return;
-    }
+  if (user > 0) {
+    await User.updateOne({ email: email }, { login: true });
+    res.send({ ok: true, userName, items, userId })
   }
-  else{
+  else if (user === 0) {
+    await User.updateOne({ email: email }, { login: false });
     res.send({ ok: false,items })
-    return
   }
-
 }
 
 

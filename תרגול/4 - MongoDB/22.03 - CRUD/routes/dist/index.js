@@ -44,7 +44,6 @@ var colors_1 = require("colors");
 var user_1 = require("../model/user");
 //PASS - BCRYPT
 var bcrypt_1 = require("bcrypt");
-// router.use(/*....*/)
 router.get('/get-users', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var users, err_1;
     return __generator(this, function (_a) {

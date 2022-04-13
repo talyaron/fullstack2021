@@ -7,6 +7,8 @@ interface User {
     email: string
     gender: string
 }
+
+
 function showSignUpFrom(ev) {
     const display: any = document.querySelector('.main_display')
     // console.dir(ev.target);
@@ -99,7 +101,7 @@ async function renderProfile(email, password) {
     </div>
     <nav class="settings">
     <li><button class="settings_buttons" id="${user.email}" name="${user.password}" onclick='handleUpdateProfile(event)'>update Profile</button></li>
-    <li><button class="settings_buttons delete" id="${user.email}" onclick="handleDeleteProfile(event)">delete user</button></li>
+    <li><a href="index.html"><button class="settings_buttons delete" id="${user.email}" onclick="handleDeleteProfile(event)">delete user</button></a></li>
     <div id='updateRoot'></div>
     </nav>
     <div id="profilePic"></div>
@@ -121,7 +123,7 @@ async function renderProfile(email, password) {
     <div class="profile__user__pics"></div>
         <div class="profile__navBar--down">
     <div class="homeIcon"><a href="index.html"><i class="fas fa-home"></i></a></div>
-    <div class="profileIcon"><i class="fas fa-user"></i></div>
+    <div class="profileIcon"><i class="fas fa-user" onclick="renderProfile(${email},${password})"></i></div>
     <div class="compassIcon" onclick="browserUser(event)"><a href="browse.html"><i class="fas fa-compass"></i></a></div>
     <div class="heartIcon"><i class="fas fa-heart"></i></div>
     </div>
@@ -191,10 +193,17 @@ async function HandleLogin(ev) {
     try {
         ev.preventDefault();
         const password = ev.target.elements.password.value;
+        // console.log(password)
         const email = ev.target.elements.email.value;
+        // console.log(email);
+        // const userData = await axios.get(`/user/get-user?email=${email}&password=${password}`);
+        // const imagesData = await axios.get(`/images/get-images?email=${email}&password=${password}`);
+        // const user = { ...userData.data };
+        // const images = { ...imagesData.data };
 
+        // console.log(user);
+        // console.log(images);
         localStorage.setItem("UserEmail", JSON.stringify(`${email}`));
-        localStorage.setItem("UserPassword", JSON.stringify(`${password}`));
         renderProfile(email, password);
 
     }
@@ -235,12 +244,10 @@ async function newUserDetails(ev) {
 
     const newUser: User = { firstName, lastName, birthday, country, password, email, gender }
     const userData = await axios.post('/user/add-user', { newUser });
-    const imagesData = await axios.post('/images/add-images', { email, password, firstName, lastName });
-    // console.log(userData);
-
+    const imagesData = await axios.post('/images/add-images', { email, password });
     // const user = { ...userData.data };
     // const images = { ...imagesData.data };
-    // console.log(user);
+
 
 
     renderProfile(email, password)
@@ -286,27 +293,17 @@ async function handleDeleteProfile(ev) {
     const email = ev.target.id;
     // console.log(email);
     try {
-
-        const { images } = await axios.delete("/images/delete-images", { data: { email } });
         const { data } = await axios.delete("/user/delete-user", { data: { email } });
-        const deleleImages = images;
+        const { images } = await axios.delete("/images/delete-user", { data: { email } });
+        const deleleImages = images
         const { error, results } = data;
-        deleteAlert(results)
+        alert(results)
         if (error) throw new Error(error);
         console.log(results);
     } catch (err) {
         console.error(err);
     }
 
-}
-async function deleteAlert(results) {
-    const display = document.querySelector('.main')
-    let html = " ";
-    html = ` <div class="profile__header-deleteMessage">
-    <h1 class="profile__header-deleteMessage-message">${results}</h1>
-    <a href="index.html"><button type=""button" class="profile__header-deleteMessage-btn">Ok</button></a>
-        `
-    display.innerHTML = html;
 }
 
 async function showProfilePicture(ev) {
@@ -333,7 +330,7 @@ async function showProfilePicture(ev) {
 async function handleExit(ev) {
     const email = ev.target.id;
     const password = ev.target.lang;
-
+    
 
     renderProfile(email, password);
 }
@@ -363,43 +360,29 @@ async function userCategoryActive(ev) {
 }
 
 async function browserUser() {
+    const email = JSON.parse(localStorage.getItem("UserEmail"));
     try {
-        const { ok, data, error } = await axios.patch('/images/get-users-profileImg')
+        const { ok, data, error } = await axios.patch('/images/get-users-profieImg', { email })
+        
         if (error) throw new Error(error)
-        console.log(data);
         const usersProfileImgsList = data.profileImgs
         renderbrowseImgs(usersProfileImgsList)
     } catch (err) {
         console.error(err);
     }
 }
-async function renderbrowseImgs(list) {
-    const display = document.querySelector('.browseMain_display');
-    console.log(list);
+function renderbrowseImgs(list) {
+    const display = document.querySelector('.browseMain_display')
     let html = " ";
     list.forEach(user => {
-        console.log(user);
         html += `<div class="browseMain_display-userCard" style="background-image:url(${user.img})">
-        <div class="browseMain_display-userCard-name">${user.firstName} ${user.lastName}</div>
-        <button id="${user.userEmail}" class="browseMain_display-userCard-addFriendBtn" type="button" onclick="openViewProfile(event)">view profile</button>
+        <div class="browseMain_display-userCard-name">${user.userEmail}</div>
+        <button class="browseMain_display-userCard-addFriendBtn" type="button">Add Friend</button>
         </div>`
     })
     display.innerHTML = html;
 }
-// function profileButton() {
-//     const email = JSON.parse(localStorage.getItem("UserEmail"));
-//     const password = JSON.parse(localStorage.getItem("UserPassword"));
-//     renderProfile(email, password);
-// }
 
-async function openViewProfile(ev){
-
-    const email = ev.target.id
-    console.log(email);
-
-
-
-}
 
 
 
