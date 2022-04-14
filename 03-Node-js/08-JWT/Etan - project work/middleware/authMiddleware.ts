@@ -14,7 +14,7 @@ export const requireAuth = (req, res, next) => {
           console.log("were not here");
           console.log(err.message);
         } else {
-          decodedToken = res.decodedToken;
+
           console.log("were here");
           next();
         }

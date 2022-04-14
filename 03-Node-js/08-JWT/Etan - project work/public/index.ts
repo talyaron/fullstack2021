@@ -72,8 +72,6 @@ async function handleRenderHome(ev) {
     const { data } = await axios.get(`users/logged-in-user?userId=${userId}`);
     const { userInfo, decoded } = data;
 
-    
-
     getUsersTasks(userId, currentPage);
     const user = userInfo[0];
     const name = document.querySelector("[data-name]");
@@ -253,15 +251,15 @@ async function handlePageChange(ev) {
     }
     if (requestedPage === "settings") {
       const { data } = await axios
-      .post(`/users/nav`, {
-        userURL,
-        requestedPage,
-      })
-      .then((response) => {
-        const { newURL } = response.data;
+        .post(`/users/nav`, {
+          userURL,
+          requestedPage,
+        })
+        .then((response) => {
+          const { newURL } = response.data;
 
-        window.location.href = newURL;
-      });
+          window.location.href = newURL;
+        });
     }
     if (requestedPage === "info") {
       const { data } = await axios.post(`/users/nav`, {
