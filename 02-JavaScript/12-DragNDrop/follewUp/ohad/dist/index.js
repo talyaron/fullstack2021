@@ -33,3 +33,4 @@ function handleDragEnter(ev) {
 function handleDrageLeave(ev) {
     ev.target.style.transform = 'scale(1)';
 }
+;
