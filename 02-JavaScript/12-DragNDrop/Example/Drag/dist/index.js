@@ -2,7 +2,7 @@ var willy = document.querySelector("#willy");
 var box = document.querySelector("#box");
 var pool = document.querySelector("#pool");
 willy.ondragstart = handlDragStart;
-willy.ondragend = handleDragEnd;
+// willy.ondragend = handleDragEnd;
 box.ondragstart = handlDragStart;
 box.ondragend = handleDragEnd;
 pool.ondrop = handelDrop;
@@ -14,6 +14,8 @@ function handlDragStart(ev) {
     ev.dataTransfer.dropEffect = "move";
     dragData.offsetX = ev.offsetX;
     dragData.offsetY = ev.offsetY;
+    ev.dataTransfer.setData("id", ev.target.id);
+    ev.dataTransfer.dropEffect = "move";
 }
 function handleDragEnd(ev) {
     var target = ev.target;
@@ -22,14 +24,22 @@ function handleDragEnd(ev) {
 }
 function handelDrop(ev) {
     console.log(ev.type);
+    ev.target.style.transform = "scale(2)";
+    console.log(ev);
+    var dropedTargetId = ev.dataTransfer.getData("id");
+    var dropped = document.getElementById(dropedTargetId);
+    dropped.style.top = ev.y - dragData.offsetY + "px";
+    dropped.style.left = ev.x - dragData.offsetX + "px";
+    //   ev.target.appendChild(dropped);
 }
 function handelDragOver(ev) {
-    console.log(ev.type);
-    ev.target.style.transform = 'scale(1.3);';
+    ev.preventDefault();
+    ev.dataTransfer.dropEffect = "move";
+    ev.target.style.transform = "scale(1.3)";
 }
 function handleDragEnter(ev) {
-    ev.target.style.transform = 'scale(1.3);';
+    ev.target.style.transform = "scale(1.3)";
 }
 function handleDrageLeave(ev) {
-    ev.target.style.transform = 'scale(1);';
+    ev.target.style.transform = "scale(1)";
 }
