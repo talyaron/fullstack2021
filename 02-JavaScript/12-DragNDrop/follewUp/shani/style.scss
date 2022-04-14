@@ -1,0 +1,23 @@
+.circle{
+    width:100px;
+    height:100px;
+    background-color: rgb(73, 73, 221);
+   
+    border-radius:50%;
+
+}
+.box{
+    width:100px;
+    height:50px;
+    background-color: rgb(232, 129, 255);
+   
+   
+
+}
+
+.draggable{
+    position:absolute;
+    top:0px;
+    left:0px;
+
+}
