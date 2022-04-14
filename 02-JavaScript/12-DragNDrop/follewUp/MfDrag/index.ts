@@ -6,7 +6,7 @@ box.ondragstart = handlDragStart;
 
 // pool.ondragenter = handleDragEnter;
 pool.ondragleave = handleDragLeave;
-pool.ondrop = handelDrop;
+// pool.ondrop = handelDrop;
 pool.ondragover = handelDragOver;
 
 
@@ -57,9 +57,9 @@ function handelDragOver(ev) {
 
 }
 
-function handelDrop(ev: any) {
-  console.log(ev.type)
-  ev.target.style.transform = "scale(4)";
+// function handelDrop(ev: any) {
+//   console.log(ev.type)
+//    ev.target.style.transform = "scale(0.5)";
 
 
-}
+// }
