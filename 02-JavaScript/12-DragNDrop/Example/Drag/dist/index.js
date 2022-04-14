@@ -25,11 +25,11 @@ function handelDrop(ev) {
 }
 function handelDragOver(ev) {
     console.log(ev.type);
-    ev.target.style.transform = 'scale(1.3);';
+    ev.target.style.transform = 'scale(1.3)';
 }
 function handleDragEnter(ev) {
-    ev.target.style.transform = 'scale(1.3);';
+    ev.target.style.transform = 'scale(1.3)';
 }
 function handleDrageLeave(ev) {
-    ev.target.style.transform = 'scale(1);';
+    ev.target.style.transform = 'scale(1)';
 }
