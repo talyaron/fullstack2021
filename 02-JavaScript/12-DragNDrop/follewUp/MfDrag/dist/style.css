@@ -2,4 +2,11 @@
   width: 100px;
   aspect-ratio: 1;
   background: tomato;
+  cursor: pointer;
+}
+
+.draggable {
+  position: absolute;
+  top: 0px;
+  left: 0px;
 }
