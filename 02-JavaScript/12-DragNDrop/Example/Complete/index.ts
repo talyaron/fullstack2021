@@ -8,6 +8,8 @@ const pool: HTMLElement = document.querySelector("#pool");
 pool.ondragover = handleDragOver;
 pool.ondrop = handleDrop;
 
+
+
 function handleDragStart(ev: DragEvent) {
     console.log(ev)
   if (ev.type === "dragstart") {
