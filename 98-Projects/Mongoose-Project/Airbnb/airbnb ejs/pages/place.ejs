@@ -19,8 +19,8 @@
         <%- include('./components/navigationBar') %>
       </nav>
 
-      <% if ( placesId) { %>
-        <%  placesId.forEach(place=> { %>
+      <% if (placeId) { %>
+        <% placeId.forEach(place=> { %>
             <div class="mainUpper">
                 <div class="maiUpper__title">
                     <h1><%- place.name %></h1>

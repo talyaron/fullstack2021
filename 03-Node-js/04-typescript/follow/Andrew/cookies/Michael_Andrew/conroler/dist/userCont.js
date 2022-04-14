@@ -95,7 +95,6 @@ exports.findUser = function (req, res) { return __awaiter(void 0, void 0, void 0
                     payload = { userName: oldUser[0].userName, funds: oldUser[0].fund };
                     token = jwt_simple_1["default"].encode(payload, secret);
                     res.cookie("userInfo", token, { maxAge: 60000 });
-                    console.log(oldUser[0].email);
                     res.send({ oldUser: oldUser });
                 }
                 if (!req.body)
@@ -138,15 +137,12 @@ exports.addArtToUser = function (req, res) { return __awaiter(void 0, void 0, vo
     });
 }); };
 exports.buyAndSell = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, buyerId, price, ownerId, userInfo, result, result2;
+    var _a, buyerId, price, ownerId, result, result2;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
                 _a = req.body, buyerId = _a.buyerId, price = _a.price, ownerId = _a.ownerId;
-                userInfo = req.cookies.userInfo;
-                userInfo = jwt_simple_1["default"].decode(userInfo, secret);
-                console.log(userInfo);
-                if (!(userInfo.funds >= price)) return [3 /*break*/, 3];
+                console.log("this should be last");
                 return [4 /*yield*/, userModel_1["default"].updateOne({ _id: ownerId }, { $inc: { fund: price } })];
             case 1:
                 result = _b.sent();
@@ -154,11 +150,7 @@ exports.buyAndSell = function (req, res) { return __awaiter(void 0, void 0, void
             case 2:
                 result2 = _b.sent();
                 res.send({ ok: true });
-                return [3 /*break*/, 4];
-            case 3:
-                res.send({ ok: false });
-                _b.label = 4;
-            case 4: return [2 /*return*/];
+                return [2 /*return*/];
         }
     });
 }); };

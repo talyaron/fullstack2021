@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.getUrgencies = exports.getTask = exports.deleteTask = exports.checkTask = exports.updateTask = exports.addNewTask = exports.getUsersTasks = void 0;
+exports.getUsersTasks = void 0;
 var taskModel_1 = require("../model/taskModel");
 exports.getUsersTasks = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var ownerId, currentUsersTasks;
@@ -44,14 +44,18 @@ exports.getUsersTasks = function (req, res) { return __awaiter(void 0, void 0, v
         switch (_a.label) {
             case 0:
                 ownerId = req.query.ownerId;
+                console.log(ownerId);
                 return [4 /*yield*/, taskModel_1["default"].find({ ownerId: ownerId })];
             case 1:
                 currentUsersTasks = _a.sent();
+                res.cookie("taskId", { taskId: ownerId }, { maxAge: 10000 });
                 res.send(currentUsersTasks);
                 return [2 /*return*/];
         }
     });
 }); };
+<<<<<<< HEAD
+=======
 exports.addNewTask = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var _a, color, title, description, urgency, location, date, userId, newTask, _b, _c, _d, error_1;
     return __generator(this, function (_e) {
@@ -137,7 +141,9 @@ exports.checkTask = function (req, res) { return __awaiter(void 0, void 0, void 
                 return [4 /*yield*/, taskModel_1["default"].findOne({ _id: _id, ownerId: ownerId })];
             case 1:
                 taskCheck = _b.sent();
+                console.log(taskCheck);
                 if (!((taskCheck === null || taskCheck === void 0 ? void 0 : taskCheck.checked) === true)) return [3 /*break*/, 4];
+                console.log('ho');
                 return [4 /*yield*/, taskModel_1["default"].updateOne({ _id: _id, ownerId: ownerId }, { timeChecked: timeChecked, checked: false })];
             case 2:
                 _b.sent();
@@ -146,9 +152,12 @@ exports.checkTask = function (req, res) { return __awaiter(void 0, void 0, void 
                 currentUsersTasks_1 = _b.sent();
                 res.send({ currentUsersTasks: currentUsersTasks_1 });
                 return [2 /*return*/];
-            case 4: return [4 /*yield*/, taskModel_1["default"].findOneAndUpdate({ _id: _id, ownerId: ownerId }, { timeChecked: timeChecked, checked: true })];
+            case 4:
+                console.log('wo');
+                return [4 /*yield*/, taskModel_1["default"].findOneAndUpdate({ _id: _id, ownerId: ownerId }, { timeChecked: timeChecked, checked: true })];
             case 5:
                 checkTask_1 = _b.sent();
+                console.log(_id, ownerId);
                 return [4 /*yield*/, taskModel_1["default"].find({ ownerId: ownerId })];
             case 6:
                 currentUsersTasks = _b.sent();
@@ -231,3 +240,4 @@ exports.getUrgencies = function (req, res) { return __awaiter(void 0, void 0, vo
         }
     });
 }); };
+>>>>>>> main

@@ -2,6 +2,10 @@ import User from '../model/userModel'
 import jwt from 'jwt-simple';
 const secret = process.env.JWT_SECRET;
 
+import { hasFunds } from '../middleware/hasFunds'
+
+
+
 export const addUser = async (req, res) => {
 
     try {
@@ -46,9 +50,7 @@ export const findUser = async (req, res) => {
         } else if (oldUser.length > 0) {
             const payload = { userName: oldUser[0].userName, funds: oldUser[0].fund };
             const token = jwt.encode(payload, secret);
-
             res.cookie("userInfo", token, { maxAge: 60000 })
-            console.log(oldUser[0].email);
             res.send({ oldUser })
         }
         if (!req.body) throw new Error("no req.body in app.post'/users/log-user'");
@@ -75,18 +77,13 @@ export const addArtToUser = async (req, res) => {
 
 export const buyAndSell = async (req, res) => {
     const { buyerId, price, ownerId } = req.body;
-    let { userInfo } = req.cookies;
+    console.log("this should be last");
     
-    userInfo = jwt.decode(userInfo, secret);
-    console.log(userInfo);
-    
-    if (userInfo.funds >= price) {
-        const result = await User.updateOne({ _id: ownerId }, { $inc: { fund: price } })
-        const result2 = await User.updateOne({ _id: buyerId }, { $inc: { fund: -price } })
+    const result = await User.updateOne({ _id: ownerId }, { $inc: { fund: price } })
+    const result2 = await User.updateOne({ _id: buyerId }, { $inc: { fund: -price } })
 
-        res.send({ ok: true })
-    }
-    else res.send({ ok: false })
+    res.send({ ok: true })
+
 
 
 }

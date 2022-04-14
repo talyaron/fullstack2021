@@ -181,9 +181,9 @@ async function handleBuy(artId, price, ownerId) {
         alert("Log-in first!")
         return
     }
-    if (price > site.user.fund) {
-        alert("Not Enough Funds!")
-    }
+    // if (price > site.user.fund) {
+    //     alert("Not Enough Funds!")
+    // }
     else {
         await axios.patch('/users/buy-and-sell', { buyerId: site.user._id, price, ownerId })
 
