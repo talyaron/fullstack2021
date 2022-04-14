@@ -1,0 +1,12 @@
+.box {
+  width: 100px;
+  height: 50px;
+  background-color: blue;
+}
+
+#willy {
+  background-image: url("https://images.pexels.com/photos/1632790/pexels-photo-1632790.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+  width: 100px;
+  height: 50px;
+  margin: 20px;
+}
