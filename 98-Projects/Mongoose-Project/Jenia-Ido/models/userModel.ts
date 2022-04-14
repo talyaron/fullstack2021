@@ -2,7 +2,6 @@ import mongoose from "mongoose";
 
 
 const userSchema = new mongoose.Schema({
-    role:String,
     firstName: String,
     lastName: String,
     birthday: String,

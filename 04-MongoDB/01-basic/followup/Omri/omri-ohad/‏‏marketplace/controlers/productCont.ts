@@ -1,6 +1,6 @@
-import ProductUser from "../model/productModel";
-import Market from "../model/productMain";
-import User from "../model/userModel";
+import UserProducts from "../model/userProductsModel";
+import Market from "../model/marketModel";
+import User from "../model/usersModel";
 
 export async function getProductsMain(req, res) {
   try {
@@ -16,8 +16,8 @@ export async function getAllProducts(req, res) {
   try {
     const { data } = req.cookies;
     const ownerId = data.id;
-    const products = await ProductUser.find({});
-    const filterdProducts = products.filter(product => product.ownerId === ownerId);
+    const products = await UserProducts.find({})
+    const filterdProducts = products.filter(product => product.ownerId === ownerId)
     res.send({ filterdProducts });
   } catch (error) {
     console.log(error.error);
@@ -30,9 +30,9 @@ export async function addProduct(req, res) {
     const { data } = req.cookies;
     const ownerId = data.id;
     let { pic, title, description, price, category } = req.body;
-    const newProduct = new ProductUser({ pic, title, description, price, category, ownerId })
+    const newProduct = new UserProducts({ pic, title, description, price, category,ownerId })
     const result = await newProduct.save()
-    // const ownerId = newProduct._id
+    //const ownerId = newProduct._id
     const newProductMarket = new Market({ pic, title, description, price, category, ownerId })
     const resultMarket = await newProductMarket.save()
     res.send({ result });
@@ -48,9 +48,9 @@ export async function updatePic(req, res) {
     const productId = req.body.gameId;
     const newImg = req.body.newImg;
     if ({ productId }) {
-      const result = await ProductUser.updateOne({ _id: productId }, { pic: newImg })
+      const result = await UserProducts.updateOne({ _id: productId }, { pic: newImg })
       const resultMarket = await Market.updateOne({ ownerId: productId }, { pic: newImg })
-      const products = await ProductUser.find({});
+      const products = await UserProducts.find({});
       const productsMarket = await Market.find({});
       res.send({ ok: true, result, products });
     } else {
@@ -67,9 +67,9 @@ export async function updateTitle(req, res) {
     const productId = req.body.gameId;
     const newTitle = req.body.newTitle;
     if ({ productId }) {
-      const result = await ProductUser.updateOne({ _id: productId }, { title: newTitle })
+      const result = await UserProducts.updateOne({ _id: productId }, { title: newTitle })
       const resultMarket = await Market.updateOne({ ownerId: productId }, { title: newTitle })
-      const products = await ProductUser.find({});
+      const products = await UserProducts.find({});
       const productsMarket = await Market.find({});
       res.send({ ok: true, result, products });
     } else {
@@ -86,9 +86,9 @@ export async function updatePrice(req, res) {
     const productId = req.body.gameId;
     const newPrice = req.body.newPrice;
     if ({ productId }) {
-      const result = await ProductUser.updateOne({ _id: productId }, { price: newPrice })
+      const result = await UserProducts.updateOne({ _id: productId }, { price: newPrice })
       const resultMarket = await Market.updateOne({ ownerId: productId }, { price: newPrice })
-      const products = await ProductUser.find({});
+      const products = await UserProducts.find({});
       const productsMarket = await Market.find({});
       res.send({ ok: true, result, products });
     } else {
@@ -105,9 +105,9 @@ export async function deleteProduct(req, res) {
     const { data } = req.cookies;
     const ownerId = data.id;
     if (ownerId) {
-      const result = await ProductUser.deleteOne({ ownerId: ownerId });
+      const result = await UserProducts.deleteOne({ ownerId: ownerId });
       const resultMarket = await Market.deleteOne({ ownerId: ownerId });
-      const products = await ProductUser.find({});
+      const products = await UserProducts.find({});
       const productsMarket = await Market.find({});
       res.send({ ok: true, productsMarket, products })
     } else {
@@ -174,24 +174,32 @@ export async function register(req, res) {
 }
 
 export async function login(req, res) {
-  let { email, password } = req.body;
-  const user = await User.findOne({ email,password });
-  const items = await Market.find({}); 
-  if(user){
-  const userName= user.userName;
-  const id = user._id;
+  try {
 
-    if (user.password === password) {
-      res.cookie("data",{ userName ,id });
-      res.send({ ok: true, items,userName});
-      return;
+    let { email, password } = req.body;
+    if (typeof email === 'string' && typeof password === 'string') {
+      const user = await User.findOne({ email: email });
+      const products = await Market.find({});
+
+      if (user) {
+        if (user.password === password) {
+          res.cookie(
+            "data",
+            { id: user._id, userName: user.userName}
+          );
+          res.send({ ok: true, login: true, userName: user.userName, products });
+          return;
+        } else {
+          res.send({ ok: false, products })
+        }
+      }
+    } else {
+      throw new Error("Email or password are missing");
     }
+  } catch (error) {
+    console.log(error.message);
+    res.send({ error: error.message });
   }
-  else{
-    res.send({ ok: false,items })
-    return
-  }
-
 }
 
 

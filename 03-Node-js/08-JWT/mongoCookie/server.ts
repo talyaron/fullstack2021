@@ -2,10 +2,6 @@ import cookieParser from 'cookie-parser'
 import mongoose from 'mongoose';
 import express from 'express';
 
-require('dotenv').config()
-console.log(process.env.ENV)
-const uri = process.env.MONGODB_URI
-
 const app = express();
 const port = process.env.PORT || 3000;
 
@@ -14,7 +10,7 @@ app.use(express.json());
 app.use(cookieParser())
 
 
-mongoose.connect(uri).then(res => {
+mongoose.connect('mongodb+srv://Michael:rrrposAAidkEs@cluster0.ctwuo.mongodb.net/companyDb?retryWrites=true&w=majority').then(res => {
     console.log('connected to DB');
   }).catch(err => {
     console.log('At mongoose.connect: ');

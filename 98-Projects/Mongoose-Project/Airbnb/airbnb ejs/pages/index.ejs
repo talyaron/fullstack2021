@@ -4,17 +4,17 @@
 <head>
 
   <%- include('./components/head') %>
-    <link rel="icon" type="image/x-icon" href="images/logo.png">
+  <link rel="icon" type="image/x-icon" href="images/logo.png">
 
-    <link rel="stylesheet" href="dist/style.css">
+  <link rel="stylesheet" href="dist/style.css">
 </head>
 
 <body>
 
-
-  <nav>
-    <%- include('./components/navigationBar') %>
-  </nav>
+  
+<nav>
+  <%- include('./components/navigationBar') %>
+</nav>
 
 
   <div class="mainPage__imageCarousel">
@@ -30,48 +30,38 @@
 
   <div class="mainPage__citySuggestions">
     <h1 class="mainPage__citySuggestions__text">Inspiration for your next trip</h1>
-    <form class="mainPage__citySuggestions__cards" action="/places/search-city" method="GET">
+    <div class="mainPage__citySuggestions__cards" onclick="handleCities(event)" >
       <div class="mainPage__citySuggestions__cards__card">
-        <input type="image" src="https://i.pinimg.com/originals/d3/59/1c/d3591c63b81ba14696e290f74743e1de.gif"
-          name="TelAviv" alt="">
-        <!-- <img src="https://i.pinimg.com/originals/d3/59/1c/d3591c63b81ba14696e290f74743e1de.gif"  id="Tel Aviv"> -->
+        <img src="https://i.pinimg.com/originals/d3/59/1c/d3591c63b81ba14696e290f74743e1de.gif"  data-card="Tel Aviv">
         <div class="description">
           <h1>Tel Aviv-Yafo</h1>
           <h3>84 kilometeres away</h3>
         </div>
       </div>
-      <div class="mainPage__citySuggestions__cards__card">
-        <input type="image"
-          src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/014a9043643817.623277932bd44.gif" name="Eilat"
-          alt="">
-        <!-- <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/014a9043643817.623277932bd44.gif" id="Eilat"> -->
+      <div class="mainPage__citySuggestions__cards__card" >
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/014a9043643817.623277932bd44.gif" data-card="Eilat">
         <div class="description">
           <h1>Eilat</h1>
           <h3>84 kilometeres away</h3>
         </div>
       </div>
-      <div class="mainPage__citySuggestions__cards__card">
-        <input type="image"
-          src="https://4.bp.blogspot.com/-pMoMk50GlQI/WxuejAtymnI/AAAAAAAACAY/4YGpCuqLuY4BSn2jkcImneBW3X-GCx6ewCLcBGAs/s400/happy-town-gif1b.gif"
-          name="Jerusalem" alt="">
-        <!-- <img
-          src="https://4.bp.blogspot.com/-pMoMk50GlQI/WxuejAtymnI/AAAAAAAACAY/4YGpCuqLuY4BSn2jkcImneBW3X-GCx6ewCLcBGAs/s400/happy-town-gif1b.gif" id="Jerusalem"> -->
+      <div class="mainPage__citySuggestions__cards__card" >
+        <img
+          src="https://4.bp.blogspot.com/-pMoMk50GlQI/WxuejAtymnI/AAAAAAAACAY/4YGpCuqLuY4BSn2jkcImneBW3X-GCx6ewCLcBGAs/s400/happy-town-gif1b.gif" data-card="Jerusalem">
         <div class="description">
           <h1>Jerusalem</h1>
           <h3>84 kilometeres away</h3>
         </div>
       </div>
-      <div class="mainPage__citySuggestions__cards__card">
-        <input type="image" src="https://i.pinimg.com/originals/11/c0/0c/11c00c702d268a5a7789e801f995fbcc.gif"
-          name="HareiYehuda" alt="">
-        <!-- <img src="https://i.pinimg.com/originals/11/c0/0c/11c00c702d268a5a7789e801f995fbcc.gif" id="Harei Yehuda"> -->
+      <div class="mainPage__citySuggestions__cards__card" >
+        <img src="https://i.pinimg.com/originals/11/c0/0c/11c00c702d268a5a7789e801f995fbcc.gif" data-card="Harei Yehuda">
         <div class="description">
           <h1>Harei Yehuda</h1>
           <h3>84 kilometeres away</h3>
         </div>
       </div>
 
-    </form>
+    </div>
   </div>
 
   <!-- <div class="bottomBar">
@@ -119,10 +109,10 @@
 
 
 </div> -->
-  <div class="bottomBar">
-    <%- include('./components/bottomBar') %>
-  </div>
-  <p class="airbnbRights">© 2022 Airbnb, Inc.Privacy·Terms·Sitemap</p>
+<div class="bottomBar">
+  <%- include('./components/bottomBar') %>
+</div>
+<p class="airbnbRights" >© 2022 Airbnb, Inc.Privacy·Terms·Sitemap</p> 
 
   <script src="dist/index.js"></script>
 </body>
