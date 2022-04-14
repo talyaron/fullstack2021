@@ -1,13 +1,28 @@
-const willy: HTMLElement = document.querySelector("#willy");
-const box: HTMLElement = document.querySelector("#box");
-const pool:HTMLElement = document.querySelector("#pool")
-
-willy.ondragstart = handlDragStart;
-willy.ondragend = handleDragEnd;
 
 
-box.ondragstart = handlDragStart;
-box.ondragend = handleDragEnd;
+const squre: HTMLElement = document.querySelector("#willy");
+const triangle: HTMLElement = document.querySelector("#box");
+const circle: HTMLElement = document.querySelector("#box");
+const diamond: HTMLElement = document.querySelector("#box");
+
+
+const pool-squre:HTMLElement = document.querySelector("#pool")
+const pool-triangle:HTMLElement = document.querySelector("#pool")
+const pool-circle:HTMLElement = document.querySelector("#pool")
+const pool-diamond:HTMLElement = document.querySelector("#pool")
+
+
+
+
+squre.ondragstart = handlDragStart;
+squre.ondragend = handleDragEnd;
+
+circle.ondragstart = handlDragStart;
+circle.ondragend = handleDragEnd;
+squre.ondragstart = handlDragStart;
+squre.ondragend = handleDragEnd;
+triangle.ondragstart = handlDragStart;
+triangle.ondragend = handleDragEnd;
 
 
 pool.ondrop = handelDrop;
