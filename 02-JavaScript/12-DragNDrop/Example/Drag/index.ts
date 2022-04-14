@@ -42,6 +42,7 @@ function handelDrop(ev:DragEvent){
 function handelDragOver(ev:DragEvent){
     console.log(ev.type)
     ev.target.style.transform = 'scale(1.3)'
+    
 }
 function handleDragEnter(ev:any){
     ev.target.style.transform = 'scale(1.3)'
