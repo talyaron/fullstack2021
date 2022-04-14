@@ -36,18 +36,9 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.wordExists = exports.getDailyWord = exports.addToDB = void 0;
+exports.getDailyWord = exports.addToDB = void 0;
 var wordsModel_1 = require("../model/wordsModel");
-var dictionary = require('../dictionary.json');
-function shuffleDictionary(dictionary) {
-    for (var i = 0; i < dictionary.length; i++) {
-        var j = Math.floor(Math.random() * (i + 1));
-        var temp = dictionary[i];
-        dictionary[i] = dictionary[j];
-        dictionary[j] = temp;
-    }
-}
-shuffleDictionary(dictionary);
+var wordsDictionary = require('../dictionary.json');
 function addToDB() {
     return __awaiter(this, void 0, void 0, function () {
         var dictionaryTest, i, newWord, result;
@@ -58,19 +49,17 @@ function addToDB() {
                     dictionaryTest = _a.sent();
                     if (!(dictionaryTest.length > 0)) return [3 /*break*/, 2];
                     console.log('ok');
-                    console.log(dictionary.length);
                     return [3 /*break*/, 6];
                 case 2:
                     console.log('null');
                     i = 0;
                     _a.label = 3;
                 case 3:
-                    if (!(i < dictionary.length)) return [3 /*break*/, 6];
-                    newWord = new wordsModel_1["default"]({ word: dictionary[i], wordNumber: i });
+                    if (!(i < wordsDictionary.length)) return [3 /*break*/, 6];
+                    newWord = new wordsModel_1["default"]({ word: wordsDictionary[i], wordNumber: i });
                     return [4 /*yield*/, newWord.save()];
                 case 4:
                     result = _a.sent();
-                    console.log(i);
                     _a.label = 5;
                 case 5:
                     i++;
@@ -88,12 +77,10 @@ function getDailyWord(req, res) {
             switch (_a.label) {
                 case 0:
                     dayOffset = req.query.dayOffset;
-                    return [4 /*yield*/, wordsModel_1["default"].find({ wordNumber: dayOffset })
-                        // const dailyWord = await FundleWord.find({})
-                    ];
+                    console.log(dayOffset);
+                    return [4 /*yield*/, wordsModel_1["default"].find({ wordNumber: dayOffset })];
                 case 1:
                     dailyWord = _a.sent();
-                    // const dailyWord = await FundleWord.find({})
                     res.send(dailyWord);
                     return [2 /*return*/];
             }
@@ -101,25 +88,3 @@ function getDailyWord(req, res) {
     });
 }
 exports.getDailyWord = getDailyWord;
-function wordExists(req, res) {
-    return __awaiter(this, void 0, void 0, function () {
-        var guess, wordCheck;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    guess = req.query.guess;
-                    return [4 /*yield*/, wordsModel_1["default"].find({ word: guess })];
-                case 1:
-                    wordCheck = _a.sent();
-                    if (wordCheck[0]) {
-                        res.send({ found: true });
-                    }
-                    else {
-                        res.send({ found: false });
-                    }
-                    return [2 /*return*/];
-            }
-        });
-    });
-}
-exports.wordExists = wordExists;

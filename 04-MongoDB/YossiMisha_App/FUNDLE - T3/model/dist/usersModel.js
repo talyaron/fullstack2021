@@ -8,13 +8,7 @@ var UserSchema = new mongoose_1["default"].Schema({
     played: Number,
     wins: Number,
     current_strike: Number,
-    max_strike: Number,
-    oneattempt: Number,
-    twoattempts: Number,
-    threeattempts: Number,
-    fourattempts: Number,
-    fiveattempts: Number,
-    sixattempts: Number
+    max_strike: Number
 });
 var FundleUser = mongoose_1["default"].model('FundleUsers', UserSchema);
 exports["default"] = FundleUser;

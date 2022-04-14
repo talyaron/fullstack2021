@@ -4,74 +4,41 @@
 }
 
 body {
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(26, 24, 24);
     width: 350px;
-    height: 650px;
-    // max-height: 620px;
+    height: 620px;
     margin: auto;
 }
 
 .profile {
     width: 350px;
-    height: max-content;
-    max-height: 650px;
-    background-color: #000000;
-    // border: 2px solid green;
-    display: inline;
-    
+    height: 130px;
     .settings{
         position: relative;
         // right: 365px;
-        height: 100%;
-        width: 25%;
-        transform: translateX(180px);
-        // border: 2px solid red;
+        transform: translateX(1100px);
         font-size: 10px;
-        display: flex;
-        justify-self: end;
-        // grid-template-columns: repeat(4 , 25%);
-        flex-flow: column;
+        display: grid;
+        grid-template-columns: repeat(4 , 25%);
 
-        &_buttons{
-            justify-self: end;
-            height: 3vh;
-            font-size: 10px;
-            width: 7vw;
-            font-size: 10px;
-            // font-weight: 800;
-            border-radius: 30px;
-            background-color: #ee9024;
-            border: none;
-
-            &-updateForm{
-                position:relative;
-                top: -60px;
-                right: 180px;
-                width: 10vw;
-                height: 7vh;
-                row-gap: 1vh;
-                // border: 2px solid red;
-
-                &-input{
-                    width:100%;
-                    border-radius: 5px;
-                }
-            }
-            & a{
-                text-decoration: none;
-                font-size: 10px;
-                color: #000000;
-            }
+        &_options{
+            justify-self: center;
+            height: 50%;
+        }
+        & ul{
+            grid-column: 4/5;
+            display: flex;
+            flex-flow: column;  
         }
        .delete{
-           color: rgb(230,150,80);
+           color: rgb(230, 150, 80);
         }
         li{
             opacity: 0;
         }
     }
     .setting-active{
-        transform: translateX(245px);
+        transform: translateX(0%);
         color: rgb(245, 105, 12);
         li{
             padding: 2px;
@@ -82,14 +49,11 @@ body {
             }
         }
     }
-    .updateForm{
-        display:none;
-        overflow: hidden;
-    }
     i{
         color: rgb(245, 105, 12);
         size: 5px;
     }
+
 
     &__header {
         display: grid;
@@ -97,86 +61,65 @@ body {
         grid-template-rows: repeat(3, 1fr);
         justify-items: center;
         padding: 5px;
-        border-bottom: 1px solid rgb(31, 31, 32);
-        border-top: 1px solid rgb(31, 31, 32);
+
+
+    }
 
     &__imgBorder {
-        grid-column: 1/2;
-        grid-row: 1/4;
         border-radius: 60%;
-        background-size:contain;
+        background-size:150%;
         background-repeat: no-repeat;
         background-position: center;
         background: fill;
+        
         box-shadow: 0px 0px 0px 1px rgb(245, 105, 12);
-        // grid-area: 1 / 1 / 4 / 2;
-        width: 80px;
-        height: 80px;
+        grid-area: 1 / 1 / 4 / 2;
+        width: 60px;
+        height: 60px;
 
-        &-changeImage{
-            border-radius: 60%;
-            position: relative;
-            left: 25%;
-            top: 77%;
-            font-size: 12px;
-            color: #ee9024;
-            box-shadow: rgba(10, 10, 39, 0.55) 0px 30px 60px 32px inset, rgba(10, 7, 96, 0.5) 0px 18px 36px 18px inset;
-        }
         
     }
-        &__birthday {
-            // grid-area: 3 / 1 / 3 / 2;
-            grid-column: 3/4;
-            grid-row: 1/2;
-            font-size: 15px;
-            font-family: 'Asar', serif;
-            color: gray;
-            place-self: center stretch;
-            text-align: end;
-            padding-right: 12px;
-        }
-        
-    &__gender{
-        // grid-area: 2 / 3 / 3 / 4;
-        grid-column: 3/4;
-        grid-row: 2/3;
-        font-size: 15px;
+
+
+    &__birthday {
+        grid-area: 3 / 1 / 3 / 2;
+        font-size: 12px;
         font-family: 'Asar', serif;
         color: gray;
-        text-align: end;
         place-self: center stretch;
-        padding-right: 12px;
 
+    }
+    &__gender{
+        grid-area: 2 / 3 / 3 / 4;
+        font-size: 12px;
+        font-family: 'Asar', serif;
+        color: gray;
+        place-self: center stretch;
 
     }
     &__country{
-        // grid-area: 2 / 2 / 3 / 3;
-        grid-column: 3/4;
-        grid-row: 3/4;
-        font-size: 15px;
+        grid-area: 2 / 2 / 3 / 3;
+        font-size: 12px;
         font-family: 'Asar', serif;
         color: gray;
         place-self: center stretch;
-        text-align: end;
-        padding-right: 12px;
-
 
     }
+    
+
 
     &__name {
-        // grid-area: 1 / 2 / 2 / 4;
-        grid-column: 2/3;
-        grid-row: 1/2;
+        grid-area: 1 / 2 / 2 / 4;
         color: white;
-        font-size: 25px;
+        font-size: 30px;
         font-family: 'Cabin Condensed', sans-serif;
         grid-area: 1 / 2 / 2 / 3;
         place-self: center stretch;
-        margin-left: 10px;
 
     }
 
     &__addButton {
+
         color: rgb(211, 210, 210);
         background-color: rgb(245, 105, 12);
         width: fit-content;
@@ -184,10 +127,7 @@ body {
         border-radius: 10px;
         border: none;
         transition: 0.2s ease-in-out;
-        // grid-area: 3 / 2 / 4 / 3;
-        margin-left: 25px;
-        grid-column: 2/3;
-        grid-row: 3/4;
+        grid-area: 3 / 2 / 4 / 3;
         place-self: center stretch;
 
         &:hover {
@@ -197,7 +137,6 @@ body {
         }
 
     }
-}
 
     &__user__category {
         color: aliceblue;
@@ -212,6 +151,7 @@ body {
         padding: 3px;
         border-radius: 15px;
 
+
         &__text {
             font-size: 15px;
             padding: 3px;
@@ -222,7 +162,6 @@ body {
                 border-radius: 15px;
                 padding: 3px;
                 cursor: pointer;
-                border: 5px solid gray;
             }
         }
 
@@ -231,64 +170,47 @@ body {
 
     &__user__pics {
         display: grid;
+        width: 100%;
+        overflow: auto;
         grid-template-columns: repeat(2, 45%);
-        height: 60vh;
-        max-height: 60vh;
-        width: 99%;
-        margin-top: 3vh ;
-        // margin: auto;
-            gap: 10px;
-            overflow-y: auto;
-            
-            // white-space: nowrap;
-        // border: 2px solid rgb(69, 179, 14);
+        gap: 10px;
 
         &-userPics{
-            opacity:0.7;
-            margin-left: 1vw;
-            width: 100%;
-            height: 15vh;
-            // border: 2px solid red;
             background-position: center;
             background-size: cover;
             background-repeat: no-repeat;
-
-            &:hover{
-                opacity:1;
-
-            }
         }
-        // .pic0 {
+        // .pic1 {
         //     grid-area: 1 / 1 / 3 / 2;
 
         // }
 
-        // .pic1 {
+        // .pic2 {
         //     grid-area: 1 / 2 / 2 / 3;
         // }
 
-        // .pic2 {
+        // .pic3 {
         //     grid-area: 3 / 1 / 4 / 2;
         // }
 
-        // .pic3 {
+        // .pic4 {
         //     grid-area: 2 / 2 / 4 / 3;
         // }
 
 
-        // img {
-        //     width: 100%;
-        //     height: 100%;
-        //     border-radius: 10px;
-        //     object-fit: cover;
-        //     &:hover{
-        //         cursor: pointer;
-        //     }
-        //     &:active {
-        //         transform: scale(1.5);
-        //         transition: 0.8s ease-in-out;
-        //     }
-        // }
+        img {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            object-fit: cover;
+            &:hover{
+                cursor: pointer;
+            }
+            &:active {
+                transform: scale(1.5);
+                transition: 0.8s ease-in-out;
+            }
+        }
     }
     &__navBar--top{
         display: flex;
@@ -303,19 +225,18 @@ body {
         }
     }
     &__navBar--down{
-        // position: fixed;
-        bottom: 15px;
-        height: 2vh;
+        position: fixed;
+        bottom: 0px;
+        // left: 10vw;
         display: flex;
         justify-content: space-around;
-        width: 345px;
-        background-color: rgb(0, 0, 0);
+        width: 100%;
+        background-color: gray;
         padding: 10px;
-        border-bottom-left-radius: 30%;
-        border-bottom-right-radius: 30%;
-
+        border-radius: 3%;
         // .userIcon{}
     }
+
 }
 .main {
     margin-top: 1vh;
@@ -384,52 +305,13 @@ body {
         padding: 14px 16px;
         border-radius: 15px;
         display: grid;
-        width: 110%;
+        width: 100%;
         grid-template-columns: repeat(10, 1fr);
         grid-template-rows: repeat(10, 1fr);
         max-height: fit-content;
-        // border: 2px solid rgb(156, 155, 160);
+        // border-bottom: 2px solid rgb(156, 155, 160);
         // border: 2px solid red;
 
-        &_box{
-            border: 10px solid black;
-            background-color: white;
-            border-radius: 40px;
-            opacity: 0.65;
-            width: 9vw;
-            height: 13vh;
-            grid-row: 7/8;
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: cover;
-            opacity: 1;
-        }
-        .boxAnimationOne{
-            border: 10px solid rgb(218, 144, 47);
-            animation: animationOne ease-in-out 7s -1s infinite alternate forwards;
-            grid-row: 3/4;
-            grid-row: 2/3;
-            background-image: url("https://vokrug.tv/pic/news/b/6/9/4/b69468e441345d712ace85b8cbd8eb6b.jpg");
-            // animation: name duration timing-function delay iteration-count direction fill-mode;
-        }
-        .boxAnimationTwo{
-            border: 10px solid rgb(255, 245, 245);
-            grid-row: 5/6;
-            animation: animationTwo ease-in-out 4s -1s infinite alternate forwards;
-            background-image: url("https://cultivatedculture.com/wp-content/uploads/2019/12/LinkedIn-Profile-Picture-Example-Madeline-Mann.jpeg");
-        }
-        .boxAnimationThree{
-            border: 10px solid rgb(126, 236, 66);
-            grid-row: 7/8;
-            animation: animationThree ease-in-out 7s 0s infinite alternate forwards;
-            background-image: url("https://d2qp0siotla746.cloudfront.net/img/use-cases/profile-picture/template_3.jpg");
-        }
-        .boxAnimationFour{
-            border: 10px solid rgb(182, 85, 241);
-            grid-row: 9/10;
-            animation: animationFour ease-in-out 6s -0.5s infinite alternate forwards;
-            background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLUfgjYHWP0CETJGL6AE8ODqd-JiOMwx-spw&usqp=CAU");
-        }
         &-signUpForm {
             width: 20vw;
             display: flex;
@@ -441,6 +323,9 @@ body {
             margin-left: -50px;
             opacity: 0;
             // border: 2px solid red;
+
+            
+
 
             &-input {
                 box-shadow: rgba(54, 53, 52, 0.35) 0px 30px 60px 30px inset, rgba(139, 139, 148, 0.3) 0px 18px 36px 18px inset;
@@ -540,128 +425,12 @@ body {
 
     }
 }
-.browseMain{
-    margin-top: 3vh;
-    background-color: rgb(0, 0, 0);
-    width: 350px;
-    height: 655px;
-    // border: 2px solid red;
-    box-shadow: rgba(72, 72, 180, 0.15) 0px 30px 60px 25px inset, rgba(35, 58, 187, 0.18) 120px 200px 270px 100px inset;
-    display: grid;
-    border-radius: 15px;
-    grid-template-rows: repeat(10, 1fr);
-    grid-template-columns: repeat(10, 1fr);
-    row-gap: 1.5rem;
-
-    &_header{
-        grid-row: 1/3;
-        grid-column: 1/11;
-        border-bottom: 1px solid gray;
-        display: grid;
-        grid-template-rows: repeat(5 , 20%);
-        grid-template-columns: repeat(10 , 10%);
-
-        &-input{
-            grid-row: 4/6;
-            grid-column: 3/9;
-            margin-bottom: 1vh;
-        }
-    }
-
-    &_display{
-        grid-row: 3/10;
-        grid-column: 1/11;
-        // border-top: 1px solid rgb(37, 207, 204);
-        // border: 1px solid rgb(229, 158, 43);
-        display: grid;
-        grid-template-columns: repeat(3 , 33%);
-        grid-template-rows: max-content;
-        max-height: fit-content;
-        overflow-y:  auto;
-        
-
-        &-userCard{
-            box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
-            background-position: center;
-            background-size: cover;
-            background-repeat: no-repeat;
-            display: grid;
-            border: 1px solid rgb(27, 24, 49);
-            width: 100%;
-            height: 15vh;
-            grid-template-rows: repeat(10, 10%);
-            grid-template-columns: repeat(10,10%);
-            background-color: rgb(24, 22, 46);
-            // margin-left: 2vw;
-
-            &-addFriendBtn{
-                grid-row: 8/10;
-                grid-column: 2/9;
-                font-size: 10px;
-                box-shadow: none;
-                border: none;
-                border-radius: 5px;
-                background: rgb(203, 140, 72);
-                
-                cursor: pointer;
-
-                &:hover {
-                    background-color: #ddd;
-                    color: black;
-                }
-            }
-            &-name{
-                grid-row:6/8;
-                font-weight: 800;
-                width: 100%;
-                text-align: center;
-                font-size: 12px;
-            }
-        }
-
-    }
-
-    &_navBarDown{
-        // position: fixed;
-        border: 1px solid rgb(45, 45, 45);
-        // margin-top: 3vh;
-        // height: 70%;
-        grid-column: 1/11;
-        grid-row: 10;
-        bottom: 37px; 
-        // left: 10vw;
-        display: flex;
-        flex-flow: row;
-        justify-content: space-around;
-        // width: 350px;
-        background-color: rgb(0, 0, 0);
-        padding: 10px;
-        border-radius: 15px;
-        
-        & a {
-            text-decoration: none;
-        }
-
-        &-homeIcon{
-            color: #e09e0f;
-        }
-        &-profileIcon{
-            color: #ecde4e;
-        }
-        &-compassIcon{
-            color: #16bf1b;
-        }
-        &-heartIcon{
-            color: #ef1818;
-        }
-    }
-    
-}
 @keyframes signUpAnimation {
     from {
         transform: translateX(-150px);
         opacity: 0;
     }
+
     to {
         transform: translateX(50px);
         opacity: 1;
@@ -693,61 +462,4 @@ body {
         transform: translateX(50px);
         opacity: 1;
     }
-}
-
-@keyframes animationOne {
-    
-    100%{
-        transform: translate(180px , 0);
-    }
-}
-@keyframes animationTwo{
-    100%{
-        transform: translate(180px , 0);
-    }
-} 
-@keyframes animationThree{
-    100%{
-        transform: translate( 180px , 0);
-    }
-}
-@keyframes animationFour{
-    100%{
-        transform: translate( 180px , 0);
-    }
-}
-.profile-active{
-    i{
-        cursor: pointer;
-        color: rgb(245, 105, 12);
-        size: 5px;
-        &:active{
-            color: gray;
-        }
-    }
-    position: absolute;
-    margin-right: 10px;
-    display: grid;
-    grid-template-rows: repeat(10,1fr);
-    padding: 5px;
-    border: 1px solid red;
-    opacity: 1;
-    z-index: 10;
-    // margin: 100px 50px 60px 10px;
-    width: 250px;
-    height: 250px;
-    background-size:contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    background: fill;
-    &__input{
-        width: 100%;
-        color: white;
-        background-color: black;
-        border: black;
-        grid-row: 10;
-        
-
-    } 
-
 }

@@ -1,12 +1,12 @@
 import express from 'express';
 const router = express.Router();
 
-import {addUser,getUser, updateUser} from "../controllers/usersCont"
+import {addUser,getUser} from "../controllers/usersCont"
 
 router
-.get('/get-user',getUser)
-.post('/add-user',addUser)
-.patch('/update-user',updateUser)
+.get('/get-user',addUser)
+.post('/add-user',getUser)
+
 
 
 export default router;

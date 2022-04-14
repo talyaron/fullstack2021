@@ -57,12 +57,29 @@ nav ul li a i:hover {
   justify-content: space-between;
   padding-inline: 2rem;
   max-width: 98vw;
-  text-align: center;
 }
 #control__back, #control__filter {
   background-color: gainsboro;
   border-radius: 5px;
   padding: 12px;
+}
+#control__recent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-inline: 0.5rem;
+  flex-direction: row;
+  right: 20vw;
+}
+#control__recent-square {
+  align-self: center;
+  margin-left: 1rem;
+  padding: 0.8ch 1.3ch;
+  overflow: hidden;
+  text-align: center;
+  background: #141414;
+  color: #f0f0f2;
+  border-radius: 7px;
 }
 #control__nav {
   align-self: center;

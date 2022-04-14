@@ -1,25 +1,19 @@
-import { appendFile } from "fs";
 import FundleUser from "../model/usersModel"
 
 
-export async function addUser(req: any, res: any) {
+export async function addUser(req:any, res:any) {
 
     let { username, password, email } = req.body;
 
     const noPass = await FundleUser.find({ username: username })
+    console.log(noPass.length)
 
     if (noPass.length === 0) {
         let played = 0;
         let wins = 0;
-        let current_streak = 0;
-        let max_streak = 0;
-        let oneattempt = 0;
-        let twoattempts = 0;
-        let threeattempts = 0;
-        let fourattempts = 0;
-        let fiveattempts = 0;
-        let sixattempts = 0;
-        const newFundleUser = new FundleUser({ username, password, email, played, wins, current_streak, max_streak, oneattempt, twoattempts, threeattempts, fourattempts, fiveattempts, sixattempts })
+        let current_strike = 0;
+        let max_strike = 0;
+        const newFundleUser = new FundleUser({ username, password, email, played, wins, current_strike, max_strike })
         const result = await newFundleUser.save()
         res.send({ result });
     }
@@ -31,14 +25,17 @@ export async function addUser(req: any, res: any) {
 }
 
 
-export async function getUser(req: any, res: any) {
+export async function getUser(req:any, res:any) {
+
 
     let { username, password } = req.query
+    console.log(username, password)
+
     const userMatch = await FundleUser.find({ username: username, password: password })
+    console.log(userMatch)
 
     if (userMatch.length >= 1) {
         res.send({ user: userMatch })
-        
     }
 
     else {
@@ -50,70 +47,6 @@ export async function getUser(req: any, res: any) {
             res.send("nouser")
         }
     }
-}
 
-
-export async function updateUser(req: any, res: any) {
-
-    let { win, attempts, username } = req.body
-
-    const user = await FundleUser.find({ username: username })
-
-    if(user[0]){
-
-    if (attempts === 1) {
-        user[0].oneattempt++;
-    }
-    if (attempts === 2) {
-        user[0].twoattempts++;
-    }
-    if (attempts === 3) {
-        user[0].threeattempts++;
-    }
-    if (attempts === 4) {
-        user[0].fourattempts++;
-    }
-    if (attempts === 5) {
-        user[0].fiveattempts++;
-    }
-    if (attempts === 6) {
-        user[0].sixattempts++;
-    }
-
-    user[0].played++;
-
-    console.log('played: ' + user[0].played)
-
-    if (win) {
-        user[0].wins++;
-        user[0].current_streak++;
-        user[0].max_streak++;
-    }
-    else {
-        user[0].max_streak = 0;
-    }
-
-    const updatedUser = await FundleUser.updateOne(
-        { username: username },
-        {
-            played: user[0].played,
-            wins: user[0].wins,
-            streak: user[0].streak,
-            oneattempt: user[0].oneattempt,
-            twoattempts: user[0].twoattempts,
-            threeattempts: user[0].threeattempts,
-            fourattempts: user[0].fourattempts,
-            fiveattempts: user[0].fiveattempts,
-            sixattempts: user[0].sixattempts
-        })
-
-        const realuser = await FundleUser.find({ username: username })
-
-        console.log(realuser)
-
-    }
-
-
-    res.send({ ok: true });
 
 }
