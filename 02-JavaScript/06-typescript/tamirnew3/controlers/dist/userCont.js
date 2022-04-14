@@ -36,8 +36,12 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.adduser = void 0;
+exports.login = exports.adduser = void 0;
+// לוקח את המשתמש מהתייקיה של המודל 
 var userModel_1 = require("../model/userModel");
+// import- מייבא 
+// export- מייצא
+// מייצא את הקוד החוצה 
 exports.adduser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var _a, name, password, newUser, userDb, error_1;
     return __generator(this, function (_b) {
@@ -57,6 +61,35 @@ exports.adduser = function (req, res) { return __awaiter(void 0, void 0, void 0,
                 error_1 = _b.sent();
                 return [3 /*break*/, 3];
             case 3: return [2 /*return*/];
+        }
+    });
+}); };
+// מייצא את הקוד החוצה 
+exports.login = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _a, name, password, user, error_2;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
+            case 0:
+                _b.trys.push([0, 3, , 4]);
+                _a = req.body, name = _a.name, password = _a.password;
+                if (!(typeof name === 'string')) return [3 /*break*/, 2];
+                return [4 /*yield*/, userModel_1["default"].findOne({ name: name })];
+            case 1:
+                user = _b.sent();
+                if (user) {
+                    if (user.password === password) {
+                        res.cookie('userInfo', { name: name, password: password }, { maxAge: 50000 });
+                        res.send({ ok: true, login: true });
+                        return [2 /*return*/];
+                    }
+                }
+                _b.label = 2;
+            case 2: return [3 /*break*/, 4];
+            case 3:
+                error_2 = _b.sent();
+                console.log(error_2.message);
+                return [3 /*break*/, 4];
+            case 4: return [2 /*return*/];
         }
     });
 }); };

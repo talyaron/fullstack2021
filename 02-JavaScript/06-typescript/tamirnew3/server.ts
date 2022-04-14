@@ -11,6 +11,7 @@ app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
+// מייבא את כל הראוטרים מהתייקיה של הראוטרים
 import userRout from './routes/userRout'
 
 app.use ('/users', userRout)

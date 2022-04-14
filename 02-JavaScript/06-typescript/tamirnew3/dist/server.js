@@ -13,6 +13,7 @@ mongoose_1.default.connect('mongodb+srv://tamirdadon:aImYDjM4c6xZdXad@cluster0.l
 app.get('/', (req, res) => {
     res.send('Hello World!');
 });
+// מייבא את כל הראוטרים מהתייקיה של הראוטרים
 const userRout_1 = __importDefault(require("./routes/userRout"));
 app.use('/users', userRout_1.default);
 app.listen(port, () => {

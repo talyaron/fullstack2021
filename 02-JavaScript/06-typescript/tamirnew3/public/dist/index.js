@@ -53,3 +53,26 @@ function handlesubmit(ev) {
         });
     });
 }
+function handlelogin(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        var name, password, data;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    ev.preventDefault();
+                    ev.target.reset();
+                    name = ev.target.elements.name.value;
+                    password = ev.target.elements.password.value;
+                    console.log(name, password);
+                    return [4 /*yield*/, axios.post('/users/login', { name: name, password: password })];
+                case 1:
+                    data = (_a.sent()).data;
+                    console.log(data);
+                    if (data.login) {
+                        window.location.href = 'home.html';
+                    }
+                    return [2 /*return*/];
+            }
+        });
+    });
+}

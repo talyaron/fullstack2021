@@ -5,18 +5,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- קוד שמחבר את התייקת אקספרס  -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.js"
         integrity="sha512-MNW6IbpNuZZ2VH9ngFhzh6cUt8L/0rSVa60F8L22K1H72ro4Ki3M/816eSDLnhICu7vwH/+/yb8oB3BtBLhMsA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        
+        <!--מחברת את העיצוב של ה scss  -->
     <link rel="stylesheet" href="./dist/index.css">
     <title>Document</title>
 </head>
 
 <body>
+    
     <form onsubmit="handlesubmit(event)">
         <input type="text" name="name"  placeholder="enter your name">
         <input type="password" name="password"  placeholder="enter your passowrd">
         <input type="submit" name="submit" value="register">
+    </form>
+    <form onsubmit="handlelogin(event)">
+        <input type="text" name="name"  placeholder="enter your name">
+        <input type="password" name="password"  placeholder="enter your passowrd">
+        <input type="submit"  value="login">
     </form>
     <script src="./dist/index.js"></script>
 </body>

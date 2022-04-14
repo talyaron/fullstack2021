@@ -1,7 +1,8 @@
 import express from 'express';
 const router = express.Router();
 
-import {adduser} from '../controlers/userCont';
+// מייבא את הפונקציות מהתייקיה של הקונטרולרים
+import {adduser,login} from '../controlers/userCont';
 
 router
 .post('/login',login)
