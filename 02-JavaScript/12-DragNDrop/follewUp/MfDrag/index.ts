@@ -49,12 +49,17 @@ function handleDragLeave(ev) {
 
 function handelDragOver(ev) {
 
+  ev.preventDefault();
+
+
   const poolTarget = ev.target
   poolTarget.style.transform = 'scale(2)'
 
 }
 
-function handelDrop(ev: DragEvent) {
+function handelDrop(ev: any) {
   console.log(ev.type)
+  ev.target.style.transform = "scale(4)";
+
 
 }

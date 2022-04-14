@@ -42,18 +42,11 @@ function handelDrop(ev: any) {
 //   ev.target.appendChild(dropped);
 }
 
-<<<<<<< HEAD
-function handelDragOver(ev:DragEvent){
-    console.log(ev.type)
-    ev.target.style.transform = 'scale(1.3)'
-    
-=======
 function handelDragOver(ev: DragEvent) {
   ev.preventDefault();
  
   ev.dataTransfer.dropEffect = "move";
   ev.target.style.transform = "scale(1.3)";
->>>>>>> 82077adb6000e0d23f80f1644f5725903ee0562b
 }
 function handleDragEnter(ev: any) {
   ev.target.style.transform = "scale(1.3)";

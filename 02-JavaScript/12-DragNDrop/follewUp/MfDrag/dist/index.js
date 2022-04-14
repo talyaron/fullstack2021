@@ -29,9 +29,11 @@ function handleDragLeave(ev) {
     poolTarget.style.transform = 'scale(1)';
 }
 function handelDragOver(ev) {
+    ev.preventDefault();
     var poolTarget = ev.target;
     poolTarget.style.transform = 'scale(2)';
 }
 function handelDrop(ev) {
     console.log(ev.type);
+    ev.target.style.transform = "scale(4)";
 }
