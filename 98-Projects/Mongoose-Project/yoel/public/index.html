@@ -14,17 +14,26 @@
 
 <body onload="getBooks()">
 
-    
-    <a href="reg.html" class="reg">Register click here</a>
-    <br>
-    <a href="sign.html" class="sign">to Sign in click herer</a>
-    <br>
-    <form onsubmit="handleAddBook(event)">
-        <input type="text" name="name" placeholder="write  name of the book">
-        <input type="number" name="year" placeholder="write  Production year of the book">
-        <input type="text" name="author" placeholder="write  author of the book">
-        <input type="submit" value="Add Books">
-    </form>
+    <div class="user" id = "username"></div>
+
+    <div class="regNSign">
+        <a href="reg.html" class="reg">Register click here</a>
+        <br>
+        <a href="sign.html" class="sign">to Sign in click here</a>
+        <br>
+    </div>
+    <div class="cardBook">
+        <p class="pAddBooks">add books</p>
+        <form onsubmit="handleAddBook(event)">
+            <input type="text" name="name" placeholder="write  name of the book">
+            <br>
+            <input type="number" name="year" placeholder="write  Production year of the book">
+            <br>
+            <input type="text" name="author" placeholder="write  author of the book">
+            <br>
+            <input type="submit" value="Add Books">
+        </form>
+    </div>
     <button value="descent" onclick="handleSort(event)">descent</button>
     <button value="ascent" onclick="handleSort(event)">ascent</button>
     <form onsubmit="handleSubmit(event)">

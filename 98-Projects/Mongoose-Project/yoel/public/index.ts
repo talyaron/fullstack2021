@@ -32,17 +32,22 @@ async function handleAddBook(ev) {
     renderBooks(data);
     ev.target.reset();
 
-} function handleUpdate(ev, bookId) {
+} async function handleUpdate(ev, bookId) {
+    ev.preventDefault();
+    let name = ev.target.elements.name.value;
+    let year = ev.target.elements.year.value;
+    let author = ev.target.elements.author.value;
 
-    const value = ev.target.value;
+    const book = { name, year, author }
+  
 
-    const { data } = axios.patch('/book/update-book', { value, bookId })//with the update
-    let { books , ok } = data;
+    const { data } = await axios.patch('/book/update-book', { book, bookId })//with the update
 
-    renderBooks(books)
-
-
-    
+   
+    if (data.ok) {
+        renderBooks(data.books);
+    }
+    ev.target.reset();
 }
 async function handleGetUsers() {
     const name = 'yoel'
@@ -59,11 +64,20 @@ async function handleReg(ev) {
     const username = ev.target.elements.username.value;
     const password = ev.target.elements.password.value;
 
-    
-    console.log(username , password);
-    
+    const { data } = await axios.post('/user/reg-user', { username, password })
+    if (data.error) {
 
-    await axios.post('/user/reg-user', { username, password })
+        alert('this username is already existed , you need to sign in')// not work
+        window.location.href = 'sign.html'// not work
+    }
+    if (data.ok) {
+
+        alert(`welcome ${data.name.username}`)
+        window.location.href = 'index.html'
+
+
+    }
+
     ev.target.reset();
 }
 async function handleSign(ev) {
@@ -72,7 +86,14 @@ async function handleSign(ev) {
     const username = ev.target.elements.username.value;
     const password = ev.target.elements.password.value;
 
-    await axios.post('/user/sign-in', { username, password })
+    const { data } = await axios.post('/user/sign-in', { username, password })
+    if (data.error) {
+        alert(data.error)
+    } else if (data.ok) {
+        alert(`hello user ${data.user.name}`)
+        window.location.href = 'index.htmlx'
+    }
+
 
     ev.target.reset();
 }
@@ -83,8 +104,7 @@ async function handleSort(ev) {
 
     const { booksSite } = data; //I'm extracting the "booksSite" out
 
-    // console.log("the {data} is data ", data);
-    // console.log("the {bookSite} is " , booksSite);
+
 
     renderBooks(booksSite);
 
@@ -95,11 +115,9 @@ async function renderBooks(data) {
     try {
         if (data) {
 
-            let html = '<div class = book>';
+            let html = '<div class = "book">';
 
             const root = document.getElementById('root')
-
-
             console.log("data is", data);
 
             data.forEach(book => {
@@ -112,7 +130,19 @@ async function renderBooks(data) {
              </div>
            <div>
            <button onclick= 'handleDelete(" ${book._id}")'>Delete</button>
-           <input type = "text" placeholder = "change the name" onblur = 'handleUpdate(event, "${book._id}")'</div>`
+           <form onsubmit='handleUpdate(event, "${book._id}")'>
+           <input type="text" name="name" placeholder="write  name of the book">
+           <br>
+           <input type="number" name="year" placeholder="write  Production year of the book">
+           <br>
+           <input type="text" name="author" placeholder="write  author of the book">
+           <br>
+           <input type="submit" value="Update Book">
+       </form>
+   
+</div>`
+
+// <input type = "text" placeholder = "change the name" onblur = 'handleUpdate(event, "${book._id}")'
 
             })
             html += `<div>`
@@ -124,14 +154,20 @@ async function renderBooks(data) {
     } catch (error) {
         console.error(error.message)
     }
-}   
-async function handleDelete(bookId){//problem with Delete
-    console.log(bookId);
-    
-    const {data} = await axios.delete('/book/delete-book' , {id:{bookId}})
-    const {books} = data; 
+}
+async function handleDelete(bookId) {//problem with Delete
 
-    renderBooks(books)
+
+    const {data} = axios.delete('/book/delete-book' ,{data:{bookId}})
+    console.log("We couldn't do that.");
+    
+    console.log(data);
+
+
+
+    // renderBooks(books)
+
+
 }
 function renderUsers(users) {
     let html = '';

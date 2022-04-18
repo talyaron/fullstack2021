@@ -1,6 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
-require('dotenv').config()
+   
 
 console.log(process.env.ENV)
 

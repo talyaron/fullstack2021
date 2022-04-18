@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.handleDelete = exports.handleSort = exports.handleUpdateBook = exports.handleAddBook = exports.handleGetAllBooks = void 0;
+exports.handleSort = exports.handleDelete = exports.handleUpdateBook = exports.handleAddBook = exports.handleGetAllBooks = void 0;
 var bookModel_1 = require("../models/bookModel");
 exports.handleGetAllBooks = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var books;
@@ -90,27 +90,51 @@ exports.handleAddBook = function (req, res) { return __awaiter(void 0, void 0, v
     });
 }); };
 exports.handleUpdateBook = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, value, bookId, books, error_3;
+    var _a, book, bookId, booki, books, error_3;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
-                _b.trys.push([0, 4, , 5]);
-                _a = req.body, value = _a.value, bookId = _a.bookId;
-                if (!(value && bookId)) return [3 /*break*/, 2];
-                return [4 /*yield*/, bookModel_1.Book.updateOne({ id: bookId }, { username: value })];
+                _b.trys.push([0, 5, , 6]);
+                _a = req.body, book = _a.book, bookId = _a.bookId;
+                if (!(book && bookId)) return [3 /*break*/, 3];
+                return [4 /*yield*/, bookModel_1.Book.updateOne({ _id: bookId }, { name: book.name, year: book.year, author: book.author })];
             case 1:
+                booki = _b.sent();
+                return [4 /*yield*/, bookModel_1.Book.find({})];
+            case 2:
                 books = _b.sent();
-                console.log(books);
-                res.send({ ok: true }, books);
-                return [3 /*break*/, 3];
-            case 2: throw new Error('id or value is missing');
-            case 3: return [3 /*break*/, 5];
-            case 4:
+                res.send({ ok: true, books: books });
+                return [3 /*break*/, 4];
+            case 3: throw new Error('id or book is missing');
+            case 4: return [3 /*break*/, 6];
+            case 5:
                 error_3 = _b.sent();
                 console.log(error_3.error);
                 res.send({ error: error_3.message });
-                return [3 /*break*/, 5];
-            case 5: return [2 /*return*/];
+                return [3 /*break*/, 6];
+            case 6: return [2 /*return*/];
+        }
+    });
+}); };
+exports.handleDelete = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var bookId, books, error_4;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 2, , 3]);
+                bookId = req.body.bookId;
+                console.log(bookId);
+                return [4 /*yield*/, bookModel_1.Book.deleteOne({ _id: bookId })];
+            case 1:
+                books = _a.sent();
+                console.log(books);
+                res.send({ ok: true, books: books });
+                return [3 /*break*/, 3];
+            case 2:
+                error_4 = _a.sent();
+                res.send(error_4.message);
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
         }
     });
 }); };
@@ -131,25 +155,3 @@ exports.handleSort = function (req, res) {
     //   res.send({ error })
     // }
 };
-exports.handleDelete = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, bookId, id, books, error_4;
-    return __generator(this, function (_b) {
-        switch (_b.label) {
-            case 0:
-                _b.trys.push([0, 2, , 3]);
-                _a = req.body, bookId = _a.bookId, id = _a.id;
-                console.log(bookId, id);
-                return [4 /*yield*/, bookModel_1.Book.deleteOne({ id: bookId })];
-            case 1:
-                books = _b.sent();
-                console.log(books);
-                res.send(books);
-                return [3 /*break*/, 3];
-            case 2:
-                error_4 = _b.sent();
-                res.send(error_4.message);
-                return [3 /*break*/, 3];
-            case 3: return [2 /*return*/];
-        }
-    });
-}); };

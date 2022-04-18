@@ -1,3 +1,9 @@
+*{
+    background-color: rgb(184, 223, 223);
+}
+// html, body {
+//     height: 100%;
+// }
 .book {
     width: fit-content;
     height: fit-content;
@@ -14,7 +20,31 @@
     }
 }
 .sign , .reg{
-    color: aqua;
-    font-size: 4em;
+    color: rgb(24, 44, 44);
+    font-size: 2em;
+    border-style: inset;
+ 
+}
+
+h2{
+    font-size: 1em;
     text-align: center;
+    color: rgb(42, 42, 91);
+}
+.cardBook{
+    display:grid;
+    width: fit-content;
+    border: 4px dotted blue;
+}
+.regNSign{
+
+    display: flex;
+    //I want that "sign N reg " will be in the right side
+    justify-content: end;
+    
+   
+}
+.pAddBooks{
+    font-size: 2em;
+    
 }

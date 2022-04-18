@@ -1,8 +1,4 @@
 "use strict";
-var __makeTemplateObject = (this && this.__makeTemplateObject) || function (cooked, raw) {
-    if (Object.defineProperty) { Object.defineProperty(cooked, "raw", { value: raw }); } else { cooked.raw = raw; }
-    return cooked;
-};
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -97,7 +93,7 @@ exports.handleAddUser = function (req, res) { return __awaiter(void 0, void 0, v
 //   }
 // }
 exports.handleReg = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, username, password, check, newUser, name, error_2;
+    var _a, username, password, user, newUser, name, error_2;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
@@ -106,20 +102,17 @@ exports.handleReg = function (req, res) { return __awaiter(void 0, void 0, void 
                 if (!(username && password)) return [3 /*break*/, 5];
                 return [4 /*yield*/, userModel_1.User.find({ username: username })]; // not work
             case 1:
-                check = _b.sent() // not work
+                user = _b.sent() // not work
                 ;
-                console.log('check is ', check, check.length);
-                if (!(check.length > 0)) return [3 /*break*/, 2];
-                alert('this username is already existed , you need to sign in'); // not work
-                window.location.href = 'sign.html'; // not work
+                if (!(user.length > 0)) return [3 /*break*/, 2];
+                res.send({ error: 'user existed' });
                 return [3 /*break*/, 4];
             case 2:
                 newUser = new userModel_1.User({ username: username, password: password });
                 return [4 /*yield*/, newUser.save()];
             case 3:
                 name = _b.sent();
-                alert("welcome " + username(templateObject_1 || (templateObject_1 = __makeTemplateObject([""], [""]))));
-                window.location.href = 'index.html';
+                res.send({ name: name, ok: true });
                 _b.label = 4;
             case 4: return [3 /*break*/, 6];
             case 5: throw new Error("username or password is und");
@@ -133,24 +126,29 @@ exports.handleReg = function (req, res) { return __awaiter(void 0, void 0, void 
     });
 }); };
 exports.handleSign = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, username, password, check, error_3;
+    var _a, username, password, user, error_3;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
                 _b.trys.push([0, 4, , 5]);
                 _a = req.body, username = _a.username, password = _a.password;
-                if (!(username & password)) return [3 /*break*/, 2];
+                console.log(username, password);
+                if (!(username && password)) return [3 /*break*/, 2];
                 return [4 /*yield*/, userModel_1.User.find({ username: username })]; //what is the different (find//findone )
             case 1:
-                check = _b.sent() //what is the different (find//findone )
+                user = _b.sent() //what is the different (find//findone )
                 ;
-                if (check.length > 0) {
-                    alert("welcome " + username);
-                    window.location.href = 'index.html';
+                console.log(user);
+                if (user.length > 0) {
+                    if (password == user.password) {
+                        res.send({ user: user, ok: true });
+                    }
+                    else {
+                        res.send({ error: 'the password is not correct' });
+                    }
                 }
                 else {
-                    alert("You haven't signed up yet.");
-                    window.location.href = 'reg.html';
+                    res.send({ error: 'user not exist' });
                 }
                 return [3 /*break*/, 3];
             case 2: throw new Error("username or password is und");
@@ -163,4 +161,3 @@ exports.handleSign = function (req, res) { return __awaiter(void 0, void 0, void
         }
     });
 }); };
-var templateObject_1;
