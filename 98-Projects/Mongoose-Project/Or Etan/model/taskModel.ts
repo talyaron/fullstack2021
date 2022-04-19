@@ -5,7 +5,6 @@ const TaskSchema = new mongoose.Schema({
   urgency: String,
   location: String,
   date: Date,
-  color: String,
   ownerId: String,
 });
 

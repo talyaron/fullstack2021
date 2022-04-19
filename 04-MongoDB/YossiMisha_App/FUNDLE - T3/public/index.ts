@@ -1,17 +1,10 @@
 
-
 console.log('hello')
-
 const WORD_LENGTH = 5;
-const FLIP_ANIMATION_DURATION = 250;
-const DANCE_ANIMATION_DURATION = 500;
-const keyboard: any = document.querySelector("[data-keyboard]")
 const guessGrid = document.querySelector("[data-guess-grid]")
-const alertContainer = document.querySelector("[data-alert-container]")
-let attempts = 0;
-let storeUserName = '';
-let targetWord = '';
-const offsetFromDate: any = new Date(2022, 0, 1)
+
+const targetWord = '';
+const offsetFromDate:any = new Date(2022,0,1)
 const msOffset = Date.now() - offsetFromDate
 const dayOffset = Math.floor(msOffset / 1000 / 60 / 60 / 24)
 
@@ -19,15 +12,14 @@ console.log(dayOffset)
 
 getDailyWord()
 
-async function getDailyWord() {
+async function getDailyWord (){
     const { data } = await axios.get(`words/get-word?dayOffset=${dayOffset}`)
-    targetWord = data[0].word
-    console.log(targetWord)
+    console.log (data)
 }
 
-function tabIndex() {
+function tabIndex(){
     const eyeImg = document.querySelectorAll('#eyeImg')
-    eyeImg.forEach((img: any) => {
+    eyeImg.forEach((img:any) =>{
         img.tabIndex = -2;
     })
 }
@@ -35,14 +27,14 @@ function tabIndex() {
 tabIndex()
 
 
-function handlePassToggle() {
+function handlePassToggle(){
 
-    const password = document.querySelectorAll('.passip')
-    password.forEach((input: any) => {
-        if (input.type === 'password') {
+   const password = document.querySelectorAll('.passip')
+    password.forEach((input:any)=>{
+        if(input.type === 'password'){
             input.type = "text"
         }
-        else {
+        else{
             input.type = "password"
         }
     })
@@ -141,165 +133,63 @@ function deleteKey() {
     }
 }
 
-
-async function submitGuess() {
-    const activeTiles = [...getActiveTiles()]
-    // const activeTiles: any = getActiveTiles()
-
-    if (activeTiles.length !== WORD_LENGTH) {
-        showAlert('Not enough letters')
-        shakeTiles(activeTiles)
-        return
-    }
-
-
-    const guess: any = activeTiles.reduce((word, tile: any) => {
-        return word + tile.dataset.letter
-    }, "")
-
-    const { data } = await axios.get(`words/get-guessCheck?guess=${guess}`)
-
-    if (!data.found) {
-        showAlert("Not in word list")
-        shakeTiles(activeTiles)
-        return
-    }
-
-    stopInteraction()
-
-    activeTiles.forEach((...params) => flipTile(...params, guess))
-
-    
-    attempts ++;
-
-}
-
-function flipTile(tile, index, array, guess) {
-
-    const letter = tile.dataset.letter
-    const key = keyboard.querySelector(`[data-key="${letter.toUpperCase()}"]`)
-
-
-    setTimeout(() => {
-        tile.classList.add("flip")
-    }, index * FLIP_ANIMATION_DURATION)
-
-    tile.addEventListener("transitionend", () => {
-        tile.classList.remove("flip")
-        if (targetWord[index] === letter) {
-            tile.dataset.state = 'correct'
-            key.classList.add("correct")
-
-        } else if (targetWord.includes(letter)) {
-            tile.dataset.state = 'wrong-location'
-            key.classList.add("wrong-location")
-        } else {
-            tile.dataset.state = 'wrong'
-            key.classList.add("wrong")
-        }
-
-        if (index === array.length - 1) {
-
-            tile.addEventListener("transitionend", () => {
-                startInteraction()
-                checkWinLose(guess, array)
-            }, { once: true })
-        }
-
-    }, { once: true })
-}
-
-async function checkWinLose(guess, tiles) {
-
-    let username = storeUserName;
-    let win:boolean;
-
-    if (guess === targetWord) {
-        showAlert("You win", 5000)
-        danceTiles(tiles)
-        stopInteraction()
-        win = true;
-<<<<<<< Updated upstream
-        const {data} = await axios.patch('users/update-user', {win, attempts, username})
-=======
-        const { data } = await axios.patch('users/update-user', { win, attempts, username })
-        setTimeout(() => {
-            handleShowWindow('stats')
-        }, 1500);
->>>>>>> Stashed changes
-        return
-    }
-
-    const remainingTiles = guessGrid.querySelectorAll(":not([data-letter])")
-
-    if(remainingTiles.length === 0){
-        showAlert(targetWord.toUpperCase(),90000000)
-        stopInteraction();
-        win = false;
-<<<<<<< Updated upstream
-        const {data} = await axios.patch('users/update-user', {win, attempts, username})
-    }
-
-    
-=======
-        const { data } = await axios.patch('users/update-user', { win, attempts, username })
-        setTimeout(() => {
-            handleShowWindow('stats')
-        }, 1500);
-    } 
-    renderStats(storeUserName)
->>>>>>> Stashed changes
-}
-
-function danceTiles(tiles) {
-
-    tiles.forEach((tile, index) => {
-        setTimeout(() => {
-            tile.classList.add("dance")
-            tile.addEventListener("animationend", () => {
-                tile.classList.remove("dance")
-            }, { once: true })
-
-        }, (index * DANCE_ANIMATION_DURATION) / 5)
-    })
-
-}
-
-function shakeTiles(tiles) {
-    tiles.forEach((tile) => {
-        tile.classList.add("shake")
-        tile.addEventListener("animationend", () => {
-            tile.classList.remove("shake")
-        }, { once: true })
-    })
-}
-
-function showAlert(message, duration = 1000) {
-    const alert: any = document.createElement('div')
-    alert.textContent = message
-    alert.classList.add("alert")
-    alertContainer.prepend(alert)
-
-    setTimeout(() => {
-        alert.classList.add("alert-hide")
-        alert.addEventListener("transitionend", () => {
-            alert.remove();
-        })
-    }, duration)
+function submitGuess() {
+    console.log()
 }
 
 
-function handleShowWindow(window) {
-    const stats: any = document.querySelector(`#${window}`);
+function handleShowStats() {
+    const stats: any = document.querySelector("#stats");
     if (stats.style.display === "none") {
         stats.style.display = "block";
-        stopInteraction()
     } else {
         stats.style.display = "none";
-        startInteraction()
     }
 }
 
+function handleShowHelp() {
+    const stats: any = document.querySelector("#help");
+    if (stats.style.display === "none") {
+        stats.style.display = "block";
+    } else {
+        stats.style.display = "none";
+    }
+}
+
+function handleShowLogin() {
+    const logreg: any = document.querySelector(".logreg");
+    if (logreg.style.display === "none") {
+        logreg.style.display = "block";
+        stopInteraction()
+    } else {
+        // logreg.classList.add("logreg-hide")
+        logreg.style.display = "none";
+
+        startInteraction()
+    }
+
+}
+
+function handleDisplayNone() {
+    const stats: any = document.querySelector("#stats");
+    if (stats.style.display === "block") {
+        stats.style.display = "none";
+    }
+    const help: any = document.querySelector("#help");
+    if (help.style.display === "block") {
+        help.style.display = "none";
+    }
+}
+
+document.body.addEventListener('click', handleDisplayNone, true);
+
+
+function handleHideWindow() {
+    const logreg: any = document.querySelector("#logreg");
+    if (logreg.style.display === "block") {
+        logreg.style.display = "none";
+    }
+}
 
 //////////////////////////// LOGIN - REGISTER ///////////////////////////////////////////
 
@@ -339,18 +229,19 @@ async function handleRegister(ev) {
         if (password === confirmPassword && email === confirmEmail) {
 
             const { data } = await axios.post('users/add-user', { username, password, email })
-
+            
             console.log(data)
 
-            if (data === 'AlreadyUser') {
-                showAlert('Username already taken')
+            if(data === 'AlreadyUser'){
+                window.alert('Username already taken')
             }
 
-            else {
-                ev.target.reset();
+            else{
                 loginPractice(username, password)
             }
         }
+
+        ev.target.reset();
 
 
     }
@@ -363,31 +254,26 @@ async function handleRegister(ev) {
 
 function handleLogin(ev) {
 
-
     ev.preventDefault();
     let { username, password } = ev.target.elements
     username = username.value;
     password = password.value;
 
-    ev.target.reset()
+   ev.target.reset()
 
-    loginPractice(username, password)
+    loginPractice(username,password)
 
 }
 
 async function loginPractice(username, password) {
 
-
     const { data } = await axios.get(`users/get-user?username=${username}&password=${password}`)
 
     const greetings = timeOfDay();
 
-    console.log(data)
-
     if (data.user) {
-        document.querySelector(".hello").innerHTML = `&nbsp;&nbsp;${greetings} <span style="color: orange;">&nbsp;${username}</span>`
-        handleShowWindow('logreg');
-        storeUserName = username;
+        document.querySelector(".hello").innerHTML = `&nbsp;&nbsp;&nbsp;${greetings} <span style="color: orange;">&nbsp;${username}</span>`
+        handleShowLogin();
     }
     else if (data === 'nouser') {
         window.alert('Username doesnt exist')
@@ -396,8 +282,6 @@ async function loginPractice(username, password) {
     else if (data === 'nopass') {
         window.alert('Password doesnt match')
     }
-
-    
 
 }
 
@@ -446,87 +330,3 @@ btn.addEventListener('click', async () => {
     }
 });
 //   END SHARE
-<<<<<<< Updated upstream
-=======
-
-
-async function renderStats(username) {
-
-    if (username) {
-        const { data } = await axios.get(`users/get-user?username=${username}`)
-
-
-        const user = data.user[0]
-
-        const userPlayed = user.played
-        const userWins = user.wins
-
-        const oneAttempt = user.oneattempt
-        const twoAttempt = user.twoattempts
-        const threeAttempt = user.threeattempts
-        const fourAttempt = user.fourattempts
-        const fiveAttempt = user.fiveattempts
-        const sixAttempt = user.sixattempts
-
-
-        const average1 = Math.floor(oneAttempt / userWins * 100)
-        const average2 = twoAttempt / userWins * 100
-        const average3 = threeAttempt / userWins * 100
-        const average4 = fourAttempt / userWins * 100
-        const average5 = fiveAttempt / userWins * 100
-        const average6 = sixAttempt / userWins * 100
-
-       
-        const winPerc = Math.floor((userWins / userPlayed) * 100);
-
-
-        const played = document.querySelector("#played")
-        const wins = document.querySelector("#wins")
-        const current = document.querySelector("#current")
-        const max = document.querySelector("#max")
-
-        played.innerHTML = `${user.played}`
-        if (winPerc) {
-            wins.innerHTML = `${winPerc}`
-        }
-        else (
-            wins.innerHTML = '0'
-        )
-        current.innerHTML = `${user.current_streak}`
-        max.innerHTML = `${user.max_streak}`
-
-
-        const oneattempt: any = document.querySelector("#oneattempt")
-        const twoattempts: any = document.querySelector("#twoattempts")
-        const threeattempts: any = document.querySelector("#threeattempts")
-        const fourattempts: any = document.querySelector("#fourattempts")
-        const fiveattempts: any = document.querySelector("#fiveattempts")
-        const sixattempts: any = document.querySelector("#sixattempts")
-
-        oneattempt.style.width = `${average1}%`
-        oneattempt.innerHTML = `${oneAttempt}`
-
-        twoattempts.style.width = `${average2}%`
-        twoattempts.innerHTML = `${twoAttempt}`
-
-        threeattempts.style.width = `${average3}%`
-        threeattempts.innerHTML = `${threeAttempt}`
-
-        fourattempts.style.width = `${average4}%`
-        fourattempts.innerHTML = `${fourAttempt}`
-
-        fiveattempts.style.width = `${average5}%`
-        fiveattempts.innerHTML = `${fiveAttempt}`
-
-        sixattempts.style.width = `${average6}%`
-        sixattempts.innerHTML = `${sixAttempt}`
-    }
-
-
-
-
-
-}
-
-
->>>>>>> Stashed changes

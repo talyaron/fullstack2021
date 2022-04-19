@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="./dist/style.css" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.js"
-    integrity="sha512-MNW6IbpNuZZ2VH9ngFhzh6cUt8L/0rSVa60F8L22K1H72ro4Ki3M/816eSDLnhICu7vwH/+/yb8oB3BtBLhMsA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        integrity="sha512-MNW6IbpNuZZ2VH9ngFhzh6cUt8L/0rSVa60F8L22K1H72ro4Ki3M/816eSDLnhICu7vwH/+/yb8oB3BtBLhMsA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>Search</title>
 </head>
 
@@ -17,9 +17,23 @@
     <div class="searchPage">
         <div class="searchPage__sideBar">
             <nav class="searchPage__sideBar--nav">
-                <a href="">Home</a>
-                <a href="">Search</a>
+                <a href="">Music</a>
+                <a href="">Archive</a>
             </nav>
+            <div class="searchPage__sideBar--musicBar">
+                <div class="searchPage__sideBar--albumInfo">
+                    <div class="searchPage__sideBar--albumInfo--pic">
+                        <img src=" https://picsum.photos/100" alt="">
+
+                    </div>
+                </div>
+                <div class="searchPage__sideBar--player">
+                    <audio controls>
+                        <source src="" type=" audio">
+                    </audio>
+                </div>
+
+            </div>
         </div>
         <div class="searchPage__searchBar">
             <div class="searchPage__searchBar--nav">
@@ -27,14 +41,11 @@
                 <i class="material-icons" style="font-size: 28px">arrow_forward_ios</i>
             </div>
             <div class="searchPage__searchBar--search">
-                <input type="search" onchange="handleGetSearch()" name="search music" id="" placeholder="search music" />
+                <input type="search" onchange="handleGetSearch(event)" name="search" id="" placeholder="search music" />
             </div>
 
 
-            <div class="searchPage__searchBar--user">
-
-            </div>
-
+     
         </div>
         <div class="searchPage__main">
             <h1>Recent Searches</h1>
@@ -55,31 +66,98 @@
                 <div class="searchPage__main--history--5">
                     <img src="https://picsum.photos/100" alt="">
                 </div>
-                <div class="searchPage__main--history--6">
+
+
+            </div>
+            <h1>Recent Uploads</h1>
+
+            <div class="searchPage__main--recentUploads">
+                <div class="searchPage__main--recentUploads--1">
                     <img src="https://picsum.photos/100" alt="">
+                    <p>Rock</p>
                 </div>
-                <div class="searchPage__main--history--7">
+                <div class="searchPage__main--recentUploads--2">
                     <img src="https://picsum.photos/100" alt="">
+                    <p>Alt Rock</p>
                 </div>
-                <div class="searchPage__main--history--8">
+                <div class="searchPage__main--recentUploads--3">
                     <img src="https://picsum.photos/100" alt="">
+                    <p>Indie Rock</p>
                 </div>
+                <div class="searchPage__main--recentUploads--4">
+                    <img src="https://picsum.photos/100" alt="">
+                    <p>Dance Rock</p>
+                </div>
+                <div class="searchPage__main--recentUploads--5">
+                    <img src="https://picsum.photos/100" alt="">
+                    <p>Dance Punk</p>
+                </div>
+
+
+            </div>
+            <h1>Browse Genres</h1>
+
+            <div class="searchPage__main--genres">
+
+
+                <div class="searchPage__main--genres--1" onchange="handleGetCategories(event)">
+
+                    <img src="https://picsum.photos/100" alt="">
+                    <p>Rock</p>
+
+                </div>
+                <div class="searchPage__main--genres--2">
+
+                    <img src="https://picsum.photos/100" alt="">
+                    <p>Alt Rock</p>
+
+                </div>
+                <div class="searchPage__main--genres--3">
+
+                    <img src="https://picsum.photos/100" alt="">
+                    <p>Indie Rock</p>
+
+                </div>
+                <div class="searchPage__main--genres--4">
+
+                    <img src="https://picsum.photos/100" alt="">
+                    <p>Dance Rock</p>
+
+                </div>
+                <div class="searchPage__main--genres--5">
+                    <img src="https://picsum.photos/100" alt="">
+                    <p>Dance Punk</p>
+
+
+                </div>
+                
 
             </div>
         </div>
-        <div class="searchPage__bottomBar">
-            <div class="searchPage__bottomBar--albumInfo">
-                <div class="searchPage__bottomBar--albumInfo--pic">
-                    <img src=" https://picsum.photos/100" alt="">
-
-                </div>
-            </div>
-            <div class="searchPage__bottomBar--player">
-                <audio controls>
-                    <source src="" type=" audio">
-                </audio>
-            </div>
-
+        <div class="searchPage__main--upload">
+            <form id="upload" onsubmit="handleUpload(event)">
+                <input type="text" name="band" placeholder="band" required>
+                <input type="text" name="album" placeholder="album" required>
+                <input type="text" name="song" placeholder="song" required>
+                <input type="text" name="genre" placeholder="genre" required>
+                <input type="text" name="image" placeholder="image">
+                <input type="submit" class="button" value="Upload">
+            </form>
+        </div>
+        <div class="searchPage__main--user">
+            
+            <form id="regestration" onsubmit="handleRegistration(event)">
+                <input type="name" name="name" placeholder="name" required>
+                <input type="password" name="password" placeholder="password" required>
+                <input type="submit" value="Register">
+        
+            </form>
+            <form id="login" onsubmit="handleLogIn(event)">
+                <input type="name" name="name" placeholder="name" required>
+                <input type="password" name="password" placeholder="password" required>
+                <input type="submit" value="Log In">
+        
+            </form>
         </div>
     </div>
     <script src="./dist/index.js"></script>

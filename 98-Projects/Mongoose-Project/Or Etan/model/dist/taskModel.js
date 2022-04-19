@@ -7,7 +7,6 @@ var TaskSchema = new mongoose_1["default"].Schema({
     urgency: String,
     location: String,
     date: Date,
-    color: String,
     ownerId: String
 });
 var task = mongoose_1["default"].model("tasks", TaskSchema);

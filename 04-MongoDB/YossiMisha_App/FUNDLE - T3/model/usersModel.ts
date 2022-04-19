@@ -8,14 +8,8 @@ const UserSchema = new mongoose.Schema({
   wins: Number,
   current_strike: Number,
   max_strike: Number,
-  oneattempt: Number,
-  twoattempts: Number,
-  threeattempts: Number,
-  fourattempts: Number,
-  fiveattempts: Number,
-  sixattempts: Number
 })
 
-const FundleUser = mongoose.model('FundleUsers', UserSchema)
+const FundleUser = mongoose.model('FundleUsers', UserSchema);
 
 export default FundleUser;

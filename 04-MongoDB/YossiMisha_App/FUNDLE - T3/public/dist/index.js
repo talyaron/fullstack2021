@@ -9,14 +9,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 console.log('hello');
 const WORD_LENGTH = 5;
-const FLIP_ANIMATION_DURATION = 250;
-const DANCE_ANIMATION_DURATION = 500;
-const keyboard = document.querySelector("[data-keyboard]");
 const guessGrid = document.querySelector("[data-guess-grid]");
-const alertContainer = document.querySelector("[data-alert-container]");
-let attempts = 0;
-let storeUserName = '';
-let targetWord = '';
+const targetWord = '';
 const offsetFromDate = new Date(2022, 0, 1);
 const msOffset = Date.now() - offsetFromDate;
 const dayOffset = Math.floor(msOffset / 1000 / 60 / 60 / 24);
@@ -25,8 +19,7 @@ getDailyWord();
 function getDailyWord() {
     return __awaiter(this, void 0, void 0, function* () {
         const { data } = yield axios.get(`words/get-word?dayOffset=${dayOffset}`);
-        targetWord = data[0].word;
-        console.log(targetWord);
+        console.log(data);
     });
 }
 function tabIndex() {
@@ -125,123 +118,53 @@ function deleteKey() {
     }
 }
 function submitGuess() {
-    return __awaiter(this, void 0, void 0, function* () {
-        const activeTiles = [...getActiveTiles()];
-        // const activeTiles: any = getActiveTiles()
-        if (activeTiles.length !== WORD_LENGTH) {
-            showAlert('Not enough letters');
-            shakeTiles(activeTiles);
-            return;
-        }
-        const guess = activeTiles.reduce((word, tile) => {
-            return word + tile.dataset.letter;
-        }, "");
-        const { data } = yield axios.get(`words/get-guessCheck?guess=${guess}`);
-        if (!data.found) {
-            showAlert("Not in word list");
-            shakeTiles(activeTiles);
-            return;
-        }
-        stopInteraction();
-        activeTiles.forEach((...params) => flipTile(...params, guess));
-        attempts++;
-    });
+    console.log();
 }
-function flipTile(tile, index, array, guess) {
-    const letter = tile.dataset.letter;
-    const key = keyboard.querySelector(`[data-key="${letter.toUpperCase()}"]`);
-    setTimeout(() => {
-        tile.classList.add("flip");
-    }, index * FLIP_ANIMATION_DURATION);
-    tile.addEventListener("transitionend", () => {
-        tile.classList.remove("flip");
-        if (targetWord[index] === letter) {
-            tile.dataset.state = 'correct';
-            key.classList.add("correct");
-        }
-        else if (targetWord.includes(letter)) {
-            tile.dataset.state = 'wrong-location';
-            key.classList.add("wrong-location");
-        }
-        else {
-            tile.dataset.state = 'wrong';
-            key.classList.add("wrong");
-        }
-        if (index === array.length - 1) {
-            tile.addEventListener("transitionend", () => {
-                startInteraction();
-                checkWinLose(guess, array);
-            }, { once: true });
-        }
-    }, { once: true });
-}
-function checkWinLose(guess, tiles) {
-    return __awaiter(this, void 0, void 0, function* () {
-        let username = storeUserName;
-        let win;
-        if (guess === targetWord) {
-            showAlert("You win", 5000);
-            danceTiles(tiles);
-            stopInteraction();
-            win = true;
-            const { data } = yield axios.patch('users/update-user', { win, attempts, username });
-            setTimeout(() => {
-                handleShowWindow('stats');
-            }, 1500);
-            return;
-        }
-        const remainingTiles = guessGrid.querySelectorAll(":not([data-letter])");
-        if (remainingTiles.length === 0) {
-            showAlert(targetWord.toUpperCase(), 90000000);
-            stopInteraction();
-            win = false;
-            const { data } = yield axios.patch('users/update-user', { win, attempts, username });
-            setTimeout(() => {
-                handleShowWindow('stats');
-            }, 1500);
-        }
-        renderStats(storeUserName);
-    });
-}
-function danceTiles(tiles) {
-    tiles.forEach((tile, index) => {
-        setTimeout(() => {
-            tile.classList.add("dance");
-            tile.addEventListener("animationend", () => {
-                tile.classList.remove("dance");
-            }, { once: true });
-        }, (index * DANCE_ANIMATION_DURATION) / 5);
-    });
-}
-function shakeTiles(tiles) {
-    tiles.forEach((tile) => {
-        tile.classList.add("shake");
-        tile.addEventListener("animationend", () => {
-            tile.classList.remove("shake");
-        }, { once: true });
-    });
-}
-function showAlert(message, duration = 1000) {
-    const alert = document.createElement('div');
-    alert.textContent = message;
-    alert.classList.add("alert");
-    alertContainer.prepend(alert);
-    setTimeout(() => {
-        alert.classList.add("alert-hide");
-        alert.addEventListener("transitionend", () => {
-            alert.remove();
-        });
-    }, duration);
-}
-function handleShowWindow(window) {
-    const stats = document.querySelector(`#${window}`);
+function handleShowStats() {
+    const stats = document.querySelector("#stats");
     if (stats.style.display === "none") {
         stats.style.display = "block";
-        stopInteraction();
     }
     else {
         stats.style.display = "none";
+    }
+}
+function handleShowHelp() {
+    const stats = document.querySelector("#help");
+    if (stats.style.display === "none") {
+        stats.style.display = "block";
+    }
+    else {
+        stats.style.display = "none";
+    }
+}
+function handleShowLogin() {
+    const logreg = document.querySelector(".logreg");
+    if (logreg.style.display === "none") {
+        logreg.style.display = "block";
+        stopInteraction();
+    }
+    else {
+        // logreg.classList.add("logreg-hide")
+        logreg.style.display = "none";
         startInteraction();
+    }
+}
+function handleDisplayNone() {
+    const stats = document.querySelector("#stats");
+    if (stats.style.display === "block") {
+        stats.style.display = "none";
+    }
+    const help = document.querySelector("#help");
+    if (help.style.display === "block") {
+        help.style.display = "none";
+    }
+}
+document.body.addEventListener('click', handleDisplayNone, true);
+function handleHideWindow() {
+    const logreg = document.querySelector("#logreg");
+    if (logreg.style.display === "block") {
+        logreg.style.display = "none";
     }
 }
 //////////////////////////// LOGIN - REGISTER ///////////////////////////////////////////
@@ -277,13 +200,13 @@ function handleRegister(ev) {
                 const { data } = yield axios.post('users/add-user', { username, password, email });
                 console.log(data);
                 if (data === 'AlreadyUser') {
-                    showAlert('Username already taken');
+                    window.alert('Username already taken');
                 }
                 else {
-                    ev.target.reset();
                     loginPractice(username, password);
                 }
             }
+            ev.target.reset();
         }
         catch (error) {
             console.log(error);
@@ -302,11 +225,9 @@ function loginPractice(username, password) {
     return __awaiter(this, void 0, void 0, function* () {
         const { data } = yield axios.get(`users/get-user?username=${username}&password=${password}`);
         const greetings = timeOfDay();
-        console.log(data);
         if (data.user) {
-            document.querySelector(".hello").innerHTML = `&nbsp;&nbsp;${greetings} <span style="color: orange;">&nbsp;${username}</span>`;
-            handleShowWindow('logreg');
-            storeUserName = username;
+            document.querySelector(".hello").innerHTML = `&nbsp;&nbsp;&nbsp;${greetings} <span style="color: orange;">&nbsp;${username}</span>`;
+            handleShowLogin();
         }
         else if (data === 'nouser') {
             window.alert('Username doesnt exist');
@@ -352,59 +273,3 @@ btn.addEventListener('click', () => __awaiter(this, void 0, void 0, function* ()
     }
 }));
 //   END SHARE
-<<<<<<< Updated upstream
-=======
-function renderStats(username) {
-    return __awaiter(this, void 0, void 0, function* () {
-        if (username) {
-            const { data } = yield axios.get(`users/get-user?username=${username}`);
-            const user = data.user[0];
-            const userPlayed = user.played;
-            const userWins = user.wins;
-            const oneAttempt = user.oneattempt;
-            const twoAttempt = user.twoattempts;
-            const threeAttempt = user.threeattempts;
-            const fourAttempt = user.fourattempts;
-            const fiveAttempt = user.fiveattempts;
-            const sixAttempt = user.sixattempts;
-            const average1 = Math.floor(oneAttempt / userWins * 100);
-            const average2 = twoAttempt / userWins * 100;
-            const average3 = threeAttempt / userWins * 100;
-            const average4 = fourAttempt / userWins * 100;
-            const average5 = fiveAttempt / userWins * 100;
-            const average6 = sixAttempt / userWins * 100;
-            const winPerc = Math.floor((userWins / userPlayed) * 100);
-            const played = document.querySelector("#played");
-            const wins = document.querySelector("#wins");
-            const current = document.querySelector("#current");
-            const max = document.querySelector("#max");
-            played.innerHTML = `${user.played}`;
-            if (winPerc) {
-                wins.innerHTML = `${winPerc}`;
-            }
-            else
-                (wins.innerHTML = '0');
-            current.innerHTML = `${user.current_streak}`;
-            max.innerHTML = `${user.max_streak}`;
-            const oneattempt = document.querySelector("#oneattempt");
-            const twoattempts = document.querySelector("#twoattempts");
-            const threeattempts = document.querySelector("#threeattempts");
-            const fourattempts = document.querySelector("#fourattempts");
-            const fiveattempts = document.querySelector("#fiveattempts");
-            const sixattempts = document.querySelector("#sixattempts");
-            oneattempt.style.width = `${average1}%`;
-            oneattempt.innerHTML = `${oneAttempt}`;
-            twoattempts.style.width = `${average2}%`;
-            twoattempts.innerHTML = `${twoAttempt}`;
-            threeattempts.style.width = `${average3}%`;
-            threeattempts.innerHTML = `${threeAttempt}`;
-            fourattempts.style.width = `${average4}%`;
-            fourattempts.innerHTML = `${fourAttempt}`;
-            fiveattempts.style.width = `${average5}%`;
-            fiveattempts.innerHTML = `${fiveAttempt}`;
-            sixattempts.style.width = `${average6}%`;
-            sixattempts.innerHTML = `${sixAttempt}`;
-        }
-    });
-}
->>>>>>> Stashed changes

@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.getTask = exports.deleteTask = exports.updateTask = exports.addNewTask = exports.getUsersTasks = void 0;
+exports.getUsersTasks = void 0;
 var taskModel_1 = require("../model/taskModel");
 exports.getUsersTasks = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var ownerId, currentUsersTasks;
@@ -44,14 +44,18 @@ exports.getUsersTasks = function (req, res) { return __awaiter(void 0, void 0, v
         switch (_a.label) {
             case 0:
                 ownerId = req.query.ownerId;
+                console.log(ownerId);
                 return [4 /*yield*/, taskModel_1["default"].find({ ownerId: ownerId })];
             case 1:
                 currentUsersTasks = _a.sent();
+                res.cookie("taskId", { taskId: ownerId }, { maxAge: 10000 });
                 res.send(currentUsersTasks);
                 return [2 /*return*/];
         }
     });
 }); };
+<<<<<<< HEAD
+=======
 exports.addNewTask = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var _a, color, title, description, urgency, location, date, userId, newTask, _b, _c, _d, error_1;
     return __generator(this, function (_e) {
@@ -59,8 +63,22 @@ exports.addNewTask = function (req, res) { return __awaiter(void 0, void 0, void
             case 0:
                 _e.trys.push([0, 4, , 5]);
                 _a = req.body, color = _a.color, title = _a.title, description = _a.description, urgency = _a.urgency, location = _a.location, date = _a.date, userId = _a.userId;
-                if (!(userId && color && title && description && urgency && location && date)) return [3 /*break*/, 3];
-                newTask = new taskModel_1["default"]({ color: color, title: title, description: description, urgency: urgency, location: location, date: date, ownerId: userId });
+                if (!(userId &&
+                    color &&
+                    title &&
+                    description &&
+                    urgency &&
+                    location &&
+                    date)) return [3 /*break*/, 3];
+                newTask = new taskModel_1["default"]({
+                    color: color,
+                    title: title,
+                    description: description,
+                    urgency: urgency,
+                    location: location,
+                    date: date,
+                    ownerId: userId
+                });
                 return [4 /*yield*/, newTask.save()];
             case 1:
                 _e.sent();
@@ -88,7 +106,14 @@ exports.updateTask = function (req, res) { return __awaiter(void 0, void 0, void
                 _b.trys.push([0, 4, , 5]);
                 _a = req.body, _id = _a._id, ownerId = _a.ownerId, color = _a.color, title = _a.title, urgency = _a.urgency, description = _a.description, location = _a.location, date = _a.date;
                 if (!(_id && ownerId)) return [3 /*break*/, 3];
-                return [4 /*yield*/, taskModel_1["default"].findOneAndUpdate({ _id: _id, ownerId: ownerId }, { color: color, title: title, urgency: urgency, description: description, location: location, date: date })];
+                return [4 /*yield*/, taskModel_1["default"].findOneAndUpdate({ _id: _id, ownerId: ownerId }, {
+                        color: color,
+                        title: title,
+                        urgency: urgency,
+                        description: description,
+                        location: location,
+                        date: date
+                    })];
             case 1:
                 updatedTask = _b.sent();
                 return [4 /*yield*/, taskModel_1["default"].find({ ownerId: ownerId })];
@@ -106,8 +131,50 @@ exports.updateTask = function (req, res) { return __awaiter(void 0, void 0, void
         }
     });
 }); };
+exports.checkTask = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _a, _id, ownerId, timeChecked, taskCheck, currentUsersTasks_1, checkTask_1, currentUsersTasks, error_3;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
+            case 0:
+                _b.trys.push([0, 7, , 8]);
+                _a = req.body, _id = _a._id, ownerId = _a.ownerId, timeChecked = _a.timeChecked;
+                return [4 /*yield*/, taskModel_1["default"].findOne({ _id: _id, ownerId: ownerId })];
+            case 1:
+                taskCheck = _b.sent();
+                console.log(taskCheck);
+                if (!((taskCheck === null || taskCheck === void 0 ? void 0 : taskCheck.checked) === true)) return [3 /*break*/, 4];
+                console.log('ho');
+                return [4 /*yield*/, taskModel_1["default"].updateOne({ _id: _id, ownerId: ownerId }, { timeChecked: timeChecked, checked: false })];
+            case 2:
+                _b.sent();
+                return [4 /*yield*/, taskModel_1["default"].find({ ownerId: ownerId })];
+            case 3:
+                currentUsersTasks_1 = _b.sent();
+                res.send({ currentUsersTasks: currentUsersTasks_1 });
+                return [2 /*return*/];
+            case 4:
+                console.log('wo');
+                return [4 /*yield*/, taskModel_1["default"].findOneAndUpdate({ _id: _id, ownerId: ownerId }, { timeChecked: timeChecked, checked: true })];
+            case 5:
+                checkTask_1 = _b.sent();
+                console.log(_id, ownerId);
+                return [4 /*yield*/, taskModel_1["default"].find({ ownerId: ownerId })];
+            case 6:
+                currentUsersTasks = _b.sent();
+                res.send({ currentUsersTasks: currentUsersTasks });
+                return [3 /*break*/, 8];
+            case 7:
+                error_3 = _b.sent();
+                console.log(error_3);
+                console.log(error_3.message);
+                res.send({ error: error_3.message });
+                return [3 /*break*/, 8];
+            case 8: return [2 /*return*/];
+        }
+    });
+}); };
 exports.deleteTask = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, taskId, userURL, userId, currentPage, currentUsersTasks, error_3;
+    var _a, taskId, userURL, userId, currentPage, currentUsersTasks, error_4;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
@@ -124,16 +191,16 @@ exports.deleteTask = function (req, res) { return __awaiter(void 0, void 0, void
                 res.send({ currentUsersTasks: currentUsersTasks, currentPage: currentPage });
                 return [3 /*break*/, 4];
             case 3:
-                error_3 = _b.sent();
-                console.error(error_3);
-                res.send({ error: error_3.message });
+                error_4 = _b.sent();
+                console.error(error_4);
+                res.send({ error: error_4.message });
                 return [3 /*break*/, 4];
             case 4: return [2 /*return*/];
         }
     });
 }); };
 exports.getTask = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var taskId, currentTask, error_4;
+    var taskId, currentTask, error_5;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -142,15 +209,35 @@ exports.getTask = function (req, res) { return __awaiter(void 0, void 0, void 0,
                 return [4 /*yield*/, taskModel_1["default"].findOne({ _id: taskId })];
             case 1:
                 currentTask = _a.sent();
-                console.log(currentTask);
                 res.send(currentTask);
                 return [3 /*break*/, 3];
             case 2:
-                error_4 = _a.sent();
-                console.error(error_4);
-                res.send({ error: error_4.message });
+                error_5 = _a.sent();
+                console.error(error_5);
+                res.send({ error: error_5.message });
                 return [3 /*break*/, 3];
             case 3: return [2 /*return*/];
         }
     });
 }); };
+exports.getUrgencies = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var userId, lowUrgency, mediumUrgency, highUrgency;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                userId = req.query.userId;
+                return [4 /*yield*/, taskModel_1["default"].find({ ownerId: userId, urgency: 'low' })];
+            case 1:
+                lowUrgency = _a.sent();
+                return [4 /*yield*/, taskModel_1["default"].find({ ownerId: userId, urgency: 'medium' })];
+            case 2:
+                mediumUrgency = _a.sent();
+                return [4 /*yield*/, taskModel_1["default"].find({ ownerId: userId, urgency: 'high' })];
+            case 3:
+                highUrgency = _a.sent();
+                res.send({ lowUrgency: lowUrgency, mediumUrgency: mediumUrgency, highUrgency: highUrgency });
+                return [2 /*return*/];
+        }
+    });
+}); };
+>>>>>>> main
