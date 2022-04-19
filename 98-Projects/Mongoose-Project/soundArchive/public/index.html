@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./dist/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.js"
+        integrity="sha512-MNW6IbpNuZZ2VH9ngFhzh6cUt8L/0rSVa60F8L22K1H72ro4Ki3M/816eSDLnhICu7vwH/+/yb8oB3BtBLhMsA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <title>Sound Archive</title>
+</head>
+
+<body>
+    <div class="archive">
+        <!-- <div class="archive_user"> -->
+        <div class="archive_user--form">
+            <form id="regestration" onsubmit="handleRegistration(event)" class="archive_user--form--register">
+                <input type="name" name="name" placeholder="name" required>
+                <input type="password" name="password" placeholder="password" required>
+                <input type="submit" value="Register">
+
+            </form>
+            <form id="login" onsubmit="handleLogIn(event)" class="archive_user--form--login">
+                <input type="name" name="name" placeholder="name" required>
+                <input type="password" name="password" placeholder="password" required>
+                <input type="submit" value="Log In">
+
+            </form>
+            <div class="archive_user--form--button">
+                <button onclick="handleGetUsers()">Get Users</button>
+            </div>
+        </div>
+
+        <!-- </div> -->
+
+        <div class="archive--upload">
+            <form id="upload" onsubmit="handleUpload(event)">
+                <input type="text" name="title" placeholder="title" required />
+                <select name="type" id="type">
+                    <option type="text" name="type" value="" placeholder="type" disabled selected hidden>type</option>
+                    <option type="text" name="type" value="natural">natural</option>
+                    <option type="text" name="type" value="electronic">electronic</option>
+                </select>
+                <select name="location" id="location">
+                    <option type="text" name="location" value="" placeholder="location" required disabled selected
+                        hidden>location</option>
+                    <option type="text" name="outdoors" value="outdoors">outdoors</option>
+                    <option type="text" name="indoors" value="indoors">indoors</option>
+                    <option type="text" name="underwater" value="underwater">underwater</option>
+                </select>
+                <input type="text" name="description" placeholder="description" maxlength="220" required />
+                <input type="number" name="duration" placeholder="duration" step=".01" required />
+                <!-- <input type="file" name="file" > -->
+                </select>
+
+                <input type="submit" class="uploadButton" value="upload" />
+
+            </form>
+
+        </div>
+
+
+        <div class="archive__titleBar">
+            <nav class="archive__titleBar--nav">
+                <a href="">Sound</a>
+                <a href="">Archive</a>
+            </nav>
+            <div class="archive__titleBar--musicBar">
+                <div class="archivearchive__titleBar--albumInfo">
+                    <div class="archivearchive__titleBar--albumInfo--pic">
+                        <img src=" https://picsum.photos/100" alt="">
+
+                    </div>
+                </div>
+                <div class="archive__titleBar--player">
+                    <audio controls>
+                        <source src="" type=" audio">
+                    </audio>
+                </div>
+
+            </div>
+        </div>
+        <div class="archive__searchBar">
+            <div class="archive__searchBar--nav">
+                <i class="material-icons" style="font-size: 28px">arrow_back_ios</i>
+                <i class="material-icons" style="font-size: 28px">arrow_forward_ios</i>
+            </div>
+            <div class="archive__searchBar--search">
+                <input type="search" onchange="handleGetSearch(event)" name="search" id="" placeholder="search music" />
+            </div>
+
+
+
+        </div>
+        <div class="archive__main">
+            <h1>Recent Searches</h1>
+
+            <!-- <div id ='users' class="archive__main--history">
+             
+
+
+            </div> -->
+            <div id="music1"></div>
+
+            <h1>Recent Uploads</h1>
+
+            <div class="archive__main--recentUploads">
+                <div class="archive__main--recentUploads--1">
+                    <img src="https://picsum.photos/100" alt="">
+                    <p>Rock</p>
+                </div>
+                <div class="archive__main--recentUploads--2">
+                    <img src="https://picsum.photos/100" alt="">
+                    <p>Alt Rock</p>
+                </div>
+                <div class="archive__main--recentUploads--3">
+                    <img src="https://picsum.photos/100" alt="">
+                    <p>Indie Rock</p>
+                </div>
+                <div class="archive__main--recentUploads--4">
+                    <img src="https://picsum.photos/100" alt="">
+                    <p>Dance Rock</p>
+                </div>
+                <div class="archive__main--recentUploads--5">
+                    <img src="https://picsum.photos/100" alt="">
+                    <p>Dance Punk</p>
+                </div>
+
+
+            </div>
+            <h1>Browse Genres</h1>
+
+            <div class="archive__main--genres">
+
+
+                <div class="archive__main--genres--1" onchange="handleGetCategories(event)">
+
+                    <img src="https://picsum.photos/100" alt="">
+                    <p>Rock</p>
+
+                </div>
+                <div class="archive__main--genres--2">
+
+                    <img src="https://picsum.photos/100" alt="">
+                    <p>Alt Rock</p>
+
+                </div>
+                <div class="archive__main--genres--3">
+
+                    <img src="https://picsum.photos/100" alt="">
+                    <p>Indie Rock</p>
+
+                </div>
+                <div class="archive__main--genres--4">
+
+                    <img src="https://picsum.photos/100" alt="">
+                    <p>Dance Rock</p>
+
+                </div>
+                <div class="archive__main--genres--5">
+                    <img src="https://picsum.photos/100" alt="">
+                    <p>Dance Punk</p>
+
+
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+    <script src="./dist/index.js"></script>
+
+</body>
+
+</html>

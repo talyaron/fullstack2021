@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./dist/style.css">
+    <link rel="stylesheet" href="./dist/nav.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Home</title>
+</head>
+
+<body onload="handleRenderHome(event)">
+    <div id="landing">
+        <div id="control">
+            <div id="control__nav">
+                <nav>
+                    <ul>
+                        <li id="home"><a onclick="handlePageChange(event)"><i
+                                    class="material-icons white-color">home</i></a></li>
+                        <li id="chart"><a onclick="handlePageChange(event)"><i
+                                    class="material-icons white-color">settings</i></a></li>
+                        <li id="info"><a onclick="handlePageChange(event)"><i
+                                    class="material-icons white-color">info</i></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div id="landing-home">
+            <div id="landing-home__logo">
+                <h1 data-name></h1>
+                <img data-gender="" src=""
+                    alt="">
+            </div>
+            <div id="landing-home__search">
+                <i class="material-icons">search</i>
+                <input type="text" placeholder="">
+            </div>
+
+
+            <div id="landing-home__task">
+                <h2 data-task-count>My Tasks</h2>
+                <div class="task">
+                    <div class="icon icon__2"><i class="material-icons">drive_file_rename_outline</i></div>
+                    <p class="left">Low</p>
+                    <p><span data-low ></span> tasks</p>
+                    
+                </div>
+                <div class="task">
+                    <div class="icon icon__3"><i class="material-icons">check_circle_outline</i>
+                    </div>
+                    <p class="left">Medium</p>
+                    <p> <span data-medium></span> tasks</p>
+                    
+                </div>
+                <div class="task">
+                    <div class="icon icon__1"><i class="material-icons">list_alt</i></div>
+                    <p class="left">High</p>
+                    <p><span data-high></span> tasks</p>
+                </div>
+            </div>
+
+            <div id="landing-home__recent">
+                <div class="recent__title">
+                    <h2><a onclick="handlePageChange(event)">Recently Created</a></h2>
+                    <i class="material-icons">keyboard_arrow_right</i>
+                </div>
+
+
+                <div data-box-root id="landing__task-count">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./dist/index.js"></script>
+
+
+</html>
