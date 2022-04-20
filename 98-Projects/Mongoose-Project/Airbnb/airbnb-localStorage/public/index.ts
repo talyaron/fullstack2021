@@ -264,13 +264,18 @@ async function handleFilter(ev) {
 }
 
 function renderAirbnbOptions(data: Array<any>) {
-  try {
+  try 
+  
+  {
+      
     if (!Array.isArray(data)) throw new Error("data is not an array");
 
     const root = document.querySelector("#rootPlaces");
     let html = "";
+    
 
     data.forEach((place) => {
+   
       html += ` <div class="airbnbOptions__container" onclick="handleGoToPlace('${place._id}')">
                       <div class="airbnbOptions__container__img">
                           <img src="${place.images}">
@@ -278,25 +283,26 @@ function renderAirbnbOptions(data: Array<any>) {
                       <div class="airbnbOptions__container__content">
                           <div class="airbnbOptions__container__content__namePlace">                                
                               
-                                  <h3>${place.name} </h3>
-                                  <h5>accommodates:${place.accommodates} </h5>
-                             
-                              <p>
-                              ${place.address_country_code} ,  ${place.address_country}
-                              </p>
+                                  <p>${place.name}</p>
                           </div>
                           <div class="airbnbOptions__container__content__description">
-                              <p>
-                              ${place.description}
+                              <p>${place.bathrooms}bath\u00B7\n${place.bedrooms}bedroom\u00B7${place.beds}beds\u00B7${place.accommodates}guests</p>
+                          
+                              <p>${(place.amenities.search("wifi")!==-1)?'wifi\u00B7':''}${(place.amenities.search("kitchen")!==-1)?'kitchen*':''}
+                              ${(place.amenities.search("air-conditioning")!==-1)?'air-conditioning\u00B7':''}${(place.amenities.search("washer")!==-1)?'washer*':''}
+                              ${(place.amenities.search("parking")!==-1)?'parking':''}
+                              
                               </p>
+                                                        
                           </div>
+                        
                           <div class="airbnbOptions__container__content__priceRating">
                               <button class="btn btn-outline">
-                              ${place.price}
+                              ₪${place.price} night
                               </button>
                               <button class="btn btn-outline">
                                  
-                              ${place.reviews_rating}
+                              ⭐${place.reviews_rating}(${place.number_of_reviews} reviews)
                                   
 
                               </button>
@@ -304,6 +310,8 @@ function renderAirbnbOptions(data: Array<any>) {
 
                       </div>
                   </div>`;
+                  html +=`<br/>`
+
       root.innerHTML = html;
     });
   } catch (error) {

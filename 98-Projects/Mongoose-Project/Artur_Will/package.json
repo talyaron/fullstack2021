@@ -14,9 +14,5 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "artur / will",
-  "license": "ISC",
-  "devDependencies": {
-    "typescript": "^4.6.3"
-  },
-  "keywords": []
+  "license": "ISC"
 }

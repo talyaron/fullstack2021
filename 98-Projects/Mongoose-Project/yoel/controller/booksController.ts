@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 import Book  from "../models/bookModel";
 export const handleGetAllBooks = async (req, res) => {
   const books = await Book.find({})
   // console.log(books);
 
+=======
+import { Book } from "../models/bookModel";
+export const handleGetAllBooks = async (req, res) => {
+  const books = await Book.find({})
+>>>>>>> 1ca405c86a6b7748f75a8892b490a58717beaf84
   res.send(books);
 }
 export const handleAddBook = async (req, res) => {
@@ -10,6 +16,7 @@ export const handleAddBook = async (req, res) => {
     let { book } = req.body;
 
     if (book) {
+<<<<<<< HEAD
 
       const newBook = new Book(book);//missing something here
       try {
@@ -20,6 +27,19 @@ export const handleAddBook = async (req, res) => {
         console.log(error.message)
       }
 
+=======
+      console.log('before', book);
+
+      const newBook = new Book(book);//missing something here
+      try {
+        const result = await newBook.save();
+        console.log('after')
+        res.send({ result });//N render it 
+      } catch (error) {
+        console.log(error)
+      }
+      // const result = await newBook.save();
+>>>>>>> 1ca405c86a6b7748f75a8892b490a58717beaf84
 
     }
     else {
@@ -30,6 +50,7 @@ export const handleAddBook = async (req, res) => {
     res.send(error.message)
   }
 }
+<<<<<<< HEAD
 export const handleUpdateBook = async (req, res) => {
   try {
     let { book , bookId } = req.body;
@@ -65,6 +86,8 @@ export const handleDelete = async (req, res) => {
     res.send(error.message)
   }
 }
+=======
+>>>>>>> 1ca405c86a6b7748f75a8892b490a58717beaf84
 export const handleSort = (req, res) => {//we need to do sort to the value from DB
 
   // try {
@@ -88,4 +111,8 @@ export const handleSort = (req, res) => {//we need to do sort to the value from 
   //   res.send({ error })
   // }
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 1ca405c86a6b7748f75a8892b490a58717beaf84
