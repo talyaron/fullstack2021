@@ -1,0 +1,720 @@
+body {
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.navigation {
+  border: black solid 1px;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+  margin-bottom: 15px;
+}
+.navigation ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  list-style: none;
+  cursor: pointer;
+}
+.navigation--logo img {
+  position: relative;
+  bottom: -10px;
+  width: 130px;
+  height: 40px;
+}
+.navigation form {
+  padding: 2px;
+  border: grey 0.5px solid;
+  width: 700px;
+  height: 50px;
+  border-radius: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  letter-spacing: 0.5px;
+  transition: ease 0.5s;
+}
+.navigation form:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.navigation form label {
+  font-size: 12px;
+  font-weight: bold;
+}
+.navigation form .form--searchLocation {
+  padding-left: 20px;
+  height: 48px;
+  border-radius: 28px;
+  width: 160px;
+  border: solid 1px white;
+}
+.navigation form .form--searchLocation:hover {
+  border: solid 1px #e2e2e2;
+  background-color: #e2e2e2;
+}
+.navigation form .form--searchLocation input {
+  border: none;
+  border-radius: 28px;
+  width: 150px;
+}
+.navigation form .form--searchLocation input:hover {
+  background-color: #e2e2e2;
+}
+.navigation form .form--checkIn {
+  height: 50px;
+  width: 150px;
+  padding-left: 20px;
+  border-radius: 28px;
+}
+.navigation form .form--checkIn:hover {
+  border: solid 1px #e2e2e2;
+  background-color: #e2e2e2;
+}
+.navigation form .form--checkIn input[type=date] {
+  border-radius: 10px;
+  border: none;
+  background-color: white;
+}
+.navigation form .form--checkIn input[type=date]:hover {
+  background-color: #e2e2e2;
+}
+.navigation form .form--checkOut {
+  height: 50px;
+  width: 150px;
+  padding-left: 20px;
+  border-radius: 28px;
+}
+.navigation form .form--checkOut:hover {
+  border: solid 1px #e2e2e2;
+  background-color: #e2e2e2;
+}
+.navigation form .form--checkOut input[type=date] {
+  border-radius: 10px;
+  border: none;
+  background-color: white;
+}
+.navigation form .form--checkOut input[type=date]:hover {
+  background-color: #e2e2e2;
+}
+.navigation form .form--guests {
+  height: 50px;
+  width: 100px;
+  padding-left: 20px;
+  border-radius: 28px;
+}
+.navigation form .form--guests span {
+  font-weight: lighter;
+  color: grey;
+}
+.navigation form .form--guests:hover {
+  width: 100px;
+  border: solid 1px #e2e2e2;
+  background-color: #e2e2e2;
+}
+.navigation form .form--guests .dropdown {
+  display: none;
+  position: relative;
+  background-color: #f1f1f1;
+  font-size: 12px;
+  border-radius: 10px;
+  min-width: 160px;
+  height: 250px;
+  top: 0px;
+  padding: 5px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  padding: 15px;
+}
+.navigation form .form--guests .dropdown label {
+  font-size: 14px;
+}
+.navigation form .form--guests .dropdown label span {
+  font-weight: lighter;
+  color: #9e9797;
+}
+.navigation form .form--guests .dropdown input[type=number] {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 50%;
+  border: none;
+}
+.navigation form .form--guests:hover .dropdown {
+  display: block;
+}
+.navigation form .form--searchIcon {
+  background-color: #38ffe4;
+  border: 1px #38ffe4;
+  border-radius: 50px;
+  width: 34px;
+  height: 32px;
+  text-align: center;
+  transition: ease 2s;
+  cursor: pointer;
+}
+.navigation form .form--searchIcon:hover {
+  background-color: #056155;
+}
+.navigation form .form--searchIcon img {
+  margin-right: 3px;
+  width: 25px;
+  height: 25px;
+  z-index: 1;
+}
+.navigation--greeting {
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+.navigation--user {
+  text-align: right;
+  width: 60px;
+  padding-top: 3px;
+  height: auto;
+  border-radius: 28px;
+  background-color: #38ffe4;
+  transition: ease 0.5s;
+}
+.navigation--user:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 5px;
+}
+.navigation--user img {
+  margin: 5px;
+  width: 25px;
+  height: 25px;
+  transition: ease 1s;
+}
+
+.popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+.popup .popuptext {
+  visibility: hidden;
+  background-color: #38ffe484;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: fixed;
+  z-index: 1;
+  right: 0;
+  left: 0;
+  margin: auto;
+  top: 50%;
+  display: flex;
+  gap: 30px;
+  flex-direction: column;
+  align-items: center;
+}
+.popup .popuptext#myPopup {
+  position: absloute;
+  top: 0;
+  backdrop-filter: blur(10px);
+  height: 100%;
+}
+.popup form {
+  display: flex;
+  width: 700px;
+  padding: 5px;
+  height: 50px;
+  border: none;
+  align-items: center;
+}
+.popup form input {
+  border-radius: 50px;
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.bottomBar {
+  background-color: #eeebeb;
+  color: black;
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 2em;
+  width: 100%;
+}
+.bottomBar__title {
+  font-weight: bolder;
+  font-size: large;
+}
+.bottomBar img {
+  width: 30px;
+  height: 30px;
+}
+.bottomBar__about--twitter img {
+  transition: 0.4s ease;
+}
+.bottomBar__about--twitter img:hover {
+  border-radius: 10px;
+  background-color: #2bb2df;
+}
+.bottomBar__about--facebook img {
+  transition: 0.4s ease;
+}
+.bottomBar__about--facebook img:hover {
+  border-radius: 10px;
+  background-color: #2536d4;
+}
+.bottomBar__about--instagram img {
+  transition: 0.4s ease;
+}
+.bottomBar__about--instagram img:hover {
+  border-radius: 10px;
+  background-color: #fa60ff;
+}
+
+.airbnbRights {
+  background: #eeebeb;
+  font-size: medium;
+  letter-spacing: 1px;
+  padding: 2em;
+  margin-top: 0;
+  border-top: solid lightgrey 1px;
+  color: black;
+  text-align: center;
+  margin-left: 5px;
+  font-weight: lighter;
+}
+
+.mainPage {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+.mainPage__imageCarousel {
+  border-radius: 10%;
+  overflow: hidden;
+  margin-top: 50px;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+.mainPage__imageCarousel--title {
+  position: absolute;
+  color: white;
+  font-size: calc(1.5rem + 1vw);
+  margin: 0;
+  top: 70%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  text-shadow: 0 5px 15px rgba(0, 0, 0, 0.884);
+  transition: 0.4s ease;
+}
+.mainPage__imageCarousel--title:hover {
+  color: black;
+  text-shadow: white 1px 0 10px;
+}
+.mainPage__imageCarousel figure {
+  position: relative;
+  width: 500%;
+  margin: 0;
+  animation: 20s slider infinite;
+  display: flex;
+}
+.mainPage__imageCarousel figure img {
+  width: 20%;
+  object-fit: cover;
+  object-position: center;
+}
+.mainPage__citySuggestions {
+  margin-top: 10%;
+  margin-bottom: 10%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+.mainPage__citySuggestions__cards {
+  height: 50vh;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: space-between;
+}
+.mainPage__citySuggestions__cards__card {
+  border-radius: 10px;
+  width: 70vw;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  transition: 0.3s ease-in-out;
+}
+.mainPage__citySuggestions__cards__card:hover {
+  transform: scale(1.1);
+  z-index: 2;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.884);
+}
+.mainPage__citySuggestions__cards__card img {
+  background-color: #38ffe4;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  width: 100%;
+  height: 50%;
+}
+.mainPage__citySuggestions__cards__card .description {
+  text-align: left;
+  padding-left: 5px;
+  color: white;
+}
+.mainPage__citySuggestions__cards__card .description h3 {
+  font-weight: lighter;
+}
+.mainPage__citySuggestions__cards__card:nth-child(1) {
+  background-color: #2e7fca;
+}
+.mainPage__citySuggestions__cards__card:nth-child(2) {
+  background-color: #183755;
+}
+.mainPage__citySuggestions__cards__card:nth-child(3) {
+  background-color: #3537a3;
+}
+.mainPage__citySuggestions__cards__card:nth-child(4) {
+  background-color: #2c2d69;
+}
+
+@keyframes slider {
+  0% {
+    left: 0;
+  }
+  20% {
+    left: 0;
+  }
+  25% {
+    left: -100%;
+  }
+  45% {
+    left: -100%;
+  }
+  50% {
+    left: -200%;
+  }
+  70% {
+    left: -200%;
+  }
+  75% {
+    left: -300%;
+  }
+  95% {
+    left: -300%;
+  }
+  100% {
+    left: -400%;
+  }
+}
+#rootPlace {
+  width: 50%;
+  margin: auto;
+}
+#rootPlace .mainUppear {
+  display: flex;
+  gap: 5px;
+  flex-direction: row;
+}
+#rootPlace .mainUppear__title {
+  display: flex;
+  gap: 5px;
+  flex-direction: row;
+}
+#rootPlace .mainUppear__photoGrid .img {
+  border-radius: 20%;
+  height: 100%;
+}
+#rootPlace .mainMiddle {
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+}
+#rootPlace .mainMiddle__left {
+  display: flex;
+  gap: 5px;
+  flex-direction: row;
+}
+#rootPlace .mainMiddle__left--great h5 {
+  word-wrap: break-word;
+}
+#rootPlace .mainMiddle__left--up {
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+}
+#rootPlace .mainMiddle__left--up--profile {
+  display: flex;
+  gap: 5px;
+  flex-direction: row-reverse;
+}
+#rootPlace .mainMiddle__left--up--profile img {
+  width: 56px;
+  height: 56px;
+  border-radius: 100%;
+}
+#rootPlace .mainMiddle__left--bed {
+  display: flex;
+  gap: 5px;
+}
+#rootPlace .mainMiddle__left--list p {
+  text-decoration: none;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+#rootPlace .reviews {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 10px;
+}
+#rootPlace .reviews__review {
+  display: flex;
+  flex-direction: row;
+  gap: 3px;
+}
+#rootPlace .reviews__review p {
+  font-size: 16px;
+}
+#rootPlace #map {
+  height: 100%;
+  /* Display the control once it is inside the map. */
+}
+#rootPlace #map .map-control {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 2px rgba(33, 33, 33, 0.4);
+  font-family: "Roboto", "sans-serif";
+  margin: 10px;
+  /* Hide the control initially, to prevent it from appearing
+        before the map loads. */
+  display: none;
+}
+#rootPlace #map #map .map-control {
+  display: block;
+}
+#rootPlace #map .selector-control {
+  font-size: 14px;
+  line-height: 30px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+#rootPlace .aboutHost {
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+}
+#rootPlace .aboutHost--left {
+  display: flex;
+  gap: 5px;
+  flex-direction: row;
+}
+#rootPlace .aboutHost--left--profileHost img {
+  width: 56px;
+  height: 56px;
+  border-radius: 100%;
+}
+#rootPlace .aboutHost--right {
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+}
+#rootPlace .aboutHost--right .payment p {
+  font-size: 16px;
+}
+#rootPlace .toKnow {
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+}
+#rootPlace .toKnow ul {
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+}
+#rootPlace .toKnow ul p {
+  font-size: 16px;
+}
+#rootPlace .toKnow ul li {
+  text-decoration: none;
+}
+#rootPlace .toKnow__cancle {
+  font-size: 16px;
+}
+
+.header-filter {
+  position: relative;
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 50px;
+}
+.header-filter .btn_filter {
+  background-color: white;
+  align-items: center;
+  appearance: none;
+  background-size: calc(100% + 20px) calc(100% + 20px);
+  border-radius: 100px;
+  border-width: 0.5rem;
+  border: 2px solid lightgrey;
+  box-shadow: none;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: CircularStd, sans-serif;
+  font-size: 1rem;
+  height: auto;
+  justify-content: center;
+  line-height: 1.5;
+  padding: 6px 20px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.2s, background-position 0.2s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: top;
+  white-space: nowrap;
+}
+.header-filter .btn_filter:hover {
+  background: #F6F9FE;
+  color: #174ea6;
+}
+.header-filter .btn_filter:active {
+  box-shadow: 0 4px 4px 0 rgba(60, 64, 67, 0.3), 0 8px 12px 6px rgba(60, 64, 67, 0.15);
+  outline: none;
+}
+.header-filter .btn_filter:focus {
+  outline: none;
+  border: 2px solid #4285f4;
+}
+.header-filter .btn_filter:not(:disabled) {
+  box-shadow: rgba(60, 64, 67, 0.3) 0 1px 3px 0, rgba(60, 64, 67, 0.15) 0 4px 8px 3px;
+}
+.header-filter .btn_filter:not(:disabled):hover {
+  box-shadow: rgba(60, 64, 67, 0.3) 0 2px 3px 0, rgba(60, 64, 67, 0.15) 0 6px 10px 4px;
+}
+.header-filter .btn_filter:not(:disabled):focus {
+  box-shadow: rgba(60, 64, 67, 0.3) 0 1px 3px 0, rgba(60, 64, 67, 0.15) 0 4px 8px 3px;
+}
+.header-filter .btn_filter:not(:disabled):active {
+  box-shadow: rgba(60, 64, 67, 0.3) 0 4px 4px 0, rgba(60, 64, 67, 0.15) 0 8px 12px 6px;
+}
+.header-filter .btn_filter:disabled {
+  box-shadow: rgba(60, 64, 67, 0.3) 0 1px 3px 0, rgba(60, 64, 67, 0.15) 0 4px 8px 3px;
+}
+
+.filter {
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+  top: 40px;
+}
+
+.page-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 4fr);
+  grid-template-rows: 1fr;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.card-map {
+  width: 195%;
+  height: 100%;
+}
+.card-map iframe {
+  width: 50%;
+  height: 85%;
+  border: 0;
+}
+
+.airbnbOptions {
+  font-weight: normal;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 15px;
+}
+.airbnbOptions button {
+  color: black;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.airbnbOptions__container {
+  --padding: 1rem;
+  background: white;
+  border: none;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  display: flex;
+  flex-direction: row-reverse;
+}
+.airbnbOptions__container__img {
+  border-radius: 0.25em;
+  overflow: hidden;
+  /* the image no longer overflows the card*/
+  padding: 0;
+  width: 100%;
+}
+.airbnbOptions__container__img img {
+  display: block;
+  /*allows to cange width and height*/
+  max-height: 200px;
+  /*to fit to every screen size*/
+  width: 100%;
+  /*100 width of the container*/
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  /*thats how the aspect ratio always maintains*/
+  object-position: center;
+  transition: 200ms transform ease-in-out;
+}
+.airbnbOptions__container__img img:hover {
+  transform: scale(1.15);
+}
+.airbnbOptions__container_content {
+  display: block;
+}
+.airbnbOptions__container_content__namePlace {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  padding: var(--padding);
+  padding-bottom: 0;
+  display: flex;
+  justify-content: space-between;
+}
+.airbnbOptions__container_content__description {
+  font-size: 0.9rem;
+  padding: 0 var(--padding);
+}
+.airbnbOptions__container_content__priceRating {
+  margin-top: 1rem;
+  padding: var(--padding);
+  padding-top: 0;
+  display: flex;
+  justify-content: space-between;
+}
+@media only screen and (max-width: 768px) {
+  .airbnbOptions {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media only screen and (max-width: 600px) {
+  .airbnbOptions {
+    margin: 30px;
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

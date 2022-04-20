@@ -1,0 +1,22 @@
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: tomato;
+}
+
+img {
+  width: 100px;
+  border: 1px solid gray;
+}
+
+.draggable {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+#pool {
+  width: 100px;
+  height: 100px;
+  background-color: #e6f0ae;
+}

@@ -1,8 +1,6 @@
 import jwt from 'jwt-simple'
 import Employee from '../models/employeeModels'
 
-const secret = process.env.JWT_SECRET
-
 export const addEmployee = async (req, res) => {
 
     try {
@@ -28,7 +26,7 @@ export const addEmployee = async (req, res) => {
 export async function getEmployees(req, res) {
 
     try {
-
+        const secret = "tamirRs";
         const { name, password } = req.body;
 
         if (typeof name === 'string' && typeof password === 'string') {
@@ -37,8 +35,8 @@ export async function getEmployees(req, res) {
                 if (result.password === password) {
 
                     if (result.role === 'admin') {
-                        const corona = { name, id: result._id, role: result.role };
-                        const token = jwt.encode(corona, secret);
+                        const payload = { name, id: result._id, role: result.role };
+                        const token = jwt.encode(payload, secret);
                         //const allEmployees = await Employee.find({})
                         res.cookie('adminEmployee', token, { maxAge: 30000 })
                         //res.send({ ok: true, allEmployees })
@@ -72,6 +70,7 @@ export const getDecodedEmp = async (req, res) => {
 
     const { adminEmployee } = req.cookies;
 
+    const secret = "tamirRs";
     const decoded = jwt.decode(adminEmployee, secret);
 
     if (decoded && decoded.role === "admin") {

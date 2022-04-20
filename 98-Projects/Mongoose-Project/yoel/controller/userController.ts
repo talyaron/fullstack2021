@@ -1,6 +1,4 @@
-import { domainToUnicode } from "url";
-import { toUSVString } from "util";
-import { User } from "../models/userModel";
+import User  from "../models/userModel";
 
 export const handleGetUsers = async (req, res) => {
 

@@ -101,7 +101,7 @@ function handleGetProducts() {
         });
     });
 }
-function renderItemsMain(items, ok, userName) {
+function renderItemsMain(items, userName) {
     var html = '';
     var rootItems = document.querySelector('.mainPage__middle--products');
     if (items) {
@@ -109,8 +109,7 @@ function renderItemsMain(items, ok, userName) {
             html += "\n            <div class=\"mainPage__middle--products--item\">\n                <img src=\"" + item.pic + "\" title='" + item.title + "'>\n                <h4>" + item.description + "</h4>\n                <p>" + item.price + "$</p>\n                <i title=\"Add product to cart\" id=\"myBtn\" class=\"fa fa-shopping-cart\"></i>\n                <i class=\"fa fa-heart\"></i>\n            </div>\n            ";
         });
         if (localStorage.getItem("name") != null) {
-            document.querySelector(".mainPage__header--welcome").innerHTML = "\n            </br>\n            hello " + localStorage.getItem("name") + "\n            </br>\n            <button class=\"LogOutBtn\" onclick=\"localStorage.clear();location.reload()\">log out</button>  \n            ";
-            document.querySelector(".mainPage__header--icons").innerHTML = "\n                <a href=\"index.html\"><i class=\"fa fa-home\" ></i></a>\n                <a href=\"personal-zone.html\"><i class=\"fa fa-user\" ></i></a>\n                <i id=\"\" class=\"fa fa-shopping-cart\"></i>\n            ";
+            document.querySelector(".mainPage__header--welcome").innerHTML = "\n            hello " + localStorage.getItem("name") + " <a href=\"personal-zone.html\"><i class=\"fa fa-user\" ></i></a\n            </br></br>\n            <button onclick=\"localStorage.clear();location.reload()\">log out</button>\n            ";
         }
         else if (localStorage.getItem("name") === 'user') {
             document.querySelector(".mainPage__header--welcome").innerHTML = '';
@@ -121,19 +120,10 @@ function renderItemsMain(items, ok, userName) {
         rootItems.innerHTML = html;
     }
 }
-function renderProducts(products, ok, userName) {
+function renderProducts(products, userName) {
     var html = products.map(function (product) {
         return "\n        <div class=\"mainPage__middle--products--item\" id=\"card\">\n        <div id=\"trash\"><i class=\"fa fa-trash-o\" style=\"font-size:20px;cursor: pointer;\" title=\"Delete product\" onclick='handleDelete(\"" + product._id + "\")'></i></div>\n        <img src=\"" + product.pic + "\" title='" + product.title + "'>\n        <p>" + product.title + ".</p>\n        <p>" + product.price + "$</p>\n        <p>" + product.description + ".</p>\n        <form onsubmit=\"handleUpadte(event,'" + product._id + "')\">\n            <input type = 'text' name = 'newImg' placeholder = 'Update img' >\n            <input type = 'text' name = 'newTitle' placeholder = 'Update title'>\n            <input type = 'text' name = 'newPrice' placeholder = 'Update price'>\n            <input type = \"submit\" value = \"Update\">\n        </form>\n        </div>\n        ";
     }).join('');
-    if (localStorage.getItem("name") != null) {
-        document.querySelector(".mainPage__header--welcome").innerHTML = "\n        </br>\n        hello " + localStorage.getItem("name") + "\n        </br>\n        <button class=\"LogOutBtn\" onclick=\"localStorage.clear();location.reload()\">log out</button>  \n        ";
-    }
-    else if (localStorage.getItem("name") === 'user') {
-        document.querySelector(".mainPage__header--welcome").innerHTML = '';
-    }
-    else {
-        document.querySelector(".mainPage__header--welcome").innerHTML = '';
-    }
     document.getElementById('products').innerHTML = html;
 }
 function handleUpadte(ev, gameId) {
@@ -197,12 +187,14 @@ function handleCategoryShow(ev) {
         });
     });
 }
-function handleAscending() {
+function handleAscending(ev) {
     return __awaiter(this, void 0, void 0, function () {
         var data, filterd, products;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, axios.post('/products/sort-by-Ascending')];
+                case 0:
+                    ev.preventDefault();
+                    return [4 /*yield*/, axios.post('/products/sort-by-Ascending')];
                 case 1:
                     data = (_a.sent()).data;
                     filterd = data.filterd;
@@ -216,12 +208,14 @@ function handleAscending() {
         });
     });
 }
-function handleDescending() {
+function handleDescending(ev) {
     return __awaiter(this, void 0, void 0, function () {
         var data, filterd, products;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, axios.post('/products/sort-by-Descending')];
+                case 0:
+                    ev.preventDefault();
+                    return [4 /*yield*/, axios.post('/products/sort-by-Descending')];
                 case 1:
                     data = (_a.sent()).data;
                     filterd = data.filterd;
@@ -256,6 +250,19 @@ function handleSignUp(ev) {
         });
     });
 }
+// async function handleLogin(ev) {
+//     ev.preventDefault();
+//     let { email, password } = ev.target.elements;
+//     email = email.value;
+//     password = password.value;
+//     const { data } = await axios.post('/products/login', {email, password});
+//     console.log(window)
+//     // if(data.login){
+//     //     const {products} = data;
+//     //     const {userName} = data;
+//     //     renderItemsMain(products, userName)
+//     // }
+// }
 function handleLogin(ev) {
     return __awaiter(this, void 0, void 0, function () {
         var _a, email, password, data, userName, ok, items;
@@ -272,7 +279,6 @@ function handleLogin(ev) {
                     userName = data.userName;
                     ok = data.ok;
                     items = data.items;
-                    // const{userId} = data;
                     if (ok === true) {
                         document.getElementById("logMessage").innerHTML = " You are login";
                         window.setTimeout(function () { location.reload(); }, 2000);
@@ -281,7 +287,7 @@ function handleLogin(ev) {
                     else {
                         document.getElementById("logMessage").innerHTML = "Email or Password is wrong, try again";
                     }
-                    renderItemsMain(items, ok, userName);
+                    renderItemsMain(items, userName);
                     return [2 /*return*/];
             }
         });

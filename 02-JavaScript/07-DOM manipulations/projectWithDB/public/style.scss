@@ -1,20 +1,11 @@
 .book {
-    width: fit-content;
-    height: fit-content;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    
+    // display: flex;
 
     &-text {
         text-align: center;
         border-radius: 10%;
         border: 1px solid black;
-        color: rgb(66, 109, 109);
+        color: aqua;
+        font-size: 3rem;
     }
-}
-.sign , .reg{
-    color: aqua;
-    font-size: 4em;
-    text-align: center;
 }

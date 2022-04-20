@@ -382,7 +382,7 @@ function handleAddArt(ev) {
             switch (_a.label) {
                 case 0:
                     ev.preventDefault();
-                    newArt = { artName: ev.target.name.value, url: ev.target.url.value, author: .user.userName };
+                    newArt = { artName: ev.target.name.value, url: ev.target.url.value, author: site.user.userName };
                     return [4 /*yield*/, axios.post('/arts/add-art', { newArt: newArt, userId: site.user._id })];
                 case 1:
                     _a.sent();
