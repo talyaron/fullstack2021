@@ -623,20 +623,22 @@ body {
 
 .page-grid {
   display: grid;
-  grid-template-columns: repeat(2, 4fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 1fr;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  column-gap: 20px;
 }
 
 .card-map {
-  width: 195%;
-  height: 100%;
+  width: 50%;
+  height: 120%;
 }
 .card-map iframe {
-  width: 50%;
+  width: 200%;
   height: 85%;
   border: 0;
+  position: relative;
+  left: 15px;
+  object-fit: cover;
 }
 
 .airbnbOptions {
@@ -645,18 +647,20 @@ body {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  gap: 15px;
 }
 .airbnbOptions button {
   color: black;
   background-color: transparent;
   border: none;
+  font-size: 1rem;
+  padding: 0.5em, 0.75em;
   cursor: pointer;
 }
 .airbnbOptions__container {
   --padding: 1rem;
   background: white;
   border: none;
+  border-radius: 1rem;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
   overflow: hidden;
   display: flex;
@@ -667,17 +671,15 @@ body {
   overflow: hidden;
   /* the image no longer overflows the card*/
   padding: 0;
-  width: 100%;
 }
 .airbnbOptions__container__img img {
   display: block;
   /*allows to cange width and height*/
-  max-height: 200px;
   /*to fit to every screen size*/
-  width: 100%;
+  width: 300px;
+  height: 200px;
   /*100 width of the container*/
   aspect-ratio: 16/9;
-  object-fit: cover;
   /*thats how the aspect ratio always maintains*/
   object-position: center;
   transition: 200ms transform ease-in-out;
@@ -685,22 +687,25 @@ body {
 .airbnbOptions__container__img img:hover {
   transform: scale(1.15);
 }
-.airbnbOptions__container_content {
+.airbnbOptions__container__content {
   display: block;
+  height: 200px;
+  width: 500px;
 }
-.airbnbOptions__container_content__namePlace {
-  font-size: 1.5rem;
+.airbnbOptions__container__content__namePlace {
+  font-size: 1.1rem;
   margin-bottom: 0.5rem;
   padding: var(--padding);
   padding-bottom: 0;
-  display: flex;
   justify-content: space-between;
 }
-.airbnbOptions__container_content__description {
+.airbnbOptions__container__content__description {
   font-size: 0.9rem;
   padding: 0 var(--padding);
 }
-.airbnbOptions__container_content__priceRating {
+.airbnbOptions__container__content__priceRating {
+  position: relative;
+  top: 30px;
   margin-top: 1rem;
   padding: var(--padding);
   padding-top: 0;
