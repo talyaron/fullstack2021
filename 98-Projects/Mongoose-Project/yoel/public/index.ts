@@ -1,6 +1,8 @@
 async function initApp() {
     getBooks();
+
 }
+// 
 async function getBooks() {
     const { data } = await axios.get('/book/get-books')
 
@@ -39,11 +41,11 @@ async function handleAddBook(ev) {
     let author = ev.target.elements.author.value;
 
     const book = { name, year, author }
-  
+
 
     const { data } = await axios.patch('/book/update-book', { book, bookId })//with the update
 
-   
+
     if (data.ok) {
         renderBooks(data.books);
     }
@@ -61,41 +63,41 @@ async function handleGetUsers() {
 async function handleReg(ev) {
     ev.preventDefault();
 
-    const username = ev.target.elements.username.value;
-    const password = ev.target.elements.password.value;
+    console.log(ev);
+    
+    // const username = ev.target.elements.username.value;
+    // const password = ev.target.elements.password.value;
 
-    const { data } = await axios.post('/user/reg-user', { username, password })
-    if (data.error) {
+    // console.log(username , password);
+    
 
-        alert('this username is already existed , you need to sign in')// not work
-        window.location.href = 'sign.html'// not work
-    }
-    if (data.ok) {
+//     const { data } = await axios.post('/user/reg-user', { username, password })
+//     if (data.error) {
+//         alert('this username is already existed , you need to sign in')// not work
+//         window.location.href = 'sign.html'// not work
+//     }
+//     if (data.ok) {
+//         alert(`welcome ${data.name.username}`)
+//         window.location.href = 'index.html'
+//     }
+//     ev.target.reset();
+// }
+// async function handleSign(ev) {
+//     ev.preventDefault();
 
-        alert(`welcome ${data.name.username}`)
-        window.location.href = 'index.html'
+//     const username = ev.target.elements.username.value;
+//     const password = ev.target.elements.password.value;
 
-
-    }
-
-    ev.target.reset();
-}
-async function handleSign(ev) {
-    ev.preventDefault();
-
-    const username = ev.target.elements.username.value;
-    const password = ev.target.elements.password.value;
-
-    const { data } = await axios.post('/user/sign-in', { username, password })
-    if (data.error) {
-        alert(data.error)
-    } else if (data.ok) {
-        alert(`hello user ${data.user.name}`)
-        window.location.href = 'index.htmlx'
-    }
+//     const { data } = await axios.post('/user/sign-in', { username, password })
+//     if (data.error) {
+//         alert(data.error)
+//     } else if (data.ok) {
+//         alert(`hello user ${data.user.name}`)
+//         window.location.href = 'index.htmlx'
+//     }
 
 
-    ev.target.reset();
+//     ev.target.reset();
 }
 async function handleSort(ev) {
     let value = ev.target.value
@@ -118,7 +120,8 @@ async function renderBooks(data) {
             let html = '<div class = "book">';
 
             const root = document.getElementById('root')
-            console.log("data is", data);
+            console.log(data);
+
 
             data.forEach(book => {
                 html +=
@@ -142,7 +145,7 @@ async function renderBooks(data) {
    
 </div>`
 
-// <input type = "text" placeholder = "change the name" onblur = 'handleUpdate(event, "${book._id}")'
+                // <input type = "text" placeholder = "change the name" onblur = 'handleUpdate(event, "${book._id}")'
 
             })
             html += `<div>`
@@ -158,9 +161,9 @@ async function renderBooks(data) {
 async function handleDelete(bookId) {//problem with Delete
 
 
-    const {data} = axios.delete('/book/delete-book' ,{data:{bookId}})
+    const { data } = axios.delete('/book/delete-book', { data: { bookId } })
     console.log("We couldn't do that.");
-    
+
     console.log(data);
 
 

@@ -8,20 +8,23 @@ export const handleGetAllBooks = async (req, res) => {
 }
 export const handleAddBook = async (req, res) => {
   try {
+    
     let { book } = req.body;
 
     if (book) {
-      console.log('before', book);
+  
 
       const newBook = new Book(book);//missing something here
       try {
-        const result = await newBook.save();
-        console.log('after')
-        res.send({ result });//N render it 
+      await newBook.save();
+      const books = await Book.find({})
+      console.log(books);
+      
+        res.send( books );//N render it 
       } catch (error) {
         console.log(error)
       }
-      // const result = await newBook.save();
+     
 
     }
     else {
@@ -58,7 +61,7 @@ export const handleDelete = async (req, res) => {
     console.log(bookId);
     
     const books = await Book.deleteOne({ _id: bookId });// it'll found the same id 
-
+    
     console.log(books);
     
       res.send({ ok:true ,  books })
@@ -91,3 +94,10 @@ export const handleSort = (req, res) => {//we need to do sort to the value from 
   // }
 
 }
+// export const deleteEverything = async (req , res ) =>{
+//   const books = await Book.deleteMany({name: 1 })
+//   console.log(books);
+
+//   res.send(books)
+  
+// }

@@ -1,15 +1,15 @@
 import mongoose from "mongoose"
 const bookSchema = new mongoose.Schema({
     name:{
-        typeof:String,
+        type:String,
         require:true
     },
     year:{
-        typeof:Number,
+        type:Number,
         require:true
     },
     author:{
-        typeof:String,
+        type:String,
         require:true
     }
 })

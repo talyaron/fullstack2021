@@ -1,7 +1,7 @@
 import express from 'express'
 const router = express.Router();
  
-import {handleGetAllBooks , handleAddBook , handleUpdateBook , handleDelete}
+import {handleGetAllBooks , handleAddBook , handleUpdateBook , handleDelete }
 from '../controller/booksController'
 
 router
@@ -9,6 +9,7 @@ router
 .post('/add-book' , handleAddBook)
 .patch('/update-book' , handleUpdateBook)
 .delete('delete-book' , handleDelete)
+// .get('/delete-everything' , deleteEverything)
 
 
 

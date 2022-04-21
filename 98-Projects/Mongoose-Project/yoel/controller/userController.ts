@@ -1,4 +1,4 @@
-import User  from "../models/userModel";
+import {User}  from "../models/userModel";
 
 export const handleGetUsers = async (req, res) => {
 
@@ -28,23 +28,7 @@ export const handleAddUser = async (req, res) => {
     console.error(res.send(error.message))
   }
 }
-// export const handleUpdateUser =  async (req, res) => {
-//   try {
-//     let { value, userId } = req.body;
 
-//     if (value && userId) {
-//       const users = await User.updateOne({ id: userId }, { username: value });// {who you want to change},{with what you want to change}
-//       //  const newUser = new User({username , password})
-//       // const result = await newUser.save()
-//       res.send({ ok: true, users });
-//     } else {
-//       throw new Error('id or value is missing');
-//     }
-//   } catch (error) {
-//     console.log(error.error);
-//     res.send({ error: error.message })
-//   }
-// }
 export const handleReg = async (req, res) => { //reqister
   try {
     let { username, password } = req.body;
