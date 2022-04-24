@@ -1,6 +1,6 @@
 import UserProducts from "../model/userProductsModel";
-import Market from "../model/marketModel";
-import User from "../model/usersModel";
+import Market from "../model/productMain";
+import User from "../model/userModel";
 
 export async function getProductsMain(req, res) {
   try {
