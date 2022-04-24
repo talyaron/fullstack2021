@@ -7,7 +7,8 @@ const productSchema = new mongoose.Schema({
     description:String,
     price:Number,
     category:String,
-    ownerId:String
+    ownerId:String,
+    itemId:String
   });
 
   const Market = mongoose.model('MarketItems', productSchema);

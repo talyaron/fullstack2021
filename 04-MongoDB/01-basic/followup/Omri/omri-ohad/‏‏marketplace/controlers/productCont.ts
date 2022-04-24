@@ -32,8 +32,8 @@ export async function addProduct(req, res) {
     let { pic, title, description, price, category } = req.body;
     const newProduct = new UserProducts({ pic, title, description, price, category,ownerId })
     const result = await newProduct.save()
-    //const ownerId = newProduct._id
-    const newProductMarket = new Market({ pic, title, description, price, category, ownerId })
+    const itemId = newProduct._id
+    const newProductMarket = new Market({ pic, title, description, price, category, ownerId, itemId })
     const resultMarket = await newProductMarket.save()
     res.send({ result });
 
@@ -103,10 +103,10 @@ export async function updatePrice(req, res) {
 export async function deleteProduct(req, res) {
   try {
     const { data } = req.cookies;
-    const ownerId = data.id;
-    if (ownerId) {
-      const result = await UserProducts.deleteOne({ ownerId: ownerId });
-      const resultMarket = await Market.deleteOne({ ownerId: ownerId });
+    const itemId = req.body;
+    if (itemId) {
+      const result = await UserProducts.deleteOne({ itemId: itemId });
+      const resultMarket = await Market.deleteOne({ _Id: itemId });
       const products = await UserProducts.find({});
       const productsMarket = await Market.find({});
       res.send({ ok: true, productsMarket, products })

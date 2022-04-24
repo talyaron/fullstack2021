@@ -91,7 +91,7 @@ function getAllProducts(req, res) {
 exports.getAllProducts = getAllProducts;
 function addProduct(req, res) {
     return __awaiter(this, void 0, void 0, function () {
-        var data, ownerId, _a, pic, title, description, price, category, newProduct, result, newProductMarket, resultMarket, error_3;
+        var data, ownerId, _a, pic, title, description, price, category, newProduct, result, itemId, newProductMarket, resultMarket, error_3;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
@@ -100,12 +100,11 @@ function addProduct(req, res) {
                     ownerId = data.id;
                     _a = req.body, pic = _a.pic, title = _a.title, description = _a.description, price = _a.price, category = _a.category;
                     newProduct = new userProductsModel_1["default"]({ pic: pic, title: title, description: description, price: price, category: category, ownerId: ownerId });
-                    return [4 /*yield*/, newProduct.save()
-                        //const ownerId = newProduct._id
-                    ];
+                    return [4 /*yield*/, newProduct.save()];
                 case 1:
                     result = _b.sent();
-                    newProductMarket = new productMain_1["default"]({ pic: pic, title: title, description: description, price: price, category: category, ownerId: ownerId });
+                    itemId = newProduct._id;
+                    newProductMarket = new productMain_1["default"]({ pic: pic, title: title, description: description, price: price, category: category, ownerId: ownerId, itemId: itemId });
                     return [4 /*yield*/, newProductMarket.save()];
                 case 2:
                     resultMarket = _b.sent();
@@ -235,18 +234,18 @@ function updatePrice(req, res) {
 exports.updatePrice = updatePrice;
 function deleteProduct(req, res) {
     return __awaiter(this, void 0, void 0, function () {
-        var data, ownerId, result, resultMarket, products, productsMarket, error_7;
+        var data, itemId, result, resultMarket, products, productsMarket, error_7;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     _a.trys.push([0, 7, , 8]);
                     data = req.cookies.data;
-                    ownerId = data.id;
-                    if (!ownerId) return [3 /*break*/, 5];
-                    return [4 /*yield*/, userProductsModel_1["default"].deleteOne({ ownerId: ownerId })];
+                    itemId = req.body;
+                    if (!itemId) return [3 /*break*/, 5];
+                    return [4 /*yield*/, userProductsModel_1["default"].deleteOne({ itemId: itemId })];
                 case 1:
                     result = _a.sent();
-                    return [4 /*yield*/, productMain_1["default"].deleteOne({ ownerId: ownerId })];
+                    return [4 /*yield*/, productMain_1["default"].deleteOne({ _Id: itemId })];
                 case 2:
                     resultMarket = _a.sent();
                     return [4 /*yield*/, userProductsModel_1["default"].find({})];

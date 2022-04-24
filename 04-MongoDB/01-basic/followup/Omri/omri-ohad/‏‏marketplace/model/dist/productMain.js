@@ -7,7 +7,8 @@ var productSchema = new mongoose_1["default"].Schema({
     description: String,
     price: Number,
     category: String,
-    ownerId: String
+    ownerId: String,
+    itemId: String
 });
 var Market = mongoose_1["default"].model('MarketItems', productSchema);
 exports["default"] = Market;
