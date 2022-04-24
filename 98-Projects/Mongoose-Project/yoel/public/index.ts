@@ -1,6 +1,7 @@
 async function initApp() {
     getBooks();
 
+
 }
 // 
 async function getBooks() {
@@ -15,6 +16,7 @@ async function handleSubmit(ev) {
 
     const username = ev.target.elements.username.value;
     const password = ev.target.elements.password.value;
+
 
 
     const { data } = await axios.post('/user/add-user', { username, password });
@@ -51,53 +53,66 @@ async function handleAddBook(ev) {
     }
     ev.target.reset();
 }
-async function handleGetUsers() {
-    const name = 'yoel'
+// async function handleGetUsers() {
+//     const name = 'yoel'
 
-    const { data } = await axios.get(`/user/get-users?${name}`)
+//     const { data } = await axios.get(`/user/get-users?${name}`)
 
-    const { users } = data;
+//     const { users } = data;
 
-    renderUsers(users);
+//     renderUsers(users);
 }
 async function handleReg(ev) {
     ev.preventDefault();
 
-    console.log(ev);
-    
-    // const username = ev.target.elements.username.value;
-    // const password = ev.target.elements.password.value;
+    const username = ev.target.elements.username.value;
+    const password = ev.target.elements.password.value;
+    const regNSign = document.getElementById('regNSign')
+    console.log(username, password);
 
-    // console.log(username , password);
-    
+    const { data } = await axios.post('/user/reg-user', { username, password })
+    if (data.error) {
+        alert('this username is already existed , you need to sign in')// not work
+        window.location.href = 'sign.html'// not work
+    }
+    if (data.ok) {
+        let html = `<div> welcome ${data.name.username} </div>`;
 
-//     const { data } = await axios.post('/user/reg-user', { username, password })
-//     if (data.error) {
-//         alert('this username is already existed , you need to sign in')// not work
-//         window.location.href = 'sign.html'// not work
-//     }
-//     if (data.ok) {
-//         alert(`welcome ${data.name.username}`)
-//         window.location.href = 'index.html'
-//     }
-//     ev.target.reset();
-// }
-// async function handleSign(ev) {
-//     ev.preventDefault();
-
-//     const username = ev.target.elements.username.value;
-//     const password = ev.target.elements.password.value;
-
-//     const { data } = await axios.post('/user/sign-in', { username, password })
-//     if (data.error) {
-//         alert(data.error)
-//     } else if (data.ok) {
-//         alert(`hello user ${data.user.name}`)
-//         window.location.href = 'index.htmlx'
-//     }
+        console.log(html);
 
 
-//     ev.target.reset();
+        regNSign.innerHTML = html;
+
+        window.location.href = 'index.html'
+
+    }
+    ev.target.reset();
+}
+
+
+async function handleSign(ev) {
+    ev.preventDefault();
+
+    const username = ev.target.elements.username.value;
+    const password = ev.target.elements.password.value;
+
+    const { data } = await axios.post('/user/sign-in', { username, password })
+
+    if (data.ok) {
+        
+        let html = `${data.user.username}`;
+
+        const regNSign = document.getElementById('regNSign')
+
+        regNSign.innerHTML = html;
+        window.location.href = 'index.html'
+    }
+    if (data.error) {
+        alert(data.error)
+    }
+
+
+    ev.target.reset();
 }
 async function handleSort(ev) {
     let value = ev.target.value
@@ -120,7 +135,7 @@ async function renderBooks(data) {
             let html = '<div class = "book">';
 
             const root = document.getElementById('root')
-            console.log(data);
+            console.log('in the render ' , data);
 
 
             data.forEach(book => {
@@ -172,16 +187,16 @@ async function handleDelete(bookId) {//problem with Delete
 
 
 }
-function renderUsers(users) {
-    let html = '';
+// function renderUsers(users) {
+//     let html = '';
 
-    const root = document.getElementById('rootUsers')
+//     const root = document.getElementById('rootUsers')
 
-    users.forEach(user => {
-        html += `<div> the name is ${user.username} 
-        the password is ${user.password}` // //x.something .. the something need to be exactly the key of the users = "username , password " else it'll be undfind
-    })
+//     users.forEach(user => {
+//         html += `<div> the name is ${user.username}
+//         the password is ${user.password}` // //x.something .. the something need to be exactly the key of the users = "username , password " else it'll be undfind
+//     })
 
-    root.innerHTML = html;
+//     root.innerHTML = html;
 
-}
+// }

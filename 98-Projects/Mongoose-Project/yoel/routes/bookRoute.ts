@@ -8,7 +8,7 @@ router
 .get('/get-books' ,handleGetAllBooks )
 .post('/add-book' , handleAddBook)
 .patch('/update-book' , handleUpdateBook)
-.delete('delete-book' , handleDelete)
+.delete('/delete-book' , handleDelete)
 // .get('/delete-everything' , deleteEverything)
 
 

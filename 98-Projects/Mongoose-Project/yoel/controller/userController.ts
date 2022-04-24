@@ -1,8 +1,13 @@
-import {User}  from "../models/userModel";
-
+import { User } from "../models/userModel";
+import jwt from 'jwt-simple';
+const secret = process.env.JWT_SECRET; // 24/4/2022
 export const handleGetUsers = async (req, res) => {
 
   let name = req.query;
+
+  console.log('the cookie is ', req.cookies);//24/4/2022
+  const { userInfo } = req.cookies//deconstractor // it's also important to add securety 
+  console.log(userInfo);//24/4/2022
 
   //const users = await User.find({username:'q'});// it will return me the data that contain key:username, value:q
   const users = await User.find({});
@@ -35,10 +40,9 @@ export const handleReg = async (req, res) => { //reqister
 
     if (username && password) {
       let user = await User.find({ username })// not work
-      
+
 
       if (user.length > 0) {
-
         res.send({ error: 'user existed' })
       } else {
         const newUser = new User({ username, password })
@@ -66,11 +70,22 @@ export const handleSign = async (req, res) => {
       console.log(user);
 
       if (user.length > 0) {
-        if (password == user.password) {
-          res.send({ user, ok: true })
-        } else {
-          res.send({ error: 'the password is not correct' })
 
+        if (user.password === password) {
+          const payload = {username};//24/4/2022 
+          const secreto = secret ;//24/4/2022 //only with them we can change in the JWT
+          const token = jwt.encode(payload , secreto)//24/4/2022 // we encode our code "hide"
+          res.cookie('userInfo', token, { maxAge: 50000 })//24/4/2022 
+          res.send({ ok: true, user })
+          return;
+          ////////////////////////////////////
+          const {userInfo} = req.cookies;
+          const decode = jwt.decode(userInfo, secreto) // here we show our code// here in the first elements we send Who we want to show
+
+          if(decode.username === "yoel"){
+            console.log("something");
+            
+          }
         }
       }
       else {

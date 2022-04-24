@@ -42,7 +42,7 @@ exports.handleGetAllBooks = function (req, res) { return __awaiter(void 0, void 
     var books;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, bookModel_1.Book.find({})
+            case 0: return [4 /*yield*/, bookModel_1["default"].find({})
                 // console.log(books);
             ];
             case 1:
@@ -61,21 +61,22 @@ exports.handleAddBook = function (req, res) { return __awaiter(void 0, void 0, v
                 _a.trys.push([0, 8, , 9]);
                 book = req.body.book;
                 if (!book) return [3 /*break*/, 6];
-                newBook = new bookModel_1.Book(book);
+                newBook = new bookModel_1["default"](book);
                 _a.label = 1;
             case 1:
                 _a.trys.push([1, 4, , 5]);
                 return [4 /*yield*/, newBook.save()];
             case 2:
                 _a.sent();
-                return [4 /*yield*/, bookModel_1.Book.find({})];
+                return [4 /*yield*/, bookModel_1["default"].find({})];
             case 3:
                 books = _a.sent();
+                console.log(books);
                 res.send(books); //N render it 
                 return [3 /*break*/, 5];
             case 4:
                 error_1 = _a.sent();
-                console.log(error_1.message);
+                console.log(error_1);
                 return [3 /*break*/, 5];
             case 5: return [3 /*break*/, 7];
             case 6: throw new Error("book is und");
@@ -97,10 +98,10 @@ exports.handleUpdateBook = function (req, res) { return __awaiter(void 0, void 0
                 _b.trys.push([0, 5, , 6]);
                 _a = req.body, book = _a.book, bookId = _a.bookId;
                 if (!(book && bookId)) return [3 /*break*/, 3];
-                return [4 /*yield*/, bookModel_1.Book.updateOne({ _id: bookId }, { name: book.name, year: book.year, author: book.author })];
+                return [4 /*yield*/, bookModel_1["default"].updateOne({ _id: bookId }, { name: book.name, year: book.year, author: book.author })];
             case 1:
                 booki = _b.sent();
-                return [4 /*yield*/, bookModel_1.Book.find({})];
+                return [4 /*yield*/, bookModel_1["default"].find({})];
             case 2:
                 books = _b.sent();
                 res.send({ ok: true, books: books });
@@ -124,7 +125,7 @@ exports.handleDelete = function (req, res) { return __awaiter(void 0, void 0, vo
                 _a.trys.push([0, 2, , 3]);
                 bookId = req.body.bookId;
                 console.log(bookId);
-                return [4 /*yield*/, bookModel_1.Book.deleteOne({ _id: bookId })];
+                return [4 /*yield*/, bookModel_1["default"].deleteOne({ _id: bookId })];
             case 1:
                 books = _a.sent();
                 console.log(books);
@@ -155,3 +156,8 @@ exports.handleSort = function (req, res) {
     //   res.send({ error })
     // }
 };
+// export const deleteEverything = async (req , res ) =>{
+//   const books = await Book.deleteMany({name: 1 })
+//   console.log(books);
+//   res.send(books)
+// }

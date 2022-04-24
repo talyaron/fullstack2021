@@ -38,12 +38,18 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 exports.__esModule = true;
 exports.handleSign = exports.handleReg = exports.handleAddUser = exports.handleGetUsers = void 0;
 var userModel_1 = require("../models/userModel");
+var jwt_simple_1 = require("jwt-simple");
+var secret = process.env.JWT_SECRET; // 24/4/2022
 exports.handleGetUsers = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var name, users;
+    var name, userInfo, users;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 name = req.query;
+                console.log('the cookie is ', req.cookies); //24/4/2022
+                userInfo = req.cookies //deconstractor // it's also important to add securety 
+                .userInfo;
+                console.log(userInfo); //24/4/2022
                 return [4 /*yield*/, userModel_1.User.find({})];
             case 1:
                 users = _a.sent();
@@ -76,22 +82,6 @@ exports.handleAddUser = function (req, res) { return __awaiter(void 0, void 0, v
         }
     });
 }); };
-// export const handleUpdateUser =  async (req, res) => {
-//   try {
-//     let { value, userId } = req.body;
-//     if (value && userId) {
-//       const users = await User.updateOne({ id: userId }, { username: value });// {who you want to change},{with what you want to change}
-//       //  const newUser = new User({username , password})
-//       // const result = await newUser.save()
-//       res.send({ ok: true, users });
-//     } else {
-//       throw new Error('id or value is missing');
-//     }
-//   } catch (error) {
-//     console.log(error.error);
-//     res.send({ error: error.message })
-//   }
-// }
 exports.handleReg = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var _a, username, password, user, newUser, name, error_2;
     return __generator(this, function (_b) {
@@ -126,7 +116,7 @@ exports.handleReg = function (req, res) { return __awaiter(void 0, void 0, void 
     });
 }); };
 exports.handleSign = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, username, password, user, error_3;
+    var _a, username, password, user, payload, secreto, token, userInfo, decode, error_3;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
@@ -140,11 +130,20 @@ exports.handleSign = function (req, res) { return __awaiter(void 0, void 0, void
                 ;
                 console.log(user);
                 if (user.length > 0) {
-                    if (password == user.password) {
-                        res.send({ user: user, ok: true });
-                    }
-                    else {
-                        res.send({ error: 'the password is not correct' });
+                    if (user.password === password) {
+                        payload = { username: username };
+                        secreto = secret;
+                        token = jwt_simple_1["default"].encode(payload, secreto) //24/4/2022 // we encode our code "hide"
+                        ;
+                        res.cookie('userInfo', token, { maxAge: 50000 }); //24/4/2022 
+                        res.send({ ok: true, user: user });
+                        return [2 /*return*/];
+                        userInfo = req.cookies.userInfo;
+                        decode = jwt_simple_1["default"].decode(userInfo, secreto) // here we show our code// here in the first elements we send Who we want to show
+                        ;
+                        if (decode.username === "yoel") {
+                            console.log("something");
+                        }
                     }
                 }
                 else {
