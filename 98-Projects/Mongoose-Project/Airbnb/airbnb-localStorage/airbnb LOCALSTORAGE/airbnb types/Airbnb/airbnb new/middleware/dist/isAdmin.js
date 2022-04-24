@@ -1,3 +1,4 @@
+"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -34,44 +35,36 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-function handlesubmit(ev) {
-    return __awaiter(this, void 0, void 0, function () {
-        var name, password, data;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    ev.preventDefault();
-                    name = ev.target.elements.name.value;
-                    password = ev.target.elements.password.value;
-                    console.log(name, password);
-                    return [4 /*yield*/, axios.post('/users/add-user', { name: name, password: password })];
-                case 1:
-                    data = (_a.sent()).data;
-                    console.log(data);
-                    return [2 /*return*/];
+exports.__esModule = true;
+exports.isAdmin = void 0;
+var jwt_simple_1 = require("jwt-simple");
+var secret = process.env.JWT_SECRET;
+exports.isAdmin = function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
+    var userInfo, secret_1, decoded;
+    return __generator(this, function (_a) {
+        try {
+            userInfo = req.cookies.userInfo;
+            console.log(userInfo);
+            if (!userInfo)
+                throw new Error('"userInfo" not found ');
+            secret_1 = process.env.JWT_secret;
+            if (!secret_1)
+                throw new Error("no secret found in the server");
+            decoded = jwt_simple_1["default"].decode(userInfo, secret_1);
+            console.log(decoded);
+            if (decoded.role === "admin") {
+                req.role = "admin";
+                req.id = decoded.id;
+                next();
             }
-        });
-    });
-}
-function handlelogin(ev) {
-    return __awaiter(this, void 0, void 0, function () {
-        var name, password, data;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    ev.preventDefault();
-                    name = ev.target.elements.name.value;
-                    password = ev.target.elements.password.value;
-                    console.log(name, password);
-                    return [4 /*yield*/, axios.post('/users/login', { name: name, password: password })];
-                case 1:
-                    data = (_a.sent()).data;
-                    console.log(data);
-                    if (data.login) {
-                        window.location.href = 'home.html';
-                    }
-                    return [2 /*return*/];
+            else {
+                res.status(403).send({ error: "user is not authorized to see users" });
             }
-        });
+        }
+        catch (error) {
+            console.log("error is in isAdmin", error.message);
+            res.send({ error: error.message });
+        }
+        return [2 /*return*/];
     });
-}
+}); };

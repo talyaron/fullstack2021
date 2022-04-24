@@ -2,7 +2,7 @@ async function handlesubmit(ev) {
 
 
     ev.preventDefault()
-
+    
     let name = ev.target.elements.name.value
     let password = ev.target.elements.password.value
 
@@ -15,10 +15,7 @@ async function handlesubmit(ev) {
 
 }
 async function handlelogin(ev) {
-
-
     ev.preventDefault()
-    ev.target.reset()
     let name = ev.target.elements.name.value
     let password = ev.target.elements.password.value
 
