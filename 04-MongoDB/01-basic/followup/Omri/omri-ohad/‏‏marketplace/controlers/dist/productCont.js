@@ -234,36 +234,34 @@ function updatePrice(req, res) {
 exports.updatePrice = updatePrice;
 function deleteProduct(req, res) {
     return __awaiter(this, void 0, void 0, function () {
-        var data, itemId, result, resultMarket, products, productsMarket, error_7;
+        var data, itemId, result, products, productsMarket, error_7;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    _a.trys.push([0, 7, , 8]);
+                    _a.trys.push([0, 6, , 7]);
                     data = req.cookies.data;
-                    itemId = req.body;
-                    if (!itemId) return [3 /*break*/, 5];
+                    itemId = req.body.itemId;
+                    console.log(itemId);
+                    if (!itemId) return [3 /*break*/, 4];
                     return [4 /*yield*/, userProductsModel_1["default"].deleteOne({ itemId: itemId })];
                 case 1:
                     result = _a.sent();
-                    return [4 /*yield*/, productMain_1["default"].deleteOne({ _Id: itemId })];
-                case 2:
-                    resultMarket = _a.sent();
                     return [4 /*yield*/, userProductsModel_1["default"].find({})];
-                case 3:
+                case 2:
                     products = _a.sent();
                     return [4 /*yield*/, productMain_1["default"].find({})];
-                case 4:
+                case 3:
                     productsMarket = _a.sent();
                     res.send({ ok: true, productsMarket: productsMarket, products: products });
-                    return [3 /*break*/, 6];
-                case 5: throw new Error('product ID is missing');
-                case 6: return [3 /*break*/, 8];
-                case 7:
+                    return [3 /*break*/, 5];
+                case 4: throw new Error('product ID is missing');
+                case 5: return [3 /*break*/, 7];
+                case 6:
                     error_7 = _a.sent();
                     console.error(error_7);
                     res.send({ error: error_7.message });
-                    return [3 /*break*/, 8];
-                case 8: return [2 /*return*/];
+                    return [3 /*break*/, 7];
+                case 7: return [2 /*return*/];
             }
         });
     });

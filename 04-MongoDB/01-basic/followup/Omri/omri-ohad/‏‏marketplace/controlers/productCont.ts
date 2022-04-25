@@ -103,10 +103,11 @@ export async function updatePrice(req, res) {
 export async function deleteProduct(req, res) {
   try {
     const { data } = req.cookies;
-    const itemId = req.body;
+    const {itemId} = req.body;
+    console.log(itemId)
     if (itemId) {
       const result = await UserProducts.deleteOne({ itemId: itemId });
-      const resultMarket = await Market.deleteOne({ _Id: itemId });
+      //const resultMarket = await Market.deleteOne({ itemId: itemId });
       const products = await UserProducts.find({});
       const productsMarket = await Market.find({});
       res.send({ ok: true, productsMarket, products })
