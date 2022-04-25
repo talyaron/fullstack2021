@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Well Drawn!</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="dist/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.socket.io/4.4.1/socket.io.min.js" defer integrity="sha384-fKnu0iswBIqkjxrhQCTZ7qlLHOFEgNkRmK2vaO/LbTZSXdJfAu6ewRBdwHPhBo/H" crossorigin="anonymous"></script>
+    <script src="dist/script.js" defer></script>
+</head>
+
+<body onload="handleOnLoad()">
+    <div class="header">
+        <div class="header__logo" id="info-logo" onclick="render.info()">
+            <span class="material-icons">info</span>
+        </div>
+        <img src="https://see.fontimg.com/api/renderfont4/9Y5Xy/eyJyIjoiZnMiLCJoIjoxMTQsInciOjEwMDAsImZzIjoxMTQsImZnYyI6IiMwMDAwMDAiLCJiZ2MiOiIjRkZGRkZGIiwidCI6MX0/V2VsbCBEcmF3biE/loftygoals-regular.png"
+            alt="Well Drawn!">
+        <div class="header__logo" id="user-logo" onclick="render.login()">
+            <span class="material-icons">account_circle</span>
+        </div>
+    </div>
+
+    <main>
+        <!-- <h2>Hi there Andrew!</h2>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZyPl61Oub-Yg1Eb5qJ6vrZl2CwCv2LZglroy1LOZUDY-3EnRe2Rx6Ay1ueT6XZjV3W_Q&usqp=CAU"
+            alt="">
+        <button onclick="handleJoinRoom()">Join Room</button>
+        <button onclick="handleCreateRoom()">Create Room</button>
+        <div class="avatar-grid">
+            <div class="avatar-grid__item">
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZyPl61Oub-Yg1Eb5qJ6vrZl2CwCv2LZglroy1LOZUDY-3EnRe2Rx6Ay1ueT6XZjV3W_Q&usqp=CAU">
+                <button onclick="handleChangeAvatar()">Use Avatar</button>
+            </div>
+            <div class="avatar-grid__item">
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZyPl61Oub-Yg1Eb5qJ6vrZl2CwCv2LZglroy1LOZUDY-3EnRe2Rx6Ay1ueT6XZjV3W_Q&usqp=CAU">
+                <button onclick="handleChangeAvatar()">Use Avatar</button>
+            </div>
+            <div class="avatar-grid__item">
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZyPl61Oub-Yg1Eb5qJ6vrZl2CwCv2LZglroy1LOZUDY-3EnRe2Rx6Ay1ueT6XZjV3W_Q&usqp=CAU">
+                <button onclick="handleChangeAvatar()">Use Avatar</button>
+            </div>
+            <div class="avatar-grid__item">
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZyPl61Oub-Yg1Eb5qJ6vrZl2CwCv2LZglroy1LOZUDY-3EnRe2Rx6Ay1ueT6XZjV3W_Q&usqp=CAU">
+                <button onclick="handleChangeAvatar()">Use Avatar</button>
+            </div>
+        </div>
+        <button onclick="handleDrawAvatar()">Add Avatar</button> -->
+        <form onsubmit="handleAddWord(event)">
+            <input type="text" name="word">
+            <input type="submit">
+        </form>
+    </main>
+</body>
+
+</html>
