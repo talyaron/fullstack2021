@@ -120,6 +120,12 @@ function handleUpdate(ev, bookId) {
         });
     });
 }
+// async function handleGetUsers() {
+//     const name = 'yoel'
+//     const { data } = await axios.get(`/user/get-users?${name}`)
+//     const { users } = data;
+//     renderUsers(users);
+// }
 function handleReg(ev) {
     return __awaiter(this, void 0, void 0, function () {
         var username, password, regNSign, data, html;
@@ -130,7 +136,6 @@ function handleReg(ev) {
                     username = ev.target.elements.username.value;
                     password = ev.target.elements.password.value;
                     regNSign = document.getElementById('regNSign');
-                    console.log(username, password);
                     return [4 /*yield*/, axios.post('/user/reg-user', { username: username, password: password })];
                 case 1:
                     data = (_a.sent()).data;
@@ -139,10 +144,11 @@ function handleReg(ev) {
                         window.location.href = 'sign.html'; // not work
                     }
                     if (data.ok) {
-                        html = "<div> welcome " + data.name.username + " </div>";
-                        console.log(html);
-                        regNSign.innerHTML = html;
+                        html = "welcome " + data.users.username + " ";
+                        //alert(html)
+                        // localStorage.setItem('nameOfTheUser' , html )
                         window.location.href = 'index.html';
+                        regNSign.innerHTML = user;
                     }
                     ev.target.reset();
                     return [2 /*return*/];
@@ -152,7 +158,7 @@ function handleReg(ev) {
 }
 function handleSign(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var username, password, data, html, regNSign;
+        var username, password, data, html;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -163,10 +169,11 @@ function handleSign(ev) {
                 case 1:
                     data = (_a.sent()).data;
                     if (data.ok) {
-                        html = "" + data.user.username;
-                        regNSign = document.getElementById('regNSign');
-                        regNSign.innerHTML = html;
+                        html = "" + data.users.username;
+                        //const regNSign = document.getElementById('regNSign')
+                        //regNSign.innerHTML = html;
                         window.location.href = 'index.html';
+                        alert("hii " + html);
                     }
                     if (data.error) {
                         alert(data.error);
@@ -228,8 +235,6 @@ function handleDelete(bookId) {
         var data;
         return __generator(this, function (_a) {
             data = axios["delete"]('/book/delete-book', { data: { bookId: bookId } }).data;
-            console.log("We couldn't do that.");
-            console.log(data);
             return [2 /*return*/];
         });
     });

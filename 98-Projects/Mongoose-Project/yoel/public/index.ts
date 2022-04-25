@@ -61,29 +61,38 @@ async function handleAddBook(ev) {
 //     const { users } = data;
 
 //     renderUsers(users);
-}
-async function handleReg(ev) {
+// }
+async function handleReg(ev) { // working 
     ev.preventDefault();
 
     const username = ev.target.elements.username.value;
     const password = ev.target.elements.password.value;
     const regNSign = document.getElementById('regNSign')
-    console.log(username, password);
+
 
     const { data } = await axios.post('/user/reg-user', { username, password })
+ 
+    
     if (data.error) {
         alert('this username is already existed , you need to sign in')// not work
         window.location.href = 'sign.html'// not work
     }
     if (data.ok) {
-        let html = `<div> welcome ${data.name.username} </div>`;
+        let html = `welcome ${data.users.username} `;
 
-        console.log(html);
+        //alert(html)
+        // localStorage.setItem('nameOfTheUser' , html )
 
-
-        regNSign.innerHTML = html;
 
         window.location.href = 'index.html'
+
+
+
+
+
+        regNSign.innerHTML = user;
+
+
 
     }
     ev.target.reset();
@@ -96,16 +105,17 @@ async function handleSign(ev) {
     const username = ev.target.elements.username.value;
     const password = ev.target.elements.password.value;
 
-    const { data } = await axios.post('/user/sign-in', { username, password })
+    const {data } = await axios.post('/user/sign-in', { username, password })
 
     if (data.ok) {
-        
-        let html = `${data.user.username}`;
 
-        const regNSign = document.getElementById('regNSign')
+        let html = `${data.users.username}`;
 
-        regNSign.innerHTML = html;
+        //const regNSign = document.getElementById('regNSign')
+
+        //regNSign.innerHTML = html;
         window.location.href = 'index.html'
+        alert(`hii ${html}`)
     }
     if (data.error) {
         alert(data.error)
@@ -125,8 +135,6 @@ async function handleSort(ev) {
 
     renderBooks(booksSite);
 
-
-
 }
 async function renderBooks(data) {
     try {
@@ -135,7 +143,7 @@ async function renderBooks(data) {
             let html = '<div class = "book">';
 
             const root = document.getElementById('root')
-            console.log('in the render ' , data);
+            console.log('in the render ', data);
 
 
             data.forEach(book => {
@@ -177,9 +185,9 @@ async function handleDelete(bookId) {//problem with Delete
 
 
     const { data } = axios.delete('/book/delete-book', { data: { bookId } })
-    console.log("We couldn't do that.");
+    //   console.log("We couldn't do that.");
 
-    console.log(data);
+    //    console.log(data);
 
 
 

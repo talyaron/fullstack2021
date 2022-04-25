@@ -1,13 +1,15 @@
 import { User } from "../models/userModel";
 import jwt from 'jwt-simple';
+import { CLIENT_RENEG_WINDOW } from "tls";
 const secret = process.env.JWT_SECRET; // 24/4/2022
+
 export const handleGetUsers = async (req, res) => {
 
   let name = req.query;
 
-  console.log('the cookie is ', req.cookies);//24/4/2022
+  //console.log('the cookie is ', req.cookies);//24/4/2022
   const { userInfo } = req.cookies//deconstractor // it's also important to add securety 
-  console.log(userInfo);//24/4/2022
+  //console.log(userInfo);//24/4/2022
 
   //const users = await User.find({username:'q'});// it will return me the data that contain key:username, value:q
   const users = await User.find({});
@@ -38,6 +40,8 @@ export const handleReg = async (req, res) => { //reqister
   try {
     let { username, password } = req.body;
 
+    console.log(username, password);
+
     if (username && password) {
       let user = await User.find({ username })// not work
 
@@ -45,10 +49,12 @@ export const handleReg = async (req, res) => { //reqister
       if (user.length > 0) {
         res.send({ error: 'user existed' })
       } else {
-        const newUser = new User({ username, password })
-        let name = await newUser.save();
+        const users = new User({ username, password })
+        users.save();
 
-        res.send({ name, ok: true })
+        console.log('the users is' + users);
+
+        res.send({ users, ok: true })
       }
     } else {
       throw new Error("username or password is und")
@@ -62,30 +68,37 @@ export const handleSign = async (req, res) => {
   try {
 
     let { username, password } = req.body;
-    console.log(username, password);
-
+    
 
     if (username && password) {
-      let user: any = await User.find({ username })//what is the different (find//findone )
-      console.log(user);
+      const users = new User({ username, password })
+    
+      const user = await User.find({ username })//what is the different (find//findone )
+      console.log('the users is ' + users);
+      console.log(users.username);
+      console.log(users.password);
+      
 
       if (user.length > 0) {
 
-        if (user.password === password) {
-          const payload = {username};//24/4/2022 
-          const secreto = secret ;//24/4/2022 //only with them we can change in the JWT
-          const token = jwt.encode(payload , secreto)//24/4/2022 // we encode our code "hide"
+        if (users.password === password) {
+       
+
+          const payload = { username , password };//24/4/2022 
+          //24/4/2022 //only with them we can change in the JWT
+          const token = jwt.encode(payload, secret)//24/4/2022 // we encode our code "hide"
           res.cookie('userInfo', token, { maxAge: 50000 })//24/4/2022 
-          res.send({ ok: true, user })
+          res.send({ ok: true, users })
           return;
           ////////////////////////////////////
-          const {userInfo} = req.cookies;
-          const decode = jwt.decode(userInfo, secreto) // here we show our code// here in the first elements we send Who we want to show
 
-          if(decode.username === "yoel"){
-            console.log("something");
-            
-          }
+          //const {userInfo} = req.cookies;
+          //const decode = jwt.decode(userInfo, secreto) // here we show our code// here in the first elements we send Who we want to show
+
+          //    if(decode.username === "yoel"){
+          //    console.log("something");
+
+          //  }
         }
       }
       else {

@@ -46,10 +46,8 @@ exports.handleGetUsers = function (req, res) { return __awaiter(void 0, void 0, 
         switch (_a.label) {
             case 0:
                 name = req.query;
-                console.log('the cookie is ', req.cookies); //24/4/2022
                 userInfo = req.cookies //deconstractor // it's also important to add securety 
                 .userInfo;
-                console.log(userInfo); //24/4/2022
                 return [4 /*yield*/, userModel_1.User.find({})];
             case 1:
                 users = _a.sent();
@@ -83,40 +81,7 @@ exports.handleAddUser = function (req, res) { return __awaiter(void 0, void 0, v
     });
 }); };
 exports.handleReg = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, username, password, user, newUser, name, error_2;
-    return __generator(this, function (_b) {
-        switch (_b.label) {
-            case 0:
-                _b.trys.push([0, 7, , 8]);
-                _a = req.body, username = _a.username, password = _a.password;
-                if (!(username && password)) return [3 /*break*/, 5];
-                return [4 /*yield*/, userModel_1.User.find({ username: username })]; // not work
-            case 1:
-                user = _b.sent() // not work
-                ;
-                if (!(user.length > 0)) return [3 /*break*/, 2];
-                res.send({ error: 'user existed' });
-                return [3 /*break*/, 4];
-            case 2:
-                newUser = new userModel_1.User({ username: username, password: password });
-                return [4 /*yield*/, newUser.save()];
-            case 3:
-                name = _b.sent();
-                res.send({ name: name, ok: true });
-                _b.label = 4;
-            case 4: return [3 /*break*/, 6];
-            case 5: throw new Error("username or password is und");
-            case 6: return [3 /*break*/, 8];
-            case 7:
-                error_2 = _b.sent();
-                res.send(error_2.message);
-                return [3 /*break*/, 8];
-            case 8: return [2 /*return*/];
-        }
-    });
-}); };
-exports.handleSign = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, username, password, user, payload, secreto, token, userInfo, decode, error_3;
+    var _a, username, password, user, users, error_2;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
@@ -124,26 +89,60 @@ exports.handleSign = function (req, res) { return __awaiter(void 0, void 0, void
                 _a = req.body, username = _a.username, password = _a.password;
                 console.log(username, password);
                 if (!(username && password)) return [3 /*break*/, 2];
+                return [4 /*yield*/, userModel_1.User.find({ username: username })]; // not work
+            case 1:
+                user = _b.sent() // not work
+                ;
+                if (user.length > 0) {
+                    res.send({ error: 'user existed' });
+                }
+                else {
+                    users = new userModel_1.User({ username: username, password: password });
+                    users.save();
+                    console.log('the users is' + users);
+                    res.send({ users: users, ok: true });
+                }
+                return [3 /*break*/, 3];
+            case 2: throw new Error("username or password is und");
+            case 3: return [3 /*break*/, 5];
+            case 4:
+                error_2 = _b.sent();
+                res.send(error_2.message);
+                return [3 /*break*/, 5];
+            case 5: return [2 /*return*/];
+        }
+    });
+}); };
+exports.handleSign = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _a, username, password, users, user, payload, token, error_3;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
+            case 0:
+                _b.trys.push([0, 4, , 5]);
+                _a = req.body, username = _a.username, password = _a.password;
+                if (!(username && password)) return [3 /*break*/, 2];
+                users = new userModel_1.User({ username: username, password: password });
                 return [4 /*yield*/, userModel_1.User.find({ username: username })]; //what is the different (find//findone )
             case 1:
                 user = _b.sent() //what is the different (find//findone )
                 ;
-                console.log(user);
+                console.log('the users is ' + users);
+                console.log(users.username);
+                console.log(users.password);
                 if (user.length > 0) {
-                    if (user.password === password) {
-                        payload = { username: username };
-                        secreto = secret;
-                        token = jwt_simple_1["default"].encode(payload, secreto) //24/4/2022 // we encode our code "hide"
+                    if (users.password === password) {
+                        payload = { username: username, password: password };
+                        token = jwt_simple_1["default"].encode(payload, secret) //24/4/2022 // we encode our code "hide"
                         ;
                         res.cookie('userInfo', token, { maxAge: 50000 }); //24/4/2022 
-                        res.send({ ok: true, user: user });
+                        res.send({ ok: true, users: users });
                         return [2 /*return*/];
-                        userInfo = req.cookies.userInfo;
-                        decode = jwt_simple_1["default"].decode(userInfo, secreto) // here we show our code// here in the first elements we send Who we want to show
-                        ;
-                        if (decode.username === "yoel") {
-                            console.log("something");
-                        }
+                        ////////////////////////////////////
+                        //const {userInfo} = req.cookies;
+                        //const decode = jwt.decode(userInfo, secreto) // here we show our code// here in the first elements we send Who we want to show
+                        //    if(decode.username === "yoel"){
+                        //    console.log("something");
+                        //  }
                     }
                 }
                 else {
