@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.js"
+        integrity="sha512-MNW6IbpNuZZ2VH9ngFhzh6cUt8L/0rSVa60F8L22K1H72ro4Ki3M/816eSDLnhICu7vwH/+/yb8oB3BtBLhMsA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="dist/style.css">
+</head>
+
+<body onload="getBooks()">
+
+    <!-- <div class="user" id = "username"></div> -->
+
+    
+    <div class="regNSign">
+        <a href="reg.html" class="reg">Register click here</a>
+        <br>
+        <a href="sign.html" class="sign">to Sign in click here</a>
+        <br>
+    </div>
+    <div class="cardBook">
+        <p class="pAddBooks">add books</p>
+        <form onsubmit="handleAddBook(event)">
+            <input type="text" name="name" placeholder="write  name of the book">
+            <br>
+            <input type="number" name="year" placeholder="write  Production year of the book">
+            <br>
+            <input type="text" name="author" placeholder="write  author of the book">
+            <br>
+            <input type="submit" value="Add Books">
+        </form>
+    </div>
+    <button value="descent" onclick="handleSort(event)">descent</button>
+    <button value="ascent" onclick="handleSort(event)">ascent</button>
+    <form onsubmit="handleSubmit(event)">
+        <input type="text" name="username" placeholder="enter your username">
+        <input type="text" name="password" autocomplete="current-password" placeholder="enter your password">
+        <input type="submit" value="Add">
+    </form>
+    <button onclick="handleGetUsers()">show users</button>
+    <div id="root"></div>
+    <div id="rootUsers"></div>
+
+    <script src="dist/index.js"></script>
+</body>
+
+</html>

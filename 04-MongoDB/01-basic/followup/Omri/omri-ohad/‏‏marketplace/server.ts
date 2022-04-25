@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(cookieParser());
 
 
-mongoose.connect('mongodb+srv://OmriAharonov:hYYFfWDZwNqMjKAe@cluster0.kv5s6.mongodb.net/MarketPlaceData?retryWrites=true&w=majority') 
+mongoose.connect('mongodb+srv://OmriAharonov:FAuMTFU2JoWrqG9R@cluster0.kv5s6.mongodb.net/MarketPlaceData?retryWrites=true&w=majority') 
 .then(()=>console.log("conect to DB"))
 .catch(err=>console.log(err.message))
 

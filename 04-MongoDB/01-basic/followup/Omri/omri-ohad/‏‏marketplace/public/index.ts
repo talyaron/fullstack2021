@@ -116,10 +116,10 @@ async function handleUpadte(ev, gameId) {
 
 async function handleDelete(productId) {
     const { data } = await axios.delete('/products/delete-product', { data: { productId } })
-    const { product } = data;
+    const { products,productsMarket } = data;
     location.reload();
-    renderProducts(product)
-    renderItemsMain(product)
+    renderProducts(products)
+    renderItemsMain(productsMarket)
 }
 
 async function handleCategoryShow(ev) {
