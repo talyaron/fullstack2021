@@ -1,14 +1,13 @@
-document.getElementById("name").style.color = "red"
-document.getElementById("name").style.background = "blue"
-document.getElementById("name").style.fontSize = ("6rem")
+ const up = document.getElementById('up');
+ const down = document.getElementById('dowm');
+ const right = document.getElementById('right');
+ const left = document.getElementById('left');
 
 
+//  up.addEventListener('click' , ()=> {
+//      console.log("hello it's me ")
+//  })
 
-
-const names = document.querySelectorAll(".lastName1")
-
-names.forEach((element:any) => {
-    console.dir(element)
-    element.style.color = "yellow"
-    element.style.fontSize = "4rem"
-});
+//  down.addEventListener('mouseenter' , ()=>{
+//      console.log('yo no se lo q me pasa coundo estoy combos')
+//  })
