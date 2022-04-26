@@ -186,7 +186,7 @@ export async function login(req, res) {
       if (user) {
         if (user.password === password) {
           const payload = { id: user._id, userName: user.userName}
-          const token = jwt.encode(payload);
+          const token = jwt.encode(payload, secret);
           res.cookie(
             "data",
             token

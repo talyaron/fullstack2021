@@ -392,7 +392,7 @@ function login(req, res) {
                     if (user) {
                         if (user.password === password) {
                             payload = { id: user._id, userName: user.userName };
-                            token = jwt_simple_1["default"].encode(payload);
+                            token = jwt_simple_1["default"].encode(payload, secret);
                             res.cookie("data", token);
                             res.send({ ok: true, login: true, userName: user.userName, products: products });
                             return [2 /*return*/];
