@@ -3,6 +3,7 @@ require('dotenv').config() //24/4/2022
 //so if we want tp print only then secret = 
 //console.log(process.env.JWT_SECRET) 24/4/2022
 
+import {getId} from './middleware/users'//26/04/2022
 import express from 'express';
 import mongoose  from 'mongoose'; 
 const cookieParser = require('cookie-parser')
@@ -11,6 +12,7 @@ const port = 3000;
 app.use(cookieParser());// if not write it we not get the cookie 
 app.use(express.static('public'));
 app.use(express.json())
+app.use(getId)//26/04/2022
 
 import userRoutes from './routes/userRoute'
 app.use('/user' ,userRoutes  )

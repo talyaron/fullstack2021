@@ -128,14 +128,13 @@ function handleUpdate(ev, bookId) {
 // }
 function handleReg(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var username, password, regNSign, data, html;
+        var username, password, data, html;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     ev.preventDefault();
                     username = ev.target.elements.username.value;
                     password = ev.target.elements.password.value;
-                    regNSign = document.getElementById('regNSign');
                     return [4 /*yield*/, axios.post('/user/reg-user', { username: username, password: password })];
                 case 1:
                     data = (_a.sent()).data;
@@ -144,11 +143,11 @@ function handleReg(ev) {
                         window.location.href = 'sign.html'; // not work
                     }
                     if (data.ok) {
-                        html = "welcome " + data.users.username + " ";
+                        html = "welcome " + data.user.username + " ";
                         //alert(html)
                         // localStorage.setItem('nameOfTheUser' , html )
                         window.location.href = 'index.html';
-                        regNSign.innerHTML = user;
+                        //   regNSign.innerHTML = html;
                     }
                     ev.target.reset();
                     return [2 /*return*/];
@@ -169,7 +168,7 @@ function handleSign(ev) {
                 case 1:
                     data = (_a.sent()).data;
                     if (data.ok) {
-                        html = "" + data.users.username;
+                        html = "" + data.user.username;
                         //const regNSign = document.getElementById('regNSign')
                         //regNSign.innerHTML = html;
                         window.location.href = 'index.html';

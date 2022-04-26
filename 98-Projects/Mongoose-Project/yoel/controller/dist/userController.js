@@ -114,28 +114,26 @@ exports.handleReg = function (req, res) { return __awaiter(void 0, void 0, void 
     });
 }); };
 exports.handleSign = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, username, password, users, user, payload, token, error_3;
+    var _a, username, password, user, payload, token, error_3;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
                 _b.trys.push([0, 4, , 5]);
                 _a = req.body, username = _a.username, password = _a.password;
                 if (!(username && password)) return [3 /*break*/, 2];
-                users = new userModel_1.User({ username: username, password: password });
-                return [4 /*yield*/, userModel_1.User.find({ username: username })]; //what is the different (find//findone )
+                return [4 /*yield*/, userModel_1.User.findOne({ username: username })]; //what is the different (find//findone ) // ask Katya //25/4/2022
             case 1:
-                user = _b.sent() //what is the different (find//findone )
+                user = _b.sent() //what is the different (find//findone ) // ask Katya //25/4/2022
                 ;
-                console.log('the users is ' + users);
-                console.log(users.username);
-                console.log(users.password);
-                if (user.length > 0) {
-                    if (users.password === password) {
+                console.log(user);
+                console.log(user.password);
+                if (user) {
+                    if (user.password === password) {
                         payload = { username: username, password: password };
                         token = jwt_simple_1["default"].encode(payload, secret) //24/4/2022 // we encode our code "hide"
                         ;
-                        res.cookie('userInfo', token, { maxAge: 50000 }); //24/4/2022 
-                        res.send({ ok: true, users: users });
+                        res.cookie('userInfo', token, { maxAge: 50000, httpOnly: true }); //24/4/2022 
+                        res.send({ ok: true, user: user });
                         return [2 /*return*/];
                         ////////////////////////////////////
                         //const {userInfo} = req.cookies;

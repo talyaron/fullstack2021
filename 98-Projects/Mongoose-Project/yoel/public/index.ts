@@ -67,7 +67,7 @@ async function handleReg(ev) { // working
 
     const username = ev.target.elements.username.value;
     const password = ev.target.elements.password.value;
-    const regNSign = document.getElementById('regNSign')
+ //    const regNSign = document.getElementById('regNSign')
 
 
     const { data } = await axios.post('/user/reg-user', { username, password })
@@ -78,7 +78,7 @@ async function handleReg(ev) { // working
         window.location.href = 'sign.html'// not work
     }
     if (data.ok) {
-        let html = `welcome ${data.users.username} `;
+        let html = `welcome ${data.user.username} `;
 
         //alert(html)
         // localStorage.setItem('nameOfTheUser' , html )
@@ -90,7 +90,7 @@ async function handleReg(ev) { // working
 
 
 
-        regNSign.innerHTML = user;
+     //   regNSign.innerHTML = html;
 
 
 
@@ -109,7 +109,7 @@ async function handleSign(ev) {
 
     if (data.ok) {
 
-        let html = `${data.users.username}`;
+        let html = `${data.user.username}`;
 
         //const regNSign = document.getElementById('regNSign')
 

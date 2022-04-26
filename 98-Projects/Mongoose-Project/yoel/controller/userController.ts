@@ -71,24 +71,22 @@ export const handleSign = async (req, res) => {
     
 
     if (username && password) {
-      const users = new User({ username, password })
+      //const users = new User({ username, password })//without this it's not worked 
     
-      const user = await User.find({ username })//what is the different (find//findone )
-      console.log('the users is ' + users);
-      console.log(users.username);
-      console.log(users.password);
+      const user = await User.findOne({ username })//what is the different (find//findone ) // ask Katya //25/4/2022
       
-
-      if (user.length > 0) {
-
-        if (users.password === password) {
+              console.log(user);
+              console.log(user.password);
+      
+      if (user) {
+        if (user.password === password) {
        
 
           const payload = { username , password };//24/4/2022 
           //24/4/2022 //only with them we can change in the JWT
           const token = jwt.encode(payload, secret)//24/4/2022 // we encode our code "hide"
-          res.cookie('userInfo', token, { maxAge: 50000 })//24/4/2022 
-          res.send({ ok: true, users })
+          res.cookie('userInfo', token, { maxAge: 50000 , httpOnly:true})//24/4/2022 
+          res.send({ ok: true, user })
           return;
           ////////////////////////////////////
 
