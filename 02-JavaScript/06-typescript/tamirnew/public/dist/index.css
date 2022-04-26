@@ -1,0 +1,9 @@
+.card {
+  gap: 5%;
+  width: 40%;
+}
+.card__studentcard {
+  border: 2px solid black;
+  gap: 5px;
+  width: 60%;
+}

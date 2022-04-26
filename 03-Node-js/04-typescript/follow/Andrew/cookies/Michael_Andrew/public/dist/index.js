@@ -200,13 +200,9 @@ function handleBuy(artId, price, ownerId) {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    if (Object.keys(site.user).length < 1) {
-                        alert("Log-in first!");
-                        return [2 /*return*/];
-                    }
-                    if (!(price > site.user.fund)) return [3 /*break*/, 1];
-                    alert("Not Enough Funds!");
-                    return [3 /*break*/, 5];
+                    if (!(Object.keys(site.user).length < 1)) return [3 /*break*/, 1];
+                    alert("Log-in first!");
+                    return [2 /*return*/];
                 case 1: return [4 /*yield*/, axios.patch('/users/buy-and-sell', { buyerId: site.user._id, price: price, ownerId: ownerId })];
                 case 2:
                     _a.sent();

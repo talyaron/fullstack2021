@@ -1,14 +1,17 @@
 import express from "express";
 import mongoose from "mongoose";
-const app = express();
+require('dotenv').config();
 const cookieParser = require('cookie-parser')
-const port = process.env.PORT || 3003;
+const app = express();
+const port = process.env.PORT || 3002;
 
 app.use(express.static("public"));
 app.use(express.json());
 app.use(cookieParser());
 
-mongoose.connect('mongodb+srv://OmriAharonov:jjqTesZvM6nIEmSA@cluster0.kv5s6.mongodb.net/MarketPlaceData?retryWrites=true&w=majority') 
+const uri = process.env.MONGO_URI
+
+mongoose.connect(uri) 
 .then(()=>console.log("conect to DB"))
 .catch(err=>console.log(err.message))
 

@@ -1,0 +1,44 @@
+* {
+  background-color: #b8dfdf;
+}
+
+.book {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.book-text {
+  text-align: center;
+  border-radius: 10%;
+  border: 1px solid black;
+  color: #426d6d;
+}
+
+.sign, .reg {
+  color: #182c2c;
+  font-size: 2em;
+  border-style: inset;
+}
+
+h2 {
+  font-size: 1em;
+  text-align: center;
+  color: #2a2a5b;
+}
+
+.cardBook {
+  display: grid;
+  width: fit-content;
+  border: 4px dotted blue;
+}
+
+.regNSign {
+  display: flex;
+  justify-content: end;
+}
+
+.pAddBooks {
+  font-size: 2em;
+}

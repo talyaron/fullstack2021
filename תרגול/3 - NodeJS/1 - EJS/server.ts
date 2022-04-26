@@ -36,6 +36,6 @@ app.get('/about', (req, res) => {
 
 
 app.listen(port, () => {
-    console.log(`Server listen on port http://localhost:${port}`);
+    console.log(`Server listen on port http://host:${port}`);
 });
 

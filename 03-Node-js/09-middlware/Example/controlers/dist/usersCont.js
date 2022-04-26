@@ -77,6 +77,7 @@ exports.addUser = function (req, res) { return __awaiter(void 0, void 0, void 0,
         switch (_b.label) {
             case 0:
                 _b.trys.push([0, 2, , 3]);
+                console.log("User with id: " + req.id + " added a user");
                 _a = req.body, username = _a.username, password = _a.password;
                 newUser = new usersModel_1["default"]({ username: username, password: password });
                 return [4 /*yield*/, newUser.save()];

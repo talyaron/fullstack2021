@@ -37,9 +37,11 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 exports.__esModule = true;
 exports.login = exports.register = exports.sortDescending = exports.sortAscending = exports.filterByCategory = exports.deleteProduct = exports.updatePrice = exports.updateTitle = exports.updatePic = exports.addProduct = exports.getAllProducts = exports.getProductsMain = void 0;
-var productModel_1 = require("../model/productModel");
+var userProductsModel_1 = require("../model/userProductsModel");
 var productMain_1 = require("../model/productMain");
 var userModel_1 = require("../model/userModel");
+var jwt_simple_1 = require("jwt-simple");
+var secret = process.env.JWT_SECRET;
 function getProductsMain(req, res) {
     return __awaiter(this, void 0, void 0, function () {
         var marketItems, error_1;
@@ -72,7 +74,7 @@ function getAllProducts(req, res) {
                     _a.trys.push([0, 2, , 3]);
                     data = req.cookies.data;
                     ownerId_1 = data.id;
-                    return [4 /*yield*/, productModel_1["default"].find({})];
+                    return [4 /*yield*/, userProductsModel_1["default"].find({})];
                 case 1:
                     products = _a.sent();
                     filterdProducts = products.filter(function (product) { return product.ownerId === ownerId_1; });
@@ -91,7 +93,7 @@ function getAllProducts(req, res) {
 exports.getAllProducts = getAllProducts;
 function addProduct(req, res) {
     return __awaiter(this, void 0, void 0, function () {
-        var data, ownerId, _a, pic, title, description, price, category, newProduct, result, newProductMarket, resultMarket, error_3;
+        var data, ownerId, _a, pic, title, description, price, category, newProduct, result, itemId, newProductMarket, resultMarket, error_3;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
@@ -99,13 +101,12 @@ function addProduct(req, res) {
                     data = req.cookies.data;
                     ownerId = data.id;
                     _a = req.body, pic = _a.pic, title = _a.title, description = _a.description, price = _a.price, category = _a.category;
-                    newProduct = new productModel_1["default"]({ pic: pic, title: title, description: description, price: price, category: category, ownerId: ownerId });
-                    return [4 /*yield*/, newProduct.save()
-                        // const ownerId = newProduct._id
-                    ];
+                    newProduct = new userProductsModel_1["default"]({ pic: pic, title: title, description: description, price: price, category: category, ownerId: ownerId });
+                    return [4 /*yield*/, newProduct.save()];
                 case 1:
                     result = _b.sent();
-                    newProductMarket = new productMain_1["default"]({ pic: pic, title: title, description: description, price: price, category: category, ownerId: ownerId });
+                    itemId = newProduct._id;
+                    newProductMarket = new productMain_1["default"]({ pic: pic, title: title, description: description, price: price, category: category, ownerId: ownerId, itemId: itemId });
                     return [4 /*yield*/, newProductMarket.save()];
                 case 2:
                     resultMarket = _b.sent();
@@ -132,13 +133,13 @@ function updatePic(req, res) {
                     productId = req.body.gameId;
                     newImg = req.body.newImg;
                     if (!{ productId: productId }) return [3 /*break*/, 5];
-                    return [4 /*yield*/, productModel_1["default"].updateOne({ _id: productId }, { pic: newImg })];
+                    return [4 /*yield*/, userProductsModel_1["default"].updateOne({ _id: productId }, { pic: newImg })];
                 case 1:
                     result = _a.sent();
                     return [4 /*yield*/, productMain_1["default"].updateOne({ ownerId: productId }, { pic: newImg })];
                 case 2:
                     resultMarket = _a.sent();
-                    return [4 /*yield*/, productModel_1["default"].find({})];
+                    return [4 /*yield*/, userProductsModel_1["default"].find({})];
                 case 3:
                     products = _a.sent();
                     return [4 /*yield*/, productMain_1["default"].find({})];
@@ -169,13 +170,13 @@ function updateTitle(req, res) {
                     productId = req.body.gameId;
                     newTitle = req.body.newTitle;
                     if (!{ productId: productId }) return [3 /*break*/, 5];
-                    return [4 /*yield*/, productModel_1["default"].updateOne({ _id: productId }, { title: newTitle })];
+                    return [4 /*yield*/, userProductsModel_1["default"].updateOne({ _id: productId }, { title: newTitle })];
                 case 1:
                     result = _a.sent();
                     return [4 /*yield*/, productMain_1["default"].updateOne({ ownerId: productId }, { title: newTitle })];
                 case 2:
                     resultMarket = _a.sent();
-                    return [4 /*yield*/, productModel_1["default"].find({})];
+                    return [4 /*yield*/, userProductsModel_1["default"].find({})];
                 case 3:
                     products = _a.sent();
                     return [4 /*yield*/, productMain_1["default"].find({})];
@@ -206,13 +207,13 @@ function updatePrice(req, res) {
                     productId = req.body.gameId;
                     newPrice = req.body.newPrice;
                     if (!{ productId: productId }) return [3 /*break*/, 5];
-                    return [4 /*yield*/, productModel_1["default"].updateOne({ _id: productId }, { price: newPrice })];
+                    return [4 /*yield*/, userProductsModel_1["default"].updateOne({ _id: productId }, { price: newPrice })];
                 case 1:
                     result = _a.sent();
                     return [4 /*yield*/, productMain_1["default"].updateOne({ ownerId: productId }, { price: newPrice })];
                 case 2:
                     resultMarket = _a.sent();
-                    return [4 /*yield*/, productModel_1["default"].find({})];
+                    return [4 /*yield*/, userProductsModel_1["default"].find({})];
                 case 3:
                     products = _a.sent();
                     return [4 /*yield*/, productMain_1["default"].find({})];
@@ -235,21 +236,20 @@ function updatePrice(req, res) {
 exports.updatePrice = updatePrice;
 function deleteProduct(req, res) {
     return __awaiter(this, void 0, void 0, function () {
-        var data, ownerId, result, resultMarket, products, productsMarket, error_7;
+        var productId, result, resultMarket, products, productsMarket, error_7;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     _a.trys.push([0, 7, , 8]);
-                    data = req.cookies.data;
-                    ownerId = data.id;
-                    if (!ownerId) return [3 /*break*/, 5];
-                    return [4 /*yield*/, productModel_1["default"].deleteOne({ ownerId: ownerId })];
+                    productId = req.body.productId;
+                    if (!productId) return [3 /*break*/, 5];
+                    return [4 /*yield*/, userProductsModel_1["default"].deleteOne({ _id: productId })];
                 case 1:
                     result = _a.sent();
-                    return [4 /*yield*/, productMain_1["default"].deleteOne({ ownerId: ownerId })];
+                    return [4 /*yield*/, productMain_1["default"].deleteOne({ itemId: productId })];
                 case 2:
                     resultMarket = _a.sent();
-                    return [4 /*yield*/, productModel_1["default"].find({})];
+                    return [4 /*yield*/, userProductsModel_1["default"].find({})];
                 case 3:
                     products = _a.sent();
                     return [4 /*yield*/, productMain_1["default"].find({})];
@@ -376,31 +376,40 @@ function register(req, res) {
 exports.register = register;
 function login(req, res) {
     return __awaiter(this, void 0, void 0, function () {
-        var _a, email, password, user, items, userName, id;
+        var _a, email, password, user, products, payload, token, error_12;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
+                    _b.trys.push([0, 5, , 6]);
                     _a = req.body, email = _a.email, password = _a.password;
-                    return [4 /*yield*/, userModel_1["default"].findOne({ email: email, password: password })];
+                    if (!(typeof email === 'string' && typeof password === 'string')) return [3 /*break*/, 3];
+                    return [4 /*yield*/, userModel_1["default"].findOne({ email: email })];
                 case 1:
                     user = _b.sent();
                     return [4 /*yield*/, productMain_1["default"].find({})];
                 case 2:
-                    items = _b.sent();
+                    products = _b.sent();
                     if (user) {
-                        userName = user.userName;
-                        id = user._id;
                         if (user.password === password) {
-                            res.cookie("data", { userName: userName, id: id });
-                            res.send({ ok: true, items: items, userName: userName });
+                            payload = { id: user._id, userName: user.userName };
+                            token = jwt_simple_1["default"].encode(payload, secret);
+                            res.cookie("data", token);
+                            res.send({ ok: true, login: true, userName: user.userName, products: products });
                             return [2 /*return*/];
                         }
+                        else {
+                            res.send({ ok: false, products: products });
+                        }
                     }
-                    else {
-                        res.send({ ok: false, items: items });
-                        return [2 /*return*/];
-                    }
-                    return [2 /*return*/];
+                    return [3 /*break*/, 4];
+                case 3: throw new Error("Email or password are missing");
+                case 4: return [3 /*break*/, 6];
+                case 5:
+                    error_12 = _b.sent();
+                    console.log(error_12.message);
+                    res.send({ error: error_12.message });
+                    return [3 /*break*/, 6];
+                case 6: return [2 /*return*/];
             }
         });
     });

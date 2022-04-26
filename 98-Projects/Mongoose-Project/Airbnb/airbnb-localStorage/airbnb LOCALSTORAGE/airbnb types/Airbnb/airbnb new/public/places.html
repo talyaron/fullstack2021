@@ -9,8 +9,8 @@
     <title>Document</title>
     <link rel="stylesheet" href="dist/style.css">
 </head>
-<!-- onload="loadPlaces()" -->
-<body>
+
+<body onload="handleLoadPlaces()">
     <nav class="navigation">
         <ul>
             <a href="/">
@@ -66,8 +66,7 @@
                     </div>
     
     
-                    <button type="submit" value="submit" class="form--searchIcon"
-                        onclick="location.href='places.html'"><img src="./images/searchIcon.png"></button>
+                    <button type="submit" value="submit" class="form--searchIcon"><img src="./images/searchIcon.png"></button>
     
     
                 </form>
@@ -136,8 +135,9 @@
                 referrerpolicy="no-referrer-when-downgrade"></iframe>
 
     </div>
-    
+    <div class="airbnbOptions" >
     <div id="rootPlaces"> </div>
+     </div>
     
 </div>
  

@@ -1,7 +1,7 @@
 import jwt from "jwt-simple";
 import User from "../model/usersModel";
 
-const secret=process.env.JWT_SECRET
+
 
 export async function getAllUsers(req, res) {
   try {

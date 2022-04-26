@@ -81,7 +81,6 @@ function handleGetEmployees(e) {
                 case 1:
                     data = (_b.sent()).data;
                     result = data.result;
-                    console.log(result);
                     render(result);
                     e.target.reset();
                     return [2 /*return*/];

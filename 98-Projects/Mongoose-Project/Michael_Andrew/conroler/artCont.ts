@@ -9,7 +9,7 @@ export const addArtToUser = async (req, res) => {
       throw new Error("user Id is not a string");
 
     const newArtDB = new Art({ ...newArt, ownerId: userId });
-  
+
     const r = await newArtDB.save();
     console.log(r);
     res.send({ result: r });
