@@ -1,6 +1,9 @@
 import UserProducts from "../model/userProductsModel";
 import Market from "../model/productMain";
 import User from "../model/userModel";
+import jwt from "jwt-simple";
+
+const secret = process.env.JWT_SECRET
 
 export async function getProductsMain(req, res) {
   try {
@@ -102,12 +105,10 @@ export async function updatePrice(req, res) {
 
 export async function deleteProduct(req, res) {
   try {
-    const { data } = req.cookies;
-    const {itemId} = req.body;
-    console.log(itemId)
-    if (itemId) {
-      const result = await UserProducts.deleteOne({ itemId: itemId });
-      //const resultMarket = await Market.deleteOne({ itemId: itemId });
+    const{productId} = req.body;
+    if (productId) {
+      const result = await UserProducts.deleteOne({ _id: productId });
+      const resultMarket = await Market.deleteOne({ itemId: productId });
       const products = await UserProducts.find({});
       const productsMarket = await Market.find({});
       res.send({ ok: true, productsMarket, products })
@@ -184,9 +185,11 @@ export async function login(req, res) {
 
       if (user) {
         if (user.password === password) {
+          const payload = { id: user._id, userName: user.userName}
+          const token = jwt.encode(payload);
           res.cookie(
             "data",
-            { id: user._id, userName: user.userName}
+            token
           );
           res.send({ ok: true, login: true, userName: user.userName, products });
           return;
