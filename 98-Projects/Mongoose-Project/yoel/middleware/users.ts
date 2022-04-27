@@ -1,9 +1,9 @@
 import jwt from 'jwt-simple';//because we need to decode the cookies.
 
 //first of all we need to "deconstacor" the cookies out //26/4/22
-export function isAdmin(req, res, next) {//26/04/2022
+export function example(req, res, next) {//26/04/2022
     try {
-        const { userInfo } = req.cookies
+        const { userInfo } = req.cookie
         const secret = process.env.JWT_SECRET;// if I want to use something in the .ENV I need to write "process.env.___"
         if (!secret) throw new Error('there is not secret in the server')
         if (!userInfo) throw new Error('userInfo cookie is missing') // it's important to add that
@@ -18,7 +18,23 @@ export function isAdmin(req, res, next) {//26/04/2022
     }
 
 }
+export function isAdmin(req , res , next){
+try {
+    const { userInfo } = req.cookies
 
+    const secret = process.env.JWT_SECRET;// if I want to use something in the .ENV I need to write "process.env.___"
+    const decode = jwt.decode(userInfo, secret)
+    
+    if (decode.role === 'admin') {
+        req.role = 'admin';//if I want to use it in the next function 
+        next();
+    }
+} catch (error) {
+    res.send({err:error})
+}
+
+
+}
 export function getId(req, res, next) {//26/04/2022
     try {
         const { userInfo } = req.cookies;

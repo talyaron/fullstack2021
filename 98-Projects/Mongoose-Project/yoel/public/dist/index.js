@@ -143,10 +143,10 @@ function handleReg(ev) {
                         window.location.href = 'sign.html'; // not work
                     }
                     if (data.ok) {
-                        html = "welcome " + data.user.username + " ";
+                        html = "welcome " + data.users.username + " ";
                         //alert(html)
                         // localStorage.setItem('nameOfTheUser' , html )
-                        window.location.href = 'index.html';
+                        window.location.href = 'home.html';
                         //   regNSign.innerHTML = html;
                     }
                     ev.target.reset();
@@ -171,7 +171,7 @@ function handleSign(ev) {
                         html = "" + data.user.username;
                         //const regNSign = document.getElementById('regNSign')
                         //regNSign.innerHTML = html;
-                        window.location.href = 'index.html';
+                        window.location.href = 'home.html';
                         alert("hii " + html);
                     }
                     if (data.error) {
@@ -212,7 +212,7 @@ function renderBooks(data) {
                     console.log('in the render ', data);
                     data.forEach(function (book) {
                         html_1 +=
-                            "\n             <div class = \"book-text\">\n             <h1> the name of the book is " + book.name + " </h1> \n             <h2> published in year  " + book.year + " </h2>\n             <h3>the author is  " + book.author + " <h3>\n             </div>\n           <div>\n           <button onclick= 'handleDelete(\" " + book._id + "\")'>Delete</button>\n           <form onsubmit='handleUpdate(event, \"" + book._id + "\")'>\n           <input type=\"text\" name=\"name\" placeholder=\"write  name of the book\">\n           <br>\n           <input type=\"number\" name=\"year\" placeholder=\"write  Production year of the book\">\n           <br>\n           <input type=\"text\" name=\"author\" placeholder=\"write  author of the book\">\n           <br>\n           <input type=\"submit\" value=\"Update Book\">\n       </form>\n   \n</div>";
+                            "\n             <div class = \"book-text\">\n             <h1> " + book.name + " </h1> \n             <h2> " + book.year + " </h2>\n             <h3> " + book.author + " <h3>\n             </div>\n           <div>\n           <button onclick= 'handleDelete(\" " + book._id + "\")'>Delete</button>\n           <form onsubmit='handleUpdate(event, \"" + book._id + "\")'>\n           <input type=\"text\" name=\"name\" placeholder=\"write  name of the book\">\n           <br>\n           <input type=\"number\" name=\"year\" placeholder=\"write  Production year of the book\">\n           <br>\n           <input type=\"text\" name=\"author\" placeholder=\"write  author of the book\">\n           <br>\n           <input type=\"submit\" value=\"Update Book\">\n       </form>\n   \n</div>";
                         // <input type = "text" placeholder = "change the name" onblur = 'handleUpdate(event, "${book._id}")'
                     });
                     html_1 += "<div>";

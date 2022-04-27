@@ -1,0 +1,11 @@
+.box{
+    width: 100px;
+    height: 100px;
+    background-color: tomato;
+}
+
+.draggable{
+    position: absolute;// we want to initialize it (where he start , therefore we need to do absolute
+    top:0px;
+    left:0px;
+}
