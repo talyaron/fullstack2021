@@ -9,7 +9,7 @@ const app = express_1.default();
 const port = process.env.PORT || 3000;
 app.use(express_1.default.static("public"));
 app.use(express_1.default.json());
-mongoose_1.default.connect('mongodb+srv://tamirdadon:aImYDjM4c6xZdXad@cluster0.ldffz.mongodb.net/myFirstDatabase?retryWrites=true&w=majority');
+mongoose_1.default.connect('mongodb+srv://tamirdadon:v9ZiWUUtVGD5J8wF@cluster0.ldffz.mongodb.net/myFirstDatabase?retryWrites=true&w=majority');
 app.get('/', (req, res) => {
     res.send('Hello World!');
 });

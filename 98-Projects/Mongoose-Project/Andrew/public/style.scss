@@ -1,0 +1,176 @@
+:root {
+    --main-color-1: #E0E1DD;
+    --main-color-2: #778DA9;
+    --main-color-3: #415A77;
+    --main-color-4: #1B263B;
+    --main-color-5: #0D1B2A;
+
+    background-color: var(--main-color-1);
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--main-color-5);
+}
+
+.header {
+    z-index: 10;
+    background-color: var(--main-color-2);
+    width: 100vw;
+    height: 60px;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    img {
+        height: 50px;
+    }
+
+    &__logo {
+        position: relative;
+        margin-bottom: 5px;
+
+        span {
+            font-size: 40px;
+        }
+
+        &::after {
+            position: absolute;
+            bottom: -10px;
+            right: 0px;
+            width: 40px;
+            text-align: center;
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    #info-logo::after {
+        content: "about";
+    }
+
+    #user-logo::after {
+        content: "user";
+    }
+}
+
+main {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    p {
+        width: 500px;
+    }
+
+    .pointer:hover {
+        cursor: pointer;
+        color: var(--main-color-3);
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        margin: 20px;
+
+        input {
+            margin: 5px;
+            border-radius: 5px;
+            &.button{
+                background-color: var(--main-color-2);
+                border: 2px solid var(--main-color-4);
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+
+        h4 {
+            text-align: center;
+            color: #871b16;
+
+            h4 {
+                cursor: pointer;
+            }
+        }
+
+        .alert {
+            border: 2px solid red;
+        }
+    }
+
+    img {
+        width: 150px;
+    }
+
+    button {
+        margin: 10px;
+        width: 150px;
+        background-color: var(--main-color-2);
+        border-radius: 5px;
+        border: 2px solid var(--main-color-4);
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    .avatar-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        width: 500px;
+
+        &__item {
+            background-color: var(--main-color-1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            border: 3px solid var(--main-color-5);
+            border-radius: 10px;
+            padding-top: 10px;
+            transition: ease 300ms;
+
+            &:hover {
+                transform: scale(1.07);
+            }
+        }
+    }
+
+    h5 {
+        margin: 2px;
+    }
+
+    canvas {
+        border: 1px solid var(--main-color-5);
+    }
+
+    #player-list {
+        border: 2px solid var(--main-color-3);
+        border-radius: 10px;
+        min-width: 200px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        width: 500px;
+        .player{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            animation: join ease 800ms forwards;
+        }
+    }
+}
+@keyframes join {
+    from {transform: scale(0);}
+    to {transform: scale(1);}
+  }

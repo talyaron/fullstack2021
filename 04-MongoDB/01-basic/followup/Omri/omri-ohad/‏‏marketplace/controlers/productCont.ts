@@ -1,6 +1,9 @@
 import UserProducts from "../model/userProductsModel";
-import Market from "../model/marketModel";
-import User from "../model/usersModel";
+import Market from "../model/productMain";
+import User from "../model/userModel";
+import jwt from "jwt-simple";
+
+const secret = process.env.JWT_SECRET
 
 export async function getProductsMain(req, res) {
   try {
@@ -32,8 +35,8 @@ export async function addProduct(req, res) {
     let { pic, title, description, price, category } = req.body;
     const newProduct = new UserProducts({ pic, title, description, price, category,ownerId })
     const result = await newProduct.save()
-    //const ownerId = newProduct._id
-    const newProductMarket = new Market({ pic, title, description, price, category, ownerId })
+    const itemId = newProduct._id
+    const newProductMarket = new Market({ pic, title, description, price, category, ownerId, itemId })
     const resultMarket = await newProductMarket.save()
     res.send({ result });
 
@@ -102,11 +105,10 @@ export async function updatePrice(req, res) {
 
 export async function deleteProduct(req, res) {
   try {
-    const { data } = req.cookies;
-    const ownerId = data.id;
-    if (ownerId) {
-      const result = await UserProducts.deleteOne({ ownerId: ownerId });
-      const resultMarket = await Market.deleteOne({ ownerId: ownerId });
+    const{productId} = req.body;
+    if (productId) {
+      const result = await UserProducts.deleteOne({ _id: productId });
+      const resultMarket = await Market.deleteOne({ itemId: productId });
       const products = await UserProducts.find({});
       const productsMarket = await Market.find({});
       res.send({ ok: true, productsMarket, products })
@@ -183,9 +185,11 @@ export async function login(req, res) {
 
       if (user) {
         if (user.password === password) {
+          const payload = { id: user._id, userName: user.userName}
+          const token = jwt.encode(payload, secret);
           res.cookie(
             "data",
-            { id: user._id, userName: user.userName}
+            token
           );
           res.send({ ok: true, login: true, userName: user.userName, products });
           return;

@@ -1,0 +1,157 @@
+:root {
+  --main-color-1: #E0E1DD;
+  --main-color-2: #778DA9;
+  --main-color-3: #415A77;
+  --main-color-4: #1B263B;
+  --main-color-5: #0D1B2A;
+  background-color: var(--main-color-1);
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--main-color-5);
+}
+
+.header {
+  z-index: 10;
+  background-color: var(--main-color-2);
+  width: 100vw;
+  height: 60px;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.header img {
+  height: 50px;
+}
+.header__logo {
+  position: relative;
+  margin-bottom: 5px;
+}
+.header__logo span {
+  font-size: 40px;
+}
+.header__logo::after {
+  position: absolute;
+  bottom: -10px;
+  right: 0px;
+  width: 40px;
+  text-align: center;
+}
+.header__logo:hover {
+  cursor: pointer;
+}
+.header #info-logo::after {
+  content: "about";
+}
+.header #user-logo::after {
+  content: "user";
+}
+
+main {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+main p {
+  width: 500px;
+}
+main .pointer:hover {
+  cursor: pointer;
+  color: var(--main-color-3);
+}
+main form {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
+main form input {
+  margin: 5px;
+  border-radius: 5px;
+}
+main form input.button {
+  background-color: var(--main-color-2);
+  border: 2px solid var(--main-color-4);
+}
+main form input.button:hover {
+  cursor: pointer;
+}
+main form h4 {
+  text-align: center;
+  color: #871b16;
+}
+main form h4 h4 {
+  cursor: pointer;
+}
+main form .alert {
+  border: 2px solid red;
+}
+main img {
+  width: 150px;
+}
+main button {
+  margin: 10px;
+  width: 150px;
+  background-color: var(--main-color-2);
+  border-radius: 5px;
+  border: 2px solid var(--main-color-4);
+}
+main button:hover {
+  cursor: pointer;
+}
+main .avatar-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  width: 500px;
+}
+main .avatar-grid__item {
+  background-color: var(--main-color-1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  border: 3px solid var(--main-color-5);
+  border-radius: 10px;
+  padding-top: 10px;
+  transition: ease 300ms;
+}
+main .avatar-grid__item:hover {
+  transform: scale(1.07);
+}
+main h5 {
+  margin: 2px;
+}
+main canvas {
+  border: 1px solid var(--main-color-5);
+}
+main #player-list {
+  border: 2px solid var(--main-color-3);
+  border-radius: 10px;
+  min-width: 200px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  width: 500px;
+}
+main #player-list .player {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  animation: join ease 800ms forwards;
+}
+
+@keyframes join {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}

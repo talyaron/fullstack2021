@@ -151,16 +151,16 @@ function handleUpadte(ev, gameId) {
 // }
 function handleDelete(productId) {
     return __awaiter(this, void 0, void 0, function () {
-        var data, product;
+        var data, products, productsMarket;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0: return [4 /*yield*/, axios["delete"]('/products/delete-product', { data: { productId: productId } })];
                 case 1:
                     data = (_a.sent()).data;
-                    product = data.product;
+                    products = data.products, productsMarket = data.productsMarket;
                     location.reload();
-                    renderProducts(product);
-                    renderItemsMain(product);
+                    renderProducts(products);
+                    renderItemsMain(productsMarket);
                     return [2 /*return*/];
             }
         });

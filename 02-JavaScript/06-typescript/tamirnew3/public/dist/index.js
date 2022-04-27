@@ -60,7 +60,6 @@ function handlelogin(ev) {
             switch (_a.label) {
                 case 0:
                     ev.preventDefault();
-                    ev.target.reset();
                     name = ev.target.elements.name.value;
                     password = ev.target.elements.password.value;
                     console.log(name, password);
