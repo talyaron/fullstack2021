@@ -1,9 +1,10 @@
-document.getElementById("name").style.color = "red";
-document.getElementById("name").style.background = "blue";
-document.getElementById("name").style.fontSize = ("6rem");
-var names = document.querySelectorAll(".lastName1");
-names.forEach(function (element) {
-    console.dir(element);
-    element.style.color = "yellow";
-    element.style.fontSize = "4rem";
-});
+var up = document.getElementById('up');
+var down = document.getElementById('dowm');
+var right = document.getElementById('right');
+var left = document.getElementById('left');
+//  up.addEventListener('click' , ()=> {
+//      console.log("hello it's me ")
+//  })
+//  down.addEventListener('mouseenter' , ()=>{
+//      console.log('yo no se lo q me pasa coundo estoy combos')
+//  })

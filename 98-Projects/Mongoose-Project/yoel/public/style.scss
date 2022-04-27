@@ -5,7 +5,7 @@
 //     height: 100%;
 // }
 .book {
-    width: fit-content;
+    width: 200px;
     height: fit-content;
     display: flex;
     flex-direction: column;
@@ -13,10 +13,12 @@
     
 
     &-text {
+        // height: 15rem;
         text-align: center;
-        border-radius: 10%;
-        border: 1px solid black;
+        // border-radius: 10%;
+        border: 15px double #999;
         color: rgb(66, 109, 109);
+         
     }
 }
 .sign , .reg{

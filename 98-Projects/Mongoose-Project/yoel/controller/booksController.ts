@@ -2,6 +2,7 @@
 import Book  from "../models/bookModel";
 export const handleGetAllBooks = async (req, res) => {
   const books = await Book.find({})
+
   // console.log(books);
 
   res.send(books);

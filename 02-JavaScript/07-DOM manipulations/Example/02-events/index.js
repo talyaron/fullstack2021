@@ -1,5 +1,9 @@
+<<<<<<< Updated upstream
 //for only one button
 var theFirstButton = document.getElementById('theFirstButton');
+=======
+    var theFirstButton = document.getElementById('theFirstButton');
+>>>>>>> Stashed changes
 theFirstButton.addEventListener('click', runButton1);
 theFirstButton.addEventListener('mouseenter', runMouseEnter);
 theFirstButton.addEventListener('mouseout', runMouseOut);
