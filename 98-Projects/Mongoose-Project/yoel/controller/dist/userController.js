@@ -85,31 +85,33 @@ exports.handleReg = function (req, res) { return __awaiter(void 0, void 0, void 
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
-                _b.trys.push([0, 4, , 5]);
+                _b.trys.push([0, 7, , 8]);
                 _a = req.body, username = _a.username, password = _a.password;
                 console.log(username, password);
-                if (!(username && password)) return [3 /*break*/, 2];
+                if (!(username && password)) return [3 /*break*/, 5];
                 return [4 /*yield*/, userModel_1.User.find({ username: username })]; // not work
             case 1:
                 user = _b.sent() // not work
                 ;
-                if (user.length > 0) {
-                    res.send({ error: 'user existed' });
-                }
-                else {
-                    users = new userModel_1.User({ username: username, password: password });
-                    users.save();
-                    console.log('the users is' + users);
-                    res.send({ users: users, ok: true });
-                }
-                return [3 /*break*/, 3];
-            case 2: throw new Error("username or password is und");
-            case 3: return [3 /*break*/, 5];
-            case 4:
+                if (!(user.length > 0)) return [3 /*break*/, 2];
+                res.send({ error: 'user existed' });
+                return [3 /*break*/, 4];
+            case 2:
+                users = new userModel_1.User({ username: username, password: password });
+                return [4 /*yield*/, users.save()];
+            case 3:
+                _b.sent();
+                console.log('the users is' + users);
+                res.send({ users: users, ok: true });
+                _b.label = 4;
+            case 4: return [3 /*break*/, 6];
+            case 5: throw new Error("username or password is und");
+            case 6: return [3 /*break*/, 8];
+            case 7:
                 error_2 = _b.sent();
                 res.send(error_2.message);
-                return [3 /*break*/, 5];
-            case 5: return [2 /*return*/];
+                return [3 /*break*/, 8];
+            case 8: return [2 /*return*/];
         }
     });
 }); };

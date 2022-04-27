@@ -143,10 +143,10 @@ function handleReg(ev) {
                         window.location.href = 'sign.html'; // not work
                     }
                     if (data.ok) {
-                        html = "welcome " + data.user.username + " ";
+                        html = "welcome " + data.users.username + " ";
                         //alert(html)
                         // localStorage.setItem('nameOfTheUser' , html )
-                        window.location.href = 'index.html';
+                        window.location.href = 'home.html';
                         //   regNSign.innerHTML = html;
                     }
                     ev.target.reset();
@@ -171,7 +171,7 @@ function handleSign(ev) {
                         html = "" + data.user.username;
                         //const regNSign = document.getElementById('regNSign')
                         //regNSign.innerHTML = html;
-                        window.location.href = 'index.html';
+                        window.location.href = 'home.html';
                         alert("hii " + html);
                     }
                     if (data.error) {

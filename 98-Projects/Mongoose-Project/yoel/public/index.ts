@@ -78,13 +78,13 @@ async function handleReg(ev) { // working
         window.location.href = 'sign.html'// not work
     }
     if (data.ok) {
-        let html = `welcome ${data.user.username} `;
+        let html = `welcome ${data.users.username} `;
 
         //alert(html)
         // localStorage.setItem('nameOfTheUser' , html )
 
 
-        window.location.href = 'index.html'
+        window.location.href = 'home.html'
 
 
 
@@ -114,7 +114,7 @@ async function handleSign(ev) {
         //const regNSign = document.getElementById('regNSign')
 
         //regNSign.innerHTML = html;
-        window.location.href = 'index.html'
+        window.location.href = 'home.html'
         alert(`hii ${html}`)
     }
     if (data.error) {

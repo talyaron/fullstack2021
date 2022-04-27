@@ -50,7 +50,7 @@ export const handleReg = async (req, res) => { //reqister
         res.send({ error: 'user existed' })
       } else {
         const users = new User({ username, password })
-        users.save();
+        await users.save();
 
         console.log('the users is' + users);
 
