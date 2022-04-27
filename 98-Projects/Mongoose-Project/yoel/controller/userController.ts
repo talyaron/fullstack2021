@@ -40,7 +40,7 @@ export const handleReg = async (req, res) => { //reqister
   try {
     let { username, password } = req.body;
 
-    console.log(username, password);
+ 
 
     if (username && password) {
       let user = await User.find({ username })// not work
@@ -52,9 +52,18 @@ export const handleReg = async (req, res) => { //reqister
         const users = new User({ username, password })
         await users.save();
 
-        console.log('the users is' + users);
+        const payload = users;
+      
+
+        const token = jwt.encode(payload, secret)
+        res.cookie(
+          'userInfo ',
+          token,
+          { maxAge: 800000, httpOnly: true }
+        )
 
         res.send({ users, ok: true })
+        return;
       }
     } else {
       throw new Error("username or password is und")
@@ -68,35 +77,25 @@ export const handleSign = async (req, res) => {
   try {
 
     let { username, password } = req.body;
-    
+
 
     if (username && password) {
       //const users = new User({ username, password })//without this it's not worked 
-    
+
       const user = await User.findOne({ username })//what is the different (find//findone ) // ask Katya //25/4/2022
-      
-              console.log(user);
-              console.log(user.password);
-      
+      // he will locking for username in the MongoDB that have the same username that we send to him 
+      //and he will return the "ALL" "object" 
+
       if (user) {
         if (user.password === password) {
-       
 
-          const payload = { username , password };//24/4/2022 
+
+          const payload = { user };//24/4/2022 
           //24/4/2022 //only with them we can change in the JWT
           const token = jwt.encode(payload, secret)//24/4/2022 // we encode our code "hide"
-          res.cookie('userInfo', token, { maxAge: 50000 , httpOnly:true})//24/4/2022 
+          res.cookie('userInfo', token, { maxAge: 70000000, httpOnly: true })//24/4/2022 
           res.send({ ok: true, user })
           return;
-          ////////////////////////////////////
-
-          //const {userInfo} = req.cookies;
-          //const decode = jwt.decode(userInfo, secreto) // here we show our code// here in the first elements we send Who we want to show
-
-          //    if(decode.username === "yoel"){
-          //    console.log("something");
-
-          //  }
         }
       }
       else {

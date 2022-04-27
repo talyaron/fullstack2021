@@ -81,13 +81,12 @@ exports.handleAddUser = function (req, res) { return __awaiter(void 0, void 0, v
     });
 }); };
 exports.handleReg = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, username, password, user, users, error_2;
+    var _a, username, password, user, users, payload, token, error_2;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
                 _b.trys.push([0, 7, , 8]);
                 _a = req.body, username = _a.username, password = _a.password;
-                console.log(username, password);
                 if (!(username && password)) return [3 /*break*/, 5];
                 return [4 /*yield*/, userModel_1.User.find({ username: username })]; // not work
             case 1:
@@ -101,9 +100,11 @@ exports.handleReg = function (req, res) { return __awaiter(void 0, void 0, void 
                 return [4 /*yield*/, users.save()];
             case 3:
                 _b.sent();
-                console.log('the users is' + users);
+                payload = users;
+                token = jwt_simple_1["default"].encode(payload, secret);
+                res.cookie('userInfo ', token, { maxAge: 800000, httpOnly: true });
                 res.send({ users: users, ok: true });
-                _b.label = 4;
+                return [2 /*return*/];
             case 4: return [3 /*break*/, 6];
             case 5: throw new Error("username or password is und");
             case 6: return [3 /*break*/, 8];
@@ -123,26 +124,23 @@ exports.handleSign = function (req, res) { return __awaiter(void 0, void 0, void
                 _b.trys.push([0, 4, , 5]);
                 _a = req.body, username = _a.username, password = _a.password;
                 if (!(username && password)) return [3 /*break*/, 2];
-                return [4 /*yield*/, userModel_1.User.findOne({ username: username })]; //what is the different (find//findone ) // ask Katya //25/4/2022
+                return [4 /*yield*/, userModel_1.User.findOne({ username: username })
+                    // he will locking for username in the MongoDB that have the same username that we send to him 
+                    //and he will return the "ALL" "object" 
+                ]; //what is the different (find//findone ) // ask Katya //25/4/2022
             case 1:
                 user = _b.sent() //what is the different (find//findone ) // ask Katya //25/4/2022
                 ;
-                console.log(user);
-                console.log(user.password);
+                // he will locking for username in the MongoDB that have the same username that we send to him 
+                //and he will return the "ALL" "object" 
                 if (user) {
                     if (user.password === password) {
-                        payload = { username: username, password: password };
+                        payload = { user: user };
                         token = jwt_simple_1["default"].encode(payload, secret) //24/4/2022 // we encode our code "hide"
                         ;
-                        res.cookie('userInfo', token, { maxAge: 50000, httpOnly: true }); //24/4/2022 
+                        res.cookie('userInfo', token, { maxAge: 70000000, httpOnly: true }); //24/4/2022 
                         res.send({ ok: true, user: user });
                         return [2 /*return*/];
-                        ////////////////////////////////////
-                        //const {userInfo} = req.cookies;
-                        //const decode = jwt.decode(userInfo, secreto) // here we show our code// here in the first elements we send Who we want to show
-                        //    if(decode.username === "yoel"){
-                        //    console.log("something");
-                        //  }
                     }
                 }
                 else {
