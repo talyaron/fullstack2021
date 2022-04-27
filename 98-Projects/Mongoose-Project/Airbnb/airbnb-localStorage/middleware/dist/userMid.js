@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.isAdmin = void 0;
+exports.getId = exports.isAdmin = void 0;
 var jwt_simple_1 = require("jwt-simple");
 var secret = process.env.JWT_SECRET;
 exports.isAdmin = function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
@@ -54,7 +54,7 @@ exports.isAdmin = function (req, res, next) { return __awaiter(void 0, void 0, v
             console.log(decoded);
             if (decoded.role === "admin") {
                 req.role = "admin";
-                req.id = decoded.id;
+                //req.id=decoded.id
                 next();
             }
             else {
@@ -64,6 +64,28 @@ exports.isAdmin = function (req, res, next) { return __awaiter(void 0, void 0, v
         catch (error) {
             console.log("error is in isAdmin", error.message);
             res.send({ error: error.message });
+        }
+        return [2 /*return*/];
+    });
+}); };
+exports.getId = function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
+    var userInfo, secret_2, decoded, id;
+    return __generator(this, function (_a) {
+        try {
+            userInfo = req.cookies.userInfo;
+            secret_2 = process.env.JWT_secret;
+            if (!secret_2)
+                throw new Error("no secret found in the server");
+            decoded = jwt_simple_1["default"].decode(userInfo, secret_2);
+            id = decoded.id;
+            if (id) {
+                req.id = id;
+            }
+            next();
+        }
+        catch (error) {
+            console.log(error.message);
+            next();
         }
         return [2 /*return*/];
     });

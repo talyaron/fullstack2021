@@ -13,7 +13,7 @@ export const isAdmin=async (req,res,next)=>{
 
        if(decoded.role==="admin"){
         req.role="admin"
-        req.id=decoded.id
+        //req.id=decoded.id
         next() 
                 
        
@@ -27,3 +27,24 @@ export const isAdmin=async (req,res,next)=>{
 
    }
 }
+
+export const getId=async (req,res,next)=>{
+    try{
+        const {userInfo}=req.cookies;
+        const secret=process.env.JWT_secret
+       if(!secret) throw new Error ("no secret found in the server")
+       const decoded=jwt.decode(userInfo,secret);
+        const {id}=decoded
+        if(id){
+            req.id=id;
+        }
+        next();
+       
+    }catch(error){
+        console.log(error.message)
+
+        next()
+       
+ 
+    }
+ }

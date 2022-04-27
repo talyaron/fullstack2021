@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.searchAirbnbByCity = exports.searchAirbnb = exports.findPlaceMap = exports.getToPlace = exports.getfilteredAirBNB = void 0;
+exports.searchAirbnbByCity = exports.searchAirbnb = exports.getToPlace = exports.getfilteredAirBNB = void 0;
 var placesModel_1 = require("../model/placesModel");
 exports.getfilteredAirBNB = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var price1, result, error_1;
@@ -86,22 +86,6 @@ exports.getToPlace = function (req, res) { return __awaiter(void 0, void 0, void
                 return [3 /*break*/, 5];
             case 5: return [2 /*return*/];
         }
-    });
-}); };
-exports.findPlaceMap = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var coordinates;
-    return __generator(this, function (_a) {
-        try {
-            coordinates = req.body;
-            //  const center: google.maps.LatLngLiteral = {lat: 30, lng: -110};
-            // initMap(center)
-            res.send(coordinates);
-        }
-        catch (error) {
-            console.log(error.error);
-            res.send({ error: error.massage });
-        }
-        return [2 /*return*/];
     });
 }); };
 exports.searchAirbnb = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
