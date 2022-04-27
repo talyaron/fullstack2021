@@ -7,11 +7,12 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+      <Or />
+
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
-        <Or />
         <a
           className="App-link"
           href="https://reactjs.org"
