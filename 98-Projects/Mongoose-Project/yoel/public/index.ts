@@ -150,9 +150,9 @@ async function renderBooks(data) {
                 html +=
                     `
              <div class = "book-text">
-             <h1> the name of the book is ${book.name} </h1> 
-             <h2> published in year  ${book.year} </h2>
-             <h3>the author is  ${book.author} <h3>
+             <h1> ${book.name} </h1> 
+             <h2> ${book.year} </h2>
+             <h3> ${book.author} <h3>
              </div>
            <div>
            <button onclick= 'handleDelete(" ${book._id}")'>Delete</button>
