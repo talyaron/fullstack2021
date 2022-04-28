@@ -42,6 +42,7 @@ function initApp() {
         });
     });
 }
+// 
 function getBooks() {
     return __awaiter(this, void 0, void 0, function () {
         var data;
@@ -119,26 +120,15 @@ function handleUpdate(ev, bookId) {
         });
     });
 }
-function handleGetUsers() {
-    return __awaiter(this, void 0, void 0, function () {
-        var name, data, users;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    name = 'yoel';
-                    return [4 /*yield*/, axios.get("/user/get-users?" + name)];
-                case 1:
-                    data = (_a.sent()).data;
-                    users = data.users;
-                    renderUsers(users);
-                    return [2 /*return*/];
-            }
-        });
-    });
-}
+// async function handleGetUsers() {
+//     const name = 'yoel'
+//     const { data } = await axios.get(`/user/get-users?${name}`)
+//     const { users } = data;
+//     renderUsers(users);
+// }
 function handleReg(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var username, password, data;
+        var username, password, data, html;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -153,8 +143,11 @@ function handleReg(ev) {
                         window.location.href = 'sign.html'; // not work
                     }
                     if (data.ok) {
-                        alert("welcome " + data.name.username);
-                        window.location.href = 'index.html';
+                        html = "welcome " + data.users.username + " ";
+                        //alert(html)
+                        // localStorage.setItem('nameOfTheUser' , html )
+                        window.location.href = 'home.html';
+                        //   regNSign.innerHTML = html;
                     }
                     ev.target.reset();
                     return [2 /*return*/];
@@ -164,7 +157,7 @@ function handleReg(ev) {
 }
 function handleSign(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var username, password, data;
+        var username, password, data, html;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -174,12 +167,15 @@ function handleSign(ev) {
                     return [4 /*yield*/, axios.post('/user/sign-in', { username: username, password: password })];
                 case 1:
                     data = (_a.sent()).data;
+                    if (data.ok) {
+                        html = "" + data.user.username;
+                        //const regNSign = document.getElementById('regNSign')
+                        //regNSign.innerHTML = html;
+                        window.location.href = 'home.html';
+                        alert("hii " + html);
+                    }
                     if (data.error) {
                         alert(data.error);
-                    }
-                    else if (data.ok) {
-                        alert("hello user " + data.user.name);
-                        window.location.href = 'index.htmlx';
                     }
                     ev.target.reset();
                     return [2 /*return*/];
@@ -213,10 +209,10 @@ function renderBooks(data) {
                 if (data) {
                     html_1 = '<div class = "book">';
                     root = document.getElementById('root');
-                    console.log("data is", data);
+                    console.log('in the render ', data);
                     data.forEach(function (book) {
                         html_1 +=
-                            "\n             <div class = \"book-text\">\n             <h1> the name of the book is " + book.name + " </h1> \n             <h2> published in year  " + book.year + " </h2>\n             <h3>the author is  " + book.author + " <h3>\n             </div>\n           <div>\n           <button onclick= 'handleDelete(\" " + book._id + "\")'>Delete</button>\n           <form onsubmit='handleUpdate(event, \"" + book._id + "\")'>\n           <input type=\"text\" name=\"name\" placeholder=\"write  name of the book\">\n           <br>\n           <input type=\"number\" name=\"year\" placeholder=\"write  Production year of the book\">\n           <br>\n           <input type=\"text\" name=\"author\" placeholder=\"write  author of the book\">\n           <br>\n           <input type=\"submit\" value=\"Update Book\">\n       </form>\n   \n</div>";
+                            "\n             <div class = \"book-text\">\n             <h1> " + book.name + " </h1> \n             <h2> " + book.year + " </h2>\n             <h3> " + book.author + " <h3>\n             </div>\n           <div>\n           <button onclick= 'handleDelete(\" " + book._id + "\")'>Delete</button>\n           <form onsubmit='handleUpdate(event, \"" + book._id + "\")'>\n           <input type=\"text\" name=\"name\" placeholder=\"write  name of the book\">\n           <br>\n           <input type=\"number\" name=\"year\" placeholder=\"write  Production year of the book\">\n           <br>\n           <input type=\"text\" name=\"author\" placeholder=\"write  author of the book\">\n           <br>\n           <input type=\"submit\" value=\"Update Book\">\n       </form>\n   \n</div>";
                         // <input type = "text" placeholder = "change the name" onblur = 'handleUpdate(event, "${book._id}")'
                     });
                     html_1 += "<div>";
@@ -238,17 +234,16 @@ function handleDelete(bookId) {
         var data;
         return __generator(this, function (_a) {
             data = axios["delete"]('/book/delete-book', { data: { bookId: bookId } }).data;
-            console.log("We couldn't do that.");
-            console.log(data);
             return [2 /*return*/];
         });
     });
 }
-function renderUsers(users) {
-    var html = '';
-    var root = document.getElementById('rootUsers');
-    users.forEach(function (user) {
-        html += "<div> the name is " + user.username + " \n        the password is " + user.password; // //x.something .. the something need to be exactly the key of the users = "username , password " else it'll be undfind
-    });
-    root.innerHTML = html;
-}
+// function renderUsers(users) {
+//     let html = '';
+//     const root = document.getElementById('rootUsers')
+//     users.forEach(user => {
+//         html += `<div> the name is ${user.username}
+//         the password is ${user.password}` // //x.something .. the something need to be exactly the key of the users = "username , password " else it'll be undfind
+//     })
+//     root.innerHTML = html;
+// }

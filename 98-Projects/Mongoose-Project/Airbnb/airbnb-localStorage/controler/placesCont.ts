@@ -22,6 +22,7 @@ export const getfilteredAirBNB = async (req, res) => {
 };
 
 
+
 export const getToPlace = async (req, res) => {
  
   try {
@@ -41,17 +42,7 @@ export const getToPlace = async (req, res) => {
     res.send({ error: error.massage });
   }
 };
-export const findPlaceMap = async (req, res) => {
-  try {
-    let coordinates: Array<any> = req.body;
-    //  const center: google.maps.LatLngLiteral = {lat: 30, lng: -110};
-    // initMap(center)
-    res.send(coordinates);
-  } catch (error) {
-    console.log(error.error);
-    res.send({ error: error.massage });
-  }
-};
+
 export const searchAirbnb = async (req, res) => {
   try {
     let {searchLocation, checkIn, checkOut, adults, children, infants, pets } =req.query;
