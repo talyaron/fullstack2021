@@ -15,7 +15,7 @@ function App() {
   return (
     <>
 
-    <TodoList todos={todos}/>
+    <TodoList />
 
     <input type='text' />
 
