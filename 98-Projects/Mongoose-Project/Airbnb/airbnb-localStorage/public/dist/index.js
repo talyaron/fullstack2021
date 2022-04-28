@@ -34,6 +34,15 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+var dateValue = document.querySelectorAll('#date');
+console.log(dateValue);
+var date = new Date();
+var todayDate = date.toISOString().slice(0, 10);
+console.log(todayDate);
+dateValue.forEach(function (date) {
+    date.defaultValue = todayDate;
+    console.log(date.defaultValue = todayDate);
+});
 function handleLoadPlaces() {
     var data = getData();
     console.log(getData());
@@ -241,7 +250,6 @@ function handleLogin(ev) {
                         userProfileButton = document.querySelector(".navigation--user");
                         showPopupText.style.visibility = "hidden";
                         showUsersName = document.querySelector("#theUsersName");
-                        // window.location.href = 'owner.html';
                         if (role === "admin") {
                             window.location.href = "owner.html";
                             userProfileButton.style.backgroundColor = "red";
@@ -259,7 +267,7 @@ function handleLogin(ev) {
                         }
                     }
                     else {
-                        console.log("HA you got it wrong");
+                        console.log("Username or Password or Role is incorrect");
                     }
                     return [2 /*return*/];
             }
@@ -268,11 +276,12 @@ function handleLogin(ev) {
 }
 function handleRegister(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var _a, username, password, role, data, showPopupText;
+        var showUsersName, _a, username, password, role, data, showPopupText;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
                     ev.preventDefault();
+                    showUsersName = document.querySelector("#theUsersName");
                     _a = ev.target.elements, username = _a.username, password = _a.password, role = _a.role;
                     username = username.value;
                     password = password.value;
@@ -288,15 +297,16 @@ function handleRegister(ev) {
                     if (data.register) {
                         showPopupText = document.querySelector(".popuptext");
                         showPopupText.style.visibility = "hidden";
-                        //document.body.style.backgroundColor="red";
                         if (role === "admin") {
                             document.body.style.backgroundColor = "red";
                         }
                         else if (role === "host") {
                             document.body.style.backgroundColor = "blue";
+                            showUsersName.innerHTML = "" + username;
                         }
                         else {
                             document.body.style.backgroundColor = "green";
+                            showUsersName.innerHTML = "" + username;
                         }
                     }
                     return [2 /*return*/];
