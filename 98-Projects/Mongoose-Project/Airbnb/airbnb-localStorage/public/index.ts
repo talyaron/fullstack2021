@@ -219,15 +219,6 @@ async function handleFindAirbnb(ev) {
   const infants = ev.target.elements.infants.value;
   const pets = ev.target.elements.pets.value;
 
-  // console.log(
-  //   searchLocation,
-  //   checkIn,
-  //   checkOut,
-  //   adults,
-  //   children,
-  //   infants,
-  //   pets
-  // );
 
   const { data } = await axios.get(
     `/places/search-airbnb?searchLocation=${searchLocation}&checkIn=${checkIn}&checkOut=${checkOut}&adults=${adults}&children=${children}&infants=${infants}&pets=${pets} `
@@ -256,6 +247,7 @@ async function handleCities(ev) {
     handleLoadPlaces();
   }
 }
+
 
 async function handleFilter(ev) {
   const price = ev.target.elements.price.valueAsNumber;

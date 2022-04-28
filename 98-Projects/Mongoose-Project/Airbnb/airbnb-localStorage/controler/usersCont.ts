@@ -44,7 +44,7 @@ export  const login= async (req,res)=>{
 
 export  const registerUser= async (req,res)=>{
     try{
-        
+        console.log(`user with id ${req.id} added a user`)
         let{username,password,role}=req.body;
         if(typeof username==="string" && typeof password==="string" && typeof role==="string"){
             const newUser=new Users({username,password,role});
@@ -67,6 +67,7 @@ export  const registerUser= async (req,res)=>{
 export  const getUsers= async (req,res)=>{
     try{
         console.log(req.cookies);
+        console.log(`user id is ${req.id} and the role is ${req.role}`)
        const {userInfo}=req.cookies;
        const decoded=jwt.decode(userInfo,secret);
        console.log(decoded);

@@ -1,7 +1,9 @@
 
 function Or() {
   return (
-    <div>Livnat and Or avramashvili</div>
+    <div className="or">
+     <p>Livnat and Or avramashvili</p> 
+    </div>
   )
 }
 
