@@ -340,7 +340,7 @@ async function handleLogin(ev) {
     showPopupText.style.visibility = "hidden";
     const showUsersName: any = document.querySelector("#theUsersName");
 
-    // window.location.href = 'owner.html';
+   
 
     if (role === "admin") {
       window.location.href = "owner.html";
@@ -358,7 +358,7 @@ async function handleLogin(ev) {
       userProfileButton.style.backgroundColor = "green";
     }
   } else {
-    console.log("HA you got it wrong");
+    console.log("Username or Password or Role is incorrect");
   }
 }
 
@@ -379,7 +379,7 @@ async function handleRegister(ev) {
   if (data.register) {
     const showPopupText: any = document.querySelector(".popuptext");
     showPopupText.style.visibility = "hidden";
-    //document.body.style.backgroundColor="red";
+    
     if (role === "admin") {
       document.body.style.backgroundColor = "red";
     } else if (role === "host") {
