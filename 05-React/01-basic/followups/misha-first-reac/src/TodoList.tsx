@@ -2,7 +2,7 @@ import React from 'react'
 
 
 
-function TodoList(props.todos) {
+function TodoList() {
     return (
         <div>
 hjkkjhjkh
