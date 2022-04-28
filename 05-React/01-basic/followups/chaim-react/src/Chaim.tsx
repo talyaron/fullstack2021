@@ -4,8 +4,9 @@ interface BoxProps{
 const box = (props:BoxProps) => {
   const {text}=props
   return (
-    <div className="box">box: {text}</div>
+    <div className="box">{text}</div>
   )
 }
 
 export default box
+
