@@ -1,14 +1,18 @@
-interface BoxProps{
-    img:string;
-    price:number;
-    text:string;
+export interface BoxProps{
+     img:string;
+     price:string;
+     text:string;
 }
-
 
 const Box = (props:BoxProps) => {
-  return (
-    <div>Box</div>
-  )
-}
-
-export default Box
+    const { text,img,price } = props;
+    return (
+        <div className="box">
+          <p>{text}</p>
+          <img src= {img} title={text} alt={text}/>
+          <p>{price}</p>
+        </div>
+      );
+    };
+    
+    export default Box;
