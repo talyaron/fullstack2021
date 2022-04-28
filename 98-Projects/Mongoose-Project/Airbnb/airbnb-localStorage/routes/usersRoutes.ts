@@ -2,7 +2,7 @@ import express from 'express';
 const router = express.Router();
 
 
-import {isAdmin} from'../middleware/isAdmin'
+import {isAdmin} from'../middleware/userMid'
 import { getUsers } from '../controler/usersCont'
 import { registerUser} from '../controler/usersCont'
 import { login} from '../controler/usersCont'
