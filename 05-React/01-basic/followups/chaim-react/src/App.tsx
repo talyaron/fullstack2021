@@ -1,5 +1,7 @@
+import React from 'react';
 import logo from './logo.svg';
-import './view/styles/global.scss';
+import './App.scss';
+import Chaim from './Chaim';
 
 function App() {
   return (
@@ -7,8 +9,9 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.tsx</code> and save to reload.
+         chaim cohen
         </p>
+        <Chaim text='shalmo'/>
         <a
           className="App-link"
           href="https://reactjs.org"
