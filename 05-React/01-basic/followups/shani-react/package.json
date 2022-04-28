@@ -13,11 +13,12 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-scripts": "5.0.1",
+    "sass": "^1.51.0",
     "typescript": "^4.6.3",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start":  "set PORT=3058 && react-scripts start",
+    "start": "set PORT=3058 && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
