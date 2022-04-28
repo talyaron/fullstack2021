@@ -2,6 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.scss';
 import Chaim from './Chaim';
+import { table } from 'console';
 
 function App() {
   return (
