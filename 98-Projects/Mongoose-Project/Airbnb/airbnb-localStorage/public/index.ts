@@ -1,3 +1,18 @@
+const dateValue = document.querySelectorAll('#date')
+console.log(dateValue)
+
+const date = new Date();
+const todayDate = date.toISOString().slice(0, 10);
+console.log(todayDate)
+
+dateValue.forEach(date  => {
+    date.defaultValue = todayDate
+    console.log(date.defaultValue = todayDate)
+})
+
+
+
+
 function handleLoadPlaces() {
   const data = getData();
  
@@ -225,7 +240,7 @@ async function handleFindAirbnb(ev) {
   );
   //console.log(data)
   //console.log(data.getplaces); it shows that is has the array of objects
-
+  
   storeData(data);
   if (data) {
     window.location.href = "places.html";
@@ -364,7 +379,7 @@ async function handleLogin(ev) {
 
 async function handleRegister(ev) {
   ev.preventDefault();
-
+  const showUsersName: any = document.querySelector("#theUsersName");
   let { username, password, role } = ev.target.elements;
   username = username.value;
   password = password.value;
@@ -382,10 +397,13 @@ async function handleRegister(ev) {
     
     if (role === "admin") {
       document.body.style.backgroundColor = "red";
+
     } else if (role === "host") {
       document.body.style.backgroundColor = "blue";
+      showUsersName.innerHTML = `${username}`;
     } else {
       document.body.style.backgroundColor = "green";
+      showUsersName.innerHTML = `${username}`;
     }
   }
 }
