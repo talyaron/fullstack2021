@@ -78,6 +78,7 @@ exports.registerUser = function (req, res) { return __awaiter(void 0, void 0, vo
         switch (_b.label) {
             case 0:
                 _b.trys.push([0, 3, , 4]);
+                console.log("user with id " + req.id + " added a user");
                 _a = req.body, username = _a.username, password = _a.password, role = _a.role;
                 if (!(typeof username === "string" && typeof password === "string" && typeof role === "string")) return [3 /*break*/, 2];
                 newUser = new usersModel_1["default"]({ username: username, password: password, role: role });
@@ -103,6 +104,7 @@ exports.getUsers = function (req, res) { return __awaiter(void 0, void 0, void 0
             case 0:
                 _a.trys.push([0, 3, , 4]);
                 console.log(req.cookies);
+                console.log("user id is " + req.id + " and the role is " + req.role);
                 userInfo = req.cookies.userInfo;
                 decoded = jwt_simple_1["default"].decode(userInfo, secret);
                 console.log(decoded);

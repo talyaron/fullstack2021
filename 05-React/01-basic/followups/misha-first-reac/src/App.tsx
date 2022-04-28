@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+import TodoList from './TodoList';
+
+// interface Todos{
+//   name: string
+// }
+
 
 function App() {
+
+  const [todos] =  useState(['todos1'])
+
+  // const todos:Todos = {name:'michael'}
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+
+    <TodoList />
+
+    <input type='text' />
+
+    <button>Add Task</button>
+    <button>Clear Completed</button>
+    <div>0 Left To Do</div>
+
+    </>
+
+  )
+
 }
 
 export default App;
