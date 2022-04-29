@@ -15,4 +15,4 @@ const Box = (props: BoxProps) => {
     );
 };
 
-export default Box
+export default Box 
