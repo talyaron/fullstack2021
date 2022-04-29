@@ -1,29 +1,32 @@
 
-import logo from './logo.svg';
 import Box from './view/components/Box';
 
 import './view/styles/global.scss';
 
+interface BoxProps {
+  img: string;
+}
+
+const boxes: Array<BoxProps> = [
+
+  {img:'https://upload.wikimedia.org/wikipedia/en/thumb/1/17/Bugs_Bunny.svg/1200px-Bugs_Bunny.svg.png'},
+  {img:'https://www.google.com/url?sa=i&url=https%3A%2F%2Far.linkedin.com%2Fcompany%2Fimg-golf-course-management&psig=AOvVaw3dsbk8BbwrFaKO5uQdTq8l&ust=1651317362387000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCNDTttiSufcCFQAAAAAdAAAAABAI'},
+  {img:'https://www.google.com/url?sa=i&url=https%3A%2F%2Far.linkedin.com%2Fcompany%2Fimg-golf-course-management&psig=AOvVaw3dsbk8BbwrFaKO5uQdTq8l&ust=1651317362387000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCNDTttiSufcCFQAAAAAdAAAAABAI'},
+  {img:'https://www.google.com/url?sa=i&url=https%3A%2F%2Far.linkedin.com%2Fcompany%2Fimg-golf-course-management&psig=AOvVaw3dsbk8BbwrFaKO5uQdTq8l&ust=1651317362387000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCNDTttiSufcCFQAAAAAdAAAAABAI'},
+  {img:'https://www.google.com/url?sa=i&url=https%3A%2F%2Far.linkedin.com%2Fcompany%2Fimg-golf-course-management&psig=AOvVaw3dsbk8BbwrFaKO5uQdTq8l&ust=1651317362387000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCNDTttiSufcCFQAAAAAdAAAAABAI'},
+  {img:'https://www.google.com/url?sa=i&url=https%3A%2F%2Far.linkedin.com%2Fcompany%2Fimg-golf-course-management&psig=AOvVaw3dsbk8BbwrFaKO5uQdTq8l&ust=1651317362387000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCNDTttiSufcCFQAAAAAdAAAAABAI'},
+  {img:'https://www.google.com/url?sa=i&url=https%3A%2F%2Far.linkedin.com%2Fcompany%2Fimg-golf-course-management&psig=AOvVaw3dsbk8BbwrFaKO5uQdTq8l&ust=1651317362387000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCNDTttiSufcCFQAAAAAdAAAAABAI'},
+  {img:'https://www.google.com/url?sa=i&url=https%3A%2F%2Far.linkedin.com%2Fcompany%2Fimg-golf-course-management&psig=AOvVaw3dsbk8BbwrFaKO5uQdTq8l&ust=1651317362387000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCNDTttiSufcCFQAAAAAdAAAAABAI'},
+  {img:'https://www.google.com/url?sa=i&url=https%3A%2F%2Far.linkedin.com%2Fcompany%2Fimg-golf-course-management&psig=AOvVaw3dsbk8BbwrFaKO5uQdTq8l&ust=1651317362387000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCNDTttiSufcCFQAAAAAdAAAAABAI'}
+
+]
+
+
 function App() {
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Box text = 'aaa' title = 'title1' />
-        <Box text = 'bbb' title = 'title2' />
-
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        {boxes.map ((box, i) => <Box key={i} img={box.img}/>)}
     </div>
   );
 }
