@@ -1,16 +1,15 @@
 
 interface BoxProps {
-    text: string;
-    title: string;
+    img:string;
 }
 
 const Box = (props: BoxProps) => {
-    const { text, title } = props;
+    const { img } = props;
 
     return (
         <>
-        <h1> title {title} </h1>
-        <div>Box {text} </div>
+
+        <div><img src={img}/></div>
         </>
     )
 }
