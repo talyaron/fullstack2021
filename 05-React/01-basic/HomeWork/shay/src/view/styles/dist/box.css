@@ -1,0 +1,32 @@
+.App .contaner {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.App .contaner div {
+  border: 1px solid #fdcece;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 20px;
+}
+.App .contaner div img {
+  width: 460px;
+  height: 460px;
+}
+.App .contaner div h2 {
+  color: #61dafb;
+}
+.App .contaner div .text {
+  color: #b661fb;
+  font-size: 20px;
+}
+.App .contaner div .price {
+  color: #f75858;
+  font-weight: bold;
+  font-size: 18px;
+}
+.App .contaner div .shipping {
+  font-size: 16px;
+  color: #33a3ff;
+}

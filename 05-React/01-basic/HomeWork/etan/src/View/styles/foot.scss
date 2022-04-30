@@ -1,0 +1,10 @@
+.foot {
+  h1 {
+    font-size: 2em;
+  }
+  p{
+      font-size: .8em;
+  }
+  position: sticky;
+  @include reverse-color-scheme($scheme-simple-gradient...);
+}
