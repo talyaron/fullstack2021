@@ -20,7 +20,7 @@ const boxes:Array<BoxesProps>=[
     <div className='container'> 
     
     {boxes.map((box,i)=>{
-         return <Box imgUrl={box.imgUrl} title={box.title} price={box.price} adjustment={box.adjustment} shipping={box.shipping}/>
+         return <Box  key={i} imgUrl={box.imgUrl} title={box.title} price={box.price} adjustment={box.adjustment} shipping={box.shipping}/>
      })}
     </div>
     

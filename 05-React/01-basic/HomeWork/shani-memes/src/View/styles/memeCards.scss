@@ -1,0 +1,19 @@
+.memeCard{
+    
+  img{
+      width:25vw;
+      height:50vh;
+      transition: transform .2s;
+      &:hover{
+        transform: scale(1.5); 
+      }
+  }
+  .topic{
+      color:aqua;
+     
+  }
+  .rating{
+      font-size:20px;
+      text-align:right;
+  }
+}
