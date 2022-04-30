@@ -7,3 +7,5 @@ node_modules/
 02-JavaScript/09-formsAndObjects/03-Gucci-Project/Room2/index.ts
 
 .env
+package-lock.json
+package.json
