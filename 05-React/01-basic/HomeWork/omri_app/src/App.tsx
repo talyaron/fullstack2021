@@ -1,24 +1,32 @@
 import React from 'react';
 import logo from './logo.svg';
-import './App.css';
+import './view/styles/global.scss';
+import Body from './view/components/Body';
+
+interface BodyProps {
+  img:string;
+}
+
+const gags:Array<BodyProps> = [
+  {img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzxyNp44jEVlExbW6IrpvuF8eDilg0WxZYnzsom1Bsk71eXEdNzQcUbXTMEX8DyBKXLog&usqp=CAU'},
+  {img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzxyNp44jEVlExbW6IrpvuF8eDilg0WxZYnzsom1Bsk71eXEdNzQcUbXTMEX8DyBKXLog&usqp=CAU'},
+  {img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzxyNp44jEVlExbW6IrpvuF8eDilg0WxZYnzsom1Bsk71eXEdNzQcUbXTMEX8DyBKXLog&usqp=CAU'},
+  {img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzxyNp44jEVlExbW6IrpvuF8eDilg0WxZYnzsom1Bsk71eXEdNzQcUbXTMEX8DyBKXLog&usqp=CAU'},
+  {img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzxyNp44jEVlExbW6IrpvuF8eDilg0WxZYnzsom1Bsk71eXEdNzQcUbXTMEX8DyBKXLog&usqp=CAU'},
+  {img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzxyNp44jEVlExbW6IrpvuF8eDilg0WxZYnzsom1Bsk71eXEdNzQcUbXTMEX8DyBKXLog&usqp=CAU'},
+  {img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzxyNp44jEVlExbW6IrpvuF8eDilg0WxZYnzsom1Bsk71eXEdNzQcUbXTMEX8DyBKXLog&usqp=CAU'},
+  {img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzxyNp44jEVlExbW6IrpvuF8eDilg0WxZYnzsom1Bsk71eXEdNzQcUbXTMEX8DyBKXLog&usqp=CAU'}
+]
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        React GAG
       </header>
+      <div className='body'>
+        {gags.map((gag,i) => <Body key = {i} img ={gag.img} />)}
+      </div>
     </div>
   );
 }
