@@ -51,7 +51,13 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function SearchAppBar() {
+interface IMyProps {
+  filterCities: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
+}
+
+const SearchAppBar = (props: IMyProps) => {
+
+  
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -78,12 +84,16 @@ export default function SearchAppBar() {
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
-              placeholder="Search…"
+              placeholder="Skatina…"
               inputProps={{ 'aria-label': 'search' }}
+              onChange={(e)=>props.filterCities}
             />
           </Search>
         </Toolbar>
       </AppBar>
     </Box>
+
   );
 }
+
+export default SearchAppBar;
