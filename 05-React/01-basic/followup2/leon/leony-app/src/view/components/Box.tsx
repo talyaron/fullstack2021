@@ -1,11 +1,11 @@
-interface   Boxprops {
+interface Boxprops {
     text: string;
-    title:string;
-    img:any;
+    title: string;
+    img: any;
 }
 
-const Box = (props:Boxprops) => {
-    const { text, title,img } = props;
+const Box = (props: Boxprops) => {
+    const { text, title, img } = props;
     return (
         <div className="box">
             <h1>{title}</h1>

@@ -2,9 +2,10 @@
 
 function Head() {
   return (
-    <div className="head">Head
+    <div className="head">
     <p>
-        hi
+?ESLint מה זה
+
         </p>
         </div>
   )
