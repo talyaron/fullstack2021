@@ -5,7 +5,7 @@ interface BoxProps {
 const box = (props: BoxProps) => {
     const {img} = props;
     return (
-        <div className='body'>
+        <div className='box'>
             <img src = {img} />
         </div>
     );

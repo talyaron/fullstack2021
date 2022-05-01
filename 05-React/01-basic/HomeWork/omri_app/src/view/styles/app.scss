@@ -1,5 +1,19 @@
+* {
+  padding: 0;
+  margin: 0;
+
+  ::-webkit-scrollbar {
+      width: 0px;
+  }
+
+}
+
 .App {
+  width: 100vw;
   text-align: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 10vh 80vh 10vh;
 }
 
 .App-logo {
@@ -22,6 +36,23 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  grid-column: span 4;
+}
+
+.footer{
+  background-color: #282c34;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  grid-column: span 4;
+
+  a{
+    text-decoration: none;
+    color: rgb(233, 215, 215);
+  }
 }
 
 .App-link {
