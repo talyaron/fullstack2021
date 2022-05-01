@@ -2,7 +2,7 @@
     max-width: 100vw;
     display: grid;
     grid-template-columns: repeat(4,1fr);
-    margin-top:20px ;
-    // justify-content: center;
-    border: 1px solid black;
+    grid-template-rows: auto;
+    justify-content: space-evenly;
 }
+

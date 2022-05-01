@@ -1,13 +1,13 @@
 import React from 'react';
 import logo from './logo.svg';
 import './view/styles/global.scss';
-import Body from './view/components/Body';
+import Box from './view/components/Box';
 
-interface BodyProps {
+interface BoxProps {
   img:string;
 }
 
-const gags:Array<BodyProps> = [
+const gags:Array<BoxProps> = [
   {img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzxyNp44jEVlExbW6IrpvuF8eDilg0WxZYnzsom1Bsk71eXEdNzQcUbXTMEX8DyBKXLog&usqp=CAU'},
   {img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzxyNp44jEVlExbW6IrpvuF8eDilg0WxZYnzsom1Bsk71eXEdNzQcUbXTMEX8DyBKXLog&usqp=CAU'},
   {img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzxyNp44jEVlExbW6IrpvuF8eDilg0WxZYnzsom1Bsk71eXEdNzQcUbXTMEX8DyBKXLog&usqp=CAU'},
@@ -25,7 +25,7 @@ function App() {
         React GAG
       </header>
       <div className='body'>
-        {gags.map((gag,i) => <Body key = {i} img ={gag.img} />)}
+        {gags.map((gag,i) => <Box key = {i} img ={gag.img} />)}
       </div>
     </div>
   );

@@ -1,8 +1,8 @@
-interface BodyProps {
+interface BoxProps {
     img: string;
 }
 
-const body = (props: BodyProps) => {
+const box = (props: BoxProps) => {
     const {img} = props;
     return (
         <div className='body'>
@@ -11,4 +11,4 @@ const body = (props: BodyProps) => {
     );
 };
 
-export default body 
+export default box 

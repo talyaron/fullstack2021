@@ -1,31 +1,57 @@
-
-import Box from './view/components/Box';
-
+// import * as React from 'react';
 import './view/styles/global.scss';
+import TourCard from './view/components/TourCard';
+import Container from '@mui/material/Container';
+import Grid from '@mui/material/Grid';
+import SearchAppBar from './view/components/Appbar';
+import cities from './data.json'
+import { Typography } from '@mui/material';
 
-interface BoxProps {
-  img: string;
-}
+// interface Tour {
+//   id: Number
+//   name: String
+//   duration: Number
+//   rating: Number
+//   numberOfReviews: Number
+//   price: Number;
+//   image: String; 
+// }
 
-const boxes: Array<BoxProps> = [
+// const tour:Tour = {};
 
-  {img:'https://upload.wikimedia.org/wikipedia/en/thumb/1/17/Bugs_Bunny.svg/1200px-Bugs_Bunny.svg.png'},
-  {img:'https://upload.wikimedia.org/wikipedia/en/thumb/1/17/Bugs_Bunny.svg/1200px-Bugs_Bunny.svg.png'},
-  {img:'https://upload.wikimedia.org/wikipedia/en/thumb/1/17/Bugs_Bunny.svg/1200px-Bugs_Bunny.svg.png'},
-  {img:'https://upload.wikimedia.org/wikipedia/en/thumb/1/17/Bugs_Bunny.svg/1200px-Bugs_Bunny.svg.png'},
-  {img:'https://upload.wikimedia.org/wikipedia/en/thumb/1/17/Bugs_Bunny.svg/1200px-Bugs_Bunny.svg.png'},
-
-
-]
-
-
-function App() {
-
+export default function App() {
   return (
-    <div className="App">
-        {boxes.map ((box, i) => <Box key={i} img={box.img}/>)}
+    <div className='app'>
+      <SearchAppBar />
+      <Container sx={{ marginY: 5 }}>
+        {cities.map((city) => (
+          <>
+            <Typography variant='h4' component='h2' marginTop={5} marginBottom={3}>
+              Top {city.name} Tours
+            </Typography>
+            <Grid container spacing={5}>
+              {city.tours.map((tour, index) => <TourCard tour={tour} key={index} />)}
+            </Grid>
+          </>
+        )
+        )}
+
+      </Container>
     </div>
   );
 }
 
-export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
