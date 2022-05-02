@@ -46,6 +46,8 @@ function handleAddCard(ev: any) {
             return <div className="card">
             <img src={`${card.img}`} />
             <p>{card.text}</p>
+            <button>Delete</button>
+            <button>Update</button>
       
       </div>;
           })}
