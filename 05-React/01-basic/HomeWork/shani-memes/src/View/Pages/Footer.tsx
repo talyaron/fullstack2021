@@ -1,19 +1,19 @@
-
 import React from "react";
 
-interface footerProps{
-  footerText:string
+interface footerProps {
+  footerText: string;
 }
 
-
-const Footer = (props:footerProps) => {
-  const {footerText}=props
+const Footer = (props: footerProps) => {
+  const { footerText } = props;
   return (
     <div className="footer">
-      <h3 className="footerText">{footerText}</h3>
+      <div className="ticker-move">
+        <div className="footerText">{footerText}</div>
+       
+      </div>
     </div>
-  )
-}
-
+  );
+};
 
 export default Footer;
