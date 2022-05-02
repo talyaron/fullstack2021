@@ -1,0 +1,510 @@
+@keyframes wiggle {
+  0% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(-10deg);
+  }
+}
+@keyframes weather {
+  from {
+    left: -70%;
+  }
+  to {
+    left: 200%;
+  }
+}
+@keyframes colorslide {
+  0% {
+    background-image: left;
+  }
+  100% {
+    background-position: right;
+  }
+}
+html {
+  height: 100%;
+}
+
+.body_schedule {
+  background-color: #f0f1f6;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 0.5em;
+}
+
+.cloud {
+  position: absolute;
+  left: -70%;
+  animation-name: weather;
+  animation-duration: 17s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  height: 150px;
+  min-width: 200px;
+}
+.cloud img {
+  height: 100%;
+  width: 100%;
+}
+
+.cloud2 {
+  position: absolute;
+  left: -70%;
+  animation-name: weather;
+  animation-duration: 17s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  height: 150px;
+  min-width: 200px;
+  top: 55px;
+  animation-delay: 4s;
+  animation-duration: 19s;
+}
+.cloud2 img {
+  height: 100%;
+  width: 100%;
+}
+
+.cloud3 {
+  position: absolute;
+  left: -70%;
+  animation-name: weather;
+  animation-duration: 17s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  height: 150px;
+  min-width: 200px;
+  top: 70px;
+  animation-delay: 9s;
+  animation-duration: 21s;
+}
+.cloud3 img {
+  height: 100%;
+  width: 100%;
+}
+
+.cloud4 {
+  position: absolute;
+  left: -70%;
+  animation-name: weather;
+  animation-duration: 17s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  height: 150px;
+  min-width: 200px;
+  top: 0px;
+  animation-delay: 11s;
+  animation-duration: 15s;
+}
+.cloud4 img {
+  height: 100%;
+  width: 100%;
+}
+
+.bigwrapper {
+  position: relative;
+  overflow-x: hidden;
+  margin-top: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 90vh;
+  border-radius: 20px;
+  padding: 0.7em;
+  font-family: "Neue Haas Grotesk Display Pro", sans-serif;
+  background-color: #f0f1f6;
+  box-shadow: 1px 1px 1px #a8a7a7, 1px 13px 26px rgba(99, 91, 105, 0.4);
+}
+
+.schetop {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  height: 4vh;
+  padding-inline: 0.5em;
+  color: #484545;
+}
+.schetop__back {
+  font-size: 27px;
+}
+.schetop__search {
+  font-size: 30px;
+}
+.schetop div:hover {
+  cursor: pointer;
+}
+
+.schetitle {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  height: 13vh;
+  z-index: 1;
+}
+.schetitle div {
+  height: 20%;
+  margin-bottom: 0.4em;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+}
+.schetitle h1,
+.schetitle h2,
+.schetitle p {
+  margin: 0px;
+}
+.schetitle p {
+  font-size: 20px;
+  color: #343333;
+}
+.schetitle h2,
+.schetitle h1 {
+  font-size: 30px;
+}
+
+.schedatebox {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  height: 7vh;
+  padding-inline: 0.5em;
+  z-index: 1;
+}
+.schedatebox div {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+}
+.schedatebox h3,
+.schedatebox p {
+  font-size: 22px;
+  margin: 0px;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+}
+.schedatebox p {
+  font-size: 17px;
+  color: #857a96;
+}
+
+.schecards {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  align-items: center;
+  align-items: flex-start;
+  border-radius: 5px;
+  height: 17vh;
+  overflow-x: scroll;
+}
+.schecards__card {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  min-width: 3.5em;
+  background: #D8CAE1;
+  margin-inline: 0.5em;
+  position: relative;
+  transition: 0.4s;
+  margin-top: 0.5em;
+  height: 60%;
+}
+.schecards__card div {
+  margin-top: 0.5em;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+}
+.schecards__card p {
+  width: 80%;
+  margin: 0px;
+  padding: 0px;
+  height: 100%;
+}
+.schecards__card .date p {
+  font-weight: 700;
+  font-size: 20px;
+}
+.schecards__card .day p {
+  font-weight: 200;
+}
+.schecards__card .bell {
+  color: white;
+  display: none;
+}
+.schecards__card .bell:active {
+  color: #fee592;
+}
+.schecards__card .bell:hover {
+  transform-origin: center top;
+  animation-name: wiggle;
+  animation-duration: 800ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+.schecards__card .circle {
+  width: 18px;
+  height: 18px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  background-color: #c93d3d;
+  border: 3px solid #ffffff;
+  border-radius: 50%;
+  position: absolute;
+  top: -15px;
+  right: -5px;
+  display: none;
+}
+.schecards__card:hover {
+  cursor: pointer;
+  height: 76%;
+  background-image: linear-gradient(145deg, #66529af1, #e052b5e3, #66529af1);
+  background-position: left;
+  background-size: 500%;
+  animation-name: colorslide;
+  animation-duration: 4s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  color: white;
+}
+.schecards__card:hover .bell {
+  display: block;
+}
+.schecards__card:hover .circle {
+  display: block;
+}
+
+.progress {
+  height: 12vh;
+  padding-inline: 0.5em;
+  margin: 0px;
+}
+.progress__title {
+  height: 30%;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  padding: 0px;
+}
+.progress__title p {
+  margin: 0px;
+  padding: 0px;
+}
+.progress__bar {
+  display: flex;
+  align-items: center;
+  background: #D8D5E0;
+  height: 20px;
+  border-radius: 25px;
+}
+.progress__bar__btn {
+  width: 30px;
+  height: 30px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  background-color: white;
+  border: 8px solid #464E85;
+  border-radius: 50px;
+  margin-left: -10px;
+}
+.progress__bar__pbar {
+  padding: 0px;
+  margin: 0px;
+  border-radius: 25px;
+  height: 100%;
+  width: 67%;
+  background-image: linear-gradient(to right, #66529af1, #e052b5e3, #66529af1);
+  background-position: left;
+  background-size: 500%;
+  animation-name: colorslide;
+  animation-duration: 4s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+.progress__mins {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0px;
+  margin-top: 0.7vh;
+  padding: 0px;
+}
+.progress__mins span {
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.image {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  align-items: flex-end;
+  height: 35%;
+  margin-bottom: -12px;
+}
+.image img {
+  width: auto;
+  height: 100%;
+}
+
+@media only screen and (max-width: 300px) {
+  .schetitle p {
+    font-size: 18px;
+  }
+  .schetitle h2,
+.schetitle h1 {
+    font-size: 25px;
+  }
+}
+@media only screen and (max-height: 600px) {
+  .schetitle p {
+    font-size: 18px;
+  }
+  .schetitle h2,
+.schetitle h1 {
+    font-size: 25px;
+  }
+
+  .schecards {
+    height: 18vh;
+  }
+}
+@media only screen and (min-width: 900px) {
+  .body_schedule {
+    align-items: center;
+  }
+
+  .schetitle div {
+    margin-block: 10px;
+  }
+  .schetitle p {
+    font-size: 25px;
+  }
+  .schetitle h2,
+.schetitle h1 {
+    font-size: 35px;
+  }
+
+  .bigwrapper {
+    width: 850px;
+  }
+
+  .schetop {
+    height: 40px;
+  }
+
+  .schetitle {
+    justify-content: space-around;
+    height: 100px;
+  }
+  .schetitle div {
+    margin-block: 10px;
+  }
+  .schetitle p {
+    font-size: 25px;
+    color: #343333;
+  }
+  .schetitle h2,
+.schetitle h1 {
+    font-size: 35px;
+  }
+
+  .schedatebox {
+    height: 70px;
+  }
+  .schedatebox h3,
+.schedatebox p {
+    font-size: 30px;
+  }
+  .schedatebox p {
+    font-size: 25px;
+    color: #857a96;
+  }
+
+  .progress {
+    margin-top: 10px;
+    height: 120px;
+    margin-bottom: -40px;
+  }
+
+  .schecards {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 300px;
+  }
+  .schecards__card {
+    height: 30%;
+    justify-content: space-around;
+  }
+  .schecards__card div {
+    margin-top: 0px;
+  }
+  .schecards__card:hover {
+    justify-content: space-around;
+    height: 30%;
+  }
+  .schecards__card .circle {
+    top: -7px;
+  }
+}
+@media only screen and (min-width: 900px) and (max-height: 601px) {
+  .schedatebox {
+    height: 20px;
+  }
+
+  .schetitle {
+    height: 50px;
+  }
+  .schetitle p {
+    font-size: 17px;
+  }
+  .schetitle h2 {
+    font-size: 22px;
+  }
+  .schetitle h1 {
+    font-size: 22px;
+  }
+
+  .progress {
+    margin-top: 0px;
+    height: 11vh;
+  }
+  .progress__title {
+    font-size: 22px;
+  }
+
+  .schecards__cards {
+    height: 28%;
+  }
+  .schecards__cards:hover {
+    height: 83%;
+  }
+
+  .image img {
+    height: 93%;
+  }
+}
