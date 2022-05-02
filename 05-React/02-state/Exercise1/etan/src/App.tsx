@@ -15,13 +15,30 @@ function App() {
     return Date.now().toString(36) + Math.random().toString(36).substring(2);
   }
 
-function handleAddCard(ev: any) {
+  function handleAddCard(ev: any) {
     ev.preventDefault();
     const text = ev.target.elements.text.value;
     const img = ev.target.elements.img.value;
     const id = uniqueId();
     const card = { img, text, id };
     setCards([...cards, card]);
+  }
+  function handleDelete(id: string) {
+    let arr = cards.filter((card) => card.id !== id);
+    setCards([...arr]);
+  }
+  function handleUpdate(ev:any){
+console.log(ev.target.previousElementSibling.value);
+
+    cards.forEach((card) =>{
+      // if(card.id === id) {
+
+      // }
+    })
+  }
+  function handleCurrent(ev:any){
+    console.log(ev.target);
+    
   }
   return (
     <div className="App">
@@ -43,13 +60,36 @@ function handleAddCard(ev: any) {
         </form>
         <div className="grid">
           {cards.map((card, i) => {
-            return <div className="card">
-            <img src={`${card.img}`} />
-            <p>{card.text}</p>
-            <button>Delete</button>
-            <button>Update</button>
-      
-      </div>;
+            return (
+              <div key={i} className="card">
+                <img src={`${card.img}`} />
+                <p>{card.text}</p>
+                <button
+                  onClick={(id) => {
+                    handleDelete(card.id);
+                  }}
+                >
+                  Delete
+                </button>
+                <input
+                type="text"  placeholder={card.text} value={card.text} onChange={(ev) => {handleCurrent(ev)}}/>
+                <input
+                type="submit" value="Update image title"
+                  onClick={(ev) => {
+                    handleUpdate(ev);
+                  }}
+                />
+                <input
+                type="text" placeholder={card.img}/>
+                <input
+                type="submit" value="Update image source"
+                  onClick={(ev) => {
+                    handleUpdate(ev);
+                  }}
+                />
+                  
+              </div>
+            );
           })}
         </div>
       </header>
