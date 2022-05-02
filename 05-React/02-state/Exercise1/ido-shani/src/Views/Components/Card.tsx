@@ -7,11 +7,13 @@ interface cardProps{
 
  const Card = (props:cardProps) => {
      const {imgUrl,imgName}=props
+     
   return (
     <div className="card">
      
-     <img src={imgUrl}></img>
+     <img src={imgUrl} alt=""/>
      <h2>{imgName}</h2>
+     
 
     </div>
   )
