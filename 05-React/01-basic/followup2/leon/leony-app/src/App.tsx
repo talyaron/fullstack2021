@@ -4,6 +4,7 @@ import Footer from './view/components/Footer';
 import Box from './view/components/Box';
 import './styles/global.scss';
 import { text } from 'stream/consumers';
+import Header from './view/components/Header';
 interface BoxProps {
   text: String;
   title: String;
@@ -11,33 +12,24 @@ interface BoxProps {
 }
 const boxes = [
 
-  { title: 'Manchester', text: 'United', img: <img src="https://imgresizer.eurosport.com/unsafe/1200x0/filters:format(jpeg):focal(1025x302:1027x300)/origin-imgresizer.eurosport.com/2021/09/17/3221931-65955888-2560-1440.jpg" alt="" />  },
-  { title: 'Manchester', text: 'United', img: <img src="https://imgresizer.eurosport.com/unsafe/1200x0/filters:format(jpeg):focal(1025x302:1027x300)/origin-imgresizer.eurosport.com/2021/09/17/3221931-65955888-2560-1440.jpg" alt="" />  },
-  { title:'Manchester', text: 'United', img: <img src="https://imgresizer.eurosport.com/unsafe/1200x0/filters:format(jpeg):focal(1025x302:1027x300)/origin-imgresizer.eurosport.com/2021/09/17/3221931-65955888-2560-1440.jpg" alt="" />  },
-  { title:'Manchester', text: 'United', img: <img src="https://imgresizer.eurosport.com/unsafe/1200x0/filters:format(jpeg):focal(1025x302:1027x300)/origin-imgresizer.eurosport.com/2021/09/17/3221931-65955888-2560-1440.jpg" alt="" />  },
-  { title:'Manchester', text: 'United', img: <img src="https://imgresizer.eurosport.com/unsafe/1200x0/filters:format(jpeg):focal(1025x302:1027x300)/origin-imgresizer.eurosport.com/2021/09/17/3221931-65955888-2560-1440.jpg" alt="" />  },
-  { title:'Manchester', text: 'United', img: <img src="https://imgresizer.eurosport.com/unsafe/1200x0/filters:format(jpeg):focal(1025x302:1027x300)/origin-imgresizer.eurosport.com/2021/09/17/3221931-65955888-2560-1440.jpg" alt="" />  },
-  { title:'Manchester', text: 'United', img: <img src="https://imgresizer.eurosport.com/unsafe/1200x0/filters:format(jpeg):focal(1025x302:1027x300)/origin-imgresizer.eurosport.com/2021/09/17/3221931-65955888-2560-1440.jpg" alt="" />  },
-  { title:'Manchester', text: 'United', img: <img src="https://imgresizer.eurosport.com/unsafe/1200x0/filters:format(jpeg):focal(1025x302:1027x300)/origin-imgresizer.eurosport.com/2021/09/17/3221931-65955888-2560-1440.jpg" alt="" />  },
-  { title:'Manchester', text: 'United', img: <img src="https://imgresizer.eurosport.com/unsafe/1200x0/filters:format(jpeg):focal(1025x302:1027x300)/origin-imgresizer.eurosport.com/2021/09/17/3221931-65955888-2560-1440.jpg" alt="" />  },
-  { title:'Manchester', text: 'United', img: <img src="https://imgresizer.eurosport.com/unsafe/1200x0/filters:format(jpeg):focal(1025x302:1027x300)/origin-imgresizer.eurosport.com/2021/09/17/3221931-65955888-2560-1440.jpg" alt="" />  },
+  { title: 'Manchester', text: 'United', img: <img src="https://imgresizer.eurosport.com/unsafe/1200x0/filters:format(jpeg):focal(1025x302:1027x300)/origin-imgresizer.eurosport.com/2021/09/17/3221931-65955888-2560-1440.jpg" alt="" /> },
+  { title: 'Manchester', text: 'United', img: <img src="https://imgresizer.eurosport.com/unsafe/1200x0/filters:format(jpeg):focal(1025x302:1027x300)/origin-imgresizer.eurosport.com/2021/09/17/3221931-65955888-2560-1440.jpg" alt="" /> },
+  { title: 'Manchester', text: 'United', img: <img src="https://imgresizer.eurosport.com/unsafe/1200x0/filters:format(jpeg):focal(1025x302:1027x300)/origin-imgresizer.eurosport.com/2021/09/17/3221931-65955888-2560-1440.jpg" alt="" /> },
+  { title: 'Manchester', text: 'United', img: <img src="https://imgresizer.eurosport.com/unsafe/1200x0/filters:format(jpeg):focal(1025x302:1027x300)/origin-imgresizer.eurosport.com/2021/09/17/3221931-65955888-2560-1440.jpg" alt="" /> },
+  { title: 'Manchester', text: 'United', img: <img src="https://imgresizer.eurosport.com/unsafe/1200x0/filters:format(jpeg):focal(1025x302:1027x300)/origin-imgresizer.eurosport.com/2021/09/17/3221931-65955888-2560-1440.jpg" alt="" /> },
+  { title: 'Manchester', text: 'United', img: <img src="https://imgresizer.eurosport.com/unsafe/1200x0/filters:format(jpeg):focal(1025x302:1027x300)/origin-imgresizer.eurosport.com/2021/09/17/3221931-65955888-2560-1440.jpg" alt="" /> },
+  { title: 'Manchester', text: 'United', img: <img src="https://imgresizer.eurosport.com/unsafe/1200x0/filters:format(jpeg):focal(1025x302:1027x300)/origin-imgresizer.eurosport.com/2021/09/17/3221931-65955888-2560-1440.jpg" alt="" /> },
+  { title: 'Manchester', text: 'United', img: <img src="https://imgresizer.eurosport.com/unsafe/1200x0/filters:format(jpeg):focal(1025x302:1027x300)/origin-imgresizer.eurosport.com/2021/09/17/3221931-65955888-2560-1440.jpg" alt="" /> },
+  { title: 'Manchester', text: 'United', img: <img src="https://imgresizer.eurosport.com/unsafe/1200x0/filters:format(jpeg):focal(1025x302:1027x300)/origin-imgresizer.eurosport.com/2021/09/17/3221931-65955888-2560-1440.jpg" alt="" /> },
 ]
 
 function App() {
-  
-
-  
   return (
     <div className="App">
-<div className="footer">
-<Footer text='HJVHVH'/>
-
-
-</div>
-      
-      {boxes.map((box, i) => { return <Box key={i} img={box.img} text={box.text} title={box.title} /> })}
+      <div className="header"><Header text='WELCOME'/></div>
+      <div className="main"> {boxes.map((box, i) => { return <Box key={i} img={box.img} text={box.text} title={box.title} /> })}</div>
+     <div className="footer"><Footer text='Bye Bye!'/></div>
     </div>
   );
 }
-
 export default App;
