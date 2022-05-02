@@ -14,8 +14,7 @@ goldEdition?:any;
 bundleEdition?:any;
 frontImg?:string;
 backImg?:string;
-}
-
+};
 
 let games:Array<game>=[
     {name:"Dread Hunger",id:1, standardEdition:110.95,frontImg:"https://cdn.akamai.steamstatic.com/steam/apps/1418630/header.jpg?t=1646709871",backImg:"https://cdn.akamai.steamstatic.com/steam/apps/1418630/extras/N0PNEWK_-_Imgur.gif?t=1646709871"},

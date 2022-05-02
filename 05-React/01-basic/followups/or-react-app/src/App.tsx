@@ -1,14 +1,14 @@
 import React from 'react';
 import logo from './logo.svg';
-import './App.css';
-import Or from './Or';
+import './view/styles/global.scss';
+import './view/components/OrWrapper'
+import OrWrapper from './view/components/OrWrapper';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-      <Or />
-
+        <OrWrapper />
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.

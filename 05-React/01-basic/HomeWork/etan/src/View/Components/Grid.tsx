@@ -15,9 +15,10 @@ const gags: Array<GagProps> = [
     imgSrc: "https://i.ibb.co/bb7mLyM/IMG-4371.jpg",
     description: "Billboards looking for workers",
   },
-  { title: "Code debugging", imgSrc: "https://im.ezgif.com/tmp/ezgif-1-345df9e273.gif", description: "stackoverflow meme" },
+  { title: "Code debugging", imgSrc: "https://c.tenor.com/RQ4eycoIn5sAAAAC/debugging-we-bare-bears.gif", description: "stackoverflow meme" },
   { title: "Sometimes people just relate.", imgSrc: "https://i.ibb.co/BBJ3vD7/same-question.webp", description: "stackoverflow meme" },
   { title: "When react doesn't refresh automatically", imgSrc: "https://i.ibb.co/jgWBVxv/blind-in-coding.jpg", description: "Blindfolded woman" },
+  { title: "React components make everything easier", imgSrc: "https://i.ibb.co/GF8LtLK/getacomponent.jpg", description: "Opra handing out components to everybody!" },
 ];
 
 function Grid() {

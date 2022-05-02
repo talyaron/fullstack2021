@@ -4,9 +4,12 @@
       width:25vw;
       height:50vh;
       transition: transform .2s;
+      border-radius: 5px;
+     
       &:hover{
-        transform: scale(1.5); 
-        padding-bottom:50px;
+        transform: scale(1.4); 
+        
+        
       }
   }
   .topic{

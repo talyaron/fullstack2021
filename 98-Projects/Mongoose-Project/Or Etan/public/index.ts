@@ -62,15 +62,10 @@ async function handleLogin(ev) {
         if (ok) {
 
           window.location.href = `/home.html?id=${verifiedUserId}`;
-<<<<<<< HEAD
-        } else if (userExists < 0) {
-          console.log("1");
-=======
-        } 
+        }
           
           return
->>>>>>> main
-        }
+        
       
   } catch (error) {
     console.log("error in handleLogin:");
@@ -91,11 +86,8 @@ async function handleRenderHome(ev) {
   const lowTasks = document.querySelector("[data-low]");
   const mediumTasks = document.querySelector("[data-medium]");
   const highTasks = document.querySelector("[data-high]");
-<<<<<<< HEAD
   getUsersTasks(userId);
-}
 
-=======
 
   const arr = await Promise.all([handleGetUrgencies(userId)]);
   const low = arr[0][0];
@@ -123,7 +115,7 @@ async function handleRenderRecentlyCreated(ev) {
   const currentPage = ev.target.title.split(" ").join("");
   let userId = ev.target.location.search.replace(/.*?id=/g, "");
   const { data } = await axios.get(`users/logged-in-user?userId=${userId}`);
-  getUsersTasks(userId, currentPage);
+  getUsersTasks(userId);
 }
 
 async function handleRenderSettings(ev) {
@@ -237,15 +229,9 @@ async function handlePasswordCheck(password, userId) {
     return true;
   } else return false;
 }
->>>>>>> main
 async function handlePageChange(ev) {
   const userURL = ev.target.baseURI;
   const requestedPage = ev.target.outerText.split(" ").join("");
-<<<<<<< HEAD
-  try {
-    const { data } = await axios
-      .post(`/users/nav`, { userURL, requestedPage })
-=======
 
 
   try {
@@ -282,11 +268,10 @@ async function handlePageChange(ev) {
         userURL,
         requestedPage,
       })
->>>>>>> main
       .then((response) => {
         const { newURL } = response.data;
         window.location.href = newURL;
-      });
+      });}
   } catch (error) {
     console.log("error in handleRenderPage:");
     console.log(error.message);
@@ -306,44 +291,17 @@ async function getUsersTasks(userId) {
   try {
     const { data } = await axios.get(`tasks/getTasks?ownerId=${userId}`);
     const currentUsersTasks = data;
-<<<<<<< HEAD
-    renderTasks(currentUsersTasks);
-=======
     console.log(currentUsersTasks);
 
     
     
     renderTasks(currentUsersTasks, currentPage);
->>>>>>> main
   } catch (error) {
     console.log("error in getUsersTasks:");
     console.log(error.message);
     // }
   }
 }
-<<<<<<< HEAD
-async function renderTasks(currentUsersTasks) {
-  console.log(currentUsersTasks);
-  let html = "";
-  const tasksBoxes = document.querySelector("[data-box-root]")
-  const tasksCount = document.querySelector("[data-task-count]")
-  currentUsersTasks.forEach((task) => {
-    html += `
-  <div class="box ${task.urgency}">
-                        <div id="box__flex">
-                            <div class="box__header">
-                                <div class="box__title">
-                                    <p class="box__title-text box__title-home-text">${task.title}</p>
-                                </div>
-                            </div>
-                            <div class="box__expln box__expln-home">
-                                <div class="flex-date">
-                                    <i class="material-icons">schedule</i>
-                                    <p>${task.date}</p>
-                                </div>
-                            </div>
-                            <h4>${task.urgency} priority</h4>
-=======
 
 async function renderTasks(currentUsersTasks, currentPage) {
   sortTasksByDate(currentUsersTasks);
@@ -476,7 +434,6 @@ async function renderTasks(currentUsersTasks, currentPage) {
                         </div>
                         <div class="task-time">
                             <input type="date" name="date" id="date" value="${nextTask.date}">
->>>>>>> main
                         </div>
                     </div>`;
   });
@@ -497,8 +454,6 @@ function addGlobalEventListener(
     options
   );
 }
-<<<<<<< HEAD
-=======
 
 function sortTasksByDate(tasks) {
   tasks.forEach((task) => {
@@ -711,5 +666,6 @@ async function renderTaskModal(ev) {
     console.log(error.message);
     console.log(error);
   }
+
 }
->>>>>>> main
+  

@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './View/styles/global.scss';
 
 import Box from './View/Components/Box';
+
 interface BoxProps {
   text:string;
   title:string;
