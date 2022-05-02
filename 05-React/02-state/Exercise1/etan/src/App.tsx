@@ -1,39 +1,38 @@
 import React, { useState } from "react";
-import logo from "./logo.svg";
+
 import "./View/styles/global.scss";
 import Card from "./View/Components/Card";
 
-// import romiYair from "./View/images/romiYair.jpeg";
-import training from "./View/images/training.jpeg";
-import vegasTrip from "./View/images/vegasTrip.jpeg";
-
 interface CardsProps {
-  imgSrc?: string;
-  text?: string;
+  img: string;
+  text: string;
+  id: string;
 }
 
-let cards:Array<CardsProps> = [
- 
-];
 function App() {
-  const [img, setImg] = useState();
-  const [text, setText] = useState();
+  const [cards, setCards] = useState<Array<CardsProps>>([]);
+  function uniqueId() {
+    return Date.now().toString(36) + Math.random().toString(36).substring(2);
+  }
 
-  function handleAddCard(ev: any) {
+function handleAddCard(ev: any) {
     ev.preventDefault();
-
-    
-setImg(ev.target.elements.img.value);
-setText(ev.target.elements.text.value);
+    const text = ev.target.elements.text.value;
+    const img = ev.target.elements.img.value;
+    const id = uniqueId();
+    const card = { img, text, id };
+    setCards([...cards, card]);
   }
   return (
     <div className="App">
       <header className="App-header">
-        <div className="grid">
-          {/* {cards.map((card, i) => {return <Card key={i} imgSrc={card.imgSrc} text={card.text}/>})} */}
-        </div>
         <form onSubmit={handleAddCard}>
-          <input type="file" name="img" id="img" />
+          <input
+            type="text"
+            name="img"
+            id="img"
+            placeholder="Input an image source"
+          />
           <input
             type="text"
             name="text"
@@ -41,8 +40,18 @@ setText(ev.target.elements.text.value);
             placeholder="Write an img title"
           />
           <input type="submit" value="Submit a new card" />
-          <Card imgSrc={img} text={text}/>
         </form>
+        <div className="grid">
+          {cards.map((card, i) => {
+            return <div className="card">
+            <img src={`${card.img}`} />
+            <p>{card.text}</p>
+            <button>Delete</button>
+            <button>Update</button>
+      
+      </div>;
+          })}
+        </div>
       </header>
     </div>
   );
