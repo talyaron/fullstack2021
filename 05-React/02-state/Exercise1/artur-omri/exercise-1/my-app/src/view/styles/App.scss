@@ -1,0 +1,19 @@
+.App {  
+margin-left: auto ;  
+margin-right: auto;
+display: flex;
+align-items: center;
+justify-content: center;
+&photo{
+  display: flex;
+}
+&text{
+  display: flex;
+}
+}
+p{
+  padding:10px;
+}
+img{
+  padding: 10px;
+}
