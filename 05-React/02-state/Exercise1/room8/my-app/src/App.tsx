@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+
 interface Img {
   text: string;
   img: string;
@@ -39,7 +40,7 @@ function App() {
         <img height='200px' width='200px' src={image} />
         <input type="submit" value="Add Image" />
       </form>
-      {boxes.map((box,i)=>{return <Box key={i} img={box.img} author={box.author} text={box.text}/> })}
+      {arr.map((box,i)=>{return <div key={i} img={box.img} text={box.text}/> })}
 
     </div>
   );
