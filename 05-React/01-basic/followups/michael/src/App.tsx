@@ -1,30 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+
+//css
+import './styles/dist/App.css';
+import './styles/dist/Buttons.css'
+import './styles/dist/TodoList.css'
 
 //components
-import Box from './Boxx'
+import Buttons from './Buttons';
+import TodoList from './TodoList'
 
 function App() {
+  const [todos, setTodos] = useState(['todo1', 'todo2'])
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Michael Frankel   
-        </p>
-        <Box text="hi" />
-        <Box text="Bi" />
 
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header className="App-header">
+
+        <Buttons text="Zero" />
+        <TodoList todos={todos} />
+
+
+
       </header>
+
     </div>
   );
 }
