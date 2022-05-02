@@ -89,7 +89,7 @@ export const renderPage = async (req, res) => {
 
 
 
-  const newURL = `/${requestedPage}.html?id=${userId}`;
+
   let { firstName, lastName, gender, role, email, password} = currentUser[0];
   if (requestedPage === "home") {
     try {
@@ -143,8 +143,6 @@ export const renderPage = async (req, res) => {
     }
     return;
   }
-<<<<<<< HEAD
-=======
 
   if (requestedPage === "RecentlyCreated") {
     try {
@@ -219,5 +217,4 @@ export const updateUser = async (req, res) => {
     console.log(error.message);
     res.send({ error: error.message });
   }
->>>>>>> main
 };

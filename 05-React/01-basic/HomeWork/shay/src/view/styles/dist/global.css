@@ -1,0 +1,70 @@
+.App .contaner {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.App .contaner div {
+  border: 1px solid #fdcece;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 20px;
+}
+.App .contaner div img {
+  width: 100%;
+  height: 100%;
+}
+.App .contaner div h2 {
+  color: #61dafb;
+}
+.App .contaner div .text {
+  color: #b661fb;
+  font-size: 20px;
+}
+.App .contaner div .price {
+  color: #f75858;
+  font-weight: bold;
+  font-size: 18px;
+}
+.App .contaner div .shipping {
+  font-size: 16px;
+  color: #33a3ff;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
