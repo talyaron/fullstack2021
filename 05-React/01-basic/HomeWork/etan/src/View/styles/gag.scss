@@ -3,21 +3,26 @@
   border-radius: 2%;
   padding: 0;
   margin: 0;
+  height: fit-content;
   overflow: hidden;
   transition: all 0.2s ease-in-out;
+
+
   img {
     max-width: 20vw;
     max-height: 30vh;
     transition: all 0.2s ease-in-out;
-    // &:hover{
-    //     transform:  scale(1.1) ;
-    // }
+    &:hover{
+        transform: translate(0, -10%) scale(1.3) ;
+    }
   }
   &:hover {
+    *{background:none;}
     top: 50%;
     left: 50%;
-    transform:  scale(2.5);
-    place-self: center;
+    transform:  scale(1.9);
+    @include reverse-color-scheme($scheme-complex-gradient...);
+
 
   }
   p {

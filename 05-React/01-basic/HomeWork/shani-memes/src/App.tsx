@@ -20,7 +20,7 @@ function App() {
 
         <Container/>
 
-        <Footer footerText="<Footer footerText='No more memes to see here... go back to coding '/>"/>
+        <Footer footerText="<Footer footerText='No more memes to see here...get back to coding '/>"/>
       </header>
     </div>
   );
