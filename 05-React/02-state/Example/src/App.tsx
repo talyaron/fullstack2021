@@ -18,7 +18,7 @@ function App() {
     console.log('counter:',counter);
     
   }
-
+  
   function handleText(ev:any){
     setText(ev.target.value);
   }
