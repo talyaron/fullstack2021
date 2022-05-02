@@ -6,7 +6,8 @@
     "init": "^0.1.2",
     "mongoose": "^6.2.9",
     "nodemon": "^2.0.15",
-    "sass": "^1.51.0"
+    "sass": "^1.51.0",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@types/express": "^4.17.1",

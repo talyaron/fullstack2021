@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  margin:10vh auto;
 }
 
 .App-logo {
@@ -35,4 +36,12 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.imageCards{
+  display:flex;
+  flex-direction: row;
+  width:100%;
+  margin:20vh auto;
+  height:10vh;
 }
