@@ -8,7 +8,7 @@ interface CardsProps {
   id: String;
 }
 
-function uid (){
+function uid() {
   return Date.now().toString(36) + Math.random().toString(36).substring(2)
 }
 
@@ -19,13 +19,7 @@ function App() {
   // const [text, setText] = useState<String>('')
 
   //2
-  const [arr, setArr] = useState<Array<CardsProps>>([])
-
-  //3 Delete
-  function handleDelete(){
-
-  }
-  
+  let [arr, setArr] = useState<Array<CardsProps>>([])
 
 
   function handleOnSubmit(ev: any) {
@@ -40,12 +34,41 @@ function App() {
 
     //2
     const newObject = { url, text, id: uid() }
-    console.log(newObject);
-    
     setArr([...arr, newObject])
 
     ev.target.reset()
 
+  }
+
+  //3 Delete
+  function handleDelete(ev: any) {
+
+    const id = ev.target.id;
+    arr = arr.filter(item => item.id !== id)
+    setArr([...arr])
+
+  }
+
+  //3 Update
+  function handleUpdate(ev: any) {
+
+    ev.preventDefault();
+
+    const id = ev.target.id;
+    let {url, text} = ev.target.elements;
+    url = url.value; text = text.value;
+
+
+
+    const index = arr.findIndex(item => item.id === id )
+    arr[index].url = url; 
+    arr[index].text = text;
+
+    setArr([...arr])
+
+
+    ev.target.reset()
+    
   }
 
   return (
@@ -53,16 +76,35 @@ function App() {
       <header className="App-header">
 
         <form onSubmit={handleOnSubmit}>
-          <input type="url" name="url" placeholder='url' />
-          <input type="text" name="text" placeholder='text' />
-          <input type="submit" name="submit" value="Submit" />
+          <input type="url" name="url" placeholder='url' required />
+          <input type="text" name="text" placeholder='text' required />
+          <input type="submit" name="submit" value="Submit" required />
         </form>
 
         {/* 1 */}
         {/* <Card img={`${url}`} text={`${text}`} /> */}
 
         <div className="container">
-          {arr.map((item, i)=> {return <Card key={i} img={item.url} text={item.text} id={item.id} />})}
+
+          {arr.map((item, i) => {
+            return (
+              <div key={i} className="wrapper">
+                <Card img={item.url} text={item.text} />
+
+                {/* 3 Delete */}
+                <button id={`${item.id}`} onClick={handleDelete}>Delete</button>
+
+                {/* 3 Update */}
+                <form id={`${item.id}`} onSubmit={handleUpdate}>
+                  <input type="url" name="url" placeholder='Other url' required />
+                  <input type="text" name="text" placeholder="Other Text" required />
+                  <input type="submit" name="submit" value="Update" required />
+                </form>
+
+              </div>
+            )
+
+          })}
         </div>
 
       </header>

@@ -1,12 +1,11 @@
 interface CardProps {
     img: String;
     text: String;
-    id: String;
 }
 
 
 const Card = (props: CardProps) => {
-    const { img, text, id } = props;
+    const { img, text } = props;
 
     return (
         <div className="card">
@@ -14,7 +13,6 @@ const Card = (props: CardProps) => {
                 src={`${img}`}
             />
             <p>{text}</p>
-            <button  id={`${id}`}></button>
         </div>
     )
 }
