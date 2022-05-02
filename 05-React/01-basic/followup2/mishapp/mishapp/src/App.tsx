@@ -1,31 +1,28 @@
-
-import Box from './view/components/Box';
-
+// import * as React from 'react';
 import './view/styles/global.scss';
-
-interface BoxProps {
-  img: string;
-}
-
-const boxes: Array<BoxProps> = [
-
-  {img:'https://upload.wikimedia.org/wikipedia/en/thumb/1/17/Bugs_Bunny.svg/1200px-Bugs_Bunny.svg.png'},
-  {img:'https://upload.wikimedia.org/wikipedia/en/thumb/1/17/Bugs_Bunny.svg/1200px-Bugs_Bunny.svg.png'},
-  {img:'https://upload.wikimedia.org/wikipedia/en/thumb/1/17/Bugs_Bunny.svg/1200px-Bugs_Bunny.svg.png'},
-  {img:'https://upload.wikimedia.org/wikipedia/en/thumb/1/17/Bugs_Bunny.svg/1200px-Bugs_Bunny.svg.png'},
-  {img:'https://upload.wikimedia.org/wikipedia/en/thumb/1/17/Bugs_Bunny.svg/1200px-Bugs_Bunny.svg.png'},
+import Home from './view/pages/home'
 
 
-]
 
-
-function App() {
-
+export default function App() {
   return (
-    <div className="App">
-        {boxes.map ((box, i) => <Box key={i} img={box.img}/>)}
+    <div className='app'>
+      <Home />
     </div>
   );
 }
 
-export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+

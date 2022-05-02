@@ -1,0 +1,36 @@
+.scene{
+    .wrapper{
+        position: relative;
+        .front{
+            backface-visibility: hidden;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            box-shadow: 4px 4px 5px 2px black;
+            border: 4px solid #AAA;
+            border-radius: 20px;
+            
+        }
+        .back{
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            transform: rotateY(180deg);
+            backface-visibility: hidden;
+            border: 4px solid #AAA;
+            border-radius: 20px;
+            box-shadow: 4px 4px 5px 2px black;
+            border: 4px solid #AAA;
+            border-radius: 20px;
+        }
+        width: 200px;
+        height: 300px;
+        margin-block: 80px;
+        transform-style: preserve-3d;
+        transition: ease 400ms;
+        &:hover{
+            transform: rotateY(180deg);
+        }
+    }
+    perspective: 400px;
+}
