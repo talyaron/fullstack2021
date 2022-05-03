@@ -36,26 +36,15 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.handleSign = exports.handleReg = exports.handleAddUser = exports.handleGetUsers = void 0;
+exports.handleSign = exports.handleReg = exports.handleAddUser = void 0;
 var userModel_1 = require("../models/userModel");
-var jwt_simple_1 = require("jwt-simple");
 var secret = process.env.JWT_SECRET; // 24/4/2022
-exports.handleGetUsers = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var name, userInfo, users;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                name = req.query;
-                userInfo = req.cookies //deconstractor // it's also important to add securety 
-                .userInfo;
-                return [4 /*yield*/, userModel_1.User.find({})];
-            case 1:
-                users = _a.sent();
-                res.send({ users: users, name: name });
-                return [2 /*return*/];
-        }
-    });
-}); };
+// export const handleGetUsers = async (req, res) => {
+//   let name = req.query;
+//   const { userInfo } = req.cookies//deconstractor // it's also important to add securety /24/4/2022
+//   const users = await User.find({});
+//   res.send({ users, name , userInfo })
+// }
 exports.handleAddUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var _a, username, password, newUser, result, error_1;
     return __generator(this, function (_b) {
@@ -81,7 +70,7 @@ exports.handleAddUser = function (req, res) { return __awaiter(void 0, void 0, v
     });
 }); };
 exports.handleReg = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, username, password, user, users, payload, token, error_2;
+    var _a, username, password, user, users, payload, error_2;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
@@ -101,8 +90,8 @@ exports.handleReg = function (req, res) { return __awaiter(void 0, void 0, void 
             case 3:
                 _b.sent();
                 payload = users;
-                token = jwt_simple_1["default"].encode(payload, secret);
-                res.cookie('userInfo ', token, { maxAge: 800000, httpOnly: true });
+                // const token = jwt.encode(payload, secret)
+                res.cookie('userInfo ', users, { maxAge: 800000, httpOnly: true });
                 res.send({ users: users, ok: true });
                 return [2 /*return*/];
             case 4: return [3 /*break*/, 6];
@@ -117,7 +106,7 @@ exports.handleReg = function (req, res) { return __awaiter(void 0, void 0, void 
     });
 }); };
 exports.handleSign = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, username, password, user, payload, token, error_3;
+    var _a, username, password, user, error_3;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
@@ -135,10 +124,10 @@ exports.handleSign = function (req, res) { return __awaiter(void 0, void 0, void
                 //and he will return the "ALL" "object" 
                 if (user) {
                     if (user.password === password) {
-                        payload = { user: user };
-                        token = jwt_simple_1["default"].encode(payload, secret) //24/4/2022 // we encode our code "hide"
-                        ;
-                        res.cookie('userInfo', token, { maxAge: 70000000, httpOnly: true }); //24/4/2022 
+                        // const payload = { user };//24/4/2022 
+                        //24/4/2022 //only with them we can change in the JWT
+                        //  const token = jwt.encode(payload, secret)//24/4/2022 // we encode our code "hide"
+                        res.cookie('userInfo', user, { maxAge: 70000000, httpOnly: true }); //24/4/2022 
                         res.send({ ok: true, user: user });
                         return [2 /*return*/];
                     }
