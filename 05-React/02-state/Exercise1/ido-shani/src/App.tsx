@@ -68,24 +68,22 @@ function App() {
 
   return (
     <div className="App">
-      <form onSubmit={handleCreatCard}>
-        <input type="text" name="imgUrl" required/>
-        <input type="text" name="imgName" required/>
+      <form className="App_form" onSubmit={handleCreatCard}>
+        <input type="text" name="imgUrl" required placeholder="enter url"/>
+        <input type="text" name="imgName" required placeholder="enter image name.."/>
         <button type="submit">Submit</button>
       </form>
 
-      <div className="imageCards">
+      <div className="App_imageCards">
         {set.map((card, i) => (
-          <div key={i} className="imageCards__card">
+          <div key={i} className="App_imageCards__card">
             <img src={card.imgUrl} alt="" />
-            <h2>{card.imgName}</h2>
+            <h2 className="App_imageCards__card-name">Name : {card.imgName}</h2>
             <button type="button" id={card.id} onClick={handleDeleteCard} >delete</button>
 
             
-            <input type="text" name="updateName" id={card.id} onChange={handleUpdateCard}/>
+            <input type="text" name="updateName" id={card.id} onChange={handleUpdateCard} placeholder="change image name"/>
             
-            
-           
           </div>
         ))}
       </div>
