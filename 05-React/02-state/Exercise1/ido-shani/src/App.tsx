@@ -29,11 +29,13 @@ function App() {
     const imgUrl = ev.target.elements.imgUrl.value;
     const imgName = ev.target.elements.imgName.value;
     const id=uid()
-
-    setMyArray([...set, { imgUrl, imgName, id}]);
+     if(set.length<8){
+      setMyArray([...set, { imgUrl, imgName, id}]);
+     }
+    
 
     console.log(set);
-    ev.target.reset()
+    // ev.target.reset()
   }
 
   function handleDeleteCard(ev:any){
@@ -74,7 +76,7 @@ function App() {
 
       <div className="imageCards">
         {set.map((card, i) => (
-          <div key={i} className="card">
+          <div key={i} className="imageCards__card">
             <img src={card.imgUrl} alt="" />
             <h2>{card.imgName}</h2>
             <button type="button" id={card.id} onClick={handleDeleteCard} >delete</button>
