@@ -1,0 +1,14 @@
+@import 'head';
+@import 'foot';
+@import 'wrapper';
+@import 'grid';
+@import 'gag';
+@import 'Eeggs';
+@import 'app';
+
+*{
+    font-size: clamp(1em, 2.5vw, 2em); 
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+}

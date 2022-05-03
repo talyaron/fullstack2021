@@ -1,0 +1,969 @@
+@mixin backgroundsettings {
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center center;
+}
+
+
+@keyframes arrowdown {
+
+    from {
+        top: -18px;
+    }
+
+    to {
+        top: 10px;
+    }
+
+}
+
+@keyframes backgroundphotos {
+
+    0% {
+        background: url(http://www.fusushi.co.il/warehouse/dynamic/50913.jpg);
+        @include backgroundsettings;
+    }
+
+    33% {
+        background: url(http://www.fusushi.co.il/warehouse/dynamic/50916.jpg);
+        @include backgroundsettings;
+    }
+
+    66% {
+        background: url(http://en.fusushi.co.il/warehouse/dynamic/55243.jpg);
+        @include backgroundsettings;
+    }
+
+    100% {
+        background: url(http://www.fusushi.co.il/warehouse/dynamic/50913.jpg);
+        @include backgroundsettings;
+    }
+
+}
+
+@keyframes slide {
+    0% {
+        left: 500%;
+    }
+
+    100% {
+        left: 0%;
+    }
+}
+
+@keyframes border{
+
+    0% {
+        box-shadow : 0 0 20px red;
+    }
+
+    50% {
+        box-shadow : 0 0 20px red;
+    }
+
+    100%{
+        box-shadow : 0 0 20px red;
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    transition: all 0.7s;
+    box-sizing: border-box;
+}
+
+#bodystore {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+    font-family: 'Barlow Condensed', sans-serif;
+    overflow-x: hidden;
+}
+
+.body-active {
+    overflow-y: hidden;
+}
+
+.blurwrapper {
+    position: fixed;
+    height: 100vh;
+    background-color: #000000a8;
+    z-index: -3;
+    width: 100vw;
+
+    &-active {
+        z-index: 5;
+
+    }
+
+}
+
+// ---------- HOME -------  //
+
+
+
+.homeopacity {
+    background-color: rgba(0, 0, 0, 0.308);
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.home {
+
+    position: relative;
+    min-height: 100vh;
+    animation-name: backgroundphotos;
+    animation-duration: 20s;
+    animation-direction: normal;
+    animation-iteration-count: infinite;
+    animation-timing-function: cubic-bezier(0, 1.01, 0, 1.01);
+
+    &__title {
+        position: absolute;
+        top: 40%;
+        color: #EBEBEB;
+        font-size: 65px;
+    }
+
+
+}
+
+
+.navbar {
+
+    position: fixed;
+    top: 3em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1200px;
+    height: 60px;
+    background-color: #EBEBEB;
+    z-index: 2;
+    font-size: 18px;
+
+    .mlogo {
+        display: none;
+
+        img {
+            height: 80px;
+        }
+    }
+
+    .navtags {
+
+        list-style-type: none;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        align-items: center;
+        padding: 1em;
+
+        a {
+            color: inherit;
+            text-decoration: inherit;
+        }
+
+        li {
+            padding: 5px;
+            font-weight: bold;
+
+            &:hover {
+                cursor: pointer;
+                box-shadow: 0 0 0 1px rgb(0, 0, 0);
+            }
+
+
+        }
+
+        .fulogo,
+        .smedia {
+            &:hover {
+                box-shadow: 0 0 0 0px rgb(0, 0, 0);
+            }
+
+        }
+
+        img {
+            height: 130px;
+        }
+
+        .smedia {
+            font-size: 24px;
+
+            i {
+                margin-inline: 0.2em;
+            }
+        }
+
+        i {
+            padding: 0.2em;
+
+            &:hover {
+                box-shadow: 0 0 0 1px rgb(0, 0, 0);
+            }
+        }
+    }
+
+    .burger {
+
+        display: none;
+
+        div {
+            width: 30px;
+            height: 5px;
+            background-color: #202020;
+            margin: 5px;
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+}
+
+
+.footer {
+    position: absolute;
+    top: 75%;
+    display: flex;
+    width: 95%;
+    justify-content: space-between;
+    color: #EBEBEB;
+
+    .footer__whatsapp {
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 180px;
+        width: 130px;
+        text-align: center;
+        font-size: 18px;
+        line-height: 1;
+
+        .wapic {
+            width: 100%;
+        }
+
+        img {
+            margin-top: 0.2em;
+            height: 90px;
+            width: 90px;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+    }
+
+    .footer__arrowpics {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+
+
+        &__arrow {
+            font-size: 5rem;
+            font-weight: 200;
+            position: relative;
+            animation-name: arrowdown;
+            animation-duration: 1s;
+            animation-direction: alternate;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;
+        }
+
+        &__pics {
+            i {
+                margin-inline: 0.2em;
+            }
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    .footer__gift {
+        display: flex;
+        align-items: center;
+
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        img {
+            height: 96px;
+            width: 96px;
+        }
+    }
+}
+
+// -------- LOBBY ---------- //
+
+
+.lobby {
+
+    min-height: 100vh;
+    background-color: rgb(12, 11, 11);
+    color: #EBEBEB;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    &__description {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h2 {
+            margin-top: 5rem;
+            font-size: 3rem;
+            font-weight: 600;
+
+            &::after {
+                content: '';
+                height: 2px;
+                width: 80px;
+                background: #ed3524;
+                display: block;
+                margin: 2px auto 0;
+            }
+
+        }
+
+        p {
+            margin-top: 3rem;
+            width: 50ch;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+
+    }
+
+    &__images {
+
+        font-size: 1.5rem;
+        margin-top: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 75px;
+        width: 90%;
+
+        &__box__image {
+            width: 100%;
+            overflow: hidden;
+
+        }
+
+        p {
+            margin-top: 5px;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+
+        img {
+            width: 100%;
+            display: block;
+            transition: ease-in-out .5s;
+
+            &:hover {
+                cursor: pointer;
+                transform: scale(1.1);
+            }
+        }
+    }
+}
+
+//------------- MENU -------------//
+
+.menuopacity {
+    background-color: rgba(0, 0, 0, 0.858);
+    height: 130vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 3em;
+}
+
+.menu {
+
+    background: url("https://images3.alphacoders.com/929/thumb-1920-92919.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    flex-direction: column;
+    align-items: space-around;
+    text-align: center;
+    height: fit-content;
+    color: #EBEBEB;
+
+
+    &__title {
+        position: relative;
+        top: 10px;
+        font-size: 3rem;
+        font-weight: 600;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        &::after {
+            content: '';
+            height: 2px;
+            width: 60px;
+            background: #ed3524;
+            display: block;
+            margin: 2px auto 0;
+        }
+    }
+
+    &__box {
+        position: relative;
+        top: -0.3em;
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        align-items: center;
+        width: 1200px;
+        height: 75%;
+
+    }
+
+    &__cell {
+
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 230px;
+        overflow: hidden;
+        gap: 0.8em;
+
+
+
+        .picwrap {
+            transition: all 0.6s ease-in-out;
+            min-height: 130px;
+            width: 10rem;
+            overflow: hidden;
+            border-radius: 100%;
+            border: 5px solid rgb(28, 28, 28);
+
+            &:hover {
+                border: 5px solid rgb(53, 53, 53);
+            }
+        }
+
+        img {
+
+            width: 142%;
+            height: 102%;
+            position: relative;
+            right: 30px;
+
+
+
+            &:hover {
+                cursor: pointer;
+                transform: scale(1.1);
+            }
+
+            &:not(:hover) {
+                transform: scale(1);
+            }
+
+            transition: all 0.6s ease-in-out;
+        }
+
+        p {
+            padding-top: 0.8rem;
+            text-shadow: 1px 1px 3px black;
+        }
+
+    }
+}
+
+// ----------- POPMENU ----------- // 
+
+.popmenu {
+
+    opacity: 0;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    z-index: -5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #EBEBEB;
+    height: 90%;
+
+
+    &-active {
+        transition: opacity 1s;
+        opacity: 1;
+        z-index: 6;
+    }
+
+    &__x {
+        font-size: 75px;
+        text-shadow: 0px 0px 3px black;
+        cursor: pointer;
+    }
+
+    &__box {
+
+        @include backgroundsettings();
+        width: 100%;
+        height: 100%;
+        overflow: scroll;
+
+        &__opacity {
+
+            padding: 20px;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.856);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: rgb(161, 161, 161);
+            background-size: cover;
+            background-image: url("http://en.fusushi.co.il/warehouse/temp/fu/popup.jpg");
+            background-position: center;
+            min-height: 700px;
+
+            &__navbar {
+                height: 10%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                font-size: 15px;
+
+                .popCategory {
+                    height: 50%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: fit-content;
+                    margin: 5px;
+                    padding: 5px;
+                    border-bottom: 1px solid grey;
+
+                    &-active {
+                        border-bottom: 1px solid #ed3524;
+                        color: white;
+                    }
+
+                    &:hover {
+                        cursor: pointer;
+
+                    }
+                }
+            }
+
+        }
+
+        &__grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            color: #ffff;
+
+            .dishes {
+                width: fit-content;
+                border-bottom: 1px solid #363636;
+                padding: 11px;
+
+                &__title {
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 10px;
+
+                    &__price {
+                        color: #ed3524;
+
+                        &::before {
+                            content: '₪';
+                            font-size: .75rem;
+                            margin-right: 5px;
+                        }
+
+                    }
+
+
+                }
+
+                &__desc {
+                    font-size: 70%;
+                    text-align: left;
+                    margin-bottom: 20px;
+                    width: 50ch;
+
+                }
+            }
+        }
+    }
+}
+
+///////////////////////// CART //////////////////////////////////
+
+.cart {
+
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    top: 5.55%;
+    right: 2%;
+    z-index: 10;
+    height: 50px;
+    width: 50px;
+
+    &__body {
+
+        overflow-y: scroll;
+        height: 80%;
+
+
+        .cart__dishes {
+
+            span{
+                color: rgb(163, 72, 72);
+            }
+            width: 260px;
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
+    &__close {
+
+        display: none;
+
+        &-active {
+            display: block;
+            color: rgb(0, 0, 0);
+            position: absolute;
+            right: 3%;
+            cursor: pointer;
+        }
+    }
+
+    &-active {
+        top: 12%;
+        height: 420px;
+        width: 280px;
+    }
+
+    &__box {
+
+        padding: 1em;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #EBEBEB;
+        border-radius: 5%;
+        width: 50px;
+        height: 60px;
+
+        &-active {
+            position: absolute;
+            width: 300px;
+            height: 400px;
+        }
+
+        &-click{
+            animation-name: border;
+            animation-duration: 1s;
+            animation-direction: alternate;
+        }
+
+        .cart__footer {
+
+            form {
+                padding: 0.3em;
+                display: flex;
+                justify-content: center;
+                display: none;
+                gap: 0.5em;
+
+                input {
+                    width: 35px;
+                }
+
+                button {
+                    width: 60px;
+                }
+            }
+
+            &-active {
+                form {
+                    display: flex;
+                }
+            }
+        }
+
+        img {
+            position: relative;
+            bottom: 10%;
+            width: 40px;
+            height: 30px;
+            cursor: pointer;
+        }
+    }
+}
+
+
+//////////////////////////// RESPONSIVENESS /////////////////////////
+
+@media screen and (max-width: 1300px) {
+    .cart{
+
+        top: 11.5%;
+    }
+}
+@media screen and (max-width: 1200px) {
+
+    .cart{
+
+        top: 1.7%;
+    }
+
+    .navbar {
+
+        top: 0px;
+        height: 90px;
+        width: 100%;
+        padding: 1em;
+        justify-content: flex-start;
+
+        .burger {
+
+            display: block;
+
+            div {
+                width: 40px;
+                transform-origin: center;
+            }
+
+
+
+        }
+
+        .navtags {
+
+            background-color: #EBEBEB;
+            position: absolute;
+            flex-direction: column;
+            top: 80px;
+            left: 0px;
+            width: 25%;
+            height: 500px;
+            transform: translateX(-100%);
+
+            li {
+                opacity: 0;
+            }
+
+
+        }
+
+        .navtags-active {
+
+            transform: translateX(0%);
+
+            li {
+                opacity: 1;
+            }
+
+        }
+
+        .burger-active {
+
+            .line1 {
+                transform: rotate(45deg) translateY(10px);
+
+            }
+
+            .line3 {
+                transform: rotate(-45deg) translate(-5px, -8px);
+            }
+
+            .line2 {
+                opacity: 0;
+            }
+        }
+
+        .fulogo {
+            display: none;
+        }
+
+        .mlogo {
+            display: block;
+            position: absolute;
+            left: 45%;
+        }
+
+    }
+
+    .menu {
+
+        &__box {
+            width: 1000px;
+            height: 80%;
+        }
+
+    }
+
+}
+
+@media screen and (max-width: 1000px) {
+
+    .home {
+        &__title {
+            font-size: 50px;
+        }
+    }
+
+    .menuopacity {
+
+        height: 250vh;
+
+        .menu {
+
+            justify-content: space-between;
+
+            &__box {
+                width: 900px;
+                height: 80%;
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: repeat(6, 1fr);
+            }
+
+            .picwrap {
+                img {
+                    height: 300px;
+                    width: 300px;
+                }
+            }
+
+        }
+
+    }
+
+    .popmenu__box__grid {
+        grid-template-columns: 1fr;
+
+    }
+
+    .popmenu__box__opacity__navbar {
+        flex-wrap: wrap;
+    }
+
+
+
+
+}
+
+@media screen and (max-width: 850px) {
+
+    .home {
+
+        &__title {
+            font-size: 40px;
+        }
+
+    }
+
+    .menuopacity {
+
+        .menu {
+
+            &__box {
+                width: 90%;
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: repeat(6, 1fr);
+            }
+
+
+            &__cell {
+
+                .picwrap {
+                    width: 70%;
+                    height: 50%;
+                }
+            }
+        }
+
+    }
+}
+
+
+
+
+///////////////////////// ERP ///////////////////////////////////
+
+.dishesWrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap:10px;
+    margin-top: 1em;
+
+}
+
+.dishesERP {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid black;
+    width: 200px;
+    height: 480px;
+    padding: 5px;
+    background-color: gainsboro ;
+
+    form {
+
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr
+    }
+}
+
+#addDishForm{
+    margin-bottom: 2em;
+}

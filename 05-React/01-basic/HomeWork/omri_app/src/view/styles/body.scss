@@ -1,0 +1,18 @@
+.mems{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: repeat(2, 1fr);
+    justify-content: center;
+    overflow: scroll;
+    
+    .box{
+        height: fit-content;
+        padding: 1.2rem;
+        //border: 1px solid black;
+        img{
+            width: 200px;
+            height: 300px;
+        }
+    }
+}
+

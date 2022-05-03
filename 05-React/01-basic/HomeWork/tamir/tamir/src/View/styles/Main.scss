@@ -1,0 +1,15 @@
+
+.Main{
+    display: grid;
+    grid-template-columns: 1fr  1fr 1fr;
+    grid-template-rows: 1fr ;
+    gap: 10px;
+    
+    &__pic{
+       img{
+           height: 270px;
+           width: 370px;
+           border: 2px solid black;
+       }
+    }
+}

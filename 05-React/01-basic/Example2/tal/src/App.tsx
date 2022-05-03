@@ -3,22 +3,26 @@ import './View/styles/global.scss';
 
 import Box from './View/Components/Box';
 
+interface BoxProps {
+  text:string;
+  title:string;
+} 
+const boxes:Array<BoxProps> = [
+  {text:'aaa',title:'bbbb'},
+  {text:'aaa2',title:'bbbb4'},
+  {text:'aaa3',title:'bbb44345b4'},
+  {text:'aaa4',title:'bbbb5'},
+]
+
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <Box text='aaa' title='The big title'/>
-        <p><Box text='bbb' title='The 2nd big title'/></p>
-        <p><div>dgdg</div></p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        {boxes.map((box, i)=>{ return <Box key={i} text={box.text} title={box.title}/>} )}
+        
+
+      
       </header>
     </div>
   );

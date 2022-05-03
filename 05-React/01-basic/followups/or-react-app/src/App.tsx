@@ -1,13 +1,14 @@
+import { useState } from "react";
 import React from 'react';
 import logo from './logo.svg';
-import './App.css';
-import Or from './Or';
+import './view/styles/global.scss';
+import ImageInput from './view/components/ImageInput'
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-      <Or />
+        <ImageInput />
 
         <img src={logo} className="App-logo" alt="logo" />
         <p>
