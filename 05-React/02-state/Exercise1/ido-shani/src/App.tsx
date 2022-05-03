@@ -9,11 +9,13 @@ import Card from "./Views/Components/Card";
 interface cardProps {
   imgUrl: string;
   imgName: string;
+  uid:string
+
 }
 
 function App() {
   const [set, setMyArray] = useState<Array<cardProps>>([]);
-  const uuidv4 = require("uuid/v4")
+  const uid = require("uuid")
 
   function handleCreatCard(ev: any) {
     ev.preventDefault();
@@ -21,9 +23,15 @@ function App() {
     const imgUrl = ev.target.elements.imgUrl.value;
     const imgName = ev.target.elements.imgName.value;
 
-    setMyArray([...set, { imgUrl, imgName }]);
+    setMyArray([...set, { imgUrl, imgName, uid}]);
 
     console.log(set);
+  }
+
+  function handleDeleteCard(ev:any){
+    const id=ev.target.id;
+    console.log(id)
+
   }
 
   return (
@@ -39,7 +47,7 @@ function App() {
           <div className="card">
             <img src={card.imgUrl} alt="" />
             <h2>{card.imgName}</h2>
-            <button type="button" onClick="handleDelete"></button>
+            <button type="button" id={card.uid} onClick={handleDeleteCard} ></button>
           </div>
         ))}
       </div>
