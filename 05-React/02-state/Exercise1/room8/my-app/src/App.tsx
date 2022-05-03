@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import logo from './logo.svg';
-import './App.css';
+import './view/styles/global.scss';
 
 interface Img {
   text: string;
@@ -29,20 +29,29 @@ function App() {
     setImage(ev.target.value);
   }
   return (
-
+<header className="App-header">
     <div className="App">
 
       <form onSubmit={handleAddImage} >
 
         <p>img:<input type="text" name='img' onKeyUp={handleImage} required={true} /></p>
         <p> text:<input type="text" name='text' onKeyUp={handleText} required={true} /></p>
-        <p>Text: {text}</p>
-        <img height='200px' width='200px' src={image} />
         <input type="submit" value="Add Image" />
+        {/* <p>Text: {text}</p>
+        <img height='200px' width='200px' src={image} /> */}
       </form>
-      {arr.map((box,i)=>{return <div key={i} img={box.img} text={box.text}/> })}
+      {/* {arr.map((box,i)=>{return <div key={i} img={box.img} text={box.text}/> })} */}
+      {arr.map((img,i)=>{
+        return(
+          <div className='arr' key={i}>
+            {/* <h3>{img.text}</h3> */}
+            <img src={img.img} title={img.text} alt={img.text}/>
+            </div>
+        )
+      })}
 
     </div>
+    </header>
   );
 }
 

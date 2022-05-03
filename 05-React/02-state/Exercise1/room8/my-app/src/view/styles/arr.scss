@@ -1,0 +1,11 @@
+img{
+    width: 200px;
+    height: 200px;
+}
+
+.arr{
+    display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+  background-color: red;
+}
