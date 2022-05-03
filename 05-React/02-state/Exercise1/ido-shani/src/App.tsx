@@ -4,7 +4,7 @@ import { useState } from "react";
 
 import "./Views/styles/global.scss";
 
-import Card from "./Views/Components/Card";
+
 
 interface cardProps {
   imgUrl: string;
@@ -51,7 +51,7 @@ function App() {
     const id=ev.target.id;
     const newName=ev.target.value;
 
-    const foundIndex=set.findIndex(card=> card.id==id)
+    const foundIndex=set.findIndex(card=> card.id===id)
     console.log(foundIndex)
     let array=[...set]
     let card={...set[foundIndex]}
@@ -68,6 +68,7 @@ function App() {
 
   return (
     <div className="App">
+      
       <form onSubmit={handleCreatCard}>
         <input type="text" name="imgUrl" required/>
         <input type="text" name="imgName" required/>
