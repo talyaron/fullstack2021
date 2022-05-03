@@ -41,15 +41,16 @@ function App() {
         <img height='200px' width='200px' src={image} /> */}
       </form>
       {/* {arr.map((box,i)=>{return <div key={i} img={box.img} text={box.text}/> })} */}
+      <div className='arr'>
       {arr.map((img,i)=>{
         return(
-          <div className='arr' key={i}>
-            {/* <h3>{img.text}</h3> */}
+          <div  key={i}>
+            <h3>{img.text}</h3>
             <img src={img.img} title={img.text} alt={img.text}/>
             </div>
         )
       })}
-
+</div>
     </div>
     </header>
   );
