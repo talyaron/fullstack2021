@@ -11,6 +11,7 @@ interface CardsProps {
 
 function App() {
   const [cards, setCards] = useState<Array<CardsProps>>([]);
+  const [text, setText] = useState<String>();
   function uniqueId() {
     return Date.now().toString(36) + Math.random().toString(36).substring(2);
   }
@@ -27,19 +28,30 @@ function App() {
     let arr = cards.filter((card) => card.id !== id);
     setCards([...arr]);
   }
-  function handleUpdate(ev:any){
-console.log(ev.target.previousElementSibling.value);
-
-    cards.forEach((card) =>{
-      // if(card.id === id) {
-
-      // }
-    })
+  function handleUpdate(ev: any) {
+    const payload = ev.target.previousElementSibling.value;
+    const type = ev.target.previousElementSibling.id;
+    const id = ev.target.previousElementSibling.dataset.id;
+    cards.forEach((card: CardsProps) => {
+      if (payload) {
+        if (card.id === id) {
+          if (type === "img") {
+            card.img = payload;
+            setCards([...cards]);
+            return;
+          }
+          if (type === "text") {
+            card.text = payload;
+            setCards([...cards]);
+            return;
+          }
+          return console.log("no type was chosen, update failed");
+        }
+      }
+      return console.log("input something to update something");
+    });
   }
-  function handleCurrent(ev:any){
-    console.log(ev.target);
-    
-  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -64,6 +76,7 @@ console.log(ev.target.previousElementSibling.value);
               <div key={i} className="card">
                 <img src={`${card.img}`} />
                 <p>{card.text}</p>
+                <p>{text}</p>
                 <button
                   onClick={(id) => {
                     handleDelete(card.id);
@@ -72,22 +85,40 @@ console.log(ev.target.previousElementSibling.value);
                   Delete
                 </button>
                 <input
-                type="text"  placeholder={card.text} value={card.text} onChange={(ev) => {handleCurrent(ev)}}/>
+                  type="text"
+                  placeholder={card.text}
+                  data-id={`${card.id}`}
+                  id="text"
+                />
                 <input
-                type="submit" value="Update image title"
+                  type="submit"
+                  value="Update image title"
                   onClick={(ev) => {
                     handleUpdate(ev);
                   }}
                 />
                 <input
-                type="text" placeholder={card.img}/>
+                  type="text"
+                  id="img"
+                  data-id={`${card.id}`}
+                  placeholder={card.img}
+                />
                 <input
-                type="submit" value="Update image source"
+                  type="submit"
+                  value="Update image source"
                   onClick={(ev) => {
                     handleUpdate(ev);
                   }}
                 />
-                  
+                <input
+                  onChange={(ev) => {
+                    setText(ev.target.value);
+                  }}
+                  value={`${text}`}
+                  type="text"
+                  name="liveChange"
+                  id="liveChange"
+                />
               </div>
             );
           })}
