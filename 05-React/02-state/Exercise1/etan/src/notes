@@ -1,0 +1,98 @@
+ return ((isVisible?
+              <div key={i} className="card">
+                <img src={`${card.img}`} />
+                <p>{card.text}</p>
+                <p>{text}</p>
+                <button
+                  onClick={(id) => {
+                    handleDelete(card.id);
+                  }}
+                >
+                  Delete
+                </button>
+                <input
+                  type="text"
+                  placeholder={card.text}
+                  data-id={`${card.id}`}
+                  id="text"
+                />
+                <input
+                  type="submit"
+                  value="Update image title"
+                  onClick={(ev) => {
+                    handleUpdate(ev);
+                  }}
+                />
+                <input
+                  type="text"
+                  id="img"
+                  data-id={`${card.id}`}
+                  placeholder={card.img}
+                />
+                <input
+                  type="submit"
+                  value="Update image source"
+                  onClick={(ev) => {
+                    handleUpdate(ev);
+                  }}
+                />
+                <input
+                  onChange={(ev) => {
+                    setText(ev.target.value);
+                  }}
+                  value={`${text}`}
+                  type="text"
+                  name="liveChange"
+                  id="liveChange"
+                />
+              </div>
+              : '')
+              (transition((style, item) => {
+<div key={i} className="card">
+                <img src={`${card.img}`} />
+                <p>{card.text}</p>
+                <p>{text}</p>
+                <button
+                  onClick={(id) => {
+                    handleDelete(card.id);
+                  }}
+                >
+                  Delete
+                </button>
+                <input
+                  type="text"
+                  placeholder={card.text}
+                  data-id={`${card.id}`}
+                  id="text"
+                />
+                <input
+                  type="submit"
+                  value="Update image title"
+                  onClick={(ev) => {
+                    handleUpdate(ev);
+                  }}
+                />
+                <input
+                  type="text"
+                  id="img"
+                  data-id={`${card.id}`}
+                  placeholder={card.img}
+                />
+                <input
+                  type="submit"
+                  value="Update image source"
+                  onClick={(ev) => {
+                    handleUpdate(ev);
+                  }}
+                />
+                <input
+                  onChange={(ev) => {
+                    setText(ev.target.value);
+                  }}
+                  value={`${text}`}
+                  type="text"
+                  name="liveChange"
+                  id="liveChange"
+                />
+              </div>
+              }))
