@@ -3,19 +3,16 @@ import jwt from 'jwt-simple';
 import { CLIENT_RENEG_WINDOW } from "tls";
 const secret = process.env.JWT_SECRET; // 24/4/2022
 
-export const handleGetUsers = async (req, res) => {
+// export const handleGetUsers = async (req, res) => {
 
-  let name = req.query;
+//   let name = req.query;
 
-  //console.log('the cookie is ', req.cookies);//24/4/2022
-  const { userInfo } = req.cookies//deconstractor // it's also important to add securety 
-  //console.log(userInfo);//24/4/2022
+//   const { userInfo } = req.cookies//deconstractor // it's also important to add securety /24/4/2022
 
-  //const users = await User.find({username:'q'});// it will return me the data that contain key:username, value:q
-  const users = await User.find({});
-  res.send({ users, name })
+//   const users = await User.find({});
+//   res.send({ users, name , userInfo })
 
-}
+// }
 export const handleAddUser = async (req, res) => {
   try {
     let { username, password } = req.body; // if we want to get the element by the body we need app.use(express.json());
@@ -40,7 +37,7 @@ export const handleReg = async (req, res) => { //reqister
   try {
     let { username, password } = req.body;
 
- 
+
 
     if (username && password) {
       let user = await User.find({ username })// not work
@@ -53,12 +50,12 @@ export const handleReg = async (req, res) => { //reqister
         await users.save();
 
         const payload = users;
-      
 
-        const token = jwt.encode(payload, secret)
+
+        // const token = jwt.encode(payload, secret)
         res.cookie(
           'userInfo ',
-          token,
+          users,
           { maxAge: 800000, httpOnly: true }
         )
 
@@ -75,25 +72,18 @@ export const handleReg = async (req, res) => { //reqister
 }
 export const handleSign = async (req, res) => {
   try {
-
     let { username, password } = req.body;
-
-
     if (username && password) {
       //const users = new User({ username, password })//without this it's not worked 
-
       const user = await User.findOne({ username })//what is the different (find//findone ) // ask Katya //25/4/2022
       // he will locking for username in the MongoDB that have the same username that we send to him 
       //and he will return the "ALL" "object" 
-
       if (user) {
         if (user.password === password) {
-
-
-          const payload = { user };//24/4/2022 
+          // const payload = { user };//24/4/2022 
           //24/4/2022 //only with them we can change in the JWT
-          const token = jwt.encode(payload, secret)//24/4/2022 // we encode our code "hide"
-          res.cookie('userInfo', token, { maxAge: 70000000, httpOnly: true })//24/4/2022 
+          //  const token = jwt.encode(payload, secret)//24/4/2022 // we encode our code "hide"
+          res.cookie('userInfo', user, { maxAge: 70000000, httpOnly: true })//24/4/2022 
           res.send({ ok: true, user })
           return;
         }

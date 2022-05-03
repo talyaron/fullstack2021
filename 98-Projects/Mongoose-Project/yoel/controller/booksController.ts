@@ -1,4 +1,4 @@
-
+import mongoose from "mongoose";
 import Book  from "../models/bookModel";
 export const handleGetAllBooks = async (req, res) => {
   const books = await Book.find({})
@@ -20,13 +20,10 @@ export const handleAddBook = async (req, res) => {
       await newBook.save();
       const books = await Book.find({})
       console.log(books);
-      
         res.send( books );//N render it 
       } catch (error) {
         console.log(error)
       }
-     
-
     }
     else {
       throw new Error("book is und")
@@ -40,6 +37,9 @@ export const handleUpdateBook = async (req, res) => {
   try {
     let { book , bookId } = req.body;
  
+    // if(notAdmin){
+    //   res.send({nAdmin:'you not admin'})
+    // }
 
     if (book && bookId) {
       const booki =  await Book.updateOne({ _id: bookId }, { name: book.name , year:book.year ,  author: book.author });// {who you want to change},{with what you want to change}
@@ -55,23 +55,43 @@ export const handleUpdateBook = async (req, res) => {
     res.send({ error: error.message })
   }
 }
-export const handleDelete = async (req, res) => {
-  try {
-    const { bookId } = req.body;// not get nothing 
-    
-    console.log(bookId);
-    
-    const books = await Book.deleteOne({ _id: bookId });// it'll found the same id 
-    
-    console.log(books);
-    
-      res.send({ ok:true ,  books })
+// export const handleDelete = async (req, res)=>{
+//  try {
+//    let {data} = req.body;
 
-  } catch (error) {
-    res.send(error.message)
-  }
-}
-export const handleSort = (req, res) => {//we need to do sort to the value from DB
+//    console.log(data);
+   
+   
+//  } catch (error) {
+//    res.send(error.message)
+//  }
+// }
+// export const handleDelete = async (req, res) => {
+//   try {
+//     const { bookId } = req.body;// not get nothing 
+//     const validID = bookId.replace(/\s+/g, '')
+//     const isValid = mongoose.Types.ObjectId.isValid(validID)
+
+//     console.log(bookId);
+//     console.log(validID)
+//     console.log(isValid)
+
+//     if(isValid) {
+//       await Book.findByIdAndDelete({"_id":validID},(err, docs)=>{
+//         if (err){
+//           console.log(err)
+//       }
+//       else{
+//           console.log("Deleted : ", docs);
+//         }
+//       });
+//     } else {
+//       console.error('The id is not valid');
+//     }
+//   } catch (error) {
+//     res.send(error.message)
+//   }
+// export const handleSort = (req, res) => {//we need to do sort to the value from DB
 
   // try {
   //   let { value } = req.body;
@@ -94,7 +114,7 @@ export const handleSort = (req, res) => {//we need to do sort to the value from 
   //   res.send({ error })
   // }
 
-}
+// }
 // export const deleteEverything = async (req , res ) =>{
 //   const books = await Book.deleteMany({name: 1 })
 //   console.log(books);

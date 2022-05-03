@@ -25,12 +25,18 @@ exports.example = example;
 function isAdmin(req, res, next) {
     try {
         var userInfo = req.cookies.userInfo;
-        var secret = process.env.JWT_SECRET; // if I want to use something in the .ENV I need to write "process.env.___"
-        var decode = jwt_simple_1["default"].decode(userInfo, secret);
-        if (decode.role === 'admin') {
+        console.log('1' + userInfo);
+        // const secret = process.env.JWT_SECRET;// if I want to use something in the .ENV I need to write "process.env.___"
+        //  const decode = jwt.decode(userInfo, secret)
+        //    console.log('2' + decode);
+        if (userInfo && userInfo.role === 'admin') {
             req.role = 'admin'; //if I want to use it in the next function 
             next();
         }
+        throw new Error('your not Admin');
+        // else{
+        //     res.send({notAdmin:true})
+        // }
     }
     catch (error) {
         res.send({ err: error });
