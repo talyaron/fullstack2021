@@ -73,17 +73,7 @@ function App() {
       <div className="App_imageCards">
         {set.map((card, i) => (
           <div key={i} className="App_imageCards__card">
-<<<<<<< Updated upstream
-            <img src={card.imgUrl} alt="" />
-            <h2 className="App_imageCards__card-name"> Name : {card.imgName}</h2>
-
-
-            <button className="App_imageCards__card-delete" type="button" id={card.id} onClick={handleDeleteCard} >delete</button>
-            <input className="App_imageCards__card-input" type="text" name="updateName" id={card.id} onChange={handleUpdateCard} placeholder="type Image name"/>
-            
-          </div>
-=======
-            <img src={card.imgUrl} alt=""></img>
+            <img src={card.imgUrl} alt="card image url"></img>
             <h2 className="App_imageCards__card-name">Name : {card.imgName}</h2>
 
             
@@ -94,7 +84,6 @@ function App() {
               <input  type="text" name="updateName" id={card.id} onChange={handleUpdateCard} placeholder="change image name"/>
             </div>
           
->>>>>>> Stashed changes
         ))}
       </div>
     </div>
