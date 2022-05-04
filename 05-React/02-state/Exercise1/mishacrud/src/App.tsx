@@ -3,7 +3,7 @@ import './App.scss';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
-import PicGrid from '../view/components/PicGrid'
+import PicGrid from './view/components/PicGrid'
 
 interface PicObject {
   name: string;
@@ -74,6 +74,9 @@ function App() {
 
   return (
     <div className="App">
+            <PicGrid>
+        
+        </PicGrid>
       <Container>
         <form noValidate autoComplete='off' onSubmit={handleSubmit}>
           <TextField sx={{
@@ -99,15 +102,14 @@ function App() {
           <Button variant="contained" type='submit' id='addphoto'>Add Photo</Button>
         </form>
       </Container>
-      <PicGrid>
-      </PicGrid>
+
       {
         arr.map((card, i) => (
           <div>
-            <div>
+            <div className='PicName'>
               {card.name}
             </div>
-            <div>
+            <div className='PicPic'>
               <img src={card.pic} alt='pic' />
             </div>
             <div>
