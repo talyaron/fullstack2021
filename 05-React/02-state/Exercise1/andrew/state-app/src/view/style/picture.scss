@@ -1,0 +1,58 @@
+.image {
+  border: 2px solid #AAA;
+  border-radius: 20px;
+  margin: -80px;
+  background-color: #444;
+  height: 300px;
+
+  img {
+    width: 200px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  h3 {
+    margin: 10px;
+  }
+
+  transition: 300ms ease-in;
+  transform: rotateY(60deg);
+
+  &:hover {
+    transform: rotateY(0deg) scale(1.1) translateY(-80px);
+    margin: 10px;
+
+    // z-index: 101;
+    ~* {
+      transform: rotateY(-60deg);
+    }
+
+    @for $i from 1 to 100 {
+      ~*:nth-child(#{$i}) {
+        z-index: -$i;
+      }
+    }
+  }
+}
+
+.float-in {
+  animation: added 700ms ease-out forwards;
+}
+
+.float-out {
+  animation: removed 700ms ease-in forwards;
+}
+
+
+@keyframes added {
+  from {
+    transform: translateY(-800px);
+  }
+}
+
+@keyframes removed {
+  to {
+    transform: translateY(800px);
+  }
+}
