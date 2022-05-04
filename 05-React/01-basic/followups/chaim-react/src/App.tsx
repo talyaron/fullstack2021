@@ -1,26 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.scss';
-import Chaim from './Chaim';
+import Box from './box'
+
+interface img {
+  text: string
+  img: string
+}
 
 function App() {
+  const [arr, setArr] = useState<Array<img>>([])
+  function handleAdd(ev: any) {
+    console.log(ev);
+
+    ev.preventDefault()
+    const text = ev.target.elements.text.value;
+    const img = ev.target.elements.img.value;
+    console.log(text);
+    console.log(img);
+        
+    const obj = { text, img };
+    setArr([...arr, obj]);
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-         chaim cohen
-        </p>
-        <Chaim text='shalmo'/>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <form onSubmit={handleAdd}>
+        <label>name</label>
+        <input type="text" name='text' placeholder='name' />
+        <label>pic</label>
+        <input type="text" name='img' placeholder='imgURL' />
+        <button type='submit' value='SUBMIT'>SUBMIT</button>
+      </form>
+      <div>  {arr.map((box, i) => { return <Box key={i} text={box.text} img={box.img}/>})}{}</div>
     </div>
   );
 }
