@@ -1,0 +1,36 @@
+
+
+.Eegg{
+    color: $clr-primary;
+    
+    /* Dimensions */
+	width: 300px;
+	height: 500px;
+	
+	/* Fixed position */
+	position: fixed;
+	left: 50%;
+	top: 0px;
+
+	/* Centered horizontally, and hidden above screen */
+	margin-left: -150px;
+	margin-top: -500px;
+}
+.Eegg2{
+
+    color: $clr-primary;
+    
+    /* Dimensions */
+	width: 300px;
+	height: 500px;
+	
+	/* Fixed position */
+	position: fixed;
+	left: 50%;
+	top: 0px;
+
+	/* Centered horizontally, and hidden above screen */
+	margin-left: -150px;
+	margin-top: -500px;
+
+}

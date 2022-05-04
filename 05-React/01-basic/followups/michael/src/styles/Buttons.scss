@@ -1,0 +1,23 @@
+div{
+
+    .button {
+        width: 150px;
+        aspect-ratio: 3;
+        background: gray;
+        padding: 20;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        margin-right: 20px;
+    
+        &:nth-child(odd){
+            background: red;
+        }
+    }
+
+    button{
+        cursor: pointer;
+    }
+
+}

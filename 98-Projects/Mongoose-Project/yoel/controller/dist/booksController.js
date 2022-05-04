@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.handleSort = exports.handleDelete = exports.handleUpdateBook = exports.handleAddBook = exports.handleGetAllBooks = void 0;
+exports.handleUpdateBook = exports.handleAddBook = exports.handleGetAllBooks = void 0;
 var bookModel_1 = require("../models/bookModel");
 exports.handleGetAllBooks = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var books;
@@ -117,45 +117,54 @@ exports.handleUpdateBook = function (req, res) { return __awaiter(void 0, void 0
         }
     });
 }); };
-exports.handleDelete = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var bookId, books, error_4;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                _a.trys.push([0, 2, , 3]);
-                bookId = req.body.bookId;
-                console.log(bookId);
-                return [4 /*yield*/, bookModel_1["default"].deleteOne({ _id: bookId })];
-            case 1:
-                books = _a.sent();
-                console.log(books);
-                res.send({ ok: true, books: books });
-                return [3 /*break*/, 3];
-            case 2:
-                error_4 = _a.sent();
-                res.send(error_4.message);
-                return [3 /*break*/, 3];
-            case 3: return [2 /*return*/];
-        }
-    });
-}); };
-exports.handleSort = function (req, res) {
-    // try {
-    //   let { value } = req.body;
-    //   if (value) {
-    //     if (value === "descent") {
-    //       booksSite.sortDes();
-    //       res.send({ ok: true, booksSite })
-    //     }
-    //     else {
-    //       booksSite.sortAsc();
-    //       res.send({ ok: true, booksSite })
-    //     }
-    //   }
-    // } catch (error) {
-    //   res.send({ error })
-    // }
-};
+// export const handleDelete = async (req, res)=>{
+//  try {
+//    let {data} = req.body;
+//    console.log(data);
+//  } catch (error) {
+//    res.send(error.message)
+//  }
+// }
+// export const handleDelete = async (req, res) => {
+//   try {
+//     const { bookId } = req.body;// not get nothing 
+//     const validID = bookId.replace(/\s+/g, '')
+//     const isValid = mongoose.Types.ObjectId.isValid(validID)
+//     console.log(bookId);
+//     console.log(validID)
+//     console.log(isValid)
+//     if(isValid) {
+//       await Book.findByIdAndDelete({"_id":validID},(err, docs)=>{
+//         if (err){
+//           console.log(err)
+//       }
+//       else{
+//           console.log("Deleted : ", docs);
+//         }
+//       });
+//     } else {
+//       console.error('The id is not valid');
+//     }
+//   } catch (error) {
+//     res.send(error.message)
+//   }
+// export const handleSort = (req, res) => {//we need to do sort to the value from DB
+// try {
+//   let { value } = req.body;
+//   if (value) {
+//     if (value === "descent") {
+//       booksSite.sortDes();
+//       res.send({ ok: true, booksSite })
+//     }
+//     else {
+//       booksSite.sortAsc();
+//       res.send({ ok: true, booksSite })
+//     }
+//   }
+// } catch (error) {
+//   res.send({ error })
+// }
+// }
 // export const deleteEverything = async (req , res ) =>{
 //   const books = await Book.deleteMany({name: 1 })
 //   console.log(books);

@@ -1,20 +1,16 @@
 import task from "../model/taskModel";
 
 
-<<<<<<< HEAD
-=======
-  let currentUsersTasks = await task.find({ ownerId: ownerId });
-  res.cookie("taskId", { taskId: ownerId }, { maxAge: 10000 })
->>>>>>> main
+
+
 
 export const getUsersTasks = async (req,res) => {
+  try{
     const {ownerId} = req.query;
     console.log(ownerId);
     const currentUsersTasks = await task.find({ ownerId: ownerId });
     res.send(currentUsersTasks)
-    }
-<<<<<<< HEAD
-=======
+    
   } catch (error) {
     console.error(error);
     res.send({ error: error.message });
@@ -32,6 +28,7 @@ export const checkTask = async (req, res) => {
 
       await task.updateOne({ _id: _id, ownerId: ownerId }, { timeChecked: timeChecked, checked: false });
       const currentUsersTasks = await task.find({ ownerId: ownerId })
+      
       res.send({ currentUsersTasks });
       return
     }
@@ -87,4 +84,3 @@ export const getUrgencies = async (req, res) => {
 
 
 }
->>>>>>> main

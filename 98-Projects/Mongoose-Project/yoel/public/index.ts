@@ -3,27 +3,22 @@ async function initApp() {
 
 
 }
-// 
 async function getBooks() {
     const { data } = await axios.get('/book/get-books')
 
-
-
     renderBooks(data);
 }
-async function handleSubmit(ev) {
-    ev.preventDefault();
+// async function handleSubmit(ev) {
+//     ev.preventDefault();
 
-    const username = ev.target.elements.username.value;
-    const password = ev.target.elements.password.value;
+//     const username = ev.target.elements.username.value;
+//     const password = ev.target.elements.password.value;
 
-
-
-    const { data } = await axios.post('/user/add-user', { username, password });
+//     const { data } = await axios.post('/user/add-user', { username, password });
 
 
-    ev.target.reset();
-}
+//     ev.target.reset();
+// }
 async function handleAddBook(ev) {
     ev.preventDefault();
     let name = ev.target.elements.name.value;
@@ -47,7 +42,13 @@ async function handleAddBook(ev) {
 
     const { data } = await axios.patch('/book/update-book', { book, bookId })//with the update
 
+    console.log(data);
+    
 
+    if(data.nAdmin){
+        console.log(data.nAdmin);
+        
+    }
     if (data.ok) {
         renderBooks(data.books);
     }
@@ -67,32 +68,23 @@ async function handleReg(ev) { // working
 
     const username = ev.target.elements.username.value;
     const password = ev.target.elements.password.value;
- //    const regNSign = document.getElementById('regNSign')
+    //    const regNSign = document.getElementById('regNSign')
 
 
     const { data } = await axios.post('/user/reg-user', { username, password })
- 
-    
+
+
     if (data.error) {
         alert('this username is already existed , you need to sign in')// not work
         window.location.href = 'sign.html'// not work
     }
     if (data.ok) {
         let html = `welcome ${data.users.username} `;
-
         //alert(html)
         // localStorage.setItem('nameOfTheUser' , html )
-
-
+        alert(html)
         window.location.href = 'home.html'
-
-
-
-
-
-     //   regNSign.innerHTML = html;
-
-
+        //   regNSign.innerHTML = html;
 
     }
     ev.target.reset();
@@ -105,7 +97,7 @@ async function handleSign(ev) {
     const username = ev.target.elements.username.value;
     const password = ev.target.elements.password.value;
 
-    const {data } = await axios.post('/user/sign-in', { username, password })
+    const { data } = await axios.post('/user/sign-in', { username, password })
 
     if (data.ok) {
 
@@ -124,18 +116,18 @@ async function handleSign(ev) {
 
     ev.target.reset();
 }
-async function handleSort(ev) {
-    let value = ev.target.value
+// async function handleSort(ev) {
+//     let value = ev.target.value
 
-    const { data } = await axios.post('/book/sort-books', { value })// I'm extracting the "data" out
+//     const { data } = await axios.post('/book/sort-books', { value })// I'm extracting the "data" out
 
-    const { booksSite } = data; //I'm extracting the "booksSite" out
+//     const { booksSite } = data; //I'm extracting the "booksSite" out
 
 
 
-    renderBooks(booksSite);
+//     renderBooks(booksSite);
 
-}
+// }
 async function renderBooks(data) {
     try {
         if (data) {

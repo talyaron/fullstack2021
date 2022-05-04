@@ -7,6 +7,7 @@ var users_1 = require("../middleware/users");
 router
     .get('/get-books', booksController_1.handleGetAllBooks)
     .post('/add-book', booksController_1.handleAddBook)
-    .patch('/update-book', users_1.isAdmin, booksController_1.handleUpdateBook)["delete"]('/delete-book', booksController_1.handleDelete);
+    .patch('/update-book', users_1.isAdmin, booksController_1.handleUpdateBook);
+//.delete('/delete-book' , handleDelete)
 // .get('/delete-everything' , deleteEverything)
 exports["default"] = router;
