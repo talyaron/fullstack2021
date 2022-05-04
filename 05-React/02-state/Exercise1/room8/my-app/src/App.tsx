@@ -5,6 +5,8 @@ import './view/styles/global.scss';
 interface Img {
   text: string;
   img: string;
+  
+  
 }
 
 function App() {
@@ -23,6 +25,12 @@ function App() {
 
   function handleText(ev: any) {
     setText(ev.target.value);
+  }
+
+  function handleDelete(ev: any) {
+    const id = ev.target.id;
+    const newArr = arr.filter((item, index) => index !== id);
+    setArr(newArr);
   }
 
   function handleImage(ev: any) {
@@ -47,6 +55,7 @@ function App() {
           <div  key={i}>
             <h3>{img.text}</h3>
             <img src={img.img} title={img.text} alt={img.text}/>
+            <button id={`${img.id}`} onClick={handleDelete}>Delete</button>
             </div>
         )
       })}
