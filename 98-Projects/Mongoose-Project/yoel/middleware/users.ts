@@ -18,20 +18,27 @@ export function example(req, res, next) {//26/04/2022
     }
 
 }
-export function isAdmin(req , res , next){
-try {
-    const { userInfo } = req.cookies
+export function isAdmin(req, res, next) {
+    try {
 
-    const secret = process.env.JWT_SECRET;// if I want to use something in the .ENV I need to write "process.env.___"
-    const decode = jwt.decode(userInfo, secret)
-    
-    if (decode.role === 'admin') {
-        req.role = 'admin';//if I want to use it in the next function 
-        next();
+        const { userInfo } = req.cookies
+        console.log('1' + userInfo);
+
+
+       // const secret = process.env.JWT_SECRET;// if I want to use something in the .ENV I need to write "process.env.___"
+      //  const decode = jwt.decode(userInfo, secret)
+    //    console.log('2' + decode);
+        if (userInfo && userInfo.role === 'admin') {
+            req.role = 'admin';//if I want to use it in the next function 
+            next();
+        }
+        throw new Error('your not Admin')
+        // else{
+        //     res.send({notAdmin:true})
+        // }
+    } catch (error) {
+        res.send({ err: error })
     }
-} catch (error) {
-    res.send({err:error})
-}
 
 
 }

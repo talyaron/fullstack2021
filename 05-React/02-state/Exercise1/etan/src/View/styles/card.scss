@@ -1,6 +1,45 @@
 .card{
     aspect-ratio: 16/9;
+    transform: scale(1);
     img{
         width: 200px;
+    }
+}
+
+.card.deleted{
+    animation:closeDown 2s;
+}
+.card.deleted ~ .card {
+    position: relative;
+    animation: slideLeft 2.5s forwards;
+}
+.card.new {
+    position: relative;
+    animation: slideIn 2s;
+}
+@keyframes slideIn {
+    from {
+        right: -425%;
+    }
+    to{
+        right: 0%;
+    }
+}
+@keyframes slideLeft {
+    from {
+        left: 0%;
+    }
+  
+    to {
+        left:-100%;
+    }
+  }
+
+@keyframes closeDown {
+    from {
+        transform: scale(1);
+    }
+    to{
+        transform: scale(.01);
     }
 }
