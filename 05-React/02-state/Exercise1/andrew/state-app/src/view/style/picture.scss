@@ -38,6 +38,7 @@
 
 .float-in {
   animation: added 700ms ease-out forwards;
+  pointer-events: none;
 }
 
 .float-out {
