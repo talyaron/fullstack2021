@@ -8,8 +8,8 @@ logoUrl:string;
  const Header = (props:pageHeaderProps) => {
      const {pageName,logoUrl}=props
   return (
-    <div className='header'>
-        <h1 className="pageName">{pageName}</h1>
+    <div id="header" className='header'>
+        <h1  className="pageName">{pageName}</h1>
         <img src={logoUrl}></img>
     </div>
   )
