@@ -78,11 +78,11 @@ function App() {
         {set.map((card, i) => (
           <div key={i} className="App_imageCards__card">
             <img src={card.imgUrl} alt="" />
-            <h2 className="App_imageCards__card-name">Name : {card.imgName}</h2>
-            <button type="button" id={card.id} onClick={handleDeleteCard} >delete</button>
+            <h2 className="App_imageCards__card-name"> Name : {card.imgName}</h2>
 
-            
-            <input type="text" name="updateName" id={card.id} onChange={handleUpdateCard} placeholder="change image name"/>
+
+            <button className="App_imageCards__card-delete" type="button" id={card.id} onClick={handleDeleteCard} >delete</button>
+            <input className="App_imageCards__card-input" type="text" name="updateName" id={card.id} onChange={handleUpdateCard} placeholder="type Image name"/>
             
           </div>
         ))}
