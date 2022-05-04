@@ -100,8 +100,9 @@ function App() {
       const id = ev.target.dataset.id;
       const card = document.querySelector(`[data-id-new="${id}"]`);
       const input: any = card?.querySelector(`[data-update="${type}"]`);
-      const payload = input.value;
-
+      const payload = input.querySelector('input').value;
+      console.log(type, id, card, input);
+      
       if (!cards) throw new Error("there are no cards at handleUpdate");
       cards.forEach((card: CardsProps) => {
         if (payload) {
