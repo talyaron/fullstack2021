@@ -1,5 +1,14 @@
-.field{
+
+
+.field {
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
+    display: block !important;
+}
+
+#addphoto{
+    position: relative;
+    left: 50%;
+    transform:translateX(-50%);
     margin-top: 20px;
-    margin-bottom: 20px;
-    display: block;
 }

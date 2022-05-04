@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import './App.scss';
 import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+import Container from '@mui/material/Container';
+import PicGrid from '../view/components/PicGrid'
 
 interface PicObject {
   name: string;
@@ -10,14 +13,13 @@ interface PicObject {
 
 function App() {
 
-  const classs = 'field';
-
   const uid = function () {
     return Date.now().toString(36) + Math.random().toString(36).substr(2);
   };
 
   const [arr, setArr] = useState<Array<PicObject>>([]);
-
+  const [nameError, setNameError] = useState(false)
+  const [picError, setPicError] = useState(false)
 
   function handleSubmit(ev: any) {
     ev.preventDefault();
@@ -25,7 +27,23 @@ function App() {
     const name = ev.target.elements.name.value;
     const pic = ev.target.elements.pic.value;
     const id = uid();
-    setArr([...arr, { name, pic, id }]);
+    const obj = { name, pic, id }
+
+    if (name && pic) {
+      setArr([...arr, obj]);
+    }
+    if (name === '') {
+      setNameError(true)
+      setTimeout(() => {
+        setNameError(false)
+      }, 2000)
+    }
+    if (pic === '') {
+      setPicError(true)
+      setTimeout(() => {
+        setNameError(false)
+      }, 2000)
+    }
 
     ev.target.reset()
   }
@@ -56,53 +74,77 @@ function App() {
 
   return (
     <div className="App">
-
-      <form noValidate autoComplete='off' onSubmit={handleSubmit}>
-        <TextField sx={{
-          marginTop: 2,
-          marginBottom: 2,
-          display: 'block'
-        }}
-          required
-          variant='outlined'
-          id="outlined-required"
-          label="Picture Name"
-          fullWidth />
-        <TextField
-          sx={{
+      <Container>
+        <form noValidate autoComplete='off' onSubmit={handleSubmit}>
+          <TextField sx={{
             marginTop: 2,
             marginBottom: 2,
             display: 'block'
           }}
-          required
-          id="outlined-required"
-          label="Picture URL"
-          fullWidth />
-        <button type='submit'>SUBMIT</button>
-      </form>
+            required
+            variant='outlined'
+            id="name"
+            label="Picture Name"
+            fullWidth
+            error={nameError} />
+          <TextField
+            className='test'
+            required
+            id="pic"
+            label="Picture URL"
+            rows={4}
+            fullWidth
+            error={picError}
+             />
+          <Button variant="contained" type='submit' id='addphoto'>Add Photo</Button>
+        </form>
+      </Container>
+      <PicGrid>
+      </PicGrid>
+      {
+        arr.map((card, i) => (
+          <div>
+            <div>
+              {card.name}
+            </div>
+            <div>
+              <img src={card.pic} alt='pic' />
+            </div>
+            <div>
+              <button onClick={handleDelete} id={card.id}>Delete</button>
+              <form onSubmit={handleUpdate} id={card.id}>
+                <TextField sx={{
+                  marginTop: 2,
+                  marginBottom: 2,
+                  display: 'block'
+                }}
+                  required
+                  variant='outlined'
+                  id="name"
+                  label="Picture Name"
+                  fullWidth
+                  error={nameError} />
+                <TextField
+                  className='test'
+                  sx={{
+                    marginTop: 2,
+                    marginBottom: 2,
+                    display: 'block'
+                  }}
+                  required
+                  id="pic"
+                  label="Picture URL"
+                  fullWidth
+                  error={picError} />
+                <Button variant="contained" type='submit' id='addphoto'>Add Photo</Button>
+              </form>
+            </div>
+          </div>
+        ))
+      }
 
-      {arr.map((card, i) => (
-        <div>
-          <div>
-            {card.name}
-          </div>
-          <div>
-            <img src={card.pic} alt='pic' />
-          </div>
-          <div>
-            <button onClick={handleDelete} id={card.id}>Delete</button>
-            <form onSubmit={handleUpdate} id={card.id}>
-              <label>NAME</label>
-              <input type="text" name='name' placeholder='Enter Name' />
-              <label>PIC</label>
-              <input type="text" name='pic' placeholder='PicURL...' />
-              <button type='submit'>Update</button>
-            </form>
-          </div>
-        </div>
-      ))}
+    </div >
 
-    </div>
   );
 }
 
