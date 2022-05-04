@@ -11,6 +11,8 @@ interface CardsProps {
   img: string;
   text: string;
   id: string;
+  isDeleted?: boolean;
+  isNew?: boolean;
 }
 
 function App() {
@@ -33,18 +35,41 @@ function App() {
     return Date.now().toString(36) + Math.random().toString(36).substring(2);
   }
 
+  // function lookUpAndAnimate(cardId: any) {
+  //   const newish = document.querySelector(`[data-id=${cardId}]`)?.parentElement;
+  //   return newish;
+  // }
   function handleAddCard(ev: any) {
     ev.preventDefault();
     const text = ev.target.elements.text.value;
     const img = ev.target.elements.img.value;
     const id = uniqueId();
-    const card = { img, text, id };
+    const isNew = true;
+    const card = { img, text, id, isNew };
+
     setCards([...cards, card]);
+    setTimeout(() => {
+      if (card.isNew === true) {
+        console.log(id);
+
+        const newCard = document.querySelector(`[data-id=${id}]`)?.parentElement;
+        newCard?.setAttribute('class', 'card');
+        setTimeout(() => (card.isNew = false), 5000);
+      }
+    }, 2000);
   }
   function handleDelete(id: string) {
     let arr = cards.filter((card) => card.id !== id);
     const deleted = document.querySelector(`[data-id=${id}]`)?.parentElement;
-    setCards([...arr]);
+    const deletedCard = cards.filter((card) => card.id === id)[0];
+    deletedCard.isDeleted = true;
+    if (deletedCard.isDeleted === true) {
+      const thisCard: any = deleted;
+      thisCard.setAttribute("class", "card deleted");
+      setTimeout(() => setCards([...arr]), 2000);
+    }
+    const thisCard: any = deleted;
+    setTimeout(() => thisCard.setAttribute("class", "card"), 2000);
   }
   function handleUpdate(ev: any) {
     const payload = ev.target.previousElementSibling.value;
@@ -73,8 +98,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <div className="App">
-        <AppBar position="static">Mui App</AppBar>
-        <header className="App-header">
+        <AppBar position="static">
           <form onSubmit={handleAddCard}>
             <input
               type="text"
@@ -90,10 +114,12 @@ function App() {
             />
             <input type="submit" value="Submit a new card" />
           </form>
+        </AppBar>
+        <header className="App-header">
           <div className="grid">
             {cards.map((card, i) => {
               return (
-                <div key={i} className="card">
+                <div key={i} className="card new">
                   <img src={`${card.img}`} />
                   <p>{card.text}</p>
                   <p>{text}</p>
