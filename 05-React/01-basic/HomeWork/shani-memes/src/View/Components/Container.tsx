@@ -1,6 +1,9 @@
 import MemeCards from'./MemeCards';
 
-import React from 'react'
+import React from 'react';
+
+
+
 
 //this holds the array and contains the meme card that will show how each meme will be displayed
 
@@ -20,9 +23,10 @@ const memes:Array<MemesProps>=[
 ]
 
 
-
 const Container = () => {
   return (
+
+
     <div className='container'>
 
         {memes.map((meme,i)=>{
