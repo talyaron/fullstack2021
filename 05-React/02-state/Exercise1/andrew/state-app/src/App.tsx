@@ -41,8 +41,13 @@ function App() {
     const index = arr.findIndex(img => img.id === id);
     const images = document.querySelectorAll('.image');
     images[index].classList.toggle('float-out');
+    console.log(index);
+    
     setTimeout(() => {
       setArr(arr.filter(img => img.id !== id));
+      images.forEach(image => {
+        image.classList.remove('float-out');
+      });
     }, 700);
   }
 
