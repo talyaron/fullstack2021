@@ -1,11 +1,20 @@
 import React, { useState } from "react";
-import { Button, TextField, AppBar } from "@mui/material";
+import {
+  Button,
+  TextField,
+  FormGroup,
+  AppBar,
+  Card,
+  CardContent,
+  CardActions,
+  CardMedia,
+} from "@mui/material";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import { red, green } from "@mui/material/colors";
+import { red, green, blue,purple , common } from "@mui/material/colors";
+
 import DeleteIcon from "@mui/icons-material/Delete";
 
 import "./View/styles/global.scss";
-import Card from "./View/Components/Card";
 
 interface CardsProps {
   img: string;
@@ -23,10 +32,10 @@ function App() {
   const theme = createTheme({
     palette: {
       primary: {
-        main: red[200],
+        main: purple[200],
       },
       secondary: {
-        main: green[500],
+        main: common["black"],
       },
     },
   });
@@ -50,55 +59,77 @@ function App() {
     setCards([...cards, card]);
     setTimeout(() => {
       if (card.isNew === true) {
-        console.log(id);
 
-        const newCard = document.querySelector(`[data-id=${id}]`)?.parentElement;
-        newCard?.setAttribute('class', 'card');
+
+        const newCard = document.querySelector(
+          `[data-id-new=${id}]`
+        );
+        newCard?.removeAttribute('data-new-card')
         setTimeout(() => (card.isNew = false), 5000);
+
+        
       }
     }, 2000);
   }
   function handleDelete(id: string) {
+    try{
     let arr = cards.filter((card) => card.id !== id);
-    const deleted = document.querySelector(`[data-id=${id}]`)?.parentElement;
+    const deleted = document.querySelector(`[data-id-new=${id}]`);
     const deletedCard = cards.filter((card) => card.id === id)[0];
+    if(!arr) throw new Error("no 'arr' in handleDelete")
+    if(!deleted) throw new Error("no 'deleted' in handleDelete")
+    if(!deletedCard) throw new Error("no 'deletedCard' in handleDelete")
     deletedCard.isDeleted = true;
     if (deletedCard.isDeleted === true) {
+      console.log(deletedCard, deleted);
+      
       const thisCard: any = deleted;
-      thisCard.setAttribute("class", "card deleted");
+      thisCard.setAttribute("data-deleted-card", "true");
       setTimeout(() => setCards([...arr]), 2000);
     }
     const thisCard: any = deleted;
-    setTimeout(() => thisCard.setAttribute("class", "card"), 2000);
+    setTimeout(() => thisCard.removeAttribute("data-deleted-card"), 2000);
+    }catch (e) {
+      console.log(e);
+      
+    }
   }
   function handleUpdate(ev: any) {
-    const payload = ev.target.previousElementSibling.value;
-    const type = ev.target.previousElementSibling.id;
-    const id = ev.target.previousElementSibling.dataset.id;
-    cards.forEach((card: CardsProps) => {
-      if (payload) {
-        if (card.id === id) {
-          if (type === "img") {
-            card.img = payload;
-            setCards([...cards]);
-            return;
+    try {
+      const type = ev.target.dataset.type;
+      const id = ev.target.dataset.id;
+      const card = document.querySelector(`[data-id-new="${id}"]`);
+      const input: any = card?.querySelector(`[data-update="${type}"]`);
+      const payload = input.value;
+
+      if (!cards) throw new Error("there are no cards at handleUpdate");
+      cards.forEach((card: CardsProps) => {
+        if (payload) {
+          if (card.id === id) {
+            if (type === "img") {
+              card.img = payload;
+              setCards([...cards]);
+              return;
+            }
+            if (type === "text") {
+              card.text = payload;
+              setCards([...cards]);
+              return;
+            }
+            return console.log("no type was chosen, update failed");
           }
-          if (type === "text") {
-            card.text = payload;
-            setCards([...cards]);
-            return;
-          }
-          return console.log("no type was chosen, update failed");
         }
-      }
-      return console.log("input something to update something");
-    });
+        return console.log("input something to update something");
+      });
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (
     <ThemeProvider theme={theme}>
       <div className="App">
-        <AppBar position="static">
+        <AppBar color="primary" position="static">
           <form onSubmit={handleAddCard}>
             <input
               type="text"
@@ -119,10 +150,11 @@ function App() {
           <div className="grid">
             {cards.map((card, i) => {
               return (
-                <div key={i} className="card new">
-                  <img src={`${card.img}`} />
+                <Card data-id-new={card.id} key={i} data-new-card className="card new">
+                  <CardContent>
+                  <CardMedia component="img" image={`${card.img}`} alt={`${card.text}`} />
                   <p>{card.text}</p>
-                  <p>{text}</p>
+                  </CardContent>
                   <Button
                     startIcon={<DeleteIcon />}
                     size="small"
@@ -138,45 +170,45 @@ function App() {
                   >
                     Delete
                   </Button>
-                  <input
-                    type="text"
+                  <FormGroup>
+                  <TextField
+                    data-update="text"
                     placeholder={card.text}
                     data-id={`${card.id}`}
                     id="text"
                   />
                   <Button
+                    data-id={`${card.id}`}
+                    data-type="text"
                     value="Update image title"
                     onClick={(ev) => {
                       handleUpdate(ev);
                     }}
+                    color="primary"
                   >
                     Update text
                   </Button>
-                  <input
-                    type="text"
-                    id="img"
-                    data-id={`${card.id}`}
-                    placeholder={card.img}
-                  />
-                  <Button
-                    type="submit"
-                    value="Update image source"
-                    onClick={(ev) => {
-                      handleUpdate(ev);
-                    }}
-                  >
-                    Update image
-                  </Button>
-                  <input
-                    onChange={(ev) => {
-                      setText(ev.target.value);
-                    }}
-                    value={`${text}`}
-                    type="text"
-                    name="liveChange"
-                    id="liveChange"
-                  />
-                </div>
+                  </FormGroup>
+                  <FormGroup>
+                    <TextField
+                      type="text"
+                      data-id={`${card.id}`}
+                      data-update="img"
+                      placeholder={card.img}
+                    />
+                    <Button
+                      data-id={`${card.id}`}
+                      data-type="img"
+                      type="submit"
+                      value="Update image source"
+                      onClick={(ev) => {
+                        handleUpdate(ev);
+                      }}
+                    >
+                      Update image
+                    </Button>
+                  </FormGroup>
+                </Card>
               );
             })}
           </div>

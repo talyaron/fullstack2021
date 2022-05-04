@@ -1,6 +1,6 @@
 import React from 'react'
 
-const PicGrid = () => {
+const PicGrid = (props:any) => {
   return (
     <div>PicGrid</div>
   )
