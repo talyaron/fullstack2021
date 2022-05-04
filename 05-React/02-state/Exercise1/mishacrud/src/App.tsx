@@ -1,15 +1,17 @@
+
 import React, { useState } from 'react';
 import './App.scss';
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
-import Container from '@mui/material/Container';
-import PicGrid from './view/components/PicGrid'
+import PicCard from './view/components/PicCard'
+import PicForm from './view/components/PicForm'
+import AppBar from './view/components/AppBar'
+import Grid from '@mui/material/Grid';
 
 interface PicObject {
   name: string;
   pic: string;
   id: string;
 }
+
 
 function App() {
 
@@ -21,7 +23,7 @@ function App() {
   const [nameError, setNameError] = useState(false)
   const [picError, setPicError] = useState(false)
 
-  function handleSubmit(ev: any) {
+function handleSubmit(ev: any) {
     ev.preventDefault();
 
     const name = ev.target.elements.name.value;
@@ -31,6 +33,7 @@ function App() {
 
     if (name && pic) {
       setArr([...arr, obj]);
+      ev.target.reset()
     }
     if (name === '') {
       setNameError(true)
@@ -45,21 +48,20 @@ function App() {
       }, 2000)
     }
 
-    ev.target.reset()
   }
 
-  function handleDelete(ev: any) {
-    const cardId = ev.target.id;
+  function handleDelete(cardId:any) {
     setArr(arr.filter(card => { return card.id !== cardId }))
-
   }
 
   function handleUpdate(ev: any) {
 
     ev.preventDefault()
-
-    const index = arr.findIndex(obj => obj.id === ev.target.id)
-
+    console.log(ev)
+    const index = arr.findIndex(obj => obj.name === ev.target.elements.name)
+    console.log(arr)
+    console.log(ev.target.elements.name.value)
+    console.log(index)
     const name = ev.target.elements.name.value
     const pic = ev.target.elements.pic.value
 
@@ -74,76 +76,20 @@ function App() {
 
   return (
     <div className="App">
-            <PicGrid>
-        
-        </PicGrid>
-      <Container>
-        <form noValidate autoComplete='off' onSubmit={handleSubmit}>
-          <TextField sx={{
-            marginTop: 2,
-            marginBottom: 2,
-            display: 'block'
-          }}
-            required
-            variant='outlined'
-            id="name"
-            label="Picture Name"
-            fullWidth
-            error={nameError} />
-          <TextField
-            className='test'
-            required
-            id="pic"
-            label="Picture URL"
-            rows={4}
-            fullWidth
-            error={picError}
-             />
-          <Button variant="contained" type='submit' id='addphoto'>Add Photo</Button>
-        </form>
-      </Container>
-
+      <AppBar />
+      
+      <PicForm job='Add' submit={handleSubmit} nameError={nameError} picError={picError}/>
+      <div className='wrapper'>
+      <Grid container spacing={3}>
       {
         arr.map((card, i) => (
-          <div>
-            <div className='PicName'>
-              {card.name}
-            </div>
-            <div className='PicPic'>
-              <img src={card.pic} alt='pic' />
-            </div>
-            <div>
-              <button onClick={handleDelete} id={card.id}>Delete</button>
-              <form onSubmit={handleUpdate} id={card.id}>
-                <TextField sx={{
-                  marginTop: 2,
-                  marginBottom: 2,
-                  display: 'block'
-                }}
-                  required
-                  variant='outlined'
-                  id="name"
-                  label="Picture Name"
-                  fullWidth
-                  error={nameError} />
-                <TextField
-                  className='test'
-                  sx={{
-                    marginTop: 2,
-                    marginBottom: 2,
-                    display: 'block'
-                  }}
-                  required
-                  id="pic"
-                  label="Picture URL"
-                  fullWidth
-                  error={picError} />
-                <Button variant="contained" type='submit' id='addphoto'>Add Photo</Button>
-              </form>
-            </div>
-          </div>
+          <Grid item>
+           <PicCard key={i} card={card} handleUpdate={handleUpdate} handleDelete={handleDelete}/>
+           </Grid>
         ))
       }
+      </Grid>
+      </div>
 
     </div >
 
