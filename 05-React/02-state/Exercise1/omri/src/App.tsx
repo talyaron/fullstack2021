@@ -4,7 +4,7 @@ import "./view/styles/App.scss";
 interface images {
   imgSrc: string
   Name: string
-  id:string
+  id: string
 }
 function App() {
   const [arr, setarr] = useState<Array<images>>([]);
@@ -13,7 +13,7 @@ function App() {
     ev.preventDefault();
     const imgSrc = ev.target.imgSrc.value;
     const Name = ev.target.Name.value;
-    const obj = { imgSrc, Name, id:uid() };
+    const obj = { imgSrc, Name, id: uid() };
 
     setarr([...arr, obj]);
     console.log(arr)
@@ -23,38 +23,39 @@ function App() {
     return Date.now().toString(36) + Math.random().toString(36).substring(2);
   }
 
-  function HandleUpdate(ev:any,id:string){
+  function HandleUpdate(ev: any, id: string) {
     ev.preventDefault();
-    const photo = arr.findIndex(index=>index.id===id);
+    const photo = arr.findIndex(index => index.id === id);
     const newName = ev.target.Name.value;
     arr[photo].Name = newName;
     setarr([...arr]);
   }
 
-  function HandleDelete(id:string){
+  function HandleDelete(id: string) {
     setarr(arr.filter(image => image.id !== id))
   }
 
   return (
     <div className="App">
-      <div className="Inputs">
-        <form onSubmit={HandleAddImg} >
-          <input type="text" name = 'imgSrc' placeholder="img url here" />
-          <input type="text" name = 'Name' placeholder="write img name here" />
-          <input type="submit" value="submit" />
-        </form>
+      <div className="App__albumBar">
+        <div className="App__albumBar__Logo"><h2>PhotoAlbum</h2></div>
+        <div className="App__albumBar__Inputs">
+          <form onSubmit={HandleAddImg} >
+            <input className="App__albumBar__Inputs--filed" type="text" name='imgSrc' placeholder="img url here" />
+            <input className="App__albumBar__Inputs--filed" type="text" name='Name' placeholder="write img name here" />
+            <input className="App__albumBar__Inputs--submit" type="submit" value="submit" />
+          </form>
+        </div>
       </div>
 
       <div className='App__grid'>
         {arr.map((arr, i) => {
           return (
-            <div key={i} className='App__card'>
+            <div key={i} className='App__grid__card'>
               <img src={arr.imgSrc} />
-              <h3 className='App__text'>{arr.Name}</h3>
-              {/* <button onClick={() => handledelete(arr.id)}>delete</button> */}
-              {/* <button onClick={() => HandleUpdate(arr.id)}>update name</button> */}
-              <form onSubmit={(ev) => HandleUpdate(ev,arr.id)}>
-                <input type = 'text' name = 'Name' placeholder="Enter new Name"/>
+              <h3>{arr.Name}</h3>
+              <form onSubmit={(ev) => HandleUpdate(ev, arr.id)}>
+                <input type='text' name='Name' placeholder="Enter new Name" />
                 <input type="submit" value="update" />
                 <button onClick={() => HandleDelete(arr.id)}>Delete</button>
               </form>
@@ -62,7 +63,7 @@ function App() {
           )
         })}
       </div>
-    
+
     </div>
   );
 }
