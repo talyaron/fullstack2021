@@ -42,7 +42,7 @@ const PicCard = (props: any) => {
             } />
           <Collapse in={expanded} timeout="auto" unmountOnExit>
           <CardContent>
-            <PicForm job='Update' submit={handleUpdate} nameError={nameError} picError={picError} />
+            <PicForm job='Update' submit={handleUpdate} nameError={nameError} picError={picError} cardId={card.id} />
           </CardContent>
           </Collapse>
 

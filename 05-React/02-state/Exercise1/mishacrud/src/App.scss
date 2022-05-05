@@ -6,11 +6,11 @@
     display: block !important;
 }
 
-#addphoto{
-    position: relative;
-    left: 50%;
-    transform:translateX(-50%);
-    margin-top: 20px;
+.addphoto{
+    position: relative !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;;
+    margin-top: 20px !important;
 }
 
 .cardImg{

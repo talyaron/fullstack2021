@@ -57,10 +57,9 @@ function handleSubmit(ev: any) {
   function handleUpdate(ev: any) {
 
     ev.preventDefault()
-    console.log(ev)
-    const index = arr.findIndex(obj => obj.name === ev.target.elements.name)
-    console.log(arr)
-    console.log(ev.target.elements.name.value)
+    const id = ev.target[4].id
+    console.log(id)
+    const index = arr.findIndex((obj) => obj.name == ev.target[4].id)
     console.log(index)
     const name = ev.target.elements.name.value
     const pic = ev.target.elements.pic.value
@@ -79,7 +78,7 @@ function handleSubmit(ev: any) {
       <AppBar />
       
       <PicForm job='Add' submit={handleSubmit} nameError={nameError} picError={picError}/>
-      <div className='wrapper'>
+      <div className='wrapper'> 
       <Grid container spacing={3}>
       {
         arr.map((card, i) => (
