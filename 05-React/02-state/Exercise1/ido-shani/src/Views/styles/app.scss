@@ -1,3 +1,5 @@
+
+
 body {
   margin: 0;
   padding: 0;
@@ -65,6 +67,9 @@ body {
 
       width: 100%;
       border: #040aaf solid 4px;
+
+    
+      
       
       &:hover {
         border: #F8F005 solid 4px;
@@ -91,6 +96,7 @@ body {
      &--deleteButton{
       position: relative;
       bottom: 70px;
+      
 
      }
 
@@ -109,6 +115,17 @@ body {
 
     }
   }
+}
+
+.activeDelete{
+   animation: shutdown 1s linear forwards;
+}
+
+@keyframes shutdown {
+  0%        { opacity: 0; }
+  8%, 46%   { transform: scale(1, 1); opacity: 1; }
+  50%       { transform: scale(1, 0.02); opacity: 0.8; }
+  55%, 100% { transform: scale(0, 0); opacity: 0.3; }
 }
 
 button,

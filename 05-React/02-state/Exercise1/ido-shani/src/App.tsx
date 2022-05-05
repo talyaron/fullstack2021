@@ -35,11 +35,25 @@ function App() {
     console.log(ev.target.id);
     const cardId = ev.target.id;
 
+    const chosenCard: any = document.querySelectorAll(".App_imageCards__card");
+
+   
+    
+    chosenCard.forEach((card:any)=>{
+      if(card.id==cardId){
+        card.classList.toggle("activeDelete");
+
+      }
+    })
+
     setMyArray(
       set.filter((card) => {
         return card.id !== cardId;
       })
     );
+
+    console.log(chosenCard);
+    console.log(set);
   }
 
   function handleUpdateCard(ev: any) {
@@ -72,18 +86,27 @@ function App() {
 
       <div className="App_imageCards">
         {set.map((card, i) => (
-          <div key={i} className="App_imageCards__card">
+          <div id={card.id} key={i} className="App_imageCards__card">
             <img src={card.imgUrl} alt="card image url"></img>
             <h2 className="App_imageCards__card-name">Name : {card.imgName}</h2>
 
-            
-              <button className="App_imageCards__card--deleteButton"type="button" id={card.id} onClick={handleDeleteCard}>
-                delete
-              </button>
+            <button
+              className="App_imageCards__card--deleteButton"
+              type="button"
+              id={card.id}
+              onClick={handleDeleteCard}
+            >
+              delete
+            </button>
 
-              <input  type="text" name="updateName" id={card.id} onChange={handleUpdateCard} placeholder="change image name"/>
-            </div>
-          
+            <input
+              type="text"
+              name="updateName"
+              id={card.id}
+              onChange={handleUpdateCard}
+              placeholder="change image name"
+            />
+          </div>
         ))}
       </div>
     </div>
