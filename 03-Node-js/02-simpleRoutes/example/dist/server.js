@@ -13,5 +13,5 @@ app.get('/getUsers', (req, res) => {
     }, 2000);
 });
 app.listen(port, () => {
-    return console.log(`Express is listening at http://localhost:${port}`);
+    return console.log(`Express is listening at http://localhost:${port}`); 
 });
