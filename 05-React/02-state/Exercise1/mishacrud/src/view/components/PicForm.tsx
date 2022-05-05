@@ -31,7 +31,9 @@ const PicForm = (props: any) => {
                         fullWidth
                         error={props.picError}
                     />
+                    <Container id='addphoto'>
                     <Button variant="contained" type='submit' className='add' id={props.cardId}>{props.job} Photo</Button>
+                    </Container>
                 </form>
             </Container>
         </>

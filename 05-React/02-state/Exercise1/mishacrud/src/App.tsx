@@ -1,10 +1,11 @@
 
 import React, { useState } from 'react';
 import './App.scss';
-import PicCard from './view/components/PicCard'
-import PicForm from './view/components/PicForm'
-import AppBar from './view/components/AppBar'
+import PicCard from './view/components/PicCard';
+import PicForm from './view/components/PicForm';
+import AppBar from './view/components/AppBar';
 import Grid from '@mui/material/Grid';
+import Container from '@mui/material/Container';
 
 interface PicObject {
   name: string;
@@ -59,13 +60,19 @@ function handleSubmit(ev: any) {
     ev.preventDefault()
     const id = ev.target[4].id
     console.log(id)
-    const index = arr.findIndex((obj) => obj.name == ev.target[4].id)
+    console.log(arr)
+    const index = arr.findIndex((pic) => pic.id === id)
     console.log(index)
+
     const name = ev.target.elements.name.value
     const pic = ev.target.elements.pic.value
 
+    if(name){
     arr[index].name = name;
+    }
+    if(pic){
     arr[index].pic = pic;
+    }
 
     setArr([...arr])
 
@@ -79,6 +86,7 @@ function handleSubmit(ev: any) {
       
       <PicForm job='Add' submit={handleSubmit} nameError={nameError} picError={picError}/>
       <div className='wrapper'> 
+      <Container maxWidth='xl'>
       <Grid container spacing={3}>
       {
         arr.map((card, i) => (
@@ -88,6 +96,7 @@ function handleSubmit(ev: any) {
         ))
       }
       </Grid>
+      </Container>
       </div>
 
     </div >

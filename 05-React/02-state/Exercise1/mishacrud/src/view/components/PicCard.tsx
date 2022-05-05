@@ -22,7 +22,7 @@ const PicCard = (props: any) => {
   return (
     <>
       <div className="wrapper">
-        <Card sx={{ maxWidth: 300 }}>
+        <Card sx={{ Width: 200}}>
           <div className='cardImg'>
             <img src={card.pic} className='imgSrc' alt={card.pic}></img>
           </div>
