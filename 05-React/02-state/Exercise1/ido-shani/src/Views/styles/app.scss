@@ -67,6 +67,15 @@ body {
 
       width: 100%;
       border: #040aaf solid 4px;
+    
+     
+     
+
+     
+    
+    
+      
+      
 
     
       
@@ -80,6 +89,8 @@ body {
 
         width: 100%;
         height: 80%;
+        animation: flicker-in 3s linear forwards;
+        animation-delay: 00.5s;
 
       }
 
@@ -96,7 +107,7 @@ body {
      &--deleteButton{
       position: relative;
       bottom: 70px;
-      
+    
 
      }
 
@@ -116,17 +127,131 @@ body {
     }
   }
 }
-
-.activeDelete{
-   animation: shutdown 1s linear forwards;
+.addedCard{
+  animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards;
 }
 
-@keyframes shutdown {
-  0%        { opacity: 0; }
-  8%, 46%   { transform: scale(1, 1); opacity: 1; }
-  50%       { transform: scale(1, 0.02); opacity: 0.8; }
-  55%, 100% { transform: scale(0, 0); opacity: 0.3; }
+
+@keyframes flicker-in {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 0;
+  }
+  10.1% {
+    opacity: 1;
+  }
+  10.2% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0;
+  }
+  20.1% {
+    opacity: 1;
+  }
+  20.6% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 0;
+  }
+  30.1% {
+    opacity: 1;
+  }
+  30.5% {
+    opacity: 1;
+  }
+  30.6% {
+    opacity: 0;
+  }
+  45% {
+    opacity: 0;
+  }
+  45.1% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  55% {
+    opacity: 1;
+  }
+  55.1% {
+    opacity: 0;
+  }
+  57% {
+    opacity: 0;
+  }
+  57.1% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+  60.1% {
+    opacity: 0;
+  }
+  65% {
+    opacity: 0;
+  }
+  65.1% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  75.1% {
+    opacity: 0;
+  }
+  77% {
+    opacity: 0;
+  }
+  77.1% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  85.1% {
+    opacity: 0;
+  }
+  86% {
+    opacity: 0;
+  }
+  86.1% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
 }
+
+@keyframes slide-in-left {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+
+
+/// deleting animation of closing tv
+// .activeDelete{
+//    animation: shutdown 1s linear forwards;
+// }
+
+// @keyframes shutdown {
+//   0%        { opacity: 0; }
+//   8%, 46%   { transform: scale(1, 1); opacity: 1; }
+//   50%       { transform: scale(1, 0.02); opacity: 0.8; }
+//   55%, 100% { transform: scale(0, 0); opacity: 0.3; }
+// }
 
 button,
 button::after {

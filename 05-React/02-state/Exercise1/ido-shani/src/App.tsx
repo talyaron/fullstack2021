@@ -23,9 +23,29 @@ function App() {
     const imgUrl = ev.target.elements.imgUrl.value;
     const imgName = ev.target.elements.imgName.value;
     const id = uid();
+
+     const addedCard: any = document.querySelectorAll(".App_imageCards__card");
+    // card.classList.toggle("addedCard");
+    
+    addedCard.forEach((card:any)=>{
+      if(card.className=="addedCard"){
+        console.log("has className -addedCard")
+      }else{
+        card.classList.toggle("addedCard");
+      }
+      
+
+      
+    })
+
+    
     if (set.length < 8) {
-      setMyArray([...set, { imgUrl, imgName, id }]);
+      
+      setMyArray([{ imgUrl, imgName, id },...set]);
     }
+   
+
+   
 
     console.log(set);
     // ev.target.reset()
@@ -35,16 +55,16 @@ function App() {
     console.log(ev.target.id);
     const cardId = ev.target.id;
 
-    const chosenCard: any = document.querySelectorAll(".App_imageCards__card");
+    // const chosenCard: any = document.querySelectorAll(".App_imageCards__card");
 
    
     
-    chosenCard.forEach((card:any)=>{
-      if(card.id==cardId){
-        card.classList.toggle("activeDelete");
+    // chosenCard.forEach((card:any)=>{
+    //   if(card.id==cardId){
+    //     card.classList.toggle("activeDelete");
 
-      }
-    })
+    //   }
+    // })
 
     setMyArray(
       set.filter((card) => {
@@ -52,8 +72,8 @@ function App() {
       })
     );
 
-    console.log(chosenCard);
-    console.log(set);
+    // console.log(chosenCard);
+    // console.log(set);
   }
 
   function handleUpdateCard(ev: any) {
