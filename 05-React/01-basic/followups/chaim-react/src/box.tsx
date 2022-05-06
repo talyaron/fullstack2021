@@ -1,13 +1,15 @@
-interface BoxProps{
+interface cardsProps{
   text: string
   img:string
+  id: string
 }
-const box = (props:BoxProps) => {
-  const {text, img}=props
+const box = (props:cardsProps) => {
+  const {text, img, id}=props
   return (
     <div className="Box">
    <img src={img} alt="" />
    {text}
+   {id}
     </div>
   )
 }
