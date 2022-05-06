@@ -12,6 +12,7 @@ import {
   Typography,
   FormControl,
   Collapse,
+  CssBaseline,
 } from "@mui/material";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { grey, red, green, blue, purple, common } from "@mui/material/colors";
@@ -39,14 +40,17 @@ function App() {
   const theme = createTheme({
     palette: {
       primary: {
-        light: grey[100],
-        main: grey[200],
-        dark: grey[300],
-        contrastText: grey[400]
+        light: grey[300],
+        main: grey[600],
+        dark: grey[800],
+        contrastText: grey[100]
       },
       secondary: {
         main: grey[50],
       },
+      background:{
+        default: grey['A700']
+      }
     },
   });
 
@@ -129,21 +133,22 @@ function App() {
       console.log(error);
     }
   }
+const {primary, secondary} = theme.palette;
 
   return (
     <div className="App">
         <ThemeProvider theme={theme}>
-        <AppBar color="primary" position="static">
-          <div className="appHeader">
+          <CssBaseline/>
+        <AppBar position="static">
+          <div color={primary.dark} className="appHeader">
             <h1>flfk</h1>
             <p>fkfre</p>
           </div>
         </AppBar>
-    </ThemeProvider>
 
-        <header className="App-header">
-          <form onSubmit={handleAddCard}>
-          <FormControl sx={{bgColor:'primary', width: '25ch' }}>
+        <header color={primary.main} className="App-header">
+          <form color={primary.light} onSubmit={handleAddCard}>
+          <FormControl sx={{bgColor:`${primary.dark}`, width: '25ch' }}>
               <TextField
               InputLabelProps={{shrink:true}}
               variant="filled"
@@ -163,6 +168,7 @@ function App() {
               <TextField type="submit" value="Submit a new card" />
             </FormControl>
           </form>
+            <Typography color={primary.contrastText} variant="h2">Your new cards</Typography>
           <div className="grid">
             {cards.map((card, i) => {
               return (
@@ -178,7 +184,7 @@ function App() {
                     alt={`${card.text}`}
                   />
                   <CardContent>
-                    <Typography variant="h5" color="text.secondary">
+                    <Typography variant="h5" color="dark">
                       {card.text}
                     </Typography>
                     <Button
@@ -250,6 +256,8 @@ function App() {
             })}
           </div>
         </header>
+    </ThemeProvider>
+
       </div>
   );
 }
