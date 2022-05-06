@@ -14,7 +14,7 @@ import {
   Collapse,
 } from "@mui/material";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import { red, green, blue, purple, common } from "@mui/material/colors";
+import { grey, red, green, blue, purple, common } from "@mui/material/colors";
 
 import DeleteIcon from "@mui/icons-material/Delete";
 
@@ -39,10 +39,13 @@ function App() {
   const theme = createTheme({
     palette: {
       primary: {
-        main: purple[200],
+        light: grey[100],
+        main: grey[200],
+        dark: grey[300],
+        contrastText: grey[400]
       },
       secondary: {
-        main: common["black"],
+        main: grey[50],
       },
     },
   });
@@ -128,11 +131,19 @@ function App() {
   }
 
   return (
-    <ThemeProvider theme={theme}>
-      <div className="App">
+    <div className="App">
+        <ThemeProvider theme={theme}>
         <AppBar color="primary" position="static">
+          <div className="appHeader">
+            <h1>flfk</h1>
+            <p>fkfre</p>
+          </div>
+        </AppBar>
+    </ThemeProvider>
+
+        <header className="App-header">
           <form onSubmit={handleAddCard}>
-          <FormControl sx={{ width: '25ch' }}>
+          <FormControl sx={{bgColor:'primary', width: '25ch' }}>
               <TextField
               InputLabelProps={{shrink:true}}
               variant="filled"
@@ -152,8 +163,6 @@ function App() {
               <TextField type="submit" value="Submit a new card" />
             </FormControl>
           </form>
-        </AppBar>
-        <header className="App-header">
           <div className="grid">
             {cards.map((card, i) => {
               return (
@@ -242,7 +251,6 @@ function App() {
           </div>
         </header>
       </div>
-    </ThemeProvider>
   );
 }
 
