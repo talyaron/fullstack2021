@@ -1,11 +1,25 @@
 import React, { useState } from "react";
-import { Button, TextField, AppBar } from "@mui/material";
+import {
+  Button,
+  TextField,
+  FormGroup,
+  AppBar,
+  Card,
+  CardContent,
+  CardActions,
+  CardMedia,
+  Grid,
+  Typography,
+  FormControl,
+  Collapse,
+  CssBaseline,
+} from "@mui/material";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import { red, green } from "@mui/material/colors";
+import { grey, red, green, blue, purple, common } from "@mui/material/colors";
+
 import DeleteIcon from "@mui/icons-material/Delete";
 
 import "./View/styles/global.scss";
-import Card from "./View/Components/Card";
 
 interface CardsProps {
   img: string;
@@ -18,16 +32,25 @@ interface CardsProps {
 function App() {
   const [cards, setCards] = useState<Array<CardsProps>>([]);
   const [text, setText] = useState<String>();
-  const [state, toggle] = useState(true);
+  const [checked, setChecked] = useState(false);
+  const handleChecked = () => {
+    setChecked((prev) => !prev)
+  }
   // const {x}  = useSpring({from: {x:0}, x: state? 1: 0, config: {duration:1000}})
   const theme = createTheme({
     palette: {
       primary: {
-        main: red[200],
+        light: grey[300],
+        main: grey[600],
+        dark: grey[800],
+        contrastText: grey[100]
       },
       secondary: {
-        main: green[500],
+        main: grey[50],
       },
+      background:{
+        default: grey['A700']
+      }
     },
   });
 
@@ -46,143 +69,196 @@ function App() {
     const id = uniqueId();
     const isNew = true;
     const card = { img, text, id, isNew };
-
+    
     setCards([...cards, card]);
     setTimeout(() => {
       if (card.isNew === true) {
-        console.log(id);
-
-        const newCard = document.querySelector(`[data-id=${id}]`)?.parentElement;
-        newCard?.setAttribute('class', 'card');
+        const newCard = document.querySelector(`[data-id-new=${id}]`);
+        newCard?.removeAttribute("data-new-card");
         setTimeout(() => (card.isNew = false), 5000);
       }
     }, 2000);
   }
   function handleDelete(id: string) {
-    let arr = cards.filter((card) => card.id !== id);
-    const deleted = document.querySelector(`[data-id=${id}]`)?.parentElement;
-    const deletedCard = cards.filter((card) => card.id === id)[0];
-    deletedCard.isDeleted = true;
-    if (deletedCard.isDeleted === true) {
+    try {
+      let arr = cards.filter((card) => card.id !== id);
+      const deleted = document.querySelector(`[data-id-new=${id}]`);
+      const deletedCard = cards.filter((card) => card.id === id)[0];
+      if (!arr) throw new Error("no 'arr' in handleDelete");
+      if (!deleted) throw new Error("no 'deleted' in handleDelete");
+      if (!deletedCard) throw new Error("no 'deletedCard' in handleDelete");
+      deletedCard.isDeleted = true;
+      if (deletedCard.isDeleted === true) {
+        console.log(deletedCard, deleted);
+
+        const thisCard: any = deleted;
+        thisCard.setAttribute("data-deleted-card", "true");
+        setTimeout(() => setCards([...arr]), 2000);
+      }
       const thisCard: any = deleted;
-      thisCard.setAttribute("class", "card deleted");
-      setTimeout(() => setCards([...arr]), 2000);
+      setTimeout(() => thisCard.removeAttribute("data-deleted-card"), 2000);
+    } catch (e) {
+      console.log(e);
     }
-    const thisCard: any = deleted;
-    setTimeout(() => thisCard.setAttribute("class", "card"), 2000);
   }
   function handleUpdate(ev: any) {
-    const payload = ev.target.previousElementSibling.value;
-    const type = ev.target.previousElementSibling.id;
-    const id = ev.target.previousElementSibling.dataset.id;
-    cards.forEach((card: CardsProps) => {
-      if (payload) {
-        if (card.id === id) {
-          if (type === "img") {
-            card.img = payload;
-            setCards([...cards]);
-            return;
+    try {
+      const type = ev.target.dataset.type;
+      const id = ev.target.dataset.id;
+      const card = document.querySelector(`[data-id-new="${id}"]`);
+      const input: any = card?.querySelector(`[data-update="${type}"]`);
+      const payload = input.querySelector("input").value;
+      console.log(type, id, card, input);
+
+      if (!cards) throw new Error("there are no cards at handleUpdate");
+      cards.forEach((card: CardsProps) => {
+        if (payload) {
+          if (card.id === id) {
+            if (type === "img") {
+              card.img = payload;
+              setCards([...cards]);
+              return;
+            }
+            if (type === "text") {
+              card.text = payload;
+              setCards([...cards]);
+              return;
+            }
+            return console.log("no type was chosen, update failed");
           }
-          if (type === "text") {
-            card.text = payload;
-            setCards([...cards]);
-            return;
-          }
-          return console.log("no type was chosen, update failed");
         }
-      }
-      return console.log("input something to update something");
-    });
+        return console.log("input something to update something");
+      });
+    } catch (error) {
+      console.log(error);
+    }
   }
+const {primary, secondary} = theme.palette;
 
   return (
-    <ThemeProvider theme={theme}>
-      <div className="App">
+    <div className="App">
+        <ThemeProvider theme={theme}>
+          <CssBaseline/>
         <AppBar position="static">
-          <form onSubmit={handleAddCard}>
-            <input
-              type="text"
-              name="img"
-              id="img"
-              placeholder="Input an image source"
-            />
-            <input
-              type="text"
-              name="text"
-              id="text"
-              placeholder="Write an img title"
-            />
-            <input type="submit" value="Submit a new card" />
-          </form>
+          <div color={primary.dark} className="appHeader">
+            <h1>flfk</h1>
+            <p>fkfre</p>
+          </div>
         </AppBar>
-        <header className="App-header">
+
+        <header color={primary.main} className="App-header">
+          <form color={primary.light} onSubmit={handleAddCard}>
+          <FormControl sx={{bgColor:`${primary.dark}`, width: '25ch' }}>
+              <TextField
+              InputLabelProps={{shrink:true}}
+              variant="filled"
+                size="small"
+                type="text"
+                name="img"
+                id="img"
+                placeholder="input an image source"
+              />
+              <TextField
+                variant="filled"
+                type="text"
+                name="text"
+                id="text"
+                placeholder="Write an img title"
+              />
+              <TextField type="submit" value="Submit a new card" />
+            </FormControl>
+          </form>
+            <Typography color={primary.contrastText} variant="h2">Your new cards</Typography>
           <div className="grid">
             {cards.map((card, i) => {
               return (
-                <div key={i} className="card new">
-                  <img src={`${card.img}`} />
-                  <p>{card.text}</p>
-                  <p>{text}</p>
-                  <Button
-                    startIcon={<DeleteIcon />}
-                    size="small"
-                    style={{
-                      fontSize: "10px",
-                      width: 100,
-                    }}
-                    variant="outlined"
-                    color="error"
-                    onClick={(id) => {
-                      handleDelete(card.id);
-                    }}
-                  >
-                    Delete
-                  </Button>
-                  <input
-                    type="text"
-                    placeholder={card.text}
-                    data-id={`${card.id}`}
-                    id="text"
+                <Card
+                  data-id-new={card.id}
+                  key={i}
+                  data-new-card
+                  className="card new"
+                >
+                  <CardMedia
+                    component="img"
+                    image={`${card.img}`}
+                    alt={`${card.text}`}
                   />
-                  <Button
-                    value="Update image title"
-                    onClick={(ev) => {
-                      handleUpdate(ev);
-                    }}
-                  >
-                    Update text
-                  </Button>
-                  <input
-                    type="text"
-                    id="img"
-                    data-id={`${card.id}`}
-                    placeholder={card.img}
-                  />
-                  <Button
-                    type="submit"
-                    value="Update image source"
-                    onClick={(ev) => {
-                      handleUpdate(ev);
-                    }}
-                  >
-                    Update image
-                  </Button>
-                  <input
-                    onChange={(ev) => {
-                      setText(ev.target.value);
-                    }}
-                    value={`${text}`}
-                    type="text"
-                    name="liveChange"
-                    id="liveChange"
-                  />
-                </div>
+                  <CardContent>
+                    <Typography variant="h5" color="dark">
+                      {card.text}
+                    </Typography>
+                    <Button
+                      startIcon={<DeleteIcon />}
+                      size="small"
+                      style={{
+                        fontSize: "10px",
+                        width: 100,
+                      }}
+                      variant="outlined"
+                      color="error"
+                      onClick={(id) => {
+                        handleDelete(card.id);
+                      }}
+                    >
+                      Delete
+                    </Button>
+                    <Button onClick={handleChecked}>Make some changes</Button>
+                    <Collapse in={checked}>
+                    <FormGroup>
+                      <TextField
+                        label={card.text}
+                        InputLabelProps={{shrink:true}}
+                        variant="standard"
+                        data-update="text"
+                        defaultValue={card.text}
+                        data-id={`${card.id}`}
+                        id="text"
+                      />
+                      <Button
+                        data-id={`${card.id}`}
+                        data-type="text"
+                        value="Update image title"
+                        onClick={(ev) => {
+                          handleUpdate(ev);
+                        }}
+                        color="primary"
+                      >
+                        Update text
+                      </Button>
+                    </FormGroup>
+                    <FormGroup>
+                      <TextField
+
+                        type="text"
+                        variant="standard"
+                        data-id={`${card.id}`}
+                        data-update="img"
+                        label="Image source"
+                        defaultValue={card.img}
+                        placeholder={card.img}
+                      />
+                      <Button
+                        data-id={`${card.id}`}
+                        data-type="img"
+                        type="submit"
+                        value="Update image source"
+                        onClick={(ev) => {
+                          handleUpdate(ev);
+                        }}
+                      >
+                        Update image
+                      </Button>
+                    </FormGroup>
+                    </Collapse>
+                  </CardContent>
+                </Card>
               );
             })}
           </div>
         </header>
-      </div>
     </ThemeProvider>
+
+      </div>
   );
 }
 

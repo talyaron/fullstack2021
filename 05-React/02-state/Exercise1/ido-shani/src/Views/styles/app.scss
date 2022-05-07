@@ -1,54 +1,354 @@
-.App {
+
+
+body {
+  margin: 0;
+  padding: 0;
   text-align: center;
-  margin: 10vh auto;
- 
+  max-width: fit-content;
+  font-family: 'Bebas Neue', cursive;
+  letter-spacing: 2px;
+}
+
+.App {
+  display: grid;
+  grid-template-columns: repeat(10, 10%);
+  grid-template-rows: repeat(10, 10%);
+  //border: 1px solid rgb(0, 0, 0);
+  background-color: rgb(41, 40, 40);
+  text-align: center;
+  width: 99.5vw;
+  //margin: auto;
+  height: 99vh;
+  background: url(tvFrame.png) no-repeat center fixed;
+  background-size: 100% 100%;
+
+  &_form {
+    // border:solid 2px white;
+    width: 99.5vw;
+    height: 30px;
+    margin: auto;
+    grid-column: 1/6;
+    grid-row: 1/2;
+    text-align: center;
+
+    input[type="text"] {
+      margin: 5px;
+      border: #040aaf solid 3px;
+      border-radius: 4px;
+
+    }
+    button[type="submit"]{
+      width: 80px;
+      height: 40px;
+     
+
+    }
+  }
+
+  &_imageCards {
+
+    //outline: 2px solid white;
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+    grid-template-rows: repeat(2, 48%);
+    column-gap: 10px;
+    row-gap:15px;
+    grid-column: 2/5;
+    width: 80vw;
+    grid-row: 2/10;
+
+    //align-self: center;
+    // padding:40px 0 7px 30px;
+    // outline:solid blue 2px;
+    // margin: 10vh auto; 
+
+
+    &__card {
+
+      width: 100%;
+      border: #040aaf solid 4px;
+    
+     
+     
+
+     
+    
+    
+      
+      
+
+    
+      
+      
+      &:hover {
+        border: #F8F005 solid 4px;
+        box-shadow: 0 0 11px rgb(251, 228, 228);
+      }
+
+      img {
+
+        width: 100%;
+        height: 80%;
+        animation: flicker-in 3s linear forwards;
+        animation-delay: 00.5s;
+
+      }
+
+      &-name {
+        color: aliceblue;
+        position: relative;
+        bottom: 100px;
+        text-shadow: 0 0 10px black;
+
+
+      }
+
+
+     &--deleteButton{
+      position: relative;
+      bottom: 70px;
+    
+
+     }
+
+
+      input[name="updateName"] {
+        margin-top: 0;
+        border: #F8F005 solid 3px;
+        border-radius: 4px;
+        position: relative;
+        bottom: 70px;
+
+      }
+
+
+
+
+    }
+  }
+}
+.addedCard{
+  animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards;
 }
 
 
-
-
-form{
-  //border:solid 2px black;
-  width:100%;
-  height:40px;
-  margin: auto;  
-  position:absolute;
-  top:0;
-  text-align: center;
-  input[type="text"]{
-    margin:5px;
+@keyframes flicker-in {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 0;
+  }
+  10.1% {
+    opacity: 1;
+  }
+  10.2% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0;
+  }
+  20.1% {
+    opacity: 1;
+  }
+  20.6% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 0;
+  }
+  30.1% {
+    opacity: 1;
+  }
+  30.5% {
+    opacity: 1;
+  }
+  30.6% {
+    opacity: 0;
+  }
+  45% {
+    opacity: 0;
+  }
+  45.1% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  55% {
+    opacity: 1;
+  }
+  55.1% {
+    opacity: 0;
+  }
+  57% {
+    opacity: 0;
+  }
+  57.1% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+  60.1% {
+    opacity: 0;
+  }
+  65% {
+    opacity: 0;
+  }
+  65.1% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  75.1% {
+    opacity: 0;
+  }
+  77% {
+    opacity: 0;
+  }
+  77.1% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  85.1% {
+    opacity: 0;
+  }
+  86% {
+    opacity: 0;
+  }
+  86.1% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
   }
 }
 
-.imageCards {
-  outline:solid blue 2px;
-  width:100%;
-  max-height: 1000px;
-  margin: 10vh auto;
-  height: 500px;  
-  background-image: url('https://sourcetvframes.com/wp-content/uploads/2017/03/Providence-Black-Frame.png' ) ;
-  background-size:cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  display:grid;
-  grid-template-columns: repeat(4,20%);
-  grid-template-rows:repeat(2,40%);
-  column-gap:5px;
-  padding:40px 0 7px 30px;
-  
-  
-  &__card {
-    border:solid black 1px;
-   
-    
+@keyframes slide-in-left {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
 
-   
-   
 
-    img {
 
-      width: 100%;
-      height: 40%;
-    }
+/// deleting animation of closing tv
+// .activeDelete{
+//    animation: shutdown 1s linear forwards;
+// }
+
+// @keyframes shutdown {
+//   0%        { opacity: 0; }
+//   8%, 46%   { transform: scale(1, 1); opacity: 1; }
+//   50%       { transform: scale(1, 0.02); opacity: 0.8; }
+//   55%, 100% { transform: scale(0, 0); opacity: 0.3; }
+// }
+
+button,
+button::after {
+  width: 70px;
+  height: 30px;
+  //border-radius: 50%;
+  margin-right: 15px;
+  margin-left: 5px;
+  font-family: 'Bebas Neue', cursive;
+  background: linear-gradient(45deg, transparent 5%, #040aaf 5%);
+  border: 0;
+  color: #fff;
+  letter-spacing: 3px;
+  //line-height: 88px;
+  box-shadow: 6px 0px 0px #F8F005;
+  outline: transparent;
+  position: relative;
+}
+
+button::after {
+  --slice-0: inset(50% 50% 50% 50%);
+  --slice-1: inset(80% -6px 0 0);
+  --slice-2: inset(50% -6px 30% 0);
+  --slice-3: inset(10% -6px 85% 0);
+  --slice-4: inset(40% -6px 43% 0);
+  --slice-5: inset(80% -6px 5% 0);
+
+  content: 'AVAILABLE NOW';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 3%, #F8F005 3%, #00E6F6 5%, #040aaf  5%);
+  text-shadow: -3px -3px 0px #F8F005, 3px 3px 0px #040aaf;
+  clip-path: var(--slice-0);
+}
+
+button:hover::after {
+  animation: 1s glitch;
+  animation-timing-function: steps(2, end);
+}
+
+@keyframes glitch {
+  0% {
+    clip-path: var(--slice-1);
+    transform: translate(-20px, -10px);
+  }
+
+  10% {
+    clip-path: var(--slice-3);
+    transform: translate(10px, 10px);
+  }
+
+  20% {
+    clip-path: var(--slice-1);
+    transform: translate(-10px, 10px);
+  }
+
+  30% {
+    clip-path: var(--slice-3);
+    transform: translate(0px, 5px);
+  }
+
+  40% {
+    clip-path: var(--slice-2);
+    transform: translate(-5px, 0px);
+  }
+
+  50% {
+    clip-path: var(--slice-3);
+    transform: translate(5px, 0px);
+  }
+
+  60% {
+    clip-path: var(--slice-4);
+    transform: translate(5px, 10px);
+  }
+
+  70% {
+    clip-path: var(--slice-2);
+    transform: translate(-10px, 10px);
+  }
+
+  80% {
+    clip-path: var(--slice-5);
+    transform: translate(20px, -10px);
+  }
+
+  90% {
+    clip-path: var(--slice-1);
+    transform: translate(-10px, 0px);
+  }
+
+  100% {
+    clip-path: var(--slice-1);
+    transform: translate(0);
   }
 }
