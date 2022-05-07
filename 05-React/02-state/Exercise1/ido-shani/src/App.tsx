@@ -27,27 +27,22 @@ function App() {
      const addedCard: any = document.querySelectorAll(".App_imageCards__card");
     // card.classList.toggle("addedCard");
     
-    addedCard.forEach((card:any)=>{
-      if(card.className=="addedCard"){
-        console.log("has className -addedCard")
-      }else{
-        card.classList.toggle("addedCard");
-      }
-      
-
-      
-    })
-
+    
     
     if (set.length < 8) {
       
-      setMyArray([{ imgUrl, imgName, id },...set]);
+      setMyArray([...set, { imgUrl, imgName, id }]);
     }
-   
+    
+    setTimeout(() =>{
+    const lastCard = document.querySelector(`[id=${id}]`)
+      lastCard?.setAttribute("class", 'App_imageCards__card')
+      console.log(lastCard);
+      
+    },600)
 
    
 
-    console.log(set);
     // ev.target.reset()
   }
 
@@ -106,7 +101,7 @@ function App() {
 
       <div className="App_imageCards">
         {set.map((card, i) => (
-          <div id={card.id} key={i} className="App_imageCards__card">
+          <div id={card.id} key={i} className="App_imageCards__card new">
             <img src={card.imgUrl} alt="card image url"></img>
             <h2 className="App_imageCards__card-name">Name : {card.imgName}</h2>
 
