@@ -55,7 +55,7 @@ function App() {
           <div  key={i}>
             <h3>{img.text}</h3>
             <img src={img.img} title={img.text} alt={img.text}/>
-            <button id={`${img.id}`} onClick={handleDelete}>Delete</button>
+            <button  onClick={()=>handleDelete(img.id)}>Delete</button>
             </div>
         )
       })}
