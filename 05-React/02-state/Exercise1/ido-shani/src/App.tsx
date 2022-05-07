@@ -8,6 +8,7 @@ interface cardProps {
   imgUrl: string;
   imgName: string;
   id: string;
+  isNew:Boolean
 }
 
 function App() {
@@ -23,23 +24,32 @@ function App() {
     const imgUrl = ev.target.elements.imgUrl.value;
     const imgName = ev.target.elements.imgName.value;
     const id = uid();
+    let isNew=true;
+    const card={ imgUrl, imgName, id, isNew }
 
-     const addedCard: any = document.querySelectorAll(".App_imageCards__card");
-    // card.classList.toggle("addedCard");
+   
     
     
     
     if (set.length < 8) {
-      
-      setMyArray([...set, { imgUrl, imgName, id }]);
+     
+      setMyArray([...set,card]);
     }
     
     setTimeout(() =>{
-    const lastCard = document.querySelector(`[id=${id}]`)
-      lastCard?.setAttribute("class", 'App_imageCards__card')
-      console.log(lastCard);
+      if(card.isNew=true){
+        const lastCard = document.querySelector(`[id=${card.id}]`)
+        lastCard?.removeAttribute("data-new");
+        
+
+        console.log(lastCard);
+        setTimeout(()=>{
+          card.isNew=false
+
+        },500)
+      }  
       
-    },600)
+    },1000)
 
    
 
@@ -50,25 +60,28 @@ function App() {
     console.log(ev.target.id);
     const cardId = ev.target.id;
 
-    // const chosenCard: any = document.querySelectorAll(".App_imageCards__card");
-
-   
+    const chosenCard = document.querySelector(`[id=${cardId}]`); 
     
-    // chosenCard.forEach((card:any)=>{
-    //   if(card.id==cardId){
-    //     card.classList.toggle("activeDelete");
+    
+     
+        console.log(chosenCard)
+        chosenCard?.setAttribute("data-delete","true"); 
+    
+    setTimeout(() => {
+      
+      setMyArray(       
+        set.filter((card) => {
+          return card.id !== cardId;
+        })
+      );
+      
+    }, 1000);
+    
+   setTimeout(()=>{
+    chosenCard?.removeAttribute("data-delete")
+   },1000)
+   
 
-    //   }
-    // })
-
-    setMyArray(
-      set.filter((card) => {
-        return card.id !== cardId;
-      })
-    );
-
-    // console.log(chosenCard);
-    // console.log(set);
   }
 
   function handleUpdateCard(ev: any) {
@@ -99,9 +112,12 @@ function App() {
         <button type="submit">Submit</button>
       </form>
 
+
+      
+
       <div className="App_imageCards">
         {set.map((card, i) => (
-          <div id={card.id} key={i} className="App_imageCards__card new">
+          <div id={card.id} key={i} className="App_imageCards__card" data-new>
             <img src={card.imgUrl} alt="card image url"></img>
             <h2 className="App_imageCards__card-name">Name : {card.imgName}</h2>
 
@@ -122,7 +138,7 @@ function App() {
               placeholder="change image name"
             />
           </div>
-        ))}
+        )).reverse()}
       </div>
     </div>
   );
