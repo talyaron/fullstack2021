@@ -56,7 +56,7 @@ function App() {
               <h3>{arr.Name}</h3>
               <form onSubmit={(ev) => HandleUpdate(ev, arr.id)}>
                 <input type='text' name='Name' placeholder="Enter new Name" />
-                <input type="submit" value="update" />
+                <button type="submit" value="update">Update</button>
                 <button onClick={() => HandleDelete(arr.id)}>Delete</button>
               </form>
             </div>
