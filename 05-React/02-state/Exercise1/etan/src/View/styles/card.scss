@@ -9,7 +9,8 @@
     animation: slideIn 2s;
   }
   &[data-deleted-card] {
-    animation: closeDown 2s;
+    animation: closeDown 2s forwards;
+                // how do i make it so id doesnt jump after search?
     & ~ .card {
       animation: slideLeft 2.5s forwards;
     }
