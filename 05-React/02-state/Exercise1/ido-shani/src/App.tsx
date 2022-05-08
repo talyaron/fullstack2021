@@ -3,10 +3,6 @@ import React from "react";
 import { useState } from "react";
 import useSound from 'use-sound';
 //import tvStatic from './audio/tvStatic.ogg';
-
-
-
-
 import "./Views/styles/global.scss";
 
 interface cardProps {
@@ -19,7 +15,6 @@ interface cardProps {
 function App() {
   const [set, setMyArray] = useState<Array<cardProps>>([]);
   
-
   const uid = function () {
     return Date.now().toString(36) + Math.random().toString(36).substr(2);
   };
@@ -34,11 +29,13 @@ function App() {
     const card = { imgUrl, imgName, id, isNew };
 
    
-
-
-
     if (set.length < 8) {
       setMyArray([...set, card]);
+    }else {
+       set.splice(0 , 1);
+       setMyArray([...set, card])
+       console.log(set);
+       
     }
 
     setTimeout(() => {
