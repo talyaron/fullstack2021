@@ -2,7 +2,7 @@ import React from "react";
 
 import { useState } from "react";
 import useSound from 'use-sound';
-//import tvStatic from './audio/tvStatic.ogg';
+//import tvStatic from './audio/staticNoise.mp3';
 import "./Views/styles/global.scss";
 
 interface cardProps {
@@ -14,6 +14,11 @@ interface cardProps {
 
 function App() {
   const [set, setMyArray] = useState<Array<cardProps>>([]);
+  //const [play]=useSound('./audio/staticNoise.mp3')
+  const audio=new Audio('./audio/staticNoise.mp3')
+  function playAudio(){
+    audio.play()
+  }
   
   const uid = function () {
     return Date.now().toString(36) + Math.random().toString(36).substr(2);
@@ -92,6 +97,7 @@ function App() {
 
   return (
     <div className="App">
+      
       <form className="App_form" onSubmit={handleCreatCard}>
         <input type="text" name="imgUrl" required placeholder="enter url" />
         <input
@@ -102,7 +108,7 @@ function App() {
         />
         <button type="submit">Submit</button>
       </form>
-
+      <button onClick={playAudio}>audio</button>
       <div className="App_imageCards">
         {set
           .map((card, i) => (
