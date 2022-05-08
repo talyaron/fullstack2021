@@ -101,12 +101,12 @@ function App() {
       if (deletedCard.isDeleted === true) {
         const thisCard: any = deleted;
         thisCard.setAttribute("data-deleted-card", "true");
-        setTimeout(() => setCards([...arr]), 2000);
+        setTimeout(() => setCards([...arr]), 500);
       }
       const thisCard: any = deleted;
       setTimeout(() => {
         thisCard.removeAttribute("data-deleted-card");
-      }, 2000);
+      }, 1000);
       const restOfCards = document.querySelectorAll("[data-new-card]");
       restOfCards.forEach((card) => {
         card.removeAttribute('data-new-card');
@@ -225,13 +225,13 @@ function App() {
                     key={i}
                     data-new-card
                     className="card new"
-                  >
+                    >
                     <CardMedia
                       component="img"
                       image={`${card.img}`}
                       alt={`${card.text}`}
-                    />
-                    <CardContent>
+                      />
+                      <CardContent>
                       <Typography variant="h5" color="dark">
                         {card.text}
                       </Typography>
