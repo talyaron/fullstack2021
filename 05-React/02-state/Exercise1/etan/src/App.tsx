@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import {
   Button,
   TextField,
@@ -12,15 +12,18 @@ import {
   Typography,
   FormControl,
   Collapse,
+  CssBaseline,
+  Stack,
 } from "@mui/material";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import { red, green, blue, purple, common } from "@mui/material/colors";
+import { grey, red, green, blue, purple, common } from "@mui/material/colors";
 
 import DeleteIcon from "@mui/icons-material/Delete";
 
 import "./View/styles/global.scss";
 
 interface CardsProps {
+  // [x: string]: any;
   img: string;
   text: string;
   id: string;
@@ -30,19 +33,32 @@ interface CardsProps {
 
 function App() {
   const [cards, setCards] = useState<Array<CardsProps>>([]);
-  const [text, setText] = useState<String>();
+  const constCards = useRef(new Array<CardsProps>());
   const [checked, setChecked] = useState(false);
+  // const [searchArray, setSearchArray] = useState<Array<CardsProps>>([]);
+  // const [searchOldArray, setSearchOldArray] = useState<Array<CardsProps>>([... cards]);
+  const [searchTerm, setSearchTerm] = useState("");
+  // let oldCards: Array<CardsProps>;
   const handleChecked = () => {
-    setChecked((prev) => !prev)
-  }
+    setChecked((prev) => !prev);
+  };
+  // useEffect(()=> {
+  //   constCards.current = cards
+  // })
   // const {x}  = useSpring({from: {x:0}, x: state? 1: 0, config: {duration:1000}})
   const theme = createTheme({
     palette: {
       primary: {
-        main: purple[200],
+        light: grey[300],
+        main: grey[600],
+        dark: grey[800],
+        contrastText: grey[100],
       },
       secondary: {
-        main: common["black"],
+        main: grey[50],
+      },
+      background: {
+        default: grey["A700"],
       },
     },
   });
@@ -62,7 +78,7 @@ function App() {
     const id = uniqueId();
     const isNew = true;
     const card = { img, text, id, isNew };
-    
+
     setCards([...cards, card]);
     setTimeout(() => {
       if (card.isNew === true) {
@@ -77,19 +93,25 @@ function App() {
       let arr = cards.filter((card) => card.id !== id);
       const deleted = document.querySelector(`[data-id-new=${id}]`);
       const deletedCard = cards.filter((card) => card.id === id)[0];
+
       if (!arr) throw new Error("no 'arr' in handleDelete");
       if (!deleted) throw new Error("no 'deleted' in handleDelete");
       if (!deletedCard) throw new Error("no 'deletedCard' in handleDelete");
       deletedCard.isDeleted = true;
       if (deletedCard.isDeleted === true) {
-        console.log(deletedCard, deleted);
-
         const thisCard: any = deleted;
         thisCard.setAttribute("data-deleted-card", "true");
-        setTimeout(() => setCards([...arr]), 2000);
+        setTimeout(() => setCards([...arr]), 500);
       }
       const thisCard: any = deleted;
-      setTimeout(() => thisCard.removeAttribute("data-deleted-card"), 2000);
+      setTimeout(() => {
+        thisCard.removeAttribute("data-deleted-card");
+      }, 1000);
+      const restOfCards = document.querySelectorAll("[data-new-card]");
+      restOfCards.forEach((card) => {
+        card.removeAttribute('data-new-card');
+        console.log(card);
+      });
     } catch (e) {
       console.log(e);
     }
@@ -127,15 +149,50 @@ function App() {
     }
   }
 
+  // function handleSearch(ev:any){
+  //   setTimeout(() => {
+  //     console.log(ev.target.value);
+  //     const searchTerm = ev.target.value;
+  //     // if(!searchTerm) throw new Error("no searchTerm in handleSearch")
+  //     if(searchTerm){
+  //       const searchArray:Array<CardsProps> = cards.filter(card => card.text.toLowerCase().includes(searchTerm.toLowerCase()))
+  //       setSearchTerm(searchTerm)
+  //       setCards([... searchArray])
+  //       return;
+  //     }
+  //     if(!searchTerm){
+
+  //       console.log('no searchTerm in handleSearch!');
+
+  //     }
+  //   },1000)
+
+  // }
+  const { primary, secondary } = theme.palette;
+
   return (
-    <ThemeProvider theme={theme}>
-      <div className="App">
-        <AppBar color="primary" position="static">
-          <form onSubmit={handleAddCard}>
-          <FormControl sx={{ width: '25ch' }}>
+    <div className="App">
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <AppBar position="static">
+          <TextField
+            variant="filled"
+            type="text"
+            name="search"
+            id="search"
+            defaultValue={searchTerm}
+            placeholder="Search for a certain card"
+            // how do i make it so id doesnt jump after search?
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+        </AppBar>
+
+        <header color={primary.main} className="App-header">
+          <form color={primary.light} onSubmit={handleAddCard}>
+            <FormControl sx={{ bgColor: `${primary.dark}`, width: "25ch" }}>
               <TextField
-              InputLabelProps={{shrink:true}}
-              variant="filled"
+                InputLabelProps={{ shrink: true }}
+                variant="filled"
                 size="small"
                 type="text"
                 name="img"
@@ -152,97 +209,101 @@ function App() {
               <TextField type="submit" value="Submit a new card" />
             </FormControl>
           </form>
-        </AppBar>
-        <header className="App-header">
+          <Stack color={primary.contrastText} spacing={2}>
+            <Typography variant="h2">Your new cards:</Typography>
+            <Button color="inherit" onClick={handleChecked}>
+              Make some changes
+            </Button>
+          </Stack>
           <div className="grid">
-            {cards.map((card, i) => {
-              return (
-                <Card
-                  data-id-new={card.id}
-                  key={i}
-                  data-new-card
-                  className="card new"
-                >
-                  <CardMedia
-                    component="img"
-                    image={`${card.img}`}
-                    alt={`${card.text}`}
-                  />
-                  <CardContent>
-                    <Typography variant="h5" color="text.secondary">
-                      {card.text}
-                    </Typography>
-                    <Button
-                      startIcon={<DeleteIcon />}
-                      size="small"
-                      style={{
-                        fontSize: "10px",
-                        width: 100,
-                      }}
-                      variant="outlined"
-                      color="error"
-                      onClick={(id) => {
-                        handleDelete(card.id);
-                      }}
+            {cards
+              .filter((card) => card.text.match(new RegExp(searchTerm, "i")))
+              .map((card, i) => {
+                return (
+                  <Card
+                    data-id-new={card.id}
+                    key={i}
+                    data-new-card
+                    className="card new"
                     >
-                      Delete
-                    </Button>
-                    <Button onClick={handleChecked}>Make some changes</Button>
-                    <Collapse in={checked}>
-                    <FormGroup>
-                      <TextField
-                        label={card.text}
-                        InputLabelProps={{shrink:true}}
-                        variant="standard"
-                        data-update="text"
-                        defaultValue={card.text}
-                        data-id={`${card.id}`}
-                        id="text"
+                    <CardMedia
+                      component="img"
+                      image={`${card.img}`}
+                      alt={`${card.text}`}
                       />
+                      <CardContent>
+                      <Typography variant="h5" color="dark">
+                        {card.text}
+                      </Typography>
                       <Button
-                        data-id={`${card.id}`}
-                        data-type="text"
-                        value="Update image title"
-                        onClick={(ev) => {
-                          handleUpdate(ev);
+                        startIcon={<DeleteIcon />}
+                        size="small"
+                        style={{
+                          fontSize: "10px",
+                          width: 100,
                         }}
-                        color="primary"
-                      >
-                        Update text
-                      </Button>
-                    </FormGroup>
-                    <FormGroup>
-                      <TextField
-
-                        type="text"
-                        variant="standard"
-                        data-id={`${card.id}`}
-                        data-update="img"
-                        label="Image source"
-                        defaultValue={card.img}
-                        placeholder={card.img}
-                      />
-                      <Button
-                        data-id={`${card.id}`}
-                        data-type="img"
-                        type="submit"
-                        value="Update image source"
-                        onClick={(ev) => {
-                          handleUpdate(ev);
+                        variant="outlined"
+                        color="error"
+                        onClick={(id) => {
+                          handleDelete(card.id);
                         }}
                       >
-                        Update image
+                        Delete
                       </Button>
-                    </FormGroup>
-                    </Collapse>
-                  </CardContent>
-                </Card>
-              );
-            })}
+                      <Collapse in={checked}>
+                        <FormGroup>
+                          <TextField
+                            label={card.text}
+                            InputLabelProps={{ shrink: true }}
+                            variant="standard"
+                            data-update="text"
+                            defaultValue={card.text}
+                            data-id={`${card.id}`}
+                            id="text"
+                          />
+                          <Button
+                            data-id={`${card.id}`}
+                            data-type="text"
+                            value="Update image title"
+                            onClick={(ev) => {
+                              handleUpdate(ev);
+                            }}
+                            color="primary"
+                          >
+                            Update text
+                          </Button>
+                        </FormGroup>
+                        <FormGroup>
+                          <TextField
+                            type="text"
+                            variant="standard"
+                            data-id={`${card.id}`}
+                            data-update="img"
+                            label="Image source"
+                            defaultValue={card.img}
+                            placeholder={card.img}
+                          />
+                          <Button
+                            data-id={`${card.id}`}
+                            data-type="img"
+                            type="submit"
+                            value="Update image source"
+                            onClick={(ev) => {
+                              handleUpdate(ev);
+                            }}
+                          >
+                            Update image
+                          </Button>
+                        </FormGroup>
+                      </Collapse>
+                    </CardContent>
+                  </Card>
+                );
+              })}
           </div>
         </header>
-      </div>
-    </ThemeProvider>
+      </ThemeProvider>
+    </div>
   );
 }
 

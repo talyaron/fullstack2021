@@ -1,17 +1,21 @@
 .card {
     position: relative;
-    padding: 1em 2em
+    align-self: center;
+    *{
+      overflow-y: scroll;
+    }
   img {
-    width: 200px;
+    margin:auto;
   }
   &[data-new-card] {
       position: relative;
     animation: slideIn 2s;
   }
   &[data-deleted-card] {
-    animation: closeDown 2s;
+    animation: closeDown .5s forwards;
+                // how do i make it so id doesnt jump after search?
     & ~ .card {
-      animation: slideLeft 2.5s forwards;
+      animation: slideLeft 1s forwards;
     }
   }
 }
@@ -30,7 +34,7 @@
   }
 
   to {
-    left: -100%;
+    left: calc(-1em - 100%);
   }
 }
 

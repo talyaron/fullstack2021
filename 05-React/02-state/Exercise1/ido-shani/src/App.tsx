@@ -1,18 +1,25 @@
 import React from "react";
 
 import { useState } from "react";
-
+import useSound from 'use-sound';
+//import tvStatic from './audio/staticNoise.mp3';
 import "./Views/styles/global.scss";
 
 interface cardProps {
   imgUrl: string;
   imgName: string;
   id: string;
+  isNew: Boolean;
 }
 
 function App() {
   const [set, setMyArray] = useState<Array<cardProps>>([]);
-
+  //const [play]=useSound('./audio/staticNoise.mp3')
+  const audio=new Audio('./audio/staticNoise.mp3')
+  function playAudio(){
+    audio.play()
+  }
+  
   const uid = function () {
     return Date.now().toString(36) + Math.random().toString(36).substr(2);
   };
@@ -23,31 +30,31 @@ function App() {
     const imgUrl = ev.target.elements.imgUrl.value;
     const imgName = ev.target.elements.imgName.value;
     const id = uid();
+    let isNew = true;
+    const card = { imgUrl, imgName, id, isNew };
 
-     const addedCard: any = document.querySelectorAll(".App_imageCards__card");
-    // card.classList.toggle("addedCard");
-    
-    addedCard.forEach((card:any)=>{
-      if(card.className=="addedCard"){
-        console.log("has className -addedCard")
-      }else{
-        card.classList.toggle("addedCard");
-      }
-      
-
-      
-    })
-
-    
+   
     if (set.length < 8) {
-      
-      setMyArray([{ imgUrl, imgName, id },...set]);
+      setMyArray([...set, card]);
+    }else {
+       set.splice(0 , 1);
+       setMyArray([...set, card])
+       console.log(set);
+       
     }
-   
 
-   
+    setTimeout(() => {
+      if ((card.isNew = true)) {
+        const lastCard = document.querySelector(`[id=${card.id}]`);
+        lastCard?.removeAttribute("data-new");
 
-    console.log(set);
+        console.log(lastCard);
+        setTimeout(() => {
+          card.isNew = false;
+        }, 500);
+      }
+    }, 1000);
+
     // ev.target.reset()
   }
 
@@ -55,25 +62,22 @@ function App() {
     console.log(ev.target.id);
     const cardId = ev.target.id;
 
-    // const chosenCard: any = document.querySelectorAll(".App_imageCards__card");
+    const chosenCard = document.querySelector(`[id=${cardId}]`);
 
-   
-    
-    // chosenCard.forEach((card:any)=>{
-    //   if(card.id==cardId){
-    //     card.classList.toggle("activeDelete");
+    console.log(chosenCard);
+    chosenCard?.setAttribute("data-delete", "true");
 
-    //   }
-    // })
+    setTimeout(() => {
+      setMyArray(
+        set.filter((card) => {
+          return card.id !== cardId;
+        })
+      );
+    }, 1000);
 
-    setMyArray(
-      set.filter((card) => {
-        return card.id !== cardId;
-      })
-    );
-
-    // console.log(chosenCard);
-    // console.log(set);
+    setTimeout(() => {
+      chosenCard?.removeAttribute("data-delete");
+    }, 1000);
   }
 
   function handleUpdateCard(ev: any) {
@@ -93,6 +97,7 @@ function App() {
 
   return (
     <div className="App">
+      
       <form className="App_form" onSubmit={handleCreatCard}>
         <input type="text" name="imgUrl" required placeholder="enter url" />
         <input
@@ -103,31 +108,35 @@ function App() {
         />
         <button type="submit">Submit</button>
       </form>
-
+      <button onClick={playAudio}>audio</button>
       <div className="App_imageCards">
-        {set.map((card, i) => (
-          <div id={card.id} key={i} className="App_imageCards__card">
-            <img src={card.imgUrl} alt="card image url"></img>
-            <h2 className="App_imageCards__card-name">Name : {card.imgName}</h2>
+        {set
+          .map((card, i) => (
+            <div id={card.id} key={i} className="App_imageCards__card" data-new>
+              <img src={card.imgUrl} alt="card image url"></img>
+              <h2 className="App_imageCards__card-name">
+                Name : {card.imgName}
+              </h2>
 
-            <button
-              className="App_imageCards__card--deleteButton"
-              type="button"
-              id={card.id}
-              onClick={handleDeleteCard}
-            >
-              delete
-            </button>
+              <button
+                className="App_imageCards__card--deleteButton"
+                type="button"
+                id={card.id}
+                onClick={handleDeleteCard}
+              >
+                delete
+              </button>
 
-            <input
-              type="text"
-              name="updateName"
-              id={card.id}
-              onChange={handleUpdateCard}
-              placeholder="change image name"
-            />
-          </div>
-        ))}
+              <input
+                type="text"
+                name="updateName"
+                id={card.id}
+                onChange={handleUpdateCard}
+                placeholder="change image name"
+              />
+            </div>
+          ))
+          .reverse()}
       </div>
     </div>
   );
