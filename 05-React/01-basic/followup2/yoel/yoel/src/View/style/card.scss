@@ -1,0 +1,14 @@
+.card{
+    display: flex;
+    flex-direction: row;
+    width: 800px;
+    height: 200px;
+    border: 2px solid black;
+    // align-items: stretch;
+
+    // &_pic{
+    //     width: min-content;
+    //     height: min-content;
+    // }
+}
+
