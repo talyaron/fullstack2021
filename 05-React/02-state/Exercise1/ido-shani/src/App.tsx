@@ -108,7 +108,7 @@ function App() {
         />
         <button type="submit">Submit</button>
       </form>
-      <button onClick={playAudio}>audio</button>
+      {/* <button onClick={playAudio}>audio</button> */}
       <div className="App_imageCards">
         {set
           .map((card, i) => (
@@ -122,7 +122,8 @@ function App() {
                 className="App_imageCards__card--deleteButton"
                 type="button"
                 id={card.id}
-                onClick={handleDeleteCard}
+                 onClick={handleDeleteCard}
+               
               >
                 delete
               </button>
