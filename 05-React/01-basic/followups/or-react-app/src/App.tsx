@@ -1,6 +1,6 @@
 import { useState } from "react";
 import './view/styles/global.scss';
-import {Typography,Input} from '@mui/material'
+import { Typography, Input } from '@mui/material'
 
 
 interface Image {
