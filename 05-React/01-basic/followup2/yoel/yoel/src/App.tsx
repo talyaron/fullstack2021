@@ -4,23 +4,31 @@ import './View/style/global.scss';
 
 import Box from './View/Components/Box'
 import Card from './View/Components/Card';
+import { title } from 'process';
+interface BoxProps{
+    text:string,
+    title:string
+}
+const boxes:Array<BoxProps> = [
+    {text:'text' , title:'title'},
+    {text:'text2' , title:'title2'},
+    {text:'text3' , title:'title3'},
+    {text:'text4' , title:'title4'},
+]
 function App() {
+
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <Box  title='first box' text='hello'/>
-        <Box  title='second box' text='hello'/>
-        <Box  title='third box' text='hello'/>
-        <Card/>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        {boxes.map((box,i) => {
+          return(<Box text = {box.text} title = {box.title} key = {i}/>)
+        })}
+        <Card name = 'picsum' img= 'https://picsum.photos/200/300'/>
+        <Card name = 'picsum' img = 'https://picsum.photos/200/300'/>
+        <Card name = 'picsum' img = 'https://picsum.photos/200/300'/>
+         
       </header>
     </div>
   );
