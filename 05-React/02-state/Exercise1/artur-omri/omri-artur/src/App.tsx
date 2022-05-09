@@ -32,7 +32,16 @@ function App() {
   }
 
   function HandleDelete(id: string) {
-    setarr(arr.filter(image => image.id !== id))
+   const arrfilterd = arr.filter(image => image.id === id)
+   console.log(arrfilterd)
+   const deletedElement:HTMLDivElement=document.querySelector(`[data-id=${id}]`)
+   deletedElement.classList.add("roll-in-left")
+   setTimeout(()=>{
+     setarr( arr.filter(image => image.id !== id))
+     deletedElement.classList.remove("roll-in-left")
+    },600)
+
+    
   }
 
   return (
@@ -51,12 +60,12 @@ function App() {
       <div className='App__grid'>
         {arr.map((arr, i) => {
           return (
-            <div key={i} className='App__grid__card'>
-              <img src={arr.imgSrc} />
+            <div key={i} data-id={arr.id}className='App__grid__card' >
+              <img src={arr.imgSrc} alt={arr.imgSrc}/>
               <h3>{arr.Name}</h3>
               <form onSubmit={(ev) => HandleUpdate(ev, arr.id)}>
                 <input type='text' name='Name' placeholder="Enter new Name" />
-                <button type="submit" value="update">Update</button>
+                <input type="submit" value="update" />
                 <button onClick={() => HandleDelete(arr.id)}>Delete</button>
               </form>
             </div>
