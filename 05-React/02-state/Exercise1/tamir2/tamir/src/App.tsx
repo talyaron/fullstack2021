@@ -19,7 +19,7 @@ function App() {
     return Date.now().toString(36) + Math.random().toString(36).substring(2);
   }
 
-  // פונקציה שמוסיפה אובייקט למערך כל פעם שיש סובמיט
+  // פונקציה שמוסיפה  את האובייקט למערך כל פעם שיש סובמיט
   function handleaddone(ev: any) {
     ev.preventDefault();
     const text = ev.target.text.value;
@@ -53,6 +53,7 @@ function App() {
       </form>
 
       <div className='App__grid'>
+        
         {arr.map((one, i) => {
           return (
             <div key={i} className='App__card'>
@@ -72,3 +73,15 @@ function App() {
   )
 }
 export default App;
+
+
+
+
+
+
+
+
+
+
+
+
