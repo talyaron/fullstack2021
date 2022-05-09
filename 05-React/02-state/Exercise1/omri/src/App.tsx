@@ -32,7 +32,13 @@ function App() {
   }
 
   function HandleDelete(id: string) {
-    setarr(arr.filter(image => image.id !== id))
+    // setarr(arr.filter(image => image.id !== id))
+    const deletedElement:HTMLDivElement=document.querySelector(`[data-id=${id}]`)
+    deletedElement.classList.add("roll-in-left");
+    setTimeout(() => {
+      setarr(arr.filter(image => image.id !== id))
+      deletedElement.classList.remove("roll-in-left")
+    }, 600)
   }
 
   return (
@@ -51,7 +57,7 @@ function App() {
       <div className='App__grid'>
         {arr.map((arr, i) => {
           return (
-            <div key={i} className='App__grid__card'>
+            <div key={i} data-id={arr.id} className='App__grid__card'>
               <img src={arr.imgSrc} />
               <h3>{arr.Name}</h3>
               <form onSubmit={(ev) => HandleUpdate(ev, arr.id)}>
