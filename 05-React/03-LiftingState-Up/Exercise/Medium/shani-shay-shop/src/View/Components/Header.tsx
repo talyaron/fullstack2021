@@ -5,10 +5,16 @@ import React from 'react'
 //     logoUrl:string;
 //     shopName:string;
 // }
-
+import logo from "../images/logo.png"
  const Header = () => {
   return (
-    <h1>SHSHop </h1>
+      <div className="header">
+          <img src={logo}/>
+          <h1 >SHSHop </h1>
+          <div>counter</div>
+         
+    
+      </div>
     
   )
 }
