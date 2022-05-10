@@ -1,23 +1,24 @@
 interface colorProps {
-    BackGcolor: Function
-    textColor: Function
+  setBackground: Function
+  setTextColor: Function
 }
 
 export const Form = (props:colorProps) => {
-    const {BackGcolor, textColor} = props;
+    const {setBackground, setTextColor} = props;
     function HandleSubmit(ev:any) {
         ev.preventDefault();
-        const color = ev.target.color.value;
-        const tColor = ev.target.text.value;
-        BackGcolor(color);
-        textColor(tColor);
+        const backgroundColor = ev.target.elements.backgroundColor.value;
+        const textColor = ev.target.elements.textColor.value;
+        setBackground(backgroundColor);
+        setTextColor(textColor);
+        //console.log(backgroundColor, textColor)
     }
 
   return (
     <form onSubmit={HandleSubmit}>
         <p className='myText'>my text</p>
-        <input type="text" name='text' placeholder='text' />
-        <input type="color" name='color' placeholder='color' />
+        <input type="text" name='textColor' placeholder='text color' />
+        <input type="color" name='backgroundColor' placeholder='color' />
         <button type='submit'>submit</button>
     </form>
   )
