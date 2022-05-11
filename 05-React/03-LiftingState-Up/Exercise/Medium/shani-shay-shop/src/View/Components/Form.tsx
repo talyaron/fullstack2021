@@ -16,7 +16,7 @@ const Form = (props: FormProps) => {
       const productName=ev.target.elements.productName.value;
       const price=ev.target.elements.price.valueAsNumber;
       const id=uid()
-    const card={imgUrl,productName,price,id}
+      const card={imgUrl,productName,price,id}
       console.log(imgUrl,productName,price,id)
       setColors([...hairColors,card])
      
@@ -24,13 +24,13 @@ const Form = (props: FormProps) => {
   return (
     <form onSubmit={handleAddProduct}>
       <label htmlFor="imgUrl">Product Image</label>
-      <input type="text" id="imgUrl" name="imgUrl" />
+      <input type="text" id="imgUrl" name="imgUrl" placeholder="Product Image Url"/>
 
       <label htmlFor="productName">Product Name</label>
-      <input type="text" id="productName" name="productName" />
+      <input type="text" id="productName" name="productName" placeholder="Product Name" />
 
       <label htmlFor="price">Product Price</label>
-      <input type="number" id="price" name="price" />
+      <input type="number" id="price" name="price" placeholder="Product Price" />
 
       <input type="submit" value="Submit" />
     </form>

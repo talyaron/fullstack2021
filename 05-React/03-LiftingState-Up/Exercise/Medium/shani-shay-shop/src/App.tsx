@@ -5,7 +5,6 @@ import './View/styles/global.scss';
 import Header from "./View/Components/Header";
 import Form from "./View/Components/Form";
 import Products from './View/Components/Products';
-import ShopCards from "./View/Components/ShopCards";
 import Footer from "./View/Components/Footer";
 
  
@@ -22,11 +21,10 @@ function App() {
        
        <Header/>
        <Form setColors={setColors} hairColors={hairColors}/>
-       <Products hairColors={hairColors} />
+       <Products setColors={setColors} hairColors={hairColors} />
+       <Footer setColors={setColors} hairColors={hairColors}/>
        
-       
-       {/* <Products/> */}
-       
+             
       
        
       
