@@ -3,20 +3,21 @@ import ShopCards from "./ShopCards"
 
 interface UpdateProps{
   hairColors:Array<any>;
-  setColors:Function
+  setColors:Function;
+  getId:string
 
  }
 
 const Footer = (props:UpdateProps) => {
-  const {hairColors,setColors}=props
+  const {hairColors,setColors,getId}=props
   function handleUpdateProduct(ev:any){
     ev.preventDefault()
     const newName=ev.target.elements.newName.value;
     const newImgUrl=ev.target.elements.newImgUrl.value;
     const newPrice=ev.target.elements.newPrice.valueAsNumber;
-    const id=ev.target.id;
+    // const id=ev.target.id;
 
-    const foundIndex = hairColors.findIndex((chosenProduct) => chosenProduct.id === id);
+    const foundIndex = hairColors.findIndex((chosenProduct) => chosenProduct.id === getId);
     console.log(foundIndex);
     let array=[...hairColors];
     let chosenProduct={...hairColors[foundIndex]};

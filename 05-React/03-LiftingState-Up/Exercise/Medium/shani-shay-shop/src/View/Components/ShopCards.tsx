@@ -8,21 +8,16 @@ import React from 'react'
   id:string;
   setColors:Function;
   hairColors:Array<any>;
+  handlePopForm:Function
 
   
  }
 
 
  const ShopCards = (props:ShopCardsProps) => {
-   const {imgUrl,productName,price,id,setColors,hairColors}=props;
+   const {imgUrl,productName,price,id,setColors,hairColors,handlePopForm}=props;
 
-   function handleUpdateProduct(){
-     
-    const formToggle=document.querySelector(".updateProductForm")
-    formToggle?.classList.toggle("form")
-    
-    setColors(id)
-     }
+  
 
    function handleDeleteProduct(id:string){
      setColors(hairColors.filter (color=>color.id!==id))
@@ -31,7 +26,7 @@ import React from 'react'
     
 
     <div className="shopCard" >
-      <button id={id} onClick={handleUpdateProduct}>Update</button>
+      <button id={id} onClick={()=>{handlePopForm(id)}}>Update</button>
       <button onClick={()=>handleDeleteProduct(id)}>Delete</button>
       <img src={imgUrl} alt={imgUrl} />
 
