@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import {newone} from '../../App'
-interface FooterProps {
+import { newone } from '../../App'
+export interface FooterProps {
   settext: Function;
   setimg: Function;
   
@@ -19,14 +19,16 @@ const Footer = (props: FooterProps) => {
     setimg(img);
     console.log(text, img);
 
+
   }
 
   return (
 
     <div className='Footer'>
-     
+
       <form onSubmit={handlesubmit}>
-        <input type="text" name='text'  />
+        <input type="text" name='text' />
+
         <input type="text" name='img' />
         <input type="submit" value="update" />
       </form>

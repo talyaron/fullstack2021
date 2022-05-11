@@ -4,8 +4,9 @@ import Footer from './View/Components/Footer';
 import Heder from './View/Components/Heder';
 
 
+
 // איך האובייקט יראה לפי המשתנים שיש בתוכו
- export interface newone {
+export interface newone {
   text: string;
   img: string;
   id: string;
@@ -13,7 +14,6 @@ import Heder from './View/Components/Heder';
 
 // הפונקצייה הכללית שמרונדרת על המסך
 function App() {
-
   const [arr, setarr] = useState<Array<newone>>([])
   const [text, settext] = useState('')
   const [img, setimg] = useState('')
@@ -39,26 +39,23 @@ function App() {
     // 
     setarr(arr.filter(img => img.id !== id))
   }
-
- function handleupdate(id: string) {
+  function handleupdate(id: string) {
     const index = arr.findIndex(one => one.id === id)
     arr[index].text = text
     arr[index].img = img
     setarr([...arr])
-  }
-
-  function handleclick(id:string){
-console.log(id);
 
   }
+  function handleclick(id: string, text: string) {
 
+    console.log(text);
+    console.log(id);
 
+  }
   return (
 
     <div className="App">
-
-
-      <Heder />
+      <Heder/>
 
       <form onSubmit={handleaddone} className='App__form'>
         <input type="text" name='text' id='text' placeholder='your text here' className='App__text' />
@@ -70,7 +67,7 @@ console.log(id);
         {arr.map((one, i) => {
           return (
             <div className='App'>
-              <div className='App__card' onClick={()=>handleclick(one.id)}>
+              <div className='App__card' onClick={() => handleclick(one.id, one.text)}>
                 <div key={i} className='App__item'>
                   <img src={one.img} />
                   <h3 className='App__text'>
@@ -82,19 +79,13 @@ console.log(id);
                   <button onClick={() => handleupdate(one.id)}>update name</button>
                 </div>
               </div>
-            
             </div>
           )
         })}
       </div>
-
       <Footer settext={settext} setimg={setimg} />
-
     </div>
-
   )
-
-
 }
 export default App;
 
