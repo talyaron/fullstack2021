@@ -1,6 +1,6 @@
 SIMPLE;
 
-create app.tsx, with skies in the background. the app, will have a counter state. the counter will show the number of hits
+create app.tsx, with sky in the background. the app, will have a counter state. the counter will show the number of hits
 create component of a ball
 onclick on the ball, will add number to the counter in app.tsx;
 
@@ -10,6 +10,7 @@ each ball that hit the gound, will remove a point from the counter. if the ball 
 
 HARD:
 if the ball is hit, it will explode and disapear in smoke, with a noise.
-Fwstival music in the background.
+Festival music wll play in the background.
+When the ball hit the ground, it will be smashed, and make a splashing sound
 
 
