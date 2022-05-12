@@ -1,25 +1,17 @@
-import React from 'react';
 import Form from './view/components/Form';
 import './App.scss';
 import { useState } from 'react';
 
 function App() {
 
-  const background = document.querySelector('.App')
-  const myText = document.querySelector('.myText')
-
-
-  const [color, setColor] = useState('');
-  const [tColor, setTcolor] = useState('');
-
-  console.log(color, tColor)
-  // background.style.background = color;
-  // myText.style.Color = tColor;
-
+  const [backgroudColor, setBackground] = useState('');
+  const [textColor, setTextColor] = useState('');
 
   return (
-    <div className="App">
-      <Form BackGcolor={setColor} textColor={setTcolor} />
+    <div style={{backgroundColor: backgroudColor}} className="App">
+      <Form 
+      {...textColor?<p style={{color:textColor}}></p>:null}
+      setBackground={setBackground} setTextColor={setTextColor} />
     </div>
   );
 }

@@ -1,14 +1,29 @@
+interface ProductProps {
+    setProducts:Function
+    products:Array<Product>
+}
+interface Product {
+    imgUrl:string
+    title:string
+    desc:string
+    price:string
+    id:string
+  }
 
-const NewProduct = () => {
+  function uid() {
+    return Math.random().toString(36).slice(-6);
+  }
+const NewProduct = (props:ProductProps) => {
 
-
+    const {setProducts,products} = props
     function handleNewTask(ev: any) {
         ev.preventDefault();
         const imgUrl = ev.target.elements.imgUrl.value
         const title = ev.target.elements.title.value
         const desc = ev.target.elements.desc.value
         const price = ev.target.elements.price.value
-        console.log(imgUrl,title,desc,price);
+        const productObj = {imgUrl,title,desc,price,id:uid()}
+        setProducts([...products,productObj])
         
     }
 
