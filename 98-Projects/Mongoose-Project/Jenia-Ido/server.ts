@@ -1,14 +1,11 @@
 import express from 'express';
 import mongoose from "mongoose";
 const app = express();
-<<<<<<< HEAD
-const port = process.env.PORT || 3015;
-=======
+
 const port = process.env.PORT || 5000;
 const cookieParser = require('cookie-parser')
 
 app.use(cookieParser());
->>>>>>> main
 app.use(express.static("public"));
 app.use(express.json());
 

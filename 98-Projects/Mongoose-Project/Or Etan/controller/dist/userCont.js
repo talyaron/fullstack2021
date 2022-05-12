@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.renderPage = exports.renderUser = exports.login = exports.addUser = void 0;
+exports.updateUser = exports.passwordCheck = exports.renderPage = exports.renderUser = exports.login = exports.addUser = void 0;
 var userModel_1 = require("../model/userModel");
 exports.addUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var _a, firstName, lastName, email, password, role, gender, aUser, newUser, result, error_1;
@@ -148,7 +148,7 @@ exports.renderUser = function (req, res) { return __awaiter(void 0, void 0, void
     });
 }); };
 exports.renderPage = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, userURL, requestedPage, appURL, userId, currentUser, newURL, newURL, _b, firstName, lastName, gender, role, email, password;
+    var _a, userURL, requestedPage, appURL, userId, currentUser, newURL, _b, firstName, lastName, gender, role, email, password;
     return __generator(this, function (_c) {
         switch (_c.label) {
             case 0:
@@ -158,7 +158,6 @@ exports.renderPage = function (req, res) { return __awaiter(void 0, void 0, void
                 return [4 /*yield*/, userModel_1["default"].find({ _id: userId })];
             case 1:
                 currentUser = _c.sent();
-                newURL = "/" + requestedPage + ".html?id=" + userId;
                 newURL = "/" + requestedPage + ".html?id=" + userId;
                 _b = currentUser[0], firstName = _b.firstName, lastName = _b.lastName, gender = _b.gender, role = _b.role, email = _b.email, password = _b.password;
                 if (requestedPage === "home") {
@@ -213,7 +212,87 @@ exports.renderPage = function (req, res) { return __awaiter(void 0, void 0, void
                     }
                     return [2 /*return*/];
                 }
+                if (requestedPage === "RecentlyCreated") {
+                    try {
+                        res.send({
+                            newURL: newURL
+                        });
+                    }
+                    catch (error) {
+                        console.log("error in renderPage: RecentlyCreated");
+                        console.log(error.message);
+                        res.send({ error: error.message });
+                        // }
+                    }
+                    return [2 /*return*/];
+                }
                 return [2 /*return*/];
+        }
+    });
+}); };
+exports.passwordCheck = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _a, password, userId, isRightPassword, error_3;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
+            case 0:
+                _b.trys.push([0, 2, , 3]);
+                _a = req.body, password = _a.password, userId = _a.userId;
+                return [4 /*yield*/, userModel_1["default"].find({
+                        _id: userId,
+                        password: password
+                    })];
+            case 1:
+                isRightPassword = _b.sent();
+                res.send({ isRightPassword: isRightPassword });
+                return [3 /*break*/, 3];
+            case 2:
+                error_3 = _b.sent();
+                console.log("error in renderPage: RecentlyCreated");
+                console.log(error_3.message);
+                res.send({ error: error_3.message });
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
+        }
+    });
+}); };
+exports.updateUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _a, firstNameUpdate, lastNameUpdate, emailUpdate, genderUpdate, roleUpdate, passwordUpdate, passwordConfirmation, userId, updateUser_1, updateStatus, updatedUser, error_4;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
+            case 0:
+                _b.trys.push([0, 5, , 6]);
+                _a = req.body, firstNameUpdate = _a.firstNameUpdate, lastNameUpdate = _a.lastNameUpdate, emailUpdate = _a.emailUpdate, genderUpdate = _a.genderUpdate, roleUpdate = _a.roleUpdate, passwordUpdate = _a.passwordUpdate, passwordConfirmation = _a.passwordConfirmation, userId = _a.userId;
+                return [4 /*yield*/, userModel_1["default"].updateOne({ _id: userId, password: passwordConfirmation }, {
+                        firstName: firstNameUpdate,
+                        lastName: lastNameUpdate,
+                        email: emailUpdate,
+                        gender: genderUpdate,
+                        role: roleUpdate,
+                        password: passwordUpdate
+                    })];
+            case 1:
+                updateUser_1 = _b.sent();
+                return [4 /*yield*/, updateUser_1.matchedCount];
+            case 2:
+                updateStatus = _b.sent();
+                if (!(updateStatus === 1)) return [3 /*break*/, 4];
+                return [4 /*yield*/, userModel_1["default"].find({ _id: userId })];
+            case 3:
+                updatedUser = _b.sent();
+                res.send({ updatedUser: updatedUser });
+                return [2 /*return*/];
+            case 4:
+                if (updateStatus === 0) {
+                    res.send({ updateStatus: updateStatus });
+                }
+                return [3 /*break*/, 6];
+            case 5:
+                error_4 = _b.sent();
+                console.log("error in updateUser");
+                console.log(error_4.message);
+                res.send({ error: error_4.message });
+                return [3 /*break*/, 6];
+            case 6: return [2 /*return*/];
         }
     });
 }); };

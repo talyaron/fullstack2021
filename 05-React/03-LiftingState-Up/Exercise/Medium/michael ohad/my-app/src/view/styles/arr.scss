@@ -1,0 +1,37 @@
+
+
+.arr{
+    display: grid;
+  grid-template-rows: repeat(1, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  gap:5px
+}
+
+
+
+.card{
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 300px;
+  z-index: 1212;
+  
+  .cardHeader{
+    height: 60px;
+    z-index: -1;
+  }
+  
+  .cardImg{
+    height: 160px;
+    z-index: -1;
+  }
+
+  img{
+    width: auto;
+    height: 100%;
+    z-index: -1;
+}
+
+}

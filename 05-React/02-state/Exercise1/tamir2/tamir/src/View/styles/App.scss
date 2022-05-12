@@ -1,0 +1,35 @@
+.App {
+    // background-image: url('https://th.bing.com/th/id/R.41a636e9f29bd91d1edfd7a33aaa7946?rik=UI1ncOx9Kgq4PQ&riu=http%3a%2f%2fwww.fortunebuilders.com%2fwp-content%2fuploads%2f2016%2f06%2fstarting-a-real-estate-business.jpg&ehk=r70sswFVWUR6pyLkAA5wm2dFC%2f49Vh%2baQ3c4wzYfkUs%3d&risl=&pid=ImgRaw&r=0');
+    text-align: center;
+    justify-content: center;
+    
+    &__card {
+
+        background-color: black;
+        display: flex;
+        justify-content: center;
+    }
+
+    &__grid {
+        text-align: center;
+    }
+
+    &__item {
+
+        background-color: white;
+    }
+
+    &__opt {
+        display: grid;
+        background-color: white;
+    }
+
+    &__text {
+        border: 2px solid black;
+    }
+
+}
+.img{
+    width: 200px;
+    height: 200px;
+}

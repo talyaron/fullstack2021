@@ -1,0 +1,41 @@
+@use 'sass:list';
+$clr-primary: #233142;
+$clr-secondary: #455d7a;
+$clr-third: #f9595985;
+$clr-fourth: #e3e3e3;
+
+$simple-gradient: $clr-primary, $clr-secondary;
+$complex-gradient: $clr-primary, $clr-secondary, $clr-fourth;
+
+
+$scheme-simple-gradient: $clr-fourth, $simple-gradient;
+$scheme-complex-gradient: $clr-third, $complex-gradient;
+
+@mixin color-scheme($text, $bg){
+    @if list.length($bg) == 1{
+        background-color: $bg;
+    } @else {
+        background-image: linear-gradient(to top left, $bg);
+    }
+    color: $text;
+}
+@mixin reverse-color-scheme($text, $bg){
+    @if list.length($bg) == 1{
+        background-color: $bg;
+    } @else {
+        background-image: linear-gradient(to bottom right, $bg);
+    }
+    color: $text;
+}
+.head{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+@include color-scheme($scheme-simple-gradient...);
+    
+    p{
+
+
+    }
+}
