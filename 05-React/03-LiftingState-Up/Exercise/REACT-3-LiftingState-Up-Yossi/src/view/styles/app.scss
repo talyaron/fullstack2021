@@ -10,7 +10,9 @@
   min-height: 100px;
   background-color: #eddccc;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
 
   h1 {
     font-size: 32px;
@@ -23,6 +25,13 @@
     justify-content: center;
     align-items: center;
     outline: 10px solid rgb(255, 255, 255);
+    margin: 1% 0%;
+  }
+
+  h2 {
+    margin: 0%;
+    padding: 0%;
+    margin-top: 2%;
   }
 }
 
@@ -102,31 +111,34 @@ input {
 }
 
 .delete {
-
-
   button {
     font-size: 10px;
     background-color: #f6d2ce;
     border-radius: 4px;
     border: 1px solid rgb(100, 99, 99);
     padding: 8px;
-    margin-top: 2em;
+    margin-top: 1em;
     cursor: pointer;
   }
-
 }
 
-.footer{
+.updateBox {
+  border: 2px solid rgb(255, 255, 255);
+  padding: 3px;
+  margin-left: 10px;
+}
+
+.footer {
   margin-top: 100px;
   background-color: lightgray;
   position: relative;
   bottom: 0;
   border-radius: 4px;
   padding: 10px;
+  border: 1px solid white;
 }
 
 .item-exit-active {
-
   animation: shutdown 700ms linear;
 }
 

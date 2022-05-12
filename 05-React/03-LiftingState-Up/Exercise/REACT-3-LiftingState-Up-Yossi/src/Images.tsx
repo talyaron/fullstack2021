@@ -44,7 +44,7 @@ function Images() {
         setImageId(imageId)
         setImageTitel(imageTitel)
         setImageUrl(imageUrl)
-        handleUpdateImageName(ev,id)
+        handleUpdateImageName(ev, id)
         ev.target.reset()
     }
 
@@ -71,7 +71,7 @@ function Images() {
 
     return (
         <div>
-            <div className='header'><h1>{count}</h1></div>
+            <div className='header'><h2>COUNTER</h2><h1>{count}</h1></div>
             <div className="App-body">
                 <div><h1>Enter your image title and URL</h1></div>
                 <div className="form" ><form onSubmit={handleCreateImage}>
@@ -93,9 +93,9 @@ function Images() {
                                 </div>
                             </CSSTransition>)}
                     </TransitionGroup >
-                   
+
                 </div>
-                <div className='footer'><Footer handleUpdateFooter={handleUpdateFooter} handleDelete={handleDelete} id={imageId} title={imageTitel} url={imageUrl}/></div>
+                <div className='footer'><Footer handleUpdateFooter={handleUpdateFooter} handleDelete={handleDelete} id={imageId} title={imageTitel} url={imageUrl} /></div>
             </div>
         </div>
     )
