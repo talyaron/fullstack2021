@@ -1,9 +1,15 @@
 @import './library.scss';
 @import './picture.scss';
 @import './form.scss';
+@import './footer.scss';
 
 button {
     margin: 5px;
     background-color: #666;
     color: #EEE;
+}
+
+.in-vis{
+    display: none;
+    pointer-events: none;
 }

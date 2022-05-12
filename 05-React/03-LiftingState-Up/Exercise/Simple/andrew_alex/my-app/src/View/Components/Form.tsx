@@ -4,8 +4,10 @@ interface FormProps {
 
 const Form = (props:FormProps) => {
 const {colorFunction} = props;
+
     return (
         <div>
+            <p>hello!</p>
             <form onSubmit= { colorFunction} >
             <label htmlFor="textColor">choose text color</label>
                 <input name="textColor" type="color" id="textColor"/>

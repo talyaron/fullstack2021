@@ -10,28 +10,42 @@
 
 
 .card{
-  height: 200px;
+  height: 270px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   max-width: 300px;
-  z-index: 1212;
+  border: 1px solid rgb(160, 147, 147);
   
   .cardHeader{
     height: 60px;
-    z-index: -1;
   }
   
   .cardImg{
     height: 160px;
-    z-index: -1;
   }
 
   img{
     width: auto;
     height: 100%;
-    z-index: -1;
+}
+
+.btn{
+  background-color: rgb(61, 96, 148);
+    border: none;
+    color: white;
+    padding: 10px 7px;
+    font-size: 15px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 11px;
+    box-shadow: 0 5px 0 0 black;
+}
+
+.btn:active {
+  box-shadow: 0 3px black;
+  transform: translateY(4px);
 }
 
 }

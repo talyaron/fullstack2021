@@ -4,10 +4,20 @@ import ShopCards from "./ShopCards"
 interface UpdateProps{
   hairColors:Array<any>;
   setColors:Function;
-  getId:string
+  getId:string;
+ 
+
 
  }
+//  interface ShopCardsProps{
+//   imgUrl:string;
+//   productName:string;
+//   price:number;
+//   id:string;
+  
 
+  
+//  }
 const Footer = (props:UpdateProps) => {
   const {hairColors,setColors,getId}=props
   function handleUpdateProduct(ev:any){
@@ -15,14 +25,15 @@ const Footer = (props:UpdateProps) => {
     const newName=ev.target.elements.newName.value;
     const newImgUrl=ev.target.elements.newImgUrl.value;
     const newPrice=ev.target.elements.newPrice.valueAsNumber;
-    // const id=ev.target.id;
+    
 
     const foundIndex = hairColors.findIndex((chosenProduct) => chosenProduct.id === getId);
     console.log(foundIndex);
     let array=[...hairColors];
     let chosenProduct={...hairColors[foundIndex]};
-    chosenProduct.productName=newName;
     chosenProduct.imgUrl=newImgUrl;
+    chosenProduct.productName=newName;
+    
     chosenProduct.price=newPrice;
     array[foundIndex]=chosenProduct;
     setColors(array)
@@ -33,12 +44,14 @@ const Footer = (props:UpdateProps) => {
 
     <div className="footer">
       <form onSubmit={handleUpdateProduct} className="updateProductForm">
-        <input type="text" name="newName" placeholder="Update product name " />
-        <input type="text" name="newImgUrl" placeholder="Update product img " />
+
+      <input type="text" name="newImgUrl" placeholder='imgurl'/>
+       <input type="text" name="newName" placeholder="new product name" />
+        
         <input
           type="number"
           name="newPrice"
-          placeholder="Update product price "
+          placeholder=" new price"
         />
         <input type="submit" value="Update" />
       </form>

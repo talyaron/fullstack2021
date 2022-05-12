@@ -26,4 +26,27 @@
              color: #e73c7e;
            }
     }
+
+    button{
+       background-color: #cf90ee;
+        border: 2px solid #aa00ff;
+        margin:5px;
+        color:white;
+        border-radius:5px;
+        font-family: 'Cedarville Cursive', cursive;
+            
+        
+        
+        &:hover{
+            color:pink;
+            background-color: #aa00ff;
+            border:2px solid pink; 
+            cursor:pointer         
+
+        }
+        &:active{
+            background-color: #f632ec
+
+        }
+    }
 }
