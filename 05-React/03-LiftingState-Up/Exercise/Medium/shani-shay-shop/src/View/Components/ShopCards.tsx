@@ -1,5 +1,5 @@
 import React from 'react'
-
+ 
 
  interface ShopCardsProps{
   imgUrl:string;
@@ -26,9 +26,13 @@ import React from 'react'
     
 
     <div className="shopCard" >
+      
+    
+      <img src={imgUrl} alt={imgUrl} />
+      <div className='shopCard__buttons'>
       <button id={id} onClick={()=>{handlePopForm(id)}}>Update</button>
       <button onClick={()=>handleDeleteProduct(id)}>Delete</button>
-      <img src={imgUrl} alt={imgUrl} />
+      </div>
 
       <div className='shopCard__flex'>
       <h3>{productName}</h3> 

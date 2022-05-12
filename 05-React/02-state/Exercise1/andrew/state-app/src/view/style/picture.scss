@@ -43,6 +43,7 @@
 
 .float-out {
   animation: removed 700ms ease-in forwards;
+  pointer-events: none;
 }
 
 

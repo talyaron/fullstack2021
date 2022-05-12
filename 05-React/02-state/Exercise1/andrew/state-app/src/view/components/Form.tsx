@@ -6,7 +6,7 @@ interface FormProps{
 const Form = (props:FormProps) => {
     const {addImageFunction} = props
     return (
-        <form onSubmit={addImageFunction}>
+        <form onSubmit={addImageFunction} className='form'>
             <label htmlFor="text">Input a name for the image</label>
             <input type="text" name='text' id='text' />
             <label htmlFor="img">Input the image URL</label>
