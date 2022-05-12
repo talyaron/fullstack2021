@@ -1,0 +1,18 @@
+.ball{
+  height:100px;
+  width:100px;
+
+  animation: ball-fall 10s infinite;
+  cursor:pointer;
+
+ 
+
+   
+
+}
+
+@keyframes ball-fall{
+  from  { transform: translateY(-100px);}
+ 
+  to {transform : translateY(600px)}
+}
