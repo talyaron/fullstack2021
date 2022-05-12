@@ -48,11 +48,7 @@ const Footer = (props:UpdateProps) => {
       <input type="text" name="newImgUrl" placeholder='imgurl'/>
        <input type="text" name="newName" placeholder="new product name" />
         
-        <input
-          type="number"
-          name="newPrice"
-          placeholder=" new price"
-        />
+        <input  type="number" name="newPrice"  placeholder=" new price" />
         <input type="submit" value="Update" />
       </form>
     </div>

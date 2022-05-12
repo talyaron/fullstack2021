@@ -1,0 +1,13 @@
+.balls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .ball {
+        width: 120px;
+        height: 120px;
+        background-color: green;
+        border-radius: 50%;
+        margin-top: 30%;
+    }
+}
