@@ -15,24 +15,9 @@ interface Img {
 function App() {
   let [arr, setArr] = useState<Array<Img>>([]);
 
-  function handleDelete(id: string) {
-    setArr(arr.filter(img => img.id !== id))
-    console.log(arr.length - 1 + " items");
-  }
-
-  function handleupdateText(id: string) {
-    const text: any = prompt('set new name');
-    const index = arr.findIndex(card => card.id === id)
-    arr[index].text = text
-    setArr([...arr])
-  }
-
-  function handleupdateImg(id: string) {
-    const img: any = prompt('set new img url');
-    const index = arr.findIndex(card => card.id === id)
-    arr[index].img = img
-    setArr([...arr])
-  }
+  //   function getId(ev:any){
+  //     console.log(ev.target.id);
+  // }
 
   return (
 
@@ -40,14 +25,10 @@ function App() {
       <div className="App">
         <HEADER setArr={setArr} arr={arr} />
 
-        <Body arr={arr} />
-        
+        <Body arr={arr} setArr={setArr} handleDelete={setArr} handleupdateText={setArr} handleupdateImg={setArr} />
+
         <Footer />
 
-
-
-
-        
       </div>
     </header>
   );
