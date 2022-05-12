@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App">
 
-      <Ball setCn={setCounter} cn={counter} />
+      <Ball setCount={setCounter} counter={counter} />
 
     </div>
   );

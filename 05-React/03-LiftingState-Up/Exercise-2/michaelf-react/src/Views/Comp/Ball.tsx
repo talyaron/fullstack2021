@@ -1,13 +1,13 @@
 import Counter from './Counter'
 
 interface counterProps {
-    setCn: Function;
-    cn: any;
+    setCount: Function;
+    counter: any;
 }
 
 const Ball = (props: counterProps) => {
 
-    const { setCn, cn } = props;
+    const { setCount, counter } = props;
 
     const balls = ["ball1", "ball2", "ball3", "ball4"]
 
@@ -16,10 +16,10 @@ const Ball = (props: counterProps) => {
         <div>
             { balls.map((ball, i) => {
                     return (
-                        < div className="ball" key={i} onClick={() => setCn(cn + 1)} />
+                        < div className="ball" key={i} onClick={() => setCount(counter + 1)} />
                     )})}
-                    
-            <Counter count={cn} />
+
+            <Counter count={counter} />
 
         </div>
 
