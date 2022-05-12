@@ -11,5 +11,6 @@ each ball that hit the gound, will remove a point from the counter. if the ball 
 HARD:
 if the ball is hit, it will explode and disapear in smoke, with a noise.
 Festival music wll play in the background.
+When the ball hit the ground, it will be smashed, and make a splashing sound
 
 
