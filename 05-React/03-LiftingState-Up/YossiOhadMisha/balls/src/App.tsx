@@ -18,7 +18,7 @@ function App() {
       balls.push(oneBall)
       // setBalls([...oneBall])
     }
-    console.log(balls)
+
   }
 
   creatArray()
@@ -28,13 +28,11 @@ function App() {
   }
 
   function randomPositin() {
-    let randomPositin = (Math.random() * 100)
-    return randomPositin
+    return (Math.random() * 100)
   }
 
   function randomDelay() {
-    let randomDelay = (Math.random() * 11)
-    return randomDelay
+    return (Math.random() * 11)
   }
 
   return (
