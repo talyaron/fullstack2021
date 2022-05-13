@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './App.css';
-import ball from './view/compontents/Ball';
 import Ball from './view/compontents/Ball'
 import Counter from './view/compontents/Counter'
 
@@ -23,21 +22,18 @@ function App() {
   }
 
   creatArray()
-  function handleClick() {
-    hits = hits + 1;
-    console.log(hits)
-    setHits(hits)
+
+  function handleClick(ev:any) {
+    setHits(hits+1)
   }
 
-  const position = 30;
-
   function randomPositin() {
-    let randomPositin = Math.floor(Math.random() * 100)
+    let randomPositin = (Math.random() * 100)
     return randomPositin
   }
 
   function randomDelay() {
-    let randomDelay = Math.floor(Math.random() * 11)
+    let randomDelay = (Math.random() * 11)
     return randomDelay
   }
 
@@ -45,7 +41,6 @@ function App() {
     <>
       <div className="App">
         <Counter hits={hits}></Counter>
-        <Ball handleClick={handleClick} randomPositin={randomPositin()} randomDelay={randomDelay()}></Ball>
         <div>{balls}</div>
 
       </div>
