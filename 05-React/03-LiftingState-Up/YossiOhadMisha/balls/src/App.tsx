@@ -7,10 +7,22 @@ import Counter from './view/compontents/Counter'
 
 function App() {
 
-
   let [hits, setHits] = useState(0)
-  let [balls, setBalls] = useState([])
+  // let [balls, setBalls] = useState<Array<string>>([])
 
+  let balls: any = []
+
+  function creatArray() {
+    
+    for (let i = 0; i < 10; i++) {
+      const oneBall: any = <Ball handleClick={handleClick} randomPositin={randomPositin()} randomDelay={randomDelay()}></Ball>
+      balls.push(oneBall)
+      // setBalls([...oneBall])
+    }
+    console.log(balls)
+  }
+
+  creatArray()
   function handleClick() {
     hits = hits + 1;
     console.log(hits)
@@ -19,7 +31,12 @@ function App() {
 
   const position = 30;
 
-  function randomDelay(){
+  function randomPositin() {
+    let randomPositin = Math.floor(Math.random() * 100)
+    return randomPositin
+  }
+
+  function randomDelay() {
     let randomDelay = Math.floor(Math.random() * 11)
     return randomDelay
   }
@@ -28,16 +45,9 @@ function App() {
     <>
       <div className="App">
         <Counter hits={hits}></Counter>
-        <Ball click={handleClick} position={10} delay={randomDelay()}></Ball>
-        <Ball click={handleClick} position={20} delay={randomDelay()}></Ball>
-        <Ball click={handleClick} position={30} delay={randomDelay()}></Ball>
-        <Ball click={handleClick} position={40} delay={randomDelay()}></Ball>
-        <Ball click={handleClick} position={50} delay={randomDelay()}></Ball>
-        <Ball click={handleClick} position={60} delay={randomDelay()}></Ball>
-        <Ball click={handleClick} position={70} delay={randomDelay()}></Ball>
-        <Ball click={handleClick} position={80} delay={randomDelay()}></Ball>
-        <Ball click={handleClick} position={90} delay={randomDelay()}></Ball>
-        <Ball click={handleClick} position={99} delay={randomDelay()}></Ball>
+        <Ball handleClick={handleClick} randomPositin={randomPositin()} randomDelay={randomDelay()}></Ball>
+        <div>{balls}</div>
+
       </div>
     </>
   );
