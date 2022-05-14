@@ -7,7 +7,9 @@ interface CounterProps{
  const Counter = (props:CounterProps) => {
      const {counter}=props
   return (
-    <div className="counter">{counter}</div>
+    <div  className="counter">
+      {/* <p className='counter__text'>click till pops</p> */}
+      {counter}</div>
   )
 }
 export default Counter

@@ -5,39 +5,51 @@ import Ball from './view/compontents/Ball'
 import Counter from './view/compontents/Counter'
 
 
-function App() {
 
+function creatArray() {
 
-  let [hits, setHits] = useState(0)
-  let [balls, setBalls] = useState([])
-
-  function handleClick() {
-    hits = hits + 1;
-    console.log(hits)
-    setHits(hits)
+  for (let i = 0; i < 10; i++) {
+    let position = (Math.random() * 100)
+    let delay = (Math.random() * 11)
+    let id = uid()
+    balls.push({position,delay,id})
   }
 
-  const position = 30;
+}
 
-  function randomDelay(){
-    let randomDelay = Math.floor(Math.random() * 11)
-    return randomDelay
+function uid() {
+  return Math.random().toString(36).slice(-4)
+}
+
+
+let balls: any = []
+
+creatArray()
+
+function App() {
+  
+
+  let [hits, setHits] = useState(0)
+  // let [position, setPosition] = useState(0)
+  // let [delay, setDelay] = useState (0)
+  // let [balls, setBalls] = useState<Array<string>>([])
+
+  function handleClick() {
+    setHits(addOne(hits))
+  }
+
+  function addOne(x:number){
+    return x+1;
   }
 
   return (
     <>
       <div className="App">
         <Counter hits={hits}></Counter>
-        <Ball click={handleClick} position={10} delay={randomDelay()}></Ball>
-        <Ball click={handleClick} position={20} delay={randomDelay()}></Ball>
-        <Ball click={handleClick} position={30} delay={randomDelay()}></Ball>
-        <Ball click={handleClick} position={40} delay={randomDelay()}></Ball>
-        <Ball click={handleClick} position={50} delay={randomDelay()}></Ball>
-        <Ball click={handleClick} position={60} delay={randomDelay()}></Ball>
-        <Ball click={handleClick} position={70} delay={randomDelay()}></Ball>
-        <Ball click={handleClick} position={80} delay={randomDelay()}></Ball>
-        <Ball click={handleClick} position={90} delay={randomDelay()}></Ball>
-        <Ball click={handleClick} position={99} delay={randomDelay()}></Ball>
+        {balls.map((ball:any,i:number) => 
+          <Ball key={i} handleClick={handleClick} randomDelay={ball.delay} randomPositin={ball.position} />
+         )}
+
       </div>
     </>
   );
