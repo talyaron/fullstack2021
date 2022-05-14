@@ -38,7 +38,6 @@ const Ball = (props: ClickProp) => {
 
     if ((ball.style = { transform: "translateY(460px)" })) {
       setCounter(counter - 1);
-      console.log(ball);
       playSplashNoise();
       ball.style.width = "300px";
       ball.style.height = "100px";
