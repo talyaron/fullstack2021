@@ -37,6 +37,7 @@ function App() {
   return (
     
     <div className="App" onMouseEnter={() => playBackground()}  >
+      <div className='text'>Click beach ball till it pops</div>
      <Counter counter={counter}/>
      <Ball  playSplashNoise={playSplashNoise} playExplosion={playExplosion} counter={counter} setCounter={setCounter}/>
      

@@ -9,6 +9,7 @@ interface ClickProp {
 const Ball = (props: ClickProp) => {
   const { setCounter, counter, playExplosion, playSplashNoise } = props;
   const ball: any = document.querySelector(".ball");
+  const text: any = document.querySelector(".text");
 
   function handleClickBall(ev: any) {
     setCounter(counter + 1);
@@ -20,6 +21,10 @@ const Ball = (props: ClickProp) => {
         playExplosion();
         setTimeout(() => {
           ball.style.display= "none";
+          text.innerText="WINNER!"
+          text.style.color="white";
+          text.style.opacity='1';
+          text.style.fontSize='100px'
         }, 2000);
       }
       
@@ -28,6 +33,7 @@ const Ball = (props: ClickProp) => {
 
   function handleAnimationEnd(ev: any) {
     const ball: any = document.querySelector(".ball");
+    const text: any = document.querySelector(".text");
     
 
     if ((ball.style = { transform: "translateY(460px)" })) {
@@ -38,6 +44,10 @@ const Ball = (props: ClickProp) => {
       ball.style.height = "100px";
       ball.src =
         "https://rosevillechamber.com/wp-content/uploads/2019/06/SPLASH-logo.png";
+      text.innerText="loser:("
+      text.style.color="red";
+      text.style.opacity='1';
+      text.style.fontSize='100px'
        
     }
   }
