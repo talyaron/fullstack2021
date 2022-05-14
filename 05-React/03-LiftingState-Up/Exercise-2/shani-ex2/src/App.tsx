@@ -27,7 +27,8 @@ function App() {
   });
   const [playSplashNoise] = useSound(splash,{
     playSplash,
-    volume: 0.5,
+    volume: 1.50,
+    // interuppt:true
     
   });
 
@@ -35,7 +36,7 @@ function App() {
  
   return (
     
-    <div className="App" onMouseEnter={() => playBackground()} >
+    <div className="App" onMouseEnter={() => playBackground()}  >
      <Counter counter={counter}/>
      <Ball  playSplashNoise={playSplashNoise} playExplosion={playExplosion} counter={counter} setCounter={setCounter}/>
      
