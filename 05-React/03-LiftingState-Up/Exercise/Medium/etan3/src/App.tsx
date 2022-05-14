@@ -10,7 +10,9 @@ interface BallProps {
   falling: boolean;
 
 }
-
+function uid() {
+  return Date.now().toString(36) + Math.random().toString(36).substring(2);
+}
 function App() {
   const [counter, setCounter] = useState(0);
   const [incoming, setIncoming] = useState(true)

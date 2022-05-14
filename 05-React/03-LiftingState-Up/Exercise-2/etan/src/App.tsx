@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useTransition } from "react";
-import useSound from 'use-sound';
+import useSound from "use-sound";
 import Grid from "./View/Components/Grid";
 import Ball from "./View/Components/Ball";
 import "./View/styles/global.scss";
-const balloon = './View/sounds/balloon.mp3'
 interface BallProps {
   id: string;
   color: string;
@@ -27,7 +26,18 @@ function App() {
     return Date.now().toString(36) + Math.random().toString(36).substring(2);
   }
   const [isPending, startTransition] = useTransition();
-  const [play] = useSound(balloon)
+  const balloon = "sounds/balloon.mp3";
+  const pop = "../public/sounds/pop.mp3";
+  const [playpop, setPlaypop] = useState(0.0);
+  const [popSound] = useSound(pop, {
+    playpop,
+    volume: 1,
+  });
+  const [playBalloon, setPlayBalloon] = useState(0.0);
+  const [play] = useSound(balloon, {
+    playBalloon,
+    volume: 1,
+  });
   const [bounce, setBounce] = useState(false);
   const [counter, setCounter] = useState(1);
   const [loading, setLoading] = useState(true);
@@ -51,7 +61,7 @@ function App() {
       counter: counter,
     },
     {
-      i: 2,
+      i: 3,
       color: "radial-gradient(at 30% 30%,red,#000a)",
       id: uid(),
       incoming: true,
@@ -60,7 +70,7 @@ function App() {
       counter: counter,
     },
     {
-      i: 2,
+      i: 4,
       color: "radial-gradient(at 30% 30%,red,#000a)",
       id: uid(),
       incoming: true,
@@ -69,7 +79,7 @@ function App() {
       counter: counter,
     },
     {
-      i: 2,
+      i: 5,
       color: "radial-gradient(at 30% 30%,red,#000a)",
       id: uid(),
       incoming: true,
@@ -79,9 +89,9 @@ function App() {
     },
   ]);
 
-useEffect(() => {
-setCounter(counter - 1)
-},[bounce])
+  useEffect(() => {
+    setCounter(counter - 1);
+  }, [bounce]);
 
   function loadFunc() {
     try {
@@ -99,9 +109,11 @@ setCounter(counter - 1)
           }, 500 * (index + 1));
           setTimeout(() => {
             const currentBallsLocation = currentBall?.getBoundingClientRect();
-            if(currentBall?.hasAttribute("data-bounced")){
-              console.log('bounced');
-                setBounce((b) => {return !b});
+            if (currentBall?.hasAttribute("data-bounced")) {
+              console.log("bounced");
+              setBounce((b) => {
+                return !b;
+              });
             }
             console.dir(currentBallsLocation?.bottom === 0);
             currentBall?.setAttribute("data-incoming", "false");

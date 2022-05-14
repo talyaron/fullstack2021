@@ -110,10 +110,10 @@
   }
 
 @keyframes fallDown {
-    0%{
+    from{
        transform: translateY(-30vh);
     }
-    100%{
+    to{
 transform: translateY(103vh)
     }
 }

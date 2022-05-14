@@ -16,27 +16,23 @@ function Ball(props: BallProps) {
 
   function popFunc(id: string) {
     const currentBall = document.querySelector(`#${id}`);
-    console.dir(currentBall);
     if (currentBall?.hasAttribute(`data-popped`))
       throw new Error("ball is already popped");
     else {
-      console.log('pending playing');
-      play();
-      console.log('played');
-      
       setCounter(counter + 1);
       currentBall?.setAttribute("data-popped", "true");
     }
   }
+  function animationEnd () {
+    play();
+  }
   return (
     <div
       className="ball"
-      //   data-incoming={incoming}
-
       id={id}
       style={{ background: color, left: `calc(${i}*8em)` }}
       onClick={() => popFunc(id)}
-      onMouseUp={() => {play()}}
+      onAnimationEnd={() => animationEnd()}
     >
       {i}
     </div>
