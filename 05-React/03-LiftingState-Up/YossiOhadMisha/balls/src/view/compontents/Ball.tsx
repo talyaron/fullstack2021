@@ -11,7 +11,7 @@ const ball = (props: BallProps) => {
   const { handleClick, randomPositin, randomDelay } = props;
 
   return (
-    <div><img src='https://pngimg.com/uploads/falafel/falafel_PNG54.png' className='falafel' alt='ball' style={{ left: `${randomPositin}%`, animationDelay: `${randomDelay}s` }} onClick={() => handleClick()} /></div>
+    <div><img src='https://pngimg.com/uploads/falafel/falafel_PNG54.png' className='falafel' alt='ball' style={{ left: `${randomPositin}%`, animationDelay: `${randomDelay}s` }} onClick={(event) => handleClick()} /></div>
   )
 }
 
