@@ -14,8 +14,9 @@ const Ball = (props: ClickProp) => {
   function handleClickBall(ev: any) {
     setCounter(counter + 1);
     console.log(counter)
-    setTimeout(() => {
-      if (counter==1) {
+    
+      setTimeout(() => {
+        if(counter>=5){
         ball.style.width = "500px";
         ball.style.height = "50px";
         playExplosion();
@@ -29,14 +30,22 @@ const Ball = (props: ClickProp) => {
       }
       
     }, 1000);
+    
+  
   }
 
   function handleAnimationEnd(ev: any) {
     const ball: any = document.querySelector(".ball");
     const text: any = document.querySelector(".text");
-    
+    if(counter>1 && (ball.style = { transform: "translateY(460px)" })){
+      setCounter(counter)
+      playSplashNoise();
+      ball.style.width = "300px";
+      ball.style.height = "100px";
+      ball.src =
+        "https://rosevillechamber.com/wp-content/uploads/2019/06/SPLASH-logo.png";
+    }else if(ball.style = { transform: "translateY(460px)" }){   
 
-    if ((ball.style = { transform: "translateY(460px)" })) {
       setCounter(counter - 1);
       playSplashNoise();
       ball.style.width = "300px";
