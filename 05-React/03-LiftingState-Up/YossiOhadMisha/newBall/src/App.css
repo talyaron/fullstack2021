@@ -24,9 +24,14 @@ img {
   height: 150px;
   width: 150px;
   top: -20%;
-  /* left: 50%; */
-  /* transform: translate(-50%, -50%); */
   animation: fall 5s linear 0s forwards;
+}
+
+.falafel2{
+  animation: fall 4s linear 0s forwards;
+}
+.falafel3{
+  animation: fall 3s linear 0s forwards;
 }
 
 .counter {

@@ -24,6 +24,7 @@ function uid() {
 }
 
 
+
 let balls: any = []
 
 creatArray()
@@ -39,17 +40,13 @@ function App() {
     console.log(ev)
     let index = balls.findIndex((ball: any) => ball.id === id)
     if (!balls[index].tahiny) {
-      console.log(index)
       balls[index].img = 'https://i.ibb.co/nkvttWv/flafel-with.png'
       balls[index].tahiny = true
       setHits(hits + 1)
     }
 
-    const ballElement:any = document.getElementById(`${balls[index].id}`)
-    console.dir(ballElement)
+    // const ballElement:any = document.getElementById(`${balls[index].id}`)
   }
-
-
 
 
   return (
