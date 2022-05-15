@@ -2,8 +2,11 @@ import React ,{useState,useEffect}from 'react';
 import useSound from "use-sound";
 import './View/styles/global.scss';
 
+
+
 import Ball from "./View/Components/Ball";
 import Counter from "./View/Components/Counter";
+import axios from 'axios';
 
 function App() {
   const explosion="audio/ballClicked.mp3";
@@ -32,16 +35,35 @@ function App() {
     
   });
 
+
+  
   const [counter,setCounter]=useState(0)
- 
+
+  const [joke,setJoke]=useState([''])
+  useEffect(()=>{
+    handleJoke()
+  },[counter])
+  //no need for the button cause now it works when the page is refreshed
+  async function handleJoke(){
+    const { data } = await axios('https://api.kanye.rest')
+  const {quote}=data
+   setJoke(quote)
+    console.log(quote)
+
+  }
+
+
   return (
     
     <div className="App" onMouseEnter={() => playBackground()}  >
       <div className='text'>Click beach ball till it pops</div>
-     <Counter counter={counter}/>
-     <Ball  playSplashNoise={playSplashNoise} playExplosion={playExplosion} counter={counter} setCounter={setCounter}/>
-     
 
+      <div>Kanye once said:{joke}</div>
+      <button onClick={handleJoke}>click me</button>
+     <Counter counter={counter}/>
+     <Ball  playSplashNoise={playSplashNoise} playExplosion={playExplosion} counter={counter} setCounter={setCounter} />
+     
+     
      
     </div>
   );
