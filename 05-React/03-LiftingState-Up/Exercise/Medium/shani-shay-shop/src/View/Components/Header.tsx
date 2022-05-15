@@ -1,14 +1,38 @@
-import React from 'react'
+import React from 'react';
+import logo from "../images/logo.png"
+
+interface HeaderProps{
+    hairColors:Array<ShopCardsProps>
+}
+interface ShopCardsProps{
+    imgUrl:string;
+    productName:string;
+    price:number;
+    id:string;
+    
+  
+    
+   }
 
 
-// interface HeaderProps{
-//     logoUrl:string;
-//     shopName:string;
-// }
+ const Header = (props:HeaderProps) => {
+     const {hairColors}=props
+     const numberOfProducts=hairColors.length
 
- const Header = () => {
+    
+         if(numberOfProducts>=10){
+            alert("hey")
+         }
+     
   return (
-    <h1>SHSHop </h1>
+      <div className="header">
+          
+          <img src={logo}/>
+          <h1 >SHSHop </h1>
+          <div >counter:{numberOfProducts}</div>
+         
+    
+      </div>
     
   )
 }
