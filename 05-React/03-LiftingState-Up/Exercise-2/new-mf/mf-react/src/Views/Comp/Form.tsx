@@ -1,4 +1,3 @@
-
 interface AddProps {
     add: any;
     setAddition: Function;

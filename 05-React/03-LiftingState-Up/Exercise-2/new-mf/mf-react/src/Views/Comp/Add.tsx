@@ -3,10 +3,11 @@ import { Arr } from '../../App';
 interface AddProps {
     user: Arr;
     handleUpdate: any;
+    handleDelete: any;
 }
 
 const Add = (props: AddProps) => {
-    const { user, handleUpdate } = props;
+    const { user, handleUpdate, handleDelete } = props;
 
     return (
         <div>
@@ -18,6 +19,8 @@ const Add = (props: AddProps) => {
                 <input type="password" name="password" placeholder='password' />
                 <input type="submit" value="Update" />
             </form>
+
+            <button onClick={(event) => handleDelete(event, user.id)}>Delete</button>
 
         </div>
     )

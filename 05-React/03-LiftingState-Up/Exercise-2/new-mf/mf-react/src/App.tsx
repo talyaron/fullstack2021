@@ -16,13 +16,13 @@ function App() {
   function handleUpdate(ev: any, id: String) {
 
     ev.preventDefault();
-    console.log(ev);
-    
+    console.log(ev.target.id);
 
-    let {name, password} = ev.target.elements;
+
+    let { name, password } = ev.target.elements;
     name = name.value; password = password.value;
 
-    const index = add.findIndex(user=> user.id === id);
+    const index = add.findIndex(user => user.id === id);
     add[index].name = name;
     add[index].password = password;
 
@@ -30,6 +30,11 @@ function App() {
 
   }
 
+  function handleDelete(ev: any, id: String) {
+
+    setAdd(add.filter(user => user.id !== id))
+
+  }
 
   return (
     <div className="App">
@@ -38,7 +43,7 @@ function App() {
 
 
         <Form add={add} setAddition={setAdd} />
-        <Grid addArray={add} handleUpdate={handleUpdate} />
+        <Grid arr={add} handleUpdate={handleUpdate} handleDelete={handleDelete} />
 
 
 

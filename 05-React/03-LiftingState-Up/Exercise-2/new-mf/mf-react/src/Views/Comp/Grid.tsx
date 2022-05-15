@@ -2,17 +2,18 @@ import Add from './Add';
 import { Arr } from '../../App'
 
 interface GridProps {
-    addArray: Array<Arr>;
+    arr: Array<Arr>;
     handleUpdate: Function;
+    handleDelete: Function;
 }
 
 const Grid = (props: GridProps) => {
-    const { addArray, handleUpdate } = props;
+    const { arr, handleUpdate, handleDelete } = props;
     return (
         <div>
-            {addArray.map((user: any, i: number) => {
+            {arr.map((user: any, i: number) => {
                 return (
-                    <Add key={i} user={user} handleUpdate={handleUpdate}  />
+                    <Add key={i} user={user} handleUpdate={handleUpdate} handleDelete={handleDelete}  />
                 )
             })}
         </div>
