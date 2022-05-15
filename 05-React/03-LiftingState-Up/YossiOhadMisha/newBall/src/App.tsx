@@ -7,7 +7,7 @@ import Counter from './view/compontents/Counter'
 function creatArray() {
 
 
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 1000; i++) {
     let position = (Math.random() * 80)
     let delay = (i)
     let id = uid()
@@ -37,7 +37,7 @@ function App() {
   function handleClick(id: any, ev: any) {
     console.log(id)
     console.log(ev)
-    let index = balls.findIndex((ball: any) => ball.id == id)
+    let index = balls.findIndex((ball: any) => ball.id === id)
     if (!balls[index].tahiny) {
       console.log(index)
       balls[index].img = 'https://i.ibb.co/nkvttWv/flafel-with.png'

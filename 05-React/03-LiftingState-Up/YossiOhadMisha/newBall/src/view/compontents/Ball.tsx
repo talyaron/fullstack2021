@@ -7,8 +7,8 @@ interface BallProps {
   img: string
   id: string
   setHits: Function
-  hits:number
-  ball:any
+  hits: number
+  ball: any
 }
 
 
@@ -21,22 +21,19 @@ const ball = (props: BallProps) => {
 
   function tfisa() {
     const ballsElement: any = document.getElementById(id)
-    console.log(ballsElement)
 
     if (ballsElement) {
-      ballsElement.addEventListener('animationend', () => {
-        console.log('Animation ended');
-        if(!ball.tahiny){
-        setHits(hits-1)
-        }
-      });
+
+
+        ballsElement.addEventListener('animationend', () => {
+          console.log('Animation ended');
+          if (!ball.tahiny) {
+            setHits(hits - 1)
+          }
+
+        });
     }
   }
-
-  function resetBall(){
-    
-  }
-
 
   return (
 
