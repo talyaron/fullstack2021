@@ -42,7 +42,7 @@ function App() {
   const [joke,setJoke]=useState([''])
   useEffect(()=>{
     handleJoke()
-  },[])
+  },[counter])
   //no need for the button cause now it works when the page is refreshed
   async function handleJoke(){
     const { data } = await axios('https://api.kanye.rest')
