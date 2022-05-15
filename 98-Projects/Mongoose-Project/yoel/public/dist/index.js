@@ -99,7 +99,9 @@ function handleUpdate(ev, bookId) {
                 case 1:
                     data = (_a.sent()) //with the update
                     .data;
-                    console.log(data);
+                    if (data.err) {
+                        console.log('only admin can update');
+                    }
                     if (data.nAdmin) {
                         console.log(data.nAdmin);
                     }
