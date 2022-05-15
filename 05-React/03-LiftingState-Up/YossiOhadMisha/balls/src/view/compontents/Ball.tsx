@@ -1,17 +1,17 @@
 import React from 'react'
 
-interface BallProps{
-    click: Function;
-    position: number;
-    delay: number;
+interface BallProps {
+  handleClick: Function;
+  randomPositin: number;
+  randomDelay: number;
 }
 
 const ball = (props: BallProps) => {
 
-    const {click, position, delay} = props;
+  const { handleClick, randomPositin, randomDelay } = props;
 
   return (
-    <div><img src='https://pngimg.com/uploads/falafel/falafel_PNG54.png' className='falafel' alt='ball' style={{left:`${position}%`, animationDelay:`${delay}s`}} onClick={()=>click()}  /></div>
+    <div><img src='https://pngimg.com/uploads/falafel/falafel_PNG54.png' className='falafel' alt='ball' style={{ left: `${randomPositin}%`, animationDelay: `${randomDelay}s` }} onClick={(event) => handleClick()} /></div>
   )
 }
 

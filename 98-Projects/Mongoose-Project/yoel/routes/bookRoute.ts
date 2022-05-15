@@ -8,8 +8,8 @@ import {isAdmin} from '../middleware/users'
 
 router
 .get('/get-books' ,handleGetAllBooks )
-.post('/add-book' , handleAddBook)
-.patch('/update-book' , isAdmin , handleUpdateBook)
+.post('/add-book'  ,  handleAddBook)
+.patch('/update-book'  , handleUpdateBook)
 //.delete('/delete-book' , handleDelete)
 // .get('/delete-everything' , deleteEverything)
 

@@ -70,38 +70,42 @@ exports.handleAddUser = function (req, res) { return __awaiter(void 0, void 0, v
     });
 }); };
 exports.handleReg = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, username, password, user, users, payload, error_2;
+    var _a, username, password, user, userPassword, users, payload, error_2;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
-                _b.trys.push([0, 7, , 8]);
+                _b.trys.push([0, 8, , 9]);
                 _a = req.body, username = _a.username, password = _a.password;
-                if (!(username && password)) return [3 /*break*/, 5];
+                if (!(username && password)) return [3 /*break*/, 6];
                 return [4 /*yield*/, userModel_1.User.find({ username: username })]; // not work
             case 1:
                 user = _b.sent() // not work
                 ;
-                if (!(user.length > 0)) return [3 /*break*/, 2];
-                res.send({ error: 'user existed' });
-                return [3 /*break*/, 4];
+                console.log(user[0].password);
+                return [4 /*yield*/, user[0].password];
             case 2:
+                userPassword = _b.sent();
+                if (!(user.length > 0 && userPassword === password)) return [3 /*break*/, 3];
+                res.send({ error: 'user existed' });
+                return [3 /*break*/, 5];
+            case 3:
                 users = new userModel_1.User({ username: username, password: password });
                 return [4 /*yield*/, users.save()];
-            case 3:
+            case 4:
                 _b.sent();
                 payload = users;
-                // const token = jwt.encode(payload, secret)
+                // const token = jwt.encode(payload, secret)// no decode in the middleware so I off that 
                 res.cookie('userInfo ', users, { maxAge: 800000, httpOnly: true });
                 res.send({ users: users, ok: true });
                 return [2 /*return*/];
-            case 4: return [3 /*break*/, 6];
-            case 5: throw new Error("username or password is und");
-            case 6: return [3 /*break*/, 8];
-            case 7:
+            case 5: return [3 /*break*/, 7];
+            case 6: throw new Error("username or password is und");
+            case 7: return [3 /*break*/, 9];
+            case 8:
                 error_2 = _b.sent();
                 res.send(error_2.message);
-                return [3 /*break*/, 8];
-            case 8: return [2 /*return*/];
+                return [3 /*break*/, 9];
+            case 9: return [2 /*return*/];
         }
     });
 }); };

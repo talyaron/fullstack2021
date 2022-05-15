@@ -1,18 +1,19 @@
-.ball{
-  height:100px;
-  width:100px;
+.ball {
 
-  animation: ball-fall 10s infinite;
-  cursor:pointer;
+  height: 100px;
+  width: 100px;
+  animation: ball-fall 8s forwards;
+  
 
- 
-
-   
 
 }
 
-@keyframes ball-fall{
-  from  { transform: translateY(-100px);}
- 
-  to {transform : translateY(600px)}
+@keyframes ball-fall {
+  0% {
+    transform: translateY(-200px);
+  }
+
+  100%{
+    transform: translateY(460px)
+  }
 }
