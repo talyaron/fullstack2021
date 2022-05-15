@@ -32,9 +32,7 @@ function App() {
 
 
   let [hits, setHits] = useState(0)
-  // let [position, setPosition] = useState(0)
-  // let [delay, setDelay] = useState (0)
-  // let [balls, setBalls] = useState<Array<string>>([])
+
 
   function handleClick(id: any, ev: any) {
     console.log(id)
@@ -59,7 +57,7 @@ function App() {
       <div className="App">
         <Counter hits={hits}></Counter>
         {balls && balls.map((ball: any, i: number) =>
-          <Ball key={i} handleClick={handleClick} randomDelay={ball.delay} randomPositin={ball.position} img={ball.img} id={ball.id} setHits={setHits} hits={hits}/>
+          <Ball key={i} handleClick={handleClick} randomDelay={ball.delay} randomPositin={ball.position} img={ball.img} id={ball.id} setHits={setHits} hits={hits} ball={ball}/>
         )}
 
       </div>

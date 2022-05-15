@@ -8,13 +8,14 @@ interface BallProps {
   id: string
   setHits: Function
   hits:number
+  ball:any
 }
 
 
 
 const ball = (props: BallProps) => {
 
-  const { handleClick, randomPositin, randomDelay, img, id, setHits, hits } = props;
+  const { handleClick, randomPositin, randomDelay, img, id, setHits, hits, ball } = props;
 
   setTimeout(tfisa, 300)
 
@@ -25,9 +26,15 @@ const ball = (props: BallProps) => {
     if (ballsElement) {
       ballsElement.addEventListener('animationend', () => {
         console.log('Animation ended');
+        if(!ball.tahiny){
         setHits(hits-1)
+        }
       });
     }
+  }
+
+  function resetBall(){
+    
   }
 
 
