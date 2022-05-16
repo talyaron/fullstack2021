@@ -1,0 +1,24 @@
+.target{
+    width: 50px;
+    height: 60px;
+    background-image: url('https://static.wixstatic.com/media/2cd43b_719595f7415f448cbe1f1e1d48acde45~mv2_d_1880_2040_s_2.png/v1/fill/w_320,h_347,q_90/2cd43b_719595f7415f448cbe1f1e1d48acde45~mv2_d_1880_2040_s_2.png');
+    background-size: cover;
+    position: absolute;
+    top: -60px;
+}
+.exploded{
+    position: absolute;
+    width: 50px;
+    height: 60px;
+    top: -60px;
+    background-size: cover;
+    pointer-events: none;
+    background-image: url('https://i.gifer.com/origin/a0/a07ad08920f303f655251b1a0b353b86_w200.gif')
+}
+.dropping{
+    animation: drop forwards ease-in 1.6s;
+}
+@keyframes drop {
+    90%{transform: translateY(calc(80vh + 10px)) }
+    100%{transform: translateY(calc(80vh + 10px ))  scaleY(0) scaleX(4)}
+}

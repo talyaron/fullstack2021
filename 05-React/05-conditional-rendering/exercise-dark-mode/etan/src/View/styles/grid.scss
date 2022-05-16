@@ -1,0 +1,10 @@
+.grid{
+    margin:2em 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap:1em;
+    // padding: 1em;
+    max-height: 90vh;
+    max-width: 90vw;
+    overflow-y: scroll;
+}

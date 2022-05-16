@@ -6,8 +6,10 @@ interface propForm{
 
 function Form(prop:propForm) {
 function handleSubmit(ev:any){
-  const {handleSomething} = prop;
+
   ev.preventDefault();
+  
+  const {handleSomething} = prop;
 
   const image = ev.target.elements.image.value; 
   const text = ev.target.elements.text.value; 

@@ -9,10 +9,11 @@ interface BallProps {
   setCounter: Function;
   counter: number;
   setBallList: Function;
-  play: Function;
+  balloonSound: Function;
+  popSound:Function;
 }
 function Ball(props: BallProps) {
-  const { id, color, i, incoming, popped, setCounter, counter, setBallList, play } = props;
+  const { id, color, i, incoming, popped, setCounter, counter, setBallList, balloonSound, popSound } = props;
 
   function popFunc(id: string) {
     const currentBall = document.querySelector(`#${id}`);
@@ -23,8 +24,13 @@ function Ball(props: BallProps) {
       currentBall?.setAttribute("data-popped", "true");
     }
   }
-  function animationEnd () {
-    play();
+  function animationEnd (id:string) {
+    const currentBall:any = document.querySelector(`#${id}`);
+    if(currentBall.style.opacity === 0){
+      console.log('working');
+    }
+    console.dir(currentBall);
+    
   }
   return (
     <div
@@ -32,7 +38,7 @@ function Ball(props: BallProps) {
       id={id}
       style={{ background: color, left: `calc(${i}*8em)` }}
       onClick={() => popFunc(id)}
-      onAnimationEnd={() => animationEnd()}
+      onAnimationEnd={() => animationEnd(id)}
     >
       {i}
     </div>

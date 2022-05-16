@@ -1,32 +1,53 @@
-import { useState, useEffect } from 'react'
-import logo from './logo.svg'
-import './App.css'
-import React from 'react'
-import axios from 'axios'
+import axios from "axios";
+import { useState, useEffect } from "react";
+import logo from './logo.svg';
+import "./App.css";
 
-function App () {
-  const [joke, setJoke] = useState('')
+let counter = 0
 
-  useEffect(() => {
-    handleGetJoke()
-  }, [])
+function App() {
+  const [joke, setJoke] = useState("A joke");
+  const [boo, setBoo] = useState(true);
 
-  async function handleGetJoke () {
-    const { data } = await axios('https://api.chucknorris.io/jokes/random')
-    const { value } = data
-    if (value) {
-      setJoke(value)
+  counter++;
+  console.log(counter)
+
+  useEffect(()=>{
+    handleGetJoke();
+    
+  },[])
+
+  //handleGetJoke();
+
+  async function handleGetJoke() {
+    try {
+      const { data } = await axios.get(
+        "https://api.chucknorris.io/jokes/random"
+      );
+      const { value } = data;
+      if (!value) throw new Error("No value in response");
+      setJoke(value);
+    } catch (error) {
+      console.error(error);
     }
   }
-  return (
-    <div className='App'>
-      <header className='App-header'>
-        <img src={logo} className='App-logo' alt='logo' />
-        <p>{joke}</p>
-        <button onClick={handleGetJoke}>Get Joke</button>
-      </header>
-    </div>
-  )
+  if(boo){
+    return <button onClick={()=>setBoo(!boo)}>SET BOO</button>
+  } else {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <p>{joke}</p>
+          <p>BOOOO!!!!!!</p>
+          <button onClick={handleGetJoke}>GET JOKE</button>
+          <button onClick={()=>setBoo(!boo)}>SET BOO</button>
+        </header>
+      </div>
+    );
+  }
+  
+ 
 }
 
-export default App
+export default App;
