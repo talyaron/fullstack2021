@@ -8,7 +8,7 @@ interface CounterProps{
      const {counter}=props
   return (
     <div  className="counter">
-      {/* <p className='counter__text'>click till pops</p> */}
+      
       {counter}</div>
   )
 }
