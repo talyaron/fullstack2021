@@ -91,29 +91,26 @@ exports.handleAddBook = function (req, res) { return __awaiter(void 0, void 0, v
     });
 }); };
 exports.handleUpdateBook = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, book, bookId, booki, books, error_3;
+    var _a, book, bookId, books, error_3;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
-                _b.trys.push([0, 5, , 6]);
+                _b.trys.push([0, 4, , 5]);
                 _a = req.body, book = _a.book, bookId = _a.bookId;
-                if (!(book && bookId)) return [3 /*break*/, 3];
-                return [4 /*yield*/, bookModel_1["default"].updateOne({ _id: bookId }, { name: book.name, year: book.year, author: book.author })];
-            case 1:
-                booki = _b.sent();
+                if (!(book && bookId)) return [3 /*break*/, 2];
                 return [4 /*yield*/, bookModel_1["default"].find({})];
-            case 2:
+            case 1:
                 books = _b.sent();
                 res.send({ ok: true, books: books });
-                return [3 /*break*/, 4];
-            case 3: throw new Error('id or book is missing');
-            case 4: return [3 /*break*/, 6];
-            case 5:
+                return [3 /*break*/, 3];
+            case 2: throw new Error('id or book is missing');
+            case 3: return [3 /*break*/, 5];
+            case 4:
                 error_3 = _b.sent();
-                console.log(error_3.error);
+                console.error(error_3.error);
                 res.send({ error: error_3.message });
-                return [3 /*break*/, 6];
-            case 6: return [2 /*return*/];
+                return [3 /*break*/, 5];
+            case 5: return [2 /*return*/];
         }
     });
 }); };

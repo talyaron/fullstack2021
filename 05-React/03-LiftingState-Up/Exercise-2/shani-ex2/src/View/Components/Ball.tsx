@@ -5,6 +5,7 @@ interface ClickProp {
   counter: any;
   playExplosion: Function;
   playSplashNoise: Function;
+
 }
 const Ball = (props: ClickProp) => {
   const { setCounter, counter, playExplosion, playSplashNoise } = props;
@@ -19,6 +20,7 @@ const Ball = (props: ClickProp) => {
         if(counter>=5){
         ball.style.width = "500px";
         ball.style.height = "50px";
+        
         playExplosion();
         setTimeout(() => {
           ball.style.display= "none";
@@ -35,6 +37,7 @@ const Ball = (props: ClickProp) => {
   }
 
   function handleAnimationEnd(ev: any) {
+    console.log('end')
     const ball: any = document.querySelector(".ball");
     const text: any = document.querySelector(".text");
     if(counter>1 && (ball.style = { transform: "translateY(460px)" })){

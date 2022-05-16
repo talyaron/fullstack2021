@@ -36,14 +36,9 @@ export const handleAddBook = async (req, res) => {
 export const handleUpdateBook = async (req, res) => {
   try {
     let { book , bookId } = req.body;
- 
-    // if(notAdmin){
-    //   res.send({nAdmin:'you not admin'})
-    // }
 
-    if (book && bookId) {
-      const booki =  await Book.updateOne({ _id: bookId }, { name: book.name , year:book.year ,  author: book.author });// {who you want to change},{with what you want to change}
-     
+    
+    if (book && bookId) {   
       const books = await Book.find({})
       
       res.send({ok: true , books});
@@ -51,7 +46,7 @@ export const handleUpdateBook = async (req, res) => {
       throw new Error('id or book is missing');
     }
   } catch (error) {
-    console.log(error.error);
+    console.error(error.error);
     res.send({ error: error.message })
   }
 }

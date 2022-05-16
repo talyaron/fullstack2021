@@ -37,22 +37,24 @@ export const handleReg = async (req, res) => { //reqister
   try {
     let { username, password } = req.body;
 
-
-
     if (username && password) {
       let user = await User.find({ username })// not work
 
-
-      if (user.length > 0) {
+      
+      console.log(user[0].password);
+      const userPassword = await user[0].password;
+      
+      if (user.length > 0 && userPassword === password)  {
+      
         res.send({ error: 'user existed' })
+
       } else {
         const users = new User({ username, password })
         await users.save();
 
         const payload = users;
 
-
-        // const token = jwt.encode(payload, secret)
+        // const token = jwt.encode(payload, secret)// no decode in the middleware so I off that 
         res.cookie(
           'userInfo ',
           users,

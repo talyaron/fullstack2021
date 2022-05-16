@@ -25,11 +25,12 @@ exports.example = example;
 function isAdmin(req, res, next) {
     try {
         var userInfo = req.cookies.userInfo;
-        console.log('1' + userInfo);
+        // console.log('1' + userInfo);
         // const secret = process.env.JWT_SECRET;// if I want to use something in the .ENV I need to write "process.env.___"
         //  const decode = jwt.decode(userInfo, secret)
-        //    console.log('2' + decode);
-        if (userInfo && userInfo.role === 'admin') {
+        //   console.log('is userInfo ' + userInfo);
+        console.log('is userInfo role  ' + userInfo.role);
+        if (userInfo.role === 'admin') {
             req.role = 'admin'; //if I want to use it in the next function 
             next();
         }
@@ -54,10 +55,11 @@ function getId(req, res, next) {
         if (id) {
             req.id = id; // after that the next function can use it too
         }
+        req.admin = 'only admin can change';
         next(); //impotant!! beacuse only after that he can move on // without that he won't move on    
     }
     catch (error) {
-        console.log(error.message);
+        console.error(error.message);
         next(); // because we won't destroy everything if won't get the id // we don't have a problem if we not get it 
     }
 }
