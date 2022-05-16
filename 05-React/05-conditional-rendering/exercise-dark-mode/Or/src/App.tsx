@@ -8,7 +8,6 @@ import "./App.css";
 function App() {
   const [theme , setTheme] = useState(true)
 
-  useEffect(){=>{},[]}
   
 
   
@@ -16,7 +15,7 @@ function App() {
       <div className="App">
         <header className={theme?"App-header-dark":'App-header-light'}>
           <img src={theme?darkLogo:lightLogo}  className="App-logo" alt="logo" />
-          <Switch onChange={()=>{setTheme(!theme)}} >dark/light />
+          <Switch onChange={()=>{setTheme(!theme)}} />
         </header>
       </div>
     );
