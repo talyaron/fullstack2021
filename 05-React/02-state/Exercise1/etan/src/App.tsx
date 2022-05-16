@@ -182,7 +182,7 @@ function App() {
             id="search"
             defaultValue={searchTerm}
             placeholder="Search for a certain card"
-            // how do i make it so id doesnt jump after search?
+            // how do i make it so it doesnt jump after search?
             onChange={(e) => setSearchTerm(e.target.value)}
           />
         </AppBar>

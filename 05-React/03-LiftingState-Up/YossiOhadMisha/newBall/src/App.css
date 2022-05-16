@@ -1,0 +1,82 @@
+.App {
+  height: 100vh;
+  width: 100%;
+  background-image: url('https://img.freepik.com/free-photo/white-cloud-sky-background_74190-4646.jpg?w=2000');
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+body {
+  margin: 0%;
+}
+
+/* div {
+  border: 1px solid red;
+} */
+
+img {
+  width: 100%;
+  object-fit: contain;
+}
+
+.falafel {
+
+  display: none;
+  position: absolute;
+  height: 150px;
+  width: 150px;
+  top: -20%;
+  animation: fall 6s linear 0s forwards;
+}
+
+.falafel2 {
+  animation: fall 5s linear 0s forwards;
+}
+
+.falafel3 {
+  animation: fall 4s linear 0s forwards;
+}
+
+.counter {
+  height: 100px;
+  width: 20%;
+  margin: 0 auto;
+  background-color: skyblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  font-size: 35px;
+  border-radius: 10px;
+  border: 2px solid rgb(233, 197, 20);
+}
+
+.start {
+  height: 30px;
+  width: 100px;
+  margin: 10px auto;
+  color: green;
+  font-weight: bold;
+  font-size: 16px;
+  text-align: center;
+}
+
+.pita {
+  position: relative;
+  bottom: -320px;
+  width: 120%;
+  margin: auto;
+}
+
+@keyframes fall {
+
+  0% {
+    top: -20%;
+  }
+
+  100% {
+    top: 70%;
+  }
+
+}

@@ -55,7 +55,7 @@ function App() {
   return (
 
     <div className="App">
-      <Heder/>
+      <Heder />
 
       <form onSubmit={handleaddone} className='App__form'>
         <input type="text" name='text' id='text' placeholder='your text here' className='App__text' />
@@ -88,6 +88,9 @@ function App() {
   )
 }
 export default App;
+
+
+
 
 
 

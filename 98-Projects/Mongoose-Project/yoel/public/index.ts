@@ -42,9 +42,9 @@ async function handleAddBook(ev) {
 
     const { data } = await axios.patch('/book/update-book', { book, bookId })//with the update
 
-    console.log(data);
-    
-
+    if(data.err){
+        console.log('only admin can update');
+    }
     if(data.nAdmin){
         console.log(data.nAdmin);
         
