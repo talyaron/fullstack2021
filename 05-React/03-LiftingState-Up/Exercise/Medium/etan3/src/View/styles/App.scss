@@ -14,10 +14,6 @@
 }
 
 .App-header {
-  background-image: url('./sky.jpeg') ;
-  background-size: cover;
-
-
   min-height: 100vh;
   height: 100vh;
   width: 100vw;
@@ -41,18 +37,35 @@
     transform: rotate(360deg);
   }
 }
-
+.bounced, .counter{
+  position: absolute;
+  left: 1vw;
+}
+.bounced{
+  top: 2em;
+}
+.counter{
+  top: 1em;
+}
+.wrapper{
+  background-image: url('./sky.jpeg') ;
+  background-size: cover;
+  min-width: 100vw;
+  min-height: 100vh;
+  height: 100vh;
+  display: flex;
+  
+}
 .balls {
   display: flex;
   width: 100vw;
   place-content: space-around;
+  place-items: flex-end;
   .ball {
     padding: 2em;
     max-width: 1em;
     max-height: 1em;
-
     border-radius: 100px;
-
     &[data-incoming="false"] {
       opacity: 0;
     }
@@ -73,35 +86,35 @@
 @keyframes bounce {
   0% {
     opacity: 1;
-    transform: translateY(30vh);
+    transform: translateY(1vh);
     max-height: 1em;
   }
   5% {
     opacity: 1;
-    transform: translateY(31vh);
+    transform: translateY(2vh);
     max-height: 0.1em;
   }
 
   10% {
     opacity: 1;
-    transform: translateY(31vh);
+    transform: translateY(2vh);
     max-height: 0.2em;
   }
 
   15% {
     opacity: 1;
-    transform: translateY(20vh);
+    transform: translateY(-9vh);
     max-height: 1em;
   }
 
   20% {
     opacity: 1;
-    transform: translateY(30vh);
+    transform: translateY(1);
     max-height: 1em;
   }
 
   25% {
-    transform: translateY(31vh);
+    transform: translateY(2vh);
     max-height: 0.1em;
   }
   30% {
@@ -109,7 +122,7 @@
   }
   35% {
     opacity: 1;
-    transform: translateY(20vh);
+    transform: translateY(-10vh);
     max-height: 1em;
   }
   40% {
@@ -153,6 +166,6 @@
   }
 
   100% {
-    transform: translateY(29vh);
+    transform: translateY(1vh);
   }
 }

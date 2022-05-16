@@ -1,25 +1,25 @@
 .ball {
-    position: fixed;
+  position: fixed;
+  top: -30vh;
+  padding: 3em;
+  margin: 0;
+  max-width: 2em;
+  max-height: 2em;
+  border-radius: 50%;
+  &[data-incoming="true"] {
     top: -30vh;
-    padding: 3em;
-    max-width: 2em;
-    max-height: 2em;
-    border-radius: 50%;
-    &[data-incoming='true'] {
-        top: -30vh;
-        animation: fallDown 2s forwards;
-    }
-    &[data-incoming='false'] {
-        bottom: -300px;
-    }
-    &[data-bounced='true'] {
-
-        animation: bounce 2s forwards;
-        bottom: 0vh;
-    }
-    &[data-popped='true'] {
-      animation: pop 1s forwards;
-    }
+    animation: fallDown 2s forwards;
+  }
+  &[data-incoming="false"] {
+    bottom: -300px;
+  }
+  &[data-bounced="true"] {
+    animation: bounce 2s forwards;
+    bottom: 0vh;
+  }
+  &[data-popped="true"] {
+    animation: pop 1s forwards;
+  }
 }
 
 @keyframes pop {
@@ -34,86 +34,25 @@
 }
 
 @keyframes bounce {
-    0% {
-        // bottom: 0;
-      opacity: 1;
-      transform: translateY0(100vh);
-      max-height: 1em;
-    }
-    5% {
-      opacity: 1;
-      transform: translateY(100vh);
-      max-height: 0.1em;
-    }
-  
-    10% {
-      opacity: 1;
-      transform: translateY(100vh);
-      max-height: 0.2em;
-    }
-  
-    15% {
-      opacity: 1;
-      transform: translateY(100vh);
-      max-height: 1em;
-    }
-  
-    20% {
-      opacity: 1;
-      transform: translateY(100vh);
-      max-height: 1em;
-    }
-  
-    25% {
-      transform: translateY(100vh);
-      max-height: 0.1em;
-    }
-    30% {
-      max-height: 0.2em;
-    }
-    35% {
-      opacity: 1;
-      transform: translateY(100vh);
-      max-height: 1em;
-    }
-    40% {
-      transform: translateY(100vh);
-      max-height: 1em;
-    }
-    45% {
-      opacity: 1;
-      transform: translateY(100vh);
-      max-height: 0.1em;
-    }
-    50% {
-      max-height: 0.2em;
-    }
-    55% {
-      opacity: 1;
-      transform: translateY(100vh);
-      max-height: 1em;
-    }
-    60% {
-      transform: translateY(100vh);
-      opacity: 1;
-      max-height: 0.3em;
-    }
-    90% {
-      transform: scale(1.5);
-      opacity: 1;
-    }
-    100% {
-        bottom: 0;
-      transform: scale(2);
-      opacity: 0;
-    }
+  0% {
+    // bottom: 0;
+    opacity: 1;
+    transform: translateY(120vh);
+    max-height: 1em;
   }
 
+  100% {
+    transform: scale(2);
+    opacity: 0;
+    transform: translateY0(-130vh);
+  }
+}
+
 @keyframes fallDown {
-    from{
-       transform: translateY(-30vh);
-    }
-    to{
-transform: translateY(103vh)
-    }
+  0% {
+    transform: translateY(-30vh);
+  }
+  100% {
+    transform: translateY(115vh);
+  }
 }
