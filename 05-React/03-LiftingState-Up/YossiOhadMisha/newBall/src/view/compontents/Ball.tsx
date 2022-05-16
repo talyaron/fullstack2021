@@ -11,25 +11,24 @@ interface BallProps {
   ball: any
 }
 
-
-
 const ball = (props: BallProps) => {
 
   const { handleClick, randomPositin, randomDelay, img, id, setHits, hits, ball } = props;
 
   setTimeout(tfisa, 300)
-  setTimeout(speedUp, 10000)
-  setTimeout(speedUp2, 20000)
+  // setTimeout(speedUp, 10000)
+  // setTimeout(speedUp2, 20000)
 
   const ballsElement: any = document.getElementById(id)
+  
 
-  function speedUp(){
+  // function speedUp(){
 
-    ballsElement.classList.add(`falafel2`);
-  }
-  function speedUp2(){
-    ballsElement.classList.add(`falafel3`);
-  }
+  //   ballsElement.classList.add(`falafel2`);
+  // }
+  // function speedUp2(){
+  //   ballsElement.classList.add(`falafel3`);
+  // }
 
   function tfisa() {
 
@@ -39,15 +38,20 @@ const ball = (props: BallProps) => {
           // console.log('Animation ended');
           if (!ball.tahiny) {
             setHits(hits - 1)
+            // let audioloose = new Audio('./sound/loose.mp3');
+            // audioloose.play();
+            // audioloose.volume = 0.1;
           }
 
         });
     }
   }
 
+
+  
   return (
 
-    <div><img src={img} id={id} className='falafel' alt='ball' style={{ left: `${randomPositin}%`, animationDelay: `${randomDelay}s` }} onClick={(event) => handleClick(id)} /></div>
+    <div><img src={img} id={id} className='falafel' alt='ball' style={{left: `${randomPositin}%`, animationDelay: `${randomDelay}s` }} onClick={(event) => handleClick(id)} /></div>
   )
 }
 

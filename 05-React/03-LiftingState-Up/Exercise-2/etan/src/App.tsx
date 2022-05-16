@@ -28,13 +28,13 @@ function App() {
   const [isPending, startTransition] = useTransition();
   const balloon = "sounds/balloon.mp3";
   const pop = "../public/sounds/pop.mp3";
-  const [playpop, setPlaypop] = useState(0.0);
+  const [playPop, setPlayPop] = useState(0.0);
   const [popSound] = useSound(pop, {
-    playpop,
-    volume: 1,
+    playPop,
+    volume: .5,
   });
   const [playBalloon, setPlayBalloon] = useState(0.0);
-  const [play] = useSound(balloon, {
+  const [balloonSound] = useSound(balloon, {
     playBalloon,
     volume: 1,
   });
@@ -93,6 +93,9 @@ function App() {
     setCounter(counter - 1);
   }, [bounce]);
 
+
+
+
   function loadFunc() {
     try {
       ballList.forEach((ball) => {
@@ -110,7 +113,6 @@ function App() {
           setTimeout(() => {
             const currentBallsLocation = currentBall?.getBoundingClientRect();
             if (currentBall?.hasAttribute("data-bounced")) {
-              console.log("bounced");
               setBounce((b) => {
                 return !b;
               });
@@ -142,20 +144,19 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <Grid
-          setCounter={setCounter}
-          counter={counter}
-          ballList={ballList}
-          setBallList={setBallList}
-          loadFunc={loadFunc}
-          loading={loading}
-          play={play}
-        />
-        <h1 className="counter">{counter}</h1>
-        <h1 className="loading">{`${loading}`}</h1>
-        <h1 className="bounce">{`${bounce}`}</h1>
-      </header>
+      <h1 className="counter">{counter}</h1>
+      <h1 className="loading">{`${loading}`}</h1>
+      <h1 className="bounce">{`${bounce}`}</h1>
+      <Grid
+        setCounter={setCounter}
+        counter={counter}
+        ballList={ballList}
+        setBallList={setBallList}
+        loadFunc={loadFunc}
+        loading={loading}
+        balloonSound={balloonSound}
+        popSound={popSound}
+      />
     </div>
   );
 }

@@ -10,7 +10,8 @@ interface BallProps {
   setCounter: Function;
   counter: number;
   setBallList: Function;
-  play: Function;
+  balloonSound: Function;
+  popSound: Function;
 }
 
 interface GridProps {
@@ -20,26 +21,27 @@ interface GridProps {
   ballList: Array<any>;
   loadFunc: Function;
   loading: boolean;
-  play: Function;
+  balloonSound: Function;
+  popSound: Function;
 }
 
 function Grid(props: GridProps) {
-  const { setCounter, counter, setBallList, ballList, loadFunc, loading, play } = props;
+  const { setCounter, counter, setBallList, ballList, loadFunc, loading, balloonSound, popSound} = props;
 
 
   useEffect(() => {
     loadFunc();
   }, []);
-  useEffect(() => {
-    document.querySelector(`.ball`)?.addEventListener('animationend', () => {
-      console.log('ball has animationed');
+  // useEffect(() => {
+  //   document.querySelector(`.ball`)?.addEventListener('animationend', () => {
+  //     console.log('ball has animationed');
       
-    })
-    document.querySelector(`.ball`)?.addEventListener('animationcancel', () => {
-      console.log('ball has canceled');
+  //   })
+  //   document.querySelector(`.ball`)?.addEventListener('animationcancel', () => {
+  //     console.log('ball has canceled');
       
-    })
-  }, [loading]);
+  //   })
+  // }, [loading]);
   return (
     <div className="grid">
       {ballList.map((ball: BallProps, i) => (
@@ -53,7 +55,9 @@ function Grid(props: GridProps) {
           setCounter={setCounter}
           counter={counter}
           setBallList={setBallList}
-          play={play}
+          balloonSound={balloonSound}
+          popSound={popSound}
+
         />
       ))}
     </div>

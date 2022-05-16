@@ -1,0 +1,37 @@
+$side: 100px;
+$wall-h: 300px;
+$wall-w: 800px;
+
+.box {
+    z-index: 25;
+    // position: relative;
+    // transform-origin: top top 000px;
+    // transform: translateX(0px) translateY(200px) translateZ(000px);
+    transform-style: preserve-3d;
+
+    .side {
+        height: $side;
+        aspect-ratio: 1;
+        position: absolute;
+        left: calc(98vw/2 - $wall-w/2);
+        top: calc(98vh/2 - $wall-h/2);
+        background-image: url('https://www.renderhub.com/syt-studio/box-texture-pbr/box-texture-pbr-01.jpg');
+        background-size: cover;
+    }
+
+    .part1 {
+        transform: translateX($side/2) rotateY(90deg);
+    }
+
+    .part2 {
+        transform: translateX(-$side/2) rotateY(90deg);
+    }
+
+    .part3 {
+        transform: translateY(-$side/2) rotateX(90deg);
+    }
+
+    .part4 {
+        transform: translateZ($side/2);
+    }
+}
