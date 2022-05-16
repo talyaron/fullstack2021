@@ -5,7 +5,7 @@ interface ball {
 
 const Ball = (props: ball) => {
   const { handleclick, id } = props;
-  return <div className="ball"  onClick={(ev) => handleclick(id)} id={id}></div>;
+  return <div className="ball"  onClick={() => handleclick()} id={id}></div>;
 };
 
 export default Ball;

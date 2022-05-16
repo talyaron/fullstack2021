@@ -1,56 +1,64 @@
-import { useId, useState } from "react";
-import { idText } from "typescript";
+import { useState } from "react";
 import Ball from "./View/componante/Ball";
 import Start from "./View/componante/Start";
 import "./View/Style/Global.scss";
 interface App {
   handleclick: Function;
   id: string;
+  handleclick2:Function
 }
-interface newApp {
-  id: string;
-}
+// interface newApp {
+//   id: string;
+// }
+
 function App() {
   function uid() {
     return Date.now().toString(36) + Math.random().toString(36).substring(2);
   }
-  const [arr, setarr] = useState<Array<newApp>>([]);
-
+  const [arr, setarr] = useState<Array<App>>([]);
   const [counter, setcounter] = useState(0);
-  // function handledelete(id: string) {
-  //   setarr(arr.filter((one) => one.id !== id));
-  // }
 
- function handleclick(id: string) {
+  function handleclick(id: any) {
     setcounter(1);
-    console.log(id,'click');
-    
+    if (id) {
+      let obj = id;
+      setarr([...arr, obj]);
+      // addarr(id)
+      // handledelete(id)
+      console.log(id, arr, "click");
+    }
   }
-  function addarr(id:string){
-    const obj = { id: uid() };
-    setarr([...arr, obj]);
-    console.log(id,'arr');
-    
-    console.log(arr);
+  function handleclick2(id:any) {
+    handledelete(id)
   }
-  function handledelete(id: string) { 
+  // function addarr(id:any){
+  //   let obj = id;
+  //   setarr([...arr, obj]);
+  //   console.log(id,arr);
+  //   handledelete(id)
+  // }
+  function handledelete(id: any) {
     setarr(arr.filter((ta) => ta.id === id));
-    console.log(id, 'delete');
+    console.log(id, "delete");
   }
-  
-
 
   return (
     <div className="App">
-      {/* <div className="new">
+      <div className="new">
         {arr.map((one, i) => {
           return (
-            <Ball key={i} handleclick={() => handleclick(one.id)} id={uid()} />
+            <div className="App__card">
+              <Ball
+                key={i}
+                handleclick={() => handleclick2(one.id)}
+                id={uid()}
+              />
+            </div>
           );
         })}
-      </div> */}
+      </div>
       <button className="App__btn">{counter}</button>
-      <Ball handleclick={() => handleclick(uid())} id={uid()} />
+      <Ball key={uid()} handleclick={() => handleclick(uid())} id={uid()} />
     </div>
   );
 }
