@@ -1,0 +1,58 @@
+.ball {
+  position: fixed;
+  top: -30vh;
+  padding: 3em;
+  margin: 0;
+  max-width: 2em;
+  max-height: 2em;
+  border-radius: 50%;
+  &[data-incoming="true"] {
+    top: -30vh;
+    animation: fallDown 2s forwards;
+  }
+  &[data-incoming="false"] {
+    bottom: -300px;
+  }
+  &[data-bounced="true"] {
+    animation: bounce 2s forwards;
+    bottom: 0vh;
+  }
+  &[data-popped="true"] {
+    animation: pop 1s forwards;
+  }
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@keyframes bounce {
+  0% {
+    // bottom: 0;
+    opacity: 1;
+    transform: translateY(120vh);
+    max-height: 1em;
+  }
+
+  100% {
+    transform: scale(2);
+    opacity: 0;
+    transform: translateY0(-130vh);
+  }
+}
+
+@keyframes fallDown {
+  0% {
+    transform: translateY(-30vh);
+  }
+  100% {
+    transform: translateY(115vh);
+  }
+}

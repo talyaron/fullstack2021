@@ -1,0 +1,26 @@
+body {
+
+    background-image: url('https://th.bing.com/th/id/OIP.DieZlo9boniL38M6QHyqogHaDg?pid=ImgDet&rs=1');
+
+    background-position: 50%;
+    background-repeat: repeat-y;
+
+}
+
+.App {
+    &__btn {
+        border-radius: 15px 50px 15px 50px; 
+        box-shadow: -0px 15px 10px;
+        background-color: rgb(84, 1, 120);
+        font-size: 4em;
+        margin-left: 34.5%;
+        width: 30vw;
+        height: 20vh;
+    }
+
+    &__card {
+        width: 80px;
+        height: 80px;
+    }
+
+}

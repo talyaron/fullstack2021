@@ -1,0 +1,171 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  min-height: 100vh;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.bounced, .counter{
+  position: absolute;
+  left: 1vw;
+}
+.bounced{
+  top: 2em;
+}
+.counter{
+  top: 1em;
+}
+.wrapper{
+  background-image: url('./sky.jpeg') ;
+  background-size: cover;
+  min-width: 100vw;
+  min-height: 100vh;
+  height: 100vh;
+  display: flex;
+  
+}
+.balls {
+  display: flex;
+  width: 100vw;
+  place-content: space-around;
+  place-items: flex-end;
+  .ball {
+    padding: 2em;
+    max-width: 1em;
+    max-height: 1em;
+    border-radius: 100px;
+    &[data-incoming="false"] {
+      opacity: 0;
+    }
+    &[data-incoming="true"] {
+      animation: linear slideDown 10s forwards;
+    }
+    &[data-falling="true"] {
+    }
+    &[data-pop] {
+      animation: pop 1s forwards;
+    }
+    &[data-bounce] {
+      animation: bounce 2s forwards;
+    }
+  }
+}
+
+@keyframes bounce {
+  0% {
+    opacity: 1;
+    transform: translateY(1vh);
+    max-height: 1em;
+  }
+  5% {
+    opacity: 1;
+    transform: translateY(2vh);
+    max-height: 0.1em;
+  }
+
+  10% {
+    opacity: 1;
+    transform: translateY(2vh);
+    max-height: 0.2em;
+  }
+
+  15% {
+    opacity: 1;
+    transform: translateY(-9vh);
+    max-height: 1em;
+  }
+
+  20% {
+    opacity: 1;
+    transform: translateY(1);
+    max-height: 1em;
+  }
+
+  25% {
+    transform: translateY(2vh);
+    max-height: 0.1em;
+  }
+  30% {
+    max-height: 0.2em;
+  }
+  35% {
+    opacity: 1;
+    transform: translateY(-10vh);
+    max-height: 1em;
+  }
+  40% {
+    transform: translateY(30vh);
+    max-height: 1em;
+  }
+  45% {
+    opacity: 1;
+    transform: translateY(31vh);
+    max-height: 0.1em;
+  }
+  50% {
+    max-height: 0.2em;
+  }
+  55% {
+    opacity: 1;
+    transform: translateY(20vh);
+    max-height: 1em;
+  }
+  60% {
+    transform: translateY(27vh);
+    opacity: 1;
+    max-height: 0.3em;
+  }
+  90% {
+    transform: scale(1.5);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+
+
+@keyframes slideDown {
+  0% {
+    // position: absolute;
+    transform: translateY(-100vh);
+  }
+
+  100% {
+    transform: translateY(1vh);
+  }
+}

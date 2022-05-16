@@ -8,7 +8,7 @@ import express from 'express';
 import mongoose  from 'mongoose'; 
 const cookieParser = require('cookie-parser')
 const app = express();
-const port = 3000;
+const port = 3001;
 app.use(cookieParser());// if not write it we not get the cookie 
 app.use(express.static('public'));
 app.use(express.json())

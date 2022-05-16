@@ -12,7 +12,7 @@ const express_1 = __importDefault(require("express"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const cookieParser = require('cookie-parser');
 const app = express_1.default();
-const port = 3000;
+const port = 3001;
 app.use(cookieParser()); // if not write it we not get the cookie 
 app.use(express_1.default.static('public'));
 app.use(express_1.default.json());

@@ -1,0 +1,31 @@
+.contain {
+    display: flex;
+    flex-direction: row;
+ justify-content: space-evenly;
+    .thor {
+        border-radius: 100%;
+    
+        animation: dropDown 4s forwards;
+
+    }
+
+    .counter {
+        top: 10px;
+        right: 10px;
+        color: blueviolet;
+        font-size: 20px;
+    }
+}
+
+@keyframes dropDown {
+    from {
+        transform: translateY(10%)
+    }
+
+ 
+
+    to {
+        transform: translateY(79vh)
+    }
+
+}

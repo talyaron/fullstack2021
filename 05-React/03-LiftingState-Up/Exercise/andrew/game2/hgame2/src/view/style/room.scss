@@ -1,0 +1,55 @@
+$wall-h: 300px;
+$wall-w: 800px;
+
+.scene {
+    
+    // height: 98vh;
+    // width: 98vw;
+    // z-index: 20;
+    overflow: hidden;
+    perspective: 500px;
+    .room {
+        // perspective: 600px;
+        height: 98vh;
+        width: 98vw;
+        // position: relative;
+        transform-style: preserve-3d;
+        transform-origin: center center 500px;
+
+        .wall {
+            background-image: url('https://i.pinimg.com/originals/32/25/4b/32254bdb72b2477224edbcfd2e6228d7.jpg');
+            height: $wall-h;
+            width: $wall-w;
+            position: absolute;
+            left: calc(98vw/2 - $wall-w/2);
+            top: calc(98vh/2 - $wall-h/2);
+        }
+        .front {
+            transform: translateZ(-$wall-w/2);
+        }
+
+        .right {
+            transform: translateX(-$wall-w/2) rotateY(90deg);
+        }
+
+        .left {
+            transform: translateX($wall-w/2) rotateY(-90deg);
+        }
+
+        .top {
+            background-image: url('https://5.imimg.com/data5/MS/QS/MY-19166603/wall-texture-500x500.jpg');
+            background-size: cover;
+            height: $wall-w;
+            transform: translateY(-$wall-h*1.33) rotateX(90deg);
+        }
+
+        .bottom {
+            background-image: url('https://as2.ftcdn.net/v2/jpg/01/86/74/47/1000_F_186744728_ztBupTnHM9ceK4ipDfY6DhPbXPAXeVNU.jpg');
+            background-size: cover;
+            height: $wall-w;
+            transform: translateY(-$wall-h/3) rotateX(90deg);
+        }
+
+
+    }
+}
