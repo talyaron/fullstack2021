@@ -27,7 +27,7 @@ function App() {
     const text = ev.target.text.value;
     const img = ev.target.img.value;
     const obj = { text, img, id: uid() };
-    await setArr([...arr, obj]);
+    setArr([...arr, obj]);
 
     const images = document.querySelectorAll('.image');
     images[images.length - 1].classList.toggle('float-in');

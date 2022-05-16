@@ -1,0 +1,26 @@
+$wall-h: 300px;
+$wall-w: 800px;
+
+.target {
+    position: absolute;
+    left: calc(98vw/2 - $wall-w/2);
+    top: calc(98vh/2 - $wall-h/2);
+    height: 150px;
+    width: 110px;
+    background-image: url('https://www.picng.com/upload/target/png_target_92080.png');
+    background-size: cover;
+    transform: translateY(-120px) translateZ(-50px) translateX(-20px);
+    transition: ease 0.5s;
+    .hit-box{
+        margin-top: 10px;
+        margin-inline: 20px;
+        height: 120px;
+        width: 80px;
+        border: 1px solid blue ;
+    
+    }
+}
+.hit{
+    transform-origin: bottom;
+    transform: translateY(-120px) translateZ(-50px) translateX(-20px) rotateX(170deg);
+}
