@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './App.css';
-import ball from './view/compontents/Ball';
 import Ball from './view/compontents/Ball'
 import Counter from './view/compontents/Counter'
 

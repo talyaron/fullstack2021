@@ -1,15 +1,13 @@
 interface ball {
-    handleclick:Function
+  handleclick: Function;
+  id: string;
+
 }
 
+const Ball = (props: ball) => {
+  const { handleclick, id } = props;
+  return <div className="ball"  onClick={() => handleclick()} id={id}   >
+  </div>;
+};
 
-const Ball = (props:ball) => {
-    const {handleclick} = props
-  return (
-    <div className="ball" onClick={()=>handleclick()}>
-    
-    </div>
-  )
-}
-
-export default Ball
+export default Ball;

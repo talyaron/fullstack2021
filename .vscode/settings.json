@@ -7,5 +7,17 @@
     ],
     "cSpell.words": [
         "searchbar"
-    ]
+    ],
+    "editor.colorDecorators": true,
+    "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+    "workbench.preferredDarkColorTheme": "Theme + Dark Blue Theme",
+    "workbench.colorTheme": "Default Dark+",
+    "window.autoDetectColorScheme": false,
+    "editor.language.colorizedBracketPairs": [
+    
+    ],
+    "editor.tokenColorCustomizations": {
+    
+    },
+    
 }
