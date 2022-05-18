@@ -1,7 +1,11 @@
-*{padding:0px; margin:0;}
+*{padding:0px; margin:0;
+}
 
 .App {
+  background-image: url('./sky.jpeg');
+background-size: cover;
   text-align: center;
+  min-height: 100vh;
 }
 
 .App-logo {
@@ -16,8 +20,7 @@
 }
 
 .App-header {
-background-image: url('./sky.jpeg');
-background-size: cover;
+
 
   min-height: 100vh;
   display: flex;

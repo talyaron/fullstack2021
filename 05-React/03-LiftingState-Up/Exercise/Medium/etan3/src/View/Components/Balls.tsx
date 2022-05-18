@@ -19,6 +19,9 @@ interface BallsProps {
   incoming: boolean;
   falling: boolean;
   pop: boolean;
+  setBounced: Function;
+  bouncingBallAnimOptions: any;
+  bouncingBallAnim: any;
 }
 
 function Balls(props: BallsProps) {
@@ -31,6 +34,9 @@ function Balls(props: BallsProps) {
     setFalling,
     incoming,
     falling,
+    setBounced,
+    bouncingBallAnimOptions,
+    bouncingBallAnim,
   } = props;
 
   function loadBalls() {
@@ -38,13 +44,20 @@ function Balls(props: BallsProps) {
       try {
         balls.forEach((ball) => {
           const id = ball.id;
-          const index = balls.findIndex((ball) => ball.id === id);
           const currentBall: HTMLElement | null = document.querySelector(
             `#${id}`
           );
+          currentBall?.addEventListener('click', () => {
+            currentBall.animate(bouncingBallAnim, bouncingBallAnimOptions);
+            console.dir(currentBall);
+          } )
+          const index = balls.findIndex((ball) => ball.id === id);
           if (balls[index].incoming === false)
-          throw new Error(`no incoming balls`);
+            throw new Error(`no incoming balls`);
           setTimeout(() => {
+            const currentBall: HTMLElement | null = document.querySelector(
+              `#${id}`
+            );
             console.dir(currentBall);
             if (!currentBall?.dataset?.pop) {
               if (balls[index].incoming === true) {
@@ -55,16 +68,14 @@ function Balls(props: BallsProps) {
                   currentBall?.setAttribute(`data-falling`, "false");
                   currentBall?.setAttribute(`data-bounce`, `true`);
                   setTimeout(() => {
-                    setCounter(counter - 1)
+                    setCounter(counter - 1);
                     currentBall?.removeAttribute(`data-bounce`);
                   }, 2500);
-                }, 10000);
+                }, 20000);
               }
             }
           }, ball.i * 1000);
         });
-
-
       } catch (error) {
         console.log(error);
       }
@@ -72,19 +83,20 @@ function Balls(props: BallsProps) {
   function popBalls(id: string) {
     try {
       const index = balls.findIndex((ball) => ball.id === id);
-      const currentBall = document.querySelector(`#${id}`);
-      currentBall?.setAttribute(`data-pop`, `true`);
-      const newBalls: Array<BallProps> = [
-        ...balls.filter((ball) => ball.id !== id),
-      ];
+      const currentBall: any = document.querySelector(`#${id}`);
+
+      // currentBall?.setAttribute(`data-pop`, `true`);
+      // const newBalls: Array<BallProps> = [
+      //   ...balls.filter((ball) => ball.id !== id),
+      // ];
       setTimeout(() => {
         currentBall?.setAttribute(`data-pop`, `false`);
         //   currentBall?.toggleAttribute(`data-falling`)
       }, 1000);
-      setTimeout(() => {
-        setBalls([...newBalls]);
-      }, 1000);
-      setCounter(counter + 1);
+      // setTimeout(() => {
+      //   setBalls([...newBalls]);
+      // }, 1000);
+      // setCounter(counter + 1);
     } catch (error) {
       console.log(error);
     }
@@ -93,14 +105,13 @@ function Balls(props: BallsProps) {
   useEffect(() => {
     loadBalls();
     setTimeout(() => {
-      return (
-        setIncoming(false)
-        );
+      return setIncoming(false);
     }, 10000);
   }, []);
 
-useEffect(() => {console.log(`incoming changed to ${incoming}`);
-}, [incoming])
+  useEffect(() => {
+    console.log(`incoming changed to ${incoming}`);
+  }, [incoming]);
 
   return (
     <div className="balls">
@@ -111,6 +122,7 @@ useEffect(() => {console.log(`incoming changed to ${incoming}`);
           color={ball.color}
           id={ball.id}
           popBalls={popBalls}
+          setBounced={setBounced}
         >
           <span>{ball.i}</span>
         </Ball>
