@@ -1,4 +1,4 @@
-import './App.css';
+import './view/styles/global.scss';
 import {useState} from 'react';
 import axios from 'axios';
 
