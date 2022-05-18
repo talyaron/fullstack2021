@@ -10,7 +10,7 @@ function App() {
 
   return (
     <div className={boo?"App":"App AppDark"}>
-      <div className='container'>
+      <div className='container '>
         <p>TOGGLE DARK MODE</p>
       <Switch onClick={()=>setBoo(!boo)}/>
       </div>
