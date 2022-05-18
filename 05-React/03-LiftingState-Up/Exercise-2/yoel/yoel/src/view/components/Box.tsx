@@ -11,8 +11,8 @@ function Box(prop:BoxProps) {
   return (
     <div>
         <h1>{title}</h1>
-        <img src={img} alt="" />
         <EditBox id = {id} boxes = {boxes} setBoxes = {setBoxes}/>
+        <img src={img} alt={img} />
     </div>
   )
 }
