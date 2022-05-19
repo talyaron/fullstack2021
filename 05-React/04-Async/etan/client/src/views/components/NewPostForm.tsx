@@ -1,5 +1,8 @@
+//basic workflow imports:
 import React from 'react'
 import axios from 'axios'
+//styling imports:
+//mui ->
 import {
     Button,
     TextField,
@@ -24,29 +27,37 @@ import {
   } from "@mui/material";
   import { ThemeProvider, createTheme } from "@mui/material/styles";
   import { grey, red, green, blue, purple, common } from "@mui/material/colors";
-
   import { Delete, DriveFileRenameOutline, Send } from "@mui/icons-material";
-interface PostFormProps {
-    setPostsList: Function;
-}
-function PostForm(props:PostFormProps) {
-    const {setPostsList} = props;
 
-    async function getPostsList() {
-        const { data } = await axios("https://jsonplaceholder.typicode.com/todos");
-        setPostsList(data);
-      }
+
+  //receiving props:
+interface PostFormProps {
+  theme:any;
+    setPostsList: Function;
+    handleNewPost: Function;
+}
+
+
+function PostForm(props:PostFormProps) {
+    const {theme,setPostsList, handleNewPost} = props;
+
+    // async function getPostsList() {
+    //     const { data } = await axios("https://jsonplaceholder.typicode.com/todos");
+    //     setPostsList(data);
+    //   }
 
   return (
-<div className="wrapper_post-form">
-    <DriveFileRenameOutline />
+<form onSubmit={(ev)=>handleNewPost(ev)} className="wrapper_post-form">
+    <DriveFileRenameOutline color={theme?"secondary":"primary"} />
     <FormControlLabel
-      control={<TextField variant="standard" />}
+      control={<TextField name="newPostContent" id="newPostContent" variant="standard" />}
       label="Make a new post"
       labelPlacement="top"
     />
-    <Send onClick={getPostsList} />
-  </div>
+    <Button color={theme?"secondary":"primary"} type="submit">
+    <Send/>
+    </Button>
+  </form>
   )
 }
 

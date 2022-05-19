@@ -11,7 +11,8 @@
     height: 10vh;
     display: flex;
     place-content: space-around;
-    place-items: center;
+    place-items:flex-end;
+  
     // border: solid 1px red;
     input {
       min-width: 80vw;
