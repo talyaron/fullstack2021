@@ -1,10 +1,21 @@
-import React from 'react'
+import React from "react";
 
-
- function PlayerDeck () {
-  return (
-    <div>PlayerDeck</div>
-  )
+interface PlayerDeckProps {
+  setOnClickDeck: Function;
 }
 
-export default PlayerDeck
+function PlayerDeck(props: PlayerDeckProps) {
+  const { setOnClickDeck } = props;
+  return (
+    <div onClick={() => setOnClickDeck(true)}>
+      <div
+        className="App-mainTwo-TwoCards-box deckPlayer"
+        style={{
+          backgroundImage:
+            "url(https://datagenetics.com/blog/september52021/deck.png)",
+        }}></div>
+    </div>
+  );
+}
+
+export default PlayerDeck;
