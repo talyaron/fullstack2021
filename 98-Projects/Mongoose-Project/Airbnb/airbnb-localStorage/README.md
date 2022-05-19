@@ -29,9 +29,8 @@ Insert in the navigation bar the city you plan to stay in, and the amount of gue
 
 ## Made by
 
-- [Shay Foyer]()
+- [Shay Foyer](https://github.com/shayfoyer)
 - [Shani Rom](https://github.com/ShaniRom)
 - Yael Abuhatzera
 
-Students of INT college October 2021
-https://github.com/talyaron/fullstack2021/tree/main/98-Projects/Mongoose-Project/Airbnb/airbnb-localStorage
+[Students of INT college October 2021](https://github.com/talyaron/fullstack2021/tree/main/98-Projects/Mongoose-Project/Airbnb/airbnb-localStorage)
