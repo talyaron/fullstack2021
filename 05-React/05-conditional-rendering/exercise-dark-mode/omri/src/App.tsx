@@ -24,9 +24,9 @@ function App() {
         'https://opentdb.com/api.php?amount=10&type=multiple'
       );
       const { results } = data;
-      // console.log(results);
-       results.map(result => {
-        const obj = {question:result.question};
+      const answers =
+       results.map((result:any) => {
+        const obj = {question:result.question,};
         console.log(obj);
       });
     } catch (error) {
