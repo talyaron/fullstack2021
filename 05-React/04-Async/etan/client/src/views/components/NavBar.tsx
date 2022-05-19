@@ -29,6 +29,7 @@ import RegisterForm from "./RegisterForm";
 import LoginForm from "./LoginForm";
 import LoginModal from "./LoginModal";
 import RegisterModal from "./RegisterModal";
+import FeedsSearchBar from './FeedsSearchBar'
 
 // receiving props:
 interface NavBarProps {
@@ -41,6 +42,7 @@ interface NavBarProps {
   registerWarning: string;
   setRegisterWarning: Function;
   loggedIn: boolean;
+  handleSearch: Function
 }
 
 //sending props:
@@ -72,6 +74,9 @@ interface LoginModalProps {
   darkTheme: any;
   handleLogin: Function;
   loggedIn: boolean;
+}
+interface FeedsSearchBarProps {
+  handleSearch: Function;
 }
 function NavBar(props: NavBarProps) {
   const [registered, setRegistered] = useState(false);
