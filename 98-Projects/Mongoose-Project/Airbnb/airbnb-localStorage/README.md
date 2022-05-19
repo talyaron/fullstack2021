@@ -1,25 +1,37 @@
- # AIRBNB
-We made an app based on the already madae app AIRBNB. Which is used to to find a place to stay for how many people you want and for how many days you want, in any city.
+# AIRBNB
 
-In this project we used HTML CSS Typescript Node js and MongoDB. We used these technoligies because it is what we learned at the time.This was 
-a concluding class project to the MONGODB and Node subject.
+We made an app based on the already existing app: “AIRBNB”.
+Which is used to find a place to stay for as many people as you want, for as long as you want and in varied locations.
 
-Some of the challenges we had were working with an existing data base provided by mongodb.Which didnt work for us because of small things in the their schema.
-We ended up making a data base on our own.
+This is a concluding class project of MongoDB and NodeJS subject. Also we used HTML, CSS, TypeScript, localstorage.
 
-How to Install and Run the Project-
-You need to write in the terminal- npm i 
-which installs everything in the express
-Then type  - npm i nodemon
-Which opens the connection with the localhost
+## Challenges
 
-How to Use the Project-
-You search in the anvigation bar for a city and for how many guests you want staying with you. Or you press on one of the city cards to go to a page with 
-a list of options for the city youve chosen.Then you press on a prefered airbnb option inorder to see more information on the prefered airbnb youve chosen.
+Some of the challenges we were trying to work with an existing data base provided by mongodb. Which didn’t work because of _small things_ in their schema. _what the way to resulve it_ .So we created a data base of our own.
 
-made by
-Shay Foyer ,Shani Rom and Yael Abuhatzera
+# Install and Run
+
+Install the dependencies
+
+```
+npm i
+```
+
+Start the server by
+
+```
+nodemon
+```
+
+## How to Use
+
+Insert in the navigation bar the city you plan to stay in, and the amount of guests. Alternatively, you can press on one of the city cards for a list of options in that city. Then you press on a preferred Airbnb option in order to see more information.
+
+## Made by
+
+- [Shay Foyer]()
+- [Shani Rom](https://github.com/ShaniRom)
+- Yael Abuhatzera
+
 Students of INT college October 2021
 https://github.com/talyaron/fullstack2021/tree/main/98-Projects/Mongoose-Project/Airbnb/airbnb-localStorage
-
-
