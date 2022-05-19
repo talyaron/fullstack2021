@@ -1,0 +1,25 @@
+.App__header {
+    font-family: arial;
+    width: 100%;
+
+    h2 {
+        font-size: 5em;
+        letter-spacing: 10px;
+        color: #0e3742;
+        -webkit-box-reflect : below 1px linear-gradient(transparent , #0003);
+        line-height: 0.90em;
+        outline:none;
+        animation: animate 3s liniar infinite;
+    }
+
+    @keyframes animate {
+        0% {
+            color: #0e3742;
+            box-shadow: none;
+        }
+        100%{
+            color: #fff;
+        }
+    }
+}
+
