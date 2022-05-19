@@ -7,7 +7,7 @@ This is a concluding class project of MongoDB and NodeJS subject. Also we used H
 
 ## Challenges
 
-Some of the challenges we were trying to work with an existing data base provided by mongodb. Which didn’t work because of _small things_ in their schema. _what the way to resulve it_ .So we created a data base of our own.
+Some of the challenges we were trying to work with an existing data base provided by mongodb. Which didn’t work because the MongoDB airbnb API samples schema had an issue with the captial letters, which multiplied the schemas and made the API unusable.We tried consult with our teachers and looking for answers from the internet, but nothing explained how to fix it. We tried changing the schema ourselves in the document and tried copying the document into the second schema .At the end nothing worked,so we created a data base of our own.
 
 # Install and Run
 
@@ -31,6 +31,6 @@ Insert in the navigation bar the city you plan to stay in, and the amount of gue
 
 - [Shay Foyer](https://github.com/shayfoyer)
 - [Shani Rom](https://github.com/ShaniRom)
-- Yael Abuhatzera
+- [Yael Abuhatzera](https://github.com/yaeledr)
 
 [Students of INT college October 2021](https://github.com/talyaron/fullstack2021/tree/main/98-Projects/Mongoose-Project/Airbnb/airbnb-localStorage)
