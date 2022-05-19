@@ -1,0 +1,69 @@
+.App {
+  text-align: center;
+
+  &-mainTwo {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+    background: url('https://s3.envato.com/files/213727197/wooden_plank_surface_102801.jpg') 
+    no-repeat center fixed;
+    background-size: 100% 100%;
+
+    &-TwoCards{
+      position: relative;
+      width: 99%;
+      height: 100%;
+      max-height: 100%;
+      border: 1px solid gray;
+      display: grid;
+      grid-template-columns: repeat(4 , 25%);
+      grid-template-rows: repeat(2 , 50%);
+
+      .deckOpp{
+        grid-column: 1/2;
+        grid-row: 1; 
+      }
+      .deckPlayer{
+        grid-column: 3/4;
+        grid-row: 2;
+      }
+      &-box{
+    background: no-repeat center;
+    background-repeat: no-repeat;
+    background-size: 100% 50%;
+    width: 100%;
+    margin-left: 10vw;
+
+    &:hover{
+      cursor: pointer;
+    }
+      
+      }
+    }
+  }
+
+&-main {
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10vh;
+  // justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  background: url('https://s3.envato.com/files/213727197/wooden_plank_surface_102801.jpg') 
+  no-repeat center fixed;
+  background-size: 100% 100%;
+  
+  &-newGameBtn{
+    height: 12vh;
+    width: 20vw;
+  }
+}
+
+}
+
