@@ -1,0 +1,15 @@
+.pictures {
+    margin-right: auto;
+    margin-left: auto;
+    padding: 25px;
+    width: 50vw;
+    display: grid;
+    grid-template-columns:1fr 1fr 1fr 1fr ;
+    gap: 15px;
+
+
+    .pictures__pic {
+        width: 250px;
+        border-radius: 3%;
+    }
+}
