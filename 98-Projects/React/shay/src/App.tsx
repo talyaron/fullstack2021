@@ -34,6 +34,7 @@ const trivia: Array<matchProps> = [
     falseAnswer: "love me",
     trueAnswer: "believe it",
     id: uid(),
+  
   },
   {
     question: "I'm giving you everything All that joy can bring...",
