@@ -1,0 +1,69 @@
+@use 'sass:list';
+$clr-primary: #233142;
+$clr-secondary: #455d7a;
+$clr-third: #f9595985;
+$clr-fourth: #e3e3e3;
+
+$simple-gradient: $clr-primary, $clr-secondary;
+$complex-gradient: $clr-primary, $clr-secondary, $clr-fourth;
+
+
+$scheme-simple-gradient: $clr-fourth, $simple-gradient;
+$scheme-complex-gradient: $clr-third, $complex-gradient;
+
+@mixin color-scheme($text, $bg){
+    @if list.length($bg) == 1{
+        background-color: $bg;
+    } @else {
+        background-image: linear-gradient(to top left, $bg);
+    }
+    color: $text;
+}
+@mixin reverse-color-scheme($text, $bg){
+    @if list.length($bg) == 1{
+        background-color: $bg;
+    } @else {
+        background-image: linear-gradient(to bottom right, $bg);
+    }
+    color: $text;
+};
+
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  // background-color: #7994c9;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
