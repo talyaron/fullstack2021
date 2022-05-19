@@ -1,10 +1,15 @@
-
+// interface QuestionProps {
+//   questions:string
+//   setQuestions:Function
+// }
 
 const Header = () => {
+    // const {questions, setQuestions} = props;
+  
   return (
-    <div>
-        <h2>TRIVIA QUIZ</h2>
-    </div>
+      <>
+      <h2>TRIVIA QUIZ</h2>
+      </>
   )
 }
 
