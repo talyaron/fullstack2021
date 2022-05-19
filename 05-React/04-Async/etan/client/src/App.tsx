@@ -257,6 +257,13 @@ console.log(currentUsersPersonalInfo)
       console.log(error);
     }
   }
+  async function handleSearch(ev:any) {
+    try {
+      
+    } catch (error) {
+      
+    }
+  }
   async function handleGetPostsList() {
     try {
 console.log(usersPersonalInfo);
@@ -315,6 +322,7 @@ useEffect(() => {
           registerWarning={registerWarning}
           setRegisterWarning={setRegisterWarning}
           loggedIn={loggedIn}
+          handleSearch={handleSearch}
         />
 {loggedIn?<p>hello {usersPersonalInfo.firstName} {usersPersonalInfo.lastName}, this is your feed:</p>:null}
 
