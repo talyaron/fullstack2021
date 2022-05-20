@@ -13,7 +13,7 @@ interface post {
   datePosted?: number;
 }
 const Posts = (props: postProps) => {
-  const { posts,userPosts} = props;
+  const { userPosts} = props;
   return (
     <div className="posts">
       <div className="posts__navbar">filter posts</div>

@@ -14,8 +14,9 @@ interface post {
 }
 const Footer = (props:footerProps) => {
   const [addPostForm,setAddPostForm]=useState(false)
+
   const {userPosts,setPosts}=props
-  console.log(userPosts)
+  //console.log(userPosts)
   const uid = function () {
     return Date.now().toString(36) + Math.random().toString(36).substr(2);
   };
@@ -34,12 +35,7 @@ const Footer = (props:footerProps) => {
     setPosts([...userPosts,addedPost])
     
   }
-  function handleToggleAddPost(ev:any){
-   const addPostForm=document.querySelector('.addPostForm');
-    addPostForm?.classList.toggle('showAddPostForm')
-    
-    
-  }
+  
  
   return (
     <div className="footer">
@@ -47,13 +43,13 @@ const Footer = (props:footerProps) => {
         <button className='deletePost'>delete a post</button>
         {/* drag and drop ill try to make i throw into a trash can */}
 
-        <button className='newPost' onClick={handleToggleAddPost}>add a post</button>
+        <button className='newPost' onClick={()=>setAddPostForm(!addPostForm)}>add a post</button>
       
         <button className='myContactInfo'>contact me</button>
         {/* contact me will open a box of my info to contact me  */}
 
 
-        <form   className="addPostForm" onSubmit={handleNewPost}>
+        <form  className={addPostForm? 'showForm':'hideForm'} onSubmit={handleNewPost}>
          {/* date while be added in the push */}
          {/* can do when that the newest post will have a sticker that says the newest one */}
          <h3>New Post</h3>

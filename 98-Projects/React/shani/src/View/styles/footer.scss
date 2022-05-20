@@ -24,10 +24,10 @@
         transform: translateX(-50%);
         bottom: 500px;
         background-color: rgb(255, 190, 255);
-        &.addPostForm{
+        &.hideForm{
           display:none;
         }
-        &.showAddPostForm{
+        &.showForm{
           display:block;
         }
       input[type="submit"]{
