@@ -56,7 +56,7 @@ const users: Array<UserProps> = [
 function App() {
   const [userPosts,setPosts]=useState<Array<post>>(users[0].posts);
 
-  const [mode,setMode]=useState(true)
+  const [mode,setMode]=useState(false)
   
  
   
