@@ -8,10 +8,10 @@ function App() {
   const [title, setTitle] = useState("");
 
   //functions with state
-  // function updateImage(title: string, image: string) {
-  //   setImage(image);
-  //   setTitle(title);
-  // }
+  function updateImage(title: string, image: string) {
+    setImage(image);
+    setTitle(title);
+  }
 
   return (
     <div className="App">
