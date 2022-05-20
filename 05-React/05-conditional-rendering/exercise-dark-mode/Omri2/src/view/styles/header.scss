@@ -6,10 +6,10 @@
         font-size: 5em;
         letter-spacing: 10px;
         color: #0c551d;
-        -webkit-box-reflect : below 1px linear-gradient(transparent , #0003);
+        -webkit-box-reflect : below 1px linear-gradient(transparent , rgba(66, 66, 66, 0.2));
         line-height: 0.90em;
         outline:none;
-        animation: animate 4s linear infinite;
+        animation: animate 3s linear infinite;
     }
 
     @keyframes animate {
