@@ -55,17 +55,19 @@ const users: Array<UserProps> = [
 
 function App() {
   const [userPosts,setPosts]=useState<Array<post>>(users[0].posts);
+
+  const [mode,setMode]=useState(true)
   
  
   
   return (
-    <div className="App">
+    <div className="App" id={mode? 'dark':'light'}>
       <Header/>
   
       <div className='container'>
 
         {users.map((user:any,i)=>{
-          return( <UserPage key={i} user={user} userPosts={userPosts} />)
+          return( <UserPage key={i} user={user} userPosts={userPosts} mode={mode} setMode={setMode}/>)
           //  return <UserPage key={i} name={user.name} friends={user.friends}/>
           //why do i need map here 
         })}

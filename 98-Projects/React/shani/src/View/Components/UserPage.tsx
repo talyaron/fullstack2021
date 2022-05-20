@@ -1,8 +1,12 @@
-import React from "react";
+import React,{useState} from "react";
 import Friends from './Friends';
 import Posts from './Posts';
 interface UserProps {
   userPosts:Array<any>;
+
+  mode:boolean;
+  setMode:Function;
+
   user:{
    
    
@@ -32,11 +36,13 @@ interface post {
 }
 
 const UserPage = (props:UserProps) => {
-  const {user,userPosts} = props
+  const {user,userPosts,mode,setMode} = props
+
+  
   
   
   return (
-     <div className="User">
+     <div className="User" >
       <div className="aboutUser">
       <img src={user.profileImage}/>
       <div className="aboutUser__info">
@@ -48,7 +54,7 @@ const UserPage = (props:UserProps) => {
       </div>
       <div className="other">
         <div>date today</div>
-        <div>dark of light mode</div>
+        <button onClick={()=>setMode(!mode)}>dark of light mode</button>
         <div>party mode</div>
       </div>
       
