@@ -1,8 +1,12 @@
 import React from 'react'
-
-const Header = () => {
+interface HeaderProps{
+  mode:boolean;
+  setMode:Function;
+}
+const Header = (props:HeaderProps) => {
+  const {mode,setMode}=props
   return (
-    <div className='header'>Header</div>
+    <div className='header' id={mode? 'dark':'light'}>Header</div>
   )
 }
 

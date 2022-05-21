@@ -62,7 +62,7 @@ function App() {
   
   return (
     <div className="App" id={mode? 'dark':'light'}>
-      <Header/>
+      <Header mode={mode} setMode={setMode}/>
   
       <div className='container'>
 
@@ -74,7 +74,7 @@ function App() {
         
       </div>
 
-      <Footer  setPosts={setPosts} userPosts={userPosts}/>
+      <Footer  setPosts={setPosts} userPosts={userPosts} mode={mode} setMode={setMode}/>
 
 
    </div>

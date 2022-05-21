@@ -1,8 +1,15 @@
 .posts {
     &__navbar {
         width: 100%;
-        height: 100px;
-        background-color: red;
+        height: 50px;
+        transition:1s;
+        
+        &#light{
+            background-color: #C996CC;
+        }
+        &#dark{
+            background-color: #841c89d3;
+        }
     }
 
     &--postsGrid {
@@ -20,27 +27,20 @@
         padding: 15px;
         margin-top: 10px;
         border: solid black 1px;
+        border-radius: 5px;
         width: 800px;
-        height: 500px;
-      
-      
+        height: 500px;     
         
 
-        &__top {
-           
+        &__top {           
            display:flex;
            justify-content: space-between;
             &--date {
                 font-weight: lighter;
-
             }
-
-
             &--topic {
-
                 font-weight: lighter;
             }
-
         }
 
         &__middle {
@@ -49,12 +49,13 @@
            margin-top: 10px;
             
             &--pic {
-
-                aspect-ratio: 1 / 1;
+                border:transparent;
+                width:330px;
+                height:310px;
             }
 
             &--description {
-                border:solid black 1px;
+                //border:solid black 1px;
                 align-self:center;
                 //height:200px;
                 width:350px;

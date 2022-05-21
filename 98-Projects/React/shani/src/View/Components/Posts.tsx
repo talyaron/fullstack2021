@@ -2,6 +2,7 @@ import React from "react";
 interface postProps {
   posts: Array<post>;
   userPosts:Array<post>;
+  mode:boolean;
 }
 
 interface post {
@@ -13,10 +14,10 @@ interface post {
   datePosted?: number;
 }
 const Posts = (props: postProps) => {
-  const { userPosts} = props;
+  const { userPosts,mode} = props;
   return (
     <div className="posts">
-      <div className="posts__navbar">filter posts</div>
+      <div className="posts__navbar" id={mode? 'dark':'light'}>filter posts</div>
 
       <div className="posts--postsGrid">
         {userPosts.map((post: any,i) => {

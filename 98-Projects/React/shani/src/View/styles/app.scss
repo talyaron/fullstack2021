@@ -4,15 +4,17 @@
   height:100%;
   background-color: aqua;
   min-height: 100vh;
+  transition: 1s;
   &#dark{
-    background:black;
+    background:#71a5de;
     color:white;
+ 
 
    }
    &#light{
-    background:white;
+    background:#d7e3fc;
     color:black;
-
+    
    }
 }
 
