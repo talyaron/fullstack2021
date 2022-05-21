@@ -9,6 +9,7 @@ import livnat1 from '../src/pics/livnat/livnat1.jpg'
 import livnat2 from '../src/pics/livnat/livnat2.jpg'
 import livnat3 from '../src/pics/livnat/livnat3.jpg'
 
+
 interface pic {
   picUrl: any;
   people: string;
@@ -32,10 +33,13 @@ function App() {
 
   const [counter, setCounter] = useState<number>(0)
 
+  const [add,setAdd] = useState(false)
+
   return (
     <div className="App">
+
       <Header pictures={pictures} counter={counter} setCounter={setCounter} />
-      <Body pictures={pictures} setPictures={setPictures} pictureArray = {pictureArray} />
+      <Body pictures={pictures} setPictures={setPictures} pictureArray = {pictureArray} add = {add} setAdd = {setAdd} uid={uid}/>
     </div>
   );
 }

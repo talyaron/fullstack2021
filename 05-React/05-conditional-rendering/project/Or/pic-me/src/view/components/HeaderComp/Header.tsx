@@ -1,3 +1,4 @@
+import {Typography } from '@mui/material';
 interface pic{
   picUrl:any;
   people:string;
@@ -17,9 +18,9 @@ const Header = (props:headerProps) => {
   setCounter(picCount)
 
   return (
-    <div>
-      <h1>Or & Livnat</h1>
-      <h3>Number Of Pictures:{counter}</h3>
+    <div className='header'>
+      <Typography variant='h2' className='header__title' >Or & Livnat</Typography>
+      <h3 className='header__counter'>Number Of Pictures: {counter}</h3>
     </div>
   )
 }
