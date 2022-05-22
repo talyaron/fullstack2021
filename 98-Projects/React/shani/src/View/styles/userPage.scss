@@ -1,0 +1,70 @@
+.User {
+    margin-left: 60px;
+    margin-right: 60px;
+    margin-top: 10px;
+
+    // margin-bottom:10px;
+    .other {
+        display: flex;
+        flex-direction: column;
+        row-gap: 100px;
+    }
+
+
+
+}
+
+.lightDark {
+    display: flex;
+    flex-direction: row;
+    //column-gap:10px;
+
+   align-items:center;
+   &--dark{
+       margin-right:5px;
+
+   }
+   
+}
+
+.aboutUser {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 10px;
+
+
+    //column-gap: 100px;
+    img {
+        width: 250px;
+        height: 300px;
+    }
+
+    &__info {
+        padding: 15px;
+        border: solid black 2px;
+        border-radius: 10px;
+        width: 500px;
+        height: 200px;
+        //display:inline-block;
+
+        &--name {
+            text-align: left;
+        }
+
+        &--birthday {
+            //line-height: 26pt;
+            text-align: left;
+        }
+
+        &--description {
+            //padding-left:30px;
+            //padding-right:50px;
+            white-space: wrap;
+            text-align: center;
+            width: 500px;
+            //border:solid black 1px;
+
+        }
+    }
+}

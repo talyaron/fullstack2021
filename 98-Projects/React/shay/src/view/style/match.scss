@@ -1,0 +1,20 @@
+.flex{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.bgfalse, .bgtrue{
+  border: 1px solid #d662b5;
+  color: #97ffd2;
+  background-color: transparent;
+  border-radius: 10px;
+  font-size: 20px;
+}
+
+.falseAns{
+  background-color: red;
+}
+
+.trueAns{
+  background-color: green;
+}
