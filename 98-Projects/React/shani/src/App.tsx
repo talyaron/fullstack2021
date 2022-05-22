@@ -54,7 +54,7 @@ const users: Array<UserProps> = [
 // NOTE--counter for counter of posts,color for post background,color modes
 
 function App() {
-  const [userPosts,setPosts]=useState<Array<post>>(users[0].posts);
+  const [userPosts,setPosts]=useState<Array<post>>(users[0].posts ) ;
 
   const [mode,setMode]=useState(false)
   

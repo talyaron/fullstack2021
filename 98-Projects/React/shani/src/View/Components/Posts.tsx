@@ -24,6 +24,8 @@ const Posts = (props: postProps) => {
  
   function handleFilterNode(ev:any){
     const theTopic=ev.target.value;
+    // const copy = [...userPosts];
+    // const filter=[]
     const filterNode=allPosts.filter(posts=>posts.topic===theTopic);
     console.log(allPosts)
  console.log( userPosts)
