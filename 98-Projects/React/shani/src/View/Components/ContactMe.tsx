@@ -18,13 +18,8 @@ const ContactMe = (props: contactMeProps) => {
         <p className="contactMe__info--age">Age: 222</p>
         <p className="contactMe__info--languages">Languages:English and Hebrew </p>
         <p className="contactMe__info--education">
-          Education:sit amet consectetur adipisicing elit. Eveniet et dolorem,
-          quos distinctio magni ab possimus, pariatur optio illo maxime
-          accusantium explicabo, itaque in? Asperiores porro quae blanditiis
-          sint quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Ratione maxime, cumque error rem ut sapiente temporibus molestiae
-          aperiam, explicabo nihil, delectus odit alias praesentium eum nisi
-          voluptatibus magni. Repellat, quo!
+          Education:I studied in sheCodes web development after finshing my army service half a year after that I started studying fullstack 
+          in INT.
         </p>
       </div>
     </div>

@@ -6,7 +6,7 @@ interface HeaderProps{
 const Header = (props:HeaderProps) => {
   const {mode,setMode}=props
   return (
-    <div className='header' id={mode? 'dark':'light'}>Header</div>
+    <div className='header' id={mode? 'dark':'light'}></div>
   )
 }
 
