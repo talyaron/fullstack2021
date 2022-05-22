@@ -28,10 +28,10 @@
         border-radius: 10px;
         width: 800px;
         height: 220px;
-        position: relative;
+        position: absolute;
         left: 50%;
         transform: translateX(-50%);
-        bottom: 500px;
+        bottom: 250px;
         transition: 1s;
         
         &#light{
