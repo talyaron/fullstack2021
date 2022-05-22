@@ -9,7 +9,7 @@ interface UserProps {
   userPosts: Array<any>;
   mode: boolean;
   setMode: Function;
-
+  setPosts:Function;
   user: {
     name?: string;
     lastName?: string;
@@ -81,7 +81,7 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
 }));
 
 const UserPage = (props: UserProps) => {
-  const { user, userPosts, mode, setMode } = props;
+  const { user, userPosts, mode, setMode,setPosts } = props;
   const today = new Date().toDateString();
 
   return (
@@ -106,7 +106,7 @@ const UserPage = (props: UserProps) => {
               className="lightDark__button"
               onClick={() => setMode(!mode)}
             />
-            {/* <button className="lightDark__button" onClick={() => setMode(!mode)}></button> */}
+           
             <span className='lightDark--light'>light</span>
           </div>
           <button onClick={() => setMode(!mode)}>party mode</button>
@@ -114,7 +114,7 @@ const UserPage = (props: UserProps) => {
       </div>
       {/* <Friends friends={user.friends}/> */}
 
-      <Posts posts={user.posts} userPosts={userPosts} mode={mode} />
+      <Posts posts={user.posts} userPosts={userPosts} mode={mode} setPosts={setPosts}/>
 
       {/* for post i will need state and counter. upate post is form. state is used to update stuff */}
     </div>

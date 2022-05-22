@@ -40,7 +40,7 @@ const users: Array<UserProps> = [
     profileImage:"https://cdn.britannica.com/51/188751-050-D4E1CFBC/Beyonce-2010.jpg",
     friends: [{ friendPic:'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Dwayne_Johnson_2014_%28cropped%29.jpg/640px-Dwayne_Johnson_2014_%28cropped%29.jpg',friendName: "patrick" }],
     posts: [
-      {postId:uid(),datePosted:'6-6--1010',link:'https://cdn.britannica.com/51/188751-050-D4E1CFBC/Beyonce-2010.jpg',imgUrl:'https://i0.wp.com/www.primefaces.org/wp-content/uploads/2017/09/feature-react.png?ssl=1', topic: "web development", description: "Started studying in INT!" },
+      {postId:uid(),datePosted:'6-6--1010',link:'https://cdn.britannica.com/51/188751-050-D4E1CFBC/Beyonce-2010.jpg',imgUrl:'https://i0.wp.com/www.primefaces.org/wp-content/uploads/2017/09/feature-react.png?ssl=1', topic: "nodeJS", description: "Started studying in INT!" },
       {postId:uid(),datePosted:'5-5-1010',link:'https://cdn.britannica.com/51/188751-050-D4E1CFBC/Beyonce-2010.jpg',imgUrl:'https://i0.wp.com/www.primefaces.org/wp-content/uploads/2017/09/feature-react.png?ssl=1', topic: "web development", description: "Started studying in INT!" },
       {postId:uid(),datePosted:'4-4-1010',link:'https://cdn.britannica.com/51/188751-050-D4E1CFBC/Beyonce-2010.jpg',imgUrl:'https://i0.wp.com/www.primefaces.org/wp-content/uploads/2017/09/feature-react.png?ssl=1', topic: "web development", description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem alias vitae dignissimos, architecto accusamus ea minus vel nisi rerum harum numquam sint aliquid magnam, nobis corporis reiciendis nesciunt officia. Natus." },
     ],
@@ -67,7 +67,7 @@ function App() {
       <div className='container'>
 
         {users.map((user:any,i)=>{
-          return( <UserPage key={i} user={user} userPosts={userPosts} mode={mode} setMode={setMode}/>)
+          return( <UserPage key={i} user={user} userPosts={userPosts} mode={mode} setMode={setMode} setPosts={setPosts}/>)
           //  return <UserPage key={i} name={user.name} friends={user.friends}/>
           //why do i need map here 
         })}
