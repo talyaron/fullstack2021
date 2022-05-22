@@ -3,5 +3,50 @@
   background-color: #282c34;
   min-height: 100vh;
   font-size: calc(10px+2vmin);
+  display: flex;
   color: white;
 }
+
+.flyPhoto{
+  position: absolute;
+  height: 75px;
+  right: -47px;
+  bottom: -20px;
+}
+
+.tube{
+  height: 100%;
+  
+  background-image: url('https://i.imgur.com/utpUw92.png');
+  background-size: cover;
+  background-origin: border-box;
+background-repeat: no-repeat;
+width: 60px;
+}
+
+.tubeup{
+  transform: rotate(180deg);
+}
+
+.jWGME{
+  position: relative;
+  top: 20%;
+  background-image: url('https://i.ytimg.com/vi/3lkl9y0sjR4/maxresdefault.jpg');
+  box-shadow: rgba(46, 240, 53, 0.4) -5px 5px, rgba(46, 240, 140, 0.3) -10px 10px, rgba(46, 240, 117, 0.2) -15px 15px, rgba(46, 240, 85, 0.1) -20px 20px, rgba(82, 46, 240, 0.05) -25px 25px;
+}
+
+.scoreBoard{
+  background-color: white;
+  color: black;
+  position: absolute;
+  left: 25%;
+  bottom: 25%;
+  width: 250px;
+  height: 250px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+span{
+  z-index: 3;
+}
+

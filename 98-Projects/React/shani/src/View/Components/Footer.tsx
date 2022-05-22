@@ -1,5 +1,6 @@
 
-import React,{useState} from 'react'
+import React,{useState} from 'react';
+import ContactMe from './ContactMe';
 interface footerProps{
   mode:boolean;
   setMode:Function;
@@ -13,8 +14,11 @@ interface post {
   description: string;
   datePosted?:number;
 }
+
 const Footer = (props:footerProps) => {
-  const [addPostForm,setAddPostForm]=useState(false)
+  const [addPostForm,setAddPostForm]=useState(false);
+
+  const [showContactInfo,setContactInfo]=useState(false)
 
   const {userPosts,setPosts,mode,setMode}=props
 
@@ -42,7 +46,7 @@ const Footer = (props:footerProps) => {
     
   }
   
- 
+  
   return (
     <div className="footer" id={mode?'dark':'light'}>
        
@@ -50,14 +54,13 @@ const Footer = (props:footerProps) => {
         {/* drag and drop ill try to make i throw into a trash can */}
 
         <button className='newPost' onClick={()=>setAddPostForm(!addPostForm)}>add a post</button>
-      
-        <button className='myContactInfo'>contact me</button>
+        {/* onClick={()=>contactMe(!showContactMe)} */}
+        <button className='myContactInfo' onClick={()=>setContactInfo(!showContactInfo)}>contact me</button>
         {/* contact me will open a box of my info to contact me  */}
 
-
+        
         <form  className={addPostForm? 'showForm':'hideForm'} onSubmit={handleNewPost} id={mode?'dark':'light'}>
-         {/* date while be added in the push */}
-         {/* can do when that the newest post will have a sticker that says the newest one */}
+         {/* can do when that the newest post will have a sticker that says the newest one and fix the order of it posted*/}
          <h3>New Post</h3>
          <div className='formGrid' >
          <select  name="newPostTopic" className="newPostTopic">
@@ -75,8 +78,13 @@ const Footer = (props:footerProps) => {
          <input type="color" id='newPostColor' name="newPostColor"/>
         
          </div>
-         <input type="submit" name="submitPost" value="post"/>
+         <input type="submit" name="submitPost" value="post" />
         </form>
+        
+          <ContactMe showContactInfo={showContactInfo} mode={mode}/>
+        
+      
+       
      </div>
   )
 }

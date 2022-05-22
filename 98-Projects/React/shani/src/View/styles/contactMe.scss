@@ -1,0 +1,59 @@
+.contactMe {
+    padding: 15px;
+    margin-top: 10px;
+    border: solid black 1px;
+    border-radius: 10px;
+    width: 700px;
+    height: 400px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 200px;
+    transition: 1s;
+    padding-bottom: 20px;
+
+
+    &[data-contactInfo='showContactInfo'] {
+        display: block;
+    }
+
+    &[data-contactInfo='hideContactInfo'] {
+        display: none;
+    }
+
+    &#light {
+        background-color: rgb(255, 190, 255);
+        border: dashed 3px rgb(95, 32, 95);
+    }
+
+    &#dark {
+        background-color: rgb(95, 32, 95);
+        border: dashed 3px rgb(255, 190, 255);
+    }
+    &__info{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: 100px;
+        row-gap:2px;
+        column-gap:2px;
+        align-items: center;
+        &--name{
+            border:solid black 1px;
+        }
+        &--age{
+            border:solid black 1px;
+        }
+        &--languages{
+            border:solid black 1px;
+        }
+        &--education{
+            border:solid black 1px;
+            grid-column-start: 1;
+            grid-column-end: 4;
+            grid-row-start: 2;
+            grid-row-end: 4;
+
+        }
+
+    }
+}
