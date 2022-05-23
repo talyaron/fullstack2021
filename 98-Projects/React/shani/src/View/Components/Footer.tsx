@@ -17,10 +17,17 @@ interface post {
   postId:any,
 }
 
-const Footer = (props:footerProps) => {
-  const [addPostForm,setAddPostForm]=useState(false);
+export enum Modal{
+  CONTACT = 'contact',
+  POST = 'post',
+  NONE = 'none'
+}
 
-  const [showContactInfo,setContactInfo]=useState(false)
+const Footer = (props:footerProps) => {
+  // const [addPostForm,setAddPostForm]=useState(false);
+
+  // const [showContactInfo,setContactInfo]=useState(false)
+  const [showModal, setShowModal] = useState<Modal>(Modal.NONE)
   
 
   const newPost='audio/newPost.mp3';
@@ -73,6 +80,8 @@ const Footer = (props:footerProps) => {
       
       
     },100);
+
+    setShowModal(Modal.NONE)
     
   }
   
@@ -83,13 +92,13 @@ const Footer = (props:footerProps) => {
         <button className='deletePost'>delete a post</button>
         {/* drag and drop ill try to make i throw into a trash can */}
 
-        <button className='newPost' onClick={()=>setAddPostForm(!addPostForm)}>add Post </button>
+        <button className='newPost' onClick={()=>setShowModal(Modal.POST)}>add Post </button>
         
-        <button className='myContactInfo' onClick={()=>setContactInfo(!showContactInfo)}>contact me</button>
+        <button className='myContactInfo' onClick={()=>setShowModal(Modal.CONTACT)}>contact me</button>
         
 
         
-        <form  className={addPostForm? 'showForm':'hideForm'} onSubmit={handleNewPost} id={mode?'dark':'light'}>
+        <form  className={showModal === Modal.POST?'showForm':'hideForm'} onSubmit={handleNewPost} id={mode?'dark':'light'}>
          {/* can do when that the newest post will have a sticker that says the newest one and fix the order of it posted*/}
          <h3>New Post</h3>
          <div className='formGrid' >
@@ -111,7 +120,7 @@ const Footer = (props:footerProps) => {
          <input type="submit" name="submitPost" value="post" />
         </form>
         
-          <ContactMe showContactInfo={showContactInfo} mode={mode}/>
+          <ContactMe showModal={showModal} mode={mode}/>
         
       
        

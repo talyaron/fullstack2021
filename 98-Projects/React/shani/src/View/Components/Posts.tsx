@@ -26,10 +26,10 @@ const Posts = (props: postProps) => {
     const theTopic=ev.target.value;
     // const copy = [...userPosts];
     // const filter=[]
-    const filterNode=allPosts.filter(posts=>posts.topic===theTopic);
+    const filterNode=userPosts.filter(posts=>posts.topic===theTopic);
     console.log(allPosts)
     console.log( userPosts)
-    setPosts(filterNode)
+    // setFillterdPost(filterNode)
     
   }
 
