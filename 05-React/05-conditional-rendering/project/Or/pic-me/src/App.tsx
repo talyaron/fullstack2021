@@ -24,8 +24,8 @@ function App() {
     return Date.now().toString(36) + Math.random().toString(36).substring(2);
   }
   const pictureArray = [{ picUrl: or1, people: 'Or', time: 'before', id: uid() },
-  { picUrl: livnat1, people: 'livnat', time: 'before', id: uid() },
-  { picUrl: or2, people: 'Or', time: 'before', id: uid() },
+  { picUrl: livnat1, people: 'livnat', time: 'chuppa', id: uid() },
+  { picUrl: or2, people: 'Or', time: 'party', id: uid() },
   { picUrl: livnat2, people: 'livnat', time: 'before', id: uid() },
   { picUrl: or3, people: 'Or', time: 'during', id: uid() },
   { picUrl: livnat3, people: 'livnat', time: 'party', id: uid() },]
@@ -33,13 +33,18 @@ function App() {
 
   const [counter, setCounter] = useState<number>(0)
 
-  const [add,setAdd] = useState(false)
+  const [add, setAdd] = useState(true)
+
+  const [isBigPic, setBig] = useState(false)
+
+  const [bigPicSrc, setBigPicSrc] = useState('')
 
   return (
     <div className="App">
 
       <Header pictures={pictures} counter={counter} setCounter={setCounter} />
-      <Body pictures={pictures} setPictures={setPictures} pictureArray = {pictureArray} add = {add} setAdd = {setAdd} uid={uid}/>
+      <Body pictures={pictures} setPictures={setPictures} pictureArray={pictureArray}
+       add={add} setAdd={setAdd} uid={uid} isBigPic={isBigPic} setBig={setBig} bigPicSrc = {bigPicSrc} setBigPicSrc = {setBigPicSrc} />
     </div>
   );
 }

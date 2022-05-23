@@ -19,7 +19,7 @@ const Header = (props:headerProps) => {
 
   return (
     <div className='header'>
-      <Typography variant='h2' className='header__title' >Or & Livnat</Typography>
+      <Typography variant='h2' className='header__title' >Or & Livnat Wedding Gallery</Typography>
       <h3 className='header__counter'>Number Of Pictures: {counter}</h3>
     </div>
   )
