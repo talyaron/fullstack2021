@@ -29,6 +29,7 @@ function App() {
   { picUrl: livnat2, people: 'livnat', time: 'before', id: uid() },
   { picUrl: or3, people: 'Or', time: 'during', id: uid() },
   { picUrl: livnat3, people: 'livnat', time: 'party', id: uid() },]
+  
   const [pictures, setPictures] = useState<Array<pic>>(pictureArray)
 
   const [counter, setCounter] = useState<number>(0)
