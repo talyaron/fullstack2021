@@ -9,9 +9,7 @@ const ContactMe = (props: contactMeProps) => {
   return (
     <div
       className="contactMe"
-      data-contactInfo={
-        showModal === Modal.CONTACT ? "showContactInfo" : "hideContactInfo"
-      }
+      data-contactInfo={ showModal === Modal.CONTACT ? "showContactInfo" : "hideContactInfo"}
       id={mode ? "dark" : "light"}>
       <h3>Contact Info</h3>
       <div className="contactMe__info">

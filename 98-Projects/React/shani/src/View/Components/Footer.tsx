@@ -87,12 +87,12 @@ const Footer = (props:footerProps) => {
   return (
     <div className="footer" id={mode?'dark':'light'}>
        
-        <button className='deletePost'>delete a post</button>
+        <button className='deletePost' id={mode?'dark':'light'}>delete a post</button>
         {/* drag and drop ill try to make i throw into a trash can */}
 
-        <button className='newPost' onClick={()=>setShowModal(Modal.POST)} ><input type="image" src="images/addPost.png" style={{ height:"40px" ,width:"40px"}}/> </button>
+        <button className='newPost' onClick={()=>setShowModal(Modal.POST)} id={mode?'dark':'light'}><input type="image" src="images/addPost.png" style={{ height:"40px" ,width:"40px"}}/> </button>
         
-        <button className='myContactInfo' onClick={()=>setShowModal(Modal.CONTACT)}><input type="image" src="images/contacts.png" style={{ height:"40px" ,width:"40px"}}/> </button>
+        <button className='myContactInfo' onClick={()=>setShowModal(Modal.CONTACT)} id={mode?'dark':'light'}><input type="image" src="images/contacts.png" style={{ height:"40px" ,width:"40px"}}/> </button>
         
 
         
