@@ -1,17 +1,45 @@
-interface CardProps{
-    questions:Array<questions>
-    setQuestios:Function
+import axios from 'axios';
+
+interface CardProps {
+  questions: Array<questions>
+  setQuestions: Function
 }
 
 interface questions {
-    question:string,
-    answers:Array<string>
+  question: string
 }
-const Card = (props:CardProps) => {
-    const { questions, setQuestios} = props;
+
+
+const Card = (props: CardProps) => {
+  const { questions, setQuestions } = props;
+
+  async function handleGetQuestins() {
+    try {
+      const { data } = await axios.get(
+        'https://opentdb.com/api.php?amount=10&type=multiple'
+      );
+      const { results } = data;
+      console.log(data)
+     results.map((result:any) => {
+      const obj = {qestion:result.question}
+      setQuestions([...questions,obj])
+      })
+      console.log(questions) 
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   return (
     <div>
-        {/* <button onClick={handleGetQuestions}>Start</button> */}
+     <button onClick={handleGetQuestins}>Start</button>
+     {questions.map((question:any,i) => {
+       return(
+         <div key ={i}>
+           <p>{question.question}</p>
+         </div>
+       )
+     })}
     </div>
   )
 }
