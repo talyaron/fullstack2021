@@ -3,7 +3,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import Header from './view/components/Header';
 import Card from './view/components/Card';
-//https://opentdb.com/api.php?amount=10 - trivia API
+//https://opentdb.com/api.php?amount=10&type=multiple - trivia API
 
 interface questions {
   question: string,
@@ -24,10 +24,9 @@ function App() {
         'https://opentdb.com/api.php?amount=10&type=multiple'
       );
       const { results } = data;
-      const answers =
+      console.log(data)
        results.map((result:any) => {
-        const obj = {question:result.question,};
-        console.log(obj);
+        const obj = {question:result.question};
       });
     } catch (error) {
       console.error(error);

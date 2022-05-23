@@ -2,7 +2,9 @@ import React from "react";
 interface postProps {
   posts: Array<post>;
   userPosts:Array<post>;
+  setPosts:Function;
   mode:boolean;
+
 }
 
 interface post {
@@ -13,11 +15,32 @@ interface post {
   description: string;
   datePosted?: number;
 }
+
+//{userPosts.filter(posts=>posts.topic=='nodeJS') ,setPosts({posts:userPosts})} 
 const Posts = (props: postProps) => {
-  const { userPosts,mode} = props;
+ 
+  const { userPosts,mode,setPosts} = props;
+  const allPosts=userPosts;
+ 
+  function handleFilterNode(ev:any){
+    const theTopic=ev.target.value;
+    // const copy = [...userPosts];
+    // const filter=[]
+    const filterNode=allPosts.filter(posts=>posts.topic===theTopic);
+    console.log(allPosts)
+ console.log( userPosts)
+    setPosts(filterNode)
+    
+  }
+ 
   return (
     <div className="posts">
-      <div className="posts__navbar" id={mode? 'dark':'light'}>filter posts</div>
+      <div className="posts__navbar" id={mode? 'dark':'light'}>
+      {/* <button onClick={handleFilterNode} >nodeJs</button> */}
+      <input type="button" name='nodeJs' onClick={handleFilterNode} value='nodeJS'/>
+      <input type="button" name='web development' onClick={handleFilterNode} value='web development'/>
+      {/* <button onClick={handleFilterNode} >webDev</button> */}
+      </div>
 
       <div className="posts--postsGrid">
         {userPosts.map((post: any,i) => {
