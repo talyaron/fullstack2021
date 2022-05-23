@@ -62,9 +62,7 @@ const Footer = (props:footerProps) => {
    playNewPost()
     setPosts([...userPosts,addedPost]);
 
-     const lastCard=document.querySelector(`[id=${postId}]`);
-    // console.log(lastCard)
-    // lastCard?.setAttribute('data-new','true')
+  
     setTimeout(()=>{
      
        if((addedPost.newPost=true)){
@@ -92,9 +90,9 @@ const Footer = (props:footerProps) => {
         <button className='deletePost'>delete a post</button>
         {/* drag and drop ill try to make i throw into a trash can */}
 
-        <button className='newPost' onClick={()=>setShowModal(Modal.POST)}>add Post </button>
+        <button className='newPost' onClick={()=>setShowModal(Modal.POST)} ><input type="image" src="images/addPost.png" style={{ height:"40px" ,width:"40px"}}/> </button>
         
-        <button className='myContactInfo' onClick={()=>setShowModal(Modal.CONTACT)}>contact me</button>
+        <button className='myContactInfo' onClick={()=>setShowModal(Modal.CONTACT)}><input type="image" src="images/contacts.png" style={{ height:"40px" ,width:"40px"}}/> </button>
         
 
         

@@ -8,9 +8,12 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 
 interface UserProps {
   userPosts: Array<any>;
+  setPosts:Function;
   mode: boolean;
   setMode: Function;
-  setPosts:Function;
+  filterdPosts:Array<any>;
+   setFilterdPost:Function;
+ 
   user: {
     name?: string;
     lastName?: string;
@@ -92,7 +95,8 @@ const UserPage = (props: UserProps) => {
     volume: 0.5,
   });
  
-  const { user, userPosts, mode, setMode,setPosts } = props;
+ 
+  const { user, userPosts, mode, setMode,setPosts,filterdPosts,setFilterdPost } = props;
   useEffect(() => {
     playLightSwitch();
   }, [mode]);
@@ -129,7 +133,7 @@ const UserPage = (props: UserProps) => {
       </div>
       {/* <Friends friends={user.friends}/> */}
 
-      <Posts posts={user.posts} userPosts={userPosts} mode={mode} setPosts={setPosts}/>
+      <Posts posts={user.posts} userPosts={userPosts} mode={mode} setPosts={setPosts} filterdPosts={filterdPosts}  setFilterdPost={setFilterdPost}/>
 
       {/* for post i will need state and counter. upate post is form. state is used to update stuff */}
     </div>

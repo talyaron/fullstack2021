@@ -55,7 +55,7 @@ const users: Array<UserProps> = [
 
 function App() {
   const [userPosts,setPosts]=useState<Array<post>>(users[0].posts ) ;
-  const [fillterdPosts, setFillterdPost] = useState<Array<post>>(users[0].posts)
+  const [filterdPosts, setFilterdPost] = useState<Array<post>>(users[0].posts)
  
 
   const [mode,setMode]=useState(false)
@@ -69,7 +69,7 @@ function App() {
       <div className='container'>
 
         {users.map((user:any,i)=>{
-          return( <UserPage key={i} user={user} userPosts={userPosts} mode={mode} setMode={setMode} setPosts={setPosts}/>)
+          return( <UserPage key={i} user={user} userPosts={userPosts} mode={mode} setMode={setMode} setPosts={setPosts} filterdPosts={filterdPosts}  setFilterdPost={setFilterdPost}/>)
           //  return <UserPage key={i} name={user.name} friends={user.friends}/>
           //why do i need map here 
         })}
