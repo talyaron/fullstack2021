@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
+import useSound from 'use-sound';
 import Friends from "./Friends";
 import Posts from "./Posts";
 import { Switch } from "@mui/material";
@@ -26,11 +27,12 @@ interface friend {
   friendName: string;
 }
 interface post {
-  topic: "web development" | "mongo+nodeJS" | "nodeJS" | "react";
+  topic:"all"| "web development" | "mongo+nodeJS" | "nodeJS" | "react";
   link: string;
   imgUrl: string;
   description: string;
   datePosted?: number;
+  postId?:any,
 }
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 62,
@@ -80,16 +82,29 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   },
 }));
 
+
+
 const UserPage = (props: UserProps) => {
+  const lightSwitch='audio/lightSwitch.mp3'
+  const [playSwitchSound,setPlay]=useState(0.75);
+  const[playLightSwitch]=useSound(lightSwitch,{
+    playSwitchSound,
+    volume: 0.5,
+  });
+ 
   const { user, userPosts, mode, setMode,setPosts } = props;
+  useEffect(() => {
+    playLightSwitch();
+  }, [mode]);
+
   const today = new Date().toDateString();
 
+  
   return (
     <div className="User">
       <div className="aboutUser">
         <img src={user.profileImage} />
         <div className="aboutUser__info">
-          <div>edit info</div>
           <p className="aboutUser__info--name">
             {user.name} {user.lastName}
           </p>
@@ -109,7 +124,7 @@ const UserPage = (props: UserProps) => {
            
             <span className='lightDark--light'>light</span>
           </div>
-          <button onClick={() => setMode(!mode)}>party mode</button>
+          <button onClick={() => setMode(!mode)   }>party mode</button>
         </div>
       </div>
       {/* <Friends friends={user.friends}/> */}

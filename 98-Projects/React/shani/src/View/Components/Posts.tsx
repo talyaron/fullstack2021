@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 interface postProps {
   posts: Array<post>;
   userPosts:Array<post>;
@@ -9,7 +9,7 @@ interface postProps {
 
 interface post {
   postId?:any,
-  topic: "web development" | "mongo+nodeJS" | "nodeJS" | "react";
+  topic:"all"| "web development" | "mongo+nodeJS" | "nodeJS" | "react";
   link?: string;
   imgUrl?: string;
   description: string;
@@ -22,30 +22,40 @@ const Posts = (props: postProps) => {
   const { userPosts,mode,setPosts} = props;
   const allPosts=userPosts;
  
-  function handleFilterNode(ev:any){
+  function handleFilterTopic(ev:any){
     const theTopic=ev.target.value;
     // const copy = [...userPosts];
     // const filter=[]
     const filterNode=allPosts.filter(posts=>posts.topic===theTopic);
     console.log(allPosts)
- console.log( userPosts)
+    console.log( userPosts)
     setPosts(filterNode)
     
   }
+
+  // useEffect(()=>{
+  //   const copy=[...userPosts];
+  //  handleFilterTopic(Event)
+    
+  // },[userPosts])
+
  
   return (
     <div className="posts">
       <div className="posts__navbar" id={mode? 'dark':'light'}>
-      {/* <button onClick={handleFilterNode} >nodeJs</button> */}
-      <input type="button" name='nodeJs' onClick={handleFilterNode} value='nodeJS'/>
-      <input type="button" name='web development' onClick={handleFilterNode} value='web development'/>
-      {/* <button onClick={handleFilterNode} >webDev</button> */}
+      
+      <input type="button" name='nodeJs' onClick={handleFilterTopic} value='nodeJS'/>
+      <input type="button" name='web development' onClick={handleFilterTopic} value='web development'/>
+      <input type="button" name='all' onClick={handleFilterTopic} value='all'/>
+      <input type="button" name='mongo+nodeJS' onClick={handleFilterTopic} value='mongo+nodeJS'/>
+      <input type="button" name='react' onClick={handleFilterTopic} value='react'/>
+     
       </div>
 
       <div className="posts--postsGrid">
         {userPosts.map((post: any,i) => {
           return (
-            <div  key={i} className="posts__post">
+            <div  key={i} id={post.postId} className="posts__post" >
               <div className="posts__post__top">
                 <p className="posts__post__top--topic">{post.topic} </p>
                 <p className="posts__post__top--date">{post.datePosted}</p>
@@ -59,7 +69,7 @@ const Posts = (props: postProps) => {
               </div>
             </div>
           );
-        })}
+        }).reverse()}
       </div>
     </div>
   );

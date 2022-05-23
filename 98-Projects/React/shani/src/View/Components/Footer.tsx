@@ -1,5 +1,7 @@
 
 import React,{useState} from 'react';
+import useSound from 'use-sound';
+
 import ContactMe from './ContactMe';
 interface footerProps{
   mode:boolean;
@@ -8,17 +10,25 @@ interface footerProps{
   setPosts:Function;
 }
 interface post {
-  topic:"web development" |"mongo+nodeJS" |"nodeJS"|"react";
+  topic:"all"| "web development" | "mongo+nodeJS" | "nodeJS" | "react";
   link: string;
   imgUrl: string;
   description: string;
   datePosted?:number;
+  postId:any,
 }
 
 const Footer = (props:footerProps) => {
   const [addPostForm,setAddPostForm]=useState(false);
 
   const [showContactInfo,setContactInfo]=useState(false)
+
+  const newPost='audio/newPost.mp3';
+  const[playPostSound,setPlay]=useState(0.6);
+  const [playNewPost]=useSound(newPost,{
+    playPostSound,
+    volume: 0.9,
+  });
 
   const {userPosts,setPosts,mode,setMode}=props
 
@@ -31,18 +41,38 @@ const Footer = (props:footerProps) => {
     const description=ev.target.elements.newPostDescription.value;
     const link=ev.target.elements.newPostLink.value;
     const imgUrl=ev.target.elements.newPostPhoto.value;
-    const newColor=ev.target.elements.newPostColor.value;
-    const id=uid();
+    //const newColor=ev.target.elements.newPostColor.value;
+    const postId=uid();
+     const newPost=true
 
     const today=new Date();
     const time = today.getHours() + ":" + today.getMinutes()
     const todayDate=today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear()
     const datePosted=todayDate+ '  ' +time ;
-    console.log(id,topic,datePosted,description,link,imgUrl,newColor)
-    const addedPost={id,topic,datePosted,description,link,imgUrl,newColor}
+    console.log(postId,topic,datePosted,description,link,imgUrl,newPost)
+    const addedPost={postId,topic,datePosted,description,link,imgUrl,newPost}
    
+   playNewPost()
+    setPosts([...userPosts,addedPost]);
 
-    setPosts([...userPosts,addedPost])
+     const lastCard=document.querySelector(`[id=${postId}]`);
+    // console.log(lastCard)
+    // lastCard?.setAttribute('data-new','true')
+    setTimeout(()=>{
+     
+       if((addedPost.newPost=true)){
+        const lastCard=document.querySelector(`[id=${postId}]`);
+        lastCard?.setAttribute('data-new','true')
+         setTimeout(()=>{
+          lastCard?.removeAttribute("data-new");
+          console.log(lastCard);
+
+         },5000)
+       }
+      
+      
+      
+    },100);
     
   }
   
@@ -54,9 +84,9 @@ const Footer = (props:footerProps) => {
         {/* drag and drop ill try to make i throw into a trash can */}
 
         <button className='newPost' onClick={()=>setAddPostForm(!addPostForm)}>add a post</button>
-        {/* onClick={()=>contactMe(!showContactMe)} */}
+        
         <button className='myContactInfo' onClick={()=>setContactInfo(!showContactInfo)}>contact me</button>
-        {/* contact me will open a box of my info to contact me  */}
+        
 
         
         <form  className={addPostForm? 'showForm':'hideForm'} onSubmit={handleNewPost} id={mode?'dark':'light'}>
@@ -74,8 +104,8 @@ const Footer = (props:footerProps) => {
          <input type="text" placeholder='add a description' name="newPostDescription"/>
          <input type="url" placeholder=' add link here' name="newPostLink" />
          <input type="text" placeholder=' add imgUrl here'  id="newPostPhoto" name="newPostPhoto"  accept="image/*" />
-         <label htmlFor='newPostColor' > add color</label>
-         <input type="color" id='newPostColor' name="newPostColor"/>
+         {/* <label htmlFor='newPostColor' > add color</label> */}
+         {/* <input type="color" id='newPostColor' name="newPostColor"/> */}
         
          </div>
          <input type="submit" name="submitPost" value="post" />
