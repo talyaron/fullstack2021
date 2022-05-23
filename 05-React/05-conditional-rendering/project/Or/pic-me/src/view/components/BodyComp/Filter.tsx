@@ -38,7 +38,7 @@ const Filter = (props: filterProps) => {
             onChange={handleFilter}
           >
             <MenuItem value="before">Before the wedding</MenuItem>
-            <MenuItem value="during">during the wedding</MenuItem>
+            <MenuItem value="chuppa">Chuppa</MenuItem>
             <MenuItem value="party">PARTY</MenuItem>
           </Select>
         </FormControl>

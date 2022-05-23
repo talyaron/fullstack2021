@@ -1,31 +1,31 @@
 import { url } from 'inspector';
 import React, {useState} from 'react'
-import  OpponentDeck from "./OpponentDeck";
-import PlayerDeck from './PlayerDeck'
+import Decks from './Decks';
+import NewCard from './NewCard';
  
-
-
 interface CardsProps{
   setOnClickDeck:Function;
+  cardsPlayer:Array<any>;
+  cardsOpponent:Array<any>;
+  clickOnDeck:boolean;
+  setCardsOpponent:Function;
+  setCardsPlayer:Function;
   }
 
 function Cards (props:CardsProps){
 
-  const {setOnClickDeck} = props;
-
-  // let count = 26;
-
-  // function deckClicked(ev:any){
-  //   setOnClickDeck(true)
-  //   count --;
-  // }
-
+  const {setOnClickDeck,cardsPlayer,cardsOpponent,clickOnDeck,
+    setCardsOpponent,setCardsPlayer} = props;
+    
+  
   return (
+    
     <div className='App-mainTwo-TwoCards'>
-      
-     <OpponentDeck /> 
-     <PlayerDeck setOnClickDeck={setOnClickDeck} />
+     <Decks setCardsOpponent={setCardsOpponent} cardsPlayer={cardsPlayer} clickOnDeck={clickOnDeck} 
+     setOnClickDeck={setOnClickDeck} setCardsPlayer={setCardsPlayer}  cardOpponent={cardsOpponent}/>
     </div>
+
+    
   )
 }
 

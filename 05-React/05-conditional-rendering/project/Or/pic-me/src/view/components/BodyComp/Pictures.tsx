@@ -1,6 +1,11 @@
+import BigPic from './BigPic'
 
 interface picturesProps {
   pictures: Array<pic>
+  setBig:Function
+  isBigPic:Boolean
+  bigPicSrc:String
+  setBigPicSrc:Function
 }
 
 interface pic {
@@ -11,15 +16,21 @@ interface pic {
 }
 
 const Pictures = (props: picturesProps) => {
-  const { pictures } = props
+  const { pictures,setBig,isBigPic, bigPicSrc,  setBigPicSrc} = props
+  
+  function handleOpenModal(picSrc:string){
+    setBig(!isBigPic)
+    setBigPicSrc(picSrc)
 
+  }
   return (
     <div >
       <div className="pictures">
         {pictures.map((pic: any, i: number) => {
-          return (<img className='pictures__pic' key={i} src={pic.picUrl} alt="" />)
+      return (<img onClick={()=>handleOpenModal(pic.picUrl)} className='pictures__pic' key={i} src={pic.picUrl} alt="" />)
         })}
       </div>
+      {isBigPic && <BigPic bigPicSrc={bigPicSrc} isBigPic={isBigPic} setBig={setBig} />}
     </div>
   )
 }
