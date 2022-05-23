@@ -1,0 +1,19 @@
+*{
+  padding: 0;
+  margin: 0;
+  font-family: 'Titillium Web', sans-serif;
+
+}
+.App {
+  text-align: center;
+  min-height: 100vh;
+  min-width: 100vw;
+
+}
+
+.App-logo {
+  max-height: 40vmin;
+  max-width: 10vw;
+  pointer-events: none;
+  // filter: invert(100%) sepia(93%) saturate(1352%) hue-rotate(87deg) brightness(119%) contrast(119%);
+}

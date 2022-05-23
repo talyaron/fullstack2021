@@ -1,0 +1,36 @@
+.App {
+    background-image: url("https://assets.nflxext.com/ffe/siteui/vlv3/6e32b96a-d4be-4e44-a19b-1bd2d2279b51/fd2d510d-0f3a-45a0-b8aa-33e4342cdf3e/IL-he-20220516-popsignuptwoweeks-perspective_alpha_website_large.jpg");
+    height: 100vh;
+    max-width: fit-content;
+    background-color: black;
+
+    &__header {
+        margin-left: 10px;
+        display: flex;
+        justify-content: space-between;
+
+        img {
+            
+            margin-left: 80%;
+            width: 20%;
+        }
+
+    }
+
+    &__log {
+        cursor: pointer;
+        background-color: red;
+        height: 40px;
+        border-radius: 10px;
+        border: none;
+        font-size: 1.5em;
+        margin-top: 0.3%;
+        color: rgb(247, 247, 247);
+    }
+    &__card{
+        height: 200px;
+        width: 200px;
+        background-color: red;
+    }
+
+}
