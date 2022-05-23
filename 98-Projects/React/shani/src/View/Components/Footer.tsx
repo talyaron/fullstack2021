@@ -1,7 +1,6 @@
 
 import React,{useState} from 'react';
 import useSound from 'use-sound';
-
 import ContactMe from './ContactMe';
 interface footerProps{
   mode:boolean;
@@ -22,6 +21,7 @@ const Footer = (props:footerProps) => {
   const [addPostForm,setAddPostForm]=useState(false);
 
   const [showContactInfo,setContactInfo]=useState(false)
+  
 
   const newPost='audio/newPost.mp3';
   const[playPostSound,setPlay]=useState(0.6);
@@ -83,7 +83,7 @@ const Footer = (props:footerProps) => {
         <button className='deletePost'>delete a post</button>
         {/* drag and drop ill try to make i throw into a trash can */}
 
-        <button className='newPost' onClick={()=>setAddPostForm(!addPostForm)}>add a post</button>
+        <button className='newPost' onClick={()=>setAddPostForm(!addPostForm)}>add Post </button>
         
         <button className='myContactInfo' onClick={()=>setContactInfo(!showContactInfo)}>contact me</button>
         

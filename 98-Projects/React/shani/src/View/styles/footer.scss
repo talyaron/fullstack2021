@@ -20,6 +20,9 @@
        margin:30px 20px 0 20px;
        font-family: 'Poppins', sans-serif;
        cursor:pointer;
+       background-color:transparent;
+       border:transparent;
+      
    }
 
     form {
@@ -52,9 +55,13 @@
           display:block;
         }
       input[type="submit"]{
-
+       
         margin-top: 10px;
         cursor:pointer;
+        
+        
+          
+        
 
       }
     }
