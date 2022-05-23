@@ -1,5 +1,5 @@
 //basic workflow imports:
-import { useState, useEffect } from "react";
+import { useState, useLayoutEffect, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
@@ -28,7 +28,7 @@ import CaretDownAvatar from "./Anchors/CaretDownAvatar";
 import CaretDownPopover from "./Popovers/CaretDownPopover";
 import BellOnAvatar from "./Anchors/BellOnAvatar";
 import BellOnPopover from "./Popovers/BellOnPopover";
-import Search from './Search'
+import Search from "./Search";
 //sending props:
 interface RegisterFormProps {
   theme: any;
@@ -83,7 +83,7 @@ interface CaretDownAvatarProps {
 interface BellOnPopoverProps {
   BellAnchor: any;
   setBellAnchor: Function;
-  PopoverButton:any;
+  PopoverButton: any;
   Initials: string;
   firstName: string;
   lastName: string;
@@ -103,6 +103,24 @@ interface NavBarProps {
   darkTheme: any;
   usersPersonalInfo: any;
 }
+
+
+
+
+function useWindowSize() {
+  const [size, setSize] = useState([0, 0]);
+  useLayoutEffect(() => {
+    function updateSize() {
+      setSize([window.innerWidth, window.innerHeight]);
+    }
+    window.addEventListener("resize", updateSize);
+    updateSize();
+    return () => window.removeEventListener("resize", updateSize);
+  }, []);
+  return size;
+}
+
+
 function NavBar(props: NavBarProps) {
   const { setTheme, theme, lightTheme, darkTheme, usersPersonalInfo } = props;
   const [registered, setRegistered] = useState(false);
@@ -110,15 +128,32 @@ function NavBar(props: NavBarProps) {
   const [open, setOpen] = useState(false);
   const [ArrowAnchor, setArrowAnchor] = useState<any>();
   const [BellAnchor, setBellAnchor] = useState<any>();
-  const [SearchAnchor, setSearchAnchor] = useState<any>();
-  const [SearchToggle, setSearchToggle] = useState<any>();
+  const [SearchToggle, setSearchToggle] = useState<Boolean>();
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const [width, height] = useWindowSize();
+  const [mounted, setMounted] = useState(false);
+  
   const { firstName, lastName } = usersPersonalInfo;
   const Initials =
-    firstName.charAt(0).toUpperCase() + lastName.charAt(0).toUpperCase();
+  firstName.charAt(0).toUpperCase() + lastName.charAt(0).toUpperCase();
   const navigate = useNavigate();
   function navigateHome() {
     navigate("/HomePage");
   }
+  
+  
+  function displayWindowSize() {
+    // Get width and height of the window excluding scrollbars
+    let w = document.documentElement.clientWidth;
+    let h = document.documentElement.clientHeight;
+    
+    // Display result inside a div element
+    const widerScreenWidth = window.matchMedia("(min-width: 1265px)")
+
+}
+window.addEventListener("resize", displayWindowSize);
+
+
   function handleOpenNavPopover(ev: any) {
     const button = ev.currentTarget.firstChild;
     console.dir(button);
@@ -148,7 +183,6 @@ function NavBar(props: NavBarProps) {
     try {
     } catch (error) {}
   }
-
   const AvatarStyling = {
     cursor: "pointer",
     backgroundColor: "#e3e6ea",
@@ -170,6 +204,23 @@ function NavBar(props: NavBarProps) {
   useEffect(() => {
     console.log("nav loaded");
   }, []);
+  useEffect(() => {
+    if (width < 1256) {
+      setSearchToggle(false);
+      console.log("1265+");
+    }
+    if (width > 1256) {
+      setSearchToggle(true);
+      console.log("1265-");
+    }
+  }, [width > 1265]);
+
+  useEffect(()=>{
+    const hasWindow = typeof window !== 'undefined';
+    console.log(hasWindow);
+    
+  },[])
+
 
   return (
     <AppBar className="NavBar" position="fixed" color="secondary">
@@ -180,9 +231,20 @@ function NavBar(props: NavBarProps) {
               navigateHome();
             }}
           />
-          <Search DynamicSearchStyling={DynamicSearchStyling} AvatarStyling={AvatarStyling} SearchAnchor={SearchAnchor} setSearchAnchor={setSearchAnchor} SearchToggle={SearchToggle} setSearchToggle={setSearchToggle}/>
+          <Search
+            setMounted={setMounted}
+            DynamicSearchStyling={DynamicSearchStyling}
+            AvatarStyling={AvatarStyling}
+            SearchToggle={SearchToggle}
+            setSearchToggle={setSearchToggle}
+            width={width}
+            height={height}
+          />
         </div>
         {/* <Logo fill={background.default} stroke={background.default} /> */}
+        <div>
+          {height} {`${SearchToggle}`} {width}
+        </div>
         <div className="NavBar_right">
           <CaretDownAvatar
             setPopoverButton={setPopoverButton}
@@ -190,8 +252,8 @@ function NavBar(props: NavBarProps) {
             AvatarStyling={AvatarStyling}
           />
           <CaretDownPopover
-          PopoverButton={PopoverButton}
-          setArrowAnchor={setArrowAnchor}
+            PopoverButton={PopoverButton}
+            setArrowAnchor={setArrowAnchor}
             ArrowAnchor={ArrowAnchor}
             Initials={Initials}
             firstName={firstName}

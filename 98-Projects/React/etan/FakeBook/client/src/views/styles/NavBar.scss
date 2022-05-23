@@ -27,11 +27,11 @@ flex-direction: row-reverse;
             gap: 6px;
             &-search{
                 display: flex;
+                place-items: center;
                 border-radius: 56px;
                 width: fit-content;
                 &-input{
-                    // background-color:red;
-                    display: none !important;
+
                 }
             }
         }
