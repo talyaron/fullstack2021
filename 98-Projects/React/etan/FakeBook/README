@@ -1,0 +1,2 @@
+client: npm start;
+server: nodemon; 

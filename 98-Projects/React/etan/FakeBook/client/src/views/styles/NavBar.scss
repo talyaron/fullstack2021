@@ -1,0 +1,42 @@
+.NavBar{
+    max-height: 56px;
+    justify-content: center;
+    &_left{
+        display: flex;
+        gap: 12px;
+        &-search{
+            display: flex;
+            border-radius: 56px;
+            width: 280px;
+        }
+    }
+    &_right{
+display: flex;
+gap:6px;
+flex-direction: row-reverse;
+    }
+}
+
+
+@media screen and (max-width: 1256px) {
+    .NavBar{
+        max-height: 56px;
+        justify-content: center;
+        &_left{
+            display: flex;
+            gap: 6px;
+            &-search{
+                display: flex;
+                place-items: center;
+                border-radius: 56px;
+                width: fit-content;
+                &-input{
+
+                }
+            }
+        }
+        &_right{
+    
+        }
+    }
+}

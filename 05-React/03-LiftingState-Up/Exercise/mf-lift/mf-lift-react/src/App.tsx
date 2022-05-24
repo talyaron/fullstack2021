@@ -29,14 +29,9 @@ function App() {
                     <div key={i} className="wrapper">
                         <Card img={item.img} text={item.title} />
                         <Button id={item.id} />
-
-                        
                     </div>
                 )
             })}
-
-
-
       </header>
     </div>
   );

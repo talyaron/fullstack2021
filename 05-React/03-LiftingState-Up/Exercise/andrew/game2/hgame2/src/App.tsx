@@ -36,7 +36,6 @@ function App() {
     shotAudio.pause();
     shotAudio.currentTime = 0;
     shotAudio.play()
-
     const cross: any = document?.querySelector('.crosshair');
     const muzzle: any = document?.querySelector('.muzzle');
     const targets: any = document?.querySelectorAll('.target');
@@ -66,7 +65,6 @@ function App() {
       }
     }
   }
-  
   function popTarget() {
     const targets: any = document?.querySelectorAll('.target');
     let id = 0;
@@ -103,7 +101,7 @@ function App() {
   }
   return (
     <div className="App">
-      <header className="App-header" tabIndex={0} >
+      <header className="App-header" tabIndex={0} style={{ cursor: "none" }}>
         <HUD score={score} />
         <Room view={handleMouse} position={position} clickFunction={handleMouseClick} />
       </header>

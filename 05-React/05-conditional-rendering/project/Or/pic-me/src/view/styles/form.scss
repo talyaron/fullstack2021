@@ -1,0 +1,29 @@
+.form{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    left: 110vw;
+    top: 63vh;
+    gap: 5px;
+    transition: all 0.5s;
+}
+.form-active{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    left: 84vw;
+    top: 63vh;
+    gap: 5px;
+    transition: all 0.5s;
+    color: black;
+}
+.submit{
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    transition: all 0.5s;
+    &:hover{
+        background-color: white;
+        color: black;
+    }
+}
