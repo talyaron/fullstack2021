@@ -1,0 +1,4 @@
+.lowerHeader {
+  background: grey;
+  grid-column: span 1;
+}

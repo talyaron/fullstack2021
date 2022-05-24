@@ -1,0 +1,239 @@
+.container {
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+  grid-template-rows: 7vh 9vh 10vh 62vh 5vh;
+  justify-content: center;
+}
+.container .box.header {
+  grid-column: span 2;
+  background: #46aa6e;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+.container .box.header .minimize {
+  margin-left: 10px;
+}
+.container .box.header .minimize .minimizeIcon {
+  margin-bottom: 7px;
+  margin-left: 10px;
+}
+.container .box.header .whatsApp {
+  margin-right: 15px;
+}
+.container .box.lowerHeader {
+  background: whitesmoke;
+  display: flex;
+  justify-content: end;
+  gap: 20px;
+}
+.container .box.lowerHeader .icon {
+  margin-right: 920px;
+}
+.container .box.lowerHeader .icon .dots, .container .box.lowerHeader .icon .magnify {
+  font-size: 2.2rem;
+  color: #888888;
+  margin-top: 15px;
+}
+.container .box.lowerHeader img {
+  margin-right: 20px;
+  margin-top: 10px;
+  border-radius: 50%;
+  height: 55px;
+}
+.container .box.lowerHeader p {
+  padding-top: 9px;
+}
+.container .box.profile {
+  background: whitesmoke;
+  border-left: 1px rgba(186, 186, 186, 0.781) solid;
+  display: flex;
+  justify-content: space-between;
+}
+.container .box.profile div {
+  margin-top: 19px;
+  margin-left: 15px;
+  display: flex;
+  gap: 15px;
+}
+.container .box.profile div .dots,
+.container .box.profile div .sharp {
+  color: #585858;
+  font-size: 2rem;
+}
+.container .box.profile img {
+  margin-right: 15px;
+  margin-top: 10px;
+  border-radius: 50%;
+  height: 55px;
+}
+.container .box.searchbar {
+  background: white;
+}
+.container .box.searchbar input {
+  width: 90%;
+  height: 30px;
+  margin-left: 10px;
+  border-radius: 5px;
+  background: #ededed;
+}
+.container .box.searchbar input::placeholder {
+  text-align: end;
+  padding-right: 20px;
+  font-size: 1rem;
+}
+.container .box.messageGrid {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  flex-wrap: wrap;
+  gap: 10px;
+  background-image: url("../images/messageGrid.png");
+}
+.container .box.message {
+  margin-left: 150px;
+  padding-right: 70px;
+  width: min-content;
+  background: white;
+  border-radius: 5px;
+}
+.container .box.messageGrid, .container .box.dashboard {
+  grid-row: span 3;
+}
+.container .box.dashboard {
+  display: flex;
+  flex-direction: column;
+}
+.container .box.dashboard .box {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+.container .box.dashboard .box img {
+  height: 60px;
+  margin-left: 210px;
+  margin-top: 25px;
+  border-radius: 50%;
+  position: absolute;
+}
+.container .box.dashboard .box p {
+  position: absolute;
+  top: 25px;
+  left: 110px;
+}
+.container .box.dashboard .box {
+  border-top: 0.5px solid #d2d2d2;
+  border-bottom: 0.5px solid #d2d2d2;
+  height: 100px;
+  position: relative;
+}
+.container .box.dashboard .box::before, .container .box.dashboard .box::after {
+  content: "";
+  position: absolute;
+  right: 5px;
+  left: 5px;
+  background: white;
+}
+.container .box.form {
+  position: relative;
+}
+.container .box.form form {
+  height: 60px;
+  background: #e4e2e2;
+  position: relative;
+}
+.container .box.form form input {
+  border: none;
+  background: none;
+}
+.container .box.form form input:nth-child(1) {
+  border: 0;
+  background: none;
+  font-size: 2.5rem;
+  color: #3d3d3d;
+  transform: rotateY(180deg);
+  position: absolute;
+  left: 45px;
+}
+.container .box.form form input:nth-child(2) {
+  width: 1000px;
+  border-radius: 5px;
+  height: 40px;
+  margin-left: 100px;
+  margin-top: 5px;
+  margin-right: 30px;
+  background: whitesmoke;
+}
+.container .box.form form input:nth-child(2)::placeholder {
+  text-align: end;
+  padding-right: 20px;
+  font-size: 1rem;
+}
+.container .box.form form .attach {
+  font-size: 2rem;
+  position: relative;
+  bottom: 35px;
+  left: 1150px;
+}
+.container .box.form form .atan {
+  position: absolute;
+  bottom: 150px;
+}
+.container .box.form form .atan .containerImgs {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.container .box.form form .atan .containerImgs img {
+  height: 50px;
+  border-radius: 5px;
+}
+.container .box.form form .wrapper2 {
+  position: relative;
+}
+.container .box.form form .wrapper2 .containerImgs {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.container .box.form form .wrapper2 .containerImgs img {
+  height: 50px;
+  border-radius: 5px;
+}
+.container .box.form form .wrapper2 .imgInput {
+  position: absolute;
+  left: 435px;
+  bottom: 250px;
+  z-index: 1;
+  pointer-events: all;
+  opacity: 0;
+  cursor: pointer;
+}
+.container .box.form form .wrapper2 .add,
+.container .box.form form .wrapper2 .edit,
+.container .box.form form .wrapper2 .like {
+  position: absolute;
+  left: 1135px;
+  box-shadow: 5px 10px 20px #888888;
+  z-index: 0;
+  cursor: pointer;
+}
+.container .box.form form .wrapper2 .add {
+  bottom: 250px;
+}
+.container .box.form form .wrapper2 .edit {
+  bottom: 180px;
+}
+.container .box.form form .wrapper2 .like {
+  bottom: 105px;
+}
+.container .box.form form .attach {
+  transform: rotateZ(320deg);
+}
+.container .box.form form .smiley {
+  font-size: 2rem;
+  position: relative;
+  bottom: 71px;
+  left: 1225px;
+}
