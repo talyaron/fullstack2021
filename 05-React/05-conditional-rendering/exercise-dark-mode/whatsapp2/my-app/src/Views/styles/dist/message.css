@@ -1,0 +1,4 @@
+.displayMessagges {
+  grid-row: span 2;
+  border: 1px black solid;
+}

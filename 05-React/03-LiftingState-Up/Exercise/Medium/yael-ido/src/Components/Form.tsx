@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 interface FlowerProps{
     setImgUrl:Function
     setName:Function
-
 }
 
 const Form = (props:FlowerProps) => {
