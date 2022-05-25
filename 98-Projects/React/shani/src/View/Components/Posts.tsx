@@ -13,11 +13,19 @@ interface postProps {
 
 interface post {
   postId?: any;
-  topic: "all" | "web development" | "mongo+nodeJS" | "nodeJS" | "react";
+  topic:topicModel;
   link?: string;
   imgUrl?: string;
   description: string;
   datePosted?: number;
+}
+export enum topicModel{
+  ALL = 'all',
+  WEB = 'web development',
+  MONODE = 'mongo+nodeJS',
+  NODE = 'nodeJS',
+  REACT = 'react',
+ 
 }
 
 

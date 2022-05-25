@@ -32,12 +32,20 @@ interface friend {
   friendName: string;
 }
 interface post {
-  topic:"all"| "web development" | "mongo+nodeJS" | "nodeJS" | "react";
+  topic:topicModel;
   link: string;
   imgUrl: string;
   description: string;
   datePosted?: number;
   postId?:any,
+}
+export enum topicModel{
+  ALL = 'all',
+  WEB = 'web development',
+  MONODE = 'mongo+nodeJS',
+  NODE = 'nodeJS',
+  REACT = 'react',
+ 
 }
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 62,
@@ -134,7 +142,7 @@ const UserPage = (props: UserProps) => {
            
             <span className='lightDark--light'>light</span>
           </div>
-          <button onClick={() => setMode(!mode)   }>party mode</button>
+          <button onClick={() => setMode(!mode)}>party mode</button>
         </div>
       </div>
       {/* <Friends friends={user.friends}/> */}

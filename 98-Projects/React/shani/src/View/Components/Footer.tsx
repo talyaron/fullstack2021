@@ -11,13 +11,22 @@ interface footerProps{
   setTrash:Function;
 }
 interface post {
-  topic:"all"| "web development" | "mongo+nodeJS" | "nodeJS" | "react";
+  topic:topicModel;
   link: string;
   imgUrl: string;
   description: string;
   datePosted?:number;
   postId:any,
 }
+export enum topicModel{
+  ALL = 'all',
+  WEB = 'web development',
+  MONODE = 'mongo+nodeJS',
+  NODE = 'nodeJS',
+  REACT = 'react',
+ 
+}
+
 
 export enum Modal{
   CONTACT = 'contact',
