@@ -21,26 +21,29 @@ function Match(props: matchProps) {
   const [isFalse, setIsFalse] = useState(false);
   const [isTrue, setIsTrue] = useState(false);
   const [showQuestion, setShowQuestion] = useState(true);
-
+  const [ansClicked, setAnsClicked] = useState(false);
   const { question, falseAnswer, trueAnswer, sound, setCounter, counter } =
     props;
-
-  //   const [playSound, setPlaySound] = useState(0.0);
-
-  // const [playSounds] = useSound([sound],{
-
-  //   playSound,
-  //   volume: 1.0,
-  // }) 
-
+// useEffect(()=>{
+//  if(!ansClicked){
+//   alert('start playing')
+//  }
+//  else{
+//     onEnd();
+// }
+// }, [ansClicked])
   let audio = new Audio(sound);
   function handleFalseAnswer() {
+    setAnsClicked(true);
     setIsFalse(true);
+    setCounter(counter-1)
     setTimeout(() => {
       setShowQuestion(false);
     }, 1000);
   }
   function handleTrueAnswer() {
+  
+    setAnsClicked(true);
     setIsTrue(true);
     setCounter(counter + 1);
 
@@ -52,12 +55,10 @@ function Match(props: matchProps) {
       audio.pause();
     }, 10000);
 
-    // setIsPlaying(true);
-    //playSounds();
     console.log(sound);
   }
 // function onEnd(){
-// if(counter==0){
+// if(counter<=0){
 //   alert("you lost");
 // }
 //     switch (counter) {
@@ -79,7 +80,7 @@ function Match(props: matchProps) {
 //     }
 
 // }
-  // console.log(question, falseAnswer, trueAnswer,sound);
+  
 
   if (showQuestion) {
     return (
@@ -88,12 +89,14 @@ function Match(props: matchProps) {
         <div className="flex">
           <button
             className={isFalse ? "bgfalse falseAns" : "bgfalse"}
+            id="btn"
             onClick={() => handleFalseAnswer()}
           >
             {falseAnswer}
           </button>
           <button
             className={isTrue ? "trueAns bgtrue" : "bgtrue"}
+            id="btn"
             onClick={() => handleTrueAnswer()} 
           >
             {trueAnswer}

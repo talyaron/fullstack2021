@@ -1,31 +1,26 @@
 import { useState } from "react";
 import Box from "./View/Components/Box";
-import Lobi from "./View/Components/Lobi";
 import "./View/styles/Global.scss";
 
-interface manoi {
-  name: string;
-  fhone: number;
-  id: string;
+interface App {
+  img: string;
+  name: String;
+  id: String;
 }
 
 function App() {
-  const [arr, setarr] = useState<Array<manoi>>([]);
+  const [arr, setarr] = useState<Array<App>>([]);
+  const [img, setimg] = useState("");
+  const [name, setname] = useState("");
   function uid() {
     return Date.now().toString(36) + Math.random().toString(36).substring(2);
   }
 
-  function handleaddone(ev:any) {
-    ev.preventDefault();
-    const name = ev.target.name.value;
-    const fhone = ev.target.fhone.value;
-    const obj = { name, fhone, id: uid() };
-    setarr([...arr, obj])
-    console.log(arr,name,fhone);
-    console.log('hey');
-    
+  function handladd(ev: any) {
+    const obj = { img, name, id: uid() };
+    setarr([...arr, obj]);
+    console.log(arr);
   }
-
   return (
     <div className="App">
       <div className="App__header">
@@ -33,21 +28,22 @@ function App() {
         <div className="App__img">
           <img src="https://www.freepnglogos.com/uploads/netflix-logo-0.png" />
         </div>
-
-        <div className="App__card">
-          {arr.map((one, i) => {
-            return (
-              <div className="App__manoi" key={i}>
-                <p>{one.name}</p>
-                <p>{one.fhone}</p>
-              </div>
-            );
-          })}
-        </div>
       </div>
-      <Box handleaddone={handleaddone} id={uid()} />
-
-      {/* <Lobi /> */}
+      <Box handleaddone={handladd} setname={setname} setimg={setimg} />
+      <div className="user">
+        {arr.map((one, i) => {
+          return (
+            <div key={i} className="user__card">
+              <div className="user__img">
+                <img src={one.img} alt="" />
+              </div>
+              <div className="user__name">
+                <h3>{one.name}</h3>
+              </div>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }
