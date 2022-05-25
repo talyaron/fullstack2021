@@ -76,13 +76,13 @@ function App() {
  
   
   return (
-    <div className="App" id={mode? 'dark':'light'}>
+    <div className={party?"App-Party":"App"} id={mode? 'dark':'light'}>
       <Header mode={mode} setMode={setMode}/>
   
       <div className='container'>
 
         {users.map((user:any,i)=>{
-          return( <UserPage key={i} user={user} trash={trash} setTrash={setTrash} userPosts={userPosts} mode={mode} setMode={setMode} setPosts={setPosts} filterdPosts={filterdPosts}  setFilterdPost={setFilterdPost}/>)
+          return( <UserPage key={i} user={user} party={party} setParty={setParty} trash={trash} setTrash={setTrash} userPosts={userPosts} mode={mode} setMode={setMode} setPosts={setPosts} filterdPosts={filterdPosts}  setFilterdPost={setFilterdPost}/>)
           //  return <UserPage key={i} name={user.name} friends={user.friends}/>
           //why do i need map here 
         })}

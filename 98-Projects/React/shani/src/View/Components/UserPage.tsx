@@ -15,6 +15,8 @@ interface UserProps {
    setFilterdPost:Function;
    trash:boolean;
   setTrash:Function;
+  party:boolean;
+  setParty:Function;
  
   user: {
     name?: string;
@@ -106,7 +108,7 @@ const UserPage = (props: UserProps) => {
   });
  
  
-  const { user, userPosts, mode, setMode,setPosts,filterdPosts,setFilterdPost,trash,setTrash} = props;
+  const { user, userPosts, mode, setMode,setPosts,filterdPosts,setFilterdPost,trash,setTrash,party,setParty} = props;
   useEffect(() => {
     playLightSwitch();
   }, [mode]);
@@ -142,7 +144,7 @@ const UserPage = (props: UserProps) => {
            
             <span className='lightDark--light'>light</span>
           </div>
-          <button onClick={() => setMode(!mode)}>party mode</button>
+          <button onClick={() => setParty(!party)}>party mode</button>
         </div>
       </div>
       {/* <Friends friends={user.friends}/> */}
