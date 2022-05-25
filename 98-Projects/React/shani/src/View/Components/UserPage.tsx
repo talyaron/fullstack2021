@@ -13,6 +13,8 @@ interface UserProps {
   setMode: Function;
   filterdPosts:Array<any>;
    setFilterdPost:Function;
+   trash:boolean;
+  setTrash:Function;
  
   user: {
     name?: string;
@@ -96,7 +98,7 @@ const UserPage = (props: UserProps) => {
   });
  
  
-  const { user, userPosts, mode, setMode,setPosts,filterdPosts,setFilterdPost } = props;
+  const { user, userPosts, mode, setMode,setPosts,filterdPosts,setFilterdPost,trash,setTrash} = props;
   useEffect(() => {
     playLightSwitch();
   }, [mode]);
@@ -137,7 +139,7 @@ const UserPage = (props: UserProps) => {
       </div>
       {/* <Friends friends={user.friends}/> */}
 
-      <Posts posts={user.posts} userPosts={userPosts} mode={mode} setPosts={setPosts} filterdPosts={filterdPosts}  setFilterdPost={setFilterdPost}/>
+      <Posts trash={trash} setTrash={setTrash}  posts={user.posts} userPosts={userPosts} mode={mode} setPosts={setPosts} filterdPosts={filterdPosts}  setFilterdPost={setFilterdPost}/>
 
       {/* for post i will need state and counter. upate post is form. state is used to update stuff */}
     </div>

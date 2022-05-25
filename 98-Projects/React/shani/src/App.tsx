@@ -59,6 +59,8 @@ function App() {
  
 
   const [mode,setMode]=useState(false)
+
+  const [trash,setTrash]=useState(false)
   
  
   
@@ -69,14 +71,14 @@ function App() {
       <div className='container'>
 
         {users.map((user:any,i)=>{
-          return( <UserPage key={i} user={user} userPosts={userPosts} mode={mode} setMode={setMode} setPosts={setPosts} filterdPosts={filterdPosts}  setFilterdPost={setFilterdPost}/>)
+          return( <UserPage key={i} user={user} trash={trash} setTrash={setTrash} userPosts={userPosts} mode={mode} setMode={setMode} setPosts={setPosts} filterdPosts={filterdPosts}  setFilterdPost={setFilterdPost}/>)
           //  return <UserPage key={i} name={user.name} friends={user.friends}/>
           //why do i need map here 
         })}
         
       </div>
 
-      <Footer  setPosts={setPosts} userPosts={userPosts} mode={mode} setMode={setMode}/>
+      <Footer  setPosts={setPosts} userPosts={userPosts} mode={mode} setMode={setMode} trash={trash} setTrash={setTrash}/>
 
 
    </div>
