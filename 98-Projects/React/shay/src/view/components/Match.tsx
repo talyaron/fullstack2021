@@ -1,116 +1,106 @@
-import {useState} from 'react';
+import { Sound } from "howler";
+import { useState, useEffect } from "react";
+import useSound from "use-sound";
+
 const uid = function () {
   return Date.now().toString(36) + Math.random().toString(36).substr(2);
 };
 
 interface matchProps {
-  box: {
-    question: string;
-    falseAnswer: string;
-    trueAnswer: string;
+  question: string;
+  falseAnswer: string;
+  trueAnswer: string;
+  sound?: any;
+  id: string;
 
-    id: string;
-  };
   setCounter: Function;
-  counter: number;
-  arr: Array<any>;
-  setArr: Function;
-  playBecomeSound: Function;
-  playBeThereSound: Function;
-  playVivaSound: Function;
-  playWannabeSound: Function;
+  counter: any;
 }
 
 function Match(props: matchProps) {
-  const {
-    box,
-    playBeThereSound,
-    playBecomeSound,
-    playVivaSound,
-    playWannabeSound,
-    setArr,
-    setCounter,
-    counter,
-    arr,
-  } = props;
-  console.log(arr);
-
   const [isFalse, setIsFalse] = useState(false);
-const [isTrue, setIsTrue] = useState(false);
-const [showQuestion, setShowQuestion] = useState(true)
-  
-  function handleFalseAnswer(ev: any) {
+  const [isTrue, setIsTrue] = useState(false);
+  const [showQuestion, setShowQuestion] = useState(true);
+
+  const { question, falseAnswer, trueAnswer, sound, setCounter, counter } =
+    props;
+
+  //   const [playSound, setPlaySound] = useState(0.0);
+
+  // const [playSounds] = useSound([sound],{
+
+  //   playSound,
+  //   volume: 1.0,
+  // }) 
+
+  let audio = new Audio(sound);
+  function handleFalseAnswer() {
     setIsFalse(true);
-    setTimeout(()=>{
+    setTimeout(() => {
       setShowQuestion(false);
-    }, 1000)
-    
-    // if (box.falseAnswer) {
-    
-    //   setCounter(counter);
-    //   console.log("false");
-    //   // hide.style.display='none'
-    //   const cardId = ev.target.id;
-    //   console.log(cardId);
-
-    //   const chosenCard = document.querySelector(`[id=${cardId}]`);
-
-    //   console.log(chosenCard);
-    //   chosenCard?.setAttribute("data-delete", "true");
-
-      //   setTimeout(() => {
-      //     setArr(
-      //       arr.filter((card) => {
-      //         console.log(card.id);
-
-      //         return card.id !== cardId;
-      //       })
-      //     );
-      //   }, 1000);
-
-      //   setTimeout(() => {
-      //     chosenCard?.removeAttribute("data-delete");
-      //   }, 1000);
-    // }
+    }, 1000);
   }
   function handleTrueAnswer() {
     setIsTrue(true);
-    // if (box.trueAnswer) {
-    //   setCounter(counter + 1);
-    //   console.log("true");
+    setCounter(counter + 1);
 
-     
-    //   if (box.question[0]) {
-    //     playWannabeSound();
-    //   } else if (box.question[1]) {
-    //     playBecomeSound();
-    //   } else if (box.question[2]) {
-    //     playBeThereSound();
-    //   } else if (box.question[3]) {
-    //     playVivaSound();
-    //   }
-    // }
+    audio.volume = 0.3;
+
+    audio.play();
+
+    setTimeout(() => {
+      audio.pause();
+    }, 10000);
+
+    // setIsPlaying(true);
+    //playSounds();
+    console.log(sound);
   }
-  console.log(box.question, box.falseAnswer, box.trueAnswer);
+// function onEnd(){
+// if(counter==0){
+//   alert("you lost");
+// }
+//     switch (counter) {
+//       // case 0:
+//       //   alert("you lost");
+//       //   break;
+//       case 0:
+//         alert("you know only one what a shame");
+//         break;
+//       case 1:
+//         alert("you know only two that half of what i know");
+//         break;
+//       case 2:
+//         alert("you are so close only one more and you could won");
+//         break;
+//       case 3:
+//         alert("you won you are so lucky");
+//         break;
+//     }
 
-  if(showQuestion){
-  return (
-    <div className="hide" id={box.id}>
-      <h3>{box.question}</h3>
-      <div className="flex">
-        <button
-          className={isFalse?"bgfalse falseAns":"bgfalse"}
-          id={box.id}
-          onClick={() => handleFalseAnswer(box.id)}
-        >
-          {box.falseAnswer}
-        </button>
-        <button className={isTrue?"trueAns bgtrue":"bgtrue"} onClick={() => handleTrueAnswer()}>
-          {box.trueAnswer}
-        </button>
+// }
+  // console.log(question, falseAnswer, trueAnswer,sound);
+
+  if (showQuestion) {
+    return (
+      <div>
+        <h3>{question}</h3>
+        <div className="flex">
+          <button
+            className={isFalse ? "bgfalse falseAns" : "bgfalse"}
+            onClick={() => handleFalseAnswer()}
+          >
+            {falseAnswer}
+          </button>
+          <button
+            className={isTrue ? "trueAns bgtrue" : "bgtrue"}
+            onClick={() => handleTrueAnswer()} 
+          >
+            {trueAnswer}
+          </button>
+        </div>
       </div>
-    </div>
-  );
+    );
   } else {
     return null;
   }
