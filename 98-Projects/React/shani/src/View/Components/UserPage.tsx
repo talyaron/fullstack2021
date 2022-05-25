@@ -107,8 +107,12 @@ const UserPage = (props: UserProps) => {
   return (
     <div className="User">
       <div className="aboutUser">
-        <img src={user.profileImage} />
+        
+        <img  src={user.profileImage} />
+        
+        
         <div className="aboutUser__info">
+          <div>About me:</div>
           <p className="aboutUser__info--name">
             {user.name} {user.lastName}
           </p>
