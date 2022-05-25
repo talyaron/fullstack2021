@@ -51,14 +51,13 @@ function App() {
               <div
                 key={i}
                 className="user__card"
-                onClick={() => setlogin(!login)}
               >
-                <div className="user__img">
+                <div className="user__img" onClick={() => setlogin(!login)} >
                   <img src="https://www.freepnglogos.com/uploads/netflix-logo-circle-png-5.png" />
                 </div>
                 <h3 className="user__h3">{one.name}</h3>
                 <button
-                  className="user__delete"
+                  className="user__delete" 
                   onClick={() => handledelete(one.id)}
                 >
                   Delete
