@@ -28,7 +28,6 @@ const Footer = (props: FooterProps) => {
 
       <form onSubmit={handlesubmit}>
         <input type="text" name='text' />
-
         <input type="text" name='img' />
         <input type="submit" value="update" />
       </form>
