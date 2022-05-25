@@ -27,7 +27,6 @@
         margin-top: 0.3%;
         color: rgb(247, 247, 247);
     }
-
     &__card {
         height: 200px;
         width: 200px;
@@ -54,7 +53,13 @@
         background-color: rgb(0, 0, 0);
         border-radius: 10px;
     }
-    &__name{
+    &__h3{
         color: white;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+    &__deleteimg{
+        img{
+            width: 10px;
+        }
     }
 }
