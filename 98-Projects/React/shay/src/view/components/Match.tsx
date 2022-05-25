@@ -25,14 +25,6 @@ function Match(props: matchProps) {
   const { question, falseAnswer, trueAnswer, sound, setCounter, counter } =
     props;
 
-  //   const [playSound, setPlaySound] = useState(0.0);
-
-  // const [playSounds] = useSound([sound],{
-
-  //   playSound,
-  //   volume: 1.0,
-  // }) 
-
   let audio = new Audio(sound);
   function handleFalseAnswer() {
     setIsFalse(true);
@@ -52,8 +44,6 @@ function Match(props: matchProps) {
       audio.pause();
     }, 10000);
 
-    // setIsPlaying(true);
-    //playSounds();
     console.log(sound);
   }
 // function onEnd(){
@@ -79,7 +69,6 @@ function Match(props: matchProps) {
 //     }
 
 // }
-  // console.log(question, falseAnswer, trueAnswer,sound);
 
   if (showQuestion) {
     return (
