@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+
 interface postProps {
   posts: Array<post>;
   userPosts: Array<post>;
@@ -6,19 +7,45 @@ interface postProps {
   mode: boolean;
   filterdPosts: Array<any>;
   setFilterdPost: Function;
+  trash:boolean;
+  setTrash:Function;
 }
 
 interface post {
   postId?: any;
-  topic: "all" | "web development" | "mongo+nodeJS" | "nodeJS" | "react";
+  topic:topicModel;
   link?: string;
   imgUrl?: string;
   description: string;
   datePosted?: number;
 }
+export enum topicModel{
+  ALL = 'all',
+  WEB = 'web development',
+  MONODE = 'mongo+nodeJS',
+  NODE = 'nodeJS',
+  REACT = 'react',
+ 
+}
+
+
 
 const Posts = (props: postProps) => {
-  const { userPosts, mode, setPosts, filterdPosts, setFilterdPost } = props;
+  const { userPosts, mode, setPosts, filterdPosts, setFilterdPost,trash,setTrash } = props;
+
+  function drag(ev:any){
+    ev.dataTransfer.setData("Text",ev.target.id);
+    console.log(ev.target.id)
+    setTrash(!trash)
+    // const openTrash:any=document.querySelector('.deletePost__img')
+    // openTrash.src='./images/deleteOpen.png'
+
+    setTimeout(() => {
+      setTrash(trash);
+    }, 1000)
+   
+  
+  }
 
   function handleFilterTopic(ev: any) {
     const theTopic = ev.target.value;
@@ -66,6 +93,7 @@ const Posts = (props: postProps) => {
           name="react"
           onClick={handleFilterTopic}
           value="react"
+         
         />
       </div>
 
@@ -73,7 +101,7 @@ const Posts = (props: postProps) => {
         {filterdPosts
           .map((post: any, i) => {
             return (
-              <div key={i} id={post.postId} className="posts__post">
+              <div key={i} id={post.postId} className="posts__post" draggable="true" onDragStart={drag} >
                 <div className="posts__post__top">
                   <p className="posts__post__top--topic">{post.topic} </p>
                   <p className="posts__post__top--date">{post.datePosted}</p>

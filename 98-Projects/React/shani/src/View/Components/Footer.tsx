@@ -7,15 +7,26 @@ interface footerProps{
   setMode:Function;
   userPosts:Array<any>;
   setPosts:Function;
+  trash:boolean;
+  setTrash:Function;
 }
 interface post {
-  topic:"all"| "web development" | "mongo+nodeJS" | "nodeJS" | "react";
+  topic:topicModel;
   link: string;
   imgUrl: string;
   description: string;
   datePosted?:number;
   postId:any,
 }
+export enum topicModel{
+  ALL = 'all',
+  WEB = 'web development',
+  MONODE = 'mongo+nodeJS',
+  NODE = 'nodeJS',
+  REACT = 'react',
+ 
+}
+
 
 export enum Modal{
   CONTACT = 'contact',
@@ -23,11 +34,15 @@ export enum Modal{
   NONE = 'none'
 }
 
+
+
 const Footer = (props:footerProps) => {
   // const [addPostForm,setAddPostForm]=useState(false);
 
   // const [showContactInfo,setContactInfo]=useState(false)
   const [showModal, setShowModal] = useState<Modal>(Modal.NONE)
+
+  
   
 
   const newPost='audio/newPost.mp3';
@@ -37,7 +52,20 @@ const Footer = (props:footerProps) => {
     volume: 0.9,
   });
 
-  const {userPosts,setPosts,mode,setMode}=props
+  const {userPosts,setPosts,mode,setMode,trash,setTrash}=props
+  function drop(ev:any){
+    ev.preventDefault();
+    const data=ev.dataTransfer.getData("Text");
+    const el:any= document.getElementById(data);
+    el.parentNode.removeChild(el);
+    console.log(data)
+    console.log(el)
+    
+  }
+  function allowDrop(ev:any){
+    ev.preventDefault();
+    
+  }
 
   const uid = function () {
     return Date.now().toString(36) + Math.random().toString(36).substr(2);
@@ -79,6 +107,8 @@ const Footer = (props:footerProps) => {
       
     },100);
 
+  
+
     setShowModal(Modal.NONE)
     
   }
@@ -87,7 +117,8 @@ const Footer = (props:footerProps) => {
   return (
     <div className="footer" id={mode?'dark':'light'}>
        
-        <button className='deletePost' id={mode?'dark':'light'}>delete a post</button>
+        <button className='deletePost' id={mode?'dark':'light'}  onDrop={drop}
+          onDragOver={allowDrop}><input type="image" src={trash?"images/deleteOpen.png":'images/deleteClose.png'} className='deletePost__img'style={{ height:"40px" ,width:"40px"}}/></button>
         {/* drag and drop ill try to make i throw into a trash can */}
 
         <button className='newPost' onClick={()=>setShowModal(Modal.POST)} id={mode?'dark':'light'}><input type="image" src="images/addPost.png" style={{ height:"40px" ,width:"40px"}}/> </button>

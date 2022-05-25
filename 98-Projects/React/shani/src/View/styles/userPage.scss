@@ -19,12 +19,13 @@
     flex-direction: row;
     //column-gap:10px;
 
-   align-items:center;
-   &--dark{
-       margin-right:5px;
+    align-items: center;
 
-   }
-   
+    &--dark {
+        margin-right: 5px;
+
+    }
+
 }
 
 .aboutUser {
@@ -38,14 +39,19 @@
     img {
         width: 250px;
         height: 300px;
+        
+      
     }
+    
+
+    
 
     &__info {
         padding: 15px;
         border: solid black 2px;
         border-radius: 10px;
         width: 500px;
-        height: 200px;
+        height: 250px;
         //display:inline-block;
 
         &--name {
