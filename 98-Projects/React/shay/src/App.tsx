@@ -6,7 +6,8 @@ import  "./view/audio/Wannabe.mp3";
 import  "./view/audio/Become.mp3";
 import "./view/audio/BeThere.mp3";
 import  "./view/audio/Viva.mp3";
-
+import "./view/audio/lost.wav";
+import "./view/audio/win.wav"
 
 const uid = function () {
   return Date.now().toString(36) + Math.random().toString(36).substr(2);
@@ -65,12 +66,10 @@ function App() {
   const [sound, setSound]=useState([])
  const [isClick, setIsClick] =useState(false)
   const [playSound, setPlaySound] = useState(0.0);
+  const [ansClicked, setAnsClicked] = useState(0);
+const winSounds=require('./view/audio/win.wav')
+const loseSounds=require('./view/audio/lost.wav')
 
-const [playSounds] = useSound(sound,{
-
-  playSound,
-  volume: 1.0,
-})
 function newGame(){
   window.location.reload();
   setIsClick(true)
@@ -87,7 +86,10 @@ function newGame(){
            
             <Match
               key={i}
-            
+              loseSounds={loseSounds}
+              winSounds={winSounds}
+              ansClicked={ansClicked}
+              setAnsClicked={setAnsClicked}
               question= {box.question}
               falseAnswer= {box.falseAnswer}
               trueAnswer= {box.trueAnswer}

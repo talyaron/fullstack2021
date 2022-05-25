@@ -7,6 +7,10 @@ const uid = function () {
 };
 
 interface matchProps {
+  loseSounds?:any;
+  winSounds?:any;
+  ansClicked:number;
+   setAnsClicked:Function;
   question: string;
   falseAnswer: string;
   trueAnswer: string;
@@ -21,8 +25,8 @@ function Match(props: matchProps) {
   const [isFalse, setIsFalse] = useState(false);
   const [isTrue, setIsTrue] = useState(false);
   const [showQuestion, setShowQuestion] = useState(true);
-  const [ansClicked, setAnsClicked] = useState(false);
-  const { question, falseAnswer, trueAnswer, sound, setCounter, counter } =
+  //const [ansClicked, setAnsClicked] = useState(0);
+  const { question, falseAnswer, trueAnswer, sound, setCounter, counter, ansClicked, setAnsClicked, loseSounds,winSounds} =
     props;
 // useEffect(()=>{
 //  if(!ansClicked){
@@ -33,20 +37,33 @@ function Match(props: matchProps) {
 // }
 // }, [ansClicked])
   let audio = new Audio(sound);
+  let winAudio =new Audio(winSounds);
+  let loseAudio = new Audio(loseSounds);
   function handleFalseAnswer() {
-    setAnsClicked(true);
+    setAnsClicked(ansClicked+1);
     setIsFalse(true);
-    setCounter(counter-1)
+    if(ansClicked===3){
+       onEnd()
+    }
+    // else if(ansClicked===0){
+    //   alert("you lost");
+    // }
     setTimeout(() => {
       setShowQuestion(false);
     }, 1000);
   }
   function handleTrueAnswer() {
   
-    setAnsClicked(true);
+    setAnsClicked(ansClicked + 1);
     setIsTrue(true);
     setCounter(counter + 1);
-
+    console.log(ansClicked);
+    
+    if(ansClicked===3){
+      onEnd()
+   }
+   console.log(ansClicked);
+   
     audio.volume = 0.3;
 
     audio.play();
@@ -57,29 +74,40 @@ function Match(props: matchProps) {
 
     console.log(sound);
   }
-// function onEnd(){
-// if(counter<=0){
-//   alert("you lost");
-// }
-//     switch (counter) {
-//       // case 0:
-//       //   alert("you lost");
-//       //   break;
-//       case 0:
-//         alert("you know only one what a shame");
-//         break;
-//       case 1:
-//         alert("you know only two that half of what i know");
-//         break;
-//       case 2:
-//         alert("you are so close only one more and you could won");
-//         break;
-//       case 3:
-//         alert("you won you are so lucky");
-//         break;
-//     }
 
-// }
+  
+function onEnd(){
+
+if(counter==0){
+    loseAudio.play();
+    loseAudio.volume=0.3;
+  alert("you lost");
+  
+}
+else{ 
+switch (counter) {
+      // case 0:
+      //   
+      //   break;
+      case 0:
+        alert("you know only one what a shame");
+        break;
+      case 1:
+        alert("you know only two that half of what i know");
+        break;
+      case 2:
+        alert("you are so close only one more and you could won");
+        break;
+      case 3:
+        alert("you won you are so lucky");
+        setTimeout(() => {
+       winAudio.play();
+       winAudio.volume= 0.3;
+      }, 10000);
+        break;
+    }
+} 
+}
   
 
   if (showQuestion) {
