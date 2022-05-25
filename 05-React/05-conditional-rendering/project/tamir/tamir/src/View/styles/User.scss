@@ -1,0 +1,18 @@
+.movies{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    // grid-template-rows: 1fr 1fr;
+    position: relative;
+    left: 15%;
+    top:20%;
+    
+    gap: 10px 10px 10px;
+    
+    
+    width: 80%;
+    justify-content: space-between;
+    img{
+        width: 60%;
+    }
+}

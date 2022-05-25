@@ -30,11 +30,18 @@
     }
 
     &__card {
+      
         height: 200px;
         width: 200px;
         background-color: red;
     }
 
+}
+.App2{
+  
+  background-image: url("https://mlpnk72yciwc.i.optimole.com/cqhiHLc.WqA8~2eefa/w:1600/h:900/q:75/https://bleedingcool.com/wp-content/uploads/2019/08/netflixlogo.0.0.jpg");
+  height: 100vh;
+  max-width: fit-content;
 }
 
 .user {
@@ -53,6 +60,7 @@
     }
 
     &__card {
+      cursor: pointer;
         text-align: center;
         background-color: rgb(0, 0, 0);
         border-radius: 10px;
