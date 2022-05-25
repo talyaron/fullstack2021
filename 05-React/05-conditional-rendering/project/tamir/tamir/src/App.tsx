@@ -22,6 +22,10 @@ function App() {
     console.log(arr);
     
   }
+  // useEffect(()=>{
+  //   handladd()
+   
+  // },[])
 
   function handledelete(id: any) {
     setarr(arr.filter((one) => one.id !== id));
@@ -41,7 +45,6 @@ function App() {
           return (
             <div key={i} className="user__card">
               <div className="user__img">
-                {" "}
                 <img src="https://www.freepnglogos.com/uploads/netflix-logo-circle-png-5.png" />{" "}
               </div>
               <h3 className="user__h3">{one.name}</h3>
