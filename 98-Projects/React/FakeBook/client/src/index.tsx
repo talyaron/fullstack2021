@@ -1,13 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { fas } from '@fortawesome/free-solid-svg-icons'
+import { fas, faR } from '@fortawesome/free-solid-svg-icons'
 import {faCaretDown ,faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons'
 
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
-library.add(fas, faCaretDown ,faCheckSquare, faCoffee)
+library.add(fas,faR ,faCaretDown ,faCheckSquare, faCoffee)
 
 
 const root = ReactDOM.createRoot(

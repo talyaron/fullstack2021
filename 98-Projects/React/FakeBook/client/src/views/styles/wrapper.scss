@@ -1,6 +1,6 @@
 .wrapper {
   position: relative;
-  top: 20px;
+  top: 40px;
   min-width: 100vw;
   width: 100vw;
   min-height: 100vh;
@@ -8,10 +8,29 @@
   flex-direction: column;
   place-items: center;
   gap: 1em;
+  &_feed{
+  position: relative;
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    top: 40px;
+    // gap: 1em;
+    & > :first-child {
+      margin:  1em 0;
+  }
+}
+  &_home{display: flex;
+    flex-direction: row;
+    place-items: center;
+    place-content: center;
+
+  }
+
   &_post {
     &-form {
       display: flex;
-      width: 80vw;
+      width: 680px;
+      padding: 0;
       height: 10vh;
       place-content: space-around;
       place-items: center;
@@ -20,9 +39,14 @@
     &-root {
       display: flex;
       flex-direction: column;
-      margin: 0 auto;
-      width: 80vw;
+      // margin: 0 auto;
+      place-items: center;
+      width: 680px;
       gap: 1em;
+      & > div {
+        width:680px;
+        padding: 16 12 16 0
+      }
     }
   }
   &_login {

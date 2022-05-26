@@ -1,7 +1,7 @@
 //basic workflow imports:
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import axios from "axios";
-import {useNavigate} from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 //styling imports:
 //mui ->
 import {
@@ -9,33 +9,9 @@ import {
   ButtonProps,
   TextField,
   FormGroup,
-  AppBar,
-  Card,
-  CardContent,
-  CardActions,
-  CardMedia,
-  Grid,
   Typography,
-  FormControl,
-  Collapse,
-  Container,
-  CssBaseline,
-  Stack,
-  Switch,
-  FormControlLabel,
-  Toolbar,
-  CardHeader,
-  Avatar,
 } from "@mui/material";
-import {
-  ThemeProvider,
-  createTheme,
-  styled,
-  alpha,
-} from "@mui/material/styles";
-import { grey, red, green, blue, purple, common } from "@mui/material/colors";
-
-import { Delete, DriveFileRenameOutline, Send } from "@mui/icons-material";
+import { styled } from "@mui/material/styles";
 
 //receiving props:
 interface LoginFormProps {
@@ -64,7 +40,7 @@ function LoginForm(props: LoginFormProps) {
     setLoggedIn,
     setUserId,
     loggedIn,
-    userId
+    userId,
   } = props;
   const navigate = useNavigate();
 
@@ -100,10 +76,7 @@ function LoginForm(props: LoginFormProps) {
         }, 5000);
       } else {
         const { result } = loginData;
-
         const currentUsersPersonalInfo = loginData.verifiedUserPersonalInfo;
-
-        console.log(currentUsersPersonalInfo);
         setUsersPersonalInfo(currentUsersPersonalInfo);
         setLoggedIn(true);
         setUserId(result._id);
@@ -112,20 +85,15 @@ function LoginForm(props: LoginFormProps) {
       console.log(error);
     }
   }
-  
-  useEffect(() => {
-    if(loggedIn){
-      navigate("/HomePage")
-    }
 
-    
-  },[userId])
-  
+  useEffect(() => {
+    if (loggedIn) {
+      navigate("/HomePage");
+    }
+  }, [userId]);
+
   return (
-    <form
-      className="login-form"
-      onSubmit={(ev) => handleLogin(ev)}
-    >
+    <form className="login-form" onSubmit={(ev) => handleLogin(ev)}>
       {/* <FormControl> */}
       <FormGroup sx={{ gap: "12px" }}>
         <TextField
@@ -143,14 +111,15 @@ function LoginForm(props: LoginFormProps) {
         />
         <Button
           type="submit"
-          color={ "primary"}
+          color={"primary"}
           style={{ fontSize: "20px", lineHeight: "42px" }}
           variant="contained"
         >
           Log In
         </Button>
-        <a href="/"
-        // style={{ color: "#42b72a" }}
+        <a
+          href="/"
+          // style={{ color: "#42b72a" }}
         >
           Forgotten password?
         </a>

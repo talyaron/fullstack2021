@@ -51,46 +51,58 @@ interface PostsProps {
 }
 
 function Post(props: PostsProps) {
-  
-  
   const { setPostsList, post, theme, lightTheme, darkTheme } = props;
-    const Initials = post.ownerFirstName.charAt(0).toUpperCase() + post.ownerLastName.charAt(0).toUpperCase();
-    console.log(Initials);
-    
-    if (theme) {
-      var { primary, secondary, background } = darkTheme.palette;
-    } else {
-      var { primary, secondary, background } = lightTheme.palette;
-    }
-    
-    return (
-      <Card
+  const Initials =
+    post.ownerFirstName.charAt(0).toUpperCase() +
+    post.ownerLastName.charAt(0).toUpperCase();
+
+  if (theme) {
+    var { primary, secondary, background } = lightTheme.palette;
+  } else {
+    var { primary, secondary, background } = darkTheme.palette;
+  }
+  useEffect(() => {
+    console.log("posts loaded");
+  }, []);
+
+  return (
+    <Card
+    raised
       style={{
-        color: theme ? primary.contrastText : primary.contrastText,
-        backgroundColor: theme ? secondary.main : primary.main,
+        color: primary.contrastText,
+        backgroundColor: secondary.main,
         textAlign: "left",
+        // width: 680,
+        // maxWidth: 680,
+        minHeight: 194.094,
+        // paddingLeft: 16,
+        // paddingRight: 16,
+        // paddingTop: 12,
       }}
-      >
+    >
       <CardHeader
         color={primary.contrastText}
         style={{ textAlign: "left" }}
         avatar={
           <Avatar
-          sx={{
-            color: theme ? primary.contrastText : primary.main,
-            bgcolor: theme ? primary.dark : secondary.main,
-          }}
+            sx={{
+              color: theme ? primary.contrastText : primary.main,
+              bgcolor: theme ? primary.dark : secondary.main,
+            }}
           >
             {Initials}
           </Avatar>
         }
         title={` ${post.ownerFirstName} ${post.ownerLastName}`}
-        subheader={<Typography color={theme?'primary': 'secondary'} >{post.time}</Typography>}
-        ></CardHeader>
+        subheader={
+          <Typography color={theme ? "primary" : "secondary"}>
+            {post.time}
+          </Typography>
+        }
+      ></CardHeader>
       <CardContent>{post.content}</CardContent>
     </Card>
   );
-
 }
 
 export default Post;
