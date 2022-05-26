@@ -1,12 +1,16 @@
-import{Outlet} from 'react-router-dom'
+import { Link, Outlet } from "react-router-dom";
 
-function LayoutComp(){
-    return(
-        <div>
-            <h1>My app</h1>
-            <Outlet />
-        </div>
-    )
+function Layout() {
+  return (
+    <div className="layout">
+      <header>
+        <h1>My app</h1>
+        <Link to="/home">Home</Link> <Link to="/home/about">About</Link>
+      </header>
+      <Outlet />
+      <footer>React app</footer>
+    </div>
+  );
 }
 
-export default LayoutComp
+export default Layout;
