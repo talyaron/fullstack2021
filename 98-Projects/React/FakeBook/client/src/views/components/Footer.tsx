@@ -1,4 +1,3 @@
-import React from "react";
 import { ReactComponent as AdChoices } from "../styles/adchoices.svg";
 function Footer() {
   return (

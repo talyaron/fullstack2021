@@ -55,8 +55,6 @@ function handleGender(ev:any ) {
 }
   async function handleRegistration(ev: any) {
     ev.preventDefault();
-    console.dir(ev.target);
-    
     try {
       let {
         firstName,

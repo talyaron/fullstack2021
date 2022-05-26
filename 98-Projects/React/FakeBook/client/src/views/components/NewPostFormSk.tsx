@@ -30,59 +30,20 @@ import { grey, red, green, blue, purple, common } from "@mui/material/colors";
 import { Delete, DriveFileRenameOutline, Send } from "@mui/icons-material";
 
 //receiving props:
-interface NewPostFormProps {
+interface NewPostFormSkProps {
   theme: any;
   lightTheme: any;
   darkTheme: any;
-  loggedIn: boolean;
-  usersPersonalInfo: any;
-  userId: string;
-  handleGetPostsList:Function;
 }
 
-function NewPostForm(props: NewPostFormProps) {
+function NewPostFormSk(props: NewPostFormSkProps) {
   const {
     theme,
     lightTheme,
-    darkTheme,
-    loggedIn,
-    usersPersonalInfo,
-    userId,
-    handleGetPostsList,
+    darkTheme
   } = props;
 
-  async function handleNewPost(ev: any) {
-    try {
-      ev.preventDefault();
 
-      if (!userId) throw new Error(`no user id in handleNewPost`);
-      const newPostContent = ev.target.elements.newPostContent.value;
-      const newPostDate = new Date().toLocaleDateString();
-      const newPostHour = new Date().getHours();
-      const newPostMinutes = new Date().getMinutes();
-      const newPostSeconds = new Date().getSeconds();
-      const newPostTime = `${newPostDate},${newPostHour}:${newPostMinutes}:${newPostSeconds}`;
-      const newPostInfo = {
-        ownerId: userId,
-        content: newPostContent,
-        time: newPostTime,
-      };
-      ev.target.reset();
-      let { data } = await axios.post("/posts/create-new-post", newPostInfo);
-      const { newPost } = data;
-      console.log(newPost);
-      
-      if (newPost) {
-        handleGetPostsList();
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  const { firstName, lastName } = usersPersonalInfo;
-  const Initials =
-    firstName.charAt(0).toUpperCase() + lastName.charAt(0).toUpperCase();
   if (theme) {
     var { primary, secondary, background } = darkTheme.palette;
   } else {
@@ -96,37 +57,31 @@ function NewPostForm(props: NewPostFormProps) {
 
   return (
     <Card
-    // color='secondary'
       style={{
         color: theme ? primary.contrastText : primary.contrastText,
-        backgroundColor: theme? secondary.main: secondary.main,
+        backgroundColor: theme ? secondary.main : primary.main,
         textAlign: "center",
         padding: "1em",
-        minWidth: '640px',
-        maxWidth: '680px',
-        overflow: 'hidden'
       }}
     >
-      <form onSubmit={(ev) => handleNewPost(ev)} className="wrapper_post-form">
+      <form className="wrapper_post-form">
         <Avatar
           sx={{
             color: theme ? primary.contrastText : primary.main,
             bgcolor: theme ? primary.main : secondary.main,
           }}
         >
-          {Initials}
+
         </Avatar>
 
         <TextField
           name="newPostContent"
-          id="newPostContent"
+          className="newPostSk_Content"
           variant="outlined"
-          placeholder={loggedIn ? `Whats on your mind, ${firstName}?` : ""}
-          style={{ width: "100%", maxWidth: '680px'}}
           sx={{
             input: { color: primary.contrastText, flexBasis: "100%" },
             fieldset: {
-              // width: "100%",
+              width: "100%",
               flex: "100%",
               borderRadius: "3em" ,
             },
@@ -141,4 +96,4 @@ function NewPostForm(props: NewPostFormProps) {
   );
 }
 
-export default NewPostForm;
+export default NewPostFormSk;

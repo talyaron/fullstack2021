@@ -1,5 +1,5 @@
 //basic workflow imports:
-import { useState, useEffect } from "react";
+import { useState, useEffect, useTransition } from "react";
 import axios from "axios";
 //styling imports:
 //mui components ->
@@ -27,6 +27,7 @@ import { Delete, DriveFileRenameOutline, Send } from "@mui/icons-material";
 import { ReactComponent as Logo } from "../styles/FakeBook.svg";
 //local components imports:
 import Post from "./Post";
+import PostSk from "./PostSk";
 import NewPostForm from "./NewPostForm";
 
 // new posts must
@@ -58,7 +59,7 @@ interface NewPostFormProps {
   loggedIn: boolean;
   usersPersonalInfo: any;
   userId: string;
-  handleGetPostsList:Function;
+  handleGetPostsList: Function;
 }
 interface PostsProps {
   setPostsList: Function;
@@ -79,11 +80,10 @@ function Feed(props: FeedProps) {
     loggedIn,
     userId,
   } = props;
+  const [isPending, startTransition] = useTransition();
 
   async function handleGetPostsList() {
     try {
-      console.log(usersPersonalInfo);
-
       const { data } = await axios.get(`/posts/get-posts-list`);
       const currentUsersPostsList = data;
 
@@ -97,16 +97,14 @@ function Feed(props: FeedProps) {
     }
   }
 
-  useEffect(() => {
-    console.dir(usersPersonalInfo, "usersPersonalInfo");
-  }, [usersPersonalInfo]);
+  // useEffect(() => {}, [usersPersonalInfo]);
   useEffect(() => {
     if (loggedIn) {
       handleGetPostsList();
     }
   }, [userId]);
   return (
-    <div className="wrapper">
+    <div className="wrapper_feed">
       <NewPostForm
         theme={theme}
         lightTheme={lightTheme}
