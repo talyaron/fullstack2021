@@ -3,7 +3,6 @@ import axios from "axios";
 import Box from "./View/Components/Box";
 import "./View/styles/Global.scss";
 import User from "./View/Components/User";
-import { on } from "events";
 
 interface App {
   name: String;
@@ -24,10 +23,9 @@ function App() {
     setarr([...arr, obj]);
     console.log(arr);
   }
-  // useEffect(()=>{
+  // useEffect(() => {
   //   handladd()
-
-  // },[])
+  // }, []);
 
   function handledelete(id: any) {
     setarr(arr.filter((one) => one.id !== id));
@@ -36,9 +34,7 @@ function App() {
     return (
       <div className="App">
         <div className="App__header">
-          <button className="App__log">
-            היכנס
-          </button>
+          <button className="App__log">היכנס</button>
           <div className="App__img">
             <img src="https://www.freepnglogos.com/uploads/netflix-logo-0.png" />
           </div>
@@ -48,16 +44,13 @@ function App() {
         <div className="user">
           {arr.map((one, i) => {
             return (
-              <div
-                key={i}
-                className="user__card"
-              >
-                <div className="user__img" onClick={() => setlogin(!login)} >
+              <div key={i} className="user__card">
+                <div className="user__img" onClick={() => setlogin(!login)}>
                   <img src="https://www.freepnglogos.com/uploads/netflix-logo-circle-png-5.png" />
                 </div>
                 <h3 className="user__h3">{one.name}</h3>
                 <button
-                  className="user__delete" 
+                  className="user__delete"
                   onClick={() => handledelete(one.id)}
                 >
                   Delete
