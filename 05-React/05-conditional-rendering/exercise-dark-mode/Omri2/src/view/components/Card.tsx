@@ -2,16 +2,23 @@
 // import { useState, useEffect } from 'react';
 
 interface CardProps {
-  questions: Array<questions>
+  questions: Array<Question>
+  answers: Array<Answer>
 }
 
-interface questions {
+interface Question {
   question: string
+  answers:Array<Answer>
+}
+
+interface Answer {
+  answer: string,
+  correct: boolean
 }
 
 
 const Card = (props: CardProps) => {
-  const { questions } = props;
+  const { questions, answers } = props;
 
   return (
     <>
