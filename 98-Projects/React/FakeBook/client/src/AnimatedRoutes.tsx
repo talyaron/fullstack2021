@@ -16,6 +16,7 @@ import { blue, common } from "@mui/material/colors";
 import HomePage from "./views/components/HomePage";
 import LoginPage from "./views/components/LoginPage";
 import NavBar from "./views/components/NavBar";
+import Layout from './Layout'
 // sending props:
 interface LoginPageProps {
   //login needs:
@@ -108,17 +109,7 @@ function AnimatedRoutes() {
   
   return (
     <AnimatePresence>
-
-      <NavBar
-      loggedIn={loggedIn}
-          usersPersonalInfo={usersPersonalInfo}
-          setTheme={setTheme}
-          theme={theme}
-          lightTheme={lightTheme}
-          darkTheme={darkTheme}
-        />
 <Routes location={location} key={location.pathname}>
-
         <Route
           path="/"
           element={
@@ -141,7 +132,10 @@ function AnimatedRoutes() {
         <Route
           path="/HomePage"
           element={
-            <HomePage
+            <Layout setTheme={setTheme} theme={theme} loggedIn={loggedIn} darkTheme={darkTheme} lightTheme={lightTheme} usersPersonalInfo={usersPersonalInfo}/>
+          }
+        >
+          <Route index element={<HomePage
               theme={theme}
               lightTheme={lightTheme}
               darkTheme={darkTheme}
@@ -158,9 +152,9 @@ function AnimatedRoutes() {
               setPostsList={setPostsList}
               postsList={postsList}
               setTheme={setTheme}
-            />
-          }
-        />
+            />}></Route>
+        </Route>
+
         {/* <Route
           path="/"
           element={

@@ -162,14 +162,14 @@ function HomePage(props: HomePageProps) {
         <CssBaseline />
         {/* <p>{theme ? "light" : "dark"}</p> */}
         {/* {usersPersonalInfo?<p>{firstName}</p>:null} */}
-        <NavBar
+        {/* <NavBar
         loggedIn={loggedIn}
           usersPersonalInfo={usersPersonalInfo}
           setTheme={setTheme}
           theme={theme}
           lightTheme={lightTheme}
           darkTheme={darkTheme}
-        />
+        /> */}
         <p>
           {loggedIn
             ? `hello ${usersPersonalInfo.firstName} ${usersPersonalInfo.lastName},

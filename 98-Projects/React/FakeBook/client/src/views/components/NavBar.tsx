@@ -236,15 +236,16 @@ function NavBar(props: NavBarProps) {
     console.log(hasWindow, "hasloaded");
     console.log(usersPersonalInfo, "UsersPersonalInfo");
   }, []);
-  useEffect(() => {
-    if (loggedIn) {
-      setTimeout(() => {
-        setNav(!nav);
-        console.log("changed nav");
-      }, 800);
-    }
-  }, [loggedIn]);
-  return nav ? (
+  // useEffect(() => {
+  //   if (loggedIn) {
+  //     setTimeout(() => {
+  //       setNav(!nav);
+  //       console.log("changed nav");
+  //     }, 800);
+  //   }
+  // }, [loggedIn]);
+  return(
+  //  nav ? (
     <AppBar className="NavBar" position="fixed" color="secondary">
       <Toolbar style={ToolbarStyling} disableGutters>
         <div className="NavBar_left">
@@ -331,9 +332,10 @@ function NavBar(props: NavBarProps) {
         </div>
       </Toolbar>
     </AppBar>
-  ) : (
-<div></div>
-  );
+//   ) : (
+// <div></div>
+//   );
+)
 }
 
 export default NavBar;
