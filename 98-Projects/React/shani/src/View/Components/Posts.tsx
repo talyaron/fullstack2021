@@ -1,65 +1,130 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+
 interface postProps {
   posts: Array<post>;
-  userPosts:Array<post>;
-  setPosts:Function;
-  mode:boolean;
-
+  userPosts: Array<post>;
+  setPosts: Function;
+  mode: boolean;
+  filterdPosts: Array<any>;
+  setFilterdPost: Function;
+  trash:boolean;
+  setTrash:Function;
 }
 
 interface post {
-  postId?:any,
-  topic: "web development" | "mongo+nodeJS" | "nodeJS" | "react";
+  postId?: any;
+  topic:topicModel;
   link?: string;
   imgUrl?: string;
   description: string;
   datePosted?: number;
 }
+export enum topicModel{
+  ALL = 'all',
+  WEB = 'web development',
+  MONODE = 'mongo+nodeJS',
+  NODE = 'nodeJS',
+  REACT = 'react',
+ 
+}
 
-//{userPosts.filter(posts=>posts.topic=='nodeJS') ,setPosts({posts:userPosts})} 
+
+
 const Posts = (props: postProps) => {
- 
-  const { userPosts,mode,setPosts} = props;
-  const allPosts=userPosts;
- 
-  function handleFilterNode(ev:any){
-    const theTopic=ev.target.value;
-    // const copy = [...userPosts];
-    // const filter=[]
-    const filterNode=allPosts.filter(posts=>posts.topic===theTopic);
-    console.log(allPosts)
- console.log( userPosts)
-    setPosts(filterNode)
-    
+  const { userPosts, mode, setPosts, filterdPosts, setFilterdPost,trash,setTrash } = props;
+
+  function drag(ev:any){
+    ev.dataTransfer.setData("Text",ev.target.id);
+    console.log(ev.target.id)
+    setTrash(!trash)
+    // const openTrash:any=document.querySelector('.deletePost__img')
+    // openTrash.src='./images/deleteOpen.png'
+
+    setTimeout(() => {
+      setTrash(trash);
+    }, 1000)
+   
+  
   }
- 
+
+  function handleFilterTopic(ev: any) {
+    const theTopic = ev.target.value;
+    if (theTopic === "all") {
+      setFilterdPost(userPosts);
+      console.log(userPosts);
+    } else {
+      const filteredTopic = userPosts.filter(
+        (posts) => posts.topic === theTopic
+      );
+
+      setFilterdPost(filteredTopic);
+    }
+  }
+
   return (
     <div className="posts">
-      <div className="posts__navbar" id={mode? 'dark':'light'}>
-      {/* <button onClick={handleFilterNode} >nodeJs</button> */}
-      <input type="button" name='nodeJs' onClick={handleFilterNode} value='nodeJS'/>
-      <input type="button" name='web development' onClick={handleFilterNode} value='web development'/>
-      {/* <button onClick={handleFilterNode} >webDev</button> */}
+      <div className="posts__navbar" id={mode ? "dark" : "light"}>
+        <input
+          type="button"
+          name="nodeJs"
+          onClick={handleFilterTopic}
+          value="nodeJS"
+        />
+        <input
+          type="button"
+          name="web development"
+          onClick={handleFilterTopic}
+          value="web development"
+        />
+        <input
+          type="button"
+          name="all"
+          onClick={handleFilterTopic}
+          value="all"
+        />
+        <input
+          type="button"
+          name="mongo+nodeJS"
+          onClick={handleFilterTopic}
+          value="mongo+nodeJS"
+        />
+        <input
+          type="button"
+          name="react"
+          onClick={handleFilterTopic}
+          value="react"
+         
+        />
       </div>
 
       <div className="posts--postsGrid">
-        {userPosts.map((post: any,i) => {
-          return (
-            <div  key={i} className="posts__post">
-              <div className="posts__post__top">
-                <p className="posts__post__top--topic">{post.topic} </p>
-                <p className="posts__post__top--date">{post.datePosted}</p>
+        {filterdPosts
+          .map((post: any, i) => {
+            return (
+              <div key={i} id={post.postId} className="posts__post" draggable="true" onDragStart={drag} >
+                <div className="posts__post__top">
+                  <p className="posts__post__top--topic">{post.topic} </p>
+                  <p className="posts__post__top--date">{post.datePosted}</p>
+                </div>
+                <div className="posts__post__middle">
+                  <img src={post.imgUrl} className="posts__post__middle--pic" />
+                  <p className="posts__post__middle--description">
+                    {post.description}
+                  </p>
+                </div>
+                <div className="posts__post__bottom">
+                  <a
+                    href={post.link}
+                    className="posts__post__bottom--link"
+                    target="_blank"
+                  >
+                    link to git project
+                  </a>
+                </div>
               </div>
-              <div className="posts__post__middle">
-              <img src={post.imgUrl} className="posts__post__middle--pic" />
-              <p className="posts__post__middle--description">{post.description}</p>
-              </div>
-              <div className="posts__post__bottom">
-              <a href={post.link} className="posts__post__bottom--link" target="_blank">link to git project</a>
-              </div>
-            </div>
-          );
-        })}
+            );
+          })
+          .reverse()}
       </div>
     </div>
   );

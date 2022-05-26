@@ -44,3 +44,17 @@ h1{
   height: inherit;
   border-radius: 0;
 }
+.button{
+  padding-top: 20px;
+}
+.buttonBefor{
+  border: 1px solid #d662b5;
+color: #97ffd2;
+background-color: transparent;
+border-radius: 10px;
+font-size: 20px;
+}
+.buttonAfter{
+  background-color: #3cbe86;
+  color: #d662b5;
+}

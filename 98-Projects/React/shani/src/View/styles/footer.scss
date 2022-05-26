@@ -18,10 +18,23 @@
     
    button{
        margin:30px 20px 0 20px;
+       font-family: 'Poppins', sans-serif;
+       cursor:pointer;
+       background-color:transparent;
+       border:transparent;
+       
+       &#light{
+        background-color:#64acef;
+     }
+      &#dark{
+        background-color:white;
+        border-radius: 5px;
+     }
+      
    }
 
     form {
-       
+        
         padding: 15px;
         margin-top: 10px;
         border: solid black 1px;
@@ -33,6 +46,7 @@
         transform: translateX(-50%);
         bottom: 250px;
         transition: 1s;
+        font-family: 'Poppins', sans-serif;
         
         &#light{
           background-color:rgb(255, 190, 255);
@@ -49,8 +63,14 @@
           display:block;
         }
       input[type="submit"]{
-
+       
         margin-top: 10px;
+        cursor:pointer;
+        
+        
+          
+        
+
       }
     }
     

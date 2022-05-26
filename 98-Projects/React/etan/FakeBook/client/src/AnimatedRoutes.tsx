@@ -9,12 +9,13 @@ import {AnimatePresence} from 'framer-motion'
 //styling imports:
 import "./views/styles/global.scss";
 //mui ->
+import {CssBaseline} from '@mui/material'
 import { createTheme } from "@mui/material/styles";
 import { blue, common } from "@mui/material/colors";
 //local components imports:
 import HomePage from "./views/components/HomePage";
 import LoginPage from "./views/components/LoginPage";
-
+import NavBar from "./views/components/NavBar";
 // sending props:
 interface LoginPageProps {
   //login needs:
@@ -94,15 +95,30 @@ function AnimatedRoutes() {
   const [usersPersonalInfo, setUsersPersonalInfo] = useState({
     firstName: "",
     lastName: "",
+    ok: false,
   });
   const [registerWarning, setRegisterWarning] = useState("");
   const [loginWarning, setLoginWarning] = useState("");
   const [theme, setTheme] = useState(true);
-
+  if (theme) {
+    var { primary, secondary, background } = lightTheme.palette;
+  } else {
+    var { primary, secondary, background } = darkTheme.palette;
+  }
   
   return (
     <AnimatePresence>
+
+      <NavBar
+      loggedIn={loggedIn}
+          usersPersonalInfo={usersPersonalInfo}
+          setTheme={setTheme}
+          theme={theme}
+          lightTheme={lightTheme}
+          darkTheme={darkTheme}
+        />
 <Routes location={location} key={location.pathname}>
+
         <Route
           path="/"
           element={

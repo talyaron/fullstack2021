@@ -1,5 +1,4 @@
 import post from "../model/postModel";
-
 import jwt from "jwt-simple";
 const secret = process.env.JWT_SECRET;
 
@@ -23,18 +22,25 @@ export const getPostsList = async (req, res) => {
 export const createNewPost = async (req, res) => {
   try {
     const rest = req.cookies["currentUserInfo"];
-const cookies = jwt.decode(rest, secret)
-console.log(cookies);
+    const cookies = jwt.decode(rest, secret);
+    console.log(cookies);
 
     const newPostInfo = req.body;
-    const newPostOwnerInfo = jwt.decode(req.cookies['currentUserInfo'], secret).loginData.result
-    const {firstName, lastName} = newPostOwnerInfo
-    const { ownerId, content, time} = newPostInfo;
+    const newPostOwnerInfo = jwt.decode(req.cookies["currentUserInfo"], secret)
+      .loginData.result;
+    const { firstName, lastName } = newPostOwnerInfo;
+    const { ownerId, content, time } = newPostInfo;
     if (!ownerId || !content || !time || !firstName || !lastName)
       throw new Error(
         `missing something in createNewPost -server side (postCont)`
       );
-    const newPost = new post({ ownerId, content, time, ownerFirstName:firstName, ownerLastName:lastName});
+    const newPost = new post({
+      ownerId,
+      content,
+      time,
+      ownerFirstName: firstName,
+      ownerLastName: lastName,
+    });
     await newPost.save();
 
     res.send({ newPost });
