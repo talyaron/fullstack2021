@@ -6,19 +6,11 @@ interface FormProps {
   text: string
   img: string
   id: string
-  
-
 }
-
 
 function App() {
 
   const [arr, setArr] = useState<Array<FormProps>>([]);
-
-
-
-
-
 
   return (
     <div className="App">
@@ -26,7 +18,7 @@ function App() {
       <div> {arr.map((box, i) => {
         return (
           <div>
-            <Form key={i} text={box.text} img={box.img} id={box.id} />
+            <form key={i} text={box.text} img={box.img} id={box.id} />
 
           </div>
         )

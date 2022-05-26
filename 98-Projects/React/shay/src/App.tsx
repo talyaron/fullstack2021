@@ -2,23 +2,26 @@ import React, { useState, useEffect } from "react";
 import Match from "./view/components/Match";
 import "./view/style/global.scss";
 import useSound from "use-sound";
+import  "./view/audio/Wannabe.mp3";
+import  "./view/audio/Become.mp3";
+import "./view/audio/BeThere.mp3";
+import  "./view/audio/Viva.mp3";
+import "./view/audio/lost.wav";
+import "./view/audio/win.wav"
 
 const uid = function () {
   return Date.now().toString(36) + Math.random().toString(36).substr(2);
 };
 
 interface matchProps {
-  // setCounter: Function;
-  // counter: number;
   question: string;
   falseAnswer: string;
   trueAnswer: string;
   id: string;
+  sound?:any,
+
 }
-// interface answers{
-//  answer1:string,
-//  answer2:string
-// }
+
 
 const trivia: Array<matchProps> = [
   {
@@ -27,6 +30,7 @@ const trivia: Array<matchProps> = [
     falseAnswer: "'til the end",
     trueAnswer: "never end",
     id: uid(),
+    sound:require("./view/audio/Wannabe.mp3")
   },
   {
     question:
@@ -34,13 +38,14 @@ const trivia: Array<matchProps> = [
     falseAnswer: "love me",
     trueAnswer: "believe it",
     id: uid(),
-  
+    sound: require("./view/audio/Become.mp3")
   },
   {
     question: "I'm giving you everything All that joy can bring...",
     falseAnswer: "all for you",
     trueAnswer: "this i swear",
     id: uid(),
+    sound: require("./view/audio/BeThere.mp3")
   },
   {
     question:
@@ -48,66 +53,56 @@ const trivia: Array<matchProps> = [
     falseAnswer: "some fun",
     trueAnswer: "the one",
     id: uid(),
+    sound: require("./view/audio/Viva.mp3")
   },
 ];
 
 function App() {
-  const become = "./public/audio/become.mp3";
-  const beThere = "./public/audio/beThere.mp3";
-  const viva = "./public/audio/viva.mp3";
-  const wannabe = "./public/audio/wannabe.mp3";
-
-  const [playBecome, setBecome] = useState(0.0);
-  const [playBeThere, setBeThere] = useState(1.5);
-  const [playViva, setViva] = useState(0.0);
-  const [playWannabe, setWannabe] = useState(0.0);
-
-  const [playBecomeSound] = useSound(become, {
-    playBecome,
-    volume: 0.4,
-  });
-  const [playBeThereSound] = useSound(beThere, {
-    playBeThere,
-    volume: 0.4,
-  });
-  const [playVivaSound] = useSound(viva, {
-    playViva,
-    volume: 0.4,
-  });
-  const [playWannabeSound] = useSound(wannabe, {
-    playWannabe,
-    volume: 0.4,
-  });
-  // const [id, setId]=useState(uid())
+  // const [playSound, setPlaySound] = useState(0.75);
   const [question, setQuestion] = useState("");
   const [falseAnswer, setFalseAnswer] = useState([]);
   const [trueAnswer, setTrueAnswer] = useState([]);
   const [counter, setCounter] = useState(0);
-  const [arr, setArr] = useState<Array<matchProps>>(trivia);
+  const [sound, setSound]=useState([])
+ const [isClick, setIsClick] =useState(false)
+  const [playSound, setPlaySound] = useState(0.0);
+  const [ansClicked, setAnsClicked] = useState(0);
+const winSounds=require('./view/audio/win.wav')
+const loseSounds=require('./view/audio/lost.wav')
 
-  console.log(arr);
+function newGame(){
+  window.location.reload();
+  setIsClick(true)
+}
 
   return (
     <div className="App">
       <header className="App-header">
         <h1>Spice Girls</h1>
         <p>{counter}</p>
+     
         {trivia.map((box: any, i) => {
           return (
+           
             <Match
               key={i}
-              box={box}
-              arr={arr}
-              setArr={setArr}
-              playBecomeSound={playBecomeSound}
-              playBeThereSound={playBeThereSound}
-              playVivaSound={playVivaSound}
-              playWannabeSound={playWannabeSound}
+              loseSounds={loseSounds}
+              winSounds={winSounds}
+              ansClicked={ansClicked}
+              setAnsClicked={setAnsClicked}
+              question= {box.question}
+              falseAnswer= {box.falseAnswer}
+              trueAnswer= {box.trueAnswer}
+              id= {box.id}
+              sound={box.sound}
               counter={counter}
               setCounter={setCounter}
             />
+            
           );
         })}
+        <div className="button">
+        <button className={isClick? "buttonBefor buttonAfter" : "buttonBefor"} onClick={()=>newGame()}>New Game</button></div>
       </header>
     </div>
   );

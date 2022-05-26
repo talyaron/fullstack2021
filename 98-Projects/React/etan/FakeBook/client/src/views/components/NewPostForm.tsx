@@ -70,6 +70,8 @@ function NewPostForm(props: NewPostFormProps) {
       ev.target.reset();
       let { data } = await axios.post("/posts/create-new-post", newPostInfo);
       const { newPost } = data;
+      console.log(newPost);
+      
       if (newPost) {
         handleGetPostsList();
       }
@@ -120,7 +122,7 @@ function NewPostForm(props: NewPostFormProps) {
           sx={{
             input: { color: primary.contrastText, flexBasis: "100%" },
             fieldset: {
-              width: "100%",
+              // width: "100%",
               flex: "100%",
               borderRadius: "3em" ,
             },

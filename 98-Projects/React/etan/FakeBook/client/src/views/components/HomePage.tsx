@@ -163,6 +163,7 @@ function HomePage(props: HomePageProps) {
         {/* <p>{theme ? "light" : "dark"}</p> */}
         {/* {usersPersonalInfo?<p>{firstName}</p>:null} */}
         <NavBar
+        loggedIn={loggedIn}
           usersPersonalInfo={usersPersonalInfo}
           setTheme={setTheme}
           theme={theme}
@@ -175,7 +176,7 @@ function HomePage(props: HomePageProps) {
             this is your feed:`
             : "‎"}
         </p>
-        <div className="wrapper">
+        <div className="wrapper_home">
           {loggedIn ? (
             <Feed
               userId={userId}

@@ -10,11 +10,34 @@
   border-radius: 10px;
   font-size: 20px;
 }
-
 .falseAns{
-  background-color: red;
+  background-color: #d662b5;
+  animation: shutdown 1s linear forwards;
+ 
 }
 
 .trueAns{
-  background-color: green;
+  background-color: #3cbe86;
+}
+@keyframes shutdown {
+  0% {
+      opacity: 0;
+  }
+
+  8%,
+  46% {
+      transform: scale(1, 1);
+      opacity: 1;
+  }
+
+  50% {
+      transform: scale(1, 0.02);
+      opacity: 0.8;
+  }
+
+  55%,
+  100% {
+      transform: scale(0, 0);
+      opacity: 0.3;
+  }
 }

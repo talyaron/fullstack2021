@@ -27,7 +27,7 @@ let balls: any = []
 
 creatArray()
 
-let playOn: any = null
+
 
 function handleStart() {
   const start = document.querySelectorAll('.falafel')
@@ -37,7 +37,7 @@ function handleStart() {
   });
 
   let audioCircus = new Audio('./sound/sharif1.mp3');
-
+  let playOn: any = null
   if (playOn == null) {
     audioCircus.play();
     audioCircus.loop = true;

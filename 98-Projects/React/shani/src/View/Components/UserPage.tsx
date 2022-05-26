@@ -8,9 +8,16 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 
 interface UserProps {
   userPosts: Array<any>;
+  setPosts:Function;
   mode: boolean;
   setMode: Function;
-  setPosts:Function;
+  filterdPosts:Array<any>;
+   setFilterdPost:Function;
+   trash:boolean;
+  setTrash:Function;
+  party:boolean;
+  setParty:Function;
+ 
   user: {
     name?: string;
     lastName?: string;
@@ -27,12 +34,20 @@ interface friend {
   friendName: string;
 }
 interface post {
-  topic:"all"| "web development" | "mongo+nodeJS" | "nodeJS" | "react";
+  topic:topicModel;
   link: string;
   imgUrl: string;
   description: string;
   datePosted?: number;
   postId?:any,
+}
+export enum topicModel{
+  ALL = 'all',
+  WEB = 'web development',
+  MONODE = 'mongo+nodeJS',
+  NODE = 'nodeJS',
+  REACT = 'react',
+ 
 }
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 62,
@@ -92,7 +107,8 @@ const UserPage = (props: UserProps) => {
     volume: 0.5,
   });
  
-  const { user, userPosts, mode, setMode,setPosts } = props;
+ 
+  const { user, userPosts, mode, setMode,setPosts,filterdPosts,setFilterdPost,trash,setTrash,party,setParty} = props;
   useEffect(() => {
     playLightSwitch();
   }, [mode]);
@@ -103,8 +119,12 @@ const UserPage = (props: UserProps) => {
   return (
     <div className="User">
       <div className="aboutUser">
-        <img src={user.profileImage} />
+        
+        <img  src={user.profileImage} />
+        
+        
         <div className="aboutUser__info">
+          <div>About me:</div>
           <p className="aboutUser__info--name">
             {user.name} {user.lastName}
           </p>
@@ -124,12 +144,12 @@ const UserPage = (props: UserProps) => {
            
             <span className='lightDark--light'>light</span>
           </div>
-          <button onClick={() => setMode(!mode)   }>party mode</button>
+          <button onClick={() => setParty(!party)}>party mode</button>
         </div>
       </div>
       {/* <Friends friends={user.friends}/> */}
 
-      <Posts posts={user.posts} userPosts={userPosts} mode={mode} setPosts={setPosts}/>
+      <Posts trash={trash} setTrash={setTrash}  posts={user.posts} userPosts={userPosts} mode={mode} setPosts={setPosts} filterdPosts={filterdPosts}  setFilterdPost={setFilterdPost}/>
 
       {/* for post i will need state and counter. upate post is form. state is used to update stuff */}
     </div>

@@ -17,6 +17,7 @@ import {
   Avatar,
   Popover,
   InputBase,
+  CssBaseline,
 } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { styled } from "@mui/material/styles";
@@ -24,6 +25,10 @@ import { styled } from "@mui/material/styles";
 //website logo import:
 import { ReactComponent as NewFixedLogo } from "../styles/facebook-icon.svg";
 // local components imports:
+import DotsAvatar from "./Anchors/DotsAvatar";
+import DotsPopover from "./Popovers/DotsPopover";
+import MessagesAvatar from "./Anchors/MessagesAvatar";
+import MessagesPopover from "./Popovers/MessagesPopover";
 import CaretDownAvatar from "./Anchors/CaretDownAvatar";
 import CaretDownPopover from "./Popovers/CaretDownPopover";
 import BellOnAvatar from "./Anchors/BellOnAvatar";
@@ -97,15 +102,13 @@ interface BellOnAvatarProps {
 }
 // receiving props:
 interface NavBarProps {
+  loggedIn: boolean;
   setTheme: Function;
   theme: any;
   lightTheme: any;
   darkTheme: any;
   usersPersonalInfo: any;
 }
-
-
-
 
 function useWindowSize() {
   const [size, setSize] = useState([0, 0]);
@@ -120,39 +123,48 @@ function useWindowSize() {
   return size;
 }
 
-
 function NavBar(props: NavBarProps) {
-  const { setTheme, theme, lightTheme, darkTheme, usersPersonalInfo } = props;
+  const {
+    setTheme,
+    theme,
+    lightTheme,
+    darkTheme,
+    usersPersonalInfo,
+    loggedIn,
+  } = props;
+
   const [registered, setRegistered] = useState(false);
   const [PopoverButton, setPopoverButton] = useState<any>();
   const [open, setOpen] = useState(false);
   const [ArrowAnchor, setArrowAnchor] = useState<any>();
   const [BellAnchor, setBellAnchor] = useState<any>();
+  const [messagesAnchor, setMessagesAnchor] = useState<any>();
+  const [dotsAnchor, setDotsAnchor] = useState<any>();
   const [SearchToggle, setSearchToggle] = useState<Boolean>();
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const [width, height] = useWindowSize();
   const [mounted, setMounted] = useState(false);
-  
+  const [nav, setNav] = useState(false);
+
   const { firstName, lastName } = usersPersonalInfo;
   const Initials =
-  firstName.charAt(0).toUpperCase() + lastName.charAt(0).toUpperCase();
+    firstName.charAt(0).toUpperCase() + lastName.charAt(0).toUpperCase();
   const navigate = useNavigate();
   function navigateHome() {
     navigate("/HomePage");
   }
-  
-  
+
   function displayWindowSize() {
     // Get width and height of the window excluding scrollbars
     let w = document.documentElement.clientWidth;
     let h = document.documentElement.clientHeight;
-    
+
     // Display result inside a div element
-    const widerScreenWidth = window.matchMedia("(min-width: 1265px)")
-
-}
-window.addEventListener("resize", displayWindowSize);
-
+    const widerScreenWidth = window.matchMedia("(min-width: 1265px)");
+  }
+  useEffect(() => {
+    window.addEventListener("resize", displayWindowSize);
+  }, []);
 
   function handleOpenNavPopover(ev: any) {
     const button = ev.currentTarget.firstChild;
@@ -193,36 +205,46 @@ window.addEventListener("resize", displayWindowSize);
     padding: 15,
     placeContent: "space-between",
   };
+
   const StyledFixedLogo = styled(NewFixedLogo)({
     cursor: "pointer",
   });
+
   const MenuArrowStyling = styled(FontAwesomeIcon)({});
   const DynamicSearchStyling = {
     backgroundColor: "#e3e6ea",
     color: "#65676B",
   };
+  const hasWindow = typeof window !== "undefined";
   useEffect(() => {
     console.log("nav loaded");
   }, []);
   useEffect(() => {
-    if (width < 1256) {
-      setSearchToggle(false);
-      console.log("1265+");
-    }
-    if (width > 1256) {
-      setSearchToggle(true);
-      console.log("1265-");
+    if (hasWindow) {
+      if (width < 1256) {
+        setSearchToggle(false);
+        console.log("1265+");
+      }
+      if (width > 1256) {
+        setSearchToggle(true);
+        console.log("1265-");
+      }
     }
   }, [width > 1265]);
 
-  useEffect(()=>{
-    const hasWindow = typeof window !== 'undefined';
-    console.log(hasWindow);
-    
-  },[])
-
-
-  return (
+  useEffect(() => {
+    console.log(hasWindow, "hasloaded");
+    console.log(usersPersonalInfo, "UsersPersonalInfo");
+  }, []);
+  useEffect(() => {
+    if (loggedIn) {
+      setTimeout(() => {
+        setNav(!nav);
+        console.log("changed nav");
+      }, 800);
+    }
+  }, [loggedIn]);
+  return nav ? (
     <AppBar className="NavBar" position="fixed" color="secondary">
       <Toolbar style={ToolbarStyling} disableGutters>
         <div className="NavBar_left">
@@ -276,9 +298,41 @@ window.addEventListener("resize", displayWindowSize);
             setTheme={setTheme}
             theme={theme}
           />
+          <MessagesAvatar
+            setPopoverButton={setPopoverButton}
+            setMessagesAnchor={setMessagesAnchor}
+            AvatarStyling={AvatarStyling}
+          />
+          <MessagesPopover
+            PopoverButton={PopoverButton}
+            setMessagesAnchor={setMessagesAnchor}
+            messagesAnchor={messagesAnchor}
+            Initials={Initials}
+            firstName={firstName}
+            lastName={lastName}
+            setTheme={setTheme}
+            theme={theme}
+          />
+          <DotsAvatar
+            setPopoverButton={setPopoverButton}
+            setDotsAnchor={setDotsAnchor}
+            AvatarStyling={AvatarStyling}
+          />
+          <DotsPopover
+            PopoverButton={PopoverButton}
+            setDotsAnchor={setDotsAnchor}
+            dotsAnchor={dotsAnchor}
+            Initials={Initials}
+            firstName={firstName}
+            lastName={lastName}
+            setTheme={setTheme}
+            theme={theme}
+          />
         </div>
       </Toolbar>
     </AppBar>
+  ) : (
+<div></div>
   );
 }
 
