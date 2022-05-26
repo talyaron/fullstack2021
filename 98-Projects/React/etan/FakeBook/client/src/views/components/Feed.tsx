@@ -97,14 +97,14 @@ function Feed(props: FeedProps) {
     }
   }
 
-  useEffect(() => {}, [usersPersonalInfo]);
+  // useEffect(() => {}, [usersPersonalInfo]);
   useEffect(() => {
     if (loggedIn) {
       handleGetPostsList();
     }
   }, [userId]);
   return (
-    <div className="wrapper">
+    <div className="wrapper_feed">
       <NewPostForm
         theme={theme}
         lightTheme={lightTheme}

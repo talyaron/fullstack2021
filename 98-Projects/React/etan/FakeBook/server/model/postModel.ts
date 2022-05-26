@@ -7,5 +7,5 @@ const PostSchema = new mongoose.Schema({
   ownerLastName: String,
 });
 
-const post = mongoose.model("posts", PostSchema);
-export default post;
+const Post = mongoose.model("posts", PostSchema);
+export default Post;
