@@ -20,8 +20,12 @@ const Filter = (props: filterProps) => {
 
   function handleFilter(ev) {
     const time = ev.target.value
-
-    const filteredPics = pictureArray.filter(pic => pic.time === time)
+    let filteredPics
+    if(time === 'all'){
+       filteredPics = pictureArray
+    }else{
+       filteredPics = pictureArray.filter(pic => pic.time === time)
+    }
     setPictures([...filteredPics])
 
 
@@ -37,8 +41,9 @@ const Filter = (props: filterProps) => {
             label="Filter Pictures"
             onChange={handleFilter}
           >
+            <MenuItem value='all'>Show all</MenuItem>
             <MenuItem value="before">Before the wedding</MenuItem>
-            <MenuItem value="during">during the wedding</MenuItem>
+            <MenuItem value="chuppa">Chuppa</MenuItem>
             <MenuItem value="party">PARTY</MenuItem>
           </Select>
         </FormControl>

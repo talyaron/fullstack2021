@@ -1,3 +1,4 @@
+
 interface addProps {
     add: Boolean
     setAdd: Function
@@ -25,14 +26,14 @@ const Add = (props: addProps) => {
     }
     return (
         <div>
-            <button className="add" onClick={() => setAdd(!add)}>
-                +
+            <button className='add' onClick={() => setAdd(!add)}>
+               <p>Add Image</p>
             </button>
-            <form onSubmit={handleAddPicture}>
+            <form className={add?"form":"form-active"} onSubmit={handleAddPicture}>
                 <input type="text" name="newPicUrl" id="" placeholder="Enter image URL" />
                 <input type="text" name="newPeople" id="" placeholder="Who is in the picture" />
                 <input type="text" name="newTime" id="" placeholder="From where is the picture" />
-                <input type="submit" value="Submit" />
+                <button className="submit" type="submit" value="Submit">Submit</button>
 
             </form>
         </div>
