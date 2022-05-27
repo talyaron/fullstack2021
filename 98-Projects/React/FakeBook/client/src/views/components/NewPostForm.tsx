@@ -70,6 +70,8 @@ function NewPostForm(props: NewPostFormProps) {
       ev.target.reset();
       let { data } = await axios.post("/posts/create-new-post", newPostInfo);
       const { newPost } = data;
+      console.log(newPost);
+      
       if (newPost) {
         handleGetPostsList();
       }
@@ -94,11 +96,15 @@ function NewPostForm(props: NewPostFormProps) {
 
   return (
     <Card
+    // color='secondary'
       style={{
         color: theme ? primary.contrastText : primary.contrastText,
-        backgroundColor: theme ? secondary.main : primary.main,
+        backgroundColor: theme? secondary.main: secondary.main,
         textAlign: "center",
         padding: "1em",
+        minWidth: '640px',
+        maxWidth: '680px',
+        overflow: 'hidden'
       }}
     >
       <form onSubmit={(ev) => handleNewPost(ev)} className="wrapper_post-form">
@@ -116,11 +122,11 @@ function NewPostForm(props: NewPostFormProps) {
           id="newPostContent"
           variant="outlined"
           placeholder={loggedIn ? `Whats on your mind, ${firstName}?` : ""}
-          style={{ width: "100%",}}
+          style={{ width: "100%", maxWidth: '680px'}}
           sx={{
             input: { color: primary.contrastText, flexBasis: "100%" },
             fieldset: {
-              width: "100%",
+              // width: "100%",
               flex: "100%",
               borderRadius: "3em" ,
             },

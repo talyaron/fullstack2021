@@ -1,44 +1,17 @@
-//Personal workflow imports:
-
-// import 'dotenv/config'
-import { useState, useEffect, useTransition } from "react";
-import { useCookies, Cookies } from "react-cookie";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import express from "express";
-import mongoose from "mongoose";
-import axios from "axios";
-//styling imports:
-//mui ->
 import {
-  Button,
-  TextField,
-  FormGroup,
-  AppBar,
   Card,
   CardContent,
-  CardActions,
-  CardMedia,
-  Grid,
   Typography,
-  FormControl,
-  Collapse,
-  Container,
   CssBaseline,
-  Stack,
-  FormControlLabel,
-  Toolbar,
   CardHeader,
-  Avatar,
 } from "@mui/material";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
-import { grey, red, green, blue, purple, common } from "@mui/material/colors";
-import { Delete, DriveFileRenameOutline, Send } from "@mui/icons-material";
+import { ThemeProvider } from "@mui/material/styles";
+import { motion } from "framer-motion";
 // web logo import:
 import { ReactComponent as Logo } from "../styles/Facebook-Logoword.svg";
 //local components imports:
 
 import LoginForm from "./LoginForm";
-import LoginModal from "./LoginModal";
 import RegisterModal from "./RegisterModal";
 import Footer from "./Footer";
 import "../styles/global.scss";
@@ -113,14 +86,8 @@ function LoginPage(props: LoginPageProps) {
     setUserId,
     registerWarning,
     setRegisterWarning,
-    userId
+    userId,
   } = props;
-  // const [page, setPage] = useState('')
-  //   useEffect(() => {
-  //     let page = window.location.href
-  // setPage(page)
-
-  // },[])
 
   if (theme) {
     var { primary, secondary, background, divider } = lightTheme.palette;
@@ -130,7 +97,13 @@ function LoginPage(props: LoginPageProps) {
 
   return (
     <ThemeProvider theme={theme ? lightTheme : darkTheme}>
-      <div className="App">
+      <motion.div
+        className="App"
+        initial={{ opacity:0 }}
+        animate={{ opacity:1 }}
+        transition={{ duration:.8}}
+
+      >
         <CssBaseline />
         <div className="wrapper" style={{ background: background }}>
           <div className="wrapper_login">
@@ -147,11 +120,11 @@ function LoginPage(props: LoginPageProps) {
               <div className="wrapper_loginRegister-bunch">
                 <Card>
                   <CardHeader
-                  sx={{m: "0 .5em", p: " 1.5em 1em 0 1em"}}
-                  action={
-                    <LoginForm
-                    userId={userId}
-                    loggedIn={loggedIn}
+                    sx={{ m: "0 .5em", p: " 1.5em 1em 0 1em" }}
+                    action={
+                      <LoginForm
+                        userId={userId}
+                        loggedIn={loggedIn}
                         theme={theme}
                         lightTheme={lightTheme}
                         darkTheme={darkTheme}
@@ -164,11 +137,9 @@ function LoginPage(props: LoginPageProps) {
                     }
                   ></CardHeader>
                   <div className="login-form_buffer">
-                   <p>
-                   ‎
-                     </p> 
-                    </div>
-                  <CardContent sx={{m: 0, p: 0}}>
+                    <p>‎</p>
+                  </div>
+                  <CardContent sx={{ m: 0, p: 0 }}>
                     <RegisterModal
                       theme={theme}
                       lightTheme={lightTheme}
@@ -178,15 +149,18 @@ function LoginPage(props: LoginPageProps) {
                     />
                   </CardContent>
                 </Card>
-                <h4><a href="">Create a Page</a> for a celebrity, brand or business.</h4>
+                <h4>
+                  <a href="">Create a Page</a> for a celebrity, brand or
+                  business.
+                </h4>
               </div>
             </div>
           </div>
           <div className="wrapper_footer">
-          <Footer/>
+            <Footer />
           </div>
         </div>
-      </div>
+      </motion.div>
     </ThemeProvider>
   );
 }

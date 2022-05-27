@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import LoginForm from "./LoginForm";
 
@@ -23,7 +22,7 @@ interface LoginModalProps {
   lightTheme: any;
   darkTheme: any;
   loginWarning: string;
-  setLoginWarning:Function;
+  setLoginWarning: Function;
   setUsersPersonalInfo: Function;
   setLoggedIn: Function;
   setUserId: Function;
@@ -36,7 +35,7 @@ interface LoginFormProps {
   lightTheme: any;
   darkTheme: any;
   loginWarning: string;
-  setLoginWarning:Function;
+  setLoginWarning: Function;
   setUsersPersonalInfo: Function;
   setLoggedIn: Function;
   setUserId: Function;
@@ -45,7 +44,18 @@ interface LoginFormProps {
 }
 
 function LoginModal(props: LoginModalProps) {
-  const { theme, lightTheme, darkTheme, loginWarning, loggedIn, setLoginWarning, setUsersPersonalInfo, setLoggedIn, setUserId, userId } = props;
+  const {
+    theme,
+    lightTheme,
+    darkTheme,
+    loginWarning,
+    loggedIn,
+    setLoginWarning,
+    setUsersPersonalInfo,
+    setLoggedIn,
+    setUserId,
+    userId,
+  } = props;
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -55,15 +65,17 @@ function LoginModal(props: LoginModalProps) {
   }, [loggedIn]);
 
   return (
-    <div>
+    <div
+
+    >
       <Button color={theme ? "primary" : "secondary"} onClick={handleOpen}>
         Login!
       </Button>
       <Modal open={open} onClose={handleClose}>
         <Box sx={style}>
           <LoginForm
-          userId={userId}
-          loggedIn={loggedIn}
+            userId={userId}
+            loggedIn={loggedIn}
             theme={theme}
             lightTheme={lightTheme}
             darkTheme={darkTheme}

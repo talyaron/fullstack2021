@@ -1,6 +1,5 @@
-import user from "../model/userModel";
+import User from "../model/userModel";
 import jwt from "jwt-simple";
-
 const secret = process.env.JWT_SECRET;
 
 export const addUser = async (req, res) => {
@@ -16,7 +15,7 @@ export const addUser = async (req, res) => {
     if (!firstName || !lastName)
       throw new Error("something missing on addUser - server side");
     
-    const anEmail = await user
+    const anEmail = await User
       .findOne({ email: email })
       .collation({ locale: "en_US", strength: 1 });
     if (anEmail) {
@@ -24,14 +23,13 @@ export const addUser = async (req, res) => {
         message: `${anEmail.email} is already registered under ${anEmail.username}`,
       };
       res.send({ registerData });
-      console.log("done anEmail");
       return;
     }
    
 
 
     if ( !anEmail) {
-      const newUser = new user({
+      const newUser = new User({
         firstName,
         lastName,
 
@@ -66,7 +64,7 @@ export const loginUser = async (req, res) => {
 
     // }else{
 
-    const emailLookup = await user
+    const emailLookup = await User
       .findOne({ email: username })
       .collation({ locale: "en_US", strength: 2 });
     if (!emailLookup) {
@@ -78,7 +76,7 @@ export const loginUser = async (req, res) => {
     }
     if (emailLookup) {
       let email = emailLookup.email;
-      const verified = await user.findOne({ email: email, password: password });
+      const verified = await User.findOne({ email: email, password: password });
       if (!verified) {
         let loginData = {
           message: `Welcome back ${emailLookup.username}, thats not the password`,
@@ -90,6 +88,7 @@ export const loginUser = async (req, res) => {
         const verifiedUserPersonalInfo = {
           firstName: verified.firstName,
           lastName: verified.lastName,
+          ok: true,
         };
         
         const result = verified;

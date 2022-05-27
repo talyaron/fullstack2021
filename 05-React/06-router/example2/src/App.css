@@ -8,6 +8,20 @@
   color: white;
 }
 
-div{
+.layout{
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.subpage{
+  flex:auto;
+}
+
+footer{
+  position: fixed;
+  bottom: 0px;
+  background-color: pink;
+  width: 100vw;
+  height: 30px;
 }

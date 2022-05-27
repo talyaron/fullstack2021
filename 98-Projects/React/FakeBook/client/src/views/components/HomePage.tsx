@@ -2,9 +2,9 @@
 
 // import 'dotenv/config'
 import { useState, useEffect, useTransition } from "react";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useCookies, Cookies } from "react-cookie";
-
+import { motion } from "framer-motion";
 import express from "express";
 import mongoose from "mongoose";
 import axios from "axios";
@@ -31,7 +31,7 @@ import {
   CardHeader,
   Avatar,
 } from "@mui/material";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
+import { ThemeProvider, createTheme, styled } from "@mui/material/styles";
 import { grey, red, green, blue, purple, common } from "@mui/material/colors";
 import { Delete, DriveFileRenameOutline, Send } from "@mui/icons-material";
 // web logo import:
@@ -41,6 +41,7 @@ import Feed from "./Feed";
 import Post from "./Post";
 import NavBar from "./NavBar";
 import NewPostForm from "./NewPostForm";
+import FeedSk from "./FeedSk";
 import LoginPage from "./LoginPage";
 import "../styles/global.scss";
 
@@ -57,15 +58,7 @@ interface NavBarProps {
   theme: any;
   lightTheme: any;
   darkTheme: any;
-  loginWarning: string;
-  setLoginWarning: Function;
-  registerWarning: string;
-  setRegisterWarning: Function;
-  loggedIn: boolean;
-  usersPersonalInfo:any;
-  setUsersPersonalInfo: Function;
-  setLoggedIn: Function;
-  setUserId: Function;
+  usersPersonalInfo: any;
 }
 interface FeedProps {
   postsList: Array<PostInfoProps>;
@@ -131,17 +124,27 @@ function HomePage(props: HomePageProps) {
     setPostsList,
     postsList,
   } = props;
-  const navigate= useNavigate();
+  const [hasLoaded, setHasLoaded] = useState();
+  const navigate = useNavigate();
   if (theme) {
     var { primary, secondary, background } = lightTheme.palette;
   } else {
     var { primary, secondary, background } = darkTheme.palette;
   }
-useEffect(() => {
-if(!loggedIn){
-  navigate("/")
-}
-},[])
+  useEffect(() => {
+    if (!loggedIn) {
+      navigate("/");
+    }
+  }, []);
+
+  useEffect(() => {
+    console.log(postsList);
+  });
+
+  const appStyling = {
+    background: background.default,
+    color: primary.contrastText,
+  };
   return (
     <ThemeProvider theme={theme ? lightTheme : darkTheme}>
       {/* <Routes>
@@ -149,53 +152,51 @@ if(!loggedIn){
         <LoginPage handleLogin={handleLogin} theme={theme} lightTheme={lightTheme} darkTheme={darkTheme} loginWarning={loginWarning}/>
         </Route>
       </Routes> */}
-      <div
-        style={{
-          background: background.default,
-          color: primary.contrastText,
-        }}
+      <motion.div
+        style={appStyling}
+        initial={{ opacity:0 }}
+        animate={{ opacity:1 }}
+        transition={{ duration:.8}}
         className="App"
       >
         <CssBaseline />
         {/* <p>{theme ? "light" : "dark"}</p> */}
         {/* {usersPersonalInfo?<p>{firstName}</p>:null} */}
-        <NavBar
-    usersPersonalInfo={usersPersonalInfo}
+        {/* <NavBar
+        loggedIn={loggedIn}
+          usersPersonalInfo={usersPersonalInfo}
           setTheme={setTheme}
           theme={theme}
           lightTheme={lightTheme}
           darkTheme={darkTheme}
-          registerWarning={registerWarning}
-          setRegisterWarning={setRegisterWarning}
-          loginWarning={loginWarning}
-          setLoginWarning={setLoginWarning}
-          loggedIn={loggedIn}
-          setLoggedIn={setLoggedIn}
-          setUsersPersonalInfo={setUsersPersonalInfo}
-          setUserId={setUserId}
-        />
-        <p >
+        /> */}
+        <p>
           {loggedIn
             ? `hello ${usersPersonalInfo.firstName} ${usersPersonalInfo.lastName},
             this is your feed:`
             : "‎"}
         </p>
-<div className="wrapper">
-
-        {postsList ? (
-          <Feed
-          userId={userId}
-          loggedIn={loggedIn}
-          usersPersonalInfo={usersPersonalInfo}
-          setPostsList={setPostsList}
-          postsList={postsList}
-          theme={theme}
-          lightTheme={lightTheme}
-          darkTheme={darkTheme}
-          ></Feed>
-          ) : null}
-          </div>
-      </div>
+        <div className="wrapper_home">
+          {loggedIn ? (
+            <Feed
+              userId={userId}
+              loggedIn={loggedIn}
+              usersPersonalInfo={usersPersonalInfo}
+              setPostsList={setPostsList}
+              postsList={postsList}
+              theme={theme}
+              lightTheme={lightTheme}
+              darkTheme={darkTheme}
+            />
+          ) : (
+            <FeedSk
+              theme={theme}
+              lightTheme={lightTheme}
+              darkTheme={darkTheme}
+            />
+          )}
+        </div>
+      </motion.div>
     </ThemeProvider>
   );
 }
