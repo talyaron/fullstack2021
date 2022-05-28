@@ -1,0 +1,91 @@
+{
+    "casual": [
+        {
+            "id": "1",
+            "name": "Black Dotted",
+            "price": 500,
+            "url": "https://scontent.fsdv3-1.fna.fbcdn.net/v/t31.18172-8/23467265_10211773730924144_8864813464104201617_o.jpg?_nc_cat=108&ccb=1-7&_nc_sid=cdbe9c&_nc_ohc=uUpSew-0EHEAX8tPrz0&_nc_oc=AQnCFzfMYMYoewHQAQW0fTVfHw4UoPQoeUppdJI6O5kVrX7f0KXoPtGuWxlXO_qQzyU&tn=Jkoxk6PC12HxR_qb&_nc_ht=scontent.fsdv3-1.fna&oh=00_AT9HS55pu_1TD_2biCSIE_rZJj-98nXxulBCxLKKeYsOQg&oe=62B7E624"
+        },
+        {
+            "id": "2",
+            "name": "Yellow Chekered",
+            "price": 500,
+            "url": "https://scontent.fsdv3-1.fna.fbcdn.net/v/t1.18169-9/22050233_10211499284183147_1306359684802429671_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=BXeEBAPW3C4AX9athqz&_nc_ht=scontent.fsdv3-1.fna&oh=00_AT-1hLM5mSllAhPKFvTUpZGcVcdtxlyFPAOMVF70nztJig&oe=62B71259"
+        },
+        {
+            "id": "3",
+            "name": "PurpleWhite Flowers",
+            "price": 500,
+            "url": "https://scontent.fsdv3-1.fna.fbcdn.net/v/t31.18172-8/18620613_10210402285918876_2601540883544528863_o.jpg?_nc_cat=105&ccb=1-7&_nc_sid=cdbe9c&_nc_ohc=6PBb34TG12QAX-UsS7B&_nc_ht=scontent.fsdv3-1.fna&oh=00_AT_busqVr5zCzx3Ug3Oxt8mJJYD_uCIxvOf1moM-AhO1uw&oe=62B82DC0"
+        },
+        {
+            "id": "4",
+            "name": "PurpleWhite Flowers",
+            "price": 500,
+            "url": "https://scontent.fsdv3-1.fna.fbcdn.net/v/t31.18172-8/18620613_10210402285918876_2601540883544528863_o.jpg?_nc_cat=105&ccb=1-7&_nc_sid=cdbe9c&_nc_ohc=6PBb34TG12QAX-UsS7B&_nc_ht=scontent.fsdv3-1.fna&oh=00_AT_busqVr5zCzx3Ug3Oxt8mJJYD_uCIxvOf1moM-AhO1uw&oe=62B82DC0"
+        },
+        {
+            "id": "5",
+            "name": "Blue Pattern",
+            "price": 500,
+            "url": "https://scontent.fsdv3-1.fna.fbcdn.net/v/t1.6435-9/29472725_10212759976459666_5893382754376089600_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=3Y7b750Cw8UAX9kl4hr&tn=Jkoxk6PC12HxR_qb&_nc_ht=scontent.fsdv3-1.fna&oh=00_AT-qVBUyTR8JYQV6sPsfqpwl5smyiyUoyr5pYh-g8f-tiQ&oe=62B9A42B"
+        },
+        {
+            "id": "6",
+            "name": "Blue Dotted",
+            "price": 500,
+            "url": "https://scontent.fsdv3-1.fna.fbcdn.net/v/t1.6435-9/29498049_10212759978099707_866850504867577856_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=imb1YLHSnbUAX8vEiqM&_nc_ht=scontent.fsdv3-1.fna&oh=00_AT8hTS6rxBRiUJdUaM43pAfX4-lIHMqxsQyybX4A9q7fDg&oe=62B78B1B"
+        }
+    ],
+    
+    "periodic": [
+        {
+            "id": "1",
+            "name": "Noir",
+            "price": 2000,
+            "url": "https://scontent.fsdv3-1.fna.fbcdn.net/v/t1.6435-9/32916032_10213148334768381_7706262624379338752_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=2YsxVDZzYsoAX_JaNL9&_nc_ht=scontent.fsdv3-1.fna&oh=00_AT99Dwh9bJeuaAixe8k-EFJJCUzYEfKFZq88ZBhPRkTNhw&oe=62B696B4"
+        },
+        {
+            "id": "2",
+            "name": "Alice In Wonderland",
+            "price": 2000,
+            "url": "https://scontent.fsdv3-1.fna.fbcdn.net/v/t1.6435-9/29178614_10212685935528689_764930230853828608_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=bHbgFSKFxroAX_kXImc&_nc_ht=scontent.fsdv3-1.fna&oh=00_AT9xBWpp5S7rArUQ7Hs21gWpM8UhWuc7atY4ZMelZgu_iA&oe=62B881DD"
+        },
+        {
+            "id": "3",
+            "name": "SteamPunk Blue",
+            "price": 2000,
+            "url": "https://scontent.fsdv3-1.fna.fbcdn.net/v/t31.18172-8/16300473_10212384523467459_7308647426910916661_o.jpg?_nc_cat=106&ccb=1-7&_nc_sid=730e14&_nc_ohc=FVxahrEgIhsAX-Vu9y7&_nc_ht=scontent.fsdv3-1.fna&oh=00_AT9QZdbSsWRL5luHNzCDivb0IbjYTf9c0IJUMFWWpbz4DA&oe=62B6C464"
+        },
+        {
+            "id": "4",
+            "name": "PinkDoll",
+            "price": 2000,
+            "url": "https://scontent.fsdv3-1.fna.fbcdn.net/v/t1.6435-9/29136754_10212685935888698_3175633225921855488_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=yIwEVbYsyFUAX-ulUJs&tn=Jkoxk6PC12HxR_qb&_nc_ht=scontent.fsdv3-1.fna&oh=00_AT9HEK4ZSYkYIlQGaJsK_om06M1vW4dnY78qI3UfbEOI0Q&oe=62B79BDA"
+        },
+        {
+            "id": "5",
+            "name": "Red Queen",
+            "price": 2000,
+            "url": "https://scontent.fsdv3-1.fna.fbcdn.net/v/t1.6435-9/72236412_2475465035823972_8286138923655102464_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=cdbe9c&_nc_ohc=-Dhp1VTF1uYAX-7UdOa&_nc_oc=AQlsKsZiPaO8LZ7W41Ll6uZ75WqZqD2QQv3-erVKxZIzGqQcQdL3q7E3xJHPqwOpD0s&_nc_ht=scontent.fsdv3-1.fna&oh=00_AT_6O18OjDelvikxVJdkGa8leDiReWoE937NVkJNp7Oz-A&oe=62B5FA8A"
+        },
+        {
+            "id": "6",
+            "name": "Green Queen",
+            "price": 2000,
+            "url": "https://scontent.fsdv3-1.fna.fbcdn.net/v/t1.6435-9/159751208_10223207660352222_2320118866919220588_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=730e14&_nc_ohc=riVjiw4HnysAX-YedVC&_nc_ht=scontent.fsdv3-1.fna&oh=00_AT9r4-Xs80nzTXHtvjM6VYFvOpBS6QkaoCV58rcy47ABfw&oe=62B76C29"
+        },
+        {
+            "id": "7",
+            "name": "Marie Antouanette",
+            "price": 2000,
+            "url": "https://scontent.fsdv3-1.fna.fbcdn.net/v/t1.6435-9/159751208_10223207660352222_2320118866919220588_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=730e14&_nc_ohc=riVjiw4HnysAX-YedVC&_nc_ht=scontent.fsdv3-1.fna&oh=00_AT9r4-Xs80nzTXHtvjM6VYFvOpBS6QkaoCV58rcy47ABfw&oe=62B76C29"
+        },
+        {
+            "id": "8",
+            "name": "Gold Silver",
+            "price": 2000,
+            "url": "https://ibb.co/2dd8Ys4"
+        }
+    ]
+}
