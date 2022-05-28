@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import {TopicModel} from '../../App';
 
 interface postProps {
   posts: Array<post>;
@@ -13,20 +13,13 @@ interface postProps {
 
 interface post {
   postId?: any;
-  topic:topicModel;
+  topic:TopicModel;
   link?: string;
   imgUrl?: string;
   description: string;
   datePosted?: number;
 }
-export enum topicModel{
-  ALL = 'all',
-  WEB = 'web development',
-  MONODE = 'mongo+nodeJS',
-  NODE = 'nodeJS',
-  REACT = 'react',
- 
-}
+
 
 
 
@@ -37,8 +30,7 @@ const Posts = (props: postProps) => {
     ev.dataTransfer.setData("Text",ev.target.id);
     console.log(ev.target.id)
     setTrash(!trash)
-    // const openTrash:any=document.querySelector('.deletePost__img')
-    // openTrash.src='./images/deleteOpen.png'
+    
 
     setTimeout(() => {
       setTrash(trash);
@@ -50,7 +42,7 @@ const Posts = (props: postProps) => {
   function handleFilterTopic(ev: any) {
     const theTopic = ev.target.value;
     if (theTopic === "all") {
-      setFilterdPost(userPosts);
+      setFilterdPost([...userPosts]);
       console.log(userPosts);
     } else {
       const filteredTopic = userPosts.filter(
