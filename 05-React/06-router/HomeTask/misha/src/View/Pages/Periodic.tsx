@@ -9,13 +9,23 @@ price: number,
 url: string
 }
 
+interface Items{
+  casual:Array<Item>;
+  periodic:Array<Item>;
+}
+// eslint-disable-next-line react-hooks/exhaustive-deps
+const periodicItems:any = products.periodic
+
 const Periodic = () => {
   return (
     <section className='gridWrapper'>
-      {products.periodic.map((item:Item) => {
-        <Card dataProps={item}></Card>
-      })}
+      {/* {periodicItems.map((item:Item) => {
+        <Card data={item}></Card>
+      })} */}
+      asdasd
     </section>
+
+ 
   )
 }
 

@@ -13,11 +13,11 @@ const Card = (props:CardProps) => {
   return (
     <div className='card'>
     
-    <img src={item.url} alt={item.name}/>
+    {/* <img src={item.url} alt={item.name}/>
     <p>{item.name}</p>
     <p>{item.price}$</p>
     
-    
+     */}
     </div>
   )
 }
