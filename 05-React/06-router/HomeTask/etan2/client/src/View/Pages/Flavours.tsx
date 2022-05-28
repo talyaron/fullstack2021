@@ -12,6 +12,7 @@ function Flavours(props: FlavoursProps) {
   const { flavour, layout } = props;
   const [image, setImage] = useState<any>();
   const [imageLink, setImageLink] = useState<any>();
+  const [imageLink1, setImageLink1] = useState<any>();
   const searchInfo = {
     main: layout,
     secondary: flavour,
@@ -25,31 +26,16 @@ function Flavours(props: FlavoursProps) {
 
   // console.log(`https://www.google.com/search?q=${searchTerm}&hl=en&tbm=isch&sclient=img`);
   async function lookupImage() {
-    // console.log('here');
     const { data } = await axios.post(`/iceCream/final-form`, searchTerm);
-    // console.log(data);
     const { rest } = data;
     const result = rest.data;
+    const ToString = Buffer.from(result).toString();
     const base64ToString = Buffer.from(result, "base64").toString();
-    const blob = new Blob([base64ToString], { type: "image/jpeg;base64" });
-    console.dir(blob);
-    const imgLink = "data:image/jpeg:base64" + base64ToString;
-
-
+    const imgLinkSetter = "data:image/jpeg:base64" + toString;
+    const imgLinkSetter1 = "data:image/jpeg:base64" + base64ToString;
     setImage({ data: base64ToString });
-    // console.dir(result[0]);
-    // console.dir(result[1]);
-    // console.dir(result[2]);
-    // console.dir(result);
-    // console.dir(result.toString());
-    // console.dir(base64ToString);
-    console.log(blob);
-    console.log(imgLink);
-
-    setImageLink(imgLink);
-    // console.dir(document.querySelector('[data-img]'));
-
-    // console.log(buffer, "buffer");
+    setImageLink(imgLinkSetter);
+    setImageLink1(imgLinkSetter1);
   }
   useEffect(() => {
     lookupImage();
@@ -60,7 +46,8 @@ function Flavours(props: FlavoursProps) {
       <p>flavour</p>
       {layout} {""}
       {flavour}
-      {image ? <img src={imageLink} /> : "a"}
+      {image ? <img src={imageLink} /> : "type a"}
+      {image ? <img src={imageLink1} /> : "type b"}
       {image ? (
         <img
           data-img
@@ -68,9 +55,9 @@ function Flavours(props: FlavoursProps) {
           id="11"
         />
       ) : (
-        ""
+        "test"
       )}
-      {`${image}`}
+      <span>{`${image}`} type c</span>
     </div>
   );
 }
