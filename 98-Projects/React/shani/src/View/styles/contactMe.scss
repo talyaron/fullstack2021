@@ -10,15 +10,15 @@
     padding-bottom: 20px;
     width: 800px;
     height: 220px;
-
-
-    &[data-contactInfo='showContactInfo'] {
-        display: block;
+  
+    &.showInfo{
+        display:block;
     }
-
-    &[data-contactInfo='hideContactInfo'] {
+    &.hideInfo{
         display: none;
-    }
+       }
+
+ 
 
     &#light {
         background-color: rgb(255, 190, 255);

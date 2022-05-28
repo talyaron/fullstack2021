@@ -2,6 +2,7 @@
 import React,{useState} from 'react';
 import useSound from 'use-sound';
 import ContactMe from './ContactMe';
+import {TopicModel} from '../../App';
 interface footerProps{
   mode:boolean;
   setMode:Function;
@@ -11,21 +12,14 @@ interface footerProps{
   setTrash:Function;
 }
 interface post {
-  topic:topicModel;
+  topic:TopicModel;
   link: string;
   imgUrl: string;
   description: string;
   datePosted?:number;
   postId:any,
 }
-export enum topicModel{
-  ALL = 'all',
-  WEB = 'web development',
-  MONODE = 'mongo+nodeJS',
-  NODE = 'nodeJS',
-  REACT = 'react',
- 
-}
+
 
 
 export enum Modal{
@@ -89,7 +83,7 @@ const Footer = (props:footerProps) => {
    
    playNewPost()
     setPosts([...userPosts,addedPost]);
-
+    
   
     setTimeout(()=>{
      
@@ -112,14 +106,14 @@ const Footer = (props:footerProps) => {
     setShowModal(Modal.NONE)
     
   }
-  
+ 
   
   return (
     <div className="footer" id={mode?'dark':'light'}>
        
         <button className='deletePost' id={mode?'dark':'light'}  onDrop={drop}
           onDragOver={allowDrop}><input type="image" src={trash?"images/deleteOpen.png":'images/deleteClose.png'} className='deletePost__img'style={{ height:"40px" ,width:"40px"}}/></button>
-        {/* drag and drop ill try to make i throw into a trash can */}
+    
 
         <button className='newPost' onClick={()=>setShowModal(Modal.POST)} id={mode?'dark':'light'}><input type="image" src="images/addPost.png" style={{ height:"40px" ,width:"40px"}}/> </button>
         
@@ -128,7 +122,7 @@ const Footer = (props:footerProps) => {
 
         
         <form  className={showModal === Modal.POST?'showForm':'hideForm'} onSubmit={handleNewPost} id={mode?'dark':'light'}>
-         {/* can do when that the newest post will have a sticker that says the newest one and fix the order of it posted*/}
+     
          <h3>New Post</h3>
          <div className='formGrid' >
          <select  name="newPostTopic" className="newPostTopic">
@@ -142,8 +136,7 @@ const Footer = (props:footerProps) => {
          <input type="text" placeholder='add a description' name="newPostDescription"/>
          <input type="url" placeholder=' add link here' name="newPostLink" />
          <input type="text" placeholder=' add imgUrl here'  id="newPostPhoto" name="newPostPhoto"  accept="image/*" />
-         {/* <label htmlFor='newPostColor' > add color</label> */}
-         {/* <input type="color" id='newPostColor' name="newPostColor"/> */}
+        
         
          </div>
          <input type="submit" name="submitPost" value="post" />
