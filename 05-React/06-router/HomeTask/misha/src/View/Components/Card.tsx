@@ -1,25 +1,24 @@
-import { imageListClasses } from '@mui/material'
+
 import React from 'react'
 
-interface CardProps{
-    item:object;
+interface CardProps {
+    dress: any;
 }
 
 
-const Card = (props:CardProps) => {
+const Card = (props: CardProps) => {
 
-    const {item} = props;
+    const { dress } = props;
 
-  return (
-    <div className='card'>
-    
-    {/* <img src={item.url} alt={item.name}/>
-    <p>{item.name}</p>
-    <p>{item.price}$</p>
-    
-     */}
-    </div>
-  )
+    return (
+        <div className='card'>
+            <div className='cardImg'>
+                <img src={dress.url} alt={dress.name}></img>
+            </div>
+            <h3 className='dressTitle'>{dress.name}</h3>
+            <h3 className='dressPrice'>{dress.price}$</h3>
+        </div>
+    )
 }
 
 export default Card
