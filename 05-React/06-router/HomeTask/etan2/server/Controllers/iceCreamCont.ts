@@ -3,7 +3,7 @@ async function start(link: string) {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   await page.goto(`${link}`);
-  const result = await page.screenshot({ path: `amazing.png`, fullPage: true });
+  const result = await page.screenshot({ fullPage: true });
   await browser.close();
   return result;
 }
