@@ -42,7 +42,7 @@ const Posts = (props: postProps) => {
   function handleFilterTopic(ev: any) {
     const theTopic = ev.target.value;
     if (theTopic === "all") {
-      setFilterdPost(userPosts);
+      setFilterdPost([...userPosts]);
       console.log(userPosts);
     } else {
       const filteredTopic = userPosts.filter(
