@@ -16,7 +16,13 @@
     color:black;
     
    }
+   &--disco{
+   display:none;
+     
+   }
 }
+
+
 .App-Party{
   text-align: center;
   width:100%;
@@ -24,9 +30,25 @@
   background-color: aqua;
   min-height: 100vh;
   transition: 1s;
-  animation: rainbow-bg 2.5s linear;
+  animation: rainbow-bg 6.5s linear;
 		animation-iteration-count: infinite;
+    &--disco{
+      position:absolute;
+      top:0;
+      left:40%;
+      right:50%;
+      animation: slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    }
 }
+@keyframes slide-bottom {
+  0% {
+    transform: translateY(70px);
+  }
+  100% {
+    transform: translateY(100px);
+  }
+}
+
 @keyframes rainbow-bg{
   100%,0%{
     background-color: rgb(255,0,0);
@@ -66,17 +88,6 @@
   }
 }
 
-
-// .App-header {
- 
-//   min-height: 100vh;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   justify-content: center;
-//   font-size: calc(10px + 2vmin);
-  
-// }
 
 
 
