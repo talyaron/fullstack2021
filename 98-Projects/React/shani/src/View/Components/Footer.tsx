@@ -38,12 +38,9 @@ const Footer = (props:footerProps) => {
   });
 
   const {userPosts,setPosts,mode,setMode,trash,setTrash}=props
-  function drop(ev:any){
-   
-    
-    
-      ev.preventDefault();
-      const data=ev.dataTransfer.getData("Text");
+  function drop(ev:any){    
+    ev.preventDefault();
+    const data=ev.dataTransfer.getData("Text");
     const el:any= document.getElementById(data);
     el.parentNode.removeChild(el);
     console.log(data)
@@ -103,7 +100,7 @@ const Footer = (props:footerProps) => {
     
     setAddPostForm(false)
     setContactInfo(false)
-   
+    
    
     
   };
