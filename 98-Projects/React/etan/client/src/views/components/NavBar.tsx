@@ -1,5 +1,7 @@
 //basic workflow imports:
 import { useState, useLayoutEffect, useEffect } from "react";
+
+
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
@@ -20,7 +22,7 @@ import {
   CssBaseline,
 } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { styled } from "@mui/material/styles";
+import { styled, ThemeProvider, createTheme } from "@mui/material/styles";
 
 //website logo import:
 import { ReactComponent as NewFixedLogo } from "../styles/facebook-icon.svg";
@@ -246,6 +248,8 @@ function NavBar(props: NavBarProps) {
   // }, [loggedIn]);
   return(
   //  nav ? (
+    // <ThemeProvider theme={theme ? lightTheme : darkTheme}>
+
     <AppBar className="NavBar" position="fixed" color="secondary">
       <Toolbar style={ToolbarStyling} disableGutters>
         <div className="NavBar_left">
@@ -329,9 +333,15 @@ function NavBar(props: NavBarProps) {
             setTheme={setTheme}
             theme={theme}
           />
+          <Button >
+                <Avatar>{Initials}</Avatar>
+                {firstName}
+              </Button>
         </div>
       </Toolbar>
     </AppBar>
+    // </ThemeProvider>
+
 //   ) : (
 // <div></div>
 //   );

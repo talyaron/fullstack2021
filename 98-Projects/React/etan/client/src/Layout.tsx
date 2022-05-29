@@ -1,6 +1,10 @@
 import {Outlet} from 'react-router-dom'
 import NavBar from './views/components/NavBar'
 import {CssBaseline} from '@mui/material'
+import {ThemeProvider} from '@mui/material/styles'
+
+
+
 interface LayoutProps {
     loggedIn: boolean;
     usersPersonalInfo:any;
@@ -19,6 +23,7 @@ function Layout(props: LayoutProps) {
     //   }
   return (
     <div>
+    <ThemeProvider theme={theme ? lightTheme : darkTheme}>
         <CssBaseline />
         <NavBar
         loggedIn={loggedIn}
@@ -29,6 +34,7 @@ function Layout(props: LayoutProps) {
           darkTheme={darkTheme}
         />
         <Outlet/>
+        </ThemeProvider>
     </div>
   )
 }

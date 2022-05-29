@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import {ReactComponent as ThreeDots} from '../../styles/threeDots.svg'
 
 //styling imports:
 //mui ->
@@ -49,13 +50,7 @@ function DotsAvatar(props: DotsAvatarProps) {
     <motion.div>
       <Avatar style={AvatarStyling} onClick={(ev) => handleOpenNavPopover(ev)}>
         <div style={FlexAvatarStyling}>
-          <FontAwesomeIcon
-            style={{ padding: 0, margin: 0 }}
-            size="xs"
-            icon={["fas", "ellipsis"]}
-          />
-          <FontAwesomeIcon size="xs" icon={["fas", "ellipsis"]} />
-          <FontAwesomeIcon size="xs" icon={["fas", "ellipsis"]} />
+          <ThreeDots/>
         </div>
       </Avatar>
     </motion.div>

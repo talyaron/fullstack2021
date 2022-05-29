@@ -146,7 +146,7 @@ function HomePage(props: HomePageProps) {
     color: primary.contrastText,
   };
   return (
-    <ThemeProvider theme={theme ? lightTheme : darkTheme}>
+    <div>
       {/* <Routes>
         <Route path="/">
         <LoginPage handleLogin={handleLogin} theme={theme} lightTheme={lightTheme} darkTheme={darkTheme} loginWarning={loginWarning}/>
@@ -197,7 +197,7 @@ function HomePage(props: HomePageProps) {
           )}
         </div>
       </motion.div>
-    </ThemeProvider>
+    </div>
   );
 }
 
