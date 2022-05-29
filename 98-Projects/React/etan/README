@@ -1,2 +1,8 @@
 client: npm start;
 server: nodemon; 
+
+Open .env with:
+JWT_SECRET: string, (no '," or `)
+ENV = production
+PORT=4001
+MONGODB_URI: string (copy from mongoDB connect and paste, no '," or ` and no ; )
