@@ -1,5 +1,5 @@
 
-import React,{useState} from 'react';
+import React,{useEffect, useState} from 'react';
 import useSound from 'use-sound';
 import ContactMe from './ContactMe';
 import {TopicModel} from '../../App';
@@ -22,19 +22,10 @@ interface post {
 
 
 
-export enum Modal{
-  CONTACT = 'contact',
-  POST = 'post',
-  NONE = 'none'
-}
-
-
-
 const Footer = (props:footerProps) => {
-  // const [addPostForm,setAddPostForm]=useState(false);
+   const [addPostForm,setAddPostForm]=useState(false);
 
-  // const [showContactInfo,setContactInfo]=useState(false)
-  const [showModal, setShowModal] = useState<Modal>(Modal.NONE)
+   const [showContactInfo,setContactInfo]=useState(false);
 
   
   
@@ -70,7 +61,7 @@ const Footer = (props:footerProps) => {
     const description=ev.target.elements.newPostDescription.value;
     const link=ev.target.elements.newPostLink.value;
     const imgUrl=ev.target.elements.newPostPhoto.value;
-    //const newColor=ev.target.elements.newPostColor.value;
+   
     const postId=uid();
      const newPost=true
 
@@ -103,25 +94,41 @@ const Footer = (props:footerProps) => {
 
   
 
-    setShowModal(Modal.NONE)
     
-  }
+    setAddPostForm(false)
+    setContactInfo(false)
+   
+   
+    
+  };
+  
+
+  useEffect(()=>{
+    
+    setAddPostForm(false)
+  },[showContactInfo]);
+
+  //  useEffect(()=>{
+  //     setContactInfo(false)
+  //   },[addPostForm]);
+    
+
  
   
   return (
     <div className="footer" id={mode?'dark':'light'}>
        
         <button className='deletePost' id={mode?'dark':'light'}  onDrop={drop}
-          onDragOver={allowDrop}><input type="image" src={trash?"images/deleteOpen.png":'images/deleteClose.png'} className='deletePost__img'style={{ height:"40px" ,width:"40px"}}/></button>
+          onDragOver={allowDrop}><input type="image" src={trash?"images/deleteOpen.png":'images/deleteClose.png'} className='deletePost__img'style={{ height:"40px" ,width:"40px"}}  alt='delete post Button'/></button>
     
 
-        <button className='newPost' onClick={()=>setShowModal(Modal.POST)} id={mode?'dark':'light'}><input type="image" src="images/addPost.png" style={{ height:"40px" ,width:"40px"}}/> </button>
-        
-        <button className='myContactInfo' onClick={()=>setShowModal(Modal.CONTACT)} id={mode?'dark':'light'}><input type="image" src="images/contacts.png" style={{ height:"40px" ,width:"40px"}}/> </button>
+        <button className='newPost' onClick={()=>setAddPostForm(!addPostForm)} id={mode?'dark':'light'}><input type="image" src="images/addPost.png" style={{ height:"40px" ,width:"40px"}} alt='post form window'/> </button>
+       
+        <button className='myContactInfo' onClick={()=>setContactInfo(!showContactInfo)} id={mode?'dark':'light'}><input type="image" src="images/contacts.png" style={{ height:"40px" ,width:"40px"}} alt='contact window'/> </button>
         
 
         
-        <form  className={showModal === Modal.POST?'showForm':'hideForm'} onSubmit={handleNewPost} id={mode?'dark':'light'}>
+        <form  className={addPostForm?'showForm':'hideForm'} onSubmit={handleNewPost} id={mode?'dark':'light'}>
      
          <h3>New Post</h3>
          <div className='formGrid' >
@@ -142,7 +149,7 @@ const Footer = (props:footerProps) => {
          <input type="submit" name="submitPost" value="post" />
         </form>
         
-          <ContactMe showModal={showModal} mode={mode}/>
+          <ContactMe  mode={mode} showContactInfo={showContactInfo}  />
         
       
        
