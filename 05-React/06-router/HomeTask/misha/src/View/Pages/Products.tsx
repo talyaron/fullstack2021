@@ -5,17 +5,17 @@ const Products = () => {
   return (
     <section className='pageContainer'>
       <section >
-        
+
         <div className='productsTitleContainer'>
-        <Link to='./casual' className='categoryTitle'>Casual</Link>
-        <Link to='./periodic' className='categoryTitle'>Periodic</Link>
+          <Link to='./casual' className='categoryTitle'>Casual</Link>
+          <Link to='./periodic' className='categoryTitle'>Periodic</Link>
+        </div>
+        <div className='cont'>
+          <Outlet />
         </div>
 
-        <div className='gridWrapper'>
-        <Outlet />
-        </div>
       </section>
-    
+
 
     </section>
   )
