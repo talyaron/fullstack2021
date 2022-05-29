@@ -45,7 +45,7 @@ const users: Array<UserProps> = [
     userId:uid(),
     lastName: "Rom",
     birthday: "November 4th 1999",
-    aboutMe:'Welcome to my blog! My journey in web development started after i finished my army service. I studied in sheCodes,then after half a year I started studying fullstack in INT. Enjoy scrolling through my projects :)',
+    aboutMe:'Welcome to my blog! My journey in web development started after i finished my army service. I studied in sheCodes, then after half a year I started studying fullstack in INT. Enjoy scrolling through my projects :)',
     profileImage:"https://cdn.britannica.com/51/188751-050-D4E1CFBC/Beyonce-2010.jpg",
     friends: [{ friendPic:'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Dwayne_Johnson_2014_%28cropped%29.jpg/640px-Dwayne_Johnson_2014_%28cropped%29.jpg',friendName: "patrick" }],
     posts: [

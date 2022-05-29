@@ -1,5 +1,5 @@
-import { useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+// import { useEffect } from "react";
+import { Link } from "react-router-dom";
 const Home = () => {
   // const navigete = useNavigate();
 
@@ -9,9 +9,8 @@ const Home = () => {
   //   }, 3000);
   // }, []);
   return (
-    <div>
-      <button>Home</button>
-      <Link to="/Home/About">About</Link>
+    <div className="Home">
+     efearegaergewrhrtht
     </div>
   );
 };
