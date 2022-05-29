@@ -39,17 +39,23 @@ const Footer = (props:footerProps) => {
 
   const {userPosts,setPosts,mode,setMode,trash,setTrash}=props
   function drop(ev:any){
-    ev.preventDefault();
-    const data=ev.dataTransfer.getData("Text");
+   
+    
+    
+      ev.preventDefault();
+      const data=ev.dataTransfer.getData("Text");
     const el:any= document.getElementById(data);
     el.parentNode.removeChild(el);
     console.log(data)
     console.log(el)
     
+    
+  
+    
   }
   function allowDrop(ev:any){
     ev.preventDefault();
-    
+  
   }
 
   const uid = function () {
@@ -103,14 +109,14 @@ const Footer = (props:footerProps) => {
   };
   
 
-  useEffect(()=>{
+  // useEffect(()=>{
     
-    setAddPostForm(false)
-  },[showContactInfo]);
+  //   setAddPostForm(false)
+  // },[showContactInfo]);
 
-  //  useEffect(()=>{
-  //     setContactInfo(false)
-  //   },[addPostForm]);
+   useEffect(()=>{
+      setContactInfo(false)
+    },[addPostForm]);
     
 
  
