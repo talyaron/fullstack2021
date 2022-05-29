@@ -1,0 +1,27 @@
+.green{
+  background-color: green;
+  color: white;
+}
+
+.red{
+  background-color: red;
+  color: white;
+}
+
+.layout{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.subpage{
+  flex:auto;
+}
+
+footer{
+  position: fixed;
+  bottom: 0px;
+  background-color: pink;
+  width: 100vw;
+  height: 30px;
+}

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import styled from "styled-components";
+import { createNoSubstitutionTemplateLiteral } from 'typescript';
 
 const BIRD_SIZE = 20;
 const GAME_WIDTH = 500;
@@ -9,6 +10,7 @@ const GRAVITY = 7;
 const JUMP_HEIGHT = 70;
 const OBSTACLE_WIDTH = 40;
 const OBSTACLE_GAP = 150;
+let GAMES_PLAYED = 0;
 
 interface BirdProps {
   size: number;
@@ -35,21 +37,42 @@ function App() {
   const [obstacleLeft, setObstacleLeft] = useState(GAME_WIDTH - OBSTACLE_WIDTH)
   const [score, setScore] = useState(0);
   const [record, setRecord] = useState(0);
-  const [tempScore,setTempScore] = useState(0);
+  const [tempScore, setTempScore] = useState(0);
 
   const bottomObstacleHeight = GAME_HEIGHT - OBSTACLE_GAP - obstacleHeight
 
+  useEffect(() => {
+
+    let audioSewers = new Audio('./mp3/Sewer.mp3');
+
+    if (GAMES_PLAYED<1) {
+
+      audioSewers.play();
+      audioSewers.volume = 0.5;
+      audioSewers.muted = false;
+
+    }
+
+  }, [gameHasStarted])
+
   document.onkeydown = checkKey;
 
-  function checkKey(e:any) {
-  
-      e = e || window.event;
-  
-      if (e.keyCode === '38') {
-          // up arrow
-          handleClick();
-      }
-  
+  function checkKey(e: any) {
+
+    e = e || window.event;
+    console.log(e.key)
+    //eslint-disable-next-line
+    if (e.key == 'ArrowUp') {
+      // up arrow
+
+      handleClick();
+
+      let index = Math.floor(Math.random() * 3) + 1;
+      let audioFly1 = new Audio(`./mp3/flyjump${index}.mp3`)
+      audioFly1.play();
+      audioFly1.volume = 0.5;
+    }
+
   }
 
 
@@ -102,15 +125,17 @@ function App() {
     const hasCollidedWithBottomObstacle = birdPosition <= 500 && birdPosition >= 500 - bottomObstacleHeight;
 
     if (obstacleLeft >= 0 && obstacleLeft <= OBSTACLE_WIDTH && (hasCollidedWithTopObstacle || hasCollidedWithBottomObstacle)) {
-      if(score>record){
+      if (score > record) {
         setRecord(score)
       }
       setTempScore(score)
       setGameHasStarted(false)
       setBirdPosition(250)
-      console.log(record)
-      console.log(tempScore)
       setScore(0)
+      let audioSquish = new Audio('./mp3/Squish.mp3');
+      audioSquish.play();
+      audioSquish.volume = 0.03;
+      GAMES_PLAYED = GAMES_PLAYED +1;
     }
   }, [birdPosition, obstacleHeight, bottomObstacleHeight, obstacleLeft])
 
@@ -139,8 +164,8 @@ function App() {
             width={OBSTACLE_WIDTH}
             height={obstacleHeight}
             left={obstacleLeft}
-            
-            >
+
+          >
             <div className='tube tubeup'>
             </div>
           </Obstacle>
@@ -149,8 +174,8 @@ function App() {
             width={OBSTACLE_WIDTH}
             height={bottomObstacleHeight}
             left={obstacleLeft}
-            
-            >
+
+          >
 
             <div className='tube'>
             </div>
@@ -160,15 +185,15 @@ function App() {
           <Bird size={BIRD_SIZE} top={birdPosition}>
             <img src="https://i.imgur.com/Fq4O4Un.png" alt="" className='flyPhoto' />
           </Bird>
-          {!gameHasStarted ?<div className='scoreBoard'>
+          {!gameHasStarted ? <div className='scoreBoard'>
             <h3>TAP TO START</h3>
             <h6>Your Score</h6>
             <div className='yourScore'>{tempScore}</div>
             <h6>Your Record</h6>
             <div className='yourRecord'>{record}</div>
-          </div>:<div></div>}
+          </div> : <div></div>}
         </GameBox>
-       
+
       </Div>
     </div>
   );
@@ -209,7 +234,7 @@ overflow: hidden;
 
 const Obstacle = styled.div`
 position: relative;
-background-img: green;
+// background-color: green;
 top:${(props: ObsticleProps) => props.top}px;
 width:${(props: ObsticleProps) => props.width}px;
 height:${(props: ObsticleProps) => props.height}px;
@@ -217,3 +242,7 @@ left:${(props: ObsticleProps) => props.left}px;
 `
 
 export default App;
+
+
+// 48 - wants three === but doesnt work
+// 200 divs

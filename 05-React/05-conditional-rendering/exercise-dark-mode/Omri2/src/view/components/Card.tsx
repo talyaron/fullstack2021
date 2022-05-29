@@ -1,18 +1,35 @@
-interface CardProps{
-    questions:Array<questions>
-    setQuestios:Function
+// import axios from 'axios';
+// import { useState, useEffect } from 'react';
+
+interface CardProps {
+  questions: Array<Question>
+  answers: Array<Answer>
 }
 
-interface questions {
-    question:string,
-    answers:Array<string>
+interface Question {
+  question: string
+  answers:Array<Answer>
 }
-const Card = (props:CardProps) => {
-    const { questions, setQuestios} = props;
+
+interface Answer {
+  answer: string,
+  correct: boolean
+}
+
+
+const Card = (props: CardProps) => {
+  const { questions, answers } = props;
+
   return (
-    <div>
-        {/* <button onClick={handleGetQuestions}>Start</button> */}
-    </div>
+    <>
+     {questions.map((question:any,i) => {
+       return(
+         <div   key ={i}>
+           <p>{question.question}</p>
+         </div>
+       )
+     })}
+    </>
   )
 }
 

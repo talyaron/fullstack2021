@@ -8,20 +8,14 @@ const ContactMe = (props: contactMeProps) => {
   const { showModal, mode } = props;
   return (
     <div
-      className="contactMe"
-      data-contactInfo={ showModal === Modal.CONTACT ? "showContactInfo" : "hideContactInfo"}
+      className={showModal === Modal.CONTACT?"contactMe showInfo":"contactMe hideInfo"}
       id={mode ? "dark" : "light"}>
       <h3>Contact Info</h3>
       <div className="contactMe__info">
-        <p className="contactMe__info--name">Name: Shani Rom</p>
-        <p className="contactMe__info--age">Age: 222</p>
-        <p className="contactMe__info--languages">
-          Languages:English and Hebrew{" "}
-        </p>
-        <p className="contactMe__info--education">
-          Education:I studied in sheCodes web development after finshing my army
-          service half a year after that I started studying fullstack in INT.
-        </p>
+      <p className="contactMe__info--number"><span>number:</span> 0123456</p>
+        <a href='https://github.com/ShaniRom?tab=repositories' target="_blank" className="contactMe__info--git">git repository</a>
+        <p className="contactMe__info--email"><span>email:</span> shanaynayrom@gmail.com</p>        
+        <a href='' className="contactMe__info--linkdin"  target="_blank"> linkdin </a>
       </div>
     </div>
   );

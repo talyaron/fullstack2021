@@ -1,19 +1,25 @@
-import React, { useState,useEffect } from "react";
-import useSound from 'use-sound';
+import React, { useState, useEffect } from "react";
+import useSound from "use-sound";
 import Friends from "./Friends";
+import { TopicModel } from "../../App";
 import Posts from "./Posts";
 import { Switch } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import FormControlLabel from "@mui/material/FormControlLabel";
+import Button from "@mui/material/Button";
 
 interface UserProps {
   userPosts: Array<any>;
-  setPosts:Function;
+  setPosts: Function;
   mode: boolean;
   setMode: Function;
-  filterdPosts:Array<any>;
-   setFilterdPost:Function;
- 
+  filterdPosts: Array<any>;
+  setFilterdPost: Function;
+  trash: boolean;
+  setTrash: Function;
+  party: boolean;
+  setParty: Function;
+
   user: {
     name?: string;
     lastName?: string;
@@ -30,13 +36,14 @@ interface friend {
   friendName: string;
 }
 interface post {
-  topic:"all"| "web development" | "mongo+nodeJS" | "nodeJS" | "react";
+  topic: TopicModel;
   link: string;
   imgUrl: string;
   description: string;
   datePosted?: number;
-  postId?:any,
+  postId?: any;
 }
+
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 62,
   height: 34,
@@ -85,30 +92,61 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   },
 }));
 
-
-
 const UserPage = (props: UserProps) => {
-  const lightSwitch='audio/lightSwitch.mp3'
-  const [playSwitchSound,setPlay]=useState(0.75);
-  const[playLightSwitch]=useSound(lightSwitch,{
+  const lightSwitch = "audio/lightSwitch.mp3";
+  const [playSwitchSound, setPlay] = useState(0.75);
+  const [playLightSwitch] = useSound(lightSwitch, {
     playSwitchSound,
     volume: 0.5,
   });
- 
- 
-  const { user, userPosts, mode, setMode,setPosts,filterdPosts,setFilterdPost } = props;
+
+  const {
+    user,
+    userPosts,
+    mode,
+    setMode,
+    setPosts,
+    filterdPosts,
+    setFilterdPost,
+    trash,
+    setTrash,
+    party,
+    setParty,
+  } = props;
   useEffect(() => {
     playLightSwitch();
   }, [mode]);
 
+  useEffect(() => {
+    playLightSwitch();
+  }, [party]);
+
+
+
+  // const discoMusic = "audio/september.mp3";
+  // const [playDiscoMusic, setPlayDisco] = useState(0.75);
+  // const [playMusic] = useSound(discoMusic, {
+  //   playDiscoMusic,
+  //   volume: 0.5,
+  // });
+  // setTimeout(() => {
+    
+  //  }, 5000);
+  // useEffect(() => {
+  //   playMusic()
+  
+  // }, [party]);
+
+
   const today = new Date().toDateString();
 
-  
   return (
     <div className="User">
       <div className="aboutUser">
         <img src={user.profileImage} />
+
         <div className="aboutUser__info">
+          <div>About me:</div>
           <p className="aboutUser__info--name">
             {user.name} {user.lastName}
           </p>
@@ -118,24 +156,38 @@ const UserPage = (props: UserProps) => {
         <div className="other">
           <div id="todaysDate">{today}</div>
           <div className="lightDark">
-            <span className='lightDark--dark'>dark</span>
+            <span className="lightDark--dark">dark</span>
             <FormControlLabel
               control={<MaterialUISwitch sx={{ m: 1 }} defaultChecked />}
               label=""
               className="lightDark__button"
               onClick={() => setMode(!mode)}
             />
-           
-            <span className='lightDark--light'>light</span>
+
+            <span className="lightDark--light">light</span>
           </div>
-          <button onClick={() => setMode(!mode)   }>party mode</button>
+
+          <Button
+            className="partyMode"
+            variant="contained"
+            href="#contained-buttons"
+            onClick={() => setParty(!party)}>
+            party mode
+          </Button>
         </div>
       </div>
       {/* <Friends friends={user.friends}/> */}
 
-      <Posts posts={user.posts} userPosts={userPosts} mode={mode} setPosts={setPosts} filterdPosts={filterdPosts}  setFilterdPost={setFilterdPost}/>
-
-      {/* for post i will need state and counter. upate post is form. state is used to update stuff */}
+      <Posts
+        trash={trash}
+        setTrash={setTrash}
+        posts={user.posts}
+        userPosts={userPosts}
+        mode={mode}
+        setPosts={setPosts}
+        filterdPosts={filterdPosts}
+        setFilterdPost={setFilterdPost}
+      />
     </div>
   );
 };
