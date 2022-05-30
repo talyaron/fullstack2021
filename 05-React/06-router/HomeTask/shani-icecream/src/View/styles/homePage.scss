@@ -1,0 +1,31 @@
+.homePage{
+    text-align:center;
+    &__flavors{
+        display:flex;
+        flex-direction: row;
+        justify-content: space-around;
+        &--chocolate{
+            font-size:30px;
+            text-decoration: none;
+            font-weight: bold;
+            color:brown;
+            cursor:pointer;
+            &:hover{
+                transform: scale(2);
+            }
+        }
+        &--vanilla{
+            font-size:30px;
+            text-decoration: none;
+            font-weight: bold;
+            color: black;
+            -webkit-text-fill-color: white; 
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: black;
+            cursor:pointer;
+            &:hover{
+                transform: scale(2);
+            }
+        }
+    }
+}

@@ -1,10 +1,21 @@
 .layout{
     &--header{
-        //position: absolute;
-        top:0;
-        height:50px;
+       
+        top:0px;
+        height:100px;
         width:100%;
         background-color: lightcoral;
+        text-align: center;
+        &--links{
+            display:flex;
+            flex-direction: row;
+            justify-content: space-around;
+             font-weight:bold;
+               
+
+          
+          
+        }
     }
     &--footer{
         position: absolute;

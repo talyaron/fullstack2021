@@ -1,13 +1,16 @@
 import React from 'react'
 import {Link} from "react-router-dom"
-import Chocolate from './Chocolate'
+
 
 const HomePage = () => {
   return (
-    <div>
+    <div className='homePage'>
       <h1>HomePage</h1>
-   <Link to='/home/chocolate'>Chocolate</Link>
-   <Link to=''>Vanilla</Link>
+      <div className='homePage__flavors'>
+      <Link to='/home/chocolate' className='homePage__flavors--chocolate'>Chocolate</Link>
+       <Link to='/home/vanilla' className='homePage__flavors--vanilla'>Vanilla</Link>
+      </div>
+  
     </div>
   )
 }
