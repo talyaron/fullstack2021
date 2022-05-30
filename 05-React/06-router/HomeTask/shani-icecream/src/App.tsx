@@ -14,8 +14,8 @@ import SprinklesVanilla from "./View/Components/SprinklesVanilla";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
+    <BrowserRouter >
+      <Routes >
         <Route path="/" element={<LoadingPage />}> </Route>
         <Route path="/home" element={<Layout/>}>
           <Route index element={<HomePage/>}></Route>
