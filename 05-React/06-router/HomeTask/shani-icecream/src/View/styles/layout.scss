@@ -2,8 +2,9 @@
     background-image:url('https://img.freepik.com/free-vector/memphis-seamless-pattern_25819-137.jpg?w=2000') ;
     height:100vh;
     &--header{
-       
-        top:0px;
+        
+  
+        margin-top:-20px;
         height:100px;
         width:100%;
         background-color: rgb(255, 168, 168);
@@ -20,8 +21,8 @@
         }
     }
     &--footer{
-        position: absolute;
-        bottom:0;
+        position: fixed;
+        bottom: 0px;
         height:20px;
         width:100%;
         background-color: lightcoral;
