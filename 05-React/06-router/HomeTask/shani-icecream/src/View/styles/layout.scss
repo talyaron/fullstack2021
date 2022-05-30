@@ -1,0 +1,16 @@
+.layout{
+    &--header{
+        //position: absolute;
+        top:0;
+        height:50px;
+        width:100%;
+        background-color: lightcoral;
+    }
+    &--footer{
+        position: absolute;
+        bottom:0;
+        height:20px;
+        width:100%;
+        background-color: lightcoral;
+    }
+}
