@@ -61,13 +61,9 @@ function App() {
 
   return (
     <div className="App">
-      <div className="App__header">
         <Header />
-        <Score />
-      </div>
-      <div className="App_cards">
-        <Card questions={questions} answers={answers} setScore={setScore} />
-      </div>
+        <Score questions={questions} score={score}  />
+        <Card questions={questions} answers={answers} setScore={setScore} score={score} />
     </div>
   );
 }

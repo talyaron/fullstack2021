@@ -9,6 +9,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Layout from "./Layout";
 import Login from "./pages/Login";
+import AboutStudent from './pages/AboutStudent'
 
 function App() {
   return (
@@ -18,7 +19,9 @@ function App() {
         <Route path="/" element={<Login />}></Route>
         <Route path="/home" element={<Layout />}>
           <Route index element={<Home />}></Route>
-          <Route path="about" element={<About />}></Route>
+          <Route path="about" element={<About />}>
+            <Route path=':userId' element={<AboutStudent />}/>
+          </Route>
         </Route>
       </Routes>
     </BrowserRouter>
