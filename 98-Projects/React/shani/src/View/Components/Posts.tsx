@@ -1,4 +1,7 @@
 import {TopicModel} from '../../App';
+import useSound from 'use-sound';
+import {useState} from 'react';
+
 
 interface postProps {
   posts: Array<post>;
@@ -25,13 +28,18 @@ interface post {
 
 const Posts = (props: postProps) => {
   const { userPosts, mode, setPosts, filterdPosts, setFilterdPost,trash,setTrash } = props;
-
+  const deletePost='audio/deletePost.mp3';
+  const[playDeleteSound,setPlayDelete]=useState(0.6);
+  const [playDeletePost]=useSound(deletePost,{
+    playDeleteSound,
+    volume: 0.9,
+  });
   function drag(ev:any){
     ev.dataTransfer.setData("Text",ev.target.id);
     console.log(ev.target.id)
     setTrash(!trash)
     
-
+    playDeletePost()
     setTimeout(() => {
       setTrash(trash);
     }, 1000)
