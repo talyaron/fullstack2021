@@ -1,21 +1,24 @@
-import React from 'react'
+interface ScoreProps {
+    score:number,
+    questions: Array<questions>
+}
 
-const Score = () => {
+interface questions {
+    question: string
+    answers: Array<Answer>
+  }
+
+  interface Answer {
+    answer: string,
+    correct: boolean
+  }
+
+const Score = (props:ScoreProps) => {
+    const { score, questions } = props;
+    const maxScore = questions.length;
   return (
-    <div>Score</div>
+    <div className="App_score"> Your score: {score} / {maxScore}</div>
   )
 }
 
 export default Score
-
-// try {
-//     let score = 0;
-//     if(answer){
-//       if(answer.correct === true){
-//         score++;
-//       }
-      
-//     }
-//   } catch (error) {
-//     console.error(error);
-//   }

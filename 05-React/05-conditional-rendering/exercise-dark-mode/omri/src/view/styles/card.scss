@@ -1,8 +1,25 @@
 .App_cards{
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto;
-    height: 80vh;
+    height: 100%;
     width: 100%;
+    
+
+    &_card{
+        text-align: left;
+        margin-left: 2%;
+        margin-top: 3%;
+        padding: 3%;
+        border: 2px solid wheat;
+        border-radius: 12px;
+
+        &-answers{
+            text-align: left;
+            margin-top: 2%;
+            margin-left: 2%;
+            cursor: pointer;
+        }
+    }
 
 }
