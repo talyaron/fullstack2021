@@ -1,7 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 const app = express()
-const port = process.env.PORT || 4001;
+const port = process.env.PORT || 3000;
 require('dotenv').config()
 
 const mongodb_uri = process.env.MONGODB_URI
@@ -14,13 +14,12 @@ mongoose.connect(
     console.error(err.message)
   });
 
-  app.use(express.json());
-  app.use(express.static('client/build'));
+  app.use(express.json())
+  app.use(express.static('client/build'))
   
 
-app.get('/api/text', (req, res) => {
-  console.log('api/text')
-  res.send({text:'Hello World!'})
+app.get('/api', (req, res) => {
+  res.send({text: 'Hello World!'})
 })
 
 app.listen(port, () => {

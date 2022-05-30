@@ -1,18 +1,17 @@
-import React, { useEffect } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import axios from 'axios'
+import React from "react";
+import logo from "./logo.svg";
+import { useEffect } from "react";
+import "./App.css";
+import axios from "axios";
 
 function App() {
-
-  useEffect(()=>{
+  useEffect(() => {
     (async () => {
-      const { data } = await axios.get('/getIceCreams')
+      const {data} = await axios.get('/api/text')
       console.log(data);
       
     })();
-
-  })
+  }, []);
   return (
     <div className="App">
       <header className="App-header">

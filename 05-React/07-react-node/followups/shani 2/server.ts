@@ -6,6 +6,13 @@ require('dotenv').config()
 
 const mongodb_uri = process.env.MONGODB_URI
 
+const IceCreamSchema= new mongoose.Schema({
+  flavourType:String,
+  name:String,
+  img:String,
+
+})
+const IceCream = mongoose.model("flavors", IceCreamSchema);
 mongoose.connect(
     mongodb_uri
   ).then(res=>{
@@ -22,8 +29,16 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
-app.get('/api/text',(req,res)=>{
-  res.send('hello shani')
+app.get('/getIceCreams',async (req,res)=>{
+  try {
+    const flavors= await IceCream.find({})
+    res.send({flavors,ok:true})
+  
+  } catch (error) {
+    console.log(error.error);
+    res.send({ error: error.message });
+  }
+ 
 })
 
 app.listen(port, () => {
