@@ -7,7 +7,7 @@ function App() {
 
   useEffect(()=>{
     (async () => {
-      const { data } = await axios.get('/api/text')
+      const { data } = await axios.get('/getIceCreams')
       console.log(data);
       
     })();
