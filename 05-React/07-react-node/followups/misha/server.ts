@@ -18,8 +18,8 @@ mongoose.connect(
   app.use(express.static('client/build'))
   
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
+app.get('/api', (req, res) => {
+  res.send({text: 'Hello World!'})
 })
 
 app.listen(port, () => {
