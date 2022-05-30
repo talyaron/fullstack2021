@@ -1,4 +1,7 @@
-import React, { useEffect, useState } from "react";
+import {TopicModel} from '../../App';
+import useSound from 'use-sound';
+import {useState} from 'react';
+
 
 interface postProps {
   posts: Array<post>;
@@ -13,33 +16,30 @@ interface postProps {
 
 interface post {
   postId?: any;
-  topic:topicModel;
+  topic:TopicModel;
   link?: string;
   imgUrl?: string;
   description: string;
   datePosted?: number;
 }
-export enum topicModel{
-  ALL = 'all',
-  WEB = 'web development',
-  MONODE = 'mongo+nodeJS',
-  NODE = 'nodeJS',
-  REACT = 'react',
- 
-}
+
 
 
 
 const Posts = (props: postProps) => {
   const { userPosts, mode, setPosts, filterdPosts, setFilterdPost,trash,setTrash } = props;
-
+  const deletePost='audio/deletePost.mp3';
+  const[playDeleteSound,setPlayDelete]=useState(0.6);
+  const [playDeletePost]=useSound(deletePost,{
+    playDeleteSound,
+    volume: 0.9,
+  });
   function drag(ev:any){
     ev.dataTransfer.setData("Text",ev.target.id);
     console.log(ev.target.id)
     setTrash(!trash)
-    // const openTrash:any=document.querySelector('.deletePost__img')
-    // openTrash.src='./images/deleteOpen.png'
-
+    
+    playDeletePost()
     setTimeout(() => {
       setTrash(trash);
     }, 1000)
@@ -50,7 +50,7 @@ const Posts = (props: postProps) => {
   function handleFilterTopic(ev: any) {
     const theTopic = ev.target.value;
     if (theTopic === "all") {
-      setFilterdPost(userPosts);
+      setFilterdPost([...userPosts]);
       console.log(userPosts);
     } else {
       const filteredTopic = userPosts.filter(

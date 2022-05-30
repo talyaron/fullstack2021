@@ -1,17 +1,16 @@
-import { useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+// import { useEffect } from "react";
+import { Link } from "react-router-dom";
 const Home = () => {
-  const navigete = useNavigate();
+  // const navigete = useNavigate();
 
-  useEffect(() => {
-    setTimeout(() => {
-      navigete("/About");
-    }, 3000);
-  }, []);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     navigete("/About");
+  //   }, 3000);
+  // }, []);
   return (
-    <div>
-      <button>Home</button>
-      <Link to="/About">About</Link>
+    <div className="Home">
+     efearegaergewrhrtht
     </div>
   );
 };
