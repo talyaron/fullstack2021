@@ -1,0 +1,142 @@
+.header-container {
+  display: flex;
+  gap: 50px;
+}
+
+.marketing {
+  display: flex;
+  position: relative;
+  color: white;
+
+  .links {
+    display: flex;
+    flex-direction: column;
+    margin-left: 185px;
+    margin-top: 10px;
+  }
+
+
+  .left-marketing {
+    position: absolute;
+    height: 100vh;
+    top: 71px;
+
+    .director {
+
+      h1,
+      h4 {
+        margin-left: 30px
+      }
+
+      img {
+        width: 300px;
+        margin-left: 30px
+      }
+    }
+  }
+
+  .right-marketing {
+    position: absolute;
+    left: 280px;
+    top: 49px;
+    height: 100vh;
+    width: 100%;
+    color: #fff;
+
+    .jardiance {
+      background: #008c7d;
+      position: relative;
+      height: 100vh;
+
+      h1 {
+        position: relative;
+        top: 20px;
+        left: 100px;
+      }
+
+      .jardiance-content {
+        position: relative;
+        display: flex;
+        gap: 150px;
+        top: 70px;
+        left: 100px;
+
+        .teamLeaderCard{
+          left: 300px;
+        }
+
+        .productManagerCard, .teamLeaderCard {
+          display: flex;
+          flex-direction: column;
+          position: absolute;
+          gap: 7px;
+          
+
+          img {
+            width: 105px;
+            height: 150px;
+            border-radius: 5px;
+          }
+
+          h1{
+            margin-right: 1000px;
+          }
+
+          .buttonCard {
+            display: flex;
+            gap: 10px;
+
+            button{
+              background: #0d4fb3;
+            }
+
+            form input {
+              background: #2b7cf2;
+            }
+
+            button,
+            form input {
+              display: block;
+              height: 30px;
+              width: 30px;
+              border-radius: 50%;
+              text-align: center;
+              border: none;
+              box-shadow: 10px 18px 15px rgba(0, 0, 0, 0.1);
+              transition: all 0.3s ease 0s;
+              color: #fff;
+              cursor: pointer;
+
+
+              &:hover {
+                box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+                color: #fff;
+                transform: translateY(-7px);
+              }
+
+            }
+          }
+        }
+      }
+    }
+
+    .position-content{
+      width: 200px;
+      text-align: justify;
+    }
+
+    .ofev {
+      background: rgb(21, 7, 115);
+      height: 100vh;
+    }
+
+  }
+
+}
+
+.footer {
+  position: fixed;
+  bottom: 15px;
+  left: 30px;
+  color: white;
+}
