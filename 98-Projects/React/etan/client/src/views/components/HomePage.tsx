@@ -68,7 +68,7 @@ interface FeedProps {
   darkTheme: any;
   usersPersonalInfo: any;
   loggedIn: boolean;
-  userId: string;
+  userId: any;
 }
 interface NewPostFormProps {
   theme: any;
@@ -154,10 +154,10 @@ function HomePage(props: HomePageProps) {
       </Routes> */}
       <motion.div
         style={appStyling}
-        initial={{ opacity:0 }}
-        animate={{ opacity:1 }}
-        transition={{ duration:.8}}
-        className="App"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        className="wrapper"
       >
         <CssBaseline />
         {/* <p>{theme ? "light" : "dark"}</p> */}
@@ -170,31 +170,23 @@ function HomePage(props: HomePageProps) {
           lightTheme={lightTheme}
           darkTheme={darkTheme}
         /> */}
-        <p>
+        {/* <p>
           {loggedIn
             ? `hello ${usersPersonalInfo.firstName} ${usersPersonalInfo.lastName},
             this is your feed:`
             : "‎"}
-        </p>
+        </p> */}
         <div className="wrapper_home">
-          {loggedIn ? (
-            <Feed
-              userId={userId}
-              loggedIn={loggedIn}
-              usersPersonalInfo={usersPersonalInfo}
-              setPostsList={setPostsList}
-              postsList={postsList}
-              theme={theme}
-              lightTheme={lightTheme}
-              darkTheme={darkTheme}
-            />
-          ) : (
-            <FeedSk
-              theme={theme}
-              lightTheme={lightTheme}
-              darkTheme={darkTheme}
-            />
-          )}
+          <Feed
+            userId={userId}
+            loggedIn={loggedIn}
+            usersPersonalInfo={usersPersonalInfo}
+            setPostsList={setPostsList}
+            postsList={postsList}
+            theme={theme}
+            lightTheme={lightTheme}
+            darkTheme={darkTheme}
+          />
         </div>
       </motion.div>
     </div>

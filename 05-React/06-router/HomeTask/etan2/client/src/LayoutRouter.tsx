@@ -22,11 +22,11 @@ function LayoutRouter(props: LayoutRouterProps) {
 
   return (
     <div className="layout__router">
-      <ul className="layouts__router_menu">
+      <ul className="layout__router_menu">
         {iceCreamShopLayouts.map((layout, i) => {
           return (
             <li key={i}>
-              <Link key={i} to={`${layout.name}`}>
+              <Link to={`${layout.name}`}>
                 {layout.name}
               </Link>
             </li>
