@@ -1,7 +1,17 @@
 .App {
   text-align: center;
+  align-items: center;
 }
 
+.leyout{
+  text-align: center;
+}
+.Home{
+  text-align: center;
+}
+.h2{
+color: red;
+}
 
 
 .App-header {

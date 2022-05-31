@@ -1,9 +1,7 @@
+import { Link } from "react-router-dom";
 
 const Login = () => {
-  return (
-    <div>Login</div>
-    
-  )
-}
+  return <button ><Link to="/Home">login</Link></button>;
+};
 
-export default Login
+export default Login;

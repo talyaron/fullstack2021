@@ -1,6 +1,7 @@
 // import { useEffect } from "react";
 import { Link } from "react-router-dom";
-const Home = () => {
+import { Outlet } from "react-router-dom";
+const Chocolate = () => {
   // const navigete = useNavigate();
 
   // useEffect(() => {
@@ -9,10 +10,11 @@ const Home = () => {
   //   }, 3000);
   // }, []);
   return (
-    <div className="Home">
-     efearegaergewrhrtht
+    <div>
+      <h2 className="h2">chocolat</h2>
+      <Outlet />
     </div>
   );
 };
 
-export default Home;
+export default Chocolate;
