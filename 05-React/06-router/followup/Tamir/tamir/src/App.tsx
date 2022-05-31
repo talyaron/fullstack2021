@@ -1,5 +1,5 @@
 
-import "./App.css";
+import "./Style/Global.scss";
 import Milk from "./pages/Milk/Milk";
 import Login from "./pages/Login";
 import Leyout from "./pages/Leyout";
