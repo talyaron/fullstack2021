@@ -1,7 +1,9 @@
 //basic workflow imports:
 import { useEffect } from "react";
+import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 //styling imports:
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 //mui ->
 import {
   Button,
@@ -51,6 +53,7 @@ interface PostsProps {
 }
 
 function Post(props: PostsProps) {
+  const navigate = useNavigate();
   const { setPostsList, post, theme, lightTheme, darkTheme } = props;
   const Initials =
     post.ownerFirstName.charAt(0).toUpperCase() +
@@ -61,16 +64,25 @@ function Post(props: PostsProps) {
   } else {
     var { primary, secondary, background } = darkTheme.palette;
   }
+
+  function handleOpenPostOwnersProfile(ev: any) {
+    // navigate(`/HomePage/Profile/${userId}`);
+    console.log(ev.target);
+    
+  }
+
   useEffect(() => {
     console.log("posts loaded");
   }, []);
-
+  function handleDeletePost(ev: any) {
+    console.log(post, "post");
+  }
   return (
     <Card
-    raised
+      raised
       style={{
         color: primary.contrastText,
-        backgroundColor: secondary.main,
+        backgroundColor: background.default,
         textAlign: "left",
         // width: 680,
         // maxWidth: 680,
@@ -84,7 +96,7 @@ function Post(props: PostsProps) {
         color={primary.contrastText}
         style={{ textAlign: "left" }}
         avatar={
-          <Avatar
+          <Avatar onClick={handleOpenPostOwnersProfile}
             sx={{
               color: theme ? primary.contrastText : primary.main,
               bgcolor: theme ? primary.dark : secondary.main,
@@ -93,11 +105,21 @@ function Post(props: PostsProps) {
             {Initials}
           </Avatar>
         }
-        title={` ${post.ownerFirstName} ${post.ownerLastName}`}
-        subheader={
-          <Typography color={theme ? "primary" : "secondary"}>
-            {post.time}
-          </Typography>
+        title={
+          <Link to={`/HomePage/Profile/${post.ownerId}`} onClick={handleOpenPostOwnersProfile}>
+            `{post.ownerFirstName} {post.ownerLastName}`
+          </Link>
+        }
+        subheader={<Typography color="primary">{post.time}</Typography>}
+        action={
+          <Button
+            color="primary"
+            onClick={(ev: any) => {
+              handleDeletePost(ev);
+            }}
+          >
+            <FontAwesomeIcon size="xs" icon={["fas", "trash"]} />
+          </Button>
         }
       ></CardHeader>
       <CardContent>{post.content}</CardContent>

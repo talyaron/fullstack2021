@@ -214,7 +214,7 @@ const TwoTextFieldsGroup = styled(FormGroup)({
 <Typography style={{fontSize:"62.5%"}} variant="subtitle1">By clicking Sign Up, you agree to our Terms, Data Policy and Cookie Policy. You may receive SMS notifications from us and can opt out at any time.</Typography>
       <Button
         type="submit"
-        color={theme ? "success" : "secondary"}
+        color= "success"
         variant="contained"
         style={{width:"fit-content"}}
 
