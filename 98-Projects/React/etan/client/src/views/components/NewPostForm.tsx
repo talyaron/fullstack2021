@@ -98,8 +98,8 @@ function NewPostForm(props: NewPostFormProps) {
     <Card
     // color='secondary'
       style={{
-        color: theme ? primary.contrastText : primary.contrastText,
-        backgroundColor: theme? background.default: background.default,
+        color:  primary.contrastText,
+        backgroundColor: background.default,
         textAlign: "center",
         padding: "1em",
         minWidth: '640px',
@@ -110,8 +110,8 @@ function NewPostForm(props: NewPostFormProps) {
       <form onSubmit={(ev) => handleNewPost(ev)} className="wrapper_post-form">
         <Avatar
           sx={{
-            color: theme ? primary.contrastText : primary.main,
-            bgcolor: theme ? primary.main : secondary.main,
+            color:  primary.main,
+            bgcolor:  secondary.main,
           }}
         >
           {Initials}
@@ -133,7 +133,7 @@ function NewPostForm(props: NewPostFormProps) {
           }}
         />
 
-        <Button color={theme ? 'primary': 'secondary'} type="submit">
+        <Button color= 'primary' type="submit">
           <Send />
         </Button>
       </form>

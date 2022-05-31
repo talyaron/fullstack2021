@@ -4,20 +4,14 @@ const secret = process.env.JWT_SECRET;
 
 export const addUser = async (req, res) => {
   try {
-    let {
-      firstName,
-      lastName,
-      email,
-      password,
-      gender,
-      birthDate,
-    } = req.body;
+    let { firstName, lastName, email, password, gender, birthDate } = req.body;
     if (!firstName || !lastName)
       throw new Error("something missing on addUser - server side");
-    
-    const anEmail = await User
-      .findOne({ email: email })
-      .collation({ locale: "en_US", strength: 1 });
+
+    const anEmail = await User.findOne({ email: email }).collation({
+      locale: "en_US",
+      strength: 1,
+    });
     if (anEmail) {
       let registerData = {
         message: `${anEmail.email} is already registered under ${anEmail.username}`,
@@ -25,10 +19,8 @@ export const addUser = async (req, res) => {
       res.send({ registerData });
       return;
     }
-   
 
-
-    if ( !anEmail) {
+    if (!anEmail) {
       const newUser = new User({
         firstName,
         lastName,
@@ -64,11 +56,11 @@ export const loginUser = async (req, res) => {
 
     // }else{
 
-    const emailLookup = await User
-      .findOne({ email: username })
-      .collation({ locale: "en_US", strength: 2 });
+    const emailLookup = await User.findOne({ email: username }).collation({
+      locale: "en_US",
+      strength: 2,
+    });
     if (!emailLookup) {
-      
       let loginData = {
         message: `found no user in emailLookup, loginUser -server side (userCont)`,
       };
@@ -90,7 +82,7 @@ export const loginUser = async (req, res) => {
           lastName: verified.lastName,
           ok: true,
         };
-        
+
         const result = verified;
         let loginData = {
           result: result,
@@ -98,8 +90,6 @@ export const loginUser = async (req, res) => {
           message:
             "welcome back, get out of this modal and wander around your recent posts",
         };
-
-
 
         const payload = { loginData };
         const encryptedInfo = jwt.encode(payload, secret);
@@ -110,5 +100,25 @@ export const loginUser = async (req, res) => {
     }
   } catch (error) {
     console.log(error);
+  }
+};
+export const searchUsers = async (req, res) => {
+  try {
+    const { searchTerm } = req.body;
+    const userSearchList = await User.find(
+      { firstName: searchTerm } || { lastName: searchTerm } || {
+          email: searchTerm,
+        }
+    ).collation({
+      locale: "en_US",
+      strength: 1,
+    });
+    const userSearchListIds = userSearchList.map((user) => {
+      return user;
+    });
+    res.send(userSearchListIds);
+  } catch (error) {
+    console.log(error.message);
+    res.send({ error: error.message });
   }
 };

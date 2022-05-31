@@ -13,10 +13,11 @@ interface LayoutProps {
     lightTheme:any;
     darkTheme:any;
     userId:any;
+    setProfileId: Function;
 }
 
 function Layout(props: LayoutProps) {
-    const {theme, lightTheme, darkTheme, loggedIn, setTheme, usersPersonalInfo, userId} = props
+    const {theme, lightTheme, darkTheme, loggedIn, setTheme, usersPersonalInfo, userId, setProfileId} = props
     // if (theme) {
     //     var { primary, secondary, background } = lightTheme.palette;
     //   } else {
@@ -27,6 +28,7 @@ function Layout(props: LayoutProps) {
     <ThemeProvider theme={theme ? lightTheme : darkTheme}>
         <CssBaseline />
         <NavBar
+        setProfileId={setProfileId}
         loggedIn={loggedIn}
           usersPersonalInfo={usersPersonalInfo}
           setTheme={setTheme}

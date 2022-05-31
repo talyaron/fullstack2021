@@ -30,13 +30,24 @@
   &_profile {
     &-self {
       // &* {
-        position: relative;
-        top: 40px;
+        position: fixed;
+        width: 100vw;
+        min-height: 100vh;
+        top: 60px;
         display: flex;
-        background-color: red;
         flex-direction: row;
         place-items: center;
-        place-content: center;
+        place-content: space-between;
+        &-left{
+          position: relative;
+          height: 100vh;
+          max-width: 100%;
+          place-items: center;
+          place-content: space-between;
+          display: flex;
+          flex-direction: column;
+          
+        }
       // }
     }
   }

@@ -68,7 +68,7 @@ function LoginModal(props: LoginModalProps) {
     <div
 
     >
-      <Button color={theme ? "primary" : "secondary"} onClick={handleOpen}>
+      <Button color="primary" onClick={handleOpen}>
         Login!
       </Button>
       <Modal open={open} onClose={handleClose}>

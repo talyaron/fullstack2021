@@ -3,7 +3,7 @@ import { useState, useLayoutEffect, useEffect } from "react";
 
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-
+import axios from "axios";
 //styling imports:
 //mui ->
 import {
@@ -112,6 +112,7 @@ interface NavBarProps {
   darkTheme: any;
   usersPersonalInfo: any;
   userId: any;
+  setProfileId: Function;
 }
 
 function useWindowSize() {
@@ -136,6 +137,7 @@ function NavBar(props: NavBarProps) {
     usersPersonalInfo,
     loggedIn,
     userId,
+    setProfileId
   } = props;
 
   const [registered, setRegistered] = useState(false);
@@ -153,6 +155,8 @@ function NavBar(props: NavBarProps) {
   const [width, height] = useWindowSize();
   const [mounted, setMounted] = useState(false);
   const [nav, setNav] = useState(false);
+  const [postResults, setPostResults] = useState<Array<string>>([]);
+  const [userResults, setUserResults] = useState<Array<string>>([]);
 
   const { firstName, lastName } = usersPersonalInfo;
   const Initials =
@@ -161,6 +165,28 @@ function NavBar(props: NavBarProps) {
 
   function navigateHome() {
     navigate("/HomePage");
+  }
+
+  async function handleSearchResult(ev: any) {
+    try {
+      const searchTerm = ev.target.value;
+      if (!searchTerm)
+        throw new Error(`no search term in handle search result -search.tsx`);
+      if (searchTerm) {
+        //search for users
+        const { data } = await axios.post("/users/search-users", {
+          searchTerm,
+        });
+        setUserResults(data);
+
+        //search for posts
+        axios.post("/posts/search-posts", { searchTerm }).then((res) => {
+          setPostResults(res.data);
+        });
+      }
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   function displayWindowSize() {
@@ -242,17 +268,15 @@ function NavBar(props: NavBarProps) {
   const hasWindow = typeof window !== "undefined";
 
   useEffect(() => {
-    mounted? setSearchToggle(false):setSearchToggle(true)
+    mounted ? setSearchToggle(false) : setSearchToggle(true);
   }, [mounted]);
 
   useEffect(() => {
     console.log(hasWindow, "hasloaded");
     console.log(usersPersonalInfo, "UsersPersonalInfo");
   }, []);
-  
+
   return (
-
-
     <AppBar className="NavBar" position="fixed" color="secondary">
       <Toolbar style={ToolbarStyling} disableGutters>
         <div className="NavBar_left">
@@ -273,12 +297,16 @@ function NavBar(props: NavBarProps) {
             height={height}
             searchTerm={searchTerm}
             setSearchTerm={setSearchTerm}
+            handleSearchResult={handleSearchResult}
           />
           <SearchMenu
+            userResults={userResults}
+            postResults={postResults}
             searchMenuToggle={searchMenuToggle}
             width={width}
             height={height}
             searchTerm={searchTerm}
+            setProfileId={setProfileId}
           />
         </div>
         {/* <Logo fill={background.default} stroke={background.default} /> */}

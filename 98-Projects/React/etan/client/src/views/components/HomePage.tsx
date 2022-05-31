@@ -68,7 +68,7 @@ interface FeedProps {
   darkTheme: any;
   usersPersonalInfo: any;
   loggedIn: boolean;
-  userId: string;
+  userId: any;
 }
 interface NewPostFormProps {
   theme: any;
@@ -141,7 +141,6 @@ function HomePage(props: HomePageProps) {
     console.log(postsList);
   });
 
-
   const appStyling = {
     background: background.default,
     color: primary.contrastText,
@@ -178,24 +177,16 @@ function HomePage(props: HomePageProps) {
             : "‎"}
         </p> */}
         <div className="wrapper_home">
-          {loggedIn ? (
-            <Feed
-              userId={userId}
-              loggedIn={loggedIn}
-              usersPersonalInfo={usersPersonalInfo}
-              setPostsList={setPostsList}
-              postsList={postsList}
-              theme={theme}
-              lightTheme={lightTheme}
-              darkTheme={darkTheme}
-            />
-          ) : (
-            <FeedSk
-              theme={theme}
-              lightTheme={lightTheme}
-              darkTheme={darkTheme}
-            />
-          )}
+          <Feed
+            userId={userId}
+            loggedIn={loggedIn}
+            usersPersonalInfo={usersPersonalInfo}
+            setPostsList={setPostsList}
+            postsList={postsList}
+            theme={theme}
+            lightTheme={lightTheme}
+            darkTheme={darkTheme}
+          />
         </div>
       </motion.div>
     </div>

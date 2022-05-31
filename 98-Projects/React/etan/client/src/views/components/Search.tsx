@@ -1,5 +1,6 @@
 import { Avatar, Collapse, InputBase, Drawer } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import axios from "axios";
 import { useState, useEffect } from "react";
 interface SearchProps {
   DynamicSearchStyling: any;
@@ -13,6 +14,7 @@ interface SearchProps {
   setSearchTerm: Function;
   searchMenuToggle: any;
   setSearchMenuToggle: Function;
+  handleSearchResult:Function;
 }
 function Search(props: SearchProps) {
   const {
@@ -27,8 +29,10 @@ function Search(props: SearchProps) {
     setSearchTerm,
     searchMenuToggle,
     setSearchMenuToggle,
+    handleSearchResult
   } = props;
   const [drawer, setDrawer] = useState();
+  
 
   function handleOpenSearchDrawer(ev: any) {
     const button = ev.currentTarget.firstChild;
@@ -41,15 +45,12 @@ function Search(props: SearchProps) {
 
     console.dir(button);
   }
-  function handleSearchMenu(ev: any) {
-    setSearchTerm(ev.target.value);
-  }
   function handleCloseSearchDrawer(ev: any) {
     const button = ev.currentTarget.firstChild;
     const icon = ev.currentTarget;
     console.log(button);
     console.log(icon);
-    
+
     setSearchToggle(!SearchToggle);
 
     // setSearchToggle(true);
@@ -58,20 +59,24 @@ function Search(props: SearchProps) {
 
     console.dir(button);
   }
+  function handleSearchMenu(ev: any) {
+    setSearchTerm(ev.target.value);
+    handleSearchResult(ev)
+  }
+
+  
   
   useEffect(() => {
     let w = document.documentElement.clientWidth;
     // let h = document.documentElement.clientHeight;
 
-      if (w < 1265) {
-        setMounted(true);
-      }
-      if (w > 1265) {
-        setMounted(false);
-      }
-
+    if (w < 1265) {
+      setMounted(true);
+    }
+    if (w > 1265) {
+      setMounted(false);
+    }
   }, []);
-
 
   useEffect(() => {
     if (searchTerm) {
@@ -79,7 +84,6 @@ function Search(props: SearchProps) {
     } else {
       setSearchMenuToggle(false);
       // console.log(searchTerm.length);
-      
     }
   }, [searchTerm]);
   return (
@@ -100,6 +104,11 @@ function Search(props: SearchProps) {
           style={{ width: "80%" }}
           placeholder="Search Facebook"
           onKeyUp={(ev) => handleSearchMenu(ev)}
+          onKeyPress={(ev: any) => {
+            if (ev.key === "Enter") {
+              handleSearchResult(ev);
+            }
+          }}
         />
       </Collapse>
     </div>

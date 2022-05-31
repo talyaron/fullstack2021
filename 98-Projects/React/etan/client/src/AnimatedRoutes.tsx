@@ -13,6 +13,7 @@ import HomePage from "./views/components/HomePage";
 import LoginPage from "./views/components/LoginPage";
 import NavBar from "./views/components/NavBar";
 import SelfProfile from "./views/Profiles/SelfProfile";
+import Profile from "./views/Profiles/Profile";
 import Layout from "./Layout";
 // sending props:
 interface LoginPageProps {
@@ -88,6 +89,7 @@ const darkTheme = createTheme({
 function AnimatedRoutes() {
   const location = useLocation();
   const [postsList, setPostsList] = useState([]);
+  const [othersPostsList, setOthersPostsList] = useState([]);
   const [loggedIn, setLoggedIn] = useState(false);
   const [userId, setUserId] = useState("");
   const [usersPersonalInfo, setUsersPersonalInfo] = useState({
@@ -98,6 +100,7 @@ function AnimatedRoutes() {
   const [registerWarning, setRegisterWarning] = useState("");
   const [loginWarning, setLoginWarning] = useState("");
   const [theme, setTheme] = useState(true);
+  const [profileId, setProfileId] = useState('');
   if (theme) {
     var { primary, secondary, background } = darkTheme.palette;
   } else {
@@ -130,6 +133,7 @@ function AnimatedRoutes() {
           path="/HomePage"
           element={
             <Layout
+            setProfileId={setProfileId}
               setTheme={setTheme}
               theme={theme}
               loggedIn={loggedIn}
@@ -163,9 +167,36 @@ function AnimatedRoutes() {
               />
             }
           ></Route>
-        <Route path="Profile">
-          <Route path=":userId" element={<SelfProfile loggedIn={loggedIn} usersPersonalInfo={usersPersonalInfo}  />}></Route>
-        </Route>
+          <Route path="Profile">
+            <Route
+              path=":userId"
+              element={
+                userId === profileId ?
+                  <SelfProfile
+                    userId={userId}
+                    loggedIn={loggedIn}
+                    usersPersonalInfo={usersPersonalInfo}
+                    setPostsList={setPostsList}
+                    postsList={postsList}
+                    theme={theme}
+                    lightTheme={lightTheme}
+                    darkTheme={darkTheme}
+                  />:<Profile
+                  userId={userId}
+                  loggedIn={loggedIn}
+                  usersPersonalInfo={usersPersonalInfo}
+                  setPostsList={setPostsList}
+                  postsList={postsList}
+                  othersPostsList={othersPostsList}
+                  setOthersPostsList={setOthersPostsList}
+                  theme={theme}
+                  lightTheme={lightTheme}
+                  darkTheme={darkTheme}
+                  profileId={profileId}
+                />
+              }
+            ></Route>
+          </Route>
         </Route>
       </Routes>
     </AnimatePresence>

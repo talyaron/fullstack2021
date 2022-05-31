@@ -49,7 +49,7 @@ interface FeedProps {
   darkTheme: any;
   usersPersonalInfo: any;
   loggedIn: boolean;
-  userId: string;
+  userId: any;
 }
 // sending props:
 interface NewPostFormProps {
