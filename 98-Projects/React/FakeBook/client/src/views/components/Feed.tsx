@@ -69,6 +69,7 @@ interface PostsProps {
   darkTheme: any;
 }
 
+
 function Feed(props: FeedProps) {
   const {
     postsList,
@@ -81,7 +82,11 @@ function Feed(props: FeedProps) {
     userId,
   } = props;
   const [isPending, startTransition] = useTransition();
-
+  if (theme) {
+    var { primary, secondary, background } = lightTheme.palette;
+  } else {
+    var { primary, secondary, background } = darkTheme.palette;
+  }
   async function handleGetPostsList() {
     try {
       const { data } = await axios.get(`/posts/get-posts-list`);

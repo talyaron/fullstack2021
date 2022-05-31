@@ -1,22 +1,19 @@
 //Personal workflow imports:
 import { useState } from "react";
-import {
-  Routes,
-  Route,
-  useLocation,
-} from "react-router-dom";
-import {AnimatePresence} from 'framer-motion'
+import { Routes, Route, useLocation } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
 //styling imports:
 import "./views/styles/global.scss";
 //mui ->
-import {CssBaseline} from '@mui/material'
+import { CssBaseline } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
 import { blue, common } from "@mui/material/colors";
 //local components imports:
 import HomePage from "./views/components/HomePage";
 import LoginPage from "./views/components/LoginPage";
 import NavBar from "./views/components/NavBar";
-import Layout from './Layout'
+import SelfProfile from "./views/Profiles/SelfProfile";
+import Layout from "./Layout";
 // sending props:
 interface LoginPageProps {
   //login needs:
@@ -60,7 +57,7 @@ const lightTheme = createTheme({
       light: blue[200],
       main: "#1977f2",
       dark: blue[900],
-      contrastText: common.white,
+      contrastText: common.black,
     },
     secondary: {
       main: "#FFFFF",
@@ -106,10 +103,10 @@ function AnimatedRoutes() {
   } else {
     var { primary, secondary, background } = lightTheme.palette;
   }
-  
+
   return (
     <AnimatePresence>
-<Routes location={location} key={location.pathname}>
+      <Routes location={location} key={location.pathname}>
         <Route
           path="/"
           element={
@@ -132,50 +129,47 @@ function AnimatedRoutes() {
         <Route
           path="/HomePage"
           element={
-            <Layout setTheme={setTheme} theme={theme} loggedIn={loggedIn} darkTheme={darkTheme} lightTheme={lightTheme} usersPersonalInfo={usersPersonalInfo}/>
-          }
-        >
-          <Route index element={<HomePage
-              theme={theme}
-              lightTheme={lightTheme}
-              darkTheme={darkTheme}
-              loginWarning={loginWarning}
-              loggedIn={loggedIn}
-              setLoggedIn={setLoggedIn}
-              setLoginWarning={setLoginWarning}
-              setUsersPersonalInfo={setUsersPersonalInfo}
-              setUserId={setUserId}
-              registerWarning={registerWarning}
-              setRegisterWarning={setRegisterWarning}
-              userId={userId}
-              usersPersonalInfo={usersPersonalInfo}
-              setPostsList={setPostsList}
-              postsList={postsList}
+            <Layout
               setTheme={setTheme}
-            />}></Route>
-        </Route>
-
-        {/* <Route
-          path="/"
-          element={
-            <LoginPage
               theme={theme}
-              lightTheme={lightTheme}
-              darkTheme={darkTheme}
-              loginWarning={loginWarning}
               loggedIn={loggedIn}
-              setLoggedIn={setLoggedIn}
-              setLoginWarning={setLoginWarning}
-              setUsersPersonalInfo={setUsersPersonalInfo}
-              setUserId={setUserId}
-              registerWarning={registerWarning}
-              setRegisterWarning={setRegisterWarning}
+              darkTheme={darkTheme}
+              lightTheme={lightTheme}
+              usersPersonalInfo={usersPersonalInfo}
+              userId={userId}
             />
           }
-        /> */}
+        >
+          <Route
+            index
+            element={
+              <HomePage
+                theme={theme}
+                lightTheme={lightTheme}
+                darkTheme={darkTheme}
+                loginWarning={loginWarning}
+                loggedIn={loggedIn}
+                setLoggedIn={setLoggedIn}
+                setLoginWarning={setLoginWarning}
+                setUsersPersonalInfo={setUsersPersonalInfo}
+                setUserId={setUserId}
+                registerWarning={registerWarning}
+                setRegisterWarning={setRegisterWarning}
+                userId={userId}
+                usersPersonalInfo={usersPersonalInfo}
+                setPostsList={setPostsList}
+                postsList={postsList}
+                setTheme={setTheme}
+              />
+            }
+          ></Route>
+        <Route path="Profile">
+          <Route path=":userId" element={<SelfProfile loggedIn={loggedIn} usersPersonalInfo={usersPersonalInfo}  />}></Route>
+        </Route>
+        </Route>
       </Routes>
-      </AnimatePresence>
-  )
+    </AnimatePresence>
+  );
 }
 
-export default AnimatedRoutes
+export default AnimatedRoutes;

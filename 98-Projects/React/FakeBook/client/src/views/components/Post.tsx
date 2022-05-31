@@ -70,7 +70,7 @@ function Post(props: PostsProps) {
     raised
       style={{
         color: primary.contrastText,
-        backgroundColor: secondary.main,
+        backgroundColor: background.default,
         textAlign: "left",
         // width: 680,
         // maxWidth: 680,

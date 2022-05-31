@@ -4,19 +4,27 @@ import Layouts from "./View/Pages/Layouts";
 import Flavours from "./View/Pages/Flavours";
 import LayoutRouter from "./LayoutRouter";
 import Home from "./View/Pages/Home";
-import axios from 'axios'
-import "./App.css";
+import axios from "axios";
+import "./View/styles/global.scss";
 
 interface LayoutsProps {
   name: string;
   combinations: Array<string>;
+  bgColor: Array<string>;
 }
+// background: linear-gradient(#e66465, #9198e5);
 interface LayoutRouterProps {
   iceCreamShopLayouts: Array<LayoutsProps>;
 }
 const iceCreamShopLayouts: Array<LayoutsProps> = [
   {
     name: "Chocolate",
+    bgColor: [
+      'brown', 
+      '#e54662',
+      '#d1e3b0',
+
+    ],
     combinations: [
       "Peanut Butter",
       "Strawberry",
@@ -27,6 +35,12 @@ const iceCreamShopLayouts: Array<LayoutsProps> = [
   },
   {
     name: "Vanilla",
+    bgColor: [
+      'brown', 
+      '#e54662',
+      '#d1e3b0',
+
+    ],
     combinations: [
       "Mocha",
       "Cinnamon Toast Crunch",
@@ -71,6 +85,7 @@ function App() {
                         path={`${layout.name}`}
                         element={
                           <Layouts
+                          key={i}
                             name={layout.name}
                             combinations={layout.combinations}
                             iceCreamShopCombinations={iceCreamShopCombinations}
@@ -83,7 +98,13 @@ function App() {
                             <Route
                               key={i}
                               path={`${flavourPath}`}
-                              element={<Flavours layout={layout.name} flavour={flavour} />}
+                              element={
+                                <Flavours
+                                key={i}
+                                  layout={layout.name}
+                                  flavour={flavour}
+                                />
+                              }
                             />
                           );
                         })}

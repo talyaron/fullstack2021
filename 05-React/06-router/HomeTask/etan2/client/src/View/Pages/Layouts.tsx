@@ -13,20 +13,27 @@ function Layouts(props: LayoutsProps) {
   const { name, combinations, iceCreamShopCombinations } = props;
 
   return (
-    <div className={`layouts__wrapper-${name}`}>
-      <div className="layouts__question">
+    <div className={`layout__wrapper-${name}`}>
+      <div className="layout__flavour-question">
         {" "}
         <p>
           Would you like any of these combinations with your {name} Ice Cream?
         </p>
-        <div className="layouts__menu">
+          </div>
+        <ul className="layout__flavour-menu">
           {combinations.map((combination, i) => {
             const combinationPath = combination.replace(/\s/g, "");
-            return <Link key={i} to={combinationPath}>{`${combination}`}</Link>;
+            return( <li
+              key={i}
+            >
+            <Link  to={combinationPath}>{`${combination}`}</Link>
+            </li>
+            )
           })}
-        </div>
+        </ul>
+
         <Outlet/>
-      </div>
+
     </div>
   );
 }

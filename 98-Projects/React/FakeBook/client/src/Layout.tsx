@@ -12,10 +12,11 @@ interface LayoutProps {
     theme:any;
     lightTheme:any;
     darkTheme:any;
+    userId:any;
 }
 
 function Layout(props: LayoutProps) {
-    const {theme, lightTheme, darkTheme, loggedIn, setTheme, usersPersonalInfo} = props
+    const {theme, lightTheme, darkTheme, loggedIn, setTheme, usersPersonalInfo, userId} = props
     // if (theme) {
     //     var { primary, secondary, background } = lightTheme.palette;
     //   } else {
@@ -32,6 +33,7 @@ function Layout(props: LayoutProps) {
           theme={theme}
           lightTheme={lightTheme}
           darkTheme={darkTheme}
+          userId={userId}
         />
         <Outlet/>
         </ThemeProvider>

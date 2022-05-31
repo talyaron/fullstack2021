@@ -84,9 +84,9 @@ function NewPostForm(props: NewPostFormProps) {
   const Initials =
     firstName.charAt(0).toUpperCase() + lastName.charAt(0).toUpperCase();
   if (theme) {
-    var { primary, secondary, background } = darkTheme.palette;
-  } else {
     var { primary, secondary, background } = lightTheme.palette;
+  } else {
+    var { primary, secondary, background } = darkTheme.palette;
   }
 
   // async function getPostsList() {
@@ -99,7 +99,7 @@ function NewPostForm(props: NewPostFormProps) {
     // color='secondary'
       style={{
         color: theme ? primary.contrastText : primary.contrastText,
-        backgroundColor: theme? secondary.main: secondary.main,
+        backgroundColor: theme? background.default: background.default,
         textAlign: "center",
         padding: "1em",
         minWidth: '640px',

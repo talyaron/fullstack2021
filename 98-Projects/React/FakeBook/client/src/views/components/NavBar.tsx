@@ -1,7 +1,6 @@
 //basic workflow imports:
 import { useState, useLayoutEffect, useEffect } from "react";
 
-
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
@@ -35,7 +34,9 @@ import CaretDownAvatar from "./Anchors/CaretDownAvatar";
 import CaretDownPopover from "./Popovers/CaretDownPopover";
 import BellOnAvatar from "./Anchors/BellOnAvatar";
 import BellOnPopover from "./Popovers/BellOnPopover";
+import ProfileAvatar from "./Anchors/ProfileAvatar";
 import Search from "./Search";
+import SearchMenu from "./SearchMenu";
 //sending props:
 interface RegisterFormProps {
   theme: any;
@@ -110,6 +111,7 @@ interface NavBarProps {
   lightTheme: any;
   darkTheme: any;
   usersPersonalInfo: any;
+  userId: any;
 }
 
 function useWindowSize() {
@@ -133,17 +135,21 @@ function NavBar(props: NavBarProps) {
     darkTheme,
     usersPersonalInfo,
     loggedIn,
+    userId,
   } = props;
 
   const [registered, setRegistered] = useState(false);
   const [PopoverButton, setPopoverButton] = useState<any>();
   const [open, setOpen] = useState(false);
   const [ArrowAnchor, setArrowAnchor] = useState<any>();
+  const [ProfileAnchor, setProfileAnchor] = useState<any>();
   const [BellAnchor, setBellAnchor] = useState<any>();
   const [messagesAnchor, setMessagesAnchor] = useState<any>();
   const [dotsAnchor, setDotsAnchor] = useState<any>();
   const [SearchToggle, setSearchToggle] = useState<Boolean>();
-  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const [searchTerm, setSearchTerm] = useState<string>();
+  const [searchMenuToggle, setSearchMenuToggle] = useState<Boolean>();
+  const [screenWidth, setScreenWidth] = useState<any>();
   const [width, height] = useWindowSize();
   const [mounted, setMounted] = useState(false);
   const [nav, setNav] = useState(false);
@@ -152,18 +158,34 @@ function NavBar(props: NavBarProps) {
   const Initials =
     firstName.charAt(0).toUpperCase() + lastName.charAt(0).toUpperCase();
   const navigate = useNavigate();
+
   function navigateHome() {
     navigate("/HomePage");
   }
 
   function displayWindowSize() {
-    // Get width and height of the window excluding scrollbars
-    let w = document.documentElement.clientWidth;
-    let h = document.documentElement.clientHeight;
-
-    // Display result inside a div element
+    // // Get width and height of the window excluding scrollbars
+    // let w = document.documentElement.clientWidth;
+    // let h = document.documentElement.clientHeight;
+    // // Display result inside a div element
     const widerScreenWidth = window.matchMedia("(min-width: 1265px)");
+
+    if (widerScreenWidth.matches === true) {
+      setScreenWidth(true);
+      return;
+    }
+    if (widerScreenWidth.matches === false) {
+      setScreenWidth(false);
+      return;
+    }
   }
+
+  useEffect(() => {
+    if (searchMenuToggle === false) {
+      setSearchToggle(screenWidth);
+    }
+  }, [screenWidth]);
+
   useEffect(() => {
     window.addEventListener("resize", displayWindowSize);
   }, []);
@@ -218,37 +240,18 @@ function NavBar(props: NavBarProps) {
     color: "#65676B",
   };
   const hasWindow = typeof window !== "undefined";
+
   useEffect(() => {
-    console.log("nav loaded");
-  }, []);
-  useEffect(() => {
-    if (hasWindow) {
-      if (width < 1256) {
-        setSearchToggle(false);
-        console.log("1265+");
-      }
-      if (width > 1256) {
-        setSearchToggle(true);
-        console.log("1265-");
-      }
-    }
-  }, [width > 1265]);
+    mounted? setSearchToggle(false):setSearchToggle(true)
+  }, [mounted]);
 
   useEffect(() => {
     console.log(hasWindow, "hasloaded");
     console.log(usersPersonalInfo, "UsersPersonalInfo");
   }, []);
-  // useEffect(() => {
-  //   if (loggedIn) {
-  //     setTimeout(() => {
-  //       setNav(!nav);
-  //       console.log("changed nav");
-  //     }, 800);
-  //   }
-  // }, [loggedIn]);
-  return(
-  //  nav ? (
-    // <ThemeProvider theme={theme ? lightTheme : darkTheme}>
+  
+  return (
+
 
     <AppBar className="NavBar" position="fixed" color="secondary">
       <Toolbar style={ToolbarStyling} disableGutters>
@@ -264,8 +267,18 @@ function NavBar(props: NavBarProps) {
             AvatarStyling={AvatarStyling}
             SearchToggle={SearchToggle}
             setSearchToggle={setSearchToggle}
+            searchMenuToggle={searchMenuToggle}
+            setSearchMenuToggle={setSearchMenuToggle}
             width={width}
             height={height}
+            searchTerm={searchTerm}
+            setSearchTerm={setSearchTerm}
+          />
+          <SearchMenu
+            searchMenuToggle={searchMenuToggle}
+            width={width}
+            height={height}
+            searchTerm={searchTerm}
           />
         </div>
         {/* <Logo fill={background.default} stroke={background.default} /> */}
@@ -333,19 +346,27 @@ function NavBar(props: NavBarProps) {
             setTheme={setTheme}
             theme={theme}
           />
-          <Button >
-                <Avatar>{Initials}</Avatar>
-                {firstName}
-              </Button>
+          <ProfileAvatar
+            setPopoverButton={setPopoverButton}
+            setProfileAnchor={setArrowAnchor}
+            AvatarStyling={AvatarStyling}
+            Initials={Initials}
+            firstName={firstName}
+            lastName={lastName}
+            theme={theme}
+            lightTheme={lightTheme}
+            darkTheme={darkTheme}
+            userId={userId}
+          />
         </div>
       </Toolbar>
     </AppBar>
     // </ThemeProvider>
 
-//   ) : (
-// <div></div>
-//   );
-)
+    //   ) : (
+    // <div></div>
+    //   );
+  );
 }
 
 export default NavBar;
