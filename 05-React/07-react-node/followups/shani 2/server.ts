@@ -25,9 +25,7 @@ mongoose.connect(
   app.use(express.static('client/build'));
   
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
+
 
 app.get('/getIceCreams',async (req,res)=>{
   try {
@@ -39,6 +37,27 @@ app.get('/getIceCreams',async (req,res)=>{
     res.send({ error: error.message });
   }
  
+})
+app.get('/:icecreamId',async(req,res)=>{
+  try {
+    const {icecreamId}=req.query;
+    console.log(icecreamId)
+    if(icecreamId){
+      const getIceCream= await IceCream.findOne({_id:icecreamId});
+      console.log(getIceCream)
+      res.send({getIceCream})
+    }else{
+      throw new Error("icecreamId is not the same as the __id");
+    }
+    
+   
+  
+  } catch (error) {
+    console.log(error.error);
+    res.send({ error: error.message });
+  }
+
+
 })
 
 app.listen(port, () => {
