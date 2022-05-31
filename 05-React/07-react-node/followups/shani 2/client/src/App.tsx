@@ -1,35 +1,29 @@
-import React, { useEffect } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import axios from 'axios'
+import React, { useEffect } from "react";
+
+import "./View/styles/global.scss";
+import axios from "axios";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import Layout from "./View/Pages/Layout";
+import IceCream from "./View/Components/IceCream";
 
 function App() {
-
-  useEffect(()=>{
+  useEffect(() => {
     (async () => {
-      const { data } = await axios.get('/getIceCreams')
+      const { data } = await axios.get("/getIceCreams");
       console.log(data);
-      
+     
     })();
-
-  })
+  });
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/home" element={<Layout />}>
+          <Route path=":icecreamId" element={<IceCream />}></Route>
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
