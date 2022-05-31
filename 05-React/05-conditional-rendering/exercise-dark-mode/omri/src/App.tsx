@@ -9,6 +9,7 @@ import Score from './view/components/Score';
 interface Question {
   question: string
   answers: Array<Answer>
+  id:string
 }
 
 interface Answer {
@@ -21,6 +22,7 @@ function App() {
   const [questions, setQuestions] = useState<Array<Question>>([]);
   const [answers, setAnswers] = useState<Array<Answer>>([]);
   const [score, setScore] = useState<number>(0);
+  const [trueAns, setTrueAns] = useState<boolean>(false)
 
   function uid() {
     return Math.random().toString(36).slice(-6);
@@ -43,7 +45,7 @@ function App() {
           tempAnswers.push(tempAns);
           setAnswers(tempAnswers)
         })
-        const obj: Question = { question: result.question, answers: tempAnswers };
+        const obj: Question = { question: result.question, answers: tempAnswers, id:uid() };
         tempQuestions.push(obj);
         setQuestions(tempQuestions);
       });
@@ -63,7 +65,8 @@ function App() {
     <div className="App">
         <Header />
         <Score questions={questions} score={score}  />
-        <Card questions={questions} answers={answers} setScore={setScore} score={score} />
+        <Card questions={questions} answers={answers} setScore={setScore} score={score} 
+        trueAns={trueAns} setTrueAns={setTrueAns} />
     </div>
   );
 }
