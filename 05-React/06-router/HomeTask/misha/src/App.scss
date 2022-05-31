@@ -1,6 +1,5 @@
 * {
   box-sizing: border-box;
-  border: 1px solid salmon;
   color: white;
 }
 
@@ -167,8 +166,11 @@ body {
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
   gap: 20px;
+  height: fit-content;
+  margin-top: 1rem;
 
   .card {
+    padding: 1rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -186,6 +188,11 @@ body {
       img{
         max-width: 100%;
         max-height: 100%;
+        transition: all .2s ease-in-out;
+
+        &:hover{
+          transform: scale(2.5);
+        }
       }
     }
 
