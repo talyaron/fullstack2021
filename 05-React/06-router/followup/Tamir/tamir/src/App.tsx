@@ -1,14 +1,13 @@
-
-import "./Style/Global.scss";
-import Milk from "./pages/Milk/Milk";
-import Login from "./pages/Login";
-import Leyout from "./pages/Leyout";
-import Chocolate from "./pages/Chocolate/Chocolate";
-import Flavor from "./pages/Flavor";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Chocolatevanile from "./pages/Chocolate/Chocolatevanile";
+import "./Style/Global.scss";
+import Login from "./pages/Login";
+import Milk from "./pages/Milk/Milk";
+import Leyout from "./pages/Leyout";
+import Flavor from "./pages/Flavor";
+import Chocolate from "./pages/Chocolate/Chocolate";
 import Milkvanile from "./pages/Milk/Milkvanile"
 import MilkBanena from "./pages/Milk/MilkBanena";
+import Chocolatevanile from "./pages/Chocolate/Chocolatevanile";
 import ChocolateBanena from "./pages/Chocolate/ChocolateBanena";
 
 function App() {
@@ -18,7 +17,8 @@ function App() {
         <Route path="/" element={<Login />}></Route>
 
         <Route path="/Flavor" element={<Leyout />}>
-          <Route index element={<Flavor />}></Route>
+
+          <Route index element={<Flavor />}></Route> 
 
           <Route path="Chocolate" element={<Chocolate />}>
             <Route path="Chocolatevanile" element={<Chocolatevanile />}></Route>
@@ -29,6 +29,7 @@ function App() {
             <Route path="Milkvanile" element={<Milkvanile />}></Route>
             <Route path="MilkBanena" element={<MilkBanena />}></Route>
           </Route>
+
         </Route>
       </Routes>
     </BrowserRouter>
