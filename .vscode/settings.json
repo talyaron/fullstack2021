@@ -11,7 +11,7 @@
     "editor.colorDecorators": true,
     "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
     "workbench.preferredDarkColorTheme": "Theme + Dark Blue Theme",
-    "workbench.colorTheme": "Default Dark+",
+    "workbench.colorTheme": "Monokai",
     "window.autoDetectColorScheme": false,
     "editor.language.colorizedBracketPairs": [
     
