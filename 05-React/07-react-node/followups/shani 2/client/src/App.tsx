@@ -12,24 +12,28 @@ import GoofyGoober from "./View/Components/GoofyGoober";
 import Home from "./View/Components/Home";
 
 function App() {
-  // useEffect(() => {
-  //   (async () => {
-  //     const { data } = await axios.get("/getIceCreams");
-  //     console.log(data);
+  useEffect(() => {
+    (async () => {
+      const { data } = await axios.get("/getIceCreams");
+      console.log(data);
       
-  //   })();
-  // },[]);
+    })();
+  },[]);
   
   return (
     <BrowserRouter>
       <Routes>
         
         <Route path="/" element={<Layout />}>
-          {/* <Route path=":icecreamId" element={<IceCream/>}/> */}
+          
           <Route index element={<Home/>}/>
           <Route path="chocolate" element={<Chocolate/>}/>
           <Route path="vanilla" element={<Vanilla/>}/>
           <Route path="goofygoober" element={<GoofyGoober/>}/>
+          <Route path=":icecreamId" element={<IceCream/>}/>
+          <Route path="chocolate/:icecreamId" element={<IceCream/>}/>
+          <Route path="vanilla/:icecreamId" element={<IceCream/>}/>
+          <Route path="goofygoober/:icecreamId" element={<IceCream/>}/>
           
         </Route>
       </Routes>

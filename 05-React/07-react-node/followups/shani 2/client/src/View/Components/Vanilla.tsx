@@ -1,5 +1,6 @@
 import { useEffect,useState } from 'react'
 import axios from "axios";
+import { Link} from "react-router-dom";
 
 interface IceCream {
     _id: any;
@@ -22,12 +23,13 @@ const Vanilla = () => {
   return (
     <div >
         <h1>Vanilla</h1>
-        {dataVanilla?(
+        {dataVanilla.length>0?(
             <div>
                 {dataVanilla.map((vanilla)=>{
                     return (
                         <div key={vanilla._id}>
                             <p>{vanilla.name}</p>
+                            <Link to={vanilla._id}>{vanilla.name}</Link>
                         </div>
                     );
                 })}

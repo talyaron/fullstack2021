@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import {Link} from "react-router-dom"
 interface IceCream {
     _id: any;
     flavourType: String;
@@ -24,10 +25,9 @@ const Home = () => {
     {dataIceCream.map((flavor) => {
       return (
         <div key={flavor._id} className="flavor">
-          {/* <Link to={flavor._id}>{flavor.flavourType}</Link> */}
-         
+          
+          <Link to={flavor._id}>{flavor.name}</Link>
           <img src={flavor.img}/>
-          <p>{flavor.name}</p> 
           <p>{flavor.flavourType}</p>
           
         </div>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-
+import { Link} from "react-router-dom";
 interface IceCream {
   _id: any;
   flavourType: String;
@@ -21,12 +21,13 @@ const Chocolate = () => {
   return (
     <div>
       <h1>Chocolate</h1>
-      {dataChocolate ? (
+      {dataChocolate.length>0? (
         <div>
           {dataChocolate.map((chocolate) => {
             return (
-              <div key={chocolate._id}>                
+              <div key={chocolate._id}>      
                 <p>{chocolate.name}</p>
+              <Link to={chocolate._id}>{chocolate.name}</Link>
               </div>
             );
           })}
@@ -34,6 +35,7 @@ const Chocolate = () => {
       ) : (
         <div>no chocolate ice cream available... sorry</div>
       )}
+       
     </div>
   );
 };

@@ -21,8 +21,8 @@ const GoofyGoober = () => {
   console.log(dataGoofyGoober);
   return (
     <div>
-      <h1>GoofyGoober</h1>
-      {dataGoofyGoober ? (
+      <h1>Goofy Goober</h1>
+      {dataGoofyGoober.length>0 ?(
         <div>
           {dataGoofyGoober.map((goofy) => {
             return (

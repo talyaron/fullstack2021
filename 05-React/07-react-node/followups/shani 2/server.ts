@@ -81,7 +81,8 @@ app.get('/:icecreamId',async(req,res)=>{
     const {icecreamId}=req.params;
     console.log(icecreamId)
     // if(icecreamId){
-      const getIceCream= await IceCream.findById(icecreamId);
+     const getIceCream= await IceCream.findById(icecreamId);
+      
       console.log(getIceCream)
      
       res.send({getIceCream,ok:true})
