@@ -12,15 +12,15 @@ function App() {
     (async () => {
       const { data } = await axios.get("/getIceCreams");
       console.log(data);
-     
+      
     })();
-  });
+  },[]);
   
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/home" element={<Layout />}>
-          <Route path=":icecreamId" element={<IceCream />}></Route>
+        <Route path="/" element={<Layout />}>
+          <Route path=":icecreamId" element={<IceCream/>}/>
         </Route>
       </Routes>
     </BrowserRouter>

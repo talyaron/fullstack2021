@@ -4,23 +4,22 @@ import {useEffect} from 'react'
 import axios from "axios";
 
 const IceCream = () => {
+  const {icecreamId}=useParams()
+
   useEffect(()=>{
     (async () => {
-      const { data } = await axios.get("/:icecreamId");
+      const { data } = await axios.get(`/${icecreamId}`);
       console.log(data);
          
     })()
   },[])
   
-    const {icecreamId}=useParams()
+    
   
   return (
     <div>
       <p>IceCream:{icecreamId}</p>
-      <p>IceCream:{icecreamId}</p>
-      <p>IceCream:{icecreamId}</p>
-      <p>IceCream:{icecreamId}</p>
-      <p>IceCream:{icecreamId}</p>
+     
 
     </div>
   )

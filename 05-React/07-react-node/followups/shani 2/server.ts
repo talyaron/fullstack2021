@@ -40,15 +40,16 @@ app.get('/getIceCreams',async (req,res)=>{
 })
 app.get('/:icecreamId',async(req,res)=>{
   try {
-    const {icecreamId}=req.query;
+    const {icecreamId}=req.params;
     console.log(icecreamId)
-    if(icecreamId){
-      const getIceCream= await IceCream.findOne({_id:icecreamId});
+    // if(icecreamId){
+      const getIceCream= await IceCream.findById(icecreamId);
       console.log(getIceCream)
-      res.send({getIceCream})
-    }else{
-      throw new Error("icecreamId is not the same as the __id");
-    }
+     
+      res.send({getIceCream,ok:true})
+    // }else{
+    //   throw new Error("icecreamId is not the same as the __id");
+    // }
     
    
   
