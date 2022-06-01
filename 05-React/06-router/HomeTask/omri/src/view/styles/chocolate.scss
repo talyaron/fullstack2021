@@ -1,5 +1,17 @@
-.App__main__flaveors--chocolate{
+.App__main__flaveors__chocolate {
     width: 100vw;
     height: 100vh;
-//    background-color: antiquewhite;
+    //    background-color: antiquewhite;
+
+    h4{
+        #link{
+            text-decoration: none;
+        }
+    }
+
+    &--chocolate_chips {
+        width: 100%;
+        height: 100%;
+        justify-items: center;
+    }
 }
