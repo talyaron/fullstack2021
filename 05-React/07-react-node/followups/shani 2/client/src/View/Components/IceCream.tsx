@@ -1,5 +1,5 @@
 import {useParams} from 'react-router-dom'
-import {useEffect} from 'react'
+import {useEffect, useState} from 'react'
 import axios from "axios";
 interface IceCream {
   _id: any;
@@ -9,13 +9,13 @@ interface IceCream {
 }
 const IceCream = () => {
   const {icecreamId}=useParams()
-
+  
   useEffect(()=>{
     (async () => {
       //the `/${icecreamId}` must be the same word used in server 'icecreamId'
       const { data } = await axios.get(`/${icecreamId}`);
       console.log(data);
-         
+     
     })()
   },[])
   
@@ -25,6 +25,7 @@ const IceCream = () => {
     <div>
       <p>IceCream:{icecreamId} </p>
       
+     
      
 
     </div>
