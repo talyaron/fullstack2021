@@ -1,8 +1,16 @@
-import React from 'react'
+
+import {useParams, Outlet} from 'react-router-dom'
+import {motion} from 'framer-motion';
 
 function User() {
+    const params = useParams();
+    const {userId} = params;
   return (
-    <div>User</div>
+    <motion.div
+    initial={{opacity: 0}} animate={{opacity: 1}} transition={{duration:2}}
+    >{userId}
+    <Outlet/>
+    </motion.div>
   )
 }
 
