@@ -19,7 +19,7 @@ mongoose.connect(
   
 
 app.get('/api/text', (req, res) => {
-  res.send(text:'Hello World!')
+  res.send({text:'Hello World!'})
 })
 
 app.listen(port, () => {

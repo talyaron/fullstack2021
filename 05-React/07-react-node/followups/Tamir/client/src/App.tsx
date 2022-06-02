@@ -1,33 +1,36 @@
-import React from "react";
 import logo from "./logo.svg";
-import { useEffect } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useEffect, useState } from "react";
+import Login from "./pages/Login";
+import Leyout from "./pages/Leyout";
 import "./App.css";
 import axios from "axios";
 
 function App() {
-  useEffect(() => {
-    (async () => {
-      const {data} = await axios.get('/api/text')
-      console.log(data);
-      
-    })();
-  }, []);
+  // const [text, settext] = useState<string>('');
+
+  // useEffect(() => {
+  //   (async () => {
+  //     const { data } = await axios.get("/api/text");
+  //     console.log(data);
+  //     if ( data && data.text) {
+  //       settext(data.text);
+  //       console.log('gege');
+  //     }
+  //   })();
+
+  // }, []);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+      <Routes>
+
+        <Route path="/" element={<Login />}></Route>
+
+        <Route path="/Main" element={<Leyout />}></Route>
+
+      </Routes>
+    </BrowserRouter>
     </div>
   );
 }
