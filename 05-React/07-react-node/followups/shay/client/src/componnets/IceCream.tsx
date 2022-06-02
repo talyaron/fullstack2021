@@ -14,7 +14,7 @@ const IceCream = () => {
     const [iceCream, setIceCream]= useState<any>(null);
 
     useEffect(()=>{
-        //get data on the icecream
+        //get data on the icecream and show the chosen ice cream by id
 
         (async () => {
           try{
@@ -46,13 +46,6 @@ console.error(err.message)
 <p>{iceCream && iceCream.flavor?iceCream.flavor:null }</p>
 <img src={iceCream && iceCream.img?iceCream.img:null } alt="" />
     </div>
-  {/* {dataServer?(<div className="flexBox">{dataServer.map((i)=>{return(
-        <div className="flex" key={i._id}>
-          <Link className="link" to={i._id}>{i.flavorType}</Link>
-          <Link className="link" to={i._id}>{i.flavor}</Link>
-         <Link className="link" to={i._id}> <img src={i.img}/></Link>
-         </div>
-      )})}</div>):(<div>no ice cream</div>)}  */}
      
       <Outlet />
     </div>

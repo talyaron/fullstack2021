@@ -8,7 +8,7 @@ interface IceCream {
     img:string
   
   }
-
+//nav bar
 function Layout() {
 
   return (

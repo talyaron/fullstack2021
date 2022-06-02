@@ -9,7 +9,7 @@ import Layout from './componnets/Layout';
 import Vanilla from './componnets/Vanilla';
 import Chocolate from './componnets/Chocolate';
 function App() {
-  // const [text, setText]=useState<string>('')
+ 
 
   useEffect(()=>{
     (async () => {
@@ -19,7 +19,7 @@ function App() {
      
     })();
 
-  // fetch('/api/text').then(r=>r.json()).then(res=>{console.log(res)});
+
   
   },[])
 

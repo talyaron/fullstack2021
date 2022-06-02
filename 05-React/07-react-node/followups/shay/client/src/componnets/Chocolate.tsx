@@ -30,7 +30,6 @@ const Chocolate = () => {
           <Link className="link" to={i._id}> <img src={i.img}/></Link>
           </div>
       )})}</div>):(<div>no chocolate</div>)}
-      {/* <Link to="123">Vanilla</Link> */}
       <Outlet />
     </div>
   );

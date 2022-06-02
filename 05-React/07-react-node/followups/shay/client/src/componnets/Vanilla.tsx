@@ -30,7 +30,7 @@ const Vanilla = () => {
           <Link className="link" to={i._id}> <img src={i.img}/></Link>
           </div>
       )})}</div>):(<div>no vanilla</div>)}
-      {/* <Link to="123">Vanilla</Link> */}
+  
       <Outlet />
     </div>
   );

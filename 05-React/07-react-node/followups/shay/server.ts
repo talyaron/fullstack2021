@@ -42,17 +42,7 @@ app.get('/api/iceCreamData',async(req,res)=>{
     res.send({ error: error.message });
   }
 })
-// app.get('/iceCreamDataOne',async(req,res)=>{
-//   try{
-//     const {IceCreamId}=req.params;
-//     const flavor = await IceCreams.findOne({IceCreamId})
-//     res.send({flavor,ok:true})
-//   }
-//   catch(error) {
-//     console.log(error.error);
-//     res.send({ error: error.message });
-//   }
-// })
+
 app.get('/api/iceCreamCFlavor',async(req,res)=>{
   try{
     const {flavorType} = req.query;
