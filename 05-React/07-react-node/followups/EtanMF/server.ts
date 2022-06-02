@@ -26,7 +26,10 @@ mongoose
 
 import userRouter from './router/userRouter'
 app.use('/api/users', userRouter);
-// console.log(process.env.ENV);
+
+
+console.log(process.env.ENV);
+
 
 app.listen(port, () => {
   return console.log(`Express is listening at http://localhost:${port}`);
