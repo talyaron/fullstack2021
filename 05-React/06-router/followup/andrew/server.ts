@@ -16,12 +16,27 @@ mongoose.connect(
 app.use(express.static('client/build'))
 app.use(express.json())
 
+const iceCreamSchema = new mongoose.Schema({
+    type: String,
+    topping: String
+});
+const IceCream = mongoose.model('ice-creams', iceCreamSchema)
 
 app.get('/', (req, res) => {
     res.send('Hello World!')
 })
 app.get('/api/text', (req, res) => {
-    res.send('wazzzzap')
+    res.send('text')
+})
+app.get('/get-ice-creams', async (req, res) => {
+    const { type } = req.query
+    const iceCreams = await IceCream.find({ type });
+    res.send(iceCreams)
+})
+app.get('/get-ice-cream', async (req, res) => {
+    const { id } = req.query
+    const iceCream = await IceCream.findById(id);
+    res.send(iceCream)
 })
 
 app.listen(port, () => {

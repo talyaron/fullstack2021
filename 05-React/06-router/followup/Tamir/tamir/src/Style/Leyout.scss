@@ -1,0 +1,17 @@
+.leyout {
+    position: relative;
+    align-items: center;
+    text-align: center;
+    &__b {
+        position: relative;
+        width: 20%;
+        height: 50px;
+        font-size: 2em;
+        border-radius: 40px;
+        
+    }
+    &__link{
+        text-decoration-line: none;
+        color: black;
+    }
+}
