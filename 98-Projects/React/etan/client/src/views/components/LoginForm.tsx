@@ -115,7 +115,7 @@ function LoginForm(props: LoginFormProps) {
           style={{ fontSize: "20px", lineHeight: "42px" }}
           variant="contained"
         >
-          Log In
+          <Typography color={primary.contrastText} style={{}} variant="h6">Log In</Typography>
         </Button>
         <a
           href="/"

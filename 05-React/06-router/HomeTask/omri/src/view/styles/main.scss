@@ -1,0 +1,22 @@
+.App__main {
+    border-bottom: 2px solid;
+
+    h1 {
+        text-align: center;
+    }
+
+    &__flaveors {
+        display: flex;
+       justify-content: center;
+       padding-top: 2%;
+
+        h3 {
+            margin-left: 2%;
+
+            #link{
+                color: rgb(102, 17, 136);
+                text-decoration: none;
+            }
+        }
+    }
+}
