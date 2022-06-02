@@ -1,7 +1,8 @@
 import express from 'express';
 import mongoose from 'mongoose';
+import ChocolateRoute from './router/CocolateRoute'
 const app = express()
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 4001;
 require('dotenv').config()
 
 const mongodb_uri = process.env.MONGODB_URI
@@ -18,9 +19,13 @@ mongoose.connect(
   app.use(express.static('client/build'));
   
 
-app.get('/api', (req, res) => {
-  res.send({text:'Hello World!'})
-})
+// app.get('/api', (req, res) => {
+//   res.send({text:'Hello World!'})
+// })
+
+app.use('/Chocolate',ChocolateRoute)
+
+
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
