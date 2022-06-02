@@ -76,7 +76,7 @@ app.get('/getGoofyGooberIceCream',async(req,res)=>{
 
 })
 
-app.get('/:icecreamId',async(req,res)=>{
+app.get('/api/:icecreamId',async(req,res)=>{
   try {
     const {icecreamId}=req.params;
     console.log(icecreamId)

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="../dist/style.css">
+</head>
+
+<body>
+    <nav class="navigation">
+        <ul>
+            <a href="/">
+                <li class="navigation--logo"><img src="../images/logoTitle.png" alt="airbnb"></li>
+            </a>
+            <li class="navigation--search">
+                <form class="form" action="/places/search-airbnb" method="GET">
+                    <!--onsubmit="handleFindAirbnb(event)"-->
+                    <div class="form--searchLocation">
+                        <label for="searchLocation">Location </label>
+                        <input id="searchLocation" type="text" name="searchLocation" placeholder="Where are you going?">
+
+
+                    </div>
+
+                    <div class="form--checkIn">
+                        <label for="checkIn">Check in </label>
+                        <input type="date" id="checkIn" name="checkIn" value="2022-03-31" min="2022-03-28"
+                            max="2022-12-30">
+
+
+                    </div>
+
+                    <div class="form--checkOut">
+                        <label for="checkOut">Check out </label>
+                        <input type="date" id="checkOut" name="checkOut" value="2022-03-31" min="2022-03-28"
+                            max="2022-12-30">
+
+
+                    </div>
+
+                    <div class="form--guests">
+                        <label for="guests">Guests <br><span>Add guests</span></label>
+                        
+                        <div class="dropdown">
+                            <label for="adults">Adults:
+                                <span>Ages 13 or above</span> </label>
+                            <input type="number" id="adults" name="adults" min="0" max="10" placeholder="0">
+
+                            <label for="children">Children:
+                                <span>Ages 2–12</span> </label>
+                            <input type="number" id="children" name="children" min="0" max="10" placeholder="0">
+
+                            <label for="infants">Infants:
+                                <span>Under 2</span></label>
+                            <input type="number" id="infants" name="infants" min="0" max="10" placeholder="0">
+
+                            <label for="pets">Pets:</label>
+                            <input type="number" id="pets" name="pets" min="0" max="5" placeholder="0">
+
+
+                        </div>
+                    </div>
+
+
+                    <button type="submit" value="submit" class="form--searchIcon"
+                        onclick="location.href='places.html'"><img src="../images/searchIcon.png"></button>
+
+
+                </form>
+            </li>
+            <li class="navigation--greeting">Welcome!</li>
+
+            <li class="navigation--user popup" onclick="handlePopup()"><img src="../images/visitorProfile.png">
+
+                <div class="popuptext" id="myPopup">
+                    <form 
+                    
+                    id="login" action="/users/login" method="POST">
+                        <h2>Login</h2>
+                        <input type="text" name="userName" placeholder="userName">
+                        <input type="password" name="password" placeholder="password" autocomplete="current-password">
+
+                        <select name="role" id="role">
+                            <option selected disabled hidden>"I am a"</option>
+                            <option value="admin">Admin</option>
+                            <option value="host">Host</option>
+                            <option value="guest">Guest</option>
+                        </select>
+
+                        <input type="submit" value="login">
+                    </form>
+
+                    <form onsubmit="handleRegister(event)" id="register">
+                        <h2>Register</h2>
+                        <input type="text" name="userName" placeholder="userName">
+                        <input type="password" name="password" placeholder="password"
+                            autocomplete="current-password">
+
+                        <select name="role" id="role">
+                            <option selected disabled hidden>"I am a"</option>
+                            <option value="host">Host</option>
+                            <option value="guest">Guest</option>
+                        </select>
+
+                        <input type="submit" value="register">
+                    </form>
+
+                </div>
+
+            </li>
+        </ul>
+    </nav>
+
+
+    <!-- <script src="dist/index.js"></script> -->
+</body>
+
+</html>

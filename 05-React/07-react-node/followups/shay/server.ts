@@ -32,7 +32,7 @@ app.get('/', (req, res) => {
   res.send({text:'Hello World!'})
 })
 
-app.get('/iceCreamData',async(req,res)=>{
+app.get('/api/iceCreamData',async(req,res)=>{
   try{
     const flavors = await IceCreams.find({})
     res.send({flavors,ok:true})
@@ -42,35 +42,36 @@ app.get('/iceCreamData',async(req,res)=>{
     res.send({ error: error.message });
   }
 })
-app.get('/iceCreamCFlavor',async(req,res)=>{
+
+app.get('/api/iceCreamCFlavor',async(req,res)=>{
   try{
     const {flavorType} = req.query;
     
     
-    const flavors = await IceCreams.find({flavorType:"Chocolate"})
-console.log(flavors);
-    res.send({flavors,ok:true})
+    const flavorsTypec = await IceCreams.find({flavorType:"Chocolate"})
+console.log(flavorsTypec);
+    res.send({flavorsTypec,ok:true})
   }
   catch(error) {
     console.log(error.error);
     res.send({ error: error.message });
   }
 })
-app.get('/iceCreamVFlavor',async(req,res)=>{
+app.get('/api/iceCreamVFlavor',async(req,res)=>{
   try{
     const {flavorType} = req.query;
     
     
-    const flavors = await IceCreams.find({flavorType:"Vanilla"})
-console.log(flavors);
-    res.send({flavors,ok:true})
+    const flavorsTypev = await IceCreams.find({flavorType:"Vanilla"})
+console.log(flavorsTypev);
+    res.send({flavorsTypev,ok:true})
   }
   catch(error) {
     console.log(error.error);
     res.send({ error: error.message });
   }
 })
-app.get('/:IceCreamId', async(req,res)=>{
+app.get('/api/:IceCreamId', async(req,res)=>{
   try{
     const {IceCreamId}=req.params;
     console.log(IceCreamId);

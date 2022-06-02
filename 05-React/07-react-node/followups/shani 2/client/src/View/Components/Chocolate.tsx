@@ -26,7 +26,7 @@ const Chocolate = () => {
           {dataChocolate.map((chocolate) => {
             return (
               <div key={chocolate._id}>      
-                <p>{chocolate.name}</p>
+               
               <Link to={chocolate._id}>{chocolate.name}</Link>
               </div>
             );
