@@ -1,0 +1,9 @@
+.home{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .link{
+        margin-inline: 5px;
+        color: black;
+    }
+}
