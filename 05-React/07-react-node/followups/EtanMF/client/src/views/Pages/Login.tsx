@@ -16,7 +16,7 @@ function Login(props: LoginProps) {
       <div className="wrapper__Login">
 
         <form onSubmit={(event) => handleLogin(event)} className="form-login">
-          <input type="text" name="name" placeholder="name" />
+          <input type="text" name="email" placeholder="email" />
           <input type="password" name="password" placeholder="password" />
           <input type="submit" value="Login" />
         </form>
