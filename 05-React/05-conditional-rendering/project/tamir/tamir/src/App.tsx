@@ -18,10 +18,22 @@ function App() {
     return Date.now().toString(36) + Math.random().toString(36).substring(2);
   }
 
+<<<<<<< HEAD
+  function handleaddone(ev: any) {
+    ev.preventDefault();
+    const name = ev.target.name.value;
+    const fhone = ev.target.fhone.value;
+    const obj = { name, fhone, id: uid() };
+    setarr([...arr, obj])
+    console.log(arr, name, fhone);
+    console.log('hey');
+
+=======
   function handladd() {
     const obj = { name, id: uid() };
     setarr([...arr, obj]);
     console.log(arr);
+>>>>>>> 6642542fa0fb53feec32452f29aff27e7978e906
   }
   // useEffect(() => {
   //   handladd()
