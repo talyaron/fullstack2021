@@ -2,11 +2,14 @@ import express from 'express';
 import mongoose from 'mongoose';
 const app = express();
 const port = process.env.PORT || 4001;
+require('dotenv').config()
 
 app.use(express.static('public/build'))
 app.use(express.json());
 
-mongoose.connect('mongodb+srv://Michael:6RmR0bWXc0hh7ybk@cluster0.ctwuo.mongodb.net/bymySelf?retryWrites=true&w=majority')
+const mongodb_uri = process.env.MONGODB_URI
+
+mongoose.connect( mongodb_uri)
     .then(res => {
         console.log("connected to Mongoose");
     })
