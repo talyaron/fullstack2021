@@ -28,7 +28,7 @@ const Vanilla = () => {
                 {dataVanilla.map((vanilla)=>{
                     return (
                         <div key={vanilla._id}>
-                            <p>{vanilla.name}</p>
+                            
                             <Link to={vanilla._id}>{vanilla.name}</Link>
                         </div>
                     );

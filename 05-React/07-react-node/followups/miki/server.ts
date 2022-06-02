@@ -1,9 +1,14 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import IceCreamRouter from './Roters/IceCreamRouter'
+import usersRouter from './Roters/usersRouter'
 const app = express()
 const port = process.env.PORT || 4001;
 require('dotenv').config()
+console.log(process.env.ENV);
+import cookieParser from 'cookie-parser';
+app.use(cookieParser());
+
 
 const mongodb_uri = process.env.mongodb_uri
 
@@ -23,6 +28,8 @@ mongoose.connect(
 // })
 
 app.use('/icecream', IceCreamRouter)
+app.use('/icecream', usersRouter)
+
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
