@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
+
 //styling imports:
 import "./views/styles/global.scss";
 //mui ->
@@ -176,7 +177,7 @@ function AnimatedRoutes() {
                     userId={userId}
                     loggedIn={loggedIn}
                     usersPersonalInfo={usersPersonalInfo}
-                    setPostsList={setPostsList}
+                    setPostsList={setPostsList} 
                     postsList={postsList}
                     theme={theme}
                     lightTheme={lightTheme}

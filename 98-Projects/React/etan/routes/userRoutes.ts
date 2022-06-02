@@ -1,4 +1,4 @@
-import express = require("express");
+import express from 'express';
 const router = express.Router();
 
 import {addUser, loginUser, searchUsers} from '../controller/userCont'
