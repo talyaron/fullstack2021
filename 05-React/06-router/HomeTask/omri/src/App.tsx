@@ -1,4 +1,4 @@
-import  './view/styles/global.scss';
+import './view/styles/global.scss';
 
 import {
   BrowserRouter,
@@ -9,7 +9,8 @@ import {
 import Main from './view/pages/Main';
 import Chocolate from './view/pages/Chocolate';
 import Vanilla from './view/pages/Vanilla';
-import ChocolatChips from './view/pages/ChocolatChips';
+import ChocolateChips from './view/pages/ChocolateChips';
+import ChocolateBanana from './view/pages/ChocolateBanana';
 
 function App() {
   return (
@@ -18,7 +19,8 @@ function App() {
         <Routes>
           <Route path='/' element={<Main />}>
             <Route path='chocolate' element={<Chocolate />}>
-              <Route path='chocolate/chocolate_chips' element={<ChocolatChips />}></Route>
+              <Route path='chocolate/chocolate_chips' element={<ChocolateChips />}></Route>
+              <Route path='chocolate/chocolate_banana' element={<ChocolateBanana />}></Route>
             </Route>
             <Route path='/vanilla' element={<Vanilla />}></Route>
           </Route>
