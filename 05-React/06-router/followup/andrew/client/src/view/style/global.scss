@@ -1,0 +1,13 @@
+@import './header.scss';
+@import './home.scss';
+
+:root{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #2E8BC0;
+}
+img{
+    height: 150px;
+}
+.hovered:hover{
+    cursor: pointer;
+}
