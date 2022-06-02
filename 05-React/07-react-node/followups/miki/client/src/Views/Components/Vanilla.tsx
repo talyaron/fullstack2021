@@ -5,8 +5,8 @@ const Vanilla = () => {
   const { vanilla } = useParams()
 
   return (
-    <div>
-      <p>Vanilla: {vanilla}  222</p>
+    <div className='vanillaComp'>
+      <p>We have flavours: {vanilla} </p>
     </div>
   )
 }

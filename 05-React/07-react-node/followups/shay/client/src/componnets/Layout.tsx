@@ -8,37 +8,19 @@ interface IceCream {
     img:string
   
   }
-
+//nav bar
 function Layout() {
-  const [flavorType]= useState('');
-  // function vanillaFilter(flavorType:any){
-  //   if(flavorType=="vanilla"){
-  //     console.log(flavorType);
-      
-  //     return(flavorType)
-  //   }
-  //   else{
-  //     return ('there is no vanilla flavors')
-  //   }
-  // }
-  // function chocolateFilter(flavorType:any){
-  //   if(flavorType=="chocolate"){
-  //     console.log(flavorType);
-  //     return(flavorType)
-  //   }
-  //   else{
-  //     return ('there is no chocolate flavors')
-  //   }
-  // }
+
   return (
     <div className='bg'>
+      <h1>I scream for ICE CREAM SHOP</h1>
       <div className="row">
       <Link className="link main" to="/">Home</Link>
       <Link className='link main' to="chocolate">Chocolate</Link>
       <Link className='link main' to="/vanilla">Vanilla</Link>
       </div>
       <Outlet/>
-      <footer>Ice Cream we all Scream for Ice Cream</footer>
+      <footer>I scream for ICE CREAM SHOP we all Scream for ICE CREAM SHOP</footer>
     </div>
   )
 }
