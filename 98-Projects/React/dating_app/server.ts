@@ -23,7 +23,7 @@ mongoose.connect(
   app.use(express.static('client/build'))
 
 app.get('/', (req, res) => {
-  res.send({text:'Hello World!'})
+  res.send({text:'Hello World dating app!'})
 })
 
 
