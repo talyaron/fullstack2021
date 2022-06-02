@@ -13,7 +13,7 @@ function App() {
 
   useEffect(()=>{
     (async () => {
-      const { data } = await axios.get('/iceCreamData')
+      const { data } = await axios.get('/api/iceCreamData')
       console.log(data);
     
      
@@ -31,6 +31,8 @@ function App() {
         <Route path=":IceCreamId" element={<IceCream/>}/>
         <Route path="/chocolate" element={<Chocolate/>}>Chocolate</Route>
         <Route path="/vanilla" element={<Vanilla/>}>Vanilla</Route>
+        <Route path="/chocolate/:IceCreamId" element={<IceCream/>}>Chocolate</Route>
+        <Route path="/vanilla/:IceCreamId" element={<IceCream/>}>Vanilla</Route>
      </Route>
    </Routes>
    </BrowserRouter>

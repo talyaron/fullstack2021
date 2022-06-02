@@ -14,20 +14,21 @@ const Chocolate = () => {
     useEffect(()=>{
         //bring chocolate icecreams from DB
         (async () => {
-          const { data } = await axios.get('/iceCreamCFlavor')
-       setDataServer(data.flavors)
+          const { data } = await axios.get('/api/iceCreamCFlavor')
+       setDataServer(data.flavorsTypec)
         })();
     },[])
     console.log(dataServer);
     
   return (
     <div className="flexbg">
-      <h1>Chocolate Flavor</h1>
-      {dataServer?(<div>{dataServer.map((i)=>{return(
+      <h2>Chocolate Flavor</h2>
+      {dataServer.length?(<div className="flexBox">{dataServer.map((i)=>{return(
         <div className="flex" key={i._id}>
           <Link className="link" to={i._id}>{i.flavorType}</Link>
           <Link className="link" to={i._id}>{i.flavor}</Link>
-          <img src={i.img}/></div>
+          <Link className="link" to={i._id}> <img src={i.img}/></Link>
+          </div>
       )})}</div>):(<div>no chocolate</div>)}
       {/* <Link to="123">Vanilla</Link> */}
       <Outlet />
