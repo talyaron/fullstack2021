@@ -6,10 +6,9 @@ import Login from "./views/Pages/Login";
 import User from "./views/Pages/User";
 import Article from "./views/Pages/Article";
 
-//Function notes:
-//Make a function that sends a request to the server to get the articles depending on the id that was sent.
-// to get all articles, send an empty Id so the Article.find() returns all articles.
-// to get specific user article, send a user Id so the Article.find(ownerId:userId) returns only specific user articles.
+
+
+
 
 function AnimatedRoutes() {
   return (
