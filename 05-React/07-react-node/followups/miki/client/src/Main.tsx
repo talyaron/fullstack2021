@@ -10,10 +10,11 @@ interface MainProps {
     setChokate: Function;
     chokateArray: any;
     setChokatArray: Function;
+    admin: String;
 }
 
 const Main = (props: MainProps) => {
-    const { chokate, setChokate, vanilla, setVanilla, chokateArray, setChokatArray} = props
+    const { chokate, setChokate, vanilla, setVanilla, chokateArray, setChokatArray, admin} = props
 
 
     useEffect(() => {
@@ -32,16 +33,13 @@ const Main = (props: MainProps) => {
             const chokatePayload = {taste: chokateTaste, subpTaste: chokateSubTaste }
             const vanillaPayload = {taste: vanillaTaste, subpTaste: vanillaSubTaste }
 
-            setChokatArray([...chokateArray, chokatePayload])
-
-            console.log(chokateArray);
-            
+            setChokatArray([...chokateArray, chokatePayload])            
             
             
             
 
-            setChokate(result[0].taste)
-            setVanilla(result[1].taste)
+            setChokate(chokateSubTaste)
+            setVanilla(vanillaSubTaste)
 
         })()
     }, [])
@@ -52,6 +50,9 @@ const Main = (props: MainProps) => {
 
             <h1>Main Header</h1>
 
+            {admin === 'admin'?  <Link to={`/home/admin`}>Admin</Link> : null}
+
+           
             <Link to={`/home/chokate/${chokate}`}>Choose Chokate</Link>
             <Link to={`/home/vanilla/${vanilla}`}>Choose Vanilla</Link>
 
