@@ -1,7 +1,7 @@
 //basic workflow imports:
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { styled } from '@mui/system';
+import { styled } from "@mui/system";
 //styling imports:
 //mui ->
 import {
@@ -49,20 +49,14 @@ function RegisterForm(props: RegisterFormProps) {
   const { theme, lightTheme, darkTheme, registerWarning, setRegisterWarning } =
     props;
   const [gender, setGender] = useState();
-function handleGender(ev:any ) {
-  setGender(ev.target.value);
-  
-}
+  function handleGender(ev: any) {
+    setGender(ev.target.value);
+  }
   async function handleRegistration(ev: any) {
     ev.preventDefault();
     try {
-      let {
-        firstName,
-        lastName,
-        email,
-        password,
-        birthDate,
-      } = ev.target.elements;
+      let { firstName, lastName, email, password, birthDate } =
+        ev.target.elements;
 
       firstName = firstName.value;
       lastName = lastName.value;
@@ -105,77 +99,75 @@ function handleGender(ev:any ) {
       console.log(error);
     }
   }
-const ShortTextField = styled(TextField)({
+  const ShortTextField = styled(TextField)({
+    margin: "0 auto ",
+  });
 
-margin: '0 auto ',
-})
-
-const TwoTextFieldsGroup = styled(FormGroup)({
-  flexWrap:'nowrap',
-  gap:10,
-})
+  const TwoTextFieldsGroup = styled(FormGroup)({
+    flexWrap: "nowrap",
+    gap: 10,
+  });
   return (
     <form className="register-form" onSubmit={(ev) => handleRegistration(ev)}>
-      <TwoTextFieldsGroup row >
-        <ShortTextField 
-        size="small"
-          defaultValue="Etan"
+      <TwoTextFieldsGroup row>
+        <ShortTextField
+          size="small"
           name="firstName"
           id="firstName"
           placeholder="First Name"
-          />
-        <ShortTextField 
-        size="small"
-        defaultValue="Heyman"
+        />
+        <ShortTextField
+          size="small"
           name="lastName"
           id="lastName"
           placeholder="Last Name"
-          />
+        />
       </TwoTextFieldsGroup>
+      <TextField
+        fullWidth
+        size="small"
+        type="email"
+        name="email"
+        id="email"
+        placeholder="Email"
+      />
+      <TextField
+        fullWidth
+        size="small"
+        type="password"
+        name="password"
+        id="password"
+        placeholder="Password"
+      />
+      <FormControl>
+        <FormLabel id="date-label">Date of birth</FormLabel>
+        <FormGroup>
           <TextField
-          fullWidth
-          size="small"
-          defaultValue="etan@heyman.net"
-          type="email"
-          name="email"
-          id="email"
-          placeholder="Email"
+            style={{ minWidth: "100%" }}
+            size="small"
+            type="date"
+            name="birthDate"
+            id="birthDate"
+            placeholder="whats your birth date?"
           />
-<TextField
-          fullWidth
-          size="small"
-          defaultValue="Etanhey"
-          type="password"
-          name="password"
-          id="password"
-          placeholder="Password"
-          />
-        <FormControl>
-<FormLabel id="date-label">Date of birth</FormLabel>
-<FormGroup>
-          <TextField
-          style={{minWidth:'100%'}}
-          size="small"
-          type="date"
-          name="birthDate"
-          id="birthDate"
-          placeholder="whats your birth date?"
-          />
-</FormGroup>
-        </FormControl>
+        </FormGroup>
+      </FormControl>
       <FormControl>
         <FormLabel id="gender-label">Gender</FormLabel>
-        <RadioGroup onChange={(ev)=>handleGender(ev)} row>
-          <FormControlLabel value="female" control={<Radio/>} label="Female"/>
-          <FormControlLabel value="male" control={<Radio/>} label="Male"/>
-          <FormControlLabel value="costume" control={<Radio/>} label="Costume"/>
-
+        <RadioGroup onChange={(ev) => handleGender(ev)} row>
+          <FormControlLabel value="female" control={<Radio />} label="Female" />
+          <FormControlLabel value="male" control={<Radio />} label="Male" />
+          <FormControlLabel
+            value="costume"
+            control={<Radio />}
+            label="Costume"
+          />
         </RadioGroup>
       </FormControl>
       {/* <FormControlLabel
         control={
           <FormGroup> */}
-          {/* <Select
+      {/* <Select
           renderValue={(selected) => {
             if (selected.length === 0) {
               return <em>Gender</em>;
@@ -199,7 +191,7 @@ const TwoTextFieldsGroup = styled(FormGroup)({
             <MenuItem value="male">Male</MenuItem>
             <MenuItem value="female">Female</MenuItem>
           </Select> */}
-            {/* </FormGroup>
+      {/* </FormGroup>
         }
         label="Gender"
         labelPlacement="top"
@@ -211,14 +203,17 @@ const TwoTextFieldsGroup = styled(FormGroup)({
         id="role"
         placeholder="Role"
         /> */}
-<Typography style={{fontSize:"62.5%"}} variant="subtitle1">By clicking Sign Up, you agree to our Terms, Data Policy and Cookie Policy. You may receive SMS notifications from us and can opt out at any time.</Typography>
+      <Typography style={{ fontSize: "62.5%" }} variant="subtitle1">
+        By clicking Sign Up, you agree to our Terms, Data Policy and Cookie
+        Policy. You may receive SMS notifications from us and can opt out at any
+        time.
+      </Typography>
       <Button
         type="submit"
-        color= "success"
+        color="success"
         variant="contained"
-        style={{width:"fit-content"}}
-
-        >
+        style={{ width: "fit-content" }}
+      >
         Sign Up!
       </Button>
 
@@ -230,5 +225,3 @@ const TwoTextFieldsGroup = styled(FormGroup)({
 }
 
 export default RegisterForm;
-
-

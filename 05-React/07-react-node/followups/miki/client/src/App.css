@@ -13,10 +13,10 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.chokateComp{
+  color: chocolate;
 }
 
-.comp {
-  color: aqua;
+.vanillaComp{
+  color:wheat;
 }

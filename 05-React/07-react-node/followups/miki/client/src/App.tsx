@@ -12,6 +12,7 @@ import Home from './Views/Pages/Home';
 import Login from './Views/Pages/Login';
 import Vanilla from './Views/Components/Vanilla';
 import Chokate from './Views/Components/Chokate';
+import Admin from './Views/Pages/Admin';
 
 export interface IceCreamFlavourArray {
   taste: string;
@@ -23,8 +24,8 @@ function App() {
   const [vanilla, setVanilla] = useState("")
   const [chokate, setChokate] = useState("")
   const [chokateArray, setChokatArray] = useState<Array<IceCreamFlavourArray>>([])
-  // const [login, setLogin] = useState()
-
+  const [login, setLogin] = useState(false)
+  const [admin, setAdmin] = useState("")
 
   async function handleLogin(e: any) {
 
@@ -35,12 +36,25 @@ function App() {
     const payload:any = { name, password }
 
     const { data } = await axios.post('/icecream/users', payload)
-    console.log(data);
+    setLogin(data.login)
+    setAdmin(data.admin)
+    console.log(admin);
+    
 
 
     e.target.reset()
 
   }
+
+//   useEffect(() => {
+//     (async () => {
+
+
+
+
+//     })()
+// }, [])
+
 
 
 
@@ -50,11 +64,13 @@ function App() {
 
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Login handleLogin={handleLogin} />}></Route>
+            <Route path="/" element={<Login handleLogin={handleLogin} login={login} admin={admin} />}></Route>
 
 
             <Route path="/home" element={<Main chokateArray={chokateArray} setChokatArray={setChokatArray}
-              vanilla={vanilla} setVanilla={setVanilla} chokate={chokate} setChokate={setChokate} />}>
+              vanilla={vanilla} setVanilla={setVanilla} chokate={chokate} setChokate={setChokate} admin={admin} />}>
+
+                {login === true && admin === 'admin'? <Route path="admin" element={<Admin />}></Route> : null }
 
               <Route path='chokate' element={<Home />}>
                 <Route path=":chokate" element={<Chokate />}></Route>
