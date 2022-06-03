@@ -7,6 +7,15 @@ import { useParams } from "react-router-dom";
 
 
 function App() {
+   
+  useEffect(()=>{
+    (async () => {
+      const {data} = await axios.get('/api/users')
+      console.log(data);
+      const {users}=data
+     
+    })();
+  },[])
 
   
   return (

@@ -23,11 +23,16 @@ mongoose.connect(
   app.use(express.static('client/build'))
 
 app.get('/', (req, res) => {
-  res.send({text:'Hello World dating app!'})
+  res.send('Hello World dating app!')
 })
+
+import usersRoute from './routes/usersRoute';
+app.use('/api',usersRoute)
+
 
 
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
+
