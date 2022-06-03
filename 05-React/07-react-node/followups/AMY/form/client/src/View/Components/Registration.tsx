@@ -1,27 +1,18 @@
 import React from 'react'
-import axios from "axios"
+// import axios from "axios"
 
-
-
-const registration = () => {
-
-async function handleRegister(ev: any) {
-  ev.preventDefault()
-  console.log("data" + ev);
-  let { name, age, username, occupation, password, image } = ev.target
-  const { data } = await axios.post('/api/addUser', { name, age, username, occupation, password, image })
-
-
+interface RegProps{
+  submit: Function;
 }
+
+const registration = (props:RegProps) => {
 
 
   return (
     <div>
-      <form onSubmit={ev=>handleRegister(ev)}>
+      <form onSubmit={()=>props.submit}>
         <label htmlFor="name">Name</label>
-        <input type="text" name="name" placeholder='Name' onChange={()=>console.log('dcd')} 
-        
-        />
+        <input type="text" name="name" placeholder='Name'/>
 
         {/* <label htmlFor="age">Age</label>
         <input type="age" name="age" placeholder='Age' />
