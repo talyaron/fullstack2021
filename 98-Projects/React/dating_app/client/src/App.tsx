@@ -19,16 +19,18 @@ function App() {
 
   
   return (
-    // <BrowserRouter>
-    //   <Routes>
-        
+    <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<LogoBar/>}>
+        <Route index  element={Login}></Route>  
+        <Route path="/" element={<NavBar/>}>
+        <Route path='/'  element={Home}></Route>  
+        <Route path='/:profile'  element={Profile}></Route>  
+          </Route>     
        
-          
-    
-        
-    //   </Routes>
-    // </BrowserRouter>
-    <div>hi</div>
+      </Route>
+    </Routes>
+  </BrowserRouter>
   );
 }
 
