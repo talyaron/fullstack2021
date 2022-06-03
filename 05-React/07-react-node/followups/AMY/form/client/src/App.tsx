@@ -24,9 +24,8 @@ function App() {
   async function handleRegister(ev:any) {
     ev.preventDefault();
     console.log(ev);
-    let { name, age, username, occupation, password, image } = ev.target
-    const { data } = await axios.post('/api/addUser', { name, age, username, occupation, password, image })
-  
+    // let { name, age, username, occupation, password, image } = ev.target
+    // const { data } = await axios.post('/api/addUser', { name, age, username, occupation, password, image })
   }
 
   return (

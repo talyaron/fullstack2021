@@ -28,7 +28,7 @@ const registration = (props:RegProps) => {
 
         <label htmlFor="image">Image</label>
         <input type="img" name="image" placeholder='Image' /> */}
-        <button type='submit'>SUBMIT</button>
+        <input type='submit'></input>
       </form>
     </div>
   )
