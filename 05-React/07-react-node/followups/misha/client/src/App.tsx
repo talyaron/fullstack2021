@@ -1,23 +1,27 @@
-import React, { useEffect, useState } from 'react';
-import './App.css';
+//libraries
 import axios from 'axios';
+
+//hooks
+import React, { useEffect, useState } from 'react';
+
+//styles
+import './App.css';
+
+//components
 import Register from './View/Components/Register'
+import Login from './View/Components/Login'
 
 function App() {
 
-
   const [userList, setUserList] = useState([]);
   const [load, isLoad] = useState(false);
-
 
   useEffect(() => {
     if (!load) {
       (async () => {
 
         const { data } = await axios.get('/api/getUsers')
-
         const allUsers = data.allUsers;
-
         setUserList(allUsers)
 
       })();
@@ -35,10 +39,10 @@ function App() {
     // how to do this in one line if possible ?
 
     const name = ev.target.name.value;
+    const password = ev.target.password.value;
     const age = ev.target.age.value;
     const occupation = ev.target.occupation.value;
     const username = ev.target.username.value;
-    const password = ev.target.password.value;
     const image = ev.target.image.value;
 
     console.log(name, age, occupation, username)
@@ -46,11 +50,21 @@ function App() {
     const userForm = { name, age, occupation, username, password, image }
 
     isLoad(true)
-
     await axios.post('/api/addUser', userForm)
-
     isLoad(false)
 
+  }
+
+  async function handleLogin(ev:any){
+
+    ev.preventDefault();
+
+    const username = ev.target.username.value;
+    const password = ev.target.password.value;
+
+    const loginUser:any = {username,password}
+
+    await axios.post('/api/login', loginUser)
 
   }
 
@@ -67,6 +81,8 @@ function App() {
   return (
     <div className="App">
       <Register submit={handleRegister} />
+      <Login submit={handleLogin} />
+
       {userList.map((user: any, i) =>
         <div key={i}>
           <h1>{user.name}</h1>
