@@ -4,8 +4,9 @@ const router=express.Router()
 
 
 
-import {getUsers} from '../controller/usersController'
+import {getUsers,login} from '../controller/usersController'
 
 router
 .get('/users',getUsers)
+.post('/login',login)
 export default router
