@@ -49,7 +49,7 @@ function handleSumbit(ev:any, profilesId:any){
     (async () => {
     console.log(ev, ProfilesId)
   
-    const {data} = await axios.patch('/api/updateUsers', {ProfilesId});
+    const {data} = await axios.patch('/updateUsers', {ProfilesId});
     console.log(data)
 })();
 }

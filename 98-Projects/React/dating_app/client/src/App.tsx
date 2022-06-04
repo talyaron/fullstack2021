@@ -5,7 +5,10 @@ import axios from "axios";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import Profile from './View/componnent/Profile'
-
+import LogoBar from "./View/componnent/LogoBar";
+import Login from "./View/componnent/Login";
+import NavBar from "./View/componnent/NavBar";
+import Home from "./View/componnent/Home";
 function App() {
    
   useEffect(()=>{
@@ -21,14 +24,14 @@ function App() {
   return (
     <BrowserRouter>
     <Routes>
-      {/* <Route path="/" element={</>}>
-        <Route index  element={Login}></Route>  
-        <Route path="/" element={</>}>
-        <Route path='/'  element={Home}></Route>   */}
+      <Route path="/" element={<LogoBar/>}>
+        <Route index  element={<Login/>}></Route>  
+        <Route path="/" element={<NavBar/>}>
+        <Route path='/'  element={<Home/>}></Route>  
         <Route path='/api/:profilesId'  element={<Profile/>}></Route>  
-          {/* </Route>     
+          </Route>     
        
-  </Route> */}
+  </Route>
     </Routes>
   </BrowserRouter>
   );
