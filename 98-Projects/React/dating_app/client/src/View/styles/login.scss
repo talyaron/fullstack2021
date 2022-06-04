@@ -1,0 +1,20 @@
+.login{
+    &__form{
+     display:flex;
+     flex-direction: column;
+     width:300px;
+     height:300px;
+     border:black solid 3px;
+     margin: auto;
+     padding:10px;
+     gap:10px;
+      input{
+        width:150px; 
+        align-self: center;
+        
+      }
+      img{
+        width:20px;
+      }
+    }
+}

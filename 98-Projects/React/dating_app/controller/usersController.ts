@@ -4,7 +4,7 @@ import Users from '../models/usersModel'
 export const getUsers= async(req,res)=>{
     try {
         const users = await Users.find({});
-        console.log(Users);
+        
         
         
         
