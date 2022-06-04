@@ -11,8 +11,25 @@ export const getUsers = async (req, res) => {
 }
 
 export const addUser = async (req, res) => {
-    let { name, age, username, occupation, password, image } = req.body
-    const newUser = new User({})
+
+    let userForm = req.body
+
+    let newUser = new User(userForm)
+
     const result = await newUser.save()
-    res.send({result})
+
+    res.send({ result })
+
+}
+
+export const deleteUser = async (req,res) => {
+
+    const {id} = req.body;
+
+    console.log(id)
+
+    const userToDelete = await User.deleteOne({ _id: id });
+
+    res.send(userToDelete)
+
 }
