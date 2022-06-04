@@ -8,8 +8,8 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 
 //components
-import Register from './View/Components/Register'
-import Login from './View/Components/Login'
+import UserForm from './View/Components/UserForm'
+import LoginForm from './View/Components/LoginForm'
 
 function App() {
 
@@ -24,6 +24,7 @@ function App() {
         const allUsers = data.allUsers;
         setUserList(allUsers)
 
+
       })();
 
       console.log('shalom')
@@ -36,35 +37,31 @@ function App() {
 
     console.log(ev)
 
-    // how to do this in one line if possible ?
 
-    const name = ev.target.name.value;
-    const password = ev.target.password.value;
-    const age = ev.target.age.value;
-    const occupation = ev.target.occupation.value;
-    const username = ev.target.username.value;
-    const image = ev.target.image.value;
-
-    console.log(name, age, occupation, username)
-
-    const userForm = { name, age, occupation, username, password, image }
+    handleSubmit(ev)
 
     isLoad(true)
-    await axios.post('/api/addUser', userForm)
+    const registerResponse = await axios.post('/api/addUser', handleSubmit(ev))
+
+    if (registerResponse.data === 'AlreadyExists') {
+      window.alert('AlreadyExists')
+    }
+
     isLoad(false)
 
   }
 
-  async function handleLogin(ev:any){
+  async function handleLogin(ev: any) {
 
     ev.preventDefault();
 
     const username = ev.target.username.value;
     const password = ev.target.password.value;
 
-    const loginUser:any = {username,password}
+    const loginUser: any = { username, password }
 
-    await axios.post('/api/login', loginUser)
+    const LoginResponse = await axios.post('/api/login', loginUser)
+    console.log(LoginResponse)
 
   }
 
@@ -78,16 +75,51 @@ function App() {
 
   }
 
+  async function handleUpdate(ev) {
+
+    const userToUpdate = handleSubmit(ev)
+
+    const id = ev.target.id
+
+    const toSend = { userToUpdate, id }
+
+    isLoad(true)
+    await axios.patch('/api/updateUser', toSend)
+    isLoad(false)
+    
+  }
+
+  function handleSubmit(ev: any) {
+
+    ev.preventDefault();
+    // how to do this in one line if possible ?
+    const name = ev.target.name.value;
+    const password = ev.target.password.value;
+    const age = ev.target.age.value;
+    const occupation = ev.target.occupation.value;
+    const username = ev.target.username.value;
+    const image = ev.target.image.value;
+
+    const userForm = { name, age, occupation, username, password, image }
+
+    return userForm;
+  }
+
   return (
     <div className="App">
-      <Register submit={handleRegister} />
-      <Login submit={handleLogin} />
+      <UserForm submit={handleRegister} button='REGISTER' />
+      <LoginForm submit={handleLogin} />
 
       {userList.map((user: any, i) =>
         <div key={i}>
           <h1>{user.name}</h1>
           <h1>{user.age}</h1>
+          <h1>{user.occupation}</h1>
+          <div>
+            <img src={user.image} alt={user.name}></img>
+          </div>
           <button onClick={handleDelete} id={user._id}>DELETE</button>
+          <UserForm submit={handleUpdate} id={user._id} button='UPDATE' />
         </div>
       )}
     </div>

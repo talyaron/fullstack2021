@@ -1,12 +1,16 @@
 import React from 'react'
 
-const Register = (props: any) => {
+
+const UserForm = (props:any) => {
+
+    const {submit,button,id} = props;
+
     return (
         <div>
-            <form onSubmit={props.submit}>
+            <form onSubmit={submit} id={id}>
 
                 <label htmlFor="name">Name</label>
-                <input type="text" name="name" placeholder='Name' autoComplete='off'/>
+                <input type="text" name="name" placeholder='name' autoComplete='off'/>
 
                 <label htmlFor="age">Age</label>
                 <input type="number" name="age" placeholder='Age' autoComplete='off'/>
@@ -23,7 +27,7 @@ const Register = (props: any) => {
                 <label htmlFor="image">Image</label>
                 <input type="text" name="image" placeholder='Image' autoComplete='off' />
 
-                <button type='submit'>REGISTER</button>
+                <button type='submit' >{button}</button>
             </form>
 
 
@@ -32,4 +36,4 @@ const Register = (props: any) => {
     )
 }
 
-export default Register
+export default UserForm
