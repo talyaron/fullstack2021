@@ -48,7 +48,7 @@ const [form, setForm] = useState(false)
 function handleSumbit(ev:any, profilesId:any){
     (async () => {
     console.log(ev, ProfilesId)
-    const role  = ev.target.value;
+  
     const {data} = await axios.patch('/api/updateUsers', {ProfilesId});
     console.log(data)
 })();
