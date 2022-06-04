@@ -1,0 +1,13 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #555;
+    img{
+        height: 2.5rem;
+    }
+    .link {
+        color: black;
+        margin-inline: 5px;
+    }
+}

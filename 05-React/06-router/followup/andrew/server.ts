@@ -25,9 +25,7 @@ const IceCream = mongoose.model('ice-creams', iceCreamSchema)
 app.get('/', (req, res) => {
     res.send('Hello World!')
 })
-app.get('/api/text', (req, res) => {
-    res.send('text')
-})
+
 app.get('/get-ice-creams', async (req, res) => {
     const { type } = req.query
     const iceCreams = await IceCream.find({ type });

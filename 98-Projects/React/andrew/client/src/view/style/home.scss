@@ -1,0 +1,31 @@
+.post {
+    &__author {
+        display: flex;
+        align-items: center;
+        padding-top: 5px;
+
+        h2 {
+            margin-block: 2px;
+        }
+
+        h3 {
+            margin-block: 2px;
+        }
+
+        img {
+            height: 30px;
+            margin-right: 5px;
+            border-radius: 5px;
+            border: 1px solid black;
+        }
+    }
+
+    padding-inline: 15px;
+    border: 3px solid #333;
+    border-radius: 10px;
+    width: 70%;
+    height: 100px;
+    height: fit-content;
+    width: 350px;
+    margin: 10px;
+}

@@ -6,7 +6,7 @@ import Home from "./pages/Home"
 import About from "./pages/About"
 import Layout from './pages/Layout';
 import Vanilla from './pages/Vanilla';
-import Chocolate from './pages/Chocolate'; 
+import Chocolate from './pages/Chocolate';
 import Pistachio from './pages/Pistachio';
 
 function App() {
@@ -14,10 +14,10 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Layout />}>
-          <Route index element={<Home />}/>
-          <Route path="/vanilla" element={<Vanilla />}/>
-          <Route path="/chocolate" element={<Chocolate />}/>
-          <Route path="/pistachio" element={<Pistachio />}/>
+          <Route index element={<Home />} />
+          <Route path="/vanilla" element={<Vanilla />} />
+          <Route path="/chocolate" element={<Chocolate />} />
+          <Route path="/pistachio" element={<Pistachio />} />
         </Route>
       </Routes>
     </BrowserRouter>
