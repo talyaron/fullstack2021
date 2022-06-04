@@ -1,0 +1,58 @@
+// *{background-color: aqua;}
+.ice {
+    background-color: rgb(226, 95, 43);
+    // display: flex;
+
+
+
+    &-link-vanilla {
+        padding: 3%;
+        border-radius: 25%;
+        // height: 10%;
+        // width: 10%;
+
+    }
+
+    &-link-chocolate {
+        padding: 3%;
+        border-radius: 25%;
+        // height: 10%;
+        // width: 10%;
+    }
+}
+
+footer {
+    position: relative;
+    bottom: 0;
+    height: 90px;
+    width: 100%;
+    background-color: rgb(98, 1, 1);
+}
+
+.vanilla {
+    background-color: rgb(166, 13, 13);
+    height: 100vh;
+
+    img {
+        height: 30%;
+        width: 33%;
+
+        &:hover {
+            height: 33%;
+        }
+    }
+}
+
+.chocolate {
+    background-color: brown;
+    height: 100vh;
+
+    img {
+        height: 30%;
+        width: 33%;
+
+        &:hover {
+            height: 33%;
+        }
+    }
+}
