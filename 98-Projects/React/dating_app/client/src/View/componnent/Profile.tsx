@@ -19,7 +19,8 @@ interface Users {
 const Profile = () => {
   const { ProfilesId } = useParams();
   const [ yourProfile, setYoureProfile]  = useState<any>(null);
-const [form, setForm] = useState(false)
+const [form, setForm] = useState(true)
+const [arr, setArr] = useState<Array<Users>>([]);
   useEffect(() => {
     //get data on the icecream and show the chosen ice cream by id
 
@@ -42,7 +43,7 @@ const [form, setForm] = useState(false)
   function handleEdit(ev:any){
     
     if(ev){
-        setForm(true)
+        setForm(false)
     }
   }
 function handleSumbit(ev:any, profilesId:any){
