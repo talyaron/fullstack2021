@@ -22,7 +22,7 @@ mongoose.connect(
   app.use(express.static('client/build'))
   
 
-app.get('/api', userRouter)
+app.use('/api', userRouter)
 
 app.get('/api', (req, res) => {
   res.send({text: 'Hello World!'})

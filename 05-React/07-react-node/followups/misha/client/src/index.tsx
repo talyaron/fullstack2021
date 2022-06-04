@@ -6,6 +6,10 @@ import App from './App';
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
+const test = ()=>{
+  <App test = {test}/>
+}
 root.render(
   <React.StrictMode>
     <App />

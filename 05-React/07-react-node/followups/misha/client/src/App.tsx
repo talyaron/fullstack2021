@@ -1,15 +1,17 @@
-import React, { useEffect } from 'react';
+import React, { useEffect,useContext } from 'react';
 import './App.css';
 import axios from 'axios';
 
-function App() {
+function App(props:any) {
 
+  const {test} = props;
+ 
   useEffect(()=>{
     (async () => {
-      const { data } = await axios.get('/api')
+      const { data } = await axios.get('/api/getUsers')
       console.log(data);
     })();
-  },[])
+  },[test])
 
   return (
     <div className="App">

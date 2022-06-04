@@ -1,7 +1,9 @@
 import express from 'express';
 import mongoose from 'mongoose';
+
 const app = express()
 const port = process.env.PORT || 4000;
+
 require('dotenv').config()
 
 
@@ -22,12 +24,7 @@ mongoose.connect(
   app.use(express.static('client/build'))
   
 
-app.get('/api', userRouter)
-
-app.get('/api', (req, res) => {
-  res.send({text: 'Hello World!'})
-})
-
+app.use('/api', userRouter)
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
