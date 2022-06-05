@@ -1,0 +1,30 @@
+.reg-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 50vh;
+
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 300px;
+    }
+}
+
+.input-container {
+    margin-bottom: 15px;
+    width: 250px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+
+    input {
+        display: block;
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #dddddd;
+    }
+}

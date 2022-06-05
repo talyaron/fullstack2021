@@ -5,10 +5,10 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 
 //styles
-import './App.css';
+import './App.scss';
 
 //components
-import UserForm from './View/Components/UserForm'
+import UserForm from './View/Components/RegistrationForm'
 import LoginForm from './View/Components/LoginForm'
 
 function App() {
@@ -86,7 +86,7 @@ function App() {
     isLoad(true)
     await axios.patch('/api/updateUser', toSend)
     isLoad(false)
-    
+
   }
 
   function handleSubmit(ev: any) {

@@ -6,28 +6,30 @@ const UserForm = (props:any) => {
     const {submit,button,id} = props;
 
     return (
-        <div>
+        <div className='reg-form-container'>
             <form onSubmit={submit} id={id}>
 
-                <label htmlFor="name">Name</label>
-                <input type="text" name="name" placeholder='name' autoComplete='off'/>
-
-                <label htmlFor="age">Age</label>
+                <div className='input-container'>
+                <input type="text" name="name" placeholder='name' autoComplete='off' data-error="Sorry, that username is taken."/>
+                </div>
+                <div className='input-container'>
                 <input type="number" name="age" placeholder='Age' autoComplete='off'/>
-
-                <label htmlFor="username">Username</label>
+                </div>
+                <div className='input-container'>
                 <input type="text" name="username" placeholder='Username' autoComplete='off'/>
-
-                <label htmlFor="occupation">Occupation</label>
+                </div>
+                <div className='input-container'>
                 <input type="text" name="occupation" placeholder='Occupation' autoComplete='off'/>
-
-                <label htmlFor="password">Password</label>
+                </div>
+                <div className='input-container'>
                 <input type="password" name="password" placeholder='Password' autoComplete='off' />
-
-                <label htmlFor="image">Image</label>
+                </div>
+                <div className='input-container'>
                 <input type="text" name="image" placeholder='Image' autoComplete='off' />
-
+                </div>
+                <div className='input-container'>
                 <button type='submit' >{button}</button>
+                </div>
             </form>
 
 
