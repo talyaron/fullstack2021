@@ -7,7 +7,8 @@ const port = process.env.PORT || 4001;
 require('dotenv').config()
 
 const mongodb_uri = process.env.MONGODB_URI
- 
+console.log(process.env.ENV)
+console.log(process.env.JWT_SECRET)
 
 
 

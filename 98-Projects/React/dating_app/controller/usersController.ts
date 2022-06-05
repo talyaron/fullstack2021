@@ -1,5 +1,6 @@
 import Users from '../models/usersModel'
-
+import JWT from 'jwt-simple'
+const secret=process.env.JWT_SECRET
 
 export const getUsers= async(req,res)=>{
     try {
@@ -25,8 +26,11 @@ export const login= async(req,res)=>{
      if(user){
        //checking if password is right for the username that was put
        if(user.password===password){
-
-          res.cookie('userInfo',{username,id:user._id,loggedInUser:true},{maxAge:60000,httpOnly:true})
+            const payload={username,id:user._id,loggedInUser:true}
+            const token=JWT.encode(payload,secret)
+            //made that the cookie is coded and cant be hacked into
+            //we put the secret in the .env so that cant be taken either
+          res.cookie('userInfo',token,{maxAge:60000,httpOnly:true})
           res.send({ok:true,login:true})
           return
        }
