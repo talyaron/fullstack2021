@@ -1,4 +1,5 @@
 import { Routes, Route, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 import AllArticles from "./views/Pages/AllArticles";
 import { AnimatePresence } from "framer-motion";
 import HomePage from "./views/Pages/HomePage";
@@ -7,18 +8,136 @@ import User from "./views/Pages/User";
 import Article from "./views/Pages/Article";
 import axios from "axios";
 
+interface User {
+  firstName: string;
+  lastName: string;
+  email: string;
+  position: string;
+  workSpace: string;
+  _id: string;
+}
+
 function AnimatedRoutes() {
   const navigate = useNavigate();
+  const [userList, setUserList] = useState<Array<User>>([
+    {
+      firstName: "e",
+      lastName: "h",
+      email: "e@h.n",
+      position: "L",
+      _id: "1",
+      workSpace: "NVLLC",
+    },
+    {
+      firstName: "e",
+      lastName: "h",
+      email: "e@h.n",
+      position: "L",
+      _id: "2",
+      workSpace: "NVLLC",
+    },
+    {
+      firstName: "e",
+      lastName: "h",
+      email: "e@h.n",
+      position: "L",
+      _id: "3",
+      workSpace: "NVLLC",
+    },
+    {
+      firstName: "e",
+      lastName: "h",
+      email: "e@h.n",
+      position: "L",
+      _id: "4",
+      workSpace: "NVLLC",
+    },
+    {
+      firstName: "e",
+      lastName: "h",
+      email: "e@h.n",
+      position: "L",
+      _id: "5",
+      workSpace: "NVLLC",
+    },
+    {
+      firstName: "e",
+      lastName: "h",
+      email: "e@h.n",
+      position: "L",
+      _id: "6",
+      workSpace: "NVLLC",
+    },
+    {
+      firstName: "e",
+      lastName: "h",
+      email: "e@h.n",
+      position: "L",
+      _id: "7",
+      workSpace: "NVLLC",
+    },
+    {
+      firstName: "e",
+      lastName: "h",
+      email: "e@h.n",
+      position: "L",
+      _id: "8",
+      workSpace: "NVLLC",
+    },
+    {
+      firstName: "e",
+      lastName: "h",
+      email: "e@h.n",
+      position: "L",
+      _id: "9",
+      workSpace: "NVLLC",
+    },
+    {
+      firstName: "e",
+      lastName: "h",
+      email: "e@h.n",
+      position: "L",
+      _id: "10",
+      workSpace: "NVLLC",
+    },
+    {
+      firstName: "e",
+      lastName: "h",
+      email: "e@h.n",
+      position: "L",
+      _id: "11",
+      workSpace: "NVLLC",
+    },
+    {
+      firstName: "e",
+      lastName: "h",
+      email: "e@h.n",
+      position: "L",
+      _id: "12",
+      workSpace: "NVLLC",
+    },
+    {
+      firstName: "e",
+      lastName: "h",
+      email: "e@h.n",
+      position: "L",
+      _id: "13",
+      workSpace: "NVLLC",
+    },
+  ]);
   async function handleLogin(e: any) {
     try {
       e.preventDefault();
-      let {email, password}:any = e.target.elements;
+      let { email, password }: any = e.target.elements;
       email = email.value;
       password = password.value;
-      const {data} = await axios.post('/api/users/login', {email, password});
-      const {ok} = data;
-      if(!ok) throw new Error("ok is not true")
-      navigate('/Home')
+      const { data } = await axios.post("/api/users/login", {
+        email,
+        password,
+      });
+      const { ok } = data;
+      if (!ok) throw new Error("ok is not true");
+      navigate("/Home");
       e.target.reset();
     } catch (error) {
       console.error(error);
@@ -60,15 +179,21 @@ function AnimatedRoutes() {
       };
 
       const { data } = await axios.post("/api/users/add-user", newUser);
-      const {ok} = data;
-      if(!ok) throw new Error("ok is not true")
-      navigate('/Home')
+      const { ok } = data;
+      if (!ok) throw new Error("ok is not true");
+      navigate("/Home");
       e.target.reset();
     } catch (error) {
       console.error(error);
     }
   }
-
+  function handleOpenUser(id: string) {
+    try {
+      navigate(`/User/${id}`);
+    } catch (error) {
+      console.error(error);
+    }
+  }
   return (
     <AnimatePresence>
       <Routes>
@@ -78,9 +203,14 @@ function AnimatedRoutes() {
             <Login handleLogin={handleLogin} handleCreate={handleCreate} />
           }
         />
-        <Route path="Home" element={<HomePage />}>
+        <Route
+          path="Home"
+          element={
+            <HomePage userList={userList} handleOpenUser={handleOpenUser} />
+          }
+        />
+        <Route path="User">
           <Route path=":userId" element={<User />}>
-            <Route path=":articleId" element={<Article />} />
           </Route>
         </Route>
         <Route path="allArticles" element={<AllArticles />}>
