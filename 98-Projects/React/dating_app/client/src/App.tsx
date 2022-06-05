@@ -13,8 +13,8 @@ function App() {
   useEffect(()=>{
     (async () => {
       const {data} = await axios.get('/api/users')
-      console.log(data);
       const {users}=data
+      console.log(users)
      
     })();
   },[])

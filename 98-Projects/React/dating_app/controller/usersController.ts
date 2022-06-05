@@ -25,6 +25,8 @@ export const login= async(req,res)=>{
      if(user){
        //checking if password is right for the username that was put
        if(user.password===password){
+
+          res.cookie('userInfo',{username,id:user._id,loggedInUser:true},{maxAge:60000})
           res.send({ok:true,login:true})
           return
        }
