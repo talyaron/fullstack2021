@@ -5,7 +5,7 @@ import { Link,Outlet} from "react-router-dom";
 const LogoBar = () => {
   return (
     <div className='logoBar'>
-        <h1 className='logoBar__logo'>Dating website</h1>
+        <h3 className='logoBar__logo'>Dating website</h3>
         <Outlet/>
     </div>
   )
