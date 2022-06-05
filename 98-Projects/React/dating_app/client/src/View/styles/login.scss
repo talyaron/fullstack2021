@@ -1,21 +1,21 @@
 .login{
   min-height: 100vh;
-  //background-image:url("https://media0.giphy.com/media/fLsUIBfqpW3D50rc2h/giphy.gif?cid=ecf05e47vd3cicfkcg1dy2yv0osun2p1rbhm6yy5membzaml&rid=giphy.gif&ct=g");
-  background-image:url("https://media3.giphy.com/media/j45XeEvs9fb7p5vTGR/giphy.gif?cid=790b761177965d059909c51e566102379876d2ac0cd58ad4&rid=giphy.gif&ct=g");
+  background-image:url("https://media0.giphy.com/media/fLsUIBfqpW3D50rc2h/giphy.gif?cid=ecf05e47vd3cicfkcg1dy2yv0osun2p1rbhm6yy5membzaml&rid=giphy.gif&ct=g");
+  //background-image:url("https://media3.giphy.com/media/j45XeEvs9fb7p5vTGR/giphy.gif?cid=790b761177965d059909c51e566102379876d2ac0cd58ad4&rid=giphy.gif&ct=g");
   background-repeat: no-repeat;
   background-size: 100% 100vh;
-   
+  
   
 
     &__form{
-    
+    border-radius:50px;
      display:flex;
      flex-direction: column;
      position: relative;
      top:100px;
      width:300px;
      height:300px;
-     border:black solid 3px;
+     border:rgb(0, 0, 0) solid 3px;
      margin: auto;
      background-color: white;     
      padding:10px;
