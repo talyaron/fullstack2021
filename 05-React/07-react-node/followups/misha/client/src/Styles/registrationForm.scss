@@ -15,16 +15,35 @@
 }
 
 .input-container {
-    margin-bottom: 15px;
+
+    margin: 13px 0;
     width: 250px;
     height: 40px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+
+    &.existError{
+        input {
+            border-color: #c92432;
+            color: #c92432;
+            background: #fffafa;
+        }
+    }
+
+    .data-error{
+        content: attr(data-error);
+        font-size: 0.85em;
+        color: #c92432;
+        display: block;
+        margin: 10px 0;
+    }
 
     input {
+        height: 95%;
+        width: 95%;
         display: block;
-        width: 100%;
         padding: 12px;
         border: 1px solid #dddddd;
+        border-radius: 4px;
     }
 }
