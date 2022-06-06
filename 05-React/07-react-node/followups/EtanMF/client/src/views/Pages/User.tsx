@@ -1,26 +1,42 @@
-import { useEffect } from "react";
+import { useTransition, useEffect } from "react";
 import { useParams, Outlet, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import Back from "../Components/Back";
 import { UserInfo } from "../../AnimatedRoutes"
 import UserNavBar from "../Components/UserNavBar";
+import { ArticleInfoParams } from '../../AnimatedRoutes';
+import AllArticles from '../Components/AllArticles'
+
 
 interface UserProps {
   handleGetUsers: Function;
   currentUser?: UserInfo;
+  getAllArticles: Function;
+  articleList: Array<ArticleInfoParams>;
+  handleSetSingleArticle: Function;
 }
 
 function User(props: UserProps) {
+  const [isPending, startTransition] = useTransition();
   const params = useParams();
   const { userId } = params;
   const navigate = useNavigate();
-  const { handleGetUsers, currentUser } = props;
-  
+  const { handleGetUsers, currentUser, getAllArticles, articleList, handleSetSingleArticle } = props;
+
 
   useEffect(() => {
+    console.log("user mounting");
+
+    startTransition(() => {
+      handleGetUsers(userId)
+      getAllArticles(userId)
+
+    })
     return () => {
 
-      handleGetUsers(userId)
+      console.log('user unmounting');
+
+
 
     }
   }, [])
@@ -39,6 +55,13 @@ function User(props: UserProps) {
 
       {userId}
       <p>here</p>
+
+      {isPending ?
+        <p>Loading...</p> :
+        <AllArticles articleList={articleList} handleSetSingleArticle={handleSetSingleArticle} />
+
+      }
+
 
 
 

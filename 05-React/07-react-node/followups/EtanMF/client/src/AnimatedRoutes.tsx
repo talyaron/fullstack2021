@@ -1,7 +1,5 @@
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-
-import AllArticles from "./views/Pages/AllArticles";
 import { AnimatePresence } from "framer-motion";
 import HomePage from "./views/Pages/HomePage";
 import Login from "./views/Pages/Login";
@@ -34,7 +32,8 @@ function AnimatedRoutes() {
   const [mounted, setMounted] = useState(false);
   const [userList, setUserList] = useState<Array<UserInfo>>([]);
   const [currentUser, setCurrentUser] = useState<UserInfo>();
-  const [articleInfo, setArticleInfo] = useState<ArticleInfoParams>();
+  const [articleList, setArticleList] = useState<Array<ArticleInfoParams>>([]);
+  const [article, setArticle] = useState<ArticleInfoParams>()
 
   async function handleCreate(e: any) {
     try {
@@ -124,7 +123,7 @@ function AnimatedRoutes() {
     }
   }
 
-  async function handleCreateNewArticle(e: any, id: string) {
+  async function handleCreateNewArticle(e: any) {
 
     try {
 
@@ -135,6 +134,12 @@ function AnimatedRoutes() {
 
       const { data } = await axios.post("/api/articles/create", { title, content });
       console.log(data);
+
+      if (!data.error) {
+        e.target.reset();
+
+      }
+
 
 
 
@@ -151,17 +156,25 @@ function AnimatedRoutes() {
     try {
 
       const { data } = await axios.post("/api/articles/get-articles", { ownerId })
-      console.log(data);
+      setArticleList(data.result)
+      console.log(data.result);
       
+
 
     } catch (error) {
 
       console.error(error);
-      
 
     }
+  }
+
+  function handleSetSingleArticle(article: ArticleInfoParams) {
+
+    setArticle(article);
+    navigate(`/Article/${article._id}`)
 
   }
+
 
   return (
     <AnimatePresence>
@@ -183,14 +196,18 @@ function AnimatedRoutes() {
               handleOpenUser={handleOpenUser}
               handleCreateNewArticle={handleCreateNewArticle}
               getAllArticles={getAllArticles}
+              articleList={articleList}
+              handleSetSingleArticle={handleSetSingleArticle}
             />
           }
         />
         <Route path="User">
-          <Route path=":userId" element={<User handleGetUsers={handleGetUsers} currentUser={currentUser} />}></Route>
+          <Route path=":userId" element={<User handleGetUsers={handleGetUsers} currentUser={currentUser}
+            getAllArticles={getAllArticles} articleList={articleList} handleSetSingleArticle={handleSetSingleArticle}
+          />}></Route>
         </Route>
-        <Route path="allArticles" element={<AllArticles />}>
-          <Route path=":articleId" element={<Article />} />
+        <Route path="Article">
+          <Route path=":articleId" element={<Article article={article} />} />
         </Route>
       </Routes>
     </AnimatePresence>

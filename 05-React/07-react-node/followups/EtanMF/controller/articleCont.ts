@@ -8,6 +8,7 @@ export const createArticle = async (req, res) => {
         const { userInformation } = req.cookies;
         const { title, content } = req.body;
 
+        if (title.length < 2) throw new Error("Please insert a title longer than 2 characters");
         if (!userInformation) throw new Error("no userInformation in createArticle in articleCont")
 
         const decodedInformation = jwt.decode(userInformation, secret);

@@ -34,13 +34,14 @@ function NewArticle(props: NewArticleProps) {
             <form onSubmit={(e) => handleCreateNewArticle(e)} className="form-newArticle">
               <fieldset className="form-newArticle-fieldset">
                 <label htmlFor="newArticleTitle">Article Title</label>
-                <input type="text" name="newArticleTitle" id="newArticleTitle" />
+                <input type="text" name="newArticleTitle" id="newArticleTitle" required />
                 <label htmlFor="newArticleContent">Article Content</label>
                 <textarea
                   name="newArticleContent"
                   id="newArticleContent"
                   cols={30}
                   rows={10}
+                  required
                 ></textarea>
                 <input type="submit" value="Create New Article" />
               </fieldset>
