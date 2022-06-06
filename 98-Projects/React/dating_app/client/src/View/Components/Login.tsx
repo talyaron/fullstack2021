@@ -21,10 +21,13 @@ const Login = () => {
     
      const {data} = await axios.post('/api/login',{username,password})
           console.log(data);
-          if(data){
+         
+          if(data.login===true){
             setTimeout(() => {
               navigate(`/navBar`);
             }, 1500);
+          }else{
+            console.log(data)
           }
          
     
