@@ -1,8 +1,13 @@
+//questions : 
+    // how to do this in one line if possible ? (110)
+    // how can i put handles in different files ?
+
+
 //libraries
 import axios from 'axios';
 
 //hooks
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 
 //styles
 import './App.scss';
@@ -10,12 +15,18 @@ import './App.scss';
 //components
 import UserForm from './View/Components/RegistrationForm'
 import LoginForm from './View/Components/LoginForm'
+import UsersList from './View/Components/UsersList'
 
 function App() {
 
+  //setters
   const [userList, setUserList] = useState([]);
-  const [load, isLoad] = useState(false);
   const [unexist, setUnexist] = useState(false);
+
+  //ises
+  const [load, isLoad] = useState(false);
+  const [loginWindowOn, isLoginWindowOn] = useState(true);
+  const [registerWindowOn, isRegisterWindowOn] = useState(true);
 
   useEffect(() => {
     if (!load) {
@@ -102,7 +113,6 @@ function App() {
   function handleSubmit(ev: any) {
 
     ev.preventDefault();
-    // how to do this in one line if possible ?
     const name = ev.target.name.value;
     const password = ev.target.password.value;
     const age = ev.target.age.value;
@@ -117,21 +127,9 @@ function App() {
 
   return (
     <div className="App">
-      <UserForm submit={handleRegister} button='REGISTER' unexist={unexist} />
-      <LoginForm submit={handleLogin} />
-
-      {userList.map((user: any, i) =>
-        <div key={i}>
-          <h1>{user.name}</h1>
-          <h1>{user.age}</h1>
-          <h1>{user.occupation}</h1>
-          <div>
-            <img src={user.image} alt={user.name}></img>
-          </div>
-          <button onClick={handleDelete} id={user._id}>DELETE</button>
-          <UserForm submit={handleUpdate} id={user._id} button='UPDATE' />
-        </div>
-      )}
+      {registerWindowOn && <UserForm submit={handleRegister} button='REGISTER' unexist={unexist} />}
+      {loginWindowOn && <LoginForm submit={handleLogin} />}
+      <UsersList userList={userList} handleUpdate={handleUpdate} handleDelete={handleDelete} />
     </div>
   );
 }
