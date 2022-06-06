@@ -10,7 +10,7 @@ const Form = (props: FormProps) => {
   function handleUpdateImage(ev: any) {
     ev.preventDefault();
     const title: string = ev.target.elements.title.value;
-    const image: string = ev.target.elements.image.value;
+    const image: string = ev.target.elements.image.value; 
 
     console.log(title, image);
     // updateFunction(title, image);

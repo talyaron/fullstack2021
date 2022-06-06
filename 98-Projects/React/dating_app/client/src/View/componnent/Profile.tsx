@@ -47,12 +47,25 @@ const [arr, setArr] = useState<Array<Users>>([]);
     }
   }
 function handleSumbit(ev:any, profilesId:any){
-    (async () => {
-    console.log(ev, ProfilesId)
+
+ const name: string = ev.target.elements.name.value;
+  const age: string = ev.target.elements.age.value;
+ const gender: string= ev.target.elements.gender.value;
+ const profileImg: string= ev.target.elements.profileImg.value;
+ const description: string= ev.target.elements.description.value;
+const password: string= ev.target.elements.password.value;
+const  username: string= ev.target.elements.username.value;
+ const img1: string= ev.target.elements.img1.value;
+ const img2: string= ev.target.elements.nimg2.value;
+ const obj:any = {name, age, gender, profileImg,description,password,username, img1,img2}
+ setArr([...arr,obj]);
+
+//  (async () => {
+//     console.log(ev, ProfilesId)
   
-    const {data} = await axios.patch('/updateUsers', {ProfilesId});
-    console.log(data)
-})();
+//     const {data} = await axios.patch('/api/updateUsers', {ProfilesId});
+//     console.log(data)
+// })();
 }
   return (
     <div className="body">
