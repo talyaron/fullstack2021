@@ -27,8 +27,6 @@ app.listen(port, () => {
 import userRoutes from './client/routes/userRoutes'
 import postRoutes from './client/routes/postRoutes';
 app.use('/api/users', userRoutes)
-app.use('/users/api/users', userRoutes)
 app.use('/api/posts', postRoutes)
-app.use('/users/api/posts', postRoutes)
 
 

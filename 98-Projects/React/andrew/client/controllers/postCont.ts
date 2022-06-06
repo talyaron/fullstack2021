@@ -27,7 +27,7 @@ export const getPost = async (req, res) => {
 }
 export const getPostSearch = async (req, res) => {
     const { searchTerm } = req.query
-    const posts = await Post.find({ text: { $regex: searchTerm } });
+    const posts = await Post.find({ text: { $regex: searchTerm, $options: 'i' } });
     res.send({ posts })
 }
 
