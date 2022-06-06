@@ -1,21 +1,30 @@
 .login-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    height: 50vh;
-    width: 50vh;
+    height: 30vh;
+    width: 30vh;
     background-color: rgb(168, 168, 168);
-}
-
-.login-form{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-radius: 1em;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+    .login-form{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        input{
+            height: 2.5em;
+            margin-bottom: 13px;
+        }
+        
+    }
     
 }
+
