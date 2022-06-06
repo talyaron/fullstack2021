@@ -1,0 +1,16 @@
+@use './Styles/registrationForm.scss';
+
+*{
+    box-sizing: border-box;
+}
+
+div{
+    border: 1px solid red;
+}
+.App{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    font-family: sans-serif;
+}

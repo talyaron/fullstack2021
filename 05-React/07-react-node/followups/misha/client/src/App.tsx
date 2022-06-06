@@ -2,19 +2,20 @@
 import axios from 'axios';
 
 //hooks
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 
 //styles
-import './App.css';
+import './App.scss';
 
 //components
-import UserForm from './View/Components/UserForm'
+import UserForm from './View/Components/RegistrationForm'
 import LoginForm from './View/Components/LoginForm'
 
 function App() {
 
   const [userList, setUserList] = useState([]);
   const [load, isLoad] = useState(false);
+  const [unexist, setUnexist] = useState(false);
 
   useEffect(() => {
     if (!load) {
@@ -43,11 +44,18 @@ function App() {
     isLoad(true)
     const registerResponse = await axios.post('/api/addUser', handleSubmit(ev))
 
-    if (registerResponse.data === 'AlreadyExists') {
-      window.alert('AlreadyExists')
+    if (registerResponse.data === 'AlreadyExists' && !unexist) {
+
+      setUnexist(!unexist)
+      setTimeout(() => {
+        setUnexist(unexist)
+      }, 2000)
+
     }
 
     isLoad(false)
+
+    ev.reset();
 
   }
 
@@ -60,8 +68,10 @@ function App() {
 
     const loginUser: any = { username, password }
 
-    const LoginResponse = await axios.post('/api/login', loginUser)
-    console.log(LoginResponse)
+    await axios.post('/api/login', loginUser)
+
+
+    ev.reset();
 
   }
 
@@ -86,7 +96,7 @@ function App() {
     isLoad(true)
     await axios.patch('/api/updateUser', toSend)
     isLoad(false)
-    
+
   }
 
   function handleSubmit(ev: any) {
@@ -107,7 +117,7 @@ function App() {
 
   return (
     <div className="App">
-      <UserForm submit={handleRegister} button='REGISTER' />
+      <UserForm submit={handleRegister} button='REGISTER' unexist={unexist} />
       <LoginForm submit={handleLogin} />
 
       {userList.map((user: any, i) =>
