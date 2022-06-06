@@ -21,7 +21,7 @@ function AllUsers(props: AllUsersProps) {
     <motion.ul
       className="comp-allUsers"
     >
-      {userList.map((user: User, i) => {
+      {userList && userList.map((user: User, i) => {
         return <UserCard key={i} user={user} handleOpenUser={handleOpenUser} />;
       })}
     </motion.ul>

@@ -1,8 +1,10 @@
-import React from "react";
-import { Outlet, Link } from "react-router-dom";
+import { useEffect, useTransition } from "react";
+import { Outlet, useLocation, Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { createBrowserHistory } from "history";
 import NewArticle from "../Components/NewArticle";
 import AllUsers from "../Components/AllUsers";
+import Back from "../Components/Back";
 
 interface User {
   firstName: string;
@@ -14,22 +16,38 @@ interface User {
 }
 
 interface HomePageProps {
-  handleOpenUser:Function;
+  handleGetUsers: Function;
+  handleOpenUser: Function;
   userList: Array<User>;
+  mounted: Boolean;
+  setMounted: Function;
 }
 
 function HomePage(props: HomePageProps) {
-  const { userList, handleOpenUser } = props;
+  const { mounted, setMounted, userList, handleOpenUser, handleGetUsers } =
+    props;
+  const [isPending, startTransition] = useTransition();
+  useEffect(() => {
+    return () => {
+      startTransition(() => {
+        handleGetUsers();
+      });
+    };
+  }, []);
   return (
     <motion.div
       className="wrapper"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 2 }}
+      // transition={{ duration: 2 }}
     >
       <div className="wrapper__HomePage">
+        <Back/>
         <NewArticle />
-        {userList && <AllUsers userList={userList} handleOpenUser={handleOpenUser}/>}
+        {isPending && <p>loading...</p>}
+        {userList && (
+          <AllUsers userList={userList} handleOpenUser={handleOpenUser} />
+        )}
         <Outlet />
       </div>
     </motion.div>

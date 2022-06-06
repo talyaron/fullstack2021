@@ -25,7 +25,7 @@ export const login = async (req, res) => {
     res.send({ ok: true });
   } catch (error) {
     console.error(error.message);
-    res.send({ ok:false, error: error.message });
+    res.send({ ok: false, error: error.message });
   }
 };
 
@@ -61,6 +61,32 @@ export async function create(req, res) {
     res.send({ ok: true });
   } catch (error) {
     console.error(error.message);
+    res.send({ ok: false, error: error.message });
+  }
+}
+export async function getUsers(req, res) {
+  try {
+    const { id } = req.body;
+
+    if (!id) {
+      const userList = await User.find({}, {password:0});
+      if (!userList)
+        throw new Error("did'nt find the user list in getUsers -userCont");
+      res.send({ ok: true, userList: userList });
+    }
+    if (id) {
+      const thisUser = await User.findOne(
+        // second parameter is to exclude
+        { id: id }, {password: 0}
+      );
+      if (!thisUser)
+        throw new Error("did'nt find a user in getUsers -userCont");
+      console.log(thisUser);
+
+      res.send({ ok: true, thisUser: thisUser });
+    }
+  } catch (error) {
+    console.log(error);
     res.send({ ok: false, error: error.message });
   }
 }

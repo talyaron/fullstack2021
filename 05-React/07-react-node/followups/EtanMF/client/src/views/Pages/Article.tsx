@@ -14,7 +14,7 @@ function Article() {
     >
 
       Article {articleId}
-<Next/>
+{/* <Next/> */}
     </motion.div>
   );
 }

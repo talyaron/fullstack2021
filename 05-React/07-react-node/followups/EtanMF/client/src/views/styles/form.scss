@@ -76,13 +76,14 @@
     max-width: 60%;
 
     &-fieldset {
+
       display: flex;
       width: 80%;
       padding-inline: 5em;
       padding-block: 0.5em;
       text-align: left;
       gap: 0.5em;
-      border-radius: 50px;
+      border:none;
       &-labelArea {
         position: relative;
         display: flex;
