@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link, Outlet } from 'react-router-dom';
 import ProfileBox from '../Components/ProfileBox';
 interface user{
+    _id: string;
     name:string,
     age:string,
     gender:string,
@@ -11,11 +12,17 @@ interface user{
     password:string,
     username:string,
     img1:string,
-    img2:string
+    img2:string,
+   
+}
+interface homeProps{
+    chosenUserId:string
+    setchosenUserId:Function
 }
 
 
-function Home() {
+function Home(props:homeProps) {
+    const {chosenUserId,setchosenUserId}=props
 const [arr,SetArr]=useState<Array<user>>([]);
 
 
@@ -31,7 +38,7 @@ const [arr,SetArr]=useState<Array<user>>([]);
     
     return (
         <div className="home">
-          {arr.map((user, i) => { return <ProfileBox key={i} name={user.name} age={user.age} gender={user.gender} profileImg={user.profileImg} description={user.description}/> })}
+          {arr.map((user, i) => { return <ProfileBox key={i} _id={user._id} chosenUserId={chosenUserId} setchosenUserId={setchosenUserId} name={user.name} age={user.age} gender={user.gender} profileImg={user.profileImg} description={user.description}/> })}
         </div>
     )
 }

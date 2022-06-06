@@ -13,7 +13,7 @@ console.log(id);
 
         <h1>navBar : {id}</h1>
         
-        <Link to='/navBar/${id}'>
+        <Link to='/navBar/:id'>
             <button className='navBar__btn'>Home</button>
         </Link>
         <Link to='/'>

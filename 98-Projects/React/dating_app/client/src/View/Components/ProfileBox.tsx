@@ -1,15 +1,19 @@
 import { Link } from "react-router-dom";
 
 interface ProfileBoxProps{
+    _id: string;
     name:string,
     age:string,
     gender:string,
     profileImg:string,
     description:string,
+    chosenUserId:string
+    setchosenUserId:Function
 }
 
 const ProfileBox = (props:ProfileBoxProps)=>{
-    const {name,age,gender,profileImg,description} = props;
+    const {_id,name,age,gender,profileImg,description,chosenUserId,setchosenUserId} = props;
+    setchosenUserId(_id)
     return(
         <div className="ProfileBox" style={{backgroundImage:`url(${profileImg})`}}>
             {/* <img src={profileImg} /> */}

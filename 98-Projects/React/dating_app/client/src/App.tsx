@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useState } from "react";
 
 import "./View/styles/global.scss";
 import axios from "axios";
@@ -11,6 +11,7 @@ import Home from './View/Pages/Home';
 import Profile from "./View/Components/Profile";
 
 function App() {
+  const [chosenUserId,setchosenUserId]=useState('')
    
   useEffect(()=>{
     (async () => {
@@ -28,8 +29,8 @@ function App() {
       <Route path="/" element={<LogoBar/>}>
         <Route index  element={<Login/>}></Route>  
         <Route path="/navBar/:id" element={<NavBar />}>
-          <Route index element={<Home />}></Route>
-          <Route path='/navBar/:id/:profilesId'  element={<Profile/>}></Route>  
+          <Route index element={<Home chosenUserId={chosenUserId} setchosenUserId={setchosenUserId} />}></Route>
+          <Route path='/navBar/:id/:profilesId'  element={<Profile chosenUserId={chosenUserId}/>}></Route>  
           </Route>      
        
       </Route>

@@ -14,10 +14,19 @@ interface Users {
   username: string;
   img1: string;
   img2: string;
+ 
+}
+interface profileProps{
+  chosenUserId:string
 }
 
-const Profile = () => {
-  const { ProfilesId } = useParams();
+const Profile = (props:profileProps) => {
+  const { chosenUserId}=props
+  console.log(chosenUserId)
+  
+ let { ProfilesId } = useParams();
+ 
+
   const [ yourProfile, setYoureProfile]  = useState<any>(null);
 const [form, setForm] = useState(true)
 const [arr, setArr] = useState<Array<Users>>([]);
