@@ -9,7 +9,7 @@ import User from "./views/Pages/User";
 import Article from "./views/Pages/Article";
 import axios from "axios";
 
-interface User {
+export interface UserInfo {
   firstName: string;
   lastName: string;
   email: string;
@@ -18,10 +18,24 @@ interface User {
   _id: string;
 }
 
+export interface ArticleInfoParams {
+  firstName: string;
+  lastName: string;
+  position: string;
+  workSpace: string;
+  _id: string;
+  ownerId: string;
+  title: string;
+  content: string;
+}
+
 function AnimatedRoutes() {
   const navigate = useNavigate();
   const [mounted, setMounted] = useState(false);
-  const [userList, setUserList] = useState<Array<User>>([]);
+  const [userList, setUserList] = useState<Array<UserInfo>>([]);
+  const [currentUser, setCurrentUser] = useState<UserInfo>();
+  const [articleInfo, setArticleInfo] = useState<ArticleInfoParams>();
+
   async function handleCreate(e: any) {
     try {
       e.preventDefault();
@@ -88,10 +102,18 @@ function AnimatedRoutes() {
     try {
       const { data } = await axios.post("/api/users/get-users", { id });
       // console.log(data.userList);
-      setUserList(data.userList)
+      if (data.userList) {
+        setUserList(data.userList)
+        return
+      }
+      if (data.thisUser) {
+        setCurrentUser(data.thisUser)
+        return
+      }
+
     } catch (error) {
-      console.log({error});
-      
+      console.log({ error });
+
     }
   }
   function handleOpenUser(id: string) {
@@ -101,6 +123,46 @@ function AnimatedRoutes() {
       console.error(error);
     }
   }
+
+  async function handleCreateNewArticle(e: any, id: string) {
+
+    try {
+
+      e.preventDefault();
+
+      const title = e.target.newArticleTitle.value;
+      const content = e.target.newArticleContent.value;
+
+      const { data } = await axios.post("/api/articles/create", { title, content });
+      console.log(data);
+
+
+
+    } catch (error) {
+
+      console.error(error);
+
+
+    }
+  }
+
+  async function getAllArticles(ownerId?: string) {
+
+    try {
+
+      const { data } = await axios.post("/api/articles/get-articles", { ownerId })
+      console.log(data);
+      
+
+    } catch (error) {
+
+      console.error(error);
+      
+
+    }
+
+  }
+
   return (
     <AnimatePresence>
       <Routes>
@@ -119,11 +181,13 @@ function AnimatedRoutes() {
               userList={userList}
               handleGetUsers={handleGetUsers}
               handleOpenUser={handleOpenUser}
+              handleCreateNewArticle={handleCreateNewArticle}
+              getAllArticles={getAllArticles}
             />
           }
         />
         <Route path="User">
-          <Route path=":userId" element={<User />}></Route>
+          <Route path=":userId" element={<User handleGetUsers={handleGetUsers} currentUser={currentUser} />}></Route>
         </Route>
         <Route path="allArticles" element={<AllArticles />}>
           <Route path=":articleId" element={<Article />} />

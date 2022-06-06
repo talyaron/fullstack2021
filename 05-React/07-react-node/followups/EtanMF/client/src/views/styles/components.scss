@@ -8,11 +8,13 @@
     // min-height: 30vh;
     // max-height: 50vh;
     width: 100%;
+
     &-triggerButton {
       position: relative;
       top: 0px;
       z-index: 2;
     }
+
     &-section {
       top: 10px;
       position: relative;
@@ -28,21 +30,26 @@
     position: relative;
     gap: 1em;
   }
+
   //allUsers is the list parent of userCard list item
   &-userCard {
     font-size: clamp(0.5em, 2vh, 1em);
-padding-block-end: 1em;
+    padding-block-end: 1em;
     list-style: none;
     display: flex;
     flex-direction: column;
     width: 40vw;
     max-height: 20vh;
+    cursor: pointer;
+
     &-personal {
       display: flex;
       place-items: space-between;
       place-content: space-between;
+
       // flex-direction: column;
     }
+
     &-professional {
       display: flex;
       place-items: space-between;

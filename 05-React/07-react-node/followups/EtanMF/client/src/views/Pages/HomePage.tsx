@@ -6,7 +6,7 @@ import NewArticle from "../Components/NewArticle";
 import AllUsers from "../Components/AllUsers";
 import Back from "../Components/Back";
 
-interface User {
+interface UserInfo {
   firstName: string;
   lastName: string;
   email: string;
@@ -18,20 +18,22 @@ interface User {
 interface HomePageProps {
   handleGetUsers: Function;
   handleOpenUser: Function;
-  userList: Array<User>;
+  userList: Array<UserInfo>;
   mounted: Boolean;
   setMounted: Function;
+  handleCreateNewArticle: Function;
+  getAllArticles: Function;
 }
 
 function HomePage(props: HomePageProps) {
-  const { mounted, setMounted, userList, handleOpenUser, handleGetUsers } =
+  const { mounted, setMounted, userList, handleOpenUser, handleGetUsers, handleCreateNewArticle, getAllArticles } =
     props;
-    // const id = '6299358656b124f9ea8a59d8';
   const [isPending, startTransition] = useTransition();
   useEffect(() => {
     return () => {
       startTransition(() => {
         handleGetUsers();
+        getAllArticles();
       });
     };
   }, []);
@@ -44,7 +46,7 @@ function HomePage(props: HomePageProps) {
     >
       <div className="wrapper__HomePage">
         <Back/>
-        <NewArticle />
+        <NewArticle handleCreateNewArticle={handleCreateNewArticle} />
         {isPending && <p>loading...</p>}
         {userList && (
           <AllUsers userList={userList} handleOpenUser={handleOpenUser} />

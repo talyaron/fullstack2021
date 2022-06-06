@@ -2,7 +2,7 @@ import { motion, useMotionValue, useTransform, useViewportScroll } from "framer-
 
 
 import UserCard from "./UserCard";
-interface User {
+interface UserInfo {
   firstName: string;
   lastName: string;
   email: string;
@@ -11,7 +11,7 @@ interface User {
   _id: string;
 }
 interface AllUsersProps {
-  userList: Array<User>;
+  userList: Array<UserInfo>;
   handleOpenUser: Function;
 }
 function AllUsers(props: AllUsersProps) {
@@ -21,7 +21,7 @@ function AllUsers(props: AllUsersProps) {
     <motion.ul
       className="comp-allUsers"
     >
-      {userList && userList.map((user: User, i) => {
+      {userList && userList.map((user: UserInfo, i) => {
         return <UserCard key={i} user={user} handleOpenUser={handleOpenUser} />;
       })}
     </motion.ul>

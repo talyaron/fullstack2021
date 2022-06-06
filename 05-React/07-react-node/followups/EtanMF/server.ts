@@ -24,9 +24,10 @@ mongoose
   });
 
 
-import userRouter from './router/userRouter'
+import userRouter from './router/userRouter';
+import articleRouter from './router/articleRouter';
 app.use('/api/users', userRouter);
-
+app.use('/api/articles', articleRouter);
 
 console.log(process.env.ENV);
 

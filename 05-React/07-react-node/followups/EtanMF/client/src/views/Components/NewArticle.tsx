@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-interface NewArticleProps {}
+interface NewArticleProps {
+  handleCreateNewArticle: Function;
+}
 function NewArticle(props: NewArticleProps) {
   const [expanded, setExpanded] = useState<Boolean>();
   const isOpen = expanded;
+  const { handleCreateNewArticle } = props;
 
   return (
     <motion.div className="comp-newArticle">
@@ -17,7 +20,7 @@ function NewArticle(props: NewArticleProps) {
       <AnimatePresence initial={false}>
         {isOpen && (
           <motion.section
-          className="comp-newArticle-section"
+            className="comp-newArticle-section"
             key="content"
             initial="collapsed"
             animate="open"
@@ -28,9 +31,8 @@ function NewArticle(props: NewArticleProps) {
             }}
             transition={{ duration: 2, ease: [0.04, 0.62, 0.23, 0.98] }}
           >
-            <form className="form-newArticle">
+            <form onSubmit={(e) => handleCreateNewArticle(e)} className="form-newArticle">
               <fieldset className="form-newArticle-fieldset">
-                <legend>{" "+" "+" "+" "+" "+" "+" "+" "+" "+" "}</legend>
                 <label htmlFor="newArticleTitle">Article Title</label>
                 <input type="text" name="newArticleTitle" id="newArticleTitle" />
                 <label htmlFor="newArticleContent">Article Content</label>
@@ -40,6 +42,7 @@ function NewArticle(props: NewArticleProps) {
                   cols={30}
                   rows={10}
                 ></textarea>
+                <input type="submit" value="Create New Article" />
               </fieldset>
             </form>
           </motion.section>

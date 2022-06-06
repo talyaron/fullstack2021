@@ -1,7 +1,7 @@
 import { useId } from "react";
 import { motion, useMotionValue, useTransform, useViewportScroll } from "framer-motion";
 
-interface User {
+interface UserInfo {
   firstName: string;
   lastName: string;
   email: string;
@@ -10,24 +10,21 @@ interface User {
   _id: string;
 }
 interface UserCardProps {
-  user: User;
+  user: UserInfo;
   handleOpenUser: Function;
 }
 function UserCard(props: UserCardProps) {
   const { user, handleOpenUser } = props;
 
-  
+
   const id = useId();
   return (
 
-    <motion.li style={{
-      cursor: "pointer"
-
-    }}
-    onClick={() => {
-      handleOpenUser(user._id);
-    }}
-    className="comp-userCard"
+    <motion.li
+      onClick={() => {
+        handleOpenUser(user._id);
+      }}
+      className="comp-userCard"
     >
       <fieldset>
         <legend>{`${user.firstName} ${user.lastName}`}</legend>
