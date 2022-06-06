@@ -33,8 +33,8 @@ const [arr, setArr] = useState<Array<Users>>([]);
         const { data } = await axios.get(`/api/userProfile?userProfile=${userProfile}`);
 
         const { profileId } = data;
-         console.log(data);
-        console.log(userProfile)
+        //  console.log(data);
+        // console.log(userProfile)
         if (!profileId) {
           throw new Error("no profile");
         }
@@ -44,15 +44,36 @@ const [arr, setArr] = useState<Array<Users>>([]);
       }
     })();
   }, []);
+// useEffect(()=>{
+  
+//     setYoureProfile(data);
 
+// },[yourProfile])
   function handleEdit(ev:any){
     
     if(ev){
         setForm(false)
     }
   }
-function handleSumbit(ev:any){
+// function handleSumbit(ev:any){
 
+
+//  const obj:any = {name, age, gender, profileImg,description,username, img1,img2}
+//  setArr([...arr,obj]);
+
+//  (async () => {
+//     console.log(ev, profiles)
+  
+//     const {data} = await axios.patch('/api/updateUsers', {profiles});
+//     console.log(data)
+// })();
+
+// }
+async function handleSumbit(ev:any) {
+  ev.preventDefault();
+  // const username = ev.target.value;
+  //const role=ev.target.role.value;
+  
  const name: string = ev.target.elements.name.value;
   const age: string = ev.target.elements.age.value;
  const gender: string= ev.target.elements.gender.value;
@@ -60,17 +81,20 @@ function handleSumbit(ev:any){
  const description: string= ev.target.elements.description.value;
 const  username: string= ev.target.elements.username.value;
  const img1: string= ev.target.elements.img1.value;
- const img2: string= ev.target.elements.nimg2.value;
- const obj:any = {name, age, gender, profileImg,description,username, img1,img2}
- setArr([...arr,obj]);
-
-//  (async () => {
-//     console.log(ev, ProfilesId)
-  
-//     const {data} = await axios.patch('/api/updateUsers', {ProfilesId});
-//     console.log(data)
-// })();
+ const img2: string= ev.target.elements.img2.value;
+ const obj ={
+  username, name, age, gender, profileImg, description, img1, img2
 }
+console.log(userProfile);
+
+  const { data } = await axios.patch('/api/updateUsers', {
+   obj, userProfile
+  });
+ 
+  setYoureProfile(data);
+  window.location.reload()
+}
+
   return (
     <div className="body">
       <h2>
@@ -90,7 +114,7 @@ const  username: string= ev.target.elements.username.value;
         </p>
       </div>
       <button onClick={()=>handleEdit(Event)}>Edit Profile</button>
-      <form id="form" className={form?'closed':'open'} onClick={()=>handleSumbit(Event)}>
+      <form id="form" className={form?'closed':'open'} onSubmit={handleSumbit}>
         <input type="text" name="name" id="" placeholder="enter your new name" />
         <input type="text" name="age" id="" placeholder="enter your new age" />
         <input type="text"  name="gender" id="" placeholder="enter your new gender"/>

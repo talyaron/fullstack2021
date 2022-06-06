@@ -68,9 +68,11 @@ export const getUsersProfile= async(req,res)=>{
 export const updateUser = async(req, res)=>{
   try {
    
-    const { profiles, name, age, gender, profileImg, description, username,img1, img2} = req.body;
-    if (profiles&&name&&age&&gender&&profileImg&&description&&username&&img1&&img2) {
-      const users = await Users.findByIdAndUpdate(profiles,{name:name,age:age,gender:gender,profileImg:profileImg,description:description,username:username,img1:img1,img2:img2})
+    const { userProfile, obj} = req.body;
+    if (userProfile && obj) {
+      const users = await Users.updateOne({_id:userProfile},obj)
+     console.log(userProfile `update`);
+     
       res.send({ ok: true, users });
     } else {
       throw new Error("profiles/id is missing");
