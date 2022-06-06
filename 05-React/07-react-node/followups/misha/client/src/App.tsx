@@ -1,6 +1,3 @@
-//questions : 
-    // how to do this in one line if possible ? (110)
-    // how can i put handles in different files ?
 
 
 //libraries
@@ -16,6 +13,7 @@ import './App.scss';
 import UserForm from './View/Components/RegistrationForm'
 import LoginForm from './View/Components/LoginForm'
 import UsersList from './View/Components/UsersList'
+import NavBar from './View/Components/NavBar';
 
 function App() {
 
@@ -25,8 +23,31 @@ function App() {
 
   //ises
   const [load, isLoad] = useState(false);
-  const [loginWindowOn, isLoginWindowOn] = useState(true);
-  const [registerWindowOn, isRegisterWindowOn] = useState(true);
+  const [loginWindowOn, isLoginWindowOn] = useState(false);
+  const [registerWindowOn, isRegisterWindowOn] = useState(false);
+
+  function handleWindowOpen(ev){
+
+    if(ev.target.id === 'loginButton'){
+      if(!loginWindowOn){
+        isLoginWindowOn(true)
+      }
+      else{
+        isLoginWindowOn(false)
+      }
+    }
+
+    if(ev.target.id === 'registerButton'){
+
+      if(!registerWindowOn){
+        isRegisterWindowOn(true)
+      }
+      else{
+        isRegisterWindowOn(false)
+      }
+    }
+
+  }
 
   useEffect(() => {
     if (!load) {
@@ -43,6 +64,16 @@ function App() {
     }
   }, [load])
 
+  return (
+    <div className="App">
+      <NavBar handleWindowOpen={handleWindowOpen}></NavBar>
+      {registerWindowOn && <UserForm submit={handleRegister} button='REGISTER' unexist={unexist} />}
+      {loginWindowOn && <LoginForm submit={handleLogin} />}
+      <UsersList userList={userList} handleUpdate={handleUpdate} handleDelete={handleDelete} />
+    </div>
+  );
+
+
   async function handleRegister(ev: any) {
 
     ev.preventDefault();
@@ -53,11 +84,13 @@ function App() {
     handleSubmit(ev)
 
     isLoad(true)
+
     const registerResponse = await axios.post('/api/addUser', handleSubmit(ev))
 
     if (registerResponse.data === 'AlreadyExists' && !unexist) {
 
       setUnexist(!unexist)
+
       setTimeout(() => {
         setUnexist(unexist)
       }, 2000)
@@ -125,13 +158,7 @@ function App() {
     return userForm;
   }
 
-  return (
-    <div className="App">
-      {registerWindowOn && <UserForm submit={handleRegister} button='REGISTER' unexist={unexist} />}
-      {loginWindowOn && <LoginForm submit={handleLogin} />}
-      <UsersList userList={userList} handleUpdate={handleUpdate} handleDelete={handleDelete} />
-    </div>
-  );
+
 }
 
 export default App;
