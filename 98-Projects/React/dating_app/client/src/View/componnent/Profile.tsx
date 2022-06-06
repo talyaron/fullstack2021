@@ -96,7 +96,7 @@ const  username: string= ev.target.elements.username.value;
         <input type="text" name="username" id="" placeholder="enter your new username" />
         <input type="text" name="img1" id="" placeholder="enter your first new img"/>
         <input type="text" name="img2" id="" placeholder="enter your second new img"/>
-        <input className="color" type="submit" value="Edit" />
+        <input type="submit" value="Edit" />
       </form>
       <Outlet/>
     </div>
