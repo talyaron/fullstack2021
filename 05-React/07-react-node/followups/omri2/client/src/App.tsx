@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
+import { useState, useEffect } from 'react';
 import './App.css';
 import axios from 'axios';
 
 
 function App() {
+  async function handleSubmit(ev: any) {
+    ev.preventDefault();
+    try {
+      const title = ev.target.title.value;
+      const article = ev.target.article.value;
+      // console.log(title, article)
+      if(title && article){
+         await axios.post('api/blogs/add-blog', {title,article});
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <form onSubmit={handleSubmit}>
+        <input type="text" name='title' placeholder='title' />
+        <input type="text" name='article' placeholder='article' />
+        <input type="submit" value='submit' />
+      </form>
     </div>
   );
 }
