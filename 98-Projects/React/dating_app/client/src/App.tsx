@@ -11,7 +11,7 @@ import Home from './View/Pages/Home';
 import Profile from "./View/Components/Profile";
 
 function App() {
-  const [chosenUserId,setchosenUserId]=useState('')
+
    
   useEffect(()=>{
     (async () => {
@@ -28,9 +28,10 @@ function App() {
     <Routes>
       <Route path="/" element={<LogoBar/>}>
         <Route index  element={<Login/>}></Route>  
-        <Route path="/navBar/:id" element={<NavBar />}>
-          <Route index element={<Home chosenUserId={chosenUserId} setchosenUserId={setchosenUserId} />}></Route>
-          <Route path='/navBar/:id/:profilesId'  element={<Profile chosenUserId={chosenUserId}/>}></Route>  
+        <Route path="/navBar" element={<NavBar />}>
+          <Route index element={<Home  />}></Route>
+          
+          <Route path=':userProfile'  element={<Profile/>}></Route>  
           </Route>      
        
       </Route>

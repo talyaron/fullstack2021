@@ -15,14 +15,10 @@ interface user{
     img2:string,
    
 }
-interface homeProps{
-    chosenUserId:string
-    setchosenUserId:Function
-}
 
 
-function Home(props:homeProps) {
-    const {chosenUserId,setchosenUserId}=props
+function Home() {
+   
 const [arr,SetArr]=useState<Array<user>>([]);
 
 
@@ -38,7 +34,7 @@ const [arr,SetArr]=useState<Array<user>>([]);
     
     return (
         <div className="home">
-          {arr.map((user, i) => { return <ProfileBox key={i} _id={user._id} chosenUserId={chosenUserId} setchosenUserId={setchosenUserId} name={user.name} age={user.age} gender={user.gender} profileImg={user.profileImg} description={user.description}/> })}
+          {arr.map((user, i) => { return <ProfileBox key={i} userProfile={user._id}  name={user.name} age={user.age} gender={user.gender} profileImg={user.profileImg} description={user.description}/> })}
         </div>
     )
 }

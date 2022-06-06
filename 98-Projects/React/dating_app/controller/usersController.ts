@@ -47,28 +47,17 @@ export const login= async(req,res)=>{
 
 }
 
-export const getLoginUser = async(req,res)=>{
-  try{
-    const id = req.query.id;
-    const result = await Users.find({_id:id})
-    res.send({ ok: true, result });
-  }
-  catch(error){
-    console.error(error);
-    res.send({ error: "error in app.get/getPlaces" });
 
-  }
-}
 
 export const getUsersProfile= async(req,res)=>{
   try{
-    const {ProfilesId}=req.params;
-    console.log(ProfilesId);
+    const {userProfile}=req.query;
+    console.log(userProfile);
     
-    const ProfileId = await Users.findById(ProfilesId)
-    console.log(ProfileId);
+    const profileId = await Users.findOne({_id:userProfile})
+    console.log(profileId);
     
-    res.send({ProfileId,ok:true})
+    res.send({profileId,ok:true})
   }
   catch(error) {
     console.log(error.error);
@@ -78,12 +67,13 @@ export const getUsersProfile= async(req,res)=>{
 }
 export const updateUser = async(req, res)=>{
   try {
-    const { ProfilesId, name, age, gender, profileImg, description, password, username,img1, img2} = req.body;
-    if (ProfilesId) {
-      const users = await Users.updateOne({_id:ProfilesId})
+   
+    const { profiles, name, age, gender, profileImg, description, username,img1, img2} = req.body;
+    if (profiles&&name&&age&&gender&&profileImg&&description&&username&&img1&&img2) {
+      const users = await Users.findByIdAndUpdate(profiles,{name:name,age:age,gender:gender,profileImg:profileImg,description:description,username:username,img1:img1,img2:img2})
       res.send({ ok: true, users });
     } else {
-      throw new Error("ProfilesId or role is missing");
+      throw new Error("profiles/id is missing");
     }
   } catch (error) {
     console.log(error.error);

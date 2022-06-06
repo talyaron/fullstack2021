@@ -3,17 +3,17 @@ import axios from 'axios';
 // import ProfileIcon from '../Components/ProfileIcon';
 
 function NavBar(){
-const {id} = useParams();
-console.log(id);
+const {userProfile} = useParams();
+console.log(userProfile);
 
-// const {data}= axios.get(`/api/getLoginUser?id=${id}`);
+
 
     return(
     <div className="navBar">
 
-        <h1>navBar : {id}</h1>
+        <h1>navBar : {userProfile}</h1>
         
-        <Link to='/navBar/:id'>
+        <Link to={`/navBar`}>
             <button className='navBar__btn'>Home</button>
         </Link>
         <Link to='/'>

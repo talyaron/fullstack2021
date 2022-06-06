@@ -23,7 +23,7 @@ const Login = () => {
           console.log(data);
           if(data){
             setTimeout(() => {
-              navigate(`/navBar/${data.user._id}`);
+              navigate(`/navBar`);
             }, 1500);
           }
          
