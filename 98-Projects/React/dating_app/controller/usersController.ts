@@ -46,3 +46,16 @@ export const login= async(req,res)=>{
     }
 
 }
+
+export const getLoginUser = async(req,res)=>{
+  try{
+    const id = req.query.id;
+    const result = await Users.find({_id:id})
+    res.send({ ok: true, result });
+  }
+  catch(error){
+    console.error(error);
+    res.send({ error: "error in app.get/getPlaces" });
+
+  }
+}

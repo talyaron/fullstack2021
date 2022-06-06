@@ -14,3 +14,53 @@
   color: white;
 }
 
+
+
+
+
+.navBar {
+  width: 100%;
+  height: 10vh;
+  background-color: #0693d0;
+}
+
+.home {
+  width: 100%;
+  height: 40vh;
+  background-color: #a907be;
+  display: flex;
+}
+
+.ProfileBox {
+  display: flex;
+  background-color: gold;
+  border: 1px solid black;
+  flex-direction: column;
+  width: 180px;
+  height: 180px;
+  align-items: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50%;
+
+  img {
+    width: 50px;
+    height: 50px;
+  }
+
+  &__name{
+    font-weight: bold;
+    
+  }
+  &__age{
+    font-weight: 600;
+  }
+  &__gender{
+    z-index: 2;
+    color: rgb(15, 3, 3);
+  }
+  &__description{
+   align-self: flex-end;
+  }
+}
+
