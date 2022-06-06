@@ -21,7 +21,7 @@ function UserCard(props: UserCardProps) {
   return (
 
     <motion.li style={{
-      
+      cursor: "pointer"
 
     }}
     onClick={() => {
