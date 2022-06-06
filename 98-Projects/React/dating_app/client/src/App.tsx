@@ -29,7 +29,7 @@ function App() {
         <Route index  element={<Login/>}></Route>  
         <Route path="/navBar/:id" element={<NavBar />}>
           <Route index element={<Home />}></Route>
-          <Route path='/api/:profilesId'  element={<Profile/>}></Route>  
+          <Route path='/navBar/:id/:profilesId'  element={<Profile/>}></Route>  
           </Route>      
        
       </Route>

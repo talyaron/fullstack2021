@@ -18,6 +18,7 @@ interface user{
 function Home() {
 const [arr,SetArr]=useState<Array<user>>([]);
 
+
     useEffect(() => {
         (async () => {
             const { data } = await axios.get('/api/users')

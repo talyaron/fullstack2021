@@ -1,19 +1,34 @@
 import React,{useState} from 'react'
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 
-async function handleLogin(ev:any){
-    ev.preventDefault()
-  let {username, password}=ev.target.elements
- username=username.value
- password=password.value
- console.log(username,password)
 
- const {data} = await axios.post('/api/login',{username,password})
-      console.log(data);
-}
+
 const Login = () => {
     const [showPassword,setShowPassword]=useState(true)
+    const navigate=useNavigate()
+
+
+    async function handleLogin(ev:any){
+      ev.preventDefault()
+     
+    
+    let {username, password}=ev.target.elements
+     username=username.value
+     password=password.value
+     console.log(username,password)
+    
+     const {data} = await axios.post('/api/login',{username,password})
+          console.log(data);
+          if(data){
+            setTimeout(() => {
+              navigate(`/navBar/${data.user._id}`);
+            }, 1500);
+          }
+         
+    
+    }
     
   return (
     <div className='login' >

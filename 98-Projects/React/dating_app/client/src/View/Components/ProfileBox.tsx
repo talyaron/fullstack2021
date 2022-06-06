@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 interface ProfileBoxProps{
     name:string,
     age:string,
@@ -11,6 +13,8 @@ const ProfileBox = (props:ProfileBoxProps)=>{
     return(
         <div className="ProfileBox" style={{backgroundImage:`url(${profileImg})`}}>
             {/* <img src={profileImg} /> */}
+            <Link to='/navBar/:id/:profilesId'>user page</Link>
+            
             <p className="ProfileBox__name">{name}</p>
             <div className="ProfileBox__age">{age}</div>
             <div className="ProfileBox__gender">{gender}</div>

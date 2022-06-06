@@ -30,8 +30,8 @@ export const login= async(req,res)=>{
             const token=JWT.encode(payload,secret)
             //made that the cookie is coded and cant be hacked into
             //we put the secret in the .env so that cant be taken either
-          res.cookie('userInfo',token,{maxAge:60000,httpOnly:true})
-          res.send({ok:true,login:true})
+          res.cookie('userInfo',token,{httpOnly:true})
+          res.send({ok:true,login:true,user})
           return
        }
      }
