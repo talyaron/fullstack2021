@@ -86,7 +86,7 @@ const  username: string= ev.target.elements.username.value;
         </p>
       </div>
       <button onClick={()=>handleEdit(Event)}>Edit Profile</button>
-      <form className={form?'closed':'form open'} onClick={()=>handleSumbit(Event, ProfilesId)}>
+      <form id="form" className={form?'closed':'open'} onClick={()=>handleSumbit(Event, ProfilesId)}>
         <input type="text" name="name" id="" placeholder="enter your new name" />
         <input type="text" name="age" id="" placeholder="enter your new age" />
         <input type="text"  name="gender" id="" placeholder="enter your new gender"/>
@@ -96,7 +96,7 @@ const  username: string= ev.target.elements.username.value;
         <input type="text" name="username" id="" placeholder="enter your new username" />
         <input type="text" name="img1" id="" placeholder="enter your first new img"/>
         <input type="text" name="img2" id="" placeholder="enter your second new img"/>
-        <input type="submit" value="Edit" />
+        <input className="color" type="submit" value="Edit" />
       </form>
       <Outlet/>
     </div>
