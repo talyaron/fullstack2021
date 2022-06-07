@@ -1,18 +1,27 @@
-import { Link } from "react-router-dom";
+
 
 const Login = () => {
+
+  
+  // function handlesubmit(ev: any) {
+  //   ev.preventDefault();
+  //   const name = ev.target.elements.name.value;
+  //   const password = ev.target.elements.password.value;
+  //   const user = {name,password}
+  //   console.log(user);
+  // }
   return (
     <div>
-      <img
+      {/* <img
         className="Login__img"
         src="https://www.freepnglogos.com/uploads/ice-cream-png/ice-cream-cone-png-transparent-image-pngpix-1.png"
         alt=""
-      />
-      <button className="Login">
-          <Link to="/Main" className="Login__Link">
-          login As Guest!
-        </Link>
-      </button>
+      /> */}
+      {/* <form onSubmit={(ev) => handlesubmit(ev)}>
+        <input type="text" name="name" placeholder="name" />
+        <input type="password" name="password" placeholder="passowrd" />
+        <input type="submit" value="submit" />
+      </form> */}
     </div>
   );
 };

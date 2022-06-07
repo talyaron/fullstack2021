@@ -1,113 +1,91 @@
-.App {
+body{
   text-align: center;
-
-  &-mainTwo {
-    height: 100vh;
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(10 ,10%);
-    grid-template-rows: repeat(10 ,10%);
-    align-items: center;
-    justify-content:center;
-    font-size: calc(10px + 2vmin);
+  margin: 0;
+  max-height: 100vh;
+}
+.App {
+  height: 100vh;
+  width: 100%; 
+  display: grid;
+  grid-template-columns: repeat(10 , 10%);
+  grid-template-rows: repeat(10 , 10%);
     color: white;
-    background: url('https://s3.envato.com/files/213727197/wooden_plank_surface_102801.jpg') 
-    no-repeat center fixed;
-    background-size: 100% 100%;
+    background:url('https://s3.envato.com/files/213727197/wooden_plank_surface_102801.jpg') no-repeat center ;
+    background-size: cover;
 
-    &-TwoCards{
-      width: 99%;
-      height: 100%;
-      grid-column: 2/10;
-      grid-row: 3/9;
-      // border: 10px solid black;
-      display: grid;
-      row-gap: 5vw;
-      grid-template-columns: repeat(10 , 10%);
-      grid-template-rows: repeat(2 , 50%);
+    &-cards{
+      margin-top: 5vh;
+        grid-column: 1/11;
+        grid-row: 4/11;
+        display: grid;
+        grid-template-columns: repeat(10 , 10%);
+        grid-template-rows: repeat(10 , 10%);
+        justify-content: center;
+        position: relative;
 
-      .deckOpp{
-        grid-column: 2/4;
-        grid-row: 1;
-      }
-      .deckPlayer{
-        grid-column: 7/9;
-        grid-row: 2;
-      
-        &:hover{
-          cursor: pointer;
+        &-cardTwo{
+          grid-column: 5/7;
+          grid-row: 1/5;
+          position: relative;
+          margin-top:33vh ;
+            height:95%;
+            width: 62%;
+            background-repeat: no-repeat;
+            background-position:center;
+            background-size: 100% 100%;
+            box-shadow: rgb(0, 0, 0) 0px 0px 0px 2px inset,                  
         }
-      }
-      &-deck{
-    background: no-repeat center;
-    background-repeat: no-repeat;
-    background-size: 110% 110%;
+
+        &-card{
+          grid-column: 5/7;
+          grid-row: 1/5;
+          margin-top: 33vh;
+            height: 95%;
+            width: 63%;
+            background-repeat: no-repeat;
+            background-position:center;
+            background-size: 100% 100%;
+            box-shadow: rgb(0, 0, 0) 0px 0px 0px 2px inset,                  
+            rgb(255, 255, 255) 5px -10px 0px -3px,rgb(0, 0, 0) 5px -10px, 
+            rgb(255, 255, 255) 10px -20px 0px -3px, rgb(0, 0, 0) 10px -20px, 
+            rgb(255, 255, 255) 15px -30px 0px -3px, rgb(0, 0, 0) 15px -30px,
+             rgb(255, 255, 255) 20px -40px 0px -3px, rgb(0, 0, 0) 20px -40px;
+             transform: rotateZ(90deg);
+        }
+    }
   
 
-    &-newCard{
-      height: 95%;
-      margin-left: 20vw;
-      margin-top: 22vh;
-      width: 95%;
-      border-radius: 5%;
-      background: no-repeat center rgb(255, 255, 255);
-      background-repeat: no-repeat;
-      background-size: 100% 100%;
-      transform: scale(1);
-            transform-style: preserve-3d;
-            transition: transform 3s;
-      animation: flip-in-hor-bottom 5s both;
-    }
-      }
-    }
+      
+    
+
+
     &-newGameBtnTwo{
-      height: 10vh;
       grid-column: 5/7;
       grid-row: 2;
-    }
-  }
-&-main {
-  height: 90vh;
-  display: block;
-  align-items: center;
-  padding-top: 10vh;
-  // justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-  background: url('https://s3.envato.com/files/213727197/wooden_plank_surface_102801.jpg') 
-  no-repeat center fixed;
-  background-size: 100% 100%;
-
-  &-card{
-    position: absolute;
+    height: 12vh;
     width: 20vw;
-    height: 20vw;
-    background:no-repeat center;
-    background-size: 100% 100%;
-  }
-
-  
+    }
   &-newGameBtn{
+    grid-column: 5/7;
+      grid-row: 2;
     height: 12vh;
     width: 20vw;
   }
-  
-}
 }
 
-@keyframes flip-in-hor-bottom {
-  0% {
-    transform: rotateX(80deg);
-    opacity: 0;
+@keyframes boxShadow {
+  0%{
+    box-shadow: none;
+    
   }
-  100% {
-    transform: rotateX(0);
-    opacity: 1;
+  100%{
+    box-shadow: rgb(0, 0, 0) 0px 0px 0px 2px inset,                  
+            rgb(255, 255, 255) 5px -10px 0px -3px,rgb(0, 0, 0) 5px -10px, 
+            rgb(255, 255, 255) 10px -20px 0px -3px, rgb(0, 0, 0) 10px -20px, 
+            rgb(255, 255, 255) 15px -30px 0px -3px, rgb(0, 0, 0) 15px -30px,
+             rgb(255, 255, 255) 20px -40px 0px -3px, rgb(0, 0, 0) 20px -40px;
   }
 }
-
-
-
 
 
 
