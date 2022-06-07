@@ -10,8 +10,8 @@ console.log(userProfile);
 
     return(
     <div className="navBar">
-
-        <h1>navBar : {userProfile}</h1>
+         
+        <h1> {userProfile? userProfile:'Find love today'}</h1>
         
         <Link to={`/navBar`}>
             <button className='navBar__btn'>Home</button>

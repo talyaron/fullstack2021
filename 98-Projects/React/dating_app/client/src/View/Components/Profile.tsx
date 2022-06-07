@@ -25,6 +25,7 @@ const Profile = () => {
   const [ yourProfile, setYoureProfile]  = useState<any>(null);
 const [form, setForm] = useState(true)
 const [arr, setArr] = useState<Array<Users>>([]);
+const [cookieLoggedInUser,setcookieLoggedInUser]=useState()
   useEffect(() => {
     //get data on the icecream and show the chosen ice cream by id
 
@@ -33,42 +34,27 @@ const [arr, setArr] = useState<Array<Users>>([]);
         const { data } = await axios.get(`/api/userProfile?userProfile=${userProfile}`);
 
         const { profileId } = data;
-        //  console.log(data);
-        // console.log(userProfile)
+        // console.log(data);
+        const {cookieLoggedIn}=data
         if (!profileId) {
           throw new Error("no profile");
         }
+         console.log(cookieLoggedIn)
+         setcookieLoggedInUser(cookieLoggedIn)
         setYoureProfile(profileId);
       } catch (err: any) {
         console.error(err.message);
       }
     })();
   }, []);
-// useEffect(()=>{
-  
-//     setYoureProfile(data);
 
-// },[yourProfile])
   function handleEdit(ev:any){
     
     if(ev){
         setForm(false)
     }
   }
-// function handleSumbit(ev:any){
 
-
-//  const obj:any = {name, age, gender, profileImg,description,username, img1,img2}
-//  setArr([...arr,obj]);
-
-//  (async () => {
-//     console.log(ev, profiles)
-  
-//     const {data} = await axios.patch('/api/updateUsers', {profiles});
-//     console.log(data)
-// })();
-
-// }
 async function handleSumbit(ev:any) {
   ev.preventDefault();
   // const username = ev.target.value;
@@ -113,7 +99,7 @@ console.log(userProfile);
         <p> "{yourProfile && yourProfile.description ? yourProfile.description: null}"
         </p>
       </div>
-      <button onClick={()=>handleEdit(Event)}>Edit Profile</button>
+     {cookieLoggedInUser&&true?<div><button onClick={()=>handleEdit(Event)}>Edit Profile</button>
       <form id="form" className={form?'closed':'open'} onSubmit={handleSumbit}>
         <input type="text" name="name" id="" placeholder="enter your new name" />
         <input type="text" name="age" id="" placeholder="enter your new age" />
@@ -124,7 +110,7 @@ console.log(userProfile);
         <input type="text" name="img1" id="" placeholder="enter your first new img"/>
         <input type="text" name="img2" id="" placeholder="enter your second new img"/>
         <input type="submit" value="Edit" />
-      </form>
+      </form></div>:<div></div>}
       <Outlet/>
     </div>
   );

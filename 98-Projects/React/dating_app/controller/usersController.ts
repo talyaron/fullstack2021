@@ -20,7 +20,7 @@ export const getUsers= async(req,res)=>{
 export const login= async(req,res)=>{
   try {
     const {username,password}=req.body;
-    console.log(username,password)
+    //console.log(username,password)
     if(typeof username==="string" && typeof password==="string"){
      const user= await Users.findOne({username})
      if(user){
@@ -30,7 +30,7 @@ export const login= async(req,res)=>{
             const token=JWT.encode(payload,secret)
             //made that the cookie is coded and cant be hacked into
             //we put the secret in the .env so that cant be taken either
-          res.cookie('userInfo',token,{httpOnly:true})
+          res.cookie('userInfo',token,{httpOnly:true}) 
           res.send({ok:true,login:true,user})
           return
        }
@@ -52,12 +52,22 @@ export const login= async(req,res)=>{
 export const getUsersProfile= async(req,res)=>{
   try{
     const {userProfile}=req.query;
-    console.log(userProfile);
+    const {userInfo}=req.cookies;
+    const decoded=JWT.decode(userInfo,secret);
+    if(decoded&&decoded.id===userProfile){
+      const profileId = await Users.findOne({_id:userProfile})
+     
+      
+      res.send({profileId,ok:true,cookieLoggedIn:true})
+      
+    }else{
+      const profileId = await Users.findOne({_id:userProfile})
+      res.send({profileId,ok:true,cookieLoggedIn:false})
+    }
+    console.log(decoded.id);
     
-    const profileId = await Users.findOne({_id:userProfile})
-    console.log(profileId);
     
-    res.send({profileId,ok:true})
+   
   }
   catch(error) {
     console.log(error.error);
@@ -71,7 +81,7 @@ export const updateUser = async(req, res)=>{
     const { userProfile, obj} = req.body;
     if (userProfile && obj) {
       const users = await Users.updateOne({_id:userProfile},obj)
-     console.log(userProfile `update`);
+    // console.log(userProfile `update`);
      
       res.send({ ok: true, users });
     } else {

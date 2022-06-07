@@ -1,5 +1,6 @@
 import express from 'express';
 import mongoose from 'mongoose';
+const cookieParser = require('cookie-parser');
 
 
 const app = express()
@@ -22,6 +23,7 @@ mongoose.connect(
 
   app.use(express.json())
   app.use(express.static('client/build'))
+  app.use(cookieParser());
 
 app.get('/', (req, res) => {
   res.send('Hello World dating app!')
