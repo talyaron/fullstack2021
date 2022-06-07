@@ -2,7 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import userRouter from './routes/UserRouters'
 const app = express();
-const port = process.env.PORT || 4001;
+const port = process.env.PORT || 4002;
 
 require('dotenv').config()
 
