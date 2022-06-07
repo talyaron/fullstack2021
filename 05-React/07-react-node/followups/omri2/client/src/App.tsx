@@ -13,6 +13,7 @@ function App() {
       if(title && article){
          await axios.post('api/blogs/add-blog', {title,article});
       }
+      ev.target.reset()
     } catch (error) {
       console.error(error);
     }
