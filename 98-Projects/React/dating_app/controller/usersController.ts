@@ -75,6 +75,7 @@ export const getUsersProfile= async(req,res)=>{
   }
 
 }
+
 export const updateUser = async(req, res)=>{
   try {
    
