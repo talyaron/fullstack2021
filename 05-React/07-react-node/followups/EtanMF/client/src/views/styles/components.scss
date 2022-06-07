@@ -29,6 +29,15 @@
   &-allUsers {
     position: relative;
     gap: 1em;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: scroll;
+  }
+  &-allArticles{
+    gap:1em;
+    width: 100%;
+    max-width: 50vh;
+    overflow-x: scroll;
   }
 
   //allUsers is the list parent of userCard list item

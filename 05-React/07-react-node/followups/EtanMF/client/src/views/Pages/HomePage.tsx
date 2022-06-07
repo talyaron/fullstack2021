@@ -6,7 +6,7 @@ import NewArticle from "../Components/NewArticle";
 import AllUsers from "../Components/AllUsers";
 import Back from "../Components/Back";
 import AllArticles from "../Components/AllArticles";
-import { ArticleInfoParams } from '../../AnimatedRoutes'
+import { ArticleInfoParams } from "../../AnimatedRoutes";
 
 interface HomePageProps {
   handleGetUsers: Function;
@@ -30,36 +30,51 @@ interface UserInfo {
 }
 
 function HomePage(props: HomePageProps) {
-  const { mounted, setMounted, userList, handleOpenUser, handleGetUsers, handleCreateNewArticle, getAllArticles, articleList, handleSetSingleArticle } =
-    props;
+  const {
+    mounted,
+    setMounted,
+    userList,
+    handleOpenUser,
+    handleGetUsers,
+    handleCreateNewArticle,
+    getAllArticles,
+    articleList,
+    handleSetSingleArticle,
+  } = props;
   const [isPending, startTransition] = useTransition();
   useEffect(() => {
     console.log("home mounting");
-    
+
     startTransition(() => {
       console.log("home unmounting");
       handleGetUsers();
       getAllArticles();
     });
-    return () => {
-    };
+    return () => {};
   }, []);
   return (
     <motion.div
       className="wrapper"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-    // transition={{ duration: 2 }}
+      // transition={{ duration: 2 }}
     >
       <div className="wrapper__HomePage">
         <Back />
         <NewArticle handleCreateNewArticle={handleCreateNewArticle} />
         {isPending && <p>loading...</p>}
-        {userList && (
-          <AllUsers userList={userList} handleOpenUser={handleOpenUser} />
-        )}
+        <div className="wrapper__HomePage-lists">
+          {userList && (
+            <AllUsers userList={userList} handleOpenUser={handleOpenUser} />
+          )}
 
-        {articleList ? <AllArticles articleList={articleList} handleSetSingleArticle={handleSetSingleArticle} /> : <p>This User does not have any articles</p>}
+          {articleList && (
+            <AllArticles
+              articleList={articleList}
+              handleSetSingleArticle={handleSetSingleArticle}
+            />
+          )}
+        </div>
         <Outlet />
       </div>
     </motion.div>

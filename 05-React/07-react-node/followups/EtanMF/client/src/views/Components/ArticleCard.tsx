@@ -13,12 +13,12 @@ const ArticleCard = (props: ArticleCardProps) => {
     const navigate = useNavigate()
 
     return (
-        <li>
+        <li className="comp-articleCard">
 
             <Link style={{ zIndex: 4 }} to={`/User/${article.ownerId}`}>{article.firstName} {article.lastName}</Link>
 
             <div onClick={() => { handleSetSingleArticle(article)}}>
-                <p>{article.title}</p>
+                <h1>{article.title}</h1>
                 <p>{article.firstName}</p>
                 <p>{article.lastName}</p>
                 <p>{article.position}</p>

@@ -21,7 +21,7 @@ function AllArticles(props: AllArticlesProps) {
     const { articleList, handleSetSingleArticle } = props;
 
     return (
-        <ul>
+        <ul className="comp-allArticles">
             <h1>AllArticles</h1>
 
             {articleList? articleList.map((article: ArticleInfoParams, index: number) => {
