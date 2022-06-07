@@ -9,7 +9,6 @@ function Back() {
     <button className="comp-backButton"
       onClick={() => {
         history.go(-1);
-        console.log(history);
         
       }}
     >

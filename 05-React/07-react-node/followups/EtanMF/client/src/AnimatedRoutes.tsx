@@ -34,6 +34,8 @@ function AnimatedRoutes() {
   const [currentUser, setCurrentUser] = useState<UserInfo>();
   const [articleList, setArticleList] = useState<Array<ArticleInfoParams>>([]);
   const [article, setArticle] = useState<ArticleInfoParams>()
+  const [articleSearchTerm, setArticleSearchTerm] = useState("")
+  const [loginUserId, setLoginUserId] = useState("")
 
   async function handleCreate(e: any) {
     try {
@@ -88,7 +90,10 @@ function AnimatedRoutes() {
         email,
         password,
       });
-      const { ok } = data;
+      const { ok, userId } = data;
+      setLoginUserId(userId)
+
+
       if (!ok) throw new Error("ok is not true");
       navigate("/Home");
       e.target.reset();
@@ -100,7 +105,6 @@ function AnimatedRoutes() {
   async function handleGetUsers(id?: string) {
     try {
       const { data } = await axios.post("/api/users/get-users", { id });
-      // console.log(data.userList);
       if (data.userList) {
         setUserList(data.userList)
         return
@@ -133,15 +137,11 @@ function AnimatedRoutes() {
       const content = e.target.newArticleContent.value;
 
       const { data } = await axios.post("/api/articles/create", { title, content });
-      console.log(data);
 
       if (!data.error) {
         e.target.reset();
 
       }
-
-
-
 
     } catch (error) {
 
@@ -157,8 +157,6 @@ function AnimatedRoutes() {
 
       const { data } = await axios.post("/api/articles/get-articles", { ownerId })
       setArticleList(data.result)
-      console.log(data.result);
-      
 
 
     } catch (error) {
@@ -173,6 +171,38 @@ function AnimatedRoutes() {
     setArticle(article);
     navigate(`/Article/${article._id}`)
 
+  }
+
+  function handleSearchArticles(searchTerm: string) {
+
+    if (!searchTerm) {
+      return articleList;
+    }
+
+
+
+    return articleList.filter((article) =>
+
+      article.title.toLowerCase().includes(searchTerm.toLowerCase())
+
+    )
+
+  }
+
+
+  const filteredArticleList = handleSearchArticles(articleSearchTerm)
+
+
+  function handleSearchTerm(e: any) {
+
+    // console.log(e.target.value.toLowerCase(), "setter");
+    setArticleSearchTerm(e.target.value)
+
+
+  }
+
+  async function handleUpdateArticle (id: string) {
+    
   }
 
 
@@ -196,14 +226,16 @@ function AnimatedRoutes() {
               handleOpenUser={handleOpenUser}
               handleCreateNewArticle={handleCreateNewArticle}
               getAllArticles={getAllArticles}
-              articleList={articleList}
+              articleList={filteredArticleList}
               handleSetSingleArticle={handleSetSingleArticle}
+              handleSearchTerm={handleSearchTerm}
             />
           }
         />
         <Route path="User">
           <Route path=":userId" element={<User handleGetUsers={handleGetUsers} currentUser={currentUser}
-            getAllArticles={getAllArticles} articleList={articleList} handleSetSingleArticle={handleSetSingleArticle}
+            getAllArticles={getAllArticles} articleList={filteredArticleList} handleSetSingleArticle={handleSetSingleArticle}
+            handleSearchTerm={handleSearchTerm} loginUserId={loginUserId}
           />}></Route>
         </Route>
         <Route path="Article">

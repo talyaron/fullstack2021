@@ -9,7 +9,6 @@ function Next() {
     <button className="comp-backButton"
     onClick={() => {
 console.dir(history);
-console.log(history.location.pathname.at(-1));
 const current:any = history.location.pathname.at(-1);
 
 

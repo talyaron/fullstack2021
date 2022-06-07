@@ -23,7 +23,9 @@ export const login = async (req, res) => {
     };
     const encodedInformation = jwt.encode(userPublicInfo, secret);
     res.cookie("userInformation", encodedInformation);
-    res.send({ ok: true });
+    res.send({ ok: true, userId: verified._id });
+     
+    
   } catch (error) {
     console.error(error.message);
     res.send({ ok: false, error: error.message });
@@ -72,7 +74,7 @@ export async function create(req, res) {
 export async function getUsers(req, res) {
   try {
     const { id } = req.body;
-
+    
     if (!id) {
       const userList = await User.find({}, { password: 0 });
       if (!userList)
@@ -80,12 +82,10 @@ export async function getUsers(req, res) {
       res.send({ ok: true, userList: userList });
     }
     if (id) {
-      console.log("from here", id);
 
       const thisUser = await User.findById(id, { password: 0 })
 
       if (!thisUser) { throw new Error("did'nt find a user in getUsers -userCont"); }
-      console.log(thisUser);
 
       res.send({ ok: true, thisUser: thisUser });
     }

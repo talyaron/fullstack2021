@@ -7,6 +7,7 @@ import AllUsers from "../Components/AllUsers";
 import Back from "../Components/Back";
 import AllArticles from "../Components/AllArticles";
 import { ArticleInfoParams } from "../../AnimatedRoutes";
+import ArticleSearch from "../Components/ArticleSearch"
 
 interface HomePageProps {
   handleGetUsers: Function;
@@ -18,6 +19,7 @@ interface HomePageProps {
   getAllArticles: Function;
   articleList: Array<ArticleInfoParams>;
   handleSetSingleArticle: Function;
+  handleSearchTerm: Function;
 }
 
 interface UserInfo {
@@ -40,13 +42,12 @@ function HomePage(props: HomePageProps) {
     getAllArticles,
     articleList,
     handleSetSingleArticle,
+    handleSearchTerm
   } = props;
   const [isPending, startTransition] = useTransition();
   useEffect(() => {
-    console.log("home mounting");
 
     startTransition(() => {
-      console.log("home unmounting");
       handleGetUsers();
       getAllArticles();
     });
@@ -61,6 +62,7 @@ function HomePage(props: HomePageProps) {
     >
       <div className="wrapper__HomePage">
         <Back />
+        {/* <ArticleSearch /> */}
         <NewArticle handleCreateNewArticle={handleCreateNewArticle} />
         {isPending && <p>loading...</p>}
         <div className="wrapper__HomePage-lists">
@@ -72,6 +74,7 @@ function HomePage(props: HomePageProps) {
             <AllArticles
               articleList={articleList}
               handleSetSingleArticle={handleSetSingleArticle}
+              handleSearchTerm={handleSearchTerm}
             />
           )}
         </div>

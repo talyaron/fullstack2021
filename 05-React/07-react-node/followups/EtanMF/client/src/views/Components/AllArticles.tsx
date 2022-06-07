@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useDeferredValue, useEffect } from 'react';
 import ArticleCard from './ArticleCard'
+import ArticleSearch from './ArticleSearch'
+import { UserInfo } from '../../AnimatedRoutes'
 
 interface AllArticlesProps {
     articleList: Array<ArticleInfoParams>;
     handleSetSingleArticle: Function;
+    handleSearchTerm: Function;
+    currentUser?: UserInfo;
+    loginUserId?: String;
 }
 
 interface ArticleInfoParams {
@@ -18,18 +23,25 @@ interface ArticleInfoParams {
 }
 
 function AllArticles(props: AllArticlesProps) {
-    const { articleList, handleSetSingleArticle } = props;
+    const { articleList, handleSetSingleArticle, handleSearchTerm, currentUser, loginUserId } = props;
+    const deferredArticles = useDeferredValue(articleList)
+
 
     return (
         <ul className="comp-allArticles">
             <h1>AllArticles</h1>
 
-            {articleList? articleList.map((article: ArticleInfoParams, index: number) => {
+            <ArticleSearch handleSearchTerm={handleSearchTerm} />
+
+
+            {deferredArticles ? deferredArticles.map((article: ArticleInfoParams, index: number) => {
                 return (
-                <ArticleCard key={index} article={article} handleSetSingleArticle={handleSetSingleArticle} />
+                    <ArticleCard key={index} article={article} handleSetSingleArticle={handleSetSingleArticle}
+                        currentUser={currentUser} loginUserId={loginUserId}
+                    />
                 )
-            }): null}
-            
+            }) : <p>Loading......</p>}
+
 
 
         </ul>

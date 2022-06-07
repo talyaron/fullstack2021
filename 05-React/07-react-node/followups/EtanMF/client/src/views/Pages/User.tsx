@@ -14,6 +14,8 @@ interface UserProps {
   getAllArticles: Function;
   articleList: Array<ArticleInfoParams>;
   handleSetSingleArticle: Function;
+  handleSearchTerm: Function;
+  loginUserId: String;
 }
 
 function User(props: UserProps) {
@@ -21,11 +23,10 @@ function User(props: UserProps) {
   const params = useParams();
   const { userId } = params;
   const navigate = useNavigate();
-  const { handleGetUsers, currentUser, getAllArticles, articleList, handleSetSingleArticle } = props;
+  const { handleGetUsers, currentUser, getAllArticles, articleList, handleSetSingleArticle, handleSearchTerm, loginUserId } = props;
 
 
   useEffect(() => {
-    console.log("user mounting");
 
     startTransition(() => {
       handleGetUsers(userId)
@@ -33,9 +34,6 @@ function User(props: UserProps) {
 
     })
     return () => {
-
-      console.log('user unmounting');
-
 
 
     }
@@ -58,7 +56,8 @@ function User(props: UserProps) {
 
       {isPending ?
         <p>Loading...</p> :
-        <AllArticles articleList={articleList} handleSetSingleArticle={handleSetSingleArticle} />
+        <AllArticles articleList={articleList} handleSetSingleArticle={handleSetSingleArticle}
+        handleSearchTerm={handleSearchTerm} currentUser={currentUser} loginUserId={loginUserId} />
 
       }
 

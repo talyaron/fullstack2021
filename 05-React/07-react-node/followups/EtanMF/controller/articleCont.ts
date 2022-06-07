@@ -12,7 +12,6 @@ export const createArticle = async (req, res) => {
         if (!userInformation) throw new Error("no userInformation in createArticle in articleCont")
 
         const decodedInformation = jwt.decode(userInformation, secret);
-        console.log(decodedInformation);
 
         const articleParams = {
             title,
@@ -25,7 +24,6 @@ export const createArticle = async (req, res) => {
 
         }
 
-        console.log(articleParams);
 
         const newArticle = new Article(articleParams);
         const articleInformation = await newArticle.save();
