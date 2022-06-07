@@ -1,10 +1,8 @@
-import axios from 'axios';
 import {useState , useEffect} from 'react';
 import Button from '@mui/material/Button';
 import Cards from './views/components/Cards';
 import './App.scss';
-import CardsMain from './views/components/CardsMain';
-import { validateLocaleAndSetLanguage } from 'typescript';
+import Cardsfirst from './views/components/Cardsfirst'
 
 const uid = function () {
   return Date.now().toString(36) + Math.random().toString(36).substr(2);
@@ -73,7 +71,7 @@ function App() {
     {card:"clubs queen" , value:12 , id:uid() , url:'http://1.bp.blogspot.com/_j8lNOfhpUoI/SFqD0iqynaI/AAAAAAAAACE/nWezEFz2aIA/s320/DamadePaus.gif'},
     {card:"clubs king" , value:13 , id:uid() , url:'https://upload.wikimedia.org/wikipedia/commons/2/25/Poker-sm-242-Kc.png'}, 
   ])
-  
+  const [start , setStart] = useState(false)
   const [cardsPlayer , setCardsPlayer] = useState([])
   const [cardsOpponent , setCardsOpponent] = useState([])
   const [clickOnDeck , setOnClickDeck] = useState(false)
@@ -101,7 +99,6 @@ function App() {
     {id:uid() , backgroundImage:backgroundImage},
     {id:uid() , backgroundImage:backgroundImage},
   ])
-  
 
   function startGame(ev:any){
 
@@ -128,34 +125,14 @@ function App() {
     setCardsPlayer(firstHalf);
     setCardsOpponent(secondHalf);
     setOnClickDeck(false)
-  }
-  
-
-  if(newGame){
-    return(
-      <div className="App">
-        <header className="App-mainTwo">
-        <Button className='App-mainTwo-newGameBtnTwo' variant="contained" color='success' size='large' onClick={startGameTwo}>NewGame</Button>
-        <Cards setOnClickDeck={setOnClickDeck} clickOnDeck={clickOnDeck} 
-        cardsPlayer={cardsPlayer} cardsOpponent={cardsOpponent} setCardsPlayer={setCardsPlayer}
-         setCardsOpponent={setCardsOpponent}/>
-       </header>
-      </div>
-    );
-  }else {
+  }  
     return (
-      
-      <div className="App">
-        <header className="App-main">
-        <Button className='App-main-newGameBtn' color='success' variant="contained" size="large" onClick={startGame}>New Game</Button>
+      <div className="App"> 
+        <Button className='App-newGameBtn' color='success' variant="contained" size="large" onClick={newGame?startGameTwo:startGame}>New Game</Button>
+        {cardsMain.map((card,i) => {
+          return(<Cardsfirst key={i} count={i} setStart={setStart} newGame={newGame} background={card.backgroundImage} /> )})}
         
-       {/* {cardsMain.map((card , i) => {
-         return(
-          <CardsMain key={i} backgroundImage={backgroundImage} />) 
-          
-       })} */}
        
-       </header>
       </div>
       
     );
@@ -163,7 +140,7 @@ function App() {
 
     
     
-}
+
 
 export default App;
 

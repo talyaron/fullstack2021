@@ -5,7 +5,7 @@ function Layout() {
     <div className="layout">
       <header>
         <h1>My app</h1>
-        <Link to="/home">Home</Link> <Link to="/home/about">About</Link>
+        <Link to="/home">Home</Link><Link to="/home/about">About</Link>
       </header>
       <Outlet />
       <footer>React app</footer>
