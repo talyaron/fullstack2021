@@ -2,7 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 const app = express();
 
-const port = process.env.PORT || 4001;
+const port = process.env.PORT || 4000;
 require("dotenv").config();
 
 const mongodb_uri = process.env.MONGODB_URI;
