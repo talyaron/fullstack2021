@@ -19,7 +19,7 @@ function App() {
     <BrowserRouter>
     <Routes>
     <Route path='/' element={<Main />} />
-    <Route path='/:id' element={< />} />
+    <Route path='/:id' element={< Main/>} />
 
     
     
