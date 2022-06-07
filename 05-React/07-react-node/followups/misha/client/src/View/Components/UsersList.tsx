@@ -19,7 +19,8 @@ const UsersList = (props:any) => {
           </div>
           
           {/* <UserForm submit={handleUpdate} id={user._id} button='UPDATE' /> */}
-          <button onClick={handleDelete} id={user._id}>DELETE</button>
+          <button onClick={handleDelete} id={user._id} className='.button-14'>DELETE</button>
+          
 
         </div>
       )}

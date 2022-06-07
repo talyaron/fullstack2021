@@ -12,7 +12,7 @@ const Login = (props: any) => {
                 {/* <label htmlFor="password">Password</label> */}
                 <input type="password" name="password" placeholder='Password' autoComplete='off' />
                 </div>
-                <button type='submit'>LOGIN</button>
+                <button type='submit' className='.button-14'>LOGIN</button>
             </form>
 
 

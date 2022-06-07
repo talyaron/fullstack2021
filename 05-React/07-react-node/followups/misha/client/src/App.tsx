@@ -1,4 +1,10 @@
 
+// questions
+
+// ev.reset()?
+// focus useref
+// windowopenbug
+
 
 //libraries
 import axios from 'axios';
@@ -20,30 +26,33 @@ function App() {
   //setters
   const [userList, setUserList] = useState([]);
   const [unexist, setUnexist] = useState(false);
+  const [passwordsMatch, setPasswordsMatch] = useState(false);
 
   //ises
   const [load, isLoad] = useState(false);
   const [loginWindowOn, isLoginWindowOn] = useState(false);
   const [registerWindowOn, isRegisterWindowOn] = useState(false);
 
-  function handleWindowOpen(ev){
+  function handleWindowOpen(ev) {
 
-    if(ev.target.id === 'loginButton'){
-      if(!loginWindowOn){
+    if (ev.target.id === 'loginButton') {
+      if (!loginWindowOn && !registerWindowOn) {
         isLoginWindowOn(true)
       }
-      else{
+      else {
+        isRegisterWindowOn(false)
         isLoginWindowOn(false)
       }
     }
 
-    if(ev.target.id === 'registerButton'){
+    if (ev.target.id === 'registerButton') {
 
-      if(!registerWindowOn){
+      if (!registerWindowOn && !loginWindowOn) {
         isRegisterWindowOn(true)
       }
-      else{
+      else {
         isRegisterWindowOn(false)
+        isLoginWindowOn(false)
       }
     }
 
@@ -67,7 +76,7 @@ function App() {
   return (
     <div className="App">
       <NavBar handleWindowOpen={handleWindowOpen}></NavBar>
-      {registerWindowOn && <UserForm submit={handleRegister} button='REGISTER' unexist={unexist} />}
+      {registerWindowOn && <UserForm submit={handleRegister} button='REGISTER' passwordsMatch={passwordsMatch} unexist={unexist} />}
       {loginWindowOn && <LoginForm submit={handleLogin} />}
       <UsersList userList={userList} handleUpdate={handleUpdate} handleDelete={handleDelete} />
     </div>
@@ -78,29 +87,44 @@ function App() {
 
     ev.preventDefault();
 
-    console.log(ev)
+    const userForm = handleSubmit(ev);
+
+    console.log(userForm.password, userForm.passwordConfirm)
+
+    if (userForm.password === userForm.passwordConfirm) {
+
+      isLoad(true)
+
+      const registerResponse = await axios.post('/api/addUser', handleSubmit(ev))
+
+      if (registerResponse.data === 'AlreadyExists' && !unexist) {
+
+        setUnexist(!unexist)
+
+        setTimeout(() => {
+          setUnexist(unexist)
+        }, 2000)
+
+      }
+
+      isLoad(false)
 
 
-    handleSubmit(ev)
 
-    isLoad(true)
+    }
 
-    const registerResponse = await axios.post('/api/addUser', handleSubmit(ev))
-
-    if (registerResponse.data === 'AlreadyExists' && !unexist) {
-
-      setUnexist(!unexist)
+    else{
+      console.log('dont match')
+      setPasswordsMatch(!passwordsMatch)
 
       setTimeout(() => {
-        setUnexist(unexist)
+        setPasswordsMatch(passwordsMatch)
       }, 2000)
 
     }
 
-    isLoad(false)
 
-    ev.reset();
-
+    // ev.reset();
   }
 
   async function handleLogin(ev: any) {
@@ -148,12 +172,13 @@ function App() {
     ev.preventDefault();
     const name = ev.target.name.value;
     const password = ev.target.password.value;
+    const passwordConfirm = ev.target.passwordConfirm.value;
     const age = ev.target.age.value;
     const occupation = ev.target.occupation.value;
     const username = ev.target.username.value;
     const image = ev.target.image.value;
 
-    const userForm = { name, age, occupation, username, password, image }
+    const userForm = { name, age, occupation, username, password, passwordConfirm, image }
 
     return userForm;
   }
