@@ -19,7 +19,7 @@ mongoose.connect(
   app.use(express.json());
   app.use(express.static('client/build'));
 
-  app.use('api/blogs',blogRoute);
+  app.use('/api/blogs',blogRoute);
   
 
 app.listen(port, () => {
