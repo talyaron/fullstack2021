@@ -2,8 +2,12 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import './App.css';
 import ListAllUsers from './Pages/ListAllUsers';
+import Layout from './Pages/Layout';
 import LoginForm from './View/Components/LoginForm';
 import UserForm from './View/Components/UserForm';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import SelectedUser from './Pages/SelectedUser';
+
 
 
 function App() {
@@ -69,11 +73,19 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <UserForm handleRegister={handleRegister} />
-      <LoginForm handleLogin={handleLogin} />
-      <ListAllUsers userList={userList} />
-    </div>
+    <BrowserRouter>
+    <Routes>
+      <Route path='/' element={<Layout />}>
+      <Route index element={<ListAllUsers userList={userList} handleRegister={handleRegister} />}></Route>
+      <Route path='/:id' element={<SelectedUser />}></Route>
+      </Route>
+    </Routes>
+    </BrowserRouter>
+    // <div className="App">
+    //   <UserForm handleRegister={handleRegister} />
+    //   <LoginForm handleLogin={handleLogin} />
+    //   <ListAllUsers userList={userList} />
+    // </div>
   );
 }
 

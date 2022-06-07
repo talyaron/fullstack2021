@@ -39,3 +39,11 @@ export const getLoginUser = async (req, res) => {
         }
 
 }
+
+export const getSelectedUser = async(req, res)=>{
+    let {id} = req.body
+    console.log(id)
+    const foundUser = await User.find({_id:id})
+    console.log(foundUser)
+    res.send(foundUser)
+}
