@@ -116,22 +116,30 @@ exports.deleteUser = function (req, res) { return __awaiter(void 0, void 0, void
     });
 }); };
 exports.updateUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var updatedUser, err_4;
+    var updatedUser, result, err_4;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                _a.trys.push([0, 2, , 3]);
+                _a.trys.push([0, 3, , 4]);
                 updatedUser = req.body;
                 return [4 /*yield*/, userModel_1["default"].updateOne({ email: updatedUser.email }, updatedUser)];
             case 1:
                 _a.sent();
-                return [3 /*break*/, 3];
+                return [4 /*yield*/, userModel_1["default"].updateOne({ email: updatedUser.email }, updatedUser)];
             case 2:
+                result = _a.sent();
+                if (updatedUser) {
+                    res.send({ ok: true });
+                }
+                else
+                    throw new Error("user didnt update");
+                return [3 /*break*/, 4];
+            case 3:
                 err_4 = _a.sent();
                 console.error(err_4);
                 res.send({ error: err_4.message, ok: false });
-                return [3 /*break*/, 3];
-            case 3: return [2 /*return*/];
+                return [3 /*break*/, 4];
+            case 4: return [2 /*return*/];
         }
     });
 }); };

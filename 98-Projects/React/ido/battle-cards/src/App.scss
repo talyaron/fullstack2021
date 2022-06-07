@@ -1,7 +1,7 @@
 body{
   text-align: center;
   margin: 0;
-  max-height: 100vh;
+  height: fit-content;
 }
 .App {
   height: 100vh;
@@ -27,21 +27,22 @@ body{
           grid-column: 5/7;
           grid-row: 1/5;
           position: relative;
-          margin-top:33vh ;
+          margin-top:30vh ;
             height:95%;
             width: 62%;
             background-repeat: no-repeat;
             background-position:center;
             background-size: 100% 100%;
-            box-shadow: rgb(0, 0, 0) 0px 0px 0px 2px inset,                  
+            animation: name duration timing-function delay iteration-count direction fill-mode;
+
         }
 
         &-card{
-          grid-column: 5/7;
-          grid-row: 1/5;
-          margin-top: 33vh;
-            height: 95%;
-            width: 63%;
+          grid-column: 5/8;
+          grid-row: 1/7;
+          position: relative;
+            height:97%;
+            width: 42%;
             background-repeat: no-repeat;
             background-position:center;
             background-size: 100% 100%;
@@ -50,13 +51,9 @@ body{
             rgb(255, 255, 255) 10px -20px 0px -3px, rgb(0, 0, 0) 10px -20px, 
             rgb(255, 255, 255) 15px -30px 0px -3px, rgb(0, 0, 0) 15px -30px,
              rgb(255, 255, 255) 20px -40px 0px -3px, rgb(0, 0, 0) 20px -40px;
-             transform: rotateZ(90deg);
+            // opacity: 0;
         }
     }
-  
-
-      
-    
 
 
     &-newGameBtnTwo{
@@ -73,19 +70,6 @@ body{
   }
 }
 
-@keyframes boxShadow {
-  0%{
-    box-shadow: none;
-    
-  }
-  100%{
-    box-shadow: rgb(0, 0, 0) 0px 0px 0px 2px inset,                  
-            rgb(255, 255, 255) 5px -10px 0px -3px,rgb(0, 0, 0) 5px -10px, 
-            rgb(255, 255, 255) 10px -20px 0px -3px, rgb(0, 0, 0) 10px -20px, 
-            rgb(255, 255, 255) 15px -30px 0px -3px, rgb(0, 0, 0) 15px -30px,
-             rgb(255, 255, 255) 20px -40px 0px -3px, rgb(0, 0, 0) 20px -40px;
-  }
-}
 
 
 

@@ -1,22 +1,21 @@
-import {useState , useEffect} from 'react';
+import React , {useState , useEffect} from 'react';
 import Button from '@mui/material/Button';
-import Cards from './views/components/Cards';
+import Cards from './views/componets/Cards';
 import './App.scss';
-import Cardsfirst from './views/components/Cardsfirst'
+import CssBaseline from '@mui/material/CssBaseline';
 
-const uid = function () {
-  return Date.now().toString(36) + Math.random().toString(36).substr(2);
-};
-interface Card{
-  card: string;
-  value: number;
-  id: string;
-  url: string;
-}
 
 
 function App() {
-
+  const uid = function () {
+    return Date.now().toString(36) + Math.random().toString(36).substr(2);
+  };
+  interface Card{
+    card: string;
+    value: number;
+    id: string;
+    url: string;
+  }
   const [cardsDeck , setCards] = useState([
     {card:"hearts ace" , value:14 , id:uid() , url:'https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Cards-A-Heart.svg/1200px-Cards-A-Heart.svg.png'},
     {card:"hearts two" , value:2 , id:uid() , url:'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Playing_card_heart_2.svg/614px-Playing_card_heart_2.svg.png'},
@@ -71,37 +70,44 @@ function App() {
     {card:"clubs queen" , value:12 , id:uid() , url:'http://1.bp.blogspot.com/_j8lNOfhpUoI/SFqD0iqynaI/AAAAAAAAACE/nWezEFz2aIA/s320/DamadePaus.gif'},
     {card:"clubs king" , value:13 , id:uid() , url:'https://upload.wikimedia.org/wikipedia/commons/2/25/Poker-sm-242-Kc.png'}, 
   ])
-  const [start , setStart] = useState(false)
+  
+
+  const [odd, setOdd] = useState(false);
   const [cardsPlayer , setCardsPlayer] = useState([])
-  const [cardsOpponent , setCardsOpponent] = useState([])
-  const [clickOnDeck , setOnClickDeck] = useState(false)
-  const [newGame , setNewGame] = useState(false)
-  const backgroundImage = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSM0Q2eXz5ueJsCn_8cK1zmao48wCow1QMN1HlUMri0vXaXjEzTlwTBw_mBaOjRaD_v_BU&usqp=CAU'
-  const [cardsMain , setCardsMain] = useState([
-    {id:uid() , backgroundImage:backgroundImage},
-    {id:uid() , backgroundImage:backgroundImage},
-    {id:uid() , backgroundImage:backgroundImage},
-    {id:uid() , backgroundImage:backgroundImage},
-    {id:uid() , backgroundImage:backgroundImage},
-    {id:uid() , backgroundImage:backgroundImage},
-    {id:uid() , backgroundImage:backgroundImage},
-    {id:uid() , backgroundImage:backgroundImage},
-    {id:uid() , backgroundImage:backgroundImage},
-    {id:uid() , backgroundImage:backgroundImage},
-    {id:uid() , backgroundImage:backgroundImage},
-    {id:uid() , backgroundImage:backgroundImage},
-    {id:uid() , backgroundImage:backgroundImage},
-    {id:uid() , backgroundImage:backgroundImage},
-    {id:uid() , backgroundImage:backgroundImage},
-    {id:uid() , backgroundImage:backgroundImage},
-    {id:uid() , backgroundImage:backgroundImage},
-    {id:uid() , backgroundImage:backgroundImage},
-    {id:uid() , backgroundImage:backgroundImage},
-    {id:uid() , backgroundImage:backgroundImage},
-  ])
+    const [cardsOpponent , setCardsOpponent] = useState([])
+    const [clickOnDeck , setOnClickDeck] = useState(false)
+    const [newGame , setNewGame] = useState(false)
+    const backgroundImage = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSM0Q2eXz5ueJsCn_8cK1zmao48wCow1QMN1HlUMri0vXaXjEzTlwTBw_mBaOjRaD_v_BU&usqp=CAU'
+    const [cardsMain , setCardsMain] = useState([
+      {id:uid() , backgroundImage:backgroundImage},
+      {id:uid() , backgroundImage:backgroundImage},
+      {id:uid() , backgroundImage:backgroundImage},
+      {id:uid() , backgroundImage:backgroundImage},
+      {id:uid() , backgroundImage:backgroundImage},
+      {id:uid() , backgroundImage:backgroundImage},
+      {id:uid() , backgroundImage:backgroundImage},
+      {id:uid() , backgroundImage:backgroundImage},
+      {id:uid() , backgroundImage:backgroundImage},
+      {id:uid() , backgroundImage:backgroundImage},
+      {id:uid() , backgroundImage:backgroundImage},
+      {id:uid() , backgroundImage:backgroundImage},
+      {id:uid() , backgroundImage:backgroundImage},
+      {id:uid() , backgroundImage:backgroundImage},
+      {id:uid() , backgroundImage:backgroundImage},
+      {id:uid() , backgroundImage:backgroundImage},
+      {id:uid() , backgroundImage:backgroundImage},
+      {id:uid() , backgroundImage:backgroundImage},
+      {id:uid() , backgroundImage:backgroundImage},
+      {id:uid() , backgroundImage:backgroundImage},
+    ])
+    const wid = window.innerHeight
+    const w = window.innerWidth
+    console.log(w );
+
+    console.log(wid);
+    
 
   function startGame(ev:any){
-
     const newDeck = [...cardsDeck].sort(() => Math.random() - 0.5)
     setCards(newDeck);
     const middleIndex = Math.ceil(newDeck.length / 2);
@@ -113,7 +119,6 @@ function App() {
   }
 
   function startGameTwo(ev:any){
- 
     const playerDeck = cardsPlayer;
     const oppDeck = cardsOpponent;
     const tempList = playerDeck.concat(oppDeck);
@@ -125,22 +130,38 @@ function App() {
     setCardsPlayer(firstHalf);
     setCardsOpponent(secondHalf);
     setOnClickDeck(false)
-  }  
-    return (
-      <div className="App"> 
-        <Button className='App-newGameBtn' color='success' variant="contained" size="large" onClick={newGame?startGameTwo:startGame}>New Game</Button>
+  }
+  if(newGame){
+    return(
+      <div className="App">
+        <Button className='App-newGameBtnTwo' variant="contained" color='success' size='large' onClick={startGameTwo}>NewGame</Button>
         {cardsMain.map((card,i) => {
-          return(<Cardsfirst key={i} count={i} setStart={setStart} newGame={newGame} background={card.backgroundImage} /> )})}
+         return (
+          <Cards key={i} count={i} newGame={newGame} background={card.backgroundImage} cardsMain={cardsMain}/>
+         )
+        })}
+
+      </div>
+    );
+  }else {
+    return (
+      
+      <div className="App">
         
+        <Button className='App-newGameBtn' color='success' variant="contained" 
+        size="large" onClick={startGame}>Shuffle cards</Button>
+      <div className="App-cards">
+      {cardsMain.map((card,i) => {
+         return (
+          <Cards key={i} count={i} newGame={newGame} background={card.backgroundImage} cardsMain={cardsMain}/>
+         )
+         })}
+      </div>
        
       </div>
       
     );
   }
-
-    
-    
-
+}
 
 export default App;
-
