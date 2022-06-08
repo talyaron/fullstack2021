@@ -27,21 +27,24 @@ function App() {
   const [userList, setUserList] = useState([]);
   const [unexist, setUnexist] = useState(false);
   const [passwordsMatch, setPasswordsMatch] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false)
+  const [loggedInUser, setLoggedInUser] = useState({})
 
   //ises
   const [load, isLoad] = useState(false);
   const [loginWindowOn, isLoginWindowOn] = useState(false);
   const [registerWindowOn, isRegisterWindowOn] = useState(false);
+  const [loginFail, isLoginFail] = useState(false)
 
   function handleWindowOpen(ev) {
 
     if (ev.target.id === 'loginButton') {
       if (!loginWindowOn && !registerWindowOn) {
-        console.log('login')
+
         isLoginWindowOn(true)
       }
       else {
-        console.log('falselogin')
+
         isRegisterWindowOn(false)
         isLoginWindowOn(false)
       }
@@ -60,27 +63,49 @@ function App() {
 
   }
 
-  useEffect(() => {
-    if (!load) {
-      (async () => {
+  // useEffect(() => {
+  //   if (!load) {
 
-        const { data } = await axios.get('/api/getUsers')
-        const allUsers = data.allUsers;
-        setUserList(allUsers)
+  //     (async () => {
+
+  //       const { data } = await axios.get('/api/getUsers')
+  //       const allUsers = data.allUsers;
+  //       setUserList(allUsers)
 
 
-      })();
+  //     })();
 
-      console.log('shalom')
-    }
-  }, [load])
+  //     console.log('shalom')
+  //   }
+
+  // }, [load])
+
+  if (!load) {
+    getAllUsers()
+    isLoad(true)
+  }
+
+  function getAllUsers() {
+    (async () => {
+
+      const { data } = await axios.get('/api/getUsers')
+      const allUsers = data.allUsers;
+      setUserList(allUsers)
+
+
+    })();
+
+    console.log('shalom')
+
+  };
+
 
   return (
     <div className="App">
-      <NavBar handleWindowOpen={handleWindowOpen}></NavBar>
+      <NavBar handleWindowOpen={handleWindowOpen} user={loggedInUser}></NavBar>
       {registerWindowOn && <UserForm submit={handleRegister} button='REGISTER' passwordsMatch={passwordsMatch} unexist={unexist} />}
-      {loginWindowOn && <LoginForm submit={handleLogin} />}
-      <UsersList userList={userList} handleUpdate={handleUpdate} handleDelete={handleDelete} />
+      {loginWindowOn && <LoginForm submit={handleLogin} loginFail={loginFail} />}
+      <UsersList loggedInUser={loggedInUser} userList={userList} handleUpdate={handleUpdate} handleDelete={handleDelete} />
     </div>
   );
 
@@ -95,9 +120,13 @@ function App() {
 
     if (userForm.password === userForm.passwordConfirm) {
 
-      isLoad(true)
+      
+
+      isRegisterWindowOn(false)
 
       const registerResponse = await axios.post('/api/addUser', handleSubmit(ev))
+
+      isLoad(false)
 
       if (registerResponse.data === 'AlreadyExists' && !unexist) {
 
@@ -109,13 +138,11 @@ function App() {
 
       }
 
-      isLoad(false)
-
-
+      // isLoad(false)
 
     }
 
-    else{
+    else {
       console.log('dont match')
       setPasswordsMatch(!passwordsMatch)
 
@@ -138,10 +165,26 @@ function App() {
 
     const loginUser: any = { username, password }
 
-    await axios.post('/api/login', loginUser)
+    const loginResponse = await axios.post('/api/login', loginUser)
 
+    console.log(loginResponse.data)
 
-    ev.reset();
+    if (loginResponse.data.test === 'error') {
+
+      isLoginFail(true)
+      setTimeout(() => {
+        isLoginFail(false)
+      }, 2000)
+    }
+
+    if (loginResponse.data.user) {
+      setLoggedInUser(loginResponse.data.user)
+      setLoggedIn(true)
+      isLoginWindowOn(false)
+
+    }
+
+    // ev.reset();
 
   }
 
@@ -149,9 +192,9 @@ function App() {
 
     const id = ev.target.id;
 
-    isLoad(true)
-    await axios.delete('/api/deleteUser', { data: { id } })
     isLoad(false)
+    await axios.delete('/api/deleteUser', { data: { id } })
+    // isLoad(false)
 
   }
 
@@ -163,9 +206,9 @@ function App() {
 
     const toSend = { userToUpdate, id }
 
-    isLoad(true)
-    await axios.patch('/api/updateUser', toSend)
     isLoad(false)
+    await axios.patch('/api/updateUser', toSend)
+    // isLoad(false)
 
   }
 
