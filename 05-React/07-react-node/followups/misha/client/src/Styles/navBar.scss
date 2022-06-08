@@ -67,6 +67,7 @@ p {
 
             width: fit-content;
             height: 50px;
+
             // width: 200px;
         }
     }
@@ -95,11 +96,12 @@ p {
   text-decoration: none;
   text-overflow: ellipsis;
   user-select: none;
-  -webkit-user-select: none;
+  -webkit-user-select: none;   
   touch-action: manipulation;
   white-space: nowrap;
   display: flex;
   align-items: center;
+  z-index: 4;
 }
 
 .button-14:active {

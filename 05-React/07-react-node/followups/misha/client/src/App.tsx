@@ -37,9 +37,11 @@ function App() {
 
     if (ev.target.id === 'loginButton') {
       if (!loginWindowOn && !registerWindowOn) {
+        console.log('login')
         isLoginWindowOn(true)
       }
       else {
+        console.log('falselogin')
         isRegisterWindowOn(false)
         isLoginWindowOn(false)
       }

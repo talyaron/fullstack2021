@@ -7,13 +7,14 @@ const NavBar = (props: any) => {
   function focus (){
     
     if(isPushed.current){
-      console.log('push')
     isPushed.current.focus();
     }
     else{
       return
     }
   }
+
+  
 
   return (
     <div className='navbar-container'>
@@ -35,10 +36,10 @@ const NavBar = (props: any) => {
       </div>
 
       <div  className='navBarRight'>
-        <div ref={isPushed} onClick={focus} className='button-14'>
-          <p onClick={props.handleWindowOpen} id='loginButton'>LOGIN</p>
+        <div ref={isPushed} onClick={props.handleWindowOpen}  id='loginButton' className='button-14'>
+          <p onClick={props.handleWindowOpen}  id='loginButton'>LOGIN</p>
         </div>
-        <div ref={isPushed} onClick={focus} className='button-14'>
+        <div ref={isPushed} onClick={props.handleWindowOpen} id='registerButton' className='button-14'>
           <p onClick={props.handleWindowOpen} id='registerButton'>REGISTER</p>
         </div>
       </div>
