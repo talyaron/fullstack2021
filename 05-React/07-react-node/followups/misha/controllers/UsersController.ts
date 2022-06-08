@@ -12,6 +12,21 @@ export const getUsers = async (req, res) => {
     }
 }
 
+export const getOneUser = async (req, res) => {
+
+    const {idToUpdate} = req.body
+
+    console.log('my body is+ ', req.body)
+
+    try {
+        const oneUser = await User.findOne({_id: idToUpdate})
+        res.send(oneUser)
+
+    } catch (error) {
+        res.send({ error: error.message })
+    }
+}
+
 export const getLoginUser = async (req, res) => {
 
     try {
@@ -85,8 +100,10 @@ export const deleteUser = async (req, res) => {
 export const updateUser = async (req, res) => {
 
     try {
-        const { userToUpdate, id } = req.body;
-        const mongoResponse = await User.updateOne({ _id: id }, userToUpdate)
+
+        const { userToUpdate, idToUpdate } = req.body;
+
+        const mongoResponse = await User.updateOne({ _id: idToUpdate }, userToUpdate)
 
         res.send(mongoResponse)
     } catch (error) {

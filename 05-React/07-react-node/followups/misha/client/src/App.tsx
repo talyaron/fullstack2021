@@ -3,8 +3,9 @@
 
 // ev.reset()?
 // focus useref
-// windowopenbug
 
+// conditional map
+// getoneuser (192)
 
 //libraries
 import axios from 'axios';
@@ -29,13 +30,22 @@ function App() {
   const [passwordsMatch, setPasswordsMatch] = useState(false);
   const [loggedIn, setLoggedIn] = useState(false)
   const [loggedInUser, setLoggedInUser] = useState({})
-
+  const [idToUpdate, setIdToUpdate] = useState('')
   //ises
   const [load, isLoad] = useState(false);
   const [loginWindowOn, isLoginWindowOn] = useState(false);
   const [registerWindowOn, isRegisterWindowOn] = useState(false);
+  const [updateWindowOn, isUpdateWindowOn] = useState(false);
   const [loginFail, isLoginFail] = useState(false)
 
+
+  function updateProcess(ev) {
+
+    isUpdateWindowOn(true)
+    setIdToUpdate(ev.target.id)
+
+
+  }
   function handleWindowOpen(ev) {
 
     if (ev.target.id === 'loginButton') {
@@ -63,23 +73,6 @@ function App() {
 
   }
 
-  // useEffect(() => {
-  //   if (!load) {
-
-  //     (async () => {
-
-  //       const { data } = await axios.get('/api/getUsers')
-  //       const allUsers = data.allUsers;
-  //       setUserList(allUsers)
-
-
-  //     })();
-
-  //     console.log('shalom')
-  //   }
-
-  // }, [load])
-
   if (!load) {
     getAllUsers()
     isLoad(true)
@@ -103,9 +96,10 @@ function App() {
   return (
     <div className="App">
       <NavBar handleWindowOpen={handleWindowOpen} user={loggedInUser}></NavBar>
+      {updateWindowOn && <UserForm submit={handleUpdate} button='UPDATE' passwordsMatch={passwordsMatch} unexist={unexist} />}
       {registerWindowOn && <UserForm submit={handleRegister} button='REGISTER' passwordsMatch={passwordsMatch} unexist={unexist} />}
       {loginWindowOn && <LoginForm submit={handleLogin} loginFail={loginFail} />}
-      <UsersList loggedInUser={loggedInUser} userList={userList} handleUpdate={handleUpdate} handleDelete={handleDelete} />
+      <UsersList loggedInUser={loggedInUser} userList={userList} isUpdateWindowOn={isUpdateWindowOn} handleDelete={handleDelete} updateProcess={updateProcess} />
     </div>
   );
 
@@ -116,11 +110,10 @@ function App() {
 
     const userForm = handleSubmit(ev);
 
-    console.log(userForm.password, userForm.passwordConfirm)
 
     if (userForm.password === userForm.passwordConfirm) {
 
-      
+
 
       isRegisterWindowOn(false)
 
@@ -143,7 +136,7 @@ function App() {
     }
 
     else {
-      console.log('dont match')
+
       setPasswordsMatch(!passwordsMatch)
 
       setTimeout(() => {
@@ -166,8 +159,6 @@ function App() {
     const loginUser: any = { username, password }
 
     const loginResponse = await axios.post('/api/login', loginUser)
-
-    console.log(loginResponse.data)
 
     if (loginResponse.data.test === 'error') {
 
@@ -198,16 +189,32 @@ function App() {
 
   }
 
+  async function getOneUser(idToUpdate) {
+    const originalUser = await axios.patch('/api/getOneUser', idToUpdate)
+    return originalUser
+  }
+
   async function handleUpdate(ev) {
 
     const userToUpdate = handleSubmit(ev)
 
-    const id = ev.target.id
+    const originalUser = getOneUser(idToUpdate)
 
-    const toSend = { userToUpdate, id }
+    console.log(originalUser)
+
+    Object.values(userToUpdate).forEach((key) => {
+      console.log(key)
+    });
+
+    const toSend = { userToUpdate, idToUpdate }
+
+    console.log(toSend)
+
+    await axios.patch('/api/updateUser', toSend)
+
+    isUpdateWindowOn(false)
 
     isLoad(false)
-    await axios.patch('/api/updateUser', toSend)
     // isLoad(false)
 
   }
