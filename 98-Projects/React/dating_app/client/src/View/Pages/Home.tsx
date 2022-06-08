@@ -14,6 +14,7 @@ interface user{
     username:string,
     img1:string,
     img2:string,
+    userProfile:any
    
 }
 
@@ -36,11 +37,15 @@ console.log(likedProfiles)
     
     return (
         <div className="home">
-          <div className="home--profiles">
-          {arr.map((user, i) => { return <ProfileBox key={i} userProfile={user._id}  arr={arr} SetArr={SetArr} name={user.name} age={user.age} gender={user.gender} profileImg={user.profileImg} description={user.description} setLikedProfiles={setLikedProfiles} likedProfiles={likedProfiles}/> })}
+          <div className="home__profiles">
+          {arr.map((user, i) => { return <ProfileBox key={i} userProfile={user._id}  arr={arr} SetArr={SetArr} username={user.username} name={user.name} age={user.age} gender={user.gender} profileImg={user.profileImg}  setLikedProfiles={setLikedProfiles} likedProfiles={likedProfiles}/> })}
           </div>
-          <div className="home--likedProfiles" style={{border:'black solid 2px'}}>
-            {likedProfiles.map((likedUser, i) => { return <LikedProfile key={i} userProfile={likedUser._id}   name={likedUser.name} age={likedUser.age} gender={likedUser.gender} profileImg={likedUser.profileImg} description={likedUser.description}/> })}
+          <div className="home__likedProfiles" >
+              <h3>Liked Users</h3>
+              <div className="home__likedProfiles--users">
+              {likedProfiles.map((likedUser, i) => { return <LikedProfile key={i} likedUser={likedUser} /> })}
+              </div>
+           
           </div>
         </div>
     )

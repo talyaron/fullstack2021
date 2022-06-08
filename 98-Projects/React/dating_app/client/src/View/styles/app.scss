@@ -13,8 +13,8 @@
 
 .ProfileBox {
   display: flex;
-  background-color: gold;
   border: 1px solid black;
+  border-radius: 10px;
   flex-direction: column;
   width: 180px;
   height: 180px;
@@ -22,7 +22,16 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 50%;
+  font-weight:bolder;
+  &__linkToPage{
+    text-decoration: none;
+    font-weight:bolder;
+    color:black;
+    align-self:flex-start;
+    padding-left:3px;
+    
 
+  }
   img {
     width: 50px;
     height: 50px;
@@ -39,8 +48,11 @@
     z-index: 2;
     color: rgb(15, 3, 3);
   }
-  &__description{
-   align-self: flex-end;
+  button{
+    background-color: white;
+    font-weight: bold;
+    border: black;
+   align-self:center;
   }
 }
 
