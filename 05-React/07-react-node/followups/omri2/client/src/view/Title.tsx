@@ -16,8 +16,7 @@ const Title = () => {
         console.log(data)
         setBlogs(data);
       })
-
-  }, []);
+  },[]);
 
   return (
     <div className="App__titles">
