@@ -7,7 +7,7 @@ function NavBar(){
 const {userProfile} = useParams();
 console.log(userProfile);
 useEffect(() => {
-    //get data on the icecream and show the chosen ice cream by id
+    //get data on the user and show the chosen user by id
 
     (async () => {
       try {
