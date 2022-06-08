@@ -17,7 +17,7 @@ export async function addBlog(req, res) {
 export async function getTitles(req, res) {
     try {
         const titles = await BlogModel.find({});
-        // console.log(titles)
+        console.log(titles)
         res.send(titles)
     } catch (error) {
         console.error(error);

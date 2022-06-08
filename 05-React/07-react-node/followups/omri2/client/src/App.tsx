@@ -2,6 +2,15 @@ import { useState, useEffect } from 'react';
 import './App.css';
 import axios from 'axios';
 
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
+
+import Main from './view/Main';
+import Title from './view/Title';
+
 
 function App() {
   async function handleSubmit(ev: any) {
@@ -21,11 +30,11 @@ function App() {
 
   return (
     <div className="App">
-      <form onSubmit={handleSubmit}>
+      {/* <form onSubmit={handleSubmit}>
         <input type="text" name='title' placeholder='title' />
         <input type="text" name='article' placeholder='article' />
         <input type="submit" value='submit' />
-      </form>
+      </form> */}
 
       <BrowserRouter>
         <Routes>

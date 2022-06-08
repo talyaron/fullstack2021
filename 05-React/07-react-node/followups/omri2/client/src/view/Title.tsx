@@ -12,8 +12,7 @@ const Title = () => {
   const [blogs, setBlogs] = useState<Array<Blog>>([])
 
   useEffect(() => {
-    const data = axios.get('/api/blogs/get-titles')
-      .then(({ data }) => {
+     axios.get('/api/blogs/get-titles').then(({ data }) => {
         console.log(data)
         setBlogs(data);
       })
