@@ -16,15 +16,18 @@ const Article = (props:ArticleProps) => {
     const {blogs} = props;
     const params = useParams()
     const {articleId} = params;
-    const [articles, setArticle] = useState({});
-    setArticle(blogs)
+    const [articles, setArticles] = useState<Array<Blog>>([])
+    setArticles(blogs)
 
-    // useEffect(() => {
-    //     setBlogs(blogs.filter((blog) => blog._id === articleId)[0])
-    // },[])
+    useEffect(() => {
+        setArticles(articles.filter((article) => article._id === articleId));
+        console.log(articles)
+    },[])
 
     return (
-        <div></div>
+        <div className="App__Article">
+           {/* <p>{articles? <div>{articles.article}</div>:<div>Loading</div>}</p> */}
+        </div>
     )
 }
 

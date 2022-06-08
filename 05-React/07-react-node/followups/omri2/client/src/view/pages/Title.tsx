@@ -34,7 +34,6 @@ const Title = (props: TitleProps) => {
               <h3>{blog.title}</h3>
             </Link>
             <Outlet />
-            <Article blogs={blogs} />
           </div>
         )
       })}
