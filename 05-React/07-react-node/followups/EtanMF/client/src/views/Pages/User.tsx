@@ -2,11 +2,10 @@ import { useTransition, useEffect } from "react";
 import { useParams, Outlet, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import Back from "../Components/Back";
-import { UserInfo } from "../../AnimatedRoutes"
+import { UserInfo } from "../../AnimatedRoutes";
 import UserNavBar from "../Components/UserNavBar";
-import { ArticleInfoParams } from '../../AnimatedRoutes';
-import AllArticles from '../Components/AllArticles'
-
+import { ArticleInfoParams } from "../../AnimatedRoutes";
+import AllArticles from "../Components/AllArticles";
 
 interface UserProps {
   handleGetUsers: Function;
@@ -23,22 +22,23 @@ function User(props: UserProps) {
   const params = useParams();
   const { userId } = params;
   const navigate = useNavigate();
-  const { handleGetUsers, currentUser, getAllArticles, articleList, handleSetSingleArticle, handleSearchTerm, loginUserId } = props;
-
+  const {
+    handleGetUsers,
+    currentUser,
+    getAllArticles,
+    articleList,
+    handleSetSingleArticle,
+    handleSearchTerm,
+    loginUserId,
+  } = props;
 
   useEffect(() => {
-
     startTransition(() => {
-      handleGetUsers(userId)
-      getAllArticles(userId)
-
-    })
-    return () => {
-
-
-    }
-  }, [])
-
+      handleGetUsers(userId);
+      getAllArticles(userId);
+    });
+    return () => {};
+  }, []);
 
   return (
     <motion.div
@@ -50,20 +50,20 @@ function User(props: UserProps) {
 
       <UserNavBar currentUser={currentUser} />
 
-
       {userId}
       <p>here</p>
 
-      {isPending ?
-        <p>Loading...</p> :
-        <AllArticles articleList={articleList} handleSetSingleArticle={handleSetSingleArticle}
-        handleSearchTerm={handleSearchTerm} currentUser={currentUser} loginUserId={loginUserId} />
-
-      }
-
-
-
-
+      {isPending ? (
+        <p>Loading...</p>
+      ) : (
+        <AllArticles
+          articleList={articleList}
+          handleSetSingleArticle={handleSetSingleArticle}
+          handleSearchTerm={handleSearchTerm}
+          currentUser={currentUser}
+          loginUserId={loginUserId}
+        />
+      )}
     </motion.div>
   );
 }

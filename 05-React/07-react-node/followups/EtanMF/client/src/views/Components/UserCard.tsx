@@ -1,5 +1,10 @@
-import { useId } from "react";
-import { motion, useMotionValue, useTransform, useViewportScroll } from "framer-motion";
+import {useId} from "react";
+import {
+  motion,
+  useMotionValue,
+  useTransform,
+  useViewportScroll,
+} from "framer-motion";
 
 interface UserInfo {
   firstName: string;
@@ -14,12 +19,10 @@ interface UserCardProps {
   handleOpenUser: Function;
 }
 function UserCard(props: UserCardProps) {
-  const { user, handleOpenUser } = props;
-
+  const {user, handleOpenUser} = props;
 
   const id = useId();
   return (
-
     <motion.li
       onClick={() => {
         handleOpenUser(user._id);
@@ -39,7 +42,6 @@ function UserCard(props: UserCardProps) {
         </fieldset>
       </fieldset>
     </motion.li>
-
   );
 }
 

@@ -1,7 +1,7 @@
-import React, { useDeferredValue, useEffect } from 'react';
-import ArticleCard from './ArticleCard'
-import ArticleSearch from './ArticleSearch'
-import { UserInfo } from '../../AnimatedRoutes'
+import React, {useDeferredValue, useEffect} from 'react';
+import ArticleCard from './ArticleCard';
+import ArticleSearch from './ArticleSearch';
+import {UserInfo} from '../../AnimatedRoutes';
 
 interface AllArticlesProps {
     articleList: Array<ArticleInfoParams>;
@@ -21,31 +21,26 @@ interface ArticleInfoParams {
     title: string;
     content: string;
 }
-
+// const cssPageTheme: string = `&*{background:black;}`;
 function AllArticles(props: AllArticlesProps) {
-    const { articleList, handleSetSingleArticle, handleSearchTerm, currentUser, loginUserId } = props;
-    const deferredArticles = useDeferredValue(articleList)
-
+    const {articleList, handleSetSingleArticle, handleSearchTerm, currentUser, loginUserId} = props;
+    const deferredArticles = useDeferredValue(articleList);
 
     return (
-        <ul className="comp-allArticles">
+        <ul className='comp-allArticles'>
             <h1>AllArticles</h1>
 
             <ArticleSearch handleSearchTerm={handleSearchTerm} />
 
-
-            {deferredArticles ? deferredArticles.map((article: ArticleInfoParams, index: number) => {
-                return (
-                    <ArticleCard key={index} article={article} handleSetSingleArticle={handleSetSingleArticle}
-                        currentUser={currentUser} loginUserId={loginUserId}
-                    />
-                )
-            }) : <p>Loading......</p>}
-
-
-
+            {deferredArticles ? (
+                deferredArticles.map((article: ArticleInfoParams, index: number) => {
+                    return <ArticleCard key={index} article={article} handleSetSingleArticle={handleSetSingleArticle} currentUser={currentUser} loginUserId={loginUserId} />;
+                })
+            ) : (
+                <p>Loading......</p>
+            )}
         </ul>
-    )
+    );
 }
 
-export default AllArticles
+export default AllArticles;

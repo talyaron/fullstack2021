@@ -13,8 +13,6 @@ interface HomePageProps {
   handleGetUsers: Function;
   handleOpenUser: Function;
   userList: Array<UserInfo>;
-  mounted: Boolean;
-  setMounted: Function;
   handleCreateNewArticle: Function;
   getAllArticles: Function;
   articleList: Array<ArticleInfoParams>;
@@ -33,8 +31,6 @@ interface UserInfo {
 
 function HomePage(props: HomePageProps) {
   const {
-    mounted,
-    setMounted,
     userList,
     handleOpenUser,
     handleGetUsers,
