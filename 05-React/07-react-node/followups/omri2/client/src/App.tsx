@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import './App.css';
+import './view/styles/global.scss';
 import axios from 'axios';
 
 import {
@@ -8,11 +8,22 @@ import {
   Route,
 } from "react-router-dom";
 
-import Main from './view/Main';
-import Title from './view/Title';
+import Main from './view/pages/Main';
+import Title from './view/pages/Title';
+import Article from './view/pages/Article';
+
 
 
 function App() {
+
+  const [blogs, setBlogs] = useState<Array<Blog>>([])
+
+  interface Blog {
+    _id:string
+    title: string
+    article: string
+  }
+  
   async function handleSubmit(ev: any) {
     ev.preventDefault();
     try {
@@ -39,7 +50,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Main />}>
-            <Route path='title' element={<Title />}></Route>
+            <Route index element={<Title blogs={blogs} setBlogs={setBlogs}/>}></Route>
+            <Route path=':articleId' element={<Article blogs={blogs}/>}></Route>
           </Route>
         </Routes>
       </BrowserRouter>
