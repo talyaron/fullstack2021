@@ -6,7 +6,7 @@ export const getImages = async (req, res) => {
         console.log(email);
         const result = await Images.find({ email: email });
         
-        res.send({ ok: true, result });
+        res.send({ ok: true, result }); 
 
     }
     catch (err) {

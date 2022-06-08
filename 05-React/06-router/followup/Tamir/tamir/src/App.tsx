@@ -5,8 +5,9 @@ import Milk from "./pages/Milk/Milk";
 import Leyout from "./pages/Leyout";
 import Flavor from "./pages/Flavor";
 import Chocolate from "./pages/Chocolate/Chocolate";
-import Milkvanile from "./pages/Milk/Milkvanile"
+import Milkvanile from "./pages/Milk/Milkvanile";
 import MilkBanena from "./pages/Milk/MilkBanena";
+import IcecremId from "./pages/IcecremId";
 import Chocolatevanile from "./pages/Chocolate/Chocolatevanile";
 import ChocolateBanena from "./pages/Chocolate/ChocolateBanena";
 
@@ -17,8 +18,7 @@ function App() {
         <Route path="/" element={<Login />}></Route>
 
         <Route path="/Flavor" element={<Leyout />}>
-
-          <Route index element={<Flavor />}></Route> 
+          <Route index element={<Flavor />}></Route>
 
           <Route path="Chocolate" element={<Chocolate />}>
             <Route path="Chocolatevanile" element={<Chocolatevanile />}></Route>
@@ -26,10 +26,11 @@ function App() {
           </Route>
 
           <Route path="Milk" element={<Milk />}>
-            <Route path="Milkvanile" element={<Milkvanile />}></Route>
+            <Route path="Milkvanile" element={<Milkvanile />}>
+              <Route path=":icecream" element={<IcecremId />}></Route>
+            </Route>
             <Route path="MilkBanena" element={<MilkBanena />}></Route>
           </Route>
-
         </Route>
       </Routes>
     </BrowserRouter>

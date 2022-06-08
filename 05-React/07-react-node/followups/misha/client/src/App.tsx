@@ -1,35 +1,189 @@
-import React, { useEffect } from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+// questions
+
+// ev.reset()?
+// focus useref
+// windowopenbug
+
+
+//libraries
 import axios from 'axios';
+
+//hooks
+import React, { useEffect, useState } from 'react';
+
+//styles
+import './App.scss';
+
+//components
+import UserForm from './View/Components/RegistrationForm'
+import LoginForm from './View/Components/LoginForm'
+import UsersList from './View/Components/UsersList'
+import NavBar from './View/Components/NavBar';
 
 function App() {
 
-  useEffect(()=>{
-    (async () => {
-      const { data } = await axios.get('/api')
-      console.log(data);
-    })();
-  },[])
+  //setters
+  const [userList, setUserList] = useState([]);
+  const [unexist, setUnexist] = useState(false);
+  const [passwordsMatch, setPasswordsMatch] = useState(false);
+
+  //ises
+  const [load, isLoad] = useState(false);
+  const [loginWindowOn, isLoginWindowOn] = useState(false);
+  const [registerWindowOn, isRegisterWindowOn] = useState(false);
+
+  function handleWindowOpen(ev) {
+
+    if (ev.target.id === 'loginButton') {
+      if (!loginWindowOn && !registerWindowOn) {
+        isLoginWindowOn(true)
+      }
+      else {
+        isRegisterWindowOn(false)
+        isLoginWindowOn(false)
+      }
+    }
+
+    if (ev.target.id === 'registerButton') {
+
+      if (!registerWindowOn && !loginWindowOn) {
+        isRegisterWindowOn(true)
+      }
+      else {
+        isRegisterWindowOn(false)
+        isLoginWindowOn(false)
+      }
+    }
+
+  }
+
+  useEffect(() => {
+    if (!load) {
+      (async () => {
+
+        const { data } = await axios.get('/api/getUsers')
+        const allUsers = data.allUsers;
+        setUserList(allUsers)
+
+
+      })();
+
+      console.log('shalom')
+    }
+  }, [load])
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NavBar handleWindowOpen={handleWindowOpen}></NavBar>
+      {registerWindowOn && <UserForm submit={handleRegister} button='REGISTER' passwordsMatch={passwordsMatch} unexist={unexist} />}
+      {loginWindowOn && <LoginForm submit={handleLogin} />}
+      <UsersList userList={userList} handleUpdate={handleUpdate} handleDelete={handleDelete} />
     </div>
   );
+
+
+  async function handleRegister(ev: any) {
+
+    ev.preventDefault();
+
+    const userForm = handleSubmit(ev);
+
+    console.log(userForm.password, userForm.passwordConfirm)
+
+    if (userForm.password === userForm.passwordConfirm) {
+
+      isLoad(true)
+
+      const registerResponse = await axios.post('/api/addUser', handleSubmit(ev))
+
+      if (registerResponse.data === 'AlreadyExists' && !unexist) {
+
+        setUnexist(!unexist)
+
+        setTimeout(() => {
+          setUnexist(unexist)
+        }, 2000)
+
+      }
+
+      isLoad(false)
+
+
+
+    }
+
+    else{
+      console.log('dont match')
+      setPasswordsMatch(!passwordsMatch)
+
+      setTimeout(() => {
+        setPasswordsMatch(passwordsMatch)
+      }, 2000)
+
+    }
+
+
+    // ev.reset();
+  }
+
+  async function handleLogin(ev: any) {
+
+    ev.preventDefault();
+
+    const username = ev.target.username.value;
+    const password = ev.target.password.value;
+
+    const loginUser: any = { username, password }
+
+    await axios.post('/api/login', loginUser)
+
+
+    ev.reset();
+
+  }
+
+  async function handleDelete(ev: any) {
+
+    const id = ev.target.id;
+
+    isLoad(true)
+    await axios.delete('/api/deleteUser', { data: { id } })
+    isLoad(false)
+
+  }
+
+  async function handleUpdate(ev) {
+
+    const userToUpdate = handleSubmit(ev)
+
+    const id = ev.target.id
+
+    const toSend = { userToUpdate, id }
+
+    isLoad(true)
+    await axios.patch('/api/updateUser', toSend)
+    isLoad(false)
+
+  }
+
+  function handleSubmit(ev: any) {
+
+    ev.preventDefault();
+    const name = ev.target.name.value;
+    const password = ev.target.password.value;
+    const passwordConfirm = ev.target.passwordConfirm.value;
+    const age = ev.target.age.value;
+    const occupation = ev.target.occupation.value;
+    const username = ev.target.username.value;
+    const image = ev.target.image.value;
+
+    const userForm = { name, age, occupation, username, password, passwordConfirm, image }
+
+    return userForm;
+  }
+
+
 }
 
 export default App;

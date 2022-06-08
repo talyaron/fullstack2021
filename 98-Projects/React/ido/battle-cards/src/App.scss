@@ -1,0 +1,75 @@
+body{
+  text-align: center;
+  margin: 0;
+  height: fit-content;
+}
+.App {
+  height: 100vh;
+  width: 100%; 
+  display: grid;
+  grid-template-columns: repeat(10 , 10%);
+  grid-template-rows: repeat(10 , 10%);
+    color: white;
+    background:url('https://s3.envato.com/files/213727197/wooden_plank_surface_102801.jpg') no-repeat center ;
+    background-size: cover;
+
+    &-cards{
+      margin-top: 5vh;
+        grid-column: 1/11;
+        grid-row: 4/11;
+        display: grid;
+        grid-template-columns: repeat(10 , 10%);
+        grid-template-rows: repeat(10 , 10%);
+        justify-content: center;
+        position: relative;
+
+        &-cardTwo{
+          grid-column: 5/7;
+          grid-row: 1/5;
+          position: relative;
+          margin-top:30vh ;
+            height:95%;
+            width: 62%;
+            background-repeat: no-repeat;
+            background-position:center;
+            background-size: 100% 100%;
+            animation: name duration timing-function delay iteration-count direction fill-mode;
+
+        }
+
+        &-card{
+          grid-column: 5/8;
+          grid-row: 1/7;
+          position: relative;
+            height:97%;
+            width: 42%;
+            background-repeat: no-repeat;
+            background-position:center;
+            background-size: 100% 100%;
+            box-shadow: rgb(0, 0, 0) 0px 0px 0px 2px inset,                  
+            rgb(255, 255, 255) 5px -10px 0px -3px,rgb(0, 0, 0) 5px -10px, 
+            rgb(255, 255, 255) 10px -20px 0px -3px, rgb(0, 0, 0) 10px -20px, 
+            rgb(255, 255, 255) 15px -30px 0px -3px, rgb(0, 0, 0) 15px -30px,
+             rgb(255, 255, 255) 20px -40px 0px -3px, rgb(0, 0, 0) 20px -40px;
+            // opacity: 0;
+        }
+    }
+
+
+    &-newGameBtnTwo{
+      grid-column: 5/7;
+      grid-row: 2;
+    height: 12vh;
+    width: 20vw;
+    }
+  &-newGameBtn{
+    grid-column: 5/7;
+      grid-row: 2;
+    height: 12vh;
+    width: 20vw;
+  }
+}
+
+
+
+
