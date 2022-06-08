@@ -26,6 +26,14 @@ function App() {
         <input type="text" name='article' placeholder='article' />
         <input type="submit" value='submit' />
       </form>
+
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Main />}>
+            <Route path='title' element={<Title />}></Route>
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

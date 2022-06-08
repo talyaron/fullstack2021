@@ -13,3 +13,14 @@ export async function addBlog(req, res) {
         res.send({error:error.message})
     }
 }
+
+export async function getTitles(req, res) {
+    try {
+        const titles = await BlogModel.find({});
+        // console.log(titles)
+        res.send(titles)
+    } catch (error) {
+        console.error(error);
+        res.send({ error: error.message })
+    }
+}
