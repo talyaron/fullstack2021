@@ -9,30 +9,31 @@ interface tempBlog{
     _id:string;
 }
 
-interface BlogDetailsProps{
-    BlogDetails:Function;
-}
-
 function BlogDetails(){
 
     const { id } = useParams()
     const [tempId , setTempId] = useState(id)
-    const [tempBlog ,setTempBlog] = useState()
+    const [tempBlog ,setTempBlog] = useState({name:'lalal',body:'lalala',_id:'dsadada'})
     
     useEffect(() => {
         (async () => {
-          const { data } = await axios.patch("/api/blogs/get-blog",{tempId});
-          setTempBlog(data.data)
+          const {data}  = await axios.patch("/api/blogs/get-blog",{tempId});
+          console.log(data);
+          
+          setTempBlog(data.data[0])
+          
         })();
-      }, [tempId]);
+      }, []);
     
-    return (
-      <div className="blog-details" >
-        <motion.h1 className="blog-details-name">{tempBlog.name}</motion.h1>
-        <div className="blog-details-body">{tempBlog.body}</div>
-
-      </div>
-    )
+        return (
+            <div className="blog-details" >
+              <motion.h1 className="blog-details-name">{tempBlog.name}</motion.h1>
+              <div className="blog-details-body">{tempBlog.body}</div>
+      
+            </div>
+          )
+    
+    
   
 }
 

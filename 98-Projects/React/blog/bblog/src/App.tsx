@@ -16,7 +16,6 @@ interface blog{
 function App() {
 
   const [blogs ,setBlogs] = useState<Array<blog>>([])
-  const [tempBlog , setTempBlog] = useState<blog>()
 
 
   
@@ -29,8 +28,8 @@ function App() {
     <BrowserRouter>
     <Routes>
       <Route path='/' element={<Main setBlogs={setBlogs} blogs={blogs} />}></Route>
-      <Route path="/">
-              <Route path="/blogs/:id" element={<BlogDetails setTempBlog={setTempBlog}/>}/>
+      <Route path="">
+              <Route path="/blogs/:id" element={<BlogDetails />}/>
             </Route>
     </Routes>
   </BrowserRouter>
