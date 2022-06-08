@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+body {
+  font-family: 'Crimson Pro', serif;
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  text-align: center;
+  color: black;
+  background-color: rgb(241, 241, 241);
+  min-height: 100vh;
+}
+
+.users {
+  border: 1px solid red;
+}
+
+.userCard {
+  border: 2px solid #f9dc74;
+  border-radius: 10px;
+  margin: 10px;
+  width: 50%;
+  height: 80px;
+  margin: 1em auto;
+  padding: 1em;
+  background-color: #fefefe;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+a:-webkit-any-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.userCard:hover {
+  box-shadow: 0px 3px 3px #cdcdcd;
+}
+
+.profileImage {
+  box-sizing: border-box;
+  width: 80px;
+  height: 80px;
+  margin: 2%;
+  background-color: #f9dc74;
+  border-radius: 6px;
+  display: flex;
+}
+
+.profileImage img {
+  width: 90%;
+  margin: auto;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+.userCard h1 {
+  font-size: 24px;
+  color: #51889f;
+
+  /* padding-right: 20%; */
+  width: 200px;
+}
+
+/* div {
+  border: 1px solid red;
+} */
+
+.registerForm {
+  width: 30%;
+  margin: 2% auto;
+  display: flex;
+  flex-direction: column;
+  background-color: #f9dc74;
+  padding: 2%;
+  border-radius: 6px;
+
+}
+
+.registerForm input,
+.registerForm textarea {
+  width: 30%;
+  margin: 2% auto;
+  display: flex;
+  flex-direction: column;
+  background-color: #f9dc74;
+  padding: 2%;
+  border-radius: 6px;
+  border: 1px solid black;
+}
+
+.registerForm textarea {
+  height: 50px;
+  box-sizing: border-box;
+  display: block;
+}
+
+.registerForm h1 {
+  margin-bottom: 2%;
+  margin-top: -4%;
+  padding: 0%;
+}
+
+.registerForm button {
+  width: 30%;
+  background-color: #c1e2f9;
+  border: none;
+  margin: 2% auto;
+  padding: 2%;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  color: rgb(0, 0, 0);
+}
+
+.registerForm button:hover {
+  background-color: #deedf9;
+  border: none;
+  cursor: pointer;
+  /* color: #ffffff; */
+}
+
+.navbar {
+  background-color: #51889f;
+  display: flex;
+  justify-content: center;
+  gap: 4%;
+}
+
+.userPage {
+  border: 2px solid #f9dc74;
+  border-radius: 10px;
+  margin: 10px;
+  width: 50%;
+  margin: 1em auto;
+  padding: 1em;
+  background-color: #fefefe;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: left;
+}
+
+.userPage .userPageTitle {
+  border: 2px solid #f9dc74;
+  border-radius: 10px;
+  width: 30%;
+  padding: 1em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4%;
+}
+
+.userPage .userPageTitle img{
+  box-sizing: border-box;
+  width: 100%;
+  object-fit: contain;
+  background-color: #51889f;
+  padding: 6%;
+  margin: 2%;
+  border-radius: 6px;
+}
+
+.userPage .textBlog {
+font-size: 18px;
+white-space: pre-wrap;
+}
+.userPageTitle h2{
+  padding: 0%;
+  margin: 0%;
+  font-size: 16px;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f1356d;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  width: 100%;
+  height: 5em;
+  margin-bottom: -1px;
+  font-size: 1.5em;
+}

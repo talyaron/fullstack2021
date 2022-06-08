@@ -1,0 +1,25 @@
+// *{
+//     background-color: aqua;
+// }
+.home{
+    display: flex;
+    border: 2px solid brown;
+    position:sticky;
+    top:0;
+
+    &__register{
+        border: 1px solid black;
+        padding: 14px;
+        border-bottom-left-radius: 25%;
+        border-top-left-radius: 25%;
+    }
+    &__login{
+        border: 1px solid black;
+        padding: 14px;
+        border-bottom-right-radius: 25%;
+        border-top-right-radius: 25%;
+    }
+}
+input[name = samePassword]{ // if I want to style scipsicfic input so I wrote in the name other name for that I can regonzide
+    width: 250px;
+}
