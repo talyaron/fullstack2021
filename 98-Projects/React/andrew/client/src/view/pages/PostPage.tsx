@@ -35,7 +35,7 @@ const PostPage = () => {
                             by: {user.username}
                         </h3>
                     </div>
-                    <h2>{post.title}</h2>
+                    <h2 className='title'>{post.title}</h2>
                     <div className='article'>{parse(post.text)}</div>
                 </div>
             }

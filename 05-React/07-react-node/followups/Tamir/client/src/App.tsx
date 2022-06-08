@@ -7,30 +7,31 @@ import "./App.css";
 import axios from "axios";
 
 function App() {
-  // const [text, settext] = useState<string>('');
+  const [text, settext] = useState<string>("");
 
-  // useEffect(() => {
-  //   (async () => {
-  //     const { data } = await axios.get("/api/text");
-  //     console.log(data);
-  //     if ( data && data.text) {
-  //       settext(data.text);
-  //       console.log('gege');
-  //     }
-  //   })();
-
-  // }, []);
+  useEffect(() => {
+    (async () => {
+      const { data } = await axios.get("/api/text");
+      console.log(data);
+      if (data && data.text) {
+        settext(data.text);
+        console.log("gege");
+      }
+    })();
+  }, []);
+  // async function adduser() {
+  //   const { data } = await axios.post("/get-user");
+  //   console.log(data);
+  // }
   return (
     <div className="App">
       <BrowserRouter>
-      <Routes>
+        <Routes>
+          <Route path="/" element={<Login />}></Route>
 
-        <Route path="/" element={<Login />}></Route>
-
-        <Route path="/Main" element={<Leyout />}></Route>
-
-      </Routes>
-    </BrowserRouter>
+          <Route path="/Main" element={<Leyout />}></Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

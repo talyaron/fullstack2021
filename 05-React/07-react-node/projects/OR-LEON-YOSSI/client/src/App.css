@@ -1,13 +1,54 @@
-/* .App {
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+body {
+  font-family: 'Crimson Pro', serif;
+}
+.App {
   text-align: center;
   color: black;
-} */
+  background-color: rgb(255, 255, 255);
+}
 
 .users{
   border: 1px solid red;
 }
 
-h1{
-  font-weight: 22px;
-  
+.userCard{
+  border: 2px solid #ffc600;
+  border-radius: 10px;
+  margin: 10px;
+  width: 50%;
+  height: 100px;
+  margin: 1em auto;
+  padding: 1em;
+  background-color: #a2d6f9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+
+}
+.userCard:hover{
+  box-shadow: 0px 3px 3px rgb(99, 98, 98);
+}
+
+.profileImage{
+  width: 100px;
+  height: 100px;
+  background-color: #ffc600;
+  border-radius: 6px;
+  display: flex;
+}
+.profileImage img{
+ 
+  width: 100%;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+.userCard h1{
+  font-size: 24px;
+}
+
+div{
+  border: 1px solid red;
 }

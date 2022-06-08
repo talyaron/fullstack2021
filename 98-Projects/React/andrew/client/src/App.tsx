@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, } from "react-router-dom";
 import { useEffect } from 'react';
 import axios from 'axios'
+
 import './App.css';
 import './view/style/global.scss'
 
@@ -12,6 +13,8 @@ import Search from "./view/pages/Search";
 import Profile from "./view/pages/Profile";
 import PostPage from "./view/pages/PostPage";
 import ViewProfile from "./view/pages/ViewProfile";
+
+axios.defaults.baseURL = 'http://localhost:3000/';
 
 export function getCookie(cookieName: any) {
   const cookies = decodeURIComponent(document.cookie);

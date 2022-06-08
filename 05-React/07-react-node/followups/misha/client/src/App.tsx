@@ -1,8 +1,16 @@
+
+// questions
+
+// ev.reset()?
+// focus useref
+// windowopenbug
+
+
 //libraries
 import axios from 'axios';
 
 //hooks
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 
 //styles
 import './App.scss';
@@ -10,12 +18,47 @@ import './App.scss';
 //components
 import UserForm from './View/Components/RegistrationForm'
 import LoginForm from './View/Components/LoginForm'
+import UsersList from './View/Components/UsersList'
+import NavBar from './View/Components/NavBar';
 
 function App() {
 
+  //setters
   const [userList, setUserList] = useState([]);
-  const [load, isLoad] = useState(false);
   const [unexist, setUnexist] = useState(false);
+  const [passwordsMatch, setPasswordsMatch] = useState(false);
+
+  //ises
+  const [load, isLoad] = useState(false);
+  const [loginWindowOn, isLoginWindowOn] = useState(false);
+  const [registerWindowOn, isRegisterWindowOn] = useState(false);
+
+  function handleWindowOpen(ev) {
+
+    if (ev.target.id === 'loginButton') {
+      if (!loginWindowOn && !registerWindowOn) {
+        console.log('login')
+        isLoginWindowOn(true)
+      }
+      else {
+        console.log('falselogin')
+        isRegisterWindowOn(false)
+        isLoginWindowOn(false)
+      }
+    }
+
+    if (ev.target.id === 'registerButton') {
+
+      if (!registerWindowOn && !loginWindowOn) {
+        isRegisterWindowOn(true)
+      }
+      else {
+        isRegisterWindowOn(false)
+        isLoginWindowOn(false)
+      }
+    }
+
+  }
 
   useEffect(() => {
     if (!load) {
@@ -32,31 +75,58 @@ function App() {
     }
   }, [load])
 
+  return (
+    <div className="App">
+      <NavBar handleWindowOpen={handleWindowOpen}></NavBar>
+      {registerWindowOn && <UserForm submit={handleRegister} button='REGISTER' passwordsMatch={passwordsMatch} unexist={unexist} />}
+      {loginWindowOn && <LoginForm submit={handleLogin} />}
+      <UsersList userList={userList} handleUpdate={handleUpdate} handleDelete={handleDelete} />
+    </div>
+  );
+
+
   async function handleRegister(ev: any) {
 
     ev.preventDefault();
 
-    console.log(ev)
+    const userForm = handleSubmit(ev);
+
+    console.log(userForm.password, userForm.passwordConfirm)
+
+    if (userForm.password === userForm.passwordConfirm) {
+
+      isLoad(true)
+
+      const registerResponse = await axios.post('/api/addUser', handleSubmit(ev))
+
+      if (registerResponse.data === 'AlreadyExists' && !unexist) {
+
+        setUnexist(!unexist)
+
+        setTimeout(() => {
+          setUnexist(unexist)
+        }, 2000)
+
+      }
+
+      isLoad(false)
 
 
-    handleSubmit(ev)
 
-    isLoad(true)
-    const registerResponse = await axios.post('/api/addUser', handleSubmit(ev))
+    }
 
-    if (registerResponse.data === 'AlreadyExists' && !unexist) {
+    else{
+      console.log('dont match')
+      setPasswordsMatch(!passwordsMatch)
 
-      setUnexist(!unexist)
       setTimeout(() => {
-        setUnexist(unexist)
+        setPasswordsMatch(passwordsMatch)
       }, 2000)
 
     }
 
-    isLoad(false)
 
-    ev.reset();
-
+    // ev.reset();
   }
 
   async function handleLogin(ev: any) {
@@ -102,38 +172,20 @@ function App() {
   function handleSubmit(ev: any) {
 
     ev.preventDefault();
-    // how to do this in one line if possible ?
     const name = ev.target.name.value;
     const password = ev.target.password.value;
+    const passwordConfirm = ev.target.passwordConfirm.value;
     const age = ev.target.age.value;
     const occupation = ev.target.occupation.value;
     const username = ev.target.username.value;
     const image = ev.target.image.value;
 
-    const userForm = { name, age, occupation, username, password, image }
+    const userForm = { name, age, occupation, username, password, passwordConfirm, image }
 
     return userForm;
   }
 
-  return (
-    <div className="App">
-      <UserForm submit={handleRegister} button='REGISTER' unexist={unexist} />
-      <LoginForm submit={handleLogin} />
 
-      {userList.map((user: any, i) =>
-        <div key={i}>
-          <h1>{user.name}</h1>
-          <h1>{user.age}</h1>
-          <h1>{user.occupation}</h1>
-          <div>
-            <img src={user.image} alt={user.name}></img>
-          </div>
-          <button onClick={handleDelete} id={user._id}>DELETE</button>
-          <UserForm submit={handleUpdate} id={user._id} button='UPDATE' />
-        </div>
-      )}
-    </div>
-  );
 }
 
 export default App;
