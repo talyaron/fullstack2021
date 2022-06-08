@@ -9,11 +9,17 @@ p {
     padding: 1em;
     display: flex;
     justify-content: space-between;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 9px 5px 0px;
+    // border: 2px solid black;
+    // border-bottom:2px solid black; 
 
     .navBarLeft {
         width: 33%;
         height: 100%;
 
+        p{
+            text-shadow: 2px 1px #00000026;
+        }
         .navBarTitle {
             width: fit-content;
             font-size: 30px;
@@ -21,6 +27,7 @@ p {
             height: 50%;
             display: flex;
             align-items: center;
+            
         }
         .navBarWelcome {
             display: flex;
@@ -53,10 +60,62 @@ p {
 
         p{
             cursor: pointer;
+            
         }
 
-        .rightSideBox {
+        .button-14 {
+
             width: fit-content;
+            height: 50px;
+            // width: 200px;
         }
     }
+}
+
+/* CSS */
+.button-14 {
+  background-image: linear-gradient(#f7f8fa ,#e7e9ec);
+  border-color: #adb1b8 #a2a6ac #8d9096;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 3px;
+  box-shadow: rgba(255,255,255,.6) 0 5px 0px inset;
+  box-sizing: border-box;
+  color: #0f1111;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Amazon Ember",Arial,sans-serif;
+  font-size: 14px;
+  height: 29px;
+  font-size: 13px;
+  outline: 0;
+  overflow: hidden;
+  padding: 0 11px;
+  text-align: center;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+}
+
+.button-14:active {
+  border-bottom-color: #a2a6ac;
+}
+
+.button-14:active:hover {
+  border-bottom-color: #a2a6ac;
+}
+
+.button-14:hover {
+  border-color: #a2a6ac #979aa1 #82858a;
+}
+
+.button-14:focus {
+  border-color: #e77600;
+  box-shadow: rgba(228, 121, 17, .5) 0 0 3px 2px;
+  outline: 0;
 }

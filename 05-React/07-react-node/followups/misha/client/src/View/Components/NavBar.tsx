@@ -1,6 +1,20 @@
-import React from 'react'
+import React, {useRef} from 'react'
 
 const NavBar = (props: any) => {
+
+  const isPushed:any =  useRef();
+
+  function focus (){
+    
+    if(isPushed.current){
+      console.log('push')
+    isPushed.current.focus();
+    }
+    else{
+      return
+    }
+  }
+
   return (
     <div className='navbar-container'>
 
@@ -20,11 +34,11 @@ const NavBar = (props: any) => {
         </div>
       </div>
 
-      <div className='navBarRight'>
-        <div className='rightSideBox'>
+      <div  className='navBarRight'>
+        <div ref={isPushed} onClick={focus} className='button-14'>
           <p onClick={props.handleWindowOpen} id='loginButton'>LOGIN</p>
         </div>
-        <div className='rightSideBox'>
+        <div ref={isPushed} onClick={focus} className='button-14'>
           <p onClick={props.handleWindowOpen} id='registerButton'>REGISTER</p>
         </div>
       </div>

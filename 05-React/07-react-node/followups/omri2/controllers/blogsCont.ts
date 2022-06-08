@@ -6,7 +6,6 @@ export async function addBlog(req, res) {
         if(title && article){
             const newBlog = new BlogModel({title, article});
             await newBlog.save();
-            console.log(title,article);
             res.send({ok:true})
         }
     } catch (error) {

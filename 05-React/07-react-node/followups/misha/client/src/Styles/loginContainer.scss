@@ -12,16 +12,27 @@
     align-items: center;
     border-radius: 1em;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border: 2px solid black;
+
+  
 
     .login-form{
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+ 
 
         input{
             height: 2.5em;
             margin-bottom: 13px;
+            // box-shadow: rgba(100, 100, 111, 0.2) 1px 1px 0px 0px;
+          
+        }
+
+        button{
+
+            box-shadow: rgba(100, 100, 111, 0.2) 3px 3px 0px 0px;
         }
         
     }

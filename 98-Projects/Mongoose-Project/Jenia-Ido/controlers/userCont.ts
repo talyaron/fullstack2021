@@ -73,9 +73,9 @@ export const deleteUser = async (req, res) => {
 export const updateUser = async (req, res) => {
     try {
         const updatedUser = req.body;
-<<<<<<< HEAD
+
         await User.updateOne({ email: updatedUser.email }, updatedUser);
-=======
+
         const result = await User.updateOne({ email: updatedUser.email }, updatedUser);
         if (updatedUser) {
             res.send({ ok: true });
@@ -83,7 +83,7 @@ export const updateUser = async (req, res) => {
         else throw new Error("user didnt update")
 
 
->>>>>>> main
+
     } catch (err) {
         console.error(err);
         res.send({ error: err.message, ok: false })

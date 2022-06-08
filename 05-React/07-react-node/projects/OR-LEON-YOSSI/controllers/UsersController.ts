@@ -1,30 +1,49 @@
-import User from '../models/UserModel'
+import User from '../models/UsersModel'
 
 export const getUsers = async (req, res) => {
     const allUsers = await User.find({})
+ 
     try {
-        console.log(allUsers)
         res.send({ allUsers, ok: true })
-
     } catch (error) {
         console.log(error.error)
-        res.send({ error: error.error })
+        res.send({ error: error.message })
     }
 }
 
 export const addUser = async (req, res) => {
 
-    const userForm = req.body
-    const addUser = await User.findOne({ username: userForm.username })
+    let userForm = req.body
+    const userFound: any = await User.findOne({ username: userForm.username })
 
-    if (userForm) {
+    if (userFound) {
         res.send('Already exists')
-
     } else {
         let newUser = new User(userForm)
         const result = await newUser.save()
         res.send({ result })
     }
+}
 
+export const getLoginUser = async (req, res) => {
+    let loginUser = req.body
+    const userFound = await User.find({ username: loginUser.username })
+    console.log('userFound:' +userFound)
+  
+    if (userFound)
+        if (userFound[0].Password === loginUser.Password) {
+            res.send(userFound[0])
+        } else {
+            console.log('not logedin!')
+            res.send("Password doesn't match")
+        }
 
+}
+
+export const getSelectedUser = async(req, res)=>{
+    let {id} = req.body
+    console.log(id)
+    const foundUser = await User.find({_id:id})
+    console.log(foundUser)
+    res.send(foundUser)
 }

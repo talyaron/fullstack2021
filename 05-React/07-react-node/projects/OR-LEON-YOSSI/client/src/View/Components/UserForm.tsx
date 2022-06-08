@@ -2,17 +2,18 @@ import React from 'react'
 
 const UserForm = (props: any) => {
 
-    const{ handleRegister }=props
+    const { handleRegister, id } = props
+
     return (
         <div>
-            <form onSubmit={handleRegister}>
-                <input type="text" name="name" placeholder='Name' autoComplete="off"/>
-                <input type="age" name="age" placeholder='Age' autoComplete="off"/>
+            <form onSubmit={handleRegister} id={id}>
+                <input type="text" name="name" placeholder='Name' />
+                <input type="number" name="age" placeholder='Age' />
                 <input type="text" name="occupation" placeholder='Occupation' />
-                <input type="username" name="username" placeholder='Username' autoComplete="off"/>
-                <input type="password" name="password" placeholder='Password' autoComplete="off"/>
-                <input type="text" name="image" placeholder='Image' autoComplete="off"/>
-                <button type='submit'>SUBMIT</button>
+                <input type="text" name="username" placeholder='Username' />
+                <input type="password" name="password" placeholder='Password' />
+                <input type="text" name="image" placeholder='Image'/>
+                <button type="submit">SUBMIT</button>
             </form>
         </div>
     )

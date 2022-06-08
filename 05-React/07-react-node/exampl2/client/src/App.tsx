@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import "./App.scss";
 
 import {multi} from './control/helpers'
 
@@ -31,7 +30,7 @@ async function handleUpdateName(ev:any){
     const name = ev.target.value;
     if(name){
       await axios.post('api/users/add-user',{name});
-
+      
       const user = {name, _id:''}
       setUsers([...users,user])
     }

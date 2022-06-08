@@ -21,7 +21,7 @@ export async function addUser(req, res){
       const newUser = new UserModel({name});
       await newUser.save();
      
-        res.send({ok:true})
+        // res.send({ok:true})
     } catch (error) {
         console.error(error)
         res.send({error:error.message})
