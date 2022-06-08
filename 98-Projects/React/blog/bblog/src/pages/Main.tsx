@@ -1,16 +1,17 @@
 import axios from "axios";
 import { motion } from "framer-motion";
 import { useEffect ,useState} from "react";
-import {Outlet,useNavigate} from 'react-router-dom'
-
+import {Link, Outlet,useNavigate,} from 'react-router-dom'
+import BlogList from './BlogList'
 
 interface mainPorps{
-  setNewBlog:Function;
+  setBlogs:Function;
+  blogs:Array<any>
 }
 
 function Main(props:mainPorps) {
 
-  const {setNewBlog} = props;
+  const {setBlogs,blogs} = props;
 
   const navigate = useNavigate()
 
@@ -22,12 +23,10 @@ function Main(props:mainPorps) {
       
       
       const newBlog = {name:blogName,body}
-      console.log(newBlog);
       
        await axios.patch('/api/blogs/get-addBlog',{newBlog})
-      // setNewBlog([...newBlog])
-
-      navigate('/BlogsList')
+       setBlogs([...blogs,newBlog])
+      // navigate('/blogs/BlogsList')
   }
 
   return (
@@ -37,7 +36,8 @@ function Main(props:mainPorps) {
           <input type="text" name="name" placeholder="blog name" required/>
           <textarea rows={4} cols={50}  name="body" placeholder="write your blog text ... " required/>
           <input type="submit" value="add blog"/>
-        </form>
+        </form> 
+        <BlogList setBlogs={setBlogs} />        
         
     </div>
   )
