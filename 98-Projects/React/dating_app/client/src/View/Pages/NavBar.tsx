@@ -32,14 +32,16 @@ useEffect(() => {
          
         <h1> {userProfile? userProfile:'Find love today'}</h1>
         <h1></h1>
-        
+        <div className='navBar__navButtons'>
         <Link to={`/navBar`}>
             <button className='navBar__btn'>Home</button>
         </Link>
         <Link to='/'>
             <button className='navBar__btn'>Back to Login</button>
         </Link>
-        {/* <ProfileIcon  profileImg={}/> */}
+        </div>
+        
+        
         <Outlet/>
     </div>
     

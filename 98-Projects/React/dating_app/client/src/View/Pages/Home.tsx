@@ -14,7 +14,8 @@ interface user{
     username:string,
     img1:string,
     img2:string,
-    userProfile:any
+    userProfile:any,
+    
    
 }
 

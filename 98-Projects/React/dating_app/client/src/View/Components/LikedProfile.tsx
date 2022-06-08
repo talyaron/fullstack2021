@@ -43,7 +43,7 @@ const LikedProfile = (props:LikedProfileProps) => {
     <div className="likedProfile" style={{backgroundImage:`url(${likedUser.profileImg})`}} >
        
 
-   <Link to={`/navBar/${likedUser.userProfile}`} className="likedProfile__linkToPage">{likedUser.username}user Page</Link>
+   <Link to={`/navBar/${likedUser.userProfile}`} className="likedProfile__linkToPage">{likedUser.username}</Link>
   
   <p className="likedProfile__name">{likedUser.name}</p>
   <div className="likedProfile__age">{likedUser.age}</div>

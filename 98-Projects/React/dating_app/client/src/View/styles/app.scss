@@ -5,8 +5,19 @@
 
 .navBar {
   width: 100%;
-  height: 10vh;
-  background-color: #0693d0;
+  height: 20vh;
+  background-color: #a2d2ff;
+  font-family: 'Croissant One', cursive;
+  &__navButtons{
+   display:flex;
+   flex-direction: row;
+   gap:10px;
+   justify-content: center;
+   
+  }
+  &__btn{
+    cursor:pointer;
+  }
 }
 
 
@@ -22,13 +33,14 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 50%;
-  font-weight:bolder;
+  
   &__linkToPage{
-    text-decoration: none;
-    font-weight:bolder;
-    color:black;
+    text-decoration: none;    
+    color:#a2d2ff;
+    -webkit-text-stroke: 0.7px #62b2fc ;
     align-self:flex-start;
     padding-left:3px;
+     
     
 
   }
@@ -36,23 +48,53 @@
     width: 50px;
     height: 50px;
   }
+  &__info{
 
-  &__name{
-    font-weight: bold;
+  display:flex;
+  flex-direction: column;
+  
+  color:#ffffff;
+    -webkit-text-stroke: 0.5px #000000 ;
+  
+  &--gender{
+    z-index: 2;
     
   }
-  &__age{
-    font-weight: 600;
-  }
-  &__gender{
-    z-index: 2;
-    color: rgb(15, 3, 3);
-  }
-  button{
-    background-color: white;
-    font-weight: bold;
-    border: black;
-   align-self:center;
-  }
 }
+ 
+  
+}
+.liked:before, .liked:after { 
+  position: absolute; 
+  content: ""; 
+  left: 27px; 
+  width: 28px; 
+  height: 45px; 
+  background: red; 
+  border-radius: 55px 55px 0 0; 
+  transform: rotate(-45deg); 
+  transform-origin: 0 100%; 
+
+}
+.liked{
+  filter: grayscale(0.6);
+  transition: all 1000ms cubic-bezier(0.11, 1.53, 0.77, -0.75);
+  text-decoration: none;
+  border:none;
+  position: relative; 
+  width: 70px; 
+  margin: auto;
+
+&:hover{
+    transform-origin: center;
+    transform: scale(1.5);
+    filter: grayscale(0);
+}
+}
+.liked:after { 
+  left: 0; 
+  transform: rotate(45deg); 
+  transform-origin :100% 100%; 
+}
+
 

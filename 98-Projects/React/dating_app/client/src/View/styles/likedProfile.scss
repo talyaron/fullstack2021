@@ -1,8 +1,7 @@
 .likedProfile {
     display: flex;
-    background-color: gold;
     border: 1px solid black;
-    border-radius:20px;
+    border-radius: 10px;
     flex-direction: column;
     width: 180px;
     height: 180px;
@@ -10,7 +9,10 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50%;
-    font-weight:bolder;
+    
+    color:#ffffff;
+    -webkit-text-stroke: 0.5px #000000 ;
+
   
     img {
       width: 50px;
@@ -19,26 +21,19 @@
     &__linkToPage{
       text-decoration: none;
       
-      color:black;
+      color:#a2d2ff;
+      -webkit-text-stroke: 0.7px #62b2fc ;
       align-self:flex-start;
       padding-left:3px;
       
 
     }
   
-    &__name{
-      font-weight: bold;
-      
-    }
-    &__age{
-      font-weight: 600;
-    }
+    
     &__gender{
       z-index: 2;
-      color: rgb(15, 3, 3);
+      
     }
-    &__description{
-     align-self: flex-end;
-    }
+   
   }
   

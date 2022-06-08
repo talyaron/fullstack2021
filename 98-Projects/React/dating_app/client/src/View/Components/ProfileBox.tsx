@@ -32,7 +32,7 @@ interface user{
 const ProfileBox = (props:ProfileBoxProps)=>{
     const {userProfile,name,age,gender,profileImg,username,setLikedProfiles,likedProfiles,arr,SetArr} = props;
     function handleLiked(ev:any){
-        const likedUser={userProfile,name,age,gender,profileImg}
+        const likedUser={userProfile,name,age,gender,profileImg,username}
       const filteredArray= arr.filter((user)=>user._id!==userProfile)
       console.log(userProfile)
       SetArr(filteredArray)
@@ -46,13 +46,17 @@ const ProfileBox = (props:ProfileBoxProps)=>{
               <div className="ProfileBox" style={{backgroundImage:`url(${profileImg})`}}>
             
             <Link to={`/navBar/${userProfile}`} className="ProfileBox__linkToPage">{username}</Link>
+            <div className="ProfileBox__info">
+            <p className="ProfileBox__info--name">{name}</p>
+            <div className="ProfileBox__info--age">{age}</div>
+            <div className="ProfileBox__info--gender">{gender}</div>
+            </div>
             
-            <p className="ProfileBox__name">{name}</p>
-            <div className="ProfileBox__age">{age}</div>
-            <div className="ProfileBox__gender">{gender}</div>
             
             
-            <button onClick={handleLiked}>like</button>
+           
+           <button onClick={handleLiked} className="liked"></button> 
+            
         </div>
       
         </div>
