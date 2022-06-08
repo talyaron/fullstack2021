@@ -2,6 +2,11 @@ import React, {useRef} from 'react'
 
 const NavBar = (props: any) => {
 
+  const {user} = props;
+
+  console.log(props)
+  console.log('user', user)
+
   const isPushed:any =  useRef();
 
   function focus (){
@@ -25,7 +30,7 @@ const NavBar = (props: any) => {
           <p>Blogbuster</p>
         </div>
         <div className='navBarWelcome'>
-          <p>Welcome back, {props.userName}</p>
+          {user.name && <p>Welcome back, {user.name}</p>}
         </div>
       </div>
 
