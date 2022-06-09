@@ -5,6 +5,7 @@ import Main from './pages/Main';
 import axios from 'axios';
 import BlogList from './pages/BlogList'
 import BlogDetails from './pages/component/BlogDetails'
+import Header from './pages/component/Header';
 
 
 interface blog{
@@ -25,6 +26,7 @@ function App() {
 
   return (
     <div className="App">
+      <Header></Header>
     <BrowserRouter>
     <Routes>
       <Route path='/' element={<Main setBlogs={setBlogs} blogs={blogs} />}></Route>

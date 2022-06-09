@@ -33,7 +33,7 @@ interface Blog{
     {blogsFromDB.map((blog,i) => {   
           return(
             <Link className="link" key={i} to={`/blogs/${blog._id}`} >
-                <h1>{blog.name}</h1>
+               <div className="blog-link-div"> <h1 className="inputs">{blog.name}</h1></div>
             </Link>
           )
         })}
