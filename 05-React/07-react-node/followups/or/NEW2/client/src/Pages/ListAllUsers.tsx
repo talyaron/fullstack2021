@@ -16,11 +16,13 @@ const ListAllUsers = (props: AllUsersProps) => {
                 <div >
                     <div key={user.id}>
                         <Link to={`/user/${user._id}`} className='userCard'>
-                            <div><h1>Author: {user.name}</h1></div>
+                            <div><h1>{user.title}</h1></div>
+                            <div><h1>Author: <h3>{user.name}</h3></h1></div>
                             <div className='profileImage'>
                                 <img src={user.image} alt={user.name}></img>
                             </div>
                         </Link>
+                        <div className='hr'><hr></hr></div>
                     </div>
                 </div>
             )}

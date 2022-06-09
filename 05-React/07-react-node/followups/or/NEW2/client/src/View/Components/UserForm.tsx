@@ -9,7 +9,7 @@ const UserForm = (props: any) => {
             <form onSubmit={handleRegister} id={id} className="registerForm">
                 <h1>Register</h1>
                 <input type="text" name="name" placeholder='Name' />
-                <input type="number" name="age" placeholder='Age' />
+                <input type="text" name="title" placeholder='Title' />
                 <textarea name="text" placeholder='Text' />
                 <input type="text" name="username" placeholder='Username' />
                 <input type="password" name="password" placeholder='Password' />
