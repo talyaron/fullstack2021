@@ -20,7 +20,7 @@ export async function getTitles(req, res) {
         if (!titles) { throw new Error('no data recived') }
 
         else {
-            console.log(titles)
+            //console.log(titles)
             res.send(titles)
         }
         

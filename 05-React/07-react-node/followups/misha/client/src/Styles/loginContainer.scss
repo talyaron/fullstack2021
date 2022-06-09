@@ -36,6 +36,16 @@
         }
         
     }
+
+    .data-error{
+        content: attr(data-error);
+        font-size: 0.85em;
+        color: #c92432;
+        display: block;
+        margin: 10px 0;
+        width: 100%;
+        text-align: center;
+    }
     
 }
 

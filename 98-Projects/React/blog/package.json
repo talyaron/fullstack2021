@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.1.1",
     "@types/node": "^17.0.40",
     "axios": "^0.27.2",
     "dotenv": "^16.0.1",

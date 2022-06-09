@@ -1,0 +1,17 @@
+.App__titles{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+
+    &--title{
+
+        h3{
+            color: black;
+        }
+
+        #link{
+            text-decoration: none;
+        }
+    }
+}
