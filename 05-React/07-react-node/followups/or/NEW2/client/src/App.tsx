@@ -43,13 +43,13 @@ function App() {
   function handleSubmit(ev: any) {
     ev.preventDefault();
     const name = ev.target.name.value
-    const age = ev.target.age.value
+    const title = ev.target.title.value
     const text = ev.target.text.value
     const username = ev.target.username.value
     const password = ev.target.password.value
     const image = ev.target.image.value
 
-    const userForm = { name, age, text, username, password, image }
+    const userForm = { name, title, text, username, password, image }
 
     return userForm
   }

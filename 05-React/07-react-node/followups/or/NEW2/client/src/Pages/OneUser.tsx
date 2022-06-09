@@ -11,7 +11,6 @@ const OneUser = () => {
 
     useEffect(() => {
         (async () => {
-
             const { data }: any = await axios.post(`/api/getUser`, { id });
             const oneUser = data.oneUser
             setUserList(oneUser)
@@ -28,7 +27,10 @@ const OneUser = () => {
                 </div>
                 <div><img src={userList.image} alt="" /></div>
             </div>
-            <div className='textBlog'><h2>Text:</h2>{userList.text}</div>
+            <div className='textBlog'>
+                <div className='titleBox'><h2>{userList.title}</h2></div>
+                <div className='allBlogText'>{userList.text}</div>
+            </div>
 
         </div>
     )
