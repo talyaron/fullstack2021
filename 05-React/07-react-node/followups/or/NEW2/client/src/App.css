@@ -23,6 +23,7 @@ body {
   margin: 10px;
   width: 50%;
   height: 80px;
+  min-width: 700px;
   margin: 1em auto;
   padding: 1em;
   background-color: #fefefe;
@@ -43,7 +44,6 @@ a:-webkit-any-link {
 }
 
 .profileImage {
-  box-sizing: border-box;
   width: 80px;
   height: 80px;
   margin: 2%;
@@ -62,9 +62,19 @@ a:-webkit-any-link {
 .userCard h1 {
   font-size: 24px;
   color: #51889f;
+  text-align: start;
+  width: 300px;
+}
 
-  /* padding-right: 20%; */
+.userCard h3 {
+  font-size: 14px;
+  color: #f1356d;
   width: 200px;
+}
+
+.hr{
+  width: 50%;
+  margin: auto;
 }
 
 /* div {
@@ -84,7 +94,7 @@ a:-webkit-any-link {
 
 .registerForm input,
 .registerForm textarea {
-  width: 30%;
+  min-width: 30%;
   margin: 2% auto;
   display: flex;
   flex-direction: column;
@@ -95,7 +105,8 @@ a:-webkit-any-link {
 }
 
 .registerForm textarea {
-  height: 50px;
+  width: 300px;
+  height: 70px;
   box-sizing: border-box;
   display: block;
 }
@@ -127,10 +138,33 @@ a:-webkit-any-link {
 }
 
 .navbar {
+  margin: auto;
+  margin-bottom: 3em;
+  min-height: 80px;
   background-color: #51889f;
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 4%;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  color: #ffffff;
+  border-bottom: 3px solid #f1356d;
+}
+
+.navbar h1:hover {
+  color: #f9dc74;
+}
+
+.logo {
+  width: 80px;
+  position: relative;
+  left: -100px;
+}
+
+.logo img {
+  width: 100%;
+  object-fit: contain;
 }
 
 .userPage {
@@ -143,12 +177,13 @@ a:-webkit-any-link {
   background-color: #fefefe;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-end;
   text-align: left;
 }
 
 .userPage .userPageTitle {
   border: 2px solid #f9dc74;
+  background-color: #f9dc74;
   border-radius: 10px;
   width: 30%;
   padding: 1em;
@@ -156,26 +191,43 @@ a:-webkit-any-link {
   flex-direction: row;
   align-items: center;
   gap: 4%;
+  margin-bottom: -40px;
 }
 
-.userPage .userPageTitle img{
+.userPage .userPageTitle img {
   box-sizing: border-box;
   width: 100%;
   object-fit: contain;
   background-color: #51889f;
-  padding: 6%;
+  padding: 4%;
   margin: 2%;
   border-radius: 6px;
 }
 
 .userPage .textBlog {
-font-size: 18px;
-white-space: pre-wrap;
+  font-size: 18px;
+  white-space: pre-wrap;
 }
-.userPageTitle h2{
+
+.userPage h2 {
+  color: #f1356d;
+}
+
+.userPageTitle h2 {
   padding: 0%;
   margin: 0%;
   font-size: 16px;
+}
+
+.titleBox {
+  border-bottom: 2px solid #f1356d;
+  margin-bottom: 2em;
+  padding-left: 2em;
+}
+
+.allBlogText {
+  padding: 2em;
+  padding-top: 0%;
 }
 
 .footer {
@@ -184,10 +236,15 @@ white-space: pre-wrap;
   justify-content: center;
   align-items: center;
   background-color: #f1356d;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
   width: 100%;
   height: 5em;
-  margin-bottom: -1px;
+  margin-top: 20px;
   font-size: 1.5em;
+}
+
+.footer h2{
+  margin: 0%;
+  padding: 0%;
 }
