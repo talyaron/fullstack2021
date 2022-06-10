@@ -14,6 +14,7 @@ function BlogDetails(){
     const { id } = useParams()
     const [tempId , setTempId] = useState(id)
     const [tempBlog ,setTempBlog] = useState({name:'lalal',body:'lalala',_id:'dsadada'})
+   
     
     useEffect(() => {
         (async () => {

@@ -1,7 +1,19 @@
 import axios from 'axios'
 import Blog from '../Models/blogsModel'
 
+export async function deleteBlog(req,res){
+    try {
+       
+       const {blog_id} = req.body
+      const deletedBlog = await Blog.findOneAndDelete({blog_id})
+      res.send({ok:true,deletedBlog})
 
+    }catch (err) {
+        console.error(err);
+        res.send({ error: err.message, ok: false });
+
+    }
+}
 export async function addBlog(req, res) {
 
     try {
