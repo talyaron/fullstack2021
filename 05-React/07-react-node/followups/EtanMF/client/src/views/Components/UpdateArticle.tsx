@@ -5,10 +5,11 @@ import {AnimatePresence, motion} from 'framer-motion';
 
 interface UpdateArticleProps {
     article: ArticleInfoParams;
+    handleUpdateArticle?:Function;
 }
 
 const UpdateArticle = (props: UpdateArticleProps) => {
-    const {article} = props;
+    const {article, handleUpdateArticle} = props;
     const [expanded, setExpanded] = useState(false);
 
     return (
@@ -25,6 +26,7 @@ const UpdateArticle = (props: UpdateArticleProps) => {
             <AnimatePresence initial={false}>
                 {expanded && (
                     <motion.form
+                    onSubmit={handleUpdateArticle?(ev)=>handleUpdateArticle(ev,article._id ):()=>{}}
                     className='comp-articleCard-header-updateForm'
                         initial='collapsed'
                         animate='open'
@@ -34,8 +36,11 @@ const UpdateArticle = (props: UpdateArticleProps) => {
                             collapsed: {opacity: 0, scaleX: 0},
                         }}
                         transition={{duration: 2, ease: [0.04, 0.62, 0.23, 0.98]}}>
-
-                            <input type='text' name='' id='' />
+                            <label htmlFor="updateArticleTitle">Update title</label>
+                            <input type='text' name='updateArticleTitle' id='updateArticleTitle' defaultValue={article.title} />
+                            <label htmlFor="updateArticleContent">Update content</label>
+                            <textarea style={{resize: 'none'}}name='updateArticleContent' id='updateArticleContent' defaultValue={article.content} />
+                            <input type='submit' />
                         </motion.form>
 
                 )}

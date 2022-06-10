@@ -75,10 +75,11 @@
         list-style: none;
         display: flex;
         flex-direction: column;
-overflow:none;
+        // overflow: none;
         max-width: 40vw;
+        width: 40vw;
         max-height: 20vh;
-        
+
         &-header {
             &-authorInfo {
                 all: unset;
@@ -87,7 +88,6 @@ overflow:none;
                 text-align: start;
                 cursor: pointer;
                 align-self: flex-start;
-
                 &-personal {
                 }
                 &-professional {
@@ -101,19 +101,32 @@ overflow:none;
             }
         }
         &-content {
-            max-width: 40vw;
+            // padding-right: 40vw;
+            // max-width: 40vw;
             text-overflow: ellipsis;
             white-space: nowrap;
-            overflow: hidden;
-            min-height: 30vh ;
+            min-height: 30vh;
+            max-width: 40vw;
+            text-align:start;
+            // width: min-content;
             &Title {
+
+                white-space: nowrap;
+                overflow: hidden !important;
+                text-overflow: ellipsis;
+                width: 35ch;
             }
             &Preview {
-                height: 1.2em;
-                max-width: 40vw;
-                text-overflow: ellipsis;
-                white-space: nowrap;
-                overflow: hidden;
+                width: 70ch;
+                display: inline-block;
+        white-space: nowrap;
+        overflow: hidden !important;
+        text-overflow: ellipsis;
+                // height: 1.2em;
+                // max-width: 40vw;
+                // text-overflow: ellipsis;
+                // white-space: nowrap;
+                // overflow: hidden;
             }
         }
     }

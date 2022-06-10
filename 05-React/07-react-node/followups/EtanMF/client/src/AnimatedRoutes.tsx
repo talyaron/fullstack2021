@@ -130,7 +130,8 @@ function AnimatedRoutes() {
             });
 
             if (!data.error) {
-                e.target.reset();
+                // e.target.reset();
+                getAllArticles();
             }
         } catch (error) {
             console.error(error);
@@ -168,7 +169,18 @@ function AnimatedRoutes() {
         setArticleSearchTerm(e.target.value);
     }
 
-    async function handleUpdateArticle(id: string) {}
+    async function handleUpdateArticle(ev: any, articleId: string) {
+        try {
+            ev.preventDefault();
+            let {updateArticleTitle, updateArticleContent} = ev.target.elements;
+            updateArticleTitle = updateArticleTitle.value;
+            updateArticleContent = updateArticleContent.value;
+            const {data} = await axios.put('/api/articles/update-article', {updateArticleTitle, updateArticleContent, articleId});
+            getAllArticles(loginUserId)
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     return (
         <AnimatePresence>
@@ -176,7 +188,7 @@ function AnimatedRoutes() {
                 <Route path='/' element={<Login handleLogin={handleLogin} handleCreate={handleCreate} />} />
                 <Route path='Home' element={<HomePage userList={userList} handleGetUsers={handleGetUsers} handleOpenUser={handleOpenUser} handleCreateNewArticle={handleCreateNewArticle} getAllArticles={getAllArticles} articleList={filteredArticleList} handleSetSingleArticle={handleSetSingleArticle} handleSearchTerm={handleSearchTerm} />} />
                 <Route path='User'>
-                    <Route path=':userId' element={<User handleGetUsers={handleGetUsers} currentUser={currentUser} getAllArticles={getAllArticles} articleList={filteredArticleList} handleSetSingleArticle={handleSetSingleArticle} handleSearchTerm={handleSearchTerm} loginUserId={loginUserId} />}></Route>
+                    <Route path=':userId' element={<User handleUpdateArticle={handleUpdateArticle} handleGetUsers={handleGetUsers} currentUser={currentUser} getAllArticles={getAllArticles} articleList={filteredArticleList} handleSetSingleArticle={handleSetSingleArticle} handleSearchTerm={handleSearchTerm} loginUserId={loginUserId} />}></Route>
                 </Route>
                 <Route path='Article'>
                     <Route path=':articleId' element={<Article article={article} />} />

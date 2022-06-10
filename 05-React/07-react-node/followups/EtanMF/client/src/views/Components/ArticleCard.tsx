@@ -9,26 +9,30 @@ interface ArticleCardProps {
     handleSetSingleArticle: Function;
     currentUser?: UserInfo;
     loginUserId?: String;
+    handleUpdateArticle?:Function;
 }
 const ArticleCard = (props: ArticleCardProps) => {
-    const {article, handleSetSingleArticle, currentUser, loginUserId} = props;
+    const {article, handleSetSingleArticle, currentUser, loginUserId, handleUpdateArticle} = props;
     const navigate = useNavigate();
 
     return (
         <li className='comp-articleCard'>
             <div className='comp-articleCard-header'>
-                <Link className='comp-articleCard-header-authorInfo' to={`/User/${article.ownerId}`}>
-                    <fieldset>
-                        <legend>author fieldset</legend>
-                        <div className='comp-articleCard-header-authorInfo-personal'>
-                            {article.firstName} {article.lastName}
-                        </div>
-                        <div className='comp-articleCard-header-authorInfo-professional'>
-                            {article.workSpace}, {article.position}
-                        </div>
-                    </fieldset>
-                </Link>
-                {article.ownerId === loginUserId ? <UpdateArticle article={article}></UpdateArticle> : null}
+                {article.ownerId === loginUserId ? (
+                    <UpdateArticle handleUpdateArticle={handleUpdateArticle} article={article}></UpdateArticle>
+                ) : (
+                    <Link className='comp-articleCard-header-authorInfo' to={`/User/${article.ownerId}`}>
+                        <fieldset>
+                            <legend>author fieldset</legend>
+                            <div className='comp-articleCard-header-authorInfo-personal'>
+                                {article.firstName} {article.lastName}
+                            </div>
+                            <div className='comp-articleCard-header-authorInfo-professional'>
+                                {article.workSpace}, {article.position}
+                            </div>
+                        </fieldset>
+                    </Link>
+                )}
             </div>
 
             <div
@@ -38,7 +42,7 @@ const ArticleCard = (props: ArticleCardProps) => {
                 }}>
                 <fieldset>
                     <legend>article</legend>
-                    <h6 className='comp-articleCard-contentTitle'>{article.title}</h6>
+                    <h2 className='comp-articleCard-contentTitle'>{article.title}</h2>
                     <sub className='comp-articleCard-contentPreview'>{article.content}</sub>
                 </fieldset>
             </div>

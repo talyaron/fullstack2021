@@ -1,4 +1,4 @@
-import React, {useDeferredValue, useEffect} from 'react';
+import React, {useDeferredValue, useEffect, Suspense} from 'react';
 import ArticleCard from './ArticleCard';
 import ArticleSearch from './ArticleSearch';
 import {UserInfo} from '../../AnimatedRoutes';
@@ -9,6 +9,7 @@ interface AllArticlesProps {
     handleSearchTerm: Function;
     currentUser?: UserInfo;
     loginUserId?: String;
+    handleUpdateArticle?:Function;
 }
 
 interface ArticleInfoParams {
@@ -23,22 +24,21 @@ interface ArticleInfoParams {
 }
 // const cssPageTheme: string = `&*{background:black;}`;
 function AllArticles(props: AllArticlesProps) {
-    const {articleList, handleSetSingleArticle, handleSearchTerm, currentUser, loginUserId} = props;
+    const {articleList, handleSetSingleArticle, handleSearchTerm, currentUser, loginUserId, handleUpdateArticle} = props;
     const deferredArticles = useDeferredValue(articleList);
 
     return (
         <ul className='comp-allArticles'>
-            <h1>AllArticles</h1>
-
             <ArticleSearch handleSearchTerm={handleSearchTerm} />
-
+            <h1>AllArticles</h1>
             {deferredArticles ? (
                 deferredArticles.map((article: ArticleInfoParams, index: number) => {
-                    return <ArticleCard key={index} article={article} handleSetSingleArticle={handleSetSingleArticle} currentUser={currentUser} loginUserId={loginUserId} />;
+                    return <ArticleCard key={index} handleUpdateArticle={handleUpdateArticle} article={article} handleSetSingleArticle={handleSetSingleArticle} currentUser={currentUser} loginUserId={loginUserId} />;
                 })
-            ) : (
-                <p>Loading......</p>
-            )}
+                ) : (
+                    <p>Loading......</p>
+                    )}
+
         </ul>
     );
 }

@@ -1,12 +1,8 @@
-import express from "express";
+import express from 'express';
 const router = express.Router();
 
-import { createArticle, getArticles } from "../controller/articleCont";
+import {createArticle, getArticles, updateArticle} from '../controller/articleCont';
 
-router
-  .post("/create", createArticle)
-  .post("/get-articles", getArticles)
+router.post('/create', createArticle).post('/get-articles', getArticles).put('/update-article', updateArticle);
 
-
-  
 export default router;
