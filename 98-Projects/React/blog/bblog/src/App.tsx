@@ -17,6 +17,9 @@ interface blog{
 function App() {
 
   const [blogs ,setBlogs] = useState<Array<blog>>([])
+  const [formOpen,setFormOpen] = useState(false)
+  const [openLogIn,setOpenLogIn] = useState(false)
+  const [openSignUp,setOpenSignUp] = useState(false)
 
 
   
@@ -26,10 +29,11 @@ function App() {
 
   return (
     <div className="App">
-      <Header></Header>
+      <Header formOpen={formOpen} setFormOpen={setFormOpen} openSignUp={openSignUp} openLogIn={openLogIn} setOpenSignUp={setOpenSignUp} 
+      setOpenLogIn={setOpenLogIn}></Header>
     <BrowserRouter>
     <Routes>
-      <Route path='/' element={<Main setBlogs={setBlogs} blogs={blogs} />}></Route>
+      <Route path='/' element={<Main formOpen={formOpen} setBlogs={setBlogs} blogs={blogs} />}></Route>
       <Route path="">
               <Route path="/blogs/:id" element={<BlogDetails />}/>
             </Route>

@@ -5,7 +5,10 @@ export async function deleteBlog(req,res){
     try {
        
        const {blog_id} = req.body
-      const deletedBlog = await Blog.findOneAndDelete({blog_id})
+       const deletedBlog = await Blog.find({_id:blog_id})
+      await Blog.deleteOne({_id:blog_id})
+        console.log(blog_id);
+        
       res.send({ok:true,deletedBlog})
 
     }catch (err) {

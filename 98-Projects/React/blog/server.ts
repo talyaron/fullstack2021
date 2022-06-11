@@ -1,7 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 const app = express();
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 4001;
 
 app.use(express.static('/bblog/build'))
 app.use(express.json());
@@ -11,9 +11,7 @@ const mongodb_uri = process.env.MONGODB_URI;
 
 import blogRoute from './Routes/blogRoute';
 
-
 app.use("/api/blogs",blogRoute);
-
 
 mongoose.connect(
     mongodb_uri
