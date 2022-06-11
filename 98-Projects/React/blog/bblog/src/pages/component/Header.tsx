@@ -12,8 +12,6 @@ interface HeaderProps{
   formOpen:boolean;
   openSignUp:boolean,
   setOpenSignUp:Function,
-  
-
 }
 
 function Header(props:HeaderProps) {
