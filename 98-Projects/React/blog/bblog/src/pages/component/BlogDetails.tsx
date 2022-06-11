@@ -14,6 +14,7 @@ function BlogDetails(){
     const { id } = useParams()
     const [tempId , setTempId] = useState(id)
     const [tempBlog ,setTempBlog] = useState({name:'lalal',body:'lalala',_id:'dsadada'})
+   
     
     useEffect(() => {
         (async () => {
@@ -29,6 +30,7 @@ function BlogDetails(){
             <div className="blog-details" >
               <motion.h1 className="blog-details-name">{tempBlog.name}</motion.h1>
               <div className="blog-details-body">{tempBlog.body}</div>
+              {/* <button onClick={handleClick}>delete</button> */}
       
             </div>
           )
