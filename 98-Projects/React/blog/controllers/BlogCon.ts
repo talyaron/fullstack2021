@@ -10,6 +10,7 @@ export async function deleteBlog(req,res){
         console.log(blog_id);
         
       res.send({ok:true,deletedBlog})
+      console.log(blog_id)
 
     }catch (err) {
         console.error(err);
