@@ -12,11 +12,13 @@ interface HeaderProps{
   formOpen:boolean;
   openSignUp:boolean,
   setOpenSignUp:Function,
+  openLogIn:boolean,
+  setOpenLogIn:Function
 }
 
 function Header(props:HeaderProps) {
 
-  const {setFormOpen,formOpen} = props;
+  const {setFormOpen,formOpen,setOpenLogIn,setOpenSignUp,openLogIn,openSignUp} = props;
 
   function openForm(){
     setFormOpen(!formOpen)
@@ -31,10 +33,10 @@ function Header(props:HeaderProps) {
     >add blog</Button>
 
     <Button style={{gridColumn:'5/6',gridRow:'1',height:'40%',marginTop:'5vh'}} 
-    variant="contained" size="small" onClick={openLogIn}>sign in</Button>
+    variant="contained" size="small" onClick={setOpenLogIn(!openLogIn)}>sign in</Button>
 
     <Button style={{gridColumn:'6/7',gridRow:'1',height:'40%',marginTop:'5vh'}} 
-    variant="contained" size="small" onClick={openSignUp}>sign up</Button>
+    variant="contained" size="small" onClick={setOpenSignUp(!openSignUp)}>sign up</Button>
    <span className='homeicon' style={{gridColumn:'10/11'}}>
         <CottageIcon style={styledCottageIcon}/>
    </span>
