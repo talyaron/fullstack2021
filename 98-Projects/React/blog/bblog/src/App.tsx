@@ -29,8 +29,8 @@ function App() {
 
   return (
     <div className="App">
-      <Header formOpen={formOpen} setFormOpen={setFormOpen} openSignUp={openSignUp} openLogIn={openLogIn} setOpenSignUp={setOpenSignUp} 
-      setOpenLogIn={setOpenLogIn}></Header>
+      <Header formOpen={formOpen} setFormOpen={setFormOpen} openSignUp={openSignUp} openLogIn={openLogIn} 
+      setOpenSignUp={setOpenSignUp} setOpenLogIn={setOpenLogIn}></Header>
     <BrowserRouter>
     <Routes>
       <Route path='/' element={<Main formOpen={formOpen} setBlogs={setBlogs} blogs={blogs} />}></Route>

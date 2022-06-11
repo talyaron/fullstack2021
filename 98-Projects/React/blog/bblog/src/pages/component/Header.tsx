@@ -10,6 +10,10 @@ const styledCottageIcon  = {
 interface HeaderProps{
   setFormOpen:Function;
   formOpen:boolean;
+  openSignUp:boolean,
+  setOpenSignUp:Function,
+  
+
 }
 
 function Header(props:HeaderProps) {
