@@ -7,6 +7,7 @@ export async function deleteBlog(req,res){
        const {blog_id} = req.body
       const deletedBlog = await Blog.findOneAndDelete({blog_id})
       res.send({ok:true,deletedBlog})
+      console.log(blog_id)
 
     }catch (err) {
         console.error(err);

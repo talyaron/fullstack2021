@@ -36,7 +36,7 @@ function Main(props:mainPorps) {
   return (
     <div className="main">
       
-        <form onSubmit={addBlog} className="main_form">
+        <form onSubmit={addBlog} className="main_form" >
           <input type="text" name="name" placeholder="blog name" required  className="field" />
           <textarea rows={4} cols={50}  name="body" placeholder="write your blog text ... " required className="field"/>
           <br />
