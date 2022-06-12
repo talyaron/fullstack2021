@@ -1,5 +1,6 @@
 import Users from '../models/usersModel'
 import JWT from 'jwt-simple'
+import { TRUE } from 'sass';
 const secret=process.env.JWT_SECRET
 
 export const getUsers= async(req,res)=>{
@@ -64,7 +65,7 @@ export const getUsersProfile= async(req,res)=>{
       const profileId = await Users.findOne({_id:userProfile})
       res.send({profileId,ok:true,cookieLoggedIn:false})
     }
-    console.log(decoded.id);
+    //console.log(decoded.id);
     
     
    
@@ -92,4 +93,33 @@ export const updateUser = async(req, res)=>{
     console.log(error.error);
     res.send({ error: error.message });
   }
+}
+
+export const showLoggedInCookie= async(req,res)=>{
+  try{
+    
+    const {userInfo}=req.cookies;
+    const decoded=JWT.decode(userInfo,secret);
+    console.log(decoded)
+    if(decoded){
+      const loggedInUserObj = await Users.findOne({_id:decoded.id})
+     
+     
+      res.send({loggedInUserObj,ok:true})
+      
+    }else{
+      
+      res.send({error:"can't find user logged in cookie"})
+    }
+ 
+    console.log(decoded.id);
+    
+    
+   
+  }
+  catch(error) {
+    console.log(error.error);
+    res.send({ error: error.message });
+  }
+
 }

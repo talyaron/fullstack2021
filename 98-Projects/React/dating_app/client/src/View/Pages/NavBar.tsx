@@ -1,25 +1,44 @@
 import {Link,Outlet,useParams} from 'react-router-dom';
 import axios from 'axios';
 import {useEffect, useState} from 'react'
-// import ProfileIcon from '../Components/ProfileIcon';
+
+
+interface Users {
+  _id: string;
+  name: string;
+  age: string;
+  gender: string;
+  profileImg: string;
+  description: string;
+  password: string;
+  username: string;
+  img1: string;
+  img2: string;
+ 
+}
 
 function NavBar(){
-const {userProfile} = useParams();
-console.log(userProfile);
+
+const [loggedInUser,setloggedInUser]=useState<any>([]);
+
+
 useEffect(() => {
     //get data on the user and show the chosen user by id
 
     (async () => {
       try {
-        const { data } = await axios.get(`/api/userProfile?userProfile=${userProfile}`);
+        const { data } = await axios.post('/api/loggedInUser');
 
-        const { profileId } = data;
+        const {loggedInUserObj} = data;
         // console.log(data);
-          console.log(profileId +"profile id from navbar")
-        if (!profileId) {
+          //console.log(profileId +"profile id from navbar")
+         
+        setloggedInUser(loggedInUserObj);
+        if (!loggedInUserObj) {
           throw new Error("no profile");
         }
-    
+        
+        
       } catch (err: any) {
         console.error(err.message);
       }
@@ -30,7 +49,10 @@ useEffect(() => {
     return(
     <div className="navBar">
          
-        <h1> {userProfile? userProfile:'Find love today'}</h1>
+        <div className='loggedInFlex'><h1> Hello {loggedInUser? loggedInUser.name : null}. Find love today</h1>
+        <img  className="loggedInFlex__profileImg" src={loggedInUser && loggedInUser.profileImg ? loggedInUser.profileImg : null} alt="" />
+        </div>
+        
         <h1></h1>
         <div className='navBar__navButtons'>
         <Link to={`/navBar`}>

@@ -39,7 +39,7 @@ const [cookieLoggedInUser,setcookieLoggedInUser]=useState()
         if (!profileId) {
           throw new Error("no profile");
         }
-         console.log(cookieLoggedIn)
+         
          setcookieLoggedInUser(cookieLoggedIn)
         setYoureProfile(profileId);
       } catch (err: any) {
