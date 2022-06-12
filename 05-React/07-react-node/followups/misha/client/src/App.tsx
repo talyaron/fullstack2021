@@ -1,4 +1,11 @@
 
+// questions
+
+// ev.reset()?
+// focus useref
+
+// conditional map
+// getoneuser (192)
 
 //libraries
 import axios from 'axios';
@@ -20,56 +27,79 @@ function App() {
   //setters
   const [userList, setUserList] = useState([]);
   const [unexist, setUnexist] = useState(false);
-
+  const [passwordsMatch, setPasswordsMatch] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false)
+  const [loggedInUser, setLoggedInUser] = useState({})
+  const [idToUpdate, setIdToUpdate] = useState('')
   //ises
   const [load, isLoad] = useState(false);
   const [loginWindowOn, isLoginWindowOn] = useState(false);
   const [registerWindowOn, isRegisterWindowOn] = useState(false);
+  const [updateWindowOn, isUpdateWindowOn] = useState(false);
+  const [loginFail, isLoginFail] = useState(false)
 
-  function handleWindowOpen(ev){
 
-    if(ev.target.id === 'loginButton'){
-      if(!loginWindowOn){
+  function updateProcess(ev) {
+
+    isUpdateWindowOn(true)
+    setIdToUpdate(ev.target.id)
+
+
+  }
+  function handleWindowOpen(ev) {
+
+    if (ev.target.id === 'loginButton') {
+      if (!loginWindowOn && !registerWindowOn) {
+
         isLoginWindowOn(true)
       }
-      else{
+      else {
+
+        isRegisterWindowOn(false)
         isLoginWindowOn(false)
       }
     }
 
-    if(ev.target.id === 'registerButton'){
+    if (ev.target.id === 'registerButton') {
 
-      if(!registerWindowOn){
+      if (!registerWindowOn && !loginWindowOn) {
         isRegisterWindowOn(true)
       }
-      else{
+      else {
         isRegisterWindowOn(false)
+        isLoginWindowOn(false)
       }
     }
 
   }
 
-  useEffect(() => {
-    if (!load) {
-      (async () => {
+  if (!load) {
+    getAllUsers()
+    isLoad(true)
+  }
 
-        const { data } = await axios.get('/api/getUsers')
-        const allUsers = data.allUsers;
-        setUserList(allUsers)
+  function getAllUsers() {
+    (async () => {
+
+      const { data } = await axios.get('/api/getUsers')
+      const allUsers = data.allUsers;
+      setUserList(allUsers)
 
 
-      })();
+    })();
 
-      console.log('shalom')
-    }
-  }, [load])
+    console.log('shalom')
+
+  };
+
 
   return (
     <div className="App">
-      <NavBar handleWindowOpen={handleWindowOpen}></NavBar>
-      {registerWindowOn && <UserForm submit={handleRegister} button='REGISTER' unexist={unexist} />}
-      {loginWindowOn && <LoginForm submit={handleLogin} />}
-      <UsersList userList={userList} handleUpdate={handleUpdate} handleDelete={handleDelete} />
+      <NavBar handleWindowOpen={handleWindowOpen} user={loggedInUser}></NavBar>
+      {updateWindowOn && <UserForm submit={handleUpdate} button='UPDATE' passwordsMatch={passwordsMatch} unexist={unexist} />}
+      {registerWindowOn && <UserForm submit={handleRegister} button='REGISTER' passwordsMatch={passwordsMatch} unexist={unexist} />}
+      {loginWindowOn && <LoginForm submit={handleLogin} loginFail={loginFail} />}
+      <UsersList loggedInUser={loggedInUser} userList={userList} isUpdateWindowOn={isUpdateWindowOn} handleDelete={handleDelete} updateProcess={updateProcess} />
     </div>
   );
 
@@ -78,29 +108,45 @@ function App() {
 
     ev.preventDefault();
 
-    console.log(ev)
+    const userForm = handleSubmit(ev);
 
 
-    handleSubmit(ev)
+    if (userForm.password === userForm.passwordConfirm) {
 
-    isLoad(true)
 
-    const registerResponse = await axios.post('/api/addUser', handleSubmit(ev))
 
-    if (registerResponse.data === 'AlreadyExists' && !unexist) {
+      isRegisterWindowOn(false)
 
-      setUnexist(!unexist)
+      const registerResponse = await axios.post('/api/addUser', handleSubmit(ev))
+
+      isLoad(false)
+
+      if (registerResponse.data === 'AlreadyExists' && !unexist) {
+
+        setUnexist(!unexist)
+
+        setTimeout(() => {
+          setUnexist(unexist)
+        }, 2000)
+
+      }
+
+      // isLoad(false)
+
+    }
+
+    else {
+
+      setPasswordsMatch(!passwordsMatch)
 
       setTimeout(() => {
-        setUnexist(unexist)
+        setPasswordsMatch(passwordsMatch)
       }, 2000)
 
     }
 
-    isLoad(false)
 
-    ev.reset();
-
+    // ev.reset();
   }
 
   async function handleLogin(ev: any) {
@@ -112,10 +158,24 @@ function App() {
 
     const loginUser: any = { username, password }
 
-    await axios.post('/api/login', loginUser)
+    const loginResponse = await axios.post('/api/login', loginUser)
 
+    if (loginResponse.data.test === 'error') {
 
-    ev.reset();
+      isLoginFail(true)
+      setTimeout(() => {
+        isLoginFail(false)
+      }, 2000)
+    }
+
+    if (loginResponse.data.user) {
+      setLoggedInUser(loginResponse.data.user)
+      setLoggedIn(true)
+      isLoginWindowOn(false)
+
+    }
+
+    // ev.reset();
 
   }
 
@@ -123,23 +183,39 @@ function App() {
 
     const id = ev.target.id;
 
-    isLoad(true)
-    await axios.delete('/api/deleteUser', { data: { id } })
     isLoad(false)
+    await axios.delete('/api/deleteUser', { data: { id } })
+    // isLoad(false)
 
+  }
+
+  async function getOneUser(idToUpdate) {
+    const originalUser = await axios.patch('/api/getOneUser', idToUpdate)
+    return originalUser
   }
 
   async function handleUpdate(ev) {
 
     const userToUpdate = handleSubmit(ev)
 
-    const id = ev.target.id
+    const originalUser = getOneUser(idToUpdate)
 
-    const toSend = { userToUpdate, id }
+    console.log(originalUser)
 
-    isLoad(true)
+    Object.values(userToUpdate).forEach((key) => {
+      console.log(key)
+    });
+
+    const toSend = { userToUpdate, idToUpdate }
+
+    console.log(toSend)
+
     await axios.patch('/api/updateUser', toSend)
+
+    isUpdateWindowOn(false)
+
     isLoad(false)
+    // isLoad(false)
 
   }
 
@@ -148,12 +224,13 @@ function App() {
     ev.preventDefault();
     const name = ev.target.name.value;
     const password = ev.target.password.value;
+    const passwordConfirm = ev.target.passwordConfirm.value;
     const age = ev.target.age.value;
     const occupation = ev.target.occupation.value;
     const username = ev.target.username.value;
     const image = ev.target.image.value;
 
-    const userForm = { name, age, occupation, username, password, image }
+    const userForm = { name, age, occupation, username, password, passwordConfirm, image }
 
     return userForm;
   }

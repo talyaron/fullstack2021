@@ -1,22 +1,28 @@
+import axios from "axios";
 import { motion } from "framer-motion";
+import { useEffect ,useState} from "react";
+import {Link, Outlet,useNavigate,} from 'react-router-dom'
+import BlogList from './BlogList'
+import Header from "./component/Header";
+import AddBlogForm from './component/AddBlogForm'
 
+interface mainPorps{
+  setBlogs:Function;
+  blogs:Array<any>;
+  formOpen:boolean;
+}
 
-function Main() {
+function Main(props:mainPorps) {
 
-    function setDetails(){
+  
 
-    }
+  const {setBlogs,blogs,formOpen} = props;
+
   return (
-    <motion.div className="main">
-        <motion.div className="main-signPage" >
-            <motion.input type='button'>sign in</motion.input>
-            <motion.input type='button'>sign up</motion.input>
-            </motion.div>
-
-
-       
-        
-    </motion.div>
+    <div className="main">
+        {formOpen?<AddBlogForm setBlogs={setBlogs} blogs={blogs} />:null}
+        <BlogList setBlogs={setBlogs} />
+    </div>
   )
 }
 
