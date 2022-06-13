@@ -2,7 +2,7 @@
 import User from "../models/UsersModel"
 
 export const getUsers = async (req, res) => {
-    
+
     try {
         const allUsers = await User.find({})
         res.send({ allUsers, ok: true })
@@ -14,12 +14,12 @@ export const getUsers = async (req, res) => {
 
 export const getOneUser = async (req, res) => {
 
-    const {idToUpdate} = req.body
+    const { idToUpdate } = req.body
 
     console.log('my body is+ ', req.body)
 
     try {
-        const oneUser = await User.findOne({_id: idToUpdate})
+        const oneUser = await User.findOne({ _id: idToUpdate })
         res.send(oneUser)
 
     } catch (error) {
@@ -33,20 +33,20 @@ export const getLoginUser = async (req, res) => {
 
         const loginUser = req.body;
 
+        console.log(loginUser)
+
         const userFound = await User.findOne({ username: loginUser.username });
 
         console.log(userFound)
 
         if (userFound) {
             if (userFound.password === loginUser.password) {
-                res.send({ user: userFound, test: 'ok' })
-            }
-            else {
-                res.send({ user: null, test: 'error' })
+                return res.status(200).send({ user: userFound, test: 'ok' })
             }
         }
 
-        res.send("error")
+        res.send({ user: null, test: 'error' })
+
 
     } catch (error) {
 

@@ -10,7 +10,7 @@ const UsersList = (props: any) => {
   return (
     <div className='userListContainer'>
       {userList.map((user: any, i) =>
-    
+
         <div key={i} className='user-container'>
           <div className='user-texts'>
             <h3>Name: {user.name}</h3>
@@ -20,16 +20,16 @@ const UsersList = (props: any) => {
           <div className='user-image-container'>
             <img src={user.image} alt={user.name}></img>
           </div>
-
-
-          {/* <UserForm submit={handleUpdate} id={user._id} button='UPDATE' /> */}
-          < button onClick={handleDelete} id={user._id} className='.button-14'>DELETE</button>
-          < button onClick={updateProcess} id={user._id} className='.button-14'>UPDATE</button>
-
-
+          {loggedInUser._id === user._id &&
+            (
+              <>
+                < button  onClick={handleDelete} id={user._id} className='.button-14'>DELETE</button>
+                < button  onClick={updateProcess} id={user._id} className='.button-14'>UPDATE</button>
+              </>
+            )}
 
         </div>
-  )
+      )
       }
     </div >
   )

@@ -16,7 +16,7 @@ const Login = (props: any) => {
                 <input type="password" name="password" placeholder='Password' autoComplete='off' />
                 </div>
 
-                {loginFail && <div className='data-error' >Sorry, username or password doesnt match.</div>}
+                {loginFail && <span className='data-error' >Sorry, username or password doesnt match.</span>}
 
                 <button type='submit' className='.button-14'>LOGIN</button>
             </form>

@@ -1,11 +1,7 @@
 
 // questions
 
-// ev.reset()?
 // focus useref
-
-// conditional map
-// getoneuser (192)
 
 //libraries
 import axios from 'axios';
@@ -158,22 +154,37 @@ function App() {
 
     const loginUser: any = { username, password }
 
-    const loginResponse = await axios.post('/api/login', loginUser)
+    try {
 
-    if (loginResponse.data.test === 'error') {
+      const loginResponse = await axios.post('/api/login', loginUser)
+
+
+      if (loginResponse.data.user) {
+        setLoggedInUser(loginResponse.data.user)
+        setLoggedIn(true)
+        isLoginWindowOn(false)
+
+      }
+
+      else {
+        isLoginFail(true)
+        setTimeout(() => {
+          isLoginFail(false)
+        }, 2000)
+      }
+
+    } catch (error) {
 
       isLoginFail(true)
       setTimeout(() => {
         isLoginFail(false)
       }, 2000)
-    }
-
-    if (loginResponse.data.user) {
-      setLoggedInUser(loginResponse.data.user)
-      setLoggedIn(true)
-      isLoginWindowOn(false)
 
     }
+
+
+
+
 
     // ev.reset();
 
@@ -189,28 +200,30 @@ function App() {
 
   }
 
-  async function getOneUser(idToUpdate) {
-    const originalUser = await axios.patch('/api/getOneUser', idToUpdate)
-    return originalUser
-  }
+
 
   async function handleUpdate(ev) {
 
+
+    console.log(ev)
+
     const userToUpdate = handleSubmit(ev)
 
-    const originalUser = getOneUser(idToUpdate)
+    // Object.values(userToUpdate).forEach((key) => {
+    //   console.log(key)
+    // });
 
-    console.log(originalUser)
 
-    Object.values(userToUpdate).forEach((key) => {
-      console.log(key)
-    });
+    const myUserToUpdate = {
+      ...loggedInUser,
+      ...userToUpdate
+    }
 
-    const toSend = { userToUpdate, idToUpdate }
-
-    console.log(toSend)
+    const toSend = { userToUpdate: myUserToUpdate, idToUpdate }
 
     await axios.patch('/api/updateUser', toSend)
+
+    setLoggedInUser(myUserToUpdate)
 
     isUpdateWindowOn(false)
 
@@ -219,20 +232,33 @@ function App() {
 
   }
 
-  function handleSubmit(ev: any) {
+  function handleSubmit(ev: any):any {
 
     ev.preventDefault();
-    const name = ev.target.name.value;
-    const password = ev.target.password.value;
-    const passwordConfirm = ev.target.passwordConfirm.value;
-    const age = ev.target.age.value;
-    const occupation = ev.target.occupation.value;
-    const username = ev.target.username.value;
-    const image = ev.target.image.value;
 
-    const userForm = { name, age, occupation, username, password, passwordConfirm, image }
+    // const name = ev.target.name.value;
+    // const password = ev.target.password.value;
+    // const passwordConfirm = ev.target.passwordConfirm.value;
+    // const age = ev.target.age.value;
+    // const occupation = ev.target.occupation.value;
+    // const username = ev.target.username.value;
+    // const image = ev.target.image.value;
 
-    return userForm;
+    // const userForm = { name, age, occupation, username, password, passwordConfirm, image }
+
+    // return userForm;
+
+    const myObjectToSave = {}
+
+
+    Object.keys(ev.target).forEach(key => {
+      if (ev.target[key].value) myObjectToSave[ev.target[key].name] = ev.target[key].value
+    })
+
+    console.log(myObjectToSave)
+
+    return myObjectToSave
+
   }
 
 
