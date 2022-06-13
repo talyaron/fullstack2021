@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom"
 import {useEffect,useState} from 'react'
 import {Button} from '@mui/material';
 import {motion} from 'framer-motion'
+import zIndex from "@mui/material/styles/zIndex";
 
 interface BlogsProps{
   setBlogs:Function;
@@ -38,7 +39,8 @@ interface Blog{
       const { data } = await axios.get("/api/blogs/get-blogs");
       console.log(data.data);
       const blogsList = data.data;
-      setBlogsFromDB(blogsList)    
+      setBlogsFromDB(blogsList)
+      console.log(data)    
   }
 
   useEffect(() => {
@@ -66,7 +68,7 @@ handleGetBlogs()
             </Link>
             <Button className="main-links-link-deleteBtn" variant="contained" color="error" onClick={()=>HandleDeleteBlog(blog._id)}>Delete</Button>
             <motion.div initial={{scale:0.9}} whileInView={"img"} variants={clickToStart} className="main-links-link-image" style={{backgroundImage:`url(${blog.image})`}} />
-
+            
             </div>
           )
         })}
