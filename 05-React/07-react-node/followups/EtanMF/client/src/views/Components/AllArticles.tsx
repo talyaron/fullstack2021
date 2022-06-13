@@ -9,7 +9,8 @@ interface AllArticlesProps {
     handleSearchTerm: Function;
     currentUser?: UserInfo;
     loginUserId?: String;
-    handleUpdateArticle?:Function;
+    handleUpdateArticle:Function;
+    handleDeleteArticle: Function;
 }
 
 interface ArticleInfoParams {
@@ -24,7 +25,7 @@ interface ArticleInfoParams {
 }
 // const cssPageTheme: string = `&*{background:black;}`;
 function AllArticles(props: AllArticlesProps) {
-    const {articleList, handleSetSingleArticle, handleSearchTerm, currentUser, loginUserId, handleUpdateArticle} = props;
+    const {articleList, handleSetSingleArticle, handleSearchTerm, currentUser, loginUserId, handleUpdateArticle, handleDeleteArticle} = props;
     const deferredArticles = useDeferredValue(articleList);
 
     return (
@@ -33,7 +34,7 @@ function AllArticles(props: AllArticlesProps) {
             <h1>AllArticles</h1>
             {deferredArticles ? (
                 deferredArticles.map((article: ArticleInfoParams, index: number) => {
-                    return <ArticleCard key={index} handleUpdateArticle={handleUpdateArticle} article={article} handleSetSingleArticle={handleSetSingleArticle} currentUser={currentUser} loginUserId={loginUserId} />;
+                    return <ArticleCard key={index} handleUpdateArticle={handleUpdateArticle} handleDeleteArticle={handleDeleteArticle} article={article} handleSetSingleArticle={handleSetSingleArticle} currentUser={currentUser} loginUserId={loginUserId} />;
                 })
                 ) : (
                     <p>Loading......</p>

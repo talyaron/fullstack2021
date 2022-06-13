@@ -16,6 +16,7 @@ interface UserProps {
   handleSearchTerm: Function;
   loginUserId: String;
   handleUpdateArticle: Function;
+  handleDeleteArticle: Function;
 }
 
 function User(props: UserProps) {
@@ -31,7 +32,8 @@ function User(props: UserProps) {
     handleSetSingleArticle,
     handleSearchTerm,
     loginUserId,
-    handleUpdateArticle
+    handleUpdateArticle,
+    handleDeleteArticle
   } = props;
 
   useEffect(() => {
@@ -60,6 +62,7 @@ function User(props: UserProps) {
       ) : (
         <AllArticles
         handleUpdateArticle={handleUpdateArticle}
+        handleDeleteArticle ={handleDeleteArticle}
           articleList={articleList}
           handleSetSingleArticle={handleSetSingleArticle}
           handleSearchTerm={handleSearchTerm}

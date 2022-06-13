@@ -55,11 +55,28 @@ export async function getArticles(req, res) {
 export async function updateArticle(req, res) {
     try {
         const {updateArticleTitle, updateArticleContent, articleId} = req.body;
-if(!updateArticleTitle|| !updateArticleContent|| !articleId) throw new Error('something is missing at updateArticle -articleCont')
-const updatedArticle = await Article.updateOne({_id: articleId},{title: updateArticleTitle, content: updateArticleContent})
-console.log(updatedArticle);
-res.send({ok: true, updatedArticle})
-
+        if (!updateArticleTitle || !updateArticleContent || !articleId) throw new Error('something is missing at updateArticle -articleCont');
+        const updatedArticle = await Article.updateOne({_id: articleId}, {title: updateArticleTitle, content: updateArticleContent});
+        console.log(updatedArticle);
+        res.send({ok: true, updatedArticle});
+    } catch (error) {
+        console.log(error);
+        res.send({ok: false, error: error.message});
+    }
+}
+export async function deleteArticle(req, res) {
+    try {
+        const {articleId, ownerId} = req.body;
+        const loggedInUser = req.cookies;
+        const {userInformation} = loggedInUser;
+        const loggedInUserId = jwt.decode(userInformation, secret).id;
+        if(!loggedInUser || !ownerId) throw new Error('Login and try again deleteArticle -articleCont')
+        if(ownerId === loggedInUserId){
+            const deletedArticle = await Article.findOneAndDelete({_id:articleId});
+            console.log(deletedArticle);
+            
+            res.send({ok: true, deletedArticle:deletedArticle});
+        }
     } catch (error) {
         console.log(error);
         res.send({ok: false, error: error.message});

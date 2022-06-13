@@ -181,14 +181,24 @@ function AnimatedRoutes() {
             console.log(error);
         }
     }
+async function handleDeleteArticle(ownerId: string, articleId: string){
+    try {
+        const {data} = await axios.post('/api/articles/delete-article', { ownerId: ownerId, articleId: articleId})
 
+getAllArticles(loginUserId)
+
+         
+    } catch (error) {
+        console.log(error);
+    }
+}
     return (
         <AnimatePresence>
             <Routes>
                 <Route path='/' element={<Login handleLogin={handleLogin} handleCreate={handleCreate} />} />
-                <Route path='Home' element={<HomePage userList={userList} handleGetUsers={handleGetUsers} handleOpenUser={handleOpenUser} handleCreateNewArticle={handleCreateNewArticle} getAllArticles={getAllArticles} articleList={filteredArticleList} handleSetSingleArticle={handleSetSingleArticle} handleSearchTerm={handleSearchTerm} />} />
+                <Route path='Home' element={<HomePage handleDeleteArticle={handleDeleteArticle} handleUpdateArticle={handleUpdateArticle} userList={userList} handleGetUsers={handleGetUsers} handleOpenUser={handleOpenUser} handleCreateNewArticle={handleCreateNewArticle} getAllArticles={getAllArticles} articleList={filteredArticleList} handleSetSingleArticle={handleSetSingleArticle} handleSearchTerm={handleSearchTerm} />} />
                 <Route path='User'>
-                    <Route path=':userId' element={<User handleUpdateArticle={handleUpdateArticle} handleGetUsers={handleGetUsers} currentUser={currentUser} getAllArticles={getAllArticles} articleList={filteredArticleList} handleSetSingleArticle={handleSetSingleArticle} handleSearchTerm={handleSearchTerm} loginUserId={loginUserId} />}></Route>
+                    <Route path=':userId' element={<User handleDeleteArticle={handleDeleteArticle} handleUpdateArticle={handleUpdateArticle} handleGetUsers={handleGetUsers} currentUser={currentUser} getAllArticles={getAllArticles} articleList={filteredArticleList} handleSetSingleArticle={handleSetSingleArticle} handleSearchTerm={handleSearchTerm} loginUserId={loginUserId} />}></Route>
                 </Route>
                 <Route path='Article'>
                     <Route path=':articleId' element={<Article article={article} />} />
