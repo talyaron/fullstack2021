@@ -29,7 +29,7 @@ app.post('/login',  async(req, res) => {
         password
     } = req.body;
     console.log(user)
-const userFound = await User.find({userName:user,password:password})
+    const userFound = await User.find({userName:user,password:password})
 
 console.log(userFound);
 
