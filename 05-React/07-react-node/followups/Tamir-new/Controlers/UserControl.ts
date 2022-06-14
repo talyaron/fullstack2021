@@ -1,11 +1,12 @@
-import { UserModel } from "../Models/UserModel";
+import { UserModel } from "../Models/userModel";
+
+
 export async function getUser(req, res) {
   try {
-    console.log('hy');
-    
-
-    
+    const users = await UserModel.find({});
+    res.send({ users });
   } catch (error) {
-    res.senr({ error: error.message });
+    console.error(error);
+    res.send({ error: error.message });
   }
 }
