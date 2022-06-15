@@ -18,29 +18,34 @@ function Login(props: LoginProps) {
                     <h3>Login:</h3>
                     <div className='form-login-labelArea'>
                         <label htmlFor='loginEmail'>Email</label>
-                        <input autoComplete='off' type='email' name='email' placeholder='email' id='loginEmail' />
+                        <input autoComplete='off' type='email' name='email' placeholder='email' id='loginEmail' required />
                         <div className='line' />
                     </div>
                     <div className='form-login-labelArea'>
                         <label htmlFor='loginPassword'>First Name</label>
-                        <input autoComplete='off' type='password' name='password' placeholder='password' id='loginPassword' />
+                        <input autoComplete='off' type='password' name='password' placeholder='password' id='loginPassword' required />
                         <div className='line' />
                     </div>
                     <input type='submit' value='Login' />
                 </form>
 
-                <form onSubmit={(event) => handleCreate(event)} className='form-register'>
+                <form
+                    onSubmit={(event) => {
+                        console.log(event);
+                        handleCreate(event);
+                    }}
+                    className='form-register'>
                     <h3>Register:</h3>
                     <fieldset className='form-register-fieldset'>
                         <legend>Personal Information</legend>
                         <div className='form-register-fieldset-labelArea'>
                             <label htmlFor='registerFirstName'>First Name</label>
-                            <input type='text' name='firstName' placeholder='First Name' id='registerFirstName' />
+                            <input type='text' name='firstName' placeholder='First Name' id='registerFirstName' required />
                             <div className='line' />
                         </div>
                         <div className='form-register-fieldset-labelArea'>
                             <label htmlFor='registerLastName'>Last Name</label>
-                            <input type='text' name='lastName' placeholder='last name' id='registerLastName' />
+                            <input type='text' name='lastName' placeholder='last name' id='registerLastName' required />
                             <div className='line' />
                         </div>
                     </fieldset>
@@ -48,12 +53,12 @@ function Login(props: LoginProps) {
                         <legend>Login Information</legend>
                         <div className='form-register-fieldset-labelArea'>
                             <label htmlFor='registerEmail'>Email</label>
-                            <input type='email' name='email' placeholder='email' id='registerEmail' />
+                            <input type='email' name='email' placeholder='email' id='registerEmail' required />
                             <div className='line' />
                         </div>
                         <div className='form-register-fieldset-labelArea'>
                             <label htmlFor='registerPassword'>Password</label>
-                            <input type='password' name='password' placeholder='password' id='registerPassword' />
+                            <input type='password' name='password' placeholder='password' id='registerPassword' required />
                             <div className='line' />
                         </div>
                     </fieldset>
@@ -61,12 +66,12 @@ function Login(props: LoginProps) {
                         <legend>Professional Information</legend>
                         <div className='form-register-fieldset-labelArea'>
                             <label htmlFor='registerWorkspace'>Work Space</label>
-                            <input type='text' name='workSpace' placeholder='workSpace' id='registerWorkspace' />
+                            <input type='text' name='workSpace' placeholder='workSpace' id='registerWorkspace' required />
                             <div className='line' />
                         </div>
                         <div className='form-register-fieldset-labelArea'>
                             <label htmlFor='registerPosition'>Position</label>
-                            <input type='text' name='position' placeholder='position' id='registerPosition' />
+                            <input type='text' name='position' placeholder='position' id='registerPosition' required />
                             <div className='line' />
                         </div>
                     </fieldset>

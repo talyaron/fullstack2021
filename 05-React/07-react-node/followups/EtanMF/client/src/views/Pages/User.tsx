@@ -15,6 +15,8 @@ interface UserProps {
   handleSetSingleArticle: Function;
   handleSearchTerm: Function;
   loginUserId: String;
+  handleUpdateArticle: Function;
+  handleDeleteArticle: Function;
 }
 
 function User(props: UserProps) {
@@ -30,6 +32,8 @@ function User(props: UserProps) {
     handleSetSingleArticle,
     handleSearchTerm,
     loginUserId,
+    handleUpdateArticle,
+    handleDeleteArticle
   } = props;
 
   useEffect(() => {
@@ -57,6 +61,8 @@ function User(props: UserProps) {
         <p>Loading...</p>
       ) : (
         <AllArticles
+        handleUpdateArticle={handleUpdateArticle}
+        handleDeleteArticle ={handleDeleteArticle}
           articleList={articleList}
           handleSetSingleArticle={handleSetSingleArticle}
           handleSearchTerm={handleSearchTerm}
