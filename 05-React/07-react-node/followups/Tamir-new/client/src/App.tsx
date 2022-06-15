@@ -3,25 +3,31 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 function App() {
-  const [name, setname] = useState("");
+  // const [name, setname] = useState("");
 
   async function handlesubmit(ev: any) {
     ev.preventDefault();
     const name = ev.target.elements.name.value;
     console.log(name);
   }
-  useEffect(() => {
-    axios
-      .get("/api/users/add-user")
-      .then(({ data }) => console.log(data))
-      .catch((err) => console.error(err));
-  }, []);
+  // useEffect(() => {
+  //   axios
+  //     .get("/api/users/add-user")
+  //     .then(({ data }) => console.log(data))
+  //     .catch((err) => console.error(err));
+  // }, []);
+
+  async function handleLog(){
+   const {data}= await axios.get("/api/users/get-user")
+   console.log(data)
+  }
 
   useEffect(() => {
-    axios
-      .get("/api/users/get-user")
-      .then(({ data }) => console.log(data))
-      .catch((err) => console.error(err));
+    handleLog();
+    //  axios
+      // .get("/api/users/get-user")
+      // .then(({ data }) => console.log(data))
+      // .catch((err) => console.error(err));
   }, []);
 
   return (

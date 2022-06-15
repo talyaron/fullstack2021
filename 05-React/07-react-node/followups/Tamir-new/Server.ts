@@ -2,9 +2,9 @@ import express from "express";
 import mongoose from "mongoose";
 
 const app = express();
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 4001;
 
-app.use(express.static("public/build"));
+app.use(express.static("client/build"));
 app.use(express.json());
 
 mongoose
@@ -18,8 +18,8 @@ mongoose
     console.log("Failed to connect to Mongoose:");
     console.log(err.message);
   });
-import userroutr from "./Routes/UserRoute";
-app.use("/api/users", userroutr);
+import UserRoute from "./Routes/UserRoute";
+app.use('/api/users', UserRoute);
 
 app.listen(port, () => {
   return console.log(`Express is listening at http://localhost:${port}`);

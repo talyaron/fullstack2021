@@ -1,7 +1,8 @@
-import  Express  from "express";
+import  express  from "express";
 import { getUser } from "../Controlers/UserControl";
-const routr = Express.Router();
+const router = express.Router();
 
-routr.get('/get-user',getUser)
 
-export default routr;
+router.get('/get-user',getUser)
+
+export default router;
