@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
 
-const UserSchema = new mongoose.Schema({ name:'string' });
-export const UserModel = mongoose.model('newuser', UserSchema);
+const UserSchema = new mongoose.Schema({ name:String });
+export const UserModel = mongoose.model('users', UserSchema);
 

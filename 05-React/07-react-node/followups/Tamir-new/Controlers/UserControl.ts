@@ -3,6 +3,7 @@ import { UserModel } from "../Models/userModel";
 export async function getUser(req, res) {
   try {
     const newuser = await UserModel.find({});
+    console.log(newuser);
 
     if (!newuser) throw new Error("no new user");
 
@@ -14,14 +15,13 @@ export async function getUser(req, res) {
 }
 export async function addUser(req, res) {
   try {
-    const name = req.body;
-
+    const  {name}  = req.body;
+    console.log(name);
+    if (!name && typeof name !=='string') throw new Error("no get name");
     const newUser = new UserModel({ name });
     await newUser.save();
 
-    if (!name) throw new Error("no get name");
-
-    res.send({ok:true});
+    res.send({ ok: true });
   } catch (error) {
     console.error(error);
     res.send({ error: error.message });
