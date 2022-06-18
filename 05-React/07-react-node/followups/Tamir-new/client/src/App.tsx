@@ -1,42 +1,26 @@
 import "./App.css";
 import { useEffect, useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./Pages/Home";
 import axios from "axios";
 
 interface User {
   name: string;
   _id: string;
 }
+interface App{
+  handlesubmit:Function
+}
 
 function App() {
   const [users, setusers] = useState<Array<User>>([]);
 
-  // useEffect(() => {
-  //   axios
-  //     .get("/api/users/add-user")
-  //     .then(({ data }) => console.log(data))
-  //     .catch((err) => console.error(err));
-  // }, []);
-
-  // async function handleLog() {
-  //   const { data } = await axios.get("/api/users/get-user");
-  //   console.log(data);
-  //   const {users} = data;
-  //   console.log(users);
-
-  //   if(users){
-  //     setusers(users)
-  //     console.log('hey');
-  //   }
-  // }
-
   useEffect(() => {
-    // handleLog();
     axios
       .get("/api/users/get-user")
       .then(({ data }) => {
         console.log(data);
         const { users } = data;
-        console.log(users);
       })
       .catch((err) => console.error(err));
   }, []);
@@ -53,14 +37,23 @@ function App() {
 
   return (
     <div className="App">
-      <h1>hey</h1>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<App />}>
+            <Route index element={<Home handlesubmit={handlesubmit} />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+      {/* <h1>hey</h1>
       {users.map((user) => (
         <p key={user._id}>{user.name}</p>
       ))}
-      <form onSubmit={handlesubmit}>
+      
+      </form> */}
+      {/* <form onSubmit={handlesubmit}>
         <input type="text" name="name" placeholder="name" />
         <input type="submit" value="submit" />
-      </form>
+      </form>  */}
     </div>
   );
 }
