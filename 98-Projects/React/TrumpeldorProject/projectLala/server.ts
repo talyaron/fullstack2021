@@ -4,7 +4,9 @@ const app = express()
 const port = process.env.PORT || 4000;
 require('dotenv').config()
 
-const mongodb_uri = "mongodb+srv://AdiPaz:AdiPaz1234@cluster0.vbho2.mongodb.net/?retryWrites=true&=majority"
+app.use(express.static('public/build'))
+
+const mongodb_uri = process.env.MONGODB_URI
 
 mongoose.connect(
     mongodb_uri
