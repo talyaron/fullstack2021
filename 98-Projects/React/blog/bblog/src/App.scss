@@ -13,7 +13,6 @@ body{
         width: 30%;
         height: 50vh;
         text-decoration: none;
-        border: black solid 1px;
 
         &-link{
             display: grid;
@@ -37,7 +36,6 @@ body{
     &_form{
         width: 30%;
         height: 50vh;
-        border: 1px solid black;
         display: flex;
         flex-direction: column;
 
@@ -69,9 +67,8 @@ body{
    
    
 }
-.main_form{
-    background-color: #232725;
-}
+
+
 .blog-details{
     width: 50%;
     height: 50vh;

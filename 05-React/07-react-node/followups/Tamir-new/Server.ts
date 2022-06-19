@@ -1,22 +1,27 @@
-import express from 'express';
-import mongoose from 'mongoose';
-import Userrout from './Routes/UserRoute';
-const app = express();
-const port = process.env.PORT || 4000;
+import express from "express";
+import mongoose from "mongoose";
 
-app.use(express.static('public/build'))
+const app = express();
+const port = process.env.PORT || 4001;
+
+require("dotenv").config();
+const mongodb_uri = process.env.MONGODB_URI;
+app.use(express.static("client/build"));
 app.use(express.json());
 
-mongoose.connect('mongodb+srv://tamirdadon:G6ZddBDVq8aJougK@cluster0.ldffz.mongodb.net/?retryWrites=true&w=majority')
-    .then(res => {
-        console.log("connected to DB");
-    })
-    .catch((err) => {
-        console.log("Failed to connect to Mongoose:")
-        console.log(err.message);
-    });
-app.use('/api/users', Userrout)
+mongoose
+  .connect(mongodb_uri)
+  .then((res) => {
+    console.log("connected to DB");
+  })
+  .catch((err) => {
+    console.log("Failed to connect to Mongoose:");
+    console.log(err.message);
+  });
+
+import UserRoute from "./Routes/UserRoute";
+app.use("/api/users", UserRoute);
 
 app.listen(port, () => {
-    return console.log(`Express is listening at http://localhost:${port}`);
+  return console.log(`Express is listening at http://localhost:${port}`);
 });

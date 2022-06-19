@@ -1,7 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 const app = express();
-const port = process.env.PORT || 4001;
+const port = process.env.PORT || 4004;
 
 app.use(express.static('/bblog/build'))
 app.use(express.json());

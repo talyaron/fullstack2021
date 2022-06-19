@@ -25,6 +25,7 @@ function App() {
   
 
   // const [id, setId] = useState('')
+  
 
 
   return (
@@ -33,12 +34,13 @@ function App() {
       setOpenSignUp={setOpenSignUp} setOpenLogIn={setOpenLogIn}></Header>
     <BrowserRouter>
     <Routes>
-      <Route path='/' element={<Main formOpen={formOpen} setBlogs={setBlogs} blogs={blogs} />}></Route>
+      <Route path='/' element={<Main formOpen={formOpen} setBlogs={setBlogs} blogs={blogs} openLogIn={openLogIn}  openSignUp={openSignUp} />} ></Route>
       <Route path="">
               <Route path="/blogs/:id" element={<BlogDetails />}/>
             </Route>
     </Routes>
   </BrowserRouter>
+  
   </div>
   );
 }
