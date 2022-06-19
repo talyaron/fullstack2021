@@ -9,13 +9,14 @@ const cors = require("cors");
 
 
 app.use(cors());
+
+app.use(express.static('client/build'))
+app.get('/', (req, res) => {
+  res.send('<h1>Hello world im shani</h1>');
+});
+
+server.listen(3000, () => {
+  console.log('listening on *:3000');
+});
  
 
-
-
-
-
-
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})

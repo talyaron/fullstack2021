@@ -1,0 +1,48 @@
+
+
+$Softred: hsl(10, 67%, 77%);
+$Cyan: hsl(186, 73%, 78%);
+
+
+
+$Darkbrown: hsl(25, 47%, 15%);
+$Mediumbrown: hsl(28, 10%, 53%);
+$Cream: hsl(27, 66%, 92%);
+$orange: hsl(33, 100%, 98%);
+
+
+
+.App {
+  text-align: center;
+   background-color: $Cream;
+  height:100vh;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.balance{
+width: clamp( 300px, 25vw, 600px);
+
+
+background-color: $Softred;
+
+}
+.data{
+  display:flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.graph{
+
+  background-color:$Softred ;
+  //width:100px;
+  
+
+}
+
+
+
+
+
