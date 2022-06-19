@@ -10,11 +10,16 @@ const Home = () => {
     <div>
         <Balance/>
         <div className='data' >
+        <h3>Spending - Last 7 days</h3> 
+        <div className='data__flex'>
         {data.map((object,i)=>{
             return(
                 <Chart object={object}  />
             )
         })}
+        
+        </div>
+       
         </div>
         
        

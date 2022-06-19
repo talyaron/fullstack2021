@@ -1,7 +1,8 @@
 
 
-$Softred: hsl(10, 67%, 77%);
-$Cyan: hsl(186, 73%, 78%);
+$Softred: hsl(10, 79%, 65%);
+
+$Cyan: hsl(186, 34%, 60%);
 
 
 
@@ -22,17 +23,29 @@ $orange: hsl(33, 100%, 98%);
 
 }
 .balance{
+  text-align:left;
+  color:white;
+  padding:10px;
 width: clamp( 300px, 25vw, 600px);
-
-
+height:50px;
+border-radius:10px;
 background-color: $Softred;
 
 }
 .data{
-  display:flex;
+  margin-top:10px;
+  border-radius:10px;
+  background-color:$orange;
+  padding:10px;
+  text-align:left;
+  &__flex{
+    display:flex;
   flex-direction: row;
   align-items: flex-end;
   justify-content: space-between;
+  }
+  
+  
 }
 .graph{
 
