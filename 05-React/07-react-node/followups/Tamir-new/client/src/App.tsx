@@ -5,10 +5,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home";
 import Login from "./Pages/Login";
 import axios from "axios";
+import { ok } from "assert";
 
 interface User {
   email: string;
-  password:string
+  password: string;
   _id: string;
 }
 interface App {
@@ -24,6 +25,7 @@ function App() {
       .then(({ data }) => {
         console.log(data);
         const { users } = data;
+        return;
       })
       .catch((err) => console.error(err));
   }, []);
@@ -32,15 +34,22 @@ function App() {
     ev.preventDefault();
     const email = ev.target.elements.email.value;
     const password = ev.target.elements.password.value;
+    console.log(email, password);
 
     if (email && password) {
-      axios.post("/api/users/add-user", { email , password });
-      const user = { email,password, _id: "" };
+      axios.post("/api/users/add-user", { email, password });
+      const user = { email, password, _id: "" };
       setusers([...users, user]);
     }
   }
-  async function handleLogin(ev:any) {
-    
+  async function handleLogin(ev: any) {
+    ev.preventDefault();
+    const email = ev.target.elements.email.value;
+    const password = ev.target.elements.password.value;
+    console.log(email, password);
+    if (email && password) {
+      await axios.post("/api/users/Login", { email, password });
+    }
   }
 
   return (
@@ -56,8 +65,11 @@ function App() {
         <input type="password" name="password" placeholder="password" />
         <input type="submit" value="submit" />
       </form>
-
-      <form onSubmit={handleLogin}></form>
+      <form onSubmit={handleLogin}>
+        <input type="email" name="email" placeholder="email" />
+        <input type="password" name="password" placeholder="password" />
+        <input type="submit" value="Login" />
+      </form>
     </div>
   );
 }
