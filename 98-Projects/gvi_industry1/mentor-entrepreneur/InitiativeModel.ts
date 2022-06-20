@@ -27,7 +27,7 @@ export enum Sector {
   }
 
 
-const InitiativeSchema = new mongoose.Schema({
+ export const InitiativeSchema = new mongoose.Schema({
 
 
     mentee: {
