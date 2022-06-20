@@ -1,8 +1,9 @@
 import mongoose from "mongoose";
+import { NameSchema } from "./userModel";
 
 const UserSchema = new mongoose.Schema({
     userId: String,
-    //userName: NameSchema, import NameSchema
+    userName: NameSchema,
 })
 
 
