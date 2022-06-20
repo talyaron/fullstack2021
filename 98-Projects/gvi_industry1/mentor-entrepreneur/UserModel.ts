@@ -10,12 +10,17 @@ interface Name {
     MENTEE = "mentee",
     MENTOR = "mentor",
   }
+ export const NameSchema=new mongoose.Schema({
+  first: String,
+  last: String
 
+
+})
 
 const UserSchema = new mongoose.Schema({
 
     _id: String,
-    name: Object,
+    name: NameSchema,
     description: String,
     image: File,
     email: String,
