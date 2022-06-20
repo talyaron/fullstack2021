@@ -1,53 +1,13 @@
-interface MatchingFiltersSchema {
-    sectors: Array<sector>;
-    specialities: Array<speciality>;
-    countries: Array<country>;
-    TypeOfEscorts: Array<TypeOfEscort>;
-}
+import mongoose from 'mongoose'
+import {Sector, FieldsOfKnowledge} from '../../mentor-entrepreneur/InitiativeModel'
 
-interface sector {
-    type: string;
-    _id: string;
-}
-
-interface speciality {
-    type: string;
-    _id: string;
-}
-
-interface country {
-    name: string;
-    _id: string;
-}
-
-interface TypeOfEscort {
-    type: string;
-    _id: string;
-}
+const MatchingFiltersSchema = new mongoose.Schema({
+    sectors: Sector,
+    specialities:FieldsOfKnowledge,
+    countries: [],
+    typeOfEscorts: []
+})
 
 
-
-interface SelectedMentorsSchema {
-    selctedMentors: Array<SelectedMentor>
-}
-
-interface SelectedMentor {
-    userName: Name,
-    _id: String,
-    image: File,
-    sector:string,
-    company:Company
-    lastEntry: Date;
-    linkedInProfile: string;
-
-}
-
-interface Name {
-    first: string;
-    last: string;
-}
-
-interface Company {
-    _id: string;
-    name: string;
-  }
+  const MatchingFilters = mongoose.model('filter', MatchingFiltersSchema);
+  export default MatchingFilters;
