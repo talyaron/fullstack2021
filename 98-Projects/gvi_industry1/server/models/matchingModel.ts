@@ -1,29 +1,23 @@
+import mongoose from 'mongoose'
+import {Sector} from '../../mentor-entrepreneur/InitiativeModel'
+
+const MatchingFiltersSchema = new mongoose.Schema({
+    sectors: Sector
+
+
+})
+
+
+
+
+
+
 interface MatchingFiltersSchema {
-    sectors: Array<sector>;
     specialities: Array<speciality>;
     countries: Array<country>;
     TypeOfEscorts: Array<TypeOfEscort>;
 }
 
-interface sector {
-    type: string;
-    _id: string;
-}
-
-interface speciality {
-    type: string;
-    _id: string;
-}
-
-interface country {
-    name: string;
-    _id: string;
-}
-
-interface TypeOfEscort {
-    type: string;
-    _id: string;
-}
 
 
 
@@ -51,3 +45,7 @@ interface Company {
     _id: string;
     name: string;
   }
+
+
+  const MatchingFilters = mongoose.model('filter', MatchingFiltersSchema);
+  export default MatchingFilters;
