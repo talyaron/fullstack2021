@@ -52,5 +52,5 @@ const UserSchema = new mongoose.Schema({
     sectors:Sector
 });
 
-const user = mongoose.model('user', UserSchema);
-export default user;
+const UserModel = mongoose.model('users', UserSchema);
+export default UserModel;

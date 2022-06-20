@@ -5,9 +5,9 @@ const MatchingFiltersSchema = new mongoose.Schema({
     sectors: Sector,
     specialities:FieldsOfKnowledge,
     countries: [],
-    typeOfEscorts: []
+    typeOfMentoring: []
 })
 
 
-  const MatchingFilters = mongoose.model('filter', MatchingFiltersSchema);
-  export default MatchingFilters;
+  const MatchingModel = mongoose.model('matchings', MatchingFiltersSchema);
+  export default MatchingModel;
