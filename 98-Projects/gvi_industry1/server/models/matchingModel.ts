@@ -1,5 +1,5 @@
 import mongoose from 'mongoose'
-import {Sector, FieldsOfKnowledge} from '../../mentor-entrepreneur/InitiativeModel'
+import {Sector, FieldsOfKnowledge} from './userModel'
 
 const MatchingFiltersSchema = new mongoose.Schema({
     sectors: Sector,
