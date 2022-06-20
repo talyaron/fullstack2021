@@ -1,11 +1,12 @@
 import "./App.css";
 import { useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link, Navigate } from "react-router-dom";
 // import { Outlet } from "react-router-dom";
 import Home from "./Pages/Home";
+import {useNavigate} from "react-router-dom"
 import Login from "./Pages/Login";
 import axios from "axios";
-import { ok } from "assert";
+
 
 interface User {
   email: string;
@@ -14,6 +15,7 @@ interface User {
 }
 interface App {
   handlesubmit: Function;
+  handleLogin: Function;
 }
 
 function App() {
@@ -34,7 +36,6 @@ function App() {
     ev.preventDefault();
     const email = ev.target.elements.email.value;
     const password = ev.target.elements.password.value;
-    console.log(email, password);
 
     if (email && password) {
       axios.post("/api/users/add-user", { email, password });
@@ -46,9 +47,12 @@ function App() {
     ev.preventDefault();
     const email = ev.target.elements.email.value;
     const password = ev.target.elements.password.value;
-    console.log(email, password);
     if (email && password) {
-      await axios.post("/api/users/Login", { email, password });
+      const {data} = await axios.post("/api/users/Login", { email, password });
+      console.log(data);
+      if (data.Login) {
+        window.location.href="localhost:3000/home"    
+       }
     }
   }
 
@@ -57,6 +61,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Login />}></Route>
+          <Route path="/Home" element={<Home />}></Route>
         </Routes>
       </BrowserRouter>
 
