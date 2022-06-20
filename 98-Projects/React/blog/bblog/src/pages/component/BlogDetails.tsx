@@ -9,7 +9,9 @@ interface tempBlog{
     _id:string;
 }
 
+
 function BlogDetails(){
+
 
     const { id } = useParams()
     const [tempId , setTempId] = useState(id)
@@ -31,8 +33,11 @@ function BlogDetails(){
               <motion.h1 className="blog-details-name">{tempBlog.name}</motion.h1>
               <div className="blog-details-body">{tempBlog.body}</div>
               {/* <button onClick={handleClick}>delete</button> */}
+             
+
       
             </div>
+
           )
     
     

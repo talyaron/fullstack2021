@@ -1,7 +1,11 @@
-import  Express  from "express";
-import { getUser } from "../Controlers/UserControl";
-const routr = Express.Router();
+import  express  from "express";
+import { getUser,addUser,Login } from "../Controlers/UserControl";
+const router = express.Router();
 
-routr.get('/get-user',getUser)
 
-export default routr;
+router
+.get('/get-user',getUser)
+.post('/add-user',addUser)
+.post('/Login', Login)
+
+export default router;
