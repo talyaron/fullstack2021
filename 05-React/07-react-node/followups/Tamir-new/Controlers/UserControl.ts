@@ -32,10 +32,11 @@ export async function Login(req, res) {
     if (typeof password === "string" && typeof email === "string") {
       const user = await UserModel.findOne({ password });
       if (user) {
-        if (user.password === password) {
+        if (user.password === password && user.email === email) {
           console.log("you in");
-
           res.send({ ok: true, login: true });
+        } else {
+          console.log("you out");
         }
       }
 

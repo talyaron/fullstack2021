@@ -7,13 +7,7 @@ function Navbar() {
       <ul className="navbar-navList">
         <li className="navbar-navList-link" style={{display:'block'}}>
         <Link to="/Orders">להזמדנות</Link>
-        </li>
-        <li>
-          <div>2</div>
-        </li>
-        <li>
-        <div>3</div>
-        </li>
+       </li>
       </ul>
     </nav>
   );

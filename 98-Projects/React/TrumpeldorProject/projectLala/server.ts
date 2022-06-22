@@ -1,15 +1,15 @@
 import express from 'express';
 import mongoose from 'mongoose';
 const app = express()
-const port = process.env.PORT || 4000;
-require('dotenv').config()
+const port = process.env.PORT || 4001;
+// require('dotenv').config()
 
 app.use(express.static('public/build'))
 
-const mongodb_uri = process.env.MONGODB_URI
+// const mongodb_uri = process.env.MONGODB_URI
 
 mongoose.connect(
-    mongodb_uri
+   "mongodb+srv://AdiPaz:u2Hr1GoKaCY6spZZ@cluster0.vbho2.mongodb.net/?retryWrites=true&w=majority"
   ).then(res=>{
     console.log("Connected to DB");
   }).catch(err=>{
