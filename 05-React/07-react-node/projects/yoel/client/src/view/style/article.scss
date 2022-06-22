@@ -1,0 +1,15 @@
+.article{
+    background-color: aqua;
+    position: absolute;
+
+
+    &__title{
+        font-size: 1.5rem;
+        position: relative;
+   
+    }
+    &__text{
+        font-size: 0.75rem;
+        position: relative;
+    }
+}
