@@ -1,24 +1,21 @@
-import React from 'react';
+import React , {useState,useEffect} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Form from './view/pages/mentee/Profile/Form'
+import Cards from './view/pages/mentee/Profile/Cards';
+
+
 
 function App() {
+
+  const [cards , setCards] = useState([])
+
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Form setCards={setCards}></Form>
+      <Cards cards={cards}></Cards>
+      
     </div>
   );
 }
