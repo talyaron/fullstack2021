@@ -44,14 +44,14 @@ function App() {
             console.log(username);
             
             console.log('setup');
-            socket.emit('set_user', username);
+
+            socket.emit('set_user', {data: username});
         }
     }
     // socket functions
     useEffect(() => {
         socket.on('connection', (result) => {
             try {
-                socket.io.engine.id = username;
                 console.log(result.length);
                 if (result.length === 1) throw new Error('no other users are connected');
                 if (result.length > 1) {

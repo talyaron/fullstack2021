@@ -41,7 +41,7 @@ io.on('connection', async (socket: any) => {
         const result = clientListGetter();
         socket.on('connection', async (data: any) => {
             if (data) {
-                console.log(data);
+                console.log(data,'connection data');
             }
             // socket.emit('connection', await result);
         });

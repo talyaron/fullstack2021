@@ -14,6 +14,11 @@ function Chat(props: ChatProps) {
     const { username,setUser, joinRoom, setRoom, room, setUsername} = props;
     const navigate = useNavigate();
     useEffect(() => {
+        setUser();
+        console.log('setUser');
+        
+    }, [username]);
+    useEffect(() => {
         return () => {
             (async () => {
                 const login = await checkCookies();
@@ -26,9 +31,6 @@ function Chat(props: ChatProps) {
     useEffect(() => {
         joinRoom();
     }, [room]);
-    useEffect(() => {
-        setUser();
-    }, [username]);
     //   useEffect(() => {
     //     socket.on('receive_message', (data) => {
     //       if(data)
