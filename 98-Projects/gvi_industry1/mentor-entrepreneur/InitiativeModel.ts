@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { NameSchema } from "./UserModel";
 
 
 
@@ -32,11 +33,7 @@ const InitiativeSchema = new mongoose.Schema({
 
     mentee: {
         userId: String,
-        name:
-        {
-            first: String,
-            last: String
-        },
+        name: NameSchema,
     },
     image: File,
     sector: Sector,

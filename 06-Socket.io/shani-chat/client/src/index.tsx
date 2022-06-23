@@ -3,8 +3,10 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+
 import { io } from "socket.io-client";
-export const socket = io();
+export const socket= io();
+//the socket io is here cause we dont want it to rerender and update each time
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
