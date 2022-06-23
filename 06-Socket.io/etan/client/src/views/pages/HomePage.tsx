@@ -1,13 +1,13 @@
 import {useEffect} from 'react';
-import {Outlet} from 'react-router-dom';
+import {Outlet, useNavigate} from 'react-router-dom';
 
 interface HomePageProps {
     sendMessage: Function;
     joinRoom: Function;
+    usersList: Array<any>;
 }
 function HomePage(props: HomePageProps) {
-    const {sendMessage, joinRoom} = props;
-
+    const {sendMessage, joinRoom, usersList} = props;
     return (
         <div>
             <form
@@ -16,7 +16,7 @@ function HomePage(props: HomePageProps) {
                 }}>
                 <input type='text' name='username' placeholder='enter your username' />
                 <input
-                    onChange={(ev) => {
+                    onKeyUp={(ev) => {
                         joinRoom(ev);
                     }}
                     type='text'
@@ -26,9 +26,9 @@ function HomePage(props: HomePageProps) {
                 <input type='text' name='message' placeholder='Message' />
                 <input type='submit' value='send' />
             </form>
+            {usersList&&<ul>{usersList.map((user, i)=> <li key={i}>userId:{user}</li>)}</ul>}
             <Outlet />
         </div>
     );
 }
-
 export default HomePage;
