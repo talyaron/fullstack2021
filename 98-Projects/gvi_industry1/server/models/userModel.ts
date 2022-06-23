@@ -4,6 +4,20 @@ import mongoose from "mongoose";
 //     last: string;
 //   }
 
+export enum FieldsOfKnowledge {
+  UX = "ux",
+  BUSINESS_DEVELOPMENT = "devlopment",
+}
+
+export enum Stage {
+  FFF = "friends and family",
+  PRE_SEED = "pre-seed",
+  SEED = "seed",
+  ROUND_A = "round a",
+  ROUND_ABOVE = "round b and above",
+}
+
+
   export enum UserType {
     ADMIN = "admin",
     MENTEE = "mentee",
@@ -38,5 +52,5 @@ const UserSchema = new mongoose.Schema({
     sectors:Sector
 });
 
-const user = mongoose.model('user', UserSchema);
-export default user;
+const UserModel = mongoose.model('users', UserSchema);
+export default UserModel;

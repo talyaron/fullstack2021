@@ -12,7 +12,7 @@ const MenteeSchema = new mongoose.Schema({
     name: NameSchema
 })
 
-const InitiativeSchema = new mongoose.Schema({
+export const InitiativeSchema = new mongoose.Schema({
     mentee: MenteeSchema,
     image: String,
    sector: {
@@ -40,5 +40,6 @@ const InitiativeSchema = new mongoose.Schema({
     /////initative
     
 })
+const InitiativeModel = mongoose.model("initiatives",InitiativeSchema)
 
-export default InitiativeSchema
+export default InitiativeModel

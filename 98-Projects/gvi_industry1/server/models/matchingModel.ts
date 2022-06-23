@@ -1,13 +1,18 @@
 import mongoose from 'mongoose'
-import {Sector, FieldsOfKnowledge} from '../../mentor-entrepreneur/InitiativeModel'
+import {Sector, FieldsOfKnowledge} from './userModel'
+
+export enum MentoringType {
+  UX = "ux",
+  BUSINESS_DEVELOPMENT = "development"
+}
 
 const MatchingFiltersSchema = new mongoose.Schema({
     sectors: Sector,
-    specialities:FieldsOfKnowledge,
-    countries: [],
-    typeOfEscorts: []
+    specialties:FieldsOfKnowledge,
+    countries: [String],
+    typesOfMentoring: MentoringType
 })
 
 
-  const MatchingFilters = mongoose.model('filter', MatchingFiltersSchema);
-  export default MatchingFilters;
+  const MatchingModel = mongoose.model('matchings', MatchingFiltersSchema);
+  export default MatchingModel;
