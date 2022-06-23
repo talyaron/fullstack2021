@@ -4,7 +4,7 @@ import mongoose from 'mongoose'
 const NameSchema = new mongoose.Schema ({
     first: String,
     last: String
-  })
+  });
 
   
 const MenteeSchema = new mongoose.Schema({
