@@ -16,9 +16,9 @@ const Login = (props:LoginProps) => {
 <button>google</button>
 <button>linkedin</button>
        </div>
-       <div className='divider'>
-       <hr></hr><p>or</p><hr></hr>
-       </div>
+       
+       <p className='divider'>or</p>
+       
       
       
 

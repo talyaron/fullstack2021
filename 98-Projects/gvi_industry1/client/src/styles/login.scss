@@ -4,6 +4,13 @@
     background-color: aqua;
     border:1px solid green;
     display:block;
+    position: fixed;
+    z-index: 1;
+    right: 0;
+    left: 0;
+    margin: auto;
+    top: 50%;
+    bottom:50%;    
 }
 .dontShowLogin{
     display:none;
@@ -13,10 +20,21 @@
     background-color: transparent;
 }
 .divider{
-    display:flex;
-    flex-direction: row;
-    hr{
-        flex-direction: column;
-    }
+    
+        display: flex;
+        flex-direction: row;
+    
+      &:before, &:after{
+        content: "";
+        flex: 1 1;
+        border-bottom: 1px solid;
+        margin: auto;
+      }
+      &:before {
+        margin-right: 10px
+      }
+     &:after {
+        margin-left: 10px
+      }
    
 }
