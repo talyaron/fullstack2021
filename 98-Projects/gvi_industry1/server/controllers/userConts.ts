@@ -1,9 +1,9 @@
 import UserModel from '../models/userModel'
 
 export const getRecipients = async (req, res) => {
-    console.log(req.body);
+    console.log(req.body, 'req.body from client');
     const allUsers = await UserModel.find({})
-    console.log(allUsers);
+    console.log( 'const allUsers = await UserModel.find({}) returns:' ,allUsers);
     
     try {
         res.send({ allUsers, ok: true })
