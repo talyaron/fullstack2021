@@ -18,20 +18,72 @@
     // grid-template-rows: 56px, auto, auto;
     // grid-columns:916px,auto, auto;
     grid-template-areas:
-    'b a a'
-    'b c c'
-    'b c c';
+        'b a a'
+        'b c c'
+        'b c c';
     /* transform: translate(-50%, -50%) */
     &__sideBar {
+        display: flex;
+        flex-direction: column;
+        place-items: center;
+        place-content: flex-start;
+        gap: 30px;
         width: 306px;
         height: 715px;
         grid-area: b;
-        box-shadow: inset -2px 0px 0px 0px gray;
+        box-shadow: inset -1px 0px 0px 0px rgba(128, 128, 128, 0.38);
+        &__searchBar {
+            display: flex;
+            place-items: center;
+            place-content: space-evenly;
+            color: #707991;
+            [class^='search'] {
+                color: #707991;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                padding: 8px 16px;
+                gap: 16px;
+                margin: 0 16px 0 0;
+                max-width: 218px;
+                max-height: 40px;
+                background: #f5f5f5;
+                border-radius: 22px;
+                & * {
+                    color: #707991;
+                    padding: 0;
+                    margin: 0;
+                }
+            }
+        }
+        &__recipientsList {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        &__Buttons {
+            display: flex;
+            flex-direction: column;
+            place-items: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 34px;
+            & * {
+                text-align: center;
+                background-color: #1818184d;
+                align-content: center;
+                padding: 14px 35px;
+                min-width: 88px;
+                height: 25px;
+                border-radius: 100vmax;
+            }
+        }
     }
     &__currentRecipient {
         display: flex;
         background-color: rgb(255, 255, 255);
-box-shadow: inset 0px -2px 0px -1px gray;
+        box-shadow: inset 0px -2px 0px -1px rgba(128, 128, 128, 0.38);
         max-width: 916px;
         max-height: 56px;
         grid-area: a;
@@ -42,33 +94,68 @@ box-shadow: inset 0px -2px 0px -1px gray;
             // place-items:center;
         }
         [class^='text'] {
-          #e1{line-height: 20px;}
-          #e2{line-height: 14px;}
-          gap:4px;
+            #e1 {
+                line-height: 20px;
+            }
+            #e2 {
+                line-height: 14px;
+            }
+            gap: 4px;
             & * {
                 padding: 0;
                 gap: 0;
                 margin: 0;
-              }
-              display: flex;
-              flex-direction: column;
             }
-            &__info{
-              gap: 16px;
+            display: flex;
+            flex-direction: column;
+        }
+        &__info {
+            gap: 16px;
+        }
+        &__Buttons {
+            padding: 0;
+            gap: 0;
+            margin: 0;
+            * {
+                padding: auto;
             }
-            &__Buttons {
-          padding: 0;
-          gap: 0;
-          margin: 0;
-*{padding: auto;}
         }
     }
     &__chatWindow {
         grid-area: c;
         background-color: #cdcdcd;
+        position: relative;
+        &__messageBar {
+            position: absolute;
+            display: flex;
+            place-items: center;
+            bottom: 35px;
+            right: 100px;
+            width: 660px;
+            max-height: 20px;
+            padding: 18px 18.25px 18px 16px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            flex: 1;
+
+            div {
+                line-height: 1;
+                width: 100%;
+                input {
+                    width: 100%;
+                }
+            }
+        }
     }
 }
 
+@media screen and (max-width: 1440px) {
+    .chat {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
 .App {
     text-align: center;
 }
