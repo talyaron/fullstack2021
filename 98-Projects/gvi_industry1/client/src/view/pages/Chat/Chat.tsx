@@ -54,8 +54,8 @@ function Chat() {
 
     );
     async function getUserList() {
-        // const {data} = await axios.post('/api/users/get-recipients', {ok: true})
-        // console.log(data);
+        const {data} = await axios.post('/api/users/get-recipients', {ok: true})
+        console.log(data);
     }
     return (
         <div className='chat'>

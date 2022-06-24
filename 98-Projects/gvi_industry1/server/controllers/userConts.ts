@@ -3,7 +3,6 @@ import UserModel from '../models/userModel'
 export async function getRecipients(req, res) {
     try {
     console.log(req.body, 'req.body from client');
-    const text = 'shalom'
     const allUsers = await UserModel.find({})
     console.log( 'const allUsers = await UserModel.find({}) returns:', allUsers);
     

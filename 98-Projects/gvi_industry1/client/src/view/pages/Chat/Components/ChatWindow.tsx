@@ -13,7 +13,11 @@ function ChatWindow(props: ChatWindowProps) {
     return (
         <div className='chat__chatWindow'>
             <ul className="chat__chatWindow__messagesList">
-
+                {messageList? messageList.map((message, i) => {
+                    return (
+                        <li className="messageCard">message.text</li>
+                    )
+                }):null}
             </ul>
             <div className='chat__chatWindow__messageBar'>
                 <InputBase placeholder='Message' />
