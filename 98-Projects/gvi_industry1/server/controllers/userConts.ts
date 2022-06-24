@@ -1,8 +1,10 @@
-import UserModel from '../models/messageModel'
+import UserModel from '../models/userModel'
 
-export const getUsers = async (req, res) => {
+export const getRecipients = async (req, res) => {
+    console.log(req.body);
     const allUsers = await UserModel.find({})
- 
+    console.log(allUsers);
+    
     try {
         res.send({ allUsers, ok: true })
     } catch (error) {

@@ -18,38 +18,40 @@ export enum Stage {
 }
 
 
-  export enum UserType {
-    ADMIN = "admin",
-    MENTEE = "mentee",
-    MENTOR = "mentor",
-  }
+  // export enum UserType {
+  //   ADMIN = "admin",
+  //   MENTEE = "mentee",
+  //   MENTOR = "mentor",
+  // }
   export const NameSchema = new mongoose.Schema({
     first:String,
     last: String
   })
-  export enum Sector {
-    EDUCATION = "eduction",
-    DIGITAL_HEALTH = "digital health",
-  }
+  // export enum Sector {
+  // EDUCATION = "eduction",
+  //   DIGITAL_HEALTH = "digital health",
+  // }
 
 
 const UserSchema = new mongoose.Schema({
 
     _id: String,
-    name: NameSchema,
-    description: String,
-    image: File,
-    email: String,
-    country: String,
-    lastEntry: Date,
-    companies: Array,
-    linkedInProfile: String,
-    phone: Number,
-    initiatives: Array,
-    password: String,
-    type: UserType,
-    fieldsOfKnowledge: Array,
-    sectors:Sector
+//     name: NameSchema,
+//     description: String,
+//     // TODO: find how to put file in the pace of string in "image: String,"
+//     image: String,
+//     email: String,
+//     country: String,
+//     lastEntry: Date,
+//     companies: Array,
+//     linkedInProfile: String,
+//     phone: Number,
+//     initiatives: Array,
+//     password: String,
+//     // type: UserType,
+//     fieldsOfKnowledge: Array,
+//     // sectors:Sector
+userName:{first:String, last: String},
 });
 
 const UserModel = mongoose.model('users', UserSchema);

@@ -35,9 +35,9 @@ export const InitiativeSchema = new mongoose.Schema({
     },
     WebSite:String,
     LinkToOnepager: String,
-    Presntations: [String]
+    Presntations: [{String}]
 
-    /////initative
+    /////initiative
     
 })
 const InitiativeModel = mongoose.model("initiatives",InitiativeSchema)

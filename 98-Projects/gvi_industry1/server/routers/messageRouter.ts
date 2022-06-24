@@ -1,10 +1,10 @@
 import express from 'express'
 const router = express.Router()
 
-import{getUsers} from '../controllers/userConts'
+import{getMessages} from '../controllers/messageConts'
 
 router
-.post('/get-recipients', getUsers)
+.post('/get-messages', getMessages)
 
 
 export default router
