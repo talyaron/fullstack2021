@@ -5,7 +5,6 @@ import {ReactComponent as SearchMessages} from '../SearchMessages.svg';
 import {ReactComponent as VideoIcon} from '../VideoIcon.svg';
 import {ReactComponent as CallIcon} from '../CallIcon.svg';
 
-
 import {IconLookup} from '@fortawesome/fontawesome-common-types';
 interface CurrentRecipientProps {}
 function CurrentRecipient(props: CurrentRecipientProps) {
@@ -21,16 +20,16 @@ function CurrentRecipient(props: CurrentRecipientProps) {
             <div className='chat__currentRecipient__info'>
                 <Avatar>EH</Avatar>
                 <div className={`text` + id}>
-                    <p id="e1">Etan Heyman</p>
+                    <p id='e1'>Etan Heyman</p>
                     {/* איך נביא last active? */}
-                    <p id="e2">Last active Today</p>
+                    <p id='e2'>Last active Today</p>
                 </div>
             </div>
             <ul className='chat__currentRecipient__Buttons'>
-                <a href="">
-<SearchMessages/>
-<CallIcon/>
-<VideoIcon/>
+                <a href=''>
+                    <SearchMessages />
+                    <CallIcon />
+                    <VideoIcon />
                 </a>
                 {/* {actionList.map((action, i) => {
                     return (

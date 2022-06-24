@@ -1,11 +1,12 @@
 import UserModel from '../models/userModel'
 
-export const getRecipients = async (req, res) => {
-    console.log(req.body, 'req.body from client');
-    const allUsers = await UserModel.find({})
-    console.log( 'const allUsers = await UserModel.find({}) returns:' ,allUsers);
-    
+export async function getRecipients(req, res) {
     try {
+    console.log(req.body, 'req.body from client');
+    const text = 'shalom'
+    const allUsers = await UserModel.find({})
+    console.log( 'const allUsers = await UserModel.find({}) returns:', allUsers);
+    
         res.send({ allUsers, ok: true })
     } catch (error) {
         console.log(error.error)

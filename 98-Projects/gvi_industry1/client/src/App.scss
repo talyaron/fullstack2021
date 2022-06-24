@@ -26,12 +26,12 @@
         width: 306px;
         height: 715px;
         grid-area: b;
-        box-shadow: inset 2px -2px 0px -1px gray;
+        box-shadow: inset -2px 0px 0px 0px gray;
     }
     &__currentRecipient {
         display: flex;
         background-color: rgb(255, 255, 255);
-box-shadow: inset 2px -2px 0px -1px gray;
+box-shadow: inset 0px -2px 0px -1px gray;
         max-width: 916px;
         max-height: 56px;
         grid-area: a;

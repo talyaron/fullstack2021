@@ -5,13 +5,13 @@ import http from 'http';
 const server = http.createServer(app);
 import {Server} from 'socket.io';
 export const io = new Server(server);
-import cors from 'cors';
+// import cors from 'cors';
 import mongoose from 'mongoose';
 import cookieParser from 'cookie-parser';
 const port = process.env.PORT || 4000;
 const MONGODB_URI = process.env.MONGODB_URI;
 
-app.use(cors());
+// app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.static('public/build'));
