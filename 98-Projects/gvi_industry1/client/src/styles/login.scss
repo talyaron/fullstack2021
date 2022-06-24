@@ -1,0 +1,22 @@
+.showLogin{
+    width:500px;
+    height:500px;
+    background-color: aqua;
+    border:1px solid green;
+    display:block;
+}
+.dontShowLogin{
+    display:none;
+}
+.closeButton{
+    border:none;
+    background-color: transparent;
+}
+.divider{
+    display:flex;
+    flex-direction: row;
+    hr{
+        flex-direction: column;
+    }
+   
+}
