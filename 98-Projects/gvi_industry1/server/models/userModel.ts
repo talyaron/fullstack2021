@@ -6,33 +6,33 @@ import company, { companySchema } from "./companyModel";
 //     last: string;
 //   }
 
-export enum FieldsOfKnowledge {
-  UX = "ux",
-  BUSINESS_DEVELOPMENT = "devlopment",
-}
+// export enum FieldsOfKnowledge {
+//   UX = "ux",
+//   BUSINESS_DEVELOPMENT = "devlopment",
+// }
 
-export enum Stage {
-  FFF = "friends and family",
-  PRE_SEED = "pre-seed",
-  SEED = "seed",
-  ROUND_A = "round a",
-  ROUND_ABOVE = "round b and above",
-}
+// export enum Stage {
+//   FFF = "friends and family",
+//   PRE_SEED = "pre-seed",
+//   SEED = "seed",
+//   ROUND_A = "round a",
+//   ROUND_ABOVE = "round b and above",
+// }
 
 
-  export enum UserType {
-    ADMIN = "admin",
-    MENTEE = "mentee",
-    MENTOR = "mentor",
-  }
+  // export enum UserType {
+  //   ADMIN = "admin",
+  //   MENTEE = "mentee",
+  //   MENTOR = "mentor",
+  // }
   export const NameSchema = new mongoose.Schema({
     first:String,
     last: String
   })
-  export enum Sector {
-    EDUCATION = "eduction",
-    DIGITAL_HEALTH = "digital health",
-  }
+  // export enum Sector {
+  //   EDUCATION = "eduction",
+  //   DIGITAL_HEALTH = "digital health",
+  // }
 
 
 const UserSchema = new mongoose.Schema({
@@ -49,9 +49,9 @@ const UserSchema = new mongoose.Schema({
     phone: Number,
     initiatives: InitiativeSchema,
     password: String,
-    type: UserType,
-    fieldsOfKnowledge: Array,
-    sectors:Sector,
+    type: String,
+    fieldsOfKnowledge: String,
+    sectors:String,
     profession:String
 });
 

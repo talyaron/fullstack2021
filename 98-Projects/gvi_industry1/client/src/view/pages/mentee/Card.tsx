@@ -6,7 +6,7 @@ function Card() {
   useEffect(() => {
     (async () => {
       const {data}  = await axios.get("/api/users/getUser",{});
-      console.log(data);
+      console.log({data});
       
       // setTempBlog(data.data[0])
       
