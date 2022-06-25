@@ -36,21 +36,22 @@ export enum Stage {
 const UserSchema = new mongoose.Schema({
 
     _id: String,
-    name: NameSchema,
+    name: String,
     description: String,
-    image: File,
+    image: String,
     email: String,
     country: String,
     lastEntry: Date,
-    companies: Array,
+    companies: String,
     linkedInProfile: String,
     phone: Number,
-    initiatives: Array,
+    initiatives: String,
     password: String,
-    type: UserType,
-    fieldsOfKnowledge: Array,
-    sectors:Sector
+    type: String,
+    fieldsOfKnowledge: String,
+    sectors:String,
 });
 
-const UserModel = mongoose.model('users', UserSchema);
-export default UserModel;
+
+const Mentee = mongoose.model('mentees', UserSchema);
+export default Mentee;

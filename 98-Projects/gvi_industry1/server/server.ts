@@ -1,13 +1,13 @@
-import express from 'express';
+const express = require("express");
+const app = express();
 import mongoose from 'mongoose';
-const app = express()
-
+// const http = require("http");
+// const server = http.createServer(app);
 // const { Server } = require("socket.io");
 // export const io = new Server(server);
-const port = process.env.PORT || 4000;
-require('dotenv').config()
-
+const port = process.env.PORT || 4001;
 // var cors = require("cors");
+// require('dotenv').config()
 
 
 // app.use(cors());
@@ -18,10 +18,6 @@ app.use(express.static('client/build'))
 //   console.log('user connected', socket.id)
 // });
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
-
 mongoose.connect(
   "mongodb+srv://igino11:3RSAELQqHEFuwzw9@cluster0.zfewx.mongodb.net/?retryWrites=true&w=majority"
 ).then(res=>{
@@ -29,3 +25,14 @@ mongoose.connect(
 }).catch(err=>{
   console.error(err.message)
 });
+
+import routes from './routesMentees/routes'
+
+app.use('/mentees',routes );
+
+// server.listen(port, () => {
+//   console.log(`listening on *:${port}`);
+// });
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})
