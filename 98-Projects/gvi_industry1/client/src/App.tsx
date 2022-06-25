@@ -1,6 +1,6 @@
 import React from 'react';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import './App.scss';
+import './view/styles/global.scss';
 import Chat from './view/pages/Chat/Chat';
 function App() {
     return (
