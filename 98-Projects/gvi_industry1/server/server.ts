@@ -1,15 +1,18 @@
+import CardRoute from "./routes/CardRoute"
 const express = require("express");
 const app = express();
-const http = require("http");
+// const http = require("http");
 // const server = http.createServer(app);
 // const { Server } = require("socket.io");
 // export const io = new Server(server);
-const port = process.env.PORT || 4010;
+const port = process.env.PORT || 4000;
 // var cors = require("cors");
 import mongoose from 'mongoose';
 
 app.use(express.static('public/build'))
 app.use(express.json());
+
+app.use("/api/users",CardRoute)
 
 
 mongoose.connect('mongodb+srv://GviMentorMentee:DlOC8kO9pt6jsKoj@cluster0.vbho2.mongodb.net/MentorMentee?retryWrites=true&w=majority')
@@ -24,6 +27,7 @@ mongoose.connect('mongodb+srv://GviMentorMentee:DlOC8kO9pt6jsKoj@cluster0.vbho2.
 app.listen(port, () => {
     return console.log(`Express is listening at http://localhost:${port}`);
 });
+
 
 
 
