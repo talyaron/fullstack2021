@@ -1,13 +1,10 @@
 import {useId, useEffect} from 'react';
 import {InputBase} from '@mui/material';
-import {faBars} from '@fortawesome/free-solid-svg-icons';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {UserInterface} from '../Chat';
-import {ReactComponent as SearchUsersIcon} from '../SearchUsers.svg';
-import {ReactComponent as SVGHamburgerIcon} from '../HamburgerIcon.svg';
-import {ReactComponent as SideBarDivider} from '../SideBarDivider.svg';
+import {ReactComponent as SearchUsersIcon} from '../Icons/SearchUsers.svg';
+import {ReactComponent as SVGHamburgerIcon} from '../Icons/HamburgerIcon.svg';
+import {ReactComponent as SideBarDivider} from '../Icons/SideBarDivider.svg';
 
-const HamburgerIcon = <FontAwesomeIcon style={{color: 'blue'}} icon={faBars} />;
 interface SideBarProps {
     userList?: Array<UserInterface>;
     getUserList: Function;
@@ -20,9 +17,6 @@ function SideBar(props: SideBarProps) {
             getUserList();
         };
     }, []);
-    const {
-        // userList
-    } = props;
     const id = useId();
     return (
         <div className='chat__sideBar'>
@@ -30,7 +24,7 @@ function SideBar(props: SideBarProps) {
                 <SVGHamburgerIcon style={{padding: '21px 26px'}} />
                 <div className={`search` + id}>
                     <SearchUsersIcon />
-                    {/* <FontAwesomeIcon style={{color: 'red'}} icon={'search'} pull='left' /> */}
+
                     <InputBase placeholder='Search' />
                 </div>
             </div>

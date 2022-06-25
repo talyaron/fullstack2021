@@ -11,7 +11,7 @@
     height: 715px;
     left: 120px;
     top: calc(206px - 73px);
-    border: solid 1px gray;
+    border: solid 1px rgba(128, 128, 128, 0.38);
     display: grid;
     grid-template-rows: 56px 1fr;
     grid-template-columns: 306px 1fr;
@@ -94,11 +94,15 @@
             // place-items:center;
         }
         [class^='text'] {
-            #e1 {
+            .userName {
+                color: #011627;
                 line-height: 20px;
+                font-size: 16px;
             }
-            #e2 {
-                line-height: 14px;
+            .activity {
+                color: #707991;
+                font-size: 14px;
+                line-height: 18px;
             }
             gap: 4px;
             & * {
@@ -125,6 +129,13 @@
         grid-area: c;
         background-color: #cdcdcd;
         position: relative;
+        display: flex;
+        place-content: space-evenly;
+        &__messagesList{
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
         &__messageBar {
             position: absolute;
             display: flex;
@@ -143,6 +154,9 @@
                 width: 100%;
                 input {
                     width: 100%;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    white-space: nowrap;
                 }
             }
         }

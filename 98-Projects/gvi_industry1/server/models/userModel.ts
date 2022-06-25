@@ -55,5 +55,5 @@ userName:{
     first:String, last: String},
 });
 
-const UserModel = mongoose.model('users', UserSchema);
-export default UserModel;
+const User = mongoose.model('users', UserSchema);
+export default User;
