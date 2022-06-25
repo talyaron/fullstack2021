@@ -4,7 +4,7 @@ const router = express.Router()
 import{getMessages} from '../controllers/messageConts'
 
 router
-.post('/get-recipients', getMessages)
+.post('/get-messages', getMessages)
 
 
 export default router

@@ -1,9 +1,9 @@
 import MessageModel from '../models/messageModel'
 
 export const getMessages = async (req, res) => {
-    const allMessages = await MessageModel.find({})
-
     try {
+        console.log(req.body);
+        const allMessages = await MessageModel.find({})
         res.send({ allMessages, ok: true })
     } catch (error) {
         console.log(error.error)

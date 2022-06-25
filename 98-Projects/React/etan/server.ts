@@ -13,6 +13,7 @@ app.use(cookieParser())
 app.use(express.static("public/build"));
 
 mongoose
+.set('debug', true)
   .connect(
     `${MONGODB_URI}`
   )

@@ -1,18 +1,17 @@
-import mongoose from "mongoose";
-import { NameSchema } from "./userModel";
+import mongoose from 'mongoose';
+import {NameSchema} from './userModel';
 
-const UserSchema = new mongoose.Schema({
+const UserMessageSchema = new mongoose.Schema({
     userId: String,
-    userName: NameSchema,
-})
-
-
-const MessageSchema = new mongoose.Schema({
-  sender: UserSchema,
-  recipients: [UserSchema],
-  text: String,
-  file: String,
+    userName: {first: String, last: String},
 });
 
-const MessageModel = mongoose.model("messages", MessageSchema);
+const MessageSchema = new mongoose.Schema({
+    sender: UserMessageSchema,
+    recipients: [UserMessageSchema],
+    text: String,
+    file: String,
+});
+
+const MessageModel = mongoose.model('messages', MessageSchema);
 export default MessageModel;

@@ -1,15 +1,13 @@
-import {useId, useState} from 'react';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {useId} from 'react';
 import {Avatar} from '@mui/material';
+import {ReactComponent as SearchMessages} from '../Icons/SearchMessages.svg';
+import {ReactComponent as VideoIcon} from '../Icons/VideoIcon.svg';
+import {ReactComponent as CallIcon} from '../Icons/CallIcon.svg';
 
-import {IconLookup} from '@fortawesome/fontawesome-common-types';
+
 interface CurrentRecipientProps {}
 function CurrentRecipient(props: CurrentRecipientProps) {
-    const [actionList, setActionList] = useState<Array<IconLookup>>([
-        {prefix: 'fas', iconName: 'search'},
-        {prefix: 'fas', iconName: 'phone'},
-        {prefix: 'fas', iconName: 'video'},
-    ]);
+
 
     const id = useId();
     return (
@@ -17,21 +15,17 @@ function CurrentRecipient(props: CurrentRecipientProps) {
             <div className='chat__currentRecipient__info'>
                 <Avatar>EH</Avatar>
                 <div className={`text` + id}>
-                    <p>Etan Heyman</p>
+                    <p className="userName">Etan Heyman</p>
                     {/* איך נביא last active? */}
-                    <p>Last active Today</p>
+                    <p className='activity'>Last active Today</p>
                 </div>
             </div>
             <ul className='chat__currentRecipient__Buttons'>
-                {actionList.map((action, i) => {
-                    return (
-                        <li key={i}>
-                            <a href=''>
-                                <FontAwesomeIcon style={{color: 'red'}} icon={action} />
-                            </a>
-                        </li>
-                    );
-                })}
+                <a href=''>
+                    <SearchMessages />
+                    <CallIcon />
+                    <VideoIcon />
+                </a>
             </ul>
         </div>
     );
