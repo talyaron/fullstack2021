@@ -1,0 +1,35 @@
+.form__wrapper {
+    
+    width: 604px;
+    height: 71px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    border:1px solid blue
+
+}
+
+// :root {
+//     --line-border-fill: #3498db;
+//     --line-border-empty: #e0e0e0;
+// }
+
+.progressBar {
+   
+
+    display: flex;
+    justify-content: space-between;
+    border:1px solid rgb(169, 251, 5);
+
+    &__stage-1 {
+        border: 1px solid rgb(237, 20, 20);
+
+        &:after {
+            content: ''
+        }
+    }
+
+}
