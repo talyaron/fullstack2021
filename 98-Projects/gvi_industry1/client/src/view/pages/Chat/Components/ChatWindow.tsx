@@ -25,6 +25,9 @@ function ChatWindow(props: ChatWindowProps) {
         console.log('on')
 
         socket.on('recieve-message', (data) => {
+
+            console.log('recieved')
+
             const payload = {
                 text: data.message,
                 sender: {userId: '', userName: {first:'',last:''}},
@@ -35,8 +38,8 @@ function ChatWindow(props: ChatWindowProps) {
             // console.log('data message:' + data.message)
         })
 
-        console.log('off')
         return () => {
+            console.log('off')
             socket.off('recieve-message')
         }
 
@@ -48,7 +51,7 @@ function ChatWindow(props: ChatWindowProps) {
         // console.log(messages, 'messages ChatWindow');
     }, []);
 
-    
+
     return (
         <div className='chat__chatWindow'>
             <ul className='chat__chatWindow__messagesList'>

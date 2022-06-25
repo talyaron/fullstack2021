@@ -31,7 +31,7 @@ app.use(express.static('public/build'));
 
 
 mongoose
-    .set('debug', { shell: true })
+    // .set('debug', { shell: true })
     .connect(`${MONGODB_URI}`)
     .then(() => {
         console.log('connected to Mongoose');
@@ -45,15 +45,18 @@ mongoose
 io.on('connection', (socket: any) => {
     console.log('user connected', socket.id);
 
+    socket.on("join-room", (data) => {
+        socket.join(data);
+        console.log(`User with ID: ${socket.id} joined room: ${data}`);
+      });
+
     socket.on('send-message', (data) => {
-        console.log(data.message)
 
         const message = new MessageModel({text: data.message})
-        message.save().then(() => {
-            io.emit('recieve-message', data)
-        })
+        message.save()
+    
+        io.to(data.room).emit('recieve-message', data)
 
-        
     })
 });
 

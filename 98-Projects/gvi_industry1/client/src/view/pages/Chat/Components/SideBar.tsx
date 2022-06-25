@@ -4,6 +4,7 @@ import {UserInterface} from '../Chat';
 import {ReactComponent as SearchUsersIcon} from '../Icons/SearchUsers.svg';
 import {ReactComponent as SVGHamburgerIcon} from '../Icons/HamburgerIcon.svg';
 import {ReactComponent as SideBarDivider} from '../Icons/SideBarDivider.svg';
+import { socket } from '../../../../index';
 
 interface SideBarProps {
     userList?: Array<UserInterface>;
@@ -18,6 +19,17 @@ function SideBar(props: SideBarProps) {
     //     };
     // }, []);
     const id = useId();
+
+    function handleJoinRoom(ev:any, id:any){
+        const room = id;
+
+        if(room != ''){
+            console.log('hi',room)
+            socket.emit('join-room',room)
+        }
+
+    }
+
     return (
         <div className='chat__sideBar'>
             <div className='chat__sideBar__searchBar'>
@@ -32,7 +44,7 @@ function SideBar(props: SideBarProps) {
                 {userList ? (
                     userList.map((user, i) => {
                         return (
-                            <li key={i}>
+                            <li key={i} onClick={(ev) => handleJoinRoom(ev, user.userId)}>
                                 <p>{user.userName.last}</p>
                             </li>
                         );
