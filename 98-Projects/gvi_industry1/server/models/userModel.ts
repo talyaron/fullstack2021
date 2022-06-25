@@ -1,4 +1,6 @@
 import mongoose from "mongoose";
+import InitiativeModel, { InitiativeSchema } from "./initiativeModel";
+import company, { companySchema } from "./companyModel";
 // interface Name {
 //     first: string;
 //     last: string;
@@ -42,14 +44,15 @@ const UserSchema = new mongoose.Schema({
     email: String,
     country: String,
     lastEntry: Date,
-    companies: Array,
+    companies: companySchema,
     linkedInProfile: String,
     phone: Number,
-    initiatives: Array,
+    initiatives: InitiativeSchema,
     password: String,
     type: UserType,
     fieldsOfKnowledge: Array,
-    sectors:Sector
+    sectors:Sector,
+    profession:String
 });
 
 const UserModel = mongoose.model('users', UserSchema);
