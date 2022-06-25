@@ -9,26 +9,19 @@ import { socket } from '../../../../index';
 interface SideBarProps {
     userList?: Array<UserInterface>;
     getUserList: Function;
+    handleJoinRoom: Function;
 }
 
 function SideBar(props: SideBarProps) {
-    const {userList, getUserList} = props;
-    // useEffect(() => {
-    //     return () => {
-    //         getUserList();
-    //     };
-    // }, []);
+    const {userList, getUserList, handleJoinRoom} = props;
+    useEffect(() => {
+        return ()  => { 
+            getUserList();
+        };
+    }, []);
     const id = useId();
 
-    function handleJoinRoom(ev:any, id:any){
-        const room = id;
-
-        if(room != ''){
-            console.log('hi',room)
-            socket.emit('join-room',room)
-        }
-
-    }
+    
 
     return (
         <div className='chat__sideBar'>
@@ -44,7 +37,7 @@ function SideBar(props: SideBarProps) {
                 {userList ? (
                     userList.map((user, i) => {
                         return (
-                            <li key={i} onClick={(ev) => handleJoinRoom(ev, user.userId)}>
+                            <li key={i} onClick={(ev) => handleJoinRoom(ev, user._id)}>
                                 <p>{user.userName.last}</p>
                             </li>
                         );

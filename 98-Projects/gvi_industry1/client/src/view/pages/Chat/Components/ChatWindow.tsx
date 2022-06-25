@@ -1,7 +1,7 @@
 import {useEffect,useState} from 'react';
 import {ReactComponent as PaperPlaneIcon} from '../Icons/paper-plane-right.svg';
 import {InputBase} from '@mui/material';
-import {MessageInterface, UserInterface } from '../Chat';
+import {MessageInterface, MessageUserInterface } from '../Chat';
 import { socket } from '../../../../index'
 
 
@@ -20,35 +20,12 @@ function ChatWindow(props: ChatWindowProps) {
         socket.emit('send-message',{message: sentMessage})
     }
 
-    useEffect (() => {
-
-        console.log('on')
-
-        socket.on('recieve-message', (data) => {
-
-            console.log('recieved')
-
-            const payload = {
-                text: data.message,
-                sender: {userId: '', userName: {first:'',last:''}},
-                recipients: [],
-                file: ''
-            }
-            setMessageList((messageList: Array<MessageInterface>) => [...messageList, payload])
-            // console.log('data message:' + data.message)
-        })
-
-        return () => {
-            console.log('off')
-            socket.off('recieve-message')
-        }
-
-    },[socket])
+    
 
 
     useEffect(() => {
         const messages = getMessageList();
-        // console.log(messages, 'messages ChatWindow');
+        console.log(messages, 'messages ChatWindow');
     }, []);
 
 
