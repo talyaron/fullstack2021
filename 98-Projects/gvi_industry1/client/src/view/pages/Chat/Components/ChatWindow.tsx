@@ -1,17 +1,54 @@
-import {useEffect} from 'react';
+import {useEffect,useState} from 'react';
 import {ReactComponent as PaperPlaneIcon} from '../Icons/paper-plane-right.svg';
 import {InputBase} from '@mui/material';
-import {MessageInterface} from '../Chat';
+import {MessageInterface, UserInterface } from '../Chat';
+import { socket } from '../../../../index'
+
+
 interface ChatWindowProps {
     messageList?: Array<MessageInterface>;
     getMessageList: Function;
+    setMessageList: Function;
 }
+
 function ChatWindow(props: ChatWindowProps) {
-    const {getMessageList, messageList} = props;
+
+    const {getMessageList, messageList, setMessageList } = props;
+    const [ sentMessage, setSentMessage ] = useState ('');
+
+    function handleSendMessage(ev:any){
+        socket.emit('send-message',{message: sentMessage})
+    }
+
+    useEffect (() => {
+
+        console.log('on')
+
+        socket.on('recieve-message', (data) => {
+            const payload = {
+                text: data.message,
+                sender: {userId: '', userName: {first:'',last:''}},
+                recipients: [],
+                file: ''
+            }
+            setMessageList((messageList: Array<MessageInterface>) => [...messageList, payload])
+            // console.log('data message:' + data.message)
+        })
+
+        console.log('off')
+        return () => {
+            socket.off('recieve-message')
+        }
+
+    },[socket])
+
+
     useEffect(() => {
         const messages = getMessageList();
-        console.log(messages, 'messages ChatWindow');
+        // console.log(messages, 'messages ChatWindow');
     }, []);
+
+    
     return (
         <div className='chat__chatWindow'>
             <ul className='chat__chatWindow__messagesList'>
@@ -24,11 +61,12 @@ function ChatWindow(props: ChatWindowProps) {
             <div className='chat__chatWindow__messageBar'>
                 <InputBase
                     onChange={(ev) => {
-                        console.log(ev);
+                        // console.log(ev);
+                        setSentMessage(ev.target.value)
                     }}
                     placeholder='Message'
                 />
-                <PaperPlaneIcon />
+                <PaperPlaneIcon onClick={handleSendMessage}/>
             </div>
         </div>
     );

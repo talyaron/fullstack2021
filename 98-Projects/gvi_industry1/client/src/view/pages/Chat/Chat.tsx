@@ -17,7 +17,10 @@ export interface MessageInterface {
 }
 
 function Chat() {
+
     const [messageList, setMessageList] = useState<Array<MessageInterface>>([
+
+
         {sender: {
           userId: "62b50ec96bd21c886f8fc3ad",
           userName: {
@@ -80,12 +83,13 @@ function Chat() {
             },
         },
     ]);
-    useEffect(() => {
-        return() => {
-    setMessageList( [... messageList])
-            console.log(messageList, 'messageList -Chat');
-        }
-    }, []);
+    // useEffect(() => {
+    //     return() => {
+    // setMessageList( [... messageList])
+    //         console.log(messageList, 'messageList -Chat');
+    //     }
+    // }, []);
+
     async function getMessageList() {
         try {
             const {data} = await axios.post('/api/messages/get-messages', {ok: true});
@@ -114,7 +118,7 @@ function Chat() {
         <div className='chat'>
             <SideBar getUserList={getUserList} userList={userList} />
             <CurrentRecipient />
-            <ChatWindow getMessageList={getMessageList} messageList={messageList} />
+            <ChatWindow getMessageList={getMessageList} messageList={messageList} setMessageList={setMessageList} />
         </div>
     );
 }

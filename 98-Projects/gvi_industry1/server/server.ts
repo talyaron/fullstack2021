@@ -1,27 +1,37 @@
+// QUESTIONS - 
+        // 1  IO / SOCKET - CHOICE  ???  (44)
+        // 2  PROXY ERRORS SOCKET
+
+
 import 'dotenv/config';
 import express from 'express';
 const app = express();
 import http from 'http';
 const server = http.createServer(app);
-import {Server} from 'socket.io';
-export const io = new Server(server);
-// import cors from 'cors';
+import { Server } from 'socket.io';
+import cors from 'cors';
+const io = new Server(server, {
+    cors: {
+        origin: 'https://localhost:3000',
+        // methods: ['GET', 'POST']
+    }
+})
 import mongoose from 'mongoose';
 import cookieParser from 'cookie-parser';
+import MessageModel from './models/messageModel';
+
 const port = process.env.PORT || 4000;
 const MONGODB_URI = process.env.MONGODB_URI;
 
-// app.use(cors());
+app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.static('public/build'));
 
-io.on('connection', (socket: any) => {
-    console.log('user connected', socket.id);
-});
+
 
 mongoose
-    .set('debug', {shell: true})
+    .set('debug', { shell: true })
     .connect(`${MONGODB_URI}`)
     .then(() => {
         console.log('connected to Mongoose');
@@ -31,6 +41,21 @@ mongoose
         console.log(err.message);
         console.log(MONGODB_URI);
     });
+
+io.on('connection', (socket: any) => {
+    console.log('user connected', socket.id);
+
+    socket.on('send-message', (data) => {
+        console.log(data.message)
+
+        const message = new MessageModel({text: data.message})
+        message.save().then(() => {
+            io.emit('recieve-message', data)
+        })
+
+        
+    })
+});
 
 import userRouter from './routers/userRouter';
 app.use('/api/users', userRouter);

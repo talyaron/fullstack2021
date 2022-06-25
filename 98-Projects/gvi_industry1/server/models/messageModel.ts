@@ -7,10 +7,10 @@ const UserMessageSchema = new mongoose.Schema({
 });
 
 const MessageSchema = new mongoose.Schema({
-    sender: UserMessageSchema,
-    recipients: [UserMessageSchema],
+    // sender: UserMessageSchema,
+    // recipients: [UserMessageSchema],
     text: String,
-    file: String,
+    // file: String,
 });
 
 const MessageModel = mongoose.model('messages', MessageSchema);

@@ -12,11 +12,11 @@ interface SideBarProps {
 
 function SideBar(props: SideBarProps) {
     const {userList, getUserList} = props;
-    useEffect(() => {
-        return () => {
-            getUserList();
-        };
-    }, []);
+    // useEffect(() => {
+    //     return () => {
+    //         getUserList();
+    //     };
+    // }, []);
     const id = useId();
     return (
         <div className='chat__sideBar'>
