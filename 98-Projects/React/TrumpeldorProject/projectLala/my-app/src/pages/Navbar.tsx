@@ -1,59 +1,38 @@
 import React from "react";
 import { BrowserRouter, Route, Link } from "react-router-dom";
-import Button from "@mui/material/Button";
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
 
-function Navbar() {
+ 
+
+
+export function ButtonAppBar() {
   return (
-    <div className="Navbar">
-      <Button
-        variant="outlined"
-        className="Navbar-Order"
-        style={{
-          borderRadius: 35,
-          backgroundColor: "yellow",
-          padding: "18px 36px",
-          fontSize: "18px",
-        }}
-      >
-        להזמנה
-      </Button>
-
-      <Button
-        variant="outlined"
-        className="Navbar-StayConnect"
-        style={{
-          borderRadius: 35,
-          padding: "18px 36px",
-          fontSize: "18px",
-        }}
-      >
-        צור קשר
-      </Button>
-      <Button
-        variant="outlined"
-        className="Navbar-Manu"
-        style={{
-          borderRadius: 35,
-          padding: "18px 36px",
-          fontSize: "18px",
-        }}
-      >
-        תפריט
-      </Button>
-      <Button
-        variant="outlined"
-        className="Navbar-Main"
-        style={{
-          borderRadius: 35,
-          padding: "18px 36px",
-          fontSize: "18px",
-        }}
-      >
-        לדף הבית
-      </Button>
-      <div className="Navbar-Silmbol"></div>
-    </div>
+    <Box sx={{ flexGrow: 1 }}>
+      <AppBar position="static">
+        <Toolbar>
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            sx={{ mr: 2 }}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            News
+          </Typography>
+          <Button color="inherit">Login</Button>
+        </Toolbar>
+      </AppBar>
+    </Box>
   );
 }
 
-export default Navbar;
+export default ButtonAppBar;
