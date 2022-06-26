@@ -1,5 +1,6 @@
 const express = require("express");
 import mongoose from 'mongoose';
+import userRoute from './routes/userRoute'
 
 const app = express();
 const http = require("http");
@@ -8,12 +9,11 @@ const { Server } = require("socket.io");
 
 
 export const io = new Server(server);
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 4001;
 var cors = require("cors");
 require('dotenv').config()
 
 
-const mongodb_uri = process.env.MONGODB_URI
 
 app.use(cors());
 app.use(express.static('public/build'))
@@ -26,20 +26,18 @@ io.on("connection", (socket: any) => {
 
 
 mongoose.connect(
-  mongodb_uri
+  process.env.MONGODB_URI
 )
   .then(() => {
-      console.log("connected to Mongoose");
+    console.log("connected to Mongoose");
   })
   .catch((err) => {
-      console.log("Failed to connect to Mongoose:")
-      console.log(err.message);
+    console.log("Failed to connect to Mongoose:")
+    console.log(err.message);
   });
 
 
-app.get('/', (req, res) => {
-  res.send('hello world')
-})
+app.use('/api', userRoute)
 
 server.listen(port, () => {
   console.log(`listening on *:${port}`);

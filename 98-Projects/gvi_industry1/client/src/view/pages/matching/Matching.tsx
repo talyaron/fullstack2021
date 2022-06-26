@@ -1,8 +1,31 @@
-import React from 'react'
+import axios from 'axios'
+import { useEffect } from 'react'
+interface MatchingProps {
+  mentorsList:any,
+  setMentorsList:Function
+}
 
-const Matching = () => {
+const Matching = (props:MatchingProps) => {
+
+  const {mentorsList,setMentorsList} = props
+
+  useEffect(()=>{
+    (async()=>{
+      const {data} = await axios.get('/api/get-mentors')
+      const allMentors = data.allMentors
+      setMentorsList(allMentors)
+    })();
+  },[])
+
+
   return (
-    <div>Matching</div>
+    <div>
+      {mentorsList.map((mentor:any)=>
+      <div key={mentor._id}>{mentor.fullName}</div>
+      )}
+
+  
+    </div>
   )
 }
 
