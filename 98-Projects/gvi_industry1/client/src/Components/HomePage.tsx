@@ -1,5 +1,6 @@
 import React,{useState} from 'react'
 import Login from './Login'
+import UserSelection from './UserSelection'
 const HomePage = () => {
     const [loginWindow,setLoginWindow]=useState(false)
     const [registerWindow,setRegisterWindow]=useState(false)
@@ -23,6 +24,7 @@ const HomePage = () => {
          <>video</>
         </div>
         <Login loginWindow={loginWindow} setLoginWindow={setLoginWindow}/>
+        <UserSelection registerWindow={registerWindow} setRegisterWindow={setRegisterWindow}/>
         <div className='feed'>
             
             <div className='feed__news' id="news"> news</div>
