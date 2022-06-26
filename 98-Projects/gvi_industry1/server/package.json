@@ -18,6 +18,7 @@
   "dependencies": {
     "@types/jwt-simple": "^0.5.33",
     "@types/mongoose": "^5.11.97",
+    "aws-sdk": "^2.1162.0",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
