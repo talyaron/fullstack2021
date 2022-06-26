@@ -16,9 +16,8 @@ export interface UserInterface {
 }
 export interface MessageInterface {
     _id?:String;
-    room:String;
     sender: MessageUserInterface;
-    // recipients: Array<MessageUserInterface>;
+    recipients: Array<MessageUserInterface>;
     text?: String;
     file?: String;
     time?: String;
@@ -52,15 +51,13 @@ function Chat() {
                 }
             };
             const payload = {
-                room:message.room,
                 text: message.text,
                 sender: {userId: '', userName: {first: '', last: ''}},
-                recipients: [],
+                recipients: [...message.recipients],
                 file: '',
                 time: dateFromObjectId(id)
             };
             console.log(payload, 'payload');
-            
             setMessageList((messageList: Array<MessageInterface>) => [...messageList, payload]);
             console.log('data text:' + message.text)
             setScroll("0")
@@ -76,14 +73,14 @@ function Chat() {
     function handleSendMessage(ev:any){
         // console.log(ev);
         
-        socket.emit('send-message',{room: room,text: sentMessage})
         const payload = {
-            room:room,
+
             text: sentMessage,
             sender: {userId: '', userName: {first: '', last: ''}},
-            recipients: [],
+            recipients: [{userId: room, userName: { first: '', last:''}},{userId: room, userName: { first: '', last:''}}],
             file: '',
         };
+        socket.emit('send-message',payload)
         setMessageList((messageList: Array<MessageInterface>) => [...messageList, payload]);
     }
     async function getMessageList() {

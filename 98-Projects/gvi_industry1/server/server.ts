@@ -1,21 +1,20 @@
-// QUESTIONS - 
-        // 1  IO / SOCKET - CHOICE  ???  (44)
-        // 2  PROXY ERRORS SOCKET
-
+// QUESTIONS -
+// 1  IO / SOCKET - CHOICE  ???  (44)
+// 2  PROXY ERRORS SOCKET
 
 import 'dotenv/config';
 import express from 'express';
 const app = express();
 import http from 'http';
 const server = http.createServer(app);
-import { Server } from 'socket.io';
+import {Server} from 'socket.io';
 import cors from 'cors';
 const io = new Server(server, {
     cors: {
         origin: 'https://localhost:3000',
         // methods: ['GET', 'POST']
-    }
-})
+    },
+});
 import mongoose from 'mongoose';
 import cookieParser from 'cookie-parser';
 import MessageModel from './models/messageModel';
@@ -27,8 +26,6 @@ app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.static('public/build'));
-
-
 
 mongoose
     // .set('debug', { shell: true })
@@ -45,20 +42,27 @@ mongoose
 io.on('connection', (socket: any) => {
     console.log('user connected', socket.id);
 
-    socket.on("join-room", (data) => {
+    socket.on('join-room', (data) => {
         socket.join(data);
         console.log(`User with ID: ${socket.id} joined room: ${data}`);
-      });
+    });
 
     socket.on('send-message', (data) => {
-
         console.log(data, 'data, send-message -server.ts');
-        const message = new MessageModel({text: data.text, room: data.room, time: data.time});
-        message.save()
-        
-        socket.to(data.room).emit('receive-message', message)
+        const message = new MessageModel({text: data.text, sender: data.sender, recipients: data.recipients, time: data.time});
+        message.save();
 
-    })
+        let recipients = (data) => {
+            let array = [];
+            for (let i = 0; i < data.recipients.length; i++) {
+                array.push(data.recipients[i].userId);
+            }
+            return array;
+        };
+        console.log(recipients(data));
+
+        socket.to(recipients(data)).emit('receive-message', message);
+    });
 });
 
 import userRouter from './routers/userRouter';
