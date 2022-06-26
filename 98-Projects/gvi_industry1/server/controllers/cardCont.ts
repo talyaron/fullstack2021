@@ -2,9 +2,10 @@ import UserModel from "../models/userModel";
 export async function getUser (req,res){
     try {
         
-        const data = await  UserModel.find({})
-        res.send({ ok: true,data});
-        console.log(data);
+        const result = await  UserModel.find({})
+        res.send({ ok: true,result});
+        console.log(result)
+        // console.log(data);
         
 
         }
