@@ -12,7 +12,8 @@
 // }
 
 .App{
-    min-height: 100vh;
+    min-height: 120vh;
+    height: fit-content;
     background-color:rgb(198, 198, 229);
     display: flex;
     flex-direction: column;

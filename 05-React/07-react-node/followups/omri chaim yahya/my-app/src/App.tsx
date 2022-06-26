@@ -10,7 +10,7 @@ function App() {
     const article= ev.target.article.value
     console.log(title, article);
 if (title && article) {
-  await axios.post ('api/blogs/add-blog',{title, article})
+  await axios.post('api/blogs/add-Blog',{title, article})
 
 }
     } catch (error) {
@@ -18,12 +18,14 @@ if (title && article) {
     }
   }
 
+
   return (
     <div className="App">
     <form className='blogs' onSubmit={handleSubmit}>
 <input type="text" name='title' placeholder='title'/>
 <input type="text" name='article' placeholder='article' />
 <input type="submit" value='submit'/>
+
     </form>
     </div>
   );
