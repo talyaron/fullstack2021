@@ -1,0 +1,112 @@
+.profile{
+    height: 100vh;
+    width: 100%;
+    // background-color: orange ;
+    display: grid;
+    grid-template-columns: repeat(10 ,10% );
+    grid-template-rows: repeat(10 ,10% );
+
+    &_profilePic{
+        margin-top: 8vh;
+        grid-column: 2/3;
+        grid-row: 2/4;
+        height: 100%;
+        width: 100%;
+        background: no-repeat center;
+        background-size:  100% 100%;
+        border-radius: 50% ;
+        border: 1px solid black;    
+    }
+    &_name{
+        margin-top: 8vh;
+        font-size: 25px;
+        font-weight: 500;
+        grid-column: 2/3;
+        grid-row: 4/5;
+        height: 100%;
+        width: 100%;
+        text-align: center;
+                 
+    }
+    &_country{
+        margin-top: 18vh;
+        font-size: 15px;
+        font-weight: 500;
+        grid-column: 2/3;
+        grid-row: 4/5;
+        height: 100%;
+        width: 100%;
+        text-align: center;
+                 
+    }
+    &_email{
+        margin-top: 15vh;
+        font-size: 15px;
+        font-weight: 500;
+        grid-column: 2/4;
+        grid-row: 5/6;
+        height: 100%;
+        width: 100%;                 
+    }
+    &_phone{
+        margin-top: 9vh;
+        font-size: 15px;
+        font-weight: 500;
+        grid-column: 2/4;
+        grid-row: 6/7;
+        height: 100%;
+        width: 100%;                 
+    }
+    
+    &_profession{
+        margin-top: 3vh;
+        font-size: 20px;
+        font-weight: 1000;
+        grid-column: 2/3;
+        grid-row: 5/6;
+        height: 100%;
+        width: 100%;
+        text-align: center;
+    }
+    &_lastEntry{
+        margin-top: 1vh;
+        font-size: 15px;
+        font-weight: 500;
+        grid-column: 1/4;
+        grid-row: 6/7;
+        height: 100%;
+        width: 100%;
+        text-align: center;
+    }
+    &_linkedInProfile{
+        grid-column: 2/5;
+        grid-row: 8/9;
+        font-size: 15px;
+        font-weight: 700; 
+    }
+
+    &_fieldsOfKnowledge{
+        display: flex;
+        flex-direction: column;
+        font-weight: 700;
+        grid-column: 6/8;
+        grid-row: 4/6;
+        height: 100%;
+        width: 100%;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+        &-head{
+            text-decoration: underline;
+            width: 100%;
+            font-size: 20px;   
+            color: rgb(30, 0, 255); 
+        }
+
+        &-field{
+            text-align: center;
+            padding-top: 5px;
+            color: black;
+        }
+    }
+    
+}
