@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useId} from 'react';
 import axios from 'axios';
 import ChatWindow from './Components/ChatWindow';
 import CurrentRecipient from './Components/CurrentRecipient';
@@ -21,74 +21,60 @@ export interface MessageInterface {
 }
 
 function Chat() {
+    const id = useId();
+    const [scroll, setScroll] = useState('')
+    const [ sentMessage, setSentMessage ] = useState ('');
+    const [room, setRoom] = useState('');
+    const [messageList, setMessageList] = useState<Array<MessageInterface>>([]);
+    const [userList, setUserList] = useState<Array<UserInterface>>([]);
+    
     function handleJoinRoom(ev: any, id: any) {
         const room = id;
         if (room !== ''|| room) {
             console.log('hi', room);
             socket.emit('join-room', room);
         }
+        setRoom(room);
     }
-    const [messageList, setMessageList] = useState<Array<MessageInterface>>([
-        //         {sender: {
-        //           userId: "62b50ec96bd21c886f8fc3ad",
-        //           userName: {
-        //             first: "Etan",
-        //             last: "Heyman"
-        //           }
-        //         },
-        //         // recipients: [
-        //         //   {
-        //         //     "userName": {
-        //         //       first: "Michael",
-        //         //       last: "Dubovyk"
-        //         //     },
-        //         //     userId: "62b50f046bd21c886f8fc3ae"
-        //         //   },
-        //         //   {
-        //         //     userId: "62b50f5b6bd21c886f8fc3af",
-        //         //     userName: {
-        //         //       "first": "Michael",
-        //         //       "last": "Frankel"
-        //         //     }
-        //         //   },
-        //         //   {
-        //         //     userId: "62b50fc26bd21c886f8fc3b0",
-        //         //     userName: {
-        //         //       first: "Andrew",
-        //         //       last: "Lishafay"
-        //         //     }
-        //         // }
-        //         // ],
-        //         text: "Good Evening!"
-        // }
-    ]);
-    const [userList, setUserList] = useState<Array<UserInterface>>([
-        
-    ]);
-    
 
     useEffect(() => {
         console.log('on');
 
         socket.on('receive-message', (data) => {
             console.log('received');
-
+            
             const payload = {
-                text: data.message,
+                room:data.room,
+                text: data.text,
                 sender: {userId: '', userName: {first: '', last: ''}},
                 recipients: [],
                 file: '',
             };
             setMessageList((messageList: Array<MessageInterface>) => [...messageList, payload]);
-            // console.log('data message:' + data.message)
+            console.log('data text:' + data.text)
+            setScroll("0")
         });
 
         return () => {
+
             console.log('off');
-            socket.off('recieve-message');
+            socket.off('receive-message');
         };
     }, [socket]);
 
+    function handleSendMessage(ev:any){
+        // console.log(ev);
+        
+        socket.emit('send-message',{room: room,text: sentMessage})
+        const payload = {
+            room:room,
+            text: sentMessage,
+            sender: {userId: '', userName: {first: '', last: ''}},
+            recipients: [],
+            file: '',
+        };
+        setMessageList((messageList: Array<MessageInterface>) => [...messageList, payload]);
+    }
     async function getMessageList() {
         try {
             const {data} = await axios.post('/api/messages/get-messages', {ok: true});
@@ -111,10 +97,10 @@ function Chat() {
         }
     }
     return (
-        <div className='chat'>
+        <div  className='chat'>
             <SideBar handleJoinRoom={handleJoinRoom} getUserList={getUserList} userList={userList} />
             <CurrentRecipient />
-            <ChatWindow getMessageList={getMessageList} messageList={messageList} setMessageList={setMessageList} />
+            <ChatWindow scroll={scroll} setSentMessage={setSentMessage} handleSendMessage={handleSendMessage} getMessageList={getMessageList} messageList={messageList} setMessageList={setMessageList} />
         </div>
     );
 }

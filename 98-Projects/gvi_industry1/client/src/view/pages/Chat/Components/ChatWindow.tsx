@@ -6,22 +6,27 @@ import { socket } from '../../../../index'
 
 
 interface ChatWindowProps {
+    scroll: String;
     messageList?: Array<MessageInterface>;
     getMessageList: Function;
     setMessageList: Function;
+    handleSendMessage: Function;
+    setSentMessage: Function;
 }
 
 function ChatWindow(props: ChatWindowProps) {
-
-    const {getMessageList, messageList, setMessageList } = props;
-    const [ sentMessage, setSentMessage ] = useState ('');
-
-    function handleSendMessage(ev:any){
-        socket.emit('send-message',{message: sentMessage})
-    }
+const [click, setClick] = useState<Boolean>(true)
+    const {getMessageList, messageList, setMessageList, setSentMessage, handleSendMessage, scroll } = props;
 
     
 
+    
+useEffect(()=>{
+    let messageList = document.querySelector('.chat__chatWindow__messagesList');
+    if(messageList){
+        messageList.scrollTop= messageList.scrollHeight
+    }
+},[messageList])
 
     useEffect(() => {
         const messages = getMessageList();
@@ -30,8 +35,8 @@ function ChatWindow(props: ChatWindowProps) {
 
 
     return (
-        <div className='chat__chatWindow'>
-            <ul className='chat__chatWindow__messagesList'>
+        <div onClick={()=>{setClick((click)=>!click)}} className='chat__chatWindow'>
+            <ul  className='chat__chatWindow__messagesList'>
                 {messageList
                     ? messageList.map((message, i) => {
                           return <li key={i} className='messageCard'>{message.text}</li>;
@@ -46,7 +51,7 @@ function ChatWindow(props: ChatWindowProps) {
                     }}
                     placeholder='Message'
                 />
-                <PaperPlaneIcon onClick={handleSendMessage}/>
+                <PaperPlaneIcon onClick={(ev)=>{handleSendMessage(ev)}}/>
             </div>
         </div>
     );

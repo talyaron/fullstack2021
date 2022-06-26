@@ -52,10 +52,11 @@ io.on('connection', (socket: any) => {
 
     socket.on('send-message', (data) => {
 
-        const message = new MessageModel({text: data.message})
+        console.log(data, 'data, send-message -server.ts');
+        const message = new MessageModel({text: data.text, room: data.room});
         message.save()
-    
-        io.to(data.room).emit('recieve-message', data)
+        
+        socket.to(data.room).emit('receive-message', data)
 
     })
 });
