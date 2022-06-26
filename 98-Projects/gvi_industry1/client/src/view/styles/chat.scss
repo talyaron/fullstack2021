@@ -124,12 +124,26 @@
         position: relative;
         display: flex;
         place-content: space-evenly;
+        overflow: hidden;
+
         &__messagesList{
             list-style: none;
             padding: 0;
             margin: 0;
             overflow-y: scroll;
             width: 100%;
+            position: relative;
+            left: 100px;
+            bottom: 100px;
+
+
+            .messageCard{
+                width: fit-content;
+                padding: 5px 35px 5px 10px;
+                border-radius: 5px;
+                background: white;
+                margin: 10px 0;
+            }
         }
         &__messageBar {
             position: absolute;

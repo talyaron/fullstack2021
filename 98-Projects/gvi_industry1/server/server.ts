@@ -40,11 +40,16 @@ mongoose
     });
 
 io.on('connection', (socket: any) => {
+    // socket.on('connecion',(socket:any, data:any)=>{data.userId})
+    // socket.id=data;
     console.log('user connected', socket.id);
 
     socket.on('join-room', (data) => {
         socket.join(data);
         console.log(`User with ID: ${socket.id} joined room: ${data}`);
+        
+        // console.log(socket.id);
+        
     });
 
     socket.on('send-message', (data) => {
@@ -69,6 +74,7 @@ import userRouter from './routers/userRouter';
 app.use('/api/users', userRouter);
 
 import messageRouter from './routers/messageRouter';
+
 app.use('/api/messages', messageRouter);
 
 server.listen(port, () => {

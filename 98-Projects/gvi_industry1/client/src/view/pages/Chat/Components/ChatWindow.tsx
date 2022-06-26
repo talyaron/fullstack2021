@@ -39,7 +39,10 @@ useEffect(()=>{
             <ul  className='chat__chatWindow__messagesList'>
                 {messageList
                     ? messageList.map((message, i) => {
-                          return <li key={i} className='messageCard'>{message.text}, {message.time}</li>;
+                          return <li key={i} className='messageCard'>{message.text}
+                          {
+                            message.time && 
+                           `, ${message.time}`}</li>;
                       })
                     : null}
             </ul>
