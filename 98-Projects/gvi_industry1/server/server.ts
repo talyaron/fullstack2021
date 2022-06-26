@@ -53,10 +53,10 @@ io.on('connection', (socket: any) => {
     socket.on('send-message', (data) => {
 
         console.log(data, 'data, send-message -server.ts');
-        const message = new MessageModel({text: data.text, room: data.room});
+        const message = new MessageModel({text: data.text, room: data.room, time: data.time});
         message.save()
         
-        socket.to(data.room).emit('receive-message', data)
+        socket.to(data.room).emit('receive-message', message)
 
     })
 });

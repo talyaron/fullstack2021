@@ -4,6 +4,7 @@ import ChatWindow from './Components/ChatWindow';
 import CurrentRecipient from './Components/CurrentRecipient';
 import SideBar from './Components/SideBar';
 import {socket} from '../../../index';
+import {ObjectId} from 'mongoose'
 
 export interface MessageUserInterface {
     userId: String;
@@ -14,14 +15,16 @@ export interface UserInterface {
     userName: {first: String; last: String};
 }
 export interface MessageInterface {
+    _id?:String;
+    room:String;
     sender: MessageUserInterface;
     // recipients: Array<MessageUserInterface>;
     text?: String;
     file?: String;
+    time?: String;
 }
 
 function Chat() {
-    const id = useId();
     const [scroll, setScroll] = useState('')
     const [ sentMessage, setSentMessage ] = useState ('');
     const [room, setRoom] = useState('');
@@ -39,19 +42,27 @@ function Chat() {
 
     useEffect(() => {
         console.log('on');
-
-        socket.on('receive-message', (data) => {
+        socket.on('receive-message', (message:MessageInterface) => {
             console.log('received');
-            
+            const id:any = message._id
+            let dateFromObjectId =   (messageId:string) => {
+                if(messageId){
+                    console.log(messageId, 'message id');
+                    return (`${new Date(parseInt(messageId.substring(0, 8), 16) * 1000)}`)
+                }
+            };
             const payload = {
-                room:data.room,
-                text: data.text,
+                room:message.room,
+                text: message.text,
                 sender: {userId: '', userName: {first: '', last: ''}},
                 recipients: [],
                 file: '',
+                time: dateFromObjectId(id)
             };
+            console.log(payload, 'payload');
+            
             setMessageList((messageList: Array<MessageInterface>) => [...messageList, payload]);
-            console.log('data text:' + data.text)
+            console.log('data text:' + message.text)
             setScroll("0")
         });
 

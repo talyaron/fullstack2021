@@ -7,10 +7,12 @@ const UserMessageSchema = new mongoose.Schema({
 });
 
 const MessageSchema = new mongoose.Schema({
-    // sender: UserMessageSchema,
-    // recipients: [UserMessageSchema],
+    room: String,
+    sender: UserMessageSchema,
+    recipients: [UserMessageSchema],
     text: String,
-    // file: String,
+    file: String,
+    // time: String,
 });
 
 const MessageModel = mongoose.model('messages', MessageSchema);
