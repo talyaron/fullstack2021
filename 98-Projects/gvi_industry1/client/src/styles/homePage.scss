@@ -41,8 +41,6 @@
 .feed{
     grid-column-start: -3;
     grid-column-end: -1;
-    // display:flex;
-    // justify-content: space-around;
     display:grid;
     grid-template-columns: repeat(2,500px);
     grid-template-rows: 250px;
