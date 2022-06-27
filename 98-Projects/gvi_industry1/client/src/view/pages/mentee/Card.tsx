@@ -7,20 +7,24 @@ import PushPinRoundedIcon from "@mui/icons-material/PushPinRounded";
 import './style/card.scss';
 
 
-interface Card {
-  Name: String;
-}
-function Card() {
-  // useEffect(() => {
-  //   (async () => {
-  //     const {data}  = await axios.get("/api/users/get-UserData");
-  //     const {result}  = data;
-  //     console.log(data);
+// interface Card {
+//   Name: String;
+// }
 
-  //     console.log(result[0].country);
+const Card = () => {
+  // function Card() {
+  //   // useEffect(() => {
+  //   //   (async () => {
+  //   //     const {data}  = await axios.get("/api/users/get-UserData");
+  //   //     const {result}  = data;
+  //   //     console.log(data);
+
+  //   //     console.log(result[0].country);
 
   //   })();
   // }, []);
+
+
   const userDetails = {
     name: "artur yaski",
     email: "arturyaski@gmail.com",
@@ -36,6 +40,7 @@ function Card() {
     sectors: "eduction",
     profession: "Finance",
   };
+
 
   return (
     <div className="card-wrapper">

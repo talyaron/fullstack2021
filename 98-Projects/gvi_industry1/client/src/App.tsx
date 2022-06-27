@@ -2,11 +2,12 @@ import React from 'react';
 import './App.css';
 import axios from 'axios';
 import Card from './view/pages/mentee/Card';
+// import Card from './view/pages/mentee/Card';
 import Profile from './view/pages/mentee/Profile';
 
 function App() {
 
-  async function handleSubmit(ev:any){
+  async function handleSubmit(ev: any) {
     ev.preventDefault();
     try {
       const first = ev.target.first.value;
@@ -20,7 +21,7 @@ function App() {
       const password = ev.target.password.value;
       const profession = ev.target.profession.value;
       const company = ev.target.company.value;
-      await axios.post('/api/users/add-user',{
+      await axios.post('/api/users/add-user', {
         first,
         last,
         description,
@@ -33,31 +34,32 @@ function App() {
         profession
       })
       console.log(first, last)
-     // ev.target.reset()
+      // ev.target.reset()
     } catch (error) {
       console.error(error);
     }
   }
 
-  async function handleSubmitcomp(ev:any){
+
+  async function handleSubmitcomp(ev: any) {
     ev.preventDefault();
     try {
       const id = ev.target.id.value;
       const company = ev.target.company.value;
-      await axios.post('/api/companies/add-company',{
+      await axios.post('/api/companies/add-company', {
         id,
         company
       })
     } catch (error) {
       console.error(error);
     }
-  
+
   }
 
   return (
     <>
-    
-    <form onSubmit={handleSubmit}>
+
+      <form onSubmit={handleSubmit}>
         <input type="text" name='first' placeholder='first name' />
         <input type="text" name='last' placeholder='last name' />
         <input type="text" name='description' placeholder='description' />
@@ -71,19 +73,22 @@ function App() {
         <input type="submit" value='submit' />
       </form>
 
-          
-    <form onSubmit={handleSubmitcomp}>
-    <input type="text" name='id' placeholder='id' />
+
+      <form onSubmit={handleSubmitcomp}>
+        <input type="text" name='id' placeholder='id' />
         <input type="text" name='company' placeholder='company name' />
         <input type="submit" value='submit' />
       </form>
-      
 
-    <Card/>
-    {/* <Profile /> */}
-    
+
+      <Card />
+      {/* <Profile /> */}
+
+      {/* <Card/> */}
+      <Profile _id={"1234"} />
+
     </>
-  );
+  )
 }
 
 export default App;

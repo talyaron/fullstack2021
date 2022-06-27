@@ -29,18 +29,7 @@ app.use('/api/companies',CardRoute)
 //     return console.log(`Express is listening at http://localhost:${port}`);
 // });
 
-mongoose.connect('mongodb+srv://OmriAharonov:mYrY95aEy4ZCooUb@cluster0.kv5s6.mongodb.net/GVI?retryWrites=true&w=majority')
-    .then(res => {
-        console.log("connected to Mongoose");
-    })
-    .catch((err) => {
-        console.log("Failed to connect to Mongoose:")
-        console.log(err.message);
-    });
 
-app.listen(port, () => {
-    return console.log(`Express is listening at http://localhost:${port}`);
-});
 
 
 
