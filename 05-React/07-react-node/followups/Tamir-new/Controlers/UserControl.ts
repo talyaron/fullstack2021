@@ -30,10 +30,12 @@ export async function Login(req, res) {
   try {
     const { email, password } = req.body;
     if (typeof password === "string" && typeof email === "string") {
-      const user = await UserModel.findOne({ password });
+      const user = await UserModel.findOne({ email });
+      console.log(user);
+      
       if (user) {
-        if (user.password === password && user.email === email) {
-          console.log("you in");
+        if (user.password === password) {
+          res.cookie('userInfo',{email},{maxAge:50000})
           res.send({ ok: true, login: true });
         } else {
           console.log("you out");

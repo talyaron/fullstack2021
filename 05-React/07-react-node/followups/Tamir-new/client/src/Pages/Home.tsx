@@ -1,14 +1,8 @@
-// interface Home {
-//   handlesubmit: Function;
-// }
 
 const Home = () => {
-  // const { handlesubmit } = props;
-  return (
-    <div>
-        eg4thhe
-    </div>
-  );
+  return <div>
+     <iframe src="https://100steps2startup.com/embed" width={600} height={600}></iframe>
+  </div>;
 };
 
 export default Home;

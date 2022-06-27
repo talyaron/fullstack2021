@@ -1,0 +1,17 @@
+.Login{
+    width: 600px;
+    height: 600px;
+    position: absolute;
+    margin-left: 32%;
+    top: 10%;
+    border-radius: 20px;
+    background-color: rgb(153, 78, 51);
+    background-image:url(../Img/פאביקון.jpg);
+
+    &__form{
+        position: absolute;
+        margin-left: 20%;
+        top: 100%;
+    }
+
+}
