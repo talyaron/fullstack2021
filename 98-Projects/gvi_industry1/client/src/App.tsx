@@ -2,6 +2,7 @@ import React from "react";
 import "./styles/global.scss";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from './Components/HomePage'
+
 function App() {
   return (
     <BrowserRouter>

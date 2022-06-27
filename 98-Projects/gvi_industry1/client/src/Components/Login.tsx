@@ -1,7 +1,6 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import axios from 'axios'
 import {useNavigate} from "react-router-dom";
-
 
 
 
@@ -9,12 +8,15 @@ interface LoginProps{
     loginWindow:boolean;
     setLoginWindow:Function;
 }
+
+
 const Login = (props:LoginProps) => {
     const [showPassword,setShowPassword]=useState(true);
+    
 
     const {loginWindow,setLoginWindow}=props
     const navigate=useNavigate()
-
+   
     async function handleLoginForm(ev:any){
       ev.preventDefault()
       const username=ev.target.elements.username.value;
@@ -40,7 +42,7 @@ const Login = (props:LoginProps) => {
        <h2 className='login__greeting'>Welcome Back!</h2>
        <div className='login__with'>
         <button>google</button>
-        <button>linkedin</button>
+        <button >linkedin</button>
        </div>
        
        <p className='login__divider'>or</p>

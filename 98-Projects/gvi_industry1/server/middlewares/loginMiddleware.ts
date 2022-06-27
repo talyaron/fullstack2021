@@ -1,4 +1,5 @@
 //need to check cookie and decode and check if admin 
+
 import jwt from "jwt-simple";
 
 export function isAdmin(req, res, next) {
