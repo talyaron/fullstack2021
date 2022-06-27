@@ -12,3 +12,14 @@ export async function getAllRecipients(req, res) {
         res.send({ error: error.message })
     }
 }
+
+// export async function uploadFile (req, res){
+// try {
+
+//     res.send('image uploaded')
+// } catch (error) {
+//     console.log(error);
+//     res.send({ error: error.message})
+    
+// }
+// }

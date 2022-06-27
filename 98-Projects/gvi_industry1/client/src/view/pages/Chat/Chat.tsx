@@ -83,6 +83,7 @@ function Chat() {
         socket.emit('send-message',payload)
         setMessageList((messageList: Array<MessageInterface>) => [...messageList, payload]);
     }
+    
     async function getMessageList() {
         try {
             const {data} = await axios.post('/api/messages/get-messages', {ok: true});
