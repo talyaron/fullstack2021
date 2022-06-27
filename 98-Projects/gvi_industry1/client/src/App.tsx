@@ -6,7 +6,6 @@ const [update,setUpdate] = React.useState(false);
 
 async function searchData(ev:any){
 ev.preventDefault();
-
 const searchText = ev.target.inputText.value;
 console.log(searchText);
 
