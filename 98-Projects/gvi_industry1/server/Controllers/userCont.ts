@@ -3,7 +3,7 @@ import UserModel from '../models/userModel';
 
 export const addUser = async (req,res)=>{
     try{
-        const {user} = req.body.user;
+        const {user} = req.body;
         console.log(user);
         
     }catch(err){

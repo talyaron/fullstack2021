@@ -37,9 +37,9 @@ const RegisterMentee = (props: RegisterMenteeProps) => {
         console.log(user);
         console.log(initiative);
 
-        const data = await axios.post('/api/user/add-user', user);
+        const {data} = await axios.post('/api/user/add-user', {user});
 
-
+console.log(data)
 
 
 
