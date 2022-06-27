@@ -20,15 +20,27 @@
 .register {
     
     &__text {
-        overflow-wrap: break-word;
-        text-align: center;
         
       
+        width:100%;
+        display:flex;
+        justify-content: center;
+       
+
+      h1{
+       
+        text-align: center;
+        width:300px;
+        font-weight:lighter;
+        span{
+            font-weight:bolder; 
+          }
+            
+      }
+     
+      
     }
-    h1{
-        width:35%;
-        
-    }
+    
 
     &__options {
         margin-top: 150px;

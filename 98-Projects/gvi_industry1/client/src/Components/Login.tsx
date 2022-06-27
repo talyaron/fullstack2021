@@ -1,4 +1,7 @@
 import React,{useState} from 'react'
+import axios from 'axios'
+import {useNavigate} from "react-router-dom";
+
 
 
 
@@ -10,6 +13,27 @@ const Login = (props:LoginProps) => {
     const [showPassword,setShowPassword]=useState(true);
 
     const {loginWindow,setLoginWindow}=props
+    const navigate=useNavigate()
+
+    async function handleLoginForm(ev:any){
+      ev.preventDefault()
+      const username=ev.target.elements.username.value;
+      const password=ev.target.elements.password.value;
+      console.log(username,password)
+      const {data} = await axios.post('/api/login',{username,password})
+      console.log(data);
+
+      if(data.login===true){
+        setTimeout(() => {
+          navigate(`/`);
+        }, 1500);
+      }else{
+        console.log(data)
+      }
+
+
+
+    }
   return (
     <div className={loginWindow?'login showLogin':'login dontShowLogin'}>
        <button className='closeButton' onClick={()=>{setLoginWindow(false)}} >X</button>
@@ -23,7 +47,7 @@ const Login = (props:LoginProps) => {
        
       
       <div className='login__form'>
-        <form>            
+        <form onSubmit={handleLoginForm}>            
         <label htmlFor='username'>Username or email</label>
           <input type='text' id="username" name="username" placeholder='username'/>
         <label htmlFor='password'> Password</label> 

@@ -12,7 +12,10 @@ const UserSelection = (props:RegisterProps) => {
   return (
     <div className={ registerWindow?'register showRegister':'register dontShowRegister'}>
         <button className='closeButton' onClick={()=>{setRegisterWindow(false)}} >X</button>
-        <h1 className='register__text'>Join Now The GVI Global Accelerator</h1>
+        <div className='register__text'>
+        <h1 >Join Now The GVI <span>Global Accelerator</span></h1>
+        </div>
+       
         <div className='register__options' >
            
             <input type="button"  name="entreprenuer" value="Entreprenuer" onClick={handleCheck}/>
