@@ -26,10 +26,10 @@ body{
 
     display: flex;
     justify-content: space-between;
-    border:4px solid rgb(169, 251, 5);
+    // border:4px solid rgb(169, 251, 5);
 
     &__stage-1 {
-        border: 3px solid rgb(237, 20, 20);
+        // border: 3px solid rgb(237, 20, 20);
 
         &:after {
             content: ''
@@ -53,7 +53,7 @@ body{
     
 }
 .firstSection{
-    border: 3px solid yellow;
+    // border: 3px solid yellow;
     display: grid;
     grid-template-rows: repeat(2,1fr);
     grid-template-columns: repeat(2,1fr);
@@ -70,7 +70,7 @@ body{
     
 }
 .secondSection-mentee{
-    border: 3px solid pink;
+    // border: 3px solid pink;
     display: grid;
     grid-template-columns: repeat(2,1fr);
     grid-template-rows: repeat(4,0.75fr);
@@ -86,7 +86,7 @@ body{
     
 }
 .secondSection-mentor{
-    border: 3px solid limegreen;
+    // border: 3px solid limegreen;
     display: grid;
     grid-template-columns: repeat(2,1fr);
     grid-template-rows: repeat(3,0.75fr);

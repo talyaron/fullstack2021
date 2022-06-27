@@ -25,7 +25,7 @@ function App() {
   return (
     <div className="div">
     <RegisterMentee registerWindow={registerWindow} setRegisterWindow={setRegisterWindow} countryArray={countryArray} />
-    <RegisterMentor registerWindow={registerWindow} setRegisterWindow={setRegisterWindow} countryArray={countryArray} />
+    {/* <RegisterMentor registerWindow={registerWindow} setRegisterWindow={setRegisterWindow} countryArray={countryArray} /> */}
     </div>
   );
 }
