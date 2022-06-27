@@ -5,6 +5,7 @@ import {MessageInterface, MessageUserInterface } from '../Chat';
 import { socket } from '../../../../index'
 
 
+
 interface ChatWindowProps {
     scroll: String;
     messageList?: Array<MessageInterface>;
@@ -47,6 +48,13 @@ useEffect(()=>{
                     : null}
             </ul>
             <div className='chat__chatWindow__messageBar'>
+                <form method="POST" action="/upload" encType="multipart/form-data">
+                <label>
+    <input style={{display: 'none'}} type="submit" />
+    <PaperPlaneIcon/>
+  </label>
+            <input type="file" name="image"/>
+                </form>
                 <InputBase
                     onChange={(ev) => {
                         // console.log(ev);
@@ -54,6 +62,8 @@ useEffect(()=>{
                     }}
                     placeholder='Message'
                 />
+
+               
                 <PaperPlaneIcon onClick={(ev)=>{handleSendMessage(ev)}}/>
             </div>
         </div>
