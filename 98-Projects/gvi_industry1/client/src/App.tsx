@@ -1,24 +1,34 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// import axios from 'axios'
 
 function App() {
+const [update,setUpdate] = React.useState(false);
+
+async function searchData(ev:any){
+ev.preventDefault();
+const searchText = ev.target.inputText.value;
+console.log(searchText);
+
+const regex = new RegExp(searchText,'ig') 
+console.log(regex);
+setUpdate(searchText)
+}
+
+
+React.useEffect(()=>{
+fetch("/get-matches")
+.then(res=>res.json())
+.then(data=>console.log(data))
+},[update])
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+   <form    onSubmit={ searchData}>
+   <input type="text" name="inputText" />
+   <button>search</button>
+   <p>{update}</p>
+   </form>
     </div>
   );
 }

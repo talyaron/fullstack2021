@@ -1,5 +1,6 @@
 const express = require("express");
 import mongoose from 'mongoose';
+import MatchingModel from './Models/matchingModel';
 
 const app = express();
 const http = require("http");
@@ -8,7 +9,7 @@ const { Server } = require("socket.io");
 
 
 export const io = new Server(server);
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 4001;
 var cors = require("cors");
 require('dotenv').config()
 
@@ -39,7 +40,11 @@ mongoose.connect(
 
 app.get('/', (req, res) => {
   res.send('hello world')
+ 
 })
+
+import matchingRoute from './Routers/matchingRoute'
+app.use('/', matchingRoute)
 
 server.listen(port, () => {
   console.log(`listening on *:${port}`);

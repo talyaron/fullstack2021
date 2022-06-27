@@ -1,16 +1,16 @@
 import mongoose from 'mongoose'
-import {Sector, FieldsOfKnowledge} from './userModel'
+import {Sector, FieldsOfKnowledge} from '../Models/userModel'
 
-export enum MentoringType {
-  UX = "ux",
-  BUSINESS_DEVELOPMENT = "development"
-}
+
 
 const MatchingFiltersSchema = new mongoose.Schema({
-    sectors: Sector,
-    specialties:FieldsOfKnowledge,
+    sectors: [String],
+    specialties:[String],
     countries: [String],
-    typesOfMentoring: MentoringType
+    typesOfMentoring: {
+      UX : String,
+      BUSINESS_DEVELOPMENT :String
+    }
 })
 
 

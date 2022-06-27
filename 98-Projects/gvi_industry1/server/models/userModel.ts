@@ -38,7 +38,7 @@ const UserSchema = new mongoose.Schema({
     _id: String,
     name: NameSchema,
     description: String,
-    image: File,
+    image: String,
     email: String,
     country: String,
     lastEntry: Date,
