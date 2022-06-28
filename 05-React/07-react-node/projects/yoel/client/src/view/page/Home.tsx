@@ -10,17 +10,21 @@ interface propArticle {
 async function handleAddArticle(ev: any, article: any, setArticle: Function) {
   ev.preventDefault();
 
+
+
   const articleText = ev.target.elements.articleText.value;
   const title = ev.target.elements.title.value;
-  console.log(title, articleText);
+  // console.log(title, articleText);
 
 
   const { data } = await axios.post('/article/save-article', { title, articleText })
 
-  //we need yo use the useState
+  if (data.ok) {
+    console.log(data);
+    const newArticle = { username: data.username, title: data.article.title, text: data.article.articleText }
+    //  setArticle(...article , newArticle) // delete everything
 
-  console.log('data');
-  setArticle(...article, data.article)
+  }
 
 }
 function Home(prop: propArticle) {

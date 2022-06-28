@@ -8,8 +8,10 @@ const Article = (prop: propArticle) => {
     return (
         <div>
             {article.map((articleText: any) => (
-                <div className='article'>
-                    <div className='article__title'>{articleText.title}</div>
+                <div className='article' key = {articleText.text}>
+                    
+                    <div className='article__username'>{articleText.username} </div>
+                    <div className='article__title'>{articleText.title} </div>
                     <div className='article__text'>{articleText.text}</div>
                 </div>
             ))}

@@ -17,11 +17,12 @@ import NavEntrance from './view/components/NavEntrance';
 
 function App() {
   interface Article {
-    text: string,
+    username: string,
     title: string,
+    text: string,
 
   }
-  const [article, setArticle] = useState<Array<Article>>([{ text:'frfr' , title:'frrr'}]);
+  const [article, setArticle] = useState<Array<Article>>([{ username: 'nolose' ,  title:'qneceitohacerpasegir' ,text:'laverdadqyonoseperovoyasegirmasfuoertepaganar'  }]);
 
   return (
     <BrowserRouter>

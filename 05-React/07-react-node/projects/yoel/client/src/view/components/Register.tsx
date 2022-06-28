@@ -13,15 +13,15 @@ async function handleResiter(ev: any, navigate: any) {
   const { data } = await axios.post('/user/register', { username, password, samePassword })
 
 
-  // const { newUser } = data;
 
   if (data.ok) {
-    // const { data } = await axios.post('/article/get-article', { newUser })
-    // console.log(data);
+ 
     
     navigate(('/home'));
   }
-  else {
+  else if(!data.ok){
+    console.log(data.message);
+    
     navigate(('/register'));
   }
 
@@ -36,6 +36,7 @@ function Register() {
         <input type="text" name="samePassword" required placeholder='write the same password you write before' />
         <input type="submit" value="Register" />
       </form>
+      
     </div>
   )
 }

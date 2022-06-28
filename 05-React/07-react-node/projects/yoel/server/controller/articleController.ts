@@ -12,16 +12,19 @@ export const saveArticle = async (req, res) => {
         if (yoel) {
             //now I need to userItself because I want to copy his Id to the article that would be the same id that I can take his article and it will be not a the same collection 
             const { existUser } = yoel;
-            const { _id } = existUser;
+            const { _id , username} = existUser;
             const ownerId = _id
-            console.log(ownerId, title, articleText);
+            // console.log(ownerId, title, articleText);
+
+            
+            
 
             // const article = new Article([title, articleText], ownerId);
             const article = new Article({ title, articleText, ownerId })
 
             await article.save();
 
-            res.send({ ok: true, article })
+            res.send({ ok: true, article , username})
         } else {
             res.send({ error: false, message: "we don't get the cookies" })
         }
