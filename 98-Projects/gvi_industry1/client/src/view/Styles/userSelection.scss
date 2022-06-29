@@ -1,0 +1,59 @@
+.showRegister {
+    width: 800px;
+    height: 500px;
+    background-color: rgb(213, 142, 243);
+    border: 1px solid rgb(106, 3, 103);
+    display: block;
+    position: fixed;
+    z-index: 1;
+    right: 0;
+    left: 0;
+    margin: auto;
+    top: 50%;
+    bottom: 50%;
+}
+
+.dontShowRegister {
+    display: none;
+}
+
+.register {
+    
+    &__text {
+        
+      
+        width:100%;
+        display:flex;
+        justify-content: center;
+       
+
+      h1{
+       
+        text-align: center;
+        width:300px;
+        font-weight:lighter;
+        span{
+            font-weight:bolder; 
+          }
+            
+      }
+     
+      
+    }
+    
+
+    &__options {
+        margin-top: 150px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        justify-content: space-evenly;
+
+        input[type='button'] {
+            cursor:pointer;
+            border-radius: 24px;
+            width: 150px;
+            height: 50px;
+        }
+    }
+}
