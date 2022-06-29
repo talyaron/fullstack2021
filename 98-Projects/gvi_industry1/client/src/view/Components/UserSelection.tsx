@@ -26,6 +26,9 @@ const UserSelection = (props:RegisterProps) => {
     const { data } = await axios.get('https://restcountries.com/v3.1/all')
     setCountryArray(data)
   }
+  function handleRegisterWindow(){
+    setMenteeWindow(!menteeWindow)
+  }
   return (
     <div className={ registerWindow?'register showRegister':'register dontShowRegister'}>
        
@@ -36,7 +39,7 @@ const UserSelection = (props:RegisterProps) => {
        
         <div className='register__options' >
            
-            <input type="button"  name="entreprenuer" value="Entreprenuer" onClick={()=>{setMenteeWindow(!menteeWindow)}} />
+            <input type="button"  name="entreprenuer" value="Entreprenuer" onClick={handleRegisterWindow} />
             <input type="button"  name="mentor" value="Mentor" />
             <input type="button"  name="investor" value="Investor" />
             <input type="button"  name="gviPartner" value="GVI Partner" />
